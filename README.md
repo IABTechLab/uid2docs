@@ -57,15 +57,15 @@ When passing query parameter values in with a request, ensure the query paramete
 
 ## Response Structure and Status Codes
 
-All endpoints return responses utilizing the following body and status messaging structure. The `status` property may include endpoint-specific values. The `message` property returns additional ifnormation for non-`success` statuses.
+All endpoints return responses utilizing the following body and status messaging structure. The `status` property may include endpoint-specific values. The `message` property returns additional information for non-`success` statuses.
 
 ```json
 {
-​	"status": [success|unauthorized|client_error|...]
-​    "body": {
+"status": [success|unauthorized|client_error|...]
+"body": {
             "property": "propertyValue"
             }
-​    "message": "Descriptive message"
+"message": "Descriptive message"
 }
 ```
 
@@ -82,7 +82,7 @@ All endpoints return responses utilizing the following body and status messaging
 [Click here to view an endpoint listing.](/v1/endpoints/README.md)
 
 ## Integration Guides
-See Integration guides [here](/v1/guides/README.md)
+See Integration guides [here.](/v1/guides/README.md)
 
 ## License
 All work, articafts are licensed under the Apache License, Version 2.0. See [LICENSE](http://www.apache.org/licenses/LICENSE-2.0.txt) for the full license text.
