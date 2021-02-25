@@ -7,22 +7,7 @@ The following describes the integration workflow for DSP to support UID2 as part
 The DSP has to integrate two use cases:
 1. Decrypting UID2 on RTB Requests.
 2. Honoring opt-out for the User.
-
-```mermaid
-  sequenceDiagram
-    participant User
-    participant Publisher
-    participant SSP
-    participant DSP
-    participant T&C Portal
-    User->>Publisher:1-1 Visits
-    Publisher->>SSP:1-2 Makes RTB call
-    SSP->>DSP:1-3 Calls DSP for Bid
-    DSP->>DSP:1-4 Decrypts UID2 Token
-    DSP->>DSP:1-5 Execute Bidding Logic
-    User->>T&C Portal:2-1 User Opts Out
-    T&C Portal-->>DSP:2-2 Handle Output
-```
+![DSP Guide Flow](dsp-guide-flow-mermaid.png)
 Note: T&C Portal refers to Transperancy and Control Portal
 
 ### Steps
@@ -33,13 +18,7 @@ Step 1-4 and Step 2-2 are integration points for DSP to implement.
 
 The DSP should leverage the provided [SDK](../sdks/dsp-client-v1-overview.md) to decrypt the incoming UID2 Token. Library response will contain the UID2 and the timestamp that identity was established (established_timestamp). The DSP is required to check against the most recent opt-out timestamp (optout_timestamp) for that UID2 (if it exists) to honor opt out. Following describes the logic.
 
-```mermaid
-graph LR
-A[Decrypt UID2 Token] --> B[Retrieve Opt-out for UID2]
-    B --> C{Check Opt-out}
-    C --> |Opted Out| D[Bid without UID2]
-    C --> |Not Opted Out| E[Bid with UID2]
-```
+![DSP Opt Out Check](dsp-guide-optout-check-mermaid.png)
 
 The logic for <b>Check Opt-out</b> step is:
 ```code
