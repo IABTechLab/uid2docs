@@ -2,7 +2,7 @@
 
 # GET /token/validate
 Validate that an advertising token matches the provided email or email hash.
-Please use the email or email hash of `validate@email.com` with this endpoint.
+The only accepted  email or email hash for this endpoint is `validate@email.com`.
 
 ## Request 
 

@@ -1,7 +1,7 @@
 [UID2 Documentation](../../README.md) > v1 > [Endpoints](./README.md) > POST /token/logout
 
 # POST /token/logout
-Logout from a UID2 identity session.
+Log out from a UID2 identity session.
 
 ## Request 
 

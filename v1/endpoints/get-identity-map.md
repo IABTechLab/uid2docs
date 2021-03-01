@@ -4,6 +4,9 @@
 
 Retrieve advertising and bucket IDs for one `email` or `email_hash`.
 
+Integration workflows that use this endpoint:
+* [Advertiser/Data Provider](../guides/advertiser-dataprovider-guide.md)
+
 ## Request 
 
 ```GET '{environment}/{version}/identity/map?{queryParameter}={queryParameterValue}'```
@@ -12,8 +15,10 @@ Retrieve advertising and bucket IDs for one `email` or `email_hash`.
 
 | Query Parameter | Data Type | Attributes | Description |
 | --- | --- | --- | --- |
-| `email` | `string` | Conditionally Required | The normalized email address of a user. Required when `email_hash` is not included in the request. |
-| `email_hash` | `string` | Conditionally Required | The SHA256 hash of the normalized email address of a user. Required when `email` is not included in the request. |
+| `email` | `string` | Conditionally Required | The [normalized email address](../../README.md#emailnormalization) of a user. Required when `email_hash` is not included in the request. |
+| `email_hash` | `string` | Conditionally Required | The base64-encoded SHA256 hash of the [normalized email address](../../README.md#emailnormalization) of a user. Required when `email` is not included in the request. |
+
+If `email` and `email_hash` are both supposed in the same request, only the `email` will return a mapping response.
 
 #### Example Request Using an Email Address
 
@@ -48,5 +53,5 @@ The response is a JSON object containing the user's UID2 identifier and bucket i
 | Property | Data Type | Description |
 | --- | --- | --- |
 | `mapped.identifier` | `string` | The `email` or `email_hash` provided in the request. |
-| `mapped.advertising_id` | `string` | The identity's advertising ID. |
-| `mapped.bucket_id` | `string` | Bucket Id corresponding to that User identifier. |
+| `mapped.advertising_id` | `string` | The identity's advertising ID (raw UID2). |
+| `mapped.bucket_id` | `string` | The identifier of the bucket used for salting the user's `advertising_id`. |

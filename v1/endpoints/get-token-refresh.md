@@ -3,6 +3,10 @@
 # GET /token/refresh
 Generate a new token for a user by specifying their `refresh_token` obtained from earlier response from [GET /token/generate](./get-token-generate.md).
 
+Integration workflows that use this endpoint:
+* [Publisher - Standard](../guides/publisher-client-side.md)
+* [Publisher - Custom](../guides/custom-publisher-integration.md)
+
 ## Request 
 
 ```GET '{environment}/{version}/token/refresh?{queryParameter}={queryParameterValue}'```
@@ -11,7 +15,7 @@ Generate a new token for a user by specifying their `refresh_token` obtained fro
 
 | Query Parameter | Data Type | Attributes | Description |
 | --- | --- | --- | --- |
-| `refresh_token` | `string` | Required | The `refresh_token` returned for a user from [GET /token/generate](./get-token-generate.md).|
+| `refresh_token` | `string` | Required | The `refresh_token` returned for a user from [GET /token/generate](./get-token-generate.md). Some `refresh_tokens` are generated with URL decoded characters. Please encode the `refresh_token` as a query parameter. |
 
 #### Example Request
 
@@ -31,15 +35,13 @@ The response is a JSON object containing new identity tokens for a user or a mes
 {
     "body": {
         "advertising_token": "NewAdvertisingTokenIjb6u6KcMAtd0/4ZIAYkXvFrMdlZVqfb9LNf99B+1ysE/lBzYVt64pxYxjobJMGbh5q/HsKY7KC0Xo5Rb/Vo8HC4dYOoWXyuGUaL7Jmbw4bzh+3pgokelUGyTX19DfArTeIg7n+8cxWQ=",
-        "user_token": "NewUserTokenksmJSzlosNBOa+mMDu1A3tDarYBIIG4DbeSYn1t33mU6Dl65g5alI+tFHi87ArzK34nZMv7/VtF2NHYDoi4DSXfrqpaAetg76v8a4NUzdLkLtQgQooIvEt5/OvIKfg==",
         "refresh_token": "NewRefreshTokenAAAF2c8H5dF8AAAF2c8H5dF8AAAADX393Vw94afoVLL6A+qjdSUEisEKx6t42fLgN+2dmTgUavagz0Q6Kp7ghM989hKhZDyAGjHyuAAwm+CX1cO7DWEtMeNUA9vkWDjcIc8yeDZ+jmBtEaw07x/cxoul6fpv2PQ=="
     },
     "status": "success"
 }
 ```
 
-
-Note: For opted out user, the response status will be "success" with token values being empty strings.
+If a user opted out prior to refresh, the refresh response status will be `success` with empty token values.
 
 ### Supplemental Status Information
 

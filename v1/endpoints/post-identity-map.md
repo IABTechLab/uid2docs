@@ -4,6 +4,9 @@
 
 Retrieve advertising and bucket IDs for multiple email addresses or email hashes. Send a maximum of 10,000 combined `email` or `email_hash` per request.
 
+Integration workflows that use this endpoint:
+* [Advertiser/Data Provider](../guides/advertiser-dataprovider-guide.md)
+
 ## Request 
 
 ```POST '{environment}/{version}/identity/map'```
@@ -12,8 +15,8 @@ Retrieve advertising and bucket IDs for multiple email addresses or email hashes
 
 | Property | Data Type | Attributes | Description |
 | --- | --- | --- | --- |
-| `email` | List of `string` | Conditionally Required | A list of normalized email addresses for multiple users. Required when `email_hash` is not included in the request. |
-| `email_hash` | List of `string` | Conditionally Required | A list of SHA256 hashes of normalized email addresses for multiple users. Required when `email` is not included in the request. |
+| `email` | `string` | Conditionally Required | The [normalized email address](../../README.md#emailnormalization) of a user. Required when `email_hash` is not included in the request. |
+| `email_hash` | `string` | Conditionally Required | The base64-encoded SHA256 hash of the [normalized email address](../../README.md#emailnormalization) of a user. Required when `email` is not included in the request. |
 
 #### Example Request Using an Email Address and an Email Hash
 
@@ -54,5 +57,5 @@ The response is a JSON object containing the user's UID2 identifier and bucket i
 | Property | Data Type | Description |
 | --- | --- | --- |
 | `mapped.identifier` | `string` | The `email` or `email_hash` provided in the request. |
-| `mapped.advertising_id` | `string` | The identity's advertising ID. |
-| `mapped.bucket_id` | `string` | Bucket Id corresponding to that User identifier. |
+| `mapped.advertising_id` | `string` | The identity's advertising ID (raw UID2). |
+| `mapped.bucket_id` | `string` | The identifier of the bucket used for salting the user's `advertising_id`. |

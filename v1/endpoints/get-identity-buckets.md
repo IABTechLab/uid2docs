@@ -4,6 +4,9 @@
 
 Monitor for rotated salt buckets. 
 
+Integration workflows that use this endpoint:
+* [Advertiser/Data Provider](../guides/advertiser-dataprovider-guide.md)
+
 ## Request 
 
 ###  Query Parameters
@@ -14,6 +17,8 @@ Monitor for rotated salt buckets.
 
 ## Response
 
+The endpoint returns a list of ```bucket_id``` and their last updated timestamps.
+
 ```json
 [
     {
@@ -22,4 +27,9 @@ Monitor for rotated salt buckets.
 ]
 ```
 
-## Body Response Properties
+<!--Open tasks:-->
+<!--Add request example with date-time filled in once open questions are answered.-->
+
+<!--Open questions:-->
+<!--Is since_timestamp required? If it is optional and omitted, does this return all changed bucket_ids from the beginning?-->
+<!--What is the accepted date-time format of since_timestamp as a query parameter?-->
