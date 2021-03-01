@@ -34,7 +34,7 @@ There is no need to refresh tokens for inactive users.
 
 Refresh UID2 tokens by using the ```refresh_token``` from step 3-1 as a query parameter in the [GET /token/refresh](../endpoints/get-token-refresh.md) endpoint.
 
-## 6 Clear user identity.
+## 6. Clear user identity.
 Once a user logs out, remove the UID2 tokens stored for that user.  No interaction with UID service is required.
 
 # Frequently Asked Questions
@@ -45,6 +45,6 @@ No, publishers do not need to decrypt tokens.
 ### How will I be notified of user opt-out?
 The token refresh process handles user opt-outs. Using their refresh token automatically clears their session and disrupts their ```refresh_token``` chain when a user opts out. No manual action is required. 
 
-### Q: What is the uniqueness and rotation policy for UID2 token?
+### What is the uniqueness and rotation policy for UID2 token?
 
 The UID2 service encrypts tokens using random initialization vectors. The encrypted UID2 is unique for a given user as they browse the internet. At every refresh, the token re-encrypts. This mechanism ensures that untrusted parties cannot track a user's identity.
