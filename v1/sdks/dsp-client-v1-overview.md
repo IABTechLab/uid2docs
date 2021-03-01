@@ -1,48 +1,48 @@
 [UID2 Documentation](../../README.md) > v1 > [SDKs](./README.md) > RTB Sdk
 
-# RTB Bidding SDK Client
+# RTB SDK Client
 
-The UID2 Client facilitates decrypting the UID Tokens and accessing UID.
+The UID2 RTB SDK facilitates decrypting UID2 tokens to access the raw UID2.
 
-The following describes general contract for client SDKs. Naming conventions and other things will be langauge specific (e.g. C# vs Go).
+The following describes the general contract for client SDKs. Naming conventions and other things will be language-specific (e.g. C# vs Go).
 
 ## Initialization
 
 | Parameter | Description |
 | --- | --- | 
-| endpoint | Endpoint for UID2 Service |
-| authKey | Authentication Token belonging to the client |
-| refreshIntervalMs | Refresh cadence for fetching the keys the Decrypting keys (in milliseconds). Recommended Value: 5 minutes |
-| retryIntervalMs | Retry cadence in case of error (in milliseconds). Recommended Value: 30 seconds |
+| `endpoint` | Endpoint for UID2 service |
+| `authKey` | Authentication token belonging to the client |
+| `refreshIntervalMs` | Refresh cadence in milliseconds for fetching the decryption keys<br>Recommended value: 5 minutes (`300,000` milliseconds) |
+| `retryIntervalMs` | Retry cadence in milliseconds to retry the request when encountering an error<br> Recommended value: 30 seconds (`30,000` milliseconds) |
 
 
 ## Interface 
 
-The following method is called on the client SDK at real time bidding.
-
+Call the following method during RTB.
 
 ```java
 public Response Decrypt(String encryptedToken)
 ```
 
-Response consists of following properties
+The response consists of the following properties:
+
 | Property | Description |
 | --- | --- |
-| Status | Status indicating the result of decryption. See ResponseStatus enum below |
-| Uid2 | UID2 identifying the user |
-| Established | Timestamp at which the User established the UID2 on the Publisher |
+| `Status` | Status indicating the result of decryption. See ResponseStatus enum below |
+| `Uid2` | UID2 identifying the user |
+| `Established` | Timestamp at which the User established the UID2 on the Publisher |
 
 
-ResponseStatus:
+Response Statuses
 
 | Value | Description |
 | --- | --- |
-| Success | UIDToken was successfully decrypted |
-| NotAuthorizedForKey | The client does not have the right to decrypt this Identity|
-| NotInitialized | The client library is still waiting to be initialized |
-| InvalidPayload | The incoming encryptedToken is not a valid payload |
-| ExpiredToken | The incoming token is Expired |
-| KeysNotSynced | The client has failed to synchronize keys from UID2 Service |
-| VersionNotSupported |  The Client library does not suppert that version of the encrypted token |
+| `Success` | UID token was successfully decrypted |
+| `NotAuthorizedForKey` | The client does not have the right to decrypt this identity|
+| `NotInitialized` | The client library is waiting to be initialized |
+| `InvalidPayload` | The incoming encrypted token is not a valid payload |
+| `ExpiredToken` | The incoming token is expired |
+| `KeysNotSynced` | The client has failed to synchronize keys from UID2 service |
+| `VersionNotSupported` |  The client library does not support the encrypted token's version |
 
 
