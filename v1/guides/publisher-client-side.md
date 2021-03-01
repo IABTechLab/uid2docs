@@ -1,22 +1,28 @@
-[UID2 Documentation](../../README.md) > v1 > Integration Guides > Publisher Integration Guide
+[UID2 Documentation](../../README.md) > v1 > [Integration Guides](README.md) > Publisher Integration Guide
 
 # Overview
 
-Following is the Lifecycle for User establishing UID2 on publisher and how it integrates with RTB.
+The following integration workflow is the lifecycle for a user establishing a UID2 token with a publisher and how the UID2 token integrates with the RTB bid stream.
 
 ![Publisher Flow](publisher-flow-mermaid.png)
 
-### Steps 
+## Integration Steps 
 
-Steps 3, 4, 5-1, 6, 7-2 are integration points for Publisher.
+Publisher-specific workflows are covered in steps 3, 4, 5-1, 6, 7-2.
 
-## 3 Generate UID2
+### 3. Generate a UID2 token for an authenticated user.
 
-Identity tokens can be established either by using a UID2 Enabled SSO or for Publisher to generate Identity themselves via  [/token/generate](../endpoints/get-token-generate.md) endpoint as part of user authentication.
+There are two ways for publishers to establish identity for a user with UID2. The first way is to integrate with a UID2-enabled single-sign-on provider. The second way is for a publisher to generate UID2 tokens themselves.
 
-## 4 UID Set for User
+This article focuses on publishers who want to generate UID2 tokens themselves.
 
-Once UID2 tokens are returned from the step above, they should be passed on to the [UID2 Client Library](../sdks/client-side-identity-v1.md) using the mechanism below. This ensures that UID2 tokens are available for the user until they logout.
+Publishers can generate a UID2 identity token when a user authenticates using the  [GET /token/generate](../endpoints/get-token-generate.md) endpoint.
+
+### 4. Set a user's UID2 tokens in their browser using the client-side SDK.
+
+Send returned UID2 tokens from step 3 to the [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md).
+
+The mechanism below ensures that UID2 tokens are available for the user until they logout.
 
 ```java
 <script>
@@ -26,9 +32,9 @@ Once UID2 tokens are returned from the step above, they should be passed on to t
 </script>
 ```
 
-## 5-1 Calling SSP for Ads
+### 5-1. Use a UID2 token to query an SSP for relevant ads.
 
-Once established, the identity is available for client to use for RTB purposes. The following snippet gives access to the identity that can be passed to SSPs.
+The established identity is available client-side for RTB. The following mechanism in the SDK gives access to the identity to pass to SSPs.
 
 ```java
 <script>
@@ -36,12 +42,14 @@ Once established, the identity is available for client to use for RTB purposes. 
 </script>
 ```
 
-## 6 Refresh UID2
-UID2 Tokens are refreshed automatically by the [UID2 Client Library](../sdks/client-side-identity-v1.md) and no action needs to be taken. This is mentioned for informational purpose only.
+### 6. Refresh client-side UID2 identity token.
+UID2 Tokens are refreshed automatically by the [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md). No manual action is required. 
 
-## 7-2 User Identity Cleared
+If you decide to integrate using options other than the SDK, we recommend refreshing identity tokens every 15-30 minutes.
 
-It is impotant to remove UID2 tokens from the user's storage when they logout. Use the following snippet to cleare out UID2 tokens.
+### 7-2. Clear user identity.
+
+Remove UID2 tokens from the user's local storage when they log out. Use the following mechanism from the [UID2 client-side SDK](../sdks/client-side-identity-v1.md) to clear out UID2 tokens.
 
 ```java
 <script>
@@ -50,6 +58,6 @@ It is impotant to remove UID2 tokens from the user's storage when they logout. U
 ```
 
 # Frequently Asked Questions
-### Q: How will I be notified of user optout?
-User opt-outs are handled as part of token refresh process, which is automatically handled by the [UID2 Client Library](../sdks/client-side-identity-v1.md). No integration action is neeeded.
+### How will I be notified of user opt-out?
+The token refresh process handles user opt-outs. If a user opts out, using their refresh token automatically clears their session. [UID2 client-side SDK](../sdks/client-side-identity-v1.md). No manual action is required. 
 
