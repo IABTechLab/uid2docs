@@ -2,48 +2,47 @@
 
 # Overview
 
-Following are the steps that Data Providers/Advertisers can take to map PII to UID2 for targeting and audience building purposes. 
-
-Note: PII refers to email address or SHA256 of normaled email address.
+The following section outlines the steps data providers and advertisers complete to map PII to UID2 identifiers to use in audience-building and targeting. PII refers to a user's normalized email address or SHA256-hashed and normalized email address.
 
 ![Advertiser Flow](advertiser-flow-mermaid.png)
 
+# Integration Steps
 
-# Steps
+## 1. Retrieve a UID2 for PII using the identity map endpoints.
 
-## 1 Map PII to UID2
+Use the [/identity/map](../endpoints/post-identity-map.md) endpoint to map PII to UID2. The UID2 thus returned can be used to target audiences on relevant DSPs and for other use cases.
 
-Use the [/identity/map](../endpoints/post-identity-map.md) endpoint to map PII to UID2. The UID2 thus returned can be used to target audiences on relavant DSPs and for other use cases.
+The response returns a user's UID2 and a salt ```bucket_id``` that rotates annually. When a user's UID2 updates, the salt bucket remains the same. See step 3 for how to check for salt bucket rotation.
 
-## 2 Send UID2 based Audience
-This will be a DSP specific endpoint/mechanism and is out of scope for this document. Follow DSP specific Integration for sending UID2 based audience.
+We recommend storing a user's UID2 and ```bucket_id``` in a mapping table for ease of maintenance. See step 4 for guidance on incremental updates. 
 
-## 3 Check for Bucket Updates
+## 2. Send UID2 to a DSP to build an audience.
+Send the UID2 from step 1 to a DSP while building your audiences. Each DSP has a unique integration process for building audiences. Please follow the integration guidance provided by a DSP for sending UID2s to build an audience.
 
-By it's very design, the UID2 is an id for a user at a particular moment in time. A user's UID2 can and will rotate once a year. One can choose to either blanketly update their segments on daily basis or can implement incremental updates by querying bucket rotation status.
+## 3. Check for salt bucket rotations related to your stored UID2s.
 
-Bucket status endpoint [/identity/buckets](../endpoints/get-identity-buckets.md) can return the buckets that have their associated UID2s rotated since a given timestamp.
+Because a UID2 is an identifier for a user at a particular moment in time, a user's UID2 will rotate at least once a year. 
 
-## 4 Incremental Update UID2
+Use the bucket status endpoint [/identity/buckets](../endpoints/get-identity-buckets.md) to return buckets that rotated their salt since a given timestamp. Take the list of returned ```bucket_id``` and compare that to the salt buckets of the UID2 you've cached. If a UID2's salt bucket rotated, use step 1 to refresh the UID2.
 
-Leveraging Steps 1 and 3, a system can continously update its UID2 based audiences to the DSP. The response from Step 1 contains mapped UID2 and corresponding "bucket_id" associated with it. While UID2 can rotate, the bucket_id will stay constant for the given user.
+We recommend checking salt bucket rotation daily. While salt buckets rotate annually, the date they rotate may change. Checking salt bucket rotation every day ensures your integration has the current UID2s.
 
-From Step 1. the system can store the Mapping between PII and Bucket ID along with last updated timestamp. e.g.
+## 4. Use an incremental process to update UID2s.
 
-```
-PIIIdentifier, BucketId, Updated Timestamp
-```
+Continuously update and maintain UID2-based audiences utilizing steps 1 and 3.
 
-By querying the Bucket info described in Step 3, the system can repeat step 1 and 2 for the UIDs associated with the updated buckets.
+The response from step 1 contains a UID2 and the ```bucket_id``` for the UID2's salt bucket.
+
+Cache the mapping between PII,  UID2 (```mapped.identifier```), and ```bucket_id``` along with a last updated timestamp.
+
+Using step 3, repeat step 1 to remap UID2s with rotated salt buckets and step 2 to update them in audiences.
 
 # Frequently Asked Questions
-### Q: How does a holder of UID2 know when to refresh the UID2 due to salt rotation?
-Metadata supplied with the UID2 generation request indicates the salt bucket used for generating the UID2. Salt buckets are persistent and correspond to the underlying PII. Use the API provided to return which salt buckets rotated since a given timestamp. The returned rotated salt buckets inform the UID2 holder which UID2s to refresh. This workflow typically applies to data providers. 
+## How do I know when to refresh the UID2 due to salt bucket rotation?
+Metadata supplied with the UID2 generation request indicates the salt bucket used for generating the UID2. Salt buckets persist and correspond to the underlying PII used to generate a UID2. Use the  [GET /identity/buckets](../endpoints/get-identity-buckets.md) endpoint to return which salt buckets rotated since a given timestamp. The returned rotated salt buckets inform you which UID2s to refresh. This workflow typically applies to data providers. 
 
-### Q: How often should IDs be refreshed for incremental updates?
+## How often should UIDs be refreshed for incremental updates?
 The recommended cadence for updating audiences is daily. 
 
-### Q: How should i generate the SHA256 of PII for mapping?
-The system should follow the email normalization rules (described in the [Overview document](../../README.md)) and hash without salting. The value needs to be base64 encoded before it can be sent.
-
-
+## How should I generate the SHA256 of PII for mapping?
+The system should follow the email normalization rules (described in the [Overview document](../../README.md)) and hash without salting. The value needs to be base64-encoded before sending.
