@@ -85,4 +85,4 @@ All endpoints return responses utilizing the following body and status messaging
 See Integration guides [here.](/v1/guides/README.md)
 
 ## License
-All work, articafts are licensed under the Apache License, Version 2.0. See [LICENSE](http://www.apache.org/licenses/LICENSE-2.0.txt) for the full license text.
+All work, artifacts are licensed under the Apache License, Version 2.0. See [LICENSE](http://www.apache.org/licenses/LICENSE-2.0.txt) for the full license text.
