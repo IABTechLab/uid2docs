@@ -1,50 +1,50 @@
-[UID2 Documentation](../../README.md) > v1 > Integration Guides > Custom Publisher Integration Guide 
+[UID2 Documentation](../../README.md) > v1 > [Integration Guides](README.md) > Custom Publisher Integration Guide 
 
 # Overview
 
-Following is the Lifecycle for User establishing UID2 on publisher and how it integrates with RTB.
+The following integration workflow is the lifecycle for a user establishing a UID2 token with a publisher and how the UID2 token integrates with the RTB bid stream.
 
 ![Custom Publisher Flow](custom-publisher-flow-mermaid.png)
 
 
-### Steps
+## Integration Steps
 
-Steps 3-1, 4-1, 5-2, 6 are integration points for Publisher
+Publisher-specific workflows are covered in steps 3-1, 4-1, 5-2, and 6.
 
-## 3-1 Generate UID2
+## 3-1. Generate a UID2 token for an authenticated user.
 
-The publisher calls the token generation endpoint [/token/generate](../endpoints/get-token-generate.md) endpoint for the user by providing either their email address or SHA256 hash of normalized email address (See Normalization rules [here](../../README.md). The returned tokens should be placed in a store tied to the User (e.g. first-party cookie, or server-side storage) as publisher sees fit.
+There are two ways for publishers to establish an identity for a user with UID2. The first way is to integrate with a UID2-enabled single-sign-on provider. The second way is for a publisher to generate UID2 tokens themselves.
 
-## 4-1 Calling SSP for Ads
-The Publisher needs to pass the "advertising_token" part of the UID2 Tokens payload (from step 3-1) to the SSP for RTB purposes. The value needs to be passed as is.
+This article focuses on publishers who want to generate UID2 tokens themselves.
 
-## 5-2 Refresh UID2
-Publisher must keep the UID2 Tokens fresh by leveraging the refresh API. Following two user lifecycle events should be used:
-1 User returning to the site.
-2 An interval has passed (recommedation of 5 minutes) since the last refresh.
+Publishers can generate a UID2 identity token when a user authenticates using the  [GET /token/generate](../endpoints/get-token-generate.md) endpoint. The request includes a user's normalized email address or the base64-encoded SHA256 hash of the user's normalized email address. See Normalization rules [here](../../README.md#emailnormalization). The returned ```advertising_token``` and ```refresh_token``` should be placed in a store tied to the user, like a first-party cookie or server-side storage. Later steps use these tokens.
 
-No refresh needs to be done for inactive user.
+## 4-1. Use a UID2 token to query an SSP for relevant ads.
+The Publisher needs to pass the ```advertising_token``` returned from step 3-1 to the SSP for RTB purposes. The value should be sent as-is.
 
-The UID2 Tokens can be refreshed by passing the "refresh_token" part of the UID2 Tokens (from step 3-1) to the [/token/refresh](../endpoints/get-token-refresh.md) endpoint.
+## 5-2. Refresh UID2 identity token.
 
-Refreshing the tokens is necessary to sync user's opt-out and UID2 rotation in the background. After refresh, the Publisher should update the set of tokens as done in step 3-1.
+Leverage the refresh endpoints to retrieve the latest version of UID2 tokens. UID2 token refreshes are required to sync a user's UID2 rotation and opt-out status. If a user opts out, using their refresh token will end their token refresh chain.
 
-## 6 User Logout
-Publisher should remove the UID2 Tokens stored for that user. No interaction with UID Service is required.
+We recommend refreshing active user identity tokens every 5 minutes. 
+
+If an inactive user becomes active again (returned to the site), we recommend refreshing the identity token before sending it through for bidding.
+
+There is no need to refresh tokens for inactive users.
+
+Refresh UID2 tokens by using the ```refresh_token``` from step 3-1 as a query parameter in the [GET /token/refresh](../endpoints/get-token-refresh.md) endpoint.
+
+## 6 Clear user identity.
+Once a user logs out, remove the UID2 tokens stored for that user.  No interaction with UID service is required.
 
 # Frequently Asked Questions
 
-### Q: Do I need to decrypt any of the Tokens?
-No, Publisher does not need to decrypt any tokens.
+### Do I need to decrypt tokens?
+No, publishers do not need to decrypt tokens.
 
-### Q: How will I be notified of user opt-out?
-User opt-outs are handled as part of token refresh. No more Publisher action is necessary.
+### How will I be notified of user opt-out?
+The token refresh process handles user opt-outs. Using their refresh token automatically clears their session and disrupts their ```refresh_token``` chain when a user opts out. No manual action is required. 
 
-### Q: What is the uniqueness and rotation policy for UID2 Token?
-The tokens are encrypted using random initialization vectors, so the encrypted payload will look different for a given user as they browse through the Internet. The token also gets re-encrypted on every refresh. The intent of the mechanism is to ensure that a User's identity is un-trackable by non-trusted parties. 
+### Q: What is the uniqueness and rotation policy for UID2 token?
 
-
-
-
-
-
+The UID2 service encrypts tokens using random initialization vectors. The encrypted UID2 is unique for a given user as they browse the internet. At every refresh, the token re-encrypts. This mechanism ensures that untrusted parties cannot track a user's identity.

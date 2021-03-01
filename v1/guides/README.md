@@ -2,12 +2,12 @@
 
 # Integration Guides
 
-The following Guides cover different integration scenarios
+The following integration guides cover different integration scenarios
 
-| Target Use Case | Description |
+| Target Audience | Description |
 | --- | --- |
-| [Publisher](./publisher-client-side.md) | Standard Integration Guide for Publisher on Web |
-| [Custom Integration](./custom-publisher-integration.md) | Custom Integration Guide for Publisher for non-Web |
-| [DSP](./dsp-guide.md) | Integration Guide for DSP wanting to use UID2 in Bidding |
-| [Advertiser/Data Provider](./advertiser-dataprovider-guide.md) | Integration for Advertiser/Data Provider to target UID2 Audience |
+| [Publisher - Standard](./publisher-client-side.md) | This integration guide for publishers covers standard integration scenarios for web supply. |
+| [Publisher - Custom](./custom-publisher-integration.md) | This integration guide for publishers covers custom integration scenarios for non-web supply. |
+| [DSP](./dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
+| [Advertiser/Data Provider](./advertiser-dataprovider-guide.md) | This integration guide for advertisers and data partners covers integration workflows for mapping identity for audience-building and targeting. |
 
