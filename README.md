@@ -2,13 +2,14 @@
 
 ## Table Of Contents
 * [Overview](#overview)
+* [Contact Info](#contact-info)
 * [Environment](#environment)
 * [Authentication](#authentication)
-* [Error Codes](#error-codes)
 * [Email Normalization](#email-normalization)
-* [Encoding Query Parameter Values](#encode-query-parameter-values)
+* [Encoding Query Parameter Values](#encoding-query-parameter-values)
+* [Response Structure and Status Codes](#response-structure-and-status-codes)
 * [Endpoints](#endpoints)
-* [Integration Workflows](#integration-workflows)
+* [Integration Guides](#integration-guides)
 * [License](#license)
 
 
@@ -31,7 +32,7 @@ UID2’s goal is to enable deterministic identity for advertising opportunities 
 + Secure and Privacy-Safe: UID2 leverages multiple layers of security, cryptography, and encryption to ensure user PII and data is safe. 
 + Transparency and Consent: Users understand where their ID is shared and what data is associated with it. Users have control to revoke their consent and permissions. 
 
-**Contact Info**
+## Contact Info
 
 To contact the relevant team at The Trade Desk to access UID2, please use the email aliases listed below. Contacting The Trade Desk for access is temporary. When the system moves to independent governance, the governing organizations will handle access requests.
 
