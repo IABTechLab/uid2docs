@@ -16,7 +16,7 @@
 
 **Building a better foundation for identity on the open internet**
 
-Relevant advertising enables content providers to produce the content we’ve all come to enjoy, whether it’s mobile apps, streaming TV, or web experiences. This value exchange has not always been well understood, communicated, or managed. As the industry moves away from its reliance on the third-party cookie and device IDs, there’s an opportunity to create a new and better approach to identity for the open internet. We’re building on the work of the IAB Tech Lab and partnering across the industry to develop an open-source ID framework. Built from hashed and encrypted email addresses, this ID will remain open and ubiquitous while introducing significant upgrades to consumer privacy and transparency.
+Relevant advertising enables content providers to produce the content we’ve all come to enjoy, whether it’s mobile apps, streaming TV, or web experiences. This value exchange has not always been well understood, communicated, or managed. As the industry moves away from its reliance on the third-party cookie and device IDs, there’s an opportunity to create a new and better approach to identity for the open internet. We’re building on the work of leading industry partners and collaborating across the industry to develop an open-source ID framework. Built from hashed and encrypted email addresses, this ID will remain open and ubiquitous while introducing significant upgrades to consumer privacy and transparency.
 
 **Key Benefits**
 
