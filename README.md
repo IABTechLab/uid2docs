@@ -34,7 +34,7 @@ UID2’s goal is to enable deterministic identity for advertising opportunities 
 
 ## Contact Info
 
-To contact the relevant team at The Trade Desk to access UID2, please use the email aliases listed below. Contacting The Trade Desk for access is temporary. When the system moves to independent governance, the governing organizations will handle access requests.
+For access to UID2, contact the relevant team at The Trade Desk as shown below. Contacting The Trade Desk for access is temporary. When the system moves to independent governance, the governing organizations will handle access requests.
 
 | If you are a... | Contact Email |
 | --- | --- |

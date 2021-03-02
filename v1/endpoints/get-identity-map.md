@@ -54,4 +54,4 @@ The response is a JSON object containing the user's UID2 identifier and bucket i
 | --- | --- | --- |
 | `mapped.identifier` | `string` | The `email` or `email_hash` provided in the request. |
 | `mapped.advertising_id` | `string` | The identity's advertising ID (raw UID2). |
-| `mapped.bucket_id` | `string` | The identifier of the bucket used for salting the user's `advertising_id`. |
+| `mapped.bucket_id` | `string` | **This property is currently under development. Please check back for the latest updates.**<br>The identifier of the bucket used for salting the user's `advertising_id`. |

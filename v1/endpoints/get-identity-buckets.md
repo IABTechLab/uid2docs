@@ -1,5 +1,7 @@
 [UID2 Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /identity/buckets
 
+> This endpoint is currently under development. Please check back for the latest updates.
+
 # GET /identity/buckets
 
 Monitor for rotated salt buckets. 
