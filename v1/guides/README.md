@@ -2,9 +2,9 @@
 
 # Integration Guides
 
-The following integration guides cover different integration scenarios
+Learn more about integrating with UID2 by selecting the scenario that best fits your organization.
 
-| Target Audience | Description |
+| Business Entity | Description |
 | --- | --- |
 | [Publisher - Standard](./publisher-client-side.md) | This integration guide for publishers covers standard integration scenarios for web supply. |
 | [Publisher - Custom](./custom-publisher-integration.md) | This integration guide for publishers covers custom integration scenarios for non-web supply. |
