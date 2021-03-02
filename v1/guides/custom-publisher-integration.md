@@ -48,3 +48,19 @@ The token refresh process handles user opt-outs. Using their refresh token autom
 ### What is the uniqueness and rotation policy for UID2 token?
 
 The UID2 service encrypts tokens using random initialization vectors. The encrypted UID2 is unique for a given user as they browse the internet. At every refresh, the token re-encrypts. This mechanism ensures that untrusted parties cannot track a user's identity.
+
+### How can I test my integration?
+There are two built-in tools you can use to test your integration.
+
+#### Test that PII sent and returned tokens match
+You can use the [GET /token/validate](../endpoints/get-token-validate.md) endpoint to check whether the PII you are sending through [GET /token/generate](../endpoints/get-token-generate.md) is valid. 
+
+1. Send a [GET /token/generate](../endpoints/get-token-generate.md) request using `validate@email.com` as `email`, or create a base64-encoded SHA256 hash of `validate@email.com` and send it through as an email hash. Store the `advertising_token` returned to use in step 2.
+2. Send a [GET /token/validate](../endpoints/get-token-validate.md) request using the `email` or `email_hash` you sent in step 1 and the `token` as the `advertising_token` returned in step 1. If the response returns `true`, the `email` or `email_hash` you sent as a request in step 1 match the token you received in the response of step 1. If it returns `false`, there may be an issue with the way you are sending email addresses or email hashes.
+
+#### Test refresh token logout workflow
+
+You can use the email address `optout@email.com` to test your token refresh workflow. Using this email for the request always generates an identity response with a `refresh_token` that results in a logout response.
+
+1. Send a [GET /token/generate](../endpoints/get-token-generate.md) request using `optout@email.com` as `email`, or create a base64-encoded SHA256 hash of `optout@email.com` and send it through as an email hash. Store the `refresh_token` returned to use in step 2.
+2. Send a [GET /token/validate](../endpoints/get-token-validate.md) request using the `email` or `email_hash` you sent in step 1 and the `refresh_token` as the `refresh_token` returned in step 1. The `body` response should be empty because the `optout@email.com` email always results in a logged out refresh token.

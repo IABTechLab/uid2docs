@@ -1,8 +1,9 @@
 [UID2 Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /token/validate
 
 # GET /token/validate
-Validate that an advertising token matches the provided email or email hash.
-The only accepted  email or email hash for this endpoint is `validate@email.com`.
+Validate that an advertising token matches the provided email or email hash. This is primarily used for testing and troubleshooting new integrations and is not a primary step in the publisher workflow.
+
+The only accepted email or email hash for this endpoint is `validate@email.com`.
 
 ## Request 
 
@@ -45,7 +46,6 @@ The response is a JSON object.
 | Property | Data Type | Description |
 | --- | --- | --- |
 | `body` | `boolean` | A value of `true` indicates that the `email` or the `email_hash` specified in the request is the same as the `email` or `email_hash` used to create the `advertising_token`.<br>A value of `false` indicates an invalid `token` or that the `email` or the `email_hash` specified in the request is not the same as the `email` or `email_hash` used to create the `advertising_token`. |
-
 
 
 
