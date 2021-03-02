@@ -17,7 +17,7 @@ The response returns a user's UID2 and a salt ```bucket_id``` that rotates annua
 We recommend storing a user's UID2 and ```bucket_id``` in a mapping table for ease of maintenance. See step 4 for guidance on incremental updates. 
 
 ## 2. Send UID2 to a DSP to build an audience.
-Send the UID2 from step 1 to a DSP while building your audiences. Each DSP has a unique integration process for building audiences. Please follow the integration guidance provided by a DSP for sending UID2s to build an audience.
+Send the UID2 from step 1 to a DSP while building your audiences. Each DSP has a unique integration process for building audiences. Please follow the integration guidance provided by the DSP for sending UID2s to build an audience.
 
 ## 3. Check for salt bucket rotations related to your stored UID2s.
 
