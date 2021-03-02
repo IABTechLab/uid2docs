@@ -33,9 +33,12 @@ UID2’s goal is to enable deterministic identity for advertising opportunities 
 
 **Contact Info**
 
-If you want to contact the relevant team at The Trade Desk to access UID2, please use the email aliaes list below. Note that this is only temporary, and when the system moves to independent governance access will be through
-+  UID2publishers@thetradedesk.com - If you are a publisher or developer
-+  UID2partners@thetradedesk.com - If you are a brand, agency, data provider, DSP, SSP, CDP, or related company
+To contact the relevant team at The Trade Desk to access UID2, please use the email aliases listed below. Contacting The Trade Desk for access is temporary. When the system moves to independent governance, the governing organizations will handle access requests.
+
+| If you are a... | Contact Email |
+| --- | --- |
+| App Developer<br>Publisher | UID2publishers@thetradedesk.com |
+| Agency<br>Brand<br>CDP<br>Data Provider<br>DSP<br>SSP | UID2partners@thetradedesk.com |
 
 ## Environment 
 
