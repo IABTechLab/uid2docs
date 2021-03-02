@@ -16,15 +16,26 @@
 
 **Building a better foundation for identity on the open internet**
 
-Relevant advertising enables content providers to produce the content we’ve all come to enjoy, whether it’s mobile apps, streaming TV, or web experiences. This value exchange has not always been well understood, communicated, or managed. As the industry moves away from its reliance on the third-party cookie and device IDs, there’s an opportunity to create a new and better approach to identity for the open internet. We’re building on the work of leading industry partners and collaborating across the industry to develop an open-source ID framework. Built from hashed and encrypted email addresses, this ID will remain open and ubiquitous while introducing significant upgrades to consumer privacy and transparency.
+Addressable advertising enables publishers and developers to provide the content and services consumers have come to enjoy, whether through mobile apps, streaming TV, or web experiences. The value exchange of the open internet has not always been well understood by, or communicated to, consumers. As the industry reduces reliance on the third-party cookie, we have an opportunity to move towards a new and better approach to identity for the open internet. The improved approach empowers content creators to have value exchange conversations with consumers while giving them more control and transparency over their data. 
 
-**Key Benefits**
+Unified ID 2.0 (UID2) is a deterministic identifier based on authenticated PII (e.g., email or phone number) with complete user transparency and privacy controls. The UID2 identifier ties to logged-in experiences applied to publisher websites, mobile apps, and CTV apps. With several layers of privacy protection, UID2s can safely distribute across the open internet. Initially built by The Trade Desk, operational responsibility for UID2 will transfer in mid-2021 to an independent organization. The independent organization will open-source the relevant code. UID2 is non-proprietary and accessible to constituents across the advertising ecosystem - including Advertisers, Publishers, DSPs, SSPs, SSOs, CDPs, CMPs, Identity Providers, Data Providers, and Measurement Providers - while they remain in compliance with a code of conduct. 
 
-+ Open source and interoperable: The ID framework will be open source and available for free  for everyone. 
-+ Secured technology: Emails will be hashed, salted, and encrypted to prevent abuse. Regular rotation of decryption keys will help enforce accountability measures.
-+ Independently governed: Participants will agree to a code of conduct as well as regular audits, managed by an independent body.
-+ User transparency and control: Consumers will be able to easily view and manage their preferences and opt out at any time.
+UID2’s goal is to enable deterministic identity for advertising opportunities on the open internet with full consumer transparency and controls. UID2 provides a collaborative framework for all constituents and a healthy, open internet by utilizing a transparent and interoperable approach. 
 
+**Guiding Principles**
+
++ Independently Governed: UID2 will be operated by unbiased organizations, with the transition from The Trade Desk to independent governance anticipated mid-2021. The Trade Desk built the framework and code to transition to the independent governing body. 
++ Interoperable: UID2 is accessible to all constituents in the advertising ecosystem who abide by the code of conduct. This includes DSPs, SSPs, data providers, measurement providers, and identity services. 
++ Open Source: UID2 is transparent and offers its code open-source.   
++ Nonproprietary: UID2 provides a collaborative framework for all constituents in the advertising ecosystem who are willing to comply with a code of conduct. 
++ Secure and Privacy-Safe: UID2 leverages multiple layers of security, cryptography, and encryption to ensure user PII and data is safe. 
++ Transparency and Consent: Users understand where their ID is shared and what data is associated with it. Users have control to revoke their consent and permissions. 
+
+**Contact Info**
+
+If you want to contact the relevant team at The Trade Desk to access UID2, please use the email aliaes list below. Note that this is only temporary, and when the system moves to independent governance access will be through
++  UID2publishers@thetradedesk.com - If you are a publisher or developer
++  UID2partners@thetradedesk.com - If you are a brand, agency, data provider, DSP, SSP, CDP, or related company
 
 ## Environment 
 
