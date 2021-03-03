@@ -7,7 +7,7 @@ The following SDKs are to facilitate client side integration of UID2 on Publishe
 
 | Environment | Description |
 | --- | --- |
-| [Web (Javascript)](./client-side-identtiy-v1.md) | Client side Javascript for Websites |
+| [Web (Javascript)](./client-side-identity-v1.md) | Client side Javascript for Websites |
 
   
 
