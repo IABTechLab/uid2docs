@@ -22,13 +22,13 @@ If `email` and `email_hash` are both supplied in the same request, only the `ema
 
 #### Example Request Using an Email Address
 
-```curl
+```sh
 curl -L -X GET 'https://integ.uidapi.com/v1/token/generate?email=username@example.com' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
 #### Example Request Using an Email Hash
 
-```curl
+```sh
 curl -L -X GET 'https://integ.uidapi.com/v1/token/generate?email_hash=eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 

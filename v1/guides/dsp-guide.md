@@ -22,7 +22,7 @@ Leverage the provided [SDK](../sdks/dsp-client-v1-overview.md) to decrypt incomi
 ![DSP Opt Out Check](dsp-guide-optout-check-mermaid.png)
 
 The logic for the <b>check opt-out</b> step is:
-```code
+```java
 if (established_timestamp < optout_timestamp) {
   // Opted out
 }

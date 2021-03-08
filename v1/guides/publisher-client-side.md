@@ -24,10 +24,10 @@ Send returned UID2 tokens from step 3 to the [UID2 client-side identity SDK](../
 
 The mechanism below ensures that UID2 tokens are available for the user until they logout.
 
-```java
+```html
 <script>
   __uid2.init({
-     identity : <Response from the generate token api>
+    identity : <Response from the generate token api>
   });
 </script>
 ```
@@ -36,9 +36,9 @@ The mechanism below ensures that UID2 tokens are available for the user until th
 
 The established identity is available client-side for RTB. The following mechanism in the SDK gives access to the identity to pass to SSPs.
 
-```java
+```html
 <script>
-   __uid2.getAdvertisingToken();
+  __uid2.getAdvertisingToken();
 </script>
 ```
 
@@ -51,9 +51,9 @@ If you decide to integrate using options other than the SDK, we recommend refres
 
 Remove UID2 tokens from the user's local storage when they log out. Use the following mechanism from the [UID2 client-side SDK](../sdks/client-side-identity-v1.md) to clear out UID2 tokens.
 
-```java
+```html
 <script>
-   __uid2.disconnect();
+  __uid2.disconnect();
 </script>
 ```
 
