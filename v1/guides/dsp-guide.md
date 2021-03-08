@@ -21,7 +21,7 @@ The DSP should leverage the provided [SDK](../sdks/dsp-client-v1-overview.md) to
 ![DSP Opt Out Check](dsp-guide-optout-check-mermaid.png)
 
 The logic for <b>Check Opt-out</b> step is:
-```code
+```java
 if (established_timestamp < optout_timestamp) {
   // Opted out
 }

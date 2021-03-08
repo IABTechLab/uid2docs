@@ -15,7 +15,7 @@ Logout from a UID2 identity session.
 
 #### Example Request Using an Email Address
 
-```curl
+```sh
 curl -L -X POST 'https://integ.uidapi.com/v1/token/logout?email=username@example.com' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
@@ -24,6 +24,6 @@ curl -L -X POST 'https://integ.uidapi.com/v1/token/logout?email=username@example
 The response is a standard HTTP response code.
 
 
-```json
+```
 OK
 ```

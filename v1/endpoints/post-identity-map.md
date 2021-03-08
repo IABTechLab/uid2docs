@@ -17,7 +17,7 @@ Retrieve advertising and bucket IDs for multiple email addresses or email hashes
 
 #### Example Request Using an Email Address and an Email Hash
 
-```curl
+```sh
 curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
     "email":[
         "user@example.com"
