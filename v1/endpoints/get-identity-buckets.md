@@ -15,7 +15,7 @@ Integration workflows that use this endpoint:
 
 | Query Parameter | Data Type | Attributes | Description |
 | --- | --- | --- | --- |
-| `since_timestamp` | `date-time` or `integer` | Required | Return buckets with last updated UTC timestamps after the specified date and time.<br>Specify the the time in ISO 8601 `date-time` format (`YYYY-MM-DDThh:mm:ss`) or as an `integer` using Unix time. If using ISO 8601 format, URL encode the parameter value. |
+| `since_timestamp` | `date-time` or `integer` | Required | Return buckets with last updated UTC timestamps after the specified date and time.<br>Specify the the time in ISO 8601 `date-time` format (`YYYY-MM-DDThh:mm:ss`). Ensure the parameter value is URL encoded. |
 
 #### Example Request
 
