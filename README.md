@@ -72,11 +72,11 @@ All endpoints return responses utilizing the following body and status messaging
 
 ```json
 {
-"status": [success|unauthorized|client_error|...]
-"body": {
-            "property": "propertyValue"
-            }
-"message": "Descriptive message"
+    "status": [success|unauthorized|client_error|...]
+    "body": {
+        "property": "propertyValue"
+    }
+    "message": "Descriptive message"
 }
 ```
 

@@ -21,7 +21,7 @@ Implement the following script when you would like to create an instance for the
 ```html
 <script>
   __uid2.init({
-    				identity : <Response from the generate token api>
+    identity : <Response from the generate token api>
   });
 </script>
 ```
@@ -32,7 +32,7 @@ Implement the following script when you would like to retrieve a client's `adver
 
 ```html
 <script>
-__uid2.getAdvertisingToken();
+  __uid2.getAdvertisingToken();
 </script>
 ```
 
@@ -42,6 +42,6 @@ When an unauthenticated user is present, or a user logs out, implement the follo
 
 ```html
 <script>
-__uid2.disconnect();
+  __uid2.disconnect();
 </script>
 ```

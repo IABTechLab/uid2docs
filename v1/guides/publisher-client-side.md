@@ -21,7 +21,7 @@ Once UID2 tokens are returned from the step above, they should be passed on to t
 ```html
 <script>
   __uid2.init({
-     identity : <Response from the generate token api>
+    identity : <Response from the generate token api>
   });
 </script>
 ```
@@ -32,7 +32,7 @@ Once established, the identity is available for client to use for RTB purposes. 
 
 ```html
 <script>
-   __uid2.getAdvertisingToken();
+  __uid2.getAdvertisingToken();
 </script>
 ```
 
@@ -45,7 +45,7 @@ It is impotant to remove UID2 tokens from the user's storage when they logout. U
 
 ```html
 <script>
-   __uid2.disconnect();
+  __uid2.disconnect();
 </script>
 ```
 
