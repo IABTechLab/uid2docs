@@ -18,7 +18,7 @@ Identity tokens can be established either by using a UID2 Enabled SSO or for Pub
 
 Once UID2 tokens are returned from the step above, they should be passed on to the [UID2 Client Library](../sdks/client-side-identity-v1.md) using the mechanism below. This ensures that UID2 tokens are available for the user until they logout.
 
-```java
+```html
 <script>
   __uid2.init({
      identity : <Response from the generate token api>
@@ -30,7 +30,7 @@ Once UID2 tokens are returned from the step above, they should be passed on to t
 
 Once established, the identity is available for client to use for RTB purposes. The following snippet gives access to the identity that can be passed to SSPs.
 
-```java
+```html
 <script>
    __uid2.getAdvertisingToken();
 </script>
@@ -43,7 +43,7 @@ UID2 Tokens are refreshed automatically by the [UID2 Client Library](../sdks/cli
 
 It is impotant to remove UID2 tokens from the user's storage when they logout. Use the following snippet to cleare out UID2 tokens.
 
-```java
+```html
 <script>
    __uid2.disconnect();
 </script>

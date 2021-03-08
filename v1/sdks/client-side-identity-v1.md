@@ -18,7 +18,7 @@ Implement our SDK script on the pages you'll use UID2 to manage identity or retr
 
 Implement the following script when you would like to create an instance for the UID2 lifecycle on the client. Send the identity payload response from [GET /token/generate](../endpoints/get-token-generate.md) the first time the script runs for a given client.
 
-```java
+```html
 <script>
   __uid2.init({
     				identity : <Response from the generate token api>
@@ -30,7 +30,7 @@ Implement the following script when you would like to create an instance for the
 
 Implement the following script when you would like to retrieve a client's `advertising_token`, or if opted out, an empty string.
 
-```java
+```html
 <script>
 __uid2.getAdvertisingToken();
 </script>
@@ -40,7 +40,7 @@ __uid2.getAdvertisingToken();
 
 When an unauthenticated user is present, or a user logs out, implement the following script to close a client's identity session and disconnect the client lifecycle.
 
-```java
+```html
 <script>
 __uid2.disconnect();
 </script>
