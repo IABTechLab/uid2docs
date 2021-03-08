@@ -37,18 +37,21 @@ The response is a JSON object containing the user's UID2 identifier and bucket i
 
 ```json
 {
-    "mapped": [
-        {
-            "identifier": "user@example.com",
-            "advertising_id": "AdvtiSuYWAZSYe8t4n6sQx0gshoHYZdOzg9qUn/eKgE=",
-            "bucket_id": "bucketId"
-        },
-        {
-            "identifier": "795BCB4BF560F9867AFB3DE2D0D3A94976324007C45EA099EC14E90231540547",
-            "advertising_id": "AdvIvSiaum0P5s3X/7X8h8sz+OhF2IG8DNbEnkWSbYM=",
-            "bucket_id": "bucketId"
-        }
-    ]
+    "body":{
+        "mapped": [
+            {
+                "identifier": "user@example.com",
+                "advertising_id": "AdvtiSuYWAZSYe8t4n6sQx0gshoHYZdOzg9qUn/eKgE=",
+                "bucket_id": "bucketId"
+            },
+            {
+                "identifier": "795BCB4BF560F9867AFB3DE2D0D3A94976324007C45EA099EC14E90231540547",
+                "advertising_id": "AdvIvSiaum0P5s3X/7X8h8sz+OhF2IG8DNbEnkWSbYM=",
+                "bucket_id": "bucketId"
+            }
+        ]
+    },
+    "status":"success"
 }
 ```
 
@@ -56,6 +59,6 @@ The response is a JSON object containing the user's UID2 identifier and bucket i
 
 | Property | Data Type | Description |
 | --- | --- | --- |
-| `mapped.identifier` | `string` | The `email` or `email_hash` provided in the request. |
-| `mapped.advertising_id` | `string` | The identity's advertising ID (raw UID2). |
-| `mapped.bucket_id` | `string` | **This property is currently under development. Please check back for the latest updates.**<br>The identifier of the bucket used for salting the user's `advertising_id`. |
+| `body.mapped.identifier` | `string` | The `email` or `email_hash` provided in the request. |
+| `body.mapped.advertising_id` | `string` | The identity's advertising ID (raw UID2). |
+| `body.mapped.bucket_id` | `string` | The identifier of the bucket used for salting the user's `advertising_id`. |

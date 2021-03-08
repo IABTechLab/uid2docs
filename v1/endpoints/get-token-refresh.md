@@ -41,14 +41,14 @@ The response is a JSON object containing new identity tokens for a user or a mes
 }
 ```
 
-If a user opted out prior to refresh, the refresh response status will be `success` with empty token values.
+If a user opted out before the refresh request, the refresh response status will be `success` with empty token values.
 
 ### Supplemental Status Information
 
 | HTTP Status Code | Status | Response | Description |
 | --- | --- | --- | --- |
 | 200 | `success` | Body with identity tokens. | |
-| 200 | `optout` | This status only appears for authorized requests and indicates that the user associated to the supplied `refresh_token` opted out. |
+| 200 | `optout` | This status only appears for authorized requests and indicates that the user associated with the supplied `refresh_token` opted out. |
 | 400 | `clienterror` | `Required Parameter Missing: refresh_token` | Ensure the `refresh_token` parameter and value are included with your request. |
 | 400 | `invalid_token` | `Invalid Token presented {refresh_token_value}` | This message only appears for authorized requests and indicates that the supplied `refresh_token` is invalid. |
 
