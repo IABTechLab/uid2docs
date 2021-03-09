@@ -36,11 +36,11 @@ We recommend checking salt bucket rotation daily for active users. While salt bu
 
 Continuously update and maintain UID2-based audiences utilizing Workflow A and Workflow C.
 
-The response from Workflow A contains an `advertising_id` (UID2) and the ```bucket_id``` for the UID2's salt bucket.
+The response from Workflow A contains an `advertising_id` (UID2) and the `bucket_id` for the UID2's salt bucket.
 
-Cache the mapping between PII,  UID2 (`mapped.identifier`), and `bucket_id` along with a last updated timestamp.
+Cache the mapping between PII (`identifier`),  UID2 (`advertising_id`), and  salt bucket (`bucket_id`), along with a last updated timestamp.
 
-Using Workflow C, repeat Workflow A to remap UID2s with rotated salt buckets and Workflow B to update them in audiences.
+Using the results of Workflow C, repeat Workflow A to remap UID2s with rotated salt buckets. Repeat Workflow B to update the UID2s in audiences.
 
 # Frequently Asked Questions
 ## How do I know when to refresh the UID2 due to salt bucket rotation?
@@ -50,4 +50,4 @@ Metadata supplied with the UID2 generation request indicates the salt bucket use
 The recommended cadence for updating audiences is daily. 
 
 ## How should I generate the SHA256 of PII for mapping?
-The system should follow the email normalization rules ([described here](../../README.md#email-normalization)) and hash without salting. The value needs to be base64-encoded before sending.
+The system should follow the [email normalization rules](../../README.md#email-normalization) and hash without salting. The value needs to be base64-encoded before sending.
