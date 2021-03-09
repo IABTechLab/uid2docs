@@ -15,10 +15,10 @@ The following section outlines the steps data providers and advertisers complete
 | Step | Endpoint | Instruction |
 | --- | --- | --- |
 | 1 | [GET /identity/map](../endpoints/get-identity-map.md)<br>[POST /identity/map](../endpoints/post-identity-map.md) | Send a request containing PII to the identity mapping endpoints. |
-| 2 | [GET /identity/map](../endpoints/get-identity-map.md)<br>[POST /identity/map](../endpoints/post-identity-map.md) | The returned `advertising_id` (UID2) can be used to target audiences on relevant DSPs.<br><br>The response returns a user's UID2 and a salt `bucket_id` that rotates annually. When a user's UID2 updates, the salt bucket remains the same. See Workflow C for how to check for salt bucket rotation.<br><br>We recommend storing a user's UID2 and `bucket_id` in a mapping table for ease of maintenance. See Workflow D for guidance on incremental updates. |
+| 2 | [GET /identity/map](../endpoints/get-identity-map.md)<br>[POST /identity/map](../endpoints/post-identity-map.md) | The returned `advertising_id` (UID2) can be used to target audiences on relevant DSPs.<br><br>The response returns a user's UID2 and a salt `bucket_id` that rotates annually. When a user's UID2 updates, the salt bucket remains the same. See [Workflow C](#workflow-c-monitor-for-salt-bucket-rotations-related-to-your-stored-uid2s) for how to check for salt bucket rotation.<br><br>We recommend storing a user's UID2 and `bucket_id` in a mapping table for ease of maintenance. See [Workflow D](#workflow-d-use-an-incremental-process-to-continuously-update-uid2s) for guidance on incremental updates. |
 
 ## Workflow B: Send UID2 to a DSP to build an audience.
-Send the `advertising_id` (UID2) from Workflow A to a DSP while building your audiences. Each DSP has a unique integration process for building audiences. Please follow the integration guidance provided by the DSP for sending UID2s to build an audience.
+Send the `advertising_id` (UID2) from [Workflow A](#workflow-a-retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) to a DSP while building your audiences. Each DSP has a unique integration process for building audiences. Please follow the integration guidance provided by the DSP for sending UID2s to build an audience.
 
 ## Workflow C: Monitor for salt bucket rotations related to your stored UID2s.
 Because a UID2 is an identifier for a user at a particular moment in time, a user's UID2 will rotate at least once a year. 
@@ -34,13 +34,11 @@ We recommend checking salt bucket rotation daily for active users. While salt bu
 
 ## Workflow D: Use an incremental process to continuously update UID2s.
 
-Continuously update and maintain UID2-based audiences utilizing Workflow A and Workflow C.
+Continuously update and maintain UID2-based audiences utilizing the preceding workflows.
 
-The response from Workflow A contains an `advertising_id` (UID2) and the `bucket_id` for the UID2's salt bucket.
+The response from [Workflow A](#workflow-a-retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) contains mapping information. Cache the mapping between PII (`identifier`),  UID2 (`advertising_id`), and  salt bucket (`bucket_id`), along with a last updated timestamp.
 
-Cache the mapping between PII (`identifier`),  UID2 (`advertising_id`), and  salt bucket (`bucket_id`), along with a last updated timestamp.
-
-Using the results of Workflow C, repeat Workflow A to remap UID2s with rotated salt buckets. Repeat Workflow B to update the UID2s in audiences.
+Using the results of [Workflow C](#workflow-c-monitor-for-salt-bucket-rotations-related-to-your-stored-uid2s), repeat [Workflow A](#workflow-a-retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) to remap UID2s with rotated salt buckets. Repeat [Workflow B](#workflow-b-send-uid2-to-a-dsp-to-build-an-audience) to update the UID2s in audiences.
 
 # Frequently Asked Questions
 ## How do I know when to refresh the UID2 due to salt bucket rotation?
