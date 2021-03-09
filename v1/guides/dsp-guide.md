@@ -5,19 +5,19 @@
 The following describes the integration workflow for DSP to support UID2 as part of RTB.
 
 There are two components for DSP integrations.
-1. Decryp UID2 tokens to use in RTB.
+1. Decrypt UID2 tokens to use in RTB.
 2. Honor user opt-outs.
 
 ![DSP Guide Flow](dsp-guide-flow-mermaid.png)
 
-Note: T&C Portal refers to Transperancy and Control Portal
+Note: T&C Portal refers to the Transparency and Control Portal
 
 # Integration Steps 
 
 ## 1-4 Decrypt UID2 tokens to use in RTB.
 These integration steps correspond to diagram area 1-4.
 
-Leverage the provided [SDK](../sdks/dsp-client-v1-overview.md) to decrypt incoming UID2 tokens. The response contains the UID2 and the UID2 creation time (```established_timestamp```). DSPs are required to check the most recent opt-out timestamp (```optout_timestamp```) for a UID2 and honor the opt-out. The following diagram illustrates opt-out logic.
+Leverage the provided [SDK](../sdks/dsp-client-v1-overview.md) to decrypt incoming UID2 tokens. The response contains the UID2 and the UID2 creation time (`established_timestamp`). DSPs are required to check the most recent opt-out timestamp (`optout_timestamp`) for a UID2 and honor the opt-out. The following diagram illustrates opt-out logic.
 
 ![DSP Opt Out Check](dsp-guide-optout-check-mermaid.png)
 
@@ -35,8 +35,8 @@ The callback will contain the following data.
 
 | Parameter | Description |
 | --- | --- |
-| ```identity``` | The UID2 for the user who opted out |
-| ```timestamp``` | The time when the user opted out |
+| `identity` | The UID2 for the user who opted out |
+| `timestamp` | The time when the user opted out |
 
 
 # Frequently Asked Questions

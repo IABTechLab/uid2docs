@@ -30,11 +30,11 @@ UID2’s goal is to enable deterministic identity for advertising opportunities 
 + Open Source: UID2 is transparent and offers its code open-source.   
 + Nonproprietary: UID2 provides a collaborative framework for all constituents in the advertising ecosystem who are willing to comply with a code of conduct. 
 + Secure and Privacy-Safe: UID2 leverages multiple layers of security, cryptography, and encryption to ensure user PII and data is safe. 
-+ Transparency and Consent: Users understand where their ID is shared and what data is associated with it. Users have control to revoke their consent and permissions. 
++ Transparency and Control: Users understand where their ID is shared and what data is associated with it. Users have control to revoke their consent and permissions. 
 
 ## Contact Info
 
-For access to UID2, contact the relevant team at The Trade Desk as shown below. Contacting The Trade Desk for access is temporary. When the system moves to independent governance, the governing organizations will handle access requests.
+For access to UID2, contact the relevant team at The Trade Desk shown below. Contacting The Trade Desk for access is temporary. When the system moves to independent governance, the governing organizations will handle access requests.
 
 | If you are a... | Contact Email |
 | --- | --- |
@@ -53,7 +53,7 @@ e.g. https://integ.uidapi.com/v1/token/generate
 
 ## Authentication
 
-Authenticate to UID2 endpoints using a bearer token in the request's authorization header. Contact %placeholder% to request a bearer token.
+Authenticate to UID2 endpoints using a bearer token in the request's authorization header. 
 
 ```Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=```
 
@@ -97,7 +97,7 @@ All endpoints return responses utilizing the following body and status messaging
 [Click here to view an endpoint listing.](/v1/endpoints/README.md)
 
 ## Integration Guides
-See Integration guides [here.](/v1/guides/README.md)
+[Click here to view integration guides.](/v1/guides/README.md)
 
 ## License
-All work, artifacts are licensed under the Apache License, Version 2.0. See [LICENSE](http://www.apache.org/licenses/LICENSE-2.0.txt) for the full license text.
+All work and artifacts are licensed under the Apache License, Version 2.0. See [LICENSE](http://www.apache.org/licenses/LICENSE-2.0.txt) for the full license text.
