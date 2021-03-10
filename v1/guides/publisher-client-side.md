@@ -2,27 +2,25 @@
 
 # Overview
 
-The following integration workflow is the lifecycle for a user establishing a UID2 token with a publisher and how the UID2 token integrates with the RTB bid stream.
-
-![Publisher Flow](publisher-flow-mermaid.png)
+This guide covers integration steps for publishers that would like to generate identity tokens utilizing UID2 for the bid stream. This guide focuses on publishers who would like to create UID2 tokens on their own rather than using a single-sign-on or identity provider.
 
 ## Integration Steps 
 
-Publisher-specific workflows are covered in steps 3, 4, 5-1, 6, 7-2.
+The following integration steps outline the lifecycle for a user establishing a UID2 token with a publisher and how the UID2 token integrates with the RTB bid stream.
 
-### 3. Generate a UID2 token for an authenticated user.
+![Publisher Flow](https://mermaid.ink/svg/eyJjb2RlIjoiICBzZXF1ZW5jZURpYWdyYW1cbiAgICBwYXJ0aWNpcGFudCBVIGFzIFVzZXJcbiAgICBwYXJ0aWNpcGFudCBQIGFzIFB1Ymxpc2hlclxuICAgIHBhcnRpY2lwYW50IFVJRDIgYXMgVUlEMiBTZXJ2aWNlXG4gICAgcGFydGljaXBhbnQgU1NQXG4gICAgTm90ZSBvdmVyIFUsU1NQOiAxLiBFc3RhYmxpc2ggSWRlbnRpdHlcbiAgICBVLT4-K1A6IDEtYS4gVGhlIHVzZXIgdmlzaXRzIGEgcHVibGlzaGVyIGFzc2V0LlxuICAgIFAtPj4tVTogMS1iLiBUaGUgcHVibGlzaGVyIGV4cGxhaW5zIHRoZSB2YWx1ZSBleGNoYW5nZSBvZiB0aGUgb3BlbiBpbnRlcm5ldCBhbmQgcmVxdWVzdHMgYSBsb2dpbi5cbiAgICBhY3RpdmF0ZSBVXG4gICAgVS0-PlA6IDEtYy4gVGhlIHVzZXIgYXV0aGVudGljYXRlcyBhbmQgYXV0aG9yaXplcyB0aGUgY3JlYXRpb24gb2YgYSBVSUQyLlxuICAgIGRlYWN0aXZhdGUgVVxuICAgIGFjdGl2YXRlIFBcbiAgICBQLT4-VUlEMjogMS1kLiBUaGUgcHVibGlzaGVyIHNlbmRzIHRoZSB1c2VyJ3MgUElJIHRvIHRoZSB0b2tlbiBnZW5lcmF0aW9uIHNlcnZpY2UuXG4gICAgZGVhY3RpdmF0ZSBQXG4gICAgYWN0aXZhdGUgVUlEMlxuICAgIFVJRDItPj5QOiAxLWUuIFRoZSB0b2tlbiBnZW5lcmF0aW9uIHNlcnZpY2UgcmV0dXJucyBVSUQyIHRva2Vucy5cbiAgICBkZWFjdGl2YXRlIFVJRDJcbiAgICBhY3RpdmF0ZSBQXG4gICAgUC0-PlU6IDEtZi4gVGhlIHB1Ymxpc2hlciBzZXRzIGEgVUlEMiBmb3IgdGhlIHVzZXIuXG4gICAgZGVhY3RpdmF0ZSBQXG4gICAgTm90ZSBvdmVyIFUsU1NQOiAyLiBCaWQgVXNpbmcgVUlEMiBUb2tlbnNcbiAgXG4gICAgUC0-PlNTUDogMi1hLiBUaGUgcHVibGlzaGVyIGNhbGxzIHRoZSBTU1AgZm9yIGFkcyB1c2luZyB0aGUgVUlEMiB0b2tlbi5cbiAgICBhY3RpdmF0ZSBTU1BcbiAgICBTU1AtPj5QOiAyLWIuIFRoZSBTU1AgcmV0dXJucyBhZHMgdG8gZGlzcGxheS5cbiAgICBkZWFjdGl2YXRlIFNTUFxuICAgIGFjdGl2YXRlIFBcbiAgICBQLT4-VTogMi1jLiBUaGUgcHVibGlzaGVyIGRpc3BsYXlzIHRoZSBhZHMgdG8gdGhlIHVzZXIuXG4gICAgZGVhY3RpdmF0ZSBQXG5cbiAgICBOb3RlIG92ZXIgVSxTU1A6IDMuIFJlZnJlc2ggVG9rZW5zXG4gICAgVS0-PlVJRDI6IDMtYS4gVGhlIFNESyBzZW5kcyBhIHJlcXVlc3QgdG8gcmVmcmVzaCB0aGUgVUlEMiB1c2luZyB0aGUgcmVmcmVzaCB0b2tlbi5cbiAgICBhY3RpdmF0ZSBVSUQyXG4gICAgVUlEMi0-PlU6IDMtYi4gSWYgYSB1c2VyIGhhc24ndCBvcHRlZCBvdXQsIHRoZSByZWZyZXNoIHRva2VuIHNlcnZpY2UgcmV0dXJucyBuZXcgaWRlbnRpdHkgdG9rZW5zLlxuICAgIGRlYWN0aXZhdGUgVUlEMlxuICAgIE5vdGUgb3ZlciBVLFNTUDogNC4gVXNlciBMb2dvdXRcbiAgICBVLT4-UDogNC1hLiBUaGUgdXNlciBsb2dzIG91dCBmcm9tIGEgcHVibGlzaGVyIGFzc2V0LlxuICAgIGFjdGl2YXRlIFBcbiAgICBQLT4-VTogNC1iLiBUaGUgdXNlcidzIGlkZW50aXR5IGNsZWFycy5cbiAgICBkZWFjdGl2YXRlIFAiLCJtZXJtYWlkIjp7InRoZW1lIjoiZm9yZXN0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 
-There are two ways for publishers to establish identity for a user with UID2. The first way is to integrate with a UID2-enabled single-sign-on provider. The second way is for a publisher to generate UID2 tokens themselves.
+### 1. Establish Identity
 
-This article focuses on publishers who want to generate UID2 tokens themselves.
+This section focuses on publisher-specific steps 1-d, 1-e, and 1-f illustrated in the above diagram.
 
-Publishers can generate a UID2 identity token when a user authenticates using the  [GET /token/generate](../endpoints/get-token-generate.md) endpoint.
+| Step | Endpoint/SDK | Instruction |
+| --- | --- | --- |
+| d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2.<br>1. Integrate with a UID2-enabled single-sign-on provider.<br>2. Generate UID2 tokens when a user authenticates using the [GET /token/generate](../endpoints/get-token-generate.md) endpoint. |
+| e | [GET /token/generate](../endpoints/get-token-generate.md) | The token generation service returns UID2 tokens. |
+| f | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Send returned UID2 tokens from step e to the SDK using `identity` mechanism below. The mechanism ensures UID2 tokens are available for the user until they logout. |
 
-### 4. Set a user's UID2 tokens in their browser using the client-side SDK.
-
-Send returned UID2 tokens from step 3 to the [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md).
-
-The mechanism below ensures that UID2 tokens are available for the user until they logout.
+#### Client-Side SDK Identity Mechanism
 
 ```html
 <script>
@@ -32,9 +30,15 @@ The mechanism below ensures that UID2 tokens are available for the user until th
 </script>
 ```
 
-### 5-1. Use a UID2 token to query an SSP for relevant ads.
+### 2. Bid Using UID2 Tokens
 
-The established identity is available client-side for RTB. The following mechanism in the SDK gives access to the identity to pass to SSPs.
+This section focuses on publisher-specific step 2-a illustrated in the above diagram.
+
+| Step | Endpoint/SDK | Instruction |
+| --- | --- | --- |
+| a | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | The established identity is available client-side for bidding. The mechnanism below returns access to a user's `advertising_token` to pass to SSPs. |
+
+#### Client-Side SDK Identity Access Mechanism
 
 ```html
 <script>
@@ -42,14 +46,23 @@ The established identity is available client-side for RTB. The following mechani
 </script>
 ```
 
-### 6. Refresh client-side UID2 identity token.
-UID2 Tokens are refreshed automatically by the [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md). No manual action is required. 
+### 3. Refresh Tokens
+
+| Step | Endpoint/SDK | Instruction |
+| --- | --- | --- |
+| a | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | The SDK automatically refreshes UID2 tokens. No manual action is required. |
+| b | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | If a user hasn't opted out, the refresh token returns new identity tokens. |
 
 If you decide to integrate using options other than the SDK, we recommend refreshing identity tokens every 5 minutes.
 
-### 7-2. Clear user identity.
+### 4. User Logout
 
-Remove UID2 tokens from the user's local storage when they log out. Use the following mechanism from the [UID2 client-side SDK](../sdks/client-side-identity-v1.md) to clear out UID2 tokens.
+| Step | Endpoint/SDK | Instruction |
+| --- | --- | --- |
+| a |  | The user logs out from a publisher asset. |
+| b | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Remove UID2 tokens from the user's local storage thwne they log out. Use the `disconnect` mechanism from the SDK to clear out UID2 tokens. |
+
+#### Client-Side SDK Disconnect Identity
 
 ```html
 <script>
