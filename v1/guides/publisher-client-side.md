@@ -2,7 +2,7 @@
 
 # Overview
 
-This guide covers integration steps for publishers that would like to generate identity tokens utilizing UID2 for the bid stream. This guide focuses on publishers who would like to create UID2 tokens on their own rather than using a single-sign-on or identity provider.
+This guide covers integration steps for publishers with web assets who would like to generate identity tokens utilizing UID2 for the bid stream. This guide focuses on publishers who would like to integrate directly with UID2 to create and manage tokens rather than integrate with UID2-enabled single-sign-on or identity providers.
 
 ## Integration Steps 
 
@@ -16,7 +16,7 @@ This section focuses on publisher-specific steps 1-d, 1-e, and 1-f illustrated i
 
 | Step | Endpoint/SDK | Instruction |
 | --- | --- | --- |
-| d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2.<br>1. Integrate with a UID2-enabled single-sign-on provider.<br>2. Generate UID2 tokens when a user authenticates using the [GET /token/generate](../endpoints/get-token-generate.md) endpoint. |
+| d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2.<br>1. Integrate with a UID2-enabled single-sign-on provider.<br>2. Generate UID2 tokens when a user authenticates using the [GET /token/generate](../endpoints/get-token-generate.md) endpoint. The request includes a user's normalized email addres
 | e | [GET /token/generate](../endpoints/get-token-generate.md) | The token generation service returns UID2 tokens. |
 | f | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Send returned UID2 tokens from step e to the SDK using `identity` mechanism below. The mechanism ensures UID2 tokens are available for the user until they logout. |
 
