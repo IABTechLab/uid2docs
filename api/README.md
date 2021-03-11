@@ -62,9 +62,12 @@ Authenticate to UID2 endpoints using a bearer token in the request's authorizati
 When sending email addresses in a request, normalize email addresses prior to sending.
 
 1. Remove leading and trailing spaces.
-2. Remove `.` (ASCII code 46) from the username of the email address. `jane.doe@example.com` normalizes to `janedoe@example.com`.
-3. Remove `+` (ASCII code 43) and all subsequent characters from the username of the email address. `janedoe+home@example.com` normalizes to `janedoe@example.com`.
-4. Convert all ASCII characters to lowercase.
+2. Convert all ASCII characters to lowercase.
+
+For email accounts ending in gmail.com:
+
+1. Remove `.` (ASCII code 46) from the username of the email address. `jane.doe@gmail.com` normalizes to `janedoe@gmail.com`.
+2. Remove `+` (ASCII code 43) and all subsequent characters from the username of the email address. `janedoe+home@gmail.com` normalizes to `janedoe@gmail.com`.
 
 ## Encoding Query Parameter Values
 

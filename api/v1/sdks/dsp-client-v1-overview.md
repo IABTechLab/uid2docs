@@ -6,6 +6,10 @@ The UID2 RTB SDK facilitates decrypting UID2 tokens to access the raw UID2.
 
 The following describes the general contract for client SDKs. Naming conventions and other things will be language-specific (e.g. C# vs Go).
 
+Currently available libraries:
++ C# 
++ C++
+
 ## Initialization
 
 | Parameter | Description |
@@ -37,7 +41,7 @@ Response Statuses
 
 | Value | Description |
 | --- | --- |
-| `Success` | UID token was successfully decrypted |
+| `Success` | UID2 token was successfully decrypted |
 | `NotAuthorizedForKey` | The client does not have the right to decrypt this identity|
 | `NotInitialized` | The client library is waiting to be initialized |
 | `InvalidPayload` | The incoming encrypted token is not a valid payload |

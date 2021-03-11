@@ -26,7 +26,7 @@ curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Beare
         "user@example.com"
     ],
     "email_hash":[
-        "795BCB4BF560F9867AFB3DE2D0D3A94976324007C45EA099EC14E90231540547"
+        "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc="
     ]    
 }'
 ```
@@ -45,7 +45,7 @@ The response is a JSON object containing the user's UID2 identifier and bucket i
                 "bucket_id": "bucketId"
             },
             {
-                "identifier": "795BCB4BF560F9867AFB3DE2D0D3A94976324007C45EA099EC14E90231540547",
+                "identifier": "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
                 "advertising_id": "AdvIvSiaum0P5s3X/7X8h8sz+OhF2IG8DNbEnkWSbYM=",
                 "bucket_id": "bucketId"
             }

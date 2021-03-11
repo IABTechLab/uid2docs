@@ -29,7 +29,7 @@ curl -L -X GET 'https://integ.uidapi.com/v1/identity/map?email=username@example.
 #### Example Request Using an Email Hash
 
 ```sh
-curl -L -X GET 'https://integ.uidapi.com/v1/identity/map?email_hash=795BCB4BF560F9867AFB3DE2D0D3A94976324007C45EA099EC14E90231540547' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X GET 'https://integ.uidapi.com/v1/identity/map?email_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
 ## Response
