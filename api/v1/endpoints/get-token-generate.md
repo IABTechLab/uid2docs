@@ -1,4 +1,4 @@
-[UID2 Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /token/generate
+[UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /token/generate
 
 # GET /token/generate
 Generate a UID2 token from an email address or hashed email address.

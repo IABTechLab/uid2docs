@@ -1,4 +1,4 @@
-[UID2 Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /identity/map
+[UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /identity/map
 
 # GET /identity/map
 

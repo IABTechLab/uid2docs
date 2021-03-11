@@ -1,103 +1,14 @@
-# Unified ID 2.0 API Documentation
+# UID 2.0
 
-## Table Of Contents
-* [Overview](#overview)
-* [Contact Info](#contact-info)
-* [Environment](#environment)
-* [Authentication](#authentication)
-* [Email Normalization](#email-normalization)
-* [Encoding Query Parameter Values](#encoding-query-parameter-values)
-* [Response Structure and Status Codes](#response-structure-and-status-codes)
-* [Endpoints](#endpoints)
-* [Integration Guides](#integration-guides)
-* [License](#license)
+| [Click here to visit the UID 2.0 API Documentation](/api/README.md)
 
+## Introduction
 
-## Overview
+Addressable advertising enables publishers and developers to provide the content and services consumers have come to enjoy, whether through mobile apps, streaming TV, or web experiences. This value exchange of the open internet has not always been well understood by, or communicated to, consumers. As the industry reduces reliance on the third-party cookie, we have an opportunity to move towards a new and better approach to identity for the open internet. This improved approach empowers content creators to have the value exchange conversations with consumers while giving them more control and transparency over their data. 
 
-**Building a better foundation for identity on the open internet**
+Unified ID 2.0 (UID2) is a deterministic identifier based on PII (e.g., email or phone number) with complete user transparency and privacy controls. The UID2 identifier ties logged-in experiences from publisher websites, mobile apps, and CTV apps. With several layers of security and privacy measures, UID2s safely distribute across the open internet. Initially built by The Trade Desk, responsibility for UID2 will transfer in mid-2021 to independent organizations for open-source code management, governance, administration, and system operations. UID2 is non-proprietary and accessible to constituents across the advertising ecosystem - including Advertisers, Publishers, DSPs, SSPs, SSOs, CDPs, CMPs, Identity Providers, Data Providers, and Measurement Providers - while they remain in compliance with a code of conduct.
 
-Addressable advertising enables publishers and developers to provide the content and services consumers have come to enjoy, whether through mobile apps, streaming TV, or web experiences. The value exchange of the open internet has not always been well understood by, or communicated to, consumers. As the industry reduces reliance on the third-party cookie, we have an opportunity to move towards a new and better approach to identity for the open internet. The improved approach empowers content creators to have value exchange conversations with consumers while giving them more control and transparency over their data. 
-
-Unified ID 2.0 (UID2) is a deterministic identifier based on authenticated PII (e.g., email or phone number) with complete user transparency and privacy controls. The UID2 identifier ties to logged-in experiences applied to publisher websites, mobile apps, and CTV apps. With several layers of privacy protection, UID2s can safely distribute across the open internet. Initially built by The Trade Desk, operational responsibility for UID2 will transfer in mid-2021 to an independent organization. The independent organization will open-source the relevant code. UID2 is non-proprietary and accessible to constituents across the advertising ecosystem - including Advertisers, Publishers, DSPs, SSPs, SSOs, CDPs, CMPs, Identity Providers, Data Providers, and Measurement Providers - while they remain in compliance with a code of conduct. 
-
-UID2’s goal is to enable deterministic identity for advertising opportunities on the open internet with full consumer transparency and controls. UID2 provides a collaborative framework for all constituents and a healthy, open internet by utilizing a transparent and interoperable approach. 
-
-**Guiding Principles**
-
-+ Independently Governed: UID2 will be operated by unbiased organizations, with the transition from The Trade Desk to independent governance anticipated mid-2021. The Trade Desk built the framework and code to transition to the independent governing body. 
-+ Interoperable: UID2 is accessible to all constituents in the advertising ecosystem who abide by the code of conduct. This includes DSPs, SSPs, data providers, measurement providers, and identity services. 
-+ Open Source: UID2 is transparent and offers its code open-source.   
-+ Nonproprietary: UID2 provides a collaborative framework for all constituents in the advertising ecosystem who are willing to comply with a code of conduct. 
-+ Secure and Privacy-Safe: UID2 leverages multiple layers of security, cryptography, and encryption to ensure user PII and data is safe. 
-+ Transparency and Control: Users understand where their ID is shared and what data is associated with it. Users have control to revoke their consent and permissions. 
-
-## Contact Info
-
-For access to UID2, contact the relevant team at The Trade Desk shown below. Contacting The Trade Desk for access is temporary. When the system moves to independent governance, the governing organizations will handle access requests.
-
-| If you are a... | Contact Email |
-| --- | --- |
-| App Developer<br>Publisher | UID2publishers@thetradedesk.com |
-| Agency<br>Brand<br>CDP<br>Data Provider<br>DSP<br>SSP | UID2partners@thetradedesk.com |
-
-## Environment 
-
-All UID2 endpoints use the same base URL.
-
-| Environment | Base URL |
-| --- | --- |
-| Testing | ```https://integ.uidapi.com/v1``` |
-
-e.g. https://integ.uidapi.com/v1/token/generate
-
-## Authentication
-
-Authenticate to UID2 endpoints using a bearer token in the request's authorization header. 
-
-```Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=```
-
-## Email Normalization
-
-When sending email addresses in a request, normalize email addresses prior to sending.
-
-1. Remove leading and trailing spaces.
-2. Remove `.` (ASCII code 46) from the username of the email address. `jane.doe@example.com` normalizes to `janedoe@example.com`.
-3. Remove `+` (ASCII code 43) and all subsequent characters from the username of the email address. `janedoe+home@example.com` normalizes to `janedoe@example.com`.
-4. Convert all ASCII characters to lowercase.
-
-## Encoding Query Parameter Values
-
-When passing query parameter values in with a request, ensure the query parameter value is URL-encoded. Use Javascript's `encodeURIcomponent()` or your coding language's equivalent.
-
-## Response Structure and Status Codes
-
-All endpoints return responses utilizing the following body and status messaging structure. The `status` property may include endpoint-specific values. The `message` property returns additional information for non-`success` statuses.
-
-```json
-{
-    "status": [success|unauthorized|client_error|...]
-    "body": {
-        "property": "propertyValue"
-    }
-    "message": "Descriptive message"
-}
-```
-
-| Status | HTTP Status Code | Additional Notes |
-| --- | --- | --- |
-| `success` | 200 | |
-| `optout` | 200 | This status only returns for authorized requests. The user opted out. |
-| `client_error` | 400 | See the `message` field for more information about missing or invalid parameters. |
-| `invalid_token` | 400 | This status only returns for authorized requests. The request specified an invalid identity token. |
-| `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested action. |
-
-## Endpoints
-
-[Click here to view an endpoint listing.](/v1/endpoints/README.md)
-
-## Integration Guides
-[Click here to view integration guides.](/v1/guides/README.md)
+UID2’s goal is to enable deterministic identity for advertising opportunities on the open internet with consumer transparency and controls. UID2 provides a collaborative framework for all constituents and a healthy, open internet by utilizing a transparent and interoperable approach.
 
 ## License
 All work and artifacts are licensed under the Apache License, Version 2.0. See [LICENSE](http://www.apache.org/licenses/LICENSE-2.0.txt) for the full license text.

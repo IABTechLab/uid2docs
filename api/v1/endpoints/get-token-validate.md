@@ -1,4 +1,4 @@
-[UID2 Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /token/validate
+[UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /token/validate
 
 # GET /token/validate
 Validate that an advertising token matches the provided email or email hash. This is primarily used for testing and troubleshooting new integrations and is not a primary step in the publisher workflow.

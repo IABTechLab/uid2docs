@@ -1,4 +1,4 @@
-[UID2 Documentation](../../README.md) > v1 > [SDKs](./README.md) > RTB Sdk
+[UID2 API Documentation](../../README.md) > v1 > [SDKs](./README.md) > RTB Sdk
 
 # RTB SDK Client
 

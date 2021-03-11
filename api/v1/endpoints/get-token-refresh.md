@@ -1,4 +1,4 @@
-[UID2 Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /token/refresh
+[UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /token/refresh
 
 # GET /token/refresh
 Generate a new token for a user by specifying their `refresh_token` obtained from earlier response from [GET /token/generate](./get-token-generate.md).
