@@ -272,7 +272,7 @@ Publishers, SSOs, or consent management platforms disclose links to the Transpar
 
 #### Why do advertisers/data providers not need to integrate with the opt-out feed?
 
-Opt-outs relate to opting out of targeted advertising, which is handled through the publisher and DSP opt-out workflows. If the consumer wishes to disengage with a specific advertiser, they need to contact the advertiser directly. <The T&C Portal will link to an advertiser privacy policy where they can request deletion of their data.>
+Opt-outs relate to opting out of targeted advertising, which is handled through the publisher and DSP opt-out workflows. If the consumer wishes to disengage with a specific advertiser, they need to contact the advertiser directly. 
 
 
 
