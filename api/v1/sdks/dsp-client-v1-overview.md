@@ -18,7 +18,7 @@ The initialization function configures the parameters necessary for the SDK to a
 | Parameter | Description |
 | --- | --- | 
 | `endpoint` | Endpoint for UID2 service |
-| `authKey` | Authentication token belonging to the client |
+| `authKey` | Authentication token belonging to the client. See [Contact Info](../../README.md#contact-info) for more information on how to access UID2. |
 | `refreshIntervalMs` | Refresh cadence in milliseconds for fetching the decryption keys<br>Recommended value: 5 minutes (`300,000` milliseconds) |
 | `retryIntervalMs` | Retry cadence in milliseconds to retry the request when encountering an error<br> Recommended value: 30 seconds (`30,000` milliseconds) |
 
@@ -47,7 +47,7 @@ Response Statuses
 | Value | Description |
 | --- | --- |
 | `Success` | The UID2 token decrypted successfully and a UID2 was returned. |
-| `NotAuthorizedForKey` | TThe requester does not have authorization to decrypt this UID2 token.|
+| `NotAuthorizedForKey` | The requester does not have authorization to decrypt this UID2 token.|
 | `NotInitialized` | The client library is waiting to be initialized. |
 | `InvalidPayload` | The incoming UID2 token is not a valid payload. |
 | `ExpiredToken` | The incoming UID2 token is expired. |
