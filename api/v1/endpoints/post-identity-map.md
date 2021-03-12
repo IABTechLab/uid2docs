@@ -2,7 +2,7 @@
 
 # POST /identity/map
 
-Retrieve advertising and bucket IDs for multiple email addresses or email hashes. Send a maximum of 10,000 combined `email` or `email_hash` per request. In the event `email` and `email_hash` are sent in the same request, only `email` will be processed.
+Retrieve advertising and bucket IDs for multiple email addresses or email hashes. Send a maximum of 10,000 combined `email` or `email_hash` per request.
 
 Integration workflows that use this endpoint:
 * [Advertiser/Data Provider](../guides/advertiser-dataprovider-guide.md)
@@ -17,6 +17,8 @@ Integration workflows that use this endpoint:
 | --- | --- | --- | --- |
 | `email` | `string` | Conditionally Required | The [normalized email address](../../README.md#emailnormalization) of a user. Required when `email_hash` is not included in the request. |
 | `email_hash` | `string` | Conditionally Required | The [base64-encoded SHA256 hash](../../README.md#encoding-email-hashes) of the [normalized email address](../../README.md#emailnormalization) of a user. Required when `email` is not included in the request. |
+
+If `email` and `email_hash` are both supposed in the same request, only the `email` will return a mapping response.
 
 #### Example Request Using an Email Address and an Email Hash
 

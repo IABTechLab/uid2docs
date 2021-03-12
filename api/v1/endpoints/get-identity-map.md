@@ -2,7 +2,7 @@
 
 # GET /identity/map
 
-Retrieve advertising and bucket IDs for one `email` or `email_hash`. In the event `email` and `email_hash` are sent in the same request, only `email` will be processed.
+Retrieve advertising and bucket IDs for one `email` or `email_hash`. 
 
 Integration workflows that use this endpoint:
 * [Advertiser/Data Provider](../guides/advertiser-dataprovider-guide.md)
