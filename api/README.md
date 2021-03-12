@@ -73,6 +73,17 @@ For email accounts ending in gmail.com:
 
 When passing query parameter values in with a request, ensure the query parameter value is URL-encoded. Use Javascript's `encodeURIcomponent()` or your coding language's equivalent.
 
+## Encoding Email Hashes
+
+Email hashes are base64-encoded SHA256 hashes of the normalized email address.
+
+| Type | Example | Use |
+| --- | --- | --- |
+| Email | `user@example.com` | |
+| SHA256 of email | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | |
+| base64-encoded SHA256 of email | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | Use this encoding for `email_hash` values sent in the request body. |
+| URL-encoded, base64-encoded SHA256 of email| `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf%2FF5HVRQ%3D` | Use this encoding for `email_hash` query parameter values. |
+
 ## Response Structure and Status Codes
 
 All endpoints return responses utilizing the following body and status messaging structure. The `status` property may include endpoint-specific values. The `message` property returns additional information for non-`success` statuses.
