@@ -18,7 +18,7 @@ There are two components for DSP integrations.
 
 In order to receive and honor user opt-outs from the UID2 service, DSPs establish a pre-configured interface and provides it to the UID2 service during onboarding. The UID2 service sends the user's UID2 and an opt-out timestamp to the pre-determined interface. Examples of interfaces include webhooks and API endpoints.
 
-The UID2 service will send the following data, which the DSP records and uses the bidding logic defined in [2](#2-decrypt-uid2-tokens-to-use-in-rtb).
+The UID2 service will send the following data within seconds of a user's opt-out, which the DSP records and uses the bidding logic defined in [2](#2-decrypt-uid2-tokens-to-use-in-rtb).
 
 | Parameter | Description |
 | --- | --- |
