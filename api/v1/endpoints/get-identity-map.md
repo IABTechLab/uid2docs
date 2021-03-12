@@ -2,7 +2,7 @@
 
 # GET /identity/map
 
-Retrieve advertising and bucket IDs for one `email` or `email_hash`.
+Retrieve advertising and bucket IDs for one `email` or `email_hash`. In the event `email` and `email_hash` are sent in the same request, only `email` will be processed.
 
 Integration workflows that use this endpoint:
 * [Advertiser/Data Provider](../guides/advertiser-dataprovider-guide.md)
@@ -16,7 +16,7 @@ Integration workflows that use this endpoint:
 | Query Parameter | Data Type | Attributes | Description |
 | --- | --- | --- | --- |
 | `email` | `string` | Conditionally Required | The [normalized email address](../../README.md#emailnormalization) of a user. Required when `email_hash` is not included in the request. |
-| `email_hash` | `string` | Conditionally Required | The base64-encoded SHA256 hash of the [normalized email address](../../README.md#emailnormalization) of a user. Required when `email` is not included in the request. |
+| `email_hash` | `string` | Conditionally Required | The [URL-encoded, base64-encoded SHA256 hash](../../README.md#encoding-email-hashes) of the [normalized email address](../../README.md#emailnormalization) of a user. Required when `email` is not included in the request. |
 
 If `email` and `email_hash` are both supposed in the same request, only the `email` will return a mapping response.
 
