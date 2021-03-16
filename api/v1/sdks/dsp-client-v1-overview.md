@@ -54,4 +54,8 @@ Response Statuses
 | `KeysNotSynced` | The client has failed to synchronize keys from UID2 service. |
 | `VersionNotSupported` |  The client library does not support the encrypted token's version. |
 
+## Frequently Asked Questions
 
+### How do SDK errors impact the DSP's ability to respond to a bid?
+
+If there is an error, the SDK will not decrypt the UID2 token into a UID2. 
