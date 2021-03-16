@@ -15,7 +15,7 @@ The only accepted email or email hash for this endpoint is `validate@email.com`.
 | --- | --- | --- | --- |
 | `token` | `string` | ? | The `advertising_token` obtained from [GET /token/generate](./get-token-generate.md). |
 | `email` | `string` | Conditionally Required | The normalized email address of a user. Required when `email_hash` is not included in the request. |
-| `email_hash` | `string` | Conditionally Required | The SHA256 hash of the normalized email address of a user. Required when `email` is not included in the request. |
+| `email_hash` | `string` | Conditionally Required | The [URL-encoded, base64-encoded SHA256 hash](../../README.md#encoding-email-hashes) of the normalized email address of a user. Required when `email` is not included in the request. |
 
 #### Example Request Using an Email Address
 
@@ -26,7 +26,7 @@ curl -L -X GET 'https://integ.uidapi.com/v1/token/validate?token=AdvertisingToke
 #### Example Request Using an Email Hash
 
 ```sh
-curl -L -X GET 'https://integ.uidapi.com/v1/token/validate?token=AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=&email_hash=795BCB4BF560F9867AFB3DE2D0D3A94976324007C45EA099EC14E90231540547' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X GET 'https://integ.uidapi.com/v1/token/validate?token=AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=&email_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
 ## Response

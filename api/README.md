@@ -7,6 +7,7 @@
 * [Authentication](#authentication)
 * [Email Normalization](#email-normalization)
 * [Encoding Query Parameter Values](#encoding-query-parameter-values)
+* [Encoding Email Hashes](#encoding-email-hashes)
 * [Response Structure and Status Codes](#response-structure-and-status-codes)
 * [Endpoints](#endpoints)
 * [Integration Guides](#integration-guides)
@@ -15,22 +16,7 @@
 
 ## Overview
 
-**Building a better foundation for identity on the open internet**
-
-Addressable advertising enables publishers and developers to provide the content and services consumers have come to enjoy, whether through mobile apps, streaming TV, or web experiences. The value exchange of the open internet has not always been well understood by, or communicated to, consumers. As the industry reduces reliance on the third-party cookie, we have an opportunity to move towards a new and better approach to identity for the open internet. The improved approach empowers content creators to have value exchange conversations with consumers while giving them more control and transparency over their data. 
-
-Unified ID 2.0 (UID2) is a deterministic identifier based on authenticated PII (e.g., email or phone number) with complete user transparency and privacy controls. The UID2 identifier ties to logged-in experiences applied to publisher websites, mobile apps, and CTV apps. With several layers of privacy protection, UID2s can safely distribute across the open internet. Initially built by The Trade Desk, operational responsibility for UID2 will transfer in mid-2021 to an independent organization. The independent organization will open-source the relevant code. UID2 is non-proprietary and accessible to constituents across the advertising ecosystem - including Advertisers, Publishers, DSPs, SSPs, SSOs, CDPs, CMPs, Identity Providers, Data Providers, and Measurement Providers - while they remain in compliance with a code of conduct. 
-
-UID2’s goal is to enable deterministic identity for advertising opportunities on the open internet with full consumer transparency and controls. UID2 provides a collaborative framework for all constituents and a healthy, open internet by utilizing a transparent and interoperable approach. 
-
-**Guiding Principles**
-
-+ Independently Governed: UID2 will be operated by unbiased organizations, with the transition from The Trade Desk to independent governance anticipated mid-2021. The Trade Desk built the framework and code to transition to the independent governing body. 
-+ Interoperable: UID2 is accessible to all constituents in the advertising ecosystem who abide by the code of conduct. This includes DSPs, SSPs, data providers, measurement providers, and identity services. 
-+ Open Source: UID2 is transparent and offers its code open-source.   
-+ Nonproprietary: UID2 provides a collaborative framework for all constituents in the advertising ecosystem who are willing to comply with a code of conduct. 
-+ Secure and Privacy-Safe: UID2 leverages multiple layers of security, cryptography, and encryption to ensure user PII and data is safe. 
-+ Transparency and Control: Users understand where their ID is shared and what data is associated with it. Users have control to revoke their consent and permissions. 
+[Learn more about Unified ID 2.0 here.](../README.md)
 
 ## Contact Info
 
@@ -66,12 +52,25 @@ When sending email addresses in a request, normalize email addresses prior to se
 
 For email accounts ending in gmail.com:
 
-1. Remove `.` (ASCII code 46) from the username of the email address. `jane.doe@gmail.com` normalizes to `janedoe@gmail.com`.
-2. Remove `+` (ASCII code 43) and all subsequent characters from the username of the email address. `janedoe+home@gmail.com` normalizes to `janedoe@gmail.com`.
+1. Remove leading and trailing spaces.
+2. Convert all ASCII characters to lowercase.
+3. Remove `.` (ASCII code 46) from the username of the email address. `jane.doe@gmail.com` normalizes to `janedoe@gmail.com`.
+4. Remove `+` (ASCII code 43) and all subsequent characters from the username of the email address. `janedoe+home@gmail.com` normalizes to `janedoe@gmail.com`.
 
 ## Encoding Query Parameter Values
 
 When passing query parameter values in with a request, ensure the query parameter value is URL-encoded. Use Javascript's `encodeURIcomponent()` or your coding language's equivalent.
+
+## Encoding Email Hashes
+
+Email hashes are base64-encoded SHA256 hashes of the normalized email address.
+
+| Type | Example | Use |
+| --- | --- | --- |
+| Email | `user@example.com` | |
+| SHA256 of email | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | |
+| base64-encoded SHA256 of email | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | Use this encoding for `email_hash` values sent in the request body. |
+| URL-encoded, base64-encoded SHA256 of email| `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf%2FF5HVRQ%3D` | Use this encoding for `email_hash` query parameter values. |
 
 ## Response Structure and Status Codes
 
@@ -79,10 +78,10 @@ All endpoints return responses utilizing the following body and status messaging
 
 ```json
 {
-    "status": [success|unauthorized|client_error|...]
+    "status": "success",
     "body": {
         "property": "propertyValue"
-    }
+    },
     "message": "Descriptive message"
 }
 ```
