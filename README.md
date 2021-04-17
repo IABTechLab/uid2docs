@@ -6,7 +6,7 @@
 
 Addressable advertising enables publishers and developers to provide the content and services consumers have come to enjoy, whether through mobile apps, streaming TV, or web experiences. This value exchange of the open internet has not always been well understood by, or communicated to, consumers. As the industry reduces reliance on the third-party cookie, we have an opportunity to improve how we identify consumers in the open internet. This improved identification empowers content creators to engage customers with value exchange conversations. Customers benefit equally by relaxing their privacy concerns--gaining more control and transparency over their data.
 
-Unified ID 2.0 (UID2) is a deterministic identifier based on PII (e.g., email or phone number) with complete user transparency and privacy controls. The UID2 identifier ties logged-in experiences from publisher websites, mobile apps, and CTV apps. Benefitting from several layers of security and privacy measures, UID2s safely distribute across the open internet. Initially built (and maintained? --Udhaya) by The Trade Desk, stewardship of UID2 will transfer (in mid-2021) to independent organizations for open-source code management, governance, administration, and system operations. UID2 is a non-proprietary standard and accessible to constituents across the advertising ecosystem--including Advertisers, Publishers, DSPs, SSPs, SSOs, CDPs, CMPs, Identity Providers, Data Providers, and Measurement Providers--while they remain in compliance with a code of conduct.
+Unified ID 2.0 (UID2) is a deterministic identifier based on PII (e.g., email or phone number) with complete user transparency and privacy controls. The UID2 identifier ties logged-in experiences from publisher websites, mobile apps, and CTV apps. Benefitting from several layers of security and privacy measures, UID2s safely distribute across the open internet. Initially built and maintained? by The Trade Desk, stewardship of UID2 will transfer (in mid-2021) to independent organizations for open-source code management, governance, administration, and system operations. UID2 is a non-proprietary standard and accessible to constituents across the advertising ecosystem--including Advertisers, Publishers, DSPs, SSPs, SSOs, CDPs, CMPs, Identity Providers, Data Providers, and Measurement Providers--while they remain in compliance with a code of conduct.
 
 UID2’s goal is to enable deterministic identity for advertising opportunities on the open internet with consumer transparency and controls in place. UID2 provides a collaborative framework for all constituents and a healthy, open internet by utilizing a transparent and interoperable approach.
 
@@ -73,7 +73,7 @@ UID2 Tokens are designed to be stored by publishers, SSOs, and SSPs. DSPs decryp
 
 **Self-Reliant:** No reliance on external services for real-time processing of RTB data.
 
-![Key Management](/images/key_mgmt.jpg)
+![Key Management](/images/key_mgmt.png)
 
 ### UID2 Administrator
 
@@ -125,14 +125,6 @@ This organization audits all the participant UID2 parties for compliance against
 
 There are four key workflows that make up the UID2 ecosystem:
 ![The UID2 Ecosystem](/images/macro_view.png)
-
-[//]: # (In the above diagram, I recommend putting an either-or fork for UID Core at steps 3 and 4 to either send Deletion Requests/Opt outs or Salt)
-
-[//]: # (Buckets and Encryption Keys, this could be a diamond in the flowchart with a Yes going one route and No going the other route.  It’s further)
-
-[//]: # (complicated that the Deletion Requests go from UID Core to ID Operators and also in parallel to the DSPs. A decision fork with three outputs)
-
-[//]: # (or two for Yes and one for No.--Udhaya)
 
 The following sections drill down on each workflow separately to further illuminate their place in the entire UID2 process.
 - Buy-Side Workflow
@@ -205,9 +197,6 @@ Integrate with the UID2 Operator to generate UID2s and handle salt bucket rotati
 ### Publisher Workflow
 
 This workflow is for organizations that propagate IDs to the bid stream via SSPs. Publisher organizations include identity providers, publishers, and SSOs.
-[//]: # (Kanishk had mentioned that SSP should be changed to Publisher, however in the SSP Workflow both Publisher and SSP show up as separate agents)
-
-[//]: # (performing together, so I’m a bit confused here. --Udhaya)
 
 ![Publisher Workflow](/images/Publisher_workflow.png)
 
