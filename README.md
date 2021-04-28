@@ -26,7 +26,7 @@ UID2’s goal is to enable deterministic identity for advertising opportunities 
 
 ## Roles
 
-UID2 Participants must chose a predefined Role (or Roles) based on how they will be leveraging UID2. The Role determines how a given UID2 Participany interacts with the UID2 System and the workflows (outlined below) they follow. The role also determines their code of conduct requirements and correspond compliance checks.
+UID2 Participants must chose a predefined Role (or Roles) based on how they will be leveraging UID2. The Role determines how a given UID2 Participant interacts with the UID2 System and the workflows (outlined below) they follow. The role also determines their code of conduct requirements and correspond compliance checks.
 
 UID2 Particiapants can play more than one role.
 
