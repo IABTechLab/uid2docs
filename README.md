@@ -6,23 +6,39 @@
 
 Addressable advertising enables publishers and developers to provide the content and services consumers have come to enjoy, whether through mobile apps, streaming TV, or web experiences. This value exchange of the open internet has not always been well understood by, or communicated to, consumers. As the industry reduces reliance on the third-party cookie, we have an opportunity to improve how we identify consumers in the open internet. This improved identification empowers content creators to engage customers with value exchange conversations. Customers benefit equally by relaxing their privacy concerns--gaining more control and transparency over their data.
 
-Unified ID 2.0 (UID2) is a deterministic identifier based on PII (for example, email or phone number) with complete user transparency and privacy controls. The UID2 identifier ties logged-in experiences from publisher websites, mobile apps, and CTV apps. Benefitting from several layers of security and privacy measures, UID2s safely distribute across the open internet. Initially built and maintained by The Trade Desk, stewardship of UID2 will transfer (in mid-2021) to independent organizations for open-source code management, governance, administration, and system operations. UID2 is a non-proprietary standard and accessible to constituents across the advertising ecosystem--including Advertisers, Publishers, DSPs, SSPs, SSOs, CDPs, CMPs, Identity Providers, Data Providers, and Measurement Providers--while they remain in compliance with a code of conduct.
+Unified ID 2.0 (UID2) is a deterministic identifier based on PII (for example, email or phone number) with complete user transparency and privacy controls. The UID2 identifier enables logged-in experiences from publisher websites, mobile apps, and CTV apps to monetize through programtic workflows. Benefitting from several layers of security and privacy measures, UID2s safely distribute across the open internet. Initially built and maintained by The Trade Desk, stewardship of UID2 will transfer (in mid-2021) to independent organizations for open-source code management, governance, administration, and system operations. UID2 is a non-proprietary standard and accessible to constituents across the advertising ecosystem--including Advertisers, Publishers, DSPs, SSPs, SSOs, CDPs, CMPs, Identity Providers, Data Providers, and Measurement Providers--while they remain in compliance with a code of conduct.
 
 UID2’s goal is to enable deterministic identity for advertising opportunities on the open internet with consumer transparency and controls in place. UID2 provides a collaborative framework for all constituents and a healthy, open internet by utilizing a transparent and interoperable approach.
 
 ## Guiding Principles
 
-**Independent Government:** UID2 will be governed by unbiased third-party organizations, with the transition from The Trade Desk anticipated mid-2021.
+**Independent Government:** UID2 will be governed by unbiased third-party organizations, with the transition from The Trade Desk anticipated in 2021.
 
 **First-Party Relationships:** UID2 allows advertisers to easily activate their first-party data on publishers across the open internet.
 
 **Non-Proprietary (Universal) Standard:** UID2 is accessible to all constituents in the advertising ecosystem who abide by the code of conduct, and no individual company controls access. This includes DSPs, SSPs, data providers, measurement providers, and identity services. Open Source: UID2 code will be transparent via an open-source framework.
 
-**Interoperable:** UID2 allows other identity solutions to integrate and provide UID2s with their offering.
+**Interoperable:** UID2 allows other identity solutions (commercial and/or proprietary) to integrate and provide UID2s with their offering.
 
 **Secure and Encrypted Data:** UID2 leverages multiple layers of security, cryptography, and encryption to secure PII and user data.
 
 **Transparency and Control:** Consumers understand where their ID is shared and what data is associated with it. Consumers also hold the right to revoke their consent and permissions.
+
+## Roles
+
+UID2 Participants must chose a predefined Role (or Roles) based on how they will be leveraging UID2. The Role determines how a given UID2 Participany interacts with the UID2 System and the workflows (outlined below) they follow. The role also determines their code of conduct requirements and correspond compliance checks.
+
+UID2 Particiapants can play more than one role.
+
+**Publisher:** Consumer facing websites, mobile apps, or CV apps with authenticated PII.
+
+**Advertiser:** Brands with first party consumer data tied to PII.
+
+**DSP:** Software platforms for purchasing advertising bid requests in advertising exchanges.
+
+**Data Provider:** Licensor of data based products for cross device capabilities, targeting, and measurement with access to PII.
+
+**Operator:** Entity that hosts and runs the API to processes PII into UID2s; can limit availability to internal PII (Closed Operator) or allow for third party availability (Open Operator)
 
 ## Components
 
@@ -32,7 +48,7 @@ UID2’s goal is to enable deterministic identity for advertising opportunities 
 
 The UID2 (raw UID2) is an unencrypted alphanumeric identifier created through a set of APIs or SDKs using a user’s verifiable and authenticated PII as an input. Examples of PII are an email address or phone number.
 
-A UID2 is designed to be stored by advertisers, data providers, and DSPs and is never shared in the bid stream.
+A UID2 is designed to be stored by advertisers, data providers, and DSPs and is never shared in the bid stream. Note that the UID2 Token (or encrypted form of the UID2) is shared in the bid stream.
 
 ##### Technical Details
 
@@ -42,17 +58,17 @@ A UID2 is designed to be stored by advertisers, data providers, and DSPs and is 
 
 - Each UID2 is assigned a salt bucket. The salt for each bucket rotates once every 12 months. Each salt bucket has an alphanumeric designation between 1 and 1,000,000.
 
-- Members who store UID2s monitor the UID2 Operator API to know when a UID2’s salt bucket rotated.
+- Participants who store UID2s monitor the UID2 Operator API to know when a UID2’s salt bucket rotated.
 
 #### UID2 Token
 
-Encrypting raw UID2s creates UID2 tokens, which are transient for bid stream workflows. By utilizing cryptographic nonces and encryption, the UID2 token is different every time it enters the bid stream. This secures the UID2 ecosystem and prevents non-members from building profiles using UID2 tokens.
+Encrypting raw UID2s creates UID2 Tokens, which are transient for bid stream workflows. By utilizing cryptographic nonces and encryption, the UID2 Token is different every time it enters the bid stream. This secures the UID2 ecosystem and prevents non-UID2 participants from building profiles using UID2 tokens.
 
-UID2 Tokens are designed to be stored by publishers, SSOs, and SSPs. DSPs decrypt them at bid request time.
+UID2 Tokens are designed to be stored by publishers or publsiher service providers (e.g. SSOs). SSPs pass the UID2 Token in bid stream and DSPs decrypt them at bid request time.
 
 ##### Technical Details
 
-- A cryptographic nonce is generated and appended to the UID2, which is then encrypted to create the UID2 tokens.
+- A cryptographic nonce is generated and appended to the UID2, which is then encrypted to create the UID2 Tokens.
 
   - A nonce is an arbitrary number that may only be used once.
   - AES/CBC/PKCS5P with 256-bit keys are used for encryption and rotate on a daily basis.
@@ -65,7 +81,7 @@ UID2 Tokens are designed to be stored by publishers, SSOs, and SSPs. DSPs decryp
 
 **Accountability:** Access requires members to abide by a code of conduct governed by an independent body.
 
-**Distributed Integration:** Multiple certified integration paths provide options for publishers and advertisers to generate UID2s.
+**Distributed Integration:** Multiple certified integration paths provide options for publishers, advertisers, and data providers to generate UID2s.
 
 **Decentralized Storage:** Centralized location with PII-to-UID2 mapping has been eliminated to block malicious actors.
 
@@ -89,7 +105,7 @@ The centralized service managing access to the distributed UID2 ecosystem.
 
 ### UID2 Operator
 
-These organizations operate the API to generate and manage UID2s and UID2 tokens. Multiple operators comprise the UID2 infrastructure. Participants have the option to select an Operator or become Operators themselves.
+These organizations operate the API to generate and manage UID2s and UID2 tokens. Multiple operators comprise the UID2 System. Participants have the option to select an Operator or become Operators themselves.
 
 #### Functions
 
@@ -111,7 +127,7 @@ The service providing a user-facing website and an underlying API to enable user
 
 - Provides users a way to globally opt out of UID2, which triggers opt-out requests to all UID2 data holders.
 
-### UID2 Auditor
+### UID2 Compliance Manager
 
 This organization audits all the participant UID2 parties for compliance against a stated code of conduct.
 
