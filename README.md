@@ -26,19 +26,19 @@ UID2’s goal is to enable deterministic identity for advertising opportunities 
 
 ## Roles
 
-UID2 Participants must chose a predefined Role (or Roles) based on how they will be leveraging UID2. The Role determines how a given UID2 Participant interacts with the UID2 System and the workflows (outlined below) they follow. The role also determines their code of conduct requirements and correspond compliance checks.
+UID2 Participants must choose a predefined Role (or Roles) based on how they will be leveraging UID2. The Role determines how a given UID2 Participant interacts with the UID2 System and the workflows (outlined below) they follow. The role also determines their code of conduct requirements and correspond compliance checks.
 
-UID2 Particiapants can play more than one role.
+UID2 Participants can play more than one role.
 
 **Publisher:** Consumer facing websites, mobile apps, or CV apps with authenticated PII.
 
-**Advertiser:** Brands with first party consumer data tied to PII.
+**Advertiser:** Brands with first-party consumer data tied to PII.
 
 **DSP:** Software platforms for purchasing advertising bid requests in advertising exchanges.
 
-**Data Provider:** Licensor of data based products for cross device capabilities, targeting, and measurement with access to PII.
+**Data Provider:** Licensor of data-based products for cross-device capabilities, targeting, and measurement with access to PII.
 
-**Operator:** Entity that hosts and runs the API to processes PII into UID2s; can limit availability to internal PII (Closed Operator) or allow for third party availability (Open Operator)
+**Operator:** Entity that hosts and runs the API to process PII into UID2s; can limit availability to internal PII (Closed Operator) or allow for third-party availability (Open Operator)
 
 ## Components
 
@@ -64,7 +64,7 @@ A UID2 is designed to be stored by advertisers, data providers, and DSPs and is 
 
 Encrypting raw UID2s creates UID2 Tokens, which are transient for bid stream workflows. By utilizing cryptographic nonces and encryption, the UID2 Token is different every time it enters the bid stream. This secures the UID2 ecosystem and prevents non-UID2 participants from building profiles using UID2 tokens.
 
-UID2 Tokens are designed to be stored by publishers or publsiher service providers (e.g. SSOs). SSPs pass the UID2 Token in bid stream and DSPs decrypt them at bid request time.
+UID2 Tokens are designed to be stored by publishers or publsiher service providers (for example, SSOs). SSPs pass the UID2 Token in bid stream and DSPs decrypt them at bid request time.
 
 ##### Technical Details
 
