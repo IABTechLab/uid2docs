@@ -119,7 +119,7 @@ These organizations operate the API to generate and manage UID2s and UID2 tokens
 
 ### Transparency and Control Portal
 
-The service providing a user-facing website and an underlying API to enable user Transparency and Control management. Refer to the User Trust Workflow section for more information.
+The service providing a user-facing website (https://transparentadvertising.org/) and an underlying API to enable user Transparency and Control management. Refer to the User Trust Workflow section for more information.
 
 #### Functions
 
