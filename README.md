@@ -119,7 +119,7 @@ These organizations operate the API to generate and manage UID2s and UID2 tokens
 
 ### Transparency and Control Portal
 
-The service providing a user-facing website (https://transparentadvertising.org/) and an underlying API to enable user Transparency and Control management. See the ![User Trust Workflow](#utw) section for details.
+The service providing a user-facing website (https://transparentadvertising.org/) and an underlying API to enable user Transparency and Control management. See the [User Trust Workflow](#user-trust-workflow) section for details.
 
 #### Functions
 
@@ -143,10 +143,10 @@ There are four key workflows that make up the UID2 ecosystem:
 ![The UID2 Ecosystem](/images/macro_view.png)
 
 The following sections drill down on each workflow separately to further illuminate their place in the entire UID2 process.
-- Buy-Side Workflow
-- Data Provider Workflow
-- Publisher Workflow
-- User Trust Workflow
+- [Buy-Side Workflow](#buy-side-workflow)
+- [Data Provider Workflow](#data-provider-workflow)
+- [Publisher Workflow](#publisher-workflow)
+- [User Trust Workflow](#user-trust-workflow)
 
 
 ### Buy-Side Workflow
