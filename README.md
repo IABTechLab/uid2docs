@@ -119,7 +119,7 @@ These organizations operate the API to generate and manage UID2s and UID2 tokens
 
 ### Transparency and Control Portal
 
-The service providing a user-facing website (https://transparentadvertising.org/) and an underlying API to enable user Transparency and Control management. Refer to the User Trust Workflow section for more information.
+The service providing a user-facing website (https://transparentadvertising.org/) and an underlying API to enable user Transparency and Control management. See the ![User Trust Workflow](#utw) section for details.
 
 #### Functions
 
@@ -180,7 +180,7 @@ DSPs integrate with UID2 to receive UID2s from brands (as first-party data) and 
 - Sync encryption keys daily with the UID2 Administrator
 
 ##### Optional
-If a DSP wants to generate UID2s themselves from email, refer to the Data Provider section on how to generate UID2s.
+If a DSP wants to generate UID2s themselves from email, see the Data Provider Workflow section below on how to generate UID2s.
 
 ### Data Provider Workflow
 
@@ -257,7 +257,7 @@ Publishers who want to send authenticated PII and generate UID2s need to access 
 
 Publishers may choose to work with an SSO or independent ID provider who is interoperable with UID2. The provider may handle the UID2 integration on their behalf.
 
-### User Trust
+### <a name="utw"></a>User Trust Workflow
 
 This workflow is for users engaging with publishers or publisher-related SSOs and identity providers. This workflow allows a user to consent to the creation of a UID2 and manage their UID2 consent and privacy settings in the Transparency and Control Portal.
 
