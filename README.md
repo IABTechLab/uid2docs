@@ -6,7 +6,7 @@
 
 Addressable advertising enables publishers and developers to provide the content and services consumers have come to enjoy, whether through mobile apps, streaming TV, or web experiences. This value exchange of the open internet has not always been well understood by, or communicated to, consumers. As the industry reduces reliance on the third-party cookie, we have an opportunity to improve how we identify consumers in the open internet. This improved identification empowers content creators to engage customers with value exchange conversations. Customers benefit equally by relaxing their privacy concerns--gaining more control and transparency over their data.
 
-Unified ID 2.0 (UID2) is a deterministic identifier based on PII (for example, email or phone number) with complete user transparency and privacy controls. The UID2 identifier enables logged-in experiences from publisher websites, mobile apps, and CTV apps to monetize through programtic workflows. Benefitting from several layers of security and privacy measures, UID2s safely distribute across the open internet. Initially built and maintained by The Trade Desk, stewardship of UID2 will transfer (in mid-2021) to independent organizations for open-source code management, governance, administration, and system operations. UID2 is a non-proprietary standard and accessible to constituents across the advertising ecosystem--including Advertisers, Publishers, DSPs, SSPs, SSOs, CDPs, CMPs, Identity Providers, Data Providers, and Measurement Providers--while they remain in compliance with a code of conduct.
+Unified ID 2.0 (UID2) is a deterministic identifier based on PII (for example, email or phone number) with complete user transparency and privacy controls. The UID2 identifier enables logged-in experiences from publisher websites, mobile apps, and CTV apps to monetize through programmatic workflows. Benefitting from several layers of security and privacy measures, UID2s safely distribute across the open internet. Initially built and maintained by The Trade Desk, stewardship of UID2 will transfer (in mid-2021) to independent organizations for open-source code management, governance, administration, and system operations. UID2 is a non-proprietary standard and accessible to constituents across the advertising ecosystem--including Advertisers, Publishers, DSPs, SSPs, SSOs, CDPs, CMPs, Identity Providers, Data Providers, and Measurement Providers--while they remain in compliance with a code of conduct.
 
 UID2’s goal is to enable deterministic identity for advertising opportunities on the open internet with consumer transparency and controls in place. UID2 provides a collaborative framework for all constituents and a healthy, open internet by utilizing a transparent and interoperable approach.
 
@@ -64,7 +64,7 @@ A UID2 is designed to be stored by advertisers, data providers, and DSPs and is 
 
 Encrypting raw UID2s creates UID2 Tokens, which are transient for bid stream workflows. By utilizing cryptographic nonces and encryption, the UID2 Token is different every time it enters the bid stream. This secures the UID2 ecosystem and prevents non-UID2 participants from building profiles using UID2 tokens.
 
-UID2 Tokens are designed to be stored by publishers or publsiher service providers (for example, SSOs). SSPs pass the UID2 Token in bid stream and DSPs decrypt them at bid request time.
+UID2 Tokens are designed to be stored by publishers or publisher service providers (for example, SSOs). SSPs pass the UID2 Token in bid stream and DSPs decrypt them at bid request time.
 
 ##### Technical Details
 
@@ -231,7 +231,7 @@ This workflow is for organizations that propagate IDs to the bid stream via SSPs
 
     a. Server-side: The publisher stores the token in a mapping table, DMP, data lake, or other server-side application.
 
-    b. Client-side: The publishers stores the token in a client-side app or in the user’s browser as a first-party cookie.
+    b. Client-side: The publisher stores the token in a client-side app or in the user’s browser as a first-party cookie.
 
 6. The publisher sends the UID2 token to the SSP at the time of impression.
 
