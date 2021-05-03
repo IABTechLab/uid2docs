@@ -93,7 +93,7 @@ UID2 Tokens are designed to be stored by publishers or publisher service provide
 
 ### UID2 Administrator
 
-The centralized service managing access to the distributed UID2 ecosystem.
+The centralized service managing access to the distributed UID2 System.
 
 #### Functions
 
@@ -105,7 +105,7 @@ The centralized service managing access to the distributed UID2 ecosystem.
 
 ### UID2 Operator
 
-These organizations operate the API to generate and manage UID2s and UID2 tokens. Multiple operators comprise the UID2 System. Participants have the option to select an Operator or become Operators themselves.
+These organizations operate the API to generate and manage UID2s and UID2 tokens. Multiple operators comprise the UID2 System. Participants have the option to select an Open Operator or become a Closed Operator themselves.
 
 #### Functions
 
@@ -119,17 +119,17 @@ These organizations operate the API to generate and manage UID2s and UID2 tokens
 
 ### Transparency and Control Portal
 
-The service providing a user-facing website (https://transparentadvertising.org/) and an underlying API to enable user Transparency and Control management. See the [User Trust Workflow](#user-trust-workflow) section for details.
+The service providing a user-facing website (https://transparentadvertising.org/) to provide a user with transparency and control of their UID2.
 
 #### Functions
 
-- Offers transparency to users about their UID2 usage.
+- Offers transparency to users about their UID2.
 
 - Provides users a way to globally opt out of UID2, which triggers opt-out requests to all UID2 data holders.
 
 ### UID2 Compliance Manager
 
-This organization audits all the participant UID2 parties for compliance against a stated code of conduct.
+This organization audits all the participant UID2 parties for compliance against stated rules.
 
 #### Functions
 
