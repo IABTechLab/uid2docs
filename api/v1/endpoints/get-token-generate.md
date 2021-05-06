@@ -15,8 +15,8 @@ Integration workflows that use this endpoint:
 
 | Query Parameter | Data Type | Attributes | Description |
 | --- | --- | --- | --- |
-| `email` | `string` | Conditionally Required | The [normalized email address](../../README.md#emailnormalization) of a user. Required when `email_hash` is not included in the request. |
-| `email_hash` | `string` | Conditionally Required | The [URL-encoded, base64-encoded SHA256 hash](../../README.md#encoding-email-hashes) of the [normalized email address](../../README.md#emailnormalization) of a user. Required when `email` is not included in the request. |
+| `email` | `string` | Conditionally Required | The [normalized email address](../../README.md##email-normalization) of a user. Required when `email_hash` is not included in the request. |
+| `email_hash` | `string` | Conditionally Required | The [URL-encoded, base64-encoded SHA256 hash](../../README.md#encoding-email-hashes) of the [normalized email address](../../README.md##email-normalization) of a user. Required when `email` is not included in the request. |
 
 If `email` and `email_hash` are both supplied in the same request, only the `email` will return a mapping response.
 
