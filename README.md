@@ -42,7 +42,16 @@ UID2 Participants must choose a predefined Role (or Roles) based on how they wil
 
 UID2 Participants can play more than one role.
 
-**Publisher:** Consumer facing websites, mobile apps, or CV apps with authenticated PII.
+**Publisher and Login Providers:** Consumer facing websites, mobile apps, or CTV apps with authenticated PII and service providers that work on their behalf (e.g. SSOs).
+•	Register with the Administrator to access API keys.
+•	Receive consent from consumer to generate a UID 2.0 from PII and use the UID 2.0 for advertising purposes.
+•	Provide consumers with access to the Transparency and Consent Portal to manage their UID 2.0 consent.
+•	Generate UID 2.0 Token (an encrypted UID 2.0) from integration with Operator of their choice.
+•	Pass UID 2.0 token to SSP for a given bid request.
+•	Interact with the Operator to keep the UID2 Tokens refreshed, which incorporates opt-out deletions
+•	Note that a publisher can work with an SSO that is a UID2 Participant does not have register as 
+![image](https://user-images.githubusercontent.com/959609/117514118-fe5d5380-af47-11eb-8069-f1fe6da1bd8c.png)
+Consumer facing websites, mobile apps, or CV apps with authenticated PII.
 
 **Advertiser:** Brands with first-party consumer data tied to PII.
 
