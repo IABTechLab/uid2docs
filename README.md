@@ -43,24 +43,41 @@ UID2 Participants must choose a predefined Role (or Roles) based on how they wil
 UID2 Participants can play more than one role.
 
 **Publisher and Login Providers:** Consumer facing websites, mobile apps, or CTV apps with authenticated PII and service providers that work on their behalf (e.g. SSOs).
-Register with the Administrator to access API keys.
+- Register with the Administrator to access API keys.
 - Receive consent from consumer to generate a UID 2.0 from PII and use the UID 2.0 for advertising purposes.
 - Provide consumers with access to the Transparency and Consent Portal to manage their UID 2.0 consent.
 - Generate UID 2.0 Token (an encrypted UID 2.0) from integration with Operator of their choice.
 - Pass UID 2.0 token to SSP for a given bid request.
 - Interact with the Operator to keep the UID2 Tokens refreshed, which incorporates opt-out deletions
-- Note that a publisher can work with an SSO that is a UID2 Participant does not have register as 
-
-![image](https://user-images.githubusercontent.com/959609/117514118-fe5d5380-af47-11eb-8069-f1fe6da1bd8c.png)
-
+- Note that a publisher can work with a login provider, like an SSO or CMP.
 
 **Advertiser:** Brands with first-party consumer data tied to PII.
+- Register with the Administrator to access API keys.
+- Receive consent from consumer to generate the ID from PII and use it for advertising purposes.
+- Provide consumers with access to the Transparency and Consent Portal to manage their UID 2.0 consent.
+- Generate the ID (the raw UID 2.0) from integration with Operator of their choice.
+- Pass UID2 segments to the DSPs (buying platforms) of their choice.
+- Note – these rules are for an Advertiser’s direct integration with the UID2 System, they may choose to integrate through a Data Provider or DSP.
 
 **DSP:** Software platforms for purchasing advertising bid requests in advertising exchanges.
+- Register with the Administrator to access decryption keys.
+- Provide consumers with access to the Transparency and Consent Portal to manage their UID 2.0 consent.
+- Accept UID 2.0 segments from Advertisers and Data Providers.
+- Decrypt the UIDs at bid time to inform bidding.
+- Interact with the Administrator to halt bidding on opted-out UID2s.
 
 **Data Provider:** Licensor of data-based products for cross-device capabilities, targeting, and measurement with access to PII.
+- Register with the Administrator to access API keys.
+- Receive PII from partners with access to consent from consumer to generate a UID2 from PII and use the UID2 for advertising purposes.
+- Generate UID 2.0 (the raw UID) from integration with Operator of their choice.
+- Provide consumers with access to the Transparency and Consent Portal to manage their UID 2.0 consent.
+- Provide UID 2.0 data products to DSP partners.
 
-**Operator:** Entity that hosts and runs the API to process PII into UID2s; can limit availability to internal PII (Closed Operator) or allow for third-party availability (Open Operator)
+**Operator:** Entity that hosts and runs the API to process PII into UID2s; can limit availability to internal PII (Closed Operator) or allow for third-party availability (Open Operator).
+- Register with the Administrator to access API keys.
+- If a Closed Operator - service internal requests to generate UID 2.0 tokens or UIDs.
+- If an Open Operator - service requests from Publishers to generate UID 2.0 tokens and Advertisers and Data Providers to generate UIDs.
+- Note – the Operators are also a Infrastructure Component.
 
 ## Components
 
