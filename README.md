@@ -24,6 +24,18 @@ UID2’s goal is to enable deterministic identity for advertising opportunities 
 
 **Transparency and Control:** Consumers understand where their ID is shared and what data is associated with it. Consumers also hold the right to revoke their consent and permissions.
 
+## Technical Design Principles
+
+**Accountability:** Access requires members to abide by a code of conduct governed by an independent body.
+
+**Distributed Integration:** Multiple certified integration paths provide options for publishers, advertisers, and data providers to generate UID2s.
+
+**Decentralized Storage:** Centralized location with PII-to-UID2 mapping has been eliminated to block malicious actors.
+
+**Lean Infrastructure:** Infrastructure is light and inexpensive to operate.
+
+**Self-Reliant:** No reliance on external services for real-time processing of RTB data.
+
 ## Roles
 
 UID2 Participants must choose a predefined Role (or Roles) based on how they will be leveraging UID2. The Role determines how a given UID2 Participant interacts with the UID2 System and the workflows (outlined below) they follow. The role also determines their code of conduct requirements and correspond compliance checks.
@@ -76,18 +88,6 @@ UID2 Tokens are designed to be stored by publishers or publisher service provide
 - The UID2's encryption timestamp is attached as payload metadata.
 
 ### Infrastructure Components
-
-#### Technical Design Principles
-
-**Accountability:** Access requires members to abide by a code of conduct governed by an independent body.
-
-**Distributed Integration:** Multiple certified integration paths provide options for publishers, advertisers, and data providers to generate UID2s.
-
-**Decentralized Storage:** Centralized location with PII-to-UID2 mapping has been eliminated to block malicious actors.
-
-**Lean Infrastructure:** Infrastructure is light and inexpensive to operate.
-
-**Self-Reliant:** No reliance on external services for real-time processing of RTB data.
 
 ![Key Management](/images/key_mgmt.png)
 
