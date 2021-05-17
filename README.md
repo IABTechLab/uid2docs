@@ -38,11 +38,11 @@ UID2’s goal is to enable deterministic identity for advertising opportunities 
 
 ## Roles
 
-UID2 Participants must choose a predefined Role (or Roles) based on how they will be leveraging UID2. The Role determines how a given UID2 Participant interacts with the UID2 System and the workflows (outlined below) they follow. The role also determines their code of conduct requirements and correspond compliance checks.
+UID2 Participants must choose a predefined Role (or Roles) based on how they will be leveraging UID2. The Role determines how a given UID2 Participant interacts with the UID2 System and the workflows (outlined below) they follow. The role also determines their code of conduct requirements and corresponding compliance checks.
 
 UID2 Participants can play more than one role.
 
-**Publisher and Login Providers:** Consumer facing websites, mobile apps, or CTV apps with authenticated PII and service providers that work on their behalf (e.g. SSOs).
+**Publisher and Login Provider:** Consumer facing websites, mobile apps, or CTV apps with authenticated PII and service providers that work on their behalf (e.g. SSOs).
 - Register with the Administrator to access API keys.
 - Receive consent from consumer to generate a UID 2.0 from PII and use the UID 2.0 for advertising purposes.
 - Provide consumers with access to the Transparency and Consent Portal to manage their UID 2.0 consent.
