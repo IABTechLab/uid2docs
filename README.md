@@ -116,7 +116,7 @@ UID2 Tokens are designed to be stored by publishers or publisher service provide
 
 ### Infrastructure Components
 
-![Key Management](/images/key_mgmt.png)
+![Key Management](/images/key_mgmt.jpg)
 
 ### UID2 Administrator
 
@@ -167,7 +167,7 @@ This organization audits all the participant UID2 parties for compliance against
 ## Workflow Summary
 
 There are four key workflows that make up the UID2 ecosystem:
-![The UID2 Ecosystem](/images/macro_view.png)
+![The UID2 Ecosystem](/images/macro_view.jpg)
 
 The following sections drill down on each workflow separately to further illuminate their place in the entire UID2 process.
 - [Buy-Side Workflow](#buy-side-workflow)
@@ -179,7 +179,7 @@ The following sections drill down on each workflow separately to further illumin
 ### Buy-Side Workflow
 
 This workflow is for DSPs who transact on UID2s in the bid stream.
-![Buy-Side Workflow](/images/buy_side.png)
+![Buy-Side Workflow](/images/buy_side.jpg)
 
 
 #### Buy-Side (DSP) Workflow Overview
@@ -213,7 +213,7 @@ If a DSP wants to generate UID2s themselves from email, see the Data Provider Wo
 
 This workflow is for organizations that collect user data and push it to DSPs. Data collectors include advertisers, data on-boarders, measurement providers, identity graph providers, third-party data providers, and other organizations who push data to DSPs.
 
-![Data Provider Workflow](/images/data_provider.png)
+![Data Provider Workflow](/images/data_provider.jpg)
 
 #### Data Provider Workflow Overview
 
@@ -241,7 +241,7 @@ Integrate with the UID2 Operator to generate UID2s and handle salt bucket rotati
 
 This workflow is for organizations that propagate IDs to the bid stream via SSPs. Publisher organizations include identity providers, publishers, and SSOs.
 
-![Publisher Workflow](/images/Publisher_workflow.png)
+![Publisher Workflow](/images/publisher_workflow.jpg)
 
 
 #### Publisher Workflow Overview
@@ -288,7 +288,7 @@ Publishers may choose to work with an SSO or independent ID provider who is inte
 
 This workflow is for users engaging with publishers or publisher-related SSOs and identity providers. This workflow allows a user to consent to the creation of a UID2 and manage their UID2 consent and privacy settings in the Transparency and Control Portal.
 
-![User Trust Workflow](/images/user_trust_workflow.png)
+![User Trust Workflow](/images/user_trust_workflow.jpg)
 
 #### User Trust Workflow Overview
 
