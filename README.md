@@ -10,13 +10,15 @@ Unified ID 2.0 (UID2) is a deterministic identifier based on PII (for example, e
 
 UID2’s goal is to enable deterministic identity for advertising opportunities on the open internet with consumer transparency and controls in place. UID2 provides a collaborative framework for all constituents and a healthy, open internet by utilizing a transparent and interoperable approach.
 
-## Guiding Principles
+### Guiding Principles
 
 **Independent Government:** UID2 will be governed by unbiased third-party organizations, with the transition from The Trade Desk anticipated in 2021.
 
 **First-Party Relationships:** UID2 allows advertisers to easily activate their first-party data on publishers across the open internet.
 
-**Non-Proprietary (Universal) Standard:** UID2 is accessible to all constituents in the advertising ecosystem who abide by the code of conduct, and no individual company controls access. This includes DSPs, SSPs, data providers, measurement providers, and identity services. Open Source: UID2 code will be transparent via an open-source framework.
+**Non-Proprietary (Universal) Standard:** UID2 is accessible to all constituents in the advertising ecosystem who abide by the code of conduct, and no individual company controls access. This includes DSPs, SSPs, data providers, measurement providers, and identity services. 
+
+**Open Source:** UID2 code will be transparent via an open-source framework.
 
 **Interoperable:** UID2 allows other identity solutions (commercial and/or proprietary) to integrate and provide UID2s with their offering.
 
@@ -24,7 +26,7 @@ UID2’s goal is to enable deterministic identity for advertising opportunities 
 
 **Transparency and Control:** Consumers understand where their ID is shared and what data is associated with it. Consumers also hold the right to revoke their consent and permissions.
 
-## Technical Design Principles
+### Technical Design Principles
 
 **Accountability:** Access requires members to abide by a code of conduct governed by an independent body.
 
@@ -36,60 +38,15 @@ UID2’s goal is to enable deterministic identity for advertising opportunities 
 
 **Self-Reliant:** No reliance on external services for real-time processing of RTB data.
 
-## Roles
+## ID Forms
 
-UID2 Participants must choose a predefined Role (or Roles) based on how they will be leveraging UID2. The Role determines how a given UID2 Participant interacts with the UID2 System and the workflows (outlined below) they follow. The role also determines their code of conduct requirements and corresponding compliance checks.
-
-UID2 Participants can play more than one role.
-
-**Publisher and Login Provider:** Consumer facing websites, mobile apps, or CTV apps with authenticated PII and service providers that work on their behalf (e.g. SSOs).
-- Register with the Administrator to access API keys.
-- Receive consent from consumer to generate a UID 2.0 from PII and use the UID 2.0 for advertising purposes.
-- Provide consumers with access to the Transparency and Consent Portal to manage their UID 2.0 consent.
-- Generate UID 2.0 Token (an encrypted UID 2.0) from integration with Operator of their choice.
-- Pass UID 2.0 token to SSP for a given bid request.
-- Interact with the Operator to keep the UID2 Tokens refreshed, which incorporates opt-out deletions
-- Note that a publisher can work with a login provider, like an SSO or CMP.
-
-**Advertiser:** Brands with first-party consumer data tied to PII.
-- Register with the Administrator to access API keys.
-- Receive consent from consumer to generate the ID from PII and use it for advertising purposes.
-- Provide consumers with access to the Transparency and Consent Portal to manage their UID 2.0 consent.
-- Generate the ID (the raw UID 2.0) from integration with Operator of their choice.
-- Pass UID2 segments to the DSPs (buying platforms) of their choice.
-- Note – these rules are for an Advertiser’s direct integration with the UID2 System, they may choose to integrate through a Data Provider or DSP.
-
-**DSP:** Software platforms for purchasing advertising bid requests in advertising exchanges.
-- Register with the Administrator to access decryption keys.
-- Provide consumers with access to the Transparency and Consent Portal to manage their UID 2.0 consent.
-- Accept UID 2.0 segments from Advertisers and Data Providers.
-- Decrypt the UIDs at bid time to inform bidding.
-- Interact with the Administrator to halt bidding on opted-out UID2s.
-
-**Data Provider:** Licensor of data-based products for cross-device capabilities, targeting, and measurement with access to PII.
-- Register with the Administrator to access API keys.
-- Receive PII from partners with access to consent from consumer to generate a UID2 from PII and use the UID2 for advertising purposes.
-- Generate UID 2.0 (the raw UID) from integration with Operator of their choice.
-- Provide consumers with access to the Transparency and Consent Portal to manage their UID 2.0 consent.
-- Provide UID 2.0 data products to DSP partners.
-
-**Operator:** Entity that hosts and runs the API to process PII into UID2s; can limit availability to internal PII (Closed Operator) or allow for third-party availability (Open Operator).
-- Register with the Administrator to access API keys.
-- If a Closed Operator - service internal requests to generate UID 2.0 tokens or UIDs.
-- If an Open Operator - service requests from Publishers to generate UID 2.0 tokens and Advertisers and Data Providers to generate UIDs.
-- Note – the Operators are also a Infrastructure Component.
-
-## Components
-
-### Identity Components
-
-#### UID2
+### UID2
 
 The UID2 (raw UID2) is an unencrypted alphanumeric identifier created through a set of APIs or SDKs using a user’s verifiable and authenticated PII as an input. Examples of PII are an email address or phone number.
 
 A UID2 is designed to be stored by advertisers, data providers, and DSPs and is never shared in the bid stream. Note that the UID2 Token (or encrypted form of the UID2) is shared in the bid stream.
 
-##### Technical Details
+#### Technical Details
 
 - The UID2 Operator API or SDK interface is used to create a UID2.
 
@@ -99,13 +56,13 @@ A UID2 is designed to be stored by advertisers, data providers, and DSPs and is 
 
 - Participants who store UID2s monitor the UID2 Operator API to know when a UID2’s salt bucket rotated.
 
-#### UID2 Token
+### UID2 Token
 
 Encrypting raw UID2s creates UID2 Tokens, which are transient for bid stream workflows. By utilizing cryptographic nonces and encryption, the UID2 Token is different every time it enters the bid stream. This secures the UID2 ecosystem and prevents non-UID2 participants from building profiles using UID2 tokens.
 
 UID2 Tokens are designed to be stored by publishers or publisher service providers (for example, SSOs). SSPs pass the UID2 Token in bid stream and DSPs decrypt them at bid request time.
 
-##### Technical Details
+#### Technical Details
 
 - A cryptographic nonce is generated and appended to the UID2, which is then encrypted to create the UID2 Tokens.
 
@@ -114,11 +71,11 @@ UID2 Tokens are designed to be stored by publishers or publisher service provide
 
 - The UID2's encryption timestamp is attached as payload metadata.
 
-### Infrastructure Components
+## Components
 
 ![Key Management](/images/key_mgmt.jpg)
 
-### UID2 Administrator
+### Administrator
 
 The centralized service managing access to the distributed UID2 System.
 
@@ -130,9 +87,11 @@ The centralized service managing access to the distributed UID2 System.
 
 - Send UID2 user opt-outs requests to Operators and DSPs.
 
-### UID2 Operator
+### Open Operators
 
-These organizations operate the API to generate and manage UID2s and UID2 tokens. Multiple operators comprise the UID2 System. Participants have the option to select an Open Operator or become a Closed Operator themselves.
+Organizations that operate the service (via an API) to generate and manage UID2s and UID2 tokens and are accessible to all participants. 
+
+There are multiple operators that comprise the UID2 System and participants may choose to work with any of them or become a Closed Operator (see below).
 
 #### Functions
 
@@ -144,7 +103,21 @@ These organizations operate the API to generate and manage UID2s and UID2 tokens
 
 - Broadcast UID2 token updates (includes handling opt outs and salt bucket rotations) to publishers utilizing the refresh token.
 
-### Transparency and Control Portal
+### Closed Operators
+
+Organizations that operate their own internal version of the service to generate and manage UID2s and UID2 tokens. Any participant may choose to be a Closed Operator and there are multiple integration paths through cloud providers.
+
+#### Functions
+
+- Receive and store encryption keys and salts from the UID2 Administrator service.
+
+- Salt and hash authenticated PII to return a UID2.
+
+- Encrypt UID2s to generate UID2 Tokens.
+
+- Broadcast UID2 token updates (includes handling opt outs and salt bucket rotations) to publishers utilizing the refresh token.
+
+### Opt-Out Portal
 
 The service providing a user-facing website (https://transparentadvertising.org/) to provide a user with transparency and control of their UID2.
 
@@ -163,6 +136,32 @@ This organization audits all the participant UID2 parties for compliance against
 - Audit members of the trusted UID2 ecosystem to determine their compliance.
 
 - Relay compliance information to the UID2 Administrators and UID2 Operators.
+
+## Roles
+
+UID2 Participants must choose a predefined role (or roles) based on how they will be leveraging UID2. The Role determines how a given UID2 Participant interacts with the UID2 System. The role also determines their code of conduct requirements and corresponding compliance checks.
+
+UID2 Participants can play more than one role.
+
+**Generator:** Parties that generate UID2 values from the email or phone numbers with the appropriate consent, and honor opt outs.
+
+Responsibilities:
+- Register with the Administrator to access API keys.
+-	Receive consent from consumer to generate a UID 2.0 from PII and use the UID 2.0 for advertising purposes.
+-	Provide consumers with access to the Opt-out Portal to manage their UID 2.0 consent.
+-	Generate UID 2.0 via integration with a Closed Operator or Open Operator.
+-	Honor opted-out UID2s.
+-	Keep the UID2 Tokens refreshed.
+
+Examples: Publishers, Advertisers, Data Providers, Onboarders, Login Providers
+
+**Listener:** Parties that receive and store UID2s from Generators and apply for advertising targeting and measurement purposes.
+- -	Register with the Administrator to access API keys.
+-	Provide consumers with access to the Opt-out Portal to manage their UID 2.0 consent.
+-	Decrypt the UID2s via the UID2 decryption library.
+-	Honor opted-out UID2s.
+
+Examples: DSPs, Measurement Providers, Advertisers
 
 ## Workflow Summary
 
