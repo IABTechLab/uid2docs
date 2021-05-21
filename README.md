@@ -135,8 +135,6 @@ This organization audits all the participant UID2 parties for compliance against
 
 - Relay compliance information to the UID2 Administrators and UID2 Operators.
 
-![Key Management](/images/key_mgmt.jpg)
-
 ## Roles
 
 UID2 Participants must choose a predefined role (or roles) based on how they will be leveraging UID2. The Role determines how a given UID2 Participant interacts with the UID2 System. The role also determines their code of conduct requirements and corresponding compliance checks.
@@ -173,6 +171,7 @@ There are four key workflows that make up the UID2 ecosystem:
 
 The following sections drill down on each workflow separately to further illuminate their place in the entire UID2 process.
 
+**Summary of Workflows**
 ![The UID2 Ecosystem](/images/macro_view.jpg)
 
 ### Buy-Side Workflow
@@ -206,8 +205,6 @@ DSPs integrate with UID2 to receive UID2s from brands (as first-party data) and 
 ##### Optional
 If a DSP wants to generate UID2s themselves from email, see the Data Provider Workflow section below on how to generate UID2s.
 
-![Buy-Side Workflow](/images/buy_side.jpg)
-
 ### Data Provider Workflow
 
 This workflow is for organizations that collect user data and push it to DSPs. Data collectors include advertisers, data on-boarders, measurement providers, identity graph providers, third-party data providers, and other organizations who push data to DSPs.
@@ -233,8 +230,6 @@ To generate UID2s from authenticated PII, data providers must access the UID2 Op
 ##### Requirements
 
 Integrate with the UID2 Operator to generate UID2s and handle salt bucket rotations.
-
-![Data Provider Workflow](/images/data_provider.jpg)
 
 ### Publisher Workflow
 
@@ -280,8 +275,6 @@ Publishers who want to send authenticated PII and generate UID2s need to access 
 
 Publishers may choose to work with an SSO or independent ID provider who is interoperable with UID2. The provider may handle the UID2 integration on their behalf.
 
-![Publisher Workflow](/images/publisher_workflow.jpg)
-
 #### User Trust Workflow
 
 This workflow is for users engaging with publishers or publisher-related SSOs and identity providers. This workflow allows a user to consent to the creation of a UID2 and manage their UID2 consent and privacy settings in the Opt-Out Portal.
@@ -296,10 +289,8 @@ This workflow is for users engaging with publishers or publisher-related SSOs an
 
 4. UID2 Operators distribute the request to publishers utilizing the refresh token.
 
-![User Trust Workflow](/images/user_trust_workflow.jpg)
-
-#### Opting Out of the UID2
-There are two ways for a user to opt out of the UID2. One is to send the opt out deletion key request to the DSP. That is a backup option to the preferred solution: the ID Refresh Token program.
+##### Opting Out of the UID2
+There are two paths that a UIDfor a user to opt out of the UID2. One is to send the opt out deletion key request to the DSP. That is a backup option to the preferred solution: the ID Refresh Token program.
 
 The idea behind the ID Refresh Token is to zero the ID right where the user is (right on the device for the Publisher and browser) to avoid any errors. The other benefit of the ID refresh token is that this ID Refresh Token keeps the encryption constantly changing which makes it more secure and hard to breach.
 
