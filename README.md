@@ -73,8 +73,6 @@ UID2 Tokens are designed to be stored by publishers or publisher service provide
 
 ## Components
 
-![Key Management](/images/key_mgmt.jpg)
-
 ### Administrator
 
 The centralized service managing access to the distributed UID2 System.
@@ -137,6 +135,8 @@ This organization audits all the participant UID2 parties for compliance against
 
 - Relay compliance information to the UID2 Administrators and UID2 Operators.
 
+![Key Management](/images/key_mgmt.jpg)
+
 ## Roles
 
 UID2 Participants must choose a predefined role (or roles) based on how they will be leveraging UID2. The Role determines how a given UID2 Participant interacts with the UID2 System. The role also determines their code of conduct requirements and corresponding compliance checks.
@@ -166,14 +166,14 @@ Examples: DSPs, Measurement Providers, Advertisers
 ## Workflow Summary
 
 There are four key workflows that make up the UID2 ecosystem:
-![The UID2 Ecosystem](/images/macro_view.jpg)
-
-The following sections drill down on each workflow separately to further illuminate their place in the entire UID2 process.
 - [Buy-Side Workflow](#buy-side-workflow)
 - [Data Provider Workflow](#data-provider-workflow)
 - [Publisher Workflow](#publisher-workflow)
 - [User Trust Workflow](#user-trust-workflow)
 
+![The UID2 Ecosystem](/images/macro_view.jpg)
+
+The following sections drill down on each workflow separately to further illuminate their place in the entire UID2 process.
 
 ### Buy-Side Workflow
 
