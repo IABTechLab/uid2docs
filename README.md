@@ -285,13 +285,13 @@ Publishers may choose to work with an SSO or independent ID provider who is inte
 
 ### <a name="utw"></a>User Trust Workflow
 
-This workflow is for users engaging with publishers or publisher-related SSOs and identity providers. This workflow allows a user to consent to the creation of a UID2 and manage their UID2 consent and privacy settings in the Transparency and Control Portal.
+This workflow is for users engaging with publishers or publisher-related SSOs and identity providers. This workflow allows a user to consent to the creation of a UID2 and manage their UID2 consent and privacy settings in the Opt-Out Portal.
 
 ![User Trust Workflow](/images/user_trust_workflow.jpg)
 
 #### User Trust Workflow Overview
 
-1. Users visit the Transparency and Control Portal where they can globally opt-out of UID2 for all publishers.
+1. Users visit the Opt-Out Portal where they can globally opt-out of UID2 for all publishers.
 
 2. Opt-out requests are sent to UID2 Administrator.
 
@@ -326,11 +326,11 @@ Metadata supplies with the UID2 token discloses the timestamp of encryption, whi
 
 #### Can a user opt-out of targeted advertising tied to their UID2?
 
-Yes, through the Transparency and Control Portal, a user can opt-out of being served targeted ads tied to their UID2. The request will be distributed through UID2 Administrator and UID2 Operators to all relevant members. Some publishers and service providers have the option to limit access to their products based on a user’s participation in UID2 and it is the publisher’s responsibility to communicate this as part of their value exchange dialogue with the user.
+Yes, through the Opt-Out Portal, a user can opt-out of being served targeted ads tied to their UID2. The request will be distributed through UID2 Administrator and UID2 Operators to all relevant members. Some publishers and service providers have the option to limit access to their products based on a user’s participation in UID2 and it is the publisher’s responsibility to communicate this as part of their value exchange dialogue with the user.
 
-#### How does a user know where to access the Transparency and Control Portal?
+#### How does a user know where to access the Opt-Out Portal?
 
-Publishers, SSOs, or consent management platforms disclose links to the Transparency and Control portal in their login/consent flows, privacy policies, and other means.
+Publishers, SSOs, or consent management platforms disclose links to the Opt-Out portal in their login/consent flows, privacy policies, and other means.
 
 #### Why do advertisers/data providers not need to integrate with the opt-out feed?
 
