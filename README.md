@@ -153,8 +153,10 @@ Responsibilities:
 
 Examples: Publishers, Advertisers, Data Providers, Onboarders, Login Providers
 
-**Listener:** Parties that receive and store UID2s from Generators and apply for advertising targeting and measurement purposes.
-- -	Register with the Administrator to access API keys.
+**Observer:** Parties that receive and store UID2s from Generators and apply for advertising targeting and measurement purposes.
+
+Responsibilites:
+- Register with the Administrator to access API keys.
 -	Provide consumers with access to the Opt-out Portal to manage their UID 2.0 consent.
 -	Decrypt the UID2s via the UID2 decryption library.
 -	Honor opted-out UID2s.
@@ -172,6 +174,7 @@ There are four key workflows that make up the UID2 ecosystem:
 The following sections drill down on each workflow separately to further illuminate their place in the entire UID2 process.
 
 **Summary of Workflows**
+
 ![The UID2 Ecosystem](/images/macro_view.jpg)
 
 ### Buy-Side Workflow
@@ -181,11 +184,8 @@ This workflow is for DSPs who transact on UID2s in the bid stream.
 #### Buy-Side (DSP) Workflow Overview
 
 1. Data providers pass first-party and third-party data to DSPs in the form of raw UID2s.
-
 2. DSPs sync with UID2 Administrator to receive decryption keys.
-
 3. DSPs access UID2 tokens in the bid stream and decrypt them at bid time.
-
 4. DSPs listen to opt-out requests from UID2 Administrator and block buying on any UID2 that has opted-out.
 
 #### Buy-Side Integration
@@ -195,15 +195,12 @@ DSPs integrate with UID2 to receive UID2s from brands (as first-party data) and 
 ##### Requirements
 
 - Accept data in the form of UID2s
-
 - Bid on data in the form of UID2s
-
 - Build a webhook for honoring opt-out requests
-
 - Sync encryption keys daily with the UID2 Administrator
 
 ##### Optional
-If a DSP wants to generate UID2s themselves from email, see the Data Provider Workflow section below on how to generate UID2s.
+If a DSP wants to generate UID2s themselves from email, they also follow the Data Provider Workflow (see below).
 
 ### Data Provider Workflow
 
@@ -212,15 +209,10 @@ This workflow is for organizations that collect user data and push it to DSPs. D
 #### Data Provider Workflow Overview
 
 1. Data provider sends a user’s consented PII to the UID2 Operator.
-
 2. UID2 Operator generates and returns a raw UID2.
-
 3. Data provider stores the UID2 and salt bucket.
-
     - Server-side: The data provider stores the UID2 in a mapping table, DMP, data lake, or other server-side application.
-
 4. Data provider sends the UID2 to a DSP using permitted transport protocols defined in the code of conduct.
-
 5. Data provider monitors the UID2 Operator for rotated salt buckets and updates UID2s as needed.
 
 #### Data Provider Integration
@@ -238,23 +230,14 @@ This workflow is for organizations that propagate IDs to the bid stream via SSPs
 #### Publisher Workflow Overview
 
 1. A user visits a publisher website, mobile app, or CTV app.
-
 2. The publisher explains the value exchange of the open internet and requests the user log in.
-
 3. Once the user authenticates, the publisher sends the first-party authenticated PII and corresponding privacy settings to the UID2 Operator via an SDK or direct API integration. A publisher may authorize an SSO provider or identity provider to pass PII and privacy settings on their behalf.
-
 4. The UID2 Operator performs the salt, hash, and encryption process and returns the UID2 Token.
-
 5. The publisher stores the UID2 Token to share with SSPs during real-time bidding.
-
     a. Server-side: The publisher stores the token in a mapping table, DMP, data lake, or other server-side application.
-
     b. Client-side: The publisher stores the token in a client-side app or in the user’s browser as a first-party cookie.
-
 6. The publisher sends the UID2 token to the SSP at the time of impression.
-
 7. The SSP places a bid request using the UID2 token, capturing it in the bid stream.
-
 8. The publisher requests updated UID2 tokens using a refresh token. When applicable, the refresh token includes a user’s opt-out request.
 
 #### Publisher Integration
@@ -266,9 +249,7 @@ Publishers who want to send authenticated PII and generate UID2s need to access 
 ###### Requirements
 
 - Integrate with UID2 Operator API to generate UID2 tokens
-
 - Maintain refresh tokens or use the JavaScript client-side SDK provided by UID2 to manage the refresh token.
-
 - Enable sending the UID2 token to SSPs and other integrating organizations.
 
 ##### Publisher Integration Through SSO or Identity Providers
@@ -282,17 +263,9 @@ This workflow is for users engaging with publishers or publisher-related SSOs an
 #### User Trust Workflow Overview
 
 1. Users visit the Opt-Out Portal where they can globally opt-out of UID2 for all publishers.
-
 2. Opt-out requests are sent to UID2 Administrator.
-
 3. UID2 Administrators distribute the request to DSPs.
-
 4. UID2 Operators distribute the request to publishers utilizing the refresh token.
-
-##### Opting Out of the UID2
-There are two paths that a UIDfor a user to opt out of the UID2. One is to send the opt out deletion key request to the DSP. That is a backup option to the preferred solution: the ID Refresh Token program.
-
-The idea behind the ID Refresh Token is to zero the ID right where the user is (right on the device for the Publisher and browser) to avoid any errors. The other benefit of the ID refresh token is that this ID Refresh Token keeps the encryption constantly changing which makes it more secure and hard to breach.
 
 ## Frequently Asked Questions
 
