@@ -173,11 +173,11 @@ There are four key workflows that make up the UID2 ecosystem:
 3. [Publisher Workflow](#publisher-workflow)
 4. [User Trust Workflow](#user-trust-workflow)
 
-The following sections drill down on each workflow separately to further illuminate their place in the entire UID2 process.
-
 **Summary of Workflows**
 
 ![The UID2 Ecosystem](/images/macro_view.jpg)
+
+The following sections drill down on each workflow separately to further illuminate their place in the entire UID2 process.
 
 ### Buy-Side Workflow
 
@@ -214,7 +214,7 @@ This workflow is for organizations that collect user data and push it to DSPs. D
 
 #### Data Provider Workflow Overview
 
-1. Data provider sends a user’s consented PII to the UID2 Operator.
+1. Data provider sends a user’s consented personally identifiable information (PII) to the UID2 Operator.
 2. UID2 Operator generates and returns a raw UID2.
 3. Data provider stores the UID2 and salt bucket.
     - Server-side: The data provider stores the UID2 in a mapping table, DMP, data lake, or other server-side application.
