@@ -73,6 +73,8 @@ UID2 Tokens are designed to be stored by publishers or publisher service provide
 
 ## Components
 
+![Infrastructure](/images/key_management.jpg)
+
 ### Administrator
 
 The centralized service managing access to the distributed UID2 System.
@@ -179,6 +181,8 @@ The following sections drill down on each workflow separately to further illumin
 
 ### Buy-Side Workflow
 
+![Buy-Side Workflow](/images/buy_side.jpg)
+
 This workflow is for DSPs who transact on UID2s in the bid stream.
 
 #### Buy-Side (DSP) Workflow Overview
@@ -204,6 +208,8 @@ If a DSP wants to generate UID2s themselves from email, they also follow the Dat
 
 ### Data Provider Workflow
 
+![Data Provider Workflow](/images/data_provider.jpg)
+
 This workflow is for organizations that collect user data and push it to DSPs. Data collectors include advertisers, data on-boarders, measurement providers, identity graph providers, third-party data providers, and other organizations who push data to DSPs.
 
 #### Data Provider Workflow Overview
@@ -224,6 +230,8 @@ To generate UID2s from authenticated PII, data providers must access the UID2 Op
 - Integrate with the UID2 Operator to generate UID2s and handle salt bucket rotations.
 
 ### Publisher Workflow
+
+![Publisher Workflow](/images/publisher_workflow.jpg)
 
 This workflow is for organizations that propagate IDs to the bid stream via SSPs. Publisher organizations include identity providers, publishers, and SSOs.
 
@@ -257,6 +265,8 @@ Publishers who want to send authenticated PII and generate UID2s need to access 
 Publishers may choose to work with an SSO or independent ID provider who is interoperable with UID2. The provider may handle the UID2 integration on their behalf.
 
 #### User Trust Workflow
+
+![User Trust Workflow](/images/user_trust_workflow.jpg)
 
 This workflow is for users engaging with publishers or publisher-related SSOs and identity providers. This workflow allows a user to consent to the creation of a UID2 and manage their UID2 consent and privacy settings in the Opt-Out Portal.
 
