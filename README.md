@@ -221,7 +221,7 @@ To generate UID2s from authenticated PII, data providers must access the UID2 Op
 
 ##### Requirements
 
-Integrate with the UID2 Operator to generate UID2s and handle salt bucket rotations.
+- Integrate with the UID2 Operator to generate UID2s and handle salt bucket rotations.
 
 ### Publisher Workflow
 
@@ -246,7 +246,7 @@ This workflow is for organizations that propagate IDs to the bid stream via SSPs
 
 Publishers who want to send authenticated PII and generate UID2s need to access the UID2 Operator API.
 
-###### Requirements
+##### Requirements
 
 - Integrate with UID2 Operator API to generate UID2 tokens
 - Maintain refresh tokens or use the JavaScript client-side SDK provided by UID2 to manage the refresh token.
