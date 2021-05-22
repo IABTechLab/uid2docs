@@ -73,7 +73,7 @@ UID2 Tokens are designed to be stored by publishers or publisher service provide
 
 ## Components
 
-![Infrastructure](/images/key_management.jpg)
+![Infrastructure](/images/key_mgmt.jpg)
 
 ### Administrator
 
