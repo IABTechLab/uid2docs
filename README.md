@@ -157,7 +157,7 @@ Examples: Publishers, Advertisers, Data Providers, Onboarders, Login Providers
 
 **Observer:** Parties that receive and store UID2s from Generators and apply for advertising targeting and measurement purposes.
 
-Responsibilites:
+Responsibilities:
 - Register with the Administrator to access API keys.
 -	Provide consumers with access to the Opt-out Portal to manage their UID 2.0 consent.
 -	Decrypt the UID2s via the UID2 decryption library.
