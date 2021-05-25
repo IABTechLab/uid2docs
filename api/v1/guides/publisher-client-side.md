@@ -16,7 +16,7 @@ This section focuses on publisher-specific steps 1-d, 1-e, and 1-f illustrated i
 
 | Step | Endpoint/SDK | Instruction |
 | --- | --- | --- |
-| d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2.<br>1. Integrate with a UID2-enabled single-sign-on provider.<br>2. Generate UID2 tokens when a user authenticates using the [GET /token/generate](../endpoints/get-token-generate.md) endpoint. The request includes a user's normalized email addres
+| d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2.<br>1. Integrate with a UID2-enabled single-sign-on provider.<br>2. Generate UID2 tokens when a user authenticates using the [GET /token/generate](../endpoints/get-token-generate.md) endpoint. The request includes a user's normalized email address.
 | e | [GET /token/generate](../endpoints/get-token-generate.md) | The token generation service returns UID2 tokens. |
 | f | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Send returned UID2 tokens from step e to the SDK using `identity` mechanism below. The mechanism ensures UID2 tokens are available for the user until they logout. |
 
@@ -60,7 +60,7 @@ If you decide to integrate using options other than the SDK, we recommend refres
 | Step | Endpoint/SDK | Instruction |
 | --- | --- | --- |
 | a |  | The user logs out from a publisher asset. |
-| b | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Remove UID2 tokens from the user's local storage thwne they log out. Use the `disconnect` mechanism from the SDK to clear out UID2 tokens. |
+| b | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Remove UID2 tokens from the user's local storage when they log out. Use the `disconnect` mechanism from the SDK to clear out UID2 tokens. |
 
 #### Client-Side SDK Disconnect Identity
 
