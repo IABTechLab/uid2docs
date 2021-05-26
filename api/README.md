@@ -51,13 +51,6 @@ When sending email addresses in a request, normalize email addresses prior to se
 1. Remove leading and trailing spaces.
 2. Convert all ASCII characters to lowercase.
 
-For email accounts ending in gmail.com:
-
-1. Remove leading and trailing spaces.
-2. Convert all ASCII characters to lowercase.
-3. Remove `.` (ASCII code 46) from the username of the email address. `jane.doe@gmail.com` normalizes to `janedoe@gmail.com`.
-4. Remove `+` (ASCII code 43) and all subsequent characters from the username of the email address. `janedoe+home@gmail.com` normalizes to `janedoe@gmail.com`.
-
 ## Encoding Query Parameter Values
 
 When passing query parameter values in with a request, ensure the query parameter value is URL-encoded. Use Javascript's `encodeURIcomponent()` or your coding language's equivalent.
