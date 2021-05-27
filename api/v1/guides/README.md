@@ -11,3 +11,4 @@ Learn more about UID2 integration by selecting the scenario that best aligns wit
 | [DSP](./dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
 | [Advertiser/Data Provider](./advertiser-dataprovider-guide.md) | This integration guide for advertisers and data partners covers integration workflows for mapping identity for audience-building and targeting. |
 | [Operator - Microsoft Azure](./operator-guide-azure-enclave.md) | Instructions for setting up Operator service for running on Microsoft Azure Confidential Computing platform. |
+| [Operator - AWS](./operator-guide-aws-nitro-enclave.md) | Instructions for setting up Operator service for running on AWS Nitro Enclave. |
