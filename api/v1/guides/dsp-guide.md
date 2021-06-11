@@ -64,12 +64,12 @@ Updating decryption keys is handled automatically by the provided [RTB SDK](../s
 ### Where do I get the decryption keys?
 The [RTB SDK](../sdks/dsp-client-v1-overview.md) library communicates with the UID2 service in the background and periodically fetches the latest keys.
 
-### Question: How do I know if/when the salt bucket has rotated?
+### How do I know if/when the salt bucket has rotated?
 The DSP is not privy to when the UID2 salt bucket rotates. This is similar to a DSP being unaware if users cleared their cookies. Salt bucket rotation has no significant impact on the DSP.  
 
-### Question: Should the DSP be concerned with latency?
+### Should the DSP be concerned with latency?
 The UID2 service does not introduce latency into the bidding process. Any latency experienced can be attributed to the network, not the UID2 service.
 
-### Question: How should the DSP maintain proper frequency capping with UID2?
+### How should the DSP maintain proper frequency capping with UID2?
 The UID2 has the same chance as a cookie of becoming stale. Hence, the DSP can adapt the same infrastructure currently used for cookie or deviceID-based frequency capping for UID2. For more details, see the [FAQ](https://github.com/UnifiedID2/uid2docs/blob/main/api/v1/guides/advertiser-dataprovider-guide.md#how-do-i-know-when-to-re[%E2%80%A6]e-to-salt-bucket-rotation) section on salt bucket rotation. 
 
