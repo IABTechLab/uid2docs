@@ -1,0 +1,17 @@
+  sequenceDiagram
+    participant DP as Data Provider
+    participant UID2 as UID2 Service
+    participant DSP
+    loop 1. アイデンティティマップのエンドポイントを使用して、PII の UID2 を取得します。
+    DP->>UID2: 1-a. PII を含むリクエストを ID マッピングエンドポイントに送信します。
+    UID2->>DP: 1-b. ID マッピングサービスから返された UID2 とソルトバケットを保存します。
+    end
+    DP-->>DSP: 2. 保存されたUID2をDSPに送り、オーディエンスを作成します。
+    loop 3. 保存されているUID2に関連するソルトバケットのローテーションをモニターします。
+       DP->>UID2: 3-a. バケットサービスを利用してソルトバケットのローテーションをモニターします。
+       UID2->>DP: 3-b. 与えられたタイムスタンプ以降にローテーションしたソルトバケットを返します。
+       DP->>UID2: 3-c. ローテーションされたソルトバケットを、保存されているUID2ソルトバケットと比較します。<br>ローテートされた場合、新しいUID2を得るためにPIIをIDマッピングサービスに再送する。
+       UID2->>DP: 3-d. ID マッピングサービスから返された UID2 とソルトバケットを格納します。
+    end
+
+    <!-- Mermaid Live Editor Source: https://mermaid-js.github.io/mermaid-live-editor/edit#eyJjb2RlIjoiICBzZXF1ZW5jZURpYWdyYW1cbiAgICBwYXJ0aWNpcGFudCBEUCBhcyBEYXRhIFByb3ZpZGVyXG4gICAgcGFydGljaXBhbnQgVUlEMiBhcyBVSUQyIFNlcnZpY2VcbiAgICBwYXJ0aWNpcGFudCBEU1BcbiAgICBsb29wIDEuIOOCouOCpOODh-ODs-ODhuOCo-ODhuOCo-ODnuODg-ODl-OBruOCqOODs-ODieODneOCpOODs-ODiOOCkuS9v-eUqOOBl-OBpuOAgVBJSSDjga4gVUlEMiDjgpLlj5blvpfjgZfjgb7jgZnjgIJcbiAgICBEUC0-PlVJRDI6IDEtYS4gUElJIOOCkuWQq-OCgOODquOCr-OCqOOCueODiOOCkiBJRCDjg57jg4Pjg5Tjg7PjgrDjgqjjg7Pjg4njg53jgqTjg7Pjg4jjgavpgIHkv6HjgZfjgb7jgZnjgIJcbiAgICBVSUQyLT4-RFA6IDEtYi4gSUQg44Oe44OD44OU44Oz44Kw44K144O844OT44K544GL44KJ6L-U44GV44KM44GfIFVJRDIg44Go44K944Or44OI44OQ44Kx44OD44OI44KS5L-d5a2Y44GX44G-44GZ44CCXG4gICAgZW5kXG4gICAgRFAtLT4-RFNQOiAyLiDkv53lrZjjgZXjgozjgZ9VSUQy44KSRFNQ44Gr6YCB44KK44CB44Kq44O844OH44Kj44Ko44Oz44K544KS5L2c5oiQ44GX44G-44GZ44CCXG4gICAgbG9vcCAzLiDkv53lrZjjgZXjgozjgabjgYTjgotVSUQy44Gr6Zai6YCj44GZ44KL44K944Or44OI44OQ44Kx44OD44OI44Gu44Ot44O844OG44O844K344On44Oz44KS44Oi44OL44K_44O844GX44G-44GZ44CCXG4gICAgICAgRFAtPj5VSUQyOiAzLWEuIOODkOOCseODg-ODiOOCteODvOODk-OCueOCkuWIqeeUqOOBl-OBpuOCveODq-ODiOODkOOCseODg-ODiOOBruODreODvOODhuODvOOCt-ODp-ODs-OCkuODouODi-OCv-ODvOOBl-OBvuOBmeOAglxuICAgICAgIFVJRDItPj5EUDogMy1iLiDkuI7jgYjjgonjgozjgZ_jgr_jgqTjg6Djgrnjgr_jg7Pjg5fku6XpmY3jgavjg63jg7zjg4bjg7zjgrfjg6fjg7PjgZfjgZ_jgr3jg6vjg4jjg5DjgrHjg4Pjg4jjgpLov5TjgZfjgb7jgZnjgIJcbiAgICAgICBEUC0-PlVJRDI6IDMtYy4g44Ot44O844OG44O844K344On44Oz44GV44KM44Gf44K944Or44OI44OQ44Kx44OD44OI44KS44CB5L-d5a2Y44GV44KM44Gm44GE44KLVUlEMuOCveODq-ODiOODkOOCseODg-ODiOOBqOavlOi8g-OBl-OBvuOBmeOAgjxicj7jg63jg7zjg4bjg7zjg4jjgZXjgozjgZ_loLTlkIjjgIHmlrDjgZfjgYRVSUQy44KS5b6X44KL44Gf44KB44GrUElJ44KSSUTjg57jg4Pjg5Tjg7PjgrDjgrXjg7zjg5Pjgrnjgavlho3pgIHjgZnjgovjgIJcbiAgICAgICBVSUQyLT4-RFA6IDMtZC4gSUQg44Oe44OD44OU44Oz44Kw44K144O844OT44K544GL44KJ6L-U44GV44KM44GfIFVJRDIg44Go44K944Or44OI44OQ44Kx44OD44OI44KS5qC857SN44GX44G-44GZ44CCXG4gICAgZW5kIiwibWVybWFpZCI6IntcbiAgXCJ0aGVtZVwiOiBcImZvcmVzdFwiXG59IiwidXBkYXRlRWRpdG9yIjpmYWxzZSwiYXV0b1N5bmMiOnRydWUsInVwZGF0ZURpYWdyYW0iOmZhbHNlfQ -->
