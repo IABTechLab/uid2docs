@@ -32,7 +32,7 @@ curl -L -X GET 'https://integ.uidapi.com/v1/token/generate?email=username@exampl
 #### Example Request Using an Email Hash
 
 ```sh
-curl -L -X GET 'https://integ.uidapi.com/v1/token/generate?email_hash=eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X GET 'https://integ.uidapi.com/v1/token/generate?email_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
 ### Test Email Addresses
