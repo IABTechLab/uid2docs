@@ -1,4 +1,5 @@
 # UID 2.0
+| Select Your Language ( En | [Ja](README-ja.md "Japanese") )
 
 | [Click here to visit the UID 2.0 API Documentation](/api/README.md)
 
