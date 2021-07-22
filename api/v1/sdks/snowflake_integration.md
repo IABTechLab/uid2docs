@@ -9,10 +9,10 @@ seamless experience.
 The following diagram illustrates how you engage with the UID2 integration process in Snowflake: 
 
 ![Snowflake Integration Architecture](./snowflake-integration-architecture.png)
-||||
+|Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Optout Cloud Setup|
 | :--- | :--- | :--- |
-| As a partner, you set up a Snowflake account to host your data, engage in UID2 integration, and query the UID2 Operator Web Services. | UID2 integration, hosted in a Snowflake account, grants you access to authorized functions and views that draw data from private tables. You can’t access the private tables. The UID2 Share reveals only essential data needed for you to perform UID2-related tasks. | ETL (Extract Transform Load) jobs constantly update the UID2 Core/Optout Snowflake storage with consumer identifier data that powers the UID2 Operator Web Services. |
-| You only pay Snowflake for transactional computation costs to use shared functions and views.  | These private tables, secured in the UID2 Snowflake account, automatically synchronize with the UID2 Core/Optout Snowflake storage that holds internal data used to complete UID2-related tasks.  | |
+|As a partner, you set up a Snowflake account to host your data, engage in UID2 integration, and query the UID2 Operator Web Services. | UID2 integration, hosted in a Snowflake account, grants you access to authorized functions and views that draw data from private tables. You can’t access the private tables. The UID2 Share reveals only essential data needed for you to perform UID2-related tasks. |ETL (Extract Transform Load) jobs constantly update the UID2 Core/Optout Snowflake storage with consumer identifier data that powers the UID2 Operator Web Services. |
+|You only pay Snowflake for transactional computation costs to use shared functions and views.  |These private tables, secured in the UID2 Snowflake account, automatically synchronize with the UID2 Core/Optout Snowflake storage that holds internal data used to complete UID2-related tasks.  | |
 
    
 ## Accessing UID2 Share
