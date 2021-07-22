@@ -22,12 +22,9 @@ Currently, access to the UID2 Share is authorized by the UID2 administrators. Fo
 
 |Required Information|Details|
 | :--- | :--- |
-|Partner Snowflake account name |	Run the following command from within the Snowflake interface:
-select CURRENT_ACCOUNT();|
-|The cloud provider and Snowflake region hosting the account.| Run the following command from within Snowflake interface:
-select CURRENT_REGION();<br>
-NOTE: Snowflake integration is currently available only on AWS in the US East (N. Virginia) region (region ID us-east-1).|
-|The UID2 client authentication key |	As a registered UID2 partner, you must use the UID2 client authentication key to access the UID2 Operator Web Services. The client authentication key is needed only during setup, not when accessing shared objects.|
+|Partner Snowflake account name |Run the following command from within the Snowflake interface<br>:select CURRENT_ACCOUNT();|
+|The cloud provider and Snowflake region hosting the account.|Run the following command from within Snowflake interface:select CURRENT_REGION();<br><br>NOTE: Snowflake integration is currently available only on AWS in the US East (N. Virginia) region (region ID us-east-1).|
+|The UID2 client authentication key |As a registered UID2 partner, you must use the UID2 client authentication key to access the UID2 Operator Web Services. The client authentication key is needed only during setup, not when accessing shared objects.|
 
 
 ### Client Authentication Key
@@ -129,8 +126,7 @@ The function takes a single argument.
 
 |Argument|Type|Description|
 | :--- | :--- | :--- |
-|`EMAIL`|`varchar(128)`| The URL-encoded, base64-encoded SHA256 hash of the normalized email address of a user.
-Ensure that the email hash is correctly formatted as directed in the [Email Normalization](../../README.md#email-normalization) section. Use the email address computed from the normalized email address.|
+|`EMAIL`|`varchar(128)`| The URL-encoded, base64-encoded SHA256 hash of the normalized email address of a user. Ensure that the email hash is correctly formatted as directed in the [Email Normalization](../../README.md#email-normalization) section. Use the email address computed from the normalized email address.|
 
 A successful query returns the following information for the specified email address hash.
 
