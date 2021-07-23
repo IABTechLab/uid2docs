@@ -18,12 +18,12 @@ The following diagram illustrates how you engage with the UID2 integration proce
 ## Accessing UID2 Share
 
 Currently, access to the UID2 Share is authorized by the UID2 administrators. For access authorization, see: 
-[contact information](../../README.md#contact-info). 
+[Contact Information](../../README.md#contact-info). 
 
 |Required Information|Details|
 | :--- | :--- |
-|Partner Snowflake account name |Run the following command from within the Snowflake interface<br>:select CURRENT_ACCOUNT();|
-|The cloud provider and Snowflake region hosting the account.|Run the following command from within Snowflake interface:select CURRENT_REGION();<br><br>NOTE: Snowflake integration is currently available only on AWS in the US East (N. Virginia) region (region ID us-east-1).|
+|Partner Snowflake account name |Run the following command from within the Snowflake interface:<br>select CURRENT_ACCOUNT();|
+|The cloud provider and Snowflake region hosting the account.|Run the following command from within Snowflake interface:<br>select CURRENT_REGION();<br><br>NOTE: Snowflake integration is currently available only on AWS in the US East (N. Virginia) region (region ID us-east-1).|
 |The UID2 client authentication key |As a registered UID2 partner, you must use the UID2 client authentication key to access the UID2 Operator Web Services. The client authentication key is needed only during setup, not when accessing shared objects.|
 
 
@@ -51,7 +51,7 @@ You can access the following email address mapping functions: `FN_T_UID2_IDENTIT
 
 ### Email Address Mapping Function
 
-The `FN_T_UID2_IDENTITY_MAP_EMAIL` function maps an email address to the corresponding UID2 and second-level bucket ID. This function normalizes the email address by adhering to UID2 [email normalization](../../README.md#email-normalization) rules.
+The `FN_T_UID2_IDENTITY_MAP_EMAIL` function maps an email address to the corresponding UID2 and second-level bucket ID. This function normalizes the email address by adhering to UID2 [Email Normalization](../../README.md#email-normalization) rules.
 
 The function takes a single argument.
 
@@ -70,7 +70,6 @@ A successful query returns the following information for the specified email add
 Use the following query example to map a single email address:
 
 ##### Query
-
 ```
 select UID, BUCKET_ID from table(UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
 ```
@@ -80,7 +79,6 @@ A possible result for the specified email address:
 
 ```
 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=, ad1ANEmVZA
-
 ```
 The following table shows the result schema elements in context:
 
@@ -113,8 +111,8 @@ The following table shows the result schema elements in context:
 |ID|EMAIL|UID|BUCKET_ID|
 | :--- | :--- | :--- | :---|
 |1 |`validate@email.com`|`2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=`| `ad1ANEmVZA`|
-|2|`test@uidapi.com` |`IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ=`|	`a30od4mNRd`|
-|3|	`NULL`|	`NULL`|	`NULL`|
+|2|`test@uidapi.com` |`IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ=`|`a30od4mNRd`|
+|3|`NULL`|`NULL`|`NULL`|
 
 >NOTE Example for ID 3 shows a NULL result from an improperly formatted email.
 
@@ -139,17 +137,14 @@ A successful query returns the following information for the specified email add
 Use the following query example to map a single email address hash:
 
 ##### Query
-
 ```
 select UID, BUCKET_ID from table(UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256))));
 ```
 
 ##### Result
 A possible result for the specified email address:
-
 ```
 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=, ad1ANEmVZA
-
 ```
 The following table shows the result schema elements in context:
 
@@ -162,7 +157,6 @@ The following table shows the result schema elements in context:
 Use the following query example for mapping multiple email hashes: 
 
 ##### Query 
-
 ```
 select a.ID, a.EMAIL_HASH, m.UID, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
     select ID, t.* from AUDIENCE, lateral UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL_HASH(EMAIL_HASH) t) m
@@ -176,8 +170,7 @@ A possible result for the specified multiple email address hashes:
 2, /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g=, IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ=, a30od4mNRd
 3, NULL, NULL, NULL
 ```
-The following table shows the result schema elements in context:
-The result includes two UIDs and a BUCKET_ID as shown in ID examples 1 and 2. ID 3 shows a NULL result from improperly formatted emails. 
+The following table shows the result schema elements in context. The result includes two UIDs and a BUCKET_ID as shown in ID examples 1 and 2. ID 3 shows a NULL result from improperly formatted emails. 
 
 |ID|UID|BUCKET_ID|
 | :--- | :--- | :---|
@@ -220,14 +213,13 @@ select a.*, b.LAST_UPDATE as LAST_SALT_UPDATE
   where DATE_PART('epoch_milliseconds', a.LAST_UPDATE) < b.LAST_UPDATE or a.UID2 IS NULL;
 ```
 
-Result
+##### Result
 A possible result for the specified multiple email address hashes:
 ```
 1, validate@email.com, 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=, ad1ANEmVZA, 2021-02-28 23:58:20.000, 2021-03-01 00:00:00.000
 3, test@uidapi.com, NULL, NULL, NULL, NULL
 ```
-The following table shows the result schema elements in context:
-The result includes an email, UID, BUCKET_ID, LAST_UID2_UPDATE, and LAST_UPDATE as shown in the ID 1 example. ID 2 doesn't appear in the result example since the UID2 shown there was generated after the last bucket update. ID 3 shows a NULL result from improperly formatted emails. 
+The following table shows the result schema elements in context. The result includes an email, UID, BUCKET_ID, LAST_UID2_UPDATE, and LAST_UPDATE as shown in the ID 1 example. ID 2 doesn't appear in the result example since the UID2 shown there was generated after the last bucket update. ID 3 shows a NULL result from improperly formatted emails. 
 
 |ID|EMAIL|UID|BUCKET_ID|LAST_UID2_UPDATE|LAST_UPDATE|
 | :--- | :--- | :---| :--- | :--- | :---|
