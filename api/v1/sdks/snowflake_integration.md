@@ -203,9 +203,9 @@ The following example shows an input table and the query code used to find the U
 ```
 select * from AUDIENCE_WITH_UID2; 
 ```
-+ 
+
 | ID | EMAIL              | UID2                                         | BUCKET_ID | LAST_UID2_UPDATE | 
-+    +                    | 
+| :--- | :--- | :---| :--- | :---|
 |  1 | validate@email.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZA | 2021-02-28 23:58:20.000 | 
 |  2 | test2@uidapi.com   | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZA | 2021-03-01 03:58:20.000 | 
 |  3 | test@uidapi.com    | NULL                                         | NULL      | NULL |     
