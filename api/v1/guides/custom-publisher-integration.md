@@ -31,7 +31,7 @@ This section focuses on publisher-specific step 2-a illustrated in the above dia
 | --- | --- | --- |
 | a | | The publisher sends the `advertising_token` from [1](#1-establish-identity) to the SSP for bidding. Send the value as-is. |
 
-### 3. Refresh Tokens
+## 3. Refresh Tokens
 
 Leverage the refresh endpoints to retrieve the latest version of UID2 tokens. UID2 token refreshes are required to sync a user's UID2 rotation and opt-out status. If a user opts out, using their refresh token will end their token refresh chain.
 
@@ -45,7 +45,7 @@ Leverage the refresh endpoints to retrieve the latest version of UID2 tokens. UI
 We recommend refreshing active user identity tokens every 5 minutes. 
 There is no need to refresh tokens for inactive users.
 
-### 4. User Logout
+## 4. User Logout
 
 | Step | Endpoint/SDK | Instruction |
 | --- | --- | --- |
