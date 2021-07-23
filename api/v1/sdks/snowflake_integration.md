@@ -195,9 +195,7 @@ To determine the UIDs that need regeneration, compare the timestamps of when the
 | :--- | :--- | :--- |
 | HASHED_BUCKET_ID | TEXT | The ID of the second-level salt bucket. This ID parallels the `BUCKET_ID` returned by the identity map functions. Use the `BUCKET_ID` as the key to do a join query between the function call results and results from this view call.  |
 | LAST_UID2_UPDATE | INT | Timestamp to represent when the UID2 was last updated. |
-| LAST_UPDATE | INT | The last time the salt in the bucket was updated. This value can be expressed as `epoch_milliseconds`. <br>NOTE  
-
-epoch_milliseconds denotes the number of milliseconds that have passed since midnight January 1, 1970 UTC. |
+| LAST_UPDATE | INT | The last time the salt in the bucket was updated. This value can be expressed as `epoch_milliseconds`. <br>NOTE epoch_milliseconds denotes the number of milliseconds that have passed since midnight January 1, 1970 UTC. |
 
 The following example shows an input table and the query code used to find the UIDs in the table that require regeneration due to updated second-level salt. 
 
@@ -228,7 +226,7 @@ A possible result for the specified multiple email address hashes:
 3, test@uidapi.com, NULL, NULL, NULL, NULL
 ```
 The following table shows the result schema elements in context:
-The result includes an email, UID, BUCKET_ID, LAST_UID2_UPDATE, and LAST_UPDATE as shown in the ID 1 example. ID 3 shows a NULL result from improperly formatted emails: : 
+The result includes an email, UID, BUCKET_ID, LAST_UID2_UPDATE, and LAST_UPDATE as shown in the ID 1 example. ID 3 shows a NULL result from improperly formatted emails: 
 
 |ID|EMAIL|UID|BUCKET_ID|LAST_UID2_UPDATE|LAST_UPDATE|
 | :--- | :--- | :---| :--- | :--- | :---|
