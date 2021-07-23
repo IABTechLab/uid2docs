@@ -197,7 +197,7 @@ To determine the UIDs that need regeneration, compare the timestamps of when the
 | LAST_UID2_UPDATE | INT | Timestamp when the UID2 was last updated. |
 | LAST_UPDATE | INT | The last time the salt in the bucket was updated. This value can be expressed as `epoch_milliseconds`. <br>NOTE epoch_milliseconds denotes the number of milliseconds that have passed since midnight January 1, 1970 UTC. |
 
-The following example shows an input table and the query code used to find the UIDs in the table that require regeneration due to updated second-level salt. 
+The following example shows an input table and the query schema used to find the UIDs in the table that require regeneration due to updated second-level salt. 
 
 #### Targeted Input Table  
 ```
