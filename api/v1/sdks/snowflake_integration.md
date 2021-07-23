@@ -47,7 +47,7 @@ GRANT IMPORTED PRIVILEGES ON DATABASE "UID2" TO ROLE "SYSADMIN"
 
 ## Accessing Shared Objects
 
-You can access the following email address mapping functions: `FN_T_UID2_IDENTITY_MAP_EMAIL` and `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` in the UID2 Share. Additionally, the `UID2_SALT_BUCKETS` view from UID2 Share allows you to regenerate UID2s.
+You can access the following email address mapping functions: `FN_T_UID2_IDENTITY_MAP_EMAIL` and `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` in the UID2 Share. Additionally, the `UID2_SALT_BUCKETS` view from UID2 Share helps identify the UID2s you must regenerate.
 
 ### Email Address Mapping Function
 
@@ -170,7 +170,7 @@ A possible result for the specified multiple email address hashes:
 2, /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g=, IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ=, a30od4mNRd
 3, NULL, NULL, NULL
 ```
-The following table shows the result schema elements in context. The result includes two UIDs and a `BUCKET_ID` as shown in ID examples 1 and 2. ID 3 shows a `NULL` result from improperly formatted emails. 
+The following table shows the result schema elements in context. The result includes two `UID`s and a `BUCKET_ID` as shown in ID examples 1 and 2. ID 3 shows a `NULL` result from improperly formatted emails. 
 
 |ID|UID|BUCKET_ID|
 | :--- | :--- | :---|
@@ -219,9 +219,9 @@ A possible result for the specified multiple email address hashes:
 1, validate@email.com, 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=, ad1ANEmVZA, 2021-02-28 23:58:20.000, 2021-03-01 00:00:00.000
 3, test@uidapi.com, NULL, NULL, NULL, NULL
 ```
-The following table shows the result schema elements in context. The result includes an email, UID, BUCKET_ID, LAST_UID2_UPDATE, and LAST_UPDATE as shown in the ID 1 example. ID 2 doesn't appear in the result example since the UID2 shown there was generated after the last bucket update. ID 3 shows a NULL result from improperly formatted emails. 
+The following table shows the result schema elements in context. The result includes an email, `UID`, `BUCKET_ID`, `LAST_UID2_UPDATE`, and `LAST_UPDATE` as shown in the ID 1 example. ID 2 doesn't appear in the result example since the UID2 shown there was generated after the last bucket update. ID 3 shows a `NULL` result from improperly formatted emails. 
 
 |ID|EMAIL|UID|BUCKET_ID|LAST_UID2_UPDATE|LAST_UPDATE|
 | :--- | :--- | :---| :--- | :--- | :---|
-| 1| `validate@email.com`| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=|ad1ANEmVZA |2021-02-28 23:58:20.000 |2021-03-01 00:00:00.000 |
+| 1| `validate@email.com`| `2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=`|`ad1ANEmVZA` |`2021-02-28 23:58:20.000` |`2021-03-01 00:00:00.000` |
 | 3|`test@uidapi.com`|`NULL`|`NULL`|`NULL`|`NULL`|
