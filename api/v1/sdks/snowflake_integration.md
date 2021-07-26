@@ -11,8 +11,8 @@ The following diagram illustrates how you engage with the UID2 integration proce
 ![Snowflake Integration Architecture](./snowflake-integration-architecture.png)
 |Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Optout Cloud Setup|
 | :--- | :--- | :--- |
-|As a partner, you set up a Snowflake account to host your data, engage in UID2 integration, and query the UID2 Operator Web Services. | UID2 integration, hosted in a Snowflake account, grants you access to authorized functions and views that draw data from private tables. You can’t access the private tables. The UID2 Share reveals only essential data needed for you to perform UID2-related tasks. |ETL (Extract Transform Load) jobs constantly update the UID2 Core/Optout Snowflake storage with consumer identifier data that powers the UID2 Operator Web Services. The data used by the Operator Web Services is also available through the UID2 Share. |
-|You only pay Snowflake for transactional computation costs to use shared functions and views.  |These private tables, secured in the UID2 Snowflake account, automatically synchronize with the UID2 Core/Optout Snowflake storage that holds internal data used to complete UID2-related tasks.  | |
+|As a partner, you set up a Snowflake account to host your data, engage in UID2 integration, and query the UID2 Operator Web Services. | UID2 integration, hosted in a Snowflake account, grants you access to authorized functions and views that draw data from private tables. You can’t access the private tables. The UID2 Share reveals only essential data needed for you to perform UID2-related tasks. |ETL (Extract Transform Load) jobs constantly update the UID2 Core/Optout Snowflake storage with internal data that powers the UID2 Operator Web Services. The data used by the Operator Web Services is also available through the UID2 Share. |
+|When you use shared functions and views, you pay Snowflake for transactional computation costs.  |These private tables, secured in the UID2 Snowflake account, automatically synchronize with the UID2 Core/Optout Snowflake storage that holds internal data used to complete UID2-related tasks.  | |
 
    
 ## Accessing UID2 Share
@@ -124,7 +124,7 @@ The function takes a single argument.
 
 |Argument|Type|Description|
 | :--- | :--- | :--- |
-|`EMAIL`|`varchar(128)`| The URL-encoded, base64-encoded SHA256 hash of the normalized email address of a user. Ensure that the email hash is correctly formatted as directed in the [Email Normalization](../../README.md#email-normalization) section. Use the email address computed from the normalized email address.|
+|`EMAIL`|`varchar(128)`| The base64-encoded SHA256 hash of the normalized email address of a user. Ensure that the email hash is correctly formatted as directed in the [Email Normalization](../../README.md#email-normalization) section. Use the email address computed from the normalized email address.|
 
 A successful query returns the following information for the specified email address hash.
 
