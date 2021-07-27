@@ -14,12 +14,11 @@ The following integration steps outline the lifecycle for a user establishing a 
 
 This section focuses on publisher-specific steps 1-d, 1-e, and 1-f illustrated in the above diagram.
 
-<b>Note</b><br>
-The UID2 token must only be generated on the server side after authentication. Security concerns forbid token generation on the browser side.
+>NOTE The UID2 token must be generated only on the server side after authentication. Security concerns forbid token generation on the browser side.
 
 | Step | Endpoint/SDK | Instruction |
 | --- | --- | --- |
-| d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2.<br>1. Integrate with a UID2-enabled single-sign-on provider.<br>2. Generate UID2 tokens when a user authenticates using the [GET /token/generate](../endpoints/get-token-generate.md) endpoint. The request includes a user's normalized email address.
+| d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2.<br>1. Integrate with a UID2-enabled single-sign-on provider.<br>2. Generate UID2 tokens when a user authenticates using the [GET /token/generate](../endpoints/get-token-generate.md) endpoint. The request includes a user's email address. <br><br>NOTE Normalized email is required only when passing hashed emails. For unhashed emails, the UID2 Operator Service normalizes the email.|
 | e | [GET /token/generate](../endpoints/get-token-generate.md) | The token generation service returns UID2 tokens. |
 | f | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Send returned UID2 tokens from step e to the SDK using `identity` mechanism below. The mechanism ensures UID2 tokens are available for the user until they logout. |
 
