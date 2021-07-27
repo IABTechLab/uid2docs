@@ -4,7 +4,7 @@
 Generate a UID2 token from an email address or hashed email address.
 
 <b>Note</b><br>
-The UID2 token must only be generated on the server side after authentication. Security concerns forbid token generation on the browser side.
+The UID2 token must be generated only on the server side after authentication. Security concerns forbid token generation on the browser side.
 
 Integration workflows that use this endpoint:
 * [Publisher - Standard](../guides/publisher-client-side.md)
