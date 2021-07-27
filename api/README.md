@@ -46,7 +46,9 @@ Authenticate to UID2 endpoints using a bearer token in the request's authorizati
 
 ## Email Normalization
 
-When sending email addresses in a request, normalize email addresses prior to sending.
+>NOTE Normalized email is required only when you pass hashed emails. For unhashed emails, the UID2 Operator Service normalizes the email for you. 
+
+When sending hashed email addresses in a request, normalize email addresses prior to sending.
 
 1. Remove leading and trailing spaces.
 2. Convert all ASCII characters to lowercase.
