@@ -75,11 +75,6 @@ select UID, BUCKET_ID from table(UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL('valid
 ```
 
 ##### Result
-A possible result for the specified email address:
-
-```
-2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=, ad1ANEmVZA
-```
 The following table shows the result schema elements in context:
 
 |UID|BUCKET_ID|
@@ -99,13 +94,6 @@ select a.ID, a.EMAIL, m.UID, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
 ```
 
 ##### Result
-A possible result for the specified email address:
-
-```
-1, validate@email.com, 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=, ad1ANEmVZA
-2, NULL, NULL, NULL
-3, test@uidapi.com, IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ=, a30od4mNRd
-```
 The following table shows the result schema elements in context: 
 
 |ID|EMAIL|UID|BUCKET_ID|
@@ -142,10 +130,6 @@ select UID, BUCKET_ID from table(UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE64
 ```
 
 ##### Result
-A possible result for the specified email address:
-```
-2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=, ad1ANEmVZA
-```
 The following table shows the result schema elements in context:
 
 |UID|BUCKET_ID|
@@ -164,12 +148,6 @@ select a.ID, a.EMAIL_HASH, m.UID, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
 ```
 
 ##### Result
-A possible result for the specified multiple email address hashes:
-```
-1, LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI=, 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=, ad1ANEmVZA
-2, /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g=, IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ=, a30od4mNRd
-3, NULL, NULL, NULL
-```
 The following table shows the result schema elements in context. The result includes two `UID`s and a `BUCKET_ID` as shown in ID examples 1 and 2. ID 3 shows a `NULL` result from improperly formatted emails. 
 
 |ID|UID|BUCKET_ID|
@@ -214,12 +192,7 @@ select a.*, b.LAST_UPDATE as LAST_SALT_UPDATE
 ```
 
 ##### Result
-A possible result for the specified multiple email address hashes:
-```
-1, validate@email.com, 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=, ad1ANEmVZA, 2021-02-28 23:58:20.000, 2021-03-01 00:00:00.000
-3, test@uidapi.com, NULL, NULL, NULL, NULL
-```
-The following table shows the result schema elements in context. The result includes an email, `UID`, `BUCKET_ID`, `LAST_UID2_UPDATE`, and `LAST_UPDATE` as shown in the ID 1 example. ID 2 doesn't appear in the result example since the UID2 shown there was generated after the last bucket update. ID 3 shows a `NULL` result from improperly formatted emails. 
+The following table shows the result schema elements in context. The result includes an email,`UID`,`BUCKET_ID`,`LAST_UID2_UPDATE`, and `LAST_UPDATE` as shown in the ID 1 example. ID 2 doesn't appear in the result example since the UID2 shown there was generated after the last bucket update. ID 3 shows a `NULL` result from improperly formatted emails. 
 
 |ID|EMAIL|UID|BUCKET_ID|LAST_UID2_UPDATE|LAST_UPDATE|
 | :--- | :--- | :---| :--- | :--- | :---|
