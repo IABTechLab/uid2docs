@@ -9,6 +9,7 @@ seamless experience.
 The following diagram illustrates how you engage with the UID2 integration process in Snowflake: 
 
 ![Snowflake Integration Architecture](./snowflake-integration-architecture.png)
+
 |Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Optout Cloud Setup|
 | :--- | :--- | :--- |
 |As a partner, you set up a Snowflake account to host your data, engage in UID2 integration, and query the UID2 Operator Web Services. | UID2 integration, hosted in a Snowflake account, grants you access to authorized functions and views that draw data from private tables. You can’t access the private tables. The UID2 Share reveals only essential data needed for you to perform UID2-related tasks. |ETL (Extract Transform Load) jobs constantly update the UID2 Core/Optout Snowflake storage with internal data that powers the UID2 Operator Web Services. The data used by the Operator Web Services is also available through the UID2 Share. |
@@ -30,14 +31,14 @@ Currently, access to the UID2 Share is authorized by the UID2 administrators. Fo
 ### Client Authentication Key
 The client authentication key is associated with specific privileges that determine which endpoints can be invoked. To establish access to the UID2 Share, your Snowflake account is associated with a specific client access key that authorizes the objects for you to use through the share.
 
-#### Using UID2 Share
+### Using UID2 Share
 Access and use the UID2 Share by performing the following:
 
 1. Request and get ACCOUNTADMIN role privileges.
 2. Access the available UID2 share in Snowflake console.
 3. Create a new database from the UID2 share using either of the following options:
-- Using the Snowflake console
-- Executing SQL statements like the following:
+   - Using the Snowflake console
+   - Executing SQL statements like the following:
 
 ```
 CREATE DATABASE "UID2" FROM SHARE UID2PROD."UID2_PROD_SH"
@@ -51,7 +52,7 @@ You can access the following email address mapping functions: `FN_T_UID2_IDENTIT
 
 ### Email Address Mapping Function
 
-The `FN_T_UID2_IDENTITY_MAP_EMAIL` function maps an email address to the corresponding UID2 and second-level bucket ID. This function normalizes the email address by adhering to UID2 [Email Normalization](../../README.md#email-normalization) rules.
+The `FN_T_UID2_IDENTITY_MAP_EMAIL` function maps an email address to the corresponding UID2 and second-level salt bucket ID. This function normalizes the email address by adhering to UID2 [Email Normalization](../../README.md#email-normalization) rules.
 
 The function takes a single argument.
 
@@ -90,7 +91,7 @@ Use the following query example for mapping multiple emails:
 ```
 select a.ID, a.EMAIL, m.UID, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
     select ID, t.* from AUDIENCE, lateral UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL(EMAIL) t) m
-    ON a.ID=m.ID;
+    on a.ID=m.ID;
 ```
 
 ##### Result
@@ -105,14 +106,14 @@ The following table shows the result schema elements in context:
 >NOTE Example for ID 3 shows a NULL result from an improperly formatted email.
 
 ### Email Address Hash Mapping Function
-The `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` function maps an email address hash to the corresponding UID2 and second-level bucket ID.
+The `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` function maps an email address hash to the corresponding UID2 and second-level salt bucket ID.
 This function can map a single email address hash or multiple hashes, as shown in the examples provided below.
 
 The function takes a single argument.
 
 |Argument|Type|Description|
 | :--- | :--- | :--- |
-|`EMAIL`|`varchar(128)`| The base64-encoded SHA256 hash of the normalized email address of a user. Ensure that the email hash is correctly formatted as directed in the [Email Normalization](../../README.md#email-normalization) section. Use the email address computed from the normalized email address.|
+|`EMAIL_HASH`|`varchar(128)`| The base64-encoded SHA256 hash of the normalized email address of a user. Ensure that the email hash is correctly formatted as directed in the [Email Normalization](../../README.md#email-normalization) section. Use the hash computed from the normalized email address.|
 
 A successful query returns the following information for the specified email address hash.
 
@@ -144,17 +145,19 @@ Use the following query example for mapping multiple email hashes:
 ```
 select a.ID, a.EMAIL_HASH, m.UID, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
     select ID, t.* from AUDIENCE, lateral UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL_HASH(EMAIL_HASH) t) m
-    ON a.ID=m.ID;
+    on a.ID=m.ID;
 ```
 
 ##### Result
-The following table shows the result schema elements in context. The result includes two `UID`s and a `BUCKET_ID` as shown in ID examples 1 and 2. ID 3 shows a `NULL` result from improperly formatted emails. 
+The following table shows the result schema elements in context:
 
-|ID|UID|BUCKET_ID|
-| :--- | :--- | :---|
-| 1|`LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= <br>2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=`| `ad1ANEmVZA`|
-| 2|`/XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g= <br>IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ=` | `a30od4mNRd` |
+|ID|EMAIL_HASH|UID|BUCKET_ID|
+| :--- | :--- | :---| :---|
+| 1|`LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI=`|`2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=`|`ad1ANEmVZA`|
+| 2|`/XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g=`|`IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ=`|`a30od4mNRd`|
 | 3|`NULL`|`NULL`|
+
+>NOTE Example for ID 3 shows a NULL result from an improperly formatted email hash.
 
 ### Regenerating UIDs
 
@@ -164,8 +167,8 @@ To determine the UIDs that need regeneration, compare the timestamps of when the
 
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
-| `HASHED_BUCKET_ID` | `TEXT` | The ID of the second-level salt bucket. This ID parallels the `BUCKET_ID` returned by the identity map functions. Use the `BUCKET_ID` as the key to do a join query between the function call results and results from this view call.  |
-| `LAST_UPDATE` | `INT` | The last time the salt in the bucket was updated. This value can be expressed as `epoch_milliseconds`. <br>NOTE `epoch_milliseconds` denotes the number of milliseconds that have passed since midnight January 1, 1970 UTC. |
+| `HASHED_BUCKET_ID` | `TEXT` | The ID of the second-level salt bucket. This ID parallels the `BUCKET_ID` returned by the identity map functions. Use the `BUCKET_ID` as the key to do a join query between the function call results and results from this view call.  |
+| `LAST_UPDATE` | `INT` | The last time the salt in the bucket was updated. This value is expressed as `epoch_milliseconds`. <br>NOTE `epoch_milliseconds` denotes the number of milliseconds that have passed since midnight January 1, 1970 UTC. |
 
 The following example shows an input table and the query schema used to find the UIDs in the table that require regeneration due to updated second-level salt. 
 
@@ -176,25 +179,24 @@ select * from AUDIENCE_WITH_UID2;
 
 | ID | EMAIL              | UID                                         | BUCKET_ID | LAST_UID2_UPDATE | 
 | :--- | :--- | :---| :--- | :---|
-|  1 | `validate@email.com` | `2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=` | `ad1ANEmVZA` | `2021-02-28 23:58:20.000` | 
-|  2 | `test2@uidapi.com`   | `2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=` | `ad1ANEmVZA` | `2021-03-01 03:58:20.000` | 
-|  3 | `test@uidapi.com`    | `NULL`                                         | `NULL`      | `NULL` |     
-
+|  1 | `validate@email.com` | `2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=` | `ad1ANEmVZA` | `2021-03-01 01:00:00.000` |
+|  2 | `test1@uidapi.com`   | `Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM=` | `ad1ANEmVZA` | `2021-03-03 01:00:00.000` |
+|  3 | `test2@uidapi.com`   | `NULL`                                         | `NULL`       | `NULL` |
 
 Find the missing or outdated UID2s with the following query example: 
 
 #### Query
 ```
-select a.*, b.LAST_UPDATE as LAST_SALT_UPDATE
+select a.*, TO_TIMESTAMP(b.LAST_UPDATE, 3) as LAST_SALT_UPDATE
   from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2.PUBLIC.UID2_SALT_BUCKETS b
-  ON a.UID2_BUCKET_ID=b.HASHED_BUCKET_ID
-  where DATE_PART('epoch_milliseconds', a.LAST_UPDATE) < b.LAST_UPDATE or a.UID2 IS NULL;
+  on a.UID2_BUCKET_ID=b.HASHED_BUCKET_ID
+  where DATE_PART('epoch_milliseconds', a.LAST_UPDATE) < b.LAST_UPDATE or a.UID IS NULL;
 ```
 
 ##### Result
-The following table shows the result schema elements in context. The result includes an email,`UID`,`BUCKET_ID`,`LAST_UID2_UPDATE`, and `LAST_UPDATE` as shown in the ID 1 example. ID 2 doesn't appear in the result example since the UID2 shown there was generated after the last bucket update. ID 3 shows a `NULL` result from improperly formatted emails. 
+The following table shows the result schema elements in context. The result includes an email, `UID`, `BUCKET_ID`, `LAST_UID2_UPDATE`, and `LAST_SALT_UPDATE` as shown in the ID 1 example. ID 2 doesn't appear in the result example since the UID2 shown there was generated after the last bucket update. ID 3 shows a `NULL` result due to a missing UID2.
 
-|ID|EMAIL|UID|BUCKET_ID|LAST_UID2_UPDATE|LAST_UPDATE|
+|ID|EMAIL|UID|BUCKET_ID|LAST_UID2_UPDATE|LAST_SALT_UPDATE|
 | :--- | :--- | :---| :--- | :--- | :---|
-| 1| `validate@email.com`| `2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=`|`ad1ANEmVZA` |`2021-02-28 23:58:20.000` |`2021-03-01 00:00:00.000` |
+| 1| `validate@email.com`|`2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=`|`ad1ANEmVZA`|`2021-03-01 00:00:00.000`|`2021-03-02 00:00:00.000`|
 | 3|`test@uidapi.com`|`NULL`|`NULL`|`NULL`|`NULL`|
