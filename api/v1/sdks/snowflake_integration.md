@@ -199,4 +199,4 @@ The following table shows the result schema elements in context. The result incl
 |ID|EMAIL|UID|BUCKET_ID|LAST_UID2_UPDATE|LAST_SALT_UPDATE|
 | :--- | :--- | :---| :--- | :--- | :---|
 | 1| `validate@email.com`|`2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=`|`ad1ANEmVZA`|`2021-03-01 00:00:00.000`|`2021-03-02 00:00:00.000`|
-| 3|`test@uidapi.com`|`NULL`|`NULL`|`NULL`|`NULL`|
+| 3|`test2@uidapi.com`|`NULL`|`NULL`|`NULL`|`NULL`|
