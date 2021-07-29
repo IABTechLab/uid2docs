@@ -14,11 +14,12 @@ The following integration steps outline the lifecycle for a user establishing a 
 
 This section focuses on publisher-specific steps 1-d, 1-e, and 1-f illustrated in the above diagram.
 
->NOTE The UID2 token must be generated only on the server side after authentication. Security concerns forbid token generation on the browser side.
+><b>Note</b><br>
+The UID2 token must be generated only on the server side after authentication. Security concerns forbid token generation on the browser side.
 
 | Step | Endpoint/SDK | Instruction |
 | --- | --- | --- |
-| d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2.<br>1. Integrate with a UID2-enabled single-sign-on provider.<br>2. Generate UID2 tokens when a user authenticates using the [GET /token/generate](../endpoints/get-token-generate.md) endpoint. The request includes a user's email address or the base64-encoded SHA256 hash of the user's normalized email address. [Click here to view email normalization rules.](../../README.md#emailnormalization) <br><br>NOTE Normalized email is required only when passing hashed emails. For unhashed emails, the UID2 Operator Service normalizes the email for the user.|
+| d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2.<br>1. Integrate with a UID2-enabled single-sign-on provider.<br>2. Generate UID2 tokens when a user authenticates using the [GET /token/generate](../endpoints/get-token-generate.md) endpoint. The request includes a user's email address or the base64-encoded SHA256 hash of the user's normalized email address. [For details on how to normalize hashed emails, see](../../README.md#emailnormalization) <br><b>Note</b><br>Unhashed emails do not require normalization, as the UID2 Operator Service normalizes them. Hashed emails must be normalized.|
 | e | [GET /token/generate](../endpoints/get-token-generate.md) | The token generation service returns UID2 tokens. |
 | f |  | Place the returned `advertising_token` and `refresh_token` in a store tied to a user. You may consider client-side storage like a first-party cookie or server-side storage. |
 
