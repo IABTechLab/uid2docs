@@ -15,7 +15,7 @@ Integration workflows that use this endpoint:
 
 | Query Parameter | Data Type | Attributes | Description |
 | --- | --- | --- | --- |
-| `email` | `string` | Conditionally Required | User's email address. Required when `email_hash` is not included in the request.<br>NOTE Normalized email is  required only when you pass hashed emails. For unhashed emails, the UID2 Operator Service normalizes the email for you. |
+| `email` | `string` | Conditionally Required | User's email address. Required when `email_hash` is not included in the request.<br><b>Note</b><br>Unhashed emails do not require normalization, as the UID2 Operator Service normalizes them. Hashed emails must be normalized. |
 | `email_hash` | `string` | Conditionally Required | The [URL-encoded, base64-encoded SHA256 hash](../../README.md#encoding-email-hashes) of the [normalized email address](../../README.md#emailnormalization) of a user. Required when `email` is not included in the request. |
 
 If `email` and `email_hash` are both supposed in the same request, only the `email` will return a mapping response.
