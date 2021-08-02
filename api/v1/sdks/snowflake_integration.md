@@ -8,7 +8,7 @@ seamless experience.
 
 The following diagram illustrates how you engage with the UID2 integration process in Snowflake:
 
-![Snowflake Integration Architecture](./snowflake-integration-architecture.png)
+![Snowflake Integration Architecture](./uid2-snowflake-integration-architecture.svg)
 
 |Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-out Cloud Setup|
 | :--- | :--- | :--- |
