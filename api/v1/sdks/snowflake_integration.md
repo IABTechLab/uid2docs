@@ -25,11 +25,7 @@ Access to the UID2 Share is authorized by the UID2 administrators. To request ac
 | :--- | :--- |
 |Partner Snowflake account name |Run the following command from within the Snowflake interface:<br>`select CURRENT_ACCOUNT();`|
 |The cloud provider and Snowflake region hosting the account|Snowflake integration is currently available only on AWS in the US East (N. Virginia) region (region ID `us-east-1`).<br/> To verify your region, run the following command from within Snowflake interface:<br>`select CURRENT_REGION();` |
-|The UID2 client authentication key |To access the UID2 Operator Web Servicess as a registered UID2 partner, you must use the UID2 client authentication key during setup. It is not required for accessing shared objects.|
-
-
-### Client Authentication Key
-The client authentication key is associated with specific privileges that determine which endpoints can be invoked. To establish access to the UID2 Share, your Snowflake account is associated with a specific client access key that authorizes the objects for you to use through the share.
+|The UID2 client authentication key |To access the UID2 Operator Services as a registered UID2 partner, you must use the UID2 client authentication key during setup, which determines the endpoints and objects you can access through the share. After the setup is complete, the key is not required for accessing shared objects.|
 
 ### Using the UID2 Share
 To access and use the UID2 Share, do the following:
