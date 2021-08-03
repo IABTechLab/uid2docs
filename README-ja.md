@@ -1,7 +1,7 @@
 # UID 2.0
-| 言語選択 ( [English](README.md) | 日本語 )
+[English](README.md) | 日本語
 
-| [Click here to visit the UID 2.0 API Documentation](/api-ja/README.md)
+[UID 2.0 API Documentation](/api-ja/README.md)
 
 ## Introduction
 
