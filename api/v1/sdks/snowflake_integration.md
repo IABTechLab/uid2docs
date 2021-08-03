@@ -35,7 +35,7 @@ The client authentication key is associated with specific privileges that determ
 To access and use the UID2 Share, do the following:
 
 1. Request and get ACCOUNTADMIN role privileges.
-2. Access the available UID2 share in Snowflake console.
+2. Access the available UID2 Share in Snowflake console.
 3. Create a new database from the UID2 Share by doing either of the following:
    - Using the Snowflake console
    - Executing SQL statements like the following:
@@ -43,7 +43,7 @@ To access and use the UID2 Share, do the following:
 ```
 CREATE DATABASE "UID2" FROM SHARE UID2PROD."UID2_PROD_SH"
    COMMENT='Access to UID2 shared functions and views';
-GRANT IMPORTED PRIVILEGES ON DATABASE "UID2" TO ROLE "SYSADMIN"
+GRANT IMPORTED PRIVILEGES ON DATABASE "UID2" TO ROLE "SYSADMIN";
 ```
 
 ## Accessing Shared Objects
@@ -69,55 +69,45 @@ A successful query returns the following information for the specified email add
 
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
-| `UID` | `TEXT` | The UID2 associated with the email address. If the email address is invalid or cannot be mapped, `NULL` is returned. |
+| `UID2` | `TEXT` | The UID2 associated with the email address. |
 | `BUCKET_ID` | `TEXT` | The ID of the second-level salt bucket used to generate the UID. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view. |
 
 
 #### Single Email Mapping Request Example
-The following query illustrates how to map a single email address, using a database named UID2 as an example.
+The following query illustrates how to map a single email address, using a database named `UID2` for accessing the UID2 Share as an example.
 
 ##### Query
 ```
-select UID, BUCKET_ID from table(UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
+select UID2, BUCKET_ID from table(UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
 ```
 
 ##### Result
-```
-2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=, ad1ANEmVZ
-```
-
-The following table identifies each item in the response.
 
 ```
 +----------------------------------------------+------------+
-| UID                                          | BUCKET_ID  |
+| UID2                                         | BUCKET_ID  |
 +----------------------------------------------+------------+
 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  |
 +----------------------------------------------+------------+
 ```
 
 #### Multiple Emails Mapping Request Example
-The following query illustrates how to map multiple email addresses, using a database named UID2 as an example.
+The following query illustrates how to map multiple email addresses, using a database named `UID2` for accessing the UID2 Share as an example.
 
 ##### Query
 ```
-select a.ID, a.EMAIL, m.UID, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
+select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
     select ID, t.* from AUDIENCE, lateral UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL(EMAIL) t) m
     on a.ID=m.ID;
 ```
 
 ##### Result
-```
-1, validate@email.com, 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=, ad1ANEmVZ
-2, test@uidapi.com, IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ=, a30od4mNRd
-3, NULL, NULL, NULL
-```
 
 The following table identifies each item in the response, including `NULL` values for an improperly formatted email.
 
 ```
 +----+--------------------+----------------------------------------------+------------+
-| ID | EMAIL              | UID                                          | BUCKET_ID  |
+| ID | EMAIL              | UID2                                         | BUCKET_ID  |
 +----+--------------------+----------------------------------------------+------------+
 |  1 | validate@email.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  |
 |  2 | test@uidapi.com    | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd |
@@ -138,56 +128,45 @@ A successful query returns the following information for the specified email add
 
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
-| `UID` | `TEXT` | The UID2 associated with the email address. If the email address hash is invalid or cannot be mapped, `NULL` is returned. |
+| `UID2` | `TEXT` | The UID2 associated with the email address. |
 | `BUCKET_ID` | `TEXT` | The ID of the second-level salt bucket that was used to generate the UID. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view. |
 
 #### Single Email Hash Mapping Request Example
-The following query illustrates how to map a single email address hash, using a database named UID2 as an example.
+The following query illustrates how to map a single email address hash, using a database named `UID2` for accessing the UID2 Share as an example.
 
 ##### Query
 ```
-select UID, BUCKET_ID from table(UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256))));
+select UID2, BUCKET_ID from table(UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256))));
 ```
 
 ##### Result
-```
-2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=, ad1ANEmVZ
-```
-
-The following table identifies each item in the response.
 
 ```
 +----------------------------------------------+------------+
-| UID                                          | BUCKET_ID  |
+| UID2                                         | BUCKET_ID  |
 +----------------------------------------------+------------+
 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  |
 +----------------------------------------------+------------+
 ```
 
 
-#### Multiple Emails Mapping Request Example
-The following query illustrates how to map multiple email address hashes, using a database named UID2 as an example.
+#### Multiple Email Hashes Mapping Request Example
+The following query illustrates how to map multiple email address hashes, using a database named `UID2` for accessing the UID2 Share as an example.
 
 ##### Query
 ```
-select a.ID, a.EMAIL_HASH, m.UID, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
+select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
     select ID, t.* from AUDIENCE, lateral UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL_HASH(EMAIL_HASH) t) m
     on a.ID=m.ID;
 ```
 
 ##### Result
 
-```
-1, LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI=, 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=, ad1ANEmVZ
-2, NULL, NULL, NULL
-3, /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g=, IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ=, a30od4mNRd
-```
-
 The following table identifies each item in the response, including `NULL` values for an improperly formatted email hash.
 
 ```
 +----+----------------------------------------------+----------------------------------------------+------------+
-| ID | EMAIL_HASH                                   | UID                                          | BUCKET_ID  |
+| ID | EMAIL_HASH                                   | UID2                                         | BUCKET_ID  |
 +----+----------------------------------------------+----------------------------------------------+------------+
 |  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  |
 |  2 | NULL                                         | NULL                                         | NULL       |
@@ -203,10 +182,10 @@ To determine which UIDs need regeneration, compare the timestamps of when they w
 
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
-| `HASHED_BUCKET_ID` | `TEXT` | The ID of the second-level salt bucket. This ID parallels the `BUCKET_ID` returned by the identity map functions. Use the `BUCKET_ID` as the key to do a join query between the function call results and results from this view call.  |
-| `LAST_UPDATE` | `INT` | The last time the salt in the bucket was updated. This value is expressed as `epoch_milliseconds` (the number of milliseconds that have passed since midnight January 1, 1970 UTC). |
+| `BUCKET_ID` | `TEXT` | The ID of the second-level salt bucket. This ID parallels the `BUCKET_ID` returned by the identity map functions. Use the `BUCKET_ID` as the key to do a join query between the function call results and results from this view call.  |
+| `LAST_SALT_UPDATE_UTC` | `TIMESTAMP_NTZ` | The last time the salt in the bucket was updated. This value is expressed in UTC timezone. |
 
-The following example shows an input table and the query schema used to find the UIDs in the table that require regeneration due to updated second-level salt.
+The following example shows an input table and the query used to find the UIDs in the table that require regeneration due to updated second-level salt.
 
 #### Targeted Input Table
 ```
@@ -214,7 +193,7 @@ select * from AUDIENCE_WITH_UID2;
 ```
 ```
 +----+--------------------+----------------------------------------------+------------+-------------------------+
-| ID | EMAIL              | UID                                          | BUCKET_ID  | LAST_UID2_UPDATE        |
+| ID | EMAIL              | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    |
 +----+--------------------+----------------------------------------------+------------+-------------------------+
 |  1 | validate@email.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 |
 |  2 | test1@uidapi.com   | Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM= | ad1ANEmVZ  | 2021-03-03 00:00:00.000 |
@@ -226,23 +205,19 @@ To find missing or outdated UID2s, use the following query example.
 
 #### Query
 ```
-select a.*, TO_TIMESTAMP(b.LAST_UPDATE, 3) as LAST_SALT_UPDATE
+select a.*, b.LAST_SALT_UPDATE_UTC
   from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2.PUBLIC.UID2_SALT_BUCKETS b
-  on a.UID2_BUCKET_ID=b.HASHED_BUCKET_ID
-  where DATE_PART('epoch_milliseconds', a.LAST_UPDATE) < b.LAST_UPDATE or a.UID IS NULL;
+  on a.BUCKET_ID=b.BUCKET_ID
+  where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
 ```
 
 ##### Result
-```
-1, validate@email.com, 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU=, ad1ANEmVZ, 2021-02-28 23:58:20.000, 1614po556800000
-3, test@uidapi.com, NULL, NULL, NULL, NULL
-```
 
-The following table identifies each item in the response. The result includes an email, `UID`, `BUCKET_ID`, `LAST_UID2_UPDATE`, and `LAST_SALT_UPDATE` as shown in the ID 1 example. ID 2 doesn't appear in the result example since the UID2 shown there was generated after the last bucket update. ID 3 shows a `NULL` result due to a missing UID2.
+The following table identifies each item in the response. The result includes an email, `UID2`, `BUCKET_ID`, `LAST_UID2_UPDATE`, and `LAST_SALT_UPDATE` as shown in the ID 1 example. ID 2 doesn't appear in the result example since the UID2 shown there was generated after the last bucket update. ID 3 shows a `NULL` result due to a missing UID2.
 
 ```
 +----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
-| ID | EMAIL              | UID                                          | BUCKET_ID  | LAST_UID2_UPDATE        | LAST_SALT_UPDATE        |
+| ID | EMAIL              | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    | LAST_SALT_UPDATE_UTC    |
 +----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
 |  1 | validate@email.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 | 2021-03-02 00:00:00.000 |
 |  3 | test2@uidapi.com   | NULL                                         | NULL       | NULL                    | NULL                    |
