@@ -11,9 +11,9 @@ Learn more about UID2 integration by selecting the scenario that best aligns wit
 | [DSP](./dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
 | [Advertiser/Data Provider](./advertiser-dataprovider-guide.md) | This integration guide for advertisers and data partners covers integration workflows for mapping identity for audience-building and targeting. |
 
-UID2 Participlants tha chose to ingrate via the Closed Operator model, can leverage the enterprise integrations available. 
-| Operator Host Partner | Description |
+UID2 Participlants may ingrate via Enterpise Partners that can enable enclaves to host the Operator service.  
+| Operator Enterprise Partner | Description |
 | --- | --- |
-| [Operator - Microsoft Azure](./operator-guide-azure-enclave.md) | Instructions for setting up Operator service for running on Microsoft Azure Confidential Computing platform. |
-| [Operator - AWS](./operator-guide-aws-nitro-enclave.md) | Instructions for setting up Operator service for running on AWS Nitro Enclave. |
-| [Operator - Snowflake](./../sdks/snowflake_integration.md) | Instructions for setting up and engaging in UID2 integration by consuming functions and views through the UID2 Share. |
+| [Operator - Microsoft Azure](./operator-guide-azure-enclave.md) | Instructions for setting up Closed Operator service for running on Microsoft Azure Confidential Computing platform. |
+| [Operator - AWS](./operator-guide-aws-nitro-enclave.md) | Instructions for setting up Closed Operator service for running on AWS Nitro Enclave. |
+| [Operator - Snowflake](./../sdks/snowflake_integration.md) | Instructions for engaging with an Open Operator service hosted in the Snowflake Data Marketplace. |
