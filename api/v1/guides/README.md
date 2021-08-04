@@ -11,7 +11,7 @@ Learn more about UID2 integration by selecting the scenario that best aligns wit
 | [DSP](./dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
 | [Advertiser/Data Provider](./advertiser-dataprovider-guide.md) | This integration guide for advertisers and data partners covers integration workflows for mapping identity for audience-building and targeting. |
 
-UID2 Participlants may ingrate via Enterpise Partners that can enable enclaves to host the Operator service.  
+UID2 Participlants may ingrate via Enterpise Partners that enable hosting of the Operator service.  
 | Operator Enterprise Partner | Description |
 | --- | --- |
 | [Operator - Microsoft Azure](./operator-guide-azure-enclave.md) | Instructions for setting up Closed Operator service for running on Microsoft Azure Confidential Computing platform. |
