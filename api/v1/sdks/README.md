@@ -8,5 +8,5 @@ The following SDKs are available for UID2 integration.
 | --- | --- |
 | [Client-Side SDK](./client-side-identity-v1.md) | Client-side JavaScript for websites. This SDK facilitates client-side integration of UID2 for Publishers. |
 | [RTB SDK](./dsp-client-v1-overview.md) | Is intended for DSPs (or anyone processing RTB requests) who want access eclosed UID2.|
-| [UID2 Snowflake Integration](./snowflake_integration.md) | Enables the setup and use of UID2 integration through the UID2 Share in Snowflake. |
+| [Snowflake Integration](./snowflake_integration.md) | Enables the setup and use of UID2 integration through the UID2 Share in Snowflake. |
 
