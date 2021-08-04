@@ -57,7 +57,7 @@ To map a single email address or multiple email addresses to the corresponding U
 
 |Argument|Data Type|Description|
 | :--- | :--- | :--- |
-|`EMAIL`|`varchar(128)`| The email address to map to the UID2 and second-level bucket ID. |
+|`EMAIL`|varchar(128)| The email address to map to the UID2 and second-level bucket ID. |
 
 A successful query returns the following information for the specified email address.
 
@@ -65,8 +65,8 @@ A successful query returns the following information for the specified email add
 
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
-| `UID2` | `TEXT` | The UID2 associated with the email address. |
-| `BUCKET_ID` | `TEXT` | The ID of the second-level salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view. |
+| `UID2` | TEXT | The UID2 associated with the email address. |
+| `BUCKET_ID` | TEXT | The ID of the second-level salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view. |
 
 
 #### Single Email Mapping Request Example
@@ -116,7 +116,7 @@ To map a single email address hash or multiple hashes to the corresponding UID2s
 
 |Argument|Data Type|Description|
 | :--- | :--- | :--- |
-|`EMAIL_HASH`|`varchar(128)`| The base64-encoded SHA256 hash of the normalized email address of a user. Ensure that the email hash is correctly formatted using the [Email Normalization](../../README.md#email-normalization) rules. Use the hash computed from the normalized email address.|
+|`EMAIL_HASH`|varchar(128)| The base64-encoded SHA256 hash of the normalized email address of a user. Ensure that the email hash is correctly formatted using the [Email Normalization](../../README.md#email-normalization) rules. Use the hash computed from the normalized email address.|
 
 A successful query returns the following information for the specified email address hash.
 
@@ -124,8 +124,8 @@ A successful query returns the following information for the specified email add
 
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
-| `UID2` | `TEXT` | The UID2 associated with the email address. |
-| `BUCKET_ID` | `TEXT` | The ID of the second-level salt bucket that was used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view. |
+| `UID2` | TEXT | The UID2 associated with the email address. |
+| `BUCKET_ID` | TEXT | The ID of the second-level salt bucket that was used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view. |
 
 #### Single Email Hash Mapping Request Example
 The following query illustrates how to map a single email address hash, using a database named `UID2` for accessing the UID2 Share as an example.
@@ -178,8 +178,8 @@ To determine which UID2s need regeneration, compare the timestamps of when they 
 
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
-| `BUCKET_ID` | `TEXT` | The ID of the second-level salt bucket. This ID parallels the `BUCKET_ID` returned by the identity map functions. Use the `BUCKET_ID` as the key to do a join query between the function call results and results from this view call.  |
-| `LAST_SALT_UPDATE_UTC` | `TIMESTAMP_NTZ` | The last time the salt in the bucket was updated. This value is expressed in UTC timezone. |
+| `BUCKET_ID` | TEXT | The ID of the second-level salt bucket. This ID parallels the `BUCKET_ID` returned by the identity map functions. Use the `BUCKET_ID` as the key to do a join query between the function call results and results from this view call.  |
+| `LAST_SALT_UPDATE_UTC` | TIMESTAMP_NTZ | The last time the salt in the bucket was updated. This value is expressed in UTC timezone. |
 
 The following example shows an input table and the query used to find the UID2s in the table that require regeneration due to updated second-level salt.
 
