@@ -44,7 +44,7 @@ GRANT IMPORTED PRIVILEGES ON DATABASE "UID2" TO ROLE "SYSADMIN";
 
 ## Accessing Shared Objects
 
-You can map single or multiple email addresses or email hashes in the UID2 Share by using the following functions:
+You can map single or multiple email addresses or email hashes to UID2s by using the following functions:
 
 - `FN_T_UID2_IDENTITY_MAP_EMAIL`
 - `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH`
