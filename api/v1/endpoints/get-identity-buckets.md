@@ -2,30 +2,37 @@
 
 # GET /identity/buckets
 
-Monitor for rotated salt buckets. No salt buckets will be rotated until September 1, 2021. The `body` will return empty until rotations on September 1, 2021 or after.
+Monitor rotated salt buckets. This endpoint is intended for use by [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md).
 
-Integration workflows that use this endpoint:
-* [Advertiser/Data Provider](../guides/advertiser-dataprovider-guide.md)
+>NOTE: No salt buckets will be rotated until September 1, 2021. Any requests prior to September 1, 2021, will return an empty response body.
 
-## Request 
 
-```GET '{environment}/{version}/identity/buckets?{queryParameter}={queryParameterValue}'```
+## Request Format
 
-###  Query Parameters
+```GET '{environment}/{version}/identity/buckets?since_timestamp={queryParameterValue}'```
 
-| Query Parameter | Data Type | Attributes | Description |
-| --- | --- | --- | --- |
-| `since_timestamp` | `date-time` or `integer` | Required | Return buckets with last updated UTC timestamps after the specified date and time.<br>Specify the the time in ISO 8601 `date-time` format (`YYYY-MM-DDThh:mm:ss`). Ensure the parameter value is URL encoded. |
+### Path Parameters
 
-#### Example Request
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
+| `{version}` | string | Required | The current API version is `v1`. |
+
+### Query Parameters
+
+| Query Parameter | Data Type | Attribute | Description | Format |
+| :--- | :--- | :--- | :--- | :--- |
+| `since_timestamp` | date-time or integer | Required | Specify the date and time to which to compare the last updated UTC timestamps of the buckets to be returned. | ISO 8601 format:<br/>`YYYY-MM-DDThh:mm:ss`<br/>Ensure that the parameter value is URL-encoded. |
+
+### Request Example
 
 ```curl
 curl -L -X GET 'https://integ.uidapi.com/v1/identity/buckets?since_timestamp=2021-03-01T01%3A01%3A01' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
-## Response
+## Response Format
 
-The endpoint returns a list of ```bucket_id``` and their last updated timestamps.
+The response returns a list of salt bucket IDs and the timestamps of their last updates.
 
 ```json
 {
@@ -46,8 +53,11 @@ The endpoint returns a list of ```bucket_id``` and their last updated timestamps
     "status":"success"
 }
 ```
+### Response Body Properties
 
 | Property | Format | Description |
-| --- | --- | --- |
-| `bucket_id` | `string` | The bucket_id associated to the timestamp. |
-| `last_Updated` | `date-time` | The UTC timestamp of the last time the bucket salt was rotated in ISO 8601 format (`YYYY-MM-DDThh:mm:ss`) |
+| :--- | :--- | :--- |
+| `bucket_id` | string | The salt bucket ID. |
+| `last_updated` | date-time | The UTC timestamp of the last time the bucket salt was rotated. |
+
+For response status values, see [Response Structure and Status Codes](../../../api/README.md#response-structure-and-status-codes).
