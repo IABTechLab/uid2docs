@@ -2,39 +2,47 @@
 
 # GET /identity/map
 
-Retrieve advertising and bucket IDs for one `email` or `email_hash`. 
+Retrieve the UID2 and salt bucket ID for an email address or an email address hash. This endpoint is intended for use by [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md).
 
-Integration workflows that use this endpoint:
-* [Advertiser/Data Provider](../guides/advertiser-dataprovider-guide.md)
 
-## Request 
+## Request Format
 
 ```GET '{environment}/{version}/identity/map?{queryParameter}={queryParameterValue}'```
 
+### Path Parameters
+
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
+| `{version}` | string | Required | The current API version is `v1`. |
+
 ###  Query Parameters
 
-| Query Parameter | Data Type | Attributes | Description |
-| --- | --- | --- | --- |
-| `email` | `string` | Conditionally Required |  User's email address, which is required when `email_hash` is not included in the request.<br><b>Note</b><br>Unhashed emails do not require normalization, as the UID2 Operator Service normalizes them. |
-| `email_hash` | `string` | Conditionally Required | The [URL-encoded, base64-encoded SHA256 hash](../../README.md#encoding-email-hashes) of the normalized email address. <br><b>Note</b><br>To pass a hashed email address, make sure to normalize it first. For details, see [Email Normalization](../../README.md#emailnormalization). Required when `email` is not included in the request. |
+* Only one of the following two query parameters is required. 
+* If both parameters are included in a request, only the `email` will return a response.
 
-If `email` and `email_hash` are both supposed in the same request, only the `email` will return a mapping response.
+| Query Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `email` | string | Conditionally Required | The [normalized](../../README.md#emailnormalization) email address to be mapped. |
+| `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#encoding-email-hashes) hash of the [normalized](../../README.md#emailnormalization) email address. |
 
-#### Example Request Using an Email Address
+
+### Request Examples
+
+A mapping request for an email address:
 
 ```sh
 curl -L -X GET 'https://integ.uidapi.com/v1/identity/map?email=username@example.com' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
-
-#### Example Request Using an Email Hash
+A mapping request for an email address hash:
 
 ```sh
 curl -L -X GET 'https://integ.uidapi.com/v1/identity/map?email_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
-## Response
+## Response Format
 
-The response is a JSON object containing the user's UID2 identifier and bucket identifier.
+The response returns the UID2 and salt bucket ID for the specified email address or hash.
 
 ```json
 {
@@ -47,10 +55,13 @@ The response is a JSON object containing the user's UID2 identifier and bucket i
 }
 ```
 
-## Body Response Properties
+### Response Body Properties
 
 | Property | Data Type | Description |
-| --- | --- | --- |
-| `body.identifier` | `string` | The `email` or `email_hash` provided in the request. |
-| `body.advertising_id` | `string` | The identity's advertising ID (raw UID2). |
-| `body.bucket_id` | `string` | The identifier of the bucket used for salting the user's `advertising_id`. |
+| :--- | :--- | :--- |
+| `identifier` | string | The email address or email address hash specified in the request query parameter. |
+| `advertising_id` | string | The corresponding advertising ID (raw UID2). |
+| `bucket_id` | string | The ID of the salt bucket used to generate the UID2. |
+
+For response status values, see [Response Structure and Status Codes](../../../api/README.md#response-structure-and-status-codes).
+
