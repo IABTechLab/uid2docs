@@ -84,7 +84,7 @@ All endpoints return responses with the following structure.
 | Property | Description |
 | :--- | :--- |
 | `status` | The status of the request. For details and HTTP status code equivalents, see the table below. |
-| `body.property` | The response payload. If the `status` value is other than `success`, this may be the endpoint-specific value where the issue has occurred. |
+| `body.property` | The response payload. If the `status` value is other than `success`, this may be an endpoint-specific value where the issue has occurred. |
 | `message` | Additional information about the issue, if the `status` value is other than `success`, for example, missing or invalid parameters. |
 
 The following table lists the `status` property values and their HTTP status code equivalents.
