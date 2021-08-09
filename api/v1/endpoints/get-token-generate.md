@@ -5,6 +5,7 @@ Generate a UID2 token from an email address or hashed email address.
 
 >IMPORTANT: UID2 tokens must be generated only on the server side after authentication. Security concerns forbid token generation on the browser side.
 
+
 The following integration workflows use this endpoint:
 * [Publisher - Standard](../guides/publisher-client-side.md)
 * [Publisher - Custom](../guides/custom-publisher-integration.md)
@@ -29,6 +30,7 @@ The following integration workflows use this endpoint:
 | :--- | :--- | :--- | :--- |
 | `email` | string | Conditionally Required | The [normalized](../../README.md#emailnormalization) email address for which to generate tokens. |
 | `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#encoding-email-hashes) hash of the [normalized](../../README.md#emailnormalization) email address. |
+
 
 ### Request Examples
 
@@ -75,9 +77,3 @@ For response status values, see [Response Structure and Status Codes](../../../a
 | :--- | :--- | :--- |
 | `validate@email.com` | Test that the `advertising_token` you've cached matches the `advertising_token` for the specified email address. | [GET /token/validate](./get-token-validate.md) |
 | `optout@email.com` | Using this email for the request always generates an identity response with a `refresh_token` that results in a logout response. | [GET /token/refresh](./get-token-refresh.md) |
-
-
-
-
-
-
