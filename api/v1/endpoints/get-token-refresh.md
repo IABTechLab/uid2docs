@@ -20,7 +20,7 @@ The following integration workflows use this endpoint:
 
 ###  Query Parameters
 
-| Query Parameter | Data Type | Attributes | Description |
+| Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `refresh_token` | string | Required | The refresh token returned in the [GET /token/generate](./get-token-generate.md) response.<br/>IMPORTANT: If the refresh token was generated with URL decoded characters make sure to encode as a query parameter. For details, see [Encoding Query Parameter Values](../../../api/README.md#encoding-query-parameter-values). |
 
