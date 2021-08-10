@@ -26,6 +26,7 @@ Retrieve the UID2 and salt bucket ID for an email address or an email address ha
 | `email` | string | Conditionally Required | The [normalized](../../README.md#emailnormalization) email address to be mapped. |
 | `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#encoding-email-hashes) hash of the [normalized](../../README.md#emailnormalization) email address. |
 
+
 ### Request Examples
 
 A mapping request for an email address:
@@ -63,3 +64,4 @@ The response returns the UID2 and salt bucket ID for the specified email address
 | `bucket_id` | string | The ID of the salt bucket used to generate the UID2. |
 
 For response status values, see [Response Structure and Status Codes](../../../api/README.md#response-structure-and-status-codes).
+

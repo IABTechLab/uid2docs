@@ -21,13 +21,14 @@ Validate that an advertising token matches the specified email address or email 
 
 * Either the `email` or `email_hash` query parameter is required. 
 * If both parameters `email` and `email_hash` are included in a request, only the `email` will return a response.
-* TBD Since this is a testing endpoint, the only email address or email address hash that will return `true` is `validate@email.com`. Any other values will resturn `false`.
+* TBD Since this is a testing endpoint, the only email address or email address hash that will return `true` is `validate@email.com`. Any other values will resturn `false` with the status of `success`.
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `token` | string | Required | The advertising token returned by the [GET /token/generate](./get-token-generate.md) response. |
 | `email` | string | Conditionally Required |  The [normalized](../../README.md#emailnormalization) email address. |
 | `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#encoding-email-hashes) hash of the [normalized](../../README.md#emailnormalization) email address. |
+
 
 ### Request Examples
 

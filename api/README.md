@@ -44,7 +44,9 @@ To authenticate to UID2 endpoints, use a bearer token in the request's authoriza
 
 ## Email Normalization
 
+
 Prior to sending email addresses in a request, normalize them by following these steps:
+
 
 1. Remove leading and trailing spaces.
 2. Convert all ASCII characters to lowercase.

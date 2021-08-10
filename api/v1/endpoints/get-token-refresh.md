@@ -1,36 +1,43 @@
 [UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /token/refresh
 
 # GET /token/refresh
-Generate a new token for a user by specifying their `refresh_token` obtained from earlier response from [GET /token/generate](./get-token-generate.md).
+Generate a new token for a user by specifying their refresh token issued by using the [GET /token/generate](./get-token-generate.md) endpoint.
 
-Integration workflows that use this endpoint:
+The following integration workflows use this endpoint:
 * [Publisher - Standard](../guides/publisher-client-side.md)
 * [Publisher - Custom](../guides/custom-publisher-integration.md)
 
-## Request 
+## Request Format 
 
-```GET '{environment}/{version}/token/refresh?{queryParameter}={queryParameterValue}'```
+```GET '{environment}/{version}/token/refresh?refresh_token={queryParameterValue}'```
+
+### Path Parameters
+
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
+| `{version}` | string | Required | The current API version is `v1`. |
 
 ###  Query Parameters
 
-| Query Parameter | Data Type | Attributes | Description |
-| --- | --- | --- | --- |
-| `refresh_token` | `string` | Required | The `refresh_token` returned for a user from [GET /token/generate](./get-token-generate.md). Some `refresh_tokens` are generated with URL decoded characters. Please encode the `refresh_token` as a query parameter. |
+| Query Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `refresh_token` | string | Required | The refresh token returned in the [GET /token/generate](./get-token-generate.md) response.<br/>IMPORTANT: If the refresh token was generated with URL decoded characters make sure to encode as a query parameter. For details, see [Encoding Query Parameter Values](../../../api/README.md#encoding-query-parameter-values). |
 
-#### Example Request
+
+#### Testing Notes
+
+Using the `optout@email.com` email address in [GET /token/generate](./get-token-generate.md) request always generates an identity response with a `refresh_token` that results in a logout response when used with this endpoint.
+
+### Request Example
 
 ```sh
 curl -L -X GET 'https://integ.uidapi.com/v1/token/refresh?refresh_token=RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq%2F90PYmajV0IPrvo51Biqh7%2FM%2BJOuhfBY8KGUn%2F%2FGsmZr9nf%2BjIWMUO4diOA92kCTF69JdP71Ooo%2ByF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA%3D%3D'
 ```
 
-### Testing Notes
+## Response Format
 
-Using an email of `optout@email.com` in [GET /token/generate](./get-token-generate.md) always generates an identity response with a `refresh_token` that results in a logout response when used with this endpoint.
-
-## Response
-
-The response is a JSON object containing new identity tokens for a user or a message explaining why new identity tokens were not returned.
-
+The response returns new identity tokens issues for the user or a message explaining why new identity tokens were not returned. For details, see [Response Status Codes](#response-status-codes).
 ```json
 {
     "body": {
@@ -41,19 +48,23 @@ The response is a JSON object containing new identity tokens for a user or a mes
 }
 ```
 
-If a user opted out before the refresh request, the refresh response status will be `success` with empty token values.
+### Response Body Properties
 
-### Supplemental Status Information
-
-| HTTP Status Code | Status | Response | Description |
-| --- | --- | --- | --- |
-| 200 | `success` | Body with identity tokens. | |
-| 200 | `optout` | This status only appears for authorized requests and indicates that the user associated with the supplied `refresh_token` opted out. |
-| 400 | `clienterror` | `Required Parameter Missing: refresh_token` | Ensure the `refresh_token` parameter and value are included with your request. |
-| 400 | `invalid_token` | `Invalid Token presented {refresh_token_value}` | This message only appears for authorized requests and indicates that the supplied `refresh_token` is invalid. |
+| Property | Data Type | Description |
+| :--- | :--- | :--- |
+| `advertising_token` | string | An encrypted advertising (UID2) token for the user. |
+| `refresh_token` | string | An encrypted token that can be exchanged with the UID2 Service for the latest set of identity tokens. |
 
 
+### Response Status Codes
 
+The following are the status codes specific to this endpoint.
 
+| Status | HTTP Status Code | Status Description | Response Description |
+| :--- | :--- | :--- | :--- |
+| `success` | 200 | The request was successful.| Body with newly issued identity tokens. |
+| `optout` | 200 | The user opted out; no tokens can be issued. This status is returned only for authorized requests. | Body with emplty token values. |
+| `client_error` | 400 | The request was a missing refresh token.| The `message` value:<br/>`Required Parameter Missing: refresh_token`. |
+| `invalid_token` | 400 | The request had an invalid refresh token. This status is returned only for authorized requests. |  The `message` value:<br/>`Invalid Token presented {refresh_token_value}`. |
 
-
+For response structure details, see [Response Structure and Status Codes](../../../api/README.md#response-structure-and-status-codes).
