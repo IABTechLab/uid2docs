@@ -37,7 +37,7 @@ curl -L -X GET 'https://integ.uidapi.com/v1/token/refresh?refresh_token=RefreshT
 
 ## Response Format
 
-The response returns new identity tokens issues for the user or a message explaining why new identity tokens were not returned. For details, see [Response Status Codes](#response-status-codes).
+A successful response returns new identity tokens issues for the user or indicates that the user has opted out. For details, see [Response Status Codes and Examples](#response-status-codes-and-examples).
 ```json
 {
     "body": {
@@ -56,15 +56,49 @@ The response returns new identity tokens issues for the user or a message explai
 | `refresh_token` | string | An encrypted token that can be exchanged with the UID2 Service for the latest set of identity tokens. |
 
 
-### Response Status Codes
+### Response Status Codes and Examples
 
 The following are the status codes specific to this endpoint.
 
-| Status | HTTP Status Code | Status Description | Response Description |
-| :--- | :--- | :--- | :--- |
-| `success` | 200 | The request was successful.| Body with newly issued identity tokens. |
-| `optout` | 200 | The user opted out; no tokens can be issued. This status is returned only for authorized requests. | Body with emplty token values. |
-| `client_error` | 400 | The request was a missing refresh token.| The `message` value:<br/>`Required Parameter Missing: refresh_token`. |
-| `invalid_token` | 400 | The request had an invalid refresh token. This status is returned only for authorized requests. |  The `message` value:<br/>`Invalid Token presented {refresh_token_value}`. |
+| Status | HTTP Status Code | Status Description |
+| :--- | :--- | :--- |
+| `success` | 200 | The request was successful; the response returns newly issued identity tokens as shown in [Response Format](#response-format). |
+| `optout` | 200 | The user opted out; no tokens can be issued. This status is returned only for authorized requests. For example, see [Optout](#optout). |
+| `client_error` | 400 | The request was missing a refresh token.  For example, see [Missing Token](#missing-token).|
+| `invalid_token` | 400 | The request had an invalid refresh token. This status is returned only for authorized requests.  For example, see [Invalid Token](#invalid-token). |
 
 For response structure details, see [Response Structure and Status Codes](../../../api/README.md#response-structure-and-status-codes).
+
+#### Optout
+
+If a user opted out before the refresh request, the following response will be returned:
+
+```json
+{
+    "status": "optout"
+}
+```
+
+#### Missing Token
+
+If the request was missing a refresh token, the following response will be returned:
+
+
+```json
+{
+    "status": "client_error",
+    "message": "Required Parameter Missing: refresh_token"
+}
+```
+
+#### Invalid Token
+
+If the request contained an invalid refresh token, the following response will be returned:
+
+
+```json
+{
+    "status": "invalid_token",
+    "message": "Invalid Token presented {refresh_token_value}"
+}
+```
