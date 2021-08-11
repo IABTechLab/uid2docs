@@ -1,29 +1,45 @@
 [UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /token/validate
 
 # GET /token/validate
-Validate that an advertising token matches the provided email or email hash. This is primarily used for testing and troubleshooting new integrations and is not a primary step in the publisher workflow.
+Validate that an advertising token matches the specified email address or email address hash. 
 
-The only accepted email or email hash for this endpoint is `validate@email.com`.
+>NOTE: This endpoint is intended primarily for testing and troubleshooting new integrations. 
 
-## Request 
+## Request  Format 
 
-```GET '{environment}/{version}/token/validate?{queryParameter1}={queryParameterValue1}&{queryParameter2}={queryParameterValue2}'```
+```GET '{environment}/{version}/token/validate?token={tokenValue}&{queryParameter}={queryParameterValue}'```
+
+### Path Parameters
+
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
+| `{version}` | string | Required | The current API version is `v1`. |
+
 
 ###  Query Parameters
 
-| Query Parameter | Data Type | Attributes | Description |
-| --- | --- | --- | --- |
-| `token` | `string` | ? | The `advertising_token` obtained from [GET /token/generate](./get-token-generate.md). |
-| `email` | `string` | Conditionally Required |  User's email address, which is required when `email_hash` is not included in the request.<br><b>Note</b><br>Unhashed emails do not require normalization, as the UID2 Operator Service normalizes them. |
-| `email_hash` | `string` | Conditionally Required | The [URL-encoded, base64-encoded SHA256 hash](../../README.md#encoding-email-hashes) of the normalized email address. <br><b>Note</b><br>To pass a hashed email address, make sure to normalize it first. For details, see [Email Normalization](../../README.md#emailnormalization). Required when `email` is not included in the request. |
+* Only one of the two query parameters is required in a request: `email` or `email_hash`. 
+* If both `email` and `email_hash` parameters are included in a request, only the `email` will return a response.
 
-#### Example Request Using an Email Address
+>TIP: Consider using the `validate@email.com` email address or its hash for testing.
+
+| Query Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `token` | string | Required | The advertising token returned by the [GET /token/generate](./get-token-generate.md) response. |
+| `email` | string | Conditionally Required |  The [normalized](../../README.md#emailnormalization) email address. |
+| `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#encoding-email-hashes) hash of the [normalized](../../README.md#emailnormalization) email address. |
+
+
+### Request Examples
+
+A validation request for an email address:
 
 ```sh
-curl -L -X GET 'https://integ.uidapi.com/v1/token/validate?token=AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D&email=username@example.com' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X GET 'https://integ.uidapi.com/v1/token/validate?token=AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D&email=validate@email.com' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
-#### Example Request Using an Email Hash
+A validation request for an email address hash:
 
 ```sh
 curl -L -X GET 'https://integ.uidapi.com/v1/token/validate?token=AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D&email_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
@@ -31,7 +47,7 @@ curl -L -X GET 'https://integ.uidapi.com/v1/token/validate?token=AdvertisingToke
 
 ## Response
 
-The response is a JSON object. 
+The response returns a boolean value that indicates the validation status of the specified advertising token. 
 
 
 ```json
@@ -44,9 +60,7 @@ The response is a JSON object.
 ## Body Response Properties
 
 | Property | Data Type | Description |
-| --- | --- | --- |
-| `body` | `boolean` | A value of `true` indicates that the `email` or the `email_hash` specified in the request is the same as the `email` or `email_hash` used to create the `advertising_token`.<br>A value of `false` indicates an invalid `token` or that the `email` or the `email_hash` specified in the request is not the same as the `email` or `email_hash` used to create the `advertising_token`. |
+| :--- | :--- | :--- |
+| `body` | boolean | A value of `true` indicates that the email address or hash specified in the request is the same as the one used to generate the advertising token.<br/><br/>A value of `false` indicates any of the following:<br/>- The request included an invalid advertising token.<br/>-  The email address or hash specified in the request is either different from the one used to generate the advertising token or is not for the testing email `validate@email.com`. |
 
-
-
-
+For response status values, see [Response Structure and Status Codes](../../../api/README.md#response-structure-and-status-codes).
