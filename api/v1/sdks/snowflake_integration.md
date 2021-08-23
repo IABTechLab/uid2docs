@@ -26,7 +26,7 @@ Currently, there are two personalized listings offered in the Snowflake Data Mar
 - Unified ID 2.0 Advertiser Identity Solution
 - Unified ID 2.0 Data Provider Identity Solution
 
-To request access the UID2 Share, complete the following steps:
+To request access to the UID2 Share, complete the following steps:
 1.	Make sure you have the ACCOUNTADMIN role privileges in your Snowflake account.
 2.	Log in to the Snowflake Data Marketplace and search for the UID2 solution in which you are interested.
 3.	Select the listing and, in the **Personalized Data** tile at the top-right, click **Request Data**.
