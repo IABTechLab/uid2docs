@@ -18,8 +18,24 @@ The following diagram illustrates how you engage with the UID2 integration proce
 
 ## Accessing the UID2 Share
 
-Access to the UID2 Share is authorized by the UID2 administrators. To request access,
-[contact](../../README.md#contact-info) the appropriate administration group and provide the following information.
+>IMPORTANT: Snowflake integration is currently available only on AWS in the US East (N. Virginia) region (region ID us-east-1).
+
+Access to the UID2 Share is available through the [Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/) where you can request specific data sets based on the UID2 personalized listing you select.
+
+Currently, there are two personalized listings offered in the Snowflake Data Marketplace for UID2:
+- Unified ID 2.0 Advertiser Identity Solution
+- Unified ID 2.0 Data Provider Identity Solution
+
+To request access the UID2 Share, complete the following steps:
+1.	Make sure you have the ACCOUNTADMIN role privileges in your Snowflake account.
+2.	Log in to the Snowflake Data Marketplace and search for the UID2 solution in which you are interested.
+3.	Select the listing and, in the **Personalized Data** tile at the top-right, click **Request Data**.
+4.	Follow the onscreen instructions to verify and provide your contact and other required information.
+5.	If you are an existing client of The Trade Desk and are interested in the *Advertiser Identity Solution*, make sure to include your partner and advertiser IDs issued by The Trade Desk in the message field of the data request.
+6.	Click **Submit**.
+
+After your request is received, a UID2 administrator will contact you with the appropriate access instructions. You may be also requested to provide the following information.
+
 
 |Required Information|Details|
 | :--- | :--- |
@@ -27,12 +43,13 @@ Access to the UID2 Share is authorized by the UID2 administrators. To request ac
 |The cloud provider and Snowflake region hosting the account|Snowflake integration is currently available only on AWS in the US East (N. Virginia) region (region ID `us-east-1`).<br/> To verify your region, run the following command from within Snowflake interface:<br>`select CURRENT_REGION();` |
 |The UID2 client authentication key |To access the UID2 Operator Services as a registered UID2 partner, you must use the UID2 client authentication key during setup, which determines the endpoints and objects you can access through the share. After the setup is complete, the key is not required for accessing shared objects.|
 
-### Using the UID2 Share
-To access and use the UID2 Share, do the following:
+For details about managing data requests in Snowflake, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html).
 
-1. Request and get the ACCOUNTADMIN role privileges.
-2. Access the available UID2 Share in Snowflake console.
-3. Create a new database from the UID2 Share by doing either of the following:
+### Using the UID2 Share
+To use the UID2 Share, do the following:
+
+1. Access the available UID2 Share in Snowflake console.
+2. Create a new database from the UID2 Share by doing either of the following:
    - Using the Snowflake console
    - Executing SQL statements like the following:
 
@@ -42,7 +59,7 @@ CREATE DATABASE "UID2" FROM SHARE UID2PROD."UID2_PROD_SH"
 GRANT IMPORTED PRIVILEGES ON DATABASE "UID2" TO ROLE "SYSADMIN";
 ```
 
-## Accessing Shared Objects
+## Shared Objects
 
 You can map single or multiple email addresses or email hashes to UID2s by using the following functions:
 
