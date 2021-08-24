@@ -21,8 +21,8 @@ Access to the UID2 Share is available through the [Snowflake Data Marketplace](h
 To request access to a UID2 Share, complete the following steps:
 
 1.	Log in to the Snowflake Data Marketplace and select the UID2 solution in which you are interested:
-      - [Unified ID 2.0 Advertiser Identity Solution](TBD URL)
-      - [Unified ID 2.0 Data Provider Identity Solution](TBD URL)
+      - [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV)
+      - [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0)
 2.	In the **Personalized Data** section, click **Request Data**.
 3.	Follow the onscreen instructions to verify and provide your contact and other required information.
 4.	If you are an existing client of The Trade Desk and are interested in the *Advertiser* Identity Solution, include your partner and advertiser IDs issued by The Trade Desk in the **Message** field of the data request form.
