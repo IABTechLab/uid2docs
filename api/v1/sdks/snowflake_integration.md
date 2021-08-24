@@ -16,27 +16,48 @@ The following diagram illustrates how you engage with the UID2 integration proce
 
 Access to the UID2 Share is available through the [Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/) where you can request specific data sets based on the UID2 personalized listing you select. Currently, there are two personalized listings offered in the Snowflake Data Marketplace for UID2: for advertisers/brands and data providers.
 
+>IMPORTANT: To be able to request data, you must have the `ACCOUNTADMIN` role privileges in your Snowflake account.
+
 To request access to a UID2 Share, complete the following steps:
-1.	Make sure you have the ACCOUNTADMIN role privileges in your Snowflake account.
-2.	Log in to the Snowflake Data Marketplace and select the UID2 solution in which you are interested:
+
+1.	Log in to the Snowflake Data Marketplace and select the UID2 solution in which you are interested:
       - [Unified ID 2.0 Advertiser Identity Solution](TBD URL)
       - [Unified ID 2.0 Data Provider Identity Solution](TBD URL)
-3.	In the **Personalized Data** section, click **Request Data**.
-4.	Follow the onscreen instructions to verify and provide your contact and other required information.
-5.	If you are an existing client of The Trade Desk and are interested in the *Advertiser* Identity Solution, include your partner and advertiser IDs issued by The Trade Desk in the **Message** field of the data request form.
-6.	Submit the form.
+2.	In the **Personalized Data** section, click **Request Data**.
+3.	Follow the onscreen instructions to verify and provide your contact and other required information.
+4.	If you are an existing client of The Trade Desk and are interested in the *Advertiser* Identity Solution, include your partner and advertiser IDs issued by The Trade Desk in the **Message** field of the data request form.
+5.	Submit the form.
 
 After your request is received, a UID2 administrator will contact you with the appropriate access instructions. For details about managing data requests in Snowflake, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html).
 
 
 ## Shared Objects
 
-You can map single or multiple email addresses or email hashes to UID2s by using the following functions:
+Regardless of the UID2 solution you choose, you can map single or multiple email addresses or email hashes to UID2s by using the following functions:
 
 - `FN_T_UID2_IDENTITY_MAP_EMAIL` (See [Map Email Addresses](#map-email-addresses))
 - `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (See [Map Email Address Hashes](#map-email-address-hashes))
 
 To identify the UID2s that you must regenerate, use the `UID2_SALT_BUCKETS` view from the UID2 Share. For details, see [Regenerate UID2s](#regenerate-uid2s).
+
+### Database and Schema Names
+
+The following sections include query examples for each solution, which are identical except for the database and schema name variables:
+
+```
+{DATABASE_NAME}.{SCHEMA_NAME}
+```
+For example:
+```
+select UID2, BUCKET_ID from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
+```
+
+All query examples use the following default values for each name variable:
+
+| Variable |Advertiser Solution Default Value | Data Provider Solution Default Value| Comments |
+| :--- | :--- | :--- | :--- |
+| `{DATABASE_NAME}` | `UID2_PROD_ADV_SH` | `UID2_PROD_DP_SH` | If needed, you can change the default database name when creating a new database after you are granted access to the selected UID2 Share. |
+| `{SCHEMA_NAME}`| `ADVERTISER` | `DATAPARTNER` | This is an immutable name. |
 
 ### Map Email Addresses
 
@@ -57,7 +78,8 @@ A successful query returns the following information for the specified email add
 
 
 #### Single Email Mapping Request Example
-The following query illustrates how to map a single email address, using a database named `UID2` for accessing the UID2 Share as an example.
+
+The following queries illustrate how to map a single email address, using the [default database and schema names](#database-and-schema-names).
 
 ##### Advertiser Solution Query
 ```
@@ -80,7 +102,7 @@ select UID2, BUCKET_ID from table(UID2_PROD_DP_SH.DATAPARTNER.FN_T_UID2_IDENTITY
 ```
 
 #### Multiple Emails Mapping Request Example
-The following query illustrates how to map multiple email addresses, using a database named `UID2` for accessing the UID2 Share as an example.
+The following queries illustrate how to map multiple email addresses, using the [default database and schema names](#database-and-schema-names).
 
 ##### Advertiser Solution Query
 ```
@@ -126,7 +148,7 @@ A successful query returns the following information for the specified email add
 | `BUCKET_ID` | TEXT | The ID of the second-level salt bucket that was used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view. |
 
 #### Single Email Hash Mapping Request Example
-The following query illustrates how to map a single email address hash, using a database named `UID2` for accessing the UID2 Share as an example.
+The following queries illustrate how to map a single email address hash, using the [default database and schema names](#database-and-schema-names).
 
 ##### Advertiser Solution Query
 ```
@@ -150,7 +172,7 @@ select UID2, BUCKET_ID from table(UID2_PROD_DP_SH.DATAPARTNER.FN_T_UID2_IDENTITY
 
 
 #### Multiple Email Hashes Mapping Request Example
-The following query illustrates how to map multiple email address hashes, using a database named `UID2` for accessing the UID2 Share as an example.
+The following queries illustrate how to map multiple email address hashes, using the [default database and schema names](#database-and-schema-names).
 
 ##### Advertiser Solution Query
 ```
@@ -207,7 +229,7 @@ select * from AUDIENCE_WITH_UID2;
 +----+--------------------+----------------------------------------------+------------+-------------------------+
 ```
 
-To find missing or outdated UID2s, use the following query example.
+To find missing or outdated UID2s, use the following query examples, which use the [default database and schema names](#database-and-schema-names).
 
 ##### Advertiser Solution Query
 ```
