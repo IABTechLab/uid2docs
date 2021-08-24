@@ -83,8 +83,7 @@ The following queries illustrate how to map a single email address, using the [d
 
 ##### Advertiser Solution Query
 ```
-select UID2, BUCKET_ID from table(UID2_PROD_ADV_SH.ADV
-.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
+select UID2, BUCKET_ID from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
 ```
 
 ##### Data Provider Solution Query
