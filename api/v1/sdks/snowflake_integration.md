@@ -12,48 +12,23 @@ The following diagram illustrates how you engage with the UID2 integration proce
 |When you use shared functions and views, you pay Snowflake for transactional computation costs.  |These private tables, secured in the UID2 Snowflake account, automatically synchronize with the UID2 Core/Optout Snowflake storage that holds internal data used to complete UID2-related tasks.  | |
 
 
-## Accessing the UID2 Share
+## Accessing the UID2 Shares
 
->IMPORTANT: Snowflake integration is currently available only on AWS in the US East (N. Virginia) region (region ID us-east-1).
 
-Access to the UID2 Share is available through the [Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/) where you can request specific data sets based on the UID2 personalized listing you select.
+Access to the UID2 Share is available through the [Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/) where you can request specific data sets based on the UID2 personalized listing you select. Currently, there are two personalized listings offered in the Snowflake Data Marketplace for UID2: for advertisers/brands and data providers.
 
-Currently, there are two personalized listings offered in the Snowflake Data Marketplace for UID2:
-- Unified ID 2.0 Advertiser Identity Solution
-- Unified ID 2.0 Data Provider Identity Solution
-
-To request access to the UID2 Share, complete the following steps:
+To request access to a UID2 Share, complete the following steps:
 1.	Make sure you have the ACCOUNTADMIN role privileges in your Snowflake account.
-2.	Log in to the Snowflake Data Marketplace and search for the UID2 solution in which you are interested.
-3.	Select the listing and, in the **Personalized Data** tile at the top-right, click **Request Data**.
+2.	Log in to the Snowflake Data Marketplace and select the UID2 solution in which you are interested:
+      - [Unified ID 2.0 Advertiser Identity Solution](TBD URL)
+      - [Unified ID 2.0 Data Provider Identity Solution](TBD URL)
+3.	In the **Personalized Data** section, click **Request Data**.
 4.	Follow the onscreen instructions to verify and provide your contact and other required information.
-5.	If you are an existing client of The Trade Desk and are interested in the *Advertiser Identity Solution*, make sure to include your partner and advertiser IDs issued by The Trade Desk in the message field of the data request.
-6.	Click **Submit**.
+5.	If you are an existing client of The Trade Desk and are interested in the *Advertiser* Identity Solution, include your partner and advertiser IDs issued by The Trade Desk in the **Message** field of the data request form.
+6.	Submit the form.
 
-After your request is received, a UID2 administrator will contact you with the appropriate access instructions. You may be also requested to provide the following information.
+After your request is received, a UID2 administrator will contact you with the appropriate access instructions. For details about managing data requests in Snowflake, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html).
 
-
-|Required Information|Details|
-| :--- | :--- |
-|Partner Snowflake account name |Run the following command from within the Snowflake interface:<br>`select CURRENT_ACCOUNT();`|
-|The cloud provider and Snowflake region hosting the account|Snowflake integration is currently available only on AWS in the US East (N. Virginia) region (region ID `us-east-1`).<br/> To verify your region, run the following command from within Snowflake interface:<br>`select CURRENT_REGION();` |
-|The UID2 client authentication key |To access the UID2 Operator Services as a registered UID2 partner, you must use the UID2 client authentication key during setup, which determines the endpoints and objects you can access through the share. After the setup is complete, the key is not required for accessing shared objects.|
-
-For details about managing data requests in Snowflake, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html).
-
-### Using the UID2 Share
-To use the UID2 Share, do the following:
-
-1. Access the available UID2 Share in Snowflake console.
-2. Create a new database from the UID2 Share by doing either of the following:
-   - Using the Snowflake console
-   - Executing SQL statements like the following:
-
-```
-CREATE DATABASE "UID2" FROM SHARE UID2PROD."UID2_PROD_SH"
-   COMMENT='Access to UID2 shared functions and views';
-GRANT IMPORTED PRIVILEGES ON DATABASE "UID2" TO ROLE "SYSADMIN";
-```
 
 ## Shared Objects
 
