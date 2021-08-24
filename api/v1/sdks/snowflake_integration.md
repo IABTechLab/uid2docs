@@ -60,12 +60,17 @@ A successful query returns the following information for the specified email add
 #### Single Email Mapping Request Example
 The following query illustrates how to map a single email address, using a database named `UID2` for accessing the UID2 Share as an example.
 
-##### Query
+##### Advertiser Solution Query
 ```
-select UID2, BUCKET_ID from table(UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
+select UID2, BUCKET_ID from table(UID2_PROD_ADV_SH.ADVERTISER.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
 ```
 
-##### Result
+##### Data Provider Solution Query
+```
+select UID2, BUCKET_ID from table(UID2_PROD_DP_SH.DATAPARTNER.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
+```
+
+##### Results
 
 ```
 +----------------------------------------------+------------+
@@ -78,14 +83,20 @@ select UID2, BUCKET_ID from table(UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL('vali
 #### Multiple Emails Mapping Request Example
 The following query illustrates how to map multiple email addresses, using a database named `UID2` for accessing the UID2 Share as an example.
 
-##### Query
+##### Advertiser Solution Query
 ```
 select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL(EMAIL) t) m
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADVERTISER.FN_T_UID2_IDENTITY_MAP_EMAIL(EMAIL) t) m
+    on a.ID=m.ID;
+```
+##### Data Provider Solution Query
+```
+select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DATAPARTNER.FN_T_UID2_IDENTITY_MAP_EMAIL(EMAIL) t) m
     on a.ID=m.ID;
 ```
 
-##### Result
+##### Results
 
 The following table identifies each item in the response, including `NULL` values for an improperly formatted email.
 
@@ -118,12 +129,17 @@ A successful query returns the following information for the specified email add
 #### Single Email Hash Mapping Request Example
 The following query illustrates how to map a single email address hash, using a database named `UID2` for accessing the UID2 Share as an example.
 
-##### Query
+##### Advertiser Solution Query
 ```
-select UID2, BUCKET_ID from table(UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256))));
+select UID2, BUCKET_ID from table(UID2_PROD_ADV_SH.ADVERTISER.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256))));
 ```
 
-##### Result
+##### Data Provider Solution Query
+```
+select UID2, BUCKET_ID from table(UID2_PROD_DP_SH.DATAPARTNER.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256))));
+```
+
+##### Results
 
 ```
 +----------------------------------------------+------------+
@@ -137,14 +153,21 @@ select UID2, BUCKET_ID from table(UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE6
 #### Multiple Email Hashes Mapping Request Example
 The following query illustrates how to map multiple email address hashes, using a database named `UID2` for accessing the UID2 Share as an example.
 
-##### Query
+##### Advertiser Solution Query
 ```
 select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL_HASH(EMAIL_HASH) t) m
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADVERTISER.FN_T_UID2_IDENTITY_MAP_EMAIL_HASH(EMAIL_HASH) t) m
     on a.ID=m.ID;
 ```
 
-##### Result
+##### Data Provider Solution Query
+```
+select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DATAPARTNER.FN_T_UID2_IDENTITY_MAP_EMAIL_HASH(EMAIL_HASH) t) m
+    on a.ID=m.ID;
+```
+
+##### Results
 
 The following table identifies each item in the response, including `NULL` values for an improperly formatted email hash.
 
@@ -187,15 +210,23 @@ select * from AUDIENCE_WITH_UID2;
 
 To find missing or outdated UID2s, use the following query example.
 
-#### Query
+##### Advertiser Solution Query
 ```
 select a.*, b.LAST_SALT_UPDATE_UTC
-  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2.PUBLIC.UID2_SALT_BUCKETS b
+  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_ADV_SH.ADVERTISER.UID2_SALT_BUCKETS b
   on a.BUCKET_ID=b.BUCKET_ID
   where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
 ```
 
-##### Result
+##### Data Provider Solution Query
+```
+select a.*, b.LAST_SALT_UPDATE_UTC
+  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_DP_SH.DATAPARTNER.UID2_SALT_BUCKETS b
+  on a.BUCKET_ID=b.BUCKET_ID
+  where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
+```
+
+##### Results
 
 The following table identifies each item in the response. The result includes an email, `UID2`, `BUCKET_ID`, `LAST_UID2_UPDATE_UTC`, and `LAST_SALT_UPDATE_UTC` as shown in the ID 1 example below. No information is returned for ID 2 because the corresponding UID2 was generated after the last bucket update. For ID 3, `NULL` values are returned due to a missing UID2.
 
