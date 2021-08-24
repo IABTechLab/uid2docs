@@ -57,7 +57,7 @@ All query examples use the following default values for each name variable:
 | Variable |Advertiser Solution Default Value | Data Provider Solution Default Value| Comments |
 | :--- | :--- | :--- | :--- |
 | `{DATABASE_NAME}` | `UID2_PROD_ADV_SH` | `UID2_PROD_DP_SH` | If needed, you can change the default database name when creating a new database after you are granted access to the selected UID2 Share. |
-| `{SCHEMA_NAME}`| `ADVERTISER` | `DATAPARTNER` | This is an immutable name. |
+| `{SCHEMA_NAME}`| `ADV` | `DP` | This is an immutable name. |
 
 ### Map Email Addresses
 
@@ -83,12 +83,13 @@ The following queries illustrate how to map a single email address, using the [d
 
 ##### Advertiser Solution Query
 ```
-select UID2, BUCKET_ID from table(UID2_PROD_ADV_SH.ADVERTISER.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
+select UID2, BUCKET_ID from table(UID2_PROD_ADV_SH.ADV
+.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
 ```
 
 ##### Data Provider Solution Query
 ```
-select UID2, BUCKET_ID from table(UID2_PROD_DP_SH.DATAPARTNER.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
+select UID2, BUCKET_ID from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
 ```
 
 ##### Results
@@ -107,13 +108,13 @@ The following queries illustrate how to map multiple email addresses, using the 
 ##### Advertiser Solution Query
 ```
 select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADVERTISER.FN_T_UID2_IDENTITY_MAP_EMAIL(EMAIL) t) m
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP_EMAIL(EMAIL) t) m
     on a.ID=m.ID;
 ```
 ##### Data Provider Solution Query
 ```
 select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DATAPARTNER.FN_T_UID2_IDENTITY_MAP_EMAIL(EMAIL) t) m
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP_EMAIL(EMAIL) t) m
     on a.ID=m.ID;
 ```
 
@@ -152,12 +153,12 @@ The following queries illustrate how to map a single email address hash, using t
 
 ##### Advertiser Solution Query
 ```
-select UID2, BUCKET_ID from table(UID2_PROD_ADV_SH.ADVERTISER.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256))));
+select UID2, BUCKET_ID from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256))));
 ```
 
 ##### Data Provider Solution Query
 ```
-select UID2, BUCKET_ID from table(UID2_PROD_DP_SH.DATAPARTNER.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256))));
+select UID2, BUCKET_ID from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256))));
 ```
 
 ##### Results
@@ -177,14 +178,14 @@ The following queries illustrate how to map multiple email address hashes, using
 ##### Advertiser Solution Query
 ```
 select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADVERTISER.FN_T_UID2_IDENTITY_MAP_EMAIL_HASH(EMAIL_HASH) t) m
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP_EMAIL_HASH(EMAIL_HASH) t) m
     on a.ID=m.ID;
 ```
 
 ##### Data Provider Solution Query
 ```
 select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DATAPARTNER.FN_T_UID2_IDENTITY_MAP_EMAIL_HASH(EMAIL_HASH) t) m
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP_EMAIL_HASH(EMAIL_HASH) t) m
     on a.ID=m.ID;
 ```
 
@@ -234,7 +235,7 @@ To find missing or outdated UID2s, use the following query examples, which use t
 ##### Advertiser Solution Query
 ```
 select a.*, b.LAST_SALT_UPDATE_UTC
-  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_ADV_SH.ADVERTISER.UID2_SALT_BUCKETS b
+  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_ADV_SH.ADV.UID2_SALT_BUCKETS b
   on a.BUCKET_ID=b.BUCKET_ID
   where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
 ```
@@ -242,7 +243,7 @@ select a.*, b.LAST_SALT_UPDATE_UTC
 ##### Data Provider Solution Query
 ```
 select a.*, b.LAST_SALT_UPDATE_UTC
-  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_DP_SH.DATAPARTNER.UID2_SALT_BUCKETS b
+  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_DP_SH.DP.UID2_SALT_BUCKETS b
   on a.BUCKET_ID=b.BUCKET_ID
   where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
 ```
