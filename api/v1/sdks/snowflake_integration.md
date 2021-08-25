@@ -1,10 +1,6 @@
 # Snowflake Integration
 
-[Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner
-can store your data and integrate with UID2. Using Snowflake, UID2 enables you to securely share authorized
-consumer identifier data without exposing sensitive PII. You have the option to query the Operator Web
-Services directly for the consumer identifier data, however, the Snowflake UID2 integration offers a more
-seamless experience.
+[Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with UID2. Using Snowflake, UID2 enables you to securely share authorized consumer identifier data without exposing sensitive PII. Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
 
 The following diagram illustrates how you engage with the UID2 integration process in Snowflake:
 
@@ -16,42 +12,54 @@ The following diagram illustrates how you engage with the UID2 integration proce
 |When you use shared functions and views, you pay Snowflake for transactional computation costs.  |These private tables, secured in the UID2 Snowflake account, automatically synchronize with the UID2 Core/Optout Snowflake storage that holds internal data used to complete UID2-related tasks.  | |
 
 
-## Accessing the UID2 Share
+## Access the UID2 Shares
 
-Access to the UID2 Share is authorized by the UID2 administrators. To request access,
-[contact](../../README.md#contact-info) the appropriate administration group and provide the following information.
+Access to the UID2 Share is available through the [Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/) where you can request specific data sets based on the UID2 personalized listing you select. Currently, there are two personalized listings offered in the Snowflake Data Marketplace for UID2: for advertisers/brands and data providers.
 
-|Required Information|Details|
-| :--- | :--- |
-|Partner Snowflake account name |Run the following command from within the Snowflake interface:<br>`select CURRENT_ACCOUNT();`|
-|The cloud provider and Snowflake region hosting the account|Snowflake integration is currently available only on AWS in the US East (N. Virginia) region (region ID `us-east-1`).<br/> To verify your region, run the following command from within Snowflake interface:<br>`select CURRENT_REGION();` |
-|The UID2 client authentication key |To access the UID2 Operator Services as a registered UID2 partner, you must use the UID2 client authentication key during setup, which determines the endpoints and objects you can access through the share. After the setup is complete, the key is not required for accessing shared objects.|
+>IMPORTANT: To be able to request data, you must have the `ACCOUNTADMIN` role privileges in your Snowflake account.
 
-### Using the UID2 Share
-To access and use the UID2 Share, do the following:
+To request access to a UID2 Share, complete the following steps:
 
-1. Request and get the ACCOUNTADMIN role privileges.
-2. Access the available UID2 Share in Snowflake console.
-3. Create a new database from the UID2 Share by doing either of the following:
-   - Using the Snowflake console
-   - Executing SQL statements like the following:
+1.	Log in to the Snowflake Data Marketplace and select the UID2 solution in which you are interested:
+      - [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV)
+      - [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0)
+2.	In the **Personalized Data** section, click **Request Data**.
+3.	Follow the onscreen instructions to verify and provide your contact and other required information.
+4.	If you are an existing client of The Trade Desk and are interested in the *Advertiser* Identity Solution, include your partner and advertiser IDs issued by The Trade Desk in the **Message** field of the data request form.
+5.	Submit the form.
+
+After your request is received, a UID2 administrator will contact you with the appropriate access instructions. For details about managing data requests in Snowflake, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html).
+
+
+## Shared Objects
+
+Regardless of the UID2 solution you choose, you can map single or multiple email addresses or email hashes to UID2s by using the following functions:
+
+- `FN_T_UID2_IDENTITY_MAP_EMAIL` (See [Map Email Addresses](#map-email-addresses))
+- `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (See [Map Email Address Hashes](#map-email-address-hashes))
+
+To identify the UID2s that you must regenerate, use the `UID2_SALT_BUCKETS` view from the UID2 Share. For details, see [Regenerate UID2s](#regenerate-uid2s).
+
+### Database and Schema Names
+
+The following sections include query examples for each solution, which are identical except for the database and schema name variables:
 
 ```
-CREATE DATABASE "UID2" FROM SHARE UID2PROD."UID2_PROD_SH"
-   COMMENT='Access to UID2 shared functions and views';
-GRANT IMPORTED PRIVILEGES ON DATABASE "UID2" TO ROLE "SYSADMIN";
+{DATABASE_NAME}.{SCHEMA_NAME}
+```
+For example:
+```
+select UID2, BUCKET_ID from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
 ```
 
-## Accessing Shared Objects
+All query examples use the following default values for each name variable:
 
-You can map single or multiple email addresses or email hashes to UID2s by using the following functions:
+| Variable |Advertiser Solution Default Value | Data Provider Solution Default Value| Comments |
+| :--- | :--- | :--- | :--- |
+| `{DATABASE_NAME}` | `UID2_PROD_ADV_SH` | `UID2_PROD_DP_SH` | If needed, you can change the default database name when creating a new database after you are granted access to the selected UID2 Share. |
+| `{SCHEMA_NAME}`| `ADV` | `DP` | This is an immutable name. |
 
-- `FN_T_UID2_IDENTITY_MAP_EMAIL`
-- `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH`
-
-To identify the UID2s that you must regenerate, use the `UID2_SALT_BUCKETS` view from the UID2 Share.
-
-### Mapping Email Addresses
+### Map Email Addresses
 
 To map a single email address or multiple email addresses to the corresponding UID2s and second-level salt bucket IDs, use the `FN_T_UID2_IDENTITY_MAP_EMAIL` function. It takes an email address as its argument and normalizes it using the UID2 [Email Normalization](../../README.md#email-normalization) rules.
 
@@ -70,14 +78,20 @@ A successful query returns the following information for the specified email add
 
 
 #### Single Email Mapping Request Example
-The following query illustrates how to map a single email address, using a database named `UID2` for accessing the UID2 Share as an example.
 
-##### Query
+The following queries illustrate how to map a single email address, using the [default database and schema names](#database-and-schema-names).
+
+##### Advertiser Solution Query
 ```
-select UID2, BUCKET_ID from table(UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
+select UID2, BUCKET_ID from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
 ```
 
-##### Result
+##### Data Provider Solution Query
+```
+select UID2, BUCKET_ID from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
+```
+
+##### Results
 
 ```
 +----------------------------------------------+------------+
@@ -88,16 +102,22 @@ select UID2, BUCKET_ID from table(UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL('vali
 ```
 
 #### Multiple Emails Mapping Request Example
-The following query illustrates how to map multiple email addresses, using a database named `UID2` for accessing the UID2 Share as an example.
+The following queries illustrate how to map multiple email addresses, using the [default database and schema names](#database-and-schema-names).
 
-##### Query
+##### Advertiser Solution Query
 ```
 select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL(EMAIL) t) m
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP_EMAIL(EMAIL) t) m
+    on a.ID=m.ID;
+```
+##### Data Provider Solution Query
+```
+select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP_EMAIL(EMAIL) t) m
     on a.ID=m.ID;
 ```
 
-##### Result
+##### Results
 
 The following table identifies each item in the response, including `NULL` values for an improperly formatted email.
 
@@ -111,7 +131,7 @@ The following table identifies each item in the response, including `NULL` value
 +----+--------------------+----------------------------------------------+------------+
 ```
 
-### Mapping Email Address Hashes
+### Map Email Address Hashes
 To map a single email address hash or multiple hashes to the corresponding UID2s and second-level salt bucket IDs, use the `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` function which takes an email address hash as its argument.
 
 |Argument|Data Type|Description|
@@ -128,14 +148,19 @@ A successful query returns the following information for the specified email add
 | `BUCKET_ID` | TEXT | The ID of the second-level salt bucket that was used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view. |
 
 #### Single Email Hash Mapping Request Example
-The following query illustrates how to map a single email address hash, using a database named `UID2` for accessing the UID2 Share as an example.
+The following queries illustrate how to map a single email address hash, using the [default database and schema names](#database-and-schema-names).
 
-##### Query
+##### Advertiser Solution Query
 ```
-select UID2, BUCKET_ID from table(UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256))));
+select UID2, BUCKET_ID from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256))));
 ```
 
-##### Result
+##### Data Provider Solution Query
+```
+select UID2, BUCKET_ID from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256))));
+```
+
+##### Results
 
 ```
 +----------------------------------------------+------------+
@@ -147,16 +172,23 @@ select UID2, BUCKET_ID from table(UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE6
 
 
 #### Multiple Email Hashes Mapping Request Example
-The following query illustrates how to map multiple email address hashes, using a database named `UID2` for accessing the UID2 Share as an example.
+The following queries illustrate how to map multiple email address hashes, using the [default database and schema names](#database-and-schema-names).
 
-##### Query
+##### Advertiser Solution Query
 ```
 select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2.PUBLIC.FN_T_UID2_IDENTITY_MAP_EMAIL_HASH(EMAIL_HASH) t) m
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP_EMAIL_HASH(EMAIL_HASH) t) m
     on a.ID=m.ID;
 ```
 
-##### Result
+##### Data Provider Solution Query
+```
+select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP_EMAIL_HASH(EMAIL_HASH) t) m
+    on a.ID=m.ID;
+```
+
+##### Results
 
 The following table identifies each item in the response, including `NULL` values for an improperly formatted email hash.
 
@@ -170,7 +202,7 @@ The following table identifies each item in the response, including `NULL` value
 +----+----------------------------------------------+----------------------------------------------+------------+
 ```
 
-### Regenerating UID2s
+### Regenerate UID2s
 
 The `UID2_SALT_BUCKETS` view query returns the date and time when the second-level salt buckets were last updated. Second-level salt is used when generating UID2s. When the salt in the bucket is updated, the previously generated UID2 becomes outdated and doesn’t match the UID2 generated by other parties for the same user.
 
@@ -197,17 +229,25 @@ select * from AUDIENCE_WITH_UID2;
 +----+--------------------+----------------------------------------------+------------+-------------------------+
 ```
 
-To find missing or outdated UID2s, use the following query example.
+To find missing or outdated UID2s, use the following query examples, which use the [default database and schema names](#database-and-schema-names).
 
-#### Query
+##### Advertiser Solution Query
 ```
 select a.*, b.LAST_SALT_UPDATE_UTC
-  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2.PUBLIC.UID2_SALT_BUCKETS b
+  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_ADV_SH.ADV.UID2_SALT_BUCKETS b
   on a.BUCKET_ID=b.BUCKET_ID
   where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
 ```
 
-##### Result
+##### Data Provider Solution Query
+```
+select a.*, b.LAST_SALT_UPDATE_UTC
+  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_DP_SH.DP.UID2_SALT_BUCKETS b
+  on a.BUCKET_ID=b.BUCKET_ID
+  where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
+```
+
+##### Results
 
 The following table identifies each item in the response. The result includes an email, `UID2`, `BUCKET_ID`, `LAST_UID2_UPDATE_UTC`, and `LAST_SALT_UPDATE_UTC` as shown in the ID 1 example below. No information is returned for ID 2 because the corresponding UID2 was generated after the last bucket update. For ID 3, `NULL` values are returned due to a missing UID2.
 
