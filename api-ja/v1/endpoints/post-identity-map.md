@@ -2,23 +2,33 @@
 
 # POST /identity/map
 
-複数のメールアドレスやメールアドレスハッシュのAdvertising IDやBucket IDを取得します。1回のリクエストで、最大10,000件の `email` または `email_hash` を組み合わせて送信できます。
+複数のメールアドレスやメールアドレスハッシュのUID2とソルトバケットIDを取得します。1回のリクエストで、最大10,000件の `email` または `email_hash` を組み合わせて送信します。
 
 このエンドポイントを使用するインテグレーションワークフロー:
 * [Advertiser/Data Provider](../guides/advertiser-dataprovider-guide.md)
 
 ## Request
 
-```POST '{environment}/{version}/identity/map'```
+```
+POST '{environment}/{version}/identity/map'
+```
+
+### Path Parameters
+
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string | 必須 | テスト環境: `https://integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com` |
+| `{version}` | string | 必須 | 現在のAPIのバージョンは `v1` です。 |
 
 ###  Request Properties
 
-| Property | Data Type | Attributes | Description |
-| --- | --- | --- | --- |
-| `email` | `string` | 条件付きで必須 | ユーザーの[正規化されたEメールアドレス](../../README.md#emailnormalization)です。email_hash`がリクエストに含まれていない場合は必須です。 |
-| `email_hash` | `string` | 条件付きで必要 | ユーザーの[正規化されたメールアドレス](../../README.md#emailnormalization)の[URL-encoded, base64-encoded SHA256 hash](../../README.md#encoding-email-hashes)です。リクエストに `email` が含まれていない場合は必須です。 |
+* 以下の2つのプロパティのうち、どちらか一方のみが必要です。
+* 両方のプロパティがリクエストに含まれている場合は、`email`のみがレスポンスを返します。
 
-同じリクエストで `email` と `email_hash` の両方が想定されている場合は、`email` のみがマッピングのレスポンスを返します。
+| Property | Data Type | Attributes | Description |
+| :--- | :--- | :--- | :--- |
+| `email` | `string` | 条件付きで必須 | マップする[正規化](../../README.md#email-normalization)されたメールアドレス。 |
+| `email_hash` | `string` | 条件付きで必要 | [正規化](../../README.md#email-normalization)されたメールアドレスの[URLエンコード、base64エンコードされたSHA256](../../README.md#encoding-email-hashes)ハッシュ。 |
 
 #### Example Request Using an Email Address and an Email Hash
 
@@ -60,7 +70,7 @@ curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Beare
 ## Body Response Properties
 
 | Property | Data Type | Description |
-| --- | --- | --- |
-| `body.mapped.identifier` | `string` | リクエストで提供された `email` または `email_hash` です。 |
-| `body.mapped.advertising_id` | `string` | Identifierに対応する advertising ID (raw UID2). |
-| `body.mapped.bucket_id` | `string` | ユーザーの `advertising_id` にたいううするバケットの識別子です。|
+| :--- | :--- | :--- |
+| `identifier` | `string` | リクエストのクエリパラメーターで指定されたメールアドレスまたはメールアドレスハッシュ。|
+| `advertising_id` | `string` | 対応するのAdvertising ID（raw UID2）。 |
+| `bucket_id` | `string` | UID2の生成に使用したソルトバケットのID。 |

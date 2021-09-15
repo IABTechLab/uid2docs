@@ -4,7 +4,7 @@
 
 Use our client-side SDK to simplify your implementation. Use the SDK to establish identity, de-establish identity, and retrieve advertising tokens.
 
-クライアントサイドSDKを使用することで、実装を簡素化できます。このSDKを使って、アイデンティティの確立、アイデンティティの解除、広告トークンの取得を行います。
+クライアントサイドSDKを使用することで、実装を簡素化できます。このSDKを使って、アイデンティティの確立、アイデンティティの解除、Advertising Tokenの取得を行います。
 
 
 ## Implement The SDK Script
