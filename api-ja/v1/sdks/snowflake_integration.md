@@ -17,7 +17,7 @@ UID2 Shareへのアクセスは、[Snowflake Data Marketplace](https://www.snowf
 
 >IMPORTANT: データをリクエストするには、Snowflakeアカウントに`ACCOUNTADMIN`ロール権限が必要です。
 
-UID2 シェアへのアクセスをリクエストするには、以下の手順を実行します:
+UID2 Shareへのアクセスをリクエストするには、以下の手順を実行します:
 
 1.	Snowflake Data Marketplaceにログインし、興味のあるUID2ソリューションを選択します:
       - [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV)
