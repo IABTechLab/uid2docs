@@ -2,50 +2,64 @@
 
 # POST /identity/map
 
-Retrieve advertising and bucket IDs for multiple email addresses or email hashes. Send a maximum of 10,000 combined `email` or `email_hash` per request.
+Map multiple email addresses or email hashes to their UID2s and salt bucket IDs. This endpoint is intended for use by [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md).
 
-Integration workflows that use this endpoint:
-* [Advertiser/Data Provider](../guides/advertiser-dataprovider-guide.md)
+Here's what you need to know:
+- The maximum request size is 1MB. 
+- To map a large number of email addresses or email hashes, send them in *sequential* batches with a maximum batch size of 5,000 emails or hashes per batch.
+- Do not send batches in parallel.
 
-## Request 
+
+## Request Format
 
 ```POST '{environment}/{version}/identity/map'```
 
-###  Request Properties
+### Path Parameters
 
-| Property | Data Type | Attributes | Description |
-| --- | --- | --- | --- |
-| `email` | `string` | Conditionally Required |  User's email address, which is required when `email_hash` is not included in the request.<br><b>Note</b><br>Unhashed emails do not require normalization, as the UID2 Operator Service normalizes them. |
-| `email_hash` | `string` | Conditionally Required | The [URL-encoded, base64-encoded SHA256 hash](../../README.md#encoding-email-hashes) of the normalized email address. <br><b>Note</b><br>To pass a hashed email address, make sure to normalize it first. For details, see [Email Normalization](../../README.md#emailnormalization). Required when `email` is not included in the request. |
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
+| `{version}` | string | Required | The current API version is `v1`. |
 
-If `email` and `email_hash` are both supposed in the same request, only the `email` will return a mapping response.
+###  Request Body Parameters
 
-#### Example Request Using an Email Address and an Email Hash
+* Only one of the following two parameters is required. 
+* If both parameters are included in a request, only the `email` will return a response. TBD - error?
+
+| Query Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `email` | string | Conditionally Required | The [normalized](../../README.md#emailnormalization) email address to be mapped. |
+| `email_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#encoding-email-hashes) hash of the [normalized](../../README.md#emailnormalization) email address. |
+
+
+### Request Examples
+
+A mapping request for email addresses:
 
 ```sh
 curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
     "email":[
         "user@example.com"
-    ],
+    ]  
+}'
+```
+A mapping request for email address hashes:
+
+```sh
+curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
     "email_hash":[
         "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc="
     ]    
 }'
 ```
+## Response Format
 
-## Response
-
-The response is a JSON object containing the user's UID2 identifier and bucket identifier.
+The response returns the UID2s and salt bucket IDs for the specified email addresses or hashes.
 
 ```json
 {
     "body":{
         "mapped": [
-            {
-                "identifier": "user@example.com",
-                "advertising_id": "AdvtiSuYWAZSYe8t4n6sQx0gshoHYZdOzg9qUn/eKgE=",
-                "bucket_id": "bucketId"
-            },
             {
                 "identifier": "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
                 "advertising_id": "AdvIvSiaum0P5s3X/7X8h8sz+OhF2IG8DNbEnkWSbYM=",
@@ -57,10 +71,12 @@ The response is a JSON object containing the user's UID2 identifier and bucket i
 }
 ```
 
-## Body Response Properties
+### Response Body Properties
 
 | Property | Data Type | Description |
-| --- | --- | --- |
-| `body.mapped.identifier` | `string` | The `email` or `email_hash` provided in the request. |
-| `body.mapped.advertising_id` | `string` | The identity's advertising ID (raw UID2). |
-| `body.mapped.bucket_id` | `string` | The identifier of the bucket used for salting the user's `advertising_id`. |
+| :--- | :--- | :--- |
+| `identifier` | string | The email address or email address hash specified in the request body. |
+| `advertising_id` | string | The corresponding advertising ID (raw UID2). |
+| `bucket_id` | string | The ID of the salt bucket used to generate the UID2. |
+
+For response status values, see [Response Structure and Status Codes](../../../api/README.md#response-structure-and-status-codes).
