@@ -28,8 +28,8 @@ The following integration workflows use this endpoint:
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `email` | string | Conditionally Required | The [normalized](../../README.md#email-normalization) email address for which to generate tokens. |
-| `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#encoding-email-hashes) hash of the [normalized](../../README.md#email-normalization) email address. |
+| `email` | string | Conditionally Required | The [normalized](../../README.md#email-address-normalization) email address for which to generate tokens. |
+| `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of the [normalized](../../README.md#email-address-normalization) email address. |
 
 
 ### Request Examples
