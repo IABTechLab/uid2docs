@@ -16,5 +16,5 @@
 | :--- | :--- |
 | [GET /identity/buckets](./get-identity-buckets.md) | Monitor rotated salt buckets uisng their last updated timestamp. |
 | [GET /identity/map](./get-identity-map.md) | Retrieve the UID2 and salt bucket ID for an email address or an email address hash. |
-| [POST /identity/map](./post-identity-map.md) | Retrieve UID2s and salt bucket IDs for multiple email addresses or an email address hashes.  |
+| [POST /identity/map](./post-identity-map.md) | Retrieve UID2s and salt bucket IDs for multiple email addresses or email address hashes.  |
 
