@@ -108,6 +108,8 @@ There are multiple operators that comprise the UID2 System and participants may 
 
 Organizations that operate their own internal version of the service to generate and manage UID2s and UID2 tokens. Any participant may choose to be a Closed Operator and there are multiple integration paths through cloud providers.
 
+For details on setting up Closed Operator services, see [Operator Integration Guides](./v1/guides/README.md).
+
 #### Functions
 
 - Receive and store encryption keys and salts from the UID2 Administrator service.
@@ -226,6 +228,8 @@ This workflow is for organizations that collect user data and push it to DSPs. D
 
 To generate UID2s from authenticated PII, data providers must access the UID2 Operator APIs. Some advertisers may choose to work through CDPs, data on-boarders, or other service providers instead.
 
+See also [Advertiser/Data Provider Integration Guide](./advertiser-dataprovider-guide.md).
+
 ##### Requirements
 
 - Integrate with the UID2 Operator to generate UID2s and handle salt bucket rotations.
@@ -250,6 +254,8 @@ This workflow is for organizations that propagate IDs to the bid stream via SSPs
 8. The publisher requests updated UID2 tokens using a refresh token. When applicable, the refresh token includes a user’s opt-out request.
 
 #### Publisher Integration
+
+For integration scenarios, token management, and other details, see [Publisher Integration Guides](./v1/guides/README.md). See also [Endpoints](./v1/endpoints/README.md).
 
 ##### Publisher Direct Integration
 
@@ -307,18 +313,6 @@ Publishers, SSOs, or consent management platforms disclose links to the Opt-Out 
 #### Why do advertisers/data providers not need to integrate with the opt-out feed?
 
 Opt-outs relate to opting out of targeted advertising, which is handled through the publisher and DSP opt-out workflows. If the consumer wishes to disengage with a specific advertiser, they need to contact the advertiser directly.
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## License
