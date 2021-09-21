@@ -100,7 +100,7 @@ You can use the [GET /token/validate](../endpoints/get-token-validate.md) endpoi
     - Send a [GET /token/generate](../endpoints/get-token-generate.md) request using `validate@email.com` as `email`.
     - Create a [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of `validate@email.com` and send it as an email hash. 
 2. Store the `advertising_token` returned to use in step 3.
-3. Send a [GET /token/validate](../endpoints/get-token-validate.md) request using the `email` or `email_hash` you sent in step 1 and the `token` as the `advertising_token` returned in step 1. 
+3. Send a [GET /token/validate](../endpoints/get-token-validate.md) request using the `email` or `email_hash` you sent in step 1 and the `advertising_token` (saved in step 2) as the `token`. 
     - If the response returns `true`, the `email` or `email_hash` you sent as a request in step 1 match the token you received in the response of step 1. 
     - If it returns `false`, there may be an issue with the way you are sending email addresses or email hashes.
 
@@ -109,7 +109,7 @@ You can use the [GET /token/validate](../endpoints/get-token-validate.md) endpoi
 You can use the email address `optout@email.com` to test your token refresh workflow. Using this email for the request always generates an identity response with a `refresh_token` that results in a logout response.
 
 1. Do either of the following:
-    - Send a [GET /token/generate](../endpoints/get-token-generate.md) request using `validate@email.com` as `email`.
-    - Create a [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of `validate@email.com` and send it as an email hash. 
-2. Store the `advertising_token` returned to use in step 3.
-3. Send a [GET /token/validate](../endpoints/get-token-validate.md) request using the `email` or `email_hash` you sent in step 1 and the `refresh_token` as the `refresh_token` returned in step 1. The `body` response should be empty because the `optout@email.com` email always results in a logged out refresh token.
+    - Send a [GET /token/generate](../endpoints/get-token-generate.md) request using `optout@email.com` as `email`.
+    - Create a [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of `optout@email.com` and send it as an email hash. 
+2. Store the `refresh_token` returned to use in step 3.
+3. Send a [GET /token/validate](../endpoints/get-token-validate.md) request using the `email` or `email_hash` you sent in step 1 and the `refresh_token` (saved in step 2) as the `token`. <br/>The `body` response should be empty because the `optout@email.com` email always results in a logged out refresh token.
