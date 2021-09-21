@@ -38,7 +38,7 @@ public Response Decrypt(String encryptedToken)
 Available information returned through the SDK is outlined in teh following table.
 
 | Property | Description |
-| --- | --- |
+| :--- | :--- |
 | `Status` | The decryption result status. For a list of response statuses and their definitions, see the following table. |
 | `UID2` | The UID2 for the corresponding UID2 token. |
 | `Established` | The timestamp when a user first established the UID2 with the publisher. |
@@ -47,7 +47,7 @@ Available information returned through the SDK is outlined in teh following tabl
 Response Statuses
 
 | Value | Description |
-| --- | --- |
+| :--- | :--- |
 | `Success` | The UID2 token decrypted successfully and a UID2 was returned. |
 | `NotAuthorizedForKey` | The requester does not have authorization to decrypt this UID2 token.|
 | `NotInitialized` | The client library is waiting to be initialized. |
