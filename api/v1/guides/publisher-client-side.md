@@ -24,13 +24,13 @@ The following sections provide additional details for each step in the diagram:
 
 ### Establish Identity
 
->IMPORTANT: The UID2 token must be generated only on the server side after authentication. Security concerns forbid token generation on the browser side.
+After authentication in step 1-c, which forces the user to accept the rules of engagement and allows the publisher to validate their email address, a UID2 token must be generated on the server side. The following table details the token generation steps.
 
 | Step | Endpoint/SDK | Description |
 | --- | --- | --- |
-| 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2.<br>- Integrate with a UID2-enabled single-sign-on provider.<br>- Generate UID2 tokens when a user authenticates using the [GET /token/generate](../endpoints/get-token-generate.md) endpoint. The request includes the [normalized](../../README.md#emailnormalization) email address of the user. |
+| 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2:<br>- Integrate with a UID2-enabled single-sign-on provider.<br>- Generate UID2 tokens when a user authenticates using the [GET /token/generate](../endpoints/get-token-generate.md) endpoint. The request includes the [normalized](../../README.md#emailnormalization) email address of the user. |
 | 1-e | [GET /token/generate](../endpoints/get-token-generate.md) | The token generation service that returns UID2 tokens. |
-| 1-f | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Send returned UID2 tokens from step 1-e to the SDK using `identity` mechanism described below. The mechanism ensures UID2 tokens are available for the user until they logout. |
+| 1-f | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Send returned UID2 tokens from step 1-e to the SDK using its Identity Mechanism described below. The mechanism ensures that UID2 tokens are available for the user until they log out. |
 
 >IMPORTANT: The SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the SDK APIs for your identity management.
 
@@ -48,7 +48,7 @@ The following sections provide additional details for each step in the diagram:
 
 | Step | Endpoint/SDK | Description |
 | --- | --- | --- |
-| 2-a | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | The established identity is available client-side for bidding. The mechnanism described below returns access to a user's `advertising_token` to pass to SSPs. |
+| 2-a | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | The established identity is available client-side for bidding. The SDK Identity Access Mechnanism described below returns access to a user's `advertising_token` to pass to SSPs. |
 
 ##### Client-Side SDK Identity Access Mechanism
 
@@ -72,9 +72,9 @@ The following sections provide additional details for each step in the diagram:
 | Step | Endpoint/SDK | Description |
 | --- | --- | --- |
 | 4-a |  | The user logs out from a publisher asset. |
-| 4-b | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Remove UID2 tokens from the user's local storage when they log out. Use the `disconnect` mechanism from the SDK to clear out UID2 tokens. |
+| 4-b | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Remove UID2 tokens from the user's local storage when they log out.  To clear out UID2 tokens, use the SDK Disconnect Identity Mechanism described below. |
 
-##### Client-Side SDK Disconnect Identity
+##### Client-Side SDK Disconnect Identity Mechanism
 
 ```html
 <script>
