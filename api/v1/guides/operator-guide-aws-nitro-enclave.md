@@ -121,7 +121,7 @@ Using HTTPS is crucial for the security of your keys, customers' keys and confid
 
 Setting up HTTPS on AWS, however, is out of scope of UID2 operator setup. Depending on your solution, you can use Application Load Balancer for HTTPS setup and offloading.
 
-For detials, see the following resources:
+For details, see the following resources:
 
 - [autoscaling load balancer](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)
 
