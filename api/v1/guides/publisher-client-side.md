@@ -32,6 +32,8 @@ The following sections provide additional details for each step in the diagram:
 | 1-e | [GET /token/generate](../endpoints/get-token-generate.md) | The token generation service that returns UID2 tokens. |
 | 1-f | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Send returned UID2 tokens from step 1-e to the SDK using `identity` mechanism described below. The mechanism ensures UID2 tokens are available for the user until they logout. |
 
+>IMPORTANT: The SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the SDK APIs for your identity management.
+
 ##### Client-Side SDK Identity Mechanism
 
 ```html
