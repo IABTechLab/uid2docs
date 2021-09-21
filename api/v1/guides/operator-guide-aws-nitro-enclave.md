@@ -35,7 +35,7 @@ To create a launch template for auto-scaling group, follow the [AWS User Guide](
 |`api_token` |String| Your API token to serve as an UID2 operator. |
 |`service_instances` | Integer|  The number of workers/threads the operator service can spawn, set according to the `CPU_COUNT` you allocate to enclave.|
 |`enclave_cpu_count` | Integer| The number of CPUs you allocate for enclave. <br/>NOTE: If your instance uses vCPUs, allocate even number (2, 4, 6, and so on) and always keep at least 2 cores for the host, meaning if you have 12 cores, allocate maximum 10 cores for enclave. |
-|`enclave_memory_mb` | Integer| Memory in MB you allocate for enclave. <br/>NOTE: Always leaves at least 8GB memory for the host, meaning if you have 80G memory, allocate maximum 72G for enclave.|
+|`enclave_memory_mb` | Integer| Memory in MB you allocate for enclave. <br/>NOTE: Always leave at least 8GB memory for the host, meaning if you have 80G memory, allocate maximum 72G for enclave.|
 
 ### Optional Parameters
 
