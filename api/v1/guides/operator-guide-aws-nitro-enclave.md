@@ -44,14 +44,14 @@ Other overridable User Data configurations at start time include the following.
 
 | Parameter | Data Type | Description|
 |:--- | :---| :---|
-|`clients_metadata_path` |String|A URL that by default points to production uid2-core service endpoint. Override it if you want to point to another UID2 core service for fetching client keys.  |
-|`keys_metadata_path` |String|A URL that by default points to production uid2-core service endpoint. |
-|`salts_metadata_path` |String| A URL that by default points to production uid2-core service endpoint.|
-|`optout_metadata_path` |String| A URL that by default points to production uid2-optout service endpoint.|
-|`optout_api_uri` |String|A URL that by default points to production uid2-optout service endpoint. |
+|`clients_metadata_path` |String|A URL that by default points to the production uid2-core service endpoint. Override it if you want to point to another UID2 core service for fetching client keys.  |
+|`keys_metadata_path` |String|A URL that by default points to the production uid2-core service endpoint. |
+|`salts_metadata_path` |String| A URL that by default points to the production uid2-core service endpoint.|
+|`optout_metadata_path` |String| A URL that by default points to the production uid2-optout service endpoint.|
+|`optout_api_uri` |String|A URL that by default points to the production uid2-optout service endpoint. |
 |`optout_synthetic_logs_enabled` |Boolean|For internal testing use. |
 |`optout_synthetic_logs_count` |Integer|For internal testing use. |
-|`loki_enabled` |Boolean|By default is set to `false`.  For detials, see the 'loki' section (currently WIP). |
+|`loki_enabled` |Boolean|By default is set to `false`.  For details, see the 'loki' section (currently WIP). |
  
 
 ## Create Auto-Scaling Group
