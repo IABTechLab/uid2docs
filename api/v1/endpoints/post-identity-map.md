@@ -23,12 +23,11 @@ Here's what you need to know:
 
 ###  Request Body Parameters
 
-* Only one of the following two parameters is required. 
-* If both parameters are included in a request, only the `email` will return a response. TBD - error?
+You must include only one of the following two parameters. 
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `email` | string | Conditionally Required | The [normalized](../../README.md#email-address-normalization) email address to be mapped. |
+| `email` | string | Conditionally Required | The email address to be mapped. |
 | `email_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of the [normalized](../../README.md#email-address-normalization) email address. |
 
 
@@ -39,7 +38,8 @@ A mapping request for email addresses:
 ```sh
 curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
     "email":[
-        "user@example.com"
+        "user@example.com",
+        "user2@example.com"
     ]  
 }'
 ```
@@ -48,7 +48,8 @@ A mapping request for email address hashes:
 ```sh
 curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
     "email_hash":[
-        "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc="
+        "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
+        "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
     ]    
 }'
 ```
@@ -63,8 +64,13 @@ The response returns the UID2s and salt bucket IDs for the specified email addre
             {
                 "identifier": "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
                 "advertising_id": "AdvIvSiaum0P5s3X/7X8h8sz+OhF2IG8DNbEnkWSbYM=",
-                "bucket_id": "bucketId"
-            }
+                "bucket_id": "a30od4mNRd"
+            },
+            {
+                "identifier": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=",
+                "advertising_id": "IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ=",
+                "bucket_id": "ad1ANEmVZ"
+            },
         ]
     },
     "status":"success"
