@@ -70,7 +70,7 @@ The response returns the UID2s and salt bucket IDs for the specified email addre
                 "identifier": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=",
                 "advertising_id": "IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ=",
                 "bucket_id": "ad1ANEmVZ"
-            },
+            }
         ]
     },
     "status":"success"
