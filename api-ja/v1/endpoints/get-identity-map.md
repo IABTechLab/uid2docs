@@ -2,39 +2,45 @@
 
 # GET /identity/map
 
-`email` や `email_hash` のAdvertising IDやBucket ID を取得します。
+メールアドレスまたはメールアドレスハッシュのUID2とソルトバケットIDを取得します。このエンドポイントは、[Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md)での使用を想定しています。
 
-このエンドポイントを使用するインテグレーションワークフロー:
-* [Advertiser/Data Provider](../guides/advertiser-dataprovider-guide.md)
+## Request Format
 
-## Request
+```
+GET '{environment}/{version}/identity/map?{queryParameter}={queryParameterValue}'
+```
 
-```GET '{environment}/{version}/identity/map?{queryParameter}={queryParameterValue}'```
+### Path Parameters
+
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string | 必須 | テスト環境: `https://integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com` |
+| `{version}` | string | 必須 | 現在のAPIのバージョンは `v1` です。 |
 
 ###  Query Parameters
 
 | Query Parameter | Data Type | Attributes | Description |
-| --- | --- | --- | --- |
-| `email` | `string` | 条件付きで必須 | ユーザーの[正規化されたEメールアドレス](../../README.md#emailnormalization)です。email_hash`がリクエストに含まれていない場合は必須です。 |
-| `email_hash` | `string` | 条件付きで必要 | ユーザーの[正規化されたメールアドレス](../../README.md#emailnormalization)の[URL-encoded, base64-encoded SHA256 hash](../../README.md#encoding-email-hashes)です。リクエストに `email` が含まれていない場合は必須です。 |
+| :--- | :--- | :--- | :--- |
+| `email` | `string` | 条件付きで必須 | マップする [正規化](../../README.md#email-normalization) されたメールアドレス。 |
+| `email_hash` | `string` | 条件付きで必要 | [正規化](../../README.md#email-normalization)されたメールアドレスの[URLエンコード、base64エンコードされたSHA256](../../README.md#emailnormalization)ハッシュ。|
 
-同じリクエストで `email` と `email_hash` の両方が設定されている場合は、`email` のみがマッピングのレスポンスを返します。
+#### Request Examples
 
-#### Example Request Using an Email Address
+メールアドレスのマッピングリクエスト:
 
 ```sh
 curl -L -X GET 'https://integ.uidapi.com/v1/identity/map?email=username@example.com' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
-#### Example Request Using an Email Hash
+メールアドレスハッシュのマッピングリクエスト:
 
 ```sh
 curl -L -X GET 'https://integ.uidapi.com/v1/identity/map?email_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
-## Response
+## Response Format
 
-レスポンスは、ユーザーのUID2識別子とバケット識別子を含むJSONオブジェクトです。
+レスポンスは、指定されたメールアドレスまたはハッシュのUID2とソルトバケットのIDです。
 
 ```json
 {
@@ -50,7 +56,9 @@ curl -L -X GET 'https://integ.uidapi.com/v1/identity/map?email_hash=eVvLS%2FVg%2
 ## Body Response Properties
 
 | Property | Data Type | Description |
-| --- | --- | --- |
-| `body.identifier` | `string` | リクエストで提供された `email` または `email_hash` です。|
-| `body.advertising_id` | `string` | 対応するのAdvertising ID（raw UID2）です |
-| `body.bucket_id` | `string` | ユーザーの `advertising_id` のソルト化に使用するバケットの識別子です。 |
+| :--- | :--- | :--- |
+| `identifier` | `string` | リクエストのクエリパラメーターで指定されたメールアドレスまたはメールアドレスハッシュ。|
+| `advertising_id` | `string` | 対応するのAdvertising ID（raw UID2）。 |
+| `bucket_id` | `string` | UID2の生成に使用したソルトバケットのID。 |
+
+レスポンスのステータス値については、[Response Structure and Status Codes](../../../api-ja/README.md#response-structure-and-status-codes)を参照してください。

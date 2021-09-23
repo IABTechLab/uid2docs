@@ -104,7 +104,7 @@ HTTPSを使用することは、お客様の鍵やお客様の鍵のセキュリ
 
 ## Change Listening Ports
 
-WIP: このパートは将来的にUser Data jsonに統合されるかもしれません。
+WIP: このパートは将来的にUser Data jsonにインテグレーションされるかもしれません。
 
 UID2 Operatorが80番ポートをリッスンすることを望まない場合は、ポートを変更してカスタムAMIを構築することができます。ホスト側の設定は *proxies.host.yaml* (インストールスクリプトで */etc/uid2operator/proxy.yaml* にインストールされます)にあります。この中でポートの配置を変更することができます。
 

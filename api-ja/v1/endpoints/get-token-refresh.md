@@ -1,35 +1,44 @@
 [UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /token/refresh
 
 # GET /token/refresh
-[GET /token/generate](./get-token-generate.md)からのレスポンスで得られたユーザーの `refresh_token` を指定して、ユーザーの新しいトークンを生成します。
+[GET /token/generate](./get-token-generate.md)エンドポイントを使用して発行されたRefresh Tokenを指定して、ユーザーの新しいトークンを生成します。
 
 このエンドポイントを使用するインテグレーションワークフロー:
 * [Publisher - Standard](../guides/publisher-client-side.md)
 * [Publisher - Custom](../guides/custom-publisher-integration.md)
 
-## Request
+## Request Format
 
-```GET '{environment}/{version}/token/refresh?{queryParameter}={queryParameterValue}'```
+```
+GET '{environment}/{version}/token/refresh?{queryParameter}={queryParameterValue}'
+```
+
+### Path Parameters
+
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string | 必須 | テスト環境: `https://integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com` |
+| `{version}` | string | 必須 | 現在のAPIのバージョンは `v1` です。 |
 
 ###  Query Parameters
 
 | Query Parameter | Data Type | Attributes | Description |
 | --- | --- | --- | --- |
-| `refresh_token` | `string` | 必須 | [GET /token/generate](./get-token-generate.md)からユーザー用に返却される `refresh_token` です。いくつかの `refresh_token` はURLデコードされた文字で生成されます。クエリパラメータとして `refresh_token` をエンコードしてください。 |
+| `refresh_token` | `string` | 必須 |[GET /token/generate](./get-token-generate.md)レスポンスで返されたRefresh Tokenです。<br>IMPORTANT: Refresh TokenがURLデコードされた文字で生成された場合は、必ずクエリパラメータとしてエンコードしてください。詳細は、[Encoding Query Parameter Values](../../../api-ja/README.md#encoding-query-parameter-values)を参照してください。 |
 
-#### Example Request
+#### Testing Notes
+
+[GET /token/generate](./get-token-generate.md)リクエストで `optout@email.com` のメールアドレスを使用すると、このエンドポイントで使用した場合、常に `refresh_token` を含む ID レスポンスが生成され、結果としてログアウトのレスポンスが発生します。
+
+#### Request Example
 
 ```sh
-curl -L -X GET 'https://integ.uidapi.com/v1/token/refresh?refresh_token=RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA==' -H 'Authorization: YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X GET 'https://integ.uidapi.com/v1/token/refresh?refresh_token=RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq%2F90PYmajV0IPrvo51Biqh7%2FM%2BJOuhfBY8KGUn%2F%2FGsmZr9nf%2BjIWMUO4diOA92kCTF69JdP71Ooo%2ByF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA%3D%3D'
 ```
 
-### Testing Notes
+## Response Format
 
-[GET /token/generate](./get-token-generate.md)で`optout@email.com`のEメールを使用すると、このエンドポイントで使用した場合、常に`refresh_token`のIDレスポンスが生成され、ログアウトのレスポンスになります。
-
-## Response
-
-レスポンスは、ユーザーの新しい ID トークンを含む JSON オブジェクト、または新しい ID トークンが返されなかった理由を説明するメッセージです。
+レスポンスが成功すると、ユーザーに発行された新しい ID Tokenが返されるか、またはユーザーがオプトアウトしたことが示されます。
 
 ```json
 {
@@ -41,13 +50,21 @@ curl -L -X GET 'https://integ.uidapi.com/v1/token/refresh?refresh_token=RefreshT
 }
 ```
 
-リフレッシュリクエストの前にユーザーがオプトアウトした場合、リフレッシュレスポンスのステータスは `success` となり、トークンの値は空になります。
+#### Optout
 
-### Supplemental Status Information
+リフレッシュリクエストの前にユーザーがオプトアウトした場合は、次のようなレスポンスが返されます:
 
-| HTTP Status Code | Status | Response | Description |
-| --- | --- | --- | --- |
-| 200 | `success` | Identity tokensが返されました。 | |
-| 200 | `optout` | このステータスは、許可されたリクエストにのみ表示され、提供された `refresh_token` に関連するユーザーがオプトアウトしたことを示します。 |
-| 400 | `clienterror` | `Required Parameter Missing: refresh_token` | リクエストに `refresh_token` パラメータと値が含まれていることを確認してください。 |
-| 400 | `invalid_token` | `Invalid Token presented {refresh_token_value}` | このメッセージは、許可されたリクエストに対してのみ表示され、提供された `refresh_token` が無効であることを示します。 |
+```json
+{
+    "status": "optout"
+}
+```
+
+#### Response Body Properties
+
+| Property | Data Type | Description |
+| :--- | :--- | :--- |
+| `advertising_token` | string | ユーザーの暗号化されたAdvertising Token（UID2 Token）。 |
+| `refresh_token` | string | UID2 サービスと最新の ID Tokenのセットを交換できる暗号化されたトークン。|
+
+レスポンスのステータス値については、[Response Structure and Status Codes](../../../api-ja/README.md#response-structure-and-status-codes)を参照してください。

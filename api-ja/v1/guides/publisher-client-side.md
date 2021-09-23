@@ -2,7 +2,7 @@
 
 # 概要
 
-このガイドでは、Web アセットを持つパブリッシャが UID2 を使用して入札ストリーム用の ID Tokenを生成するためのインテグレーション手順について説明します。本ガイドは、UID2 対応のシングルサインオンまたは ID プロバイダとのインテグレーションではなく、UID2 と直接インテグレーションしてトークンを作成および管理したいと考えているパブリッシャを対象としています。
+このガイドでは、Web アセットを持つパブリッシャが UID2 を使用して入札ストリーム用のID Tokenを生成するためのインテグレーション手順について説明します。本ガイドは、UID2 対応のシングルサインオンまたは ID プロバイダとのインテグレーションではなく、UID2 と直接インテグレーションしてトークンを作成および管理したいと考えているパブリッシャを対象としています。
 
 ## インテグレーションステップ
 
@@ -14,11 +14,14 @@
 
 このセクションでは、上図のパブリッシャー固有のステップ1-d、1-e、1-fを中心に説明します。
 
+><b>Note</b><br>
+UID2 Tokenは、認証後にサーバー側でのみ生成する必要があります。セキュリティの観点から、ブラウザ側でトークンを生成することはできません。
+
 | Step | Endpoint/SDK | Instruction |
 | --- | --- | --- |
-| d | [GET /token/generate](../endpoints/get-token-generate.md) | パブリッシャーがUID2でアイデンティティを確立するには2つの方法があります。<br>1. UID2対応のシングルサインオンプロバイダとインテグレーションします。<br> 2. ユーザーを認証したときに [GET /token/generate](../endpoints/get-token-generate.md) エンドポイントを使用してUID2 Tokenを生成します。このリクエストには、ユーザーの正規化されたメールアドレスが含まれます。 |
+| d | [GET /token/generate](../endpoints/get-token-generate.md) | パブリッシャーがUID2でアイデンティティを確立するには2つの方法があります。<br>1. UID2対応のシングルサインオンプロバイダとインテグレーションします。<br> 2. ユーザーを認証したときに [GET /token/generate](../endpoints/get-token-generate.md) エンドポイントを使用してUID2 Tokenを生成します。このリクエストには、ユーザーの正規化されたメールアドレスが含まれます。  <br><b>Note</b><br>UID2オペレーターサービスが正規化するので、ハッシュしていないメールアドレスは正規化する必要はありません。メールアドレスハッシュは正規化する必要があります。|
 | e | [GET /token/generate](../endpoints/get-token-generate.md) | トークン生成サービスはUID2 Tokenを返します。 |
-| f | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | ステップeから返されたUID2 Tokenを、以下の`identity`メカニズムを使ってSDKに送ります。このメカニズムは、ユーザーがログアウトするまでUID2トークンを利用できるようにします。 |
+| f | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | ステップeから返されたUID2 Tokenを、以下の`identity`メカニズムを使ってSDKに送ります。このメカニズムは、ユーザーがログアウトするまでUID2 Tokenを利用できるようにします。 |
 
 #### Client-Side SDK Identity Mechanism
 
@@ -51,16 +54,16 @@
 | Step | Endpoint/SDK | Instruction |
 | --- | --- | --- |
 | a | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | SDK は UID2 Tokenを自動的に更新します。手動での操作は必要ありません。 |
-| b | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | ユーザーがオプトアウトしていない場合、リフレッシュトークンは新しいアイデンティティ・トークンを返します。 |
+| b | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | ユーザーがオプトアウトしていない場合、Refresh Tokenは新しいアイデンティティ・トークンを返します。 |
 
-SDK以外のオプションを使用して統合する場合は、5分ごとにIDトークンを更新することを勧めます。
+SDK以外のオプションを使用してインテグレーションする場合は、5分ごとにID Tokenを更新することを勧めます。
 
 ### 4. ユーザーのログアウト
 
 | Step | Endpoint/SDK | Instruction |
 | --- | --- | --- |
 | a |  | ユーザーがパブリッシャーのアセットからログアウトした。 |
-| b | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | ログアウト時にユーザーのローカルストレージからUID2トークンを削除します。UID2 Tokenを消去するには、SDK の `disconnect` メカニズムを使用してください。 |
+| b | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | ログアウト時にユーザーのローカルストレージからUID2 Tokenを削除します。UID2 Tokenを消去するには、SDK の `disconnect` メカニズムを使用してください。 |
 
 #### Client-Side SDK Disconnect Identity
 
@@ -73,7 +76,7 @@ SDK以外のオプションを使用して統合する場合は、5分ごとにI
 # よくある質問
 
 ### ユーザーがオプトアウトしたことはどのように通知されますか？
-トークンのリフレッシュ処理は、ユーザーのオプトアウトを処理します。ユーザーがオプトアウトした場合、リフレッシュトークンを使用すると、自動的にセッションがクリアされます。UID2クライアントサイドSDK](../sdks/client-side-identity-v1.md)を参照してください。手動での操作は必要ありません。
+トークンのリフレッシュ処理は、ユーザーのオプトアウトを処理します。ユーザーがオプトアウトした場合、Refresh Tokenを使用すると、自動的にセッションがクリアされます。UID2クライアントサイドSDK](../sdks/client-side-identity-v1.md)を参照してください。手動での操作は必要ありません。
 
 ### インテグレーションをテストするにはどうすればいいですか？
 インテグレーションをテストするために使用できる2つの組み込みツールがあります。
@@ -81,12 +84,12 @@ SDK以外のオプションを使用して統合する場合は、5分ごとにI
 #### 送信されたPIIと返信されたトークンが一致しているかどうかのテスト
 [GET /token/validate](../endpoints/get-token-validate.md)エンドポイントを使用して、[GET /token/generate](../endpoints/get-token-generate.md)で送信するPIIが有効であるかどうかを確認することができます。
 
-1. `validate@email.com` を `email` として [GET /token/generate](../endpoints/get-token-generate.md) リクエストを送信するか、`validate@email.com` の base64 エンコードされた SHA256 ハッシュを作成し、それをメールアドレスのハッシュとして送信します。返された `advertising_token` を保存して、ステップ2で使用します。
-2. ステップ1で送信した `email` または `email_hash` と、ステップ1で返された `advertising_token` としての `token` を使用して、[GET /token/validate](../endpoints/get-token-validate.md) リクエストを送信します。レスポンスが `true` を返した場合、ステップ1でリクエストとして送信した `email` または `email_hash` が、ステップ1のレスポンスで受け取ったトークンと一致します。`false`を返した場合は、メールアドレスやメールハッシュの送信方法に問題がある可能性があります。
+1. `validate@email.com` を `email` として [GET /token/generate](../endpoints/get-token-generate.md) リクエストを送信するか、`validate@email.com` の base64 エンコードされた SHA256 ハッシュを作成し、それをメールアドレスハッシュとして送信します。返された `advertising_token` を保存して、ステップ2で使用します。
+2. ステップ1で送信した `email` または `email_hash` と、ステップ1で返された `advertising_token` としての `token` を使用して、[GET /token/validate](../endpoints/get-token-validate.md) リクエストを送信します。レスポンスが `true` を返した場合、ステップ1でリクエストとして送信した `email` または `email_hash` が、ステップ1のレスポンスで受け取ったトークンと一致します。`false`を返した場合は、メールアドレスやメールアドレスハッシュの送信方法に問題がある可能性があります。
 
-#### リフレッシュトークンのログアウト・ワークフローのテスト
+#### Refresh Tokenのログアウト・ワークフローのテスト
 
 トークンリフレッシュのワークフローをテストするために、メールアドレス `optout@email.com` を使用することができます。リクエストにこのメールアドレスを使用すると、常にログアウトの結果となる `refresh_token` を含む ID レスポンスが生成されます。
 
 1. `optout@email.com` を `email` として [GET /token/generate](../endpoints/get-token-generate.md) リクエストを送信するか、`optout@email.com` の base64 エンコードされた SHA256 ハッシュを作成して、それをメールのハッシュとして送信します。返された `refresh_token` を保存して、ステップ2で使用します。
-2. ステップ1で送信した `email` または `email_hash` と、ステップ1で返された `refresh_token` を使って、[GET /token/validate](../endpoints/get-token-validate.md) リクエストを送信します。`optout@email.com` のメールアドレスは常にログアウトされたリフレッシュトークンになるので、`body` レスポンスは空にしてください。
+2. ステップ1で送信した `email` または `email_hash` と、ステップ1で返された `refresh_token` を使って、[GET /token/validate](../endpoints/get-token-validate.md) リクエストを送信します。`optout@email.com` のメールアドレスは常にログアウトされたRefresh Tokenになるので、`body` レスポンスは空にしてください。

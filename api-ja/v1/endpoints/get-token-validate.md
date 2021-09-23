@@ -2,37 +2,51 @@
 
 # GET /token/validate
 
-Advertising Tokenが、指定されたメールアドレスまたはメールアドレスハッシュと一致するかどうかを検証します。これは主に新しいインテグレーションのテストとトラブルシューティングのために使用され、パブリッシャーのワークフローの主要なステップではありません。
+Advertising Tokenが、指定されたメールアドレスまたはメールアドレスハッシュに一致するかどうかを検証します。
 
-このエンドポイントで受け付けられるメールアドレスまたはメールアドレスハッシュは `validate@email.com` のみです。
+>Note: このエンドポイントは、主に新しいインテグレーションのテストとトラブルシューティングを目的としています。
 
-## Request
+## Request Format
 
-```GET '{environment}/{version}/token/validate?{queryParameter1}={queryParameterValue1}&{queryParameter2}={queryParameterValue2}'```
+```
+GET '{environment}/{version}/token/validate?{queryParameter1}={queryParameterValue1}&{queryParameter2}={queryParameterValue2}'
+```
+
+### Path Parameters
+
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string | 必須 | テスト環境: `https://integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com` |
+| `{version}` | string | 必須 | 現在のAPIのバージョンは `v1` です。 |
 
 ###  Query Parameters
 
-| Query Parameter | Data Type | Attributes | Description |
-| --- | --- | --- | --- |
-| `token` | `string` | ? | [GET /token/generate](./get-token-generate.md)で取得した `advertising_token` です。 |
-| `email` | `string` | 条件付きで必須 | ユーザーの正規化されたメールアドレスです。`email_hash`がリクエストに含まれていない場合は必須です。 |
-| `email_hash` | `string` | 条件付きで必須 | ユーザーの正規化されたメールアドレスを[SHA256ハッシュし、base64エンコード、URLエンコード](../../README.md#encoding-email-hashes)したものを指定します。リクエストに `email` が含まれていない場合は必須です。 |
+* 以下の2つのクエリパラメータのうち、どちらか一方のみが必要です。
+* 両方のパラメータがリクエストに含まれている場合は、`email`のみがレスポンスを返します。
 
-#### Example Request Using an Email Address
+| Query Parameter | Data Type | Attributes | Description |
+| :--- | :--- | :--- | :--- |
+| `token` | `string` | 必須 | [GET /token/generate](./get-token-generate.md)レスポンスで返されるAdvertising Token（UID2 Token）。 |
+| `email` | `string` | 条件付きで必須 | マップする[正規化](../../README.md#email-normalization)されたメールアドレス。 |
+| `email_hash` | `string` | 条件付きで必要 | [正規化](../../README.md#email-normalization)されたメールアドレスの[URLエンコード、base64エンコードされたSHA256](../../README.md#emailnormalization)ハッシュ。|
+
+#### Request Examples
+
+メールアドレスの検証要求:
 
 ```sh
-curl -L -X GET 'https://integ.uidapi.com/v1/token/validate?token=AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=&email=username@example.com' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X GET 'https://integ.uidapi.com/v1/token/validate?token=AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D&email=validate@email.com' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
-#### Example Request Using an Email Hash
+メールアドレスハッシュの検証要求:
 
 ```sh
-curl -L -X GET 'https://integ.uidapi.com/v1/token/validate?token=AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=&email_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X GET 'https://integ.uidapi.com/v1/token/validate?token=AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D&email_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
 ## Response
 
-レスポンスは、JSONオブジェクトです。
+レスポンスには、指定したAdvertising Tokenの検証状況を示す論理値が返されます。
 
 ```json
 {
@@ -44,5 +58,7 @@ curl -L -X GET 'https://integ.uidapi.com/v1/token/validate?token=AdvertisingToke
 ## Body Response Properties
 
 | Property | Data Type | Description |
-| --- | --- | --- |
-| `body` | `boolean` | 値が `true`の値は、リクエストで指定された `email` または `email_hash` が、`advertising_token` の作成に使用された `email` または `email_hash` と同じであることを示します。<br>値が `false` の場合は、無効な `token` であるか、リクエストで指定された `email` または `email_hash` が `advertising_token` の作成に使用された `email` または `email_hash` と同じではないことを示します。 |
+| :--- | :--- | :--- |
+| `body` | `boolean` | 値が `true`の値は、リクエストで指定された メールアドレスまたはメールアドレスハッシュがが、Advertising Tokenの作成に使用された使用されたものと同じであることを示します。<br/><br/>値が `false` の場合は、以下のいずれかを示します。<br/>- リクエストに無効なAdvertising Tokenが含まれている。<br/>- リクエストで指定されたメールアドレスまたはメールアドレスハッシュが、Advertising Tokenの生成に使用されたものと異なるか、テスト用のメール `validate@email.com` のものではない。 |
+
+レスポンスのステータス値については、[Response Structure and Status Codes](../../../api-ja/README.md#response-structure-and-status-codes)を参照してください。
