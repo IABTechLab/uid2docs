@@ -27,8 +27,8 @@ You must include only one of the following two parameters.
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `email` | string | Conditionally Required | The email address to be mapped. |
-| `email_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of the [normalized](../../README.md#email-address-normalization) email address. |
+| `email` | string array | Conditionally Required | The list of email addresses to be mapped. |
+| `email_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hashes of the [normalized](../../README.md#email-address-normalization) email addresses. |
 
 
 ### Request Examples
