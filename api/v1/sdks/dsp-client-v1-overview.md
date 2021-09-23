@@ -35,7 +35,7 @@ During RTB, call the interface to decrypt a UID2 token and return the UID2. For 
 public Response Decrypt(String encryptedToken)
 ```
 
-Available information returned through the SDK is outlined in teh following table.
+Available information returned through the SDK is outlined in the following table.
 
 | Property | Description |
 | :--- | :--- |
