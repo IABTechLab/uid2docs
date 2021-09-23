@@ -1,11 +1,11 @@
-# UID2 Operator - Nitro Enclave
+# UID2 Operator: Nitro Enclave
 
 UID2 Operator within Nitro Enclave protects sensitive data, including PII. This guide explains how to deploy UID2 Operator AMI onto your AWS Auto-Scaling Group and to customize your UID2 Operator AMI:
 
 1. [Create Launch Template](#create-launch-template)
 2. [Create Auto-Scaling Group](#create-auto-scaling-group)
 3. [Build Custom AMI](#build-custom-ami)
-4. [Serve HTTPS](#serve-https) (currently WIP)
+4. [Serve HTTPS](#serve-https)
 5. [Change Listening Ports](#change-listening-ports)
 
 
@@ -50,7 +50,6 @@ Other overridable User Data configurations at start time include the following.
 |`optout_api_uri` |String|A URL that by default points to the production uid2-optout service endpoint. |
 |`optout_synthetic_logs_enabled` |Boolean|For internal testing use. |
 |`optout_synthetic_logs_count` |Integer|For internal testing use. |
-|`loki_enabled` |Boolean|By default is set to `false`.  For details, see the 'loki' section (currently WIP). |
  
 
 ## Create Auto-Scaling Group
@@ -71,13 +70,13 @@ After creating an auto scaling group it should auto spin up some nodes, you can 
 
 If you wish to add more applications on host machine, you can build your own AMI containing UID2 Operator. 
 
-To do that, you need to do complete the follwoing steps.
+To do that, you need to do complete the following steps.
 
 >IMPORTANT: Steps 4-8 require root access.
 
-1. Get the latest release Enclave image file (EIF) of UID2 operator.
-2. Set up nitro environment. 
-3. Get current release version of UID2 operator (WIP):
+1. Request the latest distributed version of UID2 operator with the latest Enclave image file (EIF) from the appropriate [UID2 Administrator](../../README.md#contact-info). 
+3. Set up nitro environment. 
+4. Get current version of UID2 operator:
 
       ```
       wget -O uid2-operator-dist.tar "https://uid2-operator-dist.s3.amazonaws.com/uid2-operator-internal-dist.tar?release-link-in-the-future"
@@ -117,7 +116,7 @@ To do that, you need to do complete the follwoing steps.
 
 Using HTTPS is crucial for the security of your keys, customers' keys and confidentiality of PIIs. 
 
->IMPORTANT: Be sure to establish secure connection when you host an uid2 operator for production.
+>IMPORTANT: Be sure to establish secure connection when you host an UID2 operator for production.
 
 Setting up HTTPS on AWS, however, is out of scope of UID2 operator setup. Depending on your solution, you can use Application Load Balancer for HTTPS setup and offloading.
 
@@ -128,8 +127,6 @@ For details, see the following resources:
 - [HTTPS offloading](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html)
 
 ## Change Listening Ports
-
->NOTE: This section is WIP. This part might integrate into User Data json in the future.
 
 If you prefer UID2 Operator *not* to listen to port 80, you can change the ports and build your custom AMI. Set up on host side is in *proxies.host.yaml* (will be installed to */etc/uid2operator/proxy.yaml* by installation script). You can change the port arrangement inside.
 
