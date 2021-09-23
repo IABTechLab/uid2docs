@@ -23,8 +23,8 @@ Retrieve the UID2 and salt bucket ID for an email address or an email address ha
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `email` | string | Conditionally Required | The [normalized](../../README.md#emailnormalization) email address to be mapped. |
-| `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#encoding-email-hashes) hash of the [normalized](../../README.md#emailnormalization) email address. |
+| `email` | string | Conditionally Required | The email address to be mapped. |
+| `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of the [normalized](../../README.md#email-address-normalization) email address. |
 
 
 ### Request Examples
@@ -49,7 +49,7 @@ The response returns the UID2 and salt bucket ID for the specified email address
     "body": {
             "identifier": "username@example.com",
             "advertising_id": "AdvtiSuYWAZSYe8t4n6sQx0gshoHYZdOzg9qUn/eKgE=",
-            "bucket_id": "bucketId"
+            "bucket_id": "a30od4mNRd"
         },
     "status":"success"
 }

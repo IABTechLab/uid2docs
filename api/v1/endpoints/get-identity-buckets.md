@@ -4,7 +4,7 @@
 
 Monitor rotated salt buckets. This endpoint is intended for use by [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md).
 
->NOTE: No salt buckets will be rotated until September 1, 2021. Any requests prior to September 1, 2021, will return an empty response body.
+>NOTE: No salt buckets will be rotated until January 1, 2022. Any requests prior to January 1, 2022, will return an empty response body.
 
 
 ## Request Format

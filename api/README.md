@@ -1,18 +1,24 @@
 # Unified ID 2.0 API Documentation
 
+For UID2 definition, forms, guiding principles, components, and other conceptual details, see [UID2 Overview](../README.md).
 
-* [UID2 Overview](../README.md)
+This page provides the following information required for you to get started with the UID2 API:
 * [Contact Info](#contact-info)
 * [Environment](#environment)
 * [Authentication](#authentication)
-* [Normalizing Emails](#email-normalization)
-* [Encoding Query Parameter Values](#encoding-query-parameter-values)
-* [Encoding Email Hashes](#encoding-email-hashes)
+* [Email Address Normalization](#email-address-normalization)
+* [Query Parameter Value Encoding](#query-parameter-value-encoding)
+* [Email Address Hash Encoding](#email-address-hash-encoding)
 * [Response Structure and Status Codes](#response-structure-and-status-codes)
-* [Endpoints](./v1/endpoints/README.md)
-* [Integration Guides](./v1/guides/README.md)
 * [License](#license)
 
+For details on using the API, see the following pages.
+
+| Documentation | Content Description |
+| :--- | :--- |
+| [Endpoints](./v1/endpoints/README.md) | API reference for managing identity tokens and mapping email addresses and hashes to their UID2s and salt bucket IDs used to generate the UID2s. |
+| [Integration Guides](./v1/guides/README.md) | UID2 integration workflows for UID2 participants, such as publishers, DSPs, advertisers, and data providers, as well as Operator Enterprise Partners, such as Microsoft Azure, AWS, and Snowflake. |
+| [SDKs](./v1/sdks/README.md) | Client-side JavaScript for websites and RTB SDKs. | 
 
 ## Contact Info
 
@@ -42,11 +48,11 @@ To authenticate to UID2 endpoints, use a bearer token in the request's authoriza
 
 ```Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=```
 
-## Email Normalization
+## Email Address Normalization
 
+>NOTE: The UID2 Operator Service normalizes automatically unhashed email addresses. Hashed email adresses must be normalized.
 
 Prior to sending email addresses in a request, normalize them by following these steps:
-
 
 1. Remove leading and trailing spaces.
 2. Convert all ASCII characters to lowercase.
@@ -54,11 +60,11 @@ Prior to sending email addresses in a request, normalize them by following these
     1. The period  (`.` (ASCII code 46)).<br/>For example, normalize `jane.doe@gmail.com` to `janedoe@gmail.com`.
     2. The plus sign (`+` (ASCII code 43)) and all subsequent characters.<br/>For example, normalize `janedoe+home@gmail.com` to `janedoe@gmail.com`.
 
-## Encoding Query Parameter Values
+## Query Parameter Value Encoding
 
 When passing query parameter values in with a request, ensure the query parameter value is URL-encoded. Use JavaScript's `encodeURIcomponent()` or its equivalent in your coding language.
 
-## Encoding Email Hashes
+## Email Address Hash Encoding
 
 Email hashes are base64-encoded SHA256 hashes of the normalized email address.
 

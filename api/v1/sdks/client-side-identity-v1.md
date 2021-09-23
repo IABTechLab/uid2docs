@@ -2,17 +2,19 @@
 
 # Client-Side Identity SDK
 
-Use our client-side SDK to simplify your implementation. Use the SDK to establish identity, de-establish identity, and retrieve advertising tokens.
+Use the client-side SDK to simplify your implementation, namely, to establish and de-establish identity and retrieve advertising tokens.
 
-## Implement The SDK Script
+## Implement the SDK Script
 
-Implement our SDK script on the pages you'll use UID2 to manage identity or retrieve an advertising token for real-time bidding (RTB).
+Implement the folloiwng SDK script on the pages you'll use UID2 to manage identity or retrieve an advertising token for real-time bidding (RTB):
 
 ```html
 <script src="https://integ.uidapi.com/static/js/uid2-sdk-0.0.1a.js" type="text/javascript"></script>
 ```
 
 ## Client-Side SDK Functions
+
+The client-side SDKs provides several scripts to perform the following functions.
 
 ### Open Client Lifecycle and Establish Client Identity
 

@@ -27,8 +27,8 @@ Validate that an advertising token matches the specified email address or email 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `token` | string | Required | The advertising token returned by the [GET /token/generate](./get-token-generate.md) response. |
-| `email` | string | Conditionally Required |  The [normalized](../../README.md#emailnormalization) email address. |
-| `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#encoding-email-hashes) hash of the [normalized](../../README.md#emailnormalization) email address. |
+| `email` | string | Conditionally Required |  The email address for token validation. |
+| `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of the [normalized](../../README.md#email-address-normalization) email address for token validation. |
 
 
 ### Request Examples
