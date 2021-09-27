@@ -52,4 +52,4 @@ Metadata supplied with the UID2 generation request indicates the salt bucket use
 The recommended cadence for updating audiences is daily. 
 
 ### How should I generate the SHA256 of PII for mapping?
-The system should follow the [email normalization rules](../../README.md#email-address-normalization)) and hash without salting. The value needs to be base64-encoded before sending.
+The system should follow the [email normalization rules](../../README.md#email-address-normalization) and hash without salting. The value needs to be base64-encoded before sending.
