@@ -108,7 +108,7 @@ There are multiple operators that comprise the UID2 System and participants may 
 
 Organizations that operate their own internal version of the service to generate and manage UID2s and UID2 tokens. Any participant may choose to be a Closed Operator and there are multiple integration paths through cloud providers.
 
-For details on setting up Closed Operator services, see [Operator Integration Guides](./v1/guides/README.md).
+For details on setting up Closed Operator services, see [Operator Integration Guides](/api/v1/guides/README.md).
 
 #### Functions
 
@@ -228,7 +228,7 @@ This workflow is for organizations that collect user data and push it to DSPs. D
 
 To generate UID2s from authenticated PII, data providers must access the UID2 Operator APIs. Some advertisers may choose to work through CDPs, data on-boarders, or other service providers instead.
 
-See also [Advertiser/Data Provider Integration Guide](./advertiser-dataprovider-guide.md).
+See also [Advertiser/Data Provider Integration Guide](/api/v1/guides/advertiser-dataprovider-guide.md).
 
 ##### Requirements
 
@@ -255,7 +255,7 @@ This workflow is for organizations that propagate IDs to the bid stream via SSPs
 
 #### Publisher Integration
 
-For integration scenarios, token management, and other details, see [Publisher Integration Guides](./v1/guides/README.md). See also [Endpoints](./v1/endpoints/README.md).
+For integration scenarios, token management, and other details, see [Publisher Integration Guides](/api/v1/guides/README.md). See also [Endpoints](/api/v1/endpoints/README.md).
 
 ##### Publisher Direct Integration
 
