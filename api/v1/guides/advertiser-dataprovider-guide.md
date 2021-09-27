@@ -40,7 +40,7 @@ We recommend checking salt bucket rotation daily for active users. While salt bu
 
 Continuously update and maintain UID2-based audiences utilizing the preceding steps.
 
-The response from the [preceding step](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) contains mapping information. Cache the mapping between PII (`identifier`),  UID2 (`advertising_id`), and salt bucket (`bucket_id`), along with a last updated timestamp.
+The response from the [UID2 retrieval step](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) contains mapping information. Cache the mapping between PII (`identifier`),  UID2 (`advertising_id`), and salt bucket (`bucket_id`), along with a last updated timestamp.
 
 Using the results the [preceding salt bucket rotation step](monitor-for-salt-bucket-rotations-related-to-your-stored-uid2s), remap UID2s with rotated salt buckets by [retrieving UID2s using the identity map endpoints](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints). To update the UID2s in audiences, [send UID2 to a DSP](#send-uid2-to-a-dsp-to-build-an-audience).
 
