@@ -1,7 +1,16 @@
 # UID 2.0
 English | [Japanese](README-ja.md)
 
-[UID 2.0 API Documentation](/api/README.md)
+This page provides the following information about UID2:
+- [Introduction](#introduction)
+- [ID Forms](#id-forms)
+- [Components](#components)
+- [Roles](#roles)
+- [Workflow Summaries](#workflow-summaries)
+- [FAQs](#faqs)
+- [License](#license)
+
+For integration guides, supported SDKs, and endpoint reference, see [UID 2.0 API Documentation](/api/README.md).
 
 ## Introduction
 
@@ -168,7 +177,7 @@ Responsibilities:
 
 Examples: DSPs, Measurement Providers, Advertisers
 
-## Workflow Summary
+## Workflow Summaries
 
 There are four key workflows that make up the UID2 ecosystem:
 1. [Buy-Side Workflow](#buy-side-workflow)
@@ -284,7 +293,7 @@ This workflow is for users engaging with publishers or publisher-related SSOs an
 3. UID2 Administrators distribute the request to DSPs.
 4. UID2 Operators distribute the request to publishers utilizing the refresh token.
 
-## Frequently Asked Questions
+## FAQs
 
 ### Identity
 
@@ -316,4 +325,4 @@ Opt-outs relate to opting out of targeted advertising, which is handled through 
 
 
 ## License
-All work and artifacts are licensed under the Apache License, Version 2.0. See [LICENSE](http://www.apache.org/licenses/LICENSE-2.0.txt) for the full license text.
+All work and artifacts are licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).
