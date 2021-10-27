@@ -2,9 +2,20 @@
 
 # Client-Side Identity JavaScript SDK
 
-Use the client-side JS SDK to simplify your implementation, namely, to establish and de-establish identity and retrieve advertising tokens.
+Use the client-side identity JS SDK to simplify your implementation, namely, to establish and de-establish identity and retrieve advertising tokens.
 
 ## Workflow Overview
+
+The high-level client-side identity JS SDK workflow consits of the following steps:
+
+1. [Initialize the SDK](#initialize-the-sdk) by specifying a callback to be called upon a successful completion of the step and either explicitly providing an identity to use or allowing the SDK to look for an identity in the first-party cookie.
+2. Wait for the SDK to invoke the specified callback, which indicates whether the identity is available and if not, the reason for why it is not available.
+3. Based on the availabililtly [status](#identity-status-values) of the identity, the SDK does the following:
+	- If the identity is valid, the SDK ensures the identity is available in the first-party cookie.
+	- If the identity is invalid and cannot be refreshed, the SDK may clear the cookie (depending on the nature of the error).
+3. Manage the identity based on its availability:
+	- If the identity is available, use it to initiate requests for targeted advertising.
+	- If not, either use untargeted advertising or redirect the user to the UID2 login with the consent form.
 
 ![Client-Side Identity JavaScript SDK Workflow](./uid2-js-sdk-workflow.svg)
 
