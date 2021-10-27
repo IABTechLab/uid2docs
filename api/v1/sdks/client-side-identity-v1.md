@@ -48,6 +48,7 @@ The following sections provide examples for the commonly used tasks:
 
 - [Initialize the SDK and establish client identity](#initialize-the-sdk-and-establish-client-identity)
 - [Retrieve client identity/advertising token](#retrieve-client-identity)
+- [Handle Missing Identity](#handle-a-missing-identity)
 - [Close identity session and log out](#close-identity-session-and-log-out)
 
 For all available tasks and functions, see [API Reference](#api-reference).
@@ -86,6 +87,21 @@ The following is a call example:
 
 The function allows you to get access to the advertising token from anywhere (not just from the initialization completion callback). 
 
+### Handle a Missing Identity
+
+If client identity is not available, use the [isLoginRequired()](#isloginrequired-boolean) function to determine how to handle the missing identity. See also [Workflow States and Transitions](#workflow-states-and-transitions).
+
+```html
+<script>
+  __uid2.isLoginRequired();
+</script>
+```
+The following table explains the return values.
+
+| Value | Description |
+| :--- | :--- |
+| `true` | The identity is not available. The UID2 login is required because the user has opted out or the refresh token has expired. |
+| `false` | Indicates either of the following:<br/>- The identity is present and valid.<br/>- The identity has expired, and the token was not refreshed due to an intermittent error. The identity may be restored after a successful auto-refresh attempt. |
 
 ### Close Identity Session and Log Out
 
@@ -98,6 +114,11 @@ When an unauthenticated user is present, or a user wishes to log out of targeted
 ```
 This call clears the first-party cookie containing the UID2 identity, thus closing the client's identity session and disconnecting the client lifecycle.
 
+## Cookie Format
+TBD
+
+## Background Auto-Refresh
+TBD
 
 ## API Reference
 
@@ -179,7 +200,7 @@ Returns `undefined` in the following cases:
 
 ### isLoginRequired(): boolean
 
-Specifies whether UID2 login [GET /token/generate](../endpoints/get-token-generate.md) is required. 
+Specifies whether UID2 login [GET /token/generate](../endpoints/get-token-generate.md) is required. This function can be also used to [handle missing identities](#handle-a-missing-identity).
 
 #### Return Values
 
@@ -189,14 +210,6 @@ Specifies whether UID2 login [GET /token/generate](../endpoints/get-token-genera
 | `false` | No login is required. |
 | `undefined` | The SDK initialization is not complete yet. |
 
-#### Missing Identity Return Values
-
-After the [callback function](#callback-function) is invoked, the `isLoginRequired()` function can be also used to determine how to handle the missing identity.
-
-| Value | Description |
-| :--- | :--- |
-| `true` | The identity is not available. The UID2 login is required because the user has opted out or the refresh token has expired. |
-| `false` | Indicates either of the following:<br/>- The identity is present and valid.<br/>- The identity has expired, and the token was not refreshed due to an intermittent error. The identity may be restored after a successful auto-refresh attempt. |
 
 ### disconnect(): void
 
