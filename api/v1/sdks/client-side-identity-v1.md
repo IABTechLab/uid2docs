@@ -4,6 +4,14 @@
 
 Use the client-side identity JS SDK to simplify your implementation, namely, to establish and de-establish identity and retrieve advertising tokens.
 
+## Implement the SDK Script
+
+Implement the following SDK script on the pages where you want to use UID2 to manage identity or retrieve an advertising token for real-time bidding (RTB):
+
+```html
+<script src="https://integ.uidapi.com/static/js/uid2-sdk-0.0.1b.js" type="text/javascript"></script>
+```
+
 ## Workflow Overview
 
 The high-level client-side identity JS SDK workflow consits of the following steps:
@@ -12,7 +20,7 @@ The high-level client-side identity JS SDK workflow consits of the following ste
 2. Wait for the SDK to invoke the specified [callback function](#callback-function), which indicates whether the identity is available and if not, the reason for why it is not available.
 3. Based on the [status](#identity-status-values) of the identity, the SDK does the following:
 	- If the identity is valid, the SDK ensures the identity is available in the first-party cookie.
-	- If the identity is invalid and cannot be refreshed (the `advertisingToken` value in teh callback is `undefined`), SDK may clear the cookie (depending on the nature of the error).
+	- If the identity is invalid and cannot be refreshed (the `advertisingToken` value in the callback is `undefined`), SDK may clear the cookie (depending on the nature of the error).
 3. Manage the identity based on its availability:
 	- If the identity is available, use it to initiate requests for targeted advertising.
 	- If not, either use untargeted advertising or redirect the user to the UID2 login with the consent form.
@@ -21,15 +29,14 @@ The following table outlines the four main states in which the SDK can be, based
 
 | State | Advertising Token | Login Required | Description|
 | :--- | :--- | :---| :---|
-| Initializing | `undefined`| `undefined`| Initial state until the callback is invoked. |
+| Initialization | `undefined`| `undefined`| Initial state until the callback is invoked. |
 | Identity Is Avaliable | available |`false` | An valid identity is available for targeted advertising because it has been successfully established or refreshed. |
-| Identity Is Temporarily Unavailable |`undefined` | `false`| The identity (advertising token) has expired and automatic refresh failed. Yet the refresh token is still valid, and the identity may get refreshed through continued auto-refresh attempts.|
+| Identity Is Temporarily Unavailable |`undefined` | `false`| The identity (advertising token) has expired and automatic refresh failed. If the refresh token is still valid, the identity may be automatically refreshed, unless the user has opted out or the service is no longer available.|
 | Identity Is Not Available  | `undefined`| `false`| The identity is not available and cannot be refreshed. |
 
-The following diagram illustrates the four states and possible transitions between them. The SDK invokes the [callback function](#callback-function) on each transition between the states.
+The following diagram illustrates the four states and possible transitions between them. The SDK invokes the [callback function](#callback-function) on each transition.
 
 ![Client-Side Identity JavaScript SDK Workflow](./uid2-js-sdk-workflow.svg)
-
 
 
 ## Initialize the SDK
@@ -37,24 +44,20 @@ The following diagram illustrates the four states and possible transitions betwe
 To establish identity and trigger targeted advertising, complete the following steps:
 
 1. If you want to use the identity from a first-party cookie, skip to step 3. Otherwise, generate an identity by making a [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) call.
-2. In the initialization call, send the response payload from the call in step 1 with the server-side generated identity or leave the `identity` property empty.
-3. Specify the callback to invoke when the SDK is initialized.
-4. (Optional) Set additional configuration parameters to tune specific behaviours. For details, see TBD XREF.
+2. In the [init()](#initopts-object-void) call, send the response payload from the call in step 1 with the server-side generated identity or leave the `identity` property empty.
+3. Specify the [callback function](#callback-function) to invoke after the SDK is initialized.
+4. (Optional) Set additional configuration parameters to tune specific behaviours. For details, see [init() paramters](#parameters).
 
 The following is an example of how to invoke the UID2 SDK:
 
 ```html
 __uid2.init({
-  identity : <Response body from the token generate or refresh API calls>,
+  identity : <Response payload from the token generate or refresh API calls>,
   callback : function (advertisingToken, reason) { <Check advertising token and initiate targeted advertising> },
   <additional optional configuration parameters>
 });
 ```
 
-| Property | Description |
-| :--- | :--- |
-| `identity` | The response body of a successful [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) call that has been run on the server to generate an identity. To use the identity from a first-party cookie, leave this property empty.<br/>If the identity has expired, and the refresh token is still valid, the identity is automatically refreshed, unless the user has opted out or the service is not available. |
-| `callback` | The function the SDK is to invoke after validating the passed identity. If there is no identity available, the callback returns the `advertisingToken` value undefined and provides the explanation, for example, "opt-out", in the `reason` parameter. |
 
 ## Get the Advertizing Token
 TBD 
@@ -170,13 +173,7 @@ Terminates any background timers or requests. The UID2 object remains in an unsp
 
 
 
-## Implement the SDK Script
 
-Implement the following SDK script on the pages you'll use UID2 to manage identity or retrieve an advertising token for real-time bidding (RTB):
-
-```html
-<script src="https://integ.uidapi.com/static/js/uid2-sdk-0.0.1a.js" type="text/javascript"></script>
-```
 
 ## Client-Side SDK Functions
 
