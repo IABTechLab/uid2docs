@@ -36,8 +36,8 @@ The following table outlines the four main states in which the SDK can be, based
 | State | Advertising Token | Login Required | Description| Identity Status |
 | :--- | :--- | :---| :---| :---|
 | Initialization | `undefined`| `undefined`| Initial state until the callback is invoked. | N/A |
-| Identity Is Avaliable | available |`false` | An valid identity is available for targeted advertising because it has been successfully established or refreshed. |`ESTABLISHED` or `REFRESHED` | 
-| Identity Is Temporarily Unavailable |`undefined` | `false`| The identity (advertising token) has expired and automatic refresh failed. If the refresh token is still valid, the identity may be automatically refreshed, unless the user has opted out or the service is no longer available.| `EXPIRED` |
+| Identity Is Available | available |`false` | An valid identity is available for targeted advertising because it has been successfully established or refreshed. |`ESTABLISHED` or `REFRESHED` | 
+| Identity Is Temporarily Unavailable |`undefined` | `false`| The identity (advertising token) has expired, and automatic refresh failed. If the refresh token is still valid, the identity may be automatically refreshed, unless the user has opted out or the service is no longer available.| `EXPIRED` |
 | Identity Is Not Available  | `undefined`| `false`| The identity is not available and cannot be refreshed. | `INVALID`, `NO_IDENTITY`, `REFERSH_EXPIRED`, or `OPTOUT` |
 
 The following diagram illustrates the four states, including the respective identity [status values](#identity-status-values), and possible transitions between them. The SDK invokes the [callback function](#callback-function) on each transition.
@@ -64,7 +64,7 @@ To establish identity and trigger targeted advertising, complete the following s
 1. If you want to use the identity from a first-party cookie, skip to step 3. Otherwise, generate an identity by making a [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) call.
 2. In the [init()](#initopts-object-void) call, send the response payload from the call in step 1 with the server-side generated identity or leave the `identity` property empty.
 3. Specify the [callback function](#callback-function) to invoke after the SDK is initialized.
-4. (Optional) Set additional configuration parameters to tune specific behaviours. For details, see [init() parameters](#parameters).
+4. (Optional) Set additional configuration parameters to tune specific behaviors. For details, see [init() parameters](#parameters).
 
 To invoke the UID2 SDK and establish client identity, make a [init()](#initopts-object-void) call, using the following example:
 
@@ -203,7 +203,7 @@ The following table lists all possible `status` field values and their `statusTe
 | `REFRESHED` | Available | The identity was successfully refreshed by a call to the UID2 operator is now available for targeted advertising. |
 | `EXPIRED` | Not available | No identity is available for targeted advertising, as the SDK failed to refresh the token. Since there is still a valid refresh token available, auto-refresh attempts will continue. |
 | `REFRESH_EXPIRED` | Not available | No identity is available for targeted advertising, as the refresh token on the first-party cookie or the passed identity has expired.  |
-| `NO_IDENTITY` | Not available | No identity is available for targeted advertising, as a first-party cookie was not set and no identity has been passed to init()  |
+| `NO_IDENTITY` | Not available | No identity is available for targeted advertising, as a first-party cookie was not set and no identity has been passed to the `init()` function.  |
 | `INVALID` | Not available | No identity is available for targeted advertising, as the SDK failed to parse the first-party cookie the passed identity. |
 | `OPTOUT` | Not available | No identity is available for targeted advertising, as the user has opted out from refreshing identity. |
 
