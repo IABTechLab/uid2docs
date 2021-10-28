@@ -19,11 +19,13 @@ Implement the following SDK script on the pages where you want to use UID2 to ma
 The high-level client-side identity JS SDK workflow consists of the following steps:
 
 1. [Initialize the SDK](#initialize-the-sdk-and-establish-client-identity) and specify a [callback function](#callback-function) to be called upon a successful completion of the step.
-2. Wait for the SDK to invoke the callback function. The callback function indicates whether the identity is available and if not, the reason for why it is not available.
-3. Based on the [status](#identity-status-values) of the identity, the SDK does the following:
+2. Wait for the SDK to invoke the callback function. The callback function indicates the identity availability:
+	- If the identity is available, the [background token auto-refresh](#background-token-auto-refresh) is set up.
+	- If not, the reason for its unavailability is specified.
+4. Based on the [status](#identity-status-values) of the identity, the SDK does the following:
 	- If the identity is valid, the SDK ensures the identity is available in the first-party cookie.
 	- If the identity is invalid and cannot be refreshed (the `advertisingToken` value in the callback is `undefined`), SDK may clear the cookie (depending on the nature of the error).
-3. Manage the identity based on its availability:
+5. Manage the identity based on its availability:
 	- If the identity is available, use it to initiate requests for targeted advertising.
 	- If not, either use untargeted advertising or redirect the user to the UID2 login with the consent form.
 
@@ -48,6 +50,7 @@ The following sections provide examples of the commonly used tasks:
 
 - [Initialize the SDK and establish client identity](#initialize-the-sdk-and-establish-client-identity)
 - [Retrieve client identity/advertising token](#retrieve-client-identity)
+- [Background Token Auto-Refresh](#background-token-auto-refresh)
 - [Handle Missing Identity](#handle-missing-identity)
 - [Close identity session and log out](#close-identity-session-and-log-out)
 
@@ -75,6 +78,7 @@ To invoke the UID2 SDK and establish client identity, make a [init()](#initopts-
 </script>
 ```
 
+
 ### Retrieve Client Identity
 
 To get the currently available advertising token, make a [getAdvertisingToken()](#getadvertisingtoken-string) call *after* calling  [init()](#initopts-object-void) and invoking the supplied callback. 
@@ -88,6 +92,22 @@ The following is a call example:
 ```
 
 The function allows you to get access to the advertising token from anywhere (not just from the initialization completion callback). 
+
+
+### Background Token Auto-Refresh
+
+As part of the SDK [initialization](#initialize-the-sdk-and-establish-client-identity), a token auto-refresh for the identity is set up to be triggered in the background by any of the following:
+
+- The `refresh_from` timestamp on the identity.
+- The `identity_expires` timestamp on the identity.
+- The `refresh_expires`  timestamp on the identity.
+- The token refresh failure due to an intermittent error, triggered by the `refreshRetryPeriod`.
+
+Here's what you need to know aobut the token auto-refresh:
+
+- Only one token refresh call can be active at a time. 
+- A [disconnect()](#disconnect-void) or [init()](#initopts-object-void) call cancels the active timer.
+- An unsuccessful [GET /token/refresh](../endpoints/get-token-refresh.md) response, for example, due to the user's optout or the refresh token expiration, suspends  the background auto-refresh process and requires a new login ([isLoginRequired()](#isloginrequired-boolean) returns `true`). 
 
 ### Handle Missing Identity
 
@@ -117,8 +137,6 @@ When an unauthenticated user is present, or a user wants to log out of targeted 
 This call clears the first-party cookie containing the UID2 identity, thus closing the client's identity session and disconnecting the client lifecycle.
 
 
-## Background Auto-Refresh
-TBD
 
 ## API Reference
 
@@ -203,7 +221,7 @@ Returns `undefined` in the following cases:
 
 ### isLoginRequired(): boolean
 
-Specifies whether a UID2 login [GET /token/generate](../endpoints/get-token-generate.md) is required. This function can be also used to [handle missing identities](#handle-missing-identity).
+Specifies whether a UID2 login ([GET /token/generate](../endpoints/get-token-generate.md) call) is required. This function can be also used to [handle missing identities](#handle-missing-identity).
 
 #### Return Values
 
