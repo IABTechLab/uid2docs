@@ -37,12 +37,16 @@ curl -L -X GET 'https://integ.uidapi.com/v1/token/refresh?refresh_token=RefreshT
 
 ## Response Format
 
-A successful response returns new identity tokens issued for the user or indicates that the user has opted out.
+A successful response returns new identity tokens issued for the user or indicates that the user has opted out. 
+
 ```json
 {
     "body": {
         "advertising_token": "NewAdvertisingTokenIjb6u6KcMAtd0/4ZIAYkXvFrMdlZVqfb9LNf99B+1ysE/lBzYVt64pxYxjobJMGbh5q/HsKY7KC0Xo5Rb/Vo8HC4dYOoWXyuGUaL7Jmbw4bzh+3pgokelUGyTX19DfArTeIg7n+8cxWQ=",
-        "refresh_token": "NewRefreshTokenAAAF2c8H5dF8AAAF2c8H5dF8AAAADX393Vw94afoVLL6A+qjdSUEisEKx6t42fLgN+2dmTgUavagz0Q6Kp7ghM989hKhZDyAGjHyuAAwm+CX1cO7DWEtMeNUA9vkWDjcIc8yeDZ+jmBtEaw07x/cxoul6fpv2PQ=="
+        "refresh_token": "NewRefreshTokenAAAF2c8H5dF8AAAF2c8H5dF8AAAADX393Vw94afoVLL6A+qjdSUEisEKx6t42fLgN+2dmTgUavagz0Q6Kp7ghM989hKhZDyAGjHyuAAwm+CX1cO7DWEtMeNUA9vkWDjcIc8yeDZ+jmBtEaw07x/cxoul6fpv2PQ==",
+        "identity_expires": 1633643601000,
+        "refresh_from": 1633643001000,
+        "refresh_expires": 1636322000000
     },
     "status": "success"
 }
@@ -57,7 +61,7 @@ If a user opted out before the refresh request, the following response will be r
     "status": "optout"
 }
 ```
-
+The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) uses this endpoint response payloads to establish and manage the user identity during a user session lifecycle.
 
 ### Response Body Properties
 
@@ -65,6 +69,9 @@ If a user opted out before the refresh request, the following response will be r
 | :--- | :--- | :--- |
 | `advertising_token` | string | An encrypted advertising (UID2) token for the user. |
 | `refresh_token` | string | An encrypted token that can be exchanged with the UID2 Service for the latest set of identity tokens. |
+| `identity_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the advertising token expires. |
+| `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) will start refreshing the advertising token. |
+| `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the advertising token expires. |
 
 
 For response status values, see [Response Structure and Status Codes](../../../api/README.md#response-structure-and-status-codes).
