@@ -2,7 +2,7 @@
 
 # Client-Side Identity JavaScript SDK
 
-Use the client-side identity JS SDK to simplify your implementation, namely, to establish and de-establish identity and retrieve advertising tokens.
+Use this SDK to facilitate the process of establishing client identity and retrieving advertising tokens.
 
 The following sections describe the [SDK workflow](#workflow-overview), [commonly performed tasks](#common-workflow-tasks), and provide the SDK [API Reference](#api-reference).
 
@@ -16,10 +16,10 @@ Implement the following SDK script on the pages where you want to use UID2 to ma
 
 ## Workflow Overview
 
-The high-level client-side identity JS SDK workflow consits of the following steps:
+The high-level client-side identity JS SDK workflow consists of the following steps:
 
-1. [Initialize the SDK](#initialize-the-sdk-and-establish-client-identity) by specifying a callback to be called upon a successful completion of the step and either explicitly providing an identity to use or allowing the SDK to look for an identity in the first-party cookie.
-2. Wait for the SDK to invoke the specified [callback function](#callback-function), which indicates whether the identity is available and if not, the reason for why it is not available.
+1. [Initialize the SDK](#initialize-the-sdk-and-establish-client-identity) and specify a [callback function](#callback-function) to be called upon a successful completion of the step.
+2. Wait for the SDK to invoke the callback function. The callback function indicates whether the identity is available and if not, the reason for why it is not available.
 3. Based on the [status](#identity-status-values) of the identity, the SDK does the following:
 	- If the identity is valid, the SDK ensures the identity is available in the first-party cookie.
 	- If the identity is invalid and cannot be refreshed (the `advertisingToken` value in the callback is `undefined`), SDK may clear the cookie (depending on the nature of the error).
@@ -38,17 +38,17 @@ The following table outlines the four main states in which the SDK can be, based
 | Identity Is Temporarily Unavailable |`undefined` | `false`| The identity (advertising token) has expired and automatic refresh failed. If the refresh token is still valid, the identity may be automatically refreshed, unless the user has opted out or the service is no longer available.| `EXPIRED` |
 | Identity Is Not Available  | `undefined`| `false`| The identity is not available and cannot be refreshed. | `INVALID`, `NO_IDENTITY`, `REFERSH_EXPIRED`, or `OPTOUT` |
 
-The following diagram illustrates the four states, including the respective identity [status](#identity-status-values), and possible transitions between them. The SDK invokes the [callback function](#callback-function) on each transition.
+The following diagram illustrates the four states, including the respective identity [status values](#identity-status-values), and possible transitions between them. The SDK invokes the [callback function](#callback-function) on each transition.
 
 ![Client-Side Identity JavaScript SDK Workflow](./uid2-js-sdk-workflow.svg)
 
 ## Common Workflow Tasks
 
-The following sections provide examples for the commonly used tasks:
+The following sections provide examples of the commonly used tasks:
 
 - [Initialize the SDK and establish client identity](#initialize-the-sdk-and-establish-client-identity)
 - [Retrieve client identity/advertising token](#retrieve-client-identity)
-- [Handle Missing Identity](#handle-a-missing-identity)
+- [Handle Missing Identity](#handle-missing-identity)
 - [Close identity session and log out](#close-identity-session-and-log-out)
 
 For all available tasks and functions, see [API Reference](#api-reference).
@@ -66,16 +66,18 @@ To establish identity and trigger targeted advertising, complete the following s
 To invoke the UID2 SDK and establish client identity, make a [init()](#initopts-object-void) call, using the following example:
 
 ```html
-__uid2.init({
-  identity : <Response payload from the token generate or refresh API calls>,
-  callback : function (advertisingToken, reason) { <Check advertising token and initiate targeted advertising> },
-  <additional optional configuration parameters>
-});
+<script>
+ __uid2.init({
+   identity : <Response payload from the token generate or refresh API calls>,
+   callback : function (state) { <Check advertising token and status within the passed state and initiate targeted advertising> },
+   <additional optional configuration parameters>
+ });
+</script>
 ```
 
 ### Retrieve Client Identity
 
-To get the currently available advertising token, make a [getAdvertisingToken()](#getadvertisingtoken-string) call after calling  [init()](#initopts-object-void) and invoking the supplied callback. 
+To get the currently available advertising token, make a [getAdvertisingToken()](#getadvertisingtoken-string) call *after* calling  [init()](#initopts-object-void) and invoking the supplied callback. 
 
 The following is a call example:
 
@@ -87,7 +89,7 @@ The following is a call example:
 
 The function allows you to get access to the advertising token from anywhere (not just from the initialization completion callback). 
 
-### Handle a Missing Identity
+### Handle Missing Identity
 
 If client identity is not available, use the [isLoginRequired()](#isloginrequired-boolean) function to determine how to handle the missing identity. See also [Workflow States and Transitions](#workflow-states-and-transitions).
 
@@ -105,7 +107,7 @@ The following table explains the return values.
 
 ### Close Identity Session and Log Out
 
-When an unauthenticated user is present, or a user wishes to log out of targeted advertising on the publisher's site, make a [disconnect()](#disconnect-void) call, using the following example:
+When an unauthenticated user is present, or a user wants to log out of targeted advertising on the publisher's site, make a [disconnect()](#disconnect-void) call, using the following example:
 
 ```html
 <script>
@@ -114,8 +116,6 @@ When an unauthenticated user is present, or a user wishes to log out of targeted
 ```
 This call clears the first-party cookie containing the UID2 identity, thus closing the client's identity session and disconnecting the client lifecycle.
 
-## Cookie Format
-TBD
 
 ## Background Auto-Refresh
 TBD
@@ -144,12 +144,13 @@ The `opts` object includes the following properties.
 
 | Property | Type | Attribute | Description | Default Value |
 | :--- | :--- | :--- | :--- | :--- |
-| `identity` | object | Optional | The response body of a successful [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) call that has been run on the server to generate an identity. To use the identity from a first-party cookie, leave this property empty. | N/A |
 | `callback` | `function(object): void` | Required | The function the SDK is to invoke after validating the passed identity. For details, see [Callback Function](#callback-function).| N/A |
+| `identity` | object | Optional | The response body of a successful [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) call that has been run on the server to generate an identity. To use the identity from a first-party cookie, leave this property empty. | N/A |
 | `baseUrl` | string | Optional | The custom base URL of the UID2 operator to use when invoking the [GET /token/refresh](../endpoints/get-token-refresh.md) endpoint, for example, `https://my.operator.com`.  | `https://prod.uidapi.com ` |
 | `refreshRetryPeriod` | number | Optional | The number of seconds after which to retry refreshing tokens if intermittent errors occur. | 5 |
-| `cookieDomain` | string | Optional | The domain name string to apply to the UID2 cookie. | `undefined` |
-| `cookiePath` | string | Optional | The path string to apply to the UID2 cookie. | `/` |
+| `cookieDomain` | string | Optional | The domain name string to apply to the [UID2 cookie](#uid2-cookie-format). | `undefined` |
+| `cookiePath` | string | Optional | The path string to apply to the [UID2 cookie](#uid2-cookie-format). | `/` |
+
 
 #### Errors
 
@@ -176,7 +177,7 @@ The `object` parameter includes the following properties.
 
 The following table lists all possible `status` field values and their `statusText` descriptions that the [callback function](#callback-function) can return.
 
->IMPORTANT: The following values are intended only to inform you of identity availability. Do not use them in conditional logic. If identity is not available, to determine the best course of action, use the [isLoginRequired()](#isloginrequired-boolean) function.
+>IMPORTANT: The following values are intended only to inform you of identity availability. Do not use them in conditional logic. 
 
 | Status | Identity Availability | Description |
 | :--- | :--- | :--- |
@@ -187,6 +188,8 @@ The following table lists all possible `status` field values and their `statusTe
 | `NO_IDENTITY` | Not available | No identity is available for targeted advertising, as a first-party cookie was not set and no identity has been passed to init()  |
 | `INVALID` | Not available | No identity is available for targeted advertising, as the SDK failed to parse the first-party cookie the passed identity. |
 | `OPTOUT` | Not available | No identity is available for targeted advertising, as the user has opted out from refreshing identity. |
+
+If the identity is not available, to determine the best course of action, use the [isLoginRequired()](#isloginrequired-boolean) function as described in [Handle Missing Identity](#handle-missing-identity).
 
 ### getAdvertisingToken(): string
 
@@ -200,7 +203,7 @@ Returns `undefined` in the following cases:
 
 ### isLoginRequired(): boolean
 
-Specifies whether UID2 login [GET /token/generate](../endpoints/get-token-generate.md) is required. This function can be also used to [handle missing identities](#handle-a-missing-identity).
+Specifies whether a UID2 login [GET /token/generate](../endpoints/get-token-generate.md) is required. This function can be also used to [handle missing identities](#handle-missing-identity).
 
 #### Return Values
 
@@ -220,4 +223,40 @@ After this function is executed, the [getAdvertisingToken()](#getadvertisingtoke
 ### abort(): void
 	
 Terminates any background timers or requests. The UID2 object remains in an unspecified state and cannot be used anymore. 
+
+## UID2 Cookie Format
+
+The SDK uses first-party cookies to store users' identities. 
+
+### Properties
+
+The following table lists the cookie properties.
+
+| Properties | Default Value | Comments |
+| :--- | :--- | :--- |
+| `Name` | `__uid_2` | N/A |
+| `Expiry` | N/A | The value is the refresh token expiration timestamp as specified by the operator in the [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) response. |
+| `Path` | `/` | You can set a different path with the `cookiePath` [init() parameter](#parameters) during the SDK initialization.  |
+| `Domain` | `undefined` | You can specify a different domain with the `cookieDomain` [init() parameter](#parameters) during the SDK initialization. |
+
+### Contents Structure
+
+The UID2 cookie contents are a URI-encoded string representation of a JSON object with the structure identical to that of the [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) response body, with the exception of the `private` object. 
+
+The following is an example of the UID2 cookie structure:
+
+```json
+{
+   "advertising_token":"AgAAAAVacu1uAxgAxH+HJ8+nWlS2H4uVqr6i+HBDCNREHD8WKsio/x7D8xXFuq1cJycUU86yXfTH9Xe/4C8KkH+7UCiU7uQxhyD7Qxnv251pEs6K8oK+BPLYR+8BLY/sJKesa/koKwx1FHgUzIBum582tSy2Oo+7C6wYUaaV4QcLr/4LPA==",
+   "refresh_token":"AgAAAXxcu2RbAAABfGHhwFsAAAF79zosWwAAAAWeFJRShH8u1AYc9dYNTB20edyHJU9mZv11e3OBDlLTlS5Vb97iQVumc7b/8QY/DDxr6FrRfEB/D85E8GzziB4YH7WUCLusHaXKLxlKBSRANSD66L02H3ss56xo92LMDMA=",
+   "identity_expires":1633643601000,
+   "refresh_from":1633643001000,
+   "refresh_expires":1636322000000,
+   "private":{
+      
+   }
+}
+```
+>IMPORTANT: The contents of the `private` object are explicitly unspecified and left for the SDK to interpret. Do not make any assumptions about the structure, semantics, or compatibility of this object. Any updates to the cookie must retain its structure.
+
 
