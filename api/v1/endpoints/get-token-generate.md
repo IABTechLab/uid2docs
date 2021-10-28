@@ -64,7 +64,7 @@ The response returns the user's advertising and refresh tokens for the specified
     "status": "success"
 }
 ```
-The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) uses this response payload to establish and manage the user identity during a user session lifecycle.
+The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) uses this endpoint response payloads to establish and manage the user identity during a user session lifecycle.
 
 
 ### Response Body Properties
