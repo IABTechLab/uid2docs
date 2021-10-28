@@ -49,18 +49,23 @@ curl -L -X GET 'https://integ.uidapi.com/v1/token/generate?email_hash=eVvLS%2FVg
 
 ## Response Format 
 
-The response returns the user's advertising and refresh tokens for the specified email address or hash.
+The response returns the user's advertising and refresh tokens for the specified email address or hash.  
 
 
 ```json
 {
     "body": {
         "advertising_token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=",
-        "refresh_token": "RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA=="
+        "refresh_token": "RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA==",
+        "identity_expires": 1633643601000,
+        "refresh_from": 1633643001000,
+        "refresh_expires": 1636322000000
     },
     "status": "success"
 }
 ```
+The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) uses this response payload to establish and manage the user identity during a user session lifecycle.
+
 
 ### Response Body Properties
 
@@ -68,6 +73,9 @@ The response returns the user's advertising and refresh tokens for the specified
 | :--- | :--- | :--- |
 | `advertising_token` | string | An encrypted advertising (UID2) token for the user. |
 | `refresh_token` | string | An encrypted token that can be exchanged with the UID2 Service for the latest set of identity tokens. |
+| `identity_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the advertising token expires. |
+| `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) will start refreshing the advertising token. |
+| `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the advertising token expires. |
 
 For response status values, see [Response Structure and Status Codes](../../../api/README.md#response-structure-and-status-codes).
 
