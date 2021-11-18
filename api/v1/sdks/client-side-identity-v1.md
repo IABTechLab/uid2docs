@@ -2,9 +2,7 @@
 
 # Client-Side Identity JavaScript SDK
 
-Use this SDK to facilitate the process of establishing client identity and retrieving advertising tokens.
-
-The following sections describe the [SDK workflow](#workflow-overview), [commonly performed tasks](#common-workflow-tasks), and provide the SDK [API Reference](#api-reference).
+Use this SDK to facilitate the process of establishing client identity and retrieving advertising tokens. The following sections describe the [SDK workflow](#workflow-overview), provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). For standard web integration scenarios, see [Publisher Integration Guide (Standard)](./guides/publisher-client-side.md).
 
 ## Implement the SDK Script
 
@@ -18,7 +16,7 @@ Implement the following SDK script on the pages where you want to use UID2 to ma
 
 The high-level client-side identity JS SDK workflow consists of the following steps:
 
-1. [Initialize the SDK](#initialize-the-sdk-and-establish-client-identity) and specify a [callback function](#callback-function) to be called upon a successful completion of the step.
+1. [Initialize the SDK](#initopts-object-void) and specify a [callback function](#callback-function) to be called upon a successful completion of the step.
 2. Wait for the SDK to invoke the callback function. The callback function indicates the identity availability:
 	- If the identity is available, the [background token auto-refresh](#background-token-auto-refresh) is set up.
 	- If not, the reason for its unavailability is specified.
@@ -29,14 +27,16 @@ The high-level client-side identity JS SDK workflow consists of the following st
 	- If the identity is available, use it to initiate requests for targeted advertising.
 	- If not, either use untargeted advertising or redirect the user to the UID2 login with the consent form.
 
+For standard web integration scenarios, see [Publisher Integration Guide (Standard)](./guides/publisher-client-side.md).
+
 ### Workflow States and Transitions
 
 The following table outlines the four main states in which the SDK can be, based on the combination of values returned by two main functions, [getAdvertisingToken()](#getadvertisingtoken-string) and [isLoginRequired()](#isloginrequired-boolean).
 
-| State | Advertising Token | Login Required | Description| Identity Status |
+| State | Advertising Token | Login Required | Description| Identity Status Value |
 | :--- | :--- | :---| :---| :---|
 | Initialization | `undefined`| `undefined`| Initial state until the callback is invoked. | N/A |
-| Identity Is Available | available |`false` | An valid identity is available for targeted advertising because it has been successfully established or refreshed. |`ESTABLISHED` or `REFRESHED` | 
+| Identity Is Available | available |`false` | A valid identity is available for targeted advertising because it has been successfully established or refreshed. |`ESTABLISHED` or `REFRESHED` | 
 | Identity Is Temporarily Unavailable |`undefined` | `false`| The identity (advertising token) has expired, and automatic refresh failed. If the refresh token is still valid, the identity may be automatically refreshed, unless the user has opted out or the service is no longer available.| `EXPIRED` |
 | Identity Is Not Available  | `undefined`| `false`| The identity is not available and cannot be refreshed. | `INVALID`, `NO_IDENTITY`, `REFERSH_EXPIRED`, or `OPTOUT` |
 
@@ -44,98 +44,16 @@ The following diagram illustrates the four states, including the respective iden
 
 ![Client-Side Identity JavaScript SDK Workflow](./uid2-js-sdk-workflow.svg)
 
-## Common Workflow Tasks
-
-The following sections provide examples of the commonly used tasks:
-
-- [Initialize the SDK and establish client identity](#initialize-the-sdk-and-establish-client-identity)
-- [Retrieve client identity/advertising token](#retrieve-client-identity)
-- [Background Token Auto-Refresh](#background-token-auto-refresh)
-- [Handle Missing Identity](#handle-missing-identity)
-- [Close identity session and log out](#close-identity-session-and-log-out)
-
-For all available tasks and functions, see [API Reference](#api-reference).
-
-
-### Initialize the SDK and Establish Client Identity
-
-To establish identity and trigger targeted advertising, complete the following steps:
-
-1. If you want to use the identity from a first-party cookie, skip to step 3. Otherwise, generate an identity by making a [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) call.
-2. In the [init()](#initopts-object-void) call, send the response payload from the call in step 1 with the server-side generated identity or leave the `identity` property empty.
-3. Specify the [callback function](#callback-function) to invoke after the SDK is initialized.
-4. (Optional) Set additional configuration parameters to tune specific behaviors. For details, see [init() parameters](#parameters).
-
-To invoke the UID2 SDK and establish client identity, make a [init()](#initopts-object-void) call, using the following example:
-
-```html
-<script>
- __uid2.init({
-   identity : <Response payload from the token generate or refresh API calls>,
-   callback : function (state) { <Check advertising token and status within the passed state and initiate targeted advertising> },
-   <additional optional configuration parameters>
- });
-</script>
-```
-
-
-### Retrieve Client Identity
-
-To get the currently available advertising token, make a [getAdvertisingToken()](#getadvertisingtoken-string) call *after* calling  [init()](#initopts-object-void) and invoking the supplied callback. 
-
-The following is a call example:
-
-```html
-<script>
-  let advertisingToken = __uid2.getAdvertisingToken();
-</script>
-```
-
-The function allows you to get access to the advertising token from anywhere (not just from the initialization completion callback). 
-
 
 ### Background Token Auto-Refresh
 
-As part of the SDK [initialization](#initialize-the-sdk-and-establish-client-identity), a token auto-refresh for the identity is set up to be triggered in the background by any of the following:
+As part of the SDK [initialization](#initopts-object-void), a token auto-refresh for the identity is set up to be triggered in the background by the timestamps on the identity or failed refresh attempts due intermittent errors.
 
-- The `refresh_from` timestamp on the identity.
-- The `identity_expires` timestamp on the identity.
-- The `refresh_expires`  timestamp on the identity.
-- The token refresh failure due to an intermittent error, triggered by the `refreshRetryPeriod`.
-
-Here's what you need to know aobut the token auto-refresh:
+Here's what you need to know about the token auto-refresh:
 
 - Only one token refresh call can be active at a time. 
 - A [disconnect()](#disconnect-void) or [init()](#initopts-object-void) call cancels the active timer.
 - An unsuccessful [GET /token/refresh](../endpoints/get-token-refresh.md) response, for example, due to the user's optout or the refresh token expiration, suspends  the background auto-refresh process and requires a new login ([isLoginRequired()](#isloginrequired-boolean) returns `true`). 
-
-### Handle Missing Identity
-
-If client identity is not available, use the [isLoginRequired()](#isloginrequired-boolean) function to determine how to handle the missing identity. See also [Workflow States and Transitions](#workflow-states-and-transitions).
-
-```html
-<script>
-  __uid2.isLoginRequired();
-</script>
-```
-The following table explains the return values.
-
-| Value | Description |
-| :--- | :--- |
-| `true` | The identity is not available. The UID2 login is required because the user has opted out or the refresh token has expired. |
-| `false` | Indicates either of the following:<br/>- The identity is present and valid.<br/>- The identity has expired, and the token was not refreshed due to an intermittent error. The identity may be restored after a successful auto-refresh attempt. |
-
-### Close Identity Session and Log Out
-
-When an unauthenticated user is present, or a user wants to log out of targeted advertising on the publisher's site, make a [disconnect()](#disconnect-void) call, using the following example:
-
-```html
-<script>
-  __uid2.disconnect();
-</script>
-```
-This call clears the first-party cookie containing the UID2 identity, thus closing the client's identity session and disconnecting the client lifecycle.
-
 
 
 ## API Reference
@@ -154,7 +72,35 @@ Constructs a UID2 object.
 
 ### init(opts: object): void
 
-Initializes the SDK and establishes user identity for targeted advertising. For steps and examples, see [Initialize the SDK and establish client identity](#initialize-the-sdk-and-establish-client-identity).
+Initializes the SDK and establishes user identity for targeted advertising. 
+
+Here's what you need to know about this function:
+
+- Initialization calls require a [callback function](#callback-function) that is invoked after the SDK is initialized.
+- When creating an instance for the UID2 lifecycle on the client, the `identity` property in the `init()` call includes response payload body from a successful [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) call with the server-side generated identity.
+- Since the SDK relies on first-party cookies to store the passed UID2 identity information for the session, subsequent `init()` calls may have the `identity` property empty.
+- To tune specific behaviors, initialization calls may include optional configuration [parameters](#parameters).
+
+The following is an example of an `init()` call with the the server-side generated identity included.
+
+```html
+<script>
+ __uid2.init({
+   callback : function (state) { <Check advertising token and status within the passed state and initiate targeted advertising> },
+   identity : <Response payload body from the token generate or refresh API calls>
+ });
+</script>
+```
+
+The following is an example of the `init()` call that uses identity from a first-party cookie. You can put a block like this on any page that the user visits after the identity has been established.
+
+```html
+<script>
+ __uid2.init({
+   callback : function (state) { <Check advertising token and status within the passed state and initiate targeted advertising> }
+ });
+</script>
+```
 
 #### Parameters
 
@@ -207,34 +153,61 @@ The following table lists all possible `status` field values and their `statusTe
 | `INVALID` | Not available | No identity is available for targeted advertising, as the SDK failed to parse the first-party cookie the passed identity. |
 | `OPTOUT` | Not available | No identity is available for targeted advertising, as the user has opted out from refreshing identity. |
 
-If the identity is not available, to determine the best course of action, use the [isLoginRequired()](#isloginrequired-boolean) function as described in [Handle Missing Identity](#handle-missing-identity).
+If the identity is not available, to determine the best course of action, use the [isLoginRequired()](#isloginrequired-boolean) function.
 
 ### getAdvertisingToken(): string
 
-Gets the current advertising token. For usage example, see [Retrieve client identity/advertising token](#retrieve-client-identity).
+Gets the current advertising token. 
 
-Returns `undefined` in the following cases:
+Be sure to call this function *after* calling  [init()](#initopts-object-void) and invoking the supplied callback, for example: 
+
+```html
+<script>
+  let advertisingToken = __uid2.getAdvertisingToken();
+</script>
+```
+
+The `getAdvertisingToken()` function allows you to get access to the advertising token from anywhere (not just from the initialization completion callback) and returns `undefined` in the following cases:
 
 - The SDK initialization has not completed yet, in other words, the [callback function](#callback-function) has not been called yet.
 - The SDK initialization is complete, but there is no valid identity to use.
 - The SDK initialization is complete, but the auto-refresh has cleared the identity, for example, because the user has opted out.
 
+If the identity is not available, to determine the best course of action, use the [isLoginRequired()](#isloginrequired-boolean) function.
+
 ### isLoginRequired(): boolean
 
-Specifies whether a UID2 login ([GET /token/generate](../endpoints/get-token-generate.md) call) is required. This function can be also used to [handle missing identities](#handle-missing-identity).
+Specifies whether a UID2 login ([GET /token/generate](../endpoints/get-token-generate.md) call) is required. 
+
+This function is also used to handle missing identities, as shown in [Workflow States and Transitions](#workflow-states-and-transitions).
+
+```html
+<script>
+  __uid2.isLoginRequired();
+</script>
+```
 
 #### Return Values
 
 | Value | Description |
 | :--- | :--- |
-| `true` | Login is required. |
-| `false` | No login is required. |
+| `true` | The identity is not available. The UID2 login is required because the user has opted out or the refresh token has expired. |
+| `false` | No login is required. This value indicates either of the following:<br/>- The identity is present and valid.<br/>- The identity has expired, and the token was not refreshed due to an intermittent error. The identity may be restored after a successful auto-refresh attempt. |
 | `undefined` | The SDK initialization is not complete yet. |
 
 
 ### disconnect(): void
 
-Indicates that the user identity stored in the first-party cookie is to be cleared. For usage example, see [Close identity session and log out](#close-identity-session-and-log-out).
+Indicates that the user identity stored in the first-party cookie is to be cleared.
+
+When an unauthenticated user is present, or a user wants to log out of targeted advertising on the publisher's site, make the following call:
+
+```html
+<script>
+  __uid2.disconnect();
+</script>
+```
+This call clears the first-party cookie containing the UID2 identity, thus closing the client's identity session and disconnecting the client lifecycle.
 
 After this function is executed, the [getAdvertisingToken()](#getadvertisingtoken-string) function returns `undefined` and the [isLoginRequired()](#isloginrequired-boolean) function returns `true`.
 
