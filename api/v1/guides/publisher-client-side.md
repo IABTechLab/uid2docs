@@ -30,20 +30,21 @@ After authentication in step 1-c, which forces the user to accept the rules of e
 | --- | --- | --- |
 | 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | Generate a UID2 token when a user authenticates using the [GET /token/generate](../endpoints/get-token-generate.md) endpoint. The request includes the [normalized](../../README.md#emailnormalization) email address of the user. |
 | 1-e | [GET /token/generate](../endpoints/get-token-generate.md) | Return a UID2 token generated from an email address or hashed email address. |
-| 1-f | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Send the returned UID2 token from step 1-e to the SDK using its [init() function](../sdks/client-side-identity-v1.md#initopts-object-void)
-) described below. The mechanism ensures that UID2 tokens are available for the user until they log out. |
+| 1-f | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Send the returned UID2 token from step 1-e to the SDK using its [init() function](../sdks/client-side-identity-v1.md#initopts-object-void) as described below. The mechanism ensures that UID2 tokens are available for the user until they log out. |
 
 >IMPORTANT: The SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the SDK APIs for your identity management.
 
-##### Client-Side SDK Identity Mechanism
 
 ```html
 <script>
-  __uid2.init({
-    identity : <Response from the generate token api>
-  });
+ __uid2.init({
+   callback : function (state) { <Check advertising token and status within the passed state and initiate targeted advertising> },
+   identity : <Response payload body from the token generate or refresh API calls>
+ });
 </script>
 ```
+
+The SDK invokes the specified [callback function](../sdks/client-side-identity-v1.md#callback-function), which indicates the identity availability.
 
 ### Bid Using UID2 Tokens
 
