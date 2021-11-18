@@ -198,7 +198,7 @@ Use this function to handle missing identities, as shown in [Workflow States and
 
 ### disconnect(): void
 
-Clears the [first-party cookie](#uid2-cookie-format) containing the UID2 identity, thus closing the client's identity session and disconnecting the client lifecycle.
+Clears the UID2 identity from the [first-party cookie](#uid2-cookie-format), thus closing the client's identity session and disconnecting the client lifecycle.
 
 When an unauthenticated user is present, or a user wants to log out of targeted advertising on the publisher's site, make the following call:
 
