@@ -21,7 +21,7 @@ The high-level client-side identity JS SDK workflow consists of the following st
 	- If the identity is available, the [background token auto-refresh](#background-token-auto-refresh) is set up.
 	- If not, the reason for its unavailability is specified.
 4. Based on the [status](#identity-status-values) of the identity, the SDK does the following:
-	- If the identity is valid, the SDK ensures the identity is available in the [first-party cookie](#uid2-cookie-format).
+	- If the identity is valid, the SDK ensures the identity is available in a [first-party cookie](#uid2-cookie-format).
 	- If the identity is invalid and cannot be refreshed (the `advertisingToken` value in the callback is `undefined`), SDK may clear the cookie (depending on the nature of the error).
 5. Manage the identity based on its availability:
 	- If the identity is available, use it to initiate requests for targeted advertising.
