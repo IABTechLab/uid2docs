@@ -2,7 +2,7 @@
 
 # Client-Side Identity JavaScript SDK
 
-Use this SDK to facilitate the process of establishing client identity and retrieving advertising tokens. The following sections describe the [SDK workflow](#workflow-overview), provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). For standard web integration scenarios, see [Publisher Integration Guide (Standard)](../guides/publisher-client-side.md).
+Use this SDK to facilitate the process of establishing client identity and retrieving advertising tokens. The following sections describe the [SDK workflow](#workflow-overview), provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). For intended web integration scenarios, see [Publisher Integration Guide (Standard)](../guides/publisher-client-side.md).
 
 ## Implement the SDK Script
 
@@ -27,7 +27,7 @@ The high-level client-side identity JS SDK workflow consists of the following st
 	- If the identity is available, use it to initiate requests for targeted advertising.
 	- If not, either use untargeted advertising or redirect the user to the UID2 login with the consent form.
 
-For standard web integration scenarios, see [Publisher Integration Guide (Standard)](../guides/publisher-client-side.md).
+For intended web integration scenarios, see [Publisher Integration Guide (Standard)](../guides/publisher-client-side.md).
 
 ### Workflow States and Transitions
 
@@ -52,6 +52,7 @@ As part of the SDK [initialization](#initopts-object-void), a token auto-refresh
 Here's what you need to know about the token auto-refresh:
 
 - Only one token refresh call can be active at a time. 
+- The [callback function](#callback-function) specified during the SDK initialization is invoked after each auto-refresh attempt. 
 - A [disconnect()](#disconnect-void) or [init()](#initopts-object-void) call cancels the active timer.
 - An unsuccessful [GET /token/refresh](../endpoints/get-token-refresh.md) response, for example, due to the user's optout or the refresh token expiration, suspends  the background auto-refresh process and requires a new login ([isLoginRequired()](#isloginrequired-boolean) returns `true`). 
 
@@ -76,7 +77,7 @@ Initializes the SDK and establishes user identity for targeted advertising.
 
 Here's what you need to know about this function:
 
-- Initialization calls require a [callback function](#callback-function) that is invoked after the SDK is initialized.
+- Initialization calls require a [callback function](#callback-function) that is invoked after the SDK is initialized and after each token auto-refresh attempt.
 - When creating an instance for the UID2 lifecycle on the client, the `identity` property in the `init()` call includes response payload body from a successful [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) call with the server-side generated identity.
 - Since the SDK relies on [first-party cookies](#uid2-cookie-format) to store the passed UID2 identity information for the session, subsequent `init()` calls may have the `identity` property empty.
 - To tune specific behaviors, initialization calls may include optional configuration [parameters](#parameters).
@@ -150,7 +151,7 @@ The following table lists all possible `status` field values and their `statusTe
 | `EXPIRED` | Not available | No identity is available for targeted advertising, as the SDK failed to refresh the token. Since there is still a valid refresh token available, auto-refresh attempts will continue. |
 | `REFRESH_EXPIRED` | Not available | No identity is available for targeted advertising, as the refresh token on the first-party cookie or the passed identity has expired.  |
 | `NO_IDENTITY` | Not available | No identity is available for targeted advertising, as a first-party cookie was not set and no identity has been passed to the `init()` function.  |
-| `INVALID` | Not available | No identity is available for targeted advertising, as the SDK failed to parse the first-party cookie the passed identity. |
+| `INVALID` | Not available | No identity is available for targeted advertising, as the SDK failed to parse the first-party cookie or the passed identity. |
 | `OPTOUT` | Not available | No identity is available for targeted advertising, as the user has opted out from refreshing identity. |
 
 If the identity is not available, to determine the best course of action, use the [isLoginRequired()](#isloginrequired-boolean) function.
