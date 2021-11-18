@@ -2,7 +2,7 @@
 
 # Client-Side Identity JavaScript SDK
 
-Use this SDK to facilitate the process of establishing client identity and retrieving advertising tokens. The following sections describe the [SDK workflow](#workflow-overview), provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). For standard web integration scenarios, see [Publisher Integration Guide (Standard)](./guides/publisher-client-side.md).
+Use this SDK to facilitate the process of establishing client identity and retrieving advertising tokens. The following sections describe the [SDK workflow](#workflow-overview), provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). For standard web integration scenarios, see [Publisher Integration Guide (Standard)](../guides/publisher-client-side.md).
 
 ## Implement the SDK Script
 
@@ -27,7 +27,7 @@ The high-level client-side identity JS SDK workflow consists of the following st
 	- If the identity is available, use it to initiate requests for targeted advertising.
 	- If not, either use untargeted advertising or redirect the user to the UID2 login with the consent form.
 
-For standard web integration scenarios, see [Publisher Integration Guide (Standard)](./guides/publisher-client-side.md).
+For standard web integration scenarios, see [Publisher Integration Guide (Standard)](../guides/publisher-client-side.md).
 
 ### Workflow States and Transitions
 
