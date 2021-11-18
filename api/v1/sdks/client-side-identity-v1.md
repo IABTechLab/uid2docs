@@ -47,7 +47,7 @@ The following diagram illustrates the four states, including the respective iden
 
 ### Background Token Auto-Refresh
 
-As part of the SDK [initialization](#initopts-object-void), a token auto-refresh for the identity is set up to be triggered in the background by the timestamps on the identity or failed refresh attempts due intermittent errors.
+As part of the SDK [initialization](#initopts-object-void), a token auto-refresh for the identity is set up, which is triggered in the background by the timestamps on the identity or failed refresh attempts due intermittent errors.
 
 Here's what you need to know about the token auto-refresh:
 
