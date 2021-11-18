@@ -21,7 +21,7 @@ The high-level client-side identity JS SDK workflow consists of the following st
 	- If the identity is available, the [background token auto-refresh](#background-token-auto-refresh) is set up.
 	- If not, the reason for its unavailability is specified.
 4. Based on the [status](#identity-status-values) of the identity, the SDK does the following:
-	- If the identity is valid, the SDK ensures the identity is available in the first-party cookie.
+	- If the identity is valid, the SDK ensures the identity is available in the [first-party cookie](#uid2-cookie-format).
 	- If the identity is invalid and cannot be refreshed (the `advertisingToken` value in the callback is `undefined`), SDK may clear the cookie (depending on the nature of the error).
 5. Manage the identity based on its availability:
 	- If the identity is available, use it to initiate requests for targeted advertising.
@@ -78,7 +78,7 @@ Here's what you need to know about this function:
 
 - Initialization calls require a [callback function](#callback-function) that is invoked after the SDK is initialized.
 - When creating an instance for the UID2 lifecycle on the client, the `identity` property in the `init()` call includes response payload body from a successful [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) call with the server-side generated identity.
-- Since the SDK relies on first-party cookies to store the passed UID2 identity information for the session, subsequent `init()` calls may have the `identity` property empty.
+- Since the SDK relies on [first-party cookies](#uid2-cookie-format) to store the passed UID2 identity information for the session, subsequent `init()` calls may have the `identity` property empty.
 - To tune specific behaviors, initialization calls may include optional configuration [parameters](#parameters).
 
 The following is an example of an `init()` call with the the server-side generated identity included.
@@ -109,7 +109,7 @@ The `opts` object includes the following properties.
 | Property | Type | Attribute | Description | Default Value |
 | :--- | :--- | :--- | :--- | :--- |
 | `callback` | `function(object): void` | Required | The function the SDK is to invoke after validating the passed identity. For details, see [Callback Function](#callback-function).| N/A |
-| `identity` | object | Optional | The response body of a successful [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) call that has been run on the server to generate an identity. To use the identity from a first-party cookie, leave this property empty. | N/A |
+| `identity` | object | Optional | The response body of a successful [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) call that has been run on the server to generate an identity. To use the identity from a [first-party cookie](#uid2-cookie-format), leave this property empty. | N/A |
 | `baseUrl` | string | Optional | The custom base URL of the UID2 operator to use when invoking the [GET /token/refresh](../endpoints/get-token-refresh.md) endpoint, for example, `https://my.operator.com`.  | `https://prod.uidapi.com ` |
 | `refreshRetryPeriod` | number | Optional | The number of seconds after which to retry refreshing tokens if intermittent errors occur. | 5 |
 | `cookieDomain` | string | Optional | The domain name string to apply to the [UID2 cookie](#uid2-cookie-format). | `undefined` |
@@ -179,7 +179,7 @@ If the identity is not available, to determine the best course of action, use th
 
 Specifies whether a UID2 login ([GET /token/generate](../endpoints/get-token-generate.md) call) is required. 
 
-This function is also used to handle missing identities, as shown in [Workflow States and Transitions](#workflow-states-and-transitions).
+Use this function to handle missing identities, as shown in [Workflow States and Transitions](#workflow-states-and-transitions).
 
 ```html
 <script>
@@ -198,7 +198,7 @@ This function is also used to handle missing identities, as shown in [Workflow S
 
 ### disconnect(): void
 
-Indicates that the user identity stored in the first-party cookie is to be cleared.
+Clears the [first-party cookie](#uid2-cookie-format) containing the UID2 identity, thus closing the client's identity session and disconnecting the client lifecycle.
 
 When an unauthenticated user is present, or a user wants to log out of targeted advertising on the publisher's site, make the following call:
 
@@ -207,7 +207,6 @@ When an unauthenticated user is present, or a user wants to log out of targeted 
   __uid2.disconnect();
 </script>
 ```
-This call clears the first-party cookie containing the UID2 identity, thus closing the client's identity session and disconnecting the client lifecycle.
 
 After this function is executed, the [getAdvertisingToken()](#getadvertisingtoken-string) function returns `undefined` and the [isLoginRequired()](#isloginrequired-boolean) function returns `true`.
 
