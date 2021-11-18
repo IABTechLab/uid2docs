@@ -243,8 +243,7 @@ The following is an example of the UID2 cookie structure:
    "identity_expires":1633643601000,
    "refresh_from":1633643001000,
    "refresh_expires":1636322000000,
-   "private":{
-      
+   "private":{  
    }
 }
 ```
