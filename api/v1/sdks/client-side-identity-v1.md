@@ -92,7 +92,7 @@ The following is an example of an `init()` call with the the server-side generat
 </script>
 ```
 
-The following is an example of the `init()` call that uses identity from a first-party cookie. You can put a block like this on any page that the user visits after the identity has been established.
+The following is an example of an `init()` call that uses identity from a first-party cookie. You can put a block like this on any page that the user may visit after the identity has been established.
 
 ```html
 <script>
