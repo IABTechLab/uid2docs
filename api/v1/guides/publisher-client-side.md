@@ -2,12 +2,18 @@
 
 # Publisher Integration Guide (Standard)
 
-This guide covers integration steps for publishers with web assets who would like to generate identity tokens utilizing UID2 for the bid stream. This guide is intended for publishers who would like to integrate directly with UID2 to create and manage tokens rather than integrating with UID2-enabled single-sign-on or identity providers.
+This guide covers integration steps for publishers with web assets who would like to generate identity tokens utilizing UID2 for the bid stream. It is intended for publishers who would like to integrate directly with UID2 to create and manage tokens rather than integrating with UID2-enabled single-sign-on or identity providers. 
+
+The guide outlines the basic steps that you need to consider for your integration. For example, you need to decide how to implement user login and logout, how to manage UID2 identity information and use it for targeted advertising, how to refresh tokens, deal with missing identities, and handle user opt-outs.
+
+>IMPORTANT: The SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the SDK APIs for your identity management.
+
 
 * [Integration Steps](#integration-steps)
 * [FAQs](#faqs)
 
 For custom integration scenarios for app developers and CTV broadcasters, see [Publisher Integration Guide (Custom)](./custom-publisher-integration.md). For the  SDK overview and API reference, see the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md). See also TBD XREF to sample app.
+
 
 ## Integration Steps 
 
@@ -17,12 +23,13 @@ The following diagram outlines the integration steps for a user to establish a U
 
 The following sections provide additional details for each step in the diagram:
  
- 1. [Establish identity](#establish-identity)
+ 1. [Establish identity: user login](#establish-identity-user-login)
  2. [Bid using UID2 tokens](#bid-using-uid2-tokens)
  3. [Refresh tokens](#refresh-tokens)
- 4. [User logout](#user-logout)
+ 4. [Clear Identity: user logout](#clear-identity-user-logout)
 
-### Establish Identity
+### Establish Identity: User Login
+
 
 After authentication in step 1-c, which forces the user to accept the rules of engagement and allows the publisher to validate their email address, a UID2 token must be generated on the server side. The following table details the token generation steps.
 
@@ -30,16 +37,14 @@ After authentication in step 1-c, which forces the user to accept the rules of e
 | :--- | :--- | :--- |
 | 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | After the user authenticates and authorizes the creation of a UID2, use the [GET /token/generate](../endpoints/get-token-generate.md) endpoint to generate a UID2 token using the provided [normalized](../../README.md#emailnormalization) email address of the user. |
 | 1-e | [GET /token/generate](../endpoints/get-token-generate.md) | Return a UID2 token generated from the user's email address or hashed email address. |
-| 1-f | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Send the returned UID2 token from step 1-e to the SDK using its [init() function](../sdks/client-side-identity-v1.md#initopts-object-void) as shown below. The mechanism ensures that UID2 tokens are available for the user for targeting advertising until they log out. |
-
->IMPORTANT: The SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the SDK APIs for your identity management.
+| 1-f | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Send the returned UID2 token from step 1-e to the SDK using the `identity` property of its [init() function](../sdks/client-side-identity-v1.md#initopts-object-void) and specify a [callback function](../sdks/client-side-identity-v1.md#callback-function) as shown below. The mechanism ensures that UID2 tokens are available for the user for targeting advertising until they log out. |
 
 
 ```html
 <script>
  __uid2.init({
-   callback : function (state) { <Check advertising token and status within the passed state and initiate targeted advertising> },
-   identity : <Response payload body from the token generate or refresh API calls>
+   callback : function (state) { <Check advertising token and its status within the passed state and initiate targeted advertising> },
+   identity : <Response payload body from the token/generate API call>
  });
 </script>
 ```
@@ -52,7 +57,7 @@ Based on the status and availability of a valid identity, the SDK sets up the ba
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
-| 2-a | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Get the current user's advertising token and to pass it to SSPs by using the [getAdvertisingToken() function](../sdks/client-side-identity-v1.md#getadvertisingtoken-string) as shown below. |
+| 2-a | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | Get the current user's advertising token by using the [getAdvertisingToken() function](../sdks/client-side-identity-v1.md#getadvertisingtoken-string) as shown below. |
 
 
 ```html
@@ -60,6 +65,8 @@ Based on the status and availability of a valid identity, the SDK sets up the ba
   let advertisingToken = __uid2.getAdvertisingToken();
 </script>
 ```
+
+>TIP: You need to consider how you pass the returned advertising token to SSPs.
 
 ### Refresh Tokens
 
@@ -73,7 +80,9 @@ As part of its initialization, the SDK sets up a [token auto-refresh](../sdks/cl
 | 3-b | [UID2 client-side identity SDK](../sdks/client-side-identity-v1.md) | If the user hasn't opted out, the [GET /token/refresh](../endpoints/get-token-refresh.md) automatically returns new identity tokens. |
 
 
-### User Logout
+### Clear Identity: User Logout
+
+The client lifecycle is complete when the user decides to log out from the publisher's site (not UID2). This closes the client's identity session and clears the first-party cookie information.
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
