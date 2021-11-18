@@ -170,7 +170,7 @@ Be sure to call this function *after* calling  [init()](#initopts-object-void) a
 
 The `getAdvertisingToken()` function allows you to get access to the advertising token from anywhere (not just from the initialization completion callback) and returns `undefined` in the following cases:
 
-- The SDK initialization has not completed yet, in other words, the [callback function](#callback-function) has not been called yet.
+- The [callback function](#callback-function) has not been called yet, which means the SDK initialization has not complete yet.
 - The SDK initialization is complete, but there is no valid identity to use.
 - The SDK initialization is complete, but the auto-refresh has cleared the identity, for example, because the user has opted out.
 
