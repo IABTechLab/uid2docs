@@ -27,38 +27,38 @@ The following sections provide additional details for each step in the diagram:
 After authentication in step 1-c, which forces the user to accept the rules of engagement and allows the publisher to validate their email address, a UID2 token must be generated on the server side. The following table details the token generation steps.
 
 | Step | Endpoint/SDK | Instruction |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2:<br>- Integrate with a UID2-enabled single-sign-on provider.<br>- Generate UID2 tokens when a user authenticates using the [GET /token/generate](../endpoints/get-token-generate.md) endpoint. The request includes the [normalized](../../README.md#emailnormalization) email address of the user. |
 | 1-e | [GET /token/generate](../endpoints/get-token-generate.md) | The token generation service that returns UID2 tokens. |
-| 1-f |  | Place the returned `advertising_token` and `refresh_token` in a store tied to a user. You may consider client-side storage like a first-party cookie or server-side storage. |
+| 1-f | N/A | Place the returned `advertising_token` and `refresh_token` in a store tied to a user. You may consider client-side storage like a first-party cookie or server-side storage. |
 
 ## Bid Using UID2 Tokens
 
 This section focuses on publisher-specific step 2-a illustrated in the above diagram.
 
 | Step | Endpoint/SDK | Instruction |
-| --- | --- | --- |
-| 2-a | | The publisher sends the `advertising_token` from step [1-e](#establish-identity) to the SSP for bidding. Send the value as is. |
+| :--- | :--- | :--- |
+| 2-a | N/A| The publisher sends the `advertising_token` from step [1-e](#establish-identity) to the SSP for bidding. Send the value as is. |
 
 ## Refresh Tokens
 
 Leverage the refresh endpoints to retrieve the latest version of UID2 tokens. UID2 token refreshes are required to sync a user's UID2 rotation and opt-out status. If a user opts out, using their refresh token will end their token refresh chain.
 
 | Step | Endpoint/SDK | Instruction |
-| --- | --- | --- |
-| 3-a | | When a user returns to an asset and becomes active again, refresh the identity token before sending it to the SSP. | 
+| :--- | :--- | :--- |
+| 3-a |N/A | When a user returns to an asset and becomes active again, refresh the identity token before sending it to the SSP. | 
 | 3-b | [GET /token/refresh](../endpoints/get-token-refresh.md)  | Send the `refresh_token` obtained in step [1-e](#establish-identity) as a query parameter. |
 | 3-c | [GET /token/refresh](../endpoints/get-token-refresh.md) | The UID2 service issues a new identity token for users that haven't opted out. |
-| 3-d | | Place the returned `advertising_token` and `refresh_token` in a store tied to a user. You may consider client-side storage like a first-party cookie or server-side storage. |
+| 3-d | N/A| Place the returned `advertising_token` and `refresh_token` in a store tied to a user. You may consider client-side storage like a first-party cookie or server-side storage. |
 
 >TIP: Refresh active user identity tokens every 5 minutes. 
 
 ## User Logout
 
 | Step | Endpoint/SDK | Instruction |
-| --- | --- | --- |
-| 4-a |  | The user logs out from a publisher asset. |
-| 4-b |  | Remove the UID2 tokens you have stored for that user. No interaction with the UID2 service is required. |
+| :--- | :--- | :--- |
+| 4-a | N/A | The user logs out from a publisher asset. |
+| 4-b | N/A | Remove the UID2 tokens you have stored for that user. No interaction with the UID2 service is required. |
 
 # FAQs
 
