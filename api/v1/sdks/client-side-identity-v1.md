@@ -4,9 +4,11 @@
 
 Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the [SDK workflow](#workflow-overview), provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). For intended web integration scenarios, see [Publisher Integration Guide (Standard)](../guides/publisher-client-side.md).
 
-## Implement the SDK Script
+>NOTE: Within this documentation, the term "identity" refers to a package of UID2 tokens, including the advertising token.
 
-Implement the following SDK script on the pages where you want to use UID2 to manage identity or retrieve an advertising token for targeted advertising:
+## Include the SDK Script
+
+Include the following SDK script on the pages where you want to use UID2 to manage identity or retrieve an advertising token for targeted advertising:
 
 ```html
 <script src="https://integ.uidapi.com/static/js/uid2-sdk-0.0.1b.js" type="text/javascript"></script>
@@ -14,31 +16,32 @@ Implement the following SDK script on the pages where you want to use UID2 to ma
 
 ## Workflow Overview
 
-The high-level client-side identity JS SDK workflow consists of the following steps:
+The high-level client-side workflow for establishing UID2 identity using the SDK consists of the following steps:
 
 1. [Initialize the SDK](#initopts-object-void) and specify a [callback function](#callback-function) to be called upon a successful completion of the step.
 2. Wait for the SDK to invoke the callback function. The callback function indicates the identity availability:
 	- If the identity is available, the [background token auto-refresh](#background-token-auto-refresh) is set up.
 	- If not, the reason for its unavailability is specified.
-4. Based on the [status](#identity-status-values) of the identity, the SDK does the following:
-	- If the identity is valid, the SDK ensures the identity is available in a [first-party cookie](#uid2-cookie-format).
-	- If the identity is invalid and cannot be refreshed (the `advertisingToken` value in the callback is `undefined`), SDK may clear the cookie (depending on the nature of the error).
-5. Manage the identity based on its availability:
-	- If the identity is available, use it to initiate requests for targeted advertising.
+3. Based on its [state](#workflow-states-and-transitions), the SDK does the following:
+	- If a valid identity is available, the SDK ensures the identity is available in a [first-party cookie](#uid2-cookie-format).
+	- If the identity is unavailable, the SDK takes the appropriate action based on whether identity is refreshable or not. For details, see [Workflow States and Transitions](#workflow-states-and-transitions).
+4. Handle the identity based on its state:
+	- If the advertising token is available, use it to initiate requests for targeted advertising.
 	- If not, either use untargeted advertising or redirect the user to the UID2 login with the consent form.
 
 For intended web integration scenarios, see [Publisher Integration Guide (Standard)](../guides/publisher-client-side.md).
 
 ### Workflow States and Transitions
 
-The following table outlines the four main states in which the SDK can be, based on the combination of values returned by two main functions, [getAdvertisingToken()](#getadvertisingtoken-string) and [isLoginRequired()](#isloginrequired-boolean).
+The following table outlines the four main states in which the SDK can be, based on the combination of values returned by two main functions, [getAdvertisingToken()](#getadvertisingtoken-string) and [isLoginRequired()](#isloginrequired-boolean), and indicates the appropriate action that you, as a developer, can take in each state. 
 
 | State | Advertising Token | Login Required | Description| Identity Status Value |
 | :--- | :--- | :---| :---| :---|
 | Initialization | `undefined`| `undefined`| Initial state until the callback is invoked. | N/A |
-| Identity Is Available | available |`false` | A valid identity is available for targeted advertising because it has been successfully established or refreshed. |`ESTABLISHED` or `REFRESHED` | 
-| Identity Is Temporarily Unavailable |`undefined` | `false`| The identity (advertising token) has expired, and automatic refresh failed. If the refresh token is still valid, the identity may be automatically refreshed, unless the user has opted out or the service is no longer available.| `EXPIRED` |
-| Identity Is Not Available  | `undefined`| `false`| The identity is not available and cannot be refreshed. | `INVALID`, `NO_IDENTITY`, `REFERSH_EXPIRED`, or `OPTOUT` |
+| Identity Is Available | available |`false` | A valid identity has been successfully established or refreshed. You can use the advertising token in targeted advertising.  |`ESTABLISHED` or `REFRESHED` |
+| Identity Is Temporarily Unavailable |`undefined` | `false`| The identity (advertising token) has expired, and automatic refresh failed. [Background auto-refresh](#background-token-auto-refresh) attempts will continue until the refresh token expires or the user opts out.</br>You can do either of the following:</br>- Use untargeted advertising.</br>- Redirect the user to the UID2 login with a consent form.</br>NOTE: Identity may be successfully refreshed after awhile, for example, if the UID2 service is temporarily unavailable.| `EXPIRED` |
+| Identity Is Not Available  | `undefined`| `false`| The identity is not available and cannot be refreshed. The SDK clears the first-party cookie.</br>To use UID2-based targeted advertising again,  you need to redirect the user to the UID2 login with a consent form. | `INVALID`, `NO_IDENTITY`, `REFRESH_EXPIRED`, or `OPTOUT` |
+
 
 The following diagram illustrates the four states, including the respective identity [status values](#identity-status-values), and possible transitions between them. The SDK invokes the [callback function](#callback-function) on each transition.
 
