@@ -50,19 +50,20 @@ The following diagram illustrates the four states, including the respective iden
 
 ### Background Token Auto-Refresh
 
-As part of the SDK [initialization](#initopts-object-void), a token auto-refresh for the identity is set up, which is triggered in the background by the timestamps on the identity or failed refresh attempts due intermittent errors.
+As part of the SDK [initialization](#initopts-object-void), a token auto-refresh for the identity is set up, which is triggered in the background by the timestamps on the identity or failed refresh attempts due to intermittent errors.
 
-Here's what you need to know about the token auto-refresh:
+Here's what you need to know about the token auto-refresh: (TBD-verify)
 
 - Only one token refresh call can be active at a time. 
-- The [callback function](#callback-function) specified during the SDK initialization is invoked after each auto-refresh attempt. 
-- A [disconnect()](#disconnect-void) or [init()](#initopts-object-void) call cancels the active timer.
-- An unsuccessful [GET /token/refresh](../endpoints/get-token-refresh.md) response, for example, due to the user's optout or the refresh token expiration, suspends  the background auto-refresh process and requires a new login ([isLoginRequired()](#isloginrequired-boolean) returns `true`). 
+- The [callback function](#callback-function) specified during the SDK initialization is invoked after each successful refresh attempt, after an initial failure to refresh an expired advertising token, and when identity becomes invalid, for example, because the user has opted out. 
+- The callback is not invoked when identify is temporarily unavailable and the auto-refresh keeps failing. In this case, the SDK continues using the existing advertising token.
+- A [disconnect()](#disconnect-void) call cancels the active timer.
+- An unsuccessful [GET /token/refresh](../endpoints/get-token-refresh.md) response due to the user's optout or the refresh token expiration suspends  the background auto-refresh process and requires a new login ([isLoginRequired()](#isloginrequired-boolean) returns `true`). In all other cases, auto-refresh attempts will continue in the background. 
 
 
 ## API Reference
 
->NOTE: All interactions with the UID2 SDK are done through the global `__uid2` object and UID2 class.
+>NOTE: All interactions with the UID2 SDK are done through the global `__uid2` object, which is a member of the `UID2` class, and all of following APIs are members of the `UID2` class. 
 
 - [constructor()](#constructor)
 - [init()](#initopts-object-void)
