@@ -2,7 +2,7 @@
 
 # Client-Side Identity JavaScript SDK
 
-Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the [SDK workflow](#workflow-overview), provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). For intended web integration scenarios, see [Publisher Integration Guide (Standard)](../guides/publisher-client-side.md).
+Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). For intended web integration scenarios, see [Publisher Integration Guide (Standard)](../guides/publisher-client-side.md).
 
 >NOTE: Within this documentation, the term "identity" refers to a package of UID2 tokens, including the advertising token.
 
@@ -55,10 +55,12 @@ As part of the SDK [initialization](#initopts-object-void), a token auto-refresh
 Here's what you need to know about the token auto-refresh: (TBD-verify)
 
 - Only one token refresh call can be active at a time. 
-- The [callback function](#callback-function) specified during the SDK initialization is invoked after each successful refresh attempt, after an initial failure to refresh an expired advertising token, and when identity becomes invalid, for example, because the user has opted out. 
-- The callback is not invoked when identify is temporarily unavailable and the auto-refresh keeps failing. In this case, the SDK continues using the existing advertising token.
-- A [disconnect()](#disconnect-void) call cancels the active timer.
-- An unsuccessful [GET /token/refresh](../endpoints/get-token-refresh.md) response due to the user's optout or the refresh token expiration suspends  the background auto-refresh process and requires a new login ([isLoginRequired()](#isloginrequired-boolean) returns `true`). In all other cases, auto-refresh attempts will continue in the background. 
+- An unsuccessful [GET /token/refresh](../endpoints/get-token-refresh.md) response due to the user's optout or the refresh token expiration suspends  the background auto-refresh process and requires a new login ([isLoginRequired()](#isloginrequired-boolean) returns `true`). In all other cases, auto-refresh attempts will continue in the background.
+- The [callback function](#callback-function) specified during the SDK initialization is invoked under the following circustances:
+	- After each successful refresh attempt.
+	- After an initial failure to refresh an expired advertising token.
+	- When identity has become invalid, for example, because the user has opted out.</br>NOTE: The callback is *not* invoked when identify is temporarily unavailable and the auto-refresh keeps failing. In this case, the SDK continues using the existing advertising token.
+- A [disconnect()](#disconnect-void) call cancels the active timer. 
 
 
 ## API Reference
