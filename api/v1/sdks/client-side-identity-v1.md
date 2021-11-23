@@ -63,7 +63,7 @@ Here's what you need to know about the token auto-refresh: (TBD-verify)
 
 ## API Reference
 
->NOTE: All interactions with the UID2 SDK are done through the global `__uid2` object, which is a member of the `UID2` class, and all of following APIs are members of the `UID2` class. 
+>IMPORTANT: All interactions with the UID2 SDK are done through the global `__uid2` object, which is a member of the `UID2` class. All of following APIs are members of the `UID2` class. 
 
 - [constructor()](#constructor)
 - [init()](#initopts-object-void)
@@ -73,7 +73,10 @@ Here's what you need to know about the token auto-refresh: (TBD-verify)
 - [abort()](#abort-void)
 
 ### constructor()
+
 Constructs a UID2 object.
+
+>TIP: Instead of calling this function, you can just use the global `__uid2` object. 
 
 ### init(opts: object): void
 
@@ -81,18 +84,36 @@ Initializes the SDK and establishes user identity for targeted advertising.
 
 Here's what you need to know about this function:
 
-- Initialization calls require a [callback function](#callback-function) that is invoked after the SDK is initialized and after each token auto-refresh attempt.
-- When creating an instance for the UID2 lifecycle on the client, the `identity` property in the `init()` call includes response payload body from a successful [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) call with the server-side generated identity.
-- Since the SDK relies on [first-party cookies](#uid2-cookie-format) to store the passed UID2 identity information for the session, subsequent `init()` calls may have the `identity` property empty.
+- You can call `init()` any time after the SDK has been loaded by the corresponding script tag, typically during page loading.
+- Initialization calls require a [callback function](#callback-function) that is invoked after the SDK is initialized.
+- When creating an instance for the UID2 lifecycle on the client, the `identity` property in the `init()` call refers to the `body` property of the response JSON object returned from a successful [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) call with the server-side generated identity.
+- Since the SDK relies on [first-party cookies](#uid2-cookie-format) to store the passed UID2 identity information for the session, subsequent `init()` calls on different page loads may have the `identity` property empty.
 - To tune specific behaviors, initialization calls may include optional configuration [parameters](#parameters).
 
-The following is an example of an `init()` call with the the server-side generated identity included.
+The following is a template of an `init()` call with the the server-side generated identity included.
 
 ```html
 <script>
  __uid2.init({
    callback : function (state) { <Check advertising token and status within the passed state and initiate targeted advertising> },
    identity : <Response payload body from the token generate or refresh API calls>
+ });
+</script>
+```
+
+For example:
+
+```html
+<script>
+ __uid2.init({
+   callback : onUid2IdentityUpdated,
+   identity : {
+        "advertising_token": "AgmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=",
+        "refresh_token": "Mr2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA==",
+        "identity_expires": 1633643601000,
+        "refresh_from": 1633643001000,
+        "refresh_expires": 1636322000000
+    }
  });
 </script>
 ```
@@ -123,7 +144,7 @@ The `opts` object includes the following properties.
 
 #### Errors
 
-The `init()` function can return the following errors.
+The `init()` function can throw the following errors.
 
 | Error | Description |
 | :--- | :--- |
@@ -132,15 +153,15 @@ The `init()` function can return the following errors.
 
 #### Callback Function
 
-The `function(object): void` callback function indicates that the initialization is complete. Subsequently, the SDK invokes the callback when it performs a background refresh, which results in the identity being updated or cleared. If the identity has expired, but the refresh token is still valid, the identity is automatically refreshed, unless the user has opted out or the service is not available.
+The `function(object): void` callback function indicates that the initialization is complete. Subsequently, the SDK invokes the callback when it successfully refreshes the established identity. For details on when the callback function is called, see [Background Token Auto-Refresh](#background-token-auto-refresh).
 
 The `object` parameter includes the following properties.
 
 | Property | Type | Description |
 | :--- | :--- | :--- |
 | `advertisingToken` | string | The token to be passed to SSPs for targeted advertising. If the token/identity is invalid or unavailable, the value is `undefined`. |
-| `status` | string | The status of the identity. For details, see [Identity Status Values](#identity-status-values). |
-| `statusText` | string | The `status` value description. |
+| `status` | UID2.IdentityStatus | The numeric value that indicates the status of the identity. For details, see [Identity Status Values](#identity-status-values). |
+| `statusText` | string | Additional information pertaining to the identity status. |
 
 #### Identity Status Values
 
@@ -148,7 +169,7 @@ The following table lists all possible `status` field values and their `statusTe
 
 >IMPORTANT: The following values are intended only to inform you of identity availability. Do not use them in conditional logic. 
 
-| Status | Identity Availability | Description |
+| Status | Advertising Token Availability | Description |
 | :--- | :--- | :--- |
 | `ESTABLISHED` | Available | The identity is valid, was set from the passed value or the first-party cookie, and is now available for targeted advertising. |
 | `REFRESHED` | Available | The identity was successfully refreshed by a call to the UID2 operator is now available for targeted advertising. |
@@ -184,7 +205,7 @@ If the identity is not available, to determine the best course of action, use th
 
 Specifies whether a UID2 login ([GET /token/generate](../endpoints/get-token-generate.md) call) is required. 
 
-Use this function to handle missing identities, as shown in [Workflow States and Transitions](#workflow-states-and-transitions).
+The function can also provide additional context for handling missing identities, as shown in [Workflow States and Transitions](#workflow-states-and-transitions).
 
 ```html
 <script>
@@ -219,6 +240,8 @@ After this function is executed, the [getAdvertisingToken()](#getadvertisingtoke
 	
 Terminates any background timers or requests. The UID2 object remains in an unspecified state and cannot be used anymore. 
 
+This function is intended for use in advanced scenarios where you might want to replace the existing UID2 object with a new instance. For example, single-page applications may want to use this to clear the current UID2 object and construct or initialize a new one after receiving a new identity in the [GET /token/generate](../endpoints/get-token-generate.md) response from the server.
+
 ## UID2 Cookie Format
 
 The SDK uses first-party cookies to store users' identities. 
@@ -236,13 +259,12 @@ The following table lists the cookie properties.
 
 ### Contents Structure
 
-The UID2 cookie contents are a URI-encoded string representation of a JSON object with the structure identical to that of the [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) response body, with the exception of the `private` object. 
+The UID2 cookie contents are a URI-encoded string representation of a JSON object with the structure identical to that of the `body` property in a [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) response, with the exception of the `private` object. 
 
 The following is an example of the UID2 cookie structure:
 
 ```json
-{
-   "advertising_token":"AgAAAAVacu1uAxgAxH+HJ8+nWlS2H4uVqr6i+HBDCNREHD8WKsio/x7D8xXFuq1cJycUU86yXfTH9Xe/4C8KkH+7UCiU7uQxhyD7Qxnv251pEs6K8oK+BPLYR+8BLY/sJKesa/koKwx1FHgUzIBum582tSy2Oo+7C6wYUaaV4QcLr/4LPA==",
+{   "advertising_token":"AgAAAAVacu1uAxgAxH+HJ8+nWlS2H4uVqr6i+HBDCNREHD8WKsio/x7D8xXFuq1cJycUU86yXfTH9Xe/4C8KkH+7UCiU7uQxhyD7Qxnv251pEs6K8oK+BPLYR+8BLY/sJKesa/koKwx1FHgUzIBum582tSy2Oo+7C6wYUaaV4QcLr/4LPA==",
    "refresh_token":"AgAAAXxcu2RbAAABfGHhwFsAAAF79zosWwAAAAWeFJRShH8u1AYc9dYNTB20edyHJU9mZv11e3OBDlLTlS5Vb97iQVumc7b/8QY/DDxr6FrRfEB/D85E8GzziB4YH7WUCLusHaXKLxlKBSRANSD66L02H3ss56xo92LMDMA=",
    "identity_expires":1633643601000,
    "refresh_from":1633643001000,
