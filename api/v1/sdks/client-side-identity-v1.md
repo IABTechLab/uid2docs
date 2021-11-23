@@ -22,7 +22,7 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 2. Wait for the SDK to invoke the callback function. The callback function indicates the identity availability:
 	- If the identity is available, the [background token auto-refresh](#background-token-auto-refresh) is set up.
 	- If not, the reason for its unavailability is specified.
-3. Based on its [state](#workflow-states-and-transitions), the SDK does the following:
+3. Based on the identity [state](#workflow-states-and-transitions), the SDK does the following:
 	- If a valid identity is available, the SDK ensures the identity is available in a [first-party cookie](#uid2-cookie-format).
 	- If the identity is unavailable, the SDK takes the appropriate action based on whether identity is refreshable or not. For details, see [Workflow States and Transitions](#workflow-states-and-transitions).
 4. Handle the identity based on its state:
