@@ -98,7 +98,7 @@ The following is a template of an `init()` call with the the server-side generat
 <script>
  __uid2.init({
    callback : function (state) {...}, // Check advertising token and its status within the passed state and initiate targeted advertising. 
-   identity : {...} // The `body` property value from the token/generate API response.
+   identity : {...} // The `body` property value from the token/generate or token/refresh API response.
  });
 </script>
 ```
