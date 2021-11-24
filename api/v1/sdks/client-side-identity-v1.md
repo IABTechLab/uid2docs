@@ -134,7 +134,7 @@ The following is an example of an `init()` call that uses identity from a first-
 
 The `opts` object includes the following properties.
 
-| Property | Type | Attribute | Description | Default Value |
+| Property | Data Type | Attribute | Description | Default Value |
 | :--- | :--- | :--- | :--- | :--- |
 | `callback` | `function(object): void` | Required | The function the SDK is to invoke after validating the passed identity. For details, see [Callback Function](#callback-function).| N/A |
 | `identity` | object | Optional | The response body of a successful [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) call that has been run on the server to generate an identity. To use the identity from a [first-party cookie](#uid2-cookie-format), leave this property empty. | N/A |
@@ -159,7 +159,7 @@ The `function(object): void` callback function indicates that the initialization
 
 The `object` parameter includes the following properties.
 
-| Property | Type | Description |
+| Property | Data Type | Description |
 | :--- | :--- | :--- |
 | `advertisingToken` | string | The token to be passed to SSPs for targeted advertising. If the token/identity is invalid or unavailable, the value is `undefined`. |
 | `status` | UID2.IdentityStatus | The numeric value that indicates the status of the identity. For details, see [Identity Status Values](#identity-status-values). |
