@@ -171,15 +171,15 @@ The following table lists all possible `status` field values and their `statusTe
 
 >IMPORTANT: The following values are intended only to inform you of identity availability. Do not use them in conditional logic. 
 
-| Status | Advertising Token Availability | Description |
+| Status TBD | Advertising Token Availability | Description |
 | :--- | :--- | :--- |
-| `ESTABLISHED` | Available | The identity is valid, was set from the passed value or the first-party cookie, and is now available for targeted advertising. |
-| `REFRESHED` | Available | The identity was successfully refreshed by a call to the UID2 operator is now available for targeted advertising. |
-| `EXPIRED` | Not available | No identity is available for targeted advertising, as the SDK failed to refresh the token. Since there is still a valid refresh token available, auto-refresh attempts will continue. |
-| `REFRESH_EXPIRED` | Not available | No identity is available for targeted advertising, as the refresh token on the first-party cookie or the passed identity has expired.  |
-| `NO_IDENTITY` | Not available | No identity is available for targeted advertising, as a first-party cookie was not set and no identity has been passed to the `init()` function.  |
-| `INVALID` | Not available | No identity is available for targeted advertising, as the SDK failed to parse the first-party cookie or the passed identity. |
-| `OPTOUT` | Not available | No identity is available for targeted advertising, as the user has opted out from refreshing identity. |
+| `ESTABLISHED` (`0`) | Available | The identity is valid, was set from the passed value or the first-party cookie, and is now available for targeted advertising. |
+| `REFRESHED` (`1`) | Available | The identity was successfully refreshed by a call to the UID2 operator is now available for targeted advertising. |
+| `EXPIRED` (`2`) | Not available | No identity is available for targeted advertising, as the SDK failed to refresh the token. Since there is still a valid refresh token available, auto-refresh attempts will continue. |
+| `REFRESH_EXPIRED` (`3`) | Not available | No identity is available for targeted advertising, as the refresh token on the first-party cookie or the passed identity has expired.  |
+| `NO_IDENTITY` (`4`) | Not available | No identity is available for targeted advertising, as a first-party cookie was not set and no identity has been passed to the `init()` function.  |
+| `INVALID` (`5`) | Not available | No identity is available for targeted advertising, as the SDK failed to parse the first-party cookie or the passed identity. |
+| `OPTOUT` (`6`) | Not available | No identity is available for targeted advertising, as the user has opted out from refreshing identity. |
 
 If the identity is not available, to determine the best course of action, use the [isLoginRequired()](#isloginrequired-boolean) function.
 
