@@ -25,7 +25,7 @@ The following sections provide additional details for each step in the diagram:
 
 After authentication in step 1-c, which forces the user to accept the rules of engagement and allows the publisher to validate their email address, a UID2 token must be generated on the server side. The following table details the token generation steps.
 
-| Step | Endpoint | Instruction |
+| Step | Endpoint | Description |
 | :--- | :--- | :--- |
 | 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2:<br/>- Integrate with a UID2-enabled single-sign-on provider.<br/>- Use the [GET /token/generate](../endpoints/get-token-generate.md) endpoint to generate a UID2 token using the provided [normalized](../../README.md#emailnormalization) email address of the user. |
 | 1-e | [GET /token/generate](../endpoints/get-token-generate.md) | Return a UID2 token generated from the user's email address or hashed email address. |
@@ -35,7 +35,7 @@ After authentication in step 1-c, which forces the user to accept the rules of e
 
 You need to consider how you want to manage UID2 identity information and use it for targeted advertising, for example, pass the returned advertising token to SSPs.
 
-| Step | Endpoint | Instruction |
+| Step | Endpoint | Description |
 | :--- | :--- | :--- |
 | 2-a | N/A| Send the `advertising_token` from step [1-e](#establish-identity) to the SSP for bidding. Send the value as is. |
 
@@ -43,7 +43,7 @@ You need to consider how you want to manage UID2 identity information and use it
 
 Leverage the refresh endpoint to retrieve the latest version of UID2 tokens. The UID2 token must be refreshed to sync the user's UID2 rotation and opt-out status. If the user opts out, using their refresh token will end their token refresh chain.
 
-| Step | Endpoint | Instruction |
+| Step | Endpoint | Description |
 | :--- | :--- | :--- |
 | 3-a |N/A | When a user returns to an asset and becomes active again, refresh the identity token before sending it to the SSP. | 
 | 3-b | [GET /token/refresh](../endpoints/get-token-refresh.md)  | Send the `refresh_token` obtained in step [1-e](#establish-identity) as a query parameter. |
@@ -54,7 +54,7 @@ Leverage the refresh endpoint to retrieve the latest version of UID2 tokens. The
 
 ### Clear Identity: User Logout
 
-| Step | Endpoint | Instruction |
+| Step | Endpoint | Description |
 | :--- | :--- | :--- |
 | 4-a | N/A | The user logs out from a publisher asset. |
 | 4-b | N/A | Remove the UID2 tokens you have stored for that user. No interaction with the UID2 service is required. |
