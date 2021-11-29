@@ -27,7 +27,7 @@ After authentication in step 1-c, which forces the user to accept the rules of e
 
 | Step | Endpoint | Instruction |
 | :--- | :--- | :--- |
-| 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2:<br>- Integrate with a UID2-enabled single-sign-on provider.<br>- Use the [GET /token/generate](../endpoints/get-token-generate.md) endpoint to generate a UID2 token using the provided [normalized](../../README.md#emailnormalization) email address of the user. |
+| 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2:<br/>- Integrate with a UID2-enabled single-sign-on provider.<br/>- Use the [GET /token/generate](../endpoints/get-token-generate.md) endpoint to generate a UID2 token using the provided [normalized](../../README.md#emailnormalization) email address of the user. |
 | 1-e | [GET /token/generate](../endpoints/get-token-generate.md) | Return a UID2 token generated from the user's email address or hashed email address. |
 | 1-f | N/A | Place the returned `advertising_token` and `refresh_token` in a store tied to a user. You may consider client-side storage like a first-party cookie or server-side storage. |
 
@@ -41,7 +41,7 @@ You need to consider how you want to manage UID2 identity information and use it
 
 ### Refresh Tokens
 
-Leverage the refresh endpoint to retrieve the latest version of UID2 tokens. The UID2 token must be refreshed to sync the user's UID2 rotation and opt-out status. If the user opts out, using their refresh token will end their token refresh chain. TBD - verify these statements.
+Leverage the refresh endpoint to retrieve the latest version of UID2 tokens. The UID2 token must be refreshed to sync the user's UID2 rotation and opt-out status. If the user opts out, using their refresh token will end their token refresh chain.
 
 | Step | Endpoint | Instruction |
 | :--- | :--- | :--- |
@@ -65,14 +65,11 @@ Leverage the refresh endpoint to retrieve the latest version of UID2 tokens. The
 No, publishers do not need to decrypt tokens.
 
 ### How will I be notified of user opt-out?
-The token refresh process handles user opt-outs. Using their refresh token automatically clears their session and disrupts their ```refresh_token``` chain when a user opts out. No manual action is required. TBD- verify.
+The token refresh process handles user opt-outs. The [GET /token/refresh](../endpoints/get-token-refresh.md) returns empty identity and the optout status for the user. To resume using UID2-based targeted advertising, the user needs to log in again to re-establish the UID2 identity.
 
 ### What is the uniqueness and rotation policy for UID2 token?
 
 The UID2 service encrypts tokens using random initialization vectors. The encrypted UID2 is unique for a given user as they browse the internet. At every refresh, the token re-encrypts. This mechanism ensures that untrusted parties cannot track a user's identity.
-
-### How can I test my integration?
-There are two built-in tools you can use to test your integration. TBD.
 
 ### How can I test that the PII sent and returned tokens match?
 
@@ -94,4 +91,5 @@ You can use the email address `optout@email.com` to test your token refresh work
     - Send a [GET /token/generate](../endpoints/get-token-generate.md) request using `optout@email.com` as `email`.
     - Create a [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of `optout@email.com` and send it as an email hash. 
 2. Store the returned `refresh_token` for use in the following step.
-3. Send a [GET /token/validate](../endpoints/get-token-validate.md) request using the `email` or `email_hash` you sent in step 1 and the `refresh_token` (saved in step 2) as the `token`. <br/>The `body` response should be empty because the `optout@email.com` email always results in a logged out refresh token.
+3. Send a [GET /token/refresh](../endpoints/get-token-refresh.md) request with the `refresh_token` (saved in step 2) as the `token` value.<br/>The body response should be empty, and the `status` value should be set to `OPTOUT` because the `optout@email.com` email always results in a logged out user.
+
