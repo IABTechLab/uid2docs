@@ -13,7 +13,7 @@ Use this SDK to facilitate the process of establishing client identity using UID
 Include the following SDK script on the pages where you want to use UID2 to manage identity or retrieve an advertising token for targeted advertising:
 
 ```html
-<script src="https://integ.uidapi.com/static/js/uid2-sdk-0.0.1b.js" type="text/javascript"></script>
+<script src="https://prod.uidapi.com/static/js/uid2-sdk-1.0.0.js" type="text/javascript"></script> 
 ```
 
 ## Workflow Overview
@@ -41,7 +41,7 @@ The following table outlines the four main states in which the SDK can be, based
 | :--- | :--- | :---| :---| :---|
 | Initialization | `undefined`| `undefined`| Initial state until the callback is invoked. | N/A |
 | Identity Is Available | available |`false` | A valid identity has been successfully established or refreshed. You can use the advertising token in targeted advertising.  |`ESTABLISHED` or `REFRESHED` |
-| Identity Is Temporarily Unavailable |`undefined` | `false`| The identity (advertising token) has expired, and automatic refresh failed. [Background auto-refresh](#background-token-auto-refresh) attempts will continue until the refresh token expires or the user opts out.</br>You can do either of the following:</br>- Use untargeted advertising.</br>- Redirect the user to the UID2 login with a consent form.</br>NOTE: Identity may be successfully refreshed after awhile, for example, if the UID2 service is temporarily unavailable.| `EXPIRED` |
+| Identity Is Temporarily Unavailable |`undefined` | `false`| The identity (advertising token) has expired, and automatic refresh failed. [Background auto-refresh](#background-token-auto-refresh) attempts will continue until the refresh token expires or the user opts out.</br>You can do either of the following:</br>- Use untargeted advertising.</br>- Redirect the user to the UID2 login with a consent form.</br>NOTE: Identity may be successfully refreshed after some time, for example, if the UID2 service is temporarily unavailable.| `EXPIRED` |
 | Identity Is Not Available  | `undefined`| `false`| The identity is not available and cannot be refreshed. The SDK clears the first-party cookie.</br>To use UID2-based targeted advertising again,  you need to redirect the user to the UID2 login with a consent form. | `INVALID`, `NO_IDENTITY`, `REFRESH_EXPIRED`, or `OPTOUT` |
 
 
@@ -135,12 +135,12 @@ The following is an example of an `init()` call that uses identity from a first-
 
 #### Parameters
 
-The `opts` object includes the following properties.
+The `opts` object supports the following properties.
 
 | Property | Data Type | Attribute | Description | Default Value |
 | :--- | :--- | :--- | :--- | :--- |
 | `callback` | `function(object): void` | Required | The function the SDK is to invoke after validating the passed identity. For details, see [Callback Function](#callback-function).| N/A |
-| `identity` | object | Optional | The response body of a successful [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) call that has been run on the server to generate an identity. To use the identity from a [first-party cookie](#uid2-cookie-format), leave this property empty. | N/A |
+| `identity` | object | Optional | The `body` property value from a successful [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) call that has been run on the server to generate an identity. To use the identity from a [first-party cookie](#uid2-cookie-format), leave this property empty. | N/A |
 | `baseUrl` | string | Optional | The custom base URL of the UID2 operator to use when invoking the [GET /token/refresh](../endpoints/get-token-refresh.md) endpoint, for example, `https://my.operator.com`.  | `https://prod.uidapi.com ` |
 | `refreshRetryPeriod` | number | Optional | The number of seconds after which to retry refreshing tokens if intermittent errors occur. | 5 |
 | `cookieDomain` | string | Optional | The domain name string to apply to the [UID2 cookie](#uid2-cookie-format). | `undefined` |
@@ -165,12 +165,12 @@ The `object` parameter includes the following properties.
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
 | `advertisingToken` | string | The token to be passed to SSPs for targeted advertising. If the token/identity is invalid or unavailable, the value is `undefined`. |
-| `status` | UID2.IdentityStatus | The numeric value that indicates the status of the identity. For details, see [Identity Status Values](#identity-status-values). |
+| `status` | UID2.IdentityStatus enum | The numeric value that indicates the status of the identity. For details, see [Identity Status Values](#identity-status-values). |
 | `statusText` | string | Additional information pertaining to the identity status. |
 
 #### Identity Status Values
 
-The following table lists all possible `status` field values and their `statusText` descriptions that the [callback function](#callback-function) can return.
+The [callback function](#callback-function) returns the `status` field values as numbers from the `UID2.IdentityStatus` enum, which can be turned into the corresponding strings by calling `UID2.IdentityStatus[state.status]`. The following table lists the string values for the `status` enum.
 
 >IMPORTANT: The following values are intended only to inform you of identity availability. Do not use them in conditional logic. 
 
@@ -200,7 +200,7 @@ Be sure to call this function *after* calling  [init()](#initopts-object-void) a
 
 The `getAdvertisingToken()` function allows you to get access to the advertising token from anywhere (not just from the initialization completion callback) and returns `undefined` in the following cases:
 
-- The [callback function](#callback-function) has not been called yet, which means the SDK initialization is not complete yet.
+- The [callback function](#callback-function) has not been called yet, which means the SDK initialization is not complete.
 - The SDK initialization is complete, but there is no valid identity to use.
 - The SDK initialization is complete, but the auto-refresh has cleared the identity, for example, because the user has opted out.
 
@@ -222,9 +222,10 @@ The function can also provide additional context for handling missing identities
 
 | Value | Description |
 | :--- | :--- |
-| `true` | The identity is not available. The UID2 login is required because the user has opted out or the refresh token has expired. |
+| `true` | The identity is not available, and the UID2 login is required. This value indicates any of the following:<br/>- The user has opted out.<br/>- The refresh token has expired.<br/>- A first-party cookie is not available and no server-generated identity has been supplied. |
 | `false` | No login is required. This value indicates either of the following:<br/>- The identity is present and valid.<br/>- The identity has expired, and the token was not refreshed due to an intermittent error. The identity may be restored after a successful auto-refresh attempt. |
 | `undefined` | The SDK initialization is not complete yet. |
+
 
 
 ### disconnect(): void
@@ -269,12 +270,13 @@ The UID2 cookie contents are a URI-encoded string representation of a JSON objec
 The following is an example of the UID2 cookie structure:
 
 ```json
-{   "advertising_token":"AgAAAAVacu1uAxgAxH+HJ8+nWlS2H4uVqr6i+HBDCNREHD8WKsio/x7D8xXFuq1cJycUU86yXfTH9Xe/4C8KkH+7UCiU7uQxhyD7Qxnv251pEs6K8oK+BPLYR+8BLY/sJKesa/koKwx1FHgUzIBum582tSy2Oo+7C6wYUaaV4QcLr/4LPA==",
+{
+   "advertising_token":"AgAAAAVacu1uAxgAxH+HJ8+nWlS2H4uVqr6i+HBDCNREHD8WKsio/x7D8xXFuq1cJycUU86yXfTH9Xe/4C8KkH+7UCiU7uQxhyD7Qxnv251pEs6K8oK+BPLYR+8BLY/sJKesa/koKwx1FHgUzIBum582tSy2Oo+7C6wYUaaV4QcLr/4LPA==",
    "refresh_token":"AgAAAXxcu2RbAAABfGHhwFsAAAF79zosWwAAAAWeFJRShH8u1AYc9dYNTB20edyHJU9mZv11e3OBDlLTlS5Vb97iQVumc7b/8QY/DDxr6FrRfEB/D85E8GzziB4YH7WUCLusHaXKLxlKBSRANSD66L02H3ss56xo92LMDMA=",
    "identity_expires":1633643601000,
    "refresh_from":1633643001000,
    "refresh_expires":1636322000000,
-   "private":{  
+   "private":{     
    }
 }
 ```
