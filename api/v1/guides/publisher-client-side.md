@@ -115,10 +115,6 @@ The client lifecycle is complete when the user decides to log out from the publi
 
 The [UID2 SDK](../sdks/client-side-identity-v1.md) background token auto-refresh process handles user opt-outs. If user opts out, when the UID2 SDK attempts token refresh, it will learn about the optout and will clear the session (including the cookie) and invoke the callback with the `OPTOUT` status.
 
-### How can I test my integration?
-
-There are two built-in tools you can use to test your integration. TBD.
-
 ### How can I test that the PII sent and returned tokens match?
 
 You can use the [GET /token/validate](../endpoints/get-token-validate.md) endpoint to check whether the PII you are sending through [GET /token/generate](../endpoints/get-token-generate.md) is valid. 
@@ -138,5 +134,4 @@ You can use the email address `optout@email.com` to test your token refresh work
 1. Do either of the following:
     - Send a [GET /token/generate](../endpoints/get-token-generate.md) request using `optout@email.com` as `email`.
     - Create a [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of `optout@email.com` and send it as an email hash. 
-2. Store the returned `refresh_token` for use in the following step.
-3. Send a [GET /token/validate](../endpoints/get-token-validate.md) request using the `email` or `email_hash` you sent in step 1 and the `refresh_token` (saved in step 2) as the `token`. <br/>The `body` response should be empty because the `optout@email.com` email always results in a logged out refresh token.
+2. Wait until the SDK's [background auto-refresh](../sdks/client-side-identity-v1.md#background-token-auto-refresh) attempts to refresh the advertising token (this can take several hours) and observe the refresh attempt fail with the `OPTOUT` status. At this point the SDK also clears the first-party cookie.
