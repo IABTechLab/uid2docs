@@ -165,7 +165,7 @@ The `object` parameter includes the following properties.
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
 | `advertisingToken` | string | The token to be passed to SSPs for targeted advertising. If the token/identity is invalid or unavailable, the value is `undefined`. |
-| `status` | UID2.IdentityStatus enum | The numeric value that indicates the status of the identity. For details, see [Identity Status Values](#identity-status-values). |
+| `status` | `UID2.IdentityStatus` enum | The numeric value that indicates the status of the identity. For details, see [Identity Status Values](#identity-status-values). |
 | `statusText` | string | Additional information pertaining to the identity status. |
 
 #### Identity Status Values
