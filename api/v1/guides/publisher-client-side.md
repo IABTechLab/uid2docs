@@ -6,11 +6,11 @@ This guide is intended for publishers with web assets who would like to generate
 
 The guide outlines the [basic steps](#integration-steps) that you need to consider for your integration. For example, you need to decide how to implement user login and logout, how to manage UID2 identity information and use it for targeted advertising, how to refresh tokens, deal with missing identities, and handle user opt-outs. See also [FAQs](#faqs).
 
-To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md), also known as the UID2 SDK. For an example application that illustrates the integration steps described in this guide and the usage of the SDK, see [UID2 Publisher Integration Example (Standard)](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/standard/README.md).
+To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md), also known as the UID2 SDK. For an example application that illustrates the integration steps described in this guide and the usage of the SDK, see [UID2 SDK Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/standard/README.md).
 
 >IMPORTANT: The UID2 SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the [UID2 SDK APIs](../sdks/client-side-identity-v1.md#api-reference) for your identity management.
 
-For custom integration scenarios for app developers and CTV broadcasters without utilizing the UID2 SDK, see [Publisher Integration Guide (Custom)](./custom-publisher-integration.md). 
+For custom integration scenarios for app developers and CTV broadcasters without utilizing the UID2 SDK, see [Server-Only Integration Guide](./custom-publisher-integration.md). 
 
 
 ## Integration Steps 
