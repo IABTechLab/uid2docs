@@ -211,14 +211,12 @@ If the identity is not available, to determine the best course of action, use th
 
 Gets a `Promise` string for the current advertising token.
 
-This function can be called before or after the [init()](#initopts-object-void) call. 
-
->TIP: You can use this function to be notified of the completion of the UID2 SDK initialization from a component that may not be the one that called `init()`.
-
-The returned promise is settled immediately after the initialization is complete and the [callback function](#callback-function) is invoked, based on the availability of the advertising token:
+This function can be called before or after the [init()](#initopts-object-void) call. The returned promise is settled after the initialization is complete and the [callback function](#callback-function) is invoked, based on the availability of the advertising token:
 
 - If the advertising token is available, the promise is fulfilled with the current advertising token.
 - If the advertising token is not available, even temporarily, the promise is rejected with an instance of `Error`. To determine the best course of action in this case, you can use [isLoginRequired()](#isloginrequired-boolean).
+
+>NOTE: If the `getAdvertisingTokenAsync()` function is called *after* the initialization is complete, the promise is settled immediately based on the current state.
 
 
 ```html
@@ -228,6 +226,8 @@ The returned promise is settled immediately after the initialization is complete
     .catch(err => { /* advertising token not available */ });
 </script>
 ```
+
+>TIP: You can use this function to be notified of the completion of the UID2 SDK initialization from a component that may not be the one that called `init()`.
 
 ### isLoginRequired(): boolean
 
