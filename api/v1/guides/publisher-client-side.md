@@ -1,6 +1,6 @@
 [UID2 API Documentation](../../README.md) > v1 > [Integration Guides](README.md) > Publisher Integration Guide
 
-# Publisher Integration Guide (Standard)
+# UID2 SDK Integration Guide
 
 This guide is intended for publishers with web assets who would like to generate identity tokens utilizing UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
 
