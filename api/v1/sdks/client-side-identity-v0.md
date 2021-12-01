@@ -1,4 +1,6 @@
-# Client-Side Identity SDK
+# Client-Side Identity SDK (v0)
+
+>NOTE: This documentation is for version 0 of the SDK. For the newer version, see [SDK version 1](./client-side-identity-v1.md).
 
 Use the client-side SDK to simplify your implementation, namely, to establish and de-establish identity and retrieve advertising tokens.
 
