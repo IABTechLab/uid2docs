@@ -2,7 +2,7 @@
 
 # UID2 SDK Integration Guide
 
->NOTE: This guide is intended for the UID2 SDK [version 1](../sdks/client-side-identity-v1.md). For the Integration Guide for the [previous version](../sdks/client-side-identity-v0.md) of the UID2 SDK, see [Publisher Integration Guide (Standard)](./publisher-client-side-v0.md).
+>NOTE: This guide is intended for the UID2 SDK [version 1](../sdks/client-side-identity-v1.md). For the *Integration Guide* using the [previous version](../sdks/client-side-identity-v0.md) of the UID2 SDK, see [Publisher Integration Guide (Standard)](./publisher-client-side-v0.md).
 
 This guide is intended for publishers with web assets who would like to generate identity tokens utilizing UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
 
