@@ -91,5 +91,5 @@ You can use the email address `optout@email.com` to test your token refresh work
     - Send a [GET /token/generate](../endpoints/get-token-generate.md) request using `optout@email.com` as `email`.
     - Create a [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of `optout@email.com` and send it as an email hash. 
 2. Store the returned `refresh_token` for use in the following step.
-3. Send a [GET /token/refresh](../endpoints/get-token-refresh.md) request with the `refresh_token` (saved in step 2) as the `token` value.<br/>The body response should be empty, and the `status` value should be set to `OPTOUT` because the `optout@email.com` email always results in a logged out user.
+3. Send a [GET /token/refresh](../endpoints/get-token-refresh.md) request with the `refresh_token` (saved in step 2) as the `token` value.<br/>The body response should be empty, and the `status` value should be set to `optout` because the `optout@email.com` email always results in a logged out user.
 
