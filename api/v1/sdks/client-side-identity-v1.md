@@ -10,7 +10,16 @@ Use this UID2 SDK to facilitate the process of establishing client identity usin
 
 >NOTE: Within this documentation, the term "identity" refers to a package of UID2 tokens, including the advertising token.
 
-### Changes from Version 0
+### Improvements and Changes from Version 0
+
+With the v1 updates to the UID2 SDK, you can now take advantage of the following: 
+
+- The latest enhancements in the UID2 services.
+- Asynchronous notifications received when the advertising token is ready, is updated, or becomes unavailable.<br/>This makes integration with targeted advertising more straightforward and provides a clearer implementation path for the publisher workflow.
+- A more efficient token auto-refresh process that ensures continuity of targeted advertising.
+- More granular control over how the SDK works behind the scenes to fine-tune it to your needs.
+
+The following table lists specific updates to the SDK.
 
 | Change | Description |
 |:--- |:--- |
