@@ -15,7 +15,7 @@ Use this UID2 SDK to facilitate the process of establishing client identity usin
 | Change | Description |
 |:--- |:--- |
 | New required [callback function](#callback-function) | The callback must be provided to the [init()](#initopts-object-void) function. The callback is invoked by  after the initialisation process is complete. |
-| [Background token auto-refresh](#background-token-auto-refresh) | After `init()` completes and while the identity refresh token is valid, the UID2 SDK periodically refreshed the identity in background.  |
+| [Background token auto-refresh](#background-token-auto-refresh) | After `init()` completes and while the identity refresh token is valid, the UID2 SDK periodically refreshes the identity in background.  |
 | New `opts` [object](#parameters) in `init()` |  The `opts` object passed as an argument to the [init()](#initopts-object-void) function can have additional properties giving finer grained control over the UID2 first-party cookie, the UID2 operator URL to refresh the identity, and the refresh check and retry period. |
 | Updated [getAdvertisingToken()](#getadvertisingtoken-string) return value | The `getAdvertisingToken()` function now returns `undefined`. |
 | New [getAdvertisingTokenAsync()](#getadvertisingtokenasync-promise) function | The function returns a promise that is settled when the initialization is complete. |
