@@ -23,7 +23,7 @@ The following table lists specific updates to the SDK.
 
 | Change | Description |
 |:--- |:--- |
-| New required [callback function](#callback-function) | The callback must be provided to the [init()](#initopts-object-void) function. The callback is invoked by  after the initialisation process is complete. |
+| New required [callback function](#callback-function) | The callback must be provided to the [init()](#initopts-object-void) function. The callback is invoked  after the initialization process is complete. |
 | [Background token auto-refresh](#background-token-auto-refresh) | After `init()` completes and while the identity refresh token is valid, the UID2 SDK periodically refreshes the identity in background.  |
 | New `opts` [object parameters](#parameters) in `init()` |  The `opts` object passed as an argument to the [init()](#initopts-object-void) function can now include optional parameters that allow configuring the UID2 first-party cookie, the UID2 operator URL to refresh the identity, and the refresh check and retry period. |
 | Updated [getAdvertisingToken()](#getadvertisingtoken-string) return value | The `getAdvertisingToken()` function can now return `undefined`. |
