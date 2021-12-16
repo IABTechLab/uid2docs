@@ -1,8 +1,10 @@
 # Client-Side Identity SDK (v0)
 
->NOTE: This documentation is for version 0 of the SDK. For the newer version, see [SDK version 1](./client-side-identity-v1.md).
+>NOTE: This documentation is for version 0 of the UID2 SDK. 
 
-Use the client-side SDK to simplify your implementation, namely, to establish and de-establish identity and retrieve advertising tokens.
+To simplify your implementation for establishing identity and retrieving advertising tokens, consider upgrading to the newer and improved version, [UID2 SDK version 1](./client-side-identity-v1.md).
+
+>IMPORTANT: The new version of the SDK supports the version 0 cookies for user session continuity, but the SDK is not backward-compatible and requires [code changes](./client-side-identity-v1.md#improvements-and-changes-from-version-0). 
 
 ## Implement the SDK Script
 

@@ -19,6 +19,8 @@ With the v1 updates to the UID2 SDK, you can now take advantage of the following
 - A more efficient token auto-refresh process that ensures continuity of targeted advertising.
 - More granular control over how the SDK works behind the scenes to fine-tune it to your needs.
 
+>IMPORTANT: Version 1 of the UID2 SDK supports the version 0 cookies for user session continuity, but it is not backward-compatible and requires the code changes listed below. 
+
 The following table lists specific updates to the SDK.
 
 | Change | Description |
