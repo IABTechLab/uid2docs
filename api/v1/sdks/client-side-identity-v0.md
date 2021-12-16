@@ -4,7 +4,7 @@
 
 To simplify your implementation for establishing identity and retrieving advertising tokens, consider upgrading to the newer and improved version, [UID2 SDK version 1](./client-side-identity-v1.md).
 
->IMPORTANT: The new version of the SDK supports the v0 cookies for user session continuity, but the SDK is not backward-compatible and requires [code changes](./client-side-identity-v1.md#improvements-and-changes-from-version-0). 
+>IMPORTANT: The new version of the SDK supports the version 0 cookies for user session continuity, but the SDK is not backward-compatible and requires [code changes](./client-side-identity-v1.md#improvements-and-changes-from-version-0). 
 
 ## Implement the SDK Script
 
