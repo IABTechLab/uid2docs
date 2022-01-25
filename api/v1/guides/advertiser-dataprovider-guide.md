@@ -27,7 +27,7 @@ Send the `advertising_id` (UID2) from the [preceding step](#retrieve-a-uid2-for-
 ### Monitor for salt bucket rotations related to your stored UID2s
 A UID2 is an identifier for a user at a particular moment in time, which means that a user's UID2 will rotate at least once a year. 
 
-Each salt bucket is updated roughly once a year. Individual bucket updates, however, are spread over the year, which means that about 1/365th of all buckets is rotated daily.
+Even though each salt bucket is updated roughly once a year, individual bucket updatesare spread over the year. This means that about 1/365th of all buckets is rotated daily.
 
 >IMPORTANT: To ensure that your integration has the current UID2s, check salt bucket rotation for active users every day.
 
