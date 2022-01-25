@@ -25,9 +25,11 @@ The following diagram outlines the steps data collectors need to complete to map
 Send the `advertising_id` (UID2) from the [preceding step](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) to a DSP while building your audiences. Each DSP has a unique integration process for building audiences. Please follow the integration guidance provided by the DSP for sending UID2s to build an audience.
 
 ### Monitor for salt bucket rotations related to your stored UID2s
-Because a UID2 is an identifier for a user at a particular moment in time, a user's UID2 will rotate at least once a year. 
+A UID2 is an identifier for a user at a particular moment in time, which means that a user's UID2 will rotate at least once a year. 
 
-We recommend checking salt bucket rotation daily for active users. While salt buckets rotate annually, the date they rotate may change. Checking salt bucket rotation every day ensures your integration has the current UID2s.
+Each salt bucket is updated roughly once a year. Individual bucket updates, however, are spread over the year, which means that about 1/365th of all buckets is rotated daily.
+
+>IMPORTANT: To ensure your integration has the current UID2s, check salt bucket rotation for active users every day.
 
 | Step | Endpoint | Description |
 | --- | --- | --- |
