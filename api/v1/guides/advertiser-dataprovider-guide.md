@@ -29,7 +29,7 @@ A UID2 is an identifier for a user at a particular moment in time, which means t
 
 Each salt bucket is updated roughly once a year. Individual bucket updates, however, are spread over the year, which means that about 1/365th of all buckets is rotated daily.
 
->IMPORTANT: To ensure your integration has the current UID2s, check salt bucket rotation for active users every day.
+>IMPORTANT: To ensure that your integration has the current UID2s, check salt bucket rotation for active users every day.
 
 | Step | Endpoint | Description |
 | --- | --- | --- |
