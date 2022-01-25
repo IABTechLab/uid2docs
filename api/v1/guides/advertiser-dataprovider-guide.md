@@ -57,7 +57,7 @@ The recommended cadence for updating audiences is daily.
 The system should follow the [email normalization rules](../../README.md#email-address-normalization) and hash without salting. The value needs to be base64-encoded before sending.
 
 ### Should I store large volumes of email address or email address hash mappings? 
-Yes. Not storing email address or hash mappings may increase processing time drastically when you have to map millions of addresses. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time as only about 1/365th of UID2s need to be updated daily.
+Yes. Not storing email address or hash mappings may increase processing time drastically when you have to map millions of addresses. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily.
 
-IMPORTANT: Unless you are using a private operator, you must map email addresses or hashes consecutively, using a single HTTP connection in batches of 5-10K emails at a time. In other words, do your mapping without creating loads of parallel connections. 
+IMPORTANT: Unless you are using a private operator, you must map email addresses or hashes consecutively, using a single HTTP connection, in batches of 5-10K emails at a time. In other words, do your mapping without creating loads of parallel connections. 
 
