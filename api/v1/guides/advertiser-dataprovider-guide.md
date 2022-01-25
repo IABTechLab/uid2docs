@@ -27,7 +27,7 @@ Send the `advertising_id` (UID2) from the [preceding step](#retrieve-a-uid2-for-
 ### Monitor for salt bucket rotations related to your stored UID2s
 A UID2 is an identifier for a user at a particular moment in time, which means that a user's UID2 will rotate at least once a year. 
 
-Even though each salt bucket is updated roughly once a year, individual bucket updatesare spread over the year. This means that about 1/365th of all buckets is rotated daily.
+Even though each salt bucket is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets is rotated daily.
 
 >IMPORTANT: To ensure that your integration has the current UID2s, check salt bucket rotation for active users every day.
 
@@ -55,3 +55,9 @@ The recommended cadence for updating audiences is daily.
 
 ### How should I generate the SHA256 of PII for mapping?
 The system should follow the [email normalization rules](../../README.md#email-address-normalization) and hash without salting. The value needs to be base64-encoded before sending.
+
+### Should I store large volumes of email address or email address hash mappings? 
+Yes. Not storing email address or hash mappings may increase processing time drastically when you have to map millions of addresses. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time as only about 1/365th of UID2s need to be updated daily.
+
+IMPORTANT: Unless you are using a private operator, you must map email addresses or hashes consecutively, using a single HTTP connection in batches of 5-10K emails at a time. In other words, do your mapping without creating loads of parallel connections. 
+
