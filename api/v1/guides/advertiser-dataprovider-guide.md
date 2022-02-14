@@ -7,6 +7,7 @@ This guide covers integration steps for organizations that collect user data and
 * [Integration Steps](#integration-steps)
 * [FAQs](#faqs)
 
+If you are using an Open Operator service hosted in the Snowflake Data Marketplace, see also [Snowflake Integration](../sdks/snowflake_integration.md).
 
 ## Integration Steps
 
@@ -25,9 +26,11 @@ The following diagram outlines the steps data collectors need to complete to map
 Send the `advertising_id` (UID2) from the [preceding step](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) to a DSP while building your audiences. Each DSP has a unique integration process for building audiences. Please follow the integration guidance provided by the DSP for sending UID2s to build an audience.
 
 ### Monitor for salt bucket rotations related to your stored UID2s
-Because a UID2 is an identifier for a user at a particular moment in time, a user's UID2 will rotate at least once a year. 
+A UID2 is an identifier for a user at a particular moment in time, which means that a user's UID2 will rotate at least once a year. 
 
-We recommend checking salt bucket rotation daily for active users. While salt buckets rotate annually, the date they rotate may change. Checking salt bucket rotation every day ensures your integration has the current UID2s.
+Even though each salt bucket is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets is rotated daily.
+
+>IMPORTANT: To ensure that your integration has the current UID2s, check salt bucket rotation for active users every day.
 
 | Step | Endpoint | Description |
 | --- | --- | --- |
@@ -42,7 +45,7 @@ Continuously update and maintain UID2-based audiences utilizing the preceding st
 
 The response from the [UID2 retrieval step](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) contains mapping information. Cache the mapping between PII (`identifier`),  UID2 (`advertising_id`), and salt bucket (`bucket_id`), along with a last updated timestamp.
 
-Using the results the [preceding salt bucket rotation step](#monitor-for-salt-bucket-rotations-related-to-your-stored-uid2s), remap UID2s with rotated salt buckets by [retrieving UID2s using the identity map endpoints](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints). To update the UID2s in audiences, [send UID2 to a DSP](#send-uid2-to-a-dsp-to-build-an-audience).
+Using the results from the [preceding salt bucket rotation step](#monitor-for-salt-bucket-rotations-related-to-your-stored-uid2s), remap UID2s with rotated salt buckets by [retrieving UID2s using the identity map endpoints](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints). To update the UID2s in audiences, [send UID2 to a DSP](#send-uid2-to-a-dsp-to-build-an-audience).
 
 ## FAQs
 ### How do I know when to refresh the UID2 due to salt bucket rotation?
@@ -53,3 +56,9 @@ The recommended cadence for updating audiences is daily.
 
 ### How should I generate the SHA256 of PII for mapping?
 The system should follow the [email normalization rules](../../README.md#email-address-normalization) and hash without salting. The value needs to be base64-encoded before sending.
+
+### Should I store large volumes of email address or email address hash mappings? 
+Yes. Not storing email address or hash mappings may increase processing time drastically when you have to map millions of addresses. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily.
+
+>IMPORTANT: Unless you are using a private operator, you must map email addresses or hashes consecutively, using a single HTTP connection, in batches of 5-10K emails at a time. In other words, do your mapping without creating multiple parallel connections. 
+
