@@ -53,8 +53,8 @@ Using the results from the [preceding salt bucket rotation step](#monitor-for-sa
 ### How do I know when to refresh the UID2 due to salt bucket rotation?
 Metadata supplied with the UID2 generation request indicates the salt bucket used for generating the UID2. Salt buckets persist and correspond to the underlying PII used to generate a UID2. Use the  [GET /identity/buckets](../endpoints/get-identity-buckets.md) endpoint to return which salt buckets rotated since a given timestamp. The returned rotated salt buckets inform you which UID2s to refresh. This workflow typically applies to data providers. 
 
-### Do refreshed emails get assigned to the same bucket with which they were originally associated?
-Not necessarily. After you remap emails associated with a particular bucket ID, the emails might be assigned to a different bucket ID. To check the bucket ID, call the mapping function and save the returned UID2 and bucket ID again.
+### Do refreshed emails get assigned to the same bucket with which they were previously associated?
+Not necessarily. After you remap emails associated with a particular bucket ID, the emails might be assigned to a different bucket ID. To check the bucket ID, [call the mapping function](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) and save the returned UID2 and bucket ID again.
 
 ### How often should UIDs be refreshed for incremental updates?
 The recommended cadence for updating audiences is daily. 
