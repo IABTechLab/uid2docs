@@ -68,7 +68,6 @@ Yes. Not storing email address or hash mappings may increase processing time dra
 >IMPORTANT: Unless you are using a private operator, you must map email addresses or hashes consecutively, using a single HTTP connection, in batches of 5-10K emails at a time. In other words, do your mapping without creating multiple parallel connections. 
 
 ### How should I handle user optouts?
-When a user opts out of UID2-based targeted advertising through a transperancy portal, the optout signal is sent to DSPs and publishers. As an advertiser or data provider, you do not need to check for UID2 optout, because DSPs take care of it during bidding. For example, The Trade Desk maintains an optout flag in the system against the UID2, which prevents targeting and collecting information for the UID2 and removes all segments associated with the UID2, while keeping the UID2 for reporting and billing purposes until it expires.
+When a user opts out of UID2-based targeted advertising through the Transparency and Control Portal, the optout signal is sent to DSPs and publishers, which handle optouts at bid time. As an advertiser or data provider, you do not need to check for UID2 optout in this scenario.
 
 If a user opts out through your website, you should follow your internal procedures for handling the optout, for example, you might choose not to generate a UID2 for that user.
-
