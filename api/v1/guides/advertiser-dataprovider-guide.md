@@ -20,7 +20,7 @@ The following diagram outlines the steps data collectors need to complete to map
 | Step | Endpoint | Description |
 | --- | --- | --- |
 | 1-a | [GET /identity/map](../endpoints/get-identity-map.md)<br>[POST /identity/map](../endpoints/post-identity-map.md) | Send a request containing PII to the identity mapping endpoints. |
-| 1-b | [GET /identity/map](../endpoints/get-identity-map.md)<br>[POST /identity/map](../endpoints/post-identity-map.md) | The returned `advertising_id` (UID2) can be used to target audiences on relevant DSPs.<br><br>The response returns a user's UID2 and a salt `bucket_id` that rotates annually. When a user's UID2 updates, the salt bucket remains the same. For details on how to check for salt bucket rotation, see [Monitor for salt bucket rotations](#monitor-for-salt-bucket-rotations-related-to-your-stored-uid2s).<br><br>We recommend storing a user's UID2 and `bucket_id` in a mapping table for ease of maintenance. For guidance on incremental updates, see [Use an incremental process to continuously update UID2](#use-an-incremental-process-to-continuously-update-uid2s). |
+| 1-b | [GET /identity/map](../endpoints/get-identity-map.md)<br>[POST /identity/map](../endpoints/post-identity-map.md) | The returned `advertising_id` (UID2) can be used to target audiences on relevant DSPs.<br><br>The response returns a user's UID2 and the corresponding salt `bucket_id`. The salt assigned to the bucket rotates annually, which impacts the generated UID2. For details on how to check for salt bucket rotation, see [Monitor for salt bucket rotations](#monitor-for-salt-bucket-rotations-related-to-your-stored-uid2s).<br><br>We recommend storing a user's UID2 and `bucket_id` in a mapping table for ease of maintenance. For guidance on incremental updates, see [Use an incremental process to continuously update UID2](#use-an-incremental-process-to-continuously-update-uid2s). |
 
 ### Send UID2 to a DSP to build an audience
 Send the `advertising_id` (UID2) from the [preceding step](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) to a DSP while building your audiences. Each DSP has a unique integration process for building audiences. Please follow the integration guidance provided by the DSP for sending UID2s to build an audience.
@@ -36,7 +36,7 @@ Even though each salt bucket is updated roughly once a year, individual bucket u
 | --- | --- | --- |
 | 3-a | [GET /identity/buckets](../endpoints/get-identity-buckets.md) | Send a request to the bucket status endpoint for all salt buckets changed since a given timestamp. |
 | 3-b | [GET /identity/buckets](../endpoints/get-identity-buckets.md) | The bucket status endpoint returns a list of `bucket_id` and `last_updated` timestamps. |
-| 3-c | [GET /identity/map](../endpoints/get-identity-map.md)<br>[POST /identity/map](../endpoints/post-identity-map.md) | Compare the returned `bucket_id` to the salt buckets of UID2s you've cached.<br>If a UID2's salt bucket rotated, resent the PII to the identity mapping service for a new UID2. |
+| 3-c | [GET /identity/map](../endpoints/get-identity-map.md)<br>[POST /identity/map](../endpoints/post-identity-map.md) | Compare the returned `bucket_id` to the salt buckets of UID2s you've cached.<br>If a UID2's salt bucket rotated, resend the PII to the identity mapping service for a new UID2. |
 | 3-d | [GET /identity/map](../endpoints/get-identity-map.md)<br>[POST /identity/map](../endpoints/post-identity-map.md) | Store the returned `advertising_id` and `bucket_id`. |
 
 ### Use an incremental process to continuously update UID2
@@ -49,7 +49,12 @@ Using the results from the [preceding salt bucket rotation step](#monitor-for-sa
 
 ## FAQs
 ### How do I know when to refresh the UID2 due to salt bucket rotation?
-Metadata supplied with the UID2 generation request indicates the salt bucket used for generating the UID2. Salt buckets persist and correspond to the underlying PII used to generate a UID2. Use the  [GET /identity/buckets](../endpoints/get-identity-buckets.md) endpoint to return which salt buckets rotated since a given timestamp. The returned rotated salt buckets inform you which UID2s to refresh. This workflow typically applies to data providers. 
+Metadata supplied with the UID2 generation request indicates the salt bucket used for generating the UID2. Salt buckets persist and correspond to the underlying PII used to generate a UID2. Use the  [GET /identity/buckets](../endpoints/get-identity-buckets.md) endpoint to return which salt buckets rotated since a given timestamp. The returned rotated salt buckets inform you which UID2s to refresh.
+
+### Do refreshed emails get assigned to the same bucket with which they were previously associated?
+Not necessarily. After you remap emails associated with a particular bucket ID, the emails might be assigned to a different bucket ID. To check the bucket ID, [call the mapping function](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) and save the returned UID2 and bucket ID again.
+
+>IMPORTANT: When mapping and remapping emails, be sure not to make any assumptions of the number of buckets, their specific rotation dates, or to which bucket an email gets assigned. 
 
 ### How often should UIDs be refreshed for incremental updates?
 The recommended cadence for updating audiences is daily. 
@@ -62,3 +67,7 @@ Yes. Not storing email address or hash mappings may increase processing time dra
 
 >IMPORTANT: Unless you are using a private operator, you must map email addresses or hashes consecutively, using a single HTTP connection, in batches of 5-10K emails at a time. In other words, do your mapping without creating multiple parallel connections. 
 
+### How should I handle user optouts?
+When a user opts out of UID2-based targeted advertising through the [Transparency and Control Portal](https://www.transparentadvertising.org/), the optout signal is sent to DSPs and publishers, which handle optouts at bid time. As an advertiser or data provider, you do not need to check for UID2 optout in this scenario.
+
+If a user opts out through your website, you should follow your internal procedures for handling the optout, for example, you might choose not to generate a UID2 for that user.
