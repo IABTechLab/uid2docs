@@ -23,12 +23,14 @@ Here's what you need to know:
 
 ###  Request Body Parameters
 
-You must include only one of the following two parameters. 
+You must include only one of the following four parameters. 
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `email` | string array | Conditionally Required | The list of email addresses to be mapped. |
 | `email_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hashes of the [normalized](../../README.md#email-address-normalization) email addresses. |
+| `phone` | string array | Conditionally Required | The list of [normalized](../../README.md#phone-number-normalization) phone numbers to be mapped. |
+| `phone_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hashes of the [normalized](../../README.md#phone-number-normalization) phone numbers. |
 
 
 ### Request Examples
@@ -53,9 +55,30 @@ curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Beare
     ]    
 }'
 ```
+
+A mapping request for phone numbers:
+
+```sh
+curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
+    "phone":[
+        "+1111111111",
+        "+2222222222"
+    ]  
+}'
+```
+A mapping request for phone number hashes:
+
+```sh
+curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
+    "phone_hash":[
+        "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
+        "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
+    ]    
+}'
+
 ## Response Format
 
-The response returns the UID2s and salt bucket IDs for the specified email addresses or hashes.
+The response returns the UID2s and salt bucket IDs for the specified email addresses or phone numbers.
 
 ```json
 {

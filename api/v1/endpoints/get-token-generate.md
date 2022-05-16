@@ -1,7 +1,7 @@
 [UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /token/generate
 
 # GET /token/generate
-Generate a UID2 token from an email address or hashed email address.
+Generate a UID2 token from an email address or a phone number. The API also supports providing hashed email address or phone number as input.
 
 >IMPORTANT: UID2 tokens must be generated only on the server side after authentication. Security concerns forbid token generation on the browser side.
 
@@ -23,13 +23,15 @@ The following integration workflows use this endpoint:
 
 ###  Query Parameters
 
-* Only one of the following two query parameters is required. 
+* Only one of the following four query parameters is required. 
 * If both parameters are included in a request, only the `email` will return a response.
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `email` | string | Conditionally Required | The email address for which to generate tokens. |
 | `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of the [normalized](../../README.md#email-address-normalization) email address. |
+| `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) phone number for which to generate tokens. |
+| `phone_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hash of the [normalized](../../README.md#phone-number-normalization) phone number. |
 
 
 ### Request Examples
@@ -46,6 +48,17 @@ A token generation request for an email address hash:
 curl -L -X GET 'https://integ.uidapi.com/v1/token/generate?email_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
+A token generation request for a phone number:
+
+```sh
+curl -L -X GET 'https://integ.uidapi.com/v1/token/generate?phone=%2B1111111111' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+```
+
+A token generation request for an phone number hash:
+
+```sh
+curl -L -X GET 'https://integ.uidapi.com/v1/token/generate?phone_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+```
 
 ## Response Format 
 
@@ -79,9 +92,11 @@ The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) us
 
 For response status values, see [Response Structure and Status Codes](../../../api/README.md#response-structure-and-status-codes).
 
-## Test Email Addresses
+## Test Identities
 
-| Email Address | Purpose | Next Endpoint |
-| :--- | :--- | :--- |
-| `validate@email.com` | Test that the `advertising_token` you've cached matches the `advertising_token` for the specified email address. | [GET /token/validate](./get-token-validate.md) |
-| `optout@email.com` | Using this email for the request always generates an identity response with a `refresh_token` that results in a logout response. | [GET /token/refresh](./get-token-refresh.md) |
+| Type | Identity | Purpose | Next Endpoint |
+| :--- | :--- | :--- | :--- |
+| Email | `validate@email.com` | Test that the `advertising_token` you've cached matches the `advertising_token` for the specified email address. | [GET /token/validate](./get-token-validate.md) |
+| Email | `optout@email.com` | Using this email for the request always generates an identity response with a `refresh_token` that results in a logout response. | [GET /token/refresh](./get-token-refresh.md) |
+| Phone | `+12345678901` | Test that the `advertising_token` you've cached matches the `advertising_token` for the specified phone number. | [GET /token/validate](./get-token-validate.md) |
+| Phone | `+00000000000` | Using this phone number for the request always generates an identity response with a `refresh_token` that results in a logout response. | [GET /token/refresh](./get-token-refresh.md) |

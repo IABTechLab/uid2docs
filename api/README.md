@@ -75,6 +75,23 @@ Email hashes are base64-encoded SHA256 hashes of the normalized email address.
 | base64-encoded SHA256 of email | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | Use this encoding for `email_hash` values sent in the request body. |
 | URL-encoded, base64-encoded SHA256 of email| `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf%2FF5HVRQ%3D` | Use this encoding for `email_hash` query parameter values. |
 
+## Phone Number Normalization
+
+>NOTE: The UID2 Operator Service may normalize automatically unhashed phone numbers. Hashed phone numbers must be normalized.
+
+The UID2 Operator accept phone number as E.164 format. [E.164](https://en.wikipedia.org/wiki/E.164) is the international telephone number format that ensures global uniqueness. E.164 numbers are formatted `[+] [country code] [subscriber number including area code]` and can have a maximum of fifteen digits.
+
+## Phone Number Hash Encoding
+
+Phone number hashes are base64-encoded SHA256 hashes of the normalized phone number.
+
+| Type | Example | Use |
+| :--- | :--- | :--- |
+| Phone number | `+1111111111` | |
+| SHA256 of phone number | `c1d3756a586b6f0d419b3e3d1b328674fbc6c4b842367ee7ded780390fc548ae` | |
+| base64-encoded SHA256 of phone number | `wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ/FSK4=` | Use this encoding for `phone_hash` values sent in the request body. |
+| URL-encoded, base64-encoded SHA256 of phone number| `wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ%2FFSK4%3D` | Use this encoding for `phone_hash` query parameter values. |
+
 ## Response Structure and Status Codes
 
 All endpoints return responses with the following structure.
