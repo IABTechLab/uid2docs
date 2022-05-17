@@ -75,6 +75,7 @@ curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Beare
         "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
     ]    
 }'
+```
 
 ## Response Format
 
