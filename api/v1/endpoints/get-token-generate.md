@@ -1,7 +1,7 @@
 [UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /token/generate
 
 # GET /token/generate
-Generate a UID2 token from an email address or a phone number. The API also supports providing hashed email address or phone number as input.
+Generate a UID2 token from a hashed or unhashed email address or phone number.
 
 >IMPORTANT: UID2 tokens must be generated only on the server side after authentication. Security concerns forbid token generation on the browser side.
 
@@ -24,7 +24,8 @@ The following integration workflows use this endpoint:
 ###  Query Parameters
 
 * Only one of the following four query parameters is required. 
-* If both parameters are included in a request, only the `email` will return a response.
+* If both hashed and unhashed parameters are included in a request, only the unhashed parameter will return a response.
+* If both a phone number and an email address are included in a request, TBD.
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
@@ -54,7 +55,7 @@ A token generation request for a phone number:
 curl -L -X GET 'https://integ.uidapi.com/v1/token/generate?phone=%2B1111111111' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
-A token generation request for an phone number hash:
+A token generation request for a phone number hash:
 
 ```sh
 curl -L -X GET 'https://integ.uidapi.com/v1/token/generate?phone_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
