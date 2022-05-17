@@ -28,9 +28,9 @@ Validate that an advertising token matches the specified hashed or unhashed emai
 | :--- | :--- | :--- | :--- |
 | `token` | string | Required | The advertising token returned by the [GET /token/generate](./get-token-generate.md) response.<br/>IMPORTANT: If the token was generated with URL-decoded characters, make sure to encode it as a query parameter. For details, see [Query Parameter Value Encoding](../../../api/README.md#query-parameter-value-encoding). |
 | `email` | string | Conditionally Required |  The email address for token validation. |
-| `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of the [normalized](../../README.md#email-address-normalization) email address for token validation. |
+| `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#email-address-normalization) email address for token validation. |
 | `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) phone number for which to generate tokens. |
-| `phone_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hash of the [normalized](../../README.md#phone-number-normalization) phone number. |
+| `phone_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hash of a [normalized](../../README.md#phone-number-normalization) phone number. |
 
 
 ### Request Examples
