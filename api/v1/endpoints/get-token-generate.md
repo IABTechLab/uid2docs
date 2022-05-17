@@ -23,9 +23,8 @@ The following integration workflows use this endpoint:
 
 ###  Query Parameters
 
-* Only one of the following four query parameters is required. 
-* If both hashed and unhashed parameters are included in a request, only the unhashed parameter will return a response.
-* If both a phone number and an email address are included in a request, TBD.
+* Only one of the following four query parameters is required and allowed. 
+* If more than one query parameter is included in a request, a 400 (Bad Request) error will be returned.
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
