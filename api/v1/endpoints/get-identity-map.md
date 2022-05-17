@@ -2,7 +2,7 @@
 
 # GET /identity/map
 
-Retrieve the UID2 and salt bucket ID for Generate a UID2 token from an email address or a phone number. The API also supports providing hashed email address or phone number as input. This endpoint is intended for use by [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md).
+Retrieve the UID2 and salt bucket ID for Generate a UID2 token from a email address or a phone number. The API also supports providing hashed email address or phone number as input. This endpoint is intended for use by [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md).
 
 
 ## Request Format
@@ -55,7 +55,7 @@ curl -L -X GET 'https://integ.uidapi.com/v1/identity/map?phone_hash=eVvLS%2FVg%2
 
 ## Response Format
 
-The response returns the UID2 and salt bucket ID for the specified email address or hash.
+The response returns the UID2 and salt bucket ID for the specified email address, phone number, or the respective hash.
 
 ```json
 {
