@@ -6,8 +6,8 @@ This page provides the following information required for you to get started wit
 * [Contact Info](#contact-info)
 * [Environment](#environment)
 * [Authentication](#authentication)
-* [Email Address Normalization](#email-address-normalization)
 * [Query Parameter Value Encoding](#query-parameter-value-encoding)
+* [Email Address Normalization](#email-address-normalization)
 * [Address Hash Encoding](#email-address-hash-encoding)
 * [Phone Number Normalization](#phone-number-normalization)
 * [Phone Number Hash Encoding](#phone-number-hash-encoding)
@@ -50,6 +50,10 @@ To authenticate to UID2 endpoints, use a bearer token in the request's authoriza
 
 ```Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=```
 
+## Query Parameter Value Encoding
+
+When passing query parameter values in a request, ensure the query parameter value is URL-encoded. Use JavaScript's `encodeURIcomponent()` or its equivalent in your coding language.
+
 ## Email Address Normalization
 
 The UID2 Operator Service normalizes unhashed email addresses automatically. You must normalize hashed email adresses before sending them in a request.
@@ -61,10 +65,6 @@ To normalize hashed email addresses, complete the following steps:
 3. In `gmail.com` email addresses, remove the following characters from the username part of the email address:
     1. The period  (`.` (ASCII code 46)).<br/>For example, normalize `jane.doe@gmail.com` to `janedoe@gmail.com`.
     2. The plus sign (`+` (ASCII code 43)) and all subsequent characters.<br/>For example, normalize `janedoe+home@gmail.com` to `janedoe@gmail.com`.
-
-## Query Parameter Value Encoding
-
-When passing query parameter values in a request, ensure the query parameter value is URL-encoded. Use JavaScript's `encodeURIcomponent()` or its equivalent in your coding language.
 
 ## Email Address Hash Encoding
 
