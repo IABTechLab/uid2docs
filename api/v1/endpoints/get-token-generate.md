@@ -62,7 +62,7 @@ curl -L -X GET 'https://integ.uidapi.com/v1/token/generate?phone_hash=eVvLS%2FVg
 
 ## Response Format 
 
-The response returns the user's advertising and refresh tokens for the specified email address or hash.  
+The response returns the user's advertising and refresh tokens for the specified email address, phone number, or the respective hash.  
 
 
 ```json
