@@ -2,7 +2,7 @@
 
 # GET /identity/map
 
-Retrieve the UID2 and salt bucket ID for Generate a UID2 token from a hashed or unhashed email address or phone number. This endpoint is intended for use by [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md).
+Retrieve the UID2 and salt bucket ID for a hashed or unhashed email address or phone number. This endpoint is intended for use by [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md).
 
 
 ## Request Format
