@@ -27,7 +27,7 @@ The following integration workflows use this endpoint:
 
 #### Testing Notes
 
-Using either of the following parameters in a [GET /token/generate](./get-token-generate.md) request, always generates an identity response with a `refresh_token` that results in a logout response when used with this endpoint:
+Using either of the following parameters in a [GET /token/generate](./get-token-generate.md) request always generates an identity response with a `refresh_token` that results in a logout response when used with the `GET /token/refresh` endpoint:
 
 - The `optout@email.com` email address
 - The `+12345678901` phone number
