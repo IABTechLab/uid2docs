@@ -85,7 +85,7 @@ Here's what you need to know about phone number normalization rules:
 
 - The UID2 Operator accepts phone numbers in the [E.164](https://en.wikipedia.org/wiki/E.164) format, which is the international telephone number format that ensures global uniqueness. 
 - E.164 phone numbers can have a maximum of 15 digits.
-- Normalized E.164 phone numbers use the following syntax: `[+] [country code] [subscriber number including area code]`, with no spaces, hyphens, parentheses, or other characters. For example, the phone numbers `+375 44 555-66-77` and `(310) 123-4567` would be normalized as `+375445556677` and `+3101234567`, respectively.
+- Normalized E.164 phone numbers use the following syntax: `[+] [country code] [subscriber number including area code]`, with no spaces, hyphens, parentheses, or other characters. For example, the phone numbers `+123 44 555-66-77` and `(123) 456-7890` would be normalized as `+123445556677` and `+1234567890`, respectively.
 
 ## Phone Number Hash Encoding
 
@@ -93,7 +93,7 @@ Phone number hashes are base64-encoded SHA256 hashes of the normalized phone num
 
 | Type | Example | Usage |
 | :--- | :--- | :--- |
-| Normalized phone number | `+1111111111` | |
+| Normalized phone number | `+1234567890` | |
 | SHA256 of phone number | `c1d3756a586b6f0d419b3e3d1b328674fbc6c4b842367ee7ded780390fc548ae` | |
 | base64-encoded SHA256 of phone number | `wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ/FSK4=` | Use this encoding for `phone_hash` values sent in the request body. |
 | URL-encoded, base64-encoded SHA256 of phone number| `wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ%2FFSK4%3D` | Use this encoding for `phone_hash` query parameter values. |
