@@ -2,7 +2,7 @@
 
 # GET /identity/map
 
-Retrieve the UID2 and salt bucket ID for Generate a UID2 token from a email address or a phone number. The API also supports providing hashed email address or phone number as input. This endpoint is intended for use by [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md).
+Retrieve the UID2 and salt bucket ID for Generate a UID2 token from a hashed or unhashed email address or phone number. This endpoint is intended for use by [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md).
 
 
 ## Request Format
@@ -19,7 +19,7 @@ Retrieve the UID2 and salt bucket ID for Generate a UID2 token from a email addr
 ###  Query Parameters
 
 * Only one of the following four query parameters is required. 
-* If both parameters are included in a request, only the `email` will return a response.
+* If more than one query parameter is included in a request, a 400 (Bad Request) error will be returned.
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
@@ -47,7 +47,7 @@ A mapping request for a phone number:
 ```sh
 curl -L -X GET 'https://integ.uidapi.com/v1/identity/map?phone=%2B1111111111' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
-A mapping request for an phone number hash:
+A mapping request for a phone number hash:
 
 ```sh
 curl -L -X GET 'https://integ.uidapi.com/v1/identity/map?phone_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
@@ -72,7 +72,7 @@ The response returns the UID2 and salt bucket ID for the specified email address
 
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
-| `identifier` | string | The email address or email address hash specified in the request query parameter. |
+| `identifier` | string | The email address, phone number, or the respective hash specified in the request query parameter. |
 | `advertising_id` | string | The corresponding advertising ID (raw UID2). |
 | `bucket_id` | string | The ID of the salt bucket used to generate the UID2. |
 
