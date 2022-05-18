@@ -18,14 +18,13 @@ Retrieve the UID2 and salt bucket ID for a hashed or unhashed email address or p
 
 ###  Query Parameters
 
-* Only one of the following four query parameters is required. 
-* If more than one query parameter is included in a request, a 400 (Bad Request) error will be returned.
+>IMPORTANT: You must include only one of the following parameters.
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `email` | string | Conditionally Required | The email address to be mapped. |
+| `email` | string | Conditionally Required | The [URL-encoded](../../README.md#query-parameter-value-encoding) email address to be mapped. |
 | `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#email-address-normalization) email address. |
-| `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) phone number for which to generate tokens. |
+| `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) and [URL-encoded](../../README.md#query-parameter-value-encoding)phone number for which to generate tokens. |
 | `phone_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hash of a [normalized](../../README.md#phone-number-normalization) phone number. |
 
 
