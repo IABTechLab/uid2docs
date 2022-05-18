@@ -72,7 +72,7 @@ Email hashes are base64-encoded SHA256 hashes of the normalized email address.
 
 | Type | Example | Usage |
 | :--- | :--- | :--- |
-| Normalised email address | `user@example.com` | |
+| Normalized email address | `user@example.com` | |
 | SHA256 of email address | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | |
 | base64-encoded SHA256 of email address | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | Use this encoding for `email_hash` values sent in the request body. |
 | URL-encoded, base64-encoded SHA256 of email address| `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf%2FF5HVRQ%3D` | Use this encoding for `email_hash` query parameter values. |
