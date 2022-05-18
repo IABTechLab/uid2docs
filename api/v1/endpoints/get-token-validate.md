@@ -19,17 +19,16 @@ Validate that an advertising token matches the specified hashed or unhashed emai
 
 ###  Query Parameters
 
-* Only one of the four query parameters is required and allowed in a request: `email`, `email_hash`, `phone`, or `phone_hash`. 
-* If more than one of the four parameters is included in a request, a 400 (Bad Request) error will be returned.
+>IMPORTANT: You must include only one of the following parameters: `email`, `email_hash`, `phone`, or `phone_hash`. 
 
 >TIP: Consider using the `validate@email.com` email address or `+12345678901` phone number for testing. For details, see [Test Identities](./get-token-generate.md#test-identities).
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `token` | string | Required | The advertising token returned by the [GET /token/generate](./get-token-generate.md) response.<br/>IMPORTANT: If the token was generated with URL-decoded characters, make sure to encode it as a query parameter. For details, see [Query Parameter Value Encoding](../../../api/README.md#query-parameter-value-encoding). |
-| `email` | string | Conditionally Required |  The email address for token validation. |
+| `email` | string | Conditionally Required |  The [URL-encoded](../../README.md#query-parameter-value-encoding) email address for token validation. |
 | `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#email-address-normalization) email address for token validation. |
-| `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) phone number for which to generate tokens. |
+| `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) and [URL-encoded](../../README.md#query-parameter-value-encoding) phone number for which to generate tokens. |
 | `phone_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hash of a [normalized](../../README.md#phone-number-normalization) phone number. |
 
 
