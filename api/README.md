@@ -8,7 +8,7 @@ This page provides the following information required for you to get started wit
 * [Authentication](#authentication)
 * [Query Parameter Value Encoding](#query-parameter-value-encoding)
 * [Email Address Normalization](#email-address-normalization)
-* [Address Hash Encoding](#email-address-hash-encoding)
+* [Email Address Hash Encoding](#email-address-hash-encoding)
 * [Phone Number Normalization](#phone-number-normalization)
 * [Phone Number Hash Encoding](#phone-number-hash-encoding)
 * [Response Structure and Status Codes](#response-structure-and-status-codes)
@@ -56,9 +56,9 @@ When passing query parameter values in a request, ensure the query parameter val
 
 ## Email Address Normalization
 
-The UID2 Operator Service normalizes unhashed email addresses automatically. You must normalize hashed email adresses before sending them in a request.
+The UID2 Operator Service normalizes unhashed email addresses automatically. If you want to send hashed email addresses, you must normalize them before they are hashed.
 
-To normalize hashed email addresses, complete the following steps:
+To normalize an email address, complete the following steps:
 
 1. Remove leading and trailing spaces.
 2. Convert all ASCII characters to lowercase.
@@ -79,13 +79,13 @@ Email hashes are base64-encoded SHA256 hashes of the normalized email address.
 
 ## Phone Number Normalization
 
->IMPORTANT: You must normalize both hashed and unhashed phone numbers before sending them in a request.
+>IMPORTANT: You must normalize both phone numbers before sending them in a request, regardless of whether you send them hashed or unhashed in a request.
 
 Here's what you need to know about phone number normalization rules:
 
 - The UID2 Operator accepts phone numbers in the [E.164](https://en.wikipedia.org/wiki/E.164) format, which is the international telephone number format that ensures global uniqueness. 
 - E.164 phone numbers can have a maximum of 15 digits.
-- Normalized E.164 phone numbers use the following syntax: `[+] [country code] [subscriber number including area code]`, with no spaces, hyphens, parentheses, or other characters. For example, the phone numbers `+123 44 555-66-77` and `1 (123) 456-7890` would be normalized as `+123445556677` and `+11234567890`, respectively.
+- Normalized E.164 phone numbers use the following syntax: `[+] [country code] [subscriber number including area code]`, with no spaces, hyphens, parentheses, or other special characters. For example, the phone numbers `+123 44 555-66-77` and `1 (123) 456-7890` must be normalized as `+123445556677` and `+11234567890`, respectively.
 
 ## Phone Number Hash Encoding
 
