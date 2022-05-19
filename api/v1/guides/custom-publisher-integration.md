@@ -23,12 +23,12 @@ The following sections provide additional details for each step in the diagram:
 
 ### Establish Identity: User Login
 
-After authentication in step 1-c, which forces the user to accept the rules of engagement and allows the publisher to validate their email address, a UID2 token must be generated on the server side. The following table details the token generation steps.
+After authentication in step 1-c, which forces the user to accept the rules of engagement and allows the publisher to validate their email address or phone umber, a UID2 token must be generated on the server side. The following table details the token generation steps.
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
-| 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2:<br/>- Integrate with a UID2-enabled single-sign-on provider.<br/>- Use the [GET /token/generate](../endpoints/get-token-generate.md) endpoint to generate a UID2 token using the provided [normalized](../../README.md#emailnormalization) email address of the user. |
-| 1-e | [GET /token/generate](../endpoints/get-token-generate.md) | Return a UID2 token generated from the user's email address or hashed email address. |
+| 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2:<br/>- Integrate with a UID2-enabled single-sign-on provider.<br/>- Use the [GET /token/generate](../endpoints/get-token-generate.md) endpoint to generate a UID2 token using the provided normalized and URL-encoded email address or phone number of the user. |
+| 1-e | [GET /token/generate](../endpoints/get-token-generate.md) | Return a UID2 token generated from the user's email address, phone number, or respective hash. |
 | 1-f | N/A | Place the returned `advertising_token` and `refresh_token` in a store tied to a user. You may consider client-side storage like a first-party cookie or server-side storage. |
 
 ### Bid Using UID2 Tokens
@@ -85,11 +85,12 @@ You can use the [GET /token/validate](../endpoints/get-token-validate.md) endpoi
 
 ### How can I test the refresh token logout workflow?
 
-You can use the email address `optout@email.com` to test your token refresh workflow. Using this email for the request always generates an identity response with a `refresh_token` that results in a logout response.
+You can use the `optout@email.com` email address or the `+00000000000` phone number to test your token refresh workflow. Using the email address or phone number in request always generates an identity response with a `refresh_token` that results in a logout response.
 
-1. Do either of the following:
-    - Send a [GET /token/generate](../endpoints/get-token-generate.md) request using `optout@email.com` as `email`.
-    - Create a [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of `optout@email.com` and send it as an email hash. 
-2. Store the returned `refresh_token` for use in the following step.
-3. Send a [GET /token/refresh](../endpoints/get-token-refresh.md) request with the `refresh_token` (saved in step 2) as the `token` value.<br/>The body response should be empty, and the `status` value should be set to `optout` because the `optout@email.com` email always results in a logged out user.
+1. Depending on whether the PII is an email address or a phone number, send a [GET /token/generate](../endpoints/get-token-generate.md) request using one of the following values:
+    - The `optout@email.com` as the `email` value.
+    - The [URL-encoded, base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of `optout@email.com` as the `email_hash` value. 
+    - The [URL-encoded](../../README.md#query-parameter-value-encoding) `+00000000000` as the `phone` value.
+    - The [URL-encoded, base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hash of `+00000000000` as the `phone_hash` value.
+3. Send a [GET /token/refresh](../endpoints/get-token-refresh.md) request with the `refresh_token` (saved in step 2) as the `token` value.<br/>The body response should be empty, and the `status` value should be set to `optout` because the `optout@email.com` email and the `+00000000000` phone number always result in a logged out user.
 
