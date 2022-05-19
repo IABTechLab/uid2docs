@@ -35,7 +35,7 @@ After authentication in step 1-c, which forces the user to accept the rules of e
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
-| 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | After the user authenticates and authorizes the creation of a UID2, use the [GET /token/generate](../endpoints/get-token-generate.md) endpoint to generate a UID2 token using the provided email address or phone number of the user. |
+| 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | After the user authenticates and authorizes the creation of a UID2, use the [GET /token/generate](../endpoints/get-token-generate.md) endpoint to generate a UID2 token using the provided normalized and URL-encoded email address or phone number of the user. |
 | 1-e | [GET /token/generate](../endpoints/get-token-generate.md) | Return a UID2 token generated from the user's email address, phone number, or the respective hash. |
 | 1-f | [UID2 SDK](../sdks/client-side-identity-v1.md) | Send the returned UID2 token from step 1-e to the SDK in the `identity` property of its [init() function](../sdks/client-side-identity-v1.md#initopts-object-void) and specify a [callback function](../sdks/client-side-identity-v1.md#callback-function) as shown below. The mechanism ensures that UID2 tokens are available for the user for targeting advertising until they log out. |
 
