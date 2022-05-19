@@ -35,6 +35,8 @@ The following integration workflows use this endpoint:
 
 ### Request Examples
 
+>IMPORTANT: To ensure that the API key used to access the service remains secret, the `GET /token/generate` endpoint must be called from the server side, unlike the [GET /token/validate](./get-token-validate.md), which does not require using an API key.
+
 A token generation request for an email address:
 
 ```sh
