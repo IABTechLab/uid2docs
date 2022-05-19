@@ -117,6 +117,14 @@ The client lifecycle is complete when the user decides to log out from the publi
 
 The [UID2 SDK](../sdks/client-side-identity-v1.md) background token auto-refresh process handles user opt-outs. If user opts out, when the UID2 SDK attempts token refresh, it will learn about the optout and will clear the session (including the cookie) and invoke the callback with the `OPTOUT` status.
 
+### Where should I make token generation calls, from the server or client side?
+
+UID2 tokens must be generated only on the server side after authentication. In other words, to ensure that the API key used to access the service remains secret, the [GET /token/generate](../endpoints/get-token-generate.md) endpoint must be called only from the server side.
+
+### Can I make token refresh calls from the client side?
+
+Yes. The [GET /token/refresh](../endpoints/get-token-refresh.md) can be called from the client side (for example, a browser or a mobile app) because it does not require using an API key.
+
 ### How can I test that the PII sent and returned tokens match?
 
 You can use the [GET /token/validate](../endpoints/get-token-validate.md) endpoint to check whether the PII you are sending through [GET /token/generate](../endpoints/get-token-generate.md) is valid. 
