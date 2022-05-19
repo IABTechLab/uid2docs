@@ -3,7 +3,7 @@
 # GET /token/validate
 Validate that an advertising token matches the specified hashed or unhashed email address or phone number. 
 
->NOTE: This endpoint is intended primarily for testing and troubleshooting new integrations. 
+>NOTE: This endpoint is intended primarily for testing and troubleshooting new integrations. It can be called from the client side, for example, a browser or a mobile app, because it does not require using an API key.
 
 ## Request  Format 
 
@@ -19,9 +19,8 @@ Validate that an advertising token matches the specified hashed or unhashed emai
 
 ###  Query Parameters
 
->IMPORTANT: You must include only one of the following parameters: `email`, `email_hash`, `phone`, or `phone_hash`. 
-
->TIP: Consider using the `validate@email.com` email address or `+12345678901` phone number for testing. For details, see [Test Identities](./get-token-generate.md#test-identities).
+- You must include only one of the following parameters: `email`, `email_hash`, `phone`, or `phone_hash`. 
+- To test identities, use the `validate@email.com` email address or `+12345678901` phone number. For details, see the FAQs sections in the [UID2 SDK Integration Guide](../guides/publisher-client-side.md) and [Server-Only Integration Guide](../guides/custom-publisher-integration.md) for publishers.
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
