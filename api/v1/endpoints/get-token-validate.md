@@ -3,7 +3,7 @@
 # GET /token/validate
 Validate that an advertising token matches the specified hashed or unhashed email address or phone number. 
 
->NOTE: This endpoint is intended primarily for testing and troubleshooting new integrations. It can be called from the client side, for example, a browser or a mobile app, because it does not require using an API key.
+>NOTE: This endpoint is intended primarily for testing and troubleshooting new integrations.
 
 ## Request  Format 
 
