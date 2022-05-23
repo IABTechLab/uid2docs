@@ -32,7 +32,7 @@ UID2’s goal is to enable deterministic identity for advertising opportunities 
 
 **Secure and Encrypted Data:** UID2 leverages multiple layers of security, cryptography, and encryption to secure PII and user data.
 
-**Transparency and Control:** Consumers understand where their ID is shared and what data is associated with it. Consumers also hold the right to revoke their consent and permissions.
+**Consumer Control:** Consumers can opt out of UID2 at any time through the [Transparency and Control Portal](https://transparentadvertising.org).
 
 ### Technical Design Principles
 
@@ -129,7 +129,7 @@ For details on setting up Closed Operator services, see [Operator Integration Gu
 
 ### Opt-Out Portal
 
-The service providing a user-facing website (https://transparentadvertising.org/) to provide a user with opt-out functionality of their UID2.
+Consumers can opt out of UID2 at any time through a user-facing website, the [Transparency and Control Portal](https://transparentadvertising.org).
 
 #### Functions
 
