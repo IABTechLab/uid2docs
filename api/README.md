@@ -79,7 +79,7 @@ Email hashes are base64-encoded SHA256 hashes of the normalized email address.
 
 ## Phone Number Normalization
 
->IMPORTANT: You must normalize both phone numbers before sending them in a request, regardless of whether you send them hashed or unhashed in a request.
+>IMPORTANT: You must normalize phone numbers before sending them in a request, regardless of whether you send them hashed or unhashed in a request.
 
 Here's what you need to know about phone number normalization rules:
 
