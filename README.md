@@ -14,15 +14,13 @@ For integration guides, supported SDKs, and endpoint reference, see [UID 2.0 API
 
 ## Introduction
 
-Addressable advertising enables publishers and developers to provide the content and services consumers have come to enjoy, whether through mobile apps, streaming TV, or web experiences. This value exchange of the open internet has not always been well understood by, or communicated to, consumers. As the industry reduces reliance on the third-party cookie, there is an opportunity to improve how we identify consumers in the open internet. The solution is an identification system in which content creators and consumers both benefit from improved engagement opportunities with transparent control over consumer data.
+Addressable advertising enables publishers and developers to provide the content and services consumers have come to enjoy, whether through mobile apps, streaming TV, or web experiences. This value exchange has not always been well understood by, or communicated to, consumers. As the industry reduces reliance on the third-party cookie, there is an opportunity to improve how we reach consumers with relevant advertising across the open internet. The solution is an identification system in which content creators and consumers both benefit from improved engagement opportunities with transparent control over consumer data.
 
-Unified ID 2.0 (UID2) is a deterministic identifier based on PII (for example, email or phone number) with user transparency and privacy controls. The UID2 identifier enables logged-in experiences from publisher websites, mobile apps, and CTV apps to monetize through programmatic workflows. Benefitting from several layers of security and privacy measures, UID2s safely distribute across the open internet. Initially built and maintained by The Trade Desk, stewardship of UID2 will transfer (in mid-2021) to independent organizations for open-source code management, governance, administration, and system operations. UID2 is a non-proprietary standard and accessible to constituents across the advertising ecosystem--including Advertisers, Publishers, DSPs, SSPs, SSOs, CDPs, CMPs, Identity Providers, Data Providers, and Measurement Providers--while they remain in compliance with a code of conduct.
+Unified ID 2.0 (UID2) is a deterministic identifier based on PII (for example, email or phone number) with user transparency and privacy controls. The UID2 identifier enables logged-in experiences from publisher websites, mobile apps, and CTV apps to monetize through programmatic workflows. Benefitting from several layers of security and privacy measures, UID2s can be safely distributed across the open internet. Initially built and maintained by The Trade Desk, stewardship of UID2 will transfer to independent organizations for open-source code management, governance, administration, and system operations. UID2 is a non-proprietary standard and accessible to constituents across the advertising ecosystem--including Advertisers, Publishers, DSPs, SSPs, SSOs, CDPs, CMPs, Identity Providers, Data Providers, and Measurement Providers--while they remain in compliance with a code of conduct.
 
 UID2’s goal is to enable deterministic identity for advertising opportunities on the open internet with consumer transparency and controls in place. UID2 provides a collaborative framework for all constituents and a healthy, open internet by utilizing a transparent and interoperable approach.
 
 ### Guiding Principles
-
-**Independent Government:** UID2 will be governed by unbiased third-party organizations, with the transition from The Trade Desk anticipated in 2021.
 
 **First-Party Relationships:** UID2 allows advertisers to easily activate their first-party data on publishers across the open internet.
 
@@ -34,7 +32,7 @@ UID2’s goal is to enable deterministic identity for advertising opportunities 
 
 **Secure and Encrypted Data:** UID2 leverages multiple layers of security, cryptography, and encryption to secure PII and user data.
 
-**Transparency and Control:** Consumers understand where their ID is shared and what data is associated with it. Consumers also hold the right to revoke their consent and permissions.
+**Consumer Control:** Consumers can opt out of UID2 at any time through the [Transparency and Control Portal](https://transparentadvertising.org).
 
 ### Technical Design Principles
 
@@ -52,7 +50,7 @@ UID2’s goal is to enable deterministic identity for advertising opportunities 
 
 ### UID2
 
-The UID2 (raw UID2) is an unencrypted alphanumeric identifier created through a set of APIs or SDKs using a user’s verifiable and authenticated PII as an input. Examples of PII are an email address or phone number.
+The UID2 (raw UID2) is an unencrypted alphanumeric identifier created through a set of APIs or SDKs using a user’s verifiable PII as an input. Examples of PII are an email address or phone number.
 
 A UID2 is designed to be stored by advertisers, data providers, and DSPs and is never shared in the bid stream. Note that the UID2 Token (or encrypted form of the UID2) is shared in the bid stream.
 
@@ -107,7 +105,7 @@ There are multiple operators that comprise the UID2 System and participants may 
 
 - Receive and store encryption keys and salts from the UID2 Administrator service.
 
-- Salt and hash authenticated PII to return a UID2.
+- Salt and hash PII to return a UID2.
 
 - Encrypt UID2s to generate UID2 Tokens.
 
@@ -123,7 +121,7 @@ For details on setting up Closed Operator services, see [Operator Integration Gu
 
 - Receive and store encryption keys and salts from the UID2 Administrator service.
 
-- Salt and hash authenticated PII to return a UID2.
+- Salt and hash PII to return a UID2.
 
 - Encrypt UID2s to generate UID2 Tokens.
 
@@ -131,7 +129,7 @@ For details on setting up Closed Operator services, see [Operator Integration Gu
 
 ### Opt-Out Portal
 
-The service providing a user-facing website (https://transparentadvertising.org/) to provide a user with opt-out functionality of their UID2.
+Consumers can opt out of UID2 at any time through a user-facing website, the [Transparency and Control Portal](https://transparentadvertising.org).
 
 #### Functions
 
@@ -235,7 +233,7 @@ This workflow is for organizations that collect user data and push it to DSPs. D
 
 #### Data Provider Integration
 
-To generate UID2s from authenticated PII, data providers must access the UID2 Operator APIs. Some advertisers may choose to work through CDPs, data on-boarders, or other service providers instead.
+To generate UID2s from users' PII, data providers must access the UID2 Operator APIs. Some advertisers may choose to work through CDPs, data on-boarders, or other service providers instead.
 
 See also [Advertiser/Data Provider Integration Guide](/api/v1/guides/advertiser-dataprovider-guide.md).
 
@@ -252,8 +250,8 @@ This workflow is for organizations that propagate IDs to the bid stream via SSPs
 #### Publisher Workflow Overview
 
 1. A user visits a publisher website, mobile app, or CTV app.
-2. The publisher explains the value exchange of the open internet and requests the user log in.
-3. Once the user authenticates, the publisher sends the first-party authenticated PII and corresponding privacy settings to the UID2 Operator via an SDK or direct API integration. A publisher may authorize an SSO provider or identity provider to pass PII and privacy settings on their behalf.
+2. The publisher explains the value exchange of the open internet and requests the user to log in.
+3. Once the user logs in, the publisher sends the first-party PII and corresponding privacy settings to the UID2 Operator via an SDK or direct API integration. A publisher may authorize an SSO provider or identity provider to pass PII and privacy settings on their behalf.
 4. The UID2 Operator performs the salt, hash, and encryption process and returns the UID2 Token.
 5. The publisher stores the UID2 Token to share with SSPs during real-time bidding.
     a. Server-side: The publisher stores the token in a mapping table, DMP, data lake, or other server-side application.
@@ -268,7 +266,7 @@ For integration scenarios, token management, and other details, see [Publisher I
 
 ##### Publisher Direct Integration
 
-Publishers who want to send authenticated PII and generate UID2s need to access the UID2 Operator API.
+Publishers who want to send users' PII and generate UID2s need to access the UID2 Operator API.
 
 ##### Requirements
 
@@ -311,9 +309,9 @@ Metadata supplies with the UID2 token discloses the timestamp of encryption, whi
 
 ### User Trust
 
-#### Can a user opt-out of targeted advertising tied to their UID2?
+#### Can a user opt out of targeted advertising tied to their UID2?
 
-Yes, through the Opt-Out Portal, a user can opt-out of being served targeted ads tied to their UID2. The request will be distributed through UID2 Administrator and UID2 Operators to all relevant members. Some publishers and service providers have the option to limit access to their products based on a user’s participation in UID2 and it is the publisher’s responsibility to communicate this as part of their value exchange dialogue with the user.
+Yes, through the Opt-Out Portal (also known as the [Transparency and Control Portal](https://transparentadvertising.org)), a user can opt out of being served targeted ads tied to their UID2. The request will be distributed through UID2 Administrator and UID2 Operators to all relevant members. Some publishers and service providers have the option to limit access to their products based on a user’s participation in UID2 and it is the publisher’s responsibility to communicate this as part of their value exchange dialogue with the user.
 
 #### How does a user know where to access the Opt-Out Portal?
 
