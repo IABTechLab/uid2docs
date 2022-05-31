@@ -23,12 +23,12 @@ The following sections provide additional details for each step in the diagram:
 
 ### Establish Identity: User Login
 
-After authentication in step 1-c, which forces the user to accept the rules of engagement and allows the publisher to validate their email address or phone umber, a UID2 token must be generated on the server side. The following table details the token generation steps.
+After authentication in step 1-c, which forces the user to accept the rules of engagement and allows the publisher to validate their email address or phone number, a UID2 token must be generated on the server side. The following table details the token generation steps.
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
 | 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2:<br/>- Integrate with a UID2-enabled single-sign-on provider.<br/>- Use the [GET /token/generate](../endpoints/get-token-generate.md) endpoint to generate a UID2 token using the provided normalized and URL-encoded email address or phone number of the user. |
-| 1-e | [GET /token/generate](../endpoints/get-token-generate.md) | Return a UID2 token generated from the user's email address, phone number, or respective hash. |
+| 1-e | [GET /token/generate](../endpoints/get-token-generate.md) | Return a UID2 token generated from the user's email address, phone number, or the respective hash. |
 | 1-f | N/A | Place the returned `advertising_token` and `refresh_token` in a store tied to a user. You may consider client-side storage like a first-party cookie or server-side storage. |
 
 ### Bid Using UID2 Tokens
@@ -102,5 +102,6 @@ You can use the `optout@email.com` email address or the `+00000000000` phone num
     - The [URL-encoded, base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of `optout@email.com` as the `email_hash` value. 
     - The [URL-encoded](../../README.md#query-parameter-value-encoding) `+00000000000` as the `phone` value.
     - The [URL-encoded, base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hash of `+00000000000` as the `phone_hash` value.
+2. Store the returned `refresh_token` for use in the following step.
 3. Send a [GET /token/refresh](../endpoints/get-token-refresh.md) request with the `refresh_token` (saved in step 2) as the `token` value.<br/>The body response should be empty, and the `status` value should be set to `optout` because the `optout@email.com` email and the `+00000000000` phone number always result in a logged out user.
 
