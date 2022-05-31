@@ -141,7 +141,7 @@ You can use the [GET /token/validate](../endpoints/get-token-validate.md) endpoi
 
 ### How can I test the refresh token logout workflow?
 
-You can use the `optout@email.com` email address or the `+00000000000` phone number to test your token refresh workflow. Using the email address or phone number in request always generates an identity response with a `refresh_token` that results in a logout response.
+You can use the `optout@email.com` email address or the `+00000000000` phone number to test your token refresh workflow. Using either parameter value in a request always generates an identity response with a `refresh_token` that results in a logout response.
 
 1. Depending on whether the PII is an email address or a phone number, send a [GET /token/generate](../endpoints/get-token-generate.md) request using one of the following values:
     - The `optout@email.com` as the `email` value.
