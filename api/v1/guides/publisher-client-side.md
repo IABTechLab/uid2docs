@@ -136,8 +136,8 @@ You can use the [GET /token/validate](../endpoints/get-token-validate.md) endpoi
     - The [URL-encoded, base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hash of `+12345678901` as the `phone_hash` value.
 2. Store the returned `advertising_token` for use in the following step.
 3. Send a [GET /token/validate](../endpoints/get-token-validate.md) request using the `email`, `email_hash`, `phone`, or `phone_hash` value that you sent in step 1 and the `advertising_token` (saved in step 2) as the `token` property value. 
-    - If the response returns `true`, the PII that you sent as a request in step 1 match the token you received in the response of step 1. 
-    - If it returns `false`, there may be an issue with the way you are sending email addresses, phone numbers, or their respective hashes.
+    - If the response returns `true`, it indicates that the PII that you sent as a request in step 1 matches the token you received in the response of step 1. 
+    - If it returns `false`, it indicates that there may be an issue with the way you are sending email addresses, phone numbers, or their respective hashes.
 
 ### How can I test the refresh token logout workflow?
 
