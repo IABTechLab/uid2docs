@@ -67,6 +67,14 @@ No, publishers do not need to decrypt tokens.
 ### How will I be notified of user opt-out?
 The token refresh process handles user opt-outs. The [GET /token/refresh](../endpoints/get-token-refresh.md) returns empty identity and the optout status for the user. To resume using UID2-based targeted advertising, the user needs to log in again to re-establish the UID2 identity.
 
+### Where should I make token generation calls, from the server or client side?
+
+UID2 tokens must be generated only on the server side after authentication. In other words, to ensure that the API key used to access the service remains secret, the [GET /token/generate](../endpoints/get-token-generate.md) endpoint must be called only from the server side.
+
+### Can I make token refresh calls from the client side?
+
+Yes. The [GET /token/refresh](../endpoints/get-token-refresh.md) can be called from the client side (for example, a browser or a mobile app) because it does not require using an API key.
+
 ### What is the uniqueness and rotation policy for UID2 token?
 
 The UID2 service encrypts tokens using random initialization vectors. The encrypted UID2 is unique for a given user as they browse the internet. At every refresh, the token re-encrypts. This mechanism ensures that untrusted parties cannot track a user's identity.

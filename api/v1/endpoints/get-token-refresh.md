@@ -3,6 +3,8 @@
 # GET /token/refresh
 Generate a new token for a user by specifying their refresh token issued by using the [GET /token/generate](./get-token-generate.md) endpoint.
 
+>NOTE: This endpoint can be called from the client side (for example, a browser or a mobile app) because it does not require using an API key.
+
 The following integration workflows use this endpoint:
 * [Publisher - Standard](../guides/publisher-client-side.md)
 * [Publisher - Custom](../guides/custom-publisher-integration.md)
@@ -27,7 +29,10 @@ The following integration workflows use this endpoint:
 
 #### Testing Notes
 
-Using the `optout@email.com` email address in [GET /token/generate](./get-token-generate.md) request always generates an identity response with a `refresh_token` that results in a logout response when used with this endpoint.
+Using either of the following parameters in a [GET /token/generate](./get-token-generate.md) request always generates an identity response with a `refresh_token` that results in a logout response when used with the `GET /token/refresh` endpoint:
+
+- The `optout@email.com` email address
+- The `+00000000000` phone number
 
 ### Request Example
 

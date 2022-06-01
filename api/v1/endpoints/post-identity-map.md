@@ -2,11 +2,11 @@
 
 # POST /identity/map
 
-Map multiple email addresses or email hashes to their UID2s and salt bucket IDs. This endpoint is intended for use by [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md).
+Map multiple email addresses, phone numbers, or respective hashes to their UID2s and salt bucket IDs. This endpoint is intended for use by [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md).
 
 Here's what you need to know:
 - The maximum request size is 1MB. 
-- To map a large number of email addresses or email hashes, send them in *sequential* batches with a maximum batch size of 5,000 emails or hashes per batch.
+- To map a large number of email addresses, phone numbers, or respective hashes, send them in *sequential* batches with a maximum batch size of 5,000 items per batch.
 - Do not send batches in parallel.
 
 
@@ -23,12 +23,14 @@ Here's what you need to know:
 
 ###  Request Body Parameters
 
-You must include only one of the following two parameters. 
+You must include only one of the following four parameters. 
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `email` | string array | Conditionally Required | The list of email addresses to be mapped. |
-| `email_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hashes of the [normalized](../../README.md#email-address-normalization) email addresses. |
+| `email_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hashes of [normalized](../../README.md#email-address-normalization) email addresses. |
+| `phone` | string array | Conditionally Required | The list of [normalized](../../README.md#phone-number-normalization) phone numbers to be mapped. |
+| `phone_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hashes of  [normalized](../../README.md#phone-number-normalization) phone numbers. |
 
 
 ### Request Examples
@@ -53,9 +55,31 @@ curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Beare
     ]    
 }'
 ```
+
+A mapping request for phone numbers:
+
+```sh
+curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
+    "phone":[
+        "+1111111111",
+        "+2222222222"
+    ]  
+}'
+```
+A mapping request for phone number hashes:
+
+```sh
+curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
+    "phone_hash":[
+        "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
+        "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
+    ]    
+}'
+```
+
 ## Response Format
 
-The response returns the UID2s and salt bucket IDs for the specified email addresses or hashes.
+The response returns the UID2s and salt bucket IDs for the specified email addresses, phone numbers, or respective hashes.
 
 ```json
 {
@@ -81,7 +105,7 @@ The response returns the UID2s and salt bucket IDs for the specified email addre
 
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
-| `identifier` | string | The email address or email address hash specified in the request body. |
+| `identifier` | string | The email address, phone number, or respective hash specified in the request body. |
 | `advertising_id` | string | The corresponding advertising ID (raw UID2). |
 | `bucket_id` | string | The ID of the salt bucket used to generate the UID2. |
 
