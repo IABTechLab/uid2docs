@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > v2 > [Endpoints](./README.md) > POST /token/refresh
+[UID2 API Documentation](../../README.md) > [v2](../README.md) > [Endpoints](./README.md) > POST /token/refresh
 
 # POST /token/refresh
 Generate a new token for a user by specifying their refresh token issued by using the [POST /token/generate](./post-token-generate.md) endpoint.
@@ -79,6 +79,6 @@ The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md) uses 
 | `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
 
 
-For response status values, see [Response Structure and Status Codes](../../../api/README.md#response-structure-and-status-codes).
+For response status values, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
 
 
