@@ -1,6 +1,6 @@
-[UID2 API Documentation](../../README.md) > v1 > [SDKs](./README.md) > Client-Side Identity
+[UID2 API Documentation](../../README.md) > v2 > [SDKs](./README.md) > Client-Side Identity
 
-# Client-Side Identity JavaScript SDK (v1)
+# Client-Side Identity JavaScript SDK (v2)
 
 >NOTE: This documentation is for version 1 of the SDK. For the previous version, see [SDK version 0](./client-side-identity-v0.md).
 
