@@ -73,5 +73,5 @@ The DSP is not privy to when the UID2 salt bucket rotates. This is similar to a 
 The UID2 service does not introduce latency into the bidding process. Any latency experienced can be attributed to the network, not the UID2 service.
 
 ### How should the DSP maintain proper frequency capping with UID2?
-The UID2 has the same chance as a cookie of becoming stale. Hence, the DSP can adapt the same infrastructure currently used for cookie or deviceID-based frequency capping for UID2. For details, see this [FAQ](../advertiser-dataprovider-guide.md#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation) on salt bucket rotation. 
+The UID2 has the same chance as a cookie of becoming stale. Hence, the DSP can adapt the same infrastructure currently used for cookie or deviceID-based frequency capping for UID2. For details, see this [FAQ](../advertiser-dataprovider-guide.md) on salt bucket rotation. 
 
