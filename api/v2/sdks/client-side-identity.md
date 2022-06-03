@@ -8,28 +8,11 @@ Use this UID2 SDK to facilitate the process of establishing client identity usin
 
 >NOTE: Within this documentation, the term "identity" refers to a package of UID2 tokens, including the advertising token.
 
-### Improvements and Changes from Version 0
+### Improvements and Changes from Version 1
 
-With the v1 updates to the UID2 SDK, you can now take advantage of the following: 
+With the v2 updates to the UID2 SDK, you can now take advantage of the following: 
 
-- The latest enhancements in the UID2 services.
-- Asynchronous notifications received when the advertising token is ready, is updated, or becomes unavailable.<br/>This makes integration with targeted advertising more straightforward and provides a clearer implementation path for the publisher workflow.
-- A more efficient token auto-refresh process that ensures continuity of targeted advertising.
-- More granular control over how the SDK works behind the scenes to fine-tune it to your needs.
-
->IMPORTANT: Version 1 of the UID2 SDK supports the version 0 cookies for user session continuity, but it is not backward-compatible and requires the code changes listed below. 
-
-The following table lists specific updates to the SDK.
-
-| Change | Description |
-|:--- |:--- |
-| New required [callback function](#callback-function) | The callback must be provided to the [init()](#initopts-object-void) function. The callback is invoked  after the initialization process is complete. |
-| [Background token auto-refresh](#background-token-auto-refresh) | After `init()` completes and while the identity refresh token is valid, the UID2 SDK periodically refreshes the identity in background.  |
-| New `opts` [object parameters](#parameters) in `init()` |  The `opts` object passed as an argument to the [init()](#initopts-object-void) function can now include optional parameters that allow configuring the UID2 first-party cookie, the UID2 operator URL to refresh the identity, and the refresh check and retry period. |
-| Updated [getAdvertisingToken()](#getadvertisingtoken-string) return value | The `getAdvertisingToken()` function can now return `undefined`. |
-| New [getAdvertisingTokenAsync()](#getadvertisingtokenasync-promise) function | The function returns a promise that is settled when the initialization is complete. |
-| New [abort()](#abort-void) function | The function  allows termination of any background processing performed by the UID2 SDK. | 
-
+- TBD
 
 
 ## Include the SDK Script
