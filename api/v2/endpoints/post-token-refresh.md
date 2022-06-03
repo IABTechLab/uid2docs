@@ -1,7 +1,7 @@
-[UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /token/refresh
+[UID2 API Documentation](../../README.md) > v2 > [Endpoints](./README.md) > POST /token/refresh
 
-# GET /token/refresh
-Generate a new token for a user by specifying their refresh token issued by using the [GET /token/generate](./get-token-generate.md) endpoint.
+# POST /token/refresh
+Generate a new token for a user by specifying their refresh token issued by using the [POST /token/generate](./post-token-generate.md) endpoint.
 
 >NOTE: This endpoint can be called from the client side (for example, a browser or a mobile app) because it does not require using an API key.
 
@@ -11,25 +11,25 @@ The following integration workflows use this endpoint:
 
 ## Request Format 
 
-```GET '{environment}/{version}/token/refresh?refresh_token={queryParameterValue}'```
+```POST '{environment}/{version}/token/refresh?refresh_token={queryParameterValue}'```
 
 ### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
-| `{version}` | string | Required | The current API version is `v1`. |
+| `{version}` | string | Required | The current API version is `v2`. |
 
 ###  Query Parameters
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `refresh_token` | string | Required | The refresh token returned in the [GET /token/generate](./get-token-generate.md) response.<br/>IMPORTANT: If the refresh token was generated with URL-decoded characters, make sure to encode it as a query parameter. For details, see [Query Parameter Value Encoding](../../../api/README.md#query-parameter-value-encoding). |
+| `refresh_token` | string | Required | The refresh token returned in the [POST /token/generate](./post-token-generate.md) response.<br/>IMPORTANT: If the refresh token was generated with URL-decoded characters, make sure to encode it as a query parameter. For details, see [Query Parameter Value Encoding](../../../api/README.md#query-parameter-value-encoding). |
 
 
 #### Testing Notes
 
-Using either of the following parameters in a [GET /token/generate](./get-token-generate.md) request always generates an identity response with a `refresh_token` that results in a logout response when used with the `GET /token/refresh` endpoint:
+Using either of the following parameters in a [POST /token/generate](./post-token-generate.md) request always generates an identity response with a `refresh_token` that results in a logout response when used with the `POST /token/refresh` endpoint:
 
 - The `optout@email.com` email address
 - The `+00000000000` phone number
@@ -37,7 +37,7 @@ Using either of the following parameters in a [GET /token/generate](./get-token-
 ### Request Example
 
 ```sh
-curl -L -X GET 'https://integ.uidapi.com/v1/token/refresh?refresh_token=RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq%2F90PYmajV0IPrvo51Biqh7%2FM%2BJOuhfBY8KGUn%2F%2FGsmZr9nf%2BjIWMUO4diOA92kCTF69JdP71Ooo%2ByF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA%3D%3D'
+curl -L -X POST 'https://integ.uidapi.com/v2/token/refresh?refresh_token=RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq%2F90PYmajV0IPrvo51Biqh7%2FM%2BJOuhfBY8KGUn%2F%2FGsmZr9nf%2BjIWMUO4diOA92kCTF69JdP71Ooo%2ByF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA%3D%3D'
 ```
 
 ## Response Format
@@ -66,7 +66,7 @@ If a user opted out before the refresh request, the following response will be r
     "status": "optout"
 }
 ```
-The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) uses this endpoint response payloads to establish and manage the user identity during a user session lifecycle.
+The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v2.md) uses this endpoint response payloads to establish and manage the user identity during a user session lifecycle.
 
 ### Response Body Properties
 
@@ -75,7 +75,7 @@ The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) us
 | `advertising_token` | string | An encrypted advertising (UID2) token for the user. |
 | `refresh_token` | string | An encrypted token that can be exchanged with the UID2 Service for the latest set of identity tokens. |
 | `identity_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the advertising token expires. |
-| `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) will start refreshing the advertising token.</br>TIP: If you are not using the SDK, consider refreshing the advertising token from this timestamp, too. |
+| `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v2.md) will start refreshing the advertising token.</br>TIP: If you are not using the SDK, consider refreshing the advertising token from this timestamp, too. |
 | `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
 
 
