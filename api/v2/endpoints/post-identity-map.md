@@ -38,7 +38,7 @@ You must include only one of the following four parameters.
 A mapping request for email addresses:
 
 ```sh
-curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
+curl -L -X POST 'https://integ.uidapi.com/v2/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
     "email":[
         "user@example.com",
         "user2@example.com"
@@ -48,7 +48,7 @@ curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Beare
 A mapping request for email address hashes:
 
 ```sh
-curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
+curl -L -X POST 'https://integ.uidapi.com/v2/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
     "email_hash":[
         "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
         "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
@@ -59,7 +59,7 @@ curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Beare
 A mapping request for phone numbers:
 
 ```sh
-curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
+curl -L -X POST 'https://integ.uidapi.com/v2/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
     "phone":[
         "+1111111111",
         "+2222222222"
@@ -69,7 +69,7 @@ curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Beare
 A mapping request for phone number hashes:
 
 ```sh
-curl -L -X POST 'https://integ.uidapi.com/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
+curl -L -X POST 'https://integ.uidapi.com/v2/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
     "phone_hash":[
         "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
         "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
