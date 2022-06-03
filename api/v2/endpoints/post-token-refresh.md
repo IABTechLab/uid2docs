@@ -24,7 +24,7 @@ The following integration workflows use this endpoint:
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `refresh_token` | string | Required | The refresh token returned in the [POST /token/generate](./post-token-generate.md) response.<br/>IMPORTANT: If the refresh token was generated with URL-decoded characters, make sure to encode it as a query parameter. For details, see [Query Parameter Value Encoding](../../../api/README.md#query-parameter-value-encoding). |
+| `refresh_token` | string | Required | The refresh token returned in the [POST /token/generate](./post-token-generate.md) response. |
 
 
 #### Testing Notes
