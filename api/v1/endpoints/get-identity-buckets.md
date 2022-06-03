@@ -60,4 +60,4 @@ The response returns a list of salt bucket IDs and the timestamps of their last 
 | `bucket_id` | string | The salt bucket ID. |
 | `last_updated` | date-time | The UTC timestamp of the last time the bucket salt was rotated. |
 
-For response status values, see [Response Status Codes](../../../api/README.md#response-status-codes).
+For response status values, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
