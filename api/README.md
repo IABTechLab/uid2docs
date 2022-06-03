@@ -4,11 +4,12 @@ For UID2 definition, forms, guiding principles, components, and other conceptual
 
 This page provides the following information required for you to get started with the UID2 API:
 * [Contact Info](#contact-info)
+* [API Versions](#api-versions)
 * [Environment](#environment)
 * [Authentication](#authentication)
 * [Email Address Normalization](#email-address-normalization)
 * [Phone Number Normalization](#phone-number-normalization)
-* [ResponseStatus Codes](#response-status-codes)
+* [Response Status Codes](#response-status-codes)
 * [License](#license)
 
 
@@ -22,6 +23,12 @@ To access to UID2, contact the appropriate team at The Trade Desk listed below.
 | :--- | :--- |
 | App Developer<br>Publisher | UID2publishers@thetradedesk.com |
 | Agency<br>Brand<br>CDP<br>Data Provider<br>DSP<br>SSP | UID2partners@thetradedesk.com |
+
+## API Versions
+
+Currently, there are two versions of the UID2 APIs: [v1](./v1/README.md) and [v2](./v1/README.md).
+
+TBD on differences
 
 ## Environment 
 
