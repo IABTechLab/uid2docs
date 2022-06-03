@@ -6,7 +6,6 @@ This page provides the following information required for you to get started wit
 * [Contact Info](#contact-info)
 * [API Versions](#api-versions)
 * [Environment](#environment)
-* [Authentication](#authentication)
 * [Email Address Normalization](#email-address-normalization)
 * [Phone Number Normalization](#phone-number-normalization)
 * [Response Status Codes](#response-status-codes)
@@ -40,12 +39,6 @@ All UID2 endpoints use the same base URL.
 | Production | ```https://prod.uidapi.com/{version}``` |
 
 For example, https://integ.uidapi.com/v2/token/generate
-
-## Authentication
-
-To authenticate to UID2 endpoints, use a bearer token in the request's authorization header. 
-
-```Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=```
 
 
 ## Email Address Normalization
