@@ -1,37 +1,24 @@
-# Unified ID 2.0 API Documentation
+# UID2 API v1 Documentation
 
-For UID2 definition, forms, guiding principles, components, and other conceptual details, see [UID2 Overview](../README.md).
+For UID2 definition, forms, guiding principles, components, and other conceptual details, see [UID2 Overview](../README.md). For contact information, authentication, and license information, see [Unified ID 2.0 API](./README.md).
 
-This page provides the following information required for you to get started with the UID2 API:
-* [Contact Info](#contact-info)
+This page provides the following information required for you to get started with the UID2 API v1:
+
 * [Environment](#environment)
-* [Authentication](#authentication)
 * [Query Parameter Value Encoding](#query-parameter-value-encoding)
 * [Email Address Normalization](#email-address-normalization)
 * [Email Address Hash Encoding](#email-address-hash-encoding)
 * [Phone Number Normalization](#phone-number-normalization)
 * [Phone Number Hash Encoding](#phone-number-hash-encoding)
 * [Response Structure and Status Codes](#response-structure-and-status-codes)
-* [License](#license)
 
-For details on using the API, see the following pages.
+For details on using the v1 UID2 API, see the following pages.
 
 | Documentation | Content Description |
 | :--- | :--- |
 | [Endpoints](./v1/endpoints/README.md) | API reference for managing identity tokens and mapping email addresses, phone numbers, or hashes to their UID2s and salt bucket IDs used to generate the UID2s. |
 | [Integration Guides](./v1/guides/README.md) | UID2 integration workflows for UID2 participants, such as publishers, DSPs, advertisers, and data providers, as well as Operator Enterprise Partners, such as Microsoft Azure, AWS, and Snowflake. |
 | [SDKs](./v1/sdks/README.md) | Client-side JavaScript for websites and RTB SDKs. | 
-
-## Contact Info
-
-To access to UID2, contact the appropriate team at The Trade Desk listed below. 
-
->Contacting The Trade Desk for access is temporary. When the system is moved to independent governance, the governing organizations will handle access requests.
-
-| Your Role | Contact Email |
-| :--- | :--- |
-| App Developer<br>Publisher | UID2publishers@thetradedesk.com |
-| Agency<br>Brand<br>CDP<br>Data Provider<br>DSP<br>SSP | UID2partners@thetradedesk.com |
 
 ## Environment 
 
@@ -44,11 +31,6 @@ All UID2 endpoints use the same base URL.
 
 For example, https://integ.uidapi.com/v1/token/generate
 
-## Authentication
-
-To authenticate to UID2 endpoints, use a bearer token in the request's authorization header. 
-
-```Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=```
 
 ## Query Parameter Value Encoding
 
@@ -127,6 +109,3 @@ The following table lists the `status` property values and their HTTP status cod
 | `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
 | `invalid_token` | 400 | The request had an invalid identity token specified. This status is returned only for authorized requests. |
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
-
-## License
-All work and artifacts are licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).
