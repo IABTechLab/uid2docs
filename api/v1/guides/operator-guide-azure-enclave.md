@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > v1 > [Integration Guides](README.md) > Microsoft Azure
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > Microsoft Azure
 
 # Microsoft Azure Confidential Compute Operator Package
 
