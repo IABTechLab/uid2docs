@@ -8,7 +8,7 @@
 | :--- | :--- |
 | [POST /token/generate](./post-token-generate.md) | Generate a UID2 token from an email address, phone number, or the respective hash. |
 | [POST /token/validate](./post-token-validate.md) | Validate that an advertising token (UID2) matches the specified email address, phone number, or the respective hash. |
-| [POST /token/refresh](./post-token-refresh.md) | Generate a new token for a user for their refresh token from the [GET /token/generate](./get-token-generate.md) response. |
+| [POST /token/refresh](./post-token-refresh.md) | Generate a new token for a user for their refresh token from the [POST /token/generate](./post-token-generate.md) response. |
 
 ## Identity Maps
 
