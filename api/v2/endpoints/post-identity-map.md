@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > POST /identity/map
+[UID2 API Documentation](../../README.md) > v2 > [Endpoints](./README.md) > POST /identity/map
 
 # POST /identity/map
 
@@ -19,7 +19,7 @@ Here's what you need to know:
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
-| `{version}` | string | Required | The current API version is `v1`. |
+| `{version}` | string | Required | The current API version is `v2`. |
 
 ###  Request Body Parameters
 
@@ -28,9 +28,9 @@ You must include only one of the following four parameters.
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `email` | string array | Conditionally Required | The list of email addresses to be mapped. |
-| `email_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hashes of [normalized](../../README.md#email-address-normalization) email addresses. |
+| `email_hash` | string array | Conditionally Required | The list of hashes of [normalized](../../README.md#email-address-normalization) email addresses. |
 | `phone` | string array | Conditionally Required | The list of [normalized](../../README.md#phone-number-normalization) phone numbers to be mapped. |
-| `phone_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hashes of  [normalized](../../README.md#phone-number-normalization) phone numbers. |
+| `phone_hash` | string array | Conditionally Required | The list of hashes of [normalized](../../README.md#phone-number-normalization) phone numbers. |
 
 
 ### Request Examples
