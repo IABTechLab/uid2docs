@@ -1,6 +1,6 @@
-[UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /identity/buckets
+[UID2 API Documentation](../../README.md) > v2 > [Endpoints](./README.md) > POST /identity/buckets
 
-# GET /identity/buckets
+# POST /identity/buckets
 
 Monitor rotated salt buckets. This endpoint is intended for use by [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md).
 
@@ -9,25 +9,25 @@ Monitor rotated salt buckets. This endpoint is intended for use by [Advertisers/
 
 ## Request Format
 
-```GET '{environment}/{version}/identity/buckets?since_timestamp={queryParameterValue}'```
+```POST '{environment}/{version}/identity/buckets?since_timestamp={queryParameterValue}'```
 
 ### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
-| `{version}` | string | Required | The current API version is `v1`. |
+| `{version}` | string | Required | The current API version is `v2`. |
 
 ### Query Parameters
 
 | Query Parameter | Data Type | Attribute | Description | Format |
 | :--- | :--- | :--- | :--- | :--- |
-| `since_timestamp` | date-time or integer | Required | Specify the date and time to which to compare the last updated UTC timestamps of the buckets to be returned. | ISO 8601 format:<br/>`YYYY-MM-DDThh:mm:ss`<br/>Ensure that the parameter value is URL-encoded. |
+| `since_timestamp` | date-time or integer | Required | Specify the date and time to which to compare the last updated UTC timestamps of the buckets to be returned. | ISO 8601 format:<br/>`YYYY-MM-DDThh:mm:ss` |
 
 ### Request Example
 
 ```curl
-curl -L -X GET 'https://integ.uidapi.com/v1/identity/buckets?since_timestamp=2021-03-01T01%3A01%3A01' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X POST 'https://integ.uidapi.com/v2/identity/buckets?since_timestamp=2021-03-01T01%3A01%3A01' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
 ## Response Format
