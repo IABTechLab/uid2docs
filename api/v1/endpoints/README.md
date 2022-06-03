@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > v1 > Endpoints
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > Endpoints
 
 # UID2 Endpoints
 
