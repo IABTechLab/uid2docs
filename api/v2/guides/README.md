@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > v2 > Integration Guides
+[UID2 API Documentation](../../README.md) > [v2](../README.md) > Integration Guides
 
 # UID2 Integration Guides
 
