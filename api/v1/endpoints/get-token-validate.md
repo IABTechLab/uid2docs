@@ -24,7 +24,7 @@ Validate that an advertising token matches the specified hashed or unhashed emai
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `token` | string | Required | The advertising token returned by the [GET /token/generate](./get-token-generate.md) response.<br/>IMPORTANT: If the token was generated with URL-decoded characters, make sure to encode it as a query parameter. For details, see [Query Parameter Value Encoding](../../../api/README.md#query-parameter-value-encoding). |
+| `token` | string | Required | The advertising token returned by the [GET /token/generate](./get-token-generate.md) response.<br/>IMPORTANT: If the token was generated with URL-decoded characters, make sure to encode it as a query parameter. For details, see [Query Parameter Value Encoding](../README.md#query-parameter-value-encoding). |
 | `email` | string | Conditionally Required |  The [URL-encoded](../README.md#query-parameter-value-encoding) email address for token validation. |
 | `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../README.md#email-address-hash-encoding) hash of a [normalized](../README.md#email-address-normalization) email address for token validation. |
 | `phone` | string | Conditionally Required | The [normalized](../README.md#phone-number-normalization) and [URL-encoded](../README.md#query-parameter-value-encoding) phone number for which to generate tokens. |
