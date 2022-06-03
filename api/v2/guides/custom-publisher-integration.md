@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > v2 > [Integration Guides](README.md) > Custom Publisher Integration Guide 
+[UID2 API Documentation](../../README.md) > [v2](../README.md) > [Integration Guides](README.md) > Custom Publisher Integration Guide 
 
 # Server-Only UID2 Integration Guide
 
