@@ -1,16 +1,14 @@
-[UID2 API Documentation](../../README.md) > v1 > [Integration Guides](README.md) > Publisher Integration Guide
+[UID2 API Documentation](../../README.md) > v2 > [Integration Guides](README.md) > Publisher Integration Guide
 
 # UID2 SDK Integration Guide
-
->NOTE: This guide is intended for the UID2 SDK [version 1](../sdks/client-side-identity-v1.md). For the *Integration Guide* using the [previous version](../sdks/client-side-identity-v0.md) of the UID2 SDK, see [Publisher Integration Guide (Standard)](./publisher-client-side-v0.md).
 
 This guide is intended for publishers with web assets who would like to generate identity tokens utilizing UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
 
 The guide outlines the [basic steps](#integration-steps) that you need to consider for your integration. For example, you need to decide how to implement user login and logout, how to manage UID2 identity information and use it for targeted advertising, how to refresh tokens, deal with missing identities, and handle user opt-outs. See also [FAQs](#faqs).
 
-To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md), also known as the UID2 SDK. Here's an [example application](https://example-jssdk-integ.uidapi.com/) that illustrates the integration steps described in this guide and the usage of the SDK (currently only for email addresses). For the application documentation, see [UID2 SDK Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/standard/README.md).
+To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md), also known as the UID2 SDK. Here's an [example application](https://example-jssdk-integ.uidapi.com/) that illustrates the integration steps described in this guide and the usage of the SDK (currently only for email addresses). For the application documentation, see [UID2 SDK Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/standard/README.md).
 
->IMPORTANT: The UID2 SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the [UID2 SDK APIs](../sdks/client-side-identity-v1.md#api-reference) for your identity management.
+>IMPORTANT: The UID2 SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the [UID2 SDK APIs](../sdks/client-side-identity.md#api-reference) for your identity management.
 
 For custom integration scenarios for app developers and CTV broadcasters without utilizing the UID2 SDK, see [Server-Only Integration Guide](./custom-publisher-integration.md). 
 
@@ -35,9 +33,9 @@ After authentication in step 1-c, which forces the user to accept the rules of e
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
-| 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | After the user authenticates and authorizes the creation of a UID2, use the [GET /token/generate](../endpoints/get-token-generate.md) endpoint to generate a UID2 token using the provided normalized and URL-encoded email address or phone number of the user. |
-| 1-e | [GET /token/generate](../endpoints/get-token-generate.md) | Return a UID2 token generated from the user's email address, phone number, or the respective hash. |
-| 1-f | [UID2 SDK](../sdks/client-side-identity-v1.md) | Send the returned UID2 token from step 1-e to the SDK in the `identity` property of its [init() function](../sdks/client-side-identity-v1.md#initopts-object-void) and specify a [callback function](../sdks/client-side-identity-v1.md#callback-function) as shown below. The mechanism ensures that UID2 tokens are available for the user for targeting advertising until they log out. |
+| 1-d | [POST /token/generate](../endpoints/post-token-generate.md) | After the user authenticates and authorizes the creation of a UID2, use the [POST /token/generate](../endpoints/post-token-generate.md) endpoint to generate a UID2 token using the provided normalized email address or phone number of the user. |
+| 1-e | [POST /token/generate](../endpoints/post-token-generate.md) | Return a UID2 token generated from the user's email address, phone number, or the respective hash. |
+| 1-f | [UID2 SDK](../sdks/client-side-identity.md) | Send the returned UID2 token from step 1-e to the SDK in the `identity` property of its [init() function](../sdks/client-side-identity.md#initopts-object-void) and specify a [callback function](../sdks/client-side-identity.md#callback-function) as shown below. The mechanism ensures that UID2 tokens are available for the user for targeting advertising until they log out. |
 
 
 ```html
@@ -66,15 +64,15 @@ For example:
 </script>
 ```
 
-The SDK invokes the specified [callback function](../sdks/client-side-identity-v1.md#callback-function) (which indicates the identity availability) and makes the established identity available client-side for bidding. 
+The SDK invokes the specified [callback function](../sdks/client-side-identity.md#callback-function) (which indicates the identity availability) and makes the established identity available client-side for bidding. 
 
 ### Bid Using UID2 Tokens
 
-Based on the status and availability of a valid identity, the SDK sets up the background token auto-refresh, stores identity information in a [first-party cookie](../sdks/client-side-identity-v1.md#uid2-cookie-format), and uses it to initiate requests for targeted advertising.
+Based on the status and availability of a valid identity, the SDK sets up the background token auto-refresh, stores identity information in a [first-party cookie](../sdks/client-side-identity.md#uid2-cookie-format), and uses it to initiate requests for targeted advertising.
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
-| 2-a | [UID2 SDK](../sdks/client-side-identity-v1.md) | Get the current user's advertising token by using the [getAdvertisingToken() function](../sdks/client-side-identity-v1.md#getadvertisingtoken-string) as shown below. |
+| 2-a | [UID2 SDK](../sdks/client-side-identity.md) | Get the current user's advertising token by using the [getAdvertisingToken() function](../sdks/client-side-identity.md#getadvertisingtoken-string) as shown below. |
 
 
 ```html
@@ -87,12 +85,12 @@ Based on the status and availability of a valid identity, the SDK sets up the ba
 
 ### Refresh Tokens
 
-As part of its initialization, the SDK sets up a [token auto-refresh](../sdks/client-side-identity-v1.md#background-token-auto-refresh) for the identity, which is triggered in the background by the timestamps on the identity or failed refresh attempts due intermittent errors.
+As part of its initialization, the SDK sets up a [token auto-refresh](../sdks/client-side-identity.md#background-token-auto-refresh) for the identity, which is triggered in the background by the timestamps on the identity or failed refresh attempts due intermittent errors.
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
-| 3-a | [UID2 SDK](../sdks/client-side-identity-v1.md) | The SDK automatically refreshes UID2 tokens in the background. No manual action is required. |
-| 3-b | [UID2 SDK](../sdks/client-side-identity-v1.md) | If the user hasn't opted out, the [GET /token/refresh](../endpoints/get-token-refresh.md) automatically returns new identity tokens. |
+| 3-a | [UID2 SDK](../sdks/client-side-identity.md) | The SDK automatically refreshes UID2 tokens in the background. No manual action is required. |
+| 3-b | [UID2 SDK](../sdks/client-side-identity.md) | If the user hasn't opted out, the [POST /token/refresh](../endpoints/post-token-refresh.md) automatically returns new identity tokens. |
 
 
 ### Clear Identity: User Logout
@@ -102,7 +100,7 @@ The client lifecycle is complete when the user decides to log out from the publi
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
 | 4-a | N/A | The user logs out from the publisher's asset. |
-| 4-b | [UID2 SDK](../sdks/client-side-identity-v1.md) | Clear the UID2 identity from the first-party cookie and disconnect the client lifecycle by using the [disconnect() function](../sdks/client-side-identity-v1.md#disconnect-void) as shown below.|
+| 4-b | [UID2 SDK](../sdks/client-side-identity1.md) | Clear the UID2 identity from the first-party cookie and disconnect the client lifecycle by using the [disconnect() function](../sdks/client-side-identity.md#disconnect-void) as shown below.|
 
 
 ```html
@@ -115,27 +113,27 @@ The client lifecycle is complete when the user decides to log out from the publi
 
 ### How will I be notified of user opt-out?
 
-The [UID2 SDK](../sdks/client-side-identity-v1.md) background token auto-refresh process handles user opt-outs. If user opts out, when the UID2 SDK attempts token refresh, it will learn about the optout and will clear the session (including the cookie) and invoke the callback with the `OPTOUT` status.
+The [UID2 SDK](../sdks/client-side-identity.md) background token auto-refresh process handles user opt-outs. If user opts out, when the UID2 SDK attempts token refresh, it will learn about the optout and will clear the session (including the cookie) and invoke the callback with the `OPTOUT` status.
 
 ### Where should I make token generation calls, from the server or client side?
 
-UID2 tokens must be generated only on the server side after authentication. In other words, to ensure that the API key used to access the service remains secret, the [GET /token/generate](../endpoints/get-token-generate.md) endpoint must be called only from the server side.
+UID2 tokens must be generated only on the server side after authentication. In other words, to ensure that the API key used to access the service remains secret, the [POST /token/generate](../endpoints/post-token-generate.md) endpoint must be called only from the server side.
 
 ### Can I make token refresh calls from the client side?
 
-Yes. The [GET /token/refresh](../endpoints/get-token-refresh.md) can be called from the client side (for example, a browser or a mobile app) because it does not require using an API key.
+Yes. The [POST /token/refresh](../endpoints/post-token-refresh.md) can be called from the client side (for example, a browser or a mobile app) because it does not require using an API key.
 
 ### How can I test that the PII sent and returned tokens match?
 
-You can use the [GET /token/validate](../endpoints/get-token-validate.md) endpoint to check whether the PII you are sending through [GET /token/generate](../endpoints/get-token-generate.md) is valid. 
+You can use the [POST /token/validate](../endpoints/post-token-validate.md) endpoint to check whether the PII you are sending through [POST /token/generate](../endpoints/post-token-generate.md) is valid. 
 
-1. Depending on whether the PII is an email address or a phone number, send a [GET /token/generate](../endpoints/get-token-generate.md) request using one of the following values:
+1. Depending on whether the PII is an email address or a phone number, send a [POST /token/generate](../endpoints/post-token-generate.md) request using one of the following values:
     - The `validate@email.com` as the `email` value.
-    - The [URL-encoded, base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of `validate@email.com` as the `email_hash` value. 
-    - The [URL-encoded](../../README.md#query-parameter-value-encoding) `+12345678901` as the `phone` value.
-    - The [URL-encoded, base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hash of `+12345678901` as the `phone_hash` value.
+    - The hash of `validate@email.com` as the `email_hash` value. 
+    - The `+12345678901` as the `phone` value.
+    - The hash of `+12345678901` as the `phone_hash` value.
 2. Store the returned `advertising_token` for use in the following step.
-3. Send a [GET /token/validate](../endpoints/get-token-validate.md) request using the `email`, `email_hash`, `phone`, or `phone_hash` value that you sent in step 1 and the `advertising_token` (saved in step 2) as the `token` property value. 
+3. Send a [POST /token/validate](../endpoints/post-token-validate.md) request using the `email`, `email_hash`, `phone`, or `phone_hash` value that you sent in step 1 and the `advertising_token` (saved in step 2) as the `token` property value. 
     - If the response returns `true`, it indicates that the PII you sent as a request in step 1 matches the token you received in the response of step 1. 
     - If it returns `false`, it indicates that there may be an issue with the way you are sending email addresses, phone numbers, or their respective hashes.
 
@@ -143,9 +141,9 @@ You can use the [GET /token/validate](../endpoints/get-token-validate.md) endpoi
 
 You can use the `optout@email.com` email address or the `+00000000000` phone number to test your token refresh workflow. Using either parameter value in a request always generates an identity response with a `refresh_token` that results in a logout response.
 
-1. Depending on whether the PII is an email address or a phone number, send a [GET /token/generate](../endpoints/get-token-generate.md) request using one of the following values:
+1. Depending on whether the PII is an email address or a phone number, send a [POST /token/generate](../endpoints/post-token-generate.md) request using one of the following values:
     - The `optout@email.com` as the `email` value.
-    - The [URL-encoded, base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of `optout@email.com` as the `email_hash` value. 
-    - The [URL-encoded](../../README.md#query-parameter-value-encoding) `+00000000000` as the `phone` value.
-    - The [URL-encoded, base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hash of `+00000000000` as the `phone_hash` value.
-2. Wait until the SDK's [background auto-refresh](../sdks/client-side-identity-v1.md#background-token-auto-refresh) attempts to refresh the advertising token (this can take several hours) and observe the refresh attempt fail with the `OPTOUT` status. At this point the SDK also clears the first-party cookie.
+    - The hash of `optout@email.com` as the `email_hash` value. 
+    - The `+00000000000` as the `phone` value.
+    - The hash of `+00000000000` as the `phone_hash` value.
+2. Wait until the SDK's [background auto-refresh](../sdks/client-side-identity.md#background-token-auto-refresh) attempts to refresh the advertising token (this can take several hours) and observe the refresh attempt fail with the `OPTOUT` status. At this point the SDK also clears the first-party cookie.
