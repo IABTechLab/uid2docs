@@ -79,4 +79,4 @@ The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) us
 | `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
 
 
-For response status values, see [Response Status Codes](../../../api/README.md#response-status-codes).
+For response status values, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
