@@ -6,12 +6,9 @@ This page provides the following information required for you to get started wit
 * [Contact Info](#contact-info)
 * [Environment](#environment)
 * [Authentication](#authentication)
-* [Query Parameter Value Encoding](#query-parameter-value-encoding)
 * [Email Address Normalization](#email-address-normalization)
-* [Email Address Hash Encoding](#email-address-hash-encoding)
 * [Phone Number Normalization](#phone-number-normalization)
-* [Phone Number Hash Encoding](#phone-number-hash-encoding)
-* [Response Structure and Status Codes](#response-structure-and-status-codes)
+* [ResponseStatus Codes](#response-status-codes)
 * [License](#license)
 
 
