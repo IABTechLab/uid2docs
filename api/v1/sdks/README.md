@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > v1 > SDKs
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > SDKs
 
 # SDKs
 
