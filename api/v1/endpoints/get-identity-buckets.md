@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /identity/buckets
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Endpoints](./README.md) > GET /identity/buckets
 
 # GET /identity/buckets
 
@@ -60,4 +60,4 @@ The response returns a list of salt bucket IDs and the timestamps of their last 
 | `bucket_id` | string | The salt bucket ID. |
 | `last_updated` | date-time | The UTC timestamp of the last time the bucket salt was rotated. |
 
-For response status values, see [Response Structure and Status Codes](../../../api/README.md#response-structure-and-status-codes).
+For response status values, see [Response Status Codes](../../../api/README.md#response-status-codes).
