@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > POST /identity/map
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Endpoints](./README.md) > POST /identity/map
 
 # POST /identity/map
 
@@ -28,9 +28,9 @@ You must include only one of the following four parameters.
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `email` | string array | Conditionally Required | The list of email addresses to be mapped. |
-| `email_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hashes of [normalized](../../README.md#email-address-normalization) email addresses. |
-| `phone` | string array | Conditionally Required | The list of [normalized](../../README.md#phone-number-normalization) phone numbers to be mapped. |
-| `phone_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hashes of  [normalized](../../README.md#phone-number-normalization) phone numbers. |
+| `email_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../README.md#email-address-hash-encoding) hashes of [normalized](../README.md#email-address-normalization) email addresses. |
+| `phone` | string array | Conditionally Required | The list of [normalized](../README.md#phone-number-normalization) phone numbers to be mapped. |
+| `phone_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../README.md#phone-number-hash-encoding) hashes of  [normalized](../README.md#phone-number-normalization) phone numbers. |
 
 
 ### Request Examples
@@ -109,4 +109,4 @@ The response returns the UID2s and salt bucket IDs for the specified email addre
 | `advertising_id` | string | The corresponding advertising ID (raw UID2). |
 | `bucket_id` | string | The ID of the salt bucket used to generate the UID2. |
 
-For response status values, see [Response Structure and Status Codes](../../../api/README.md#response-structure-and-status-codes).
+For response status values, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
