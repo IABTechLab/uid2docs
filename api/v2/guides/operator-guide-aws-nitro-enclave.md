@@ -1,4 +1,3 @@
-
 [UID2 API Documentation](../../README.md) > v2 > [Integration Guides](README.md) > Nitro Enclave
 
 # UID2 Operator: Nitro Enclave
