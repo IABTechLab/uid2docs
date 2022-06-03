@@ -75,5 +75,5 @@ The response returns the UID2 and salt bucket ID for the specified email address
 | `advertising_id` | string | The corresponding advertising ID (raw UID2). |
 | `bucket_id` | string | The ID of the salt bucket used to generate the UID2. |
 
-For response status values, see [Response Status Codes](../../../api/README.md#response-status-codes).
+For response status values, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
 
