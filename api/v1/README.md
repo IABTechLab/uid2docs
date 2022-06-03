@@ -5,6 +5,7 @@ For UID2 definition, forms, guiding principles, components, and other conceptual
 This page provides the following information required for you to get started with the UID2 API v1:
 
 * [Environment](#environment)
+* [Authentication](#authentication)
 * [Query Parameter Value Encoding](#query-parameter-value-encoding)
 * [Email Address Normalization](#email-address-normalization)
 * [Email Address Hash Encoding](#email-address-hash-encoding)
@@ -30,6 +31,12 @@ All UID2 endpoints use the same base URL.
 | Production | ```https://prod.uidapi.com/v1``` |
 
 For example, https://integ.uidapi.com/v1/token/generate
+
+## Authentication
+
+To authenticate to UID2 endpoints, use a bearer token in the request's authorization header. 
+
+```Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=```
 
 
 ## Query Parameter Value Encoding
