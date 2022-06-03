@@ -6,6 +6,7 @@ This page provides the following information required for you to get started wit
 
 * [Environment](#environment)
 * [Authentication](#authentication)
+* [Encryption](#encryption)
 * [Response Structure and Status Codes](#response-structure-and-status-codes)
 
 For details on using the API, see the following pages.
