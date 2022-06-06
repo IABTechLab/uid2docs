@@ -12,7 +12,7 @@ The following integration workflows use this endpoint:
 
 ## Request Format 
 
-```POST '{environment}/{version}/token/generate?{queryParameter}={queryParameterValue}'```
+```POST '{environment}/{version}/token/generate'```
 
 ### Path Parameters
 
@@ -21,47 +21,57 @@ The following integration workflows use this endpoint:
 | `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
 | `{version}` | string | Required | The current API version is `v2`. |
 
-###  Query Parameters
+###  Unencrypted JSON Body Parameters
 
->IMPORTANT: You must include only one of the following parameters.
+>IMPORTANT: You must include only one of the following parameters as a key-value pair in the body of a JSON request before encrypting it. TBD
 
-| Query Parameter | Data Type | Attribute | Description |
+| Body Parameter | Data Type | Attribute | Description | 
 | :--- | :--- | :--- | :--- |
-| `email` | string | Conditionally Required | The email address for which to generate tokens. |
+| `email` | string | Conditionally Required | The email address for which to generate tokens. | 
 | `email_hash` | string | Conditionally Required | The hash of a [normalized](../../README.md#email-address-normalization) email address. |
 | `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) phone number for which to generate tokens. |
-| `phone_hash` | string | Conditionally Required | The hash of a [normalized](../../README.md#phone-number-normalization) phone number. |
+| `phone_hash` | string | Conditionally Required | The hash of a [normalized](../../README.md#phone-number-normalization) phone number. | 
 
 
 ### Request Examples
 
 >IMPORTANT: To ensure that the API key used to access the service remains secret, the `POST /token/generate` endpoint must be called from the server side, unlike the [POST /token/refresh](./post-token-refresh.md), which does not require using an API key.
 
-A token generation request for an email address:
+Teh following are JSON examples of unencrypted token generation requests for each parameter:
 
-```sh
-curl -L -X POST 'https://integ.uidapi.com/v2/token/generate?email=username@example.com' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+```json
+{
+    "email": "username@example.com"
+}
+```
+```json
+{
+    "email_hash": "b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514"
+}
+```
+```json
+{
+    "phone": "+12345678901"
+}
+```
+```json
+{
+    "phone_hash": "c1d3756a586b6f0d419b3e3d1b328674fbc6c4b842367ee7ded780390fc548ae"
+}
 ```
 
-A token generation request for an email address hash:
+An encrypted token generation request:
 
 ```sh
-curl -L -X POST 'https://integ.uidapi.com/v2/token/generate?email_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X POST 'https://integ.uidapi.com/v2/token/generate' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/octet-stream'
+
+TBD Binary Encrypted Envelope 
 ```
 
-A token generation request for a phone number:
 
-```sh
-curl -L -X POST 'https://integ.uidapi.com/v2/token/generate?phone=%2B1111111111' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
-```
+## JSON Response Format 
 
-A token generation request for a phone number hash:
-
-```sh
-curl -L -X POST 'https://integ.uidapi.com/v2/token/generate?phone_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
-```
-
-## Response Format 
+TBD on the encrypted response.
 
 The response returns the user's advertising and refresh tokens for the specified email address, phone number, or the respective hash.  
 
