@@ -40,7 +40,7 @@ Here's what you need to know about UID2 API v2 compatibility with v1:
 - The v1 endpoints will be supported until the migration process is completed, with the approppiate notifications issued in a timely manner and with ample advance notice.
 - Client keys have been upgraded to be compantible with both v1 and v2 API.
 - Authorization tokens that are previously shared with UID2 partners will continue to work for accessing only UID2 v1 APIs.
-- 
+- TBD
 
 ## Environment 
 
@@ -66,7 +66,8 @@ To authenticate to UID2 endpoints, you need the following:
 
 TBD
 
-- [Generating Requests](./generate-request.md)
+- [Generating Encrypted Requests](./generate-encrypted-request.md)
+- [Decrypting REsponses](./decrypt-response.md)
 
 
 ## Response Structure and Status Codes
