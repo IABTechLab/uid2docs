@@ -18,6 +18,28 @@ For details on using the API, see the following pages.
 | [SDKs](./sdks/README.md) | Client-side JavaScript for websites and RTB SDKs. | 
 
 
+## Improvements and Changes from Version 1
+
+With the v2 updates to the UID2 API, you can now take advantage of the following:
+
+- Application API layer encryption that provides E2E content protection that prevents sensitive UID2 information from leaking to network operator or UID2 service operator.
+- Only POST methods with input parameters provided in the request body as in the JSON format and encrypted using a pre-shared key (PSK).
+- No parameter value encoding.
+- The POST /identity/map XREF endpoint that now retrieves UID2s and salt bucket IDs for one or multiple email addresses, phone numbers, or the respective hashes. 
+- In addition to the client `key` for authetication, a client `secret` is now required for encrypting API requests and decrypting API responses. XREF
+- TBD `Content-Type: application/octet-stream` 
+- TBD
+
+## Compatibility and Upgrade Requirements
+
+Here's what you need to know about UID2 API v2 compatibility with v1:
+
+- UID2 API v2 is not compantible with UID2 API v1 and required an upgrade.
+- The v1 endpoints will be supported until the migration process is completed, with the approppiate notifications issued in a timely manner and with ample advance notice.
+- Client keys have been upgraded to be compantible with both v1 and v2 API.
+- Authorization tokens that are previously shared with UID2 partners will continue to work for accessing only UID2 v1 APIs.
+- 
+
 ## Environment 
 
 All UID2 endpoints use the same base URL.
@@ -31,9 +53,11 @@ For example, https://integ.uidapi.com/v2/token/generate
 
 ## Authentication
 
-To authenticate to UID2 endpoints, use a bearer token in the request's authorization header. 
+To authenticate to UID2 endpoints, you need the following:
 
-```Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=```
+- A client `key`, which is to be included as a bearer token in the request's authorization header. 
+  <br/>```Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=```
+- A client `secret`, or an encryption key, for encrypting API requests and decrypting API responses for all endpoints, except [POST /token/refresh](XREF).  
 
 
 ## Encryption
