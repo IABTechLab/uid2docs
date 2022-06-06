@@ -8,7 +8,7 @@ This page provides the following information required for you to get started wit
 * [Compatibility and Upgrade Requirements](#compatibility-and-upgrade-requirements)
 * [Environment](#environment)
 * [Authentication](#authentication)
-* [Encryption](#encryption)
+* [Encrypting Requests and Decrypting Responses](#encrypting-requests-and-decrypting-responses)
 * [Response Structure and Status Codes](#response-structure-and-status-codes)
 
 For details on using the API, see the following pages.
@@ -62,9 +62,11 @@ To authenticate to UID2 endpoints, you need the following:
 - A client `secret`, or an encryption key, for encrypting API requests and decrypting API responses for all endpoints, except [POST /token/refresh](./endpoints/post-token-refresh.md).  
 
 
-## Encryption
+## Encrypting Requests and Decrypting Responses
 
 TBD
+
+- [Generating Requests](./generate-request.md)
 
 
 ## Response Structure and Status Codes
