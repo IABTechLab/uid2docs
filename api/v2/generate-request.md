@@ -1,8 +1,8 @@
 [UID2 API Documentation](../../README.md) > [v2](../README.md) > Generating Requests
 
-# Generating Requests
+# Generating Encrypted Requests
 
-All UID2 [endpoints](./endpoints/README.md), except [POST /token/refresh](./endpoints/post-token-refresh.md), require client `secret` for generate API requests.
+All UID2 [endpoints](./endpoints/README.md), except [POST /token/refresh](./endpoints/post-token-refresh.md), require a client `secret` for generating encrypted API requests.
 
 Here's what you need to know about ecrypting UID2 API requests:
 
