@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > [v2](../README.md) > Generating Requests
+[UID2 API Documentation](../../README.md) > [v2](../../README.md) > Generating Requests
 
 # Generating Encrypted Requests
 
