@@ -130,10 +130,7 @@ print()
 
 For example, a decrypted response to the [POST /token/generate](./endpoints/post-token-generate.md) request for an email address in the [preceding example](#request-example), may look like this:
 
-```
-Timestamp: 2022-06-07 10:23:20.143000
-Nonce: 15737002551010235746
-Response JSON:
+```json
 {
     "body": {
         "advertising_token": "AgAAAQFt3aNLXKXEyWS8Tpezcymk1Acv3n+ClOHLdAgqR0kt0Y+pQWSOVaW0tsKZI4FOv9K/rZH9+c4lpm2DBpmFJqjdF6FAaAzva5vxDIX/67UOspsYtiwxH73zU7Fj8PhVf1JcpsxUHRHzuk3vHF+ODrM13A8NAVlO1p0Wkb+cccIIhQ==",
