@@ -96,7 +96,6 @@ The following table lists the `status` property values and their HTTP status cod
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
 | `success` | 200 | The request was successful.|
-| `optout` | 200 | The user opted out. This status is returned only for authorized requests. |
 | `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
 | `invalid_token` | 400 | The request had an invalid identity token specified. This status is returned only for authorized requests. |
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
