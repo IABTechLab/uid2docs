@@ -2,7 +2,7 @@
 
 # Encryption and Decryption
 
-All UID2 [endpoints](./endpoints/README.md), except [POST /token/refresh](./endpoints/post-token-refresh.md), require a client `secret` for [encrypting](#encrypting-requests) API requests and [decrypting](#decrypting-responses) responses.
+All UID2 [endpoints](./endpoints/README.md) require a client `secret` for [encrypting](#encrypting-requests) API requests and [decrypting](#decrypting-responses) responses. Only [POST /token/refresh](./endpoints/post-token-refresh.md) requests do not require encryption.
 
 Here's what you need to know about ecrypting UID2 API requests:
 
