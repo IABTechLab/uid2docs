@@ -40,20 +40,23 @@ The following is an unencrypted JSON request body example, which you should incl
 Here's an encrypted identity bucket rotation request format with placeholder values:
 
 ```sh
-encrypt_request.py [Your-Secret] "{<Unencrypted-JSON-Request-Body>}"
-  | curl -X POST https://prod.uidapi.com/v2/identity/buckets -H "Authorization: Bearer [client API key]"
-  | decrypt_response.py [Your-Secret]
+echo "{\"Unencrypted-JSON-Request-Body\"}" \
+  | encrypt_request.py [Your-Client-Secret] \
+  | curl -X POST https://prod.uidapi.com/v2/identity/buckets -H "Authorization: Bearer [Your-Client-API-Key]" \
+  | decrypt_response.py [Your-Client-Secret]
 ```
 
 >IMPORTANT: Be sure to add escape backslashes before quotes inside the JSON body.
->
+
 Here's an encrypted identity bucket rotation request example:
 
 ```sh
-encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= "{\"since_timestamp\": \"2021-03-01T01%3A01%3A01\"}"
-  | curl -X POST https://prod.uidapi.com/v2/identity/buckets -H "Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk="
+echo "{\"since_timestamp\": \"2022-06-01T13:00:00\"}" \
+  | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
+  | curl -X POST https://prod.uidapi.com/v2/identity/buckets -H "Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=" \
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
+
 For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
 
 ## Decrypted JSON Response Format
@@ -64,16 +67,16 @@ The decrypted response returns a list of salt bucket IDs and the timestamps of t
 {
     "body":[
         {
-            "bucket_id":"a3pPl64opk",
-            "last_updated":"2021-03-01T00:00:00"
+            "bucket_id": "a30od4mNRd",
+            "last_updated": "2022-06-05T22:52:03.109"
         },
         {
-            "bucket_id":"aENdq9K3VQ",
-            "last_updated":"2021-03-01T00:00:00"
+            "bucket_id": "aJ0jMvw9Z8",
+            "last_updated": "2022-06-06T22:52:01.828"
         },
         {
-            "bucket_id":"adVEM9ywVo",
-            "last_updated":"2021-03-01T00:00:00"
+            "bucket_id": "aeRQ9L7wRN",
+            "last_updated": "2022-06-01T22:52:02.574"
         }
     ],
     "status":"success"
