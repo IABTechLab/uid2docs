@@ -76,7 +76,7 @@ Here's an encrypted identity mapping request format with placeholder values:
 
 ```sh
 encrypt_request.py [Your-Secret] "{<Unencrypted-JSON-Request-Body>}"
-  | curl -X POST https://prod.uidapi.com/v2/identity/map -H 'Authorization: Bearer <Your-Token>'
+  | curl -X POST https://prod.uidapi.com/v2/identity/map -H 'Authorization: Bearer  [Your-Token]'
   | decrypt_response.py [Your-Secret]
 ```
 
