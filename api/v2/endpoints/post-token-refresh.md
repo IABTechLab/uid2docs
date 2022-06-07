@@ -42,26 +42,20 @@ Using either of the following parameters in a [POST /token/generate](./post-toke
 
 ### Request Example
 
-The following are unencrypted JSON request body example, which you should include in your token refresh requests:
 
-```json
-{
-    "refresh_token": "RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq%2F90PYmajV0IPrvo51Biqh7%2FM%2BJOuhfBY8KGUn%2F%2FGsmZr9nf%2BjIWMUO4diOA92kCTF69JdP71Ooo%2ByF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA%3D%3D"
-}
-```
-Here's a token refresh request format with placeholder values, which include the `refresh_response_key` value returned by a [POST /token/generate](./post-token-generate.md) request:
+Here's a token refresh request format with placeholder values, which include the `refresh token` and `refresh_response_key` values returned by a [POST /token/generate](./post-token-generate.md) request:
 
 ```sh
-echo "{\"Unencrypted-JSON-Request-Body\"}" \
+echo [refresh_token] \
   | curl -X POST https://prod.uidapi.com/v2/token/refresh -H "Authorization: Bearer [Your-Client-API-Key]" \
-  | decrypt_response.py [Refresh-Response-Key] 1
+  | decrypt_response.py [refresh_response_key] 1
 ```
 >IMPORTANT: Be sure to add escape backslashes before double quotes inside the JSON body. Alternatively, use single quotes.
 
 Here's a token refresh request example:
 
 ```sh
-echo "{\"refresh_token\":\"RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq%2F90PYmajV0IPrvo51Biqh7%2FM%2BJOuhfBY8KGUn%2F%2FGsmZr9nf%2BjIWMUO4diOA92kCTF69JdP71Ooo%2ByF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA%3D%3D\""}" \
+echo AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNSVnCnzYq2BiDDz8SLsKOo6wZsoMIn95jVWBaA6oLq7uUGY5/g9SUOfFmX5uDXUvO0w2UCKi+j9OQhlMfxTsyUQUzC1VQOx6ed/gZjqH/Sw6Kyk0XH7AlziqSyyXA438JHqyJphGVwsPl2LGCH1K2MPxkLmyzMZ2ghTzrr0IgIOXPsL4lXqSPkl/UJqnO3iqbihd66eLeYNmyd1Xblr3DwYnwWdAUXEufLoJbbxifGYc+fPF+8DpykpyL9neq3oquxQWpyHsftnwYaZT5EBZHQJqAttHUZ4yQ== \
   | curl -X POST https://prod.uidapi.com/v2/token/refresh -H "Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=" \
   | decrypt_response.py wR5t6HKMfJ2r4J7fEGX9Gw== 1
 ```
@@ -79,7 +73,8 @@ A decrypted successful response returns new identity tokens issued for the user 
         "refresh_token": "NewRefreshTokenAAAF2c8H5dF8AAAF2c8H5dF8AAAADX393Vw94afoVLL6A+qjdSUEisEKx6t42fLgN+2dmTgUavagz0Q6Kp7ghM989hKhZDyAGjHyuAAwm+CX1cO7DWEtMeNUA9vkWDjcIc8yeDZ+jmBtEaw07x/cxoul6fpv2PQ==",
         "identity_expires": 1633643601000,
         "refresh_from": 1633643001000,
-        "refresh_expires": 1636322000000
+        "refresh_expires": 1636322000000,
+        "refresh_response_key": "yptCUTBoZm1ffosgCrmuwg=="
     },
     "status": "success"
 }
@@ -105,6 +100,7 @@ The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md) uses 
 | `identity_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the advertising token expires. |
 | `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md) will start refreshing the advertising token.</br>TIP: If you are not using the SDK, consider refreshing the advertising token from this timestamp, too. |
 | `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
+| `refresh_response_key` | string | A key to be used in a new [POST /token/refresh](./post-token-refresh.md) request for response decryption. |
 
 
 ### Response Status Codes
