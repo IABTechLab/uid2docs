@@ -76,7 +76,7 @@ Here's an encrypted identity mapping request format with placeholder values:
 
 ```sh
 encrypt_request.py [Your-Secret] "{<Unencrypted-JSON-Request-Body>}"
-  | curl -X POST https://prod.uidapi.com/v2/identity/map -H 'Authorization: Bearer  [Your-Token]'
+  | curl -X POST https://prod.uidapi.com/v2/identity/map -H "Authorization: Bearer [client API key]"
   | decrypt_response.py [Your-Secret]
 ```
 
@@ -86,7 +86,7 @@ Here's an encrypted identity mapping request example for an email hash:
 
 ```sh
 encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= "{\"phone\": [\"+1111111111\", \"+2222222222\"]}"
-  | curl -X POST https://prod.uidapi.com/v2/identity/map -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+  | curl -X POST https://prod.uidapi.com/v2/identity/map -H "Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk="
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
 For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
