@@ -37,51 +37,63 @@ Here's what you need to know:
 
 ### Request Examples
 
-A mapping request for email addresses:
+The following are unencrypted JSON request body examples for each parameter, one of which you should include in your token generation requests:
 
-```sh
-curl -L -X POST 'https://integ.uidapi.com/v2/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
+```json
+{
     "email":[
         "user@example.com",
         "user2@example.com"
     ]  
-}'
+}
 ```
-A mapping request for email address hashes:
-
-```sh
-curl -L -X POST 'https://integ.uidapi.com/v2/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
+```json
+{
     "email_hash":[
         "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
         "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
     ]    
-}'
+}
 ```
-
-A mapping request for phone numbers:
-
-```sh
-curl -L -X POST 'https://integ.uidapi.com/v2/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
+```json
+{
     "phone":[
         "+1111111111",
         "+2222222222"
     ]  
-}'
+}
 ```
-A mapping request for phone number hashes:
-
-```sh
-curl -L -X POST 'https://integ.uidapi.com/v2/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
+```json
+{
     "phone_hash":[
         "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
         "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
     ]    
-}'
+}
 ```
 
-## Response Format
+Here's an encrypted token generation request format with placeholder values:
 
-The response returns the UID2s and salt bucket IDs for the specified email addresses, phone numbers, or respective hashes.
+```sh
+encrypt_request.py <Your-Secret> "{<Unencrypted-JSON-Request-Body>}"
+  | curl -X POST https://prod.uidapi.com/v2/token/generate -H 'Authorization: Bearer <Your-Token>'
+  | decrypt_response.py <Your-Secret>
+```
+
+>IMPORTANT: Be sure to add escape backslashes before quotes inside the JSON body.
+>
+Here's an encrypted token generation request example for an email hash:
+
+```sh
+encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= "{\"email_hash\": \"tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=\"}"
+  | curl -X POST https://prod.uidapi.com/v2/token/generate -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+  | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
+```
+For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
+
+## Decrypted JSON Response Format
+
+The decrypted response returns the UID2s and salt bucket IDs for the specified email addresses, phone numbers, or respective hashes.
 
 ```json
 {
@@ -118,7 +130,6 @@ The following table lists the `status` property values and their HTTP status cod
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
 | `success` | 200 | The request was successful.|
-| `optout` | 200 | The user opted out. This status is returned only for authorized requests. |
 | `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
 | `invalid_token` | 400 | The request had an invalid identity token specified. This status is returned only for authorized requests. |
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
