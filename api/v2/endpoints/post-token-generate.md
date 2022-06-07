@@ -19,7 +19,7 @@ The following integration workflows use this endpoint:
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
+| `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
 | `{version}` | string | Required | The current API version is `v2`. |
 
 ###  Unencrypted JSON Body Parameters
@@ -95,7 +95,8 @@ The decrypted response returns the user's advertising and refresh tokens for the
         "refresh_token": "RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA==",
         "identity_expires": 1633643601000,
         "refresh_from": 1633643001000,
-        "refresh_expires": 1636322000000
+        "refresh_expires": 1636322000000,
+        "refresh_response_key": "wR5t6HKMfJ2r4J7fEGX9Gw=="
     },
     "status": "success"
 }
@@ -112,6 +113,7 @@ The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md) uses 
 | `identity_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the advertising token expires. |
 | `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md) will start refreshing the advertising token.</br>TIP: If you are not using the SDK, consider refreshing the advertising token from this timestamp, too. |
 | `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
+| `refresh_response_key` | string | A key to be used in a [POST /token/refresh](./post-token-refresh.md) request for response decryption. |
 
 ### Response Status Codes
 
