@@ -29,7 +29,7 @@ For details on using the API, see the following pages.
 With the v2 updates to the UID2 API, you can now take advantage of the following:
 
 - Application API layer encryption that provides E2E content protection that prevents sensitive UID2 information from leaking to network operator or UID2 service operator.
-- Only POST methods with input parameters provided in the request body in the JSON format and encrypted using a pre-shared key (PSK).
+- Only POST methods with input parameters provided in the request body in the JSON format and encrypted using a pre-shared key (PSK). For details and Python examples, see [Generating Encrypted Requests and Decrypting Responses](./encryption-decryption.md).
 - No more URL-encoding of parameter values.
 - The [POST /identity/map](./endpoints/post-identity-map.md) endpoint that now retrieves UID2s and salt bucket IDs for one or multiple email addresses, phone numbers, or the respective hashes. 
 - In addition to the client API `key` for [authetication](#authentication-and-authorization), a client `secret` is now required for encrypting API requests and decrypting API responses.
@@ -62,7 +62,7 @@ To authenticate to UID2 endpoints, you need the following:
 
 - A client `key`, which is to be included as a bearer token in the request's authorization header. 
   <br/>```Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=```
-- A client `secret` for encrypting API requests, except [POST /token/refresh](./endpoints/post-token-refresh.md), and decrypting API responses for all endpoints. <br/>For details, see [Generating Encrypted Requests and Decrypting Responses](./encryption-decryption.md).
+- A client `secret` for encrypting API requests, except [POST /token/refresh](./endpoints/post-token-refresh.md), and decrypting API responses for all endpoints. <br/>For details and Python examples, see [Generating Encrypted Requests and Decrypting Responses](./encryption-decryption.md).
 
 ## Email Address Normalization
 
