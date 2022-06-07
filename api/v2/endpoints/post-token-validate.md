@@ -7,7 +7,10 @@ Validate that an advertising token matches the specified hashed or unhashed emai
 
 ## Request  Format 
 
-```POST '{environment}/{version}/token/validate?token={tokenValue}&{queryParameter}={queryParameterValue}'```
+```POST '{environment}/{version}/token/validate'```
+
+>IMPORTANT: You must encrypt your request using your secret. For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
+
 
 ### Path Parameters
 
@@ -17,12 +20,13 @@ Validate that an advertising token matches the specified hashed or unhashed emai
 | `{version}` | string | Required | The current API version is `v2`. |
 
 
-###  Query Parameters
+###  Unencrypted JSON Body Parameters
 
 - You must include only one of the following parameters: `email`, `email_hash`, `phone`, or `phone_hash`. 
+- Inlude parameter as a key-value pair in the JSON body of a request when encrypting it.
 - To test identities, use the `validate@email.com` email address or `+12345678901` phone number. For details, see the FAQs sections in the [UID2 SDK Integration Guide](../guides/publisher-client-side.md) and [Server-Only Integration Guide](../guides/custom-publisher-integration.md) for publishers.
 
-| Query Parameter | Data Type | Attribute | Description |
+| Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `token` | string | Required | The advertising token returned by the [POST /token/generate](./post-token-generate.md) response. |
 | `email` | string | Conditionally Required |  The email address for token validation. |
@@ -33,32 +37,53 @@ Validate that an advertising token matches the specified hashed or unhashed emai
 
 ### Request Examples
 
-A validation request for an email address:
-
-```sh
-curl -L -X POST 'https://integ.uidapi.com/v2/token/validate?token=AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D&email=validate@email.com' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+The following are unencrypted JSON request body examples for each parameter, which you need token generation requests:
+```json
+{
+    "token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D",
+    "email": "username@example.com"
+}
+```
+```json
+{
+    "token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D",
+    "email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
+}
+```
+```json
+{
+    "token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D",
+    "phone": "+12345678901"
+}
+```
+```json
+{
+     "token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D",
+    "phone_hash": "wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ/FSK4="
+}
 ```
 
-A validation request for an email address hash:
+Here's an encrypted token generation request format with placeholder values:
 
 ```sh
-curl -L -X POST 'https://integ.uidapi.com/v2/token/validate?token=AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D&email_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+encrypt_request.py "<Your-Secret>" "{<Unencrypted-JSON-Request-Body>}"
+  | curl -X POST https://prod.uidapi.com/v2/token/validate -H Authorization: Bearer <Your-Token>
+  | decrypt_response.py "<Your-Secret>"
 ```
-A validation request for a phone number:
+
+Here's an encrypted token generation request example for an email hash:
 
 ```sh
-curl -L -X POST 'https://integ.uidapi.com/v2/token/validate?token=AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D&phone=%2B12345678901' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+encrypt_request.py "DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=" "{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D", "email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}"
+  | curl -X POST https://prod.uidapi.com/v2/token/validate -H Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=
+  | decrypt_response.py "DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow="
+```
+For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
 ```
 
-A validation request for a phone number hash:
+## Decrypted JSON Response Format 
 
-```sh
-curl -L -X POST 'https://integ.uidapi.com/v2/token/validate?token=AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D&phone_hash=wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ%2FFSK4%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
-```
-
-## Response
-
-The response returns a boolean value that indicates the validation status of the specified advertising token. 
+The decrypted response returns a boolean value that indicates the validation status of the specified advertising token. 
 
 
 ```json
