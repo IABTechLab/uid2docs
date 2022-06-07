@@ -26,9 +26,9 @@ Validate that an advertising token matches the specified hashed or unhashed emai
 | :--- | :--- | :--- | :--- |
 | `token` | string | Required | The advertising token returned by the [POST /token/generate](./post-token-generate.md) response. |
 | `email` | string | Conditionally Required |  The email address for token validation. |
-| `email_hash` | string | Conditionally Required | The hash of a [normalized](../../README.md#email-address-normalization) email address for token validation. |
+| `email_hash` | string | Conditionally Required | The [base64-encoded SHA256](../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#email-address-normalization) email address for token validation. |
 | `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) phone number for which to generate tokens. |
-| `phone_hash` | string | Conditionally Required | The hash of a [normalized](../../README.md#phone-number-normalization) phone number. |
+| `phone_hash` | string | Conditionally Required | The [base64-encoded SHA256](../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#phone-number-normalization) phone number. |
 
 
 ### Request Examples
@@ -74,4 +74,16 @@ The response returns a boolean value that indicates the validation status of the
 | :--- | :--- | :--- |
 | `body` | boolean | A value of `true` indicates that the email address, phone number, or the respective hash specified in the request is the same as the one used to generate the advertising token.<br/><br/>A value of `false` indicates any of the following:<br/>- The request included an invalid advertising token.<br/>-  The email address, phone number, or the respective hash specified in the request is either different from the one used to generate the advertising token or is not for the testing email `validate@email.com` `+12345678901` phone number. |
 
-For response status values, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
+### Response Status Codes
+
+The following table lists the `status` property values and their HTTP status code equivalents.
+
+| Status | HTTP Status Code | Description |
+| :--- | :--- | :--- |
+| `success` | 200 | The request was successful.|
+| `optout` | 200 | The user opted out. This status is returned only for authorized requests. |
+| `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
+| `invalid_token` | 400 | The request had an invalid identity token specified. This status is returned only for authorized requests. |
+| `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
+
+For response structure, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
