@@ -64,8 +64,9 @@ The following are unencrypted JSON request body examples for each parameter, one
 Here's an encrypted token generation request format with placeholder values:
 
 ```sh
-encrypt_request.py [Your-Secret] "{<Unencrypted-JSON-Request-Body>}"
-  | curl -X POST https://prod.uidapi.com/v2/token/generate -H "Authorization: Bearer [client API key]"
+echo "{\"Unencrypted-JSON-Request-Body\"}" \
+  | encrypt_request.py [Your-Secret] \
+  | curl -X POST https://prod.uidapi.com/v2/token/generate -H "Authorization: Bearer [Your-Token]" \
   | decrypt_response.py [Your-Secret]
 ```
 
@@ -74,7 +75,8 @@ encrypt_request.py [Your-Secret] "{<Unencrypted-JSON-Request-Body>}"
 Here's an encrypted token generation request example for an email hash:
 
 ```sh
-encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= "{\"email_hash\": \"tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=\"}"
+echo "{\"email_hash\": \"tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=\"}" \
+  | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
   | curl -X POST https://prod.uidapi.com/v2/token/generate -H "Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk="
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
