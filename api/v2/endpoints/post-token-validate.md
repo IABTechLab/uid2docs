@@ -5,7 +5,7 @@ Validate that an advertising token matches the specified hashed or unhashed emai
 
 >NOTE: This endpoint is intended primarily for testing and troubleshooting new integrations.
 
-## Request  Format 
+## Request Format 
 
 ```POST '{environment}/{version}/token/validate'```
 
@@ -37,7 +37,7 @@ Validate that an advertising token matches the specified hashed or unhashed emai
 
 ### Request Examples
 
-The following are unencrypted JSON request body examples for each parameter, which you need token generation requests:
+The following are unencrypted JSON request body examples for each parameter, which you need  to include in your token validation requests:
 ```json
 {
     "token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D",
@@ -63,7 +63,7 @@ The following are unencrypted JSON request body examples for each parameter, whi
 }
 ```
 
-Here's an encrypted token generation request format with placeholder values:
+Here's an encrypted token validation request format with placeholder values:
 
 ```sh
 encrypt_request.py "<Your-Secret>" "{<Unencrypted-JSON-Request-Body>}"
@@ -71,7 +71,7 @@ encrypt_request.py "<Your-Secret>" "{<Unencrypted-JSON-Request-Body>}"
   | decrypt_response.py "<Your-Secret>"
 ```
 
-Here's an encrypted token generation request example for an email hash:
+Here's an encrypted token validation request example for an email hash:
 
 ```sh
 encrypt_request.py "DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=" "{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D", "email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}"
