@@ -64,7 +64,7 @@ To authenticate to UID2 endpoints, you need the following:
   <br/>```Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=```
 - A client `secret`, or an encryption key, for encrypting API requests and decrypting API responses for all endpoints, except [POST /token/refresh](./endpoints/post-token-refresh.md).  
 
-For details on TBD, see [Generating Encrypted Requests and Decrypting Responses](./encryption-decryption.md).
+For details, see [Generating Encrypted Requests and Decrypting Responses](./encryption-decryption.md).
 
 ## Email Address Normalization
 
