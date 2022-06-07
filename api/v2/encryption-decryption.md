@@ -60,22 +60,22 @@ import base64
 import json
 import sys
 from datetime import datetime
-​
+
 from Crypto.Cipher import AES
-​
+
 secret = base64.b64decode(sys.argv[1].strip())
 is_refresh_response = int(sys.argv[2])
 response = "".join(sys.stdin.readlines())
-​
+
 resp_bytes = base64.b64decode(response)
-​
+
 iv = resp_bytes[:12]
 data = resp_bytes[12:len(resp_bytes) - 16]
 tag = resp_bytes[len(resp_bytes) - 16:]
-​
+
 cipher = AES.new(secret, AES.MODE_GCM, nonce=iv)
 decrypted = cipher.decrypt_and_verify(data, tag)
-​
+
 print()
 if is_refresh_response != 1:
     tm = datetime.fromtimestamp(int.from_bytes(decrypted[:8], 'big') / 1000)
