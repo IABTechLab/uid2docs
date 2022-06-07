@@ -11,7 +11,10 @@ The following integration workflows use this endpoint:
 
 ## Request Format 
 
-```POST '{environment}/{version}/token/refresh?refresh_token={queryParameterValue}'```
+```POST '{environment}/{version}/token/refresh'```
+
+>IMPORTANT: You must encrypt your request using your secret. For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
+
 
 ### Path Parameters
 
@@ -20,9 +23,11 @@ The following integration workflows use this endpoint:
 | `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
 | `{version}` | string | Required | The current API version is `v2`. |
 
-###  Query Parameters
+###  Unencrypted JSON Body Parameters
 
-| Query Parameter | Data Type | Attribute | Description |
+>IMPORTANT: You must include the following parameter as a key-value pair in the JSON body of a request when encrypting it.
+
+| Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `refresh_token` | string | Required | The refresh token returned in the [POST /token/generate](./post-token-generate.md) response. |
 
@@ -36,13 +41,35 @@ Using either of the following parameters in a [POST /token/generate](./post-toke
 
 ### Request Example
 
+The following are unencrypted JSON request body example, which you should include in your token refresh requests:
+
+```json
+{
+    "refresh_token": "RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq%2F90PYmajV0IPrvo51Biqh7%2FM%2BJOuhfBY8KGUn%2F%2FGsmZr9nf%2BjIWMUO4diOA92kCTF69JdP71Ooo%2ByF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA%3D%3D"
+}
+```
+Here's an encrypted token refresh request format with placeholder values:
+
 ```sh
-curl -L -X POST 'https://integ.uidapi.com/v2/token/refresh?refresh_token=RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq%2F90PYmajV0IPrvo51Biqh7%2FM%2BJOuhfBY8KGUn%2F%2FGsmZr9nf%2BjIWMUO4diOA92kCTF69JdP71Ooo%2ByF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA%3D%3D'
+echo "{\"Unencrypted-JSON-Request-Body\"}" \
+  | encrypt_request.py [Your-Client-Secret] \
+  | curl -X POST https://prod.uidapi.com/v2/token/refresh -H "Authorization: Bearer [Your-Client-API-Key]" \
+  | decrypt_response.py [Your-Client-Secret]
+```
+>IMPORTANT: Be sure to add escape backslashes before quotes inside the JSON body.
+
+Here's an encrypted token refresh request example:
+
+```sh
+echo "{\"refresh_token\":\"RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq%2F90PYmajV0IPrvo51Biqh7%2FM%2BJOuhfBY8KGUn%2F%2FGsmZr9nf%2BjIWMUO4diOA92kCTF69JdP71Ooo%2ByF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA%3D%3D\""}" \
+  | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
+  | curl -X POST https://prod.uidapi.com/v2/token/refresh -H "Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=" \
+  | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
 
-## Response Format
+## Decrypted JSON Response Format
 
-A successful response returns new identity tokens issued for the user or indicates that the user has opted out. 
+A decrypted successful response returns new identity tokens issued for the user or indicates that the user has opted out. 
 
 ```json
 {
@@ -92,5 +119,3 @@ The following table lists the `status` property values and their HTTP status cod
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
 For response structure, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
-
-
