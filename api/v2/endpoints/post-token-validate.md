@@ -67,7 +67,7 @@ Here's an encrypted token validation request format with placeholder values:
 
 ```sh
 encrypt_request.py [Your-Secret] "{<Unencrypted-JSON-Request-Body>}"
-  | curl -X POST https://prod.uidapi.com/v2/token/validate -H 'Authorization: Bearer <Your-Token>'
+  | curl -X POST https://prod.uidapi.com/v2/token/validate -H 'Authorization: Bearer  [Your-Token]'
   | decrypt_response.py [Your-Secret]
 ```
 
