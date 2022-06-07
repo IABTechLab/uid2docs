@@ -22,7 +22,9 @@ Monitor rotated salt buckets. This endpoint is intended for use by [Advertisers/
 
 ### Unencrypted JSON Body Parameters
 
-| BOdy Parameter | Data Type | Attribute | Description | Format |
+>IMPORTANT: You must include the following parameter as a key-value pair in the JSON body of a request when encrypting it.
+
+| Body Parameter | Data Type | Attribute | Description | Format |
 | :--- | :--- | :--- | :--- | :--- |
 | `since_timestamp` | date-time or integer | Required | Specify the date and time to which to compare the last updated UTC timestamps of the buckets to be returned. | ISO 8601 format:<br/>`YYYY-MM-DDThh:mm:ss` |
 
