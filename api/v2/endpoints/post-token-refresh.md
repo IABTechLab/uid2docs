@@ -56,7 +56,7 @@ echo "{\"Unencrypted-JSON-Request-Body\"}" \
   | curl -X POST https://prod.uidapi.com/v2/token/refresh -H "Authorization: Bearer [Your-Client-API-Key]" \
   | decrypt_response.py [Your-Client-Secret]
 ```
->IMPORTANT: Be sure to add escape backslashes before quotes inside the JSON body.
+>IMPORTANT: Be sure to add escape backslashes before double quotes inside the JSON body. Alternatively, use single quotes.
 
 Here's a token refresh request example:
 
