@@ -72,7 +72,7 @@ echo "{\"Unencrypted-JSON-Request-Body\"}" \
   | decrypt_response.py [Your-Client-Secret]
 ```
 
->IMPORTANT: Be sure to add escape backslashes before quotes inside the JSON body.
+>IMPORTANT: Be sure to add escape backslashes before double quotes inside the JSON body. Alternatively, use single quotes.
 
 Here's an encrypted token validation request example for an email hash:
 
