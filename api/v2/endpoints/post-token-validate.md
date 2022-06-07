@@ -69,7 +69,7 @@ Here's an encrypted token validation request format with placeholder values:
 echo "{\"Unencrypted-JSON-Request-Body\"}" \
   | encrypt_request.py [Your-Client-Secret] \
   | curl -X POST https://prod.uidapi.com/v2/token/validate -H "Authorization: Bearer [Your-Client-API-Key]" \
-  | decrypt_response.py [Your-Client-Secret]
+  | decrypt_response.py [Your-Client-Secret] 0
 ```
 
 >IMPORTANT: Be sure to add escape backslashes before double quotes inside the JSON body. Alternatively, use single quotes.
@@ -80,7 +80,7 @@ Here's an encrypted token validation request example for an email hash:
 echo "{\"token\": \"AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D\", \"email_hash\": \"tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=\"}" \
   | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
   | curl -X POST https://prod.uidapi.com/v2/token/validate -H "Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=" \
-  | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
+  | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= 0
 ```
 
 For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
