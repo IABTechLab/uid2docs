@@ -43,7 +43,7 @@ Here's an encrypted identity bucket rotation request format with placeholder val
 echo "{\"Unencrypted-JSON-Request-Body\"}" \
   | encrypt_request.py [Your-Client-Secret] \
   | curl -X POST https://prod.uidapi.com/v2/identity/buckets -H "Authorization: Bearer [Your-Client-API-Key]" \
-  | decrypt_response.py [Your-Client-Secret]
+  | decrypt_response.py [Your-Client-Secret] 0
 ```
 
 >IMPORTANT: Be sure to add escape backslashes before double quotes inside the JSON body. Alternatively, use single quotes.
@@ -54,7 +54,7 @@ Here's an encrypted identity bucket rotation request example:
 echo "{\"since_timestamp\": \"2022-06-01T13:00:00\"}" \
   | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
   | curl -X POST https://prod.uidapi.com/v2/identity/buckets -H "Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=" \
-  | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
+  | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= 0
 ```
 
 For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
