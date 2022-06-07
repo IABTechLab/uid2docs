@@ -30,14 +30,14 @@ Monitor rotated salt buckets. This endpoint is intended for use by [Advertisers/
 
 ### Request Examples
 
-The following is an unencrypted JSON request body example, which you should include in your token generation requests:
+The following is an unencrypted JSON request body example, which you should include in your identity bucket rotation requests:
 
 ```json
 {
     "since_timestamp": "2021-03-01T01%3A01%3A01"
 }
 ```
-Here's an encrypted token generation request format with placeholder values:
+Here's an encrypted identity bucket rotation request format with placeholder values:
 
 ```sh
 encrypt_request.py <Your-Secret> "{<Unencrypted-JSON-Request-Body>}"
@@ -47,7 +47,7 @@ encrypt_request.py <Your-Secret> "{<Unencrypted-JSON-Request-Body>}"
 
 >IMPORTANT: Be sure to add escape backslashes before quotes inside the JSON body.
 >
-Here's an encrypted token generation request example:
+Here's an encrypted identity bucket rotation request example:
 
 ```sh
 encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= "{\"since_timestamp\": \"2021-03-01T01%3A01%3A01\"}"
