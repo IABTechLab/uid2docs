@@ -24,7 +24,7 @@ The following integration workflows use this endpoint:
 
 ###  Unencrypted JSON Body Parameters
 
->IMPORTANT: You must include only one of the following parameters as a key-value pair in the body of a JSON request before encrypting it. TBD
+>IMPORTANT: You must include only one of the following parameters as a key-value pair in the JSON body of a request when encrypting it.
 
 | Body Parameter | Data Type | Attribute | Description | 
 | :--- | :--- | :--- | :--- |
@@ -38,7 +38,7 @@ The following integration workflows use this endpoint:
 
 >IMPORTANT: To ensure that the API key used to access the service remains secret, the `POST /token/generate` endpoint must be called from the server side, unlike the [POST /token/refresh](./post-token-refresh.md), which does not require using an API key.
 
-The following are JSON body examples of unencrypted token generation requests for each parameter:
+The following are unencrypted JSON request body examples for each parameter, which you need token generation requests:
 
 ```json
 {
