@@ -65,17 +65,5 @@ Here's what you need to know about phone number normalization rules:
 - Normalized E.164 phone numbers use the following syntax: `[+] [country code] [subscriber number including area code]`, with no spaces, hyphens, parentheses, or other special characters. For example, the phone numbers `+123 44 555-66-77` and `1 (123) 456-7890` must be normalized as `+123445556677` and `+11234567890`, respectively.
 
 
-## Response Status Codes
-
-The following table lists the `status` property values and their HTTP status code equivalents.
-
-| Status | HTTP Status Code | Description |
-| :--- | :--- | :--- |
-| `success` | 200 | The request was successful.|
-| `optout` | 200 | The user opted out. This status is returned only for authorized requests. |
-| `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
-| `invalid_token` | 400 | The request had an invalid identity token specified. This status is returned only for authorized requests. |
-| `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
-
 ## License
 All work and artifacts are licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).
