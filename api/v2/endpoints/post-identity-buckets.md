@@ -40,9 +40,9 @@ The following is an unencrypted JSON request body example, which you should incl
 Here's an encrypted identity bucket rotation request format with placeholder values:
 
 ```sh
-encrypt_request.py <Your-Secret> "{<Unencrypted-JSON-Request-Body>}"
+encrypt_request.py [Your-Secret] "{<Unencrypted-JSON-Request-Body>}"
   | curl -X POST https://prod.uidapi.com/v2/identity/buckets -H 'Authorization: Bearer <Your-Token>'
-  | decrypt_response.py <Your-Secret>
+  | decrypt_response.py [Your-Secret]
 ```
 
 >IMPORTANT: Be sure to add escape backslashes before quotes inside the JSON body.
