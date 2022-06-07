@@ -62,7 +62,7 @@ To authenticate to UID2 endpoints, you need the following:
 
 - A client `key`, which is to be included as a bearer token in the request's authorization header. 
   <br/>```Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=```
-- A client `secret`, or an encryption key, for encrypting API requests and decrypting API responses for all endpoints, except [POST /token/refresh](./endpoints/post-token-refresh.md).  
+- A client `secret`, or an encryption key, for encrypting API requests, except [POST /token/refresh](./endpoints/post-token-refresh.md), and decrypting API responses for all endpoints.  
 
 For details, see [Generating Encrypted Requests and Decrypting Responses](./encryption-decryption.md).
 
