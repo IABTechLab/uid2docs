@@ -34,7 +34,7 @@ The following is an unencrypted JSON request body example, which you should incl
 
 ```json
 {
-    "since_timestamp": "2021-03-01T01%3A01%3A01"
+    "since_timestamp": "2022-06-01T13:00:00"
 }
 ```
 Here's an encrypted identity bucket rotation request format with placeholder values:
