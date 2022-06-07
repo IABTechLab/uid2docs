@@ -4,11 +4,26 @@
 
 All UID2 [endpoints](./endpoints/README.md) require a client `secret` for [encrypting](#encrypting-requests) API requests and [decrypting](#decrypting-responses) responses. Only [POST /token/refresh](./endpoints/post-token-refresh.md) requests do not require encryption.
 
-Here's what you need to know about ecrypting UID2 API requests:
+Here's what you need to know about encrypting UID2 API requests and decrypting respective responses:
 
-- They use the GCM(AES/GCM/NoPadding) encryption algorithm using 96-bit IV and 128-bit AuthTag.
+- The GCM(AES/GCM/NoPadding) encryption algorithm using 96-bit IV and 128-bit AuthTag is utilized.
 - IV and encrypted payload is included in the `encrypted_body` field as base64-encoded string.
 - A `nonce` field is included in the 1st-level dict of both requests and responses as a random value to protect against replay attack.
+
+## Workflow
+
+The high-level request-response workflow for the UID2 APIs includes the following steps:
+
+1. Prepare the request body with input parameters in the JSON format.
+2. Run a script to create an encrypted payload from the JSON body.
+3. Send the encrypted request.
+4. Run another script to decrypt the returned response to to plain JSON.
+
+Individual [endpoints](./endpoints/README.md) detail the respective format requirements and parameters and provide call examples. The following sections explain the scripts using examples in Python. 
+
+## Encrypting Requests
+
+TBD intro
 
 ### Binary Encrypted Envelope
 
@@ -19,8 +34,7 @@ Here's what you need to know about ecrypting UID2 API requests:
 | byte[enc_payload_len] | Binary Encrypted Payload | AES (`client_secret`, Binary Unencrypted Envelope) |
 | byte[16] | HMACSHA1 base64-encoded signature | For details on HMACSHA1 encoding, see [Microsoft documentation](https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.hmacsha1?redirectedfrom=MSDN&view=netcore-3.1). |
 
-
-## Encrypting Requests
+### Encryption Script
 
 Here's an example Python script (`encrypt_request.py`) for encrypting requests, which takes the client `secret` as a parameter:
 
@@ -60,6 +74,17 @@ print("Request body:")
 print(base64.b64encode(bytes(envelop)).decode())
 print()
 ```
+### Request Example
+
+For example, to send an encrypted [POST /token/generate](./endpoints/post-token-generate.md) request for an email address, you can run the following command.
+
+```sh
+echo "{\"email\": \"test@example.com\"}" \
+  | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
+  | curl -X POST https://prod.uidapi.com/v2/token/generate -H "Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=" \
+  | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= 0
+```
+
 ## Decrypting Responses
 
 Here's an example Python script (`decrypt_response.py`) for decrypting responses, which takes the following parameters:
@@ -100,4 +125,25 @@ else:
 print("Response JSON:")
 print(json.dumps(json_resp, indent=4))
 print()
+```
+### Response Example
+
+For example, a decrypted response to the [POST /token/generate](./endpoints/post-token-generate.md) request for an email address in the [preceding example](#request-example), may look like this:
+
+```
+Timestamp: 2022-06-07 10:23:20.143000
+Nonce: 15737002551010235746
+Response JSON:
+{
+    "body": {
+        "advertising_token": "AgAAAQFt3aNLXKXEyWS8Tpezcymk1Acv3n+ClOHLdAgqR0kt0Y+pQWSOVaW0tsKZI4FOv9K/rZH9+c4lpm2DBpmFJqjdF6FAaAzva5vxDIX/67UOspsYtiwxH73zU7Fj8PhVf1JcpsxUHRHzuk3vHF+ODrM13A8NAVlO1p0Wkb+cccIIhQ==",
+        "user_token": "AgAAAPpTqz7/Z+40Ue5G3XOM2RiyU6RS9Q5yj1n7Tlg7PN1K1LZWejvo8Er7A+Q8KxdXdj0OrKRf/XEGWsyUJscRNu1bg/MK+5AozvoJKUca8b10eQdYU86ZOHPH7pFnFhD5WHs=",
+        "refresh_token": "AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNSVnCnzYq2BiDDz8SLsKOo6wZsoMIn95jVWBaA6oLq7uUGY5/g9SUOfFmX5uDXUvO0w2UCKi+j9OQhlMfxTsyUQUzC1VQOx6ed/gZjqH/Sw6Kyk0XH7AlziqSyyXA438JHqyJphGVwsPl2LGCH1K2MPxkLmyzMZ2ghTzrr0IgIOXPsL4lXqSPkl/UJqnO3iqbihd66eLeYNmyd1Xblr3DwYnwWdAUXEufLoJbbxifGYc+fPF+8DpykpyL9neq3oquxQWpyHsftnwYaZT5EBZHQJqAttHUZ4yQ==",
+        "identity_expires": 1654623500142,
+        "refresh_expires": 1657214600142,
+        "refresh_from": 1654622900142,
+        "refresh_response_key": "wR5t6HKMfJ2r4J7fEGX9Gw=="
+    },
+    "status": "success"
+}
 ```
