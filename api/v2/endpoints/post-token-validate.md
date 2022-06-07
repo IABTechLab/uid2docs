@@ -66,9 +66,9 @@ The following are unencrypted JSON request body examples for each parameter, whi
 Here's an encrypted token validation request format with placeholder values:
 
 ```sh
-encrypt_request.py <Your-Secret> "{<Unencrypted-JSON-Request-Body>}"
+encrypt_request.py [Your-Secret] "{<Unencrypted-JSON-Request-Body>}"
   | curl -X POST https://prod.uidapi.com/v2/token/validate -H 'Authorization: Bearer <Your-Token>'
-  | decrypt_response.py <Your-Secret>
+  | decrypt_response.py [Your-Secret]
 ```
 
 >IMPORTANT: Be sure to add escape backslashes before quotes inside the JSON body.
