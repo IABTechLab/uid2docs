@@ -9,7 +9,9 @@ Monitor rotated salt buckets. This endpoint is intended for use by [Advertisers/
 
 ## Request Format
 
-```POST '{environment}/{version}/identity/buckets?since_timestamp={queryParameterValue}'```
+```POST '{environment}/{version}/identity/buckets'```
+
+>IMPORTANT: You must encrypt your request using your secret. For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
 
 ### Path Parameters
 
@@ -18,18 +20,39 @@ Monitor rotated salt buckets. This endpoint is intended for use by [Advertisers/
 | `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
 | `{version}` | string | Required | The current API version is `v2`. |
 
-### Query Parameters
+### Unencrypted JSON Body Parameters
 
-| Query Parameter | Data Type | Attribute | Description | Format |
+| BOdy Parameter | Data Type | Attribute | Description | Format |
 | :--- | :--- | :--- | :--- | :--- |
 | `since_timestamp` | date-time or integer | Required | Specify the date and time to which to compare the last updated UTC timestamps of the buckets to be returned. | ISO 8601 format:<br/>`YYYY-MM-DDThh:mm:ss` |
 
-### Request Example
+### Request Examples
 
-```curl
-curl -L -X POST 'https://integ.uidapi.com/v2/identity/buckets?since_timestamp=2021-03-01T01%3A01%3A01' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+The following is an unencrypted JSON request body example, which you should include in your token generation requests:
+
+```json
+{
+    "since_timestamp": "2021-03-01T01%3A01%3A01"
+}
+```
+Here's an encrypted token generation request format with placeholder values:
+
+```sh
+encrypt_request.py <Your-Secret> "{<Unencrypted-JSON-Request-Body>}"
+  | curl -X POST https://prod.uidapi.com/v2/identity/buckets -H 'Authorization: Bearer <Your-Token>'
+  | decrypt_response.py <Your-Secret>
 ```
 
+>IMPORTANT: Be sure to add escape backslashes before quotes inside the JSON body.
+>
+Here's an encrypted token generation request example:
+
+```sh
+encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= "{\"since_timestamp\": \"2021-03-01T01%3A01%3A01\"}"
+  | curl -X POST https://prod.uidapi.com/v2/identity/buckets -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+  | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
+```
+For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
 ## Response Format
 
 The response returns a list of salt bucket IDs and the timestamps of their last updates.
