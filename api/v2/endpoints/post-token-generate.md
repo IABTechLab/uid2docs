@@ -5,7 +5,6 @@ Generate a UID2 token from a hashed or unhashed email address or phone number.
 
 >IMPORTANT: UID2 tokens must be generated only on the server side after authentication. Security concerns forbid token generation on the browser side.
 
-
 The following integration workflows use this endpoint:
 * [Publisher - Standard](../guides/publisher-client-side.md)
 * [Publisher - Custom](../guides/custom-publisher-integration.md)
@@ -13,6 +12,8 @@ The following integration workflows use this endpoint:
 ## Request Format 
 
 ```POST '{environment}/{version}/token/generate'```
+
+>IMPORTANT: You must encrypt your request using your secret. For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
 
 ### Path Parameters
 
@@ -37,7 +38,7 @@ The following integration workflows use this endpoint:
 
 >IMPORTANT: To ensure that the API key used to access the service remains secret, the `POST /token/generate` endpoint must be called from the server side, unlike the [POST /token/refresh](./post-token-refresh.md), which does not require using an API key.
 
-Teh following are JSON examples of unencrypted token generation requests for each parameter:
+The following are JSON body examples of unencrypted token generation requests for each parameter:
 
 ```json
 {
@@ -46,7 +47,7 @@ Teh following are JSON examples of unencrypted token generation requests for eac
 ```
 ```json
 {
-    "email_hash": "b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514"
+    "email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
 }
 ```
 ```json
@@ -56,24 +57,31 @@ Teh following are JSON examples of unencrypted token generation requests for eac
 ```
 ```json
 {
-    "phone_hash": "c1d3756a586b6f0d419b3e3d1b328674fbc6c4b842367ee7ded780390fc548ae"
+    "phone_hash": "wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ/FSK4="
 }
 ```
 
-An encrypted token generation request:
+Here's an encrypted token generation request format with placeholder values:
 
 ```sh
-curl -L -X POST 'https://integ.uidapi.com/v2/token/generate' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/octet-stream'
-
-TBD Binary Encrypted Envelope 
+encrypt_request.py "<Your-Secret>" "{<Unencrypted-JSON-Request-Body>}"
+  | curl -X POST https://prod.uidapi.com/v2/token/generate -H Authorization: Bearer <Your-Token>
+  | decrypt_response.py "<Your-Secret>"
 ```
 
+Here's an encrypted token generation request example for an email hash:
 
-## JSON Response Format 
+```sh
+encrypt_request.py "DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=" "{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}"
+  | curl -X POST https://prod.uidapi.com/v2/token/generate -H Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=
+  | decrypt_response.py "DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow="
+```
+For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
 
-TBD on the encrypted response.
 
-The response returns the user's advertising and refresh tokens for the specified email address, phone number, or the respective hash.  
+## Decrypted JSON Response Format 
+
+The decrypted response returns the user's advertising and refresh tokens for the specified email address, phone number, or the respective hash.  
 
 
 ```json
@@ -108,7 +116,6 @@ The following table lists the `status` property values and their HTTP status cod
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
 | `success` | 200 | The request was successful.|
-| `optout` | 200 | The user opted out. This status is returned only for authorized requests. |
 | `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
 | `invalid_token` | 400 | The request had an invalid identity token specified. This status is returned only for authorized requests. |
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
