@@ -37,7 +37,7 @@ Here's what you need to know:
 
 ### Request Examples
 
-The following are unencrypted JSON request body examples for each parameter, one of which you should include in your token generation requests:
+The following are unencrypted JSON request body examples for each parameter, one of which you should include in your identity mapping requests:
 
 ```json
 {
@@ -72,21 +72,21 @@ The following are unencrypted JSON request body examples for each parameter, one
 }
 ```
 
-Here's an encrypted token generation request format with placeholder values:
+Here's an encrypted identity mapping request format with placeholder values:
 
 ```sh
 encrypt_request.py <Your-Secret> "{<Unencrypted-JSON-Request-Body>}"
-  | curl -X POST https://prod.uidapi.com/v2/token/generate -H 'Authorization: Bearer <Your-Token>'
+  | curl -X POST https://prod.uidapi.com/v2/identity/map -H 'Authorization: Bearer <Your-Token>'
   | decrypt_response.py <Your-Secret>
 ```
 
 >IMPORTANT: Be sure to add escape backslashes before quotes inside the JSON body.
->
-Here's an encrypted token generation request example for an email hash:
+
+Here's an encrypted identity mapping request example for an email hash:
 
 ```sh
-encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= "{\"email_hash\": \"tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=\"}"
-  | curl -X POST https://prod.uidapi.com/v2/token/generate -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= "{\"phone\": [\"+1111111111\", \"+2222222222\"]}"
+  | curl -X POST https://prod.uidapi.com/v2/identity/map -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
 For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
