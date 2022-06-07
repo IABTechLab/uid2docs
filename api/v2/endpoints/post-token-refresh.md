@@ -67,6 +67,8 @@ echo "{\"refresh_token\":\"RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq%2F90
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
 
+For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
+
 ## Decrypted JSON Response Format
 
 A decrypted successful response returns new identity tokens issued for the user or indicates that the user has opted out. 
