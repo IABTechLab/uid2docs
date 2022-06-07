@@ -15,7 +15,7 @@ The following integration workflows use this endpoint:
 
 No encryption is required for token refresh requests.
 
->IMPORTANT: You must decrypt the response using your secret. For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
+>IMPORTANT: You must decrypt responses using your secret. For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
 
 ### Path Parameters
 
