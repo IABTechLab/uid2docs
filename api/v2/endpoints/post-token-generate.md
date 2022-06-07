@@ -28,9 +28,9 @@ The following integration workflows use this endpoint:
 | Body Parameter | Data Type | Attribute | Description | 
 | :--- | :--- | :--- | :--- |
 | `email` | string | Conditionally Required | The email address for which to generate tokens. | 
-| `email_hash` | string | Conditionally Required | The hash of a [normalized](../../README.md#email-address-normalization) email address. |
+| `email_hash` | string | Conditionally Required | The [base64-encoded SHA256](../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#email-address-normalization) email address. |
 | `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) phone number for which to generate tokens. |
-| `phone_hash` | string | Conditionally Required | The hash of a [normalized](../../README.md#phone-number-normalization) phone number. | 
+| `phone_hash` | string | Conditionally Required | The [base64-encoded SHA256](../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#phone-number-normalization) phone number. | 
 
 
 ### Request Examples
@@ -101,7 +101,19 @@ The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md) uses 
 | `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md) will start refreshing the advertising token.</br>TIP: If you are not using the SDK, consider refreshing the advertising token from this timestamp, too. |
 | `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
 
-For response status values, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
+### Response Status Codes
+
+The following table lists the `status` property values and their HTTP status code equivalents.
+
+| Status | HTTP Status Code | Description |
+| :--- | :--- | :--- |
+| `success` | 200 | The request was successful.|
+| `optout` | 200 | The user opted out. This status is returned only for authorized requests. |
+| `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
+| `invalid_token` | 400 | The request had an invalid identity token specified. This status is returned only for authorized requests. |
+| `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
+
+For response structure, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
 
 ## Test Identities
 
