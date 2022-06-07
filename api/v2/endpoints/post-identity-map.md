@@ -28,9 +28,9 @@ You must include only one of the following four parameters.
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `email` | string array | Conditionally Required | The list of email addresses to be mapped. |
-| `email_hash` | string array | Conditionally Required | The list of hashes of [normalized](../../README.md#email-address-normalization) email addresses. |
+| `email_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../README.md#email-address-hash-encoding) hashes of [normalized](../../README.md#email-address-normalization) email addresses. |
 | `phone` | string array | Conditionally Required | The list of [normalized](../../README.md#phone-number-normalization) phone numbers to be mapped. |
-| `phone_hash` | string array | Conditionally Required | The list of hashes of [normalized](../../README.md#phone-number-normalization) phone numbers. |
+| `phone_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../README.md#email-address-hash-encoding) hashes of [normalized](../../README.md#phone-number-normalization) phone numbers. |
 
 
 ### Request Examples
@@ -109,4 +109,16 @@ The response returns the UID2s and salt bucket IDs for the specified email addre
 | `advertising_id` | string | The corresponding advertising ID (raw UID2). |
 | `bucket_id` | string | The ID of the salt bucket used to generate the UID2. |
 
-For response status values, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
+### Response Status Codes
+
+The following table lists the `status` property values and their HTTP status code equivalents.
+
+| Status | HTTP Status Code | Description |
+| :--- | :--- | :--- |
+| `success` | 200 | The request was successful.|
+| `optout` | 200 | The user opted out. This status is returned only for authorized requests. |
+| `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
+| `invalid_token` | 400 | The request had an invalid identity token specified. This status is returned only for authorized requests. |
+| `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
+
+For response structure, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
