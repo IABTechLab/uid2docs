@@ -41,7 +41,7 @@ Here's an encrypted identity bucket rotation request format with placeholder val
 
 ```sh
 encrypt_request.py [Your-Secret] "{<Unencrypted-JSON-Request-Body>}"
-  | curl -X POST https://prod.uidapi.com/v2/identity/buckets -H 'Authorization: Bearer <Your-Token>'
+  | curl -X POST https://prod.uidapi.com/v2/identity/buckets -H 'Authorization: Bearer  [Your-Token]'
   | decrypt_response.py [Your-Secret]
 ```
 
