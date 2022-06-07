@@ -79,7 +79,6 @@ encrypt_request.py "DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=" "{"token": "Ad
   | decrypt_response.py "DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow="
 ```
 For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
-```
 
 ## Decrypted JSON Response Format 
 
