@@ -53,9 +53,10 @@ encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= "{\"since_timest
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
 For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
-## Response Format
 
-The response returns a list of salt bucket IDs and the timestamps of their last updates.
+## Decrypted JSON Response Format
+
+The decrypted response returns a list of salt bucket IDs and the timestamps of their last updates.
 
 ```json
 {
