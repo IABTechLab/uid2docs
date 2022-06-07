@@ -14,6 +14,8 @@ Here's what you need to know:
 
 ```POST '{environment}/{version}/identity/map'```
 
+>IMPORTANT: You must encrypt your request using your secret. For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
+
 ### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
@@ -21,16 +23,16 @@ Here's what you need to know:
 | `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
 | `{version}` | string | Required | The current API version is `v2`. |
 
-###  Request Body Parameters
+###  Unencrypted JSON Body Parameters
 
-You must include only one of the following four parameters. 
+>IMPORTANT: You must include only one of the following parameters as a key-value pair in the JSON body of a request when encrypting it.
 
-| Query Parameter | Data Type | Attribute | Description |
+| Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `email` | string array | Conditionally Required | The list of email addresses to be mapped. |
-| `email_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../README.md#email-address-hash-encoding) hashes of [normalized](../../README.md#email-address-normalization) email addresses. |
-| `phone` | string array | Conditionally Required | The list of [normalized](../../README.md#phone-number-normalization) phone numbers to be mapped. |
-| `phone_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../README.md#email-address-hash-encoding) hashes of [normalized](../../README.md#phone-number-normalization) phone numbers. |
+| `email_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../README.md#email-address-hash-encoding) hashes of [normalized](../README.md#email-address-normalization) email addresses. |
+| `phone` | string array | Conditionally Required | The list of [normalized](../README.md#phone-number-normalization) phone numbers to be mapped. |
+| `phone_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../README.md#email-address-hash-encoding) hashes of [normalized](../README.md#phone-number-normalization) phone numbers. |
 
 
 ### Request Examples
