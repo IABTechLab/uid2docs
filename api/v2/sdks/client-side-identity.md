@@ -3,16 +3,9 @@
 # Client-Side Identity JavaScript SDK (v2)
 
 Use this UID2 SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). 
-- For integration steps for content publishers, see [UID2 SDK Integration Guide](../guides/publisher-client-side.md). 
-- For an [example application](https://example-jssdk-integ.uidapi.com/) documentation, see [UID2 SDK Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/standard/README.md).
+For integration steps for content publishers, see [UID2 SDK Integration Guide](../guides/publisher-client-side.md). 
 
 >NOTE: Within this documentation, the term "identity" refers to a package of UID2 tokens, including the advertising token.
-
-### Improvements and Changes from Version 1
-
-With the v2 updates to the UID2 SDK, you can now take advantage of the following: 
-
-- TBD
 
 
 ## Include the SDK Script
@@ -20,7 +13,7 @@ With the v2 updates to the UID2 SDK, you can now take advantage of the following
 Include the following SDK script on the pages where you want to use UID2 to manage identity or retrieve an advertising token for targeted advertising:
 
 ```html
-<script src="https://prod.uidapi.com/static/js/uid2-sdk-1.0.0.js" type="text/javascript"></script> 
+<script src="https://prod.uidapi.com/static/js/uid2-sdk-2.0.0.js" type="text/javascript"></script> 
 ```
 
 ## Workflow Overview
