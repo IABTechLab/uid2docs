@@ -25,7 +25,7 @@ Here's what you need to know:
 
 You must include only one of the following four parameters. 
 
-| Query Parameter | Data Type | Attribute | Description |
+| Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `email` | string array | Conditionally Required | The list of email addresses to be mapped. |
 | `email_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../README.md#email-address-hash-encoding) hashes of [normalized](../README.md#email-address-normalization) email addresses. |
