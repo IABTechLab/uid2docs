@@ -54,7 +54,7 @@ Here's a token refresh request format with placeholder values:
 ```sh
 echo "{\"Unencrypted-JSON-Request-Body\"}" \
   | curl -X POST https://prod.uidapi.com/v2/token/refresh -H "Authorization: Bearer [Your-Client-API-Key]" \
-  | decrypt_response.py [Your-Client-Secret]
+  | decrypt_response.py [Your-Client-Secret] 1
 ```
 >IMPORTANT: Be sure to add escape backslashes before double quotes inside the JSON body. Alternatively, use single quotes.
 
@@ -63,7 +63,7 @@ Here's a token refresh request example:
 ```sh
 echo "{\"refresh_token\":\"RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq%2F90PYmajV0IPrvo51Biqh7%2FM%2BJOuhfBY8KGUn%2F%2FGsmZr9nf%2BjIWMUO4diOA92kCTF69JdP71Ooo%2ByF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA%3D%3D\""}" \
   | curl -X POST https://prod.uidapi.com/v2/token/refresh -H "Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=" \
-  | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
+  | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= 1
 ```
 
 For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
