@@ -12,7 +12,7 @@ Here's what you need to know about ecrypting UID2 API requests:
 
 ## Encrypting Requests
 
-Here's an example Python script for generating requests, which takes the client `secret` as parameter.
+Here's an example Python script (`encrypt_request.py`) for encrypting requests, which takes the client `secret` as a parameter.
 
 ```py
 import base64
@@ -53,7 +53,7 @@ print()
 ## Decrypting Responses
 
 TBD
-Here's an example Python script for generating requests, which takes the client `secret` as parameter.
+Here's an example Python script (`decrypt_response.py`) for decrypting responses, which takes TBD the client `secret` as a parameter.
 
 ```py
 import base64
