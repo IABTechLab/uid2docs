@@ -8,12 +8,21 @@ Here's what you need to know about ecrypting UID2 API requests:
 
 - They use the GCM(AES/GCM/NoPadding) encryption algorithm using 96-bit IV and 128-bit AuthTag.
 - IV and encrypted payload is included in the `encrypted_body` field as base64-encoded string.
-- A `nonce` field is included into the 1st-level dict of the request as a random value to protect against replay attack.
+- A `nonce` field is included in the 1st-level dict of both requests and responses as a random value to protect against replay attack.
+
+### Binary Encrypted Envelope
+
+| Byte | Description | Comments |
+| :--- | :--- | :--- |
+| 1st byte | version (==1) |  |
+| byte[12] | iv |  |
+| byte[enc_payload_len] | Binary Encrypted Payload | AES (`client_secret`, Binary Unencrypted Envelope) |
+| byte[16] | HMACSHA1 base64-encoded signature | For details on HMACSHA1 encoding, see [Microsoft documentation](https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.hmacsha1?redirectedfrom=MSDN&view=netcore-3.1). |
+
 
 ## Encrypting Requests
 
 Here's an example Python script (`encrypt_request.py`) for encrypting requests, which takes the client `secret` as a parameter:
-
 
 ```py
 import base64
@@ -53,12 +62,10 @@ print()
 ```
 ## Decrypting Responses
 
-TBD
 Here's an example Python script (`decrypt_response.py`) for decrypting responses, which takes the following parameters:
 
 - The client `secret`
-- An integer `0` or `1`, which indicates whether the response is token refresh response.
-
+- An integer `0` or `1`, which indicates whether the response is for a token refresh request
 
 ```py
 import base64
