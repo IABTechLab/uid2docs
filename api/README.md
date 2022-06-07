@@ -25,7 +25,7 @@ To access to UID2, contact the appropriate team at The Trade Desk listed below.
 
 ## API Versions
 
-Currently, there are two versions of the UID2 APIs: [v1](./v1/README.md) and [v2](./v1/README.md).
+Currently, there are two versions of the UID2 APIs: [v1](./v1/README.md) and [v2](./v2/README.md).
 
 TBD on differences
 
