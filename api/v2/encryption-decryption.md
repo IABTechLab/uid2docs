@@ -10,8 +10,8 @@ Here's what you need to know about encrypting UID2 API requests and decrypting r
 
 - In addition to your client API key, you need your client `secret`.
 - You can write your own custom scripts or use the Python scripts provided in the following sections.
-- With the GCM (AES/GCM/NoPadding) encryption algorithm using 96-bit IV and 128-bit AuthTag utilized, all requests must contain the following:
-  - A version, an initialization vector (IV), an encrypted payload, and an authorization tag as base64-encoded string. For field layout details, see [Binary Encrypted Envelope](#binary-encrypted-envelope).
+- With the GCM (AES/GCM/NoPadding) encryption algorithm using 96-bit initialization vector (IV) and 128-bit AuthTag utilized, all requests must contain the following:
+  - A version, an IV, an encrypted payload, and an authorization tag as base64-encoded string. For field layout details, see [Binary Encrypted Envelope](#binary-encrypted-envelope).
   - A `nonce` field included in the first-level dictionary of both requests and responses as a random value to protect against replay attack.
   - A timestamp.
 - For field layout details for decrypting responses, see [Binary Unencrypted Envelope](#binary-unencrypted-envelope).
@@ -38,9 +38,9 @@ The following table describes the field layout for request encryption scripts.
 | Byte | Description TBD Value? | Comments |
 | :--- | :--- | :--- |
 | 1st byte | version (==1) | The version of the envelope format. |
-| byte[12] | iv | Initialization vector, which is used to randomize data encryption. |
+| byte[12] | iv | A 96-bit initialization vector, which is used to randomize data encryption. |
 | byte[enc_payload_len] | Binary Encrypted Payload | AES (`client_secret`, Binary Unencrypted Envelope) |
-| byte[16] | GCM Authentication Tag | This tag is used to verify the integrity of data. |
+| byte[16] | GCM Authentication Tag | This 128-bit tag is used to verify the integrity of data. |
 
 ### Example Encryption Script
 
