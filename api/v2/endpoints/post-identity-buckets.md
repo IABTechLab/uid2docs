@@ -17,7 +17,7 @@ Monitor rotated salt buckets. This endpoint is intended for use by [Advertisers/
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
+| `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
 | `{version}` | string | Required | The current API version is `v2`. |
 
 ### Unencrypted JSON Body Parameters
@@ -40,9 +40,9 @@ The following is an unencrypted JSON request body example, which you should incl
 Here's an encrypted identity bucket rotation request format with placeholder values:
 
 ```sh
-echo "{\"Unencrypted-JSON-Request-Body\"}" \
+echo '{"Unencrypted-JSON-Request-Body"}' \
   | encrypt_request.py [Your-Client-Secret] \
-  | curl -X POST https://prod.uidapi.com/v2/identity/buckets -H "Authorization: Bearer [Your-Client-API-Key]" \
+  | curl -X POST 'https://prod.uidapi.com/v2/identity/buckets' -H 'Authorization: Bearer [Your-Client-API-Key]' \
   | decrypt_response.py [Your-Client-Secret] 0
 ```
 
@@ -51,9 +51,9 @@ echo "{\"Unencrypted-JSON-Request-Body\"}" \
 Here's an encrypted identity bucket rotation request example:
 
 ```sh
-echo "{\"since_timestamp\": \"2022-06-01T13:00:00\"}" \
+echo '{"since_timestamp": "2022-06-01T13:00:00"}' \
   | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
-  | curl -X POST https://prod.uidapi.com/v2/identity/buckets -H "Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=" \
+  | curl -X POST 'https://prod.uidapi.com/v2/identity/buckets' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' \
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= 0
 ```
 
