@@ -34,7 +34,7 @@ TBD intro
 | byte[enc_payload_len] | Binary Encrypted Payload | AES (`client_secret`, Binary Unencrypted Envelope) |
 | byte[16] | HMACSHA1 base64-encoded signature | For details on HMACSHA1 encoding, see [Microsoft documentation](https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.hmacsha1?redirectedfrom=MSDN&view=netcore-3.1). |
 
-### Encryption Script
+### Example Encryption Script
 
 Here's an example Python script (`encrypt_request.py`) for encrypting requests, which takes the client `secret` as a parameter:
 
@@ -96,6 +96,8 @@ TBD
 | byte[8] | timestamp unix epoch seconds |  |
 | byte[8] | nonce |  |
 | byte[json_payload_len] | Unencrypted Json Payload |  |
+
+### Example Decryption Script
 
 Here's an example Python script (`decrypt_response.py`) for decrypting responses, which takes the following parameters:
 
