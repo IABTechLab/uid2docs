@@ -27,10 +27,10 @@ All UID2 endpoints use the same base URL.
 
 | Environment | Base URL |
 | :--- | :--- |
-| Testing | ```https://integ.uidapi.com/v1``` |
+| Testing | ```https://operator-integ.uidapi.com/v1``` |
 | Production | ```https://prod.uidapi.com/v1``` |
 
-For example, https://integ.uidapi.com/v1/token/generate
+For example, https://operator-integ.uidapi.com/v1/token/generate
 
 ## Authentication
 
