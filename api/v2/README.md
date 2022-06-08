@@ -26,24 +26,23 @@ For details on using the API, see the following pages.
 
 ## Improvements and Changes from Version 1
 
-With the v2 updates to the UID2 API, you can now take advantage of the following:
+The v2 updates to the UID2 API include the following:
 
-- Application API layer encryption that provides E2E content protection that prevents sensitive UID2 information from leaking to network operator or UID2 service operator.
-- Only POST methods with input parameters provided in the request body in the JSON format and encrypted using a pre-shared key (PSK). For details and Python examples, see [Encrypting Requests and Decrypting Responses](./encryption-decryption.md).
-- No more URL-encoding of parameter values.
-- The [POST /identity/map](./endpoints/post-identity-map.md) endpoint that now retrieves UID2s and salt bucket IDs for one or multiple email addresses, phone numbers, or the respective hashes. 
-- In addition to the client API `key` for [authetication](#authentication-and-authorization), a client `secret` is now required for encrypting API requests and decrypting API responses.
-- TBD
+- Application API layer encryption that provides E2E content protection, which prevents sensitive UID2 information from leaking to a network operator or the UID2 service operator.
+- In addition to the client API `key` for [authetication](#authentication-and-authorization), a client `secret` is now required for encrypting API requests and decrypting API responses. For details and Python examples, see [Encrypting Requests and Decrypting Responses](./encryption-decryption.md).
+- No more query parameters. New POST methods take input parameters as the request body in the JSON format. 
+- No URL-encoding of parameter values is required.
+- The [POST /identity/map](./endpoints/post-identity-map.md) endpoint now retrieves UID2s and salt bucket IDs for one or multiple email addresses, phone numbers, or the respective hashes. 
+
 
 ## UID2 API v1 Compatibility and Upgrade Requirements
 
 Here's what you need to know about UID2 API v2 compatibility with v1:
 
-- UID2 API v2 is not compatible with UID2 API v1 and will require an upgrade.
-- The v1 endpoints will be supported until the migration process is completed, with the approppiate notifications issued in a timely manner and with ample advance notice.
+- UID2 API v2 is not compatible with UID2 API v1 and will require an upgrade. (The Upgrade Guide is coming soon.)
+- The v1 endpoints will be supported until the migration process is complete, with the approppiate notifications issued in a timely manner and with ample advance notice.
 - Client keys have been upgraded to be compantible with both v1 and v2 API.
 - Authorization tokens that are previously shared with UID2 partners will continue to work for accessing only UID2 v1 APIs.
-- TBD
 
 ## Environment 
 
