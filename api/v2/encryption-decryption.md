@@ -25,7 +25,7 @@ The high-level request-response workflow for the UID2 APIs includes the followin
 3. Send the encrypted request.
 4. Run another script to decrypt the returned response to to plain JSON.
 
-Individual [endpoints](./endpoints/README.md) explain the respective format requirements and parameters, include call examples, and show decrypted responses. The following sections provide examples of the encryption and descriptions scripts in Python, field layout requirements as well as request and response examples. 
+The individual UID2 [endpoints](./endpoints/README.md) explain the respective format requirements and parameters, include call examples, and show decrypted responses. The following sections provide examples of the encryption and descriptions scripts in Python, field layout requirements as well as request and response examples. 
 
 ## Encrypting Requests
 
