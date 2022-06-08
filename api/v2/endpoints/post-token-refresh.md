@@ -33,7 +33,7 @@ Using either of the following parameters in a [POST /token/generate](./post-toke
 
 ### Request Example
 
-Here's a token refresh request format with placeholder values, which include the `refresh token` and `refresh_response_key` values returned by a [POST /token/generate](./post-token-generate.md) request:
+Here's a token refresh request format with placeholder values, which include the `refresh_token` and `refresh_response_key` values returned by a [POST /token/generate](./post-token-generate.md) request:
 
 ```sh
 echo [refresh_token] \
