@@ -9,7 +9,7 @@ Validate that an advertising token matches the specified hashed or unhashed emai
 
 ```POST '{environment}/{version}/token/validate'```
 
->IMPORTANT: You must encrypt your request using your secret. For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
+>IMPORTANT: You must encrypt all request using your secret. For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
 
 
 ### Path Parameters
@@ -66,9 +66,9 @@ The following are unencrypted JSON request body examples for each parameter, whi
 Here's an encrypted token validation request format with placeholder values:
 
 ```sh
-echo "{\"Unencrypted-JSON-Request-Body\"}" \
+echo '{"Unencrypted-JSON-Request-Body"}' \
   | encrypt_request.py [Your-Client-Secret] \
-  | curl -X POST https://prod.uidapi.com/v2/token/validate -H "Authorization: Bearer [Your-Client-API-Key]" \
+  | curl -X POST 'https://prod.uidapi.com/v2/token/validate' -H 'Authorization: Bearer [Your-Client-API-Key]' \
   | decrypt_response.py [Your-Client-Secret] 0
 ```
 
@@ -77,9 +77,9 @@ echo "{\"Unencrypted-JSON-Request-Body\"}" \
 Here's an encrypted token validation request example for an email hash:
 
 ```sh
-echo "{\"token\": \"AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D\", \"email_hash\": \"tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=\"}" \
+echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D", "email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
   | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
-  | curl -X POST https://prod.uidapi.com/v2/token/validate -H "Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=" \
+  | curl -X POST 'https://prod.uidapi.com/v2/token/validate' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' \
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= 0
 ```
 
