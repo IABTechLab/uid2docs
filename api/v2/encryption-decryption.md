@@ -1,6 +1,6 @@
-[UID2 API Documentation](../../README.md) > [v2](./README.md) > Generating Requests
+[UID2 API Documentation](../../README.md) > [v2](./README.md) > Encrypting Requests and Decrypting Responses
 
-# Encryption and Decryption
+# Encrypting Requests and Decrypting Responses
 
 All UID2 [endpoints](./endpoints/README.md) require a client `secret` for [encrypting](#encrypting-requests) API requests and [decrypting](#decrypting-responses) responses. Only [POST /token/refresh](./endpoints/post-token-refresh.md) requests do not require encryption.
 
