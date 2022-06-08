@@ -14,7 +14,7 @@ Here's what you need to know:
 
 ```POST '{environment}/{version}/identity/map'```
 
->IMPORTANT: You must encrypt all request using your secret. For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
+>IMPORTANT: You must encrypt all request using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../encryption-decryption.md).
 
 ### Path Parameters
 
@@ -90,7 +90,7 @@ echo '{"phone": ["+1111111111", "+2222222222"]}' \
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= 0
 ```
 
-For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
+For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../encryption-decryption.md).
 
 ## Decrypted JSON Response Format
 
