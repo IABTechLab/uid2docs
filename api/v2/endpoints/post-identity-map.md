@@ -81,8 +81,6 @@ echo '{Unencrypted-JSON-Request-Body}' \
   | decrypt_response.py [Your-Client-Secret] 0
 ```
 
->IMPORTANT: Be sure to add escape backslashes before double quotes inside the JSON body. Alternatively, use single quotes.
-
 Here's an encrypted identity mapping request example for an email hash:
 
 ```sh
