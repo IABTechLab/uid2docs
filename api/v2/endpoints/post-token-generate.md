@@ -13,7 +13,7 @@ The following integration workflows use this endpoint:
 
 ```POST '{environment}/{version}/token/generate'```
 
->IMPORTANT: You must encrypt your request using your secret. For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
+>IMPORTANT: You must encrypt all requests using your secret. For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
 
 ### Path Parameters
 
