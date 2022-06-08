@@ -10,7 +10,7 @@ Here's what you need to know about encrypting UID2 API requests and decrypting r
 
 - In addition to your client API key, you need your client `secret`.
 - You can write your own custom scripts or use the Python scripts provided in the following sections.
-- With the GCM(AES/GCM/NoPadding) encryption algorithm using 96-bit IV and 128-bit AuthTag utilized, all requests must contain the following:
+- With the GCM (AES/GCM/NoPadding) encryption algorithm using 96-bit IV and 128-bit AuthTag utilized, all requests must contain the following:
   - A version, IV, encrypted payload and auth tag as base64-encoded string. For field layout details, see [Binary Encrypted Envelope](#binary-encrypted-envelope).
   - A `nonce` field is included in the 1st-level dict of both requests and responses as a random value to protect against replay attack.
   - A timestamp.
@@ -37,10 +37,10 @@ The following table describes the field layout for request encryption scripts.
 
 | Byte | Description TBD Value? | Comments |
 | :--- | :--- | :--- |
-| 1st byte | version (==1) |  |
+| 1st byte | version (==1) | The version of the envelope format. |
 | byte[12] | iv | Initialization vector, which is used to randomize data encryption. |
 | byte[enc_payload_len] | Binary Encrypted Payload | AES (`client_secret`, Binary Unencrypted Envelope) |
-| byte[16] | GCM authentication tag | This tag is used to verify the integrity of data. |
+| byte[16] | GCM Authentication Tag | This tag is used to verify the integrity of data. |
 
 ### Example Encryption Script
 
@@ -102,11 +102,11 @@ You have the option of writing your own script for decrypting responses or using
 
 The following table describes the field layout for response decryption scripts.
 
-| Byte | Description | Comments |
-| :--- | :--- | :--- |
-| byte[8] | timestamp unix epoch seconds |  |
-| byte[8] | nonce |  |
-| byte[json_payload_len] | Unencrypted Json Payload |  |
+| Byte | Description |
+| :--- | :--- |
+| byte[8] | Timestamp unix epoch seconds |
+| byte[8] | Nonce |
+| byte[json_payload_len] | Unencrypted JSON Payload |
 
 ### Example Decryption Script
 
