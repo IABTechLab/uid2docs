@@ -14,13 +14,13 @@ Here's what you need to know:
 
 ```POST '{environment}/{version}/identity/map'```
 
->IMPORTANT: You must encrypt your request using your secret. For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
+>IMPORTANT: You must encrypt all request using your secret. For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
 
 ### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
+| `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
 | `{version}` | string | Required | The current API version is `v2`. |
 
 ###  Unencrypted JSON Body Parameters
@@ -75,9 +75,9 @@ The following are unencrypted JSON request body examples for each parameter, one
 Here's an encrypted identity mapping request format with placeholder values:
 
 ```sh
-echo "{\"Unencrypted-JSON-Request-Body\"}" \
+echo '{Unencrypted-JSON-Request-Body}' \
   | encrypt_request.py [Your-Client-Secret] \
-  | curl -X POST https://prod.uidapi.com/v2/identity/map -H "Authorization: Bearer [Your-Client-API-Key]" \
+  | curl -X POST 'https://prod.uidapi.com/v2/identity/map' -H 'Authorization: Bearer [Your-Client-API-Key]' \
   | decrypt_response.py [Your-Client-Secret] 0
 ```
 
@@ -86,9 +86,9 @@ echo "{\"Unencrypted-JSON-Request-Body\"}" \
 Here's an encrypted identity mapping request example for an email hash:
 
 ```sh
-echo "{\"phone\": [\"+1111111111\", \"+2222222222\"]}" \
+echo '{"phone": ["+1111111111", "+2222222222"]}' \
   | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
-  | curl -X POST https://prod.uidapi.com/v2/identity/map -H "Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=" \
+  | curl -X POST 'https://prod.uidapi.com/v2/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' \
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= 0
 ```
 
