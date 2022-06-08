@@ -2,17 +2,19 @@
 
 # Encrypting Requests and Decrypting Responses
 
-All UID2 [endpoints](./endpoints/README.md) require a client `secret` for [encrypting](#encrypting-requests) API requests and [decrypting](#decrypting-responses) responses. 
+All UID2 [endpoints](./endpoints/README.md) require request [encryption](#encrypting-requests) and respective response [decryption](#decrypting-responses). 
 
 >NOTE: [POST /token/refresh](./endpoints/post-token-refresh.md) requests do not require encryption.
 
 Here's what you need to know about encrypting UID2 API requests and decrypting respective responses:
 
-- The GCM(AES/GCM/NoPadding) encryption algorithm using 96-bit IV and 128-bit AuthTag is utilized.
-- All requests must contain the following:
+- In addition to your client API key, you need your client `secret`.
+- You can write your own custom scripts or use the Python scripts provided in the following sections.
+- With the GCM(AES/GCM/NoPadding) encryption algorithm using 96-bit IV and 128-bit AuthTag utilized, all requests must contain the following:
   - A version, IV, encrypted payload and auth tag as base64-encoded string. For field layout details, see [Binary Encrypted Envelope](#binary-encrypted-envelope).
   - A `nonce` field is included in the 1st-level dict of both requests and responses as a random value to protect against replay attack.
   - A timestamp.
+- For field layout details for decrypting responses, see [Binary Unencrypted Envelope](#binary-unencrypted-envelope).
 
 ## Workflow
 
@@ -27,9 +29,11 @@ Individual [endpoints](./endpoints/README.md) explain the respective format requ
 
 ## Encrypting Requests
 
-You have the option of writing your own script for encrypting requests or using the provided [Python example script](#example-encryption-script). If you decide to write your own script, be sure to follow the requirements listed in [Binary Encrypted Envelope](#binary-encrypted-envelope).
+You have the option of writing your own script for encrypting requests or using the provided [Python example script](#example-encryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Binary Encrypted Envelope](#binary-encrypted-envelope).
 
 ### Binary Encrypted Envelope
+
+The following table describes the field layout for request encryption scripts.
 
 | Byte | Description TBD Value? | Comments |
 | :--- | :--- | :--- |
@@ -91,10 +95,12 @@ echo '{"email": "test@example.com"}' \
 
 ## Decrypting Responses
 
-You have the option of writing your own script for decrypting responses or using the provided [Python example script](#example-decryption-script). If you decide to write your own script, be sure to follow the requirements listed in [Binary Unencrypted Envelope](#binary-unencrypted-envelope).
+You have the option of writing your own script for decrypting responses or using the provided [Python example script](#example-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Binary Unencrypted Envelope](#binary-unencrypted-envelope).
 
 
 ### Binary Unencrypted Envelope
+
+The following table describes the field layout for response decryption scripts.
 
 | Byte | Description | Comments |
 | :--- | :--- | :--- |
