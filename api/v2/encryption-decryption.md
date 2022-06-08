@@ -12,7 +12,7 @@ Here's what you need to know about encrypting UID2 API requests and decrypting r
 - You can write your own custom scripts or use the Python scripts provided in the following sections.
 - With the GCM (AES/GCM/NoPadding) encryption algorithm using 96-bit IV and 128-bit AuthTag utilized, all requests must contain the following:
   - A version, an initialization vector (IV), an encrypted payload, and an authorization tag as base64-encoded string. For field layout details, see [Binary Encrypted Envelope](#binary-encrypted-envelope).
-  - A `nonce` field is included in the first-level dictionary of both requests and responses as a random value to protect against replay attack.
+  - A `nonce` field included in the first-level dictionary of both requests and responses as a random value to protect against replay attack.
   - A timestamp.
 - For field layout details for decrypting responses, see [Binary Unencrypted Envelope](#binary-unencrypted-envelope).
 
