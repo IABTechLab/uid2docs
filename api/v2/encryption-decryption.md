@@ -79,9 +79,9 @@ print()
 For example, to send an encrypted [POST /token/generate](./endpoints/post-token-generate.md) request for an email address, you can run the following command.
 
 ```sh
-echo "{\"email\": \"test@example.com\"}" \
+echo '{"email": "test@example.com"}' \
   | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
-  | curl -X POST https://prod.uidapi.com/v2/token/generate -H "Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=" \
+  | curl -X POST 'https://prod.uidapi.com/v2/token/generate' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' \
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= 0
 ```
 
