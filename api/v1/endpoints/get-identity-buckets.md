@@ -15,7 +15,7 @@ Monitor rotated salt buckets. This endpoint is intended for use by [Advertisers/
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
+| `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
 | `{version}` | string | Required | The current API version is `v1`. |
 
 ### Query Parameters
@@ -27,7 +27,7 @@ Monitor rotated salt buckets. This endpoint is intended for use by [Advertisers/
 ### Request Example
 
 ```curl
-curl -L -X GET 'https://integ.uidapi.com/v1/identity/buckets?since_timestamp=2021-03-01T01%3A01%3A01' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X GET 'https://operator-integ.uidapi.com/v1/identity/buckets?since_timestamp=2021-03-01T01%3A01%3A01' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
 ## Response Format
