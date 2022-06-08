@@ -11,7 +11,7 @@ Monitor rotated salt buckets. This endpoint is intended for use by [Advertisers/
 
 ```POST '{environment}/{version}/identity/buckets'```
 
->IMPORTANT: You must encrypt your request using your secret. For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
+>IMPORTANT: You must encrypt all request using your secret. For details and Python script examples, see [Generating Encrypted Requests and Decrypting Responses](../encryption-decryption.md).
 
 ### Path Parameters
 
@@ -40,13 +40,11 @@ The following is an unencrypted JSON request body example, which you should incl
 Here's an encrypted identity bucket rotation request format with placeholder values:
 
 ```sh
-echo '{"Unencrypted-JSON-Request-Body"}' \
+echo '{Unencrypted-JSON-Request-Body}' \
   | encrypt_request.py [Your-Client-Secret] \
   | curl -X POST 'https://prod.uidapi.com/v2/identity/buckets' -H 'Authorization: Bearer [Your-Client-API-Key]' \
   | decrypt_response.py [Your-Client-Secret] 0
 ```
-
->IMPORTANT: Be sure to add escape backslashes before double quotes inside the JSON body. Alternatively, use single quotes.
 
 Here's an encrypted identity bucket rotation request example:
 
