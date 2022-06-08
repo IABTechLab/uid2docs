@@ -2,13 +2,17 @@
 
 # Encrypting Requests and Decrypting Responses
 
-All UID2 [endpoints](./endpoints/README.md) require a client `secret` for [encrypting](#encrypting-requests) API requests and [decrypting](#decrypting-responses) responses. Only [POST /token/refresh](./endpoints/post-token-refresh.md) requests do not require encryption.
+All UID2 [endpoints](./endpoints/README.md) require a client `secret` for [encrypting](#encrypting-requests) API requests and [decrypting](#decrypting-responses) responses. 
+
+>NOTE: [POST /token/refresh](./endpoints/post-token-refresh.md) requests do not require encryption.
 
 Here's what you need to know about encrypting UID2 API requests and decrypting respective responses:
 
 - The GCM(AES/GCM/NoPadding) encryption algorithm using 96-bit IV and 128-bit AuthTag is utilized.
-- IV and encrypted payload is included in the `encrypted_body` field as base64-encoded string.
-- A `nonce` field is included in the 1st-level dict of both requests and responses as a random value to protect against replay attack.
+- All requests must contain the following:
+  - A version, IV, encrypted payload and auth tag as base64-encoded string. For field layout details, see [Binary Encrypted Envelope](#binary-encrypted-envelope).
+  - A `nonce` field is included in the 1st-level dict of both requests and responses as a random value to protect against replay attack.
+  - A timestamp.
 
 ## Workflow
 
@@ -27,12 +31,12 @@ You have the option of writing your own script for encrypting requests or using 
 
 ### Binary Encrypted Envelope
 
-| Byte | Description | Comments |
+| Byte | Description TBD Value? | Comments |
 | :--- | :--- | :--- |
 | 1st byte | version (==1) |  |
-| byte[12] | iv |  |
+| byte[12] | iv | Initialization vector, which is used to randomize data encryption. |
 | byte[enc_payload_len] | Binary Encrypted Payload | AES (`client_secret`, Binary Unencrypted Envelope) |
-| byte[16] | HMACSHA1 base64-encoded signature | For details on HMACSHA1 encoding, see [Microsoft documentation](https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.hmacsha1?redirectedfrom=MSDN&view=netcore-3.1). |
+| byte[16] | GCM authentication tag | This tag is used to verify the integrity of data. |
 
 ### Example Encryption Script
 
