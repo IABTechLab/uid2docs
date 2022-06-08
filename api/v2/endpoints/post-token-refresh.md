@@ -24,15 +24,6 @@ No encryption is required for token refresh requests.
 | `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
 | `{version}` | string | Required | The current API version is `v2`. |
 
-###  Unencrypted JSON Body Parameters
-
->IMPORTANT: You must include the following parameter as a key-value pair in the JSON body of a request when encrypting it.
-
-| Body Parameter | Data Type | Attribute | Description |
-| :--- | :--- | :--- | :--- |
-| `refresh_token` | string | Required | The refresh token returned in the [POST /token/generate](./post-token-generate.md) response. |
-
-
 #### Testing Notes
 
 Using either of the following parameters in a [POST /token/generate](./post-token-generate.md) request always generates an identity response with a `refresh_token` that results in a logout response when used with the `POST /token/refresh` endpoint:
@@ -42,21 +33,19 @@ Using either of the following parameters in a [POST /token/generate](./post-toke
 
 ### Request Example
 
-
 Here's a token refresh request format with placeholder values, which include the `refresh token` and `refresh_response_key` values returned by a [POST /token/generate](./post-token-generate.md) request:
 
 ```sh
 echo [refresh_token] \
-  | curl -X POST https://prod.uidapi.com/v2/token/refresh -H "Authorization: Bearer [Your-Client-API-Key]" \
+  | curl -X POST 'https://prod.uidapi.com/v2/token/refresh' -H 'Authorization: Bearer [Your-Client-API-Key]' \
   | decrypt_response.py [refresh_response_key] 1
 ```
->IMPORTANT: Be sure to add escape backslashes before double quotes inside the JSON body. Alternatively, use single quotes.
 
 Here's a token refresh request example:
 
 ```sh
 echo AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNSVnCnzYq2BiDDz8SLsKOo6wZsoMIn95jVWBaA6oLq7uUGY5/g9SUOfFmX5uDXUvO0w2UCKi+j9OQhlMfxTsyUQUzC1VQOx6ed/gZjqH/Sw6Kyk0XH7AlziqSyyXA438JHqyJphGVwsPl2LGCH1K2MPxkLmyzMZ2ghTzrr0IgIOXPsL4lXqSPkl/UJqnO3iqbihd66eLeYNmyd1Xblr3DwYnwWdAUXEufLoJbbxifGYc+fPF+8DpykpyL9neq3oquxQWpyHsftnwYaZT5EBZHQJqAttHUZ4yQ== \
-  | curl -X POST https://prod.uidapi.com/v2/token/refresh -H "Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=" \
+  | curl -X POST 'https://prod.uidapi.com/v2/token/refresh' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' \
   | decrypt_response.py wR5t6HKMfJ2r4J7fEGX9Gw== 1
 ```
 
