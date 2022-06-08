@@ -23,7 +23,7 @@ Individual [endpoints](./endpoints/README.md) explain the respective format requ
 
 ## Encrypting Requests
 
-TBD intro
+You have the option of writing your own script for encrypting requests or using the provided [Python example script](#example-encryption-script). If you decide to write your own script, be sure to follow the requirements listed in [Binary Encrypted Envelope](#binary-encrypted-envelope).
 
 ### Binary Encrypted Envelope
 
@@ -87,7 +87,8 @@ echo '{"email": "test@example.com"}' \
 
 ## Decrypting Responses
 
-TBD
+You have the option of writing your own script for decrypting responses or using the provided [Python example script](#example-decryption-script). If you decide to write your own script, be sure to follow the requirements listed in [Binary Unencrypted Envelope](#binary-unencrypted-envelope).
+
 
 ### Binary Unencrypted Envelope
 
