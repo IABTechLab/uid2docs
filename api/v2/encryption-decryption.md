@@ -87,6 +87,16 @@ echo '{"email": "test@example.com"}' \
 
 ## Decrypting Responses
 
+TBD
+
+### Binary Unencrypted Envelope
+
+| Byte | Description | Comments |
+| :--- | :--- | :--- |
+| byte[8] | timestamp unix epoch seconds |  |
+| byte[8] | nonce |  |
+| byte[json_payload_len] | Unencrypted Json Payload |  |
+
 Here's an example Python script (`decrypt_response.py`) for decrypting responses, which takes the following parameters:
 
 - The client `secret`
