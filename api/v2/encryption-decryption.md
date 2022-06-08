@@ -8,7 +8,7 @@ All UID2 [endpoints](./endpoints/README.md) require request [encryption](#encryp
 
 Here's what you need to know about encrypting UID2 API requests and decrypting respective responses:
 
-- In addition to your client API key, you need your client `secret`.
+- To use the APIs, in addition to your client API key, you need your client `secret`.
 - You can write your own custom scripts or use the Python scripts provided in the following sections.
 - With the GCM (AES/GCM/NoPadding) encryption algorithm using 96-bit initialization vector (IV) and 128-bit AuthTag utilized, all requests must contain the following:
   - A version, an IV, an encrypted payload, and an authorization tag as base64-encoded string. For field layout details, see [Binary Encrypted Envelope](#binary-encrypted-envelope).
