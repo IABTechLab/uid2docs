@@ -8,10 +8,10 @@ All UID2 [endpoints](./endpoints/README.md) require request [encryption](#encryp
 
 Here's what you need to know about encrypting UID2 API requests and decrypting respective responses:
 
-- To use the APIs, in addition to your client API key, you need your client `secret`.
+- To use the APIs, in addition to your client API key, you need your client secret.
 - You can write your own custom scripts or use the Python scripts provided in the following sections.
 - Request and response use AES/GCM/NoPadding encryption algorithm with 96-bit initialization vector and 128-bit authentication tag.
-- The raw, unencrypted JSON body of the request or response is wrapped in binary [Unencrypted Data Envelope](TBD).
+- The raw, unencrypted JSON body of the request or response is wrapped in a binary [Unencrypted Data Envelope](TBD).
 - For requests, the Unencrypted Data Envelope gets encrypted and formatted according to the [Encrypted Request Envelope](#encrypted-request-envelope).
 - Responses are formatted according to the [Encrypted Response Envelope](#encrypted-response-envelope).
 
@@ -20,9 +20,17 @@ Here's what you need to know about encrypting UID2 API requests and decrypting r
 The high-level request-response workflow for the UID2 APIs includes the following steps:
 
 1. Prepare the request body with input parameters in the JSON format.
-2. Run a script to create an encrypted payload from the JSON body.
-3. Send the encrypted request.
-4. Run another script to decrypt the returned response to to plain JSON.
+2. Wrap the request JSON in an [Unencrypted Data Envelope](TBD).
+3. Encrypt the envelope using AES/GCM/NoPadding algorithm and your secret key.
+4. Assemble the [Encrypted Request Envelope](#encrypted-request-envelope).
+5. Send the encrypted request and receive the encrypted response.
+6. Parse the [Encrypted Response Envelope](#encrypted-response-envelope).
+7. Decrypt the data in the response envelope.
+8. Parse the resulting [Unencrypted Data Envelope](TBD).
+9. (Optional, recommended) Ensure the nonce the in the response envelope matches the nonce in the request envelope.
+10. Extract the response JSON object from the unencrypted envelope.
+
+Python example scripts for [encrypting requests](#example-encryption-script) and [decrypting responses](#example-decryption-script) can help with automating steps 2-4 and 6-10, respectively, and serve as a reference of how to implement these steps in your application.
 
 The individual UID2 [endpoints](./endpoints/README.md) explain the respective format requirements and parameters, include call examples, and show decrypted responses. The following sections provide examples of the encryption and descriptions scripts in Python, field layout requirements as well as request and response examples. 
 
@@ -34,12 +42,12 @@ You have the option of writing your own script for encrypting requests or using 
 
 The following table describes the field layout for request encryption scripts.
 
-| Byte | Description TBD Value? | Comments |
+| Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
-| 1st byte | version (==1) | The version of the envelope format. |
-| byte[12] | iv | A 96-bit initialization vector, which is used to randomize data encryption. |
-| byte[enc_payload_len] | Binary Encrypted Payload | AES (`client_secret`, Binary Unencrypted Envelope) |
-| byte[16] | GCM Authentication Tag | This 128-bit tag is used to verify the integrity of data. |
+| 0 | 1 | The version of the envelope format. Must be always `1`. |
+| 1 | 12 | 96-bit initialization vector (IV), which is used to randomize data encryption. |
+| 13 | N | Payload (Unencrypted Data Envelope) encrypted using AES/GCM/NoPadding algorithm. |
+| 13 + N | 16 | 128-bit GCM authentication tag used to verify the integrity of the data. |
 
 ### Example Encryption Script
 
@@ -103,7 +111,7 @@ The following table describes the field layout for response decryption scripts.
 
 | Byte | Description |
 | :--- | :--- |
-| byte[8] | Timestamp unix epoch seconds |
+| byte[8] | Timestamp unix epoch seconds. Must be int64 big endian. |
 | byte[8] | Nonce |
 | byte[json_payload_len] | Unencrypted JSON payload |
 
@@ -111,7 +119,7 @@ The following table describes the field layout for response decryption scripts.
 
 Here's an example Python script (`decrypt_response.py`) for decrypting responses, which takes the following parameters:
 
-- The client `secret`
+- The client secret
 - An integer `0` or `1`, which indicates whether the response is for a token refresh request
 
 ```py
