@@ -11,7 +11,7 @@ The following integration workflows use this endpoint:
 
 ## Request Format 
 
-```POST '{environment}/{version}/token/generate'```
+```POST '{environment}/v2/token/generate'```
 
 >IMPORTANT: You must encrypt all requests using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../encryption-decryption.md).
 
@@ -20,7 +20,6 @@ The following integration workflows use this endpoint:
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
-| `{version}` | string | Required | The current API version is `v2`. |
 
 ###  Unencrypted JSON Body Parameters
 
@@ -29,9 +28,9 @@ The following integration workflows use this endpoint:
 | Body Parameter | Data Type | Attribute | Description | 
 | :--- | :--- | :--- | :--- |
 | `email` | string | Conditionally Required | The email address for which to generate tokens. | 
-| `email_hash` | string | Conditionally Required | The [base64-encoded SHA256](../README.md#email-address-hash-encoding) hash of a [normalized](../README.md#email-address-normalization) email address. |
-| `phone` | string | Conditionally Required | The [normalized](../README.md#phone-number-normalization) phone number for which to generate tokens. |
-| `phone_hash` | string | Conditionally Required | The [base64-encoded SHA256](../README.md#email-address-hash-encoding) hash of a [normalized](../README.md#phone-number-normalization) phone number. | 
+| `email_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#email-address-normalization) email address. |
+| `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) phone number for which to generate tokens. |
+| `phone_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#phone-number-normalization) phone number. | 
 
 
 ### Request Examples
@@ -83,8 +82,9 @@ For details and Python script examples, see [Encrypting Requests and Decrypting 
 
 ## Decrypted JSON Response Format 
 
-The decrypted response returns the user's advertising and refresh tokens for the specified email address, phone number, or the respective hash.  
+>NOTE: The responses will be encrypted only if the HTTP status code is 200. Otherwise, the response will not be encrypted.
 
+The successful decrypted response returns the user's advertising and refresh tokens for the specified email address, phone number, or the respective hash. 
 
 ```json
 {
@@ -119,11 +119,11 @@ The following table lists the `status` property values and their HTTP status cod
 
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
-| `success` | 200 | The request was successful.|
+| `success` | 200 | The request was successful. The response will be encrypted. |
 | `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
-For response structure, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
+If the `status` value is other than `success, additional information about the issue is provided in the `message` field.
 
 ## Test Identities
 
