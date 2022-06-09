@@ -3,8 +3,6 @@
 # POST /token/generate
 Generate a UID2 token from a hashed or unhashed email address or phone number.
 
->IMPORTANT: UID2 tokens must be generated only on the server side after authentication. Security concerns forbid token generation on the browser side.
-
 The following integration workflows use this endpoint:
 * [Publisher - Standard](../guides/publisher-client-side.md)
 * [Publisher - Custom](../guides/custom-publisher-integration.md)
@@ -13,7 +11,9 @@ The following integration workflows use this endpoint:
 
 ```POST '{environment}/v2/token/generate'```
 
->IMPORTANT: You must encrypt all requests using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../encryption-decryption.md).
+Here's what you need to know about this endpoint requests:
+- To ensure that the API key used to access the service remains secret, UID2 tokens must be generated only on the server side after authentication. 
+- You must encrypt all requests using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../encryption-decryption.md).
 
 ### Path Parameters
 
@@ -23,7 +23,7 @@ The following integration workflows use this endpoint:
 
 ###  Unencrypted JSON Body Parameters
 
->IMPORTANT: You must include only one of the following parameters as a key-value pair in the JSON body of a request when encrypting it.
+You must include only one of the following parameters as a key-value pair in the JSON body of a request when encrypting it.
 
 | Body Parameter | Data Type | Attribute | Description | 
 | :--- | :--- | :--- | :--- |
