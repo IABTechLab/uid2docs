@@ -111,9 +111,9 @@ The following table describes the field layout for response decryption scripts.
 
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
-| 0 | 8 | The UNIX timestamp (in seconds). Must be int64 big endian. |
-| 0 | 8 | Nonce. |
-| 8 | N | Payload (Unencrypted Data Envelope) decrypted using AES/GCM/NoPadding algorithm. |
+| 0 | 8 | The UNIX timestamp (in milliseconds). Must be int64 big endian. |
+| 8 | 8 | Nonce. |
+| 16 | N | Payload (Unencrypted Data Envelope) decrypted using AES/GCM/NoPadding algorithm. |
 
 
 ### Example Decryption Script
