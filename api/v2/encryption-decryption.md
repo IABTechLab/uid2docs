@@ -51,7 +51,7 @@ The following table describes the field layout for request encryption scripts.
 
 ### Example Encryption Script
 
-Here's an example Python script (`encrypt_request.py`) for encrypting requests, which takes the client `secret` as a parameter:
+Here's an example Python script (`encrypt_request.py`) for encrypting requests, which takes the client secret as a parameter:
 
 ```py
 import base64
