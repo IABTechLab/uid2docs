@@ -10,7 +10,7 @@ This page provides the following information required for you to get started wit
 * [Email Address Hash Encoding](#email-address-hash-encoding)
 * [Phone Number Normalization](#phone-number-normalization)
 * [Phone Number Hash Encoding](#phone-number-hash-encoding)
-* [Response Structure and Status Codes](#response-structure-and-status-codes)
+* [Response Structure](#response-structure)
 * [License](#license)
 
 
