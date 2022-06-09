@@ -17,7 +17,7 @@ Here's what you need to know about this endpoint:
 
 - No encryption is required for token refresh requests.
 - Responses will be encrypted only if the HTTP status code is 200. Otherwise, responses will not be encrypted.
-- You must decrypt responses using the `refresh_response_key` value returned in a [POST /token/generate](./post-token-generate.md) reponse.
+- To decrypt responses, you need to use the `refresh_response_key` value returned in a [POST /token/generate](./post-token-generate.md) reponse, which you must include in your token [refresh request](#request-example).
 - If you send a refresh token from v1 token/generate response in the request, the response will not be encrypted.
 
 ### Path Parameters
