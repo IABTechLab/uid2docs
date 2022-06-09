@@ -29,7 +29,7 @@ For details on using the API, see the following pages.
 The v2 updates to the UID2 API include the following:
 
 - Application API layer encryption that provides E2E content protection, which prevents sensitive UID2 information from leaking to a network operator or the UID2 service operator.
-- In addition to the client API `key` for [authetication](#authentication-and-authorization), a client `secret` is now required for encrypting API requests and decrypting API responses. For details and Python examples, see [Encrypting Requests and Decrypting Responses](./encryption-decryption.md).
+- In addition to the client API key for [authetication](#authentication-and-authorization), a client secret is now required for [encrypting API requests and decrypting API responses](./encryption-decryption.md).
 - No more query parameters. New POST methods take input parameters as the request body in the JSON format. 
 - No URL-encoding of parameter values is required.
 - The [POST /identity/map](./endpoints/post-identity-map.md) endpoint now retrieves UID2s and salt bucket IDs for one or multiple email addresses, phone numbers, or the respective hashes. 
@@ -41,8 +41,8 @@ Here's what you need to know about UID2 API v2 compatibility with v1:
 
 - UID2 API v2 is not compatible with UID2 API v1 and will require an upgrade. (The Upgrade Guide is coming soon.)
 - The v1 endpoints will be supported until the migration process is complete, with the approppiate notifications issued in a timely manner and with ample advance notice.
-- Client keys have been upgraded to be compantible with both v1 and v2 API.
-- Authorization tokens that are previously shared with UID2 partners will continue to work for accessing only UID2 v1 APIs.
+- Previously issued client API keys will continue working with v1 endpoints and will be required for v2 endpoints.
+- To use the v2 endpoints, a client secret is required for [encrypting API requests and decrypting API responses](./encryption-decryption.md).
 
 ## Environment 
 
@@ -59,78 +59,7 @@ For example, https://operator-integ.uidapi.com/v2/token/generate
 
 To authenticate to UID2 endpoints, you need the following:
 
-- A client `key`, which is to be included as a bearer token in the request's authorization header. 
+- A client API key, which is to be included as a bearer token in the request's authorization header. 
   <br/>```Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=```
-- A client `secret` for encrypting API requests, except [POST /token/refresh](./endpoints/post-token-refresh.md), and decrypting API responses for all endpoints. <br/>For details and Python examples, see [Encrypting Requests and Decrypting Responses](./encryption-decryption.md).
+- A client secret for encrypting API requests and decrypting API responses for all endpoints, except [POST /token/refresh](./endpoints/post-token-refresh.md). <br/>For details and Python examples, see [Encrypting Requests and Decrypting Responses](./encryption-decryption.md).
 
-## Email Address Normalization
-
-The UID2 Operator Service normalizes unhashed email addresses automatically. If you want to send hashed email addresses, you must normalize them before they are hashed.
-
-To normalize an email address, complete the following steps:
-
-1. Remove leading and trailing spaces.
-2. Convert all ASCII characters to lowercase.
-3. In `gmail.com` email addresses, remove the following characters from the username part of the email address:
-    1. The period  (`.` (ASCII code 46)).<br/>For example, normalize `jane.doe@gmail.com` to `janedoe@gmail.com`.
-    2. The plus sign (`+` (ASCII code 43)) and all subsequent characters.<br/>For example, normalize `janedoe+home@gmail.com` to `janedoe@gmail.com`.
-
-## Email Address Hash Encoding
-
-Email hashes are base64-encoded SHA256 hashes of the normalized email address.
-
-| Type | Example | Usage |
-| :--- | :--- | :--- |
-| Normalized email address | `user@example.com` | |
-| SHA256 of email address | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | |
-| base64-encoded SHA256 of email address | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | Use this encoding for `email_hash` values sent in the request body. |
-
-## Phone Number Normalization
-
->IMPORTANT: You must normalize phone numbers before sending them in a request, regardless of whether you send them hashed or unhashed in a request.
-
-Here's what you need to know about phone number normalization rules:
-
-- The UID2 Operator accepts phone numbers in the [E.164](https://en.wikipedia.org/wiki/E.164) format, which is the international telephone number format that ensures global uniqueness. 
-- E.164 phone numbers can have a maximum of 15 digits.
-- Normalized E.164 phone numbers use the following syntax: `[+] [country code] [subscriber number including area code]`, with no spaces, hyphens, parentheses, or other special characters. For example, the phone numbers `+123 44 555-66-77` and `1 (123) 456-7890` must be normalized as `+123445556677` and `+11234567890`, respectively.
-
-## Phone Number Hash Encoding
-
-Phone number hashes are base64-encoded SHA256 hashes of the normalized phone number.
-
-| Type | Example | Usage |
-| :--- | :--- | :--- |
-| Normalized phone number | `+12345678901` | |
-| SHA256 of phone number | `c1d3756a586b6f0d419b3e3d1b328674fbc6c4b842367ee7ded780390fc548ae` | |
-| base64-encoded SHA256 of phone number | `wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ/FSK4=` | Use this encoding for `phone_hash` values sent in the request body. |
-
-## Response Structure and Status Codes
-
-All endpoints return responses with the following structure.
-
-```json
-{
-    "status": "success",
-    "body": {
-        "property": "propertyValue"
-    },
-    "message": "Descriptive message"
-}
-```
-
-| Property | Description |
-| :--- | :--- |
-| `status` | The status of the request. For details and HTTP status code equivalents, see the table below. |
-| `body.property` | The response payload. If the `status` value is other than `success`, this may be an endpoint-specific value where the issue has occurred. |
-| `message` | Additional information about the issue, if the `status` value is other than `success`, for example, missing or invalid parameters. |
-
-The following table lists the `status` property values and their HTTP status code equivalents.
-
-| Status | HTTP Status Code | Description |
-| :--- | :--- | :--- |
-| `success` | 200 | The request was successful.|
-| `optout` | 200 | The user opted out. This status is returned only for authorized requests. |
-| `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
-| `invalid_token` | 400 | The request had an invalid identity token specified. This status is returned only for authorized requests. |
-| `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
