@@ -108,4 +108,4 @@ The following table lists the `status` property values and their HTTP status cod
 | `invalid_token` | 400 | The request had an invalid identity token specified. This status is returned only for authorized requests. |
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
-For response structure, see [Response Structure and Status Codes](../../README.md#response-structure-and-status-codes).
+If the `status` value is other than `success` or `optout`, additional information about the issue is provided in the `message` field.
