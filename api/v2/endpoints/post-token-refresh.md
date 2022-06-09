@@ -11,18 +11,20 @@ The following integration workflows use this endpoint:
 
 ## Request Format 
 
-```POST '{environment}/{version}/token/refresh'```
+```POST '{environment}/v2/token/refresh'```
 
-No encryption is required for token refresh requests.
+Here's what you need to know about this endpoint:
 
->IMPORTANT: You must decrypt responses using the `refresh_response_key` value returned in a [POST /token/generate](./post-token-generate.md) reponse.
+- No encryption is required for token refresh requests.
+- Responses will be encrypted only if the HTTP status code is 200. Otherwise, responses will not be encrypted.
+- You must decrypt responses using the `refresh_response_key` value returned in a [POST /token/generate](./post-token-generate.md) reponse.
+- If you send a refresh token from v1 token/generate response in the request, the response will not be encrypted.
 
 ### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
-| `{version}` | string | Required | The current API version is `v2`. |
 
 #### Testing Notes
 
@@ -52,6 +54,8 @@ echo AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNS
 For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../encryption-decryption.md).
 
 ## Decrypted JSON Response Format
+
+>NOTE: The responses will be encrypted only if the HTTP status code is 200. Otherwise, the response will not be encrypted.
 
 A decrypted successful response returns new identity tokens issued for the user or indicates that the user has opted out. 
 
@@ -98,10 +102,10 @@ The following table lists the `status` property values and their HTTP status cod
 
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
-| `success` | 200 | The request was successful.|
+| `success` | 200 | The request was successful. The response will be encrypted. |
 | `optout` | 200 | The user opted out. This status is returned only for authorized requests. |
 | `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
 | `invalid_token` | 400 | The request had an invalid identity token specified. This status is returned only for authorized requests. |
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
-For response structure, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
+For response structure, see [Response Structure and Status Codes](../../README.md#response-structure-and-status-codes).
