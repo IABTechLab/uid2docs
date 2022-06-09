@@ -109,11 +109,12 @@ You have the option of writing your own script for decrypting responses or using
 
 The following table describes the field layout for response decryption scripts.
 
-| Byte | Description |
-| :--- | :--- |
-| byte[8] | Timestamp unix epoch seconds. Must be int64 big endian. |
-| byte[8] | Nonce |
-| byte[json_payload_len] | Unencrypted JSON payload |
+| Offset (Bytes) | Size (Bytes) | Description |
+| :--- | :--- | :--- |
+| 0 | 8 | The UNIX timestamp (in seconds). Must be int64 big endian. |
+| 0 | 8 | Nonce. |
+| 8 | N | Payload (Unencrypted Data Envelope) encrypted using AES/GCM/NoPadding algorithm. |
+
 
 ### Example Decryption Script
 
