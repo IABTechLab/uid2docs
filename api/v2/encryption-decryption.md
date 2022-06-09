@@ -11,7 +11,7 @@ Here's what you need to know about encrypting UID2 API requests and decrypting r
 - To use the APIs, in addition to your client API key, you need your client secret.
 - You can write your own custom scripts or use the Python scripts provided in the following sections.
 - Request and response use AES/GCM/NoPadding encryption algorithm with 96-bit initialization vector and 128-bit authentication tag.
-- The raw, unencrypted JSON body of the request or response is wrapped in a binary [Unencrypted Data Envelope](TBD).
+- The raw, unencrypted JSON body of the request or response is wrapped in a binary unencrypted data envelope.
 - For requests, the Unencrypted Data Envelope gets encrypted and formatted according to the [Encrypted Request Envelope](#encrypted-request-envelope).
 - Responses are formatted according to the [Encrypted Response Envelope](#encrypted-response-envelope).
 
@@ -20,19 +20,19 @@ Here's what you need to know about encrypting UID2 API requests and decrypting r
 The high-level request-response workflow for the UID2 APIs includes the following steps:
 
 1. Prepare the request body with input parameters in the JSON format.
-2. Wrap the request JSON in an [Unencrypted Data Envelope](TBD).
+2. Wrap the request JSON in an unencrypted data envelope.
 3. Encrypt the envelope using AES/GCM/NoPadding algorithm and your secret key.
 4. Assemble the [Encrypted Request Envelope](#encrypted-request-envelope).
 5. Send the encrypted request and receive the encrypted response.
 6. Parse the [Encrypted Response Envelope](#encrypted-response-envelope).
 7. Decrypt the data in the response envelope.
-8. Parse the resulting [Unencrypted Data Envelope](TBD).
+8. Parse the resulting unencrypted data envelope.
 9. (Optional, recommended) Ensure the nonce the in the response envelope matches the nonce in the request envelope.
 10. Extract the response JSON object from the unencrypted envelope.
 
 Python example scripts for [encrypting requests](#example-encryption-script) and [decrypting responses](#example-decryption-script) can help with automating steps 2-4 and 6-10, respectively, and serve as a reference of how to implement these steps in your application.
 
-The individual UID2 [endpoints](./endpoints/README.md) explain the respective format requirements and parameters, include call examples, and show decrypted responses. The following sections provide examples of the encryption and descriptions scripts in Python, field layout requirements as well as request and response examples. 
+The individual UID2 [endpoints](./endpoints/README.md) explain the respective format requirements and parameters for the unencrypted data envelope, include call examples, and show decrypted responses. The following sections provide examples of the encryption and descriptions scripts in Python, field layout requirements as well as request and response examples. 
 
 ## Encrypting Requests
 
