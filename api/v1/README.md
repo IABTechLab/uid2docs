@@ -1,6 +1,6 @@
 # UID2 API v1 Documentation
 
-For UID2 definition, forms, guiding principles, components, and other conceptual details, see [UID2 Overview](../../README.md). For contact and license information, as well as normalization and has encoding rules, see [Unified ID 2.0 API Documentation](../README.md). For the API v2 details, see [UID2 API v2 Documentation](../v2/README.md).
+For UID2 definition, forms, guiding principles, components, and other conceptual details, see [UID2 Overview](../../README.md). For contact and license information, normalization and hash encoding rules, as well as response structure, see [Unified ID 2.0 API Documentation](../README.md). For the API v2 details, see [UID2 API v2 Documentation](../v2/README.md).
 
 This page provides the following information required for you to get started with the UID2 API v1:
 
