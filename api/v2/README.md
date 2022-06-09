@@ -8,12 +8,6 @@ This page provides the following information required for you to get started wit
 * [UID2 API v1 Compatibility and Upgrade Requirements](#uid2-api-v1-compatibility-and-upgrade-requirements)
 * [Environment](#environment)
 * [Authentication and Authorization](#authentication-and-authorization)
-* [Email Address Normalization](#email-address-normalization)
-* [Email Address Hash Encoding](#email-address-hash-encoding)
-* [Phone Number Normalization](#phone-number-normalization)
-* [Phone Number Hash Encoding](#phone-number-hash-encoding)
-* [Response Structure and Status Codes](#response-structure-and-status-codes)
-
 
 For details on using the API, see the following pages.
 
