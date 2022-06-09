@@ -84,7 +84,7 @@ For details and Python script examples, see [Encrypting Requests and Decrypting 
 
 ## Decrypted JSON Response Format
 
->NOTE: The responses will be encrypted only if the HTTP status code is 200. Otherwise, the response will not be encrypted.
+>NOTE: The responses are encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
 
 A successful decrypted response returns a boolean value that indicates the validation status of the specified advertising token. 
 
