@@ -85,35 +85,23 @@ Phone number hashes are base64-encoded SHA256 hashes of the normalized phone num
 | SHA256 of phone number | `c1d3756a586b6f0d419b3e3d1b328674fbc6c4b842367ee7ded780390fc548ae` | |
 | base64-encoded SHA256 of phone number | `wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ/FSK4=` | Use this encoding for `phone_hash` values sent in the request body. |
 
-## Response Structure and Status Codes
+## Response Structure
 
 All endpoints return responses with the following structure.
 
 ```json
 {
     "status": "success",
-    "body": {
-        "property": "propertyValue"
-    },
+    "body": {},
     "message": "Descriptive message"
 }
 ```
 
 | Property | Description |
 | :--- | :--- |
-| `status` | The status of the request. For details and HTTP status code equivalents, see the table below. |
-| `body.property` | The response payload. If the `status` value is other than `success`, this may be an endpoint-specific value where the issue has occurred. |
+| `status` | The status of the request. For details and HTTP status code equivalents, see individual endpoints. |
+| `body` | The response payload. If the `status` value is other than `success`, this may be an endpoint-specific value where the issue has occurred. |
 | `message` | Additional information about the issue, if the `status` value is other than `success`, for example, missing or invalid parameters. |
-
-The following table lists the `status` property values and their HTTP status code equivalents.
-
-| Status | HTTP Status Code | Description |
-| :--- | :--- | :--- |
-| `success` | 200 | The request was successful.|
-| `optout` | 200 | The user opted out. This status is returned only for authorized requests. |
-| `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
-| `invalid_token` | 400 | The request had an invalid identity token specified. This status is returned only for authorized requests. |
-| `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
 ## License
 All work and artifacts are licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).
