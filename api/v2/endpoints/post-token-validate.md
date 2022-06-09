@@ -7,7 +7,7 @@ Validate that an advertising token matches the specified hashed or unhashed emai
 
 ## Request Format 
 
-```POST '{environment}/{version}/token/validate'```
+```POST '{environment}/v2/token/validate'```
 
 >IMPORTANT: You must encrypt all request using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../encryption-decryption.md).
 
@@ -17,7 +17,6 @@ Validate that an advertising token matches the specified hashed or unhashed emai
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
-| `{version}` | string | Required | The current API version is `v2`. |
 
 
 ###  Unencrypted JSON Body Parameters
@@ -66,7 +65,7 @@ The following are unencrypted JSON request body examples for each parameter, whi
 Here's an encrypted token validation request format with placeholder values:
 
 ```sh
-echo '{Unencrypted-JSON-Request-Body}' \
+echo '[Unencrypted-JSON-Request-Body]' \
   | encrypt_request.py [Your-Client-Secret] \
   | curl -X POST 'https://prod.uidapi.com/v2/token/validate' -H 'Authorization: Bearer [Your-Client-API-Key]' \
   | decrypt_response.py [Your-Client-Secret] 0
@@ -83,9 +82,11 @@ echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXl
 
 For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../encryption-decryption.md).
 
-## Decrypted JSON Response Format 
+## Decrypted JSON Response Format
 
-The decrypted response returns a boolean value that indicates the validation status of the specified advertising token. 
+>NOTE: The responses will be encrypted only if the HTTP status code is 200. Otherwise, the response will not be encrypted.
+
+A successful decrypted response returns a boolean value that indicates the validation status of the specified advertising token. 
 
 
 ```json
@@ -107,8 +108,8 @@ The following table lists the `status` property values and their HTTP status cod
 
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
-| `success` | 200 | The request was successful.|
+| `success` | 200 | The request was successful. The response will be encrypted. |
 | `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
-For response structure, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
+If the `status` value is other than `success, additional information about the issue is provided in the `message` field.
