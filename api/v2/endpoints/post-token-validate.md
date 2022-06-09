@@ -112,4 +112,4 @@ The following table lists the `status` property values and their HTTP status cod
 | `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
-If the `status` value is other than `success, additional information about the issue is provided in the `message` field.
+If the `status` value is other than `success`, additional information about the issue is provided in the `message` field.
