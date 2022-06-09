@@ -10,11 +10,10 @@ Here's what you need to know about encrypting UID2 API requests and decrypting r
 
 - To use the APIs, in addition to your client API key, you need your client `secret`.
 - You can write your own custom scripts or use the Python scripts provided in the following sections.
-- With the GCM (AES/GCM/NoPadding) encryption algorithm using 96-bit initialization vector (IV) and 128-bit AuthTag utilized, all requests must contain the following:
-  - A version, an IV, an encrypted payload, and an authorization tag as base64-encoded string. For field layout details, see [Binary Encrypted Envelope](#binary-encrypted-envelope).
-  - A `nonce` field included in the first-level dictionary of both requests and responses as a random value to protect against replay attack.
-  - A timestamp.
-- For field layout details for decrypting responses, see [Binary Unencrypted Envelope](#binary-unencrypted-envelope).
+- Request and response use AES/GCM/NoPadding encryption algorithm with 96-bit initialization vector and 128-bit authentication tag.
+- The raw, unencrypted JSON body of the request or response is wrapped in binary [Unencrypted Data Envelope](TBD).
+- For requests, the Unencrypted Data Envelope gets encrypted and formatted according to the [Encrypted Request Envelope](#encrypted-request-envelope).
+- Responses are formatted according to the [Encrypted Response Envelope](#encrypted-response-envelope).
 
 ## Workflow
 
@@ -29,9 +28,9 @@ The individual UID2 [endpoints](./endpoints/README.md) explain the respective fo
 
 ## Encrypting Requests
 
-You have the option of writing your own script for encrypting requests or using the provided [Python example script](#example-encryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Binary Encrypted Envelope](#binary-encrypted-envelope).
+You have the option of writing your own script for encrypting requests or using the provided [Python example script](#example-encryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Encrypted Request Envelope](#encrypted-request-envelope).
 
-### Binary Encrypted Envelope
+### Encrypted Request Envelope
 
 The following table describes the field layout for request encryption scripts.
 
@@ -95,10 +94,10 @@ echo '{"email": "test@example.com"}' \
 
 ## Decrypting Responses
 
-You have the option of writing your own script for decrypting responses or using the provided [Python example script](#example-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Binary Unencrypted Envelope](#binary-unencrypted-envelope).
+You have the option of writing your own script for decrypting responses or using the provided [Python example script](#example-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Encrypted Response Envelope](#encrypted-response-envelope).
 
 
-### Binary Unencrypted Envelope
+### Encrypted Response Envelope
 
 The following table describes the field layout for response decryption scripts.
 
