@@ -69,10 +69,11 @@ iv = os.urandom(12)
 cipher = AES.new(secret, AES.MODE_GCM, nonce=iv)
 
 millisec = int(time.time() * 1000)
-print(f'Timestamp: {datetime.fromtimestamp(millisec/1000)}\n')
-
 nonce = os.urandom(8)
-print(f'nonce: {int.from_bytes(nonce, "big")}\n')
+
+print(f'Request timestamp: {datetime.fromtimestamp(millisec/1000)}', file=sys.stderr)
+print(f'Request nonce: {int.from_bytes(nonce, "big")}', file=sys.stderr)
+print(file=sys.stderr)
 
 body = bytearray(millisec.to_bytes(8, 'big'))
 body += bytearray(nonce)
@@ -85,9 +86,7 @@ envelop += bytearray(iv)
 envelop += bytearray(ciphertext)
 envelop += bytearray(tag)
 
-print("Request body:")
-print(base64.b64encode(bytes(envelop)).decode())
-print()
+print(base64.b64encode(bytes(envelop)).decode() + "\n")
 ```
 ### Request Example
 
@@ -135,27 +134,31 @@ secret = base64.b64decode(sys.argv[1].strip())
 is_refresh_response = int(sys.argv[2])
 response = "".join(sys.stdin.readlines())
 
-resp_bytes = base64.b64decode(response)
-
-iv = resp_bytes[:12]
-data = resp_bytes[12:len(resp_bytes) - 16]
-tag = resp_bytes[len(resp_bytes) - 16:]
-
-cipher = AES.new(secret, AES.MODE_GCM, nonce=iv)
-decrypted = cipher.decrypt_and_verify(data, tag)
-
 print()
-if is_refresh_response != 1:
-    tm = datetime.fromtimestamp(int.from_bytes(decrypted[:8], 'big') / 1000)
-    print(f'Timestamp: {tm}')
-    nonce = int.from_bytes(decrypted[8:16], 'big')
-    print(f'Nonce: {nonce}')
-    json_resp = json.loads(decrypted[16:].decode("utf-8"))
-else:
-    json_resp = json.loads(decrypted.decode("utf-8"))
-print("Response JSON:")
-print(json.dumps(json_resp, indent=4))
-print()
+try:
+    err_resp = json.loads(response)
+    print("Error response:")
+    print(json.dumps(err_resp, indent=4))
+except:
+    resp_bytes = base64.b64decode(response)
+    iv = resp_bytes[:12]
+    data = resp_bytes[12:len(resp_bytes) - 16]
+    tag = resp_bytes[len(resp_bytes) - 16:]
+
+    cipher = AES.new(secret, AES.MODE_GCM, nonce=iv)
+    decrypted = cipher.decrypt_and_verify(data, tag)
+
+    if is_refresh_response != 1:
+        tm = datetime.fromtimestamp(int.from_bytes(decrypted[:8], 'big') / 1000)
+        print(f'Response timestamp: {tm}')
+        nonce = int.from_bytes(decrypted[8:16], 'big')
+        print(f'Response nonce: {nonce}')
+        json_resp = json.loads(decrypted[16:].decode("utf-8"))
+    else:
+        json_resp = json.loads(decrypted.decode("utf-8"))
+    print("Response JSON:")
+    print(json.dumps(json_resp, indent=4))
+    print()
 ```
 ### Response Example
 
