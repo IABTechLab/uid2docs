@@ -12,7 +12,7 @@ Here's what you need to know:
 
 ## Request Format
 
-```POST '{environment}/{version}/identity/map'```
+```POST '{environment}/v2/identity/map'```
 
 >IMPORTANT: You must encrypt all request using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../encryption-decryption.md).
 
@@ -21,7 +21,6 @@ Here's what you need to know:
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
-| `{version}` | string | Required | The current API version is `v2`. |
 
 ###  Unencrypted JSON Body Parameters
 
@@ -75,7 +74,7 @@ The following are unencrypted JSON request body examples for each parameter, one
 Here's an encrypted identity mapping request format with placeholder values:
 
 ```sh
-echo '{Unencrypted-JSON-Request-Body}' \
+echo '[Unencrypted-JSON-Request-Body]' \
   | encrypt_request.py [Your-Client-Secret] \
   | curl -X POST 'https://prod.uidapi.com/v2/identity/map' -H 'Authorization: Bearer [Your-Client-API-Key]' \
   | decrypt_response.py [Your-Client-Secret] 0
@@ -94,7 +93,9 @@ For details and Python script examples, see [Encrypting Requests and Decrypting 
 
 ## Decrypted JSON Response Format
 
-The decrypted response returns the UID2s and salt bucket IDs for the specified email addresses, phone numbers, or respective hashes.
+>NOTE: The responses are encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+
+A successful decrypted response returns the UID2s and salt bucket IDs for the specified email addresses, phone numbers, or respective hashes.
 
 ```json
 {
@@ -130,8 +131,8 @@ The following table lists the `status` property values and their HTTP status cod
 
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
-| `success` | 200 | The request was successful.|
+| `success` | 200 | The request was successful. The response will be encrypted. |
 | `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
-For response structure, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
+If the `status` value is other than `success`, additional information about the issue is provided in the `message` field.
