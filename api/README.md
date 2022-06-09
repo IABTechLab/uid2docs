@@ -26,20 +26,7 @@ To access to UID2, contact the appropriate team at The Trade Desk listed below.
 
 ## API Versions
 
-Currently, there are two versions of the UID2 APIs: [v1](./v1/README.md) and [v2](./v2/README.md).
-
-TBD on differences
-
-## Environment 
-
-All UID2 endpoints use the same base URL.
-
-| Environment | Base URL |
-| :--- | :--- |
-| Testing | ```https://integ.uidapi.com/{version}``` |
-| Production | ```https://prod.uidapi.com/{version}``` |
-
-For example, https://integ.uidapi.com/v2/token/generate
+Currently, there are two versions of the UID2 APIs: [UID2 API v1](./v1/README.md) and [UID2 API v2](./v2/README.md).
 
 
 ## Email Address Normalization
