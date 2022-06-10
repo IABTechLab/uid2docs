@@ -139,7 +139,7 @@ The following table describes the field layout for response decryption scripts.
 Here's an example Python script (`decrypt_response.py`) for decrypting responses, which takes the following parameters:
 
 - The client secret
-- An integer `0` or `1`, which indicates whether the response is for a token refresh request
+- (Optional) `--is-refresh` to indicate that the response is for a [POST /token/refresh](./endpoints/post-token-refresh.md) request
 
 ```py
 import base64
