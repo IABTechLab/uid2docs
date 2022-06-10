@@ -55,7 +55,7 @@ The following table describes the field layout for request encryption scripts.
 | :--- | :--- | :--- |
 | 0 | 1 | The version of the envelope format. Must be always `1`. |
 | 1 | 12 | 96-bit initialization vector (IV), which is used to randomize data encryption. |
-| 13 | N | Payload ([Unencrypted Request Data Envelope](#unencrypted-request-data-envelope)) encrypted using AES/GCM/NoPadding algorithm. |
+| 13 | N | Payload ([Unencrypted Request Data Envelope](#unencrypted-request-data-envelope)) encrypted using the AES/GCM/NoPadding algorithm. |
 | 13 + N | 16 | 128-bit GCM authentication tag used to verify data integrity. |
 
 ### Example Encryption Script
@@ -121,8 +121,8 @@ The following table describes the field layout for response decryption scripts.
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
 | 0 | 12 | 96-bit initialization vector (IV), which is used to randomize data encryption. |
-| 12 | N | Payload ([Unencrypted Response Data Envelope](#unencrypted-response-data-envelope)) encrypted using AES/GCM/NoPadding algorithm. |
-| 12 + N | 16 | 128-bit GCM authentication tag used to verify the integrity of the data. |
+| 12 | N | Payload ([Unencrypted Response Data Envelope](#unencrypted-response-data-envelope)) encrypted using the AES/GCM/NoPadding algorithm. |
+| 12 + N | 16 | 128-bit GCM authentication tag used to verify data integrity. |
 
 ### Unencrypted Response Data Envelope
 
