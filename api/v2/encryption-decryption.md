@@ -8,7 +8,7 @@ All UID2 [endpoints](./endpoints/README.md) require request [encryption](#encryp
 
 Here's what you need to know about encrypting UID2 API requests and decrypting respective responses:
 
-- To use the APIs, in addition to your client API key, you need your client secret.
+- To use the APIs, in addition to your client API key, you need your client secret
 - You can write your own custom scripts or use the Python scripts provided in the following sections.
 - Request and response use AES/GCM/NoPadding encryption algorithm with 96-bit initialization vector and 128-bit authentication tag.
 - The raw, unencrypted JSON body of the request is wrapped in a binary [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) which then gets encrypted and formatted according to the [Encrypted Request Envelope](#encrypted-request-envelope).
@@ -31,7 +31,7 @@ The high-level request-response workflow for the UID2 APIs includes the followin
 
 Python example scripts for [encrypting requests](#example-encryption-script) and [decrypting responses](#example-decryption-script) can help with automating steps 2-4 and 6-10, respectively, and serve as a reference of how to implement these steps in your application.
 
-The individual UID2 [endpoints](./endpoints/README.md) explain the respective format requirements and parameters for the unencrypted data envelope, include call examples, and show decrypted responses. The following sections provide examples of the encryption and descriptions scripts in Python, field layout requirements as well as request and response examples. 
+The individual UID2 [endpoints](./endpoints/README.md) explain the respective JSON body format requirements and parameters, include call examples, and show decrypted responses. The following sections provide examples of the encryption and descriptions scripts in Python, field layout requirements as well as request and response examples. 
 
 ## Encrypting Requests
 
@@ -44,8 +44,8 @@ The following table describes the field layout for request encryption scripts.
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
 | 0 | 8 | The UNIX timestamp (in milliseconds). Must be int64 big endian. |
-| 8 | 8 | Nonce: random 64 bits of data used to protect against replay attacks. The corresponding [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) should contain the same nonce value for the response to be considered valid. |
-| 16 | N | Payload: request JSON document serialized in UTF-8 encoding. |
+| 8 | 8 | Nonce: random 64 bits of data used to protect against replay attacks. The corresponding [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) must contain the same nonce value for the response to be considered valid. |
+| 16 | N | Payload, which is a request JSON document serialized in UTF-8 encoding. |
 
 ### Encrypted Request Envelope
 
@@ -55,8 +55,8 @@ The following table describes the field layout for request encryption scripts.
 | :--- | :--- | :--- |
 | 0 | 1 | The version of the envelope format. Must be always `1`. |
 | 1 | 12 | 96-bit initialization vector (IV), which is used to randomize data encryption. |
-| 13 | N | Payload ([Unencrypted Request Data Envelope](#unencrypted-request-data-envelope)) encrypted using AES/GCM/NoPadding algorithm. |
-| 13 + N | 16 | 128-bit GCM authentication tag used to verify the integrity of the data. |
+| 13 | N | Payload ([Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) encrypted using AES/GCM/NoPadding algorithm. |
+| 13 + N | 16 | 128-bit GCM authentication tag used to verify data integrity. |
 
 ### Example Encryption Script
 
@@ -91,7 +91,7 @@ body += bytearray(bytes(payload, 'utf-8'))
 ciphertext, tag = cipher.encrypt_and_digest(body)
 
 envelope = bytearray(b'\x01')
-enveloe += bytearray(iv)
+envelope += bytearray(iv)
 envelope += bytearray(ciphertext)
 envelope += bytearray(tag)
 
@@ -126,11 +126,13 @@ The following table describes the field layout for response decryption scripts.
 
 ### Unencrypted Response Data Envelope
 
+The following table describes the field layout for response decryption scripts.
+
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
 | 0 | 8 | The UNIX timestamp (in milliseconds). Must be int64 big endian. |
-| 8 | 8 | Nonce. For the response to be considered valid this should match the nonce in the [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope). |
-| 16 | N | Payload: response JSON document serialized in UTF-8 encoding. |
+| 8 | 8 | Nonce. For the response to be considered valid, this must match the nonce in the [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope). |
+| 16 | N | Payload, which is a response JSON document serialized in UTF-8 encoding. |
 
 ### Example Decryption Script
 
