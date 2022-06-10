@@ -11,14 +11,13 @@ The following integration workflows use this endpoint:
 
 ## Request Format 
 
-```GET '{environment}/{version}/token/refresh?refresh_token={queryParameterValue}'```
+```GET '{environment}/v1/token/refresh?refresh_token={queryParameterValue}'```
 
 ### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
-| `{version}` | string | Required | The current API version is `v1`. |
 
 ###  Query Parameters
 
@@ -79,4 +78,16 @@ The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) us
 | `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
 
 
-For response status values, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
+### Response Status Codes
+
+The following table lists the `status` property values and their HTTP status code equivalents.
+
+| Status | HTTP Status Code | Description |
+| :--- | :--- | :--- |
+| `success` | 200 | The request was successful. |
+| `optout` | 200 | The user opted out. This status is returned only for authorized requests. |
+| `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
+| `invalid_token` | 400 | The request had an invalid identity token specified. This status is returned only for authorized requests. |
+| `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
+
+If the `status` value is other than `success` or `optout`, additional information about the issue is provided in the `message` field.
