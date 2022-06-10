@@ -1,12 +1,12 @@
-[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > Custom Publisher Integration Guide 
+[UID2 API Documentation](../../README.md) > [v2](../README.md) > [Integration Guides](README.md) > Custom Publisher Integration Guide 
 
 # Server-Only UID2 Integration Guide
 
 This guide is intended for app developers and CTV broadcasters who would like to generate identity tokens utilizing UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
 
-The guide outlines the [basic steps](#integration-steps) that you need to consider for your custom integration. For example, you need to decide how to implement user login and logout, how to manage UID2 identity information and use it for targeted advertising, how to refresh tokens, deal with missing identities, and handle user opt-outs. Here's an [example application](https://example-srvonly-integ.uidapi.com/) the demonstrates the workflow. For the application documentation, see [Server-Only UID2 Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/server_only/README.md). See also [FAQs](#faqs).
+The guide outlines the [basic steps](#integration-steps) that you need to consider for your custom integration. For example, you need to decide how to implement user login and logout, how to manage UID2 identity information and use it for targeted advertising, how to refresh tokens, deal with missing identities, and handle user opt-outs. See also [FAQs](#faqs).
 
->TIP: To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, consider using the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md). For details, see [UID2 SDK Integration Guide](./publisher-client-side.md).
+>TIP: To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, consider using the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md). For details, see [UID2 SDK Integration Guide](./publisher-client-side.md).
 
 ## Integration Steps
 
@@ -27,8 +27,8 @@ After authentication in step 1-c, which forces the user to accept the rules of e
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
-| 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2:<br/>- Integrate with a UID2-enabled single-sign-on provider.<br/>- Use the [GET /token/generate](../endpoints/get-token-generate.md) endpoint to generate a UID2 token using the provided normalized and URL-encoded email address or phone number of the user. |
-| 1-e | [GET /token/generate](../endpoints/get-token-generate.md) | Return a UID2 token generated from the user's email address, phone number, or the respective hash. |
+| 1-d | [POST /token/generate](../endpoints/post-token-generate.md) | There are two ways for publishers to establish identity with UID2:<br/>- Integrate with a UID2-enabled single-sign-on provider.<br/>- Use the [POST /token/generate](../endpoints/post-token-generate.md) endpoint to generate a UID2 token using the provided normalized email address or phone number of the user. |
+| 1-e | [POST /token/generate](../endpoints/post-token-generate.md) | Return a UID2 token generated from the user's email address, phone number, or the respective hash. |
 | 1-f | N/A | Place the returned `advertising_token` and `refresh_token` in a store tied to a user. You may consider client-side storage like a first-party cookie or server-side storage. |
 
 ### Bid Using UID2 Tokens
@@ -46,11 +46,11 @@ Leverage the refresh endpoint to retrieve the latest version of UID2 tokens. The
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
 | 3-a |N/A | When a user returns to an asset and becomes active again, refresh the identity token before sending it to the SSP. | 
-| 3-b | [GET /token/refresh](../endpoints/get-token-refresh.md)  | Send the `refresh_token` obtained in step [1-e](#establish-identity) as a query parameter. |
-| 3-c | [GET /token/refresh](../endpoints/get-token-refresh.md) | The UID2 service issues a new identity token for users that haven't opted out. |
+| 3-b | [POST /token/refresh](../endpoints/post-token-refresh.md)  | Send the `refresh_token` obtained in step [1-e](#establish-identity) as a query parameter. |
+| 3-c | [POST /token/refresh](../endpoints/post-token-refresh.md) | The UID2 service issues a new identity token for users that haven't opted out. |
 | 3-d | N/A| Place the returned `advertising_token` and `refresh_token` in a store tied to a user. You may consider client-side storage like a first-party cookie or server-side storage. |
 
->TIP: Refresh tokens starting from the `refresh_from` timestamp on the identity returned by the [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) calls. 
+>TIP: Refresh tokens starting from the `refresh_from` timestamp on the identity returned by the [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md) calls. 
 
 ### Clear Identity: User Logout
 
@@ -65,15 +65,15 @@ Leverage the refresh endpoint to retrieve the latest version of UID2 tokens. The
 No, publishers do not need to decrypt tokens.
 
 ### How will I be notified of user opt-out?
-The token refresh process handles user opt-outs. The [GET /token/refresh](../endpoints/get-token-refresh.md) returns empty identity and the optout status for the user. To resume using UID2-based targeted advertising, the user needs to log in again to re-establish the UID2 identity.
+The token refresh process handles user opt-outs. The [POST /token/refresh](../endpoints/post-token-refresh.md) returns empty identity and the optout status for the user. To resume using UID2-based targeted advertising, the user needs to log in again to re-establish the UID2 identity.
 
 ### Where should I make token generation calls, from the server or client side?
 
-UID2 tokens must be generated only on the server side after authentication. In other words, to ensure that the API key used to access the service remains secret, the [GET /token/generate](../endpoints/get-token-generate.md) endpoint must be called only from the server side.
+UID2 tokens must be generated only on the server side after authentication. In other words, to ensure that the API key used to access the service remains secret, the [POST /token/generate](../endpoints/post-token-generate.md) endpoint must be called only from the server side.
 
 ### Can I make token refresh calls from the client side?
 
-Yes. The [GET /token/refresh](../endpoints/get-token-refresh.md) can be called from the client side (for example, a browser or a mobile app) because it does not require using an API key.
+Yes. The [POST /token/refresh](../endpoints/post-token-refresh.md) can be called from the client side (for example, a browser or a mobile app) because it does not require using an API key.
 
 ### What is the uniqueness and rotation policy for UID2 token?
 
@@ -81,15 +81,15 @@ The UID2 service encrypts tokens using random initialization vectors. The encryp
 
 ### How can I test that the PII sent and returned tokens match?
 
-You can use the [GET /token/validate](../endpoints/get-token-validate.md) endpoint to check whether the PII you are sending through [GET /token/generate](../endpoints/get-token-generate.md) is valid. 
+You can use the [POST /token/validate](../endpoints/post-token-validate.md) endpoint to check whether the PII you are sending through [POST /token/generate](../endpoints/post-token-generate.md) is valid. 
 
-1. Depending on whether the PII is an email address or a phone number, send a [GET /token/generate](../endpoints/get-token-generate.md) request using one of the following values:
+1. Depending on whether the PII is an email address or a phone number, send a [POST /token/generate](../endpoints/post-token-generate.md) request using one of the following values:
     - The `validate@email.com` as the `email` value.
-    - The [URL-encoded, base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of `validate@email.com` as the `email_hash` value. 
-    - The [URL-encoded](../../README.md#query-parameter-value-encoding) `+12345678901` as the `phone` value.
-    - The [URL-encoded, base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hash of `+12345678901` as the `phone_hash` value.
+    - The hash of `validate@email.com` as the `email_hash` value. 
+    - The `+12345678901` as the `phone` value.
+    - The hash of `+12345678901` as the `phone_hash` value.
 2. Store the returned `advertising_token` for use in the following step.
-3. Send a [GET /token/validate](../endpoints/get-token-validate.md) request using the `email`, `email_hash`, `phone`, or `phone_hash` value that you sent in step 1 and the `advertising_token` (saved in step 2) as the `token` property value. 
+3. Send a [POST /token/validate](../endpoints/post-token-validate.md) request using the `email`, `email_hash`, `phone`, or `phone_hash` value that you sent in step 1 and the `advertising_token` (saved in step 2) as the `token` property value. 
     - If the response returns `true`, the PII that you sent as a request in step 1 match the token you received in the response of step 1. 
     - If it returns `false`, there may be an issue with the way you are sending email addresses, phone numbers, or their respective hashes.
 
@@ -97,11 +97,11 @@ You can use the [GET /token/validate](../endpoints/get-token-validate.md) endpoi
 
 You can use the `optout@email.com` email address or the `+00000000000` phone number to test your token refresh workflow. Using the email address or phone number in request always generates an identity response with a `refresh_token` that results in a logout response.
 
-1. Depending on whether the PII is an email address or a phone number, send a [GET /token/generate](../endpoints/get-token-generate.md) request using one of the following values:
+1. Depending on whether the PII is an email address or a phone number, send a [POST /token/generate](../endpoints/post-token-generate.md) request using one of the following values:
     - The `optout@email.com` as the `email` value.
-    - The [URL-encoded, base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of `optout@email.com` as the `email_hash` value. 
-    - The [URL-encoded](../../README.md#query-parameter-value-encoding) `+00000000000` as the `phone` value.
-    - The [URL-encoded, base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hash of `+00000000000` as the `phone_hash` value.
+    - The hash of `optout@email.com` as the `email_hash` value. 
+    - The `+00000000000` as the `phone` value.
+    - The hash of `+00000000000` as the `phone_hash` value.
 2. Store the returned `refresh_token` for use in the following step.
-3. Send a [GET /token/refresh](../endpoints/get-token-refresh.md) request with the `refresh_token` (saved in step 2) as the `token` value.<br/>The body response should be empty, and the `status` value should be set to `optout` because the `optout@email.com` email and the `+00000000000` phone number always result in a logged out user.
+3. Send a [POST /token/refresh](../endpoints/post-token-refresh.md) request with the `refresh_token` (saved in step 2) as the `token` value.<br/>The body response should be empty, and the `status` value should be set to `optout` because the `optout@email.com` email and the `+00000000000` phone number always result in a logged out user.
 

@@ -1,22 +1,18 @@
-[UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /identity/buckets
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Endpoints](./README.md) > GET /identity/buckets
 
 # GET /identity/buckets
 
 Monitor rotated salt buckets. This endpoint is intended for use by [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md).
 
->NOTE: No salt buckets will be rotated until January 12, 2022. Any requests prior to January 12, 2022, will return an empty response body.
-
-
 ## Request Format
 
-```GET '{environment}/{version}/identity/buckets?since_timestamp={queryParameterValue}'```
+```GET '{environment}/v1/identity/buckets?since_timestamp={queryParameterValue}'```
 
 ### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
-| `{version}` | string | Required | The current API version is `v1`. |
+| `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
 
 ### Query Parameters
 
@@ -27,7 +23,7 @@ Monitor rotated salt buckets. This endpoint is intended for use by [Advertisers/
 ### Request Example
 
 ```curl
-curl -L -X GET 'https://integ.uidapi.com/v1/identity/buckets?since_timestamp=2021-03-01T01%3A01%3A01' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X GET 'https://operator-integ.uidapi.com/v1/identity/buckets?since_timestamp=2021-03-01T01%3A01%3A01' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
 ## Response Format
@@ -60,4 +56,14 @@ The response returns a list of salt bucket IDs and the timestamps of their last 
 | `bucket_id` | string | The salt bucket ID. |
 | `last_updated` | date-time | The UTC timestamp of the last time the bucket salt was rotated. |
 
-For response status values, see [Response Structure and Status Codes](../../../api/README.md#response-structure-and-status-codes).
+### Response Status Codes
+
+The following table lists the `status` property values and their HTTP status code equivalents.
+
+| Status | HTTP Status Code | Description |
+| :--- | :--- | :--- |
+| `success` | 200 | The request was successful. |
+| `client_error` | 400 | The request had missing or invalid parameters. |
+| `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
+
+If the `status` value is other than `success`, the `message` field provides additional information about the issue.

@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /identity/map
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Endpoints](./README.md) > GET /identity/map
 
 # GET /identity/map
 
@@ -7,14 +7,13 @@ Retrieve the UID2 and salt bucket ID for a hashed or unhashed email address or p
 
 ## Request Format
 
-```GET '{environment}/{version}/identity/map?{queryParameter}={queryParameterValue}'```
+```GET '{environment}/v1/identity/map?{queryParameter}={queryParameterValue}'```
 
 ### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
-| `{version}` | string | Required | The current API version is `v1`. |
+| `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
 
 ###  Query Parameters
 
@@ -22,10 +21,10 @@ Retrieve the UID2 and salt bucket ID for a hashed or unhashed email address or p
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `email` | string | Conditionally Required | The [URL-encoded](../../README.md#query-parameter-value-encoding) email address to be mapped. |
-| `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#email-address-normalization) email address. |
-| `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) and [URL-encoded](../../README.md#query-parameter-value-encoding)phone number for which to generate tokens. |
-| `phone_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hash of a [normalized](../../README.md#phone-number-normalization) phone number. |
+| `email` | string | Conditionally Required | The [URL-encoded](../README.md#query-parameter-value-encoding) email address to be mapped. |
+| `email_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../README.md#email-address-hash-encoding) hash of a [normalized](../README.md#email-address-normalization) email address. |
+| `phone` | string | Conditionally Required | The [normalized](../README.md#phone-number-normalization) and [URL-encoded](../README.md#query-parameter-value-encoding)phone number for which to generate tokens. |
+| `phone_hash` | string | Conditionally Required | The [URL-encoded, base64-encoded SHA256](../README.md#phone-number-hash-encoding) hash of a [normalized](../README.md#phone-number-normalization) phone number. |
 
 
 ### Request Examples
@@ -33,23 +32,23 @@ Retrieve the UID2 and salt bucket ID for a hashed or unhashed email address or p
 A mapping request for an email address:
 
 ```sh
-curl -L -X GET 'https://integ.uidapi.com/v1/identity/map?email=username@example.com' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X GET 'https://operator-integ.uidapi.com/v1/identity/map?email=username@example.com' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 A mapping request for an email address hash:
 
 ```sh
-curl -L -X GET 'https://integ.uidapi.com/v1/identity/map?email_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X GET 'https://operator-integ.uidapi.com/v1/identity/map?email_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
 A mapping request for a phone number:
 
 ```sh
-curl -L -X GET 'https://integ.uidapi.com/v1/identity/map?phone=%2B1111111111' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X GET 'https://operator-integ.uidapi.com/v1/identity/map?phone=%2B1111111111' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 A mapping request for a phone number hash:
 
 ```sh
-curl -L -X GET 'https://integ.uidapi.com/v1/identity/map?phone_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X GET 'https://operator-integ.uidapi.com/v1/identity/map?phone_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
 ## Response Format
@@ -75,5 +74,14 @@ The response returns the UID2 and salt bucket ID for the specified email address
 | `advertising_id` | string | The corresponding advertising ID (raw UID2). |
 | `bucket_id` | string | The ID of the salt bucket used to generate the UID2. |
 
-For response status values, see [Response Structure and Status Codes](../../../api/README.md#response-structure-and-status-codes).
+### Response Status Codes
 
+The following table lists the `status` property values and their HTTP status code equivalents.
+
+| Status | HTTP Status Code | Description |
+| :--- | :--- | :--- |
+| `success` | 200 | The request was successful. |
+| `client_error` | 400 | The request had missing or invalid parameters.|
+| `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
+
+If the `status` value is other than `success`, the `message` field provides additional information about the issue.

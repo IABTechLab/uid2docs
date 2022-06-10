@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Endpoints](./README.md) > POST /identity/map
+[UID2 API Documentation](../../README.md) > [v2](../README.md) > [Endpoints](./README.md) > POST /identity/map
 
 # POST /identity/map
 
@@ -12,7 +12,9 @@ Here's what you need to know:
 
 ## Request Format
 
-```POST '{environment}/v1/identity/map'```
+```POST '{environment}/v2/identity/map'```
+
+>IMPORTANT: You must encrypt all request using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../encryption-decryption.md).
 
 ### Path Parameters
 
@@ -20,65 +22,80 @@ Here's what you need to know:
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
 
-###  Request Body Parameters
+###  Unencrypted JSON Body Parameters
 
-You must include only one of the following four parameters. 
+>IMPORTANT: You must include only one of the following parameters as a key-value pair in the JSON body of a request when encrypting it.
 
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `email` | string array | Conditionally Required | The list of email addresses to be mapped. |
-| `email_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../README.md#email-address-hash-encoding) hashes of [normalized](../README.md#email-address-normalization) email addresses. |
-| `phone` | string array | Conditionally Required | The list of [normalized](../README.md#phone-number-normalization) phone numbers to be mapped. |
-| `phone_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../README.md#phone-number-hash-encoding) hashes of  [normalized](../README.md#phone-number-normalization) phone numbers. |
+| `email_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hashes of [normalized](../../README.md#email-address-normalization) email addresses. |
+| `phone` | string array | Conditionally Required | The list of [normalized](../../README.md#phone-number-normalization) phone numbers to be mapped. |
+| `phone_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hashes of [normalized](../../README.md#phone-number-normalization) phone numbers. |
 
 
 ### Request Examples
 
-A mapping request for email addresses:
+The following are unencrypted JSON request body examples for each parameter, one of which you should include in your identity mapping requests:
 
-```sh
-curl -L -X POST 'https://operator-integ.uidapi.com/v1/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
+```json
+{
     "email":[
         "user@example.com",
         "user2@example.com"
     ]  
-}'
+}
 ```
-A mapping request for email address hashes:
-
-```sh
-curl -L -X POST 'https://operator-integ.uidapi.com/v1/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
+```json
+{
     "email_hash":[
         "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
         "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
     ]    
-}'
+}
 ```
-
-A mapping request for phone numbers:
-
-```sh
-curl -L -X POST 'https://operator-integ.uidapi.com/v1/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
+```json
+{
     "phone":[
         "+1111111111",
         "+2222222222"
     ]  
-}'
+}
 ```
-A mapping request for phone number hashes:
-
-```sh
-curl -L -X POST 'https://operator-integ.uidapi.com/v1/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -H 'Content-Type: application/json' --data-raw '{
+```json
+{
     "phone_hash":[
         "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
         "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
     ]    
-}'
+}
 ```
 
-## Response Format
+Here's an encrypted identity mapping request format with placeholder values:
 
-The response returns the UID2s and salt bucket IDs for the specified email addresses, phone numbers, or respective hashes.
+```sh
+echo '[Unencrypted-JSON-Request-Body]' \
+  | encrypt_request.py [Your-Client-Secret] \
+  | curl -X POST 'https://prod.uidapi.com/v2/identity/map' -H 'Authorization: Bearer [Your-Client-API-Key]' \
+  | decrypt_response.py [Your-Client-Secret] 
+```
+
+Here's an encrypted identity mapping request example for an email hash:
+
+```sh
+echo '{"phone": ["+1111111111", "+2222222222"]}' \
+  | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
+  | curl -X POST 'https://prod.uidapi.com/v2/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' \
+  | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= 
+```
+
+For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../encryption-decryption.md).
+
+## Decrypted JSON Response Format
+
+>NOTE: The responses are encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+
+A successful decrypted response returns the UID2s and salt bucket IDs for the specified email addresses, phone numbers, or respective hashes.
 
 ```json
 {
@@ -114,7 +131,7 @@ The following table lists the `status` property values and their HTTP status cod
 
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
-| `success` | 200 | The request was successful. |
+| `success` | 200 | The request was successful. The response will be encrypted. |
 | `client_error` | 400 | The request had missing or invalid parameters.|
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 

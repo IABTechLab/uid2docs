@@ -1,3 +1,5 @@
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > Publisher Integration Guide
+
 # Publisher Integration Guide (Standard)
 
 >NOTE: This guide is intended for the UID2 SDK [version 0](../sdks/client-side-identity-v0.md). For the *Integration Guide* using the UID2 SDK [version 1](../sdks/client-side-identity-v1.md), see [UID2 SDK Integration Guide](./publisher-client-side.md).

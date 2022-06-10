@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > Snowflake Integration
+[UID2 API Documentation](../../README.md) > [v2](../README.md) > [Integration Guides](../guides/README.md) > Snowflake Integration
 
 # Snowflake Integration
 

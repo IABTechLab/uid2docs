@@ -1,3 +1,5 @@
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [SDKs](./README.md) > Client-Side Identity
+
 # Client-Side Identity SDK (v0)
 
 >NOTE: This documentation is for version 0 of the UID2 SDK. 

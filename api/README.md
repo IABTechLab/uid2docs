@@ -4,23 +4,14 @@ For UID2 definition, forms, guiding principles, components, and other conceptual
 
 This page provides the following information required for you to get started with the UID2 API:
 * [Contact Info](#contact-info)
+* [API Versions](#api-versions)
 * [Environment](#environment)
-* [Authentication](#authentication)
-* [Query Parameter Value Encoding](#query-parameter-value-encoding)
 * [Email Address Normalization](#email-address-normalization)
 * [Email Address Hash Encoding](#email-address-hash-encoding)
 * [Phone Number Normalization](#phone-number-normalization)
 * [Phone Number Hash Encoding](#phone-number-hash-encoding)
-* [Response Structure and Status Codes](#response-structure-and-status-codes)
 * [License](#license)
 
-For details on using the API, see the following pages.
-
-| Documentation | Content Description |
-| :--- | :--- |
-| [Endpoints](./v1/endpoints/README.md) | API reference for managing identity tokens and mapping email addresses, phone numbers, or hashes to their UID2s and salt bucket IDs used to generate the UID2s. |
-| [Integration Guides](./v1/guides/README.md) | UID2 integration workflows for UID2 participants, such as publishers, DSPs, advertisers, and data providers, as well as Operator Enterprise Partners, such as Microsoft Azure, AWS, and Snowflake. |
-| [SDKs](./v1/sdks/README.md) | Client-side JavaScript for websites and RTB SDKs. | 
 
 ## Contact Info
 
@@ -33,26 +24,12 @@ To access to UID2, contact the appropriate team at The Trade Desk listed below.
 | App Developer<br>Publisher | UID2publishers@thetradedesk.com |
 | Agency<br>Brand<br>CDP<br>Data Provider<br>DSP<br>SSP | UID2partners@thetradedesk.com |
 
-## Environment 
+## API Versions
 
-All UID2 endpoints use the same base URL.
+Currently, there are two versions of the UID2 APIs: [UID2 API v1](./v1/README.md) and [UID2 API v2](./v2/README.md). 
 
-| Environment | Base URL |
-| :--- | :--- |
-| Testing | ```https://integ.uidapi.com/v1``` |
-| Production | ```https://prod.uidapi.com/v1``` |
+>IMPORTANT: The v1 API is supported only for the current users. If you are new to UID2, use the v2 API, which provides E2E content protection. 
 
-For example, https://integ.uidapi.com/v1/token/generate
-
-## Authentication
-
-To authenticate to UID2 endpoints, use a bearer token in the request's authorization header. 
-
-```Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=```
-
-## Query Parameter Value Encoding
-
-When passing query parameter values in a request, ensure the query parameter value is URL-encoded. Use JavaScript's `encodeURIcomponent()` or its equivalent in your coding language.
 
 ## Email Address Normalization
 
@@ -75,7 +52,6 @@ Email hashes are base64-encoded SHA256 hashes of the normalized email address.
 | Normalized email address | `user@example.com` | |
 | SHA256 of email address | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | |
 | base64-encoded SHA256 of email address | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | Use this encoding for `email_hash` values sent in the request body. |
-| URL-encoded, base64-encoded SHA256 of email address| `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf%2FF5HVRQ%3D` | Use this encoding for `email_hash` query parameter values. |
 
 ## Phone Number Normalization
 
@@ -96,37 +72,6 @@ Phone number hashes are base64-encoded SHA256 hashes of the normalized phone num
 | Normalized phone number | `+12345678901` | |
 | SHA256 of phone number | `c1d3756a586b6f0d419b3e3d1b328674fbc6c4b842367ee7ded780390fc548ae` | |
 | base64-encoded SHA256 of phone number | `wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ/FSK4=` | Use this encoding for `phone_hash` values sent in the request body. |
-| URL-encoded, base64-encoded SHA256 of phone number| `wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ%2FFSK4%3D` | Use this encoding for `phone_hash` query parameter values. |
-
-## Response Structure and Status Codes
-
-All endpoints return responses with the following structure.
-
-```json
-{
-    "status": "success",
-    "body": {
-        "property": "propertyValue"
-    },
-    "message": "Descriptive message"
-}
-```
-
-| Property | Description |
-| :--- | :--- |
-| `status` | The status of the request. For details and HTTP status code equivalents, see the table below. |
-| `body.property` | The response payload. If the `status` value is other than `success`, this may be an endpoint-specific value where the issue has occurred. |
-| `message` | Additional information about the issue, if the `status` value is other than `success`, for example, missing or invalid parameters. |
-
-The following table lists the `status` property values and their HTTP status code equivalents.
-
-| Status | HTTP Status Code | Description |
-| :--- | :--- | :--- |
-| `success` | 200 | The request was successful.|
-| `optout` | 200 | The user opted out. This status is returned only for authorized requests. |
-| `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
-| `invalid_token` | 400 | The request had an invalid identity token specified. This status is returned only for authorized requests. |
-| `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
 ## License
 All work and artifacts are licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).
