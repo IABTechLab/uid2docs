@@ -33,7 +33,7 @@ After authentication in step 1-c, which forces the user to accept the rules of e
 
 ### Bid Using UID2 Tokens
 
-You need to consider how you want to manage UID2 identity information and use it for targeted advertising, for example, pass the returned advertising token to SSPs.
+You need to consider how you want to manage UID2 identity information and use it for targeted advertising, for example, to pass the returned advertising token to SSPs.
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
