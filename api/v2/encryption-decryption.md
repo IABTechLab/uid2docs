@@ -11,22 +11,21 @@ Here's what you need to know about encrypting UID2 API requests and decrypting r
 - To use the APIs, in addition to your client API key, you need your client secret.
 - You can write your own custom scripts or use the Python scripts provided in the following sections.
 - Request and response use AES/GCM/NoPadding encryption algorithm with 96-bit initialization vector and 128-bit authentication tag.
-- The raw, unencrypted JSON body of the request or response is wrapped in a binary unencrypted data envelope.
-- For requests, the Unencrypted Data Envelope gets encrypted and formatted according to the [Encrypted Request Envelope](#encrypted-request-envelope).
-- Responses are formatted according to the [Encrypted Response Envelope](#encrypted-response-envelope).
+- The raw, unencrypted JSON body of the request is wrapped in a binary [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) which then gets encrypted and formatted according to the [Encrypted Request Envelope](#encrypted-request-envelope).
+- Response JSON body is wrapped in a binary [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) which is encrypted and formatted according to the [Encrypted Response Envelope](#encrypted-response-envelope).
 
 ## Workflow
 
 The high-level request-response workflow for the UID2 APIs includes the following steps:
 
 1. Prepare the request body with input parameters in the JSON format.
-2. Wrap the request JSON in an unencrypted data envelope.
+2. Wrap the request JSON in an [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope).
 3. Encrypt the envelope using AES/GCM/NoPadding algorithm and your secret key.
 4. Assemble the [Encrypted Request Envelope](#encrypted-request-envelope).
 5. Send the encrypted request and receive the encrypted response.
 6. Parse the [Encrypted Response Envelope](#encrypted-response-envelope).
 7. Decrypt the data in the response envelope.
-8. Parse the resulting unencrypted data envelope.
+8. Parse the resulting [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
 9. (Optional, recommended) Ensure the nonce the in the response envelope matches the nonce in the request envelope.
 10. Extract the response JSON object from the unencrypted envelope.
 
@@ -36,7 +35,17 @@ The individual UID2 [endpoints](./endpoints/README.md) explain the respective fo
 
 ## Encrypting Requests
 
-You have the option of writing your own script for encrypting requests or using the provided [Python example script](#example-encryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Encrypted Request Envelope](#encrypted-request-envelope).
+You have the option of writing your own script for encrypting requests or using the provided [Python example script](#example-encryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) and [Encrypted Request Envelope](#encrypted-request-envelope).
+
+### Unencrypted Request Data Envelope
+
+The following table describes the field layout for request encryption scripts.
+
+| Offset (Bytes) | Size (Bytes) | Description |
+| :--- | :--- | :--- |
+| 0 | 8 | The UNIX timestamp (in milliseconds). Must be int64 big endian. |
+| 8 | 8 | Nonce. |
+| 16 | N | Payload: request JSON document serialized in UTF-8 encoding. |
 
 ### Encrypted Request Envelope
 
@@ -46,7 +55,7 @@ The following table describes the field layout for request encryption scripts.
 | :--- | :--- | :--- |
 | 0 | 1 | The version of the envelope format. Must be always `1`. |
 | 1 | 12 | 96-bit initialization vector (IV), which is used to randomize data encryption. |
-| 13 | N | Payload (Unencrypted Data Envelope) encrypted using AES/GCM/NoPadding algorithm. |
+| 13 | N | Payload ([Unencrypted Request Data Envelope](#unencrypted-request-data-envelope)) encrypted using AES/GCM/NoPadding algorithm. |
 | 13 + N | 16 | 128-bit GCM authentication tag used to verify the integrity of the data. |
 
 ### Example Encryption Script
@@ -101,8 +110,9 @@ echo '{"email": "test@example.com"}' \
 
 ## Decrypting Responses
 
-You have the option of writing your own script for decrypting responses or using the provided [Python example script](#example-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Encrypted Response Envelope](#encrypted-response-envelope).
+You have the option of writing your own script for decrypting responses or using the provided [Python example script](#example-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Encrypted Response Envelope](#encrypted-response-envelope) and [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
 
+>NOTE: Response is encrypted only if the service returns HTTP status code 200.
 
 ### Encrypted Response Envelope
 
@@ -110,10 +120,17 @@ The following table describes the field layout for response decryption scripts.
 
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
-| 0 | 8 | The UNIX timestamp (in milliseconds). Must be int64 big endian. |
-| 8 | 8 | Nonce. |
-| 16 | N | Payload (Unencrypted Data Envelope) decrypted using AES/GCM/NoPadding algorithm. |
+| 0 | 12 | 96-bit initialization vector (IV), which is used to randomize data encryption. |
+| 12 | N | Payload ([Unencrypted Response Data Envelope](#unencrypted-response-data-envelope)) encrypted using AES/GCM/NoPadding algorithm. |
+| 12 + N | 16 | 128-bit GCM authentication tag used to verify the integrity of the data. |
 
+### Unencrypted Response Data Envelope
+
+| Offset (Bytes) | Size (Bytes) | Description |
+| :--- | :--- | :--- |
+| 0 | 8 | The UNIX timestamp (in milliseconds). Must be int64 big endian. |
+| 8 | 8 | Nonce. For the response to be considered valid this should match the nonce in the [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope). |
+| 16 | N | Payload: response JSON document serialized in UTF-8 encoding. |
 
 ### Example Decryption Script
 
