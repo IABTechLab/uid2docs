@@ -9,14 +9,13 @@ Monitor rotated salt buckets. This endpoint is intended for use by [Advertisers/
 
 ## Request Format
 
-```GET '{environment}/{version}/identity/buckets?since_timestamp={queryParameterValue}'```
+```GET '{environment}/v1/identity/buckets?since_timestamp={queryParameterValue}'```
 
 ### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com` |
-| `{version}` | string | Required | The current API version is `v1`. |
 
 ### Query Parameters
 
@@ -60,4 +59,14 @@ The response returns a list of salt bucket IDs and the timestamps of their last 
 | `bucket_id` | string | The salt bucket ID. |
 | `last_updated` | date-time | The UTC timestamp of the last time the bucket salt was rotated. |
 
-For response status values, see [Response Structure and Status Codes](../README.md#response-structure-and-status-codes).
+### Response Status Codes
+
+The following table lists the `status` property values and their HTTP status code equivalents.
+
+| Status | HTTP Status Code | Description |
+| :--- | :--- | :--- |
+| `success` | 200 | The request was successful. |
+| `client_error` | 400 | The request had missing or invalid parameters. For details on the issue, see the `message` property in the response.|
+| `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
+
+If the `status` value is other than `success`, additional information about the issue is provided in the `message` field.
