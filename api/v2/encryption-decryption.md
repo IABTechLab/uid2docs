@@ -90,12 +90,12 @@ body += bytearray(bytes(payload, 'utf-8'))
 
 ciphertext, tag = cipher.encrypt_and_digest(body)
 
-envelop = bytearray(b'\x01')
-envelop += bytearray(iv)
-envelop += bytearray(ciphertext)
-envelop += bytearray(tag)
+envelope = bytearray(b'\x01')
+enveloe += bytearray(iv)
+envelope += bytearray(ciphertext)
+envelope += bytearray(tag)
 
-print(base64.b64encode(bytes(envelop)).decode() + "\n")
+print(base64.b64encode(bytes(envelope)).decode() + "\n")
 ```
 ### Request Example
 
