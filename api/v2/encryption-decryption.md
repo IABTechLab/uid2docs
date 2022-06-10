@@ -44,7 +44,7 @@ The following table describes the field layout for request encryption scripts.
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
 | 0 | 8 | The UNIX timestamp (in milliseconds). Must be int64 big endian. |
-| 8 | 8 | Nonce: random 64 bits of data used to protect against replay attacks. The corresponding [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) must contain the same nonce value for the response to be considered valid. |
+| 8 | 8 | Nonce: random 64 bits of data used to protect against replay attacks. The corresponding [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) should contain the same nonce value for the response to be considered valid. |
 | 16 | N | Payload, which is a request JSON document serialized in UTF-8 encoding. |
 
 ### Encrypted Request Envelope
@@ -131,7 +131,7 @@ The following table describes the field layout for response decryption scripts.
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
 | 0 | 8 | The UNIX timestamp (in milliseconds). Must be int64 big endian. |
-| 8 | 8 | Nonce. For the response to be considered valid, this must match the nonce in the [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope). |
+| 8 | 8 | Nonce. For the response to be considered valid, this should match the nonce in the [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope). |
 | 16 | N | Payload, which is a response JSON document serialized in UTF-8 encoding. |
 
 ### Example Decryption Script
