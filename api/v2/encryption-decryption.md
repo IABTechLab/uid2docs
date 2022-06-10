@@ -29,7 +29,7 @@ The high-level request-response workflow for the UID2 APIs includes the followin
 9. (Optional, recommended) Ensure the nonce the in the response envelope matches the nonce in the request envelope.
 10. Extract the response JSON object from the unencrypted envelope.
 
-Python example scripts for [encrypting requests](#example-encryption-script) and [decrypting responses](#example-decryption-script) can help with automating steps 2-4 and 6-10, respectively, and serve as a reference of how to implement these steps in your application.
+Python example scripts for [encrypting requests](#example-encryption-script) and [decrypting responses](#example-decryption-script) can help with automating steps 2-4 and 6-10 and serve as a reference of how to implement these steps in your application.
 
 The individual UID2 [endpoints](./endpoints/README.md) explain the respective JSON body format requirements and parameters, include call examples, and show decrypted responses. The following sections provide examples of the encryption and descriptions scripts in Python, field layout requirements as well as request and response examples. 
 
