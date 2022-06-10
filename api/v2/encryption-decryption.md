@@ -150,7 +150,7 @@ from datetime import datetime
 from Crypto.Cipher import AES
 
 secret = base64.b64decode(sys.argv[1].strip())
-is_refresh_response = int(sys.argv[2])
+is_refresh_response = 1 if len(sys.argv) > 2 and sys.argv[2] == '--is-refresh' else 0
 response = "".join(sys.stdin.readlines())
 
 print()
