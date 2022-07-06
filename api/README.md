@@ -5,7 +5,6 @@ For UID2 definition, forms, guiding principles, components, and other conceptual
 This page provides the following information required for you to get started with the UID2 API:
 * [Contact Info](#contact-info)
 * [API Versions](#api-versions)
-* [Environment](#environment)
 * [Email Address Normalization](#email-address-normalization)
 * [Email Address Hash Encoding](#email-address-hash-encoding)
 * [Phone Number Normalization](#phone-number-normalization)
