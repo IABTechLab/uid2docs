@@ -80,7 +80,7 @@ echo '[Unencrypted-JSON-Request-Body]' \
   | decrypt_response.py [Your-Client-Secret] 
 ```
 
-Here's an encrypted identity mapping request example for an email hash:
+Here's an encrypted identity mapping request example for a phone number:
 
 ```sh
 echo '{"phone": ["+1111111111", "+2222222222"]}' \
