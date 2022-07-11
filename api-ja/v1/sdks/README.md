@@ -1,11 +1,11 @@
-[UID2 API Documentation](../../README.md) > v1 > SDKs
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > SDKs
 
-# SDK
+# SDKs
 
-以下のSDKは、パブリッシャーのUID2をクライアントサイドでインテグレーションするためのものです。
+UID2 インテグレーションに、以下の SDK が利用可能です。
 
-| Environment | Description |
-| :--- | :--- |
-| [Client-Side SDK](./client-side-identity-v1.md) | ウェブサイト用のクライアントサイドJavaScriptです。本SDKは、UID2 for Publishersのクライアントサイドへの導入を容易にします。 |
-| [RTB SDK](./dsp-client-v1-overview.md) | UID2にアクセスしたいDSP（またはRTB要求を処理する人）を対象としています。|
-| [Snowflake Integration](./snowflake_integration.md) | SnowflakeのUID2 Shareを通じたUID2インテグレーションの設定と使用を可能にします。 |
+| SDK                                                                                    | Description                                                                                                                                                           |
+| :------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| UID2 SDK<br/>[[v1](./client-side-identity-v1.md)] [[v0](./client-side-identity-v0.md)] | Client-Side Identity JavaScript SDK は、UID2 を使用してクライアント ID を確立し、パブリッシャー用の Advertising Token（UID2 Token）を取得するプロセスを容易にします。 |
+| [RTB SDK](./dsp-client-v1-overview.md)                                                 | DSP (または RTB リクエストを処理する者)が暗号化された UID2 にアクセスするためのものです。                                                                             |
+| [Snowflake Integration](./snowflake_integration.md)                                    | Snowflake の UID2 Share を通じて、UID2 インテグレーションの設定と利用を可能にします。                                                                                 |

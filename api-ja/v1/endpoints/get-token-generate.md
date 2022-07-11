@@ -1,78 +1,113 @@
-[UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /token/generate
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Endpoints](./README.md) > GET /token/generate
 
 # GET /token/generate
 
-メールアドレスまたはメールアドレスハッシュからUID2 Tokenを生成します。
+ハッシュ化した、あるいはしていないメールアドレスや電話番号から UID2 Token を生成します。
 
->重要：UID2 Tokenは、認証後にサーバー側でのみ生成する必要があります。セキュリティ上、ブラウザ側でトークンを生成することはできません。
+> IMPORTANT: UID2 Token は、認証後にサーバーサイドでのみ生成しなければなりません。セキュリティ上の理由から、ブラウザサイドでのトークン生成は禁じられています。
 
-このエンドポイントを使用するインテグレーションワークフロー:
-* [Publisher - Standard](../guides/publisher-client-side.md)
-* [Publisher - Custom](../guides/custom-publisher-integration.md)
+以下のインテグレーションワークフローは、このエンドポイントを使用します:
+
+- [Publisher - Standard](../guides/publisher-client-side.md)
+- [Publisher - Custom](../guides/custom-publisher-integration.md)
 
 ## Request Format
 
-```
-GET '{environment}/{version}/token/generate?{queryParameter}={queryParameterValue}'
-```
+`GET '{environment}/v1/token/generate?{queryParameter}={queryParameterValue}'`
 
 ### Path Parameters
 
-| Path Parameter | Data Type | Attribute | Description |
-| :--- | :--- | :--- | :--- |
-| `{environment}` | string | 必須 | テスト環境: `https://integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com` |
-| `{version}` | string | 必須 | 現在のAPIのバージョンは `v1` です。 |
+| Path Parameter  | Data Type | Attribute | Description                                                                             |
+| :-------------- | :-------- | :-------- | :-------------------------------------------------------------------------------------- |
+| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com` |
 
-###  Query Parameters
+### Query Parameters
 
-* 以下の2つのクエリパラメータのうち、どちらか一方のみが必要です。
-* 両方のパラメータがリクエストに含まれている場合は、`email`のみがレスポンスを返します。
+> IMPORTANT: 以下のパラメータは、いずれか 1 つだけを指定します。
 
-| Query Parameter | Data Type | Attributes | Description |
-| :--- | :--- | :--- | :--- |
-| `email` | `string` | 条件付きで必須 | マップする[正規化](../../README.md#email-normalization)されたメールアドレス。 |
-| `email_hash` | `string` | 条件付きで必要 | [正規化](../../README.md#email-normalization)されたメールアドレスの[URLエンコード、base64エンコードされたSHA256](../../README.md#emailnormalization)ハッシュ。|
+| Query Parameter | Data Type | Attribute      | Description                                                                                                                                                                             |
+| :-------------- | :-------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `email`         | string    | 条件付きで必要 | トークンを生成する [URL エンコード](../README.md#query-parameter-value-encoding) したメールアドレスです。<br>                                                                           |
+| `email_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
+| `phone`         | string    | 条件付きで必要 | トークンを生成する [正規化](../../README.md#phone-number-normalization) と [URL エンコード](../../README.md#query-parameter-value-encoding) した電話番号です。                          |
+| `phone_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。        |
 
-#### Request Examples
+### Request Examples
+
+> IMPORTANT: サービスにアクセスするための API キーを秘密にするために、API キーを使用する必要のない [GET /token/refresh](./get-token-refresh.md) とは異なり、`GET /token/generate` エンドポイントをサーバーサイドから呼び出す必要があります。
 
 メールアドレスのトークン生成リクエスト:
 
 ```sh
-curl -L -X GET 'https://integ.uidapi.com/v1/token/generate?email=username@example.com' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X GET 'https://operator-integ.uidapi.com/v1/token/generate?email=username@example.com' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
 メールアドレスハッシュのトークン生成リクエスト:
 
 ```sh
-curl -L -X GET 'https://integ.uidapi.com/v1/token/generate?email_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X GET 'https://operator-integ.uidapi.com/v1/token/generate?email_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+```
+
+電話番号のトークン生成リクエスト:
+
+```sh
+curl -L -X GET 'https://operator-integ.uidapi.com/v1/token/generate?phone=%2B1111111111' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+```
+
+電話番号ハッシュのトークン生成リクエスト:
+
+```sh
+curl -L -X GET 'https://operator-integ.uidapi.com/v1/token/generate?phone_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
 ## Response Format
 
-レスポンスは、指定されたメールアドレスまたはメールアドレスハッシュに対するユーザーのAdvertising TokenとRefresh Tokenです。
+レスポンスには、指定されたメールアドレス、電話番号、またはそれぞれのハッシュに対するユーザーの Advertising Token および Refresh Token を返します。
 
 ```json
 {
-    "body": {
-        "advertising_token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=",
-        "refresh_token": "RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA=="
-    },
-    "status": "success"
+  "body": {
+    "advertising_token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=",
+    "refresh_token": "RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA==",
+    "identity_expires": 1633643601000,
+    "refresh_from": 1633643001000,
+    "refresh_expires": 1636322000000
+  },
+  "status": "success"
 }
 ```
 
-## Response Body Properties
+[Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) は、このエンドポイント応答ペイロードを使用して、ユーザーセッションのライフサイクル中にユーザー ID を確立および管理します。
 
-| Property | Data Type | Description |
-| :--- | :--- | :--- |
-| `advertising_token` | `string` | ユーザーの暗号化されたAdvertising Token（UID2 Token）。  |
-| `refresh_token` | `string` | UID2 サービスと最新の ID Tokenのセットを交換できる暗号化されたトークン。 |
+### Response Body Properties
 
-レスポンスのステータス値については、[Response Structure and Status Codes](../../../api-ja/README.md#response-structure-and-status-codes)を参照してください。
+| Property            | Data Type | Description                                                                                                                                                                                                                                                                            |
+| :------------------ | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `advertising_token` | string    | ユーザーの暗号化された Advertising Token（UID2 Token）です。                                                                                                                                                                                                                           |
+| `refresh_token`     | string    | UID2 Service と最新の ID トークンのセットを交換できる暗号化されたトークンです。                                                                                                                                                                                                        |
+| `identity_expires`  | double    | Advertising Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                             |
+| `refresh_from`      | double    | [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) が Advertising Token の更新を開始するタイミングを示す UNIX タイムスタンプ（ミリ秒単位）</br>TIP: SDK を使っていない場合は、このタイムスタンプからも Advertising Token を更新することを検討してみてください。 |
+| `refresh_expires`   | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                                 |
 
-### Test Email Addresses
+レスポンスのステータス値については，[Response Structure and Status Codes](../../README.md#response-structure-and-status-codes)　を参照してください。
 
-| Email Address | Purpose | Next Endpoint |
-| --- | --- | --- |
-| `validate@email.com` | キャッシュした `advertising_token` が、指定した `email` の `advertising_token` と一致するかどうかをテストします。| [GET /token/validate](./get-token-validate.md) |
-| `optout@email.com` | このメールをリクエストに使用すると、常に `refresh_token` を使用した ID レスポンスが生成され、その結果、ログアウトのレスポンスが得られます。 | [GET /token/refresh](./get-token-refresh.md) |
+### Response Status Codes
+
+次の表は、`status` プロパティの値と、それに対応する HTTP ステータスコードの一覧です。
+
+| Status         | HTTP Status Code | Description                                                                                                                                                                    |
+| :------------- | :--------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `success`      | 200              | リクエストは成功しました。                                                                                                                                                     |
+| `client_error` | 400              | リクエストに不足している、または無効なパラメータがありました。問題の詳細については、レスポンスの `message` プロパティを参照してください。                                      |
+| `unauthorized` | 401              | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
+
+`status` の値が `success` 以外の場合、 `message` フィールドにその問題に関する追加情報が表示されます。
+
+## Test Identities
+
+| Type  | Identity             | Purpose                                                                                                                       | Next Endpoint                                  |
+| :---- | :------------------- | :---------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------- |
+| Email | `validate@email.com` | キャッシュした `advertising_token` が、指定したメールアドレスの `advertising_token` と一致するかをテストします。              | [GET /token/validate](./get-token-validate.md) |
+| Email | `optout@email.com`   | このメールをリクエストに使用すると、常に `refresh_token` を含む ID レスポンスが生成され、ログアウトのレスポンスになります。   | [GET /token/refresh](./get-token-refresh.md)   |
+| Phone | `+12345678901`       | キャッシュした `advertising_token` が、指定した電話番号の `advertising_token` と一致するかをテストします。                    | [GET /token/validate](./get-token-validate.md) |
+| Phone | `+00000000000`       | この電話番号をリクエストに使用すると、常に `refresh_token` を含む ID レスポンスが生成され、ログアウトのレスポンスになります。 | [GET /token/refresh](./get-token-refresh.md)   |

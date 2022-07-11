@@ -1,83 +1,156 @@
-[UID2 API Documentation](../../README.md) > v1 > [Integration Guides](README.md) > Custom Publisher Integration Guide
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > Custom Publisher Integration Guide
 
-# 概要
+# Server-Only UID2 Integration Guide
 
-本ガイドでは、アプリ開発者およびCTV放送局がUID2を利用して入札ストリーム用のID Tokenを生成するためのインテグレーション手順について説明します。本ガイドは、UID2 対応のシングルサインオンまたは ID プロバイダとのインテグレーションではなく、UID2 と直接インテグレーションしてトークンを作成および管理することを希望するパブリッシャに焦点を当てています。
+このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を利用した ID トークンを生成したいと考えるアプリ開発者や CTV 放送局を対象としています。
 
-## インテグレーションステップ
+このガイドでは、カスタムインテグレーションで考慮すべき [基本的な手順](#integration-steps) を概説しています。たとえば、ユーザーのログインとログアウトをどのように実装するか、UID2 ID 情報をどのように管理しターゲティング広告に使用するか、トークンを更新する方法、ID が見つからない場合の対処、ユーザーのオプトアウトを処理する方法などを決定する必要があります。ワークフローを示す [example application](https://example-srvonly-integ.uidapi.com/) はこちらです。アプリケーションのドキュメントについては、[Server-Only UID2 Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/server_only/README.md)を参照してください。[FAQs](#faqs) も参照してください。
 
-以下のインテグレーションステップでは、ユーザーがパブリッシャーとUID2 Tokenを確立するためのライフサイクルと、UID2 TokenがRTBビッドストリームとどのようにインテグレーションされるかについて説明します。
+> ヒント：UID2 を使ったクライアント ID の確立と Advertising Token の取得を容易にするために、[Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) を使用することを検討してみてください。詳しくは、[UID2 SDK Integration Guide](./publisher-client-side.md) を参照してください。
 
-The following integration steps outline the lifecycle for a user establishing a UID2 token with a publisher and how the UID2 token integrates with the RTB bid stream.
+## Integration Steps
 
+以下の図は、ユーザーがパブリッシャーと UID2 Token を確立するために必要なステップと、UID2 Token が RTB ビッドストリームとどのようにインテグレーションされるかの概要を示しています。
 
-![Custom Publisher Flow](https://mermaid.ink/svg/eyJjb2RlIjoiICBzZXF1ZW5jZURpYWdyYW1cbiAgICBwYXJ0aWNpcGFudCBVIGFzIOODpuODvOOCtuODvFxuICAgIHBhcnRpY2lwYW50IFAgYXMg44OR44OW44Oq44OD44K344Oj44O8XG4gICAgcGFydGljaXBhbnQgVUlEMiBhcyBVSUQyIFNlcnZpY2VcbiAgICBwYXJ0aWNpcGFudCBTU1BcbiAgICBOb3RlIG92ZXIgVSxTU1A6IDEuIOOCouOCpOODh-ODs-ODhuOCo-ODhuOCo-OBruioreWumlxuICAgIFUtPj4rUDogMS1hLiDjg6bjg7zjgrbjg7zjgYzjg5Hjg5bjg6rjg4Pjgrfjg6Pjg7zjga7jgqLjgrvjg4Pjg4jjgavjgqLjgq_jgrvjgrnjgZfjgb7jgZnjgIJcbiAgICBQLT4-LVU6IDEtYi4g44OR44OW44Oq44OD44K344Oj44O844Gv44CB44Kq44O844OX44Oz44Gq44Kk44Oz44K_44O844ON44OD44OI44Gu5L6h5YCk5Lqk5o-b44KS6Kqs5piO44GX44CB44Ot44Kw44Kk44Oz44KS6KaB5rGC44GX44G-44GZ44CCXG4gICAgYWN0aXZhdGUgVVxuICAgIFUtPj5QOiAxLWMuIOODpuODvOOCtuODvOOBr-iqjeiovOOCkuihjOOBhOOAgVVJRDLjga7kvZzmiJDjgpLoqLHlj6_jgZfjgb7jgZnjgIJcbiAgICBkZWFjdGl2YXRlIFVcbiAgICBhY3RpdmF0ZSBQXG4gICAgUC0-PlVJRDI6IDEtZC4g44OR44OW44Oq44OD44K344Oj44O844Gv44CB44Om44O844K244O844GuUElJ44KS44OI44O844Kv44Oz55Sf5oiQ44K144O844OT44K544Gr6YCB44KK44G-44GZ44CCXG4gICAgZGVhY3RpdmF0ZSBQXG4gICAgYWN0aXZhdGUgVUlEMlxuICAgIFVJRDItPj5QOiAxLWUuIOODiOODvOOCr-ODs-eUn-aIkOOCteODvOODk-OCueOBr1VJRDIgVG9rZW7jgpLov5TjgZfjgb7jgZnjgIJcbiAgICBkZWFjdGl2YXRlIFVJRDJcbiAgICBhY3RpdmF0ZSBQXG4gICAgUC0-PlU6IDEtZi4g44OR44OW44Oq44OD44K344Oj44O844Gv44CB44Om44O844K244O844GrVUlEMuOCkuioreWumuOBl-OBvuOBmeOAglxuICAgIGRlYWN0aXZhdGUgUFxuICAgIE5vdGUgb3ZlciBVLFNTUDogMi4gVUlEMiBUb2tlbuOCkuWIqeeUqOOBl-OBn-WFpeacrVxuXG4gICAgUC0-PlNTUDogMi1hLiDjg5Hjg5bjg6rjg4Pjgrfjg6Pjg7zjga_jgIFVSUQyIFRva2Vu44KS5L2_44Gj44Gm5bqD5ZGK55SoU1NQ44KS5ZG844Gz5Ye644GX44G-44GZ44CCXG4gICAgYWN0aXZhdGUgU1NQXG4gICAgU1NQLT4-UDogMi1iLiBTU1Djga_jgIHooajnpLrjgZnjgovluoPlkYrjgpLov5TjgZfjgb7jgZnjgIJcbiAgICBkZWFjdGl2YXRlIFNTUFxuICAgIGFjdGl2YXRlIFBcbiAgICBQLT4-VTogMi1jLiDjg5Hjg5bjg6rjg4Pjgrfjg6Pjg7zjga_jgIHjg6bjg7zjgrbjg7zjgavluoPlkYrjgpLooajnpLrjgZfjgb7jgZnjgIJcbiAgICBkZWFjdGl2YXRlIFBcblxuICAgIE5vdGUgb3ZlciBVLFNTUDogMy4g44OI44O844Kv44Oz44Gu44Oq44OV44Os44OD44K344OlXG4gICAgVS0-PlA6IDMtYS4g44Om44O844K244O844Gv44OR44OW44Oq44OD44K344Oj44O844Gu44Ki44K744OD44OI44Gr5oi744KK44G-44GZ44CCXG4gICAgYWN0aXZhdGUgUFxuICAgIFAtPj5VSUQyOiAzLWIuIOODkeODluODquODg-OCt-ODo-ODvOOBr-ODquODleODrOODg-OCt-ODpeODiOODvOOCr-ODs-OCkuS9v-OBo-OBpuOAgeODpuODvOOCtuODvOOBruaWsOOBl-OBhElE44OI44O844Kv44Oz44KS6KaB5rGC44GX44G-44GZ44CCXG4gICAgZGVhY3RpdmF0ZSBQXG4gICAgYWN0aXZhdGUgVUlEMlxuICAgIFVJRDItPj5QOiAzLWMuIOODpuODvOOCtuODvOOBjOOCquODl-ODiOOCouOCpuODiOOBl-OBpuOBhOOBquOBhOWgtOWQiOOAgeODquODleODrOODg-OCt-ODpeODiOODvOOCr-ODs-ODu-OCteODvOODk-OCueOBr-aWsOOBl-OBhElE44OI44O844Kv44Oz44KS6L-U44GX44G-44GZ44CCXG4gICAgZGVhY3RpdmF0ZSBVSUQyXG4gICAgYWN0aXZhdGUgUFxuICAgIFAtPj5VOiAzLWQuIOODkeODluODquODg-OCt-ODo-ODvOOBr-OAgeODpuODvOOCtuODvOOBq-aWsOOBl-OBhFVJRDLjgpLoqK3lrprjgZfjgb7jgZnjgIJcbiAgICBkZWFjdGl2YXRlIFBcblxuICAgIE5vdGUgb3ZlciBVLFNTUDogNC4g44Om44O844K244O844Ot44Kw44Ki44Km44OIXG4gICAgVS0-PlA6IDQtYS4g44Om44O844K244O844GM44OR44OW44Oq44OD44K344Oj44O844Gu44Ki44K744OD44OI44GL44KJ44Ot44Kw44Ki44Km44OI44GX44G-44GZ44CCXG4gICAgYWN0aXZhdGUgUFxuICAgIFAtPj5VOiA0LWIuIOODpuODvOOCtuODvOOBrklE44GM44Kv44Oq44Ki44GV44KM44G-44GZ44CCXG4gICAgZGVhY3RpdmF0ZSBQIiwibWVybWFpZCI6eyJ0aGVtZSI6ImZvcmVzdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
+```mermaid
+sequenceDiagram
+  participant U as User
+  participant P as Publisher
+  participant UID2 as UID2 Service
+  participant SSP
+  Note over U,SSP: 1. アイデンティティの確立
+  U->>+P: 1-a. ユーザーがパブリッシャーアセットにアクセスした。
+  P->>-U: 1-b. パブリッシャーは、オープンなインターネットの価値交換を説明し、ログインをリクエストします。
+  activate U
+  U->>P: 1-c. ユーザーが認証し、UID2 の作成を許可します。
+  deactivate U
+  activate P
+  P->>UID2: 1-d. パブリッシャーはユーザーのPIIをトークン生成サービスに送信します。
+  deactivate P
+  activate UID2
+  UID2->>P: 1-e. トークン生成サービスは、UID2 Tokenを返します。
+  deactivate UID2
+  activate P
+  P->>U: 1-f. パブリッシャーはユーザーにUID2を設定します。
+  deactivate P
+  Note over U,SSP: 2. UID2 Tokenを用いた入札
 
-## 1. アイデンティティの設定
+  P->>SSP: 2-a. パブリッシャーはUID2 Tokenを使って広告のためにSSPを呼び出します。
+  activate SSP
+  SSP->>P: 2-b. SSPは、表示する広告を返します。
+  deactivate SSP
+  activate P
+  P->>U: 2-c. パブリッシャーは、ユーザーに広告を表示します。
+  deactivate P
 
-このセクションでは、上図のパブリッシャー固有のステップ1-d、1-e、1-fを中心に説明します。
+  Note over U,SSP: 3. トークンのリフレッシュ
+  U->>P: 3-a. ユーザーがパブリッシャーアセットに戻ります。
+  activate P
+  P->>UID2: 3-b. パブリッシャーはRefresh Tokenを使って、ユーザーの新しいアイデンティティトークンを要求します。
+  deactivate P
+  activate UID2
+  UID2->>P: 3-c. ユーザーがオプトアウトしていない場合、Refresh Token Serviceは新しいアイデンティティトークンを返します。
+  deactivate UID2
+  activate P
+  P->>U: 3-d. パブリッシャーはユーザーの新しい UID2 を設定します。
+  deactivate P
 
-><b>Note</b><br>
-UID2 Tokenは、認証後にサーバー側でのみ生成する必要があります。セキュリティの観点から、ブラウザ側でトークンを生成することはできません。
+  Note over U,SSP: 4. ユーザーログアウト
+  U->>P: 4-a. ユーザーがパブリッシャーアセットからログアウトしました。
+  activate P
+  P->>U: 4-b. ユーザーのIDをクリアします。
+  deactivate P
+```
 
-| Step | Endpoint/SDK | Instruction |
-| --- | --- | --- |
-| d | [GET /token/generate](../endpoints/get-token-generate.md) | パブリッシャーがUID2を設定する方法は2つあります。<br>1. 2.ユーザーが[GET /token/generate](../endpoints/get-token-generate.md)エンドポイントを使用して認証する際にUID2 Tokenを生成する。このリクエストには、ユーザーのメールアドレス、またはユーザーの正規化されたメールアドレスのbase64エンコードされたSHA256ハッシュが含まれます。[メールアドレスの正規化ルールはこちら](../../README.md#emailnormalization) <br><b>Note</b><br>正規化されたメールアドレスは、メールアドレスハッシュを渡すときにのみ必要です。ハッシュ化されていないメールアドレスについては、UID2オペレーターサービスがユーザーのためにメールアドレスを正規化します。|
-| e | [GET /token/generate](../endpoints/get-token-generate.md) | トークン生成サービスはUID2 Tokenを返します。 |
-| f |  | 返された `advertising_token` と `refresh_token` を、ユーザーに関連付けられたストレージに保存します。ファーストパーティークッキーのようなクライアントサイドのストレージや、サーバーサイドのストレージが考えられます。 |
+次のセクションでは、図中の各ステップについて詳細を説明します:
 
-## 2. UID2 Tokenを利用した入札
+1.  [Establish identity: user login](#establish-identity-user-login)
+2.  [Bid using UID2 tokens](#bid-using-uid2-tokens)
+3.  [Refresh tokens](#refresh-tokens)
+4.  [Clear Identity: user logout](#clear-identity-user-logout)
 
-このセクションでは、上の図に示されたパブリッシャー固有のステップ2-aに焦点を当てます。
+### Establish Identity: User Login
 
-| Step | Endpoint/SDK | Instruction |
-| --- | --- | --- |
-| a | | パブリッシャーは、[1](#1-establish-identity)の`advertising_token`をSSPに送り、入札を行います。値をそのまま送ります。 |
+ステップ 1-c で認証が行われ、ユーザーに規約を受け入てもらい、パブリッシャーがメールアドレスや電話番号を検証した後、サーバーサイドで UID2 Token を生成する必要があります。次の表は、トークン生成のステップの詳細を示しています。
 
-### 3. トークンのリフレッシュ
+| Step | Endpoint                                                  | Description                                                                                                                                                                                                                                                                                                                                                             |
+| :--- | :-------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1-d  | [GET /token/generate](../endpoints/get-token-generate.md) | パブリッシャーが UID2 を使用してアイデンティティを確立するには、次の 2 つの方法があります：<br/>- UID2 対応シングルサインオンプロバイダーとインテグレーションします。<br/>- [GET /token/generate](../endpoints/get-token-generate.md) エンドポイントを使って、提供された正規化および URL エンコードされたメールアドレスまたは電話番号を使って UID2 Token を生成します。 |
+| 1-e  | [GET /token/generate](../endpoints/get-token-generate.md) | ユーザーのメールアドレス、電話番号、またはそれぞれのハッシュから生成した UID2 Token を返します。<br>Return a UID2 token generated from the user's email address, phone number, or the respective hash.                                                                                                                                                                  |
+| 1-f  | N/A                                                       | 返された `advertising_token` と `refresh_token` は、ユーザーに紐づくストレージに保存します。ファーストパーティクッキーのようなクライアントサイドのストレージや、サーバーサイドのストレージを検討するとよいでしょう。                                                                                                                                                    |
 
-リフレッシュエンドポイントを利用して、最新のUID2 Tokenを取得します。UID2 Tokenのリフレッシュは、ユーザーの UID2 ローテーションとオプトアウトの状態を同期するために必要です。ユーザーがオプトアウトした場合、そのRefresh Tokenを使用すると、トークンのリフレッシュチェーンが終了します。
+### Bid Using UID2 Tokens
 
-| Step | Endpoint/SDK | Instruction |
-| --- | --- | --- |
-| a | | ユーザーがアセットに戻って再びアクティブになったら、SSP に送信する前に ID Tokenをリフレッシュします。 |
-| b | [GET /token/refresh](../endpoints/get-token-refresh.md)  | [1](#1-establish-identity)で取得した `refresh_token` をクエリパラメータとして送信します。 |
-| c | [GET /token/refresh](../endpoints/get-token-refresh.md) | UID2サービスは、オプトアウトしていないユーザーに対して新しいID Tokenを発行します。 |
-| d | | 返された `advertising_token` と `refresh_token` を、ユーザーに関連付けられたストレージに保存します。ファーストパーティークッキーのようなクライアントサイドのストレージや、サーバーサイドのストレージが考えられます。 |
+UID2 ID 情報をどのように管理し、ターゲット広告に使用したいか、たとえば返された広告トークンを SSP に渡すかについて検討する必要があります。
 
-アクティブなユーザーのID Tokenは、5分ごとに更新することを勧めます。
-アクティブでないユーザーのトークンを更新する必要はありません。
+| Step | Endpoint | Description                                                                                                            |
+| :--- | :------- | :--------------------------------------------------------------------------------------------------------------------- |
+| 2-a  | N/A      | ステップ [1-e](#establish-identity) の `advertising_token` を入札のために SSP に送信します。そのままの値を送信します。 |
 
-### 4. ユーザーのログアウト
+### Refresh Tokens
 
-| Step | Endpoint/SDK | Instruction |
-| --- | --- | --- |
-| a |  | ユーザーがパブリッシャーのアセットからログアウトした。 |
-| b |  | ユーザー用に保存していたUID2 Tokenを削除します。UID2 サービスとのやりとりは必要ありません。 |
+リフレッシュエンドポイントを活用して、最新バージョンの UID2 Token を取得します。ユーザーの UID2 ローテーションとオプトアウトの状態を同期させるには、UID2 Token をリフレッシュする必要があります。ユーザーがオプトアウトした場合、その Refresh Token を使用すると、トークン更新チェーンが終了します。
 
-# よくある質問
+| Step | Endpoint                                                | Description                                                                                                                                                                                                          |
+| :--- | :------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 3-a  | N/A                                                     | ユーザーがアセットに戻り、再びアクティブになったとき、ID トークンをリフレッシュしてから、SSP に送信します。                                                                                                          |
+| 3-b  | [GET /token/refresh](../endpoints/get-token-refresh.md) | ステップ [1-e](#establish-identity) で取得した `refresh_token` をクエリパラメータとして送信します。                                                                                                                  |
+| 3-c  | [GET /token/refresh](../endpoints/get-token-refresh.md) | UID2 Service は、オプトアウトしていないユーザーに対して新しい ID トークンを発行します。                                                                                                                              |
+| 3-d  | N/A                                                     | 返された `advertising_token` と `refresh_token` は、ユーザーに紐づくストレージに保存します。ファーストパーティクッキーのようなクライアントサイドのストレージや、サーバーサイドのストレージを検討するとよいでしょう。 |
+
+> TIP: [GET /token/generate](../endpoints/get-token-generate.md) または [GET /token/refresh](../endpoints/get-token-refresh.md) コールによって返された ID の `refresh_from` タイムスタンプからトークンをリフレッシュしてください。
+
+### Clear Identity: User Logout
+
+| Step | Endpoint | Description                                                                                       |
+| :--- | :------- | :------------------------------------------------------------------------------------------------ |
+| 4-a  | N/A      | ユーザーがパブリッシャーアセットからログアウトしました。                                          |
+| 4-b  | N/A      | そのユーザー用に保存してある UID2 Token を削除します。UID2 Service とのやりとりは必要ありません。 |
+
+## FAQs
 
 ### トークンを復号化する必要がありますか？
-いいえ、パブリッシャーはトークンを復号する必要はありません。
 
-### ユーザーがオプトアウトしたことはどのように通知されますか？
-トークンのリフレッシュ処理は、ユーザーのオプトアウトを処理します。Refresh Tokenを使用すると、ユーザーがオプトアウトしたときに自動的にセッションがクリアされ、``refresh_token``のチェーンが切断されます。手動での操作は必要ありません。
+いいえ、パブリッシャーはトークンを復号化する必要はありません。
 
-### UID2 Tokenの独自性とローテーションのポリシーは？
-UID2サービスは、ランダムな初期化ベクターを使用してトークンを暗号化します。暗号化されたUID2は、インターネットを閲覧する特定のユーザーにとってユニークなものとなります。リフレッシュのたびに、トークンは再暗号化されます。この仕組みにより、信頼できない第三者がユーザーのアイデンティティを追跡できないようになっています。
+### オプトアウトの通知はどのように行われますか？
 
-### インテグレーションをテストするにはどうすればいいですか？
-インテグレーションをテストするために使用できる2つの組み込みツールがあります。
+トークンのリフレッシュ処理では、ユーザーのオプトアウトを処理します。[GET /token/refresh](../endpoints/get-token-refresh.md) は、そのユーザーの空の ID とオプトアウトステータスを返します。UID2 ベースのターゲティング広告の使用を再開するには、ユーザーは再ログインして UID2 ID を再確立する必要があります。
 
-#### 送信されたPIIと返信されたトークンが一致しているかどうかのテスト
-[GET /token/validate](../endpoints/get-token-validate.md)エンドポイントを使用して、[GET /token/generate](../endpoints/get-token-generate.md)で送信するPIIが有効であるかどうかを確認することができます。
+### トークン生成の呼び出しは、サーバーサイドとクライアントサイドのどちらで行うべきですか？
 
-1. `validate@email.com` を `email` として [GET /token/generate](../endpoints/get-token-generate.md) リクエストを送信するか、`validate@email.com` の base64 エンコードされた SHA256 ハッシュを作成し、それをメールアドレスハッシュとして送信します。返された `advertising_token` を保存して、ステップ2で使用します。
-2. ステップ1で送信した `email` または `email_hash` と、ステップ1で返された `advertising_token` としての `token` を使用して、[GET /token/validate](../endpoints/get-token-validate.md) リクエストを送信します。レスポンスが `true` を返した場合、ステップ1でリクエストとして送信した `email` または `email_hash` が、ステップ1のレスポンスで受け取ったトークンと一致します。`false`を返した場合は、メールアドレスやメールアドレスハッシュの送信方法に問題がある可能性があります。
+UID2 Token は、認証後にサーバーサイドでのみ生成する必要があります。つまり、サービスにアクセスするために使用する API キーを秘密にするために、[GET /token/generate](../endpoints/get-token-generate.md) エンドポイントはサーバーサイドからのみ呼び出される必要があります。
 
-#### Refresh Tokenのログアウト・ワークフローのテスト
+### トークン リフレッシュの呼び出しをクライアントサイドから行うことはできますか。
 
-トークンリフレッシュのワークフローをテストするために、メールアドレス `optout@email.com` を使用することができます。リクエストにこのメールアドレスを使用すると、常にログアウトの結果となる `refresh_token` を含む ID レスポンスが生成されます。
+[GET /token/refresh](../endpoints/get-token-refresh.md) は、API キーを使用する必要がないため、クライアントサイド（ブラウザやモバイルアプリなど）から呼び出すことが可能です。
 
-1. `optout@email.com` を `email` として [GET /token/generate](../endpoints/get-token-generate.md) リクエストを送信するか、`optout@email.com` の base64 エンコードされた SHA256 ハッシュを作成して、それをメールのハッシュとして送信します。返された `refresh_token` を保存して、ステップ2で使用します。
-2. ステップ1で送信した `email` または `email_hash` と、ステップ1で返された `refresh_token` を使って、[GET /token/validate](../endpoints/get-token-validate.md) リクエストを送信します。`optout@email.com` のメールアドレスは常にログアウトされたRefresh Tokenになるので、`body` レスポンスは空にしてください。
+### UID2 Token の一意性とローテーションのポリシーは？
+
+UID2 Service では、ランダムな初期化ベクトルを使用してトークンを暗号化します。暗号化された UID2 は、インターネットを閲覧している特定のユーザーに対して一意となります。更新されるたびに、トークンは再暗号化されます。このメカニズムにより、信頼できない第三者がユーザーを追跡することができないようにします。
+
+### 送信された PII と返されたトークンが一致するかどうかをテストするにはどうすればよいですか?
+
+[GET /token/validate](../endpoints/get-token-validate.md) エンドポイントを使用して、[GET /token/generate](../endpoints/get-token-generate.md) を通じて送信する PII が有効かどうかをチェックすることができます。
+
+1. PII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して[GET /token/generate](../endpoints/get-token-generate.md) リクエストを送信してください。
+   - `email` の値として `validate@email.com` を指定します。
+   - `validate@email.com` を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) したものを `email_hash` の値として指定します。
+   - `phone` の値として [URL エンコード](../../README.md#query-parameter-value-encoding) した `+12345678901` を指定します。
+   - `+12345678901` を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) したものを `phone_hash` の値として指定します。
+2. 返された `advertising_token` を、次のステップで使用するために保存します。
+3. [GET /token/validate](../endpoints/get-token-validate.md) で、ステップ 1 で送信した `email`, `email_hash`, `phone`, または `phone_hash` 値と `advertising_token` （ステップ 2 で保存）をプロパティ値としてリクエストを送信します。
+   - もしレスポンスが `true` を返したら、ステップ 1 でリクエストとして送った PII は、ステップ 1 のレスポンスで受け取ったトークンと一致します。
+   - `false` が返された場合、メールアドレス、電話番号、またはそれぞれのハッシュを送信する方法に問題がある可能性があります。
+
+### リフレッシュトークンのログアウトのワークフローをテストするにはどうしたらいいですか？
+
+`optout@email.com` メールアドレスまたは `+00000000000` 電話番号を使用して、トークン更新ワークフローをテストすることができます。メールアドレスや電話番号をリクエストに使用すると、常に `refresh_token` を含む ID レスポンスが生成され、その結果ログアウト レスポンスが生成されます。
+
+1. PII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して[GET /token/generate](../endpoints/get-token-generate.md) リクエストを送信してください。
+   - `email`の値として`optout@email.com` を指定します。
+   - `optout@email.com`を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) したものを `email_hash` の値として指定します。
+   - `phone` の値として [URL エンコード](../../README.md#query-parameter-value-encoding) した `+00000000000` を指定してください。
+   - `PHONE_HASH` 値として `+00000000000` を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#phone-number-hash-encoding) したものを指定します。
+2. 返された `refresh_token` を次のステップで使用するために保存します。
+3. (ステップ 2 で保存した) `refresh_token` を `token` 値として [GET /token/refresh](../endpoints/get-token-refresh.md) というリクエストを送ります。<br/> `optout@email.com` というメールと `+00000000000` という電話番号は常にログアウトしたユーザーを表すため、ボディ応答は空に、 `status` 値には `optout` をセットしてください。
