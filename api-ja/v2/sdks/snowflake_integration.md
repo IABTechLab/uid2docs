@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > Snowflake Integration
+[UID2 API Documentation](../../README.md) > [v2](../README.md) > [Integration Guides](../guides/README.md) > Snowflake Integration
 
 # Snowflake Integration
 
@@ -283,7 +283,7 @@ To determine which UID2s need regeneration, compare the timestamps of when they 
 | `BUCKET_ID`            | TEXT          | セカンドレベルのソルトバケットの ID です。この ID は、ID マップ関数が返す `BUCKET_ID` と同じものです。`BUCKET_ID` をキーとして、関数呼び出しの結果とこのビュー呼び出しの結果の間のジョインクエリを実行します。<br>The ID of the second-level salt bucket. This ID parallels the `BUCKET_ID` returned by the identity map functions. Use the `BUCKET_ID` as the key to do a join query between the function call results and results from this view call. |
 | `LAST_SALT_UPDATE_UTC` | TIMESTAMP_NTZ | バケット内のソルトが最後に更新された時刻です。この値は UTC タイムゾーンで表現されます。<br>The last time the salt in the bucket was updated. This value is expressed in UTC timezone.                                                                                                                                                                                                                                                                          |
 
-次の例は、入力テーブルと、テーブル内の UID2 のうち、セカンドレベルのソルトの更新により再生成が必要なものを見つけるためのクエリを示しています。
+次の例は、入力テーブルと、テーブル内の UID2 のうち、のソルトの更新により再生成が必要なものを見つけるためのクエリを示しています。
 
 The following example shows an input table and the query used to find the UID2s in the table that require regeneration due to updated second-level salt.
 

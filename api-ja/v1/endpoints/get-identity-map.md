@@ -1,64 +1,87 @@
-[UID2 API Documentation](../../README.md) > v1 > [Endpoints](./README.md) > GET /identity/map
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Endpoints](./README.md) > GET /identity/map
 
 # GET /identity/map
 
-メールアドレスまたはメールアドレスハッシュのUID2とソルトバケットIDを取得します。このエンドポイントは、[Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md)での使用を想定しています。
+ハッシュ化された、またはされていないメールアドレスや電話番号の UID2 とソルトバケット ID を取得します。このエンドポイントは [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md) による使用を対象としています。
 
 ## Request Format
 
-```
-GET '{environment}/{version}/identity/map?{queryParameter}={queryParameterValue}'
-```
+`GET '{environment}/v1/identity/map?{queryParameter}={queryParameterValue}'`
 
 ### Path Parameters
 
-| Path Parameter | Data Type | Attribute | Description |
-| :--- | :--- | :--- | :--- |
-| `{environment}` | string | 必須 | テスト環境: `https://integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com` |
-| `{version}` | string | 必須 | 現在のAPIのバージョンは `v1` です。 |
+| Path Parameter  | Data Type | Attribute | Description                                                                             |
+| :-------------- | :-------- | :-------- | :-------------------------------------------------------------------------------------- |
+| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com` |
 
-###  Query Parameters
+### Query Parameters
 
-| Query Parameter | Data Type | Attributes | Description |
-| :--- | :--- | :--- | :--- |
-| `email` | `string` | 条件付きで必須 | マップする [正規化](../../README.md#email-normalization) されたメールアドレス。 |
-| `email_hash` | `string` | 条件付きで必要 | [正規化](../../README.md#email-normalization)されたメールアドレスの[URLエンコード、base64エンコードされたSHA256](../../README.md#emailnormalization)ハッシュ。|
+> IMPORTANT: 以下のパラメーターの1つのみを含める必要があります。
 
-#### Request Examples
+| Query Parameter | Data Type | Attribute      | Description                                                                                                                                                                             |
+| :-------------- | :-------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `email`         | string    | 条件付きで必要 | マップする [URL エンコード](../README.md#query-parameter-value-encoding) したメールアドレスです                                                                                         |
+| `email_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
+| `phone`         | string    | 条件付きで必要 | トークンを生成する [正規化](../../README.md#phone-number-normalization) と [URL エンコード](../../README.md#query-parameter-value-encoding) した電話番号です。                          |
+| `phone_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。        |
+
+### Request Examples
 
 メールアドレスのマッピングリクエスト:
 
 ```sh
-curl -L -X GET 'https://integ.uidapi.com/v1/identity/map?email=username@example.com' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X GET 'https://operator-integ.uidapi.com/v1/identity/map?email=username@example.com' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
 メールアドレスハッシュのマッピングリクエスト:
 
 ```sh
-curl -L -X GET 'https://integ.uidapi.com/v1/identity/map?email_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+curl -L -X GET 'https://operator-integ.uidapi.com/v1/identity/map?email_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+```
+
+電話番号のマッピングリクエスト:
+
+```sh
+curl -L -X GET 'https://operator-integ.uidapi.com/v1/identity/map?phone=%2B1111111111' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
+```
+
+電話番号ハッシュのマッピングリクエスト:
+
+```sh
+curl -L -X GET 'https://operator-integ.uidapi.com/v1/identity/map?phone_hash=eVvLS%2FVg%2BYZ6%2Bz3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc%3D' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk='
 ```
 
 ## Response Format
 
-レスポンスは、指定されたメールアドレスまたはハッシュのUID2とソルトバケットのIDです。
+指定したメールアドレス、電話番号、それぞれのハッシュの UID2 とソルトバケット ID を返します。
 
 ```json
 {
-    "body": {
-            "identifier": "username@example.com",
-            "advertising_id": "AdvtiSuYWAZSYe8t4n6sQx0gshoHYZdOzg9qUn/eKgE=",
-            "bucket_id": "bucketId"
-        },
-    "status":"success"
+  "body": {
+    "identifier": "username@example.com",
+    "advertising_id": "AdvtiSuYWAZSYe8t4n6sQx0gshoHYZdOzg9qUn/eKgE=",
+    "bucket_id": "a30od4mNRd"
+  },
+  "status": "success"
 }
 ```
 
-## Body Response Properties
+### Response Body Properties
 
-| Property | Data Type | Description |
-| :--- | :--- | :--- |
-| `identifier` | `string` | リクエストのクエリパラメーターで指定されたメールアドレスまたはメールアドレスハッシュ。|
-| `advertising_id` | `string` | 対応するのAdvertising ID（raw UID2）。 |
-| `bucket_id` | `string` | UID2の生成に使用したソルトバケットのID。 |
+| Property         | Data Type | Description                                                                                    |
+| :--------------- | :-------- | :--------------------------------------------------------------------------------------------- |
+| `identifier`     | string    | リクエストクエリパラメータで指定されたメールアドレス、電話番号、またはそれぞれのハッシュです。 |
+| `advertising_id` | string    | 対応する Advertising ID（raw UID2）です。                                                      |
+| `bucket_id`      | string    | UID2 の生成に使用したソルトバケットの ID です。                                                |
 
-レスポンスのステータス値については、[Response Structure and Status Codes](../../../api-ja/README.md#response-structure-and-status-codes)を参照してください。
+### Response Status Codes
+
+次の表は、`status` プロパティの値と、それに対応する HTTP ステータスコードの一覧です。
+
+| Status         | HTTP Status Code | Description                                                                                                                                                                    |
+| :------------- | :--------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `success`      | 200              | リクエストは成功しました。                                                                                                                                                     |
+| `client_error` | 400              | リクエストに不足している、または無効なパラメータがありました。問題の詳細については、レスポンスの `message` プロパティを参照してください。                                      |
+| `unauthorized` | 401              | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
+
+`status` の値が `success` 以外の場合、 `message` フィールドにその問題に関する追加情報が表示されます。
