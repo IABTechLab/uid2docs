@@ -75,3 +75,11 @@ The UID2 service does not introduce latency into the bidding process. Any latenc
 ### How should the DSP maintain proper frequency capping with UID2?
 The UID2 has the same chance as a cookie of becoming stale. Hence, the DSP can adapt the same infrastructure currently used for cookie or deviceID-based frequency capping for UID2. For details, see this [FAQ](../guides/advertiser-dataprovider-guide.md#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation) on salt bucket rotation. 
 
+### Will all user opt-out traffic be sent to the DSP?
+Yes, all opt-outs from the UID2 [Transparency and Control Portal](https://transparentadvertising.org/) will hit the opt-out endpoint that the DSP must configure to [honor user opt-outs](#honor-user-opt-outs).
+
+### Is the DSP expected to handle only UID2 tokens they have stored and ignore the rest?
+In most cases the DSP is indeed expected to handle only UID2 tokens they have stored. There are edge cases, however, when the DSP is not allowed to bid on newly stored UID2 tokens because they were generated before the opt-out timestamp. For details, see the diagram in [Bidding Opt-Out Logic](#bidding-opt-out-logic).
+
+### How long should the DSP keep the opt-out list?
+At least for 30 days.
