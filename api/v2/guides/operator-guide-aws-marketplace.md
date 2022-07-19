@@ -30,9 +30,9 @@ By subscribing the UID2 Operator on AWS Marketplace product, you gain access to 
 To subscribe and deploy UID2 Operators on AWS, you must complete the following steps:
 
 - Register your organization as a UID2 Operator.
-- Create an AWS account with an IAM role that has the [minimal privileges](#minimal-iam-roleactions).
+- Create an AWS account with an IAM role that has the [minimal privileges](#minimal-iam-role-privileges).
 
-#### Minimal IAM Role Actions
+#### Minimal IAM Role Privileges
 
 >IMPORTANT: To succeed in a one-click deployment, your AWS account must have the privilege to run the following actions.
 
@@ -99,7 +99,7 @@ To subscribe and deploy UID2 Operators on AWS, you must complete the following s
 
 ### Resources Created
 
-The following table lists all resources that are created during the deployment.
+The following table lists all resources that are created during the [deployment](#deployment).
 
 | Resource | Description |
 | :--- |:--- |
@@ -116,7 +116,7 @@ The following table lists all resources that are created during the deployment.
 
 ### Customization Options
 
-Here's what you can customize during or afater the deployment:
+Here's what you can customize during or after the [deployment](#deployment):
 
 - VPC: You can either set up a new VPC and subnets or use existing ones.
 - Root volume size
@@ -130,7 +130,7 @@ To deploy the UID2 Operator on AWS Marketplace, complete the following steps:
 1. Subscribe to [UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la). It might take several minutes before AWS completes your subscription.
 2. Click **Configuration**.
 3. On the Configuration page, click **Launch** and select the **Launch CloudFormation** action.
-4. In the Create stack wizard, Specify the template and click **Next**. The S3 path for template file is automatically filled in.
+4. In the Create stack wizard, specify the template and click **Next**. The S3 path for template file is automatically filled in.
 5. Fill in the [stack details](#stack-details) and click **Next**.
 6. Configure [stack options](#stack-configuration-options) and click **Next**.
 7. Review the information you have entered and make any changes you want.
