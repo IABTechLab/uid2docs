@@ -4,7 +4,7 @@
 
 The UID2 Operator is the API server in the UID2 ecosystem. The UID2 Operator solution is enhanced with AWS Nitro Enclave technology to protect Personally Identifiable Information (PII) from unauthorized access.
 
-This guide include the following information:
+This guide includes the following information:
 
 - [UID2 Operator on AWS Marketplace Product](#uid2-operator-on-aws-marketplace-product)
   -  [Prerequisites](#prerequisites)
