@@ -141,7 +141,7 @@ It takes several minutes for the stack to be created. When you see an Auto Scali
 
 ### Stack Details
 
-The following are screenshots of the Stack details page in the wizard (step 5 during the [deployment](#deployment)). The table that follows provides a parameter value reference.
+The following are screenshots of the Specify stack details page in the Create stack wizard ([deployment](#deployment) step 5). The table that follows provides a parameter value reference.
 
 ![Application Configuration](cloudformation-step-2.png) 
 
@@ -162,7 +162,7 @@ The following table explains the parameter values that you need to provide in st
 
 ### Stack Configuration Options
 
-The following screenshot shows TBD  (step 6 during the [deployment](#deployment)).
+The following is a screenshot of the Configure stack details page in the Create stack wizard ([deployment](#deployment) step 6).
 
 ![Configure Stack Options](cloudformation-step-3.png)
 
@@ -198,5 +198,3 @@ Here's what you need to know about upgrading:
 ## Technical Support
 
 If you have trouble subscribing or deploying the product, please contact us at [aws-mktpl-uid@thetradedesk.com](mailto:aws-mktpl-uid@thetradedesk.com).
-
-
