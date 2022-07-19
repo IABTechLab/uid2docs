@@ -164,7 +164,7 @@ The following table explains the parameter values that you need to provide in st
 
 The following screenshot shows TBD  (step 6 during the [deployment](#deployment)).
 
-![Configure Stack Options](cloudformation-step-2-3.png)
+![Configure Stack Options](cloudformation-step-3.png)
 
 The following table explains the parameter values that you need to provide in step 6 during the [deployment](#deployment).
 
