@@ -139,11 +139,9 @@ To deploy the UID2 Operator on AWS Marketplace, complete the following steps:
 
 It takes several minutes for the stack to be created. When you see an Auto Scaling Group (ASG) created, you can select it and check the EC2 instances. For details, see [Checking UID2 Operator Status](#checking-uid2-operator-status).
 
-![Stack Creation Events](stack-creation-events.png)
-
 ### Stack Details
 
-The following are screenshots of the Stack details page in the wizard. The table that follows provides a parameter value reference.
+The following are screenshots of the Stack details page in the wizard (step 5 during the [deployment](#deployment)). The table that follows provides a parameter value reference.
 
 ![Application Configuration](cloudformation-step-2.png) 
 
@@ -164,7 +162,7 @@ The following table explains the parameter values that you need to provide in st
 
 ### Stack Configuration Options
 
-The following screenshot shows TBD.
+The following screenshot shows TBD  (step 6 during the [deployment](#deployment)).
 
 ![Configure Stack Options](cloudformation-step-2-3.png)
 
