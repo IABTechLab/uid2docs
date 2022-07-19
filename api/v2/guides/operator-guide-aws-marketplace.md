@@ -182,7 +182,7 @@ To find the EC2 instances, complete the following steps:
 1. In the CloudFormation stack, click the **Resources** tab and find the Auto Scaling Group (ASG). 
 2. Click the ASG link in the **Physical ID** column.
 3. Inside the selected ASG, go to the **Instance management** tab where you can find the ID of the available EC2 instances (by default it starts only one instance).
-4. To test operator status, in your browser, visit [http://<public-domain-name>/ops/healthcheck]. The `OK` indicates good status.
+4. To test operator status, in your browser, visit [http://<public-domain-name>/ops/healthcheck](http://<public-domain-name>/ops/healthcheck). `OK` indicates good status.
 
 ![Stack Creation Resources](stack-creation-resources.png)
 
