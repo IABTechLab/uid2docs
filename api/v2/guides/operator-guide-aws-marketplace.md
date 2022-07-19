@@ -34,7 +34,7 @@ To subscribe and deploy UID2 Operators on AWS, you must complete the following s
 
 #### Minimal IAM Role Actions
 
->IMPORTANT: To succeed in a one-click deployment, your AWS account must have the privilege to run the following actions:
+>IMPORTANT: To succeed in a one-click deployment, your AWS account must have the privilege to run the following actions.
 
 ```json
 {
