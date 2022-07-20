@@ -2,7 +2,7 @@
 
 # UID2 Operator: AWS Marketplace Integration Guide
 
-The UID2 Operator is the API server in the UID2 ecosystem. The UID2 Operator solution is enhanced with AWS Nitro Enclave technology to protect Personally Identifiable Information (PII) from unauthorized access.
+The UID2 Operator is the API server in the UID2 ecosystem. To protect Personally Identifiable Information (PII) from unauthorized access, the UID2 Operator solution is enhanced with AWS Nitro Enclave technology.
 
 This guide includes the following information:
 
@@ -17,13 +17,13 @@ This guide includes the following information:
 
 ## UID2 Operator on AWS Marketplace Product
 
->NOTE: [UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) is a free product. The cost that appears on the product page is an infrastructure cost estimate.
+>NOTE: [UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) is a free product. The cost displayed on the product page is an infrastructure cost estimate.
 
 By subscribing the UID2 Operator on AWS Marketplace product, you gain access to the following:
 
 - **Amazon Machine Image (AMI)** with the UID2 Operator service installed and ready to bootstrap:<br/>
     The AMI contains a AmazonLinux2 OS with UID2 Operator service set up. When an EC2 instance based on the AMI boots up, it automatically fetches configuration from your AWS account and starts the UID2 Operator server inside an enclave.  
-- **CloudFormation template** to deploy UID2 Operator AMIs
+- **CloudFormation template** to deploy UID2 Operator AMIs.
 
 ### Prerequisites
 
@@ -104,24 +104,24 @@ The following table lists all resources that are created during the [deployment]
 | Resource | Description |
 | :--- |:--- |
 | CloudFormation Stack | A logical representation of all the resources created. This helps you deploy and rollback resources as a group. |
-| KMS Key | The key for secret encryption (for configuration string). |
+| KMS Key | The key for secret encryption (for configuration strings). |
 | Configuration as Secret | A secret named `uid2-operator-config-key` created in the Secret Manager. |
-| Worker Role | The IAM role that your UID2 Operators will run as. |
-| Worker Instance Profile | The Instance Profile that your UID2 Operators will run as. It refers to Worker Role. |
-| Virtual Private Cloud (VPC) and subnets | The virtual network that UID2 Operators will run in. You can customize and use existing ones as well. |
+| Worker Role | The IAM role that your UID2 Operators run as. |
+| Worker Instance Profile | The Instance Profile that your UID2 Operators run as. Worker Role is preferred. |
+| Virtual Private Cloud (VPC) and subnets | The virtual network that UID2 Operators run in. You can customize and use existing ones as well. |
 | Security Group | A security group providing minimal access for UID2 Operator to serve. It automatically refers to the used VPC. |
-| Launch Template | A launch template with all the configurations in place. You can spawn new UID2 Operator instances from it. |
+| Launch Template | A launch template with all configurations in place. You can spawn new UID2 Operator instances from it. |
 | Auto Scaling Group (ASG) | An ASG to which the launch template attached. You can update the desired number of instances with it later. |
-| UID2 Operator instances | The EC2 instances will start after the ASG is created.|
+| UID2 Operator instances | The EC2 instances that start running after the ASG is created.|
 
 ### Customization Options
 
 Here's what you can customize during or after the [deployment](#deployment):
 
 - VPC: You can either set up a new VPC and subnets or use existing ones.
-- Root volume size
+- Root volume size.
 - SSH key: This is the SSH key that you use to access the UID2 Operator EC2 instances.
-- Instance type: m5.2xlarge, m5.4xlarge, and so on
+- Instance type: m5.2xlarge, m5.4xlarge, and so on.
 
 ## Deployment
 
@@ -137,11 +137,11 @@ To deploy the UID2 Operator on AWS Marketplace, complete the following steps:
 8. If you are asked fo permission to create IAM roles, select the **I acknowledge that AWS CloudFormation might create IAM resources** checkbox.
 9. Click **Create stack**.
 
-It takes several minutes for the stack to be created. When you see an Auto Scaling Group (ASG) created, you can select it and check the EC2 instances. For details, see [Checking UID2 Operator Status](#checking-uid2-operator-status).
+It takes several minutes for the stack to be created. When you see an Auto Scaling Group (ASG) created, you can select it and check the EC2 instances (by default, there is only one instance to start with).  For details, see [Checking UID2 Operator Status](#checking-uid2-operator-status).
 
 ### Stack Details
 
-The following are screenshots of the Specify stack details page in the Create stack wizard ([deployment](#deployment) step 5). The table that follows provides a parameter value reference.
+The following are two screenshots of the Specify stack details page in the Create stack wizard ([deployment](#deployment) step 5). The table that follows provides a parameter value reference.
 
 ![Application Configuration](cloudformation-step-2.png) 
 
@@ -152,17 +152,17 @@ The following table explains the parameter values that you need to provide in st
 | Parameter | Description |
 | :--- |:--- |
 |Stack name |Any name of your choice. |
-|OPERATOR_KEY |This is the Operator Key you received from UID2 admin team. |
+|OPERATOR_KEY |This is the Operator Key that you received from the UID2 Admin team. |
 |UID2 Environment |Select `prod` for production environment or `integ` for integration test environment. |
-|Instance Type |m5.2xlarge is recommended. |
-|Instance root volume size |15GB or more is recommended. |
+|Instance Type |`m5.2xlarge` is recommended. |
+|Instance root volume size |15 GB or more is recommended. |
 |Key Name for SSH |Your EC2 key pair for SSH access to the EC2 instances deployed. |
 |Trusted Network CIDR |This decides which IP address range have access to your operator service. |
 |Choose to use Existing VPC | Set to `true` to create new VPC and subnets or to `false` to use user-provided VPC and subnets. <br/>If you decided to use existing VPC, you can find your own VPCs from [VPC dashboard](https://console.aws.amazon.com/vpc/home). Otherwise, leave the **existing VPC Id**, **VpcSubnet1**, **VpcSubnet2** fields blank. |
 
 ### Stack Configuration Options
 
-The following is a screenshot of the Configure stack details page in the Create stack wizard ([deployment](#deployment) step 6).
+The following is a screenshot of the Configure stack options page in the Create stack wizard ([deployment](#deployment) step 6).
 
 ![Configure Stack Options](cloudformation-step-3.png)
 
@@ -171,7 +171,7 @@ The following table explains the parameter values that you need to provide in st
 | Parameter | Description |
 | :--- |:--- |
 |Tags | (Optional) Tag your stack. |
-|Permissions |If you have separate IAM roles subscribing to AWS marketplace and deploying the stack, put the name/ARN of the role you are going to use to deploy the stack. |
+|Permissions |If you have separate IAM roles subscribing to AWS marketplace and deploying the stack, enter the name/ARN of the role you are going to use to deploy the stack. |
 |Stack failure options |Choose what happens when deployment fails. The `roll back all stack resources` options is recommended. |
 |Advanced options | These are are optional. |
      
@@ -182,7 +182,7 @@ To find the EC2 instances, complete the following steps:
 1. In the CloudFormation stack, click the **Resources** tab and find the Auto Scaling Group (ASG). 
 2. Click the ASG link in the **Physical ID** column.
 3. Inside the selected ASG, go to the **Instance management** tab where you can find the ID of the available EC2 instances (by default it starts only one instance).
-4. To test operator status, in your browser, visit [http://<public-domain-name>/ops/healthcheck](http://<public-domain-name>/ops/healthcheck). `OK` indicates good status.
+4. To test operator status, in your browser, go to [http://<public-domain-name>/ops/healthcheck](http://<public-domain-name>/ops/healthcheck). `OK` indicates good status.
 
 ![Stack Creation Resources](stack-creation-resources.png)
 
@@ -190,7 +190,7 @@ To find the EC2 instances, complete the following steps:
 
 Here's what you need to know about upgrading:
 
-- Informantion on the availability of versions is provided at [UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la).
+- Information on the availability of new versions is provided at [UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la).
 - To upgrade your UID2 Operators, create a new CloudFormation stack. For details, see [Deployment](#deployment).
 
 >TIP: For a smooth transition, create the new stack first. After the new stack is bootstrapped and ready to serve, delete the old stack.
