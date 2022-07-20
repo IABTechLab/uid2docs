@@ -12,6 +12,7 @@ This guide includes the following information:
   -  [Customization Options](#customization-options)
 - [Deployment](#deployment)
 - [Checking UID2 Operator Status](#checking-uid2-operator-status)
+- Creating Load Balancer(#creating-load-balancer)
 - [Upgrading UID2 Operator](#upgrading-uid2-operator)
 - [Technical Support](#technical-support)
 
@@ -119,9 +120,9 @@ The following table lists all resources that are created during the [deployment]
 Here's what you can customize during or after the [deployment](#deployment):
 
 - VPC: You can either set up a new VPC and subnets or use existing ones.
-- Root volume size.
+- Root volume size (8G Minimal)
 - SSH key: This is the SSH key that you use to access the UID2 Operator EC2 instances.
-- Instance type: m5.2xlarge, m5.4xlarge, and so on.
+- Instance type: m5.2xlarge, m5.4xlarge, and so on. If no customization m5.2xlarge is default and recommended.
 
 ## Deployment
 
@@ -141,7 +142,7 @@ It takes several minutes for the stack to be created. When you see an Auto Scali
 
 ### Stack Details
 
-The following are two screenshots of the Specify stack details page in the Create stack wizard ([deployment](#deployment) step 5). The table that follows provides a parameter value reference.
+The following are two screenshots of the "Specify stack details" page in the Create stack wizard ([deployment](#deployment) step 5). The table that follows provides a parameter value reference.
 
 ![Application Configuration](cloudformation-step-2.png) 
 
@@ -157,7 +158,7 @@ The following table explains the parameter values that you need to provide in st
 |Instance Type |`m5.2xlarge` is recommended. |
 |Instance root volume size |15 GB or more is recommended. |
 |Key Name for SSH |Your EC2 key pair for SSH access to the EC2 instances deployed. |
-|Trusted Network CIDR |This decides which IP address range have access to your operator service. |
+|Trusted Network CIDR |This decides which IP address range have access to your operator service.<br />Restrict it to internal IP range if you intend to access the operators only through internal network or load balancer. |
 |Choose to use Existing VPC | Set to `true` to create new VPC and subnets or to `false` to use user-provided VPC and subnets. <br/>If you decided to use existing VPC, you can find your own VPCs from [VPC dashboard](https://console.aws.amazon.com/vpc/home). Otherwise, leave the **existing VPC Id**, **VpcSubnet1**, **VpcSubnet2** fields blank. |
 
 ### Stack Configuration Options
@@ -172,9 +173,9 @@ The following table explains the parameter values that you need to provide in st
 | :--- |:--- |
 |Tags | (Optional) Tag your stack. |
 |Permissions |If you have separate IAM roles subscribing to AWS marketplace and deploying the stack, enter the name/ARN of the role you are going to use to deploy the stack. |
-|Stack failure options |Choose what happens when deployment fails. The `roll back all stack resources` options is recommended. |
+|Stack failure options |Choose what happens when deployment fails. The `roll back all stack resources` option is recommended. |
 |Advanced options | These are are optional. |
-     
+
 ## Checking UID2 Operator Status
 
 To find the EC2 instances, complete the following steps:
@@ -182,9 +183,30 @@ To find the EC2 instances, complete the following steps:
 1. In the CloudFormation stack, click the **Resources** tab and find the Auto Scaling Group (ASG). 
 2. Click the ASG link in the **Physical ID** column.
 3. Inside the selected ASG, go to the **Instance management** tab where you can find the ID of the available EC2 instances (by default it starts only one instance).
-4. To test operator status, in your browser, go to [http://<public-domain-name>/ops/healthcheck](http://<public-domain-name>/ops/healthcheck). `OK` indicates good status.
+4. To test operator status, in your browser, go to [http://\<public-dns-of-your-instance\>/ops/healthcheck](http://<public-domain-name>/ops/healthcheck). `OK` indicates good status.
 
 ![Stack Creation Resources](stack-creation-resources.png)
+
+## Creating Load Balancer
+
+To create load balancer and target operator auto scaling group, complete the following steps:
+
+1. Go to EC2 in AWS Console and search for "Load Balancer"
+2. Click on "Create Load Balancer" button and Click on "Create" button under "Applicaton Load Balancer"
+3. Under Load balancer name, provide **UID2LoadBalancer** or name of your choice
+4. Under scheme, choose from Internet-facing and Internal, depending on if you need to access UID2 APIs from public internet.
+5. Select VPC and 2 or more subnets created/used in cloudformation stack.
+6. Click on "Create new security group" and provide name **UID2SGALB**
+7. Under Inbound rules, select HTTPS and Source IP range depending upon your requirements. Click on "Create security group" button
+8. Go back to Load Balancer page and the created **UID2SGALB** security group
+9. Under Listeners and routing section, Click on "Create target group" link.
+10. Select Instances as target type and provide **UID2ALBTG** as target group name and select "Protocol version" as HTTP1
+11. Under "Health check path", provide /ops/healthcheck and Expand "Advanced health check settings". Select Override under Port and update default 80 to 9080
+12. Select UID2 Operator EC2 Instances created by your auto scaling group and Click on "Include as pending below" button. Make sure "Ports for the selected instances" contains 80
+13. Click on "Create target group" button.
+14. Go back to Load Balancer page, select UID2ALBTG under "Forward to" and update Port to 443.
+15. Follow instructions on [AWS user guide](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html) to setup HTTPS listener.
+16. Click on "create load balancer" button.
 
 ## Upgrading UID2 Operator
 
@@ -193,7 +215,7 @@ Here's what you need to know about upgrading:
 - Information on the availability of new versions is provided at [UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la).
 - To upgrade your UID2 Operators, create a new CloudFormation stack. For details, see [Deployment](#deployment).
 
->TIP: For a smooth transition, create the new stack first. After the new stack is bootstrapped and ready to serve, delete the old stack.
+>TIP: For a smooth transition, create the new stack first. After the new stack is bootstrapped and ready to serve, delete the old stack. If you have load balancer created, convert the DNS name from previous one to the new one after the new instances are up.
 
 ## Technical Support
 
