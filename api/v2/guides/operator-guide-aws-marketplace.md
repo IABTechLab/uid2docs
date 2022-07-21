@@ -194,7 +194,7 @@ To create a load balancer and a target operator auto scaling group, complete the
 1. In the AWS Console, navigate to EC2 and search for `Load Balancer`.
 2. Click **Create Load Balancer**.
 3. On the Load balancer types page, in the **Application Load Balancer** section, click **Create**.
-4. Enter the UID2 **Load balancer name** and depending on whether you need to access UID2 APIs from public internet, choose the **Internet-facing** and **Internal** scheme.
+4. Enter the UID2 **Load balancer name** and, depending on whether you need to access UID2 APIs from public internet, choose the **Internet-facing** or **Internal** scheme.
 5. Select the **VPC** for your targets and at least two subnets used in your CloudFormation stack.
 6. Click **Create new security group** and enter **UID2SGALB** as its name.
 7. Under **Inbound rules**, select **HTTPS** and **Source IP range**, which depend on your requirements, and click **Create security group**.
