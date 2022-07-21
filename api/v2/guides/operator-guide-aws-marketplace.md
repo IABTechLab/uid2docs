@@ -189,7 +189,7 @@ To find the EC2 instances, complete the following steps:
 
 ## Creating a Load Balancer
 
-To create load balancer and target operator auto scaling group, complete the following steps:
+To create a load balancer and a target operator auto scaling group, complete the following steps:
 
 1. In the AWS Console, navigate to EC2 and search for `Load Balancer`.
 2. Click **Create Load Balancer**.
