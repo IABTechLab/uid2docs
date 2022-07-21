@@ -12,7 +12,7 @@ This guide includes the following information:
   -  [Customization Options](#customization-options)
 - [Deployment](#deployment)
 - [Checking UID2 Operator Status](#checking-uid2-operator-status)
-- Creating Load Balancer(#creating-load-balancer)
+- [Creating a Load Balancer](#creating-a-load-balancer)
 - [Upgrading UID2 Operator](#upgrading-uid2-operator)
 - [Technical Support](#technical-support)
 
@@ -20,7 +20,7 @@ This guide includes the following information:
 
 >NOTE: [UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) is a free product. The cost displayed on the product page is an infrastructure cost estimate.
 
-By subscribing the UID2 Operator on AWS Marketplace product, you gain access to the following:
+By subscribing to the UID2 Operator on AWS Marketplace product, you gain access to the following:
 
 - **Amazon Machine Image (AMI)** with the UID2 Operator service installed and ready to bootstrap:<br/>
     The AMI contains a AmazonLinux2 OS with UID2 Operator service set up. When an EC2 instance based on the AMI boots up, it automatically fetches configuration from your AWS account and starts the UID2 Operator server inside an enclave.  
@@ -30,8 +30,8 @@ By subscribing the UID2 Operator on AWS Marketplace product, you gain access to 
 
 To subscribe and deploy UID2 Operators on AWS, you must complete the following steps:
 
-- Register your organization as a UID2 Operator.
-- Create an AWS account with an IAM role that has the [minimal privileges](#minimal-iam-role-privileges).
+1. Register your organization as a UID2 Operator.
+2. Create an AWS account with an IAM role that has the [minimal privileges](#minimal-iam-role-privileges).
 
 #### Minimal IAM Role Privileges
 
@@ -173,7 +173,7 @@ The following table explains the parameter values that you need to provide in st
 | :--- |:--- |
 |Tags | (Optional) Tag your stack. |
 |Permissions |If you have separate IAM roles subscribing to AWS marketplace and deploying the stack, enter the name/ARN of the role you are going to use to deploy the stack. |
-|Stack failure options |Choose what happens when deployment fails. The `roll back all stack resources` option is recommended. |
+|Stack failure options |Choose what happens when deployment fails. The `Roll back all stack resources` option is recommended. |
 |Advanced options | These are are optional. |
 
 ## Checking UID2 Operator Status
@@ -187,26 +187,34 @@ To find the EC2 instances, complete the following steps:
 
 ![Stack Creation Resources](stack-creation-resources.png)
 
-## Creating Load Balancer
+## Creating a Load Balancer
 
 To create load balancer and target operator auto scaling group, complete the following steps:
 
-1. Go to EC2 in AWS Console and search for "Load Balancer"
-2. Click on "Create Load Balancer" button and Click on "Create" button under "Applicaton Load Balancer"
-3. Under Load balancer name, provide **UID2LoadBalancer** or name of your choice
-4. Under scheme, choose from Internet-facing and Internal, depending on if you need to access UID2 APIs from public internet.
-5. Select VPC and 2 or more subnets created/used in cloudformation stack.
-6. Click on "Create new security group" and provide name **UID2SGALB**
-7. Under Inbound rules, select HTTPS and Source IP range depending upon your requirements. Click on "Create security group" button
-8. Go back to Load Balancer page and the created **UID2SGALB** security group
-9. Under Listeners and routing section, Click on "Create target group" link.
-10. Select Instances as target type and provide **UID2ALBTG** as target group name and select "Protocol version" as HTTP1
-11. Under "Health check path", provide /ops/healthcheck and Expand "Advanced health check settings". Select Override under Port and update default 80 to 9080
-12. Select UID2 Operator EC2 Instances created by your auto scaling group and Click on "Include as pending below" button. Make sure "Ports for the selected instances" contains 80
-13. Click on "Create target group" button.
-14. Go back to Load Balancer page, select UID2ALBTG under "Forward to" and update Port to 443.
-15. Follow instructions on [AWS user guide](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html) to setup HTTPS listener.
-16. Click on "create load balancer" button.
+1. In the AWS Console, navigate to EC2 and search for `Load Balancer`.
+2. Click **Create Load Balancer**.
+3. On the Load balancer types page, in the **Application Load Balancer** section, click **Create**.
+4. Enter the UID2 **Load balancer name** and depending on whether you need to access UID2 APIs from public internet, choose the **Internet-facing** and **Internal** scheme.
+5. Select the **VPC** for your targets and at least two subnets used in the CloudFormation stack.
+6. Click **Create new security group** and enter **UID2SGALB** as its name.
+7. Under **Inbound rules**, select **HTTPS** and **Source IP range** depending upon your requirements. Click **Create security group**.
+8. Go back to the Load Balancer page and select the newly created UID2SGALB security group.
+9. Under **Listeners and routing**, click the **Create target group** link and [specify the target group details](#specify-target-group-details).
+10. Go back to Load Balancer page, select `UID2ALBTG` under **Forward to** and change **Port** to `443`.
+11. Set up an HTTPS listener by follow the instructions in [AWS user guide](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html).
+12. Click **Create load balancer**.
+
+
+### Specify Target Group Details
+
+To define a new group details when [creating a load balancer](#creating-a-load-balancer), complete the following steps:
+
+1. On the Specify group details page, select **Instances** as target type, enter `UID2ALBTG` as **Target group name**, and select **HTTP1** as the **Protocol version**.
+2. Under **Health checks**, provide `/ops/healthcheck` as teh **Health check path** and expand the **Advanced health check settings** section. 
+3. Select **Override** as the **Port** and change the default value to `9080`.
+4. Select UID2 Operator EC2 Instances created by your auto scaling group and click **Include as pending below**. 
+5. Make sure the **Ports for the selected instances** contains `80`.
+6. Click **Create target group**.
 
 ## Upgrading UID2 Operator
 
