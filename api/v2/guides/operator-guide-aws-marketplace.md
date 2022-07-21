@@ -197,7 +197,7 @@ To create load balancer and target operator auto scaling group, complete the fol
 4. Enter the UID2 **Load balancer name** and depending on whether you need to access UID2 APIs from public internet, choose the **Internet-facing** and **Internal** scheme.
 5. Select the **VPC** for your targets and at least two subnets used in the CloudFormation stack.
 6. Click **Create new security group** and enter **UID2SGALB** as its name.
-7. Under **Inbound rules**, select **HTTPS** and **Source IP range** depending upon your requirements. Click **Create security group**.
+7. Under **Inbound rules**, select **HTTPS** and **Source IP range**, which depend on your requirements, and click **Create security group**.
 8. Go back to the Load Balancer page and select the newly created UID2SGALB security group.
 9. Under **Listeners and routing**, click the **Create target group** link and [specify the target group details](#specify-target-group-details).
 10. Go back to Load Balancer page, select `UID2ALBTG` under **Forward to** and change **Port** to `443`.
