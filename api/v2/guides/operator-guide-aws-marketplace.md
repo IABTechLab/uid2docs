@@ -196,7 +196,7 @@ To create a load balancer and a target operator auto scaling group, complete the
 3. On the Load balancer types page, in the **Application Load Balancer** section, click **Create**.
 4. Enter the UID2 **Load balancer name** and, depending on whether you need to access UID2 APIs from public internet, choose the **Internet-facing** or **Internal** scheme.
 5. Select the **VPC** for your targets and at least two subnets used in your CloudFormation stack.
-6. Click **Create new security group** and enter **UID2SGALB** as its name.
+6. Click **Create new security group** and enter `UID2SGALB` as its name.
 7. Under **Inbound rules**, select **HTTPS** and **Source IP range**, which depend on your requirements, and click **Create security group**.
 8. Go back to the Load Balancer page and select the newly created UID2SGALB security group.
 9. Under **Listeners and routing**, click the **Create target group** link and [specify the target group details](#specifying-target-group-details).
@@ -209,7 +209,7 @@ To create a load balancer and a target operator auto scaling group, complete the
 To create a target group when [creating a load balancer](#creating-a-load-balancer), complete the following steps:
 
 1. On the Specify group details page, select **Instances** as target type, enter `UID2ALBTG` as **Target group name**, and select **HTTP1** as the **Protocol version**.
-2. Under **Health checks**, provide `/ops/healthcheck` as teh **Health check path** and expand the **Advanced health check settings** section. 
+2. Under **Health checks**, provide `/ops/healthcheck` as the **Health check path** and expand the **Advanced health check settings** section. 
 3. Select **Override** as the **Port** and change the default value to `9080`.
 4. Select UID2 Operator EC2 Instances created by your auto scaling group and click **Include as pending below**. 
 5. Make sure the **Ports for the selected instances** contains `80`.
