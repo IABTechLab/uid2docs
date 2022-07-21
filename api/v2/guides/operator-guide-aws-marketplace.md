@@ -207,7 +207,7 @@ To create load balancer and target operator auto scaling group, complete the fol
 
 ### Specify Target Group Details
 
-To define a new group details when [creating a load balancer](#creating-a-load-balancer), complete the following steps:
+To define a target group details when [creating a load balancer](#creating-a-load-balancer), complete the following steps:
 
 1. On the Specify group details page, select **Instances** as target type, enter `UID2ALBTG` as **Target group name**, and select **HTTP1** as the **Protocol version**.
 2. Under **Health checks**, provide `/ops/healthcheck` as teh **Health check path** and expand the **Advanced health check settings** section. 
