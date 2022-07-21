@@ -199,13 +199,13 @@ To create a load balancer and a target operator auto scaling group, complete the
 6. Click **Create new security group** and enter **UID2SGALB** as its name.
 7. Under **Inbound rules**, select **HTTPS** and **Source IP range**, which depend on your requirements, and click **Create security group**.
 8. Go back to the Load Balancer page and select the newly created UID2SGALB security group.
-9. Under **Listeners and routing**, click the **Create target group** link and [specify the target group details](#specify-target-group-details).
+9. Under **Listeners and routing**, click the **Create target group** link and [specify the target group details](#specifying-target-group-details).
 10. Go back to Load Balancer page, select `UID2ALBTG` under **Forward to** and change **Port** to `443`.
 11. Set up an HTTPS listener by follow the instructions in [AWS user guide](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html).
 12. Click **Create load balancer**.
 
 
-### Specify Target Group Details
+### Specifying Target Group Details
 
 To create a target group when [creating a load balancer](#creating-a-load-balancer), complete the following steps:
 
