@@ -59,6 +59,8 @@ Not necessarily. After you remap emails associated with a particular bucket ID, 
 ### How often should UIDs be refreshed for incremental updates?
 The recommended cadence for updating audiences is daily. 
 
+Even though each salt bucket is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets is rotated daily. If fidelity is critical, consider calling the [POST /identity/buckets](../endpoints/post-identity-buckets.md) endpoint more frequently, for example, hourly.
+
 ### How should I generate the SHA256 of PII for mapping?
 The system should follow the [email normalization rules](../../README.md#email-address-normalization) and hash without salting.
 
