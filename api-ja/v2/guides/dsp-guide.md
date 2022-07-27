@@ -29,9 +29,9 @@ sequenceDiagram
   activate UID2
   UID2->>DSP: 1-c. DSPはオプトアウトを受信します。
   deactivate UID2
-  Note over U,TC: 2. RTBで使用するUID2トークンを復号化します。
+  Note over U,TC: 2. RTBで使用する UID2 Token を復号化します。
   SSP-->>DSP: SSPは入札のためにDSPを呼び出します。
-  DSP->>DSP: 2-a. UID2トークンを復号化します。
+  DSP->>DSP: 2-a. UID2 Token を復号化します。
   DSP->>DSP: 2-b. 1 からのユーザーオプトアウトを尊重した入札ロジックを実行します。
 ```
 
@@ -89,11 +89,12 @@ if (established_timestamp < optout_timestamp) {
 
 ### UID2 に適用する復号化鍵はどうすればよいのですか？
 
-復号化鍵の更新は、提供される [RTB SDK](../sdks/dsp-client-v1-overview.md) によって自動的に処理されます。UID2 Token のメタデータには、暗号時のタイムスタンプが記載されており、どの復号化鍵が適用されるかが分かります。
+提供される [RTB SDK](../sdks/dsp-client-v1-overview.md) は自動的に復号化キーを更新します。UID2 Token と共に提供されるメタデータは、使用する復号鍵の ID を明らかにします。
+
 
 ### 復号鍵はどこで手に入りますか？
 
-[RTB SDK](../sdks/dsp-client-v1-overview.md) ライブラリはバックグラウンドで UID2 　 Service と通信し、定期的に最新のキーを取得します。
+[RTB SDK](../sdks/dsp-client-v1-overview.md) ライブラリを使用して、UID2 Service と通信し、最新の鍵を取得することができます。鍵が最新であることを確認するために、1時間に 1回など定期的に鍵を取得することを勧めます。
 
 ### ソルトバケットがローテーションしたか、またいつローテーションしたかを知るにはどうしたらよいですか？
 
@@ -106,3 +107,15 @@ UID2 Service は、入札プロセスに遅延を発生させません。遅延�
 ### UID2 を使用した場合、DSP はどのようにして適切なフリークエンシーキャップを維持すればよいのでしょうか？
 
 UID2 はクッキーと同じように古くなる可能性があります。したがって、DSP は現在 Cookie や deviceID ベースの頻度制限に使われているのと同じインフラを UID2 にも適用することができます。詳しくは、ソルトバケットローテーションに関するこちらの [FAQ](./advertiser-dataprovider-guide.md#%E3%82%BD%E3%83%AB%E3%83%88%E3%83%90%E3%82%B1%E3%83%83%E3%83%88%E3%83%AD%E3%83%BC%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E3%82%88%E3%82%8B-uid2-%E6%9B%B4%E6%96%B0%E3%81%AE%E3%82%BF%E3%82%A4%E3%83%9F%E3%83%B3%E3%82%B0%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%8F%E3%81%8B%E3%82%8A%E3%81%BE%E3%81%99%E3%81%8B) を参照してください。
+
+### Will all user opt-out traffic be sent to the DSP?
+Yes, all opt-outs from the UID2 [Transparency and Control Portal](https://transparentadvertising.org/) hit the opt-out endpoint, which the DSP must configure to [honor user opt-outs](#honor-user-opt-outs).
+
+### ユーザーのオプトアウトトラフィックはすべてDSPに送信されますか？
+はい。UID2 [Transparency and Control Portal](https://transparentadvertising.org/) からのすべてのオプトアウトは、オプトアウトエンドポイントに送られます。このエンドポイントは、DSPが [honor user opt-outs](#honor-user-opt-outs) に設定する必要があります。
+
+### DSPは、すでに保存している UID2 についてのみオプトアウトシグナルを処理することを期待されているのですか。
+場合によっては、DSP が新たに保管した UID2 について、オプトアウトのタイムスタンプより前に生成された UID2 Token を受け取ることがあります。このようなトークンに対して、DSP は入札することができません。したがって、対応する UID2 が現在 DSP によって保存されているかどうかに関係なく、すべてのオプトアウトシグナルを保存することが推奨されます。詳しくは、[入札オプトアウトロジック](#bidding-opt-out-logic) の図を参照してください。
+
+### オプトアウトリストはどれくらいの期間保存する必要がありますか？
+少なくとも30日間です。
