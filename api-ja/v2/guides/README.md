@@ -25,3 +25,4 @@
 | :-------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
 | [Operator - Microsoft Azure](./operator-guide-azure-enclave.md) | Closed Operator Service を Microsoft Azure Confidential Computing プラットフォーム上で動作させるためのセットアップ手順です。 |
 | [Operator - AWS](./operator-guide-aws-nitro-enclave.md)         | Closed Operator Service を AWS Nitro Enclave 上で動作させるためのセットアップ手順です。                                      |
+| [Operator - AWS Marketplace](./operator-guide-aws-marketplace.md) | AWS Marketplace のクローズドオペレーターサービスをセットアップする手順です。　|

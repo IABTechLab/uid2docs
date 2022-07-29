@@ -29,9 +29,9 @@ sequenceDiagram
   activate UID2
   UID2->>DSP: 1-c. DSPはオプトアウトを受信します。
   deactivate UID2
-  Note over U,TC: 2. RTBで使用するUID2トークンを復号化します。
+  Note over U,TC: 2. RTBで使用する UID2 Token を復号化します。
   SSP-->>DSP: SSPは入札のためにDSPを呼び出します。
-  DSP->>DSP: 2-a. UID2トークンを復号化します。
+  DSP->>DSP: 2-a. UID2 Tokenを復号化します。
   DSP->>DSP: 2-b. 1 からのユーザーオプトアウトを尊重した入札ロジックを実行します。
 ```
 

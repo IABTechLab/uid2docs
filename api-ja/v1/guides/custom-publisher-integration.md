@@ -6,7 +6,7 @@
 
 このガイドでは、カスタムインテグレーションで考慮すべき [基本的な手順](#integration-steps) を概説しています。たとえば、ユーザーのログインとログアウトをどのように実装するか、UID2 ID 情報をどのように管理しターゲティング広告に使用するか、トークンを更新する方法、ID が見つからない場合の対処、ユーザーのオプトアウトを処理する方法などを決定する必要があります。ワークフローを示す [example application](https://example-srvonly-integ.uidapi.com/) はこちらです。アプリケーションのドキュメントについては、[Server-Only UID2 Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/server_only/README.md)を参照してください。[FAQs](#faqs) も参照してください。
 
-> ヒント：UID2 を使ったクライアント ID の確立と Advertising Token の取得を容易にするために、[Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) を使用することを検討してみてください。詳しくは、[UID2 SDK Integration Guide](./publisher-client-side.md) を参照してください。
+>TIP: UID2 を使ったクライアント ID の確立と Advertising Token の取得を容易にするために、[Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) を使用することを検討してください。詳しくは、[UID2 SDK Integration Guide](./publisher-client-side.md) を参照してください。
 
 ## Integration Steps
 
@@ -81,7 +81,7 @@ sequenceDiagram
 
 ### Bid Using UID2 Tokens
 
-UID2 ID 情報をどのように管理し、ターゲット広告に使用したいか、たとえば返された広告トークンを SSP に渡すかについて検討する必要があります。
+UID2 ID 情報をどのように管理し、ターゲティング広告に使用したいか、たとえば返された Advertising Token を SSP に渡すかについて検討する必要があります。
 
 | Step | Endpoint | Description                                                                                                            |
 | :--- | :------- | :--------------------------------------------------------------------------------------------------------------------- |
@@ -98,7 +98,7 @@ UID2 ID 情報をどのように管理し、ターゲット広告に使用した
 | 3-c  | [GET /token/refresh](../endpoints/get-token-refresh.md) | UID2 Service は、オプトアウトしていないユーザーに対して新しい ID トークンを発行します。                                                                                                                              |
 | 3-d  | N/A                                                     | 返された `advertising_token` と `refresh_token` は、ユーザーに紐づくストレージに保存します。ファーストパーティクッキーのようなクライアントサイドのストレージや、サーバーサイドのストレージを検討するとよいでしょう。 |
 
-> TIP: [GET /token/generate](../endpoints/get-token-generate.md) または [GET /token/refresh](../endpoints/get-token-refresh.md) コールによって返された ID の `refresh_from` タイムスタンプからトークンをリフレッシュしてください。
+> TIP: [GET /token/generate](../endpoints/get-token-generate.md) または [GET /token/refresh](../endpoints/get-token-refresh.md) コールによって返された ID の `refresh_from` タイムスタンプからトークンのリフレッシュを始めてください。
 
 ### Clear Identity: User Logout
 
@@ -145,12 +145,12 @@ UID2 Service では、ランダムな初期化ベクトルを使用してトー�
 
 ### リフレッシュトークンのログアウトのワークフローをテストするにはどうしたらいいですか？
 
-`optout@email.com` メールアドレスまたは `+00000000000` 電話番号を使用して、トークン更新ワークフローをテストすることができます。メールアドレスや電話番号をリクエストに使用すると、常に `refresh_token` を含む ID レスポンスが生成され、その結果ログアウト レスポンスが生成されます。
+`optout@email.com` メールアドレスまたは `+00000000000` 電話番号を使用して、Refresh Token ワークフローをテストすることができます。これらのメールアドレスや電話番号をリクエストに使用すると、常に `refresh_token` を含む ID レスポンスが生成され、その結果ログアウト レスポンスが生成されます。
 
-1. PII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して[GET /token/generate](../endpoints/get-token-generate.md) リクエストを送信してください。
+1. PII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して [GET /token/generate](../endpoints/get-token-generate.md) リクエストを送信してください。
    - `email`の値として`optout@email.com` を指定します。
    - `optout@email.com`を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) したものを `email_hash` の値として指定します。
    - `phone` の値として [URL エンコード](../../README.md#query-parameter-value-encoding) した `+00000000000` を指定してください。
    - `PHONE_HASH` 値として `+00000000000` を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#phone-number-hash-encoding) したものを指定します。
 2. 返された `refresh_token` を次のステップで使用するために保存します。
-3. (ステップ 2 で保存した) `refresh_token` を `token` 値として [GET /token/refresh](../endpoints/get-token-refresh.md) というリクエストを送ります。<br/> `optout@email.com` というメールと `+00000000000` という電話番号は常にログアウトしたユーザーを表すため、ボディ応答は空に、 `status` 値には `optout` をセットしてください。
+3. (ステップ 2 で保存した) `refresh_token` を `token` 値として [GET /token/refresh](../endpoints/get-token-refresh.md) リクエストを送ります。<br/> `optout@email.com` というメールアドレスと `+00000000000` という電話番号は常にログアウトしたユーザーを表すため、レスポンスボディは空に、`status` 値には `optout` が設定されていなければなりません。
