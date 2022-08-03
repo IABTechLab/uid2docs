@@ -24,7 +24,7 @@ For details on using the API, see the following pages.
 The v2 updates to the UID2 API include the following:
 
 - [Application API layer encryption](./encryption-decryption.md) that provides E2E content protection, which prevents sensitive UID2 information from leaking to a network operator or the UID2 service operator.
-- In addition to the client API key for [authetication](#authentication-and-authorization), a client secret is now required for encrypting API requests and decrypting API responses.
+- In addition to the client API key for [authentication](#authentication-and-authorization), a client secret is now required for encrypting API requests and decrypting API responses.
 - No more query parameters. New POST methods take input parameters as the request body in the JSON format. 
 - No URL-encoding of parameter values is required.
 - The [POST /identity/map](./endpoints/post-identity-map.md) endpoint now retrieves UID2s and salt bucket IDs for one or multiple email addresses, phone numbers, or the respective hashes. 
