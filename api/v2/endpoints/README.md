@@ -16,6 +16,6 @@ All UID2 endpoints require a client secret for encrypting API requests (except [
 
 | Endpoint | Description | Request Encryption |  Response Decryption |
 | :--- | :--- | :--- | :--- |
-| [POST /identity/buckets](./post-identity-buckets.md) | Monitor rotated salt buckets uisng their last updated timestamp. | Required | Required |
+| [POST /identity/buckets](./post-identity-buckets.md) | Monitor rotated salt buckets using their last updated timestamp. | Required | Required |
 | [POST /identity/map](./post-identity-map.md) | Retrieve UID2s and salt bucket IDs for one or more email addresses, phone numbers, or the respective hashes.  | Required | Required |
 
