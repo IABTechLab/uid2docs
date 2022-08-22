@@ -65,7 +65,7 @@ Here's an encrypted token generation request format with placeholder values:
 ```sh
 echo '[Unencrypted-JSON-Request-Body]' \
   | encrypt_request.py [Your-Client-Secret] \
-  | curl -X POST 'https://prod.uidapi.com/v2/token/generate' -H 'Authorization: Bearer [Your-Client-API-Key]' \
+  | curl -X POST 'https://prod.uidapi.com/v2/token/generate' -H 'Authorization: Bearer [Your-Client-API-Key]' -d @- \
   | decrypt_response.py [Your-Client-Secret]
 ```
 
@@ -74,7 +74,7 @@ Here's an encrypted token generation request example for an email hash:
 ```sh
 echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
   | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
-  | curl -X POST 'https://prod.uidapi.com/v2/token/generate' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' \
+  | curl -X POST 'https://prod.uidapi.com/v2/token/generate' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -d @- \
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
 For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../encryption-decryption.md).

@@ -38,7 +38,7 @@ Here's an encrypted identity bucket rotation request format with placeholder val
 ```sh
 echo '[Unencrypted-JSON-Request-Body]' \
   | encrypt_request.py [Your-Client-Secret] \
-  | curl -X POST 'https://prod.uidapi.com/v2/identity/buckets' -H 'Authorization: Bearer [Your-Client-API-Key]' \
+  | curl -X POST 'https://prod.uidapi.com/v2/identity/buckets' -H 'Authorization: Bearer [Your-Client-API-Key]' -d @- \
   | decrypt_response.py [Your-Client-Secret] 
 ```
 
@@ -47,7 +47,7 @@ Here's an encrypted identity bucket rotation request example:
 ```sh
 echo '{"since_timestamp": "2022-06-01T13:00:00"}' \
   | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
-  | curl -X POST 'https://prod.uidapi.com/v2/identity/buckets' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' \
+  | curl -X POST 'https://prod.uidapi.com/v2/identity/buckets' -H 'Authorization: Bearer [Your-Client-API-Key]' -d @- \
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= 
 ```
 
