@@ -24,4 +24,3 @@ The following guides provide integration instructions based on the needs and req
 | Integration Guide |  Content Description |
 | :--- | :--- |
 | [Operator - Microsoft Azure](./operator-guide-azure-enclave.md) | Instructions for setting up Closed Operator service for running on Microsoft Azure Confidential Computing platform. |
-| [Operator - AWS](./operator-guide-aws-nitro-enclave.md) | Instructions for setting up Closed Operator service for running on AWS Nitro Enclave. |
