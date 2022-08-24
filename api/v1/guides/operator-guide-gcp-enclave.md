@@ -269,3 +269,8 @@ $ gcloud compute instances create uid2-operator-test \
 Note that compared to the `gcloud` command used in the prior section, an additional option
 `--machine-type n2d-standard-16` is added, which ensures production deployment of UID2 Operator runs on
 the recommended machine type that matches the production configuration.
+
+## Upgrading
+
+Private operators have 30 days to update to the new version. In the case of a secruity patch, private operators will need to be updated in 48 hours. After this window, the old version will be deactivated.
+GCP private operators will recieve an email with updated cloud-init when a new version is released.

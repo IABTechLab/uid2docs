@@ -217,6 +217,8 @@ To create a target group when [creating a load balancer](#creating-a-load-balanc
 
 ## Upgrading UID2 Operator
 
+When a new version of the operator is released. The old version will be active for 30 days. In the case in the of urgent secruity patch, private operators will have 48 hours to update.
+
 Here's what you need to know about upgrading:
 
 - Information on the availability of new versions is provided at [UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la).
