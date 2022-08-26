@@ -117,7 +117,7 @@ UID2 システムを構成する Operator は複数あり、メンバーはい�
 
 UID2 および UID2 Token を生成・管理するために、独自の内部版サービスを運用する組織です。メンバーは誰でも Closed Operator になることを選択でき、クラウドプロバイダーを通じて複数のインテグレーションパスが用意されています。
 
-Closed Operator Service の設定方法については、[Operator Integration Guide](/api-ja/v1/guides/README.md) 参照してください。
+Closed Operator Service の設定方法については、[Operator Integration Guide](/api-ja/v2/guides/README.md) 参照してください。
 
 #### Functions
 
@@ -241,7 +241,7 @@ DSP がメールアドレスから UID2 を自分で生成したい場合も、D
 
 ユーザーの PII から UID2 を生成するには、データプロバイダが UID2 Operator API にアクセスする必要があります。広告主によっては、CDP、データオンボーダー、またはその他のサービスプロバイダーを通して作業を行うことを選択する場合もあります。
 
-[Advertiser/Data Provider Integration Guide](/api-ja/v1/guides/advertiser-dataprovider-guide.md)も参照してください。
+[Advertiser/Data Provider Integration Guide](/api-ja/v2/guides/advertiser-dataprovider-guide.md)も参照してください。
 
 ##### Requirements
 
@@ -268,7 +268,7 @@ DSP がメールアドレスから UID2 を自分で生成したい場合も、D
 
 #### Publisher Integration
 
-インテグレーションシナリオ、トークン管理、その他の詳細については、[Publisher Integration Guides](/api-ja/v1/guides/README.md)を参照してください。また、[Endpoints](/api-ja/v1/endpoints/README.md)も参照してください。
+インテグレーションシナリオ、トークン管理、その他の詳細については、[Publisher Integration Guides](/api-ja/v2/guides/README.md)を参照してください。また、[Endpoints](/api-ja/v2/endpoints/README.md)も参照してください。
 
 ##### Publisher Direct Integration
 
