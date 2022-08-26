@@ -72,7 +72,7 @@
 ```sh
 echo '[Unencrypted-JSON-Request-Body]' \
   | encrypt_request.py [Your-Client-Secret] \
-  | curl -X POST 'https://prod.uidapi.com/v2/identity/map' -H 'Authorization: Bearer [Your-Client-API-Key]' \
+  | curl -X POST 'https://prod.uidapi.com/v2/identity/map' -H 'Authorization: Bearer [Your-Client-API-Key]' -d @- \
   | decrypt_response.py [Your-Client-Secret]
 ```
 
@@ -81,7 +81,7 @@ echo '[Unencrypted-JSON-Request-Body]' \
 ```sh
 echo '{"phone": ["+1111111111", "+2222222222"]}' \
   | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
-  | curl -X POST 'https://prod.uidapi.com/v2/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' \
+  | curl -X POST 'https://prod.uidapi.com/v2/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -d @- \
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
 

@@ -41,7 +41,7 @@
 
 ```sh
 echo [refresh_token] \
-  | curl -X POST 'https://prod.uidapi.com/v2/token/refresh' -H 'Authorization: Bearer [Your-Client-API-Key]' \
+  | curl -X POST 'https://prod.uidapi.com/v2/token/refresh' -H 'Authorization: Bearer [Your-Client-API-Key]' -d @- \
   | decrypt_response.py [refresh_response_key] --is-refresh
 ```
 
@@ -49,7 +49,7 @@ echo [refresh_token] \
 
 ```sh
 echo AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNSVnCnzYq2BiDDz8SLsKOo6wZsoMIn95jVWBaA6oLq7uUGY5/g9SUOfFmX5uDXUvO0w2UCKi+j9OQhlMfxTsyUQUzC1VQOx6ed/gZjqH/Sw6Kyk0XH7AlziqSyyXA438JHqyJphGVwsPl2LGCH1K2MPxkLmyzMZ2ghTzrr0IgIOXPsL4lXqSPkl/UJqnO3iqbihd66eLeYNmyd1Xblr3DwYnwWdAUXEufLoJbbxifGYc+fPF+8DpykpyL9neq3oquxQWpyHsftnwYaZT5EBZHQJqAttHUZ4yQ== \
-  | curl -X POST 'https://prod.uidapi.com/v2/token/refresh' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' \
+  | curl -X POST 'https://prod.uidapi.com/v2/token/refresh' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -d @- \
   | decrypt_response.py wR5t6HKMfJ2r4J7fEGX9Gw== --is-refresh
 ```
 
