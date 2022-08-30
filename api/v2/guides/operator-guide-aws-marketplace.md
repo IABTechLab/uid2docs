@@ -217,7 +217,8 @@ To create a target group when [creating a load balancer](#creating-a-load-balanc
 
 ## Upgrading UID2 Operator
 
-When a new version of the operator is released. The old version will be active for 30 days. In the case in the of urgent secruity patch, private operators will have 48 hours to update.
+
+An email notification will be sent to private operators with an update window. After this window, the old version will be deactivated, and operators on this version will stop functioning.
 
 Here's what you need to know about upgrading:
 

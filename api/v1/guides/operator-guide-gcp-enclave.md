@@ -272,5 +272,6 @@ the recommended machine type that matches the production configuration.
 
 ## Upgrading
 
-Private operators have 30 days to update to the new version. In the case of a secruity patch, private operators will need to be updated in 48 hours. After this window, the old version will be deactivated.
-GCP private operators will recieve an email with updated cloud-init when a new version is released.
+An email notification will be sent to private operators with an update window. After this window, the old version will be deactivated, and operators on this version will stop functioning.
+This email will include a new cloud-init with the latest version in it. To upgrade you will just need to deploy this cloud-init in the same manor as your orginal operator.
+
