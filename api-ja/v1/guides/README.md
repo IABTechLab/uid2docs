@@ -24,4 +24,3 @@
 | Integration Guide                                               | Content Description                                                                                                          |
 | :-------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
 | [Operator - Microsoft Azure](./operator-guide-azure-enclave.md) | Microsoft Azure Confidential Computing プラットフォーム上で動作させるための Closed Operator サービスのセットアップ手順です。 |
-| [Operator - AWS](./operator-guide-aws-nitro-enclave.md)         | AWS Nitro Enclave 上で動作させるためのクローズドオペレータサービスのセットアップ手順です。                                   |
