@@ -96,9 +96,9 @@ The following table lists four key workflows in the UID2 system and provides lin
 
 | Workflow | Intended Primary Participants | Integration Guide |
 | :--- | :--- | :--- |
-| **Buy-side** | DSPs who transact on UID2s in the bid stream. | [DSP](./api/v1/guides/dsp-guide.md) |
-| **Data provider** | Organizations that collect user data and push it to DSPs. | [Advertiser and Data Provider](./api/v1/guides/advertiser-dataprovider-guide.md) |
-| **Supply-side** | Organizations that propagate UID2s to the bid stream via SSPs.<br/> NOTE: Publishers can choose to leverage the [UID2 SDK](./api/v1/sdks/client-side-identity.md) or complete their own custom, server-only integration. | [Publisher (with UID2 SDK)](./api/v1/guides/publisher-client-side.md)<br/>[Publisher (Server-Only)](./api/v1/guides/custom-publisher-integration.md) |
+| **Buy-side** | DSPs who transact on UID2s in the bid stream. | [DSP](./api/v2/guides/dsp-guide.md) |
+| **Data provider** | Organizations that collect user data and push it to DSPs. | [Advertiser and Data Provider](./api/v2/guides/advertiser-dataprovider-guide.md) |
+| **Supply-side** | Organizations that propagate UID2s to the bid stream via SSPs.<br/> NOTE: Publishers can choose to leverage the [UID2 SDK](./api/v2/sdks/client-side-identity.md) or complete their own custom, server-only integration. | [Publisher (with UID2 SDK)](./api/v2/sdks/client-side-identity.md)<br/>[Publisher (Server-Only)](./api/v2/guides/custom-publisher-integration.md) |
 | **Opt-out** | Consumers who engage with publishers or publisher-related SSOs and identity providers. | N/A |
 
 
