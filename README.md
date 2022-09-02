@@ -13,7 +13,7 @@ For integration guides, supported SDKs, and endpoint reference, see [Getting Sta
 
 Unified ID 2.0 (UID2) is a deterministic identifier based on personally identifiable information (PII), such as email address or phone number. Built as an open-source, standalone solution with its own unique namespace, UID2 offers the user transparency and privacy controls to meet the market requirements outside Europe and the UK. 
 
-The goal of UID2 is to enable deterministic identity for advertising opportunities on the open internet with consumer transparency and controls in place. UID2 provides a collaborative framework for many [participants](#participants) and enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows.
+The goal of UID2 is to provide a collaborative framework and enable deterministic identity for advertising opportunities on the open internet for many [participants](#participants) across the advertising ecosystem. UID2 enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows.
 
 ### Guiding Principles
 
