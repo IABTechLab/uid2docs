@@ -1,4 +1,4 @@
-# Unified ID 2.0 API Documentation
+# Getting Started with UID2
 
 For UID2 definition, forms, guiding principles, components, and other conceptual details, see [UID2 Overview](../README.md).
 
