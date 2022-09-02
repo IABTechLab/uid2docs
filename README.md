@@ -11,11 +11,9 @@ For integration guides, supported SDKs, and endpoint reference, see [Getting Sta
 
 ## Introduction
 
-Addressable advertising enables publishers and developers to provide the content and services consumers have come to enjoy, whether through mobile apps, streaming TV, or web experiences. This value exchange has not always been well understood by, or communicated to, consumers. As the industry reduces reliance on the third-party cookie, there is an opportunity to improve how we reach consumers with relevant advertising across the open internet. The solution is an identification system in which content creators and consumers both benefit from improved engagement opportunities with transparent control over consumer data.
+Unified ID 2.0 (UID2) is a deterministic identifier based on personally identifiable information (PII), such as email address or phone number. Build as an open-source, standalone solution with its own unique namespace, UID2 offers the user transparency and privacy controls to meet the market requirements outside Europe and the UK. 
 
-Unified ID 2.0 (UID2) is a deterministic identifier based on PII (for example, email or phone number) with user transparency and privacy controls. The UID2 identifier enables logged-in experiences from publisher websites, mobile apps, and CTV apps to monetize through programmatic workflows. Benefitting from several layers of security and privacy measures, UID2s can be safely distributed across the open internet. Initially built and maintained by The Trade Desk, stewardship of UID2 will transfer to independent organizations for open-source code management, governance, administration, and system operations. UID2 is a non-proprietary standard and accessible to constituents across the advertising ecosystem--including Advertisers, Publishers, DSPs, SSPs, SSOs, CDPs, CMPs, Identity Providers, Data Providers, and Measurement Providers--while they remain in compliance with a code of conduct.
-
-UID2’s goal is to enable deterministic identity for advertising opportunities on the open internet with consumer transparency and controls in place. UID2 provides a collaborative framework for all constituents and a healthy, open internet by utilizing a transparent and interoperable approach.
+The goal of UID2 is to enable deterministic identity for advertising opportunities on the open internet with consumer transparency and controls in place. UID2 enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows.
 
 ### Guiding Principles
 
@@ -69,7 +67,7 @@ The administrative UID2 infrastructure consists of the following core components
 | :--- | :--- |
 | **Core Service**  | A centralized service that stores salt secrets, encryption keys, and manages access to the distributed UID2 system. | 
 | **Operator Service**  | A service that enables the management and storage of encryption keys and salts from the UID2 Core Service, hashing of users' personal data, encryption and decryption of UID2s. There can be multiple instances of the service (public or private) operated by multiple [participants](#participants), knowns as operators.<br/><br/>Publicly available instances of the Operator Service are run by open operators and are available to all relevant UID2 [participants](#participants). Private instances are run by closed operators exclusively for their own use. All instances are designed with protections to keep critical UID2 data secure, regardless of who operates the service.<br/><br/>NOTE: The Operator Service reflects the scalability level of the UID2 infrastructure—adding more operator service instances increases the load.  | 
-| **Opt-out Service**  | A global service that manages user opt-out requests, for example, by routing them to the relevant UID2 data holders. | 
+| **Opt-Out Service**  | A global service that manages user opt-out requests, for example, by routing them to the relevant UID2 data holders. | 
 | **Transparency and Control Portal**  | A user-facing website, [https://transparentadvertising.org](https://transparentadvertising.org), that allows consumers to opt out of UID2 at any time. | 
 
 
@@ -108,33 +106,22 @@ The following diagram summarizes all four workflows. For each workflow, the [par
 
 ## FAQs
 
-### Identity
+Here are the commonly asked questions regarding UID2.
 
-#### How does a holder of UID2 know when to refresh the UID2 due to salt rotation?
-
-Metadata supplied with the UID2 generation request indicates the salt bucket used for generating the UID2. Salt buckets are persistent and assigned to the underlying PII. Use the API provided to return which salt buckets rotated since a given timestamp. The returned rotated salt buckets inform the UID2 holder which UID2s to refresh. This workflow typically applies to data providers.
-
-#### How does a holder of a UID2 token know when to refresh it?
-
-The UID2 token is automatically refreshed as part of the refresh token. This workflow typically applies to publishers and SSOs.
-
-#### How do companies interfacing with UID2 tokens know which decryption key to apply?
-
-Metadata supplies with the UID2 token discloses the timestamp of encryption, which informs which decryption key applies.
-
-### User Trust
 
 #### Can a user opt out of targeted advertising tied to their UID2?
 
-Yes, through the Opt-Out Portal (also known as the [Transparency and Control Portal](https://transparentadvertising.org)), a user can opt out of being served targeted ads tied to their UID2. The request will be distributed through UID2 Administrator and UID2 Operators to all relevant members. Some publishers and service providers have the option to limit access to their products based on a user’s participation in UID2 and it is the publisher’s responsibility to communicate this as part of their value exchange dialogue with the user.
+Yes, through the [Transparency and Control Portal](https://transparentadvertising.org), a user can opt out from being served targeted ads tied to their UID2. The request is distributed through the UID2 Opt-Out Service and UID2 Operators to all relevant participants. 
 
-#### How does a user know where to access the Opt-Out Portal?
+Some publishers and service providers have the option to limit access to their products based on a user’s participation in UID2 and it is the publisher’s responsibility to communicate this as part of their value exchange dialog with the user.
 
-Publishers, SSOs, or consent management platforms disclose links to the Opt-Out portal in their login/consent flows, privacy policies, and other means.
+#### How does a user know where to access the opt-out portal?
 
-#### Why do advertisers/data providers not need to integrate with the opt-out feed?
+Publishers, SSOs, or consent management platforms disclose links to the [Transparency and Control Portal](https://transparentadvertising.org) in their login and consent flows, privacy policies, and other means.
 
-Opt-outs relate to opting out of targeted advertising, which is handled through the publisher and DSP opt-out workflows. If the consumer wishes to disengage with a specific advertiser, they need to contact the advertiser directly.
+#### Why do advertisers and data providers not need to integrate with the opt-out feed?
+
+Opt-outs relate to opting out of targeted advertising, which is handled through the publisher and DSP opt-out [workflows](#workflows). If the consumer wishes to disengage from a specific advertiser, they need to contact the advertiser directly.
 
 
 ## License
