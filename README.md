@@ -1,7 +1,7 @@
 # Unified ID 2.0
 English | [Japanese](README-ja.md)
 
-This page provides the following information about UID2:
+This page provides the following information about Unified ID 2.0 (UID2):
 - [Introduction](#introduction)
 - [UID2 Infrastructure](#uid2-infrastructure)
 - [FAQs](#faqs)
@@ -11,33 +11,33 @@ For integration guides, supported SDKs, and endpoint reference, see [Getting Sta
 
 ## Introduction
 
-Unified ID 2.0 (UID2) is a deterministic identifier based on personally identifiable information (PII), such as email address or phone number. Build as an open-source, standalone solution with its own unique namespace, UID2 offers the user transparency and privacy controls to meet the market requirements outside Europe and the UK. 
+Unified ID 2.0 (UID2) is a deterministic identifier based on personally identifiable information (PII), such as email address or phone number. Built as an open-source, standalone solution with its own unique namespace, UID2 offers the user transparency and privacy controls to meet the market requirements outside Europe and the UK. 
 
 The goal of UID2 is to enable deterministic identity for advertising opportunities on the open internet with consumer transparency and controls in place. UID2 enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows.
 
 ### Guiding Principles
 
-- **First-party relationships:** UID2 enables advertisers to easily activate their first-party data on publisher websites across the open internet.
+- **First-party relationships**: UID2 enables advertisers to easily activate their first-party data on publisher websites across the open internet.
 
-- **Non-proprietary (universal) standard:** UID2 is accessible to all [participants](#participants) in the advertising ecosystem who abide by the code of conduct.
+- **Non-proprietary (universal) standard**: UID2 is accessible to all [participants](#participants) in the advertising ecosystem who abide by the code of conduct.
 
-- **Open source:** UID2 code is transparent thanks to an open-source framework.
+- **Open source**: UID2 code is transparent thanks to an open-source framework.
 
-- **Interoperable:** UID2 allows other identity solutions (commercial and proprietary) to integrate and provide UID2s with their offerings.
+- **Interoperable**: UID2 allows other identity solutions (commercial and proprietary) to integrate and provide UID2s with their offerings.
 
-- **Secure and encrypted data:** UID2 leverages multiple layers of security to protect personal and other user data.
+- **Secure and encrypted data**: UID2 leverages multiple layers of security to protect personal and other user data.
 
-- **Consumer control:** Consumers can opt out of UID2 at any time through the [Transparency and Control Portal](https://transparentadvertising.org).
+- **Consumer control**: Consumers can opt out of UID2 at any time through the [Transparency and Control Portal](https://transparentadvertising.org).
 
 ### Technical Design Principles
 
-- **Distributed integration:** Multiple certified integration paths provide options for publishers, advertisers, and data providers to generate UID2s.
+- **Distributed integration**: Multiple certified integration paths provide options for publishers, advertisers, and data providers to generate UID2s.
 
-- **Decentralized storage:** To block malicious actors, the framework provides no centralized storage of personal data mappings.
+- **Decentralized storage**: To block malicious actors, the framework provides no centralized storage of personal data mappings.
 
-- **Lean infrastructure:** Infrastructure is light and inexpensive to operate.
+- **Lean infrastructure**: Infrastructure is light and inexpensive to operate.
 
-- **Self-reliant:** No reliance on external services for real-time processing of real-time bidding (RTB) data.
+- **Self-reliant**: No reliance on external services for real-time processing of real-time bidding (RTB) data.
 
 
 ## UID2 Infrastructure
@@ -56,7 +56,7 @@ There are two types of UID2s: raw UID2s and UID2 tokens (also known as advertisi
 | ID Type | Shared in Bid Stream? | Description |
 | :--- | :--- | :--- |
 | **Raw UID2** | Not shared | An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's verifiable personal data, such as an email address, as input.<br/><br/>To prevent re-identification of the original personal data, each raw UID2 is generated using a random nonce, an arbitrary number that can be used only once. Raw UID2s are designed to be stored by advertisers, data providers, and demand-side platforms (DSPs).|
-| **UID2 (Advertising) Token** | Shared | An encrypted form of a raw UID2. UID2 tokens are generated from hashed or unhashed email addresses that are then encrypted to ensure protection in the bid stream.<br/><br/>UID2 tokens are designed to be used by publishers or publisher service providers. Supply-side platforms (SSPs) pass UID2 tokens in bid stream and DSPs decrypt them at bid request time. |
+| **UID2 (Advertising) Token** | Shared | An encrypted form of a raw UID2. UID2 tokens are generated from hashed or unhashed email addresses or phone numbers that are then encrypted to ensure protection in the bid stream.<br/><br/>UID2 tokens are designed to be used by publishers or publisher service providers. Supply-side platforms (SSPs) pass UID2 tokens in the bid stream and DSPs decrypt them at bid request time. |
 
 
 ### Core Components
@@ -65,8 +65,8 @@ The administrative UID2 infrastructure consists of the following core components
 
 | Component | Description |
 | :--- | :--- |
-| **Core Service**  | A centralized service that stores salt secrets, encryption keys, and manages access to the distributed UID2 system. | 
-| **Operator Service**  | A service that enables the management and storage of encryption keys and salts from the UID2 Core Service, hashing of users' personal data, encryption and decryption of UID2s. There can be multiple instances of the service (public or private) operated by multiple [participants](#participants), knowns as operators.<br/><br/>Publicly available instances of the Operator Service are run by open operators and are available to all relevant UID2 [participants](#participants). Private instances are run by closed operators exclusively for their own use. All instances are designed with protections to keep critical UID2 data secure, regardless of who operates the service.<br/><br/>NOTE: The Operator Service reflects the scalability level of the UID2 infrastructure—adding more operator service instances increases the load.  | 
+| **Core Service**  | A centralized service that stores salt secrets and encryption keys and manages access to the distributed UID2 system. | 
+| **Operator Service**  | A service that enables the management and storage of encryption keys and salts from the UID2 Core Service, hashing of users' personal data, and encryption and decryption of UID2s. There can be multiple instances of the service (public or private) operated by multiple [participants](#participants), known as operators.<br/><br/>Publicly available instances of the Operator Service are run by open operators and are available to all relevant UID2 [participants](#participants). Private instances are run by closed operators exclusively for their own use. All instances are designed with protections to keep critical UID2 data secure, regardless of who operates the service.<br/><br/>NOTE: The Operator Service reflects the scalability level of the UID2 infrastructure—adding more operator service instances increases the load.  | 
 | **Opt-Out Service**  | A global service that manages user opt-out requests. For example, it routes them to the relevant UID2 data holders. | 
 | **Transparency and Control Portal**  | A user-facing website, [https://transparentadvertising.org](https://transparentadvertising.org), that allows consumers to opt out of UID2 at any time. | 
 
@@ -80,13 +80,13 @@ The following table lists the key participants and their roles in the UID2 [work
 | Participant | Role Description |
 | :--- | :--- |
 | **Core Administrator**  | An organization (currently, The Trade Desk) that manages the UID2 Core Service and other [components](#core-components). For example, it distributes encryption keys and salts to UID2 operators and sends user opt-out requests to operators and DSPs. |  
-| **Operators**  | Organizations that operate the Operator Service (via the UID2 APIs). Operators receive and store encryption keys and salts from the UID2 Core Service, salt and hash personal data to return UID2s, encrypt UID2s to generate UID2 tokens, and distribute UID2 token decryption keys.<br/><br/>There can be multiple open operators with which participants can choose to work with. Open operators run public instances of the Operator Service. For example, The Trade Desk currently serves as an open operator for UID2 available to all participants.<br/><br/>Any participant can also choose to become a closed operator and operate their own private instance to generate and manage UID2s for their internal use. | 
+| **Operators**  | Organizations that operate the Operator Service (via the UID2 APIs). Operators receive and store encryption keys and salts from the UID2 Core Service, salt and hash personal data to return UID2s, encrypt UID2s to generate UID2 tokens, and distribute UID2 token decryption keys.<br/><br/>There can be multiple open operators with which participants can choose to work. Open operators run public instances of the Operator Service. For example, The Trade Desk currently serves as an open operator for UID2 available to all participants.<br/><br/>Any participant can also choose to become a closed operator and operate their own private instance to generate and manage UID2s for their internal use. | 
 | **Compliance Manager**  | An organization that audits UID2 participants for compliance with stated rules and relays compliance information to the UID2 administrators and UID2 operators. | 
 | **DSPs**  | DSPs integrate with the UID2 system to receive UID2s from brands (as first-party data) and data providers (as third-party data) and leverage them to inform bidding on UID2s in the bid stream. | 
 | **Data Providers**  | Organizations that collect user data and push it to DSPs—for example, advertisers, data on-boarders, identity graph providers, and third-party data providers. | 
 | **Advertisers**  | Organizations that buy impressions across a range of publisher sites and use DSPs to decide which ad impressions to purchase and how much to bid on them. | 
-| **Publishers**  | Organizations that propagate UID2s to the bid stream via SSPs and include identity providers, publishers, and SSOs. Publishers can choose to work with an SSO or an independent ID provider that is interoperable with UID2. The latter can handle the UID2 integration on their behalf. | 
-| **Consumers**  | Users who engage with publishers or publisher-related SSOs and identity providers. Users can manage their UID2 consent in the [Transparency and Control Portal]([#opt-out-portal](https://transparentadvertising.org)). | 
+| **Publishers**  | Organizations that propagate UID2s to the bid stream via SSPs—for example,  identity providers, publishers, and SSO providers. Publishers can choose to work with an SSO or an independent ID provider that is interoperable with UID2. The latter can handle the UID2 integration on behalf of publishers. | 
+| **Consumers**  | Users who engage with publishers or their SSOs and identity providers. Users can manage their UID2 consent in the [Transparency and Control Portal]([#opt-out-portal](https://transparentadvertising.org)). | 
 
 ## Workflows
 
@@ -97,7 +97,7 @@ The following table lists four key workflows in the UID2 system and provides lin
 | **Buy-side** | DSPs who transact on UID2s in the bid stream. | [DSP](./api/v2/guides/dsp-guide.md) |
 | **Data provider** | Organizations that collect user data and push it to DSPs. | [Advertiser and Data Provider](./api/v2/guides/advertiser-dataprovider-guide.md) |
 | **Supply-side** | Organizations that propagate UID2s to the bid stream via SSPs.<br/> NOTE: Publishers can choose to leverage the [UID2 SDK](./api/v2/sdks/client-side-identity.md) or complete their own custom, server-only integration. | [Publisher (with UID2 SDK)](./api/v2/guides/publisher-client-side.md)<br/>[Publisher (Server-Only)](./api/v2/guides/custom-publisher-integration.md) |
-| **Opt-out** | Consumers who engage with publishers or publisher-related SSOs and identity providers. | N/A |
+| **Opt-out** | Consumers who engage with publishers or their SSO providers and other identity providers. | N/A |
 
 
 The following diagram summarizes all four workflows. For each workflow, the [participants](#participants), [core components](#core-components), [UID2 types](#uid2-types), and numbered steps are color-coded.
@@ -106,22 +106,22 @@ The following diagram summarizes all four workflows. For each workflow, the [par
 
 ## FAQs
 
-Here are the commonly asked questions regarding UID2.
+Here are some commonly asked questions regarding UID2.
 
 
 #### Can a user opt out of targeted advertising tied to their UID2?
 
 Yes, through the [Transparency and Control Portal](https://transparentadvertising.org), a user can opt out from being served targeted ads tied to their UID2. The request is distributed through the UID2 Opt-Out Service and UID2 Operators to all relevant participants. 
 
-Some publishers and service providers have the option to limit access to their products based on a user’s participation in UID2 and it is the publisher’s responsibility to communicate this as part of their value exchange dialog with the user.
+Some publishers and service providers have the option to limit access to their products based on a user’s participation in UID2, and it is the publisher’s responsibility to communicate this as part of their value exchange dialog with the user.
 
 #### How does a user know where to access the opt-out portal?
 
-Publishers, SSOs, or consent management platforms disclose links to the [Transparency and Control Portal](https://transparentadvertising.org) in their login and consent flows, privacy policies, and other means.
+Publishers, SSO providers, or consent management platforms disclose links to the [Transparency and Control Portal](https://transparentadvertising.org) in their logi, flows, consent flows, privacy policies, and other means.
 
 #### Why do advertisers and data providers not need to integrate with the opt-out feed?
 
-Opt-outs relate to opting out of targeted advertising, which is handled through the publisher and DSP opt-out [workflows](#workflows). If the consumer wishes to disengage from a specific advertiser, they need to contact the advertiser directly.
+Opt-outs relate to opting out of targeted advertising, which is handled through the publisher and DSP opt-out [workflows](#workflows). If the consumer wants to disengage from a specific advertiser, they need to contact the advertiser directly.
 
 
 ## License
