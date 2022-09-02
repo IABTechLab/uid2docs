@@ -86,7 +86,7 @@ The following table lists the key participants and their roles in the UID2 [work
 | **Data Providers**  | Organizations that collect user data and push it to DSPs—for example, advertisers, data on-boarders, identity graph providers, and third-party data providers. | 
 | **Advertisers**  | Organizations that buy impressions across a range of publisher sites and use DSPs to decide which ad impressions to purchase and how much to bid on them. | 
 | **Publishers**  | Organizations that propagate UID2s to the bid stream via SSPs—for example,  identity providers, publishers, and SSO providers. Publishers can choose to work with an SSO or an independent ID provider that is interoperable with UID2. The latter can handle the UID2 integration on behalf of publishers. | 
-| **Consumers**  | Users who engage with publishers or their SSOs and identity providers. Users can manage their UID2 consent in the [Transparency and Control Portal]([#opt-out-portal](https://transparentadvertising.org)). | 
+| **Consumers**  | Users who engage with publishers or their identity providers. Users can manage their UID2 consent in the [Transparency and Control Portal]([#opt-out-portal](https://transparentadvertising.org)). | 
 
 ## Workflows
 
