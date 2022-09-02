@@ -43,10 +43,11 @@ Here's what you need to know about UID2 API v2 compatibility with v1:
 
 All UID2 endpoints use the same base URL.
 
-| Environment | Base URL |
-| :--- | :--- |
-| Testing | ```https://operator-integ.uidapi.com/v2``` |
-| Production | ```https://prod.uidapi.com/v2``` |
+| Environment | Cloud Region | Code | Base URL |
+| :--- | :--- | :--- | :--- |
+| Testing | AWS US East (Ohio) | ```us-east-2``` | ```https://operator-integ.uidapi.com``` |
+| Production | AWS US East (Ohio) | ```us-east-2``` | ```https://prod.uidapi.com``` |
+| | AWS Asia Pacific (Sydney) | ```ap-southeast-2``` | ```https://au.prod.uidapi.com``` |
 
 For example, https://operator-integ.uidapi.com/v2/token/generate
 
