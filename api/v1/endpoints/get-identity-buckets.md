@@ -2,6 +2,8 @@
 
 # GET /identity/buckets
 
+> IMPORTANT: v1 API endpoints are deprecated and will be removed after 31 March 2023. You should switch to the [current version](../../v2/endpoints/post-identity-buckets.md).
+
 Monitor rotated salt buckets. This endpoint is intended for use by [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md).
 
 ## Request Format

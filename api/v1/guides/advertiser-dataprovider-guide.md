@@ -2,6 +2,8 @@
 
 # Advertiser/Data Provider Integration Guide
 
+> IMPORTANT: v1 guides and API endpoints are deprecated and will be removed after 31 March 2023. You should switch to the [current version](../../v2/guides/advertiser-dataprovider-guide.md).
+
 This guide covers integration steps for organizations that collect user data and push it to DSPs. Data collectors include advertisers, data on-boarders, measurement providers, identity graph providers, third-party data providers, and other organizations who send data to DSPs. The guide includes the following sections:
 
 * [Integration Steps](#integration-steps)

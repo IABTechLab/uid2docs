@@ -34,7 +34,7 @@ The v2 updates to the UID2 API include the following:
 
 Here's what you need to know about UID2 API v2 compatibility with v1:
 
-- UID2 API v2 is not compatible with UID2 API v1 and will require an upgrade. (The Upgrade Guide is coming soon.)
+- UID2 API v2 is not compatible with UID2 API v1 and will require an [upgrade](./migration-guide.md).
 - The v1 endpoints will be supported until the migration process is complete, with the appropriate notifications issued in a timely manner.
 - Previously issued client API keys will continue working with v1 endpoints and will be required for v2 endpoints.
 - To use the v2 endpoints, a client secret is required for [encrypting API requests and decrypting API responses](./encryption-decryption.md).
