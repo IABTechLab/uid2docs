@@ -27,7 +27,7 @@ The UID2 framework has the following open market principles as its foundation:
 
 - **Interoperable**: The framework allows other identity solutions (commercial and proprietary) to integrate and provide UID2 tokens with their offerings.
 
-- **Scalable**: The UID2 ecosystem can achieve scale by adding more [operators](#participants). 
+- **Scalable**: As demand increases, the UID2 ecosystem can achieve scale by adding more [operators](#participants). 
 
 - **Secure and encrypted data**: UID2 leverages multiple layers of security to protect personal and other user data.
 
