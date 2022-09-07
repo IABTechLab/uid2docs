@@ -1,6 +1,6 @@
 # UID2 API v2 Documentation
 
-For UID2 definition, forms, guiding principles, components, and other conceptual details, see [UID2 Overview](../../README.md). For contact and license information, as well as normalization and hash encoding rules, see [Unified ID 2.0 API Documentation](../README.md).
+For UID2 definitions, ID types, guiding principles, components, and other conceptual details, see [UID2 Framework Overview](../../README.md). For contact and license information, as well as normalization and hash encoding rules, see [Getting Started](../README.md).
 
 This page provides the following information required for you to get started with the UID2 API v2:
 
@@ -32,7 +32,7 @@ The v2 updates to the UID2 API include the following:
 
 ## UID2 API v1 Compatibility and Upgrade Requirements
 
-Here's what you need to know about UID2 API v2 compatibility with v1:
+Here's what you need to know about the UID2 API v2 compatibility with v1:
 
 - UID2 API v2 is not compatible with UID2 API v1 and will require an upgrade. (The Upgrade Guide is coming soon.)
 - The v1 endpoints will be supported until the migration process is complete, with the appropriate notifications issued in a timely manner.
@@ -52,7 +52,7 @@ For example, https://operator-integ.uidapi.com/v2/token/generate
 
 ## Authentication and Authorization
 
-To authenticate to UID2 endpoints, you need the following:
+To authenticate to the UID2 endpoints, you need the following:
 
 - A client API key, which is to be included as a bearer token in the request's authorization header. 
   <br/>```Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=```
