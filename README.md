@@ -79,7 +79,7 @@ The UID2 framework consists of the following core components, all of which are c
 
 ### Participants 
 
-With its transparent and interoperable approach, the UID2 framework provides a collaborative framework for many participants across the advertising ecosystem—advertisers, publishers, DSPs, SSPs, single sign-on (SSO) providers, customer data platforms (CDPs), consent management providers (CMPs), identity providers, data providers, and measurement providers.  
+With its transparent and interoperable approach, UID2 provides a collaborative framework for many participants across the advertising ecosystem—advertisers, publishers, DSPs, SSPs, single sign-on (SSO) providers, customer data platforms (CDPs), consent management providers (CMPs), identity providers, data providers, and measurement providers.  
 
 The following table lists the key participants and their roles in the UID2 [workflows](#workflows).
 
