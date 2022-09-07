@@ -1,6 +1,6 @@
 # Getting Started with UID2
 
-For UID2 definitions, ID types, guiding principles, components, and other conceptual details, see [UID2 Framework Overview](../README.md).
+For UID2 definitions, ID types, guiding principles, components, and other conceptual details, see [UID2 Overview](../README.md).
 
 This page provides the following information required for you to get started with the UID2 API:
 * [Contact Info](#contact-info)
