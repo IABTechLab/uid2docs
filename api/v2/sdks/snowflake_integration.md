@@ -1,4 +1,4 @@
-[UID2 Framework Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](../guides/README.md) > Snowflake Integration
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](../guides/README.md) > Snowflake Integration
 
 # Snowflake Integration
 
