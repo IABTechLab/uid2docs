@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > [v2](../README.md) > Endpoints
+[Getting Started](../../README.md) > [v2](../README.md) > Endpoints
 
 # UID2 Endpoints
 
