@@ -11,7 +11,7 @@ For integration guides, supported SDKs, and endpoint reference, see [Getting Sta
 
 ## Introduction
 
-UID2 is a framework that enables deterministic identity for advertising opportunities on the open internet for many [participants](#participants) across the advertising ecosystem. The UID2 framework enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework offers the user transparency and privacy controls to meet the market requirements outside Europe and the UK. 
+UID2 is a framework that enables deterministic identity for advertising opportunities on the open internet for many [participants](#participants) across the advertising ecosystem. The UID2 framework enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework offers the user transparency and privacy controls to meet the local market requirements. 
 
 >NOTE: The term "UID2" can refer to either the framework or an actual identifier. The UID2 framework [infrastructure](#uid2-infrastructure) defines [two types](#uid2-identifier-types) of identifiers: raw UID2s and UID2 tokens. Unless otherwise indicated, this page provides an overview of the UID2 framework. 
 
@@ -27,7 +27,7 @@ The UID2 framework has the following principles as its foundation:
 
 - **Interoperable**: The framework allows other identity solutions (commercial and proprietary) to integrate and provide UID2 tokens with their offerings.
 
-- **Secure and encrypted data**: UID2 leverages multiple layers of security to protect user and other [participant](#participants) data.
+- **Secure and encrypted data**: UID2 leverages multiple layers of security to protect user and other participant data.
 
 - **Consumer control**: Consumers can opt out of UID2 at any time through the [Transparency and Control Portal](https://transparentadvertising.org).
 
@@ -41,9 +41,9 @@ The UID2 framework is built on the following technical principles:
 
 - **Lean infrastructure**: Infrastructure is light and inexpensive to operate.
 
-- **Self-reliant**: No reliance on external services for real-time processing of real-time bidding (RTB) data.
-
 - **Internet scale**: To handle increasing needs of [participants](#participants) across the globe, additional instances of infrastructure [components](#components) can be deployed quickly for specific geographic regions. 
+
+- **Self-reliant**: No reliance on external services for real-time processing of real-time bidding (RTB) data.
 
 
 ## UID2 Infrastructure
