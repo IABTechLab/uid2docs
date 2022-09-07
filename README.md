@@ -1,4 +1,4 @@
-# Unified ID 2.0 Framework Overview
+# Unified ID 2.0 Overview
 English | [Japanese](README-ja.md)
 
 This page provides the following information about the Unified ID 2.0 (UID2) framework:
@@ -11,25 +11,23 @@ For integration guides, supported SDKs, and endpoint reference, see [Getting Sta
 
 ## Introduction
 
-UID2 is a collaborative framework that enables deterministic identity for advertising opportunities on the open internet for many [participants](#participants) across the advertising ecosystem. The UID2 framework enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework offers the user transparency and privacy controls to meet the market requirements outside Europe and the UK. 
+UID2 is a framework that enables deterministic identity for advertising opportunities on the open internet for many [participants](#participants) across the advertising ecosystem. The UID2 framework enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework offers the user transparency and privacy controls to meet the market requirements outside Europe and the UK. 
 
->NOTE: The term "UID2" can refer to either the framework or an actual identifier. The UID2 framework [infrastructure](#uid2-infrastructure) defines [two types](#uid2-identifier-types) of identifiers: raw UID2s and UID2 tokens. Unless otherwise indicated, this page provides an overview of the UID2 framework, while most of the [API documentation](/api/v2/README.md) is about generating and using UID2 tokens. 
+>NOTE: The term "UID2" can refer to either the framework or an actual identifier. The UID2 framework [infrastructure](#uid2-infrastructure) defines [two types](#uid2-identifier-types) of identifiers: raw UID2s and UID2 tokens. Unless otherwise indicated, this page provides an overview of the UID2 framework. 
 
 ### Guiding Principles
 
-The UID2 framework has the following open market principles as its foundation:
+The UID2 framework has the following principles as its foundation:
 
 - **First-party relationships**: UID2 enables advertisers to easily activate their first-party data on publisher websites across the open internet.
 
 - **Non-proprietary (universal) standard**: UID2 is accessible to all [participants](#participants) in the advertising ecosystem who abide by the code of conduct.
 
-- **Open source**: UID2 code is transparent thanks to an open-source framework.
+- **Open source**: The source code for the UID2 [components](#components) is publicly available with established processes for accepting contributions from the community.
 
 - **Interoperable**: The framework allows other identity solutions (commercial and proprietary) to integrate and provide UID2 tokens with their offerings.
 
-- **Scalable**: The UID2 ecosystem can be scaled by adding more [operators](#participants). 
-
-- **Secure and encrypted data**: UID2 leverages multiple layers of security to protect personal and other user data.
+- **Secure and encrypted data**: UID2 leverages multiple layers of security to protect user and other [participant](#participants) data.
 
 - **Consumer control**: Consumers can opt out of UID2 at any time through the [Transparency and Control Portal](https://transparentadvertising.org).
 
@@ -45,13 +43,15 @@ The UID2 framework is built on the following technical principles:
 
 - **Self-reliant**: No reliance on external services for real-time processing of real-time bidding (RTB) data.
 
+- **Internet scale**: To handle increasing needs of [participants](#participants) across the globe, additional instances of infrastructure [components](#components) can be deployed quickly for specific geographic regions. 
+
 
 ## UID2 Infrastructure
 
 The following sections explain and illustrate the key elements of the UID2 framework infrastructure:
 
   - [UID2 Types](#uid2-identifier-types)
-  - [Core Components](#core-components)
+  - [Components](#components)
   - [Participants](#participants)
   - [Workflows](#workflows)
 
@@ -65,7 +65,7 @@ UID2 is a deterministic ID that is based on personally identifiable information 
 | **UID2 Token (Advertising Token)** | Shared | An encrypted form of a raw UID2. UID2 tokens are generated from hashed or unhashed email addresses or phone numbers that are converted to raw UID2s and then encrypted to ensure protection in the bid stream.<br/><br/>UID2 tokens are designed to be used by publishers or publisher service providers. Supply-side platforms (SSPs) pass UID2 tokens in the bid stream and DSPs decrypt them at bid request time. |
 
 
-### Core Components
+### Components
 
 The UID2 framework consists of the following core components, all of which are currently managed by The Trade Desk.
 
@@ -85,7 +85,7 @@ The following table lists the key participants and their roles in the UID2 [work
 
 | Participant | Role Description |
 | :--- | :--- |
-| **Core Administrator**  | An organization (currently, The Trade Desk) that manages the UID2 Core Service and other [components](#core-components). For example, it distributes encryption keys and salts to UID2 operators and sends user opt-out requests to operators and DSPs. |  
+| **Core Administrator**  | An organization (currently, The Trade Desk) that manages the UID2 Core Service and other [components](#components). For example, it distributes encryption keys and salts to UID2 operators and sends user opt-out requests to operators and DSPs. |  
 | **Operators**  | Organizations that run the Operator Service (via the UID2 APIs). Operators receive and store encryption keys and salts from the UID2 Core Service, salt and hash personal data to return UID2s, encrypt raw UID2s to generate UID2 tokens, and distribute UID2 token decryption keys.<br/><br/>Open operators run public instances of the Operator Service. For example, The Trade Desk currently serves as an open operator for UID2, available to all participants. If other open operators are available, a participant can choose which operator to work with.<br/><br/>Any participant can also choose to become a closed operator and operate their own private instance to generate and manage UID2s. | 
 | **Compliance Manager**  | An organization that audits UID2 participants for compliance with stated rules and relays compliance information to the UID2 administrators and UID2 operators. | 
 | **DSPs**  | DSPs integrate with the UID2 system to receive UID2s from brands (as first-party data) and data providers (as third-party data) and leverage them to inform bidding on UID2s in the bid stream. | 
@@ -106,7 +106,7 @@ The following table lists four key workflows in the UID2 framework and provides 
 | **Opt-Out** | Consumers who engage with publishers or their SSO providers and other identity providers. | N/A |
 
 
-The following diagram summarizes all four workflows. For each workflow, the [participants](#participants), [core components](#core-components), [UID2 types](#uid2-identifier-types), and numbered steps are color-coded.
+The following diagram summarizes all four workflows. For each workflow, the [participants](#participants), [core components](#components), [UID2 types](#uid2-identifier-types), and numbered steps are color-coded.
 
 ![The UID2 Ecosystem](/images/UID2-Workflow.svg)
 
