@@ -13,7 +13,7 @@ For integration guides, supported SDKs, and endpoint reference, see [Getting Sta
 
 UID2 is a collaborative framework that enables deterministic identity for advertising opportunities on the open internet for many [participants](#participants) across the advertising ecosystem. The UID2 framework enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework offers the user transparency and privacy controls to meet the market requirements outside Europe and the UK. 
 
->NOTE: The term "UID2" can refer to either the framework or an actual identifier or identity. As identifiers, UID2s are part of the UID2 framework [infrastructure](#uid2-infrastructure) and in turn be one of [two types](#uid2-identifier-types) (raw UID2s and UID2 tokens). Unless otherwise indicated, this page provides an overview of the UID2 framework, while most of the [API documentation](/api/v2/README.md) is about generating and using UID2 tokens. 
+>NOTE: The term "UID2" can refer to either the framework or an actual identifier. The UID2 framework [infrastructure](#uid2-infrastructure) defines [two types](#uid2-identifier-types) of identifiers: raw UID2s and UID2 tokens. Unless otherwise indicated, this page provides an overview of the UID2 framework, while most of the [API documentation](/api/v2/README.md) is about generating and using UID2 tokens. 
 
 ### Guiding Principles
 
@@ -27,7 +27,7 @@ The UID2 framework has the following open market principles as its foundation:
 
 - **Interoperable**: The framework allows other identity solutions (commercial and proprietary) to integrate and provide UID2 tokens with their offerings.
 
-- **Scalable**: As demand increases, the UID2 ecosystem can achieve scale by adding more [operators](#participants). 
+- **Scalable**: The UID2 ecosystem can be scaled by adding more [operators](#participants). 
 
 - **Secure and encrypted data**: UID2 leverages multiple layers of security to protect personal and other user data.
 
@@ -57,12 +57,12 @@ The following sections explain and illustrate the key elements of the UID2 frame
 
 ### UID2 Identifier Types
 
-As an identifier, UID2 is a deterministic ID that is based on personally identifiable information (PII), such as email address or phone number. There are two types of UID2s: raw UID2s and UID2 tokens (also known as advertising tokens). The following table explains each type.
+UID2 is a deterministic ID that is based on personally identifiable information (PII), such as email address or phone number. There are two types of UID2s: raw UID2s and UID2 tokens (also known as advertising tokens). The following table explains each type.
 
 | ID Type | Shared in Bid Stream? | Description |
 | :--- | :--- | :--- |
 | **Raw UID2** | Not shared | An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's verifiable personal data, such as an email address, as input.<br/><br/>To prevent re-identification of the original personal data, each raw UID2 is generated using a secret salt. Raw UID2s are designed to be stored by advertisers, data providers, and demand-side platforms (DSPs).|
-| **UID2 (Advertising) Token** | Shared | An encrypted form of a raw UID2. UID2 tokens are generated from hashed or unhashed email addresses or phone numbers that are converted to raw UID2s and then encrypted to ensure protection in the bid stream.<br/><br/>UID2 tokens are designed to be used by publishers or publisher service providers. Supply-side platforms (SSPs) pass UID2 tokens in the bid stream and DSPs decrypt them at bid request time. |
+| **UID2 Token (Advertising Token)** | Shared | An encrypted form of a raw UID2. UID2 tokens are generated from hashed or unhashed email addresses or phone numbers that are converted to raw UID2s and then encrypted to ensure protection in the bid stream.<br/><br/>UID2 tokens are designed to be used by publishers or publisher service providers. Supply-side platforms (SSPs) pass UID2 tokens in the bid stream and DSPs decrypt them at bid request time. |
 
 
 ### Core Components
@@ -100,10 +100,10 @@ The following table lists four key workflows in the UID2 framework and provides 
 
 | Workflow | Intended Primary Participants | Integration Guide |
 | :--- | :--- | :--- |
-| **Buy-side** | DSPs who transact on UID2s in the bid stream. | [DSP](./api/v2/guides/dsp-guide.md) |
-| **Data provider** | Organizations that collect user data and push it to DSPs. | [Advertiser and Data Provider](./api/v2/guides/advertiser-dataprovider-guide.md) |
-| **Supply-side** | Organizations that propagate UID2s to the bid stream via SSPs.<br/> NOTE: Publishers can choose to leverage the [UID2 SDK](./api/v2/sdks/client-side-identity.md) or complete their own custom, server-only integration. | [Publisher (with UID2 SDK)](./api/v2/guides/publisher-client-side.md)<br/>[Publisher (Server-Only)](./api/v2/guides/custom-publisher-integration.md) |
-| **Opt-out** | Consumers who engage with publishers or their SSO providers and other identity providers. | N/A |
+| **Buy-Side** | DSPs who transact on UID2s in the bid stream. | [DSP](./api/v2/guides/dsp-guide.md) |
+| **Data Provider** | Organizations that collect user data and push it to DSPs. | [Advertiser and Data Provider](./api/v2/guides/advertiser-dataprovider-guide.md) |
+| **Supply-Side** | Organizations that propagate UID2s to the bid stream via SSPs.<br/> NOTE: Publishers can choose to leverage the [UID2 SDK](./api/v2/sdks/client-side-identity.md) or complete their own custom, server-only integration. | [Publisher (with UID2 SDK)](./api/v2/guides/publisher-client-side.md)<br/>[Publisher (Server-Only)](./api/v2/guides/custom-publisher-integration.md) |
+| **Opt-Out** | Consumers who engage with publishers or their SSO providers and other identity providers. | N/A |
 
 
 The following diagram summarizes all four workflows. For each workflow, the [participants](#participants), [core components](#core-components), [UID2 types](#uid2-identifier-types), and numbered steps are color-coded.
