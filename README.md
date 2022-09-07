@@ -13,7 +13,7 @@ For integration guides, supported SDKs, and endpoint reference, see [Getting Sta
 
 UID2 is a collaborative framework which enables deterministic identity for advertising opportunities on the open internet for many [participants](#participants) across the advertising ecosystem. The UID2 framework enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework offers the user transparency and privacy controls to meet the market requirements outside Europe and the UK. 
 
->NOTE: The term UID2 can refer to the framework and an actual identifier or identity. Idendifiers are part of the UID2 framework [infrastructure](#uid2-infrastructure) and in turn has [two types](#uid2-identifier-types) (raw UID2s and UID2 tokens). Unless otherwise indicated, this page provides an overview of the UID2 framework, while most of the API documentation is about generating and using UID2 tokens. 
+>NOTE: The term UID2 can refer to the framework and an actual identifier or identity. Idendifiers are part of the UID2 framework [infrastructure](#uid2-infrastructure) and in turn has [two types](#uid2-identifier-types) (raw UID2s and UID2 tokens). Unless otherwise indicated, this page provides an overview of the UID2 framework, while most of the [API documentation](/api/v2/README.md) is about generating and using UID2 tokens. 
 
 ### Guiding Principles
 
