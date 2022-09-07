@@ -1,6 +1,6 @@
 # Getting Started with UID2
 
-For UID2 definition, forms, guiding principles, components, and other conceptual details, see [UID2 Overview](../README.md).
+For UID2 definitions, ID types, guiding principles, components, and other conceptual details, see [UID2 Framework Overview](../README.md).
 
 This page provides the following information required for you to get started with the UID2 API:
 * [Contact Info](#contact-info)
@@ -14,7 +14,7 @@ This page provides the following information required for you to get started wit
 
 ## Contact Info
 
-To get access to UID2, contact the appropriate team at The Trade Desk listed below. 
+To get access to the UID2 framework, contact the appropriate team at The Trade Desk listed below. 
 
 >Contacting The Trade Desk for access is temporary. When the system is moved to independent governance, the governing organizations will handle access requests.
 
@@ -27,7 +27,7 @@ To get access to UID2, contact the appropriate team at The Trade Desk listed bel
 
 Currently, there are two versions of the UID2 APIs: [UID2 API v1](./v1/README.md) and [UID2 API v2](./v2/README.md). 
 
->IMPORTANT: The v1 API is supported only for the current users. If you are new to UID2, use the v2 API, which provides E2E content protection. 
+>IMPORTANT: The v1 API is supported only for the current users. If you are new to the UID2 framework, use the v2 API, which provides E2E content protection. 
 
 
 ## Email Address Normalization
