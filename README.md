@@ -19,9 +19,9 @@ UID2 is a framework that enables deterministic identity for advertising opportun
 
 The UID2 framework has the following principles as its foundation:
 
-- **First-party relationships**: UID2 enables advertisers to easily activate their first-party data on publisher websites across the open internet.
+- **First-party relationships**: UID2 enables advertisers to activate their first-party data on publisher websites across the open internet.
 
-- **Non-proprietary (universal) standard**: UID2 is accessible to all [participants](#participants) in the advertising ecosystem who abide by the code of conduct.
+- **Non-proprietary (universal) standard**: All [participants](#participants) in the advertising ecosystem who abide by the code of conduct can access UID2.
 
 - **Open source**: The source code for the UID2 [components](#components) is publicly available with established processes for accepting contributions from the community.
 
@@ -37,13 +37,13 @@ The UID2 framework is built on the following technical principles:
 
 - **Distributed integration**: Multiple certified integration paths provide options for publishers, advertisers, and data providers to generate UID2s.
 
-- **Decentralized storage**: To block malicious actors, the framework provides no centralized storage of personal data mappings.
+- **Decentralized storage**: No centralized storage of personal data mappings blocks malicious actors.
 
-- **Lean infrastructure**: Infrastructure is light and inexpensive to operate.
+- **Lean infrastructure**: The UID2 system is light and inexpensive to operate.
 
-- **Internet scale**: To handle increasing needs of [participants](#participants) across the globe, additional instances of infrastructure [components](#components) can be deployed quickly for specific geographic regions. 
+- **Internet scale**: The UID2 infrastructure can scale to address the continuously increasing needs of [participants](#participants) and to meet performance demands of specific geographic regions.
 
-- **Self-reliant**: No reliance on external services for real-time processing of real-time bidding (RTB) data.
+- **Self-reliant**: UID2 does not rely on external services for real-time processing of real-time bidding (RTB) data.
 
 
 ## UID2 Infrastructure
