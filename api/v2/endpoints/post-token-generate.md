@@ -1,4 +1,4 @@
-[UID2 Framework Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Endpoints](./README.md) > POST /token/generate
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Endpoints](./README.md) > POST /token/generate
 
 # POST /token/generate
 Generate a UID2 token from a hashed or unhashed email address or phone number.
