@@ -61,7 +61,7 @@ UID2 is a deterministic ID that is based on personally identifiable information 
 
 | ID Type | Shared in Bid Stream? | Description |
 | :--- | :--- | :--- |
-| **Raw UID2** | Not shared | An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's verifiable personal data, such as an email address, as input.<br/><br/>To prevent re-identification of the original personal data, each raw UID2 is generated using a secret salt. Raw UID2s are designed to be stored by advertisers, data providers, and demand-side platforms (DSPs).|
+| **Raw UID2** | Not shared | An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's verifiable personal data, such as an email address or a phone number, as input.<br/><br/>To prevent re-identification of the original personal data, each raw UID2 is generated using a secret salt. Raw UID2s are designed to be stored by advertisers, data providers, and demand-side platforms (DSPs).|
 | **UID2 Token (Advertising Token)** | Shared | An encrypted form of a raw UID2. UID2 tokens are generated from hashed or unhashed email addresses or phone numbers that are converted to raw UID2s and then encrypted to ensure protection in the bid stream.<br/><br/>UID2 tokens are designed to be used by publishers or publisher service providers. Supply-side platforms (SSPs) pass UID2 tokens in the bid stream and DSPs decrypt them at bid request time. |
 
 
