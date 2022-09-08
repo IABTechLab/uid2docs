@@ -1,4 +1,4 @@
-[UID2 Framework Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](README.md) > Microsoft Azure
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](README.md) > Microsoft Azure
 
 # Microsoft Azure Confidential Compute Operator Package
 
