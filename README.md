@@ -67,7 +67,7 @@ UID2 is a deterministic ID that is based on personally identifiable information 
 
 ### Components
 
-The UID2 framework consists of the following core components, all of which are currently managed by The Trade Desk.
+The UID2 framework consists of the following components, all of which are currently managed by The Trade Desk.
 
 | Component | Description |
 | :--- | :--- |
@@ -106,7 +106,7 @@ The following table lists four key workflows in the UID2 framework and provides 
 | **Opt-Out** | Consumers who engage with publishers or their SSO providers and other identity providers. | N/A |
 
 
-The following diagram summarizes all four workflows. For each workflow, the [participants](#participants), [core components](#components), [UID2 types](#uid2-identifier-types), and numbered steps are color-coded.
+The following diagram summarizes all four workflows. For each workflow, the [participants](#participants), [components](#components), [UID2 identifier types](#uid2-identifier-types), and numbered steps are color-coded.
 
 ![The UID2 Ecosystem](/images/UID2-Workflow.svg)
 
