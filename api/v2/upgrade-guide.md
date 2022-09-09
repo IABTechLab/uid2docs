@@ -146,7 +146,7 @@ Any time, as long as you complete it by March 31, 2023.
 
 Yes. The v1 endpoints will be supported until March 31, 2023. After that date, all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be deprecated and removed. Previously issued client API keys will continue working with v1 endpoints and will be required for v2 endpoints.
 
-### How do I obtain a client secret keky for the new API?
+### How do I obtain a client secret key for the new API?
 
 Please [contact the UID2 administrator](../README.md#contact-info) and obtain the v2 client API key. See also [Prerequisites and Timeline](#prerequisites-and-timeline).
 
