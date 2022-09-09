@@ -51,8 +51,8 @@ The [UID2 SDK v2](./sdks/client-side-identity.md) is a drop-in replacement for t
 To upgrade to the UID API v2, complete the following steps:
 
 1. [Upgrade the UID2 SDK](#upgrade-the-uid2-js-sdk).
-1. [Upgrade calls to token generate endpoint](#upgrade-calls-to-the-token-generation-endpoint).
-1. (Required only for custom interations) [Upgrade calls to token refresh endpoint](#upgrade-calls-to-the-token-refresh-endpoint).
+1. [Upgrade calls to the token generate endpoint](#upgrade-token-generation-calls).
+1. (Required only for custom integrations) [Upgrade calls to the token refresh endpoint](#upgrade-token-refresh-calls).
 
 #### Upgrade the UID2 JS SDK
 
@@ -75,7 +75,7 @@ SDK version 2:
 <script src="https://prod.uidapi.com/static/js/uid2-sdk-2.0.0.js" type="text/javascript"></script> 
 ```
 
-#### Upgrade Calls to the Token Generation Endpoint
+#### Upgrade Token Generation Calls
 
 As part of the upgrade, on the server side of your application, you must replace calls to the v1 [GET /token/generate](../v1/endpoints/get-token-generate.md) endpoint with calls to the v2 [POST /token/generate](./endpoints/post-token-generate.md) endpoint. 
 
@@ -87,7 +87,7 @@ Here's what you need to know and do:
   - If you are not using the SDK and are storing the response data in a custom storage (for example, a database or a custom first-party cookie), you must update the storage to store the refresh response key. 
   - No updates are required for any existing sessions that store refresh tokens returned by the v1 [GET /token/refresh](../v1/endpoints/get-token-refresh.md) endpoint and do not have a corresponding refresh response key. These sessions will continue working as is.
 
-#### Upgrade Calls to the Token Refresh Endpoint
+#### Upgrade Token Refresh Calls
 
 >NOTE: If you are using the UID2 SDK to refresh and manage tokens, no further action is required. 
 
