@@ -4,7 +4,6 @@ For UID2 definition, forms, guiding principles, components, and other conceptual
 
 This page provides the following information required for you to get started with the UID2 API v2:
 
-* [Improvements and Changes from Version 1](#improvements-and-changes-from-version-1)
 * [UID2 API v1 Compatibility and Upgrade Requirements](#uid2-api-v1-compatibility-and-upgrade-requirements)
 * [Environment](#environment)
 * [Authentication and Authorization](#authentication-and-authorization)
@@ -18,16 +17,7 @@ For details on using the API, see the following pages.
 | [Integration Guides](./guides/README.md) | UID2 integration workflows for UID2 participants, such as publishers, DSPs, advertisers, and data providers, as well as Operator Enterprise Partners, such as Microsoft Azure, AWS, and Snowflake. |
 | [SDKs](./sdks/README.md) | Client-side JavaScript for websites and RTB SDKs. | 
 
-
-## Improvements and Changes from Version 1
-
-The v2 updates to the UID2 API include the following:
-
-- [Application API layer encryption](./encryption-decryption.md) that provides E2E content protection, which prevents sensitive UID2 information from leaking to a network operator or the UID2 service operator.
-- In addition to the client API key for [authentication](#authentication-and-authorization), a client secret is now required for encrypting API requests and decrypting API responses.
-- No more query parameters. New POST methods take input parameters as the request body in the JSON format. 
-- No URL-encoding of parameter values is required.
-- The [POST /identity/map](./endpoints/post-identity-map.md) endpoint now retrieves UID2s and salt bucket IDs for one or multiple email addresses, phone numbers, or the respective hashes. 
+For a list of improvements and changes from version 1 of the API, see [UID2 API v1 to v2 Upgrade Guide](./upgrade-guide.md).
 
 
 ## UID2 API v1 Compatibility and Upgrade Requirements
@@ -35,7 +25,7 @@ The v2 updates to the UID2 API include the following:
 Here's what you need to know about UID2 API v2 compatibility with v1:
 
 - UID2 API v2 is not compatible with UID2 API v1 and require an [upgrade](./upgrade-guide.md).
-- The v1 endpoints will be supported until **March 31, 2023**, when all when all v1 SDK files and APIs, including the unversioned ones, will be deprecated and removed.
+- The v1 endpoints will be supported until **March 31, 2023**, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be deprecated and removed.
 - Previously issued client API keys will continue working with v1 endpoints and will be required for v2 endpoints.
 - To use the v2 endpoints, a client secret is required for [encrypting API requests and decrypting API responses](./encryption-decryption.md).
 
