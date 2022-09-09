@@ -35,7 +35,7 @@ The v2 updates to the UID2 API include the following:
 Here's what you need to know about UID2 API v2 compatibility with v1:
 
 - UID2 API v2 is not compatible with UID2 API v1 and will require an [upgrade](./upgrade-guide.md).
-- The v1 endpoints will be supported until March 31, 2023, when all when all v1 SDK files and APIs, including unversioned ones, will be deprecated and removed.
+- The v1 endpoints will be supported until March 31, 2023, when all when all v1 SDK files and APIs, including the unversioned ones, will be deprecated and removed.
 - Previously issued client API keys will continue working with v1 endpoints and will be required for v2 endpoints.
 - To use the v2 endpoints, a client secret is required for [encrypting API requests and decrypting API responses](./encryption-decryption.md).
 
