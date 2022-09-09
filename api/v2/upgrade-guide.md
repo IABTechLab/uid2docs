@@ -2,12 +2,13 @@
 
 # UID2 API v1 to v2 Upgrade Guide
 
-This guide explains the compatibility of the UID2 v1 and v2 APIs and explains how to upgrade to the v2 API.
+This guide outlines the differences between the UID2 v1 and v2 APIs and explains how to upgrade to the v2 API.
 
 - [Improvements and Changes from Version 1](#improvements-and-changes-from-version-1)
 - [Prerequisites](#prerequisites)
 - [Publisher Upgrade Workflow](#publisher-upgrade-workflow)
 - [Advertiser and Data Provider Upgrade Workflow](#advertiser-and-data-provider-upgrade-workflow)
+- [FAQs](#faqs)
 
 ## Improvements and Changes from Version 1
 
@@ -20,6 +21,7 @@ The v2 updates to the UID2 API include the following:
 - No URL-encoding of parameter values is required.
 - The [POST /identity/map](./endpoints/post-identity-map.md) endpoint now retrieves UID2s and salt bucket IDs for one or multiple email addresses, phone numbers, or the respective hashes. 
 
+See also [UID2 API v2 Documentation](./README.md).
 
 ## Prerequisites
 
@@ -126,4 +128,28 @@ To upgrade to the UID API v2, replace calls to the following v1 endpoints with t
 >IMPORTANT: Performing calls to the UID2 API v2 requires encrypting the POST request body and decrypting the response. For details and examples, see [Encrypting Requests and Decrypting Responses](./encryption-decryption.md).
 
 
+## FAQs
 
+### Do I have to do the upgrade?
+
+Yes. The UID2 API v2 is not compatible with UID2 API v1 and requires an upgrade.
+
+### What are the key differences between the old and new APIs?
+
+Please see [Improvements and Changes from Version 1](#improvements-and-changes-from-version-1).
+
+### When can I start the upgrade?
+
+Any time, as long as you complete it by March 31, 2023.
+
+### Can I continue using the v1 API and API keys?
+
+Yes. The v1 endpoints will be supported until March 31, 2023. After that date, all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be deprecated and removed.
+
+### How do I obtain a client secret keky for the new API?
+
+Please [contact the UID2 administrator](../README.md#contact-info) and obtain the v2 client API key. See also [Prerequisites](#prerequisistes).
+
+### How do I encrypt requests and decrypt responses?
+
+The [Encrypting Requests and Decrypting Responses](./encryption-decryption.md) page explains the workflow and provides examples in Python.
