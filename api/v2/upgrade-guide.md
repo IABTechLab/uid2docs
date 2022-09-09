@@ -17,7 +17,7 @@ The v2 updates to the UID2 API include the following:
 - To prevent sensitive UID2 information from leaking to a network operator or the UID2 service operator, application [API layer encryption](./encryption-decryption.md) has been added, which provides E2E content protection.<br>This means that performing calls to the v2 endpoints requires encrypting the POST request body and decrypting the response.
 - In addition to the client API key for [authentication](./encryption-decryption.md#authentication-and-authorization), a client secret is now required for encrypting API requests and decrypting API responses.
 - The HTTP request type of all GET endpoints in the [UID2 API v1](../v1/endpoints/README.md) has changed from GET to POST in the [UID2 API v2](./endpoints/README.md).
-- No more query parameters are required in requests. New POST methods take input parameters as the request body in the JSON format. 
+- No more query parameters are required in requests. The new POST methods take input parameters as the request body in the JSON format. 
 - No URL-encoding of parameter values is required.
 - The [POST /identity/map](./endpoints/post-identity-map.md) endpoint now retrieves UID2s and salt bucket IDs for one or multiple email addresses, phone numbers, or the respective hashes. 
 
@@ -61,7 +61,7 @@ To upgrade to the UID API v2, complete the following steps:
 To upgrade the UID2 SDK, you need update the script that loads the SDK. Here's what you need to keep in mind during this step:
 
 - If you are using [version 0](../v1/sdks/client-side-identity-v0.md) of the UID2 SDK, be sure to upgrade to [version 1](../v1/sdks/client-side-identity-v1.md#improvements-and-changes-from-version-0) of the UID2 SDK first.
-- If you load the SDK from another location or hold a private (TBD-private what? Version?) of the SDK, be sure to update the locations accordingly.
+- If you load the SDK from another location or hold a private (TBD-private what? Version?Instance?) of the SDK, be sure to update the locations accordingly.
 
 On your pages, update the script to load version 2 of the SDK instead of verison 1.
 
