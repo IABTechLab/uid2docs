@@ -4,8 +4,8 @@
 
 This guide explains the compatibility of the UID2 v1 and v2 APIs and explains how to upgrade to the v2 API.
 
-- [Prerequisites](#prerequisites)
 - [Improvements and Changes from Version 1](#improvements-and-changes-from-version-1)
+- [Prerequisites](#prerequisites)
 - [Publisher Upgrade Workflow](#publisher-upgrade-workflow)
 - [Advertiser and Data Provider Upgrade Workflow](#advertiser-and-data-provider-upgrade-workflow)
 
