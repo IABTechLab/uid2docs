@@ -14,8 +14,8 @@ This guide outlines the differences between the UID2 v1 and v2 APIs and explains
 
 The v2 updates to the UID2 API include the following:
 
-- To prevent sensitive UID2 information from leaking to a network operator or the UID2 service operator, application [API layer encryption](./encryption-decryption.md) has been added, which provides E2E content protection.<br>This means that performing calls to the v2 endpoints requires encrypting the POST request body and decrypting the response.
-- In addition to the client API key for [authentication](./encryption-decryption.md#authentication-and-authorization), a client secret is now required for encrypting API requests and decrypting API responses.
+- [Application API layer encryption](./encryption-decryption.md) has been added. It provides E2E content protection and prevents sensitive UID2 information from leaking to a network operator or the UID2 service operator.<br>This also means that performing calls to the v2 endpoints requires encrypting the POST request body and decrypting the response.
+- In addition to the client API key for [authentication](./README.md#authentication-and-authorization), a client secret is now required for encrypting API requests and decrypting API responses.
 - The HTTP request type of all GET endpoints in the [UID2 API v1](../v1/endpoints/README.md) has changed from GET to POST in the [UID2 API v2](./endpoints/README.md).
 - No more query parameters are required in requests. The new POST methods take input parameters as the request body in the JSON format. 
 - No URL-encoding of parameter values is required.
@@ -27,7 +27,7 @@ See also [UID2 API v2 Documentation](./README.md).
 
 Before you start the upgrade, be sure to review the following requirements:
 
-- To be able to authenticate to the UID2 endpoints, [contact the UID2 administrator](../README.md#contact-info) and obtain the v2 client API key. See also [Authentication and Authorization](./README.md#authentication-and-authorization).
+- To be able to authenticate to the UID2 endpoints, [contact the UID2 administrator](../README.md#contact-info) and obtain the v2 client API key (TBD is this the secret key? shouldn't we instruct them to ask for one?). See also [Authentication and Authorization](./README.md#authentication-and-authorization).
 - You must complete your upgrade by **March 31, 2023**, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be deprecated and removed.
 
 
