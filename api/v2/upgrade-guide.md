@@ -5,7 +5,7 @@
 This guide outlines the differences between the UID2 v1 and v2 APIs and explains how to upgrade to the v2 API.
 
 - [Improvements and Changes from Version 1](#improvements-and-changes-from-version-1)
-- [Prerequisites](#prerequisites)
+- [Prerequisites and Timeline](#prerequisites-and-timeline)
 - [Publisher Upgrade Workflow](#publisher-upgrade-workflow)
 - [Advertiser and Data Provider Upgrade Workflow](#advertiser-and-data-provider-upgrade-workflow)
 - [FAQs](#faqs)
@@ -23,7 +23,7 @@ The v2 updates to the UID2 API include the following:
 
 See also [UID2 API v2 Documentation](./README.md).
 
-## Prerequisites
+## Prerequisites and Timeline
 
 Before you start the upgrade, be sure to review the following requirements:
 
@@ -144,11 +144,11 @@ Any time, as long as you complete it by March 31, 2023.
 
 ### Can I continue using the v1 API and API keys?
 
-Yes. The v1 endpoints will be supported until March 31, 2023. After that date, all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be deprecated and removed.
+Yes. The v1 endpoints will be supported until March 31, 2023. After that date, all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be deprecated and removed. Previously issued client API keys will continue working with v1 endpoints and will be required for v2 endpoints.
 
 ### How do I obtain a client secret keky for the new API?
 
-Please [contact the UID2 administrator](../README.md#contact-info) and obtain the v2 client API key. See also [Prerequisites](#prerequisistes).
+Please [contact the UID2 administrator](../README.md#contact-info) and obtain the v2 client API key. See also [Prerequisites and Timeline](#prerequisites-and-timeline).
 
 ### How do I encrypt requests and decrypt responses?
 
