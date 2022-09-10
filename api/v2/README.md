@@ -6,7 +6,7 @@ This page provides the following information required for you to get started wit
 
 * [Improvements and Changes from Version 1](#improvements-and-changes-from-version-1)
 * [UID2 API v1 Compatibility and Upgrade Requirements](#uid2-api-v1-compatibility-and-upgrade-requirements)
-* [Environment](#environment)
+* [Environments](#environments)
 * [Authentication and Authorization](#authentication-and-authorization)
 
 For details on using the API, see the following pages.
@@ -39,7 +39,7 @@ Here's what you need to know about UID2 API v2 compatibility with v1:
 - Previously issued client API keys will continue working with v1 endpoints and will be required for v2 endpoints.
 - To use the v2 endpoints, a client secret is required for [encrypting API requests and decrypting API responses](./encryption-decryption.md).
 
-## Environment 
+## Environments 
 
 All UID2 endpoints use the same base URL.
 
@@ -47,7 +47,7 @@ All UID2 endpoints use the same base URL.
 | :--- | :--- | :--- | :--- |
 | Testing | AWS US East (Ohio) | ```us-east-2``` | ```https://operator-integ.uidapi.com``` |
 | Production | AWS US East (Ohio) | ```us-east-2``` | ```https://prod.uidapi.com``` |
-| | AWS Asia Pacific (Sydney) | ```ap-southeast-2``` | ```https://au.prod.uidapi.com``` |
+| Production| AWS Asia Pacific (Sydney) | ```ap-southeast-2``` | ```https://au.prod.uidapi.com``` |
 
 For example, https://operator-integ.uidapi.com/v2/token/generate
 
