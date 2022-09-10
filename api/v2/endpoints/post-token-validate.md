@@ -16,7 +16,7 @@ Validate that an advertising token matches the specified hashed or unhashed emai
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>[Full list](../README.md#environment) |
+| `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../README.md#environments). |
 
 
 ###  Unencrypted JSON Body Parameters
