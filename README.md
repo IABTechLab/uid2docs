@@ -115,9 +115,9 @@ The following diagram summarizes all four workflows. For each workflow, the [par
 Here are some commonly asked questions regarding the UID2 framework.
 
 
-#### Can a user opt out of targeted advertising tied to their UID2 identity?
+#### Can users opt out of targeted advertising tied to their UID2 identity?
 
-Yes, through the [Transparency and Control Portal](https://transparentadvertising.org), a user can opt out from being served targeted ads tied to their UID2 identity. The request is distributed through the UID2 Opt-Out Service and UID2 Operators to all relevant participants. 
+Yes. Through the [Transparency and Control Portal](https://transparentadvertising.org), users can opt out from being served targeted ads tied to their UID2 identity. Each request is distributed through the UID2 Opt-Out Service and UID2 Operators to all relevant participants. 
 
 Some publishers and service providers have the option to limit access to their products based on a user’s participation in the UID2 framework, and it is the publisher’s responsibility to communicate this as part of their value exchange dialog with the user.
 
