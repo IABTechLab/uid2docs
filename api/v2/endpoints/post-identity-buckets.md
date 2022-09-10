@@ -14,7 +14,7 @@ Monitor rotated salt buckets. This endpoint is intended for use by [Advertisers/
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../README.md#environment). |
+| `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../README.md#environments). |
 
 ### Unencrypted JSON Body Parameters
 
