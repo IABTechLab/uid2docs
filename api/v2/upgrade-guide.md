@@ -148,7 +148,7 @@ Yes. The v1 endpoints will be supported until March 31, 2023. After that date, a
 
 ### How do I obtain a client secret key for the new API?
 
-To your secret key, [contact the UID2 administrator](../README.md#contact-info). See also [Prerequisites and Timeline](#prerequisites-and-timeline).
+To obtain your secret key, [contact the UID2 administrator](../README.md#contact-info). See also [Prerequisites and Timeline](#prerequisites-and-timeline).
 
 ### How do I encrypt requests and decrypt responses?
 
