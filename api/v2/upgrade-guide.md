@@ -140,7 +140,7 @@ For details, see [Improvements and Changes from Version 1](#improvements-and-cha
 
 ### When can I start the upgrade?
 
-Any time, as long as you complete it by March 31, 2023.
+Any time, but be sure to complete it by March 31, 2023.
 
 ### Can I continue using the v1 API and API keys?
 
