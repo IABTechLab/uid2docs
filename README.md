@@ -37,7 +37,7 @@ The UID2 framework is built on the following technical principles:
 
 - **Distributed integration**: Multiple certified integration paths provide options for publishers, advertisers, and data providers to manage and exchange UID2 tokens.
 
-- **Decentralized storage**: To block malicious actors, the framework provides no centralized storage of personal data mappings.
+- **Decentralized storage**: The framework does not have a centralized storage for personal data mapping. All participants maintain only their own data.
 
 - **Lean infrastructure**: The UID2 system is light and inexpensive to operate.
 
