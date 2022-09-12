@@ -27,7 +27,7 @@ See also [UID2 API v2 Documentation](./README.md).
 
 Before you start the upgrade, be sure to review the following requirements:
 
-- To be able to authenticate to the UID2 endpoints, [contact the UID2 administrator](../README.md#contact-info) and obtain the v2 client API key (TBD is this the secret key? shouldn't we instruct them to ask for one?). See also [Authentication and Authorization](./README.md#authentication-and-authorization).
+- To be able to authenticate to the UID2 endpoints, [contact the UID2 administrator](../README.md#contact-info) and obtain the secret key for encrypting API requests and decrypting API responses. See also [Authentication and Authorization](./README.md#authentication-and-authorization).
 - You must complete your upgrade by **March 31, 2023**, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be deprecated and removed.
 
 
@@ -58,10 +58,10 @@ To upgrade to the UID API v2, complete the following steps:
 
 #### Upgrade the UID2 JS SDK
 
-To upgrade the UID2 SDK, you need update the script that loads the SDK. Here's what you need to keep in mind during this step:
+To upgrade the UID2 SDK, you need to update the script that loads the SDK. Here's what you need to keep in mind during this step:
 
 - If you are using [version 0](../v1/sdks/client-side-identity-v0.md) of the UID2 SDK, be sure to upgrade to [version 1](../v1/sdks/client-side-identity-v1.md#improvements-and-changes-from-version-0) of the UID2 SDK first.
-- If you load the SDK from another location or hold a private (TBD-private what? Version?Instance?) of the SDK, be sure to update the locations accordingly.
+- If you load the SDK from another location or hold a private copy of the SDK, be sure to update the locations accordingly.
 
 On your pages, update the script to load version 2 of the SDK instead of verison 1.
 
@@ -136,7 +136,7 @@ Yes. The UID2 API v2 is not compatible with UID2 API v1 and requires an upgrade.
 
 ### What are the key differences between the old and new APIs?
 
-Please see [Improvements and Changes from Version 1](#improvements-and-changes-from-version-1).
+For details, see [Improvements and Changes from Version 1](#improvements-and-changes-from-version-1).
 
 ### When can I start the upgrade?
 
@@ -148,7 +148,7 @@ Yes. The v1 endpoints will be supported until March 31, 2023. After that date, a
 
 ### How do I obtain a client secret key for the new API?
 
-Please [contact the UID2 administrator](../README.md#contact-info) and obtain the v2 client API key. See also [Prerequisites and Timeline](#prerequisites-and-timeline).
+[Contact the UID2 administrator](../README.md#contact-info) and obtain the v2 client API key. See also [Prerequisites and Timeline](#prerequisites-and-timeline).
 
 ### How do I encrypt requests and decrypt responses?
 
