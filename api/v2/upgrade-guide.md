@@ -17,7 +17,7 @@ The v2 updates to the UID2 API include the following:
 - [Application API layer encryption](./encryption-decryption.md) has been added. It provides E2E content protection and prevents sensitive UID2 information from leaking to a network operator or the UID2 service operator.<br>This also means that performing calls to the v2 endpoints requires encrypting the POST request body and decrypting the response.
 - In addition to the client API key for [authentication](./README.md#authentication-and-authorization), a client secret is now required for encrypting API requests and decrypting API responses.
 - The HTTP request type of all GET endpoints in the [UID2 API v1](../v1/endpoints/README.md) has changed from GET to POST in the [UID2 API v2](./endpoints/README.md).
-- No more query parameters are required in requests. The new POST methods take input parameters as the request body in the JSON format. 
+- No more query parameters are required in requests. The new POST methods take input parameters as the request body in JSON format. 
 - No URL-encoding of parameter values is required.
 - The [POST /identity/map](./endpoints/post-identity-map.md) endpoint now retrieves UID2s and salt bucket IDs for one or multiple email addresses, phone numbers, or the respective hashes. 
 
@@ -27,7 +27,7 @@ See also [UID2 API v2 Documentation](./README.md).
 
 Before you start the upgrade, be sure to review the following requirements:
 
-- To be able to authenticate to the UID2 endpoints, [contact the UID2 administrator](../README.md#contact-info) and obtain the secret key for encrypting API requests and decrypting API responses. See also [Authentication and Authorization](./README.md#authentication-and-authorization).
+- To be able to authenticate to the UID2 endpoints, [contact the UID2 administrator](../README.md#contact-info) and obtain a secret key for encrypting API requests and decrypting API responses. See also [Authentication and Authorization](./README.md#authentication-and-authorization).
 - You must complete your upgrade by **March 31, 2023**, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be deprecated and removed.
 
 
@@ -40,23 +40,24 @@ Before you start the upgrade, be sure to review the following requirements:
 
 You can upgrade calls to the token generation and refresh endpoints independently. Here's what you need to know:
 
- - You can pass refresh tokens returned by the [v1/token/generate](../v1/endpoints/get-token-generate.md) or [v1/token/refresh](../v1/endpoints/get-token-refresh.md) endpoints to the [v2/token/refresh](./endpoints/post-token-refresh.md) endpoint, but responses will not be encrypted.
- - The [v2/token/refresh](./endpoints/post-token-refresh.md) endpoint encrypts responses only for refresh tokens returned by the [v2/token/generate](./endpoints/post-token-generate.md) or [v2/token/refresh](./endpoints/post-token-refresh.md) endpoints, with the assumption that the caller has the refresh response key returned by these endpoints.
- - You can pass refresh tokens returned by the [v2/token/generate](./endpoints/post-token-generate.md) or [v2/token/refresh](./endpoints/post-token-refresh.md) endpoint to the [v1/token/refresh](../v1/endpoints/get-token-refresh.md) endpoint, which never encrypts responses.
+ - You can pass refresh tokens returned by the v1 [GET /token/generate](../v1/endpoints/get-token-generate.md) or v1 [GET /token/refresh](../v1/endpoints/get-token-refresh.md) endpoints to the v2 [POST /token/refresh](./endpoints/post-token-refresh.md) endpoint, but responses will not be encrypted.
+ - The v2 [POST /token/refresh](./endpoints/post-token-refresh.md) endpoint encrypts responses only for refresh tokens returned by the v2 [POST /token/generate](./endpoints/post-token-generate.md) or v2 [POST /token/refresh](./endpoints/post-token-refresh.md) endpoints, with the assumption that the caller has the refresh response key returned by these endpoints.
+ - You can pass refresh tokens returned by the v2 [POST /token/generate](./endpoints/post-token-generate.md) or v2 [POST /token/refresh](./endpoints/post-token-refresh.md) endpoint to the v1 [GET /token/refresh](../v1/endpoints/get-token-refresh.md) endpoint, which never encrypts responses.
 
 The [UID2 SDK v2](./sdks/client-side-identity.md) is a drop-in replacement for the [UID2 SDK v1](../v1/sdks/client-side-identity-v1.md). Here's what you need to know:
-  - The first-party cookie used for storing user's identity is fully interoperable between the two versions of the SDK. This means that the UID2 SDK v2 can read v1 cookies and vice versa.
-  - The [v2 SDK init() function](./sdks/client-side-identity.md#initopts-object-void) accepts the identity object returned by the [v1/token/generate](../v1/endpoints/get-token-generate.md) endpoint and vice versa.
+  - The first-party cookie used for storing the user's identity is fully interoperable between the two versions of the SDK. This means that the UID2 SDK v2 can read v1 cookies and vice versa.
+  - The [v2 SDK init() function](./sdks/client-side-identity.md#initopts-object-void) accepts the identity object returned by the v1 [GET /token/generate](../v1/endpoints/get-token-generate.md) endpoint.
+  - The [v1 SDK init() function](../v1/sdks/client-side-identity.md#initopts-object-void) accepts the identity object returned by the v2 [POST /token/generate](./endpoints/post-token-generate.md) endpoint.
 
 ### Upgrade Steps for Publishers
 
 To upgrade to the UID API v2, complete the following steps:
 
-1. [Upgrade the UID2 SDK](#upgrade-the-uid2-js-sdk).
+1. [Upgrade the UID2 SDK](#upgrade-the-uid2-sdk).
 1. [Upgrade calls to the token generate endpoint](#upgrade-token-generation-calls).
 1. (Required only for custom integrations) [Upgrade calls to the token refresh endpoint](#upgrade-token-refresh-calls).
 
-#### Upgrade the UID2 JS SDK
+#### Upgrade the UID2 SDK
 
 To upgrade the UID2 SDK, you need to update the script that loads the SDK. Here's what you need to keep in mind during this step:
 
@@ -84,20 +85,20 @@ As part of the upgrade, on the server side of your application, you must replace
 Here's what you need to know and do:
 
 - Performing a [POST /token/generate](./endpoints/post-token-generate.md) call requires encrypting the request body and decrypting the response. For details and examples, see [Encrypting Requests and Decrypting Responses](./encryption-decryption.md).
-- The JSON response from the [POST /token/generate](./endpoints/post-token-generate.md) endpoint contains a new additional property: `refresh_response_key`. 
+- The JSON response from the [POST /token/generate](./endpoints/post-token-generate.md) endpoint contains a new property: `refresh_response_key`. 
   - If you are using the UID2 SDK (regardless of the version), you must pass this key to the `init()` function of the SDK along with other response properties. 
-  - If you are not using the SDK and are storing the response data in a custom storage (for example, a database or a custom first-party cookie), you must update the storage to store the refresh response key. 
+  - If you are not using the SDK and are storing the response data in custom storage (for example, a database or a custom first-party cookie), you must update the storage to store the refresh response key. 
   - No updates are required for any existing sessions that store refresh tokens returned by the v1 [GET /token/refresh](../v1/endpoints/get-token-refresh.md) endpoint and do not have a corresponding refresh response key. These sessions will continue working as is.
 
 #### Upgrade Token Refresh Calls
 
 >NOTE: If you are using the UID2 SDK to refresh and manage tokens, no further action is required. 
 
-If you perform refresh tokens either on server or on client side without using the [UID2 SDK](./sdks/client-side-identity.md), keep in mind the following, when making requests to the v2 [POST /token/refresh](./endpoints/post-token-refresh.md) endpoint:
+If you refresh tokens either on server or on client side without using the [UID2 SDK](./sdks/client-side-identity.md), keep in mind the following, when making requests to the v2 [POST /token/refresh](./endpoints/post-token-refresh.md) endpoint:
 
  - You can pass the returned refresh token without any modifications in the request body.
  - Refresh tokens returned by the v2 endpoints are expected to have a `refresh_response_key` value returned together with the refresh token. This key is required for [decrypting the response](./encryption-decryption.md). 
- - If the response contains a new refresh token, you must save it along with corresponding `refresh_response_key` value into the user's identity storage (for example, a database or a custom first-party cookie). 
+ - If the response contains a new refresh token, you must save it along with the corresponding `refresh_response_key` value into the user's identity storage (for example, a database or a custom first-party cookie). 
  - Refresh tokens returned by the v1 endpoints do not have the associated `refresh_response_key`, so the response will not be encrypted.
 
 ## Advertiser and Data Provider Upgrade Workflow
@@ -121,7 +122,7 @@ To upgrade to the UID API v2, replace calls to the following v1 endpoints with t
 | v1 Endpoint | v2 Endpoint | Comments |
 | :--- |:--- |:--- |
 |[GET /identity/buckets](../v1/endpoints/get-identity-buckets.md) | [POST /identity/buckets](./endpoints/post-identity-buckets.md) |The HTTP request type has changed. |
-|[POST /identity/map](../v1/endpoints/post-identity-map.md) | [POST /identity/map](./endpoints/post-identity-map.md)| The same [restrictions on batch size and request parallelization](./endpoints/post-identity-map.md#batch-size-and-request-parallelization-requirements) apply. |
+|[POST /identity/map](../v1/endpoints/post-identity-map.md) | [POST /identity/map](./endpoints/post-identity-map.md)| The v2 endpoint maps PII for single users (new functionality) as well as multiple ones. |
 |[GET /identity/map](../v1/endpoints/get-identity-map.md) |[POST /identity/map](./endpoints/post-identity-map.md) |The HTTP request type has changed.<br/>The new POST endpoint maps PII for single and multiple users. |
 
 >IMPORTANT: Performing calls to the UID2 API v2 requires encrypting the POST request body and decrypting the response. For details and examples, see [Encrypting Requests and Decrypting Responses](./encryption-decryption.md).
