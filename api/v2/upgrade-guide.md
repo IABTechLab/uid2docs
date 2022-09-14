@@ -122,7 +122,7 @@ To upgrade to the UID API v2, replace calls to the following v1 endpoints with t
 | v1 Endpoint | v2 Endpoint | Comments |
 | :--- |:--- |:--- |
 |[GET /identity/buckets](../v1/endpoints/get-identity-buckets.md) | [POST /identity/buckets](./endpoints/post-identity-buckets.md) |The HTTP request type has changed. |
-|[POST /identity/map](../v1/endpoints/post-identity-map.md) | [POST /identity/map](./endpoints/post-identity-map.md)| The v2 endpoint maps PII for single users (new functionality) as well as multiple ones. |
+|[POST /identity/map](../v1/endpoints/post-identity-map.md) | [POST /identity/map](./endpoints/post-identity-map.md)| The v2 endpoint is identical to the v1 endpoint, except it also maps PII for single users. |
 |[GET /identity/map](../v1/endpoints/get-identity-map.md) |[POST /identity/map](./endpoints/post-identity-map.md) |The HTTP request type has changed.<br/>The new POST endpoint maps PII for single and multiple users. |
 
 >IMPORTANT: Performing calls to the UID2 API v2 requires encrypting the POST request body and decrypting the response. For details and examples, see [Encrypting Requests and Decrypting Responses](./encryption-decryption.md).
@@ -144,7 +144,7 @@ Any time, but be sure to complete it by March 31, 2023.
 
 ### Can I continue using the v1 API and API keys?
 
-Yes. The v1 endpoints will be supported until March 31, 2023. After that date, all deprecated v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be removed. Previously issued client API keys will continue working with v1 endpoints and will be required for v2 endpoints.
+Yes. The v1 endpoints will be supported until March 31, 2023. After that date, all deprecated v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be removed. Previously issued client API keys will be required for the v2 endpoints and will continue working with the v1 endpoints until their removal.
 
 ### How do I obtain a client secret key for the new API?
 
