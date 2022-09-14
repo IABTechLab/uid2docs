@@ -27,7 +27,7 @@ To get access to UID2, contact the appropriate team at The Trade Desk listed bel
 
 Currently, there are two versions of the UID2 APIs: [UID2 API v1](./v1/README.md) and [UID2 API v2](./v2/README.md). 
 
->IMPORTANT: The v1 UID2 API has been deprecated and will be supported only for the current users until March 31, 2023, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be removed. Be sure to upgrade to the v2 UID2 API by March 31, 2023. If you are new to the framework, use the UID2 API v2.
+>IMPORTANT: The v1 UID2 API has been deprecated and will be supported only for the current users until March 31, 2023, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be removed. Be sure to [upgrade to the v2 UID2 API](../api/v2/upgrade-guide.md) by March 31, 2023. If you are new to the framework, use the [UID2 API v2](../api/v2/README.md).
 
 
 ## Email Address Normalization
