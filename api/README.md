@@ -27,7 +27,7 @@ To get access to UID2, contact the appropriate team at The Trade Desk listed bel
 
 Currently, there are two versions of the UID2 APIs: [UID2 API v1](./v1/README.md) and [UID2 API v2](./v2/README.md). 
 
->IMPORTANT: The v1 API is supported only for the current users. If you are new to UID2, use the v2 API, which provides E2E content protection. 
+>IMPORTANT: The v1 UID2 API is supported only for the current users until March 31, 2023. If you are new to UID2, use the v2 API, which provides E2E content protection. 
 
 
 ## Email Address Normalization
