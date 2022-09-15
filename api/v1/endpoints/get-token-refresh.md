@@ -1,6 +1,9 @@
 [UID2 API Documentation](../../README.md) > [v1](../README.md) > [Endpoints](./README.md) > GET /token/refresh
 
-# GET /token/refresh
+# GET /token/refresh (Deprecated)
+
+>IMPORTANT: The v1 UID2 API has been deprecated and will be supported only for the current users until March 31, 2023, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be removed. Be sure to [upgrade to the v2 UID2 API](../../v2/upgrade-guide.md) by March 31, 2023. If you are new to the framework, use the [UID2 API v2](../../v2/README.md).
+
 Generate a new token for a user by specifying their refresh token issued by using the [GET /token/generate](./get-token-generate.md) endpoint.
 
 >NOTE: This endpoint can be called from the client side (for example, a browser or a mobile app) because it does not require using an API key.
