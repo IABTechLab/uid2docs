@@ -1,6 +1,8 @@
 [UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > Publisher Integration Guide
 
-# UID2 SDK Integration Guide
+# UID2 SDK Integration Guide (Deprecated)
+
+>IMPORTANT: The UID2 API v1 has been deprecated and will be supported only for the current users until March 31, 2023, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be removed. Be sure to [upgrade to the UID2 API v2](../../v2/upgrade-guide.md) by March 31, 2023. If you are new to the framework, use the [UID2 API v2](../../v2/README.md).
 
 >NOTE: This guide is intended for the UID2 SDK [version 1](../sdks/client-side-identity-v1.md). For the *Integration Guide* using the [previous version](../sdks/client-side-identity-v0.md) of the UID2 SDK, see [Publisher Integration Guide (Standard)](./publisher-client-side-v0.md).
 
