@@ -1,6 +1,8 @@
 [UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > Publisher Integration Guide
 
-# UID2 SDK Integration Guide
+# UID2 SDK Integration Guide (Deprecated)
+
+>IMPORTANT: The UID2 API v1 has been deprecated and will be supported only for the current users until March 31, 2023, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be removed. Be sure to [upgrade to the UID2 API v2](../../v2/upgrade-guide.md) by March 31, 2023. If you are new to the framework, use the [UID2 API v2](../../v2/README.md).
 
 >NOTE: This guide is intended for the UID2 SDK [version 1](../sdks/client-side-identity-v1.md). For the *Integration Guide* using the [previous version](../sdks/client-side-identity-v0.md) of the UID2 SDK, see [Publisher Integration Guide (Standard)](./publisher-client-side-v0.md).
 
@@ -8,7 +10,6 @@ This guide is intended for publishers with web assets who would like to generate
 
 The guide outlines the [basic steps](#integration-steps) that you need to consider for your integration. For example, you need to decide how to implement user login and logout, how to manage UID2 identity information and use it for targeted advertising, how to refresh tokens, deal with missing identities, and handle user opt-outs. See also [FAQs](#faqs).
 
-To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md), also known as the UID2 SDK. Here's an [example application](https://example-jssdk-integ.uidapi.com/) that illustrates the integration steps described in this guide and the usage of the SDK (currently only for email addresses). For the application documentation, see [UID2 SDK Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/standard/README.md).
 
 >IMPORTANT: The UID2 SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the [UID2 SDK APIs](../sdks/client-side-identity-v1.md#api-reference) for your identity management.
 

@@ -64,10 +64,10 @@ Even though each salt bucket is updated roughly once a year, individual bucket u
 ### How should I generate the SHA256 of PII for mapping?
 The system should follow the [email normalization rules](../../README.md#email-address-normalization) and hash without salting.
 
-### Should I store large volumes of email address or email address hash mappings? 
-Yes. Not storing email address or hash mappings may increase processing time drastically when you have to map millions of addresses. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily.
+### Should I store large volumes of email address, phone number, or their hash mappings? 
+Yes. Not storing mappings may increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily.
 
->IMPORTANT: Unless you are using a private operator, you must map email addresses or hashes consecutively, using a single HTTP connection, in batches of 5-10K emails at a time. In other words, do your mapping without creating multiple parallel connections. 
+>IMPORTANT: Unless you are using a private operator, you must map email addresses, phone numbers, or hashes consecutively, using a single HTTP connection, in batches of 5,000 emails at a time. In other words, do your mapping without creating multiple parallel connections. 
 
 ### How should I handle user optouts?
 When a user opts out of UID2-based targeted advertising through the [Transparency and Control Portal](https://www.transparentadvertising.org/), the optout signal is sent to DSPs and publishers, which handle optouts at bid time. As an advertiser or data provider, you do not need to check for UID2 optout in this scenario.

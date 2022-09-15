@@ -2,12 +2,16 @@
 
 # POST /identity/map
 
-Map multiple email addresses, phone numbers, or respective hashes to their UID2s and salt bucket IDs. This endpoint is intended for use by [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md).
+Map multiple email addresses, phone numbers, or respective hashes to their UID2s and salt bucket IDs. This endpoint is intended for use by [advertisers and data providers](../guides/advertiser-dataprovider-guide.md).
+
+## Batch Size and Request Parallelization Requirements
 
 Here's what you need to know:
+
 - The maximum request size is 1MB. 
 - To map a large number of email addresses, phone numbers, or respective hashes, send them in *sequential* batches with a maximum batch size of 5,000 items per batch.
-- Do not send batches in parallel.
+- Unless you are using a private operator, do not send batches in parallel. In other words, use a single HTTP connection and map PII consecutively.
+- Be sure to store mappings of email addresses, phone numbers, or respective hashes.<br>Not storing mappings may increase processing time drastically when you have to map millions of emails addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily. See also [Advertiser/Data Provider Integration Guide and FAQs](../guides/advertiser-dataprovider-guide.md).
 
 
 ## Request Format
