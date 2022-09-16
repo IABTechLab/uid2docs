@@ -7,8 +7,6 @@
 >NOTE: This documentation is for version 1 of the SDK. For the previous version, see [SDK version 0](./client-side-identity-v0.md).
 
 Use this UID2 SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). 
-- For integration steps for content publishers, see [UID2 SDK Integration Guide](../guides/publisher-client-side.md). 
-- For an [example application](https://example-jssdk-integ.uidapi.com/) documentation, see [UID2 SDK Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/standard/README.md).
 
 >NOTE: Within this documentation, the term "identity" refers to a package of UID2 tokens, including the advertising token.
 
