@@ -272,6 +272,4 @@ the recommended machine type that matches the production configuration.
 
 ## Upgrading
 
-An email notification will be sent to private operators with an update window. After this window, the old version will be deactivated, and operators on this version will stop functioning.
-This email will include a new cloud-init with the latest version in it. To upgrade you will just need to deploy this cloud-init in the same manor as your orginal operator.
-
+For each operator version update, private operators receive an email notification with an upgrade window, after which the old version is deactivated and no longer supported. To upgrade to the latest version, deploy the new cloud-init provided in the email in the same manner as the original operator.

@@ -217,8 +217,7 @@ To create a target group when [creating a load balancer](#creating-a-load-balanc
 
 ## Upgrading UID2 Operator
 
-
-An email notification will be sent to private operators with an update window. After this window, the old version will be deactivated, and operators on this version will stop functioning.
+For each operator version update, private operators receive an email notification with an upgrade window, after which the old version is deactivated and no longer supported.
 
 Here's what you need to know about upgrading:
 
