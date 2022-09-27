@@ -69,7 +69,7 @@ Before you start the upgrade, be sure to review the following requirements:
 
 [UID2 SDK v2](./sdks/client-side-identity.md)は、[UID2 SDK v1](../v1/sdks/client-side-identity-v1.md) との互換性を保った交換部品（a drop-in replacement）で、そのまま置き換えることができるものです。以下は、その内容です:
 
-- ユーーの ID を保存するために使用されるファーストパーティーのクッキーは、2 つのバージョンの SDK 間で完全に相互運用可能です。つまり、UID2 SDK v2 は v1 の Cookie を読み取ることができ、その逆も同様です。
+- ユーザーの ID を保存するために使用されるファーストパーティーのクッキーは、2 つのバージョンの SDK 間で完全に相互運用可能です。つまり、UID2 SDK v2 は v1 の Cookie を読み取ることができ、その逆も同様です。
 - [v2 SDK init() function](./sdks/client-side-identity.md#initopts-object-void) は、v1 の [GET /token/generate](../v1/endpoints/get-token-generate.md) エンドポイントから返された ID オブジェクトを受け取ります。
 - [v1 SDK init() function](../v1/sdks/client-side-identity.md#initopts-object-void) は、v2 [POST /token/generate](./endpoints/post-token-generate.md) エンドポイントから返された ID オブジェクトを受け付けます。
 
@@ -95,9 +95,15 @@ UID API v2 へのアップグレードは、以下の手順で行います。
 To upgrade to the UID API v2, complete the following steps:
 ```
 
+1. [UID2 SDK をアップグレードします](#upgrade-the-uid2-sdk).
+1. [トークン生成エンドポイントへの呼び出しをアップグレードします](#upgrade-token-generation-calls).
+1. (カスタムインテグレーションのみ必要です) [トークンリフレッシュエンドポイントの呼び出しをアップグレードします](#upgrade-token-refresh-calls).
+
+```
 1. [Upgrade the UID2 SDK](#upgrade-the-uid2-sdk).
 1. [Upgrade calls to the token generate endpoint](#upgrade-token-generation-calls).
 1. (Required only for custom integrations) [Upgrade calls to the token refresh endpoint](#upgrade-token-refresh-calls).
+```
 
 #### Upgrade the UID2 SDK
 
