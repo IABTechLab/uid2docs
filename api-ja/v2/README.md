@@ -4,7 +4,6 @@ UID2 の定義、形式、指針、構成要素、その他の概念的な詳細
 
 このページでは、UID2 API v2 を使い始めるために必要な以下の情報を提供します:
 
-- [Improvements and Changes from Version 1（バージョン 1 からの改善点・変更点）](#improvements-and-changes-from-version-1)
 - [UID2 API v1 Compatibility and Upgrade Requirements（UID2 API v1 の互換性とアップグレードの要件）](#uid2-api-v1-compatibility-and-upgrade-requirements)
 - [Environments（環境）](#environments)
 - [Authentication and Authorization（認証と承認）](#authentication-and-authorization)
@@ -18,22 +17,14 @@ API の使用方法については、以下のページを参照してくださ�
 | [Integration Guides](./guides/README.md)                                   | パブリッシャー、DSP、広告主、データプロバイダーなどの UID2 参加者、および Microsoft Azure、AWS、Snowflake などの Operator Enterprise Partner 向けの UID2 インテグレーション・ワークフローです。 |
 | [SDKs](./sdks/README.md)                                                   | Web サイト用 Client-side JavaScript SDK と RTB SDK です。                                                                                                                                       |
 
-## Improvements and Changes from Version 1
-
-UID2 API の v2 アップデートは以下の通りです:
-
-- [アプリケーション API レイヤの暗号化](./encryption-decryption.md) は、E2E コンテンツ保護を提供し、UID2 の機密情報がネットワーク事業者や UID2 サービス事業者に漏洩することを防ぎます。
-- [認証](#authentication-and-authorization) のためのクライアント API キーに加え、API リクエストの暗号化および API レスポンスの復号化にクライアントシークレットが必要になりました。
-- クエリパラメータは不要になりました。新しい POST メソッドは、入力パラメータを JSON 形式のリクエストボディとして受け取ります。
-- パラメータ値の URL エンコーディングは必要ありません。
-- [POST /identity/map](./endpoints/post-identity-map.md) エンドポイントは、1 つまたは複数のメールアドレス、電話番号、またはそれぞれのハッシュに対する UID2 とソルトバケット ID を取得するようになりました。
+API バージョン 1 からの改善点・変更点の一覧は、[UID2 API v1→v2 アップグレードガイド](./upgrade-guide.md) を参照してください。
 
 ## UID2 API v1 Compatibility and Upgrade Requirements
 
 ここでは、UID2 API v2 と v1 の互換性について説明します:
 
-- UID2 API v2 は UID2 API v1 と互換性がないため、アップグレードが必要です。(アップグレードガイドは近日公開予定です)。
-- v1 エンドポイントは、移行プロセスが完了するまでサポートされ、適切な通知が適時に発行されます。
+- UID2 API v2 は UID2 API v1 と互換性がないため、[アップグレード](./upgrade-guide.md) が必要です。
+- v1 エンドポイントは、**2023 年 3 月 31 日**までサポートされます。その後、すべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびすべての未バージョンエンドポイントは、非推奨となり削除されます。
 - 以前に発行されたクライアント API キーは、v1 エンドポイントで引き続き機能し、v2 エンドポイントで必要になります。
 - v2 エンドポイントを使用するには、[API リクエストの暗号化と API レスポンスの復号化](./encryption-decryption.md) にクライアントシークレットが必要です。
 

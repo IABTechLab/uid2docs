@@ -1,6 +1,8 @@
 [UID2 API Documentation](../../README.md) > [v1](../README.md) > [Endpoints](./README.md) > POST /identity/map
 
-# POST /identity/map
+# POST /identity/map (Deprecated)
+
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../../v2/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
 
 複数のメールアドレスや電話番号、それぞれのハッシュを、UID2 やソルトバケット ID にマッピングします。このエンドポイントは [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md) による利用を対象としています。
 

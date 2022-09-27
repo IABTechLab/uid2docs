@@ -28,7 +28,7 @@ UID2 へのアクセスは、以下の The Trade Desk 担当者までご連絡�
 
 現在、UID2 API のバージョンは 2 つあります。[UID2 API v1](./v1/README.md) と [UID2 API v2](./v2/README.md) です。
 
-> IMPORTANT: v1 API は、現在のユーザーに対してのみサポートされています。UID2 を初めて使用する場合は、E2E コンテンツ保護を提供する v2 API を使用してください。
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(./v2/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](./v2/README.md) をご利用ください。
 
 ## Authentication
 

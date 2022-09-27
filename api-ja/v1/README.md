@@ -1,4 +1,6 @@
-# UID2 API v1 Documentation
+# UID2 API v1 (Deprecated)
+
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../v2/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../v2/README.md) をご利用ください。
 
 UID2 の定義、形式、指針、構成要素、その他の概念的な詳細については、 [UID2 概要](../../README-ja.md) を参照してください。連絡先やライセンス情報、正規化やハッシュエンコーディングの規則については、[Unified ID 2.0 API Documentation](../README.md) を参照してください。API v2 の詳細については、[UID2 API v2 Documentation](../v2/README.md) を参照してください。
 
@@ -10,11 +12,11 @@ UID2 の定義、形式、指針、構成要素、その他の概念的な詳細
 
 v1 UID2 API の使用方法については、以下のページを参照してください。
 
-| Documentation                            | Content Description                                                                                                                                                                              |
-| :--------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Endpoints](./endpoints/README.md)       | ID トークンを管理し、メールアドレス、電話番号、ハッシュを UID2 と UID2 を生成するために使用したソルトバケット ID に対応付けるための API リファレンスです。                                       |
+| Documentation                            | Content Description                                                                                                                                                                             |
+| :--------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Endpoints](./endpoints/README.md)       | ID トークンを管理し、メールアドレス、電話番号、ハッシュを UID2 と UID2 を生成するために使用したソルトバケット ID に対応付けるための API リファレンスです。                                      |
 | [Integration Guides](./guides/README.md) | パブリッシャー、DSP、広告主、データプロバイダーなどの UID2 メンバー、および Microsoft Azure、AWS、Snowflake などの Operator Enterprise Partner 向けの UID2 インテグレーションワークフローです。 |
-| [SDKs](./sdks/README.md)                 | Web サイト用 Client-side JavaScript SDK と RTB SDK です。                                                                                                                                            |
+| [SDKs](./sdks/README.md)                 | Web サイト用 Client-side JavaScript SDK と RTB SDK です。                                                                                                                                       |
 
 ## Environment
 
