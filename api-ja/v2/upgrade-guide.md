@@ -118,7 +118,7 @@ UID2 API v2 へのアップグレードについて知っておくべきこと�
 
 - 単一ユーザーの PII を UID2 にマッピングする v1 [GET /identity/map](../v1/endpoints/get-identity-map.md) エンドポイントは、単一および複数ユーザーの PII をマッピングする v2 [POST /identity/map](./endpoints/post-identity-map.md) エンドポイントと交換されています。
 - v2 [POST /identity/map](./endpoints/post-identity-map.md) および [POST /identity/buckets](./endpoints/post-identity-buckets.md) エンドポイントが返す UID2 とバケット ID は、対応する v1 エンドポイントが返すものと同じものです。
-- Snowflake インテグレーション](./sdks/snowflake_integration.md)は、UID2 v2 API へのアップグレードの影響を受けないので、変更は必要ありません。
+- [Snowflake インテグレーション](./sdks/snowflake_integration.md) は、UID2 v2 API へのアップグレードの影響を受けないので、変更は必要ありません。
 
 ### Upgrade Steps for Advertisers and Data Providers
 
@@ -140,7 +140,7 @@ UID2 API v2 は UID2 API v1 とは互換性がないため、アップグレー�
 
 ### 旧 API と新 API の主な違いは何ですか？
 
-詳しくは、[Improvements and Changes from Version 1](#improvements-and-changes-from-version-1) を参照してください。
+詳しくは、[バージョン 1 からの改善点・変更点](#improvements-and-changes-from-version-1) を参照してください。
 
 ### アップグレードはいつからできますか？
 
@@ -152,7 +152,7 @@ UID2 API v2 は UID2 API v1 とは互換性がないため、アップグレー�
 
 ### 新しい API のクライアントシークレットキーはどのように入手できますか？
 
-秘密鍵を入手するには、[UID2 管理者に連絡してください](../README.md#contact-info)。[Prerequisites and Timeline](#prerequisites-and-timeline)も参照してください。
+秘密鍵を入手するには、[UID2 管理者に連絡](../README.md#contact-info) してください。[前提条件とスケジュール](#prerequisites-and-timeline)も参照してください。
 
 ### リクエストを暗号化し、レスポンスを復号化するにはどうしたらいいですか？
 
