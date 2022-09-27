@@ -8,18 +8,18 @@
 This guide outlines the differences between the UID2 v1 and v2 APIs and explains how to upgrade to the v2 API.
 ```
 
-- [Improvements and Changes from Version 1](#improvements-and-changes-from-version-1)
-- [Prerequisites and Timeline](#prerequisites-and-timeline)
-- [Publisher Upgrade Workflow](#publisher-upgrade-workflow)
-- [Advertiser and Data Provider Upgrade Workflow](#advertiser-and-data-provider-upgrade-workflow)
+- [Improvements and Changes from Version 1（バージョン 1 からの改善点・変更点）](#improvements-and-changes-from-version-1)
+- [Prerequisites and Timeline（前提条件とスケジュール）](#prerequisites-and-timeline)
+- [Publisher Upgrade Workflow（パブリッシャーアップグレードのワークフロー）](#publisher-upgrade-workflow)
+- [Advertiser and Data Provider Upgrade Workflow（広告主およびデータプロバイダーのアップグレードワークフロー）](#advertiser-and-data-provider-upgrade-workflow)
 - [FAQs](#faqs)
 
 ## Improvements and Changes from Version 1
 
 UID2 API の v2 アップデートは以下の通りです:
 
-- [Application API layer encryption](./encryption-decryption.md) が追加されました。これは E2E のコンテンツ保護と、UID2 の機密情報がネットワーク事業者や UID2 サービス事業者に漏れることを防ぎます。<br>これにより、v2 エンドポイントへの呼び出しを実行するには、POST リクエストボディの暗号化とレスポンスの復号化が必要になります。
-- [authentication](./README.md#authentication-and-authorization) のためのクライアント API キーに加え、API リクエストの暗号化および API レスポンスの復号化のためにクライアントシークレットが必要になりました。
+- [アプリケーション API 層の暗号化](./encryption-decryption.md) が追加されました。これは E2E のコンテンツ保護と、UID2 の機密情報がネットワーク事業者や UID2 サービス事業者に漏れることを防ぎます。<br>これにより、v2 エンドポイントへの呼び出しを実行するには、POST リクエストボディの暗号化とレスポンスの復号化が必要になります。
+- [認証](./README.md#authentication-and-authorization) のためのクライアント API キーに加え、API リクエストの暗号化および API レスポンスの復号化のためにクライアントシークレットが必要になりました。
 - [UID2 API v1](../v1/endpoints/README.md) のすべての GET エンドポイントの HTTP リクエストタイプが、[UID2 API v2](./endpoints/README.md) では GET から POST に変更されました。
 - リクエストにクエリパラメータが不要になりました。新しい POST メソッドは、入力パラメータを JSON 形式のリクエストボディとして受け取ります。
 - パラメータ値の URL エンコーディングは必要ありません。
@@ -56,8 +56,8 @@ Before you start the upgrade, be sure to review the following requirements:
 
 ## Publisher Upgrade Workflow
 
-- [Backward Compatibility](#backward-compatibility-for-publishers)
-- [Upgrade Steps](#upgrade-steps-for-publishers)
+- [Backward Compatibility（後方互換性）](#backward-compatibility-for-publishers)
+- [Upgrade Steps（アップグレードステップ）](#upgrade-steps-for-publishers)
 
 ### Backward Compatibility for Publishers
 
@@ -189,8 +189,8 @@ If you refresh tokens either on server or on client side without using the [UID2
 
 ## Advertiser and Data Provider Upgrade Workflow
 
-- [Backward Compatibility](#backward-compatibility-for-advertisers-and-data-providers)
-- [Upgrade Steps](#upgrade-steps-for-advertisers-and-data-providers)
+- [Backward Compatibility（後方互換性）](#backward-compatibility-for-advertisers-and-data-providers)
+- [Upgrade Steps（アップグレードステップ）](#upgrade-steps-for-advertisers-and-data-providers)
 
 ### Backward Compatibility for Advertisers and Data Providers
 
@@ -217,6 +217,8 @@ UID API v2 にアップグレードするには、以下の v1 エンドポイ�
 | [GET /identity/buckets](../v1/endpoints/get-identity-buckets.md) | [POST /identity/buckets](./endpoints/post-identity-buckets.md) | HTTP リクエストの種類が変更されました。                                                                                               |
 | [POST /identity/map](../v1/endpoints/post-identity-map.md)       | [POST /identity/map](./endpoints/post-identity-map.md)         | v2 エンドポイントは、シングルユーザーの PII もマッピングする以外は、v1 エンドポイントと同じです。                                     |
 | [GET /identity/map](../v1/endpoints/get-identity-map.md)         | [POST /identity/map](./endpoints/post-identity-map.md)         | HTTP リクエストタイプが変更されました。<br/>新しい POST エンドポイントでは、単一ユーザーおよび複数ユーザーの PII をマッピングします。 |
+
+> IMPORTANT: UID2 API v2 の呼び出しを行うには、POST リクエストボディを暗号化し、レスポンスを復号化する必要があります。詳細および例については、[リクエストの暗号化とレスポンスの復号化](./encryption-decryption.md) を参照してください。
 
 ```
 To upgrade to the UID API v2, replace calls to the following v1 endpoints with the corresponding v2 endpoints.
@@ -254,7 +256,7 @@ UID2 API v2 は UID2 API v1 とは互換性がないため、アップグレー�
 
 ### リクエストを暗号化し、レスポンスを復号化するにはどうしたらいいですか？
 
-リ[Encrypting Requests and Decrypting Responses](./encryption-decryption.md) ページでワークフローを説明し、Python での例を示しています。
+[リクエストの暗号化とレスポンスの復号化](./encryption-decryption.md) ページでワークフローを説明し、Python での例を示しています。
 
 ### Do I have to do the upgrade?
 
