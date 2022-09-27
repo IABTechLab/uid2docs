@@ -4,7 +4,7 @@
 
 このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を利用した ID トークンを生成したいと考えるアプリ開発者や CTV 放送局を対象としています。
 
-このガイドでは、カスタムインテグレーションで考慮すべき [基本的な手順](#integration-steps) を概説しています。たとえば、ユーザのログインとログアウトをどのように実装するか、UID2 ID 情報をどのように管理しターゲティング広告に使用するか、トークンを更新する方法、ID が見つからない場合の対処、ユーザーのオプトアウトを処理する方法などを決定する必要があります。ワークフローを示す [サンプルアプリケーション](https://example-srvonly-integ.uidapi.com/) はこちらです。アプリケーションのドキュメントについては、[Server-Only UID2 Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/server_only/README.md)を参照してください。[FAQ](#faqs)も参照してください。
+このガイドでは、カスタムインテグレーションで考慮すべき [基本的な手順](#integration-steps) を概説しています。たとえば、ユーザーのログインとログアウトをどのように実装するか、UID2 ID 情報をどのように管理しターゲティング広告に使用するか、トークンを更新する方法、ID が見つからない場合の対処、ユーザーのオプトアウトを処理する方法などを決定する必要があります。ワークフローを示す [サンプルアプリケーション](https://example-srvonly-integ.uidapi.com/) はこちらです。アプリケーションのドキュメントについては、[Server-Only UID2 Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/server_only/README.md)を参照してください。[FAQ](#faqs)も参照してください。
 
 > TIP: UID2 を使ったクライアント ID の確立と Advertising Token の取得を容易にするために、[Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md) を使用することを検討してください。詳しくは、[UID2 SDK Integration Guide](./publisher-client-side.md) を参照してください。
 
@@ -93,7 +93,7 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 
 | Step | Endpoint                                                  | Description                                                                                                                                                                                                          |
 | :--- | :-------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 3-a  | N/A                                                       | ユーザがアセットに戻り、再びアクティブになったとき、ID トークンをリフレッシュしてから、SSP に送信します。                                                                                                            |
+| 3-a  | N/A                                                       | ユーザーがアセットに戻り、再びアクティブになったとき、ID トークンをリフレッシュしてから、SSP に送信します。                                                                                                          |
 | 3-b  | [POST /token/refresh](../endpoints/post-token-refresh.md) | ステップ [1-e](#establish-identity) で取得した `refresh_token` をクエリパラメータとして送信します。                                                                                                                  |
 | 3-c  | [POST /token/refresh](../endpoints/post-token-refresh.md) | UID2 Service は、オプトアウトしていないユーザーに対して新しい ID トークンを発行します。                                                                                                                              |
 | 3-d  | N/A                                                       | 返された `advertising_token` と `refresh_token` は、ユーザーに紐づくストレージに保存します。ファーストパーティクッキーのようなクライアントサイドのストレージや、サーバーサイドのストレージを検討するとよいでしょう。 |
@@ -153,4 +153,4 @@ UID2 Service では、ランダムな初期化ベクトルを使用してトー�
    - `phone` の値として `+00000000000` を指定します。
    - `phone_hash` 値として `+00000000000` のハッシュを指定します。
 2. 返された `refresh_token` を次のステップで使用するために保存します。
-3. (ステップ 2 で保存した) `refresh_token` を `token` 値として [POST /token/refresh](../endpoints/post-token-refresh.md) リクエストを送信します。<br/>レスポンスボディは空で、`optout@email.com` というメールアドレスと `+00000000000` という電話番号は常にログアウトしたユーザとなるため、`status` 値に `optout` が設定されていなければなりません。
+3. (ステップ 2 で保存した) `refresh_token` を `token` 値として [POST /token/refresh](../endpoints/post-token-refresh.md) リクエストを送信します。<br/>レスポンスボディは空で、`optout@email.com` というメールアドレスと `+00000000000` という電話番号は常にログアウトしたユーザーとなるため、`status` 値に `optout` が設定されていなければなりません。

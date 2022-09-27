@@ -69,7 +69,7 @@ Before you start the upgrade, be sure to review the following requirements:
 
 [UID2 SDK v2](./sdks/client-side-identity.md)は、[UID2 SDK v1](../v1/sdks/client-side-identity-v1.md) との互換性を保った交換部品（a drop-in replacement）で、そのまま置き換えることができるものです。以下は、その内容です:
 
-- ユーザの ID を保存するために使用されるファーストパーティーのクッキーは、2 つのバージョンの SDK 間で完全に相互運用可能です。つまり、UID2 SDK v2 は v1 の Cookie を読み取ることができ、その逆も同様です。
+- ユーーの ID を保存するために使用されるファーストパーティーのクッキーは、2 つのバージョンの SDK 間で完全に相互運用可能です。つまり、UID2 SDK v2 は v1 の Cookie を読み取ることができ、その逆も同様です。
 - [v2 SDK init() function](./sdks/client-side-identity.md#initopts-object-void) は、v1 の [GET /token/generate](../v1/endpoints/get-token-generate.md) エンドポイントから返された ID オブジェクトを受け取ります。
 - [v1 SDK init() function](../v1/sdks/client-side-identity.md#initopts-object-void) は、v2 [POST /token/generate](./endpoints/post-token-generate.md) エンドポイントから返された ID オブジェクトを受け付けます。
 
@@ -167,7 +167,7 @@ Here's what you need to know and do:
 
 - 返されたリフレッシュトークンは、リクエストボディに何も修正せずに渡すことができます。
 - v2 エンドポイントから返されるリフレッシュトークンは、リフレッシュトークンと一緒に `refresh_response_key` 値が返されることが期待されています。このキーは [レスポンスの復号化](./encryption-decryption.md) のために必要とされます。
-- レスポンスに新しいリフレッシュトークンが含まれている場合、対応する `refresh_response_key` 値とともに、ユーザのアイデンティティストレージ (たとえば、データベースやカスタムファーストパーティクッキー) に保存する必要があります。
+- レスポンスに新しいリフレッシュトークンが含まれている場合、対応する `refresh_response_key` 値とともに、ユーザーのアイデンティティストレージ (たとえば、データベースやカスタムファーストパーティクッキー) に保存する必要があります。
 - v1 のエンドポイントから返されるリフレッシュトークンは、関連する `refresh_response_key` を持たないので、レスポンスは暗号化されません。
 
 ```
@@ -190,7 +190,7 @@ If you refresh tokens either on server or on client side without using the [UID2
 
 UID2 API v2 へのアップグレードについて知っておくべきことは、以下のとおりです:
 
-- 単一ユーザの PII を UID2 にマッピングする v1 [GET /identity/map](../v1/endpoints/get-identity-map.md) エンドポイントは、単一および複数ユーザーの PII をマッピングする v2 [POST /identity/map](./endpoints/post-identity-map.md) エンドポイントと交換されています。
+- 単一ユーザーの PII を UID2 にマッピングする v1 [GET /identity/map](../v1/endpoints/get-identity-map.md) エンドポイントは、単一および複数ユーザーの PII をマッピングする v2 [POST /identity/map](./endpoints/post-identity-map.md) エンドポイントと交換されています。
 - v2 [POST /identity/map](./endpoints/post-identity-map.md) および [POST /identity/buckets](./endpoints/post-identity-buckets.md) エンドポイントが返す UID2 とバケット ID は、対応する v1 エンドポイントが返すものと同じものです。
 - Snowflake インテグレーション](./sdks/snowflake_integration.md)は、UID2 v2 API へのアップグレードの影響を受けないので、変更は必要ありません。
 
@@ -206,11 +206,11 @@ Here's what you need to know about upgrading to the UID2 API v2:
 
 UID API v2 にアップグレードするには、以下の v1 エンドポイントへの呼び出しを、対応する v2 エンドポイントに置き換えます。
 
-| v1 Endpoint                                                      | v2 Endpoint                                                    | Comments                                                                                                                          |
-| :--------------------------------------------------------------- | :------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| [GET /identity/buckets](../v1/endpoints/get-identity-buckets.md) | [POST /identity/buckets](./endpoints/post-identity-buckets.md) | HTTP リクエストの種類が変更されました。                                                                                           |
-| [POST /identity/map](../v1/endpoints/post-identity-map.md)       | [POST /identity/map](./endpoints/post-identity-map.md)         | v2 エンドポイントは、シングルユーザーの PII もマッピングする以外は、v1 エンドポイントと同じです。                                 |
-| [GET /identity/map](../v1/endpoints/get-identity-map.md)         | [POST /identity/map](./endpoints/post-identity-map.md)         | HTTP リクエストタイプが変更されました。<br/>新しい POST エンドポイントでは、単一ユーザおよび複数ユーザの PII をマッピングします。 |
+| v1 Endpoint                                                      | v2 Endpoint                                                    | Comments                                                                                                                              |
+| :--------------------------------------------------------------- | :------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
+| [GET /identity/buckets](../v1/endpoints/get-identity-buckets.md) | [POST /identity/buckets](./endpoints/post-identity-buckets.md) | HTTP リクエストの種類が変更されました。                                                                                               |
+| [POST /identity/map](../v1/endpoints/post-identity-map.md)       | [POST /identity/map](./endpoints/post-identity-map.md)         | v2 エンドポイントは、シングルユーザーの PII もマッピングする以外は、v1 エンドポイントと同じです。                                     |
+| [GET /identity/map](../v1/endpoints/get-identity-map.md)         | [POST /identity/map](./endpoints/post-identity-map.md)         | HTTP リクエストタイプが変更されました。<br/>新しい POST エンドポイントでは、単一ユーザーおよび複数ユーザーの PII をマッピングします。 |
 
 ```
 To upgrade to the UID API v2, replace calls to the following v1 endpoints with the corresponding v2 endpoints.
