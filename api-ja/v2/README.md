@@ -37,6 +37,8 @@ API バージョン 1 からの改善点・変更点の一覧は、[UID2 API v1�
 | テスト環境  | AWS US East (Ohio)        | `us-east-2`      | `https://operator-integ.uidapi.com` |
 | 本番環境    | AWS US East (Ohio)        | `us-east-2`      | `https://prod.uidapi.com`           |
 | 本番環境    | AWS Asia Pacific (Sydney) | `ap-southeast-2` | `https://au.prod.uidapi.com`        |
+| 本番環境    | AWS Asia Pacific (Tokyo) | `ap-northeast-1` | `https://jp.prod.uidapi.com`        |
+| 本番環境    | AWS Asia Pacific (Singapore) | `ap-southeast-1` | `https://sg.prod.uidapi.com`    |
 
 例えば、https://operator-integ.uidapi.com/v2/token/generate
 
