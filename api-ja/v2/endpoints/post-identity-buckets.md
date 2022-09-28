@@ -2,7 +2,7 @@
 
 # POST /identity/buckets
 
-ローテーションされたソルトバケットを監視します。このエンドポイントは、[Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md) による使用を対象としています。
+ローテーションされたソルトバケットを監視します。このエンドポイントは、[広告主とデータプロバイダー](../guides/advertiser-dataprovider-guide.md) による使用を対象としています。
 
 ## Request Format
 

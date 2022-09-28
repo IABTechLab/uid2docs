@@ -1,6 +1,6 @@
 # UID2 API v2 Documentation
 
-UID2 の定義、形式、指針、構成要素、その他の概念的な詳細については、 [UID2 概要](../../README.md) を参照してください。連絡先やライセンス情報、正規化およびハッシュエンコーディングの規則については、 [Unified ID 2.0 API Documentation](../README.md) を参照してください。
+UID2 の定義、形式、指針、構成要素、その他の概念的な詳細については、 [UID2 概要](../../README-ja.md) を参照してください。連絡先やライセンス情報、正規化およびハッシュエンコーディングの規則については、 [Unified ID 2.0 API Documentation](../README.md) を参照してください。
 
 このページでは、UID2 API v2 を使い始めるために必要な以下の情報を提供します:
 
@@ -32,13 +32,13 @@ API バージョン 1 からの改善点・変更点の一覧は、[UID2 API v1�
 
 すべての UID2 エンドポイントは、同じベース URL を使用します。
 
-| Environment | Cloud Region              | Code             | Base URL                            |
-| :---------- | :------------------------ | :--------------- | :---------------------------------- |
-| テスト環境  | AWS US East (Ohio)        | `us-east-2`      | `https://operator-integ.uidapi.com` |
-| 本番環境    | AWS US East (Ohio)        | `us-east-2`      | `https://prod.uidapi.com`           |
-| 本番環境    | AWS Asia Pacific (Sydney) | `ap-southeast-2` | `https://au.prod.uidapi.com`        |
-| 本番環境    | AWS Asia Pacific (Tokyo) | `ap-northeast-1` | `https://jp.prod.uidapi.com`        |
-| 本番環境    | AWS Asia Pacific (Singapore) | `ap-southeast-1` | `https://sg.prod.uidapi.com`    |
+| Environment | Cloud Region                 | Code             | Base URL                            |
+| :---------- | :--------------------------- | :--------------- | :---------------------------------- |
+| テスト環境  | AWS US East (Ohio)           | `us-east-2`      | `https://operator-integ.uidapi.com` |
+| 本番環境    | AWS US East (Ohio)           | `us-east-2`      | `https://prod.uidapi.com`           |
+| 本番環境    | AWS Asia Pacific (Sydney)    | `ap-southeast-2` | `https://au.prod.uidapi.com`        |
+| 本番環境    | AWS Asia Pacific (Tokyo)     | `ap-northeast-1` | `https://jp.prod.uidapi.com`        |
+| 本番環境    | AWS Asia Pacific (Singapore) | `ap-southeast-1` | `https://sg.prod.uidapi.com`        |
 
 例えば、https://operator-integ.uidapi.com/v2/token/generate
 
