@@ -4,6 +4,10 @@ English | [Japanese](README-ja.md)
 This page provides the following information about the Unified ID 2.0 (UID2) framework:
 - [Introduction](#introduction)
 - [UID2 Infrastructure](#uid2-infrastructure)
+  - [UID2 Identifier Types](#uid2-identifier-types)
+  - [Components](#components)
+  - [Participants](#participants)
+  - [Workflows](#workflows)
 - [FAQs](#faqs)
 - [License](#license)
 
