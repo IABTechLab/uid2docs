@@ -79,7 +79,7 @@ The UID2 framework consists of the following components, all of which are curren
 
 ### Participants 
 
-With its transparent and interoperable approach, UID2 provides a collaborative framework for many participants across the advertising ecosystem—advertisers, publishers, DSPs, SSPs, single sign-on (SSO) providers, customer data platforms (CDPs), consent management providers (CMPs), identity providers, data providers, and measurement providers.  
+With its transparent and interoperable approach, UID2 provides a collaborative framework for many participants across the advertising ecosystem—advertisers, publishers, DSPs, SSPs, single sign-on (SSO) providers, customer data platforms (CDPs), consent management providers (CMPs), identity providers, third-party data providers, and measurement providers.  
 
 The following table lists the key participants and their roles in the UID2 [workflows](#workflows).
 
@@ -114,7 +114,7 @@ The following diagram summarizes all four workflows. For each workflow, the [par
 
 Here are some commonly asked questions regarding the UID2 framework.
 
-#### Will all integration partners in the EUID infrastructure (SSPs, data providers, measurement providers) be automatically integrated with UID2? 
+#### Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2? 
 
 No. UID2 functions as its own framework, which is separate from EUID. As such, paperwork relating to the usage and access to the EUID framework does not automatically grant usage and access to the UID2 framework. New contracts are required to be signed for UID2.
 
@@ -128,7 +128,7 @@ Some publishers and service providers have the option to limit access to their p
 
 Publishers, SSO providers, or consent management platforms disclose links to the [Transparency and Control Portal](https://transparentadvertising.org) in their login flows, consent flows, privacy policies, and by other means.
 
-#### Why do advertisers and data providers not need to integrate with the opt-out feed?
+#### Why do advertisers and third-party data providers not need to integrate with the opt-out feed?
 
 Opt-outs relate to opting out of targeted advertising, which is handled through the publisher and DSP opt-out [workflows](#workflows). To disengage from a specific advertiser, a consumer must contact the advertiser directly.
 
