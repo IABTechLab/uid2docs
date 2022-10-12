@@ -15,10 +15,10 @@ The following steps provide a high-level outline of the workflow intended for or
 
 ## Integration Requirements
 
-To generate UID2s from users' PII, third-party data providers must mee the following requirements:
+To generate UID2s from users' PII, third-party data providers must meet the following requirements:
 
 - Integrate with a UID2 Operator to generate UID2s and handle salt bucket rotations.
 - Have access to the UID2 Operator APIs.<br/>Some advertisers may choose to work through CDPs, data on-boarders, or other service providers instead.
 
-See also [Advertiser and Third-party Data Provider Integration Guide](/api/v1/guides/advertiser-dataprovider-guide.md).
+For details, see [Advertiser and Third-party Data Provider Integration Guide](/api/v1/guides/advertiser-dataprovider-guide.md).
 
