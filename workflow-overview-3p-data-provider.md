@@ -2,7 +2,7 @@
 
 # Third-Party Data Provider Workflow Overview
 
-The following steps provide a high-level outline of the workflow is intended for organizations that collect user data and push it to DSPs—for example, advertisers, identity graph providers, and third-party data providers.
+The following steps provide a high-level outline of the workflow intended for organizations that collect user data and push it to DSPs—for example, advertisers, identity graph providers, and third-party data providers.
 
 1. Data provider sends a user’s consented personally identifiable information (PII) to the UID2 Operator.
 2. UID2 Operator generates and returns a raw UID2.
