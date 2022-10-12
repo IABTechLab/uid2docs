@@ -1,12 +1,14 @@
 [UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > Custom Publisher Integration Guide
 
-# Server-Only UID2 Integration Guide
+# Server-Only UID2 Integration Guide (Deprecated)
+
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../../v2/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
 
 このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を利用した ID トークンを生成したいと考えるアプリ開発者や CTV 放送局を対象としています。
 
-このガイドでは、カスタムインテグレーションで考慮すべき [基本的な手順](#integration-steps) を概説しています。たとえば、ユーザーのログインとログアウトをどのように実装するか、UID2 ID 情報をどのように管理しターゲティング広告に使用するか、トークンを更新する方法、ID が見つからない場合の対処、ユーザーのオプトアウトを処理する方法などを決定する必要があります。ワークフローを示す [example application](https://example-srvonly-integ.uidapi.com/) はこちらです。アプリケーションのドキュメントについては、[Server-Only UID2 Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/server_only/README.md)を参照してください。[FAQs](#faqs) も参照してください。
+このガイドでは、カスタムインテグレーションで考慮すべき [基本的な手順](#integration-steps) を概説しています。たとえば、ユーザログインとログアウトの実装方法、UID2 ID 情報の管理とターゲティング広告への使用方法、トークンのリフレッシュ方法、ID が見つからない場合の対処、ユーザーのオプトアウトの処理方法などを決定する必要があります。[FAQ](#faqs)も参照してください。
 
->TIP: UID2 を使ったクライアント ID の確立と Advertising Token の取得を容易にするために、[Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) を使用することを検討してください。詳しくは、[UID2 SDK Integration Guide](./publisher-client-side.md) を参照してください。
+> TIP: UID2 を使ったクライアント ID の確立と Advertising Token の取得を容易にするために、[Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) を使用することを検討してください。詳しくは、[UID2 SDK Integration Guide](./publisher-client-side.md) を参照してください。
 
 ## Integration Steps
 

@@ -1,6 +1,8 @@
 [UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > Publisher Integration Guide
 
-# UID2 SDK Integration Guide
+# UID2 SDK Integration Guide (Deprecated)
+
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../../v2/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
 
 > NOTE: このガイドは UID2 SDK [version 1](../sdks/client-side-identity-v1.md) を対象としています。UID2 SDK の [previous version](../sdks/client-side-identity-v0.md) を使用した*インテグレーションガイド*については、[Publisher Integration Guide (Standard)](./publisher-client-side-v0.md) を参照してください。
 

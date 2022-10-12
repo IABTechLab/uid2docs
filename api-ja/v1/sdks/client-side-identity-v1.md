@@ -1,13 +1,12 @@
 [UID2 API Documentation](../../README.md) > [v1](../README.md) > [SDKs](./README.md) > Client-Side Identity
 
-# Client-Side Identity JavaScript SDK (v1)
+# Client-Side Identity JavaScript SDK v1 (Deprecated)
+
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../../v2/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
 
 > NOTE: このドキュメントは、SDK の version 1 用です。以前のバージョンについては、[SDK version 0](./client-side-identity-v0.md) を参照してください。
 
-この UID2 SDK を使用すると、UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスを容易に行うことができます。以下のセクションでは、UID2 アイデンティティを確立するためのハイレベルな [ワークフロー](#workflow-overview)、SDK [API reference](#api-reference) および [UID2 クッキー形式](#uid2-cookie-format) について説明しています。
-
-- コンテンツパブリッシャーのインテグレーション手順については、[UID2 SDK Integration Guide](../guides/publisher-client-side.md) を参照してください。
-- [example application](https://example-jssdk-integ.uidapi.com/) のドキュメントについては、[ID2 SDK Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/standard/README.md) を参照してください。
+この UID2 SDK を使用すると、UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスを容易に行うことができます。以下のセクションでは、UID2 アイデンティティを確立するためのハイレベルな[ワークフロー](#workflow-overview)、SDK [API reference](#api-reference) および [UID2 cookie format](#uid2-cookie-format) について説明しています。コンテンツパブリッシャー向けのインテグレーション手順については、[UID2 SDK Integration Guide](../guides/publisher-client-side.md) をご覧ください。
 
 > NOTE: このドキュメントで、"ID" という用語は、Advertising Token を含む UID2 Token のパッケージを指します。
 
@@ -242,10 +241,6 @@ ID が使用できない場合、最適なアクションを決定するため�
 
 - Advertising Token が利用可能な場合、現在の Advertising Token で Promise が実行されます。
 - Advertising Token が一時的にでも利用できない場合、Promise は現在の Advertising Token で実行されます。Advertising Token が一時的にでも利用できない場合、Promise は `Error` のインスタンスで拒否されます。この場合、最適な行動を判断するために、[isLoginRequired()](#isloginrequired-boolean) を使用することができます。
-
-
-
-
 
 > NOTE: `getAdvertisingTokenAsync()` 関数が初期化完了 _後_ に呼ばれた場合、現在の状態に基づいて Promise が即座に決定されます。
 
