@@ -1,4 +1,4 @@
-### Supply-Side Workflow Overview
+# Supply-Side Workflow Overview
 
 ![Publisher Workflow](/images/publisher_workflow.jpg)
 
