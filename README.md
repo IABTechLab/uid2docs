@@ -137,4 +137,4 @@ Opt-outs relate to opting out of targeted advertising, which is handled through 
 
 
 ## License
-All work and artifacts are licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt) and BSD Open Source License.
+All work and artifacts are licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).
