@@ -1,6 +1,6 @@
-# Unified ID 2.0 API Documentation
+# Getting Started with UID2
 
-For UID2 definition, forms, guiding principles, components, and other conceptual details, see [UID2 Overview](../README.md).
+For UID2 definitions, ID types, guiding principles, components, and other conceptual details, see [UID2 Overview](../README.md).
 
 This page provides the following information required for you to get started with the UID2 API:
 * [Contact Info](#contact-info)
@@ -14,7 +14,7 @@ This page provides the following information required for you to get started wit
 
 ## Contact Info
 
-To get access to UID2, contact the appropriate team at The Trade Desk listed below. 
+To get access to the UID2 framework, contact the appropriate team at The Trade Desk listed below. 
 
 >Contacting The Trade Desk for access is temporary. When the system is moved to independent governance, the governing organizations will handle access requests.
 

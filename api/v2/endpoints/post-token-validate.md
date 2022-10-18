@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > [v2](../README.md) > [Endpoints](./README.md) > POST /token/validate
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Endpoints](./README.md) > POST /token/validate
 
 # POST /token/validate
 Validate that an advertising token matches the specified hashed or unhashed email address or phone number. 
