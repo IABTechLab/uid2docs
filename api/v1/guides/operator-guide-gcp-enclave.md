@@ -269,3 +269,7 @@ $ gcloud compute instances create uid2-operator-test \
 Note that compared to the `gcloud` command used in the prior section, an additional option
 `--machine-type n2d-standard-16` is added, which ensures production deployment of UID2 Operator runs on
 the recommended machine type that matches the production configuration.
+
+## Upgrading
+
+For each operator version update, private operators receive an email notification with an upgrade window, after which the old version is deactivated and no longer supported. To upgrade to the latest version, deploy the new cloud-init provided in the email in the same manner as the original operator.

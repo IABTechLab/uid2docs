@@ -2,7 +2,7 @@
 
 # POST /identity/buckets
 
-ローテーションされたソルトバケットを監視します。このエンドポイントは、[Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md) による使用を対象としています。
+ローテーションされたソルトバケットを監視します。このエンドポイントは、[広告主とデータプロバイダー](../guides/advertiser-dataprovider-guide.md) による使用を対象としています。
 
 ## Request Format
 
@@ -12,9 +12,9 @@
 
 ### Path Parameters
 
-| Path Parameter  | Data Type | Attribute | Description                                                                             |
-| :-------------- | :-------- | :-------- | :-------------------------------------------------------------------------------------- |
-| `{environment}` | string    | Required  | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com` |
+| Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                           |
+| :-------------- | :-------- | :-------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `{environment}` | string    | Required  | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレータを含む全リストは [Environments](../README.md#environments) を参照してください。 |
 
 ### Unencrypted JSON Body Parameters
 

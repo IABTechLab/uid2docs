@@ -1,12 +1,12 @@
 [UID2 API Documentation](../../README.md) > [v1](../README.md) > [SDKs](./README.md) > Client-Side Identity
 
-# Client-Side Identity JavaScript SDK (v1)
+# Client-Side Identity JavaScript SDK v1 (Deprecated)
+
+>IMPORTANT: The UID2 API v1 has been deprecated and will be supported only for the current users until March 31, 2023, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be removed. Be sure to [upgrade to the UID2 API v2](../../v2/upgrade-guide.md) by March 31, 2023. If you are new to the framework, use the [UID2 API v2](../../v2/README.md).
 
 >NOTE: This documentation is for version 1 of the SDK. For the previous version, see [SDK version 0](./client-side-identity-v0.md).
 
-Use this UID2 SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). 
-- For integration steps for content publishers, see [UID2 SDK Integration Guide](../guides/publisher-client-side.md). 
-- For an [example application](https://example-jssdk-integ.uidapi.com/) documentation, see [UID2 SDK Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/standard/README.md).
+Use this UID2 SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). For integration steps for content publishers, see [UID2 SDK Integration Guide](../guides/publisher-client-side.md).
 
 >NOTE: Within this documentation, the term "identity" refers to a package of UID2 tokens, including the advertising token.
 

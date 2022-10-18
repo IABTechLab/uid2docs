@@ -8,9 +8,12 @@ The guide outlines the [basic steps](#integration-steps) that you need to consid
 
 To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md), also known as the UID2 SDK.
 
+To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md), also known as the UID2 SDK. Here's an [example application](https://example-jssdk-integ.uidapi.com/) that illustrates the integration steps described in this guide and the usage of the SDK (currently only for email addresses). For the application documentation, see [UID2 SDK Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/standard/README.md).
+
 >IMPORTANT: The UID2 SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the [UID2 SDK APIs](../sdks/client-side-identity.md#api-reference) for your identity management.
 
 For custom integration scenarios for app developers and CTV broadcasters without utilizing the UID2 SDK, see [Server-Only Integration Guide](./custom-publisher-integration.md). 
+
 
 
 ## Integration Steps 

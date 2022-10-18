@@ -2,13 +2,17 @@
 
 # POST /identity/map
 
-複数のメールアドレスや電話番号、それぞれのハッシュを、UID2 やソルトバケット ID にマッピングします。このエンドポイントは [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md) による利用を対象としています。
+複数のメールアドレスや電話番号、それぞれのハッシュを、UID2 やソルトバケット ID にマッピングします。このエンドポイントは [広告主とデータプロバイダー](../guides/advertiser-dataprovider-guide.md) による利用を対象としています。
+
+## Batch Size and Request Parallelization Requirements
 
 知っておくべきことは次のとおりです:
 
 - リクエストの最大サイズは 1MB です。
 - 多数のメールアドレス、電話番号、またはそれぞれのハッシュをマッピングするには、1 バッチあたり最大 5,000 アイテムのバッチサイズで、それらを _連続した_ バッチで送信してください。
 - バッチを並列で送信しないでください。
+- プライベートオペレーターを使用している場合を除き、バッチを並行して送信しないでください。つまり、1 つの HTTP 接続を使用して、PII を連続してマッピングしてください。
+- メールアドレス、電話番号、またはそれぞれのハッシュのマッピングを必ず保存してください。<br>マッピングを保存しないと、数百万のメールアドレスや電話番号をマッピングする必要がある場合に、処理時間が大幅に増加する可能性があります。しかし、実際に更新が必要なマッピングのみを再計算することで、毎日更新が必要な UID2 の数は約 1/365 となり、総処理時間を短縮することができます。[Advertiser/Data Provider Integration Guide and FAQs](../guides/advertiser-dataprovider-guide.md) も参照してください。
 
 ## Request Format
 
@@ -18,9 +22,9 @@
 
 ### Path Parameters
 
-| Path Parameter  | Data Type | Attribute | Description                                                                             |
-| :-------------- | :-------- | :-------- | :-------------------------------------------------------------------------------------- |
-| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com` |
+| Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                           |
+| :-------------- | :-------- | :-------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレータを含む全リストは [Environments](../README.md#environments) を参照してください。 |
 
 ### Unencrypted JSON Body Parameters
 
