@@ -111,7 +111,7 @@ The following table lists four key workflows in the UID2 framework with links to
 
 The following diagram summarizes all four workflows. For each workflow, the [participants](#participants), [components](#components), [UID2 identifier types](#uid2-identifier-types), and numbered steps are color-coded.
 
-![The UID2 Ecosystem](/images/UID2-Workflow.svg)
+![The UID2 Ecosystem](/images/UID2-workflows.jpg)
 
 ## FAQs
 
