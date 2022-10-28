@@ -100,25 +100,24 @@ To subscribe and deploy UID2 Operators on AWS, you must complete the following s
 
 ### Resources Created
 
-The following table lists all resources that are created during the [deployment](#deployment).
+The following table lists all resources that are created during the [deployment](#deployment) and indicates which of them are alwasy created and which depend on the `CreateVPC` condition in the CloudFormation template.
 
-| Name | Type | Description | Condition |
-| :--- | :--- | :--- | :--- |
-| Stack | AWS::CloudFormation::Stack | A logical representation of all the resources created. This helps you deploy and rollback resources as a group. | Always |
-| KMSKey | AWS::KMS::Key | Used to encrypt your Operator Key on the wire | Always |
-| SSMKeyAlias | AWS::KMS::Alias | Provide an easy way to access the KMS Key | Always |
-| TokenSecret | AWS::SecretsManager::Secret | Encrypted configuration including Operator Key | Always |
-| WorkerRole | AWS::IAM::Role | A role with access to configuration keys | Always |
-| WorkerInstanceProfile | AWS::IAM::InstanceProfile | The instance profile with WorkerRole to attach to Operator EC2 instances | Always |
-| VPC | AWS::EC2::VPC | Virtual Private Network hosting private operators | If CreateVPC |
-| Subnet1 | AWS::EC2::Subnet | First subnet of newly created VPC | If CreateVPC |
-| Subnet2 | AWS::EC2::Subnet | Second subnet of newly created VPC | If CreateVPC |
-| RouteTable | AWS::EC2::RouteTable | Routing Table of newly created VPC and subnets | If CreateVPC |
-| InternetGateway | AWS::EC2::InternetGateway | Internet Gateway to allow operators to communicate with UID2 Core or download security update | If CreateVPC |
-| AttachGateway | AWS::EC2::VPCGatewayAttachment | Associates InternetGateway with VPC | If CreateVPC |
-| SecurityGroup | AWS::EC2::SecurityGroup | A security group providing minimal access for UID2 Operator to serve. It automatically refers to the used VPC.  | Always |
-| LaunchTemplate | AWS::EC2::LaunchTemplate | Template that defines operator EC2 instances | Always |
-| AutoScalingGroup | AWS::AutoScaling::AutoScalingGroup | Group of operator EC2 instances that horizontally scales | Always |
+| Name | Type | Description | Created |
+|:------|:------|:-------------|:--------------|
+| `KMSKey` | `AWS::KMS::Key` | The key for secret encryption (for configuration strings). | Always |
+| `SSMKeyAlias` | `AWS::KMS::Alias` | An alias that provides an easy way to access the KMS key. | Always |
+| `TokenSecret` | `AWS::SecretsManager::Secret` | An encrypted configuration that includes the operator key. | Always |
+| `WorkerRole` | `AWS::IAM::Role` | The IAM role that your UID2 Operators run as. Roles provide access to configuration keys. | Always |
+| `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile` | The instance profile with Worker Role to attach to Operator EC2 instances. | Always |
+| `VPC` | `AWS::EC2::VPC` | Virtual Private Cloud (VPC) is a virtual private network that hosts private operators. You can customize and use an existing one as well. See also [VPC Chart](#vpc-chart).| Conditionally |
+| `Subnet1` | `AWS::EC2::Subnet` | The first subnet of newly created VPC. | Conditionally |
+| `Subnet2` | `AWS::EC2::Subnet` | The second subnet of newly created VPC. | Conditionally |
+| `RouteTable` | `AWS::EC2::RouteTable` | The Routing Table of the newly created VPC and subnets. | Conditionally |
+| `InternetGateway` | `AWS::EC2::InternetGateway` | The Internet Gateway that allows operators to communicate with the UID2 Core Service and download security updates. | Conditionally|
+| `AttachGateway` | `AWS::EC2::VPCGatewayAttachment` | Associates Internet Gateway with the VPC. | Conditionally |
+| `SecurityGroup` | `AWS::EC2::SecurityGroup` | A security group policy that provides rules for operator instances. See also [Security Group Policy](#security-group-policy).| Always |
+| `LaunchTemplate` | `AWS::EC2::LaunchTemplate` | A launch template with all configurations in place. You can spawn new UID2 Operator instances from it. | Always |
+| `AutoScalingGroup` | `AWS::AutoScaling::AutoScalingGroup` | An auato-scaling group (ASG) to which the launch template is attached. You can update the desired number of instances with it later. | Always |
 
 
 ### Customization Options
@@ -129,6 +128,22 @@ Here's what you can customize during or after the [deployment](#deployment):
 - Root volume size (8G Minimal)
 - SSH key: This is the SSH key that you use to access the UID2 Operator EC2 instances.
 - Instance type: m5.2xlarge, m5.4xlarge, and so on. If no customization m5.2xlarge is default and recommended.
+
+### Security Group Policy
+
+>NOTE: To avoid passing certificates associated with your domain into enclave, inbound HTTP is allowed instead of HTTPS. This also avoids the cost of a secure layer, if used in a private network internal to your organization. 
+
+| Port Number | Direction | Protocol | Description |
+| ----------- | --------- | -------- | ------ |
+| 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/opt/healthcheck`. |
+| 9080 | Inbound | HTTP | Serves prometheus metrics `/metrics`. |
+| 443 | Outbound | HTTPS | Calls the UID2 Core Service; updates opt-out data and key store. |
+
+### VPC Chart
+
+The following diagram illusrates the vertual private cloud that hosts private operators.
+
+![UID2 Operator VPC Chart](uid2-private-operator-aws-chart.png)
 
 ## Deployment
 
@@ -236,20 +251,3 @@ Here's what you need to know about upgrading:
 
 If you have trouble subscribing or deploying the product, please contact us at [aws-mktpl-uid@thetradedesk.com](mailto:aws-mktpl-uid@thetradedesk.com).
 
-## CloudFormation Template FAQs
-
-### Security Group Policy
-
-| Port Number | Direction | Protocol | Reason |
-| ----------- | --------- | -------- | ------ |
-| 80 | Inbound | HTTP | Serves all UID2 APIs, also healthcheck endpoint /opt/healthcheck |
-| 9080 | Inbound | HTTP | Serves prometheus metrics /metrics |
-| 443 | Outbound | HTTPS | Calling UID2 Core; Update optout data and key store |
-
-Reason we allow inbound HTTP instead of HTTPS:
-- to avoid passing certificates associated with your domain into enclave
-- to avoid the cost of secure layer if used in a private network internal to your organization
-
-### VPC Chart
-
-![UID2 Operator VPC Chart](uid2-private-operator-aws-chart.png)
