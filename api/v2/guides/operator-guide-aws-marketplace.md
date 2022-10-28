@@ -102,18 +102,24 @@ To subscribe and deploy UID2 Operators on AWS, you must complete the following s
 
 The following table lists all resources that are created during the [deployment](#deployment).
 
-| Resource | Description |
-| :--- |:--- |
-| CloudFormation Stack | A logical representation of all the resources created. This helps you deploy and rollback resources as a group. |
-| KMS Key | The key for secret encryption (for configuration strings). |
-| Configuration as Secret | A secret named `uid2-operator-config-key` created in the Secret Manager. |
-| Worker Role | The IAM role that your UID2 Operators run as. |
-| Worker Instance Profile | The Instance Profile that your UID2 Operators run as. Worker Role is preferred. |
-| Virtual Private Cloud (VPC) and subnets | The virtual network that UID2 Operators run in. You can customize and use existing ones as well. |
-| Security Group | A security group providing minimal access for UID2 Operator to serve. It automatically refers to the used VPC. |
-| Launch Template | A launch template with all configurations in place. You can spawn new UID2 Operator instances from it. |
-| Auto Scaling Group (ASG) | An ASG to which the launch template attached. You can update the desired number of instances with it later. |
-| UID2 Operator instances | The EC2 instances that start running after the ASG is created.|
+| Name | Type | Description | Condition |
+| :--- | :--- | :--- | :--- |
+| Stack | AWS::CloudFormation::Stack | A logical representation of all the resources created. This helps you deploy and rollback resources as a group. | Always |
+| KMSKey | AWS::KMS::Key | Used to encrypt your Operator Key on the wire | Always |
+| SSMKeyAlias | AWS::KMS::Alias | Provide an easy way to access the KMS Key | Always |
+| TokenSecret | AWS::SecretsManager::Secret | Encrypted configuration including Operator Key | Always |
+| WorkerRole | AWS::IAM::Role | A role with access to configuration keys | Always |
+| WorkerInstanceProfile | AWS::IAM::InstanceProfile | The instance profile with WorkerRole to attach to Operator EC2 instances | Always |
+| VPC | AWS::EC2::VPC | Virtual Private Network hosting private operators | If CreateVPC |
+| Subnet1 | AWS::EC2::Subnet | First subnet of newly created VPC | If CreateVPC |
+| Subnet2 | AWS::EC2::Subnet | Second subnet of newly created VPC | If CreateVPC |
+| RouteTable | AWS::EC2::RouteTable | Routing Table of newly created VPC and subnets | If CreateVPC |
+| InternetGateway | AWS::EC2::InternetGateway | Internet Gateway to allow operators to communicate with UID2 Core or download security update | If CreateVPC |
+| AttachGateway | AWS::EC2::VPCGatewayAttachment | Associates InternetGateway with VPC | If CreateVPC |
+| SecurityGroup | AWS::EC2::SecurityGroup | A security group providing minimal access for UID2 Operator to serve. It automatically refers to the used VPC.  | Always |
+| LaunchTemplate | AWS::EC2::LaunchTemplate | Template that defines operator EC2 instances | Always |
+| AutoScalingGroup | AWS::AutoScaling::AutoScalingGroup | Group of operator EC2 instances that horizontally scales | Always |
+
 
 ### Customization Options
 
@@ -230,26 +236,7 @@ Here's what you need to know about upgrading:
 
 If you have trouble subscribing or deploying the product, please contact us at [aws-mktpl-uid@thetradedesk.com](mailto:aws-mktpl-uid@thetradedesk.com).
 
-## CloudFormation Template Common Questions
-
-### Resources Created
-
-| Name | Type | Description | Condition |
-|------|------|-------------|--------------|
-| KMSKey | AWS::KMS::Key | Used to encrypt your Operator Key on the wire | Always |
-| SSMKeyAlias | AWS::KMS::Alias | Provide an easy way to access the KMS Key | Always |
-| TokenSecret | AWS::SecretsManager::Secret | Encrypted configuration including Operator Key | Always |
-| WorkerRole | AWS::IAM::Role | A role with access to configuration keys | Always |
-| WorkerInstanceProfile | AWS::IAM::InstanceProfile | The instance profile with WorkerRole to attach to Operator EC2 instances | Always |
-| VPC | AWS::EC2::VPC | Virtual Private Network hosting private operators | If CreateVPC |
-| Subnet1 | AWS::EC2::Subnet | First subnet of newly created VPC | If CreateVPC |
-| Subnet2 | AWS::EC2::Subnet | Second subnet of newly created VPC | If CreateVPC |
-| RouteTable | AWS::EC2::RouteTable | Routing Table of newly created VPC and subnets | If CreateVPC |
-| InternetGateway | AWS::EC2::InternetGateway | Internet Gateway to allow operators to communicate with UID2 Core or download security update | If CreateVPC |
-| AttachGateway | AWS::EC2::VPCGatewayAttachment | Associates InternetGateway with VPC | If CreateVPC |
-| SecurityGroup | AWS::EC2::SecurityGroup | Inbound/Outbound rules for operator instances | Always |
-| LaunchTemplate | AWS::EC2::LaunchTemplate | Template that defines operator EC2 instances | Always |
-| AutoScalingGroup | AWS::AutoScaling::AutoScalingGroup | Group of operator EC2 instances that horizontally scales | Always |
+## CloudFormation Template FAQs
 
 ### Security Group Policy
 
