@@ -10,6 +10,8 @@ This guide includes the following information:
   -  [Prerequisites](#prerequisites)
   -  [Resources Created](#resources-created)
   -  [Customization Options](#customization-options)
+  -  [Security Group Policy](#security-group-policy)
+  -  [VPC Chart](#vpc-chart)
 - [Deployment](#deployment)
 - [Checking UID2 Operator Status](#checking-uid2-operator-status)
 - [Creating a Load Balancer](#creating-a-load-balancer)
