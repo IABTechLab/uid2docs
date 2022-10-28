@@ -102,7 +102,7 @@ To subscribe and deploy UID2 Operators on AWS, you must complete the following s
 
 ### Resources Created
 
-The following table lists all resources that are created during the [deployment](#deployment) and indicates which of them are alwasy created and which depend on the `CreateVPC` condition in the CloudFormation template.
+The following table lists all resources that are created during the [deployment](#deployment) and indicates which of them are always created and which depend on the `CreateVPC` condition in the CloudFormation template.
 
 | Name | Type | Description | Created |
 |:------|:------|:-------------|:--------------|
