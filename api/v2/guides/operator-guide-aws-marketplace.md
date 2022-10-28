@@ -119,7 +119,7 @@ The following table lists all resources that are created during the [deployment]
 | `AttachGateway` | `AWS::EC2::VPCGatewayAttachment` | Associates Internet Gateway with the VPC. | Conditionally |
 | `SecurityGroup` | `AWS::EC2::SecurityGroup` | A security group policy that provides rules for operator instances. See also [Security Group Policy](#security-group-policy).| Always |
 | `LaunchTemplate` | `AWS::EC2::LaunchTemplate` | A launch template with all configurations in place. You can spawn new UID2 Operator instances from it. | Always |
-| `AutoScalingGroup` | `AWS::AutoScaling::AutoScalingGroup` | An auato-scaling group (ASG) to which the launch template is attached. You can update the desired number of instances with it later. | Always |
+| `AutoScalingGroup` | `AWS::AutoScaling::AutoScalingGroup` | An auto-scaling group (ASG) to which the launch template is attached. You can update the desired number of instances with it later. | Always |
 
 
 ### Customization Options
