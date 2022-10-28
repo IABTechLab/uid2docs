@@ -141,7 +141,7 @@ Here's what you can customize during or after the [deployment](#deployment):
 
 ### VPC Chart
 
-The following diagram illusrates the vertual private cloud that hosts private operators.
+The following diagram illustrates the virtual private cloud that hosts private operators.
 
 ![UID2 Operator VPC Chart](uid2-private-operator-aws-chart.png)
 
