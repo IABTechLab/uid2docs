@@ -229,3 +229,40 @@ Here's what you need to know about upgrading:
 ## Technical Support
 
 If you have trouble subscribing or deploying the product, please contact us at [aws-mktpl-uid@thetradedesk.com](mailto:aws-mktpl-uid@thetradedesk.com).
+
+## CloudFormation Template Common Questions
+
+### Resources Created
+
+| Name | Type | Description | Condition |
+|------|------|-------------|--------------|
+| KMSKey | AWS::KMS::Key | Used to encrypt your Operator Key on the wire | Always |
+| SSMKeyAlias | AWS::KMS::Alias | Provide an easy way to access the KMS Key | Always |
+| TokenSecret | AWS::SecretsManager::Secret | Encrypted configuration including Operator Key | Always |
+| WorkerRole | AWS::IAM::Role | A role with access to configuration keys | Always |
+| WorkerInstanceProfile | AWS::IAM::InstanceProfile | The instance profile with WorkerRole to attach to Operator EC2 instances | Always |
+| VPC | AWS::EC2::VPC | Virtual Private Network hosting private operators | If CreateVPC |
+| Subnet1 | AWS::EC2::Subnet | First subnet of newly created VPC | If CreateVPC |
+| Subnet2 | AWS::EC2::Subnet | Second subnet of newly created VPC | If CreateVPC |
+| RouteTable | AWS::EC2::RouteTable | Routing Table of newly created VPC and subnets | If CreateVPC |
+| InternetGateway | AWS::EC2::InternetGateway | Internet Gateway to allow operators to communicate with UID2 Core or download security update | If CreateVPC |
+| AttachGateway | AWS::EC2::VPCGatewayAttachment | Associates InternetGateway with VPC | If CreateVPC |
+| SecurityGroup | AWS::EC2::SecurityGroup | Inbound/Outbound rules for operator instances | Always |
+| LaunchTemplate | AWS::EC2::LaunchTemplate | Template that defines operator EC2 instances | Always |
+| AutoScalingGroup | AWS::AutoScaling::AutoScalingGroup | Group of operator EC2 instances that horizontally scales | Always |
+
+### Security Group Policy
+
+| Port Number | Direction | Protocol | Reason |
+| ----------- | --------- | -------- | ------ |
+| 80 | Inbound | HTTP | Serves all UID2 APIs, also healthcheck endpoint /opt/healthcheck |
+| 9080 | Inbound | HTTP | Serves prometheus metrics /metrics |
+| 443 | Outbound | HTTPS | Calling UID2 Core; Update optout data and key store |
+
+Reason we allow inbound HTTP instead of HTTPS:
+- to avoid passing certificates associated with your domain into enclave
+- to avoid the cost of secure layer if used in a private network internal to your organization
+
+### VPC Chart
+
+![UID2 Operator VPC Chart](uid2-private-operator-aws-chart.png)
