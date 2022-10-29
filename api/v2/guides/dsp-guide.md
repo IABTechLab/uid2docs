@@ -83,3 +83,9 @@ In some cases a DSP may receive a UID2 token for a newly-stored UID2 where the t
 
 ### How long should the DSP keep the opt-out list?
 At least for 30 days.
+
+### Is the UID of the user who has opted out encrypted when it is sent to the optout endpoint as an identity parameter?
+
+No. It will be an unencrypted, raw UID2.
+
+
