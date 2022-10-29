@@ -99,8 +99,7 @@ print(base64.b64encode(bytes(envelope)).decode() + "\n")
 ```
 ### Request Example
 
-For example, to send an 
-ed [POST /token/generate](./endpoints/post-token-generate.md) request for an email address, you can run the following command.
+For example, to send an ecrypted [POST /token/generate](./endpoints/post-token-generate.md) request for an email address, you can run the following command.
 
 ```sh
 echo '{"email": "test@example.com"}' \
