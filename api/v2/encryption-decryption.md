@@ -99,7 +99,7 @@ print(base64.b64encode(bytes(envelope)).decode() + "\n")
 ```
 ### Request Example
 
-For example, to send an ecrypted [POST /token/generate](./endpoints/post-token-generate.md) request for an email address, you can run the following command.
+For example, to send an encrypted [POST /token/generate](./endpoints/post-token-generate.md) request for an email address, you can run the following command.
 
 ```sh
 echo '{"email": "test@example.com"}' \
@@ -140,6 +140,8 @@ Here's an example Python script (`decrypt_response.py`) for decrypting responses
 
 - The client secret
 - (Optional) `--is-refresh` to indicate that the response is for a [POST /token/refresh](./endpoints/post-token-refresh.md) request
+
+>IMPORTANT: To decrypt responses, you need to use the `refresh_response_key` value returned in the [POST /token/generate](./post-token-generate.md) or `POST /token/refresh` response from which the refresh token in the request is returned.
 
 ```py
 import base64
