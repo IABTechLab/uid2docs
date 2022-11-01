@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > [v2](../README.md) > Integration Guides
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../README.md) > Integration Guides
 
 # UID2 Integration Guides
 
@@ -21,7 +21,7 @@
 
 ## Closed Operator Service Setup
 
-| Integration Guide                                               | Content Description                                                                                                          |
-| :-------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
-| [Operator - Microsoft Azure](./operator-guide-azure-enclave.md) | Closed Operator Service を Microsoft Azure Confidential Computing プラットフォーム上で動作させるためのセットアップ手順です。 |
-| [Operator - AWS Marketplace](./operator-guide-aws-marketplace.md) | AWS Marketplace のクローズドオペレーターサービスをセットアップする手順です。　|
+| Integration Guide                                                 | Content Description                                                                                                          |
+| :---------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| [Operator - Microsoft Azure](./operator-guide-azure-enclave.md)   | Closed Operator Service を Microsoft Azure Confidential Computing プラットフォーム上で動作させるためのセットアップ手順です。 |
+| [Operator - AWS Marketplace](./operator-guide-aws-marketplace.md) | AWS Marketplace のクローズドオペレーターサービスをセットアップする手順です。　                                               |

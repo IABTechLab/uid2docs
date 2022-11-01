@@ -1,6 +1,6 @@
-# Unified ID 2.0 API Documentation
+# Getting Started with UID2
 
-UID2 の定義、形式、指針、構成要素、その他の概念的な詳細については、 [UID2 Overview](../README-ja.md) を参照してください。
+UID2 の定義、ID タイプ、指針、構成要素、その他の概念的な詳細については、 [UID2 Overview](../README-ja.md) を参照してください。
 
 このページでは、UID2 API を使い始めるために必要な以下の情報を提供します:
 
@@ -14,7 +14,7 @@ UID2 の定義、形式、指針、構成要素、その他の概念的な詳細
 
 ## Contact Info
 
-UID2 へのアクセスは、以下の The Trade Desk 担当者までご連絡ください。
+UID2 フレームワークにアクセスするには、以下の The Trade Desk の担当チームにご連絡ください。
 
 > The Trade Desk のアクセス依頼は一時的なものです。独立したガバナンスに移行した際には、運営組織がアクセスリクエストを処理します。
 

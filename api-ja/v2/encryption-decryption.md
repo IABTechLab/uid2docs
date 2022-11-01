@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > [v2](./README.md) > Encrypting Requests and Decrypting Responses
+[UID2 Overview](../../README-ja.md) > [Getting Started](../README.md) > [v2](./README.md) > Encrypting Requests and Decrypting Responses
 
 # Encrypting Requests and Decrypting Responses
 
