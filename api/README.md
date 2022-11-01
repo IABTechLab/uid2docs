@@ -49,8 +49,8 @@ Email hashes are base64-encoded SHA256 hashes of the normalized email address.
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
 | Normalized email address | `user@example.com` | N/A |
-| SHA256 of email address | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | This is a hex-encoded representation of SHA256 (32 bytes).|
-| base64-encoded SHA256 of email address | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | This is a base64-encoding of the hex-encoded SHA256 string.<br/>Use this encoding for `email_hash` values sent in the request body. |
+| SHA256 of email address | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | This 64-character string is a hex-encoded representation of 32-byte SHA256.|
+| base64-encoded SHA256 of email address | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | This 44-character string is a base64-encoded representation of 32-byte SHA256.<br/>Use this encoding for `email_hash` values sent in the request body. |
 
 ## Phone Number Normalization
 
@@ -69,8 +69,8 @@ Phone number hashes are base64-encoded SHA256 hashes of the normalized phone num
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
 | Normalized phone number | `+12345678901` | N/A |
-| SHA256 of phone number | `c1d3756a586b6f0d419b3e3d1b328674fbc6c4b842367ee7ded780390fc548ae` |This is a hex-encoded representation of SHA256 (32 bytes). |
-| base64-encoded SHA256 of phone number | `wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ/FSK4=` | This is a base64-encoding of the hex-encoded SHA256 string.<br/>Use this encoding for `phone_hash` values sent in the request body. |
+| SHA256 of phone number | `c1d3756a586b6f0d419b3e3d1b328674fbc6c4b842367ee7ded780390fc548ae` |This 64-character string is a hex-encoded representation of 32-byte SHA256. |
+| base64-encoded SHA256 of phone number | `wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ/FSK4=` | This 44-character string is a base64-encoded representation of 32-byte SHA256.<br/>Use this encoding for `phone_hash` values sent in the request body. |
 
 ## License
 All work and artifacts are licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).
