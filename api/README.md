@@ -44,7 +44,7 @@ To normalize an email address, complete the following steps:
 
 ## Email Address Hash Encoding
 
-Email hashes are base64-encoded SHA256 hashes of the normalized email address.
+Email hashes are base64-encoded SHA256 hashes of a normalized email address.
 
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
@@ -64,7 +64,7 @@ Here's what you need to know about phone number normalization rules:
 
 ## Phone Number Hash Encoding
 
-Phone number hashes are base64-encoded SHA256 hashes of the normalized phone number.
+Phone number hashes are base64-encoded SHA256 hashes of a normalized phone number.
 
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
