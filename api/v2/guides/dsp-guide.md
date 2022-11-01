@@ -98,4 +98,4 @@ Opt-outs must be always respected. It may take some time for an opt-out request 
 
 ### How many decryption keys may be present in memory at any point?
 
-There may be thousands of decryption keys present in teh system at any given point.
+There may be thousands of decryption keys present in the system at any given point.
