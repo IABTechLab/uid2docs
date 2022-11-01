@@ -145,6 +145,8 @@ The following table describes the field layout for response decryption scripts.
 - クライアントシークレット
 - (オプション) `--is-refresh` は、レスポンスが [POST /token/refresh](./endpoints/post-token-refresh.md) リクエストに対するものであることを表します。
 
+IMPORTANT: レスポンスを復号するには、[POST /token/generate](./endpoints/post-token-generate.md) または `POST /token/refresh` レスポンスで、リクエストの Refresh Token を返す `refresh_response_key` 値を使用する必要があります。
+
 ```py
 import base64
 import json
