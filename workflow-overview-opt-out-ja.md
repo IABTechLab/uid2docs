@@ -13,7 +13,7 @@ This workflow allows a user to consent to the creation of a UID2 token and manag
 
 ![User Trust Workflow](/images/user_trust_workflow.jpg)
 
-以下のステップは、パブリッシャーまたはその ID プロバイダーと関わるユーザーを対象とした、ワークフローのハイレベルな概要を提供します。
+以下のステップは、パブリッシャーまたはその ID プロバイダーと関わるユーザーを対象とした、ワークフローの概要を提供します。
 
 1. ユーザーはオプトアウトポータルにアクセスし、すべてのパブリッシャーに対して UID2 からの脱退をグローバルに選択することができます。
 2. オプトアウトリクエストが UID2 Administrator に送信されます。
