@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > [v2](../README.md) > [Endpoints](./README.md) > POST /token/generate
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../README.md) > POST /token/generate
 
 # POST /token/generate
 

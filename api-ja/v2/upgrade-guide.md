@@ -27,7 +27,7 @@ UID2 API の v2 アップデートは以下の通りです:
 
 アップグレードを開始する前に、以下の要件を必ず確認してください:
 
-- UID2 エンドポイントに対して認証を行うには、 [UID2 管理者へ連絡] (../README.md#contact-info) し API リクエストの暗号化と API 応答の復号化に使用する秘密鍵を入手します。[Authentication and Authorization（認証と承認）](./README.md#authentication-and-authorization) も参照してください。
+- UID2 エンドポイントに対して認証を行うには、 [UID2 管理者へ連絡](../README.md#contact-info) し API リクエストの暗号化と API 応答の復号化に使用する秘密鍵を入手します。[Authentication and Authorization（認証と承認）](./README.md#authentication-and-authorization) も参照してください。
 - アップグレードは、すべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理外のエンドポイントが非推奨となり削除される、**2023 年 3 月 31 日** までに完了する必要があります。
 
 ## Publisher Upgrade Workflow

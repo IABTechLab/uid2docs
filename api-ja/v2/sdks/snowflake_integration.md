@@ -1,8 +1,8 @@
-[UID2 API Documentation](../../README.md) > [v2](../README.md) > [Integration Guides](../guides/README.md) > Snowflake Integration
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](../guides/README.md) > Snowflake Integration
 
 # Snowflake Integration
 
-[Snowflake](https://www.snowflake.com/?lang=ja) はクラウドデータウェアハウスソリューションで、パートナーとして顧客のデータを保存し、UID2 とインテグレーションすることができます。Snowflake を使用することで、UID2 は、機密性の高い個人情報を公開することなく、認可された消費者識別子データを安全に共有することができます。消費者識別子データを直接 Operator Web Services に問い合わせることもできますが、Snowflake UID2 とのインテグレーションにより、よりシームレスな体験が可能になります。
+[Snowflake](https://www.snowflake.com/?lang=ja) はクラウドデータウェアハウスソリューションで、パートナーとして顧客のデータを保存し、UID2 フレームワークとインテグレーションすることができます。Snowflake を使用することで、UID2 は、機密性の高い個人情報を公開することなく、認可された消費者識別子データを安全に共有することができます。消費者識別子データを直接 Operator Web Services に問い合わせることもできますが、Snowflake UID2 とのインテグレーションにより、よりシームレスな体験が可能になります。
 
 [Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with UID2. Using Snowflake, UID2 enables you to securely share authorized consumer identifier data without exposing sensitive PII. Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
 
@@ -96,8 +96,8 @@ All query examples use the following default values for each name variable:
 
 To map a single email address or multiple email addresses to the corresponding UID2s and second-level salt bucket IDs, use the `FN_T_UID2_IDENTITY_MAP_EMAIL` function. It takes an email address as its argument and normalizes it using the UID2 [Email Normalization](../../README.md#email-normalization) rules.
 
-| Argument | Data Type    | Description                                                                                                                                   |
-| :------- | :----------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+| Argument | Data Type    | Description                                                                                                                             |
+| :------- | :----------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
 | `EMAIL`  | varchar(128) | UID2 およびセカンドレベルのバケット ID に対応させるメールアドレス。<br>The email address to map to the UID2 and second-level bucket ID. |
 
 クエリーに成功すると、指定されたメールアドレスについて以下の情報が返されます。
@@ -278,10 +278,10 @@ The `UID2_SALT_BUCKETS` view query returns the date and time when the second-lev
 
 To determine which UID2s need regeneration, compare the timestamps of when they were generated to the most recent timestamp of the second-level salt bucket update.
 
-| Column Name            | Data Type     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| :--------------------- | :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Column Name            | Data Type     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| :--------------------- | :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `BUCKET_ID`            | TEXT          | セカンドレベルのソルトバケットの ID です。この ID は、ID マップ関数が返す `BUCKET_ID` と同じものです。`BUCKET_ID` をキーとして、関数呼び出しの結果とこのビュー呼び出しの結果の間のジョインクエリを実行します。<br>The ID of the second-level salt bucket. This ID parallels the `BUCKET_ID` returned by the identity map functions. Use the `BUCKET_ID` as the key to do a join query between the function call results and results from this view call. |
-| `LAST_SALT_UPDATE_UTC` | TIMESTAMP_NTZ | バケット内のソルトが最後に更新された時刻です。この値は UTC タイムゾーンで表現されます。<br>The last time the salt in the bucket was updated. This value is expressed in UTC timezone.                                                                                                                                                                                                                                                                          |
+| `LAST_SALT_UPDATE_UTC` | TIMESTAMP_NTZ | バケット内のソルトが最後に更新された時刻です。この値は UTC タイムゾーンで表現されます。<br>The last time the salt in the bucket was updated. This value is expressed in UTC timezone.                                                                                                                                                                                                                                                                    |
 
 次の例は、入力テーブルと、テーブル内の UID2 のうち、のソルトの更新により再生成が必要なものを見つけるためのクエリを示しています。
 

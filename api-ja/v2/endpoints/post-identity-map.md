@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > [v2](../README.md) > [Endpoints](./README.md) > POST /identity/map
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../README.md) > POST /identity/map
 
 # POST /identity/map
 

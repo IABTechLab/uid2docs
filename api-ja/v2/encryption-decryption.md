@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > [v2](./README.md) > Encrypting Requests and Decrypting Responses
+[UID2 Overview](../../README-ja.md) > [Getting Started](../README.md) > [v2](./README.md) > Encrypting Requests and Decrypting Responses
 
 # Encrypting Requests and Decrypting Responses
 
@@ -144,6 +144,8 @@ The following table describes the field layout for response decryption scripts.
 
 - クライアントシークレット
 - (オプション) `--is-refresh` は、レスポンスが [POST /token/refresh](./endpoints/post-token-refresh.md) リクエストに対するものであることを表します。
+
+IMPORTANT: レスポンスを復号するには、[POST /token/generate](./endpoints/post-token-generate.md) または `POST /token/refresh` レスポンスで、リクエストの Refresh Token を返す `refresh_response_key` 値を使用する必要があります。
 
 ```py
 import base64
