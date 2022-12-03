@@ -1,7 +1,9 @@
 [UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Endpoints](./README.md) > POST /token/generate
 
 # POST /token/generate
-Generate a UID2 token from a hashed or unhashed email address or phone number.
+Generate a UID2 token from a hashed or unhashed email address or phone number, and implicitly opt in the user associated with the provided PII.
+
+>IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s PII to UID2 tokens for targeted advertising. This endpoint does not check for opt-out records. To check for opt-out requests, use the [POST /token/refresh](./post-token-refresh.md) endpoint.
 
 The following integration workflows use this endpoint:
 * [Publisher - Standard](../guides/publisher-client-side.md)
