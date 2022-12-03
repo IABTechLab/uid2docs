@@ -150,3 +150,13 @@ You can use the `optout@email.com` email address or the `+00000000000` phone num
     - The `+00000000000` as the `phone` value.
     - The hash of `+00000000000` as the `phone_hash` value.
 2. Wait until the SDK's [background auto-refresh](../sdks/client-side-identity.md#background-token-auto-refresh) attempts to refresh the advertising token (this can take several hours) and observe the refresh attempt fail with the `OPTOUT` status. At this point the SDK also clears the first-party cookie.
+
+### Should /token/generate return the “optout” status and generate no tokens if I pass optout@email.com in the request payload? 
+
+The [POST /token/generate](../endpoints/post-token-generate.md) endpoint does not check for opt-out records and returns the `success` status with valid advertising and user tokens in response to valid requests.
+
+>IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s PII to UID2 tokens for targeted advertising because [POST /token/generate](../endpoints/post-token-generate.md) calls implicitly opt in users associted with the provided PII. 
+
+To check for opt-out requests, use the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint.
+
+
