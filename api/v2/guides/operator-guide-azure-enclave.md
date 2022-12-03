@@ -2,7 +2,7 @@
 
 # Microsoft Azure Confidential Compute Operator Package
 
->IMPORTANT: This documentation is currently only a proof concept. Please [contact](../../README.md#contact-info) us for additional guidance.
+>IMPORTANT: This documentation is currently only a proof of concept. Please [contact](../../README.md#contact-info) us for additional guidance.
 
 UID2 Operator service can be run within a trusted computing enclave powered by Intel SGX technology.
 
