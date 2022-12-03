@@ -23,5 +23,5 @@ The following guides provide integration instructions based on the needs and req
  
 | Integration Guide |  Content Description |
 | :--- | :--- |
-| [Operator - Microsoft Azure](./operator-guide-azure-enclave.md) | IMPORTANT: This documentation is currently only a proof concept. Please [contact](../../README.md#contact-info) us for additional guidance.<br/><br/>Instructions for setting up Closed Operator service for running on Microsoft Azure Confidential Computing platform.  |
+| [Operator - Microsoft Azure](./operator-guide-azure-enclave.md) | IMPORTANT: This documentation is currently only a proof of concept. Please [contact](../../README.md#contact-info) us for additional guidance.<br/><br/>Instructions for setting up Closed Operator service for running on Microsoft Azure Confidential Computing platform.  |
 | [Operator - AWS Marketplace](./operator-guide-aws-marketplace.md) | Instructions for setting up Closed Operator service for AWS Marketplace. |
