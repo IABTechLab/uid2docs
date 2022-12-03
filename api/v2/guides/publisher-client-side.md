@@ -153,7 +153,7 @@ You can use the `optout@email.com` email address or the `+00000000000` phone num
 
 ### Should /token/generate return the “optout” status and generate no tokens if I pass optout@email.com in the request payload? 
 
-The [POST /token/generate](../endpoints/post-token-generate.md) endpoint does not check for opt-out records and returns the `success` status with advertising and user tokens in response to valid requests.
+The [POST /token/generate](../endpoints/post-token-generate.md) endpoint does not check for opt-out records and returns the `success` status with valid advertising and user tokens in response to valid requests.
 
 >IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s PII to UID2 tokens for targeted advertising because [POST /token/generate](../endpoints/post-token-generate.md) calls implicitly opt in users associted with the provided PII. 
 
