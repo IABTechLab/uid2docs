@@ -127,6 +127,8 @@ The following table lists the `status` property values and their HTTP status cod
 
 If the `status` value is other than `success`, the `message` field provides additional information about the issue.
 
+>NOTE: Since this endpoint does not check for opt-out records, it never returns the `optout` status.
+
 ## Test Identities
 
 | Type | Identity | Purpose | Next Endpoint |
