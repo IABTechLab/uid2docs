@@ -107,3 +107,11 @@ You can use the `optout@email.com` email address or the `+00000000000` phone num
 2. Store the returned `refresh_token` for use in the following step.
 3. Send a [POST /token/refresh](../endpoints/post-token-refresh.md) request with the `refresh_token` (saved in step 2) as the `token` value.<br/>The body response should be empty, and the `status` value should be set to `optout` because the `optout@email.com` email and the `+00000000000` phone number always result in a logged out user.
 
+### Should /token/generate return the “optout” status and generate no tokens if I pass optout@email.com in the request payload? 
+
+The [POST /token/generate](../endpoints/post-token-generate.md) endpoint does not check for opt-out records and returns the `success` status with valid advertising and user tokens in response to valid requests.
+
+>IMPORTANT:Be sure to call this endpoint only when you have obtained legal basis to convert the user's PII to UID2 tokens. [POST /token/generate](../endpoints/post-token-generate.md) calls automatically opt in users associated with the provided PII to UID2-based targeted advertising. 
+ 
+
+To check for opt-out requests, use the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint.

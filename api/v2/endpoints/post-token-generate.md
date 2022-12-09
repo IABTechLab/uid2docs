@@ -1,7 +1,9 @@
 [UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Endpoints](./README.md) > POST /token/generate
 
 # POST /token/generate
-Generate a UID2 token from a hashed or unhashed email address or phone number.
+Opt in the user to UID2-based targeted advertising and generate a UID2 token from their provided email address or phone number. 
+
+>IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s PII to UID2 tokens for targeted advertising. This endpoint does not check for opt-out records. To check for opt-out requests, use the [POST /token/refresh](./post-token-refresh.md) endpoint.
 
 The following integration workflows use this endpoint:
 * [Publisher - Standard](../guides/publisher-client-side.md)
@@ -124,6 +126,8 @@ The following table lists the `status` property values and their HTTP status cod
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
 If the `status` value is other than `success`, the `message` field provides additional information about the issue.
+
+>NOTE: Since this endpoint does not check for opt-out records, it never returns the `optout` status.
 
 ## Test Identities
 

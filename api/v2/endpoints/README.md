@@ -8,7 +8,7 @@ All UID2 endpoints require a client secret for encrypting API requests (except [
 
 | Endpoint | Description | Request Encryption |  Response Decryption |
 | :--- | :--- | :--- | :--- |
-| [POST /token/generate](./post-token-generate.md) | Generate a UID2 token from an email address, phone number, or the respective hash. | Required | Required |
+| [POST /token/generate](./post-token-generate.md) | Opt in the user to UID2-based targeted advertising and generate a UID2 token from their provided email address or phone number. | Required | Required |
 | [POST /token/validate](./post-token-validate.md) | Validate that an advertising token (UID2) matches the specified email address, phone number, or the respective hash. | Required | Required |
 | [POST /token/refresh](./post-token-refresh.md) | Generate a new token for a user for their refresh token from the [POST /token/generate](./post-token-generate.md) response. | N/A | Required |
 
