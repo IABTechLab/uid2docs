@@ -155,7 +155,7 @@ You can use the `optout@email.com` email address or the `+00000000000` phone num
 
 The [POST /token/generate](../endpoints/post-token-generate.md) endpoint does not check for opt-out records and returns the `success` status with valid advertising and user tokens in response to valid requests.
 
->IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s PII to UID2 tokens for targeted advertising because [POST /token/generate](../endpoints/post-token-generate.md) calls implicitly opt in users associated with the provided PII. 
+>IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user's PII to UID2 tokens. [POST /token/generate](../endpoints/post-token-generate.md) calls automatically opt in users associated with the provided PII to UID2-based targeted advertising. 
 
 To check for opt-out requests, use the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint.
 
