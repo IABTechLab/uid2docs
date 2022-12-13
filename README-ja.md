@@ -109,7 +109,7 @@ UID2 は透明で相互運用可能なアプローチにより、広告エコシ
 
 次の図は、4 つのワークフローをすべてまとめたものです。各ワークフローについて、[参加者](#participants)、[コンポーネント](#components)、[UID2 識別子タイプ](#uid2-identifier-types)、および番号付きステップが色分けされています。
 
-![The UID2 Ecosystem](/images/UID2-workflows.jpg)
+![The UID2 Ecosystem](/images/UID2-workflows-ja.jpg)
 
 ## FAQs
 
