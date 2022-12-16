@@ -1,6 +1,6 @@
 # Unified ID 2.0 Overview
 
-English | [Japanese](README-ja.md)
+[English](README.md) | Japanese
 
 このページでは、Unified ID 2.0（UID2）フレームワークについて、以下の情報を提供します:
 
