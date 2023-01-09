@@ -2,6 +2,8 @@
 
 # Microsoft Azure Confidential Compute Operator Package
 
+IMPORTANT: このドキュメントは現在、PoC の段階です。詳細については、UID2 administrator に [連絡](../../README.md#contact-info) してください。
+
 UID2 Operator サービスは、Intel SGX テクノロジーを搭載したトラステッドコンピューティングエンクレーブ内で実行することができます。
 
 1. [Build](#build)
