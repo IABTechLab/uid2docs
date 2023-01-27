@@ -62,7 +62,7 @@ cloud-init config for Integration or Production Environment, and create a new Co
 This section describes the deployment process.
 
 ### Cloud-init.yaml file
-During the registration process, you will be provided with a certified cloud-init-`<timestamp>`.yaml file. This file cannot be modified in any way as the sha256sum of the file is used as part of the attestation process. The contents of the file is discussed below, but the file is never created manually during the deployment process - it will always be created by IABTechLab during the process of setting up a new private operator.
+During the registration process, you will be provided with a certified cloud-init-`<timestamp>`.yaml file. This file cannot be modified in any way as the sha256sum of the file is used as part of the attestation process. The contents of the file is discussed below, but the file is never created manually during the deployment process - it will always be created by the UID Team during the process of setting up a new private operator.
 
 Note that the cloud-init.yaml file is specific to an environment, so you will have one for the Integration Environment, and one for the Production environment.
 
