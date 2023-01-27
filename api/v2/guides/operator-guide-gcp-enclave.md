@@ -30,12 +30,12 @@ and Keys, to bootstrap UID2 Operator.
 
 The official Docker image to run UID2 Operator on GCP Confidential VM enclave can be
 pulled from the following Google Container Registry location:
- - docker pull gcr.io/uid2-316818/uid2-operator
+ - docker pull ghcr.io/iabtechlab/uid2-operator
 
 You can use the following command to build a non-certified UID2 operator container image from source code:
 
 ```
-scripts/gcp/build.sh gcr.io/uid2-316818/uid2-operator:v1.0.0-snapshot
+scripts/gcp/build.sh ghcr.io/iabtechlab/uid2-operator:v1.0.0-snapshot
 ```
 
 ## Attestation Requirements
@@ -57,36 +57,24 @@ which include the above required permissions:
 ## Integration Deployment
 
 We can deploy new UID2 Operator in GCP VM Enclave into Integration Environment by preparing a certified
-cloud-init config for Integration Environment, and create a new Confidential VM that uses the cloud-init.
+cloud-init config for Integration or Production Environment, and create a new Confidential VM that uses the cloud-init.
 
 This section describes the deployment process.
 
-### Input Variables
+### Cloud-init.yaml file
+During the registration process, you will be provided with a certified cloud-init-`<timestamp>`.yaml file. This file cannot be modified in any way as the sha256sum of the file is used as part of the attestation process. The contents of the file is discussed below, but the file is never created manually during the deployment process - it will always be created by IABTechLab during the process of setting up a new private operator.
 
-The following variables need to be replaced in the cloud-init config template
-provided in the section below for running UID2 Operator enclave:
+Note that the cloud-init.yaml file is specific to an environment, so you will have one for the Integration Environment, and one for the Production environment.
 
- - `<INPUT_API_TOKEN>` -- API token to connect to the Core service
- - `<INPUT_IMAGE_ID>` -- Digest id of the certified UID2 Operator container image to run
- - `<INPUT_DOCKER_PULL_CREDENTIAL>` -- Docker credential to pull
+### cloud-init example
 
-Search for '<INPUT_xxx>' in the template file below and replace with actual values.
+This is the cloud-init template to use for deploying UID2 Operator Enclave into Integration Environment. This section discusses the contents of the file, but you must use the one provided during the registration process.
 
-Note that value for `api_token` can only be used with the designated UID2 Core environment
-(core-integ.uidapi.com for deploying to Integration Environment), and cannot be used
-against a different environment.
-
-### cloud-init template
-
-This is the cloud-init template to use for deploying UID2 Operator Enclave into
-Integration Environment.
-
-Once the variables in it are replaced with actual values, the file content should be provided
-as custom metadata under the key `user-data` when creating the VM instance. This `user-data`
+The file content should be provided as custom metadata under the key `user-data` when creating the VM instance. This `user-data`
 metadata will be read and interpreted by the Container-Optimized OS (COS) VM disk during
 booting.
 
-As shown in the template below, it first disables remote SSH access, and then tells
+As shown in the example below, it first disables remote SSH access, and then tells
 COS VM to docker pull certified UID2 operator docker image from UID2 project's official
 Container Registry and run the UID2 operator container as a systemd service.
 
@@ -95,6 +83,7 @@ Container Registry and run the UID2 operator container as a systemd service.
 
 bootcmd:
 - iptables -D INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+- iptables -A INPUT -p tcp -m tcp --dport 22 -j DROP
 - systemctl mask --now serial-getty@ttyS0.service
 
 runcmd:
@@ -112,11 +101,12 @@ write_files:
     [Service]
     Environment="UID2_ENCLAVE_API_TOKEN=<INPUT_API_TOKEN>"
     Environment="UID2_ENCLAVE_IMAGE_ID=<INPUT_IMAGE_ID>"
+    Environment="GHCR_RO_ACCESS_TOKEN=<GHCR_TOKEN>"
     Environment="HOME=/run/uid2"
     ExecStartPre=mkdir -p /run/uid2/.config/gcloud
-    ExecStartPre=sh -c 'base64 -d /run/uid2/docker-credential.txt > /run/uid2/.config/gcloud/application_default_credentials.json'
+    ExecStartPre=docker login ghcr.io -u gcp-uid2-docker -p ${GHCR_RO_ACCESS_TOKEN}
     ExecStartPre=/usr/bin/docker-credential-gcr configure-docker
-    ExecStart=/usr/bin/docker run --rm --name uid2-operator -v /run/uid2/operator.json:/app/conf/config.json -e KUBERNETES_SERVICE_HOST=1 -e core_api_token=${UID2_ENCLAVE_API_TOKEN} -e optout_api_token=${UID2_ENCLAVE_API_TOKEN} -p 80:8080 gcr.io/uid2-316818/uid2-operator@sha256:${UID2_ENCLAVE_IMAGE_ID}
+    ExecStart=/usr/bin/docker run --rm --name uid2-operator -v /run/uid2/operator.json:/app/conf/config.json -e KUBERNETES_SERVICE_HOST=1 -e core_api_token=${UID2_ENCLAVE_API_TOKEN} -e optout_api_token=${UID2_ENCLAVE_API_TOKEN} -p 80:8080 ghcr.io/iabtechlab/uid2-operator@sha256:${UID2_ENCLAVE_IMAGE_ID}
     ExecStop=/usr/bin/docker stop uid2-operator
     ExecStopPost=/usr/bin/docker rm uid2-operator
 - path: /run/uid2/operator.json
@@ -133,138 +123,59 @@ write_files:
       "optout_api_uri": "https://optout-integ.uidapi.com/optout/replicate",
       "optout_s3_folder": "optout-v2/",
       "optout_inmem_cache": true,
+      "identity_token_expires_after_seconds": 14400,
+      "refresh_token_expires_after_seconds": 2592000,
+      "refresh_identity_token_after_seconds": 3600,
       "enclave_platform": "gcp-vmid",
-      "enforce_https": true
+      "enforce_https": true,
+      "service_instances": 16,
+      "allow_legacy_api": false
     }
-- path: /run/uid2/docker-credential.txt
-  permission: 0644
-  owner: root
-  content: <INPUT_DOCKER_PULL_CREDENTIAL>
 ```
 
 ### Create VM Instance
 
-Create a file called `./uid2-operator-integ.cloud-config.yaml`, using the above provided cloud-init
-config template, make sure the 3 input variables in the template are all replaced with actual values.
+Copy the provided cloud-init-`<timestamp>`.yaml file into a temporary location, and run the given gcloud script file 
+that was provided during the registration process from the same folder. This will create a new GCP Confidential VM that 
+uses the correct VM image as well as the cloud-init file. 
 
-Then, we can use the following `gcloud` command to create a GCP Confidential VM that uses the provided
-cloud init config `./uid2-operator-integ.cloud-config.yaml` to run UID2 Operator.
+An example of the gcloud script file is:
 
 ```
-$ gcloud compute instances create uid2-operator-test \
-    --confidential-compute \
-    --maintenance-policy Terminate \
-    --image-family cos-stable \
-    --image-project cos-cloud \
-    --metadata-from-file user-data=./uid2-operator-integ.cloud-config.yaml
+$ gcloud compute instances \
+  create uid2-operator-gcp-01 \
+  --confidential-compute \
+  --maintenance-policy Terminate \
+  --image https://www.googleapis.com/compute/v1/projects/cos-cloud/global/images/cos-stable-101-17162-40-56 \
+  --metadata-from-file user-data=./cloud-init-1674598899.yaml \
+  --tags http-server
 ```
+
+The name of the VM (uid2-operator-gcp-01 in the example above) can be changed, but no other parameters can be changed, 
+or attestation will fail. 
 
 ## Production Deployment
 
-We can deploy new UID2 Operator in GCP VM Enclave into Production Environment by preparing a certified
-cloud-init config for Production Environment, and create a new Confidential VM that uses the cloud-init.
+We can deploy new UID2 Operator in GCP VM Enclave into Production Environment by following the same process as for 
+Integration.
+You will need to be provided with a new instance of the cloud-init-`<timestamp>`.yaml. This will use your production 
+API-Token as well as the production URLs for the core service. 
+You will also be provided with a new gcloud script file, but it will only differ in the name of the cloud-init-`<timestamp>`.yaml 
+file used.
+It is recommended that you also specify the machine type in the gcloud script. Currently, it is recommended to run the
+UID2 operator on a machine type of n2d-standard-16.
+An example of the script is given below:
 
-This section describes the deployment process.
-
-### Input Variables
-
-The following variables need to be replaced in the cloud-init config template
-provided in the section below for running UID2 Operator enclave:
-
-- `<INPUT_API_TOKEN>` -- API token to connect to the Core service
-- `<INPUT_IMAGE_ID>` -- Digest id of the certified UID2 Operator container image to run
-- `<INPUT_DOCKER_PULL_CREDENTIAL>` -- Docker credential to pull
-
-Search for '<INPUT_xxx>' in the template file below and replace with actual values.
-
-Note that value for `api_token` can only be used with the designated UID2 Core environment
-(core-prod.uidapi.com for deploying to Production Environment), and cannot be used
-against a different environment.
-
-
-### cloud-init template for core-prod.uidapi.com
-
-This is the cloud-init template to use for deploying UID2 Operator Enclave into
-Production Environment.
-
-Once the variables in it are replaced with actual values, the file content should be provided
-as custom metadata under the key `user-data` when creating the VM instance. This `user-data`
-metadata will be read and interpreted by the Container-Optimized OS (COS) VM disk during
-booting.
-
-As shown in the template below, it first disables remote SSH access, and then tells
-COS VM to docker pull certified UID2 operator docker image from UID2 project's official
-Container Registry and run the UID2 operator container as a systemd service.
 
 ```
-#cloud-config
-
-bootcmd:
-- iptables -D INPUT -p tcp -m tcp --dport 22 -j ACCEPT
-- systemctl mask --now serial-getty@ttyS0.service
-
-runcmd:
-- systemctl daemon-reload
-- systemctl start uid2-operator.service
-
-write_files:
-- path: /etc/systemd/system/uid2-operator.service
-  permissions: 0644
-  owner: root
-  content: |
-    [Unit]
-    Description=Start UID 2.0 operator as docker container
-
-    [Service]
-    Environment="UID2_ENCLAVE_API_TOKEN=<INPUT_API_TOKEN>"
-    Environment="UID2_ENCLAVE_IMAGE_ID=<INPUT_IMAGE_ID>"
-    Environment="HOME=/run/uid2"
-    ExecStartPre=mkdir -p /run/uid2/.config/gcloud
-    ExecStartPre=sh -c 'base64 -d /run/uid2/docker-credential.txt > /run/uid2/.config/gcloud/application_default_credentials.json'
-    ExecStartPre=/usr/bin/docker-credential-gcr configure-docker
-    ExecStart=/usr/bin/docker run --rm --name uid2-operator -v /run/uid2/operator.json:/app/conf/config.json -e KUBERNETES_SERVICE_HOST=1 -e core_api_token=${UID2_ENCLAVE_API_TOKEN} -e optout_api_token=${UID2_ENCLAVE_API_TOKEN} -p 80:8080 gcr.io/uid2-316818/uid2-operator@sha256:${UID2_ENCLAVE_IMAGE_ID}
-    ExecStop=/usr/bin/docker stop uid2-operator
-    ExecStopPost=/usr/bin/docker rm uid2-operator
-- path: /run/uid2/operator.json
-  permissions: 0644
-  owner: root
-  content: |
-    {
-      "clients_metadata_path": "https://core-prod.uidapi.com/clients/refresh",
-      "keys_metadata_path": "https://core-prod.uidapi.com/key/refresh",
-      "keys_acl_metadata_path": "https://core-prod.uidapi.com/key/acl/refresh",
-      "salts_metadata_path": "https://core-prod.uidapi.com/salt/refresh",
-      "core_attest_url": "https://core-prod.uidapi.com/attest",
-      "optout_metadata_path": "https://optout-prod.uidapi.com/optout/refresh",
-      "optout_api_uri": "https://optout-prod.uidapi.com/optout/replicate",
-      "optout_s3_folder": "optout-v2/",
-      "optout_inmem_cache": true,
-      "enclave_platform": "gcp-vmid",
-      "enforce_https": true,
-      "service_instances": 16
-    }
-- path: /run/uid2/docker-credential.txt
-  permission: 0644
-  owner: root
-  content: <INPUT_DOCKER_PULL_CREDENTIAL>
-```
-### Using gcloud to create instance
-
-Create a file called `./uid2-operator-prod.cloud-config.yaml`, using the above provided cloud-init
-config template, make sure the 3 input variables in the template are all replaced with actual values.
-
-Then, we can use the following `gcloud` command to create a GCP Confidential VM that uses the provided
-cloud init config `./uid2-operator-prod.cloud-config.yaml` to run UID2 Operator.
-
-```
-$ gcloud compute instances create uid2-operator-test \
-    --machine-type n2d-standard-16 \
-    --confidential-compute \
-    --maintenance-policy Terminate \
-    --image-family cos-stable \
-    --image-project cos-cloud \
-    --metadata-from-file user-data=./uid2-operator-prod.cloud-config.yaml
-```
+$ gcloud compute instances \
+  create uid2-operator-gcp-01 \
+  --machine-type n2d-standard-16 \
+  --confidential-compute \
+  --maintenance-policy Terminate \
+  --image https://www.googleapis.com/compute/v1/projects/cos-cloud/global/images/cos-stable-101-17162-40-56 \
+  --metadata-from-file user-data=./cloud-init-1674598899.yaml \
+  --tags http-server
 
 Note that compared to the `gcloud` command used in the prior section, an additional option
 `--machine-type n2d-standard-16` is added, which ensures production deployment of UID2 Operator runs on
@@ -272,4 +183,6 @@ the recommended machine type that matches the production configuration.
 
 ## Upgrading
 
-For each operator version update, private operators receive an email notification with an upgrade window, after which the old version is deactivated and no longer supported. To upgrade to the latest version, deploy the new cloud-init provided in the email in the same manner as the original operator.
+For each operator version update, private operators receive an email notification with an upgrade window, 
+after which the old version is deactivated and no longer supported. 
+To upgrade to the latest version, deploy the new cloud-init provided in the email in the same manner as the original operator.
