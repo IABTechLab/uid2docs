@@ -78,6 +78,9 @@ As shown in the example below, it first disables remote SSH access, and then tel
 COS VM to docker pull certified UID2 operator docker image from UID2 project's official
 Container Registry and run the UID2 operator container as a systemd service.
 
+The UID2_ENCLAVE_API_TOKEN, UID2_ENCLAVE_IMAGE_ID and GHCR_RO_ACCESS_TOKEN will all be set in the file that 
+you are provided with. There is no need to edit them manually.
+
 ```
 #cloud-config
 
