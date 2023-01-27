@@ -2,7 +2,7 @@
 
 # UID2 Integration Guides
 
-The following guides provide integration instructions based on the needs and requirements of your organization and its primary role as a publisher, DSP, or data provider/advertser. As a UID2 participant, you may also integrate via Enterprise Partners that enable engaging with an Open Operator service and hosting of a Closed Operator service. 
+The following guides provide integration instructions based on the needs and requirements of your organization and its primary role as a publisher, DSP, or data provider/advertiser. As a UID2 participant, you may also integrate via Enterprise Partners that enable engaging with an Open Operator service and hosting of a Closed Operator service. 
 
 ## Publisher, DSP, and Data Provider Integrations
 
@@ -12,6 +12,12 @@ The following guides provide integration instructions based on the needs and req
 | [Publisher - Server-Only](./custom-publisher-integration.md) | This integration guide for publishers covers custom integration scenarios for app developers and CTV broadcasters, without utilizing the UID2 SDK. |
 | [DSP](./dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
 | [Advertiser/Data Provider](./advertiser-dataprovider-guide.md) | This integration guide for advertisers and data partners covers integration workflows for mapping identity for audience-building and targeting. |
+
+## Supplementary Integrations
+
+| Integration Guide |  Content Description |
+| :--- | :--- |
+| [UID2 Secure Signal](./google-gss-integration.md) | This integration guide covers the additional steps needed for publishers using UID2 with Google Secure Signal (GSS, previously known as Google Encrypted Signal, ESP). |
 
 ## Open Operator Service Integration
  
