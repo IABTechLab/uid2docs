@@ -17,7 +17,7 @@ The following guides provide integration instructions based on the needs and req
 
 | Integration Guide |  Content Description |
 | :--- | :--- |
-| [UID2 Secure Signal](./google-gss-integration.md) | This integration guide covers the additional steps needed for publishers using UID2 with Google Secure Signal (GSS, previously known as Google Encrypted Signal, ESP). |
+| [Publisher - Google Secure Signal](./google-gss-integration.md) | This integration guide covers the additional steps needed for publishers using UID2 with Google Secure Signal (GSS, previously known as Google Encrypted Signal, ESP). |
 
 ## Open Operator Service Integration
  
