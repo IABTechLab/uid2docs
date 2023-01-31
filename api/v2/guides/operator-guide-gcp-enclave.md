@@ -78,8 +78,9 @@ As shown in the example below, it first disables remote SSH access, and then tel
 COS VM to docker pull certified UID2 operator docker image from UID2 project's official
 Container Registry and run the UID2 operator container as a systemd service.
 
-The UID2_ENCLAVE_API_TOKEN, UID2_ENCLAVE_IMAGE_ID and GHCR_RO_ACCESS_TOKEN will all be set in the file that 
+The UID2_ENCLAVE_IMAGE_ID and GHCR_RO_ACCESS_TOKEN will all be set in the file that 
 you are provided with. There is no need to edit them manually.
+You will be provided with the UID2_ENCLAVE_API_TOKEN separately and it will need to be manually updated in the file. 
 
 ```
 #cloud-config
@@ -102,8 +103,8 @@ write_files:
     Description=Start UID 2.0 operator as docker container
 
     [Service]
-    Environment="UID2_ENCLAVE_API_TOKEN=<INPUT_API_TOKEN>"
-    Environment="UID2_ENCLAVE_IMAGE_ID=<INPUT_IMAGE_ID>"
+    Environment="UID2_ENCLAVE_API_TOKEN=<API_TOKEN>"
+    Environment="UID2_ENCLAVE_IMAGE_ID=<IMAGE_ID>"
     Environment="GHCR_RO_ACCESS_TOKEN=<GHCR_TOKEN>"
     Environment="HOME=/run/uid2"
     ExecStartPre=mkdir -p /run/uid2/.config/gcloud
@@ -154,17 +155,14 @@ $ gcloud compute instances \
   --tags http-server
 ```
 
-The name of the VM (uid2-operator-gcp-01 in the example above) can be changed, but no other parameters can be changed, 
-or attestation will fail. 
+The name of the VM (uid2-operator-gcp-01 in the example above) can be changed, but no other parameters can be changed, or attestation will fail. 
 
 ## Production Deployment
 
-We can deploy new UID2 Operator in GCP VM Enclave into Production Environment by following the same process as for 
-Integration.
+We can deploy new UID2 Operator in GCP VM Enclave into Production Environment by following the same process as for Integration.
 You will need to be provided with a new instance of the cloud-init-`<timestamp>`.yaml. This will use your production 
 API-Token as well as the production URLs for the core service. 
-You will also be provided with a new gcloud script file, but it will only differ in the name of the cloud-init-`<timestamp>`.yaml 
-file used.
+You will also be provided with a new gcloud script file, but it will only differ in the name of the cloud-init-`<timestamp>`.yaml file used.
 It is recommended that you also specify the machine type in the gcloud script. Currently, it is recommended to run the
 UID2 operator on a machine type of n2d-standard-16.
 An example of the script is given below:
