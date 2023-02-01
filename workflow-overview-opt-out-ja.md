@@ -7,6 +7,6 @@
 3. UID2 Administrator がリクエストを DSP に配布します。
 4. UID2 Operator が、Refresh Token を使用しているパブリッシャーにリクエストを配布します。
 
-このワークフローにより、ユーザーは UID2 トークンの作成に同意し、UID2 同意とプライバシー設定を[Transparency and Control Portal](https://transparentadvertising.org) で管理することができます。
+このワークフローにより、ユーザーは UID2 Token の作成に同意し、UID2 同意とプライバシー設定を[Transparency and Control Portal](https://transparentadvertising.org) で管理することができます。
 
 ![User Trust Workflow](/images/user_trust_workflow.jpg)

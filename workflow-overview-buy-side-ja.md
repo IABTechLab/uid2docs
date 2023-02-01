@@ -17,7 +17,7 @@ UID2 とインテグレーションして、ブランド（ファーストパー
 
 - UID2 形式のデータを受け取る。
 - UID2 形式のデータに入札する。
-- オプトアウト要求に対応するための Webhook を構築する。
+- オプトアウトリクエストに対応するための Webhook を構築する。
 - UID2 Administrator と暗号化キーを毎日同期させる。
 
 詳細は、[DSP Integration Guide](/api-ja/v2/guides/dsp-guide.md) を参照してください。

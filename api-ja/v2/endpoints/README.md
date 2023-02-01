@@ -6,11 +6,11 @@
 
 ## Identity Tokens
 
-| Endpoint                                         | Description                                                                                                                | Request Encryption | Response Decryption |
-| :----------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------- | :----------------- | :------------------ |
-| [POST /token/generate](./post-token-generate.md) | メールアドレス、電話番号、またはそれぞれのハッシュから UID2 トークンを生成します。                                         | 必須               | 必須                |
-| [POST /token/validate](./post-token-validate.md) | Advertising Token（UID2）が指定されたメールアドレス、電話番号、またはそれぞれのハッシュと一致するかどうかを検証します。    | 必須               | 必須                |
-| [POST /token/refresh](./post-token-refresh.md)   | [POST /token/generate](./post-token-generate.md) レスポンスから、ユーザーの Refresh Token 用に新しいトークンを生成します。 | N/A                | 必須                |
+| Endpoint                                         | Description                                                                                                                   | Request Encryption | Response Decryption |
+| :----------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------- | :----------------- | :------------------ |
+| [POST /token/generate](./post-token-generate.md) | UID2 ベースのターゲティング広告にユーザーをオプトインし、提供されたメールアドレスまたは電話番号から UID2 Token を生成します。 | 必須               | 必須                |
+| [POST /token/validate](./post-token-validate.md) | Advertising Token（UID2）が指定されたメールアドレス、電話番号、またはそれぞれのハッシュと一致するかどうかを検証します。       | 必須               | 必須                |
+| [POST /token/refresh](./post-token-refresh.md)   | [POST /token/generate](./post-token-generate.md) レスポンスから、ユーザーの Refresh Token 用に新しいトークンを生成します。    | N/A                | 必須                |
 
 ## Identity Maps
 

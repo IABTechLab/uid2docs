@@ -154,3 +154,11 @@ UID2 Service では、ランダムな初期化ベクトルを使用してトー�
    - `phone_hash` 値として `+00000000000` のハッシュを指定します。
 2. 返された `refresh_token` を次のステップで使用するために保存します。
 3. (ステップ 2 で保存した) `refresh_token` を `token` 値として [POST /token/refresh](../endpoints/post-token-refresh.md) リクエストを送信します。<br/>レスポンスボディは空で、`optout@email.com` というメールアドレスと `+00000000000` という電話番号は常にログアウトしたユーザーとなるため、`status` 値に `optout` が設定されていなければなりません。
+
+### リクエスト ペイロードに optout@email.com を渡すと、/token/generate は　“optout”　ステータスを返し、トークンを生成しないようにする必要がありますか?
+
+[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントは、オプトアウトリクエストをチェックせず、有効なリクエストに応答して有効な広告およびユーザートークンを含む `success` ステータスを返します。
+
+> IMPORTANT: このエンドポイントは、ユーザーの PII を UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。[POST /token/generate](../endpoints/post-token-generate.md) を呼び出すと、提供された PII に関連するユーザーが UID2 ベースのターゲティング広告に自動的にオプトインされます。
+
+オプトアウトリクエストを確認するには、[POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントを使用します。
