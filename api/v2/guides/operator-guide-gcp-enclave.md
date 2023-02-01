@@ -1,7 +1,6 @@
 # UID2 Operator - Google Cloud Platform Confidential Compute package
 
 UID2 Operator service can be run within a trusted computing enclave powered by Google.
-Scripts in this folder help to package the service.
 
 UID2 Operator Enclave runs on Google Compute Platform in a
 [Confidential VM](https://cloud.google.com/compute/confidential-vm/docs/about-cvm).
@@ -10,8 +9,8 @@ boot disk, which can be customized through the provided [cloud-init](https://clo
 config.
 
 The cloud-init config will disable remote SSH access to the VM and allowing only the UID2 traffic
-in and out. It also creates a systemd service that will docker pull certified UID2 operator docker
-image from UID2 project's docker registry on GCP and starts the container.
+in and out. It also creates a `systemd` service that will `docker pull` the certified UID2 operator Docker
+image from UID2 project's docker registry on GitHub (ghcr.io) and start the container.
 
 When UID2 Operator's docker container starts up, it will obtain an
 [Instance Document](https://cloud.google.com/compute/docs/instances/verifying-instance-identity) -
@@ -19,17 +18,17 @@ a unique JSON Web Token that includes details of the VM instance it is running o
 Google's RS256 signature. It then sends the Instance Document plus the UID2 `api_token`
 specified in the cloud-init config to UID2 Core as Attestation Request.
 
-UID2 Core service receives Attestation Request, verifies `api_token` and Instance Document.
+When UID2 Core service receives the Attestation Request it verifies the `api_token` and Instance Document.
 As part of Attestation Process for the operator, UID2 Core will also issue GCP API calls
 to retrieve VM instance metadata, such as the boot disk, cloud-init config, and AuditLogs.
 
 Once the attestation is successful, UID2 Core will provide seed information such as Salts,
-and Keys, to bootstrap UID2 Operator.
+and Keys, to bootstrap the UID2 Operator.
 
 ## Build
 
 The official Docker image to run UID2 Operator on GCP Confidential VM enclave can be
-pulled from the following Google Container Registry location:
+pulled from the following GitHub Container Registry location:
  - docker pull ghcr.io/iabtechlab/uid2-operator
 
 You can use the following command to build a non-certified UID2 operator container image from source code:
@@ -40,7 +39,7 @@ scripts/gcp/build.sh ghcr.io/iabtechlab/uid2-operator:v1.0.0-snapshot
 
 ## Attestation Requirements
 
-UID2 Operator can be run on any GCP account and project, however to support Attestation, it must grant several
+UID2 Operator can be run on any GCP account and project, however to support Attestation, the project must grant several
 permissions to the service account UID2 Core uses to issue the GCP API calls during Attestation.
 
 The following permissions needs to be granted to UID2 Core for accessing resource metadata in the GCP account and project
@@ -56,13 +55,13 @@ which include the above required permissions:
 
 ## Integration Deployment
 
-We can deploy new UID2 Operator in GCP VM Enclave into Integration Environment by preparing a certified
-cloud-init config for Integration or Production Environment, and create a new Confidential VM that uses the cloud-init.
+You can deploy a new UID2 Operator in a GCP VM Enclave into the Integration Environment by preparing a certified
+cloud-init.yaml file for Integration Environment, and create a new Confidential VM that uses the cloud-init.
 
 This section describes the deployment process.
 
 ### Cloud-init.yaml file
-During the registration process, you will be provided with a certified cloud-init-`<timestamp>`.yaml file. This file cannot be modified in any way as the sha256sum of the file is used as part of the attestation process. The contents of the file is discussed below, but the file is never created manually during the deployment process - it will always be created by the UID Team during the process of setting up a new private operator.
+During the registration process, you will be provided with a certified cloud-init-`<timestamp>`.yaml file. This file cannot be modified in any way (other than to add the Client API Key) as the sha256sum of the file is used as part of the attestation process. The contents of the file is discussed below, but the file is never created manually during the deployment process - it will always be created by the UID Team during the process of setting up a new private operator.
 
 Note that the cloud-init.yaml file is specific to an environment, so you will have one for the Integration Environment, and one for the Production environment.
 
@@ -75,7 +74,7 @@ metadata will be read and interpreted by the Container-Optimized OS (COS) VM dis
 booting.
 
 As shown in the example below, it first disables remote SSH access, and then tells
-COS VM to docker pull certified UID2 operator docker image from UID2 project's official
+COS VM to `docker pull` the certified UID2 operator docker image from UID2 project's official
 Container Registry and run the UID2 operator container as a systemd service.
 
 The UID2_ENCLAVE_IMAGE_ID and GHCR_RO_ACCESS_TOKEN will all be set in the file that 
@@ -139,7 +138,7 @@ write_files:
 
 ### Create VM Instance
 
-Copy the provided cloud-init-`<timestamp>`.yaml file into a temporary location, and run the given gcloud script file 
+Copy the provided cloud-init-`<timestamp>`.yaml file into a temporary location and run the given gcloud script file 
 that was provided during the registration process from the same folder. This will create a new GCP Confidential VM that 
 uses the correct VM image as well as the cloud-init file. 
 
@@ -160,8 +159,7 @@ The name of the VM (uid2-operator-gcp-01 in the example above) can be changed, b
 ## Production Deployment
 
 We can deploy new UID2 Operator in GCP VM Enclave into Production Environment by following the same process as for Integration.
-You will need to be provided with a new instance of the cloud-init-`<timestamp>`.yaml. This will use your production 
-API-Token as well as the production URLs for the core service. 
+You will need to be provided with a new instance of the cloud-init-`<timestamp>`.yaml. This will use the production URLs for the core service. 
 You will also be provided with a new gcloud script file, but it will only differ in the name of the cloud-init-`<timestamp>`.yaml file used.
 It is recommended that you also specify the machine type in the gcloud script. Currently, it is recommended to run the
 UID2 operator on a machine type of n2d-standard-16.
