@@ -1,4 +1,4 @@
-[UID2 Overview](./README-ja.md) > Supply-Side Workflow
+[UID2 Overview](../README-ja.md) > Supply-Side Workflow
 
 # Supply-Side Workflow Overview
 
@@ -15,11 +15,11 @@
 7. SSP は UID2 Token を使って入札リクエストを行い、ビッドストリームに取り込みます。
 8. パブリッシャーは Refresh Token を使用して UID2 Token の更新を要求します。オプトアウトされていれば、Refresh Token にはユーザーのオプトアウトリクエストが含まれます。
 
-![Publisher Workflow](/images/publisher_workflow.jpg)
+![Publisher Workflow](../images/publisher_workflow.jpg)
 
 ## Integrations
 
-インテグレーションシナリオ、トークン管理、その他の詳細については、[Publisher Integration Guides](/api-ja/v2/guides/README.md) を参照してください。[Endpoints](/api-ja/v2/endpoints/README.md) も参照してください。
+インテグレーションシナリオ、トークン管理、その他の詳細については、[Publisher Integration Guides](../api-ja/v2/guides/README.md) を参照してください。[Endpoints](../api-ja/v2/endpoints/README.md) も参照してください。
 
 ### Direct Integration Requirements
 

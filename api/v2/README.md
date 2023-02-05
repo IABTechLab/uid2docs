@@ -14,7 +14,7 @@ For details on using the API, see the following pages.
 
 | Documentation | Content Description |
 | :--- | :--- |
-| [Encrypting Requests and Decrypting Responses](./encryption-decryption.md) | The high-level request-response workflow for the UID2 APIs, requirements for encrypting requests and decrypting responses, and respective script examples in Python.  |
+| [Encrypting Requests and Decrypting Responses](ref-info/encryption-decryption.md) | The high-level request-response workflow for the UID2 APIs, requirements for encrypting requests and decrypting responses, and respective script examples in Python.  |
 | [Endpoints](./endpoints/README.md) | The API reference for managing identity tokens and mapping email addresses, phone numbers, or hashes to their UID2s and salt bucket IDs used to generate the UID2s. |
 | [Integration Guides](./guides/README.md) | The UID2 integration workflows for UID2 participants, such as publishers, DSPs, advertisers, and data providers, as well as Operator Enterprise Partners, such as Microsoft Azure, AWS, and Snowflake. |
 | [SDKs](./sdks/README.md) | The Client-Side JavaScript for websites and RTB SDKs. | 
@@ -29,7 +29,7 @@ Here's what you need to know about the UID2 API v2 compatibility with v1:
 - UID2 API v2 is not compatible with UID2 API v1 and require an [upgrade](./upgrade-guide.md).
 - The v1 endpoints will be supported until **March 31, 2023**, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be deprecated and removed.
 - Previously issued client API keys will continue working with v1 endpoints and will be required for v2 endpoints.
-- To use the v2 endpoints, a client secret is required for [encrypting API requests and decrypting API responses](./encryption-decryption.md).
+- To use the v2 endpoints, a client secret is required for [encrypting API requests and decrypting API responses](ref-info/encryption-decryption.md).
 
 ## Environments 
 
@@ -51,5 +51,5 @@ To authenticate to the UID2 endpoints, you need the following:
 
 - A client API key, which is to be included as a bearer token in the request's authorization header. 
   <br/>```Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=```
-- A client secret for encrypting API requests and decrypting API responses for all endpoints, except [POST /token/refresh](./endpoints/post-token-refresh.md). <br/>For details and Python examples, see [Encrypting Requests and Decrypting Responses](./encryption-decryption.md).
+- A client secret for encrypting API requests and decrypting API responses for all endpoints, except [POST /token/refresh](./endpoints/post-token-refresh.md). <br/>For details and Python examples, see [Encrypting Requests and Decrypting Responses](ref-info/encryption-decryption.md).
 

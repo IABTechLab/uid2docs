@@ -1,4 +1,4 @@
-[UID2 Overview](./README.md) > Buy-Side Workflow
+[UID2 Overview](../README.md) > Buy-Side Workflow
 
 # Buy-Side Workflow Overview
 
@@ -9,7 +9,7 @@ The following steps provide a high-level outline of the workflow intended for de
 3. DSPs access UID2 tokens in the bid stream and decrypt them at bid time.
 4. DSPs listen to opt-out requests from UID2 Administrator and block buying on any UID2 that has opted-out.
 
-![Buy-Side Workflow](/images/buy_side.jpg)
+![Buy-Side Workflow](../images/buy_side.jpg)
 
 ## Integration Requirements
 
@@ -20,6 +20,6 @@ To integrate with UID2 to receive UID2s from brands (as first-party data) and da
 - Build a webhook for honoring opt-out requests
 - Sync encryption keys daily with the UID2 Administrator
 
-For details, see [DSP Integration Guide](/api/v2/guides/dsp-guide.md).
+For details, see [DSP Integration Guide](../api/v2/guides/dsp-guide.md).
 
-Optionally, if a DSP wants to generate UID2s themselves from PII, they may also follow the [Third-Party Data Provider Workflow](./workflow-overview-3p-data-provider.md).
+Optionally, if a DSP wants to generate UID2s themselves from PII, they may also follow the [Third-Party Data Provider Workflow](workflow-overview-3p-data-provider.md).

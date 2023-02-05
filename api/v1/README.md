@@ -1,6 +1,6 @@
 # UID2 API v1 (Deprecated)
 
->IMPORTANT: The UID2 API v1 has been deprecated and will be supported only for the current users until March 31, 2023, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be removed. Be sure to [upgrade to the UID2 API v2](../v2/upgrade-guide.md) by March 31, 2023. If you are new to the framework, use the [UID2 API v2](../v2/README.md).
+>IMPORTANT: The UID2 API v1 has been deprecated and will be supported only for the current users until March 31, 2023, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be removed. Be sure to [upgrade to the UID2 API v2](../v2/upgrade/upgrade-guide.md) by March 31, 2023. If you are new to the framework, use the [UID2 API v2](../v2/README.md).
 
 
 For UID2 definition, forms, guiding principles, components, and other conceptual details, see [UID2 Overview](../../README.md). For contact and license information, as well as normalization and hash encoding rules, see [Unified ID 2.0 API Documentation](../README.md). For the API v2 details, see [UID2 API v2 Documentation](../v2/README.md).

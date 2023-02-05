@@ -1,10 +1,10 @@
-[UID2 Overview](../../README-ja.md) > [Getting Started](../README.md) > [v2](./README.md) > Encrypting Requests and Decrypting Responses
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../README.md) > Encrypting Requests and Decrypting Responses
 
 # Encrypting Requests and Decrypting Responses
 
-すべての UID2 [エンドポイント](./endpoints/README.md) は、リクエストの [暗号化](#encrypting-requests) とそれぞれのレスポンスの [復号化](#decrypting-responses) を必要とします。
+すべての UID2 [エンドポイント](../endpoints/README.md) は、リクエストの [暗号化](#encrypting-requests) とそれぞれのレスポンスの [復号化](#decrypting-responses) を必要とします。
 
-> NOTE: [POST /token/refresh](./endpoints/post-token-refresh.md) リクエストは暗号化を必要としません。
+> NOTE: [POST /token/refresh](../endpoints/post-token-refresh.md) リクエストは暗号化を必要としません。
 
 UID2 API リクエストの暗号化と各レスポンスの復号化について知っておく必要があるのは、以下の通りです:
 
@@ -31,7 +31,7 @@ UID2 API のハイレベルなリクエスト・レスポンスワークフロ�
 
 [リクエストの暗号化](#example-encryption-script) と [レスポンスの復号化](#example-decryption-script) の Python サンプルスクリプトは、ステップ 2-4 と 6-10 の自動化に役立ち、アプリケーションにこれらの手順を実装する方法のリファレンスとして役に立ちます。
 
-それぞれの UID2 [エンドポイント](./endpoints/README.md) では、それぞれの JSON ボディフォーマットの要件とパラメータを説明し、呼び出し例を含み、復号した応答を示しています。以下のセクションでは、Python による暗号化および記述スクリプトの例、フィールドレイアウトの要件、リクエストとレスポンスの例を示します。
+それぞれの UID2 [エンドポイント](../endpoints/README.md) では、それぞれの JSON ボディフォーマットの要件とパラメータを説明し、呼び出し例を含み、復号した応答を示しています。以下のセクションでは、Python による暗号化および記述スクリプトの例、フィールドレイアウトの要件、リクエストとレスポンスの例を示します。
 
 ## Encrypting Requests
 
@@ -100,7 +100,7 @@ print(base64.b64encode(bytes(envelope)).decode() + "\n")
 
 ### Request Example
 
-たとえば、メールアドレスに対して暗号化された [POST /token/generate](./endpoints/post-token-generate.md) リクエストを送信するには、次のコマンドを実行します。
+たとえば、メールアドレスに対して暗号化された [POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信するには、次のコマンドを実行します。
 
 ```sh
 echo '{"email": "test@example.com"}' \
@@ -143,9 +143,9 @@ The following table describes the field layout for response decryption scripts.
 以下は、レスポンスを復号するための Python スクリプトの例です (`decrypt_response.py`) で、以下のパラメータを受け取ります:
 
 - クライアントシークレット
-- (オプション) `--is-refresh` は、レスポンスが [POST /token/refresh](./endpoints/post-token-refresh.md) リクエストに対するものであることを表します。
+- (オプション) `--is-refresh` は、レスポンスが [POST /token/refresh](../endpoints/post-token-refresh.md) リクエストに対するものであることを表します。
 
-IMPORTANT: レスポンスを復号するには、[POST /token/generate](./endpoints/post-token-generate.md) または `POST /token/refresh` レスポンスで、リクエストの Refresh Token を返す `refresh_response_key` 値を使用する必要があります。
+IMPORTANT: レスポンスを復号するには、[POST /token/generate](../endpoints/post-token-generate.md) または `POST /token/refresh` レスポンスで、リクエストの Refresh Token を返す `refresh_response_key` 値を使用する必要があります。
 
 ```py
 import base64
@@ -188,7 +188,7 @@ except:
 
 ### Response Example
 
-例えば、[先行例](#request-example) のメールアドレスに対する [POST /token/generate](./endpoints/post-token-generate.md) リクエストに対する復号されたレスポンスは、次のようになることが考えられます:
+例えば、[先行例](#request-example) のメールアドレスに対する [POST /token/generate](../endpoints/post-token-generate.md) リクエストに対する復号されたレスポンスは、次のようになることが考えられます:
 
 ```json
 {

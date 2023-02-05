@@ -103,10 +103,10 @@ The following table lists four key workflows in the UID2 framework with links to
 
 | Workflow | Intended Primary Participants |  Integration Guide |
 | :--- | :--- | :--- |
-| **Buy-Side**<br/>[Overview](./workflow-overview-buy-side.md) | DSPs who transact on UID2 tokens in the bid stream. |  [DSP](./api/v2/guides/dsp-guide.md) |
-| **Data Provider**<br/>[Overview](./workflow-overview-3p-data-provider.md) | Organizations that collect user data and push it to DSPs. | [Advertiser and Third-Party Data Provider](./api/v2/guides/advertiser-dataprovider-guide.md) |
-| **Supply-Side**<br/>[Overview](./workflow-overview-supply-side.md) | Organizations that propagate UID2 tokenss to the bid stream via SSPs.<br/> NOTE: Publishers can choose to leverage the [UID2 SDK](./api/v2/sdks/client-side-identity.md) or complete their own custom, server-only integration. | [Publisher (with UID2 SDK)](./api/v2/guides/publisher-client-side.md)<br/>[Publisher (Server-Only)](./api/v2/guides/custom-publisher-integration.md) |
-| **Opt-Out**<br/>[Overview](./workflow-overview-opt-out.md) | Consumers who engage with publishers or their SSO providers and other identity providers. | N/A |
+| **Buy-Side**<br/>[Overview](workflows/workflow-overview-buy-side.md) | DSPs who transact on UID2 tokens in the bid stream. |  [DSP](./api/v2/guides/dsp-guide.md) |
+| **Data Provider**<br/>[Overview](workflows/workflow-overview-3p-data-provider.md) | Organizations that collect user data and push it to DSPs. | [Advertiser and Third-Party Data Provider](./api/v2/guides/advertiser-dataprovider-guide.md) |
+| **Supply-Side**<br/>[Overview](workflows/workflow-overview-supply-side.md) | Organizations that propagate UID2 tokenss to the bid stream via SSPs.<br/> NOTE: Publishers can choose to leverage the [UID2 SDK](./api/v2/sdks/client-side-identity.md) or complete their own custom, server-only integration. | [Publisher (with UID2 SDK)](./api/v2/guides/publisher-client-side.md)<br/>[Publisher (Server-Only)](./api/v2/guides/custom-publisher-integration.md) |
+| **Opt-Out**<br/>[Overview](workflows/workflow-overview-opt-out.md) | Consumers who engage with publishers or their SSO providers and other identity providers. | N/A |
 
 
 The following diagram summarizes all four workflows. For each workflow, the [participants](#participants), [components](#components), [UID2 identifier types](#uid2-identifier-types), and numbered steps are color-coded.

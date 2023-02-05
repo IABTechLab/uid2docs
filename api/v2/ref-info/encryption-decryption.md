@@ -1,10 +1,10 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](./README.md) > Encrypting Requests and Decrypting Responses
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > Encrypting Requests and Decrypting Responses
 
 # Encrypting Requests and Decrypting Responses
 
-All UID2 [endpoints](./endpoints/README.md) require request [encryption](#encrypting-requests) and respective response [decryption](#decrypting-responses). 
+All UID2 [endpoints](../endpoints/README.md) require request [encryption](#encrypting-requests) and respective response [decryption](#decrypting-responses). 
 
->NOTE: [POST /token/refresh](./endpoints/post-token-refresh.md) requests do not require encryption.
+>NOTE: [POST /token/refresh](../endpoints/post-token-refresh.md) requests do not require encryption.
 
 Here's what you need to know about encrypting UID2 API requests and decrypting respective responses:
 
@@ -31,7 +31,7 @@ The high-level request-response workflow for the UID2 APIs includes the followin
 
 Python example scripts for [encrypting requests](#example-encryption-script) and [decrypting responses](#example-decryption-script) can help with automating steps 2-4 and 6-10 and serve as a reference of how to implement these steps in your application.
 
-The individual UID2 [endpoints](./endpoints/README.md) explain the respective JSON body format requirements and parameters, include call examples, and show decrypted responses. The following sections provide examples of the encryption and descriptions scripts in Python, field layout requirements as well as request and response examples. 
+The individual UID2 [endpoints](../endpoints/README.md) explain the respective JSON body format requirements and parameters, include call examples, and show decrypted responses. The following sections provide examples of the encryption and descriptions scripts in Python, field layout requirements as well as request and response examples. 
 
 ## Encrypting Requests
 
@@ -99,7 +99,7 @@ print(base64.b64encode(bytes(envelope)).decode() + "\n")
 ```
 ### Request Example
 
-For example, to send an encrypted [POST /token/generate](./endpoints/post-token-generate.md) request for an email address, you can run the following command.
+For example, to send an encrypted [POST /token/generate](../endpoints/post-token-generate.md) request for an email address, you can run the following command.
 
 ```sh
 echo '{"email": "test@example.com"}' \
@@ -139,9 +139,9 @@ The following table describes the field layout for response decryption scripts.
 Here's an example Python script (`decrypt_response.py`) for decrypting responses, which takes the following parameters:
 
 - The client secret
-- (Optional) `--is-refresh` to indicate that the response is for a [POST /token/refresh](./endpoints/post-token-refresh.md) request
+- (Optional) `--is-refresh` to indicate that the response is for a [POST /token/refresh](../endpoints/post-token-refresh.md) request
 
->IMPORTANT: To decrypt responses, you need to use the `refresh_response_key` value returned in the [POST /token/generate](./endpoints/post-token-generate.md) or [POST /token/refresh](./endpoints/post-token-refresh.md) response from which the refresh token in the request is returned.
+>IMPORTANT: To decrypt responses, you need to use the `refresh_response_key` value returned in the [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md) response from which the refresh token in the request is returned.
 
 ```py
 import base64
@@ -183,7 +183,7 @@ except:
 ```
 ### Response Example
 
-For example, a decrypted response to the [POST /token/generate](./endpoints/post-token-generate.md) request for an email address in the [preceding example](#request-example), may look like this:
+For example, a decrypted response to the [POST /token/generate](../endpoints/post-token-generate.md) request for an email address in the [preceding example](#request-example), may look like this:
 
 ```json
 {
