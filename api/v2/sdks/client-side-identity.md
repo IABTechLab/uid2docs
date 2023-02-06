@@ -49,7 +49,7 @@ The following table outlines the four main states in which the SDK can be, based
 
 The following diagram illustrates the four states, including the respective identity [status values](#identity-status-values), and possible transitions between them. The SDK invokes the [callback function](#callback-function) on each transition.
 
-![Client-Side Identity JavaScript SDK Workflow](images//uid2-js-sdk-workflow.svg)
+![Client-Side Identity JavaScript SDK Workflow](images/uid2-js-sdk-workflow.svg)
 
 
 ### Background Token Auto-Refresh
