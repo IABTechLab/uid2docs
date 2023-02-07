@@ -19,8 +19,8 @@ Google secure signals is a way for publishers to pass "encrypted" user IDs to bi
 
 With this framework, the following steps occur:
 
-1. Publishers push user ID signals (advertising tokens) to the secure signal feature.
-2. The secure signal feature caches them on the client side and then transparently passes them to Google Ad Manager.
+1. Publishers push user ID signals (advertising tokens) to the secure signals feature.
+2. The secure signals feature caches them on the client side and then transparently passes them to Google Ad Manager.
 3. Google Ad Manager uses the UID2 tokens to make bid requests -- forwarding the tokens to approved bidders within Google Adx based on the publisher's preferences.
 
 ## Allow Secure Signal Sharing
@@ -31,9 +31,9 @@ For details, see [Share encrypted signals with bidders](https://support.google.c
 
 ## Publisher Integration
 
-When an encrypted signal is cached, Secure Signal does not execute the handler to generate a new signal. Because of this, it is necessary to clear the cache before login and after logout.
+When an encrypted signal is cached, the secure signals feature does not execute the handler to generate a new signal. Because of this, it is necessary to clear the cache before login and after logout.
 
-Since Secure Signal does not provide a way to delete or invalidate a specific ID, publishers must call the `window.googletag.secureSignalProviders.clearAllCache()` function to clear all shared encrypted signals as part of their login/logout workflows.
+Since the secure signals feature does not provide a way to delete or invalidate a specific ID, publishers must call the `window.googletag.secureSignalProviders.clearAllCache()` function to clear all shared encrypted signals as part of their login/logout workflows.
 
 The following is an example of calling the `window.googletag.secureSignalProviders.clearAllCache()` function:
 
@@ -46,7 +46,7 @@ window.googletag.cmd.push(function () {
 
 ### Server-Only Integration
 
-So that it can share encrypted signals, the hosted auto-loaded secure signal script must be able to make an asynchronous call to the `window.getUid2AdvertisingToken` function and, in response, receive `advertising_token` as a string.
+So that it can share encrypted signals, the hosted auto-loaded secure signals script must be able to make an asynchronous call to the `window.getUid2AdvertisingToken` function and, in response, receive `advertising_token` as a string.
 
 It's important to make sure that the identity token is fresh. For a server-side integration, we recommend making a call to the {{/token/refresh}} endpoint](https://github.com/IABTechLab/uid2docs/blob/main/api/v2/endpoints/post-token-refresh.md#post-tokenrefresh) to get a fresh [identity token](https://github.com/IABTechLab/uid2docs/blob/main/api/v2/endpoints/post-token-refresh.md#decrypted-json-response-format).
 
@@ -66,7 +66,7 @@ A sample application is also available for server-only integration. See [Sample 
 
 ### UID2 SDK Integration
 
-If you are using the UID2 Client-Side Identity JavaScript SDK version 3.0.0 onwards, the hosted auto-loaded UID2 Secure Signal script uses the `getAdvertisingTokenAsync` function provided in the SDK to get the fresh advertising token, and then pushes the token to Google Ad Manager.
+If you are using the UID2 Client-Side Identity JavaScript SDK version 3.0.0 onwards, the hosted auto-loaded UID2 secure signals script uses the `getAdvertisingTokenAsync` function provided in the SDK to get the fresh advertising token, and then pushes the token to Google Ad Manager.
 
 For details, see [UID2 SDK Integration Guide](#publisher-client-side.md).
 
