@@ -50,7 +50,7 @@ Web インテグレーションの手順については、[Publisher Integration
 
 次の図は、4 つの状態と、それぞれの ID の [status value](#identity-status-values)、およびそれらの間の可能な遷移を表しています。SDK は、各遷移で [コールバック関数](#callback-function) を呼び出します。
 
-![Client-Side Identity JavaScript SDK Workflow](images/uid2-js-sdk-workflow.svg)
+![Client-Side Identity JavaScript SDK Workflow](./uid2-js-sdk-workflow.svg)
 
 ### Background Token Auto-Refresh
 

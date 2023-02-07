@@ -53,7 +53,7 @@ echo AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNS
   | decrypt_response.py wR5t6HKMfJ2r4J7fEGX9Gw== --is-refresh
 ```
 
-詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../ref-info/encryption-decryption.md) を参照してください。
+詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON Response Format
 

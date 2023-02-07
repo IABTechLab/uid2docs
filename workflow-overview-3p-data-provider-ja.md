@@ -1,4 +1,4 @@
-[UID2 Overview](../README-ja.md) > Third-Party Data Provider Workflow
+[UID2 Overview](./README-ja.md) > Third-Party Data Provider Workflow
 
 # Third-Party Data Provider Workflow Overview
 
@@ -11,7 +11,7 @@
 4. データプロバイダーは、行動規範で定義された許可されたトランスポートプロトコルを使用して、UID2 を DSP に送信します。
 5. データプロバイダーは、UID2 Operator がローテーションしたソルトバケットを監視し、必要に応じて UID2 を更新します。
 
-![Data Provider Workflow](../images/data_provider.jpg)
+![Data Provider Workflow](/images/data_provider.jpg)
 
 ## Integration Requirements
 
@@ -20,4 +20,4 @@
 - UID2 Operator とインテグレーションして UID2 を生成し、ソルトバケットのローテーションを処理すること。
 - UID2 Operator の API にアクセスできること。<br/>広告主によっては、CDP、データオンボーダー、またはその他のサービスプロバイダを経由する場合もあります。
 
-詳細は、[Advertiser and Third-party Data Provider Integration Guide](../api-ja/v2/guides/advertiser-dataprovider-guide.md) を参照してください。
+詳細は、[Advertiser and Third-party Data Provider Integration Guide](/api-ja/v2/guides/advertiser-dataprovider-guide.md) を参照してください。

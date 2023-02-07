@@ -1,4 +1,4 @@
-[UID2 Overview](../README-ja.md) > Opt-Out Workflow
+[UID2 Overview](./README-ja.md) > Opt-Out Workflow
 
 以下のステップは、パブリッシャーまたはその ID プロバイダーと関わるユーザーを対象とした、ワークフローの概要を提供します。
 
@@ -9,4 +9,4 @@
 
 このワークフローにより、ユーザーは UID2 Token の作成に同意し、UID2 同意とプライバシー設定を[Transparency and Control Portal](https://transparentadvertising.org) で管理することができます。
 
-![User Trust Workflow](../images/user_trust_workflow.jpg)
+![User Trust Workflow](/images/user_trust_workflow.jpg)
