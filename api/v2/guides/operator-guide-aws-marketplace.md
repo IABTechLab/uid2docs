@@ -145,7 +145,7 @@ Here's what you can customize during or after the [deployment](#deployment):
 
 The following diagram illustrates the virtual private cloud that hosts private operators.
 
-![UID2 Operator VPC Chart](uid2-private-operator-aws-chart.jpeg)
+![UID2 Operator VPC Chart](images/uid2-private-operator-aws-chart.svg)
 
 ## Deployment
 
@@ -167,9 +167,9 @@ It takes several minutes for the stack to be created. When you see an Auto Scali
 
 The following are two screenshots of the "Specify stack details" page in the Create stack wizard ([deployment](#deployment) step 5). The table that follows provides a parameter value reference.
 
-![Application Configuration](cloudformation-step-2.png) 
+![Application Configuration](images/cloudformation-step-2.png) 
 
-![Infrastructure Configuration](cloudformation-step-2-2.png)
+![Infrastructure Configuration](images/cloudformation-step-2-2.png)
 
 The following table explains the parameter values that you need to provide in step 5 during the [deployment](#deployment).
 
@@ -188,7 +188,7 @@ The following table explains the parameter values that you need to provide in st
 
 The following is a screenshot of the Configure stack options page in the Create stack wizard ([deployment](#deployment) step 6).
 
-![Configure Stack Options](cloudformation-step-3.png)
+![Configure Stack Options](images/cloudformation-step-3.png)
 
 The following table explains the parameter values that you need to provide in step 6 during the [deployment](#deployment).
 
@@ -208,7 +208,7 @@ To find the EC2 instances, complete the following steps:
 3. Inside the selected ASG, go to the **Instance management** tab where you can find the ID of the available EC2 instances (by default it starts only one instance).
 4. To test operator status, in your browser, go to [http://\<public-dns-of-your-instance\>/ops/healthcheck](http://<public-domain-name>/ops/healthcheck). `OK` indicates good status.
 
-![Stack Creation Resources](stack-creation-resources.png)
+![Stack Creation Resources](images/stack-creation-resources.png)
 
 ## Creating a Load Balancer
 

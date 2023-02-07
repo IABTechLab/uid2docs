@@ -9,7 +9,7 @@ Validate that an advertising token matches the specified hashed or unhashed emai
 
 ```POST '{environment}/v2/token/validate'```
 
->IMPORTANT: You must encrypt all request using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../encryption-decryption.md).
+>IMPORTANT: You must encrypt all request using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../ref-info/encryption-decryption.md).
 
 
 ### Path Parameters
@@ -80,7 +80,7 @@ echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXl
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= 
 ```
 
-For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../encryption-decryption.md).
+For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../ref-info/encryption-decryption.md).
 
 ## Decrypted JSON Response Format
 
