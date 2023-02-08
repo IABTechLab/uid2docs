@@ -29,7 +29,7 @@ Advertising Token が指定されたハッシュ化された、またはハッ�
 | `token`        | string    | 必須           | [POST /token/generate](./post-token-generate.md) レスポンスによって返された Advertising Token です。                                                                                      |
 | `email`        | string    | 条件付きで必要 | トークン検証用のメールアドレスです。                                                                                                                                                      |
 | `email_hash`   | string    | 条件付きで必要 | トークン検証用の [SHA256 ハッシュし、base64 エンコード](../../README.md#email-address-hash-encoding) した、[正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
-| `phone`        | string    | 条件付きで必要 | トークン検証用の [正規化](../../README.md#電話番号-正規化) 済み電話番号です。                                                                                                             |
+| `phone`        | string    | 条件付きで必要 | トークン検証用の [正規化](../../README.md#phone-number-normalization) 済み電話番号です。                                                                                                  |
 | `phone_hash`   | string    | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。                          |
 
 ### Request Examples

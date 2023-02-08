@@ -26,12 +26,12 @@
 
 以下の 4 つのパラメータのうち、1 つだけを指定します。
 
-| Query Parameter | Data Type    | Attribute      | Description                                                                                                                                                                    |
-| :-------------- | :----------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `email`         | string array | 条件付きで必要 | マッピングするメールアドレスのリストです。                                                                                                                                     |
-| `email_hash`    | string array | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-number-normalization) 済みメールアドレスのリストです。 |
-| `phone`         | string array | 条件付きで必要 | マッピングする [正規化](../../README.md#phone-number-normalization) 済み電話番号のリストです。                                                                                 |
-| `phone_hash`    | string array | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../README.md#phone-number-hash-encoding) した [正規化](../../README.md#phone-number-normalization) 済み電話番号のリストです。        |
+| Query Parameter | Data Type    | Attribute      | Description                                                                                                                                                                     |
+| :-------------- | :----------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `email`         | string array | 条件付きで必要 | マッピングするメールアドレスのリストです。                                                                                                                                      |
+| `email_hash`    | string array | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスのリストです。 |
+| `phone`         | string array | 条件付きで必要 | マッピングする [正規化](../../README.md#phone-number-normalization) 済み電話番号のリストです。                                                                                  |
+| `phone_hash`    | string array | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../README.md#phone-number-hash-encoding) した [正規化](../../README.md#phone-number-normalization) 済み電話番号のリストです。         |
 
 ### Request Examples
 

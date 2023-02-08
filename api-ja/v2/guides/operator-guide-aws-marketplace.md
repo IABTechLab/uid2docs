@@ -165,7 +165,7 @@ AWS Marketplace で UID2 Operator をデプロイするには、次の手順を�
 
 ### Stack Configuration Options
 
-以下は、スタック作成ウィザード（[デプロイ](#deployment) ステップ 6）の [スタックオプションの設定] ページのスクリーンショットです。
+以下は、スタック作成ウィザード（[デプロイ](#deployment) ステップ 6）の [スタックオプションの設定](#stack-configuration-options) ページのスクリーンショットです。
 
 ![Configure Stack Options](images/cloudformation-step-3.png)
 

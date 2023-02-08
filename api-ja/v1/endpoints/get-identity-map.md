@@ -24,7 +24,7 @@
 | :-------------- | :-------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `email`         | string    | 条件付きで必要 | マップする [URL エンコード](../README.md#query-parameter-value-encoding) したメールアドレスです                                                                                         |
 | `email_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
-| `phone`         | string    | 条件付きで必要 | トークンを生成する [正規化](../../README.md#phone-number-normalization) と [URL エンコード](../../README.md#query-parameter-value-encoding) した電話番号です。                          |
+| `phone`         | string    | 条件付きで必要 | トークンを生成する [正規化](../../README.md#phone-number-normalization) と [URL エンコード](../README.md#query-parameter-value-encoding) した電話番号です。                             |
 | `phone_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。        |
 
 ### Request Examples

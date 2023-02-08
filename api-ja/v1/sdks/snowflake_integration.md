@@ -96,7 +96,7 @@ All query examples use the following default values for each name variable:
 
 単一のメールアドレスまたは複数のメールアドレスを、対応する UID2 とセカンドレベルのソルトバケット ID にマッピングするには、 `FN_T_UID2_IDENTITY_MAP_EMAIL` 関数を使用します。これはメールアドレスを引数にとり、UID2 [Email Normalization](../../README.md#email-address-normalization) の規則に従って正規化します。
 
-To map a single email address or multiple email addresses to the corresponding UID2s and second-level salt bucket IDs, use the `FN_T_UID2_IDENTITY_MAP_EMAIL` function. It takes an email address as its argument and normalizes it using the UID2 [Email Normalization](../../README.md#email-normalization) rules.
+To map a single email address or multiple email addresses to the corresponding UID2s and second-level salt bucket IDs, use the `FN_T_UID2_IDENTITY_MAP_EMAIL` function. It takes an email address as its argument and normalizes it using the UID2 [Email Normalization](../../README.md#email-address-normalization) rules.
 
 | Argument | Data Type    | Description                                                                                                                             |
 | :------- | :----------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
