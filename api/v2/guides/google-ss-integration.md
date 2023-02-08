@@ -38,9 +38,11 @@ Since the secure signals feature does not provide a way to delete or invalidate 
 The following is an example of calling the `window.googletag.secureSignalProviders.clearAllCache()` function:
 
 ```
-window.googletag = window.googletag || { cmd: [] }; 
-window.googletag.cmd.push(function () { 
-   window.googletag.secureSignalProviders.clearAllCache(); 
+window.googletag = window.googletag || { cmd: [] };
+window.googletag.cmd.push(function () {
+  window.googletag.secureSignalProviders =
+    window.googletag.secureSignalProviders || [];
+  window.googletag.secureSignalProviders.clearAllCache();
 });
 ```
 
