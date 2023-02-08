@@ -27,7 +27,7 @@ The UID2 framework has the following principles as its foundation:
 
 - **First-party relationships**: UID2 enables advertisers to activate their first-party data on publisher websites across the open internet.
 
-- **Non-proprietary (universal) standard**: All [participants](#participants) in the advertising ecosystem who agree to to abide by the code of conduct can access UID2.
+- **Non-proprietary (universal) standard**: All [participants](#participants) in the advertising ecosystem who agree to abide by the code of conduct can access UID2.
 
 - **Open source**: The source code for the UID2 [components](#components) is publicly available.
 
