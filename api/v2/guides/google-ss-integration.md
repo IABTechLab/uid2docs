@@ -62,7 +62,7 @@ window.getUid2AdvertisingToken = async () => {
 }
 ```
 
-For details, see [Server-Only UID2 Integration Guide](#custom-publisher-integration.md).
+For details, see [Server-Only UID2 Integration Guide](custom-publisher-integration.md).
 
 A sample application is also available for server-only integration. See [Sample Applications](#sample-applications).
 
@@ -70,7 +70,7 @@ A sample application is also available for server-only integration. See [Sample 
 
 If you are using the UID2 Client-Side Identity JavaScript SDK version 3.0.0 onwards, the hosted auto-loaded UID2 secure signals script uses the `getAdvertisingTokenAsync` function provided in the SDK to get the fresh advertising token, and then pushes the token to Google Ad Manager.
 
-For details, see [UID2 SDK Integration Guide](#publisher-client-side.md).
+For details, see [UID2 SDK Integration Guide](publisher-client-side.md).
 
 A sample application is also available for client-side integration using the SDK. See [Sample Applications](#sample-applications).
 
