@@ -146,9 +146,9 @@ AWS Marketplace で UID2 Operator をデプロイするには、次の手順を�
 
 以下は、スタック作成ウィザード（[デプロイ](#deployment)　ステップ 5）の「スタックの詳細を指定する」ページの 2 つのスクリーンショットです。以下の表は、パラメータ値のリファレンスを提供します。
 
-![Application Configuration](cloudformation-step-2.png)
+![Application Configuration](images/cloudformation-step-2.png)
 
-![Infrastructure Configuration](cloudformation-step-2-2.png)
+![Infrastructure Configuration](images/cloudformation-step-2-2.png)
 
 次の表は、[デプロイ](#deployment) のステップ 5 で指定するパラメータ値について説明したものです。
 
@@ -167,7 +167,7 @@ AWS Marketplace で UID2 Operator をデプロイするには、次の手順を�
 
 以下は、スタック作成ウィザード（[デプロイ](#deployment) ステップ 6）の [スタックオプションの設定] ページのスクリーンショットです。
 
-![Configure Stack Options](cloudformation-step-3.png)
+![Configure Stack Options](images/cloudformation-step-3.png)
 
 次の表は、[デプロイ](#deployment) のステップ 6 で指定するパラメータ値について説明したものです。
 
@@ -187,7 +187,7 @@ EC2 インスタンスを見つけるには、次の手順を実行します:
 3. 選択した ASG 内で、**Instance management** タブに移動し、利用可能な EC2 インスタンスの ID を見つけることができます（デフォルトでは 1 つのインスタンスのみが起動します）。
 4. オペレーターの状態を確認するために、ブラウザで [http://\<public-dns-of-your-instance\>/ops/healthcheck](http://<public-domain-name>/ops/healthcheck) に移動します。`OK` は良好な状態を示します。
 
-![Stack Creation Resources](stack-creation-resources.png)
+![Stack Creation Resources](images/stack-creation-resources.png)
 
 ## Creating a Load Balancer
 

@@ -1,4 +1,4 @@
-[UID2 Overview](./README-ja.md) > Buy-Side Workflow
+[UID2 Overview](../README-ja.md) > Buy-Side Workflow
 
 # Buy-Side Workflow Overview
 
@@ -9,7 +9,7 @@
 3. DSP はビッドストリーム内の UID2 Token にアクセスし、入札時に復号化します。
 4. DSP は UID2 Administrator からのオプトアウトリクエストを受け、オプトアウトした UID2 の買付をブロックします。
 
-![Buy-Side Workflow](/images/buy_side.jpg)
+![Buy-Side Workflow](../images/buy_side.jpg)
 
 ## Integration Requirements
 
@@ -20,6 +20,6 @@ UID2 とインテグレーションして、ブランド（ファーストパー
 - オプトアウトリクエストに対応するための Webhook を構築する。
 - UID2 Administrator と暗号化キーを毎日同期させる。
 
-詳細は、[DSP Integration Guide](/api-ja/v2/guides/dsp-guide.md) を参照してください。
+詳細は、[DSP Integration Guide](../api-ja/v2/guides/dsp-guide.md) を参照してください。
 
-オプションとして、DSP が PII から UID2 を自ら生成したい場合は、[Third-Party Data Provider Workflow](./workflow-overview-3p-data-provider-ja.md) に従うこともできます。
+オプションとして、DSP が PII から UID2 を自ら生成したい場合は、[Third-Party Data Provider Workflow](workflow-overview-3p-data-provider-ja.md) に従うこともできます。

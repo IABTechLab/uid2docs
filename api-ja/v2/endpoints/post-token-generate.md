@@ -18,7 +18,7 @@ UID2 ベースのターゲティング広告にユーザーをオプトインし
 このエンドポイントリクエストについて知っておくべきことは、以下の通りです:
 
 - サービスにアクセスする際に使用する API キーを秘密にするため、 UID2 Token は認証後にサーバー側でのみ生成する必要があります。
-- すべてのリクエストを秘密鍵で暗号化する必要があります。詳細と Python スクリプトの例については、 [リクエストの暗号化とレスポンスの復号化](../encryption-decryption.md) を参照してください。
+- すべてのリクエストを秘密鍵で暗号化する必要があります。詳細と Python スクリプトの例については、 [リクエストの暗号化とレスポンスの復号化](../ref-info/encryption-decryption.md) を参照してください。
 
 ### Path Parameters
 
@@ -85,7 +85,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
 
-詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../encryption-decryption.md) を参照してください。
+詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../ref-info/encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON Response Format
 

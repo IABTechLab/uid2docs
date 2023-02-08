@@ -2,7 +2,7 @@
 
 # UID2 Endpoints
 
-すべての UID2 エンドポイントでは、API リクエストの暗号化([POST /token/refresh](./post-token-refresh.md) を除く)とレスポンスの復号化にクライアントシークレットが必要です。詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../encryption-decryption.md) を参照してください。
+すべての UID2 エンドポイントでは、API リクエストの暗号化([POST /token/refresh](./post-token-refresh.md) を除く)とレスポンスの復号化にクライアントシークレットが必要です。詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../ref-info/encryption-decryption.md) を参照してください。
 
 ## Identity Tokens
 
