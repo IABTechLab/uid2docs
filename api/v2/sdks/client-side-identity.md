@@ -7,7 +7,9 @@ Use this UID2 SDK to facilitate the process of establishing client identity usin
 - For integration steps for content publishers, see [UID2 SDK Integration Guide](../guides/publisher-client-side.md). 
 - For an [example application](https://example-jssdk-integ.uidapi.com/) documentation, see the [UID2 SDK Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/standard/README.md) guide.
 
->NOTE: Within this documentation, the term "identity" refers to a package of UID2 tokens, including the advertising token.
+>NOTE: In this documentation, the term "identity" refers to a package of UID2 tokens, including the advertising token.
+
+{**GWH_02/ELT question re terminology. Identity? Didn't come across that yet on my learning. And per discussion on the UID2 list yesterday -- my question re the preferred term -- I think here we mean the token/generate response. but it's a set of values... we define UID2 token = advertising token, so we can't say what we are saying here.**}
 
 
 ## Include the SDK Script
@@ -26,7 +28,8 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 2. Wait for the SDK to invoke the callback function. The callback function indicates the identity availability:
 	- If the identity is available, the [background token auto-refresh](#background-token-auto-refresh) is set up.
 	- If not, the reason for its unavailability is specified.
-3. Based on the identity [state](#workflow-states-and-transitions), the SDK does the following:
+
+   Based on the identity [state](#workflow-states-and-transitions), the SDK does the following:
 	- If a valid identity is available, the SDK ensures the identity is available in a [first-party cookie](#uid2-cookie-format).
 	- If the identity is unavailable, the SDK takes the appropriate action based on whether identity is refreshable or not. For details, see [Workflow States and Transitions](#workflow-states-and-transitions).
 4. Handle the identity based on its state:
@@ -37,14 +40,14 @@ For intended web integration steps, see [Publisher Integration Guide (Standard)]
 
 ### Workflow States and Transitions
 
-The following table outlines the four main states in which the SDK can be, based on the combination of values returned by two main functions, [getAdvertisingToken()](#getadvertisingtoken-string) and [isLoginRequired()](#isloginrequired-boolean), and indicates the appropriate action that you, as a developer, can take in each state. 
+The following table outlines the four main states that the SDK can be in, based on the combination of values returned by two main functions, [getAdvertisingToken()](#getadvertisingtoken-string) and [isLoginRequired()](#isloginrequired-boolean), and indicates the appropriate action that you, as a developer, can take in each state. 
 
 | State | Advertising Token | Login Required | Description| Identity Status Value |
 | :--- | :--- | :---| :---| :---|
 | Initialization | `undefined`| `undefined`| Initial state until the callback is invoked. | N/A |
 | Identity Is Available | available |`false` | A valid identity has been successfully established or refreshed. You can use the advertising token in targeted advertising.  |`ESTABLISHED` or `REFRESHED` |
-| Identity Is Temporarily Unavailable |`undefined` | `false`| The identity (advertising token) has expired, and automatic refresh failed. [Background auto-refresh](#background-token-auto-refresh) attempts will continue until the refresh token expires or the user opts out.</br>You can do either of the following:</br>- Use untargeted advertising.</br>- Redirect the user to the UID2 login with a consent form.</br>NOTE: Identity may be successfully refreshed after some time, for example, if the UID2 service is temporarily unavailable.| `EXPIRED` |
-| Identity Is Not Available  | `undefined`| `false`| The identity is not available and cannot be refreshed. The SDK clears the first-party cookie.</br>To use UID2-based targeted advertising again,  you need to redirect the user to the UID2 login with a consent form. | `INVALID`, `NO_IDENTITY`, `REFRESH_EXPIRED`, or `OPTOUT` |
+| Identity Is Temporarily Unavailable |`undefined` | `false`| The identity (advertising token) has expired, and automatic refresh failed. [Background auto-refresh](#background-token-auto-refresh) attempts will continue until the refresh token expires or the user opts out.</br>You can do either of the following:</br>- Use untargeted advertising.</br>- Redirect the user to the UID2 login with a consent form.</br>NOTE: Identity might be successfully refreshed at a later time -- for example, if the UID2 service is temporarily unavailable.| `EXPIRED` |
+| Identity Is Not Available  | `undefined`| `false`| The identity is not available and cannot be refreshed. The SDK clears the first-party cookie.</br>To use UID2-based targeted advertising again,  you must redirect the user to the UID2 login with a consent form. | `INVALID`, `NO_IDENTITY`, `REFRESH_EXPIRED`, or `OPTOUT` |
 
 
 The following diagram illustrates the four states, including the respective identity [status values](#identity-status-values), and possible transitions between them. The SDK invokes the [callback function](#callback-function) on each transition.
@@ -54,23 +57,23 @@ The following diagram illustrates the four states, including the respective iden
 
 ### Background Token Auto-Refresh
 
-As part of the SDK [initialization](#initopts-object-void), a token auto-refresh for the identity is set up, which is triggered in the background by the timestamps on the identity or failed refresh attempts due to intermittent errors.
+As part of the SDK [initialization](#initopts-object-void), a token auto-refresh for the identity is set up, which is triggered in the background by the timestamps on the identity or by failed refresh attempts due to intermittent errors.
 
 Here's what you need to know about the token auto-refresh:
 
 
 - Only one token refresh call can be active at a time. 
-- An unsuccessful [POST /token/refresh](../endpoints/post-token-refresh.md) response due to the user's optout or the refresh token expiration suspends  the background auto-refresh process and requires a new login ([isLoginRequired()](#isloginrequired-boolean) returns `true`). In all other cases, auto-refresh attempts will continue in the background.
-- The [callback function](#callback-function) specified during the SDK initialization is invoked under the following circustances:
+- If the  [POST /token/refresh](../endpoints/post-token-refresh.md) response is unsuccessful because the user has opted out, or because the refresh token has expired, this suspends the background auto-refresh process and requires a new login ([isLoginRequired()](#isloginrequired-boolean) returns `true`). In all other cases, auto-refresh attempts continue in the background.
+- The [callback function](#callback-function) specified during the SDK initialization is invoked under the following circumstances:
 	- After each successful refresh attempt.
 	- After an initial failure to refresh an expired advertising token.
-	- When identity has become invalid, for example, because the user has opted out.</br>NOTE: The callback is *not* invoked when identify is temporarily unavailable and the auto-refresh keeps failing. In this case, the SDK continues using the existing advertising token.
+	- When identity has become invalid -- for example, because the user has opted out.</br>NOTE: The callback is *not* invoked when identify is temporarily unavailable and the auto-refresh keeps failing. In this case, the SDK continues using the existing advertising token.
 - A [disconnect()](#disconnect-void) call cancels the active timer. 
 
 
 ## API Reference
 
->IMPORTANT: All interactions with the UID2 SDK are done through the global `__uid2` object, which is a member of the `UID2` class. All of following APIs are members of the `UID2` class. 
+>IMPORTANT: All interactions with the UID2 SDK are done through the global `__uid2` object, which is a member of the `UID2` class. All of the following APIs are members of the `UID2` class.  {**GWH_02/ELT JS methods? JS APIs**}
 
 - [constructor()](#constructor)
 - [init()](#initopts-object-void)
