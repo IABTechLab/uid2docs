@@ -14,7 +14,7 @@ To facilitate the process of establishing client identity using UID2 and retriev
 
 For custom integration scenarios for app developers and CTV broadcasters without utilizing the UID2 SDK, see [Server-Only Integration Guide](./custom-publisher-integration.md). 
 
-
+>NOTE: If you are using Google Ad Manager and want to use the secure signals feature, first follow the steps in this guide and then follow the additional steps in the [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md).
 
 ## Integration Steps 
 
@@ -118,7 +118,7 @@ The client lifecycle is complete when the user decides to log out from the publi
 
 The [UID2 SDK](../sdks/client-side-identity.md) background token auto-refresh process handles user opt-outs. If user opts out, when the UID2 SDK attempts token refresh, it will learn about the optout and will clear the session (including the cookie) and invoke the callback with the `OPTOUT` status.
 
-### Where should I make token generation calls, from the server or client side?
+### Where should I make token generation calls -- from the server or client side?
 
 UID2 tokens must be generated only on the server side after authentication. In other words, to ensure that the API key used to access the service remains secret, the [POST /token/generate](../endpoints/post-token-generate.md) endpoint must be called only from the server side.
 

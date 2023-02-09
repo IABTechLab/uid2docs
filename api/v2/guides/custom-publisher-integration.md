@@ -69,7 +69,7 @@ No, publishers do not need to decrypt tokens.
 ### How will I be notified of user opt-out?
 The token refresh process handles user opt-outs. The [POST /token/refresh](../endpoints/post-token-refresh.md) returns empty identity and the optout status for the user. To resume using UID2-based targeted advertising, the user needs to log in again to re-establish the UID2 identity.
 
-### Where should I make token generation calls, from the server or client side?
+### Where should I make token generation calls -- from the server or client side?
 
 UID2 tokens must be generated only on the server side after authentication. In other words, to ensure that the API key used to access the service remains secret, the [POST /token/generate](../endpoints/post-token-generate.md) endpoint must be called only from the server side.
 
