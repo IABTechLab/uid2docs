@@ -32,7 +32,8 @@ You must include only one of the following parameters as a key-value pair in the
 | `email` | string | Conditionally Required | The email address for which to generate tokens. | 
 | `email_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#email-address-normalization) email address. |
 | `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) phone number for which to generate tokens. |
-| `phone_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#phone-number-normalization) phone number. | 
+| `phone_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#phone-number-normalization) phone number. |
+| `policy` | number | Optional | (Beta) The token generation policy ID. See [Token Generation Policy](#token-generation-policy). |
 
 
 ### Request Examples
@@ -101,6 +102,23 @@ A successful decrypted response returns the user's advertising and refresh token
     "status": "success"
 }
 ```
+
+Here is an example response when the policy respects user opt-out.
+
+```json
+{
+    "body": {
+        "advertising_token": "",
+        "refresh_token": "",
+        "identity_expires": 1636322000000,
+        "refresh_from": 1636322000000,
+        "refresh_expires": 1636322000000,
+        "refresh_response_key": ""
+    },
+    "status": "optout"
+}
+```
+
 The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md) uses this endpoint response payloads to establish and manage the user identity during a user session lifecycle.
 
 
@@ -122,12 +140,11 @@ The following table lists the `status` property values and their HTTP status cod
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
 | `success` | 200 | The request was successful. The response will be encrypted. |
+| `optout` | 200 | The request was successful. Could not generate token because the user has opted out. |
 | `client_error` | 400 | The request had missing or invalid parameters.|
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
 If the `status` value is other than `success`, the `message` field provides additional information about the issue.
-
->NOTE: Since this endpoint does not check for opt-out records, it never returns the `optout` status.
 
 ## Test Identities
 
@@ -137,3 +154,12 @@ If the `status` value is other than `success`, the `message` field provides addi
 | Email | `optout@email.com` | Using this email for the request always generates an identity response with a `refresh_token` that results in a logout response. | [POST /token/refresh](./post-token-refresh.md) |
 | Phone | `+12345678901` | Test that the `advertising_token` you've cached matches the `advertising_token` for the specified phone number. | [POST /token/validate](./post-token-validate.md) |
 | Phone | `+00000000000` | Using this phone number for the request always generates an identity response with a `refresh_token` that results in a logout response. | [POST /token/refresh](./post-token-refresh.md) |
+
+# Token Generation Policy
+
+Token generation policy let the caller decide when to generate a token. It is passed as an **integer ID** in the request body (with key 'policy') If the parameter is omitted, policy with ID = 0 will be applied.
+
+| ID | Description |
+| :--- | :--- |
+| 0 | Always generate a token. |
+| 1 | Generate token only when the user has not opted out. |
