@@ -3,7 +3,9 @@ English | [Japanese](README-ja.md)
 
 This page provides the following information about the Unified ID 2.0 (UID2) framework:
 - [Introduction](#introduction)
-- [UID2 Infrastructure](#uid2-infrastructure)
+  - [Guiding Principles](#guiding-principles)
+  - [Technical Design Principles](#technical-design-principles)
+- [Elements of the UID2 Infrastructure](#elements-of-the-uid2-infrastructure)
   - [UID2 Identifier Types](#uid2-identifier-types)
   - [Components](#components)
   - [Participants](#participants)
@@ -25,7 +27,7 @@ The UID2 framework has the following principles as its foundation:
 
 - **First-party relationships**: UID2 enables advertisers to activate their first-party data on publisher websites across the open internet.
 
-- **Non-proprietary (universal) standard**: All [participants](#participants) in the advertising ecosystem who agree toabide by the code of conduct can access UID2.
+- **Non-proprietary (universal) standard**: All [participants](#participants) in the advertising ecosystem who agree to abide by the code of conduct can access UID2.
 
 - **Open source**: The source code for the UID2 [components](#components) is publicly available.
 
@@ -45,12 +47,12 @@ The UID2 framework is built on the following technical principles:
 
 - **Lean infrastructure**: The UID2 system is light and inexpensive to operate.
 
-- **Internet scale**: The UID2 infrastructure can scale to address the continuously increasing needs of [participants](#participants) and to meet performance demands of specific geographic regions.
+- **Internet scale**: The UID2 infrastructure can scale to address the continuously increasing needs of [participants](#participants) and to meet the performance demands of specific geographic regions.
 
 - **Self-reliant**: UID2 does not rely on external services for processing of real-time bidding (RTB) data.
 
 
-## UID2 Infrastructure
+## Elements of the UID2 Infrastructure
 
 The following sections explain and illustrate the key elements of the UID2 framework infrastructure:
 
@@ -65,8 +67,8 @@ UID2 is a deterministic ID that is based on personally identifiable information 
 
 | ID Type | Shared in Bid Stream? | Description |
 | :--- | :--- | :--- |
-| **Raw UID2** | No | An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's verifiable personal data, such as an email address or a phone number, as input.<br/><br/>To prevent re-identification of the original personal data, each raw UID2 utilizes hashing and salting. Raw UID2s are designed to be stored by advertisers, third-party data providers, and demand-side platforms (DSPs).|
-| **UID2 Token (Advertising Token)** | Yes | An encrypted form of a raw UID2. UID2 tokens are generated from hashed or unhashed email addresses or phone numbers that are converted to raw UID2s and then encrypted to ensure protection in the bid stream.<br/><br/>UID2 tokens are designed to be used by publishers or publisher service providers. Supply-side platforms (SSPs) pass UID2 tokens in the bid stream and DSPs decrypt them at bid request time. |
+| **Raw UID2** | No | An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's verifiable personal data, such as a hashed or unhashed email address or a phone number, as input.<br/><br/>To prevent re-identification of the original personal data, the input value is hashed and salted to create the raw UID2. The process that creates the raw UID2 is designed to create a secure, opaque value that can be stored by advertisers, third-party data providers, and demand-side platforms (DSPs). |
+| **UID2 Token (Advertising Token)** | Yes | An encrypted form of a raw UID2. The raw UID2 is further salted, hashed, and encrypted to produce a UID2 token, to ensure protection in the bid stream.<br/><br/>UID2 tokens are designed to be used by publishers or publisher service providers. Supply-side platforms (SSPs) pass UID2 tokens in the bid stream and DSPs decrypt them at bid request time. |
 
 
 ### Components
@@ -94,10 +96,10 @@ The following table lists the key participants and their roles in the UID2 [work
 | **DSPs**  | DSPs integrate with the UID2 system to receive UID2s from advertisers (as first-party data) and third-party data providers (as third-party data) and leverage them to inform bidding on UID2s in the bid stream. | 
 | **Data Providers**  | Organizations that collect user data and push it to DSPs—for example, advertisers, identity graph providers, and third-party data providers. | 
 | **Advertisers**  | Organizations that buy impressions across a range of publisher sites and use DSPs to decide which ad impressions to purchase and how much to bid on them. | 
-| **Publishers**  | Organizations that propagate UID2 tokens to the bid stream via SSPs—for example,  identity providers, publishers, and SSO providers. Publishers can choose to work with an SSO provider or an independent ID provider that is interoperable with UID2. The latter can handle the UID2 integration on behalf of publishers. | 
-| **Consumers**  | Users who engage with publishers or their identity providers. Users can opt out of UID2 in the [Transparency and Control Portal](https://transparentadvertising.org). | 
+| **Publishers**  | Organizations that propagate UID2 tokens to the bid stream via SSPs—for example,  identity providers, publishers, and SSO providers. Publishers can choose to work with an SSO provider or an independent ID provider that is interoperable with UID2. Independent ID providers can handle the UID2 integration on behalf of publishers. | 
+| **Consumers**  | Users who engage with publishers or their identity providers. Consumers can opt out of UID2 in the [Transparency and Control Portal](https://transparentadvertising.org). | 
 
-## Workflows
+### Workflows
 
 The following table lists four key workflows in the UID2 framework with links to their high-level overviews. It also provides links to the respective integration guides, which include diagrams, integration steps, FAQs, and other relevant information for each workflow.
 
@@ -105,7 +107,7 @@ The following table lists four key workflows in the UID2 framework with links to
 | :--- | :--- | :--- |
 | **Buy-Side**<br/>[Overview](workflows/workflow-overview-buy-side.md) | DSPs who transact on UID2 tokens in the bid stream. |  [DSP](./api/v2/guides/dsp-guide.md) |
 | **Data Provider**<br/>[Overview](workflows/workflow-overview-3p-data-provider.md) | Organizations that collect user data and push it to DSPs. | [Advertiser and Third-Party Data Provider](./api/v2/guides/advertiser-dataprovider-guide.md) |
-| **Supply-Side**<br/>[Overview](workflows/workflow-overview-supply-side.md) | Organizations that propagate UID2 tokenss to the bid stream via SSPs.<br/> NOTE: Publishers can choose to leverage the [UID2 SDK](./api/v2/sdks/client-side-identity.md) or complete their own custom, server-only integration. | [Publisher (with UID2 SDK)](./api/v2/guides/publisher-client-side.md)<br/>[Publisher (Server-Only)](./api/v2/guides/custom-publisher-integration.md) |
+| **Supply-Side**<br/>[Overview](workflows/workflow-overview-supply-side.md) | Organizations that propagate UID2 tokens to the bid stream via SSPs.<br/> NOTE: Publishers can choose to leverage the [UID2 SDK](./api/v2/sdks/client-side-identity.md) or complete their own custom, server-only integration. | [Publisher (with UID2 SDK)](./api/v2/guides/publisher-client-side.md)<br/>[Publisher (Server-Only)](./api/v2/guides/custom-publisher-integration.md) |
 | **Opt-Out**<br/>[Overview](workflows/workflow-overview-opt-out.md) | Consumers who engage with publishers or their SSO providers and other identity providers. | N/A |
 
 
@@ -116,21 +118,21 @@ The following diagram summarizes all four workflows. For each workflow, the [par
 
 ## FAQs
 
-Here are some commonly asked questions regarding the UID2 framework.
+Here are some frequently asked questions regarding the UID2 framework.
 
 #### Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2? 
 
-No. UID2 functions as its own framework, which is separate from EUID. As such, paperwork relating to the usage and access to the EUID framework does not automatically grant usage and access to the UID2 framework. New contracts are required to be signed for UID2.
+No. UID2 functions as its own framework, which is separate from EUID. As such, paperwork relating to accessing and using the EUID framework does not automatically grant usage and access to the UID2 framework. New contracts are required to be signed for UID2.
 
 #### Can users opt out of targeted advertising tied to their UID2 identity?
 
 Yes. Through the [Transparency and Control Portal](https://transparentadvertising.org), users can opt out from being served targeted ads tied to their UID2 identity. Each request is distributed through the UID2 Opt-Out Service and UID2 Operators to all relevant participants. 
 
-Some publishers and service providers have the option to limit access to their products based on a user’s participation in the UID2 framework, and it is the publisher’s responsibility to communicate this as part of their value exchange dialog with the user.
+Some publishers and service providers have the option to limit access to their products based on a user’s participation in the UID2 framework, and it is the publisher’s responsibility to communicate this as part of the value exchange dialog with the user.
 
 #### How does a user know where to access the opt-out portal?
 
-Publishers, SSO providers, or consent management platforms disclose links to the [Transparency and Control Portal](https://transparentadvertising.org) in their login flows, consent flows, privacy policies, and by other means.
+Publishers, SSO providers, or consent management platforms disclose links to the [Transparency and Control Portal](https://transparentadvertising.org) in their login flows, consent flows, and privacy policies, and by other means.
 
 #### Why do advertisers and third-party data providers not need to integrate with the opt-out feed?
 
