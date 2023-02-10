@@ -3,6 +3,8 @@
 # POST /token/generate
 Opt in the user to UID2-based targeted advertising and generate a UID2 token from their provided email address or phone number. 
 
+Used by: This endpoint is used mainly by publishers.
+
 >IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s PII to UID2 tokens for targeted advertising. This endpoint does not check for opt-out records. To check for opt-out requests, use the [POST /token/refresh](./post-token-refresh.md) endpoint.
 
 The following integration workflows use this endpoint:

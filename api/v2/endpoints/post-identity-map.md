@@ -4,6 +4,8 @@
 
 Map multiple email addresses, phone numbers, or respective hashes to their UID2s and salt bucket IDs. This endpoint is intended for use by [advertisers and data providers](../guides/advertiser-dataprovider-guide.md).
 
+Used by: This endpoint is used mainly by advertisers and third-party data providers.
+
 ## Batch Size and Request Parallelization Requirements
 
 Here's what you need to know:
