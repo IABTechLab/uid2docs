@@ -25,14 +25,14 @@ To get access to the UID2 framework, contact the appropriate team at The Trade D
 
 ## API Versions
 
-Currently, there are two versions of the UID2 APIs: [UID2 API v1](./v1/README.md) and [UID2 API v2](./v2/README.md). 
+Currently, there are two versions of the UID2 API: [UID2 API v1](./v1/README.md) and [UID2 API v2](./v2/README.md). 
 
 >IMPORTANT: The UID2 API v1 has been deprecated and will be supported only for the current users until March 31, 2023, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be removed. Be sure to [upgrade to the UID2 API v2](../api/v2/upgrades/upgrade-guide.md) by March 31, 2023. If you are new to the framework, use the [UID2 API v2](../api/v2/README.md).
 
 
 ## Email Address Normalization
 
-The UID2 Operator Service normalizes unhashed email addresses automatically. If you want to send hashed email addresses, you must normalize them before they are hashed.
+The UID2 Operator Service normalizes unhashed email addresses automatically before hashing them. If you want to send hashed email addresses, you must normalize them before you hash them.
 
 To normalize an email address, complete the following steps:
 
@@ -44,7 +44,7 @@ To normalize an email address, complete the following steps:
 
 ## Email Address Hash Encoding
 
-Email hashes are base64-encoded SHA256 hashes of a normalized email address.
+an email hash is a base64-encoded SHA256 hash of a normalized email address.
 
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
@@ -54,7 +54,7 @@ Email hashes are base64-encoded SHA256 hashes of a normalized email address.
 
 ## Phone Number Normalization
 
->IMPORTANT: You must normalize phone numbers before sending them in a request, regardless of whether you send them hashed or unhashed in a request.
+>IMPORTANT: You must normalize phone numbers before sending them in a request, regardless of whether you send them hashed or unhashed in the request.
 
 Here's what you need to know about phone number normalization rules:
 
