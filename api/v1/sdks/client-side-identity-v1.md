@@ -122,7 +122,7 @@ Here's what you need to know about this function:
 - Since the SDK relies on [first-party cookies](#uid2-cookie-format) to store the passed UID2 identity information for the session, subsequent `init()` calls on different page loads may have the `identity` property empty.
 - To tune specific behaviors, initialization calls may include optional configuration [parameters](#parameters).
 
-The following is a template of an `init()` call with the the server-side generated identity included.
+The following is a template of an `init()` call with the server-side generated identity included.
 
 ```html
 <script>
@@ -180,7 +180,7 @@ The `init()` function can throw the following errors.
 
 | Error | Description |
 | :--- | :--- |
-| `TypeError` | One of the following issues has occurred:<br/>- The fuction has already been called.<br/>- The `opts` value is not an object.<br/>- There is no callback function specified.<br/>-  The `callback` value is not a function. |
+| `TypeError` | One of the following issues has occurred:<br/>- The function has already been called.<br/>- The `opts` value is not an object.<br/>- There is no callback function specified.<br/>-  The `callback` value is not a function. |
 | `RangeError` | The refresh retry period is less than 1. |
 
 #### Callback Function
@@ -193,7 +193,7 @@ The `object` parameter includes the following properties.
 | :--- | :--- | :--- |
 | `advertisingToken` | string | The token to be passed to SSPs for targeted advertising. If the token/identity is invalid or unavailable, the value is `undefined`. |
 | `status` | `UID2.IdentityStatus` enum | The numeric value that indicates the status of the identity. For details, see [Identity Status Values](#identity-status-values). |
-| `statusText` | string | Additional information pertaining to the identity status. |
+| `statusText` | string | Additional information about the identity status. |
 
 #### Identity Status Values
 
