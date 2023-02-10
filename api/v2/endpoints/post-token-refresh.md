@@ -3,6 +3,8 @@
 # POST /token/refresh
 Generate a new token for a user by specifying their refresh token issued by using the [POST /token/generate](./post-token-generate.md) endpoint.
 
+Used by: This endpoint is used mainly by publishers.
+
 >NOTE: This endpoint can be called from the client side (for example, a browser or a mobile app) because it does not require using an API key.
 
 The following integration workflows use this endpoint:
