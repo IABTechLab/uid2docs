@@ -3,6 +3,8 @@
 # POST /token/validate
 Validate that an advertising token matches the specified hashed or unhashed email address or phone number. 
 
+Used by: This endpoint is used mainly by publishers.
+
 >NOTE: This endpoint is intended primarily for testing and troubleshooting new integrations.
 
 ## Request Format 

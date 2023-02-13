@@ -6,6 +6,8 @@ All UID2 endpoints require a client secret for encrypting API requests (except [
 
 ## Identity Tokens
 
+The following endpoints are for retrieving and managing the UID2 tokens, and are used mainly by publishers.
+
 | Endpoint | Description | Request Encryption |  Response Decryption |
 | :--- | :--- | :--- | :--- |
 | [POST /token/generate](./post-token-generate.md) | Opt in the user to UID2-based targeted advertising and generate a UID2 token from their provided email address or phone number. | Required | Required |
@@ -13,6 +15,8 @@ All UID2 endpoints require a client secret for encrypting API requests (except [
 | [POST /token/refresh](./post-token-refresh.md) | Generate a new token for a user for their refresh token from the [POST /token/generate](./post-token-generate.md) response. | N/A | Required |
 
 ## Identity Maps
+
+The following endpoints are used by advertisers and third-party data providers. Publishers do not need to use these endpoints.
 
 | Endpoint | Description | Request Encryption |  Response Decryption |
 | :--- | :--- | :--- | :--- |
