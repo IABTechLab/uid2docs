@@ -29,9 +29,9 @@ You must include only one of the following four parameters.
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `email` | string array | Conditionally Required | The list of email addresses to be mapped. |
-| `email_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../README.md#email-address-hash-encoding) hashes of [normalized](../README.md#email-address-normalization) email addresses. |
-| `phone` | string array | Conditionally Required | The list of [normalized](../README.md#phone-number-normalization) phone numbers to be mapped. |
-| `phone_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../README.md#phone-number-hash-encoding) hashes of  [normalized](../README.md#phone-number-normalization) phone numbers. |
+| `email_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hashes of [normalized](../../README.md#email-address-normalization) email addresses. |
+| `phone` | string array | Conditionally Required | The list of [normalized](../../README.md#phone-number-normalization) phone numbers to be mapped. |
+| `phone_hash` | string array | Conditionally Required | The list of [base64-encoded SHA256](../../README.md#phone-number-hash-encoding) hashes of  [normalized](../../README.md#phone-number-normalization) phone numbers. |
 
 
 ### Request Examples
