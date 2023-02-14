@@ -32,7 +32,9 @@ Currently, there are two versions of the UID2 API: [UID2 API v1](./v1/README.md)
 
 ## Email Address Normalization
 
-The UID2 Operator Service normalizes unhashed email addresses automatically before hashing them. If you want to send hashed email addresses, you must normalize them before you hash them.
+If you send unhashed email addresses to the UID2 Operator Service, the service normalizes the email addresses and then hashes them. If you want to hash the email addresses yourself before sending them, you must normalize them before you hash them.
+
+> IMPORTANT: Normalization before hashing ensures that the generated UID2 value will always be the same, so that the data can be matched. If you do not normalize before hashing, this might result in an invalid UID2 token that cannot be used for targeted advertising.
 
 To normalize an email address, complete the following steps:
 
@@ -54,7 +56,9 @@ an email hash is a base64-encoded SHA256 hash of a normalized email address.
 
 ## Phone Number Normalization
 
->IMPORTANT: You must normalize phone numbers before sending them in a request, regardless of whether you send them hashed or unhashed in the request.
+If you send unhashed phone numbers to the UID2 Operator Service, the service normalizes the phone numbers and then hashes them. If you want to hash the phone numbers yourself before sending them, you must normalize them before you hash them.
+
+> IMPORTANT: Normalization before hashing ensures that the generated UID2 value will always be the same, so that the data can be matched. If you do not normalize before hashing, this might result in an invalid UID2 token that cannot be used for targeted advertising.
 
 Here's what you need to know about phone number normalization rules:
 
