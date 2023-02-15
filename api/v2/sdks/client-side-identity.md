@@ -34,7 +34,7 @@ In this document, the following terms apply:
 
 ## Include the SDK Script
 
-On the pages where you want to use UID2 to manage identity or to retrieve an advertising token for targeted advertising, include the following SDK script: {**GWH_01/AT: what would "manage identity" consist of here? Can we lose it?**}
+On every page where you want to use UID2 for targeted advertising, include the following SDK script:
 
 ```html
 <script src="https://prod.uidapi.com/static/js/uid2-sdk-2.0.0.js" type="text/javascript"></script> 
@@ -47,7 +47,8 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 1. Publisher: Initialize the SDK using the [init](#initopts-object-void) function and specify a [callback function](#callback-function) to be called upon successful completion of the step.
 2. Publisher: Wait for the SDK to invoke the callback function. The callback function indicates the identity availability:
 	- If the identity is available, the SDK sets up a [background token auto-refresh](#background-token-auto-refresh).
-	- If the identity is unavailable, the reason for its unavailability is specified in the response.
+	- If the identity is unavailable, the reason for its unavailability is specified in the object passed to the callback function.
+
 3. SDK: Based on the identity [state](#workflow-states-and-transitions), the SDK does the following:
 	- If a valid identity is available, the SDK ensures that the identity is available in a [first-party cookie](#uid2-cookie-format).
 	- If the identity is unavailable, the SDK takes the appropriate action based on whether the identity is refreshable or not. For details, see [Workflow States and Transitions](#workflow-states-and-transitions).
@@ -55,7 +56,7 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 	- If the advertising token is available, use it to initiate requests for targeted advertising.
 	- If the advertising token is not available, either use untargeted advertising or redirect the user to the UID2 login with the consent form.
 
-For intended web integration steps, see [Publisher Integration Guide (Standard)](../guides/publisher-client-side.md). {**GWH_02/AT: what does "intended" mean here?**}
+For web integration steps, see [Publisher Integration Guide (Standard)](../guides/publisher-client-side.md).
 
 ### Workflow States and Transitions
 
@@ -117,7 +118,7 @@ Here's what you need to know about this function:
 - You can call `init()` any time after the SDK has been loaded by the corresponding script tag, typically during page loading.
 - Initialization calls require a [callback function](#callback-function) that is invoked after the SDK is initialized.
 - When creating an instance for the UID2 lifecycle on the client, the `identity` property in the `init()` call refers to the `body` property of the response JSON object returned from a successful [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md) call with the server-side generated identity.
-- Since the SDK relies on [first-party cookies](#uid2-cookie-format) to store the passed UID2 identity information for the session, subsequent `init()` calls on different page loads might have the `identity` property empty. {**GWH_03_AT: I don't totally understand this. Is it important? Anything users should do to help prevent it?**}
+- Since the SDK relies on [first-party cookies](#uid2-cookie-format) to store the passed UID2 information for the session, a call to `init()` made by a page on a different domain might not be able to access the cookie. You can adjust the settings used for the cookie with the `cookieDomain` and `cookiePath` options.
 - To tune specific behaviors, initialization calls might include optional configuration [parameters](#parameters).
 
 The following is a template of an `init()` call with the server-side generated identity included.
@@ -148,7 +149,7 @@ For example:
 </script>
 ```
 
-The following is an example of an `init()` call that uses identity from a first-party cookie. You can put a block like this on any page that the user might visit after the identity has been established. {**GWH_04/AT: should we call it a script rather than a block? For a second I thought we were blocking something.**}
+The following is an example of an `init()` call that uses identity from a first-party cookie. You can put a script like this on any page that the user might visit after the identity has been established.
 
 ```html
 <script>
@@ -168,7 +169,7 @@ The `opts` object supports the following properties.
 | `identity` | object | Optional | The `body` property value from a successful [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md) call that has been run on the server to generate an identity.<br/>To use the identity from a [first-party cookie](#uid2-cookie-format), leave this property empty. | N/A |
 | `baseUrl` | string | Optional | The custom base URL of the UID2 operator to use when invoking the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint.<br/>For example: `https://my.operator.com`.  | `https://prod.uidapi.com ` |
 | `refreshRetryPeriod` | number | Optional | The number of seconds after which to retry refreshing tokens if intermittent errors occur. | 5 |
-| `cookieDomain` | string | Optional | The domain name string to apply to the [UID2 cookie](#uid2-cookie-format).<br/>For example, if the `baseUrl` is `https://my.operator.com`, the `cookieDomain` value might be `operator`.<br/>{**GWH_05/AT: I took a stab at an example... please check.**} | `undefined` |
+| `cookieDomain` | string | Optional | The domain name string to apply to the [UID2 cookie](#uid2-cookie-format).<br/>For example, if the `baseUrl` is `https://my.operator.com`, the `cookieDomain` value might be `operator.com`. | `undefined` |
 | `cookiePath` | string | Optional | The path string to apply to the [UID2 cookie](#uid2-cookie-format). | `/` |
 
 
@@ -217,7 +218,7 @@ If the identity is not available, to determine the best course of action, use th
 
 Gets the current advertising token. 
 
-Before calling this function, be sure to call [init()](#initopts-object-void) and invoke the supplied callback, as shown in the following example. 
+Before calling this function, be sure to call [init()](#initopts-object-void) and wait until the callback you supply has been invoked, as shown in the following example. 
 
 ```html
 <script>
