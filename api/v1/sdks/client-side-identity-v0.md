@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > [v1](../README.md) > [SDKs](./README.md) > Client-Side Identity
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [SDKs](./README.md) > Client-Side Identity SDK v0 (Deprecated)
 
 # Client-Side Identity SDK v0 (Deprecated)
 
@@ -6,7 +6,7 @@
 
 >NOTE: This documentation is for version 0 of the UID2 SDK. 
 
-To simplify your implementation for establishing identity and retrieving advertising tokens, consider upgrading to the newer and improved version, [UID2 SDK version 1](./client-side-identity-v1.md).
+To simplify your implementation for establishing identity and retrieving advertising tokens, consider upgrading to the newer and improved version, [Client-Side JavaScript SDK v1](./client-side-identity-v1.md).
 
 >IMPORTANT: The new version of the SDK supports the version 0 cookies for user session continuity, but the SDK is not backward-compatible and requires [code changes](./client-side-identity-v1.md#improvements-and-changes-from-version-0). 
 

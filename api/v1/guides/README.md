@@ -10,10 +10,10 @@ The following guides provide integration instructions based on the needs and req
 
 | Integration Guide |  Content Description |
 | :--- | :--- |
-| Publisher - UID2 SDK<br/>[[with SDK v1](./publisher-client-side.md)]<br/>[[with SDK v0](./publisher-client-side-v0.md)] | This integration guide for publishers covers standard web integration scenarios that utilize the Client-Side Identity JavaScript SDK. |
-| [Publisher - Server-Only](./custom-publisher-integration.md) | This integration guide for publishers covers custom integration scenarios for app developers and CTV broadcasters, without utilizing the UID2 SDK. |
-| [DSP](./dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
-| [Advertiser/Data Provider](./advertiser-dataprovider-guide.md) | This integration guide for advertisers and data partners covers integration workflows for mapping identity for audience-building and targeting. |
+| Publisher - Client-Side JavaScript SDK<br/>[[with SDK v1](./publisher-client-side.md)]<br/>[[with SDK v0](./publisher-client-side-v0.md)] | This integration guide for publishers covers standard web integration scenarios that utilize the Client-Side JavaScript SDK. |
+| [Publisher Integration Guide, Server-Only (Without SDK) (Deprecated)](./custom-publisher-integration.md) | TThis integration guide for app developers and CTV broadcasters covers integration scenarios that do not use the Client-Side JavaScript SDK. |
+| [DSP Integration Guide (Deprecated)](./dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
+| [Advertiser/Data Provider Integration Guide (Deprecated)](./advertiser-dataprovider-guide.md) | This integration guide for advertisers and data partners covers integration workflows for mapping identity for audience-building and targeting. |
 
 ## Open Operator Service Integration
  

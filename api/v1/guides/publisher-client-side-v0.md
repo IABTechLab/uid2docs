@@ -4,14 +4,14 @@
 
 >IMPORTANT: The UID2 API v1 has been deprecated and will be supported only for the current users until March 31, 2023, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be removed. Be sure to [upgrade to the UID2 API v2](../../v2/upgrades/upgrade-guide.md) by March 31, 2023. If you are new to the framework, use the [UID2 API v2](../../v2/README.md).
 
->NOTE: This guide is intended for the UID2 SDK [version 0](../sdks/client-side-identity-v0.md). For the *Integration Guide* using the UID2 SDK [version 1](../sdks/client-side-identity-v1.md), see [UID2 SDK Integration Guide](./publisher-client-side.md).
+>NOTE: This guide is intended for the UID2 SDK [version 0](../sdks/client-side-identity-v0.md). For the *Integration Guide* using the [Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md), see [UID2 SDK Integration Guide](./publisher-client-side.md).
 
 This guide covers integration steps for publishers with web assets who would like to generate identity tokens utilizing UID2 for the bid stream. This guide focuses on publishers who would like to integrate directly with UID2 to create and manage tokens rather than integrate with UID2-enabled single-sign-on or identity providers.
 
 * [Integration Steps](#integration-steps)
 * [FAQs](#faqs)
 
-For custom integration scenarios for app developers and CTV broadcasters, see [Publisher Integration Guide (Custom)](./custom-publisher-integration.md).
+For integration scenarios that are not using the Client-Side JavaScript SDK, for app developers and CTV broadcasters, see [Publisher Integration Guide, Server-Only (Without SDK) (Deprecated)](./custom-publisher-integration.md).
 
 ## Integration Steps 
 
@@ -90,7 +90,7 @@ After authentication in step 1-c, which forces the user to accept the rules of e
 
 ### How will I be notified of user opt-out?
 
-The token refresh process handles user opt-outs. If a user opts out, using their refresh token automatically clears their session. [UID2 client-side SDK](../sdks/client-side-identity-v1.md). No manual action is required. 
+The token refresh process handles user opt-outs. If a user opts out, using their refresh token automatically clears their session. [Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md). No manual action is required. 
 
 ### How can I test my integration?
 

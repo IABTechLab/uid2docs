@@ -1,15 +1,19 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [SDKs](./README.md) > RTB SDK
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [SDKs](./README.md) > Server-Side SDK Guide for RTB
 
-# RTB SDK Client
+# Server-Side SDK Guide for RTB
 
-The UID2 RTB SDK facilitates decrypting UID2 tokens to access the raw UID2. 
+You can use UID2 server-side SDKs for RTB, to facilitate decrypting the UID2 tokens to access the raw UID2. 
 
 The following functions define the information that you'll need to configure or can retrieve from the library. The parameters and property names defined below are pseudocode. Actual parameters and property names vary by language but will be similar to the information outlined below.
 
 Libraries are currently available in the following languages. More languages are in development. 
 
-+ C# 
-+ C++
+| Language | Link to SDK |
+| :--- | :--- |
+| C#  | [UID2 Client for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md) |
+| C++ | [UID2 Client for C++](https://github.com/IABTechLab/uid2-client-cpp11/blob/master/README.md) |
+| Java | [UID2 Java SDK](https://github.com/IABTechLab/uid2-client-java/blob/master/README.md) |
+| Python | [UID2 Client Python](https://github.com/IABTechLab/uid2-client-python/blob/master/README.md) |
 
 ## Initialization
 

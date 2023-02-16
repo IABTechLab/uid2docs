@@ -1,6 +1,6 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](README.md) > Publisher Integration Guide, Server-Only, Without SDK
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](README.md) > Publisher Integration Guide, Server-Only (Without SDK)
 
-# Publisher Integration Guide, Server-Only, Without SDK
+# Publisher Integration Guide, Server-Only (Without SDK)
 
 This guide is intended for app developers and CTV broadcasters who would like to generate identity tokens utilizing UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
 
@@ -8,7 +8,7 @@ The guide outlines the [basic steps](#integration-steps) that you need to consid
 
 Here's an [example application](https://example-srvonly-integ.uidapi.com/) that demonstrates the workflow. For the application documentation, see [Server-Only UID2 Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/server_only/README.md). See also [FAQs](#faqs).
 
->TIP: To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, consider using the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md). For details, see [UID2 SDK Integration Guide](./publisher-client-side.md).
+>TIP: To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, consider using the [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md). For details, see [Client-Side JavaScript SDK Integration Guide](./publisher-client-side.md).
 
 
 

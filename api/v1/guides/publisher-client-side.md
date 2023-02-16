@@ -1,6 +1,6 @@
-[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > Publisher Integration Guide
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > Client-Side JavaScript SDK Integration Guide (Deprecated)
 
-# UID2 SDK Integration Guide (Deprecated)
+# Client-Side JavaScript SDK Integration Guide (Deprecated)
 
 >IMPORTANT: The UID2 API v1 has been deprecated and will be supported only for the current users until March 31, 2023, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be removed. Be sure to [upgrade to the UID2 API v2](../../v2/upgrades/upgrade-guide.md) by March 31, 2023. If you are new to the framework, use the [UID2 API v2](../../v2/README.md).
 
@@ -10,7 +10,7 @@ This guide is intended for publishers with web assets who would like to generate
 
 The guide outlines the [basic steps](#integration-steps) that you need to consider if you are building an integration without using an SDK. For example, you need to decide how to implement user login and logout, how to manage UID2 identity information and use it for targeted advertising, and how to refresh tokens, deal with missing identities, and handle user opt-outs. See also [FAQs](#faqs).
 
->IMPORTANT: The UID2 SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the [UID2 SDK APIs](../sdks/client-side-identity-v1.md#api-reference) for your identity management.
+>IMPORTANT: The UID2 SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the [Client-Side JavaScript SDK v1 APIs](../sdks/client-side-identity-v1.md#api-reference) for your identity management.
 
 For integration scenarios for app developers and CTV broadcasters that do not use a UID2 SDK, see [Server-Only Integration Guide](./custom-publisher-integration.md).
 
@@ -36,7 +36,7 @@ After authentication in step 1-c, which forces the user to accept the rules of e
 | :--- | :--- | :--- |
 | 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | After the user authenticates and authorizes the creation of a UID2, use the [GET /token/generate](../endpoints/get-token-generate.md) endpoint to generate a UID2 token using the provided normalized and URL-encoded email address or phone number of the user. |
 | 1-e | [GET /token/generate](../endpoints/get-token-generate.md) | Return a UID2 token generated from the user's email address, phone number, or the respective hash. |
-| 1-f | [UID2 SDK](../sdks/client-side-identity-v1.md) | Send the returned UID2 token from step 1-e to the SDK in the `identity` property of its [init() function](../sdks/client-side-identity-v1.md#initopts-object-void) and specify a [callback function](../sdks/client-side-identity-v1.md#callback-function) as shown below. The mechanism ensures that UID2 tokens are available for the user for targeting advertising until they log out. |
+| 1-f | [Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md) | Send the returned UID2 token from step 1-e to the SDK in the `identity` property of its [init() function](../sdks/client-side-identity-v1.md#initopts-object-void) and specify a [callback function](../sdks/client-side-identity-v1.md#callback-function) as shown below. The mechanism ensures that UID2 tokens are available for the user for targeting advertising until they log out. |
 
 
 ```html
@@ -73,7 +73,7 @@ Based on the status and availability of a valid identity, the SDK sets up the ba
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
-| 2-a | [UID2 SDK](../sdks/client-side-identity-v1.md) | Get the current user's advertising token by using the [getAdvertisingToken() function](../sdks/client-side-identity-v1.md#getadvertisingtoken-string) as shown below. |
+| 2-a | [Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md) | Get the current user's advertising token by using the [getAdvertisingToken() function](../sdks/client-side-identity-v1.md#getadvertisingtoken-string) as shown below. |
 
 
 ```html
@@ -90,8 +90,8 @@ As part of its initialization, the SDK sets up a [token auto-refresh](../sdks/cl
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
-| 3-a | [UID2 SDK](../sdks/client-side-identity-v1.md) | The SDK automatically refreshes UID2 tokens in the background. No manual action is required. |
-| 3-b | [UID2 SDK](../sdks/client-side-identity-v1.md) | If the user hasn't opted out, the [GET /token/refresh](../endpoints/get-token-refresh.md) automatically returns new identity tokens. |
+| 3-a | [Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md) | The SDK automatically refreshes UID2 tokens in the background. No manual action is required. |
+| 3-b | [Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md) | If the user hasn't opted out, the [GET /token/refresh](../endpoints/get-token-refresh.md) automatically returns new identity tokens. |
 
 
 ### Clear Identity: User Logout
@@ -101,7 +101,7 @@ The client lifecycle is complete when the user decides to log out from the publi
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
 | 4-a | N/A | The user logs out from the publisher's asset. |
-| 4-b | [UID2 SDK](../sdks/client-side-identity-v1.md) | Clear the UID2 identity from the first-party cookie and disconnect the client lifecycle by using the [disconnect() function](../sdks/client-side-identity-v1.md#disconnect-void) as shown below.|
+| 4-b | [Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md) | Clear the UID2 identity from the first-party cookie and disconnect the client lifecycle by using the [disconnect() function](../sdks/client-side-identity-v1.md#disconnect-void) as shown below.|
 
 
 ```html
@@ -114,7 +114,7 @@ The client lifecycle is complete when the user decides to log out from the publi
 
 ### How will I be notified of user opt-out?
 
-The [UID2 SDK](../sdks/client-side-identity-v1.md) background token auto-refresh process handles user opt-outs. If user opts out, when the UID2 SDK attempts token refresh, it will learn about the optout and will clear the session (including the cookie) and invoke the callback with the `OPTOUT` status.
+The [Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md) background token auto-refresh process handles user opt-outs. If user opts out, when the UID2 SDK attempts token refresh, it will learn about the optout and will clear the session (including the cookie) and invoke the callback with the `OPTOUT` status.
 
 ### Where should I make token generation calls, from the server or client side?
 

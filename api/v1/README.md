@@ -17,7 +17,7 @@ For details on using the v1 UID2 API, see the following pages.
 | :--- | :--- |
 | [Endpoints](./endpoints/README.md) | API reference for managing identity tokens and mapping email addresses, phone numbers, or hashes to their UID2s and salt bucket IDs used to generate the UID2s. |
 | [Integration Guides](./guides/README.md) | UID2 integration workflows for UID2 participants, such as publishers, DSPs, advertisers, and data providers, as well as Operator Enterprise Partners, such as Microsoft Azure, AWS, and Snowflake. |
-| [SDKs](./sdks/README.md) | Client-side JavaScript for websites and RTB SDKs. | 
+| [SDKs](./sdks/README.md) | Links to SDK docs, including the Client-Side JavaScript SDK for websites and the Server-Side SDK Guide for RTB. | 
 
 ## Environment 
 

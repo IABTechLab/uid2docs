@@ -8,7 +8,7 @@ This guide covers integration steps for publishers using UID2 with the Google Ad
 * [Allow Secure Signal Sharing](#allow-secure-signal-sharing)
 * [Publisher Integrations](#publisher-integration)
 * [Server-Only Integration](#server-only-integration)
-* [UID2 SDK Integration](#uid2-sdk-integration)
+* [UID2 Client-Side JavaScript SDK Integration](#uid2-client-side-javascript-sdk-integration)
 <!--* [Sample Applications](#sample-applications)-->
 
 >NOTE: To use the UID2 Google Ad Manager secure signals integration, if you are using an SDK you must have your UID2 integration already set up. This does not apply if you are using server-only integration. For a summary of all the integration options available, see [UID2 Integration Guides](README.md).
@@ -66,13 +66,13 @@ For details, see [Server-Only UID2 Integration Guide](custom-publisher-integrati
 
 <!--A sample application is also available for server-only integration. See [Sample Applications](#sample-applications).-->
 
-### UID2 SDK Integration
+### UID2 Client-Side JavaScript SDK Integration
 
-If you're using the UID2 Client-Side Identity JavaScript SDK version 3.0.0 or later, the UID2 secure signals script uses the `getAdvertisingTokenAsync` function provided in the SDK to get the fresh advertising token, and then pushes the token to Google Ad Manager.
+If you're using the Client-Side JavaScript SDK version 3.0.0 or later, the UID2 secure signals script uses the `getAdvertisingTokenAsync` function provided in the SDK to get the fresh advertising token, and then pushes the token to Google Ad Manager.
 
 This script is hosted on CDN, and GPT automatically loads it with the secure signals feature. 
 
-For details, see [UID2 SDK Integration Guide](publisher-client-side.md).
+For details, see [Client-Side JavaScript SDK Integration Guide](publisher-client-side.md).
 
 <!--A sample application is also available for client-side integration using the SDK. See [Sample Applications](#sample-applications).-->
 
@@ -80,6 +80,6 @@ For details, see [UID2 SDK Integration Guide](publisher-client-side.md).
 
 The following sample applications are available to illustrate how to integrate with the Google Ad Manager secure signals feature:
 - Server-only integration: {link to come xxx}
-- UID2 SDK integration: {link to come xxx}
+- Client-Side JavaScript SDK integration: {link to come xxx}
 
 Each sample application has its own instructions. -->

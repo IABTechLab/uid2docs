@@ -8,10 +8,9 @@ Generate a UID2 token from a hashed or unhashed email address or phone number.
 
 >IMPORTANT: UID2 tokens must be generated only on the server side after authentication. Security concerns forbid token generation on the browser side.
 
-
 The following integration workflows use this endpoint:
-* [Publisher - Standard](../guides/publisher-client-side.md)
-* [Publisher - Custom](../guides/custom-publisher-integration.md)
+* [Publisher Client-Side JavaScript SDK Integration Guide (Deprecated)](../guides/publisher-client-side.md)
+* [Publisher Integration Guide, Server-Only (Without SDK) (Deprecated)](../guides/custom-publisher-integration.md)
 
 ## Request Format 
 
@@ -81,7 +80,7 @@ The response returns the user's advertising and refresh tokens for the specified
     "status": "success"
 }
 ```
-The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) uses this endpoint response payloads to establish and manage the user identity during a user session lifecycle.
+The [Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md) uses this endpoint response payloads to establish and manage the user identity during a user session lifecycle.
 
 
 ### Response Body Properties
@@ -91,7 +90,7 @@ The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) us
 | `advertising_token` | string | An encrypted advertising (UID2) token for the user. |
 | `refresh_token` | string | An encrypted token that can be exchanged with the UID2 Service for the latest set of identity tokens. |
 | `identity_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the advertising token expires. |
-| `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) will start refreshing the advertising token.</br>TIP: If you are not using the SDK, consider refreshing the advertising token from this timestamp, too. |
+| `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the [Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md) will start refreshing the advertising token.</br>TIP: If you are not using the SDK, consider refreshing the advertising token from this timestamp, too. |
 | `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
 
 ### Response Status Codes

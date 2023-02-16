@@ -22,7 +22,7 @@ Validate that an advertising token matches the specified hashed or unhashed emai
 ###  Query Parameters
 
 - You must include only one of the following parameters: `email`, `email_hash`, `phone`, or `phone_hash`. 
-- To test identities, use the `validate@email.com` email address or `+12345678901` phone number. For details, see the FAQs sections in the [UID2 SDK Integration Guide](../guides/publisher-client-side.md) and [Server-Only Integration Guide](../guides/custom-publisher-integration.md) for publishers.
+- To test identities, use the `validate@email.com` email address or `+12345678901` phone number. For details, see the FAQs sections in the [Client-Side JavaScript SDK Integration Guide (Deprecated)](../guides/publisher-client-side.md) and [Publisher Integration Guide, Server-Only (Without SDK) (Deprecated)](../guides/custom-publisher-integration.md) for publishers.
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
