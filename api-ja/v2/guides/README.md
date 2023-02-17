@@ -15,9 +15,9 @@
 
 ## Supplementary Integrations
 
-| Integration Guide                                                          | Content Description                                                                                                                                                                                      |
-| :------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Publisher - Google Ad Manager Secure Signals](./google-ss-integration.md) | このインテグレーションガイドは、UID2 を Google Ad Manager の**secure signals**機能（旧称：\*encrypted signals from publishers\*\*、ESP）で使用するパブリッシャーに必要な追加ステップをカバーしています。 |
+| Integration Guide                                                          | Content Description                                                                                                                                                                                    |
+| :------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Publisher - Google Ad Manager Secure Signals](./google-ss-integration.md) | このインテグレーションガイドは、UID2 を Google Ad Manager の**secure signals**機能（旧称：**encrypted signals from publishers**、ESP）で使用するパブリッシャーに必要な追加ステップをカバーしています。 |
 
 ## Open Operator Service Integration
 
