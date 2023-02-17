@@ -40,7 +40,7 @@ UID2 Core Service は認証リクエストを受信すると、`api_token`と in
 
 ## Build
 
-GCP Confidential VM エンクレーブ上で UID2 Operator を実行するための公式 Docker イメージは、以下の Docker コマンド GitHub Container Registry から取得できます:
+GCP Confidential VM エンクレーブ上で UID2 Operator を実行するための公式 Docker イメージは、以下の Docker コマンドで GitHub Container Registry から取得できます:
 
 ```
 docker pull ghcr.io/iabtechlab/uid2-operator
@@ -71,7 +71,7 @@ UID2 Operator Service は、どの GCP アカウントおよびプロジェク�
 
 ## Integration Deployment
 
-インテグレーション環境用の認証済み cloud-init.yaml ファイルを用意し、`cloud-init` config を使用する新しい Confidential VM を作成すれば、GCP VM Enclave 内の新しい UID2 Operator Service をインテグレーション環境にデプロイすることができます。
+インテグレーション環境用の認証済み cloud-init.yaml ファイルを用意し、`cloud-init` config を使用する新しい Confidential VM を作成すれば、GCP VM エンクレーブ内の新しい UID2 Operator Service をインテグレーション環境にデプロイすることができます。
 
 このセクションでは、デプロイメントプロセスについて説明します。
 
@@ -83,7 +83,7 @@ cloud-init.yaml ファイルは環境に固有なので、インテグレーシ�
 
 ### cloud-init Example
 
-これは、UID2 Operator Enclave をインテグレーション環境にデプロイする際に使用する `cloud-init` テンプレートです。このセクションでは、ファイルの内容について説明しますが、登録時に提供されたものを使用する必要があります。
+これは、UID2 Operator エンクレーブをインテグレーション環境にデプロイする際に使用する `cloud-init` テンプレートです。このセクションでは、ファイルの内容について説明しますが、登録時に提供されたものを使用する必要があります。
 
 このファイルの内容は、VM インスタンスの作成時に `user-data` というキーでカスタムメタデータとして提供する必要があります。この `user-data` メタデータは、起動時にコンテナ最適化 OS (COS) の VM ディスクによって読み込まれ、解釈されます。
 
