@@ -6,7 +6,7 @@
 
 > NOTE: このガイドは、UID2 SDK [version 0](../sdks/client-side-identity-v0.md) を対象としています。UID2 SDK [version 1](../sdks/client-side-identity-v1.md)を使用した*インテグレーションガイド*については、 [UID2 SDK Integration Guide](./publisher-client-side.md) をご覧ください。
 
-このガイドでは、Web アセットを持つパブリッシャーが、入札ストリームに UID2 を使用して ID トークンを生成するためのインテグレーション手順を説明します。このガイドは、UID2 対応シングルサインオンや ID プロバイダーとインテグレーションするのではなく、UID2 と直接インテグレーションしてトークンを作成・管理したいパブリッシャーを対象としています。
+このガイドでは、Web アセットを持つパブリッシャーが、ビッドストリームに UID2 を使用して ID トークンを生成するためのインテグレーション手順を説明します。このガイドは、UID2 対応シングルサインオンや ID プロバイダーとインテグレーションするのではなく、UID2 と直接インテグレーションしてトークンを作成・管理したいパブリッシャーを対象としています。
 
 - [Integration Steps](#integration-steps)
 - [FAQs](#faqs)
