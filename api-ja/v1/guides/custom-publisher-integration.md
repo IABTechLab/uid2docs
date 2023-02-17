@@ -2,7 +2,7 @@
 
 # Server-Only UID2 Integration Guide (Deprecated)
 
-> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../../v2/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
 
 このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を利用した ID トークンを生成したいと考えるアプリ開発者や CTV 放送局を対象としています。
 
@@ -85,9 +85,9 @@ sequenceDiagram
 
 UID2 ID 情報をどのように管理し、ターゲティング広告に使用したいか、たとえば返された Advertising Token を SSP に渡すかについて検討する必要があります。
 
-| Step | Endpoint | Description                                                                                                            |
-| :--- | :------- | :--------------------------------------------------------------------------------------------------------------------- |
-| 2-a  | N/A      | ステップ [1-e](#establish-identity) の `advertising_token` を入札のために SSP に送信します。そのままの値を送信します。 |
+| Step | Endpoint | Description                                                                                                                       |
+| :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------- |
+| 2-a  | N/A      | ステップ [1-e](#establish-identity-user-login) の `advertising_token` を入札のために SSP に送信します。そのままの値を送信します。 |
 
 ### Refresh Tokens
 
@@ -96,7 +96,7 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 | Step | Endpoint                                                | Description                                                                                                                                                                                                          |
 | :--- | :------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 3-a  | N/A                                                     | ユーザーがアセットに戻り、再びアクティブになったとき、ID トークンをリフレッシュしてから、SSP に送信します。                                                                                                          |
-| 3-b  | [GET /token/refresh](../endpoints/get-token-refresh.md) | ステップ [1-e](#establish-identity) で取得した `refresh_token` をクエリパラメータとして送信します。                                                                                                                  |
+| 3-b  | [GET /token/refresh](../endpoints/get-token-refresh.md) | ステップ [1-e](#establish-identity-user-login) で取得した `refresh_token` をクエリパラメータとして送信します。                                                                                                       |
 | 3-c  | [GET /token/refresh](../endpoints/get-token-refresh.md) | UID2 Service は、オプトアウトしていないユーザーに対して新しい ID トークンを発行します。                                                                                                                              |
 | 3-d  | N/A                                                     | 返された `advertising_token` と `refresh_token` は、ユーザーに紐づくストレージに保存します。ファーストパーティクッキーのようなクライアントサイドのストレージや、サーバーサイドのストレージを検討するとよいでしょう。 |
 
@@ -138,7 +138,7 @@ UID2 Service では、ランダムな初期化ベクトルを使用してトー�
 1. PII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して[GET /token/generate](../endpoints/get-token-generate.md) リクエストを送信してください。
    - `email` の値として `validate@email.com` を指定します。
    - `validate@email.com` を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) したものを `email_hash` の値として指定します。
-   - `phone` の値として [URL エンコード](../../README.md#query-parameter-value-encoding) した `+12345678901` を指定します。
+   - `phone` の値として [URL エンコード](../README.md#query-parameter-value-encoding) した `+12345678901` を指定します。
    - `+12345678901` を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) したものを `phone_hash` の値として指定します。
 2. 返された `advertising_token` を、次のステップで使用するために保存します。
 3. [GET /token/validate](../endpoints/get-token-validate.md) で、ステップ 1 で送信した `email`, `email_hash`, `phone`, または `phone_hash` 値と `advertising_token` （ステップ 2 で保存）をプロパティ値としてリクエストを送信します。
@@ -152,7 +152,7 @@ UID2 Service では、ランダムな初期化ベクトルを使用してトー�
 1. PII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して [GET /token/generate](../endpoints/get-token-generate.md) リクエストを送信してください。
    - `email`の値として`optout@email.com` を指定します。
    - `optout@email.com`を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) したものを `email_hash` の値として指定します。
-   - `phone` の値として [URL エンコード](../../README.md#query-parameter-value-encoding) した `+00000000000` を指定してください。
+   - `phone` の値として [URL エンコード](../README.md#query-parameter-value-encoding) した `+00000000000` を指定してください。
    - `PHONE_HASH` 値として `+00000000000` を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#phone-number-hash-encoding) したものを指定します。
 2. 返された `refresh_token` を次のステップで使用するために保存します。
 3. (ステップ 2 で保存した) `refresh_token` を `token` 値として [GET /token/refresh](../endpoints/get-token-refresh.md) リクエストを送ります。<br/> `optout@email.com` というメールアドレスと `+00000000000` という電話番号は常にログアウトしたユーザーを表すため、レスポンスボディは空に、`status` 値には `optout` が設定されていなければなりません。

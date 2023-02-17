@@ -2,7 +2,7 @@
 
 # GET /token/validate (Deprecated)
 
-> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず [UID2 API v2](../../v2/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず [UID2 API v2](../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
 
 Advertising Token が指定されたハッシュ化された、またはハッシュ化されていないメールアドレスまたは電話番号と一致するかどうかを検証します。
 
@@ -23,13 +23,13 @@ Advertising Token が指定されたハッシュ化された、またはハッ�
 - 以下のパラメータは、いずれか 1 つだけを指定します。`email`、 `email_hash`、 `phone`、または `phone_hash`。
 - ID をテストするには、`validate@email.com`のメールアドレス、または `+12345678901` の電話番号を使用します。詳細は、パブリッシャー向けの [UID2 SDK Integration Guide](../guides/publisher-client-side.md) および [Server-Only Integration Guide](../guides/custom-publisher-integration.md) の FAQ のセクションを参照してください。
 
-| Query Parameter | Data Type | Attribute      | Description                                                                                                                                                                                                                                                                                                                                |
-| :-------------- | :-------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `token`         | string    | 必須           | [GET /token/generate](./get-token-generate.md) レスポンスによって返された Advertising Token です。<br/>IMPORTANT: トークンが URL デコード文字で生成された場合、必ずクエリパラメータとしてエンコードするようにしてください。詳しくは、[Query Parameter Value Encoding](../../README.md#query-parameter-value-encoding) を参照してください。 |
-| `email`         | string    | 条件付きで必要 | トークンを検証する [URL エンコード](../../README.md#query-parameter-value-encoding) したメールアドレスです。                                                                                                                                                                                                                               |
-| `email_hash`    | string    | 条件付きで必要 | トークンを検証する [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) した、[正規化](../../README.md#email-address-normalization) 済みメールアドレスです。                                                                                                                                |
-| `phone`         | string    | 条件付きで必要 | トークンを検証する [URL エンコード](../../README.md#query-parameter-value-encoding) した [正規化](../../README.md#phone-number-normalization) 済み電話番号です。                                                                                                                                                                           |
-| `phone_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。                                                                                                                                                           |
+| Query Parameter | Data Type | Attribute      | Description                                                                                                                                                                                                                                                                                                                             |
+| :-------------- | :-------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `token`         | string    | 必須           | [GET /token/generate](./get-token-generate.md) レスポンスによって返された Advertising Token です。<br/>IMPORTANT: トークンが URL デコード文字で生成された場合、必ずクエリパラメータとしてエンコードするようにしてください。詳しくは、[Query Parameter Value Encoding](../README.md#query-parameter-value-encoding) を参照してください。 |
+| `email`         | string    | 条件付きで必要 | トークンを検証する [URL エンコード](../README.md#query-parameter-value-encoding) したメールアドレスです。                                                                                                                                                                                                                               |
+| `email_hash`    | string    | 条件付きで必要 | トークンを検証する [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) した、[正規化](../../README.md#email-address-normalization) 済みメールアドレスです。                                                                                                                             |
+| `phone`         | string    | 条件付きで必要 | トークンを検証する [URL エンコード](../README.md#query-parameter-value-encoding) した [正規化](../../README.md#phone-number-normalization) 済み電話番号です。                                                                                                                                                                           |
+| `phone_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。                                                                                                                                                        |
 
 ### Request Examples
 
