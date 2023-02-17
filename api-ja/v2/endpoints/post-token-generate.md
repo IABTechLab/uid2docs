@@ -36,6 +36,7 @@ UID2 ベースのターゲティング広告にユーザーをオプトインし
 | `email_hash`   | string    | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
 | `phone`        | string    | 条件付きで必要 | トークンを生成する [正規化](../../README.md#phone-number-normalization) 済み電話番号です。                                                                              |
 | `phone_hash`   | string    | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。        |
+| `policy`       | number    | Optional       | (Beta) トークン生成ポリシーの ID です。[Token Generation Policy](#token-generation-policy) を参照してください。                                                         |
 
 ### Request Examples
 
@@ -107,6 +108,22 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
 }
 ```
 
+以下は、ポリシーがユーザーのオプトアウトを尊重する場合の応答例です。
+
+```json
+{
+  "body": {
+    "advertising_token": "",
+    "refresh_token": "",
+    "identity_expires": 1636322000000,
+    "refresh_from": 1636322000000,
+    "refresh_expires": 1636322000000,
+    "refresh_response_key": ""
+  },
+  "status": "optout"
+}
+```
+
 [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md) は、このエンドポイント応答ペイロードを使用して、ユーザーセッションのライフサイクル中にユーザー ID を確立・管理します。
 
 ### Response Body Properties
@@ -127,12 +144,11 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
 | Status         | HTTP Status Code | Description                                                                                                                                                                    |
 | :------------- | :--------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `success`      | 200              | リクエストは成功しました。レスポンスは暗号化されています。                                                                                                                     |
+| `optout`       | 200              | リクエストは成功しました。ユーザーがオプトアウトしたため、トークンを生成できませんでした。                                                                                     |
 | `client_error` | 400              | リクエストに不足している、または無効なパラメータがありました。                                                                                                                 |
 | `unauthorized` | 401              | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
 `status` の値が `success` 以外の場合、 `message` フィールドにその問題に関する追加情報が表示されます。
-
-NOTE: このエンドポイントはオプトアウトリクエストをチェックしないので、`optout` ステータスを返すことはありません。
 
 ## Test Identities
 
@@ -142,3 +158,12 @@ NOTE: このエンドポイントはオプトアウトリクエストをチェ�
 | Email | `optout@email.com`   | このメールアドレスをリクエストに使用すると、常に `refresh_token` を使用した ID レスポンスが生成され、ログアウトのレスポンスになります。 | [POST /token/refresh](./post-token-refresh.md)   |
 | Phone | `+12345678901`       | キャッシュした `advertising_token` が、指定した電話番号の `advertising_token` と一致するかどうかをテストします。                        | [POST /token/validate](./post-token-validate.md) |
 | Phone | `+00000000000`       | この電話番号をリクエストに使用すると、常に `refresh_token` を含む ID レスポンスが生成され、ログアウトのレスポンスになります。           | [POST /token/refresh](./post-token-refresh.md)   |
+
+# Token Generation Policy
+
+トークン生成ポリシーは、トークンを生成するタイミングを呼び出し元が決定できるようにします。これは、リクエスト・ボディの **integer ID** として渡されます（キー 'policy' を使用）。パラメータが省略された場合、ID = 0 のポリシーが適用されます。
+
+| ID  | Description                                                      |
+| :-- | :--------------------------------------------------------------- |
+| 0   | 必ずトークンを生成します。                                       |
+| 1   | ユーザーがオプトアウトしていない場合のみ、トークンを生成します。 |
