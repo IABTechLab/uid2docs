@@ -13,6 +13,12 @@
 | [DSP](./dsp-guide.md)                                          | この DSP のためのインテグレーションガイドは、入札のための UID2 の処理と、ユーザーのオプトアウトに対応することをカバーしています。                                                              |
 | [Advertiser/Data Provider](./advertiser-dataprovider-guide.md) | この広告主やデータパートナー向けのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 |
 
+## Supplementary Integrations
+
+| Integration Guide                                              | Content Description                                                                                                                                                        |
+| :------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Publisher - Google Secure Signal](./google-ss-integration.md) | このインテグレーションガイドは、Google Secure Signal (GSS, 旧称 Google Encrypted Signal, ESP) で UID2 を使用しているパブリッシャーに必要な追加ステップをカバーしています。 |
+
 ## Open Operator Service Integration
 
 | Integration Guide                                          | Content Description                                                                            |
