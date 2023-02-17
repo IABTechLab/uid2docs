@@ -92,7 +92,7 @@ Here's what you need to know about the token auto-refresh:
 
 ## API Reference
 
->IMPORTANT: All interactions with the Client-Side JavaScript SDK (v2) are done through the global `__uid2` object, which is a member of the `UID2` class. All of following JavaScript functions are members of the `UID2` class. 
+>IMPORTANT: All interactions with the Client-Side JavaScript SDK are done through the global `__uid2` object, which is a member of the `UID2` class. All of following JavaScript functions are members of the `UID2` class. 
 
 - [constructor()](#constructor)
 - [init()](#initopts-object-void)
@@ -253,7 +253,7 @@ This function can be called before or after the [init()](#initopts-object-void) 
 </script>
 ```
 
->TIP: You can use this function to be notified of the completion of the Client-Side JavaScript SDK (v2) initialization from a component that might not be the one that called `init()`.
+>TIP: You can use this function to be notified of the completion of the Client-Side JavaScript SDK initialization from a component that might not be the one that called `init()`.
 
 ### isLoginRequired(): boolean
 

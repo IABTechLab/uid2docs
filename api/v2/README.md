@@ -17,7 +17,7 @@ For details on using the API, see the following pages.
 | [Encrypting Requests and Decrypting Responses](ref-info/encryption-decryption.md) | The high-level request-response workflow for the UID2 APIs, requirements for encrypting requests and decrypting responses, and respective script examples in Python.  |
 | [Endpoints](./endpoints/README.md) | The API reference for managing identity tokens and mapping email addresses, phone numbers, or hashes to their UID2s and salt bucket IDs used to generate the UID2s. |
 | [Integration Guides](./guides/README.md) | The UID2 integration workflows for UID2 participants, such as publishers, DSPs, advertisers, and data providers, as well as Operator Enterprise Partners, such as Microsoft Azure, AWS, and Snowflake. |
-| [SDKs](./sdks/README.md) | Links to SDK docs, including the Client-Side JavaScript SDK for websites and the Server-Side SDK Guide for RTB. | 
+| [SDKs](./sdks/README.md) | Links to documentation for using UID2 SDKs. | 
 
 For a list of improvements and changes from version 1 of the API, see [UID2 API v1 to v2 Upgrade Guide](./upgrade-guide.md).
 

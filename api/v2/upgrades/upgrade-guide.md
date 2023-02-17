@@ -88,7 +88,7 @@ Here's what you need to know and do:
 
 - Performing a [POST /token/generate](../endpoints/post-token-generate.md) call requires encrypting the request body and decrypting the response. For details and examples, see [Encrypting Requests and Decrypting Responses](../ref-info/encryption-decryption.md).
 - The JSON response from the [POST /token/generate](../endpoints/post-token-generate.md) endpoint contains a new property: `refresh_response_key`. 
-  - If you are using the [Client-Side JavaScript SDK](../sdks/client-side-identity.md) (regardless of the version), you must pass this key to the `init()` function of the SDK along with other response properties. 
+  - If you are using the [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) (regardless of the version), you must pass this key to the `init()` function of the SDK along with other response properties. 
   - If you are not using the SDK and are storing the response data in custom storage (for example, a database or a custom first-party cookie), you must update the storage to store the refresh response key. 
   - No updates are required for any existing sessions that store refresh tokens returned by the v1 [GET /token/refresh](../../v1/endpoints/get-token-refresh.md) endpoint and do not have a corresponding refresh response key. These sessions will continue working as is.
 
