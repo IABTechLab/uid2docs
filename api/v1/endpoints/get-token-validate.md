@@ -22,7 +22,7 @@ Validate that an advertising token matches the specified hashed or unhashed emai
 ###  Query Parameters
 
 - You must include only one of the following parameters: `email`, `email_hash`, `phone`, or `phone_hash`. 
-- To test identities, use the `validate@email.com` email address or `+12345678901` phone number. For details, see the FAQs sections in the [UID2 SDK Integration Guide](../guides/publisher-client-side.md) and [Server-Only Integration Guide](../guides/custom-publisher-integration.md) for publishers.
+- To test identities, use the `validate@email.com` email address or `+12345678901` phone number. For details, see the FAQs sections in the [Client-Side JavaScript SDK Integration Guide (Deprecated)](../guides/publisher-client-side.md) and [Publisher Integration Guide, Server-Only (Without SDK) (Deprecated)](../guides/custom-publisher-integration.md) for publishers.
 
 | Query Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
@@ -74,7 +74,7 @@ The response returns a boolean value that indicates the validation status of the
 
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
-| `body` | boolean | A value of `true` indicates that the email address, phone number, or the respective hash specified in the request is the same as the one used to generate the advertising token.<br/><br/>A value of `false` indicates any of the following:<br/>- The request included an invalid advertising token.<br/>-  The email address, phone number, or the respective hash specified in the request is either different from the one used to generate the advertising token or is not for the testing email `validate@email.com` `+12345678901` phone number. |
+| `body` | boolean | A value of `true` indicates that the email address, phone number, or the respective hash specified in the request is the same as the one used to generate the advertising token.<br/>A value of `false` indicates any of the following:<br/>- The request included an invalid advertising token.<br/>-  The email address, phone number, or the respective hash specified in the request is either different from the one used to generate the advertising token or is not for the testing email `validate@email.com` `+12345678901` phone number. |
 
 ### Response Status Codes
 

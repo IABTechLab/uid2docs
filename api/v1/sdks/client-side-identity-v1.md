@@ -1,6 +1,6 @@
 [UID2 API Documentation](../../README.md) > [v1](../README.md) > [SDKs](./README.md) > Client-Side Identity
 
-# Client-Side Identity JavaScript SDK v1 (Deprecated)
+# Client-Side JavaScript SDK v1 (Deprecated)
 
 >IMPORTANT: The UID2 API v1 has been deprecated and will be supported only for the current users until March 31, 2023, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be removed. Be sure to [upgrade to the UID2 API v2](../../v2/upgrades/upgrade-guide.md) by March 31, 2023. If you are new to the framework, use the [UID2 API v2](../../v2/README.md).
 
@@ -73,7 +73,7 @@ The following table outlines the four main states in which the SDK can be, based
 
 The following diagram illustrates the four states, including the respective identity [status values](#identity-status-values), and possible transitions between them. The SDK invokes the [callback function](#callback-function) on each transition.
 
-![Client-Side Identity JavaScript SDK Workflow](./uid2-js-sdk-workflow.svg)
+![Client-Side JavaScript SDK Workflow](./uid2-js-sdk-workflow.svg)
 
 
 ### Background Token Auto-Refresh
@@ -168,7 +168,7 @@ The `opts` object supports the following properties.
 | :--- | :--- | :--- | :--- | :--- |
 | `callback` | `function(object): void` | Required | The function the SDK is to invoke after validating the passed identity. For details, see [Callback Function](#callback-function).| N/A |
 | `identity` | object | Optional | The `body` property value from a successful [GET /token/generate](../endpoints/get-token-generate.md) or [GET /token/refresh](../endpoints/get-token-refresh.md) call that has been run on the server to generate an identity. To use the identity from a [first-party cookie](#uid2-cookie-format), leave this property empty. | N/A |
-| `baseUrl` | string | Optional | The custom base URL of the UID2 operator to use when invoking the [GET /token/refresh](../endpoints/get-token-refresh.md) endpoint, for example, `https://my.operator.com`.  | `https://prod.uidapi.com ` |
+| `baseUrl` | string | Optional | The base URL of the UID2 operator to use when invoking the [GET /token/refresh](../endpoints/get-token-refresh.md) endpoint, for example, `https://my.operator.com`.  | `https://prod.uidapi.com ` |
 | `refreshRetryPeriod` | number | Optional | The number of seconds after which to retry refreshing tokens if intermittent errors occur. | 5 |
 | `cookieDomain` | string | Optional | The domain name string to apply to the [UID2 cookie](#uid2-cookie-format). | `undefined` |
 | `cookiePath` | string | Optional | The path string to apply to the [UID2 cookie](#uid2-cookie-format). | `/` |

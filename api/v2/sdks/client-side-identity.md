@@ -1,10 +1,10 @@
 [UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [SDKs](./README.md) > Client-Side Identity
 
-# Client-Side Identity JavaScript SDK (v2)
+# Client-Side JavaScript SDK (v2)
 
-Use this UID2 SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). 
+Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). 
 
-- For integration steps for content publishers, see [UID2 SDK Integration Guide](../guides/publisher-client-side.md). 
+- For integration steps for content publishers, see [Client-Side JavaScript SDK Integration Guide](../guides/publisher-client-side.md). 
 - For an [example application](https://example-jssdk-integ.uidapi.com/), with associated documentation, see the [UID2 SDK Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/standard/README.md) guide.
 
 This guide includes the following information:
@@ -48,7 +48,6 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 2. Publisher: Wait for the SDK to invoke the callback function. The callback function indicates the identity availability:
 	- If the identity is available, the SDK sets up a [background token auto-refresh](#background-token-auto-refresh).
 	- If the identity is unavailable, the reason for its unavailability is specified in the object passed to the callback function.
-
 3. SDK: Based on the identity [state](#workflow-states-and-transitions), the SDK does the following:
 	- If a valid identity is available, the SDK ensures that the identity is available in a [first-party cookie](#uid2-cookie-format).
 	- If the identity is unavailable, the SDK takes the appropriate action based on whether the identity is refreshable or not. For details, see [Workflow States and Transitions](#workflow-states-and-transitions).
@@ -56,7 +55,7 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 	- If the advertising token is available, use it to initiate requests for targeted advertising.
 	- If the advertising token is not available, either use untargeted advertising or redirect the user to the UID2 login with the consent form.
 
-For web integration steps, see [Publisher Integration Guide (Standard)](../guides/publisher-client-side.md).
+For web integration steps, see [Client-Side JavaScript SDK Integration Guide](../guides/publisher-client-side.md).
 
 ### Workflow States and Transitions
 
@@ -72,7 +71,7 @@ The following table outlines the four main states that the SDK can be in, based 
 
 The following diagram illustrates the four states, including the corresponding identity [status values](#identity-status-values) and possible transitions between them. The SDK invokes the [callback function](#callback-function) on each transition.
 
-![Client-Side Identity JavaScript SDK Workflow](images/uid2-js-sdk-workflow.svg)
+![Client-Side JavaScript SDK Workflow](images/uid2-js-sdk-workflow.svg)
 
 
 ### Background Token Auto-Refresh
@@ -93,7 +92,7 @@ Here's what you need to know about the token auto-refresh:
 
 ## API Reference
 
->IMPORTANT: All interactions with the UID2 SDK are done through the global `__uid2` object, which is a member of the `UID2` class. All of the following JavaScript functions are members of the `UID2` class.
+>IMPORTANT: All interactions with the Client-Side JavaScript SDK are done through the global `__uid2` object, which is a member of the `UID2` class. All of following JavaScript functions are members of the `UID2` class. 
 
 - [constructor()](#constructor)
 - [init()](#initopts-object-void)
@@ -167,7 +166,7 @@ The `opts` object supports the following properties.
 | :--- | :--- | :--- | :--- | :--- |
 | `callback` | `function(object): void` | Required | The function that the SDK should invoke after validating the passed identity. For details, see [Callback Function](#callback-function).| N/A |
 | `identity` | object | Optional | The `body` property value from a successful [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md) call that has been run on the server to generate an identity.<br/>To use the identity from a [first-party cookie](#uid2-cookie-format), leave this property empty. | N/A |
-| `baseUrl` | string | Optional | The custom base URL of the UID2 operator to use when invoking the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint.<br/>For example: `https://my.operator.com`.  | `https://prod.uidapi.com ` |
+| `baseUrl` | string | Optional | The custom base URL of the UID2 operator to use when invoking the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint.<br/>For example: `https://my.operator.com`.  | `https://prod.uidapi.com`. |
 | `refreshRetryPeriod` | number | Optional | The number of seconds after which to retry refreshing tokens if intermittent errors occur. | 5 |
 | `cookieDomain` | string | Optional | The domain name string to apply to the [UID2 cookie](#uid2-cookie-format).<br/>For example, if the `baseUrl` is `https://my.operator.com`, the `cookieDomain` value might be `operator.com`. | `undefined` |
 | `cookiePath` | string | Optional | The path string to apply to the [UID2 cookie](#uid2-cookie-format). | `/` |
@@ -254,7 +253,7 @@ This function can be called before or after the [init()](#initopts-object-void) 
 </script>
 ```
 
->TIP: You can use this function to be notified of the completion of the UID2 SDK initialization from a component that might not be the one that called `init()`.
+>TIP: You can use this function to be notified of the completion of the Client-Side JavaScript SDK initialization from a component that might not be the one that called `init()`.
 
 ### isLoginRequired(): boolean
 

@@ -8,8 +8,8 @@ Used by: This endpoint is used mainly by publishers.
 >NOTE: This endpoint can be called from the client side (for example, a browser or a mobile app) because it does not require using an API key.
 
 The following integration workflows use this endpoint:
-* [Publisher - Standard](../guides/publisher-client-side.md)
-* [Publisher - Custom](../guides/custom-publisher-integration.md)
+* [Client-Side JavaScript SDK Integration Guide](../guides/publisher-client-side.md)
+* [Publisher Integration Guide, Server-Only (Without SDK)](../guides/custom-publisher-integration.md)
 
 ## Request Format 
 
@@ -84,7 +84,7 @@ If a user opted out before the refresh request, the following response will be r
     "status": "optout"
 }
 ```
-The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md) uses this endpoint response payloads to establish and manage the user identity during a user session lifecycle.
+The [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) uses this endpoint response payloads to establish and manage the user identity during a user session lifecycle.
 
 ### Response Body Properties
 
@@ -93,7 +93,7 @@ The [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md) uses 
 | `advertising_token` | string | An encrypted advertising (UID2) token for the user. |
 | `refresh_token` | string | An encrypted token that can be exchanged with the UID2 Service for the latest set of identity tokens. |
 | `identity_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the advertising token expires. |
-| `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md) will start refreshing the advertising token.</br>TIP: If you are not using the SDK, consider refreshing the advertising token from this timestamp, too. |
+| `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the [CClient-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) will start refreshing the advertising token.</br>TIP: If you are not using the SDK, consider refreshing the advertising token from this timestamp, too. |
 | `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
 | `refresh_response_key` | string | A key to be used in a new [POST /token/refresh](./post-token-refresh.md) request for response decryption. |
 
