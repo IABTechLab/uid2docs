@@ -10,7 +10,7 @@ To facilitate the process of establishing client identity using UID2 and retriev
 
 To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md). Here's an [example application](https://example-jssdk-integ.uidapi.com/) that illustrates the integration steps described in this guide and the usage of the SDK (currently only for email addresses). For the application documentation, see [UID2 SDK Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/standard/README.md).
 
->IMPORTANT: The Client-Side JavaScript SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the [Client-Side JavaScript SDK APIs](../sdks/client-side-identity.md#api-reference) for your identity management.
+>IMPORTANT: The SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the [Client-Side JavaScript SDK APIs](../sdks/client-side-identity.md#api-reference) for your identity management.
 
 For integration scenarios for app developers and CTV broadcasters that do not use the [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md), see [Server-Only Integration Guide](./custom-publisher-integration.md). 
 
@@ -117,7 +117,7 @@ The client lifecycle is complete when the user decides to log out from the publi
 ### How will I be notified of user opt-out?
 
 The [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) background token auto-refresh process handles user opt-outs. If user opts out, when the SDK attempts token refresh, it learns about the optout, clears the session (including the cookie), and invokes the callback with the `OPTOUT` status.
-SDK
+
 ### Where should I make token generation calls -- from the server or client side?
 
 UID2 tokens must be generated only on the server side after authentication. In other words, to ensure that the API key used to access the service remains secret, the [POST /token/generate](../endpoints/post-token-generate.md) endpoint must be called only from the server side.
