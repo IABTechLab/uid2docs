@@ -13,7 +13,7 @@ This page provides the following information about the Unified ID 2.0 (UID2) fra
 - [FAQs](#faqs)
 - [License](#license)
 
-For integration guides, supported SDKs, and endpoint reference, see [Getting Started](/api/getting-started.md).
+For integration guides, supported SDKs, and endpoint reference, see [Getting Started](api/getting-started.md).
 
 ## Introduction
 
@@ -113,7 +113,7 @@ The following table lists four key workflows in the UID2 framework with links to
 
 The following diagram summarizes all four workflows. For each workflow, the [participants](#participants), [components](#components), [UID2 identifier types](#uid2-identifier-types), and numbered steps are color-coded.
 
-![The UID2 Ecosystem](/images/UID2-workflows.png)
+![The UID2 Ecosystem](images/UID2-workflows.png)
 
 
 ## FAQs
