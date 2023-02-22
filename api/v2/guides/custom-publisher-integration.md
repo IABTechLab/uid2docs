@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](README.md) > Publisher Integration Guide, Server-Only (Without SDK)
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Publisher Integration Guide, Server-Only (Without SDK)
 
 # Publisher Integration Guide, Server-Only (Without SDK)
 
@@ -15,11 +15,9 @@ The following are the options available for publishers to integrate with UID2:
 
 This document provides details for the last option.
 
-Here's an [example application](https://example-srvonly-integ.uidapi.com/) that demonstrates the workflow. For the application documentation, see [Server-Only UID2 Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/server_only/README.md). See also [FAQs](#faqs).
+Here's an [example application](https://example-srvonly-integ.uidapi.com/) that demonstrates the workflow. For the application documentation, see [Server-Only UID2 Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md). See also [FAQs](#faqs).
 
->TIP: To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, consider using the [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md). For details, see [Client-Side JavaScript SDK Integration Guide](./publisher-client-side.md).
-
-
+>TIP: To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, consider using the [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md). For details, see [Client-Side JavaScript SDK Integration Guidepublisher-client-side.md).
 
 ## Integration Steps
 
@@ -124,5 +122,4 @@ The [POST /token/generate](../endpoints/post-token-generate.md) endpoint does no
 
 >IMPORTANT:Be sure to call this endpoint only when you have obtained legal basis to convert the user's PII to UID2 tokens. [POST /token/generate](../endpoints/post-token-generate.md) calls automatically opt in users associated with the provided PII to UID2-based targeted advertising. 
  
-
 To check for opt-out requests, use the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint.

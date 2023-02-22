@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](README.md) > Advertiser/Data Provider Integration Guide
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Advertiser/Data Provider Integration Guide
 
 # Advertiser/Data Provider Integration Guide
 
@@ -20,7 +20,7 @@ The following diagram outlines the steps data collectors need to complete to map
 | Step | Endpoint | Description |
 | --- | --- | --- |
 | 1-a | [POST /identity/map](../endpoints/post-identity-map.md) | Send a request containing PII to the identity mapping endpoint. |
-| 1-b | [POST /identity/map](../endpoints/post-identity-map.md) | The returned `advertising_id` (UID2) can be used to target audiences on relevant DSPs.<br><br>The response returns a user's UID2 and the corresponding salt `bucket_id`. The salt assigned to the bucket rotates annually, which impacts the generated UID2. For details on how to check for salt bucket rotation, see [Monitor for salt bucket rotations](#monitor-for-salt-bucket-rotations-related-to-your-stored-uid2s).<br><br>We recommend storing a user's UID2 and `bucket_id` in a mapping table for ease of maintenance. For guidance on incremental updates, see [Use an incremental process to continuously update UID2s](#use-an-incremental-process-to-continuously-update-uid2s). |
+| 1-b | [POST /identity/map](../endpoints/post-identity-map.md) | The returned `advertising_id` (UID2) can be used to target audiences on relevant DSPs.<br/>The response returns a user's UID2 and the corresponding salt `bucket_id`. The salt assigned to the bucket rotates annually, which impacts the generated UID2. For details on how to check for salt bucket rotation, see [Monitor for salt bucket rotations](#monitor-for-salt-bucket-rotations-related-to-your-stored-uid2s).<br/>We recommend storing a user's UID2 and `bucket_id` in a mapping table for ease of maintenance. For guidance on incremental updates, see [Use an incremental process to continuously update UID2s](#use-an-incremental-process-to-continuously-update-uid2s). |
 
 ### Send UID2 to a DSP to build an audience
 Send the `advertising_id` (UID2) from the [preceding step](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) to a DSP while building your audiences. Each DSP has a unique integration process for building audiences. Please follow the integration guidance provided by the DSP for sending UID2s to build an audience.
@@ -36,7 +36,7 @@ Even though each salt bucket is updated roughly once a year, individual bucket u
 | --- | --- | --- |
 | 3-a | [POST /identity/buckets](../endpoints/post-identity-buckets.md) | Send a request to the bucket status endpoint for all salt buckets changed since a given timestamp. |
 | 3-b | [POST /identity/buckets](../endpoints/post-identity-buckets.md) | The bucket status endpoint returns a list of `bucket_id` and `last_updated` timestamps. |
-| 3-c | [POST /identity/map](../endpoints/post-identity-map.md) | Compare the returned `bucket_id` to the salt buckets of UID2s you've cached.<br>If a UID2's salt bucket rotated, resend the PII to the identity mapping service for a new UID2. |
+| 3-c | [POST /identity/map](../endpoints/post-identity-map.md) | Compare the returned `bucket_id` to the salt buckets of UID2s you've cached.<br/>If a UID2's salt bucket rotated, resend the PII to the identity mapping service for a new UID2. |
 | 3-d | [POST /identity/map](../endpoints/post-identity-map.md) | Store the returned `advertising_id` and `bucket_id`. |
 
 ### Use an incremental process to continuously update UID2s
@@ -62,7 +62,7 @@ The recommended cadence for updating audiences is daily.
 Even though each salt bucket is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets is rotated daily. If fidelity is critical, consider calling the [POST /identity/buckets](../endpoints/post-identity-buckets.md) endpoint more frequently, for example, hourly.
 
 ### How should I generate the SHA256 of PII for mapping?
-The system should follow the [email normalization rules](../../README.md#email-address-normalization) and hash without salting.
+The system should follow the [email normalization rules](../../getting-started.md#email-address-normalization) and hash without salting.
 
 ### Should I store large volumes of email address, phone number, or their hash mappings? 
 Yes. Not storing mappings may increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily.

@@ -10,7 +10,7 @@
     loop 3. Monitor for salt bucket rotations related to your stored UID2s.
        DP->>UID2: 3-a. Monitor salt bucket rotations using the bucket service.
        UID2->>DP: 3-b. Return salt buckets rotated since a given timestamp.
-       DP->>UID2: 3-c. Compare the rotated salt buckets to stored UID2 salt buckets.<br>If rotated, resend PII to identity mapping service for a new UID2.
+       DP->>UID2: 3-c. Compare the rotated salt buckets to stored UID2 salt buckets.<br/>If rotated, resend PII to identity mapping service for a new UID2.
        UID2->>DP: 3-d. Store the UID2 and salt bucket returned from the identity mapping service.
     end
 
