@@ -20,8 +20,8 @@ To get access to the UID2 framework, contact the appropriate team at The Trade D
 
 | Your Role | Contact Email |
 | :--- | :--- |
-| App Developer<br>Publisher | UID2publishers@thetradedesk.com |
-| Agency<br>Brand<br>CDP<br>Data Provider<br>DSP<br>SSP | UID2partners@thetradedesk.com |
+| App Developer<br/>Publisher | UID2publishers@thetradedesk.com |
+| Agency<br/>Brand<br/>CDP<br/>Data Provider<br/>DSP<br/>SSP | UID2partners@thetradedesk.com |
 
 ## API Versions
 

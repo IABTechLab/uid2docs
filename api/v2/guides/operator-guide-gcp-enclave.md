@@ -64,7 +64,7 @@ An alternative approach is to grant pre-defined GCP roles to UID2 Core's service
 
 | Role | Permissions Included |
 | :--- | :--- |
-| `Compute Viewer` | `compute.instances.get`<br>`compute.disks.get` |
+| `Compute Viewer` | `compute.instances.get`<br/>`compute.disks.get` |
 | `Logs Viewer` | `logging.logEntries.list` |
 
 ## Integration Deployment

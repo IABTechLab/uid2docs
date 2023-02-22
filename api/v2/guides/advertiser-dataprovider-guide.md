@@ -20,7 +20,7 @@ The following diagram outlines the steps data collectors need to complete to map
 | Step | Endpoint | Description |
 | --- | --- | --- |
 | 1-a | [POST /identity/map](../endpoints/post-identity-map.md) | Send a request containing PII to the identity mapping endpoint. |
-| 1-b | [POST /identity/map](../endpoints/post-identity-map.md) | The returned `advertising_id` (UID2) can be used to target audiences on relevant DSPs.<br><br>The response returns a user's UID2 and the corresponding salt `bucket_id`. The salt assigned to the bucket rotates annually, which impacts the generated UID2. For details on how to check for salt bucket rotation, see [Monitor for salt bucket rotations](#monitor-for-salt-bucket-rotations-related-to-your-stored-uid2s).<br><br>We recommend storing a user's UID2 and `bucket_id` in a mapping table for ease of maintenance. For guidance on incremental updates, see [Use an incremental process to continuously update UID2s](#use-an-incremental-process-to-continuously-update-uid2s). |
+| 1-b | [POST /identity/map](../endpoints/post-identity-map.md) | The returned `advertising_id` (UID2) can be used to target audiences on relevant DSPs.<br/>The response returns a user's UID2 and the corresponding salt `bucket_id`. The salt assigned to the bucket rotates annually, which impacts the generated UID2. For details on how to check for salt bucket rotation, see [Monitor for salt bucket rotations](#monitor-for-salt-bucket-rotations-related-to-your-stored-uid2s).<br/>We recommend storing a user's UID2 and `bucket_id` in a mapping table for ease of maintenance. For guidance on incremental updates, see [Use an incremental process to continuously update UID2s](#use-an-incremental-process-to-continuously-update-uid2s). |
 
 ### Send UID2 to a DSP to build an audience
 Send the `advertising_id` (UID2) from the [preceding step](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) to a DSP while building your audiences. Each DSP has a unique integration process for building audiences. Please follow the integration guidance provided by the DSP for sending UID2s to build an audience.
@@ -36,7 +36,7 @@ Even though each salt bucket is updated roughly once a year, individual bucket u
 | --- | --- | --- |
 | 3-a | [POST /identity/buckets](../endpoints/post-identity-buckets.md) | Send a request to the bucket status endpoint for all salt buckets changed since a given timestamp. |
 | 3-b | [POST /identity/buckets](../endpoints/post-identity-buckets.md) | The bucket status endpoint returns a list of `bucket_id` and `last_updated` timestamps. |
-| 3-c | [POST /identity/map](../endpoints/post-identity-map.md) | Compare the returned `bucket_id` to the salt buckets of UID2s you've cached.<br>If a UID2's salt bucket rotated, resend the PII to the identity mapping service for a new UID2. |
+| 3-c | [POST /identity/map](../endpoints/post-identity-map.md) | Compare the returned `bucket_id` to the salt buckets of UID2s you've cached.<br/>If a UID2's salt bucket rotated, resend the PII to the identity mapping service for a new UID2. |
 | 3-d | [POST /identity/map](../endpoints/post-identity-map.md) | Store the returned `advertising_id` and `bucket_id`. |
 
 ### Use an incremental process to continuously update UID2s
