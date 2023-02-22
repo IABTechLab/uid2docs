@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](README.md) > Advertiser/Data Provider Integration Guide
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Advertiser/Data Provider Integration Guide
 
 # Advertiser/Data Provider Integration Guide
 
@@ -62,7 +62,7 @@ The recommended cadence for updating audiences is daily.
 Even though each salt bucket is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets is rotated daily. If fidelity is critical, consider calling the [POST /identity/buckets](../endpoints/post-identity-buckets.md) endpoint more frequently, for example, hourly.
 
 ### How should I generate the SHA256 of PII for mapping?
-The system should follow the [email normalization rules](../../README.md#email-address-normalization) and hash without salting.
+The system should follow the [email normalization rules](../../getting-started.md#email-address-normalization) and hash without salting.
 
 ### Should I store large volumes of email address, phone number, or their hash mappings? 
 Yes. Not storing mappings may increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily.

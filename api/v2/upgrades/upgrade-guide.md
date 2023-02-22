@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > UID2 API v1 to v2 Upgrade Guide
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > UID2 API v1 to v2 Upgrade Guide
 
 # UID2 API v1 to v2 Upgrade Guide
 
@@ -15,19 +15,19 @@ This guide outlines the differences between the UID2 v1 and v2 APIs and explains
 The v2 updates to the UID2 API include the following:
 
 - [Application API layer encryption](../ref-info/encryption-decryption.md) has been added. It provides E2E content protection and prevents sensitive UID2 information from leaking to a network operator or the UID2 service operator.<br>This also means that performing calls to the v2 endpoints requires encrypting the POST request body and decrypting the response.
-- In addition to the client API key for [authentication](../README.md#authentication-and-authorization), a client secret is now required for encrypting API requests and decrypting API responses.
-- The HTTP request type of all GET endpoints in the [UID2 API v1](../../v1/endpoints/README.md) has changed from GET to POST in the [UID2 API v2](../endpoints/README.md).
+- In addition to the client API key for [authentication](../summary-doc-v2.md#authentication-and-authorization), a client secret is now required for encrypting API requests and decrypting API responses.
+- The HTTP request type of all GET endpoints in the [UID2 API v1](../../v1/endpoints/README.md) has changed from GET to POST in the [UID2 API v2](../endpoints/summary-endpoints.md).
 - No more query parameters are required in requests. The new POST methods take input parameters as the request body in JSON format. 
 - No URL-encoding of parameter values is required.
 - The [POST /identity/map](../endpoints/post-identity-map.md) endpoint now retrieves UID2s and salt bucket IDs for one or multiple email addresses, phone numbers, or the respective hashes. 
 
-See also [UID2 API v2 Documentation](../README.md).
+See also [UID2 API v2 Documentation](../summary-doc-v2.md).
 
 ## Prerequisites and Timeline
 
 Before you start the upgrade, be sure to review the following requirements:
 
-- To be able to authenticate to the UID2 endpoints, [contact the UID2 administrator](../README.md#contact-info) and obtain a secret key for encrypting API requests and decrypting API responses. See also [Authentication and Authorization](../README.md#authentication-and-authorization).
+- To be able to authenticate to the UID2 endpoints, [contact the UID2 administrator](../getting-started.md#contact-info) and obtain a secret key for encrypting API requests and decrypting API responses. See also [Authentication and Authorization](../summary-doc-v2.md#authentication-and-authorization).
 - You must complete your upgrade by **March 31, 2023**, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be deprecated and removed.
 
 
@@ -150,7 +150,7 @@ Yes. The v1 endpoints will be supported until March 31, 2023. After that date, a
 
 ### How do I obtain a client secret key for the new API?
 
-To obtain your secret key, [contact the UID2 administrator](../README.md#contact-info). See also [Prerequisites and Timeline](#prerequisites-and-timeline).
+To obtain your secret key, [contact the UID2 administrator](../../getting-started.md#contact-info). See also [Prerequisites and Timeline](#prerequisites-and-timeline).
 
 ### How do I encrypt requests and decrypt responses?
 

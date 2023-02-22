@@ -1,11 +1,11 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Endpoints](./README.md) > POST /token/generate
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /token/generate
 
 # POST /token/generate
 Opt in the user to UID2-based targeted advertising and generate a UID2 token from their provided email address or phone number. 
 
 Used by: This endpoint is used mainly by publishers.
 
->IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s PII to UID2 tokens for targeted advertising. This endpoint does not check for opt-out records. To check for opt-out requests, use the [POST /token/refresh](./post-token-refresh.md) endpoint.
+>IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s PII to UID2 tokens for targeted advertising. This endpoint does not check for opt-out records. To check for opt-out requests, use the [POST /token/refreshpost-token-refresh.md) endpoint.
 
 The following integration workflows use this endpoint:
 * [Client-Side JavaScript SDK Integration Guide](../guides/publisher-client-side.md)
@@ -23,7 +23,7 @@ Here's what you need to know about this endpoint requests:
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../README.md#environments). |
+| `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../summary-doc-v2.md#environments). |
 
 ###  Unencrypted JSON Body Parameters
 
@@ -32,15 +32,15 @@ You must include only one of the following parameters as a key-value pair in the
 | Body Parameter | Data Type | Attribute | Description | 
 | :--- | :--- | :--- | :--- |
 | `email` | string | Conditionally Required | The email address for which to generate tokens. | 
-| `email_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#email-address-normalization) email address. |
-| `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) phone number for which to generate tokens. |
-| `phone_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#phone-number-normalization) phone number. |
+| `email_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../getting-started.md#email-address-hash-encoding) hash of a [normalized](../../getting-started.md#email-address-normalization) email address. |
+| `phone` | string | Conditionally Required | The [normalized](../../getting-started.md#phone-number-normalization) phone number for which to generate tokens. |
+| `phone_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../getting-started.md#email-address-hash-encoding) hash of a [normalized](../../getting-started.md#phone-number-normalization) phone number. |
 | `policy` | number | Optional | (Beta) The token generation policy ID. See [Token Generation Policy](#token-generation-policy). |
 
 
 ### Request Examples
 
->IMPORTANT: To ensure that the API key used to access the service remains secret, the `POST /token/generate` endpoint must be called from the server side, unlike the [POST /token/refresh](./post-token-refresh.md), which does not require using an API key.
+>IMPORTANT: To ensure that the API key used to access the service remains secret, the `POST /token/generate` endpoint must be called from the server side, unlike the [POST /token/refresh](post-token-refresh.md), which does not require using an API key.
 
 The following are unencrypted JSON request body examples for each parameter, one of which you should include in your token generation requests:
 
@@ -133,7 +133,7 @@ The [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) uses this
 | `identity_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the advertising token expires. |
 | `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) will start refreshing the advertising token.</br>TIP: If you are not using the SDK, consider refreshing the advertising token from this timestamp, too. |
 | `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
-| `refresh_response_key` | string | A key to be used in a [POST /token/refresh](./post-token-refresh.md) request for response decryption. |
+| `refresh_response_key` | string | A key to be used in a [POST /token/refresh](post-token-refresh.md) request for response decryption. |
 
 ### Response Status Codes
 
@@ -152,10 +152,10 @@ If the `status` value is other than `success`, the `message` field provides addi
 
 | Type | Identity | Purpose | Next Endpoint |
 | :--- | :--- | :--- | :--- |
-| Email | `validate@email.com` | Test that the `advertising_token` you've cached matches the `advertising_token` for the specified email address. | [POST /token/validate](./post-token-validate.md) |
-| Email | `optout@email.com` | Using this email for the request always generates an identity response with a `refresh_token` that results in a logout response. | [POST /token/refresh](./post-token-refresh.md) |
-| Phone | `+12345678901` | Test that the `advertising_token` you've cached matches the `advertising_token` for the specified phone number. | [POST /token/validate](./post-token-validate.md) |
-| Phone | `+00000000000` | Using this phone number for the request always generates an identity response with a `refresh_token` that results in a logout response. | [POST /token/refresh](./post-token-refresh.md) |
+| Email | `validate@email.com` | Test that the `advertising_token` you've cached matches the `advertising_token` for the specified email address. | [POST /token/validate](post-token-validate.md) |
+| Email | `optout@email.com` | Using this email for the request always generates an identity response with a `refresh_token` that results in a logout response. | [POST /token/refresh](post-token-refresh.md) |
+| Phone | `+12345678901` | Test that the `advertising_token` you've cached matches the `advertising_token` for the specified phone number. | [POST /token/validate](post-token-validate.md) |
+| Phone | `+00000000000` | Using this phone number for the request always generates an identity response with a `refresh_token` that results in a logout response. | [POST /token/refresh](post-token-refresh.md) |
 
 # Token Generation Policy
 

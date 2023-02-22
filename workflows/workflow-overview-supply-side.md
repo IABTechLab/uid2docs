@@ -20,7 +20,7 @@ The following steps provide a high-level outline of the workflow intended for or
 
 ## Integrations 
 
-For integration scenarios, token management, and other details, see [Publisher Integration Guides](../api/v2/guides/README.md). See also [Endpoints](../api/v2/endpoints/README.md).
+For integration scenarios, token management, and other details, see [Publisher Integration Guides](../api/v2/guides/summary-guides.md). See also [Endpoints](../api/v2/endpoints/summary-endpoints.md).
 
 ### Direct Integration Requirements
 

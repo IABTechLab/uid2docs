@@ -1,8 +1,8 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](README.md) > Microsoft Azure
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Microsoft Azure
 
 # Microsoft Azure Confidential Compute Operator Package
 
->IMPORTANT: This documentation is currently only a proof of concept. Please [contact](../../README.md#contact-info) the UID2 administrator for additional guidance.
+>IMPORTANT: This documentation is currently only a proof of concept. Please [contact](../../getting-started.md#contact-info) the UID2 administrator for additional guidance.
 
 UID2 Operator service can be run within a trusted computing enclave powered by Intel SGX technology.
 

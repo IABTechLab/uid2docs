@@ -13,7 +13,7 @@ This page provides the following information about the Unified ID 2.0 (UID2) fra
 - [FAQs](#faqs)
 - [License](#license)
 
-For integration guides, supported SDKs, and endpoint reference, see [Getting Started](/api/README.md).
+For integration guides, supported SDKs, and endpoint reference, see [Getting Started](/api/getting-started.md).
 
 ## Introduction
 
@@ -105,9 +105,9 @@ The following table lists four key workflows in the UID2 framework with links to
 
 | Workflow | Intended Primary Participants |  Integration Guide |
 | :--- | :--- | :--- |
-| **Buy-Side**<br/>[Overview](workflows/workflow-overview-buy-side.md) | DSPs who transact on UID2 tokens in the bid stream. |  [DSP Integration Guide](./api/v2/guides/dsp-guide.md) |
-| **Data Provider**<br/>[Overview](workflows/workflow-overview-3p-data-provider.md) | Organizations that collect user data and push it to DSPs. | [Advertiser/Data Provider Integration Guide](./api/v2/guides/advertiser-dataprovider-guide.md) |
-| **Supply-Side**<br/>[Overview](workflows/workflow-overview-supply-side.md) | Organizations that propagate UID2 tokens to the bid stream via SSPs.<br/> NOTE: Publishers can choose to leverage the [Client-Side JavaScript SDK (v2)](./api/v2/sdks/client-side-identity.md) or complete their own server-only integration without using an SDK. | [Client-Side JavaScript SDK Integration Guide](./api/v2/guides/publisher-client-side.md)<br/>[Publisher Integration Guide, Server-Only (Without SDK)](./api/v2/guides/custom-publisher-integration.md) |
+| **Buy-Side**<br/>[Overview](workflows/workflow-overview-buy-side.md) | DSPs who transact on UID2 tokens in the bid stream. |  [DSP Integration Guide](api/v2/guides/dsp-guide.md) |
+| **Data Provider**<br/>[Overview](workflows/workflow-overview-3p-data-provider.md) | Organizations that collect user data and push it to DSPs. | [Advertiser/Data Provider Integration Guide](api/v2/guides/advertiser-dataprovider-guide.md) |
+| **Supply-Side**<br/>[Overview](workflows/workflow-overview-supply-side.md) | Organizations that propagate UID2 tokens to the bid stream via SSPs.<br/> NOTE: Publishers can choose to leverage the [Client-Side JavaScript SDK (v2)](api/v2/sdks/client-side-identity.md) or complete their own server-only integration without using an SDK. | [Client-Side JavaScript SDK Integration Guide](api/v2/guides/publisher-client-side.md)<br/>[Publisher Integration Guide, Server-Only (Without SDK)](api/v2/guides/custom-publisher-integration.md) |
 | **Opt-Out**<br/>[Overview](workflows/workflow-overview-opt-out.md) | Consumers who engage with publishers or their SSO providers and other identity providers. | N/A |
 
 

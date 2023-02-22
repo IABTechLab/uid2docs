@@ -1,7 +1,7 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Endpoints](./README.md) > POST /token/refresh
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /token/refresh
 
 # POST /token/refresh
-Generate a new token for a user by specifying their refresh token issued by using the [POST /token/generate](./post-token-generate.md) endpoint.
+Generate a new token for a user by specifying their refresh token issued by using the [POST /token/generate](post-token-generate.md) endpoint.
 
 Used by: This endpoint is used mainly by publishers.
 
@@ -19,25 +19,25 @@ Here's what you need to know about this endpoint:
 
 - No encryption is required for token refresh requests.
 - Responses are encrypted only if the HTTP status code is 200. Otherwise, responses are not encrypted.
-- To decrypt responses, you need to use the `refresh_response_key` value returned in the [POST /token/generate](./post-token-generate.md) or `POST /token/refresh` response from which the refresh token in the request is returned.
+- To decrypt responses, you need to use the `refresh_response_key` value returned in the [POST /token/generate](post-token-generate.md) or `POST /token/refresh` response from which the refresh token in the request is returned.
 - If you send a refresh token from a v1 `token/generate` response in the request, the response will not be encrypted.
 
 ### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../README.md#environments). |
+| `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../summary-doc-v2.md#environments). |
 
 #### Testing Notes
 
-Using either of the following parameters in a [POST /token/generate](./post-token-generate.md) request always generates an identity response with a `refresh_token` that results in a logout response when used with the `POST /token/refresh` endpoint:
+Using either of the following parameters in a [POST /token/generate](post-token-generate.md) request always generates an identity response with a `refresh_token` that results in a logout response when used with the `POST /token/refresh` endpoint:
 
 - The `optout@email.com` email address
 - The `+00000000000` phone number
 
 ### Request Example
 
-Here's a token refresh request format with placeholder values, which include the `refresh_token` and `refresh_response_key` values returned by a [POST /token/generate](./post-token-generate.md) request:
+Here's a token refresh request format with placeholder values, which include the `refresh_token` and `refresh_response_key` values returned by a [POST /token/generate](post-token-generate.md) request:
 
 ```sh
 echo [refresh_token] \
@@ -95,7 +95,7 @@ The [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) uses this
 | `identity_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the advertising token expires. |
 | `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the [CClient-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) will start refreshing the advertising token.</br>TIP: If you are not using the SDK, consider refreshing the advertising token from this timestamp, too. |
 | `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
-| `refresh_response_key` | string | A key to be used in a new [POST /token/refresh](./post-token-refresh.md) request for response decryption. |
+| `refresh_response_key` | string | A key to be used in a new [POST /token/refresh](post-token-refresh.md) request for response decryption. |
 
 
 ### Response Status Codes

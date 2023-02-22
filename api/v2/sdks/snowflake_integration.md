@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](../guides/README.md) > Snowflake Integration
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Integration Guides](../guides/summary-guides.md) > Snowflake Integration
 
 # Snowflake Integration
 
@@ -63,7 +63,7 @@ All query examples use the following default values for each name variable:
 
 ### Map Email Addresses
 
-To map a single email address or multiple email addresses to the corresponding UID2s and second-level salt bucket IDs, use the `FN_T_UID2_IDENTITY_MAP_EMAIL` function. It takes an email address as its argument and normalizes it using the UID2 [Email Normalization](../../README.md#email-normalization) rules.
+To map a single email address or multiple email addresses to the corresponding UID2s and second-level salt bucket IDs, use the `FN_T_UID2_IDENTITY_MAP_EMAIL` function. It takes an email address as its argument and normalizes it using the UID2 [Email Address Normalization](../../getting-started.md#email-address-normalization) rules.
 
 |Argument|Data Type|Description|
 | :--- | :--- | :--- |
@@ -138,7 +138,7 @@ To map a single email address hash or multiple hashes to the corresponding UID2s
 
 |Argument|Data Type|Description|
 | :--- | :--- | :--- |
-|`EMAIL_HASH`|varchar(128)| The base64-encoded SHA256 hash of the normalized email address of a user. Ensure that the email hash is correctly formatted using the [Email Normalization](../../README.md#email-normalization) rules. Use the hash computed from the normalized email address.|
+|`EMAIL_HASH`|varchar(128)| The base64-encoded SHA256 hash of the normalized email address of a user. Ensure that the email hash is correctly formatted using the [Email Address Normalization](../../getting-started.md#email-address-normalization) rules. Use the hash computed from the normalized email address.|
 
 A successful query returns the following information for the specified email address hash.
 
