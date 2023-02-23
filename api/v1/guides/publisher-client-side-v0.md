@@ -6,7 +6,7 @@
 
 >NOTE: This guide is intended for the UID2 SDK [version 0](../sdks/client-side-identity-v0.md). For the *Integration Guide* using the [Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md), see [UID2 SDK Integration Guide](./publisher-client-side.md).
 
-This guide covers integration steps for publishers with web assets who would like to generate identity tokens utilizing UID2 for the bid stream. This guide focuses on publishers who would like to integrate directly with UID2 to create and manage tokens rather than integrate with UID2-enabled single-sign-on or identity providers.
+This guide covers integration steps for publishers with web assets who would like to generate identity tokens using UID2 for the bid stream. This guide focuses on publishers who would like to integrate directly with UID2 to create and manage tokens rather than integrate with UID2-enabled single-sign-on or identity providers.
 
 * [Integration Steps](#integration-steps)
 * [FAQs](#faqs)
@@ -52,7 +52,7 @@ After authentication in step 1-c, which forces the user to accept the rules of e
 
 | Step | Endpoint/SDK | Description |
 | --- | --- | --- |
-| 2-a | [UID2 client-side identity SDK](../sdks/client-side-identity-v0.md) | The established identity is available client-side for bidding. The SDK Identity Access Mechnanism described below returns access to a user's `advertising_token` to pass to SSPs. |
+| 2-a | [UID2 client-side identity SDK](../sdks/client-side-identity-v0.md) | The established identity is available client-side for bidding. The SDK Identity Access Mechanism described below returns access to a user's `advertising_token` to pass to SSPs. |
 
 ##### Client-Side SDK Identity Access Mechanism
 
