@@ -2,7 +2,7 @@
 
 # Publisher Integration Guide, Server-Only (Without SDK)
 
-This guide is intended for app developers and CTV broadcasters who would like to generate identity tokens utilizing UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
+This guide is intended for app developers and CTV broadcasters who would like to generate identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
 
 The guide outlines the [basic steps](#integration-steps) that you need to consider if you're building an integration without using an SDK. For example, you need to decide how to implement user login and logout, how to manage UID2 identity information and use it for targeted advertising, and how to refresh tokens, deal with missing identities, and handle user opt-outs. See also [FAQs](#faqs).
 

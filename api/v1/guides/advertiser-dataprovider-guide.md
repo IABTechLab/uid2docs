@@ -45,7 +45,7 @@ Even though each salt bucket is updated roughly once a year, individual bucket u
 
 ### Use an incremental process to continuously update UID2
 
-Continuously update and maintain UID2-based audiences utilizing the preceding steps.
+Continuously update and maintain UID2-based audiences by following the preceding steps.
 
 The response from the [UID2 retrieval step](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) contains mapping information. Cache the mapping between PII (`identifier`),  UID2 (`advertising_id`), and salt bucket (`bucket_id`), along with a last updated timestamp.
 
