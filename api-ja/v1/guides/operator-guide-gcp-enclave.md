@@ -1,83 +1,77 @@
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > Google Cloud Platform Confidential Computing Package
+
 # UID2 Operator - Google Cloud Platform Confidential Compute package
 
-UID2 Operator サービスは、Google が提供する信頼できるコンピューティングエンクレーブ内で実行することができます。
+UID2 Operator サービスは、Google が提供するトラステッド・コンピューティング・エンクレーブ内で実行することができます。
 このフォルダのスクリプトは、サービスのパッケージ化を支援します。
 
-UID2 Operator Enclave は、Google Compute Platform 上で稼働している
-[Confidential VM](https://cloud.google.com/compute/confidential-vm/docs/about-cvm) で実行されます。
-エンクレーブは、[Container-Optimized OS](https://cloud.google.com/container-optimized-os/docs) ブートディスクを使用する必要があります。これは、提供される [cloud-init](https://cloudinit.readthedocs.io/) 設定を通じてカスタマイズすることが可能です。
+UID2 Operator エンクレーブは、Google Compute Platform 上で[Confidential VM](https://cloud.google.com/compute/confidential-vm/docs/about-cvm)として動作します。エンクレーブは、[Container-Optimized OS](https://cloud.google.com/container-optimized-os/docs) ブートディスクを使用しなければなりません。これは、提供される [cloud-init](https://cloudinit.readthedocs.io/) config によりカスタマイズすることができます。
 
-cloud-init の設定は、VM へのリモート SSH アクセスを無効にし、UID2 のトラフィックのみを入出力できるようにします。また、GCP 上の UID2 プロジェクトの docker レジストリから、認証された UID2 Operator の docker イメージを docker pull し、コンテナを起動する systemd サービスも作成します。
+cloud-init config は、VM へのリモート SSH アクセスを無効にし、UID2 の in/out トラフィックのみを許可します。また、GCP 上の UID2 プロジェクトの docker レジストリから、認証された UID2 オペレータの docker イメージを docker pull し、コンテナを起動する systemd サービスも作成されます。
 
-UID2 Operator の Docker コンテナが起動すると、[Instance Document](https://cloud.google.com/compute/docs/instances/verifying-instance-identity) を取得します。これは、実行中の VM インスタンスの詳細と、Google の RS256 署名を含む固有の JSON ウェブトークンです。その後、Cloud-init 設定で指定された UID2 `api_token` と共に Instance Document を Attestation Request として UID2 Core に送ります。
+UID2 Operator の Docker コンテナが起動すると、[Instance Document](https://cloud.google.com/compute/docs/instances/verifying-instance-identity) を取得します。これは、実行中の VM インスタンスの詳細と、Google の RS256 署名を含む一意の JSON Web Token です。その後、cloud-init config で指定された UID2 `api_token` と共に Instance Document を認証リクエストとして UID2 Core に送ります。
 
-UID2 Core サービスは Attestation Request を受信し、`api_token`と Instance Document を検証します。
-オペレータの認証プロセスの一環として、UID2 Core は GCP API コールを発行し、起動ディスク、クラウドイニット設定、AuditLog などの VM インスタンスメタデータを取得します。
+UID2 Core サービスは認証リクエストを受信し、`api_token`と Instance Document を検証します。オペレーターの認証プロセスの一環として、UID2 Core は GCP API コールを発行し、起動ディスク、cloud-init config、監査ログなどの VM インスタンスメタデータを取得します。
 
 認証に成功すると、UID2 Core は UID2 Operator を起動するための Salt や Key などのシード情報を提供します。
 
 ## Build
 
-GCP Confidential VM エンクレーブ上で UID2 Operator を実行するための公式 Docker イメージは、以下の Google Container Registry の場所から pull できます。
-
-- docker pull gcr.io/uid2-316818/uid2-operator
-
-以下のコマンドを使用して、ソースコードから非認証の UID2 Operator コンテナイメージをビルドすることができます:
+GCP Confidential VM エンクレーブ上で UID2 Operator を実行するための公式 Docker イメージは、以下のコマンドで Google Container Registry から取得できます:
 
 ```
-scripts/gcp/build.sh gcr.io/uid2-316818/uid2-operator:v1.0.0-snapshot
+docker pull ghcr.io/iabtechlab/uid2-operator
+```
+
+以下のコマンドで、ソースコードから非認証の UID2 operator コンテナイメージをビルドすることができます:
+
+```
+scripts/gcp/build.sh ghcr.io/iabtechlab/uid2-operator:v1.0.0-snapshot
 ```
 
 ## Attestation Requirements
 
-UID2 Operator は、どの GCP アカウントおよびプロジェクトでも実行できますが、Attestation をサポートするために、UID2 Core が Attestation 中に GCP API コールを発行するために使用するサービスアカウントにいくつかのパーミッションを付与する必要があります。
+UID2 Operator は、どの GCP アカウントおよびプロジェクトでも実行できますが、認証をサポートするために、UID2 Core が認証中に GCP API コールを発行するためのサービスアカウントにいくつかのパーミッションを付与する必要があります。
 
-UID2 Operator VM をホストする GCP アカウントとプロジェクトのリソースメタデータにアクセスするには、UID2 Core に以下の権限を付与する必要があります。
+UID2 Operator VM をホストする GCP アカウントとプロジェクトのリソースメタデータにアクセスするために、UID2 Core に以下の権限を付与する必要があります:
 
-- `compute.instances.get`, UID2 Core はこのパーミッションを使って、VM インスタンス情報 (例：Cloud-init config) を取得することができます。
-- `compute.disks.get`, UID2 Core はこのパーミッションを使って、VM 起動ディスクの詳細を取得します。
+- `compute.instances.get`, UID2 Core はこのパーミッションを使って、VM インスタンス情報(例：cloud-init config)を取得します。
+- `compute.disks.get`, UID2 Core はこのパーミッションを使用して、VM ブートディスクの詳細を取得します。
 - `logging.logEntries.list`, UID2 Core はこのパーミッションを使って、VM インスタンスの AuditLog をリストアップすることができます。
 
-また、UID2 Core のサービスアカウントには、上記の必要な権限を含む、以下の定義済みの GCP Role を付与することが可能です。
+また、UID2 Core のサービスアカウントには、上記の必要な権限を含む、以下のような定義済みの GCP ロールを付与することができます:
 
-- `Compute Viewer`、この Role には `compute.instances.get` と `compute.disks.get` パーミッションが含まれます。
-- `Logs Viewer`、この Role は `logging.logEntries.list` パーミッションを含みます。
+- `Compute Viewer`、このロールは `compute.instances.get` と `compute.disks.get` パーミッションを含みます。
+- `Logs Viewer`、このロールは `logging.logEntries.list` パーミッションを含みます。
 
 ## Integration Deployment
 
-GCP VM Enclave にある新しい UID2 Operator をインテグレーション環境に展開するには、インテグレーション環境用の認証済み cloud-init config を用意し、その cloud-init を使用した Confidential VM を新規に作成することで可能となります。
+インテグレーション環境または本番環境で認証された cloud-init config を用意し、cloud-init を使用する新しい Confidential VM を作成することで、GCP VM エンクレーブの新しい UID2 Operator をインテグレーション環境にデプロイすることが可能です。
 
-ここでは、そのデプロイ手順について説明します。
+このセクションでは、デプロイメントプロセスについて説明します。
 
-### Input Variables
+### Cloud-init.yaml file
 
-UID2 Operator Enclave を動作させるためには、以下のセクションで提供される cloud-init config テンプレートで、以下の変数を置き換える必要があります:
+登録プロセスでは、認証された cloud-init-`<timestamp>`.yaml ファイルが提供されます。このファイルの sha256sum は認証プロセスの一部として使用されるため、このファイルはいかなる方法でも変更できません。ファイルの内容については後述しますが、このファイルはデプロイプロセス中に手動で作成されることはなく、常に UID チームが新しい Private Operator を設定するプロセス中に作成されます。
 
-- `<INPUT_API_TOKEN>` -- Core サービスに接続するための API トークン
-- `<INPUT_IMAGE_ID>` -- 実行する UID2 Operator 認証済みコンテナイメージのダイジェスト ID
-- `<INPUT_DOCKER_PULL_CREDENTIAL>` -- プルする Docker クレデンシャル
+cloud-init.yaml ファイルは環境に固有であるため、インテグレーション環境用と本番環境用の 2 つがあることに注意してください。
 
-- `<INPUT_API_TOKEN>` -- API token to connect to the Core service
-- `<INPUT_IMAGE_ID>` -- Digest id of the certified UID2 Operator container image to run
-- `<INPUT_DOCKER_PULL_CREDENTIAL>` -- Docker credential to pull
+### cloud-init example
 
-以下のテンプレートファイル内の「'<INPUT_xxx>' を検索し、実際の値に置き換えてください。
+UID2 Operator エンクレーブをインテグレーション環境にデプロイする際に使用する cloud-init テンプレートです。ここでは、ファイルの内容について説明しますが、登録時に提供されたものを使用する必要があります。
 
-なお、`api_token` の値は、指定した UID2 Core 環境 (Integration Environment にデプロイする場合は core-integ.uidapi.com) に対してのみ使用可能であり、異なる環境に対しては使用できないことに注意してください。
+このファイルの内容は、VM インスタンスの作成時に `user-data` というキーでカスタムメタデータとして提供する必要があります。この `user-data` メタデータは、起動時にコンテナ最適化 OS (COS) の VM ディスクによって読み込まれ、解釈されます。
 
-### cloud-init template
+以下の例に示すように、まずリモート SSH アクセスを無効にし、UID2 プロジェクトの公式コンテナレジストリから認証済みの UID2 operator docker イメージを docker pull し、UID2 operator コンテナを systemd サービスとして実行するよう、COS VM に指示します。
 
-UID2 Operator Enclave をインテグレーション環境にデプロイする際に使用する Cloud-Init テンプレートです。
-
-その中の変数が実際の値に置き換えられると、ファイルの内容は VM インスタンスの作成時に `user-data` というキーの下にカスタムメタデータとして提供される必要があります。この `user-data` メタデータは、起動時にコンテナ最適化 OS (COS) の VM ディスクによって読み込まれ、解釈されます。
-
-以下のテンプレートに示すように、まずリモート SSH アクセスを無効にし、UID2 プロジェクトの公式コンテナレジストリから認証済みの UID2 operator docker イメージを docker pull し、UID2 operator コンテナを systemd サービスとして実行するよう、COS VM に指示します。
+UID2_ENCLAVE_IMAGE_ID、GHCR_RO_ACCESS_TOKEN はすべて提供されるファイルに設定されています。手動で編集する必要はありません。UID2_ENCLAVE_API_TOKEN は別途提供するファイルで、手動で更新する必要があります。
 
 ```
 #cloud-config
 
 bootcmd:
 - iptables -D INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+- iptables -A INPUT -p tcp -m tcp --dport 22 -j DROP
 - systemctl mask --now serial-getty@ttyS0.service
 
 runcmd:
@@ -93,13 +87,14 @@ write_files:
     Description=Start UID 2.0 operator as docker container
 
     [Service]
-    Environment="UID2_ENCLAVE_API_TOKEN=<INPUT_API_TOKEN>"
-    Environment="UID2_ENCLAVE_IMAGE_ID=<INPUT_IMAGE_ID>"
+    Environment="UID2_ENCLAVE_API_TOKEN=<API_TOKEN>"
+    Environment="UID2_ENCLAVE_IMAGE_ID=<IMAGE_ID>"
+    Environment="GHCR_RO_ACCESS_TOKEN=<GHCR_TOKEN>"
     Environment="HOME=/run/uid2"
     ExecStartPre=mkdir -p /run/uid2/.config/gcloud
-    ExecStartPre=sh -c 'base64 -d /run/uid2/docker-credential.txt > /run/uid2/.config/gcloud/application_default_credentials.json'
+    ExecStartPre=docker login ghcr.io -u gcp-uid2-docker -p ${GHCR_RO_ACCESS_TOKEN}
     ExecStartPre=/usr/bin/docker-credential-gcr configure-docker
-    ExecStart=/usr/bin/docker run --rm --name uid2-operator -v /run/uid2/operator.json:/app/conf/config.json -e KUBERNETES_SERVICE_HOST=1 -e core_api_token=${UID2_ENCLAVE_API_TOKEN} -e optout_api_token=${UID2_ENCLAVE_API_TOKEN} -p 80:8080 gcr.io/uid2-316818/uid2-operator@sha256:${UID2_ENCLAVE_IMAGE_ID}
+    ExecStart=/usr/bin/docker run --rm --name uid2-operator -v /run/uid2/operator.json:/app/conf/config.json -e KUBERNETES_SERVICE_HOST=1 -e core_api_token=${UID2_ENCLAVE_API_TOKEN} -e optout_api_token=${UID2_ENCLAVE_API_TOKEN} -p 80:8080 ghcr.io/iabtechlab/uid2-operator@sha256:${UID2_ENCLAVE_IMAGE_ID}
     ExecStop=/usr/bin/docker stop uid2-operator
     ExecStopPost=/usr/bin/docker rm uid2-operator
 - path: /run/uid2/operator.json
@@ -116,123 +111,53 @@ write_files:
       "optout_api_uri": "https://optout-integ.uidapi.com/optout/replicate",
       "optout_s3_folder": "optout-v2/",
       "optout_inmem_cache": true,
+      "identity_token_expires_after_seconds": 14400,
+      "refresh_token_expires_after_seconds": 2592000,
+      "refresh_identity_token_after_seconds": 3600,
       "enclave_platform": "gcp-vmid",
-      "enforce_https": true
+      "enforce_https": true,
+      "service_instances": 16,
+      "allow_legacy_api": false
     }
-- path: /run/uid2/docker-credential.txt
-  permission: 0644
-  owner: root
-  content: <INPUT_DOCKER_PULL_CREDENTIAL>
 ```
 
 ### Create VM Instance
 
-上記の cloud-init の設定テンプレートを使って、`./uid2-operator-integ.cloud-config.yaml` ファイルを作成します。テンプレート内の 3 つの入力変数がすべて実際の値に置き換えられていることを確認します。
+提供された cloud-init-`<timestamp>`.yaml ファイルを一時的な場所にコピーし、登録プロセスで提供された所定の gcloud スクリプトファイルを同じフォルダーから実行します。これにより、cloud-init ファイルと同様に正しい VM イメージを使用する、新しい GCP Confidential VM が作成されます。
 
-次に、以下の `gcloud` コマンドを使用して、提供された cloud init config `./uid2-operator-integ.cloud-config.yaml` を使用して UID2 Operator を実行する GCP Confidential VM を作成することができます。
+gcloud スクリプトファイルの例は以下の通りです:
 
 ```
-$ gcloud compute instances create uid2-operator-test \
-    --confidential-compute \
-    --maintenance-policy Terminate \
-    --image-family cos-stable \
-    --image-project cos-cloud \
-    --metadata-from-file user-data=./uid2-operator-integ.cloud-config.yaml
+$ gcloud compute instances \
+  create uid2-operator-gcp-01 \
+  --confidential-compute \
+  --maintenance-policy Terminate \
+  --image https://www.googleapis.com/compute/v1/projects/cos-cloud/global/images/cos-stable-101-17162-40-56 \
+  --metadata-from-file user-data=./cloud-init-1674598899.yaml \
+  --tags http-server
 ```
+
+VM の名前（上記の例では uid2-operator-gcp-01）は変更可能ですが、その他のパラメータを変更すると、認証に失敗します。
 
 ## Production Deployment
 
-GCP VM Enclave にある新しい UID2 Operator を本番環境にデプロイするには、本番環境用の認証済み cloud-init config を用意し、その cloud-init を使用する Confidential VM を新規に作成することで可能です。
+インテグレーション環境と同じ手順で、GCP VM エンクレーブにある新しい UID2 Operator を本番環境にデプロイできます。cloud-init-`<timestamp>`.yaml の新しいインスタンスを提供する必要があります。これは、Core service の本番用 URL と同様に、あなたの本番用 API-Token を使用します。新しい gcloud スクリプトファイルも提供されますが、使用する cloud-init-`<timestamp>`.yaml ファイルの名前が異なるだけです。gcloud スクリプトでは、マシンタイプも指定することを勧めます。現在、UID2 operator はマシンタイプが n2d-standard-16 で実行することが推奨されています。
 
-ここでは、そのデプロイ手順について説明します。
-
-### Input Variables
-
-UID2 Operator Enclave を動作させるためには、以下のセクションで提供される cloud-init config テンプレートで、以下の変数を置き換える必要があります:
-
-- `<INPUT_API_TOKEN>` -- Core サービスに接続するための API トークン
-- `<INPUT_IMAGE_ID>` -- 実行する UID2 Operator 認証済みコンテナイメージのダイジェスト ID
-- `<INPUT_DOCKER_PULL_CREDENTIAL>` -- プルする Docker クレデンシャル
-
-以下のテンプレートファイルの '<INPUT_xxx>' を検索して、実際の値に置き換えてください。
-
-なお、`api_token` の値は、指定された UID2 Core 環境 (本番環境へのデプロイ時には core-prod.uidapi.com) に対してのみ使用可能であり、異なる環境に対しては使用できないことに注意してください。
-
-### cloud-init template for core-prod.uidapi.com
-
-UID2 Operator Enclave を本番環境にデプロイする際に使用する Cloud-Init テンプレートです。
-
-その中の変数が実際の値に置き換えられると、ファイルの内容は VM インスタンスの作成時に `user-data` というキーの下にカスタムメタデータとして提供される必要があります。この `user-data` メタデータは、起動時にコンテナ最適化 OS (COS) の VM ディスクによって読み込まれ、解釈されます。
-
-以下のテンプレートに示すように、まずリモート SSH アクセスを無効にし、UID2 プロジェクトの公式コンテナレジストリから認証済みの UID2 operator docker イメージを docker pull し、UID2 operator コンテナを systemd サービスとして実行するよう、COS VM に指示します。
+スクリプトの例は以下の通りです:
 
 ```
-#cloud-config
-
-bootcmd:
-- iptables -D INPUT -p tcp -m tcp --dport 22 -j ACCEPT
-- systemctl mask --now serial-getty@ttyS0.service
-
-runcmd:
-- systemctl daemon-reload
-- systemctl start uid2-operator.service
-
-write_files:
-- path: /etc/systemd/system/uid2-operator.service
-  permissions: 0644
-  owner: root
-  content: |
-    [Unit]
-    Description=Start UID 2.0 operator as docker container
-
-    [Service]
-    Environment="UID2_ENCLAVE_API_TOKEN=<INPUT_API_TOKEN>"
-    Environment="UID2_ENCLAVE_IMAGE_ID=<INPUT_IMAGE_ID>"
-    Environment="HOME=/run/uid2"
-    ExecStartPre=mkdir -p /run/uid2/.config/gcloud
-    ExecStartPre=sh -c 'base64 -d /run/uid2/docker-credential.txt > /run/uid2/.config/gcloud/application_default_credentials.json'
-    ExecStartPre=/usr/bin/docker-credential-gcr configure-docker
-    ExecStart=/usr/bin/docker run --rm --name uid2-operator -v /run/uid2/operator.json:/app/conf/config.json -e KUBERNETES_SERVICE_HOST=1 -e core_api_token=${UID2_ENCLAVE_API_TOKEN} -e optout_api_token=${UID2_ENCLAVE_API_TOKEN} -p 80:8080 gcr.io/uid2-316818/uid2-operator@sha256:${UID2_ENCLAVE_IMAGE_ID}
-    ExecStop=/usr/bin/docker stop uid2-operator
-    ExecStopPost=/usr/bin/docker rm uid2-operator
-- path: /run/uid2/operator.json
-  permissions: 0644
-  owner: root
-  content: |
-    {
-      "clients_metadata_path": "https://core-prod.uidapi.com/clients/refresh",
-      "keys_metadata_path": "https://core-prod.uidapi.com/key/refresh",
-      "keys_acl_metadata_path": "https://core-prod.uidapi.com/key/acl/refresh",
-      "salts_metadata_path": "https://core-prod.uidapi.com/salt/refresh",
-      "core_attest_url": "https://core-prod.uidapi.com/attest",
-      "optout_metadata_path": "https://optout-prod.uidapi.com/optout/refresh",
-      "optout_api_uri": "https://optout-prod.uidapi.com/optout/replicate",
-      "optout_s3_folder": "optout-v2/",
-      "optout_inmem_cache": true,
-      "enclave_platform": "gcp-vmid",
-      "enforce_https": true,
-      "service_instances": 16
-    }
-- path: /run/uid2/docker-credential.txt
-  permission: 0644
-  owner: root
-  content: <INPUT_DOCKER_PULL_CREDENTIAL>
+$ gcloud compute instances \
+  create uid2-operator-gcp-01 \
+  --machine-type n2d-standard-16 \
+  --confidential-compute \
+  --maintenance-policy Terminate \
+  --image https://www.googleapis.com/compute/v1/projects/cos-cloud/global/images/cos-stable-101-17162-40-56 \
+  --metadata-from-file user-data=./cloud-init-1674598899.yaml \
+  --tags http-server
 ```
 
-### Using gcloud to create instance
+前のセクションで使用した `gcloud` コマンドと比較して、 `--machine-type n2d-standard-16` オプションが追加されていることに注意してください。これは、UID2 Operator の実稼働環境でのデプロイが、実機の設定に一致する推奨マシンタイプで実行されるようにします。
 
-上記の cloud-init の設定テンプレートを使って `./uid2-operator-prod.cloud-config.yaml` ファイルを作成し、テンプレート内の 3 つの入力変数がすべて実際の値に置き換えられていることを確認します。
+## Upgrading
 
-次に、以下の `gcloud` コマンドを使用して、提供された cloud init config `./uid2-operator-prod.cloud-config.yaml` を使用して UID2 Operator を実行する GCP Confidential VM を作成することができます。
-
-```
-$ gcloud compute instances create uid2-operator-test \
-    --machine-type n2d-standard-16 \
-    --confidential-compute \
-    --maintenance-policy Terminate \
-    --image-family cos-stable \
-    --image-project cos-cloud \
-    --metadata-from-file user-data=./uid2-operator-prod.cloud-config.yaml
-```
-
-前のセクションで使用した `gcloud` コマンドと比較して、 `--machine-type n2d-standard-16` オプションが追加されていることに注意してください。これは、UID2 Operator の実稼働環境での展開が、実機の設定に一致する推奨マシンタイプで実行されるようにします。
+オペレータのバージョンを更新するたびに、Private operator はアップグレードのウィンドウを持つメール通知を受け取り、その後、古いバージョンは非アクティブになり、サポートされなくなります。最新バージョンにアップグレードするには、元のオペレータと同じ方法で、メールに記載されている新しい cloud-init をデプロイしてください。

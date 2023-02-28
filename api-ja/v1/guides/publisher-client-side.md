@@ -6,7 +6,7 @@
 
 > NOTE: このガイドは UID2 SDK [version 1](../sdks/client-side-identity-v1.md) を対象としています。UID2 SDK の [previous version](../sdks/client-side-identity-v0.md) を使用した*インテグレーションガイド*については、[Publisher Integration Guide (Standard)](./publisher-client-side-v0.md) を参照してください。
 
-このガイドは、UID2 対応シングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB 入札ストリーム用に UID2 を利用した ID トークンを生成したいと考える、Web アセットを持つパブリッシャーを対象としています。
+このガイドは、UID2 対応シングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を利用した ID トークンを生成したいと考える、Web アセットを持つパブリッシャーを対象としています。
 
 このガイドでは、インテグレーションで考慮すべき [基本的な手順](#integration-steps) を概説しています。たとえば、ユーザーログインとログアウトの実装方法、UID2 ID 情報の管理と　ターゲティング広告への使用方法、トークンの更新方法、ID が見つからない場合の対処、ユーザーのオプトアウトの処理方法などを決定する必要があります。[FAQs](#faqs) も参照してください。
 
