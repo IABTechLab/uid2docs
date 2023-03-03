@@ -18,7 +18,7 @@ Used by: This endpoint is used mainly by publishers.
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Testing environment: `https://integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../summary-doc-v2.md#environments). |
+| `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../summary-doc-v2.md#environments). |
 
 
 ###  Unencrypted JSON Body Parameters

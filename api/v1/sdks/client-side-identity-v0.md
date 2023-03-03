@@ -15,7 +15,7 @@ To simplify your implementation for establishing identity and retrieving adverti
 Implement the folloiwng SDK script on the pages you'll use UID2 to manage identity or retrieve an advertising token for real-time bidding (RTB):
 
 ```html
-<script src="https://integ.uidapi.com/static/js/uid2-sdk-0.0.1a.js" type="text/javascript"></script>
+<script src="https://operator-integ.uidapi.com/static/js/uid2-sdk-0.0.1a.js" type="text/javascript"></script>
 ```
 
 ## Client-Side SDK Functions
