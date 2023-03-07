@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /token/validate
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /token/validate
 
 # POST /token/validate
 Validate that an advertising token matches the specified hashed or unhashed email address or phone number. 
@@ -31,9 +31,9 @@ Used by: This endpoint is used mainly by publishers.
 | :--- | :--- | :--- | :--- |
 | `token` | string | Required | The advertising token returned by the [POST /token/generate](post-token-generate.md) response. |
 | `email` | string | Conditionally Required |  The email address for token validation. |
-| `email_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../getting-started.md#email-address-hash-encoding) hash of a [normalized](../../getting-started.md#email-address-normalization) email address for token validation. |
-| `phone` | string | Conditionally Required | The [normalized](../../getting-started.md#phone-number-normalization) phone number for which to generate tokens. |
-| `phone_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../getting-started.md#email-address-hash-encoding) hash of a [normalized](../../getting-started.md#phone-number-normalization) phone number. |
+| `email_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#email-address-normalization) email address for token validation. |
+| `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) phone number for which to generate tokens. |
+| `phone_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#phone-number-normalization) phone number. |
 
 
 ### Request Examples

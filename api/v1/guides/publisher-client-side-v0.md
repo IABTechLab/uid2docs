@@ -32,7 +32,7 @@ After authentication in step 1-c, which forces the user to accept the rules of e
 
 | Step | Endpoint/SDK | Description |
 | --- | --- | --- |
-| 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2:<br>- Integrate with a UID2-enabled single-sign-on provider.<br>- Generate UID2 tokens when a user authenticates using the [GET /token/generate](../endpoints/get-token-generate.md) endpoint. The request includes the [normalized](../../README.md#emailnormalization) email address of the user. |
+| 1-d | [GET /token/generate](../endpoints/get-token-generate.md) | There are two ways for publishers to establish identity with UID2:<br/>- Integrate with a UID2-enabled single-sign-on provider.<br/>- Generate UID2 tokens when a user authenticates using the [GET /token/generate](../endpoints/get-token-generate.md) endpoint. The request includes the [normalized](../../README.md#emailnormalization) email address of the user. |
 | 1-e | [GET /token/generate](../endpoints/get-token-generate.md) | The token generation service that returns UID2 tokens. |
 | 1-f | [UID2 client-side identity SDK](../sdks/client-side-identity-v0.md) | Send returned UID2 tokens from step 1-e to the SDK using its Identity Mechanism described below. The mechanism ensures that UID2 tokens are available for the user until they log out. |
 

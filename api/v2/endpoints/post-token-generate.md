@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /token/generate
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /token/generate
 
 # POST /token/generate
 Opt in the user to UID2-based targeted advertising and generate a UID2 token from their provided email address or phone number. 
@@ -32,9 +32,9 @@ You must include only one of the following parameters as a key-value pair in the
 | Body Parameter | Data Type | Attribute | Description | 
 | :--- | :--- | :--- | :--- |
 | `email` | string | Conditionally Required | The email address for which to generate tokens. | 
-| `email_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../getting-started.md#email-address-hash-encoding) hash of a [normalized](../../getting-started.md#email-address-normalization) email address. |
-| `phone` | string | Conditionally Required | The [normalized](../../getting-started.md#phone-number-normalization) phone number for which to generate tokens. |
-| `phone_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../getting-started.md#email-address-hash-encoding) hash of a [normalized](../../getting-started.md#phone-number-normalization) phone number. |
+| `email_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#email-address-normalization) email address. |
+| `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) phone number for which to generate tokens. |
+| `phone_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#phone-number-normalization) phone number. |
 | `policy` | number | Optional | (Beta) The token generation policy ID. See [Token Generation Policy](#token-generation-policy). |
 
 

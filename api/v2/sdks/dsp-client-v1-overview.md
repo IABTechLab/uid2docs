@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [SDKs](summary-sdks.md) > Server-Side SDK Guide for RTB
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [SDKs](summary-sdks.md) > Server-Side SDK Guide for RTB
 
 # Server-Side SDK Guide for RTB
 
@@ -22,7 +22,7 @@ The initialization function configures the parameters necessary for the SDK to a
 | Parameter | Description | Recommended Value |
 | :--- | :--- | :--- |
 | `endpoint` | The endpoint for UID2 service. | N/A |
-| `authKey` | The authentication token that belongs to the client. For access to UID2, see [Contact Info](../../getting-started.md#contact-info). | N/A |
+| `authKey` | The authentication token that belongs to the client. For access to UID2, see [Contact Info](../../README.md#contact-info). | N/A |
 | `refreshIntervalMs` | Refresh cadence (in milliseconds) for fetching the decryption keys.| 5 minutes (`300,000` milliseconds) |
 | `retryIntervalMs` | Retry cadence (in millisecond) for retrying the request when encountering an error.  | 30 seconds (`30,000` milliseconds)|
 
