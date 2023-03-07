@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > Integration Guides
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > Integration Guides
 
 # UID2 Integration Guides
 
@@ -29,6 +29,6 @@ The following guides provide integration instructions based on the needs and req
  
 | Integration Guide |  Content Description |
 | :--- | :--- |
-| [Operator - Microsoft Azure](operator-guide-azure-enclave.md) | IMPORTANT: This documentation is currently only a proof of concept. Please [contact](../../getting-started.md#contact-info) the UID2 administrator for additional guidance.<br/>Instructions for setting up Closed Operator service for running on Microsoft Azure Confidential Computing platform.  |
+| [Operator - Microsoft Azure](operator-guide-azure-enclave.md) | IMPORTANT: This documentation is currently only a proof of concept. Please [contact](../../README.md#contact-info) the UID2 administrator for additional guidance.<br/>Instructions for setting up Closed Operator service for running on Microsoft Azure Confidential Computing platform.  |
 | [Operator - AWS Marketplace](operator-guide-aws-marketplace.md) | Instructions for setting up Closed Operator service for AWS Marketplace. |
 | [Operator - Google Cloud Platform Confidential Computing package](operator-guide-gcp-enclave.md) | Instructions for setting up the Google Cloud Platform Confidential Computing package (GCP). |

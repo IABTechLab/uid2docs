@@ -13,7 +13,7 @@ This page provides the following information about the Unified ID 2.0 (UID2) fra
 - [FAQs](#faqs)
 - [License](#license)
 
-For integration guides, supported SDKs, and endpoint reference, see [Getting Started](api/getting-started.md).
+For integration guides, supported SDKs, and endpoint reference, see [Getting Started](api/README.md).
 
 ## Introduction
 
