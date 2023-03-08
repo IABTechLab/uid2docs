@@ -23,7 +23,7 @@ The following guides provide integration instructions based on the needs and req
  
 | Integration Guide |  Content Description |
 | :--- | :--- |
-| [Operator - Snowflake](../sdks/snowflake_integration.md) | Instructions for engaging with an Open Operator service hosted in the Snowflake Data Marketplace. |
+| [Snowflake Integration Guide](../sdks/snowflake_integration.md) | Instructions for engaging with an Open Operator service hosted in the Snowflake Data Marketplace. |
 
 ## Closed Operator Service Setup
  

@@ -7,7 +7,7 @@ This guide covers integration steps for organizations that collect user data and
 * [Integration Steps](#integration-steps)
 * [FAQs](#faqs)
 
-If you are using an Open Operator service hosted in the Snowflake Data Marketplace, see also [Snowflake Integration](../sdks/snowflake_integration.md).
+If you are using an Open Operator service hosted in the Snowflake Data Marketplace, see also [Snowflake Integration Guide](../sdks/snowflake_integration.md).
 
 ## Integration Steps
 
