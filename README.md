@@ -115,29 +115,9 @@ The following diagram summarizes all four workflows. For each workflow, the [par
 
 ![The UID2 Ecosystem](images/UID2-workflows.png)
 
-
 ## FAQs
 
-Here are some frequently asked questions regarding the UID2 framework.
-
-#### Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2? 
-
-No. UID2 functions as its own framework, which is separate from EUID. As such, paperwork relating to accessing and using the EUID framework does not automatically grant usage and access to the UID2 framework. New contracts are required to be signed for UID2.
-
-#### Can users opt out of targeted advertising tied to their UID2 identity?
-
-Yes. Through the [Transparency and Control Portal](https://transparentadvertising.org), users can opt out from being served targeted ads tied to their UID2 identity. Each request is distributed through the UID2 Opt-Out Service and UID2 Operators to all relevant participants. 
-
-Some publishers and service providers have the option to limit access to their products based on a user’s participation in the UID2 framework, and it is the publisher’s responsibility to communicate this as part of the value exchange dialog with the user.
-
-#### How does a user know where to access the opt-out portal?
-
-Publishers, SSO providers, or consent management platforms disclose links to the [Transparency and Control Portal](https://transparentadvertising.org) in their login flows, consent flows, and privacy policies, and by other means.
-
-#### Why do advertisers and third-party data providers not need to integrate with the opt-out feed?
-
-Opt-outs relate to opting out of targeted advertising, which is handled through the publisher and DSP opt-out [workflows](#workflows). To disengage from a specific advertiser, a consumer must contact the advertiser directly.
-
+See [Frequently Asked Questions](api/v2/getting-started/gs-faqs.md).
 
 ## License
 All work and artifacts are licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).
