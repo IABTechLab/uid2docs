@@ -10,7 +10,7 @@ This page provides the following information about the Unified ID 2.0 (UID2) fra
   - [Components](#components)
   - [Participants](#participants)
   - [Workflows](#workflows)
-- [FAQs](#faqs)
+- [Frequently Asked Questions (FAQs)](#faqs)
 - [License](#license)
 
 For integration guides, supported SDKs, and endpoint reference, see [Getting Started](api/README.md).
