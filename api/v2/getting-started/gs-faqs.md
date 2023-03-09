@@ -1,7 +1,7 @@
 [UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > Frequently Asked Questions
 
 # Frequently Asked Questions
-<!-- Note I have two sets of similar FAQs, for SDK vs non-SDK. For now until I can study, and organize them better, I've varied the naming so the anchors work correctly. GWH 3/9/23 -->
+
 Frequently asked questions for UID2 are broken into the following categories:
 
 - [FAQs -- General](#faqs----general)
