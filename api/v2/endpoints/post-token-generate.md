@@ -109,14 +109,6 @@ Here is an example response when the policy respects user opt-out.
 
 ```json
 {
-    "body": {
-        "advertising_token": "",
-        "refresh_token": "",
-        "identity_expires": 1636322000000,
-        "refresh_from": 1636322000000,
-        "refresh_expires": 1636322000000,
-        "refresh_response_key": ""
-    },
     "status": "optout"
 }
 ```
