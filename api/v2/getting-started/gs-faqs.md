@@ -29,7 +29,6 @@ Frequently asked questions for UID2 are broken into the following categories:
 ## FAQs -- General
 
 Here are some frequently asked questions regarding the UID2 framework.
-<!-- (gwh note: section is taken from original readme) -->
 
 ### Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?
 <!-- FAQ_01 -->
@@ -52,7 +51,6 @@ Opt-outs relate to opting out of targeted advertising, which is handled through 
 ## FAQs for Publishers Using an SDK
 
 Here are some frequently asked questions for publishers using the UID2 framework, when a client-side SDK is in use.
-<!-- (gwh note: section is taken from publisher-client-side.md) -->
 
 ### How will I be notified of user opt-out? (With SDK)
 <!-- FAQ_05 -->
@@ -101,7 +99,6 @@ To check for opt-out requests, use the [POST /token/refresh](../endpoints/post-t
 
 ## FAQs for Publishers Not Using an SDK
 Here are some frequently asked questions for publishers using the UID2 framework, when the publisher is not using a client-side SDK.
-<!-- (gwh note: section is taken from custom-publisher-integration.md) -->
 
 ### Do I need to decrypt tokens?
 <!-- FAQ_11 -->
