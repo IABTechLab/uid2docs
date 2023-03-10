@@ -25,6 +25,26 @@ Frequently asked questions for UID2 are broken into the following categories:
    - [How can I test that the PII sent and the returned token match up?](#how-can-i-test-that-the-pii-sent-and-the-returned-token-match-up-without-sdk)
    - [How can I test the refresh token logout workflow?](#how-can-i-test-the-refresh-token-logout-workflow-without-sdk)
    - [Should /token/generate return the “optout” status and generate no tokens if I pass optout@email.com in the request payload?](#should-tokengenerate-return-the-optout-status-and-generate-no-tokens-if-i-pass-optoutemailcom-in-the-request-payload-without-sdk)
+- [FAQs for Advertisers and Data Providers](#faqs-for-advertisers-and-data-providers)
+   - [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
+   - [Do refreshed emails get assigned to the same bucket with which they were previously associated?](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
+   - [How often should UIDs be refreshed for incremental updates?](#how-often-should-uids-be-refreshed-for-incremental-updates)
+   - [How should I generate the SHA256 of PII for mapping?](#how-should-i-generate-the-sha256-of-pii-for-mapping)
+   - [Should I store large volumes of email address, phone number, or their hash mappings? ](#should-i-store-large-volumes-of-email-address-phone-number-or-their-hash-mappings)
+   - [How should I handle user optouts?](#how-should-i-handle-user-optouts)
+- [FAQs for Demand-Side Platforms (DSPs)](#faqs-for-demand-side-platforms-dsps)
+   - [How do I know which decryption key to apply to a UID2?](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
+   - [Where do I get the decryption keys?](#where-do-i-get-the-decryption-keys)
+   - [How do I know if/when the salt bucket has rotated?](#how-do-i-know-ifwhen-the-salt-bucket-has-rotated)
+   - [Should the DSP be concerned with latency?](#should-the-dsp-be-concerned-with-latency)
+   - [How should the DSP maintain proper frequency capping with UID2?](#how-should-the-dsp-maintain-proper-frequency-capping-with-uid2)
+   - [Will all user opt-out traffic be sent to the DSP?](#will-all-user-opt-out-traffic-be-sent-to-the-dsp)
+   - [Is the DSP expected to handle opt-out signals only for the UID2s that they already store?](#is-the-dsp-expected-to-handle-opt-out-signals-only-for-the-uid2s-that-they-already-store)
+   - [How long should the DSP keep the opt-out list?](#how-long-should-the-dsp-keep-the-opt-out-list)
+   - [Is the UID of an opted-out user sent to the opt-out endpoint in an encrypted form?](#is-the-uid-of-an-opted-out-user-sent-to-the-opt-out-endpoint-in-an-encrypted-form)
+   - [What request type do opt-outs use?](#what-request-type-do-opt-outs-use)
+   - [How strict are the requirements for honoring opt-outs?](#how-strict-are-the-requirements-for-honoring-opt-outs)
+   - [How many decryption keys may be present in memory at any point?](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
 
 ## FAQs -- General
 
@@ -153,3 +173,89 @@ The [POST /token/generate](../endpoints/post-token-generate.md) endpoint does no
 >IMPORTANT:Be sure to call this endpoint only when you have obtained legal basis to convert the user's PII to UID2 tokens. [POST /token/generate](../endpoints/post-token-generate.md) calls automatically opt in users associated with the provided PII to UID2-based targeted advertising. 
  
 To check for opt-out requests, use the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint.
+
+## FAQs for Advertisers and Data Providers
+Here are some frequently asked questions for advertisers and data providers using the UID2 framework.
+
+### How do I know when to refresh the UID2 due to salt bucket rotation?
+<!-- FAQ_19 ADP -->
+Metadata supplied with the UID2 generation request indicates the salt bucket used for generating the UID2. Salt buckets persist and correspond to the underlying PII used to generate a UID2. Use the  [POST /identity/buckets](../endpoints/post-identity-buckets.md) endpoint to return which salt buckets rotated since a given timestamp. The returned rotated salt buckets inform you which UID2s to refresh.
+
+### Do refreshed emails get assigned to the same bucket with which they were previously associated?
+<!-- FAQ_20 ADP -->
+Not necessarily. After you remap emails associated with a particular bucket ID, the emails might be assigned to a different bucket ID. To check the bucket ID, [call the mapping function](../guides/advertiser-dataprovider-guide.md#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) and save the returned UID2 and bucket ID again.
+
+>IMPORTANT: When mapping and remapping emails, be sure not to make any assumptions of the number of buckets, their specific rotation dates, or to which bucket an email gets assigned. 
+
+### How often should UIDs be refreshed for incremental updates?
+<!-- FAQ_21 ADP -->
+The recommended cadence for updating audiences is daily. 
+
+Even though each salt bucket is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets is rotated daily. If fidelity is critical, consider calling the [POST /identity/buckets](../endpoints/post-identity-buckets.md) endpoint more frequently, for example, hourly.
+
+### How should I generate the SHA256 of PII for mapping?
+<!-- FAQ_22 ADP -->
+The system should follow the [email normalization rules](../../README.md#email-address-normalization) and hash without salting.
+
+### Should I store large volumes of email address, phone number, or their hash mappings? 
+<!-- FAQ_23 ADP -->
+Yes. Not storing mappings may increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily.
+
+>IMPORTANT: Unless you are using a private operator, you must map email addresses, phone numbers, or hashes consecutively, using a single HTTP connection, in batches of 5,000 emails at a time. In other words, do your mapping without creating multiple parallel connections. 
+
+### How should I handle user optouts?
+<!-- FAQ_24 ADP -->
+When a user opts out of UID2-based targeted advertising through the [Transparency and Control Portal](https://www.transparentadvertising.org/), the optout signal is sent to DSPs and publishers, which handle optouts at bid time. As an advertiser or data provider, you do not need to check for UID2 optout in this scenario.
+
+If a user opts out through your website, you should follow your internal procedures for handling the optout, for example, you might choose not to generate a UID2 for that user.
+
+## FAQs for Demand-Side Platforms (DSPs)
+Here are some frequently asked questions for DSPs.
+
+### How do I know which decryption key to apply to a UID2?
+<!-- FAQ_25 DSP -->
+The provided [Server-Side SDK Guide for RTB](../sdks/dsp-client-v1-overview.md) updates decryption keys automatically. Metadata supplied with the UID2 token discloses the IDs of the decryption keys to use. 
+
+### Where do I get the decryption keys?
+<!-- FAQ_26 DSP -->
+You can use the [Server-Side SDK Guide for RTB](../sdks/dsp-client-v1-overview.md) library to communicate with the UID2 service and fetch the latest keys. To make sure that the keys remain up-to-date, it is recommended to fetch them periodically, for example, once every hour. 
+
+### How do I know if/when the salt bucket has rotated?
+<!-- FAQ_27 DSP -->
+The DSP is not privy to when the UID2 salt bucket rotates. This is similar to a DSP being unaware if users cleared their cookies. Salt bucket rotation has no significant impact on the DSP.  
+
+### Should the DSP be concerned with latency?
+<!-- FAQ_28 DSP -->
+The UID2 service does not introduce latency into the bidding process. Any latency experienced can be attributed to the network, not the UID2 service.
+
+### How should the DSP maintain proper frequency capping with UID2?
+<!-- FAQ_29 DSP -->
+The UID2 has the same chance as a cookie of becoming stale. Hence, the DSP can adapt the same infrastructure currently used for cookie or deviceID-based frequency capping for UID2. For details, see this [FAQ](../guides/advertiser-dataprovider-guide.md#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation) on salt bucket rotation. 
+
+### Will all user opt-out traffic be sent to the DSP?
+<!-- FAQ_30 DSP -->
+Yes, all opt-outs from the UID2 [Transparency and Control Portal](https://transparentadvertising.org/) hit the opt-out endpoint, which the DSP must configure to [honor user opt-outs](#honor-user-opt-outs).
+
+### Is the DSP expected to handle opt-out signals only for the UID2s that they already store?
+<!-- FAQ_31 DSP -->
+In some cases a DSP may receive a UID2 token for a newly-stored UID2 where the token is generated before the opt-out timestamp. The DSP is not allowed to bid on such tokens. It is therefore recommended to store all opt-out signals regardless of whether the corresponding UID2 is currently stored by the DSP or not. For details, see the diagram in [Bidding Opt-Out Logic](../guides/dsp-guide.md#bidding-opt-out-logic).
+
+### How long should the DSP keep the opt-out list?
+<!-- FAQ_32 DSP -->
+At least for 30 days.
+
+### Is the UID of an opted-out user sent to the opt-out endpoint in an encrypted form?
+<!-- FAQ_33 DSP -->
+No. It is sent as an unencrypted (raw) UID2.
+
+### What request type do opt-outs use? 
+<!-- FAQ_34 DSP -->
+Typically GET requests, but different DSPs may use different types.
+
+### How strict are the requirements for honoring opt-outs? 
+<!-- FAQ_35 DSP -->
+Opt-outs must be always respected. It may take some time for an opt-out request to propagate through the system during which time it is expected that some bids may not honor the opt-out.
+
+### How many decryption keys may be present in memory at any point?
+<!-- FAQ_36 DSP -->
+There may be thousands of decryption keys present in the system at any given point.

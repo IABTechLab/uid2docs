@@ -5,6 +5,10 @@
 This guide covers integration steps for organizations that collect user data and push it to DSPs. Data collectors include advertisers, data on-boarders, measurement providers, identity graph providers, third-party data providers, and other organizations who send data to DSPs. The guide includes the following sections:
 
 * [Integration Steps](#integration-steps)
+   - [Retrieve a UID2 for PII using the identity map endpoints](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints)
+   - [Send UID2 to a DSP to build an audience](#send-uid2-to-a-dsp-to-build-an-audience)
+   - [Monitor for salt bucket rotations related to your stored UID2s](#monitor-for-salt-bucket-rotations-related-to-your-stored-uid2s)
+   - [Use an incremental process to continuously update UID2s](#use-an-incremental-process-to-continuously-update-uid2s)
 * [FAQs](#faqs)
 
 If you are using an Open Operator service hosted in the Snowflake Data Marketplace, see also [Snowflake Integration Guide](../sdks/snowflake_integration.md).
@@ -48,28 +52,7 @@ The response from the [UID2 retrieval step](#retrieve-a-uid2-for-pii-using-the-i
 Using the results from the [preceding salt bucket rotation step](#monitor-for-salt-bucket-rotations-related-to-your-stored-uid2s), remap UID2s with rotated salt buckets by [retrieving UID2s using the identity map endpoints](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints). To update the UID2s in audiences, [send UID2 to a DSP](#send-uid2-to-a-dsp-to-build-an-audience).
 
 ## FAQs
-### How do I know when to refresh the UID2 due to salt bucket rotation?
-Metadata supplied with the UID2 generation request indicates the salt bucket used for generating the UID2. Salt buckets persist and correspond to the underlying PII used to generate a UID2. Use the  [POST /identity/buckets](../endpoints/post-identity-buckets.md) endpoint to return which salt buckets rotated since a given timestamp. The returned rotated salt buckets inform you which UID2s to refresh.
 
-### Do refreshed emails get assigned to the same bucket with which they were previously associated?
-Not necessarily. After you remap emails associated with a particular bucket ID, the emails might be assigned to a different bucket ID. To check the bucket ID, [call the mapping function](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) and save the returned UID2 and bucket ID again.
+For a list of frequently asked questions for advertisers and data providers using the UID2 framework, see [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
 
->IMPORTANT: When mapping and remapping emails, be sure not to make any assumptions of the number of buckets, their specific rotation dates, or to which bucket an email gets assigned. 
-
-### How often should UIDs be refreshed for incremental updates?
-The recommended cadence for updating audiences is daily. 
-
-Even though each salt bucket is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets is rotated daily. If fidelity is critical, consider calling the [POST /identity/buckets](../endpoints/post-identity-buckets.md) endpoint more frequently, for example, hourly.
-
-### How should I generate the SHA256 of PII for mapping?
-The system should follow the [email normalization rules](../../README.md#email-address-normalization) and hash without salting.
-
-### Should I store large volumes of email address, phone number, or their hash mappings? 
-Yes. Not storing mappings may increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily.
-
->IMPORTANT: Unless you are using a private operator, you must map email addresses, phone numbers, or hashes consecutively, using a single HTTP connection, in batches of 5,000 emails at a time. In other words, do your mapping without creating multiple parallel connections. 
-
-### How should I handle user optouts?
-When a user opts out of UID2-based targeted advertising through the [Transparency and Control Portal](https://www.transparentadvertising.org/), the optout signal is sent to DSPs and publishers, which handle optouts at bid time. As an advertiser or data provider, you do not need to check for UID2 optout in this scenario.
-
-If a user opts out through your website, you should follow your internal procedures for handling the optout, for example, you might choose not to generate a UID2 for that user.
+For a full list, see [Frequently Asked Questions](../getting-started/gs-faqs.md).
