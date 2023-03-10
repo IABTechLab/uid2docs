@@ -32,24 +32,19 @@ Frequently asked questions for UID2 are broken into the following categories:
    - [How should I generate the SHA256 of PII for mapping?](#how-should-i-generate-the-sha256-of-pii-for-mapping)
    - [Should I store large volumes of email address, phone number, or their hash mappings? ](#should-i-store-large-volumes-of-email-address-phone-number-or-their-hash-mappings)
    - [How should I handle user optouts?](#how-should-i-handle-user-optouts)
-
-
-- [FAQs for xxx](#faqs-for-xxx)
-   - [xxx](#xxx)
-   - [xxx](#xxx)
-   - [xxx](#xxx)
-   - [xxx](#xxx)
-   - [xxx](#xxx)
-   - [xxx](#xxx)
-   - [xxx](#xxx)
-   - [xxx](#xxx)
-   - [xxx](#xxx)
-
-
-
-
-
-
+- [FAQs for Demand-Side Platforms (DSPs)](#faqs-for-demand-side-platforms-dsps)
+   - [How do I know which decryption key to apply to a UID2?](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
+   - [Where do I get the decryption keys?](#where-do-i-get-the-decryption-keys)
+   - [How do I know if/when the salt bucket has rotated?](#how-do-i-know-ifwhen-the-salt-bucket-has-rotated)
+   - [Should the DSP be concerned with latency?](#should-the-dsp-be-concerned-with-latency)
+   - [How should the DSP maintain proper frequency capping with UID2?](#how-should-the-dsp-maintain-proper-frequency-capping-with-uid2)
+   - [Will all user opt-out traffic be sent to the DSP?](#will-all-user-opt-out-traffic-be-sent-to-the-dsp)
+   - [Is the DSP expected to handle opt-out signals only for the UID2s that they already store?](#is-the-dsp-expected-to-handle-opt-out-signals-only-for-the-uid2s-that-they-already-store)
+   - [How long should the DSP keep the opt-out list?](#how-long-should-the-dsp-keep-the-opt-out-list)
+   - [Is the UID of an opted-out user sent to the opt-out endpoint in an encrypted form?](#is-the-uid-of-an-opted-out-user-sent-to-the-opt-out-endpoint-in-an-encrypted-form)
+   - [What request type do opt-outs use?](#what-request-type-do-opt-outs-use)
+   - [How strict are the requirements for honoring opt-outs?](#how-strict-are-the-requirements-for-honoring-opt-outs)
+   - [How many decryption keys may be present in memory at any point?](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
 
 ## FAQs -- General
 
@@ -213,3 +208,54 @@ Yes. Not storing mappings may increase processing time drastically when you have
 When a user opts out of UID2-based targeted advertising through the [Transparency and Control Portal](https://www.transparentadvertising.org/), the optout signal is sent to DSPs and publishers, which handle optouts at bid time. As an advertiser or data provider, you do not need to check for UID2 optout in this scenario.
 
 If a user opts out through your website, you should follow your internal procedures for handling the optout, for example, you might choose not to generate a UID2 for that user.
+
+## FAQs for Demand-Side Platforms (DSPs)
+Here are some frequently asked questions for DSPs.
+
+### How do I know which decryption key to apply to a UID2?
+<!-- FAQ_25 DSP -->
+The provided [Server-Side SDK Guide for RTB](../sdks/dsp-client-v1-overview.md) updates decryption keys automatically. Metadata supplied with the UID2 token discloses the IDs of the decryption keys to use. 
+
+### Where do I get the decryption keys?
+<!-- FAQ_26 DSP -->
+You can use the [Server-Side SDK Guide for RTB](../sdks/dsp-client-v1-overview.md) library to communicate with the UID2 service and fetch the latest keys. To make sure that the keys remain up-to-date, it is recommended to fetch them periodically, for example, once every hour. 
+
+### How do I know if/when the salt bucket has rotated?
+<!-- FAQ_27 DSP -->
+The DSP is not privy to when the UID2 salt bucket rotates. This is similar to a DSP being unaware if users cleared their cookies. Salt bucket rotation has no significant impact on the DSP.  
+
+### Should the DSP be concerned with latency?
+<!-- FAQ_28 DSP -->
+The UID2 service does not introduce latency into the bidding process. Any latency experienced can be attributed to the network, not the UID2 service.
+
+### How should the DSP maintain proper frequency capping with UID2?
+<!-- FAQ_29 DSP -->
+The UID2 has the same chance as a cookie of becoming stale. Hence, the DSP can adapt the same infrastructure currently used for cookie or deviceID-based frequency capping for UID2. For details, see this [FAQ](../guides/advertiser-dataprovider-guide.md#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation) on salt bucket rotation. 
+
+### Will all user opt-out traffic be sent to the DSP?
+<!-- FAQ_30 DSP -->
+Yes, all opt-outs from the UID2 [Transparency and Control Portal](https://transparentadvertising.org/) hit the opt-out endpoint, which the DSP must configure to [honor user opt-outs](#honor-user-opt-outs).
+
+### Is the DSP expected to handle opt-out signals only for the UID2s that they already store?
+<!-- FAQ_31 DSP -->
+In some cases a DSP may receive a UID2 token for a newly-stored UID2 where the token is generated before the opt-out timestamp. The DSP is not allowed to bid on such tokens. It is therefore recommended to store all opt-out signals regardless of whether the corresponding UID2 is currently stored by the DSP or not. For details, see the diagram in [Bidding Opt-Out Logic](../guides/dsp-guide.md#bidding-opt-out-logic).
+
+### How long should the DSP keep the opt-out list?
+<!-- FAQ_32 DSP -->
+At least for 30 days.
+
+### Is the UID of an opted-out user sent to the opt-out endpoint in an encrypted form?
+<!-- FAQ_33 DSP -->
+No. It is sent as an unencrypted (raw) UID2.
+
+### What request type do opt-outs use? 
+<!-- FAQ_34 DSP -->
+Typically GET requests, but different DSPs may use different types.
+
+### How strict are the requirements for honoring opt-outs? 
+<!-- FAQ_35 DSP -->
+Opt-outs must be always respected. It may take some time for an opt-out request to propagate through the system during which time it is expected that some bids may not honor the opt-out.
+
+### How many decryption keys may be present in memory at any point?
+<!-- FAQ_36 DSP -->
+There may be thousands of decryption keys present in the system at any given point.
