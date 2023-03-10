@@ -25,6 +25,31 @@ Frequently asked questions for UID2 are broken into the following categories:
    - [How can I test that the PII sent and the returned token match up?](#how-can-i-test-that-the-pii-sent-and-the-returned-token-match-up-without-sdk)
    - [How can I test the refresh token logout workflow?](#how-can-i-test-the-refresh-token-logout-workflow-without-sdk)
    - [Should /token/generate return the “optout” status and generate no tokens if I pass optout@email.com in the request payload?](#should-tokengenerate-return-the-optout-status-and-generate-no-tokens-if-i-pass-optoutemailcom-in-the-request-payload-without-sdk)
+- [FAQs for Advertisers and Data Providers](#faqs-for-advertisers-and-data-providers)
+   - [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
+   - [Do refreshed emails get assigned to the same bucket with which they were previously associated?](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
+   - [How often should UIDs be refreshed for incremental updates?](#how-often-should-uids-be-refreshed-for-incremental-updates)
+   - [How should I generate the SHA256 of PII for mapping?](#how-should-i-generate-the-sha256-of-pii-for-mapping)
+   - [Should I store large volumes of email address, phone number, or their hash mappings? ](#should-i-store-large-volumes-of-email-address-phone-number-or-their-hash-mappings)
+   - [How should I handle user optouts?](#how-should-i-handle-user-optouts)
+
+
+- [FAQs for xxx](#faqs-for-xxx)
+   - [xxx](#xxx)
+   - [xxx](#xxx)
+   - [xxx](#xxx)
+   - [xxx](#xxx)
+   - [xxx](#xxx)
+   - [xxx](#xxx)
+   - [xxx](#xxx)
+   - [xxx](#xxx)
+   - [xxx](#xxx)
+
+
+
+
+
+
 
 ## FAQs -- General
 
@@ -153,3 +178,38 @@ The [POST /token/generate](../endpoints/post-token-generate.md) endpoint does no
 >IMPORTANT:Be sure to call this endpoint only when you have obtained legal basis to convert the user's PII to UID2 tokens. [POST /token/generate](../endpoints/post-token-generate.md) calls automatically opt in users associated with the provided PII to UID2-based targeted advertising. 
  
 To check for opt-out requests, use the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint.
+
+## FAQs for Advertisers and Data Providers
+Here are some frequently asked questions for advertisers and data providers using the UID2 framework.
+
+### How do I know when to refresh the UID2 due to salt bucket rotation?
+<!-- FAQ_19 ADP -->
+Metadata supplied with the UID2 generation request indicates the salt bucket used for generating the UID2. Salt buckets persist and correspond to the underlying PII used to generate a UID2. Use the  [POST /identity/buckets](../endpoints/post-identity-buckets.md) endpoint to return which salt buckets rotated since a given timestamp. The returned rotated salt buckets inform you which UID2s to refresh.
+
+### Do refreshed emails get assigned to the same bucket with which they were previously associated?
+<!-- FAQ_20 ADP -->
+Not necessarily. After you remap emails associated with a particular bucket ID, the emails might be assigned to a different bucket ID. To check the bucket ID, [call the mapping function](../guides/advertiser-dataprovider-guide.md#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) and save the returned UID2 and bucket ID again.
+
+>IMPORTANT: When mapping and remapping emails, be sure not to make any assumptions of the number of buckets, their specific rotation dates, or to which bucket an email gets assigned. 
+
+### How often should UIDs be refreshed for incremental updates?
+<!-- FAQ_21 ADP -->
+The recommended cadence for updating audiences is daily. 
+
+Even though each salt bucket is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets is rotated daily. If fidelity is critical, consider calling the [POST /identity/buckets](../endpoints/post-identity-buckets.md) endpoint more frequently, for example, hourly.
+
+### How should I generate the SHA256 of PII for mapping?
+<!-- FAQ_22 ADP -->
+The system should follow the [email normalization rules](../../README.md#email-address-normalization) and hash without salting.
+
+### Should I store large volumes of email address, phone number, or their hash mappings? 
+<!-- FAQ_23 ADP -->
+Yes. Not storing mappings may increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily.
+
+>IMPORTANT: Unless you are using a private operator, you must map email addresses, phone numbers, or hashes consecutively, using a single HTTP connection, in batches of 5,000 emails at a time. In other words, do your mapping without creating multiple parallel connections. 
+
+### How should I handle user optouts?
+<!-- FAQ_24 ADP -->
+When a user opts out of UID2-based targeted advertising through the [Transparency and Control Portal](https://www.transparentadvertising.org/), the optout signal is sent to DSPs and publishers, which handle optouts at bid time. As an advertiser or data provider, you do not need to check for UID2 optout in this scenario.
+
+If a user opts out through your website, you should follow your internal procedures for handling the optout, for example, you might choose not to generate a UID2 for that user.
