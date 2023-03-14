@@ -7,10 +7,6 @@ Used by: This endpoint is used mainly by publishers.
 
 >IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s PII to UID2 tokens for targeted advertising. This endpoint does not check for opt-out records. To check for opt-out requests, use the [POST /token/refreshpost-token-refresh.md) endpoint.
 
-The following integration workflows use this endpoint:
-* [Client-Side JavaScript SDK Integration Guide](../guides/publisher-client-side.md)
-* [Publisher Integration Guide, Server-Only (Without SDK)](../guides/custom-publisher-integration.md)
-
 ## Request Format 
 
 ```POST '{environment}/v2/token/generate'```
@@ -35,8 +31,7 @@ You must include only one of the following parameters as a key-value pair in the
 | `email_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#email-address-normalization) email address. |
 | `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) phone number for which to generate tokens. |
 | `phone_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#phone-number-normalization) phone number. |
-| `policy` | number | Optional | (Beta) The token generation policy ID. See [Token Generation Policy](#token-generation-policy). |
-
+| `policy` | number | Optional | The token generation policy ID. See [Token Generation Policy](#token-generation-policy). |
 
 ### Request Examples
 
@@ -84,10 +79,16 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
 ```
 For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../ref-info/encryption-decryption.md).
 
-
 ## Decrypted JSON Response Format 
 
 >NOTE: The responses are encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+
+This section includes the following sample responses:
+
+* [Successful Response](#successful-response)
+* [Optout](#optout)
+
+#### Successful Response
 
 A successful decrypted response returns the user's advertising and refresh tokens for the specified email address, phone number, or the respective hash. 
 
@@ -105,16 +106,15 @@ A successful decrypted response returns the user's advertising and refresh token
 }
 ```
 
-Here is an example response when the policy respects user opt-out.
+#### Optout
+
+Here is an example response when the `policy` parameter is included in the request, with a value of `1`, and the user opts out. In all other scenarios, if the user opts out, the tokens are returned (see [Successful Response](#successful-response) above). 
 
 ```json
 {
     "status": "optout"
 }
 ```
-
-The [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) uses this endpoint response payloads to establish and manage the user identity during a user session lifecycle.
-
 
 ### Response Body Properties
 

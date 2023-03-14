@@ -7,10 +7,6 @@ Used by: This endpoint is used mainly by publishers.
 
 >NOTE: This endpoint can be called from the client side (for example, a browser or a mobile app) because it does not require using an API key.
 
-The following integration workflows use this endpoint:
-* [Client-Side JavaScript SDK Integration Guide](../guides/publisher-client-side.md)
-* [Publisher Integration Guide, Server-Only (Without SDK)](../guides/custom-publisher-integration.md)
-
 ## Request Format 
 
 ```POST '{environment}/v2/token/refresh'```
@@ -61,13 +57,13 @@ For details and Python script examples, see [Encrypting Requests and Decrypting 
 
 This section includes the following sample responses:
 
-* [Successful Response](#successful-response)
+* [Successful Response With Tokens](#successful-response-with-tokens)
 * [Optout](#optout)
 * [Error Response](#error-response)
 
-#### Successful Response
+#### Successful Response With Tokens
 
-A decrypted successful response returns new identity tokens issued for the user or indicates that the user has opted out. 
+A decrypted successful response returns new identity tokens issued for the user, or indicates that the user has opted out. The following example returns the identity tokens.
 
 ```json
 {
@@ -85,7 +81,7 @@ A decrypted successful response returns new identity tokens issued for the user 
 
 #### Optout
 
-If a user opted out before the refresh request, the following response will be returned:
+If a user opted out before the refresh request, the following response is returned:
 
 ```json
 {
@@ -103,8 +99,6 @@ An error response might look like the following:
   "message": "Client Error"
 }
 ```
-
-The [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) uses the response payload from this endpoint to establish and manage the user identity during a user session lifecycle.
 
 ### Response Body Properties
 
