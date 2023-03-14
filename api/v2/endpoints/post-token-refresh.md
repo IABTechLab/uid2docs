@@ -7,10 +7,6 @@ Used by: This endpoint is used mainly by publishers.
 
 >NOTE: This endpoint can be called from the client side (for example, a browser or a mobile app) because it does not require using an API key.
 
-The following integration workflows use this endpoint:
-* [Client-Side JavaScript SDK Integration Guide](../guides/publisher-client-side.md)
-* [Publisher Integration Guide, Server-Only (Without SDK)](../guides/custom-publisher-integration.md)
-
 ## Request Format 
 
 ```POST '{environment}/v2/token/refresh'```
@@ -103,8 +99,6 @@ An error response might look like the following:
   "message": "Client Error"
 }
 ```
-
-The [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) uses the response payload from this endpoint to establish and manage the user identity during a user session lifecycle.
 
 ### Response Body Properties
 
