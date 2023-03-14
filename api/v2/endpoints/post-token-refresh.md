@@ -61,13 +61,13 @@ For details and Python script examples, see [Encrypting Requests and Decrypting 
 
 This section includes the following sample responses:
 
-* [Successful Response](#successful-response)
+* [Successful Response With Tokens](#successful-response-with-tokens)
 * [Optout](#optout)
 * [Error Response](#error-response)
 
-#### Successful Response
+#### Successful Response With Tokens
 
-A decrypted successful response returns new identity tokens issued for the user or indicates that the user has opted out. 
+A decrypted successful response returns new identity tokens issued for the user, or indicates that the user has opted out. The following example returns the identity tokens.
 
 ```json
 {
@@ -85,7 +85,7 @@ A decrypted successful response returns new identity tokens issued for the user 
 
 #### Optout
 
-If a user opted out before the refresh request, the following response will be returned:
+If a user opted out before the refresh request, the following response is returned:
 
 ```json
 {
