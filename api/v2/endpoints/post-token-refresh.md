@@ -59,6 +59,14 @@ For details and Python script examples, see [Encrypting Requests and Decrypting 
 
 >NOTE: The responses are encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
 
+This section includes the following sample responses:
+
+* [Successful Response](#successful-response)
+* [Optout](#optout)
+* [Error Response](#error-response)
+
+#### Successful Response
+
 A decrypted successful response returns new identity tokens issued for the user or indicates that the user has opted out. 
 
 ```json
@@ -81,10 +89,22 @@ If a user opted out before the refresh request, the following response will be r
 
 ```json
 {
-    "status": "optout"
+  "status": "optout"
 }
 ```
-The [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) uses this endpoint response payloads to establish and manage the user identity during a user session lifecycle.
+
+#### Error Response
+
+An error response might look like the following:
+
+```json
+{
+  "status": "client_error",
+  "message": "Client Error"
+}
+```
+
+The [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) uses the response payload from this endpoint to establish and manage the user identity during a user session lifecycle.
 
 ### Response Body Properties
 
@@ -96,7 +116,6 @@ The [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) uses this
 | `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the [CClient-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) will start refreshing the advertising token.<br/>TIP: If you are not using the SDK, consider refreshing the advertising token from this timestamp, too. |
 | `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
 | `refresh_response_key` | string | A key to be used in a new [POST /token/refresh](post-token-refresh.md) request for response decryption. |
-
 
 ### Response Status Codes
 
