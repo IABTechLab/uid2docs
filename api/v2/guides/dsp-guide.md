@@ -38,7 +38,7 @@ https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 
 Use the logic below during bidding (2-b) to honor a user's opt-out.
 
-Leverage the provided [Server-Side SDK Guide for RTB](../sdks/dsp-client-v1-overview.md) to decrypt incoming UID2 tokens. The response contains the UID2 and time the UID2 was created, represented in the psuedocode below as `established_timestamp`. DSPs are required to check the most recent opt-out timestamp for a UID2, represented in the pseudocode below as `optout_timestamp`. 
+Leverage the provided [Server-Side SDK Guide](../sdks/dsp-client-v1-overview.md) to decrypt incoming UID2 tokens. The response contains the UID2 and time the UID2 was created, represented in the psuedocode below as `established_timestamp`. DSPs are required to check the most recent opt-out timestamp for a UID2, represented in the pseudocode below as `optout_timestamp`. 
 
 The following diagram illustrates opt-out logic.
 
@@ -58,7 +58,7 @@ if (established_timestamp < optout_timestamp) {
 
 | Step | SDK | Description |
 | :--- | :--- | :--- |
-| 2-a | [Server-Side SDK Guide for RTB](../sdks/dsp-client-v1-overview.md)  | Leverage the provided SDK to decrypt incoming UID2 tokens. The response contains the `UID2` and the UID2 creation time. |
+| 2-a | [Server-Side SDK Guide](../sdks/dsp-client-v1-overview.md)  | Leverage the provided SDK to decrypt incoming UID2 tokens. The response contains the `UID2` and the UID2 creation time. |
 | 2-b | | DSPs are required to honor opt-out protocol for UID2s. For details on configuring user opt-outs and honoring them during bidding, see [Honor user opt-outs](#honor-user-opt-outs). |
 
 ## FAQs

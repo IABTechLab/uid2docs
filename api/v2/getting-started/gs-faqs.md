@@ -45,6 +45,7 @@ Frequently asked questions for UID2 are broken into the following categories:
    - [What request type do opt-outs use?](#what-request-type-do-opt-outs-use)
    - [How strict are the requirements for honoring opt-outs?](#how-strict-are-the-requirements-for-honoring-opt-outs)
    - [How many decryption keys may be present in memory at any point?](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
+   - [How do SDK errors impact the DSP's ability to respond to a bid?](#how-do-sdk-errors-impact-the-dsps-ability-to-respond-to-a-bid)
 
 ## FAQs -- General
 
@@ -214,11 +215,11 @@ Here are some frequently asked questions for DSPs.
 
 ### How do I know which decryption key to apply to a UID2?
 <!-- FAQ_25 DSP -->
-The provided [Server-Side SDK Guide for RTB](../sdks/dsp-client-v1-overview.md) updates decryption keys automatically. Metadata supplied with the UID2 token discloses the IDs of the decryption keys to use. 
+The provided [Server-Side SDK Guide](../sdks/dsp-client-v1-overview.md) updates decryption keys automatically. Metadata supplied with the UID2 token discloses the IDs of the decryption keys to use. 
 
 ### Where do I get the decryption keys?
 <!-- FAQ_26 DSP -->
-You can use the [Server-Side SDK Guide for RTB](../sdks/dsp-client-v1-overview.md) library to communicate with the UID2 service and fetch the latest keys. To make sure that the keys remain up-to-date, it is recommended to fetch them periodically, for example, once every hour. 
+You can use the [Server-Side SDK Guide](../sdks/dsp-client-v1-overview.md) library to communicate with the UID2 service and fetch the latest keys. To make sure that the keys remain up-to-date, it is recommended to fetch them periodically, for example, once every hour. 
 
 ### How do I know if/when the salt bucket has rotated?
 <!-- FAQ_27 DSP -->
@@ -259,3 +260,7 @@ Opt-outs must be always respected. It may take some time for an opt-out request 
 ### How many decryption keys may be present in memory at any point?
 <!-- FAQ_36 DSP -->
 There may be thousands of decryption keys present in the system at any given point.
+
+### How do SDK errors impact the DSP's ability to respond to a bid?
+<!-- FAQ_37 DSP-client-v1 -->
+If there is an error, the SDK will not decrypt the UID2 token into a UID2.
