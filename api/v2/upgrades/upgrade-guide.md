@@ -14,7 +14,7 @@ This guide outlines the differences between the UID2 v1 and v2 APIs and explains
 
 The v2 updates to the UID2 API include the following:
 
-- [Application API layer encryption](../ref-info/encryption-decryption.md) has been added. It provides E2E content protection and prevents sensitive UID2 information from leaking to a network operator or the UID2 service operator.<br/>This also means that performing calls to the v2 endpoints requires encrypting the POST request body and decrypting the response.
+- [Application API layer encryption](../getting-started/gs-encryption-decryption.md) has been added. It provides E2E content protection and prevents sensitive UID2 information from leaking to a network operator or the UID2 service operator.<br/>This also means that performing calls to the v2 endpoints requires encrypting the POST request body and decrypting the response.
 - In addition to the client API key for [authentication](../summary-doc-v2.md#authentication-and-authorization), a client secret is now required for encrypting API requests and decrypting API responses.
 - The HTTP request type of all GET endpoints in the [UID2 API v1](../../v1/endpoints/README.md) has changed from GET to POST in the [UID2 API v2](../endpoints/summary-endpoints.md).
 - No more query parameters are required in requests. The new POST methods take input parameters as the request body in JSON format. 
@@ -86,7 +86,7 @@ As part of the upgrade, on the server side of your application, you must replace
 
 Here's what you need to know and do:
 
-- Performing a [POST /token/generate](../endpoints/post-token-generate.md) call requires encrypting the request body and decrypting the response. For details and examples, see [Encrypting Requests and Decrypting Responses](../ref-info/encryption-decryption.md).
+- Performing a [POST /token/generate](../endpoints/post-token-generate.md) call requires encrypting the request body and decrypting the response. For details and examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 - The JSON response from the [POST /token/generate](../endpoints/post-token-generate.md) endpoint contains a new property: `refresh_response_key`. 
   - If you are using the [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) (regardless of the version), you must pass this key to the `init()` function of the SDK along with other response properties. 
   - If you are not using the SDK and are storing the response data in custom storage (for example, a database or a custom first-party cookie), you must update the storage to store the refresh response key. 
@@ -99,7 +99,7 @@ Here's what you need to know and do:
 If you refresh tokens either on server or on client side without using the SDK, keep in mind the following, when making requests to the v2 [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint:
 
  - You can pass the returned refresh token without any modifications in the request body.
- - Refresh tokens returned by the v2 endpoints are expected to have a `refresh_response_key` value returned together with the refresh token. This key is required for [decrypting the response](../ref-info/encryption-decryption.md). 
+ - Refresh tokens returned by the v2 endpoints are expected to have a `refresh_response_key` value returned together with the refresh token. This key is required for [decrypting the response](../getting-started/gs-encryption-decryption.md). 
  - If the response contains a new refresh token, you must save it along with the corresponding `refresh_response_key` value into the user's identity storage (for example, a database or a custom first-party cookie). 
  - Refresh tokens returned by the v1 endpoints do not have the associated `refresh_response_key`, so the response will not be encrypted.
 
@@ -127,7 +127,7 @@ To upgrade to the UID API v2, replace calls to the following v1 endpoints with t
 |[POST /identity/map](../../v1/endpoints/post-identity-map.md) | [POST /identity/map](../endpoints/post-identity-map.md)| The v2 endpoint is identical to the v1 endpoint, except it also maps PII for single users. |
 |[GET /identity/map](../../v1/endpoints/get-identity-map.md) |[POST /identity/map](../endpoints/post-identity-map.md) |The HTTP request type has changed.<br/>The new POST endpoint maps PII for single and multiple users. |
 
->IMPORTANT: Performing calls to the UID2 API v2 requires encrypting the POST request body and decrypting the response. For details and examples, see [Encrypting Requests and Decrypting Responses](../ref-info/encryption-decryption.md).
+>IMPORTANT: Performing calls to the UID2 API v2 requires encrypting the POST request body and decrypting the response. For details and examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
 
 ## FAQs
@@ -154,4 +154,4 @@ To obtain your secret key, [contact the UID2 administrator](../../README.md#cont
 
 ### How do I encrypt requests and decrypt responses?
 
-The [Encrypting Requests and Decrypting Responses](../ref-info/encryption-decryption.md) page explains the workflow and provides examples in Python.
+The [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) page explains the workflow and provides examples in Python.
