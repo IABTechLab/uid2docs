@@ -5,34 +5,11 @@
 Frequently asked questions for UID2 are broken into the following categories:
 
 - [FAQs -- General](#faqs----general)
-   - [Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
-   - [Can users opt out of targeted advertising tied to their UID2 identity?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2-identity)
-   - [How does a user know where to access the opt-out portal?](#how-does-a-user-know-where-to-access-the-opt-out-portal)
-   - [Why do advertisers and third-party data providers not need to integrate with the opt-out feed?](#why-do-advertisers-and-third-party-data-providers-not-need-to-integrate-with-the-opt-out-feed)
 - [FAQs for Publishers Using an SDK](#faqs-for-publishers-using-an-sdk)
-   - [How will I be notified of user opt-out?](#how-will-i-be-notified-of-user-opt-out-with-sdk)
-   - [Where should I make token generation calls -- from the server or client side?](#where-should-i-make-token-generation-calls----from-the-server-or-client-side-with-sdk)
-   - [Can I make token refresh calls from the client side?](#can-i-make-token-refresh-calls-from-the-client-side-with-sdk)
-   - [How can I test that the PII sent and the returned token match up?](#how-can-i-test-that-the-pii-sent-and-the-returned-token-match-up-with-sdk)
-   - [How can I test the refresh token logout workflow?](#how-can-i-test-the-refresh-token-logout-workflow-with-sdk)
-   - [Should /token/generate return the “optout” status and generate no tokens if I pass optout@email.com in the request payload?](#should-tokengenerate-return-the-optout-status-and-generate-no-tokens-if-i-pass-optoutemailcom-in-the-request-payload-with-sdk)
 - [FAQs for Publishers Not Using an SDK](#faqs-for-publishers-not-using-an-sdk)
-   - [Do I need to decrypt tokens?](#do-i-need-to-decrypt-tokens)
-   - [How will I be notified of user opt-out?](#how-will-i-be-notified-of-user-opt-out-without-sdk)
-   - [Where should I make token generation calls -- from the server or client side?](#where-should-i-make-token-generation-calls----from-the-server-or-client-side-without-sdk)
-   - [Can I make token refresh calls from the client side?](#can-i-make-token-refresh-calls-from-the-client-side-without-sdk)
-   - [What is the uniqueness and rotation policy for UID2 tokens?](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
-   - [How can I test that the PII sent and the returned token match up?](#how-can-i-test-that-the-pii-sent-and-the-returned-token-match-up-without-sdk)
-   - [How can I test the refresh token logout workflow?](#how-can-i-test-the-refresh-token-logout-workflow-without-sdk)
-   - [Should /token/generate return the “optout” status and generate no tokens if I pass optout@email.com in the request payload?](#should-tokengenerate-return-the-optout-status-and-generate-no-tokens-if-i-pass-optoutemailcom-in-the-request-payload-without-sdk)
 - [FAQs for Advertisers and Data Providers](#faqs-for-advertisers-and-data-providers)
-   - [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
-   - [Do refreshed emails get assigned to the same bucket with which they were previously associated?](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
-   - [How often should UIDs be refreshed for incremental updates?](#how-often-should-uids-be-refreshed-for-incremental-updates)
-   - [How should I generate the SHA256 of PII for mapping?](#how-should-i-generate-the-sha256-of-pii-for-mapping)
-   - [Should I store large volumes of email address, phone number, or their hash mappings? ](#should-i-store-large-volumes-of-email-address-phone-number-or-their-hash-mappings)
-   - [How should I handle user optouts?](#how-should-i-handle-user-optouts)
 - [FAQs for Demand-Side Platforms (DSPs)](#faqs-for-demand-side-platforms-dsps)
+<<<<<<< Updated upstream
    - [How do I know which decryption key to apply to a UID2?](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
    - [Where do I get the decryption keys?](#where-do-i-get-the-decryption-keys)
    - [How do I know if/when the salt bucket has rotated?](#how-do-i-know-ifwhen-the-salt-bucket-has-rotated)
@@ -45,10 +22,17 @@ Frequently asked questions for UID2 are broken into the following categories:
    - [What request type do opt-outs use?](#what-request-type-do-opt-outs-use)
    - [How strict are the requirements for honoring opt-outs?](#how-strict-are-the-requirements-for-honoring-opt-outs)
    - [How many decryption keys may be present in memory at any point?](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
+=======
+>>>>>>> Stashed changes
 
 ## FAQs -- General
 
 Here are some frequently asked questions regarding the UID2 framework.
+
+   - [Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
+   - [Can users opt out of targeted advertising tied to their UID2 identity?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2-identity)
+   - [How does a user know where to access the opt-out portal?](#how-does-a-user-know-where-to-access-the-opt-out-portal)
+   - [Why do advertisers and third-party data providers not need to integrate with the opt-out feed?](#why-do-advertisers-and-third-party-data-providers-not-need-to-integrate-with-the-opt-out-feed)
 
 ### Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?
 <!-- FAQ_01 -->
@@ -71,6 +55,13 @@ Opt-outs relate to opting out of targeted advertising, which is handled through 
 ## FAQs for Publishers Using an SDK
 
 Here are some frequently asked questions for publishers using the UID2 framework, when a client-side SDK is in use.
+
+   - [How will I be notified of user opt-out?](#how-will-i-be-notified-of-user-opt-out-with-sdk)
+   - [Where should I make token generation calls -- from the server or client side?](#where-should-i-make-token-generation-calls----from-the-server-or-client-side-with-sdk)
+   - [Can I make token refresh calls from the client side?](#can-i-make-token-refresh-calls-from-the-client-side-with-sdk)
+   - [How can I test that the PII sent and the returned token match up?](#how-can-i-test-that-the-pii-sent-and-the-returned-token-match-up-with-sdk)
+   - [How can I test the refresh token logout workflow?](#how-can-i-test-the-refresh-token-logout-workflow-with-sdk)
+   - [Should /token/generate return the “optout” status and generate no tokens if I pass optout@email.com in the request payload?](#should-tokengenerate-return-the-optout-status-and-generate-no-tokens-if-i-pass-optoutemailcom-in-the-request-payload-with-sdk)
 
 ### How will I be notified of user opt-out? (With SDK)
 <!-- FAQ_05 -->
@@ -118,7 +109,17 @@ The [POST /token/generate](../endpoints/post-token-generate.md) endpoint does no
 To check for opt-out requests, use the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint.
 
 ## FAQs for Publishers Not Using an SDK
+
 Here are some frequently asked questions for publishers using the UID2 framework, when the publisher is not using a client-side SDK.
+
+   - [Do I need to decrypt tokens?](#do-i-need-to-decrypt-tokens)
+   - [How will I be notified of user opt-out?](#how-will-i-be-notified-of-user-opt-out-without-sdk)
+   - [Where should I make token generation calls -- from the server or client side?](#where-should-i-make-token-generation-calls----from-the-server-or-client-side-without-sdk)
+   - [Can I make token refresh calls from the client side?](#can-i-make-token-refresh-calls-from-the-client-side-without-sdk)
+   - [What is the uniqueness and rotation policy for UID2 tokens?](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
+   - [How can I test that the PII sent and the returned token match up?](#how-can-i-test-that-the-pii-sent-and-the-returned-token-match-up-without-sdk)
+   - [How can I test the refresh token logout workflow?](#how-can-i-test-the-refresh-token-logout-workflow-without-sdk)
+   - [Should /token/generate return the “optout” status and generate no tokens if I pass optout@email.com in the request payload?](#should-tokengenerate-return-the-optout-status-and-generate-no-tokens-if-i-pass-optoutemailcom-in-the-request-payload-without-sdk)
 
 ### Do I need to decrypt tokens?
 <!-- FAQ_11 -->
@@ -175,7 +176,15 @@ The [POST /token/generate](../endpoints/post-token-generate.md) endpoint does no
 To check for opt-out requests, use the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint.
 
 ## FAQs for Advertisers and Data Providers
+
 Here are some frequently asked questions for advertisers and data providers using the UID2 framework.
+
+   - [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
+   - [Do refreshed emails get assigned to the same bucket with which they were previously associated?](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
+   - [How often should UIDs be refreshed for incremental updates?](#how-often-should-uids-be-refreshed-for-incremental-updates)
+   - [How should I generate the SHA256 of PII for mapping?](#how-should-i-generate-the-sha256-of-pii-for-mapping)
+   - [Should I store large volumes of email address, phone number, or their hash mappings? ](#should-i-store-large-volumes-of-email-address-phone-number-or-their-hash-mappings)
+   - [How should I handle user optouts?](#how-should-i-handle-user-optouts)
 
 ### How do I know when to refresh the UID2 due to salt bucket rotation?
 <!-- FAQ_19 ADP -->
@@ -210,7 +219,22 @@ When a user opts out of UID2-based targeted advertising through the [Transparenc
 If a user opts out through your website, you should follow your internal procedures for handling the optout, for example, you might choose not to generate a UID2 for that user.
 
 ## FAQs for Demand-Side Platforms (DSPs)
+
 Here are some frequently asked questions for DSPs.
+
+   - [How do I know which decryption key to apply to a UID2?](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
+   - [Where do I get the decryption keys?](#where-do-i-get-the-decryption-keys)
+   - [How do I know if/when the salt bucket has rotated?](#how-do-i-know-ifwhen-the-salt-bucket-has-rotated)
+   - [Should the DSP be concerned with latency?](#should-the-dsp-be-concerned-with-latency)
+   - [How should the DSP maintain proper frequency capping with UID2?](#how-should-the-dsp-maintain-proper-frequency-capping-with-uid2)
+   - [Will all user opt-out traffic be sent to the DSP?](#will-all-user-opt-out-traffic-be-sent-to-the-dsp)
+   - [Is the DSP expected to handle opt-out signals only for the UID2s that they already store?](#is-the-dsp-expected-to-handle-opt-out-signals-only-for-the-uid2s-that-they-already-store)
+   - [How long should the DSP keep the opt-out list?](#how-long-should-the-dsp-keep-the-opt-out-list)
+   - [Is the UID of an opted-out user sent to the opt-out endpoint in an encrypted form?](#is-the-uid-of-an-opted-out-user-sent-to-the-opt-out-endpoint-in-an-encrypted-form)
+   - [What request type do opt-outs use?](#what-request-type-do-opt-outs-use)
+   - [How strict are the requirements for honoring opt-outs?](#how-strict-are-the-requirements-for-honoring-opt-outs)
+   - [How many decryption keys may be present in memory at any point?](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
+   - [How do SDK errors impact the DSP's ability to respond to a bid?](#how-do-sdk-errors-impact-the-dsps-ability-to-respond-to-a-bid)
 
 ### How do I know which decryption key to apply to a UID2?
 <!-- FAQ_25 DSP -->
@@ -230,11 +254,11 @@ The UID2 service does not introduce latency into the bidding process. Any latenc
 
 ### How should the DSP maintain proper frequency capping with UID2?
 <!-- FAQ_29 DSP -->
-The UID2 has the same chance as a cookie of becoming stale. Hence, the DSP can adapt the same infrastructure currently used for cookie or deviceID-based frequency capping for UID2. For details, see this [FAQ](../guides/advertiser-dataprovider-guide.md#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation) on salt bucket rotation. 
+The UID2 has the same chance as a cookie of becoming stale. Hence, the DSP can adapt the same infrastructure currently used for cookie or deviceID-based frequency capping for UID2. For details, see [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
 
 ### Will all user opt-out traffic be sent to the DSP?
 <!-- FAQ_30 DSP -->
-Yes, all opt-outs from the UID2 [Transparency and Control Portal](https://transparentadvertising.org/) hit the opt-out endpoint, which the DSP must configure to [honor user opt-outs](#honor-user-opt-outs).
+Yes, all opt-outs from the UID2 [Transparency and Control Portal](https://transparentadvertising.org/) hit the opt-out endpoint, which the DSP must configure to [honor user opt-outs](../guides/dsp-guide.md#honor-user-opt-outs).
 
 ### Is the DSP expected to handle opt-out signals only for the UID2s that they already store?
 <!-- FAQ_31 DSP -->
