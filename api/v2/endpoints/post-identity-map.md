@@ -2,9 +2,9 @@
 
 # POST /identity/map
 
-Map multiple email addresses, phone numbers, or respective hashes to their UID2s and salt bucket IDs. This endpoint is intended for use by [advertisers and data providers](../guides/advertiser-dataprovider-guide.md).
+Map multiple email addresses, phone numbers, or respective hashes to their UID2s and salt bucket IDs.
 
-Used by: This endpoint is used mainly by advertisers and third-party data providers.
+Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md).
 
 ## Batch Size and Request Parallelization Requirements
 
