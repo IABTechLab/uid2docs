@@ -4,6 +4,8 @@
 
 複数のメールアドレスや電話番号、それぞれのハッシュを、UID2 やソルトバケット ID にマッピングします。このエンドポイントは [広告主とデータプロバイダー](../guides/advertiser-dataprovider-guide.md) による利用を対象としています。
 
+Used by: このエンドポイントは、主に広告主とサードパーティのデータプロバイダーが使用します。
+
 ## Batch Size and Request Parallelization Requirements
 
 知っておくべきことは次のとおりです:
