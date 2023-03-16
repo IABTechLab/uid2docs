@@ -49,7 +49,7 @@ echo AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNS
   | decrypt_response.py wR5t6HKMfJ2r4J7fEGX9Gw== --is-refresh
 ```
 
-For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../ref-info/encryption-decryption.md).
+For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
 ## Decrypted JSON Response Format
 
