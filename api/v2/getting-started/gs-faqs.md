@@ -9,21 +9,6 @@ Frequently asked questions for UID2 are broken into the following categories:
 - [FAQs for Publishers Not Using an SDK](#faqs-for-publishers-not-using-an-sdk)
 - [FAQs for Advertisers and Data Providers](#faqs-for-advertisers-and-data-providers)
 - [FAQs for Demand-Side Platforms (DSPs)](#faqs-for-demand-side-platforms-dsps)
-<<<<<<< Updated upstream
-   - [How do I know which decryption key to apply to a UID2?](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
-   - [Where do I get the decryption keys?](#where-do-i-get-the-decryption-keys)
-   - [How do I know if/when the salt bucket has rotated?](#how-do-i-know-ifwhen-the-salt-bucket-has-rotated)
-   - [Should the DSP be concerned with latency?](#should-the-dsp-be-concerned-with-latency)
-   - [How should the DSP maintain proper frequency capping with UID2?](#how-should-the-dsp-maintain-proper-frequency-capping-with-uid2)
-   - [Will all user opt-out traffic be sent to the DSP?](#will-all-user-opt-out-traffic-be-sent-to-the-dsp)
-   - [Is the DSP expected to handle opt-out signals only for the UID2s that they already store?](#is-the-dsp-expected-to-handle-opt-out-signals-only-for-the-uid2s-that-they-already-store)
-   - [How long should the DSP keep the opt-out list?](#how-long-should-the-dsp-keep-the-opt-out-list)
-   - [Is the UID of an opted-out user sent to the opt-out endpoint in an encrypted form?](#is-the-uid-of-an-opted-out-user-sent-to-the-opt-out-endpoint-in-an-encrypted-form)
-   - [What request type do opt-outs use?](#what-request-type-do-opt-outs-use)
-   - [How strict are the requirements for honoring opt-outs?](#how-strict-are-the-requirements-for-honoring-opt-outs)
-   - [How many decryption keys may be present in memory at any point?](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
-=======
->>>>>>> Stashed changes
 
 ## FAQs -- General
 
@@ -283,3 +268,7 @@ Opt-outs must be always respected. It may take some time for an opt-out request 
 ### How many decryption keys may be present in memory at any point?
 <!-- FAQ_36 DSP -->
 There may be thousands of decryption keys present in the system at any given point.
+
+### How do SDK errors impact the DSP's ability to respond to a bid?
+<!-- FAQ_37 DSP-client-v1 -->
+If there is an error, the SDK will not decrypt the UID2 token into a UID2.
