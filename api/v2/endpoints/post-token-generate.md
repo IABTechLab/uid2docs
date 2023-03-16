@@ -5,7 +5,7 @@ Opt in the user to UID2-based targeted advertising and generate a UID2 token fro
 
 Used by: This endpoint is used mainly by publishers.
 
->IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s PII to UID2 tokens for targeted advertising. This endpoint does not check for opt-out records. To check for opt-out requests, use the [POST /token/refreshpost-token-refresh.md) endpoint.
+>IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s PII to UID2 tokens for targeted advertising. By default, this endpoint does not check for opt-out records. To check if the user has opted out, use the optional `policy` request parameter with a value of `1`.
 
 ## Request Format 
 
@@ -108,7 +108,7 @@ A successful decrypted response returns the user's advertising and refresh token
 
 #### Optout
 
-Here is an example response when the `policy` parameter is included in the request, with a value of `1`, and the user opts out. In all other scenarios, if the user opts out, the tokens are returned (see [Successful Response](#successful-response) above). 
+Here is an example response when the `policy` parameter is included in the request, with a value of `1`, and the user has opted out. In all other scenarios, if the user has opted out, the tokens are returned (see [Successful Response](#successful-response) above). 
 
 ```json
 {
