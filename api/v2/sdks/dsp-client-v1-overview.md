@@ -43,7 +43,7 @@ The interface allows you to decrypt UID2 advertising tokens and return the corre
 
 >NOTE: When you use an SDK, you do not need to store or manage decryption keys.
 
-If you're a DSP, as part of bidding, call the interface to decrypt a UID2 token and return the UID2. For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
+If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising token and return the UID2. For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
 
 ```java
 public Response Decrypt(String encryptedToken)
@@ -64,10 +64,10 @@ Available information returned through the SDK is outlined in the following tabl
 | Value | Description |
 | :--- | :--- |
 | `Success` | The UID2 advertising token was decrypted successfully and a raw UID2 was returned. |
-| `NotAuthorizedForKey` | The requester does not have authorization to decrypt this UID2 token.|
+| `NotAuthorizedForKey` | The requester does not have authorization to decrypt this UID2 advertising token.|
 | `NotInitialized` | The client library is waiting to be initialized. |
-| `InvalidPayload` | The incoming UID2 token is not a valid payload. |
-| `ExpiredToken` | The incoming UID2 token has expired. |
+| `InvalidPayload` | The incoming UID2 advertising token is not a valid payload. |
+| `ExpiredToken` | The incoming UID2 advertising token has expired. |
 | `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
 | `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
 

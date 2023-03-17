@@ -2,9 +2,9 @@
 
 # POST /identity/map
 
-Map multiple email addresses, phone numbers, or respective hashes to their UID2s and salt bucket IDs. This endpoint is intended for use by [advertisers and data providers](../guides/advertiser-dataprovider-guide.md).
+Map multiple email addresses, phone numbers, or respective hashes to their UID2s and salt bucket IDs.
 
-Used by: This endpoint is used mainly by advertisers and third-party data providers.
+Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md).
 
 ## Batch Size and Request Parallelization Requirements
 
@@ -20,7 +20,7 @@ Here's what you need to know:
 
 ```POST '{environment}/v2/identity/map'```
 
->IMPORTANT: You must encrypt all request using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../ref-info/encryption-decryption.md).
+>IMPORTANT: You must encrypt all request using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
 ### Path Parameters
 
@@ -95,7 +95,7 @@ echo '{"phone": ["+1111111111", "+2222222222"]}' \
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= 
 ```
 
-For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../ref-info/encryption-decryption.md).
+For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
 ## Decrypted JSON Response Format
 

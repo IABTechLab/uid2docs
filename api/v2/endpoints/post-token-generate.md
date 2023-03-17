@@ -5,7 +5,7 @@ Opt in the user to UID2-based targeted advertising and generate a UID2 token fro
 
 Used by: This endpoint is used mainly by publishers.
 
->IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s PII to UID2 tokens for targeted advertising. This endpoint does not check for opt-out records. To check for opt-out requests, use the [POST /token/refreshpost-token-refresh.md) endpoint.
+>IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s PII to UID2 tokens for targeted advertising. By default, this endpoint does not check for opt-out records. To check if the user has opted out, use the optional `policy` request parameter with a value of `1`.
 
 ## Request Format 
 
@@ -13,7 +13,7 @@ Used by: This endpoint is used mainly by publishers.
 
 Here's what you need to know about this endpoint requests:
 - To ensure that the API key used to access the service remains secret, UID2 tokens must be generated only on the server side after authentication. 
-- You must encrypt all requests using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../ref-info/encryption-decryption.md).
+- You must encrypt all requests using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
 ### Path Parameters
 
@@ -77,7 +77,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
   | curl -X POST 'https://prod.uidapi.com/v2/token/generate' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -d @- \
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
-For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../ref-info/encryption-decryption.md).
+For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
 ## Decrypted JSON Response Format 
 
@@ -108,7 +108,7 @@ A successful decrypted response returns the user's advertising and refresh token
 
 #### Optout
 
-Here is an example response when the `policy` parameter is included in the request, with a value of `1`, and the user opts out. In all other scenarios, if the user opts out, the tokens are returned (see [Successful Response](#successful-response) above). 
+Here is an example response when the `policy` parameter is included in the request, with a value of `1`, and the user has opted out. In all other scenarios, if the user has opted out, the tokens are returned (see [Successful Response](#successful-response) above). 
 
 ```json
 {
