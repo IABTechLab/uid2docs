@@ -1,14 +1,25 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [SDKs](summary-sdks.md) > Server-Side SDK Guide for RTB
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [SDKs](summary-sdks.md) > Server-Side SDK Guide
 
-# Server-Side SDK Guide for RTB
+# Server-Side SDK Guide
 
-You can use UID2 server-side SDKs for RTB, to facilitate decrypting the UID2 tokens to access the raw UID2. 
+You can use UID2 server-side SDKs to facilitate decrypting UID2 advertising tokens to access the raw UID2. 
+
+This guide includes the following information:
+
+- [Overview](#overview)
+- [Initialization](#initialization)
+- [Interface](#interface)
+  - [Response Content](#response-content)
+  - [Response Statuses](#response-statuses)
+* [FAQs](#faqs)
+
+## Overview
 
 The following functions define the information that you'll need to configure or can retrieve from the library. The parameters and property names defined below are pseudocode. Actual parameters and property names vary by language but will be similar to the information outlined below.
 
 Libraries are currently available in the following languages. More languages are in development. 
 
-| Language | Link to SDK |
+| Language | Link to SDK Repo |
 | :--- | :--- |
 | C#  | [UID2 Client for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md) |
 | C++ | [UID2 Client for C++](https://github.com/IABTechLab/uid2-client-cpp11/blob/master/README.md) |
@@ -21,47 +32,47 @@ The initialization function configures the parameters necessary for the SDK to a
 
 | Parameter | Description | Recommended Value |
 | :--- | :--- | :--- |
-| `endpoint` | The endpoint for UID2 service. | N/A |
+| `endpoint` | The endpoint for the UID2 service. | N/A |
 | `authKey` | The authentication token that belongs to the client. For access to UID2, see [Contact Info](../../README.md#contact-info). | N/A |
-| `refreshIntervalMs` | Refresh cadence (in milliseconds) for fetching the decryption keys.| 5 minutes (`300,000` milliseconds) |
-| `retryIntervalMs` | Retry cadence (in millisecond) for retrying the request when encountering an error.  | 30 seconds (`30,000` milliseconds)|
-
+| `refreshIntervalMs` | The refresh cadence, in milliseconds, for fetching the decryption keys.| `300,000` milliseconds (5 minutes) |
+| `retryIntervalMs` | The retry cadence, in millisecond, for retrying the request if there is an error.  | `30,000` milliseconds (30 seconds) |
 
 ## Interface 
 
-The interface allows you to decrypt UID2 tokens and return the corresponding UID2. 
+The interface allows you to decrypt UID2 advertising tokens and return the corresponding raw UID2. 
 
->NOTE: Using the SDK, you do not need to store or manage decryption keys.
+>NOTE: When you use an SDK, you do not need to store or manage decryption keys.
 
-During RTB, call the interface to decrypt a UID2 token and return the UID2. For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
+If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising token and return the UID2. For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
 
 ```java
 public Response Decrypt(String encryptedToken)
 ```
 
+### Response Content
+
 Available information returned through the SDK is outlined in the following table.
 
 | Property | Description |
 | :--- | :--- |
-| `Status` | The decryption result status. For a list of response statuses and their definitions, see the following table. |
-| `UID2` | The UID2 for the corresponding UID2 token. |
+| `Status` | The decryption result status. For a list of possible values and definitions, see [Response Statuses](#response-statuses). |
+| `UID2` | The raw UID2 for the corresponding UID2 advertising token. |
 | `Established` | The timestamp when a user first established the UID2 with the publisher. |
 
-
-Response Statuses
+### Response Statuses
 
 | Value | Description |
 | :--- | :--- |
-| `Success` | The UID2 token decrypted successfully and a UID2 was returned. |
-| `NotAuthorizedForKey` | The requester does not have authorization to decrypt this UID2 token.|
+| `Success` | The UID2 advertising token was decrypted successfully and a raw UID2 was returned. |
+| `NotAuthorizedForKey` | The requester does not have authorization to decrypt this UID2 advertising token.|
 | `NotInitialized` | The client library is waiting to be initialized. |
-| `InvalidPayload` | The incoming UID2 token is not a valid payload. |
-| `ExpiredToken` | The incoming UID2 token has expired. |
-| `KeysNotSynced` | The client has failed to synchronize keys from UID2 service. |
+| `InvalidPayload` | The incoming UID2 advertising token is not a valid payload. |
+| `ExpiredToken` | The incoming UID2 advertising token has expired. |
+| `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
 | `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
 
-## FAQ
+## FAQs
 
-### How do SDK errors impact the DSP's ability to respond to a bid?
+For a list of frequently asked questions for DSPs, see [FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps).
 
-If there is an error, the SDK will not decrypt the UID2 token into a UID2. 
+For a full list, see [Frequently Asked Questions](../getting-started/gs-faqs.md).
