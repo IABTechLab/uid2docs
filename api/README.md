@@ -47,13 +47,13 @@ To normalize an email address, complete the following steps:
 
 ## Email Address Hash Encoding
 
-an email hash is a base64-encoded SHA256 hash of a normalized email address.
+an email hash is a Base64-encoded SHA-256 hash of a normalized email address.
 
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
 | Normalized email address | `user@example.com` | N/A |
-| SHA256 of email address | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | This 64-character string is a hex-encoded representation of 32-byte SHA256.|
-| base64-encoded SHA256 of email address | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | This 44-character string is a base64-encoded representation of 32-byte SHA256.<br/>Use this encoding for `email_hash` values sent in the request body. |
+| SHA-256 of email address | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | This 64-character string is a hex-encoded representation of 32-byte SHA-256.|
+| Base64-encoded SHA-256 of email address | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | This 44-character string is a Base64-encoded representation of 32-byte SHA-256.<br/>Use this encoding for `email_hash` values sent in the request body. |
 
 ## Phone Number Normalization
 
@@ -69,13 +69,13 @@ Here's what you need to know about phone number normalization rules:
 
 ## Phone Number Hash Encoding
 
-Phone number hashes are base64-encoded SHA256 hashes of a normalized phone number.
+Phone number hashes are Base64-encoded SHA-256 hashes of a normalized phone number.
 
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
 | Normalized phone number | `+12345678901` | N/A |
-| SHA256 of phone number | `10e6f0b47054a83359477dcb35231db6de5c69fb1816e1a6b98e192de9e5b9ee` |This 64-character string is a hex-encoded representation of 32-byte SHA256. |
-| base64-encoded SHA256 of phone number | `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=` | This 44-character string is a base64-encoded representation of 32-byte SHA256.<br/>Use this encoding for `phone_hash` values sent in the request body. |
+| SHA-256 of phone number | `10e6f0b47054a83359477dcb35231db6de5c69fb1816e1a6b98e192de9e5b9ee` |This 64-character string is a hex-encoded representation of 32-byte SHA-256. |
+| Base64-encoded SHA-256 of phone number | `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=` | This 44-character string is a Base64-encoded representation of 32-byte SHA-256.<br/>Use this encoding for `phone_hash` values sent in the request body. |
 
 ## License
 All work and artifacts are licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).

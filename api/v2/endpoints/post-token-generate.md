@@ -28,9 +28,9 @@ You must include only one of the following parameters as a key-value pair in the
 | Body Parameter | Data Type | Attribute | Description | 
 | :--- | :--- | :--- | :--- |
 | `email` | string | Conditionally Required | The email address for which to generate tokens. | 
-| `email_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#email-address-normalization) email address. |
+| `email_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#email-address-normalization) email address. |
 | `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) phone number for which to generate tokens. |
-| `phone_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#phone-number-normalization) phone number. |
+| `phone_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#phone-number-normalization) phone number. |
 | `policy` | number | Optional | The token generation policy ID. See [Token Generation Policy](#token-generation-policy). |
 
 ### Request Examples
