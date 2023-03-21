@@ -2,11 +2,7 @@
 
 # UID2 Operator: AWS Marketplace Integration Guide
 
-The UID2 Operator is the API server in the UID2 ecosystem. To protect Personally Identifiable Information (PII) from unauthorized access, the UID2 Operator solution is enhanced with AWS Nitro Enclave technology.
-
-(gwh/cc_01: who uses AWS marketplace? Is this only for private operator? Should we say that? Proposed mod below.)
-
-The UID2 Operator is the API server in the UID2 ecosystem. For a Private Operator service running in AWS Marketplace, the UID2 Operator solution is enhanced with AWS Nitro Enclave technology. This is an additional security measure to protect Personally Identifiable Information (PII) from unauthorized access.
+The UID2 Operator is the API server in the UID2 ecosystem. For a Private Operator service running in AWS Marketplace, the UID2 Operator solution is enhanced with [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave technology. This is an additional security measure to protect UID2 information from unauthorized access.
 
 This guide includes the following information:
 
@@ -29,17 +25,16 @@ This guide includes the following information:
 By subscribing to the Unified ID 2.0 Operator on AWS Marketplace product, you gain access to the following:
 
 - **Amazon Machine Image (AMI)** with the UID2 Operator service installed and ready to bootstrap:<br/>
-    The AMI contains an Amazon Linux 2 operating system with the UID2 Operator service already set up. When an EC2 instance based on the AMI boots up, it automatically fetches the configuration from your AWS account and starts the UID2 Operator server inside an enclave.  
-- **CloudFormation template**:<br/>
+    The AMI contains an [Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/?amazon-linux-whats-new.sort-by=item.additionalFields.postDateTime&amazon-linux-whats-new.sort-order=desc) operating system with the UID2 Operator service already set up. When an EC2 instance based on the AMI boots up, it automatically fetches the configuration from your AWS account and starts the UID2 Operator server inside an enclave.
+- **[CloudFormation](https://aws.amazon.com/cloudformation/) template**:<br/>
     The template deploys the UID2 Operator AMI.
-    (gwh/cc_02: we had AMIs but it's one per installation probably? Or might the template deploy more than one?)
 
 ### Prerequisites
 
-To subscribe and deploy UID2 Operators on AWS, complete the following steps: (gwh/cc_03: Would the reader be likely to deploy operators, or just, an operator?)
+To subscribe and deploy one or more UID2 Operators on AWS, complete the following steps:
 
 1. Register your organization as a UID2 Operator.
-2. Create an AWS account with an IAM role that has the [minimal privileges](#minimal-iam-role-privileges).  (gwh/cc_04: What is IAM? Do we need to define it?)
+2. Create an AWS account with an [IAM](https://aws.amazon.com/iam/) role that has the [minimal privileges](#minimal-iam-role-privileges).
 
 #### Minimal IAM Role Privileges
 
@@ -113,11 +108,11 @@ The following table lists all resources that are created during the [deployment]
 | Name | Type | Description | Created |
 |:------|:------|:-------------|:--------------|
 | `KMSKey` | `AWS::KMS::Key` | The key for secret encryption (for configuration strings). | Always |
-| `SSMKeyAlias` | `AWS::KMS::Alias` | An alias that provides an easy way to access the KMS key. | Always |
+| `SSMKeyAlias` | `AWS::KMS::Alias` | An alias that provides an easy way to access the [KMS](https://aws.amazon.com/kms/) key. | Always |
 | `TokenSecret` | `AWS::SecretsManager::Secret` | An encrypted configuration that includes the operator key. | Always |
-| `WorkerRole` | `AWS::IAM::Role` | The IAM role that your UID2 Operators run as. Roles provide access to configuration keys. | Always | (gwh/CC_05: more than one operator?)
+| `WorkerRole` | `AWS::IAM::Role` | The IAM role that your UID2 Operators run as. Roles provide access to configuration keys. | Always |
 | `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile` | The instance profile with Worker Role to attach to Operator EC2 instances. | Always |
-| `VPC` | `AWS::EC2::VPC` | Virtual Private Cloud (VPC) is a virtual private network that hosts private operators. You can customize and use an existing one as well. See also [VPC Chart](#vpc-chart).| Conditionally | (gwh/CC_06: an existing VPC, an existing operator?)
+| `VPC` | `AWS::EC2::VPC` | Virtual Private Cloud (VPC) is a virtual private network that hosts private operators. You can customize and use an existing VPC as well. See also [VPC Chart](#vpc-chart).| Conditionally |
 | `Subnet1` | `AWS::EC2::Subnet` | The first subnet of the newly created VPC. | Conditionally |
 | `Subnet2` | `AWS::EC2::Subnet` | The second subnet of the newly created VPC. | Conditionally |
 | `RouteTable` | `AWS::EC2::RouteTable` | The Routing Table of the newly created VPC and subnets. | Conditionally |
@@ -132,9 +127,9 @@ The following table lists all resources that are created during the [deployment]
 Here's what you can customize during or after the [deployment](#deployment):
 
 - VPC: You can either set up a new VPC and subnets or use existing ones.
-- Root volume size (8G Minimal) (gwh/CC_07: minimum?)
-- SSH key: This is the SSH key that you use to access the UID2 Operator EC2 instances.  (gwh/CC_08 one key for multiple instances?)
-- Instance type: m5.2xlarge, m5.4xlarge, and so on. If there is no customization, the default value, m5.2xlarge, is recommended.
+- Root volume size (8G Minimum)
+- SSH key: This is the SSH key that you use to access the UID2 Operator EC2 instances.
+- [Instance type](https://aws.amazon.com/ec2/instance-types/m5/): m5.2xlarge, m5.4xlarge, and so on. If there is no customization, the default value, m5.2xlarge, is recommended.
 
 ### Security Group Policy
 
@@ -142,7 +137,7 @@ Here's what you can customize during or after the [deployment](#deployment):
 
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
-| 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/opt/healthcheck`. |  (gwh/CC_09: there is no doc for this endpoint. Should there be?)
+| 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/opt/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Checking UID2 Operator Status](#checking-uid2-operator-status).|
 | 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). |
 | 443 | Outbound | HTTPS | Calls the UID2 Core Service; updates opt-out data and key store. |
 
@@ -174,7 +169,7 @@ The following images show the **Specify stack details** page in the Create stack
 
 ![Application Configuration](images/cloudformation-step-2.png) 
 
-(gwh/cc_10 not sure where the below image fits in.)
+Lower part of the page:
 
 ![Infrastructure Configuration](images/cloudformation-step-2-2.png)
 
@@ -231,7 +226,7 @@ To create a load balancer and a target operator auto-scaling group, complete the
 8. Go back to the Load Balancer page and select the newly created `UID2SGALB` security group.
 9. Under **Listeners and routing**, click the **Create target group** link and [specify the target group details](#specifying-target-group-details).
 10. Go back to the Load Balancer page. Under **Forward to**, select `UID2ALBTG`, and then change the **Port** value to `443`.
-11. Set up an HTTPS listener by following the instructions in [AWS user guide](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html).
+11. Set up an HTTPS listener by following the instructions in the [AWS user guide](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html).
 12. Click **Create load balancer**.
 
 ### Specifying Target Group Details
