@@ -138,7 +138,7 @@ To map a single email address hash or multiple hashes to the corresponding UID2s
 
 |Argument|Data Type|Description|
 | :--- | :--- | :--- |
-|`EMAIL_HASH`|varchar(128)| The base64-encoded SHA256 hash of the normalized email address of a user. Ensure that the email hash is correctly formatted using the [Email Address Normalization](../../README.md#email-address-normalization) rules. Use the hash computed from the normalized email address.|
+|`EMAIL_HASH`|varchar(128)| The Base64-encoded SHA-256 hash of the normalized email address of a user. Ensure that the email hash is correctly formatted using the [Email Address Normalization](../../README.md#email-address-normalization) rules. Use the hash computed from the normalized email address.|
 
 A successful query returns the following information for the specified email address hash.
 
