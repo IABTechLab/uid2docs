@@ -38,7 +38,7 @@ Here's what you need to know:
 | `email_hash` | string array | Conditionally Required | The list of [Base64-encoded SHA-256](../../README.md#email-address-hash-encoding) hashes of [normalized](../../README.md#email-address-normalization) email addresses. |
 | `phone` | string array | Conditionally Required | The list of [normalized](../../README.md#phone-number-normalization) phone numbers to be mapped. |
 | `phone_hash` | string array | Conditionally Required | The list of [Base64-encoded SHA-256](../../README.md#email-address-hash-encoding) hashes of [normalized](../../README.md#phone-number-normalization) phone numbers. |
-
+| `policy` | integer | Optional | Customize the identity mapping behavior when a user identifier is opted out. For details, see [Identity Map Policy](#identity-map-policy) |
 
 ### Request Examples
 
@@ -123,6 +123,53 @@ A successful decrypted response returns the UID2s and salt bucket IDs for the sp
 }
 ```
 
+If some identifiers are considered invalid, they are included in the response in an "unmapped" list. In this case, the response status is still "success". If all identifiers are mapped, the "unmapped" list is not included in the response.
+
+```json
+{
+    "body":{
+        "mapped": [
+            {
+                "identifier": "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
+                "advertising_id": "AdvIvSiaum0P5s3X/7X8h8sz+OhF2IG8DNbEnkWSbYM=",
+                "bucket_id": "a30od4mNRd"
+            }
+        ],
+        "unmapped": [
+            {
+                "identifier": "some@malformed@email@hash",
+                "reason": "invalid identifier"
+            }
+        ]
+    },
+    "status":"success"
+}
+```
+
+If the request includes the parameter/value `policy=1`, and some identifiers have opted out from the UID2 ecosystem, the opted-out identifiers are moved to the "unmapped" list along with any invalid identifiers found. In this case, the response status is still "success".
+
+```json
+{
+    "body":{
+        "mapped": [
+            {
+                "identifier": "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
+                "advertising_id": "AdvIvSiaum0P5s3X/7X8h8sz+OhF2IG8DNbEnkWSbYM=",
+                "bucket_id": "a30od4mNRd"
+            }
+        ],
+        "unmapped": [
+            {
+                "identifier": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=",
+                "reason": "optout"
+            }
+        ]
+    },
+    "status":"success"
+}
+```
+
+
 ### Response Body Properties
 
 | Property | Data Type | Description |
@@ -142,3 +189,12 @@ The following table lists the `status` property values and their HTTP status cod
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
 If the `status` value is other than `success`, the `message` field provides additional information about the issue.
+
+### Identity Map Policy
+
+The identity map policy lets the caller decide when to generate a token. It is passed as an integer ID in the request body (with key policy). If this parameter is not included, the default value, policy=0, is applied.
+
+| ID | Description |
+| :--- | :--- |
+| 0 | Always maps a user identity to UID2. |
+| 1 | Users who have opted out are not included in the mapping. |
