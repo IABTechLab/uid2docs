@@ -38,7 +38,7 @@ Here's what you need to know:
 | `email_hash` | string array | Conditionally Required | The list of [Base64-encoded SHA-256](../../README.md#email-address-hash-encoding) hashes of [normalized](../../README.md#email-address-normalization) email addresses. |
 | `phone` | string array | Conditionally Required | The list of [normalized](../../README.md#phone-number-normalization) phone numbers to be mapped. |
 | `phone_hash` | string array | Conditionally Required | The list of [Base64-encoded SHA-256](../../README.md#email-address-hash-encoding) hashes of [normalized](../../README.md#phone-number-normalization) phone numbers. |
-| `policy` | integer | Optional | Customize the identity mapping behavior when a user identifier is opted out. See [Identity Map Policy](#identity-map-policy) |
+| `policy` | integer | Optional | Customize the identity mapping behavior when a user identifier is opted out. For details, see [Identity Map Policy](#identity-map-policy) |
 
 ### Request Examples
 
@@ -123,8 +123,7 @@ A successful decrypted response returns the UID2s and salt bucket IDs for the sp
 }
 ```
 
-When some identifiers are considered invalid we will use "unmapped" list to deliver them. In this case, the response status remains "success".
-Note that "unmapped" list does not appear when all identifiers have been mapped.
+If some identifiers are considered invalid, they are included in the response in an "unmapped" list. In this case, the response status is still "success". If all identifiers are mapped, the "unmapped" list is not included in the response.
 
 ```json
 {
@@ -147,7 +146,7 @@ Note that "unmapped" list does not appear when all identifiers have been mapped.
 }
 ```
 
-When caller supplied `policy=1` in the request and some identifiers have opted out from UID2 ecosystem, the identifiers will also be moved to "unmapped" list. The response status is still "success".
+If the request includes the parameter/value `policy=1`, and some identifiers have opted out from the UID2 ecosystem, the opted-out identifiers are moved to the "unmapped" list along with any invalid identifiers found. In this case, the response status is still "success".
 
 ```json
 {
@@ -193,9 +192,9 @@ If the `status` value is other than `success`, the `message` field provides addi
 
 ### Identity Map Policy
 
-The identity map policy let the caller decide when to generate a token. It is passed as an **integer ID** in the request body (with key 'policy') If the parameter is omitted, policy with ID = 0 will be applied.
+The identity map policy lets the caller decide when to generate a token. It is passed as an integer ID in the request body (with key policy). If this parameter is not included, the default value, policy=0, is applied.
 
 | ID | Description |
 | :--- | :--- |
 | 0 | Always maps a user identity to UID2. |
-| 1 | Do not map opt-out users. |
+| 1 | Users who have opted out are not included in the mapping. |
