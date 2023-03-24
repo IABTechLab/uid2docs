@@ -31,9 +31,9 @@ Used by: This endpoint is used mainly by publishers.
 | :--- | :--- | :--- | :--- |
 | `token` | string | Required | The advertising token returned by the [POST /token/generate](post-token-generate.md) response. |
 | `email` | string | Conditionally Required |  The email address for token validation. |
-| `email_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#email-address-normalization) email address for token validation. |
+| `email_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#email-address-normalization) email address for token validation. |
 | `phone` | string | Conditionally Required | The [normalized](../../README.md#phone-number-normalization) phone number for which to generate tokens. |
-| `phone_hash` | string | Conditionally Required | The [base64-encoded SHA256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#phone-number-normalization) phone number. |
+| `phone_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../../README.md#email-address-hash-encoding) hash of a [normalized](../../README.md#phone-number-normalization) phone number. |
 
 
 ### Request Examples

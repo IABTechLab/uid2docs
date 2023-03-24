@@ -167,7 +167,7 @@ Here are some frequently asked questions for advertisers and data providers usin
    - [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
    - [Do refreshed emails get assigned to the same bucket with which they were previously associated?](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
    - [How often should UIDs be refreshed for incremental updates?](#how-often-should-uids-be-refreshed-for-incremental-updates)
-   - [How should I generate the SHA256 of PII for mapping?](#how-should-i-generate-the-sha256-of-pii-for-mapping)
+   - [How should I generate the SHA-256 of PII for mapping?](#how-should-i-generate-the-sha-256-of-pii-for-mapping)
    - [Should I store large volumes of email address, phone number, or their hash mappings? ](#should-i-store-large-volumes-of-email-address-phone-number-or-their-hash-mappings)
    - [How should I handle user optouts?](#how-should-i-handle-user-optouts)
 
@@ -177,7 +177,7 @@ Metadata supplied with the UID2 generation request indicates the salt bucket use
 
 #### Do refreshed emails get assigned to the same bucket with which they were previously associated?
 <!-- FAQ_20 ADP -->
-Not necessarily. After you remap emails associated with a particular bucket ID, the emails might be assigned to a different bucket ID. To check the bucket ID, [call the mapping function](../guides/advertiser-dataprovider-guide.md#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) and save the returned UID2 and bucket ID again.
+Not necessarily. After you remap emails associated with a particular bucket ID, the emails might be assigned to a different bucket ID. To check the bucket ID, [call the mapping function](../guides/advertiser-dataprovider-guide.md#retrieve-a-raw-uid2-for-pii-using-the-identity-map-endpoints) and save the returned UID2 and bucket ID again.
 
 >IMPORTANT: When mapping and remapping emails, be sure not to make any assumptions of the number of buckets, their specific rotation dates, or to which bucket an email gets assigned. 
 
@@ -187,7 +187,7 @@ The recommended cadence for updating audiences is daily.
 
 Even though each salt bucket is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets is rotated daily. If fidelity is critical, consider calling the [POST /identity/buckets](../endpoints/post-identity-buckets.md) endpoint more frequently, for example, hourly.
 
-#### How should I generate the SHA256 of PII for mapping?
+#### How should I generate the SHA-256 of PII for mapping?
 <!-- FAQ_22 ADP -->
 The system should follow the [email normalization rules](../../README.md#email-address-normalization) and hash without salting.
 
