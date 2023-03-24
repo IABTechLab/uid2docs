@@ -24,7 +24,7 @@ This guide includes the following information:
 
 By subscribing to the Unified ID 2.0 Operator on AWS Marketplace product, you gain access to the following:
 
-- **Amazon Machine Image (AMI)** with the UID2 Operator service installed and ready to bootstrap:<br/>
+- **[Amazon Machine Image (AMI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)** with the UID2 Operator service installed and ready to bootstrap:<br/>
     The AMI contains an [Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/?amazon-linux-whats-new.sort-by=item.additionalFields.postDateTime&amazon-linux-whats-new.sort-order=desc) operating system with the UID2 Operator service already set up. When an EC2 instance based on the AMI boots up, it automatically fetches the configuration from your AWS account and starts the UID2 Operator server inside an enclave.
 - **[CloudFormation](https://aws.amazon.com/cloudformation/) template**:<br/>
     The template deploys the UID2 Operator AMI.
