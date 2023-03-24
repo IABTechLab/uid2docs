@@ -1,11 +1,11 @@
-[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../README.md) > [SDKs](./README.md) > Client-Side Identity
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [SDKs](summary-sdks.md) > Client-Side Identity
 
 # Client-Side JavaScript SDK (v2)
 
 この SDK を使用すると、UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスを容易に行うことができます。以下のセクションでは、UID2 アイデンティティを確立するためのハイレベルな [ワークフロー](#workflow-overview)、SDK [API reference](#api-reference) および [UID2 クッキー形式](#uid2-cookie-format) について説明しています。
 
 - コンテンツパブリッシャーのインテグレーション手順については、[UID2 SDK Integration Guide](../guides/publisher-client-side.md) を参照してください。
-- [アプリケーション例](https://example-jssdk-integ.uidapi.com/)と関連ドキュメントについては、[UID2 SDK Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/standard/README.md)ガイドを参照してください。
+- [アプリケーション例](https://example-jssdk-integ.uidapi.com/)と関連ドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md)ガイドを参照してください。
 
 このガイドには、以下の情報が含まれています。
 

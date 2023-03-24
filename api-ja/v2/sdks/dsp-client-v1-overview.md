@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../README.md) > [SDKs](./README.md) > Server-Side SDK Guide for RTB
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [SDKs](summary-sdks.md) > Server-Side SDK Guide for RTB
 
 # Server-Side SDK Guide for RTB
 

@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../README.md) > POST /token/generate
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /token/generate
 
 # POST /token/generate
 
@@ -24,25 +24,25 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 
 ### Path Parameters
 
-| Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                           |
-| :-------------- | :-------- | :-------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレータを含む全リストは [Environments](../README.md#environments) を参照してください。 |
+| Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                   |
+| :-------------- | :-------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレータを含む全リストは [Environments](../summary-doc-v2.md#environments) を参照してください。 |
 
 ### Unencrypted JSON Body Parameters
 
 リクエストを暗号化する際、JSON ボディに Key-Value ペアとして含めるパラメータは、以下のいずれか 1 つだけである必要があります。
 
-| Body Parameter | Data Type | Attribute      | Description                                                                                                                                                             |
-| :------------- | :-------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `email`        | string    | 条件付きで必要 | トークンを生成するメールアドレスです。                                                                                                                                  |
-| `email_hash`   | string    | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
-| `phone`        | string    | 条件付きで必要 | トークンを生成する [正規化](../../README.md#phone-number-normalization) 済み電話番号です。                                                                              |
-| `phone_hash`   | string    | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。        |
-| `policy`       | number    | オプション     | (Beta) トークン生成ポリシーの ID です。[Token Generation Policy](#token-generation-policy) を参照してください。                                                         |
+| Body Parameter | Data Type | Attribute      | Description                                                                                                                                                                               |
+| :------------- | :-------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `email`        | string    | 条件付きで必要 | トークンを生成するメールアドレスです。                                                                                                                                                    |
+| `email_hash`   | string    | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../getting-started.md#email-address-hash-encoding) した [正規化](../../getting-started.md#email-address-normalization) 済みメールアドレスです。 |
+| `phone`        | string    | 条件付きで必要 | トークンを生成する [正規化](../../getting-started.md#phone-number-normalization) 済み電話番号です。                                                                                       |
+| `phone_hash`   | string    | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../getting-started.md#phone-number-hash-encoding) した、[正規化](../../getting-started.md#phone-number-normalization) 済み電話番号です。        |
+| `policy`       | number    | オプション     | (Beta) トークン生成ポリシーの ID です。[Token Generation Policy](#token-generation-policy) を参照してください。                                                                           |
 
 ### Request Examples
 
-> IMPORTANT: サービスにアクセスするために使用される API キーを確実に秘密にするために、API キーを使用する必要のない [POST /token/refresh](./post-token-refresh.md) と異なり、`POST /token/generate` エンドポイントをサーバー側から呼び出す必要があります。
+> IMPORTANT: サービスにアクセスするために使用される API キーを確実に秘密にするために、API キーを使用する必要のない [POST /token/refresh](post-token-refresh.md) と異なり、`POST /token/generate` エンドポイントをサーバー側から呼び出す必要があります。
 
 以下は、各パラメータの暗号化されていない JSON リクエストボディの例で、このうちの 1 つはトークン生成リクエストに含める必要があります:
 
@@ -137,7 +137,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
 | `identity_expires`     | double    | Advertising Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                              |
 | `refresh_from`         | double    | [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) が Advertising Token の更新を開始するタイミングを示す UNIX タイムスタンプ（ミリ秒単位）です。</br>TIP: SDK を使用していない場合は、このタイムスタンプからも Advertising Token を更新することを検討してみてください。 |
 | `refresh_expires`      | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                                  |
-| `refresh_response_key` | string    | [POST /token/refresh](./post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。                                                                                                                                                                                   |
+| `refresh_response_key` | string    | [POST /token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。                                                                                                                                                                                     |
 
 ### Response Status Codes
 
@@ -154,12 +154,12 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
 
 ## Test Identities
 
-| Type  | Identity             | Purpose                                                                                                                                 | Next Endpoint                                    |
-| :---- | :------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------- |
-| Email | `validate@email.com` | キャッシュした `advertising_token` が、指定したメールアドレスの `advertising_token` と一致するかどうかをテストします。                  | [POST /token/validate](./post-token-validate.md) |
-| Email | `optout@email.com`   | このメールアドレスをリクエストに使用すると、常に `refresh_token` を使用した ID レスポンスが生成され、ログアウトのレスポンスになります。 | [POST /token/refresh](./post-token-refresh.md)   |
-| Phone | `+12345678901`       | キャッシュした `advertising_token` が、指定した電話番号の `advertising_token` と一致するかどうかをテストします。                        | [POST /token/validate](./post-token-validate.md) |
-| Phone | `+00000000000`       | この電話番号をリクエストに使用すると、常に `refresh_token` を含む ID レスポンスが生成され、ログアウトのレスポンスになります。           | [POST /token/refresh](./post-token-refresh.md)   |
+| Type  | Identity             | Purpose                                                                                                                                 | Next Endpoint                                  |
+| :---- | :------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------- |
+| Email | `validate@email.com` | キャッシュした `advertising_token` が、指定したメールアドレスの `advertising_token` と一致するかどうかをテストします。                  | [POST /token/validate](post-token-validate.md) |
+| Email | `optout@email.com`   | このメールアドレスをリクエストに使用すると、常に `refresh_token` を使用した ID レスポンスが生成され、ログアウトのレスポンスになります。 | [POST /token/refresh](post-token-refresh.md)   |
+| Phone | `+12345678901`       | キャッシュした `advertising_token` が、指定した電話番号の `advertising_token` と一致するかどうかをテストします。                        | [POST /token/validate](post-token-validate.md) |
+| Phone | `+00000000000`       | この電話番号をリクエストに使用すると、常に `refresh_token` を含む ID レスポンスが生成され、ログアウトのレスポンスになります。           | [POST /token/refresh](post-token-refresh.md)   |
 
 # Token Generation Policy
 

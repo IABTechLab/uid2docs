@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](README.md) > Google Ad Manager Secure Signals Integration Guide
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Google Ad Manager Secure Signals Integration Guide
 
 # Google Ad Manager Secure Signals Integration Guide
 
@@ -11,7 +11,7 @@
 - [UID2 Client-Side JavaScript SDK Integratio](#uid2-client-side-javascript-sdk-integration)
 <!--* [Sample Applications](#sample-applications)-->
 
-> NOTE: UID2 Google Ad Manager セキュアシグナルインテグレーションを使用するには、SDK を使用している場合、UID2 インテグレーションがすでに設定されている必要があります。サーバーのみのインテグレーションを使用している場合は、この限りではありません。使用可能なすべてのインテグレーションオプションの概要については、[UID2 Integration Guides](README.md)を参照してください。
+> NOTE: UID2 Google Ad Manager セキュアシグナルインテグレーションを使用するには、SDK を使用している場合、UID2 インテグレーションがすでに設定されている必要があります。サーバーのみのインテグレーションを使用している場合は、この限りではありません。使用可能なすべてのインテグレーションオプションの概要については、[UID2 Integration Guides](summary-guides.md)を参照してください。
 
 ## Overview
 

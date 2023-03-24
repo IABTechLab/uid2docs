@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../README.md) > UID2 API v1 to v2 Upgrade Guide
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > UID2 API v1 to v2 Upgrade Guide
 
 # UID2 API v1 to v2 Upgrade Guide
 
@@ -14,20 +14,20 @@
 
 UID2 API の v2 アップデートは以下の通りです:
 
-- [アプリケーション API 層の暗号化](../ref-info/encryption-decryption.md) が追加されました。これは E2E のコンテンツ保護と、UID2 の機密情報がネットワーク事業者や UID2 サービス事業者に漏れることを防ぎます。<br>これにより、v2 エンドポイントへの呼び出しを実行するには、POST リクエストボディの暗号化とレスポンスの復号化が必要になります。
-- [認証と承認](../README.md#authentication-and-authorization) のためのクライアント API キーに加え、API リクエストの暗号化および API レスポンスの復号化のためにクライアントシークレットが必要になりました。
-- [UID2 API v1](../../v1/endpoints/README.md) のすべての GET エンドポイントの HTTP リクエストタイプが、[UID2 API v2](../endpoints/README.md) では GET から POST に変更されました。
+- [アプリケーション API 層の暗号化](../ref-info/encryption-decryption.md) が追加されました。これは E2E のコンテンツ保護と、UID2 の機密情報がネットワーク事業者や UID2 サービス事業者に漏れることを防ぎます。<br/>これにより、v2 エンドポイントへの呼び出しを実行するには、POST リクエストボディの暗号化とレスポンスの復号化が必要になります。
+- [認証と承認](../summary-doc-v2.md#authentication-and-authorization) のためのクライアント API キーに加え、API リクエストの暗号化および API レスポンスの復号化のためにクライアントシークレットが必要になりました。
+- [UID2 API v1](../../v1/endpoints/README.md) のすべての GET エンドポイントの HTTP リクエストタイプが、[UID2 API v2](../endpoints/summary-endpoints.md) では GET から POST に変更されました。
 - リクエストにクエリパラメータが不要になりました。新しい POST メソッドは、入力パラメータを JSON 形式のリクエストボディとして受け取ります。
 - パラメータ値の URL エンコーディングは必要ありません。
 - [POST /identity/map](../endpoints/post-identity-map.md) エンドポイントは、1 つまたは複数のメールアドレス、電話番号、またはそれぞれのハッシュに対する UID2 とソルトバケット ID を取得するようになりました。
 
-[UID2 API v2 ドキュメンテーション](../README.md) も参照してください。
+[UID2 API v2 ドキュメンテーション](../summary-doc-v2.md) も参照してください。
 
 ## Prerequisites and Timeline
 
 アップグレードを開始する前に、以下の要件を必ず確認してください:
 
-- UID2 エンドポイントに対して認証を行うには、 [UID2 管理者へ連絡](../../README.md#contact-info) し API リクエストの暗号化と API 応答の復号化に使用する秘密鍵を入手します。[Authentication and Authorization（認証と承認）](../README.md#authentication-and-authorization) も参照してください。
+- UID2 エンドポイントに対して認証を行うには、 [UID2 管理者へ連絡](../../getting-started.md#contact-info) し API リクエストの暗号化と API 応答の復号化に使用する秘密鍵を入手します。[Authentication and Authorization（認証と承認）](../summary-doc-v2.md#authentication-and-authorization) も参照してください。
 - アップグレードは、すべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理外のエンドポイントが非推奨となり削除される、**2023 年 3 月 31 日** までに完了する必要があります。
 
 ## Publisher Upgrade Workflow
@@ -150,7 +150,7 @@ UID2 API v2 は UID2 API v1 とは互換性がないため、アップグレー�
 
 ### 新しい API のクライアントシークレットキーはどのように入手できますか？
 
-秘密鍵を入手するには、[UID2 管理者に連絡](../../README.md#contact-info) してください。[前提条件とスケジュール](#prerequisites-and-timeline)も参照してください。
+秘密鍵を入手するには、[UID2 管理者に連絡](../../getting-started.md#contact-info) してください。[前提条件とスケジュール](#prerequisites-and-timeline)も参照してください。
 
 ### リクエストを暗号化し、レスポンスを復号化するにはどうしたらいいですか？
 

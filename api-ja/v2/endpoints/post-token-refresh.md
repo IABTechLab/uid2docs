@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../README.md) > POST /token/refresh
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /token/refresh
 
 # POST /token/refresh
 
@@ -21,25 +21,25 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 
 - トークン更新のリクエストには暗号化は必要ありません。
 - HTTP ステータスコードが 200 の場合のみ、レスポンスが暗号化されます。それ以外の場合、レスポンスは暗号化されません。
-- レスポンスを復号化するには、リクエストのリフレッシュトークンが返された [POST /token/generate](./post-token-generate.md) または `POST /token/refresh` レスポンスの `refresh_response_key` 値を使用する必要があります。
+- レスポンスを復号化するには、リクエストのリフレッシュトークンが返された [POST /token/generate](post-token-generate.md) または `POST /token/refresh` レスポンスの `refresh_response_key` 値を使用する必要があります。
 - v1 `token/generate` レスポンスからリフレッシュトークンをリクエストで送信した場合、レスポンスは暗号化されません。
 
 ### Path Parameters
 
-| Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                           |
-| :-------------- | :-------- | :-------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレータを含む全リストは [Environments](../README.md#environments) を参照してください。 |
+| Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                   |
+| :-------------- | :-------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレータを含む全リストは [Environments](../summary-doc-v2.md#environments) を参照してください。 |
 
 #### Testing Notes
 
-[POST /token/generate](./post-token-generate.md) リクエストで以下のパラメータのいずれかを使用すると、常に `refresh_token` による ID 応答が生成され、`POST /token/refresh` エンドポイントと共に使用するとログアウト応答となります。
+[POST /token/generate](post-token-generate.md) リクエストで以下のパラメータのいずれかを使用すると、常に `refresh_token` による ID 応答が生成され、`POST /token/refresh` エンドポイントと共に使用するとログアウト応答となります。
 
 - `optout@email.com` メールアドレス
 - 電話番号 (`+00000000000`)
 
 ### Request Example
 
-[POST /token/generate](./post-token-generate.md) リクエストが返す `refresh_token` と `refresh_response_key` 値を含む、プレースホルダー値を持つトークンリフレッシュのリクエスト形式を以下に示します:
+[POST /token/generate](post-token-generate.md) リクエストが返す `refresh_token` と `refresh_response_key` 値を含む、プレースホルダー値を持つトークンリフレッシュのリクエスト形式を以下に示します:
 
 ```sh
 echo [refresh_token] \
@@ -98,7 +98,7 @@ echo AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNS
 | `identity_expires`     | double    | Advertising Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                              |
 | `refresh_from`         | double    | [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) が Advertising Token の更新を開始するタイミングを示す UNIX タイムスタンプ（ミリ秒単位）です。</br>TIP: SDK を使用していない場合は、このタイムスタンプからも Advertising Token を更新することを検討してみてください。 |
 | `refresh_expires`      | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                                  |
-| `refresh_response_key` | string    | [POST /token/refresh](./post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。<br>A key to be used in a new [POST /token/refresh](./post-token-refresh.md) request for response decryption.                                                                      |
+| `refresh_response_key` | string    | [POST /token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。<br>A key to be used in a new [POST /token/refresh](post-token-refresh.md) request for response decryption.                                                                          |
 
 ### Response Status Codes
 
