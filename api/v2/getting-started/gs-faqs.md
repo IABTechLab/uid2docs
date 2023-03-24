@@ -177,7 +177,7 @@ Metadata supplied with the UID2 generation request indicates the salt bucket use
 
 #### Do refreshed emails get assigned to the same bucket with which they were previously associated?
 <!-- FAQ_20 ADP -->
-Not necessarily. After you remap emails associated with a particular bucket ID, the emails might be assigned to a different bucket ID. To check the bucket ID, [call the mapping function](../guides/advertiser-dataprovider-guide.md#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) and save the returned UID2 and bucket ID again.
+Not necessarily. After you remap emails associated with a particular bucket ID, the emails might be assigned to a different bucket ID. To check the bucket ID, [call the mapping function](../guides/advertiser-dataprovider-guide.md#retrieve-a-raw-uid2-for-pii-using-the-identity-map-endpoints) and save the returned UID2 and bucket ID again.
 
 >IMPORTANT: When mapping and remapping emails, be sure not to make any assumptions of the number of buckets, their specific rotation dates, or to which bucket an email gets assigned. 
 
