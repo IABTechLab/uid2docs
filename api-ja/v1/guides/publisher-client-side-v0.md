@@ -77,7 +77,7 @@ sequenceDiagram
 | 1-e  | [GET /token/generate](../endpoints/get-token-generate.md)           | UID2 Token を返すトークン生成サービス。                                                                                                                                                                                                                                                                                                                                                                                            |
 | 1-f  | [UID2 client-side identity SDK](../sdks/client-side-identity-v0.md) | 手順 1-e で返却された UID2 Token を、後述する Client-Side SDK のアイデンティティメカニズムを使用して SDK に送信します。このメカニズムにより、ユーザーがログアウトするまで UID2 Token が利用可能であることが保証されます。                                                                                                                                                                                                          |
 
-> IMPORTANT: 現在、UID2 SDK はトークンをファーストパーティ Cookie に保存しています。このような実装の詳細は将来的に変更される可能性があるため、潜在的な問題を回避するために、ID 管理は必ず UID2 SDK APIs に従って行ってください。
+> IMPORTANT: 現在、UID2 SDK はトークンをファーストパーティクッキーに保存しています。このような実装の詳細は将来的に変更される可能性があるため、潜在的な問題を回避するために、ID 管理は必ず UID2 SDK APIs に従って行ってください。
 
 ##### Client-Side SDK のアイデンティティメカニズム
 

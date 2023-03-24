@@ -10,7 +10,7 @@
 
 このガイドでは、SDK を使用しないでインテグレーションを行う場合に考慮すべき [基本的な手順](#integration-steps) を概説しています。たとえば、ユーザーログインとログアウトの実装方法、UID2 ID 情報の管理と　ターゲティング広告への使用方法、トークンの更新方法、ID が見つからない場合の対処、ユーザーのオプトアウトの処理方法などを決定する必要があります。[FAQs](#faqs) も参照してください。
 
-> IMPORTANT: UID2 SDK は現在、ファーストパーティ Cookie にトークンを保存しています。このような実装の詳細は将来変更される可能性があるため、潜在的な問題を回避するために、ID 管理は必ず[Client-Side JavaScript SDK v1 APIs](../sdks/client-side-identity-v1.md#api-reference) に従って行ってください。
+> IMPORTANT: UID2 SDK は現在、ファーストパーティクッキーにトークンを保存しています。このような実装の詳細は将来変更される可能性があるため、潜在的な問題を回避するために、ID 管理は必ず[Client-Side JavaScript SDK v1 APIs](../sdks/client-side-identity-v1.md#api-reference) に従って行ってください。
 
 UID2 SDK を使用しない、アプリ開発者や CTV 放送局向けのカスタムインテグレーションシナリオについては、[Server-Only Integration Guide](./custom-publisher-integration.md) を参照してください。
 
@@ -126,7 +126,7 @@ SDK は、有効な ID の状態と利用可能性に基づいて、バックグ
 
 ### Refresh Tokens
 
-初期化の一環として、SDK は ID の [token auto-refresh](../sdks/client-side-identity-v1.md#background-token-auto-refresh) を設定し、ID 上のタイムスタンプまたは断続的エラーによる更新の失敗によってバックグラウンドでトリガーされるようにします。
+初期化の一環として、SDK は ID の [バックグラウンドでのトークン自動更新](../sdks/client-side-identity-v1.md#background-token-auto-refresh) を設定し、ID 上のタイムスタンプまたは断続的エラーによる更新の失敗によってバックグラウンドでトリガーされるようにします。
 
 | Step | Endpoint/SDK                                                        | Description                                                                                                                                        |
 | :--- | :------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------- |

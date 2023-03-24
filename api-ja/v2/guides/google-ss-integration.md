@@ -66,7 +66,7 @@ window.getUid2AdvertisingToken = async () => {
 
 <!--A sample application is also available for server-only integration. See [Sample Applications](#sample-applications).-->
 
-### #uid2-client-side-javascript-sdk-integration
+### UID2 Client-Side JavaScript SDK Integration
 
 Client-Side JavaScript SDK バージョン 3.0.0 以降を使用している場合、UID2 セキュアシグナルスクリプトは、SDK で提供される `getAdvertisingTokenAsync` 関数を使用して新しい Advertising Token を取得し、Google Ad Manager にそのトークンをプッシュします。
 
