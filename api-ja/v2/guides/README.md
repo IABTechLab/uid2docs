@@ -6,12 +6,12 @@
 
 ## Publisher, DSP, and Data Provider Integrations
 
-| Integration Guide                                              | Content Description                                                                                                                                                                            |
-| :------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Publisher - UID2 SDK](./publisher-client-side.md)             | このパブリッシャー向けインテグレーションガイドは、Client-Side Identity JavaScript SDK を利用した標準的なウェブインテグレーションシナリオをカバーしています。                                   |
-| [Publisher - Server-Only](./custom-publisher-integration.md)   | このパブリッシャー向けのこのインテグレーションガイドは、UID2 SDK を使用しない、アプリ開発者と CTV 放送局のカスタムインテグレーションシナリオをカバーしています。                               |
-| [DSP](./dsp-guide.md)                                          | この DSP のためのインテグレーションガイドは、入札のための UID2 の処理と、ユーザーのオプトアウトに対応することをカバーしています。                                                              |
-| [Advertiser/Data Provider](./advertiser-dataprovider-guide.md) | この広告主やデータパートナー向けのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 |
+| Integration Guide                                                                           | Content Description                                                                                                                                                                            |
+| :------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Client-Side JavaScript SDK Integration Guide](./publisher-client-side.md)                  | このパブリッシャー向けインテグレーションガイドは、[Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) を利用した標準的なウェブインテグレーションシナリオをカバーしています。    |
+| [Publisher Integration Guide, Server-Only (Without SDK)](./custom-publisher-integration.md) | アプリ開発者と CTV 放送局向けのこのインテグレーションガイドは、[Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) を使用しないインテグレーションシナリオをカバーしています。   |
+| [DSP](./dsp-guide.md)                                                                       | この DSP のためのインテグレーションガイドは、入札のための UID2 の処理と、ユーザーのオプトアウトに対応することをカバーしています。                                                              |
+| [Advertiser/Data Provider](./advertiser-dataprovider-guide.md)                              | この広告主やデータパートナー向けのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 |
 
 ## Supplementary Integrations
 
@@ -27,8 +27,8 @@
 
 ## Closed Operator Service Setup
 
-| Integration Guide                                                                                | Content Description                                                                                                                                                                                                                                                                          |
-| :----------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Operator - Microsoft Azure](./operator-guide-azure-enclave.md)                                  | IMPORTANT: このドキュメントは現在、PoC の段階です。<br/><br/>詳細については、UID2 administrator に [連絡](../../README.md#contact-info) してください。<br/><br/>Closed Operator Service を Microsoft Azure Confidential Computing プラットフォーム上で動作させるためのセットアップ手順です。 |
-| [Operator - AWS Marketplace](./operator-guide-aws-marketplace.md)                                | AWS Marketplace のクローズドオペレーターサービスをセットアップする手順です。　                                                                                                                                                                                                               |
-| [Operator - Google Cloud Platform Confidential Compute package](./operator-guide-gcp-enclave.md) | Google Cloud Platform Confidential Compute (GCP) パッケージのセットアップ手順です。                                                                                                                                                                                                          |
+| Integration Guide                                                                                | Content Description                                                                                                                                                                                                                                                           |
+| :----------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Operator - Microsoft Azure](./operator-guide-azure-enclave.md)                                  | IMPORTANT: このドキュメントは現在、PoC の段階です。詳細については、UID2 administrator に [連絡](../../README.md#contact-info) してください。<br/>Closed Operator Service を Microsoft Azure Confidential Computing プラットフォーム上で動作させるためのセットアップ手順です。 |
+| [Operator - AWS Marketplace](./operator-guide-aws-marketplace.md)                                | AWS Marketplace のクローズドオペレーターサービスをセットアップする手順です。　                                                                                                                                                                                                |
+| [Operator - Google Cloud Platform Confidential Compute package](./operator-guide-gcp-enclave.md) | Google Cloud Platform Confidential Compute (GCP) パッケージのセットアップ手順です。                                                                                                                                                                                           |

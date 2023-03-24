@@ -16,7 +16,7 @@ v1 UID2 API の使用方法については、以下のページを参照して�
 | :--------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Endpoints](./endpoints/README.md)       | ID トークンを管理し、メールアドレス、電話番号、ハッシュを UID2 と UID2 を生成するために使用したソルトバケット ID に対応付けるための API リファレンスです。                                      |
 | [Integration Guides](./guides/README.md) | パブリッシャー、DSP、広告主、データプロバイダーなどの UID2 メンバー、および Microsoft Azure、AWS、Snowflake などの Operator Enterprise Partner 向けの UID2 インテグレーションワークフローです。 |
-| [SDKs](./sdks/README.md)                 | Web サイト用 Client-side JavaScript SDK と RTB SDK です。                                                                                                                                       |
+| [SDKs](./sdks/README.md)                 | Web サイト用のクライアント側 JavaScript SDK や RTB 用のサーバー側 SDK ガイドなど、SDK ドキュメントへのリンク。                                                                                  |
 
 ## Environment
 

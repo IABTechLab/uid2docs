@@ -15,7 +15,7 @@ API の使用方法については、以下のページを参照してくださ�
 | [Encrypting Requests and Decrypting Responses](ref-info/encryption-decryption.md) | UID2 API のリクエスト/レスポンスワークフロー、リクエストの暗号化と応答の復号化の要件、および Python でのスクリプトの例                                                                          |
 | [Endpoints](./endpoints/README.md)                                                | ID トークンを管理し、メールアドレス、電話番号、ハッシュを UID2 と UID2 を生成するために使用したソルトバケット ID に対応付けるための API リファレンスです。                                      |
 | [Integration Guides](./guides/README.md)                                          | パブリッシャー、DSP、広告主、データプロバイダーなどの UID2 参加者、および Microsoft Azure、AWS、Snowflake などの Operator Enterprise Partner 向けの UID2 インテグレーション・ワークフローです。 |
-| [SDKs](./sdks/README.md)                                                          | Web サイト用 Client-side JavaScript SDK と RTB SDK です。                                                                                                                                       |
+| [SDKs](./sdks/README.md)                                                          | UID2 SDK を使用するためのドキュメントへのリンクです。                                                                                                                                           |
 
 API バージョン 1 からの改善点・変更点の一覧は、[UID2 API v1→v2 アップグレードガイド](./upgrades/upgrade-guide.md) を参照してください。
 

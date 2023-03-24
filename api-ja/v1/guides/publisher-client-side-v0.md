@@ -11,7 +11,7 @@
 - [Integration Steps](#integration-steps)
 - [FAQs](#faqs)
 
-アプリ開発者や CTV 放送局向けのカスタムインテグレーションシナリオについては、[Publisher Integration Guide (Custom)](./custom-publisher-integration.md)を参照してださい。
+アプリ開発者や CTV 放送局向けのカスタムインテグレーションシナリオについては、[Publisher Integration Guide, Server-Only (Without SDK) (Deprecated)](./custom-publisher-integration.md)を参照してださい。
 
 ## Integration Steps
 
@@ -131,7 +131,7 @@ sequenceDiagram
 
 ### ユーザーのオプトアウトはどのように通知されますか？
 
-トークンのリフレッシュ処理では、ユーザーのオプトアウトを処理します。ユーザーがオプトアウトした場合、Refresh Token を使用すると、自動的にそのセッションがクリアされます。[UID2 client-side SDK](../sdks/client-side-identity-v1.md) を参照してください。手動での操作は必要ありません。
+トークンのリフレッシュ処理では、ユーザーのオプトアウトを処理します。ユーザーがオプトアウトした場合、Refresh Token を使用すると、自動的にそのセッションがクリアされます。[Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md) を参照してください。手動での操作は必要ありません。
 
 ### インテグレーションをテストするにはどうすればよいですか？
 

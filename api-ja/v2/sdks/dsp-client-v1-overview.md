@@ -1,15 +1,19 @@
-[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../README.md) > [SDKs](./README.md) > RTB SDK
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../README.md) > [SDKs](./README.md) > Server-Side SDK Guide for RTB
 
-# RTB SDK Client
+# Server-Side SDK Guide for RTB
 
-UID2 RTB SDK は、UID2 Token を復号化して raw UID2 にアクセスできるようにします。
+RTB 用の UID2 server-side SDK SDK を使用すると、UID2 Token を復号して raw UID2 に容易にアクセスすることができます。
 
 以下の関数は、設定する必要がある情報、またはライブラリから取得できる情報を定義しています。以下で定義されるパラメータとプロパティ名は疑似コードです。実際のパラメータやプロパティ名は言語によって異なりますが、以下に示す情報と同様のものになります。
 
 ライブラリは現在、以下の言語で提供されています。その他の言語も開発中です。
 
-- C#
-- C++
+| Language | Link to SDK                                                                                  |
+| :------- | :------------------------------------------------------------------------------------------- |
+| C#       | [UID2 Client for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md)  |
+| C++      | [UID2 Client for C++](https://github.com/IABTechLab/uid2-client-cpp11/blob/master/README.md) |
+| Java     | [UID2 Java SDK](https://github.com/IABTechLab/uid2-client-java/blob/master/README.md)        |
+| Python   | [UID2 Client Python](https://github.com/IABTechLab/uid2-client-python/blob/master/README.md) |
 
 ## Initialization
 

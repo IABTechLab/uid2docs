@@ -10,8 +10,8 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 
 以下のインテグレーション・ワークフローは、このエンドポイントを使用します:
 
-- [Publisher - Standard](../guides/publisher-client-side.md)
-- [Publisher - Custom](../guides/custom-publisher-integration.md)
+- [Client-Side JavaScript SDK Integration Guide](../guides/publisher-client-side.md)
+- [Publisher Integration Guide, Server-Only (Without SDK)](../guides/custom-publisher-integration.md)
 
 ## Request Format
 
@@ -87,18 +87,18 @@ echo AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNS
 }
 ```
 
-[Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md) は、このエンドポイント応答ペイロードを使用して、ユーザーセッションのライフサイクル中にユーザー ID を確立・管理します。
+[Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) は、このエンドポイント応答ペイロードを使用して、ユーザーセッションのライフサイクル中にユーザー ID を確立・管理します。
 
 ### Response Body Properties
 
-| Property               | Data Type | Description                                                                                                                                                                                                                                                                                 |
-| :--------------------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `advertising_token`    | string    | ユーザーの暗号化された Advertising Token（UID2）です。                                                                                                                                                                                                                                      |
-| `refresh_token`        | string    | UID2 Service と最新の ID トークンのセットを交換できる暗号化されたトークンです。                                                                                                                                                                                                             |
-| `identity_expires`     | double    | Advertising Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                                  |
-| `refresh_from`         | double    | [Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md) が Advertising Token の更新を開始するタイミングを示す UNIX タイムスタンプ（ミリ秒単位）です。</br>TIP: SDK を使用していない場合は、このタイムスタンプからも Advertising Token を更新することを検討してみてください。 |
-| `refresh_expires`      | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                                      |
-| `refresh_response_key` | string    | [POST /token/refresh](./post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。<br>A key to be used in a new [POST /token/refresh](./post-token-refresh.md) request for response decryption.                                                                          |
+| Property               | Data Type | Description                                                                                                                                                                                                                                                                             |
+| :--------------------- | :-------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `advertising_token`    | string    | ユーザーの暗号化された Advertising Token（UID2）です。                                                                                                                                                                                                                                  |
+| `refresh_token`        | string    | UID2 Service と最新の ID トークンのセットを交換できる暗号化されたトークンです。                                                                                                                                                                                                         |
+| `identity_expires`     | double    | Advertising Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                              |
+| `refresh_from`         | double    | [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) が Advertising Token の更新を開始するタイミングを示す UNIX タイムスタンプ（ミリ秒単位）です。</br>TIP: SDK を使用していない場合は、このタイムスタンプからも Advertising Token を更新することを検討してみてください。 |
+| `refresh_expires`      | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                                  |
+| `refresh_response_key` | string    | [POST /token/refresh](./post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。<br>A key to be used in a new [POST /token/refresh](./post-token-refresh.md) request for response decryption.                                                                      |
 
 ### Response Status Codes
 

@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../README.md) > [v1](../README.md) > [SDKs](./README.md) > Client-Side Identity
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [SDKs](./README.md) > Client-Side Identity SDK v0 (Deprecated)
 
 # Client-Side Identity SDK v0 (Deprecated)
 
@@ -6,7 +6,7 @@
 
 > NOTE: このドキュメントは UID2 SDK の version 0 用です。
 
-ID の確立と Advertising Token 取得のための実装を簡素化するには、より新しい改良版である [UID2 SDK version 1](./client-side-identity-v1.md) へのアップグレードを検討ください。
+ID の確立と Advertising Token 取得のための実装を簡素化するには、より新しい改良版である [Client-Side JavaScript SDK v1](./client-side-identity-v1.md) へのアップグレードを検討ください。
 
 > IMPORTANT: 新バージョンの SDK は、ユーザーセッション継続のための version 0 クッキーをサポートしていますが、SDK は下位互換性がなく、[コードの修正](./client-side-identity-v1.md#improvements-and-changes-from-version-0) が必要です。
 

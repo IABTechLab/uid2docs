@@ -1,12 +1,23 @@
-[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](README.md) > Custom Publisher Integration Guide
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](README.md) > Publisher Integration Guide, Server-Only (Without SDK)
 
-# Server-Only UID2 Integration Guide
+# Publisher Integration Guide, Server-Only (Without SDK)
 
 このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を利用した ID トークンを生成したいと考えるアプリ開発者や CTV 放送局を対象としています。
 
-このガイドでは、カスタムインテグレーションで考慮すべき [基本的な手順](#integration-steps) を概説しています。たとえば、ユーザーのログインとログアウトをどのように実装するか、UID2 ID 情報をどのように管理しターゲティング広告に使用するか、トークンを更新する方法、ID が見つからない場合の対処、ユーザーのオプトアウトを処理する方法などを決定する必要があります。ワークフローを示す [サンプルアプリケーション](https://example-srvonly-integ.uidapi.com/) はこちらです。アプリケーションのドキュメントについては、[Server-Only UID2 Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/server_only/README.md) を参照してください。[FAQ](#faqs)も参照してください。
+このガイドでは、SDK を使用せずにインテグレーションを行う場合に考慮する必要がある[基本的な手順](#integration-steps)を概説します。たとえば、ユーザーのログインとログアウトの実装方法、UID2 ID 情報の管理とターゲティング広告への使用方法、トークンのリフレッシュ、ID の欠落への対処、ユーザーのオプトアウトの処理方法などを決定する必要があります。[FAQ](#faqs)も参照してください。
 
-> TIP: UID2 を使ったクライアント ID の確立と Advertising Token の取得を容易にするために、[Client-Side Identity JavaScript SDK](../sdks/client-side-identity.md) を使用することを検討してください。詳しくは、[UID2 SDK Integration Guide](./publisher-client-side.md) を参照してください。
+パブリッシャーが UID2 とインテグレーションするために利用できるオプションは以下の通りです:
+
+- Client JavaScript SDK, with UID2 Java SDK on the server.
+- Client JavaScript SDK, with custom server code.
+- Server-only integration, with UID2 Java SDK on server.
+- Server-only integration, with custom server code.
+
+このドキュメントでは、最後の選択肢について詳細を説明します。
+
+ワークフローを示す[アプリケーション例](https://example-srvonly-integ.uidapi.com/)はこちらです。アプリケーションのドキュメントについては、[Server-Only UID2 Integration Example](https://github.com/UnifiedID2/uid2-examples/blob/main/publisher/server_only/README.md)を参照してください。また、[FAQ](#faqs)も参照してください。
+
+> TIP: UID2 を使ったクライアント ID の確立と Advertising Token の取得を容易にするために、[Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) を使用することを検討してください。詳しくは、[Client-Side JavaScript SDK Integration Guide](./publisher-client-side.md) を参照してください。
 
 ## Integration Steps
 

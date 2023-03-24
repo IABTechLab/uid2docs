@@ -1,6 +1,6 @@
 [UID2 API Documentation](../../README.md) > [v1](../README.md) > [SDKs](./README.md) > Client-Side Identity
 
-# Client-Side Identity JavaScript SDK v1 (Deprecated)
+# Client-Side JavaScript SDK v1 (Deprecated)
 
 > IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
 
@@ -73,7 +73,7 @@ Web インテグレーションの手順については、[Publisher Integration
 
 次の図は、4 つの状態と、それぞれの ID の [status value](#identity-status-values)、およびそれらの間の可能な遷移を表しています。SDK は、各遷移で [コールバック関数](#callback-function) を呼び出します。
 
-![Client-Side Identity JavaScript SDK Workflow](./uid2-js-sdk-workflow.svg)
+![Client-Side JavaScript SDK Workflow](./uid2-js-sdk-workflow.svg)
 
 ### Background Token Auto-Refresh
 
@@ -169,7 +169,7 @@ For example:
 | :------------------- | :----------------------- | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------- |
 | `callback`           | `function(object): void` | 必須       | 渡された ID を検証した後、SDK が呼び出す関数です。詳しくは、[コールバック関数](#callback-function) を参照してください。                                                                                                                                                                                       | N/A                        |
 | `identity`           | object                   | オプション | [GET /token/generate](../endpoints/get-token-generate.md) または [GET /token/refresh](../endpoints/get-token-refresh.md) コールに成功し、サーバー上で ID を生成したときの `body` プロパティ値です。[ファーストパーティクッキー](#uid2-cookie-format) の ID を使用するには、このプロパティを空にしてください。 | N/A                        |
-| `baseUrl`            | string                   | オプション | [GET /token/refresh](../endpoints/get-token-refresh.md) エンドポイントを呼び出すときに使用する UID2 Operator のカスタムベース URL、例えば `https://my.operator.com` です。                                                                                                                                    | `https://prod.uidapi.com ` |
+| `baseUrl`            | string                   | オプション | [GET /token/refresh](../endpoints/get-token-refresh.md) エンドポイントを呼び出すときに使用する UID2 Operator のベース URL、例えば `https://my.operator.com` です。                                                                                                                                            | `https://prod.uidapi.com ` |
 | `refreshRetryPeriod` | number                   | オプション | 断続的にエラーが発生した場合に、トークンのリフレッシュを再試行する秒数です。                                                                                                                                                                                                                                  | 5                          |
 | `cookieDomain`       | string                   | オプション | [UID2 cookie](#uid2-cookie-format) に適用されるドメイン名の文字列です。                                                                                                                                                                                                                                       | `undefined`                |
 | `cookiePath`         | string                   | オプション | [UID2 cookie](#uid2-cookie-format) に適用されるパス文字列です。                                                                                                                                                                                                                                               | `/`                        |

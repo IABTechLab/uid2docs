@@ -10,8 +10,8 @@
 
 以下のインテグレーションワークフローは、このエンドポイントを使用します:
 
-- [Publisher - Standard](../guides/publisher-client-side.md)
-- [Publisher - Custom](../guides/custom-publisher-integration.md)
+- [Publisher Client-Side JavaScript SDK Integration Guide (Deprecated)](../guides/publisher-client-side.md)
+- [Publisher Integration Guide, Server-Only (Without SDK) (Deprecated)](../guides/custom-publisher-integration.md)
 
 ## Request Format
 
@@ -69,17 +69,17 @@ curl -L -X GET 'https://integ.uidapi.com/v1/token/refresh?refresh_token=RefreshT
 }
 ```
 
-[Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) は、このエンドポイント応答ペイロードを使用して、ユーザーセッションのライフサイクル中にユーザー ID を確立および管理します。
+[Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md) は、このエンドポイント応答ペイロードを使用して、ユーザーセッションのライフサイクル中にユーザー ID を確立および管理します。
 
 ### Response Body Properties
 
-| Property            | Data Type | Description                                                                                                                                                                                                                                                                              |
-| :------------------ | :-------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `advertising_token` | string    | ユーザーの暗号化された Advertising Token（UID2 Token）です。                                                                                                                                                                                                                             |
-| `refresh_token`     | string    | UID2 Service と最新の ID トークンのセットを交換できる暗号化されたトークンです。                                                                                                                                                                                                          |
-| `identity_expires`  | double    | Advertising Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                               |
-| `refresh_from`      | double    | [Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) が Advertising Token の更新を開始するタイミングを示す UNIX タイムスタンプ（ミリ秒単位）です。</br>TIP: SDK を使用していない場合、このタイムスタンプからも Advertising Token を更新することを検討してください。 |
-| `refresh_expires`   | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                                   |
+| Property            | Data Type | Description                                                                                                                                                                                                                                                                        |
+| :------------------ | :-------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `advertising_token` | string    | ユーザーの暗号化された Advertising Token（UID2 Token）です。                                                                                                                                                                                                                       |
+| `refresh_token`     | string    | UID2 Service と最新の ID トークンのセットを交換できる暗号化されたトークンです。                                                                                                                                                                                                    |
+| `identity_expires`  | double    | Advertising Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                         |
+| `refresh_from`      | double    | [Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md) が Advertising Token の更新を開始するタイミングを示す UNIX タイムスタンプ（ミリ秒単位）です。</br>TIP: SDK を使用していない場合、このタイムスタンプからも Advertising Token を更新することを検討してください。 |
+| `refresh_expires`   | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                             |
 
 ### Response Status Codes
 
