@@ -15,7 +15,7 @@
 - [FAQs（よくある質問）](#faqs)
 - [License（ライセンス）](#license)
 
-インテグレーションガイド、対応 SDK、エンドポイントリファレンスについては、[Getting Started](/api-ja/README.md) を参照してください。
+インテグレーションガイド、対応 SDK、エンドポイントリファレンスについては、[Getting Started](/api-ja/getting-started.md) を参照してください。
 
 ## Introduction
 

@@ -23,7 +23,7 @@ RTB 用の UID2 server-side SDK SDK を使用すると、UID2 Token を復号し
 | :------------------ | :-------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------- |
 | `endpoint`          | UID2 サービスのエンドポイントです。                                                                                                     | N/A                                |
 | `authKey`           | クライアントの認証トークンです。UID2 へのアクセスについては、[Contact Info](../../getting-started.md#contact-info) を参照してください。 | N/A                                |
-| `refreshIntervalMs` | 復号鍵を取得するためのリフレッシュ間隔（ミリ秒単位）。<br>Refresh cadence (in milliseconds) for fetching the decryption keys.           | 5 minutes (`300,000` milliseconds) |
+| `refreshIntervalMs` | 復号鍵を取得するためのリフレッシュ間隔（ミリ秒単位）。                                                                                  | 5 minutes (`300,000` milliseconds) |
 | `retryIntervalMs`   | エラーが発生したときにリクエストを再試行するための再試行間隔（ミリ秒単位）です。                                                        | 30 seconds (`30,000` milliseconds) |
 
 ## Interface

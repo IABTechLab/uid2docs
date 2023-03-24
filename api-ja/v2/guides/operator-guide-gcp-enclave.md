@@ -64,10 +64,10 @@ UID2 Operator Service は、どの GCP アカウントおよびプロジェク�
 
 別の方法として、UID2 Core のサービスアカウントにあらかじめ定義された GCP ロールを付与することもできます。これらのロールには、次の表に示すように、必要な権限が含まれています。
 
-| Role             | Permissions Included                           |
-| :--------------- | :--------------------------------------------- |
-| `Compute Viewer` | `compute.instances.get`<br>`compute.disks.get` |
-| `Logs Viewer`    | `logging.logEntries.list`                      |
+| Role             | Permissions Included                            |
+| :--------------- | :---------------------------------------------- |
+| `Compute Viewer` | `compute.instances.get`<br/>`compute.disks.get` |
+| `Logs Viewer`    | `logging.logEntries.list`                       |
 
 ## Integration Deployment
 

@@ -59,15 +59,15 @@ select UID2, BUCKET_ID from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTI
 | Variable          | Advertiser Solution Default Value | Data Provider Solution Default Value | Comments                                                                                                                                               |
 | :---------------- | :-------------------------------- | :----------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `{DATABASE_NAME}` | `UID2_PROD_ADV_SH`                | `UID2_PROD_DP_SH`                    | 必要であれば、選択した UID2 Share へのアクセス権が与えられた後に新しいデータベースを作成する際に、デフォルトのデータベース名を変更することができます。 |
-| `{SCHEMA_NAME}`   | `ADV`                             | `DP`                                 | これはイミュータブルです。<br>This is an immutable name.                                                                                               |
+| `{SCHEMA_NAME}`   | `ADV`                             | `DP`                                 | これはイミュータブルです。                                                                                                                             |
 
 ### Map Email Addresses
 
 単一のメールアドレスまたは複数のメールアドレスを、対応する UID2 とセカンドレベルのソルトバケット ID にマッピングするには、 `FN_T_UID2_IDENTITY_MAP_EMAIL` 関数を使用します。これはメールアドレスを引数に取り、UID2 [Email Address Normalization](../../getting-started.md#email-address-normalization) の規則に従って正規化します。
 
-| Argument | Data Type    | Description                                                                                                                             |
-| :------- | :----------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
-| `EMAIL`  | varchar(128) | UID2 およびセカンドレベルのバケット ID に対応させるメールアドレス。<br>The email address to map to the UID2 and second-level bucket ID. |
+| Argument | Data Type    | Description                                                         |
+| :------- | :----------- | :------------------------------------------------------------------ |
+| `EMAIL`  | varchar(128) | UID2 およびセカンドレベルのバケット ID に対応させるメールアドレス。 |
 
 クエリーに成功すると、指定されたメールアドレスについて以下の情報が返されます。
 

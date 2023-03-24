@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Advertiser/Data Provider Integration Guide
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /token/validate
 
 # POST /token/validate
 
