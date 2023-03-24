@@ -1,8 +1,8 @@
-[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > Publisher Integration Guide
+[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > [Integration Guides](README.md) > Publisher Integration Guide
 
 # Publisher Integration Guide (Deprecated)
 
-> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/summary-doc-v2.md) をご利用ください。
 
 > NOTE: このガイドは、UID2 SDK [version 0](../sdks/client-side-identity-v0.md) を対象としています。UID2 SDK [version 1](../sdks/client-side-identity-v1.md)を使用した*インテグレーションガイド*については、 [UID2 SDK Integration Guide](./publisher-client-side.md) をご覧ください。
 
@@ -71,11 +71,11 @@ sequenceDiagram
 
 ステップ 1-c で認証が行われ、ユーザーに規約を受け入れてもらい、パブリッシャーがメールアドレスを検証した後、サーバーサイドで UID2 Token を生成する必要があります。次の表は、トークン生成のステップの詳細を示しています。
 
-| Step | Endpoint/SDK                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ---- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1-d  | [GET /token/generate](../endpoints/get-token-generate.md)           | パブリッシャーが UID2 を使用してアイデンティティを確立するには、2 つの方法があります:<br>- UID2 対応のシングルサインオンプロバイダーとインテグレーションする。<br>- [GET /token/generate](../endpoints/get-token-generate.md) エンドポイントを使ってユーザーが認証したときに UID2 Token を生成する。このリクエストには、ユーザーの [正規化済み](../../README.md#email-address-normalization) メールアドレスを含みます。 |
-| 1-e  | [GET /token/generate](../endpoints/get-token-generate.md)           | UID2 Token を返すトークン生成サービス。                                                                                                                                                                                                                                                                                                                                                                                 |
-| 1-f  | [UID2 client-side identity SDK](../sdks/client-side-identity-v0.md) | 手順 1-e で返却された UID2 Token を、後述する Client-Side SDK のアイデンティティメカニズムを使用して SDK に送信します。このメカニズムにより、ユーザーがログアウトするまで UID2 Token が利用可能であることが保証されます。                                                                                                                                                                                               |
+| Step | Endpoint/SDK                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ---- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1-d  | [GET /token/generate](../endpoints/get-token-generate.md)           | パブリッシャーが UID2 を使用してアイデンティティを確立するには、2 つの方法があります:<br>- UID2 対応のシングルサインオンプロバイダーとインテグレーションする。<br>- [GET /token/generate](../endpoints/get-token-generate.md) エンドポイントを使ってユーザーが認証したときに UID2 Token を生成する。このリクエストには、ユーザーの [正規化済み](../../getting-started.md#email-address-normalization) メールアドレスを含みます。 |
+| 1-e  | [GET /token/generate](../endpoints/get-token-generate.md)           | UID2 Token を返すトークン生成サービス。                                                                                                                                                                                                                                                                                                                                                                                          |
+| 1-f  | [UID2 client-side identity SDK](../sdks/client-side-identity-v0.md) | 手順 1-e で返却された UID2 Token を、後述する Client-Side SDK のアイデンティティメカニズムを使用して SDK に送信します。このメカニズムにより、ユーザーがログアウトするまで UID2 Token が利用可能であることが保証されます。                                                                                                                                                                                                        |
 
 > IMPORTANT: 現在、UID2 SDK はトークンをファーストパーティ Cookie に保存しています。このような実装の詳細は将来的に変更される可能性があるため、潜在的な問題を回避するために、ID 管理は必ず UID2 SDK APIs に従って行ってください。
 
@@ -143,7 +143,7 @@ sequenceDiagram
 
 1. 以下のどちらかを行ってください:
    - [GET /token/generate](../endpoints/get-token-generate.md) リクエストを `validate@email.com` を `email` に指定して送信します。
-   - `validate@email.com` の [base64-encoded SHA256](../../README.md#email-address-hash-encoding) ハッシュを作成し、メールハッシュとして送信します。
+   - `validate@email.com` の [base64-encoded SHA256](../../getting-started.md#email-address-hash-encoding) ハッシュを作成し、メールハッシュとして送信します。
 2. ステップ 3 で使用するために返された `advertising_token` を保存します。
 3. ステップ 1 で送信した `email` または `email_hash` と `advertising_token` (ステップ 2 で保存) を `token` として [GET /token/validate](../endpoints/get-token-validate.md) リクエストを送信してください。
    - もしレスポンスが `true` を返したら、ステップ 1 でリクエストとして送った `email` または `email_hash` が、ステップ 1 のレスポンスで受け取ったトークンと一致したことになります。
@@ -155,6 +155,6 @@ sequenceDiagram
 
 1. 以下のどちらかを行ってください:
    - `optout@email.com` を `email` として [GET /token/generate](../endpoints/get-token-generate.md) リクエストを送ります。
-   - `optout@email.com` の [base64-encoded SHA256](../../README.md#email-address-hash-encoding) ハッシュを作成し、メールハッシュとして送信する。
+   - `optout@email.com` の [base64-encoded SHA256](../../getting-started.md#email-address-hash-encoding) ハッシュを作成し、メールハッシュとして送信する。
 2. ステップ 3 で使用するために返された `refresh_token` を保存します。
 3. [GET /token/validate](../endpoints/get-token-validate.md) リクエストを、ステップ 1 で送信した `email` または `email_hash` と `refresh_token` （ステップ 2 で保存）を `token` に指定して送信してください。<br/> `optout@email.com` のメールは常にログアウトしたリフレッシュトークンを返すので、`body` レスポンスは空のはずです。

@@ -1,8 +1,8 @@
-[UID2 API Documentation](../../README.md) > [v1](../README.md) > Integration Guides > Advertiser/Data Provider Integration Guide
+[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > Integration Guides > Advertiser/Data Provider Integration Guide
 
 # Advertiser/Data Provider Integration Guide (Deprecated)
 
-> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/summary-doc-v2.md) をご利用ください。
 
 このガイドでは、ユーザーデータを収集し、DSP にプッシュする組織のためのインテグレーション手順について説明します。データコレクターには、広告主、データオンボーダー、測定プロバイダー、ID グラフプロバイダー、サードパーティデータプロバイダ、および DSP にデータを送信する他の組織が含まれます。このガイドには、次のセクションがあります:
 
@@ -85,7 +85,7 @@ UID2 生成リクエストで提供されるメタデータには、UID2 生成�
 
 ### マッピング用の PII の SHA256 はどのように生成すればよいですか？
 
-[メールアドレスの正規化ルール](../../README.md#email-address-normalization) に従い、ソルトなしでハッシュ化する必要があります。また、送信前に値を base64 エンコードする必要があります。
+[メールアドレスの正規化ルール](../../getting-started.md#email-address-normalization) に従い、ソルトなしでハッシュ化する必要があります。また、送信前に値を base64 エンコードする必要があります。
 
 ### メールアドレスやメールアドレスのハッシュマッピングを大量に保存する必要がありますか？
 

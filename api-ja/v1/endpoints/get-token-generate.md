@@ -1,8 +1,8 @@
-[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Endpoints](./README.md) > GET /token/generate
+[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > [Endpoints](./README.md) > GET /token/generate
 
 # GET /token/generate (Deprecated)
 
-> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず [UID2 API v2](../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず [UID2 API v2](../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/summary-doc-v2.md) をご利用ください。
 
 ハッシュ化した、あるいはしていないメールアドレスや電話番号から UID2 Token を生成します。
 
@@ -27,12 +27,12 @@
 
 > IMPORTANT: 以下のパラメータは、いずれか 1 つだけを指定します。
 
-| Query Parameter | Data Type | Attribute      | Description                                                                                                                                                                             |
-| :-------------- | :-------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `email`         | string    | 条件付きで必要 | トークンを生成する [URL エンコード](../README.md#query-parameter-value-encoding) したメールアドレスです。<br>                                                                           |
-| `email_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
-| `phone`         | string    | 条件付きで必要 | トークンを生成する [正規化](../../README.md#phone-number-normalization) と [URL エンコード](../README.md#query-parameter-value-encoding) した電話番号です。                             |
-| `phone_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。        |
+| Query Parameter | Data Type | Attribute      | Description                                                                                                                                                                                               |
+| :-------------- | :-------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `email`         | string    | 条件付きで必要 | トークンを生成する [URL エンコード](../README.md#query-parameter-value-encoding) したメールアドレスです。<br>                                                                                             |
+| `email_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../getting-started.md#email-address-hash-encoding) した [正規化](../../getting-started.md#email-address-normalization) 済みメールアドレスです。 |
+| `phone`         | string    | 条件付きで必要 | トークンを生成する [正規化](../../getting-started.md#phone-number-normalization) と [URL エンコード](../README.md#query-parameter-value-encoding) した電話番号です。                                      |
+| `phone_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../getting-started.md#phone-number-hash-encoding) した、[正規化](../../getting-started.md#phone-number-normalization) 済み電話番号です。        |
 
 ### Request Examples
 
@@ -88,10 +88,10 @@ curl -L -X GET 'https://operator-integ.uidapi.com/v1/token/generate?phone_hash=e
 | `advertising_token` | string    | ユーザーの暗号化された Advertising Token（UID2 Token）です。                                                                                                                                                                                                                     |
 | `refresh_token`     | string    | UID2 Service と最新の ID トークンのセットを交換できる暗号化されたトークンです。                                                                                                                                                                                                  |
 | `identity_expires`  | double    | Advertising Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                       |
-| `refresh_from`      | double    | [Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md) が Advertising Token の更新を開始するタイミングを示す UNIX タイムスタンプ（ミリ秒単位）</br>TIP: SDK を使っていない場合は、このタイムスタンプからも Advertising Token を更新することを検討してみてください。 |
+| `refresh_from`      | double    | [Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md) が Advertising Token の更新を開始するタイミングを示す UNIX タイムスタンプ（ミリ秒単位）<br/>TIP: SDK を使っていない場合は、このタイムスタンプからも Advertising Token を更新することを検討してみてください。 |
 | `refresh_expires`   | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                           |
 
-レスポンスのステータス値については，[Response Structure and Status Codes](../../README.md#response-structure-and-status-codes)　を参照してください。
+レスポンスのステータス値については，[Response Structure and Status Codes](../../getting-started.md#response-structure-and-status-codes)　を参照してください。
 
 ### Response Status Codes
 

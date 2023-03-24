@@ -1,8 +1,8 @@
-[UID2 API Documentation](../../README.md) > [v1](../README.md) > [SDKs](./README.md) > Client-Side Identity
+[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > [SDKs](./README.md) > Client-Side Identity
 
 # Client-Side JavaScript SDK v1 (Deprecated)
 
-> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/summary-doc-v2.md) をご利用ください。
 
 > NOTE: このドキュメントは、SDK の version 1 用です。以前のバージョンについては、[SDK version 0](./client-side-identity-v0.md) を参照してください。
 
@@ -68,8 +68,8 @@ Web インテグレーションの手順については、[Publisher Integration
 | :---------------------------------- | :---------------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------- |
 | Initialization                      | `undefined`       | `undefined`    | コールバックが呼び出されるまでの初期状態。                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | N/A                                                      |
 | Identity Is Available               | available         | `false`        | 有効な ID が正常に確立またはリフレッシュされました。Advertising Token は、ターゲティング広告で使用できます。                                                                                                                                                                                                                                                                                                                                                                                                | `ESTABLISHED` or `REFRESHED`                             |
-| Identity Is Temporarily Unavailable | `undefined`       | `false`        | ID（Advertising Token）の有効期限が切れており、自動リフレッシュに失敗しました。[Background auto-refresh](#background-token-auto-refresh) の試行は、Refresh Token の有効期限が切れるか、ユーザーが拒否するまで続きます。</br>以下のいずれかを行うことができます：</br>- ターゲティングのない広告を使います。</br>- 同意フォームを使って UID2 ログインにユーザーを誘導します。</br>NOTE: ID はしばらくすると正常に更新されますが、例えば、UID2 サービスが一時的に利用できない場合など、この方法は使えません。 | `EXPIRED`                                                |
-| Identity Is Not Available           | `undefined`       | `false`        | ID が利用できないため、リフレッシュすることができません。SDK はファーストパーティ Cookie をクリアします。</br>UID2 ベースのターゲティング広告を再び使用するには、同意書付きの UID2 ログインにユーザーをリダイレクトする必要があります。                                                                                                                                                                                                                                                                     | `INVALID`, `NO_IDENTITY`, `REFRESH_EXPIRED`, or `OPTOUT` |
+| Identity Is Temporarily Unavailable | `undefined`       | `false`        | ID（Advertising Token）の有効期限が切れており、自動リフレッシュに失敗しました。[Background auto-refresh](#background-token-auto-refresh) の試行は、Refresh Token の有効期限が切れるか、ユーザーが拒否するまで続きます。<br/>以下のいずれかを行うことができます：<br/>- ターゲティングのない広告を使います。<br/>- 同意フォームを使って UID2 ログインにユーザーを誘導します。<br/>NOTE: ID はしばらくすると正常に更新されますが、例えば、UID2 サービスが一時的に利用できない場合など、この方法は使えません。 | `EXPIRED`                                                |
+| Identity Is Not Available           | `undefined`       | `false`        | ID が利用できないため、リフレッシュすることができません。SDK はファーストパーティ Cookie をクリアします。<br/>UID2 ベースのターゲティング広告を再び使用するには、同意書付きの UID2 ログインにユーザーをリダイレクトする必要があります。                                                                                                                                                                                                                                                                     | `INVALID`, `NO_IDENTITY`, `REFRESH_EXPIRED`, or `OPTOUT` |
 
 次の図は、4 つの状態と、それぞれの ID の [status value](#identity-status-values)、およびそれらの間の可能な遷移を表しています。SDK は、各遷移で [コールバック関数](#callback-function) を呼び出します。
 
@@ -86,7 +86,7 @@ SDK の [initialization](#initopts-object-void) の一部として、ID のト�
 - SDK 初期化時に指定された [コールバック関数](#callback-function) は、次の状況で呼び出されます。
   - 更新が成功するたびに呼び出されます。
   - 有効期限切れの Advertising Token のリフレッシュに初めて失敗した場合。
-  - ユーザーがオプトアウトするなどして ID が無効になった場合</br>NOTE: コールバックは、ID が一時的に使用できず、自動更新が失敗し続けた場合には呼び出されません。この場合、SDK は既存の Advertising Token を継続して使用します。
+  - ユーザーがオプトアウトするなどして ID が無効になった場合<br/>NOTE: コールバックは、ID が一時的に使用できず、自動更新が失敗し続けた場合には呼び出されません。この場合、SDK は既存の Advertising Token を継続して使用します。
 - [disconnect()](#disconnect-void) 呼び出しは、アクティブなタイマーをキャンセルします。
 
 ## API Reference

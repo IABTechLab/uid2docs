@@ -1,8 +1,8 @@
-[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Endpoints](./README.md) > POST /identity/map
+[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > [Endpoints](./README.md) > POST /identity/map
 
 # POST /identity/map (Deprecated)
 
-> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず [UID2 API v2](../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず [UID2 API v2](../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/summary-doc-v2.md) をご利用ください。
 
 複数のメールアドレスや電話番号、それぞれのハッシュを、UID2 やソルトバケット ID にマッピングします。このエンドポイントは [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md) による利用を対象としています。
 
@@ -26,12 +26,12 @@
 
 以下の 4 つのパラメータのうち、1 つだけを指定します。
 
-| Query Parameter | Data Type    | Attribute      | Description                                                                                                                                                                     |
-| :-------------- | :----------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `email`         | string array | 条件付きで必要 | マッピングするメールアドレスのリストです。                                                                                                                                      |
-| `email_hash`    | string array | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスのリストです。 |
-| `phone`         | string array | 条件付きで必要 | マッピングする [正規化](../../README.md#phone-number-normalization) 済み電話番号のリストです。                                                                                  |
-| `phone_hash`    | string array | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../README.md#phone-number-hash-encoding) した [正規化](../../README.md#phone-number-normalization) 済み電話番号のリストです。         |
+| Query Parameter | Data Type    | Attribute      | Description                                                                                                                                                                                       |
+| :-------------- | :----------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `email`         | string array | 条件付きで必要 | マッピングするメールアドレスのリストです。                                                                                                                                                        |
+| `email_hash`    | string array | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../getting-started.md#email-address-hash-encoding) した [正規化](../../getting-started.md#email-address-normalization) 済みメールアドレスのリストです。 |
+| `phone`         | string array | 条件付きで必要 | マッピングする [正規化](../../getting-started.md#phone-number-normalization) 済み電話番号のリストです。                                                                                           |
+| `phone_hash`    | string array | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../getting-started.md#phone-number-hash-encoding) した [正規化](../../getting-started.md#phone-number-normalization) 済み電話番号のリストです。         |
 
 ### Request Examples
 
