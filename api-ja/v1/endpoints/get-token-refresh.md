@@ -19,9 +19,9 @@
 
 ### Path Parameters
 
-| Path Parameter  | Data Type | Attribute | Description                                                                    |
-| :-------------- | :-------- | :-------- | :----------------------------------------------------------------------------- |
-| `{environment}` | string    | 必須      | テスト環境: `https://integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com` |
+| Path Parameter  | Data Type | Attribute | Description                                                                             |
+| :-------------- | :-------- | :-------- | :-------------------------------------------------------------------------------------- |
+| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com` |
 
 ### Query Parameters
 

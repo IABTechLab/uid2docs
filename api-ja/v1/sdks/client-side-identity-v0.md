@@ -16,7 +16,7 @@ UID2 を使用して ID を管理するページや、リアルタイム入札�
 
 ```html
 <script
-  src="https://integ.uidapi.com/static/js/uid2-sdk-0.0.1a.js"
+  src="https://operator-integ.uidapi.com/static/js/uid2-sdk-0.0.1a.js"
   type="text/javascript"
 ></script>
 ```
