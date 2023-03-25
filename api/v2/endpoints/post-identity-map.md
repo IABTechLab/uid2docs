@@ -168,7 +168,6 @@ If the request includes the parameter/value `policy=1`, and some identifiers hav
 }
 ```
 
-
 ### Response Body Properties
 
 | Property | Data Type | Description |
