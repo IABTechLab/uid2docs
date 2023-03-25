@@ -52,7 +52,7 @@ To keep your UID2-based audience information accurate and up to date, follow the
 
 1. The response from the [UID2 retrieval step](#retrieve-a-raw-uid2-for-pii-using-the-identity-map-endpoints) contains mapping information. Cache the mapping between PII (`identifier`), raw UID2 (`advertising_id`), and salt bucket (`bucket_id`), along with the most recent `last_updated` timestamp.
 
-2. Using the results from the [preceding salt bucket rotation step](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s), remap any raw UID2 for which the salt buckets have been rotated by [retrieving raw UID2s using the identity map endpoints](#retrieve-a-raw-uid2-for-pii-using-the-identity-map-endpoints). To update the UID2s in audiences, [send UID2 to a DSP](#send-uid2-to-a-dsp-to-build-an-audience).
+2. Using the results from the [preceding salt bucket rotation step](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s), remap any raw UID2 for which the salt buckets have been rotated by [retrieving raw UID2s using the identity map endpoints](#retrieve-a-raw-uid2-for-pii-using-the-identity-map-endpoints). To update the UID2s in audiences, [send raw UID2 to a DSP](#send-raw-uid2-to-a-dsp-to-build-an-audience).
 
 ## FAQs
 
