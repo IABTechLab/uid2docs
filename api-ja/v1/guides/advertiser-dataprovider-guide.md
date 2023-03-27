@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > Integration Guides > Advertiser/Data Provider Integration Guide
+[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > [Integration Guides](README.md) > Advertiser/Data Provider Integration Guide
 
 # Advertiser/Data Provider Integration Guide (Deprecated)
 

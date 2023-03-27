@@ -2,7 +2,7 @@
 
 # POST /token/refresh
 
-[POST /token/generate](./post-token-generate.md) エンドポイントを使用して発行されたリフレッシュトークンを指定し、ユーザーの新しいトークンを生成することができます。
+[POST /token/generate](./post-token-generate.md) エンドポイントを使用して発行された Refresh Token を指定し、ユーザーの新しいトークンを生成することができます。
 
 Used by:　このエンドポイントは、主にパブリッシャーが使用します。
 
@@ -21,8 +21,8 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 
 - トークン更新のリクエストには暗号化は必要ありません。
 - HTTP ステータスコードが 200 の場合のみ、レスポンスが暗号化されます。それ以外の場合、レスポンスは暗号化されません。
-- レスポンスを復号化するには、リクエストのリフレッシュトークンが返された [POST /token/generate](post-token-generate.md) または `POST /token/refresh` レスポンスの `refresh_response_key` 値を使用する必要があります。
-- v1 `token/generate` レスポンスからリフレッシュトークンをリクエストで送信した場合、レスポンスは暗号化されません。
+- レスポンスを復号化するには、リクエストの Refresh Token が返された [POST /token/generate](post-token-generate.md) または `POST /token/refresh` レスポンスの `refresh_response_key` 値を使用する必要があります。
+- v1 `token/generate` レスポンスから Refresh Token をリクエストで送信した場合、レスポンスは暗号化されません。
 
 ### Path Parameters
 

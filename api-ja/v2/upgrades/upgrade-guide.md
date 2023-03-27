@@ -40,8 +40,8 @@ UID2 API の v2 アップデートは以下の通りです:
 トークン生成エンドポイントおよびリフレッシュエンドポイントへのコールを独立してアップグレードすることができます。ここで知っておくべきことは以下の通りです:
 
 - v1 [GET /token/generate](../../v1/endpoints/get-token-generate.md) または v1 [GET /token/refresh](../../v1/endpoints/get-token-refresh.md) エンドポイントによって返されたリフレッシュ トークンを v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントに渡すことができますが、応答は暗号化されません。
-- v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントは、v2 [POST /token/generate](../endpoints/post-token-generate.md) または v2 [POST /token/refresh](../endpoints/post-token-refresh.md) によって返されるリフレッシュトークンのみがレスポンスを暗号化し、呼び出し側はこれらのエンドポイントによって返されたリフレッシュ応答キーを持っていると想定しています。
-- v2 [POST /token/generate](../endpoints/post-token-generate.md) や v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントから返されるリフレッシュトークンは、v1 [GET /token/refresh](../../v1/endpoints/get-token-refresh.md) エンドポイントには渡せますが、レスポンスを暗号化しません。
+- v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントは、v2 [POST /token/generate](../endpoints/post-token-generate.md) または v2 [POST /token/refresh](../endpoints/post-token-refresh.md) によって返される Refresh Token のみがレスポンスを暗号化し、呼び出し側はこれらのエンドポイントによって返されたリフレッシュ応答キーを持っていると想定しています。
+- v2 [POST /token/generate](../endpoints/post-token-generate.md) や v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントから返される Refresh Token は、v1 [GET /token/refresh](../../v1/endpoints/get-token-refresh.md) エンドポイントには渡せますが、レスポンスを暗号化しません。
 - [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md)は、[Client-Side JavaScript SDK v1](../../v1/sdks/client-side-identity-v1.md) との互換性を保った交換部品（a drop-in replacement）で、そのまま置き換えることができるものです。以下は、その内容です:
 - ユーザーの ID を保存するために使用されるファーストパーティーのクッキーは、2 つのバージョンの SDK 間で完全に相互運用可能です。つまり、Client-Side JavaScript SDK v2 は v1 の Cookie を読み取ることができ、その逆も同様です。
 - [v2 SDK init() function](../sdks/client-side-identity.md#initopts-object-void) は、v1 の [GET /token/generate](../../v1/endpoints/get-token-generate.md) エンドポイントから返された ID オブジェクトを受け取ります。
@@ -100,10 +100,10 @@ SDK version 2:
 
 SDK を使用せず、サーバー側またはクライアント側でトークンをリフレッシュする場合、v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントへのリクエストを行う際には、以下の点に留意してください：
 
-- 返されたリフレッシュトークンは、リクエストボディに何も修正せずに渡すことができます。
-- v2 エンドポイントから返されるリフレッシュトークンは、リフレッシュトークンと一緒に `refresh_response_key` 値が返されることが期待されています。このキーは [レスポンスの復号化](../ref-info/encryption-decryption.md) のために必要とされます。
-- レスポンスに新しいリフレッシュトークンが含まれている場合、対応する `refresh_response_key` 値とともに、ユーザーのアイデンティティストレージ (たとえば、データベースやカスタムファーストパーティクッキー) に保存する必要があります。
-- v1 のエンドポイントから返されるリフレッシュトークンは、関連する `refresh_response_key` を持たないので、レスポンスは暗号化されません。
+- 返された Refresh Token は、リクエストボディに何も修正せずに渡すことができます。
+- v2 エンドポイントから返される Refresh Token は、Refresh Token と一緒に `refresh_response_key` 値が返されることが期待されています。このキーは [レスポンスの復号化](../ref-info/encryption-decryption.md) のために必要とされます。
+- レスポンスに新しい Refresh Token が含まれている場合、対応する `refresh_response_key` 値とともに、ユーザーのアイデンティティストレージ (たとえば、データベースやカスタムファーストパーティクッキー) に保存する必要があります。
+- v1 のエンドポイントから返される Refresh Token は、関連する `refresh_response_key` を持たないので、レスポンスは暗号化されません。
 
 ## Advertiser and Data Provider Upgrade Workflow
 

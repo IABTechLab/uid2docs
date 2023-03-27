@@ -2,7 +2,7 @@
 
 # Publisher Integration Guide (Deprecated)
 
-> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/summary-doc-v2.md) をご利用ください。
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず [UID2 API v2 へのアップグレード](../../v2/upgrades/upgrade-guide.md) をお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/summary-doc-v2.md) をご利用ください。
 
 > NOTE: このガイドは、UID2 SDK [version 0](../sdks/client-side-identity-v0.md) を対象としています。UID2 SDK [version 1](../sdks/client-side-identity-v1.md)を使用した*インテグレーションガイド*については、 [UID2 SDK Integration Guide](./publisher-client-side.md) をご覧ください。
 
@@ -157,4 +157,4 @@ sequenceDiagram
    - `optout@email.com` を `email` として [GET /token/generate](../endpoints/get-token-generate.md) リクエストを送ります。
    - `optout@email.com` の [base64-encoded SHA256](../../getting-started.md#email-address-hash-encoding) ハッシュを作成し、メールハッシュとして送信する。
 2. ステップ 3 で使用するために返された `refresh_token` を保存します。
-3. [GET /token/validate](../endpoints/get-token-validate.md) リクエストを、ステップ 1 で送信した `email` または `email_hash` と `refresh_token` （ステップ 2 で保存）を `token` に指定して送信してください。<br/> `optout@email.com` のメールは常にログアウトしたリフレッシュトークンを返すので、`body` レスポンスは空のはずです。
+3. [GET /token/validate](../endpoints/get-token-validate.md) リクエストを、ステップ 1 で送信した `email` または `email_hash` と `refresh_token` （ステップ 2 で保存）を `token` に指定して送信してください。<br/> `optout@email.com` のメールは常にログアウトした Refresh Token を返すので、`body` レスポンスは空のはずです。
