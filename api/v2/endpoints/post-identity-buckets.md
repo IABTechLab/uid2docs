@@ -8,7 +8,7 @@ Used by: This endpoint is used mainly by advertisers and data providers. For det
 
 ## Request Format
 
-```POST '{environment}/v2/identity/buckets'```
+`POST '{environment}/v2/identity/buckets'`
 
 >IMPORTANT: You must encrypt all request using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 

@@ -9,7 +9,7 @@ Used by: This endpoint is used mainly by publishers.
 
 ## Request Format 
 
-```POST '{environment}/v2/token/refresh'```
+`POST '{environment}/v2/token/refresh'`
 
 Here's what you need to know about this endpoint:
 

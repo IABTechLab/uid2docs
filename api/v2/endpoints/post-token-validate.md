@@ -9,7 +9,7 @@ Used by: This endpoint is used mainly by publishers.
 
 ## Request Format 
 
-```POST '{environment}/v2/token/validate'```
+`POST '{environment}/v2/token/validate'`
 
 >IMPORTANT: You must encrypt all request using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
