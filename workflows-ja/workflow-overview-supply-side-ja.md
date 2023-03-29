@@ -19,7 +19,7 @@
 
 ## Integrations
 
-インテグレーションシナリオ、トークン管理、その他の詳細については、[Publisher Integration Guides](../api-ja/v2/guides/README.md) を参照してください。[Endpoints](../api-ja/v2/endpoints/README.md) も参照してください。
+インテグレーションシナリオ、トークン管理、その他の詳細については、[Publisher Integration Guides](../api-ja/v2/guides/summary-guides.md) を参照してください。[Endpoints](../api-ja/v2/endpoints/summary-endpoints.md) も参照してください。
 
 ### Direct Integration Requirements
 

@@ -1,12 +1,12 @@
-[UID2 API Documentation](../../README.md) > [v1](../README.md) > [SDKs](./README.md) > Client-Side Identity
+[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > [SDKs](./README.md) > Client-Side Identity SDK v0 (Deprecated)
 
 # Client-Side Identity SDK v0 (Deprecated)
 
-> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず [UID2 API v2 へのアップグレード](../../v2/upgrades/upgrade-guide.md) をお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/summary-doc-v2.md) をご利用ください。
 
 > NOTE: このドキュメントは UID2 SDK の version 0 用です。
 
-ID の確立と Advertising Token 取得のための実装を簡素化するには、より新しい改良版である [UID2 SDK version 1](./client-side-identity-v1.md) へのアップグレードを検討ください。
+ID の確立と Advertising Token 取得のための実装を簡素化するには、より新しい改良版である [Client-Side JavaScript SDK v1](./client-side-identity-v1.md) へのアップグレードを検討ください。
 
 > IMPORTANT: 新バージョンの SDK は、ユーザーセッション継続のための version 0 クッキーをサポートしていますが、SDK は下位互換性がなく、[コードの修正](./client-side-identity-v1.md#improvements-and-changes-from-version-0) が必要です。
 
@@ -16,7 +16,7 @@ UID2 を使用して ID を管理するページや、リアルタイム入札�
 
 ```html
 <script
-  src="https://integ.uidapi.com/static/js/uid2-sdk-0.0.1a.js"
+  src="https://operator-integ.uidapi.com/static/js/uid2-sdk-0.0.1a.js"
   type="text/javascript"
 ></script>
 ```

@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](../guides/README.md) > Snowflake Integration
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Integration Guides](../guides/summary-guides.md) > Snowflake Integration
 
 # Snowflake Integration
 
@@ -29,7 +29,7 @@ UID2 Share へのアクセスを要求するには、次の手順を実行しま
 4. The Trade Desk の既存顧客で _Advertiser_ Identity Solution に興味がある場合は、データリクエストフォームの **Message** 欄に The Trade Desk が発行したパートナー ID および広告主 ID を記載してください。
 5. フォームを送信します。
 
-リクエストを受け取った後、UID2 administrator が適切なアクセス方法をご連絡します。Snowflake でのデータリクエストの管理について詳しくは、[Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html)を参照してください。
+リクエストを受け取った後、UID2 Administrator が適切なアクセス方法をご連絡します。Snowflake でのデータリクエストの管理について詳しくは、[Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html)を参照してください。
 
 ## Shared Objects
 
@@ -59,15 +59,15 @@ select UID2, BUCKET_ID from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTI
 | Variable          | Advertiser Solution Default Value | Data Provider Solution Default Value | Comments                                                                                                                                               |
 | :---------------- | :-------------------------------- | :----------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `{DATABASE_NAME}` | `UID2_PROD_ADV_SH`                | `UID2_PROD_DP_SH`                    | 必要であれば、選択した UID2 Share へのアクセス権が与えられた後に新しいデータベースを作成する際に、デフォルトのデータベース名を変更することができます。 |
-| `{SCHEMA_NAME}`   | `ADV`                             | `DP`                                 | これはイミュータブルです。<br>This is an immutable name.                                                                                               |
+| `{SCHEMA_NAME}`   | `ADV`                             | `DP`                                 | これはイミュータブルです。                                                                                                                             |
 
 ### Map Email Addresses
 
-単一のメールアドレスまたは複数のメールアドレスを、対応する UID2 とセカンドレベルのソルトバケット ID にマッピングするには、 `FN_T_UID2_IDENTITY_MAP_EMAIL` 関数を使用します。これはメールアドレスを引数に取り、UID2 [Email Normalization](../../README.md#email-address-normalization) の規則に従って正規化します。
+単一のメールアドレスまたは複数のメールアドレスを、対応する UID2 とセカンドレベルのソルトバケット ID にマッピングするには、 `FN_T_UID2_IDENTITY_MAP_EMAIL` 関数を使用します。これはメールアドレスを引数に取り、UID2 [Email Address Normalization](../../getting-started.md#email-address-normalization) の規則に従って正規化します。
 
-| Argument | Data Type    | Description                                                                                                                             |
-| :------- | :----------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
-| `EMAIL`  | varchar(128) | UID2 およびセカンドレベルのバケット ID に対応させるメールアドレス。<br>The email address to map to the UID2 and second-level bucket ID. |
+| Argument | Data Type    | Description                                                         |
+| :------- | :----------- | :------------------------------------------------------------------ |
+| `EMAIL`  | varchar(128) | UID2 およびセカンドレベルのバケット ID に対応させるメールアドレス。 |
 
 クエリーに成功すると、指定されたメールアドレスについて以下の情報が返されます。
 
@@ -142,9 +142,9 @@ select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
 
 1 つあるいは複数のメールアドレスハッシュを、対応する UID2 とセカンドレベルのソルトバケット ID にマッピングするには、メールアドレスハッシュを引数にとる `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用します。
 
-| Argument     | Data Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| :----------- | :----------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `EMAIL_HASH` | varchar(128) | ユーザーの正規化されたメールアドレスの SHA256 ハッシュを base64 でエンコードしたものです。[Email Normalization](../../README.md#email-address-normalization) ルールを用いて、メールアドレスハッシュが正しくフォーマットされていることを確認します。正規化されたメールアドレスから計算されたハッシュを使用します。<br>The base64-encoded SHA256 hash of the normalized email address of a user. Ensure that the email hash is correctly formatted using the [Email Normalization](../../README.md#email-address-normalization) rules. Use the hash computed from the normalized email address. |
+| Argument     | Data Type    | Description                                                                                                                                                                                                                                                                                                                        |
+| :----------- | :----------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `EMAIL_HASH` | varchar(128) | ユーザーの正規化されたメールアドレスの SHA256 ハッシュを base64 でエンコードしたものです。[Email Address Normalization](../../getting-started.md#email-address-normalization) ルールを用いて、メールアドレスハッシュが正しくフォーマットされていることを確認します。正規化されたメールアドレスから計算されたハッシュを使用します。 |
 
 問い合わせに成功すると、指定されたメールアドレスハッシュについて、以下の情報が返されます。
 

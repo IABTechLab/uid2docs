@@ -1,10 +1,10 @@
-[UID2 API Documentation](../../README.md) > [v1](../README.md) > [SDKs](./README.md) > RTB SDK
+[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > [SDKs](./README.md) > Server-Side SDK
 
-# RTB SDK Client (Deprecated)
+# Server-Side SDK Guide for RTB (Deprecated)
 
-> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず [UID2 API v2 へのアップグレード](../../v2/upgrades/upgrade-guide.md) をお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/summary-doc-v2.md) をご利用ください。
 
-UID2 RTB SDK は、UID2 Token を復号化して raw UID2 にアクセスできるようにします。
+server-side SDK は、UID2 Token を復号化して raw UID2 にアクセスできるようにします。
 
 以下の関数は、設定する必要がある情報、またはライブラリから取得できる情報を定義しています。以下で定義されるパラメータとプロパティ名は疑似コードです。実際のパラメータやプロパティ名は言語によって異なりますが、以下に示す情報と同様のものになります。
 
@@ -17,12 +17,12 @@ UID2 RTB SDK は、UID2 Token を復号化して raw UID2 にアクセスでき�
 
 初期化関数は、SDK が UID2 Service との認証を行うために必要なパラメータを設定します。また、エラーが発生した場合の再試行間隔を設定することもできます。
 
-| Parameter           | Description                                                                                                                    | Recommended Value                  |
-| :------------------ | :----------------------------------------------------------------------------------------------------------------------------- | :--------------------------------- |
-| `endpoint`          | UID2 サービスのエンドポイントです。                                                                                            | N/A                                |
-| `authKey`           | クライアントの認証トークンです。UID2 へのアクセスについては、[Contact Info](../../README.md#contact-info) を参照してください。 | N/A                                |
-| `refreshIntervalMs` | 復号鍵を取得するためのリフレッシュ間隔（ミリ秒単位）。<br>Refresh cadence (in milliseconds) for fetching the decryption keys.  | 5 minutes (`300,000` milliseconds) |
-| `retryIntervalMs`   | エラーが発生したときにリクエストを再試行するための再試行間隔（ミリ秒単位）です。                                               | 30 seconds (`30,000` milliseconds) |
+| Parameter           | Description                                                                                                                             | Recommended Value                  |
+| :------------------ | :-------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------- |
+| `endpoint`          | UID2 サービスのエンドポイントです。                                                                                                     | N/A                                |
+| `authKey`           | クライアントの認証トークンです。UID2 へのアクセスについては、[Contact Info](../../getting-started.md#contact-info) を参照してください。 | N/A                                |
+| `refreshIntervalMs` | 復号鍵を取得するためのリフレッシュ間隔（ミリ秒単位）。                                                                                  | 5 minutes (`300,000` milliseconds) |
+| `retryIntervalMs`   | エラーが発生したときにリクエストを再試行するための再試行間隔（ミリ秒単位）です。                                                        | 30 seconds (`30,000` milliseconds) |
 
 ## Interface
 

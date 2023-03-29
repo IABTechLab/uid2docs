@@ -1,8 +1,8 @@
-[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Endpoints](./README.md) > GET /identity/map
+[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > [Endpoints](./README.md) > GET /identity/map
 
 # GET /identity/map (Deprecated)
 
-> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず [UID2 API v2](../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず [UID2 API v2](../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/summary-doc-v2.md) をご利用ください。
 
 ハッシュ化された、またはされていないメールアドレスや電話番号の UID2 とソルトバケット ID を取得します。このエンドポイントは [Advertisers/Data Providers](../guides/advertiser-dataprovider-guide.md) による使用を対象としています。
 
@@ -20,12 +20,12 @@
 
 > IMPORTANT: 以下のパラメーターの 1 つのみを含める必要があります。
 
-| Query Parameter | Data Type | Attribute      | Description                                                                                                                                                                             |
-| :-------------- | :-------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `email`         | string    | 条件付きで必要 | マップする [URL エンコード](../README.md#query-parameter-value-encoding) したメールアドレスです                                                                                         |
-| `email_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
-| `phone`         | string    | 条件付きで必要 | トークンを生成する [正規化](../../README.md#phone-number-normalization) と [URL エンコード](../README.md#query-parameter-value-encoding) した電話番号です。                             |
-| `phone_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。        |
+| Query Parameter | Data Type | Attribute      | Description                                                                                                                                                                                               |
+| :-------------- | :-------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `email`         | string    | 条件付きで必要 | マップする [URL エンコード](../README.md#query-parameter-value-encoding) したメールアドレスです                                                                                                           |
+| `email_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../getting-started.md#email-address-hash-encoding) した [正規化](../../getting-started.md#email-address-normalization) 済みメールアドレスです。 |
+| `phone`         | string    | 条件付きで必要 | トークンを生成する [正規化](../../getting-started.md#phone-number-normalization) と [URL エンコード](../README.md#query-parameter-value-encoding) した電話番号です。                                      |
+| `phone_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../getting-started.md#phone-number-hash-encoding) した、[正規化](../../getting-started.md#phone-number-normalization) 済み電話番号です。        |
 
 ### Request Examples
 

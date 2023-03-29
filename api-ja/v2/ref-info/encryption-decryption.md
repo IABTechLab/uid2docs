@@ -1,8 +1,8 @@
-[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../README.md) > Encrypting Requests and Decrypting Responses
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > Encrypting Requests and Decrypting Responses
 
 # Encrypting Requests and Decrypting Responses
 
-すべての UID2 [エンドポイント](../endpoints/README.md) は、リクエストの [暗号化](#encrypting-requests) とそれぞれのレスポンスの [復号化](#decrypting-responses) を必要とします。
+すべての UID2 [エンドポイント](../endpoints/summary-endpoints.md) は、リクエストの [暗号化](#encrypting-requests) とそれぞれのレスポンスの [復号化](#decrypting-responses) を必要とします。
 
 > NOTE: [POST /token/refresh](../endpoints/post-token-refresh.md) リクエストは暗号化を必要としません。
 
@@ -31,7 +31,7 @@ UID2 API のハイレベルなリクエスト・レスポンスワークフロ�
 
 [リクエストの暗号化](#example-encryption-script) と [レスポンスの復号化](#example-decryption-script) の Python サンプルスクリプトは、ステップ 2-4 と 6-10 の自動化に役立ち、アプリケーションにこれらの手順を実装する方法のリファレンスとして役に立ちます。
 
-それぞれの UID2 [エンドポイント](../endpoints/README.md) では、それぞれの JSON ボディフォーマットの要件とパラメータを説明し、呼び出し例を含み、復号した応答を示しています。以下のセクションでは、Python による暗号化および記述スクリプトの例、フィールドレイアウトの要件、リクエストとレスポンスの例を示します。
+それぞれの UID2 [エンドポイント](../endpoints/summary-endpoints.md) では、それぞれの JSON ボディフォーマットの要件とパラメータを説明し、呼び出し例を含み、復号した応答を示しています。以下のセクションでは、Python による暗号化および記述スクリプトの例、フィールドレイアウトの要件、リクエストとレスポンスの例を示します。
 
 ## Encrypting Requests
 
@@ -122,7 +122,6 @@ echo '{"email": "test@example.com"}' \
 | Offset (Bytes) | Size (Bytes) | Description                                                                                                                                        |
 | :------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0              | 12           | 96 ビットの初期化ベクトル（IV）、データ暗号化のランダム化に使用されます。                                                                          |
-|                |
 | 12             | N            | ペイロード([復号化済みレスポンスデータエンベロープ](#unencrypted-response-data-envelope)) は、AES/GCM/NoPadding アルゴリズムで暗号化されています。 |
 | 12 + N         | 16           | データの整合性を確認するために使用される 128 ビット GCM 認証タグ。                                                                                 |
 

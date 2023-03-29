@@ -1,14 +1,14 @@
-[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > Custom Publisher Integration Guide
+[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > [Integration Guides](README.md) > Publisher Integration Guide, Server-Only (Without SDK) (Deprecated)
 
-# Server-Only UID2 Integration Guide (Deprecated)
+# Publisher Integration Guide, Server-Only (Without SDK) (Deprecated)
 
-> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず UID2 API v2(../../v2/upgrades/upgrade-guide.md) へのアップグレードをお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/README.md) をご利用ください。
+> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず [UID2 API v2 へのアップグレード](../../v2/upgrades/upgrade-guide.md) をお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/summary-doc-v2.md) をご利用ください。
 
 このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を利用した ID トークンを生成したいと考えるアプリ開発者や CTV 放送局を対象としています。
 
-このガイドでは、カスタムインテグレーションで考慮すべき [基本的な手順](#integration-steps) を概説しています。たとえば、ユーザログインとログアウトの実装方法、UID2 ID 情報の管理とターゲティング広告への使用方法、トークンのリフレッシュ方法、ID が見つからない場合の対処、ユーザーのオプトアウトの処理方法などを決定する必要があります。[FAQ](#faqs)も参照してください。
+このガイドでは、SDK を使用しないでインテグレーションを行う場合に考慮すべき [基本的な手順](#integration-steps) を概説しています。たとえば、ユーザログインとログアウトの実装方法、UID2 ID 情報の管理とターゲティング広告への使用方法、トークンのリフレッシュ方法、ID が見つからない場合の対処、ユーザーのオプトアウトの処理方法などを決定する必要があります。[FAQ](#faqs)も参照してください。
 
-> TIP: UID2 を使ったクライアント ID の確立と Advertising Token の取得を容易にするために、[Client-Side Identity JavaScript SDK](../sdks/client-side-identity-v1.md) を使用することを検討してください。詳しくは、[UID2 SDK Integration Guide](./publisher-client-side.md) を参照してください。
+> TIP: UID2 を使ったクライアント ID の確立と Advertising Token の取得を容易にするために、[Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md) を使用することを検討してください。詳しくは、[UID2 SDK Integration Guide](./publisher-client-side.md) を参照してください。
 
 ## Integration Steps
 
@@ -78,7 +78,7 @@ sequenceDiagram
 | Step | Endpoint                                                  | Description                                                                                                                                                                                                                                                                                                                                                             |
 | :--- | :-------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1-d  | [GET /token/generate](../endpoints/get-token-generate.md) | パブリッシャーが UID2 を使用してアイデンティティを確立するには、次の 2 つの方法があります：<br/>- UID2 対応シングルサインオンプロバイダーとインテグレーションします。<br/>- [GET /token/generate](../endpoints/get-token-generate.md) エンドポイントを使って、提供された正規化および URL エンコードされたメールアドレスまたは電話番号を使って UID2 Token を生成します。 |
-| 1-e  | [GET /token/generate](../endpoints/get-token-generate.md) | ユーザーのメールアドレス、電話番号、またはそれぞれのハッシュから生成した UID2 Token を返します。<br>Return a UID2 token generated from the user's email address, phone number, or the respective hash.                                                                                                                                                                  |
+| 1-e  | [GET /token/generate](../endpoints/get-token-generate.md) | ユーザーのメールアドレス、電話番号、またはそれぞれのハッシュから生成した UID2 Token を返します。                                                                                                                                                                                                                                                                        |
 | 1-f  | N/A                                                       | 返された `advertising_token` と `refresh_token` は、ユーザーに紐づくストレージに保存します。ファーストパーティクッキーのようなクライアントサイドのストレージや、サーバーサイドのストレージを検討するとよいでしょう。                                                                                                                                                    |
 
 ### Bid Using UID2 Tokens
@@ -137,22 +137,22 @@ UID2 Service では、ランダムな初期化ベクトルを使用してトー�
 
 1. PII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して[GET /token/generate](../endpoints/get-token-generate.md) リクエストを送信してください。
    - `email` の値として `validate@email.com` を指定します。
-   - `validate@email.com` を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) したものを `email_hash` の値として指定します。
+   - `validate@email.com` を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../getting-started.md#email-address-hash-encoding) したものを `email_hash` の値として指定します。
    - `phone` の値として [URL エンコード](../README.md#query-parameter-value-encoding) した `+12345678901` を指定します。
-   - `+12345678901` を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) したものを `phone_hash` の値として指定します。
+   - `+12345678901` を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../getting-started.md#email-address-hash-encoding) したものを `phone_hash` の値として指定します。
 2. 返された `advertising_token` を、次のステップで使用するために保存します。
 3. [GET /token/validate](../endpoints/get-token-validate.md) で、ステップ 1 で送信した `email`, `email_hash`, `phone`, または `phone_hash` 値と `advertising_token` （ステップ 2 で保存）をプロパティ値としてリクエストを送信します。
    - もしレスポンスが `true` を返したら、ステップ 1 でリクエストとして送った PII は、ステップ 1 のレスポンスで受け取ったトークンと一致します。
    - `false` が返された場合、メールアドレス、電話番号、またはそれぞれのハッシュを送信する方法に問題がある可能性があります。
 
-### リフレッシュトークンのログアウトのワークフローをテストするにはどうしたらいいですか？
+### Refresh Token のログアウトのワークフローをテストするにはどうしたらいいですか？
 
 `optout@email.com` メールアドレスまたは `+00000000000` 電話番号を使用して、Refresh Token ワークフローをテストすることができます。これらのメールアドレスや電話番号をリクエストに使用すると、常に `refresh_token` を含む ID レスポンスが生成され、その結果ログアウト レスポンスが生成されます。
 
 1. PII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して [GET /token/generate](../endpoints/get-token-generate.md) リクエストを送信してください。
    - `email`の値として`optout@email.com` を指定します。
-   - `optout@email.com`を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) したものを `email_hash` の値として指定します。
+   - `optout@email.com`を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../getting-started.md#email-address-hash-encoding) したものを `email_hash` の値として指定します。
    - `phone` の値として [URL エンコード](../README.md#query-parameter-value-encoding) した `+00000000000` を指定してください。
-   - `PHONE_HASH` 値として `+00000000000` を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#phone-number-hash-encoding) したものを指定します。
+   - `PHONE_HASH` 値として `+00000000000` を [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../getting-started.md#phone-number-hash-encoding) したものを指定します。
 2. 返された `refresh_token` を次のステップで使用するために保存します。
 3. (ステップ 2 で保存した) `refresh_token` を `token` 値として [GET /token/refresh](../endpoints/get-token-refresh.md) リクエストを送ります。<br/> `optout@email.com` というメールアドレスと `+00000000000` という電話番号は常にログアウトしたユーザーを表すため、レスポンスボディは空に、`status` 値には `optout` が設定されていなければなりません。

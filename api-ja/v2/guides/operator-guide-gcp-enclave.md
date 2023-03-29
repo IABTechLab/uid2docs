@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](README.md) > Google Cloud Platform Confidential Computing Package
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Google Cloud Platform Confidential Computing Package
 
 # UID2 Operator - Google Cloud Platform Confidential Computing Package
 
@@ -64,10 +64,10 @@ UID2 Operator Service は、どの GCP アカウントおよびプロジェク�
 
 別の方法として、UID2 Core のサービスアカウントにあらかじめ定義された GCP ロールを付与することもできます。これらのロールには、次の表に示すように、必要な権限が含まれています。
 
-| Role             | Permissions Included                           |
-| :--------------- | :--------------------------------------------- |
-| `Compute Viewer` | `compute.instances.get`<br>`compute.disks.get` |
-| `Logs Viewer`    | `logging.logEntries.list`                      |
+| Role             | Permissions Included                            |
+| :--------------- | :---------------------------------------------- |
+| `Compute Viewer` | `compute.instances.get`<br/>`compute.disks.get` |
+| `Logs Viewer`    | `logging.logEntries.list`                       |
 
 ## Integration Deployment
 

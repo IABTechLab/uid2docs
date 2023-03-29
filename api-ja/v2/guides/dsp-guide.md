@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../README.md) > [Integration Guides](README.md) > DSP Integration Guide
+[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > DSP Integration Guide
 
 # DSP Integration Guide
 
@@ -56,7 +56,7 @@ https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 
 入札時（2-b）に以下のロジックを使用し、ユーザーのオプトアウトを尊重します。
 
-提供されている [RTB SDK](../sdks/dsp-client-v1-overview.md) を活用して、受信した UID2 Token を復号化することができます。レスポンスには UID2 と UID2 が作成された時刻が含まれ、以下の擬似コードでは `established_timestamp`と表現されます。DSP は UID2 の最新のオプトアウトタイムスタンプを確認する必要があります。以下の疑似コードでは `optout_timestamp`と表現されています。
+提供されている [Server-Side SDK Guide for RTB](../sdks/dsp-client-v1-overview.md) を活用して、受信した UID2 Token を復号化することができます。レスポンスには UID2 と UID2 が作成された時刻が含まれ、以下の擬似コードでは `established_timestamp`と表現されます。DSP は UID2 の最新のオプトアウトタイムスタンプを確認する必要があります。以下の疑似コードでは `optout_timestamp`と表現されています。
 
 オプトアウトのロジックを次の図に示します。
 
@@ -80,20 +80,20 @@ if (established_timestamp < optout_timestamp) {
 
 ### Decrypt UID2 Tokens for RTB Use
 
-| Step | SDK                                          | Description                                                                                                                                                                                   |
-| :--- | :------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2-a  | [RTB SDK](../sdks/dsp-client-v1-overview.md) | 提供されている SDK を活用して、入力された UID2 Token を復号化します。レスポンスには `UID2` と UID2 の作成時刻が含まれます。                                                                   |
-| 2-b  |                                              | DSP は UID2 のオプトアウトプロトコルを尊重することが要求されます。ユーザーオプトアウトの設定と入札時の尊重については、[ユーザーオプトアウトの尊重](#honor-user-opt-outs) を参照してください。 |
+| Step | SDK                                                                | Description                                                                                                                                                                                   |
+| :--- | :----------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2-a  | [Server-Side SDK Guide for RTB](../sdks/dsp-client-v1-overview.md) | 提供されている SDK を活用して、入力された UID2 Token を復号化します。レスポンスには `UID2` と UID2 の作成時刻が含まれます。                                                                   |
+| 2-b  |                                                                    | DSP は UID2 のオプトアウトプロトコルを尊重することが要求されます。ユーザーオプトアウトの設定と入札時の尊重については、[ユーザーオプトアウトの尊重](#honor-user-opt-outs) を参照してください。 |
 
 ## FAQs
 
 ### UID2 に適用する復号化鍵はどうすればよいのですか？
 
-提供される [RTB SDK](../sdks/dsp-client-v1-overview.md) は自動的に復号化キーを更新します。UID2 Token と共に提供されるメタデータは、使用する復号鍵の ID を明らかにします。
+提供される [Server-Side SDK Guide for RTB](../sdks/dsp-client-v1-overview.md) は自動的に復号化キーを更新します。UID2 Token と共に提供されるメタデータは、使用する復号鍵の ID を明らかにします。
 
 ### 復号鍵はどこで手に入りますか？
 
-[RTB SDK](../sdks/dsp-client-v1-overview.md) ライブラリを使用して、UID2 Service と通信し、最新の鍵を取得することができます。鍵が最新であることを確認するために、1 時間に 1 回など定期的に鍵を取得することを勧めます。
+[Server-Side SDK Guide for RTB](../sdks/dsp-client-v1-overview.md) ライブラリを使用して、UID2 Service と通信し、最新の鍵を取得することができます。鍵が最新であることを確認するために、1 時間に 1 回など定期的に鍵を取得することを勧めます。
 
 ### ソルトバケットがローテーションしたか、またいつローテーションしたかを知るにはどうしたらよいですか？
 
