@@ -2,7 +2,7 @@
 
 # Google Ad Manager Secure Signals Integration Guide
 
-This guide covers integration steps for publishers using UID2 with the Google Ad Manager **secure signals** feature (previously known as **encrypted signals for publishers**, ESP). It includes the following sections:
+This guide covers integration steps for publishers using UID2 with the Google Ad Manager secure signals feature (previously known as Encrypted Signals for Publishers, ESP). It includes the following sections:
 
 * [Overview](#overview)
 * [Allow Secure Signal Sharing](#allow-secure-signal-sharing)
@@ -15,7 +15,7 @@ This guide covers integration steps for publishers using UID2 with the Google Ad
 
 ## Overview
 
-Google secure signals is a way for publishers to pass "encrypted" user IDs to bidders that are approved by Google, via [Google Ad Manager](https://admanager.google.com/home/) and the [Google Ad Manager Ad Exchange (AdX)](https://support.google.com/admanager/answer/6321605?hl=en). The framework is an optional part of the Google Publisher Tag (GPT) library commonly used by publishers.
+Google secure signals is a way for publishers to pass "encrypted" user IDs to bidders that are approved by Google, via [Google Ad Manager](https://admanager.google.com/home/) and the [Google Ad Manager Ad Exchange (AdX)](https://support.google.com/admanager/answer/6321605?hl=en). The framework is an optional part of the <a href="https://developers.google.com/publisher-tag/guides/get-started">Google Publisher Tag (GPT)</a> library commonly used by publishers.
 
 With this framework, the following steps occur:
 
