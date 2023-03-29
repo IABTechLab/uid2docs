@@ -27,7 +27,7 @@ See also [UID2 API v2 Documentation](../summary-doc-v2.md).
 
 Before you start the upgrade, be sure to review the following requirements:
 
-- To be able to authenticate to the UID2 endpoints, [contact the UID2 administrator](../README.md#contact-info) and obtain a secret key for encrypting API requests and decrypting API responses. See also [Authentication and Authorization](../summary-doc-v2.md#authentication-and-authorization).
+- To be able to authenticate to the UID2 endpoints, [contact the UID2 administrator](../../README.md#contact-info) and obtain a secret key for encrypting API requests and decrypting API responses. See also [Authentication and Authorization](../summary-doc-v2.md#authentication-and-authorization).
 - You must complete your upgrade by **March 31, 2023**, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be deprecated and removed.
 
 
