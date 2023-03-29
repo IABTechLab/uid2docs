@@ -17,7 +17,7 @@ Here's what you need to know:
 
 ## Request Format
 
-```POST '{environment}/v2/identity/map'```
+`POST '{environment}/v2/identity/map'`
 
 >IMPORTANT: You must encrypt all request using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
