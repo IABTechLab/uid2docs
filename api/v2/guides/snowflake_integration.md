@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Integration Guides](../guides/summary-guides.md) > Snowflake Integration
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Snowflake Integration
 
 # Snowflake Integration Guide
 
@@ -22,7 +22,7 @@ Access to the UID2 Share is available through the [Snowflake Data Marketplace](h
 
 To request access to a UID2 Share, complete the following steps:
 
-1.	Log in to the Snowflake Data Marketplace and select the UID2 solution in which you are interested:
+1.	Log in to the Snowflake Data Marketplace and select the UID2 solution that you are interested in:
       - [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV)
       - [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0)
 2.	In the **Personalized Data** section, click **Request Data**.

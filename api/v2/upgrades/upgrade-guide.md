@@ -115,7 +115,7 @@ Here's what you need to know about upgrading to the UID2 API v2:
 
 - The v1 [GET /identity/map](../../v1/endpoints/get-identity-map.md) endpoint for mapping a single user's PII to UID2 has been replaced with the v2 [POST /identity/map](../endpoints/post-identity-map.md) endpoint, which maps PII for single and multiple users.
 - UID2s and bucket IDs returned by the v2 [POST /identity/map](../endpoints/post-identity-map.md) and [POST /identity/buckets](../endpoints/post-identity-buckets.md) endpoints are the same as those returned by the corresponding v1 endpoints.
-- The [Snowflake Integration Guide](../sdks/snowflake_integration.md) is not affected by the upgrade to the UID2 v2 API and requires no changes.
+- The [Snowflake Integration Guide](../guides/snowflake_integration.md) is not affected by the upgrade to the UID2 v2 API and requires no changes.
 
 ### Upgrade Steps for Advertisers and Data Providers
 

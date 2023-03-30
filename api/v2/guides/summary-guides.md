@@ -23,7 +23,7 @@ The following guides provide integration instructions based on the needs and req
  
 | Integration Guide |  Content Description |
 | :--- | :--- |
-| [Snowflake Integration Guide](../sdks/snowflake_integration.md) | Instructions for generating UIDs from emails within Snowflake |
+| [Snowflake Integration Guide](../guides/snowflake_integration.md) | Instructions for generating UIDs from emails within Snowflake |
 
 ## Closed Operator Service Setup
  
