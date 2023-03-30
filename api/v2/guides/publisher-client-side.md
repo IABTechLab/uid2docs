@@ -2,7 +2,7 @@
 
 # Client-Side JavaScript SDK Integration Guide
 
-This guide is intended for publishers with web assets who would like to generate identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
+This guide is for publishers with web assets who would like to generate identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
 
 It includes the following sections:
 
@@ -24,7 +24,7 @@ To facilitate the process of establishing client identity using UID2 and retriev
 
 >IMPORTANT: The SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the [Client-Side JavaScript SDK APIs](../sdks/client-side-identity.md#api-reference) for your identity management.
 
-For integration scenarios for app developers and CTV broadcasters that do not use the [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md), see [Server-Only Integration Guide](custom-publisher-integration.md). 
+For integration scenarios for publishers that do not use the [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md), see [Server-Only Integration Guide](custom-publisher-integration.md). 
 
 >NOTE: If you are using Google Ad Manager and want to use the secure signals feature, first follow the steps in this guide and then follow the additional steps in the [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md).
 
