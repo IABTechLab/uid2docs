@@ -15,7 +15,7 @@ The following steps provide a high-level outline of the workflow intended for or
 7. The SSP places a bid request using the UID2 token, capturing it in the bid stream.
 8. The publisher requests updated UID2 tokens using a refresh token. When applicable, the refresh token includes a user’s opt-out request.
 
-![Publisher Workflow](../images/publisher_workflow.jpg)
+![Publisher Workflow](images/UID2PublisherAndSSPWorkflow.jpg)
 
 
 ## Integrations 
