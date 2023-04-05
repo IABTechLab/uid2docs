@@ -21,13 +21,11 @@ Here are some frequently asked questions regarding the UID2 framework.
 
 #### Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?
 <!-- FAQ_01 -->
-No. UID2 functions as its own framework, which is separate from EUID. As such, paperwork relating to accessing and using the EUID framework does not automatically grant usage and access to the UID2 framework. New contracts are required to be signed for UID2.
+No. UID2 has its own framework, which is separate from EUID. As such, paperwork relating to accessing and using the EUID framework does not automatically grant usage and access to the UID2 framework. New contracts are required to be signed for UID2.
 
 #### Can users opt out of targeted advertising tied to their UID2 identity?
 <!-- FAQ_02 -->
 Yes. Through the [Transparency and Control Portal](https://transparentadvertising.org), users can opt out from being served targeted ads tied to their UID2 identity. Each request is distributed through the UID2 Opt-Out Service and UID2 Operators to all relevant participants. 
-
-Some publishers and service providers have the option to limit access to their products based on a user’s participation in the UID2 framework, and it is the publisher’s responsibility to communicate this as part of the value exchange dialog with the user.
 
 #### How does a user know where to access the opt-out portal?
 <!-- FAQ_03 -->
@@ -50,7 +48,7 @@ Here are some frequently asked questions for publishers using the UID2 framework
 
 #### How will I be notified of user opt-out? (With SDK)
 <!-- FAQ_05 -->
-The [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) background token auto-refresh process handles user opt-outs. If user opts out, when the SDK attempts token refresh, it learns about the optout, clears the session (including the cookie), and invokes the callback with the `OPTOUT` status.
+The [Client-Side JavaScript SDK](../sdks/client-side-identity.md) background token auto-refresh process handles user opt-outs. If the user opts out, when the SDK attempts token refresh, it learns about the optout, clears the session (including the cookie), and invokes the callback with the `OPTOUT` status. The token generate process also checks for user opt-out status.
 
 #### Where should I make token generation calls -- from the server or client side? (With SDK)
 <!-- FAQ_06 -->
