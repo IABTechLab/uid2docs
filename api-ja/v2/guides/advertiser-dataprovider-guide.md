@@ -8,7 +8,7 @@
 
 - [Integration Steps](#integration-steps)
   - [Retrieve a raw UID2 for PII using the identity map endpoints](#retrieve-a-raw-uid2-for-pii-using-the-identity-map-endpoints)
-  - [Send raw UID2 to a DSP to build an audience](#send-uid2-to-a-dsp-to-build-an-audience)
+  - [Send raw UID2 to a DSP to build an audience](#send-raw-uid2-to-a-dsp-to-build-an-audience)
   - [Monitor for salt bucket rotations related to your stored UID2s](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
   - [Use an incremental process to continuously update UID2s](#use-an-incremental-process-to-continuously-update-raw-uid2s)
 - [FAQs](#faqs)
@@ -44,7 +44,7 @@ sequenceDiagram
 | 1-a  | [POST /identity/map](../endpoints/post-identity-map.md)リクエスト | PII を含むリクエストを ID マッピングエンドポイントに送信します。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | 1-b  | [POST /identity/map](../endpoints/post-identity-map.md)レスポンス | レスポンスで返される`advertising_id`（raw UID2）は、関連する DSP でオーディエンスをターゲティングするために使用できます。<br/>このレスポンスは、ユーザーの raw UID2 と、ソルトバケットの対応する`bucket_id`を返します。バケットに割り当てられたソルトは毎年ローテーションされるため、生成される UID2 に影響を及ぼします。ソルトバケットのローテーションを確認する方法の詳細については、[Monitor for salt bucket rotations](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)を参照してください。<br/> メンテナンスを容易にするために、ユーザーの raw UID2 と `bucket_id` をマッピングテーブルに格納することが推奨されるアプローチです。インクリメンタルアップデートに関するガイダンスは、[Use an-incremental-process-to-continuously-update raw-UID2s](#use-an-incremental-process-to-continuously-update raw-uid2s) を参照してください。 |
 
-### Send UID2 to a DSP to build an audience
+### Send raw UID2 to a DSP to build an audience
 
 [前のステップ](#retrieve-a-raw-uid2-for-pii-using-the-identity-map-endpoints)（ステップ 1-b）で返した `advertising_id` (raw UID2) をオーディエンスを構築しながら DSP に送ります。各 DSP は、オーディエンスを構築するための独自のインテグレーションプロセスを持っています。DSP が提供する、raw UID2 を送信してオーディエンスを構築するためのインテグレーションガイダンスに従ってください。
 
@@ -69,7 +69,7 @@ UID2 ベースのオーディエンス情報を正確かつ最新の状態に保
 
 1. [Retrieve a raw UID2 for PII using the identity map endpoints](#retrieve-a-raw-uid2-for-pii-using-the-identity-map-endpoints)からの応答には、マッピング情報が含まれています。PII (`identifier`), raw UID2 (`advertising_id`), ソルトバケット (`bucket_id`) 間のマッピングを、最新の `last_updated` タイムスタンプとともにキャッシュします。
 
-2. 直前の[ソルトバケットローテーションステップ](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s) の結果を使用して、[ID マップエンドポイントを使用して raw UID2 を取得](#retrieve-a-raw-uid2-for-pii-using-the-identity-map-endpoints) して、ソースバケットがローテーションされた raw UID2 をマッピングしなおしてください。オーディエンスの UID2 を更新するには、[DSP に送信](#send-uid2-to-a-dsp-to-build-an-audience)します。
+2. 直前の[ソルトバケットローテーションステップ](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s) の結果を使用して、[ID マップエンドポイントを使用して raw UID2 を取得](#retrieve-a-raw-uid2-for-pii-using-the-identity-map-endpoints) して、ソースバケットがローテーションされた raw UID2 をマッピングしなおしてください。オーディエンスの UID2 を更新するには、[DSP に送信](#send-raw-uid2-to-a-dsp-to-build-an-audience)します。
 
 ## FAQs
 
