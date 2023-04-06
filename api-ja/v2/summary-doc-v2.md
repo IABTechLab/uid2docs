@@ -1,8 +1,8 @@
-[UID2 Overview](../../README.md) > [Getting Started](../getting-started.md) > UID2 API v2 Documentation
+[UID2 Overview](../../README.md) > [Getting Started](../README.md) > UID2 API v2 Documentation
 
 # UID2 API v2 Documentation
 
-UID2 の定義、ID タイプ、指針、構成要素、その他の概念的な詳細については、 [UID2 概要](../../README-ja.md) を参照してください。連絡先やライセンス情報、正規化およびハッシュエンコーディングの規則については、 [Getting Started](../getting-started.md) を参照してください。
+UID2 の定義、ID タイプ、指針、構成要素、その他の概念的な詳細については、 [UID2 概要](../../README-ja.md) を参照してください。連絡先やライセンス情報、正規化およびハッシュエンコーディングの規則については、 [Getting Started](../README.md) を参照してください。
 
 このページでは、UID2 API v2 を使い始めるために必要な以下の情報を提供します:
 

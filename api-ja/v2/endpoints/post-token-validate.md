@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /token/validate
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /token/validate
 
 # POST /token/validate
 
@@ -26,13 +26,13 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 - 暗号化する際には、リクエストの JSON ボディに、必要なボディパラメータを Key-Value ペアとして含めてください。
 - ID をテストするには、`validate@email.com` メールアドレスまたは `+12345678901` 電話番号を使用します。詳細は、パブリッシャー向けの [Client-Side JavaScript SDK Integration Guide](../guides/publisher-client-side.md) および [Server-Only Integration Guide](../guides/custom-publisher-integration.md) にある FAQ の項を参照してください。
 
-| Body Parameter | Data Type | Attribute      | Description                                                                                                                                                                                                 |
-| :------------- | :-------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `token`        | string    | 必須           | [POST /token/generate](post-token-generate.md) レスポンスによって返された Advertising Token です。                                                                                                          |
-| `email`        | string    | 条件付きで必要 | トークン検証用のメールアドレスです。                                                                                                                                                                        |
-| `email_hash`   | string    | 条件付きで必要 | トークン検証用の [SHA256 ハッシュし、base64 エンコード](../../getting-started.md#email-address-hash-encoding) した、[正規化](../../getting-started.md#email-address-normalization) 済みメールアドレスです。 |
-| `phone`        | string    | 条件付きで必要 | トークン検証用の [正規化](../../getting-started.md#phone-number-normalization) 済み電話番号です。                                                                                                           |
-| `phone_hash`   | string    | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../getting-started.md#phone-number-hash-encoding) した、[正規化](../../getting-started.md#phone-number-normalization) 済み電話番号です。                          |
+| Body Parameter | Data Type | Attribute      | Description                                                                                                                                                                               |
+| :------------- | :-------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `token`        | string    | 必須           | [POST /token/generate](post-token-generate.md) レスポンスによって返された Advertising Token です。                                                                                        |
+| `email`        | string    | 条件付きで必要 | トークン検証用のメールアドレスです。                                                                                                                                                      |
+| `email_hash`   | string    | 条件付きで必要 | トークン検証用の [SHA256 ハッシュし、base64 エンコード](../../README.md#email-address-hash-encoding) した、[正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
+| `phone`        | string    | 条件付きで必要 | トークン検証用の [正規化](../../README.md#phone-number-normalization) 済み電話番号です。                                                                                                  |
+| `phone_hash`   | string    | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。                          |
 
 ### Request Examples
 

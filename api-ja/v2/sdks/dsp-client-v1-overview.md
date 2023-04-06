@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [SDKs](summary-sdks.md) > Server-Side SDK Guide for RTB
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [SDKs](summary-sdks.md) > Server-Side SDK Guide for RTB
 
 # Server-Side SDK Guide for RTB
 
@@ -19,12 +19,12 @@ RTB 用の UID2 server-side SDK SDK を使用すると、UID2 Token を復号し
 
 初期化関数は、SDK が UID2 Service との認証を行うために必要なパラメータを設定します。また、エラーが発生した場合の再試行間隔を設定することもできます。
 
-| Parameter           | Description                                                                                                                             | Recommended Value                  |
-| :------------------ | :-------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------- |
-| `endpoint`          | UID2 サービスのエンドポイントです。                                                                                                     | N/A                                |
-| `authKey`           | クライアントの認証トークンです。UID2 へのアクセスについては、[Contact Info](../../getting-started.md#contact-info) を参照してください。 | N/A                                |
-| `refreshIntervalMs` | 復号鍵を取得するためのリフレッシュ間隔（ミリ秒単位）です。                                                                              | 5 minutes (`300,000` milliseconds) |
-| `retryIntervalMs`   | エラーが発生したときにリクエストを再試行するための再試行間隔（ミリ秒単位）です。                                                        | 30 seconds (`30,000` milliseconds) |
+| Parameter           | Description                                                                                                                    | Recommended Value                  |
+| :------------------ | :----------------------------------------------------------------------------------------------------------------------------- | :--------------------------------- |
+| `endpoint`          | UID2 サービスのエンドポイントです。                                                                                            | N/A                                |
+| `authKey`           | クライアントの認証トークンです。UID2 へのアクセスについては、[Contact Info](../../README.md#contact-info) を参照してください。 | N/A                                |
+| `refreshIntervalMs` | 復号鍵を取得するためのリフレッシュ間隔（ミリ秒単位）です。                                                                     | 5 minutes (`300,000` milliseconds) |
+| `retryIntervalMs`   | エラーが発生したときにリクエストを再試行するための再試行間隔（ミリ秒単位）です。                                               | 30 seconds (`30,000` milliseconds) |
 
 ## Interface
 

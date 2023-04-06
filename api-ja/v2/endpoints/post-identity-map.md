@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /identity/map
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /identity/map
 
 # POST /identity/map
 
@@ -32,12 +32,12 @@ Used by: このエンドポイントは、主に広告主とサードパーテ�
 
 > IMPORTANT: リクエストを暗号化する際、JSON ボディに Key-Value ペアとして以下のパラメータのうち 1 つだけを含める必要があります。
 
-| Body Parameter | Data Type    | Attribute      | Description                                                                                                                                                                                       |
-| :------------- | :----------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `email`        | string array | 条件付きで必要 | マッピングするメールアドレスのリストです。                                                                                                                                                        |
-| `email_hash`   | string array | 条件付きで必要 | [正規化](../../getting-started.md#email-address-hash-encoding) したメールアドレスを [SHA256 ハッシュし、base64 エンコード](../../getting-started.md#email-address-normalization) したリストです。 |
-| `phone`        | string array | 条件付きで必要 | マッピングする [正規化](../../getting-started.md#phone-number-normalization) 済み電話番号のリストです。                                                                                           |
-| `phone_hash`   | string array | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../getting-started.md#phone-number-hash-encoding) した [正規化](../../getting-started.md#phone-number-normalization) 済み電話番号のリストです。         |
+| Body Parameter | Data Type    | Attribute      | Description                                                                                                                                                                     |
+| :------------- | :----------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `email`        | string array | 条件付きで必要 | マッピングするメールアドレスのリストです。                                                                                                                                      |
+| `email_hash`   | string array | 条件付きで必要 | [正規化](../../README.md#email-address-hash-encoding) したメールアドレスを [SHA256 ハッシュし、base64 エンコード](../../README.md#email-address-normalization) したリストです。 |
+| `phone`        | string array | 条件付きで必要 | マッピングする [正規化](../../README.md#phone-number-normalization) 済み電話番号のリストです。                                                                                  |
+| `phone_hash`   | string array | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../README.md#phone-number-hash-encoding) した [正規化](../../README.md#phone-number-normalization) 済み電話番号のリストです。         |
 
 ### Request Examples
 

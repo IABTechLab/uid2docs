@@ -1,4 +1,5 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Google Cloud Platform Confidential Computing Package
+[UID2 Overview](../../../README.md) > [Getting Started](../../
+README.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Google Cloud Platform Confidential Computing Package
 
 # UID2 Operator - Google Cloud Platform Confidential Computing Package
 

@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /token/generate
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /token/generate
 
 # POST /token/generate
 
@@ -32,13 +32,13 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 
 リクエストを暗号化する際、JSON ボディに Key-Value ペアとして含めるパラメータは、以下のいずれか 1 つだけである必要があります。
 
-| Body Parameter | Data Type | Attribute      | Description                                                                                                                                                                               |
-| :------------- | :-------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `email`        | string    | 条件付きで必要 | トークンを生成するメールアドレスです。                                                                                                                                                    |
-| `email_hash`   | string    | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../getting-started.md#email-address-hash-encoding) した [正規化](../../getting-started.md#email-address-normalization) 済みメールアドレスです。 |
-| `phone`        | string    | 条件付きで必要 | トークンを生成する [正規化](../../getting-started.md#phone-number-normalization) 済み電話番号です。                                                                                       |
-| `phone_hash`   | string    | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../getting-started.md#phone-number-hash-encoding) した、[正規化](../../getting-started.md#phone-number-normalization) 済み電話番号です。        |
-| `policy`       | number    | オプション     | (Beta) トークン生成ポリシーの ID です。[Token Generation Policy](#token-generation-policy) を参照してください。                                                                           |
+| Body Parameter | Data Type | Attribute      | Description                                                                                                                                                             |
+| :------------- | :-------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `email`        | string    | 条件付きで必要 | トークンを生成するメールアドレスです。                                                                                                                                  |
+| `email_hash`   | string    | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
+| `phone`        | string    | 条件付きで必要 | トークンを生成する [正規化](../../README.md#phone-number-normalization) 済み電話番号です。                                                                              |
+| `phone_hash`   | string    | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。        |
+| `policy`       | number    | オプション     | (Beta) トークン生成ポリシーの ID です。[Token Generation Policy](#token-generation-policy) を参照してください。                                                         |
 
 ### Request Examples
 
