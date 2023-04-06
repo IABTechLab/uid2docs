@@ -2,7 +2,7 @@
 
 # UID2 Operator: AWS Marketplace Integration Guide
 
-UID2 Operator は、UID2 エコシステムの API サーバーです。個人識別情報 (PII) を不正アクセスから保護するために、UID2 Operator ソリューションは AWS Nitro Enclave テクノロジーで強化されています。
+UID2 Operator は、UID2 エコシステムにおける API サーバーです。AWS Marketplace で稼働する Private Operator サービスの場合、UID2 Operator ソリューションは[AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave テクノロジーで強化されています。これは、UID2 情報を不正なアクセスから保護するための追加のセキュリティ対策です。
 
 このガイドには、以下の情報が含まれています:
 
@@ -13,29 +13,30 @@ UID2 Operator は、UID2 エコシステムの API サーバーです。個人�
 - [Deployment](#deployment)
 - [Checking UID2 Operator Status](#checking-uid2-operator-status)
 - [Creating a Load Balancer](#creating-a-load-balancer)
-- [Upgrading UID2 Operator](#upgrading-uid2-operator)
+- [Upgrading the UID2 Operator](#upgrading-the-uid2-operator)
 - [Technical Support](#technical-support)
 
 ## UID2 Operator on AWS Marketplace Product
 
-> NOTE: [UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) は無料製品です。製品ページに表示されるコストは、インフラコストの概算値です。
+NOTE: [UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) は無償製品です。製品ページに表示されている費用は、必要なインフラの概算費用となります。
 
-UID2 Operator on AWS Marketplace 製品をサブスクライブすることで、以下を利用できます:
+Unified ID 2.0 Operator on AWS Marketplace 製品を契約することで、以下をご利用できます:
 
-- UID2 Operator サービスがインストールされ、起動可能な状態の **Amazon Machine Image (AMI)**：<br/>
-  AMI には、UID2 Operator Service がセットアップされた AmazonLinux2 OS が含まれています。AMI をベースにした EC2 インスタンスが起動すると、自動的に AWS アカウントから設定を取得し、エンクレーブ内で UID2 Operator サーバーを起動します。
-- UID2 Operator AMI をデプロイするための **CloudFormation テンプレート**。
+- **Amazon Machine Image (AMI)** UID2 Operator Service がインストールされ、ブートストラップの準備が整っている状態です:<br/>
+  AMI には、UID2 Operator Service がすでにセットアップされた[Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/?amazon-linux-whats-new.sort-by=item.additionalFields.postDateTime&amazon-linux-whats-new.sort-order=desc)オペレーティングシステムが含まれています。AMI をベースにした EC2 インスタンスが起動すると、AWS アカウントから設定を自動的に取得し、エンクレーブ内で UID2 Operator サーバーを起動します。
+- **[CloudFormation](https://aws.amazon.com/cloudformation/) template**:<br/>
+  このテンプレートでは、UID2 Operator AMI がデプロイ展開されます。
 
 ### Prerequisites
 
-AWS 上で UID2 Operator をサブスクライブしデプロイするには、以下の手順を実行する必要があります:
+AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデプロイするには、次の手順を実行します:
 
 1. UID2 Operator としてあなたの組織を登録します。
-2. [最小限の権限](#minimal-iam-role-privileges) を持つ IAM ロールを持つ AWS アカウントを作成します。
+2. [最小限の権限](#minimal-iam-role-privileges)を持つ[IAM](https://aws.amazon.com/iam/)ロールで AWS アカウントを作成します。
 
 #### Minimal IAM Role Privileges
 
-> IMPORTANT: ワンクリックデプロイを成功させるためには、AWS アカウントに以下のアクションを実行する権限が必要です。
+> IMPORTANT: ワンクリックデプロイを成功させるためには、AWS アカウントに以下のアクションを実行する権限が必要です:
 
 ```json
 {
@@ -100,35 +101,53 @@ AWS 上で UID2 Operator をサブスクライブしデプロイするには、�
 
 ### Resources Created
 
-次の表は、[デプロイ](#deployment) 中に作成されるすべてのリソースを一覧表示したものです。
+次の表は、[デプロイメント](#deployment) 中に作成されるすべてのリソースを一覧表、どのリソースが常に作成され、どのリソースが CloudFormation テンプレートの`CreateVPC`条件に依存しているかを示しています。
 
-The following table lists all resources that are created during the [deployment](#deployment).
-
-| Resource                                | Description                                                                                                                     |
-| :-------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------ |
-| CloudFormation Stack                    | 作成されたすべてのリソースの論理表現です。リソースをグループとしてデプロイ、ロールバックするのに役立ちます。                    |
-| KMS Key                                 | 秘密暗号化用の鍵（設定文字列用）です。                                                                                          |
-| Configuration as Secret                 | シークレットマネージャーで作成した `uid2-operator-config-key` という名前のシークレットです。                                    |
-| Worker Role                             | UID2 Operator が実行する IAM ロールです。                                                                                       |
-| Worker Instance Profile                 | UID2 Operator が実行するインスタンスプロファイルです。Worker Role が望ましいです。                                              |
-| Virtual Private Cloud (VPC) and subnets | UID2 Operator が動作する仮想ネットワークです。既存のものをカスタマイズして使用することも可能です。                              |
-| Security Group                          | UID2 Operator がサービスを提供するための最小限のアクセスを提供するセキュリティグループです。使用する VPC を自動的に参照します。 |
-| Launch Template                         | すべての設定が行われた起動テンプレートです。ここから新しい UID2 Operator インスタンスを生成することができます。                 |
-| Auto Scaling Group (ASG)                | 起動テンプレートが添付された ASG です。後でこれで希望するインスタンス数を更新することができます。                               |
-| UID2 Operator instances                 | ASG を作成した後に稼働を開始する EC2 インスタンスです。                                                                         |
+| Name                    | Type                                 | Description                                                                                                                                                                                              | Created       |
+| :---------------------- | :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------ |
+| `KMSKey`                | `AWS::KMS::Key`                      | 秘密暗号化用のキー（設定文字列用）です。                                                                                                                                                                 | Always        |
+| `SSMKeyAlias`           | `AWS::KMS::Alias`                    | [KMS](https://aws.amazon.com/kms/)キーに簡単にアクセスする方法を提供するエイリアスです。                                                                                                                 | Always        |
+| `TokenSecret`           | `AWS::SecretsManager::Secret`        | オペレーターキーを含む暗号化されたコンフィギュレーションです。                                                                                                                                           | Always        |
+| `WorkerRole`            | `AWS::IAM::Role`                     | UID2 Operator が実行する IAM ロールです。ロールは、設定キーへのアクセスを提供します。                                                                                                                    | Always        |
+| `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile`          | Operator EC2 インスタンスにアタッチする Worker Role を持つインスタンスプロファイルです。                                                                                                                 | Always        |
+| `VPC`                   | `AWS::EC2::VPC`                      | Virtual Private Cloud（VPC）は、プライベートオペレーターをホストとする仮想プライベートネットワークです。既存の VPC をカスタマイズして利用することも可能です。[VPC Chart](#vpc-chart)も参照してください。 | Conditionally |
+| `Subnet1`               | `AWS::EC2::Subnet`                   | 新しく作成された VPC の最初のサブネットです。                                                                                                                                                            | Conditionally |
+| `Subnet2`               | `AWS::EC2::Subnet`                   | 新しく作成された VPC の 2 番目のサブネットです。                                                                                                                                                         | Conditionally |
+| `RouteTable`            | `AWS::EC2::RouteTable`               | 新しく作成された VPC とサブネットのルーティングテーブルです。                                                                                                                                            | Conditionally |
+| `InternetGateway`       | `AWS::EC2::InternetGateway`          | オペレータが UID2 CORE Service と通信したり、セキュリティアップデートをダウンロードしたりするためのインターネットゲートウェイです。                                                                      | Conditionally |
+| `AttachGateway`         | `AWS::EC2::VPCGatewayAttachment`     | インターネットゲートウェイと VPC を関連付ける値。                                                                                                                                                        | Conditionally |
+| `SecurityGroup`         | `AWS::EC2::SecurityGroup`            | オペレータインスタンスに対するルールを提供するセキュリティグループポリシーです。[Security Group Policy](#security-group-policy)も参照してください。                                                      | Always        |
+| `LaunchTemplate`        | `AWS::EC2::LaunchTemplate`           | すべての構成が整った起動テンプレートです。このテンプレートから新しい UID2 Operator インスタンスを生成することができます。                                                                                | Always        |
+| `AutoScalingGroup`      | `AWS::AutoScaling::AutoScalingGroup` | 起動テンプレートがアタッチされているオートスケーリンググループ（ASG）。必要に応じて、これを使用して、希望のインスタンス数を後で更新することができます。                                                  | Always        |
 
 ### Customization Options
 
 以下は、[デプロイ](#deployment) の実行中または実行後にカスタマイズできる内容です。
 
 - VPC: 新しい VPC とサブネットを設定するか、既存のものを使用するかのどちらかです。
-- ルートボリュームサイズ (8G Minimal)
+- ルートボリュームサイズ (8G Minimum)
 - SSH キー: UID2 Operator の EC2 インスタンスにアクセスする際に使用する SSH キーです。
-- インスタンスタイプ: m5.2xlarge, m5.4xlarge, など。カスタマイズしない場合は、m5.2xlarge がデフォルトで推奨されます。
+- [Instance type](https://aws.amazon.com/ec2/instance-types/m5/): m5.2xlarge、m5.4xlarge、といった具合です。カスタマイズがない場合は、デフォルト値の m5.2xlarge を推奨します。
+
+### Security Group Policy
+
+> NOTE: ドメインに関連する証明書をエンクレーブに渡すのを避けるため、HTTPS の代わりにインバウンド HTTP が許可されています。これは、組織内部のプライベートネットワークで使用する場合、セキュアレイヤーのコストを回避することにもなります。
+
+| Port Number | Direction | Protocol | Description                                                                                                                                                                                                                                                                                |
+| ----------- | --------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 80          | Inbound   | HTTP     | 　 Healthcheck エンドポイント `/opt/healthcheck` を含むすべての UID2 API を提供します。<br/>すべてが稼働している場合、エンドポイントは HTTP 200 を返し、レスポンスボディは `OK` となります。詳しくは、[Checking UID2 Operator Status](#checking-uid2-operator-status) を参照してください。 |
+| 9080        | Inbound   | HTTP     | Prometheus metrics サービス (`/metrics`).                                                                                                                                                                                                                                                  |
+| 443         | Outbound  | HTTPS    | UID2 Core Service を呼び出し、オプトアウトデータとキーストアを更新します。                                                                                                                                                                                                                 |
+
+### VPC Chart
+
+次の図は、プライベートオペレーターをホストする仮想プライベートクラウドを示したものです。
+
+![UID2 Operator VPC Chart](images/uid2-private-operator-aws-chart.svg)
 
 ## Deployment
 
-AWS Marketplace で UID2 Operator をデプロイするには、次の手順を実行します:
+UID2 Operator を AWS Marketplace をデプロイするには、次の手順を実行します:
 
 1. [UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) をサブスクライブしてください。AWS がサブスクリプションを完了するまで、数分かかる場合があります。
 2. **Configuration** をクリックします。
@@ -144,24 +163,26 @@ AWS Marketplace で UID2 Operator をデプロイするには、次の手順を�
 
 ### Stack Details
 
-以下は、スタック作成ウィザード（[デプロイ](#deployment)　ステップ 5）の「スタックの詳細を指定する」ページの 2 つのスクリーンショットです。以下の表は、パラメータ値のリファレンスを提供します。
+以下の画像は、スタックの作成ウィザード（[デプロイ](#deployment)ステップ 5）の**Specify stack details**ページを示しています。以下の表は、パラメータ値のリファレンスを提供します。
 
 ![Application Configuration](images/cloudformation-step-2.png)
+
+下段です：
 
 ![Infrastructure Configuration](images/cloudformation-step-2-2.png)
 
 次の表は、[デプロイ](#deployment) のステップ 5 で指定するパラメータ値について説明したものです。
 
-| Parameter                  | Description                                                                                                                                                                                                                                                                                                                                                                   |
-| :------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Stack name                 | 好きな名前をつけてください。                                                                                                                                                                                                                                                                                                                                                  |
-| OPERATOR_KEY               | UID2 Admin チームから受け取ったオペレーターキーです。                                                                                                                                                                                                                                                                                                                         |
-| UID2 Environment           | 本番環境なら `prod`、インテグレーションテスト環境なら `integ` を選択してください。                                                                                                                                                                                                                                                                                            |
-| Instance Type              | `m5.2xlarge` を推奨します。                                                                                                                                                                                                                                                                                                                                                   |
-| Instance root volume size  | 15GB 以上を推奨します。                                                                                                                                                                                                                                                                                                                                                       |
-| Key Name for SSH           | デプロイされた EC2 インスタンスに SSH アクセスするための EC2 キーペアです。                                                                                                                                                                                                                                                                                                   |
-| Trusted Network CIDR       | これは、どの IP アドレスの範囲があなたのオペレータサービスにアクセスできるかを決定します。<br />内部ネットワークまたはロードバランサーを介してのみオペレータにアクセスする場合は、内部 IP 範囲に制限してください。                                                                                                                                                            |
-| Choose to use Existing VPC | VPC とサブネットを新規に作成する場合は `true`、ユーザー提供の VPC とサブネットを使用する場合は `false` に設定します。<br/>既存の VPC を使用することにした場合、[VPC dashboard](https://console.aws.amazon.com/vpc/home) から自分の VPC を見つけることができます。それ以外の場合は、**existing VPC Id**, **VpcSubnet1**, **VpcSubnet2** フィールドを空白のままにしてください。 |
+| Parameter                  | Description                                                                                                                                                                                                                                                                                                                                                                                |
+| :------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Stack name                 | 好きな名前をつけてください。                                                                                                                                                                                                                                                                                                                                                               |
+| OPERATOR_KEY               | UID2 Admin チームから受け取ったオペレーターキーです。                                                                                                                                                                                                                                                                                                                                      |
+| UID2 Environment           | 本番環境なら `prod`、インテグレーションテスト環境なら `integ` を選択します。                                                                                                                                                                                                                                                                                                               |
+| Instance Type              | `m5.2xlarge` を推奨します。                                                                                                                                                                                                                                                                                                                                                                |
+| Instance root volume size  | 15GB 以上を推奨します。                                                                                                                                                                                                                                                                                                                                                                    |
+| Key Name for SSH           | デプロイされた EC2 インスタンスに SSH アクセスするための EC2 キーペアです。                                                                                                                                                                                                                                                                                                                |
+| Trusted Network CIDR       | CIDR (Classless Inter-Domain Routing) 値は、オペレーターサービスにアクセスできる IP アドレス範囲を決定します。<br/>UID2 オペレーターへのアクセスを制限して、内部ネットワークまたはロードバランサーからのみアクセスできるようにするには、CIDR 値として内部 IP 範囲を指定します。                                                                                                            |
+| Choose to use Existing VPC | 新しい VPC とサブネットを作成する場合は、このパラメータに`true`を設定します。既存の VPC とサブネットを使用する場合は、`false`に設定します。<br/>既存の VPC を使用する場合は、[VPC dashboard](https://console.aws.amazon.com/vpc/home)から自分の VPC を見つけることができます。それ以外の場合は、**existing VPC Id**, **VpcSubnet1**, **VpcSubnet2** フィールドを空白のままにしてください。 |
 
 ### Stack Configuration Options
 
@@ -177,6 +198,18 @@ AWS Marketplace で UID2 Operator をデプロイするには、次の手順を�
 | Permissions           | AWS Marketplace に登録する IAM ロールとスタックをデプロイする IAM ロールが分かれている場合、スタックをデプロイするために使用するロールの名前/ARN を入力します。 |
 | Stack failure options | デプロイメントに失敗したときの処理を選択します。`すべてのスタックリソースをロールバックする`オプションを推奨します。                                            |
 | Advanced options      | これらはオプションです。                                                                                                                                        |
+
+### Stack Configuration Options
+
+次の画像は、スタックの作成ウィザード（[デプロイメント](#deployment)ステップ 6）の**スタックオプションの設定**ページを示しています。
+
+![Configure Stack Options](images/cloudformation-step-3.png)
+
+| Parameter        | Description                                                                                                                                                   |
+| :--------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Tags             | (Optional) Tag your stack.                                                                                                                                    |
+| Permissions      | AWS Marketplace に加入する IAM ロールとスタックをデプロイする IAM ロールが分かれている場合、スタックのデプロイに使用するロールの名前/ARN を入力してください。 |
+| Advanced options | これらはオプションです。                                                                                                                                      |
 
 ## Checking UID2 Operator Status
 
@@ -217,14 +250,18 @@ EC2 インスタンスを見つけるには、次の手順を実行します:
 5. 選択したインスタンスの **Ports** に `80` が含まれていることを確認します。
 6. **Create target group** をクリックします。
 
-## Upgrading UID2 Operator
+## Upgrading the UID2 Operator
 
 ここでは、バージョンアップについて説明します:
 
-- 新しいバージョンの提供に関する情報は、[UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) で提供されます。
+各オペレーターのバージョンを更新するたびに、Private Operator は、アップグレードのウィンドウを持つメール通知を受け取ります。アップグレードウィンドウの後、古いバージョンは非アクティブ化され、サポートされなくなります。
+
+ここでは、アップグレードについて紹介します：
+
+- 新しいバージョンの提供に関する情報は、[UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) のページで提供されます。
 - UID2 Operator をアップグレードするには、新しい CloudFormation スタックを作成します。詳しくは、[デプロイ](#deployment) を参照してください。
 
-> TIP: スムーズに移行するために、最初に新しいスタックを作成します。新しいスタックがブートストラップされ、サービスを提供する準備ができたら、古いスタックを削除してください。ロードバランサーを作成している場合、新しいインスタンスが起動した後に、以前の DNS 名から新しい DNS 名に変換します。
+> TIP: スムーズな移行を行うには、まず新しいスタックを作成します。新しいスタックが起動し、サービスを提供する準備ができたら、古いスタックを削除してください。ロードバランサーを使用している場合は、まず新しいインスタンスを立ち上げて実行してから、DNS 名を以前のものから新しいものに変換してください。
 
 ## Technical Support
 
