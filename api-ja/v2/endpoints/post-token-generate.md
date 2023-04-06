@@ -8,11 +8,6 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 
 > IMPORTANT: このエンドポイントは、ユーザーの PII を UID2 Token に変換してターゲティング広告を行う法的根拠を得た場合にのみ呼び出すようにしてください。このエンドポイントは、オプトアウトの記録をチェックしません。オプトアウトリクエストをチェックするには、[POST /token/refresh](./post-token-refresh.md) エンドポイントを使用してください。
 
-以下のインテグレーション・ワークフローは、このエンドポイントを使用します:
-
-- [Client-Side JavaScript SDK Integration Guide](../guides/publisher-client-side.md)
-- [Publisher Integration Guide, Server-Only (Without SDK)](../guides/custom-publisher-integration.md)
-
 ## Request Format
 
 `POST '{environment}/v2/token/generate'`
@@ -38,7 +33,7 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 | `email_hash`   | string    | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
 | `phone`        | string    | 条件付きで必要 | トークンを生成する [正規化](../../README.md#phone-number-normalization) 済み電話番号です。                                                                              |
 | `phone_hash`   | string    | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。        |
-| `policy`       | number    | オプション     | (Beta) トークン生成ポリシーの ID です。[Token Generation Policy](#token-generation-policy) を参照してください。                                                         |
+| `policy`       | number    | オプション     | トークン生成ポリシーの ID です。[Token Generation Policy](#token-generation-policy) を参照してください。                                                                |
 
 ### Request Examples
 
@@ -94,6 +89,13 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
 
 > NOTE: レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されません。
 
+本項では、以下の回答例を紹介します：
+
+- [成功したレスポンス](#successful-response)
+- [オプトアウト](#optout)
+
+#### Successful Response
+
 復号化に成功すると、指定されたメールアドレス、電話番号、またはそれぞれのハッシュに対するユーザーの Advertising Token および Refresh Token が返されます。
 
 ```json
@@ -110,15 +112,15 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
 }
 ```
 
-以下は、ポリシーがユーザーのオプトアウトを受け入れる場合の応答例です。
+#### Optout
+
+以下は、`policy`パラメータがリクエストに含まれ、値が`1`で、ユーザーがオプトアウトした場合の応答例です。その他のシナリオでは、ユーザーがオプトアウトした場合、トークンが返されます（上記の [Successful Response](#successful-response) を参照してください）。
 
 ```json
 {
   "status": "optout"
 }
 ```
-
-[Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) は、このエンドポイント応答ペイロードを使用して、ユーザーセッションのライフサイクル中にユーザー ID を確立・管理します。
 
 ### Response Body Properties
 
