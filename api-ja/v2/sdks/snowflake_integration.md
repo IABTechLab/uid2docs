@@ -1,6 +1,6 @@
 [UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Integration Guides](../guides/summary-guides.md) > Snowflake Integration
 
-# Snowflake Integration
+# Snowflake Integration Guide
 
 [Snowflake](https://www.snowflake.com/?lang=ja) はクラウドデータウェアハウスソリューションで、パートナーとして顧客のデータを保存し、UID2 フレームワークとインテグレーションすることができます。Snowflake を使用することで、UID2 は、機密性の高い個人情報を公開することなく、認可された消費者識別子データを安全に共有することができます。消費者識別子データを直接 Operator Web Services に問い合わせることもできますが、Snowflake UID2 とのインテグレーションにより、よりシームレスな体験が可能になります。
 

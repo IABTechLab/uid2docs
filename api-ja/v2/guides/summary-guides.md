@@ -21,9 +21,9 @@
 
 ## Open Operator Service Integration
 
-| Integration Guide                                          | Content Description                                                                            |
-| :--------------------------------------------------------- | :--------------------------------------------------------------------------------------------- |
-| [Operator - Snowflake](./../sdks/snowflake_integration.md) | Snowflake Data Marketplace でホストされている Open Operator Service と連携するための手順です。 |
+| Integration Guide                                                 | Content Description                                                                            |
+| :---------------------------------------------------------------- | :--------------------------------------------------------------------------------------------- |
+| [Snowflake Integration Guide](./../sdks/snowflake_integration.md) | Snowflake Data Marketplace でホストされている Open Operator Service と連携するための手順です。 |
 
 ## Closed Operator Service Setup
 

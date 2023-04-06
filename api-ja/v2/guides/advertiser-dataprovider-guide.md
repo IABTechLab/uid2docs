@@ -7,7 +7,7 @@
 - [Integration Steps](#integration-steps)
 - [FAQs](#faqs)
 
-Snowflake Data Marketplace でホストされる Open Operator Service を使用する場合は、[Snowflake Integration](../sdks/snowflake_integration.md) も参照してください。
+Snowflake Data Marketplace でホストされる Open Operator Service を使用する場合は、[Snowflake Integration Guide](../sdks/snowflake_integration.md) も参照してください。
 
 ## Integration Steps
 
