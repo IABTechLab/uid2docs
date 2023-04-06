@@ -6,7 +6,6 @@ UID2 の定義、ID タイプ、指針、構成要素、その他の概念的な
 
 このページでは、UID2 API v2 を使い始めるために必要な以下の情報を提供します:
 
-- [UID2 API v1 Compatibility and Upgrade Requirements（UID2 API v1 の互換性とアップグレードの要件）](#uid2-api-v1-compatibility-and-upgrade-requirements)
 - [Environments（環境）](#environments)
 - [Authentication and Authorization（認証と承認）](#authentication-and-authorization)
 
@@ -20,15 +19,6 @@ API の使用方法については、以下のページを参照してくださ�
 | [SDKs](sdks/summary-sdks.md)                                                                | UID2 SDK を使用するためのドキュメントへのリンクです。                                                                                                                                           |
 
 API バージョン 1 からの改善点・変更点の一覧は、[UID2 API v1→v2 アップグレードガイド](upgrades/upgrade-guide.md) を参照してください。
-
-## UID2 API v1 Compatibility and Upgrade Requirements
-
-ここでは、UID2 API v2 と v1 の互換性について説明します:
-
-- UID2 API v2 は UID2 API v1 と互換性がないため、[アップグレード](upgrades/upgrade-guide.md) が必要です。
-- v1 エンドポイントは、**2023 年 3 月 31 日**までサポートされます。その後、すべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびすべての未バージョンエンドポイントは、非推奨となり削除されます。
-- 以前に発行されたクライアント API キーは、v1 エンドポイントで引き続き機能し、v2 エンドポイントで必要になります。
-- v2 エンドポイントを使用するには、[API リクエストの暗号化と API レスポンスの復号化](getting-started/gs-encryption-decryption.md) にクライアントシークレットが必要です。
 
 ## Environments
 

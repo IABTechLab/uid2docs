@@ -16,7 +16,7 @@ UID2 API の v2 アップデートは以下の通りです:
 
 - [アプリケーション API 層の暗号化](../getting-started/gs-encryption-decryption.md) が追加されました。これは E2E のコンテンツ保護と、UID2 の機密情報がネットワーク事業者や UID2 サービス事業者に漏れることを防ぎます。<br/>これにより、v2 エンドポイントへの呼び出しを実行するには、POST リクエストボディの暗号化とレスポンスの復号化が必要になります。
 - [認証と承認](../summary-doc-v2.md#authentication-and-authorization) のためのクライアント API キーに加え、API リクエストの暗号化および API レスポンスの復号化のためにクライアントシークレットが必要になりました。
-- [UID2 API v1](../../v1/endpoints/README.md) のすべての GET エンドポイントの HTTP リクエストタイプが、[UID2 API v2](../endpoints/summary-endpoints.md) では GET から POST に変更されました。
+- UID2 API v1 のすべての GET エンドポイントの HTTP リクエストタイプが、[UID2 API v2](../endpoints/summary-endpoints.md) で GET から POST に変更されました。
 - リクエストにクエリパラメータが不要になりました。新しい POST メソッドは、入力パラメータを JSON 形式のリクエストボディとして受け取ります。
 - パラメータ値の URL エンコーディングは必要ありません。
 - [POST /identity/map](../endpoints/post-identity-map.md) エンドポイントは、1 つまたは複数のメールアドレス、電話番号、またはそれぞれのハッシュに対する UID2 とソルトバケット ID を取得するようになりました。
@@ -39,11 +39,11 @@ UID2 API の v2 アップデートは以下の通りです:
 
 トークン生成エンドポイントおよびリフレッシュエンドポイントへのコールを独立してアップグレードすることができます。ここで知っておくべきことは以下の通りです:
 
-- v1 [GET /token/generate](../../v1/endpoints/get-token-generate.md) または v1 [GET /token/refresh](../../v1/endpoints/get-token-refresh.md) エンドポイントによって返されたリフレッシュ トークンを v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントに渡すことができますが、応答は暗号化されません。
+- v1 `GET /token/generate` または v1 `GET /token/refresh` エンドポイントが返す Refresh Token を v2 [POST /token/refresh](../endpoints/post-token-refresh.md) に渡すことができますが、レスポンスの暗号化はされません。
 - v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントは、v2 [POST /token/generate](../endpoints/post-token-generate.md) または v2 [POST /token/refresh](../endpoints/post-token-refresh.md) によって返される Refresh Token のみがレスポンスを暗号化し、呼び出し側はこれらのエンドポイントによって返されたリフレッシュ応答キーを持っていると想定しています。
-- v2 [POST /token/generate](../endpoints/post-token-generate.md) や v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントから返される Refresh Token は、v1 [GET /token/refresh](../../v1/endpoints/get-token-refresh.md) エンドポイントには渡せますが、レスポンスを暗号化しません。
-- [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md)は、[Client-Side JavaScript SDK v1](../../v1/sdks/client-side-identity-v1.md) との互換性を保った交換部品（a drop-in replacement）で、そのまま置き換えることができるものです。以下は、その内容です:
-- ユーザーの ID を保存するために使用されるファーストパーティーのクッキーは、2 つのバージョンの SDK 間で完全に相互運用可能です。つまり、Client-Side JavaScript SDK v2 は v1 の Cookie を読み取ることができ、その逆も同様です。
+- v2 [POST /token/generate](../endpoints/post-token-generate.md) または v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントから返された Refresh Token を、レスポンスを暗号化しない v1 `GET /token/refresh` エンドポイントに渡せることがあります。
+- [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) は、Client-Side JavaScript SDK v1 との互換性を保った交換部品（a drop-in replacement）です。 ここでは、その必要性を説明します：
+  - ユーザーの ID を保存するために使用されるファーストパーティーのクッキーは、2 つのバージョンの SDK 間で完全に相互運用可能です。つまり、Client-Side JavaScript SDK v2 は v1 の Cookie を読み取ることができ、その逆も同様です。
 - [v2 SDK init() function](../sdks/client-side-identity.md#initopts-object-void) は、v1 の [GET /token/generate](../../v1/endpoints/get-token-generate.md) エンドポイントから返された ID オブジェクトを受け取ります。
 - [v1 SDK init() function](../../v1/sdks/client-side-identity-v1.md#initopts-object-void) は、v2 [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントから返された ID オブジェクトを受け付けます。
 
@@ -55,11 +55,11 @@ UID API v2 へのアップグレードは、以下の手順で行います。
 2. [トークン生成エンドポイントへの呼び出しをアップグレードします](#upgrade-token-generation-calls).
 3. [(Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) を使用しない統合の場合のみ必要です： [トークンリフレッシュエンドポイントの呼び出しをアップグレードします](#upgrade-token-refresh-calls).
 
-#### upgrade-the-client-side-javascript-sdk
+#### Upgrade the Client-Side JavaScript SDK
 
 Client-Side JavaScript SDK をアップグレードするには、SDK をロードするスクリプトを更新する必要があります。このステップで注意しなければならないことは、以下の通りです:
 
-- UID2 SDK の [version 0](../../v1/sdks/client-side-identity-v0.md)を使っている場合は、まず UID2 SDK の [version 1](../../v1/sdks/client-side-identity-v1.md#improvements-and-changes-from-version-0) に必ずアップグレードしてください。
+- Client-Side JavaScript SDK の`version 0`を使用している場合は、必ず`version 1`にアップグレードしてから使用してください。
 - もし SDK を別の場所からロードしたり、SDK のプライベートコピーを保持している場合は、それに応じて場所を更新するようにしてください。
 
 ページでは、SDK のバージョン 1 ではなくバージョン 2 を読み込むようにスクリプトを更新してください。
@@ -84,7 +84,7 @@ SDK version 2:
 
 #### Upgrade Token Generation Calls
 
-アップグレードの一環として、アプリケーションのサーバー側で、v1 [GET /token/generate](../../v1/endpoints/get-token-generate.md) エンドポイントへの呼び出しを v2 [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントへの呼び出しに変更する必要があります。
+アップグレードの一環として、アプリケーションのサーバー側で、v1 の `GET /token/generate` エンドポイントへの呼び出しを v2 [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントへの呼び出しに切り替える必要があります。
 
 以下は、知っておくべきことと、実行すべきことです:
 
@@ -92,7 +92,7 @@ SDK version 2:
 - [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントからの JSON レスポンスは、新しいプロパティを含んでいます: `refresh_response_key` です。
   - [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) を使用している場合 (バージョンに関係なく)、SDK の `init()` 関数に、他のレスポンスプロパティと一緒にこのキーを渡す必要があります。
   - SDK を使用せず、応答データをカスタムストレージ (データベースやカスタムファーストパーティークッキーなど) に保存している場合は、ストレージを更新してリフレッシュ応答キーを保存する必要があります。
-  - v1 [GET /token/refresh](../../v1/endpoints/get-token-refresh.md) エンドポイントによって返されたリフレッシュ トークンを格納する既存のセッションで、対応するリフレッシュ応答キーがないものについては更新は必要ありません。これらのセッションは、そのまま動作を継続します。
+  - v1 `GET /token/refresh` エンドポイントによって返された Refresh Token を保存し、対応するリフレッシュ応答キーを持っていない既存のセッションについては、更新の必要はありません。これらのセッションは、そのまま動作を継続します。
 
 #### Upgrade Token Refresh Calls
 
@@ -114,7 +114,7 @@ SDK を使用せず、サーバー側またはクライアント側でトーク�
 
 UID2 API v2 へのアップグレードについて知っておくべきことは、以下のとおりです:
 
-- 単一ユーザーの PII を UID2 にマッピングする v1 [GET /identity/map](../../v1/endpoints/get-identity-map.md) エンドポイントは、単一および複数ユーザーの PII をマッピングする v2 [POST /identity/map](../endpoints/post-identity-map.md) エンドポイントと交換されています。
+- 単一ユーザーの PII を UID2 にマッピングする v1 `GET /identity/map` エンドポイントは、単一および複数ユーザーの PII をマッピングする v2 [POST /identity/map](../endpoints/post-identity-map.md) エンドポイントに置き換えられました。
 - v2 [POST /identity/map](../endpoints/post-identity-map.md) および [POST /identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントが返す UID2 とバケット ID は、対応する v1 エンドポイントが返すものと同じものです。
 - [Snowflake Integration Guide](../guides/snowflake_integration.md) は、UID2 v2 API へのアップグレードの影響を受けないので、変更は必要ありません。
 
@@ -122,11 +122,11 @@ UID2 API v2 へのアップグレードについて知っておくべきこと�
 
 UID API v2 にアップグレードするには、以下の v1 エンドポイントへの呼び出しを、対応する v2 エンドポイントに置き換えます。
 
-| v1 Endpoint                                                         | v2 Endpoint                                                     | Comments                                                                                                                              |
-| :------------------------------------------------------------------ | :-------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
-| [GET /identity/buckets](../../v1/endpoints/get-identity-buckets.md) | [POST /identity/buckets](../endpoints/post-identity-buckets.md) | HTTP リクエストの種類が変更されました。                                                                                               |
-| [POST /identity/map](../../v1/endpoints/post-identity-map.md)       | [POST /identity/map](../endpoints/post-identity-map.md)         | v2 エンドポイントは、シングルユーザーの PII もマッピングする以外は、v1 エンドポイントと同じです。                                     |
-| [GET /identity/map](../../v1/endpoints/get-identity-map.md)         | [POST /identity/map](../endpoints/post-identity-map.md)         | HTTP リクエストタイプが変更されました。<br/>新しい POST エンドポイントでは、単一ユーザーおよび複数ユーザーの PII をマッピングします。 |
+| v1 Endpoint             | v2 Endpoint                                                     | Comments                                                                                                                              |
+| :---------------------- | :-------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
+| `GET /identity/buckets` | [POST /identity/buckets](../endpoints/post-identity-buckets.md) | HTTP リクエストの種類が変更されました。                                                                                               |
+| `POST /identity/map`    | [POST /identity/map](../endpoints/post-identity-map.md)         | v2 エンドポイントは、シングルユーザーの PII もマッピングする以外は、v1 エンドポイントと同じです。                                     |
+| `GET /identity/map      | [POST /identity/map](../endpoints/post-identity-map.md)         | HTTP リクエストタイプが変更されました。<br/>新しい POST エンドポイントでは、単一ユーザーおよび複数ユーザーの PII をマッピングします。 |
 
 > IMPORTANT: UID2 API v2 の呼び出しを行うには、POST リクエストボディを暗号化し、レスポンスを復号化する必要があります。詳細および例については、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 

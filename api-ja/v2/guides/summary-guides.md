@@ -15,15 +15,15 @@
 
 ## Supplementary Integrations
 
-| Integration Guide                                                          | Content Description                                                                                                                                                                                    |
-| :------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Publisher - Google Ad Manager Secure Signals](./google-ss-integration.md) | このインテグレーションガイドは、UID2 を Google Ad Manager の**secure signals**機能（旧称：**encrypted signals from publishers**、ESP）で使用するパブリッシャーに必要な追加ステップをカバーしています。 |
+| Integration Guide                                                        | Content Description                                                                                                                                                                                    |
+| :----------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Publisher - Google Ad Manager Secure Signals](google-ss-integration.md) | このインテグレーションガイドは、UID2 を Google Ad Manager の**secure signals**機能（旧称：**encrypted signals from publishers**、ESP）で使用するパブリッシャーに必要な追加ステップをカバーしています。 |
 
 ## Open Operator Service Integration
 
-| Integration Guide                                                 | Content Description                                                                            |
-| :---------------------------------------------------------------- | :--------------------------------------------------------------------------------------------- |
-| [Snowflake Integration Guide](./../sdks/snowflake_integration.md) | Snowflake Data Marketplace でホストされている Open Operator Service と連携するための手順です。 |
+| Integration Guide                                       | Content Description                                                                            |
+| :------------------------------------------------------ | :--------------------------------------------------------------------------------------------- |
+| [Snowflake Integration Guide](snowflake_integration.md) | Snowflake Data Marketplace でホストされている Open Operator Service と連携するための手順です。 |
 
 ## Closed Operator Service Setup
 
