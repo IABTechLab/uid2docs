@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > [SDKs](./README.md) > Client-Side Identity SDK v0 (Deprecated)
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [SDKs](./README.md) > Client-Side Identity SDK v0 (Deprecated)
 
 # Client-Side Identity SDK v0 (Deprecated)
 

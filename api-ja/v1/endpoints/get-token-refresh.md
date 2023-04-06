@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > [Endpoints](./README.md) > GET /token/refresh
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Endpoints](./README.md) > GET /token/refresh
 
 # GET /token/refresh (Deprecated)
 

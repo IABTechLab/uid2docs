@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > [Endpoints](./README.md) > POST /identity/map
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Endpoints](./README.md) > POST /identity/map
 
 # POST /identity/map (Deprecated)
 
@@ -26,12 +26,12 @@
 
 以下の 4 つのパラメータのうち、1 つだけを指定します。
 
-| Query Parameter | Data Type    | Attribute      | Description                                                                                                                                                                                        |
-| :-------------- | :----------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `email`         | string array | 条件付きで必要 | マッピングするメールアドレスのリストです。                                                                                                                                                         |
-| `email_hash`    | string array | 条件付きで必要 | [SHA-256 ハッシュし、base64 エンコード](../../getting-started.md#email-address-hash-encoding) した [正規化](../../getting-started.md#email-address-normalization) 済みメールアドレスのリストです。 |
-| `phone`         | string array | 条件付きで必要 | マッピングする [正規化](../../getting-started.md#phone-number-normalization) 済み電話番号のリストです。                                                                                            |
-| `phone_hash`    | string array | 条件付きで必要 | [SHA-256 ハッシュし、base64 エンコード](../../getting-started.md#phone-number-hash-encoding) した [正規化](../../getting-started.md#phone-number-normalization) 済み電話番号のリストです。         |
+| Query Parameter | Data Type    | Attribute      | Description                                                                                                                                                                      |
+| :-------------- | :----------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `email`         | string array | 条件付きで必要 | マッピングするメールアドレスのリストです。                                                                                                                                       |
+| `email_hash`    | string array | 条件付きで必要 | [SHA-256 ハッシュし、base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスのリストです。 |
+| `phone`         | string array | 条件付きで必要 | マッピングする [正規化](../../README.md#phone-number-normalization) 済み電話番号のリストです。                                                                                   |
+| `phone_hash`    | string array | 条件付きで必要 | [SHA-256 ハッシュし、base64 エンコード](../../README.md#phone-number-hash-encoding) した [正規化](../../README.md#phone-number-normalization) 済み電話番号のリストです。         |
 
 ### Request Examples
 

@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > [SDKs](./README.md) > Client-Side Identity
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [SDKs](./README.md) > Client-Side Identity
 
 # Client-Side JavaScript SDK v1 (Deprecated)
 

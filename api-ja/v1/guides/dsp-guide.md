@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > [Integration Guides](README.md) > DSP Integration Guide
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > DSP Integration Guide
 
 # DSP Integration Guide (Deprecated)
 

@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > [Endpoints](./README.md) > GET /token/generate
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Endpoints](./README.md) > GET /token/generate
 
 # GET /token/generate (Deprecated)
 
@@ -27,12 +27,12 @@
 
 > IMPORTANT: 以下のパラメータは、いずれか 1 つだけを指定します。
 
-| Query Parameter | Data Type | Attribute      | Description                                                                                                                                                                                                |
-| :-------------- | :-------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `email`         | string    | 条件付きで必要 | トークンを生成する [URL エンコード](../README.md#query-parameter-value-encoding) したメールアドレスです。                                                                                                  |
-| `email_hash`    | string    | 条件付きで必要 | [SHA-256 ハッシュし、URL エンコード、base64 エンコード](../../getting-started.md#email-address-hash-encoding) した [正規化](../../getting-started.md#email-address-normalization) 済みメールアドレスです。 |
-| `phone`         | string    | 条件付きで必要 | トークンを生成する [正規化](../../getting-started.md#phone-number-normalization) と [URL エンコード](../README.md#query-parameter-value-encoding) した電話番号です。                                       |
-| `phone_hash`    | string    | 条件付きで必要 | [SHA-256 ハッシュし、URL エンコード、base64 エンコード](../../getting-started.md#phone-number-hash-encoding) した、[正規化](../../getting-started.md#phone-number-normalization) 済み電話番号です。        |
+| Query Parameter | Data Type | Attribute      | Description                                                                                                                                                                              |
+| :-------------- | :-------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `email`         | string    | 条件付きで必要 | トークンを生成する [URL エンコード](../README.md#query-parameter-value-encoding) したメールアドレスです。                                                                                |
+| `email_hash`    | string    | 条件付きで必要 | [SHA-256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
+| `phone`         | string    | 条件付きで必要 | トークンを生成する [正規化](../../README.md#phone-number-normalization) と [URL エンコード](../README.md#query-parameter-value-encoding) した電話番号です。                              |
+| `phone_hash`    | string    | 条件付きで必要 | [SHA-256 ハッシュし、URL エンコード、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。        |
 
 ### Request Examples
 
@@ -91,7 +91,7 @@ curl -L -X GET 'https://operator-integ.uidapi.com/v1/token/generate?phone_hash=e
 | `refresh_from`      | double    | [Client-Side JavaScript SDK v1](../sdks/client-side-identity-v1.md) が Advertising Token の更新を開始するタイミングを示す UNIX タイムスタンプ（ミリ秒単位）<br/>TIP: SDK を使っていない場合は、このタイムスタンプからも Advertising Token を更新することを検討してみてください。 |
 | `refresh_expires`   | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                           |
 
-レスポンスのステータス値については，[Response Structure and Status Codes](../../getting-started.md#response-structure-and-status-codes)　を参照してください。
+レスポンスのステータス値については，[Response Structure and Status Codes](../../README.md#response-structure-and-status-codes)　を参照してください。
 
 ### Response Status Codes
 

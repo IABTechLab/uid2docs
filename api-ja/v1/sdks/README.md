@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > SDKs
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > SDKs
 
 # SDKs (Deprecated)
 

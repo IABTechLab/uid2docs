@@ -1,4 +1,4 @@
-[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > [Integration Guides](README.md) > Advertiser/Data Provider Integration Guide
+[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > Advertiser/Data Provider Integration Guide
 
 # Advertiser/Data Provider Integration Guide (Deprecated)
 
@@ -85,7 +85,7 @@ UID2 生成リクエストで提供されるメタデータには、UID2 生成�
 
 ### マッピング用の PII の SHA-256 はどのように生成すればよいですか？
 
-[メールアドレスの正規化ルール](../../getting-started.md#email-address-normalization) に従い、ソルトなしでハッシュ化する必要があります。また、送信前に値を base64 エンコードする必要があります。
+[メールアドレスの正規化ルール](../../README.md#email-address-normalization) に従い、ソルトなしでハッシュ化する必要があります。また、送信前に値を base64 エンコードする必要があります。
 
 ### メールアドレスやメールアドレスのハッシュマッピングを大量に保存する必要がありますか？
 

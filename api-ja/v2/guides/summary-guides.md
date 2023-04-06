@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > Integration Guides
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > Integration Guides
 
 # UID2 Integration Guides
 
@@ -27,8 +27,8 @@
 
 ## Closed Operator Service Setup
 
-| Integration Guide                                                                                | Content Description                                                                                                                                                                                                                                                                    |
-| :----------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Operator - Microsoft Azure](./operator-guide-azure-enclave.md)                                  | IMPORTANT: このドキュメントは現在、PoC の段階です。詳細については、UID2 Administrator に [連絡](../../getting-started.md#contact-info) してください。<br/>Closed Operator Service を Microsoft Azure Confidential Computing プラットフォーム上で動作させるためのセットアップ手順です。 |
-| [Operator - AWS Marketplace](./operator-guide-aws-marketplace.md)                                | AWS Marketplace のクローズドオペレーターサービスをセットアップする手順です。　                                                                                                                                                                                                         |
-| [Operator - Google Cloud Platform Confidential Compute package](./operator-guide-gcp-enclave.md) | Google Cloud Platform Confidential Compute (GCP) パッケージのセットアップ手順です。                                                                                                                                                                                                    |
+| Integration Guide                                                                                | Content Description                                                                                                                                                                                                                                                           |
+| :----------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Operator - Microsoft Azure](./operator-guide-azure-enclave.md)                                  | IMPORTANT: このドキュメントは現在、PoC の段階です。詳細については、UID2 Administrator に [連絡](../../README.md#contact-info) してください。<br/>Closed Operator Service を Microsoft Azure Confidential Computing プラットフォーム上で動作させるためのセットアップ手順です。 |
+| [Operator - AWS Marketplace](./operator-guide-aws-marketplace.md)                                | AWS Marketplace のクローズドオペレーターサービスをセットアップする手順です。　                                                                                                                                                                                                |
+| [Operator - Google Cloud Platform Confidential Compute package](./operator-guide-gcp-enclave.md) | Google Cloud Platform Confidential Compute (GCP) パッケージのセットアップ手順です。                                                                                                                                                                                           |
