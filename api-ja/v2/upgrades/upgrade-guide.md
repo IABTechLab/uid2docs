@@ -116,7 +116,7 @@ UID2 API v2 へのアップグレードについて知っておくべきこと�
 
 - 単一ユーザーの PII を UID2 にマッピングする v1 [GET /identity/map](../../v1/endpoints/get-identity-map.md) エンドポイントは、単一および複数ユーザーの PII をマッピングする v2 [POST /identity/map](../endpoints/post-identity-map.md) エンドポイントと交換されています。
 - v2 [POST /identity/map](../endpoints/post-identity-map.md) および [POST /identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントが返す UID2 とバケット ID は、対応する v1 エンドポイントが返すものと同じものです。
-- [Snowflake Integration Guide](../sdks/snowflake_integration.md) は、UID2 v2 API へのアップグレードの影響を受けないので、変更は必要ありません。
+- [Snowflake Integration Guide](../guides/snowflake_integration.md) は、UID2 v2 API へのアップグレードの影響を受けないので、変更は必要ありません。
 
 ### Upgrade Steps for Advertisers and Data Providers
 

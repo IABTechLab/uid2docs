@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Integration Guides](../guides/summary-guides.md) > Snowflake Integration
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Snowflake Integration
 
 # Snowflake Integration Guide
 
@@ -21,7 +21,7 @@ UID2 Share へのアクセスは、[Snowflake Data Marketplace](https://www.snow
 
 UID2 Share へのアクセスを要求するには、次の手順を実行します。
 
-1. Snowflake Data Marketplace にログインし、関心のある UID2 ソリューションを選択します。
+1. Snowflake Data Marketplace にログインし、関心のある UID2 ソリューションを選択します:
    - [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV)
    - [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0)
 2. **パーソナライズドデータ** セクションで、**データのリクエスト** をクリックします。
