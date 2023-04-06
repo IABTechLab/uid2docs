@@ -14,7 +14,7 @@
 
 UID2 API の v2 アップデートは以下の通りです:
 
-- [アプリケーション API 層の暗号化](../ref-info/encryption-decryption.md) が追加されました。これは E2E のコンテンツ保護と、UID2 の機密情報がネットワーク事業者や UID2 サービス事業者に漏れることを防ぎます。<br/>これにより、v2 エンドポイントへの呼び出しを実行するには、POST リクエストボディの暗号化とレスポンスの復号化が必要になります。
+- [アプリケーション API 層の暗号化](../getting-started/gs-encryption-decryption.md) が追加されました。これは E2E のコンテンツ保護と、UID2 の機密情報がネットワーク事業者や UID2 サービス事業者に漏れることを防ぎます。<br/>これにより、v2 エンドポイントへの呼び出しを実行するには、POST リクエストボディの暗号化とレスポンスの復号化が必要になります。
 - [認証と承認](../summary-doc-v2.md#authentication-and-authorization) のためのクライアント API キーに加え、API リクエストの暗号化および API レスポンスの復号化のためにクライアントシークレットが必要になりました。
 - [UID2 API v1](../../v1/endpoints/README.md) のすべての GET エンドポイントの HTTP リクエストタイプが、[UID2 API v2](../endpoints/summary-endpoints.md) では GET から POST に変更されました。
 - リクエストにクエリパラメータが不要になりました。新しい POST メソッドは、入力パラメータを JSON 形式のリクエストボディとして受け取ります。
@@ -88,7 +88,7 @@ SDK version 2:
 
 以下は、知っておくべきことと、実行すべきことです:
 
-- [POST /token/generate](../endpoints/post-token-generate.md) を実行するには、リクエストボディの暗号化とレスポンスの復号化が必要です。詳細および例については、[リクエストの暗号化とレスポンスの復号化](../ref-info/encryption-decryption.md) を参照してください。
+- [POST /token/generate](../endpoints/post-token-generate.md) を実行するには、リクエストボディの暗号化とレスポンスの復号化が必要です。詳細および例については、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 - [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントからの JSON レスポンスは、新しいプロパティを含んでいます: `refresh_response_key` です。
   - [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) を使用している場合 (バージョンに関係なく)、SDK の `init()` 関数に、他のレスポンスプロパティと一緒にこのキーを渡す必要があります。
   - SDK を使用せず、応答データをカスタムストレージ (データベースやカスタムファーストパーティークッキーなど) に保存している場合は、ストレージを更新してリフレッシュ応答キーを保存する必要があります。
@@ -101,7 +101,7 @@ SDK version 2:
 SDK を使用せず、サーバー側またはクライアント側でトークンをリフレッシュする場合、v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントへのリクエストを行う際には、以下の点に留意してください：
 
 - 返された Refresh Token は、リクエストボディに何も修正せずに渡すことができます。
-- v2 エンドポイントから返される Refresh Token は、Refresh Token と一緒に `refresh_response_key` 値が返されることが期待されています。このキーは [レスポンスの復号化](../ref-info/encryption-decryption.md) のために必要とされます。
+- v2 エンドポイントから返される Refresh Token は、Refresh Token と一緒に `refresh_response_key` 値が返されることが期待されています。このキーは [レスポンスの復号化](../getting-started/gs-encryption-decryption.md) のために必要とされます。
 - レスポンスに新しい Refresh Token が含まれている場合、対応する `refresh_response_key` 値とともに、ユーザーのアイデンティティストレージ (たとえば、データベースやカスタムファーストパーティクッキー) に保存する必要があります。
 - v1 のエンドポイントから返される Refresh Token は、関連する `refresh_response_key` を持たないので、レスポンスは暗号化されません。
 
@@ -128,7 +128,7 @@ UID API v2 にアップグレードするには、以下の v1 エンドポイ�
 | [POST /identity/map](../../v1/endpoints/post-identity-map.md)       | [POST /identity/map](../endpoints/post-identity-map.md)         | v2 エンドポイントは、シングルユーザーの PII もマッピングする以外は、v1 エンドポイントと同じです。                                     |
 | [GET /identity/map](../../v1/endpoints/get-identity-map.md)         | [POST /identity/map](../endpoints/post-identity-map.md)         | HTTP リクエストタイプが変更されました。<br/>新しい POST エンドポイントでは、単一ユーザーおよび複数ユーザーの PII をマッピングします。 |
 
-> IMPORTANT: UID2 API v2 の呼び出しを行うには、POST リクエストボディを暗号化し、レスポンスを復号化する必要があります。詳細および例については、[リクエストの暗号化とレスポンスの復号化](../ref-info/encryption-decryption.md) を参照してください。
+> IMPORTANT: UID2 API v2 の呼び出しを行うには、POST リクエストボディを暗号化し、レスポンスを復号化する必要があります。詳細および例については、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ## FAQs
 
@@ -154,4 +154,4 @@ UID2 API v2 は UID2 API v1 とは互換性がないため、アップグレー�
 
 ### リクエストを暗号化し、レスポンスを復号化するにはどうしたらいいですか？
 
-[リクエストの暗号化とレスポンスの復号化](../ref-info/encryption-decryption.md) ページでワークフローを説明し、Python での例を示しています。
+[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) ページでワークフローを説明し、Python での例を示しています。
