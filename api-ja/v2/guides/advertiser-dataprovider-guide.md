@@ -5,6 +5,10 @@
 このガイドでは、ユーザーデータを収集し、DSP にプッシュする組織のためのインテグレーション手順について説明します。データコレクターには、広告主、データオンボーダー、測定プロバイダー、ID グラフプロバイダー、サードパーティデータプロバイダ、および DSP にデータを送信する他の組織が含まれます。このガイドには、次のセクションがあります:
 
 - [Integration Steps](#integration-steps)
+  - [Retrieve a UID2 for PII using the identity map endpoints](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints)
+  - [Send UID2 to a DSP to build an audience](#send-uid2-to-a-dsp-to-build-an-audience)
+  - [Monitor for salt bucket rotations related to your stored UID2s](#monitor-for-salt-bucket-rotations-related-to-your-stored-uid2s)
+  - [Use an incremental process to continuously update UID2s](#use-an-incremental-process-to-continuously-update-uid2)
 - [FAQs](#faqs)
 
 Snowflake Data Marketplace でホストされる Open Operator Service を使用する場合は、[Snowflake Integration Guide](../sdks/snowflake_integration.md) も参照してください。
@@ -67,34 +71,6 @@ UID2 ベースのオーディエンスを上記の手順で継続的に更新・
 
 ## FAQs
 
-### ソルトバケットローテーションによる UID2 更新のタイミングはどうすればわかりますか？
+UID2 フレームワークを使用する広告主およびデータプロバイダー向けのよくある質問については、[FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照して下さい。
 
-UID2 生成リクエストで提供されるメタデータには、UID2 生成に使用されたソルトバケットが記載されています。ソルトバケットは永続的で、UID2 生成に使用された基本的な PII に対応します。指定されたタイムスタンプ以降にローテーションされたソルトバケットを返すには、 [POST /identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントを使用します。返されたローテーション済みのソルトバケットは、どの UID2 をリフレッシュすべきかを知らせてくれます。
-
-### リフレッシュされたメールアドレスは、以前関連付けられていたのと同じバケットに割り当てられるのですか？
-
-必ずしもそうとは限りません。特定のバケット ID に関連付けられたメールアドレスをマッピングし直すと、別のバケット ID に割り当てられる場合があります。バケット ID を確認するには、[マッピングファンクション](#retrieve-a-uid2-for-pii-using-the-identity-map-endpoints) を呼び出し、返ってきた UID2 とバケット ID を再度保存してください。
-
-> IMPORTANT: メールアドレスのマッピングや再マッピングを行う際には、バケットの数、特定のローテーション日、メールアドレスがどのバケットに割り当てられるかを仮定しないように注意してください。
-
-### UID のインクリメンタルアップデートは、どれくらいの頻度で行うべきですか？
-
-オーディエンスを更新する頻度は、毎日が推奨されます。
-
-各ソルトバケットはだいたい 1 年に 1 回更新されるとはいえ、個々のバケットの更新は 1 年で分散しています。これは、全バケットの約 1/365 が毎日ローテーションされることを意味します。忠実度が重要な場合は、[POST /identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントをもっと頻繁に、例えば 1 時間毎に呼び出すことを検討してください。
-
-### マッピング用の PII の SHA256 はどのように生成すればよいですか？
-
-[メールアドレスの正規化ルール](../../README.md#email-address-normalization) に従い、ソルトなしでハッシュ化する必要があります。
-
-### メールアドレスや電話番号、あるいはそれらのハッシュマッピングを大量に保存する必要がありますか？
-
-はい。何百万ものメールアドレスや電話番号をマッピングする必要がある場合、マッピングを保存しないと、処理時間が大幅に増加する可能性があります。しかし、実際に更新する必要があるマッピングだけを再計算すれば、毎日更新する必要があるのは UID2 の約 365 分の 1 なので、全体の処理時間を短縮できます。
-
-> IMPORTANT: Private Operator を使用していない限り、メールアドレス、電話番号、またはハッシュを、単一の HTTP 接続を使用して、一度に 5000 メールのバッチで連続してマッピングする必要があります。言い換えれば、複数の並列接続を作成することなくマッピングを行う必要があります。
-
-### ユーザーのオプトアウトはどのように処理すればよいですか？
-
-ユーザーが [Transparency and Control Portal](https://www.transparentadvertising.org/) を通じて UID2 ベースのターゲティング広告をオプトアウトすると、オプトアウト信号が DSP とパブリッシャーに送信され、入札時にオプトアウトが処理されます。広告主またはデータプロバイダとして、このシナリオで UID2 オプトアウトを確認する必要はありません。
-
-ユーザーが自分のウェブサイトからオプトアウトした場合、オプトアウトを処理するための内部手順に従ってください。たとえば、そのユーザーに対して UID2 を生成しないように選択することもできます。
+すべてのリストは、[Frequently Asked Questions](../getting-started/gs-faqs.md)を参照して下さい。
