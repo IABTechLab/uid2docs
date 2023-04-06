@@ -7,76 +7,192 @@ UID2 に関するよくある質問は、以下のカテゴリーに分かれて
 - [FAQs -- General](#faqs----general)
 - [FAQs for Publishers](#faqs-for-publishers)
 
+  - [EUID インフラストラクチャのすべてのインテグレーションパートナー（SSP、第三者データプロバイダー、測定プロバイダー）は、自動的に UID2 にインテグレーションされるのでしょうか？](#wa-providers-measurement-providers-be-automatically-integrated-with-uid2)
+  - [ユーザーは、UID2 ID に関連するターゲティング広告の配信を拒否することができますか？](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2-identity)
+  - [オプトアウトポータルにアクセスする場所をユーザーが知るにはどうすればよいですか？](#how-does-a-user-know-where-to-access-the-opt-out-portal)
+  - [なぜ広告主やサードパーティデータプロバイダーはオプトアウトフィードとインテグレーションする必要がないのでしょうか？](#why-do-advertisers-and-third-party-data-providers-not-need-to-integrate-with-the-opt-out-feed)
+
+- [FAQs for Publishers Using an SDK](#faqs-for-publishers-using-an-sdk)
+  - [ユーザーオプトアウトの通知はどのように行われますか？](#how-will-i-be-notified-of-user-opt-out-with-sdk)
+  - [トークン生成の呼び出しは、サーバー側とクライアント側のどちらで行うべきですか？](#where-should-i-make-token-generation-calls----from-the-server-or-client-side-with-sdk)
+  - [クライアントサイドから Token Refresh を呼び出すことはできますか？](#can-i-make-token-refresh-calls-from-the-client-side-with-sdk)
+  - [送信された PII と返されたトークンが一致することをテストするにはどうすればよいですか？](#how-can-i-test-that-the-pii-sent-and-the-returned-token-match-up-with-sdk)
+  - [Refresh Token のログアウトワークフローをテストするにはどうすればよいですか？](#how-can-i-test-the-refresh-token-logout-workflow-with-sdk)
+  - [リクエストペイロードに optout@email.com を渡すと、/token/generate は "optout" 状態を返し、トークンを生成しないのでしょうか？](#should-tokengenerate-return-the-optout-status-and-generate-no-tokens-if-i-pass-optoutemailcom-in-the-request-payload-with-sdk)
+- [FAQs for Publishers Not Using an SDK](#faqs-for-publishers-not-using-an-sdk)
+  - [トークンの復号化は必要ですか？](#do-i-need-to-decrypt-tokens)
+  - [ユーザーのオプトアウトはどのように通知されるのですか？](#how-will-i-be-notified-of-user-opt-out-without-sdk)
+  - [トークン生成の呼び出しは、サーバー側とクライアント側のどちらから行うべきでしょうか？](#where-should-i-make-token-generation-calls----from-the-server-or-client-side-without-sdk)
+  - [クライアントサイドからトークンリフレッシュの呼び出しを行うことは可能ですか？](#can-i-make-token-refresh-calls-from-the-client-side-without-sdk)
+  - [UID2 トークンの一意性とローテーションのポリシーは何ですか？](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
+  - [送信された PII と返されたトークンが一致することをテストするにはどうすればよいですか？](#how-can-i-test-that-the-pii-sent-and-the-returned-token-match-up-without-sdk)
+  - [リフレッシュトークンのログアウトワークフローをテストするにはどうすればよいですか？](#how-can-i-test-the-refresh-token-logout-workflow-without-sdk)
+  - [/token/generate は、リクエストのペイロードに optout@email.com を渡すと、「optout」ステータスを返し、トークンを生成しないようにすべきでしょうか。](#should-tokengenerate-return-the-optout-status-and-generate-no-tokens-if-i-pass-optoutemailcom-in-the-request-payload-without-sdk)
+
 ## FAQs -- General
 
 UID2 フレームワークに関するよくある質問を紹介します。
 
 <!-- (gwh note: section is taken from original readme) -->
 
-### <!-- FAQ_01 -->EUID インフラストラクチャのすべてのインテグレーションパートナー（SSP、第三者データプロバイダー、測定プロバイダー）は、自動的に UID2 にインテグレーションされるのでしょうか？
+### EUID インフラストラクチャのすべてのインテグレーションパートナー（SSP、第三者データプロバイダー、測定プロバイダー）は、自動的に UID2 にインテグレーションされるのでしょうか？
+
+<!-- FAQ_01 -->
 
 いいえ。UID2 は EUID とは別の独自のフレームワークとして機能します。そのため、EUID フレームワークへのアクセスや使用に関する事務手続きは、UID2 フレームワークへの使用やアクセスを自動的に許可するものではありません。新規契約を UID2 用に締結する必要があります。
 
-### <!-- FAQ_02 --> ユーザーは、UID2 ID に関連するターゲティング広告の配信を拒否することができますか？
+### ユーザーは、UID2 ID に関連するターゲティング広告の配信を拒否することができますか？
+
+<!-- FAQ_02 -->
 
 はい。[Transparency and Control Portal](https://transparentadvertising.org)を通して、ユーザーは自分の UID2 ID に関連するターゲティング広告の配信をオプトアウトできます。各リクエストは、UID2 Opt-Ouy Service と UID2 Operator を通じて、関連するすべての参加者に配信されます。
 
 一部のパブリッシャーやサービスプロバイダーは、ユーザーの UID2 フレームワークへの参加状況に基づいて自社製品へのアクセスを制限するオプションを持っており、ユーザーとの価値交換ダイアログの一部としてこれを伝えるのはパブリッシャーの責任です。
 
-### <!-- FAQ_03 -->オプトアウトポータルにアクセスする場所をユーザーが知るにはどうすればよいですか？
+### オプトアウトポータルにアクセスする場所をユーザーが知るにはどうすればよいですか？
+
+<!-- FAQ_03 -->
 
 パブリッシャー、SSO プロバイダー、または同意管理プラットフォームは、ログインフロー、同意フロー、プライバシーポリシー、およびその他の手段で、[Transparency and Control Portal](https://transparentadvertising.org)へのリンクを開示します。
 
-### <!-- FAQ_04 -->なぜ広告主やサードパーティデータプロバイダーはオプトアウトフィードとインテグレーションする必要がないのでしょうか？
+### なぜ広告主やサードパーティデータプロバイダーはオプトアウトフィードとインテグレーションする必要がないのでしょうか？
+
+<!-- FAQ_04 -->
 
 オプトアウトは、ターゲット広告のオプトアウトに関するもので、パブリッシャーと DSP のオプトアウト[ワークフロー](../../.../README.md#workflows) を通して処理されます。特定の広告主から離脱するためには、消費者は広告主に直接連絡する必要があります。
 
-## パブリッシャー向け FAQ
+## FAQs for Publishers Using an SDK
 
-ここでは、UID2 フレームワークを使用するパブリッシャーに関するよくある質問を紹介します。
+UID2 フレームワークを使用するパブリッシャーが、クライアントサイド SDK を使用する際に、よくある質問を紹介します。
 
-<!-- (gwh note: section is taken from publisher-client-side.md) -->。
+### ユーザーオプトアウトの通知はどのように行われますか？
 
-### <!-- FAQ_05 -->ユーザーオプトアウトの通知はどのように行われますか？
+<!-- FAQ_05 -->
 
 [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) のバックグラウンドトークン自動更新処理では、ユーザーのオプトアウトを処理しています。ユーザーがオプトアウトした場合、SDK がトークンのリフレッシュを試みる際に、オプトアウトを知り、セッション（クッキーを含む）をクリアし、`OPTOUT`ステータスを持つコールバックを呼び出します。
 
-### <!-- FAQ_06 -->トークン生成の呼び出しは、サーバー側とクライアント側のどちらで行うべきですか？
+### トークン生成の呼び出しは、サーバー側とクライアント側のどちらで行うべきですか？
 
-UID2 Token は、認証後にサーバ側で生成する必要があります。つまり、サービスにアクセスするための API キーが秘密になるように、[POST /token/generate](../endpoints-v2/post-token-generate.md) エンドポイントは、サーバー側からのみ呼び出される必要があります。
+<!-- FAQ_06 -->
 
-### <!-- FAQ_07 --> クライアントサイドからトークンリフレッシュを呼び出すことはできますか？
+UID2 Token は、認証後にサーバ側で生成する必要があります。つまり、サービスにアクセスするための API キーが秘密になるように、[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントは、サーバー側からのみ呼び出される必要があります。
 
-[POST /token/refresh](../endpoints-v2/post-token-refresh.md) は、API キーを使用する必要がないため、クライアント側（ブラウザやモバイルアプリなど）から呼び出すことが可能です。
+### クライアントサイドから Token Refresh を呼び出すことはできますか？
 
-### <!-- FAQ_08 -->送信された PII と返されたトークンが一致することをテストするにはどうすればよいですか？
+<!-- FAQ_07 -->
 
-[POST /token/validate](../endpoints-v2/post-token-validate.md) エンドポイントを使用して、[POST /token/generate](../endpoints-v2/post-token-generate.md) を通じて送信する PII が有効かどうかをチェックすることができます。
+はい。[POST /token/refresh](../endpoints/post-token-refresh.md) は、API キーを使用する必要がないため、クライアント側（ブラウザやモバイルアプリなど）から呼び出すことが可能です。
 
-1. PII がメールアドレスか電話番号かによって、次のいずれかの値を使用して[POST /token/generate](../endpoints-v2/post-token-generate.md) リクエストを送信します：
+### 送信された PII と返されたトークンが一致することをテストするにはどうすればよいですか？(SDK 使用時)
+
+<!-- FAQ_08 -->
+
+[POST /token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST /token/generate](../endpoints/post-token-generate.md) を通じて送信する PII が有効かどうかをチェックすることができます。
+
+1. v がメールアドレスか電話番号かによって、次のいずれかの値を使用して[POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信します：
    - `email`の値として`validate@email.com`を指定します。
    - `validate@email.com`のハッシュを `email_hash` 値として指定します。
    - `phone`の値として `+12345678901` を指定します。
    - `phone_hash`値として`+12345678901`のハッシュを指定します。
 2. 次のステップで使用するために、返された `advertising_token` を保存します。
-3. ステップ 1 で送信した `email`、`email_hash`、`phone`、`phone_hash` のいずれかの値と、`token` プロパティ値として `advertising_token` （ステップ 2 で保存）を使用して [POST /token/validate](./endpoints-v2/post-token-validate.md) リクエストを送信します。
+3. ステップ 1 で送信した `email`、`email_hash`、`phone`、`phone_hash` のいずれかの値と、`token` プロパティ値として `advertising_token` （ステップ 2 で保存）を使用して [POST /token/validate](./endpoints/post-token-validate.md) リクエストを送信します。
    - レスポンスが `true` の場合、ステップ 1 でリクエストとして送信した PII が、ステップ 1 のレスポンスで受け取ったトークンと一致することを示します。
    - false` の場合は、メールアドレス、電話番号、またはそれぞれのハッシュを送信する方法に問題がある可能性があることを示しています。
 
-### <!-- FAQ_09 -->Refresh Token のログアウトワークフローをテストするにはどうすればよいですか？
+### Refresh Token のログアウトワークフローをテストするにはどうすればよいですか？(SDK 使用時)
+
+<!-- FAQ_09 -->
 
 メールアドレス`optout@email.com`または電話番号`+000000000`を使用して、Refresh Token ワークフローをテストできます。リクエストでいずれかのパラメータ値を使用すると、常に`refresh_token`を含む ID レスポンスが生成され、ログアウト レスポンスが返されます。
 
-1. PII がメールアドレスか電話番号かに応じて、次のいずれかの値を使用して [POST /token/generate](../endpoints-v2/post-token-generate.md) 要求を送信します：
+1. b がメールアドレスか電話番号かに応じて、次のいずれかの値を使用して [POST /token/generate](../endpoints/post-token-generate.md) 要求を送信します：
    - `email`の値として`optout@email.com`を指定します。
    - `optout@email.com`のハッシュを `email_hash` 値として指定します。
    - `phone`の値として `+00000000000` を指定する。
    - `phone_hash`値として`+000000000`のハッシュを指定します。
 2. SDK の [background auto-refresh](../sdks/client-side-identity.md#background-token-auto-refresh) が Advertising Token のリフレッシュを試みるまで待ちます（これは数時間かかることがあります）、リフレッシュ試みが`OPTOUT`ステータスで失敗するのを観察します。この時点で SDK はファーストパーティーのクッキーもクリアします。
 
-### <!-- FAQ_10 -->リクエストペイロードに optout@email.com を渡すと、/token/generate は "optout" 状態を返し、トークンを生成しないのでしょうか？
+### リクエストペイロードに optout@email.com を渡すと、/token/generate は "optout" 状態を返し、トークンを生成しないのでしょうか？(SDK 使用時)
 
-POST /token/generate](../endpoints-v2/post-token-generate.md) エンドポイントは、オプトアウト記録をチェックせず、有効なリクエストに対して有効な広告およびユーザートークンで `success` 状態を返します。
+<!-- FAQ_10 -->
 
-> 重要：このエンドポイントは、ユーザーの PII を UID2 トークンに変換する法的根拠を得た場合にのみ呼び出すようにしてください。[POST /token/generate](../endpoints-v2/post-token-generate.md) を呼び出すと、提供された PII に関連するユーザーが UID2 ベースのターゲット広告に自動的にオプトインします。
-> オプトアウト要求を確認するには、[POST /token/refresh](../endpoints-v2/post-token-refresh.md) エンドポイントを使用します。
+[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントは、オプトアウト記録をチェックせず、有効なリクエストに対して有効な広告およびユーザートークンで `success` 状態を返します。
+
+> IMPORTANT: このエンドポイントは、ユーザーのパーソナルデータを UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。[POST /token/generate](../endpoints/post-token-generate.md) を呼び出すと、提供された PII に関連するユーザーが UID2 ベースのターゲット広告に自動的にオプトインします。
+> オプトアウト要求を確認するには、[POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントを使用します。
+
+オプトアウトリクエストをチェックするには、[POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントを使用します。
+
+## FAQs for Publishers Not Using an SDK
+
+パブリッシャーがクライアントサイド SDK を使用していない場合、UID2 フレームワークを使用する際によくある質問を紹介します。
+
+### トークンの復号化は必要ですか？
+
+<!-- FAQ_11 -->
+
+いいえ、パブリッシャーがトークンを復号化する必要はありません。
+
+### ユーザーのオプトアウトはどのように通知されるのですか？ (SDK なし)
+
+<!-- FAQ_12 -->
+
+[POST /token/refresh](../endpoints/post-token-refresh.md) は、ユーザーの空の ID とオプトアウトのステータスを返します UID2 ベースの広告の使用を再開するにあたり、ユーザーは再度ログインして UID2 ID を再設定する必要があります。
+
+### トークン生成の呼び出しは、サーバー側とクライアント側のどちらから行うべきでしょうか？(SDK なし)
+
+<!-- FAQ_13 -->
+
+UID2 トークンは、認証後にサーバー側でのみ生成する必要があります。つまり、サービスへのアクセスに使用される API キーが秘密であることを保証するために、[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントは、サーバーサイドからのみ呼び出す必要があります。
+
+### クライアントサイドからトークンリフレッシュの呼び出しを行うことは可能ですか？(SDK なし)
+
+<!-- FAQ_14 -->
+
+[POST /token/refresh](../endpoints/post-token-refresh.md) は、API キーを使用する必要がないため、クライアント側（例えば、ブラウザやモバイルアプリ）から呼び出すことが可能です。
+
+### UID2 トークンの一意性とローテーションのポリシーは何ですか？
+
+<!-- FAQ_15 -->
+
+UID2 Service は、ランダムな初期化ベクトルを使用してトークンを暗号化します。暗号化された UID2 は、インターネットを閲覧している特定のユーザーにとって一意です。更新のたびに、トークンは再暗号化されます。この仕組みにより、信頼できない第三者がユーザーの身元を追跡できないようにします。
+
+### 送信された PII と返されたトークンが一致することをテストするにはどうすればよいですか？(SDK なし)
+
+<!-- FAQ_16 -->
+
+[POST /token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST /token/generate](../endpoints/post-token-generate.md) を通じて送信する PII が有効かどうかをチェックすることができます。
+
+1. PII がメールアドレスか電話番号かによって、次のいずれかの値を使用して [POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信してください：
+   - `email`の値として`validate@email.com`を指定します。
+   - `validate@email.com`のハッシュを `email_hash` 値として指定します。
+   - `phone`の値として `+12345678901` を指定します。
+   - `phone_hash`値として`+12345678901`のハッシュを指定します。
+2. 次のステップで使用するために、返された `advertising_token` を保存します。
+3. ステップ 1 で送信した `email`、`email_hash`、`phone`、`phone_hash` のいずれかの値と、`token` プロパティ値として `advertising_token` （ステップ 2 で保存）を使用して [POST /token/validate](./endpoints/post-token-validate.md) 要求を送信します。
+   - レスポンスが `true` の場合、ステップ 1 でリクエストとして送信した PII は、ステップ 1 のレスポンスで受け取ったトークンと一致します。
+   - false` の場合は、メールアドレス、電話番号、またはそれぞれのハッシュを送信する方法に問題がある可能性があります。
+
+### リフレッシュトークンのログアウトワークフローをテストするにはどうすればよいですか？(SDK なし)
+
+<!-- FAQ_17 -->
+
+`optout@email.com` のメールアドレスまたは `+00000000000` の電話番号を使用して、Refresh Token ワークフローをテストすることができます。メールアドレスまたは電話番号をリクエストに使用すると、常に `refresh_token` を含む ID レスポンスが生成され、ログアウトのレスポンスになります。
+
+1. PII がメールアドレスか電話番号かに応じて、次のいずれかの値を使用して [POST /token/generate](../endpoints/post-token-generate.md) 要求を送信します：
+   - `email`の値として`optout@email.com`を指定します。
+   - `optout@email.com`のハッシュを `email_hash` 値として指定します。
+   - `phone`の値として `+00000000000` を指定する。
+   - `phone_hash`値として`+000000000`のハッシュを指定します。
+2. 次のステップで使用するために、返された `refresh_token` を保存する。
+3. 3.ステップ 2 で保存した `refresh_token` を `token` 値として [POST /token/refresh](../endpoints/post-token-refresh.md) リクエストを送信します。<br/>ボディレスポンスは空で、`status` 値は `optout` に設定してください。これは `optout@email.com` メールと `+00000000` という電話番号によって常にログアウトしたユーザと見なされることになります。
+
+### /token/generate は、リクエストのペイロードに optout@email.com を渡すと、「optout」ステータスを返し、トークンを生成しないようにすべきでしょうか。 (SDK なし)
+
+<!-- FAQ_18 -->
+
+[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントは、オプトアウト記録をチェックせず、有効なリクエストに応答して有効な広告およびユーザートークンで `success` 状態を返します。
+
+> IMPORTANT: このエンドポイントは、ユーザーの PII を UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。[POST /token/generate](../endpoints/post-token-generate.md) を呼び出すと、提供された PII に関連するユーザーが UID2 ベースのターゲット広告に自動的にオプトインします。
+
+オプトアウト要求を確認するには、[POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントを使用します。
