@@ -17,7 +17,7 @@ The following guides provide integration instructions based on the needs and req
 
 | Integration Guide |  Content Description |
 | :--- | :--- |
-| [Publisher - Google Ad Manager Secure Signals](google-ss-integration.md) | This integration guide covers the additional steps needed for publishers using UID2 with the Google Ad Manager **secure signals** feature (previously known as **encrypted signals from publishers**, ESP). |
+| [Publisher - Google Ad Manager Secure Signals](google-ss-integration.md) | This integration guide covers the additional steps needed for publishers using UID2 with the Google Ad Manager secure signals feature (previously known as encrypted signals for publishers, ESP). |
 
 ## Open Operator Service Integration
  
