@@ -4,6 +4,18 @@
 
 このガイドは、UID2 対応シングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を利用して ID トークンを生成したいと考える、Web アセットを持つパブリッシャーを対象としています。
 
+以下のセクションが含まれています:
+
+- [Introduction](#introduction)
+- [Integration Steps ](#integration-steps)
+  - [Establish Identity: User Login](#establish-identity-user-login)
+  - [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
+  - [Refresh Tokens](#refresh-tokens)
+  - [Clear Identity: User Logout](#clear-identity-user-logout)
+- [FAQs](#faqs)
+
+## Introduction
+
 このガイドでは、SDK を使用せずにインテグレーションする場合に考慮する必要がある [基本的な手順](#integration-steps) を概説しています。たとえば、ユーザーログインとログアウトの実装方法、UID2 ID 情報の管理とターゲティング広告への使用方法、トークンの更新方法、ID が見つからない場合の対処、ユーザーのオプトアウトの処理方法などを決定する必要があります。[FAQ](#faqs)も参照してください。
 
 UID2 を使用したクライアント ID の確立と Advertising Token の取得を容易にするため、このガイドで説明する Web インテグレーション手順では、UID2 SDK とも呼ばれる [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) を使用しています。このガイドで説明するインテグレーション手順と SDK の使用方法を説明する [サンプルアプリケーション](https://example-jssdk-integ.uidapi.com/) があります(現在はメールアドレス用のみ)。アプリケーションのドキュメントについては、[UID2 SDK インテグレーション例](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) を参照してください。
@@ -150,47 +162,6 @@ SDK は、有効な ID の状態と利用可能性に基づいて、バックグ
 
 ## FAQs
 
-### ユーザーがオプトアウトした場合、どのように通知されますか？
+パブリッシャー向けのよくある質問のリストは、[FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers)を参照してください。
 
-[Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) のバックグラウンドトークン自動更新処理では、ユーザーのオプトアウトを処理します。ユーザーがオプトアウトした場合、SDK がトークンのリフレッシュを試みる際に、オプトアウトを検知し、セッション（クッキーを含む）をクリアして、`OPTOUT` ステータスでコールバックを呼び出します。
-
-### トークン生成の呼び出しは、サーバー側とクライアント側のどちらで行うべきですか？
-
-UID2 Token は、認証後にサーバー側でのみ生成する必要があります。つまり、サービスにアクセスするための API キーを秘密にするために、[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントはサーバーサイドからのみ呼び出されなければなりません。
-
-### クライアント側からトークン リフレッシュの呼び出しを行うことはできますか。
-
-[POST /token/refresh](../endpoints/post-token-refresh.md) は、API キーを使用する必要がないため、クライアント側（ブラウザやモバイルアプリなど）から呼び出すことが可能です。
-
-### 送信された PII と返されたトークンが一致するかどうかをテストするにはどうすればよいですか?
-
-[POST /token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST /token/generate](../endpoints/post-token-generate.md) を通じて送信する PII が有効であるか確認することができます。
-
-1. PII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して [POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信してください。
-   - `email` の値として `validate@email.com` を指定する。
-   - `validate@email.com` のハッシュを `email_hash` の値として指定する。
-   - `phone` の値として `+12345678901` を指定する。
-   - `phone_hash` 値として `+12345678901` のハッシュを指定します。
-2. 返された `advertising_token` を次のステップで使用するために保存します。
-3. [POST /token/validate](../endpoints/post-token-validate.md) で、ステップ 1 で送信した `email`、`email_hash`、`phone`、または `phone_hash` 値と `advertising_token` （ステップ 2 で保存）をプロパティ値としてリクエストを送信してください。
-   - もしレスポンスが `true` を返したら、ステップ 1 でリクエストとして送った PII が、ステップ 1 のレスポンスで受け取ったトークンと一致することを示します。
-   - `false` が返された場合、メールアドレス、電話番号、またはそれぞれのハッシュの送信方法に問題がある可能性を示しています。
-
-### トークン更新のログアウトワークフローをテストするにはどうすればよいですか？
-
-`optout@email.com` メールアドレスまたは `+00000000000` 電話番号を使って、トークン更新ワークフローをテストすることができます。リクエストでどちらかのパラメータ値を使用すると、常にログアウトレスポンスになる `refresh_token` を含む ID レスポンスが生成されます。
-
-1. PII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して [POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信してください。
-   - `email` の値として `optout@email.com` を指定します。
-   - `optout@email.com` のハッシュを `email_hash` の値として指定します。
-   - `phone` の値として `+00000000000` を指定します。
-   - `phone_hash` 値として `+00000000000` のハッシュを指定します。
-2. SDK の [バックグラウンドでのトークン自動更新](../sdks/client-side-identity.md#background-token-auto-refresh) が Advertising Token をリフレッシュしようとするまで待ち、リフレッシュが失敗して `OPTOUT` 状態になるのを観察してください。この時点で、SDK はファーストパーティクッキーもクリアします。
-
-### リクエスト ペイロードに optout@email.com を渡すと、/token/generate は　“optout”　ステータスを返し、トークンを生成しないようにする必要がありますか?
-
-[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントは、オプトアウトリクエストをチェックせず、有効なリクエストに応答して有効な広告およびユーザートークンを含む `success` ステータスを返します。
-
-> IMPORTANT: このエンドポイントは、ユーザーの PII を UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。[POST /token/generate](../endpoints/post-token-generate.md) を呼び出すと、提供された PII に関連するユーザーが UID2 ベースのターゲティング広告に自動的にオプトインされます。
-
-オプトアウトリクエストを確認するには、[POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントを使用します。
+すべてのリストは、[Frequently Asked Questions](../getting-started/gs-faqs.md)を参照してください。
