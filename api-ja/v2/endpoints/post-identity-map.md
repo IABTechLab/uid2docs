@@ -2,9 +2,9 @@
 
 # POST /identity/map
 
-複数のメールアドレスや電話番号、それぞれのハッシュを、UID2 やソルトバケット ID にマッピングします。このエンドポイントは [広告主とデータプロバイダー](../guides/advertiser-dataprovider-guide.md) による利用を対象としています。
+複数のメールアドレス、電話番号、それぞれのハッシュを UID2 やソルトバケット ID にマッピングします。
 
-Used by: このエンドポイントは、主に広告主とサードパーティのデータプロバイダーが使用します。
+Used by: このエンドポイントは、主に広告主やデータプロバイダーが使用します。詳細は、[Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md)を参照してください。
 
 ## Batch Size and Request Parallelization Requirements
 

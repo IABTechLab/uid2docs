@@ -2,9 +2,9 @@
 
 # POST /identity/buckets
 
-ローテーションされたソルトバケットを監視します。このエンドポイントは、[広告主とデータプロバイダー](../guides/advertiser-dataprovider-guide.md) による使用を対象としています。
+ソルトバケットのローテーションをモニターします。
 
-Used by: このエンドポイントは、主に広告主とサードパーティのデータプロバイダーが使用します。
+Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細については、[Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) を参照してください。
 
 ## Request Format
 
