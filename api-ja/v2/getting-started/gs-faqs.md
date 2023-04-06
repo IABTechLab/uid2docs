@@ -220,7 +220,7 @@ UID2 生成リクエストで提供されるメタデータには、UID2 の生�
 
 <!-- FAQ_20 ADP -->
 
-必ずしもそうとは限りません。特定のバケット ID に関連付けられたメールアドレスを再マッピングした後、そのメールが異なるバケット ID に割り当てられる可能性があります。バケット ID を確認するには、[マッピング関数を呼び出す](../guides/advertiser-dataprovider-guide.md#retrieve-a-uid2 for-pii-using-the-identity-map-endpoints) そして返された UID2 とバケット ID を再び保存してください。
+必ずしもそうとは限りません。特定のバケット ID に関連付けられたメールアドレスを再マッピングした後、そのメールが異なるバケット ID に割り当てられる可能性があります。バケット ID を確認するには、[マッピング関数を呼び出す](../guides/advertiser-dataprovider-guide.md#retrieve-a-raw-uid2-for-pii-using-the-identity-map-endpoints) そして返された UID2 とバケット ID を再び保存してください。
 
 IMPORTANT: メールアドレスのマッピングや再マッピングを行う際には、バケット番号やローテーションした日、どのバケットにメールアドレスが割り当てられるかなどを想定しないように注意してください。
 
