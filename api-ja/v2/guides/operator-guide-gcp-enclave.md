@@ -3,7 +3,7 @@ README.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md
 
 # UID2 Operator - Google Cloud Platform Confidential Computing Package
 
-本ガイドでは、Google Cloud Platform のセキュアなエンクレーブで UID2 Operator Service を設定するための情報を提供します。
+本ガイドでは、[Google Cloud](https://cloud.google.com/docs/overview/) Platform のセキュアなエンクレーブで UID2 Operator Service を設定するための情報を提供します。
 
 本ガイドには、以下の内容が記載されています:
 
