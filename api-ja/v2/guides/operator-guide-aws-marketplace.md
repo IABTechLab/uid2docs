@@ -22,7 +22,7 @@ NOTE: [UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/p
 
 Unified ID 2.0 Operator on AWS Marketplace 製品を契約することで、以下をご利用できます:
 
-- **Amazon Machine Image (AMI)** UID2 Operator Service がインストールされ、ブートストラップの準備が整っている状態です:<br/>
+- **[Amazon Machine Image (AMI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)** UID2 Operator Service がインストールされ、ブートストラップの準備が整っている状態です:<br/>
   AMI には、UID2 Operator Service がすでにセットアップされた[Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/?amazon-linux-whats-new.sort-by=item.additionalFields.postDateTime&amazon-linux-whats-new.sort-order=desc)オペレーティングシステムが含まれています。AMI をベースにした EC2 インスタンスが起動すると、AWS アカウントから設定を自動的に取得し、エンクレーブ内で UID2 Operator サーバーを起動します。
 - **[CloudFormation](https://aws.amazon.com/cloudformation/) template**:<br/>
   このテンプレートでは、UID2 Operator AMI がデプロイ展開されます。
