@@ -11,6 +11,6 @@ The following steps provide a high-level outline of the workflow intended for us
 
 This workflow allows a user to consent to the creation of a UID2 token and manage their UID2 consent and privacy settings through the [Transparency and Control Portal](https://transparentadvertising.org).
 
-![User Trust Workflow](../images/user_trust_workflow.jpg)
+![User Trust Workflow](images/user_trust_workflow.jpg)
 
 

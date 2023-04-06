@@ -9,7 +9,7 @@ The following steps provide a high-level outline of the workflow intended for de
 3. DSPs access UID2 tokens in the bid stream and decrypt them at bid time.
 4. DSPs listen to opt-out requests from UID2 Administrator and block buying on any UID2 that has opted-out.
 
-![Buy-Side Workflow](../images/buy_side.jpg)
+![Buy-Side Workflow](images/UID2BuySIdeDSPWorkflow.jpg)
 
 ## Integration Requirements
 

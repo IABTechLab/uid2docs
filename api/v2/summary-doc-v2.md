@@ -6,7 +6,6 @@ For UID2 definitions, ID types, guiding principles, components, and other concep
 
 This page provides the following information required for you to get started with the UID2 API v2:
 
-* [UID2 API v1 Compatibility and Upgrade Requirements](#uid2-api-v1-compatibility-and-upgrade-requirements)
 * [Environments](#environments)
 * [Authentication and Authorization](#authentication-and-authorization)
 
@@ -20,16 +19,6 @@ For details on using the API, see the following pages.
 | [SDKs](sdks/summary-sdks.md) | Links to documentation for using UID2 SDKs. | 
 
 For a list of improvements and changes from version 1 of the API, see [UID2 API v1 to v2 Upgrade Guide](upgrades/upgrade-guide.md).
-
-
-## UID2 API v1 Compatibility and Upgrade Requirements
-
-Here's what you need to know about the UID2 API v2 compatibility with v1:
-
-- UID2 API v2 is not compatible with UID2 API v1 and require an [upgrade](upgrades/upgrade-guide.md).
-- The v1 endpoints will be supported until **March 31, 2023**, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be deprecated and removed.
-- Previously issued client API keys will continue working with v1 endpoints and will be required for v2 endpoints.
-- To use the v2 endpoints, a client secret is required for [encrypting API requests and decrypting API responses](getting-started/gs-encryption-decryption.md).
 
 ## Environments 
 

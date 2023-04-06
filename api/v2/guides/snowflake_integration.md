@@ -1,14 +1,12 @@
-[UID2 API Documentation](../../README.md) > [v1](../README.md) > [Integration Guides](README.md) > Snowflake Integration
+[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Snowflake Integration
 
-# Snowflake Integration (Deprecated)
+# Snowflake Integration Guide
 
->IMPORTANT: The UID2 API v1 has been deprecated and will be supported only for the current users until March 31, 2023, when all v1 SDK files and endpoints, the v0 SDK files, and any unversioned endpoints will be removed. Be sure to [upgrade to the UID2 API v2](../../v2/upgrades/upgrade-guide.md) by March 31, 2023. If you are new to the framework, use the [UID2 API v2](../../v2/README.md).
-
-[Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with UID2. Using Snowflake, UID2 enables you to securely share authorized consumer identifier data without exposing sensitive PII. Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
+[Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share authorized consumer identifier data without exposing sensitive PII. Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
 
 The following diagram illustrates how you engage with the UID2 integration process in Snowflake:
 
-![Snowflake Integration Architecture](./uid2-snowflake-integration-architecture.svg)
+![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture.svg)
 
 |Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-out Cloud Setup|
 | :--- | :--- | :--- |
@@ -24,7 +22,7 @@ Access to the UID2 Share is available through the [Snowflake Data Marketplace](h
 
 To request access to a UID2 Share, complete the following steps:
 
-1.	Log in to the Snowflake Data Marketplace and select the UID2 solution in which you are interested:
+1.	Log in to the Snowflake Data Marketplace and select the UID2 solution that you are interested in:
       - [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV)
       - [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0)
 2.	In the **Personalized Data** section, click **Request Data**.
@@ -65,7 +63,7 @@ All query examples use the following default values for each name variable:
 
 ### Map Email Addresses
 
-To map a single email address or multiple email addresses to the corresponding UID2s and second-level salt bucket IDs, use the `FN_T_UID2_IDENTITY_MAP_EMAIL` function. It takes an email address as its argument and normalizes it using the UID2 [Email Normalization](../../README.md#email-normalization) rules.
+To map a single email address or multiple email addresses to the corresponding UID2s and second-level salt bucket IDs, use the `FN_T_UID2_IDENTITY_MAP_EMAIL` function. It takes an email address as its argument and normalizes it using the UID2 [Email Address Normalization](../../README.md#email-address-normalization) rules.
 
 |Argument|Data Type|Description|
 | :--- | :--- | :--- |
@@ -140,7 +138,7 @@ To map a single email address hash or multiple hashes to the corresponding UID2s
 
 |Argument|Data Type|Description|
 | :--- | :--- | :--- |
-|`EMAIL_HASH`|varchar(128)| The base64-encoded SHA256 hash of the normalized email address of a user. Ensure that the email hash is correctly formatted using the [Email Normalization](../../README.md#email-normalization) rules. Use the hash computed from the normalized email address.|
+|`EMAIL_HASH`|varchar(128)| The Base64-encoded SHA-256 hash of the normalized email address of a user. Ensure that the email hash is correctly formatted using the [Email Address Normalization](../../README.md#email-address-normalization) rules. Use the hash computed from the normalized email address.|
 
 A successful query returns the following information for the specified email address hash.
 

@@ -11,7 +11,7 @@ The following steps provide a high-level outline of the workflow intended for or
 4. Data provider sends the UID2 to a DSP using permitted transport protocols defined in the code of conduct.
 5. Data provider monitors the UID2 Operator for rotated salt buckets and updates UID2s as needed.
 
-![Data Provider Workflow](../images/data_provider.jpg)
+![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.jpg)
 
 ## Integration Requirements
 
