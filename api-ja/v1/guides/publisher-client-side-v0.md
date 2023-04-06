@@ -143,7 +143,7 @@ sequenceDiagram
 
 1. 以下のどちらかを行ってください:
    - [GET /token/generate](../endpoints/get-token-generate.md) リクエストを `validate@email.com` を `email` に指定して送信します。
-   - `validate@email.com` の [base64-encoded SHA256](../../getting-started.md#email-address-hash-encoding) ハッシュを作成し、メールハッシュとして送信します。
+   - `validate@email.com` の [Base64-encodedd SHA-256](../../getting-started.md#email-address-hash-encoding) ハッシュを作成し、メールハッシュとして送信します。
 2. ステップ 3 で使用するために返された `advertising_token` を保存します。
 3. ステップ 1 で送信した `email` または `email_hash` と `advertising_token` (ステップ 2 で保存) を `token` として [GET /token/validate](../endpoints/get-token-validate.md) リクエストを送信してください。
    - もしレスポンスが `true` を返したら、ステップ 1 でリクエストとして送った `email` または `email_hash` が、ステップ 1 のレスポンスで受け取ったトークンと一致したことになります。
@@ -155,6 +155,6 @@ sequenceDiagram
 
 1. 以下のどちらかを行ってください:
    - `optout@email.com` を `email` として [GET /token/generate](../endpoints/get-token-generate.md) リクエストを送ります。
-   - `optout@email.com` の [base64-encoded SHA256](../../getting-started.md#email-address-hash-encoding) ハッシュを作成し、メールハッシュとして送信する。
+   - `optout@email.com` の [Base64-encodedd SHA-256](../../getting-started.md#email-address-hash-encoding) ハッシュを作成し、メールハッシュとして送信する。
 2. ステップ 3 で使用するために返された `refresh_token` を保存します。
 3. [GET /token/validate](../endpoints/get-token-validate.md) リクエストを、ステップ 1 で送信した `email` または `email_hash` と `refresh_token` （ステップ 2 で保存）を `token` に指定して送信してください。<br/> `optout@email.com` のメールは常にログアウトした Refresh Token を返すので、`body` レスポンスは空のはずです。

@@ -47,14 +47,14 @@ UID2 Operator Service にハッシュ化されていないメールアドレス�
 
 ## Email Address Hash Encoding
 
-メールアドレスハッシュは、正規化されたメールアドレスの SHA256 ハッシュを base64 でエンコードしたものです。
+メールアドレスハッシュは、正規化されたメールアドレスの SHA-256 ハッシュを base64 でエンコードしたものです。
 
-| Type                                                | Example                                                            | Comments and Usage                                                                                                                                               |
-| :-------------------------------------------------- | :----------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Normalized email address                            | `user@example.com`                                                 | N/A                                                                                                                                                              |
-| SHA256 of email address                             | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | この 64 文字の文字列は、32 バイトの SHA256 を 16 進数で表現したものです。                                                                                        |
-| base64-encoded SHA256 of email address              | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=`                     | リクエストボディで送信される `email_hash` 値には、このエンコーディングを使用します。                                                                             |
-| URL-encoded, base64-encoded SHA256 of email address | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf%2FF5HVRQ%3D`                 | この 44 文字の文字列は、32 バイトの SHA256 を base64 でエンコードしたものです。<br/>リクエストボディで送られる `email_hash` 値には、このエンコードを使用します。 |
+| Type                                                  | Example                                                            | Comments and Usage                                                                                                                                                |
+| :---------------------------------------------------- | :----------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Normalized email address                              | `user@example.com`                                                 | N/A                                                                                                                                                               |
+| SHA-256 of email address                              | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | この 64 文字の文字列は、32 バイトの SHA-256 を 16 進数で表現したものです。                                                                                        |
+| Base64-encodedd SHA-256 of email address              | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=`                     | リクエストボディで送信される `email_hash` 値には、このエンコーディングを使用します。                                                                              |
+| URL-encoded, Base64-encodedd SHA-256 of email address | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf%2FF5HVRQ%3D`                 | この 44 文字の文字列は、32 バイトの SHA-256 を base64 でエンコードしたものです。<br/>リクエストボディで送られる `email_hash` 値には、このエンコードを使用します。 |
 
 ## Phone Number Normalization
 
@@ -70,14 +70,14 @@ UID2 Operator Service にハッシュ化されていないメールアドレス�
 
 ## Phone Number Hash Encoding
 
-電話番号ハッシュは、正規化された電話番号の SHA256 ハッシュを base64 エンコードしたものです。
+電話番号ハッシュは、正規化された電話番号の SHA-256 ハッシュを base64 エンコードしたものです。
 
-| Type                                               | Example                                                            | Comments and Usage                                                                                                                                                 |
-| :------------------------------------------------- | :----------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Normalized phone number                            | `+12345678901`                                                     | N/A                                                                                                                                                                |
-| SHA256 of phone number                             | `10e6f0b47054a83359477dcb35231db6de5c69fb1816e1a6b98e192de9e5b9ee` | この 64 文字の文字列は、32 バイトの SHA256 を 16 進数で表現したものです。                                                                                          |
-| base64-encoded SHA256 of phone number              | `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=`                     | リクエストボディで送信される `phone_hash` 値にはこのエンコーディングを使用します。                                                                                 |
-| URL-encoded, base64-encoded SHA256 of phone number | `wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ%2FFSK4%3D`                 | この 44 文字の文字列は、32 バイトの SHA256 を base64 でエンコードしたものです。<br/>リクエストボディで送られる `phone_hash` 値には、このエンコードを使用します。。 |
+| Type                                                 | Example                                                            | Comments and Usage                                                                                                                                                  |
+| :--------------------------------------------------- | :----------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Normalized phone number                              | `+12345678901`                                                     | N/A                                                                                                                                                                 |
+| SHA-256 of phone number                              | `10e6f0b47054a83359477dcb35231db6de5c69fb1816e1a6b98e192de9e5b9ee` | この 64 文字の文字列は、32 バイトの SHA-256 を 16 進数で表現したものです。                                                                                          |
+| Base64-encodedd SHA-256 of phone number              | `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=`                     | リクエストボディで送信される `phone_hash` 値にはこのエンコーディングを使用します。                                                                                  |
+| URL-encoded, Base64-encodedd SHA-256 of phone number | `wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ%2FFSK4%3D`                 | この 44 文字の文字列は、32 バイトの SHA-256 を base64 でエンコードしたものです。<br/>リクエストボディで送られる `phone_hash` 値には、このエンコードを使用します。。 |
 
 ## Response Structure and Status Codes
 

@@ -20,12 +20,12 @@
 
 > IMPORTANT: 以下のパラメーターの 1 つのみを含める必要があります。
 
-| Query Parameter | Data Type | Attribute      | Description                                                                                                                                                                                               |
-| :-------------- | :-------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `email`         | string    | 条件付きで必要 | マップする [URL エンコード](../README.md#query-parameter-value-encoding) したメールアドレスです                                                                                                           |
-| `email_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../getting-started.md#email-address-hash-encoding) した [正規化](../../getting-started.md#email-address-normalization) 済みメールアドレスです。 |
-| `phone`         | string    | 条件付きで必要 | トークンを生成する [正規化](../../getting-started.md#phone-number-normalization) と [URL エンコード](../README.md#query-parameter-value-encoding) した電話番号です。                                      |
-| `phone_hash`    | string    | 条件付きで必要 | [SHA256 ハッシュし、URL エンコード、base64 エンコード](../../getting-started.md#phone-number-hash-encoding) した、[正規化](../../getting-started.md#phone-number-normalization) 済み電話番号です。        |
+| Query Parameter | Data Type | Attribute      | Description                                                                                                                                                                                                |
+| :-------------- | :-------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `email`         | string    | 条件付きで必要 | マップする [URL エンコード](../README.md#query-parameter-value-encoding) したメールアドレスです                                                                                                            |
+| `email_hash`    | string    | 条件付きで必要 | [SHA-256 ハッシュし、URL エンコード、base64 エンコード](../../getting-started.md#email-address-hash-encoding) した [正規化](../../getting-started.md#email-address-normalization) 済みメールアドレスです。 |
+| `phone`         | string    | 条件付きで必要 | トークンを生成する [正規化](../../getting-started.md#phone-number-normalization) と [URL エンコード](../README.md#query-parameter-value-encoding) した電話番号です。                                       |
+| `phone_hash`    | string    | 条件付きで必要 | [SHA-256 ハッシュし、URL エンコード、base64 エンコード](../../getting-started.md#phone-number-hash-encoding) した、[正規化](../../getting-started.md#phone-number-normalization) 済み電話番号です。        |
 
 ### Request Examples
 

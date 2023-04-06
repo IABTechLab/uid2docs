@@ -78,7 +78,7 @@ UID2 Operator Service は、どの GCP アカウントおよびプロジェク�
 
 ### Cloud-init.yaml File
 
-登録プロセスでは、認証された cloud-init-`<timestamp>`.yaml ファイルが提供されます。このファイルの sha256sum は認証プロセスの一部として使用されるため、このファイルを（クライアント API キーを追加する以外の）いかなる方法でも変更することはできません。ファイルの内容については後述しますが、このファイルはデプロイプロセス中に手動で作成されることはなく、常に UID チームが新しい Private Operator を設定するプロセス中に作成されます。
+登録プロセスでは、認証された cloud-init-`<timestamp>`.yaml ファイルが提供されます。このファイルの SHA-256sum は認証プロセスの一部として使用されるため、このファイルを（クライアント API キーを追加する以外の）いかなる方法でも変更することはできません。ファイルの内容については後述しますが、このファイルはデプロイプロセス中に手動で作成されることはなく、常に UID チームが新しい Private Operator を設定するプロセス中に作成されます。
 
 cloud-init.yaml ファイルは環境に固有なので、インテグレーション環境用と本番環境用を用意することに注意してください。
 
@@ -120,7 +120,7 @@ write_files:
     ExecStartPre=mkdir -p /run/uid2/.config/gcloud
     ExecStartPre=docker login ghcr.io -u gcp-uid2-docker -p ${GHCR_RO_ACCESS_TOKEN}
     ExecStartPre=/usr/bin/docker-credential-gcr configure-docker
-    ExecStart=/usr/bin/docker run --rm --name uid2-operator -v /run/uid2/operator.json:/app/conf/config.json -e KUBERNETES_SERVICE_HOST=1 -e core_api_token=${UID2_ENCLAVE_API_TOKEN} -e optout_api_token=${UID2_ENCLAVE_API_TOKEN} -p 80:8080 ghcr.io/iabtechlab/uid2-operator@sha256:${UID2_ENCLAVE_IMAGE_ID}
+    ExecStart=/usr/bin/docker run --rm --name uid2-operator -v /run/uid2/operator.json:/app/conf/config.json -e KUBERNETES_SERVICE_HOST=1 -e core_api_token=${UID2_ENCLAVE_API_TOKEN} -e optout_api_token=${UID2_ENCLAVE_API_TOKEN} -p 80:8080 ghcr.io/iabtechlab/uid2-operator@SHA-256:${UID2_ENCLAVE_IMAGE_ID}
     ExecStop=/usr/bin/docker stop uid2-operator
     ExecStopPost=/usr/bin/docker rm uid2-operator
 - path: /run/uid2/operator.json
