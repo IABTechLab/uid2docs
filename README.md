@@ -77,7 +77,7 @@ The UID2 framework consists of the following components, all of which are curren
 
 | Component | Description |
 | :--- | :--- |
-| **Core Service**  | A centralized service that stores salt secrets and encryption keys and manages access to the distributed UID2 system. | 
+| **Core Service**  | A centralized service that manages access to salts, encryption keys, and other relevant data in the UID2 ecosystem. | 
 | **Operator Service**  | A service that enables the management and storage of encryption keys and salts from the UID2 Core Service, hashing of users' personal data, encryption of raw UID2s, and decryption of UID2 tokens. There can be multiple instances of the service (public or private) operated by multiple [participants](#participants), known as operators.<br/>Open operators run publicly available instances of the Operator Service and make them available to all relevant UID2 [participants](#participants). There might also be closed operators that run private instances of the Operator Service exclusively for their own use. All instances are designed with protections to keep critical UID2 data secure and interoperable, regardless of who operates the service. | 
 | **Opt-Out Service**  | A global service that manages and stores user opt-out requests and disseminates them to publishers, operator service instances, and DSPs. | 
 | **Transparency and Control Portal**  | A user-facing website, [https://transparentadvertising.org](https://transparentadvertising.org), that allows consumers to opt out of UID2 at any time. | 
@@ -91,7 +91,7 @@ The following table lists the key participants and their roles in the UID2 [work
 
 | Participant | Role Description |
 | :--- | :--- |
-| **Core Administrator**  | An organization (currently, The Trade Desk) that manages the UID2 Core Service and other [components](#components). For example, it distributes encryption keys and salts to UID2 operators and sends user opt-out requests to operators and DSPs. |  
+| **Core Administrator** | An organization (currently, The Trade Desk) that manages the UID2 Core Service and other [components](#components). For example, it distributes encryption keys and salts to UID2 operators and sends user opt-out requests to operators and DSPs. |  
 | **Operators**  | Organizations that run the Operator Service (via the UID2 APIs). Operators receive and store encryption keys and salts from the UID2 Core Service, salt and hash personal data to return UID2 tokens, encrypt raw UID2s to generate UID2 tokens, and distribute UID2 token decryption keys.<br/>Open operators run public instances of the Operator Service. For example, The Trade Desk currently serves as an open operator for the UID2 framework, available to all participants. If other open operators are available, a participant can choose which operator to work with.<br/>Any participant can also choose to become a closed operator to generate and manage UID2s. | 
 | **DSPs**  | DSPs integrate with the UID2 system to receive UID2s from advertisers (as first-party data) and third-party data providers (as third-party data) and leverage them to inform bidding on UID2s in the bid stream. | 
 | **Data Providers**  | Organizations that collect user data and push it to DSPs—for example, advertisers, identity graph providers, and third-party data providers. | 

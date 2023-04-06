@@ -31,7 +31,7 @@ The high-level request-response workflow for the UID2 APIs includes the followin
 
 Python example scripts for [encrypting requests](#example-encryption-script) and [decrypting responses](#example-decryption-script) can help with automating steps 2-4 and 6-10 and serve as a reference of how to implement these steps in your application.
 
-The individual UID2 [endpoints](../endpoints/summary-endpoints.md) explain the respective JSON body format requirements and parameters, include call examples, and show decrypted responses. The following sections provide examples of the encryption and descriptions scripts in Python, field layout requirements as well as request and response examples. 
+The individual UID2 [endpoints](../endpoints/summary-endpoints.md) explain the respective JSON body format requirements and parameters, include call examples, and show decrypted responses. The following sections provide examples of the encryption and decryption scripts in Python, field layout requirements as well as request and response examples. 
 
 ## Encrypting Requests
 
@@ -44,7 +44,7 @@ The following table describes the field layout for request encryption scripts.
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
 | 0 | 8 | The UNIX timestamp (in milliseconds). Must be int64 big endian. |
-| 8 | 8 | Nonce: random 64 bits of data used to protect against replay attacks. The corresponding [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) should contain the same nonce value for the response to be considered valid. |
+| 8 | 8 | Nonce: Random 64 bits of data used to protect against replay attacks. The corresponding [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) should contain the same nonce value for the response to be considered valid. |
 | 16 | N | Payload, which is a request JSON document serialized in UTF-8 encoding. |
 
 ### Encrypted Request Envelope
