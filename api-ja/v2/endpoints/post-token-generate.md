@@ -114,14 +114,6 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
 
 ```json
 {
-  "body": {
-    "advertising_token": "",
-    "refresh_token": "",
-    "identity_expires": 1636322000000,
-    "refresh_from": 1636322000000,
-    "refresh_expires": 1636322000000,
-    "refresh_response_key": ""
-  },
   "status": "optout"
 }
 ```
