@@ -110,7 +110,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
 }
 ```
 
-以下は、ポリシーがユーザーのオプトアウトを尊重する場合の応答例です。
+以下は、ポリシーがユーザーのオプトアウトを受け入れる場合の応答例です。
 
 ```json
 {

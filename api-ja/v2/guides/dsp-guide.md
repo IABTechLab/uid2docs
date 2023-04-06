@@ -23,7 +23,7 @@ sequenceDiagram
   participant DSP
   participant UID2 as UID2 Service
   participant TC as Transparency & Control Portal
-  Note over U,TC: 1. ユーザーのオプトアウトを尊重します。
+  Note over U,TC: 1. ユーザーのオプトアウトを受け入れます。
   U->>TC: 1-a. ユーザーがオプトアウトしました。
   activate TC
   TC->>UID2: 1-b. UID2 Serviceはオプトアウトを受け付けます。
@@ -34,12 +34,12 @@ sequenceDiagram
   Note over U,TC: 2. RTBで使用する UID2 Token を復号化します。
   SSP-->>DSP: SSPは入札のためにDSPを呼び出します。
   DSP->>DSP: 2-a. UID2 Token を復号化します。
-  DSP->>DSP: 2-b. 1 からのユーザーオプトアウトを尊重した入札ロジックを実行します。
+  DSP->>DSP: 2-b. 1 からのユーザーオプトアウトを受け入れた入札ロジックを実行します。
 ```
 
 ### Honor User Opt-Outs
 
-UID2 Service からのユーザーのオプトアウトを受け取り、それを尊重するために、DSP はオンボーディング時に、あらかじめ設定されたインターフェースを UID2 Service に提供します。UID2 Service は、ユーザーの UID2 とオプトアウトのタイムスタンプを、事前に設定されたインターフェースに送信します。インターフェースの例としては、webhooks や API エンドポイントなどがあります。
+UID2 Service からのユーザーのオプトアウトを受け取り、それを受け入れるために、DSP はオンボーディング時に、あらかじめ設定されたインターフェースを UID2 Service に提供します。UID2 Service は、ユーザーの UID2 とオプトアウトのタイムスタンプを、事前に設定されたインターフェースに送信します。インターフェースの例としては、webhooks や API エンドポイントなどがあります。
 
 UID2 Service は、ユーザーがオプトアウトしてから数秒以内に以下のデータを送信します。これを DSP が記録し、[Decrypt UID2 Tokens for RTB Use](#decrypt-uid2-tokens-for-rtb-use) で定義されている入札ロジックを使用するようにします。
 
@@ -56,7 +56,7 @@ https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 
 #### Bidding Opt-Out Logic
 
-入札時（2-b）に以下のロジックを使用し、ユーザーのオプトアウトを尊重します。
+入札時（2-b）に以下のロジックを使用し、ユーザーのオプトアウトを受け入れます。
 
 提供されている [Server-Side SDK Guide for RTB](../sdks/dsp-client-v1-overview.md) を活用して、受信した UID2 Token を復号化することができます。レスポンスには UID2 と UID2 が作成された時刻が含まれ、以下の擬似コードでは `established_timestamp`と表現されます。DSP は UID2 の最新のオプトアウトタイムスタンプを確認する必要があります。以下の疑似コードでは `optout_timestamp`と表現されています。
 
@@ -82,10 +82,10 @@ if (established_timestamp < optout_timestamp) {
 
 ### Decrypt UID2 Tokens for RTB Use
 
-| Step | SDK                                                                | Description                                                                                                                                                                                   |
-| :--- | :----------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2-a  | [Server-Side SDK Guide for RTB](../sdks/dsp-client-v1-overview.md) | 提供されている SDK を活用して、入力された UID2 Token を復号化します。レスポンスには `UID2` と UID2 の作成時刻が含まれます。                                                                   |
-| 2-b  |                                                                    | DSP は UID2 のオプトアウトプロトコルを尊重することが要求されます。ユーザーオプトアウトの設定と入札時の尊重については、[ユーザーオプトアウトの尊重](#honor-user-opt-outs) を参照してください。 |
+| Step | SDK                                                                | Description                                                                                                                                                                                             |
+| :--- | :----------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 2-a  | [Server-Side SDK Guide for RTB](../sdks/dsp-client-v1-overview.md) | 提供されている SDK を活用して、入力された UID2 Token を復号化します。レスポンスには `UID2` と UID2 の作成時刻が含まれます。                                                                             |
+| 2-b  |                                                                    | DSP は UID2 のオプトアウトプロトコルを受け入れることが要求されます。ユーザーオプトアウトの設定と入札時の受け入れについては、[ユーザーオプトアウトの受け入れ](#honor-user-opt-outs) を参照してください。 |
 
 ## FAQs
 
