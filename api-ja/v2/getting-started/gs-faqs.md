@@ -12,21 +12,21 @@ UID2 に関するよくある質問は、以下のカテゴリーに分かれて
   - [なぜ広告主やサードパーティデータプロバイダーはオプトアウトフィードとインテグレーションする必要がないのでしょうか？](#%E3%81%AA%E3%81%9C%E5%BA%83%E5%91%8A%E4%B8%BB%E3%82%84%E3%82%B5%E3%83%BC%E3%83%89%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%83%87%E3%83%BC%E3%82%BF%E3%83%97%E3%83%AD%E3%83%90%E3%82%A4%E3%83%80%E3%83%BC%E3%81%AF%E3%82%AA%E3%83%97%E3%83%88%E3%82%A2%E3%82%A6%E3%83%88%E3%83%95%E3%82%A3%E3%83%BC%E3%83%89%E3%81%A8%E3%82%A4%E3%83%B3%E3%83%86%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%99%E3%82%8B%E5%BF%85%E8%A6%81%E3%81%8C%E3%81%AA%E3%81%84%E3%81%AE%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8B)
 
 - [FAQs for Publishers Using an SDK](#faqs-for-publishers-using-an-sdk)
-  - [ユーザーオプトアウトの通知はどのように行われますか？](#how-will-i-be-notified-of-user-opt-out-with-sdk)
-  - [トークン生成の呼び出しは、サーバー側とクライアント側のどちらで行うべきですか？](#where-should-i-make-token-generation-calls----from-the-server-or-client-side-with-sdk)
-  - [クライアントサイドから Token Refresh を呼び出すことはできますか？](#can-i-make-token-refresh-calls-from-the-client-side-with-sdk)
-  - [送信された PII と返されたトークンが一致することをテストするにはどうすればよいですか？](#how-can-i-test-that-the-pii-sent-and-the-returned-token-match-up-with-sdk)
-  - [Refresh Token のログアウトワークフローをテストするにはどうすればよいですか？](#how-can-i-test-the-refresh-token-logout-workflow-with-sdk)
-  - [リクエストペイロードに optout@email.com を渡すと、/token/generate は "optout" 状態を返し、トークンを生成しないのでしょうか？](#should-tokengenerate-return-the-optout-status-and-generate-no-tokens-if-i-pass-optoutemailcom-in-the-request-payload-with-sdk)
+  - [ユーザーオプトアウトの通知はどのように行われますか？](#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%AA%E3%83%97%E3%83%88%E3%82%A2%E3%82%A6%E3%83%88%E3%81%AE%E9%80%9A%E7%9F%A5%E3%81%AF%E3%81%A9%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E8%A1%8C%E3%82%8F%E3%82%8C%E3%81%BE%E3%81%99%E3%81%8B-sdk-%E4%BD%BF%E7%94%A8%E6%99%82)
+  - [トークン生成の呼び出しは、サーバー側とクライアント側のどちらで行うべきですか？](#%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AE%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%81%AF%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E5%81%B4%E3%81%A8%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E5%81%B4%E3%81%AE%E3%81%A9%E3%81%A1%E3%82%89%E3%81%A7%E8%A1%8C%E3%81%86%E3%81%B9%E3%81%8D%E3%81%A7%E3%81%99%E3%81%8B-sdk-%E4%BD%BF%E7%94%A8%E6%99%82)
+  - [クライアントサイドから Token Refresh を呼び出すことはできますか？](#%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E3%82%B5%E3%82%A4%E3%83%89%E3%81%8B%E3%82%89-token-refresh-%E3%82%92%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%99%E3%81%93%E3%81%A8%E3%81%AF%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B-sdk-%E4%BD%BF%E7%94%A8%E6%99%82)
+  - [送信された PII と返されたトークンが一致することをテストするにはどうすればよいですか？](#%E9%80%81%E4%BF%A1%E3%81%95%E3%82%8C%E3%81%9F-pii-%E3%81%A8%E8%BF%94%E3%81%95%E3%82%8C%E3%81%9F%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%8C%E4%B8%80%E8%87%B4%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B-sdk-%E4%BD%BF%E7%94%A8%E6%99%82)
+  - [Refresh Token のログアウトワークフローをテストするにはどうすればよいですか？](#refresh-token-%E3%81%AE%E3%83%AD%E3%82%B0%E3%82%A2%E3%82%A6%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B-sdk-%E4%BD%BF%E7%94%A8%E6%99%82)
+  - [リクエストペイロードに optout@email.com を渡すと、/token/generate は "optout" 状態を返し、トークンを生成しないのでしょうか？](#%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%83%9A%E3%82%A4%E3%83%AD%E3%83%BC%E3%83%89%E3%81%AB-optoutemailcom-%E3%82%92%E6%B8%A1%E3%81%99%E3%81%A8tokengenerate-%E3%81%AF-optout-%E7%8A%B6%E6%85%8B%E3%82%92%E8%BF%94%E3%81%97%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%82%92%E7%94%9F%E6%88%90%E3%81%97%E3%81%AA%E3%81%84%E3%81%AE%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8B-sdk-%E4%BD%BF%E7%94%A8%E6%99%82)
 - [FAQs for Publishers Not Using an SDK](#faqs-for-publishers-not-using-an-sdk)
-  - [トークンの復号化は必要ですか？](#do-i-need-to-decrypt-tokens)
-  - [ユーザーのオプトアウトはどのように通知されるのですか？](#how-will-i-be-notified-of-user-opt-out-without-sdk)
-  - [トークン生成の呼び出しは、サーバー側とクライアント側のどちらから行うべきでしょうか？](#where-should-i-make-token-generation-calls----from-the-server-or-client-side-without-sdk)
-  - [クライアントサイドからトークンリフレッシュの呼び出しを行うことは可能ですか？](#can-i-make-token-refresh-calls-from-the-client-side-without-sdk)
-  - [UID2 トークンの一意性とローテーションのポリシーは何ですか？](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
-  - [送信された PII と返されたトークンが一致することをテストするにはどうすればよいですか？](#how-can-i-test-that-the-pii-sent-and-the-returned-token-match-up-without-sdk)
-  - [リフレッシュトークンのログアウトワークフローをテストするにはどうすればよいですか？](#how-can-i-test-the-refresh-token-logout-workflow-without-sdk)
-  - [/token/generate は、リクエストのペイロードに optout@email.com を渡すと、「optout」ステータスを返し、トークンを生成しないようにすべきでしょうか。](#should-tokengenerate-return-the-optout-status-and-generate-no-tokens-if-i-pass-optoutemailcom-in-the-request-payload-without-sdk)
+  - [トークンの復号化は必要ですか？](#%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%AE%E5%BE%A9%E5%8F%B7%E5%8C%96%E3%81%AF%E5%BF%85%E8%A6%81%E3%81%A7%E3%81%99%E3%81%8B)
+  - [ユーザーのオプトアウトはどのように通知されるのですか？](#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E3%82%AA%E3%83%97%E3%83%88%E3%82%A2%E3%82%A6%E3%83%88%E3%81%AF%E3%81%A9%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E9%80%9A%E7%9F%A5%E3%81%95%E3%82%8C%E3%82%8B%E3%81%AE%E3%81%A7%E3%81%99%E3%81%8B-sdk-%E3%81%AA%E3%81%97)
+  - [トークン生成の呼び出しは、サーバー側とクライアント側のどちらから行うべきでしょうか？](#%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AE%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%81%AF%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E5%81%B4%E3%81%A8%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E5%81%B4%E3%81%AE%E3%81%A9%E3%81%A1%E3%82%89%E3%81%8B%E3%82%89%E8%A1%8C%E3%81%86%E3%81%B9%E3%81%8D%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8B-sdk-%E3%81%AA%E3%81%97)
+  - [クライアントサイドからトークンリフレッシュの呼び出しを行うことは可能ですか？](#%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E3%82%B5%E3%82%A4%E3%83%89%E3%81%8B%E3%82%89%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%83%AA%E3%83%95%E3%83%AC%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AE%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%82%92%E8%A1%8C%E3%81%86%E3%81%93%E3%81%A8%E3%81%AF%E5%8F%AF%E8%83%BD%E3%81%A7%E3%81%99%E3%81%8B-sdk-%E3%81%AA%E3%81%97)
+  - [UID2 トークンの一意性とローテーションのポリシーは何ですか？](#uid2-%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%AE%E4%B8%80%E6%84%8F%E6%80%A7%E3%81%A8%E3%83%AD%E3%83%BC%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%E3%81%AF%E4%BD%95%E3%81%A7%E3%81%99%E3%81%8B)
+  - [送信された PII と返されたトークンが一致することをテストするにはどうすればよいですか？](#%E9%80%81%E4%BF%A1%E3%81%95%E3%82%8C%E3%81%9F-pii-%E3%81%A8%E8%BF%94%E3%81%95%E3%82%8C%E3%81%9F%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%8C%E4%B8%80%E8%87%B4%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B-sdk-%E3%81%AA%E3%81%97)
+  - [リフレッシュトークンのログアウトワークフローをテストするにはどうすればよいですか？](#%E3%83%AA%E3%83%95%E3%83%AC%E3%83%83%E3%82%B7%E3%83%A5%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%AE%E3%83%AD%E3%82%B0%E3%82%A2%E3%82%A6%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B-sdk-%E3%81%AA%E3%81%97)
+  - [/token/generate は、リクエストのペイロードに optout@email.com を渡すと、「optout」ステータスを返し、トークンを生成しないようにすべきでしょうか。](#tokengenerate-%E3%81%AF%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%AE%E3%83%9A%E3%82%A4%E3%83%AD%E3%83%BC%E3%83%89%E3%81%AB-optoutemailcom-%E3%82%92%E6%B8%A1%E3%81%99%E3%81%A8optout%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%82%92%E8%BF%94%E3%81%97%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%82%92%E7%94%9F%E6%88%90%E3%81%97%E3%81%AA%E3%81%84%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%81%B9%E3%81%8D%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8B-sdk-%E3%81%AA%E3%81%97)
 
 ## FAQs -- General
 
@@ -58,7 +58,7 @@ UID2 フレームワークに関するよくある質問を紹介します。
 
 <!-- FAQ_04 -->
 
-オプトアウトは、ターゲット広告のオプトアウトに関するもので、パブリッシャーと DSP のオプトアウト[ワークフロー](../../.../README.md#workflows) を通して処理されます。特定の広告主から離脱するためには、消費者は広告主に直接連絡する必要があります。
+オプトアウトは、ターゲット広告のオプトアウトに関するもので、パブリッシャーと DSP のオプトアウト[ワークフロー](../../../README.md#workflows) を通して処理されます。特定の広告主から離脱するためには、消費者は広告主に直接連絡する必要があります。
 
 ## FAQs for Publishers Using an SDK
 
