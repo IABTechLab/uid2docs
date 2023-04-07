@@ -20,4 +20,4 @@ To generate UID2s from users' DII, third-party data providers must meet the foll
 - Integrate with a UID2 Operator to generate UID2s and handle salt bucket rotations.
 - Have access to the UID2 Operator APIs.<br/>Some advertisers may choose to work through CDPs, data on-boarders, or other service providers instead.
 
-For details, see [Advertiser and Third-party Data Provider Integration Guide](../api/v2/guides/advertiser-dataprovider-guide.md).
+For details, see [Advertiser/Data Provider Integration Guide](../api/v2/guides/advertiser-dataprovider-guide.md).
