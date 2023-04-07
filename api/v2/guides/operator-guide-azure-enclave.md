@@ -20,7 +20,11 @@ source LibOS implementation.
 
 ## Build
 
+To build, follow the steps in these sections, in sequence.
+
 ### Prerequisites
+
+Make sure the following prerequisites are in place.
 
  - You must run the build on an Intel SGX enabled machine; tested configuration is Standard_DC8_v2
    VM running on Azure.
@@ -66,6 +70,8 @@ You can test run the built image locally on the build box:
 
 ## Deployment
 
+To deploy, follow the steps in these sections, in sequence.
+
 ### Configuration
 
 The following environment variables need to be set for the Operator enclave (either via docker or via a k8s deployment):
@@ -75,8 +81,7 @@ The following environment variables need to be set for the Operator enclave (eit
 
 ### AKS (Recommended)
 
-1. Prepare an AKS cluster and node pool(s) according to your organisation policies and make sure
-to [enable confidential computing](https://docs.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-get-started).
+1. Prepare an AKS cluster and node pool(s) according to your organization policies and be sure to enable confidential computing.
 
 2. Make the docker image available in your docker repository (e.g. Azure Container Service). For example:
 

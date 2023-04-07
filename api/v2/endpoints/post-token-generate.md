@@ -149,7 +149,7 @@ If the `status` value is other than `success`, the `message` field provides addi
 | Phone | `+12345678901` | Test that the `advertising_token` you've cached matches the `advertising_token` for the specified phone number. | [POST /token/validate](post-token-validate.md) |
 | Phone | `+00000000000` | Using this phone number for the request always generates an identity response with a `refresh_token` that results in a logout response. | [POST /token/refresh](post-token-refresh.md) |
 
-# Token Generation Policy
+## Token Generation Policy
 
 Token generation policy let the caller decide when to generate a token. It is passed as an **integer ID** in the request body (with key 'policy') If the parameter is omitted, policy with ID = 0 will be applied.
 
