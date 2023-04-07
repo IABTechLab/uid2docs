@@ -63,7 +63,7 @@ The following sections explain and illustrate the key elements of the UID2 frame
 
 ### UID2 Identifier Types
 
-UID2 is a deterministic ID that is based on personally identifiable information (PII), such as email address or phone number. There are two types of UID2s: raw UID2s and UID2 tokens (also known as advertising tokens). The following table explains each type.
+UID2 is a deterministic ID that is based on directly identifying information (DII), such as email address or phone number. There are two types of UID2s: raw UID2s and UID2 tokens (also known as advertising tokens). The following table explains each type.
 
 | ID Type | Shared in Bid Stream? | Description |
 | :--- | :--- | :--- |
