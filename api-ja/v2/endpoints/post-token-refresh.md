@@ -52,17 +52,11 @@ echo AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNS
 
 詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
-このセクションには、次のサンプルレスポンスが含まれています:
-
-- [Successful Response With Tokens](#successful-response-with-tokens)
-- [Optout](#optout)
-- [Error Response](#error-response)
-
 ## Decrypted JSON Response Format
 
 > NOTE: レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合は、レスポンスは暗号化されません。
 
-ここでは、以下の回答例を紹介します：
+このセクションには、次のサンプルレスポンスが含まれています:
 
 - [Successful Response With Tokens](#successful-response-with-tokens)
 - [Optout](#optout)
