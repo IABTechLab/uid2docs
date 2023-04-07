@@ -13,7 +13,7 @@
   - [Use an incremental process to continuously update UID2s](#use-an-incremental-process-to-continuously-update-raw-uid2s)
 - [FAQs](#faqs)
 
-Snowflake Data Marketplace でホストされる Open Operator Service を使用する場合は、[Snowflake Integration Guide](../sdks/snowflake_integration.md) も参照してください。
+Snowflake Data Marketplace でホストされる Open Operator Service を使用する場合は、[Snowflake Integration Guide](../guides/snowflake_integration.md) も参照してください。
 
 ## Integration Steps
 

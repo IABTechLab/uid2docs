@@ -58,6 +58,16 @@ echo AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNS
 - [Optout](#optout)
 - [Error Response](#error-response)
 
+## Decrypted JSON Response Format
+
+> NOTE: レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合は、レスポンスは暗号化されません。
+
+ここでは、以下の回答例を紹介します：
+
+- [Successful Response With Tokens](#successful-response-with-tokens)
+- [Optout](#optout)
+- [Error Response](#error-response)
+
 #### Successful Response With Tokens
 
 復号化された成功したレスポンスは、ユーザーに対して発行された新しい ID トークンを返すか、ユーザーがオプトアウトしたことを示 s します。次の例では、ID トークンを返します。

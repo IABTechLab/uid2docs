@@ -89,7 +89,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
 
 > NOTE: レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されません。
 
-本項では、以下の回答例を紹介します：
+ここでは、以下の回答例を紹介します：
 
 - [成功したレスポンス](#successful-response)
 - [オプトアウト](#optout)

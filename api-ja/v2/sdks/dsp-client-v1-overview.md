@@ -76,4 +76,4 @@ SDK から返される情報の概要は、以下のとおりです。
 
 DSP に関するよくある質問については、 [FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps) を参照してください。
 
-すべてのリストは、[よくある質問](../getting-started/gs-faqs.md)を参照してください。
+すべてのリストは、[Frequently Asked Questions](../getting-started/gs-faqs.md)を参照してください。
