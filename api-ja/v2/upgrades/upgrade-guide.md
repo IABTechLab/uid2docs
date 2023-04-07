@@ -49,10 +49,6 @@ UID2 API の v2 アップデートは以下のとおりです:
 - [v2 SDK init()関数](../sdks/client-side-identity.md#initopts-object-void)は、v1 `GET /token/generate`エンドポイントが返す ID オブジェクトを受け取ります。
 - v1 SDK の `init()` 関数は、v2 [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントによって返される ID オブジェクトを受け入れます。
 
-- The first-party cookie used for storing the user's identity is fully interoperable between the two versions of the SDK. This means that the Client-Side JavaScript SDK v2 can read v1 cookies and vice versa.
-- The [v2 SDK init() function](../sdks/client-side-identity.md#initopts-object-void) accepts the identity object returned by the v1 `GET /token/generate` endpoint.
-- The v1 SDK `init()` function accepts the identity object returned by the v2 [POST /token/generate](../endpoints/post-token-generate.md) endpoint.
-
 ### Upgrade Steps for Publishers
 
 UID API v2 へのアップグレードは、以下の手順で行います。
