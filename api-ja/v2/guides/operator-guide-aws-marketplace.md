@@ -6,15 +6,15 @@ UID2 Operator は、UID2 エコシステムにおける API サーバーです�
 
 このガイドには、以下の情報が含まれています:
 
-- [UID2 Operator on AWS Marketplace Product](#uid2-operator-on-aws-marketplace-product)
-  - [Prerequisites](#prerequisites)
-  - [Resources Created](#resources-created)
-  - [Customization Options](#customization-options)
-- [Deployment](#deployment)
-- [Checking UID2 Operator Status](#checking-uid2-operator-status)
-- [Creating a Load Balancer](#creating-a-load-balancer)
-- [Upgrading the UID2 Operator](#upgrading-the-uid2-operator)
-- [Technical Support](#technical-support)
+- [UID2 Operator on AWS Marketplace Product（AWS Marketplace プロダクトの UID2 Operator）](#uid2-operator-on-aws-marketplace-product)
+  - [Prerequisites（前提条件）](#prerequisites)
+  - [Resources Created（作成されるリソース）](#resources-created)
+  - [Customization Options（カスタマイズオプション）](#customization-options)
+- [Deployment（デプロイ）](#deployment)
+- [Checking UID2 Operator Status（UID2 Operator のステータス確認）](#checking-uid2-operator-status)
+- [Creating a Load Balancer（ロードバランサーの作成）](#creating-a-load-balancer)
+- [Upgrading the UID2 Operator（UID2 Operator のアップグレード）](#upgrading-the-uid2-operator)
+- [Technical Support（テクニカルサポート）](#technical-support)
 
 ## UID2 Operator on AWS Marketplace Product
 

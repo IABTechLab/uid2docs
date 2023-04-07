@@ -6,19 +6,19 @@
 
 以下のセクションが含まれています:
 
-- [Introduction](#introduction)
-- [Integration Steps ](#integration-steps)
-  - [Establish Identity: User Login](#establish-identity-user-login)
-  - [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
-  - [Refresh Tokens](#refresh-tokens)
-  - [Clear Identity: User Logout](#clear-identity-user-logout)
-- [FAQs](#faqs)
+- [Introduction（はじめに）](#introduction)
+- [Integration Steps（インテグレーション手順）](#integration-steps)
+  - [Establish Identity: User Login（アイデンティティを確立する: ユーザーログイン）](#establish-identity-user-login)
+  - [Bid Using UID2 Tokens（UID2 Token を使った入札）](#bid-using-uid2-tokens)
+  - [Refresh Tokens（トークンのリフレッシュ）](#refresh-tokens)
+  - [Clear Identity: User Logout（アイデンティティの消去: ユーザーログアウト）](#clear-identity-user-logout)
+- [FAQs（よくある質問）](#faqs)
 
 ## Introduction
 
 このガイドでは、SDK を使用せずにインテグレーションを行う場合に考慮する必要がある[基本的な手順](#integration-steps)を概説します。たとえば、ユーザーのログインとログアウトの実装方法、UID2 ID 情報の管理とターゲティング広告への使用方法、トークンのリフレッシュ、ID の欠落への対処、ユーザーのオプトアウトの処理方法などを決定する必要があります。[FAQ](#faqs)も参照してください。
 
-パブリッシャーが UID2 とインテグレーションするために利用できるオプションは以下の通りです:
+パブリッシャーが UID2 とインテグレーションするために利用できるオプションは以下のとおりです:
 
 - Client JavaScript SDK, with UID2 Java SDK on the server.
 - Client JavaScript SDK, with custom server code.

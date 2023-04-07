@@ -8,11 +8,11 @@
 - [Prerequisites and Timeline（前提条件とスケジュール）](#prerequisites-and-timeline)
 - [Publisher Upgrade Workflow（パブリッシャーアップグレードのワークフロー）](#publisher-upgrade-workflow)
 - [Advertiser and Data Provider Upgrade Workflow（広告主およびデータプロバイダーのアップグレードワークフロー）](#advertiser-and-data-provider-upgrade-workflow)
-- [FAQs](#faqs)
+- [FAQs（よくある質問）](#faqs)
 
 ## Improvements and Changes from Version 1
 
-UID2 API の v2 アップデートは以下の通りです:
+UID2 API の v2 アップデートは以下のとおりです:
 
 - [アプリケーション API 層の暗号化](../getting-started/gs-encryption-decryption.md) が追加されました。これは E2E のコンテンツ保護と、UID2 の機密情報がネットワーク事業者や UID2 サービス事業者に漏れることを防ぎます。<br/>これにより、v2 エンドポイントへの呼び出しを実行するには、POST リクエストボディの暗号化とレスポンスの復号化が必要になります。
 - [認証と承認](../summary-doc-v2.md#authentication-and-authorization) のためのクライアント API キーに加え、API リクエストの暗号化および API レスポンスの復号化のためにクライアントシークレットが必要になりました。
@@ -37,15 +37,21 @@ UID2 API の v2 アップデートは以下の通りです:
 
 ### Backward Compatibility for Publishers
 
-トークン生成エンドポイントおよびリフレッシュエンドポイントへのコールを独立してアップグレードすることができます。ここで知っておくべきことは以下の通りです:
+トークン生成エンドポイントおよびリフレッシュエンドポイントへのコールを独立してアップグレードすることができます。ここで知っておくべきことは以下のとおりです:
 
-- v1 `GET /token/generate` または v1 `GET /token/refresh` エンドポイントが返す Refresh Token を v2 [POST /token/refresh](../endpoints/post-token-refresh.md) に渡すことができますが、レスポンスの暗号化はされません。
-- v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントは、v2 [POST /token/generate](../endpoints/post-token-generate.md) または v2 [POST /token/refresh](../endpoints/post-token-refresh.md) によって返される Refresh Token のみがレスポンスを暗号化し、呼び出し側はこれらのエンドポイントによって返されたリフレッシュ応答キーを持っていると想定しています。
-- v2 [POST /token/generate](../endpoints/post-token-generate.md) または v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントから返された Refresh Token を、レスポンスを暗号化しない v1 `GET /token/refresh` エンドポイントに渡せることがあります。
-- [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) は、Client-Side JavaScript SDK v1 との互換性を保った交換部品（a drop-in replacement）です。 ここでは、その必要性を説明します：
-  - ユーザーの ID を保存するために使用されるファーストパーティーのクッキーは、2 つのバージョンの SDK 間で完全に相互運用可能です。つまり、Client-Side JavaScript SDK v2 は v1 の Cookie を読み取ることができ、その逆も同様です。
-- [v2 SDK init() function](../sdks/client-side-identity.md#initopts-object-void) は、v1 の [GET /token/generate](../../v1/endpoints/get-token-generate.md) エンドポイントから返された ID オブジェクトを受け取ります。
-- [v1 SDK init() function](../../v1/sdks/client-side-identity-v1.md#initopts-object-void) は、v2 [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントから返された ID オブジェクトを受け付けます。
+- v1 `GET /token/generate` または v1 `GET /token/refresh` エンドポイントから v2 [POST /token/refresh](../endpoints/post-token-refresh.md) にリフレッシュトークンを渡すことができますが、レスポンスの暗号化はされません。
+- v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントは、v2 [POST /token/generate](../endpoints/post-token-generate.md) または v2 [POST /token/refresh](../endpoints/post-token-refresh.md) によって戻されたリフレッシュトークンにのみ応答を暗号化して、呼び出し側がこれらのエンドポイントが戻すリフレッシュ応答キーを持っていると仮定して、その応答を暗号化しています。
+- v2 [POST /token/generate](../endpoints/post-token-generate.md) または v2 [POST /token/refresh](../endpoints/post-token-refresh.md) のエンドポイントから返されたリフレッシュトークンを、応答を暗号化しない v1 `GET /token/refresh` エンドポイントに渡せます。
+
+[Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) は、Client-Side JavaScript SDK v1 との互換性を保った交換部品（a drop-in replacement）です。ここで知っておくべきことは以下のとおりです:
+
+- ユーザーの ID を保存するために使用されるファーストパーティクッキーは、SDK の 2 つのバージョン間で完全に相互運用可能です。つまり、Client-Side JavaScript SDK v2 は v1 の Cookie を読むことができ、その逆も同様です。
+- [v2 SDK init()関数](../sdks/client-side-identity.md#initopts-object-void)は、v1 `GET /token/generate`エンドポイントが返す ID オブジェクトを受け取ります。
+- v1 SDK の `init()` 関数は、v2 [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントによって返される ID オブジェクトを受け入れます。
+
+- The first-party cookie used for storing the user's identity is fully interoperable between the two versions of the SDK. This means that the Client-Side JavaScript SDK v2 can read v1 cookies and vice versa.
+- The [v2 SDK init() function](../sdks/client-side-identity.md#initopts-object-void) accepts the identity object returned by the v1 `GET /token/generate` endpoint.
+- The v1 SDK `init()` function accepts the identity object returned by the v2 [POST /token/generate](../endpoints/post-token-generate.md) endpoint.
 
 ### Upgrade Steps for Publishers
 
@@ -57,7 +63,7 @@ UID API v2 へのアップグレードは、以下の手順で行います。
 
 #### Upgrade the Client-Side JavaScript SDK
 
-Client-Side JavaScript SDK をアップグレードするには、SDK をロードするスクリプトを更新する必要があります。このステップで注意しなければならないことは、以下の通りです:
+Client-Side JavaScript SDK をアップグレードするには、SDK をロードするスクリプトを更新する必要があります。このステップで注意しなければならないことは、以下のとおりです:
 
 - Client-Side JavaScript SDK の`version 0`を使用している場合は、必ず`version 1`にアップグレードしてから使用してください。
 - もし SDK を別の場所からロードしたり、SDK のプライベートコピーを保持している場合は、それに応じて場所を更新するようにしてください。

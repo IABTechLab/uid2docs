@@ -6,13 +6,13 @@
 
 以下のセクションが含まれています:
 
-- [Introduction](#introduction)
-- [Integration Steps ](#integration-steps)
-  - [Establish Identity: User Login](#establish-identity-user-login)
-  - [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
-  - [Refresh Tokens](#refresh-tokens)
-  - [Clear Identity: User Logout](#clear-identity-user-logout)
-- [FAQs](#faqs)
+- [Introduction（はじめに）](#introduction)
+- [Integration Steps（インテグレーション手順）](#integration-steps)
+  - [Establish Identity: User Login（アイデンティティを確立する: ユーザーログイン）](#establish-identity-user-login)
+  - [Bid Using UID2 Tokens（UID2 Token を使った入札）](#bid-using-uid2-tokens)
+  - [Refresh Tokens（トークンのリフレッシュ）](#refresh-tokens)
+  - [Clear Identity: User Logout（アイデンティティの消去: ユーザーログアウト）](#clear-identity-user-logout)
+- [FAQs（よくある質問）](#faqs)
 
 ## Introduction
 

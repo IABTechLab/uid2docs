@@ -4,17 +4,17 @@
 
 本ガイドは、ビッドストリームで UID2 を取引する DSP のためのもので、次のセクションがあります:
 
-- [Integration Steps](#integration-steps)
-  - [Honor User Opt-Outs](#honor-user-opt-outs)
-  - [Decrypt UID2 Tokens for RTB Use](#decrypt-uid2-tokens-for-rtb-use)
-- [FAQs](#faqs)
+- [Integration Steps（インテグレーション手順）](#integration-steps)
+  - [Honor User Opt-Outs（ユーザーオプトアウトの受け入れ）](#honor-user-opt-outs)
+  - [Decrypt UID2 Tokens for RTB Use（RTB で使用する UID2 Token の復号化）](#decrypt-uid2-tokens-for-rtb-use)
+- [FAQs（よくある質問）](#faqs)
 
 ## Integration Steps
 
 以下は、RTB で UID2 をサポートするための DSP のインテグレーションワークフローで、大きく 2 つのステップで構成されています:
 
-1. [Honor user opt-outs](#honor-user-opt-outs)
-2. [Decrypt UID2 tokens to use in RTB](#decrypt-uid2-tokens-for-rtb-use)
+1. [Honor user opt-outs（ユーザーオプトアウトの受け入れ）](#honor-user-opt-outs)
+2. [Decrypt UID2 tokens to use in RTB（RTB で使用する UID2 Token の復号化）](#decrypt-uid2-tokens-for-rtb-use)
 
 ```mermaid
 sequenceDiagram
@@ -72,7 +72,7 @@ A[UID2 Tokenの復号化] --> B[UID2のOpt-outを取得]
 
 もし`established_timestamp`の値が`optout_timestamp`の値より小さい場合は、ユーザーがオプトアウトしたことになり、UID2 は RTB に使用するべきではありません。このような場合、代替 ID を送信して入札するか、入札しないかは、DSP の判断によります。
 
-<b>Check Opt-Out</b> ステップのロジックは以下の通りです。
+<b>Check Opt-Out</b> ステップのロジックは以下のとおりです。
 
 ```java
 if (established_timestamp < optout_timestamp) {

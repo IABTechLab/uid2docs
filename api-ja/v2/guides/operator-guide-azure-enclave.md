@@ -6,9 +6,9 @@ IMPORTANT: このドキュメントは現在、PoC の段階です。詳細に�
 
 UID2 Operator サービスは、Intel SGX テクノロジーを搭載したトラステッドコンピューティングエンクレーブ内で実行することができます。
 
-1. [Build](#build)
-2. [Test Run](#test-run)
-3. [Deployment](#deployment)
+1. [Build（ビルド）](#build)
+2. [Test Run（テスト）](#test-run)
+3. [Deployment（デプロイ）](#deployment)
 
 Operator のコードベースには、サービスをパッケージ化するためのスクリプトが含まれており、以下のいずれかの方法でデプロイすることが可能です:
 
