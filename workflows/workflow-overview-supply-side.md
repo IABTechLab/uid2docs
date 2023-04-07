@@ -6,7 +6,7 @@ The following steps provide a high-level outline of the workflow intended for or
 
 1. A user visits a publisher website, mobile app, or CTV app.
 2. The publisher explains the value exchange of the open internet and requests the user to log in.
-3. Once the user logs in, the publisher sends the first-party PII and corresponding privacy settings to the UID2 Operator via an SDK or direct API integration. A publisher may authorize an SSO provider or identity provider to pass PII and privacy settings on their behalf.
+3. Once the user logs in, the publisher sends the first-party directly identifying information (DII) and corresponding privacy settings to the UID2 Operator via an SDK or direct API integration. A publisher may authorize an SSO provider or identity provider to pass DII and privacy settings on their behalf.
 4. The UID2 Operator performs the salt, hash, and encryption process and returns the UID2 Token.
 5. The publisher stores the UID2 Token to share with SSPs during real-time bidding.
    - Server-side: The publisher stores the token in a mapping table, DMP, data lake, or other server-side application.
@@ -24,7 +24,7 @@ For integration scenarios, token management, and other details, see [Publisher I
 
 ### Direct Integration Requirements
 
-Publishers who want to send users' PII and generate UID2s must meet the followign requirements:
+Publishers who want to send users' DII and generate UID2s must meet the followign requirements:
 
 - Have access the UID2 Operator API.
 - Integrate with UID2 Operator API to generate UID2 tokens.

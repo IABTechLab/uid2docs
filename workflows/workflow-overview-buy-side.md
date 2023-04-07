@@ -22,4 +22,4 @@ To integrate with UID2 to receive UID2s from brands (as first-party data) and da
 
 For details, see [DSP Integration Guide](../api/v2/guides/dsp-guide.md).
 
-Optionally, if a DSP wants to generate UID2s themselves from PII, they may also follow the [Third-Party Data Provider Workflow](workflow-overview-3p-data-provider.md).
+Optionally, if a DSP wants to generate UID2s themselves from directly identifying information (DII), they can also follow the [Third-Party Data Provider Workflow](workflow-overview-3p-data-provider.md).

@@ -2,15 +2,15 @@
     participant DP as Data Provider
     participant UID2 as UID2 Service
     participant DSP
-    loop 1. Retrieve a UID2 for PII using the identity map endpoints.
-    DP->>UID2: 1-a. Send a request containing PII to the identity mapping endpoints.
+    loop 1. Retrieve a UID2 for DII using the identity map endpoints.
+    DP->>UID2: 1-a. Send a request containing DII to the identity mapping endpoints.
     UID2->>DP: 1-b. Store the UID2 and salt bucket returned from the identity mapping service.
     end
     DP-->>DSP: 2. Send stored UID2s to DSPs to create audiences.
     loop 3. Monitor for salt bucket rotations related to your stored UID2s.
        DP->>UID2: 3-a. Monitor salt bucket rotations using the bucket service.
        UID2->>DP: 3-b. Return salt buckets rotated since a given timestamp.
-       DP->>UID2: 3-c. Compare the rotated salt buckets to stored UID2 salt buckets.<br/>If rotated, resend PII to identity mapping service for a new UID2.
+       DP->>UID2: 3-c. Compare the rotated salt buckets to stored UID2 salt buckets.<br/>If rotated, resend DII to identity mapping service for a new UID2.
        UID2->>DP: 3-d. Store the UID2 and salt bucket returned from the identity mapping service.
     end
 

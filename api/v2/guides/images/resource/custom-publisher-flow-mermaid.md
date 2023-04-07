@@ -10,7 +10,7 @@
     U->>P: 1-c. The user authenticates and authorizes the creation of a UID2.
     deactivate U
     activate P
-    P->>UID2: 1-d. The publisher sends the user's PII to the token generation service.
+    P->>UID2: 1-d. The publisher sends the user's DII to the token generation service.
     deactivate P
     activate UID2
     UID2->>P: 1-e. The token generation service returns UID2 tokens.
