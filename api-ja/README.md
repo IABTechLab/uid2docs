@@ -1,4 +1,4 @@
-[UID2 Overview](../README.md) > Getting Started with UID2
+[UID2 Overview](../README-ja.md) > Getting Started with UID2
 
 # Getting Started with UID2
 
