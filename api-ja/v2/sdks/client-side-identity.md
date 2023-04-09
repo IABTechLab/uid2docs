@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [SDKs](summary-sdks.md) > Client-Side Identity
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [SDKs](summary-sdks.md) > Client-Side Identity
 
 # Client-Side JavaScript SDK (v2)
 

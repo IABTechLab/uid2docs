@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > UID2 API v1 to v2 Upgrade Guide
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > UID2 API v1 to v2 Upgrade Guide
 
 # UID2 API v1 to v2 Upgrade Guide
 
