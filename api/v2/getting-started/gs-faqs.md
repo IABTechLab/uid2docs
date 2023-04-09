@@ -2,7 +2,9 @@
 
 # Frequently Asked Questions
 
-Frequently asked questions for UID2 are broken into the following categories:
+Frequently asked questions for UID2 are grouped into general categories by audience.
+
+This page includes:
 
 - [FAQs -- General](#faqs----general)
 - [FAQs for Publishers Using an SDK](#faqs-for-publishers-using-an-sdk)

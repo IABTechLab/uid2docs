@@ -1,7 +1,10 @@
 # Unified ID 2.0 Overview
 English | [Japanese](README-ja.md)
 
-This page provides the following information about the Unified ID 2.0 (UID2) framework:
+This page provides overview information about the Unified ID 2.0 (UID2) framework.
+
+It includes the following:
+
 - [Introduction](#introduction)
   - [Guiding Principles](#guiding-principles)
   - [Technical Design Principles](#technical-design-principles)

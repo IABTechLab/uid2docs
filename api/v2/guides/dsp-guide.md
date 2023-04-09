@@ -2,7 +2,9 @@
 
 # DSP Integration Guide
 
-This guide is for DSPs who transact on UID2s in the bid stream and includes the following sections:
+This guide is for DSPs who transact on UID2s in the bid stream.
+
+It includes the following sections:
 
 * [Integration Steps](#integration-steps)
    - [Honor User Opt-Outs](#honor-user-opt-outs)
