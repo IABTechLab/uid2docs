@@ -4,7 +4,10 @@
 
 For UID2 definitions, ID types, guiding principles, components, and other conceptual details, see [UID2 Overview](../README.md).
 
-This page provides the following information required for you to get started with the UID2 API:
+This page provides general information required for you to get started with the UID2 API.
+
+It includes:
+
 * [Contact Info](#contact-info)
 * [API Versions](#api-versions)
 * [Email Address Normalization](#email-address-normalization)

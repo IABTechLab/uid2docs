@@ -2,7 +2,9 @@
 
 # Google Ad Manager Secure Signals Integration Guide
 
-This guide covers integration steps for publishers using UID2 with the Google Ad Manager secure signals feature (previously known as Encrypted Signals for Publishers, ESP). It includes the following sections:
+This guide covers integration steps for publishers using UID2 with the Google Ad Manager secure signals feature (previously known as Encrypted Signals for Publishers, ESP).
+
+It includes the following sections:
 
 * [Overview](#overview)
 * [Allow Secure Signal Sharing](#allow-secure-signal-sharing)
