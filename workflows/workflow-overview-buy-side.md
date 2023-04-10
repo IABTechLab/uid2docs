@@ -1,13 +1,23 @@
-[UID2 Overview](../README.md) > Buy-Side Workflow
+[UID2 Overview](../README.md) > DSP Workflow
 
-# Buy-Side Workflow Overview
+# DSP Workflow Overview
 
 The following steps provide a high-level outline of the workflow intended for demand-side platforms (DSPs) that transact on UID2s in the bid stream.
 
-1. Data providers pass first-party and third-party data to DSPs in the form of raw UID2s.
-2. DSPs sync with UID2 Administrator to receive decryption keys.
-3. DSPs access UID2 tokens in the bid stream and decrypt them at bid time.
-4. DSPs listen to opt-out requests from UID2 Administrator and block buying on any UID2 that has opted-out.
+The following processes occur in the background:
+- The advertiser and/or data provider passes first-party and third-party audience segments to the DSP.
+- The DSP syncs with the UID2 Operator to receive decryption keys.
+- The DSP listens to opt-out requests from the UID2 Operator.
+
+The following steps occur for each bid/ad impression:
+
+1. A bid request is passed into the bid stream with the UID2 token.
+2. The DSP receives the bid request with the UID2 token from the bid stream.
+3. The DSP:
+   - Decrypts the UID2 token into a raw UID2.
+   - Checks to see if the user opted out and, if so, does not bid.
+   - Matches the raw UID2 to an audience segment. 
+4. The DSP sends a bid response to the bid stream based on the raw UID2.     
 
 ![Buy-Side Workflow](images/UID2BuySIdeDSPWorkflow.jpg)
 
@@ -22,4 +32,4 @@ To integrate with UID2 to receive UID2s from brands (as first-party data) and da
 
 For details, see [DSP Integration Guide](../api/v2/guides/dsp-guide.md).
 
-Optionally, if a DSP wants to generate UID2s themselves from directly identifying information (DII), they can also follow the [Third-Party Data Provider Workflow](workflow-overview-3p-data-provider.md).
+Optionally, if DSPs want to generate UID2s themselves from directly identifying information (DII), they can also follow the [Third-Party Data Provider Workflow](workflow-overview-3p-data-provider.md).
