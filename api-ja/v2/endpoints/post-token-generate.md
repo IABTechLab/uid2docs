@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /token/generate
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /token/generate
 
 # POST /token/generate
 
@@ -6,21 +6,16 @@ UID2 ベースのターゲティング広告にユーザーをオプトインし
 
 Used by:　このエンドポイントは、主にパブリッシャーが使用します。
 
-> IMPORTANT: このエンドポイントは、ユーザーの PII を UID2 Token に変換してターゲティング広告を行う法的根拠を得た場合にのみ呼び出すようにしてください。このエンドポイントは、オプトアウトの記録をチェックしません。オプトアウトリクエストをチェックするには、[POST /token/refresh](./post-token-refresh.md) エンドポイントを使用してください。
-
-以下のインテグレーション・ワークフローは、このエンドポイントを使用します:
-
-- [Client-Side JavaScript SDK Integration Guide](../guides/publisher-client-side.md)
-- [Publisher Integration Guide, Server-Only (Without SDK)](../guides/custom-publisher-integration.md)
+> IMPORTANT: このエンドポイントは、ターゲティング広告のためにユーザーの PII を UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。デフォルトでは、このエンドポイントはオプトアウト記録をチェックしません。ユーザーがオプトアウトしたかどうかを確認するには、オプションの `policy` リクエストパラメータに値 `1` を指定して使用します。
 
 ## Request Format
 
 `POST '{environment}/v2/token/generate'`
 
-このエンドポイントリクエストについて知っておくべきことは、以下の通りです:
+このエンドポイントリクエストについて知っておくべきことは、以下のとおりです:
 
 - サービスにアクセスする際に使用する API キーを秘密にするため、 UID2 Token は認証後にサーバー側でのみ生成する必要があります。
-- すべてのリクエストを秘密鍵で暗号化する必要があります。詳細と Python スクリプトの例については、 [リクエストの暗号化とレスポンスの復号化](../ref-info/encryption-decryption.md) を参照してください。
+- すべてのリクエストを秘密鍵で暗号化する必要があります。詳細と Python スクリプトの例については、 [リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ### Path Parameters
 
@@ -32,13 +27,13 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 
 リクエストを暗号化する際、JSON ボディに Key-Value ペアとして含めるパラメータは、以下のいずれか 1 つだけである必要があります。
 
-| Body Parameter | Data Type | Attribute      | Description                                                                                                                                                                               |
-| :------------- | :-------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `email`        | string    | 条件付きで必要 | トークンを生成するメールアドレスです。                                                                                                                                                    |
-| `email_hash`   | string    | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../getting-started.md#email-address-hash-encoding) した [正規化](../../getting-started.md#email-address-normalization) 済みメールアドレスです。 |
-| `phone`        | string    | 条件付きで必要 | トークンを生成する [正規化](../../getting-started.md#phone-number-normalization) 済み電話番号です。                                                                                       |
-| `phone_hash`   | string    | 条件付きで必要 | [SHA256 ハッシュし、base64 エンコード](../../getting-started.md#phone-number-hash-encoding) した、[正規化](../../getting-started.md#phone-number-normalization) 済み電話番号です。        |
-| `policy`       | number    | オプション     | (Beta) トークン生成ポリシーの ID です。[Token Generation Policy](#token-generation-policy) を参照してください。                                                                           |
+| Body Parameter | Data Type | Attribute      | Description                                                                                                                                                              |
+| :------------- | :-------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `email`        | string    | 条件付きで必要 | トークンを生成するメールアドレスです。                                                                                                                                   |
+| `email_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
+| `phone`        | string    | 条件付きで必要 | トークンを生成する [正規化](../../README.md#phone-number-normalization) 済み電話番号です。                                                                               |
+| `phone_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。        |
+| `policy`       | number    | オプション     | トークン生成ポリシーの ID です。[Token Generation Policy](#token-generation-policy) を参照してください。                                                                 |
 
 ### Request Examples
 
@@ -88,11 +83,18 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
 
-詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../ref-info/encryption-decryption.md) を参照してください。
+詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON Response Format
 
 > NOTE: レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されません。
+
+このセクションには、次のサンプルレスポンスが含まれています:
+
+- [Successful Response](#successful-response)
+- [Optout](#optout)
+
+#### Successful Response
 
 復号化に成功すると、指定されたメールアドレス、電話番号、またはそれぞれのハッシュに対するユーザーの Advertising Token および Refresh Token が返されます。
 
@@ -110,23 +112,15 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
 }
 ```
 
-以下は、ポリシーがユーザーのオプトアウトを尊重する場合の応答例です。
+#### Optout
+
+以下は、`policy`パラメータがリクエストに含まれ、値が`1`で、ユーザーがオプトアウトした場合の応答例です。その他のシナリオでは、ユーザーがオプトアウトした場合、トークンが返されます（上記の [Successful Response](#successful-response) を参照してください）。
 
 ```json
 {
-  "body": {
-    "advertising_token": "",
-    "refresh_token": "",
-    "identity_expires": 1636322000000,
-    "refresh_from": 1636322000000,
-    "refresh_expires": 1636322000000,
-    "refresh_response_key": ""
-  },
   "status": "optout"
 }
 ```
-
-[Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) は、このエンドポイント応答ペイロードを使用して、ユーザーセッションのライフサイクル中にユーザー ID を確立・管理します。
 
 ### Response Body Properties
 
@@ -163,7 +157,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
 
 # Token Generation Policy
 
-トークン生成ポリシーは、トークンを生成するタイミングを呼び出し元が決定できるようにします。これは、リクエスト・ボディの **integer ID** として渡されます（キー 'policy' を使用）。パラメータが省略された場合、ID = 0 のポリシーが適用されます。
+トークン生成ポリシーは、トークンを生成するタイミングを呼び出し側に決定させるものです。パラメータを省略すると、ID = 0 のポリシーが適用されます。
 
 | ID  | Description                                                      |
 | :-- | :--------------------------------------------------------------- |

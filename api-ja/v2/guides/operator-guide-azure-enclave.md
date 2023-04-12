@@ -1,14 +1,14 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Microsoft Azure
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Microsoft Azure
 
 # Microsoft Azure Confidential Compute Operator Package
 
-IMPORTANT: このドキュメントは現在、PoC の段階です。詳細については、UID2 Administrator に [連絡](../../getting-started.md#contact-info) してください。
+IMPORTANT: このドキュメントは現在、PoC の段階です。詳細については、UID2 Administrator に [連絡](../../README.md#contact-info) してください。
 
 UID2 Operator サービスは、Intel SGX テクノロジーを搭載したトラステッドコンピューティングエンクレーブ内で実行することができます。
 
-1. [Build](#build)
-2. [Test Run](#test-run)
-3. [Deployment](#deployment)
+1. [Build（ビルド）](#build)
+2. [Test Run（テスト）](#test-run)
+3. [Deployment（デプロイ）](#deployment)
 
 Operator のコードベースには、サービスをパッケージ化するためのスクリプトが含まれており、以下のいずれかの方法でデプロイすることが可能です:
 
