@@ -5,14 +5,14 @@
 For UID2 definitions, ID types, guiding principles, components, and other conceptual details, see [UID2 Overview](../README.md).
 
 This page provides the following information required for you to get started with the UID2 API:
+* [Contact Info](#contact-info)
+* [API Versions](#api-versions)
+* [Email Address Normalization](#email-address-normalization)
+* [Email Address Hash Encoding](#email-address-hash-encoding)
+* [Phone Number Normalization](#phone-number-normalization)
+* [Phone Number Hash Encoding](#phone-number-hash-encoding)
+* [License](#license)
 
-- [Contact Info](#contact-info)
-- [API Versions](#api-versions)
-- [Email Address Normalization](#email-address-normalization)
-- [Email Address Hash Encoding](#email-address-hash-encoding)
-- [Phone Number Normalization](#phone-number-normalization)
-- [Phone Number Hash Encoding](#phone-number-hash-encoding)
-- [License](#license)
 
 ## Contact Info
 

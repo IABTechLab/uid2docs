@@ -4,7 +4,7 @@
 
 This guide provides information for setting up the UID2 Operator Service in a secure enclave in the [Google Cloud](https://cloud.google.com/docs/overview/) platform.
 
-This guide includes the following information:
+It includes the following information:
 
 - [Overview](#overview)
 - [Build](#build)

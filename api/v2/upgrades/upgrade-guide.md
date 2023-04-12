@@ -113,7 +113,7 @@ If you refresh tokens either on server or on client side without using the SDK, 
 
 Here's what you need to know about upgrading to the UID2 API v2:
 
-- The v1 `GET /identity/map` endpoint for mapping a single user's PII to UID2 has been replaced with the v2 [POST /identity/map](../endpoints/post-identity-map.md) endpoint, which maps PII for single and multiple users.
+- The v1 `GET /identity/map` endpoint for mapping a single user's directly identifying information (DII) to UID2 has been replaced with the v2 [POST /identity/map](../endpoints/post-identity-map.md) endpoint, which maps DII for single and multiple users.
 - UID2s and bucket IDs returned by the v2 [POST /identity/map](../endpoints/post-identity-map.md) and [POST /identity/buckets](../endpoints/post-identity-buckets.md) endpoints are the same as those returned by the corresponding v1 endpoints.
 - The [Snowflake Integration Guide](../guides/snowflake_integration.md) is not affected by the upgrade to the UID2 v2 API and requires no changes.
 
@@ -124,8 +124,8 @@ To upgrade to the UID API v2, replace calls to the following v1 endpoints with t
 | v1 Endpoint | v2 Endpoint | Comments |
 | :--- |:--- |:--- |
 | `GET /identity/buckets` | [POST /identity/buckets](../endpoints/post-identity-buckets.md) |The HTTP request type has changed. |
-| `POST /identity/map` | [POST /identity/map](../endpoints/post-identity-map.md)| The v2 endpoint is identical to the v1 endpoint, except it also maps PII for single users. |
-| `GET /identity/map` |[POST /identity/map](../endpoints/post-identity-map.md) |The HTTP request type has changed.<br/>The new POST endpoint maps PII for single and multiple users. |
+| `POST /identity/map` | [POST /identity/map](../endpoints/post-identity-map.md)| The v2 endpoint is identical to the v1 endpoint, except it also maps DII for single users. |
+| `GET /identity/map` |[POST /identity/map](../endpoints/post-identity-map.md) |The HTTP request type has changed.<br/>The new POST endpoint maps DII for single and multiple users. |
 
 >IMPORTANT: Performing calls to the UID2 API v2 requires encrypting the POST request body and decrypting the response. For details and examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
