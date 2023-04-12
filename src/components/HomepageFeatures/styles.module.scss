@@ -1,0 +1,107 @@
+.features {
+  --ifm-heading-margin-bottom: 2rem;
+
+  display: flex;
+  align-items: center;
+  padding: 4.375rem 0;
+  width: 100%;
+
+  @media only screen and (min-width: 996px) {
+    padding-top: 6.25rem;
+  }
+
+  .featuredList {
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (min-width: 996px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    @media only screen and (min-width: 996px) {
+      align-items: flex-start;
+      width: 30%;
+      padding: 0 var(--ifm-spacing-horizontal);
+    }
+
+    &:first-child {
+      .featureImage {
+        @media only screen and (min-width: 996px) {
+          margin-bottom: 2.5rem;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      .featureImage {
+        @media only screen and (min-width: 996px) {
+          margin-bottom: 3.3125rem;
+        }
+      }
+    }
+
+    &:last-child {
+      .featureImage {
+        @media only screen and (min-width: 996px) {
+          max-width: 40%;
+        }
+      }
+    }
+
+
+    &:not(:last-child) {
+      &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--c-eleven-o-clock);
+        margin: 0 auto;
+        opacity: 0.25;
+        margin: 2rem 0;
+
+        @media only screen and (min-width: 996px) {
+          height: 0;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .featureImage {
+    height: auto;
+    width: 100%;
+    max-width: 8.125rem;
+    margin-bottom: 0.9375rem;
+
+    @media only screen and (min-width: 996px) {
+      max-width: 50%;
+    }
+  }
+
+  .featureAnimation {
+    height: auto;
+    width: 100%;
+    max-width: 8.125rem;
+
+    @media only screen and (min-width: 996px) {
+      max-width: 50%;
+    }
+  }
+
+  @media only screen and (min-width: 996px) {
+    --ifm-spacing-horizontal: 0.4rem;
+  }
+}
+
+.header {
+  margin-bottom: 3.125rem;
+}

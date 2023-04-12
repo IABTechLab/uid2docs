@@ -1,0 +1,81 @@
+.homepageCtaStripe {
+  padding: 3.125rem 0;
+
+  @media only screen and (min-width: 996px) {
+    padding: 6.25rem 0;
+  }
+}
+
+.header {
+  h2 {
+    font-size: clamp(1.8125rem, calc(1.8125rem + ((1vw - 0.4rem) * 3.75)), 3.3125rem);
+    min-height: 0vw;
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+
+    @media only screen and (min-width: 996px) {
+      padding-right: 9.25rem;
+    }
+  }
+
+  p {
+    color: var(--c-black);
+    padding-top: 0;
+  }
+}
+
+.ctasWrapper {
+  @media only screen and (min-width: 640px) {
+    display: flex;
+    align-items: center;
+  }
+
+  a {
+    &:first-child {
+      margin-bottom: 1.5rem;
+      padding: 0.9375rem 1.25rem;
+
+      @media only screen and (min-width: 640px) {
+        margin-bottom: 0;
+        margin-right: 2rem;
+      }
+    }
+  }
+
+}
+
+.ctaArrow {
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    color: var(--c-eleven-o-clock);
+
+    span {
+      &:after {
+        border-color: var(--c-eleven-o-clock);
+      }
+    }
+  }
+
+  span {
+    position: relative;
+
+    &:after {
+      border-bottom: 2px solid transparent;
+      content: "";
+      left: 0;
+      bottom: 0;
+      position: absolute;
+      right: 0;
+      transition: border-bottom-color 0.2s ease;
+    }
+  }
+}
+
+.ctaArrowIcon {
+  height: 17px;
+  width: auto;
+  margin-left: 9px;
+}

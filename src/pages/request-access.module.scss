@@ -1,0 +1,45 @@
+.forCheckbox,
+.forInput,
+.forRadio,
+.forSelect,
+.forTextarea {} /* hack to ensure these are available to the js */
+
+.requestDemoPage {
+    padding: 3.125rem 0;
+    background-color: var(--c-white);
+
+    @media (min-width: 996px) {
+        padding: 6.25rem 0;
+
+    }
+
+    input, textarea {
+        background-color: var(--c-white);
+    }
+}
+
+.focusedLabel, .hasContentLabel {
+    cursor: text;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transform: translate(0, 0) scale(.8) !important;
+}
+
+label.forSelect {
+    pointer-events: none;
+    transform: translate(0, 0) scale(.8) !important;
+
+    @media (min-width: 996px) {
+        margin-bottom: 15px;
+
+    }
+
+}
+
+.forTextarea {
+    margin-bottom: 8px;
+
+    >div {
+        display: none;
+    }
+}

@@ -1,0 +1,59 @@
+.plugin-pages {
+    .footer {
+        --ifm-footer-background-color: var(--c-white);
+        --ifm-footer-color: var(--c-eleven-o-clock);
+        --ifm-footer-link-color: var(--c-eleven-o-clock);
+        --ifm-footer-link-hover-color: var(--c-eleven-o-clock);
+        --ifm-link-hover-decoration: underline;
+    }
+}
+
+
+.footer {
+    border-top: 1px solid var(--c-gray-300);
+
+    .row {
+        @include lg {
+            align-items: center;
+        } 
+    }
+}
+
+.footer__logo {
+    @include lg {
+        margin-bottom: 1rem;
+    }
+}
+
+.footer__items {
+    display: flex;
+    flex-wrap: wrap;
+    @include md {
+        flex-wrap: no-wrap;  
+        gap: 0 1.5rem;
+    }
+
+    @include lg {
+        justify-content: flex-end
+    }
+
+    &--1 {
+        @extend .type-paragraph;
+        margin-bottom: 2.5rem;
+        @include lg {
+            margin-bottom: 1rem;
+        }
+    }
+    &--2 {
+        @extend .type-paragraph-small;
+    }
+}
+
+.footer__item {
+    flex-basis: 50%;
+
+    @include md {
+        flex-basis: auto;
+    }
+}
+
