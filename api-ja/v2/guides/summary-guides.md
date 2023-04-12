@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > Integration Guides
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > Integration Guides
 
 # UID2 Integration Guides
 
@@ -15,20 +15,20 @@
 
 ## Supplementary Integrations
 
-| Integration Guide                                                          | Content Description                                                                                                                                                                                    |
-| :------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Publisher - Google Ad Manager Secure Signals](./google-ss-integration.md) | このインテグレーションガイドは、UID2 を Google Ad Manager の**secure signals**機能（旧称：**encrypted signals from publishers**、ESP）で使用するパブリッシャーに必要な追加ステップをカバーしています。 |
+| Integration Guide                                                        | Content Description                                                                                                                                                                                    |
+| :----------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Publisher - Google Ad Manager Secure Signals](google-ss-integration.md) | このインテグレーションガイドは、UID2 を Google Ad Manager の**secure signals**機能（旧称：**encrypted signals from publishers**、ESP）で使用するパブリッシャーに必要な追加ステップをカバーしています。 |
 
 ## Open Operator Service Integration
 
-| Integration Guide                                          | Content Description                                                                            |
-| :--------------------------------------------------------- | :--------------------------------------------------------------------------------------------- |
-| [Operator - Snowflake](./../sdks/snowflake_integration.md) | Snowflake Data Marketplace でホストされている Open Operator Service と連携するための手順です。 |
+| Integration Guide                                       | Content Description                                                                            |
+| :------------------------------------------------------ | :--------------------------------------------------------------------------------------------- |
+| [Snowflake Integration Guide](snowflake_integration.md) | Snowflake Data Marketplace でホストされている Open Operator Service と連携するための手順です。 |
 
 ## Closed Operator Service Setup
 
-| Integration Guide                                                                                | Content Description                                                                                                                                                                                                                                                                    |
-| :----------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Operator - Microsoft Azure](./operator-guide-azure-enclave.md)                                  | IMPORTANT: このドキュメントは現在、PoC の段階です。詳細については、UID2 Administrator に [連絡](../../getting-started.md#contact-info) してください。<br/>Closed Operator Service を Microsoft Azure Confidential Computing プラットフォーム上で動作させるためのセットアップ手順です。 |
-| [Operator - AWS Marketplace](./operator-guide-aws-marketplace.md)                                | AWS Marketplace のクローズドオペレーターサービスをセットアップする手順です。　                                                                                                                                                                                                         |
-| [Operator - Google Cloud Platform Confidential Compute package](./operator-guide-gcp-enclave.md) | Google Cloud Platform Confidential Compute (GCP) パッケージのセットアップ手順です。                                                                                                                                                                                                    |
+| Integration Guide                                                                                | Content Description                                                                                                                                                                                                                                                           |
+| :----------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Operator - Microsoft Azure](./operator-guide-azure-enclave.md)                                  | IMPORTANT: このドキュメントは現在、PoC の段階です。詳細については、UID2 Administrator に [連絡](../../README.md#contact-info) してください。<br/>Closed Operator Service を Microsoft Azure Confidential Computing プラットフォーム上で動作させるためのセットアップ手順です。 |
+| [Operator - AWS Marketplace](./operator-guide-aws-marketplace.md)                                | AWS Marketplace のクローズドオペレーターサービスをセットアップする手順です。　                                                                                                                                                                                                |
+| [Operator - Google Cloud Platform Confidential Compute package](./operator-guide-gcp-enclave.md) | Google Cloud Platform Confidential Compute (GCP) パッケージのセットアップ手順です。                                                                                                                                                                                           |

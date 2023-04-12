@@ -1,12 +1,24 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Publisher Integration Guide, Server-Only (Without SDK)
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Publisher Integration Guide, Server-Only (Without SDK)
 
 # Publisher Integration Guide, Server-Only (Without SDK)
 
 このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を利用した ID トークンを生成したいと考えるアプリ開発者や CTV 放送局を対象としています。
 
+以下のセクションが含まれています:
+
+- [Introduction（はじめに）](#introduction)
+- [Integration Steps（インテグレーション手順）](#integration-steps)
+  - [Establish Identity: User Login（アイデンティティを確立する: ユーザーログイン）](#establish-identity-user-login)
+  - [Bid Using UID2 Tokens（UID2 Token を使った入札）](#bid-using-uid2-tokens)
+  - [Refresh Tokens（トークンのリフレッシュ）](#refresh-tokens)
+  - [Clear Identity: User Logout（アイデンティティの消去: ユーザーログアウト）](#clear-identity-user-logout)
+- [FAQs（よくある質問）](#faqs)
+
+## Introduction
+
 このガイドでは、SDK を使用せずにインテグレーションを行う場合に考慮する必要がある[基本的な手順](#integration-steps)を概説します。たとえば、ユーザーのログインとログアウトの実装方法、UID2 ID 情報の管理とターゲティング広告への使用方法、トークンのリフレッシュ、ID の欠落への対処、ユーザーのオプトアウトの処理方法などを決定する必要があります。[FAQ](#faqs)も参照してください。
 
-パブリッシャーが UID2 とインテグレーションするために利用できるオプションは以下の通りです:
+パブリッシャーが UID2 とインテグレーションするために利用できるオプションは以下のとおりです:
 
 - Client JavaScript SDK, with UID2 Java SDK on the server.
 - Client JavaScript SDK, with custom server code.
@@ -120,56 +132,6 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 
 ## FAQs
 
-### トークンを復号化する必要がありますか？
+パブリッシャー向けのよくある質問については、[FAQs for Publishers Not Using an SDK](../getting-started/gs-faqs.md#faqs-for-publishers-not-using-an-sdk) を参照してください。
 
-いいえ、パブリッシャーはトークンを復号化する必要はありません。
-
-### オプトアウトはどのように通知されますか？
-
-トークンのリフレッシュ処理では、ユーザーのオプトアウトを処理します。[POST /token/refresh](../endpoints/post-token-refresh.md) は、そのユーザーの空の ID とオプトアウトステータスを返します。UID2 ベースのターゲティング広告の使用を再開するには、ユーザーは再ログインして UID2 ID を再確立する必要があります。
-
-### トークン生成の呼び出しは、サーバーサイドとクライアントサイドのどちらで行うべきですか？
-
-UID2 Token は、認証後にサーバーサイドでのみ生成する必要があります。つまり、サービスにアクセスするために使用される API キーを秘密にするために、[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントはサーバーサイドからのみコールされる必要があります。
-
-### クライアント側からトークン リフレッシュの呼び出しを行うことはできますか。
-
-[POST /token/refresh](../endpoints/post-token-refresh.md) は、API キーを使用する必要がないため、クライアントサイド（ブラウザやモバイルアプリなど）から呼び出すことが可能です。
-
-### UID2 Token の一意性とローテーションのポリシーは？
-
-UID2 Service では、ランダムな初期化ベクトルを使用してトークンを暗号化します。暗号化された UID2 は、インターネットを閲覧している特定のユーザーに対して一意となります。更新されるたびに、トークンは再暗号化されます。このメカニズムにより、信頼できない第三者がユーザーを追跡することができないようにします。
-
-### 送信された PII と返されたトークンが一致するかどうかをテストするにはどうすればよいですか?
-
-[POST /token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST /token/generate](../endpoints/post-token-generate.md) を通じて送信する PII が有効であるか確認することができます。
-
-1. PII がメールアドレスか電話番号かに応じて、次のいずれかの値を使用して [POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信してください。
-   - `email` の値として `validate@email.com` を指定します。
-   - `validate@email.com` のハッシュを `email_hash` の値として指定します。
-   - `phone` の値として `+12345678901` を指定します。
-   - `phone_hash` 値として `+12345678901` のハッシュを指定します。
-2. 返された `advertising_token` を次のステップで使用するために保存します。
-3. [POST /token/validate](../endpoints/post-token-validate.md) で、ステップ 1 で送信した `email`, `email_hash`, `phone`, または `phone_hash` 値と `advertising_token` （ステップ 2 で保存）をプロパティ値としてリクエストを送信します。
-   - もしレスポンスが `true` を返したら、ステップ 1 でリクエストとして送った PII は、ステップ 1 のレスポンスで受け取ったトークンと一致します。
-   - `false` が返された場合、メールアドレス、電話番号、またはそれぞれのハッシュを送信する方法に問題がある可能性があります。
-
-### Refresh Token のログアウトワークフローをテストするにはどうすればいいですか？
-
-`optout@email.com` メールアドレスまたは `+00000000000` 電話番号を使用して、Refresh Token ワークフローをテストすることができます。これらのメールアドレスまたは電話番号をリクエストに使用すると、常に `refresh_token` を含む ID レスポンスが生成され、その結果、ログアウト レスポンスが生成されます。
-
-1. PII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して [POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信してください。
-   - `email` の値として `optout@email.com` を指定します。
-   - `optout@email.com` のハッシュを `email_hash` の値として指定します。
-   - `phone` の値として `+00000000000` を指定します。
-   - `phone_hash` 値として `+00000000000` のハッシュを指定します。
-2. 返された `refresh_token` を次のステップで使用するために保存します。
-3. (ステップ 2 で保存した) `refresh_token` を `token` 値として [POST /token/refresh](../endpoints/post-token-refresh.md) リクエストを送信します。<br/>レスポンスボディは空で、`optout@email.com` というメールアドレスと `+00000000000` という電話番号は常にログアウトしたユーザーとなるため、`status` 値に `optout` が設定されていなければなりません。
-
-### リクエスト ペイロードに optout@email.com を渡すと、/token/generate は　“optout”　ステータスを返し、トークンを生成しないようにする必要がありますか?
-
-[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントは、オプトアウトリクエストをチェックせず、有効なリクエストに応答して有効な広告およびユーザートークンを含む `success` ステータスを返します。
-
-> IMPORTANT: このエンドポイントは、ユーザーの PII を UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。[POST /token/generate](../endpoints/post-token-generate.md) を呼び出すと、提供された PII に関連するユーザーが UID2 ベースのターゲティング広告に自動的にオプトインされます。
-
-オプトアウトリクエストを確認するには、[POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントを使用します。
+すべてのリストは、[Frequently Asked Questions](../getting-started/gs-faqs.md)を参照してください。

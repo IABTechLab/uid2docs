@@ -1,16 +1,16 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /identity/buckets
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /identity/buckets
 
 # POST /identity/buckets
 
-ローテーションされたソルトバケットを監視します。このエンドポイントは、[広告主とデータプロバイダー](../guides/advertiser-dataprovider-guide.md) による使用を対象としています。
+ソルトバケットのローテーションをモニターします。
 
-Used by: このエンドポイントは、主に広告主とサードパーティのデータプロバイダーが使用します。
+Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細については、[Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) を参照してください。
 
 ## Request Format
 
 `POST '{environment}/v2/identity/buckets'`
 
-> IMPORTANT: すべてのリクエストは、秘密鍵を使用して暗号化する必要があります。詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../ref-info/encryption-decryption.md) を参照してください。
+> IMPORTANT: すべてのリクエストは、秘密鍵を使用して暗号化する必要があります。詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ### Path Parameters
 
@@ -54,7 +54,7 @@ echo '{"since_timestamp": "2022-06-01T13:00:00"}' \
   | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
 
-詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../ref-info/encryption-decryption.md) を参照してください。
+詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON Response Format
 

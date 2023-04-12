@@ -1,14 +1,12 @@
-[UID2 API Documentation](../../getting-started.md) > [v1](../README.md) > [Integration Guides](README.md) > Snowflake Integration
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Snowflake Integration
 
-# Snowflake Integration (Deprecated)
+# Snowflake Integration Guide
 
-> IMPORTANT: UID2 API v1 は非推奨となり、2023 年 3 月 31 日までにすべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントが削除され、現在のユーザーのみがサポートされるようになります。2023 年 3 月 31 日までに、必ず [UID2 API v2 へのアップグレード](../../v2/upgrades/upgrade-guide.md) をお願いします。初めてフレームワークに触れる方は、[UID2 API v2](../../v2/summary-doc-v2.md) をご利用ください。
-
-[Snowflake](https://www.snowflake.com/?lang=ja) はクラウドデータウェアハウスソリューションで、パートナーとして顧客のデータを保存し、UID2 とインテグレーションすることができます。Snowflake を使用することで、UID2 は、機密性の高い個人情報を公開することなく、認可された消費者識別子データを安全に共有することができます。消費者識別子データを直接 Operator Web Services に問い合わせることもできますが、Snowflake UID2 とのインテグレーションにより、よりシームレスな体験が可能になります。
+[Snowflake](https://www.snowflake.com/?lang=ja) はクラウドデータウェアハウスソリューションで、パートナーとして顧客のデータを保存し、UID2 フレームワークとインテグレーションすることができます。Snowflake を使用することで、UID2 は、機密性の高い個人情報を公開することなく、認可された消費者識別子データを安全に共有することができます。消費者識別子データを直接 Operator Web Services に問い合わせることもできますが、Snowflake UID2 とのインテグレーションにより、よりシームレスな体験が可能になります。
 
 次の図は、Snowflake が UID2 インテグレーションプロセスにどのように関わるかを示しています:
 
-![Snowflake Integration Architecture](./uid2-snowflake-integration-architecture.svg)
+![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture.svg)
 
 | Partner Snowflake Account                                                                                                                                    | UID2 Snowflake Account                                                                                                                                                                                                                                                                               | UID2 Core Opt-out Cloud Setup                                                                                                                                                                                                    |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -23,7 +21,7 @@ UID2 Share へのアクセスは、[Snowflake Data Marketplace](https://www.snow
 
 UID2 Share へのアクセスを要求するには、次の手順を実行します。
 
-1. Snowflake Data Marketplace にログインし、関心のある UID2 ソリューションを選択します。
+1. Snowflake Data Marketplace にログインし、関心のある UID2 ソリューションを選択します:
    - [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV)
    - [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0)
 2. **パーソナライズドデータ** セクションで、**データのリクエスト** をクリックします。
@@ -65,7 +63,7 @@ select UID2, BUCKET_ID from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTI
 
 ### Map Email Addresses
 
-単一のメールアドレスまたは複数のメールアドレスを、対応する UID2 とセカンドレベルのソルトバケット ID にマッピングするには、 `FN_T_UID2_IDENTITY_MAP_EMAIL` 関数を使用します。これはメールアドレスを引数にとり、UID2 [Email Normalization](../../getting-started.md#email-address-normalization) の規則に従って正規化します。
+単一のメールアドレスまたは複数のメールアドレスを、対応する UID2 とセカンドレベルのソルトバケット ID にマッピングするには、 `FN_T_UID2_IDENTITY_MAP_EMAIL` 関数を使用します。これはメールアドレスを引数に取り、UID2 [Email Address Normalization](../../README.md#email-address-normalization) の規則に従って正規化します。
 
 | Argument | Data Type    | Description                                                         |
 | :------- | :----------- | :------------------------------------------------------------------ |
@@ -77,7 +75,7 @@ select UID2, BUCKET_ID from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTI
 
 | Column Name | Data Type | Description                                                                                                                              |
 | :---------- | :-------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
-| `UID2`      | TEXT      | メール アドレスに関連付けられた UID2 です。                                                                                              |
+| `UID2`      | TEXT      | メールアドレスに関連付けられた UID2 です。                                                                                               |
 | `BUCKET_ID` | TEXT      | UID2 を生成するために使用する、セカンドレベルのソルトバケット ID です。この ID は `UID2_SALT_BUCKETS` ビューのバケット ID に対応します。 |
 
 #### Single Email Mapping Request Example
@@ -146,7 +144,7 @@ select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
 
 | Argument     | Data Type    | Description                                                                                                                                                                                                                                                                                                                |
 | :----------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `EMAIL_HASH` | varchar(128) | ユーザーの正規化されたメールアドレスの SHA256 ハッシュを base64 でエンコードしたものです。[Email Normalization](../../getting-started.md#email-address-normalization) ルールを用いて、メールアドレスハッシュが正しくフォーマットされていることを確認します。正規化されたメールアドレスから計算されたハッシュを使用します。 |
+| `EMAIL_HASH` | varchar(128) | ユーザーの正規化されたメールアドレスの SHA-256 ハッシュを base64 でエンコードしたものです。[Email Address Normalization](../../README.md#email-address-normalization) ルールを用いて、メールアドレスハッシュが正しくフォーマットされていることを確認します。正規化されたメールアドレスから計算されたハッシュを使用します。 |
 
 問い合わせに成功すると、指定されたメールアドレスハッシュについて、以下の情報が返されます。
 
@@ -228,7 +226,7 @@ select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
 | `BUCKET_ID`            | TEXT          | セカンドレベルのソルトバケットの ID です。この ID は、ID マップ関数が返す `BUCKET_ID` と同じものです。`BUCKET_ID` をキーとして、関数呼び出しの結果とこのビュー呼び出しの結果の間のジョインクエリを実行します。 |
 | `LAST_SALT_UPDATE_UTC` | TIMESTAMP_NTZ | バケット内のソルトが最後に更新された時刻です。この値は UTC タイムゾーンで表現されます。                                                                                                                        |
 
-次の例は、入力テーブルと、テーブル内の UID2 のうち、セカンドレベルのソルトの更新により再生成が必要なものを見つけるためのクエリを示しています。
+次の例は、入力テーブルと、テーブル内の UID2 のうち、のソルトの更新により再生成が必要なものを見つけるためのクエリを示しています。
 
 #### Targeted Input Table
 

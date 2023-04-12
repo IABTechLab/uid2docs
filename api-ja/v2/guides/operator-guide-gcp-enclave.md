@@ -1,20 +1,21 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Google Cloud Platform Confidential Computing Package
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../
+README.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Google Cloud Platform Confidential Computing Package
 
 # UID2 Operator - Google Cloud Platform Confidential Computing Package
 
-本ガイドでは、Google Cloud Platform のセキュアなエンクレーブで UID2 Operator Service を設定するための情報を提供します。
+本ガイドでは、[Google Cloud](https://cloud.google.com/docs/overview/) Platform のセキュアなエンクレーブで UID2 Operator Service を設定するための情報を提供します。
 
 本ガイドには、以下の内容が記載されています:
 
-- [Overview](#overview)
-- [Build](#build)
-- [Attestation Requirements](#attestation-requirements)
-- [Integration Deployment](#integration-deployment)
+- [Overview（はじめに）](#overview)
+- [Build（ビルド）](#build)
+- [Attestation Requirements（認証の要件）](#attestation-requirements)
+- [Integration Deployment（インテグレーション環境へのデプロイ）](#integration-deployment)
   - [Cloud-init.yaml File](#cloud-inityaml-file)
   - [Cloud-init Example](#cloud-init-example)
   - [Create VM Instance](#create-vm-instance)
-- [Production Deployment](#production-deployment)
-- [Upgrading](#upgrading)
+- [Production Deployment（本番環境へのデプロイ）](#production-deployment)
+- [Upgrading（アップグレード）](#upgrading)
 
 ## Overview
 
@@ -77,7 +78,7 @@ UID2 Operator Service は、どの GCP アカウントおよびプロジェク�
 
 ### Cloud-init.yaml File
 
-登録プロセスでは、認証された cloud-init-`<timestamp>`.yaml ファイルが提供されます。このファイルの sha256sum は認証プロセスの一部として使用されるため、このファイルを（クライアント API キーを追加する以外の）いかなる方法でも変更することはできません。ファイルの内容については後述しますが、このファイルはデプロイプロセス中に手動で作成されることはなく、常に UID チームが新しい Private Operator を設定するプロセス中に作成されます。
+登録プロセスでは、認証された cloud-init-`<timestamp>`.yaml ファイルが提供されます。このファイルの SHA-256sum は認証プロセスの一部として使用されるため、このファイルを（クライアント API キーを追加する以外の）いかなる方法でも変更することはできません。ファイルの内容については後述しますが、このファイルはデプロイプロセス中に手動で作成されることはなく、常に UID チームが新しい Private Operator を設定するプロセス中に作成されます。
 
 cloud-init.yaml ファイルは環境に固有なので、インテグレーション環境用と本番環境用を用意することに注意してください。
 
@@ -119,7 +120,7 @@ write_files:
     ExecStartPre=mkdir -p /run/uid2/.config/gcloud
     ExecStartPre=docker login ghcr.io -u gcp-uid2-docker -p ${GHCR_RO_ACCESS_TOKEN}
     ExecStartPre=/usr/bin/docker-credential-gcr configure-docker
-    ExecStart=/usr/bin/docker run --rm --name uid2-operator -v /run/uid2/operator.json:/app/conf/config.json -e KUBERNETES_SERVICE_HOST=1 -e core_api_token=${UID2_ENCLAVE_API_TOKEN} -e optout_api_token=${UID2_ENCLAVE_API_TOKEN} -p 80:8080 ghcr.io/iabtechlab/uid2-operator@sha256:${UID2_ENCLAVE_IMAGE_ID}
+    ExecStart=/usr/bin/docker run --rm --name uid2-operator -v /run/uid2/operator.json:/app/conf/config.json -e KUBERNETES_SERVICE_HOST=1 -e core_api_token=${UID2_ENCLAVE_API_TOKEN} -e optout_api_token=${UID2_ENCLAVE_API_TOKEN} -p 80:8080 ghcr.io/iabtechlab/uid2-operator@SHA-256:${UID2_ENCLAVE_IMAGE_ID}
     ExecStop=/usr/bin/docker stop uid2-operator
     ExecStopPost=/usr/bin/docker rm uid2-operator
 - path: /run/uid2/operator.json
@@ -154,7 +155,7 @@ write_files:
 2. 同じフォルダーにある [gcloud script](https://cloud.google.com/blog/products/management-tools/scripting-with-gcloud-a-beginners-guide-to-automating-gcp-tasks) ファイルを実行します。
    これにより、正しい VM イメージと `cloud-init` ファイルを使用した新しい GCP Confidential VM が作成されます。
 
-`gcloud` スクリプトファイルの例は以下の通りです:
+`gcloud` スクリプトファイルの例は以下のとおりです:
 
 ```
 $ gcloud compute instances \
@@ -171,7 +172,7 @@ VM の名前（上の例では uid2-operator-gcp-01）は変更できますが�
 ## Production Deployment
 
 インテグレーション環境と同じ手順で、GCP VM エンクレーブの新しい UID2 Operator を本番環境にデプロイすることができます。
-cloud-init-`<timestamp>`.yaml ファイルの新しいインスタンスが必要です。このファイルには、UID2 コアサービスの本番用 URL が使用します。また、新しい `gcloud` スクリプトファイルも提供されます。インテグレーション環境用のスクリプトファイルと本番環境用のスクリプトファイルには、2 箇所の違いしかありません:
+cloud-init-`<timestamp>`.yaml ファイルの新しいインスタンスが必要です。このファイルには、UID2 Core Service の本番用 URL が使用します。また、新しい `gcloud` スクリプトファイルも提供されます。インテグレーション環境用のスクリプトファイルと本番環境用のスクリプトファイルには、2 箇所の違いしかありません:
 
 - 使用する cloud-init-`<timestamp>`.yaml ファイル名。
 - `machine-type` の設定。本番環境では、`gcloud` スクリプトでマシンタイプを指定することが推奨されます。現在、UID2 オペレータは `n2d-standard-16` のマシンタイプで実行することが推奨されています。

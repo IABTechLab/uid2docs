@@ -1,27 +1,27 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Google Ad Manager Secure Signals Integration Guide
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md) > Google Ad Manager Secure Signals Integration Guide
 
 # Google Ad Manager Secure Signals Integration Guide
 
-このガイドでは、UID2 を使用しているパブリッシャーが Google Ad Manager の**secure signals**機能（旧称：**encrypted signals from publishers**、ESP）を使用する際のインテグレーション手順について説明します。以下のセクションで構成されています:
+このガイドでは、UID2 を Google Ad Manager の secure signals 機能（旧称：Encrypted Signals for Publishers、ESP）で使用するパブリッシャー向けのインテグレーション手順について説明します。このガイドには、以下のセクションが含まれています：
 
-- [Overview](#overview)
-- [Allow Secure Signal Sharing](#allow-secure-signal-sharing)
-- [Publisher Integrations](#publisher-integration)
-- [Server-Only Integration](#server-only-integration)
-- [UID2 Client-Side JavaScript SDK Integratio](#uid2-client-side-javascript-sdk-integration)
+- [Overview（はじめに）](#overview)
+- [Allow Secure Signal Sharing（Signal Sharing の許可）](#allow-secure-signal-sharing)
+- [Publisher Integrations（パブリッシャーインテグレーション）](#publisher-integration)
+- [Server-Only Integration（Server-Only インテグレーション）](#server-only-integration)
+- [UID2 Client-Side JavaScript SDK Integration（UID2 Client-Side JavaScript SDK インテグレーション）](#uid2-client-side-javascript-sdk-integration)
 <!--* [Sample Applications](#sample-applications)-->
 
 > NOTE: UID2 Google Ad Manager セキュアシグナルインテグレーションを使用するには、SDK を使用している場合、UID2 インテグレーションがすでに設定されている必要があります。サーバーのみのインテグレーションを使用している場合は、この限りではありません。使用可能なすべてのインテグレーションオプションの概要については、[UID2 Integration Guides](summary-guides.md)を参照してください。
 
 ## Overview
 
-Google secure signals は、パブリッシャーが [Google Ad Manager](https://admanager.google.com/home/) と [Google Ad Manager Ad Exchange (Adx)](https://support.google.com/admanager/answer/6321605?hl=ja) を通じて、Google が承認したビッダーに対して「暗号化」したユーザー ID を渡すための方法です。このフレームワークは、パブリッシャーが一般的に使用する Google Publisher Tag (GPT)ライブラリのオプションパーツとして提供されています。
+Google secure signals は、パブリッシャーが [Google Ad Manager](https://admanager.google.com/home/) と [Google Ad Manager Ad Exchange (AdX)](https://support.google.com/admanager/answer/6321605?hl=ja) を通じて、Google が承認したビッダーに対して「暗号化」したユーザー ID を渡すための方法です。このフレームワークは、パブリッシャーが一般的に使用する [Google Publisher Tag (GPT)](https://developers.google.com/publisher-tag/guides/get-started)ライブラリのオプションパーツとして提供されています。
 
 このフレームワークでは、次のようなステップを踏みます:
 
 1. パブリッシャーは、ユーザー ID シグナル（advertising token）をセキュアシグナル機能にプッシュします。
 2. セキュアシグナル機能は、クライアント側でそれらをキャッシュし、Google Ad Manager に透過的に渡します。
-3. Google Ad Manager は UID2 Token を使って入札リクエストを行い、パブリッシャーの設定に基づき Google Adx 内の承認済み入札者にトークンを転送します。
+3. Google Ad Manager は UID2 Token を使って入札リクエストを行い、パブリッシャーの設定に基づき Google AdX 内の承認済み入札者にトークンを転送します。
 
 ## Allow Secure Signal Sharing
 
@@ -50,7 +50,7 @@ window.googletag.cmd.push(function () {
 
 暗号化されたシグナルを共有できるように、ホストされ、自動ロードされたセキュアシグナルスクリプトは `window.getUid2AdvertisingToken` 関数を非同期に呼び出し、その応答として `advertising_token` を文字列として受け取れるようにしなければなりません。
 
-ID トークンがフレッシュであることを確認することが重要です。サーバーサイドのインテグレーションでは、[POST /token/refresh](../endpoints/post-token-refresh.md#post-tokenrefresh) というエンドポイントを呼び出し、JSON レスポンスから新しい [advertising token](../endpoints/post-token-refresh.md#decrypted-json-response-format) を取得することが推奨されます。
+ID トークンがフレッシュであることを確認することが重要です。サーバーサイドのインテグレーションでは、[POST /token/refresh](../endpoints/post-token-refresh.md#post-tokenrefresh) というエンドポイントを呼び出し、JSON レスポンスから新しい [Advertising Token](../endpoints/post-token-refresh.md#decrypted-json-response-format) を取得することが推奨されます。
 
 次のコードは、その例です。
 

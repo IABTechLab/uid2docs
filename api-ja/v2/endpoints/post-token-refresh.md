@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /token/refresh
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > [Endpoints](summary-endpoints.md) > POST /token/refresh
 
 # POST /token/refresh
 
@@ -8,16 +8,11 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 
 > NOTE: このエンドポイントは、API キーを使用する必要がないため、クライアント側（例えば、ブラウザやモバイルアプリなど）から呼び出すことができます。
 
-以下のインテグレーション・ワークフローは、このエンドポイントを使用します:
-
-- [Client-Side JavaScript SDK Integration Guide](../guides/publisher-client-side.md)
-- [Publisher Integration Guide, Server-Only (Without SDK)](../guides/custom-publisher-integration.md)
-
 ## Request Format
 
 `POST '{environment}/v2/token/refresh'`
 
-このエンドポイントについて知っておくべきことは、以下の通りです:
+このエンドポイントについて知っておくべきことは、以下のとおりです:
 
 - トークン更新のリクエストには暗号化は必要ありません。
 - HTTP ステータスコードが 200 の場合のみ、レスポンスが暗号化されます。それ以外の場合、レスポンスは暗号化されません。
@@ -55,13 +50,21 @@ echo AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNS
   | decrypt_response.py wR5t6HKMfJ2r4J7fEGX9Gw== --is-refresh
 ```
 
-詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../ref-info/encryption-decryption.md) を参照してください。
+詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON Response Format
 
-> NOTE: レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されない。
+> NOTE: レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合は、レスポンスは暗号化されません。
 
-暗号化された成功応答は、ユーザーに対して発行された新しい ID トークンを返すか、ユーザーがオプトアウトしたことを示します。
+このセクションには、次のサンプルレスポンスが含まれています:
+
+- [Successful Response With Tokens](#successful-response-with-tokens)
+- [Optout](#optout)
+- [Error Response](#error-response)
+
+#### Successful Response With Tokens
+
+復号化された成功したレスポンスは、ユーザーに対して発行された新しい ID トークンを返すか、ユーザーがオプトアウトしたことを示します。次の例では、ID トークンを返します。
 
 ```json
 {
@@ -87,7 +90,16 @@ echo AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNS
 }
 ```
 
-[Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) は、このエンドポイント応答ペイロードを使用して、ユーザーセッションのライフサイクル中にユーザー ID を確立・管理します。
+#### Error Response
+
+エラーレスポンスは以下のようなものになる可能性があります：
+
+```json
+{
+  "status": "client_error",
+  "message": "Client Error"
+}
+```
 
 ### Response Body Properties
 

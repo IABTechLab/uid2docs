@@ -1,4 +1,4 @@
-[UID2 Overview](../../../README.md) > [Getting Started](../../getting-started.md) > [v2](../summary-doc-v2.md) > Encrypting Requests and Decrypting Responses
+[UID2 Overview](../../../README-ja.md) > [Getting Started](../../README.md) > [v2](../summary-doc-v2.md) > Encrypting Requests and Decrypting Responses
 
 # Encrypting Requests and Decrypting Responses
 
@@ -6,7 +6,7 @@
 
 > NOTE: [POST /token/refresh](../endpoints/post-token-refresh.md) リクエストは暗号化を必要としません。
 
-UID2 API リクエストの暗号化と各レスポンスの復号化について知っておく必要があるのは、以下の通りです:
+UID2 API リクエストの暗号化と各レスポンスの復号化について知っておく必要があるのは、以下のとおりです:
 
 - API を使用するには、クライアントの API キーに加えて、クライアントシークレットが必要です。
 - 独自のカスタムスクリプトを作成するか、以下のセクションで提供される Python スクリプトを使用することができます。
