@@ -65,7 +65,8 @@
     }
 
     @media only screen and (min-width: 996px) {
-        display: block;
+        display: flex;
+        justify-content: flex-end;
     }
 }
 
