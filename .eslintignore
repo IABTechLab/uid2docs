@@ -1,0 +1,11 @@
+dist
+node_modules
+docs
+.github
+build
+/*.js
+/*.ts
+/*.d.ts
+static
+.docusaurus
+src/pages/request-access.tsx

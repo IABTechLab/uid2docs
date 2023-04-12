@@ -1,0 +1,106 @@
+.HomepagePartnersMarquee {
+    padding: 3.5rem 0 0;
+    background-color: var(--c-white);
+    --ifm-link-color: var(--c-aa-periwinkle);
+    --ifm-link-hover-color: var(--c-aa-periwinkle);
+
+    @media only screen and (min-width: 996px) {
+        padding: 3.125rem 0;
+    }
+
+}
+
+.contentWrapper {
+    @media only screen and (min-width: 996px) {
+        align-items: center;
+    }
+}
+
+.heading {
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+
+    @media only screen and (min-width: 996px) {
+        font-size: 3.1rem;
+    }
+}
+
+.cta {
+    display: flex;
+    align-items: center;
+}
+
+.ctaArrow {
+    height: 17px;
+    width: auto;
+    margin-left: 9px;
+}
+
+.marquee {
+    --gap: 1rem;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: var(--gap);
+    max-width: fit-content;
+
+    -webkit-mask-image: linear-gradient(var(--mask-direction, to right), hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 20%, hsl(0 0% 0% / 1) 80%, hsl(0 0% 0% / 0));
+    mask-image: linear-gradient(var(--mask-direction, to right), hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 20%, hsl(0 0% 0% / 1) 80%, hsl(0 0% 0% / 0));
+}
+
+.marqueeInner {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: var(--gap);
+    animation: scroll 100s linear infinite;
+}
+
+.marqueeItem {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 25px;
+}
+
+.marqueeImage {
+    max-width: 150px;
+    max-height: 65px;
+    object-fit: contain;
+    filter: grayscale(1);
+    opacity: 0.6;
+}
+
+.diableAnimation {
+    animation-play-state: paused !important;
+}
+
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - var(--gap)));
+    }
+}
+
+/* Pause animation when reduced-motion is set */
+@media (prefers-reduced-motion: reduce) {
+    .marquee__content {
+        animation-play-state: paused !important;
+    }
+}
+
+.disableAnimation {
+    text-align: right;
+    input[type="checkbox"] {
+        background-color: var(--c-white);
+        accent-color: var(--c-eleven-o-clock);
+    }
+}

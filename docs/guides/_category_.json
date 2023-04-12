@@ -1,0 +1,8 @@
+{
+  "label": "Integration Guides",
+  "position": 05,
+  "link": {
+    "type": "generated-index",
+    "description": "Information about the different SDK guides available."
+  }
+}

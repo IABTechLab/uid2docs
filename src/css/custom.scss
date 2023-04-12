@@ -1,0 +1,239 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+
+@import './config'; // Branding vars + Custom mixins
+@import './navbar'; // Global navbar //sidebar
+@import './footer'; // Global footer
+@import './marketo'; // Marketo styles
+@import './markdown'; // Marketo styles
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-font-family-base: var(--f-inter);
+  --ifm-font-family-monospace: var(--f-roboto-mono);
+  --ifm-link-color: var(--c-aa-periwinkle);
+  --ifm-toc-link-color: var(--c-aa-periwinkle);
+  --ifm-navbar-background-color: var(--c-white);
+  --ifm-navbar-link-color: var(--c-eleven-o-clock);
+  --ifm-navbar-link-hover-color: var(--c-eleven-o-clock);
+  --ifm-menu-color-background-hover: transparent;
+  --ifm-footer-background-color: var(--c-white);
+  --ifm-footer-color: var(--c-eleven-o-clock);
+  --ifm-background-color: var(--white);
+  --ifm-button-border-width: 0;
+  --ifm-button-border-radius: 4px;
+  --ifm-button-color: var(--c-eleven-o-clock);
+  --ifm-container-width-xl: 1416px;
+  --ifm-link-hover-decoration: none;
+  --ifm-dropdown-hover-background-color: transparent;
+  --ifm-dropdown-link-color: var(--c-eleven-o-clock);
+  --ifm-menu-color: var(--c-eleven-o-clock);
+  --ifm-menu-color-background-active: transparent;
+  --ifm-color-emphasis-600: var(--c-black);
+  --ifm-menu-link-padding-vertical: 1.25rem;
+  --ifm-menu-link-padding-horizontal: 0;
+  --ifm-z-index-fixed: 900;
+  --ifm-spacing-horizontal: 1.6875rem;
+  --ifm-container-width-xl: 1405px;
+  --ifm-color-primary: var(--c-aa-periwinkle);
+  --ifm-list-paragraph-margin: 0.25rem;
+
+
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  @include lg {
+    --ifm-menu-link-padding-vertical: 0.25rem;
+    --ifm-spacing-horizontal: 1rem;
+  }
+}
+
+[data-theme='light'] .DocSearch {
+  --docsearch-muted-color: #4a4a4b;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme="dark"] {
+
+  --ifm-link-color: var(--c-lemon);
+  --ifm-toc-link-color: var(--c-lemon);
+  --ifm-navbar-background-color: var(--c-off-black);
+  --ifm-navbar-link-color: var(--c-white);
+  --ifm-navbar-link-hover-color: var(--c-white);
+  --ifm-footer-background-color: var(--c-off-black);
+  --ifm-footer-color: var(--c-white);
+  --ifm-background-color: var(--c-light-black);
+  --ifm-button-color: var(--c-eleven-o-clock);
+  --ifm-dropdown-link-color: var(--c-white);
+  --ifm-menu-color: var(--c-white);
+  --ifm-menu-color-background-active: transparent;
+  --ifm-color-emphasis-600: var(--c-lemon);
+  
+
+  --ifm-color-primary: var(--c-lemon);
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+
+[data-theme='dark'] .DocSearch {
+  --docsearch-muted-color: #7f8497;
+}
+
+/**
+ * Glovbal UI Styles that aren't component specific
+**/
+
+/*** Reset **/
+
+.iconExternalLink_node_modules-\@docusaurus-theme-classic-lib-theme-Icon-ExternalLink-styles-module {
+  display: none;
+}
+
+/**** Display Classes ****/
+
+.desktop-only {
+  display: none;
+
+  @include lg {
+    display: block;
+  }
+}
+
+.mobile-only {
+  @include lg {
+    display: none;
+  }
+}
+
+/** Buttons **/
+
+.button {
+  @extend .type-theta;
+  padding: 0.5625rem 0.6875rem;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--lemon {
+    background-color: var(--c-lemon);
+    border: 2px solid transparent;
+
+    &:hover {
+      background-color: var(--c-white);
+      border-color: var(--c-lemon);
+    }
+
+    @include dark {
+      color: var(--c-eleven-o-clock);
+
+      &:hover {
+        border-color: transparent;
+      }
+    }
+  }
+
+  &--11-o-clock {
+    background-color: var(--c-eleven-o-clock);
+    color: var(--c-white);
+
+    &:hover {
+      background-color: var(--c-white);
+      color: var(--c-eleven-o-clock);
+    }
+  }
+
+}
+
+/*** Colors **/
+
+.bg {
+  &-11-o-clock {
+    background-color: var(--c-eleven-o-clock);
+  }
+
+  &-lavender {
+    background-color: var(--c-lavender);
+  }
+
+  &-periwinkle {
+    background-color: var(--c-periwinkle);
+  }
+
+  &-lemon {
+    background-color: var(--c-lemon);
+  }
+
+  &-white {
+    background-color: var(--c-white);
+  }
+
+  &-dirty-socks {
+    background-color: var(--c-dirty-socks);
+  }
+}
+
+.text {
+  &-white {
+    color: var(--c-white);
+  }
+
+  &-11-o-clock {
+    color: var(--c-eleven-o-clock);
+  }
+
+  &-gray-600 {
+    color: var(--c-gray-600);
+  }
+
+  &-aa-periwinkle {
+    color: var(--c-aa-periwinkle);
+  }
+}
+
+
+
+//custom nav link hover mostly used in docs
+.border-underline-link {
+  color: var(--ifm-link-color);
+  display: inline;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(currentcolor, currentcolor);
+  background-position: 0 100%;
+  background-size: 100% 0px;
+  padding-bottom: 3px;
+  transition: background-size 0.2s ease-in-out;
+
+  &:hover {
+    color: var(--ifm-link-color);
+    background-size: 100% 2px;
+  }
+
+  @include dark {
+    color: var(--ifm-link-color);
+
+    &:hover {
+      color: var(--ifm-link-color);
+    }
+  }
+}
