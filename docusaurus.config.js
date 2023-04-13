@@ -65,14 +65,14 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/IABTechLab/uid2docs/",
+          editUrl: "https://github.com/IABTechLab/uid2docs/blob/main/",
           showLastUpdateTime: true,
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/IABTechLab/uid2docs/blog/",
+          editUrl: "https://github.com/IABTechLab/uid2docs/blob/main/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.scss"),
