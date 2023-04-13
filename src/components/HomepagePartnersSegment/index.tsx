@@ -79,9 +79,9 @@ function Partner({ partnerItem, playAnimation }: PartnerProps): JSX.Element {
   React.useEffect(() => {
     if (!isMobile) {
       if (playAnimation && lottieRef.current) {
-        lottieRef.current.play();
+        lottieRef.current.play?.();
       } else {
-        lottieRef.current.pause();
+        lottieRef.current.pause?.();
       }
     }
   }, [playAnimation, isMobile]);
