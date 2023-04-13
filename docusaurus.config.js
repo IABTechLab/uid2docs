@@ -263,17 +263,15 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
-      // algolia: {
-      //   // Algolia won't actually work until we provide these values.
-      //   // We need to apply here once we have a production site up and running: https://docsearch.algolia.com/apply/
-      //   // Comment this whole 'algolia' section out to remove the search bar (note you must restart the dev server).
-      //   // N.b. per Algolia, these are public values - once we get them, we can commit them to the open source repo.
-      //   //appId: "Q183W2KXNZ", prod
-      //   // apiKey: "48e784dfa2e5b9a48ff2e871c29ff10d", prod
-      //   appId: "TESTINGXSOWQK10AP", //staging
-      //   apiKey: "58f35480017be37aca9f762323a0b4d1", //staging
-      //   indexName: "UID2",
-      // },
+      algolia: {
+        // N.b. per Algolia, these are public values - once we get them, we can commit them to the open source repo.
+        appId: "GRNBXN1TTS", //prod
+        apiKey: "97e7dc35be9559b65f0d03c0c9684272", //prod
+        indexName: "unifiedid", //prod
+        // appId: "TESTINGXSOWQK10AP", //staging
+        // apiKey: "58f35480017be37aca9f762323a0b4d1", //staging
+        // indexName: "UID2", //staging
+      },
     }),
 };
 
