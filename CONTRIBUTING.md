@@ -33,20 +33,4 @@ This command generates static content into the `build` directory and can be serv
 
 ## Deployment
 
-***
-Important: I've removed the `"deploy": "docusaurus deploy",` line from `package.json` for now. It won't necessarily work and might do something unexpected. I suspect we will deploy via GitHub actions and I'll leave it to whoever sets that up to make necessary changes. -- LP
-***
-
-Using SSH:
-
-```
-$ USE_SSH=true npm run deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> npm run deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Whenever the `main` branch is updated, it will trigger the [Deploy to GitHub Pages](https://github.com/IABTechLab/uid2docs/actions/workflows/deploy.yml) workflow, which will automatically build the site and update the deployment.
