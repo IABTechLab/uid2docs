@@ -81,7 +81,7 @@ function Partner({ partnerItem, playAnimation }: PartnerProps): JSX.Element {
       if (playAnimation && lottieRef.current) {
         lottieRef.current.play?.();
       } else {
-        lottieRef.current.pause?.();
+        lottieRef.current?.pause?.();
       }
     }
   }, [playAnimation, isMobile]);
