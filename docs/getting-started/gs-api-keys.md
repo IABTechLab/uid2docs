@@ -5,14 +5,16 @@ hide_table_of_contents: false
 sidebar_position: 03
 ---
 
-# Getting Started&#8212;API Keys
+# API Keys
 
-Each UID2 <a href="/docs/intro#participants">participant</a> has a client key, also called an API key, that allows the participant to connect to the [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) and call API endpoints.
+Each UID2 <a href="/docs/intro#participants">participant</a> has a client key, also called an API key. Each key has a corresponding [client secret](../ref-info/glossary-uid.md#gl-client-secret), a value known only to the participant and the UID2 service.
 
-The client key identifies the participant to the UID2 service.
+The client key and client secret allow the participant to connect to the [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) and call API endpoints. These values identify the participant to the service.
 
-Here is some information about API keys:
+Here is some information about API keys and client secrets:
 - One UID2 participant can have multiple keys.
 - Each key has a set of permissions that determine which endpoints it can be used on.
+- Each key has a corresponding client secret.
+- Most API endpoints require both client key and client secret for authentication. For details, see [Authentication and Authorization](gs-auth.md).
 
-As part of getting your UID2 account set up, one or more API keys will be issued to you. For details of who to talk to, see [Contact Info](gs-account-setup.md#contact-info).
+As part of getting your UID2 account set up, one or more API keys, each with a corresponding client secret, will be issued to you. For details of who to talk to, see [Contact Info](gs-account-setup.md#contact-info).
