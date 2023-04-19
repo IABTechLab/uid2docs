@@ -26,6 +26,7 @@ sidebar_position: 10
 <li><a href="#gl-authorization-header">Authorization header</a></li>
 <li><a href="#gl-bearer-token">Bearer token</a></li>
 <li><a href="#gl-client-key">Client key</a></li>
+<li><a href="#gl-client-secret">Client secret</a></li>
 <li><a href="#gl-closed-operator">Closed operator</a></li>
 <li><a href="#gl-core-service">Core Service</a></li>
 <li><a href="#gl-customer-data-platform">Customer Data Platform (CDP)</a></li>
@@ -102,6 +103,10 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-client-key">Client key</dt>
 <dd>Each UID2 <a href="/docs/intro#participants">participant</a> has a client key, also called API key, that allows the participant to connect to the <a href="#gl-operator-service">Operator Service</a> and call API endpoints. The client key identifies the participant to the UID2 service.</dd>
+<dd>For details, see <a href="/docs/getting-started/gs-api-keys">API Keys</a>.</dd>
+
+<dt class="jump-anchor" id="gl-client-secret">Client secret</dt>
+<dd>Each UID2 <a href="/docs/intro#participants">participant</a> has a client key (API key) and also a secret value associated with the key, called the client secret. The client secret is known only to the participant and the UID2 service.</dd>
 <dd>For details, see <a href="/docs/getting-started/gs-api-keys">API Keys</a>.</dd>
 
 <dt class="jump-anchor" id="gl-closed-operator">Closed operator</dt>

@@ -5,7 +5,7 @@ hide_table_of_contents: false
 sidebar_position: 02
 ---
 
-# Getting Started&#8212;Account Setup
+# Account Setup
 
 This page provides general information required for you to get your account set up with UID2.
 
