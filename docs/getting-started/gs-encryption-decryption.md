@@ -111,7 +111,7 @@ For example, a decrypted response to the [POST /token/generate](../endpoints/pos
 ## Example Encryption and Decryption Script
 
 Here's an example Python script (`uid2_request.py`) for encrypting requests and decrypting responses. The required parameters are shown at the top of the script, or by running `python3 uid2_request.py`
->For Windows, replace `python3` with `python`. If using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON (for example, `echo {"email": "test@example.com"}` ).
+>For Windows, replace `python3` with `python`. If using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON (for example, use `echo {"email": "test@example.com"}` ).
 
 For the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, the script takes values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md).
 
