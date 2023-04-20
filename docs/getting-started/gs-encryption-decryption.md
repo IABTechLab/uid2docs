@@ -40,7 +40,7 @@ The individual UID2 [endpoints](../endpoints/summary-endpoints.md) explain the r
 
 ## Encrypting Requests
 
-You have the option of writing your own script for encrypting requests or using the provided [Python example script](#example-encryption-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) and [Encrypted Request Envelope](#encrypted-request-envelope).
+You have the option of writing your own script for encrypting requests, using a UID2 SDK, or using the provided [Python example script](#example-encryption-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) and [Encrypted Request Envelope](#encrypted-request-envelope).
 
 ### Unencrypted Request Data Envelope
 
@@ -65,7 +65,7 @@ The following table describes the field layout for request encryption scripts.
 
 ## Decrypting Responses
 
-You have the option of writing your own script for decrypting responses or using the provided [Python example script](#example-encryption-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Encrypted Response Envelope](#encrypted-response-envelope) and [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
+You have the option of writing your own script for decrypting responses, using a UID2 SDK, or using the provided [Python example script](#example-encryption-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Encrypted Response Envelope](#encrypted-response-envelope) and [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
 
 >NOTE: Response is encrypted only if the service returns HTTP status code 200.
 
@@ -111,24 +111,32 @@ For example, a decrypted response to the [POST /token/generate](../endpoints/pos
 ## Example Encryption and Decryption Script
 
 Here's an example Python script (`uid2_request.py`) for encrypting requests and decrypting responses. The required parameters are shown at the top of the script, or by running `python3 uid2_request.py`
+>For Windows, replace `python3` with `python`. If using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON (for example, `echo {"email": "test@example.com"}` ).
 
 For the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, the script takes values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md).
 
+### Prerequisites
+The script requires the `pycryptodomex` and `requests` packages. These can be installed as follows:
+```console
+pip install pycryptodomex
+pip install requests
+```
 
+#### uid2_request.py
 ```py
 """
 Usage:
-   echo <json> | python uid2_request.py <url> <api_key> <client_secret>
+   echo '<json>' | python3 uid2_request.py <url> <api_key> <client_secret>
 
 Example:
-   echo {"email": "test@example.com"} | python uid2_request.py https://operator-integ.uidapi.com/v2/token/generate INTEGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=
+   echo '{"email": "test@example.com"}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate PRODGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=
    
 
 Refresh Token Usage:
-   python uid2_request.py <url> --refresh-token <refresh_token> <refresh_response_key>
+   python3 uid2_request.py <url> --refresh-token <refresh_token> <refresh_response_key>
 
 Refresh Token Usage example:
-   python uid2_request.py https://operator-integ.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s=
+   python3 uid2_request.py https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s=
 
 """
 
@@ -188,7 +196,7 @@ else:
 
    http_response = requests.post(url, base64Envelope, headers={"Authorization": "Bearer " + api_key})
    
-# Decryption
+# Decryption 
 response = http_response.content
 if http_response.status_code != 200:
    print(f"Response: Error HTTP status code {http_response.status_code}", end=", check api_key\n" if http_response.status_code == 401 else "\n")
@@ -211,12 +219,3 @@ else:
    print(json.dumps(json_resp, indent=4))
 
 ```
-### Request Example
-
-For example, to send an encrypted [POST /token/generate](../endpoints/post-token-generate.md) request for an email address, you can run the following command.
-
-```sh
-echo '{"email": "test@example.com"}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate [Your-Client-API-Key] [Your-Client-Secret]
-```
-
-
