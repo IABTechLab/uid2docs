@@ -7,7 +7,7 @@ sidebar_position: 13
 
 # Normalization and Encoding
 
-This page provides information about normalizing and encoding personal information. It's important that, in working with UID2, normalizing and encoding are performed correctly.
+This page provides information about normalizing and encoding [directly Identifying information (DII)](../ref-info/glossary-uid.md#gl-dii). It's important that, in working with UID2, normalizing and encoding are performed correctly.
 
 <!-- It includes the following sections:
 - [Introduction](#introduction)
@@ -28,38 +28,6 @@ UID2 supports the following types of directly identifying information:
 UID2 APIs that accept DII also accept hashed versions of the DII. For details, see:
 - [Email Address Hash Encoding Example](#email-address-hash-encoding-example)
 - [Phone Number Hash Encoding Example](#phone-number-hash-encoding-example)
-
-## Reasons for Normalization and Encoding
-When you send user information to the UID2 service, these things are important:
-* Every piece of user information must be processed into an opaque value before sending, to keep the information secure.
-* The information must be relayed accurately.
-* The information must be processed with the exact set of steps defined by UID2, in sequence. This helps ensure that the resulting value can be matched to another instance of the same email address or phone number, processed in the same way.
-
-If a step is missed, or the steps are applied out of sequence, the value you produce will not match another instance of the same piece of personal information run through the same process. This would defeat the purpose of UID2. The exact steps must be followed.
-
-Normalization is important so that all the values are in a standard format before encoding. For example:
-- Email addresses sometimes contain special characters or other variables that can result in two renditions of the same email address.
-- The same phone number might be represented in different formats: with or without the country code, with or without brackets, spaces, or dashes. Therefore, normalization must be done before hashing.
-
-Hashing is important for the security of the information.
-
-Encoding ensures that the value only contains characters that are URL-safe and can be relayed accurately to the UID2 service.
-
-## Processing the Information
-
-Whether you are processing an email address or a phone number, there are three steps:
-
-1. Normalize the information:
-   - For email addresses, see [Email Address Normalization](#email-address-normalization)
-   - For phone numbers, see [Phone Number Normalization](#phone-number-normalization)
-1. Take the normalized value and create an SHA-256 hash.
-    You could use a tool such as [https://md5hashing.net/hash](https://md5hashing.net/hash).
-1. Take the normalized and hashed value, and apply hex to Base64 SHA-256 encoding to it.
-    IMPORTANT: You must use a Base64 encoder that takes a hex value as input, such as [https://base64.guru/converter/encode/hex](https://base64.guru/converter/encode/hex). If you use an encoder that reads the input value as plain text, such as [https://www.base64encode.org/](https://www.base64encode.org/), the output will be incorrect.
-
-Another approach to applying the Base64 SHA-256 encoding is to run the following command at a Bash terminal:
-
-`echo [SHA-256 hash of normalized phone number] | xxd -r -p | base64`
 
 ## Email Address Normalization
 
@@ -90,7 +58,7 @@ The example below shows a simple input email value, and the result as each step 
 
 ## Phone Number Normalization
 
-If you send unhashed phone numbers to the UID2 Operator Service, the service normalizes the phone numbers and then hashes them. If you want to hash the phone numbers yourself before sending them, you must normalize them before you hash them.
+You can choose to send phone numbers to the UID2 Operator Service either hashed or unhashed. In either case, you must normalize the phone numbers before sending them. If you choose to hash, first normalize and then hash. If you choose to send unhashed phone numbers, first normalize and then send.
 
 > IMPORTANT: Normalization before hashing ensures that the generated UID2 value will always be the same, so that the data can be matched. If you do not normalize before hashing, this might result in a different UID2, reducing the effectiveness of targeted advertising.
 
@@ -114,5 +82,5 @@ The example below shows a simple input phone number, and the result as each step
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
 | Normalized phone number | `+12345678901` | Normalization is always the first step. |
-| SHA-256 hash of normalized phone number | `10e6f0b47054a83359477dcb35231db6de5c69fb1816e1a6b98e192de9e5b9ee` | SHA-256 produces a 256-bit (32-byte) hash value.<br/>This 64-character string is a hex-encoded representation of the 32-byte SHA-256 hash.|
+| SHA-256 hash of normalized phone number | `10e6f0b47054a83359477dcb35231db6de5c69fb1816e1a6b98e192de9e5b9ee` | This 64-character string is a hex-encoded representation of the 32-byte SHA-256 hash.|
 | Hex to Base64 SHA-256 encoding of normalized and hashed phone number | `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=` | This 44-character string is a Base64-encoded representation of the 32-byte SHA-256 hex value.<br/>NOTE: The SHA-256 hash is a hexadecimal value. You must use a Base64 encoder that takes a hex value as input, such as [https://base64.guru/converter/encode/hex](https://base64.guru/converter/encode/hex). |
