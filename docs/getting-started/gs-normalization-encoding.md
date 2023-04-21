@@ -7,23 +7,27 @@ sidebar_position: 13
 
 # Normalization and Encoding
 
-This page provides information about normalizing and encoding personal information before sending it to UID2. It's important that, in working with UID2, normalizing and encoding are performed correctly.
+This page provides information about normalizing and encoding personal information. It's important that, in working with UID2, normalizing and encoding are performed correctly.
 
 <!-- It includes the following sections:
 - [Introduction](#introduction)
 - [Types of Directly Identifying Information (DII))](#types-of-directly-identifying-information-dii)
 - [Email Address Normalization](#email-address-normalization)
-- [Email Address Hash Encoding](#email-address-hash-encoding)
+- [Email Address Hash Encoding Example](#email-address-hash-encoding-example)
 - [Phone Number Normalization](#phone-number-normalization)
-- [Phone Number Hash Encoding](#phone-number-hash-encoding) -->
+- [Phone Number Hash Encoding Example](#phone-number-hash-encoding-example) -->
 
 ## Introduction
-When you're taking user information such as email addresses, and following the steps to create a raw UID2 and possibly also a UID2 advertising token, it's very important that you follow the required steps exactly. Whether you need to normalize the information or not, whether you hash it or not, follow the steps exactly, and in the exact sequence they are given. By doing so, you can ensure that the UID2 value you create can be securely and anonymously matched up with other instances of online behavior by the same user.{**gwh/AT_01: Copy previously said and/or a UID2 advertising token. But I don't think they could start with PII and create an advertising token without first going to raw UID2 -- correct?**}
+When you're creating a raw UID2 or a UID2 token from user information such as an email address, it's very important that you follow all the required steps. Whether you normalize the information or not, whether you hash it or not, follow the steps exactly, and in the correct sequence. By doing so, you can ensure that the UID2 value you create can be matched up with other instances of online behavior by the same user.
 
 ## Types of Directly Identifying Information (DII)
 UID2 supports the following types of directly identifying information:
 - Email address
 - Phone number
+
+UID2 APIs that accept DII also accept hashed versions of the DII. For details, see:
+- [Email Address Hash Encoding Example](#email-address-hash-encoding-example)
+- [Phone Number Hash Encoding Example](#phone-number-hash-encoding-example)
 
 ## Reasons for Normalization and Encoding
 When you send user information to the UID2 service, these things are important:
