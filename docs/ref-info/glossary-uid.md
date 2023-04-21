@@ -1,11 +1,11 @@
 ---
-title: Glossary of Terms
+title: UID2 Glossary
 description: Definitions for some UID2 terms.
 hide_table_of_contents: false
 sidebar_position: 10
 ---
 
-# Unified ID 2.0 Glossary of Terms
+# Unified ID 2.0 Glossary
 <p>This page defines some key terms used in the UID2 documentation.</p>
 
 <!-- <table>
