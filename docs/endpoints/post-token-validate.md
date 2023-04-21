@@ -25,6 +25,8 @@ Used by: This endpoint is used mainly by publishers.
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md). |
 
+>NOTE: The integration environment and the production environment require different [API keys](../ref-info/glossary-uid.md#gl-client-key).
+
 
 ###  Unencrypted JSON Body Parameters
 
