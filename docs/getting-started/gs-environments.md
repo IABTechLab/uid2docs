@@ -20,3 +20,5 @@ The following table lists all current testing and production environments for UI
 | Production | AWS Asia Pacific (Singapore) | `ap-southeast-1` | `https://sg.prod.uidapi.com` |
 
 For example, `https://operator-integ.uidapi.com/v2/token/generate`.
+
+>NOTE: The integration environment and the production environment require different [API keys](../ref-info/glossary-uid.md#gl-client-key).
