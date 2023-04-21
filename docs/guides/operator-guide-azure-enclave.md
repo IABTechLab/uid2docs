@@ -86,7 +86,7 @@ The following environment variables need to be set for the Operator enclave (eit
 
 ### AKS (Recommended)
 
-1. Prepare an AKS cluster and node pool(s) according to your organization policies and be sure to enable confidential computing.
+1. Prepare an AKS cluster and node pool(s) according to your organization policies and be sure to [enable confidential computing](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-enclave-nodes-aks-get-started).
 
 2. Make the docker image available in your docker repository (e.g. Azure Container Service). For example:
 
