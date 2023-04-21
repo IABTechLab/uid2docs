@@ -14,6 +14,6 @@ For details on using the API, see the following pages.
 | Documentation | Content Description |
 | :--- | :--- |
 | [Encrypting Requests and Decrypting Responses](getting-started/gs-encryption-decryption.md) | The high-level request-response workflow for the UID2 APIs, requirements for encrypting requests and decrypting responses, and respective script examples in Python.  |
-| [Endpoints](endpoints/summary-endpoints.md) | The API reference for managing identity tokens and mapping email addresses, phone numbers, or hashes to their UID2s and salt bucket IDs used to generate the UID2s.<br/>NOTE: The integration environment and the production environment require different [API keys](../ref-info/glossary-uid.md#gl-client-key). |
+| [Endpoints](endpoints/summary-endpoints.md) | The API reference for managing identity tokens and mapping email addresses, phone numbers, or hashes to their UID2s and salt bucket IDs used to generate the UID2s.<br/>NOTE: The integration environment and the production environment require different [API keys](ref-info/glossary-uid.md#gl-client-key). |
 | [Integration Guides](guides/summary-guides.md) | The UID2 integration workflows for UID2 participants, such as publishers, DSPs, advertisers, and data providers, as well as Operator Enterprise Partners, such as Microsoft Azure, AWS, and Snowflake. |
 | [SDKs](sdks/summary-sdks.md) | Links to documentation for using UID2 SDKs. | 
