@@ -13,9 +13,9 @@ This page provides information about normalizing and encoding [directly Identify
 - [Introduction](#introduction)
 - [Types of Directly Identifying Information (DII))](#types-of-directly-identifying-information-dii)
 - [Email Address Normalization](#email-address-normalization)
-- [Email Address Hash Encoding Example](#email-address-hash-encoding-example)
+- [Email Address Hash Encoding](#email-address-hash-encoding)
 - [Phone Number Normalization](#phone-number-normalization)
-- [Phone Number Hash Encoding Example](#phone-number-hash-encoding-example) -->
+- [Phone Number Hash Encoding](#phone-number-hash-encoding) -->
 
 ## Introduction
 When you're creating a raw UID2 or a UID2 token from user information such as an email address, it's very important that you follow all the required steps. Whether you normalize the information or not, whether you hash it or not, follow the steps exactly, and in the correct sequence. By doing so, you can ensure that the UID2 value you create can be matched up with other instances of online behavior by the same user.
@@ -43,8 +43,7 @@ To normalize an email address, follow these steps exactly:
     1. The period  (`.` (ASCII code 46)).<br/>For example, normalize `jane.doe@gmail.com` to `janedoe@gmail.com`.
     2. The plus sign (`+` (ASCII code 43)) and all subsequent characters.<br/>For example, normalize `janedoe+home@gmail.com` to `janedoe@gmail.com`.
 
-
-## Email Address Hash Encoding Example
+## Email Address Hash Encoding
 
 An email hash is a Base64-encoded SHA-256 hash of a normalized email address. The email address is first normalized, then hashed using the SHA-256 hashing algorithm, and the resulting hex value is encoded using Base64 encoding.
 
@@ -73,7 +72,7 @@ Here's what you need to know about phone number normalization rules:
    - Singapore: `65 1243 5678` is normalized to `+6512345678`.
    - Sydney, Australia: `(02) 1234 5678` is normalized to drop the leading zero for the city plus include the country code: `+61212345678`.
 
-## Phone Number Hash Encoding Example
+## Phone Number Hash Encoding
 
 A phone number hash is a Base64-encoded SHA-256 hash of a normalized phone number. The phone number is first normalized, then hashed using the SHA-256 hashing algorithm, and the resulting hex value is encoded using Base64 encoding.
 
