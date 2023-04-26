@@ -21,4 +21,4 @@ The following table lists all current testing and production environments for UI
 
 For example, `https://operator-integ.uidapi.com/v2/token/generate`.
 
->NOTE: The integration environment and the production environment require different [API keys](../ref-info/glossary-uid.md#gl-client-key).
+>NOTE: The integration environment and the production environment require different [API keys](../ref-info/glossary-uid.md#gl-api-key).

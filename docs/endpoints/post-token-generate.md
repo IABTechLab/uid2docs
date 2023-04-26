@@ -26,7 +26,7 @@ Here's what you need to know about this endpoint requests:
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md). |
 
->NOTE: The integration environment and the production environment require different [API keys](../ref-info/glossary-uid.md#gl-client-key).
+>NOTE: The integration environment and the production environment require different [API keys](../ref-info/glossary-uid.md#gl-api-key).
 
 ###  Unencrypted JSON Body Parameters
 
