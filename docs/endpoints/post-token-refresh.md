@@ -40,7 +40,7 @@ Using either of the following parameters in a [POST /token/generate](post-token-
 
 ### Request Example
 
-For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption).
+For details and Python script examples, see [Encrypting Requests and Decrypting Responses (Python script example)](../getting-started/gs-encryption-decryption#uid2_requestpy).
 
 ## Decrypted JSON Response Format
 
