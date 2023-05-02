@@ -40,7 +40,7 @@ The individual UID2 [endpoints](../endpoints/summary-endpoints.md) explain the r
 
 ## Encrypting Requests
 
-You have the option of writing your own script for encrypting requests, using a UID2 SDK, or using the provided [Python example script](#example-encryption-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) and [Encrypted Request Envelope](#encrypted-request-envelope).
+You have the option of writing your own script for encrypting requests, using a UID2 SDK, or using the provided [Python example script](#example-encryption-and-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) and [Encrypted Request Envelope](#encrypted-request-envelope).
 
 ### Unencrypted Request Data Envelope
 
@@ -65,7 +65,7 @@ The following table describes the field layout for request encryption scripts.
 
 ## Decrypting Responses
 
-You have the option of writing your own script for decrypting responses, using a UID2 SDK, or using the provided [Python example script](#example-encryption-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Encrypted Response Envelope](#encrypted-response-envelope) and [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
+You have the option of writing your own script for decrypting responses, using a UID2 SDK, or using the provided [Python example script](#example-encryption-and-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Encrypted Response Envelope](#encrypted-response-envelope) and [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
 
 >NOTE: Response is encrypted only if the service returns HTTP status code 200.
 
