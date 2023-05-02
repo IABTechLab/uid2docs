@@ -263,23 +263,20 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
-      // algolia: {
-      //  // LP 17 April 2023 - disabling for now until someone can take ownership of troubleshooting. Even with
-      //  // contextualSearch set to false, there are no results being returned.
-      //
-      //   // N.b. per Algolia, these are public values - once we get them, we can commit them to the open source repo.
-      //   appId: "GRNBXN1TTS", //prod
-      //   apiKey: "97e7dc35be9559b65f0d03c0c9684272", //prod
-      //   indexName: "unifiedid", //prod
+      algolia: {
+        // N.b. per Algolia, these are public values - once we get them, we can commit them to the open source repo.
+        appId: "GRNBXN1TTS", //prod
+        apiKey: "97e7dc35be9559b65f0d03c0c9684272", //prod
+        indexName: "unifiedid", //prod
 
-      //   // Setting this to false for now - it seems we don't have our docsearch meta tags 
-      //   // set correctly. See https://discourse.algolia.com/t/algolia-searchbar-is-not-working-with-docusaurus-v2/14659/2
-      //   contextualSearch: false,
+        // Setting this to false for now - it seems we don't have our docsearch meta tags 
+        // set correctly. See https://discourse.algolia.com/t/algolia-searchbar-is-not-working-with-docusaurus-v2/14659/2
+        contextualSearch: false,
 
-      //   // appId: "TESTINGXSOWQK10AP", //staging
-      //   // apiKey: "58f35480017be37aca9f762323a0b4d1", //staging
-      //   // indexName: "UID2", //staging
-      // },
+        // appId: "TESTINGXSOWQK10AP", //staging
+        // apiKey: "58f35480017be37aca9f762323a0b4d1", //staging
+        // indexName: "UID2", //staging
+      },
     }),
 };
 
