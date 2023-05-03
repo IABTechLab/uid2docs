@@ -7,7 +7,7 @@ sidebar_position: 02
 
 # Client-Side JavaScript SDK Integration Guide
 
-This guide is intended for publishers with web assets who would like to generate identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
+This guide is intended for publishers with web assets who want to generate identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
 
 <!-- It includes the following sections:
 
