@@ -9,7 +9,7 @@
 3. DSP はビッドストリーム内の UID2 Token にアクセスし、入札時に復号化します。
 4. DSP は UID2 Administrator からのオプトアウトリクエストを受け、オプトアウトした UID2 の買付をブロックします。
 
-![Buy-Side Workflow](../images/buy_side.jpg)
+![Buy-Side Workflow](images/UID2BuySIdeDSPWorkflow.jpg)
 
 ## Integration Requirements
 

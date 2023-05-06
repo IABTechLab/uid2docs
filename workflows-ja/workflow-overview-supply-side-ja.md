@@ -15,7 +15,7 @@
 7. SSP は UID2 Token を使って入札リクエストを行い、ビッドストリームに取り込みます。
 8. パブリッシャーは Refresh Token を使用して UID2 Token の更新を要求します。オプトアウトされていれば、Refresh Token にはユーザーのオプトアウトリクエストが含まれます。
 
-![Publisher Workflow](../images/publisher_workflow.jpg)
+![Publisher Workflow](images/UID2PublisherAndSSPWorkflow.jpg)
 
 ## Integrations
 

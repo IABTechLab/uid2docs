@@ -11,7 +11,7 @@
 4. データプロバイダーは、行動規範で定義された許可されたトランスポートプロトコルを使用して、UID2 を DSP に送信します。
 5. データプロバイダーは、UID2 Operator がローテーションしたソルトバケットを監視し、必要に応じて UID2 を更新します。
 
-![Data Provider Workflow](../images/data_provider.jpg)
+![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.jpg)
 
 ## Integration Requirements
 

@@ -9,4 +9,4 @@
 
 このワークフローにより、ユーザーは UID2 Token の作成に同意し、UID2 同意とプライバシー設定を[Transparency and Control Portal](https://transparentadvertising.org) で管理することができます。
 
-![User Trust Workflow](../images/user_trust_workflow.jpg)
+![User Trust Workflow](images/user_trust_workflow.jpg)
