@@ -4,7 +4,9 @@
 
 UID2 の定義、ID タイプ、指針、構成要素、その他の概念的な詳細については、 [UID2 Overview](../README-ja.md) を参照してください。
 
-このページでは、UID2 API を使い始めるために必要な以下の情報を提供します:
+このページでは、UID2 APIを使い始めるために必要な一般的な情報を提供します。
+
+その内容は以下の通りです：
 
 - [Contact Info（連絡先）](#contact-info)
 - [API Versions（API バージョン）](#api-versions)

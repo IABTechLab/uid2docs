@@ -2,7 +2,9 @@
 
 # DSP Integration Guide
 
-本ガイドは、ビッドストリームで UID2 を取引する DSP のためのもので、次のセクションがあります:
+このガイドは、ビッドストリームで UID2 の取引を行うDSPを対象としています。
+
+以下のセクションが含まれています：
 
 - [Integration Steps（インテグレーション手順）](#integration-steps)
   - [Honor User Opt-Outs（ユーザーオプトアウトの受け入れ）](#honor-user-opt-outs)

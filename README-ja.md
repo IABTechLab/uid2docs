@@ -2,7 +2,9 @@
 
 [English](README.md) | Japanese
 
-このページでは、Unified ID 2.0（UID2）フレームワークについて、以下の情報を提供します:
+このページでは、Unified ID 2.0 (UID2) フレームワークの概要について説明しています。
+
+以下の内容が含まれています：
 
 - [Introduction（概要）](#introduction)
   - [Guiding Principles（基本方針）](#guiding-principles)

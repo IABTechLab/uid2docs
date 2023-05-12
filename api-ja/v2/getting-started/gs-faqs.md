@@ -4,6 +4,10 @@
 
 UID2 に関するよくある質問は、以下のカテゴリーに分かれています:
 
+UID2に関するよくある質問は、対象者別に一般的なカテゴリーに分類されています。
+
+このページには、以下のものがあります：
+
 - [FAQs -- General](#faqs----general)
 - [FAQs for Publishers Using an SDK](#faqs-for-publishers-using-an-sdk)
 - [FAQs for Publishers Not Using an SDK](#faqs-for-publishers-not-using-an-sdk)

@@ -5,7 +5,7 @@ README.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md
 
 本ガイドでは、[Google Cloud](https://cloud.google.com/docs/overview/) Platform のセキュアなエンクレーブで UID2 Operator Service を設定するための情報を提供します。
 
-本ガイドには、以下の内容が記載されています:
+以下の内容が記載されています:
 
 - [Overview（はじめに）](#overview)
 - [Build（ビルド）](#build)

@@ -2,7 +2,9 @@
 
 # Google Ad Manager Secure Signals Integration Guide
 
-このガイドでは、UID2 を Google Ad Manager の secure signals 機能（旧称：Encrypted Signals for Publishers、ESP）で使用するパブリッシャー向けのインテグレーション手順について説明します。このガイドには、以下のセクションが含まれています：
+このガイドでは、UID2 を Google Ad Manager のセキュアシグナル機能（旧称：Encrypted Signals for Publishers、ESP）で使用するパブリッシャー向けのインテグレーション手順について説明します。
+
+このガイドには、以下のセクションが含まれています：
 
 - [Overview（はじめに）](#overview)
 - [Allow Secure Signal Sharing（Signal Sharing の許可）](#allow-secure-signal-sharing)
