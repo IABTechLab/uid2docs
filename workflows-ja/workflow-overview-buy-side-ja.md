@@ -22,4 +22,4 @@ UID2 とインテグレーションして、ブランド（ファーストパー
 
 詳細は、[DSP Integration Guide](../api-ja/v2/guides/dsp-guide.md) を参照してください。
 
-オプションとして、DSP が PII から UID2 を自ら生成したい場合は、[Third-Party Data Provider Workflow](workflow-overview-3p-data-provider-ja.md) に従うこともできます。
+オプションとして、DSP が個人を識別できる情報(DII)から UID2 を自ら生成したい場合は、[Third-Party Data Provider Workflow](workflow-overview-3p-data-provider-ja.md) に従うこともできます。

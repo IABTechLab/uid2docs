@@ -116,7 +116,7 @@ SDK を使用せず、サーバー側またはクライアント側でトーク�
 
 UID2 API v2 へのアップグレードについて知っておくべきことは、以下のとおりです:
 
-- 単一ユーザーの PII を UID2 にマッピングする v1 `GET /identity/map` エンドポイントは、単一および複数ユーザーの PII をマッピングする v2 [POST /identity/map](../endpoints/post-identity-map.md) エンドポイントに置き換えられました。
+- 単一ユーザーの個人を識別できる情報(DII)を UID2 にマッピングする v1 `GET /identity/map` エンドポイントは、単一および複数ユーザーの DII をマッピングする v2 [POST /identity/map](../endpoints/post-identity-map.md) エンドポイントに置き換えられました。
 - v2 [POST /identity/map](../endpoints/post-identity-map.md) および [POST /identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントが返す UID2 とバケット ID は、対応する v1 エンドポイントが返すものと同じものです。
 - [Snowflake Integration Guide](../guides/snowflake_integration.md) は、UID2 v2 API へのアップグレードの影響を受けないので、変更は必要ありません。
 
@@ -127,8 +127,8 @@ UID API v2 にアップグレードするには、以下の v1 エンドポイ�
 | v1 Endpoint             | v2 Endpoint                                                     | Comments                                                                                                                              |
 | :---------------------- | :-------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
 | `GET /identity/buckets` | [POST /identity/buckets](../endpoints/post-identity-buckets.md) | HTTP リクエストの種類が変更されました。                                                                                               |
-| `POST /identity/map`    | [POST /identity/map](../endpoints/post-identity-map.md)         | v2 エンドポイントは、シングルユーザーの PII もマッピングする以外は、v1 エンドポイントと同じです。                                     |
-| `GET /identity/map      | [POST /identity/map](../endpoints/post-identity-map.md)         | HTTP リクエストタイプが変更されました。<br/>新しい POST エンドポイントでは、単一ユーザーおよび複数ユーザーの PII をマッピングします。 |
+| `POST /identity/map`    | [POST /identity/map](../endpoints/post-identity-map.md)         | v2 エンドポイントは、シングルユーザーの DII もマッピングする以外は、v1 エンドポイントと同じです。                                     |
+| `GET /identity/map      | [POST /identity/map](../endpoints/post-identity-map.md)         | HTTP リクエストタイプが変更されました。<br/>新しい POST エンドポイントでは、単一ユーザーおよび複数ユーザーの DII をマッピングします。 |
 
 > IMPORTANT: UID2 API v2 の呼び出しを行うには、POST リクエストボディを暗号化し、レスポンスを復号化する必要があります。詳細および例については、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 

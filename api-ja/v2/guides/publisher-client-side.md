@@ -43,7 +43,7 @@ UID2 を使用したクライアント ID の確立と Advertising Token の取�
     U->>P: 1-c. ユーザーが認証し、UID2 の作成を許可します。
     deactivate U
     activate P
-    P->>UID2: 1-d. パブリッシャーはユーザーのPIIをトークン生成サービスに送信します。
+    P->>UID2: 1-d. パブリッシャーはユーザーのDIIをトークン生成サービスに送信します。
     deactivate P
     activate UID2
     UID2->>P: 1-e. トークン生成サービスは、UID2 Tokenを返します。

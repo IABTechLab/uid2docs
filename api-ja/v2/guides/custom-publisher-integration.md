@@ -48,7 +48,7 @@ sequenceDiagram
   U->>P: 1-c. ユーザーが認証し、UID2 の作成を許可します。
   deactivate U
   activate P
-  P->>UID2: 1-d. パブリッシャーはユーザーの PII をトークン生成サービスに送信します。
+  P->>UID2: 1-d. パブリッシャーはユーザーの DII をトークン生成サービスに送信します。
   deactivate P
   activate UID2
   UID2->>P: 1-e. トークン生成サービスは、UID2 Token を返します。
