@@ -155,7 +155,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
 | Phone | `+12345678901`       | キャッシュした `advertising_token` が、指定した電話番号の `advertising_token` と一致するかどうかをテストします。                        | [POST /token/validate](post-token-validate.md) |
 | Phone | `+00000000000`       | この電話番号をリクエストに使用すると、常に `refresh_token` を含む ID レスポンスが生成され、ログアウトのレスポンスになります。           | [POST /token/refresh](post-token-refresh.md)   |
 
-# Token Generation Policy
+## Token Generation Policy
 
 トークン生成ポリシーは、トークンを生成するタイミングを呼び出し側に決定させるものです。パラメータを省略すると、ID = 0 のポリシーが適用されます。
 

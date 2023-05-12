@@ -20,4 +20,4 @@
 - UID2 Operator とインテグレーションして UID2 を生成し、ソルトバケットのローテーションを処理すること。
 - UID2 Operator の API にアクセスできること。<br/>広告主によっては、CDP、データオンボーダー、またはその他のサービスプロバイダを経由する場合もあります。
 
-詳細は、[Advertiser and Third-party Data Provider Integration Guide](../api-ja/v2/guides/advertiser-dataprovider-guide.md) を参照してください。
+詳細は、[Advertiser/Data Provider Integration Guide](../api-ja/v2/guides/advertiser-dataprovider-guide.md) を参照してください。

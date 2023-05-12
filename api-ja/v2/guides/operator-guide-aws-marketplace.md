@@ -218,7 +218,7 @@ EC2 インスタンスを見つけるには、次の手順を実行します:
 1. CloudFormation スタックで、**Resources** タブをクリックし、Auto Scaling Group (ASG) を見つけます。
 2. **Physical ID** 列の ASG リンクをクリックします。
 3. 選択した ASG 内で、**Instance management** タブに移動し、利用可能な EC2 インスタンスの ID を見つけることができます（デフォルトでは 1 つのインスタンスのみが起動します）。
-4. オペレーターの状態を確認するために、ブラウザで [http://\<public-dns-of-your-instance\>/ops/healthcheck](http://<public-domain-name>/ops/healthcheck) に移動します。`OK` は良好な状態を示します。
+4. オペレータの状態を調べるには、ブラウザで `http://{public-dns-of-your-instance}/ops/healthcheck` にアクセスしてください。`OK` は良好な状態を示します。
 
 ![Stack Creation Resources](images/stack-creation-resources.png)
 

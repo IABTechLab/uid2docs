@@ -20,7 +20,11 @@ Operator のコードベースには、サービスをパッケージ化する�
 
 ## Build
 
+ビルドするには、これらのセクションのステップを順番に実行します。
+
 ### Prerequisites
+
+以下の前提条件が整っていることを確認してください。
 
 - ビルドは、Intel SGX 対応マシン上で実行する必要があります。テスト済みの構成は、Azure 上で動作する Standard_DC8_v2 VM です。
 - オペレーティングシステムは Ubuntu 18.04 LTS (推奨する Azure イメージは "Server" タイプです) です。
@@ -68,6 +72,8 @@ mvn package -P azure
 
 ## Deployment
 
+デプロイするには、これらのセクションのステップを順番に実行します。
+
 ### Configuration
 
 Operator enclave には、以下の環境変数を設定する必要があります（docker 経由または k8s デプロイ経由）。
@@ -77,7 +83,7 @@ Operator enclave には、以下の環境変数を設定する必要がありま
 
 ### AKS (Recommended)
 
-1. 組織のポリシーに従って AKS クラスタとノードプールを準備し、[コンフィデンシャル コンピューティング](https://docs.microsoft.com/ja-jp/azure/confidential-computing/overview) であることを確認します。
+1. 組織のポリシーに従ってAKSクラスタとノードプールを準備し、コンフィデンシャル コンピューティングを必ず有効にしてください。
 
 2. docker イメージを、Docker リポジトリ (Azure Container Service など) で利用できるようにします。例えば:
 
