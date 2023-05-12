@@ -3,7 +3,7 @@
 以下のステップは、パブリッシャーまたはその ID プロバイダーと関わるユーザーを対象とした、ワークフローの概要を提供します。
 
 1. ユーザーは[Transparency and Control Portal](https://transparentadvertising.org)にアクセスし、そこで UID2 のオプトアウトをグローバルに行うことができます。
-2. ポータルはオプトアウトリクエストを UID2 Oprator に送信し、UID2 Operator はそれを UID2 Opt-Out Service に転送します。
+2. ポータルはオプトアウトリクエストを UID2 Oprator に送信します。
 3. UID2 は、オプトアウト情報を DSP に配布します。
 4. UID2 は、すべての各 API エンドポイントからのレスポンスに、オプトアウト情報を配信します。
 
