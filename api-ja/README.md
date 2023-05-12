@@ -25,7 +25,7 @@ UID2 フレームワークにアクセスするには、以下の The Trade Desk
 | Your Role                                                        | Contact Email                   |
 | :--------------------------------------------------------------- | :------------------------------ |
 | アプリ開発者<br/>パブリッシャー                                  | UID2publishers@thetradedesk.com |
-| 代理店<br/>ブランド<br/>CDP<br/>データプロバイダ<br/>DSP<br/>SSP | UID2partners@thetradedesk.com   |
+| 代理店<br/>ブランド<br/>CDP<br/>データプロバイダー<br/>DSP<br/>SSP | UID2partners@thetradedesk.com   |
 
 ## API Versions
 

@@ -15,7 +15,7 @@
 
 ## Access the UID2 Shares
 
-UID2 Share へのアクセスは、[Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/)を通して行います。ここでは、選択した UID2 個別リストに基づき、特定のデータセットをリクエストすることができます。現在、Snowflake Data Marketplace では、広告主/ブランド向けとデータプロバイダ向けの 2 種類の UID2 専用リスティングが提供されています。
+UID2 Share へのアクセスは、[Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/)を通して行います。ここでは、選択した UID2 個別リストに基づき、特定のデータセットをリクエストすることができます。現在、Snowflake Data Marketplace では、広告主/ブランド向けとデータプロバイダー向けの 2 種類の UID2 専用リスティングが提供されています。
 
 > IMPORTANT: データをリクエストするには、Snowflake アカウントに`ACCOUNTADMIN`ロール権限が必要です。
 

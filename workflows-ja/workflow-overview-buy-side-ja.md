@@ -1,6 +1,6 @@
-[UID2 Overview](../README-ja.md) > Buy-Side Workflow
+[UID2 Overview](../README-ja.md) > DSP Workflow
 
-# Buy-Side Workflow Overview
+# DSP Workflow Overview
 
 以下のステップは、ビッドストリームで UID2 を取引するデマンドサイドプラットフォーム（DSP）を想定したワークフローのアウトラインです。
 
@@ -8,6 +8,22 @@
 2. DSP は UID2 Administrator と同期し、復号化キーを受け取ります。
 3. DSP はビッドストリーム内の UID2 Token にアクセスし、入札時に復号化します。
 4. DSP は UID2 Administrator からのオプトアウトリクエストを受け、オプトアウトした UID2 の買付をブロックします。
+
+以下のプロセスはバックグラウンドで実行されますます：
+
+- 広告主やデータプロバイダーは、ファーストパーティおよびサードパーティのオーディエンスセグメントを DSP に渡します。
+- DSP は UID2 Operator と同期して、復号化キーを受け取ります。
+- DSP は、UID2 Operator からのオプトアウトの要求を聞きます。
+
+各ビッド/広告インプレッションについて、以下の手順が実行されます：
+
+1. 入札リクエストは、UID2 Token とともにビッドストリームに渡されます。
+2. 2.DSPは、UID2トークン付きの入札リクエストをビッドストリームから受信します。
+3. DSP は：
+   - UID2 Token を復号して raw UID2 にします。
+   - ユーザーがオプトアウトしたかどうかを確認し、オプトアウトした場合は入札を行いません。
+   - raw UID2 を視聴者セグメントにマッチングさせます。
+4. DSP は、raw UID2 に基づいて、ビッドストリームにビッドレスポンスを送信します。 
 
 ![Buy-Side Workflow](images/UID2BuySIdeDSPWorkflow.jpg)
 
