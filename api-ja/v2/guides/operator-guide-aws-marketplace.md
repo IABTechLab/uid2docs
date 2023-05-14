@@ -20,7 +20,7 @@ UID2 Operator は、UID2 エコシステムにおける API サーバーです�
 
 NOTE: [UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) は無償製品です。製品ページに表示されている費用は、必要なインフラの概算費用となります。
 
-Unified ID 2.0 Operator on AWS Marketplace 製品を契約することで、以下をご利用できます:
+Unified ID 2.0 Operator on AWS Marketplace 製品を契約することで、以下を利用できます:
 
 - **[Amazon Machine Image (AMI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)** UID2 Operator Service がインストールされ、ブートストラップの準備が整っている状態です:<br/>
   AMI には、UID2 Operator Service がすでにセットアップされた[Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/?amazon-linux-whats-new.sort-by=item.additionalFields.postDateTime&amazon-linux-whats-new.sort-order=desc)オペレーティングシステムが含まれています。AMI をベースにした EC2 インスタンスが起動すると、AWS アカウントから設定を自動的に取得し、エンクレーブ内で UID2 Operator サーバーを起動します。
@@ -114,11 +114,11 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 | `Subnet1`               | `AWS::EC2::Subnet`                   | 新しく作成された VPC の最初のサブネットです。                                                                                                                                                            | Conditionally |
 | `Subnet2`               | `AWS::EC2::Subnet`                   | 新しく作成された VPC の 2 番目のサブネットです。                                                                                                                                                         | Conditionally |
 | `RouteTable`            | `AWS::EC2::RouteTable`               | 新しく作成された VPC とサブネットのルーティングテーブルです。                                                                                                                                            | Conditionally |
-| `InternetGateway`       | `AWS::EC2::InternetGateway`          | オペレータが UID2 CORE Service と通信したり、セキュリティアップデートをダウンロードしたりするためのインターネットゲートウェイです。                                                                      | Conditionally |
+| `InternetGateway`       | `AWS::EC2::InternetGateway`          | オペレーターが UID2 CORE Service と通信したり、セキュリティアップデートをダウンロードしたりするためのインターネットゲートウェイです。                                                                      | Conditionally |
 | `AttachGateway`         | `AWS::EC2::VPCGatewayAttachment`     | インターネットゲートウェイと VPC を関連付ける値。                                                                                                                                                        | Conditionally |
-| `SecurityGroup`         | `AWS::EC2::SecurityGroup`            | オペレータインスタンスに対するルールを提供するセキュリティグループポリシーです。[Security Group Policy](#security-group-policy)も参照してください。                                                      | Always        |
-| `LaunchTemplate`        | `AWS::EC2::LaunchTemplate`           | すべての構成が整った起動テンプレートです。このテンプレートから新しい UID2 Operator インスタンスを生成することができます。                                                                                | Always        |
-| `AutoScalingGroup`      | `AWS::AutoScaling::AutoScalingGroup` | 起動テンプレートがアタッチされているオートスケーリンググループ（ASG）。必要に応じて、これを使用して、希望のインスタンス数を後で更新することができます。                                                  | Always        |
+| `SecurityGroup`         | `AWS::EC2::SecurityGroup`            | オペレーターインスタンスに対するルールを提供するセキュリティグループポリシーです。[Security Group Policy](#security-group-policy)も参照してください。                                                      | Always        |
+| `LaunchTemplate`        | `AWS::EC2::LaunchTemplate`           | すべての構成が整った起動テンプレートです。このテンプレートから新しい UID2 Operator インスタンスを生成できます。                                                                                | Always        |
+| `AutoScalingGroup`      | `AWS::AutoScaling::AutoScalingGroup` | 起動テンプレートがアタッチされているオートスケーリンググループ（ASG）。必要に応じて、これを使用して、希望のインスタンス数を後で更新できます。                                                  | Always        |
 
 ### Customization Options
 
@@ -194,7 +194,7 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 
 | Parameter             | Description                                                                                                                                                     |
 | :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Tags                  | (オプション) スタックにタグを付けます。                                                                                                                         |
+| Tags                  | (オプション) スタックにタグをつけます。                                                                                                                         |
 | Permissions           | AWS Marketplace に登録する IAM ロールとスタックをデプロイする IAM ロールが分かれている場合、スタックをデプロイするために使用するロールの名前/ARN を入力します。 |
 | Stack failure options | デプロイメントに失敗したときの処理を選択します。`すべてのスタックリソースをロールバックする`オプションを推奨します。                                            |
 | Advanced options      | これらはオプションです。                                                                                                                                        |
@@ -218,7 +218,7 @@ EC2 インスタンスを見つけるには、次の手順を実行します:
 1. CloudFormation スタックで、**Resources** タブをクリックし、Auto Scaling Group (ASG) を見つけます。
 2. **Physical ID** 列の ASG リンクをクリックします。
 3. 選択した ASG 内で、**Instance management** タブに移動し、利用可能な EC2 インスタンスの ID を見つけることができます（デフォルトでは 1 つのインスタンスのみが起動します）。
-4. オペレータの状態を調べるには、ブラウザで `http://{public-dns-of-your-instance}/ops/healthcheck` にアクセスしてください。`OK` は良好な状態を示します。
+4. オペレーターの状態を調べるには、ブラウザで `http://{public-dns-of-your-instance}/ops/healthcheck` にアクセスしてください。`OK` は良好な状態を示します。
 
 ![Stack Creation Resources](images/stack-creation-resources.png)
 

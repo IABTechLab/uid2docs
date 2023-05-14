@@ -31,7 +31,7 @@ sequenceDiagram
   DP-->>DSP: 2. 蓄積したUID2をDSPに送信し、オーディエンスを作成します。
   loop 3. 蓄積されているUID2に関連するソルトバケットのローテーションを監視します。
      DP->>UID2: 3-a. バケットサービスを利用して、ソルトバケットのローテーションを監視します。
-     UID2->>DP: 3-b. 指定されたタイムスタンプ以降にローテートされたソルトバケットを返します。
+     UID2->>DP: 3-b. 指定されたタイムスタンプ以降にローテーションされたソルトバケットを返します。
      DP->>UID2: 3-c. ローテーションしたソルトバケットと保存されているUID2ソルトバケットを比較します。<br/>ローテーションした場合は、新しいUID2のためにDIIをIDマッピングサービスに再送信します。
      UID2->>DP: 3-d. ID マッピングサービスから返された UID2 とソルトバケットを保存します。
   end
@@ -42,11 +42,11 @@ sequenceDiagram
 | Step | Endpoint                                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ---- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 1-a  | [POST /identity/map](../endpoints/post-identity-map.md)リクエスト | DII を含むリクエストを ID マッピングエンドポイントに送信します。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| 1-b  | [POST /identity/map](../endpoints/post-identity-map.md)レスポンス | レスポンスで返される`advertising_id`（raw UID2）は、関連する DSP でオーディエンスをターゲティングするために使用できます。<br/>このレスポンスは、ユーザーの raw UID2 と、ソルトバケットの対応する`bucket_id`を返します。バケットに割り当てられたソルトは毎年ローテーションされるため、生成される UID2 に影響を及ぼします。ソルトバケットのローテーションを確認する方法の詳細については、[Monitor for salt bucket rotations](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)を参照してください。<br/> メンテナンスを容易にするために、ユーザーの raw UID2 と `bucket_id` をマッピングテーブルに格納することが推奨されるアプローチです。インクリメンタルアップデートに関するガイダンスは、[Use an-incremental-process-to-continuously-update raw-UID2s](#use-an-incremental-process-to-continuously-update-raw-uid2s) を参照してください。 |
+| 1-b  | [POST /identity/map](../endpoints/post-identity-map.md)レスポンス | レスポンスで返される`advertising_id`（raw UID2）は、関連する DSP でオーディエンスをターゲティングするために使用できます。<br/>このレスポンスは、ユーザーの raw UID2 と、ソルトバケットの対応する`bucket_id`を返します。バケットに割り当てられたソルトは毎年ローテーションされるため、生成される UID2 に影響を及ぼします。ソルトバケットのローテーションを確認する方法の詳細は、[Monitor for salt bucket rotations](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)を参照してください。<br/> メンテナンスを容易にするために、ユーザーの raw UID2 と `bucket_id` をマッピングテーブルに格納することが推奨されるアプローチです。インクリメンタルアップデートに関するガイダンスは、[Use an-incremental-process-to-continuously-update raw-UID2s](#use-an-incremental-process-to-continuously-update-raw-uid2s) を参照してください。 |
 
 ### Send raw UID2 to a DSP to build an audience
 
-[前のステップ](#retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints)（ステップ 1-b）で返した `advertising_id` (raw UID2) をオーディエンスを構築しながら DSP に送ります。各 DSP は、オーディエンスを構築するための独自のインテグレーションプロセスを持っています。DSP が提供する、raw UID2 を送信してオーディエンスを構築するためのインテグレーションガイダンスに従ってください。
+[前のステップ](#retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints)（ステップ 1-b）で返した `advertising_id` (raw UID2) をオーディエンスを構築しながら DSP に送ります。各 DSP は、オーディエンスを構築するための独自のインテグレーションプロセスを持っています。DSP が提供する、raw UID2 を送信してオーディエンスを構築するためのインテグレーションガイダンスにしたがってください。
 
 ### Monitor for salt bucket rotations related to your stored raw UID2s
 
@@ -73,6 +73,6 @@ UID2 ベースのオーディエンス情報を正確かつ最新の状態に保
 
 ## FAQs
 
-UID2 フレームワークを使用する広告主およびデータプロバイダー向けのよくある質問については、[FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照して下さい。
+UID2 フレームワークを使用する広告主およびデータプロバイダー向けのよくある質問は、[FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。
 
-すべてのリストは、[Frequently Asked Questions](../getting-started/gs-faqs.md)を参照して下さい。
+すべてのリストは、[Frequently Asked Questions](../getting-started/gs-faqs.md)を参照してください。

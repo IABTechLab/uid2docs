@@ -27,7 +27,7 @@
 
 このドキュメントでは、最後の選択肢について詳細を説明します。
 
-ワークフローを示す[アプリケーション例](https://example-srvonly-integ.uidapi.com/)はこちらです。アプリケーションのドキュメントについては、[Server-Only UID2 Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)を参照してください。また、[FAQ](#faqs)も参照してください。
+ワークフローを示す[アプリケーション例](https://example-srvonly-integ.uidapi.com/)はこちらです。アプリケーションのドキュメントは、[Server-Only UID2 Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)を参照してください。また、[FAQ](#faqs)も参照してください。
 
 > TIP: UID2 を使ったクライアント ID の確立と Advertising Token の取得を容易にするために、[Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) を使用することを検討してください。詳しくは、[Client-Side JavaScript SDK Integration Guide](./publisher-client-side.md) を参照してください。
 
@@ -94,7 +94,7 @@ sequenceDiagram
 
 ### Establish Identity: User Login
 
-ステップ 1-c で認証が行われ、ユーザーに規約を受け入てもらい、パブリッシャーがメールアドレスや電話番号を検証した後、サーバーサイドで UID2 Token を生成する必要があります。次の表は、トークン生成のステップの詳細を示しています。
+ステップ 1-c で認証が行われ、ユーザーに規約を受け入れてもらい、パブリッシャーがメールアドレスや電話番号を検証した後、サーバーサイドで UID2 Token を生成する必要があります。次の表は、トークン生成のステップの詳細を示しています。
 
 | Step | Endpoint                                                    | Description                                                                                                                                                                                                                                                                                                                                |
 | :--- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -132,6 +132,6 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 
 ## FAQs
 
-パブリッシャー向けのよくある質問については、[FAQs for Publishers Not Using an SDK](../getting-started/gs-faqs.md#faqs-for-publishers-not-using-an-sdk) を参照してください。
+パブリッシャー向けのよくある質問は、[FAQs for Publishers Not Using an SDK](../getting-started/gs-faqs.md#faqs-for-publishers-not-using-an-sdk) を参照してください。
 
 すべてのリストは、[Frequently Asked Questions](../getting-started/gs-faqs.md)を参照してください。

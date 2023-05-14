@@ -19,9 +19,9 @@ README.md) > [v2](../summary-doc-v2.md) > [Integration Guides](summary-guides.md
 
 ## Overview
 
-UID2 Operator サービスは、Google Cloud Platform の[Confidential VM](https://cloud.google.com/compute/confidential-vm/docs/about-cvm)と呼ばれる Compute Engine の仮想マシン（VM）内で実行することができます。これは、トラステッド・コンピューティング・エンクレーブです。
+UID2 Operator サービスは、Google Cloud Platform の[Confidential VM](https://cloud.google.com/compute/confidential-vm/docs/about-cvm)と呼ばれる Compute Engine の仮想マシン（VM）内で実行できます。これは、トラステッド・コンピューティング・エンクレーブです。
 
-エンクレーブは、[Container-Optimized OS](https://cloud.google.com/container-optimized-os/docs) ブートディスクを使用する必要があり、提供される [cloud-init](https://cloudinit.readthedocs.io/) config によりカスタマイズすることができます。
+エンクレーブは、[Container-Optimized OS](https://cloud.google.com/container-optimized-os/docs) ブートディスクを使用する必要があり、提供される [cloud-init](https://cloudinit.readthedocs.io/) config によりカスタマイズできます。
 
 `cloud-init` config は以下を行います:
 
@@ -47,7 +47,7 @@ GCP Confidential VM エンクレーブ上で UID2 Operator を実行するため
 docker pull ghcr.io/iabtechlab/uid2-operator
 ```
 
-以下のコマンドで、ソースコードから非認証の UID2 Operator コンテナイメージをビルドすることができます:
+以下のコマンドで、ソースコードから非認証の UID2 Operator コンテナイメージをビルドできます:
 
 ```
 scripts/gcp/build.sh ghcr.io/iabtechlab/uid2-operator:v1.0.0-snapshot
@@ -72,13 +72,13 @@ UID2 Operator Service は、どの GCP アカウントおよびプロジェク�
 
 ## Integration Deployment
 
-インテグレーション環境用の認証済み cloud-init.yaml ファイルを用意し、`cloud-init` config を使用する新しい Confidential VM を作成すれば、GCP VM エンクレーブ内の新しい UID2 Operator Service をインテグレーション環境にデプロイすることができます。
+インテグレーション環境用の認証済み cloud-init.yaml ファイルを用意し、`cloud-init` config を使用する新しい Confidential VM を作成すれば、GCP VM エンクレーブ内の新しい UID2 Operator Service をインテグレーション環境にデプロイできます。
 
 このセクションでは、デプロイメントプロセスについて説明します。
 
 ### Cloud-init.yaml File
 
-登録プロセスでは、認証された cloud-init-`<timestamp>`.yaml ファイルが提供されます。このファイルの SHA-256sum は認証プロセスの一部として使用されるため、このファイルを（クライアント API キーを追加する以外の）いかなる方法でも変更することはできません。ファイルの内容については後述しますが、このファイルはデプロイプロセス中に手動で作成されることはなく、常に UID チームが新しい Private Operator を設定するプロセス中に作成されます。
+登録プロセスでは、認証された cloud-init-`<timestamp>`.yaml ファイルが提供されます。このファイルの SHA-256sum は認証プロセスの一部として使用されるため、このファイルを（クライアント API キーを追加する以外の）いかなる方法でも変更することはできません。ファイルの内容は後述しますが、このファイルはデプロイプロセス中に手動で作成されることはなく、常に UID チームが新しい Private Operator を設定するプロセス中に作成されます。
 
 cloud-init.yaml ファイルは環境に固有なので、インテグレーション環境用と本番環境用を用意することに注意してください。
 
@@ -171,11 +171,11 @@ VM の名前（上の例では uid2-operator-gcp-01）は変更できますが�
 
 ## Production Deployment
 
-インテグレーション環境と同じ手順で、GCP VM エンクレーブの新しい UID2 Operator を本番環境にデプロイすることができます。
+インテグレーション環境と同じ手順で、GCP VM エンクレーブの新しい UID2 Operator を本番環境にデプロイできます。
 cloud-init-`<timestamp>`.yaml ファイルの新しいインスタンスが必要です。このファイルには、UID2 Core Service の本番用 URL が使用します。また、新しい `gcloud` スクリプトファイルも提供されます。インテグレーション環境用のスクリプトファイルと本番環境用のスクリプトファイルには、2 箇所の違いしかありません:
 
 - 使用する cloud-init-`<timestamp>`.yaml ファイル名。
-- `machine-type` の設定。本番環境では、`gcloud` スクリプトでマシンタイプを指定することが推奨されます。現在、UID2 オペレータは `n2d-standard-16` のマシンタイプで実行することが推奨されています。
+- `machine-type` の設定。本番環境では、`gcloud` スクリプトでマシンタイプを指定することが推奨されます。現在、UID2 オペレーターは `n2d-standard-16` のマシンタイプで実行することが推奨されています。
 
 以下は、スクリプトの例です。
 
@@ -195,5 +195,5 @@ $ gcloud compute instances \
 
 ## Upgrading
 
-各オペレータのバージョンを更新するために、Private operator は、古いバージョンが非アクティブになり、サポートされなくなるときに、アップグレードのウィンドウを持つメール通知を受け取ります。
-最新バージョンにアップグレードするには、元のオペレータをデプロイしたのと同じ方法で、メールで提供される新しい `cloud-init` 設定をデプロイします。
+各オペレーターのバージョンを更新するために、Private operator は、古いバージョンが非アクティブになり、サポートされなくなるときに、アップグレードのウィンドウを持つメール通知を受け取ります。
+最新バージョンにアップグレードするには、元のオペレーターをデプロイしたのと同じ方法で、メールで提供される新しい `cloud-init` 設定をデプロイします。

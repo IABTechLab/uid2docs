@@ -9,25 +9,25 @@
 UID2 API リクエストの暗号化と各レスポンスの復号化について知っておく必要があるのは、以下のとおりです:
 
 - API を使用するには、クライアントの API キーに加えて、クライアントシークレットが必要です。
-- 独自のカスタムスクリプトを作成するか、以下のセクションで提供される Python スクリプトを使用することができます。
+- 独自のカスタムスクリプトを作成するか、以下のセクションで提供される Python スクリプトを使用できます。
 - リクエストとレスポンスには、96 ビットの初期化ベクトルと 128 ビットの認証タグを持つ AES/GCM/NoPadding 暗号化アルゴリズムが使用されます。
-- リクエストの生の暗号化されていない JSON ボディは、バイナリの　[暗号化前リクエストデータエンベロープ](#unencrypted-request-data-envelope) にラップされ、その後 [暗号化リクエストエンべローブ](#encrypted-request-envelope) に従って暗号化とフォーマットが行われます。
-- レスポンス JSON ボディはバイナリの　[復号化済みレスポンスデータエンベロープ](#unencrypted-response-data-envelope) にラップされ、[暗号化レスポンスエンベロープ](#encrypted-response-envelope) に従って暗号化・整形されます。
+- リクエストの生の暗号化されていない JSON ボディは、バイナリの　[暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) にラップされ、その後 [暗号化リクエストエンべローブ](#encrypted-request-envelope) にしたがって暗号化とフォーマットが行われます。
+- レスポンス JSON ボディはバイナリの　[復号化済みレスポンスデータエンベローブ](#unencrypted-response-data-envelope) にラップされ、[暗号化レスポンスエンベローブ](#encrypted-response-envelope) にしたがって暗号化・整形されます。
 
 ## Workflow
 
 UID2 API のハイレベルなリクエスト・レスポンスワークフローは、以下のステップです:
 
 1. 入力パラメータを含むリクエストボディを JSON 形式で用意します。
-2. リクエスト JSON を[暗号化前リクエストデータエンベロープ](#unencrypted-request-data-envelope) でラップします。
-3. AES/GCM/NoPadding アルゴリズムと秘密鍵でエンベロープを暗号化します。
+2. リクエスト JSON を[暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) でラップします。
+3. AES/GCM/NoPadding アルゴリズムと秘密鍵でエンベローブを暗号化します。
 4. [暗号化リクエストエンべローブ](#encrypted-request-envelope)を組み立てます。
 5. 暗号化されたリクエストを送信し、暗号化されたレスポンスを受信します。
 6. [暗号化レスポンスエンベローブ](#encrypted-response-envelope) を解析します。
-7. レスポンスエンベロープのデータを復号化します。
-8. 得られた [復号化済みレスポンスデータエンベロープ](#unencrypted-response-data-envelope) を解析します。
-9. （オプション、推奨）レスポンスエンベロープの nonce がリクエストエンベロープの nonce と一致することを確認します。
-10. 暗号化されていないエンベロープからレスポンス JSON オブジェクトを抽出します。
+7. レスポンスエンベローブのデータを復号化します。
+8. 得られた [復号化済みレスポンスデータエンベローブ](#unencrypted-response-data-envelope) を解析します。
+9. （オプション、推奨）レスポンスエンベローブの nonce がリクエストエンベローブの nonce と一致することを確認します。
+10. 暗号化されていないエンベローブからレスポンス JSON オブジェクトを抽出します。
 
 [リクエストの暗号化とレスポンスの復号化](#example-encryption-and-decryption-script)の Python サンプルスクリプトは、ステップ2〜10の自動化に役立ち、アプリケーションにこれらのステップを実装する方法の参考となります。
 
@@ -35,7 +35,7 @@ UID2 API のハイレベルなリクエスト・レスポンスワークフロ�
 
 ## Encrypting Requests
 
-リクエストを暗号化するための独自のスクリプトを作成するか、UID2 SDK を使用するか、提供されている[Pythonサンプルスクリプト](#example-encryption-and-decryption-script)を使用するかを選択することができます。独自のスクリプトを作成する場合は、[暗号化前リクエストデータエンベロープ](#unencrypted-request-data-envelope)および[暗号化リクエストエンべローブ](#encrypted-request-envelope）に記載のフィールドレイアウト要件に必ず従ってください。
+リクエストを暗号化するための独自のスクリプトを作成するか、UID2 SDK を使用するか、提供されている[Pythonサンプルスクリプト](#example-encryption-and-decryption-script)を使用するかを選択できます。独自のスクリプトを作成する場合は、[暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope)および[暗号化リクエストエンべローブ](#encrypted-request-envelope）に記載のフィールドレイアウト要件に必ずしたがってください。
 
 ### Unencrypted Request Data Envelope
 
@@ -44,7 +44,7 @@ UID2 API のハイレベルなリクエスト・レスポンスワークフロ�
 | Offset (Bytes) | Size (Bytes) | Description                                                                                                                                                                                                                                                   |
 | :------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 0              | 8            | UNIX タイムスタンプ（ミリ秒単位）です。int64 のビッグエンディアンでなければなりません。                                                                                                                                                                       |
-| 8              | 8            | Nonce: リプレイ攻撃から保護するために使用されるランダムな 64 ビットのデータです。対応する [復号化済みレスポンスデータエンベロープ](#unencrypted-response-data-envelope) には、レスポンスが有効とみなされるために同じ nonce 値が含まれていなければなりません。 |
+| 8              | 8            | Nonce: リプレイ攻撃から保護するために使用されるランダムな 64 ビットのデータです。対応する [復号化済みレスポンスデータエンベローブ](#unencrypted-response-data-envelope) には、レスポンスが有効とみなされるために同じ nonce 値が含まれていなければなりません。 |
 | 16             | N            | UTF-8 エンコーディングでシリアライズされたリクエスト JSON ドキュメントをペイロードとします。                                                                                                                                                                  |
 
 ### Encrypted Request Envelope
@@ -53,14 +53,14 @@ UID2 API のハイレベルなリクエスト・レスポンスワークフロ�
 
 | Offset (Bytes) | Size (Bytes) | Description                                                                                                                                 |
 | :------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0              | 1            | エンベロープフォーマットのバージョン。常に `1` でなければなりません。                                                                       |
+| 0              | 1            | エンベローブフォーマットのバージョン。常に `1` でなければなりません。                                                                       |
 | 1              | 12           | 96 ビットの初期化ベクトル（IV）、データ暗号化のランダム化に使用されます。                                                                   |
-| 13             | N            | ペイロード（[暗号化前リクエストデータエンベロープ](#unencrypted-request-data-envelope)) は AES/GCM/NoPadding アルゴリズムで暗号化されます。 |
+| 13             | N            | ペイロード（[暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope)) は AES/GCM/NoPadding アルゴリズムで暗号化されます。 |
 | 13 + N         | 16           | データの整合性を確認するために使用される 128 ビット GCM 認証タグです。                                                                      |
 
 ## Decrypting Responses
 
-レスポンスを復号化するスクリプトを独自に作成するか、UID2 SDK を使用するか、提供されている [Python サンプルスクリプト](#example-encryption-and-decryption-script) を使用するかを選択することができます。独自のスクリプトを作成する場合は、[暗号化前リクエストデータエンベロープ](#encrypted-response-envelope)および[復号化済みレスポンスデータエンベロープ](#unencrypted-response-data-envelope)に記載のフィールドレイアウト要件に必ず従ってください。
+レスポンスを復号化するスクリプトを独自に作成するか、UID2 SDK を使用するか、提供されている [Python サンプルスクリプト](#example-encryption-and-decryption-script) を使用するかを選択できます。独自のスクリプトを作成する場合は、[暗号化前リクエストデータエンベローブ](#encrypted-response-envelope)および[復号化済みレスポンスデータエンベローブ](#unencrypted-response-data-envelope)に記載のフィールドレイアウト要件に必ずしたがってください。
 
 > NOTE: レスポンスは、サービスが HTTP ステータスコード 200 を返す場合のみ、暗号化されます。
 
@@ -71,7 +71,7 @@ UID2 API のハイレベルなリクエスト・レスポンスワークフロ�
 | Offset (Bytes) | Size (Bytes) | Description                                                                                                                                        |
 | :------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0              | 12           | 96 ビットの初期化ベクトル（IV）、データ暗号化のランダム化に使用されます。                                                                          |
-| 12             | N            | ペイロード([復号化済みレスポンスデータエンベロープ](#unencrypted-response-data-envelope)) は、AES/GCM/NoPadding アルゴリズムで暗号化されています。 |
+| 12             | N            | ペイロード([復号化済みレスポンスデータエンベローブ](#unencrypted-response-data-envelope)) は、AES/GCM/NoPadding アルゴリズムで暗号化されています。 |
 | 12 + N         | 16           | データの整合性を確認するために使用される 128 ビット GCM 認証タグ。                                                                                 |
 
 ### Unencrypted Response Data Envelope
@@ -83,12 +83,12 @@ The following table describes the field layout for response decryption scripts.
 | Offset (Bytes) | Size (Bytes) | Description                                                                                                                                                                |
 | :------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0              | 8            | UNIX タイムスタンプ（ミリ秒単位）です。int64 のビッグエンディアンでなければなりません。                                                                                    |
-| 8              | 8            | Nonce: レスポンスが有効であるとみなされるためには、これは [暗号化前リクエストデータエンベロープ](#unencrypted-request-data-envelope) の nonce と一致する必要があります。　 |
+| 8              | 8            | Nonce: レスポンスが有効であるとみなされるためには、これは [暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) の nonce と一致する必要があります。　 |
 | 16             | N            | UTF-8 エンコーディングでシリアライズされたレスポンス JSON ドキュメントをペイロードとします。                                                                               |
 
 ### Response Example
 
-例えば、[先行例](#request-example) のメールアドレスに対する [POST /token/generate](../endpoints/post-token-generate.md) リクエストに対する復号されたレスポンスは、次のようになることが考えられます:
+たとえば、[先行例](#request-example) のメールアドレスに対する [POST /token/generate](../endpoints/post-token-generate.md) リクエストに対する復号されたレスポンスは、次のようになることが考えられます:
 
 ```json
 {
@@ -108,12 +108,12 @@ The following table describes the field layout for response decryption scripts.
 ## Example Encryption and Decryption Script
 
 リクエストを暗号化し、レスポンスを復号化するための Python スクリプト (`uid2_request.py`) の例を以下に示します。必要なパラメータはスクリプトの先頭に記載されています。また、`python3 uid2_request.py` を実行することでも確認できます。
->Windowsの場合は、`python3`を`python`に置き換えてください。PowerShellの代わりにWindowsコマンドプロンプトを使用する場合は、JSONを囲むシングルクォートも削除する必要があります（例えば、`echo {"email": "test@example.com"}` を使用します）。
+>Windowsの場合は、`python3`を`python`に置き換えてください。PowerShellの代わりにWindowsコマンドプロンプトを使用する場合は、JSONを囲むシングルクォートも削除する必要があります（たとえば、`echo {"email": "test@example.com"}` を使用します）。
 
 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントでは、スクリプトは `refresh_token` と `refresh_response_key` に、事前に [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) で取得した値を使用します。
 
 ### Prerequisites
-このスクリプトは `pycryptodomex` と `requests` パッケージを必要とします。これらは以下の手順でインストールすることができます：
+このスクリプトは `pycryptodomex` と `requests` パッケージを必要とします。これらは以下の手順でインストールできます：
 ```console
 pip install pycryptodomex
 pip install requests

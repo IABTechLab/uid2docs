@@ -2,9 +2,9 @@
 
 # Microsoft Azure Confidential Compute Operator Package
 
-IMPORTANT: このドキュメントは現在、PoC の段階です。詳細については、UID2 Administrator に [連絡](../../README.md#contact-info) してください。
+IMPORTANT: このドキュメントは現在、PoC の段階です。詳細は、UID2 Administrator に [連絡](../../README.md#contact-info) してください。
 
-UID2 Operator サービスは、Intel SGX テクノロジーを搭載したトラステッドコンピューティングエンクレーブ内で実行することができます。
+UID2 Operator サービスは、Intel SGX テクノロジーを搭載したトラステッドコンピューティングエンクレーブ内で実行できます。
 
 1. [Build（ビルド）](#build)
 2. [Test Run（テスト）](#test-run)
@@ -42,9 +42,9 @@ export enclave_platform=azure-sgx
 mvn package -P azure
 ```
 
-2. `scripts/azure` ディレクトリで、enclave に含めるオペレータの設定ファイルを 1 つ選択します。設定ファイルは `conf/` フォルダの下にあり、`-config.json` というサフィックスを省略する必要があります。
+2. `scripts/azure` ディレクトリで、enclave に含めるオペレーターの設定ファイルを 1 つ選択します。設定ファイルは `conf/` フォルダの下にあり、`-config.json` というサフィックスを省略する必要があります。
 
-3. エンクレーブと docker イメージをビルドし、使用する設定ファイルを指定します。例えば:
+3. エンクレーブと docker イメージをビルドし、使用する設定ファイルを指定します。たとえば:
 
 ```
 ./build.sh prod
@@ -65,7 +65,7 @@ mvn package -P azure
 
 ## Test Run
 
-ビルドしたイメージは、ビルドボックス上でローカルにテスト実行することができます。
+ビルドしたイメージは、ビルドボックス上でローカルにテスト実行できます。
 
 - `./run.sh` -- operator サービスを開始します。
 - `./run.sh occlum run /bin/sgx_quote` -- エンクレーブに関する基本情報をダンプします。
@@ -83,21 +83,21 @@ Operator enclave には、以下の環境変数を設定する必要がありま
 
 ### AKS (Recommended)
 
-1. 組織のポリシーに従ってAKSクラスタとノードプールを準備し、コンフィデンシャル コンピューティングを必ず有効にしてください。
+1. 組織のポリシーにしたがってAKSクラスタとノードプールを準備し、コンフィデンシャル コンピューティングを必ず有効にしてください。
 
-2. docker イメージを、Docker リポジトリ (Azure Container Service など) で利用できるようにします。例えば:
+2. docker イメージを、Docker リポジトリ (Azure Container Service など) で利用できるようにします。たとえば:
 
 ```
 cat uid2-operator-azure-sgx.tar.gz | docker import - uid20.azurecr.io/uid2/operator/occlum:0.2
 docker push uid20.azurecr.io/uid2/operator/occlum:0.2。
 ```
 
-3. 必要に応じて、k8s のデプロイとサービスを作成します。例として `uid2-operator-aks.yml` を使用することができます。
+3. 必要に応じて、k8s のデプロイとサービスを作成します。例として `uid2-operator-aks.yml` を使用できます。
 
 > IMPORTANT: Operator イメージが SGX 有効なノードをターゲットにしていることを確認してください (たとえば、`kubernetes.azure.com/sgx_epc_mem_in_MiB` にリソース制限を指定します)。
 
 Operator Service は Standard_DC8_v2 インスタンスで実行するように設計されています。より小さなノードでの実行はサポートされていません。
-同じノードで複数のオペレータサービスインスタンスを実行することはサポートされていません。
+同じノードで複数のオペレーターサービスインスタンスを実行することはサポートされていません。
 
 ### Advanced Deployment Options
 
@@ -105,7 +105,7 @@ Operator Service は Standard_DC8_v2 インスタンスで実行するように�
 
 #### Docker
 
-ホストに Intel SGX DCAP ドライバがインストールされ、設定されていることを確認します。AKS セクションの手順に従って、operator docker イメージを実行可能な状態にします。
+ホストに Intel SGX DCAP ドライバがインストールされ、設定されていることを確認します。AKS セクションの手順にしたがって、operator docker イメージを実行可能な状態にします。
 
 イメージの実行例:
 
@@ -119,7 +119,7 @@ docker run \
 
 #### Direct Invocation of Occlum (Advanced)
 
-また、occlum enclave は、ホスト VM から、または独自の docker image から実行することができます:
+また、occlum enclave は、ホスト VM から、または独自の docker image から実行できます:
 
 ```
 tar xvf uid2-operator.tar.gz

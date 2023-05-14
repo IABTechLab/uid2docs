@@ -2,11 +2,11 @@
 
 # POST /token/refresh
 
-[POST /token/generate](./post-token-generate.md) エンドポイントを使用して発行された Refresh Token を指定し、ユーザーの新しいトークンを生成することができます。
+[POST /token/generate](./post-token-generate.md) エンドポイントを使用して発行された Refresh Token を指定し、ユーザーの新しいトークンを生成できます。
 
 Used by:　このエンドポイントは、主にパブリッシャーが使用します。
 
-> NOTE: このエンドポイントは、API キーを使用する必要がないため、クライアント側（例えば、ブラウザやモバイルアプリなど）から呼び出すことができます。
+> NOTE: このエンドポイントは、API キーを使用する必要がないため、クライアント側（たとえば、ブラウザやモバイルアプリなど）から呼び出せます。
 
 ## Request Format
 
@@ -23,7 +23,7 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 
 | Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                   |
 | :-------------- | :-------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレータを含む全リストは [Environments](../summary-doc-v2.md#environments) を参照してください。 |
+| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../summary-doc-v2.md#environments) を参照してください。 |
 
 #### Testing Notes
 
@@ -34,7 +34,7 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 
 ### Request Example
 
-詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON Response Format
 

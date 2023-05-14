@@ -2,7 +2,7 @@
 
 # Server-Side SDK Guide
 
-UID2 サーバーサイド SDK を使用すると、UID2 Advtising Token のを復号して raw UID2 に容易にアクセスすることができます。
+UID2 サーバーサイド SDK を使用すると、UID2 Advtising Token のを復号して raw UID2 に容易にアクセスできます。
 
 このガイドには、以下の情報が含まれています：
 
@@ -34,7 +34,7 @@ UID2 サーバーサイド SDK を使用すると、UID2 Advtising Token のを�
 | Parameter           | Description                                                                                                              | Recommended Value                  |
 | :------------------ | :----------------------------------------------------------------------------------------------------------------------- | :--------------------------------- |
 | `endpoint`          | UID2 サービスのエンドポイントです。                                                                                      | N/A                                |
-| `authKey`           | クライアントの認証トークンです。UID2 へのアクセスについては、[連絡先](../../README.md#contact-info) を参照してください。 | N/A                                |
+| `authKey`           | クライアントの認証トークンです。UID2 へのアクセスは、[連絡先](../../README.md#contact-info) を参照してください。 | N/A                                |
 | `refreshIntervalMs` | 復号化キーを取得するためのリフレッシュ間隔（ミリ秒単位）です。                                                           | `300,000` milliseconds (5 minutes) |
 | `retryIntervalMs`   | エラーが発生したときにリクエストを再試行するための再試行間隔（ミリ秒単位）です。                                         | `30,000` milliseconds (30 seconds) |
 
@@ -56,9 +56,9 @@ SDK から返される情報の概要は、以下のとおりです。
 
 | Property      | Description                                                                                                                                       |
 | :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Status`      | 復号化結果のステータスです。取り得る値の一覧と定義については、次の表を参照してください[Response Statuses](#response-statuses)を参照してください。 |
+| `Status`      | 復号化結果のステータスです。取り得る値の一覧と定義は、次の表を参照してください[Response Statuses](#response-statuses)を参照してください。 |
 | `UID2`        | UID2 Token に対応する UID2 です。                                                                                                                 |
-| `Established` | ユーザーがパブリッシャーと最初に UID2 を確立した時のタイムスタンプです。                                                                          |
+| `Established` | ユーザーがパブリッシャーと最初に UID2 を確立したときのタイムスタンプです。                                                                          |
 
 ### Response Statuses
 
@@ -74,6 +74,6 @@ SDK から返される情報の概要は、以下のとおりです。
 
 ## FAQs
 
-DSP に関するよくある質問については、 [FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps) を参照してください。
+DSP に関するよくある質問は、 [FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps) を参照してください。
 
 すべてのリストは、[Frequently Asked Questions](../getting-started/gs-faqs.md)を参照してください。

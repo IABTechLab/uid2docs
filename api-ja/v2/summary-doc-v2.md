@@ -2,14 +2,14 @@
 
 # UID2 API v2 Documentation
 
-UID2 の定義、ID タイプ、指針、構成要素、その他の概念的な詳細については、 [UID2 概要](../../README-ja.md) を参照してください。連絡先やライセンス情報、正規化およびハッシュエンコーディングの規則については、 [Getting Started](../README.md) を参照してください。
+UID2 の定義、ID タイプ、指針、構成要素、その他の概念的な詳細は、 [UID2 概要](../../README-ja.md) を参照してください。連絡先やライセンス情報、正規化およびハッシュエンコーディングの規則は、 [Getting Started](../README.md) を参照してください。
 
 このページでは、UID2 API v2 を使い始めるために必要な以下の情報を提供します:
 
 - [Environments（環境）](#environments)
 - [Authentication and Authorization（認証と承認）](#authentication-and-authorization)
 
-API の使用方法については、以下のページを参照してください。
+API の使用方法は、以下のページを参照してください。
 
 | Documentation                                                                               | Content Description                                                                                                                                                                             |
 | :------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -32,7 +32,7 @@ API バージョン 1 からの改善点・変更点の一覧は、[UID2 API v1�
 | 本番環境    | AWS Asia Pacific (Tokyo)     | `ap-northeast-1` | `https://jp.prod.uidapi.com`        |
 | 本番環境    | AWS Asia Pacific (Singapore) | `ap-southeast-1` | `https://sg.prod.uidapi.com`        |
 
-例えば、https://operator-integ.uidapi.com/v2/token/generate
+たとえば、https://operator-integ.uidapi.com/v2/token/generate
 
 ## Authentication and Authorization
 
@@ -40,4 +40,4 @@ UID2 エンドポイントに対して認証するには、以下が必要です
 
 - リクエストの認証ヘッダーにベアラートークンとして含まれるクライアント API キーです。
   <br/>`Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=`
-- [POST /token/refresh](endpoints/post-token-refresh.md) を除くすべてのエンドポイントで、API リクエストを暗号化し、API レスポンスを復号化するためのクライアントシークレットです。<br/>詳細と Python の例については、[リクエストの暗号化とレスポンスの復号化](getting-started/gs-encryption-decryption.md) を参照してください。
+- [POST /token/refresh](endpoints/post-token-refresh.md) を除くすべてのエンドポイントで、API リクエストを暗号化し、API レスポンスを復号化するためのクライアントシークレットです。<br/>詳細と Python の例は、[リクエストの暗号化とレスポンスの復号化](getting-started/gs-encryption-decryption.md) を参照してください。
