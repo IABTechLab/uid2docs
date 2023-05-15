@@ -267,7 +267,7 @@ export const partnersData: PartnersDataType = [
   },
   {
     name: "Lucid",
-    logo: "Lucid-Logo.png",
+    logo: "partner-logo-lucid.jpg",
     type: ["Data"],
     featured: true,
     order: 13,
