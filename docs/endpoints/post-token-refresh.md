@@ -20,7 +20,7 @@ Here's what you need to know about this endpoint:
 
 - No encryption is required for token refresh requests.
 - Responses are encrypted only if the HTTP status code is 200. Otherwise, responses are not encrypted.
-- To decrypt responses, you need to use the `refresh_response_key` value returned in the [POST /token/generate](post-token-generate.md) or `POST /token/refresh` response from which the refresh token in the request is returned.
+- To decrypt responses, the `refresh_response_key` value returned in the [POST /token/generate](post-token-generate.md) or `POST /token/refresh` response from which the refresh token in the request is returned.
 - If you send a refresh token from a v1 `token/generate` response in the request, the response will not be encrypted.
 
 ### Path Parameters
@@ -28,6 +28,8 @@ Here's what you need to know about this endpoint:
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md). |
+
+>NOTE: The integration environment and the production environment require different [API keys](../ref-info/glossary-uid.md#gl-api-key).
 
 #### Testing Notes
 
@@ -38,23 +40,7 @@ Using either of the following parameters in a [POST /token/generate](post-token-
 
 ### Request Example
 
-Here's a token refresh request format with placeholder values, which include the `refresh_token` and `refresh_response_key` values returned by a [POST /token/generate](post-token-generate) request:
-
-```sh
-echo [refresh_token] \
-  | curl -X POST 'https://prod.uidapi.com/v2/token/refresh' -d @- \
-  | decrypt_response.py [refresh_response_key] --is-refresh
-```
-
-Here's a token refresh request example:
-
-```sh
-echo AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNSVnCnzYq2BiDDz8SLsKOo6wZsoMIn95jVWBaA6oLq7uUGY5/g9SUOfFmX5uDXUvO0w2UCKi+j9OQhlMfxTsyUQUzC1VQOx6ed/gZjqH/Sw6Kyk0XH7AlziqSyyXA438JHqyJphGVwsPl2LGCH1K2MPxkLmyzMZ2ghTzrr0IgIOXPsL4lXqSPkl/UJqnO3iqbihd66eLeYNmyd1Xblr3DwYnwWdAUXEufLoJbbxifGYc+fPF+8DpykpyL9neq3oquxQWpyHsftnwYaZT5EBZHQJqAttHUZ4yQ== \
-  | curl -X POST 'https://prod.uidapi.com/v2/token/refresh' -d @- \
-  | decrypt_response.py wR5t6HKMfJ2r4J7fEGX9Gw== --is-refresh
-```
-
-For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption).
+For details and Python script examples, see [Encrypting Requests and Decrypting Responses (Python script example)](../getting-started/gs-encryption-decryption#uid2_requestpy).
 
 ## Decrypted JSON Response Format
 

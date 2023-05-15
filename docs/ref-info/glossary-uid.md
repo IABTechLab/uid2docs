@@ -1,11 +1,11 @@
 ---
-title: Glossary of Terms
+title: UID2 Glossary
 description: Definitions for some UID2 terms.
 hide_table_of_contents: false
 sidebar_position: 10
 ---
 
-# Unified ID 2.0 Glossary of Terms
+# Unified ID 2.0 Glossary
 <p>This page defines some key terms used in the UID2 documentation.</p>
 
 <!-- <table>
@@ -22,6 +22,8 @@ sidebar_position: 10
 <td>
 <ul>
 <li><a href="#gl-advertising-id">Advertising ID</a></li>
+<li><a href="#gl-api-key">API key</a></li>
+<li><a href="#gl-api-secret">API secret</a></li>
 <li><a href="#gl-advertising-token">Advertising token</a></li>
 <li><a href="#gl-authorization-header">Authorization header</a></li>
 <li><a href="#gl-bearer-token">Bearer token</a></li>
@@ -92,7 +94,11 @@ sidebar_position: 10
 <dd>Advertising token is another term for a <a href="#gl-uid2-token">UID2 token</a>.</dd>
 
 <dt class="jump-anchor" id="gl-api-key">API key</dt>
-<dd>See <a href="#gl-client-key">Client key</a>.</dd>
+<dd>Each UID2 <a href="/docs/intro#participants">participant</a> has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
+<dd>For details, see <a href="/docs/getting-started/gs-api-keys">API Keys</a>.</dd>
+
+<dt class="jump-anchor" id="gl-api-secret">API secret</dt>
+<dd>See <a href="#gl-client-secret">client secret</a>.</dd>
 
 <dt class="jump-anchor" id="gl-authorization-header">Authorization header</dt>
 <dd>The Authorization header is a way to authenticate the client to the UID2 service.</dd>
@@ -102,11 +108,10 @@ sidebar_position: 10
 <dd>A bearer token is a special string that identifies the client. For authentication, some UID2 endpoints require the <a href="#gl-client-key">client key</a> to be specified as a bearer token in the Authorization header of the request: for example, <a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a>.</dd>
 
 <dt class="jump-anchor" id="gl-client-key">Client key</dt>
-<dd>Each UID2 <a href="/docs/intro#participants">participant</a> has a client key, also called API key, that allows the participant to connect to the <a href="#gl-operator-service">Operator Service</a> and call API endpoints. The client key identifies the participant to the UID2 service.</dd>
-<dd>For details, see <a href="/docs/getting-started/gs-api-keys">API Keys</a>.</dd>
+<dd>See <a href="#gl-api-key">API key</a>.</dd>
 
 <dt class="jump-anchor" id="gl-client-secret">Client secret</dt>
-<dd>Each UID2 <a href="/docs/intro#participants">participant</a> has a client key (API key) and also a secret value associated with the key, called the client secret. The client secret is known only to the participant and the UID2 service.</dd>
+<dd>Each UID2 <a href="/docs/intro#participants">participant</a> has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
 <dd>For details, see <a href="/docs/getting-started/gs-api-keys">API Keys</a>.</dd>
 
 <dt class="jump-anchor" id="gl-closed-operator">Closed operator</dt>

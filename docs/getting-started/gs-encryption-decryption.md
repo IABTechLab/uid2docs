@@ -34,13 +34,13 @@ The high-level request-response workflow for the UID2 APIs includes the followin
 9. (Optional, recommended) Ensure the nonce the in the response envelope matches the nonce in the request envelope.
 10. Extract the response JSON object from the unencrypted envelope.
 
-Python example scripts for [encrypting requests](#example-encryption-script) and [decrypting responses](#example-decryption-script) can help with automating steps 2-4 and 6-10 and serve as a reference of how to implement these steps in your application.
+A Python example script for [encrypting requests and decrypting responses](#example-encryption-and-decryption-script) can help with automating steps 2-10 and serve as a reference of how to implement these steps in your application.
 
-The individual UID2 [endpoints](../endpoints/summary-endpoints.md) explain the respective JSON body format requirements and parameters, include call examples, and show decrypted responses. The following sections provide examples of the encryption and decryption scripts in Python, field layout requirements, and request and response examples. 
+The individual UID2 [endpoints](../endpoints/summary-endpoints.md) explain the respective JSON body format requirements and parameters, include call examples, and show decrypted responses. The following sections provide examples of the encryption and decryption script in Python, field layout requirements, and request and response examples. 
 
 ## Encrypting Requests
 
-You have the option of writing your own script for encrypting requests or using the provided [Python example script](#example-encryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) and [Encrypted Request Envelope](#encrypted-request-envelope).
+You have the option of writing your own script for encrypting requests, using a UID2 SDK, or using the provided [Python example script](#example-encryption-and-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) and [Encrypted Request Envelope](#encrypted-request-envelope).
 
 ### Unencrypted Request Data Envelope
 
@@ -63,59 +63,9 @@ The following table describes the field layout for request encryption scripts.
 | 13 | N | Payload ([Unencrypted Request Data Envelope](#unencrypted-request-data-envelope)) encrypted using the AES/GCM/NoPadding algorithm. |
 | 13 + N | 16 | 128-bit GCM authentication tag used to verify data integrity. |
 
-### Example Encryption Script
-
-Here's an example Python script (`encrypt_request.py`) for encrypting requests, which takes the client secret as a parameter:
-
-```py
-import base64
-import os
-import sys
-import time
-from datetime import datetime
-
-from Crypto.Cipher import AES
-
-secret = base64.b64decode(sys.argv[1])
-payload = "".join(sys.stdin.readlines())
-
-iv = os.urandom(12)
-cipher = AES.new(secret, AES.MODE_GCM, nonce=iv)
-
-millisec = int(time.time() * 1000)
-nonce = os.urandom(8)
-
-print(f'Request timestamp: {datetime.fromtimestamp(millisec/1000)}', file=sys.stderr)
-print(f'Request nonce: {int.from_bytes(nonce, "big")}', file=sys.stderr)
-print(file=sys.stderr)
-
-body = bytearray(millisec.to_bytes(8, 'big'))
-body += bytearray(nonce)
-body += bytearray(bytes(payload, 'utf-8'))
-
-ciphertext, tag = cipher.encrypt_and_digest(body)
-
-envelope = bytearray(b'\x01')
-envelope += bytearray(iv)
-envelope += bytearray(ciphertext)
-envelope += bytearray(tag)
-
-print(base64.b64encode(bytes(envelope)).decode() + "\n")
-```
-### Request Example
-
-For example, to send an encrypted [POST /token/generate](../endpoints/post-token-generate.md) request for an email address, you can run the following command.
-
-```sh
-echo '{"email": "test@example.com"}' \
-  | encrypt_request.py [Your-Client-Secret] \
-  | curl -X POST 'https://prod.uidapi.com/v2/token/generate' -H 'Authorization: Bearer [Your-Client-API-Key]' -d @- \
-  | decrypt_response.py [Your-Client-Secret] 0
-```
-
 ## Decrypting Responses
 
-You have the option of writing your own script for decrypting responses or using the provided [Python example script](#example-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Encrypted Response Envelope](#encrypted-response-envelope) and [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
+You have the option of writing your own script for decrypting responses, using a UID2 SDK, or using the provided [Python example script](#example-encryption-and-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Encrypted Response Envelope](#encrypted-response-envelope) and [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
 
 >NOTE: Response is encrypted only if the service returns HTTP status code 200.
 
@@ -139,53 +89,6 @@ The following table describes the field layout for response decryption scripts.
 | 8 | 8 | Nonce. For the response to be considered valid, this should match the nonce in the [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope). |
 | 16 | N | Payload, which is a response JSON document serialized in UTF-8 encoding. |
 
-### Example Decryption Script
-
-Here's an example Python script (`decrypt_response.py`) for decrypting responses, which takes the following parameters:
-
-- The client secret
-- (Optional) `--is-refresh` to indicate that the response is for a [POST /token/refresh](../endpoints/post-token-refresh.md) request
-
->IMPORTANT: To decrypt responses, you need to use the `refresh_response_key` value returned in the [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md) response from which the refresh token in the request is returned.
-
-```py
-import base64
-import json
-import sys
-from datetime import datetime
-
-from Crypto.Cipher import AES
-
-secret = base64.b64decode(sys.argv[1].strip())
-is_refresh_response = 1 if len(sys.argv) > 2 and sys.argv[2] == '--is-refresh' else 0
-response = "".join(sys.stdin.readlines())
-
-print()
-try:
-    err_resp = json.loads(response)
-    print("Error response:")
-    print(json.dumps(err_resp, indent=4))
-except:
-    resp_bytes = base64.b64decode(response)
-    iv = resp_bytes[:12]
-    data = resp_bytes[12:len(resp_bytes) - 16]
-    tag = resp_bytes[len(resp_bytes) - 16:]
-
-    cipher = AES.new(secret, AES.MODE_GCM, nonce=iv)
-    decrypted = cipher.decrypt_and_verify(data, tag)
-
-    if is_refresh_response != 1:
-        tm = datetime.fromtimestamp(int.from_bytes(decrypted[:8], 'big') / 1000)
-        print(f'Response timestamp: {tm}')
-        nonce = int.from_bytes(decrypted[8:16], 'big')
-        print(f'Response nonce: {nonce}')
-        json_resp = json.loads(decrypted[16:].decode("utf-8"))
-    else:
-        json_resp = json.loads(decrypted.decode("utf-8"))
-    print("Response JSON:")
-    print(json.dumps(json_resp, indent=4))
-    print()
-```
 ### Response Example
 
 For example, a decrypted response to the [POST /token/generate](../endpoints/post-token-generate.md) request for an email address in the [preceding example](#request-example), may look like this:
@@ -203,4 +106,116 @@ For example, a decrypted response to the [POST /token/generate](../endpoints/pos
     },
     "status": "success"
 }
+```
+
+## Example Encryption and Decryption Script
+
+Here's an example Python script (`uid2_request.py`) for encrypting requests and decrypting responses. The required parameters are shown at the top of the script, or by running `python3 uid2_request.py`
+>For Windows, replace `python3` with `python`. If using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON (for example, use `echo {"email": "test@example.com"}` ).
+
+For the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, the script takes values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md).
+
+### Prerequisites
+The script requires the `pycryptodomex` and `requests` packages. These can be installed as follows:
+```console
+pip install pycryptodomex
+pip install requests
+```
+
+#### uid2_request.py
+```py
+"""
+Usage:
+   echo '<json>' | python3 uid2_request.py <url> <api_key> <client_secret>
+
+Example:
+   echo '{"email": "test@example.com"}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate PRODGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=
+   
+
+Refresh Token Usage:
+   python3 uid2_request.py <url> --refresh-token <refresh_token> <refresh_response_key>
+
+Refresh Token Usage example:
+   python3 uid2_request.py https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s=
+
+"""
+
+import base64
+import os
+import sys	
+import time
+import json
+
+import requests
+from Cryptodome.Cipher import AES
+
+def b64decode(b64string, param):
+   try:
+      return base64.b64decode(b64string)
+   except Exception:
+   	   print(f"Error: <{param}> is not base64 encoded")
+   	   sys.exit()
+	   
+if len(sys.argv) != 4 and len(sys.argv) != 5:
+   print(__doc__)
+   sys.exit()
+
+url = sys.argv[1]
+
+is_refresh = 1 if sys.argv[2] == '--refresh-token' else 0
+if is_refresh:
+   refresh_token = sys.argv[3]
+   secret = b64decode(sys.argv[4], "refresh_response_key")
+   print(f"\nRequest: Sending refresh_token to {url}\n")
+   http_response = requests.post(url, refresh_token)
+else:
+   api_key = sys.argv[2]
+   secret = b64decode(sys.argv[3], "client_secret")
+   payload = "".join(sys.stdin.readlines())
+
+   iv = os.urandom(12)
+   cipher = AES.new(secret, AES.MODE_GCM, nonce=iv)
+
+   millisec = int(time.time() * 1000)
+   request_nonce = os.urandom(8)
+
+   print(f"\nRequest: Encrypting and sending to {url} : {payload}")
+
+   body = bytearray(millisec.to_bytes(8, 'big'))
+   body += bytearray(request_nonce)
+   body += bytearray(bytes(payload, 'utf-8'))
+
+   ciphertext, tag = cipher.encrypt_and_digest(body)
+
+   envelope = bytearray(b'\x01')
+   envelope += bytearray(iv)
+   envelope += bytearray(ciphertext)
+   envelope += bytearray(tag)
+
+   base64Envelope = base64.b64encode(bytes(envelope)).decode()
+
+   http_response = requests.post(url, base64Envelope, headers={"Authorization": "Bearer " + api_key})
+   
+# Decryption 
+response = http_response.content
+if http_response.status_code != 200:
+   print(f"Response: Error HTTP status code {http_response.status_code}", end=", check api_key\n" if http_response.status_code == 401 else "\n")
+   print(response.decode("utf-8"))
+else:
+   resp_bytes = base64.b64decode(response)
+   iv = resp_bytes[:12]
+   data = resp_bytes[12:len(resp_bytes) - 16]
+   tag = resp_bytes[len(resp_bytes) - 16:]
+
+   cipher = AES.new(secret, AES.MODE_GCM, nonce=iv)
+   decrypted = cipher.decrypt_and_verify(data, tag)
+
+   if is_refresh != 1:
+      json_resp = json.loads(decrypted[16:].decode("utf-8"))
+   else:
+      json_resp = json.loads(decrypted.decode("utf-8"))
+      
+   print("Response JSON:")
+   print(json.dumps(json_resp, indent=4))
+
 ```

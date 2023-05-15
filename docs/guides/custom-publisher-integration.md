@@ -7,7 +7,7 @@ sidebar_position: 03
 
 # Publisher Integration Guide, Server-Only (Without SDK)
 
-This guide is intended for publishers who would like to generate identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
+This guide is for publishers who want to generate identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
 
 <!-- It includes the following sections:
 
@@ -25,9 +25,9 @@ The guide outlines the [basic steps](#integration-steps) that you need to consid
 
 The following are the options available for publishers to integrate with UID2:
 
-- Client JavaScript SDK, with UID2 Java SDK on the server.
+- Client JavaScript SDK, with UID2 SDK for Java on the server.
 - Client JavaScript SDK, with custom server code.
-- Server-only integration, with UID2 Java SDK on server.
+- Server-only integration, with UID2 SDK for Java on server.
 - Server-only integration, with custom server code.
 
 This document provides details for the last option.
