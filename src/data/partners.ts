@@ -175,11 +175,11 @@ export const partnersData: PartnersDataType = [
     logo: "PartnerLogo_Gamma_580x250.png",
     type: ["DSP"],
   },
-  {
-    name: "Gum Gum",
-    logo: "PartnerLogo_gumgum_580x250.png",
-    type: ["DSP"],
-  },
+  // {
+  //   name: "Gum Gum",
+  //   logo: "PartnerLogo_gumgum_580x250.png",
+  //   type: ["DSP"],
+  // },
   {
     name: "Hipwee",
     logo: "hipwee-580x250.png",
@@ -200,13 +200,13 @@ export const partnersData: PartnersDataType = [
     logo: "Index_Exchange_Logo_2021.png",
     type: ["DSP"],
   },
-  {
-    name: "Infosum",
-    logo: "InfoSum_Logo-580x250.png",
-    type: ["Data"],
-    featured: true,
-    order: 20,
-  },
+  // {
+  //   name: "Infosum",
+  //   logo: "InfoSum_Logo-580x250.png",
+  //   type: ["Data"],
+  //   featured: true,
+  //   order: 20,
+  // },
   {
     name: "InTouch",
     logo: "InTouch_Logo-580x250.png",
