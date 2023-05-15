@@ -98,6 +98,11 @@ export const partnersData: PartnersDataType = [
     order: 5,
   },
   {
+    name: "BabyCalendar",
+    logo: "BabyCalendar.png",
+    type: ["Publishers"],
+  },
+  {
     name: "Bidswitch",
     logo: "PartnerLogo_Bidswitch_580x250.png",
     type: ["DSP"],
@@ -242,6 +247,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "LineTV",
+    logo: "LineTV.png",
+    type: ["Publishers"],
+  },
+  {
     name: "LiSTNR",
     logo: "PartnerLogo_LiSTNR_256x256.png",
     type: ["Publishers"],
@@ -265,6 +275,7 @@ export const partnersData: PartnersDataType = [
     featured: true,
     order: 12,
   },
+
   {
     name: "Lucid",
     logo: "partner-logo-lucid.jpg",
@@ -280,6 +291,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "Mainichi Shimbun",
     logo: "mainichi580x250.jpg",
+    type: ["Publishers"],
+  },
+  {
+    name: "McClatchy",
+    logo: "mcc-logo-horizontal-black.svg",
     type: ["Publishers"],
   },
   {
@@ -325,6 +341,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "my TV SUPER",
     logo: "PartnerLogo_myTV-SUPER_256x256.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "NBC Universal",
+    logo: "NBCuniversal.png",
     type: ["Publishers"],
   },
   {
@@ -384,6 +405,11 @@ export const partnersData: PartnersDataType = [
     order: 16,
   },
   {
+    name: "Paramount",
+    logo: "Paramount.png",
+    type: ["Publishers"],
+  },
+  {
     name: "Penske Media Corp PMC",
     logo: "PartnerLogo_Penske-Media-Corp-PMC_256x256.png",
     type: ["Publishers"],
@@ -398,6 +424,7 @@ export const partnersData: PartnersDataType = [
     logo: "PartnerLogo_PubMatic_580x250.png",
     type: ["DSP"],
   },
+
   {
     name: "Qiyi",
     logo: "PartnerLogo_iQiyi_256x256.png",
@@ -444,6 +471,11 @@ export const partnersData: PartnersDataType = [
     name: "Skyperfect JSAT",
     logo: "skyperfect-logo-700x400.png",
     type: ["Publishers", "Data"],
+  },
+  {
+    name: "Slate",
+    logo: "slate.png",
+    type: ["Publishers"],
   },
   {
     name: "Snowflake",
@@ -535,6 +567,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "US Weekly",
     logo: "Us-Weekly-logo-580x250.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "USNews & world report",
+    logo: "USNews.png",
     type: ["Publishers"],
   },
   {
