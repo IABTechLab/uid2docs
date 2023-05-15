@@ -76,6 +76,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Amobee",
+    logo: "Amobee.png",
+    type: ["DSP"],
+  },
+  {
     name: "Aotter",
     logo: "aotter_logo-580x250.png",
     type: ["Publishers"],
@@ -118,6 +123,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Cadent",
+    logo: "cadent.png",
+    type: ["DSP"],
+  },
+  {
     name: "Cignal Play",
     logo: "CignalPlay_logo-580x250.png",
     type: ["Publishers"],
@@ -135,9 +145,19 @@ export const partnersData: PartnersDataType = [
     order: 6,
   },
   {
+    name: "Cross Target",
+    logo: "CrossTarget.png",
+    type: ["DSP"],
+  },
+  {
     name: "Deadline",
     logo: "Deadline_logo-580x250.png",
     type: ["Publishers"],
+  },
+  {
+    name: "deepintent",
+    logo: "deepintent.png",
+    type: ["DSP"],
   },
   {
     name: "Experian",
@@ -200,6 +220,11 @@ export const partnersData: PartnersDataType = [
     logo: "PartnerLogo_iCook_256x256.png",
     type: ["Publishers"],
   },
+  // need logo?
+  //{
+  //   name: "Improve Digital by Azerion",
+
+  // }
   {
     name: "Index Exchange",
     logo: "Index_Exchange_Logo_2021.png",
@@ -299,6 +324,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "MediaMath",
+    logo: "MediaMath.png",
+    type: ["DSP"],
+  },
+  {
     name: "Media Tradecraft",
     logo: "MediaTradecraft_Logo-580x250.png",
     type: ["Publishers"],
@@ -393,6 +423,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "NRich",
+    logo: "NRich.png",
+    type: ["DSP"],
+  },
+  {
     name: "Open X",
     logo: "PartnerLogo_OpenX_580x250.png",
     type: ["DSP"],
@@ -463,6 +498,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "SeedTag",
+    logo: "Seedtag.png",
+    type: ["DSP"],
+  },
+  {
     name: "Sehat",
     logo: "Logo-SehatQ-580x250.png",
     type: ["Publishers"],
@@ -490,6 +530,11 @@ export const partnersData: PartnersDataType = [
     type: ["DSP"],
   },
   {
+    name: "SmartStream",
+    logo: "Smartstream.png",
+    type: ["DSP"],
+  },
+  {
     name: "Sports Illustrated",
     logo: "sports-illustrated_black_580x250.png",
     type: ["Publishers"],
@@ -497,6 +542,16 @@ export const partnersData: PartnersDataType = [
   {
     name: "SpotX",
     logo: "PartnerLogo_SpotX_580x250.png",
+    type: ["DSP"],
+  },
+  {
+    name: "SSP1",
+    logo: "ssp1.png",
+    type: ["DSP"],
+  },
+  {
+    name: "Surfside",
+    logo: "Surfside.png",
     type: ["DSP"],
   },
   {
