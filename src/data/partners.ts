@@ -65,7 +65,7 @@ export const partnersData: PartnersDataType = [
   },
   {
     name: "AlikeAudience",
-    logo: "PartnerLogo_AlikeAudience_580x250.png",
+    logo: "AlikeAudience.png",
     type: ["Data"],
     featured: true,
     order: 3,
@@ -79,6 +79,11 @@ export const partnersData: PartnersDataType = [
     name: "Amobee",
     logo: "Amobee.png",
     type: ["DSP"],
+  },
+  {
+    name: "Angle Tech",
+    logo: "AngleTech.png",
+    type: ["Data"],
   },
   {
     name: "Aotter",
@@ -200,6 +205,11 @@ export const partnersData: PartnersDataType = [
     logo: "PartnerLogo_Gamma_580x250.png",
     type: ["DSP"],
   },
+  {
+    name: "GetOne",
+    logo: "GetOne.png",
+    type: ["Data"],
+  },
   // {
   //   name: "Gum Gum",
   //   logo: "PartnerLogo_gumgum_580x250.png",
@@ -218,13 +228,13 @@ export const partnersData: PartnersDataType = [
   {
     name: "i Cook",
     logo: "PartnerLogo_iCook_256x256.png",
-    type: ["Publishers"],
+    type: ["Publishers", "Data"],
   },
-  // need logo?
-  //{
-  //   name: "Improve Digital by Azerion",
-
-  // }
+  {
+    name: "Improve Digital by Azerion",
+    logo: "IMPROVE_DIGITAL_AZERION.png",
+    type: ["DSP"],
+  },
   {
     name: "Index Exchange",
     logo: "Index_Exchange_Logo_2021.png",
@@ -300,7 +310,16 @@ export const partnersData: PartnersDataType = [
     featured: true,
     order: 12,
   },
-
+  {
+    name: "LnData",
+    logo: "Lndata.png",
+    type: ["Data"],
+  },
+  {
+    name: "Lotte Members",
+    logo: "lottemembers.png",
+    type: ["Data"],
+  },
   {
     name: "Lucid",
     logo: "partner-logo-lucid.jpg",
@@ -386,6 +405,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "Netwise",
     logo: "PartnerLogo_Netwise_580x250.png",
+    type: ["Data"],
+  },
+  {
+    name: "Networld",
+    logo: "networld.png",
     type: ["Data"],
   },
   {
@@ -506,6 +530,11 @@ export const partnersData: PartnersDataType = [
     name: "Sehat",
     logo: "Logo-SehatQ-580x250.png",
     type: ["Publishers"],
+  },
+  {
+    name: "ShareThis",
+    logo: "ShareThis.png",
+    type: ["Data"],
   },
   {
     name: "Skyperfect JSAT",
