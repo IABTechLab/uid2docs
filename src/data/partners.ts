@@ -231,11 +231,6 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers", "Data"],
   },
   {
-    name: "Improve Digital by Azerion",
-    logo: "IMPROVE_DIGITAL_AZERION.png",
-    type: ["DSP"],
-  },
-  {
     name: "Index Exchange",
     logo: "Index_Exchange_Logo_2021.png",
     type: ["DSP"],
@@ -559,11 +554,6 @@ export const partnersData: PartnersDataType = [
     type: ["DSP"],
   },
   {
-    name: "SmartStream",
-    logo: "Smartstream.png",
-    type: ["DSP"],
-  },
-  {
     name: "Sports Illustrated",
     logo: "sports-illustrated_black_580x250.png",
     type: ["Publishers"],
@@ -571,11 +561,6 @@ export const partnersData: PartnersDataType = [
   {
     name: "SpotX",
     logo: "PartnerLogo_SpotX_580x250.png",
-    type: ["DSP"],
-  },
-  {
-    name: "SSP1",
-    logo: "ssp1.png",
     type: ["DSP"],
   },
   {
