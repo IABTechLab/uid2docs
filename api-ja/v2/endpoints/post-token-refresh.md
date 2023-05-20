@@ -36,7 +36,7 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 
 ### Request Example
 
-詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化 (Python script example)](../getting-started/gs-encryption-decryption.md#uid2_requestpy) を参照してください。
 
 ## Decrypted JSON Response Format
 
