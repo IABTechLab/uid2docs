@@ -18,6 +18,8 @@ Used by: このエンドポイントは、主に広告主とデータプロバ�
 | :-------------- | :-------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `{environment}` | string    | Required  | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../summary-doc-v2.md#environments) を参照してください。 |
 
+NOTE: インテグレーション環境と本番環境では、異なる[APIキー](../ref-info/glossary-uid.md#gl-client-key)が必要です。
+
 ### Unencrypted JSON Body Parameters
 
 > IMPORTANT: 暗号化する際には、リクエストの JSON ボディに以下のパラメータを key-value ペアとして含める必要があります。

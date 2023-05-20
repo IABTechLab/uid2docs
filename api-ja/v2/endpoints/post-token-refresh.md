@@ -16,7 +16,7 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 
 - トークン更新のリクエストには暗号化は必要ありません。
 - HTTP ステータスコードが 200 の場合のみ、レスポンスが暗号化されます。それ以外の場合、レスポンスは暗号化されません。
-- レスポンスを復号化するには、リクエストの Refresh Token が返された [POST /token/generate](post-token-generate.md) または `POST /token/refresh` レスポンスの `refresh_response_key` 値を使用する必要があります。
+- レスポンスを復号化するには、リクエストに含まれる Refresh Token を返す [POST /token/generate](post-token-generate.md) または `POST /token/refresh` レスポンスで返す `refresh_response_key` 値が必要です。
 - v1 `token/generate` レスポンスから Refresh Token をリクエストで送信した場合、レスポンスは暗号化されません。
 
 ### Path Parameters
@@ -24,6 +24,8 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 | Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                   |
 | :-------------- | :-------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../summary-doc-v2.md#environments) を参照してください。 |
+
+NOTE: インテグレーション環境と本番環境では、異なる[APIキー](../ref-info/glossary-uid.md#gl-client-key)が必要です。
 
 #### Testing Notes
 
