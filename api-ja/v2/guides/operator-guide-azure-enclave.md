@@ -83,7 +83,7 @@ Operator enclave には、以下の環境変数を設定する必要がありま
 
 ### AKS (Recommended)
 
-1. 組織のポリシーにしたがってAKSクラスタとノードプールを準備し、コンフィデンシャル コンピューティングを必ず有効にしてください。
+1. 組織のポリシーにしたがってAKSクラスタとノードプールを準備し、必ず[コンフィデンシャル コンピューティングを有効にしてください](https://learn.microsoft.com/ja-jp/azure/confidential-computing/confidential-enclave-nodes-aks-get-started)。
 
 2. docker イメージを、Docker リポジトリ (Azure Container Service など) で利用できるようにします。たとえば:
 
