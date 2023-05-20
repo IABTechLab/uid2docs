@@ -22,10 +22,10 @@ UID2 サーバーサイド SDK を使用すると、UID2 Advtising Token のを�
 
 | Language | Link to SDK Repogitory                                                                       |
 | :------- | :------------------------------------------------------------------------------------------- |
-| C#       | [UID2 Client for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md)  |
-| C++      | [UID2 Client for C++](https://github.com/IABTechLab/uid2-client-cpp11/blob/master/README.md) |
-| Java     | [UID2 Java SDK](https://github.com/IABTechLab/uid2-client-java/blob/master/README.md)        |
-| Python   | [UID2 Client Python](https://github.com/IABTechLab/uid2-client-python/blob/master/README.md) |
+| C#/.NET       | [UID2 SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md)  |
+| C++      | [UID2 SDK for C++](https://github.com/IABTechLab/uid2-client-cpp11/blob/master/README.md) |
+| Java     | [UID2 SDK for Java](https://github.com/IABTechLab/uid2-client-java/blob/master/README.md)        |
+| Python   | [UID2 SDK for Python](https://github.com/IABTechLab/uid2-client-python/blob/master/README.md) |
 
 ## Initialization
 

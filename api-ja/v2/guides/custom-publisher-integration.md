@@ -20,9 +20,9 @@
 
 パブリッシャーが UID2 とインテグレーションするために利用できるオプションは以下のとおりです:
 
-- Client JavaScript SDK, with UID2 Java SDK on the server.
+- Client JavaScript SDK, with UID2 SDK for Java on the server.
 - Client JavaScript SDK, with custom server code.
-- Server-only integration, with UID2 Java SDK on server.
+- Server-only integration, with UID2 SDK for Java on server.
 - Server-only integration, with custom server code.
 
 このドキュメントでは、最後の選択肢について詳細を説明します。
