@@ -32,9 +32,9 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 | Body Parameter | Data Type | Attribute      | Description                                                                                                                                                              |
 | :------------- | :-------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `email`        | string    | 条件付きで必要 | トークンを生成するメールアドレスです。                                                                                                                                   |
-| `email_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
+| `email_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
 | `phone`        | string    | 条件付きで必要 | トークンを生成する [正規化](../../README.md#phone-number-normalization) 済み電話番号です。                                                                               |
-| `phone_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。        |
+| `phone_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。        |
 | `policy`       | number    | オプション     | トークン生成ポリシーの ID です。[Token Generation Policy](#token-generation-policy) を参照してください。                                                                 |
 
 ### Request Examples

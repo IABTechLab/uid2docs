@@ -11,7 +11,7 @@ UID2 API リクエストの暗号化と各レスポンスの復号化につい�
 - API を使用するには、クライアントの API キーに加えて、クライアントシークレットが必要です。
 - 独自のカスタムスクリプトを作成するか、以下のセクションで提供される Python スクリプトを使用できます。
 - リクエストとレスポンスには、96 ビットの初期化ベクトルと 128 ビットの認証タグを持つ AES/GCM/NoPadding 暗号化アルゴリズムが使用されます。
-- リクエストの生の暗号化されていない JSON ボディは、バイナリの　[暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) にラップされ、その後 [暗号化リクエストエンべローブ](#encrypted-request-envelope) にしたがって暗号化とフォーマットが行われます。
+- リクエストの生の暗号化されていない JSON ボディは、バイナリの　[暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) にラップされ、その後 [暗号化リクエストエンベローブ](#encrypted-request-envelope) にしたがって暗号化とフォーマットが行われます。
 - レスポンス JSON ボディはバイナリの　[復号化済みレスポンスデータエンベローブ](#unencrypted-response-data-envelope) にラップされ、[暗号化レスポンスエンベローブ](#encrypted-response-envelope) にしたがって暗号化・整形されます。
 
 ## Workflow
@@ -21,7 +21,7 @@ UID2 API のハイレベルなリクエスト・レスポンスワークフロ�
 1. 入力パラメータを含むリクエストボディを JSON 形式で用意します。
 2. リクエスト JSON を[暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) でラップします。
 3. AES/GCM/NoPadding アルゴリズムと秘密鍵でエンベローブを暗号化します。
-4. [暗号化リクエストエンべローブ](#encrypted-request-envelope)を組み立てます。
+4. [暗号化リクエストエンベローブ](#encrypted-request-envelope)を組み立てます。
 5. 暗号化されたリクエストを送信し、暗号化されたレスポンスを受信します。
 6. [暗号化レスポンスエンベローブ](#encrypted-response-envelope) を解析します。
 7. レスポンスエンベローブのデータを復号化します。
@@ -35,7 +35,7 @@ UID2 API のハイレベルなリクエスト・レスポンスワークフロ�
 
 ## Encrypting Requests
 
-リクエストを暗号化するための独自のスクリプトを作成するか、UID2 SDK を使用するか、提供されている[Pythonサンプルスクリプト](#example-encryption-and-decryption-script)を使用するかを選択できます。独自のスクリプトを作成する場合は、[暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope)および[暗号化リクエストエンべローブ](#encrypted-request-envelope）に記載のフィールドレイアウト要件に必ずしたがってください。
+リクエストを暗号化するための独自のスクリプトを作成するか、UID2 SDK を使用するか、提供されている[Pythonサンプルスクリプト](#example-encryption-and-decryption-script)を使用するかを選択できます。独自のスクリプトを作成する場合は、[暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope)および[暗号化リクエストエンベローブ](#encrypted-request-envelope)に記載のフィールドレイアウト要件に必ずしたがってください。
 
 ### Unencrypted Request Data Envelope
 
@@ -55,7 +55,7 @@ UID2 API のハイレベルなリクエスト・レスポンスワークフロ�
 | :------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
 | 0              | 1            | エンベローブフォーマットのバージョン。常に `1` でなければなりません。                                                                       |
 | 1              | 12           | 96 ビットの初期化ベクトル（IV）、データ暗号化のランダム化に使用されます。                                                                   |
-| 13             | N            | ペイロード（[暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope)) は AES/GCM/NoPadding アルゴリズムで暗号化されます。 |
+| 13             | N            | ペイロード([暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope)) は AES/GCM/NoPadding アルゴリズムで暗号化されます。 |
 | 13 + N         | 16           | データの整合性を確認するために使用される 128 ビット GCM 認証タグです。                                                                      |
 
 ## Decrypting Responses

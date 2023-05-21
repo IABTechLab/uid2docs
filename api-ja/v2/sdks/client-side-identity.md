@@ -13,7 +13,7 @@
 - [Include the SDK Script（SDK スクリプトのインクルード）](#include-the-sdk-script)
 - [Workflow Overview（ワークフローの概要）](#workflow-overview)
   - [Workflow States and Transitions（ワークフローの状態と遷移）](#workflow-states-and-transitions)
-  - [Background Token Auto-Refresh（バックグラウンドでのトークン自動更新](#background-token-auto-refresh)
+  - [Background Token Auto-Refresh（バックグラウンドでのトークン自動更新）](#background-token-auto-refresh)
 - [API Reference（API リファレンス）](#api-reference)
   - [constructor()](#constructor)
   - [init()](#initopts-object-void)

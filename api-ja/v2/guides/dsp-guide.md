@@ -15,7 +15,7 @@
 
 以下は、RTB で UID2 をサポートするための DSP のインテグレーションワークフローで、大きく 2 つのステップで構成されています:
 
-1. [Honor user opt-outs（ユーザーオプトアウトの受け入れ）](#honor-user-opt-outs)
+1. [Honor user Opt-Outs（ユーザーオプトアウトの受け入れ）](#honor-user-opt-outs)
 2. [Decrypt UID2 tokens to use in RTB（RTB で使用する UID2 Token の復号化）](#decrypt-uid2-tokens-for-rtb-use)
 
 ```mermaid

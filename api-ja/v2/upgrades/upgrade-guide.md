@@ -55,7 +55,7 @@ UID API v2 へのアップグレードは、以下の手順で行います。
 
 1. [Client-Side JavaScript SDK をアップグレードします](#upgrade-the-client-side-javascript-sdk).
 2. [トークン生成エンドポイントへの呼び出しをアップグレードします](#upgrade-token-generation-calls).
-3. [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) を使用しない統合の場合のみ必要です： [トークンリフレッシュエンドポイントの呼び出しをアップグレードします](#upgrade-token-refresh-calls).
+3. [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) を使用しないインテグレーションの場合のみ必要です： [トークンリフレッシュエンドポイントの呼び出しをアップグレードします](#upgrade-token-refresh-calls).
 
 #### Upgrade the Client-Side JavaScript SDK
 

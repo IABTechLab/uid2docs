@@ -33,7 +33,7 @@
 - UID2 Operator API にアクセスできること。
 - UID2 Operator API のインテグレーションを行い UID2 Token を生成すること。
 - Refresh Token を維持する、または UID2 が提供する JavaScript client-side SDK を使用して Refresh Token を管理すること。
-- UID2 Token を SSP やその他の統合組織に送信できるようにすること。
+- UID2 Token を SSP やその他のインテグレーション組織に送信できるようにすること。
 
 ### Integration Through SSO or Identity Providers
 

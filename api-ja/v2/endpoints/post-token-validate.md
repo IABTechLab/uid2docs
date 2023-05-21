@@ -32,9 +32,9 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 | :------------- | :-------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `token`        | string    | 必須           | [POST /token/generate](post-token-generate.md) レスポンスによって返された Advertising Token です。                                                                                         |
 | `email`        | string    | 条件付きで必要 | トークン検証用のメールアドレスです。                                                                                                                                                       |
-| `email_hash`   | string    | 条件付きで必要 | トークン検証用の [SHA-256 ハッシュし、base64 エンコード](../../README.md#email-address-hash-encoding) した、[正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
+| `email_hash`   | string    | 条件付きで必要 | トークン検証用の [SHA-256 ハッシュし、Base64 エンコード](../../README.md#email-address-hash-encoding) した、[正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
 | `phone`        | string    | 条件付きで必要 | トークン検証用の [正規化](../../README.md#phone-number-normalization) 済み電話番号です。                                                                                                   |
-| `phone_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。                          |
+| `phone_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。                          |
 
 ### Request Examples
 
