@@ -1,7 +1,7 @@
 export type PartnersDataType = {
   name: string;
   logo: string;
-  type: string[];
+  type: ("Publishers" | "Data" | "DSP" | "CDP")[];
   featured?: boolean;
   order?: number;
 }[];
@@ -32,7 +32,7 @@ export const partnersData: PartnersDataType = [
   {
     name: "Adobe",
     logo: "Adobe_Corporate_Logo-580x250.png",
-    type: ["Data"],
+    type: ["Data", "CDP"],
     featured: true,
     order: 2,
   },
@@ -165,6 +165,11 @@ export const partnersData: PartnersDataType = [
     type: ["DSP"],
   },
   {
+    name: "Environics",
+    logo: "environics-analytics-logo2.png",
+    type: ["CDP"],
+  },
+  {
     name: "Experian",
     logo: "Experian.svg",
     type: ["Data"],
@@ -216,6 +221,11 @@ export const partnersData: PartnersDataType = [
   //   type: ["DSP"],
   // },
   {
+    name: "Habu",
+    logo: "Habu.png",
+    type: ["CDP"],
+  },
+  {
     name: "Hipwee",
     logo: "hipwee-580x250.png",
     type: ["Publishers"],
@@ -235,13 +245,11 @@ export const partnersData: PartnersDataType = [
     logo: "Index_Exchange_Logo_2021.png",
     type: ["DSP"],
   },
-  // {
-  //   name: "Infosum",
-  //   logo: "InfoSum_Logo-580x250.png",
-  //   type: ["Data"],
-  //   featured: true,
-  //   order: 20,
-  // },
+  {
+    name: "Infosum",
+    logo: "InfoSum_Logo-580x250.png",
+    type: ["CDP"],
+  },
   {
     name: "InTouch",
     logo: "InTouch_Logo-580x250.png",
@@ -301,7 +309,7 @@ export const partnersData: PartnersDataType = [
   {
     name: "LiveRamp",
     logo: "PartnerLogo_LiveRamp_580x250.png",
-    type: ["Data"],
+    type: ["Data", "CDP"],
     featured: true,
     order: 12,
   },
@@ -321,6 +329,11 @@ export const partnersData: PartnersDataType = [
     type: ["Data"],
     featured: true,
     order: 13,
+  },
+  {
+    name: "Lytics",
+    logo: "Lytics.png",
+    type: ["CDP"],
   },
   {
     name: "Magnite",
@@ -410,7 +423,7 @@ export const partnersData: PartnersDataType = [
   {
     name: "Neustar",
     logo: "PartnerLogo_Neustar_256x256.png",
-    type: ["Data"],
+    type: ["Data", "CDP"],
     featured: true,
     order: 14,
   },
@@ -450,6 +463,11 @@ export const partnersData: PartnersDataType = [
     name: "Open X",
     logo: "PartnerLogo_OpenX_580x250.png",
     type: ["DSP"],
+  },
+  {
+    name: "Optable",
+    logo: "optable-logo.png",
+    type: ["CDP"],
   },
   {
     name: "Oracle",
@@ -502,7 +520,7 @@ export const partnersData: PartnersDataType = [
   {
     name: "Salesforce",
     logo: "salesforce-logo.png",
-    type: ["Data"],
+    type: ["Data", "CDP"],
     featured: true,
     order: 17,
   },
@@ -544,7 +562,7 @@ export const partnersData: PartnersDataType = [
   {
     name: "Snowflake",
     logo: "snowflake-logo-580x250.png",
-    type: ["Data"],
+    type: ["Data", "CDP"],
     featured: true,
     order: 18,
   },
@@ -572,6 +590,11 @@ export const partnersData: PartnersDataType = [
     name: "Tapad",
     logo: "PartnerLogo_Tapad_580x250.png",
     type: ["Data"],
+  },
+  {
+    name: "Tealium",
+    logo: "tealium.png",
+    type: ["CDP"],
   },
   {
     name: "Thanh Nien",
