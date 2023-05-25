@@ -245,11 +245,11 @@ export const partnersData: PartnersDataType = [
     logo: "Index_Exchange_Logo_2021.png",
     type: ["DSP"],
   },
-  {
-    name: "Infosum",
-    logo: "InfoSum_Logo-580x250.png",
-    type: ["CDP"],
-  },
+  // {
+  //   name: "Infosum",
+  //   logo: "InfoSum_Logo-580x250.png",
+  //   type: ["CDP"],
+  // },
   {
     name: "InTouch",
     logo: "InTouch_Logo-580x250.png",
