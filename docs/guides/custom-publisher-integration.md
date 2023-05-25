@@ -21,13 +21,13 @@ This guide is for publishers who want to generate identity tokens using UID2 for
 
 ## Introduction
 
-The guide outlines the [basic steps](#integration-steps) that you need to consider if you're building an integration without using an SDK. For example, you need to decide how to implement user login and logout, how to manage UID2 identity information and use it for targeted advertising, and how to refresh tokens, deal with missing identities, and handle user opt-outs. See also [FAQs](#faqs).
+The guide outlines the [basic steps](#integration-steps) that you need to consider if you're building an integration without using a client-side or server-side SDK. For example, you need to decide how to implement user login and logout, how to manage UID2 identity information and use it for targeted advertising, and how to refresh tokens, deal with missing identities, and handle user opt-outs. See also [FAQs](#faqs).
 
 The following are the options available for publishers to integrate with UID2:
 
 - Client JavaScript SDK, with UID2 SDK for Java on the server.
 - Client JavaScript SDK, with custom server code.
-- Server-only integration, with UID2 SDK for Java on server.
+- Server-only integration, with UID2 SDK for Java on the server.
 - Server-only integration, with custom server code.
 
 This document provides details for the last option.
