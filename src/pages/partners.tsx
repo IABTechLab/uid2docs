@@ -24,6 +24,10 @@ const dataPartners = partnersData.filter((partner) =>
   partner.type.includes("Data")
 );
 
+const cdpPartners = partnersData.filter((partner) =>
+  partner.type.includes("CDP")
+);
+
 function PartnerSection({ title, partners }: PartnerSection) {
   React.useEffect(() => {
     const pageViewData = {
@@ -75,6 +79,7 @@ export default function Partners(): JSX.Element {
             <PartnerSection title="Publishers" partners={publishersPartners} />
             <PartnerSection title="DSPs/SSPs" partners={dspPartners} />
             <PartnerSection title="Data Providers" partners={dataPartners} />
+            <PartnerSection title="CDPs / Clean Rooms" partners={cdpPartners} />
           </div>
         </div>
       </main>
