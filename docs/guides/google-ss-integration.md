@@ -79,7 +79,7 @@ If you're using the Client-Side JavaScript SDK version 3.0.0 or later, the UID2 
 
 This script is hosted on CDN, and GPT automatically loads it with the secure signals feature. 
 
-For details, see [Client-Side JavaScript SDK Integration Guide](publisher-client-side.md).
+For details, see [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md).
 
 <!--A sample application is also available for client-side integration using the SDK. See [Sample Applications](#sample-applications).-->
 

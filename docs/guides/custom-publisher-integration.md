@@ -34,7 +34,7 @@ This document provides details for the last option.
 
 Here's an [example application](https://example-srvonly-integ.uidapi.com/) that demonstrates the workflow. For the application documentation, see [Server-Only UID2 Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md). See also [FAQs](#faqs).
 
->TIP: To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, consider using the [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md). For details, see [Client-Side JavaScript SDK Integration Guidepublisher-client-side.md).
+>TIP: To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, consider using the [UID2 SDK for JavaScript](../sdks/client-side-identity.md). For details, see [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md).
 
 ## Integration Steps
 
