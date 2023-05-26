@@ -1,18 +1,9 @@
 import React from "react";
 import clsx from "clsx";
-import Lottie from "lottie-react";
+import HeroBg from "./HeroBgAnimation";
 import styles from "./styles.module.scss";
-import { useIsMobile } from "@site/src/utils/isMobile";
-
-// @ts-ignore - Lottie animation data
-import * as heroBgDesktop from "./heroBgDesktop.json";
-// @ts-ignore - Lottie animation data
-import * as heroBgMobile from "./heroBgMobile.json";
 
 export default function HomepageHero(): JSX.Element {
-  const isMobile = useIsMobile();
-
-  const lottieRef = React.useRef();
   return (
     <header className={clsx("bg-11-o-clock text-white", styles.homepageHero)}>
       <div
@@ -40,21 +31,7 @@ export default function HomepageHero(): JSX.Element {
         </div>
       </div>
 
-      {isMobile ? (
-        <Lottie
-          lottieRef={lottieRef}
-          animationData={heroBgMobile}
-          loop={true}
-          className={styles.heroBgAnimationMobile}
-        />
-      ) : (
-        <Lottie
-          lottieRef={lottieRef}
-          animationData={heroBgDesktop}
-          loop={true}
-          className={styles.heroBgAnimationDesktop}
-        />
-      )}
+      <HeroBg />
     </header>
   );
 }
