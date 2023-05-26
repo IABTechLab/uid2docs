@@ -8,28 +8,30 @@ import * as heroBgMobile from "./heroBgMobile.json";
 
 export default function HeroBg(): JSX.Element {
   const isMobile = useIsMobile();
-  const [animationData, setAnimationData] = React.useState<any>(null);
+  const [loadAnimation, setLoadAnimation] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    return isMobile
-      ? setAnimationData(heroBgMobile)
-      : setAnimationData(heroBgDesktop);
-  }, [isMobile]);
+    const timer = setTimeout(() => {
+      setLoadAnimation(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   const lottieRef = React.useRef();
 
-  if (!animationData) return null;
+  if (!loadAnimation) return null;
+
   return isMobile ? (
     <Lottie
       lottieRef={lottieRef}
-      animationData={animationData}
+      animationData={heroBgMobile}
       loop={true}
       className={styles.heroBgAnimationMobile}
     />
   ) : (
     <Lottie
       lottieRef={lottieRef}
-      animationData={animationData}
+      animationData={heroBgDesktop}
       loop={true}
       className={styles.heroBgAnimationDesktop}
     />

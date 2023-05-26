@@ -30,7 +30,6 @@ export default function HomepageHero(): JSX.Element {
           </div>
         </div>
       </div>
-
       <HeroBg />
     </header>
   );
