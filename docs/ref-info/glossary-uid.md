@@ -161,7 +161,7 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-identity">Identity</dt>
 <dd>In the context of UID2, the term "identity" refers to a package of values that includes the UID2 token, the refresh token, and associated values such as timestamps. This set of values is returned in the response from the <a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> endpoint and also from the <a href="../endpoints/post-token-refresh">POST&nbsp;/token/refresh</a> endpoint.</dd>
 
-<dt class="jump-anchor" id="gl-json-web-token">JSON Web Token JWT)</dt>
+<dt class="jump-anchor" id="gl-json-web-token">JSON Web Token (JWT)</dt>
 <dd>A JSON Web Token (JWT) is a compact, URL-safe means of representing claims (pieces of information) to be sent from one party to another over the web. The claims in a JWT are encoded as a JSON object that is used either as the payload of a JSON Web Signature (JWS) structure or as the plain text of a JSON Web Encryption (JWE) structure. This enables the claims to be digitally signed and/or encrypted.</dd>
 <dd>UID2 uses JSON Web Tokens as part of interfacing with the Google Cloud Platform (GCP) Enclave.</dd>
 <dd>For details, see <a href="../guides/operator-guide-gcp-enclave">UID2 Operator - Google Cloud Platform Confidential Compute package</a>.</dd>
