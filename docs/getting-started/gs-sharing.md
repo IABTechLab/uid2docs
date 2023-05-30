@@ -1,6 +1,6 @@
 ---
-title: Sharing UIDs
-description: Information about sharing UIDs
+title: Sharing UID2s
+description: Information about sharing UID2s
 hide_table_of_contents: false
 sidebar_position: 24
 ---
