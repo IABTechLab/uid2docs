@@ -1,0 +1,13 @@
+/**
+ * Global Search that couldn't be configured with Infima
+**/
+
+.DocSearch-Button-Keys {
+  display: none !important;
+}
+
+.DocSearch-Button {
+  @include xl {
+    min-width: 13.5rem;
+  }
+}
