@@ -32,7 +32,7 @@ Used by: This endpoint is used mainly by publishers.
 
 - You must include only one of the following parameters: `email`, `email_hash`, `phone`, or `phone_hash`. 
 - Include the required body parameters as key-value pairs in the JSON body of a request when encrypting it.
-- To test identities, use the `validate@email.com` email address or `+12345678901` phone number. For details, see the FAQs sections in the [Client-Side JavaScript SDK Integration Guide](../guides/publisher-client-side.md) and [Server-Only Integration Guide](../guides/custom-publisher-integration.md) for publishers.
+- To test identities, use the `validate@email.com` email address or `+12345678901` phone number. For details, see the FAQs sections in the [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) and [Server-Only Integration Guide](../guides/custom-publisher-integration.md) for publishers.
 
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
