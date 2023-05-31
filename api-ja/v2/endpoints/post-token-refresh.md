@@ -2,11 +2,11 @@
 
 # POST /token/refresh
 
-[POST /token/generate](./post-token-generate.md) エンドポイントを使用して発行された Refresh Token を指定し、ユーザーの新しいトークンを生成することができます。
+[POST /token/generate](./post-token-generate.md) エンドポイントを使用して発行された Refresh Token を指定し、ユーザーの新しいトークンを生成できます。
 
 Used by:　このエンドポイントは、主にパブリッシャーが使用します。
 
-> NOTE: このエンドポイントは、API キーを使用する必要がないため、クライアント側（例えば、ブラウザやモバイルアプリなど）から呼び出すことができます。
+> NOTE: このエンドポイントは、API キーを使用する必要がないため、クライアント側（たとえば、ブラウザやモバイルアプリなど）から呼び出せます。
 
 ## Request Format
 
@@ -16,14 +16,16 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 
 - トークン更新のリクエストには暗号化は必要ありません。
 - HTTP ステータスコードが 200 の場合のみ、レスポンスが暗号化されます。それ以外の場合、レスポンスは暗号化されません。
-- レスポンスを復号化するには、リクエストの Refresh Token が返された [POST /token/generate](post-token-generate.md) または `POST /token/refresh` レスポンスの `refresh_response_key` 値を使用する必要があります。
+- レスポンスを復号化するには、リクエストに含まれる Refresh Token を返す [POST /token/generate](post-token-generate.md) または `POST /token/refresh` レスポンスで返す `refresh_response_key` 値が必要です。
 - v1 `token/generate` レスポンスから Refresh Token をリクエストで送信した場合、レスポンスは暗号化されません。
 
 ### Path Parameters
 
 | Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                   |
 | :-------------- | :-------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレータを含む全リストは [Environments](../summary-doc-v2.md#environments) を参照してください。 |
+| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../summary-doc-v2.md#environments) を参照してください。 |
+
+NOTE: インテグレーション環境と本番環境では、異なる[APIキー](../ref-info/glossary-uid.md#gl-api-key)が必要です。
 
 #### Testing Notes
 
@@ -34,23 +36,7 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 
 ### Request Example
 
-[POST /token/generate](post-token-generate.md) リクエストが返す `refresh_token` と `refresh_response_key` 値を含む、プレースホルダー値を持つトークンリフレッシュのリクエスト形式を以下に示します:
-
-```sh
-echo [refresh_token] \
-  | curl -X POST 'https://prod.uidapi.com/v2/token/refresh' -d @- \
-  | decrypt_response.py [refresh_response_key] --is-refresh
-```
-
-以下は、トークンリフレッシュリクエストの例です:
-
-```sh
-echo AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNSVnCnzYq2BiDDz8SLsKOo6wZsoMIn95jVWBaA6oLq7uUGY5/g9SUOfFmX5uDXUvO0w2UCKi+j9OQhlMfxTsyUQUzC1VQOx6ed/gZjqH/Sw6Kyk0XH7AlziqSyyXA438JHqyJphGVwsPl2LGCH1K2MPxkLmyzMZ2ghTzrr0IgIOXPsL4lXqSPkl/UJqnO3iqbihd66eLeYNmyd1Xblr3DwYnwWdAUXEufLoJbbxifGYc+fPF+8DpykpyL9neq3oquxQWpyHsftnwYaZT5EBZHQJqAttHUZ4yQ== \
-  | curl -X POST 'https://prod.uidapi.com/v2/token/refresh' -d @- \
-  | decrypt_response.py wR5t6HKMfJ2r4J7fEGX9Gw== --is-refresh
-```
-
-詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化 (Python script example)](../getting-started/gs-encryption-decryption.md#uid2_requestpy) を参照してください。
 
 ## Decrypted JSON Response Format
 

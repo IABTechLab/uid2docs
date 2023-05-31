@@ -6,7 +6,7 @@ UID2 ベースのターゲティング広告にユーザーをオプトインし
 
 Used by:　このエンドポイントは、主にパブリッシャーが使用します。
 
-> IMPORTANT: このエンドポイントは、ターゲティング広告のためにユーザーの PII を UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。デフォルトでは、このエンドポイントはオプトアウト記録をチェックしません。ユーザーがオプトアウトしたかどうかを確認するには、オプションの `policy` リクエストパラメータに値 `1` を指定して使用します。
+> IMPORTANT: このエンドポイントは、ターゲティング広告のために個人を識別できる情報(DII) を UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。デフォルトでは、このエンドポイントはオプトアウト記録をチェックしません。ユーザーがオプトアウトしたかどうかを確認するには、オプションの `policy` リクエストパラメータに値 `1` を指定して使用します。
 
 ## Request Format
 
@@ -15,13 +15,15 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 このエンドポイントリクエストについて知っておくべきことは、以下のとおりです:
 
 - サービスにアクセスする際に使用する API キーを秘密にするため、 UID2 Token は認証後にサーバー側でのみ生成する必要があります。
-- すべてのリクエストを秘密鍵で暗号化する必要があります。詳細と Python スクリプトの例については、 [リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+- すべてのリクエストを秘密鍵で暗号化する必要があります。詳細と Python スクリプトの例は、 [リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ### Path Parameters
 
 | Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                   |
 | :-------------- | :-------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレータを含む全リストは [Environments](../summary-doc-v2.md#environments) を参照してください。 |
+| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../summary-doc-v2.md#environments) を参照してください。 |
+
+NOTE: インテグレーション環境と本番環境では、異なる[APIキー](../ref-info/glossary-uid.md#gl-api-key)が必要です。
 
 ### Unencrypted JSON Body Parameters
 
@@ -30,9 +32,9 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 | Body Parameter | Data Type | Attribute      | Description                                                                                                                                                              |
 | :------------- | :-------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `email`        | string    | 条件付きで必要 | トークンを生成するメールアドレスです。                                                                                                                                   |
-| `email_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
+| `email_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../../README.md#email-address-hash-encoding) した [正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
 | `phone`        | string    | 条件付きで必要 | トークンを生成する [正規化](../../README.md#phone-number-normalization) 済み電話番号です。                                                                               |
-| `phone_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。        |
+| `phone_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。        |
 | `policy`       | number    | オプション     | トークン生成ポリシーの ID です。[Token Generation Policy](#token-generation-policy) を参照してください。                                                                 |
 
 ### Request Examples
@@ -65,25 +67,13 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 }
 ```
 
-以下は、プレースホルダー値を含む暗号化されたトークン生成リクエストのフォーマットです:
-
-```sh
-echo '[Unencrypted-JSON-Request-Body]' \
-  | encrypt_request.py [Your-Client-Secret] \
-  | curl -X POST 'https://prod.uidapi.com/v2/token/generate' -H 'Authorization: Bearer [Your-Client-API-Key]' -d @- \
-  | decrypt_response.py [Your-Client-Secret]
-```
-
 以下は、メールアドレスハッシュの暗号化トークン生成リクエストの例です:
 
 ```sh
-echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
-  | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
-  | curl -X POST 'https://prod.uidapi.com/v2/token/generate' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -d @- \
-  | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
+echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
-詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON Response Format
 
@@ -155,7 +145,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
 | Phone | `+12345678901`       | キャッシュした `advertising_token` が、指定した電話番号の `advertising_token` と一致するかどうかをテストします。                        | [POST /token/validate](post-token-validate.md) |
 | Phone | `+00000000000`       | この電話番号をリクエストに使用すると、常に `refresh_token` を含む ID レスポンスが生成され、ログアウトのレスポンスになります。           | [POST /token/refresh](post-token-refresh.md)   |
 
-# Token Generation Policy
+## Token Generation Policy
 
 トークン生成ポリシーは、トークンを生成するタイミングを呼び出し側に決定させるものです。パラメータを省略すると、ID = 0 のポリシーが適用されます。
 
