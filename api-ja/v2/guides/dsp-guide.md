@@ -2,7 +2,9 @@
 
 # DSP Integration Guide
 
-本ガイドは、ビッドストリームで UID2 を取引する DSP のためのもので、次のセクションがあります:
+このガイドは、ビッドストリームで UID2 の取引を行うDSPを対象としています。
+
+以下のセクションが含まれています：
 
 - [Integration Steps（インテグレーション手順）](#integration-steps)
   - [Honor User Opt-Outs（ユーザーオプトアウトの受け入れ）](#honor-user-opt-outs)
@@ -13,7 +15,7 @@
 
 以下は、RTB で UID2 をサポートするための DSP のインテグレーションワークフローで、大きく 2 つのステップで構成されています:
 
-1. [Honor user opt-outs（ユーザーオプトアウトの受け入れ）](#honor-user-opt-outs)
+1. [Honor user Opt-Outs（ユーザーオプトアウトの受け入れ）](#honor-user-opt-outs)
 2. [Decrypt UID2 tokens to use in RTB（RTB で使用する UID2 Token の復号化）](#decrypt-uid2-tokens-for-rtb-use)
 
 ```mermaid
@@ -58,7 +60,7 @@ https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 
 入札時（2-b）に以下のロジックを使用し、ユーザーのオプトアウトを受け入れます。
 
-提供されている [Server-Side SDK Guide](../sdks/dsp-client-v1-overview.md) を活用して、受信した UID2 Token を復号化することができます。レスポンスには UID2 と UID2 が作成された時刻が含まれ、以下の擬似コードでは `established_timestamp`と表現されます。DSP は UID2 の最新のオプトアウトタイムスタンプを確認する必要があります。以下の疑似コードでは `optout_timestamp`と表現されています。
+提供されている [Server-Side SDK Guide](../sdks/dsp-client-v1-overview.md) を活用して、受信した UID2 Token を復号化できます。レスポンスには UID2 と UID2 が作成された時刻が含まれ、以下の疑似コードでは `established_timestamp`と表現されます。DSP は UID2 の最新のオプトアウトタイムスタンプを確認する必要があります。以下の疑似コードでは `optout_timestamp`と表現されています。
 
 オプトアウトのロジックを次の図に示します。
 
@@ -85,10 +87,10 @@ if (established_timestamp < optout_timestamp) {
 | Step | SDK                                                        | Description                                                                                                                                                                                             |
 | :--- | :--------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 2-a  | [Server-Side SDK Guide](../sdks/dsp-client-v1-overview.md) | 提供されている SDK を活用して、入力された UID2 Token を復号化します。レスポンスには `UID2` と UID2 の作成時刻が含まれます。                                                                             |
-| 2-b  |                                                            | DSP は UID2 のオプトアウトプロトコルを受け入れることが要求されます。ユーザーオプトアウトの設定と入札時の受け入れについては、[ユーザーオプトアウトの受け入れ](#honor-user-opt-outs) を参照してください。 |
+| 2-b  |                                                            | DSP は UID2 のオプトアウトプロトコルを受け入れることが要求されます。ユーザーオプトアウトの設定と入札時の受け入れは、[ユーザーオプトアウトの受け入れ](#honor-user-opt-outs) を参照してください。 |
 
 ## FAQs
 
-DSP に関するよくある質問については、[FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps) を参照してください。
+DSP に関するよくある質問は、[FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps) を参照してください。
 
-すべてのリストは、[Frequently Asked Questions](../getting-started/gs-faqs.md)を参照して下さい。
+すべてのリストは、[Frequently Asked Questions](../getting-started/gs-faqs.md)を参照してください。

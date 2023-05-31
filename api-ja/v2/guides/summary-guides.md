@@ -11,13 +11,13 @@
 | [Client-Side JavaScript SDK Integration Guide](./publisher-client-side.md)                  | このパブリッシャー向けインテグレーションガイドは、[Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) を利用した標準的なウェブインテグレーションシナリオをカバーしています。    |
 | [Publisher Integration Guide, Server-Only (Without SDK)](./custom-publisher-integration.md) | アプリ開発者と CTV 放送局向けのこのインテグレーションガイドは、[Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) を使用しないインテグレーションシナリオをカバーしています。   |
 | [DSP](./dsp-guide.md)                                                                       | この DSP のためのインテグレーションガイドは、入札のための UID2 の処理と、ユーザーのオプトアウトに対応することをカバーしています。                                                              |
-| [Advertiser/Data Provider](./advertiser-dataprovider-guide.md)                              | この広告主やデータパートナー向けのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 |
+| [Advertiser/Data Provider](./advertiser-dataprovider-guide.md)                              | この広告主やデータプロバイダー向けのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 |
 
 ## Supplementary Integrations
 
 | Integration Guide                                                        | Content Description                                                                                                                                                                                    |
 | :----------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Publisher - Google Ad Manager Secure Signals](google-ss-integration.md) | このインテグレーションガイドは、UID2 を Google Ad Manager の**secure signals**機能（旧称：**encrypted signals from publishers**、ESP）で使用するパブリッシャーに必要な追加ステップをカバーしています。 |
+| [Publisher - Google Ad Manager Secure Signals](google-ss-integration.md) | このインテグレーションガイドは、UID2 を Google Ad Manager の**secure signals**機能（旧称：encrypted signals from publishers、ESP）で使用するパブリッシャーに必要な追加ステップをカバーしています。 |
 
 ## Open Operator Service Integration
 
@@ -29,6 +29,6 @@
 
 | Integration Guide                                                                                | Content Description                                                                                                                                                                                                                                                           |
 | :----------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Operator - Microsoft Azure](./operator-guide-azure-enclave.md)                                  | IMPORTANT: このドキュメントは現在、PoC の段階です。詳細については、UID2 Administrator に [連絡](../../README.md#contact-info) してください。<br/>Closed Operator Service を Microsoft Azure Confidential Computing プラットフォーム上で動作させるためのセットアップ手順です。 |
+| [Operator - Microsoft Azure](./operator-guide-azure-enclave.md)                                  | IMPORTANT: このドキュメントは現在、PoC の段階です。詳細は、UID2 Administrator に [連絡](../../README.md#contact-info) してください。<br/>Closed Operator Service を Microsoft Azure Confidential Computing プラットフォーム上で動作させるためのセットアップ手順です。 |
 | [Operator - AWS Marketplace](./operator-guide-aws-marketplace.md)                                | AWS Marketplace のクローズドオペレーターサービスをセットアップする手順です。　                                                                                                                                                                                                |
 | [Operator - Google Cloud Platform Confidential Compute package](./operator-guide-gcp-enclave.md) | Google Cloud Platform Confidential Compute (GCP) パッケージのセットアップ手順です。                                                                                                                                                                                           |

@@ -4,19 +4,21 @@
 
 ソルトバケットのローテーションをモニターします。
 
-Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細については、[Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) を参照してください。
+Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細は、[Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) を参照してください。
 
 ## Request Format
 
 `POST '{environment}/v2/identity/buckets'`
 
-> IMPORTANT: すべてのリクエストは、秘密鍵を使用して暗号化する必要があります。詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+> IMPORTANT: すべてのリクエストは、秘密鍵を使用して暗号化する必要があります。詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ### Path Parameters
 
 | Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                   |
 | :-------------- | :-------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `{environment}` | string    | Required  | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレータを含む全リストは [Environments](../summary-doc-v2.md#environments) を参照してください。 |
+| `{environment}` | string    | Required  | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../summary-doc-v2.md#environments) を参照してください。 |
+
+NOTE: インテグレーション環境と本番環境では、異なる[APIキー](../ref-info/glossary-uid.md#gl-api-key)が必要です。
 
 ### Unencrypted JSON Body Parameters
 
@@ -36,25 +38,13 @@ Used by: このエンドポイントは、主に広告主とデータプロバ�
 }
 ```
 
-以下は、プレースホルダー値を含む暗号化された ID バケットローテーションリクエストフォーマットです:
-
-```sh
-echo '[Unencrypted-JSON-Request-Body]' \
-  | encrypt_request.py [Your-Client-Secret] \
-  | curl -X POST 'https://prod.uidapi.com/v2/identity/buckets' -H 'Authorization: Bearer [Your-Client-API-Key]' -d @- \
-  | decrypt_response.py [Your-Client-Secret]
-```
-
 以下は、暗号化された ID バケットのローテーションリクエストの例です:
 
 ```sh
-echo '{"since_timestamp": "2022-06-01T13:00:00"}' \
-  | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
-  | curl -X POST 'https://prod.uidapi.com/v2/identity/buckets' -H 'Authorization: Bearer [Your-Client-API-Key]' -d @- \
-  | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
+echo '{"since_timestamp": "2023-04-19T13:00:00"}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/buckets [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
-詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON Response Format
 
@@ -87,7 +77,7 @@ echo '{"since_timestamp": "2022-06-01T13:00:00"}' \
 | Property       | Format    | Description                                                     |
 | :------------- | :-------- | :-------------------------------------------------------------- |
 | `bucket_id`    | string    | ソルトバケット ID です。                                        |
-| `last_updated` | date-time | バケットソルトが最後にローテートされた UTC タイムスタンプです。 |
+| `last_updated` | date-time | バケットソルトが最後にローテーションされた UTC タイムスタンプです。 |
 
 ### Response Status Codes
 

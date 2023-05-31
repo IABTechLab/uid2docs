@@ -4,12 +4,12 @@
  * work well for content-centric websites.
  */
 
-
-@import './config'; // Branding vars + Custom mixins
-@import './navbar'; // Global navbar //sidebar
-@import './footer'; // Global footer
-@import './marketo'; // Marketo styles
-@import './markdown'; // Marketo styles
+@import "./config"; // Branding vars + Custom mixins
+@import "./navbar"; // Global navbar //sidebar
+@import "./footer"; // Global footer
+@import "./marketo"; // Marketo styles
+@import "./markdown"; // Markdown styles
+@import "./search"; // Search styles
 
 /* You can override the default Infima variables here. */
 :root {
@@ -42,7 +42,6 @@
   --ifm-color-primary: var(--c-aa-periwinkle);
   --ifm-list-paragraph-margin: 0.25rem;
 
-
   --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
   --ifm-color-primary-darkest: #205d3b;
@@ -58,13 +57,13 @@
   }
 }
 
-[data-theme='light'] .DocSearch {
-  --docsearch-muted-color: #4a4a4b;
+[data-theme="light"] .DocSearch {
+  --docsearch-muted-color: var(--c-eleven-o-clock);
+  --docsearch-searchbox-background: var(--c-dirty-socks);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
-
   --ifm-link-color: var(--c-lemon);
   --ifm-toc-link-color: var(--c-lemon);
   --ifm-navbar-background-color: var(--c-off-black);
@@ -78,7 +77,6 @@
   --ifm-menu-color: var(--c-white);
   --ifm-menu-color-background-active: transparent;
   --ifm-color-emphasis-600: var(--c-lemon);
-  
 
   --ifm-color-primary: var(--c-lemon);
   --ifm-color-primary-dark: #21af90;
@@ -90,9 +88,9 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-
-[data-theme='dark'] .DocSearch {
-  --docsearch-muted-color: #7f8497;
+[data-theme="dark"] .DocSearch {
+  --docsearch-muted-color: var(--c-white);
+  --docsearch-searchbox-background: var(--c-primary-gray);
 }
 
 /**
@@ -162,7 +160,6 @@
       color: var(--c-eleven-o-clock);
     }
   }
-
 }
 
 /*** Colors **/
@@ -210,8 +207,6 @@
     color: var(--c-aa-periwinkle);
   }
 }
-
-
 
 //custom nav link hover mostly used in docs
 .border-underline-link {

@@ -18,7 +18,9 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 
 | Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                   |
 | :-------------- | :-------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレータを含む全リストは [Environments](../summary-doc-v2.md#environments) を参照してください。 |
+| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../summary-doc-v2.md#environments) を参照してください。 |
+
+NOTE: インテグレーション環境と本番環境では、異なる[APIキー](../ref-info/glossary-uid.md#gl-api-key)が必要です。
 
 ### Unencrypted JSON Body Parameters
 
@@ -30,9 +32,9 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 | :------------- | :-------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `token`        | string    | 必須           | [POST /token/generate](post-token-generate.md) レスポンスによって返された Advertising Token です。                                                                                         |
 | `email`        | string    | 条件付きで必要 | トークン検証用のメールアドレスです。                                                                                                                                                       |
-| `email_hash`   | string    | 条件付きで必要 | トークン検証用の [SHA-256 ハッシュし、base64 エンコード](../../README.md#email-address-hash-encoding) した、[正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
+| `email_hash`   | string    | 条件付きで必要 | トークン検証用の [SHA-256 ハッシュし、Base64 エンコード](../../README.md#email-address-hash-encoding) した、[正規化](../../README.md#email-address-normalization) 済みメールアドレスです。 |
 | `phone`        | string    | 条件付きで必要 | トークン検証用の [正規化](../../README.md#phone-number-normalization) 済み電話番号です。                                                                                                   |
-| `phone_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。                          |
+| `phone_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../../README.md#phone-number-hash-encoding) した、[正規化](../../README.md#phone-number-normalization) 済み電話番号です。                          |
 
 ### Request Examples
 
@@ -65,26 +67,13 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
   "phone_hash": "wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ/FSK4="
 }
 ```
-
-以下は、プレースホルダー値を含む暗号化されたトークン検証リクエストのフォーマットです:
-
-```sh
-echo '[Unencrypted-JSON-Request-Body]' \
-  | encrypt_request.py [Your-Client-Secret] \
-  | curl -X POST 'https://prod.uidapi.com/v2/token/validate' -H 'Authorization: Bearer [Your-Client-API-Key]' -d @- \
-  | decrypt_response.py [Your-Client-Secret]
-```
-
 以下は、メールアドレスハッシュの暗号化トークン検証リクエストの例です:
 
 ```sh
-echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D", "email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' \
-  | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
-  | curl -X POST 'https://prod.uidapi.com/v2/token/validate' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -d @- \
-  | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
+echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D", "email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' | python3 uid2_request.py  https://prod.uidapi.com/v2/token/validate [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
-詳細と Python スクリプトの例については、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON Response Format
 
