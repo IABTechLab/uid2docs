@@ -40,10 +40,11 @@ After your request is received, a UID2 administrator will contact you with the a
 
 ## Shared Objects
 
-Regardless of the UID2 solution you choose, you can map single or multiple email addresses or email hashes to UID2s by using the following functions:
+Regardless of the UID2 solution you choose, you can map DII to UID2s by using the following functions:
 
-- `FN_T_UID2_IDENTITY_MAP_EMAIL` (See [Map Email Addresses](#map-email-addresses))
-- `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (See [Map Email Address Hashes](#map-email-address-hashes))
+- `FN_T_UID2_IDENTITY_MAP` (See [Map DII](#map-dii))
+- `FN_T_UID2_IDENTITY_MAP_EMAIL` (deprecated)
+- `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (deprecated)
 
 To identify the UID2s that you must regenerate, use the `UID2_SALT_BUCKETS` view from the UID2 Share. For details, see [Regenerate UID2s](#regenerate-uid2s).
 
@@ -56,7 +57,7 @@ The following sections include query examples for each solution, which are ident
 ```
 For example:
 ```
-select UID2, BUCKET_ID from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
+select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTITY_MAP('validate@email.com', 'email'));
 ```
 
 All query examples use the following default values for each name variable:
@@ -66,22 +67,28 @@ All query examples use the following default values for each name variable:
 | `{DATABASE_NAME}` | `UID2_PROD_ADV_SH` | `UID2_PROD_DP_SH` | If needed, you can change the default database name when creating a new database after you are granted access to the selected UID2 Share. |
 | `{SCHEMA_NAME}`| `ADV` | `DP` | This is an immutable name. |
 
-### Map Email Addresses
+### Map DII
 
-To map a single email address or multiple email addresses to the corresponding UID2s and second-level salt bucket IDs, use the `FN_T_UID2_IDENTITY_MAP_EMAIL` function. It takes an email address as its argument and normalizes it using the UID2 [Email Address Normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization) rules.
+To map all types of DII, use the `FN_T_UID2_IDENTITY_MAP` function.
+
+If the DII is an email address, it will be normalized using the UID2 [Email Address Normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization) rules.
+
+Phone numbers must be normalized using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
 |Argument|Data Type|Description|
 | :--- | :--- | :--- |
-|`EMAIL`|varchar(128)| The email address to map to the UID2 and second-level bucket ID. |
+| `INPUT` | varchar(256) | The DII to map to the UID2 and second-level bucket ID. |
+| `INPUT_TYPE` | varchar(256) | The type of DII to map. Allowed values: `email`, `email_hash`, `phone`, and `phone_hash`.
 
-A successful query returns the following information for the specified email address.
+A successful query returns the following information for the specified DII.
 
->NOTE: For any invalid email addresses in the request, `NULL` values are returned.
+> NOTE: For any invalid email addresses or phone numbers in the request, `NULL` values are returned.
 
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
-| `UID2` | TEXT | The UID2 associated with the email address. |
+| `UID2` | TEXT | The UID2 associated with the DII. |
 | `BUCKET_ID` | TEXT | The ID of the second-level salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view. |
+| `UNMAPPED` | TEXT | The reason why an identifier was not mapped, if applicable. |
 
 
 #### Single Email Mapping Request Example
@@ -90,22 +97,22 @@ The following queries illustrate how to map a single email address, using the [d
 
 ##### Advertiser Solution Query
 ```
-select UID2, BUCKET_ID from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP('validate@email.com', 'email'));
 ```
 
 ##### Data Provider Solution Query
 ```
-select UID2, BUCKET_ID from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP_EMAIL('validate@email.com'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP('validate@email.com', 'email'));
 ```
 
 ##### Results
 
 ```
-+----------------------------------------------+------------+
-| UID2                                         | BUCKET_ID  |
-+----------------------------------------------+------------+
-| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  |
-+----------------------------------------------+------------+
++----------------------------------------------+------------+----------+
+| UID2                                         | BUCKET_ID  | UNMAPPED |
++----------------------------------------------+------------+----------+
+| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL     |
++----------------------------------------------+------------+----------+
 ```
 
 #### Multiple Emails Mapping Request Example
@@ -113,68 +120,111 @@ The following queries illustrate how to map multiple email addresses, using the 
 
 ##### Advertiser Solution Query
 ```
-select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP_EMAIL(EMAIL) t) m
+select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(EMAIL, 'email') t) m
     on a.ID=m.ID;
 ```
 ##### Data Provider Solution Query
 ```
-select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP_EMAIL(EMAIL) t) m
+select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID, UNMAPPED from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(EMAIL, 'email') t) m
     on a.ID=m.ID;
 ```
 
 ##### Results
 
-The following table identifies each item in the response, including `NULL` values for an improperly formatted email.
+The following table identifies each item in the response, including `NULL` values for `NULL` or improperly formatted emails.
 
 ```
-+----+--------------------+----------------------------------------------+------------+
-| ID | EMAIL              | UID2                                         | BUCKET_ID  |
-+----+--------------------+----------------------------------------------+------------+
-|  1 | validate@email.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  |
-|  2 | test@uidapi.com    | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd |
-|  3 | NULL               | NULL                                         | NULL       |
-+----+--------------------+----------------------------------------------+------------+
++----+--------------------+----------------------------------------------+------------+--------------------+
+| ID | EMAIL              | UID2                                         | BUCKET_ID  | UNMAPPED           |
++----+--------------------+----------------------------------------------+------------+--------------------+
+|  1 | validate@email.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
+|  2 | test@uidapi.com    | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
+|  3 | invalid-email      | NULL                                         | NULL       | INVALID IDENTIFIER |
+|  4 | NULL               | NULL                                         | NULL       | INVALID IDENTIFIER |
++----+--------------------+----------------------------------------------+------------+--------------------+
 ```
 
-### Map Email Address Hashes
-To map a single email address hash or multiple hashes to the corresponding UID2s and second-level salt bucket IDs, use the `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` function which takes an email address hash as its argument.
+#### Single Phone Number Mappping Request Example
 
-|Argument|Data Type|Description|
-| :--- | :--- | :--- |
-|`EMAIL_HASH`|varchar(128)| The Base64-encoded SHA-256 hash of the normalized email address of a user. Ensure that the email hash is correctly formatted using the [Email Address Normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization) rules. Use the hash computed from the normalized email address.|
+The following queries illustrate how to map a phone number, using the [default database and schema names](#database-and-schema-names).
 
-A successful query returns the following information for the specified email address hash.
+Phone numbers must be normalized using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
->NOTE: For any improperly formatted email address hashes in the request, `NULL` values are returned.
+##### Advertiser Solution Query
+```
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP('+12345678901', 'phone'));
+```
 
-|Column Name|Data Type|Description|
-| :--- | :--- | :--- |
-| `UID2` | TEXT | The UID2 associated with the email address. |
-| `BUCKET_ID` | TEXT | The ID of the second-level salt bucket that was used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view. |
+##### Data Provider Solution Query
+```
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP('+12345678901', 'phone'));
+```
+
+##### Results
+
+```
++----------------------------------------------+------------+----------+
+| UID2                                         | BUCKET_ID  | UNMAPPED |
++----------------------------------------------+------------+----------+
+| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL     |
++----------------------------------------------+------------+----------+
+```
+
+#### Multiple Phone Numbers Mapping Request Example
+The following queries illustrate how to map multiple phone numbers, using the [default database and schema names](#database-and-schema-names).
+
+Phone numbers must be normalized using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
+
+##### Advertiser Solution Query
+```
+select a.ID, a.PHONE, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(PHONE, 'phone') t) m
+    on a.ID=m.ID;
+```
+##### Data Provider Solution Query
+```
+select a.ID, a.PHONE, m.UID2, m.BUCKET_ID, UNMAPPED from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(PHONE, 'phone') t) m
+    on a.ID=m.ID;
+```
+
+##### Results
+The following table identifies each item in the response, including `NULL` values for `NULL` or invalid phone numbers.
+
+```
++----+--------------+----------------------------------------------+------------+--------------------+
+| ID | PHONE        | UID2                                         | BUCKET_ID  | UNMAPPED           |
++----+--------------+----------------------------------------------+------------+--------------------+
+|  1 | +12345678901 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
+|  2 | +61491570006 | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
+|  3 | 1234         | NULL                                         | NULL       | INVALID IDENTIFIER |
+|  4 | NULL         | NULL                                         | NULL       | INVALID IDENTIFIER |
++----+--------------+----------------------------------------------+------------+--------------------+
+```
 
 #### Single Email Hash Mapping Request Example
 The following queries illustrate how to map a single email address hash, using the [default database and schema names](#database-and-schema-names).
 
 ##### Advertiser Solution Query
 ```
-select UID2, BUCKET_ID from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256))));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256)), 'email_hash'));
 ```
 
 ##### Data Provider Solution Query
 ```
-select UID2, BUCKET_ID from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP_EMAIL(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256))));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256)), 'email_hash'));
 ```
 
 ##### Results
 
 ```
-+----------------------------------------------+------------+
-| UID2                                         | BUCKET_ID  |
-+----------------------------------------------+------------+
-| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  |
-+----------------------------------------------+------------+
++----------------------------------------------+------------+----------+
+| UID2                                         | BUCKET_ID  | UNMAPPED |
++----------------------------------------------+------------+----------+
+| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL     |
++----------------------------------------------+------------+----------+
 ```
 
 
@@ -183,30 +233,83 @@ The following queries illustrate how to map multiple email address hashes, using
 
 ##### Advertiser Solution Query
 ```
-select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP_EMAIL_HASH(EMAIL_HASH) t) m
+select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash') t) m
     on a.ID=m.ID;
 ```
 
 ##### Data Provider Solution Query
 ```
-select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP_EMAIL_HASH(EMAIL_HASH) t) m
+select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash') t) m
     on a.ID=m.ID;
 ```
 
 ##### Results
-
-The following table identifies each item in the response, including `NULL` values for an improperly formatted email hash.
+The following table identifies each item in the response, including `NULL` values for `NULL` hashes.
 
 ```
-+----+----------------------------------------------+----------------------------------------------+------------+
-| ID | EMAIL_HASH                                   | UID2                                         | BUCKET_ID  |
-+----+----------------------------------------------+----------------------------------------------+------------+
-|  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  |
-|  2 | NULL                                         | NULL                                         | NULL       |
-|  3 |/XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g=  | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd |
-+----+----------------------------------------------+----------------------------------------------+------------+
++----+----------------------------------------------+----------------------------------------------+------------+--------------------+
+| ID | EMAIL_HASH                                   | UID2                                         | BUCKET_ID  | UNMAPPED           |
++----+----------------------------------------------+----------------------------------------------+------------+--------------------+
+|  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
+|  2 | NULL                                         | NULL                                         | NULL       | INVALID IDENTIFIER |
+|  3 |/XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g=  | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
++----+----------------------------------------------+----------------------------------------------+------------+--------------------+
+```
+
+#### Single Phone Hash Mapping Request Example
+The following queries illustrate how to map a single phone number hash, using the [default database and schema names](#database-and-schema-names).
+
+##### Advertiser Solution Query
+```
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('+12345678901', 256)), 'phone_hash'));
+```
+
+##### Data Provider Solution Query
+```
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('+12345678901', 256)), 'phone_hash'));
+```
+
+##### Results
+
+```
++----------------------------------------------+------------+----------+
+| UID2                                         | BUCKET_ID  | UNMAPPED |
++----------------------------------------------+------------+----------+
+| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL     |
++----------------------------------------------+------------+----------+
+```
+
+
+#### Multiple Phone Number Hashes Mapping Request Example
+The following queries illustrate how to map multiple phone number hashes, using the [default database and schema names](#database-and-schema-names).
+
+##### Advertiser Solution Query
+```
+select a.ID, a.PHONE_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(PHONE_HASH, 'phone_hash') t) m
+    on a.ID=m.ID;
+```
+
+##### Data Provider Solution Query
+```
+select a.ID, a.PHONE_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(PHONE_HASH, 'phone_hash') t) m
+    on a.ID=m.ID;
+```
+
+##### Results
+The following table identifies each item in the response, including `NULL` values for `NULL` hashes.
+
+```
++----+----------------------------------------------+----------------------------------------------+------------+--------------------+
+| ID | PHONE_HASH                                   | UID2                                         | BUCKET_ID  | UNMAPPED           |
++----+----------------------------------------------+----------------------------------------------+------------+--------------------+
+|  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
+|  2 | NULL                                         | NULL                                         | NULL       | INVALID IDENTIFIER |
+|  3 |/XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g=  | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
++----+----------------------------------------------+----------------------------------------------+------------+--------------------+
 ```
 
 ### Regenerate UID2s
