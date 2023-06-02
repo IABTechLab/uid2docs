@@ -11,15 +11,13 @@ This page provides information about the policies and legal requirements associa
 
 <!-- It includes the following:
 
-- [Introduction](#introduction)
-  - [Guiding Principles](#guiding-principles)
-  - [Technical Design Principles](#technical-design-principles)
-- [Elements of the UID2 Infrastructure](#elements-of-the-uid2-infrastructure)
-  - [UID2 Identifier Types](#uid2-identifier-types)
-  - [Components](#components)
-  - [Participants](#participants)
-  - [Workflows](#workflows)
-- [Frequently Asked Questions (FAQs)](#faqs)
-- [License](#license) -->
+- [xxx](#xxx)
+  - [xxx](#xxx)
+  - [xxx](#xxx)
+- [xxx](#xxx)
+  - [xxx](#xxx)
+  - [xxx](#xxx)
+- [xxx](#xxx)
+- [xxx](#xxx) -->
 
 Details to come.
