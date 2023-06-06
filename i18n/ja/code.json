@@ -453,5 +453,37 @@
   "homepage.metaDescription": {
     "message": "Unified ID (UID) offers cookieless, deterministic identity for advertisers, publishers, data providers and DSPs.",
     "description": "The homepage meta description"
+  },
+  "partners.metaTitle": {
+    "message": "Partners",
+    "description": "The partners page meta title"
+  },
+  "partners.metaDescription": {
+    "message": "A growing list of publishers, advertisers, data providers and DSPs leveraging Unified ID.",
+    "description": "The partners page meta description"
+  },
+  "partners.heading": {
+    "message": "Unified ID 2.0 Partners",
+    "description": "The partners page heading"
+  },
+  "partners.subheading": {
+    "message": "Access a broad marketplace of premier providers from the digital advertising ecosystem.",
+    "description": "The partners page subheading"
+  },
+  "partners.publishersTitle": {
+    "message": "Publishers",
+    "description": "The partners page publishers title"
+  },
+  "partners.dspTitle": {
+    "message": "DSPs/SSPs",
+    "description": "The partners page DSPs/SSPs title"
+  },
+  "partners.dataTitle": {
+    "message": "Data Providers",
+    "description": "The partners page data providers title"
+  },
+  "partners.cdpTitle": {
+    "message": "CDPs / Clean Rooms",
+    "description": "The partners page CDPs / Clean Rooms title"
   }
 }
