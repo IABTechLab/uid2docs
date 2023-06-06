@@ -433,5 +433,9 @@
   },
   "homepage.heroCopy": {
     "message": "Unified ID 2.0 leverages encrypted email and phone number data to provide a privacy-conscious, secure, and accurate identity standard for the entire digital advertising ecosystem."
+  },
+  "homepage.newsTitle": {
+    "message": "Press releases and media coverage",
+    "description": "Press releases and media coverage"
   }
 }
