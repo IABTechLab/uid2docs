@@ -427,5 +427,11 @@
   },
   "homepage.featureItem3Description": {
     "message": "Hash, salt, and transport directly identifying information (DII) as pseudonymized IDs."
+  },
+  "homepage.heroTitle": {
+    "message": "An open-source identity solution built for the open internet"
+  },
+  "homepage.heroCopy": {
+    "message": "Unified ID 2.0 leverages encrypted email and phone number data to provide a privacy-conscious, secure, and accurate identity standard for the entire digital advertising ecosystem."
   }
 }
