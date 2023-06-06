@@ -90,6 +90,14 @@ A successful query returns the following information for the specified DII.
 | `BUCKET_ID` | TEXT | The ID of the second-level salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view. |
 | `UNMAPPED` | TEXT | The reason why an identifier was not mapped, if applicable. |
 
+Possible values for `UNMAPPED` are:
+
+| Value | Meaning |
+| :-- | :-- |
+| `NULL` | The DII was successfully mapped. |
+| `OPTOUT` | The user has opted out. |
+| `INVALID IDENTIFIER` | The email address or phone number is invalid. |
+| `INVALID INPUT TYPE` | The value of `INPUT_TYPE` is invalid. |
 
 #### Single Email Mapping Request Example
 
