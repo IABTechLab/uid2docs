@@ -437,5 +437,13 @@
   "homepage.newsTitle": {
     "message": "Press releases and media coverage",
     "description": "Press releases and media coverage"
+  },
+  "homepage.partnersTitle": {
+    "message": "Our partners",
+    "description": "Our partners"
+  },
+  "homepage.partnersCtaLabel": {
+    "message": "View All",
+    "description": "View All"
   }
 }
