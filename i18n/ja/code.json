@@ -485,5 +485,21 @@
   "partners.cdpTitle": {
     "message": "CDPs / Clean Rooms",
     "description": "The partners page CDPs / Clean Rooms title"
+  },
+  "requestAccess.metaTitle": {
+    "message": "Request Access",
+    "description": "The request access page meta title"
+  },
+  "requestAccess.metaDescription": {
+    "message": "Contact us to become a UID2 partner.",
+    "description": "The request access page meta description"
+  },
+  "requestAccess.heading": {
+    "message": "Request access to UID2",
+    "description": "The request access page heading"
+  },
+  "requestAccess.subheading": {
+    "message": "Interested in adopting Unified ID 2.0 (UID2) as a part of your identity strategy? Contact The Trade Desk to learn more about integrating with the UID2 framework today. Advertisers, publishers, data and measurement providers, DSPs, SSPs, and data storage and audience platforms are all welcome!",
+    "description": "The request access page subheading"
   }
 }

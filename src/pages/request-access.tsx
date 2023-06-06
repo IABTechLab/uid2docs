@@ -1,5 +1,6 @@
 //TS and Marketo is not a good time so ignoring in eslint
 import React from "react";
+import { translate } from "@docusaurus/Translate";
 import Layout from "@theme/Layout";
 import PageHeader from "@site/src/components/PageHeader";
 import styles from "./request-access.module.scss";
@@ -8,6 +9,30 @@ import {
   capitalizeFirstLetter,
   identifyClosestSiblingInput,
 } from "@site/src/utils";
+
+const componentData = {
+  title: translate({
+    id: "requestAccess.metaTitle",
+    message: "Request Access",
+    description: "The request access page meta title",
+  }),
+  description: translate({
+    id: "requestAccess.metaDescription",
+    message: "Contact us to become a UID2 partner.",
+    description: "The request access page meta description",
+  }),
+  heading: translate({
+    id: "requestAccess.heading",
+    message: "Request access to UID2",
+    description: "The request access page heading",
+  }),
+  subheading: translate({
+    id: "requestAccess.subheading",
+    message:
+      "Interested in adopting Unified ID 2.0 (UID2) as a part of your identity strategy? Contact The Trade Desk to learn more about integrating with the UID2 framework today. Advertisers, publishers, data and measurement providers, DSPs, SSPs, and data storage and audience platforms are all welcome!",
+    description: "The request access page subheading",
+  }),
+};
 
 declare global {
   interface Window {
@@ -128,15 +153,10 @@ export default function RequestDemo(): JSX.Element {
   }, [formRef]);
 
   return (
-    <Layout
-      title={`Request Access`}
-      description="Contact us to become a UID2 partner."
-    >
+    <Layout title={componentData.title} description={componentData.description}>
       <PageHeader
-        heading={"Request access to UID2"}
-        subheading={
-          "Interested in adopting Unified ID 2.0 (UID2) as a part of your identity strategy? Contact The Trade Desk to learn more about integrating with the UID2 framework today. Advertisers, publishers, data and measurement providers, DSPs, SSPs, and data storage and audience platforms are all welcome!"
-        }
+        heading={componentData.heading}
+        subheading={componentData.subheading}
       />
       <main className={styles.requestDemoPage}>
         <div className="container">
