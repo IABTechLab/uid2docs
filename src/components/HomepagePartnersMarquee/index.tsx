@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import Translate from "@docusaurus/Translate";
 import Link from "@docusaurus/Link";
 import styles from "./styles.module.scss";
 import RightArrow from "@site/static/img/right-arrow-icon.svg";
@@ -21,13 +22,22 @@ export default function HomepagePartnersMarquee(): JSX.Element {
         <div className={clsx("row", styles.contentWrapper)}>
           <header className="col col--4">
             <h2 className={clsx(styles.heading, "text-11-o-clock")}>
-              Our partners
+              <Translate id="homepage.partnersTitle" description="Our partners">
+                Our partners
+              </Translate>
             </h2>
             <Link
               to={"/partners"}
               className={clsx(styles.cta, "type-eta text-aa-periwinkle")}
             >
-              <span className="border-underline-link">View All</span>{" "}
+              <span className="border-underline-link">
+                <Translate
+                  id="homepage.partnersCtaLabel"
+                  description="View All"
+                >
+                  View All
+                </Translate>
+              </span>{" "}
               <RightArrow className={styles.ctaArrow} />
             </Link>
           </header>

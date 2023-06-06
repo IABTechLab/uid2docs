@@ -400,5 +400,106 @@
   "theme.tags.tagsPageTitle": {
     "message": "タグ",
     "description": "The title of the tag list page"
+  },
+  "homepage.ctaStripeHeading": {
+    "message": "Ready to get started with Unified ID 2.0?"
+  },
+  "homepage.ctaStripeSubheading": {
+    "message": "Request access or a consultation with an expert, or visit our most up-to-date technical documentation"
+  },
+  "homepage.ctaStripe1Text": {
+    "message": "Request Access"
+  },
+  "homepage.ctaStripe2Text": {
+    "message": "Browse the Docs"
+  },
+  "homepage.featuredItemsHeading": {
+    "message": "Ready to get started with Unified ID 2.0?"
+  },
+  "homepage.featuredItemsSubheading": {
+    "message": "Request access or a consultation with an expert, or visit our most up-to-date technical documentation"
+  },
+  "homepage.featureItem1Description": {
+    "message": "Use deterministic data for greater precision."
+  },
+  "homepage.featureItem2Description": {
+    "message": "Upgrade to an omnichannel and cross-device ID type."
+  },
+  "homepage.featureItem3Description": {
+    "message": "Hash, salt, and transport directly identifying information (DII) as pseudonymized IDs."
+  },
+  "homepage.heroTitle": {
+    "message": "An open-source identity solution built for the open internet"
+  },
+  "homepage.heroCopy": {
+    "message": "Unified ID 2.0 leverages encrypted email and phone number data to provide a privacy-conscious, secure, and accurate identity standard for the entire digital advertising ecosystem."
+  },
+  "homepage.newsTitle": {
+    "message": "Press releases and media coverage",
+    "description": "Press releases and media coverage"
+  },
+  "homepage.partnersTitle": {
+    "message": "Our partners",
+    "description": "Our partners"
+  },
+  "homepage.partnersCtaLabel": {
+    "message": "View All",
+    "description": "View All"
+  },
+  "homepage.metaTitle": {
+    "message": "About",
+    "description": "The homepage meta title"
+  },
+  "homepage.metaDescription": {
+    "message": "Unified ID (UID) offers cookieless, deterministic identity for advertisers, publishers, data providers and DSPs.",
+    "description": "The homepage meta description"
+  },
+  "partners.metaTitle": {
+    "message": "Partners",
+    "description": "The partners page meta title"
+  },
+  "partners.metaDescription": {
+    "message": "A growing list of publishers, advertisers, data providers and DSPs leveraging Unified ID.",
+    "description": "The partners page meta description"
+  },
+  "partners.heading": {
+    "message": "Unified ID 2.0 Partners",
+    "description": "The partners page heading"
+  },
+  "partners.subheading": {
+    "message": "Access a broad marketplace of premier providers from the digital advertising ecosystem.",
+    "description": "The partners page subheading"
+  },
+  "partners.publishersTitle": {
+    "message": "Publishers",
+    "description": "The partners page publishers title"
+  },
+  "partners.dspTitle": {
+    "message": "DSPs/SSPs",
+    "description": "The partners page DSPs/SSPs title"
+  },
+  "partners.dataTitle": {
+    "message": "Data Providers",
+    "description": "The partners page data providers title"
+  },
+  "partners.cdpTitle": {
+    "message": "CDPs / Clean Rooms",
+    "description": "The partners page CDPs / Clean Rooms title"
+  },
+  "requestAccess.metaTitle": {
+    "message": "Request Access",
+    "description": "The request access page meta title"
+  },
+  "requestAccess.metaDescription": {
+    "message": "Contact us to become a UID2 partner.",
+    "description": "The request access page meta description"
+  },
+  "requestAccess.heading": {
+    "message": "Request access to UID2",
+    "description": "The request access page heading"
+  },
+  "requestAccess.subheading": {
+    "message": "Interested in adopting Unified ID 2.0 (UID2) as a part of your identity strategy? Contact The Trade Desk to learn more about integrating with the UID2 framework today. Advertisers, publishers, data and measurement providers, DSPs, SSPs, and data storage and audience platforms are all welcome!",
+    "description": "The request access page subheading"
   }
 }
