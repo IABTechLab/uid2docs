@@ -1,0 +1,30 @@
+{
+  "logo.alt": {
+    "message": "UID2 logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Request Access": {
+    "message": "Request Access",
+    "description": "Navbar item with label Request Access"
+  },
+  "item.label.Publishers": {
+    "message": "Publishers",
+    "description": "Navbar item with label Publishers"
+  },
+  "item.label.Advertisers": {
+    "message": "Advertisers",
+    "description": "Navbar item with label Advertisers"
+  },
+  "item.label.DSPs": {
+    "message": "DSPs",
+    "description": "Navbar item with label DSPs"
+  },
+  "item.label.Data Providers": {
+    "message": "Data Providers",
+    "description": "Navbar item with label Data Providers"
+  },
+  "item.label.Docs": {
+    "message": "Docs",
+    "description": "Navbar item with label Docs"
+  }
+}

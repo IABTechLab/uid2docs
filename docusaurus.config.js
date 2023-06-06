@@ -44,7 +44,22 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en", "ja"],
+    path: "i18n",
+    localeConfigs: {
+      en: {
+        label: "English",
+        direction: "ltr",
+        htmlLang: "en-US",
+        calendar: "gregory",
+      },
+      ja: {
+        label: "日本",
+        direction: "ltr",
+        htmlLang: "jp-JP",
+        calendar: "japanese",
+      },
+    },
   },
   plugins: [
     "docusaurus-plugin-sass",
@@ -177,6 +192,10 @@ const config = {
           //     },
           //   ],
           // },
+          {
+            type: "localeDropdown",
+            position: "right",
+          },
           {
             type: "search",
             position: "right",

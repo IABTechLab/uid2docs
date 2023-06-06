@@ -1,0 +1,62 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Overview Pages": {
+    "message": "Overview Pages",
+    "description": "The label for category Overview Pages in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Overview Pages.link.generated-index.description": {
+    "message": "Each overview page is a one-stop shop for the specific audience, with focused overview and getting started information and links to the specific documents you'll use.",
+    "description": "The generated-index page description for category Overview Pages in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Getting Started.link.generated-index.description": {
+    "message": "Information to help you get started with UID2.",
+    "description": "The generated-index page description for category Getting Started in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.SDKs": {
+    "message": "SDKs",
+    "description": "The label for category SDKs in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.SDKs.link.generated-index.description": {
+    "message": "Information about the different UID2 SDKs available.",
+    "description": "The generated-index page description for category SDKs in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Integration Guides": {
+    "message": "Integration Guides",
+    "description": "The label for category Integration Guides in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Integration Guides.link.generated-index.description": {
+    "message": "Information about the different SDK guides available.",
+    "description": "The generated-index page description for category Integration Guides in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Endpoints (v2)": {
+    "message": "Endpoints (v2)",
+    "description": "The label for category Endpoints (v2) in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Endpoints (v2).link.generated-index.description": {
+    "message": "Information about UID2 endpoints.",
+    "description": "The generated-index page description for category Endpoints (v2) in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Workflows": {
+    "message": "Workflows",
+    "description": "The label for category Workflows in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Workflows.link.generated-index.description": {
+    "message": "Workflow information for the different UID2 participants.",
+    "description": "The generated-index page description for category Workflows in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Reference Information": {
+    "message": "Reference Information",
+    "description": "The label for category Reference Information in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Reference Information.link.generated-index.description": {
+    "message": "Reference information to help you work with UID2.",
+    "description": "The generated-index page description for category Reference Information in sidebar tutorialSidebar"
+  }
+}
