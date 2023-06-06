@@ -400,5 +400,17 @@
   "theme.tags.tagsPageTitle": {
     "message": "タグ",
     "description": "The title of the tag list page"
+  },
+  "homepage.ctaStripeHeading": {
+    "message": "Ready to get started with Unified ID 2.0?"
+  },
+  "homepage.ctaStripeSubheading": {
+    "message": "Request access or a consultation with an expert, or visit our most up-to-date technical documentation"
+  },
+  "homepage.ctaStripe1Text": {
+    "message": "Request Access"
+  },
+  "homepage.ctaStripe2Text": {
+    "message": "Browse the Docs"
   }
 }
