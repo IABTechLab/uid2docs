@@ -412,5 +412,20 @@
   },
   "homepage.ctaStripe2Text": {
     "message": "Browse the Docs"
+  },
+  "homepage.featuredItemsHeading": {
+    "message": "Ready to get started with Unified ID 2.0?"
+  },
+  "homepage.featuredItemsSubheading": {
+    "message": "Request access or a consultation with an expert, or visit our most up-to-date technical documentation"
+  },
+  "homepage.featureItem1Description": {
+    "message": "Use deterministic data for greater precision."
+  },
+  "homepage.featureItem2Description": {
+    "message": "Upgrade to an omnichannel and cross-device ID type."
+  },
+  "homepage.featureItem3Description": {
+    "message": "Hash, salt, and transport directly identifying information (DII) as pseudonymized IDs."
   }
 }
