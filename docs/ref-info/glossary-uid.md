@@ -202,7 +202,7 @@ sidebar_position: 10
 <dd>A private instance of the Operator Service, run by a <a href="#gl-private-operator">private operator</a>.</dd>
 
 <dt class="jump-anchor" id="gl-raw-uid2">Raw UID2</dt>
-<dd>An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's <a href="#gl-dii">Directly identifying information</a> (email address or phone number) as input. The raw UID2 is encrypted to create a <a href="#gl-uid2-token">UID2 token</a>.</dd>
+<dd>An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's <a href="#gl-dii">Directly identifying information</a> (email address or phone number) as input. The raw UID2 is encrypted to create a <a href="#gl-uid2-token">UID2 token</a>. The raw UID2 is a unique value; no two raw UID2s are the same.</dd>
 <dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
 
 <dt class="jump-anchor" id="gl-refresh-token">Refresh token</dt>
