@@ -1,113 +1,125 @@
-[UID2 Overview](../README-ja.md) > Getting Started with UID2
+---
+title: UID2 Overview
+description: Introduction to UID2 documentation.
+hide_table_of_contents: false
+sidebar_position: 01
+---
+# Unified ID 2.0 Overview
 
-# Getting Started with UID2
+このページでは、Unified ID 2.0 (UID2) フレームワークの概要について説明しています。
 
-UID2 の定義、ID タイプ、指針、構成要素、その他の概念的な詳細は、 [UID2 Overview](../README-ja.md) を参照してください。
+<!-- 以下の内容が含まれています：
 
-このページでは、UID2 APIを使い始めるために必要な一般的な情報を提供します。
+- [Introduction（概要）](#introduction)
+  - [Guiding Principles（基本方針）](#guiding-principles)
+  - [Technical Design Principles（技術的な設計方針）](#technical-design-principles)
+- [Elements of the UID2 Infrastructure（UID2 インフラストラクチャの要素）](#elements-of-the-uid2-infrastructure)
+  - [UID2 Identifier Types（UID2 識別子タイプ）](#uid2-identifier-types)
+  - [Components（コンポーネント）](#components)
+  - [Participants（参加者）](#participants)
+  - [Workflows（ワークフロー）](#workflows)
+- [Frequently Asked Questions (FAQs)（よくある質問）](#faqs)
+- [License（ライセンス）](#license) -->
 
-その内容は以下の通りです：
+## Introduction
 
-- [Contact Info（連絡先）](#contact-info)
-- [API Versions（API バージョン）](#api-versions)
-- [Email Address Normalization（メールアドレスの正規化）](#email-address-normalization)
-- [Email Address Hash Encoding（メールアドレスハッシュのエンコード）](#email-address-hash-encoding)
-- [Phone Number Normalization（電話番号の正規化）](#phone-number-normalization)
-- [Phone Number Hash Encoding（電話番号ハッシュのエンコード）](#phone-number-hash-encoding)
-- [License（ライセンス）](#license)
+UID2 は、広告エコシステム全体の多くの [参加者](#participants) にとって、オープンインターネット上の広告機会に対する決定論的な ID を可能にするフレームワークです。UID2 フレームワークにより、パブリッシャーのウェブサイト、モバイルアプリ、Connected TV（CTV）アプリからのログイン体験が、プログラマティックワークフローを通じて収益化できるようになります。独自の名前空間を持つオープンソースのスタンドアローンソリューションとして構築されたこのフレームワークは、ローカル市場の要件に合わせて設計された透明性とプライバシー制御をユーザーに提供します。
 
-## Contact Info
+> NOTE: 「UID2」という用語は、フレームワークと実際の識別子のいずれかを指すことがあります。特に断りのない限り、このページでは UID2 フレームワークの概要を説明します。
 
-UID2 フレームワークにアクセスするには、以下の The Trade Desk の担当チームにご連絡ください。
+### Guiding Principles
 
-> The Trade Desk のアクセス依頼は一時的なものです。独立したガバナンスに移行した際には、運営組織がアクセスリクエストを処理します。
+UID2 フレームワークは、以下の原則を基本としています:
 
-| Your Role                                                        | Contact Email                   |
-| :--------------------------------------------------------------- | :------------------------------ |
-| アプリ開発者<br/>パブリッシャー                                  | UID2publishers@thetradedesk.com |
-| 代理店<br/>ブランド<br/>CDP<br/>データプロバイダー<br/>DSP<br/>SSP | UID2partners@thetradedesk.com   |
+- **First-party relationships**: UID2 により、広告主はオープンインターネット上のパブリッシャーウェブサイトでファーストパーティデータを有効にできます。
 
-## API Versions
+- **Non-proprietary (universal) standard**: 行動規範に従うことに同意した広告エコシステムのすべての [参加者](#participants) は、UID2 にアクセスできます。
 
-UID2 API の現在のバージョンは [UID2 API v2](v2/summary-doc-v2.md) です。旧バージョンをお使いの場合は、[UID2 API v1 to v2 Upgrade Guide](v2/upgrades/upgrade-guide.md)の説明にしたがって、必ず UID2 API v2 へアップグレードしてください。
+- **Open source**: UID2 の[コンポーネント](#components)のソースコードは一般に公開されています。
 
-## Email Address Normalization
+- **Interoperable**: このフレームワークにより、他の ID ソリューション（商用およびプロプライエタリ）が UID2 Token をインテグレーションし、提供できるようになります。
 
-UID2 Operator Service にハッシュ化されていないメールアドレスを送信すると、同サービスはメールアドレスを正規化してからハッシュ化します。メールアドレスを送信する前に自分でハッシュ化したい場合は、ハッシュ化する前に正規化する必要があります。
+- **Secure and encrypted data**: UID2 は、ユーザーやその他の参加者のデータを保護するために、複数のセキュリティレイヤを利用しています。
 
-> IMPORTANT: ハッシュ化する前に正規化することで、生成される UID2 値が常に同じになり、データを照合できます。ハッシュ化する前に正規化しない場合、異なる UID2 が生成され、ターゲティング広告の効果が低下する可能性があります。
+- **Consumer control**: 消費者はいつでも [Transparency and Control Portal](https://transparentadvertising.org) を通じて UID2 からの脱退を選択できます。
 
-メールアドレスを正規化するには、次の手順を実行します:
+### Technical Design Principles
 
-1. 先頭と末尾のスペースを削除します。
-2. ASCII 文字をすべて小文字に変換します。
-3. `gmail.com`のメールアドレスでは、ユーザー名の部分から以下の文字を削除してください。
-   1. ピリオド (`.` (ASCII コード 46)) <br/>たとえば、`jane.doe@gmail.com` を `janedoe@gmail.com` に正規化します。
-   2. プラス記号 (`+` (ASCII code 43)) とそれに続くすべての文字。<br/>たとえば、`janedoe+home@gmail.com` を `janedoe@gmail.com` に正規化します。
+UID2 フレームワークは、以下の技術原則に基づいて構築されています:
 
-## Email Address Hash Encoding
+- **Distributed integration**: 複数の認証済みインテグレーションパスにより、パブリッシャー、広告主、サードパーティデータプロバイダーが UID2 Token を管理および交換するためのオプションが提供されます。
 
-メールアドレスハッシュは、正規化されたメールアドレスの SHA-256 ハッシュを Base64 でエンコードしたものです。
+- **Decentralized storage**: このフレームワークでは、個人データのマッピングを一元的に保管することはありません。すべての参加者が自分自身のデータのみを管理します。
 
-| Type                                                  | Example                                                            | Comments and Usage                                                                                                                                                |
-| :---------------------------------------------------- | :----------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Normalized email address                              | `user@example.com`                                                 | N/A                                                                                                                                                               |
-| SHA-256 of email address                              | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | この 64 文字の文字列は、32 バイトの SHA-256 を 16 進数で表現したものです。                                                                                        |
-| Base64-encodedd SHA-256 of email address              | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=`                     | リクエストボディで送信される `email_hash` 値には、このエンコーディングを使用します。                                                                              |
-| URL-encoded, Base64-encodedd SHA-256 of email address | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf%2FF5HVRQ%3D`                 | この 44 文字の文字列は、32 バイトの SHA-256 を Base64 でエンコードしたものです。<br/>リクエストボディで送られる `email_hash` 値には、このエンコードを使用します。 |
+- **Lean infrastructure**: UID2 システムは軽量で安価に運用できます。
 
-## Phone Number Normalization
+- **Internet scale**: UID2 インフラは、継続的に増加する[参加者](#participants)のニーズに対応し、特定の地域の性能要求に応えるために拡張できます。
 
-ハッシュ化されていない電話番号を UID2 Operator Service に送信すると、同サービスは電話番号を正規化した後、ハッシュ化します。電話番号を送信する前に自分でハッシュ化したい場合は、ハッシュ化する前に電話番号を正規化する必要があります。
+- **Self-reliant**: UID2 は、リアルタイム・ビッディング（RTB）データの処理において外部サービスに依存しません。
 
-> IMPORTANT: ハッシュ化する前に正規化することで、生成される UID2 値が常に同じになり、データを照合できます。ハッシュ化する前に正規化しない場合、異なる UID2 が生成され、ターゲティング広告の効果が低下する可能性があります。
+## Elements of the UID2 Infrastructure
 
-ここでは、電話番号の正規化ルールについて説明します:
+以下のセクションでは、UID2 フレームワークのインフラストラクチャの主要な要素について説明し、図解します:
 
-- UID2 Operator は、[E.164](https://ja.wikipedia.org/wiki/E.164) 形式の電話番号を受け付けます。これは、国際的に一意性を保証する国際電話番号の形式です。
-- E.164 電話番号は、最大 15 桁までです。
-- 正規化された E.164 電話番号では、次の構文を使用します。`[+] [国番号] [市外局番を含む加入者番号]`。スペース、ハイフン、括弧、その他の特殊文字は使用できません。たとえば、電話番号 `+123 44 555-66-77`と`1 (123) 456-7890`は、それぞれ`+123445556677`と`+11234567890` として正規化しなければなりません。
+- [UID2 Identifier Types（UID2 識別子タイプ）](#uid2-identifier-types)
+- [Components（コンポーネント）](#components)
+- [Participants（参加者）](#participants)
+- [Workflows（ワークフロー）](#workflows)
 
-## Phone Number Hash Encoding
+### UID2 Identifier Types
 
-電話番号ハッシュは、正規化された電話番号の SHA-256 ハッシュを Base64 エンコードしたものです。
+UID2 は、メールアドレスや電話番号など、個人を識別できる情報（DII）を基にした決定論的な ID です。UID2 には、raw UID2 と UID2 Token（Advertising Token とも呼ばれます）の 2 種類があります。以下の表で、それぞれのタイプについて説明します。
 
-| Type                                                 | Example                                                            | Comments and Usage                                                                                                                                                  |
-| :--------------------------------------------------- | :----------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Normalized phone number                              | `+12345678901`                                                     | N/A                                                                                                                                                                 |
-| SHA-256 of phone number                              | `10e6f0b47054a83359477dcb35231db6de5c69fb1816e1a6b98e192de9e5b9ee` | この 64 文字の文字列は、32 バイトの SHA-256 を 16 進数で表現したものです。                                                                                          |
-| Base64-encodedd SHA-256 of phone number              | `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=`                     | リクエストボディで送信される `phone_hash` 値にはこのエンコーディングを使用します。                                                                                  |
-| URL-encoded, Base64-encodedd SHA-256 of phone number | `wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ%2FFSK4%3D`                 | この 44 文字の文字列は、32 バイトの SHA-256 を Base64 でエンコードしたものです。<br/>リクエストボディで送られる `phone_hash` 値には、このエンコードを使用します。 |
+| ID Type                            | Shared in Bid Stream? | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| :--------------------------------- | :-------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Raw UID2**                       | No                    | UID2 API または SDK を通じて、ハッシュ化またはハッシュ化されていないメールアドレスや電話番号など、ユーザーの検証可能な個人データを入力として作成される暗号化されていない英数字の識別子です。<br/>元の個人データの再識別を防ぐために、入力値はハッシュ化およびソルト化されて raw UID2 が作成されます。raw UID2 を作成するプロセスは、広告主、第三者データプロバイダー、およびデマンドサイドプラットフォーム（DSP）が保管できる、安全で不透明な値を作成するように設計されています。                                                               |
+| **UID2 Token (Advertising Token)** | Yes                   | raw UID2 を暗号化したものです。UID Token は、ハッシュ化またはハッシュ化されていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、ビッドストリームでの保護を確実にするために暗号化されます。<br/>UID2 Token は、パブリッシャーやパブリッシャーサービスプロバイダーが使用するよう設計されています。<br/>UID2 Token は、パブリッシャーまたはパブリッシャーサービスプロバイダーが使用するように設計されています。サプライサイドプラットフォーム（SSP）はビッドストリームで UID2 Token を渡し、DSP は入札要求時にそれを復号化します。 |
 
-## Response Structure and Status Codes
+### Components
 
-すべてのエンドポイントは、以下の構造のレスポンスを返します。
+UID2 フレームワークは以下のコンポーネントで構成されており、現在、すべて The Trade Desk が管理しています。
 
-```json
-{
-  "status": "success",
-  "body": {
-    "property": "propertyValue"
-  },
-  "message": "Descriptive message"
-}
-```
+| Component                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| :---------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Core Service**                    | UID2エコシステムのソルト、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Operator Service**                | UID2 Core Service からの暗号鍵とソルトの管理・保管、ユーザーの個人情報のハッシュ化、raw UID2 の暗号化、UID2 Token の復号を可能にするサービスです。<br/>Open Operator は、オペレーターサービスのパブリックインスタンスを実行し、関連するすべての UID2 参加者が利用できるようにします。また、オペレーターサービスのプライベートなインスタンスを自分たちだけのために実行する Closed Operator も存在します。どのインスタンスも、誰がサービスを運営するかに関わらず、重要な UID2 データを安全に保ち、相互運用できるように保護設計されています。 |
+| **Opt-Out Service**                 | ユーザーのオプトアウトリクエストを管理・保存し、パブリッシャー、オペレーターのサービスインスタンス、DSP に配信するグローバルサービスです。                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **Transparency and Control Portal** | ユーザー向けウェブサイト [https://transparentadvertising.org](https://transparentadvertising.org) では、消費者がいつでも UID2 からの脱退を選択できるようになっています。                                                                                                                                                                                                                                                                                                                                                                                 |
 
-| Property        | Description                                                                                                                |
-| :-------------- | :------------------------------------------------------------------------------------------------------------------------- |
-| `status`        | リクエストのステータス。詳細および HTTP ステータスコードに相当する情報は、以下の表を参照してください。                     |
-| `body.property` | レスポンスのペイロード。`status` の値が `success` 以外の場合、問題が発生したエンドポイント固有の値である可能性があります。 |
-| `message`       | `status` の値が `success` 以外の場合、その問題に関する追加情報 (たとえば、パラメータが足りない、無効であるなど) です。       |
+### Participants
 
-次の表は、`status` プロパティの値と、それに対応する HTTP ステータスコードの一覧です。
+UID2 は透明で相互運用可能なアプローチにより、広告エコシステム全体、すなわち広告主、パブリッシャー、DSP、SSP、シングルサインオン（SSO）プロバイダー、カスタマーデータプラットフォーム（CDP）、同意管理プロバイダー（CMP）、ID プロバイダー、サードパーティデータプロバイダー、測定プロバイダーなどの多くの参加者に協調フレームワークを提供しています。
 
-| Status          | HTTP Status Code | Description                                                                                                                                                                      |
-| :-------------- | :--------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `success`       | 200              | リクエストは成功しました。                                                                                                                                                       |
-| `optout`        | 200              | ユーザーがオプトアウトしました。このステータスは、許可されたリクエストに対してのみ返されます。                                                                                   |
-| `client_error`  | 400              | リクエストに不足している、または無効なパラメータがありました。問題の詳細は、レスポンスの `message` プロパティを参照してください。                                        |
-| `invalid_token` | 400              | リクエストには無効な ID トークンが指定されました。このステータスは承認されたリクエストに対してのみ返されます。                                                                   |
-| `unauthorized`  | 401              | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
+以下の表は、UID2 [ワークフロー](#workflows)における主要参加者とその役割の一覧です。
+
+| Participant            | Role Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| :--------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Core Administrator** | UID2 Core Service およびその他の [コンポーネント](#components) を管理する組織（現在は The Trade Desk）。たとえば、UID2 Operator に暗号キーとソルトを配布し、Operator や DSP にユーザーのオプトアウトリクエストを送ります。                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **Operators**          | Operator Service を実行する組織 (UID2 API 経由)。Operator は、UID2 Core Service から暗号化キーとソルトを受け取って保管し、個人データをソルトおよびハッシュ化して UID2 Token を返し、raw UID2 を暗号化して UID2 Token 生成し、UID2 Token 復号鍵を配布します。<br/>Open Operator は、オペレーターサービスのパブリックインスタンスを実行しています。たとえば、The Trade Desk は現在、UID2 フレームワークのOpen Operatorとして、すべての参加者が利用できるようになっています。他のOpen Operatorが利用可能な場合、参加者はどのオペレーターと作業するかを選択できます。<br/>どの参加者も、UID2 を生成および管理する Closed Operator になることを選択することも可能です。 |
+| **DSPs**               | DSP は UID2 システムとインテグレーションして、広告主から（ファーストパーティデータとして）、またサードパーティデータプロバイダーから（サードパーティデータとして）UID2 を受け取り、それらを活用してビッドストリーム中の UID2 に対する入札情報を提供します。                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **Data Providers**     | ユーザーデータを収集し、DSP にプッシュする組織 - たとえば、広告主、ID グラフプロバイダー、サードパーティデータプロバイダーなどです。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Advertisers**        | さまざまなパブリッシャーサイトでインプレッションを購入し、DSP を使用して、購入する広告インプレッションとその入札価格を決定している組織です。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **Publishers**         | UID2 Token を SSP 経由でビッドストリームに伝達する組織 - たとえば、ID プロバイダー、パブリッシャー、SSO プロバイダーなど。パブリッシャーは、SSO プロバイダーか、UID2 と相互運用可能な独立系 ID プロバイダーのいずれかと連携することを選択できます。独立系 ID プロバイダーは、パブリッシャーに代わって UID2 インテグレーションを行えます。                                                                                                                                                                                                                                                                                                                            |
+| **Consumers**          | パブリッシャーまたはその ID プロバイダーと関わるユーザー。ユーザーは、[Transparency and Control Portal](https://transparentadvertising.org) で UID2 をオプトアウトできます。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+
+### Workflows
+
+以下の表は、UID2 フレームワークの主要な 4 つのワークフローと、その概要へのリンクです。また、各ワークフローの図、インテグレーション手順、FAQ、その他の関連情報を含むインテグレーションガイドへのリンクも掲載しています。
+
+| Workflow                                                                                | Intended Primary Participants                                                                                                                                                                                                                            | Integration Guide                                                                                                                                                                                            |
+| :-------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Buy-Side**<br/>[Overview](workflows-ja/workflow-overview-buy-side-ja.md)              | ビッドストリームで UID2 Token の取引を行う DSP。                                                                                                                                                                                                         | [DSP Integration Guide](./api-ja/v2/guides/dsp-guide.md)                                                                                                                                                     |
+| **Data Provider**<br/>[Overview](workflows-ja/workflow-overview-3p-data-provider-ja.md) | ユーザーデータを収集し、DSP にプッシュする組織。                                                                                                                                                                                                         | [Advertiser/Data Provider Integration Guide](./api-ja/v2/guides/advertiser-dataprovider-guide.md)                                                                                                            |
+| **Supply-Side**<br/>[Overview](workflows-ja/workflow-overview-supply-side-ja.md)        | SSP を介して UID2 Token をビッドストリームに伝播する組織。<br/>NOTE: パブリッシャーは、[Client-Side JavaScript SDK (v2)](./api-ja/v2/sdks/client-side-identity.md) を活用するか、独自のカスタムで Server-Only インテグレーションを行うかを選択できます。 | [Client-Side JavaScript SDK Integration Guide](./api-ja/v2/guides/publisher-client-side.md)<br/>[Publisher Integration Guide, Server-Only (Without SDK)](./api-ja/v2/guides/custom-publisher-integration.md) |
+| **Opt-Out**<br/>[Overview](workflows-ja/workflow-overview-opt-out-ja.md)                | パブリッシャーやその SSO プロバイダー、その他の ID プロバイダーと関わる消費者。                                                                                                                                                                          | N/A                                                                                                                                                                                                          |
+
+次の図は、4 つのワークフローをすべてまとめたものです。各ワークフローについて、[参加者](#participants)、[コンポーネント](#components)、[UID2 識別子タイプ](#uid2-identifier-types)、および番号付きステップが色分けされています。
+
+![The UID2 Ecosystem](images/UID2-workflows-ja.jpg)
+
+## FAQs
+
+[Frequently Asked Questions](api-ja/v2/getting-started/gs-faqs.md)を参照してください.
 
 ## License
 

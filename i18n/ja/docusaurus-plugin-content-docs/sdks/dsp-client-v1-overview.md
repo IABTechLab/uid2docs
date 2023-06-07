@@ -39,7 +39,7 @@ UID2 サーバーサイド SDK を使用すると、UID2 Advtising Token のを�
 | Parameter           | Description                                                                                                              | Recommended Value                  |
 | :------------------ | :----------------------------------------------------------------------------------------------------------------------- | :--------------------------------- |
 | `endpoint`          | UID2 サービスのエンドポイントです。                                                                                      | N/A                                |
-| `authKey`           | クライアントの認証トークンです。UID2 へのアクセスは、[連絡先](../../README.md#contact-info) を参照してください。 | N/A                                |
+| `authKey`           | クライアントの認証トークンです。UID2 へのアクセスは、[連絡先](../getting-started/gs-account-setup.md#contact-info) を参照してください。 | N/A                                |
 | `refreshIntervalMs` | 復号鍵を取得するためのリフレッシュ間隔（ミリ秒単位）です。                                                           | `300,000` milliseconds (5 minutes) |
 | `retryIntervalMs`   | エラーが発生したときにリクエストを再試行するための再試行間隔（ミリ秒単位）です。                                         | `30,000` milliseconds (30 seconds) |
 

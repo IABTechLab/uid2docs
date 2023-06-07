@@ -214,7 +214,7 @@ IMPORTANT: メールアドレスのマッピングや再マッピングを行う
 
 <!-- FAQ_22 ADP -->
 
-システムは[メールアドレス正規化ルール](../../README.md#email-address-normalization)にしたがって、salt せずにハッシュ化する必要があります。
+システムは[メールアドレス正規化ルール](../getting-started/gs-normalization-encoding#email-address-normalization)にしたがって、salt せずにハッシュ化する必要があります。
 
 #### 大量のメールアドレスや電話番号、またはそれらのハッシュマッピングを保存する必要がありますか？
 

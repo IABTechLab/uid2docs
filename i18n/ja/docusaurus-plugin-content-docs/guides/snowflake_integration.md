@@ -68,7 +68,7 @@ select UID2, BUCKET_ID from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTI
 
 ### Map Email Addresses
 
-単一のメールアドレスまたは複数のメールアドレスを、対応する UID2 とセカンドレベルのソルトバケット ID にマッピングするには、 `FN_T_UID2_IDENTITY_MAP_EMAIL` 関数を使用します。これはメールアドレスを引数にとり、UID2 [Email Address Normalization](../../README.md#email-address-normalization) の規則にしたがって正規化します。
+単一のメールアドレスまたは複数のメールアドレスを、対応する UID2 とセカンドレベルのソルトバケット ID にマッピングするには、 `FN_T_UID2_IDENTITY_MAP_EMAIL` 関数を使用します。これはメールアドレスを引数にとり、UID2 [Email Address Normalization](../getting-started/gs-normalization-encoding#email-address-normalization) の規則にしたがって正規化します。
 
 | Argument | Data Type    | Description                                                         |
 | :------- | :----------- | :------------------------------------------------------------------ |
@@ -149,7 +149,7 @@ select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID from AUDIENCE a LEFT JOIN(
 
 | Argument     | Data Type    | Description                                                                                                                                                                                                                                                                                                                |
 | :----------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `EMAIL_HASH` | varchar(128) | ユーザーの正規化されたメールアドレスの SHA-256 ハッシュを Base64 でエンコードしたものです。[Email Address Normalization](../../README.md#email-address-normalization) ルールを用いて、メールアドレスハッシュが正しくフォーマットされていることを確認します。正規化されたメールアドレスから計算されたハッシュを使用します。 |
+| `EMAIL_HASH` | varchar(128) | ユーザーの正規化されたメールアドレスの SHA-256 ハッシュを Base64 でエンコードしたものです。[Email Address Normalization](../getting-started/gs-normalization-encoding#email-address-normalization) ルールを用いて、メールアドレスハッシュが正しくフォーマットされていることを確認します。正規化されたメールアドレスから計算されたハッシュを使用します。 |
 
 問い合わせに成功すると、指定されたメールアドレスハッシュについて、以下の情報が返されます。
 

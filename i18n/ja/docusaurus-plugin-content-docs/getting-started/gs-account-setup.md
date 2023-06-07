@@ -16,16 +16,17 @@ This page provides general information required for you to get your account set 
 * [API Versions](#api-versions)
 * [License](#license)
  -->
+
 ## Contact Info
 
-To get access to the UID2 framework, contact the appropriate team at The Trade Desk listed below. 
+UID2 フレームワークにアクセスするには、以下の The Trade Desk の担当チームにご連絡ください。
 
->Contacting The Trade Desk for access is temporary. When the system is moved to independent governance, the governing organizations will handle access requests.
+> The Trade Desk のアクセス依頼は一時的なものです。独立したガバナンスに移行した際には、運営組織がアクセスリクエストを処理します。
 
-| Your Role | Contact Email |
-| :--- | :--- |
-| Publisher, App Developer | mailto:UID2publishers@thetradedesk.com |
-| Agency, Brand, DSP, SSP, CDP, Data Provider | mailto:UID2partners@thetradedesk.com |
+| Your Role                                                        | Contact Email                   |
+| :--------------------------------------------------------------- | :------------------------------ |
+| アプリ開発者<br/>パブリッシャー                                  | UID2publishers@thetradedesk.com |
+| 代理店<br/>ブランド<br/>CDP<br/>データプロバイダー<br/>DSP<br/>SSP | UID2partners@thetradedesk.com   |
 
 ## Account Setup
 
@@ -42,7 +43,7 @@ When you've signed a contract for participating in UID2, you'll be issued with [
 
 ## API Versions
 
-The current version of the UID2 API is [UID2 API v2](../summary-doc-v2.md). If you are using an older version, be sure to upgrade to the UID2 API v2, following the instructions in the [UID2 API v1 to v2 Upgrade Guide](https://github.com/IABTechLab/uid2docs/blob/main/api/v2/upgrades/upgrade-guide.md) on GitHub.
+UID2 API の現在のバージョンは [UID2 API v2](v2/summary-doc-v2.md) です。旧バージョンをお使いの場合は、[UID2 API v1 to v2 Upgrade Guide](v2/upgrades/upgrade-guide.md)の説明にしたがって、必ず UID2 API v2 へアップグレードしてください。
 
 ## License
 All work and artifacts are licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).

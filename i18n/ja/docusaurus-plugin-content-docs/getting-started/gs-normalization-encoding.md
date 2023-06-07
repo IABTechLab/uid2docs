@@ -27,51 +27,49 @@ UID2 supports the following types of directly identifying information:
 
 ## Email Address Normalization
 
-If you send unhashed email addresses to the UID2 Operator Service, the service normalizes the email addresses and then hashes them. If you want to hash the email addresses yourself before sending them, you must normalize them before you hash them.
+UID2 Operator Service にハッシュ化されていないメールアドレスを送信すると、同サービスはメールアドレスを正規化してからハッシュ化します。メールアドレスを送信する前に自分でハッシュ化したい場合は、ハッシュ化する前に正規化する必要があります。
 
-> IMPORTANT: Normalization before hashing ensures that the generated UID2 value will always be the same, so that the data can be matched. If you do not normalize before hashing, this might result in a different UID2, reducing the effectiveness of targeted advertising.
+> IMPORTANT: ハッシュ化する前に正規化することで、生成される UID2 値が常に同じになり、データを照合できます。ハッシュ化する前に正規化しない場合、異なる UID2 が生成され、ターゲティング広告の効果が低下する可能性があります。
 
-To normalize an email address, complete the following steps:
+メールアドレスを正規化するには、次の手順を実行します:
 
-1. Remove leading and trailing spaces.
-2. Convert all ASCII characters to lowercase.
-3. In `gmail.com` email addresses, remove the following characters from the username part of the email address:
-    1. The period  (`.` (ASCII code 46)).<br/>For example, normalize `jane.doe@gmail.com` to `janedoe@gmail.com`.
-    2. The plus sign (`+` (ASCII code 43)) and all subsequent characters.<br/>For example, normalize `janedoe+home@gmail.com` to `janedoe@gmail.com`.
+1. 先頭と末尾のスペースを削除します。
+2. ASCII 文字をすべて小文字に変換します。
+3. `gmail.com`のメールアドレスでは、ユーザー名の部分から以下の文字を削除してください。
+   1. ピリオド (`.` (ASCII コード 46)) <br/>たとえば、`jane.doe@gmail.com` を `janedoe@gmail.com` に正規化します。
+   2. プラス記号 (`+` (ASCII code 43)) とそれに続くすべての文字。<br/>たとえば、`janedoe+home@gmail.com` を `janedoe@gmail.com` に正規化します。
 
 ## Email Address Hash Encoding
 
-An email hash is a Base64-encoded SHA-256 hash of a normalized email address. The email address is first normalized, then hashed using the SHA-256 hashing algorithm, and then encoded using Base64 encoding.
+メールアドレスハッシュは、正規化されたメールアドレスの SHA-256 ハッシュを Base64 でエンコードしたものです。
 
-| Type | Example | Comments and Usage |
-| :--- | :--- | :--- |
-| Normalized email address | `user@example.com` | Normalization is always the first step. |
-| SHA-256 hash of normalized email address | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | This 64-character string is a hex-encoded representation of 32-byte SHA-256.|
-| Base64-encoded SHA-256 of normalized email address | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | This 44-character string is a Base64-encoded representation of 32-byte SHA-256.<br/>Use this encoding for `email_hash` values sent in the request body. |
+| Type                                                  | Example                                                            | Comments and Usage                                                                                                                                                |
+| :---------------------------------------------------- | :----------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Normalized email address                              | `user@example.com`                                                 | N/A                                                                                                                                                               |
+| SHA-256 of email address                              | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | この 64 文字の文字列は、32 バイトの SHA-256 を 16 進数で表現したものです。                                                                                        |
+| Base64-encodedd SHA-256 of email address              | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=`                     | リクエストボディで送信される `email_hash` 値には、このエンコーディングを使用します。                                                                              |
+| URL-encoded, Base64-encodedd SHA-256 of email address | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf%2FF5HVRQ%3D`                 | この 44 文字の文字列は、32 バイトの SHA-256 を Base64 でエンコードしたものです。<br/>リクエストボディで送られる `email_hash` 値には、このエンコードを使用します。 |
 
 ## Phone Number Normalization
 
-If you send unhashed phone numbers to the UID2 Operator Service, the service normalizes the phone numbers and then hashes them. If you want to hash the phone numbers yourself before sending them, you must normalize them before you hash them.
+ハッシュ化されていない電話番号を UID2 Operator Service に送信すると、同サービスは電話番号を正規化した後、ハッシュ化します。電話番号を送信する前に自分でハッシュ化したい場合は、ハッシュ化する前に電話番号を正規化する必要があります。
 
-> IMPORTANT: Normalization before hashing ensures that the generated UID2 value will always be the same, so that the data can be matched. If you do not normalize before hashing, this might result in a different UID2, reducing the effectiveness of targeted advertising.
+> IMPORTANT: ハッシュ化する前に正規化することで、生成される UID2 値が常に同じになり、データを照合できます。ハッシュ化する前に正規化しない場合、異なる UID2 が生成され、ターゲティング広告の効果が低下する可能性があります。
 
-Here's what you need to know about phone number normalization rules:
+ここでは、電話番号の正規化ルールについて説明します:
 
-- The UID2 Operator accepts phone numbers in the [E.164](https://en.wikipedia.org/wiki/E.164) format, which is the international phone number format that ensures global uniqueness. 
-- E.164 phone numbers can have a maximum of 15 digits.
-- Normalized E.164 phone numbers use the following syntax, with no spaces, hyphens, parentheses, or other special characters:<br/>
-  `[+] [country code] [subscriber number including area code]`
- Examples:
-   - US: `1 (123) 456-7890` is normalized to `+11234567890`.
-   - Singapore: `65 1243 5678` is normalized to `+6512345678`.
-   - Sydney, Australia: `(02) 1234 5678` is normalized to drop the leading zero for the city plus include the country code: `+61212345678`.
+- UID2 Operator は、[E.164](https://ja.wikipedia.org/wiki/E.164) 形式の電話番号を受け付けます。これは、国際的に一意性を保証する国際電話番号の形式です。
+- E.164 電話番号は、最大 15 桁までです。
+- 正規化された E.164 電話番号では、次の構文を使用します。`[+] [国番号] [市外局番を含む加入者番号]`。スペース、ハイフン、括弧、その他の特殊文字は使用できません。たとえば、電話番号 `+123 44 555-66-77`と`1 (123) 456-7890`は、それぞれ`+123445556677`と`+11234567890` として正規化しなければなりません。
 
 ## Phone Number Hash Encoding
 
-A phone number hash is a Base64-encoded SHA-256 hash of a normalized phone number. The phone number is first normalized, then hashed using the SHA-256 hashing algorithm, and then encoded using Base64 encoding.
+電話番号ハッシュは、正規化された電話番号の SHA-256 ハッシュを Base64 エンコードしたものです。
 
-| Type | Example | Comments and Usage |
-| :--- | :--- | :--- |
-| Normalized phone number | `+12345678901` | Normalization is always the first step. |
-| SHA-256 hash of normalized phone number | `10e6f0b47054a83359477dcb35231db6de5c69fb1816e1a6b98e192de9e5b9ee` |This 64-character string is a hex-encoded representation of 32-byte SHA-256. |
-| Base64-encoded SHA-256 hash of normalized phone number | `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=` | This 44-character string is a Base64-encoded representation of 32-byte SHA-256.<br/>Use this encoding for `phone_hash` values sent in the request body. |
+| Type                                                 | Example                                                            | Comments and Usage                                                                                                                                                  |
+| :--------------------------------------------------- | :----------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Normalized phone number                              | `+12345678901`                                                     | N/A                                                                                                                                                                 |
+| SHA-256 of phone number                              | `10e6f0b47054a83359477dcb35231db6de5c69fb1816e1a6b98e192de9e5b9ee` | この 64 文字の文字列は、32 バイトの SHA-256 を 16 進数で表現したものです。                                                                                          |
+| Base64-encodedd SHA-256 of phone number              | `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=`                     | リクエストボディで送信される `phone_hash` 値にはこのエンコーディングを使用します。                                                                                  |
+| URL-encoded, Base64-encodedd SHA-256 of phone number | `wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ%2FFSK4%3D`                 | この 44 文字の文字列は、32 バイトの SHA-256 を Base64 でエンコードしたものです。<br/>リクエストボディで送られる `phone_hash` 値には、このエンコードを使用します。 |
+
