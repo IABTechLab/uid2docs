@@ -14,7 +14,6 @@ This page provides general information required for you to get your account set 
 * [Contact Info](#contact-info)
 * [Account Setup](#account-setup)
 * [API Versions](#api-versions)
-* [License](#license)
  -->
 ## Contact Info
 
@@ -43,6 +42,3 @@ When you've signed a contract for participating in UID2, you'll be issued with [
 ## API Versions
 
 The current version of the UID2 API is [UID2 API v2](../summary-doc-v2.md). If you are using an older version, be sure to upgrade to the UID2 API v2, following the instructions in the [UID2 API v1 to v2 Upgrade Guide](https://github.com/IABTechLab/uid2docs/blob/main/api/v2/upgrades/upgrade-guide.md) on GitHub.
-
-## License
-All work and artifacts are licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).
