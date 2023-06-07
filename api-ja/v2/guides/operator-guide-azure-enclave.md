@@ -58,7 +58,7 @@ mvn package -P azure
 
 ビルドスクリプトはいくつかのアーティファクトを生成します:
 
-- `dev.docker.adsrvr.org/uid2/operator/occlum:dev` -- occlum と UID2 Operator Service enclave を含む docker イメージです。
+- `ghcr.io/iabtechlab/uid2-operator-azure-occlum:dev` -- occlum と UID2 Operator Service enclave を含む docker イメージです。
 - `build/uid2-operator-azure-sgx.tar.gz` -- 上記の Docker イメージの tarball です。
 - `build/uid2-operator/uid2-operator.tar.gz` -- occlum enclave パッケージの tarball です。
 - コンテナ内の `sgx_quote` アプリケーションの出力 -- これは、occlum enclave が起動できるかどうかを確認し、エンクレーブの基本的な詳細 (MRSIGNER, MRENCLAVE, PRODID, SVN) を提供します。
@@ -114,7 +114,7 @@ docker run \
         --device /dev/sgx/enclave --device /dev/sgx/provision \
         -p 8080:8080 \
         -p 9091:9091 \
-        dev.docker.adsrvr.org/uid2/operator/occlum:dev
+        ghcr.io/iabtechlab/uid2-operator-azure-occlum:dev
 ```
 
 #### Direct Invocation of Occlum (Advanced)
