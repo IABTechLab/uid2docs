@@ -1,11 +1,11 @@
 ---
-title: Server-Side SDK Guide
-description: Reference information about the server-side SDKs.
+title: UID2 SDK for Java (Server-Side) Reference Guide
+description: Reference information about the Java server-side SDK.
 hide_table_of_contents: false
-sidebar_position: 10
+sidebar_position: 05
 ---
 
-# Server-Side SDK Guide
+# UID2 SDK for Java (Server-Side) Reference Guide
 
 You can use UID2 server-side SDKs to facilitate decrypting of UID2 advertising tokens to access the raw UID2. 
 
@@ -20,16 +20,15 @@ You can use UID2 server-side SDKs to facilitate decrypting of UID2 advertising t
 
 ## Overview
 
-The following functions define the information that you'll need to configure or can retrieve from the library. The parameters and property names defined below are pseudocode. Actual parameters and property names vary by language but will be similar to the information outlined below.
+The functions outlined here define the information that you'll need to configure or can retrieve from the library. The parameters and property names defined below are pseudocode. Actual parameters and property names vary by language but will be similar to the information outlined here.
 
-Libraries are currently available in the following languages. More languages are in development. 
+# Version
 
-| Language | Link to SDK Repo |
-| :--- | :--- |
-| C#/.NET  | [UID2 SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md) |
-| C++ | [UID2 SDK for C++](https://github.com/IABTechLab/uid2-client-cpp11/blob/master/README.md) |
-| Java | [UID2 SDK for Java](https://github.com/IABTechLab/uid2-client-java/blob/master/README.md) |
-| Python | [UID2 SDK for Python](https://github.com/IABTechLab/uid2-client-python/blob/master/README.md) |
+The SDK requires Java version 1.8 or later.
+
+# SDK Repository
+
+This SDK is available in GitHub: [UID2 SDK for Java](https://github.com/IABTechLab/uid2-client-java/blob/master/README.md).
 
 ## Initialization
 

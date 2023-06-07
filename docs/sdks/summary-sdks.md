@@ -9,7 +9,10 @@ sidebar_position: 01
 
 The following SDKs are available for UID2 integration. 
 
-| SDK | Description |
-| :--- | :--- |
-| [UID2 SDK for JavaScript](client-side-identity.md) | Client-Side JavaScript SDK that facilitates the process of establishing client identity using UID2 and retrieving advertising tokens for publishers. |
-| [Server-Side SDK Guide](dsp-client-v1-overview.md) | An SDK intended for anyone who wants to use UID2 server-side SDKs to facilitate decrypting UID2 advertising tokens to access the raw UID2.|
+| SDK | Document | Description |
+| :--- | :--- | :--- |
+|UID2 SDK for JavaScript | [UID2 SDK for JavaScript](client-side-identity.md) | Client-Side JavaScript SDK that facilitates the process of establishing client identity using UID2 and retrieving advertising tokens for publishers. |
+|UID2 SDK for .NET | [UID2 SDK for C#/.NET (Server-Side) Reference Guide](uid2-sdk-ref-csharp-dotnet.md) | An SDK for anyone who is using .NET server-side and wants to decrypt UID2 advertising tokens to access the raw UID2.|
+|UID2 SDK for C++ | [UID2 SDK for C++ (Server-Side) Reference Guide](uid2-sdk-ref-cplusplus.md) | An SDK for anyone who is using C++ server-side and wants to decrypt UID2 advertising tokens to access the raw UID2.|
+|UID2 SDK for Java | [UID2 SDK for Java (Server-Side) Reference Guide](uid2-sdk-ref-java.md) | An SDK for anyone who is using Java server-side and wants to decrypt UID2 advertising tokens to access the raw UID2.|
+|UID2 SDK for Python | [UID2 SDK for Python (Server-Side) Reference Guide](uid2-sdk-ref-python.md) | An SDK for anyone who is using Python server-side and wants to decrypt UID2 advertising tokens to access the raw UID2.|
