@@ -54,6 +54,7 @@ The following documentation resources are available for publishers to implement 
 The following diagram shows the UID2 workflow for publishers.
 
 ![Publisher Workflow](../workflows/images/UID2PublisherAndSSPWorkflow.jpg)
+<!-- (LP/BB/GWH: the above URl works as relative but as /docs/ caused build failure. Need to debug that. 3/13) -->
 
 For details, see [Publisher Workflow Overview](../workflows/workflow-overview-supply-side.md).
 
