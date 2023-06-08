@@ -9,8 +9,6 @@ sidebar_position: 04
 
 UID2 の定義、ID タイプ、指針、構成要素、その他の概念的な詳細は、 [UID2 概要](intro.md) を参照してください。連絡先やライセンス情報、正規化およびハッシュエンコーディングの規則は、 [Getting Started](/docs/category/getting-started) を参照してください。
 
-{gwh/Branden query in the above Getting Started link. How to link to the section in the Japanese? TBD.}
-
 このページでは、UID2 API v2 を使い始めるために必要な以下の情報を提供します:
 
 - [Environments（環境）](#environments)
