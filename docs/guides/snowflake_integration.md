@@ -87,11 +87,9 @@ All query examples use the following default values for each name variable:
 
 To map all types of [DII](../ref-info/glossary-uid.md#gl-dii), use the `FN_T_UID2_IDENTITY_MAP` function.
 
-If the DII is an email address, it will be normalized using the UID2 [Email Address Normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization) rules.
+If the DII is an email address, the service normalizes the data using the UID2 [Email Address Normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization) rules.
 
-Phone numbers must be normalized using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
-
-{**gwh/MC_01 can we clarify the above please? "it will be normalized" -- by the function? "phone numbers must be normalized..." does that mean they have to normalize phone numbers for the input data? Kishan pointed this out as being unclear. Thx. uptohere**}
+If the DII is a phone number, it must be normalized before being sent to the service, using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
 |Argument|Data Type|Description|
 | :--- | :--- | :--- |
@@ -100,13 +98,11 @@ Phone numbers must be normalized using the UID2 [Phone Number Normalization](../
 
 A successful query returns the following information for the specified DII.
 
-> NOTE: For each invalid email address or phone number in the request, the function returns a `NULL` value.
-
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
-| `UID2` | TEXT | The UID2 associated with the DII. |
-| `BUCKET_ID` | TEXT | The ID of the second-level salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view. |
-| `UNMAPPED` | TEXT | The reason why an identifier was not mapped, if applicable. |
+| `UID2` | TEXT | DII was successfully mapped: The UID2 associated with the DII.<br/>DII was not successfully mapped: `NULL`. |
+| `BUCKET_ID` | TEXT | DII was successfully mapped: The ID of the second-level salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view.<br/>DII was not successfully mapped: `NULL`. |
+| `UNMAPPED` | TEXT | DII was successfully mapped: `NULL`.<br/>DII was not successfully mapped:  The reason why an identifier was not mapped -- `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`. For details, see the following table.  |
 
 Possible values for `UNMAPPED` are:
 
@@ -116,10 +112,6 @@ Possible values for `UNMAPPED` are:
 | `OPTOUT` | The user has opted out. |
 | `INVALID IDENTIFIER` | The email address or phone number is invalid. |
 | `INVALID INPUT TYPE` | The value of `INPUT_TYPE` is invalid. |
-
-{**gwh/MC_02 On line 103 we said that an invalid email address or phone number returns NULL. Here we are saying that NULL means the data was successfully mapped and INVALID_IDENTIFIER means the email address or phone number is invalid. Those two don't fit.**}
-
-{**gwh/MC_03 I slightly updated the wording on the examples, and took out the h5 tags which shows as smaller than body text, just to break it up a bit more. Please check if we're OK on the wording. Thx.**}
 
 Mapping request examples in this section:
 
@@ -132,7 +124,7 @@ Mapping request examples in this section:
 - [Single Hashed Phone Number](#mapping-request-example---single-hashed-phone-number)
 - [Multiple HashedPhone Numbers](#mapping-request-example---multiple-hashed-phone-numbers)
 
-{**gwh/MC_04 each example has two different queries, advertiser solution and data provider solution, but only one response. Is the response really the same for both?**}
+>NOTE: The input and output data in these examples is fictitious, for illustrative purposes only. The values provided are not real values.
 
 #### Mapping Request Example - Single Unhashed Email
 
@@ -388,7 +380,7 @@ To determine which UID2s need regeneration, compare the timestamps of when they 
 
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
-| `BUCKET_ID` | TEXT | The ID of the second-level salt bucket. This ID parallels the `BUCKET_ID` returned by the identity map functions. {**gwh/MC_05 functions? or function?**] Use the `BUCKET_ID` as the key to do a join query between the function call results and results from this view call.  |
+| `BUCKET_ID` | TEXT | The ID of the second-level salt bucket. This ID parallels the `BUCKET_ID` returned by the identity map function. Use the `BUCKET_ID` as the key to do a join query between the function call results and results from this view call.  |
 | `LAST_SALT_UPDATE_UTC` | TIMESTAMP_NTZ | The last time the salt in the bucket was updated. This value is expressed in UTC. |
 
 The following example shows an input table and the query used to find the UID2s in the table that must be regenerated because the second-level salt was updated.
@@ -429,7 +421,7 @@ select a.*, b.LAST_SALT_UPDATE_UTC
 
 Query results:
 
-The following table identifies each item in the response. The result includes an email, `UID2`, `BUCKET_ID`, `LAST_UID2_UPDATE_UTC`, and `LAST_SALT_UPDATE_UTC` as shown in the ID 1 example below. No information is returned for ID 2 because the corresponding UID2 was generated after the last bucket update. For ID 3, `NULL` values are returned due to a missing UID2. {**gwh/MC_06 what does a missing UID2 mean? That there was not a match for the email? Also gwh/MC_07 just a comment that we have only one example here. Is it valid for multiples and for phone numbers, just the same?**]
+The following table identifies each item in the response. The result includes an email, `UID2`, `BUCKET_ID`, `LAST_UID2_UPDATE_UTC`, and `LAST_SALT_UPDATE_UTC` as shown in the ID 1 example below. No information is returned for ID 2 because the corresponding UID2 was generated after the last bucket update. For ID 3, `NULL` values are returned due to a missing UID2.
 
 ```
 +----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
