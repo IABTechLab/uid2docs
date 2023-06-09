@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for C#/.NET (Server-Side) Reference Guide
+title: UID2 SDK for C#/.NET
 description: Reference information about the C#/.NET server-side SDK.
 hide_table_of_contents: false
 sidebar_position: 03
