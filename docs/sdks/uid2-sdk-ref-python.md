@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for Python (Server-Side) Reference Guide
+title: UID2 SDK for Python
 description: Reference information about the Python server-side SDK.
 hide_table_of_contents: false
 sidebar_position: 06

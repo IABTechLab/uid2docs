@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for C++ (Server-Side) Reference Guide
+title: UID2 SDK for C++
 description: Reference information about the C++ server-side SDs.
 hide_table_of_contents: false
 sidebar_position: 04
