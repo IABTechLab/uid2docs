@@ -87,7 +87,7 @@ UID2 Token は、認証後にサーバー側で生成する必要があります
    - `phone`の値として `+12345678901` を指定します。
    - `phone_hash`値として`+12345678901`のハッシュを指定します。
 2. 次のステップで使用するために、返された `advertising_token` を保存します。
-3. ステップ 1 で送信した `email`、`email_hash`、`phone`、`phone_hash` のいずれかの値と、`token` プロパティ値として `advertising_token` （ステップ 2 で保存）を使用して [POST /token/validate](./endpoints/post-token-validate.md) リクエストを送信します。
+3. ステップ 1 で送信した `email`、`email_hash`、`phone`、`phone_hash` のいずれかの値と、`token` プロパティ値として `advertising_token` （ステップ 2 で保存）を使用して [POST /token/validate](../endpoints/post-token-validate.md) リクエストを送信します。
    - レスポンスが `true` の場合、ステップ 1 でリクエストとして送信した個人に関するデータが、ステップ 1 のレスポンスで受け取ったトークンと一致することを示します。
    - false` の場合は、メールアドレス、電話番号、またはそれぞれのハッシュを送信する方法に問題がある可能性があることを示しています。
 
@@ -158,7 +158,7 @@ UID2 Service は、ランダムな初期化ベクトルを使用してトーク�
    - `phone`の値として `+12345678901` を指定します。
    - `phone_hash`値として`+12345678901`のハッシュを指定します。
 2. 次のステップで使用するために、返された `advertising_token` を保存します。
-3. ステップ 1 で送信した `email`、`email_hash`、`phone`、`phone_hash` のいずれかの値と、`token` プロパティ値として `advertising_token` （ステップ 2 で保存）を使用して [POST /token/validate](./endpoints/post-token-validate.md) 要求を送信します。
+3. ステップ 1 で送信した `email`、`email_hash`、`phone`、`phone_hash` のいずれかの値と、`token` プロパティ値として `advertising_token` （ステップ 2 で保存）を使用して [POST /token/validate](../endpoints/post-token-validate.md) 要求を送信します。
    - レスポンスが `true` の場合、ステップ 1 でリクエストとして送信した DII は、ステップ 1 のレスポンスで受け取ったトークンと一致します。
    - false` の場合は、メールアドレス、電話番号、またはそれぞれのハッシュを送信する方法に問題がある可能性があります。
 

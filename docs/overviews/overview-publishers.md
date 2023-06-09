@@ -42,7 +42,7 @@ The following documentation resources are available for publishers to implement 
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
 | Client-Side (Web) SDK | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | Client-Side JavaScript SDK that facilitates the process of establishing client identity using UID2 and retrieving advertising tokens for publishers. | Publishers |
-| Client-Side (Web) Integration Guide | [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) | This integration guide for publishers covers standard web integration scenarios that use the [UID2 SDK for JavaScript](/docs/sdks/client-side-identity.md). | Publishers |
+| Client-Side (Web) Integration Guide | [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) | This integration guide for publishers covers standard web integration scenarios that use the [UID2 SDK for JavaScript](../sdks/client-side-identity.md). | Publishers |
 | Server-Side Integration Guide  | [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) | This integration guide is for publishers that do not use the [UID2 SDK for JavaScript](../sdks/client-side-identity.md). | Publishers |
 | Publisher/SSP Integration with GAM | [Publisher - Google Ad Manager Secure Signals](../guides/google-ss-integration.md) | This integration guide covers the additional steps needed for publishers using UID2 with the Google Ad Manager Secure Signals feature (previously known as Encrypted Signals for Publishers, ESP). | Publishers |
 | Operator | [UID2 Operator - AWS Marketplace Integration Guide](../guides/operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. | Private Operators<br/>Publishers |
@@ -54,7 +54,6 @@ The following documentation resources are available for publishers to implement 
 The following diagram shows the UID2 workflow for publishers.
 
 ![Publisher Workflow](../workflows/images/UID2PublisherAndSSPWorkflow.jpg)
-<!-- (LP/BB/GWH: the above URl works as relative but as /docs/ caused build failure. Need to debug that. 3/13) -->
 
 For details, see [Publisher Workflow Overview](../workflows/workflow-overview-supply-side.md).
 
