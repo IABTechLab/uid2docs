@@ -22,11 +22,11 @@ You can use UID2 server-side SDKs to facilitate decrypting of UID2 advertising t
 
 The functions outlined here define the information that you'll need to configure or can retrieve from the library. The parameters and property names defined below are pseudocode. Actual parameters and property names vary by language but will be similar to the information outlined here.
 
-# Version
+## Version
 
 The SDK requires C++ version 11.
 
-# SDK Repository
+## SDK Repository
 
 This SDK is available in GitHub: [UID2 SDK for C++](https://github.com/IABTechLab/uid2-client-cpp11/blob/master/README.md).
 
