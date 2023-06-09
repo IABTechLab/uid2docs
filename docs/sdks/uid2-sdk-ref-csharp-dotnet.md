@@ -1,13 +1,13 @@
 ---
-title: Server-Side SDK Guide
-description: Reference information about the server-side SDKs.
+title: UID2 SDK for C# / .NET
+description: Reference information about the C# / .NET server-side SDK.
 hide_table_of_contents: false
 sidebar_position: 03
 ---
 
-# Server-Side SDK Guide
+# UID2 SDK for C# / .NET (Server-Side) Reference Guide
 
-You can use UID2 server-side SDKs to facilitate decrypting UID2 advertising tokens to access the raw UID2. 
+You can use UID2 server-side SDKs to facilitate decrypting of UID2 advertising tokens to access the raw UID2. 
 
 <!-- This guide includes the following information:
 
@@ -20,16 +20,15 @@ You can use UID2 server-side SDKs to facilitate decrypting UID2 advertising toke
 
 ## Overview
 
-The following functions define the information that you'll need to configure or can retrieve from the library. The parameters and property names defined below are pseudocode. Actual parameters and property names vary by language but will be similar to the information outlined below.
+The functions outlined here define the information that you'll need to configure or can retrieve from the library. The parameters and property names defined below are pseudocode. Actual parameters and property names vary by language but will be similar to the information outlined here.
 
-Libraries are currently available in the following languages. More languages are in development. 
+## Version
 
-| Language | Link to SDK Repo |
-| :--- | :--- |
-| C#/.NET  | [UID2 SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md) |
-| C++ | [UID2 SDK for C++](https://github.com/IABTechLab/uid2-client-cpp11/blob/master/README.md) |
-| Java | [UID2 SDK for Java](https://github.com/IABTechLab/uid2-client-java/blob/master/README.md) |
-| Python | [UID2 SDK for Python](https://github.com/IABTechLab/uid2-client-python/blob/master/README.md) |
+The library uses .NET Standard 2.1. unit tests. The sample app uses .NET 5.0.
+
+## SDK Repository
+
+This SDK is available in GitHub: [UID2 SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md).
 
 ## Initialization
 
@@ -50,8 +49,11 @@ The interface allows you to decrypt UID2 advertising tokens and return the corre
 
 If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising token and return the UID2. For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
 
+The following example calls the decrypt method in C#:
+
 ```java
-public Response Decrypt(String encryptedToken)
+using UID2.Client.IUID2Client
+DecryptionResponse Decrypt(string token)
 ```
 
 ### Response Content
@@ -62,7 +64,7 @@ Available information returned through the SDK is outlined in the following tabl
 | :--- | :--- |
 | `Status` | The decryption result status. For a list of possible values and definitions, see [Response Statuses](#response-statuses). |
 | `UID2` | The raw UID2 for the corresponding UID2 advertising token. |
-| `Established` | The timestamp when a user first established the UID2 with the publisher. |
+| `Established` | The timestamp indicating when a user first established the UID2 with the publisher. |
 
 ### Response Statuses
 
