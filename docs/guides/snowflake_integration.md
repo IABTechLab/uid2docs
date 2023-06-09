@@ -13,8 +13,8 @@ sidebar_position: 04
 - [Shared Objects](#shared-objects)
   -  [Database and Schema Names](#database-and-schema-names)
   -  [Map DII](#map-dii)
-  -  [Regenerated UID2s](#regenerate-uid2s) -->
-
+  -  [Regenerated UID2s](#regenerate-uid2s) 
+- [Migration Guide](#migration-guide)  -->
 
 [Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share authorized consumer identifier data without exposing sensitive [directly Identifying information (DII)](../ref-info/glossary-uid.md#gl-dii). Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
 
@@ -26,7 +26,6 @@ The following diagram illustrates how you engage with the UID2 integration proce
 | :--- | :--- | :--- |
 |As a partner, you set up a Snowflake account to host your data and engage in UID2 integration by consuming functions and views through the UID2 Share. | UID2 integration, hosted in a Snowflake account, grants you access to authorized functions and views that draw data from private tables. You can’t access the private tables. The UID2 Share reveals only essential data needed for you to perform UID2-related tasks. |ETL (Extract Transform Load) jobs constantly update the UID2 Core/Optout Snowflake storage with internal data that powers the UID2 Operator Web Services. The data used by the Operator Web Services is also available through the UID2 Share. |
 |When you use shared functions and views, you pay Snowflake for transactional computation costs.  |These private tables, secured in the UID2 Snowflake account, automatically synchronize with the UID2 Core/Optout Snowflake storage that holds internal data used to complete UID2-related tasks.  | |
-
 
 ## Access the UID2 Shares
 
@@ -61,6 +60,8 @@ The following functions are deprecated in favor of `FN_T_UID2_IDENTITY_MAP`. You
 
 - `FN_T_UID2_IDENTITY_MAP_EMAIL` (deprecated)
 - `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (deprecated)
+
+>NOTE: If you are using the deprecated functions, and need help migrating to the newer function, see [Migration Guide](#migration-guide).
 
 To identify the UID2s that you must regenerate, use the `UID2_SALT_BUCKETS` view from the UID2 Share. For details, see [Regenerate UID2s](#regenerate-uid2s).
 
@@ -102,7 +103,9 @@ A successful query returns the following information for the specified DII.
 | :--- | :--- | :--- |
 | `UID2` | TEXT | DII was successfully mapped: The UID2 associated with the DII.<br/>DII was not successfully mapped: `NULL`. |
 | `BUCKET_ID` | TEXT | DII was successfully mapped: The ID of the second-level salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view.<br/>DII was not successfully mapped: `NULL`. |
-| `UNMAPPED` | TEXT | DII was successfully mapped: `NULL`.<br/>DII was not successfully mapped:  The reason why an identifier was not mapped -- `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`. For details, see the following table.  |
+| `UNMAPPED` | TEXT | DII was successfully mapped: `NULL`.<br/>DII was not successfully mapped:  The reason why an identifier was not mapped -- `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`. For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).  |
+
+### Values for the UNMAPPED Column
 
 Possible values for `UNMAPPED` are:
 
@@ -111,7 +114,7 @@ Possible values for `UNMAPPED` are:
 | `NULL` | The DII was successfully mapped. |
 | `OPTOUT` | The user has opted out. |
 | `INVALID IDENTIFIER` | The email address or phone number is invalid. |
-| `INVALID INPUT TYPE` | The value of `INPUT_TYPE` is invalid. |
+| `INVALID INPUT TYPE` | The value of `INPUT_TYPE` is invalid. Valid values for INPUT_TYPE are:</br>- email</br>- email_hash</br>- phone</br>- phone_hash |
 
 Mapping request examples in this section:
 
@@ -122,7 +125,7 @@ Mapping request examples in this section:
 - [Single Hashed Email](#mapping-request-example---single-hashed-email)
 - [Multiple Hashed Emails](#mapping-request-example---multiple-hashed-emails)
 - [Single Hashed Phone Number](#mapping-request-example---single-hashed-phone-number)
-- [Multiple HashedPhone Numbers](#mapping-request-example---multiple-hashed-phone-numbers)
+- [Multiple Hashed Phone Numbers](#mapping-request-example---multiple-hashed-phone-numbers)
 
 >NOTE: The input and output data in these examples is fictitious, for illustrative purposes only. The values provided are not real values.
 
@@ -431,3 +434,75 @@ The following table identifies each item in the response. The result includes an
 |  3 | test2@uidapi.com   | NULL                                         | NULL       | NULL                    | NULL                    |
 +----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
 ```
+
+## Migration Guide
+
+If you are using the `FN_T_UID2_IDENTITY_MAP_EMAIL` and `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` functions, it's best to migrate to the `FN_T_UID2_IDENTITY_MAP` function as soon as possible. This function does everything that the other two functions do, and has other built-in improvements.
+
+Advantages of the `FN_T_UID2_IDENTITY_MAP` function:
+
+- It supports mapping both phone numbers and hashed phone numbers.
+- It supports user opt-out.
+- It adds a new column, `UNMAPPED`. In any scenario where the DII cannot be mapped to a UID2 for any reason, this column includes information about the reason. For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column)
+
+This section includes the following information to help you upgrade to the new function:
+
+- [Changing Existing Code](#changing-existing-code) 
+- [Using the Values for the UNMAPPED Column](#using-the-values-for-the-unmapped-column) 
+
+### Changing Existing Code
+
+The code snippets in this section are before/after examples of how the earlier functions might be implemented, and how you could update to use the new function.
+
+#### Example for mapping unhashed emails
+
+Before:
+
+```
+FN_T_UID2_IDENTITY_MAP_EMAIL(EMAIL)
+```
+
+After:
+
+```
+FN_T_UID2_IDENTITY_MAP(EMAIL, 'email')
+```
+
+#### Example for mapping unhashed emails
+
+Before:
+
+```
+FN_T_UID2_IDENTITY_MAP_EMAIL_HASH(EMAIL_HASH)
+```
+
+After:
+
+```
+FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash')
+```
+
+### Using the Values for the UNMAPPED Column
+When you have the new function implemented, you can check the `UNMAPPED` column returned by the `FN_T_UID2_IDENTITY_MAP`. If any DII could not be mapped to a UIS2, this column gives the reason.
+
+For details about the values and their explanations, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).
+
+{**MC/GWH: we already have this info in the [Values for the UNMAPPED Column](#values-for-the-unmapped-column) section. Can I just point to that rather than having it twice? Please look -- I reworked the explanations in that section a little, and I added the detail about the values for `INVALID INPUT TYPE` into the table above.**}
+
+The possible values for UNMAPPED are:
+- NULL
+
+  This means the DII was successfully mapped to a UID2.
+- OPTOUT
+
+  This means the email address or phone number has been opted out.
+- INVALID INPUT TYPE
+
+  This means the value of INPUT_TYPE was not valid. Valid values for INPUT_TYPE are:
+- email
+- email_hash
+- phone, and
+- phone_hash.
+- INVALID IDENTIFIER
+
+  This means the email address or phone number was not valid.
