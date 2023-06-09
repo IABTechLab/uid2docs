@@ -49,7 +49,10 @@ The interface allows you to decrypt UID2 advertising tokens and return the corre
 
 If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising token and return the UID2. For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
 
+The following example calls the decrypt method in C++:
+
 ```java
+#include <uid2/uid2client.h>
 public Response Decrypt(String encryptedToken)
 ```
 
