@@ -483,26 +483,6 @@ FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash')
 ```
 
 ### Using the Values for the UNMAPPED Column
-When you have the new function implemented, you can check the `UNMAPPED` column returned by the `FN_T_UID2_IDENTITY_MAP`. If any DII could not be mapped to a UIS2, this column gives the reason.
+When you have the new function implemented, you can check the `UNMAPPED` column returned by the `FN_T_UID2_IDENTITY_MAP`. If any DII could not be mapped to a UID2, this column gives the reason.
 
 For details about the values and their explanations, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).
-
-{**MC/GWH: we already have this info in the [Values for the UNMAPPED Column](#values-for-the-unmapped-column) section. Can I just point to that rather than having it twice? Please look -- I reworked the explanations in that section a little, and I added the detail about the values for `INVALID INPUT TYPE` into the table above.**}
-
-The possible values for UNMAPPED are:
-- NULL
-
-  This means the DII was successfully mapped to a UID2.
-- OPTOUT
-
-  This means the email address or phone number has been opted out.
-- INVALID INPUT TYPE
-
-  This means the value of INPUT_TYPE was not valid. Valid values for INPUT_TYPE are:
-- email
-- email_hash
-- phone, and
-- phone_hash.
-- INVALID IDENTIFIER
-
-  This means the email address or phone number was not valid.
