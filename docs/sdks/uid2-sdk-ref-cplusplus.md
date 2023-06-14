@@ -38,8 +38,6 @@ The initialization function configures the parameters necessary for the SDK to a
 | :--- | :--- | :--- |
 | `endpoint` | The endpoint for the UID2 service. | N/A |
 | `authKey` | The authentication token that belongs to the client. For access to UID2, see [Contact Info](../getting-started/gs-account-setup.md#contact-info). | N/A |
-| `refreshIntervalMs` | The refresh cadence, in milliseconds, for fetching the decryption keys.| `300,000` milliseconds (5 minutes) |
-| `retryIntervalMs` | The retry cadence, in millisecond, for retrying the request if there is an error.  | `30,000` milliseconds (30 seconds) |
 
 ## Interface 
 
