@@ -103,7 +103,7 @@ A successful query returns the following information for the specified DII.
 | :--- | :--- | :--- |
 | `UID2` | TEXT | DII was successfully mapped: The UID2 associated with the DII.<br/>DII was not successfully mapped: `NULL`. |
 | `BUCKET_ID` | TEXT | DII was successfully mapped: The ID of the second-level salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view.<br/>DII was not successfully mapped: `NULL`. |
-| `UNMAPPED` | TEXT | DII was successfully mapped: `NULL`.<br/>DII was not successfully mapped:  The reason why an identifier was not mapped -- `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`. For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).  |
+| `UNMAPPED` | TEXT | DII was successfully mapped: `NULL`.<br/>DII was not successfully mapped:  The reason why an identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`. For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).  |
 
 ### Values for the UNMAPPED Column
 
@@ -114,7 +114,7 @@ Possible values for `UNMAPPED` are:
 | `NULL` | The DII was successfully mapped. |
 | `OPTOUT` | The user has opted out. |
 | `INVALID IDENTIFIER` | The email address or phone number is invalid. |
-| `INVALID INPUT TYPE` | The value of `INPUT_TYPE` is invalid. Valid values for INPUT_TYPE are:</br>- email</br>- email_hash</br>- phone</br>- phone_hash |
+| `INVALID INPUT TYPE` | The value of `INPUT_TYPE` is invalid. Valid value for INPUT_TYPE must be one of the following: `email`, `email_hash`, `phone`, `phone_hash`. |
 
 Mapping request examples in this section:
 
@@ -179,7 +179,7 @@ Query results for multiple emails:
 
 The following table identifies each item in the response, including `NULL` values for `NULL` or improperly formatted emails.
 
-```
+```sh
 +----+--------------------+----------------------------------------------+------------+--------------------+
 | ID | EMAIL              | UID2                                         | BUCKET_ID  | UNMAPPED           |
 +----+--------------------+----------------------------------------------+------------+--------------------+
