@@ -82,8 +82,8 @@ Both the sender and the receiver must complete these steps so that they can part
    | Python | xxx |
 
 2. Integrate the SDK into your code, using one of the following:
-   - [**kt/gwh_02 senders? Both?**] uid2client = uid2client(UID URL, authentication key, secret key)
-   - [**kt/gwh_03 senders? Both?**] uid2client.refresh() //call at startup, and then once per hour (recommended)
+   - [**kt/gwh_02 senders? Both?**] `uid2client = uid2client(UID URL, authentication key, secret key)`
+   - [**kt/gwh_03 senders? Both?**] `uid2client.refresh()` // Call at startup, and then once per hour (recommended)
    - Senders: `token = uid2client.encrypt(raw UID2)`
    - Receivers: `rawUid2 = uid2client.decrypt(UID2 Token)`
   
@@ -101,11 +101,11 @@ With a sharing permission enabled, a sharing participant who receives an encrypt
 
   If you choose this option, all new participants of the selected participant type will automatically have permission to share with you, unless you disable it.
 
-  For example, let's say you choose to share with all of 50 existing DSPs. The next day, when DSP 51 signs up for sharing, DSP 51 will automatically have permission to share with you. To share with DSP 51, just send one or more encrypted UID2 tokens and DSP 51 will be able to decrypt the tokens into raw UID2s. Because you chose automatic sharing, you do not need to log in to explicitly update your sharing permissions to include DSP 51, or any future DSPs that sign up for sharing. You can, however, disable any specific sharing relationship at any point.
+  For example, let's say you choose to share with all of 50 existing DSPs. The next day, when DSP 51 signs up for sharing, DSP 51 will automatically have permission to share with you. To share with DSP 51, just send one or more encrypted UID2 tokens and DSP 51 will be able to decrypt the tokens into raw UID2s. Because you chose automatic sharing, you do not need to log in to explicitly update your sharing permissions to include DSP 51, or any future DSPs that sign up for sharing. You can disable any specific sharing relationship at any point.
 
 ### Steps for Granting Sharing Permission
 
-At a high level, enabling sharing permissions includes the following steps. For exact instructions for configuring your sharing options in the UID2 Portal, refer to the UID2 Portal documentation.
+At a high level, enabling sharing permissions includes the following steps. For exact instructions for configuring your sharing options in the UID2 Portal, refer to [Sharing Relationships](../portal/sharing-relationships.md).
 
 1. Integrate the SDK into your code.
 1. Log in to the UID2 Portal account.
