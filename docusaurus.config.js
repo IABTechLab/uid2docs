@@ -54,7 +54,7 @@ const config = {
         calendar: "gregory",
       },
       ja: {
-        label: "日本",
+        label: "日本語",
         direction: "ltr",
         htmlLang: "jp-JP",
         calendar: "japanese",
