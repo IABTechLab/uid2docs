@@ -84,28 +84,58 @@ A UID2 sharer is any participant that wants to share UID2s with another particip
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for Java, either as a sender or a receiver.
 
-1. Use UID2ClientFactory.create() to create an IUID2Client reference:
+1. Create an IUID2Client reference:
  
-   `from uid2_client import Uid2Client
+   ```java
+   from uid2_client import Uid2Client
+   client = Uid2Client(base_url, auth_key, secret_key)
+   ```
+2. Refresh once at startup, and then periodically (for example, every hour):
 
-    client = Uid2Client(base_url, auth_key, secret_key)`
-2. Call IUID2Client.refresh once at startup, and then periodically (for example, every hour):
+   `keys = client.refresh_keys()`
 
-   `client.refresh();`
 3. Senders: 
    1. Call the following:
 
-      `EncryptionDataResponse encrypted = client.encrypt(rawUid);`
+      ```java
+      from uid2_client import encrypt
+      from uid2_client.identity_scope import IdentityScope
+      ```
+      <!-- >NOTE: For EUID depending for which region/identity_scope = IdentityScope.UID2/encrypted_data = encrypt(raw_uid, identity_scope, keys). -->
+ 
    2. If encryption succeeded, send the UID2 token to the receiver:   
 
-      `if (encrypted.isSuccess()) {` send `encrypted.getEncryptedData()` to receiver`} else {`check `encrypted.getStatus()` for the failure reason} 
+      ```java
+      from uid2_client import encrypt
+      from uid2_client.identity_scope import IdentityScope
+      
+        try:
+         identity_scope = IdentityScope.UID2  # or IdentityScope.EUID
+         encrypted_data = encrypt(raw_uid, identity_scope, keys)
+         #send encrypted_data to receiver
+      except EncryptionError as err:
+        #check for failure reason
+        print(err)
+      ``` 
+
 4. Receivers: 
    1. Call the following:
 
-      `DecryptionResponse decrypted = client.decrypt(uidToken);`
+      ```java
+      from uid2_client import decrypt
+      result = decrypt(ad_token, keys)
+      ```
    2. If decryption succeeded, use the raw UID2:
     
-      `if (decrypted.isSuccess()) {`use `decrypted.getUid() } else {`check `decrypted.getStatus()` for the failure reason `}`
+      ```java
+      from uid2_client import decrypt
+      try:
+        result = decrypt(ad_token, keys)
+        #use successfully decrypted result.uid2
+      except EncryptionError as err:
+        #check for failure reason
+        print(err)
+      ```
 
 
 ## FAQs
