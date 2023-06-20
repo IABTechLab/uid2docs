@@ -50,7 +50,7 @@ If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising t
 
 The following example calls the decrypt method in C++:
 
-```java
+```cpp
 #include <uid2/uid2client.h>
 public Response Decrypt(String encryptedToken)
 ```
@@ -86,32 +86,51 @@ The following instructions provide an example of how you can implement sharing u
 
 1. Create an IUID2Client shared pointer:
  
-   `const auto client = UID2ClientFactory::Create(baseUrl, apiKey, secretKey);`
+    ```cpp
+   const auto client = UID2ClientFactory::Create(baseUrl, apiKey, secretKey);
+    ```
 2. Refresh once at startup, and then periodically (for example, every hour):
 
-   `client->Refresh();`
+    ```cpp
+   client->Refresh();
+   ```
 3. Senders: 
    1. Call the following:
 
-      `EncryptionResult encrypted = client->Encrypt(rawUid);`
+      ```cpp
+      EncryptionResult encrypted = client->Encrypt(rawUid);
+      ```
    2. If encryption succeeded, send the UID2 token to the receiver:   
 
-      ```java
-      if (encrypted.IsSuccess()) {
+      ```cpp
+      if (encrypted.IsSuccess()) 
+      {
           // send encrypted.GetEncryptedData() to receiver
       }
-      else {
+      else 
+      {
           // check encrypted.GetStatus() for the failure reason
       }
       ```
 4. Receivers: 
    1. Call the following:
 
-      `DecryptionResult decrypted = client->Decrypt(uidToken);`
+      ```cpp
+      DecryptionResult decrypted = client->Decrypt(uidToken);
+      ```
+ 
    2. If decryption succeeded, use the raw UID2:
-    
-      `if (decrypted.IsSuccess()) {use decrypted.GetUid() } else {check decrypted.GetStatus() for the failure reason }`
 
+      ```cpp    
+      if (decrypted.IsSuccess())
+      {
+         // use decrypted.GetUid() 
+      } 
+      else 
+      {
+         // check decrypted.GetStatus() for the failure reason 
+      }
+      ```
 
 ## FAQs
 

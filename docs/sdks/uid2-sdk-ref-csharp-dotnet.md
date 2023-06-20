@@ -50,7 +50,7 @@ If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising t
 
 The following example calls the decrypt method in C#:
 
-```java
+```cs
 using UID2.Client.IUID2Client
 DecryptionResponse Decrypt(string token)
 ```
@@ -87,24 +87,50 @@ The following instructions provide an example of how you can implement sharing u
 
 1. Create an IUID2Client reference:
  
-   `var client = UID2ClientFactory.Create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);`
+    ```cs
+   var client = UID2ClientFactory.Create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+   ```
 2. Refresh once at startup, and then periodically (for example, every hour):
 
-   `client.Refresh();`
+    ```cs
+   client.Refresh();
+   ```
 3. Senders: 
    1. Call the following:
 
-      `var encrypted = client.Encrypt(rawUid);`
+       ```cs
+      var encrypted = client.Encrypt(rawUid);
+      ```
    2. If encryption succeeded, send the UID2 token to the receiver:   
 
-      `if (encrypted.isSuccess()) { send encrypted.EncryptedData to receiver} else {check encrypted.Status for the failure reason}` 
+       ```cs
+      if (encrypted.isSuccess()) 
+      { 
+         //send encrypted.EncryptedData to receiver
+      } 
+      else 
+      {
+         //check encrypted.Status for the failure reason
+      }
+      ```
 4. Receivers: 
    1. Call the following:
 
-      `DecryptionResponse decrypted = client.Decrypt(uidToken);`
+      ```cs
+      DecryptionResponse decrypted = client.Decrypt(uidToken);
+      ```
    2. If decryption succeeded, use the raw UID2:
     
-      `if (decrypted.Success()) {use decrypted.Uid } else {check decrypted.Status for the failure reason }`
+      ```cs
+      if (decrypted.Success()) 
+      {
+         // use decrypted.Uid 
+      } 
+      else 
+      {
+         // check decrypted.Status for the failure reason 
+      }
+      ```
 
 ## FAQs
 

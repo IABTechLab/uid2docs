@@ -89,25 +89,44 @@ A UID2 sharer is any participant that wants to share UID2s with another particip
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for Java, either as a sender or a receiver.
 
 1. Use UID2ClientFactory.create() to create an IUID2Client reference:
- 
-   `private final IUID2Client client = UID2ClientFactory.create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);`
+
+   ```java
+   private final IUID2Client client = UID2ClientFactory.create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+   ```
 2. Call IUID2Client.refresh once at startup, and then periodically (for example, every hour):
 
-   `client.refresh();`
+   ```java
+   client.refresh();
+   ```
 3. Senders: 
    1. Call the following:
 
-      `EncryptionDataResponse encrypted = client.encrypt(rawUid);`
+      ```java
+      EncryptionDataResponse encrypted = client.encrypt(rawUid);
+      ```
    2. If encryption succeeded, send the UID2 token to the receiver:   
 
-      `if (encrypted.isSuccess()) { send encrypted.getEncryptedData() to receiver} else {check encrypted.getStatus() for the failure reason}`
+      ```java
+      if (encrypted.isSuccess()) { send encrypted.getEncryptedData() to receiver} else {check encrypted.getStatus() for the failure reason}
+      ```
 4. Receivers: 
    1. Call the following:
 
-      `DecryptionResponse decrypted = client.decrypt(uidToken);`
+      ```java
+      DecryptionResponse decrypted = client.decrypt(uidToken);
+      ```
    2. If decryption succeeded, use the raw UID2:
-    
-      `if (decrypted.isSuccess()) {use decrypted.getUid() } else {check decrypted.getStatus() for the failure reason }`
+
+      ```java    
+      if (decrypted.isSuccess()) 
+      {
+         //use decrypted.getUid() 
+      } else 
+      {
+       //check decrypted.getStatus() for the failure reason 
+      }
+      ```
+
 
 ## FAQs
 

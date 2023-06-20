@@ -50,7 +50,7 @@ If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising t
 
 The following example calls the decrypt method in Python:
 
-```java
+```python
 from uid2_client import decrypt
 def decrypt(token, keys, now=dt.datetime.now(tz=timezone.utc))
 ```
@@ -85,20 +85,22 @@ A UID2 sharer is any participant that wants to share UID2s with another particip
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for Python, either as a sender or a receiver.
 
-1. Create an IUID2Client reference:
+1. Create a UID2Client reference:
  
-   ```java
+   ```python
    from uid2_client import Uid2Client
    client = Uid2Client(base_url, auth_key, secret_key)
    ```
 2. Refresh once at startup, and then periodically (for example, every hour):
 
-   `keys = client.refresh_keys()`
+   ```python
+   keys = client.refresh_keys()
+   ```
 
 3. Senders: 
    1. Call the following:
 
-      ```java
+      ```python
       from uid2_client import encrypt
       from uid2_client.identity_scope import IdentityScope
       ```
@@ -106,7 +108,7 @@ The following instructions provide an example of how you can implement sharing u
  
    2. If encryption succeeded, send the UID2 token to the receiver:   
 
-      ```java
+      ```python
       from uid2_client import encrypt
       from uid2_client.identity_scope import IdentityScope
       
@@ -133,13 +135,13 @@ The following instructions provide an example of how you can implement sharing u
 4. Receivers: 
    1. Call the following:
 
-      ```java
+      ```python
       from uid2_client import decrypt
       result = decrypt(ad_token, keys)
       ```
    2. Call the `decrypt` function. Then, if decryption succeeded, use the raw UID2:
     
-      ```java
+      ```python
       from uid2_client import decrypt
       try:
         result = decrypt(ad_token, keys)
