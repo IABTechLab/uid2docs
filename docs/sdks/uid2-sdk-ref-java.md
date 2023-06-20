@@ -107,7 +107,14 @@ The following instructions provide an example of how you can implement sharing u
    2. If encryption succeeded, send the UID2 token to the receiver:   
 
       ```java
-      if (encrypted.isSuccess()) { send encrypted.getEncryptedData() to receiver} else {check encrypted.getStatus() for the failure reason}
+      if (encrypted.isSuccess()) 
+      { 
+         //send encrypted.getEncryptedData() to receiver
+      } 
+      else 
+      {
+         //check encrypted.getStatus() for the failure reason
+      }
       ```
 4. Receivers: 
    1. Call the following:
@@ -121,12 +128,12 @@ The following instructions provide an example of how you can implement sharing u
       if (decrypted.isSuccess()) 
       {
          //use decrypted.getUid() 
-      } else 
+      } 
+      else 
       {
        //check decrypted.getStatus() for the failure reason 
       }
       ```
-
 
 ## FAQs
 
