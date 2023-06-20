@@ -16,7 +16,8 @@ You can use UID2 server-side SDKs to facilitate decrypting of UID2 advertising t
 - [Interface](#interface)
   - [Response Content](#response-content)
   - [Response Statuses](#response-statuses)
-* [FAQs](#faqs) -->
+- [FAQs](#faqs)
+- [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
 
 ## Overview
 
@@ -82,7 +83,7 @@ Available information returned through the SDK is outlined in the following tabl
 
 A UID2 sharer is any participant that wants to share UID2s with another participant. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant. For an example of usage, see [com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` method).
 
-The following instructions provide an example of how you can implement sharing using the UID2 SDK for Java, either as a sender or a receiver.
+The following instructions provide an example of how you can implement sharing using the UID2 SDK for C# / .NET, either as a sender or a receiver.
 
 1. Create an IUID2Client reference:
  
