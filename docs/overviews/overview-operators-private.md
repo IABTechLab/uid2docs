@@ -17,7 +17,7 @@ This page is for any participant that chooses to become a private operator (prev
 
 Here are some of the intended benefits of participating in UID2 as a private operator:
 - You can maintain privacy-conscious workflows for your customer data to be encrypted and activated across chosen partners.
-- You can participate in UID2 using your own first-party [directly Identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) without sharing it.
+- You can participate in UID2 using your own first-party [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) without sharing it.
 - You have full control of resources, performance, and latency for UID2.
 - You can aim to minimize network hops with a service that can provide regional proximity.
 - You can implement processes and policies that you control, as opposed to taking part in a shared service.
