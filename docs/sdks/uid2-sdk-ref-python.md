@@ -16,7 +16,8 @@ You can use UID2 server-side SDKs to facilitate decrypting of UID2 advertising t
 - [Interface](#interface)
   - [Response Content](#response-content)
   - [Response Statuses](#response-statuses)
-* [FAQs](#faqs) -->
+- [FAQs](#faqs)
+- [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
 
 ## Overview
 
@@ -49,7 +50,7 @@ If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising t
 
 The following example calls the decrypt method in Python:
 
-```java
+```python
 from uid2_client import decrypt
 def decrypt(token, keys, now=dt.datetime.now(tz=timezone.utc))
 ```
@@ -75,6 +76,66 @@ Available information returned through the SDK is outlined in the following tabl
 | `ExpiredToken` | The incoming UID2 advertising token has expired. |
 | `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
 | `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
+
+
+
+## Usage for UID2 Sharers
+
+A UID2 sharer is any participant that wants to share UID2s with another participant. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant. For an example of usage, see [com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` method).
+
+The following instructions provide an example of how you can implement sharing using the UID2 SDK for Python, either as a sender or a receiver.
+
+1. Create a ```UID2Client``` reference:
+ 
+   ```python
+   from uid2_client import Uid2Client
+   client = Uid2Client(base_url, auth_key, secret_key)
+   ```
+2. Refresh once at startup, and then periodically (for example, every hour):
+
+   ```python
+   keys = client.refresh_keys()
+   ```
+
+3. Senders: 
+   1. Call the `encrypt` function. Then, if encryption succeeded, send the UID2 token to the receiver:
+
+      ```python
+      from uid2_client import encrypt
+      from uid2_client.identity_scope import IdentityScope
+      
+      try:
+         identity_scope = IdentityScope.UID2
+         encrypted_data = encrypt(raw_uid, identity_scope, keys)
+         #send encrypted_data to receiver
+      except EncryptionError as err:
+        #check for failure reason
+        print(err)
+      ``` 
+<!-- Alternative to the above for EUID:
+      from uid2_client import encrypt
+      from uid2_client.identity_scope import IdentityScope
+      
+        try:
+         identity_scope = IdentityScope.UID2  # or IdentityScope.EUID
+         encrypted_data = encrypt(raw_uid, identity_scope, keys)
+         #send encrypted_data to receiver
+      except EncryptionError as err:
+        #check for failure reason
+        print(err) -->
+
+4. Receivers:
+   1. Call the `decrypt` function. Then, if decryption succeeded, use the raw UID2:
+    
+      ```python
+      from uid2_client import decrypt
+      try:
+        result = decrypt(ad_token, keys)
+        #use successfully decrypted result.uid2
+      except EncryptionError as err:
+        #check for failure reason
+        print(err)
+      ```
 
 ## FAQs
 

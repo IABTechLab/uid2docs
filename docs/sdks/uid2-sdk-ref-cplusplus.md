@@ -16,7 +16,8 @@ You can use UID2 server-side SDKs to facilitate decrypting of UID2 advertising t
 - [Interface](#interface)
   - [Response Content](#response-content)
   - [Response Statuses](#response-statuses)
-* [FAQs](#faqs) -->
+- [FAQs](#faqs)
+- [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
 
 ## Overview
 
@@ -49,7 +50,7 @@ If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising t
 
 The following example calls the decrypt method in C++:
 
-```java
+```cpp
 #include <uid2/uid2client.h>
 public Response Decrypt(String encryptedToken)
 ```
@@ -75,6 +76,61 @@ Available information returned through the SDK is outlined in the following tabl
 | `ExpiredToken` | The incoming UID2 advertising token has expired. |
 | `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
 | `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
+
+
+## Usage for UID2 Sharers
+
+A UID2 sharer is any participant that wants to share UID2s with another participant. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant. For an example of usage, see [com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` method).
+
+The following instructions provide an example of how you can implement sharing using the UID2 SDK for C++, either as a sender or a receiver.
+
+1. Create an ```IUID2Client``` shared pointer:
+ 
+    ```cpp
+   const auto client = UID2ClientFactory::Create(baseUrl, apiKey, secretKey);
+    ```
+2. Refresh once at startup, and then periodically (for example, every hour):
+
+    ```cpp
+   client->Refresh();
+   ```
+3. Senders: 
+   1. Call the following:
+
+      ```cpp
+      EncryptionResult encrypted = client->Encrypt(rawUid);
+      ```
+   2. If encryption succeeded, send the UID2 token to the receiver:   
+
+      ```cpp
+      if (encrypted.IsSuccess()) 
+      {
+          // send encrypted.GetEncryptedData() to receiver
+      }
+      else 
+      {
+          // check encrypted.GetStatus() for the failure reason
+      }
+      ```
+4. Receivers: 
+   1. Call the following:
+
+      ```cpp
+      DecryptionResult decrypted = client->Decrypt(uidToken);
+      ```
+ 
+   2. If decryption succeeded, use the raw UID2:
+
+      ```cpp    
+      if (decrypted.IsSuccess())
+      {
+         // use decrypted.GetUid() 
+      } 
+      else 
+      {
+         // check decrypted.GetStatus() for the failure reason 
+      }
+      ```
 
 ## FAQs
 
