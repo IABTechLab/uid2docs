@@ -5,7 +5,7 @@ hide_table_of_contents: false
 sidebar_position: 06
 ---
 
-# Sharing Relationships
+# Sharing Permissions {changed from Sharing Relationships to Sharing Permissions) finish mods later}
 
 Configuring one or more (or many) sharing relationship opens the door to you being able to share UID2 information with other UID2 participants.
 

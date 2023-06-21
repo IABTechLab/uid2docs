@@ -22,4 +22,4 @@ These scenarios, and others, are represented in the following table.
 
 > NOTE: Any sender can transfer a UID2 token to any receiver using one of the transfer methods. Only a handful of transfer methods have been defined here: there are many others.
 
-<!-- {Jaime/gwh TO DO -- diagram per KT} -->
+<!-- {Jaime/GWH/KT TO DO -- diagram per KT} -->
