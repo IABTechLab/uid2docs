@@ -77,9 +77,9 @@ Receiver:
  
 (**GWH/KT_01 diagram updates to come**)
 
-UID2 Sharing Relationship Approval Workflow:
+<!-- UID2 Sharing Relationship Approval Workflow:
 
-![UID2 Sharing Relationship Approval Workflow](images/UID2_Sharing_Diagram_Relationship_Approval.png)
+![UID2 Sharing Relationship Approval Workflow](images/UID2_Sharing_Diagram_Relationship_Approval.png) -->
 
 UID2 Sharing Relationship SDK Integration Workflow:
 
