@@ -84,7 +84,7 @@ A UID2 sharer is any participant that wants to share UID2s with another particip
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for C++, either as a sender or a receiver.
 
-1. Create an IUID2Client shared pointer:
+1. Create an ```IUID2Client``` shared pointer:
  
     ```cpp
    const auto client = UID2ClientFactory::Create(baseUrl, apiKey, secretKey);

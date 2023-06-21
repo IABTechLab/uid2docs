@@ -85,7 +85,7 @@ A UID2 sharer is any participant that wants to share UID2s with another particip
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for C# / .NET, either as a sender or a receiver.
 
-1. Create an IUID2Client reference:
+1. Create an ```IUID2Client``` reference:
  
     ```cs
    var client = UID2ClientFactory.Create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);

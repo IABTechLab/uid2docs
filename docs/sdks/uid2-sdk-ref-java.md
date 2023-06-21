@@ -88,12 +88,12 @@ A UID2 sharer is any participant that wants to share UID2s with another particip
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for Java, either as a sender or a receiver.
 
-1. Use UID2ClientFactory.create() to create an IUID2Client reference:
+1. Create an ```IUID2Client``` reference:
 
    ```java
-   private final IUID2Client client = UID2ClientFactory.create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+   IUID2Client client = UID2ClientFactory.create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
    ```
-2. Call IUID2Client.refresh once at startup, and then periodically (for example, every hour):
+2. Refresh once at startup, and then periodically (for example, every hour):
 
    ```java
    client.refresh();

@@ -85,7 +85,7 @@ A UID2 sharer is any participant that wants to share UID2s with another particip
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for Python, either as a sender or a receiver.
 
-1. Create a UID2Client reference:
+1. Create a ```UID2Client``` reference:
  
    ```python
    from uid2_client import Uid2Client
@@ -98,21 +98,13 @@ The following instructions provide an example of how you can implement sharing u
    ```
 
 3. Senders: 
-   1. Call the following:
-
-      ```python
-      from uid2_client import encrypt
-      from uid2_client.identity_scope import IdentityScope
-      ```
-      <!-- >NOTE: For EUID depending for which region/identity_scope = IdentityScope.UID2/encrypted_data = encrypt(raw_uid, identity_scope, keys). -->
- 
-   2. If encryption succeeded, send the UID2 token to the receiver:   
+   1. Call the `encrypt` function. Then, if encryption succeeded, send the UID2 token to the receiver:
 
       ```python
       from uid2_client import encrypt
       from uid2_client.identity_scope import IdentityScope
       
-        try:
+      try:
          identity_scope = IdentityScope.UID2
          encrypted_data = encrypt(raw_uid, identity_scope, keys)
          #send encrypted_data to receiver
@@ -132,14 +124,8 @@ The following instructions provide an example of how you can implement sharing u
         #check for failure reason
         print(err) -->
 
-4. Receivers: 
-   1. Call the following:
-
-      ```python
-      from uid2_client import decrypt
-      result = decrypt(ad_token, keys)
-      ```
-   2. Call the `decrypt` function. Then, if decryption succeeded, use the raw UID2:
+4. Receivers:
+   1. Call the `decrypt` function. Then, if decryption succeeded, use the raw UID2:
     
       ```python
       from uid2_client import decrypt
