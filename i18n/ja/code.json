@@ -455,31 +455,31 @@
     "description": "The homepage meta description"
   },
   "partners.metaTitle": {
-    "message": "Partners",
+    "message": "パートナー",
     "description": "The partners page meta title"
   },
   "partners.metaDescription": {
-    "message": "A growing list of publishers, advertisers, data providers and DSPs leveraging Unified ID.",
+    "message": "Unified IDを採用する媒体社、広告主、データプロバイダ、DPSの数は増え続けています。",
     "description": "The partners page meta description"
   },
   "partners.heading": {
-    "message": "Unified ID 2.0 Partners",
+    "message": "Unified ID 2.0パートナー",
     "description": "The partners page heading"
   },
   "partners.subheading": {
-    "message": "Access a broad marketplace of premier providers from the digital advertising ecosystem.",
+    "message": "デジタル広告のエコシステムから、優れたプロバイダが揃った幅広いマーケットプレイスにアクセスできます。",
     "description": "The partners page subheading"
   },
   "partners.publishersTitle": {
-    "message": "Publishers",
+    "message": "媒体社",
     "description": "The partners page publishers title"
   },
   "partners.dspTitle": {
-    "message": "DSPs/SSPs",
+    "message": "DSP/SSP",
     "description": "The partners page DSPs/SSPs title"
   },
   "partners.dataTitle": {
-    "message": "Data Providers",
+    "message": "データプロバイダ",
     "description": "The partners page data providers title"
   },
   "partners.cdpTitle": {
@@ -487,7 +487,7 @@
     "description": "The partners page CDPs / Clean Rooms title"
   },
   "requestAccess.metaTitle": {
-    "message": "Request Access",
+    "message": "アクセスをリクエストする",
     "description": "The request access page meta title"
   },
   "requestAccess.metaDescription": {
@@ -495,11 +495,11 @@
     "description": "The request access page meta description"
   },
   "requestAccess.heading": {
-    "message": "Request access to UID2",
+    "message": "UID2へのアクセスをリクエストする",
     "description": "The request access page heading"
   },
   "requestAccess.subheading": {
-    "message": "Interested in adopting Unified ID 2.0 (UID2) as a part of your identity strategy? Contact The Trade Desk to learn more about integrating with the UID2 framework today. Advertisers, publishers, data and measurement providers, DSPs, SSPs, and data storage and audience platforms are all welcome!",
+    "message": "ID戦略の一環としてUnified ID 2.0 (UID2) の採用をお考えなら、The Trade Deskにご相談ください。UID2フレームワークのインテグレーションについて詳しくご説明します。広告主、媒体社、データプロバイダ、効果測定プロバイダ、データストレージ、オーディエンスプラットフォームなど、すべての方々を歓迎します。",
     "description": "The request access page subheading"
   },
   "homepage.partnersPublishersDescription": {
