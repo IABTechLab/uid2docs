@@ -1,13 +1,13 @@
 ---
 title: POST /identity/map
-description: Map DII to UID2s and salt bucket IDs.
+description: Map DII to raw UID2s and salt bucket IDs.
 hide_table_of_contents: false
 sidebar_position: 08
 ---
 
 # POST /identity/map
 
-Map multiple email addresses, phone numbers, or respective hashes to their UID2s and salt bucket IDs.
+Map multiple email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs.
 
 Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md).
 
@@ -16,9 +16,9 @@ Used by: This endpoint is used mainly by advertisers and data providers. For det
 Here's what you need to know:
 
 - The maximum request size is 1MB. 
-- To map a large number of email addresses, phone numbers, or respective hashes, send them in *sequential* batches with a maximum batch size of 5,000 items per batch.
+- To map a large number of email addresses, phone numbers, or their respective hashes, send them in *sequential* batches with a maximum batch size of 5,000 items per batch.
 - Unless you are using a private operator, do not send batches in parallel. In other words, use a single HTTP connection and map [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) consecutively.
-- Be sure to store mappings of email addresses, phone numbers, or respective hashes.<br/>Not storing mappings may increase processing time drastically when you have to map millions of emails addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily. See also [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) and [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
+- Be sure to store mappings of email addresses, phone numbers, or their respective hashes.<br/>Not storing mappings may increase processing time drastically when you have to map millions of emails addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of raw UID2s need to be updated daily. See also [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) and [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
 
 ## Request Format
 
@@ -107,7 +107,7 @@ For details and Python script examples, see [Encrypting Requests and Decrypting 
 
 >NOTE: The responses are encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
 
-A successful decrypted response returns the UID2s and salt bucket IDs for the specified email addresses, phone numbers, or respective hashes.
+A successful decrypted response returns the raw UID2s and salt bucket IDs for the specified email addresses, phone numbers, or their respective hashes.
 
 ```json
 {
@@ -181,7 +181,7 @@ If the request includes the parameter/value `policy=1`, and some identifiers hav
 | :--- | :--- | :--- |
 | `identifier` | string | The email address, phone number, or respective hash specified in the request body. |
 | `advertising_id` | string | The corresponding advertising ID (raw UID2). |
-| `bucket_id` | string | The ID of the salt bucket used to generate the UID2. |
+| `bucket_id` | string | The ID of the salt bucket used to generate the raw UID2. |
 
 ### Response Status Codes
 
