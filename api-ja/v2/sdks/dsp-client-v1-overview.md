@@ -22,7 +22,7 @@ UID2 サーバーサイド SDK を使用すると、UID2 Advtising Token のを�
 
 | Language | Link to SDK Repogitory                                                                       |
 | :------- | :------------------------------------------------------------------------------------------- |
-| C#/.NET       | [UID2 SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md)  |
+| C# / .NET       | [UID2 SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md)  |
 | C++      | [UID2 SDK for C++](https://github.com/IABTechLab/uid2-client-cpp11/blob/master/README.md) |
 | Java     | [UID2 SDK for Java](https://github.com/IABTechLab/uid2-client-java/blob/master/README.md)        |
 | Python   | [UID2 SDK for Python](https://github.com/IABTechLab/uid2-client-python/blob/master/README.md) |
@@ -35,8 +35,6 @@ UID2 サーバーサイド SDK を使用すると、UID2 Advtising Token のを�
 | :------------------ | :----------------------------------------------------------------------------------------------------------------------- | :--------------------------------- |
 | `endpoint`          | UID2 サービスのエンドポイントです。                                                                                      | N/A                                |
 | `authKey`           | クライアントの認証トークンです。UID2 へのアクセスは、[連絡先](../../README.md#contact-info) を参照してください。 | N/A                                |
-| `refreshIntervalMs` | 復号鍵を取得するためのリフレッシュ間隔（ミリ秒単位）です。                                                           | `300,000` milliseconds (5 minutes) |
-| `retryIntervalMs`   | エラーが発生したときにリクエストを再試行するための再試行間隔（ミリ秒単位）です。                                         | `30,000` milliseconds (30 seconds) |
 
 ## Interface
 

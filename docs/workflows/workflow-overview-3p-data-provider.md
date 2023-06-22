@@ -14,7 +14,7 @@ The following process occurs in the background:
 
 The following steps are an example of how an advertiser or data provider can integrate with UID2:
 
-1. Data provider sends a user’s consented [directly Identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to the UID2 Operator.
+1. Data provider sends a user’s consented [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to the UID2 Operator.
 2. UID2 Operator generates and returns a raw UID2 and salt bucket ID.
 3. Data provider stores the UID2 and salt bucket ID and sends the UID2-based first-party and third-party audience segments to the DSP. 
 
