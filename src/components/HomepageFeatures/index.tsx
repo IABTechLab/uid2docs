@@ -18,12 +18,12 @@ type FeatureItem = {
 const componentData = {
   heading: translate({
     id: "homepage.featuredItemsHeading",
-    message: "Ready to get started with Unified ID 2.0?",
+    message: "Enable personalization and relevance on content and advertising",
   }),
   subheading: translate({
     id: "homepage.featuredItemsSubheading",
     message:
-      "Request access or a consultation with an expert, or visit our most up-to-date technical documentation",
+      "Unified ID 2.0 offers greater personalization, targeting, measurement, and security for every use case — from advertisers to publishers and everyone in between.",
   }),
 };
 
