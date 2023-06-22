@@ -114,11 +114,8 @@ If the `status` value is other than `success`, the `message` field provides addi
 
 You can use this endpoint to test whether the [DII](../ref-info/glossary-uid.md#gl-dii) you are sending through [POST /token/generate](../endpoints/post-token-generate.md) is valid. Follow these steps.
 
-1. Depending on whether the DII is a hashed or unhashed email address or phone number, send a [POST /token/generate](../endpoints/post-token-generate.md) request using one of the following values:
-    - `validate@email.com` as the `email` value.
-    - The hash of `validate@email.com` as the `email_hash` value. 
-    - `+12345678901` as the `phone` value.
-    - The hash of `+12345678901` as the `phone_hash` value.
+1. Depending on whether the DII is a hashed or unhashed email address or phone number, send a [POST /token/generate](../endpoints/post-token-generate.md) request using one of the four valid options listed in the [Unencrypted JSON Body Parameters](#unencrypted-json-body-parameters) table&#8212;`email`, `email_hash`, `phone`, or `phone_hash`&#8212;with the corresponding value as listed in the table.
+
 2. Store the returned `advertising_token` value for use in the next step.
 3. Send a [POST /token/validate](../endpoints/post-token-validate.md) request using the `email`, `email_hash`, `phone`, or `phone_hash` value that you sent in Step 1, with the `advertising_token` that you saved in Step 2 as the `token` property value. 
     - A response of `true` indicates that the DII you sent as a request in Step 1 matches the token you received in the response of Step 1. 
