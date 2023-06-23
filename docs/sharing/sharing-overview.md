@@ -7,20 +7,18 @@ sidebar_position: 01
 
 # Sharing UID2: Overview 
 
-<!-- This page provides information about sharing UID2 information: what sharing means, who you can share with, the benefits of sharing, how to set up and manage your sharing relationships, and lots more! Use sharing relationships to expand your reach and help your business to prosper. -->
+<!-- This page provides information about sharing UID2 information: what sharing means, who you can share with, the benefits of sharing, how to set up and manage your sharing permissions, and lots more! Use sharing permissions to expand your reach and help your business to prosper. -->
 
 <!-- It includes the following:
 
 - [UID2 Sharing Background](#uid2-sharing-background)
+  - [UID2 Token Pass-Through](#uid2-token-pass-through)
 - [UID2 Sharing Workflow](#uid2-sharing-workflow)
   - [One-Time Setup Steps](#one-time-setup-steps)
   - [Action Steps](#action-steps)
 - [UID2 Sharing: Implementation Guidelines](#uid2-sharing-implementation-guidelines)
 - [UID2 Portal Sharing Permissions](#uid2-portal-sharing-permissions)
   - [Steps for Granting Sharing Permission](#steps-for-granting-sharing-permission) -->
-
-<!-- UPDATE FROM KIMBERLY BEGINS HERE -------------------------------------------------------------
-https://ttdcorp-my.sharepoint.com/:w:/g/personal/kimberly_tobias_thetradedesk_com/EU-ld7cacMRMiZdGkwYvriwBlSJj9KkfH7DhgwVHiigJDQ?e=3aAlUK -->
 
 In UID2, sharing is the act of securely transmitting one or more UID2 tokens from one participant to another participant.  
 There are many scenarios for sharing, and there are many advantages.  
@@ -50,7 +48,12 @@ Alternatively, in a scenario where you don't need to store the raw UID2, you can
 | Input Example | Process/User | Result |
 | :--- | :--- | :--- |
 | user@example.com |Conversion to a UID2 token, used in the bidstream, using the [POST /token/generate](../endpoints/post-token-generate.md) endpoint. | KlKKKfE66A7xBnL/DsT1UV/Q+V/r3xwKL89Wp7hpNllxmNkPaF8vdzenDvfoatn6sSXbFf5DfW9wwbdDwMnnOVpPxojkb8KYSGUte/FLSHtg4CLKMX52UPRV7H9UbWYvXgXC4PaVrGp/Jl5zaxPIDbAW0chULHxS+3zQCiiwHbIHshM+oJ==  |
-  
+ 
+### UID2 Token Pass-Through
+The technology of UID2 is built to help ensure the security of the DII underlying the UID2 token. The UID2 token is designed so that it can be seen by all but can only be used by UID2 participants that have access to the decryption keys.
+
+For example, UID2 tokens are habitually passed through the bid stream from a publisher to a DSP. Although a UID2 token might go through several parties, such as an SSP, it can be decrypted only by an authorized UID2 participant. On its journey through the bid stream, the UID2 token can safely pass through one or more intermediaries.
+
 ## UID2 Sharing Workflow
 The basic steps for sharing UID2 tokens within the ad tech ecosystem are as follows:
 
@@ -74,16 +77,11 @@ Receiver:
 1. Sender: Send the data, including UID2 tokens, to the receiver, who must be a sharing participant.
 1. Receiver: Receive the data, including UID2 tokens.
 1. Receiver: Decrypt the UID2 tokens into raw UID2s and use the raw UID2 data.
- 
-(**GWH/KT_01 diagram updates to come**)
 
-<!-- UID2 Sharing Relationship Approval Workflow:
 
-![UID2 Sharing Relationship Approval Workflow](images/UID2_Sharing_Diagram_Relationship_Approval.png) -->
+UID2 Sharing Permission SDK Integration Workflow:
 
-UID2 Sharing Relationship SDK Integration Workflow:
-
-![UID2 Sharing Relationship SDK Integration Workflow](images/UID2_Sharing_Diagram_Integrate_SDK.png)
+![UID2 Sharing Permission SDK Integration Workflow](images/UID2_Sharing_Diagram_Integrate_SDK.png)
 
 ## UID2 Sharing: Implementation Guidelines
 
@@ -98,17 +96,31 @@ The following steps are for all sharing participants&#8212;senders and receivers
    | Java | [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers) |
    | Python | [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers) |
 
-2. Integrate the SDK into your code, using one of the following: {**GWH/KT_02 this section needs work. Not clear on the alternatives and why they should choose one or another. Are there really four options?**}
-   - Both senders and receivers, define the UID2 client:
+2. Integrate the SDK into your code. The example below shows the integration steps, for both sender and receiver. For the corresponding code snippets for the language you're using, follow the link in the table provided in Step 1.
+   1. Both senders and receivers, define the UID2 client:
 
-     `uid2client = uid2client(UID URL, authentication key, secret key)`
+      ```
+      uid2client = uid2client(UID URL, authentication key, secret key)
+      ```
 
-   - Both senders and receivers, define the token refresh schedule:
-   
-     `uid2client.refresh()` // Call at startup, and then once per hour (recommended)
-   - Senders: `token = uid2client.encrypt(raw UID2)`
-   - Receivers: `rawUid2 = uid2client.decrypt(UID2 Token)`
-  
+   2. Both senders and receivers, define the token refresh schedule:
+
+      ```  
+      uid2client.refresh() // Call at startup, and then once per hour (recommended)
+      ```
+   3. Senders, set up encryption:
+
+      ```  
+      token = uid2client.encrypt(raw UID2)
+      ```
+ 
+   4. Receivers, set up decryption:
+
+      ```  
+      rawUid2 = uid2client.decrypt(UID2 Token)
+      ```
+ 
+ {**GWH/KT_01 note the above code doesn't match the code in the SDK docs plus, if it did, would be an exact replication. Perhaps link instead? Or just give the high-level steps?**}
 ## UID2 Portal Sharing Permissions
 
 With a sharing permission enabled, a sharing participant who receives an encrypted UID2 token can decrypt the UID2 token into a raw UID2. The sharing options available include the following:
@@ -121,9 +133,9 @@ With a sharing permission enabled, a sharing participant who receives an encrypt
 
   A participant can choose to share with all participants of one or more participant types, such as all Publishers, Advertisers, DSPs, or Data Providers.  
 
-  If you choose this option, all new participants of the selected participant type will automatically have permission to decrypt any data that you send to them, unless you disable sharing permission. {**GWH/KT_03 query re the last part of the sentence, how would the sharing relationship end?**}
+  If you choose this option, all new participants of the selected participant type will automatically have permission to decrypt any data that you send to them. For details, see [Encryption/Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#encryptiondecryption-key-refresh-cadence-for-sharing).
 
-  For example, let's say you choose to share with all of 25 existing DSPs. The next day, when DSP 26 signs up for sharing, DSP 26 will automatically have permission to decrypt data that you send. To share with DSP 26, just send one or more encrypted UID2 tokens and DSP 26 will be able to decrypt the tokens into raw UID2s. Because you chose automatic sharing, you do not need to log in to explicitly update your sharing permissions to include DSP 26, or any future DSPs that sign up for the UID2 ecosystem. You can disable any specific sharing relationship at any point. {**GWH/KT_04 disable? Or end?**}
+  For example, let's say you choose to share with all of 20 existing DSPs. The next day, when DSP 21 signs up for sharing, DSP 21 will automatically have permission to decrypt data that you send. To share with DSP 21, just send one or more encrypted UID2 tokens and DSP 21 will be able to decrypt the tokens into raw UID2s. Because you chose automatic sharing, you do not need to log in to explicitly update your sharing permissions to include DSP 21, or any future DSPs that sign up for the UID2 ecosystem. You can remove any sharing relationship at any point.
 
 ### Steps for Granting Sharing Permission
 
@@ -137,6 +149,6 @@ At a high level, enabling sharing permissions includes the following steps. For 
    - **Share with a participant type**: Select a participant type that you want to start sharing with. Sharing will be enabled for current participants of that type, and also future participants of that type that join the UID2 ecosystem.
 1. Save changes.
 
-{**GWH/KT_05 Gen to revisit the above procedure when sharing portal is available**}
+{**GWH/KT_02 Gen to revisit the above procedure when sharing portal is available**}
  
 NOTE: When you enable sharing permission, this allows the selected sharing participants to access your decryption keys. Each participant that you enable for sharing can use your keys to decrypt a UID2 token into a raw UID2. However, granting permission is just the first step. In order for sharing to occur, you must send the tokens to the participant. The UID2 Portal enables the permissions, it does not send the data&#8212;that is up to you.

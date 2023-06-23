@@ -2,7 +2,7 @@
 title: UID2 SDK for Java
 description: Reference information about the Java server-side SDK.
 hide_table_of_contents: false
-sidebar_position: 05
+sidebar_position: 04
 ---
 
 # UID2 SDK for Java (Server-Side) Reference Guide
