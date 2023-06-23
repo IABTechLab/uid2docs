@@ -8,56 +8,59 @@ banner_title: UID2 Overview for Advertisers
 banner_description: Upgrade campaign activation with Unified ID 2.0.
 ---
 
-Advertisers can upgrade their first-party data tactics with Unified ID 2.0 to deliver omnichannel campaigns across devices with one identifier.
+広告主は、Unified ID 2.0によってファーストパーティデータ戦術をアップグレードし、1つの識別子でデバイスをまたいだオムニチャネルキャンペーンを実現できます。
 
-The following sections break down the workflows, integration types and documentation for advertisers adopting UID2.
+以下のセクションでは、UID2 を採用する広告主のためのワークフロー、インテグレーションタイプ、ドキュメントを説明します。
+
 
 ## Audience
 
-This page is for advertisers who want to leverage first-party data for more durable identity strategies and better addressability.
+このページは、ファーストパーティデータを活用して、より耐久性のあるアイデンティティ戦略や、より優れたアドレサビリティを実現したい広告主向けのページです。
 
 ## Benefits of UID2 for Advertisers
 
-Here are just some of the intended benefits of using UID2 as part of your advertising strategy:
-- Use a privacy-conscious form of CRM data in media-buying platforms.
-- Simplify identity resolution at the household and individual level.
-- Manage frequency and suppress audiences across channels and devices.
-- Support identity use cases on Connected TV and Mobile app where cookies don’t exist.
-- Target and measure campaigns more holistically.
-- Offer opt-out, with the goal of improving consumer privacy controls.
+広告戦略の一部として UID2 を使用することで得られるメリットの一部を次に示します:
+- メディア購入プラットフォームで、プライバシーに配慮した形の CRM データを使用することができます。
+- 世帯および個人レベルでの ID 解決を簡素化します。
+- チャンネルやデバイスを問わず、フリケンシーや抑制されたオーディエンスを管理します。
+- クッキーが存在しないコネクテッドTVやモバイルアプリでの ID ユースケースをサポートします。
+- キャンペーンをより総合的にターゲットし測定します。
+- 消費者のプライバシー管理を改善することを目的として、オプトアウトを提供します。
+
 
 ## Resources
 
-The following documentation resources are available for advertisers to implement UID2.
+広告主が UID2 を実装するために、以下のドキュメントリソースを用意しています。
 
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
-| Integration steps for organizations that collect user data and push it to other UID2 participants | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | This integration guide for advertisers and data providers covers integration workflows for mapping identity for audience-building and targeting. | Advertisers<br/>Data Providers |
-| Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | Instructions for generating UIDs from emails within Snowflake. | Advertisers<br/>Data Providers |
+| ユーザーデータを収集し、それを他の UID2 参加者にプッシュする組織のためのインテグレーション手順 | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | 広告主とデータプロバイダーのためのインテグレーションガイドで、オーディエンスの構築とターゲティングのための ID マッピングのためのインテグレーションワークフローを網羅しています。 | Advertisers<br/>Data Providers |
+| Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | Snowflakeでメールアドレスから UID を生成する手順です。 | Advertisers<br/>Data Providers |
 
 ## Workflow for Advertisers
 
-The following diagram shows the UID2 workflow for advertisers.
+以下の図は、広告主が UID2 を実装するための UID2 ワークフローです。
 
 ![Advertiser Workflow](../workflows/images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.jpg)
 
 ## Getting Started
 
-To get started, follow these steps:
+次の手順で始めます:
 
-1. Request access to UID2 by filling out the form on the [Request Access](/request-access) page.
+1. [アクセスリクエスト](/request-access)ページにあるフォームに記入して、UID2へのアクセスをリクエストします。
 
-   Someone will contact you to discuss your needs and advise on appropriate next steps.
-1. Decide on your [participant](../intro.md#participants) role or roles.
-1. Decide which implementation option you want to use.
-1. Receive your credentials (see [API keys](../getting-started/gs-api-keys.md)) and follow the instructions in the implementation guide for the option you chose.
+   担当者が連絡し、ニーズを伺い、適切なステップをアドバイスします。
+1. [参加者](../intro.md#participants)の役割を決めます。
+1. どの実装オプションを使用するかを決めます。
+1. 認証情報を受け取り（[API keys](../getting-started/gs-api-keys.md) を参照）、選択したオプションのインテグレーションガイドの指示に従います。
 
-     NOTE: Be sure to encrypt request messages to UID2. For details, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
-1. Test.
-1. Go live.
+     Note：リクエストメッセージは必ずUID2まで暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md)を参照してください。
+1. テストします。
+1. 本番稼働します。
+
 
 ## Frequently Asked Questions for Advertisers
 
-For a list of FAQs for advertisers using the UID2 framework, see [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
+UID2フレームワークを使用する広告主向けのFAQ一覧は、[広告主およびデータプロバイダー向けFAQ](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。
 
-For a full list, see [Frequently Asked Questions](../getting-started/gs-faqs.md).
+すべてのリストは、[よくある質問](../getting-started/gs-faqs.md)を参照してください。

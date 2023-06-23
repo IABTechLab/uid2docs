@@ -8,32 +8,33 @@ banner_title: UID2 Overview for Publishers
 banner_description: Maintain audience targeting in the ever-changing advertising industry for better impression monetization and more relevance.
 ---
 
-Publishers can benefit from the cross-device presence of Unified ID 2.0 and take advantage of a consistent identity fabric on all of their inventory.
+パブリッシャーは、Unified ID 2.0 のクロスデバイスでのプレゼンスの恩恵を受け、すべてのインベントリで一貫した ID ファブリックを活用できます。
 
-This page includes information about workflows, integration types, and documentation resources for publishers adopting UID2.
+このページには、UID2を採用するパブリッシャー向けのワークフロー、インテグレーションタイプ、ドキュメントリソースに関する情報が含まれています。
 
 ## Audience
 
-This page is for the following UID2 participants:
+このページは、以下のUID2参加者のためのものです：
 
-- Publishers with web assets who want to use UID2 to generate identity tokens for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers.
-- Any organizations that propagate UID2 tokens to the bid stream via SSPs&#8212;for example, identity providers and SSO providers.
+- UID2 を使用して RTB ビッドストリーム用の ID トークンを生成したいが、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしたいウェブアセットを持つパブリッシャー。
+- UID2 Token を SSP 経由でビッドストリームに伝播させるすべての組織&#8212;例えば、ID プロバイダーや SSO プロバイダーなどです。
+
 <!-- - Data clean rooms. -->
 
-Publishers can choose to integrate with UID2 in a number of different ways:
+パブリッシャーは、さまざまな方法で UID2 とのインテグレーションを選択することができます:
 
-- By integrating directly with UID2, either by using an SDK or via the UID2 API.
-- By using an SSO provider.
-- By working with an independent ID provider that manages the UID2 integration on behalf of the publisher.
+- SDK を使用するか、UID2 API を使用して、UID2 と直接インテグレーションする。
+- SSO プロバイダを使用する。
+- パブリッシャーに代わって UID2 インテグレーションを管理する独立した ID プロバイダーと連携する。
 
 ## Benefits of UID2 for Publishers
 
-Here are just some of the intended benefits of integrating with UID2:
-- Addressable audience targeting on desktop, mobile, and CTV with a single identifier.
-- Frequency management across devices.
-- More relevant content recommendations.
-- The ability to provide personalized ad experiences with relevant content.
-- The ability to offer opt-out, with the goal of improving consumer privacy controls.
+UID2 とインテグレーションすることで得られるメリットの一部を次に示します:
+- デスクトップ、モバイル、CTVで、単一の識別子でアドレサブルなオーディエンスターゲティング。
+- デバイスをまたいだフリケンシー。
+- より適切なコンテンツのリコメンデーション。
+- 関連するコンテンツでパーソナライズされた広告体験を提供する機能。
+- 消費者のプライバシー管理を向上させることを目的とした、オプトアウトを提供する機能。
 
 ## Resources
 
@@ -41,46 +42,46 @@ The following documentation resources are available for publishers to implement 
 
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
-| Client-Side (Web) SDK | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | Client-Side JavaScript SDK that facilitates the process of establishing client identity using UID2 and retrieving advertising tokens for publishers. | Publishers |
-| Client-Side (Web) Integration Guide | [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) | This integration guide for publishers covers standard web integration scenarios that use the [UID2 SDK for JavaScript](../sdks/client-side-identity.md). | Publishers |
-| Server-Side Integration Guide  | [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) | This integration guide is for publishers that do not use the [UID2 SDK for JavaScript](../sdks/client-side-identity.md). | Publishers |
-| Publisher/SSP Integration with GAM | [Publisher - Google Ad Manager Secure Signals](../guides/google-ss-integration.md) | This integration guide covers the additional steps needed for publishers using UID2 with the Google Ad Manager Secure Signals feature (previously known as Encrypted Signals for Publishers, ESP). | Publishers |
-| Operator | [UID2 Operator - AWS Marketplace Integration Guide](../guides/operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. | Private Operators<br/>Publishers |
-| Operator| [UID2 Operator - Google Cloud Platform Confidential Computing package](../guides/operator-guide-gcp-enclave.md) | Instructions for setting up the Google Cloud Platform Confidential Computing package (GCP). | Private Operators<br/>Publishers |
-| Operator Integration Guide | [Operator - Microsoft Azure](../guides/operator-guide-azure-enclave.md) | IMPORTANT: This documentation is currently only a proof of concept. For additional guidance, please [contact](../getting-started/gs-account-setup.md#contact-info) the UID2 administrator.<br/>Instructions for setting up a Private Operator service for running on Microsoft Azure Confidential Computing platform.  | Private Operators<br/>Publishers |
+| Client-Side (Web) SDK | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | UID2 を使用したクライアント ID の確立と、パブリッシャーの Advertising Token の取得プロセスを容易にするクライアントサイドJavaScript SDKです。 | Publishers |
+| Client-Side (Web) Integration Guide | [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) | パブリッシャー向けのこのインテグレーションガイドは、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用する標準的なウェブインテグレーションシナリオを説明しています。 | Publishers |
+| Server-Side Integration Guide  | [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) | このインテグレーションガイドは、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用していないパブリッシャー向けです。| Publishers |
+| Publisher/SSP Integration with GAM | [Publisher - Google Ad Manager Secure Signals](../guides/google-ss-integration.md) | このインテグレーションガイドでは、パブリッシャーが UID2 を Google Ad Manager の セキュアシグナル機能（旧称：Encrypted Signals for Publishers、ESP）と併用する際に必要な追加手順について説明しています。 | Publishers |
+| Operator | [UID2 Operator - AWS Marketplace Integration Guide](../guides/operator-guide-aws-marketplace.md) | AWS MarketplaceのPrivate Operatorサービスを設定する手順です。 | Private Operators<br/>Publishers |
+| Operator| [UID2 Operator - Google Cloud Platform Confidential Computing package](../guides/operator-guide-gcp-enclave.md) | Google Cloud Platform Confidential Computing パッケージ（GCP）の設定方法について説明しています。 | Private Operators<br/>Publishers |
+| Operator Integration Guide | [Operator - Microsoft Azure](../guides/operator-guide-azure-enclave.md) | IMPORTANT: このドキュメントは現在、PoCの段階です。<br/> Microsoft Azure Confidential Computing プラットフォーム上で実行する Private Operator Service のセットアップ手順です。  | Private Operators<br/>Publishers |
 
 ## Workflow for Publishers
 
-The following diagram shows the UID2 workflow for publishers.
+以下の図は、パブリッシャー向けの UID2 ワークフローです。
 
 ![Publisher Workflow](../workflows/images/UID2PublisherAndSSPWorkflow.jpg)
 <!-- (LP/BB/GWH: the above URl works as relative but as /docs/ caused build failure. Need to debug that. 3/13) -->
 
-For details, see [Publisher Workflow Overview](../workflows/workflow-overview-supply-side.md).
+詳しくは、[パブリッシャーワークフローの概要](../workflows/workflow-overview-supply-side.md)を参照してください。
 
 ## Getting Started
 
-To get started, follow these steps:
+次の手順で始めます:
 
-1. Request access to UID2 by filling out the form on the [Request Access](/request-access) page.
-1. Identify the properties that you want to integrate with UID2.
-1. Sign the UID2 contract.
-1. Receive the UID2 authentication keys ([API keys](../getting-started/gs-api-keys.md)).
-1. Build your integration to UID2 via an SDK or direct integration with the UID2 APIs, using the applicable documentation.
+1. [アクセスリクエスト](/request-access)ページにあるフォームに記入して、UID2へのアクセスをリクエストします。
+1. UID2 とインテグレーションしたいプロパティを特定します。
+1. UID2 契約書にサインします。
+1. UID2認証キー（[APIキー](../getting-started/gs-api-keys.md)）を受け取ります。
+1. SDK　を使用するか、UID2 API　と直接インテグレーションを行い、該当するドキュメントを使用して、UID2　へのインテグレーションを構築します。
 
-     NOTE: Be sure to encrypt request messages to UID2. For details, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
-1. Test: 
+     NOTE: リクエストメッセージは必ずUID2まで暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md)を参照してください。
+1. テストします:
 
-    Work with SSPs to properly pass UID2s in bid requests.
+    入札リクエストで UID2 を適切に渡すために、SSP と協力します。
     
-    Confirm that UID2s are being generated and passed correctly in requests.
-1. Go live.
+    リクエストの中で UID2 が正しく生成され、渡されていることを確認します。
+1. 本番稼働します。
 
 ## Frequently Asked Questions for Publishers
 
-For a list of FAQs for the publisher audience, see either of the following:
+パブリッシャー向け FAQ の一覧は、以下のいずれかを参照してください：
 
--  [FAQs for Publishers Using an SDK](../getting-started/gs-faqs.md#faqs-for-publishers-using-an-sdk)
- - [FAQs for Publishers Not Using an SDK](../getting-started/gs-faqs.md#faqs-for-publishers-not-using-an-sdk)
+- [SDK を使用しているパブリッシャー向け FAQ](../getting-started/gs-faqs.md#faqs-for-publishers-using-an-sdk)
+- [SDK を使用していないパブリッシャー向け FAQ](../getting-started/gs-faqs.md#faqs-for-publishers-not-using-an-sdk)
 
-For a full list, see [Frequently Asked Questions](../getting-started/gs-faqs.md).
+すべてのリストは、[よくある質問](../getting-started/gs-faqs.md)を参照してください。
