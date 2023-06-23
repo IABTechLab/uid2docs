@@ -1,13 +1,13 @@
 ---
 title: Account Setup
-description: Information about setting up a UID2 account.
+description: UID2 アカウントの設定に関する情報。
 hide_table_of_contents: false
 sidebar_position: 02
 ---
 
 # Account Setup
 
-このページでは、UID2でアカウントを設定するために必要な一般的な情報を提供します。
+このページでは、UID2 でアカウントを設定するために必要な一般的な情報を提供します。
 
 <!-- It includes:
 

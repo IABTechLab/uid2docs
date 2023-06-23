@@ -1,6 +1,6 @@
 ---
 title: Environments
-description: Information about the environments for UID2.
+description: UID2 の環境に関する情報。
 hide_table_of_contents: false
 sidebar_position: 07
 ---

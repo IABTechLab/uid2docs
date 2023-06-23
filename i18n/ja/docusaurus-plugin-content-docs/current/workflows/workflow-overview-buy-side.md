@@ -1,6 +1,6 @@
 ---
 title: DSP Workflow
-description: Workflow for demand-side platforms (DSPs).
+description: デマンドサイドプラットフォーム（DSP）のためのワークフロー。
 hide_table_of_contents: false
 sidebar_position: 02
 ---

@@ -1,6 +1,6 @@
 ---
 title: Private Operators
-description: Information summary for private operators.
+description: Private Operator 向けの情報の概要。
 hide_table_of_contents: false
 use_banner: true
 banner_title: UID2 Overview for Private Operators

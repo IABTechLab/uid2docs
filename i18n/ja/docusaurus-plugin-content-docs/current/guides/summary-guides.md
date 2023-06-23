@@ -1,6 +1,6 @@
 ---
 title: UID2 Integration Guides - Summary
-description: Summary of all the integration guides available.
+description: 利用可能なすべてのインテグレーションガイドの概要。
 hide_table_of_contents: false
 sidebar_position: 01
 ---

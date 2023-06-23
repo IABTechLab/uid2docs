@@ -1,6 +1,6 @@
 ---
 title: Advertisers
-description: Information summary for advertisers.
+description: 広告主向けの情報の概要。
 hide_table_of_contents: false
 sidebar_position: 04
 use_banner: true

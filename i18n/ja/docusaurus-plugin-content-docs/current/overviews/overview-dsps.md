@@ -1,6 +1,6 @@
 ---
 title: DSPs
-description: Information summary for demand-side platforms (DSPs).
+description: デマンドサイドプラットフォーム (DSP) 向けの情報の概要。
 hide_table_of_contents: false
 sidebar_position: 06
 use_banner: true

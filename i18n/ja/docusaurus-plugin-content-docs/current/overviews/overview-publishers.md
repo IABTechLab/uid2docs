@@ -1,6 +1,6 @@
 ---
 title: Publishers
-description: Information summary for publishers.
+description: パブリッシャー向けの情報の概要。
 hide_table_of_contents: false
 sidebar_position: 02
 use_banner: true

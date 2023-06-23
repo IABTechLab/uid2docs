@@ -1,6 +1,6 @@
 ---
 title: POST /identity/buckets
-description: Monitor rotated salt buckets.
+description: ソルトバケットのローテーションをモニターします。
 hide_table_of_contents: false
 sidebar_position: 07
 ---

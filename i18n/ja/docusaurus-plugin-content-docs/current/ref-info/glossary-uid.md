@@ -1,6 +1,6 @@
 ---
 title: UID2 Glossary
-description: Definitions for some UID2 terms.
+description: UID2 に関する用語の定義。
 hide_table_of_contents: false
 sidebar_position: 10
 ---

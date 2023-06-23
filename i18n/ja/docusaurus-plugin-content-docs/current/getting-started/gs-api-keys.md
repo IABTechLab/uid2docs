@@ -1,6 +1,6 @@
 ---
 title: API Keys
-description: Learn about the API keys you'll need and how to get them.
+description: 必要な API Key とその取得方法。
 hide_table_of_contents: false
 sidebar_position: 03
 ---

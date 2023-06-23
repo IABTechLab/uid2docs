@@ -1,6 +1,6 @@
 ---
 title: UID2 SDK for JavaScript
-description: Reference information about the JavaScript SDK.
+description: JavaScript SDK に関する参考情報。
 hide_table_of_contents: false
 sidebar_position: 02
 ---

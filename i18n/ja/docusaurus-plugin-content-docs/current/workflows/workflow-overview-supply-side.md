@@ -1,6 +1,6 @@
 ---
 title: Publisher Workflow
-description: Workflow for publishers.
+description: パブリッシャーのためのワークフロー。
 hide_table_of_contents: false
 sidebar_position: 01
 ---

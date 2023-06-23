@@ -1,6 +1,6 @@
 ---
 title: Publisher Integration Guide, Server-Only
-description: Information about generating identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers.
+description: UID2 対応シングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションを行いながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成する方法。
 hide_table_of_contents: false
 sidebar_position: 03
 ---

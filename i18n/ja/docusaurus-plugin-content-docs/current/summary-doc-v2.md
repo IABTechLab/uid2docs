@@ -1,6 +1,6 @@
 ---
 title: UID2 API v2 Documentation
-description: Summary of information for getting started with the UID2 API v2.
+description: UID2 API v2 を使い始めるための情報の概要。
 hide_table_of_contents: false
 sidebar_position: 04
 ---

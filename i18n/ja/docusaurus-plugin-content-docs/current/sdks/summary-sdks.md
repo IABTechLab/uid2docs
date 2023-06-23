@@ -1,6 +1,6 @@
 ---
 title: SDKs - Summary
-description: Summary of SDK documentation available.
+description: SDK ドキュメントの概要。
 hide_table_of_contents: false
 sidebar_position: 01
 ---

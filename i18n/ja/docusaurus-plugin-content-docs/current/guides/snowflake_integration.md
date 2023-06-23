@@ -1,6 +1,6 @@
 ---
 title: Snowflake Integration
-description: Information about integrating with Snowflake as part of your UID2 implementation, through the UID2 Share in Snowflake. 
+description: UID2 実装のため、Snowflake の UID2 Share を通じて Snowflake とインテグレーションするための情報。
 hide_table_of_contents: false
 sidebar_position: 04
 ---

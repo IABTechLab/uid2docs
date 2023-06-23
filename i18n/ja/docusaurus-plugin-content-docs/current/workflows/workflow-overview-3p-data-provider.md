@@ -1,6 +1,6 @@
 ---
 title: Advertiser and Data Provider Workflow
-description: Workflow for third-party data providers.
+description: サードパーティデータプロバイダーのためのワークフロー。
 hide_table_of_contents: false
 sidebar_position: 03
 ---

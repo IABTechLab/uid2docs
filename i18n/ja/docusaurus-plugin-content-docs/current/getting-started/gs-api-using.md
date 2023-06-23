@@ -1,6 +1,6 @@
 ---
 title: API and SDK Reference Resources
-description: Information about UID2 API and SDK reference resources.
+description: UID2 API と SDK リファレンスリソースに関する情報。
 hide_table_of_contents: false
 sidebar_position: 11
 ---

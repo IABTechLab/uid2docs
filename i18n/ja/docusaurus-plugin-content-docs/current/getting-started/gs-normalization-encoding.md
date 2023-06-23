@@ -1,6 +1,6 @@
 ---
 title: Normalization and Encoding
-description: Learn how to normalize and encode information so it's secure and can be decoded.
+description: 情報を安全かつ解読できるように正規化し、符号化する方法。
 hide_table_of_contents: false
 sidebar_position: 13
 ---
