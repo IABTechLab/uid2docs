@@ -88,172 +88,186 @@ sidebar_position: 10
 <dl>
 
 <dt class="jump-anchor" id="gl-advertising-id">Advertising ID</dt>
-<dd>Advertising ID is another term for a <a href="#gl-raw-uid2">raw UID2</a>.</dd>
+<dd>Advertising ID は <a href="#gl-raw-uid2">raw UID2 の別名です。</a>.</dd>
 
 <dt class="jump-anchor" id="gl-advertising-token">Advertising token</dt>
-<dd>Advertising token is another term for a <a href="#gl-uid2-token">UID2 token</a>.</dd>
+<dd>Advertising token は <a href="#gl-uid2-token">UID2 token の別名です。</a>.</dd>
 
 <dt class="jump-anchor" id="gl-api-key">API key</dt>
-<dd>Each UID2 <a href="/docs/intro#participants">participant</a> has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
-<dd>For details, see <a href="/docs/getting-started/gs-api-keys">API Keys</a>.</dd>
+<dd>UID2 <a href="/docs/intro#participants">参加者</a> はそれぞれ、API Key（クライアントキー）と、そのキーに関連付けられた Client Secret（APIシークレット）と呼ばれる秘密の値を持っています。Client Secretは、参加者と UID Service だけが知っています。</dd>
+<dd>詳細は <a href="/docs/getting-started/gs-api-keys">API Keys</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-api-secret">API secret</dt>
-<dd>See <a href="#gl-client-secret">client secret</a>.</dd>
+<dd><a href="#gl-client-secret">client secret</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-authorization-header">Authorization header</dt>
-<dd>The Authorization header is a way to authenticate the client to the UID2 service.</dd>
-<dd>For details, see <a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.authorization">11.6.2. Authorization</a> in RFC 9110, the HTTP specification.</dd>
+<dd>Authorization header は、UID2 Service に対してクライアントを認証する方法です。</dd>
+<dd>詳細については、HTTP 仕様の RFC 9110 <a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.authorization">11.6.2. Authorization</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-bearer-token">Bearer token</dt>
-<dd>A bearer token is a special string that identifies the client. For authentication, some UID2 endpoints require the <a href="#gl-client-key">client key</a> to be specified as a bearer token in the Authorization header of the request: for example, <a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a>.</dd>
+<dd>Bearer token はクライアントを識別する特別な文字列です。認証のために、いくつかのUID2 エンドポイントはリクエストの Authorization header で <a href="#gl-client-key">client key</a> を Beare token として指定する必要があります。例えば、<a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> です。</dd>
 
 <dt class="jump-anchor" id="gl-client-key">Client key</dt>
-<dd>See <a href="#gl-api-key">API key</a>.</dd>
+<dd><a href="#gl-api-key">API key</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-client-secret">Client secret</dt>
-<dd>Each UID2 <a href="/docs/intro#participants">participant</a> has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
-<dd>For details, see <a href="/docs/getting-started/gs-api-keys">API Keys</a>.</dd>
+<dd>
+各 UID2 <a href="/docs/intro#participants">参加者</a>は、API Key（クライアントキー）と、そのキーに関連付けられた秘密値（Client secret（API シークレット））を持っています。Client secretは、参加者と UID2 Service だけが知っています。</dd>
+<dd>詳細については、<a href="/docs/getting-started/gs-api-keys">API Keys</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-closed-operator">Closed operator</dt>
-<dd>Closed operator is another term for a <a href="#gl-private-operator">private operator</a>.</dd>
+<dd>Closed operator は <a href="#gl-private-operator">private operator</a> の別名です。</dd>
 
 <dt class="jump-anchor" id="gl-core-service">Core Service</dt>
-<dd>The UID2 Core Service is a centralized service that manages access to <a href="#gl-salt">salts</a>, encryption keys, and other relevant data in the UID2 ecosystem.</dd>
-<dd>For an overview of all the UID2 services, see <a href="/docs/intro#components">Components</a>.</dd>
+<dd>UID2 Core Serviceは、UID2 エコシステムの <a href="#gl-salt">salts</a>、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。</dd>
+<dd>すべてのUID2 Service の概要については、<a href="/docs/intro#components">Components</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-customer-data-platform">Customer Data Platform (CDP)</dt>
-<dd>A Customer Data Platform (CDP) is a prebuilt, packaged software system that creates a unified customer database that is accessible to other systems. The CDP centralizes customer data from multiple sources and makes the data available to other systems.</dd>
+<dd>顧客データ・プラットフォーム（CDP）は、他のシステムからアクセス可能な統一された顧客データベースを作成するための、あらかじめ構築されたパッケージ・ソフトウェア・システムです。CDP は、複数のソースからの顧客データを一元化し、そのデータを他のシステムで利用できるようにします。</dd>
 
 <dt class="jump-anchor" id="gl-data-provider">Data provider</dt>
-<dd>In the context of UID2, a data provider is any entity that provides data and measurement services relating to advertising, such as a data partner, measurement partner, or offline measurement provider.</dd>
-<dd>For details, see <a href="/docs/intro#participants">participant</a> (Data Providers).</dd>
+<dd>UID2 のコンテキストでは、データプロバイダーは、データパートナー、測定パートナー、オフライン測定プロバイダーなど、広告に関連するデータおよび測定サービスを提供する事業社を指します。</dd>
+<dd>詳細は <a href="/docs/intro#participants">participant</a> (Data Providers) を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-demand-side-platform">Demand-side platform (DSP)</dt>
-<dd>A demand-side platform (DSP) provides services to companies that want to buy digital advertising, such as advertisers, brands, and media agencies.</dd>
+<dd>デマンドサイドプラットフォーム（DSP）は、広告主、ブランド、メディアエージェンシーなど、デジタル広告を購入したい企業にサービスを提供するプラットフォームです。</dd>
 
 <dt class="jump-anchor" id="gl-dii">Directly Identifying information (DII)</dt>
-<dd>Directly Identifying information, or DII, is information that directly identifies an individual, including name, email address, or phone number.</dd>
-<dd>UID2 supports email address and phone number, and translates the DII to a value that can be used for the purpose of targeted advertising but cannot be traced back to the original value.</dd>
+<dd>直接識別情報（DII）とは、氏名、メールアドレス、電話番号など、個人を直接識別する情報のことです。</dd>
+<dd>UID2 はメールアドレスと電話番号をサポートし、DII をターゲットを絞った広告の目的で使用できる値に変換しますが、元の値に遡ることはできません。</dd>
 
 <dt class="jump-anchor" id="gl-docker">Docker</dt>
-<dd>Docker is a Platform as a Service (PaaS) suite of products that is used for automating the deployment of software via packages called containers. The set of Docker products allows packaging of an application, with all its dependencies, into a virtual container that can run on most operating systems so that applications can work efficiently in different environments.</dd>
-<dd>For details, see <a href="https://www.docker.com">https://www.docker.com</a>.</dd>
+<dd>Docker は Platform as a Service（PaaS）製品群で、コンテナと呼ばれるパッケージを介してソフトウェアのデプロイを自動化するために使用します。Docker 製品群は、アプリケーションを、そのすべての依存関係とともに、ほとんどのオペレーティング・システム上で実行可能な仮想コンテナにパッケージ化できるため、アプリケーションをさまざまな環境で効率的に動作させることができます。</dd>
+<dd>詳細は、<a href="https://www.docker.com">https://www.docker.com</a> を参照してください。</dd>
 
 <!-- <dt class="jump-anchor" id="gl-docker-build">Docker Build</dt>
 <dd>For details, see <a href="https://docs.docker.com/build/">Overview of Docker Build</a>.</dd> -->
 
 <dt class="jump-anchor" id="gl-enclave">Enclave</dt>
-<dd>An enclave is a secure subsection of a computing environment. The enclave has additional business logic and security measures applied to it, to prevent anyone from tampering with it.</dd>
-<dd>In the context of UID2, a <a href="#gl-private-operator">private operator</a> must run inside an enclave or in a private environment. The enclave versions supported are:<br/>
-- <a href="https://aws.amazon.com/ec2/nitro/">AWS Nitro</a>: see <a href="../guides/operator-guide-aws-marketplace">UID2 Operator: AWS Marketplace Integration Guide</a>.<br/>
-- <a href="https://cloud.google.com/confidential-computing">Google Cloud Platform Confidential Computing</a>: see <a href="../guides/operator-guide-gcp-enclave">UID2 Operator - Google Cloud Platform Confidential Computing Package</a>.<br/>
-- <a href="https://learn.microsoft.com/en-us/azure/confidential-computing/">Microsoft Azure confidential computing</a>: see <a href="../guides/operator-guide-azure-enclave">Microsoft Azure Confidential Compute Operator Package</a>.</dd>
-<dd>In an enclave, the operator image must be a very specific, predefined version, and additional constraints are applied to ensure security.</dd>
+<dd>Enclave は、コンピューティング環境のセキュアなサブセクションです。エンクレーブには追加のビジネスロジックとセキュリティ対策が施され、改ざんできないようになっています。</dd>
+<dd>UID2 のコンテキストでは、 <a href="#gl-private-operator">private operator</a> は、Enclave 内かプライベート環境で運用しなければなりません。must run inside an enclave or in a private environment. サポートされるエングレーブのバージョンは次のとおりです:<br/>
+- <a href="https://aws.amazon.com/ec2/nitro/">AWS Nitro</a>: <a href="../guides/operator-guide-aws-marketplace">UID2 Operator: AWS Marketplace Integration Guide</a> を参照してください。<br/>
+- <a href="https://cloud.google.com/confidential-computing">Google Cloud Platform Confidential Computing</a>: <a href="../guides/operator-guide-gcp-enclave">UID2 Operator - Google Cloud Platform Confidential Computing Package</a> を参照してください。<br/>
+- <a href="https://learn.microsoft.com/en-us/azure/confidential-computing/">Microsoft Azure confidential computing</a>: <a href="../guides/operator-guide-azure-enclave">Microsoft Azure Confidential Compute Operator Package</a> を参照してください。</dd>
+<dd>エンクレーブでは、オペレータ・イメージは非常に特殊で、事前に定義されたバージョンでなければならず、セキュリティを確保するために追加の制約が適用されます。</dd>
 
 <dt class="jump-anchor" id="gl-first-level-hash">First-level hash</dt>
-<dd>In the context of UID2, the first-level hash is the anonymized, opaque, secure value from which the <a href="#gl-raw-uid2">raw UID2</a>, <a href="#gl-uid2-token">UID2 token</a>, and <a href="#gl-refresh-token">refresh token</a> are generated. Several cryptographic functions, including salting and hashing, are applied to the initial value, whether an email or a phone number, to create the first-level hash.</dd>
+<dd>
+UID2 のコンテキストでは、First-level hash は匿名化された不透明で安全な値であり、そこから <a href="#gl-raw-uid2">raw UID2</a>、<a href="#gl-uid2-token">UID2 token</a>、<a href="#gl-refresh-token">refresh token</a>が生成されます。ソルティングやハッシュを含むいくつかの暗号関数が、メールアドレスや電話番号などの初期値に適用され、First-level hash が生成されます。</dd>
 
 <dt class="jump-anchor" id="gl-hash">Hash</dt>
-<dd>A hash function converts a set of data of varying/arbitrary size to a set of data of fixed size. The result of the hash function is called a hash, digest, or hash value.</dd>
-<dd>Hashing is a one-way function. The same input value, hashed, always yields the same output value, but there is no corresponding function to take the output value and arrive at the input value. Hashing is a security measure.</dd>
-<dd>UID2 uses the <a href="#gl-sha-256">SHA-256</a> hashing algorithm.</dd>
+<dd>ハッシュ関数は、様々な/任意のサイズのデータセットを固定サイズのデータセットに変換します。ハッシュ関数の結果は、ハッシュ、ダイジェスト、またはハッシュ値と呼ばれます。</dd>
+<dd>ハッシュは一方向性関数です。同じ入力値をハッシュ化すると、常に同じ出力値が得られますが、出力値を受け取って入力値に到達する対応する関数は存在しません。ハッシュはセキュリティ対策です。</dd>
+<dd>UID2 は <a href="#gl-sha-256">SHA-256</a> ハッシュアルゴリズムを使用しています。</dd>
 
 <dt class="jump-anchor" id="gl-identity">Identity</dt>
-<dd>In the context of UID2, the term "identity" refers to a package of values that includes the UID2 token, the refresh token, and associated values such as timestamps. This set of values is returned in the response from the <a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> endpoint and also from the <a href="../endpoints/post-token-refresh">POST&nbsp;/token/refresh</a> endpoint.</dd>
+<dd>
+UID2 のコンテキストでは、「ID」という用語は、UID2 トークン、Refresh token、およびタイムスタンプなどの関連値を含む値のパッケージを指します。この値のセットは、<a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> エンドポイントおよび <a href="../endpoints/post-token-refresh">POST&nbsp;/token/refresh</a> エンドポイントからのレスポンスで返されます。</dd>
 
 <dt class="jump-anchor" id="gl-json-web-token">JSON Web Token (JWT)</dt>
-<dd>A JSON Web Token (JWT) is a compact, URL-safe means of representing claims (pieces of information) to be sent from one party to another over the web. The claims in a JWT are encoded as a JSON object that is used either as the payload of a JSON Web Signature (JWS) structure or as the plain text of a JSON Web Encryption (JWE) structure. This enables the claims to be digitally signed and/or encrypted.</dd>
-<dd>UID2 uses JSON Web Tokens as part of interfacing with the Google Cloud Platform (GCP) Enclave.</dd>
-<dd>For details, see <a href="../guides/operator-guide-gcp-enclave">UID2 Operator - Google Cloud Platform Confidential Compute package</a>.</dd>
+<dd>
+JSON Web Token (JWT) は、Web 上で一方の当事者から別の当事者に送信されるクレーム (情報) を表す、コンパクトで URL セーフな手段です。JWT 内のクレームは、JSON Web Signature (JWS) 構造のペイロードまたは JSON Web Encryption (JWE) 構造のプレーン テキストとして使用される JSON オブジェクトとしてエンコードされます。これにより、クレームにデジタル署名や暗号化を行うことができます。</dd>
+<dd>UID2 は、Google Cloud Platform (GCP) Enclave とのインターフェースの一部として JSON Web Token を使用します。</dd>
+<dd>詳細は、<a href="../guides/operator-guide-gcp-enclave">UID2 Operator - Google Cloud Platform Confidential Compute package</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-normalize">Normalize</dt>
-<dd>To normalize a data set means to bring it to a standard condition or state.</dd>
-<dd>UID2 includes specific normalization rules. For details, see <a href="../getting-started/gs-normalization-encoding#email-address-normalization">Email Address Normalization</a> and <a href="../getting-started/gs-normalization-encoding#phone-number-normalization">Phone Number Normalization</a>.</dd>
+<dd>データセットを Normalize（正規化）するとは、それを標準的な状態（Condition）や状態（State）にすることを意味します。</dd>
+<dd>UID2 には特定の正規化規則があります。詳細については、<a href="../getting-started/gs-normalization-encoding#email-address-normalization">Email Address Normalization</a> と <a href="../getting-started/gs-normalization-encoding#phone-number-normalization">Phone Number Normalization</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-open-operator">Open operator</dt>
-<dd>An open <a href="#gl-operator">operator</a> is an entity that runs a public instance of the UID2 Operator Service. For example, The Trade Desk currently serves as an open operator for the UID2 framework, available to all participants.</dd>
+<dd>Open <a href="#gl-operator">operator</a> とは、UID2 Operator Service 公開インスタンスを実行する事業社です。例えば、The Trade Desk は現在、UID2 フレームワークの Open operator として機能しており、すべての参加者が利用できます。</dd>
 
 <dt class="jump-anchor" id="gl-operator">Operator</dt>
-<dd>An operator is an organization or entity that runs the UID2 <a href="#gl-operator-service">Operator Service</a>. The UID2 Operator is the API server in the UID2 ecosystem.</dd>
-<dd>Operators perform multiple functions, such as receiving encryption keys and salts from the UID2 Core Service, salting and hashing personal data to return raw UID2s, and encrypting raw UID2s to generate UID2 tokens.</dd>
-<dd>A participant can also choose to become a <a href="#gl-private-operator">private operator</a> to access UID2 APIs and to generate raw UID2s and UID2 tokens from within a private infrastructure.</dd>
-<dd>For details, see <a href="../intro#participants">participants</a>.</dd>
+<dd>Operator とは、UID2の  <a href="#gl-operator-service">Operator Service</a> を運営する組織や団体のことです。UID2 Operatorは、UID2 エコシステムの API サーバーです。</dd>
+<dd>Operator は、UID2 Core Service から暗号化キーとソルトを受け取り、個人のデータをソルティングおよびハッシュ化して raw UID2 を返し、raw UID2 を暗号化して UID2 Token を生成するなど、複数の機能を実行します。</dd>
+<dd>参加者は、UID2 API にアクセスし、プライベートインフラ内で raw UID2 と UID2 Token を生成するために、<a href="#gl-private-operator">Private operator</a> になることも選択できます。</dd>
+<dd>詳細は、<a href="../intro#participants">participants</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-operator-key">Operator key</dt>
-<dd>Each UID2 private operator has an operator key that allows the private Operator Service to connect to the Core Service and Opt-Out Service and call some endpoints on it.</dd>
-<dd>The operator key identifies the participant operator to the UID2 service.</dd>
+<dd>各 UID2 private operator は、Private Operator Service が Core Service とOpt-Out Service に接続し、その上でいくつかのエンドポイントを呼び出すことを可能にする Operator key を持っています。</dd>
+<dd>Operator key は、UID2 Service への参加オペレータを識別すします。</dd>
 
 <dt class="jump-anchor" id="gl-operator-service">Operator Service</dt>
-<dd>A service that enables all functions of the <a href="#gl-operator">operator</a>.</dd>
-<dd>For an overview of all the UID2 services, see <a href="../intro#components">Components</a>.</dd>
+<dd><a href="#gl-operator">Operator</a> のすべての機能を可能にするサービスです</dd>
+<dd>すべての UID2 Service の概要については、<a href="../intro#components">Components</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-opt-out">Opt-out</dt>
-<dd>An end user who participates in the UID2 ecosystem can opt out at any time by going to the <a href="https://www.transparentadvertising.org/">Transparency and Control Portal</a>.</dd>
-<dd>For details, see <a href="../intro#components">Components</a>.</dd>
+<dd>UID2 エコシステムに参加しているエンドユーザーは、<a href="https://www.transparentadvertising.org/">Transparency and Control Portal</a> にアクセスすることで、いつでもオプトアウトすることができます。</dd>
+<dd>詳細は、<a href="../intro#components">Components</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-opt-out-service">Opt-Out Service</dt>
-<dd>The Opt-Out Service is a global UID2 service that manages and stores user opt-out requests.</dd>
-<dd>For an overview of all the UID2 services, see <a href="../intro#components">Components</a>.</dd>
+<dd>Opt-Out Service は、ユーザーのオプトアウト要求を管理・保存するグローバルな UID2 Service です。</dd>
+<dd>すべての UID2 Service の概要については、<a href="../intro#components">Components</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-private-operator">Private operator</dt>
-<dd>A private <a href="#gl-operator">operator</a> is an entity that runs a private instance of the Operator Service. The private operator generates and manages UID2s for itself, using its own resources (such as hardware) in a secure environment.</dd> 
+<dd>Private <a href="#gl-operator">operator</a> は、Operator Service のプライベートインスタンスを実行する事業社です。Private operator は、安全な環境で独自のリソース（ハードウェアなど）を使用して、自身のために UID2 を生成および管理します。</dd> 
 
 <dt class="jump-anchor" id="gl-private-operator-service">Private Operator Service</dt>
-<dd>A private instance of the Operator Service, run by a <a href="#gl-private-operator">private operator</a>.</dd>
+<dd><a href="#gl-private-operator">private operator</a> が運用する Operator Service のインスタンスです。</dd>
 
 <dt class="jump-anchor" id="gl-raw-uid2">Raw UID2</dt>
-<dd>An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's <a href="#gl-dii">Directly identifying information</a> (email address or phone number) as input. The raw UID2 is encrypted to create a <a href="#gl-uid2-token">UID2 token</a>.</dd>
-<dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
+<dd>UID2 API または SDK を通じて、ユーザーの直接識別情報（メールアドレスまたは電話番号）を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。</dd>
+<dd>詳細は、<a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-refresh-token">Refresh token</dt>
-<dd>A refresh token is an opaque string that is issued along with the <a href="#gl-uid2-token">UID2 token</a>. It is used to refresh the UID2 token, which has a limited life.</dd>
-<dd>When the UID2 server receives the refresh token with a request for a new UID2 token, it checks for user opt-out. If the user has opted out of UID2, no new UID2 token is generated.</dd>
-<dd>When a new UID2 token is generated and returned, a new refresh token is returned along with it. However, if the user is inactive for a long period of time, the refresh token itself expires.</dd>
+<dd>Refresh tokenは、<a href="#gl-uid2-token">UID2 トークン</a>とともに発行される不透明な文字列です。<a href="#gl-uid2-token">UID2 token</a> の有効期限を更新するために使用されます。</dd>
+<dd>UID2 Server は、新しい UID2 Token のリクエストとともに Refresh token を受け取ると、ユーザーの Opt-Out をチェックします。ユーザーが UID2 を Opt-Out している場合、新しい UID2 Token は生成されません。</dd>
+<dd>新しい UID2 Token が生成されて返されると、新しい Refresh Token も一緒に返されます。ただし、ユーザーが長期間活動していない場合は、Refresh Token は期限切れとなります。</dd>
 
 <dt class="jump-anchor" id="gl-salt">Salt</dt>
-<dd>A string of characters that is used in the process of transforming an email address or phone number into a secure, opaque value that cannot be traced back to the original value.</dd>
-<dd>The UID2 service uses salt as part of the process, along with hashing and encryption, to secure the original value. Salt is added to the input value before hashing.</dd>
+<dd>メールアドレスや電話番号を、元の値に遡ることができない安全で不透明な値に変換するプロセスで使用される文字列です。</dd>
+<dd>UID2 Service は、ハッシュ化および暗号化とともに、プロセスの一部としてソルト(Salt)を使用し、元の値を保護します。ソルトは、ハッシュ化の前に入力値に加えられます。</dd>
 
 <dt class="jump-anchor" id="gl-salted-hash">Salted hash</dt>
-<dd>When a <a href="#gl-salt">salt</a> value is added to the input string before applying the <a href="#gl-hash">hash</a> function, the result is a salted hash. When the input value is salted before hashing, an attacker who has the hash cannot determine the input value by trying many possible inputs to arrive at the same output.</dd>
+<dd><a href="#gl-hash">hash</a> 関数を適用する前に入力文字列に <a href="#gl-salt">salt</a> 値を追加すると、結果はソルトハッシュとなります。入力値がハッシュ化される前にソルト化されると、ハッシュを持つ攻撃者は、同じ出力に到達するために多くの可能な入力を試して入力値を決定することができなくなります。</dd>
 
 <dt class="jump-anchor" id="gl-secure-signals">Secure signals</dt>
-<dd>A feature of Google Ad Manager. The secure signals feature (previously known as Encrypted Signals for Publishers, abbreviated to ESP) allows publishers to securely share signals with trusted third-party buying partners. It allows publishers to pass "encrypted" user IDs to bidders that are approved by Google, via <a href="https://admanager.google.com/home/">Google Ad Manager</a> and the <a href="https://support.google.com/admanager/answer/6321605?hl=en">Google Ad Manager Ad Exchange (AdX)</a>.</dd>
-<dd>For details, see <a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a> (second section) and <a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a>, both from Google.</dd>
-<dd>For details about UID2 support of the Google secure signals feature, see <a href="../guides/google-ss-integration">Google Ad Manager Secure Signals Integration Guide</a>.</dd>
+<dd>
+Google Ad Managerの機能。セキュアシグナル機能（旧称：Encrypted Signals for Publishers、略称：ESP）により、パブリッシャーは信頼できるサードパーティのバイイングパートナーとシグナルを安全に共有することができます。パブリッシャーは、<a href="https://admanager.google.com/home/">Google Ad Manager</a> と <a href="https://support.google.com/admanager/answer/6321605?hl=en">Google Ad Manager Ad Exchange (AdX)</a> を介して、Googleが承認した入札者に「暗号化された」ユーザーIDを渡すことができます。</dd>
+<dd>
+詳しくは、<a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a>（2番目のセクション）と　<a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a>（いずれもGoogle）を参照してください。</dd>
+<dd>
+Google Secure signals の UID2 サポートの詳細については、<a href="../guides/google-ss-integration">Google Ad Manager Secure Signals Integration Guide</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-sha-256">SHA-256</dt>
-<dd>SHA-256 is the secure hashing algorithm that UID2 uses.</dd>
-<dd>SHA-256 is part of the SHA-2 family of algorithms developed by the National Institute of Standards and Technology (NIST) and the National Security Agency (NSA) to succeed SHA-1. Each algorithm is named according to the number of bits in the output, so SHA-256 has 256 bits.</dd>
-<dd>For details, see <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> (specification).</dd>
+<dd>SHA-256 は、UID2 が使用する安全なハッシュアルゴリズムです。</dd>
+<dd>SHA-256 は、米国国立標準技術研究所（NIST）と国家安全保障局（NSA）が SHA-1 の後継として開発した SHA-2 アルゴリズムファミリーの一部です。各アルゴリズムは出力のビット数によって名前が付けられており、SHA-256 は 256 ビットです。</dd>
+<dd>詳細は、 <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> (specification) を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-sso">SSO</dt>
-<dd>SSO is an acronym for Single Sign-On. SSO allows a user to log in with the same credentials (usually, but not always, ID and password) to one of several software systems, such as apps or websites. SSO allows the user to log in once to multiple applications or sites using one set of credentials. With SSO, websites/apps do not have to maintain their own authentication systems.</dd>
+<dd>
+SSO は Single Sign-On の頭字語です。SSO は、ユーザーがアプリやウェブサイトなどの複数のソフトウェアシステムの1つに、同じ認証情報（通常は ID とパスワードですが、それに限りません）でログインすることを可能にします。SSO によって、ユーザーは 1 セットの認証情報を使って複数のアプリケーションやサイトに一度だけログインすることができます。SSO によって、ウェブサイトやアプリは独自の認証システムを維持する必要がなくなります。</dd>
 
 <dt class="jump-anchor" id="gl-transparency-and-control-portal">Transparency and Control Portal</dt>
-<dd>The UID2 Transparency and Control Portal is a user-facing website, <a href="https://www.transparentadvertising.org/">https://www.transparentadvertising.org</a>, that allows consumers to opt out of UID2 at any time.</dd>
+<dd>
+UID2 Transparency and Control Portalは、ユーザー向けのウェブサイト <a href="https://www.transparentadvertising.org/">https://www.transparentadvertising.org</a> で、消費者はいつでもここから UID2 の Opt-Out を選択することができます。</dd>
 
 <dt class="jump-anchor" id="gl-uid2-framework">UID2 framework</dt>
-<dd>The Unified ID 2.0 (UID2) framework enables deterministic identity for advertising opportunities on the open internet for many <a href="../intro#participants">participants</a> across the advertising ecosystem. It enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework focuses on transparency and privacy.</dd>
+<dd>Unified ID 2.0（UID2）framework は、広告エコシステム全体の多くの参加者（<a href="../intro#participants">participants</a>）に対し、オープンなインターネット上での広告機会のための決定論的IDを可能にします。パブリッシャーのウェブサイト、モバイルアプリ、コネクテッドTV（CTV）アプリからのログイン体験を可能にし、プログラマティックワークフローによる収益化を実現します。独自の名前空間を持つオープンソースのスタンドアローン・ソリューションとして構築されたこのフレームワークは、透明性とプライバシーを重視しています。</dd>
 
 <dt class="jump-anchor" id="gl-uid2-identifier">UID2 identifier</dt>
-<dd>There are two Unified ID 2.0 (UID2) identifier types: <a href="#gl-raw-uid2">raw UID2s</a> and <a href="#gl-uid2-token">UID2 tokens</a> (also known as advertising tokens).</dd>
-<dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
+<dd>
+Unified ID 2.0（UID2）識別子には、<a href="#gl-raw-uid2">raw UID2s</a> と <a href="#gl-uid2-token">UID2 tokens</a>（Advertising token とも呼ばれるます）の2種類があります。</dd>
+<dd>詳細は、<a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-uid2-service">UID2 service</dt>
-<dd>The Unified ID 2.0 (UID2) service is a set of components, API endpoints, and other types of solutions that collectively implement the <a href="#gl-uid2-framework">UID2 framework</a> and provide clients with access to the relevant UID2 functionality.</dd>
-<dd>The term "UID2 service" is also used to mean the UID2 <a href="#gl-operator-service">Operator Service</a>.</dd>
+<dd>
+Unified ID 2.0（UID2）Service は、<a href="#gl-uid2-framework">UID2 framework</a> をまとめて実装し、関連する UID2 機能へのアクセスをクライアントに提供するコンポーネント、API エンドポイント、その他のタイプのソリューションのあつまりです。</dd>
+<dd>"UID2 service" という用語は、UID2 <a href="#gl-operator-service">Operator Service</a>　という意味でも使われます。</dd>
 
 <dt class="jump-anchor" id="gl-uid2-token">UID2 token (advertising token)</dt>
-<dd>A Unified ID 2.0 (UID2) token, also called an advertising token, is an encrypted form of a <a href="#gl-raw-uid2">raw UID2</a>.</dd>
-<dd>UID2 tokens are generated from hashed or unhashed email addresses or phone numbers that are converted to raw UID2s and then encrypted. No two UID2 tokens are the same.</dd>
-<dd>The token has a limited life, but can be refreshed in the background using the <a href="#gl-refresh-token">refresh token</a>.</dd>
-<dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
+<dd>Unified ID 2.0（UID2）Token は Advertising Token とも呼ばれ、<a href="#gl-raw-uid2">raw UID2</a> を暗号化したものです。</dd>
+<dd>
+UID2 Token は、ハッシュ化された、またはハッシュ化されていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、暗号化されます。同じ UID2 Token は2つとありません。</dd>
+<dd>
+トークンの寿命は限られていますが、<a href="#gl-refresh-token">refresh token</a> を使ってバックグラウンドでリフレッシュすることができます。</dd>
+<dd>詳細は、<a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-unified-id-20">Unified ID 2.0 (UID2)</dt>
-<dd>The term UID2 can be used to mean the <a href="#gl-uid2-framework">UID2 framework</a>, the <a href="#gl-uid2-service">UID2 service</a>, a <a href="#gl-raw-uid2">raw UID2</a>, or a <a href="#gl-uid2-token">UID2 token</a> (advertising token).</dd>
+<dd>
+"UID2" という用語は、<a href="#gl-uid2-framework">UID2 framework</a>、<a href="#gl-uid2-service">UID2 service</a>、<a href="#gl-raw-uid2">raw UID2</a>、または<a href="#gl-uid2-token">UID2 token</a> (Advertising Token) を意味でも使われます。</dd>
 
 <dt class="jump-anchor" id="gl-utc">UTC</dt>
-<dd>UTC is an abbreviation for Coordinated Universal Time, also called Zulu time, which is the primary time standard in general use. UTC essentially equates to Greenwich Mean Time (GMT), but is more scientifically precise.</dd>
+<dd>UTC は協定世界時（Coordinated Universal Time）の略称で、ズールー時間（Zulu time）とも呼ばれ、一般に使用されている主要な時間基準です。UTC は基本的にグリニッジ標準時（GMT）に相当しますが、科学的により正確です。</dd>
 
 </dl>
