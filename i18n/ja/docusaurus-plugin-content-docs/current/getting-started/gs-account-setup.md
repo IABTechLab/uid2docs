@@ -7,7 +7,7 @@ sidebar_position: 02
 
 # Account Setup
 
-This page provides general information required for you to get your account set up with UID2.
+このページでは、UID2でアカウントを設定するために必要な一般的な情報を提供します。
 
 <!-- It includes:
 
@@ -30,15 +30,15 @@ UID2 フレームワークにアクセスするには、以下の The Trade Desk
 
 ## Account Setup
 
-Once you've expressed interest in UID2, someone will contact you to help work out the details.
+UID2 に興味を示していただいたら、詳細を詰めるために担当者からご連絡を差し上げます。
 
-You'll need to provide at least the following information:
-* Name
-* Email address
-* Company name
-* Name and contact information for an authorized individual who can sign the contract.*
+少なくとも以下の情報を提供していただく必要があります：
+* 氏名
+* メールアドレス
+* 会社名
+* 契約書に署名できる正式な個人の名前と連絡先
 
-When you've signed a contract for participating in UID2, you'll be issued with [API keys](gs-api-keys.md) and other information for getting up and running with UID2.
+UID2 に参加する契約を結ぶと、[APIキー](gs-api-keys.md)と UID2 を始めるために必要な情報が提供されます。
 
 
 ## API Versions

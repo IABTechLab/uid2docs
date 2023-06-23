@@ -7,8 +7,8 @@ sidebar_position: 05
 
 # Authentication and Authorization
 
-To authenticate to the UID2 endpoints, you need the following:
+UID2 エンドポイントの認証には、以下が必要です:
 
-- A client [API key](gs-api-keys.md). The API key is included as a bearer token in the request's Authorization header. For example:<br/>
+- クライアントの [API Key](gs-api-keys.md)。API KeyはベアラートークンとしてリクエストのAuthorizationヘッダに含めます。例えば:<br/>
   `Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=`
-- A client secret for encrypting API requests and decrypting API responses. This is needed for all endpoints except [POST /token/refresh](endpoints/post-token-refresh.md). <br/>For details and Python examples, see [Encrypting Requests and Decrypting Responses](getting-started/gs-encryption-decryption.md).
+- API リクエストを暗号化し、API レスポンスを復号化するための Client Secret。これは [POST /token/refresh](endpoints/post-token-refresh.md) を除くすべてのエンドポイントで必要です。<br/>詳細と Pythonの 例は [Encrypting Requests and Decrypting Responses](get-started/gs-encryption-decryption.md) を参照してください。
