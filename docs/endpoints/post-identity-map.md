@@ -83,22 +83,10 @@ The following are unencrypted JSON request body examples for each parameter, one
 }
 ```
 
-Here's an encrypted identity mapping request format with placeholder values:
-
-```sh
-echo '[Unencrypted-JSON-Request-Body]' \
-  | encrypt_request.py [Your-Client-Secret] \
-  | curl -X POST 'https://prod.uidapi.com/v2/identity/map' -H 'Authorization: Bearer [Your-Client-API-Key]' -d @- \
-  | decrypt_response.py [Your-Client-Secret] 
-```
-
 Here's an encrypted identity mapping request example for a phone number:
 
 ```sh
-echo '{"phone": ["+1111111111", "+2222222222"]}' \
-  | encrypt_request.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= \
-  | curl -X POST 'https://prod.uidapi.com/v2/identity/map' -H 'Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=' -d @- \
-  | decrypt_response.py DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow= 
+echo '{"phone": ["+1111111111", "+2222222222"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk= DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
 
 For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
