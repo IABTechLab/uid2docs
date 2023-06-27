@@ -7,9 +7,9 @@ sidebar_position: 05
 
 # Sharing UID2 Information: Best Practices
 
-It includes the following:
+<!--It includes the following:
 
-<!-- - [Best Practices for Managing Raw UID2s](#best-practices-for-managing-raw-uid2s)
+ - [Best Practices for Managing Raw UID2s](#best-practices-for-managing-raw-uid2s)
 - [Best Practices for Managing UID2 Tokens](#best-practices-for-managing-uid2-tokens)
 - [Decryption Key Refresh Cadence](#encryptiondecryption-key-refresh-cadence-for-sharing)
   - [Decryption Key Refresh Example](#decryption-key-refresh-example) -->
@@ -22,7 +22,7 @@ However, every UID2 participant has a responsibility to maintain the privacy of 
 
 Follow these guidelines:
 - For any UID2s that are in your platform, use and store them as raw UID2s, not as UID2 tokens.
-- For storing raw UID2s, we recommend a maximum length of 100 characters.
+- In your code, for future extensibility, we recommend allowing for a maximum UID2 token length of 100 characters.
 
 ## Best Practices for Managing UID2 Tokens
 
@@ -36,7 +36,7 @@ Follow these guidelines:
 
 ## Encryption/Decryption Key Refresh Cadence for Sharing
 
-For long/continuously running processes, call the `uid2client.refresh()` function once per hour. This allows the SDK to fetch the latest keys for decryption. When a new sharing permission is enabled, the additional set of encryption keys needed to decrypt the data sent by the sharing sender is returned the next time the sharing receiver calls the `uid2client.refresh()` function. This process is all handled by the SDK.
+For long/continuously running processes, call the `uid2client.refresh()` function once per hour. This allows the SDK to fetch the latest keys for decryption. When a new sharing permission is enabled, the additional set of encryption keys needed to decrypt the data sent by the sharing sender is returned the next time the sharing receiver calls the `uid2client.refresh()` function. This process is handled by the SDK.
 
 ### Decryption Key Refresh Example
 

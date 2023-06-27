@@ -5,17 +5,17 @@ hide_table_of_contents: false
 sidebar_position: 01
 ---
 
-<!-- # SDK Functionality
+# SDK Functionality
 
-The following table summarizes the functionality available with each SDK. {GWH/SW to review}
+The following table summarizes the functionality available with each SDK.
 
 | SDK | Client-Side or Server-Side | Decrypt Advertising Token | Encrypt Raw UID2 to Token | Generate Advertising Token | Refresh Advertising Token |
 | :--- | :--- |  :--- | :--- | :--- | :--- |
 |UID2 SDK for JavaScript | Client | No | No | No | Yes |
+|UID2 SDK for Java | Server | Yes | Yes | Yes | Yes |
+|UID2 SDK for Python | Server | Yes | Yes | No | No |
 |UID2 SDK for C# / .NET | Server | Yes | Yes | No | No |
 |UID2 SDK for C++ | Server | Yes | Yes | No | No |
-|UID2 SDK for Java | Server | Yes | Yes | Yes | Yes |
-|UID2 SDK for Python | Server | Yes | Yes | No | No | -->
 
 # SDKs
 

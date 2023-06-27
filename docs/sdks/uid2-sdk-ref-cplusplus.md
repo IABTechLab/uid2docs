@@ -89,7 +89,7 @@ The following instructions provide an example of how you can implement sharing u
     ```cpp
    const auto client = UID2ClientFactory::Create(baseUrl, apiKey, secretKey);
     ```
-2. Refresh once at startup, and then periodically (for example, every hour):
+2. Refresh once at startup, and then periodically (recommended refresh interval is hourly):
 
     ```cpp
    client->Refresh();

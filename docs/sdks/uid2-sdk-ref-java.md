@@ -93,7 +93,7 @@ The following instructions provide an example of how you can implement sharing u
    ```java
    IUID2Client client = UID2ClientFactory.create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
    ```
-2. Refresh once at startup, and then periodically (for example, every hour):
+2. Refresh once at startup, and then periodically (recommended refresh interval is hourly):
 
    ```java
    client.refresh();

@@ -91,7 +91,7 @@ The following instructions provide an example of how you can implement sharing u
    from uid2_client import Uid2Client
    client = Uid2Client(base_url, auth_key, secret_key)
    ```
-2. Refresh once at startup, and then periodically (for example, every hour):
+2. Refresh once at startup, and then periodically (recommended refresh interval is hourly):
 
    ```python
    keys = client.refresh_keys()

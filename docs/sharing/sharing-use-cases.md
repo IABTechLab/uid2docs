@@ -22,4 +22,6 @@ These scenarios, and others, are represented in the following table.
 
 > NOTE: Any sender can transfer a UID2 token to any receiver using one of the transfer methods. Only a handful of transfer methods have been defined here: there are many others.
 
-<!-- {Jaime/GWH/KT_03 TO DO -- diagram per KT} -->
+The following diagram shows a range of sharing use cases, including different senders, receivers, and transfer methods.
+
+![Illustration of Sharing Use Cases](images/UID2_Sharing_Diagram_UseCases.png)
