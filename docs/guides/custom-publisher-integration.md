@@ -25,9 +25,9 @@ The guide outlines the [basic steps](#integration-steps) that you need to consid
 
 The following are the options available for publishers to integrate with UID2:
 
-- Client JavaScript SDK, with UID2 SDK for Java on the server.
-- Client JavaScript SDK, with custom server code.
-- Server-only integration, with UID2 SDK for Java on the server.
+- Client [UID2 SDK for JavaScript](../sdks/client-side-identity.md), with [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) on the server.
+- Client [UID2 SDK for JavaScript](../sdks/client-side-identity.md), with custom server code.
+- Server-only integration, with [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) on the server.
 - Server-only integration, with custom server code.
 
 This document provides information for the last two options.

@@ -5,26 +5,12 @@ hide_table_of_contents: false
 sidebar_position: 01
 ---
 
-<!-- # SDK Functionality
-
-The following table summarizes the functionality available with each SDK. {GWH/SW to review}
-
-| SDK | Client-Side or Server-Side | Decrypt Advertising Token | Encrypt Raw UID2 to Token | Generate Advertising Token | Refresh Advertising Token |
-| :--- | :--- |  :--- | :--- | :--- | :--- |
-|UID2 SDK for JavaScript | Client | No | No | No | Yes |
-|UID2 SDK for C# / .NET | Server | Yes | Yes | No | No |
-|UID2 SDK for C++ | Server | Yes | Yes | No | No |
-|UID2 SDK for Java | Server | Yes | Yes | Yes | Yes |
-|UID2 SDK for Python | Server | Yes | Yes | No | No | -->
-
-# SDKs
-
 The following SDK documentation is available for UID2 integration. 
 
 | SDK | Document | Description |
 | :--- | :--- | :--- |
 |UID2 SDK for JavaScript | [UID2 SDK for JavaScript](client-side-identity.md) | Client-Side JavaScript SDK that facilitates the process of establishing client identity using UID2 and retrieving advertising tokens for publishers. |
-|UID2 SDK for .NET | [UID2 SDK for C# / .NET (Server-Side) Reference Guide](uid2-sdk-ref-csharp-dotnet.md) | An SDK for anyone using .NET server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.|
-|UID2 SDK for C++ | [UID2 SDK for C++ (Server-Side) Reference Guide](uid2-sdk-ref-cplusplus.md) | An SDK for anyone using C++ server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.|
 |UID2 SDK for Java | [UID2 SDK for Java (Server-Side) Reference Guide](uid2-sdk-ref-java.md) | An SDK for anyone using Java server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.|
 |UID2 SDK for Python | [UID2 SDK for Python (Server-Side) Reference Guide](uid2-sdk-ref-python.md) | An SDK for anyone using Python server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.|
+|UID2 SDK for C# / .NET | [UID2 SDK for C# / .NET (Server-Side) Reference Guide](uid2-sdk-ref-csharp-dotnet.md) | An SDK for anyone using .NET server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.|
+|UID2 SDK for C++ | [UID2 SDK for C++ (Server-Side) Reference Guide](uid2-sdk-ref-cplusplus.md) | An SDK for anyone using C++ server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.|
