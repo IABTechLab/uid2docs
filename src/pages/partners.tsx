@@ -114,8 +114,8 @@ export default function Partners(): JSX.Element {
     <Layout title={componentData.title} description={componentData.description}>
       <main>
         <PageHeader
-          heading="Unified ID 2.0 Partners"
-          subheading="Access a broad marketplace of premier providers from the digital advertising ecosystem."
+          heading={componentData.heading}
+          subheading={componentData.subheading}
         />
         <div className={styles.partnersContainer}>
           <div className={clsx("container")}>

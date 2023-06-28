@@ -4,15 +4,15 @@
     "description": "The alt text of navbar logo"
   },
   "item.label.Request Access": {
-    "message": "Request Access",
+    "message": "アクセスをリクエストする",
     "description": "Navbar item with label Request Access"
   },
   "item.label.Publishers": {
-    "message": "Publishers",
+    "message": "媒体社",
     "description": "Navbar item with label Publishers"
   },
   "item.label.Advertisers": {
-    "message": "Advertisers",
+    "message": "広告主",
     "description": "Navbar item with label Advertisers"
   },
   "item.label.DSPs": {
@@ -20,7 +20,7 @@
     "description": "Navbar item with label DSPs"
   },
   "item.label.Data Providers": {
-    "message": "Data Providers",
+    "message": "データプロバイダ",
     "description": "Navbar item with label Data Providers"
   },
   "item.label.Docs": {

@@ -402,84 +402,84 @@
     "description": "The title of the tag list page"
   },
   "homepage.ctaStripeHeading": {
-    "message": "Ready to get started with Unified ID 2.0?"
+    "message": "Unified ID 2.0を使い始める準備はできていますか？"
   },
   "homepage.ctaStripeSubheading": {
-    "message": "Request access or a consultation with an expert, or visit our most up-to-date technical documentation"
+    "message": "ご利用のお問合せや専門的なご相談はこちらから。最新版の技術文書もご覧いただけます。"
   },
   "homepage.ctaStripe1Text": {
-    "message": "Request Access"
+    "message": "アクセスをリクエストする"
   },
   "homepage.ctaStripe2Text": {
-    "message": "Browse the Docs"
+    "message": "技術文書を見る"
   },
   "homepage.featuredItemsHeading": {
-    "message": "Ready to get started with Unified ID 2.0?"
+    "message": "パーソナライゼーションにより関連性の高いコンテンツと広告配信を可能に"
   },
   "homepage.featuredItemsSubheading": {
-    "message": "Request access or a consultation with an expert, or visit our most up-to-date technical documentation"
+    "message": "Unified ID 2.0は、広告主、媒体社、その間に存在するすべてのユーザーに対し、あらゆる使用事例において優れたパーソナライゼーション、ターゲティング、効果測定、セキュリティの向上を提供します。"
   },
   "homepage.featureItem1Description": {
-    "message": "Use deterministic data for greater precision."
+    "message": "確定IDを使用して精度をアップ。"
   },
   "homepage.featureItem2Description": {
-    "message": "Upgrade to an omnichannel and cross-device ID type."
+    "message": "オムニチャネルやクロスデバイスのIDタイプにアップグレード。"
   },
   "homepage.featureItem3Description": {
-    "message": "Hash, salt, and transport directly identifying information (DII) as pseudonymized IDs."
+    "message": "直接個人を特定する情報 (DII) をハッシュ化、ソルト化し、仮名加工情報として転送。"
   },
   "homepage.heroTitle": {
-    "message": "An open-source identity solution built for the open internet"
+    "message": "オープンインターネットのために構築された、オープンソースのIDソリューション"
   },
   "homepage.heroCopy": {
-    "message": "Unified ID 2.0 leverages encrypted email and phone number data to provide a privacy-conscious, secure, and accurate identity standard for the entire digital advertising ecosystem."
+    "message": "Unified ID 2.0は、メールアドレスや電話番号を暗号化したデータを使い、プライバシーに配慮した安全・正確な共通識別子をデジタル広告のエコシステムに提供します。"
   },
   "homepage.newsTitle": {
-    "message": "Press releases and media coverage",
+    "message": "プレスリリースとメディア掲載",
     "description": "Press releases and media coverage"
   },
   "homepage.partnersTitle": {
-    "message": "Our partners",
+    "message": "当社のパートナー",
     "description": "Our partners"
   },
   "homepage.partnersCtaLabel": {
-    "message": "View All",
+    "message": "すべてを表示する",
     "description": "View All"
   },
   "homepage.metaTitle": {
-    "message": "About",
+    "message": "会社概要",
     "description": "The homepage meta title"
   },
   "homepage.metaDescription": {
-    "message": "Unified ID (UID) offers cookieless, deterministic identity for advertisers, publishers, data providers and DSPs.",
+    "message": "Unified ID (UID) は、クッキーを使用しない確定IDを、広告主、媒体社、データプロバイダ、DSPに提供します。",
     "description": "The homepage meta description"
   },
   "partners.metaTitle": {
-    "message": "Partners",
+    "message": "パートナー",
     "description": "The partners page meta title"
   },
   "partners.metaDescription": {
-    "message": "A growing list of publishers, advertisers, data providers and DSPs leveraging Unified ID.",
+    "message": "Unified IDを採用する媒体社、広告主、データプロバイダ、DPSの数は増え続けています。",
     "description": "The partners page meta description"
   },
   "partners.heading": {
-    "message": "Unified ID 2.0 Partners",
+    "message": "Unified ID 2.0パートナー",
     "description": "The partners page heading"
   },
   "partners.subheading": {
-    "message": "Access a broad marketplace of premier providers from the digital advertising ecosystem.",
+    "message": "デジタル広告のエコシステムから、優れたプロバイダが揃った幅広いマーケットプレイスにアクセスできます。",
     "description": "The partners page subheading"
   },
   "partners.publishersTitle": {
-    "message": "Publishers",
+    "message": "媒体社",
     "description": "The partners page publishers title"
   },
   "partners.dspTitle": {
-    "message": "DSPs/SSPs",
+    "message": "DSP/SSP",
     "description": "The partners page DSPs/SSPs title"
   },
   "partners.dataTitle": {
-    "message": "Data Providers",
+    "message": "データプロバイダ",
     "description": "The partners page data providers title"
   },
   "partners.cdpTitle": {
@@ -487,7 +487,7 @@
     "description": "The partners page CDPs / Clean Rooms title"
   },
   "requestAccess.metaTitle": {
-    "message": "Request Access",
+    "message": "アクセスをリクエストする",
     "description": "The request access page meta title"
   },
   "requestAccess.metaDescription": {
@@ -495,11 +495,41 @@
     "description": "The request access page meta description"
   },
   "requestAccess.heading": {
-    "message": "Request access to UID2",
+    "message": "UID2へのアクセスをリクエストする",
     "description": "The request access page heading"
   },
   "requestAccess.subheading": {
-    "message": "Interested in adopting Unified ID 2.0 (UID2) as a part of your identity strategy? Contact The Trade Desk to learn more about integrating with the UID2 framework today. Advertisers, publishers, data and measurement providers, DSPs, SSPs, and data storage and audience platforms are all welcome!",
+    "message": "ID戦略の一環としてUnified ID 2.0 (UID2) の採用をお考えなら、The Trade Deskにご相談ください。UID2フレームワークのインテグレーションについて詳しくご説明します。広告主、媒体社、データプロバイダ、効果測定プロバイダ、データストレージ、オーディエンスプラットフォームなど、すべての方々を歓迎します。",
     "description": "The request access page subheading"
+  },
+  "homepage.partnersPublishersDescription": {
+    "message": "Cookieを使用しないオーディエンスターゲティング戦略で、インプレッションの収益化と関連性が向上します。"
+  },
+  "homepage.partnersAdvertisersDescription": {
+    "message": "ファーストパーティデータの活用により、より確実なID戦略と優れたアドレサビリティを実現できます。"
+  },
+  "homepage.partnersDspsDescription": {
+    "message": "確定IDを使ったクロスデバイスのIDソリューションと1対1のターゲティングを接続し、より正確なオムニチャネルのリーチを実現します。"
+  },
+  "homepage.partnersDataProvidersDescription": {
+    "message": "すべてのパートナーにわたる確定信号でオーディエンスセグメントを結び付け、一貫したIDサービスを提供します。"
+  },
+  "homepage.partnersHeading": {
+    "message": "既存ワークフローへのインテグレーションも可能"
+  },
+  "homepage.partnersSubheading": {
+    "message": "柔軟性の高いフレームワークで、Unified ID 2.0を簡単に既存のワークフローにインテグレーションできます。"
+  },
+  "homepage.partnersPublishersHeading": {
+    "message": "媒体社"
+  },
+  "homepage.partnersAdvertisersHeading": {
+    "message": "広告主"
+  },
+  "homepage.partnersDspsHeading": {
+    "message": "デマンドサイドプラットフォーム (DSP)"
+  },
+  "homepage.partnersDataProvidersHeading": {
+    "message": "データプロバイダ"
   }
 }
