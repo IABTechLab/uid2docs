@@ -1,6 +1,6 @@
 ---
 title: Encryption and Decryption
-description: Information about encrypting UID2 requests and decrypting responses
+description: UID2 リクエストの暗号化とレスポンスの復号化に関する情報。
 hide_table_of_contents: false
 sidebar_position: 11
 ---
@@ -82,8 +82,6 @@ UID2 API のハイレベルなリクエスト・レスポンスワークフロ�
 ### Unencrypted Response Data Envelope
 
 次の表は、応答復号化スクリプトのフィールドレイアウトを説明するものです。
-
-The following table describes the field layout for response decryption scripts.
 
 | Offset (Bytes) | Size (Bytes) | Description                                                                                                                                                                |
 | :------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

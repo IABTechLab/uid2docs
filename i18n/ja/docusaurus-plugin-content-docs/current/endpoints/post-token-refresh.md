@@ -1,6 +1,6 @@
 ---
 title: POST /token/refresh
-description: Use the refresh token to generate an updated UID2 token.
+description: Refresh Token を使用して、更新された UID2 Token を生成します。
 hide_table_of_contents: false
 sidebar_position: 04
 ---

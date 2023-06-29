@@ -1,6 +1,6 @@
 ---
 title: POST /identity/map
-description: Map DII to UID2s and salt bucket IDs.
+description: DII を UID2 とソルトバケット ID にマッピングします。
 hide_table_of_contents: false
 sidebar_position: 08
 ---

@@ -1,6 +1,6 @@
 ---
 title: Google Ad Manager Secure Signals Integration
-description: Covers integration steps for publishers using UID2 with the Google Ad Manager **secure signals** feature
+description: UID2 と Google Ad Manager **セキュアシグナル** 機能を使用するパブリッシャー向けのインテグレーション手順。
 hide_table_of_contents: false
 sidebar_position: 10
 ---

@@ -1,6 +1,6 @@
 ---
 title: Frequently Asked Questions
-description: Common questions about implementing UID2.
+description: UID2 の実装に関するよくある質問。
 hide_table_of_contents: false
 sidebar_position: 20
 ---

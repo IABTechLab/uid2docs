@@ -1,10 +1,10 @@
 ---
 title: Sharing UIDs
-description: Information about sharing UIDs
+description: UID の共有に関する情報
 hide_table_of_contents: false
 sidebar_position: 24
 ---
 
 # UID2 Sharing
 
-This page is in support of a feature that is currently in limited release. For additional information, and the latest updates, please reach out to [UID2partners@thetradedesk.com](mailto:UID2partners@thetradedesk.com).
+このページは、現在限定リリース中の機能をサポートするものです。追加情報や最新のアップデートについては、[UID2partners@thetradedesk.com](mailto:UID2partners@thetradedesk.com) まで問い合わせてください。

@@ -1,21 +1,21 @@
 ---
 title: API Keys
-description: Learn about the API keys you'll need and how to get them.
+description: 必要な API Key とその取得方法。
 hide_table_of_contents: false
 sidebar_position: 03
 ---
 
 # API Keys
 
-Each UID2 <a href="/docs/intro#participants">participant</a> has an API key, also called a client key. Each key has a corresponding [client secret](../ref-info/glossary-uid.md#gl-client-secret), a value known only to the participant and the UID2 service.
+UID2 <a href="/docs/intro#participants">参加者</a> はそれぞれ、クライアントキーとも呼ばれる API Key を持っています。各キーには対応する [client secret](../ref-info/glossary-uid.md#gl-client-secret) があり、これは参加者と UID2 Service だけが知っている値です。
 
-The API key and client secret allow the participant to connect to the [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) and call API endpoints. These values identify the participant to the service.
+API Key と Client Secretにより、参加者は [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) に接続し、API エンドポイントを呼び出すことができます。これらの値は、サービスへの参加者を識別します。
 
-Here is some information about API keys and client secrets:
-- One UID2 participant can have multiple keys.
-- Each key has a set of permissions that determine which endpoints it can be used on.
-- Each key has a corresponding client secret.
-- Most API endpoints require both API key and client secret for authentication. For details, see [Authentication and Authorization](gs-auth.md).
-- If you're using the integration environment as well as the production environment, you'll require separate API keys for each environment.
+ここでは、API Key と Client Secret について説明します：
+- UID2 参加者は、複数のキーを持つことができます。
+- 各キーには、どのエンドポイントで使用できるかを決定する一連の権限があります。
+- 各キーには、対応する Client Secret があります。
+- ほとんどの API エンドポイントは、認証のために API Key と Client Secret の両方を必要とします。詳細は [認証と認可](gs-auth.md) を参照してください。
+- インテグレーション環境と本番環境の両方を使用する場合は、それぞれの環境で別々の API Key が必要になります。
 
-As part of getting your UID2 account set up, one or more API keys, each with a corresponding client secret, will be issued to you. For details of who to talk to, see [Contact Info](gs-account-setup.md#contact-info).
+UID2 アカウントのセットアップの一環として、1つ以上の API Key が発行され、それぞれに対応するクライアントシークレットが割り当てられます。相談先の詳細については、[連絡先情報](gs-account-setup.md#contact-info) を参照してください。

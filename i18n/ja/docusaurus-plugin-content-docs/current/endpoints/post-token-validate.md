@@ -1,6 +1,6 @@
 ---
 title: POST /token/validate
-description: Validate an advertising token (for testing purposes). 
+description: Advertising Token を検証します（テスト目的）。
 hide_table_of_contents: false
 sidebar_position: 03
 ---

@@ -1,6 +1,6 @@
 ---
 title: Server-Side SDK Guide
-description: Reference information about the server-side SDKs.
+description: サーバーサイド SDK に関する参考情報。
 hide_table_of_contents: false
 sidebar_position: 03
 ---

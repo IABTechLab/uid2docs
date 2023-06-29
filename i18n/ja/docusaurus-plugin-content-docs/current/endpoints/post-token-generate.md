@@ -1,6 +1,6 @@
 ---
 title: POST /token/generate
-description: Generate a UID2 token (advertising token) from DII. 
+description: DII から UID2 Token（Advertising Token）を生成します。 
 hide_table_of_contents: false
 sidebar_position: 02
 ---

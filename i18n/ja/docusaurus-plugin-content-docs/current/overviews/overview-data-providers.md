@@ -1,6 +1,6 @@
 ---
 title: Data Providers
-description: Information summary for data providers.
+description: データプロバイダー向けの情報の概要。
 hide_table_of_contents: false
 sidebar_position: 08
 use_banner: true
@@ -8,60 +8,61 @@ banner_title: UID2 Overview for Data Providers
 banner_description: An identity solution for the future.
 ---
 
-Data and measurement providers can reduce identity fragmentation by adopting Unified ID 2.0 to connect data with a more durable, omnichannel and cross-device identifier to fulfill their customer use cases.
+データおよび測定プロバイダーは、Unified ID 2.0 を採用してデータをより耐久性のある、オムニチャネルおよびクロスデバイスの識別子で接続し、顧客のユースケースを満たすことによって、ID の断片化を減らすことができます。
 
-The following sections break down the workflows, integration types and documentation for data providers adopting UID2.
+以下のセクションでは、UID2 を採用するデータプロバイダー向けのワークフロー、インテグレーションタイプ、ドキュメントを説明します。
+
 
 ## Audience
 
-This page is for partners offering data or related services for online or offline advertising, such as providers of the following:
-- Data onboarding
-- Third-party audiences
-- Identity resolution and graphs
-- Measurement and attribution
+このページは、オンラインまたはオフライン広告のデータまたは関連サービスを提供するパートナー（以下のプロバイダーなど）を対象としています：
+- データオンボーディング
+- サードパーティオーディエンス
+- アイデンティティーの解決とグラフ
+- 測定とアトリビューション
 
 ## Benefits of UID2 for Data Providers
 
-Here are just some of the intended benefits for data providers using UID2:
-- Upgrade to a more privacy-conscious identifier which offers opt-out for consumer privacy control.
-- Facilitate the use of a connective identity thread between platforms and channels for resolution, activation, and measurement.
-- Aim to future-proof audience segments with deterministic IDs for advertisers.
-- Connect online and offline data with a common ID to aim for more precision.
-- More accurately measure campaigns with or without third-party cookies.
+UID2 を使用するデータプロバイダーが得られるメリットの一部を次に示します:
+- 消費者のプライバシーを管理するためのオプトアウトを提供する、よりプライバシーに配慮した識別子にアップグレードすることができます。
+- 解決、活性化、測定のためのプラットフォームとチャネル間の接続 ID スレッドの使用を促進します。
+- 広告主が決定論的な　ID　を使用して、オーディエンス・セグメントを将来にわたって保護することを目指します。
+- オンラインとオフラインのデータを共通の ID で接続し、より精度の高いものを目指します。
+- サードパーティクッキーの有無にかかわらず、キャンペーンをより正確に測定します。
 
 ## Resources
 
-The following documentation resources are available for data providers to implement UID2.
+データプロバイダーが UID2 を実装するために、以下のドキュメントリソースを利用できます。
 
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
-| Integration Guide | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | This integration guide for advertisers and data providers covers integration workflows for mapping identity for audience-building and targeting. | Advertisers<br/>Data Providers |
-| Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | Instructions for generating UIDs from emails within Snowflake. | Advertisers<br/>Data Providers |
+| インテグレーションガイド | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | 広告主とデータプロバイダーのためのインテグレーションガイドで、オーディエンスの構築とターゲティングのための ID マッピングのためのインテグレーションワークフローを網羅しています。 | Advertisers<br/>Data Providers |
+| Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | Snowflakeでメールアドレスから UID を生成する手順です。 | Advertisers<br/>Data Providers |
 
 ## Workflow for Data Providers
 
-The following diagram shows the UID2 workflow for data providers.
+以下の図は、データプロバイダー向けの UID2 ワークフローです。
 
 ![Data Provider Workflow](../workflows/images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.jpg)
 
 ## Getting Started
 
-To get started, follow these steps:
+次の手順で始めます:
 
-1. Request access to UID2 by filling out the form on the [Request Access](/request-access) page.
+1. [アクセスリクエスト](/request-access)ページにあるフォームに記入して、UID2へのアクセスをリクエストします。
 
-   Someone will contact you to discuss your needs and advise on appropriate next steps.
-1. Decide on your [participant](../intro.md#participants) role or roles.
-1. Decide which implementation option you want to use.
-1. Receive your credentials (see [API keys](../getting-started/gs-api-keys.md)) and follow the instructions in the implementation guide for the option you chose.
+   担当者が連絡し、ニーズを伺い、適切なステップをアドバイスします。
+1. [参加者](../intro.md#participants)の役割を決めます。
+1. どの実装オプションを使用するかを決めます。
+1. 1. 認証情報を受け取り（[API keys](../getting-started/gs-api-keys.md) を参照）、選択したオプションのインテグレーションガイドの指示に従います。
 
-     NOTE: Be sure to encrypt request messages to UID2. For details, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
-1. Test.
-1. Go live.
+    Note：リクエストメッセージは必ずUID2まで暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md)を参照してください。
+1. テストします。
+1. 本番稼働します。
 
 ## Frequently Asked Questions for Data Providers
 
-For a list of FAQs for data providers using the UID2 framework, see [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
+UID2 フレームワークを使用するデータプロバイダー向けのFAQ一覧は、[広告主およびデータプロバイダー向けFAQ](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) をを参照してください。
 
-For a full list, see [Frequently Asked Questions](../getting-started/gs-faqs.md).
 
+すべてのリストは、[よくある質問](../getting-started/gs-faqs.md)を参照してください。

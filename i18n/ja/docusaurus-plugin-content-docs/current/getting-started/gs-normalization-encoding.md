@@ -1,13 +1,13 @@
 ---
 title: Normalization and Encoding
-description: Learn how to normalize and encode information so it's secure and can be decoded.
+description: 情報を安全かつ解読できるように正規化し、符号化する方法。
 hide_table_of_contents: false
 sidebar_position: 13
 ---
 
 # Normalization and Encoding
 
-This page provides information about normalizing and encoding personal information. It's important that, in working with UID2, normalizing and encoding are performed correctly.
+このページでは、ユーザー情報の正規化とエンコードに関する情報を提供します。UID2 を使用する際には、正規化とエンコードを正しく行うことが重要です。
 
 <!-- It includes the following sections:
 - [Introduction](#introduction)
@@ -18,12 +18,12 @@ This page provides information about normalizing and encoding personal informati
 - [Phone Number Hash Encoding](#phone-number-hash-encoding) -->
 
 ## Introduction
-When you're taking user information such as email addresses, and following the steps to create a raw UID2 and/or a UID2 advertising token, it's very important that you follow the required steps exactly. Whether you need to normalize the information or not, whether you hash it or not, follow the steps exactly. By doing so, you can ensure that the UID2 value you create can be securely and anonymously matched up with other instances of online behavior by the same user.
+メールアドレスなどのユーザー情報を取得し、raw UID2 や UID2 Advertising Token を作成する手順に従う場合、必要な手順に正確に従うことが非常に重要です。情報を正規化する必要があろうがなかろうが、ハッシュ化する必要があろうがなかろうが、手順には正確に従ってください。そうすることで、作成した UID2 の値を、同じユーザーによる他のオンライン行動の事例と安全かつ匿名で照合できるようになります。
 
 ## Types of Directly Identifying Information (DII)
-UID2 supports the following types of directly identifying information:
-- Email address
-- Phone number
+UID2は、以下の種類の直接識別情報をサポートしています：
+- メールアドレス
+- 電話番号
 
 ## Email Address Normalization
 
