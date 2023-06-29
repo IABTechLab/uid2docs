@@ -115,8 +115,8 @@ The following table lists the `status` property values and their HTTP status cod
 | `success` | 200 | The request was successful and a new UID2 token, with associated values, is returned in the response. The response is encrypted. |
 | `optout` | 200 | The user opted out. This status is returned only for authorized requests. The response is encrypted. |
 | `client_error` | 400 | The request had missing or invalid parameters.|
-| `invalid_token` | 400 | The UID2 token specified in the request was invalid. This status is returned only for authorized requests. |
-| `expired_token` | 400 | The UID2 token specified in the request was an expired token. |
+| `invalid_token` | 400 | The `refresh_token` value specified in the request was invalid. This status is returned only for authorized requests. |
+| `expired_token` | 400 | The `refresh_token` value specified in the request was an expired token. |
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
 If the `status` value is anything other than `success` or `optout`, the `message` field provides additional information about the issue.
