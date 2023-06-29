@@ -20,7 +20,7 @@ Frequently asked questions for UID2 are grouped into general categories by audie
 ## FAQs&#8212;General
 
 Here are some frequently asked questions regarding the UID2 framework.
-<!-- (gwh note: section is taken from original readme) -->
+
    - [Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
    - [Can users opt out of targeted advertising tied to their UID2 identity?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2-identity)
    - [How does a user know where to access the opt-out portal?](#how-does-a-user-know-where-to-access-the-opt-out-portal)
@@ -40,11 +40,10 @@ Publishers, SSO providers, or consent management platforms disclose links to the
 ## FAQs for Publishers Using an SDK
 
 Here are some frequently asked questions for publishers using the UID2 framework, when a client-side SDK is in use.
-<!-- (gwh note: section is taken from publisher-client-side.md) -->
+
    - [How will I be notified of user opt-out?](#how-will-i-be-notified-of-user-opt-out-with-sdk)
    - [Where should I make token generation calls&#8212;from the server or client side?](#where-should-i-make-token-generation-callsfrom-the-server-or-client-side-with-sdk)
    - [Can I make token refresh calls from the client side?](#can-i-make-token-refresh-calls-from-the-client-side-with-sdk)
-   - [How can I test that the DII sent and the returned token match up?](#how-can-i-test-that-the-dii-sent-and-the-returned-token-match-up-with-sdk)
    - [How can I test the refresh token workflow?](#how-can-i-test-the-refresh-token-workflow-with-sdk)
 
 #### How will I be notified of user opt-out? (With SDK)
@@ -59,25 +58,11 @@ UID2 tokens must be generated only on the server side after authentication. In o
 <!-- FAQ_07 -->
 Yes. The [POST /token/refresh](../endpoints/post-token-refresh.md) can be called from the client side (for example, a browser or a mobile app) because it does not require using an API key.
 
-#### How can I test that the DII sent and the returned token match up? (With SDK)
-<!-- FAQ_08 -->
-You can use the [POST /token/validate](../endpoints/post-token-validate.md) endpoint to check whether the personal data you are sending through [POST /token/generate](../endpoints/post-token-generate.md) is valid. `POST /token/validate` is used primarily for testing purposes.
-
-1. Depending on whether the personal data is an email address or a phone number, send a [POST /token/generate](../endpoints/post-token-generate.md) request using one of the following values:
-    - The `validate@email.com` as the `email` value.
-    - The hash of `validate@email.com` as the `email_hash` value. 
-    - The `+12345678901` as the `phone` value.
-    - The hash of `+12345678901` as the `phone_hash` value.
-2. Store the returned `advertising_token` for use in the following step.
-3. Send a [POST /token/validate](../endpoints/post-token-validate.md) request using the `email`, `email_hash`, `phone`, or `phone_hash` value that you sent in step 1 and the `advertising_token` (saved in step 2) as the `token` property value. 
-    - If the response returns `true`, it indicates that the personal data you sent as a request in step 1 matches the token you received in the response of step 1. 
-    - If it returns `false`, it indicates that there may be an issue with the way you are sending email addresses, phone numbers, or their respective hashes.
-
 #### How can I test the refresh token workflow? (With SDK)
 <!-- FAQ_09 -->
 You can use the `optout@email.com` email address or the `+00000000000` phone number to test your token refresh workflow. Using either parameter value in a request always generates an identity response with a `refresh_token` that results in a logout response.
 
-1. Depending on whether the personal data is an email address or a phone number, send a [POST /token/generate](../endpoints/post-token-generate.md) request using one of the following values:
+1. Depending on whether the DII is an email address or a phone number, send a [POST /token/generate](../endpoints/post-token-generate.md) request using one of the following values:
     - The `optout@email.com` as the `email` value.
     - The hash of `optout@email.com` as the `email_hash` value. 
     - The `+00000000000` as the `phone` value.
@@ -87,13 +72,12 @@ You can use the `optout@email.com` email address or the `+00000000000` phone num
 ## FAQs for Publishers Not Using an SDK
 
 Here are some frequently asked questions for publishers using the UID2 framework, when the publisher is not using a client-side SDK.
-<!-- (gwh note: section is taken from custom-publisher-integration.md) -->
+
    - [Do I need to decrypt tokens?](#do-i-need-to-decrypt-tokens)
    - [How will I be notified of user opt-out?](#how-will-i-be-notified-of-user-opt-out-without-sdk)
    - [Where should I make token generation calls&#8212;from the server or client side?](#where-should-i-make-token-generation-callsfrom-the-server-or-client-side-without-sdk)
    - [Can I make token refresh calls from the client side?](#can-i-make-token-refresh-calls-from-the-client-side-without-sdk)
    - [What is the uniqueness and rotation policy for UID2 tokens?](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
-   - [How can I test that the DII sent and the returned token match up?](#how-can-i-test-that-the-dii-sent-and-the-returned-token-match-up-without-sdk)
    - [How can I test the refresh token workflow?](#how-can-i-test-the-refresh-token-workflow-without-sdk)
 
 #### Do I need to decrypt tokens?
@@ -116,20 +100,6 @@ Yes. The [POST /token/refresh](../endpoints/post-token-refresh.md) can be called
 <!-- FAQ_15 -->
 The UID2 service encrypts tokens using random initialization vectors. The encrypted UID2 is unique for a given user as they browse the internet. At every refresh, the token re-encrypts. This mechanism ensures that untrusted parties cannot track a user's identity.
 
-#### How can I test that the DII sent and the returned token match up? (Without SDK)
-<!-- FAQ_16 -->
-You can use the [POST /token/validate](../endpoints/post-token-validate.md) endpoint to check whether the [DII](../ref-info/glossary-uid.md#gl-dii) you are sending through [POST /token/generate](../endpoints/post-token-generate.md) is valid. `POST /token/validate` is used primarily for testing purposes.
-
-1. Depending on whether the DII is an email address or a phone number, send a [POST /token/generate](../endpoints/post-token-generate.md) request using one of the following values:
-    - The `validate@email.com` as the `email` value.
-    - The hash of `validate@email.com` as the `email_hash` value. 
-    - The `+12345678901` as the `phone` value.
-    - The hash of `+12345678901` as the `phone_hash` value.
-2. Store the returned `advertising_token` for use in the following step.
-3. Send a [POST /token/validate](../endpoints/post-token-validate.md) request using the `email`, `email_hash`, `phone`, or `phone_hash` value that you sent in step 1 and the `advertising_token` (saved in step 2) as the `token` property value. 
-    - If the response returns `true`, the DII that you sent as a request in step 1 match the token you received in the response of step 1. 
-    - If it returns `false`, there may be an issue with the way you are sending email addresses, phone numbers, or their respective hashes.
-
 #### How can I test the refresh token workflow? (Without SDK)
 <!-- FAQ_17 -->
 You can use the `optout@email.com` email address or the `+00000000000` phone number to test your token refresh workflow. Using the email address or phone number in request always generates an identity response with a `refresh_token` that results in a logout response.
@@ -142,10 +112,21 @@ You can use the `optout@email.com` email address or the `+00000000000` phone num
 2. Store the returned `refresh_token` for use in the following step.
 3. Send a [POST /token/refresh](../endpoints/post-token-refresh.md) request with the `refresh_token` (saved in step 2) as the `token` value.<br/>The body response should be empty, and the `status` value should be set to `optout` because the `optout@email.com` email and the `+00000000000` phone number always result in a logged out user.
 
+## FAQs for All Publishers (With or Without SDK)
+
+Here are some frequently asked questions for all publishers using the UID2 framework, whether or not the publisher is using an SDK.
+  - [How can I test that the DII sent and the returned token match up?](#how-can-i-test-that-the-dii-sent-and-the-returned-token-match-up)
+
+#### How can I test that the DII sent and the returned token match up?
+
+You can use the [POST /token/validate](../endpoints/post-token-validate.md) endpoint to check whether the [DII](../ref-info/glossary-uid.md#gl-dii) that you are sending through [POST /token/generate](../endpoints/post-token-generate.md) is valid. `POST /token/validate` is used primarily for testing purposes.
+
+For details, see [Using POST /token/validate to Test](../endpoints/post-token-validate.md##using-post-tokenvalidate-to-test).
+
 ## FAQs for Advertisers and Data Providers
 
 Here are some frequently asked questions for advertisers and data providers using the UID2 framework.
-<!-- (gwh note: section is taken from advertiser-dataprovider-guide.md) -->
+
    - [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
    - [Do refreshed emails get assigned to the same bucket with which they were previously associated?](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
    - [How often should UIDs be refreshed for incremental updates?](#how-often-should-uids-be-refreshed-for-incremental-updates)
@@ -188,7 +169,7 @@ If a user opts out through your website, you should follow your internal procedu
 ## FAQs for Demand-Side Platforms (DSPs)
 
 Here are some frequently asked questions for DSPs.
-<!-- (gwh note: section is taken from dsp-guide.md) -->
+
    - [How do I know which decryption key to apply to a UID2?](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
    - [Where do I get the decryption keys?](#where-do-i-get-the-decryption-keys)
    - [How do I know if/when the salt bucket has rotated?](#how-do-i-know-ifwhen-the-salt-bucket-has-rotated)
@@ -252,5 +233,5 @@ Opt-outs must be always respected. It may take some time for an opt-out request 
 There may be thousands of decryption keys present in the system at any given point.
 
 #### How do SDK errors impact the DSP's ability to respond to a bid?
-<!-- FAQ_37 DSP-client-v1 -->
+<!-- FAQ_37 DSP -->
 If there is an error, the SDK will not decrypt the UID2 token into a UID2.
