@@ -6,7 +6,7 @@ sidebar_position: 04
 ---
 
 # POST /token/refresh
-Generate a new UID2 token by sending the corresponding unexpired refresh token, returned by the [POST /token/generate](post-token-generate.md) endpoint.
+Generate a new [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) by sending the corresponding unexpired refresh token, returned by the [POST /token/generate](post-token-generate.md) endpoint.
 
 Used by: This endpoint is used mainly by publishers.
 
@@ -16,11 +16,14 @@ Used by: This endpoint is used mainly by publishers.
 
 `POST '{environment}/v2/token/refresh'`
 
+Add the content of the `refresh_token` value, returned in the response from the previous [POST /token/generate](post-token-generate.md) or `POST /token/refresh` operation, as the POST body.
+
 Here's what you need to know about this endpoint:
 
 - No encryption is required for token refresh requests.
-- If the request is successful, with an HTTP status code of 200 and a new UID2 token or opt-out information returned, the response is encrypted. Error responses are not encrypted. [**GWH/SW_01 opt-out is a 200 response but I'm not sure whether it's encrypted or not. It's mentioned 3 times in this doc. Could we clarify please whether an opt-out response is encrypted?**]
-- To decrypt responses, the `refresh_response_key` value returned in the [POST /token/generate](post-token-generate.md) or `POST /token/refresh` response from which the refresh token in the request is returned. {**GWH/SW_02. Please help me understand this line.**}
+- If the request is successful, with an HTTP status code of 200, a new UID2 token or opt-out information is returned.
+- Successful responses, whether the response includes a new token or opt-out information, are encrypted. Error responses are not encrypted.
+- To decrypt responses, use the most recent `refresh_response_key` value for this token. The `refresh_response_key` value is returned in the response to the [POST /token/generate](post-token-generate.md) and `POST /token/refresh` operations. Each time a token is refreshed, a new `refresh_response_key` is returned. Be sure to use the most recent one to decrypt the current response.
 
 ### Path Parameters
 
@@ -29,8 +32,6 @@ Here's what you need to know about this endpoint:
 | `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md). |
 
 >NOTE: The integration environment and the production environment require different [API keys](../ref-info/glossary-uid.md#gl-api-key).
-
-{**GWH/SW_03 query. It doesn't say, anywhere, how the actual token is conveyed. Path parameter? Body? This ties in with my question #4.**}
 
 #### Testing Notes
 
@@ -43,21 +44,21 @@ Using either of the following parameters in a [POST /token/generate](post-token-
 
 For details and Python script examples, see [Encrypting Requests and Decrypting Responses (Python script example)](../getting-started/gs-encryption-decryption#uid2_requestpy).
 
-{**GWH/SW_04. I would dearly love to have a plain request example AS WELL AS this link to a Python script. I feel strongly that we shoudl have an example request and response in the doc for each operation. Is it possible I could get one? Fictitious of course. user@example.com would be fine.**}
-
 ## Decrypted JSON Response Format
+
+A decrypted successful response includes a new UID2 token (`advertising_token`) and associated values for the user, or indicates that the user has opted out. 
 
 >NOTE: The responses are encrypted only if the HTTP status code is 200. Error responses are not encrypted.
 
 This section includes the following sample responses:
 
 * [Successful Response With Tokens](#successful-response-with-tokens)
-* [Optout](#optout)
+* [Successful Response With Opt-Out](#successful-response-with-opt-out)
 * [Error Response](#error-response)
 
 #### Successful Response With Tokens
 
-A decrypted successful response returns a new UID2 token (`advertising_token`) and associated values for the user, or indicates that the user has opted out. The following example shows a successful response with a new UID2 token.
+If all values are valid and the user has not opted out, the response is successful and a new UID2 token is returned, with associated values. The following example shows a decrypted successful response with tokens:
 
 ```json
 {
@@ -73,9 +74,9 @@ A decrypted successful response returns a new UID2 token (`advertising_token`) a
 }
 ```
 
-#### Optout
+#### Successful Response With Opt-Out
 
-If the user has opted out, the response is successful but a new advertising token is not returned. Instead, the following response is returned:
+If the user has opted out, the response is successful but a new UID2 token is not returned. The following example shows a decrypted opt-out response:
 
 ```json
 {
@@ -98,7 +99,7 @@ An error response might look like the following:
 
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
-| `advertising_token` | string | An encrypted UID2 token (advertising token) for the user. |
+| `advertising_token` | string | The UID2 token (advertising token) for the user. |
 | `refresh_token` | string | An encrypted token that can be exchanged with the UID2 Service for the latest set of identity tokens. |
 | `identity_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the UID2 token expires. |
 | `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the [UID2 SDK for JavaScript](../sdks/client-side-identity.md) will start refreshing the advertising token, if the SDK is in use.<br/>TIP: If you are not using the SDK, consider refreshing the UID2 token from this timestamp, too. |
@@ -112,7 +113,7 @@ The following table lists the `status` property values and their HTTP status cod
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
 | `success` | 200 | The request was successful and a new UID2 token, with associated values, is returned in the response. The response is encrypted. |
-| `optout` | 200 | The user opted out. This status is returned only for authorized requests. |
+| `optout` | 200 | The user opted out. This status is returned only for authorized requests. The response is encrypted. |
 | `client_error` | 400 | The request had missing or invalid parameters.|
 | `invalid_token` | 400 | The UID2 token specified in the request was invalid. This status is returned only for authorized requests. |
 | `expired_token` | 400 | The UID2 token specified in the request was an expired token. |
