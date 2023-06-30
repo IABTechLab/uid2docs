@@ -11,7 +11,7 @@ export default function HomepageConsumerBenefit(): JSX.Element {
     event: "button_click",
     click_item: "home page consumer benefit",
     click_text: "Manage my UID2",
-    link_url: "/request-access",
+    link_url: "https://transparentadvertising.org",
   };
 
   return (
@@ -33,7 +33,8 @@ export default function HomepageConsumerBenefit(): JSX.Element {
           </p>
         </div>
         <Link
-          to="/request-access"
+          to="https://transparentadvertising.org"
+          rel="noopener noreferrer"
           className={clsx("button button--11-o-clock", styles.ctaButton)}
           onClick={() => pushGtmEvent(pageViewData)}
         >

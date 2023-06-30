@@ -26,6 +26,8 @@
   }
 
   &:hover {
+    background-color: var(--c-periwinkle-45);
+
     svg {
       fill: var(--c-eleven-o-clock);
     }
