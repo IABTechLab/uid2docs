@@ -64,8 +64,8 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
-  --ifm-link-color: var(--c-lemon);
-  --ifm-toc-link-color: var(--c-lemon);
+  --ifm-link-color: var(--c-cyan);
+  --ifm-toc-link-color: var(--c-cyan);
   --ifm-navbar-background-color: var(--c-off-black);
   --ifm-navbar-link-color: var(--c-white);
   --ifm-navbar-link-hover-color: var(--c-white);
@@ -76,9 +76,9 @@
   --ifm-dropdown-link-color: var(--c-white);
   --ifm-menu-color: var(--c-white);
   --ifm-menu-color-background-active: transparent;
-  --ifm-color-emphasis-600: var(--c-lemon);
+  --ifm-color-emphasis-600: var(--c-cyan);
 
-  --ifm-color-primary: var(--c-lemon);
+  --ifm-color-primary: var(--c-cyan);
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
   --ifm-color-primary-darkest: #1a8870;
@@ -147,6 +147,26 @@
       color: var(--c-eleven-o-clock);
 
       &:hover {
+        border-color: transparent;
+      }
+    }
+  }
+
+  &--nav {
+    background-color: var(--c-lemon);
+    border: 2px solid transparent;
+
+    &:hover {
+      background-color: var(--c-white);
+      border-color: var(--c-lemon);
+    }
+
+    @include dark {
+      color: var(--c-eleven-o-clock);
+      background-color: var(--c-cyan);
+
+      &:hover {
+        background-color: var(--c-white);
         border-color: transparent;
       }
     }
