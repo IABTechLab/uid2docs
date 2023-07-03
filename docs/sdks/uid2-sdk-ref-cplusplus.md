@@ -7,11 +7,12 @@ sidebar_position: 10
 
 # UID2 SDK for C++ (Server-Side) Reference Guide
 
-You can use UID2 server-side SDKs to facilitate decrypting of UID2 advertising tokens to access the raw UID2. 
+You can use UID2 server-side SDKs to facilitate decrypting of UID2 tokens to access the raw UID2. 
 
 <!-- This guide includes the following information:
 
 - [Overview](#overview)
+- [Audience](#audience)
 - [Initialization](#initialization)
 - [Interface](#interface)
   - [Response Content](#response-content)
@@ -22,6 +23,15 @@ You can use UID2 server-side SDKs to facilitate decrypting of UID2 advertising t
 ## Overview
 
 The functions outlined here define the information that you'll need to configure or can retrieve from the library. The parameters and property names defined below are pseudocode. Actual parameters and property names vary by language but will be similar to the information outlined here.
+
+## Audience
+
+This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using C++ for their server-side coding.
+
+| Audience | Functions |
+| :--- | :--- |
+| Sharers | Supports encrypting or decrypting UID2 tokens. |
+| DSPs | Supports decrypting UID2 tokens from bid requests. |
 
 ## Version
 
