@@ -30,8 +30,8 @@ This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are u
 
 | Audience | Functions |
 | :--- | :--- |
-| Sharers | Supports encrypting or decrypting UID2 tokens. |
 | DSPs | Supports decrypting UID2 tokens from bid requests. |
+| Sharers | Supports encrypting or decrypting UID2 tokens. |
 
 ## Version
 

@@ -36,8 +36,8 @@ This SDK simplifies integration with UID2 for any publishers, DSPs, and UID2 sha
 | Audience | Functions |
 | :--- | :--- |
 | Publishers | Supports generating or refreshing UID2 tokens from [DII](../ref-info/glossary-uid.md#gl-dii). |
-| Sharers | Supports encrypting or decrypting UID2 tokens. |
 | DSPs | Supports decrypting UID2 tokens from bid requests. |
+| Sharers | Supports encrypting or decrypting UID2 tokens. |
 
 ## Version
 
