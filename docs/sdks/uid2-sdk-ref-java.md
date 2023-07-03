@@ -7,7 +7,12 @@ sidebar_position: 04
 
 # UID2 SDK for Java (Server-Side) Reference Guide
 
-You can use UID2 server-side SDKs to facilitate decrypting of UID2 advertising tokens to access the raw UID2. 
+You can use the UID2 SDK for Java (server-side) to facilitate:
+
+- Generating UID2 advertising tokens
+- Refreshing UID2 advertising tokens
+- Encrypting raw UID2s to create UID2 tokens
+- Decrypting UID2 advertising tokens to access the raw UID2s
 
 <!-- This guide includes the following information:
 

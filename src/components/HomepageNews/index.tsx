@@ -11,11 +11,11 @@ type ArticleItem = {
 };
 
 const ArticleList: ArticleItem[] = [
-  {
-    title: "AWS",
-    url: "https://digiday.com/media/amazon-and-the-trade-desk-ink-deal-to-deploy-uid2/",
-    date: "June 22, 2022",
-  },
+  // {
+  //   title: "AWS",
+  //   url: "https://digiday.com/media/amazon-and-the-trade-desk-ink-deal-to-deploy-uid2/",
+  //   date: "June 22, 2022",
+  // },
   {
     title: "P&G",
     url: "https://www.thecurrent.com/p-g-joins-others-in-supporting-unified-id-2-0-to-help-improve-the-consumer-ad-experience",
@@ -70,6 +70,11 @@ const ArticleList: ArticleItem[] = [
     title: "NBCU",
     url: "https://www.thecurrent.com/nbcuniversal-unified-id-2-0-peacock",
     date: "March 8, 2023",
+  },
+  {
+    title: "Warner Bros. Discovery",
+    url: "https://wbd.com/warner-bros-discovery-adopts-unified-id-2-0-solution-across-max-and-discovery/",
+    date: "June 21, 2023",
   },
 ];
 
