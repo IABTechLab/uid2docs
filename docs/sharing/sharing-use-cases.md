@@ -1,17 +1,19 @@
 ---
 title: Use Cases
-description: Use cases for sharing UID2 information with partner participants.
+description: Use cases for sharing UID2s with partner participants.
 hide_table_of_contents: false
 sidebar_position: 03
 ---
 
-# Sharing UID2 Information: Use Cases
+# Sharing UID2s: Use Cases
 
 There are many ways to implement sharing&#8212;many different examples of senders, receivers, and transfer methods. Here are a few sample scenarios where a sender transfers a UID2 token to a receiver.   
   
 - An advertiser (sender) sends a UID2 token to a DSP (receiver) for segment creation via an API.
+- A measurement partner (sender) sends a UID2 token to an advertiser (receiver) via Amazon Simple Storage Service (S3).**GWH/KT one of these two**
 - A measurement partner (sender) sends a UID2 token to an advertiser (receiver) via an Amazon S3 data transfer.
 - A publisher (sender) sends a UID2 token to a data provider (receiver) via a pixel.
+- A publisher (sender) sends a UID2 token via the bid stream to a DSP (receiver). **GWH/KT one of these two**
 - A DSP (sender) sends a UID2 token to an advertiser (receiver) via reporting.
 
 These scenarios, and others, are represented in the following table.

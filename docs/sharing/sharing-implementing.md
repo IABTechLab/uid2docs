@@ -7,18 +7,11 @@ sidebar_position: 03
 
 # Implementing Sharing
 
-<!-- This page provides information about sharing UID2 information: what sharing means, who you can share with, the benefits of sharing, how to set up and manage your sharing permissions, and lots more! Use sharing permissions to expand your reach and help your business to prosper. -->
+<!-- This page provides information about sharing UID2s: what sharing means, who you can share with, the benefits of sharing, how to set up and manage your sharing permissions, and lots more! Use sharing permissions to expand your reach and help your business to prosper. -->
 
 <!-- It includes the following:
 
-- [UID2 Sharing Background](#uid2-sharing-background)
-  - [UID2 Token Pass-Through](#uid2-token-pass-through)
-- [UID2 Sharing Workflow](#uid2-sharing-workflow)
-  - [One-Time Setup Steps](#one-time-setup-steps)
-  - [Action Steps](#action-steps)
-- [UID2 Sharing: Implementation Guidelines](#uid2-sharing-implementation-guidelines)
-- [UID2 Portal Sharing Permissions](#uid2-portal-sharing-permissions)
-  - [Steps for Granting Sharing Permission](#steps-for-granting-sharing-permission) -->
+- [Steps to Implement Sharing](#steps-to-implement-sharing) -->
 
 Setting up UID2 sharing requires some steps by each participant:
 - The sender, who sends encrypted UID2 tokens to an authorized sharing participant.
