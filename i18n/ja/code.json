@@ -540,5 +540,8 @@
   },
   "Manage my UID2": {
     "message": "Manage my UID2"
+  },
+  "navbar.ctaLabel": {
+    "message": "アクセスをリクエストする"
   }
 }

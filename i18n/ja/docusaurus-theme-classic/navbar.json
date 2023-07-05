@@ -3,10 +3,6 @@
     "message": "UID2 logo",
     "description": "The alt text of navbar logo"
   },
-  "item.label.Request Access": {
-    "message": "アクセスをリクエストする",
-    "description": "Navbar item with label Request Access"
-  },
   "item.label.Publishers": {
     "message": "媒体社",
     "description": "Navbar item with label Publishers"
@@ -26,5 +22,9 @@
   "item.label.Docs": {
     "message": "Docs",
     "description": "Navbar item with label Docs"
+  },
+  "item.label.Request Access": {
+    "message": "アクセスをリクエストする",
+    "description": "Navbar item with label Request Access"
   }
 }

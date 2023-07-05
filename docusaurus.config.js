@@ -214,7 +214,7 @@ const config = {
           {
             type: "custom-NavbarCta",
             href: "/request-access",
-            text: "Request Access",
+            // text: "Request Access", moved to component for translation reasons
             position: "right",
             className: "desktop-only",
           },
