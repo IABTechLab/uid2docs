@@ -1,6 +1,7 @@
 //TS and Marketo is not a good time so ignoring in eslint
 import React from "react";
 import { translate } from "@docusaurus/Translate";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import PageHeader from "@site/src/components/PageHeader";
 import styles from "./request-access.module.scss";
@@ -23,13 +24,13 @@ const componentData = {
   }),
   heading: translate({
     id: "requestAccess.heading",
-    message: "Request access to UID2",
+    message: "UID2へのアクセスをリクエストする",
     description: "The request access page heading",
   }),
   subheading: translate({
     id: "requestAccess.subheading",
     message:
-      "Interested in adopting Unified ID 2.0 (UID2) as a part of your identity strategy? Contact The Trade Desk to learn more about integrating with the UID2 framework today. Advertisers, publishers, data and measurement providers, DSPs, SSPs, and data storage and audience platforms are all welcome!",
+      "ID戦略の一環としてUnified ID 2.0 (UID2) の採用をお考えなら、The Trade Deskにご相談ください。UID2フレームワークのインテグレーションについて詳しくご説明します。広告主、媒体社、データプロバイダ、効果測定プロバイダ、データストレージ、オーディエンスプラットフォームなど、すべての方々を歓迎します。",
     description: "The request access page subheading",
   }),
 };
@@ -41,6 +42,8 @@ declare global {
 }
 
 export default function RequestDemo(): JSX.Element {
+  const { i18n } = useDocusaurusContext();
+
   React.useEffect(() => {
     const pageViewData = {
       event: "Initialize_dataLayer",
@@ -54,6 +57,8 @@ export default function RequestDemo(): JSX.Element {
   }, []);
 
   const formRef = React.useRef(null);
+
+  const formId = i18n.currentLocale === "ja" ? 2510 : 2753;
 
   const onChange = React.useCallback((event) => {
     const target = event.target;
@@ -104,7 +109,7 @@ export default function RequestDemo(): JSX.Element {
       window.MktoForms2.loadForm(
         "//pages.thetradedesk.com",
         "527-INM-364",
-        2753
+        formId
       );
 
       window.MktoForms2.whenRendered(function (form) {
@@ -130,7 +135,7 @@ export default function RequestDemo(): JSX.Element {
         });
       });
     }
-  }, []);
+  }, [formId]);
 
   React.useEffect(() => {
     if (formRef?.current) {
@@ -168,7 +173,7 @@ export default function RequestDemo(): JSX.Element {
           >
             <div className="col col--5">
               <div className="marketo-form">
-                <form ref={formRef} id="mktoForm_2753" />
+                <form ref={formRef} id={`mktoForm_${formId}`} />
               </div>
             </div>
           </div>
