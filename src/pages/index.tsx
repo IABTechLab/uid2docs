@@ -7,6 +7,7 @@ import HomepageHero from "@site/src/components/HomepageHero";
 import HomepagePartnersSegment from "@site/src/components/HomepagePartnersSegment";
 import HomepageCtaStripe from "@site/src/components/HomepageCtaStripe";
 import HomepageNews from "@site/src/components/HomepageNews";
+import HomepageConsumerBenefit from "@site/src/components/HomepageConsumerBenefit";
 import { pushGtmEvent } from "@site/src/utils/pushGtmEvent";
 
 export default function Home(): JSX.Element {
@@ -43,6 +44,7 @@ export default function Home(): JSX.Element {
         <HomepagePartnersMarquee />
         <HomepageFeatures />
         <HomepagePartnersSegment />
+        <HomepageConsumerBenefit />
         <HomepageCtaStripe />
         <HomepageNews />
       </main>
