@@ -3,230 +3,234 @@
 **/
 
 @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url("/fonts/inter-font-regular.woff2") format('woff2');
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/inter-font-regular.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url("/fonts/inter-font-regular.woff2") format('woff2');
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/inter-font-regular.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: url("/fonts/inter-font-semi-bold.woff2") format('woff2');
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/inter-font-semi-bold.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: 'Roboto Mono';
-    font-style: normal;
-    font-weight: 300;
-    font-display: swap;
-    src: url("/fonts/roboto-mono-font-light.woff2") format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  font-family: "Roboto Mono";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/fonts/roboto-mono-font-light.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
 }
 
 :root {
-    /* Custom Brand Color Vars */
-    --c-primary-gray: #3b3b3f; //Side bar bg, card Background | Dark mode => Light mode: Dirty Socks
-    --c-subtle-blue: #dee3f5; //Tip Background | Dark mode => Light mode: Periwinkle (45%)
-    --c-white: #ffffff; //Purpose | Dark mode => Light mode: 11 o clock
-    --c-lemon: #cdf200; //Links | Dark mode => Light mode: AA Perikinle
-    --c-off-black: #101011; //Top nav, main background color | Dark mode => Light mode: White
-    --c-gray-100: #d9d9d9; //1px Strokes | Dark mode => Light mode: Periwinkle
-    --c-gray-400: #575757; //code snippet background (single word), 1px strokes | Dark mode => Light mode: Gray 300
-    --c-gray-300: #dcdee1; //code snippet background (single word), 1px strokes | Light mode => Dark mode: Gray 400
-    --c-gray-600: #717171;
-    --c-black: #0a0a0a; //code snippet background (single word), 1px strokes | Dark Mode => Light mode: 11 o clock
-    --c-light-black: #1E1E1E; //main dark bg color | Dark mode => Light mode: White
-    --c-dirty-socks: #f2f2f3;
-    --c-eleven-o-clock: #030a40;
-    --c-aa-periwinkle: #4b66c9;
-    --c-periwinkle: #b7c2ea;
-    --c-periwinkle-45: #e0e5f8;
-    --c-lavender: #546ECF;
-    --c-cyan: #1CD2DE;
+  /* Custom Brand Color Vars */
+  --c-primary-gray: #3b3b3f; //Side bar bg, card Background | Dark mode => Light mode: Dirty Socks
+  --c-subtle-blue: #dee3f5; //Tip Background | Dark mode => Light mode: Periwinkle (45%)
+  --c-white: #ffffff; //Purpose | Dark mode => Light mode: 11 o clock
+  --c-off-white: #dcdee1; //replacing dark mode white | Dark mode => Light mode: 11 o clock
+  --c-lemon: #cdf200; //Links | Dark mode => Light mode: AA Perikinle
+  --c-off-black: #101011; //Top nav, main background color | Dark mode => Light mode: White
+  --c-gray-100: #d9d9d9; //1px Strokes | Dark mode => Light mode: Periwinkle
+  --c-gray-400: #575757; //code snippet background (single word), 1px strokes | Dark mode => Light mode: Gray 300
+  --c-gray-300: #dcdee1; //code snippet background (single word), 1px strokes | Light mode => Dark mode: Gray 400
+  --c-gray-600: #717171;
+  --c-black: #0a0a0a; //code snippet background (single word), 1px strokes | Dark Mode => Light mode: 11 o clock
+  --c-light-black: #1e1e1e; //main dark bg color | Dark mode => Light mode: White
+  --c-dirty-socks: #f2f2f3;
+  --c-eleven-o-clock: #030a40;
+  --c-aa-periwinkle: #4b66c9;
+  --c-periwinkle: #b7c2ea;
+  --c-periwinkle-45: #e0e5f8;
+  --c-lavender: #546ecf;
+  --c-cyan: #1cd2de;
+  --c-cyan-45: #b7c2ea;
 
-    /*Custom Brand Font Vars */
+  /*Custom Brand Font Vars */
 
-    --f-inter: "Inter", sans-serif;
-    --f-roboto-mono: "Roboto Mono", monospace;
+  --f-inter: "Inter", sans-serif;
+  --f-roboto-mono: "Roboto Mono", monospace;
 
-
-    /** Spacing Util **/
-    --space-x-reverse: 0;
+  /** Spacing Util **/
+  --space-x-reverse: 0;
 }
 
 /* dark mode */
 @mixin dark {
-    html[data-theme="dark"] & {
-        @content;
-    }
+  html[data-theme="dark"] & {
+    @content;
+  }
 }
 
 /* media queries */
 
 @mixin sm {
-    @media only screen and (min-width: 640px) {
-        @content;
-    }
+  @media only screen and (min-width: 640px) {
+    @content;
+  }
 }
 
 @mixin md {
-    @media only screen and (min-width: 768px) {
-        @content;
-    }
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
 }
 
 @mixin lg {
-    //https://docusaurus.io/docs/styling-layout#mobile-view
-    @media only screen and (min-width: 996px) {
-        @content;
-    }
+  //https://docusaurus.io/docs/styling-layout#mobile-view
+  @media only screen and (min-width: 996px) {
+    @content;
+  }
 }
 
 @mixin lg-font {
-    //use only for font breakpoints
-    @media only screen and (min-width: 1100px) {
-        @content;
-    }
+  //use only for font breakpoints
+  @media only screen and (min-width: 1100px) {
+    @content;
+  }
 }
 
 @mixin xl {
-    @media only screen and (min-width: 1280px) {
-        @content;
-    }
+  @media only screen and (min-width: 1280px) {
+    @content;
+  }
 }
 
 .type-alpha {
-    font-size: 3rem;
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: -0.03em;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
 
-    @include lg {
-        font-size: 5.85rem;
-    }
-
+  @include lg {
+    font-size: 5.85rem;
+  }
 }
 
 .type-beta {
-    font-weight: 600;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-size: 2.25rem;
 
-    @include lg {
-        font-size: 3.5rem;
-    }
+  @include lg {
+    font-size: 3.5rem;
+  }
 }
 
 .type-gamma {
-    font-weight: 600;
-    line-height: 1.12;
-    letter-spacing: -0.03em;
-    font-size: 1.8125rem;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  font-size: 1.8125rem;
 
-    @include lg {
-        font-size: 3.125rem;
-    }
+  @include lg {
+    font-size: 3.125rem;
+  }
 
-    @include lg-font {
-        font-size: 3.3125rem;
-    }
+  @include lg-font {
+    font-size: 3.3125rem;
+  }
 }
 
 .type-delta {
-    font-weight: 600;
-    line-height: 1.13;
-    letter-spacing: -0.02em;
-    font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.13;
+  letter-spacing: -0.02em;
+  font-size: 1.5rem;
 
-    @include lg {
-        font-size: 2.1rem;
-    }
+  @include lg {
+    font-size: 2.1rem;
+  }
 }
 
 .type-epilson {
-    font-size: clamp(1.5rem, calc(1.5rem + ((1vw - 0.4rem) * 0.625)), 1.75rem);
-    min-height: 0vw;
-    font-weight: 500;
-    line-height: 1.16;
-    letter-spacing: -0.01em;
+  font-size: clamp(1.5rem, calc(1.5rem + ((1vw - 0.4rem) * 0.625)), 1.75rem);
+  min-height: 0vw;
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: -0.01em;
 
-    @media screen and (min-width: 1024px) {
-        line-height: 1.35;
-    }
+  @media screen and (min-width: 1024px) {
+    line-height: 1.35;
+  }
 }
 
 .type-paragraph-large {
-    font-weight: 500;
-    line-height: 1.43;
-    letter-spacing: -0.02em;
-    font-size: 1.1875rem;
+  font-weight: 500;
+  line-height: 1.43;
+  letter-spacing: -0.02em;
+  font-size: 1.1875rem;
 
-    @include lg {
-        font-size: 1.25rem;
-    }
+  @include lg {
+    font-size: 1.25rem;
+  }
 }
 
 .type-paragraph {
-    font-size: clamp(1rem, 2vw + 1rem, 1.0625rem);
-    font-weight: 400;
-    line-height: 1.5;
-    letter-spacing: 0.0075em;
+  font-size: clamp(1rem, 2vw + 1rem, 1.0625rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.0075em;
 }
 
 .type-zeta {
-    font-size: clamp(1.125rem, 2vw + 1rem, 1.375rem);
-    font-weight: 600;
-    line-height: 1.22;
-    letter-spacing: -0.03em;
+  font-size: clamp(1.125rem, 2vw + 1rem, 1.375rem);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.03em;
 }
 
 .type-eta {
-    font-size: clamp(1rem, 2vw + 1rem, 1.0625rem);
-    font-weight: 600;
-    line-height: 1.22;
-    letter-spacing: -0.03em;
+  font-size: clamp(1rem, 2vw + 1rem, 1.0625rem);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.03em;
 }
 
 .type-theta {
-    font-size: clamp(0.76rem, 2vw + 1rem, 0.9375rem);
-    font-weight: 600;
-    line-height: 1.55;
-    letter-spacing: 0.0075em;
+  font-size: clamp(0.76rem, 2vw + 1rem, 0.9375rem);
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: 0.0075em;
 }
 
 .type-paragraph-small {
-    font-size: clamp(0.75rem, calc(0.75rem + ((1vw - 0.4rem) * 0.1563)), 0.8125rem);
-    min-height: 0vw;
-    letter-spacing: -0.015em;
-    font-weight: 500;
+  font-size: clamp(
+    0.75rem,
+    calc(0.75rem + ((1vw - 0.4rem) * 0.1563)),
+    0.8125rem
+  );
+  min-height: 0vw;
+  letter-spacing: -0.015em;
+  font-weight: 500;
 }
 
 .type-paragraph-extra-small {
-    font-size: clamp(0.75rem, 2vw + 1rem, 0.8125rem);
-    font-weight: 500;
-    line-height: 1.25;
-    letter-spacing: -0.015em;
+  font-size: clamp(0.75rem, 2vw + 1rem, 0.8125rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
 }
 
 .code {
-    font-family: "Roboto Mono", monospace;
-    font-size: 0.8rem;
-    font-weight: 300;
-    line-height: 1.24;
-    letter-spacing: 0.0075em;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.24;
+  letter-spacing: 0.0075em;
 }
-
-
