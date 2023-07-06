@@ -1,99 +1,117 @@
 .markdown {
+  @extend .text-11-o-clock;
+  @extend .type-paragraph;
 
-    @extend .text-11-o-clock ;
-    @extend .type-paragraph;
+  @include dark {
+    @extend .text-white;
+  }
 
-    @include dark {
-        @extend .text-white;
+  a {
+    @extend .border-underline-link;
+    font-weight: 500;
+  }
+
+  h2 {
+    @extend .type-epilson;
+  }
+
+  // p, a {
+  //     @extend .type-paragraph;
+  // }
+
+  table td {
+    vertical-align: top;
+    word-wrap: break-word;
+  }
+
+  thead {
+    @extend .type-eta;
+  }
+
+  code {
+    @extend .code;
+  }
+
+  .table-fixed-width {
+    td {
+      max-width: 500px;
+      min-width: 300px;
     }
+  }
 
-    a {
-        @extend .border-underline-link;
-        font-weight: 500;
+  .jump-anchor {
+    display: block;
+    &:before {
+      content: "";
+      display: block;
+      position: relative;
+      width: 0;
+      height: 4rem; //navbar height
+      margin-top: -4rem;
     }
+  }
 
-    h2 {
-        @extend .type-epilson;
+  dt {
+    font-weight: bold;
+  }
+
+  dd {
+    margin-inline-start: 1.5rem;
+  }
+
+  li {
+    > p {
+      margin-bottom: 0;
     }
+  }
 
-    // p, a {
-    //     @extend .type-paragraph;
-    // }
+  //temp fix for dark mode images
+  img {
+    background-color: #fff;
+  }
 
-    table td {
-        vertical-align: top;
+  tr {
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.03);
+
+      @include dark {
+        background-color: rgba(255, 255, 255, 0.03);
+      }
     }
+  }
 
-    thead {
-        @extend .type-eta;
+  td {
+    // word-break: break-all;
+  }
+
+  table tr:nth-child(2n) {
+    background-color: inherit;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.03);
+
+      @include dark {
+        background-color: rgba(255, 255, 255, 0.03);
+      }
     }
-
-    code {
-        @extend .code;
-    }
-
-    .jump-anchor {
-        display: block;
-        &:before {
-            content: '';
-            display: block;
-            position: relative;
-            width: 0;
-            height: 4rem; //navbar height
-            margin-top: -4rem;
-        }
-    }
-
-    dt {
-        font-weight: bold;
-    }
-
-    dd {
-        margin-inline-start: 1.5rem;
-    }
-
-    li {
-        >p {
-            margin-bottom: 0;
-        }
-    }
-
-    //temp fix for dark mode images
-    img {
-        background-color: #fff;
-    }
-
-    tr {
-        transition: background-color 0.2s ease-in-out;
-
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.03);
-
-            @include dark {
-                background-color: rgba(255, 255, 255, 0.03);
-            }
-        }
-    }
-
-    table tr:nth-child(2n) {
-        background-color: inherit;
-
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.03);
-
-            @include dark {
-                background-color: rgba(255, 255, 255, 0.03);
-            }
-        }
-    }
+  }
 }
 
 .theme-last-updated {
-    @extend .text-11-o-clock;
-    @extend .type-paragraph-small;
-    font-style: normal;
+  @extend .text-11-o-clock;
+  @extend .type-paragraph-small;
+  font-style: normal;
 
-    @include dark {
-        @extend .text-white;
-    }
+  @include dark {
+    @extend .text-white;
+  }
 }
+
+  //pre {
+    //overflow-x: auto;
+    //white-space: pre-wrap;
+    //word-break: break-all;
+    //word-wrap: break-word;
+  // }
