@@ -17,7 +17,7 @@ You can use the UID2 SDK for Java (server-side) to facilitate:
 <!-- This guide includes the following information:
 
 - [Overview](#overview)
-- [Audience](#audience)
+- [Functionality](#functionality)
 - [Initialization](#initialization)
 - [Interface](#interface)
   - [Response Content](#response-content)
@@ -29,15 +29,13 @@ You can use the UID2 SDK for Java (server-side) to facilitate:
 
 The functions outlined here define the information that you'll need to configure or can retrieve from the library. The parameters and property names defined below are pseudocode. Actual parameters and property names vary by language but will be similar to the information outlined here.
 
-## Audience
+## Functionality
 
 This SDK simplifies integration with UID2 for any publishers, DSPs, and UID2 sharers who are using Java for their server-side coding.
 
-| Audience | Functions |
-| :--- | :--- |
-| Publishers | Supports generating or refreshing UID2 tokens from [DII](../ref-info/glossary-uid.md#gl-dii). |
-| DSPs | Supports decrypting UID2 tokens from bid requests. |
-| Sharers | Supports encrypting or decrypting UID2 tokens. |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
+| :--- | :--- | :--- | :--- |
+| Yes | Yes | Yes | Yes |
 
 ## Version
 

@@ -12,7 +12,7 @@ You can use UID2 server-side SDKs to facilitate decrypting of UID2 tokens to acc
 <!-- This guide includes the following information:
 
 - [Overview](#overview)
-- [Audience](#audience)
+- [Functionality](#functionality)
 - [Initialization](#initialization)
 - [Interface](#interface)
   - [Response Content](#response-content)
