@@ -186,7 +186,7 @@ With a sharing permission enabled, a sharing participant who receives an encrypt
 
   If you choose this option, all new participants of the selected participant type will automatically have permission to decrypt any data that you send to them. For details, see [Encryption/Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#encryptiondecryption-key-refresh-cadence-for-sharing).
 
-  For example, let's say you choose to share with all of 20 existing DSPs. The next day, when DSP 21 signs up for sharing, DSP 21 will automatically have permission to decrypt data that you send. To share with DSP 21, just send one or more encrypted UID2 tokens and DSP 21 will be able to decrypt the tokens into raw UID2s. Because you chose automatic sharing, you do not need to log in to explicitly update your sharing permissions to include DSP 21, or any future DSPs that sign up for the UID2 ecosystem. You can remove any sharing permission at any point.
+  For example, let's say you choose to share with all of 20 existing DSPs. The next day, when DSP 21 signs up for sharing, DSP 21 will automatically have permission to decrypt data that you send. To share with DSP 21, just send one or more encrypted UID2 tokens and DSP 21 will be able to decrypt the tokens into raw UID2s. Because you chose automatic sharing, you do not need to log in to explicitly update your sharing permissions to include DSP 21, or any future DSPs that sign up for the UID2 ecosystem. You can update your sharing permission in the UID2 Portal at any point.
 
 ### Steps for Granting Sharing Permission
 

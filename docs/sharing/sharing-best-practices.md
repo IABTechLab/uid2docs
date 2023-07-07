@@ -16,7 +16,7 @@ sidebar_position: 05
 
 The ability to securely share UID2 tokens with other authorized UID2 users opens the door to using UID2 in many additional ways in your business.
 
-However, every UID2 participant has a responsibility to maintain the privacy of the UID2 ecosystem. Here are some best practices to help ensure UID2 sharing runs smoothly and securely.
+However, every UID2 participant has a responsibility to maintain the security of the UID2 ecosystem. Here are some best practices to help ensure UID2 sharing runs smoothly and securely.
 
 ## Best Practices for Managing Raw UID2s
 
