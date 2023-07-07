@@ -8,14 +8,17 @@ sidebar_position: 04
 # Snowflake Integration Guide
 
 <!-- This guide includes the following information:
-- [Audience](#audience)
+- [Functionality](#functionality)
 - [Access the UID2 Shares](#access-the-uid2-shares)
 - [Shared Objects](#shared-objects)
   -  [Database and Schema Names](#database-and-schema-names)
   -  [Map DII](#map-dii)
   -  [Regenerated UID2s](#regenerate-uid2s) 
 - [Migration Guide](#migration-guide)  
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
+- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
+   - [FN_UID2_ENCRYPT](#fn_uid2_encrypt)
+   - [FN_UID2_DECRYPT](#fn_uid2_decrypt)
+   - [UID2 Sharing Example](#uid2-sharing-example) -->
 
 [Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share authorized consumer identifier data without exposing sensitive [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii). Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
 
@@ -28,15 +31,13 @@ The following diagram illustrates how you engage with the UID2 integration proce
 |As a partner, you set up a Snowflake account to host your data and engage in UID2 integration by consuming functions and views through the UID2 Share. | UID2 integration, hosted in a Snowflake account, grants you access to authorized functions and views that draw data from private tables. You can’t access the private tables. The UID2 Share reveals only essential data needed for you to perform UID2-related tasks. |ETL (Extract Transform Load) jobs constantly update the UID2 Core/Optout Snowflake storage with internal data that powers the UID2 Operator Web Services. The data used by the Operator Web Services is also available through the UID2 Share. |
 |When you use shared functions and views, you pay Snowflake for transactional computation costs.  |These private tables, secured in the UID2 Snowflake account, automatically synchronize with the UID2 Core/Optout Snowflake storage that holds internal data used to complete UID2-related tasks.  | |
 
-## Audience
+## Functionality
 
-The following table summarizes the functionality available with te UID2 Snowflake integration.
+The following table summarizes the functionality available with the UID2 Snowflake integration.
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to raw UID2s |
-| :--- |  :--- | :--- | :--- | :--- | :--- |
-| Yes | Yes | No | No | No |
-
-(**GWH_KT: I added the Map DII column in the above table -- per the Confluence page table. Nothing else is listed as supporting that. I just added it here. I suppose in future we need a table like the SDKs table, in the Implementation section. But please let me know if the above is correct.**)
+| :--- |  :--- | :--- | :--- | :--- |
+| Yes | Yes | No | No | Yes |
 
 ## Access the UID2 Shares
 
@@ -67,7 +68,7 @@ Regardless of the UID2 solution you choose, you can map DII to UID2s by using th
 
 - `FN_T_UID2_IDENTITY_MAP` (See [Map DII](#map-dii))
 
-The following functions are deprecated in favor of `FN_T_UID2_IDENTITY_MAP`. You can still use them, but `FN_T_UID2_IDENTITY_MAP` is better. If you are already using these functions, we recommend ugrading as soon as possible.
+The following functions are deprecated in favor of `FN_T_UID2_IDENTITY_MAP`. You can still use them, but `FN_T_UID2_IDENTITY_MAP` is better. If you are already using these functions, we recommend upgrading as soon as possible.
 
 - `FN_T_UID2_IDENTITY_MAP_EMAIL` (deprecated)
 - `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (deprecated)
@@ -498,17 +499,9 @@ When you have the new function implemented, you can check the `UNMAPPED` column 
 
 For details about the values and their explanations, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).
 
-
-
-
-xxx
-
-
-
-
 ## Usage for UID2 Sharers
 
-A UID2 sharer is any participant that wants to share UID2s with another participant. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant. For an example of usage, see [com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` method). (**GWH_ZD_01: This link to a Java implementation should probably come out but all the SDKs have it so I wanted to check with you first.**)
+A UID2 sharer is any participant that wants to share UID2s with another participant. [Raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) must be encrypted into [UID2 tokens](../ref-info/glossary-uid#gl-uid2-token) before sending them to another participant. For an example of usage, see [com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` method). (**GWH_ZD_01: This link to a Java implementation should probably come out but all the SDKs have it so I wanted to check with you first.**)
 
 The following functions support UID2 sharing:
 
@@ -519,21 +512,63 @@ The following functions support UID2 sharing:
 
 This function encrypts a raw UID2 and returns the corresponding UID2 token.
 
+>NOTE: The raw UID2 value is a Base64-encoded string 44 characters in length.
+
+#### FN_UID2_ENCRYPT: Syntax
+
 Function: FN_UID2_ENCRYPT(raw_uid VARCHAR(44))
 
 RETURNS VARCHAR(220)
 
-For an example, see [UID2 Sharing Example](#uid2-sharing-example).
+#### FN_UID2_ENCRYPT: Example
+
+The following example illustrates use of this function. The change is to the user's database, so the `WHERE` is not specified.
+
+```
+SELECT T.token, LATERAL (FN_UID2_DECRYPT(T.token)) AS raw_uid
+FROM receiver's_table T
+WHERE ...
+```
+
+Result: An additional column named `raw_uid` is added to the query result.
+
+```
++------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| raw_uid                                                          | token                                                                                                                                                                                                                        |
+|------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF | AAMAAAACAAECAwQFBgcICQoL18RtKOdx1LlG2zgxK7bTW/nomJIeMFyEJOAMaer+20FTzLBNCJRajrXzXWzb9H3FCtTXs5Rl8PJhYnxxWmMtQ11VHfjI7XiA71CctX2vvCBzD6VEszdNq/t66B1cvLKVjoq2lijm6yyaRi0ovJPuk2dcb8dm4dkHMWGkkOrXbPPvrpsIvYQHH11sbqVycYJZm5w= |
++------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+```
 
 ### FN_UID2_DECRYPT
 
 This function decrypts a UID2 token and returns the corresponding raw UID2.
 
+#### FN_UID2_DECRYPT: Syntax
+
 Function: FN_UID2_DECRYPT(token VARCHAR(220))
 
 RETURNS /*raw uid*/ VARCHAR(44)
 
-For an example, see [UID2 Sharing Example](#uid2-sharing-example).
+####  FN_UID2_DECRYPT: Example
+
+The following example illustrates use of this function. The change is to the user's database, so the `WHERE` is not specified.
+
+```
+SELECT T.raw_uid, LATERAL (FN_UID2_ENCRYPT(T.raw_uid)) AS token
+FROM sender's_table T
+WHERE ...
+```
+
+Result: An additional column named `token` is added to the query result.
+
+```
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+
+| token                                                                                                                                                                                                                        | raw_uid                                                          |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AAMAAAACAAECAwQFBgcICQoL18RtKOdx1LlG2zgxK7bTW/nomJIeMFyEJOAMaer+20FTzLBNCJRajrXzXWzb9H3FCtTXs5Rl8PJhYnxxWmMtQ11VHfjI7XiA71CctX2vvCBzD6VEszdNq/t66B1cvLKVjoq2lijm6yyaRi0ovJPuk2dcb8dm4dkHMWGkkOrXbPPvrpsIvYQHH11sbqVycYJZm5w= | 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF |
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+```
 
 ### UID2 Sharing Example
 
@@ -542,22 +577,21 @@ The following instructions provide an example of how sharing works when the send
 1. Senders: 
    1. Call the following:
 
-      ```java
-xxx
-      ```
+      
+      **GWH_ZD_02: Not sure what to put in here. Perhaps instead we should just say Call the [FN_UID2_ENCRYPT](#fn_uid2_encrypt) function. Let me know what you think.**
+     
    2. If encryption succeeded, send the UID2 token to the receiver:   
 
-      ```java
-xxx
+      ```
+      GWH_ZD_03: I don't think we discussed what they do next when they've run the Encrypt function.
       ```
 1. Receivers: 
    1. Call the following:
 
-      ```java
-xxx
-      ```
+      **GWH_ZD_04: Not sure what to put in here. Perhaps instead we should just say Call the [FN_UID2_DECRYPT](#fn_uid2_decrypt) function. Let me know what you think.**
+
    2. If decryption succeeded, use the raw UID2:
 
-      ```java    
-xxx
+      ```
+      GWH_ZD_05: What should go in here? What do they do once they've run the Decrypt function?
       ```
