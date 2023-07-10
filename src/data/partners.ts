@@ -101,6 +101,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Attain",
+    logo: "Attain_Logo_Black_580x250.png",
+    type: ["Data"],
+  },
+  {
     name: "Audigent",
     logo: "PartnerLogo_Audigent_256x256.png",
     type: ["Data"],
@@ -140,6 +145,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "Cinema Café",
     logo: "cinema-cafe-logo-580x250.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "coc coc",
+    logo: "CocCoc_RGB.png",
     type: ["Publishers"],
   },
   {
@@ -189,11 +199,26 @@ export const partnersData: PartnersDataType = [
     type: ["DSP"],
   },
   {
+    name: "FLUX Inc.",
+    logo: "FLUX_Logo_fix-1_BL.png",
+    type: ["DSP"],
+  },
+  {
+    name: "FourM Inc.",
+    logo: "fourm_company_logo.png",
+    type: ["DSP"],
+  },
+  {
     name: "Foursquare",
     logo: "PartnerLogo_Foursquare_580x250.png",
     type: ["Data"],
     featured: true,
     order: 8,
+  },
+  {
+    name: "FPT Play",
+    logo: "VN_FPT Play.png",
+    type: ["Publishers"],
   },
   {
     name: "Freak Out",
@@ -224,6 +249,11 @@ export const partnersData: PartnersDataType = [
     name: "Habu",
     logo: "Habu.png",
     type: ["CDP"],
+  },
+  {
+    name: "Hello Health Group",
+    logo: "HHG1000px.png",
+    type: ["Publishers"],
   },
   {
     name: "Hipwee",
@@ -582,6 +612,11 @@ export const partnersData: PartnersDataType = [
     type: ["DSP"],
   },
   {
+    name: "Summit Media",
+    logo: "Summit_Media_logo.png",
+    type: ["Publishers"],
+  },
+  {
     name: "Surfside",
     logo: "Surfside.png",
     type: ["DSP"],
@@ -640,6 +675,11 @@ export const partnersData: PartnersDataType = [
     name: "TrueData",
     logo: "TrueData-580x250.png",
     type: ["Data"],
+  },
+  {
+    name: "True Digital",
+    logo: "LogoTrueID Corporate.png",
+    type: ["Publishers"],
   },
   {
     name: "Tubi",

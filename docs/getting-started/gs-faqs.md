@@ -20,7 +20,7 @@ Frequently asked questions for UID2 are grouped into general categories by audie
 ## FAQs&#8212;General
 
 Here are some frequently asked questions regarding the UID2 framework.
-<!-- (gwh note: section is taken from original readme) -->
+
    - [Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
    - [Can users opt out of targeted advertising tied to their UID2 identity?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2-identity)
    - [How does a user know where to access the opt-out portal?](#how-does-a-user-know-where-to-access-the-opt-out-portal)
@@ -40,7 +40,7 @@ Publishers, SSO providers, or consent management platforms disclose links to the
 ## FAQs for Publishers Using an SDK
 
 Here are some frequently asked questions for publishers using the UID2 framework, when a client-side SDK is in use.
-<!-- (gwh note: section is taken from publisher-client-side.md) -->
+
    - [How will I be notified of user opt-out?](#how-will-i-be-notified-of-user-opt-out-with-sdk)
    - [Where should I make token generation calls&#8212;from the server or client side?](#where-should-i-make-token-generation-callsfrom-the-server-or-client-side-with-sdk)
    - [Can I make token refresh calls from the client side?](#can-i-make-token-refresh-calls-from-the-client-side-with-sdk)
@@ -72,7 +72,7 @@ You can use the `optout@email.com` email address or the `+00000000000` phone num
 ## FAQs for Publishers Not Using an SDK
 
 Here are some frequently asked questions for publishers using the UID2 framework, when the publisher is not using a client-side SDK.
-<!-- (gwh note: section is taken from custom-publisher-integration.md) -->
+
    - [Do I need to decrypt tokens?](#do-i-need-to-decrypt-tokens)
    - [How will I be notified of user opt-out?](#how-will-i-be-notified-of-user-opt-out-without-sdk)
    - [Where should I make token generation calls&#8212;from the server or client side?](#where-should-i-make-token-generation-callsfrom-the-server-or-client-side-without-sdk)
@@ -126,7 +126,7 @@ For details, see [Using POST /token/validate to Test](../endpoints/post-token-va
 ## FAQs for Advertisers and Data Providers
 
 Here are some frequently asked questions for advertisers and data providers using the UID2 framework.
-<!-- (gwh note: section is taken from advertiser-dataprovider-guide.md) -->
+
    - [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
    - [Do refreshed emails get assigned to the same bucket with which they were previously associated?](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
    - [How often should UIDs be refreshed for incremental updates?](#how-often-should-uids-be-refreshed-for-incremental-updates)
@@ -169,7 +169,7 @@ If a user opts out through your website, you should follow your internal procedu
 ## FAQs for Demand-Side Platforms (DSPs)
 
 Here are some frequently asked questions for DSPs.
-<!-- (gwh note: section is taken from dsp-guide.md) -->
+
    - [How do I know which decryption key to apply to a UID2?](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
    - [Where do I get the decryption keys?](#where-do-i-get-the-decryption-keys)
    - [How do I know if/when the salt bucket has rotated?](#how-do-i-know-ifwhen-the-salt-bucket-has-rotated)
