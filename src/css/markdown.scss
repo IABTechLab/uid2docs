@@ -3,7 +3,7 @@
   @extend .type-paragraph;
 
   @include dark {
-    @extend .text-white;
+    @extend .text-off-white;
   }
 
   a {
@@ -21,7 +21,6 @@
 
   table td {
     vertical-align: top;
-    word-wrap: break-word;
   }
 
   thead {
@@ -30,12 +29,8 @@
 
   code {
     @extend .code;
-  }
-
-  .table-fixed-width {
-    td {
-      max-width: 500px;
-      min-width: 300px;
+    @include dark {
+      @extend .text-cyan-45;
     }
   }
 
@@ -108,7 +103,6 @@
     @extend .text-white;
   }
 }
-
   //pre {
     //overflow-x: auto;
     //white-space: pre-wrap;
