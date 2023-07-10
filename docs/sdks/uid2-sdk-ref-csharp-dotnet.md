@@ -12,7 +12,7 @@ You can use UID2 server-side SDKs to facilitate decrypting of UID2 tokens to acc
 <!-- This guide includes the following information:
 
 - [Overview](#overview)
-- [Audience](#audience)
+- [Functionality](#functionality)
 - [Initialization](#initialization)
 - [Interface](#interface)
   - [Response Content](#response-content)
@@ -24,14 +24,13 @@ You can use UID2 server-side SDKs to facilitate decrypting of UID2 tokens to acc
 
 The functions outlined here define the information that you'll need to configure or can retrieve from the library. The parameters and property names defined below are pseudocode. Actual parameters and property names vary by language but will be similar to the information outlined here.
 
-## Audience
+## Functionality
 
-This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using C# / .NET for their server-side coding.
+This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using C# / .NET for their server-side coding. The following table shows the functions it supports.
 
-| Audience | Functions |
-| :--- | :--- |
-| DSPs | Supports decrypting UID2 tokens from bid requests. |
-| Sharers | Supports encrypting or decrypting UID2 tokens. |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
+| :--- | :--- | :--- | :--- |
+| Yes | Yes | No | No |
 
 ## Version
 
@@ -87,8 +86,6 @@ Available information returned through the SDK is outlined in the following tabl
 | `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
 | `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
 
-
-
 ## Usage for UID2 Sharers
 
 A UID2 sharer is any participant that wants to share UID2s with another participant. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant. For an example of usage, see [com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` method).
@@ -100,11 +97,11 @@ The following instructions provide an example of how you can implement sharing u
     ```cs
    var client = UID2ClientFactory.Create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
    ```
-2. Refresh once at startup, and then periodically (for example, every hour):
+2. Refresh once at startup, and then periodically (recommended refresh interval is hourly):
 
     ```cs
    client.Refresh();
-   ```
+    ```
 3. Senders: 
    1. Call the following:
 
