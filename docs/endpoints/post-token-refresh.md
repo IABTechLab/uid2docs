@@ -99,7 +99,7 @@ An error response might look like the following:
 
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
-| `advertising_token` | string | The UID2 token (advertising token) for the user. |
+| `advertising_token` | string | The UID2 token (also known as advertising token) for the user. |
 | `refresh_token` | string | An encrypted token that can be exchanged with the UID2 Service for the latest set of identity tokens. |
 | `identity_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the UID2 token expires. |
 | `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the [UID2 SDK for JavaScript](../sdks/client-side-identity.md) will start refreshing the advertising token, if the SDK is in use.<br/>TIP: If you are not using the SDK, consider refreshing the UID2 token from this timestamp, too. |
