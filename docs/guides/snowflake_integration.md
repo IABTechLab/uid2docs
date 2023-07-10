@@ -508,7 +508,7 @@ For details about the values and their explanations, see [Values for the UNMAPPE
 
 ## Usage for UID2 Sharers
 
-A UID2 sharer is any participant that wants to share UID2s with another participant. For details, see [UID2 Sharing Overview](../sharing/sharing-overview).
+A UID2 sharer is any participant that wants to share UID2s with another participant. <!-- For details, see [UID2 Sharing Overview](../sharing/sharing-overview). -->
 
 A sharing participant must encrypt [Raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into [UID2 tokens](../ref-info/glossary-uid#gl-uid2-token) before sending them to another participant.
 
@@ -525,7 +525,7 @@ Use the applicable prefix to indicate your role:
 - For advertisers: `ADV.FN_UID2_ENCRYPT`
 - For data providers: `DP.FN_UID2_ENCRYPT`
 
->NOTE: The raw UID2 value is a Base64-encoded string 44 characters in length.
+>NOTE: The raw UID2 value is a Base64-encoded string, 44 characters in length.
 
 #### FN_UID2_ENCRYPT: Syntax
 
@@ -538,7 +538,7 @@ RETURNS VARCHAR(220)
 
 #### FN_UID2_ENCRYPT: Example
 
-The following example illustrates use of this function. The change is to the user's database, so the `WHERE` is not specified.
+The following example illustrates use of this function. The actual change varies according to the specific database, so the `WHERE` is not specified in the example.
 
 ```
 SELECT T.token, LATERAL (FN_UID2_DECRYPT(T.token)) AS raw_uid
@@ -575,7 +575,7 @@ RETURNS /*raw uid*/ VARCHAR(44)
 
 ####  FN_UID2_DECRYPT: Example
 
-The following example illustrates use of this function. The change is to the user's database, so the `WHERE` is not specified.
+The following example illustrates use of this function. The actual change varies according to the specific database, so the `WHERE` is not specified in the example.
 
 ```
 SELECT T.token, LATERAL (FN_UID2_DECRYPT(T.token)) AS raw_uid
@@ -595,7 +595,7 @@ Result: An additional column named `token` is added to the query result.
 
 ### UID2 Sharing Example
 
-The following instructions provide an example of how sharing works when the sender and the receiver are both using Snowflake.
+The following instructions provide an example of how sharing works for a sender and a receiver both using Snowflake.
 
 - Senders: 
    - Call one of the following, depending on whether you are an advertiser or a data provider:
@@ -627,6 +627,6 @@ The following instructions provide an example of how sharing works when the send
      For data providers:
 
       ```
-      SELECT T.token, LATERAL (ADP.FN_UID2_DECRYPT(T.token)) AS raw_uid
+      SELECT T.token, LATERAL (DP.FN_UID2_DECRYPT(T.token)) AS raw_uid
       FROM receiver's_table T
       ```
