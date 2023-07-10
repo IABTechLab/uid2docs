@@ -77,10 +77,6 @@
     }
   }
 
-  td {
-    // word-break: break-all;
-  }
-
   table tr:nth-child(2n) {
     background-color: inherit;
 
@@ -103,9 +99,3 @@
     @extend .text-white;
   }
 }
-  //pre {
-    //overflow-x: auto;
-    //white-space: pre-wrap;
-    //word-break: break-all;
-    //word-wrap: break-word;
-  // }
