@@ -118,10 +118,10 @@
 
   &__link {
     white-space: normal;
-    min-width: 15rem;
 
     &:hover {
-      .dropdown__label {
+      .dropdown__label,
+      > span {
         background-size: 100% 2px;
       }
     }
@@ -138,7 +138,8 @@
     }
   }
 
-  &__label {
+  &__label,
+  &__link span {
     background-repeat: no-repeat;
     transition-duration: 0.2s;
     background-image: linear-gradient(currentcolor, currentcolor);
