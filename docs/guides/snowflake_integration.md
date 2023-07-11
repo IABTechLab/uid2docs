@@ -31,9 +31,11 @@ The following listings for UID2 are available on the Snowflake marketplace:
 
 The following table summarizes the functionality available with the UID2 Snowflake integration.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to raw UID2s |
+| Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a raw UID2 |
 | :--- |  :--- | :--- | :--- | :--- |
-| Yes | Yes | No | No | Yes |
+| Yes | Yes | No* | No | Yes |
+
+*You cannot generate a UID2 token directly from DII. However, you can convert DII to a raw UID2, and then encrypt the raw UID2 into a UID2 token.
 
 ## Workflow Diagram
 
