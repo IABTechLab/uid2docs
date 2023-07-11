@@ -23,7 +23,7 @@ sidebar_position: 04
 
 [Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share authorized consumer identifier data without exposing sensitive [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii). Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
 
-For overview information on the Snowflake site, see:
+The following listings for UID2 are available on the Snowflake marketplace:
 - For advertisers: [Unified ID 2.0: Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV/unified-id-2-0-unified-id-2-0-advertiser-identity-solution?originTab=provider&providerName=Unified+ID+2.0)
 - For data providers: [Unified ID 2.0: Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0/unified-id-2-0-unified-id-2-0-data-provider-identity-solution?originTab=provider&providerName=Unified+ID+2.0)
 
@@ -31,7 +31,7 @@ For overview information on the Snowflake site, see:
 
 The following table summarizes the functionality available with the UID2 Snowflake integration.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to raw UID2s |
+| Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to raw UID2s |
 | :--- |  :--- | :--- | :--- | :--- |
 | Yes | Yes | No | No | Yes |
 
@@ -120,9 +120,9 @@ A successful query returns the following information for the specified DII.
 
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
-| `UID2` | TEXT | DII was successfully mapped: The UID2 associated with the DII.<br/>DII was not successfully mapped: `NULL`. |
-| `BUCKET_ID` | TEXT | DII was successfully mapped: The ID of the second-level salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view.<br/>DII was not successfully mapped: `NULL`. |
-| `UNMAPPED` | TEXT | DII was successfully mapped: `NULL`.<br/>DII was not successfully mapped:  The reason why an identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`. For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).  |
+| `UID2` | TEXT | If DII was successfully mapped: The UID2 associated with the DII.<br/>DII was not successfully mapped: `NULL`. |
+| `BUCKET_ID` | TEXT | If DII was successfully mapped: The ID of the second-level salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view.<br/>DII was not successfully mapped: `NULL`. |
+| `UNMAPPED` | TEXT | If DII was successfully mapped: `NULL`.<br/>DII was not successfully mapped:  The reason why an identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`. For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).  |
 
 ### Values for the UNMAPPED Column
 
@@ -510,7 +510,7 @@ For details about the values and their explanations, see [Values for the UNMAPPE
 
 A UID2 sharer is any participant that wants to share UID2s with another participant. <!-- For details, see [UID2 Sharing Overview](../sharing/sharing-overview). -->
 
-A sharing participant must encrypt [Raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into [UID2 tokens](../ref-info/glossary-uid#gl-uid2-token) before sending them to another participant.
+A sharing participant must encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into [UID2 tokens](../ref-info/glossary-uid#gl-uid2-token) before sending them to another participant.
 
 The following functions support UID2 sharing:
 
@@ -538,15 +538,14 @@ RETURNS VARCHAR(220)
 
 #### FN_UID2_ENCRYPT: Example
 
-The following example illustrates use of this function. The actual change varies according to the specific database, so the `WHERE` is not specified in the example.
+The following example illustrates use of this function.
 
 ```
-SELECT T.token, LATERAL (FN_UID2_DECRYPT(T.token)) AS raw_uid
-FROM receiver's_table T
-WHERE ...
+SELECT T.raw_uid, LATERAL (FN_UID2_ENCRYPT(T.raw_uid)) AS token
+FROM AUDIENCE_WITH_UID2 T
 ```
 
-Result: An additional column named `raw_uid` is added to the query result.
+Result: An additional column named `token` is added to the query result.
 
 ```
 +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -575,15 +574,14 @@ RETURNS /*raw uid*/ VARCHAR(44)
 
 ####  FN_UID2_DECRYPT: Example
 
-The following example illustrates use of this function. The actual change varies according to the specific database, so the `WHERE` is not specified in the example.
+The following example illustrates use of this function.
 
 ```
 SELECT T.token, LATERAL (FN_UID2_DECRYPT(T.token)) AS raw_uid
 FROM receiver's_table T
-WHERE ...
 ```
 
-Result: An additional column named `token` is added to the query result.
+Result: An additional column named `raw_uid` is added to the query result.
 
 ```
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+
@@ -600,33 +598,33 @@ The following instructions provide an example of how sharing works for a sender 
 - Senders: 
    - Call one of the following, depending on whether you are an advertiser or a data provider:
 
-     For advertisers:
+     In this example, for advertisers, `AUDIENCE_WITH_UID2` is the sender's table.
 
       ```
       SELECT T.raw_uid, LATERAL (ADV.FN_UID2_ENCRYPT(T.raw_uid)) AS token
-      FROM sender's_table T
+      FROM AUDIENCE_WITH_UID2 T
       ```
 
-     For data providers:
+     In this example, for data providers, `AUDIENCE_WITH_UID2` is the sender's table.
 
       ```
       SELECT T.raw_uid, LATERAL (DP.FN_UID2_ENCRYPT(T.raw_uid)) AS token
-      FROM sender's_table T
+      FROM AUDIENCE_WITH_UID2 T
       ```
 
 - Receivers: 
    - Call one of the following, depending on whether you are an advertiser or a data provider:
 
-     For advertisers:
+     In this example, for advertisers, `AUDIENCE_WITH_UID2` is the receiver's table.
 
       ```
       SELECT T.token, LATERAL (ADV.FN_UID2_DECRYPT(T.token)) AS raw_uid
-      FROM receiver's_table T
+      FROM AUDIENCE_WITH_UID2 T
       ```
 
-     For data providers:
+     In this example, for data providers, `AUDIENCE_WITH_UID2` is the receiver's table.
 
       ```
       SELECT T.token, LATERAL (DP.FN_UID2_DECRYPT(T.token)) AS raw_uid
-      FROM receiver's_table T
+      FROM AUDIENCE_WITH_UID2 T
       ```
