@@ -24,9 +24,31 @@ The UID2 sender specifies which receivers can decrypt their tokens, by configuri
 
 For example, let's say that an advertiser (sender) wants to share raw UID2s with a trusted sharing partner who is a DSP, for segment creation via an API. Using sharing, the advertiser can encrypt the raw UID2s into UID2 tokens and send them securely to the DSP (receiver). The DSP, who is also taking part in sharing, has access to the advertiser's decryption keys and can therefore decrypt the UID2 tokens into raw UID2s for segment creation.
 
-There are many scenarios for sharing. For details, see [Sharing Use Cases](sharing-use-cases)<!-- (**GWH_link issue here**) -->.
+There are many scenarios for sharing. For details, see [Sharing Use Cases](sharing-use-cases.md)<!-- (**GWH_link issue here**) -->.
+
+Additional resources:
+
+- [Implementing Sharing](sharing-implementing.md)
+- [Sharing UID2s: Best Practices](sharing-best-practices.md)
 
 ## UID2 Sharing Workflow
+
+(**GWH/KT below are Andrei's steps. But his steps and mine are repetitive. Thoughts?**)
+
+The workflow for sharing UID2 data consists of the following steps (each step is link to corresponding section):
+
+1. The sender defines which sharing participants are allowed to decrypt the sender's token.
+
+1. The sender uses a UID2 SDK or UID2 APIs to convert emails, phone numbers, or raw UID2s into UID2 tokens.
+
+1. The sender transmits the data containing UID2 tokens to the receiver.
+
+1. The receiver uses a UID2 SDK or UID2 APIs to decrypt raw UID2s from the received UID2 tokens.
+
+The following diagram illustrates the UID2 sharing pPermission SDK integration Workflow:
+
+![UID2 Sharing Permission SDK Integration Workflow](images/UID2_Sharing_Diagram_Integrate_SDK.png)
+
 The basic steps for sharing UID2 tokens within the ad tech ecosystem are as follows:
 
 - [One-Time Setup Steps](#one-time-setup-steps)
@@ -60,23 +82,17 @@ Receiver:
 1. Receiver: Receive the data, including UID2 tokens.
 1. Receiver: Decrypt the UID2 tokens into raw UID2s and use the raw UID2 data.
 
-UID2 Sharing Permission SDK Integration Workflow:
-
-![UID2 Sharing Permission SDK Integration Workflow](images/UID2_Sharing_Diagram_Integrate_SDK.png)
-
  ## Generating Tokens for UID2 Sharing
 
-When a participant is sending a UID2 to another participant, the raw UID2 must be encrypted into a UID2 token.   
+When a sharing participant is sending a UID2 to another sharing participant, the raw UID2 must be encrypted into a UID2 token.   
 
-For example, when a participant sends a UID2 outside the participant infrastructure, such as to an API endpoint or to a location such as S3 where it is accessible to another participant, the UID2 must be encrypted into a UID2 token.
+For example, when a sharing participant sends a UID2 outside the participant infrastructure, such as to an API endpoint or to a location such as S3 where it is accessible to another participant, the UID2 must be encrypted into a UID2 token.
 
 There are two ways that you can generate a UID2 token, and the correct way to generate the token depends on the usage scenario:
-- UID2 token for use in the bid stream: convert the input email address or phone number directly to a UID2 token. See [Token Example for Bid Stream](#token-example-for-bid-stream).
-- UID2 token for sharing: convert the input email address or phone number to a raw UID2, and then to a UID2 token. See [Token Example for Sharing](#token-example-for-sharing).
+- UID2 token for use in the bid stream: convert the input email address or phone number directly to a UID2 token.<!--  See [Token Example for Bid Stream](#token-example-for-bid-stream). -->
+- UID2 token for sharing (the only valid way for sharing): convert the input email address or phone number to a raw UID2, and then to a UID2 token. See [Token Example for Sharing](#token-example-for-sharing).
 
 The correct way to generate the token depends on the scenario, as shown in the following table. All scenarios except the first one apply to sharing UID2s.
-
-{**GWH_KT_06 Last comment... I could combine the last four rows. I still think the content is better this way than having encryption method first.**}
 
 | Use Case | Encryption Method |
 | :--- | :--- |
@@ -90,41 +106,6 @@ The correct way to generate the token depends on the scenario, as shown in the f
 | :--- | :--- |
 | Bid stream | [POST /token/generate](../endpoints/post-token-generate.md) endpoint when using the UID2 API, or corresponding function in a UID2 SDK. |
 | API<br/>File transfer<br/>Pixel<br/>All other sharing use cases | Sharing `encrypt()` function in the corresponding server-side SDK: see [Steps to Implement Sharing](sharing-implementing.md#steps-to-implement-sharing). | -->
-
-### Token Example for Bid Stream
-
-UID2 participants who don't need to store the raw UID2&#8212;for example, publishers&#8212;can convert the input email address or phone number directly to a UID2 token in one operation, as shown in the following example.
-
-<table>
-<colgroup>
-    <col style={{
-      width: "30%"
-    }} />
-    <col style={{
-      width: "40%"
-    }} />
-    <col style={{
-      width: "30%"
-    }} />
-   
-  </colgroup>
-<thead>
-<tr>
-<th>Input Example</th>
-<th>Process/User</th>
-<th >Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>user@example.com</td>
-<td>Conversion to a UID2 token, used in the bid stream, using the <a href="../endpoints/post-token-generate">POST /token/generate</a> endpoint.<br/>If you're using an SDK, the SDK manages token generation.</td>
-<td style={{
-  wordBreak: "break-all"
-}}>KlKKKfE66A7xBnL/DsT1UV/Q+V/r3xwKL89Wp7hpNllxmNkPaF8vdzenDvfoatn6sSXbFf5DfW9wwbdDwMnnOVpPxojkb8KYSGUte/FLSHtg4CLKMX52UPRV7H9UbWYvXgXC4PaVrGp/Jl5zaxPIDbAW0chULHxS+3zQCiiwHbIHshM+oJ==</td>
-</tr>
-</tbody>
-</table>
 
 ### Token Example for Sharing
 
@@ -172,19 +153,16 @@ The UID2 token is designed so that it can be seen by all but can only be used by
 
 For example, UID2 tokens are habitually passed through the bid stream from a publisher to a DSP. Although a UID2 token might go through several parties, such as an SSP, it can be decrypted only by an authorized UID2 participant. On its journey through the bid stream, the UID2 token can safely pass through one or more intermediaries.
 
+The same is true of UID2 tokens generated for sharing. (**GWH_KT is this OK? We needed to have the pass-through section, and it talks about publishers and the bid stream, so I added this line.**)
+
 ## UID2 Portal Sharing Permissions
 
-With a sharing permission enabled, a sharing participant who receives an encrypted UID2 token can decrypt the UID2 token into a raw UID2. The sharing options available include the following:
+For the intended receiver of UID2 tokens to be able to decrypt them into raw UID2s, the sender must grant permission to the receiver. Sharing permissions are defined through the UID2 Portal (**GWH_KT do I need to say, through the UID2 Portal when available, and until then ask your UID2 contact? Or...? I believe this will be published before the portal doc.**).
 
-- Individual selection of sharing participants
+The following sharing options are available via the UID2 Portal. These options are not mutually exclusive; you can mix and match as needed:
 
-   A participant can choose to share with one or more participants by individually selecting each participant.
-
-- Automatic sharing with all participants of a specific type
-
-  A participant can choose to share with all participants of one or more participant types, such as all Publishers, Advertisers, DSPs, or Data Providers.  
-
-  If you choose this option, all new participants of the selected participant type will automatically have permission to decrypt any data that you send to them. For details, see [Encryption/Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#encryptiondecryption-key-refresh-cadence-for-sharing).
+- You can automatically grant permission to all participants of a specific type, such as all Publishers, Advertisers, DSPs, or Data Providers.<!--  (link to sub-section) --> For example, we recommend that publishers grant sharing permission to all DSPs.
+- You can grant permission to one or more specific participants<!--  (link to sub-section) -->. If you choose this option, all new participants of the selected participant type will automatically have permission to decrypt any data that you send to them. For details, see [Encryption/Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#encryptiondecryption-key-refresh-cadence-for-sharing).
 
   For example, let's say you choose to share with all of 20 existing DSPs. The next day, when DSP 21 signs up for sharing, DSP 21 will automatically have permission to decrypt data that you send. To share with DSP 21, just send one or more encrypted UID2 tokens and DSP 21 will be able to decrypt the tokens into raw UID2s. Because you chose automatic sharing, you do not need to log in to explicitly update your sharing permissions to include DSP 21, or any future DSPs that sign up for the UID2 ecosystem. You can update your sharing permission in the UID2 Portal at any point.
 
@@ -192,7 +170,8 @@ With a sharing permission enabled, a sharing participant who receives an encrypt
 
 At a high level, enabling sharing permissions includes the following steps. For exact instructions for configuring your sharing options in the UID2 Portal, refer to [Sharing Permissions](../portal/sharing-permissions.md).
 
-1. Integrate the SDK into your code.
+>NOTE: As well as granting sharing permission, you'll need to integrate the SDK into your code.
+
 1. Log in to the UID2 Portal account.
 1. Click **Sharing Permissions**.
 1. Do one of the following:

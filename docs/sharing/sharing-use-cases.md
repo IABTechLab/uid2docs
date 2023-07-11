@@ -9,9 +9,9 @@ sidebar_position: 03
 
 There are many ways to implement sharing&#8212;many different examples of senders, receivers, and transfer methods.
 
-When you use this feature, the secure sharing workflow allows you to share with trusted partners. For example, here are a few sample scenarios where a sender wants to share UID2s with receiver: 
+When you use this feature, the secure sharing workflow allows you to share with trusted partners. For example, here are a few sample scenarios where a sender wants to share UID2s with a receiver: 
 
-- A publisher (sender) sends a UID2 token via the bid stream to a DSP (receiver).
+- A publisher (sender) sends a UID2 token via the bid stream to a DSP (receiver). {**GWH_KT This is not a sharing example... correct?**}
 - A measurement partner (sender) sends a UID2 token to an advertiser (receiver) via Amazon Simple Storage Service (S3).
 - A DSP (sender) sends a UID2 token to an advertiser (receiver) via reporting.
 

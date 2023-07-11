@@ -21,7 +21,7 @@ However, every UID2 participant has a responsibility to maintain the security of
 ## Best Practices for Managing Raw UID2s
 
 Follow these guidelines:
-- For any UID2s that are in your platform, use and store them as raw UID2s, not as UID2 tokens.
+- For any UID2s that are in your platform, use and store them as raw UID2s, not as UID2 tokens. (**GWH_KT this was the question for Zaiwei**)
 - In your code, for future extensibility, we recommend allowing for a maximum UID2 token length of 100 characters.
 
 ## Best Practices for Managing UID2 Tokens
@@ -34,26 +34,13 @@ Follow these guidelines:
 
 - In your code, for future extensibility, we recommend allowing for a maximum UID2 token length of 500 characters.
 
-## Encryption/Decryption Key Refresh Cadence for Sharing
+## Key Refresh Cadence
 
-For long/continuously running processes, call the `uid2client.refresh()` function once per hour. This allows the SDK to fetch the latest keys for decryption. When a new sharing permission is enabled, the additional set of encryption keys needed to decrypt the data sent by the sharing sender is returned the next time the sharing receiver calls the `uid2client.refresh()` function. This process is handled by the SDK.
+For long/continuously running processes, call the `uid2client.refresh()` function once per hour. 
 
-### Decryption Key Refresh Example
+The following are reasons to refresh the keys on an hourly cadence:
 
-This example illustrates how the `uid2client.refresh()` function enables a new sharing permission. In this example, Advertiser ABC wants to send data to Data Provider XYZ.
+- Regular refresh allows the SDK to fetch the latest keys for decryption.
+- The UID2 framework periodically rotates encryption keys.
 
-1. 12:00 pm:
-
-   The sharing permission is not yet enabled.
-
-   Data Provider XYZ calls `uid2client.refresh()`. The decryption key for Advertiser ABC is not returned, so sharing cannot occur.
-
-2. 12:30 pm:
-
-   Advertiser ABC logs in to the UID2 Portal and creates a sharing permission with Data Provider XYZ.
-
-3. 1:00 pm:
-
-   Data Provider XYZ, on an hourly cadence, again calls `uid2client.refresh()`. Because there is a new sharing permission, the key for Advertiser ABC is returned in the response.
-
-   Data Provider XYZ can now decrypt any UID2 token received from Advertiser ABC into a raw UID2.  
+For details, see [Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)](sharing-implementing.md#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only)
