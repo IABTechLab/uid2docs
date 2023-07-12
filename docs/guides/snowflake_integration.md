@@ -551,7 +551,7 @@ A successful query returns the encrypted UID2 token as a `VARCHAR`.
 
 #### FN_UID2_ENCRYPT: Example
 
-The following example illustrates use of this function.
+The following example illustrates use of this function. In this example, `AUDIENCE_WITH_UID2` is the sender's table.
 
 ```
 SELECT T.raw_uid, LATERAL (FN_UID2_ENCRYPT(T.raw_uid)) AS token
@@ -592,11 +592,11 @@ A successful query returns the encrypted UID2 token as a `VARCHAR`.
 
 ####  FN_UID2_DECRYPT: Example
 
-The following example illustrates use of this function.
+The following example illustrates use of this function. In this example, `AUDIENCE_WITH_UID2` is the receiver's table.
 
 ```
 SELECT T.token, LATERAL (FN_UID2_DECRYPT(T.token)) AS raw_uid
-FROM receiver's_table T
+FROM AUDIENCE_WITH_UID2 T
 ```
 
 Result: An additional column named `raw_uid` is added to the query result.
