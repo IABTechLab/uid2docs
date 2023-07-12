@@ -49,7 +49,7 @@ The following diagram illustrates the UID2 sharing permission SDK integration Wo
 
 ## Generating Tokens for UID2 Sharing
 
-When a sharing participant is sending a UID2 to another sharing participant, the raw UID2 must be encrypted into a UID2 token.   
+When a sharing participant is sending a UID2 to another sharing participant, the raw UID2 must be encrypted into a UID2 sharing token.   
 
 For example, when a sharing participant sends a UID2 outside the participant infrastructure, such as to an API endpoint or to a location such as S3 where it is accessible to another participant, the UID2 must be encrypted into a UID2 token.
 
