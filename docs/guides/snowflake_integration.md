@@ -533,16 +533,21 @@ Use the applicable prefix to indicate your role:
 - For advertisers: `ADV.FN_UID2_ENCRYPT`
 - For data providers: `DP.FN_UID2_ENCRYPT`
 
->NOTE: The raw UID2 value is a Base64-encoded string, 44 characters in length.
+>NOTE: The raw UID2 value is a Base64-encoded string.
 
 #### FN_UID2_ENCRYPT: Syntax
 
-The following is the basic syntax for the encrypt function:
+The following is the syntax for this function:
 
-```
-Function: FN_UID2_ENCRYPT(raw_uid VARCHAR(44))
-RETURNS VARCHAR(220)
-```
+`FN_UID2_ENCRYPT(raw_uid VARCHAR)`
+
+The following table shows the arguments for this function.
+
+|Argument|Data Type|Description|
+| :--- | :--- | :--- |
+| `raw_uid` | varchar | The raw UID2. |
+
+A successful query returns the encrypted UID2 token as a `VARCHAR`.
 
 #### FN_UID2_ENCRYPT: Example
 
@@ -573,12 +578,17 @@ Use the applicable prefix to indicate your role:
 
 #### FN_UID2_DECRYPT: Syntax
 
-The following is the basic syntax for the decrypt function:
+The following is the syntax for this function:
 
-```
-Function: FN_UID2_DECRYPT(token VARCHAR(220))
-RETURNS /*raw uid*/ VARCHAR(44)
-```
+`FN_UID2_DECRYPT(token VARCHAR)`
+
+The following table shows the arguments for this function.
+
+|Argument|Data Type|Description|
+| :--- | :--- | :--- |
+| `token` | varchar | The UID2 token. |
+
+A successful query returns the encrypted UID2 token as a `VARCHAR`.
 
 ####  FN_UID2_DECRYPT: Example
 
