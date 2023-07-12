@@ -7,7 +7,7 @@ sidebar_position: 04
 
 # UID2 SDK for Java (Server-Side) Reference Guide
 
-You can use the UID2 SDK for Java (server-side) to facilitate:
+You can use the UID2 SDK for Java (server-side) to facilitate the following:
 
 - Generating UID2 advertising tokens
 - Refreshing UID2 advertising tokens

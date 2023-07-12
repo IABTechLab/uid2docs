@@ -16,13 +16,42 @@ sidebar_position: 03
 - [Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)](#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only) -->
 
 Setting up UID2 sharing requires some steps by each participant:
-- The sender, who sends encrypted UID2 tokens to an authorized sharing participant.
-- The receiver, who receives the encrypted UID2 tokens and decrypts them.
 
-Choose from the following, depending on the integration option you're using:
+- The sender, who sends encrypted UID2 tokens to an authorized sharing participant.
+- The receiver, an authorized sharing participant who receives the encrypted UID2 tokens and decrypts them.
+
+>NOTE: If you are a publisher, and have no other role, the steps on this page are not applicable to you. Instead, see [Sharing for Publishers](sharing-publishers.md).
+
+## Sharing Steps: Summary
+
+First, all users must set up an account and configure sharing options. See [UID2 Portal Overview](../portal/portal-overview.md).
+
+Then, to implement sharing in your code, choose from the following, depending on the integration option you're using:
 
 - [Steps to Implement Sharing With an SDK](#steps-to-implement-sharing-with-an-sdk)
 - [Steps to Implement Sharing Using Snowflake](#steps-to-implement-sharing-using-snowflake)
+
+<!-- The basic steps for sharing UID2 sharing tokens within the ad tech ecosystem are as follows: -->
+
+## Steps to Implement Sharing: Account Setup
+
+In the UID2 Portal, the sender and the receiver must set up their sharing permissions.
+
+The sender only needs to set up sharing permission once for each receiver or participant type. However, if you want to add new sharing permissions or change existing ones, you'll need to go back to adjust your settings.
+
+<!-- For information about sharing options that can help streamline this step, see [share with a participant type](xxx). {GWH_ to add link to portal doc when written.} -->
+
+<!-- In the  UID2 Portal, there are sharing setting options that can help streamline this step. (link to Share with a participant type) -->
+
+
+<!-- 1. Sender: Do one of the following:
+
+   - Encrypt one or more raw UID2s into UID2 sharing tokens.
+   - Encrypt one or more pieces of [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) (email addresses or phone numbers) into UID2 tokens.
+
+1. Sender: Send the data, including UID2 sharing tokens, to the receiver, who must be a sharing participant.
+1. Receiver: Receive the data, including UID2 sharing tokens.
+1. Receiver: Decrypt the UID2 sharing tokens into raw UID2s and use the raw UID2 data. -->
 
 ## Steps to Implement Sharing With an SDK
 
@@ -57,44 +86,6 @@ The following steps are for Snowflake users who want to take part in UID2 sharin
    - Senders, set up encryption.
 
    - Receivers, set up decryption.
-
--------------------------------------------------------
-[GWH SECTION BELOW IS MOVED FROM OVERVIEW PAGE -- NEED TO WORK WITH IT TO INTEGRATE IT.]
-The basic steps for sharing UID2 sharing tokens within the ad tech ecosystem are as follows:
-
-- [One-Time Setup Steps](#one-time-setup-steps)
-- [Sharing Steps](#action-steps)
-
-### Sharing Steps: One-Time Setup
-
-The sender and the receiver must complete the following one-time setup steps so that they can participate in sharing.
-
-Sender:
-- In the UID2 Portal, set up your sharing permissions.
-
-  The sender only needs to set up sharing permission once for each receiver or participant type. However, if you want to add new sharing permissions or change existing ones, you'll need to go back to adjust your settings.
-
-  <!-- For information about sharing options that can help streamline this step, see [share with a participant type](xxx). {GWH_ to add link to portal doc when written.} -->
-
-<!-- In the  UID2 Portal, there are sharing setting options that can help streamline this step. (link to Share with a participant type) -->
-- Integrate the SDK into your code.
-
-Receiver:
-- Integrate the SDK into your code.
-
-### Sharing Steps
-
-1. Sender: Do one of the following:
-
-   - Encrypt one or more raw UID2s into UID2 sharing tokens.
-   - Encrypt one or more pieces of [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) (email addresses or phone numbers) into UID2 tokens.
-
-1. Sender: Send the data, including UID2 sharing tokens, to the receiver, who must be a sharing participant.
-1. Receiver: Receive the data, including UID2 sharing tokens.
-1. Receiver: Decrypt the UID2 sharing tokens into raw UID2s and use the raw UID2 data.
-
--------------------------------------------------------
-
 
 ## Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)
 

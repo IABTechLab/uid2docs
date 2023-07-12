@@ -1,13 +1,13 @@
 ---
-title: Team Members and Contacts
-description: Learn how to set up and manage your UID2 team.
+title: Email Contacts
+description: Learn how to set up and manage contacts for UID2 updates.
 hide_table_of_contents: false
-sidebar_position: 04
+sidebar_position: 08
 ---
 
-# Team Members and Contacts
+# Email Contacts
 
-This page provides information about managing teams in the UID2 Portal.
+This page provides information about managing email contacts xxxx in the UID2 Portal.
 
 <!-- It includes the following:
 

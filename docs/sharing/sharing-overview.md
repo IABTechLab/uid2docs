@@ -24,16 +24,18 @@ The UID2 sender specifies which receivers can decrypt their UID2 sharing tokens,
 
 For example, let's say that an advertiser (sender) wants to share raw UID2s with a trusted sharing partner who is a DSP, for segment creation via an API. Using sharing, the advertiser can encrypt the raw UID2s into UID2 sharing tokens and send them securely to the DSP (receiver). The DSP, who is also taking part in sharing, has access to the advertiser's decryption keys and can therefore decrypt the UID2 sharing tokens into raw UID2s for segment creation.
 
-There are many scenarios for sharing. For details, see [Sharing Use Cases](sharing-use-cases.md)<!-- (**GWH_link issue here**) -->.
+There are many scenarios for sharing. For details, see [Sharing Use Cases](sharing-use-cases.md).
+
+>NOTE: The process for publishers sharing UID2 tokens in the bid stream is a different, and simpler, process. If your only role is publisher, see [Sharing for Publishers](sharing-publishers.md).
 
 Additional resources:
 
 - [Implementing Sharing](sharing-implementing.md)
 - [Sharing UID2s: Best Practices](sharing-best-practices.md)
+- [UID2 Portal Overview](../portal/portal-overview.md)
 
-## UID2 Sharing Workflow
-
-The workflow for sharing UID2 data consists of the following steps (each step is link to corresponding section):
+## UID2 Sharing Workflow: Integrating via an SDK
+The workflow for sharing UID2 data securely between UID2 participants, which includes encrypting raw UID2s into UID2 sharing tokens that the receiver can decrypt using your encryption keys, consists of the following steps (each step links to the corresponding section):
 
 1. The sender defines which sharing participants are allowed to decrypt the sender's UID2 sharing token.
 
@@ -45,7 +47,27 @@ The workflow for sharing UID2 data consists of the following steps (each step is
 
 The following diagram illustrates the UID2 sharing permission SDK integration Workflow:
 
-![UID2 Sharing Permission SDK Integration Workflow](images/UID2_Sharing_Diagram_Integrate_SDK.png)
+![UID2 Sharing Permission SDK Integration Workflow for SDK](images/UID2_Sharing_Diagram_Integrate_SDK_Sharing_Token.png)
+
+## UID2 Sharing Workflow: Integrating via the API
+
+When you want to send [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) (email addresses or phone numbers) and receive UID2 tokens, you can integrate via the API, which supports generating and refreshing the UID2 tokens, or via the Java Server-Side SDK which also supports these functions. Other SDKs do not support token generate and refresh.
+
+The workflow for generating UID2 tokens from DII, via the API or the Java server-side SDK, consists of the following steps (each step links to the corresponding section):
+
+1. The sender defines which sharing participants are allowed to decrypt the sender's UID2 bid stream token.
+
+1. The sender calls a UID2 endpoint (or the [Java server-side SDK](../sdks/uid2-sdk-ref-java.md)) to convert DII to UID2 tokens.
+
+1. The sender transmits the UID2 tokens to the receiver.
+
+1. The receiver uses a UID2 SDK to decrypt raw UID2s from the received UID2 sharing tokens.
+
+The following diagram illustrates the UID2 sharing workflow for integrating via the API:
+
+![UID2 Sharing Permission SDK Integration Workflow for API](images/UID2_Sharing_Diagram_Integrate_SDK_Bid_Stream.png)
+
+(**GWH/KT: Not sure how decrypt will work? I think they cannot decrypt except with the SDK?**)
 
 ## Generating Tokens for UID2 Sharing
 

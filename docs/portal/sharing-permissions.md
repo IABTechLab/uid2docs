@@ -1,13 +1,13 @@
 ---
-title: Sharing Relationships
-description: Learn how to configure sharing relationships in the UID2 Portal.
+title: Sharing Permissions
+description: Learn how to configure sharing permissions in the UID2 Portal.
 hide_table_of_contents: false
-sidebar_position: 06
+sidebar_position: 03
 ---
 
-# Sharing Permissions {changed from Sharing Relationships to Sharing Permissions) finish mods later}
+# Sharing Permissions
 
-Configuring one or more (or many) sharing relationship opens the door to you being able to share UID2 information with other UID2 participants.
+Configuring your sharing permissions opens the door to you being able to share UID2 information with other UID2 participants.
 
 This page provides supporting information about configuring your sharing relationships.
 
