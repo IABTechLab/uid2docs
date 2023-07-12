@@ -32,7 +32,7 @@ export default function NavbarCta({
     <Link
       {...props}
       href={href}
-      className={clsx(className, "button button--lemon")}
+      className={clsx(className, "button button--nav")}
       onClick={() => pushGtmEvent(pageViewData)}
     >
       {translatedLabel}

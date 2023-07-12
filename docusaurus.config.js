@@ -116,7 +116,7 @@ const config = {
           {
             to: "/request-access",
             label: "Request Access",
-            className: "mobile-only menu__cta button button--lemon",
+            className: "mobile-only menu__cta button button--nav",
             position: "left",
           },
           {

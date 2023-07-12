@@ -25,12 +25,6 @@
   .dropdown {
     --ifm-dropdown-background-color: var(--c-periwinkle);
     --ifm-dropdown-link-color: var(--c-eleven-o-clock);
-    @extend .type-eta;
-
-    &__link--active {
-      --ifm-dropdown-link-color: var(--c-eleven-o-clock);
-      text-decoration: underline;
-    }
   }
 
   .toggle_node_modules-\@docusaurus-theme-classic-lib-theme-ColorModeToggle-styles-module,
@@ -39,6 +33,16 @@
   }
 
   --docsearch-searchbox-background: transparent !important;
+
+  .button--nav {
+    background-color: var(--c-lemon) !important;
+    border: 2px solid transparent !important;
+
+    &:hover {
+      background-color: var(--c-white) !important;
+      border-color: var(--c-white) !important;
+    }
+  }
 }
 
 .navbar {
@@ -235,7 +239,7 @@
     transition: background-size 0.2s ease-in-out;
 
     @include dark {
-      background-image: linear-gradient(var(--c-lemon), var(--c-lemon));
+      background-image: linear-gradient(var(--c-cyan), var(--c-cyan));
     }
   }
 
