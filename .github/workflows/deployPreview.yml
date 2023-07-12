@@ -1,0 +1,38 @@
+name: Deploy to Preview Site
+
+on:
+  # Add any branches that you want to auto-deploy on push here.
+  # WARNING: If a branch is auto-deploying, it will overright any manual deployments.
+  #          Use with caution and warn anyone else that this branch is basically taking over the preview site!
+  #push:
+    #branches: []
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  #id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "preview"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Clone to preview folder (excluding actions)
+        run: apk add rsync && rsync -arv --delete --delete-excluded --exclude=".github" --exclude="preview-output" --exclude="preview-output" ./ preview-output/
+      - name: Push to staging repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+            SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+        with:
+            source-directory: 'preview-output'
+            destination-github-username: 'UnifiedID2'
+            destination-repository-name: 'uid2-docs-preview'
+            target-branch: main
+            target-directory: preview
