@@ -25,7 +25,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Clone to preview folder (excluding actions)
-        run: rsync -arv --delete --delete-excluded --exclude=".github" --exclude="preview-output" --exclude="preview-output" ./ preview-output/
+        run: rsync -arv --delete --delete-excluded --exclude=".github" --exclude="preview-output" --exclude="preview-output" --exclude=".git" ./ preview-output/
       - name: Push to staging repository
         uses: cpina/github-action-push-to-another-repository@main
         env:
