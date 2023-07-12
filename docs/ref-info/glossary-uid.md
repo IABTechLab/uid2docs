@@ -27,6 +27,7 @@ sidebar_position: 10
 <li><a href="#gl-advertising-token">Advertising token</a></li>
 <li><a href="#gl-authorization-header">Authorization header</a></li>
 <li><a href="#gl-bearer-token">Bearer token</a></li>
+<li><a href="#gl-bid-stream-token">bid stream token</a></li>
 <li><a href="#gl-client-key">Client key</a></li>
 <li><a href="#gl-client-secret">Client secret</a></li>
 <li><a href="#gl-closed-operator">Closed operator</a></li>
@@ -106,6 +107,10 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-bearer-token">Bearer token</dt>
 <dd>A bearer token is a special string that identifies the client. For authentication, some UID2 endpoints require the <a href="#gl-client-key">client key</a> to be specified as a bearer token in the Authorization header of the request: for example, <a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a>.</dd>
+
+<dt class="jump-anchor" id="gl-bid-stream-token">bid stream token</dt>
+<dd>A UID2 bid stream token is the same as a UID2 token. In the context of UID2 sharing, this term is used to differentiate between a UID2 token created as a result of a call to the <a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> or <a href="../endpoints/post-token-refresh">POST&nbsp;/token/refresh</a> endpoint (whether implemented via the API or via an SDK) and a UID2 <a href="#gl-sharing-token">sharing token</a>, which is created by encrypting a raw UID2 using one of the server-side SDKs or the Snowflake integration.</dd>
+<dd>For more information, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd>
 
 <dt class="jump-anchor" id="gl-client-key">Client key</dt>
 <dd>See <a href="#gl-api-key">API key</a>.</dd>
@@ -226,6 +231,10 @@ sidebar_position: 10
 <dd>SHA-256 is the secure hashing algorithm that UID2 uses.</dd>
 <dd>SHA-256 is part of the SHA-2 family of algorithms developed by the National Institute of Standards and Technology (NIST) and the National Security Agency (NSA) to succeed SHA-1. Each algorithm is named according to the number of bits in the output, so SHA-256 has 256 bits.</dd>
 <dd>For details, see <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> (specification).</dd>
+
+<dt class="jump-anchor" id="gl-sharing-token">sharing token</dt>
+<dd>A UID2 sharing token is created by encrypting a raw UID2 using one of the server-side SDKs or the Snowflake integration. The UID2 sharing token is a way of securely sharing UID2s between sharing participants</dd>
+<dd>For more information, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd>
 
 <dt class="jump-anchor" id="gl-sso">SSO</dt>
 <dd>SSO is an acronym for Single Sign-On. SSO allows a user to log in with the same credentials (usually, but not always, ID and password) to one of several software systems, such as apps or websites. SSO allows the user to log in once to multiple applications or sites using one set of credentials. With SSO, websites/apps do not have to maintain their own authentication systems.</dd>
