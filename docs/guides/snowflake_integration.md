@@ -86,6 +86,12 @@ The following functions are deprecated in favor of `FN_T_UID2_IDENTITY_MAP`. You
 
 To identify the UID2s that you must regenerate, use the `UID2_SALT_BUCKETS` view from the UID2 Share. For details, see [Regenerate UID2s](#regenerate-uid2s).
 
+The following functions are also available, for UID2 sharing participants:
+- [`FN_UID2_ENCRYPT`](#fn_uid2_encrypt)
+- [`FN_UID2_DECRYPT`](#fn_uid2_decrypt)
+
+For details, see [Usage for UID2 Sharers](#usage-for-uid2-sharers).
+
 ### Database and Schema Names
 
 The following sections include query examples for each solution, which are identical except for the database and schema name variables:
@@ -516,8 +522,8 @@ A sharing participant must encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-u
 
 The following functions support UID2 sharing:
 
-- [FN_UID2_ENCRYPT](#fn_uid2_encrypt)
-- [FN_UID2_DECRYPT](#fn_uid2_decrypt)
+- [`FN_UID2_ENCRYPT`](#fn_uid2_encrypt)
+- [`FN_UID2_DECRYPT`](#fn_uid2_decrypt)
 
 ### FN_UID2_ENCRYPT
 
