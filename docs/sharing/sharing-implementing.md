@@ -2,7 +2,7 @@
 title: Implementing Sharing
 description: Learn about how to implement sharing.
 hide_table_of_contents: false
-sidebar_position: 03
+sidebar_position: 04
 ---
 
 # Implementing Sharing

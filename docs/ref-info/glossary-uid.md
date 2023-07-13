@@ -76,6 +76,7 @@ sidebar_position: 10
 <li><a href="#gl-transparency-and-control-portal">Transparency and Control Portal</a></li>
 <li><a href="#gl-uid2-framework">UID2 framework</a></li>
 <li><a href="#gl-uid2-identifier">UID2 identifier</a></li>
+<li><a href="#gl-uid2-portal">UID2 Portal</a></li>
 <li><a href="#gl-uid2-service">UID2 service</a></li>
 <li><a href="#gl-uid2-token">UID2 token</a></li>
 <li><a href="#gl-unified-id-20">Unified ID 2.0</a></li>
@@ -248,6 +249,10 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-uid2-identifier">UID2 identifier</dt>
 <dd>There are two Unified ID 2.0 (UID2) identifier types: <a href="#gl-raw-uid2">raw UID2s</a> and <a href="#gl-uid2-token">UID2 tokens</a> (also known as advertising tokens).</dd>
 <dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
+
+<dt class="jump-anchor" id="gl-uid2-portal">UID2 Portal</dt>
+<dd>The UID2 Portal is a separate user interface that allows UID2 participants to manage their accounts.</dd>
+<dd>For details, see  <a href="../portal/portal-overview">UID2 Portal Overview</a>.</dd>
 
 <dt class="jump-anchor" id="gl-uid2-service">UID2 service</dt>
 <dd>The Unified ID 2.0 (UID2) service is a set of components, API endpoints, and other types of solutions that collectively implement the <a href="#gl-uid2-framework">UID2 framework</a> and provide clients with access to the relevant UID2 functionality.</dd>
