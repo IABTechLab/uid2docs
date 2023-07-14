@@ -29,8 +29,15 @@ SDKs:
 Follow the applicable installation instructions:
 
 -   iOS
-
 -   Android
+
+## Operating System, API and Programming Language Requirements
+- iOS
+  - Minimum target: 13.0+
+  - Swift: 5.0+
+- Android
+  - 4.4+ / API 19+ (SDK) 5.0+ / API 21+ (Dev-App) 
+
 
 ### IOS
 
