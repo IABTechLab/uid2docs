@@ -26,43 +26,31 @@ xxx
 
 
 
+Additional resources:
+- [UID2 Overview for Publishers](../overviews/overview-publishers.md)
+- [UID2 Portal Overview](../portal/portal-overview.md)
 
 
 
-
----------------------------------- piece one moved from overview: begin ----------------------------------
 ## UID2 Sharing Workflow: Integrating via the API
 
-When you want to send [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) (email addresses or phone numbers) and receive UID2 tokens, you can integrate via the API, which supports generating and refreshing the UID2 tokens, or via the Java Server-Side SDK which also supports these functions. Other SDKs do not support token generate and refresh.
+When you want to send UID2 tokens in the bid stream, you can integrate via the API or via the Java Server-Side SDK (see [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md)).
+
+Both of these support generating UID2 tokens from [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) (email addresses or phone numbers) and also refreshing the tokens regularly. Other SDKs do not support token generate and refresh.
 
 The workflow for generating UID2 tokens from DII, via the API or the Java server-side SDK, consists of the following steps (each step links to the corresponding section):
 
-1. The sender defines which sharing participants are allowed to decrypt the sender's UID2 bid stream token.
+1. The publisher defines which sharing participants are allowed to decrypt the sender's UID2 token.
 
-1. The sender calls a UID2 endpoint (or the [Java server-side SDK](../sdks/uid2-sdk-ref-java.md)) to convert DII to UID2 tokens.
+1. The publisher calls the UID2 [POST /token/generate](../endpoints/post-token-generate.md) endpoint to convert DII to UID2 tokens, or uses the corresponding function in the [Java server-side SDK](../sdks/uid2-sdk-ref-java.md) to manage tokens.
 
-1. The sender transmits the UID2 tokens to the receiver.
+1. The publisher transmits the UID2 tokens to the receiver (a DSP).
 
-1. The receiver uses a UID2 SDK to decrypt raw UID2s from the received UID2 sharing tokens.
+1. The receiver uses a UID2 SDK to decrypt raw UID2s from the UID2 tokens.
 
-The following diagram illustrates the UID2 sharing workflow for publishers:
+The following diagram illustrates the UID2 sharing workflow for publishers.
 
 ![UID2 Sharing Permission Integration Workflow for publishers](images/UID2_Sharing_Diagram_Integrate_SDK_Bid_Stream.png)
-
-(**GWH/KT: Not sure how decrypt will work? I think they cannot decrypt except with the SDK? GWH_KT: KT to update the workflow diagram**)
-
----------------------------------- piece one moved from overview: end ----------------------------------
-
----------------------------------- piece 2 moved from overview: begin ----------------------------------
-| Use Case | Encryption Method |
-| :--- | :--- |
-| Bid stream | [POST /token/generate](../endpoints/post-token-generate.md) endpoint when using the UID2 API, or corresponding function in a UID2 SDK. |
-| API<br/>File transfer<br/>Pixel<br/>All other sharing use cases | Sharing `encrypt()` function in the corresponding server-side SDK: see [Steps to Implement Sharing](sharing-implementing.md#steps-to-implement-sharing). |
-
----------------------------------- piece 2 moved from overview: end ----------------------------------
-
-
-
 
 ### Token Example for Publishers in the Bid Stream
 

@@ -109,9 +109,9 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-bearer-token">Bearer token</dt>
 <dd>A bearer token is a special string that identifies the client. For authentication, some UID2 endpoints require the <a href="#gl-client-key">client key</a> to be specified as a bearer token in the Authorization header of the request: for example, <a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a>.</dd>
 
-<dt class="jump-anchor" id="gl-bid-stream-token">bid stream token</dt>
+<!-- <dt class="jump-anchor" id="gl-bid-stream-token">bid stream token</dt>
 <dd>A UID2 bid stream token is the same as a UID2 token. In the context of UID2 sharing, this term is used to differentiate between a UID2 token created as a result of a call to the <a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> or <a href="../endpoints/post-token-refresh">POST&nbsp;/token/refresh</a> endpoint (whether implemented via the API or via an SDK) and a UID2 <a href="#gl-sharing-token">sharing token</a>, which is created by encrypting a raw UID2 using one of the server-side SDKs or the Snowflake integration.</dd>
-<dd>For more information, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd>
+<dd>For more information, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd> -->
 
 <dt class="jump-anchor" id="gl-client-key">Client key</dt>
 <dd>See <a href="#gl-api-key">API key</a>.</dd>

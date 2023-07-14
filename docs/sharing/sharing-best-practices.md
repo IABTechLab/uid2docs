@@ -13,23 +13,23 @@ sidebar_position: 05
 - [Best Practices for Managing UID2 Tokens](#best-practices-for-managing-uid2-bid-stream-tokens-or-sharing-tokens)
 - [Key Refresh Cadence](#key-refresh-cadence) -->
 
-The ability to securely share UID2 bid stream tokens or sharing tokens with other authorized UID2 users opens the door to using UID2 in many additional ways in your business.
+The ability to securely share UID2 tokens with other authorized UID2 users opens the door to using UID2 in many additional ways in your business.
 
 However, every UID2 participant has a responsibility to maintain the security of the UID2 ecosystem. Here are some best practices to help ensure UID2 sharing runs smoothly and securely.
 
 ## Best Practices for Managing Raw UID2s
 
 Follow these guidelines:
-- For any UID2s that are in your platform, use and store them as raw UID2s, not as UID2 bid stream tokens or sharing tokens.
-- In your code, for future extensibility, we recommend allowing for a maximum UID2 bid stream token or sharing token length of 100 characters.
+- For any UID2s that are in your platform, use and store them as raw UID2s, not as UID2 tokens.
+- In your code, for future extensibility, we recommend allowing for a maximum UID2 token length of 100 characters.
 
-## Best Practices for Managing UID2 Bid Stream Tokens or Sharing Tokens
+## Best Practices for Managing UID2 Tokens
 
 Follow these guidelines:
 
 - When data is coming into your platform, or you are sending it out, make sure the data is always in the form of UID2 tokens, not raw UID2s.
 
-  Within your infrastructure, it's important to store raw UID2s, rather than UID2 bid stream tokens or UID2 sharing tokens, because a UID2 token has a short life. When the key used to create a UID2 token expires, you can no longer decrypt the token. 
+  Within your infrastructure, it's important to store raw UID2s, rather than UID2 tokens, because a UID2 token has a short life. When the key used to create a UID2 token expires, you can no longer decrypt the token. 
 
 - In your code, for future extensibility, we recommend allowing for a maximum UID2 token length of 500 characters.
 
