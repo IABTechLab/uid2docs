@@ -55,7 +55,7 @@ dependencies:
 
 Add the following dependency via Xcode:
 
-TODO: to update this screen cap to latest version!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![Xcode Dependency](images/xcode-uid2-ios-sdk.png)
 
 ### Android
 
