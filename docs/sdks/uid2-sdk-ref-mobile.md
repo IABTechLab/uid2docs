@@ -32,12 +32,8 @@ Follow the applicable installation instructions:
 -   Android
 
 ## Operating System, API and Programming Language Requirements
-- iOS
-  - Minimum target: 13.0+
-  - Swift: 5.0+
-- Android
-  - 4.4+ / API 19+ (SDK) 5.0+ / API 21+ (Dev-App) 
 
+Please refer to the UID2 [iOS](https://github.com/IABTechLab/uid2-ios-sdk#requirements) and [Android](https://github.com/IABTechLab/uid2-android-sdk#requirements) SDK repo readmes for the latest information.
 
 ### IOS
 
