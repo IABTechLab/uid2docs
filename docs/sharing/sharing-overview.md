@@ -82,12 +82,13 @@ The correct way to generate the token, for all UID2 participants except publishe
 >Note: If you are a publisher, see [Token Example for Publishers in the Bid Stream](sharing-publishers.md#token-example-for-publishers-in-the-bid-stream).
 
 UID2 sharers follow a two-step process, as shown in the following example. The steps are:
-- Convert email or phone number to raw UID2:
+1. Convert email or phone number to raw UID2:
 
-  Convert the input email address or phone number to a raw UID2, which they can store securely.
-- Convert raw UID2 to UID2 token:
+    Convert the input email address or phone number to a raw UID2, which they can store securely.
 
-  Encrypt the raw UID2 to create a UID2 token that they can share with another trusted UID2 sharing participant.
+1. Convert raw UID2 to UID2 token:
+
+    Encrypt the raw UID2 to create a UID2 token that they can share with another trusted UID2 sharing participant.
 
 <table>
 <colgroup>

@@ -83,7 +83,7 @@ If you're using an SDK, defining the schedule for refreshing the sharing keys is
 
 For long/continuously running processes, call the `uid2client.refresh()` function once per hour. This allows the SDK to fetch the latest keys for decryption. When a new sharing permission is enabled, the additional set of encryption keys needed to decrypt the data sent by the new sharing sender is returned the next time the sharing receiver calls the `uid2client.refresh()` function. This process is handled by the SDK.
 
->NOTE: If you're using Snowflake, you don't need to set up the schedule for refreshing the sharing keys. The Snowflake UID2 integration takes care of refreshing the keys.
+>NOTE: If you're using Snowflake, you don't need to do this step. The Snowflake UID2 integration takes care of refreshing the keys.
 
 ### Decryption Key Refresh Example
 

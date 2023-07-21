@@ -39,10 +39,11 @@ The workflow for generating UID2 tokens from DII, via the API or the Java server
 
 1. Publisher: Integrate with UID2, using one of the following:
 
-   - Java SDK: see [xxx](xxx).
-   - Direct integration with API endpoints: see [xxx](xxx).
+   - Java SDK: see [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md)).
+   - Direct integration with API endpoints: see [Endpoints](/docs/category/endpoints-v2).
+   - Direct integration with API endpoints to generate UID2 tokens using the [POST /token/generate](../endpoints/post-token-generate.md) endpoint, but using the [UID2 SDK for JavaScript](../sdks/client-side-identity.md) to refresh UID2 tokens.
 
-   NOTE: The DSP must integrate with UID2 using one of the server-side SDKs. xxx GWH add link
+   >NOTE: The DSP must integrate with UID2 using one of the server-side SDKs or the Snowflake integration. For the DSP, see [Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary) (step 2).
 
 1. Publisher: Approve sharing permissions in the UID2 Portal:
 
