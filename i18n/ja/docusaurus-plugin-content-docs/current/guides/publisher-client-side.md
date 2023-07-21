@@ -35,48 +35,7 @@ UID2 を使用したクライアント ID の確立と Advertising Token の取�
 
 以下の図は、ユーザーがパブリッシャーと UID2 Token を確立するために必要なステップと、UID2 Token が RTB ビッドストリームとどのようにインテグレーションされるかの概要を示しています。
 
-```mermaid
-  sequenceDiagram
-    participant U as User
-    participant P as Publisher
-    participant UID2 as UID2 Service
-    participant SSP
-    Note over U,SSP: 1. アイデンティティの確立
-    U->>+P: 1-a. ユーザーがパブリッシャーアセットにアクセスします。
-    P->>-U: 1-b. パブリッシャーは、オープンなインターネットの価値交換を説明し、ログインをリクエストします。
-    activate U
-    U->>P: 1-c. ユーザーが認証し、UID2 の作成を許可します。
-    deactivate U
-    activate P
-    P->>UID2: 1-d. パブリッシャーはユーザーのDIIをトークン生成サービスに送信します。
-    deactivate P
-    activate UID2
-    UID2->>P: 1-e. トークン生成サービスは、UID2 Tokenを返します。
-    deactivate UID2
-    activate P
-    P->>U: 1-f. パブリッシャーはユーザーにUID2を設定します。
-    deactivate P
-    Note over U,SSP: 2. UID2 Tokenを用いた入札
-
-    P->>SSP: 2-a. パブリッシャーはUID2 Tokenを使って広告のためにSSPを呼び出します。
-    activate SSP
-    SSP->>P: 2-b. SSPは、表示する広告を返します。
-    deactivate SSP
-    activate P
-    P->>U: 2-c. パブリッシャーは、ユーザーに広告を表示します。
-    deactivate P
-
-    Note over U,SSP: 3. トークンのリフレッシュ
-    U->>UID2: 3-a. SDKはRefresh Tokenを使用してUID2のリフレッシュ要求を送信します。
-    activate UID2
-    UID2->>U: 3-b. ユーザーがオプトアウトしていない場合、Refresh Token Serviceは新しいIDトークンを返します。
-    deactivate UID2
-    Note over U,SSP: 4. ユーザーログアウト
-    U->>P: 4-a. ユーザーがパブリッシャーアセットからログアウトしました。
-    activate P
-    P->>U: 4-b. ユーザーのIDをクリアします。
-    deactivate P
-```
+![](images/publisher-flow-mermaid.png)
 
 次のセクションでは、図中の各ステップについて詳細を説明します:
 

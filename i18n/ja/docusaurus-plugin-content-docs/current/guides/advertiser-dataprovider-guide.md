@@ -24,23 +24,7 @@ Snowflake Data Marketplace でホストされる Open Operator Service を使用
 
 次の図は、オーディエンスの構築とターゲティングのために、データコレクターが DII を UID2 識別子にマッピングするために完了しなければならない手順の概要を示しています。DII とは、ユーザーの正規化されたメールアドレスまたは電話番号、あるいは正規化され SHA-256 ハッシュ化されたメールアドレスまたは電話番号のことを指します。
 
-```mermaid
-sequenceDiagram
-  participant DP as Data Provider
-  participant UID2 as UID2 Service
-  participant DSP
-  loop 1. IDマップエンドポイントを使用して、DIIのUID2を取得します。
-  DP->>UID2: 1-a. DIIを含むリクエストをIDマッピングエンドポイントに送信します。
-  UID2->>DP: 1-b. ID マッピングサービスから返された UID2 とソルトバケットを格納します。
-  end
-  DP-->>DSP: 2. 蓄積したUID2をDSPに送信し、オーディエンスを作成します。
-  loop 3. 蓄積されているUID2に関連するソルトバケットのローテーションを監視します。
-     DP->>UID2: 3-a. バケットサービスを利用して、ソルトバケットのローテーションを監視します。
-     UID2->>DP: 3-b. 指定されたタイムスタンプ以降にローテーションされたソルトバケットを返します。
-     DP->>UID2: 3-c. ローテーションしたソルトバケットと保存されているUID2ソルトバケットを比較します。<br/>ローテーションした場合は、新しいUID2のためにDIIをIDマッピングサービスに再送信します。
-     UID2->>DP: 3-d. ID マッピングサービスから返された UID2 とソルトバケットを保存します。
-  end
-```
+![](images/advertiser-flow-mermaid.png)
 
 ### Retrieve a raw UID2 for DII using the identity map endpoints
 
