@@ -23,26 +23,7 @@ sidebar_position: 05
 1. [Honor user Opt-Outs（ユーザーオプトアウトの受け入れ）](#honor-user-opt-outs)
 2. [Decrypt UID2 tokens to use in RTB（RTB で使用する UID2 Token の復号化）](#decrypt-uid2-tokens-for-rtb-use)
 
-```mermaid
-sequenceDiagram
-  participant U as User
-  participant SSP
-  participant DSP
-  participant UID2 as UID2 Service
-  participant TC as Transparency & Control Portal
-  Note over U,TC: 1. ユーザーのオプトアウトを受け入れます。
-  U->>TC: 1-a. ユーザーがオプトアウトしました。
-  activate TC
-  TC->>UID2: 1-b. UID2 Serviceはオプトアウトを受け付けます。
-  deactivate TC
-  activate UID2
-  UID2->>DSP: 1-c. DSPはオプトアウトを受信します。
-  deactivate UID2
-  Note over U,TC: 2. RTBで使用する UID2 Token を復号化します。
-  SSP-->>DSP: SSPは入札のためにDSPを呼び出します。
-  DSP->>DSP: 2-a. UID2 Token を復号化します。
-  DSP->>DSP: 2-b. 1 からのユーザーオプトアウトを受け入れた入札ロジックを実行します。
-```
+![](images/dsp-guide-flow-mermaid.png)
 
 ### Honor User Opt-Outs
 
@@ -69,13 +50,7 @@ https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 
 オプトアウトのロジックを次の図に示します。
 
-```mermaid
-graph LR
-A[UID2 Tokenの復号化] --> B[UID2のOpt-outを取得]
-    B --> C{Opt-outを確認}
-    C --> |Opted Out| D[UID2なしでの入札]
-    C --> |Not Opted Out| E[UID2を使った入札]
-```
+![](images/dsp-guide-optout-check-mermaid.png)
 
 もし`established_timestamp`の値が`optout_timestamp`の値より小さい場合は、ユーザーがオプトアウトしたことになり、UID2 は RTB に使用するべきではありません。このような場合、代替 ID を送信して入札するか、入札しないかは、DSP の判断によります。
 
