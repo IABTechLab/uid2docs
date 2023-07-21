@@ -20,13 +20,13 @@ Setting up UID2 sharing requires some steps by each participant:
 - The **sender**, who sends encrypted UID2 tokens to an authorized sharing participant.
 - The **receiver**, an authorized sharing participant who receives the encrypted UID2 tokens and decrypts them.
 
->NOTE: If you are a publisher, and have no other role, the steps on this page are not applicable to you. Instead, see [Sharing for Publishers](sharing-publishers.md).
+>NOTE: If you are a publisher who is sharing UID2 tokens in the bid stream, see [Sharing for Publishers](sharing-publishers.md).
 
 ## Sharing Steps: Summary
 
 At a very high level, the following are the steps to set up and configure sharing:
 
-1. All users must set up an account and configure sharing options. See [Steps to Implement Sharing: Account Setup](#steps-to-implement-sharing-account-setup).
+1. All users must set up an account and configure sharing options. See [Steps to Implement Sharing: UID2 Portal Account Setup](#steps-to-implement-sharing-uid2-portal-account-setup).
 
 2. To implement sharing in your code, choose from the following, depending on the integration option you're using:
 
@@ -35,9 +35,9 @@ At a very high level, the following are the steps to set up and configure sharin
 
 <!-- The basic steps for sharing UID2 sharing tokens within the ad tech ecosystem are as follows: -->
 
-## Steps to Implement Sharing: Account Setup
+## Steps to Implement Sharing: UID2 Portal Account Setup
 
-In the UID2 Portal, the sender and the receiver must set up an account and then configure their sharing permissions.
+In the UID2 Portal, the sender and the receiver must set up an account, and the sender must configure sharing permissions.
 
 The sender only needs to set up sharing permission once for each receiver or participant type. However, if you want to add new sharing permissions or change existing ones, you'll need to go back to adjust your settings.
 
@@ -79,11 +79,11 @@ The following steps are for Snowflake users who want to take part in UID2 sharin
 
 ## Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)
 
-If you're using an SDK, defining the token refresh schedule is part of step 2.
+If you're using an SDK, defining the schedule for refreshing the sharing keys is part of step 2.
 
 For long/continuously running processes, call the `uid2client.refresh()` function once per hour. This allows the SDK to fetch the latest keys for decryption. When a new sharing permission is enabled, the additional set of encryption keys needed to decrypt the data sent by the new sharing sender is returned the next time the sharing receiver calls the `uid2client.refresh()` function. This process is handled by the SDK.
 
->NOTE: If you're using Snowflake, you don't need to set up the token refresh schedule.
+>NOTE: If you're using Snowflake, you don't need to set up the schedule for refreshing the sharing keys. The Snowflake UID2 integration takes care of refreshing the keys.
 
 ### Decryption Key Refresh Example
 
@@ -93,7 +93,7 @@ This example illustrates how the `uid2client.refresh()` function enables a new s
 
    The sharing permission is not yet enabled.
 
-   Data Provider XYZ calls `uid2client.refresh()`. The decryption key for Advertiser ABC is not returned, so sharing cannot occur.
+   Data Provider XYZ calls `uid2client.refresh()`. The decryption key for Advertiser ABC is not returned, so Data Provider XYZ cannot decrypt the UID2 tokens.
 
 2. 12:30 pm:
 
