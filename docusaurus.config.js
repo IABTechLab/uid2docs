@@ -146,7 +146,7 @@ const config = {
           {
             type: "doc",
             docId: "intro",
-            label: "Docs",
+            label: "Documentation",
             position: "left",
           },
           // @TODO hiding until phase 2{

@@ -414,7 +414,10 @@
     "message": "技術文書を見る"
   },
   "homepage.featuredItemsHeading": {
-    "message": "パーソナライゼーションにより関連性の高いコンテンツと広告配信を可能に"
+    "message": "パーソナライゼーションにより"
+  },
+  "homepage.featuredItemsJAHeading": {
+    "message": "関連性の高いコンテンツと広告配信を可能に"
   },
   "homepage.featuredItemsSubheading": {
     "message": "Unified ID 2.0は、広告主、媒体社、その間に存在するすべてのユーザーに対し、あらゆる使用事例において優れたパーソナライゼーション、ターゲティング、効果測定、セキュリティの向上を提供します。"
@@ -515,7 +518,7 @@
     "message": "すべてのパートナーにわたる確定信号でオーディエンスセグメントを結び付け、一貫したIDサービスを提供します。"
   },
   "homepage.partnersHeading": {
-    "message": "既存ワークフローへのインテグレーションも可能"
+    "message": "既存ビジネスへの実装も可能"
   },
   "homepage.partnersSubheading": {
     "message": "柔軟性の高いフレームワークで、Unified ID 2.0を簡単に既存のワークフローにインテグレーションできます。"
@@ -542,6 +545,6 @@
     "message": "Manage my UID2"
   },
   "navbar.ctaLabel": {
-    "message": "アクセスをリクエストする"
+    "message": "導入についてお問合わせ"
   }
 }

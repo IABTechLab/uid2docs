@@ -24,7 +24,11 @@
     "description": "Navbar item with label Docs"
   },
   "item.label.Request Access": {
-    "message": "アクセスをリクエストする",
+    "message": "導入についてお問合わせ",
     "description": "Navbar item with label Request Access"
+  },
+  "item.label.Documentation": {
+    "message": "技術文書",
+    "description": "Navbar item with label Documentation"
   }
 }

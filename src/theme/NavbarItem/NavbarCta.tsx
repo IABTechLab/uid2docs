@@ -18,7 +18,7 @@ export default function NavbarCta({
 }: NavbarCtaProps) {
   const translatedLabel = translate({
     id: "navbar.ctaLabel",
-    message: "Request Acess",
+    message: "Request Access",
   });
 
   const pageViewData = {

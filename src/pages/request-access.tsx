@@ -24,13 +24,13 @@ const componentData = {
   }),
   heading: translate({
     id: "requestAccess.heading",
-    message: "UID2へのアクセスをリクエストする",
+    message: "Request access to UID2",
     description: "The request access page heading",
   }),
   subheading: translate({
     id: "requestAccess.subheading",
     message:
-      "ID戦略の一環としてUnified ID 2.0 (UID2) の採用をお考えなら、The Trade Deskにご相談ください。UID2フレームワークのインテグレーションについて詳しくご説明します。広告主、媒体社、データプロバイダ、効果測定プロバイダ、データストレージ、オーディエンスプラットフォームなど、すべての方々を歓迎します。",
+      "Interested in adopting Unified ID 2.0 (UID2) as a part of your identity strategy? Contact The Trade Desk to learn more about integrating with the UID2 framework today. Advertisers, publishers, data and measurement providers, DSPs, SSPs, and data storage and audience platforms are all welcome!",
     description: "The request access page subheading",
   }),
 };

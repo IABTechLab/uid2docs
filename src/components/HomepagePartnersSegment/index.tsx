@@ -9,6 +9,7 @@ import RightArrow from "@site/static/img/right-arrow-icon.svg";
 import SectionHeader from "@site/src/components/SectionHeader";
 import { useIsMobile } from "@site/src/utils/isMobile";
 import { usePrefersReducedMotion } from "@site/src/utils/usePrefersReducesMotion";
+import { useIsJapanese } from "@site/src/utils/isJapanese";
 
 // @ts-ignore - Lottie animation data
 import chartIconAnimation from "./chartIconData.json";
@@ -34,7 +35,6 @@ const PartnerList: PartnerItem[] = [
       message: "Publishers",
     }),
     url: "/docs/overviews/overview-publishers",
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     Svg: require("@site/static/img/documents-icon.svg").default,
     animationData: documentsAnimation,
     description: translate({
@@ -49,7 +49,6 @@ const PartnerList: PartnerItem[] = [
       message: "Advertisers",
     }),
     url: "/docs/overviews/overview-advertisers",
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     Svg: require("@site/static/img/chart-icon.svg").default,
     animationData: chartIconAnimation,
     description: translate({
@@ -64,7 +63,6 @@ const PartnerList: PartnerItem[] = [
       message: "Demand-Side Platforms",
     }),
     url: "/docs/overviews/overview-dsps",
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     Svg: require("@site/static/img/flowchart-icon.svg").default,
     animationData: flowchartAnimation,
     description: translate({
@@ -79,7 +77,6 @@ const PartnerList: PartnerItem[] = [
       message: "Data Providers",
     }),
     url: "/docs/overviews/overview-data-providers",
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     Svg: require("@site/static/img/cloud-upload-icon.svg").default,
     animationData: uploadAnimation,
     description: translate({
@@ -113,6 +110,8 @@ function Partner({ partnerItem, playAnimation }: PartnerProps): JSX.Element {
   const lottieRef = React.useRef<LottieRefCurrentProps>(null);
   const isMobile = useIsMobile();
 
+  const isJapanese = useIsJapanese();
+
   React.useEffect(() => {
     if (!isMobile) {
       if (playAnimation && lottieRef.current) {
@@ -127,7 +126,7 @@ function Partner({ partnerItem, playAnimation }: PartnerProps): JSX.Element {
     <div className={styles.card}>
       <Link className={clsx("text-11-o-clock", styles.cardLink)} to={url}>
         <div className={styles.cardTitle}>
-          <h3 className="type-delta">
+          <h3 className={`${isJapanese ? styles.cardHeaderJa : "type-delta"}`}>
             <span>{heading}</span> <RightArrow />
           </h3>
         </div>

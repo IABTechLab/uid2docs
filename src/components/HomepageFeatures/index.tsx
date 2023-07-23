@@ -8,6 +8,7 @@ import SectionHeader from "@site/src/components/SectionHeader";
 import * as emailAnimation from "./email.json";
 import * as crossDeviceAnimation from "./crossDevice.json";
 import * as personLockAnimation from "./personLock.json";
+import { useIsJapanese } from "@site/src/utils/isJapanese";
 
 type FeatureItem = {
   Svg: React.ComponentType<React.ComponentProps<"svg">>;
@@ -18,6 +19,10 @@ type FeatureItem = {
 const componentData = {
   heading: translate({
     id: "homepage.featuredItemsHeading",
+    message: "Enable personalization and relevance on content and advertising",
+  }),
+  jaHeading: translate({
+    id: "homepage.featuredItemsJAHeading",
     message: "Enable personalization and relevance on content and advertising",
   }),
   subheading: translate({
@@ -66,6 +71,7 @@ const FeatureList: FeatureItem[] = [
 
 function Feature({ Svg, description, lottieAnimation }: FeatureItem) {
   const prefersReducedMotion = usePrefersReducedMotion();
+
   return (
     <div className={clsx(styles.card)}>
       {prefersReducedMotion ? (
@@ -84,13 +90,15 @@ function Feature({ Svg, description, lottieAnimation }: FeatureItem) {
 }
 
 export default function HomepageFeatures(): JSX.Element {
+  const isJapanese = useIsJapanese();
   return (
     <section className={clsx("bg-lavender text-white", styles.features)}>
       <div className="container">
         <SectionHeader
           heading={componentData.heading}
+          jaHeading={isJapanese ? componentData.jaHeading : ""}
           subheading={componentData.subheading}
-          extraClass={styles.header}
+          extraClass={`${isJapanese ? styles.headerJa : styles.header}`}
         />
         <div className={clsx(styles.featuredList)}>
           {FeatureList.map((props, idx) => (
