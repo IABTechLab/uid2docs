@@ -152,21 +152,21 @@ The following instructions provide an example of how you can implement sharing u
 
    `token_generate_response = client.generate_token(TokenGenerateInput.from_email(emailAddress).do_not_generate_tokens_for_opted_out())`
 
-   >IMPORTANT: Be sure to call this function only when you have obtained legal basis to convert the user’s [directly identifying information (DII)](https://unifiedid.com/docs/ref-info/glossary-uid#gl-dii) to UID2 tokens for targeted advertising.
+   >IMPORTANT: Be sure to call this function only when you have obtained legal basis to convert the user’s [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to UID2 tokens for targeted advertising.
 
-   >`do_not_generate_tokens_for_opted_out()` applies `policy=1` in the [/token/generate](https://unifiedid.com/docs/endpoints/post-token-generate#token-generation-policy) call. Without this, `policy` is omitted to maintain backwards compatibility.
+   >`do_not_generate_tokens_for_opted_out()` applies `policy=1` in the [/token/generate](../endpoints/post-token-generate.md#token-generation-policy) call. Without this, `policy` is omitted to maintain backwards compatibility.
 
 ### Standard Integration
 
-If you're using standard integration (client and server) (see [UID2 SDK for JavaScript Integration Guide](https://unifiedid.com/docs/guides/publisher-client-side)), follow this step:
+If you're using standard integration (client and server) (see [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md)), follow this step:
 
-* Send this identity as a JSON string back to the client (to use in the [identity field](https://unifiedid.com/docs/sdks/client-side-identity#initopts-object-void)) using the following:
+* Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)) using the following:
 
   `token_generate_response.get_identity_json_string()` //Note: this method returns `None` if the user has opted out, so be sure to handle that case.
 
 ### Server-Only Integration
 
-If you're using server-only integration (see [Publisher Integration Guide, Server-Only](https://unifiedid.com/docs/guides/custom-publisher-integration)):
+If you're using server-only integration (see [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md)):
 
 1. Store this identity as a JSON string in the user's session, using the `token_generate_response.get_identity_json_string()` function. This method returns `None` if the user has opted out, so be sure to handle that case.
 2. To retrieve the user's UID2 token, use:
