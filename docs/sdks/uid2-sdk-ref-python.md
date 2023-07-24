@@ -144,7 +144,7 @@ The following instructions provide an example of how you can implement sharing u
 
 ## Usage for Publishers
 
-1. Create an instance of Uid2PublisherClient
+1. Create an instance of Uid2PublisherClient:
 
    `client = Uid2PublisherClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)`
 
@@ -162,21 +162,21 @@ If you're using standard integration (client and server) (see [UID2 SDK for Java
 
 * Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)) using the following:
 
-  `token_generate_response.get_identity_json_string()` //Note: this method returns `None` if the user has opted out, so be sure to handle that case.
+  `token_generate_response.get_identity_json_string()` //Note: If the user has opted out, this method returns None, so be sure to handle that case.
 
 ### Server-Only Integration
 
 If you're using server-only integration (see [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md)):
 
-1. Store this identity as a JSON string in the user's session, using the `token_generate_response.get_identity_json_string()` function. This method returns `None` if the user has opted out, so be sure to handle that case.
-2. To retrieve the user's UID2 token, use:
+1. Store this identity as a JSON string in the user's session, using the `token_generate_response.get_identity_json_string()` function. If the user has opted out, this method returns `None`, so be sure to handle that case.
+2. To retrieve the user's UID2 token, use the following:
 
    ```
    identity = token_generate_response.get_identity()
    if identity:
       advertising_token = identity.get_advertising_token()
    ```
-4. When the user accesses another page, or on a timer, determine whether a refresh is needed:
+3. Periodically check if the user's UID2 token should be refreshed. This can be done at fixed intervals using a timer, or can be done whenever the user accesses another page:
    1. Retrieve the identity JSON string from the user's session, and then call the following function that takes the identity information as input and generates an `IdentityTokens` object:
 
       `identity = IdentityTokens.from_json_string(identityJsonString)`
@@ -186,11 +186,11 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
    3. Determine if a refresh is needed:
 
       `if identity.is_due_for_refresh()):`
-5. If needed, refresh the token and associated values:
+4. If needed, refresh the token and associated values:
 
    `token_refresh_response = client.refresh_token(identity)`
 
-6. Store `token_refresh_response.get_identity_json_string()` in the user's session. If the user has opted out, this method returns `None`, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `token_refresh_response.is_optout()` function.
+5. Store `token_refresh_response.get_identity_json_string()` in the user's session. If the user has opted out, this method returns `None`, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `token_refresh_response.is_optout()` function.
 
 ## FAQs
 
