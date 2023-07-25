@@ -17,8 +17,8 @@ sidebar_position: 04
 
 Setting up UID2 sharing requires some steps by each participant:
 
-- The **sender**, who sends encrypted UID2 tokens to an authorized sharing participant.
-- The **receiver**, an authorized sharing participant who receives the encrypted UID2 tokens and decrypts them.
+- The **sender**, who sends UID2 tokens to an authorized sharing participant.
+- The **receiver**, an authorized sharing participant who receives the UID2 tokens and decrypts them.
 
 >NOTE: If you are a publisher who is sharing UID2 tokens in the bid stream, see [Sharing for Publishers](sharing-publishers.md).
 
@@ -59,7 +59,9 @@ The following steps are for all sharing participants who are using an SDK&#8212;
 2. Integrate the SDK into your code to implement each step, depending on whether your role is sender or receiver. To see code examples for the language you're using, follow the link in the table provided in Step 1.
    1. Both senders and receivers: define the UID2 client.
    
-   2. Both senders and receivers: define the token refresh schedule. Recommended refresh interval is hourly. For an example, see [Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)](#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only).
+   2. Both senders and receivers: define the token refresh schedule.
+   
+      Recommended refresh interval is hourly. For an example, see [Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)](#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only).
 
    3. Senders, set up encryption.
 

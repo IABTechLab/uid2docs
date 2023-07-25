@@ -20,11 +20,11 @@ In UID2, sharing is a process for distributing [raw UID2s](../ref-info/glossary-
 
 The UID2 sender specifies which receivers can decrypt their UID2 tokens, by configuring permissions in the [UID2 Portal](/docs/category/uid2-portal). When a sender grants permission to a receiver for UID2 sharing, the sender's decryption keys are shared with the receiver via a UID2 SDK. As part of sharing, the UID2 SDKs and APIs take care of the encryption and decryption.
 
-For example, let's say that an advertiser (sender) wants to share raw UID2s with a trusted sharing partner who is a UID2 DSP, for segment creation via an API. Using sharing, the advertiser first enables the DSP with sharing permission via the UID2 Portal. The advertiser then encrypts the raw UID2s into UID2 tokens and send them securely to the DSP (receiver). The DSP, who is also taking part in sharing, has access to the advertiser's decryption keys (through the UID2 Portal sharing permissions setup, and can therefore decrypt the UID2 tokens into raw UID2s for segment creation.
+For example, let's say that an advertiser (sender) wants to share raw UID2s with a trusted sharing partner who is a UID2 DSP, for segment creation via an API. Using sharing, the advertiser first enables the DSP with sharing permission via the UID2 Portal. The advertiser then encrypts the raw UID2s into UID2 tokens and sends them securely to the DSP (receiver). The DSP, who is also taking part in sharing, has access to the advertiser's decryption keys (through the UID2 Portal sharing permissions setup, and can therefore decrypt the UID2 tokens into raw UID2s for segment creation.
 
 There are many scenarios for sharing. For additional examples, see [Sharing UID2s: Use Cases](sharing-use-cases.md).
 
->NOTE: The process for publishers sharing UID2 tokens in the bid stream is different process. If you are a publisher who is putting UID2 tokens into the bid stream, see [Sharing for Publishers](sharing-publishers.md).
+>NOTE: The process for publishers sharing UID2 tokens in the bid stream is a different process. If you are a publisher who is putting UID2 tokens into the bid stream, see [Sharing for Publishers](sharing-publishers.md).
 
 Additional resources:
 
@@ -58,7 +58,7 @@ The workflow for UID2 sharing, for all sharers except when sharing UID2 tokens i
 
 1. The receiver completes the following steps to decrypt the UID2 tokens:
 
-   1. Receives the encrypted UID2 tokens.
+   1. Receives the UID2 tokens.
    1. Decrypts the UID2 tokens into raw UID2s that the receiver can use.
 
 The following diagram illustrates the UID2 sharing permission SDK integration workflow:
@@ -134,27 +134,10 @@ The same is true of UID2 tokens generated for sharing. (**GWH_KT KT to report ba
 
 ## UID2 Portal Sharing Permissions
 
-So that the intended receiver of your encrypted UID2 tokens can decrypt them, you must grant sharing permission to the receiver.
+So that the intended receiver of your UID2 tokens can decrypt them, you must grant sharing permission to the receiver.
 
 Sharing permissions are defined through the UID2 Portal. For details, see [Sharing Permissions](../portal/sharing-permissions.md).
 
-### Steps for Granting Sharing Permission
-
-At a high level, enabling sharing permissions includes the following steps. For exact instructions for configuring your sharing options in the UID2 Portal, refer to [Sharing Permissions](../portal/sharing-permissions.md).
-
->NOTE: As well as granting sharing permission, you'll need to integrate the SDK into your code.
-
-1. Log in to your UID2 Portal account.
-1. Click **Sharing Permissions**.
-1. Do one of the following:
-   - **Share with one participant**: Search for a UID2 participant that you want to send data to, and select the participant.
-   - **Share with a participant type**: Select a participant type that you want to start sharing with. Sharing will be enabled for current participants of that type, and also future participants of that type that join the UID2 ecosystem.
-1. Save changes.
-
-<!-- {**GWH_KT Gen to revisit the above procedure when UID2 portal is available**} -->
- 
-NOTE: When you enable sharing permission, this allows the selected sharing participants to access your decryption keys. Each participant that you enable for sharing can use your keys, via the SDK, to decrypt a UID2 token into a raw UID2. However, granting permission is just the first step. In order for sharing to occur, you must send the tokens to the participant. The UID2 Portal enables the permissions. It does not send any data&#8212;that is up to you.
-
 ## Sharing for Publishers
 
-The process for publishers sharing UID2 tokens in the bid stream is a different, and simpler, process. If your only role is publisher, see [Sharing for Publishers](sharing-publishers.md).
+The process for publishers sharing UID2 tokens in the bid stream is a different process. If your only role is publisher, see [Sharing for Publishers](sharing-publishers.md).
