@@ -254,13 +254,13 @@ IMPORTANT: メールアドレスのマッピングや再マッピングを行う
 
 <!-- FAQ_25 DSP -->
 
-提供される[Server-Side SDK Guide](../sdks/dsp-client-v1-overview.md) は、復号鍵を自動的に更新します。UID2 Token と共に提供されるメタデータは、使用する復号鍵の ID を示します。
+各 Server-Side SDK（[SDKs](../sdks/summary-sdks.md)を参照）は、復号鍵を自動的に更新します。UID2 Token と共に提供されるメタデータは、使用する復号鍵の ID を示します。
 
 #### 復号鍵はどこで手に入りますか？
 
 <!-- FAQ_26 DSP -->
 
-UID2 Service と通信し、最新の鍵を取得するには、[Server-Side SDK Guide](../sdks/dsp-client-v1-overview.md) ライブラリを使用できます。鍵が常に最新であることを確認するため、1 時間に 1 回など、定期的に鍵を取得することをお勧めします。
+Server-Side  SDK のいずれか（[SDKs](../sdks/summary-sdks.md)を参照）を使用して UID2 Service と通信し、最新の鍵を取得することができます。鍵を確実に最新に保つため、例えば1時間に1回など、定期的に鍵を取得することを推奨します。
 
 #### ソルトバケットがローテーションしたかどうかを知るにはどうしたらよいですか？
 

@@ -32,7 +32,7 @@ UID2を実装するDSPには、以下のドキュメントリソースが用意�
 
 | Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
-| Server-Side SDK | [Server-Side SDK Guide](../sdks/dsp-client-v1-overview.md) | UID2 サーバーサイド SDK を使用して、UID2 Advertising Token を復号して raw UID2 にアクセスしたい人のためのSDKです。| DSPs |
+| Server-Side SDK Guides for .NET, C++, Java, Python | [SDKs](../sdks/summary-sdks.md) | UID2 Server-Side SDK を使用して、UID2 Advertising Token を復号して raw UID2 にアクセスしたい人のための SDK です。| DSPs |
 | Integration Guides | [DSP Integration Guide](../guides/dsp-guide.md) | この DSP 向けインテグレーションガイドでは、入札における UID2 の取り扱いや、ユーザーのオプトアウトを受け入れることについて説明しています。 | DSPs |
 
 ## Workflow for DSPs
