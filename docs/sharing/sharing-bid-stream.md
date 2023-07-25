@@ -1,11 +1,11 @@
 ---
-title: Sharing for Publishers
+title: Sharing in the Bid Stream
 description: Learn about sharing UID2s in the bid stream.
 hide_table_of_contents: false
 sidebar_position: 08
 ---
 
-# Sharing for Publishers
+# Sharing in the Bid Stream
 
 <!-- It includes the following:
 

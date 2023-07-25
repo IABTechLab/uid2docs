@@ -2,7 +2,7 @@
 title: Team Members
 description: Learn how to set up and manage your UID2 team.
 hide_table_of_contents: false
-sidebar_position: 06
+sidebar_position: 05
 ---
 
 # Team Members
@@ -49,8 +49,8 @@ To re-send the invitation for a team member, find the team member on the list an
 
 # Edit Information for a Team Member
 
-To edit information for a team member, find the team member on the list and then, in the Actions column, click the Edit (pencil) icon. (**GWH_KT it doesn't work for me**)
+To edit information for a team member, find the team member on the list and then, in the Actions column, click the Edit (pencil) icon. <!-- (**GWH_KT it doesn't work for me**) -->
 
 # Remove a Team Member
 
-To remove someone from the team, find the team member on the list and then, in the Actions column, click the delete (trashcan) icon. (**GWH_KT it doesn't work for me**)
+To remove someone from the team, find the team member on the list and then, in the Actions column, click the delete (trashcan) icon. <!-- (**GWH_KT it doesn't work for me**) -->
