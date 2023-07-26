@@ -27,7 +27,6 @@ sidebar_position: 10
 <li><a href="#gl-advertising-token">Advertising token</a></li>
 <li><a href="#gl-authorization-header">Authorization header</a></li>
 <li><a href="#gl-bearer-token">Bearer token</a></li>
-<li><a href="#gl-bid-stream-token">bid stream token</a></li>
 <li><a href="#gl-client-key">Client key</a></li>
 <li><a href="#gl-client-secret">Client secret</a></li>
 <li><a href="#gl-closed-operator">Closed operator</a></li>
@@ -73,6 +72,8 @@ sidebar_position: 10
 <li><a href="#gl-secure-signals">Secure signals</a></li>
 <li><a href="#gl-sha-256">SHA-256</a></li>
 <li><a href="#gl-sso">SSO</a></li>
+<li><a href="#gl-sharing">sharing (in UID2)</a></li>
+<li><a href="#gl-sharing-participant">sharing participant</a></li>
 <li><a href="#gl-transparency-and-control-portal">Transparency and Control Portal</a></li>
 <li><a href="#gl-uid2-framework">UID2 framework</a></li>
 <li><a href="#gl-uid2-identifier">UID2 identifier</a></li>
@@ -108,10 +109,6 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-bearer-token">Bearer token</dt>
 <dd>A bearer token is a special string that identifies the client. For authentication, some UID2 endpoints require the <a href="#gl-client-key">client key</a> to be specified as a bearer token in the Authorization header of the request: for example, <a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a>.</dd>
-
-<!-- <dt class="jump-anchor" id="gl-bid-stream-token">bid stream token</dt>
-<dd>A UID2 bid stream token is the same as a UID2 token. In the context of UID2 sharing, this term is used to differentiate between a UID2 token created as a result of a call to the <a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> or <a href="../endpoints/post-token-refresh">POST&nbsp;/token/refresh</a> endpoint (whether implemented via the API or via an SDK) and a UID2 <a href="#gl-sharing-token">sharing token</a>, which is created by encrypting a raw UID2 using one of the server-side SDKs or the Snowflake integration.</dd>
-<dd>For more information, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd> -->
 
 <dt class="jump-anchor" id="gl-client-key">Client key</dt>
 <dd>See <a href="#gl-api-key">API key</a>.</dd>
@@ -233,12 +230,16 @@ sidebar_position: 10
 <dd>SHA-256 is part of the SHA-2 family of algorithms developed by the National Institute of Standards and Technology (NIST) and the National Security Agency (NSA) to succeed SHA-1. Each algorithm is named according to the number of bits in the output, so SHA-256 has 256 bits.</dd>
 <dd>For details, see <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> (specification).</dd>
 
-<dt class="jump-anchor" id="gl-sharing-token">sharing token</dt>
-<dd>A UID2 sharing token is created by encrypting a raw UID2 using one of the server-side SDKs or the Snowflake integration. The UID2 sharing token is a way of securely sharing UID2s between sharing participants</dd>
-<dd>For more information, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd>
-
 <dt class="jump-anchor" id="gl-sso">SSO</dt>
 <dd>SSO is an acronym for Single Sign-On. SSO allows a user to log in with the same credentials (usually, but not always, ID and password) to one of several software systems, such as apps or websites. SSO allows the user to log in once to multiple applications or sites using one set of credentials. With SSO, websites/apps do not have to maintain their own authentication systems.</dd>
+
+<dt class="jump-anchor" id="gl-sharing">sharing</dt>
+<dd>In the context of UID2, sharing is a process for distributing <a href="#gl-raw-uid2">raw UID2s</a> securely between UID2 participants. To protect raw UID2s from unauthorized access, the originating participant (sender) must encrypt the raw UID2s into UID2 tokens before transmission. The destination participant (receiver) must decrypt the UID2 tokens into raw UID2s for internal use.</dd>
+<dd>For details, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd>
+
+<dt class="jump-anchor" id="gl-sharing-participant">sharing participant</dt>
+<dd>In UID2, a sharing participant is a company that takes part in <a href="#gl-sharing">sharing</a>&#8212;distributing <a href="#gl-raw-uid2">raw UID2s</a> securely between UID2 participants. A sharing participant can be a publisher, advertiser, DSP, or data provider, or might have more than one of these roles.</dd>
+<dd>For details, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd>
 
 <dt class="jump-anchor" id="gl-transparency-and-control-portal">Transparency and Control Portal</dt>
 <dd>The UID2 Transparency and Control Portal is a user-facing website, <a href="https://www.transparentadvertising.org/">https://www.transparentadvertising.org</a>, that allows consumers to opt out of UID2 at any time.</dd>
