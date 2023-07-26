@@ -4,8 +4,8 @@ description: データプロバイダー向けの情報の概要。
 hide_table_of_contents: false
 sidebar_position: 08
 use_banner: true
-banner_title: UID2 Overview for Data Providers
-banner_description: An identity solution for the future.
+banner_title:  データプロバイダー向け UID2 の概要
+banner_description: 未来のためのIDソリューション。
 ---
 
 データおよび測定プロバイダーは、Unified ID 2.0 を採用してデータをより耐久性のある、オムニチャネルおよびクロスデバイスの識別子で接続し、顧客のユースケースを満たすことによって、ID の断片化を減らすことができます。
