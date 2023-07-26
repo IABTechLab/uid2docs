@@ -46,7 +46,7 @@ https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 
 入札時（2-b）に以下のロジックを使用し、ユーザーのオプトアウトを受け入れます。
 
-提供されている [Server-Side SDK Guide](../sdks/dsp-client-v1-overview.md) を活用して、受信した UID2 Token を復号化できます。レスポンスには UID2 と UID2 が作成された時刻が含まれ、以下の疑似コードでは `established_timestamp`と表現されます。DSP は UID2 の最新のオプトアウトタイムスタンプを確認する必要があります。以下の疑似コードでは `optout_timestamp`と表現されています。
+Server-Side SDK のいずれか([SDKs](../sdks/summary-sdks.md)を参照)を利用して、受信した UID2 Token を復号化します。応答には UID2 と UID2 が作成された時刻が含まれ、以下の疑似コードでは `established_timestamp`として表されます。DSP は UID2 の最新のオプトアウトタイムスタンプを確認する必要があります。
 
 オプトアウトのロジックを次の図に示します。
 
@@ -66,7 +66,7 @@ if (established_timestamp < optout_timestamp) {
 
 | Step | SDK                                                        | Description                                                                                                                                                                                             |
 | :--- | :--------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 2-a  | [Server-Side SDK Guide](../sdks/dsp-client-v1-overview.md) | 提供されている SDK を活用して、入力された UID2 Token を復号化します。レスポンスには `UID2` と UID2 の作成時刻が含まれます。                                                                             |
+| 2-a  | Server-side SDK ([SDKs](../sdks/summary-sdks.md)を参照) | 提供されている SDK を活用して、入力された UID2 Token を復号化します。レスポンスには `UID2` と UID2 の作成時刻が含まれます。                                                                             |
 | 2-b  |                                                            | DSP は UID2 のオプトアウトプロトコルを受け入れることが要求されます。ユーザーオプトアウトの設定と入札時の受け入れは、[ユーザーオプトアウトの受け入れ](#honor-user-opt-outs) を参照してください。 |
 
 ## FAQs
