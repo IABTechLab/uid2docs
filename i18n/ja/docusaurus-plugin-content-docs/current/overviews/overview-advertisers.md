@@ -4,8 +4,8 @@ description: 広告主向けの情報の概要。
 hide_table_of_contents: false
 sidebar_position: 04
 use_banner: true
-banner_title: UID2 Overview for Advertisers
-banner_description: Upgrade campaign activation with Unified ID 2.0.
+banner_title: 広告主向け UID2 の概要
+banner_description: Unified ID 2.0 でキャンペーンのアクティベーションをアップグレードしましょう。
 ---
 
 広告主は、Unified ID 2.0によってファーストパーティデータ戦術をアップグレードし、1つの識別子でデバイスをまたいだオムニチャネルキャンペーンを実現できます。

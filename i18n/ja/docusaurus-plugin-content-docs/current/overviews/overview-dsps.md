@@ -4,8 +4,8 @@ description: デマンドサイドプラットフォーム (DSP) 向けの情報
 hide_table_of_contents: false
 sidebar_position: 06
 use_banner: true
-banner_title: UID2 Overview for Demand-Side Platforms (DSPs)
-banner_description: Enable data strategies with a more durable identifier.
+banner_title: デマンドサイドプラットフォーム（DSP）向け UID2 の概要
+banner_description: より耐久性のある識別子でデータ戦略を可能に。
 ---
 
 このページでは、Unified ID 2.0 (UID2) フレームワークが DSP にもたらすもの、利用可能な実装オプション、および開始方法に関する情報を提供します。以下のセクションでは、UID2 を採用するDSPのためのワークフロー、インテグレーションタイプ、ドキュメントについて説明します。

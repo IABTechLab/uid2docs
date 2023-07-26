@@ -3,8 +3,8 @@ title: Private Operators
 description: Private Operator 向けの情報の概要。
 hide_table_of_contents: false
 use_banner: true
-banner_title: UID2 Overview for Private Operators
-banner_description: Own the process of generating UID2s from DII in a private environment.
+banner_title: プライベートオペレータ向け UID2 の概要
+banner_description: プライベート環境で DII から UID2 を生成するプロセスを説明します。
 ---
 
 UID2 の Private Operator は、ファーストパーティーの[個人を識別できる情報（DII）](../ref-info/glossary-uid.md#gl-dii)を安全な環境に送って翻訳し、その識別子の行き先を管理する。

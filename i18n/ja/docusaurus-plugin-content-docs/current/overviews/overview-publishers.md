@@ -4,8 +4,8 @@ description: パブリッシャー向けの情報の概要。
 hide_table_of_contents: false
 sidebar_position: 02
 use_banner: true
-banner_title: UID2 Overview for Publishers
-banner_description: Maintain audience targeting in the ever-changing advertising industry for better impression monetization and more relevance.
+banner_title: パブリッシャー向け UID2 概要
+banner_description: 変化し続ける広告業界においてオーディエンスターゲティングを維持し、より良いインプレッション収益化と関連性の向上を実現します。
 ---
 
 パブリッシャーは、Unified ID 2.0 のクロスデバイスでのプレゼンスの恩恵を受け、すべてのインベントリで一貫した ID ファブリックを活用できます。
