@@ -162,13 +162,17 @@ If you're using standard integration (client and server) (see [UID2 SDK for Java
 
 * Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)) using the following:
 
-  `token_generate_response.get_identity_json_string()` //Note: If the user has opted out, this method returns None, so be sure to handle that case.
+  `token_generate_response.get_identity_json_string()` 
+  
+  Note: If the user has opted out, this method returns None, so be sure to handle that case.
 
 ### Server-Only Integration
 
 If you're using server-only integration (see [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md)):
 
-1. Store this identity as a JSON string in the user's session, using the `token_generate_response.get_identity_json_string()` function. If the user has opted out, this method returns `None`, so be sure to handle that case.
+1. Store this identity as a JSON string in the user's session, using the `token_generate_response.get_identity_json_string()` function.
+
+   If the user has opted out, this method returns `None`, so be sure to handle that case.
 2. To retrieve the user's UID2 token, use the following:
 
    ```
@@ -190,7 +194,9 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
 
    `token_refresh_response = client.refresh_token(identity)`
 
-5. Store `token_refresh_response.get_identity_json_string()` in the user's session. If the user has opted out, this method returns `None`, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `token_refresh_response.is_optout()` function.
+5. Store `token_refresh_response.get_identity_json_string()` in the user's session.
+
+   If the user has opted out, this method returns `None`, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `token_refresh_response.is_optout()` function.
 
 ## FAQs
 
