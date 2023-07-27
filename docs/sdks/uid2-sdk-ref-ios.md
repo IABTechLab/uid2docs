@@ -24,7 +24,7 @@ sidebar_position: 12
 - [Android Initialization](#android-initialization)
 - [Code Samples](#code-samples) -->
 
-You can use the UID2 SDK for iOS to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens.
+You can use the UID2 SDK for iOS to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens on iOS devices.
 
 ## Functionality
 
