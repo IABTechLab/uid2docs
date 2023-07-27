@@ -32,7 +32,7 @@ This SDK simplifies integration with UID2 for any publishers who want to support
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
-| No | No | Yes | Yes |
+| No | No | No | Yes |
 
 ## Android Version
 
