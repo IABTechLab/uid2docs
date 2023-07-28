@@ -10,7 +10,7 @@ sidebar_position: 14
 <!-- This guide includes the following information:
 
 - [Functionality](#functionality)
-- [Android Version](#android-version)
+- [SDK Version](#sdk-version)
 - [Features](#features)
 - [GitHub Open-Source Repository](#github-open-source-repository)
 - [Minimum Requirements](#minimum-requirements)
@@ -34,11 +34,11 @@ This SDK simplifies integration with UID2 for any publishers who want to support
 | :--- | :--- | :--- | :--- |
 | No | No | No | Yes |
 
-## Android Version
+## SDK Version
 
 <!-- As of 2023-07-15 -->
 
-This SDK supports Android version 0.4.0.
+This documentation is for the UID2 Android SDK version 0.4.0.
 
 ## Features
 
@@ -54,9 +54,7 @@ The following open-source GitHub repository is available for this SDK:
 
 ## Minimum Requirements
 
-The following minimum requirements and/or specifications apply:
-
-4.4+ / API 19+ (SDK) 5.0+ / API 21+ (Dev-App) 
+For the latest information regarding minimum requirements and specifications, refer to the [readme in the GitHub repository](https://github.com/IABTechLab/uid2-android-sdk/blob/main/README.md#requirements).
 
 ## Installation
 

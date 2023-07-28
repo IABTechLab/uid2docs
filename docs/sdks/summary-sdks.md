@@ -20,8 +20,6 @@ The following table summarizes the functionality available with each SDK.
 |UID2 SDK for iOS | Client-Side | No | No | No | Yes |
 |UID2 SDK for Android | Client-Side | No | No | No | Yes |
 
-(**GWH_SW not sure about the Client or Server for Android and iOS. Also not sure about the values in the four columns. Please advise.**)
-
 ## SDKs
 
 The following SDK documentation is available for UID2 integration.

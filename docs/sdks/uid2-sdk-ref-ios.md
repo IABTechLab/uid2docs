@@ -10,7 +10,7 @@ sidebar_position: 12
 <!-- This guide includes the following information:
 
 - [Functionality](#functionality)
-- [iOS Version](#ios-version)
+- [SDK Version](#sdk-version)
 - [Features](#features)
 - [GitHub Open-Source Repository](#github-open-source-repository)
 - [Minimum Requirements](#minimum-requirements)
@@ -34,11 +34,11 @@ This SDK simplifies integration with UID2 for any publishers who want to support
 | :--- | :--- | :--- | :--- |
 | No | No | No | Yes |
 
-## iOS Version
+## SDK Version
 
 <!-- As of 2023-07-15 -->
 
-This SDK supports iOS version 0.2.0.
+This documentation is for the UID2 iOS SDK version 0.2.0.
 
 ## Features
 
@@ -54,10 +54,7 @@ The following open-source GitHub repository is available for this SDK:
 
 ## Minimum Requirements
 
-The following minimum requirements and/or specifications apply:
-
-- Minimum target: 13.0+
-- Swift: 5.0+
+For the latest information regarding minimum requirements and specifications, refer to the [readme in the GitHub repository](https://github.com/IABTechLab/uid2-ios-sdk/blob/main/README.md#requirements).
 
 ## Installation
 
