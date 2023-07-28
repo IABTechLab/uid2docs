@@ -22,18 +22,22 @@ sidebar_position: 04
 - [Sample Token](#sample-token)
 - [Prebid Implementation Notes and Tips](#prebid-implementation-notes-and-tips) -->
 
-## Prebid Overview
 
-Prebid is a premier, very popular, free, open source header bidding solution.
+This guide is for publishers who want to directly integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream.
+It outlines the basic steps to consider if you're building an integration direct with UID2 and use Prebid for header bidding. 
 
-If you are a publisher who is using header bidding using Prebid, or wants to do so, there are a few extra steps so that your Prebid header bidding implementation also supports UID2.
+## Introduction
+
+If you are a publisher using Prebid for header bidding, there are a few extra steps so that your Prebid header bidding implementation also supports UID2.
 
 In addition, if you don't already have one, you must set up a UID2 account: see [Account Setup](../getting-started/gs-account-setup.md).
 
-## UID2 Page on the Prebid Site
+## UID2 Prebid Module Page
 
 For details about the UID2 Prebid integration, refer to [the Unified ID 2.0 page on the Prebid site](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html). 
 Be sure to follow all the steps.
+
+For details on how to integrate Prebid with UID2, refer to the [Unified ID 2.0 Prebid User ID module](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) on the Prebid site. 
 
 ## UID2 User ID Submodule
 
