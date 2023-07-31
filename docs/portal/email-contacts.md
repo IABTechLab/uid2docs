@@ -2,14 +2,16 @@
 title: Email Contacts
 description: Learn how to set up and manage contacts for UID2 updates.
 hide_table_of_contents: false
-sidebar_position: 07
+sidebar_position: 09
 ---
 
 # Email Contacts
 
 In the UID2 Portal, you can specify people from your organization whom we should notify for information about the latest updates and releases for UID2. You can set up individual email addresses, or reference an email group that you've set up internally to notify multiple individuals in your organization.
 
-We recommend adding email groups rather than individuals. (**GWH_KT_01 why? Just so it can be configured externally perhaps? Or, some other reason?**)
+Adding email groups rather than individuals has some benefits:
+- It's an efficient way to keep multiple people notified without having to create a lot of individual entries.
+- You can manage the list externally, as part of managing your internal email configuration, outside the UID2 Portal.
 
 >NOTE: Email contacts cannot log in to the UID2 Portal or modify the account. They only receive information notices. If an email contact wants to be removed, that action must be done by a team member.
 
@@ -46,14 +48,19 @@ Complete the following steps:
    - Contact Type: Choose from the drop-down list of contact types. For example, choose `Business` or `Technical`.
 3. Click **Save Email Contact**. Your entry is added to the list. 
 
-(**GWH_KT_02 is there email verification in this case?**)
+>NOTE: For email contacts, no email confirmation is sent.
 
 ## Edit Information for an Email Contact
 
 To edit information for an email contact, find the contact on the list and then, in the Actions column, click the Edit (pencil) icon.
 
-Update the information, and then save. (**GWH_KT_03 it doesn't work for me**) (**GWH_KT_04 also: is there a confirmation message?**)
+Update the information, and then save the changes.
 
 ## Remove an Email Contact
 
-To remove an email contact, find the contact on the list and then, in the Actions column, click the delete (trashcan) icon. (**GWH_KT_05 it doesn't work for me**)
+To remove an email contact, follow these steps:
+
+1. Find the contact on the list and then, in the Actions column, click the delete (trashcan) icon.
+1. At the confirmation message, confirm deletion.
+
+<!-- (**GWH_KT_05 7/31 confirmation msg not yet added but per KT it will be and should be in the doc. Verify before publication.**) -->

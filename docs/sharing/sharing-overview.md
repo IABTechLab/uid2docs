@@ -130,7 +130,7 @@ The UID2 token is designed so that it can be seen by all but can only be used by
 
 For example, UID2 tokens are habitually passed through the bid stream from a publisher to a DSP. Although a UID2 token might go through several parties, such as an SSP, it can be decrypted only by an authorized UID2 participant. On its journey through the bid stream, the UID2 token can safely pass through one or more intermediaries.
 
-The same is true of UID2 tokens generated for sharing. (**GWH_KT_14 KT to report back whether we need this/how to fix it.  Here is my suggestion to say: Only trusted sharing participants, that you've chosen to share with, have access to your decryption keys. **) -->
+The same is true of UID2 tokens generated for sharing. (**GWH_KT_04 KT to report back whether we need this/how to fix it.  Here is my suggestion to say: Only trusted sharing participants, that you've chosen to share with, have access to your decryption keys. **) -->
 
 ## Sharing in the Bid Stream
 

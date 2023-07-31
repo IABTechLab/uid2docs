@@ -59,7 +59,7 @@ When you click the UID2 Portal link for the first time, you'll see the login pag
 
 3. Create and confirm your password and then click **Continue**.
 
-4. The next step is email verification. We send you an email to confirm your email address. To confirm, click the button in the email. (**GWH_KT_06 query for Kimberly here re the sequence**)
+4. The next step is email verification. We send you an email to confirm your email address. To confirm, click the button in the email.
 
 4. On the Participant Information page, provide your company name and then, for **Participant Type**, choose one or more of the following:
  
