@@ -69,9 +69,9 @@ Install the iOS SDK via Swift Package Manager (SPM). There are two installation 
 Add the following dependency to Package.swift:
 
 ```
-dependencies: 
-.package(url: \"https://github.com/IABTechLab/uid2-ios-sdk.git\", from:
-"0.2.0"),
+dependencies: [
+.package(url: \"https://github.com/IABTechLab/uid2-ios-sdk.git\", from: "0.2.0"),
+]
 ```
 
 ### Installing with Xcode

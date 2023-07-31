@@ -156,18 +156,11 @@ The initialization can be done during the creation of the APPLICATION instance, 
 
 ```java
 class MyApplication : Application() {
-
-override fun onCreate() {
-
-super.onCreate()
-
-// Initialize the UID2Manager class. Use DefaultNetworkSession rather
-than providing our own
-
-// custom implementation. This can be done to allow wrapping something
-like OkHttp.
-
-UID2Manager.init(this.applicationContext)
+  override fun onCreate() {
+    super.onCreate()
+   // Initialize the UID2Manager class. Use DefaultNetworkSession rather than providing our own
+   // custom implementation. This can be done to allow wrapping something like OkHttp.
+   UID2Manager.init(this.applicationContext)
 ```
 
 ## Code Samples
