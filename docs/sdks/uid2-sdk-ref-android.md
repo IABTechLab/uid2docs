@@ -48,7 +48,7 @@ By default, the SDK automatically refreshes UID2 identity based on expiration da
 
 ## GitHub Open-Source Repository
 
-The following open-source GitHub repository is available for this SDK:
+This SDK is in the following open-source GitHub repository:
 
 - [https://github.com/IABTechLab/uid2-android-sdk](https://github.com/IABTechLab/uid2-android-sdk)
 
@@ -178,3 +178,5 @@ Get the UID2 token (advertising token) to pass to the Advertising SDK:
 ```java
 UID2Manager.getInstance().getAdvertisingToken()
 ```
+
+<!-- GWH for when GMA doc is out (and then add IMA after that): If you are using the UID2 SDK for Android to send UID2 tokens to Google Mobile Ads (GAM), please read (link). -->
