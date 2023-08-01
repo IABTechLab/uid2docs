@@ -535,16 +535,16 @@
   "homepage.partnersDataProvidersHeading": {
     "message": "データプロバイダ"
   },
-  "Unified ID 2.0 Benefits": {
-    "message": "Unified ID 2.0 Benefits"
-  },
-  "Unified ID 2.0 was created with consumer privacy as a top priority. Users can opt out of the use of their UID2 universally by visiting the opt-out portal. Participants are required to honor the users' opt-out requests made through the portal.": {
-    "message": "Unified ID 2.0 was created with consumer privacy as a top priority. Users can opt out of the use of their UID2 universally by visiting the opt-out portal. Participants are required to honor the users' opt-out requests made through the portal."
-  },
-  "Manage my UID2": {
-    "message": "Manage my UID2"
-  },
   "navbar.ctaLabel": {
     "message": "導入についてお問合わせ"
+  },
+  "homepage.benefitsTitle": {
+    "message": "Unified ID 2.0のメリット"
+  },
+  "homepage.benefitsCopy": {
+    "message": "Unified ID 2.0は、消費者のプライバシーを最優先にして生成しており、ユーザーは、オプトアウト・ポータルにアクセスすることで、自身のUID2の利用をオプトアウトすることができます。Unified ID 2.0への参加者は、本ポータルを通じてリクエストされたユーザーのオプトアウトに応じる必要があります。"
+  },
+  "homepage.benefitsButtonLabel": {
+    "message": "管理"
   }
 }
