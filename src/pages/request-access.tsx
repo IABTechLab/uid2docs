@@ -58,7 +58,7 @@ export default function RequestDemo(): JSX.Element {
 
   const formRef = React.useRef(null);
 
-  const formId = i18n.currentLocale === "ja" ? 2510 : 2753;
+  const formId = i18n.currentLocale === "ja" ? 3688 : 2753;
 
   const onChange = React.useCallback((event) => {
     const target = event.target;
