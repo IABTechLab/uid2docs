@@ -10,7 +10,7 @@ sidebar_position: 01
 <!-- It includes the following:
 
 - [UID2 Sharing Workflow](#uid2-sharing-workflow)
-- [Token Example for Sharing](#token-example-for-sharing)
+- [Generating the Token for UID2 Sharing: Example](#creating-the-token-for-sharing-example)
 - [Sharing in the Bid Stream](#sharing-in-the-bid-stream) -->
 
 In UID2, sharing is a process for distributing [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) securely between UID2 participants. To protect raw UID2s from unauthorized access, the originating participant (sender) must encrypt the raw UID2s into [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) before transmission. The destination participant (receiver) must decrypt the UID2 tokens into raw UID2s for internal use.
@@ -70,11 +70,11 @@ For example, when a sharing participant sends a UID2 outside the participant inf
 
 There are two ways to generate a UID2 token, and the correct method to choose depends on the usage scenario:
 - **Publishers**: For publishers sharing UID2 tokens in the bid stream, convert the input email address or phone number directly to a UID2 token. For details, see [Sharing in the Bid Stream](sharing-bid-stream.md).
-- **All other participants**: To securely share UID2s between participants, first convert the input email address or phone number to a raw UID2, and then convert the raw UID2 to a UID2 token. This is the only valid method for sharing, other than for publishers sharing in the bid stream. See [Token Example for Sharing](#token-example-for-sharing).
+- **All other participants**: To securely share UID2s between participants, first convert the input email address or phone number to a raw UID2, and then convert the raw UID2 to a UID2 token. This is the only valid method for sharing, other than for publishers sharing in the bid stream. See [Generating the Token for UID2 Sharing: Example](#token-example-for-sharing).
 
 The correct way to generate the token, for all UID2 participants except publishers, is to use the `encrypt` function in the corresponding server-side SDK, or the UID2 Snowflake integration: see [Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary). -->
 
-## Token Example for Sharing
+## Generating the Token for UID2 Sharing: Example
 
 >Note: If you are a publisher, see [Token Example for Publishers in the Bid Stream](sharing-bid-stream.md#token-example-for-publishers-in-the-bid-stream).
 
