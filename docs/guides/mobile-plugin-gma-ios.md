@@ -12,19 +12,19 @@ This plugin simplifies integration with Google Mobile Ads (GMA) for any publishe
 
 This documentation is for the UID2 GMA Plugin for iOS version 0.2.0.
 
-## Requirements 
-
-To run this plugin, install the following:
-
-1. [Google Mobile Ads SDK v10.7.0+](https://developers.google.com/admob/ios/rel-notes)
-1. [UID2 iOS SDK v0.2.0](../sdks/uid2-sdk-ref-ios.md)
-1. UID2 GMA Plugin for iOS v0.2.0
-
 ## GitHub Repository
 
 This plugin is in the following open-source GitHub repository:
 
 - [https://github.com/IABTechLab/uid2-ios-plugin-google-gma](https://github.com/IABTechLab/uid2-ios-plugin-google-gma)
+
+## Requirements 
+
+To run this plugin, install the following:
+
+1. [Google Mobile Ads SDK v10.7.0+](https://developers.google.com/admob/ios/rel-notes)
+1. [UID2 SDK for iOS v0.2.0](../sdks/uid2-sdk-ref-ios.md)
+1. UID2 GMA Plugin for iOS v0.2.0
 
 ## Installation
 

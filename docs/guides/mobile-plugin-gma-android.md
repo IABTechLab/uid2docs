@@ -25,7 +25,7 @@ This plugin is in the following open-source GitHub repository:
 To run this plugin, install the following:
 
 1. [Google Mobile Ads SDK v22.0.0+](https://developers.google.com/admob/android/sdk)
-1. [UID2 Android SDK v0.4.0](../sdks/uid2-sdk-ref-android.md)
+1. [UID2 SDK for Android v0.4.0](../sdks/uid2-sdk-ref-android.md)
 1. UID2 Android GMA Plugin v0.4.0
 
 ## Installation
@@ -37,7 +37,7 @@ Install the UID2 Android GMA Plugin v0.4.0 to an existing app with the UID2 Andr
 - [Gradle](#gradle)
 - [Maven](#maven)
 
-#### Gradle 
+### Gradle 
 
 To install with Gradle, add the SDK as a dependency in the `build.gradle` file:
 
@@ -45,7 +45,7 @@ To install with Gradle, add the SDK as a dependency in the `build.gradle` file:
 implementation \'com.uid2:uid2-android-sdk-gma:0.4.0\'
 ```
 
-#### Maven 
+### Maven 
 
 To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 
@@ -56,5 +56,3 @@ To install with Maven, add the SDK as a dependency in the `pom.xml` file:
   <version>0.4.0</version>
 </dependency>
 ```
-
-<!-- (**GWH_SW a question. The iOS doc had a troubleshooting section but the Android doc did not. Do you think we're missing something? Maybe I should check with Brad?**) -->
