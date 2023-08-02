@@ -12,6 +12,11 @@ This plugin simplifies integration with Google Interactive Media Ads (IMA) for a
 
 This documentation is for the UID2 IMA Plugin for iOS version 0.1.0.
 
+
+## GitHub Repository
+
+**GWH_SW do you know the repo for this?**
+
 ## Requirements 
 
 To run this plugin, install the following:
@@ -19,10 +24,6 @@ To run this plugin, install the following:
 1. Google IMA SDK v3.18.5
 1. [UID2 iOS SDK v0.2.0](../sdks/uid2-sdk-ref-ios.md)
 1. UID2 IMA Plugin for iOS v0.1.0
-
-## GitHub Repository
-
-**GWH_SW do you know the repo for this?**
 
 ## Installation
 
