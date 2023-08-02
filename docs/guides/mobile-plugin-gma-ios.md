@@ -17,7 +17,7 @@ This documentation is for the UID2 GMA Plugin for iOS version 0.2.0.
 To run this plugin, install the following:
 
 1. [Google Mobile Ads SDK v10.7.0+](https://developers.google.com/admob/ios/rel-notes)
-1. UID2 iOS SDK v0.2.0
+1. [UID2 iOS SDK v0.2.0](../sdks/uid2-sdk-ref-ios.md)
 1. UID2 GMA Plugin for iOS v0.2.0
 
 ## GitHub Repository

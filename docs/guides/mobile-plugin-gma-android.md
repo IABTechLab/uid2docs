@@ -25,7 +25,7 @@ This plugin is in the following open-source GitHub repository:
 To run this plugin, install the following:
 
 1. [Google Mobile Ads SDK v22.0.0+](https://developers.google.com/admob/android/sdk)
-1. UID2 Android SDK v0.4.0
+1. [UID2 Android SDK v0.4.0](../sdks/uid2-sdk-ref-android.md)
 1. UID2 Android GMA Plugin v0.4.0
 
 ## Installation
