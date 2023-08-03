@@ -7,8 +7,6 @@ sidebar_position: 01
 
 # Unified ID 2.0 Overview
 
-This page provides overview information about the Unified ID 2.0 (UID2) framework.
-
 <!-- It includes the following:
 
 - [Introduction](#introduction)
@@ -21,10 +19,6 @@ This page provides overview information about the Unified ID 2.0 (UID2) framewor
   - [Workflows](#workflows)
 - [Frequently Asked Questions (FAQs)](#faqs)
 - [License](#license) -->
-
-For integration guides, supported SDKs, and endpoint reference, see [Getting Started](/docs/category/getting-started).
-
-## Introduction
 
 UID2 is a framework that enables deterministic identity for advertising opportunities on the open internet for many [participants](#participants) across the advertising ecosystem. The UID2 framework enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework offers the user transparency and privacy controls designed to meet local market requirements. 
 

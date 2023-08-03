@@ -1,6 +1,6 @@
 {
   "label": "SDKs",
-  "position": 4,
+  "position": 04,
   "link": {
     "type": "generated-index",
     "description": "Information about the different UID2 SDKs available."
