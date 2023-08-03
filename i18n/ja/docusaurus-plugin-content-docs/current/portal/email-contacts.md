@@ -64,3 +64,5 @@ To remove an email contact, follow these steps:
 1. At the confirmation message, confirm deletion.
 
 <!-- (**GWH_KT_05 7/31 confirmation msg not yet added but per KT it will be and should be in the doc. Verify before publication.**) -->
+
+<!-- eng_jp -->
