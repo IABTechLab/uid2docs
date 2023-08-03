@@ -92,18 +92,15 @@
 
 /*** Japanese Styles **/
 
-.heroHeadingJa {
-  font-size: 3rem;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.03em;
+.heroHeading {
+  &.ja {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
 
-  //   @include lg {
-  //     font-size: 5.85rem;
-  //   }
-
-  @media only screen and (min-width: 996px) {
-    // font-size: 5.85rem;
-    font-size: 4.4vw;
+    @media only screen and (min-width: 996px) {
+      font-size: 4.4vw;
+    }
   }
 }

@@ -4,8 +4,12 @@ import Translate from "@docusaurus/Translate";
 import HeroBg from "./HeroBgAnimation";
 import styles from "./styles.module.scss";
 import { useIsJapanese } from "@site/src/utils/isJapanese";
+import { useGetCurrentLocale } from "@site/src/utils/useGetCurrentLocale";
+
 export default function HomepageHero(): JSX.Element {
   const isJapanese = useIsJapanese();
+  const currentLocale = useGetCurrentLocale();
+
   return (
     <header className={clsx("bg-11-o-clock text-white", styles.homepageHero)}>
       <div
@@ -18,7 +22,12 @@ export default function HomepageHero(): JSX.Element {
         <div className="row">
           <div className={`col ${isJapanese ? "col--12" : "col--10"}`}>
             <h1
-              className={`${isJapanese ? styles.heroHeadingJa : "type-alpha"}`}
+              className={clsx(
+                styles.heroHeading,
+                `${
+                  currentLocale in styles ? styles[currentLocale] : "type-alpha"
+                }`
+              )}
             >
               <Translate id="homepage.heroTitle">
                 An open-source identity solution built for the open internet
