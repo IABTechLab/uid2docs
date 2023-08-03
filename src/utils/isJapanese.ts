@@ -1,6 +1,6 @@
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import { useGetCurrentLocale } from "@site/src/utils/useGetCurrentLocale";
 
 export function useIsJapanese() {
-  const { i18n } = useDocusaurusContext();
-  return i18n.currentLocale === "ja";
+  const currentLocale = useGetCurrentLocale();
+  return currentLocale === "ja";
 }
