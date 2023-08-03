@@ -8,36 +8,15 @@ sidebar_position: 04
 # Snowflake Integration Guide
 
 <!-- This guide includes the following information:
-- [Workflow Diagram](#workflow-diagram)
-- [Functionality](#functionality)
+
 - [Access the UID2 Shares](#access-the-uid2-shares)
 - [Shared Objects](#shared-objects)
   -  [Database and Schema Names](#database-and-schema-names)
   -  [Map DII](#map-dii)
   -  [Regenerated UID2s](#regenerate-uid2s) 
-- [Migration Guide](#migration-guide)  
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
-   - [FN_UID2_ENCRYPT](#fn_uid2_encrypt)
-   - [FN_UID2_DECRYPT](#fn_uid2_decrypt)
-   - [UID2 Sharing Example](#uid2-sharing-example) -->
+- [Migration Guide](#migration-guide)  -->
 
 [Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share authorized consumer identifier data without exposing sensitive [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii). Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
-
-The following listings for UID2 are available on the Snowflake marketplace:
-- For advertisers: [Unified ID 2.0: Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV/unified-id-2-0-unified-id-2-0-advertiser-identity-solution?originTab=provider&providerName=Unified+ID+2.0)
-- For data providers: [Unified ID 2.0: Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0/unified-id-2-0-unified-id-2-0-data-provider-identity-solution?originTab=provider&providerName=Unified+ID+2.0)
-
-## Functionality
-
-The following table summarizes the functionality available with the UID2 Snowflake integration, for any advertisers or data providers who are managing their data in Snowflake.
-
-| Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a raw UID2 |
-| :--- |  :--- | :--- | :--- | :--- |
-| Yes | Yes | No* | No | Yes |
-
-*You cannot generate a UID2 token directly from DII. However, you can convert DII to a raw UID2, and then encrypt the raw UID2 into a UID2 token.
-
-## Workflow Diagram
 
 The following diagram illustrates how you engage with the UID2 integration process in Snowflake:
 
@@ -77,7 +56,7 @@ Regardless of the UID2 solution you choose, you can map DII to UID2s by using th
 
 - `FN_T_UID2_IDENTITY_MAP` (See [Map DII](#map-dii))
 
-The following functions are deprecated in favor of `FN_T_UID2_IDENTITY_MAP`. You can still use them, but `FN_T_UID2_IDENTITY_MAP` is better. If you are already using these functions, we recommend upgrading as soon as possible.
+The following functions are deprecated in favor of `FN_T_UID2_IDENTITY_MAP`. You can still use them, but `FN_T_UID2_IDENTITY_MAP` is better. If you are already using these functions, we recommend ugrading as soon as possible.
 
 - `FN_T_UID2_IDENTITY_MAP_EMAIL` (deprecated)
 - `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (deprecated)
@@ -85,12 +64,6 @@ The following functions are deprecated in favor of `FN_T_UID2_IDENTITY_MAP`. You
 >NOTE: If you are using the deprecated functions, and need help migrating to the newer function, see [Migration Guide](#migration-guide).
 
 To identify the UID2s that you must regenerate, use the `UID2_SALT_BUCKETS` view from the UID2 Share. For details, see [Regenerate UID2s](#regenerate-uid2s).
-
-The following functions are also available, for UID2 sharing participants:
-- [`FN_UID2_ENCRYPT`](#fn_uid2_encrypt)
-- [`FN_UID2_DECRYPT`](#fn_uid2_decrypt)
-
-For details, see [Usage for UID2 Sharers](#usage-for-uid2-sharers).
 
 ### Database and Schema Names
 
@@ -117,7 +90,7 @@ To map all types of [DII](../ref-info/glossary-uid.md#gl-dii), use the `FN_T_UID
 
 If the DII is an email address, the service normalizes the data using the UID2 [Email Address Normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization) rules.
 
-If the DII is a phone number, you must normalize it before sending it to the service, using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
+If the DII is a phone number, it must be normalized before being sent to the service, using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
 |Argument|Data Type|Description|
 | :--- | :--- | :--- |
@@ -128,9 +101,9 @@ A successful query returns the following information for the specified DII.
 
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
-| `UID2` | TEXT | If DII was successfully mapped: The UID2 associated with the DII.<br/>DII was not successfully mapped: `NULL`. |
-| `BUCKET_ID` | TEXT | If DII was successfully mapped: The ID of the second-level salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view.<br/>DII was not successfully mapped: `NULL`. |
-| `UNMAPPED` | TEXT | If DII was successfully mapped: `NULL`.<br/>DII was not successfully mapped:  The reason why an identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`. For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).  |
+| `UID2` | TEXT | DII was successfully mapped: The UID2 associated with the DII.<br/>DII was not successfully mapped: `NULL`. |
+| `BUCKET_ID` | TEXT | DII was successfully mapped: The ID of the second-level salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view.<br/>DII was not successfully mapped: `NULL`. |
+| `UNMAPPED` | TEXT | DII was successfully mapped: `NULL`.<br/>DII was not successfully mapped:  The reason why an identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`. For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).  |
 
 ### Values for the UNMAPPED Column
 
@@ -141,7 +114,7 @@ Possible values for `UNMAPPED` are:
 | `NULL` | The DII was successfully mapped. |
 | `OPTOUT` | The user has opted out. |
 | `INVALID IDENTIFIER` | The email address or phone number is invalid. |
-| `INVALID INPUT TYPE` | The value of `INPUT_TYPE` is invalid. Valid values for INPUT_TYPE are: `email`, `email_hash`, `phone`, `phone_hash`. |
+| `INVALID INPUT TYPE` | The value of `INPUT_TYPE` is invalid. Valid value for INPUT_TYPE must be one of the following: `email`, `email_hash`, `phone`, `phone_hash`. |
 
 Mapping request examples in this section:
 
@@ -221,7 +194,7 @@ The following table identifies each item in the response, including `NULL` value
 
 The following queries illustrate how to map a phone number, using the [default database and schema names](#database-and-schema-names).
 
-You must normalize phone numbers using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
+Phone numbers must be normalized using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
 Advertiser solution query for a single phone number:
 
@@ -249,7 +222,7 @@ Query results for a single phone number:
 
 The following queries illustrate how to map multiple phone numbers, using the [default database and schema names](#database-and-schema-names).
 
-You must normalize phone numbers using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
+Phone numbers must be normalized using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
 Advertiser solution query for multiple phone numbers:
 
@@ -513,136 +486,3 @@ FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash')
 When you have the new function implemented, you can check the `UNMAPPED` column returned by the `FN_T_UID2_IDENTITY_MAP`. If any DII could not be mapped to a UID2, this column gives the reason.
 
 For details about the values and their explanations, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).
-
-## Usage for UID2 Sharers
-
-A UID2 sharer is any participant that wants to share UID2s with another participant. Advertisers and data providers can share UID2s with other authorized UID2 sharing participants via Snowflake. <!-- For details, see [UID2 Sharing Overview](../sharing/sharing-overview). -->
-
-A sharing participant must encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into [UID2 tokens](../ref-info/glossary-uid#gl-uid2-token) before sending them to another participant.
-
-The following functions support UID2 sharing:
-
-- [`FN_UID2_ENCRYPT`](#fn_uid2_encrypt)
-- [`FN_UID2_DECRYPT`](#fn_uid2_decrypt)
-
-### FN_UID2_ENCRYPT
-
-This function encrypts a raw UID2 and returns the corresponding UID2 token.
-
-Use the applicable prefix to indicate your role:
-- For advertisers: `ADV.FN_UID2_ENCRYPT`
-- For data providers: `DP.FN_UID2_ENCRYPT`
-
->NOTE: The raw UID2 value is a Base64-encoded string.
-
-#### FN_UID2_ENCRYPT: Syntax
-
-The following is the syntax for this function:
-
-`FN_UID2_ENCRYPT(raw_uid VARCHAR)`
-
-The following table shows the arguments for this function.
-
-|Argument|Data Type|Description|
-| :--- | :--- | :--- |
-| `raw_uid` | varchar | The raw UID2. |
-
-A successful query returns the encrypted UID2 token as a `VARCHAR`.
-
-#### FN_UID2_ENCRYPT: Example
-
-The following example illustrates use of this function. In this example, `AUDIENCE_WITH_UID2` is the sender's table.
-
-```
-SELECT T.raw_uid, LATERAL (FN_UID2_ENCRYPT(T.raw_uid)) AS token
-FROM AUDIENCE_WITH_UID2 T
-```
-
-Result: An additional column named `token` is added to the query result.
-
-```
-+------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| raw_uid                                                          | token                                                                                                                                                                                                                        |
-|------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF | AAMAAAACAAECAwQFBgcICQoL18RtKOdx1LlG2zgxK7bTW/nomJIeMFyEJOAMaer+20FTzLBNCJRajrXzXWzb9H3FCtTXs5Rl8PJhYnxxWmMtQ11VHfjI7XiA71CctX2vvCBzD6VEszdNq/t66B1cvLKVjoq2lijm6yyaRi0ovJPuk2dcb8dm4dkHMWGkkOrXbPPvrpsIvYQHH11sbqVycYJZm5w= |
-+------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-```
-
-### FN_UID2_DECRYPT
-
-This function decrypts a UID2 token and returns the corresponding raw UID2.
-
-Use the applicable prefix to indicate your role:
-- For advertisers: `ADV.FN_UID2_DECRYPT`
-- For data providers: `DP.FN_UID2_DECRYPT`
-
-#### FN_UID2_DECRYPT: Syntax
-
-The following is the syntax for this function:
-
-`FN_UID2_DECRYPT(token VARCHAR)`
-
-The following table shows the arguments for this function.
-
-|Argument|Data Type|Description|
-| :--- | :--- | :--- |
-| `token` | varchar | The UID2 token. |
-
-A successful query returns the encrypted UID2 token as a `VARCHAR`.
-
-####  FN_UID2_DECRYPT: Example
-
-The following example illustrates use of this function. In this example, `AUDIENCE_WITH_UID2` is the receiver's table.
-
-```
-SELECT T.token, LATERAL (FN_UID2_DECRYPT(T.token)) AS raw_uid
-FROM AUDIENCE_WITH_UID2 T
-```
-
-Result: An additional column named `raw_uid` is added to the query result.
-
-```
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+
-| token                                                                                                                                                                                                                        | raw_uid                                                          |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AAMAAAACAAECAwQFBgcICQoL18RtKOdx1LlG2zgxK7bTW/nomJIeMFyEJOAMaer+20FTzLBNCJRajrXzXWzb9H3FCtTXs5Rl8PJhYnxxWmMtQ11VHfjI7XiA71CctX2vvCBzD6VEszdNq/t66B1cvLKVjoq2lijm6yyaRi0ovJPuk2dcb8dm4dkHMWGkkOrXbPPvrpsIvYQHH11sbqVycYJZm5w= | 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF |
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
-```
-
-### UID2 Sharing Example
-
-The following instructions provide an example of how sharing works for a sender and a receiver both using Snowflake.
-
-- Senders: 
-   - Call one of the following, depending on whether you are an advertiser or a data provider:
-
-     In this example, for advertisers, `AUDIENCE_WITH_UID2` is the sender's table.
-
-      ```
-      SELECT T.raw_uid, LATERAL (ADV.FN_UID2_ENCRYPT(T.raw_uid)) AS token
-      FROM AUDIENCE_WITH_UID2 T
-      ```
-
-     In this example, for data providers, `AUDIENCE_WITH_UID2` is the sender's table.
-
-      ```
-      SELECT T.raw_uid, LATERAL (DP.FN_UID2_ENCRYPT(T.raw_uid)) AS token
-      FROM AUDIENCE_WITH_UID2 T
-      ```
-
-- Receivers: 
-   - Call one of the following, depending on whether you are an advertiser or a data provider:
-
-     In this example, for advertisers, `AUDIENCE_WITH_UID2` is the receiver's table.
-
-      ```
-      SELECT T.token, LATERAL (ADV.FN_UID2_DECRYPT(T.token)) AS raw_uid
-      FROM AUDIENCE_WITH_UID2 T
-      ```
-
-     In this example, for data providers, `AUDIENCE_WITH_UID2` is the receiver's table.
-
-      ```
-      SELECT T.token, LATERAL (DP.FN_UID2_DECRYPT(T.token)) AS raw_uid
-      FROM AUDIENCE_WITH_UID2 T
-      ```

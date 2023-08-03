@@ -69,11 +69,13 @@ The following steps are for all sharing participants who are using an SDK&#8212;
 
 ## Steps to Implement Sharing Using Snowflake
 
+>NOTE: Snowflake sharing is not yet available&#8212;coming soon.
+
 The following steps are for Snowflake users who want to take part in UID2 sharing, either as senders or receivers.
 
-1. Review the examples in the Snowflake Integration Guide, [Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers) section, to see what the sharing code might look like.
+1. Review the examples in the Snowflake Integration Guide<!-- , [Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers) section -->, to see what the sharing code might look like.
 
-2. Integrate the SDK into your code, according to whether your role is sender or receiver. Use the code examples in the documentation referenced in the Snowflake Integration Guide, [UID2 Sharing Example](../guides/snowflake_integration.md#uid2-sharing-example):
+2. Integrate the SDK into your code, according to whether your role is sender or receiver. <!-- Use the code examples in the documentation referenced in the Snowflake Integration Guide, [UID2 Sharing Example](../guides/snowflake_integration.md#uid2-sharing-example) -->:
 
    - Senders, set up encryption.
 
