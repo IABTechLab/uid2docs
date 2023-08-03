@@ -1,11 +1,11 @@
 ---
 title: Best Practices
-description: Best practices for sharing UID2s.
+description: Best practices for UID2 sharing.
 hide_table_of_contents: false
 sidebar_position: 05
 ---
 
-# Sharing UID2s: Best Practices
+# UID2 Sharing: Best Practices
 
 <!-- It includes the following:
 
