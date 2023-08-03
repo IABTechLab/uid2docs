@@ -1,0 +1,8 @@
+{
+  "label": "Overview Pages",
+  "position": 02,
+  "link": {
+    "type": "generated-index",
+    "description": "Each overview page is a one-stop shop for the specific audience, with focused overview and getting started information and links to the specific documents you'll use."
+  }
+}

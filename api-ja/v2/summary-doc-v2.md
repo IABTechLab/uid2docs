@@ -18,7 +18,7 @@ API の使用方法は、以下のページを参照してください。
 | [Integration Guides](guides/summary-guides.md)                                              | パブリッシャー、DSP、広告主、データプロバイダーなどの UID2 参加者、および Microsoft Azure、AWS、Snowflake などの Operator Enterprise Partner 向けの UID2 インテグレーション・ワークフローです。 |
 | [SDKs](sdks/summary-sdks.md)                                                                | UID2 SDK を使用するためのドキュメントへのリンクです。                                                                                                                                           |
 
-API バージョン 1 からの改善点・変更点の一覧は、[UID2 API v1→v2 アップグレードガイド](upgrades/upgrade-guide.md) を参照してください。
+API バージョン 1 からの改善点・変更点の一覧は、[UID2 API v1→v2 アップグレードガイド](https://github.com/IABTechLab/uid2docs/blob/main/api-ja/v2/upgrades/upgrade-guide.md) を参照してください。
 
 ## Environments
 

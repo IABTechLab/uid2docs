@@ -258,4 +258,4 @@ Here's what you need to know about upgrading:
 
 ## Technical Support
 
-If you have trouble subscribing or deploying the product, please contact us at [aws-mktpl-uid@thetradedesk.com](mailto:aws-mktpl-uid@thetradedesk.com).
+If you have trouble subscribing or deploying the product, contact us at [aws-mktpl-uid@thetradedesk.com](mailto:aws-mktpl-uid@thetradedesk.com).

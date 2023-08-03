@@ -56,10 +56,9 @@
       }
     }
 
-
     &:not(:last-child) {
       &:after {
-        content: '';
+        content: "";
         display: block;
         width: 100%;
         height: 2px;
@@ -104,4 +103,14 @@
 
 .header {
   margin-bottom: 3.125rem;
+}
+
+/** Japanese Styles **/
+
+.headerJa {
+  margin-bottom: 3.125rem;
+
+  h2 {
+    font-size: 4.2vw;
+  }
 }

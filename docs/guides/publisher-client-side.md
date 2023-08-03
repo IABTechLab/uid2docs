@@ -28,7 +28,7 @@ This guide outlines the [basic steps](#integration-steps) that you need to consi
 
 To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the [UID2 SDK for JavaScript](../sdks/client-side-identity.md). Here's an [example application](https://example-jssdk-integ.uidapi.com/) that illustrates the integration steps described in this guide and the usage of the SDK (currently only for email addresses). For the application documentation, see [UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md).
 
->IMPORTANT: The SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the [Client-Side JavaScript SDK APIs](../sdks/client-side-identity.md#api-reference) for your identity management.
+>IMPORTANT: The SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the [Client-Side JavaScript SDK](../sdks/client-side-identity.md#api-reference) for your identity management.
 
 For integration scenarios for publishers that do not use the [UID2 SDK for JavaScript](../sdks/client-side-identity.md), see [Publisher Integration Guide, Server-Only](custom-publisher-integration.md). 
 

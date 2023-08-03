@@ -1,0 +1,50 @@
+{
+  "link.item.label.Publishers": {
+    "message": "媒体社",
+    "description": "The label of footer link with label=Publishers linking to /docs/overviews/overview-publishers"
+  },
+  "link.item.label.Advertisers": {
+    "message": "広告主",
+    "description": "The label of footer link with label=Advertisers linking to /docs/overviews/overview-advertisers"
+  },
+  "link.item.label.DSPs": {
+    "message": "DSPs",
+    "description": "The label of footer link with label=DSPs linking to /docs/overviews/overview-dsps"
+  },
+  "link.item.label.Data Providers": {
+    "message": "データプロバイダ",
+    "description": "The label of footer link with label=Data Providers linking to /docs/overviews/overview-data-providers"
+  },
+  "link.item.label.UID2 Overview": {
+    "message": "UID2 Overview",
+    "description": "The label of footer link with label=UID2 Overview linking to /docs/intro"
+  },
+  "link.item.label.UID2 GitHub": {
+    "message": "UID2 GitHub",
+    "description": "The label of footer link with label=UID2 GitHub linking to https://github.com/IABTechLab/uid2docs"
+  },
+  "link.item.label.Prebid": {
+    "message": "Prebid",
+    "description": "The label of footer link with label=Prebid linking to https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html"
+  },
+  "link.item.label.Website Privacy Policy": {
+    "message": "ウェブサイトプライバシーポリシー",
+    "description": "The label of footer link with label=Website Privacy Policy linking to https://www.thetradedesk.com/us/website-privacy-policy"
+  },
+  "link.item.label.Opt-out": {
+    "message": "オプトアウト",
+    "description": "The label of footer link with label=Opt-out linking to https://transparentadvertising.org/"
+  },
+  "link.item.label.Do not sell my data": {
+    "message": "個人情報の販売許可について",
+    "description": "The label of footer link with label=Do not sell my data linking to https://www.adsrvr.org/"
+  },
+  "copyright": {
+    "message": "© 2023 All rights reserved.",
+    "description": "The footer copyright"
+  },
+  "logo.alt": {
+    "message": "UID2 logo",
+    "description": "The alt text of footer logo"
+  }
+}
