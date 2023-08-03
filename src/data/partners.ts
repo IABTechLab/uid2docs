@@ -1,12 +1,12 @@
-export type PartnersDataType = {
+export interface PartnersDataType {
   name: string;
   logo: string;
   type: ("Publishers" | "Data" | "DSP" | "CDP")[];
   featured?: boolean;
   order?: number;
-}[];
+}
 
-export const partnersData: PartnersDataType = [
+export const partnersData: PartnersDataType[] = [
   {
     name: "4 GTV TV",
     logo: "4GTV.tv-logo_2022-07-12-203714_dakq.png",

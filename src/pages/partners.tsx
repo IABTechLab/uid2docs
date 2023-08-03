@@ -10,7 +10,7 @@ import { pushGtmEvent } from "@site/src/utils/pushGtmEvent";
 
 type PartnerSection = {
   title: string;
-  partners: PartnersDataType;
+  partners: PartnersDataType[];
 };
 
 const componentData = {
