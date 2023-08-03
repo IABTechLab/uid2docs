@@ -25,6 +25,12 @@
   .dropdown {
     --ifm-dropdown-background-color: var(--c-periwinkle);
     --ifm-dropdown-link-color: var(--c-eleven-o-clock);
+    &__link--active {
+      --ifm-dropdown-link-color: var(--c-eleven-o-clock);
+      > span {
+        background-size: 100% 2px;
+      }
+    }
   }
 
   .toggle_node_modules-\@docusaurus-theme-classic-lib-theme-ColorModeToggle-styles-module,
@@ -113,19 +119,19 @@
 }
 
 .dropdown {
-  &__menu {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: 1fr 1fr;
-    padding: 1rem;
-  }
+  // &__menu {
+  //     display: grid;
+  //     gap: 20px;
+  //     grid-template-columns: 1fr 1fr;
+  //     padding: 1rem;
+  // }
 
   &__link {
     white-space: normal;
-    min-width: 15rem;
 
     &:hover {
-      .dropdown__label {
+      .dropdown__label,
+      > span {
         background-size: 100% 2px;
       }
     }
@@ -142,7 +148,8 @@
     }
   }
 
-  &__label {
+  &__label,
+  &__link span {
     background-repeat: no-repeat;
     transition-duration: 0.2s;
     background-image: linear-gradient(currentcolor, currentcolor);

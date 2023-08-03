@@ -1,88 +1,109 @@
 .homepageHero {
-    display: flex;
-    min-height: 60vh;
-    align-items: center;
-    padding: 3.125rem 0;
-    position: relative;
-    overflow: hidden;
+  display: flex;
+  min-height: 60vh;
+  align-items: center;
+  padding: 3.125rem 0;
+  position: relative;
+  overflow: hidden;
 
-    @media only screen and (min-width: 996px) {
-        padding: 8.25rem 0;
-        height: auto;
-        --ifm-heading-margin-bottom: 3rem;
-        --ifm-spacing-horizontal: 0.4rem;
-    }
+  @media only screen and (min-width: 996px) {
+    padding: 8.25rem 0;
+    height: auto;
+    --ifm-heading-margin-bottom: 3rem;
+    --ifm-spacing-horizontal: 0.4rem;
+  }
 
-    &:before {
-        content: '';
-        background: linear-gradient(90deg, rgba(3, 10, 64, 1) 0%, rgba(3, 10, 64, 0.15) 80%);
-        position: absolute;
-        object-fit: cover;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        z-index: 1;
-    }
-
+  &:before {
+    content: "";
+    background: linear-gradient(
+      90deg,
+      rgba(3, 10, 64, 1) 0%,
+      rgba(3, 10, 64, 0.15) 80%
+    );
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+  }
 }
 
 .textShadow {
-    text-shadow: 0px 6px 44px #030A40;
+  text-shadow: 0px 6px 44px #030a40;
 }
 
 .heroBgAnimationMobile {
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 0;
 
-    svg {
-        object-fit: cover;
-        display: block;
-    }
+  svg {
+    object-fit: cover;
+    display: block;
+  }
 
-    @media only screen and (min-width: 996px) {
-        display: none;
-    }
+  @media only screen and (min-width: 996px) {
+    display: none;
+  }
 }
 
 .heroBgAnimationDesktop {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    top: 0;
-    z-index: 0;
-    display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  z-index: 0;
+  display: none;
 
-    svg {
-        // position: absolute;
-        // top: 0;
-        // right: 0;
-        // bottom: 0;
-        // height: 100%;
-        width: auto !important;
-    }
+  svg {
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // bottom: 0;
+    // height: 100%;
+    width: auto !important;
+  }
 
-    @media only screen and (min-width: 996px) {
-        display: flex;
-        justify-content: flex-end;
-    }
+  @media only screen and (min-width: 996px) {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
 .homepageHeroContent {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 
-    h1 {
-        margin-bottom: 1.5rem;
+  h1 {
+    margin-bottom: 1.5rem;
 
-        @media only screen and (min-width: 996px) {
-            margin-bottom: 3.125rem;
-        }
+    @media only screen and (min-width: 996px) {
+      margin-bottom: 3.125rem;
     }
+  }
 
-    p {
-        margin-bottom: 0;
-    }
+  p {
+    margin-bottom: 0;
+  }
+}
+
+/*** Japanese Styles **/
+
+.heroHeadingJa {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+
+  //   @include lg {
+  //     font-size: 5.85rem;
+  //   }
+
+  @media only screen and (min-width: 996px) {
+    // font-size: 5.85rem;
+    font-size: 4.4vw;
+  }
 }
