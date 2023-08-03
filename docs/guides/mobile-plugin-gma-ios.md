@@ -1,6 +1,13 @@
+---
+title: UID2 GMA Plugin for iOS
+description: A guide for publishers using GMA for ad requests on iOS apps.
+hide_table_of_contents: false
+sidebar_position: 12
+---
+
 # UID2 GMA Plugin for iOS Integration Guide
 
-The UID2 Google Mobile Ads (GMA) Plugin for iOS enables publishers that use the [Google Mobile Ads (GMA) SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) to include UID2 data in ad requests from iOS apps. This is done automatically, with no direct coding needed from the app developer.
+The UID2 Google Mobile Ads (GMA) Plugin for iOS enables publishers that use the [Google Mobile Ads (GMA) SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) in ad requests from iOS apps. This is done automatically, with no direct coding needed from the app developer.
 
 ## Functionality
 
