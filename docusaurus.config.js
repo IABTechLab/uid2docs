@@ -44,7 +44,22 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en", "ja"],
+    path: "i18n",
+    localeConfigs: {
+      en: {
+        label: "English",
+        direction: "ltr",
+        htmlLang: "en-US",
+        calendar: "gregory",
+      },
+      ja: {
+        label: "日本語",
+        direction: "ltr",
+        htmlLang: "jp-JP",
+        calendar: "japanese",
+      },
+    },
   },
   plugins: [
     "docusaurus-plugin-sass",
@@ -131,7 +146,7 @@ const config = {
           {
             type: "doc",
             docId: "intro",
-            label: "Docs",
+            label: "Documentation",
             position: "left",
           },
           // @TODO hiding until phase 2{
@@ -178,6 +193,10 @@ const config = {
           //   ],
           // },
           {
+            type: "localeDropdown",
+            position: "right",
+          },
+          {
             type: "search",
             position: "right",
             className: "desktop-only hide-on-marketing-page",
@@ -195,7 +214,7 @@ const config = {
           {
             type: "custom-NavbarCta",
             href: "/request-access",
-            text: "Request Access",
+            // text: "Request Access", moved to component for translation reasons
             position: "right",
             className: "desktop-only",
           },
