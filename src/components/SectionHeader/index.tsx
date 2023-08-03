@@ -7,12 +7,14 @@ export type SectionHeaderProps = {
   subheading: string;
   eyebrow?: string;
   extraClass?: string;
+  jaHeading?: string;
 };
 export default function SectionHeader({
   heading,
   subheading,
   eyebrow,
   extraClass,
+  jaHeading,
 }: SectionHeaderProps): JSX.Element {
   return (
     <header
@@ -27,7 +29,11 @@ export default function SectionHeader({
           {eyebrow}
         </p>
       )}
-      <h2 className={clsx("type-beta col col--8")}>{heading}</h2>
+      <h2 className={clsx("type-beta col col--8")}>
+        {heading}{" "}
+        {jaHeading && <span className={styles.jaHeading}>{jaHeading}</span>}
+      </h2>
+
       <p className={clsx("type-paragraph-large col col--4", styles.copy)}>
         {subheading}
       </p>

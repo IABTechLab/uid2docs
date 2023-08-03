@@ -21,10 +21,12 @@ export default function HomepageConsumerBenefit(): JSX.Element {
       <div className={clsx("container", styles.flexContainer)}>
         <div className={styles.contentContainer}>
           <h2 className="text-11-o-clock type-delta">
-            <Translate>Unified ID 2.0 Benefits</Translate>
+            <Translate id="homepage.benefitsTitle">
+              Unified ID 2.0 Benefits
+            </Translate>
           </h2>
           <p>
-            <Translate>
+            <Translate id="homepage.benefitsCopy">
               Unified ID 2.0 was created with consumer privacy as a top
               priority. Users can opt out of the use of their UID2 universally
               by visiting the opt-out portal. Participants are required to honor
@@ -38,7 +40,9 @@ export default function HomepageConsumerBenefit(): JSX.Element {
           className={clsx("button button--11-o-clock", styles.ctaButton)}
           onClick={() => pushGtmEvent(pageViewData)}
         >
-          <Translate>Manage my UID2</Translate>
+          <Translate id="homepage.benefitsButtonLabel">
+            Manage my UID2
+          </Translate>
           <OutboundArrow />
         </Link>
       </div>
