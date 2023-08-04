@@ -69,6 +69,7 @@ sidebar_position: 10
 <ul>
 <li><a href="#gl-salt">Salt</a></li>
 <li><a href="#gl-salted-hash">Salted hash</a></li>
+<li><a href="#gl-secret">secret</a></li>
 <li><a href="#gl-secure-signals">Secure signals</a></li>
 <li><a href="#gl-sha-256">SHA-256</a></li>
 <li><a href="#gl-sso">SSO</a></li>
@@ -219,6 +220,9 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-salted-hash">Salted hash</dt>
 <dd>When a <a href="#gl-salt">salt</a> value is added to the input string before applying the <a href="#gl-hash">hash</a> function, the result is a salted hash. When the input value is salted before hashing, an attacker who has the hash cannot determine the input value by trying many possible inputs to arrive at the same output.</dd>
+
+<dt class="jump-anchor" id="gl-secret">secret</dt>
+<dd>See <a href="#gl-client-secret">client secret</a>.</dd>
 
 <dt class="jump-anchor" id="gl-secure-signals">Secure signals</dt>
 <dd>A feature of Google Ad Manager. The secure signals feature (previously known as Encrypted Signals for Publishers, abbreviated to ESP) allows publishers to securely share signals with trusted third-party buying partners. It allows publishers to pass "encrypted" user IDs to bidders that are approved by Google, via <a href="https://admanager.google.com/home/">Google Ad Manager</a> and the <a href="https://support.google.com/admanager/answer/6321605?hl=en">Google Ad Manager Ad Exchange (AdX)</a>.</dd>
