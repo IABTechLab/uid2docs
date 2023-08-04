@@ -19,6 +19,13 @@ The following guides provide integration instructions based on the needs and req
 | [DSP](dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
 | [Advertiser/Data Provider](advertiser-dataprovider-guide.md) | This integration guide for advertisers and data providers covers integration workflows for mapping identity for audience-building and targeting. |
 
+## Plugins
+
+| Integration Guide |  Content Description |
+| :--- | :--- |
+| [UID2 GMA Plugin for iOS Integration Guide](mobile-plugin-gma-ios.md) | The UID2 GMA Plugin for iOS enables publishers that use the Google Mobile Ads (GMA) SDK to include UID2 data in ad requests from their iOS apps. |
+| [UID2 GMA Plugin for Android Integration Guide](mobile-plugin-gma-android.md) | The UID2 GMA Plugin for Android enables publishers that use the Google Mobile Ads (GMA) SDK to include UID2 data in ad requests from their Android apps. |
+
 ## Supplementary Integrations
 
 | Integration Guide |  Content Description |
