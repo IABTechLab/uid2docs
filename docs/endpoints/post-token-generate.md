@@ -141,9 +141,9 @@ If the `status` value is other than `success`, the `message` field provides addi
 | Type | Identity | Purpose | Next Endpoint |
 | :--- | :--- | :--- | :--- |
 | Email | `validate@email.com` | Test that the `advertising_token` you've cached matches the `advertising_token` for the specified email address. | [POST /token/validate](post-token-validate.md) |
-| Email | `optout@email.com` | Using this email for the request always generates an identity response with a `refresh_token` that results in a logout response. | [POST /token/refresh](post-token-refresh.md) |
+| Email | `optout@email.com` | Using this email for the request always generates an identity response with a `refresh_token` that results in an `optout` response. | [POST /token/refresh](post-token-refresh.md) |
 | Phone | `+12345678901` | Test that the `advertising_token` you've cached matches the `advertising_token` for the specified phone number. | [POST /token/validate](post-token-validate.md) |
-| Phone | `+00000000000` | Using this phone number for the request always generates an identity response with a `refresh_token` that results in a logout response. | [POST /token/refresh](post-token-refresh.md) |
+| Phone | `+00000000000` | Using this phone number for the request always generates an identity response with a `refresh_token` that results in an `optout` response. | [POST /token/refresh](post-token-refresh.md) |
 
 ## Token Generation Policy
 
