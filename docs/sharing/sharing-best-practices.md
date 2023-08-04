@@ -23,7 +23,7 @@ Follow these guidelines:
 - For any UID2s that are in your platform, use and store them as raw UID2s, not as UID2 tokens.
 
   This is important because a UID2 token is short-lived. When the key used to create a UID2 token expires, you can no longer decrypt the token.
-- In your code, for future extensibility, allow for a UID2 token length of 100 characters.
+- In your code, for future extensibility, allow for a raw UID2 length of 100 characters.
 
 ## Best Practices for Managing UID2 Tokens
 
