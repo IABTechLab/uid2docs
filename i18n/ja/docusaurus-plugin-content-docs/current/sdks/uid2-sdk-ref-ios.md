@@ -2,7 +2,7 @@
 title: UID2 SDK for iOS
 description: Reference information about the iOS SDK.
 hide_table_of_contents: false
-sidebar_position: 12
+sidebar_position: 14
 ---
 
 # UID2 SDK for iOS Reference Guide

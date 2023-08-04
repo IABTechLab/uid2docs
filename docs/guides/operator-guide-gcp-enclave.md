@@ -2,7 +2,7 @@
 title: UID2 Operator - Google Cloud Platform Confidential Computing Package
 description: Integration information for Google Cloud Platform private operator.
 hide_table_of_contents: false
-sidebar_position: 16
+sidebar_position: 20
 ---
 
 # UID2 Operator - Google Cloud Platform Confidential Computing Package
