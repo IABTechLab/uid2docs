@@ -59,7 +59,7 @@ The following steps are for all sharing participants who are using an SDK&#8212;
 2. Integrate the SDK into your code to implement each step, depending on whether your role is sender or receiver. To see code examples for the language you're using, follow the link in the table provided in Step 1.
    1. Both senders and receivers: define the UID2 client.
    
-   2. Both senders and receivers: define the token refresh schedule.
+   2. Both senders and receivers: define the schedule for refreshing encryption keys.
    
       Recommended refresh interval is hourly. For an example, see [Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)](#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only).
 
@@ -108,3 +108,5 @@ This example illustrates how the `uid2client.refresh()` function enables a new s
    Data Provider XYZ, on an hourly cadence, again calls `uid2client.refresh()`. Because there is a new sharing permission, the key for Advertiser ABC is returned in the response.
 
    Data Provider XYZ can now decrypt any UID2 token received from Advertiser ABC into a raw UID2.
+
+<!-- eng_jp -->

@@ -2,7 +2,7 @@
 title: UID2 SDK for iOS
 description: Reference information about the iOS SDK.
 hide_table_of_contents: false
-sidebar_position: 12
+sidebar_position: 14
 ---
 
 # UID2 SDK for iOS Reference Guide
@@ -157,3 +157,5 @@ UID2Manager.shared.getAdvertisingToken()
 ```
 
 <!-- GWH for when GMA doc is out (and then add IMA after that): If you are using the UID2 SDK for iOS to send UID2 tokens to Google Mobile Ads (GAM), please read (link). -->
+
+<!-- eng_jp -->

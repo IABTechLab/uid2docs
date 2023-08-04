@@ -2,7 +2,7 @@
 title: UID2 SDK for Android
 description: Reference information about the Android SDK.
 hide_table_of_contents: false
-sidebar_position: 14
+sidebar_position: 12
 ---
 
 # UID2 SDK for Android Reference Guide
@@ -180,3 +180,5 @@ UID2Manager.getInstance().getAdvertisingToken()
 ```
 
 <!-- GWH for when GMA doc is out (and then add IMA after that): If you are using the UID2 SDK for Android to send UID2 tokens to Google Mobile Ads (GAM), please read (link). -->
+
+<!-- eng_jp -->

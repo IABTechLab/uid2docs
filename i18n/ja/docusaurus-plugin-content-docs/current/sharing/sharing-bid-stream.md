@@ -31,15 +31,19 @@ For details, see [UID2 Portal Overview](../portal/portal-overview.md) and follow
 
 ## UID2 Sharing Workflow: Integrating with the API
 
-When you want to send UID2 tokens in the bid stream, you can integrate via the API or via the Java server-side SDK (see [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md)).
+When you want to send UID2 tokens in the bid stream, you can integrate via the API or via one of these SDKs:
 
-Both of these support generating UID2 tokens from email addresses or phone numbers and also refreshing the tokens regularly. Other SDKs do not support token generate and token refresh at this time.
+- The Java server-side SDK (see [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md)).
+- The Python server-side SDK (see [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md)).
 
-The workflow for generating UID2 tokens from DII, via the API or the Java server-side SDK, consists of the following steps (each step links to the corresponding section):
+These options support generating UID2 tokens from email addresses or phone numbers and also refreshing the tokens regularly. Other SDKs do not support token generate and token refresh at this time.
+
+The workflow for generating UID2 tokens from DII, via the API or the specified server-side SDKs, consists of the following steps (each step links to the corresponding section):
 
 1. Publisher: Integrate with UID2, using one of the following:
 
    - Java SDK: see [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md)).
+   - Python SDK: see [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md)).
    - Direct integration with API endpoints: see [Endpoints](/docs/category/endpoints-v2).
    - Direct integration with API endpoints to generate UID2 tokens using the [POST /token/generate](../endpoints/post-token-generate.md) endpoint, but using the [UID2 SDK for JavaScript](../sdks/client-side-identity.md) to refresh UID2 tokens.
 
@@ -101,3 +105,5 @@ Publishers convert the input email address or phone number directly to a UID2 to
 </tr>
 </tbody>
 </table>
+
+<!-- eng_jp -->

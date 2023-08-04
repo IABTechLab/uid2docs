@@ -2,7 +2,7 @@
 title: UID2 SDK for Android
 description: Reference information about the Android SDK.
 hide_table_of_contents: false
-sidebar_position: 14
+sidebar_position: 12
 ---
 
 # UID2 SDK for Android Reference Guide
@@ -51,6 +51,7 @@ By default, the SDK automatically refreshes UID2 identity based on expiration da
 This SDK is in the following open-source GitHub repository:
 
 - [https://github.com/IABTechLab/uid2-android-sdk](https://github.com/IABTechLab/uid2-android-sdk)
+- [UID2 SDK for Android v0.4.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk) (for documentation, see [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)) (GWH_SW you asked me to include the link in the Android doc but we already list another source for the SDK. Not sure what to do here.)
 
 ## Minimum Requirements
 
