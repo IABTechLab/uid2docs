@@ -44,7 +44,7 @@ The following documentation resources are available for publishers to implement 
 
 ### Web Integration
 
-The following documentation resources relate to web integration for publishers.
+The following documentation resources relate to web, Prebid, and Google Ad Manager integration for publishers.
 
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
