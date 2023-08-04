@@ -26,7 +26,7 @@ There are many scenarios for sharing. For additional examples, see [Sharing UID2
 Additional resources:
 
 - [Implementing Sharing](sharing-implementing.md)
-- [Sharing UID2s: Best Practices](sharing-best-practices.md)
+- [UID2 Sharing: Best Practices](sharing-best-practices.md)
 - [UID2 Portal Overview](../portal/portal-overview.md)
 
 ## UID2 Sharing Workflow
@@ -132,3 +132,5 @@ The same is true of UID2 tokens generated for sharing. (**GWH_KT_04 KT to report
 ## Sharing in the Bid Stream
 
 The process for publishers sharing UID2 tokens in the bid stream is a different process. For details, see [Sharing in the Bid Stream](sharing-bid-stream.md).
+
+<!-- eng_jp -->

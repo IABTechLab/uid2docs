@@ -108,3 +108,5 @@ This example illustrates how the `uid2client.refresh()` function enables a new s
    Data Provider XYZ, on an hourly cadence, again calls `uid2client.refresh()`. Because there is a new sharing permission, the key for Advertiser ABC is returned in the response.
 
    Data Provider XYZ can now decrypt any UID2 token received from Advertiser ABC into a raw UID2.
+
+<!-- eng_jp -->

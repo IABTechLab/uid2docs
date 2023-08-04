@@ -26,7 +26,7 @@ There are many scenarios for sharing. For additional examples, see [Sharing UID2
 Additional resources:
 
 - [Implementing Sharing](sharing-implementing.md)
-- [Sharing UID2s: Best Practices](sharing-best-practices.md)
+- [UID2 Sharing: Best Practices](sharing-best-practices.md)
 - [UID2 Portal Overview](../portal/portal-overview.md)
 
 ## UID2 Sharing Workflow
