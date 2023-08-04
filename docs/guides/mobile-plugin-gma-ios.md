@@ -2,7 +2,7 @@
 title: UID2 GMA Plugin for iOS
 description: A guide for publishers using GMA for ad requests on iOS apps.
 hide_table_of_contents: false
-sidebar_position: 12
+sidebar_position: 13
 ---
 
 # UID2 GMA Plugin for iOS Integration Guide
