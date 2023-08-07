@@ -25,4 +25,9 @@ As part of getting your UID2 account set up, one or more API keys, each with a c
 Security of keys and client secrets is very important. Follow these guidelines:
 
 - When you receive your API key and client secret, store them in a secure location.
-- Keep track of all places where these values are stored and used, so that when the key needs to be rotated it can be done quickly, or if values are compromised for any reason they can be updated quickly.
+- Keep track of all places where these values are stored and used, so that if you need to rotate the key you can do it quickly.
+- Establish a process for replacing the key and secret with new values if the existing ones are compromised.
+
+We recommend that you refresh your API key and client secret on a regular cadence&#8212;for example, yearly&#8212;to help reduce the risk of your credentials being compromised.
+
+To request new credentials at any time, ask your UID2 contact.
