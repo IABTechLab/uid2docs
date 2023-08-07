@@ -12,7 +12,7 @@ sidebar_position: 12
 - [Functionality](#functionality)
 - [SDK Version](#sdk-version)
 - [Features](#features)
-- [GitHub Open-Source Repository](#github-open-source-repository)
+- [GitHub Open-Source Repository/Binary](#github-open-source-repositorybinary)
 - [Minimum Requirements](#minimum-requirements)
 - [Installation](#installation)
   -  [Installing with Gradle ](#installing-with-gradle)
@@ -48,12 +48,15 @@ The UID2 Android SDK is designed to manage UID2 identity on behalf of Android ap
 
 By default, the SDK automatically refreshes UID2 identity based on expiration dates. However, you can disable this to allow implementing apps to manage the UID2 identity lifecycle manually.
 
-## GitHub Open-Source Repository
+## GitHub Open-Source Repository/Binary
 
 This SDK is in the following open-source GitHub repository:
 
 - [https://github.com/IABTechLab/uid2-android-sdk](https://github.com/IABTechLab/uid2-android-sdk)
-- [UID2 SDK for Android v0.4.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk) (for documentation, see [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md))
+
+The binary is published on Sonatype:
+
+- [https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk/0.4.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
 
 ## Minimum Requirements
 
