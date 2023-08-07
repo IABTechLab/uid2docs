@@ -12,7 +12,7 @@ sidebar_position: 12
 - [Functionality](#functionality)
 - [SDK Version](#sdk-version)
 - [Features](#features)
-- [GitHub Open-Source Repository](#github-open-source-repository)
+- [GitHub Open-Source Repository/Binary](#github-open-source-repositorybinary)
 - [Minimum Requirements](#minimum-requirements)
 - [Installation](#installation)
   -  [Installing with Gradle ](#installing-with-gradle)
@@ -25,6 +25,8 @@ sidebar_position: 12
 - [Code Samples](#code-samples) -->
 
 You can use the UID2 SDK for Android to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens on Android devices.
+
+>NOTE: If you want to use the UID2 SDK for Android to send UID2 tokens to Google Mobile Ads (GMA), see also [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md).
 
 ## Functionality
 
@@ -46,12 +48,15 @@ The UID2 Android SDK is designed to manage UID2 identity on behalf of Android ap
 
 By default, the SDK automatically refreshes UID2 identity based on expiration dates. However, you can disable this to allow implementing apps to manage the UID2 identity lifecycle manually.
 
-## GitHub Open-Source Repository
+## GitHub Open-Source Repository/Binary
 
 This SDK is in the following open-source GitHub repository:
 
 - [https://github.com/IABTechLab/uid2-android-sdk](https://github.com/IABTechLab/uid2-android-sdk)
-- [UID2 SDK for Android v0.4.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk) (for documentation, see [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)) (GWH_SW you asked me to include the link in the Android doc but we already list another source for the SDK. Not sure what to do here.)
+
+The binary is published on Sonatype:
+
+- [https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk/0.4.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
 
 ## Minimum Requirements
 
@@ -144,7 +149,6 @@ The Identity variable stores and returns the current UID2Identity data object be
 
 The identityStatus variable stores and returns the status of the current UID2 Identity being managed by the SDK.
 
-
 ## Android Initialization
 
 The Android implementation expects the singleton to be initialized before use. This does two things:
@@ -179,5 +183,3 @@ Get the UID2 token (advertising token) to pass to the Advertising SDK:
 ```java
 UID2Manager.getInstance().getAdvertisingToken()
 ```
-
-<!-- GWH for when GMA doc is out (and then add IMA after that): If you are using the UID2 SDK for Android to send UID2 tokens to Google Mobile Ads (GAM), please read (link). -->

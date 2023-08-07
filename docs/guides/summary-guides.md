@@ -23,8 +23,8 @@ The following guides provide integration instructions based on the needs and req
 
 | Integration Guide |  Content Description |
 | :--- | :--- |
-| [UID2 GMA Plugin for Android Integration Guide](mobile-plugin-gma-android.md) | The UID2 GMA Plugin for Android enables publishers that use the Google Mobile Ads (GMA) SDK to include UID2 data in ad requests from their Android apps. |
-| [UID2 GMA Plugin for iOS Integration Guide](mobile-plugin-gma-ios.md) | The UID2 GMA Plugin for iOS enables publishers that use the Google Mobile Ads (GMA) SDK to include UID2 data in ad requests from their iOS apps. |
+| [UID2 GMA Plugin for Android Integration Guide](mobile-plugin-gma-android.md) | The UID2 Google Mobile Ads (GMA) Plugin for Android enables publishers that use the [Google Mobile Ads (GMA) SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288?hl=en-GB) in ad requests from Android apps. |
+| [UID2 GMA Plugin for iOS Integration Guide](mobile-plugin-gma-ios.md) | The UID2 GMA Plugin for iOS enables publishers that use the [Google Mobile Ads (GMA) SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288?hl=en-GB) in ad requests from their iOS apps. |
 
 ## Supplementary Integrations
 
