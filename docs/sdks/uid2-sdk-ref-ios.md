@@ -75,7 +75,7 @@ Install the iOS SDK via Swift Package Manager (SPM). There are two installation 
 
 Add the following dependency to Package.swift:
 
-```
+``` javascript
 dependencies: [
 .package(url: \"https://github.com/IABTechLab/uid2-ios-sdk.git\", from: "0.2.0"),
 ]
@@ -151,12 +151,12 @@ The following code samples provide examples of performing specific activities re
 
 Set the initial UID2 Identity:
 
-```swift
+``` javascript
 UID2Manager.shared.setIdentity(_ identity: UID2Identity)
 ```
 
 Get the UID2 token (advertising token) to pass to the Advertising SDK:
 
-```swift
+``` javascript
 UID2Manager.shared.getAdvertisingToken()
 ```

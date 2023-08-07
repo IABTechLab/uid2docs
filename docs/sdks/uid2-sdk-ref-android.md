@@ -80,7 +80,7 @@ There are two options for installing the Android UID2 SDK:
 To install with Gradle, add the SDK as a dependency in the build.gradle
 file:
 
-```
+``` javascript
 implementation \'com.uid2.uid2-android-sdk:0.4.0\'
 ```
 
@@ -88,7 +88,7 @@ implementation \'com.uid2.uid2-android-sdk:0.4.0\'
 
 To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 
-```
+``` xml
 <dependency> 
   <groupId>com.uid2</groupId> 
   <artifactId>uid2-android-sdk</artifactId> 
@@ -164,7 +164,7 @@ The Android implementation expects the singleton to be initialized before use. T
 
 The initialization can be done during the creation of the APPLICATION instance, as shown in the following example:
 
-```java
+``` javascript
 class MyApplication : Application() {
   override fun onCreate() {
     super.onCreate()
@@ -179,12 +179,12 @@ The following code samples provide examples of performing specific activities re
 
 Set the Initial UID2 Identity:
 
-```java
+``` javascript
 UID2Manager.getInstance().setIdentity(identity: UID2Identity)
 ```
 
 Get the UID2 token (advertising token) to pass to the Advertising SDK:
 
-```java
+``` javascript
 UID2Manager.getInstance().getAdvertisingToken()
 ```
