@@ -156,4 +156,4 @@ Get the UID2 token (advertising token) to pass to the Advertising SDK:
 UID2Manager.shared.getAdvertisingToken()
 ```
 
-<!-- GWH for when GMA doc is out (and then add IMA after that): If you are using the UID2 SDK for iOS to send UID2 tokens to Google Mobile Ads (GAM), please read (link). -->
+>NOTE: If you are using the UID2 SDK for iOS to send UID2 tokens to Google Mobile Ads (GMA), see [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md).
