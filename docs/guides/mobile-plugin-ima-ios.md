@@ -28,7 +28,7 @@ This documentation is for the UID2 IMA Plugin for iOS version 0.1.0.
 
 To run this plugin, install the following:
 
-1. Google IMA SDK v3.18.5
+1. Google IMA SDK v3.18.5 **GWH_SW hoping to get a link for this**
 1. [UID2 SDK for iOS v0.2.0](../sdks/uid2-sdk-ref-ios.md)
 1. UID2 IMA Plugin for iOS v0.1.0
 
