@@ -26,6 +26,8 @@ sidebar_position: 12
 
 You can use the UID2 SDK for Android to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens on Android devices.
 
+>NOTE: If you want to use the UID2 SDK for Android to send UID2 tokens to Google Mobile Ads (GMA), see also [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md).
+
 ## Functionality
 
 This SDK simplifies integration with UID2 for any publishers who want to support UID2 for apps running on Android devices. The following table shows the functions it supports.
@@ -51,7 +53,7 @@ By default, the SDK automatically refreshes UID2 identity based on expiration da
 This SDK is in the following open-source GitHub repository:
 
 - [https://github.com/IABTechLab/uid2-android-sdk](https://github.com/IABTechLab/uid2-android-sdk)
-- [UID2 SDK for Android v0.4.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk) (for documentation, see [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)) (GWH_SW you asked me to include the link in the Android doc but we already list another source for the SDK. Not sure what to do here.)
+- [UID2 SDK for Android v0.4.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk) (for documentation, see [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md))
 
 ## Minimum Requirements
 
@@ -144,7 +146,6 @@ The Identity variable stores and returns the current UID2Identity data object be
 
 The identityStatus variable stores and returns the status of the current UID2 Identity being managed by the SDK.
 
-
 ## Android Initialization
 
 The Android implementation expects the singleton to be initialized before use. This does two things:
@@ -179,5 +180,3 @@ Get the UID2 token (advertising token) to pass to the Advertising SDK:
 ```java
 UID2Manager.getInstance().getAdvertisingToken()
 ```
-
->NOTE: If you are using the UID2 SDK for Android to send UID2 tokens to Google Mobile Ads (GMA), see [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md).
