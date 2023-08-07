@@ -7,7 +7,7 @@ sidebar_position: 14
 
 # UID2 IMA Plugin for Android Integration Guide
 
-The  UID2 Interactive Media Ads (IMA) Plugin for Android enables publishers that use the [Google Interactive Media Ads SDK](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/) to include UID2 data in ad requests from Android apps. This is done automatically, with no direct coding needed from the app developer.
+The UID2 Interactive Media Ads (IMA) Plugin for Android enables publishers that use the [Google Interactive Media Ads SDK](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/) to include UID2 data in ad requests from Android apps. This is done automatically, with no direct coding needed from the app developer.
 
 ## Functionality
 
