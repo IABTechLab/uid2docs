@@ -60,7 +60,12 @@ The binary is published on Sonatype:
 
 ## Minimum Requirements
 
-For the latest information regarding minimum requirements and specifications, refer to the [readme in the GitHub repository](https://github.com/IABTechLab/uid2-android-sdk/blob/main/README.md#requirements).
+Minimum requirements for this SDK are as follows:
+
+- Android Studio version: 2022.1.1 Patch 2+
+- Minimum target Android version: 4.4+ / API 19+ (SDK) 5.0+ / API 21+ (Dev-App)
+
+<!-- See also: [Requirements](https://github.com/IABTechLab/uid2-android-sdk/blob/main/README.md#requirements). -->
 
 ## Installation
 
@@ -75,16 +80,16 @@ There are two options for installing the Android UID2 SDK:
 To install with Gradle, add the SDK as a dependency in the build.gradle
 file:
 
-```
-implementation \'com.uid2.uid2-android-sdk:0.4.0\'
+``` javascript
+implementation 'com.uid2.uid2-android-sdk:0.4.0'
 ```
 
 ### Installing with Maven 
 
 To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 
-```
-dependency> 
+``` xml
+<dependency> 
   <groupId>com.uid2</groupId> 
   <artifactId>uid2-android-sdk</artifactId> 
   <version>0.4.0</version> 
@@ -159,7 +164,7 @@ The Android implementation expects the singleton to be initialized before use. T
 
 The initialization can be done during the creation of the APPLICATION instance, as shown in the following example:
 
-```java
+``` javascript
 class MyApplication : Application() {
   override fun onCreate() {
     super.onCreate()
@@ -174,13 +179,13 @@ The following code samples provide examples of performing specific activities re
 
 Set the Initial UID2 Identity:
 
-```java
+``` javascript
 UID2Manager.getInstance().setIdentity(identity: UID2Identity)
 ```
 
 Get the UID2 token (advertising token) to pass to the Advertising SDK:
 
-```java
+``` javascript
 UID2Manager.getInstance().getAdvertisingToken()
 ```
 

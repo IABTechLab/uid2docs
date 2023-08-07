@@ -56,21 +56,26 @@ This SDK is in the following open-source GitHub repository:
 
 ## Minimum Requirements
 
-For the latest information regarding minimum requirements and specifications, refer to the [readme in the GitHub repository](https://github.com/IABTechLab/uid2-ios-sdk/blob/main/README.md#requirements).
+Minimum requirements for this SDK are as follows:
+
+- Xcode version: 14.0+
+- iOS	minimum target version: 13.0+	
+- Swift version: 5.0+
+
+<!-- See also: [Requirements](https://github.com/IABTechLab/uid2-ios-sdk/blob/main/README.md#requirements). -->
 
 ## Installation
 
 Install the iOS SDK via Swift Package Manager (SPM). There are two installation options:
 
 -   [Package.swift](#installing-with-packageswift)
-
 -   [Xcode](#installing-with-xcode)
 
 ### Installing with Package.swift
 
 Add the following dependency to Package.swift:
 
-```
+``` javascript
 dependencies: [
 .package(url: \"https://github.com/IABTechLab/uid2-ios-sdk.git\", from: "0.2.0"),
 ]
@@ -81,8 +86,6 @@ dependencies: [
 Add the following dependency via Xcode:
 
 ![Xcode Dependency](images/xcode-uid2-ios-sdk.png)
-
-
 
 ## Usage Guidelines
 
@@ -148,13 +151,13 @@ The following code samples provide examples of performing specific activities re
 
 Set the initial UID2 Identity:
 
-```swift
+``` javascript
 UID2Manager.shared.setIdentity(_ identity: UID2Identity)
 ```
 
 Get the UID2 token (advertising token) to pass to the Advertising SDK:
 
-```swift
+``` javascript
 UID2Manager.shared.getAdvertisingToken()
 ```
 

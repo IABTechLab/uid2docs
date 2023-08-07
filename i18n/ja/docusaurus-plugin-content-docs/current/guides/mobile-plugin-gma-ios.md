@@ -39,7 +39,7 @@ Prerequisite: Install the Google Mobile Ads SDK and the UID2 iOS SDK.
 
 Install the UID2 iOS IMA Plugin via Swift Package Manager to an existing app with the UID2 iOS SDK and the Google Mobile Ads SDK installed:
 
-```
+``` javascript
 .package(url: https://github.com/IABTechLab/uid2-ios-plugin-google-gma.git, exact: "0.2.0")
 ```
 
