@@ -7,7 +7,7 @@ sidebar_position: 15
 
 # UID2 IMA Plugin for iOS Integration Guide
 
-The UID2 Interactive Media Ads (IMA) Plugin for iOS enables publishers that use the [Google Interactive Media Ads SDK](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) in ad requests from iOS apps. This is done automatically, with no direct coding needed from the app developer.
+The UID2 Interactive Media Ads (IMA) Plugin for iOS enables publishers that use the [Google Interactive Media Ads SDK](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288?hl=en-GB) in ad requests from iOS apps. This is done automatically, with no direct coding needed from the app developer.
 
 ## Functionality
 
@@ -19,10 +19,11 @@ This plugin simplifies integration with Google Interactive Media Ads (IMA) for a
 
 This documentation is for the UID2 IMA Plugin for iOS version 0.1.0.
 
-
 ## GitHub Repository
 
-**GWH_SW do you know the repo for this?**
+This plugin is in the following open-source GitHub repository:
+
+- [https://github.com/IABTechLab/uid2-ios-plugin-google-ima](https://github.com/IABTechLab/uid2-ios-plugin-google-ima)
 
 ## Requirements 
 

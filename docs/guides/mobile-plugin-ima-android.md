@@ -7,7 +7,7 @@ sidebar_position: 14
 
 # UID2 IMA Plugin for Android Integration Guide
 
-The UID2 Interactive Media Ads (IMA) Plugin for Android enables publishers that use the [Google Interactive Media Ads SDK](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/) to include UID2 data in ad requests from Android apps. This is done automatically, with no direct coding needed from the app developer.
+The UID2 Interactive Media Ads (IMA) Plugin for Android enables publishers that use the [Google Interactive Media Ads SDK](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288?hl=en-GB) in ad requests from Android apps. This is done automatically, with no direct coding needed from the app developer.
 
 ## Functionality
 
@@ -21,14 +21,16 @@ This documentation is for the UID2 IMA Plugin for Android version 0.1.0.
 
 ## GitHub Repository
 
-**GWH_SW do you know the repo for this?**
+This plugin is in the following open-source GitHub repository:
+
+- [https://github.com/IABTechLab/uid2-android-sdk/tree/main/securesignals-ima](https://github.com/IABTechLab/uid2-android-sdk/tree/main/securesignals-ima)
 
 ## Requirements 
 
 To run this plugin, install the following:
 
 1. Google IMA SDK v3.29.0 ([ONLY 3.29.0 not any higher version](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side/history))
-1. [UID2 Android SDK v0.4.0](../sdks/uid2-sdk-ref-android.md)
+1. [UID2 Android SDK v0.4.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-ima)  (for documentation, see [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md))
 1. UID2 IMA Plugin for Android v0.1.0
 
 ## Installation
