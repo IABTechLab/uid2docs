@@ -16,6 +16,7 @@ The following steps provide a high-level outline of the workflow intended for us
 
 
 (**GWH_KT: add to #4 token/generate and token/refresh and identity/map respond with an opted-out response if the user had opted out.**)
+reconfigure.
 
 This workflow allows users to consent to the creation of UID2 identifiers and manage their UID2 consent and privacy settings through the Transparency and Control Portal.
 
