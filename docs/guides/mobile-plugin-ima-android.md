@@ -29,9 +29,9 @@ This plugin is in the following open-source GitHub repository:
 
 To run this plugin, install the following:
 
-1. Google IMA SDK v3.29.0 ([ONLY 3.29.0 not any higher version](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side/history))
-1. [UID2 Android SDK v0.4.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-ima)  (for documentation, see [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md))
-1. UID2 IMA Plugin for Android v0.1.0
+- [Google IMA SDK v3.29.0](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side/history) (ONLY 3.29.0: not any higher version)
+- [UID2 Android SDK v0.4.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-ima)  (for documentation, see [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md))
+- UID2 IMA Plugin for Android v0.1.0
 
 ## Installation
 
@@ -42,7 +42,7 @@ Install the UID2 Android IMA Plugin v0.1.0 via Gradle / Maven to an existing app
 ### Gradle 
 To install with Gradle, add the SDK as a dependency in the `build.gradle` file:
 
-```
+``` javascript
 implementation 'com.uid2:uid2-android-sdk-ima:0.1.0'
 ```
 
@@ -50,7 +50,7 @@ implementation 'com.uid2:uid2-android-sdk-ima:0.1.0'
 
 To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 
-```
+``` xml
 <dependency>
   <groupId>com.uid2</groupId>
   <artifactId>uid2-android-sdk-ima</artifactId>
@@ -60,4 +60,4 @@ To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 
 ## Troubleshooting 
 
-There has been an occasional issue with Google IMA SDK v3.30.0 not running when used in non-Android TV apps. This is due to the inclusion of com.google.android.tv:tv-ads:1.0.0-alpha as a dependency. To resolve the problem, revert back to Google IMA SDK v3.29.0.
+There has been an occasional issue with Google IMA SDK v3.30.0 not running when used in non-Android TV apps. This is due to the inclusion of `com.google.android.tv:tv-ads:1.0.0-alpha` as a dependency. To resolve the problem, revert back to Google IMA SDK v3.29.0.
