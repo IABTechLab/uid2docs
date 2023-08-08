@@ -35,7 +35,7 @@ This SDK simplifies integration with UID2 for any publishers, DSPs, and UID2 sha
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
-| Yes | Yes | Yes | Yes |
+| Supported | Supported | Supported | Supported |
 
 ## Version
 
