@@ -14,6 +14,9 @@ The following steps provide a high-level outline of the workflow intended for us
 3. UID2 distributes the opt-out information to DSPs.
 4. UID2 distributes the opt-out information in the responses from all respective API endpoints.
 
+
+(**GWH_KT: add to #4 token/generate and token/refresh and identity/map respond with an opted-out response if the user had opted out.**)
+
 This workflow allows users to consent to the creation of UID2 identifiers and manage their UID2 consent and privacy settings through the Transparency and Control Portal.
 
 ![User Trust Workflow](images/user_trust_workflow.jpg)
