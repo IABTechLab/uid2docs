@@ -46,7 +46,7 @@ Install the UID2 Android GMA Plugin v0.4.0 to an existing app with the UID2 Andr
 
 To install with Gradle, add the SDK as a dependency in the `build.gradle` file:
 
-```
+``` javascript
 implementation 'com.uid2:uid2-android-sdk-gma:0.4.0'
 ```
 
@@ -54,7 +54,7 @@ implementation 'com.uid2:uid2-android-sdk-gma:0.4.0'
 
 To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 
-```
+``` xml
 <dependency>
   <groupId>com.uid2</groupId>
   <artifactId>uid2-android-sdk-gma</artifactId>

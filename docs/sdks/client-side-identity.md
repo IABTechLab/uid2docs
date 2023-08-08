@@ -5,7 +5,7 @@ hide_table_of_contents: false
 sidebar_position: 02
 ---
 
-# UID2 SDK for JavaScript
+# UID2 SDK for JavaScript Reference Guide
 
 Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). 
 
