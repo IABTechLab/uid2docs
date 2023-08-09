@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import React from "react";
 import Link from "@docusaurus/Link";
+import Translate from "@docusaurus/Translate";
 import clsx from "clsx";
 import styles from "./styles.module.scss";
 
@@ -98,7 +99,12 @@ export default function HomepageNews(): JSX.Element {
       <div className="container">
         <header className={styles.header}>
           <h2 className="type-gamma text-11-o-clock">
-            Press releases and media coverage
+            <Translate
+              id="homepage.newsTitle"
+              description="Press releases and media coverage"
+            >
+              Press releases and media coverage
+            </Translate>
           </h2>
         </header>
         <div className={styles.cardGrid}>

@@ -25,16 +25,16 @@ The guide outlines the [basic steps](#integration-steps) that you need to consid
 
 The following are the options available for publishers to integrate with UID2:
 
-- Client [UID2 SDK for JavaScript](../sdks/client-side-identity.md), with [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) on the server.
-- Client [UID2 SDK for JavaScript](../sdks/client-side-identity.md), with custom server code.
-- Server-only integration, with [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) on the server.
+- Client UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)), with [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) on the server.
+- Client UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)), with custom server code.
+- Server-only integration, with [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) or [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) on the server.
 - Server-only integration, with custom server code.
 
 This document provides information for the last two options.
 
 Here's an [example application](https://example-srvonly-integ.uidapi.com/) that demonstrates the workflow. For the application documentation, see [Server-Only UID2 Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md). See also [FAQs](#faqs).
 
->TIP: To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, consider using the [UID2 SDK for JavaScript](../sdks/client-side-identity.md). For details, see [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md).
+>TIP: To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, consider using the UID2 SDK for JavaScript. For details, see [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md).
 
 ## Integration Steps
 

@@ -2,12 +2,12 @@
 title: UID2 Operator - Microsoft Azure Confidential Compute Operator Package
 description: Integration information for Microsoft Azure private operator.
 hide_table_of_contents: false
-sidebar_position: 12
+sidebar_position: 18
 ---
 
 # Microsoft Azure Confidential Compute Operator Package
 
->IMPORTANT: This documentation is currently only a proof of concept. Please [contact](../getting-started/gs-account-setup.md#contact-info) the UID2 administrator for additional guidance.
+>IMPORTANT: This documentation is currently only a proof of concept. For additional guidance, [contact](../getting-started/gs-account-setup.md#contact-info) the UID2 administrator.
 
 UID2 Operator service can be run within a trusted computing enclave powered by Intel SGX technology.
 

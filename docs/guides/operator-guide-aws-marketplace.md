@@ -2,7 +2,7 @@
 title: UID2 Operator - AWS Marketplace Integration
 description: Integration information for AWS Marketplace private operator.
 hide_table_of_contents: false
-sidebar_position: 10
+sidebar_position: 17
 ---
 
 # UID2 Operator: AWS Marketplace Integration Guide
@@ -258,4 +258,4 @@ Here's what you need to know about upgrading:
 
 ## Technical Support
 
-If you have trouble subscribing or deploying the product, please contact us at [aws-mktpl-uid@thetradedesk.com](mailto:aws-mktpl-uid@thetradedesk.com).
+If you have trouble subscribing or deploying the product, contact us at [aws-mktpl-uid@thetradedesk.com](mailto:aws-mktpl-uid@thetradedesk.com).

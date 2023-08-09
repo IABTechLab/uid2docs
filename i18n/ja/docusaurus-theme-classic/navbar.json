@@ -1,0 +1,34 @@
+{
+  "logo.alt": {
+    "message": "UID2 logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Publishers": {
+    "message": "媒体社",
+    "description": "Navbar item with label Publishers"
+  },
+  "item.label.Advertisers": {
+    "message": "広告主",
+    "description": "Navbar item with label Advertisers"
+  },
+  "item.label.DSPs": {
+    "message": "DSPs",
+    "description": "Navbar item with label DSPs"
+  },
+  "item.label.Data Providers": {
+    "message": "データプロバイダ",
+    "description": "Navbar item with label Data Providers"
+  },
+  "item.label.Docs": {
+    "message": "Docs",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.Request Access": {
+    "message": "導入についてお問合わせ",
+    "description": "Navbar item with label Request Access"
+  },
+  "item.label.Documentation": {
+    "message": "技術文書",
+    "description": "Navbar item with label Documentation"
+  }
+}

@@ -7,7 +7,7 @@ sidebar_position: 04
 
 # UID2 SDK for Java (Server-Side) Reference Guide
 
-You can use the UID2 SDK for Java (server-side) to facilitate:
+You can use the UID2 SDK for Java (server-side) to facilitate the following:
 
 - Generating UID2 advertising tokens
 - Refreshing UID2 advertising tokens
@@ -35,7 +35,7 @@ This SDK simplifies integration with UID2 for any publishers, DSPs, and UID2 sha
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
-| Yes | Yes | Yes | Yes |
+| Supported | Supported | Supported | Supported |
 
 ## Version
 
@@ -102,7 +102,7 @@ The following instructions provide an example of how you can implement sharing u
    ```java
    IUID2Client client = UID2ClientFactory.create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
    ```
-2. Refresh once at startup, and then periodically (recommended refresh interval is hourly):
+2. Refresh once at startup, and then periodically. Recommended refresh interval is hourly: for details, see [Best Practices for Managing UID2 Tokens](../sharing/sharing-best-practices#key-refresh-cadence).
 
    ```java
    client.refresh();

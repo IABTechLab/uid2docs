@@ -30,7 +30,7 @@ This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are u
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
-| Yes | Yes | No | No |
+| Supported | Supported | Not supported | Not supported |
 
 ## Version
 
@@ -85,7 +85,6 @@ Available information returned through the SDK is outlined in the following tabl
 | `ExpiredToken` | The incoming UID2 advertising token has expired. |
 | `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
 | `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
-
 
 ## Usage for UID2 Sharers
 

@@ -29,7 +29,7 @@ UID2 フレームワークにアクセスするには、以下の The Trade Desk
 
 ## API Versions
 
-UID2 API の現在のバージョンは [UID2 API v2](v2/summary-doc-v2.md) です。旧バージョンをお使いの場合は、[UID2 API v1 to v2 Upgrade Guide](v2/upgrades/upgrade-guide.md)の説明にしたがって、必ず UID2 API v2 へアップグレードしてください。
+UID2 API の現在のバージョンは [UID2 API v2](v2/summary-doc-v2.md) です。旧バージョンをお使いの場合は、[UID2 API v1 to v2 Upgrade Guide](https://github.com/IABTechLab/uid2docs/blob/main/api-ja/v2/upgrades/upgrade-guide.md)の説明にしたがって、必ず UID2 API v2 へアップグレードしてください。
 
 ## Email Address Normalization
 
