@@ -35,6 +35,15 @@ UID2を実装するDSPには、以下のドキュメントリソースが用意�
 | Server-Side SDK Guides for .NET, C++, Java, Python | [SDKs](../sdks/summary-sdks.md) | UID2 Server-Side SDK を使用して、UID2 Advertising Token を復号して raw UID2 にアクセスしたい人のための SDK です。| DSPs |
 | Integration Guides | [DSP Integration Guide](../guides/dsp-guide.md) | この DSP 向けインテグレーションガイドでは、入札における UID2 の取り扱いや、ユーザーのオプトアウトを受け入れることについて説明しています。 | DSPs |
 
+
+| Type| Documentation | Content Description | Audience |
+| :--- | :--- | :--- | :--- |
+|UID2 SDK for Java | [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) | UID2 advertising token を解読して raw UID2 にアクセスしたい Java Server-Side を使用する人向けの SDK。| DSPs |
+|UID2 SDK for Python | [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md) |  UID2 advertising token を解読して raw UID2 にアクセスしたい Python Server-Side を使用する人向けの SDK。 | DSPs |
+|UID2 SDK for C# / .NET | [UID2 SDK for C# / .NET (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-csharp-dotnet.md) | UID2 advertising token を解読して raw UID2 にアクセスしたい .Net Server-Side を使用する人向けの SDK。 | DSPs |
+|UID2 SDK for C++ | [UID2 SDK for C++ (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-cplusplus.md) | UID2 advertising token を解読して raw UID2 にアクセスしたい C++ Server-Side を使用する人向けの SDK。 | DSPs |
+| Integration Guides | [DSP Integration Guide](../guides/dsp-guide.md) | このインテグレーション・ガイドでは、DSP向けに入札のための UID2 の取り扱いと、ユーザーの Opt-Out の受け入れについて説明しています。 | DSPs |
+
 ## Workflow for DSPs
 
 以下の図は、DSPの UID2 ワークフローです。

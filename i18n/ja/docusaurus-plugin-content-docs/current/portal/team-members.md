@@ -68,4 +68,6 @@ If you were added as a new team member, we send you a confirmation email to vali
 1. Log in to the UID2 Portal using your email and your new password. This confirms your account.
 1. On first login, review and accept the UID2 Sharing Portal Terms of Service.
 
+<!-- (**GWH_KT_03 7/31: with one user (genwhitt@gmail.com, Margaret) I could not accept Terms of Service. It went green but in developer tools gave a 401. Probably because the account was not yet approved? But, for the main instructions, accepting T&Cs is before the account approval step. Not sure if this is a bug.**) -->
+
 <!-- eng_jp -->
