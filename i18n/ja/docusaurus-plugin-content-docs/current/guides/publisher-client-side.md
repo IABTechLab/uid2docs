@@ -11,15 +11,6 @@ sidebar_position: 02
 
 - SDK の技術的な詳細については、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を参照してください。
 - [サンプルアプリケーション](https://example-jssdk-integ.uidapi.com/) と関連文書については、[UID2 SDKインテグレーション例](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) ガイドを参照してください。
-<!-- 以下のセクションが含まれています:
-
-- [Introduction（はじめに）](#introduction)
-- [Integration Steps（インテグレーション手順）](#integration-steps)
-  - [Establish Identity: User Login（アイデンティティを確立する: ユーザーログイン）](#establish-identity-user-login)
-  - [Bid Using UID2 Tokens（UID2 Token を使った入札）](#bid-using-uid2-tokens)
-  - [Refresh Tokens（トークンのリフレッシュ）](#refresh-tokens)
-  - [Clear Identity: User Logout（アイデンティティの消去: ユーザーログアウト）](#clear-identity-user-logout)
-- [FAQs（よくある質問）](#faqs) -->
 
 ## Introduction
 
