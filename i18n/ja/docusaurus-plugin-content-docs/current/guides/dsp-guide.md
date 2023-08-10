@@ -52,7 +52,7 @@ Server-Side SDK のいずれか([SDKs](../sdks/summary-sdks.md)を参照)を利�
 
 ![](images/dsp-guide-optout-check-mermaid.png)
 
-もし`established_timestamp`の値が`optout_timestamp`の値より小さい場合は、ユーザーがオプトアウトしたことになり、UID2 は RTB に使用するべきではありません。このような場合、代替 ID を送信して入札するか、入札しないかは、DSP の判断によります。
+`established_timestamp` の値が `optout_timestamp` の値より小さい場合、ユーザーはオプトアウトしているため、UID2はRTBに使用されるべきではありません。このような場合、入札のために代替　ID　を送信するか、入札を行わないかは DSP 次第です。
 
 <b>Check Opt-Out</b> ステップのロジックは以下のとおりです。
 

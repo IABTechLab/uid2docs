@@ -22,7 +22,7 @@ Snowflake Data Marketplace でホストされる Open Operator Service を使用
 
 ## Integration Steps
 
-次の図は、オーディエンスの構築とターゲティングのために、データコレクターが DII を UID2 識別子にマッピングするために完了しなければならない手順の概要を示しています。DII とは、ユーザーの正規化されたメールアドレスまたは電話番号、あるいは正規化され SHA-256 ハッシュ化されたメールアドレスまたは電話番号のことを指します。
+次の図は、オーディエンスの構築とターゲティングのために、データコレクターが [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 識別子にマッピングするために完了しなければならない手順の概要を示しています。DII とは、ユーザーの正規化されたメールアドレスまたは電話番号、あるいは正規化され SHA-256 ハッシュ化されたメールアドレスまたは電話番号のことを指します。
 
 ![](images/advertiser-flow-mermaid.png)
 

@@ -14,7 +14,6 @@ sidebar_position: 02
 * [Contact Info](#contact-info)
 * [Account Setup](#account-setup)
 * [API Versions](#api-versions)
-* [License](#license)
  -->
 
 ## Contact Info
@@ -45,5 +44,3 @@ UID2 に参加する契約を結ぶと、[APIキー](gs-api-keys.md)と UID2 を
 
 UID2 API の現在のバージョンは [UID2 API v2](../summary-doc-v2.md) です。旧バージョンをお使いの場合は、[UID2 API v1 to v2 Upgrade Guide](https://github.com/IABTechLab/uid2docs/blob/main/api-ja/v2/upgrades/upgrade-guide.md)の説明にしたがって、必ず UID2 API v2 へアップグレードしてください。
 
-## License
-All work and artifacts are licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).

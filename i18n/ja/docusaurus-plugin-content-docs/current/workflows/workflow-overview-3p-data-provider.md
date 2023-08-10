@@ -14,7 +14,7 @@ sidebar_position: 03
 
 以下のステップは、広告主やデータプロバイダーが UID2 とインテグレーションする方法の一例です：
 
-1. データプロバイダーが、同意を得たユーザーの個人を識別できる情報(DII) を UID2 Operator に送信します。
+1. データプロバイダーが、同意を得たユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 Operator に送信します。
 2. UID2 Operator は、raw UID2 とソルトバケット ID を生成して返します。
 3. データプロバイダーは UID2 とソルトバケット ID を保存し、UID2 ベースのファーストパーティおよびサードパーティのオーディエンスセグメントをDSPに送信します。
 4. データプロバイダーは、行動規範で定義された許可されたトランスポートプロトコルを使用して、UID2 を DSP に送信します。
