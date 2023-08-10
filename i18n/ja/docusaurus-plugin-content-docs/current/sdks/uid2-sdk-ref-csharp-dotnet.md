@@ -1,6 +1,6 @@
 ---
 title: UID2 SDK for C# / .NET
-description: C# / .NET  Server-Side SDK のリファレンス情報。
+description: C# / .NET SDK のリファレンス情報。
 hide_table_of_contents: false
 sidebar_position: 08
 ---
@@ -12,7 +12,7 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 <!-- This guide includes the following information:
 
 - [Overview](#overview)
-- [Functionality](#functionality)
+- [Audience](#audience)
 - [Initialization](#initialization)
 - [Interface](#interface)
   - [Response Content](#response-content)
@@ -24,13 +24,14 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 
 ここで説明する関数は、設定に必要な情報やライブラリから取得できる情報を定義しています。以下に定義するパラメータとプロパティ名は擬似コードです。実際のパラメータやプロパティ名は言語によって異なりますが、ここで説明する情報と同様のものになります。
 
-## Functionality
+## Audience
 
-この SDK は、Server-Side のコーディングに C# / .NET を使用している DSP または UID2 Sharer のために、UID2 とのインテグレーションを簡素化します。次の表に、このSDKがサポートする機能を示します。
+この SDK は、Server-Side のコーディングに C# / .NET を使用している DSP または UID2 Sharer のために、UID2 とのインテグレーションを簡素化します。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
-| :--- | :--- | :--- | :--- |
-| Yes | Yes | No | No |
+| Audience | Functions |
+| :--- | :--- |
+| DSPs | 入札リクエストからの UID2 Token の復号化をサポートします。 |
+| Sharers | UID2 Token の暗号化または復号化をサポートします。 |
 
 ## Version
 
@@ -86,7 +87,6 @@ SDK から返される利用可能な情報の概要を次の表に示します�
 | `KeysNotSynced` | クライアントは UID2 Service からの鍵の同期に失敗しました。|
 | `VersionNotSupported` | クライアントライブラリが暗号化トークンのバージョンをサポートしていません。|
 
-
 ## Usage for UID2 Sharers
 
 UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のことです。raw UID2を他の参加者に送信する前に、UID2 Token に暗号化する必要があります。使用例については、[com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` メソッド) を参照してください。
@@ -97,7 +97,7 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
 
 1. ```IUID2Client``` のリファレンスを作成します:
  
-    ```cs
+   ```cs
    var client = UID2ClientFactory.Create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
    ```
 2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします（推奨リフレッシュ間隔は1時間毎）:
@@ -108,12 +108,12 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
 3. 送信者: 
    1. 以下を呼び出します:
 
-       ```cs
+      ```cs
       var encrypted = client.Encrypt(rawUid);
       ```
    2. 暗号化に成功した場合、UID2 Token を受信者に送信します:    
 
-       ```cs
+      ```cs
       if (encrypted.isSuccess()) 
       { 
          //send encrypted.EncryptedData to receiver
