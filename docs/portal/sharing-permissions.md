@@ -44,10 +44,7 @@ The following sharing options are available via the UID2 Portal. These options a
   If you choose this option, all new participants of the selected participant type will automatically have permission to decrypt any data that you send to them. See [Bulk Add Sharing Permissions](#bulk-add-sharing-permissions).
 
 - You can grant permission to one or more specific participants. See [Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships).
-
-  <!-- When you enable a sharing relationship, it becomes active the next time the sharer updates keys&#8212;generally on an hourly cadence. For details, see [Key Refresh Cadence for Sharing](../sharing/sharing-best-practices.md#key-refresh-cadence-for-sharing).  -->
-
-  
+ 
 You can update your sharing permission in the UID2 Portal at any point.
 
 ## Bulk Add Sharing Permissions

@@ -18,7 +18,7 @@ UID2 SDK for Java (Server-Side) を使用すると、以下のことが容易に
 <!-- This guide includes the following information:
 
 - [Overview](#overview)
-- [Functionality](#functionality)
+- [Audience](#audience)
 - [Initialization](#initialization)
 - [Interface](#interface)
   - [Response Content](#response-content)
@@ -30,13 +30,15 @@ UID2 SDK for Java (Server-Side) を使用すると、以下のことが容易に
 
 ここで説明する関数は、設定に必要な情報やライブラリから取得できる情報を定義しています。以下に定義するパラメータとプロパティ名は擬似コードです。実際のパラメータやプロパティ名は言語によって異なりますが、ここで説明する情報と同様のものになります。
 
-## Functionality
+## Audience
 
-この SDK は、Server-Side のコーディングに Java を使用している DSP または UID2 Sharer のために、UID2 とのインテグレーションを簡素化します。次の表に、このSDKがサポートする機能を示します。
+この SDK は、Server-Side のコーディングに C++ を使用しているパブリッシャー、DSP または UID2 Sharer のために、UID2 とのインテグレーションを簡素化します。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
-| :--- | :--- | :--- | :--- |
-| Yes | Yes | Yes | Yes |
+| Audience | Functions |
+| :--- | :--- |
+| Publishers | [DII](../ref-info/glossary-uid.md#gl-dii) からの UID2 Token の生成やリフレッシュをサポートします。 |
+| DSPs | 入札リクエストからの UID2 Token の復号化をサポートします。 |
+| Sharers | UID2 Token の暗号化または復号化をサポートします。 |
 
 ## Version
 
