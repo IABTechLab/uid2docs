@@ -117,8 +117,8 @@ UID2 sharers follow a two-step process, as shown in the following example. The s
 The process for publishers sharing UID2 tokens in the bid stream is a different process. For details, see [Sharing in the Bid Stream](sharing-bid-stream.md).
 
 ## UID2 Token Pass-Through
-The UID2 token is designed so that it can be seen by all but can only be used by UID2 participants that have access to the decryption keys.
+The UID2 token generated for sharing in the bid stream is designed so that it can be seen by all but can only be used by UID2 participants that have access to the decryption keys.
 
 For example, UID2 tokens are habitually passed through the bid stream from a publisher to a DSP. Although a UID2 token might go through several parties, such as an SSP, it can be decrypted only by an authorized UID2 participant. On its journey through the bid stream, the UID2 token can safely pass through one or more intermediaries.
 
-The same is true of UID2 tokens generated for sharing.
+The same is true of UID2 tokens generated for sharing between UID2 sharing participants.
