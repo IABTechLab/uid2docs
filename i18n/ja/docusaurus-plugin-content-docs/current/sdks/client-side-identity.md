@@ -1,18 +1,18 @@
 ---
 title: UID2 SDK for JavaScript
-description: JavaScript SDK に関する参考情報。
+description: JavaScript client-side SDK に関する参考情報。
 hide_table_of_contents: false
 sidebar_position: 02
 ---
 
-# Client-Side JavaScript SDK (v2)
+# UID2 SDK for JavaScript
 
 この SDK を使用すると、UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスを容易に行えます。以下のセクションでは、UID2 アイデンティティを確立するための大まかな [ワークフロー](#workflow-overview)、SDK [API reference](#api-reference) および [UID2 クッキー形式](#uid2-cookie-format) について説明しています。
 
 - コンテンツパブリッシャーのインテグレーション手順は、[UID2 SDK Integration Guide](../guides/publisher-client-side.md) を参照してください。
 - [アプリケーション例](https://example-jssdk-integ.uidapi.com/)と関連ドキュメントは、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md)ガイドを参照してください。
 
-このガイドには、以下の情報が含まれています。
+<!-- このガイドには、以下の情報が含まれています。
 
 - [Terminology（用語解説）](#terminology)
 - [Include the SDK Script（SDK スクリプトのインクルード）](#include-the-sdk-script)
@@ -29,7 +29,11 @@ sidebar_position: 02
   - [abort()](#abort-void)
 - [UID2 Cookie Format（UID2 クッキーフォーマット）](#uid2-cookie-format)
   - [Properties（プロパティ）](#properties)
-  - [Contents Structure（コンテンツ構造）](#contents-structure)
+  - [Contents Structure（コンテンツ構造）](#contents-structure) -->
+
+## SDK Version
+
+このドキュメントは、UID2 SDK for JavaScript version 2 用です。
 
 ## terminology
 
@@ -71,7 +75,7 @@ SDK を使用して UID2 ID を確立するためのクライアント側ワー�
    - Advertising Token が利用可能な場合、それを使用してターゲティング広告のリクエストを開始します。
    - Advertising Token が利用できない場合は、ターゲット外の広告を使用するか、同意フォームを使用して UID2 ログインにリダイレクトします。
 
-Web インテグレーションの手順は、[Client-Side JavaScript SDK Integration Guide](../guides/publisher-client-side.md) を参照してください。
+Web インテグレーションの手順は、[UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) を参照してください。
 
 ### Workflow States and Transitions
 

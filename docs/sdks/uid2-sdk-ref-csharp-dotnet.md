@@ -30,7 +30,7 @@ This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are u
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
-| Yes | Yes | No | No |
+| Supported | Supported | Not supported | Not supported |
 
 ## Version
 

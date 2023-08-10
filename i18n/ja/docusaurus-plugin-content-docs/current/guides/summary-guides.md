@@ -13,8 +13,8 @@ sidebar_position: 01
 
 | Integration Guide                                                                           | Content Description                                                                                                                                                                            |
 | :------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Client-Side JavaScript SDK Integration Guide](./publisher-client-side.md)                  | このパブリッシャー向けインテグレーションガイドは、[Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) を利用した標準的なウェブインテグレーションシナリオをカバーしています。    |
-| [Publisher Integration Guide, Server-Only (Without SDK)](./custom-publisher-integration.md) | アプリ開発者と CTV 放送局向けのこのインテグレーションガイドは、[Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) を使用しないインテグレーションシナリオをカバーしています。   |
+| [UID2 SDK for JavaScript Integration Guide](./publisher-client-side.md)                  | このパブリッシャー向けインテグレーションガイドは、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を利用した標準的なウェブインテグレーションシナリオをカバーしています。    |
+| [Publisher Integration Guide, Server-Only](./custom-publisher-integration.md) | このパブリッシャー向けインテグレーションガイドは、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用しないインテグレーションシナリオをカバーしています。   |
 | [DSP](./dsp-guide.md)                                                                       | この DSP のためのインテグレーションガイドは、入札のための UID2 の処理と、ユーザーのオプトアウトに対応することをカバーしています。                                                              |
 | [Advertiser/Data Provider](./advertiser-dataprovider-guide.md)                              | この広告主やデータプロバイダー向けのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 |
 
