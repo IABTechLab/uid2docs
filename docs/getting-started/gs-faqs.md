@@ -6,7 +6,7 @@ sidebar_position: 20
 ---
 
 # Frequently Asked Questions
-<!-- Note there are two sets of similar FAQs, for SDK vs non-SDK. For now until we can combine, we've varied the naming so the anchors work correctly. GWH 3/9/23 -->
+
 Frequently asked questions for UID2 are grouped into general categories by audience.
 
 <!-- This page includes:

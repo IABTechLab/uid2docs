@@ -55,7 +55,6 @@ The following documentation resources are available for publishers to implement 
 以下の図は、パブリッシャー向けの UID2 ワークフローです。
 
 ![Publisher Workflow](../workflows/images/UID2PublisherAndSSPWorkflow.jpg)
-<!-- (LP/BB/GWH: the above URl works as relative but as /docs/ caused build failure. Need to debug that. 3/13) -->
 
 詳しくは、[パブリッシャーワークフローの概要](../workflows/workflow-overview-supply-side.md)を参照してください。
 
