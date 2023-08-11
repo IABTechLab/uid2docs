@@ -21,33 +21,67 @@ sidebar_position: 04
 - [Configuration Parameters for `usersync`](#usersync-configuration-parameters) -->
 
 
-This guide is for publishers who want to directly integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream.
-It outlines the basic steps to consider if you're building a direct integration with UID2 and use Prebid for header bidding. 
+This guide is for publishers who want to directly integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid in the RTB bid stream.
+
+It outlines the basic steps to consider if you're building a direct integration with UID2 and you use Prebid for header bidding. 
 
 ## Introduction
 
-If you are a publisher using Prebid for header bidding, there are a few extra steps so that your Prebid header bidding implementation also supports UID2.
+If you're a publisher using Prebid for header bidding, there are a few extra steps to take so that your Prebid header bidding implementation also supports UID2.
 
 In addition, if you don't already have one, you must set up a UID2 account: see [Account Setup](../getting-started/gs-account-setup.md).
 
 ## UID2 Prebid Module Page
 
-For details about how to integrate Prebid with UID2, refer to the [Unified ID 2.0 Prebid User ID module](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) on the Prebid site. Be sure to follow all the steps.
+Information about how to integrate Prebid with UID2 is also on the [Unified ID 2.0 Prebid User ID module](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) on the Prebid site. 
+
+## Integration Steps
+
+At a high level, to integrate with UID2 using Prebid, you'll need to complete the following steps.
+
+| Step | Action | Link to Instructions |
+| --- | --- | --- |
+| 1 | Send a server-side API call to generate or refresh the UID2 token.  | [UID2 User ID Submodule](#uid2-user-id-submodule) |
+| 2 | Store the response value, so that the Prebid module can manage token refresh as well as opt-out if needed. | [Client Refresh Mode](#client-refresh-mode) |
 
 ## UID2 User ID Submodule
 
-UID2 requires initial tokens to be generated server-side. The UID2 module handles storing, providing, and optionally refreshing them. The module operates in Client Refresh mode.
+UID2 requires initial tokens to be generated server-side. You can do this by calling one of the following endpoints:
+
+- [POST /token/generate](../endpoints/post-token-generate.md) to generate a new UID2 token.
+- [POST /token/refresh](../endpoints/post-token-refresh.md) to refresh an existing token.
+
+The UID2 module handles storing, providing, and optionally refreshing UID2 tokens. The module operates in Client Refresh mode.
 
 >**Important:** UID2 is not designed to be used where GDPR applies. The module checks the passed-in consent data, and does not operate if the `gdprApplies` flag is set to `true`.
 
 ## Client Refresh Mode
 
-In Client Refresh mode, the full response body from the UID2 [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint must be provided to the module. As long as the refresh token remains valid, the module refreshes the UID2 token (advertising token) as needed.
+You must provide the Prebid module with the full response body from the applicable endpoint:
 
-To configure the module to use Client Refresh mode, you must do **either** of the following:
--  Set `params.uid2Cookie` to the name of the cookie that contains the response body as a JSON string. See [Client Refresh Cookie Example](#client-refresh-cookie-example).
+- [POST /token/generate](../endpoints/post-token-generate.md) for a new UID2 token.
+- [POST /token/refresh](../endpoints/post-token-refresh.md) for a refreshed UID2 token.
 
-- Set `params.uid2Token` to the response body as a JavaScript object. See [Client Refresh uid2Token Example](#client-refresh-uid2token-example).
+As long as the refresh token remains valid, the module refreshes the UID2 token as needed.
+
+### Response Storage Options
+
+When you configure the module to use Client Refresh mode, you must choose **either** of the following options for storing the API response information.
+
+| Option | Details | Use Case | 
+| --- | --- | --- |
+| Set `params.uid2Cookie` to the name of the cookie that contains the response body as a JSON string. | See [Client Refresh Cookie Example](#client-refresh-cookie-example). | {**GWH_SW data to come**) |
+| Set `params.uid2Token` to the response body as a JavaScript object. | See [Client Refresh uid2Token Example](#client-refresh-uid2token-example). | {**GWH_SW data to come**) |
+
+(**GWH_SW query_01: I've been asked to provide information about why the publisher might choose one or the other. For example, because if the cookie size is too big it's a problem and so we offer a local storage option? She said there was feedback on the cookie size, that it was too large, so as a solution it could be set in local storage. Is this correct? Or are there other reasons they might choose one or the other of these two options?**)
+
+(**GWH_SW query_02: Another question. We said "you can switch to cookie storage by setting params.storage to cookie." But in the earlier section we say "Set `params.uid2Cookie` to the name of the cookie" which is not the same. Is one right and one'w wrong? Or, maybe I'm mixing up two different things here. We tell them to set params.storage but I don't see params.storage anywhere. Only `params.uid2Cookie` and `params.uid2Token`.**)
+
+(**GWH_SW query_03: Is the second option, above, the local storage option? If so I'll say that. It's not entirely clear to me.**
+
+**Also: if yes, I think it's the default so I should say that also.**
+
+**Also: where/what is the configuration file? Apologies if I missed that.**)
 
 ### Client Refresh Cookie Example
 
