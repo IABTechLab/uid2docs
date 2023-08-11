@@ -9,15 +9,13 @@ sidebar_position: 20
 
 UID2 に関するよくある質問は、以下のカテゴリーに分かれています:
 
-UID2に関するよくある質問は、対象者別に一般的なカテゴリーに分類されています。
-
-このページには、以下のものがあります：
+<!-- このページには、以下のものがあります：
 
 - [FAQs -- General](#faqs----general)
-- [FAQs for Publishers Using an SDK](#faqs-for-publishers-using-an-sdk)
+- [FAQs for Publishers](#faqs-for-publishers)
 - [FAQs for Publishers Not Using an SDK](#faqs-for-publishers-not-using-an-sdk)
 - [FAQs for Advertisers and Data Providers](#faqs-for-advertisers-and-data-providers)
-- [FAQs for Demand-Side Platforms (DSPs)](#faqs-for-demand-side-platforms-dsps)
+- [FAQs for Demand-Side Platforms (DSPs)](#faqs-for-demand-side-platforms-dsps) -->
 
 ## FAQs -- General
 
@@ -47,7 +45,7 @@ UID2 フレームワークに関するよくある質問を紹介します。
 
 パブリッシャー、SSO プロバイダー、または同意管理プラットフォームは、ログインフロー、同意フロー、プライバシーポリシー、およびその他の手段で、[Transparency and Control Portal](https://transparentadvertising.org)へのリンクを開示します。
 
-## FAQs for Publishers Using an SDK
+## FAQs for Publishers
 
 UID2 フレームワークを使用するパブリッシャーが、クライアントサイド SDK を使用する際に、よくある質問を紹介します。
 
@@ -154,7 +152,7 @@ Here are some frequently asked questions for all publishers using the UID2 frame
 
 [POST /token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST /token/generate](../endpoints/post-token-generate.md) で送信している [DII](../ref-info/glossary-uid.md#gl-dii) が有効かどうかをチェックできます。`POST /token/validate` は主にテスト目的で使用されます。
 
-詳細は [Using POST /token/validate to Test](../endpoints/post-token-validate.md###using-post-tokenvalidate-to-test) を参照してください。
+詳細は [Using POST /token/validate to Test](../endpoints/post-token-validate.md#using-post-tokenvalidate-to-test) を参照してください。
 
 ## FAQs for Advertisers and Data Providers
 
