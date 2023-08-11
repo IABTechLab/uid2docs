@@ -91,6 +91,6 @@ Leverage the refresh endpoint to retrieve the latest version of UID2 tokens. The
 
 ## FAQs
 
-For a list of frequently asked questions for the publisher audience, see [FAQs for Publishers Not Using an SDK](../getting-started/gs-faqs.md#faqs-for-publishers-not-using-an-sdk).
+For a list of frequently asked questions for the publisher audience, see [FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers).
 
 For a full list, see [Frequently Asked Questions](../getting-started/gs-faqs.md).
