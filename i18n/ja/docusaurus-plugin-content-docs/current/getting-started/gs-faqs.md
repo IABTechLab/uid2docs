@@ -9,15 +9,13 @@ sidebar_position: 20
 
 UID2 に関するよくある質問は、以下のカテゴリーに分かれています:
 
-UID2に関するよくある質問は、対象者別に一般的なカテゴリーに分類されています。
-
-このページには、以下のものがあります：
+<!-- このページには、以下のものがあります：
 
 - [FAQs -- General](#faqs----general)
-- [FAQs for Publishers Using an SDK](#faqs-for-publishers-using-an-sdk)
+- [FAQs for Publishers](#faqs-for-publishers)
 - [FAQs for Publishers Not Using an SDK](#faqs-for-publishers-not-using-an-sdk)
 - [FAQs for Advertisers and Data Providers](#faqs-for-advertisers-and-data-providers)
-- [FAQs for Demand-Side Platforms (DSPs)](#faqs-for-demand-side-platforms-dsps)
+- [FAQs for Demand-Side Platforms (DSPs)](#faqs-for-demand-side-platforms-dsps) -->
 
 ## FAQs -- General
 
@@ -26,8 +24,6 @@ UID2 フレームワークに関するよくある質問を紹介します。
 - [EUID インフラストラクチャのすべてのインテグレーションパートナー（SSP、第三者データプロバイダー、測定プロバイダー）は、自動的に UID2 にインテグレーションされるのでしょうか？](#euid-%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%83%81%E3%83%A3%E3%81%AE%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%86%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BCssp%E7%AC%AC%E4%B8%89%E8%80%85%E3%83%87%E3%83%BC%E3%82%BF%E3%83%97%E3%83%AD%E3%83%90%E3%82%A4%E3%83%80%E3%83%BC%E6%B8%AC%E5%AE%9A%E3%83%97%E3%83%AD%E3%83%90%E3%82%A4%E3%83%80%E3%83%BC%E3%81%AF%E8%87%AA%E5%8B%95%E7%9A%84%E3%81%AB-uid2-%E3%81%AB%E3%82%A4%E3%83%B3%E3%83%86%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%95%E3%82%8C%E3%82%8B%E3%81%AE%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8B)
 - [ユーザーは、UID2 ID に関連するターゲティング広告の配信を拒否できますか？](#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AF%E3%80%81UID2+ID+%E3%81%AB%E9%96%A2%E9%80%A3%E3%81%99%E3%82%8B%E3%82%BF%E3%83%BC%E3%82%B2%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E5%BA%83%E5%91%8A%E3%81%AE%E9%85%8D%E4%BF%A1%E3%82%92%E6%8B%92%E5%90%A6%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F)
 - [オプトアウトポータルにアクセスする場所をユーザーが知るにはどうすればよいですか？](#%E3%82%AA%E3%83%97%E3%83%88%E3%82%A2%E3%82%A6%E3%83%88%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%AB%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%E5%A0%B4%E6%89%80%E3%82%92%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%8C%E7%9F%A5%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B)
-
-<!-- (gwh note: section is taken from original readme) -->
 
 #### EUID インフラストラクチャのすべてのインテグレーションパートナー（SSP、第三者データプロバイダー、測定プロバイダー）は、自動的に UID2 にインテグレーションされるのでしょうか？
 
@@ -47,7 +43,7 @@ UID2 フレームワークに関するよくある質問を紹介します。
 
 パブリッシャー、SSO プロバイダー、または同意管理プラットフォームは、ログインフロー、同意フロー、プライバシーポリシー、およびその他の手段で、[Transparency and Control Portal](https://transparentadvertising.org)へのリンクを開示します。
 
-## FAQs for Publishers Using an SDK
+## FAQs for Publishers
 
 UID2 フレームワークを使用するパブリッシャーが、クライアントサイド SDK を使用する際に、よくある質問を紹介します。
 
@@ -154,7 +150,7 @@ Here are some frequently asked questions for all publishers using the UID2 frame
 
 [POST /token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST /token/generate](../endpoints/post-token-generate.md) で送信している [DII](../ref-info/glossary-uid.md#gl-dii) が有効かどうかをチェックできます。`POST /token/validate` は主にテスト目的で使用されます。
 
-詳細は [Using POST /token/validate to Test](../endpoints/post-token-validate.md###using-post-tokenvalidate-to-test) を参照してください。
+詳細は [Using POST /token/validate to Test](../endpoints/post-token-validate.md#using-post-tokenvalidate-to-test) を参照してください。
 
 ## FAQs for Advertisers and Data Providers
 

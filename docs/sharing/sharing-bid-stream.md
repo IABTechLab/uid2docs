@@ -10,7 +10,7 @@ sidebar_position: 08
 <!-- It includes the following:
 
 - [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)
-- [UID2 Sharing Workflow: Integrating with the API](#uid2-sharing-workflow-integrating-with-the-api)
+- [UID2 Sharing Workflow: Sharing in the Bid Stream](#uid2-sharing-workflow-sharing-in-the-bid-stream)
 - [Token Example for Publishers in the Bid Stream](#token-example-for-publishers-in-the-bid-stream) -->
 
 Publishers share UID2s by encrypting [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) (email addresses or phone numbers) via API endpoints or via an SDK, into a UID2 token, and then sending the UID2 token into the bid stream.
@@ -29,7 +29,7 @@ As a publisher, we recommend that you set up your sharing permissions to share w
 
 For details, see [UID2 Portal Overview](../portal/portal-overview.md) and follow the links for each task.
 
-## UID2 Sharing Workflow: Integrating with the API
+## UID2 Sharing Workflow: Sharing in the Bid Stream
 
 When you want to send UID2 tokens in the bid stream, you can integrate via the API or via one of these SDKs:
 
@@ -47,7 +47,7 @@ The workflow for generating UID2 tokens from DII, via the API or the specified s
    - Direct integration with API endpoints: see [Endpoints](/docs/category/endpoints-v2).
    - Direct integration with API endpoints to generate UID2 tokens using the [POST /token/generate](../endpoints/post-token-generate.md) endpoint, but using the UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) to refresh UID2 tokens.
 
-   >NOTE: The DSP must integrate with UID2 using one of the server-side SDKs or the Snowflake integration. For the DSP, see [Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary) (step 2).
+   >NOTE: The DSP must integrate with UID2 using one of the server-side SDKs. See [Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary) (step 2).
 
 1. Publisher: Approve sharing permissions in the UID2 Portal:
 

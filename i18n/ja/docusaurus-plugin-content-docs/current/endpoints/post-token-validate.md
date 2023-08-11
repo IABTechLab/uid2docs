@@ -31,7 +31,7 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 
 - Body Parameter の表にあるように、以下の4つの有効なオプションのうち1つだけを含めます： `email`、`email_hash`、`phone`、`phone_hash` のいずれかです。`email`、`email_hash`、`phone`、`phone_hash` です。テストするパラメータには、リストされている値を正確に指定してください。
 
-詳細については、[FAQs for Publishers Using an SDK](../getting-started/gs-faqs.md#faqs-for-publishers-using-an-sdk) または [FAQs for Publishers Not Using an SDK](../getting-started/gs-faqs.md#faqs-for-publishers-not-using-an-sdk) を参照してください。
+詳細については、[FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。
 
 
 | Body Parameter | Data Type | Attribute | Description | Value |

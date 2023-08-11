@@ -103,9 +103,6 @@ To get started, follow these steps:
 
 ## Frequently Asked Questions for Publishers
 
-For a list of FAQs for the publisher audience, see either of the following:
-
--  [FAQs for Publishers Using an SDK](/docs/getting-started/gs-faqs.md#faqs-for-publishers-using-an-sdk)
- - [FAQs for Publishers Not Using an SDK](/docs/getting-started/gs-faqs.md#faqs-for-publishers-not-using-an-sdk)
+For a list of FAQs for publishers using the UID2 framework, see [FAQs for Publishers](/docs/getting-started/gs-faqs.md#faqs-for-publishers).
 
 For a full list, see [Frequently Asked Questions](/docs/getting-started/gs-faqs.md).
