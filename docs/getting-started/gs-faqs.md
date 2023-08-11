@@ -55,25 +55,14 @@ You can use the [POST /token/validate](../endpoints/post-token-validate.md) endp
 For details, see [Using POST /token/validate to Test](../endpoints/post-token-validate.md#using-post-tokenvalidate-to-test).
 
 #### Do I need to decrypt tokens?
-<!-- FAQ_11 -->
-No, publishers do not need to decrypt [UID2 tokenss](../ref-info/glossary-uid.md#gl-uid2-token). However, if you want to get access to raw [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) for internal use only, please work with UID2 support to gain access.
 
+No, publishers do not need to decrypt [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token). However, if you want to get access to [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) for internal use only, please work with UID2 support to gain access.
 
 #### How will I be notified of user opt-out?
 
 If the user has opted out, the API response notifies you in either of these cases:
 - When you generate the UID2 token by a call to the  [POST /token/generate](../endpoints/post-token-generate.md) endpoint, either directly or via one of the UID2 SDKs, using the optional `policy` parameter with a value of `1`.
 - When you refresh the UID2 token by a call to the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, either directly or via one of the UID2 SDKs.
-
-<!-- The answer to this question depends on whether or not you are using an SDK.
-
-##### With SDK:
-
-The [Client-Side JavaScript SDK](../sdks/client-side-identity.md) background token auto-refresh process handles user opt-outs. If the user opts out, when the SDK attempts token refresh, it learns about the optout, clears the session (including the cookie), and invokes the callback with the `OPTOUT` status. The token generate process also checks for user opt-out status.
-
-##### Without SDK:
-
-The token refresh process handles user opt-outs. The [POST /token/refresh](../endpoints/post-token-refresh.md) returns empty identity and the optout status for the user. To resume using UID2-based targeted advertising, the user needs to log in again to re-establish the UID2 identity. The token generate process also checks for user opt-out status. -->
 
 #### Where should I make token generation calls&#8212;from the server side or the client side?
 
@@ -110,7 +99,7 @@ The procedure is a little different depending on whether or not you are using an
 
 #### What is the uniqueness and rotation policy for UID2 tokens?
 
-The UID2 service encrypts UID2 tokens using random initialization vectors. The UID2 token is unique for a given user as the user browses the internet. At every refresh, the token re-encrypts. This mechanism ensures that untrusted parties cannot track a user's identity.
+The UID2 service encrypts UID2 tokens using random initialization vectors. The UID2 token is unique for a given user as the user browses the internet. This means that every time a UID2 token is generated, the token is always different, even for the same underlying raw UID2. Every time the token is refreshed, a new token is generated and encrypted. This mechanism helps ensure that untrusted parties cannot track a user's identity.
 
 ## FAQs for Advertisers and Data Providers
 
