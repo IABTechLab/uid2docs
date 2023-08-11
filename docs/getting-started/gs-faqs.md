@@ -1,5 +1,5 @@
 ---
-title: Frequently Asked Questions
+title: FAQs
 description: Common questions about implementing UID2.
 hide_table_of_contents: false
 sidebar_position: 20
@@ -56,19 +56,24 @@ For details, see [Using POST /token/validate to Test](../endpoints/post-token-va
 
 #### Do I need to decrypt tokens?
 <!-- FAQ_11 -->
-No, publishers do not need to decrypt UID2 tokens.
+No, publishers do not need to decrypt [UID2 tokenss](../ref-info/glossary-uid.md#gl-uid2-token). However, if you want to get access to raw [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) for internal use only, please work with UID2 support to gain access.
+
 
 #### How will I be notified of user opt-out?
 
-The answer to this question depends on whether or not you are using an SDK.
+If the user has opted out, the API response notifies you in either of these cases:
+- When you generate the UID2 token by a call to the  [POST /token/generate](../endpoints/post-token-generate.md) endpoint, either directly or via one of the UID2 SDKs, using the optional `policy` parameter with a value of `1`.
+- When you refresh the UID2 token by a call to the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, either directly or via one of the UID2 SDKs.
+
+<!-- The answer to this question depends on whether or not you are using an SDK.
 
 ##### With SDK:
-<!-- FAQ_05 -->
+
 The [Client-Side JavaScript SDK](../sdks/client-side-identity.md) background token auto-refresh process handles user opt-outs. If the user opts out, when the SDK attempts token refresh, it learns about the optout, clears the session (including the cookie), and invokes the callback with the `OPTOUT` status. The token generate process also checks for user opt-out status.
 
 ##### Without SDK:
-<!-- FAQ_12 -->
-The token refresh process handles user opt-outs. The [POST /token/refresh](../endpoints/post-token-refresh.md) returns empty identity and the optout status for the user. To resume using UID2-based targeted advertising, the user needs to log in again to re-establish the UID2 identity. The token generate process also checks for user opt-out status.
+
+The token refresh process handles user opt-outs. The [POST /token/refresh](../endpoints/post-token-refresh.md) returns empty identity and the optout status for the user. To resume using UID2-based targeted advertising, the user needs to log in again to re-establish the UID2 identity. The token generate process also checks for user opt-out status. -->
 
 #### Where should I make token generation calls&#8212;from the server side or the client side?
 
