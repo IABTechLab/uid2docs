@@ -12,10 +12,10 @@ This guide covers integration steps for organizations that collect user data and
 <!-- It includes the following sections:
 
 * [Integration Steps](#integration-steps)
-   - [Retrieve a raw UID2 for DII using the identity map endpoints](#retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints)
-   - [Send raw UID2 to a DSP to build an audience](#send-raw-uid2-to-a-dsp-to-build-an-audience)
-   - [Monitor for salt bucket rotations related to your stored raw UID2s](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
-   - [Use an incremental process to continuously update raw UID2s](#use-an-incremental-process-to-continuously-update-raw-uid2s)
+   - [Retrieve a raw UID2 for DII using the identity map endpoints](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints)
+   - [Send stored raw UID2s to DSPs to create audiences](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences)
+   - [Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
+* [Use an incremental process to continuously update raw UID2s](#use-an-incremental-process-to-continuously-update-raw-uid2s)
 * [FAQs](#faqs) -->
 
 If you are using an Open Operator service hosted in the Snowflake Data Marketplace, see also [Snowflake Integration Guide](snowflake_integration.md).
@@ -31,20 +31,20 @@ DII refers to a user's normalized email address or phone number, or the normaliz
 <!-- diagram source: resource/advertiser-flow-mermaid.md -->
 
 Refer to the following sections for details about the different parts of the diagram:
-1. [Retrieve a raw UID2 for DII using the identity map endpoints](#retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints)
-1. [Send stored raw UID2 to DSPs to create audiences](#send-stored-raw-uid2-to-a-dsp-to-build-an-audience)
-1. [Monitor for salt bucket rotations related to your stored raw UID2s](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
+1. [Retrieve a raw UID2 for DII using the identity map endpoints](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints)
+2. [Send stored raw UID2s to DSPs to create audiences](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences)
+3. [Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
 
 ### 1: Retrieve a raw UID2 for DII using the identity map endpoints
 
 | Step | Endpoint | Description |
 | --- | --- | --- |
 | 1-a | [POST /identity/map](../endpoints/post-identity-map.md) request | Send a request containing DII to the identity mapping endpoint. |
-| 1-b | [POST /identity/map](../endpoints/post-identity-map.md) response | The `advertising_id` (raw UID2) returned in the response can be used to target audiences on relevant DSPs.<br/>The response returns a user's raw UID2 and the corresponding `bucket_id` for the salt bucket. The salt assigned to the bucket rotates annually, which impacts the generated UID2. For details on how to check for salt bucket rotation, see [Monitor for salt bucket rotations](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s).<br/>For ease of maintenance, a recommended approach is to store a user's raw UID2 and `bucket_id` in a mapping table. For guidance on incremental updates, see [Use an incremental process to continuously update raw UID2s](#use-an-incremental-process-to-continuously-update-raw-uid2s). |
+| 1-b | [POST /identity/map](../endpoints/post-identity-map.md) response | The `advertising_id` (raw UID2) returned in the response can be used to target audiences on relevant DSPs.<br/>The response returns a user's raw UID2 and the corresponding `bucket_id` for the salt bucket. The salt assigned to the bucket rotates annually, which impacts the generated UID2. For details on how to check for salt bucket rotation, see [3: Monitor for salt bucket rotations](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s).<br/>For ease of maintenance, a recommended approach is to store a user's raw UID2 and `bucket_id` in a mapping table. For guidance on incremental updates, see [Use an incremental process to continuously update raw UID2s](#use-an-incremental-process-to-continuously-update-raw-uid2s). |
 
-### 2: Send stored raw UID2 to DSPs to create audiences
+### 2: Send stored raw UID2s to DSPs to create audiences
 
-Send the `advertising_id` (raw UID2) returned in the [preceding step](#retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints) (Step 1-b) to a DSP while building your audiences. Each DSP has a unique integration process for building audiences. Follow the integration guidance provided by the DSP for sending raw UID2s to build an audience.
+Send the `advertising_id` (raw UID2) returned in the [preceding step](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences) (Step 1-b) to a DSP while building your audiences. Each DSP has a unique integration process for building audiences. Follow the integration guidance provided by the DSP for sending raw UID2s to build an audience.
 
 ### 3: Monitor for salt bucket rotations related to your stored raw UID2s
 A raw UID2 is an identifier for a user at a specific moment in time. The raw UID2 for a specific user changes at least once per year, as a result of the salt rotation. 
@@ -64,9 +64,8 @@ Even though each salt bucket is updated approximately once a year, individual bu
 
 To keep your UID2-based audience information accurate and up to date, follow these integration steps every day.
 
-1. The response from the [UID2 retrieval step](#retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints) contains mapping information. Cache the mapping between DII (`identifier`), raw UID2 (`advertising_id`), and salt bucket (`bucket_id`), along with the most recent `last_updated` timestamp.
-
-2. Using the results from the [preceding salt bucket rotation step](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s), remap any raw UID2 for which the salt buckets have been rotated by [retrieving raw UID2s using the identity map endpoints](#retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints). To update the UID2s in audiences, [send raw UID2 to a DSP](#send-raw-uid2-to-a-dsp-to-build-an-audience).
+1. The response from the [UID2 retrieval step](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints) contains mapping information. Cache the mapping between DII (`identifier`), raw UID2 (`advertising_id`), and salt bucket (`bucket_id`), along with the most recent `last_updated` timestamp.
+2. Using the results from the [preceding salt bucket rotation step](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s), remap any raw UID2 for which the salt buckets have been rotated by [retrieving raw UID2s using the identity map endpoints](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints). To update the UID2s in audiences, [send raw UID2 to a DSP](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences).
 
 ## FAQs
 
