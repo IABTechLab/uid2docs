@@ -7,20 +7,6 @@ sidebar_position: 04
 
 # Prebid Integration Guide
 
-<!-- This guide includes the following information:
-
-- [Prebid Overview](#prebid-overview)
-- [UID2 Prebid Module Page](#uid2-prebid-module-page)
-- [UID2 User ID Submodule](#uid2-user-id-submodule)
-- [Client Refresh Mode](#client-refresh-mode)
-  -  [Client Refresh Cookie Example](#client-refresh-cookie-example)
-  -  [Client Refresh uid2Token Example](#client-refresh-uid2token-example)
-- [Storage of Internal Values](#storage-of-internal-values)
-- [Sample Token](#sample-token)
-- [Prebid Implementation Notes and Tips](#prebid-implementation-notes-and-tips)
-- [Configuration Parameters for `usersync`](#usersync-configuration-parameters) -->
-
-
 This guide is for publishers who want to directly integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream.
 It outlines the basic steps to consider if you're building a direct integration with UID2 and use Prebid for header bidding. 
 
