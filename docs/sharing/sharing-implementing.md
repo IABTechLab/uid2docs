@@ -7,8 +7,6 @@ sidebar_position: 04
 
 # Implementing Sharing
 
-<!-- This page provides information about sharing UID2s: what sharing means, who you can share with, the benefits of sharing, how to set up and manage your sharing permissions, and lots more! Use sharing permissions to expand your reach and help your business to prosper. -->
-
 <!-- It includes the following:
 
 - [Steps to Implement Sharing With an SDK](#steps-to-implement-sharing-with-an-sdk)
@@ -32,8 +30,6 @@ At a very high level, the following are the steps to set up and configure sharin
 
    - [Steps to Implement Sharing With an SDK](#steps-to-implement-sharing-with-an-sdk)
    - [Steps to Implement Sharing Using Snowflake](#steps-to-implement-sharing-using-snowflake)
-
-<!-- The basic steps for sharing UID2 sharing tokens within the ad tech ecosystem are as follows: -->
 
 ## Steps to Implement Sharing: UID2 Portal Account Setup
 

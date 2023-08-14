@@ -9,13 +9,14 @@ sidebar_position: 07
 
 すべての UID2 エンドポイントは、同じベース URL を使用します。
 
-以下の表は、UID2 の現在のインテグレーション環境と本番環境の一覧です。
+以下の表は、UID2 の現在のテスト環境と本番環境の一覧です。
 
 | Environment | Cloud Region                 | Code             | Base URL                            |
 | :---------- | :--------------------------- | :--------------- | :---------------------------------- |
-| インテグレーション環境  | AWS US East (Ohio)           | `us-east-2`      | `https://operator-integ.uidapi.com` |
+| テスト環境   | AWS US East (Ohio)           | `us-east-2`      | `https://operator-integ.uidapi.com` |
+| 本番環境    | 自動的に最適化されたリージョン・ルーティング<br/><a href='https://aws.amazon.com/global-accelerator/'>AWSグローバルアクセラレータ</a>経由 | `n/a` | `https://global.prod.uidapi.com` |
 | 本番環境    | AWS US East (Ohio)           | `us-east-2`      | `https://prod.uidapi.com`           |
-| Production | AWS US West (Oregon) | `us-west-2` | `https://usw.prod.uidapi.com` |
+| 本番環境    | AWS US West (Oregon)         | `us-west-2`      | `https://usw.prod.uidapi.com`       |
 | 本番環境    | AWS Asia Pacific (Sydney)    | `ap-southeast-2` | `https://au.prod.uidapi.com`        |
 | 本番環境    | AWS Asia Pacific (Tokyo)     | `ap-northeast-1` | `https://jp.prod.uidapi.com`        |
 | 本番環境    | AWS Asia Pacific (Singapore) | `ap-southeast-1` | `https://sg.prod.uidapi.com`        |

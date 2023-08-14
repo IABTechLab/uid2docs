@@ -64,18 +64,6 @@ The following diagram illustrates the UID2 sharing permission SDK integration wo
 
 ![UID2 Sharing Permission SDK Integration Workflow](images/UID2_Sharing_Diagram_Integrate_SDK_Sharing_Token.png)
 
-<!-- ## Generating Tokens for UID2 Sharing
-
-When a sharing participant is sending a UID2 to another sharing participant, the sender must first encrypt the raw UID2 into a UID2 token.   
-
-For example, when a sharing participant sends a UID2 outside the participant infrastructure, such as to an API endpoint or to a location such as S3 where it is accessible to another participant, the UID2 must be encrypted into a UID2 token.
-
-There are two ways to generate a UID2 token, and the correct method to choose depends on the usage scenario:
-- **Publishers**: For publishers sharing UID2 tokens in the bid stream, convert the input email address or phone number directly to a UID2 token. For details, see [Sharing in the Bid Stream](sharing-bid-stream.md).
-- **All other participants**: To securely share UID2s between participants, first convert the input email address or phone number to a raw UID2, and then convert the raw UID2 to a UID2 token. This is the only valid method for sharing, other than for publishers sharing in the bid stream. See [Generating the Token for UID2 Sharing: Example](#token-example-for-sharing).
-
-The correct way to generate the token, for all UID2 participants except publishers, is to use the `encrypt` function in the corresponding server-side SDK, or the UID2 Snowflake integration: see [Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary). -->
-
 ## Generating the Token for UID2 Sharing: Example
 
 >Note: If you are a publisher, see [Token Example for Publishers in the Bid Stream](sharing-bid-stream.md#token-example-for-publishers-in-the-bid-stream).
@@ -124,13 +112,13 @@ UID2 sharers follow a two-step process, as shown in the following example. The s
 </tbody>
 </table>
 
-<!-- ## UID2 Token Pass-Through
-The UID2 token is designed so that it can be seen by all but can only be used by UID2 participants that have access to the decryption keys.
-
-For example, UID2 tokens are habitually passed through the bid stream from a publisher to a DSP. Although a UID2 token might go through several parties, such as an SSP, it can be decrypted only by an authorized UID2 participant. On its journey through the bid stream, the UID2 token can safely pass through one or more intermediaries.
-
-The same is true of UID2 tokens generated for sharing. (**GWH_KT_04 KT to report back whether we need this/how to fix it.  Here is my suggestion to say: Only trusted sharing participants, that you've chosen to share with, have access to your decryption keys. **) -->
-
 ## Sharing in the Bid Stream
 
 The process for publishers sharing UID2 tokens in the bid stream is a different process. For details, see [Sharing in the Bid Stream](sharing-bid-stream.md).
+
+## UID2 Token Pass-Through
+The UID2 token is designed so that even if the underlying raw UID2 remains the same, each time a UID2 token is generated from it, the token value is different. This means that the UID2 token can be seen by all but can only be used by UID2 participants that have access to the decryption key. 
+
+For example, UID2 tokens are habitually passed through the bid stream from a publisher to a DSP. Although a UID2 token might go through several parties, such as an SSP, it can be decrypted only by an authorized UID2 participant. On its journey through the bid stream, the UID2 token can safely pass through one or more intermediaries.
+
+The same is true in all sharing scenarios between UID2 sharing participants. A UID2 token can be passed through non-UID2 participants.

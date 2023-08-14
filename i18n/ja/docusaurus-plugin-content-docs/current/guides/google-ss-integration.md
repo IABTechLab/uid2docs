@@ -9,13 +9,13 @@ sidebar_position: 10
 
 このガイドでは、UID2 を Google Ad Manager のセキュアシグナル機能（旧称：Encrypted Signals for Publishers、ESP）で使用するパブリッシャー向けのインテグレーション手順について説明します。
 
-このガイドには、以下のセクションが含まれています：
+<!-- このガイドには、以下のセクションが含まれています：
 
 - [Overview（はじめに）](#overview)
 - [Allow Secure Signal Sharing（Signal Sharing の許可）](#allow-secure-signal-sharing)
 - [Publisher Integrations（パブリッシャーインテグレーション）](#publisher-integration)
 - [Server-Only Integration（Server-Only インテグレーション）](#server-only-integration)
-- [UID2 Client-Side JavaScript SDK Integration（UID2 Client-Side JavaScript SDK インテグレーション）](#uid2-client-side-javascript-sdk-integration)
+- [UID2 Client-Side JavaScript SDK Integration（UID2 Client-Side JavaScript SDK インテグレーション）](#uid2-client-side-javascript-sdk-integration) -->
 <!--* [Sample Applications](#sample-applications)-->
 
 > NOTE: UID2 Google Ad Manager セキュアシグナルインテグレーションを使用するには、SDK を使用している場合、UID2 インテグレーションがすでに設定されている必要があります。サーバーのみのインテグレーションを使用している場合は、この限りではありません。使用可能なすべてのインテグレーションオプションの概要は、[UID2 Integration Guides](summary-guides.md)を参照してください。
@@ -79,7 +79,7 @@ Client-Side JavaScript SDK バージョン 3.0.0 以降を使用している場�
 
 このスクリプトは CDN でホストされており、GPT はセキュアシグナル機能で自動的にロードします。
 
-詳しくは、 [Client-Side JavaScript SDK Integration Guide](publisher-client-side.md) を参照してください。
+詳しくは、 [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md) を参照してください。
 
 <!--A sample application is also available for client-side integration using the SDK. See [Sample Applications](#sample-applications).-->
 

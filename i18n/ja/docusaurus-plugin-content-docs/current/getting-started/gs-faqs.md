@@ -1,5 +1,5 @@
 ---
-title: Frequently Asked Questions
+title: FAQs
 description: UID2 の実装に関するよくある質問。
 hide_table_of_contents: false
 sidebar_position: 20
@@ -9,25 +9,21 @@ sidebar_position: 20
 
 UID2 に関するよくある質問は、以下のカテゴリーに分かれています:
 
-UID2に関するよくある質問は、対象者別に一般的なカテゴリーに分類されています。
+<!-- このページには、以下のものがあります：
 
-このページには、以下のものがあります：
-
-- [FAQs -- General](#faqs----general)
-- [FAQs for Publishers Using an SDK](#faqs-for-publishers-using-an-sdk)
+- [FAQs&#8212;General](#faqsgeneral)
+- [FAQs for Publishers](#faqs-for-publishers)
 - [FAQs for Publishers Not Using an SDK](#faqs-for-publishers-not-using-an-sdk)
 - [FAQs for Advertisers and Data Providers](#faqs-for-advertisers-and-data-providers)
-- [FAQs for Demand-Side Platforms (DSPs)](#faqs-for-demand-side-platforms-dsps)
+- [FAQs for Demand-Side Platforms (DSPs)](#faqs-for-demand-side-platforms-dsps) -->
 
-## FAQs -- General
+## FAQs&#8212;General
 
 UID2 フレームワークに関するよくある質問を紹介します。
 
 - [EUID インフラストラクチャのすべてのインテグレーションパートナー（SSP、第三者データプロバイダー、測定プロバイダー）は、自動的に UID2 にインテグレーションされるのでしょうか？](#euid-%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%83%81%E3%83%A3%E3%81%AE%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%86%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BCssp%E7%AC%AC%E4%B8%89%E8%80%85%E3%83%87%E3%83%BC%E3%82%BF%E3%83%97%E3%83%AD%E3%83%90%E3%82%A4%E3%83%80%E3%83%BC%E6%B8%AC%E5%AE%9A%E3%83%97%E3%83%AD%E3%83%90%E3%82%A4%E3%83%80%E3%83%BC%E3%81%AF%E8%87%AA%E5%8B%95%E7%9A%84%E3%81%AB-uid2-%E3%81%AB%E3%82%A4%E3%83%B3%E3%83%86%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%95%E3%82%8C%E3%82%8B%E3%81%AE%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8B)
-- [ユーザーは、UID2 ID に関連するターゲティング広告の配信を拒否できますか？](#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AFuid2-id-%E3%81%AB%E9%96%A2%E9%80%A3%E3%81%99%E3%82%8B%E3%82%BF%E3%83%BC%E3%82%B2%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E5%BA%83%E5%91%8A%E3%81%AE%E9%85%8D%E4%BF%A1%E3%82%92%E6%8B%92%E5%90%A6%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%81%8C%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B)
+- [ユーザーは、UID2 ID に関連するターゲティング広告の配信を拒否できますか？](#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AF%E3%80%81UID2+ID+%E3%81%AB%E9%96%A2%E9%80%A3%E3%81%99%E3%82%8B%E3%82%BF%E3%83%BC%E3%82%B2%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E5%BA%83%E5%91%8A%E3%81%AE%E9%85%8D%E4%BF%A1%E3%82%92%E6%8B%92%E5%90%A6%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F)
 - [オプトアウトポータルにアクセスする場所をユーザーが知るにはどうすればよいですか？](#%E3%82%AA%E3%83%97%E3%83%88%E3%82%A2%E3%82%A6%E3%83%88%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%AB%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%E5%A0%B4%E6%89%80%E3%82%92%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%8C%E7%9F%A5%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B)
-
-<!-- (gwh note: section is taken from original readme) -->
 
 #### EUID インフラストラクチャのすべてのインテグレーションパートナー（SSP、第三者データプロバイダー、測定プロバイダー）は、自動的に UID2 にインテグレーションされるのでしょうか？
 
@@ -47,14 +43,13 @@ UID2 フレームワークに関するよくある質問を紹介します。
 
 パブリッシャー、SSO プロバイダー、または同意管理プラットフォームは、ログインフロー、同意フロー、プライバシーポリシー、およびその他の手段で、[Transparency and Control Portal](https://transparentadvertising.org)へのリンクを開示します。
 
-## FAQs for Publishers Using an SDK
+## FAQs for Publishers
 
 UID2 フレームワークを使用するパブリッシャーが、クライアントサイド SDK を使用する際に、よくある質問を紹介します。
 
 - [ユーザーオプトアウトの通知はどのように行われますか？](#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%AA%E3%83%97%E3%83%88%E3%82%A2%E3%82%A6%E3%83%88%E3%81%AE%E9%80%9A%E7%9F%A5%E3%81%AF%E3%81%A9%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E8%A1%8C%E3%82%8F%E3%82%8C%E3%81%BE%E3%81%99%E3%81%8B-sdk-%E4%BD%BF%E7%94%A8%E6%99%82)
 - [トークン生成の呼び出しは、サーバー側とクライアント側のどちらで行うべきですか？](#%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AE%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%81%AF%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E5%81%B4%E3%81%A8%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E5%81%B4%E3%81%AE%E3%81%A9%E3%81%A1%E3%82%89%E3%81%A7%E8%A1%8C%E3%81%86%E3%81%B9%E3%81%8D%E3%81%A7%E3%81%99%E3%81%8B-sdk-%E4%BD%BF%E7%94%A8%E6%99%82)
 - [クライアントサイドから Token Refresh を呼び出すことはできますか？](#%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E3%82%B5%E3%82%A4%E3%83%89%E3%81%8B%E3%82%89-token-refresh-%E3%82%92%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%99%E3%81%93%E3%81%A8%E3%81%AF%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B-sdk-%E4%BD%BF%E7%94%A8%E6%99%82)
-- [送信された DII と返されたトークンが一致することをテストするにはどうすればよいですか？](#%E9%80%81%E4%BF%A1%E3%81%95%E3%82%8C%E3%81%9F-dii-%E3%81%A8%E8%BF%94%E3%81%95%E3%82%8C%E3%81%9F%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%8C%E4%B8%80%E8%87%B4%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B-sdk-%E4%BD%BF%E7%94%A8%E6%99%82)
 - [Refresh Token のワークフローをテストするにはどうすればよいですか？](#refresh-token-%E3%81%AE%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B-sdk-%E4%BD%BF%E7%94%A8%E6%99%82)
 
 #### ユーザーオプトアウトの通知はどのように行われますか？ （SDK 使用時）
@@ -75,29 +70,13 @@ UID2 Token は、認証後にサーバー側で生成する必要があります
 
 はい。[POST /token/refresh](../endpoints/post-token-refresh.md) は、API キーを使用する必要がないため、クライアント側（ブラウザやモバイルアプリなど）から呼び出すことが可能です。
 
-#### 送信された DII と返されたトークンが一致することをテストするにはどうすればよいですか？ （SDK 使用時）
-
-<!-- FAQ_08 -->
-
-[POST /token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST /token/generate](../endpoints/post-token-generate.md) を通じて送信する個人に関するデータが有効かどうかをチェックできます。
-
-1. 個人に関するデータがメールアドレスか電話番号かによって、次のいずれかの値を使用して[POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信します：
-   - `email`の値として`validate@email.com`を指定します。
-   - `validate@email.com`のハッシュを `email_hash` 値として指定します。
-   - `phone`の値として `+12345678901` を指定します。
-   - `phone_hash`値として`+12345678901`のハッシュを指定します。
-2. 次のステップで使用するために、返された `advertising_token` を保存します。
-3. ステップ 1 で送信した `email`、`email_hash`、`phone`、`phone_hash` のいずれかの値と、`token` プロパティ値として `advertising_token` （ステップ 2 で保存）を使用して [POST /token/validate](../endpoints/post-token-validate.md) リクエストを送信します。
-   - レスポンスが `true` の場合、ステップ 1 でリクエストとして送信した個人に関するデータが、ステップ 1 のレスポンスで受け取ったトークンと一致することを示します。
-   - false` の場合は、メールアドレス、電話番号、またはそれぞれのハッシュを送信する方法に問題がある可能性があることを示しています。
-
 #### Refresh Token のワークフローをテストするにはどうすればよいですか？ （SDK 使用時）
 
 <!-- FAQ_09 -->
 
 メールアドレス`optout@email.com`または電話番号`+000000000`を使用して、Refresh Token ワークフローをテストできます。リクエストでいずれかのパラメータ値を使用すると、常に`refresh_token`を含む ID レスポンスが生成され、ログアウト レスポンスが返されます。
 
-1. 個人に関するデータがメールアドレスか電話番号かに応じて、次のいずれかの値を使用して [POST /token/generate](../endpoints/post-token-generate.md) 要求を送信します：
+1. DII　がメールアドレスか電話番号かに応じて、次のいずれかの値を使用して [POST /token/generate](../endpoints/post-token-generate.md) 要求を送信します：
    - `email`の値として`optout@email.com`を指定します。
    - `optout@email.com`のハッシュを `email_hash` 値として指定します。
    - `phone`の値として `+00000000000` を指定する。
@@ -113,7 +92,6 @@ UID2 Token は、認証後にサーバー側で生成する必要があります
 - [トークン生成の呼び出しは、サーバー側とクライアント側のどちらから行うべきでしょうか？](#%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AE%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%81%AF%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E5%81%B4%E3%81%A8%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E5%81%B4%E3%81%AE%E3%81%A9%E3%81%A1%E3%82%89%E3%81%8B%E3%82%89%E8%A1%8C%E3%81%86%E3%81%B9%E3%81%8D%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8B-sdk-%E3%81%AA%E3%81%97)
 - [クライアントサイドからトークンリフレッシュの呼び出しを行うことは可能ですか？](#%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E3%82%B5%E3%82%A4%E3%83%89%E3%81%8B%E3%82%89%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%83%AA%E3%83%95%E3%83%AC%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AE%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%82%92%E8%A1%8C%E3%81%86%E3%81%93%E3%81%A8%E3%81%AF%E5%8F%AF%E8%83%BD%E3%81%A7%E3%81%99%E3%81%8B-sdk-%E3%81%AA%E3%81%97)
 - [UID2 Token の一意性とローテーションのポリシーは何ですか？](#uid2-token-%E3%81%AE%E4%B8%80%E6%84%8F%E6%80%A7%E3%81%A8%E3%83%AD%E3%83%BC%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%E3%81%AF%E4%BD%95%E3%81%A7%E3%81%99%E3%81%8B)
-- [送信された DII と返されたトークンが一致することをテストするにはどうすればよいですか？](#%E9%80%81%E4%BF%A1%E3%81%95%E3%82%8C%E3%81%9F-dii-%E3%81%A8%E8%BF%94%E3%81%95%E3%82%8C%E3%81%9F%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%8C%E4%B8%80%E8%87%B4%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B-sdk-%E3%81%AA%E3%81%97)
 - [Refresh Token のワークフローをテストするにはどうすればよいですか？](#refresh-token-%E3%81%AE%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B-sdk-%E3%81%AA%E3%81%97)
 
 #### トークンの復号化は必要ですか？
@@ -146,22 +124,6 @@ UID2 Token は、認証後にサーバー側でのみ生成する必要があり
 
 UID2 Service は、ランダムな初期化ベクトルを使用してトークンを暗号化します。暗号化された UID2 は、インターネットを閲覧している特定のユーザーにとって一意です。更新のたびに、トークンは再暗号化されます。この仕組みにより、信頼できない第三者がユーザーの身元を追跡できないようにします。
 
-#### 送信された DII と返されたトークンが一致することをテストするにはどうすればよいですか？ (SDK なし)
-
-<!-- FAQ_16 -->
-
-[POST /token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST /token/generate](../endpoints/post-token-generate.md) を通じて送信する DII が有効かどうかをチェックできます。
-
-1. DII がメールアドレスか電話番号かによって、次のいずれかの値を使用して [POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信してください：
-   - `email`の値として`validate@email.com`を指定します。
-   - `validate@email.com`のハッシュを `email_hash` 値として指定します。
-   - `phone`の値として `+12345678901` を指定します。
-   - `phone_hash`値として`+12345678901`のハッシュを指定します。
-2. 次のステップで使用するために、返された `advertising_token` を保存します。
-3. ステップ 1 で送信した `email`、`email_hash`、`phone`、`phone_hash` のいずれかの値と、`token` プロパティ値として `advertising_token` （ステップ 2 で保存）を使用して [POST /token/validate](../endpoints/post-token-validate.md) 要求を送信します。
-   - レスポンスが `true` の場合、ステップ 1 でリクエストとして送信した DII は、ステップ 1 のレスポンスで受け取ったトークンと一致します。
-   - false` の場合は、メールアドレス、電話番号、またはそれぞれのハッシュを送信する方法に問題がある可能性があります。
-
 #### Refresh Token のワークフローをテストするにはどうすればよいですか？ (SDK なし)
 
 <!-- FAQ_17 -->
@@ -175,6 +137,20 @@ UID2 Service は、ランダムな初期化ベクトルを使用してトーク�
    - `phone_hash`値として`+000000000`のハッシュを指定します。
 2. 次のステップで使用するために、返された `refresh_token` を保存する。
 3. 3.ステップ 2 で保存した `refresh_token` を `token` 値として [POST /token/refresh](../endpoints/post-token-refresh.md) リクエストを送信します。<br/>ボディレスポンスは空で、`status` 値は `optout` に設定してください。これは `optout@email.com` メールと `+00000000` という電話番号によって常にログアウトしたユーザーと見なされることになります。
+
+## FAQs for All Publishers (With or Without SDK)
+
+Here are some frequently asked questions for all publishers using the UID2 framework, whether or not the publisher is using an SDK.
+  - [How can I test that the DII sent and the returned token match up?](#how-can-i-test-that-the-dii-sent-and-the-returned-token-match-up)
+
+パブリッシャーが SDK を使用しているかどうかにかかわらず、UID2 フレームワークを使用するすべてのパブリッシャーによくある質問を以下に示します。
+  - [送信されたDIIと返されたトークンが一致しているか、どのようにテストできますか](#%E9%80%81%E4%BF%A1%E3%81%95%E3%82%8C%E3%81%9FDII%E3%81%A8%E8%BF%94%E3%81%95%E3%82%8C%E3%81%9F%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%8C%E4%B8%80%E8%87%B4%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B%E3%80%81%E3%81%A9%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E3%83%86%E3%82%B9%E3%83%88%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B)
+
+#### 送信されたDIIと返されたトークンが一致しているか、どのようにテストできますか？
+
+[POST /token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST /token/generate](../endpoints/post-token-generate.md) で送信している [DII](../ref-info/glossary-uid.md#gl-dii) が有効かどうかをチェックできます。`POST /token/validate` は主にテスト目的で使用されます。
+
+詳細は [Using POST /token/validate to Test](../endpoints/post-token-validate.md#using-post-tokenvalidate-to-test) を参照してください。
 
 ## FAQs for Advertisers and Data Providers
 

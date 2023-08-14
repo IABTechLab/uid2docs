@@ -34,7 +34,7 @@ sidebar_position: 10
 <li><a href="#gl-customer-data-platform">Customer Data Platform (CDP)</a></li>
 <li><a href="#gl-data-provider">Data provider</a></li>
 <li><a href="#gl-demand-side-platform">Demand-side platform</a></li>
-<li><a href="#gl-dii">Directly identifying information (DII)</a></li>
+<li><a href="#gl-dii">directly identifying information (DII)</a></li>
 <li><a href="#gl-docker">Docker</a></li>
 <li><a href="#gl-docker-build">Docker Build</a></li>
 
@@ -132,8 +132,8 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-demand-side-platform">Demand-side platform (DSP)</dt>
 <dd>デマンドサイドプラットフォーム（DSP）は、広告主、ブランド、メディアエージェンシーなど、デジタル広告を購入したい企業にサービスを提供するプラットフォームです。</dd>
 
-<dt class="jump-anchor" id="gl-dii">Directly Identifying information (DII)</dt>
-<dd>直接識別情報（DII）とは、氏名、メールアドレス、電話番号など、個人を直接識別する情報のことです。</dd>
+<dt class="jump-anchor" id="gl-dii">directly identifying information (DII)</dt>
+<dd>直接識別情報（directly identifying information, DII）とは、氏名、メールアドレス、電話番号など、個人を直接識別する情報のことです。</dd>
 <dd>UID2 はメールアドレスと電話番号をサポートし、DII をターゲットを絞った広告の目的で使用できる値に変換しますが、元の値に遡ることはできません。</dd>
 
 <dt class="jump-anchor" id="gl-docker">Docker</dt>
@@ -206,7 +206,7 @@ JSON Web Token (JWT) は、Web 上で一方の当事者から別の当事者に�
 <dd><a href="#gl-private-operator">private operator</a> が運用する Operator Service のインスタンスです。</dd>
 
 <dt class="jump-anchor" id="gl-raw-uid2">Raw UID2</dt>
-<dd>UID2 API または SDK を通じて、ユーザーの直接識別情報（メールアドレスまたは電話番号）を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。</dd>
+<dd>UID2 API または SDK を通じて、ユーザーの <a href="#gl-dii">directly identifying information</a>（メールアドレスまたは電話番号）を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。</dd>
 <dd>詳細は、<a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-refresh-token">Refresh token</dt>
@@ -258,7 +258,7 @@ Unified ID 2.0（UID2）Service は、<a href="#gl-uid2-framework">UID2 framewor
 <dt class="jump-anchor" id="gl-uid2-token">UID2 token (advertising token)</dt>
 <dd>Unified ID 2.0（UID2）Token は Advertising Token とも呼ばれ、<a href="#gl-raw-uid2">raw UID2</a> を暗号化したものです。</dd>
 <dd>
-UID2 Token は、ハッシュ化された、またはハッシュ化されていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、暗号化されます。同じ UID2 Token は2つとありません。</dd>
+UID2 Token は、ハッシュ化された、またはハッシュ化されていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、暗号化されます。UID2 Token は一意な値であり、同じ UID2 TOken は2つとありません。</dd>
 <dd>
 トークンの寿命は限られていますが、<a href="#gl-refresh-token">refresh token</a> を使ってバックグラウンドでリフレッシュすることができます。</dd>
 <dd>詳細は、<a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
