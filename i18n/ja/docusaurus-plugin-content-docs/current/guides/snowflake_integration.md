@@ -7,15 +7,6 @@ sidebar_position: 04
 
 # Snowflake Integration Guide
 
-
-<!-- This guide includes the following information:
-- [Access the UID2 Shares](#access-the-uid2-shares)
-- [Shared Objects](#shared-objects)
-  -  [Database and Schema Names](#database-and-schema-names)
-  -  [Map DII](#map-dii)
-  -  [Regenerated UID2s](#regenerate-uid2s)
-- [Migration Guide](#migration-guide)  -->
-
 [Snowflake](https://www.snowflake.com/?lang=ja) はクラウドデータウェアハウスソリューションで、パートナーとして顧客のデータを保存し、UID2 フレームワークとインテグレーションできます。Snowflake を使用することで、UID2 は、機密性の高い　[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii)　を公開することなく、認可された消費者識別子データを安全に共有できます。消費者識別子データを直接 Operator Web Services に問い合わせることもできますが、Snowflake UID2 とのインテグレーションにより、よりシームレスな体験が可能になります。
 
 次の図は、Snowflake が UID2 インテグレーションプロセスにどのように関わるかを示しています:

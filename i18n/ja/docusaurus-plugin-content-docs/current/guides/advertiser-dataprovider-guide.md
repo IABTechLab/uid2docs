@@ -9,14 +9,14 @@ sidebar_position: 07
 
 このガイドでは、ユーザーデータを収集し、DSP にプッシュする組織のためのインテグレーション手順について説明します。データコレクターには、広告主、データオンボーダー、測定プロバイダー、ID グラフプロバイダー、サードパーティデータプロバイダー、および DSP にデータを送信する他の組織が含まれます。
 
-このガイドには、次のセクションがあります:
+<!-- このガイドには、次のセクションがあります:
 
 - [Integration Steps（インテグレーション手順）](#integration-steps)
   - [Retrieve a raw UID2 for DII using the identity map endpoints（ID マップエンドポイントを使用して、DII の raw UID2 を取得する）](#retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints)
   - [Send raw UID2 to a DSP to build an audience（raw の UID2 を DSP に送り、オーディエンスを構築する）](#send-raw-uid2-to-a-dsp-to-build-an-audience)
   - [Monitor for salt bucket rotations related to your stored UID2s（保存されている UID2 に関連するソルトバケットのローテーションをモニターする）](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
   - [Use an incremental process to continuously update UID2s（インクリメンタルプロセスを使用して、UID2 を継続的に更新する）](#use-an-incremental-process-to-continuously-update-raw-uid2s)
-- [FAQs（よくある質問）](#faqs)
+- [FAQs（よくある質問）](#faqs) -->
 
 Snowflake Data Marketplace でホストされる Open Operator Service を使用する場合は、[Snowflake Integration Guide](../guides/snowflake_integration.md) も参照してください。
 
