@@ -26,27 +26,27 @@ The following diagram outlines the steps that data collectors must complete to m
 
 DII refers to a user's normalized email address or phone number, or the normalized and SHA-256-hashed email address or phone number.
 
-![Advertiser Flow](https://mermaid.ink/svg/eyJjb2RlIjoiICBzZXF1ZW5jZURpYWdyYW1cbiAgICBwYXJ0aWNpcGFudCBEUCBhcyBEYXRhIFByb3ZpZGVyXG4gICAgcGFydGljaXBhbnQgVUlEMiBhcyBVSUQyIFNlcnZpY2VcbiAgICBwYXJ0aWNpcGFudCBEU1BcbiAgICBsb29wIDEuIFJldHJpZXZlIGEgVUlEMiBmb3IgUElJIHVzaW5nIHRoZSBpZGVudGl0eSBtYXAgZW5kcG9pbnRzLlxuICAgIERQLT4-VUlEMjogMS1hLiBTZW5kIGEgcmVxdWVzdCBjb250YWluaW5nIFBJSSB0byB0aGUgaWRlbnRpdHkgbWFwcGluZyBlbmRwb2ludHMuXG4gICAgVUlEMi0-PkRQOiAxLWIuIFN0b3JlIHRoZSBVSUQyIGFuZCBzYWx0IGJ1Y2tldCByZXR1cm5lZCBmcm9tIHRoZSBpZGVudGl0eSBtYXBwaW5nIHNlcnZpY2UuXG4gICAgZW5kXG4gICAgRFAtLT4-RFNQOiAyLiBTZW5kIHN0b3JlZCBVSUQycyB0byBEU1BzIHRvIGNyZWF0ZSBhdWRpZW5jZXMuXG5cbiAgICBsb29wIDMuIE1vbml0b3IgZm9yIHNhbHQgYnVja2V0IHJvdGF0aW9ucyByZWxhdGVkIHRvIHlvdXIgc3RvcmVkIFVJRDJzLlxuICAgICAgIERQLT4-VUlEMjogMy1hLiBNb25pdG9yIHNhbHQgYnVja2V0IHJvdGF0aW9ucyB1c2luZyB0aGUgYnVja2V0IHNlcnZpY2UuXG4gICAgICAgVUlEMi0-PkRQOiAzLWIuIFJldHVybiBzYWx0IGJ1Y2tldHMgcm90YXRlZCBzaW5jZSBhIGdpdmVuIHRpbWVzdGFtcC5cbiAgICAgICBEUC0-PlVJRDI6IDMtYy4gQ29tcGFyZSB0aGUgcm90YXRlZCBzYWx0IGJ1Y2tldHMgdG8gc3RvcmVkIFVJRDIgc2FsdCBidWNrZXRzLjxicj5JZiByb3RhdGVkLCByZXNlbmQgUElJIHRvIGlkZW50aXR5IG1hcHBpbmcgc2VydmljZSBmb3IgYSBuZXcgVUlEMi5cbiAgICAgICBVSUQyLT4-RFA6IDMtZC4gU3RvcmUgdGhlIFVJRDIgYW5kIHNhbHQgYnVja2V0IHJldHVybmVkIGZyb20gdGhlIGlkZW50aXR5IG1hcHBpbmcgc2VydmljZS5cbiAgICBlbmRcbiIsIm1lcm1haWQiOnsidGhlbWUiOiJmb3Jlc3QifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
+![Advertiser Flow](images/advertiser-flow-mermaid.svg)
 
-<!-- [![Updated code partial](https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqVlEFv2zAMhf8KoXPqoM3NGHKZNyCHYka9neYdGIlphcaSJ8kpgqL_faSVeU6TAVsujmXye09PtF-V9oZUqQAi_RzIaaosPgbsWgf86zEkq22PLkFVA0aoMCHUwR-soXBZ9G1T3UnZeG0oHKymK6imzot773u4LeCBUrB0IEAI-JK7dz5Atdnkwqq-Wa9luYTbGywY7YwUi-mYQHuX0DrrHqUFkof0RFB_ab4C-3TJpuOywx64q_fWpSJTBcjcqhbqlqnJBxpbJxfIOhH3CbaDfqYEm4pF0xAcGdgF312KnNgsNVkXjYZFvt-dnEcRMpNKFMdcMV51IEycxGCsnEcsfrRultaqgHvvLAPGhObegk-YrHeRLe6ZYQT3XiqjziNdSaS_qdeJQ5Rwp1SX045zZXwf7Xm6K0n3Ycxtzo9ZgO0xXcvpx5603Vmxbjs-Wez64rpjXcBH3_FU0R_InHy59bPnxYdtWK4_837RHWHoDRPigoOLcj6nIbocIIkcwdHLRP3Lfs18mjLe_MdU_dP4jiOmFqqj0KE1_Bq_yoNWcXdHrSr5LxvmGFvVujeuxCH55ui0KlMYaKGysdMrr8od7uO0-snIOEyLNN7e58_F-NV4-wUzB2Rd) -->
+<!-- diagram source: resource/advertiser-flow-mermaid.md -->
 
 Refer to the following sections for details about the different parts of the diagram:
-1. [Step 1: Retrieve a raw UID2 for DII using the identity map endpoints](#retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints)
+1. [Retrieve a raw UID2 for DII using the identity map endpoints](#retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints)
 1. [Send stored raw UID2 to DSPs to create audiences](#send-stored-raw-uid2-to-a-dsp-to-build-an-audience)
 1. [Monitor for salt bucket rotations related to your stored raw UID2s](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
 
-### Retrieve a raw UID2 for DII using the identity map endpoints
+### 1: Retrieve a raw UID2 for DII using the identity map endpoints
 
 | Step | Endpoint | Description |
 | --- | --- | --- |
 | 1-a | [POST /identity/map](../endpoints/post-identity-map.md) request | Send a request containing DII to the identity mapping endpoint. |
 | 1-b | [POST /identity/map](../endpoints/post-identity-map.md) response | The `advertising_id` (raw UID2) returned in the response can be used to target audiences on relevant DSPs.<br/>The response returns a user's raw UID2 and the corresponding `bucket_id` for the salt bucket. The salt assigned to the bucket rotates annually, which impacts the generated UID2. For details on how to check for salt bucket rotation, see [Monitor for salt bucket rotations](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s).<br/>For ease of maintenance, a recommended approach is to store a user's raw UID2 and `bucket_id` in a mapping table. For guidance on incremental updates, see [Use an incremental process to continuously update raw UID2s](#use-an-incremental-process-to-continuously-update-raw-uid2s). |
 
-### Send stored raw UID2 to a DSP to build an audience
+### 2: Send stored raw UID2 to DSPs to create audiences
 
 Send the `advertising_id` (raw UID2) returned in the [preceding step](#retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints) (Step 1-b) to a DSP while building your audiences. Each DSP has a unique integration process for building audiences. Follow the integration guidance provided by the DSP for sending raw UID2s to build an audience.
 
-### Monitor for salt bucket rotations related to your stored raw UID2s
+### 3: Monitor for salt bucket rotations related to your stored raw UID2s
 A raw UID2 is an identifier for a user at a specific moment in time. The raw UID2 for a specific user changes at least once per year, as a result of the salt rotation. 
 
 Even though each salt bucket is updated approximately once a year, individual bucket updates are spread over the year. Approximately 1/365th of all salt buckets are rotated daily.
@@ -60,7 +60,7 @@ Even though each salt bucket is updated approximately once a year, individual bu
 | 3-c | [POST /identity/map](../endpoints/post-identity-map.md) | Compare the returned `bucket_id` to the salt buckets of raw UID2s that you've cached.<br/>If you find that the salt bucket was updated for one or more raw UID2s, re-send the DII to the identity mapping service for a new UID2. |
 | 3-d | [POST /identity/map](../endpoints/post-identity-map.md) | Store the new values returned for `advertising_id` and `bucket_id`. |
 
-### Use an incremental process to continuously update raw UID2s
+## Use an Incremental Process to Continuously Update Raw UID2s
 
 To keep your UID2-based audience information accurate and up to date, follow these integration steps every day.
 
