@@ -13,6 +13,8 @@ You can use UID2 server-side SDKs to facilitate decrypting of UID2 tokens to acc
 
 - [Overview](#overview)
 - [Functionality](#functionality)
+- [Version](#version)
+- [GitHub Repository/Binary](#github-repositorybinary)
 - [Initialization](#initialization)
 - [Interface](#interface)
   - [Response Content](#response-content)
@@ -36,9 +38,16 @@ This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are u
 
 The library uses .NET Standard 2.1. unit tests. The sample app uses .NET 5.0.
 
-## SDK Repository
+## GitHub Repository/Binary
 
-This SDK is available in GitHub: [UID2 SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md).
+
+This SDK is in the following open-source GitHub repository:
+
+- [UID2 SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md)
+
+The binary is published in this location:
+
+- [https://www.nuget.org/packages/UID2.Client](https://www.nuget.org/packages/UID2.Client)
 
 ## Initialization
 
