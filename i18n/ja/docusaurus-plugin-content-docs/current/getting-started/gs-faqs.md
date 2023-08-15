@@ -1,5 +1,5 @@
 ---
-title: Frequently Asked Questions
+title: FAQs
 description: UID2 の実装に関するよくある質問。
 hide_table_of_contents: false
 sidebar_position: 20
@@ -11,13 +11,13 @@ UID2 に関するよくある質問は、以下のカテゴリーに分かれて
 
 <!-- このページには、以下のものがあります：
 
-- [FAQs -- General](#faqs----general)
+- [FAQs&#8212;General](#faqsgeneral)
 - [FAQs for Publishers](#faqs-for-publishers)
 - [FAQs for Publishers Not Using an SDK](#faqs-for-publishers-not-using-an-sdk)
 - [FAQs for Advertisers and Data Providers](#faqs-for-advertisers-and-data-providers)
 - [FAQs for Demand-Side Platforms (DSPs)](#faqs-for-demand-side-platforms-dsps) -->
 
-## FAQs -- General
+## FAQs&#8212;General
 
 UID2 フレームワークに関するよくある質問を紹介します。
 
