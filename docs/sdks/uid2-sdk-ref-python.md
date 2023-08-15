@@ -19,7 +19,7 @@ You can use UID2 server-side SDKs to facilitate:
 - [Overview](#overview)
 - [Functionality](#functionality)
 - [Version](#version)
-- [GitHub Repository/Binary](#github-repositorybinary)
+- [GitHub Repository/Package](#github-repositorypackage)
 - [Initialization](#initialization)
 - [Interface](#interface)
   - [Response Content](#response-content)
@@ -44,13 +44,13 @@ This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are u
 
 The SDK supports Python 3.6 and above.
 
-## GitHub Repository/Binary
+## GitHub Repository/Package
 
 This SDK is in the following open-source GitHub repository:
 
 - [UID2 SDK for Python](https://github.com/IABTechLab/uid2-client-python/blob/master/README.md)
 
-The binary is published in this location:
+The package is published in this location:
 
 - [https://pypi.org/project/uid2-client/](https://pypi.org/project/uid2-client/)
 

@@ -49,7 +49,7 @@ This SDK is in the following open-source GitHub repository:
 
 - [UID2 SDK for Java](https://github.com/IABTechLab/uid2-client-java/blob/master/README.md)
 
-The binary is published on Sonatype:
+The binary is published on the Maven repository:
 
 - [https://central.sonatype.com/artifact/com.uid2/uid2-client](https://central.sonatype.com/artifact/com.uid2/uid2-client)
 
