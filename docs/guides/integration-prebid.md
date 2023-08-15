@@ -51,7 +51,7 @@ At a high level, to integrate with UID2 using Prebid, you'll need to complete th
 UID2 requires initial tokens to be generated server-side. You can do this by calling one of the following endpoints:
 
 - [POST /token/generate](../endpoints/post-token-generate.md) to generate a new UID2 token.
-- [POST /token/refresh](../endpoints/post-token-refresh.md) to refresh an existing [refresh token](../ref-info/glossary-uid.md#gl-refresh-token).
+- [POST /token/refresh](../endpoints/post-token-refresh.md) to use an existing [refresh token](../ref-info/glossary-uid.md#gl-refresh-token) to generate a new set of tokens.
 
 The UID2 module handles storing, providing, and optionally refreshing UID2 tokens. The module operates in Client Refresh mode.
 
@@ -74,8 +74,8 @@ When you configure the module to use Client Refresh mode, you must choose **one*
 
 | Option | Details | Use Case | 
 | --- | --- | --- |
-| Set `params.uid2Cookie` to the name of the cookie that contains the response body as a JSON string. | See [Client Refresh Cookie Example](#client-refresh-cookie-example). | Choose this option if there is enough space left in your cookie to store the response body.<br/>This option requires the least change to complete the integration. |
-| Set `params.uid2Token` to the response body as a JavaScript object. | See [Client Refresh uid2Token Example](#client-refresh-uid2token-example). | You might choose to provide the response body via `params.uid2Token` in either of these cases:<br/>- If storing the response body on the cookie will exceed the cookie side.<br/>- If you prefer to have the flexibility to manage the storage of the response body yourself. |
+| Set `params.uid2Cookie` to the name of the cookie that contains the response body as a JSON string. | See [Client Refresh Cookie Example](#client-refresh-cookie-example). | Do not choose this option unless you are sure there's enough space left in your cookie to store the response body. |
+| Set `params.uid2Token` to the response body as a JavaScript object. | See [Client Refresh uid2Token Example](#client-refresh-uid2token-example). | You might choose to provide the response body via `params.uid2Token` in either of these cases:<br/>- If storing the response body on the cookie will exceed the cookie size limit.<br/>- If you prefer to have the flexibility to manage the storage of the response body yourself. |
 
 ### Client Refresh Cookie Example
 
