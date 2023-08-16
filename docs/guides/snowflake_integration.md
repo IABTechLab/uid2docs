@@ -389,6 +389,9 @@ To determine which UID2s need regeneration, compare the timestamps of when they 
 The following example shows an input table and the query used to find the UID2s in the table that must be regenerated because the second-level salt was updated.
 
 #### Targeted Input Table
+
+In this example scenario, the advertiser/data provider has stored the UID2s in a table named `AUDIENCE_WITH_UID2`. The last column, `LAST_UID2_UPDATE_UTC`, is used to record the time at which a UID2 was generated. If no UID2 has been generated, the value is `NULL`, as shown in the third example. The advertiser/data provider can use this timestamp value to determine which UID2s need to be regenerated.
+
 ```
 select * from AUDIENCE_WITH_UID2;
 ```
