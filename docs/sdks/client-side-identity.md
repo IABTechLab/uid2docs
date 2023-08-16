@@ -14,7 +14,9 @@ Use this SDK to facilitate the process of establishing client identity using UID
 
 <!-- This guide includes the following information:
 
+- [Functionality](#functionality)
 - [SDK Version](#sdk-version)
+- [GitHub Repository/Binary](#github-repositorybinary)
 - [Terminology](#terminology)
 - [Include the SDK Script](#include-the-sdk-script)
 - [Workflow Overview](#workflow-overview)
@@ -43,6 +45,17 @@ This SDK simplifies integration with UID2 for any publishers who want to support
 ## SDK Version
 
 This documentation is for version 2 of the UID2 SDK for JavaScript.
+
+## GitHub Repository
+
+This SDK is in the following open-source GitHub repository:
+
+- [https://github.com/iabtechlab/uid2-web-integrations](https://github.com/iabtechlab/uid2-web-integrations)
+
+<!-- The binary is published in these locations:
+
+- NPM: [https://www.npmjs.com/package/@uid2/uid2-sdk](https://www.npmjs.com/package/@uid2/uid2-sdk)
+- CDN: [https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js](https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js) (** v3 JS SDK: stash per SW 8/15/23**) -->
 
 ## Terminology
 
