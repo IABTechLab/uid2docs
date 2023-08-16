@@ -9,10 +9,13 @@ sidebar_position: 04
 
 <!-- This guide includes the following information:
 
-- [Prebid Overview](#prebid-overview)
+- [Introduction](#introduction)
 - [UID2 Prebid Module Page](#uid2-prebid-module-page)
+- [Integration Steps](#integration-steps)
+- [Generate UID2 Token](#generate-uid2-token)
 - [UID2 User ID Submodule](#uid2-user-id-submodule)
 - [Client Refresh Mode](#client-refresh-mode)
+  -  [Response Storage Options](#response-storage-options)
   -  [Client Refresh Cookie Example](#client-refresh-cookie-example)
   -  [Client Refresh uid2Token Example](#client-refresh-uid2token-example)
 - [Storage of Internal Values](#storage-of-internal-values)
@@ -20,19 +23,34 @@ sidebar_position: 04
 - [Prebid Implementation Notes and Tips](#prebid-implementation-notes-and-tips)
 - [Configuration Parameters for `usersync`](#usersync-configuration-parameters) -->
 
+This guide is for publishers who want to directly integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid in the RTB bid stream.
 
-This guide is for publishers who want to directly integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream.
-It outlines the basic steps to consider if you're building a direct integration with UID2 and use Prebid for header bidding. 
+It outlines the basic steps to consider if you're building a direct integration with UID2 and you use Prebid for header bidding. 
 
 ## Introduction
 
-If you are a publisher using Prebid for header bidding, there are a few extra steps so that your Prebid header bidding implementation also supports UID2.
+If you're a publisher using Prebid for header bidding, there are a few extra steps to take so that your Prebid header bidding implementation also supports UID2.
 
 In addition, if you don't already have one, you must set up a UID2 account: see [Account Setup](../getting-started/gs-account-setup.md).
 
 ## UID2 Prebid Module Page
 
-For details about how to integrate Prebid with UID2, refer to the [Unified ID 2.0 Prebid User ID module](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) on the Prebid site. Be sure to follow all the steps.
+Information about how to integrate Prebid with UID2 is also in these locations:
+- On the [Unified ID 2.0](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) page for the Prebid User ID submodule on the Prebid site.
+- In the [UID2 User ID Submodule](https://github.com/prebid/Prebid.js/blob/master/modules/uid2IdSystem.md) page in the Prebid GitHub repository.
+
+## Integration Steps
+
+At a high level, to integrate with UID2 using Prebid, you'll need to complete the following steps.
+
+| Step | Action | Link to Instructions |
+| --- | --- | --- |
+| 1 | Send a server-side API call to generate a UID2 token.  | [Generate UID2 Token](#generate-uid2-token) |
+| 2 | Store the response value, so that the Prebid module can manage token refresh as well as opt-out if needed. | [Client Refresh Mode](#client-refresh-mode) |
+
+## Generate UID2 Token
+
+UID2 requires initial tokens to be generated server-side. You can do this by calling the [POST /token/generate](../endpoints/post-token-generate.md) endpoint to generate a new UID2 token.
 
 ## UID2 User ID Submodule
 
@@ -42,12 +60,23 @@ UID2 requires initial tokens to be generated server-side. The UID2 module handle
 
 ## Client Refresh Mode
 
-In Client Refresh mode, the full response body from the UID2 [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint must be provided to the module. As long as the refresh token remains valid, the module refreshes the UID2 token (advertising token) as needed.
+You must provide the Prebid module with the full JSON response body from the applicable endpoint:
 
-To configure the module to use Client Refresh mode, you must do **either** of the following:
--  Set `params.uid2Cookie` to the name of the cookie that contains the response body as a JSON string. See [Client Refresh Cookie Example](#client-refresh-cookie-example).
+- [POST /token/generate](../endpoints/post-token-generate.md) for a new UID2 token.
+- [POST /token/refresh](../endpoints/post-token-refresh.md) for a refreshed UID2 token.
 
-- Set `params.uid2Token` to the response body as a JavaScript object. See [Client Refresh uid2Token Example](#client-refresh-uid2token-example).
+For an example, see [Sample Token](#sample-token).
+
+As long as the refresh token remains valid, the module refreshes the UID2 token as needed.
+
+### Response Storage Options
+
+When you configure the module to use Client Refresh mode, you must choose **one** of the following options for storing the API response information.
+
+| Option | Details | Use Case | 
+| --- | --- | --- |
+| Set `params.uid2Cookie` to the name of the cookie that contains the response body as a JSON string. | See [Client Refresh Cookie Example](#client-refresh-cookie-example). | Do not choose this option unless you are sure there's enough space left in your cookie to store the response body. |
+| Set `params.uid2Token` to the response body as a JavaScript object. | See [Client Refresh uid2Token Example](#client-refresh-uid2token-example). | You might choose to provide the response body via `params.uid2Token` in either of these cases:<br/>- If storing the response body on the cookie will exceed the cookie size limit.<br/>- If you prefer to have the flexibility to manage the storage of the response body yourself. |
 
 ### Client Refresh Cookie Example
 
@@ -124,6 +153,8 @@ In planning your Prebid implementation, consider the following:
 - If you provide a new token that does not match the original token used to generate any refreshed tokens, all stored tokens are discarded and the new token used instead (refreshed if necessary).
 
 - During integration testing, you can set `params.uid2ApiBase` to `"https://operator-integ.uidapi.com"`. Be aware that you must use the same environment (production or integration) that you use for generating tokens.
+
+- For an example of what a UID2 token might look like in the bid stream, when it's sent from an SSP to a DSP, see [What does a UID2 token look like in the bid stream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bid-stream)
 
 ## Configuration Parameters for `usersync`
 
