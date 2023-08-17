@@ -69,6 +69,8 @@ You need to consider how you want to manage UID2 identity information and use it
 | :--- | :--- | :--- |
 | 2-a | N/A| Send the `advertising_token` from step [1-e](#establish-identity) to the SSP for bidding. Send the value as is. |
 
+>NOTE: For an example of what a UID2 token might look like in the bid stream, when it's sent from an SSP to a DSP, see [What does a UID2 token look like in the bid stream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bid-stream)
+
 ### Refresh Tokens
 
 Leverage the refresh endpoint to retrieve the latest version of UID2 tokens. The UID2 token must be refreshed to sync the user's UID2 rotation and opt-out status. If the user opts out, using their refresh token will end their token refresh chain.
