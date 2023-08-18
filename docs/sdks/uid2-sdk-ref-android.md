@@ -40,7 +40,11 @@ This SDK simplifies integration with UID2 for any publishers who want to support
 
 <!-- As of 2023-07-15 -->
 
-This documentation is for the UID2 Android SDK version 0.4.0.
+This documentation is for the following UID2 Android SDK versions:
+- 0.4.0
+- 0.5.0
+
+For information about specific release versions, see [https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases).
 
 ## Features
 
