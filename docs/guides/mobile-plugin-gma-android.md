@@ -17,7 +17,7 @@ This plugin simplifies integration with Google Mobile Ads (GMA) for any publishe
 
 <!-- As of 2023-07-15 -->
 
-This documentation is for the UID2 GMA Plugin for Android version 0.4.0.
+This documentation is for the UID2 GMA Plugin for Android version 0.5.0 and later.
 
 ## GitHub Repository
 
@@ -37,7 +37,7 @@ To run this plugin, install the following:
 
 Prerequisite: Install the Google Mobile Ads SDK and the UID2 Android SDK.
 
-Install the UID2 Android GMA Plugin v0.4.0 to an existing app with the UID2 Android SDK and Google IMA SDK installed. There are two installation options:
+Install the UID2 Android GMA Plugin v0.5.0 to an existing app with the UID2 Android SDK and Google IMA SDK installed. There are two installation options:
 
 - [Gradle](#gradle)
 - [Maven](#maven)
@@ -47,7 +47,7 @@ Install the UID2 Android GMA Plugin v0.4.0 to an existing app with the UID2 Andr
 To install with Gradle, add the SDK as a dependency in the `build.gradle` file:
 
 ``` javascript
-implementation 'com.uid2:uid2-android-sdk-gma:0.4.0'
+implementation 'com.uid2:uid2-android-sdk-gma:0.5.0'
 ```
 
 ### Maven 
@@ -58,6 +58,6 @@ To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 <dependency>
   <groupId>com.uid2</groupId>
   <artifactId>uid2-android-sdk-gma</artifactId>
-  <version>0.4.0</version>
+  <version>0.5.0</version>
 </dependency>
 ```
