@@ -42,10 +42,3 @@ Install the UID2 iOS IMA Plugin via Swift Package Manager to an existing app wit
 ``` javascript
 .package(url: https://github.com/IABTechLab/uid2-ios-plugin-google-gma.git, exact: "0.2.0")
 ```
-
-## Troubleshooting 
-
-To resolve any issue that might arise, we recommend that you copy the two source code files from the UID2 GMA Plugin for iOS, directly into your app. Be sure to use the same class and file names, to ensure that the Google Mobile Ads SDK can find the files at runtime. The two files are:
-
-- `UID2GMASecureSignalsAdapter.swift`
-- `AdvertisingTokenNotFoundError.swift`
