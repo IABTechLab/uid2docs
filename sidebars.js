@@ -93,16 +93,39 @@ const sidebars = {
       collapsed: true,
       items: [
         'guides/summary-guides',
-        'guides/publisher-client-side',
-        'guides/custom-publisher-integration',
-        'guides/integration-prebid',
-        'guides/snowflake_integration',
-        'guides/dsp-guide',
-        'guides/advertiser-dataprovider-guide',
-        'guides/google-ss-integration',
-        'guides/mobile-plugin-gma-android',
-        'guides/mobile-plugin-gma-ios',
+        {
+          type: 'category',
+          label: 'Publisher, DSP, Data Provider',
+          link: {
+            type: 'generated-index',
+          },
+          collapsed: true,
+          items: [
+            'guides/integration-prebid',
+            'guides/publisher-client-side',
+            'guides/custom-publisher-integration',
+            'guides/dsp-guide',
+            'guides/advertiser-dataprovider-guide',
+          ],
+        },
 
+
+        'guides/snowflake_integration',
+        'guides/google-ss-integration',
+
+        {
+          type: 'category',
+          label: 'Mobile Plug-Ins',
+          link: {
+            type: 'generated-index',
+          },
+          collapsed: true,
+          items: [
+            'guides/mobile-plugin-gma-android',
+            'guides/mobile-plugin-gma-ios',
+          ],
+        },
+ 
         {
           type: 'category',
           label: 'Operator Guides',
@@ -116,7 +139,7 @@ const sidebars = {
             'guides/operator-guide-gcp-enclave',
           ],
         },
-      ],
+       ],
     },
 
   
