@@ -1,43 +1,43 @@
 ---
 title: Prebid Integration
-description: Information about integrating with Prebid as part of your UID2 implementation.
+description: UID2 実装のため、Prebid とのインテグレーションに関する情報。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
 # Prebid Integration Guide
 
-This guide is for publishers who want to directly integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream.
-It outlines the basic steps to consider if you're building a direct integration with UID2 and use Prebid for header bidding. 
+このガイドは、UID2 と直接インテグレーションし、RTB ビッドストリームで Prebid から渡される ID トークン を生成したいパブリッシャー向けのものです。
+UID2 との直接インテグレーションを行い、ヘッダービディングに Prebid を使用する場合に考慮すべき基本的なステップの概要を説明します。
 
 ## Introduction
 
-If you are a publisher using Prebid for header bidding, there are a few extra steps so that your Prebid header bidding implementation also supports UID2.
+ヘッダービディングに Prebid を使用しているパブリッシャーの場合、Prebid ヘッダービディング実装が UID2 もサポートできるように、いくつかの追加ステップがあります。
 
-In addition, if you don't already have one, you must set up a UID2 account: see [Account Setup](../getting-started/gs-account-setup.md).
+まだ UID2 account を持っていない場合は、UID2 account をセットアップする必要があります: [Account Setup](../getting-started/gs-account-setup.md)　を参照してください。
 
 ## UID2 Prebid Module Page
 
-For details about how to integrate Prebid with UID2, refer to the [Unified ID 2.0 Prebid User ID module](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) on the Prebid site. Be sure to follow all the steps.
+Prebid と UID2 のインテグレーション方法の詳細については、Prebid サイトの [Unified ID 2.0 Prebid User ID module](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) を参照してください。必ずすべての手順に従ってください。
 
 ## UID2 User ID Submodule
 
-UID2 requires initial tokens to be generated server-side. The UID2 module handles storing, providing, and optionally refreshing them. The module operates in Client Refresh mode.
+UID2 では、サーバーサイドで初期トークンを生成する必要があります。UID2 モジュールは、トークンの保存、提供、およびオプションのリフレッシュを処理します。このモジュールは Client Refresh モードで動作します。
 
->**Important:** UID2 is not designed to be used where GDPR applies. The module checks the passed-in consent data, and does not operate if the `gdprApplies` flag is set to `true`.
+>**Important:** UID2 は GDPR が適用される場所で使用できないように設計されています。このモジュールは渡された同意データをチェックし、`gdprApplies` フラグが `true` に設定されている場合は動作しません。
 
 ## Client Refresh Mode
 
-In Client Refresh mode, the full response body from the UID2 [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint must be provided to the module. As long as the refresh token remains valid, the module refreshes the UID2 token (advertising token) as needed.
+Client Refresh モードでは、UID2 [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントからの完全なレスポンスボディをモジュールに提供する必要があります。Refresh Token が有効である限り、モジュールは必要に応じて UID2 Token (Advertising Token) をリフレッシュします。
 
-To configure the module to use Client Refresh mode, you must do **either** of the following:
--  Set `params.uid2Cookie` to the name of the cookie that contains the response body as a JSON string. See [Client Refresh Cookie Example](#client-refresh-cookie-example).
+Client Refresh モードを使用するようにモジュールを設定するには、以下の **どちらか** を実行する必要があります:
+- `params.uid2Cookie` に、レスポンスボディを JSON 文字列として含むクッキーの名前を設定します。[Client Refresh Cookie Example](#client-refresh-cookie-example) を参照してください。
 
-- Set `params.uid2Token` to the response body as a JavaScript object. See [Client Refresh uid2Token Example](#client-refresh-uid2token-example).
+- レスポンス本文に `params.uid2Token` を JavaScript オブジェクトとして設定します。[Client Refresh uid2Token Example](#client-refresh-uid2token-example) を参照してください。
 
 ### Client Refresh Cookie Example
 
-In this example, the cookie is called `uid2_pub_cookie`.
+この例では、Cookie は `uid2_pub_cookie` です。
 
 #### Cookie
 ```
@@ -61,7 +61,7 @@ pbjs.setConfig({
 
 ### Client Refresh uid2Token Example
 
-The following example shows a sample configuration. For the contents of the token, see [Sample Token](#sample-token).
+次の例は、コンフィギュレーションのサンプルを示しています。トークンの内容については、[Sample Token](#sample-token) を参照してください。
 
 ```javascript
 pbjs.setConfig({
@@ -82,11 +82,11 @@ pbjs.setConfig({
 
 ## Storage of Internal Values
 
-The UID2 Prebid module stores some internal values. By default, all values are stored in HTML5 local storage. If needed, you can switch to cookie storage by setting `params.storage` to `cookie`. The cookie size can be significant, so we don't recommend this solution, but it is a possible solution if local storage is not an option.
+UID2 Prebid モジュールは、いくつかの内部値を保存します。デフォルトでは、すべての値は HTML5 のローカルストレージに保存されます。必要に応じて、`params.storage` を `cookie` に設定することで、Cookie ストレージに切り替えることができます。Cookie のサイズが大きくなる可能性があるため、この解決策は推奨しませんが、ローカルストレージが選択できない場合には可能な解決策です。
 
 ## Sample Token
 
-The following sample is fictitious, but shows what the token response object looks like:
+以下のサンプルは架空のものですが、トークンレスポンスオブジェクトがどのように見えるかを示しています:
 
 ```javascript
 {
@@ -101,27 +101,27 @@ The following sample is fictitious, but shows what the token response object loo
 
 ## Prebid Implementation Notes and Tips
 
-In planning your Prebid implementation, consider the following:
+Prebid の実装を計画する際には、以下を考慮してください:
 
-- If you're trying to limit the size of cookies, provide the token in configuration and use the default option of local storage.
+- Cookie のサイズを制限しようとしている場合、コンフィギュレーションでトークンを提供し、ローカルストレージのデフォルトオプションを使用します。
 
-- If you provide an expired identity, and the module has a valid identity which was refreshed from the identity you provide, the module uses the refreshed identity. The module stores the original token that it used for refreshing the token, and uses the refreshed tokens as long as the original token matches the token that you provided.
+- 期限切れの Identity を提供し、モジュールが提供した Identity からリフレッシュされた有効な Identity を持っている場合、モジュールはリフレッシュされた Identity を使用します。モジュールはトークンのリフレッシュに使用した元のトークンを保存し、元のトークンが提供したトークンと一致する限り、リフレッシュされたトークンを使用します。
 
-- If you provide a new token that does not match the original token used to generate any refreshed tokens, all stored tokens are discarded and the new token used instead (refreshed if necessary).
+- リフレッシュされたトークンを生成するために使用された元のトークンと一致しない新しいトークンを提供した場合、保存されたトークンはすべて破棄され、代わりに新しいトークンが使用されます（必要に応じてリフレッシュされます）。
 
-- During integration testing, you can set `params.uid2ApiBase` to `"https://operator-integ.uidapi.com"`. Be aware that you must use the same environment (production or integration) that you use for generating tokens.
+- インテグレーションテストの際には、`params.uid2ApiBase` を `"https://operator-integ.uidapi.com"` に設定することができます。トークンの生成に使用する環境と同じ環境 (本番環境またはテスト環境) を使用しなければならないことに注意してください。
 
 ## Configuration Parameters for `usersync`
 
-The following parameters apply only to the UID2 Prebid User ID Module integration.
+以下のパラメータは、UID2 Prebid User ID モジュールインテグレーションにのみ適用されます。
 
 | Param under userSync.userIds[] | Scope | Type | Description | Example |
 | --- | --- | --- | --- | --- |
-| name | Required | String | ID value for the UID2 module - `"uid2"` | `"uid2"` |
-| value | Optional, server only | Object | An object containing the value for the advertising token. | See [Sample Token](#sample-token). |
-| params.uid2Token | Optional, client refresh | Object | The initial UID2 token. This should be the `body` element of the decrypted response from a call to the `/token/generate` or `/token/refresh` endpoint. | See [Sample Token](#sample-token). |
-| params.uid2Cookie | Optional, client refresh | String | The name of a cookie that holds the initial UID2 token, set by the server. The cookie should contain JSON in the same format as the uid2Token param. **If uid2Token is supplied, this param is ignored.** | See [Sample Token](#sample-token). |
-| params.uid2ApiBase | Optional, client refresh | String | Overrides the default UID2 API endpoint. | `"https://prod.uidapi.com"` (the default)|
-| params.storage | Optional, client refresh | String | Specify the module internal storage method: `cookie` or `localStorage`. We recommend that you do not provide this parameter. Instead, allow the module to use the default. | `localStorage` (the default) |
+| name | 必須 | String | UID2 モジュールの ID 値 - `"uid2"` | `"uid2"` |
+| value | オプション, server only | Object | Advertising Token の値を含むオブジェクト。 | [Sample Token](#sample-token) を参照してください。 |
+| params.uid2Token  | オプション, client refresh | Object | 初期 UID2 Token。これは `/token/generate` または `/token/refresh` エンドポイントをコールした際に復号されたレスポンスの `body` 要素でなければなりません。 | [Sample Token](#sample-token) を参照してください。 |
+| params.uid2Cookie | オプション, client refresh | String | サーバが設定した UID2 Token を保持する Cookie の名前。この Cookie は uid2Token パラメータと同じ形式の JSON 出なければなりません。**uid2Token を指定した場合、このパラメータは無視されます。** | [Sample Token](#sample-token) を参照してください。  |
+| params.uid2ApiBase | オプション, client refresh | String | デフォルトの UID2 API エンドポイントをオーバーライドします。 | `"https://prod.uidapi.com"` (デフォルト) |
+| params.storage | オプション, client refresh | String | モジュール内部の保存方法を指定します: `cookie` または `localStorage`。このパラメータは指定しないことを推奨します。代わりに、モジュールがデフォルトを使用するようにします。 | `localStorage` (デフォルト) |
 
 <!-- eng_jp -->

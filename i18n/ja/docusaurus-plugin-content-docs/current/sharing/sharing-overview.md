@@ -1,6 +1,6 @@
 ---
 title: Overview of Sharing
-description: Learn about sharing UID2s with other participants.
+description: 他の参加者と UID2 を共有する方法について説明します。
 hide_table_of_contents: false
 sidebar_position: 01
 ---
@@ -13,17 +13,22 @@ sidebar_position: 01
 - [Generating the Token for UID2 Sharing: Example](#creating-the-token-for-sharing-example)
 - [Sharing in the Bid Stream](#sharing-in-the-bid-stream) -->
 
-In UID2, sharing is a process for distributing [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) securely between UID2 participants. To protect raw UID2s from unauthorized access, the originating participant (sender) must encrypt the raw UID2s into [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) before transmission. The destination participant (receiver) must decrypt the UID2 tokens into raw UID2s for internal use.
+UID2 では、sharing とは UID2 参加者間で [raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) を安全に配布するためのプロセスです。未加工の UID2 を不正アクセスから保護するために、送信元の参加者（送信者）は未加工の UID2 を暗号化して [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) に変換してから送信しなければなりません。
+送信先の参加者(受信者)は、UID2 Token を内部で使用する raw UID2 に復号化しなければなりません。
 
-The UID2 sender specifies which receivers can decrypt their UID2 tokens, by configuring permissions in the [UID2 Portal](/docs/category/uid2-portal). When a sender grants permission to a receiver for UID2 sharing, the sender's decryption keys are shared with the receiver via a UID2 SDK. As part of sharing, the UID2 SDKs and APIs take care of the encryption and decryption.
+UID2 の送信者は、[UID2 Portal](/docs/category/uid2-portal) で権限を設定することで、自分の UID2 Token を復号できる受信者を指定します。送信者が受信者に UID2 sharing の許可を与えると、送信者の復号鍵が UID2 SDK を介して受信者と共有されます。sharing の一環として、UID2 SDK と API が暗号化と復号化の処理を行います。
 
-For example, let's say that an advertiser (sender) wants to share raw UID2s with a trusted sharing partner who is a UID2 DSP, for segment creation via an API. Using sharing, the advertiser first enables the DSP with sharing permission via the UID2 Portal. The advertiser then encrypts the raw UID2s into UID2 tokens and sends them securely to the DSP (receiver). The DSP, who is also taking part in sharing, has access to the advertiser's decryption keys (through the UID2 Portal sharing permissions setup), and can therefore decrypt the UID2 tokens into raw UID2s for segment creation.
+例えば、広告主（送信者）が、UID2 DSP である信頼できる sharing パートナーと raw UID2 を共有し、API 経由でセグメントを作成したいとします。sharing では、まず広告主が UID2 Potal を介して DSP に共有許可を与えます。次に広告主は、raw UID2 を UID2 Token に暗号化し、DSP（受信者）に安全に送信します。Sharing に参加している DSP も、（UID2 Potal の共有許可設定を通じて）広告主の復号化キーにアクセスできるため、UID2 Token を復号化してセグメント作成のための raw UID2 に変換できます。
 
-Both the UID2 sender and receiver must create an account in order to take part in sharing. Without an account, a UID2 participant is not displayed in the list of sharing partners in the UID2 Portal.
+Sharing に参加するには、UID2 の送信者と受信者の両方がアカウントを作成する必要があります。アカウントがないと、UID2 参加者は UID2 Portal の共有パートナーリストに表示されません。
 
-There are many scenarios for sharing. For additional examples, see [Sharing UID2s: Use Cases](sharing-use-cases.md).
+Sharing には多くのシナリオがあります。その他の例については、[Sharing UID2s: Use Cases](sharing-use-cases.md) を参照してください。
 
->NOTE: The process for publishers sharing UID2 tokens in the bid stream is a different process. If you are a publisher who is putting UID2 tokens into the bid stream, see [Sharing in the Bid Stream](sharing-bid-stream.md).
+
+>NOTE: パブリッシャーが UID2 Token をビッドストリームで共有するプロセスは、別のプロセスです。もしあなたが UID2 Token をビッドストリームに入れるパブリッシャーであれば、[Sharing in the Bid Stream](sharing-bid-stream.md) を参照してください。
+
+
+その他のリソース:
 
 Additional resources:
 
@@ -33,49 +38,50 @@ Additional resources:
 
 ## UID2 Sharing Workflow
 
-To share UID2 data securely between UID2 participants, which includes encrypting raw UID2s into UID2 tokens that the receiver can decrypt using your encryption keys, you must use a UID2 SDK or the UID2 Snowflake integration.
+UID2 参加者間で UID2 データを安全に共有するには、raw UID2 を UID2 Token に暗号化し、受信者が暗号化キーを使って復号化できるようにすることも含め、UID2 SDK または UID2 Snowflake インテグレーションを使用する必要があります。
 
-The workflow for UID2 sharing, for all sharers except when sharing UID2 tokens in the bid stream, consists of the following steps:
+UID2 sharing のワークフローは、ビッドストリームで UID2 Token を共有する場合を除くすべての共有者について、以下の手順で構成されます:
 
-1. Sender and receiver: Integrate with UID2 sharing, using one of the following:
+1. 送信側と受信側： 以下のいずれかを使用して、UID2 sharing とインテグレーションします:
 
-   - SDK for sharing: see [Steps to Implement Sharing with an SDK](sharing-implementing.md#steps-to-implement-sharing-with-an-sdk).
-   - Snowflake integration for sharing: see [Steps to Implement Sharing Using Snowflake](sharing-implementing.md#steps-to-implement-sharing-using-snowflake).
+   - sharing のための SDK: [Steps to Implement Sharing with an SDK](sharing-implementing.md#steps-to-implement-sharing-with-an-sdk) を参照してください。
+   - sharing のための Snowflake インテグレーション: [Steps to Implement Sharing Using Snowflake](sharing-implementing.md#steps-to-implement-sharing-using-snowflake) を参照してください。
 
-1. Sender and receiver: Approve sharing permissions in the UID2 Portal:
+1. 送信者と受信者: UID2 Portal で共有許可を承認します:
 
-   1. Sender: Define which sharing participants are allowed to decrypt the sender's UID2 token. 
-   1. Sender and receiver: Request a UID2 Portal account: see [Request an Account](../portal/participant-info.md#request-an-account).
-   1. Sender: Log in to the UID2 Portal and navigate to the sharing permissions page: see [Sharing Permissions](../portal/sharing-permissions.md).
-   1. Sender: Select the participants that you want to share with. If needed, use the search feature to find specific sharing participants.
-   1. Sender: Save the sharing selection.
+   1. 送信者: 送信者の UID2 Token の復号化を許可する共有参加者を定義します。
+   1. 送信者と受信者: UID2 Portal アカウントを要求する: [Request an Account](../portal/portal-getting-started.md#request-an-account) を参照してください。
+   1. 送信者: UID2 Portal にログインし、共有許可ページに移動します。[Sharing Permissions](../portal/sharing-permissions.md) を参照してください。
+   1. 送信者: 共有したい参加者を選択します。必要に応じて、検索機能を使用して特定の共有参加者を検索します。
+   1. 送信者: 共有の選択を保存します。
 
-1. Sender: Complete the following steps to encrypt and send the UIDs:
+1. 送信者: 以下の手順で UID を暗号化して送信します:
 
-   1. Encrypt raw UID2s to convert them into UID2 tokens, using a UID2 SDK or Snowflake: see [Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary).
-   1. Transmit the UID2 tokens to an authorized receiver.
+   1. UID2 SDK または Snowflake を使用して、raw UID2 を暗号化し、UID2 Token に変換します: [Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary) を参照してください。
+   1. UID2 Token を認証された受信者に送信します。
 
-1. Receiver: Complete the following steps to decrypt the UID2 tokens:
+1. 受信者: UID2 Token を復号化するには、以下の手順を実行します:
 
-   1. Receive the UID2 tokens.
-   1. Decrypt the UID2 tokens into raw UID2s that the receiver can use: see [Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary).
+   1. UID2 Token を受信します。
+   1. UID2 Token を復号化し、受信者が使用できる raw UID2 にします: [Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary) を参照してください。
 
-The following diagram illustrates the UID2 sharing permission SDK integration workflow:
+以下の図は、UID2 sharing permission SDK のインテグレーション・ワークフローを示しています:
 
 ![UID2 Sharing Permission SDK Integration Workflow](images/UID2_Sharing_Diagram_Integrate_SDK_Sharing_Token.png)
 
 ## Generating the Token for UID2 Sharing: Example
 
->Note: If you are a publisher, see [Token Example for Publishers in the Bid Stream](sharing-bid-stream.md#token-example-for-publishers-in-the-bid-stream).
+>Note: もしあなたがパブリッシャーであれば、[Token Example for Publishers in the Bid Stream](sharing-bid-stream.md#token-example-for-publishers-in-the-bid-stream) を参照してください。
 
-UID2 sharers follow a two-step process, as shown in the following example. The steps are:
-1. Convert email or phone number to raw UID2:
+UID2 共有者は、以下の例に示すように、2段階のプロセスを踏みます。手順は以下の通りです：
 
-    Convert the input email address or phone number to a raw UID2, which they can store securely.
+1. メールアドレスまたは電話番号を raw UID2 に変換します:
 
-1. Convert raw UID2 to UID2 token:
+    入力されたメールアドレスまたは電話番号を raw UID2 に変換し、安全に保存できるようにします。
 
-    Encrypt the raw UID2 to create a UID2 token that they can share with another trusted UID2 sharing participant.
+1. raw UID2 を UID2 Token に変換します:
+
+    raw UID2 を暗号化して UID2 Token を作成し、信頼できる他の UID2 共有参加者と共有することができます。
 
 <table>
 <colgroup>
@@ -99,12 +105,12 @@ UID2 sharers follow a two-step process, as shown in the following example. The s
 <tbody>
 <tr>
 <td>user@example.com</td>
-<td>Convert email/phone number to raw UID2:<br/><a href="../endpoints/post-identity-map">POST /identity/map</a> endpoint</td>
+<td>メールアドレス/電話番号を raw UID2 に変換します:<br/><a href="../endpoints/post-identity-map">POST /identity/map</a> endpoint</td>
 <td>K2jlbu2ldlpKL1z6n5bET7L3<br/>g0xfqmldZPDdPTktdRQ=</td>
 </tr>
 <tr>
 <td>K2jlbu2ldlpKL1z6n5bET7L3<br/>g0xfqmldZPDdPTktdRQ=</td>
-<td>Encrypt raw UID2 to create a UID2 token:<br/>encrypt() function in applicable SDK. For example, for Java, see <a href="../sdks/uid2-sdk-ref-java#usage-for-uid2-sharers">Usage for UID2 Sharers</a> step 3.</td>
+<td>raw UID2 を暗号化して UID2 Token を作成します:<br/>encrypt() 関数を使用します。たとえば Java の場合は、<a href="../sdks/uid2-sdk-ref-java#usage-for-uid2-sharers">Usage for UID2 Sharers</a> の step3 を参照してください。</td>
 <td style={{
   wordBreak: "break-all"
 }}>KlKKKfE66A7xBnL/DsT1UV/Q+V/r3xwKL89Wp7hpNllxmNkPaF8vdzenDvfoatn6sSXbFf5DfW9wwbdDwMnnOVpPxojkb8KYSGUte/FLSHtg4CLKMX52UPRV7H9UbWYvXgXC4PaVrGp/Jl5zaxPIDbAW0chULHxS+3zQCiiwHbIHshM+oJ==</td>
@@ -112,15 +118,15 @@ UID2 sharers follow a two-step process, as shown in the following example. The s
 </tbody>
 </table>
 
-## Sharing in the Bid Stream
-
-The process for publishers sharing UID2 tokens in the bid stream is a different process. For details, see [Sharing in the Bid Stream](sharing-bid-stream.md).
-
-## UID2 Token Pass-Through
-The UID2 token is designed so that even if the underlying raw UID2 remains the same, each time a UID2 token is generated from it, the token value is different. This means that the UID2 token can be seen by all but can only be used by UID2 participants that have access to the decryption key. 
+<!-- ## UID2 Token Pass-Through
+The UID2 token is designed so that it can be seen by all but can only be used by UID2 participants that have access to the decryption keys.
 
 For example, UID2 tokens are habitually passed through the bid stream from a publisher to a DSP. Although a UID2 token might go through several parties, such as an SSP, it can be decrypted only by an authorized UID2 participant. On its journey through the bid stream, the UID2 token can safely pass through one or more intermediaries.
 
-The same is true in all sharing scenarios between UID2 sharing participants. A UID2 token can be passed through non-UID2 participants.
+The same is true of UID2 tokens generated for sharing. (**GWH_KT_04 KT (update 8/8) to report back whether we need this/how to fix it.  Here is my suggestion to say: Only trusted sharing participants, that you've chosen to share with, have access to your decryption keys. **) -->
+
+## Sharing in the Bid Stream
+
+パブリッシャーがビッドストリームで UID2 Token を共有するプロセスは、別のプロセスです。詳細は [Sharing in the Bid Stream](sharing-bid-stream.md) を参照してください。
 
 <!-- eng_jp -->

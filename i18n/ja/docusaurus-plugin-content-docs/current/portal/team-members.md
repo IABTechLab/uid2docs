@@ -1,6 +1,6 @@
 ---
 title: Team Members
-description: Learn how to set up and manage your UID2 team.
+description: UID2 team の設定と管理方法について説明します。
 hide_table_of_contents: false
 sidebar_position: 07
 ---
@@ -16,7 +16,7 @@ sidebar_position: 07
 - [Remove a Team Member](#remove-a-team-member)
 - [Log In for the First Time as a Team Member](#log-in-for-the-first-time-as-a-team-member) DONE -->
 
-In the UID2 Portal, on the Team Members page, you can perform all activities relating to configuring individuals who you want to authorize for access to your account, including the following:
+UID2 Portal の Team Members ページでは、以下のようなアカウントへのアクセスを許可する個人の設定に関する操作を実行できます:
 
 - [Add a Team Member](#add-a-team-member)
 - [Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member) 
@@ -25,47 +25,50 @@ In the UID2 Portal, on the Team Members page, you can perform all activities rel
 
 ## Team Member Rights and Responsibilities
 
-Each team member is an administrator for the account, and can perform all activities relating to managing your team and your account, including the following:
+各チームメンバーはアカウントの管理者となり、以下のようなチームやアカウントの管理に関する設定を行うことができます:
 
-- Add, modify, or remove additional team members: see [Add a Team Member](#add-a-team-member)
-- Add, modify, or remove email contacts: see [Email Contacts](email-contacts.md).
-- Add or remove sharing relationships and sharing settings: see [Sharing Permissions](sharing-permissions.md).
+- チームメンバーの追加、変更、削除: [Add a Team Member](#add-a-team-member) を参照してください。
+- メール連絡先の追加、変更、削除: [Email Contacts](email-contacts.md) を参照してください。
+- 共有関係と共有設定の追加と削除: [Sharing Permissions](sharing-permissions.md) を参照してください。
+
 ## Add a Team Member
 
-Complete the following steps:
+以下のステップを完了させます：
 
-1. Log in to your UID2 Portal account.
-1. On the Team Members page, click Add Team Member.
-1. Enter the first name, last name, email, and job function.
-1. Click Save Team Member.
+1. UID2 Portal アカウントにログインします。
+1. Team Members ページで、Add Team Member をクリックします。
+1. 姓、名、メールアドレス、職能を入力します。
+1. Save Team Member をクリックします。
 
-   The team member is added to the list, with Pending status, and an invitation email is sent to the invited person.
+   チームメンバーがリストに追加され、ステータスが保留になり、招待メールが招待者に送信されます。
 
 ## Resend an Invitation to a Team Member
 
-If you added a team member, you might need to resend the invitation. For example, perhaps the team member didn't receive the invitation or accidentally deleted it, or the invitation has expired.
+チームメンバーを追加した場合、招待状を再送する必要がある場合があります。たとえば、チーム メンバーが招待状を受け取っていなかったり、誤って削除してしまったり、招待状の有効期限が切れてしまった場合などです。
 
-To re-send the invitation for a team member, find the team member on the list and then, in the Actions column, click **Resend Invitation**. The status updates to **Invitation Sent**, and a new invitation email is sent.
+チーム メンバーに招待状を再送信するには、リストでチーム メンバーを見つけ、Actions 列で **Resend Invitation** をクリックします。ステータスが **Invitation Sent** に更新され、新しい招待メールが送信されます。
+
 
 ## Edit Information for a Team Member
 
-To edit information for a team member, find the team member on the list and then, in the Actions column, click the Edit (pencil) icon.
+チームメンバーの情報を編集するには、リストでチームメンバーを見つけてから、Actions 列で Edit (pencil) アイコンをクリックします。
 
-Update the information, and then save the changes.
+情報を更新し、変更を保存します。
+
 ## Remove a Team Member
 
-To remove someone from the team, follow these steps:
+チームから誰かを外すには、以下の手順に従ってください:
 
-1. Find the team member on the list and then, in the Actions column, click the delete (trashcan) icon.
-1. At the confirmation message, click **Delete Team Member**. The team member is removed from the team.
+1. リストでチームメンバーを見つけ、Actions 列で delete (trashcan) アイコンをクリックします。
+1. 確認メッセージが表示されたら、**Delete Team Member** をクリックします。チームメンバーがチームから削除されます。
 
 ## Log In for the First Time as a Team Member
 
-If you were added as a new team member, we send you a confirmation email to validate your address. Follow these steps:
+新規チームメンバーとして追加された場合、メールアドレスを確認するための確認メールが送信されます。以下の手順に従ってください:
 
-1. Click in the email to accept the invitation.
-1. Click through to update your password from the initial default.
-1. Log in to the UID2 Portal using your email and your new password. This confirms your account.
-1. On first login, review and accept the UID2 Sharing Portal Terms of Service.
+1. メールに記載されている accept the invitation をクリックします。
+1. パスワードを初期設定から更新するには、クリックしてください。
+1. メールアドレスと新しいパスワードを使用して、UID2 Portal にログインします。これでアカウントが確認されます。
+1. 初回ログイン時に、UID2 Sharing Portal 利用規約を確認し、同意します。
 
 <!-- eng_jp -->

@@ -1,6 +1,6 @@
 ---
 title: UID2 Portal Overview
-description: General information about the UID2 Portal.
+description: UID2 Portal に関する一般情報。
 hide_table_of_contents: false
 sidebar_position: 01
 ---
@@ -13,23 +13,23 @@ sidebar_position: 01
 - [Set Up Your Account](#set-up-your-account)
 -->
 
-The UID2 Portal is your one-stop shop for setting up and configuring your UID2 account. In this self-serve portal, you can complete all basic setup steps for UID2 participation. Click through on the links below for more information about each activity:
+UID2 Portal は、UID2 アカウントを設定・構成するためのワンストップショップです。このセルフサービスポータルでは、UID2 参加のための基本的な設定手順をすべて完了することができます。各アクティビティの詳細については、以下のリンクをクリックしてください：
 
-- Request an account, configure basic account information such as name and location, and log in for the first time: see Getting Started with the UID2 Portal](portal-getting-started.md).
-- Review your profile: see [Participant Information](participant-info.md).
-- Configure individual sharing partners or groups of sharing partners: see [Sharing Permissions](sharing-permissions.md).
-- Add team members who will have permission to manage your account: see [Team Members](team-members.md).
-- Set up designated email contacts who will be notified of news or updates: see [Email Contacts](email-contacts.md).
+- アカウントを申請し、名前や場所などの基本的なアカウント情報を設定し、初めてログインする: [Getting Started with the UID2 Portal](portal-getting-started.md) を参照してください。
+- 自分のプロフィールを確認する: [Participant Information](participant-info.md) を参照してください。
+- 個人の共有パートナーまたは共有パートナーのグループを設定する: [Sharing Permissions](sharing-permissions.md) を参照してください。
+- アカウントの管理権限を持つチームメンバーを追加する: [Team Members](team-members.md) を参照してください。
+- ニュースやアップデートを通知する指定メール連絡先を設定する: [Email Contacts](email-contacts.md) を参照してください。
 
-You can also:
-- Reset your password: see [Reset Password](portal-getting-started.md#reset-password).
+また、以下のこともできます：
+- パスワードのリセット: [Reset Password](portal-getting-started.md#reset-password) を参照してください。
 
 ## Access the UID2 Portal
 
-To get access to the portal, ask your UID2 contact for permission to create an account. Your contact will send you a link to get started.
+ポータルにアクセスするには、UID2 の担当者にアカウント作成の許可を求めてください。担当者がリンクをお送りします。
 
 ## Set Up Your Account
 
-To set up your account, see [Getting Started with the UID2 Portal](portal-getting-started.md).
+アカウントを設定するには、[Getting Started with the UID2 Portal](portal-getting-started.md) を参照してください。
 
 <!-- eng_jp -->

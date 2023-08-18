@@ -1,6 +1,6 @@
 ---
 title: Implementing Sharing
-description: Learn how to implement sharing.
+description:  シェアリングの実施方法について説明します。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -13,96 +13,98 @@ sidebar_position: 04
 - [Steps to Implement Sharing Using Snowflake](#steps-to-implement-sharing-using-snowflake) 
 - [Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)](#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only) -->
 
-Setting up UID2 sharing requires some steps by each participant:
+UID2 sharing の設定には、各参加者がいくつかの手順を踏む必要があります:
 
-- The **sender**, who sends UID2 tokens to an authorized sharing participant.
-- The **receiver**, an authorized sharing participant who receives the UID2 tokens and decrypts them.
+- **送信者** は、認可された共有参加者に UID2 Token を送信します。
+- **受信者** は、認可された共有参加者から UID2 Token を受信して復号化します。
 
->NOTE: If you are a publisher who is sharing UID2 tokens in the bid stream, see [Sharing in the Bid Stream](sharing-bid-stream.md).
+>NOTE: ビッドストリームで UID2 Token を共有するパブリッシャーの場合は、[Sharing in the Bid Stream](sharing-bid-stream.md) を参照してください。
+
 
 ## Sharing Steps: Summary
 
-At a very high level, the following are the steps to set up and configure sharing:
+共有の設定と構成は、次の手順で行います:
 
-1. All users must set up an account and configure sharing options. See [Steps to Implement Sharing: UID2 Portal Account Setup](#steps-to-implement-sharing-uid2-portal-account-setup).
+1. すべてのユーザーがアカウントを設定し、共有オプションを設定する必要があります。[Steps to Implement Sharing: UID2 Portal Account Setup](#steps-to-implement-sharing-uid2-portal-account-setup) を参照してください。
 
-2. To implement sharing in your code, choose from the following, depending on the integration option you're using:
+2. コードに共有を実装するには、使用しているインテグレーションオプションに応じて、以下から選択します:
 
    - [Steps to Implement Sharing With an SDK](#steps-to-implement-sharing-with-an-sdk)
    - [Steps to Implement Sharing Using Snowflake](#steps-to-implement-sharing-using-snowflake)
 
 ## Steps to Implement Sharing: UID2 Portal Account Setup
 
-In the UID2 Portal, the sender and the receiver must set up an account, and the sender must configure sharing permissions.
+UID2 Portal では、送信者と受信者がアカウントを設定し、送信者が共有許可を設定する必要があります。
 
-The sender only needs to set up sharing permission once for each receiver or participant type. However, if you want to add new sharing permissions or change existing ones, you'll need to go back to adjust your settings.
+送信者が共有許可を設定する必要があるのは、受信者または参加者のタイプごとに1回だけです。ただし、新しい共有権限を追加したり、既存の共有権限を変更したりする場合は、もう一度設定を調整する必要があります。
 
-For details, see [UID2 Portal Overview](../portal/portal-overview.md) and follow the links for each task.
+詳細については、[UID2 Portal Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
+
 
 ## Steps to Implement Sharing with an SDK
 
-The following steps are for all sharing participants who are using an SDK&#8212;senders and receivers.
+以下の手順は、SDK を使用しているすべての共有参加者のためのものです&#8212;送信者と受信者。
 
-1. Decide which SDK to use, from the following options, and review the examples in the applicable sharing documentation to see what the sharing code might look like.
+1. 以下のオプションから使用する SDK を決定し、該当する共有ドキュメントの例を確認して、共有コードがどのように見えるかを確認します。
 
    | SDK/Integration Tool | Link to Sharing Section |
    | :--- | :--- | 
-   | C# / .NET | [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers) |
-   | C++ | [UID2 SDK for C++: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-cplusplus.md#usage-for-uid2-sharers) |
-   | Java | [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers) |
-   | Python | [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers) |
+   | C# / .NET｜ [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers) |
+   | C++ ｜ [UID2 SDK for C++: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-cplusplus.md#usage-for-uid2-sharers) ｜
+   | Java ｜ [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers)
+   | Python | [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers)
 
-2. Integrate the SDK into your code to implement each step, depending on whether your role is sender or receiver. To see code examples for the language you're using, follow the link in the table provided in Step 1.
-   1. Both senders and receivers: define the UID2 client.
+2. SDK をコードにインテグレーションして、あなたの役割が送信者であるか受信者であるかに応じて、各ステップを実装します。使用している言語のコード例を見るには、step 1 で提供された表のリンクをたどってください。
+   1. 送信者と受信者の両方: UID2 クライアントを定義します。
    
-   2. Both senders and receivers: define the schedule for refreshing encryption keys.
+   2. 送信者と受信者の両方: 暗号化鍵を更新するスケジュールを定義します。
    
-      Recommended refresh interval is hourly. For an example, see [Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)](#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only).
+      推奨される更新間隔は1時間ごとです。例については、[暗号化/復号化キーの共有のためのリフレッシュ・ケイデンス(SDKのみ)](#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only) を参照してください。
 
-   3. Senders, set up encryption.
+   3. 送信者は暗号化を設定します。
 
-   4. Receivers, set up decryption.
+   4. 受信者は復号化を設定します。
 
 ## Steps to Implement Sharing Using Snowflake
 
->NOTE: Snowflake sharing is not yet available&#8212;coming soon.
+>NOTE: Snowflake共有はまだ利用できません。#8212;近日公開
 
-The following steps are for Snowflake users who want to take part in UID2 sharing, either as senders or receivers.
+以下の手順は、送信者または受信者として UID2 sharing に参加したい Snowflake ユーザーのためのものです。
 
-1. Review the examples in the Snowflake Integration Guide<!-- , [Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers) section -->, to see what the sharing code might look like.
+1. Snowflake インテグレーションガイドの例を確認し、共有コードがどのように見えるかを確認します。
 
-2. Integrate the SDK into your code, according to whether your role is sender or receiver<!-- . Use the code examples in the documentation referenced in the Snowflake Integration Guide, [UID2 Sharing Example](../guides/snowflake_integration.md#uid2-sharing-example) -->:
+2. あなたの役割が送信者であるか受信者であるかに従って、SDK をあなたのコードにインテグレーションします：
 
-   - Senders, set up encryption.
+   - 送信者は暗号化を設定します。
 
-   - Receivers, set up decryption.
+   - 受信者は復号化を設定します。
 
 ## Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)
 
-If you're using an SDK, defining the schedule for refreshing the sharing keys is part of step 2.
+SDK を使用している場合、共有キーの更新スケジュールを定義するのは step 2 です。
 
-For long/continuously running processes, call the `uid2client.refresh()` function once per hour. This allows the SDK to fetch the latest keys for decryption. When a new sharing permission is enabled, the additional set of encryption keys needed to decrypt the data sent by the new sharing sender is returned the next time the sharing receiver calls the `uid2client.refresh()` function. This process is handled by the SDK.
+長時間あるいは継続的に実行されるプロセスでは、1 時間に 1 回 `uid2client.refresh()` 関数をコールします。これにより、SDK は復号のために最新の鍵を取得します。新しい共有許可が有効になると、新しい共有送信者が送信したデータを復号するために必要な暗号鍵の追加セットは、共有受信者が次に `uid2client.refresh()` 関数を呼び出したときに返されます。この処理は SDK によって処理されます。
 
->NOTE: If you're using Snowflake, you don't need to do this step. The Snowflake UID2 integration takes care of refreshing the keys.
+>NOTE: Snowflake を使用している場合は、この手順を実行する必要はありません。Snowflake UID2 インテグレーションがキーのリフレッシュを行います。
 
 ### Decryption Key Refresh Example
 
-This example illustrates how the `uid2client.refresh()` function enables a new sharing permission. In this example, Advertiser ABC wants to send data to Data Provider XYZ.
+この例では、`uid2client.refresh()` 関数がどのように新しい共有許可を有効にするかを説明します。この例では、広告主 ABC はデータプロバイダー XYZ にデータを送信したいとします。
 
-1. 12:00 pm:
+1. 午後12時：
 
-   The sharing permission is not yet enabled.
+   共有パーミッションはまだ有効になっていません。
 
-   Data Provider XYZ calls `uid2client.refresh()`. The decryption key for Advertiser ABC is not returned, so Data Provider XYZ cannot decrypt the UID2 tokens.
+   データプロバイダー XYZ は `uid2client.refresh()` を呼び出します。広告主 ABC の復号鍵が返されないので、データプロバイダー XYZ は UID2 Token を復号できません。
 
-2. 12:30 pm:
+2. 午後12時30分：
 
-   Advertiser ABC logs in to the UID2 Portal and creates a sharing permission with Data Provider XYZ.
+   広告主 ABC が UID2 Portal にログインし、データプロバイダー XYZ との共有許可を作成します。
 
-3. 1:00 pm:
+3. 午後1時：
 
-   Data Provider XYZ, on an hourly cadence, again calls `uid2client.refresh()`. Because there is a new sharing permission, the key for Advertiser ABC is returned in the response.
+   データプロバイダー XYZ は、1時間ごとに再び `uid2client.refresh()` を呼び出します。新しい共有パーミッションがあるので、広告主 ABC のキーがレスポンスで返されます。
 
-   Data Provider XYZ can now decrypt any UID2 token received from Advertiser ABC into a raw UID2.
+   データプロバイダー XYZ は、広告主 ABC から受け取った UID2 Token を raw UID2 に復号できるようになります。
 
 <!-- eng_jp -->
