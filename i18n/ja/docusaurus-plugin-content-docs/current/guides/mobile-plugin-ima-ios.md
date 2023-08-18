@@ -29,7 +29,7 @@ This plugin is in the following open-source GitHub repository:
 
 To run this plugin, install the following:
 
-1. [Google IMA SDK v3.19.1](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side/history)
+1. [Google IMA SDK v3.19.1 or later](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side)
 1. [UID2 SDK for iOS v0.2.0](../sdks/uid2-sdk-ref-ios.md)
 1. UID2 IMA Plugin for iOS v0.2.0
 
@@ -42,10 +42,3 @@ Install the UID2 iOS IMA Plugin v0.2.0 via Swift Package Manager to an existing 
 ```
 .package(url: https://github.com/IABTechLab/uid2-ios-plugin-google-ima.git, exact: "0.2.0")
 ```
-
-## Troubleshooting 
-
-To resolve any issue that might arise, it's recommended that you copy the two source code files from the UID2 IMA Plugin directly into your app. Be sure to use the same class and file names, to ensure that the Google IMA SDK can find the files at runtime. The two files are:
-
-- `UID2IMASecureSignalsAdapter.swift`
-- `AdvertisingTokenNotFoundError.swift`
