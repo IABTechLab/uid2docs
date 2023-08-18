@@ -102,14 +102,25 @@ const sidebars = {
         'guides/google-ss-integration',
         'guides/mobile-plugin-gma-android',
         'guides/mobile-plugin-gma-ios',
-        'guides/operator-guide-aws-marketplace',
-        'guides/operator-guide-azure-enclave',
-        'guides/operator-guide-gcp-enclave',
+
+        {
+          type: 'category',
+          label: 'Operator Guides',
+          link: {
+            type: 'generated-index',
+          },
+          collapsed: true,
+          items: [
+            'guides/operator-guide-aws-marketplace',
+            'guides/operator-guide-azure-enclave',
+            'guides/operator-guide-gcp-enclave',
+          ],
+        },
       ],
     },
 
-
-
+  
+  
     'summary-doc-v2',
     
 
