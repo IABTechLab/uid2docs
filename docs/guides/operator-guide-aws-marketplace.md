@@ -1,5 +1,7 @@
 ---
 title: UID2 Operator - AWS Marketplace Integration
+sidebar_label: AWS Marketplace Integration
+pagination_label: UID2 Operator - AWS Marketplace Integration
 description: Integration information for AWS Marketplace private operator.
 hide_table_of_contents: false
 sidebar_position: 17
