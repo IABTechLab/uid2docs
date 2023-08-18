@@ -17,7 +17,7 @@ This plugin simplifies integration with Google Mobile Ads (GMA) for any publishe
 
 <!-- As of 2023-07-15 -->
 
-This documentation is for the UID2 GMA Plugin for Android version 0.4.0.
+This documentation is for the UID2 GMA Plugin for Android version 0.5.0 and later.
 
 ## GitHub Repository
 
@@ -30,14 +30,14 @@ This plugin is in the following open-source GitHub repository:
 To run this plugin, install the following:
 
 - [Google Mobile Ads SDK v22.0.0+](https://developers.google.com/admob/android/sdk)
-- [UID2 SDK for Android v0.4.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk) (for documentation, see [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md))
-- [UID2 Android GMA Plugin v0.4.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-gma)
+- [UID2 SDK for Android v0.5.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk) (for documentation, see [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md))
+- [UID2 Android GMA Plugin v0.5.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-gma/)
 
 ## Installation
 
 Prerequisite: Install the Google Mobile Ads SDK and the UID2 Android SDK.
 
-Install the UID2 Android GMA Plugin v0.4.0 to an existing app with the UID2 Android SDK and Google IMA SDK installed. There are two installation options:
+Install the UID2 Android GMA Plugin v0.5.0 to an existing app with the UID2 Android SDK and Google IMA SDK installed. There are two installation options:
 
 - [Gradle](#gradle)
 - [Maven](#maven)
@@ -47,7 +47,7 @@ Install the UID2 Android GMA Plugin v0.4.0 to an existing app with the UID2 Andr
 To install with Gradle, add the SDK as a dependency in the `build.gradle` file:
 
 ``` javascript
-implementation 'com.uid2:uid2-android-sdk-gma:0.4.0'
+implementation 'com.uid2:uid2-android-sdk-gma:0.5.0'
 ```
 
 ### Maven 
@@ -58,6 +58,6 @@ To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 <dependency>
   <groupId>com.uid2</groupId>
   <artifactId>uid2-android-sdk-gma</artifactId>
-  <version>0.4.0</version>
+  <version>0.5.0</version>
 </dependency>
 ```
