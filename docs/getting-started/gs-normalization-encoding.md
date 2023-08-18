@@ -20,6 +20,8 @@ This page provides information about normalizing and encoding personal informati
 ## Introduction
 When you're taking user information such as email addresses, and following the steps to create a raw UID2 and/or a UID2 advertising token, it's very important that you follow the required steps exactly. Whether you need to normalize the information or not, whether you hash it or not, follow the steps exactly. By doing so, you can ensure that the UID2 value you create can be securely and anonymously matched up with other instances of online behavior by the same user.
 
+>Note: Raw UID2s, and their associated UID2 tokens, are case sensitive. When working with UID2, it's important to pass all IDs and tokens without changing the case. Mismatched IDs can cause ID parsing or token decryption errors.
+
 ## Types of Directly Identifying Information (DII)
 UID2 supports the following types of directly identifying information:
 - Email address
