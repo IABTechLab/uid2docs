@@ -29,7 +29,7 @@ This plugin is in the following open-source GitHub repository:
 
 To run this plugin, install the following:
 
-1. [Google IMA SDK v3.18.5](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side/history)
+1. [Google IMA SDK v3.19.1](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side/history)
 1. [UID2 SDK for iOS v0.2.0](../sdks/uid2-sdk-ref-ios.md)
 1. UID2 IMA Plugin for iOS v0.1.0
 

@@ -29,7 +29,7 @@ This plugin is in the following open-source GitHub repository:
 
 To run this plugin, install the following:
 
-- [Google IMA SDK v3.29.0](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side/history) (ONLY 3.29.0: not any higher version)
+- [Google IMA SDK v3.30.3](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side/history)
 - [UID2 Android SDK v0.4.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-ima)  (for documentation, see [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md))
 - UID2 IMA Plugin for Android v0.1.0
 
