@@ -69,6 +69,7 @@ sidebar_position: 10
 <ul>
 <li><a href="#gl-salt">Salt</a></li>
 <li><a href="#gl-salted-hash">Salted hash</a></li>
+<li><a href="#gl-secret">Secret</a></li>
 <li><a href="#gl-secure-signals">Secure signals</a></li>
 <li><a href="#gl-sha-256">SHA-256</a></li>
 <li><a href="#gl-sso">SSO</a></li>
@@ -220,6 +221,9 @@ JSON Web Token (JWT) は、Web 上で一方の当事者から別の当事者に�
 
 <dt class="jump-anchor" id="gl-salted-hash">Salted hash</dt>
 <dd><a href="#gl-hash">hash</a> 関数を適用する前に入力文字列に <a href="#gl-salt">salt</a> 値を追加すると、結果はソルトハッシュとなります。入力値がハッシュ化される前にソルト化されると、ハッシュを持つ攻撃者は、同じ出力に到達するために多くの可能な入力を試して入力値を決定することができなくなります。</dd>
+
+<dt class="jump-anchor" id="gl-secret">Secret</dt>
+<dd><a href="#gl-client-secret">client secret</a> を参照してください</dd>
 
 <dt class="jump-anchor" id="gl-secure-signals">Secure signals</dt>
 <dd>
