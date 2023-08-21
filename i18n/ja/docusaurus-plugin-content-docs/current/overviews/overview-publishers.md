@@ -38,17 +38,43 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 ## Resources
 
-The following documentation resources are available for publishers to implement UID2.
+パブリッシャーが UID2 を実装するために、以下のドキュメントリソースが利用可能です:
+- [Web Integration](#web-integration)
+- [Mobile and Google GMA integration](#mobile-and-google-gma-integration)
+- [Operator Deployment](#operator-deployment)
+
+### Web Integration
+
+以下のドキュメントリソースは、パブリッシャー向けのウェブ、Prebid、Google Ad Manager のインテグレーションに関するものです。
 
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
-| Client-Side (Web) SDK | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | UID2 を使用したクライアント ID の確立と、パブリッシャーの Advertising Token の取得プロセスを容易にするクライアントサイドJavaScript SDKです。 | Publishers |
-| Client-Side (Web) Integration Guide | [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) | パブリッシャー向けのこのインテグレーションガイドは、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用する標準的なウェブインテグレーションシナリオを説明しています。 | Publishers |
-| Server-Side Integration Guide  | [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) | このインテグレーションガイドは、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用していないパブリッシャー向けです。| Publishers |
-| Publisher/SSP Integration with GAM | [Publisher - Google Ad Manager Secure Signals](../guides/google-ss-integration.md) | このインテグレーションガイドでは、パブリッシャーが UID2 を Google Ad Manager の セキュアシグナル機能（旧称: Encrypted Signals for Publishers、ESP）と併用する際に必要な追加手順について説明しています。 | Publishers |
-| Operator | [UID2 Operator - AWS Marketplace Integration Guide](../guides/operator-guide-aws-marketplace.md) | AWS MarketplaceのPrivate Operatorサービスを設定する手順です。 | Private Operators<br/>Publishers |
-| Operator| [UID2 Operator - Google Cloud Platform Confidential Computing package](../guides/operator-guide-gcp-enclave.md) | Google Cloud Platform Confidential Computing パッケージ（GCP）の設定方法について説明しています。 | Private Operators<br/>Publishers |
-| Operator Integration Guide | [Operator - Microsoft Azure](../guides/operator-guide-azure-enclave.md) | IMPORTANT: このドキュメントは現在、PoCの段階です。<br/> Microsoft Azure Confidential Computing プラットフォーム上で実行する Private Operator Service のセットアップ手順です。  | Private Operators<br/>Publishers |
+| Prebid | [Prebid Integration Guide](../guides/integration-prebid.md) | UID2 と直接インテグレーションし、RTB ビッドストリームで Prebid から渡される identity トークンを生成したいパブリッシャー向けのインテグレーションガイドです。 | Publishers |
+| Client-Side (Web) SDK | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | Client-Side JavaScript SDK は、UID2 を使用してクライアントの identity を確立し、パブリッシャーの Advertising Token を取得するプロセスを容易にします。| Publishers |
+| Client-Side (Web) Integration Guide | [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) | このパブリッシャー向けのインテグレーションでは、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用する標準的なウェブインテグレーションシナリオについて説明します。 | Publishers |
+| Server-Side Integration Guide  | [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) | このインテグレーションガイドは、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用していないパブリッシャー向けです。 | Publishers |
+| Publisher/SSP Integration with GAM | [Publisher - Google Ad Manager Secure Signals](../guides/google-ss-integration.md) | このインテグレーションガイドでは、UID2 を Google Ad Manager の Secure Signals 機能（旧称: Encrypted Signals for Publishers, ESP）で使用するパブリッシャーに必要な追加手順について説明します。 | Publishers |
+
+### Mobile and Google GMA integration
+
+以下のドキュメントリソースは、モバイルインテグレーション、およびモバイルのコンテキストにおける Google インテグレーションに関するものです。
+
+| Integration Type| Documentation | Content Description | Audience |
+| :--- | :--- | :--- | :--- |
+| Mobile: Android | [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) | このインテグレーションガイドは、UID2 を使用してクライアントの identity を確立し、Android デバイス上で Advertising Token を取得したいパブリッシャー向けのものです。 | Publishers |
+| Mobile: iOS  | [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) | このインテグレーションガイドは、UID2 を使用してクライアントの identity を確立し、iOS デバイス上で Advertising Token を取得したいパブリッシャー向けのものです。 | Publishers |
+| Mobile: GMA for Android | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) | このインテグレーションガイドは、Google Mobile Ads（GMA）SDK を使用するパブリッシャーが、Android アプリからの広告リクエストに UID2 データを含めることを可能にします。 | Publishers |
+| Mobile: GMA for iOS | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) | このインテグレーションガイドは、Google Mobile Ads（GMA）SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストに UID2 データを含めることを可能にします。 | Publishers |
+
+### Operator Deployment
+
+以下のドキュメントリソースは、Private Operator 環境に関するものです。
+
+| Integration Type| Documentation | Content Description | Audience |
+| :--- | :--- | :--- | :--- |
+| Operator | [UID2 Operator - AWS Marketplace Integration Guide](../guides/operator-guide-aws-marketplace.md) | AWS Marketplace の Private Operator Service を設定する手順です。 | Private Operators<br/>Publishers |
+| Operator| [UID2 Operator - Google Cloud Platform Confidential Computing package](../guides/operator-guide-gcp-enclave.md) | Google Cloud Platform Confidential Computing パッケージ（GCP）のセットアップ手順です。 | Private Operators<br/>Publishers |
+| Operator Integration Guide | [Operator - Microsoft Azure](../guides/operator-guide-azure-enclave.md) | IMPORTANT: このドキュメントは現在、PoC の段階です。UID2 Administrator に [連絡](../getting-started/gs-account-setup.md#contact-info) してください。<br/>Microsoft Azure Confidential Computing platform 上で実行する Private Operator Service のセットアップ手順です。 | Private Operators<br/>Publishers |
 
 ## Workflow for Publishers
 
