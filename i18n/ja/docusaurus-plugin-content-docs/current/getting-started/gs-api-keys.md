@@ -11,7 +11,7 @@ UID2 <a href="/docs/intro#participants">参加者</a> はそれぞれ、クラ�
 
 API Key と Client Secretにより、参加者は [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) に接続し、API エンドポイントを呼び出すことができます。これらの値は、サービスへの参加者を識別します。
 
-ここでは、API Key と Client Secret について説明します：
+ここでは、API Key と Client Secret について説明します:
 - UID2 参加者は、複数のキーを持つことができます。
 - 各キーには、どのエンドポイントで使用できるかを決定する一連の権限があります。
 - 各キーには、対応する Client Secret があります。

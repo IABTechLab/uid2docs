@@ -14,7 +14,7 @@ UID2 との直接インテグレーションを行い、ヘッダービディン
 
 ヘッダービディングに Prebid を使用しているパブリッシャーの場合、Prebid ヘッダービディング実装が UID2 もサポートできるように、いくつかの追加ステップがあります。
 
-まだ UID2 account を持っていない場合は、UID2 account をセットアップする必要があります: [Account Setup](../getting-started/gs-account-setup.md)　を参照してください。
+まだ UID2 account を持っていない場合は、UID2 account をセットアップする必要があります: [Account Setup](../getting-started/gs-account-setup.md) を参照してください。
 
 ## UID2 Prebid Module Page
 

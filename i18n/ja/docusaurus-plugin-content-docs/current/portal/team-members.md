@@ -33,7 +33,7 @@ UID2 Portal の Team Members ページでは、以下のようなアカウント
 
 ## Add a Team Member
 
-以下のステップを完了させます：
+以下のステップを完了させます:
 
 1. UID2 Portal アカウントにログインします。
 1. Team Members ページで、Add Team Member をクリックします。

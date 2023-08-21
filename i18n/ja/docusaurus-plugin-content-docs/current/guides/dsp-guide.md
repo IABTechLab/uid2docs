@@ -9,7 +9,7 @@ sidebar_position: 05
 
 このガイドは、ビッドストリームで UID2 の取引を行うDSPを対象としています。
 
-<!-- 以下のセクションが含まれています：
+<!-- 以下のセクションが含まれています:
 
 - [Integration Steps（インテグレーション手順）](#integration-steps)
   - [Honor User Opt-Outs（ユーザーオプトアウトの受け入れ）](#honor-user-opt-outs)
@@ -52,7 +52,7 @@ Server-Side SDK のいずれか([SDKs](../sdks/summary-sdks.md)を参照)を利�
 
 ![](images/dsp-guide-optout-check-mermaid.png)
 
-`established_timestamp` の値が `optout_timestamp` の値より小さい場合、ユーザーはオプトアウトしているため、UID2はRTBに使用されるべきではありません。このような場合、入札のために代替　ID　を送信するか、入札を行わないかは DSP 次第です。
+`established_timestamp` の値が `optout_timestamp` の値より小さい場合、ユーザーはオプトアウトしているため、UID2はRTBに使用されるべきではありません。このような場合、入札のために代替 ID を送信するか、入札を行わないかは DSP 次第です。
 
 <b>Check Opt-Out</b> ステップのロジックは以下のとおりです。
 

@@ -9,7 +9,7 @@ sidebar_position: 03
 
 Advertising Token が指定されたハッシュ化された、またはハッシュ化されていないメールアドレスまたは電話番号と一致するかどうかを検証します。
 
-Used by:　このエンドポイントは、主にパブリッシャーが使用します。
+Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
 > NOTE: このエンドポイントは、主に新しいインテグレーションのテストとトラブルシューティングのために用意されています。
 
@@ -29,7 +29,7 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 
 ### Unencrypted JSON Body Parameters
 
-- Body Parameter の表にあるように、以下の4つの有効なオプションのうち1つだけを含めます： `email`、`email_hash`、`phone`、`phone_hash` のいずれかです。`email`、`email_hash`、`phone`、`phone_hash` です。テストするパラメータには、リストされている値を正確に指定してください。
+- Body Parameter の表にあるように、以下の4つの有効なオプションのうち1つだけを含めます: `email`、`email_hash`、`phone`、`phone_hash` のいずれかです。`email`、`email_hash`、`phone`、`phone_hash` です。テストするパラメータには、リストされている値を正確に指定してください。
 
 詳細については、[FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。
 
@@ -122,5 +122,5 @@ echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXl
 
 2. 返された `advertising_token` の値を次のステップで使用するために保存します。
 3. ステップ 2 で保存した `advertising_token` を `token` プロパティの値として、ステップ 1 で送信した `email`、`email_hash`、`phone`、`phone_hash` の値を使用して [POST /token/validate](../endpoints/post-token-validate.md) リクエストを送信します。
-    - `true`　のレスポンスは、ステップ　1　でリクエストとして送った　DII　が、ステップ　1　のレスポンスで受け取ったトークンと一致していることを示します。
+    - `true` のレスポンスは、ステップ 1 でリクエストとして送った DII が、ステップ 1 のレスポンスで受け取ったトークンと一致していることを示します。
     - `false` のレスポンスは、メールアドレス、電話番号、またはそれぞれのハッシュを送信する方法に問題があるかもしれないことを示します。

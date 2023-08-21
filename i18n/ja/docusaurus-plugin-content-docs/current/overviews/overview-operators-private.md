@@ -15,7 +15,7 @@ UID2 の Private Operator は、ファーストパーティーの[個人を識�
 
 このページは、UID2 の生成と管理を行う Private Operator（以前は Closed Operator と呼ばれていました）になることを選択し、プライベート環境で UID2 Operator Service を運営するためのページです。
 
-Private Operator として UID2 に参加することで得られるメリットの一部を次に示します：
+Private Operator として UID2 に参加することで得られるメリットの一部を次に示します:
 - 選択したパートナー間で暗号化・有効化される顧客データについて、プライバシーに配慮したワークフローを維持することができます。
 - 自分のファーストパーティーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を共有せずに使用して UID2 に参加することができます。
 - UID2 のリソース、パフォーマンス、レイテンシーを完全にコントロールすることができます。
@@ -27,7 +27,7 @@ Private Operator として UID2 に参加することで得られるメリット
 
 Private Operatorを選択した場合、以下の実施方法があります:
 
-- クラウドサービスのセットアップを使用します。UID2 は、以下のクラウドサービスプロバイダー（[リソース](#resources)セクションのドキュメントを参照）上の[enclave](../ref-info/glossary-uid.md#gl-enclave)で UID2 をホストすることをサポートしています（実装に要する努力は中程度です）：
+- クラウドサービスのセットアップを使用します。UID2 は、以下のクラウドサービスプロバイダー（[リソース](#resources)セクションのドキュメントを参照）上の[enclave](../ref-info/glossary-uid.md#gl-enclave)で UID2 をホストすることをサポートしています（実装に要する努力は中程度です）:
   - Amazon Web Services (AWS)
   - Microsoft Azure
   - Google Cloud Platform (GCP)
@@ -56,4 +56,4 @@ Private Operator が UID2 を実装するために、以下のドキュメント
 
 ## Frequently Asked Questions
 
-UID2 フレームワークに関するFAQです： [よくある質問](../getting-started/gs-faqs.md) を参照してください。
+UID2 フレームワークに関するFAQです: [よくある質問](../getting-started/gs-faqs.md) を参照してください。

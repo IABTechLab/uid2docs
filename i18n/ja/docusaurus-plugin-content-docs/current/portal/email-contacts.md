@@ -25,7 +25,7 @@ UID2 Portal では、UID2 の最新アップデートやリリースに関する
 
 ## Configuring Email Contacts
 
-Email Contacts ページでは、UID2 の更新について通知を受ける個人を設定するための、以下のような操作を実行できます：
+Email Contacts ページでは、UID2 の更新について通知を受ける個人を設定するための、以下のような操作を実行できます:
 
 - [Add an email contact](#add-an-email-contact)
 - [Edit information for an email contact](#edit-information-for-an-email-contact)
@@ -42,7 +42,7 @@ Email Contacts ページでは、UID2 の更新について通知を受ける個
    
      - 個人の場合: メールアドレスに関連付けられた名前または役割。
      - メールアドレスグループの場合: グループのテキスト名。例えば、`Engineering`。
-   - Email Alias: 以下のいずれかを入力してください：
+   - Email Alias: 以下のいずれかを入力してください:
    
      - 個人の場合: メールアドレス。
      - グループの場合: グループに有効なメールアドレス。例えば、`engineering@example.com`。
@@ -59,7 +59,7 @@ Email Contacts ページでは、UID2 の更新について通知を受ける個
 
 ## Remove an Email Contact
 
-メールコンタクトを削除するには、以下の手順に従ってください：
+メールコンタクトを削除するには、以下の手順に従ってください:
 
 1. リストで連絡先を見つけ、Actions 列で delete (trashcan) アイコンをクリックします。
 1. 確認メッセージが表示されたら、削除を確定します。

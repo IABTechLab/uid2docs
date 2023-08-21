@@ -54,7 +54,7 @@ banner_description: Unified ID 2.0 でキャンペーンのアクティベーシ
 1. どの実装オプションを使用するかを決めます。
 1. 認証情報を受け取り（[API keys](../getting-started/gs-api-keys.md) を参照）、選択したオプションのインテグレーションガイドの指示に従います。
 
-     Note：リクエストメッセージは必ずUID2まで暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md)を参照してください。
+     Note: リクエストメッセージは必ずUID2まで暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md)を参照してください。
 1. テストします。
 1. 本番稼働します。
 

@@ -16,8 +16,8 @@ UID2 API リクエストの暗号化と各レスポンスの復号化につい�
 - API を使用するには、クライアントの API キーに加えて、クライアントシークレットが必要です。
 - 独自のカスタムスクリプトを作成するか、以下のセクションで提供される Python スクリプトを使用できます。
 - リクエストとレスポンスには、96 ビットの初期化ベクトルと 128 ビットの認証タグを持つ AES/GCM/NoPadding 暗号化アルゴリズムが使用されます。
-- リクエストの生の暗号化されていない JSON ボディは、バイナリの　[暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) にラップされ、その後 [暗号化リクエストエンベローブ](#encrypted-request-envelope) にしたがって暗号化とフォーマットが行われます。
-- レスポンス JSON ボディはバイナリの　[復号化済みレスポンスデータエンベローブ](#unencrypted-response-data-envelope) にラップされ、[暗号化レスポンスエンベローブ](#encrypted-response-envelope) にしたがって暗号化・整形されます。
+- リクエストの生の暗号化されていない JSON ボディは、バイナリの [暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) にラップされ、その後 [暗号化リクエストエンベローブ](#encrypted-request-envelope) にしたがって暗号化とフォーマットが行われます。
+- レスポンス JSON ボディはバイナリの [復号化済みレスポンスデータエンベローブ](#unencrypted-response-data-envelope) にラップされ、[暗号化レスポンスエンベローブ](#encrypted-response-envelope) にしたがって暗号化・整形されます。
 
 ## Workflow
 
@@ -86,7 +86,7 @@ UID2 API のハイレベルなリクエスト・レスポンスワークフロ�
 | Offset (Bytes) | Size (Bytes) | Description                                                                                                                                                                |
 | :------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0              | 8            | UNIX タイムスタンプ（ミリ秒単位）です。int64 のビッグエンディアンでなければなりません。                                                                                    |
-| 8              | 8            | Nonce: レスポンスが有効であるとみなされるためには、これは [暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) の nonce と一致する必要があります。　 |
+| 8              | 8            | Nonce: レスポンスが有効であるとみなされるためには、これは [暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) の nonce と一致する必要があります。 |
 | 16             | N            | UTF-8 エンコーディングでシリアライズされたレスポンス JSON ドキュメントをペイロードとします。                                                                               |
 
 ### Response Example
@@ -116,7 +116,7 @@ UID2 API のハイレベルなリクエスト・レスポンスワークフロ�
 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントでは、スクリプトは `refresh_token` と `refresh_response_key` に、事前に [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) で取得した値を使用します。
 
 ### Prerequisites
-このスクリプトは `pycryptodomex` と `requests` パッケージを必要とします。これらは以下の手順でインストールできます：
+このスクリプトは `pycryptodomex` と `requests` パッケージを必要とします。これらは以下の手順でインストールできます:
 ```console
 pip install pycryptodomex
 pip install requests

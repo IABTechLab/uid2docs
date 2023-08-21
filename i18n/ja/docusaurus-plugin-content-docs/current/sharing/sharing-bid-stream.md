@@ -34,7 +34,7 @@ UID2 Portal では、送信者と受信者がアカウントを設定し、共�
 
 ## UID2 Sharing Workflow: Integrating with the API
 
-ビッドストリームで UID2 Token を送信する場合は、API または以下の SDK のいずれかを使用してインテグレーションできます：
+ビッドストリームで UID2 Token を送信する場合は、API または以下の SDK のいずれかを使用してインテグレーションできます:
 
 - Java server-side SDK（[UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) を参照してください）。
 - Python server-side SDK ([UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md) を参照してください)。
@@ -52,7 +52,7 @@ API または指定された server-side SDK を介して、DII から UID2 Toke
 
    >NOTE: DSPは、server-side SDK または Snowflake インテグレーションを使用して UID2 とインテグレーションする必要があります。DSPについては、[Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary)(step 2) を参照してください。
 
-1. パブリッシャー: UID2 Portal で共有許可を承認します：
+1. パブリッシャー: UID2 Portal で共有許可を承認します:
 
    1. パブリッシャー: 送信者の UID2 Token の復号化を許可する DSP を定義します。
    1. パブリッシャーおよび DSP: UID2 Portal アカウントを作成します。
@@ -65,7 +65,7 @@ API または指定された server-side SDK を介して、DII から UID2 Toke
    1. メールアドレスまたは電話番号から UID2 Token を生成します。
    1. UID2 Token をビッドストリームに投入します。
 
-1. DSP は以下の手順を実行します：
+1. DSP は以下の手順を実行します:
 
    1. UID2 Token を受信します。
    1. UID2 Token ンを raw UID2 に復号して使用します。

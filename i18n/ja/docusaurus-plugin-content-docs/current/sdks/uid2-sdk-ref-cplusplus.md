@@ -48,7 +48,7 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 
 | Parameter | Description | Recommended Value |
 | :--- | :--- | :--- |
-| `endpoint` | UID2 Service　のエンドポイント。 | N/A |
+| `endpoint` | UID2 Service のエンドポイント。 | N/A |
 | `authKey` | クライアントに付与された認証トークン。UID2 へのアクセスについては、 [Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。 | N/A |
 
 ## Interface 
@@ -148,6 +148,6 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
 
 ## FAQs
 
-DSPに関するよくある質問については、[FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps)　を参照してください。
+DSPに関するよくある質問については、[FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps) を参照してください。
 
 すべてのリストは  [Frequently Asked Questions](../getting-started/gs-faqs.md) を参照してください。

@@ -42,7 +42,7 @@ UID2 参加者間で UID2 データを安全に共有するには、raw UID2 を
 
 UID2 sharing のワークフローは、ビッドストリームで UID2 Token を共有する場合を除くすべての共有者について、以下の手順で構成されます:
 
-1. 送信側と受信側： 以下のいずれかを使用して、UID2 sharing とインテグレーションします:
+1. 送信側と受信側: 以下のいずれかを使用して、UID2 sharing とインテグレーションします:
 
    - sharing のための SDK: [Steps to Implement Sharing with an SDK](sharing-implementing.md#steps-to-implement-sharing-with-an-sdk) を参照してください。
    - sharing のための Snowflake インテグレーション: [Steps to Implement Sharing Using Snowflake](sharing-implementing.md#steps-to-implement-sharing-using-snowflake) を参照してください。
@@ -73,7 +73,7 @@ UID2 sharing のワークフローは、ビッドストリームで UID2 Token �
 
 >Note: もしあなたがパブリッシャーであれば、[Token Example for Publishers in the Bid Stream](sharing-bid-stream.md#token-example-for-publishers-in-the-bid-stream) を参照してください。
 
-UID2 共有者は、以下の例に示すように、2段階のプロセスを踏みます。手順は以下の通りです：
+UID2 共有者は、以下の例に示すように、2段階のプロセスを踏みます。手順は以下の通りです:
 
 1. メールアドレスまたは電話番号を raw UID2 に変換します:
 

@@ -223,9 +223,9 @@ JSON Web Token (JWT) は、Web 上で一方の当事者から別の当事者に�
 
 <dt class="jump-anchor" id="gl-secure-signals">Secure signals</dt>
 <dd>
-Google Ad Managerの機能。セキュアシグナル機能（旧称：Encrypted Signals for Publishers、略称：ESP）により、パブリッシャーは信頼できるサードパーティのバイイングパートナーとシグナルを安全に共有することができます。パブリッシャーは、<a href="https://admanager.google.com/home/">Google Ad Manager</a> と <a href="https://support.google.com/admanager/answer/6321605?hl=en">Google Ad Manager Ad Exchange (AdX)</a> を介して、Googleが承認した入札者に「暗号化された」ユーザーIDを渡すことができます。</dd>
+Google Ad Managerの機能。セキュアシグナル機能（旧称: Encrypted Signals for Publishers、略称: ESP）により、パブリッシャーは信頼できるサードパーティのバイイングパートナーとシグナルを安全に共有することができます。パブリッシャーは、<a href="https://admanager.google.com/home/">Google Ad Manager</a> と <a href="https://support.google.com/admanager/answer/6321605?hl=en">Google Ad Manager Ad Exchange (AdX)</a> を介して、Googleが承認した入札者に「暗号化された」ユーザーIDを渡すことができます。</dd>
 <dd>
-詳しくは、<a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a>（2番目のセクション）と　<a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a>（いずれもGoogle）を参照してください。</dd>
+詳しくは、<a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a>（2番目のセクション）と <a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a>（いずれもGoogle）を参照してください。</dd>
 <dd>
 Google Secure signals の UID2 サポートの詳細については、<a href="../guides/google-ss-integration">Google Ad Manager Secure Signals Integration Guide</a> を参照してください。</dd>
 
@@ -253,7 +253,7 @@ Unified ID 2.0（UID2）識別子には、<a href="#gl-raw-uid2">raw UID2s</a> �
 <dt class="jump-anchor" id="gl-uid2-service">UID2 service</dt>
 <dd>
 Unified ID 2.0（UID2）Service は、<a href="#gl-uid2-framework">UID2 framework</a> をまとめて実装し、関連する UID2 機能へのアクセスをクライアントに提供するコンポーネント、API エンドポイント、その他のタイプのソリューションのあつまりです。</dd>
-<dd>"UID2 service" という用語は、UID2 <a href="#gl-operator-service">Operator Service</a>　という意味でも使われます。</dd>
+<dd>"UID2 service" という用語は、UID2 <a href="#gl-operator-service">Operator Service</a> という意味でも使われます。</dd>
 
 <dt class="jump-anchor" id="gl-uid2-token">UID2 token (advertising token)</dt>
 <dd>Unified ID 2.0（UID2）Token は Advertising Token とも呼ばれ、<a href="#gl-raw-uid2">raw UID2</a> を暗号化したものです。</dd>

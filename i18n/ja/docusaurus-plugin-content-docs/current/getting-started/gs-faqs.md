@@ -9,7 +9,7 @@ sidebar_position: 20
 
 UID2 に関するよくある質問は、以下のカテゴリーに分かれています:
 
-<!-- このページには、以下のものがあります：
+<!-- このページには、以下のものがあります:
 
 - [FAQs&#8212;General](#faqsgeneral)
 - [FAQs for Publishers](#faqs-for-publishers)
@@ -76,7 +76,7 @@ UID2 Token は、認証後にサーバー側で生成する必要があります
 
 メールアドレス`optout@email.com`または電話番号`+000000000`を使用して、Refresh Token ワークフローをテストできます。リクエストでいずれかのパラメータ値を使用すると、常に`refresh_token`を含む ID レスポンスが生成され、ログアウト レスポンスが返されます。
 
-1. DII　がメールアドレスか電話番号かに応じて、次のいずれかの値を使用して [POST /token/generate](../endpoints/post-token-generate.md) 要求を送信します：
+1. DII がメールアドレスか電話番号かに応じて、次のいずれかの値を使用して [POST /token/generate](../endpoints/post-token-generate.md) 要求を送信します:
    - `email`の値として`optout@email.com`を指定します。
    - `optout@email.com`のハッシュを `email_hash` 値として指定します。
    - `phone`の値として `+00000000000` を指定する。
@@ -130,7 +130,7 @@ UID2 Service は、ランダムな初期化ベクトルを使用してトーク�
 
 `optout@email.com` のメールアドレスまたは `+00000000000` の電話番号を使用して、Refresh Token ワークフローをテストできます。メールアドレスまたは電話番号をリクエストに使用すると、常に `refresh_token` を含む ID レスポンスが生成され、ログアウトのレスポンスになります。
 
-1. DII がメールアドレスか電話番号かに応じて、次のいずれかの値を使用して [POST /token/generate](../endpoints/post-token-generate.md) 要求を送信します：
+1. DII がメールアドレスか電話番号かに応じて、次のいずれかの値を使用して [POST /token/generate](../endpoints/post-token-generate.md) 要求を送信します:
    - `email`の値として`optout@email.com`を指定します。
    - `optout@email.com`のハッシュを `email_hash` 値として指定します。
    - `phone`の値として `+00000000000` を指定する。

@@ -147,7 +147,7 @@ identityStatus 変数は、SDK が管理している現在の UID2 Identity の�
 
 ## Code Samples
 
-以下のコードサンプルは、UID2 iOS SDK を使用して　UID2 を管理する具体的なアクティビティを実行する例です。
+以下のコードサンプルは、UID2 iOS SDK を使用して UID2 を管理する具体的なアクティビティを実行する例です。
 
 初期 UID2 Identity を設定します:
 

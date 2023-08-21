@@ -14,7 +14,7 @@ banner_description: 変化し続ける広告業界においてオーディエン
 
 ## Audience
 
-このページは、以下のUID2参加者のためのものです：
+このページは、以下のUID2参加者のためのものです:
 
 - UID2 を使用して RTB ビッドストリーム用の ID トークンを生成したいが、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしたいウェブアセットを持つパブリッシャー。
 - UID2 Token を SSP 経由でビッドストリームに伝播させるすべての組織&#8212;例えば、ID プロバイダーや SSO プロバイダーなどです。
@@ -45,7 +45,7 @@ The following documentation resources are available for publishers to implement 
 | Client-Side (Web) SDK | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | UID2 を使用したクライアント ID の確立と、パブリッシャーの Advertising Token の取得プロセスを容易にするクライアントサイドJavaScript SDKです。 | Publishers |
 | Client-Side (Web) Integration Guide | [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) | パブリッシャー向けのこのインテグレーションガイドは、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用する標準的なウェブインテグレーションシナリオを説明しています。 | Publishers |
 | Server-Side Integration Guide  | [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) | このインテグレーションガイドは、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用していないパブリッシャー向けです。| Publishers |
-| Publisher/SSP Integration with GAM | [Publisher - Google Ad Manager Secure Signals](../guides/google-ss-integration.md) | このインテグレーションガイドでは、パブリッシャーが UID2 を Google Ad Manager の セキュアシグナル機能（旧称：Encrypted Signals for Publishers、ESP）と併用する際に必要な追加手順について説明しています。 | Publishers |
+| Publisher/SSP Integration with GAM | [Publisher - Google Ad Manager Secure Signals](../guides/google-ss-integration.md) | このインテグレーションガイドでは、パブリッシャーが UID2 を Google Ad Manager の セキュアシグナル機能（旧称: Encrypted Signals for Publishers、ESP）と併用する際に必要な追加手順について説明しています。 | Publishers |
 | Operator | [UID2 Operator - AWS Marketplace Integration Guide](../guides/operator-guide-aws-marketplace.md) | AWS MarketplaceのPrivate Operatorサービスを設定する手順です。 | Private Operators<br/>Publishers |
 | Operator| [UID2 Operator - Google Cloud Platform Confidential Computing package](../guides/operator-guide-gcp-enclave.md) | Google Cloud Platform Confidential Computing パッケージ（GCP）の設定方法について説明しています。 | Private Operators<br/>Publishers |
 | Operator Integration Guide | [Operator - Microsoft Azure](../guides/operator-guide-azure-enclave.md) | IMPORTANT: このドキュメントは現在、PoCの段階です。<br/> Microsoft Azure Confidential Computing プラットフォーム上で実行する Private Operator Service のセットアップ手順です。  | Private Operators<br/>Publishers |
@@ -66,7 +66,7 @@ The following documentation resources are available for publishers to implement 
 1. UID2 とインテグレーションしたいプロパティを特定します。
 1. UID2 契約書にサインします。
 1. UID2認証キー（[APIキー](../getting-started/gs-api-keys.md)）を受け取ります。
-1. SDK　を使用するか、UID2 API　と直接インテグレーションを行い、該当するドキュメントを使用して、UID2　へのインテグレーションを構築します。
+1. SDK を使用するか、UID2 API と直接インテグレーションを行い、該当するドキュメントを使用して、UID2 へのインテグレーションを構築します。
 
      NOTE: リクエストメッセージは必ずUID2まで暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md)を参照してください。
 1. テストします:
@@ -78,7 +78,7 @@ The following documentation resources are available for publishers to implement 
 
 ## Frequently Asked Questions for Publishers
 
-パブリッシャー向け FAQ の一覧は、以下のいずれかを参照してください：
+パブリッシャー向け FAQ の一覧は、以下のいずれかを参照してください:
 
 - [SDK を使用しているパブリッシャー向け FAQ](../getting-started/gs-faqs.md#faqs-for-publishers-using-an-sdk)
 - [SDK を使用していないパブリッシャー向け FAQ](../getting-started/gs-faqs.md#faqs-for-publishers-not-using-an-sdk)

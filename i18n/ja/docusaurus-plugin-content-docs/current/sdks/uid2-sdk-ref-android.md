@@ -85,7 +85,7 @@ implementation 'com.uid2.uid2-android-sdk:0.4.0'
 
 ### Installing with Maven 
 
-Maven を使用してインストールするには、`pom.xml` ファイルに依存関係として SDK を追加します：
+Maven を使用してインストールするには、`pom.xml` ファイルに依存関係として SDK を追加します:
 
 ``` xml
 <dependency> 
@@ -100,7 +100,7 @@ Maven を使用してインストールするには、`pom.xml` ファイルに�
 最初の UID2 Identity は、実装アプリケーションが生成し、UID2 SDK に渡す必要があります。セキュリティ要件のため、UID2 Mobile SDK は新しい UID2 Identity を作成できません。
 
 UID2 Mobile SDKは、ID が確立された後、UID2 Identity のリフレッシュを実行できます。これは、リフレッシュ機能が UID2 Identity の一部である Refresh Token に依存しているからです。
-　
+
 **UID2Manager** シングルトンは、UID2 Android および iOS SDK の主要な開発者 API です。UID2 Identity の保存、リフレッシュ、取得を行います。
 
 Android では、`UID2Manager` を使用する前に手動で初期化する必要があります。[Android Initialization](#android-initialization) を参照してください。
@@ -174,7 +174,7 @@ class MyApplication : Application() {
 
 ## Code Samples
 
-以下のコードサンプルは、UID2 Android SDK を使用して　UID2 を管理する具体的なアクティビティを実行する例です。
+以下のコードサンプルは、UID2 Android SDK を使用して UID2 を管理する具体的なアクティビティを実行する例です。
 
 初期 UID2 Identity を設定します:
 
