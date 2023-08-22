@@ -29,9 +29,13 @@ This plugin is in the following open-source GitHub repository:
 
 To run this plugin, install the following:
 
-1. [Google IMA SDK v3.19.1 or later](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side/history)
-1. [UID2 SDK for iOS v0.2.0](../sdks/uid2-sdk-ref-ios.md)
-1. UID2 IMA Plugin for iOS v0.2.0
+1. Google IMA SDK v3.19.1 or later:
+   - [SDK](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side)
+   - [Release history](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side/history)
+1. UID2 SDK for iOS v0.2.0:
+   - [SDK](https://github.com/IABTechLab/uid2-ios-sdk)
+   - [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
+1. [UID2 IMA Plugin for iOS v0.2.0](https://github.com/IABTechLab/uid2-ios-plugin-google-ima)
 
 ## Installation
 
