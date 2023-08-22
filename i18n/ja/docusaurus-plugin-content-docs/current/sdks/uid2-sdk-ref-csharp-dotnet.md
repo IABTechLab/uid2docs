@@ -12,7 +12,9 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 <!-- This guide includes the following information:
 
 - [Overview](#overview)
-- [Audience](#audience)
+- [Functionality](#functionality)
+- [Version](#version)
+- [GitHub Repository/Binary](#github-repositorybinary)
 - [Initialization](#initialization)
 - [Interface](#interface)
   - [Response Content](#response-content)
@@ -36,9 +38,15 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 
 このライブラリは、.NET Standard 2.1. のユニットテストを使用しています。サンプルアプリは .NET 5.0 を使用しています。
 
-## SDK Repository
+## GitHub Repository/Binary
 
-この SDK は GitHub で公開されています: [UID2 SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md)
+この SDK は以下のオープンソースの GitHub リポジトリにあります:
+
+- [UID2 SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md)
+
+バイナリはこちらに公開されています:
+
+- [https://www.nuget.org/packages/UID2.Client](https://www.nuget.org/packages/UID2.Client)
 
 ## Initialization
 

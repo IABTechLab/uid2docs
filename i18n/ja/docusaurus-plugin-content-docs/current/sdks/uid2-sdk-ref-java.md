@@ -18,7 +18,9 @@ UID2 SDK for Java (Server-Side) を使用すると、以下のことが容易に
 <!-- This guide includes the following information:
 
 - [Overview](#overview)
-- [Audience](#audience)
+- [Functionality](#functionality)
+- [Version](#version)
+- [GitHub Repository/Binary](#github-repositorybinary)
 - [Initialization](#initialization)
 - [Interface](#interface)
   - [Response Content](#response-content)
@@ -42,9 +44,15 @@ UID2 SDK for Java (Server-Side) を使用すると、以下のことが容易に
 
 この SDK には Java version 1.8 以降が必要です。
 
-## SDK Repository
+## GitHub Repository/Binary
 
-この SDK は GitHub で公開されています: [UID2 SDK for Java](https://github.com/IABTechLab/uid2-client-java/blob/master/README.md)
+この SDK は以下のオープンソースの GitHub リポジトリにあります:
+
+- [UID2 SDK for Java](https://github.com/IABTechLab/uid2-client-java/blob/master/README.md)
+
+バイナリは Maven リポジトリで公開されています:
+
+- [https://central.sonatype.com/artifact/com.uid2/uid2-client](https://central.sonatype.com/artifact/com.uid2/uid2-client)
 
 ## Initialization
 

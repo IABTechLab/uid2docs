@@ -12,7 +12,9 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 <!-- This guide includes the following information:
 
 - [Overview](#overview)
-- [Audience](#audience)
+- [Functionality](#functionality)
+- [Version](#version)
+- [GitHub Repository/Binary](#github-repositorybinary)
 - [Initialization](#initialization)
 - [Interface](#interface)
   - [Response Content](#response-content)
@@ -36,9 +38,15 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 
 この SDK には C++ version 11 が必要です。
 
-## SDK Repository
+## GitHub Repository/Binary
 
-この SDK は GitHub で公開されています: [UID2 SDK for C++](https://github.com/IABTechLab/uid2-client-cpp11/blob/master/README.md)
+この SDK は以下のオープンソースの GitHub リポジトリにあります:
+
+- [UID2 SDK for C++](https://github.com/IABTechLab/uid2-client-cpp11/blob/master/README.md).
+
+Release tags は以下の GitHub で入手できますが、バイナリーは自分でビルドする必要があります:
+
+- https://github.com/IABTechLab/uid2-client-cpp11/tags
 
 ## Initialization
 

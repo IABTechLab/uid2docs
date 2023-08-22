@@ -12,24 +12,27 @@ sidebar_position: 02
 - コンテンツパブリッシャーのインテグレーション手順は、[UID2 SDK Integration Guide](../guides/publisher-client-side.md) を参照してください。
 - [アプリケーション例](https://example-jssdk-integ.uidapi.com/)と関連ドキュメントは、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md)ガイドを参照してください。
 
-<!-- このガイドには、以下の情報が含まれています。
+<!-- This guide includes the following information:
 
-- [Terminology（用語解説）](#terminology)
-- [Include the SDK Script（SDK スクリプトのインクルード）](#include-the-sdk-script)
-- [Workflow Overview（ワークフローの概要）](#workflow-overview)
-  - [Workflow States and Transitions（ワークフローの状態と遷移）](#workflow-states-and-transitions)
-  - [Background Token Auto-Refresh（バックグラウンドでのトークン自動更新）](#background-token-auto-refresh)
-- [API Reference（API リファレンス）](#api-reference)
-  - [constructor()](#constructor)
-  - [init()](#initopts-object-void)
-  - [getAdvertisingToken()](#getadvertisingtoken-string)
-  - [getAdvertisingTokenAsync()](#getadvertisingtokenasync-promise)
-  - [isLoginRequired()](#isloginrequired-boolean)
-  - [disconnect()](#disconnect-void)
-  - [abort()](#abort-void)
-- [UID2 Cookie Format（UID2 クッキーフォーマット）](#uid2-cookie-format)
-  - [Properties（プロパティ）](#properties)
-  - [Contents Structure（コンテンツ構造）](#contents-structure) -->
+- [Functionality](#functionality)
+- [SDK Version](#sdk-version)
+- [GitHub Repository/Binary](#github-repositorybinary)
+- [Terminology](#terminology)
+- [Include the SDK Script](#include-the-sdk-script)
+- [Workflow Overview](#workflow-overview)
+   - [Workflow States and Transitions](#workflow-states-and-transitions)
+   - [Background Token Auto-Refresh](#background-token-auto-refresh)
+ - [API Reference](#api-reference)
+   - [constructor()](#constructor)
+   - [init()](#initopts-object-void)
+   - [getAdvertisingToken()](#getadvertisingtoken-string)
+   - [getAdvertisingTokenAsync()](#getadvertisingtokenasync-promise)
+   - [isLoginRequired()](#isloginrequired-boolean)
+   - [disconnect()](#disconnect-void)
+   - [abort()](#abort-void)
+- [UID2 Cookie Format](#uid2-cookie-format)
+  - [Properties](#properties)
+  - [Contents Structure](#contents-structure) -->
 
 ## Functionality
 
@@ -43,7 +46,17 @@ sidebar_position: 02
 
 このドキュメントは、UID2 SDK for JavaScript version 2 用です。
 
-## terminology
+## GitHub Repository
+
+この SDK は以下のオープンソースの GitHub リポジトリにあります:
+
+- [https://github.com/iabtechlab/uid2-web-integrations](https://github.com/iabtechlab/uid2-web-integrations)
+
+<!-- The binary is published in these locations:
+- NPM: [https://www.npmjs.com/package/@uid2/uid2-sdk](https://www.npmjs.com/package/@uid2/uid2-sdk)
+- CDN: [https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js](https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js) (** v3 JS SDK: stash per SW 8/15/23**) -->
+
+## Terminology
 
 この文書では、以下の用語が適用されます:
 

@@ -12,7 +12,7 @@ sidebar_position: 12
 - [Functionality](#functionality)
 - [SDK Version](#sdk-version)
 - [Features](#features)
-- [GitHub Open-Source Repository/Binary](#github-open-source-repositorybinary)
+- [GitHub Repository/Binary](#github-repositorybinary)
 - [Minimum Requirements](#minimum-requirements)
 - [Installation](#installation)
   -  [Installing with Gradle ](#installing-with-gradle)
@@ -48,7 +48,7 @@ UID2 Android SDK は、Android アプリに代わって UID2 Identity を管理�
 
 デフォルトでは、SDK は有効期限に基づいて UID2 Identity を自動的にリフレッシュします。ただし、これを無効にして、実装アプリが UID2 Identity のライフサイクルを手動で管理できるようにすることもできます。
 
-## GitHub Open-Source Repository/Binary
+## GitHub Repository/Binary
 
 この SDK は以下のオープンソースの GitHub リポジトリにあります:
 

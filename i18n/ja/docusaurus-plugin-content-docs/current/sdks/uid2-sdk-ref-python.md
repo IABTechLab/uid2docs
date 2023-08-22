@@ -12,7 +12,9 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 <!-- This guide includes the following information:
 
 - [Overview](#overview)
-- [Audience](#audience)
+- [Functionality](#functionality)
+- [Version](#version)
+- [GitHub Repository/Package](#github-repositorypackage)
 - [Initialization](#initialization)
 - [Interface](#interface)
   - [Response Content](#response-content)
@@ -36,9 +38,15 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 
 この SDK には  Python 3.6 以降が必要です。
 
-## SDK Repository
+## GitHub Repository/Package
 
-この SDK は GitHub で公開されています: [UID2 SDK for Python](https://github.com/IABTechLab/uid2-client-python/blob/master/README.md)
+この SDK は以下のオープンソースの GitHub リポジトリにあります:
+
+- [UID2 SDK for Python](https://github.com/IABTechLab/uid2-client-python/blob/master/README.md)
+
+パッケージは以下で公開されています:
+
+- [https://pypi.org/project/uid2-client/](https://pypi.org/project/uid2-client/)
 
 ## Initialization
 
