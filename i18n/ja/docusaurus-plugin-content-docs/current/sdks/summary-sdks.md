@@ -18,11 +18,13 @@ SDK の機能を確認して使用する SDK を決定し、SDK の表をクリ�
 
 | SDK | Client or Server | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- |  :--- | :--- | :--- | :--- |
-|UID2 SDK for JavaScript | Client-Side | No | No | No | Yes |
-|UID2 SDK for Java | Server-Side | Yes | Yes | Yes | Yes |
-|UID2 SDK for Python | Server-Side | Yes | Yes | No | No |
-|UID2 SDK for C# / .NET | Server-Side | Yes | Yes | No | No |
-|UID2 SDK for C++ | Server-Side | Yes | Yes | No | No |
+|UID2 SDK for JavaScript | Client-Side| Not supported | Not supported | Not supported | Supported |
+|UID2 SDK for Java | Server-Side | Supported | Supported | Supported | Supported |
+|UID2 SDK for Python | Server-Side | Supported | Supported | Supported | Supported |
+|UID2 SDK for C# / .NET | Server-Side | Supported | Supported | Not supported | Not supported |
+|UID2 SDK for C++ | Server-Side | Supported | Supported | Not supported | Not supported |
+|UID2 SDK for iOS | Client-Side| Not supported | Not supported | Not supported | Supported |
+|UID2 SDK for Android | Client-Side | Not supported | Not supported | Not supported | Supported |
 
 ## SDKs
 

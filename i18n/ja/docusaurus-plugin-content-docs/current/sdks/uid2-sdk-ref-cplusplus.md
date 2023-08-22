@@ -24,14 +24,13 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 
 ここで説明する関数は、設定に必要な情報やライブラリから取得できる情報を定義しています。以下に定義するパラメータとプロパティ名は擬似コードです。実際のパラメータやプロパティ名は言語によって異なりますが、ここで説明する情報と同様のものになります。
 
-## Audience
+## Functionality
 
-この SDK は、Server-Side のコーディングに C++ を使用している DSP または UID2 Sharer のために、UID2 とのインテグレーションを簡素化します。
+このSDKは、サーバーサイドのコーディングに C++ を使用している DSP または UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
 
-| Audience | Functions |
-| :--- | :--- |
-| DSPs | 入札リクエストからの UID2 Token の復号化をサポートします。 |
-| Sharers | UID2 Token の暗号化または復号化をサポートします。 |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
+| :--- | :--- | :--- | :--- |
+| Supported | Supported | Not supported | Not supported |
 
 ## Version
 

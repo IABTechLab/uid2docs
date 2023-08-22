@@ -31,6 +31,14 @@ sidebar_position: 02
   - [Properties（プロパティ）](#properties)
   - [Contents Structure（コンテンツ構造）](#contents-structure) -->
 
+## Functionality
+
+このSDKは、UID2 をサポートしたいすべてのパブリッシャーのために、UID2 とのインテグレーションを簡素化します。以下の表は、この SDK がサポートする機能を示しています。
+
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
+| :--- | :--- | :--- | :--- |
+| Not supported | Not supported | Not supported | Supported |
+
 ## SDK Version
 
 このドキュメントは、UID2 SDK for JavaScript version 2 用です。
