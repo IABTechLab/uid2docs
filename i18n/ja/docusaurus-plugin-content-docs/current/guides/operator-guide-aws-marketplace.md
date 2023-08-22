@@ -9,17 +9,19 @@ sidebar_position: 17
 
 UID2 Operator は、UID2 エコシステムにおける API サーバーです。AWS Marketplace で稼働する Private Operator サービスの場合、UID2 Operator ソリューションは[AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave テクノロジーで強化されています。これは、UID2 情報を不正なアクセスから保護するための追加のセキュリティ対策です。
 
-<!-- このガイドには、以下の情報が含まれています:
+<!-- This guide includes the following information:
 
-- [UID2 Operator on AWS Marketplace Product（AWS Marketplace プロダクトの UID2 Operator）](#uid2-operator-on-aws-marketplace-product)
-  - [Prerequisites（前提条件）](#prerequisites)
-  - [Resources Created（作成されるリソース）](#resources-created)
-  - [Customization Options（カスタマイズオプション）](#customization-options)
-- [Deployment（デプロイ）](#deployment)
-- [Checking UID2 Operator Status（UID2 Operator のステータス確認）](#checking-uid2-operator-status)
-- [Creating a Load Balancer（ロードバランサーの作成）](#creating-a-load-balancer)
-- [Upgrading the UID2 Operator（UID2 Operator のアップグレード）](#upgrading-the-uid2-operator)
-- [Technical Support（テクニカルサポート）](#technical-support) -->
+- [UID2 Operator on AWS Marketplace Product](#uid2-operator-on-aws-marketplace-product)
+  -  [Prerequisites](#prerequisites)
+  -  [Resources Created](#resources-created)
+  -  [Customization Options](#customization-options)
+  -  [Security Group Policy](#security-group-policy)
+  -  [VPC Chart](#vpc-chart)
+- [Deployment](#deployment)
+- [Checking UID2 Operator Status](#checking-uid2-operator-status)
+- [Creating a Load Balancer](#creating-a-load-balancer)
+- [Upgrading the UID2 Operator](#upgrading-the-uid2-operator)
+- [Technical Support](#technical-support) -->
 
 ## UID2 Operator on AWS Marketplace Product
 

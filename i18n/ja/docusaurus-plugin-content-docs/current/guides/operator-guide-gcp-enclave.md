@@ -9,17 +9,17 @@ sidebar_position: 20
 
 本ガイドでは、[Google Cloud](https://cloud.google.com/docs/overview/) Platform のセキュアなエンクレーブで UID2 Operator Service を設定するための情報を提供します。
 
-<!-- 以下の内容が記載されています:
+<!-- It includes the following information:
 
-- [Overview（はじめに）](#overview)
-- [Build（ビルド）](#build)
-- [Attestation Requirements（認証の要件）](#attestation-requirements)
-- [Integration Deployment（インテグレーション環境へのデプロイ）](#integration-deployment)
+- [Overview](#overview)
+- [Build](#build)
+- [Attestation Requirements](#attestation-requirements)
+- [Integration Deployment](#integration-deployment)
   - [Cloud-init.yaml File](#cloud-inityaml-file)
   - [Cloud-init Example](#cloud-init-example)
   - [Create VM Instance](#create-vm-instance)
-- [Production Deployment（本番環境へのデプロイ）](#production-deployment)
-- [Upgrading（アップグレード）](#upgrading) -->
+- [Production Deployment](#production-deployment)
+- [Upgrading](#upgrading) -->
 
 ## Overview
 

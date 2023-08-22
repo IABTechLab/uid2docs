@@ -9,15 +9,15 @@ sidebar_position: 03
 
 このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を利用した ID トークンを生成したいパブリッシャーを対象としています。
 
-<!-- 以下のセクションが含まれています:
+<!-- It includes the following sections:
 
-- [Introduction（はじめに）](#introduction)
-- [Integration Steps（インテグレーション手順）](#integration-steps)
-  - [Establish Identity: User Login（アイデンティティを確立する: ユーザーログイン）](#establish-identity-user-login)
-  - [Bid Using UID2 Tokens（UID2 Token を使った入札）](#bid-using-uid2-tokens)
-  - [Refresh Tokens（トークンのリフレッシュ）](#refresh-tokens)
-  - [Clear Identity: User Logout（アイデンティティの消去: ユーザーログアウト）](#clear-identity-user-logout)
-- [FAQs（よくある質問）](#faqs) -->
+- [Introduction](#introduction)
+- [Integration Steps ](#integration-steps)
+  - [Establish Identity: User Login](#establish-identity-user-login)
+  - [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
+  - [Refresh Tokens](#refresh-tokens)
+  - [Clear Identity: User Logout](#clear-identity-user-logout)
+- [FAQs](#faqs) -->
 
 ## Introduction
 

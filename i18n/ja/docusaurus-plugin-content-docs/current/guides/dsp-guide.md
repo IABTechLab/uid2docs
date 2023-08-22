@@ -9,12 +9,12 @@ sidebar_position: 05
 
 このガイドは、ビッドストリームで UID2 の取引を行うDSPを対象としています。
 
-<!-- 以下のセクションが含まれています:
+<!-- It includes the following sections:
 
-- [Integration Steps（インテグレーション手順）](#integration-steps)
-  - [Honor User Opt-Outs（ユーザーオプトアウトの受け入れ）](#honor-user-opt-outs)
-  - [Decrypt UID2 Tokens for RTB Use（RTB で使用する UID2 Token の復号化）](#decrypt-uid2-tokens-for-rtb-use)
-- [FAQs（よくある質問）](#faqs) -->
+* [Integration Steps](#integration-steps)
+   - [Honor User Opt-Outs](#honor-user-opt-outs)
+   - [Decrypt UID2 Tokens for RTB Use](#decrypt-uid2-tokens-for-rtb-use)
+* [FAQs](#faqs) -->
 
 ## Integration Steps
 
