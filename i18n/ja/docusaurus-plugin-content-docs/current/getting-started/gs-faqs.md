@@ -9,7 +9,7 @@ sidebar_position: 20
 
 UID2 に関するよくある質問は、以下のカテゴリーに分かれています:
 
-<!-- このページには、以下のものがあります:
+<!-- This page includes:
 
 - [FAQs&#8212;General](#faqsgeneral)
 - [FAQs for Publishers](#faqs-for-publishers)

@@ -10,7 +10,7 @@ sidebar_position: 08
 <!-- It includes the following:
 
 - [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)
-- [UID2 Sharing Workflow: Integrating with the API](#uid2-sharing-workflow-integrating-with-the-api)
+- [UID2 Sharing Workflow: Sharing in the Bid Stream](#uid2-sharing-workflow-sharing-in-the-bid-stream)
 - [Token Example for Publishers in the Bid Stream](#token-example-for-publishers-in-the-bid-stream) -->
 
 パブリッシャーは、API エンドポイントまたは SDK を介して [directly identifying information（直接識別情報: DII）](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) を UID2 Token に暗号化し、UID2 Token をビッドストリームに送信することで、UID2 を共有します。
@@ -32,7 +32,7 @@ UID2 Portal では、送信者と受信者がアカウントを設定し、共�
 
 詳細については、[UID2 Portal Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
 
-## UID2 Sharing Workflow: Integrating with the API
+## UID2 Sharing Workflow: Sharing in the Bid Stream
 
 ビッドストリームで UID2 Token を送信する場合は、API または以下の SDK のいずれかを使用してインテグレーションできます:
 
@@ -50,7 +50,7 @@ API または指定された server-side SDK を介して、DII から UID2 Toke
    - API endpoint との直接インテグレーション: [Endpoints](/docs/category/endpoints-v2) を参照してください。
    - API endpoint との直接インテグレーションでは、[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを使用して UID2 Token を生成しますが、UID2 SDK for JavaScript（[UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください）を使用して UID2 Token をリフレッシュします。
 
-   >NOTE: DSPは、server-side SDK または Snowflake インテグレーションを使用して UID2 とインテグレーションする必要があります。DSPについては、[Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary)(step 2) を参照してください。
+   >NOTE: DSPは、サーバーサイド SDK のいずれかを使用して UID2 とインテグレーションする必要があります。[Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary)(step 2) を参照してください。
 
 1. パブリッシャー: UID2 Portal で共有許可を承認します:
 

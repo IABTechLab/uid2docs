@@ -118,15 +118,16 @@ UID2 共有者は、以下の例に示すように、2段階のプロセスを�
 </tbody>
 </table>
 
-<!-- ## UID2 Token Pass-Through
-The UID2 token is designed so that it can be seen by all but can only be used by UID2 participants that have access to the decryption keys.
-
-For example, UID2 tokens are habitually passed through the bid stream from a publisher to a DSP. Although a UID2 token might go through several parties, such as an SSP, it can be decrypted only by an authorized UID2 participant. On its journey through the bid stream, the UID2 token can safely pass through one or more intermediaries.
-
-The same is true of UID2 tokens generated for sharing. (**GWH_KT_04 KT (update 8/8) to report back whether we need this/how to fix it.  Here is my suggestion to say: Only trusted sharing participants, that you've chosen to share with, have access to your decryption keys. **) -->
-
-## Sharing in the Bid Stream
+## Sharing in the Bid Strea
 
 パブリッシャーがビッドストリームで UID2 Token を共有するプロセスは、別のプロセスです。詳細は [Sharing in the Bid Stream](sharing-bid-stream.md) を参照してください。
+
+## UID2 Token Pass-Through
+
+UID2 Token は、元となる raw UID2 が同じであっても、そこから UID2 Token が生成されるたびにトークンの値が異なるように設計されています。つまり、UID2 Token は誰でも見ることができますが、復号鍵にアクセスできる UID2 参加者のみが使用できます。
+
+例えば、UID2 Token は通常、ビッドストリームを通じてパブリッシャーから DSP に渡されます。UID2 Token は、SSP など複数の関係者を経由する可能性がありますが、UID2 Token を復号化できるのは UID2 参加者のみです。ビッドストリームを通過する際、UID2 Token は1つ以上の仲介者を安全に通過できます。
+
+UID2 Sharing 参加者間のすべての共有シナリオで同じことが言えます。UID2 Token は、UID2 以外の参加者を経由して渡すことができます。
 
 <!-- eng_jp -->
