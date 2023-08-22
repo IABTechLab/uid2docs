@@ -26,7 +26,12 @@ sidebar_position: 14
 
 You can use the UID2 SDK for iOS to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens on iOS devices.
 
->NOTE: If you want to use the UID2 SDK for iOS to send UID2 tokens to Google Mobile Ads (GMA), see also [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md).
+The following iOS-related plugins, and associated documentation, are also available:
+
+| Purpose | Product/Documentation |
+| :--- | :--- |
+| To use the Google Mobile Ads (GMA) SDK to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) to Google Mobile Ads (GMA) | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) |
+| To use the Google Interactive Media Ads SDK for iOS to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288?hl=en-GB) in ad requests from iOS apps | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) |
 
 ## Functionality
 
@@ -160,5 +165,3 @@ Get the UID2 token (advertising token) to pass to the Advertising SDK:
 ``` javascript
 UID2Manager.shared.getAdvertisingToken()
 ```
-
-<!-- eng_jp -->
