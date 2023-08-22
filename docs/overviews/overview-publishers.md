@@ -64,6 +64,8 @@ The following documentation resources relate to mobile integrations, and Google 
 | Mobile: iOS  | [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) | This integration guide is for publishers who want to establish client identity using UID2 and retrieve advertising tokens on iOS devices. | Publishers |
 | Mobile: GMA for Android | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) | This integration guide enables publishers that use the Google Mobile Ads (GMA) SDK to include UID2 tokens in ad requests from their Android apps. | Publishers |
 | Mobile: GMA for iOS | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) | This integration guide enables publishers that use the Google Mobile Ads (GMA) SDK to include UID2 tokens in ad requests from their iOS apps. | Publishers |
+| Mobile: IMA for Android | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) | This integration guide enables publishers that use the Google Interactive Media Ads (IMA) SDK to include UID2 tokens in ad requests from their Android apps. | Publishers |
+| Mobile: IMA for iOS | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) | This integration guide enables publishers that use the Google Interactive Media Ads (IMA) SDK to include UID2 tokens in ad requests from their iOS apps. | Publishers |
 
 ### Operator Deployment
 
