@@ -104,9 +104,6 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 ## Frequently Asked Questions for Publishers
 
-パブリッシャー向け FAQ の一覧は、以下のいずれかを参照してください:
-
-- [SDK を使用しているパブリッシャー向け FAQ](../getting-started/gs-faqs.md#faqs-for-publishers-using-an-sdk)
-- [SDK を使用していないパブリッシャー向け FAQ](../getting-started/gs-faqs.md#faqs-for-publishers-not-using-an-sdk)
+UID2 フレームワークを使うパブリッシャー向けの FAQ のリストは、[FAQs for Publishers](/docs/getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。
 
 すべてのリストは、[よくある質問](../getting-started/gs-faqs.md)を参照してください。
