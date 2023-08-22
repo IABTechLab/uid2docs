@@ -51,8 +51,8 @@ UID2 とインテグレーションすることで得られるメリットの一
 | :--- | :--- | :--- | :--- |
 | Prebid | [Prebid Integration Guide](../guides/integration-prebid.md) | UID2 と直接インテグレーションし、RTB ビッドストリームで Prebid から渡される identity トークンを生成したいパブリッシャー向けのインテグレーションガイドです。 | Publishers |
 | Client-Side (Web) SDK | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | Client-Side JavaScript SDK は、UID2 を使用してクライアントの identity を確立し、パブリッシャーの Advertising Token を取得するプロセスを容易にします。| Publishers |
-| Client-Side (Web) Integration Guide | [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) | このパブリッシャー向けのインテグレーションでは、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用する標準的なウェブインテグレーションシナリオについて説明します。 | Publishers |
-| Server-Side Integration Guide  | [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) | このインテグレーションガイドは、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用していないパブリッシャー向けです。 | Publishers |
+| Client-Side (Web) Integration Guide | [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) | このパブリッシャー向けのインテグレーションでは、UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオについて説明します。 | Publishers |
+| Server-Side Integration Guide  | [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) | このインテグレーションガイドは、[UID2 SDK for JavaScript Integration Guide](../sdks/client-side-identity.md) を使用していないパブリッシャー向けです。 | Publishers |
 | Publisher/SSP Integration with GAM | [Publisher - Google Ad Manager Secure Signals](../guides/google-ss-integration.md) | このインテグレーションガイドでは、UID2 を Google Ad Manager の Secure Signals 機能（旧称: Encrypted Signals for Publishers, ESP）で使用するパブリッシャーに必要な追加手順について説明します。 | Publishers |
 
 ### Mobile and Google GMA integration

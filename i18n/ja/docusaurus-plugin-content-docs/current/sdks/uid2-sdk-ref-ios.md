@@ -155,7 +155,7 @@ identityStatus 変数は、SDK が管理している現在の UID2 Identity の�
 UID2Manager.shared.setIdentity(_ identity: UID2Identity)
 ```
 
-Get the UID2 token (advertising token) to pass to the Advertising SDK:
+Advertising SDK に渡す UID2 Token (Advertising Token) を取得します:
 
 ``` javascript
 UID2Manager.shared.getAdvertisingToken()

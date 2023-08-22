@@ -25,16 +25,16 @@ sidebar_position: 03
 
 パブリッシャーが UID2 とインテグレーションするために利用できるオプションは以下のとおりです:
 
-- Client JavaScript SDK, with UID2 SDK for Java on the server.
-- Client JavaScript SDK, with custom server code.
-- Server-only integration, with UID2 SDK for Java on the server.
-- Server-only integration, with custom server code.
+- Client UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) と [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) on the server.
+- Client UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) と custom server code.
+- Server-only integration と [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) または [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) on the server.
+- Server-only integration と custom server code.
 
 このドキュメントでは、最後の2つのオプションに関する情報を提供します。
 
 ワークフローを示す[アプリケーション例](https://example-srvonly-integ.uidapi.com/)はこちらです。アプリケーションのドキュメントは、[Server-Only UID2 Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)を参照してください。また、[FAQ](#faqs)も参照してください。
 
-> TIP: UID2 を使ったクライアント ID の確立と Advertising Token の取得を容易にするために、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用することを検討してください。詳しくは、[UID2 SDK for JavaScript Integration Guide](./publisher-client-side.md) を参照してください。
+> TIP: UID2 を使用してクライアントの identity を確立し、Advertising Token を取得するプロセスを容易にするには、UID2 SDK for JavaScript の使用を検討してください。詳細については、[UID2 SDK for JavaScript Integration Guide](publisher-client-side.md)を参照してください。
 
 ## Integration Steps
 

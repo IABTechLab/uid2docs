@@ -89,7 +89,6 @@ SDK から返される利用可能な情報の概要を次の表に示します�
 | `KeysNotSynced` | クライアントは UID2 Service からの鍵の同期に失敗しました。|
 | `VersionNotSupported` | クライアントライブラリが暗号化トークンのバージョンをサポートしていません。|
 
-
 ## Usage for UID2 Sharers
 
 

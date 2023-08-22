@@ -9,18 +9,27 @@ sidebar_position: 02
 
 このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成したい Web アセットを持つパブリッシャーを対象としています。
 
-- SDK の技術的な詳細については、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を参照してください。
+- SDK の技術的な詳細については、[UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください。
 - [サンプルアプリケーション](https://example-jssdk-integ.uidapi.com/) と関連文書については、[UID2 SDKインテグレーション例](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) ガイドを参照してください。
+
+<!-- It includes the following sections:
+- [Introduction](#introduction)
+- [Integration Steps ](#integration-steps)
+  - [Establish Identity: User Login](#establish-identity-user-login)
+  - [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
+  - [Refresh Tokens](#refresh-tokens)
+  - [Clear Identity: User Logout](#clear-identity-user-logout)
+- [FAQs](#faqs) -->
 
 ## Introduction
 
 このガイドでは、SDK を使用せずにインテグレーションする場合に考慮する必要がある [基本的な手順](#integration-steps) を概説しています。たとえば、ユーザーログインとログアウトの実装方法、UID2 ID 情報の管理とターゲティング広告への使用方法、トークンの更新方法、ID が見つからない場合の対処、ユーザーのオプトアウトの処理方法などを決定する必要があります。[FAQ](#faqs)も参照してください。
 
-UID2 を使用したクライアント ID の確立と Advertising Token の取得を容易にするため、このガイドで説明する Web インテグレーション手順では、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用しています。このガイドで説明するインテグレーション手順と SDK の使用方法を説明する [サンプルアプリケーション](https://example-jssdk-integ.uidapi.com/) があります(現在はメールアドレス用のみ)。アプリケーションのドキュメントは、[UID2 SDK インテグレーション例](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) を参照してください。
+UID2 を使用してクライアントの identity を確立し、Advertising Token を取得するプロセスを容易にするため、このガイドで説明する Web インテグレーション手順では、JavaScript 用の UID2 SDK を使用しています。このガイドで説明するインテグレーション手順と SDK の使用方法（現在はメールアドレスのみ）を説明する [サンプルアプリケーション](https://example-jssdk-integ.uidapi.com/) を以下に示します。アプリケーションのドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) を参照してください。
 
 > IMPORTANT: 現在、UID2 SDK はトークンをファーストパーティクッキーに保存しています。このような実装の詳細は将来的に変更される可能性があるため、潜在的な問題を回避するために、ID 管理は必ず [Client-Side JavaScript SDK APIs](../sdks/client-side-identity.md#api-reference) に基づいて行ってください。
 
-[UID2 SDK for JavaScript](../sdks/client-side-identity.md)を使用しないパブリッシャー向けのインテグレーションシナリオについては、[Server-Only Integration Guide](custom-publisher-integration.md)を参照してください。
+UID2 SDK for JavaScript を使用しないパブリッシャーのインテグレーションシナリオについては、[Publisher Integration Guide, Server-Only](custom-publisher-integration.md) を参照してください。
 
 > NOTE: Google Ad Manager を使用していて、セキュアシグナル機能を使用したい場合、まずこのガイドの手順を行い、次に[Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md)の追加手順を行ってください。
 
@@ -45,7 +54,7 @@ UID2 を使用したクライアント ID の確立と Advertising Token の取�
 | :--- | :----------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1-d  | [POST /token/generate](../endpoints/post-token-generate.md)        | ユーザーが認証され、UID2 の作成が許可されたら、[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを使用して、ユーザーの正規化したメールアドレスまたは電話番号を使って UID2 Token を生成します。                                                                                                                                            |
 | 1-e  | [POST /token/generate](../endpoints/post-token-generate.md)        | ユーザーのメールアドレス、電話番号、またはそれぞれのハッシュから生成された UID2 Token を返します。                                                                                                                                                                                                                                                                 |
-| 1-f  | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | 手順 1-e で返された UID2 Token を、SDK の [init()](../sdks/client-side-identity.md#initopts-object-void) の `identity` プロパティで送り、以下のように [コールバック関数](../sdks/client-side-identity.md#callback-function) を指定する必要があります。この仕組みにより、ユーザーがログアウトするまで、UID2 Token がターゲティング広告に利用できるようになります。 |
+| 1-f ｜ UID2 SDK for JavaScript｜ Step 1-e で返された UID2 Token を、SDK の [init()関数](../sdks/client-side-identity.md#initopts-object-void) の `identity` プロパティで SDK に送信し、以下に示すように [コールバック関数](../sdks/client-side-identity.md#callback-function) を指定します。このメカニズムにより、ユーザーがログアウトするまで、UID2 Token がターゲティング広告に利用できるようになります。|
 
 ```html
 <script>
@@ -83,7 +92,7 @@ SDK は、有効な ID の状態と利用可能性に基づいて、バックグ
 
 | Step | Endpoint/SDK                                                       | Description                                                                                                                                          |
 | :--- | :----------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2-a  | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | 以下のように [getAdvertisingToken()](../sdks/client-side-identity.md#getadvertisingtoken-string) で現在のユーザーの Advertising Token を取得します。 |
+| 2-a ｜ UID2 SDK for JavaScript ｜ 以下に示すように、[getAdvertisingToken() 関数](../sdks/client-side-identity.md#getadvertisingtoken-string) を使用して、現在のユーザーの Advertising Token を取得します。|
 
 ```html
 <script>

@@ -13,8 +13,9 @@ sidebar_position: 01
 
 | Integration Guide                                                                           | Content Description                                                                                                                                                                            |
 | :------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [UID2 SDK for JavaScript Integration Guide](./publisher-client-side.md)                  | このパブリッシャー向けインテグレーションガイドは、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を利用した標準的なウェブインテグレーションシナリオをカバーしています。    |
-| [Publisher Integration Guide, Server-Only](./custom-publisher-integration.md) | このパブリッシャー向けインテグレーションガイドは、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用しないインテグレーションシナリオをカバーしています。   |
+
+| [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md) | パブリッシャー向けのこのインテグレーションガイドでは、UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオについて説明します。|
+| [Publisher Integration Guide, Server-Only](custom-publisher-integration.md) | このインテグレーションガイドは、UID2 SDK for JavaScript を使用しないパブリッシャー向けです。|
 | [DSP](./dsp-guide.md)                                                                       | この DSP のためのインテグレーションガイドは、入札のための UID2 の処理と、ユーザーのオプトアウトに対応することをカバーしています。                                                              |
 | [Advertiser/Data Provider](./advertiser-dataprovider-guide.md)                              | この広告主やデータプロバイダー向けのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 |
 

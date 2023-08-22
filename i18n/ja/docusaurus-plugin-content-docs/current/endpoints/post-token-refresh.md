@@ -103,8 +103,7 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 | `advertising_token`    | string    | ユーザーの [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) (Advertising Token とも呼ばれます) です。 |
 | `refresh_token`        | string    | UID2 Service と最新の ID トークンのセットを交換できる暗号化されたトークンです。                                                                                                                                                                                                         |
 | `identity_expires`     | double    | UID2 Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                              |
-| `refresh_from`         | double    | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用している場合、いつ Advertising Token のリフレッシュを行うかを示す UNIX タイムスタンプ（ミリ秒単位）です。<br/>TIP: SDK を使用していない場合は、このタイムスタンプからも UID2 Token を更新することを検討してみてください。 |
-| `refresh_expires`      | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                                  |
+| `refresh_from`         | double    | UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) が UID2 トークンのリフレッシュを開始するタイミングを示す UNIX タイムスタンプ(ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから Advertising Token もリフレッシュすることを検討してください。|
 | `refresh_response_key` | string    | [POST /token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。                                                                                                                                                                                     |
 
 ### Response Status Codes
