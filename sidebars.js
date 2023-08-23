@@ -115,7 +115,7 @@ const sidebars = {
 
         {
           type: 'category',
-          label: 'Mobile Plug-Ins',
+          label: 'Mobile Plugins',
           link: {
             type: 'generated-index',
           },
