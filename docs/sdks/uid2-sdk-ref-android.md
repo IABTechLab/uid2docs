@@ -26,7 +26,12 @@ sidebar_position: 12
 
 You can use the UID2 SDK for Android to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens on Android devices.
 
->NOTE: If you want to use the UID2 SDK for Android to send UID2 tokens to Google Mobile Ads (GMA), see also [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md).
+The following Android-related plugins, and associated documentation, are also available.
+
+| Purpose | Product/Documentation |
+| :--- | :--- |
+| To use the Google Mobile Ads (GMA) SDK to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) |
+| To use the Google Interactive Media Ads (IMA) SDK for Android to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) |
 
 ## Functionality
 
