@@ -5,7 +5,7 @@ hide_table_of_contents: false
 sidebar_position: 02
 ---
 
-# UID2 SDK for JavaScript
+# UID2 SDK for JavaScript Reference Guide
 
 Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). 
 
@@ -14,7 +14,9 @@ Use this SDK to facilitate the process of establishing client identity using UID
 
 <!-- This guide includes the following information:
 
+- [Functionality](#functionality)
 - [SDK Version](#sdk-version)
+- [GitHub Repository/Binary](#github-repositorybinary)
 - [Terminology](#terminology)
 - [Include the SDK Script](#include-the-sdk-script)
 - [Workflow Overview](#workflow-overview)
@@ -38,11 +40,22 @@ This SDK simplifies integration with UID2 for any publishers who want to support
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
-| No | No | No | Yes |
+| Not supported | Not supported | Not supported | Supported |
 
 ## SDK Version
 
 This documentation is for version 2 of the UID2 SDK for JavaScript.
+
+## GitHub Repository
+
+This SDK is in the following open-source GitHub repository:
+
+- [https://github.com/iabtechlab/uid2-web-integrations](https://github.com/iabtechlab/uid2-web-integrations)
+
+<!-- The binary is published in these locations:
+
+- NPM: [https://www.npmjs.com/package/@uid2/uid2-sdk](https://www.npmjs.com/package/@uid2/uid2-sdk)
+- CDN: [https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js](https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js) (** v3 JS SDK: stash per SW 8/15/23**) -->
 
 ## Terminology
 

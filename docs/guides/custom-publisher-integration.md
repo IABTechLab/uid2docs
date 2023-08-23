@@ -1,5 +1,7 @@
 ---
 title: Publisher Integration Guide, Server-Only
+sidebar_label: Publisher Integration, Server-Only
+pagination_label: Publisher Integration Guide, Server-Only
 description: Information about generating identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers.
 hide_table_of_contents: false
 sidebar_position: 03
@@ -25,8 +27,8 @@ The guide outlines the [basic steps](#integration-steps) that you need to consid
 
 The following are the options available for publishers to integrate with UID2:
 
-- Client [UID2 SDK for JavaScript](../sdks/client-side-identity.md), with [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) on the server.
-- Client [UID2 SDK for JavaScript](../sdks/client-side-identity.md), with custom server code.
+- Client UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)), with [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) on the server.
+- Client UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)), with custom server code.
 - Server-only integration, with [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) or [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) on the server.
 - Server-only integration, with custom server code.
 
@@ -34,7 +36,7 @@ This document provides information for the last two options.
 
 Here's an [example application](https://example-srvonly-integ.uidapi.com/) that demonstrates the workflow. For the application documentation, see [Server-Only UID2 Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md). See also [FAQs](#faqs).
 
->TIP: To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, consider using the [UID2 SDK for JavaScript](../sdks/client-side-identity.md). For details, see [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md).
+>TIP: To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, consider using the UID2 SDK for JavaScript. For details, see [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md).
 
 ## Integration Steps
 
@@ -69,6 +71,8 @@ You need to consider how you want to manage UID2 identity information and use it
 | :--- | :--- | :--- |
 | 2-a | N/A| Send the `advertising_token` from step [1-e](#establish-identity) to the SSP for bidding. Send the value as is. |
 
+>NOTE: For an example of what a UID2 token might look like in the bid stream, when it's sent from an SSP to a DSP, see [What does a UID2 token look like in the bid stream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bid-stream)
+
 ### Refresh Tokens
 
 Leverage the refresh endpoint to retrieve the latest version of UID2 tokens. The UID2 token must be refreshed to sync the user's UID2 rotation and opt-out status. If the user opts out, using their refresh token will end their token refresh chain.
@@ -91,6 +95,6 @@ Leverage the refresh endpoint to retrieve the latest version of UID2 tokens. The
 
 ## FAQs
 
-For a list of frequently asked questions for the publisher audience, see [FAQs for Publishers Not Using an SDK](../getting-started/gs-faqs.md#faqs-for-publishers-not-using-an-sdk).
+For a list of frequently asked questions for the publisher audience, see [FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers).
 
 For a full list, see [Frequently Asked Questions](../getting-started/gs-faqs.md).

@@ -33,7 +33,7 @@ Used by: This endpoint is used mainly by publishers.
 - Include only one of the following four valid options, as listed in the Body Parameter table: `email`, `email_hash`, `phone`, or `phone_hash`. For the parameter you choose to test with, use the exact value listed. 
 - Include the required body parameters as key-value pairs in the JSON body of a request when encrypting it.
 
-For details, see [FAQs for Publishers Using an SDK](../getting-started/gs-faqs.md#faqs-for-publishers-using-an-sdk) or [FAQs for Publishers Not Using an SDK](../getting-started/gs-faqs.md#faqs-for-publishers-not-using-an-sdk).
+For details, see [FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers).
 
 | Body Parameter | Data Type | Attribute | Description | Value |
 | :--- | :--- | :--- | :--- | :--- |

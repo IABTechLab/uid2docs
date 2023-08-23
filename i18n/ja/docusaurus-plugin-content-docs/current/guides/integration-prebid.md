@@ -7,20 +7,6 @@ sidebar_position: 04
 
 # Prebid Integration Guide
 
-<!-- This guide includes the following information:
-
-- [Prebid Overview](#prebid-overview)
-- [UID2 Prebid Module Page](#uid2-prebid-module-page)
-- [UID2 User ID Submodule](#uid2-user-id-submodule)
-- [Client Refresh Mode](#client-refresh-mode)
-  -  [Client Refresh Cookie Example](#client-refresh-cookie-example)
-  -  [Client Refresh uid2Token Example](#client-refresh-uid2token-example)
-- [Storage of Internal Values](#storage-of-internal-values)
-- [Sample Token](#sample-token)
-- [Prebid Implementation Notes and Tips](#prebid-implementation-notes-and-tips)
-- [Configuration Parameters for `usersync`](#usersync-configuration-parameters) -->
-
-
 This guide is for publishers who want to directly integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream.
 It outlines the basic steps to consider if you're building a direct integration with UID2 and use Prebid for header bidding. 
 
@@ -137,3 +123,5 @@ The following parameters apply only to the UID2 Prebid User ID Module integratio
 | params.uid2Cookie | Optional, client refresh | String | The name of a cookie that holds the initial UID2 token, set by the server. The cookie should contain JSON in the same format as the uid2Token param. **If uid2Token is supplied, this param is ignored.** | See [Sample Token](#sample-token). |
 | params.uid2ApiBase | Optional, client refresh | String | Overrides the default UID2 API endpoint. | `"https://prod.uidapi.com"` (the default)|
 | params.storage | Optional, client refresh | String | Specify the module internal storage method: `cookie` or `localStorage`. We recommend that you do not provide this parameter. Instead, allow the module to use the default. | `localStorage` (the default) |
+
+<!-- eng_jp -->

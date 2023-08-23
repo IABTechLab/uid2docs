@@ -13,6 +13,8 @@ You can use UID2 server-side SDKs to facilitate decrypting of UID2 tokens to acc
 
 - [Overview](#overview)
 - [Functionality](#functionality)
+- [Version](#version)
+- [GitHub Repository/Binary](#github-repositorybinary)
 - [Initialization](#initialization)
 - [Interface](#interface)
   - [Response Content](#response-content)
@@ -30,15 +32,21 @@ This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are u
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
-| Yes | Yes | No | No |
+| Supported | Supported | Not supported | Not supported |
 
 ## Version
 
 The SDK requires C++ version 11.
 
-## SDK Repository
+## GitHub Repository/Binary
 
-This SDK is available in GitHub: [UID2 SDK for C++](https://github.com/IABTechLab/uid2-client-cpp11/blob/master/README.md).
+This SDK is in the following open-source GitHub repository:
+
+- [UID2 SDK for C++](https://github.com/IABTechLab/uid2-client-cpp11/blob/master/README.md).
+
+Release tags are available in the following GitHub location, but you must build your own binaries:
+
+- https://github.com/IABTechLab/uid2-client-cpp11/tags
 
 ## Initialization
 
@@ -85,7 +93,6 @@ Available information returned through the SDK is outlined in the following tabl
 | `ExpiredToken` | The incoming UID2 advertising token has expired. |
 | `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
 | `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
-
 
 ## Usage for UID2 Sharers
 

@@ -381,11 +381,6 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
-    name: "MediaMath",
-    logo: "MediaMath.png",
-    type: ["DSP"],
-  },
-  {
     name: "Media Tradecraft",
     logo: "MediaTradecraft_Logo-580x250.png",
     type: ["Publishers"],

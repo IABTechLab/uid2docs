@@ -2,14 +2,14 @@
 title: UID2 Operator - Google Cloud Platform Confidential Computing Package
 description: Google Cloud Platform Private Operator のインテグレーション情報。
 hide_table_of_contents: false
-sidebar_position: 16
+sidebar_position: 20
 ---
 
 # UID2 Operator - Google Cloud Platform Confidential Computing Package
 
 本ガイドでは、[Google Cloud](https://cloud.google.com/docs/overview/) Platform のセキュアなエンクレーブで UID2 Operator Service を設定するための情報を提供します。
 
-以下の内容が記載されています:
+<!-- 以下の内容が記載されています:
 
 - [Overview（はじめに）](#overview)
 - [Build（ビルド）](#build)
@@ -19,7 +19,7 @@ sidebar_position: 16
   - [Cloud-init Example](#cloud-init-example)
   - [Create VM Instance](#create-vm-instance)
 - [Production Deployment（本番環境へのデプロイ）](#production-deployment)
-- [Upgrading（アップグレード）](#upgrading)
+- [Upgrading（アップグレード）](#upgrading) -->
 
 ## Overview
 

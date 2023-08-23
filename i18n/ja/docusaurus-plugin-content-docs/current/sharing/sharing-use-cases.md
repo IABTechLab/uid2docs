@@ -7,8 +7,6 @@ sidebar_position: 03
 
 # Sharing UID2s: Use Cases
 
-<!-- There are many ways to implement sharing&#8212;many different examples of senders, receivers, and transfer methods. -->
-
 The secure sharing workflow allows you to share raw UID2s securely with trusted partners in many different ways. For example, here are some sample scenarios where a sender wants to share UID2s with a receiver: 
 
 - A publisher (sender) sends a UID2 token via the bid stream to a DSP (receiver). For details, see [Sharing in the Bid Stream](sharing-bid-stream.md).
@@ -20,3 +18,5 @@ These scenarios, and others, are represented in the following diagram.
 ![Illustration of Sharing Use Cases](images/UID2_Sharing_Diagram_UseCases.png)
 
 > NOTE: Any sender can transfer a UID2 token to any receiver using one of the transfer methods. Only a handful of transfer methods are defined here; there are many others.
+
+<!-- eng_jp -->

@@ -18,6 +18,8 @@ You can use the UID2 SDK for Java (server-side) to facilitate the following:
 
 - [Overview](#overview)
 - [Functionality](#functionality)
+- [Version](#version)
+- [GitHub Repository/Binary](#github-repositorybinary)
 - [Initialization](#initialization)
 - [Interface](#interface)
   - [Response Content](#response-content)
@@ -35,15 +37,21 @@ This SDK simplifies integration with UID2 for any publishers, DSPs, and UID2 sha
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
-| Yes | Yes | Yes | Yes |
+| Supported | Supported | Supported | Supported |
 
 ## Version
 
 The SDK requires Java version 1.8 or later.
 
-## SDK Repository
+## GitHub Repository/Binary
 
-This SDK is available in GitHub: [UID2 SDK for Java](https://github.com/IABTechLab/uid2-client-java/blob/master/README.md).
+This SDK is in the following open-source GitHub repository:
+
+- [UID2 SDK for Java](https://github.com/IABTechLab/uid2-client-java/blob/master/README.md)
+
+The binary is published on the Maven repository:
+
+- [https://central.sonatype.com/artifact/com.uid2/uid2-client](https://central.sonatype.com/artifact/com.uid2/uid2-client)
 
 ## Initialization
 

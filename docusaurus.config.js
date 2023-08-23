@@ -294,10 +294,6 @@ const config = {
         apiKey: "97e7dc35be9559b65f0d03c0c9684272", //prod
         indexName: "unifiedid", //prod
 
-        // Setting this to false for now - it seems we don't have our docsearch meta tags
-        // set correctly. See https://discourse.algolia.com/t/algolia-searchbar-is-not-working-with-docusaurus-v2/14659/2
-        contextualSearch: false,
-
         // appId: "TESTINGXSOWQK10AP", //staging
         // apiKey: "58f35480017be37aca9f762323a0b4d1", //staging
         // indexName: "UID2", //staging
