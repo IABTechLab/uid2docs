@@ -44,7 +44,7 @@ Here's what you need to know:
 | `email_hash` | string array | Conditionally Required | The list of [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding#email-address-hash-encoding) hashes of [normalized](../getting-started/gs-normalization-encoding#email-address-normalization) email addresses. |
 | `phone` | string array | Conditionally Required | The list of [normalized](../getting-started/gs-normalization-encoding#phone-number-normalization) phone numbers to be mapped. |
 | `phone_hash` | string array | Conditionally Required | The list of [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding#phone-number-hash-encoding) hashes of [normalized](../getting-started/gs-normalization-encoding#phone-number-normalization) phone numbers. |
-| `policy` | integer | Optional | Customize the identity mapping behavior when a user identifier is opted out. For details, see [Identity Map Policy](#identity-map-policy) |
+| `policy` | integer | Required | The token generation policy ID checks whether the user has opted out. Include this parameter with a value of `1`.|
 
 ### Request Examples
 
@@ -55,7 +55,8 @@ The following are unencrypted JSON request body examples for each parameter, one
     "email":[
         "user@example.com",
         "user2@example.com"
-    ]  
+    ],
+    "policy":1 
 }
 ```
 ```json
@@ -63,7 +64,8 @@ The following are unencrypted JSON request body examples for each parameter, one
     "email_hash":[
         "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
         "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
-    ]    
+    ],
+    "policy":1    
 }
 ```
 ```json
@@ -71,7 +73,8 @@ The following are unencrypted JSON request body examples for each parameter, one
     "phone":[
         "+1111111111",
         "+2222222222"
-    ]  
+    ],
+    "policy":1 
 }
 ```
 ```json
@@ -79,14 +82,15 @@ The following are unencrypted JSON request body examples for each parameter, one
     "phone_hash":[
         "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
         "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
-    ]    
+    ],
+    "policy":1   
 }
 ```
 
 Here's an encrypted identity mapping request example for a phone number:
 
 ```sh
-echo '{"phone": ["+1111111111", "+2222222222"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk= DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
+echo '{"phone": ["+1111111111", "+2222222222"],"policy":1}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk= DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
 
 For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
@@ -140,7 +144,7 @@ If some identifiers are considered invalid, they are included in the response in
 }
 ```
 
-If the request includes the parameter/value `policy=1`, and some identifiers have opted out from the UID2 ecosystem, the opted-out identifiers are moved to the "unmapped" list along with any invalid identifiers found. In this case, the response status is still "success".
+If some identifiers have opted out from the UID2 ecosystem, the opted-out identifiers are moved to the "unmapped" list along with any invalid identifiers found. In this case, the response status is still "success".
 
 ```json
 {
@@ -182,12 +186,3 @@ The following table lists the `status` property values and their HTTP status cod
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
 If the `status` value is other than `success`, the `message` field provides additional information about the issue.
-
-### Identity Map Policy
-
-The identity map policy lets the caller decide when to generate a token. It is passed as an integer ID in the request body (with key policy). If this parameter is not included, the default value, policy=0, is applied.
-
-| ID | Description |
-| :--- | :--- |
-| 0 | Always maps a user identity to UID2. |
-| 1 | Users who have opted out are not included in the mapping. |
