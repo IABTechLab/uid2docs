@@ -6,13 +6,13 @@
 
 以下のセクションが含まれています:
 
-- [Introduction（はじめに）](#introduction)
-- [Integration Steps（インテグレーション手順）](#integration-steps)
-  - [Establish Identity: User Login（アイデンティティを確立する: ユーザーログイン）](#establish-identity-user-login)
-  - [Bid Using UID2 Tokens（UID2 Token を使った入札）](#bid-using-uid2-tokens)
-  - [Refresh Tokens（トークンのリフレッシュ）](#refresh-tokens)
-  - [Clear Identity: User Logout（アイデンティティの消去: ユーザーログアウト）](#clear-identity-user-logout)
-- [FAQs（よくある質問）](#faqs)
+- [Introduction (はじめに)](#introduction)
+- [Integration Steps (インテグレーション手順)](#integration-steps)
+  - [Establish Identity: User Login (アイデンティティを確立する: ユーザーログイン)](#establish-identity-user-login)
+  - [Bid Using UID2 Tokens (UID2 Token を使った入札)](#bid-using-uid2-tokens)
+  - [Refresh Tokens (トークンのリフレッシュ)](#refresh-tokens)
+  - [Clear Identity: User Logout (アイデンティティの消去: ユーザーログアウト)](#clear-identity-user-logout)
+- [FAQs (よくある質問)](#faqs)
 
 ## Introduction
 
@@ -94,7 +94,7 @@ sequenceDiagram
 
 ### Establish Identity: User Login
 
-ステップ 1-c で認証が行われ、ユーザーに規約を受け入れてもらい、パブリッシャーがメールアドレスや電話番号を検証した後、サーバーサイドで UID2 Token を生成する必要があります。次の表は、トークン生成のステップの詳細を示しています。
+Step 1-c で認証が行われ、ユーザーに規約を受け入れてもらい、パブリッシャーがメールアドレスや電話番号を検証した後、サーバーサイドで UID2 Token を生成する必要があります。次の表は、トークン生成のステップの詳細を示しています。
 
 | Step | Endpoint                                                    | Description                                                                                                                                                                                                                                                                                                                                |
 | :--- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -108,7 +108,7 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 
 | Step | Endpoint | Description                                                                                                                       |
 | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| 2-a  | N/A      | ステップ [1-e](#establish-identity-user-login) の `advertising_token` を入札のために SSP に送信します。そのままの値を送信します。 |
+| 2-a  | N/A      | Step [1-e](#establish-identity-user-login) の `advertising_token` を入札のために SSP に送信します。そのままの値を送信します。 |
 
 ### Refresh Tokens
 
@@ -117,7 +117,7 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 | Step | Endpoint                                                  | Description                                                                                                                                                                                                          |
 | :--- | :-------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 3-a  | N/A                                                       | ユーザーがアセットに戻り、再びアクティブになったとき、ID トークンをリフレッシュしてから、SSP に送信します。                                                                                                          |
-| 3-b  | [POST /token/refresh](../endpoints/post-token-refresh.md) | ステップ [1-e](#establish-identity-user-login) で取得した `refresh_token` をクエリパラメータとして送信します。                                                                                                       |
+| 3-b  | [POST /token/refresh](../endpoints/post-token-refresh.md) | Step [1-e](#establish-identity-user-login) で取得した `refresh_token` をクエリパラメータとして送信します。                                                                                                       |
 | 3-c  | [POST /token/refresh](../endpoints/post-token-refresh.md) | UID2 Service は、オプトアウトしていないユーザーに対して新しい ID トークンを発行します。                                                                                                                              |
 | 3-d  | N/A                                                       | 返された `advertising_token` と `refresh_token` は、ユーザーに紐づくストレージに保存します。ファーストパーティクッキーのようなクライアントサイドのストレージや、サーバーサイドのストレージを検討するとよいでしょう。 |
 

@@ -6,12 +6,12 @@
 
 このガイドには、次のセクションがあります:
 
-- [Integration Steps（インテグレーション手順）](#integration-steps)
-  - [Retrieve a raw UID2 for DII using the identity map endpoints（ID マップエンドポイントを使用して、DII の raw UID2 を取得する）](#retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints)
-  - [Send raw UID2 to a DSP to build an audience（raw の UID2 を DSP に送り、オーディエンスを構築する）](#send-raw-uid2-to-a-dsp-to-build-an-audience)
-  - [Monitor for salt bucket rotations related to your stored UID2s（保存されている UID2 に関連するソルトバケットのローテーションをモニターする）](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
-  - [Use an incremental process to continuously update UID2s（インクリメンタルプロセスを使用して、UID2 を継続的に更新する）](#use-an-incremental-process-to-continuously-update-raw-uid2s)
-- [FAQs（よくある質問）](#faqs)
+- [Integration Steps (インテグレーション手順)](#integration-steps)
+  - [Retrieve a raw UID2 for DII using the identity map endpoints (ID マップエンドポイントを使用して、DII の raw UID2 を取得する)](#retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints)
+  - [Send raw UID2 to a DSP to build an audience (raw の UID2 を DSP に送り、オーディエンスを構築する)](#send-raw-uid2-to-a-dsp-to-build-an-audience)
+  - [Monitor for salt bucket rotations related to your stored UID2s (保存されている UID2 に関連するソルトバケットのローテーションをモニターする)](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
+  - [Use an incremental process to continuously update UID2s (インクリメンタルプロセスを使用して、UID2 を継続的に更新する)](#use-an-incremental-process-to-continuously-update-raw-uid2s)
+- [FAQs (よくある質問)](#faqs)
 
 Snowflake Data Marketplace でホストされる Open Operator Service を使用する場合は、[Snowflake Integration Guide](../guides/snowflake_integration.md) も参照してください。
 
@@ -42,11 +42,11 @@ sequenceDiagram
 | Step | Endpoint                                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ---- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 1-a  | [POST /identity/map](../endpoints/post-identity-map.md)リクエスト | DII を含むリクエストを ID マッピングエンドポイントに送信します。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| 1-b  | [POST /identity/map](../endpoints/post-identity-map.md)レスポンス | レスポンスで返される`advertising_id`（raw UID2）は、関連する DSP でオーディエンスをターゲティングするために使用できます。<br/>このレスポンスは、ユーザーの raw UID2 と、ソルトバケットの対応する`bucket_id`を返します。バケットに割り当てられたソルトは毎年ローテーションされるため、生成される UID2 に影響を及ぼします。ソルトバケットのローテーションを確認する方法の詳細は、[Monitor for salt bucket rotations](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)を参照してください。<br/> メンテナンスを容易にするために、ユーザーの raw UID2 と `bucket_id` をマッピングテーブルに格納することが推奨されるアプローチです。インクリメンタルアップデートに関するガイダンスは、[Use an-incremental-process-to-continuously-update raw-UID2s](#use-an-incremental-process-to-continuously-update-raw-uid2s) を参照してください。 |
+| 1-b  | [POST /identity/map](../endpoints/post-identity-map.md)レスポンス | レスポンスで返される`advertising_id` (raw UID2)は、関連する DSP でオーディエンスをターゲティングするために使用できます。<br/>このレスポンスは、ユーザーの raw UID2 と、ソルトバケットの対応する`bucket_id`を返します。バケットに割り当てられたソルトは毎年ローテーションされるため、生成される UID2 に影響を及ぼします。ソルトバケットのローテーションを確認する方法の詳細は、[Monitor for salt bucket rotations](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)を参照してください。<br/> メンテナンスを容易にするために、ユーザーの raw UID2 と `bucket_id` をマッピングテーブルに格納することが推奨されるアプローチです。インクリメンタルアップデートに関するガイダンスは、[Use an-incremental-process-to-continuously-update raw-UID2s](#use-an-incremental-process-to-continuously-update-raw-uid2s) を参照してください。 |
 
 ### Send raw UID2 to a DSP to build an audience
 
-[前のステップ](#retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints)（ステップ 1-b）で返した `advertising_id` (raw UID2) をオーディエンスを構築しながら DSP に送ります。各 DSP は、オーディエンスを構築するための独自のインテグレーションプロセスを持っています。DSP が提供する、raw UID2 を送信してオーディエンスを構築するためのインテグレーションガイダンスにしたがってください。
+[前のステップ](#retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints) (Step 1-b)で返した `advertising_id` (raw UID2) をオーディエンスを構築しながら DSP に送ります。各 DSP は、オーディエンスを構築するための独自のインテグレーションプロセスを持っています。DSP が提供する、raw UID2 を送信してオーディエンスを構築するためのインテグレーションガイダンスにしたがってください。
 
 ### Monitor for salt bucket rotations related to your stored raw UID2s
 

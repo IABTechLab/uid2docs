@@ -53,7 +53,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 | Client-Side (Web) SDK | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | Client-Side JavaScript SDK は、UID2 を使用してクライアントの identity を確立し、パブリッシャーの Advertising Token を取得するプロセスを容易にします。| Publishers |
 | Client-Side (Web) Integration Guide | [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) | このパブリッシャー向けのインテグレーションでは、UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオについて説明します。 | Publishers |
 | Server-Side Integration Guide  | [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) | このインテグレーションガイドは、[UID2 SDK for JavaScript Integration Guide](../sdks/client-side-identity.md) を使用していないパブリッシャー向けです。 | Publishers |
-| Publisher/SSP Integration with GAM | [Publisher - Google Ad Manager Secure Signals](../guides/google-ss-integration.md) | このインテグレーションガイドでは、UID2 を Google Ad Manager の Secure Signals 機能（旧称: Encrypted Signals for Publishers, ESP）で使用するパブリッシャーに必要な追加手順について説明します。 | Publishers |
+| Publisher/SSP Integration with GAM | [Publisher - Google Ad Manager Secure Signals](../guides/google-ss-integration.md) | このインテグレーションガイドでは、UID2 を Google Ad Manager の Secure Signals 機能 (旧称: Encrypted Signals for Publishers, ESP)で使用するパブリッシャーに必要な追加手順について説明します。 | Publishers |
 
 ### Mobile and Google GMA integration
 
@@ -63,8 +63,8 @@ UID2 とインテグレーションすることで得られるメリットの一
 | :--- | :--- | :--- | :--- |
 | Mobile: Android | [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) | このインテグレーションガイドは、UID2 を使用してクライアントの identity を確立し、Android デバイス上で Advertising Token を取得したいパブリッシャー向けのものです。 | Publishers |
 | Mobile: iOS  | [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) | このインテグレーションガイドは、UID2 を使用してクライアントの identity を確立し、iOS デバイス上で Advertising Token を取得したいパブリッシャー向けのものです。 | Publishers |
-| Mobile: GMA for Android | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) | このインテグレーションガイドは、Google Mobile Ads（GMA）SDK を使用するパブリッシャーが、Android アプリからの広告リクエストに UID2 データを含めることを可能にします。 | Publishers |
-| Mobile: GMA for iOS | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) | このインテグレーションガイドは、Google Mobile Ads（GMA）SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストに UID2 データを含めることを可能にします。 | Publishers |
+| Mobile: GMA for Android | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) | このインテグレーションガイドは、Google Mobile Ads (GMA)SDK を使用するパブリッシャーが、Android アプリからの広告リクエストに UID2 データを含めることを可能にします。 | Publishers |
+| Mobile: GMA for iOS | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) | このインテグレーションガイドは、Google Mobile Ads (GMA)SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストに UID2 データを含めることを可能にします。 | Publishers |
 
 ### Operator Deployment
 
@@ -73,7 +73,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
 | Operator | [UID2 Operator - AWS Marketplace Integration Guide](../guides/operator-guide-aws-marketplace.md) | AWS Marketplace の Private Operator Service を設定する手順です。 | Private Operators<br/>Publishers |
-| Operator| [UID2 Operator - Google Cloud Platform Confidential Computing package](../guides/operator-guide-gcp-enclave.md) | Google Cloud Platform Confidential Computing パッケージ（GCP）のセットアップ手順です。 | Private Operators<br/>Publishers |
+| Operator| [UID2 Operator - Google Cloud Platform Confidential Computing package](../guides/operator-guide-gcp-enclave.md) | Google Cloud Platform Confidential Computing パッケージ (GCP)のセットアップ手順です。 | Private Operators<br/>Publishers |
 | Operator Integration Guide | [Operator - Microsoft Azure](../guides/operator-guide-azure-enclave.md) | IMPORTANT: このドキュメントは現在、PoC の段階です。UID2 Administrator に [連絡](../getting-started/gs-account-setup.md#contact-info) してください。<br/>Microsoft Azure Confidential Computing platform 上で実行する Private Operator Service のセットアップ手順です。 | Private Operators<br/>Publishers |
 
 ## Workflow for Publishers
@@ -91,7 +91,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 1. [アクセスリクエスト](/request-access)ページにあるフォームに記入して、UID2へのアクセスをリクエストします。
 1. UID2 とインテグレーションしたいプロパティを特定します。
 1. UID2 契約書にサインします。
-1. UID2認証キー（[APIキー](../getting-started/gs-api-keys.md)）を受け取ります。
+1. UID2認証キー ([APIキー](../getting-started/gs-api-keys.md))を受け取ります。
 1. SDK を使用するか、UID2 API と直接インテグレーションを行い、該当するドキュメントを使用して、UID2 へのインテグレーションを構築します。
 
      NOTE: リクエストメッセージは必ずUID2まで暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md)を参照してください。

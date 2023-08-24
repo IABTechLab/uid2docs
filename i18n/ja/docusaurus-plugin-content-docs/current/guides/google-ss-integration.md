@@ -7,7 +7,7 @@ sidebar_position: 10
 
 # Google Ad Manager Secure Signals Integration Guide
 
-このガイドでは、UID2 を Google Ad Manager のセキュアシグナル機能（旧称:Encrypted Signals for Publishers、ESP）で使用するパブリッシャー向けのインテグレーション手順について説明します。
+このガイドでは、UID2 を Google Ad Manager のセキュアシグナル機能 (旧称: Encrypted Signals for Publishers、ESP)で使用するパブリッシャー向けのインテグレーション手順について説明します。
 
 <!-- It includes the following sections:
 
@@ -26,8 +26,8 @@ Google secure signals は、パブリッシャーが [Google Ad Manager](https:/
 
 このフレームワークでは、次のようなステップを踏みます:
 
-1. パブリッシャーは、ユーザー ID シグナル（advertising token）をセキュアシグナル機能にプッシュします。
-2. セキュアシグナル機能は、クライアント側でそれらをキャッシュし、Google Ad Manager に透過的に渡します。
+1. パブリッシャーは、ユーザー ID シグナル (advertising token)をセキュアシグナル機能にプッシュします。
+2. セキュアシグナル機能は、クライアントサイドでそれらをキャッシュし、Google Ad Manager に透過的に渡します。
 3. Google Ad Manager は UID2 Token を使って入札リクエストを行い、パブリッシャーの設定に基づき Google AdX 内の承認済み入札者にトークンを転送します。
 
 ## Allow Secure Signal Sharing

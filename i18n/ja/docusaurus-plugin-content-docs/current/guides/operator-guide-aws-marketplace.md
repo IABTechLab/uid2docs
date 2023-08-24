@@ -112,12 +112,12 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 | Name                    | Type                                 | Description                                                                                                                                                                                              | Created       |
 | :---------------------- | :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------ |
-| `KMSKey`                | `AWS::KMS::Key`                      | 秘密暗号化用のキー（設定文字列用）です。                                                                                                                                                                 | Always        |
+| `KMSKey`                | `AWS::KMS::Key`                      | 秘密暗号化用のキー (設定文字列用)です。                                                                                                                                                                 | Always        |
 | `SSMKeyAlias`           | `AWS::KMS::Alias`                    | [KMS](https://aws.amazon.com/kms/)キーに簡単にアクセスする方法を提供するエイリアスです。                                                                                                                 | Always        |
 | `TokenSecret`           | `AWS::SecretsManager::Secret`        | オペレーターキーを含む暗号化されたコンフィギュレーションです。                                                                                                                                           | Always        |
 | `WorkerRole`            | `AWS::IAM::Role`                     | UID2 Operator が実行する IAM ロールです。ロールは、設定キーへのアクセスを提供します。                                                                                                                    | Always        |
 | `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile`          | Operator EC2 インスタンスにアタッチする Worker Role を持つインスタンスプロファイルです。                                                                                                                 | Always        |
-| `VPC`                   | `AWS::EC2::VPC`                      | Virtual Private Cloud（VPC）は、プライベートオペレーターをホストとする仮想プライベートネットワークです。既存の VPC をカスタマイズして利用することも可能です。[VPC Chart](#vpc-chart)も参照してください。 | Conditionally |
+| `VPC`                   | `AWS::EC2::VPC`                      | Virtual Private Cloud (VPC)は、プライベートオペレーターをホストとする仮想プライベートネットワークです。既存の VPC をカスタマイズして利用することも可能です。[VPC Chart](#vpc-chart)も参照してください。 | Conditionally |
 | `Subnet1`               | `AWS::EC2::Subnet`                   | 新しく作成された VPC の最初のサブネットです。                                                                                                                                                            | Conditionally |
 | `Subnet2`               | `AWS::EC2::Subnet`                   | 新しく作成された VPC の 2 番目のサブネットです。                                                                                                                                                         | Conditionally |
 | `RouteTable`            | `AWS::EC2::RouteTable`               | 新しく作成された VPC とサブネットのルーティングテーブルです。                                                                                                                                            | Conditionally |
@@ -125,7 +125,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 | `AttachGateway`         | `AWS::EC2::VPCGatewayAttachment`     | インターネットゲートウェイと VPC を関連付ける値。                                                                                                                                                        | Conditionally |
 | `SecurityGroup`         | `AWS::EC2::SecurityGroup`            | オペレーターインスタンスに対するルールを提供するセキュリティグループポリシーです。[Security Group Policy](#security-group-policy)も参照してください。                                                      | Always        |
 | `LaunchTemplate`        | `AWS::EC2::LaunchTemplate`           | すべての構成が整った起動テンプレートです。このテンプレートから新しい UID2 Operator インスタンスを生成できます。                                                                                | Always        |
-| `AutoScalingGroup`      | `AWS::AutoScaling::AutoScalingGroup` | 起動テンプレートがアタッチされているオートスケーリンググループ（ASG）。必要に応じて、これを使用して、希望のインスタンス数を後で更新できます。                                                  | Always        |
+| `AutoScalingGroup`      | `AWS::AutoScaling::AutoScalingGroup` | 起動テンプレートがアタッチされているオートスケーリンググループ (ASG)。必要に応じて、これを使用して、希望のインスタンス数を後で更新できます。                                                  | Always        |
 
 ### Customization Options
 
@@ -166,11 +166,11 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 8. IAM ロールの作成許可を求められたら、**I acknowledge that AWS CloudFormation might create IAM resources** のチェックボックスを選択します。
 9. **Create stack** をクリックします。
 
-スタックが作成されるまでには数分かかります。作成された Auto Scaling Group（ASG）が表示されたら、それを選択して EC2 インスタンスを確認します（デフォルトでは、開始するインスタンスは１つだけです）。 詳しくは、[UID2 オペレーターの状態確認](#checking-uid2-operator-status) を参照してください。
+スタックが作成されるまでには数分かかります。作成された Auto Scaling Group (ASG)が表示されたら、それを選択して EC2 インスタンスを確認します (デフォルトでは、開始するインスタンスは１つだけです)。 詳しくは、[UID2 オペレーターの状態確認](#checking-uid2-operator-status) を参照してください。
 
 ### Stack Details
 
-以下の画像は、スタックの作成ウィザード（[デプロイ](#deployment)ステップ 5）の**Specify stack details**ページを示しています。以下の表は、パラメータ値のリファレンスを提供します。
+以下の画像は、スタックの作成ウィザード ([デプロイ](#deployment) Step 5)の**Specify stack details**ページを示しています。以下の表は、パラメータ値のリファレンスを提供します。
 
 ![Application Configuration](images/cloudformation-step-2.png)
 
@@ -178,7 +178,7 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 
 ![Infrastructure Configuration](images/cloudformation-step-2-2.png)
 
-次の表は、[デプロイ](#deployment) のステップ 5 で指定するパラメータ値について説明したものです。
+次の表は、[デプロイ](#deployment) の Step 5 で指定するパラメータ値について説明したものです。
 
 | Parameter                  | Description                                                                                                                                                                                                                                                                                                                                                                                |
 | :------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -193,11 +193,11 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 
 ### Stack Configuration Options
 
-以下は、スタック作成ウィザード（[デプロイ](#deployment) ステップ 6）の [スタックオプションの設定](#stack-configuration-options) ページのスクリーンショットです。
+以下は、スタック作成ウィザード ([デプロイ](#deployment) Step 6)の [スタックオプションの設定](#stack-configuration-options) ページのスクリーンショットです。
 
 ![Configure Stack Options](images/cloudformation-step-3.png)
 
-次の表は、[デプロイ](#deployment) のステップ 6 で指定するパラメータ値について説明したものです。
+次の表は、[デプロイ](#deployment) の Step 6 で指定するパラメータ値について説明したものです。
 
 | Parameter             | Description                                                                                                                                                     |
 | :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -208,7 +208,7 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 
 ### Stack Configuration Options
 
-次の画像は、スタックの作成ウィザード（[デプロイメント](#deployment)ステップ 6）の**スタックオプションの設定**ページを示しています。
+次の画像は、スタックの作成ウィザード ([デプロイメント](#deployment) Step 6)の**スタックオプションの設定**ページを示しています。
 
 ![Configure Stack Options](images/cloudformation-step-3.png)
 
@@ -224,7 +224,7 @@ EC2 インスタンスを見つけるには、次の手順を実行します:
 
 1. CloudFormation スタックで、**Resources** タブをクリックし、Auto Scaling Group (ASG) を見つけます。
 2. **Physical ID** 列の ASG リンクをクリックします。
-3. 選択した ASG 内で、**Instance management** タブに移動し、利用可能な EC2 インスタンスの ID を見つけることができます（デフォルトでは 1 つのインスタンスのみが起動します）。
+3. 選択した ASG 内で、**Instance management** タブに移動し、利用可能な EC2 インスタンスの ID を見つけることができます (デフォルトでは 1 つのインスタンスのみが起動します)。
 4. オペレーターの状態を調べるには、ブラウザで `http://{public-dns-of-your-instance}/ops/healthcheck` にアクセスしてください。`OK` は良好な状態を示します。
 
 ![Stack Creation Resources](images/stack-creation-resources.png)

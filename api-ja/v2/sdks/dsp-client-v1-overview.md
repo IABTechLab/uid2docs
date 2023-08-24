@@ -4,7 +4,7 @@
 
 UID2 サーバーサイド SDK を使用すると、UID2 Advtising Token のを復号して raw UID2 に容易にアクセスできます。
 
-このガイドには、以下の情報が含まれています：
+このガイドには、以下の情報が含まれています:
 
 - [Overview](#overview)
 - [Initialization](#initialization)

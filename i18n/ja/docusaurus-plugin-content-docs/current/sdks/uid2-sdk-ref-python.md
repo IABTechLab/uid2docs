@@ -108,7 +108,7 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
    from uid2_client import Uid2Client
    client = Uid2Client(base_url, auth_key, secret_key)
    ```
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします（推奨リフレッシュ間隔は1時間毎）:
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします (推奨リフレッシュ間隔は1時間毎):
 
    ```python
    keys = client.refresh_keys()
@@ -172,9 +172,9 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
 
 ### Standard Integration
 
-標準のインテグレーション（クライアントとサーバー）を使用している場合（[UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) を参照し）、この手順に従ってください:
+標準のインテグレーション (クライアントとサーバー)を使用している場合 ([UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) を参照し)、この手順に従ってください:
 
-* この identity を以下のように JSON 文字列としてクライアントに送り返します（[identity field](../sdks/client-side-identity.md#initopts-object-void) で使用するため）:
+* この identity を以下のように JSON 文字列としてクライアントに送り返します ([identity field](../sdks/client-side-identity.md#initopts-object-void) で使用するため):
 
 `token_generate_response.get_identity_json_string()` 
 
@@ -182,7 +182,7 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
 
 ### Server-Only Integration
 
-server-only インテグレーションを使用している場合（[Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) を参照してください）:
+server-only インテグレーションを使用している場合 ([Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) を参照してください):
 
 1. `token_generate_response.get_identity_json_string()` 関数を使用して、identity をユーザーのセッションに JSON 文字列として格納します。
 
@@ -198,7 +198,7 @@ server-only インテグレーションを使用している場合（[Publisher 
    1. ユーザーのセッションから identity の JSON 文字列を取得し、identity 情報を入力として受け取って `IdentityTokens` オブジェクトを生成する以下の関数を呼び出します:
 
       `identity = IdentityTokens.from_json_string(identityJsonString)`
-   2.  identity をリフレッシュできるかどうか（Refresh Token の有効期限が切れていないかどうか）を判断します:
+   2.  identity をリフレッシュできるかどうか (Refresh Token の有効期限が切れていないかどうか)を判断します:
       `if not identity or not identity.is_refreshable(): # we must no longer use this identity (for example, remove this identity from the user's session) `
    3. リフレッシュが必要かどうかを判断する:
       `if identity.is_due_for_refresh()):`

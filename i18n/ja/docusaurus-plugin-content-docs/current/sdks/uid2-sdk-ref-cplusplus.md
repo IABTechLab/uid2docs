@@ -109,7 +109,7 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
     ```cpp
    const auto client = UID2ClientFactory::Create(baseUrl, apiKey, secretKey);
     ```
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします（推奨リフレッシュ間隔は1時間毎）:
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします (推奨リフレッシュ間隔は1時間毎):
 
     ```cpp
    client->Refresh();

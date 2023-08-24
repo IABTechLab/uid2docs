@@ -9,12 +9,12 @@
 
 このガイドには、以下の情報が含まれています。
 
-- [Terminology（用語解説）](#terminology)
-- [Include the SDK Script（SDK スクリプトのインクルード）](#include-the-sdk-script)
-- [Workflow Overview（ワークフローの概要）](#workflow-overview)
-  - [Workflow States and Transitions（ワークフローの状態と遷移）](#workflow-states-and-transitions)
-  - [Background Token Auto-Refresh（バックグラウンドでのトークン自動更新）](#background-token-auto-refresh)
-- [API Reference（API リファレンス）](#api-reference)
+- [Terminology (用語解説)](#terminology)
+- [Include the SDK Script (SDK スクリプトのインクルード)](#include-the-sdk-script)
+- [Workflow Overview (ワークフローの概要)](#workflow-overview)
+  - [Workflow States and Transitions (ワークフローの状態と遷移)](#workflow-states-and-transitions)
+  - [Background Token Auto-Refresh (バックグラウンドでのトークン自動更新)](#background-token-auto-refresh)
+- [API Reference (API リファレンス)](#api-reference)
   - [constructor()](#constructor)
   - [init()](#initopts-object-void)
   - [getAdvertisingToken()](#getadvertisingtoken-string)
@@ -22,9 +22,9 @@
   - [isLoginRequired()](#isloginrequired-boolean)
   - [disconnect()](#disconnect-void)
   - [abort()](#abort-void)
-- [UID2 Cookie Format（UID2 クッキーフォーマット）](#uid2-cookie-format)
-  - [Properties（プロパティ）](#properties)
-  - [Contents Structure（コンテンツ構造）](#contents-structure)
+- [UID2 Cookie Format (UID2 クッキーフォーマット)](#uid2-cookie-format)
+  - [Properties (プロパティ)](#properties)
+  - [Contents Structure (コンテンツ構造)](#contents-structure)
 
 ## terminology
 
@@ -47,7 +47,7 @@ UID2 をターゲティング広告に使用したいすべてのページで、
 
 ## Workflow Overview
 
-SDK を使用して UID2 ID を確立するためのクライアント側ワークフローは、以下のステップで構成されます:
+SDK を使用して UID2 ID を確立するためのクライアントサイドワークフローは、以下のステップで構成されます:
 
 1. Publisher: [init](#initopts-object-void)関数で SDK を初期化し、ステップの正常終了時に呼び出す[コールバック関数](#callback-function)を指定します。
 
@@ -76,7 +76,7 @@ Web インテグレーションの手順は、[Client-Side JavaScript SDK Integr
 | :---------------------------------- | :---------------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------- |
 | Initialization                      | `undefined`       | `undefined`    | コールバックが呼び出されるまでの初期状態。                                                                                                                                                                                                                                                                                                                                                                                                                                                       | N/A                                                      |
 | Identity Is Available               | available         | `false`        | 有効な ID が正常に確立またはリフレッシュされました。Advertising Token は、ターゲティング広告で使用できます。                                                                                                                                                                                                                                                                                                                                                                                     | `ESTABLISHED` or `REFRESHED`                             |
-| Identity Is Temporarily Unavailable | `undefined`       | `false`        | Advertising Token の有効期限が切れたため、自動リフレッシュに失敗しました。[バックグラウンドでのトークン自動更新](#background-token-auto-refresh) の試行は、Refresh Token の有効期限が切れるか、ユーザーが拒否するまで続きます。<br/>以下のいずれかを行えます：<br/>- ターゲティングのない広告を使います。<br/>- 同意フォームを使って UID2 ログインにユーザーを誘導します。<br/>NOTE: UID2 Service が一時的に利用できない場合など、しばらくすると ID が正常に更新される場合があります。 | `EXPIRED`                                                |
+| Identity Is Temporarily Unavailable | `undefined`       | `false`        | Advertising Token の有効期限が切れたため、自動リフレッシュに失敗しました。[バックグラウンドでのトークン自動更新](#background-token-auto-refresh) の試行は、Refresh Token の有効期限が切れるか、ユーザーが拒否するまで続きます。<br/>以下のいずれかを行えます:<br/>- ターゲティングのない広告を使います。<br/>- 同意フォームを使って UID2 ログインにユーザーを誘導します。<br/>NOTE: UID2 Service が一時的に利用できない場合など、しばらくすると ID が正常に更新される場合があります。 | `EXPIRED`                                                |
 | Identity Is Not Available           | `undefined`       | `false`        | ID が利用できないため、リフレッシュできません。SDK はファーストパーティクッキーをクリアします。<br/>UID2 ベースのターゲティング広告を再び使用するには、同意フォームを使用してユーザーを UID2 ログインにリダイレクトする必要があります。                                                                                                                                                                                                                                                | `INVALID`, `NO_IDENTITY`, `REFRESH_EXPIRED`, or `OPTOUT` |
 
 次の図は、4 つの状態と、それぞれの ID の [status value](#identity-status-values)、およびそれらの間の可能な遷移を表しています。SDK は、各遷移で [コールバック関数](#callback-function) を呼び出します。
@@ -91,10 +91,10 @@ SDK の [初期化](#initopts-object-void) の一部として、ID のトーク�
 
 - 一度にアクティブにできるのは、1 つのトークンリフレッシュコールのみです。
 - [POST /token/refresh](../endpoints/post-token-refresh.md) レスポンスが、ユーザーのオプトアウトや Refresh Token の期限切れにより失敗した場合、バックグラウンドでの自動リフレッシュ処理は中断され、新しいログインが必要となります ([isLoginRequired()](#isloginrequired-boolean) は `true` を返します)。それ以外の場合、自動更新の試みはバックグラウンドで継続されます。
-- SDK 初期化時に指定された　[コールバック関数](#callback-function) は、次の場合に呼び出されます:
+- SDK 初期化時に指定された [コールバック関数](#callback-function) は、次の場合に呼び出されます:
   - 更新が成功するたびに呼び出されます。
   - 有効期限切れのアドバタイジングトークンのリフレッシュに初めて失敗した場合に呼び出されます。
-  - ユーザーがオプトアウトするなどして ID が無効になった場合に呼び出されます。<br/>注：コールバックは、ID が一時的に使用できず、自動更新が失敗し続けた場合には呼び出されません。この場合、SDK は既存の Advertising Token を継続して使用します。
+  - ユーザーがオプトアウトするなどして ID が無効になった場合に呼び出されます。<br/>注: コールバックは、ID が一時的に使用できず、自動更新が失敗し続けた場合には呼び出されません。この場合、SDK は既存の Advertising Token を継続して使用します。
 - [disconnect()](#disconnect-void) 呼び出しは、アクティブなタイマーをキャンセルします。
 
 ## API Reference
@@ -213,7 +213,7 @@ SDK を初期化し、ターゲティング広告のためのユーザー ID を
 | :---------------- | :----------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ESTABLISHED`     | Available                      | ID は有効で、渡された値またはファーストクッキーから設定され、ターゲティング広告に利用できるようになりました。                                                                      |
 | `REFRESHED`       | Available                      | UID2 Operator へのコールにより ID が正常にリフレッシュされ、ターゲティング広告に利用できるようになりました。                                                                      |
-| `EXPIRED`         | Not available                  | SDK がトークンのリフレッシュに失敗したため、ターゲティング広告に使用できる ID がありません。有効なリフレッシュ トークンがまだ存在するため、自動リフレッシュの試行は継続されます。 |
+| `EXPIRED`         | Not available                  | SDK がトークンのリフレッシュに失敗したため、ターゲティング広告に使用できる ID がありません。有効な Refresh Token がまだ存在するため、自動リフレッシュの試行は継続されます。 |
 | `REFRESH_EXPIRED` | Not available                  | ファーストパーティクッキーの Refresh Token または渡された ID の有効期限が切れているため、ターゲティング広告に利用できる ID がありません。                                         |
 | `NO_IDENTITY`     | Not available                  | ファーストパーティクッキーが設定されておらず、`init()`関数に ID が渡されていないため、ターゲティング広告に利用できる ID はありません。                                            |
 | `INVALID`         | Not available                  | SDK がファーストパーティクッキーまたは渡された ID の解析に失敗したため、ターゲティング広告に利用できる ID がありません。                                                          |
@@ -299,7 +299,7 @@ UID2 ログイン ([POST /token/generate](../endpoints/post-token-generate.md) �
 </script>
 ```
 
-この関数を実行すると、[getAdvertisingToken()](#getadvertisingtoken-string)　関数は`undefined`、[isLoginRequired()](#isloginrequired-boolean)　は`true`を返します。
+この関数を実行すると、[getAdvertisingToken()](#getadvertisingtoken-string) 関数は`undefined`、[isLoginRequired()](#isloginrequired-boolean) は`true`を返します。
 
 ### abort(): void
 

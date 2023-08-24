@@ -23,7 +23,7 @@ sidebar_position: 20
 
 ## Overview
 
-UID2 Operator サービスは、Google Cloud Platform の[Confidential VM](https://cloud.google.com/compute/confidential-vm/docs/about-cvm)と呼ばれる Compute Engine の仮想マシン（VM）内で実行できます。これは、トラステッド・コンピューティング・エンクレーブです。
+UID2 Operator サービスは、Google Cloud Platform の[Confidential VM](https://cloud.google.com/compute/confidential-vm/docs/about-cvm)と呼ばれる Compute Engine の仮想マシン (VM)内で実行できます。これは、トラステッド・コンピューティング・エンクレーブです。
 
 エンクレーブは、[Container-Optimized OS](https://cloud.google.com/container-optimized-os/docs) ブートディスクを使用する必要があり、提供される [cloud-init](https://cloudinit.readthedocs.io/) config によりカスタマイズできます。
 
@@ -82,7 +82,7 @@ UID2 Operator Service は、どの GCP アカウントおよびプロジェク�
 
 ### Cloud-init.yaml File
 
-登録プロセスでは、認証された cloud-init-`<timestamp>`.yaml ファイルが提供されます。このファイルの SHA-256sum は認証プロセスの一部として使用されるため、このファイルを（クライアント API キーを追加する以外の）いかなる方法でも変更することはできません。ファイルの内容は後述しますが、このファイルはデプロイプロセス中に手動で作成されることはなく、常に UID チームが新しい Private Operator を設定するプロセス中に作成されます。
+登録プロセスでは、認証された cloud-init-`<timestamp>`.yaml ファイルが提供されます。このファイルの SHA-256sum は認証プロセスの一部として使用されるため、このファイルを (クライアント API キーを追加する以外の)いかなる方法でも変更することはできません。ファイルの内容は後述しますが、このファイルはデプロイプロセス中に手動で作成されることはなく、常に UID チームが新しい Private Operator を設定するプロセス中に作成されます。
 
 cloud-init.yaml ファイルは環境に固有なので、インテグレーション環境用と本番環境用を用意することに注意してください。
 
@@ -171,7 +171,7 @@ $ gcloud compute instances \
   --tags http-server
 ```
 
-VM の名前（上の例では uid2-operator-gcp-01）は変更できますが、その他のパラメータは変更できず、認証に失敗します。
+VM の名前 (上の例では uid2-operator-gcp-01)は変更できますが、その他のパラメータは変更できず、認証に失敗します。
 
 ## Production Deployment
 

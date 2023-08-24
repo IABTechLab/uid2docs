@@ -26,7 +26,7 @@ sidebar_position: 12
 
 UID2 SDK for Android を使用すると、UID2 を使用してクライアント ID を確立し、Android デバイス上で Advertising Token を取得するプロセスを容易にすることができます。
 
->NOTE: UID2 SDK for Android を使って UID2 Token を Google Mobile Ads（GMA）に送信したい場合は、[UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) も参照してください。
+>NOTE: UID2 SDK for Android を使って UID2 Token を Google Mobile Ads (GMA)に送信したい場合は、[UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) も参照してください。
 
 ## Functionality
 

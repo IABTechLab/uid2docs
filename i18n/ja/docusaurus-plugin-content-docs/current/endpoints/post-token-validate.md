@@ -1,6 +1,6 @@
 ---
 title: POST /token/validate
-description: Advertising Token を検証します（テスト目的）。
+description: Advertising Token を検証します (テスト目的)。
 hide_table_of_contents: false
 sidebar_position: 03
 ---
@@ -121,6 +121,6 @@ echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXl
 1. DII がハッシュ化されたメールアドレスか、ハッシュ化されていないメールアドレスか、電話番号かに応じて、[Unencrypted JSON Body Parameters](#unencrypted-json-body-parameters) の表に記載されている4つの有効なオプションのいずれかを使用して、[POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信する。表に記載されている対応する値 - `email`、`email_hash`、`phone`、`phone_hash` - を使用する。
 
 2. 返された `advertising_token` の値を次のステップで使用するために保存します。
-3. ステップ 2 で保存した `advertising_token` を `token` プロパティの値として、ステップ 1 で送信した `email`、`email_hash`、`phone`、`phone_hash` の値を使用して [POST /token/validate](../endpoints/post-token-validate.md) リクエストを送信します。
-    - `true` のレスポンスは、ステップ 1 でリクエストとして送った DII が、ステップ 1 のレスポンスで受け取ったトークンと一致していることを示します。
+3. Step 2 で保存した `advertising_token` を `token` プロパティの値として、Step 1 で送信した `email`、`email_hash`、`phone`、`phone_hash` の値を使用して [POST /token/validate](../endpoints/post-token-validate.md) リクエストを送信します。
+    - `true` のレスポンスは、Step 1 でリクエストとして送った DII が、Step 1 のレスポンスで受け取ったトークンと一致していることを示します。
     - `false` のレスポンスは、メールアドレス、電話番号、またはそれぞれのハッシュを送信する方法に問題があるかもしれないことを示します。

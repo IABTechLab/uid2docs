@@ -6,15 +6,15 @@ UID2 の定義、ID タイプ、指針、構成要素、その他の概念的な
 
 このページでは、UID2 APIを使い始めるために必要な一般的な情報を提供します。
 
-その内容は以下の通りです：
+その内容は以下の通りです:
 
-- [Contact Info（連絡先）](#contact-info)
-- [API Versions（API バージョン）](#api-versions)
-- [Email Address Normalization（メールアドレスの正規化）](#email-address-normalization)
-- [Email Address Hash Encoding（メールアドレスハッシュのエンコード）](#email-address-hash-encoding)
-- [Phone Number Normalization（電話番号の正規化）](#phone-number-normalization)
-- [Phone Number Hash Encoding（電話番号ハッシュのエンコード）](#phone-number-hash-encoding)
-- [License（ライセンス）](#license)
+- [Contact Info (連絡先)](#contact-info)
+- [API Versions (API バージョン)](#api-versions)
+- [Email Address Normalization (メールアドレスの正規化)](#email-address-normalization)
+- [Email Address Hash Encoding (メールアドレスハッシュのエンコード)](#email-address-hash-encoding)
+- [Phone Number Normalization (電話番号の正規化)](#phone-number-normalization)
+- [Phone Number Hash Encoding (電話番号ハッシュのエンコード)](#phone-number-hash-encoding)
+- [License (ライセンス)](#license)
 
 ## Contact Info
 

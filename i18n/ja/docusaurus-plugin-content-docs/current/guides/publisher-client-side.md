@@ -25,7 +25,7 @@ sidebar_position: 02
 
 このガイドでは、SDK を使用せずにインテグレーションする場合に考慮する必要がある [基本的な手順](#integration-steps) を概説しています。たとえば、ユーザーログインとログアウトの実装方法、UID2 ID 情報の管理とターゲティング広告への使用方法、トークンの更新方法、ID が見つからない場合の対処、ユーザーのオプトアウトの処理方法などを決定する必要があります。[FAQ](#faqs)も参照してください。
 
-UID2 を使用してクライアントの identity を確立し、Advertising Token を取得するプロセスを容易にするため、このガイドで説明する Web インテグレーション手順では、JavaScript 用の UID2 SDK を使用しています。このガイドで説明するインテグレーション手順と SDK の使用方法（現在はメールアドレスのみ）を説明する [サンプルアプリケーション](https://example-jssdk-integ.uidapi.com/) を以下に示します。アプリケーションのドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) を参照してください。
+UID2 を使用してクライアントの identity を確立し、Advertising Token を取得するプロセスを容易にするため、このガイドで説明する Web インテグレーション手順では、JavaScript 用の UID2 SDK を使用しています。このガイドで説明するインテグレーション手順と SDK の使用方法 (現在はメールアドレスのみ)を説明する [サンプルアプリケーション](https://example-jssdk-integ.uidapi.com/) を以下に示します。アプリケーションのドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) を参照してください。
 
 > IMPORTANT: 現在、UID2 SDK はトークンをファーストパーティクッキーに保存しています。このような実装の詳細は将来的に変更される可能性があるため、潜在的な問題を回避するために、ID 管理は必ず [Client-Side JavaScript SDK APIs](../sdks/client-side-identity.md#api-reference) に基づいて行ってください。
 
@@ -48,7 +48,7 @@ UID2 SDK for JavaScript を使用しないパブリッシャーのインテグ�
 
 ### Establish Identity: User Login
 
-ステップ 1-c で認証が行われ、ユーザーに規約を受け入れてもらい、パブリッシャーがメールアドレスや電話番号を検証した後、サーバーサイドで UID2 Token を生成する必要があります。次の表は、トークン生成のステップの詳細を示しています。
+Step 1-c で認証が行われ、ユーザーに規約を受け入れてもらい、パブリッシャーがメールアドレスや電話番号を検証した後、サーバーサイドで UID2 Token を生成する必要があります。次の表は、トークン生成のステップの詳細を示しています。
 
 | Step | Endpoint/SDK                                                       | Description                                                                                                                                                                                                                                                                                                                                                        |
 | :--- | :----------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -84,7 +84,7 @@ UID2 SDK for JavaScript を使用しないパブリッシャーのインテグ�
 </script>
 ```
 
-SDK は指定された [コールバック関数](../sdks/client-side-identity.md#callback-function) を呼び出し（ID の利用可能性を示します）、確立した ID をクライアント側の入札に利用できるようにします。
+SDK は指定された [コールバック関数](../sdks/client-side-identity.md#callback-function) を呼び出し (ID の利用可能性を示します)、確立した ID をクライアントサイドの入札に利用できるようにします。
 
 ### Bid Using UID2 Tokens
 

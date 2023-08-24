@@ -6,8 +6,8 @@ UID2 の定義、ID タイプ、指針、構成要素、その他の概念的な
 
 このページでは、UID2 API v2 を使い始めるために必要な以下の情報を提供します:
 
-- [Environments（環境）](#environments)
-- [Authentication and Authorization（認証と承認）](#authentication-and-authorization)
+- [Environments (環境)](#environments)
+- [Authentication and Authorization (認証と承認)](#authentication-and-authorization)
 
 API の使用方法は、以下のページを参照してください。
 

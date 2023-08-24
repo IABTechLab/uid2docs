@@ -20,8 +20,8 @@ sidebar_position: 05
 
 以下は、RTB で UID2 をサポートするための DSP のインテグレーションワークフローで、大きく 2 つのステップで構成されています:
 
-1. [Honor user Opt-Outs（ユーザーオプトアウトの受け入れ）](#honor-user-opt-outs)
-2. [Decrypt UID2 tokens to use in RTB（RTB で使用する UID2 Token の復号化）](#decrypt-uid2-tokens-for-rtb-use)
+1. [Honor user Opt-Outs (ユーザーオプトアウトの受け入れ)](#honor-user-opt-outs)
+2. [Decrypt UID2 tokens to use in RTB (RTB で使用する UID2 Token の復号化)](#decrypt-uid2-tokens-for-rtb-use)
 
 ![](images/dsp-guide-flow-mermaid.png)
 
@@ -44,7 +44,7 @@ https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 
 #### Bidding Opt-Out Logic
 
-入札時（2-b）に以下のロジックを使用し、ユーザーのオプトアウトを受け入れます。
+入札時 (2-b)に以下のロジックを使用し、ユーザーのオプトアウトを受け入れます。
 
 Server-Side SDK のいずれか([SDKs](../sdks/summary-sdks.md)を参照)を利用して、受信した UID2 Token を復号化します。応答には UID2 と UID2 が作成された時刻が含まれ、以下の疑似コードでは `established_timestamp`として表されます。DSP は UID2 の最新のオプトアウトタイムスタンプを確認する必要があります。
 

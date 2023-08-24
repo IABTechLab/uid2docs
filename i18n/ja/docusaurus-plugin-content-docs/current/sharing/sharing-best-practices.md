@@ -33,7 +33,7 @@ UID2 Token を他の UID2 正規のユーザーと安全に共有できるよう
 
 - データがプラットフォームに入るとき、またはデータを送信するときは、データが常に UID2 Token の形式であり、raw UID2 ではないことを確認してください。
 
-  ただしインフラストラクチャ内では、UID2 Token ではなく raw UID2 を保存することが重要です（上記の [Best Practices for Managing Raw UID2s](#best-practices-for-managing-raw-uid2s) を参照してください）。 
+  ただしインフラストラクチャ内では、UID2 Token ではなく raw UID2 を保存することが重要です (上記の [Best Practices for Managing Raw UID2s](#best-practices-for-managing-raw-uid2s) を参照してください)。 
 
 - コードでは、将来の拡張性を考慮して、UID2 Token の長さを 500 文字まで許容してください。
 

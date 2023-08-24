@@ -6,13 +6,13 @@
 
 以下のセクションが含まれています:
 
-- [Introduction（はじめに）](#introduction)
-- [Integration Steps（インテグレーション手順）](#integration-steps)
-  - [Establish Identity: User Login（アイデンティティを確立する: ユーザーログイン）](#establish-identity-user-login)
-  - [Bid Using UID2 Tokens（UID2 Token を使った入札）](#bid-using-uid2-tokens)
-  - [Refresh Tokens（トークンのリフレッシュ）](#refresh-tokens)
-  - [Clear Identity: User Logout（アイデンティティの消去: ユーザーログアウト）](#clear-identity-user-logout)
-- [FAQs（よくある質問）](#faqs)
+- [Introduction (はじめに)](#introduction)
+- [Integration Steps (インテグレーション手順)](#integration-steps)
+  - [Establish Identity: User Login (アイデンティティを確立する: ユーザーログイン)](#establish-identity-user-login)
+  - [Bid Using UID2 Tokens (UID2 Token を使った入札)](#bid-using-uid2-tokens)
+  - [Refresh Tokens (トークンのリフレッシュ)](#refresh-tokens)
+  - [Clear Identity: User Logout (アイデンティティの消去: ユーザーログアウト)](#clear-identity-user-logout)
+- [FAQs (よくある質問)](#faqs)
 
 ## Introduction
 
@@ -82,13 +82,13 @@ UID2 を使用したクライアント ID の確立と Advertising Token の取�
 
 ### Establish Identity: User Login
 
-ステップ 1-c で認証が行われ、ユーザーに規約を受け入れてもらい、パブリッシャーがメールアドレスや電話番号を検証した後、サーバー側で UID2 Token を生成する必要があります。次の表は、トークン生成のステップの詳細を示しています。
+Step 1-c で認証が行われ、ユーザーに規約を受け入れてもらい、パブリッシャーがメールアドレスや電話番号を検証した後、 サーバーサイドで UID2 Token を生成する必要があります。次の表は、トークン生成のステップの詳細を示しています。
 
 | Step | Endpoint/SDK                                                       | Description                                                                                                                                                                                                                                                                                                                                                        |
 | :--- | :----------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1-d  | [POST /token/generate](../endpoints/post-token-generate.md)        | ユーザーが認証され、UID2 の作成が許可されたら、[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを使用して、ユーザーの正規化したメールアドレスまたは電話番号を使って UID2 Token を生成します。                                                                                                                                            |
 | 1-e  | [POST /token/generate](../endpoints/post-token-generate.md)        | ユーザーのメールアドレス、電話番号、またはそれぞれのハッシュから生成された UID2 Token を返します。                                                                                                                                                                                                                                                                 |
-| 1-f  | [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) | 手順 1-e で返された UID2 Token を、SDK の　[init()](../sdks/client-side-identity.md#initopts-object-void) の `identity` プロパティで送り、以下のように [コールバック関数](../sdks/client-side-identity.md#callback-function) を指定する必要があります。この仕組みにより、ユーザーがログアウトするまで、UID2 Token がターゲティング広告に利用できるようになります。 |
+| 1-f  | [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) | 手順 1-e で返された UID2 Token を、SDK の [init()](../sdks/client-side-identity.md#initopts-object-void) の `identity` プロパティで送り、以下のように [コールバック関数](../sdks/client-side-identity.md#callback-function) を指定する必要があります。この仕組みにより、ユーザーがログアウトするまで、UID2 Token がターゲティング広告に利用できるようになります。 |
 
 ```html
 <script>
@@ -118,7 +118,7 @@ UID2 を使用したクライアント ID の確立と Advertising Token の取�
 </script>
 ```
 
-SDK は指定された [コールバック関数](../sdks/client-side-identity.md#callback-function) を呼び出し（ID の利用可能性を示します）、確立した ID をクライアント側の入札に利用できるようにします。
+SDK は指定された [コールバック関数](../sdks/client-side-identity.md#callback-function) を呼び出し (ID の利用可能性を示します)、確立した ID をクライアントサイドの入札に利用できるようにします。
 
 ### Bid Using UID2 Tokens
 

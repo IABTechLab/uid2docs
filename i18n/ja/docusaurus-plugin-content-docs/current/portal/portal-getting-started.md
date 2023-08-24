@@ -36,7 +36,7 @@ UID2 Portal アカウントを申請するには、氏名や業種など、ご�
 | Item | Needed for... | 
 | :--- | :--- |
 | 自身に関する情報<br/>- 名<br/>- 姓<br/>- メールアドレス<br/>- 職種 | Request Account ページ |
-| 貴社に関する情報<br/>- 参加者名（会社名）<br/>- 参加者タイプ（例: DSP） | Participant Information ページ |
+| 貴社に関する情報<br/>- 参加者名 (会社名)<br/>- 参加者タイプ (例: DSP) | Participant Information ページ |
 
 アカウント設定に必要な情報:
 

@@ -107,7 +107,7 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
    ```cs
    var client = UID2ClientFactory.Create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
    ```
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします（推奨リフレッシュ間隔は1時間毎）:
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします (推奨リフレッシュ間隔は1時間毎):
 
     ```cs
    client.Refresh();

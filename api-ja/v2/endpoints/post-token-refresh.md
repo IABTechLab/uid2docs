@@ -4,9 +4,9 @@
 
 [POST /token/generate](./post-token-generate.md) エンドポイントを使用して発行された Refresh Token を指定し、ユーザーの新しいトークンを生成できます。
 
-Used by:　このエンドポイントは、主にパブリッシャーが使用します。
+Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
-> NOTE: このエンドポイントは、API キーを使用する必要がないため、クライアント側（たとえば、ブラウザやモバイルアプリなど）から呼び出せます。
+> NOTE: このエンドポイントは、API キーを使用する必要がないため、クライアントサイド (たとえば、ブラウザやモバイルアプリなど)から呼び出せます。
 
 ## Request Format
 
@@ -78,7 +78,7 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 
 #### Error Response
 
-エラーレスポンスは以下のようなものになる可能性があります：
+エラーレスポンスは以下のようなものになる可能性があります:
 
 ```json
 {
@@ -91,11 +91,11 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 
 | Property               | Data Type | Description                                                                                                                                                                                                                                                                             |
 | :--------------------- | :-------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `advertising_token`    | string    | ユーザーの暗号化された Advertising Token（UID2）です。                                                                                                                                                                                                                                  |
+| `advertising_token`    | string    | ユーザーの暗号化された Advertising Token (UID2)です。                                                                                                                                                                                                                                  |
 | `refresh_token`        | string    | UID2 Service と最新の ID トークンのセットを交換できる暗号化されたトークンです。                                                                                                                                                                                                         |
-| `identity_expires`     | double    | Advertising Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                              |
-| `refresh_from`         | double    | [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) が Advertising Token の更新を開始するタイミングを示す UNIX タイムスタンプ（ミリ秒単位）です。<br/>TIP: SDK を使用していない場合は、このタイムスタンプからも Advertising Token を更新することを検討してみてください。 |
-| `refresh_expires`      | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                                  |
+| `identity_expires`     | double    | Advertising Token の有効期限を示す UNIX タイムスタンプ (ミリ秒単位)です。                                                                                                                                                                                                              |
+| `refresh_from`         | double    | [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) が Advertising Token の更新を開始するタイミングを示す UNIX タイムスタンプ (ミリ秒単位)です。<br/>TIP: SDK を使用していない場合は、このタイムスタンプからも Advertising Token を更新することを検討してみてください。 |
+| `refresh_expires`      | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ (ミリ秒単位)です。                                                                                                                                                                                                                  |
 | `refresh_response_key` | string    | [POST /token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。                                                                                                                                                                                     |
 
 ### Response Status Codes
