@@ -149,7 +149,7 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-enclave">Enclave</dt>
 <dd>An enclave is a secure subsection of a computing environment. The enclave has additional business logic and security measures applied to it, to prevent anyone from tampering with it.</dd>
 <dd>In the context of UID2, a <a href="#gl-private-operator">private operator</a> must run inside an enclave or in a private environment. The enclave versions supported are:<br/>
-- <a href="https://aws.amazon.com/ec2/nitro/">AWS Nitro</a>: see <a href="../guides/operator-guide-aws-marketplace">UID2 Operator: AWS Marketplace Integration Guide</a>.<br/>
+- <a href="https://aws.amazon.com/ec2/nitro/">AWS Nitro</a>: see <a href="../guides/operator-guide-aws-marketplace">UID2 Operator - AWS Marketplace Integration Guide</a>.<br/>
 - <a href="https://cloud.google.com/confidential-computing">Google Cloud Platform Confidential Computing</a>: see <a href="../guides/operator-guide-gcp-enclave">UID2 Operator - Google Cloud Platform Confidential Computing Package</a>.<br/>
 - <a href="https://learn.microsoft.com/en-us/azure/confidential-computing/">Microsoft Azure confidential computing</a>: see <a href="../guides/operator-guide-azure-enclave">Microsoft Azure Confidential Compute Operator Package</a>.</dd>
 <dd>In an enclave, the operator image must be a very specific, predefined version, and additional constraints are applied to ensure security.</dd>
