@@ -138,3 +138,12 @@ The following table lists the `status` property values and their HTTP status cod
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
 If the `status` value is anything other than `success`, the `message` field provides additional information about the issue.
+
+## Test Identities
+
+| Type | Identity | Purpose | Next Endpoint |
+| :--- | :--- | :--- | :--- |
+| Email | `validate@email.com` | Test that the `advertising_token` you've cached matches the `advertising_token` for the specified email address. | [POST /token/validate](post-token-validate.md) |
+| Email | `optout@email.com` | Using this email for the request always generates an identity response with a `refresh_token` that results in an `optout` response. | [POST /token/refresh](post-token-refresh.md) |
+| Phone | `+12345678901` | Test that the `advertising_token` you've cached matches the `advertising_token` for the specified phone number. | [POST /token/validate](post-token-validate.md) |
+| Phone | `+00000000000` | Using this phone number for the request always generates an identity response with a `refresh_token` that results in an `optout` response. | [POST /token/refresh](post-token-refresh.md) |

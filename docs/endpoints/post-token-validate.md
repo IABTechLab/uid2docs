@@ -30,7 +30,7 @@ Used by: This endpoint is used mainly by publishers.
 
 ### Unencrypted JSON Body Parameters
 
-- Include only one of the following valid options, as listed in the Body Parameter table: `email`, `email_hash`, `phone`, or `phone_hash`. For the parameter you choose to test with, use the exact value listed. 
+- Include only one of the following four valid options, as listed in the Body Parameter table: `email`, `email_hash`, `phone`, or `phone_hash`. For the parameter you choose to test with, use the exact value listed. 
 - Include the required body parameters as key-value pairs in the JSON body of a request when encrypting it.
 
 | Body Parameter | Data Type | Attribute | Description |
@@ -112,7 +112,7 @@ If the `status` value is anything other than `success`, the `message` field prov
 
 You can use this endpoint to test whether the [DII](../ref-info/glossary-uid.md#gl-dii) you are sending through [POST /token/generate](../endpoints/post-token-generate.md) is valid. Follow these steps.
 
-1. Depending on whether the DII is a hashed or unhashed email address or phone number, send a [POST /token/generate](../endpoints/post-token-generate.md) request using one of the valid options listed in the [Unencrypted JSON Body Parameters](#unencrypted-json-body-parameters) table&#8212;`email`, `email_hash`, `phone`, or `phone_hash`&#8212;with the corresponding value as listed in the table.
+1. Depending on whether the DII is a hashed or unhashed email address or phone number, send a [POST /token/generate](../endpoints/post-token-generate.md) request using one of the four valid options listed in the [Unencrypted JSON Body Parameters](#unencrypted-json-body-parameters) table&#8212;`email`, `email_hash`, `phone`, or `phone_hash`&#8212;with the corresponding value as listed in the table.
 
 2. Store the returned `advertising_token` value for use in the next step.
 3. Send a `POST /token/validate` request using the `email`, `email_hash`, `phone`, or `phone_hash` value that you sent in Step 1, with the `advertising_token` that you saved in Step 2 as the `token` property value.
