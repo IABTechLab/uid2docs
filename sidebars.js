@@ -81,6 +81,9 @@ const sidebars = {
         type: 'generated-index',
       },
       collapsed: true,
+
+
+
       items: [
         'guides/summary-guides',
 
@@ -93,9 +96,9 @@ const sidebars = {
           collapsed: true,
           items: [
             'guides/integration-prebid',
-            'guides/google-ss-integration',
             'guides/publisher-client-side',
             'guides/custom-publisher-integration',
+            'guides/google-ss-integration',
             'guides/mobile-plugin-gma-android',
             'guides/mobile-plugin-gma-ios',
             'guides/mobile-plugin-ima-android',
