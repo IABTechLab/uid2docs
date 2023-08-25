@@ -10,7 +10,7 @@ Opt in the user to UID2-based targeted advertising and generate a UID2 token fro
 
 Used by: This endpoint is used mainly by publishers.
 
->IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to UID2 tokens for targeted advertising. The `policy` parameter checks whether the user has opted out.
+>IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to UID2 tokens for targeted advertising. The required `policy` parameter checks whether the user has opted out.
 
 ## Request Format 
 
@@ -28,18 +28,17 @@ Here's what you need to know about this endpoint requests:
 
 >NOTE: The integration environment and the production environment require different [API keys](../ref-info/glossary-uid.md#gl-api-key).
 
-###  Unencrypted JSON Body Parameters
+### Unencrypted JSON Body Parameters
 
 You must include only one of the following parameters as a key-value pair in the JSON body of a request when encrypting it.
 
 | Body Parameter | Data Type | Attribute | Description | 
 | :--- | :--- | :--- | :--- |
 | `email` | string | Conditionally Required | The email address for which to generate tokens. | 
-| `email_hash` | string | Conditionally Required | The [Base64-encoded ](../getting-started/gs-normalization-encoding#email-address-hash-encoding) hash of a [normalized](../getting-started/gs-normalization-encoding#email-address-normalization) email address. |
-| `phone` | string | Conditionally Required | The [normalized](../getting-started/gs-normalization-encoding#phone-number-normalization) phone number for which to generate tokens. |
-| `phone_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding#phone-number-hash-encoding) hash of a [normalized](../getting-started/gs-normalization-encoding#phone-number-normalization) phone number. |
+| `email_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) hash of a [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email address. |
+| `phone` | string | Conditionally Required | The [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number for which to generate tokens. |
+| `phone_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) hash of a [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number. |
 | `policy` | number | Required | The token generation policy ID checks whether the user has opted out. Include this parameter with a value of `1`.|
-
 
 ### Request Examples
 
@@ -108,7 +107,7 @@ A successful decrypted response returns the user's advertising and refresh token
 
 #### Optout
 
-Here is an example response when the user has opted out. In all other scenarios, if the user has opted out, the tokens are returned (see [Successful Response](#successful-response) above). 
+Here is an example response when the the user has opted out.
 
 ```json
 {
@@ -123,7 +122,7 @@ Here is an example response when the user has opted out. In all other scenarios,
 | `advertising_token` | string | An encrypted advertising (UID2) token for the user. |
 | `refresh_token` | string | An encrypted token that can be exchanged with the UID2 Service for the latest set of identity tokens. |
 | `identity_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the advertising token expires. |
-| `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) will start refreshing the UID2 token.<br/>TIP: If you are not using the SDK, consider refreshing the advertising token from this timestamp, too. |
+| `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) will start refreshing the UID2 token.<br/>TIP: If you are not using the SDK, consider refreshing the UID2 token from this timestamp, too. |
 | `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
 | `refresh_response_key` | string | A key to be used in a [POST /token/refresh](post-token-refresh.md) request for response decryption. |
 
@@ -138,7 +137,7 @@ The following table lists the `status` property values and their HTTP status cod
 | `client_error` | 400 | The request had missing or invalid parameters.|
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
-If the `status` value is other than `success`, the `message` field provides additional information about the issue.
+If the `status` value is anything other than `success`, the `message` field provides additional information about the issue.
 
 ## Test Identities
 
