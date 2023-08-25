@@ -2,8 +2,6 @@ const sidebars = {
   docs: [
     'intro',
 
-
-
     {
       type: 'category',
       label: 'Overview Pages',
@@ -19,8 +17,6 @@ const sidebars = {
         'overviews/overview-operators-private',
       ],
     },
-
-
 
     {
       type: 'category',
@@ -42,8 +38,6 @@ const sidebars = {
       ],
     },
 
-
-
     {
       type: 'category',
       label: 'UID2 Portal',
@@ -60,8 +54,6 @@ const sidebars = {
         'portal/email-contacts',
       ],
     },
-
-
 
     {
       type: 'category',
@@ -82,8 +74,6 @@ const sidebars = {
       ],
     },
 
-
-
     {
       type: 'category',
       label: 'Integration Guides',
@@ -93,62 +83,59 @@ const sidebars = {
       collapsed: true,
       items: [
         'guides/summary-guides',
+
         {
           type: 'category',
-          label: 'Publisher, DSP, Data Provider',
+          label: 'Publisher Integrations',
           link: {
             type: 'generated-index',
           },
           collapsed: true,
           items: [
             'guides/integration-prebid',
+            'guides/google-ss-integration',
             'guides/publisher-client-side',
             'guides/custom-publisher-integration',
-            'guides/dsp-guide',
-            'guides/advertiser-dataprovider-guide',
-          ],
-        },
-
-
-        'guides/snowflake_integration',
-        'guides/google-ss-integration',
-
-        {
-          type: 'category',
-          label: 'Mobile Plugins',
-          link: {
-            type: 'generated-index',
-          },
-          collapsed: true,
-          items: [
             'guides/mobile-plugin-gma-android',
             'guides/mobile-plugin-gma-ios',
             'guides/mobile-plugin-ima-android',
             'guides/mobile-plugin-ima-ios',
           ],
         },
- 
+
         {
           type: 'category',
-          label: 'Operator Guides',
+          label: 'Advertiser/Data Provider Integrations',
+          link: {
+            type: 'generated-index',
+          },
+          collapsed: true,
+          items: [
+            'guides/advertiser-dataprovider-guide',
+            'guides/snowflake_integration',
+          ],
+        },
+
+        'guides/dsp-guide',
+
+        {
+          type: 'category',
+          label: 'Private Operator Integrations',
           link: {
             type: 'generated-index',
           },
           collapsed: true,
           items: [
             'guides/operator-guide-aws-marketplace',
-            'guides/operator-guide-azure-enclave',
             'guides/operator-guide-gcp-enclave',
+            'guides/operator-guide-azure-enclave',
           ],
         },
        ],
     },
 
-  
-  
-    'summary-doc-v2',
-    
-
+     'summary-doc-v2',
+ 
     {
       type: 'category',
       label: 'Endpoints (v2)',
@@ -166,8 +153,6 @@ const sidebars = {
       ],
     },
 
-
-
     {
       type: 'category',
       label: 'Workflows',
@@ -182,8 +167,6 @@ const sidebars = {
         'workflows/workflow-overview-opt-out',
       ],
     },
-
-
 
     {
       type: 'category',
@@ -200,13 +183,7 @@ const sidebars = {
         'sharing/sharing-bid-stream',
       ],
     },
-
-
-
     'ref-info/glossary-uid',
-
-
-
   ],
 };
 module.exports = sidebars;

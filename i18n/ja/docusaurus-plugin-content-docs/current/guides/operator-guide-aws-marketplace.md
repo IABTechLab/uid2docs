@@ -5,7 +5,7 @@ hide_table_of_contents: false
 sidebar_position: 17
 ---
 
-# UID2 Operator: AWS Marketplace Integration Guide
+# UID2 Operator - AWS Marketplace Integration Guide
 
 UID2 Operator は、UID2 エコシステムにおける API サーバーです。AWS Marketplace で稼働する Private Operator サービスの場合、UID2 Operator ソリューションは[AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave テクノロジーで強化されています。これは、UID2 情報を不正なアクセスから保護するための追加のセキュリティ対策です。
 
