@@ -47,6 +47,7 @@ Here are some frequently asked questions for publishers using the UID2 framework
   - [Can I make token refresh calls from the client side?](#can-i-make-token-refresh-calls-from-the-client-side)
   - [How can I test the refresh token workflow?](#how-can-i-test-the-refresh-token-workflow)
   - [What is the uniqueness and rotation policy for UID2 tokens?](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
+  - [What does a UID2 token look like in the bid stream?](#what-does-a-uid2-token-look-like-in-the-bid-stream)
 
 #### How can I test that the DII sent and the returned token match up?
 
@@ -61,7 +62,7 @@ No, publishers do not need to decrypt [UID2 tokens](../ref-info/glossary-uid.md#
 #### How will I be notified of user opt-out?
 
 If the user has opted out, the API response notifies you in either of these cases:
-- When you generate the UID2 token by a call to the  [POST /token/generate](../endpoints/post-token-generate.md) endpoint, either directly or via one of the UID2 SDKs, using the optional `policy` parameter with a value of `1`.
+- When you generate the UID2 token by a call to the [POST /token/generate](../endpoints/post-token-generate.md) endpoint, either directly or via one of the UID2 SDKs, using the required `policy` parameter with a value of `1`.
 - When you refresh the UID2 token by a call to the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, either directly or via one of the UID2 SDKs.
 
 #### Where should I make token generation calls&#8212;from the server side or the client side?
@@ -76,7 +77,7 @@ Yes. The [POST /token/refresh](../endpoints/post-token-refresh.md) can be called
 
 You can use the `optout@email.com` email address or the `+00000000000` phone number to test your token refresh workflow. Using either parameter value in a request always generates an identity response with a `refresh_token` that results in a logout response.
 
-The procedure is a little different depending on whether or not you are using an SDK. The difference is in Step 3.
+The procedure is a little different depending on whether or not you are using an SDK.
 
 ##### With SDK:
 
@@ -100,6 +101,30 @@ The procedure is a little different depending on whether or not you are using an
 #### What is the uniqueness and rotation policy for UID2 tokens?
 
 The UID2 service encrypts UID2 tokens using random initialization vectors. The UID2 token is unique for a given user as the user browses the internet. This means that every time a UID2 token is generated, the token is always different, even for the same underlying raw UID2. Every time the token is refreshed, a new token is generated and encrypted. This mechanism helps ensure that untrusted parties cannot track a user's identity.
+
+#### What does a UID2 token look like in the bid stream?
+
+There are many ways to approach UID2 implementation. Here is one example of a code snippet showing how a UID2 token is passed in the bid stream:
+
+```javascript
+{
+  "user":{
+    "ext":{
+      "eids":[
+        {
+          "source":"uidapi.com",
+          "uids":[
+            {
+              "id":"AgAAAHcy2ka1tSweERARV/wgwM+zM5wK98b9XItZGVgHaU23Eh0XOmAixO6VBcMd3k2ir/TGHLf7O7kQGLyeRPC5/VBSPmugOblMlzgy0B1ZfHQ7ccVurbyzgL1ZZOZ5cBvPDrvfR9MsKqPgWvrIKRkKVTYyUkG5YRAc++xRKfbL/ZSYxQ==",
+              "rtiPartner":"UID2"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
 
 ## FAQs for Advertisers and Data Providers
 

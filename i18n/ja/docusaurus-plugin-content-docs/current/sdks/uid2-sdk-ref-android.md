@@ -26,7 +26,13 @@ sidebar_position: 12
 
 UID2 SDK for Android を使用すると、UID2 を使用してクライアント ID を確立し、Android デバイス上で Advertising Token を取得するプロセスを容易にすることができます。
 
->NOTE: UID2 SDK for Android を使って UID2 Token を Google Mobile Ads (GMA)に送信したい場合は、[UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) も参照してください。
+
+以下の Android 関連プラグインと関連ドキュメントも利用できます。
+
+| Purpose | Product/Documentation |
+| :--- | :--- |
+| Google Mobile Ads (GMA) SDK を使用して、Android アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を [Secure Signal](https://support.google.com/admob/answer/11556288) として送信するには、次の手順に従います。 | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) |
+| Google Interactive Media Ads (IMA) SDK for Android を使用して、Android アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を [Secure Signal](https://support.google.com/admob/answer/11556288) として送信するには、次の手順に従います。 | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) |
 
 ## Functionality
 
@@ -40,7 +46,9 @@ UID2 SDK for Android を使用すると、UID2 を使用してクライアント
 
 <!-- As of 2023-07-15 -->
 
-このドキュメントは UID2 Android SDK バージョン 0.4.0 用です。
+このドキュメントは UID2 Android SDK バージョン 0.5.0 以降用です。
+
+特定のリリース・バージョンについては、[https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases)　を参照してください。
 
 ## Features
 
@@ -56,7 +64,7 @@ UID2 Android SDK は、Android アプリに代わって UID2 Identity を管理�
 
 バイナリは Sonatype で公開されています:
 
-- [https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk/0.4.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
+- [https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
 
 ## Minimum Requirements
 
@@ -80,7 +88,7 @@ Android UID2 SDK をインストールするには、2 つの方法がありま�
 Gradle を使用してインストールするには、build.gradle ファイルに依存関係として SDK を追加します:
 
 ``` javascript
-implementation 'com.uid2.uid2-android-sdk:0.4.0'
+implementation 'com.uid2.uid2-android-sdk:0.5.0'
 ```
 
 ### Installing with Maven 
@@ -91,7 +99,7 @@ Maven を使用してインストールするには、`pom.xml` ファイルに�
 <dependency> 
   <groupId>com.uid2</groupId> 
   <artifactId>uid2-android-sdk</artifactId> 
-  <version>0.4.0</version> 
+  <version>0.5.0</version> 
 </dependency> 
 ```
 
@@ -187,5 +195,3 @@ Get the UID2 token (advertising token) to pass to the Advertising SDK:
 ``` javascript
 UID2Manager.getInstance().getAdvertisingToken()
 ```
-
-<!-- eng_jp -->

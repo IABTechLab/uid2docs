@@ -1,5 +1,7 @@
 ---
 title: Client-Side JavaScript SDK Integration
+sidebar_label: Client-Side JavaScript SDK
+pagination_label: Client-Side JavaScript SDK Integration
 description: Information for publishers about how to generate identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
 hide_table_of_contents: false
 sidebar_position: 02
@@ -95,6 +97,7 @@ Based on the status and availability of a valid identity, the SDK sets up the ba
 | :--- | :--- | :--- |
 | 2-a | UID2 SDK for JavaScript | Get the current user's advertising token by using the [getAdvertisingToken() function](../sdks/client-side-identity.md#getadvertisingtoken-string) as shown below. |
 
+>NOTE: For an example of what a UID2 token might look like in the bid stream, when it's sent from an SSP to a DSP, see [What does a UID2 token look like in the bid stream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bid-stream)
 
 ```html
 <script>

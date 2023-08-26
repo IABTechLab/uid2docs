@@ -1,5 +1,7 @@
 ---
 title: Snowflake Integration
+sidebar_label: Snowflake
+pagination_label: Snowflake Integration
 description: Information about integrating with Snowflake as part of your UID2 implementation, through the UID2 Share in Snowflake. 
 hide_table_of_contents: false
 sidebar_position: 04
@@ -389,6 +391,9 @@ To determine which UID2s need regeneration, compare the timestamps of when they 
 The following example shows an input table and the query used to find the UID2s in the table that must be regenerated because the second-level salt was updated.
 
 #### Targeted Input Table
+
+In this example scenario, the advertiser/data provider has stored the UID2s in a table named `AUDIENCE_WITH_UID2`. The last column, `LAST_UID2_UPDATE_UTC`, is used to record the time at which a UID2 was generated. If no UID2 has been generated, the value is `NULL`, as shown in the third example. The advertiser/data provider can use this timestamp value to determine which UID2s need to be regenerated.
+
 ```
 select * from AUDIENCE_WITH_UID2;
 ```

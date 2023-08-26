@@ -35,8 +35,8 @@ The following documentation resources are available for data providers to implem
 
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
-| Integration Guide | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | This integration guide for advertisers and data providers covers integration workflows for mapping identity for audience-building and targeting. | Advertisers<br/>Data Providers |
-| Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | Instructions for generating UIDs from emails within Snowflake. | Advertisers<br/>Data Providers |
+| Integration Guide | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | This integration guide for advertisers and data providers covers integration workflows for mapping identity for audience-building and targeting. | Advertisers,<br/>Data Providers |
+| Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | Instructions for generating UIDs from emails within Snowflake. | Advertisers,<br/>Data Providers |
 
 ## Workflow for Data Providers
 

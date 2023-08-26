@@ -1,5 +1,6 @@
 ---
 title: Advertiser/Data Provider Integration
+sidebar_label: Advertiser/Data Provider Integration Guide
 description: Covers integration steps for organizations that collect user data and push it to other UID2 participants.
 hide_table_of_contents: false
 sidebar_position: 07

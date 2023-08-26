@@ -149,7 +149,7 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-enclave">Enclave</dt>
 <dd>An enclave is a secure subsection of a computing environment. The enclave has additional business logic and security measures applied to it, to prevent anyone from tampering with it.</dd>
 <dd>In the context of UID2, a <a href="#gl-private-operator">private operator</a> must run inside an enclave or in a private environment. The enclave versions supported are:<br/>
-- <a href="https://aws.amazon.com/ec2/nitro/">AWS Nitro</a>: see <a href="../guides/operator-guide-aws-marketplace">UID2 Operator: AWS Marketplace Integration Guide</a>.<br/>
+- <a href="https://aws.amazon.com/ec2/nitro/">AWS Nitro</a>: see <a href="../guides/operator-guide-aws-marketplace">UID2 Operator - AWS Marketplace Integration Guide</a>.<br/>
 - <a href="https://cloud.google.com/confidential-computing">Google Cloud Platform Confidential Computing</a>: see <a href="../guides/operator-guide-gcp-enclave">UID2 Operator - Google Cloud Platform Confidential Computing Package</a>.<br/>
 - <a href="https://learn.microsoft.com/en-us/azure/confidential-computing/">Microsoft Azure confidential computing</a>: see <a href="../guides/operator-guide-azure-enclave">Microsoft Azure Confidential Compute Operator Package</a>.</dd>
 <dd>In an enclave, the operator image must be a very specific, predefined version, and additional constraints are applied to ensure security.</dd>
@@ -206,7 +206,7 @@ sidebar_position: 10
 <dd>A private instance of the Operator Service, run by a <a href="#gl-private-operator">private operator</a>.</dd>
 
 <dt class="jump-anchor" id="gl-raw-uid2">Raw UID2</dt>
-<dd>An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's <a href="#gl-dii">directly identifying information</a> (email address or phone number) as input. The raw UID2 is encrypted to create a <a href="#gl-uid2-token">UID2 token</a>. The raw UID2 is a unique value; no two raw UID2s are the same.</dd>
+<dd>An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's <a href="#gl-dii">directly identifying information</a> (email address or phone number) as input. The raw UID2 is encrypted to create a <a href="#gl-uid2-token">UID2 token</a>. The raw UID2 is a unique value; no two raw UID2s are the same. Raw UID2s, and their associated UID2 tokens, are case sensitive.</dd>
 <dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
 
 <dt class="jump-anchor" id="gl-refresh-token">Refresh token</dt>
@@ -265,7 +265,7 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-uid2-token">UID2 token (advertising token)</dt>
 <dd>A Unified ID 2.0 (UID2) token, also called an advertising token, is an encrypted form of a <a href="#gl-raw-uid2">raw UID2</a>.</dd>
-<dd>UID2 tokens are generated from hashed or unhashed email addresses or phone numbers that are converted to raw UID2s and then encrypted. The UID2 token is a unique value; no two UID2 tokens are the same.</dd>
+<dd>UID2 tokens are generated from hashed or unhashed email addresses or phone numbers that are converted to raw UID2s and then encrypted. The UID2 token is a unique value; no two UID2 tokens are the same. UID2 tokens are case sensitive.</dd>
 <dd>The token has a limited life, but can be refreshed in the background using the <a href="#gl-refresh-token">refresh token</a>.</dd>
 <dd>Publishers send UID2 tokens in the bid stream.</dd>
 <dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>.</dd>

@@ -1,5 +1,7 @@
 ---
 title: Publisher Integration Guide, Server-Only
+sidebar_label: Publisher Integration, Server-Only
+pagination_label: Publisher Integration Guide, Server-Only
 description: Information about generating identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers.
 hide_table_of_contents: false
 sidebar_position: 03
@@ -68,6 +70,8 @@ You need to consider how you want to manage UID2 identity information and use it
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
 | 2-a | N/A| Send the `advertising_token` from step [1-e](#establish-identity) to the SSP for bidding. Send the value as is. |
+
+>NOTE: For an example of what a UID2 token might look like in the bid stream, when it's sent from an SSP to a DSP, see [What does a UID2 token look like in the bid stream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bid-stream)
 
 ### Refresh Tokens
 

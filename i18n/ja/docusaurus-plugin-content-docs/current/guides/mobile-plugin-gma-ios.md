@@ -7,9 +7,7 @@ sidebar_position: 13
 
 # UID2 GMA Plugin for iOS Integration Guide
 
-## Introduction
-
-UID2 Google Mobile Ads (GMA) Plugin for iOS は、[Google Mobile Ads (GMA) SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) を使用しているパブリッシャーが、iOS アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を [secure signals](https://support.google.com/admob/answer/11556288?hl=en-GB) として送信できるようにします。これは自動的に行われるため、アプリ開発者が直接コーディングする必要はありません。
+UID2 Google Mobile Ads (GMA) Plugin for iOS は、[Google Mobile Ads (GMA) SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) を使用しているパブリッシャーが、iOS アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を [secure signals](https://support.google.com/admob/answer/11556288) として送信できるようにします。これは自動的に行われるため、アプリ開発者が直接コーディングする必要はありません。
 
 ## Functionality
 
@@ -31,9 +29,13 @@ UID2 Google Mobile Ads (GMA) Plugin for iOS は、[Google Mobile Ads (GMA) SDK](
 
 このプラグインを実行するには、以下をインストールします:
 
-1. [Google Mobile Ads SDK v10.7.0+](https://developers.google.com/admob/ios/rel-notes)
-1. [UID2 SDK for iOS v0.2.0](../sdks/uid2-sdk-ref-ios.md)
-1. UID2 GMA Plugin for iOS v0.2.0
+1. Google Mobile Ads SDK v10.7.0 or later:
+   - [SDK](https://developers.google.com/admob/ios)
+   - [Release Notes](https://developers.google.com/admob/ios/rel-notes)
+1. UID2 SDK for iOS v0.2.0:
+   - [SDK](https://github.com/IABTechLab/uid2-ios-sdk)
+   - [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
+1. [UID2 GMA Plugin for iOS v0.2.0](https://github.com/IABTechLab/uid2-ios-plugin-google-gma)
 
 ## Installation
 
@@ -41,15 +43,8 @@ UID2 Google Mobile Ads (GMA) Plugin for iOS は、[Google Mobile Ads (GMA) SDK](
 
 UID2 iOS SDK と Google Mobile Ads SDK がインストールされている既存のアプリに、Swift Package Manager 経由で UID2 iOS IMA Plugin をインストールします:
 
-```javascript
+
+
+``` javascript
 .package(url: https://github.com/IABTechLab/uid2-ios-plugin-google-gma.git, exact: "0.2.0")
 ```
-
-## Troubleshooting 
-
-発生する可能性のある問題を解決するには、UID2 GMA Plugin for iOS の2つのソースコードファイルを直接アプリにコピーすることをお勧めします。Google Mobile Ads SDK が実行時にファイルを見つけられるように、必ず同じクラス名とファイル名を使用してください。2 つのファイルとは:
-
-- `UID2GMASecureSignalsAdapter.swift`
-- `AdvertisingTokenNotFoundError.swift`
-
-<!-- eng_jp -->

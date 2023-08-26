@@ -26,7 +26,12 @@ sidebar_position: 12
 
 You can use the UID2 SDK for Android to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens on Android devices.
 
->NOTE: If you want to use the UID2 SDK for Android to send UID2 tokens to Google Mobile Ads (GMA), see also [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md).
+The following Android-related plugins, and associated documentation, are also available.
+
+| Purpose | Product/Documentation |
+| :--- | :--- |
+| To use the Google Mobile Ads (GMA) SDK to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) |
+| To use the Google Interactive Media Ads (IMA) SDK for Android to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) |
 
 ## Functionality
 
@@ -40,7 +45,9 @@ This SDK simplifies integration with UID2 for any publishers who want to support
 
 <!-- As of 2023-07-15 -->
 
-This documentation is for the UID2 Android SDK version 0.4.0.
+This documentation is for the UID2 Android SDK version 0.5.0 and later.
+
+For information about specific release versions, see [https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases).
 
 ## Features
 
@@ -56,7 +63,7 @@ This SDK is in the following open-source GitHub repository:
 
 The binary is published on Sonatype:
 
-- [https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk/0.4.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
+- [https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
 
 ## Minimum Requirements
 
@@ -81,7 +88,7 @@ To install with Gradle, add the SDK as a dependency in the build.gradle
 file:
 
 ``` javascript
-implementation 'com.uid2.uid2-android-sdk:0.4.0'
+implementation 'com.uid2.uid2-android-sdk:0.5.0'
 ```
 
 ### Installing with Maven 
@@ -92,7 +99,7 @@ To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 <dependency> 
   <groupId>com.uid2</groupId> 
   <artifactId>uid2-android-sdk</artifactId> 
-  <version>0.4.0</version> 
+  <version>0.5.0</version> 
 </dependency> 
 ```
 

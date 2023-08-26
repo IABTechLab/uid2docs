@@ -7,7 +7,7 @@ sidebar_position: 13
 
 # UID2 GMA Plugin for iOS Integration Guide
 
-The UID2 Google Mobile Ads (GMA) Plugin for iOS enables publishers that use the [Google Mobile Ads (GMA) SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288?hl=en-GB) in ad requests from iOS apps. This is done automatically, with no direct coding needed from the app developer.
+The UID2 Google Mobile Ads (GMA) Plugin for iOS enables publishers that use the [Google Mobile Ads (GMA) SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS apps. This is done automatically, with no direct coding needed from the app developer.
 
 ## Functionality
 
@@ -29,9 +29,13 @@ This plugin is in the following open-source GitHub repository:
 
 To run this plugin, install the following:
 
-1. [Google Mobile Ads SDK v10.7.0+](https://developers.google.com/admob/ios/rel-notes)
-1. [UID2 SDK for iOS v0.2.0](../sdks/uid2-sdk-ref-ios.md)
-1. UID2 GMA Plugin for iOS v0.2.0
+1. Google Mobile Ads SDK v10.7.0 or later:
+   - [SDK](https://developers.google.com/admob/ios)
+   - [Release Notes](https://developers.google.com/admob/ios/rel-notes)
+1. UID2 SDK for iOS v0.2.0:
+   - [SDK](https://github.com/IABTechLab/uid2-ios-sdk)
+   - [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
+1. [UID2 GMA Plugin for iOS v0.2.0](https://github.com/IABTechLab/uid2-ios-plugin-google-gma)
 
 ## Installation
 
@@ -42,10 +46,3 @@ Install the UID2 iOS IMA Plugin via Swift Package Manager to an existing app wit
 ``` javascript
 .package(url: https://github.com/IABTechLab/uid2-ios-plugin-google-gma.git, exact: "0.2.0")
 ```
-
-## Troubleshooting 
-
-To resolve any issue that might arise, we recommend that you copy the two source code files from the UID2 GMA Plugin for iOS, directly into your app. Be sure to use the same class and file names, to ensure that the Google Mobile Ads SDK can find the files at runtime. The two files are:
-
-- `UID2GMASecureSignalsAdapter.swift`
-- `AdvertisingTokenNotFoundError.swift`
