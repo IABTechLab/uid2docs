@@ -1,20 +1,21 @@
 ---
 title: Getting Started
-description: Configure your UID2 sharing participant profile.
+description: UID2 sharing 参加者プロファイルを設定します。
 hide_table_of_contents: false
 sidebar_position: 03
 ---
 
 # Getting Started with the UID2 Portal
 
-As part of requesting a UID2 Portal account, you must provide some information about yourself and your company, such as name and type of business.
+UID2 Portal アカウントを申請するには、氏名や業種など、ご自身と会社に関する情報を提供する必要があります。
 
-Once you've initiated the request, there are two steps before you can actually access the UID2 Portal:
+リクエストしてから、実際に UID2 Portal にアクセスできるようになるまでには 2 つのステップがあります:
 
-1. You'll get a confirmation email. Click the button in the email to verify your account.
-1. Your account is created. This might take a few days. When the account is ready, you'll get a confirmation email and can then go into your account to verify the details, set up participants and teams, and configure your settings for UID2 sharing permissions.
+1. 確認メールが届きます。メールに記載されているボタンをクリックして、アカウントを確認してください。
+1. アカウントが作成されます。数日かかる場合があります。アカウントの準備ができたら、確認メールが届きます。その後、アカウントに入って詳細を確認し、参加者とチームを設定し、UID2 sharing 許可の設定を行うことができます。
 
-If at any time you need assistance with the onboarding process, ask your UID2 contact.
+オンボーディングプロセスでサポートが必要な場合は、UID2 の担当者にお尋ねください。
+
 
 <!-- It includes the following:
 
@@ -26,70 +27,70 @@ If at any time you need assistance with the onboarding process, ask your UID2 co
 
 ## Gather Information
 
-There's some information you'll need to provide for your account request, and some additional information you'll need to collect so that you can set up your account when it's approved.
+アカウント開設の申し込みの際に必要な情報と、アカウント開設が承認された際に必要な追加情報があります。
 
-The following tables show the information to gather up front so that you'll have it in hand when needed.
+以下の表は、必要なときに手元に置いておけるよう、前もって収集しておくべき情報を示しています。
 
-Information needed for your account request:
-
-| Item | Needed for... | 
-| :--- | :--- |
-| Information about yourself:<br/>- First name<br/>- Last name<br/>- Email<br/>- Job function | Request Account page |
-| Information about your company:<br/>- Participant name (Company name)<br/>- Participant type (for example, DSP) | Participant Information page |
-
-Information needed for account configuration:
+アカウントリクエストに必要な情報:
 
 | Item | Needed for... | 
 | :--- | :--- |
-| Team member information. For each:<br/>- First name<br/>- Last name<br/>- Email<br/>- Job function | Team Members page|
-| Email contact information. For each:<br/>- Email group name<br/>- Email alias<br/>- Contact type | Email Contacts page |
+| 自身に関する情報<br/>- 名<br/>- 姓<br/>- メールアドレス<br/>- 職種 | Request Account ページ |
+| 貴社に関する情報<br/>- 参加者名 (会社名)<br/>- 参加者タイプ (例: DSP) | Participant Information ページ |
+
+アカウント設定に必要な情報:
+
+| Item | Needed for... | 
+| :--- | :--- |
+| チームメンバー情報。それぞれについて:<br/>- 名<br/>- 姓<br/>- メールアドレス<br/>- 職種 | Team Members ページ |
+| メール連絡先情報。それぞれについて:<br/>- メールグループ名<br/>- メールエイリアス<br/>- 連絡先タイプ | Email Contacts ページ |
 
 ## Request an Account
 
-When you click the UID2 Portal link for the first time, you'll see the login page. To create your account, follow these steps:
+UID2 Portal リンクを初めてクリックすると、ログインページが表示されます。アカウントを作成するには、以下の手順に従ってください:
 
-1. Click **Request Account**.
+1. **Request Account** をクリック.
 
-2. On the Request Account page, provide the following information about yourself:
+2. Request Account ページで以下の情報を入力してください:
 
-   - First name
-   - Last name
-   - Email address
-   - Job function
+   - 名
+   - 姓
+   - メールアドレス
+   - 職種
 
-3. Create and confirm your password and then click **Continue**.
+3. パスワードを作成して確認し、**Continue** をクリックします。
 
-4. The next step is email verification. We send you an email to confirm your email address. To confirm, click the button in the email.
+4. 次のステップはメールアドレス認証です。メールアドレスを確認するためのメールを送信します。確認するには、メールに記載されているボタンをクリックしてください。
 
-4. On the Participant Information page, provide your company name and then, for **Participant Type**, choose one or more of the following:
+4. Participant Information ページで、会社名を入力し、**Participant Type** で、以下の中から1つ以上を選択してください:
  
-   - Publisher
-   - Advertiser
+   - パブリッシャー
+   - 広告主
    - DSP
-   - Data Provider
+   - データプロバイダー
 
-5. Click the **Terms and Conditions** link to review the details.
+5. **Terms and Conditions** リンクをクリックし、詳細を確認してください。
 
-6. On the Accept Terms and Conditions page, review the terms and conditions, scrolling down to the bottom, and then click **Accept Terms and Conditions**.
+6. Terms and Conditions ページで利用規約を確認し、一番下までスクロールして **Accept Terms and Conditions** をクリックします。
 
-   You are returned to the Participant Information page.
+   Participant Information ページに戻ります。
 
-3. Check the box to agree to the terms and conditions, and then click **Request Account**.
+3. agree to the terms and conditions チェックボックスにチェックを入れ、**Request Account** をクリックします。
 
-When you've requested your account, your request is sent for approval. See [Account Approval Step](#account-approval-step).
+アカウントをリクエストすると、リクエストは承認のために送信されます。[Account Approval Step](#account-approval-step) を参照してください。
 
 ## Account Approval Step
 
-When you've requested your account including confirming your email address, your account is reviewed. The process might take a few days.
+メールアドレスの確認など、アカウントのリクエストが完了すると、アカウントの審査が行われます。このプロセスには数日かかる場合があります。
 
-When the approval process is complete and your account has been authorized, you'll receive a confirmation email with a link to log in to the UID2 Portal.
+承認プロセスが完了し、アカウントが承認されると、UID2 Portal にログインするためのリンクが記載された確認メールが送信されます。
 
 ## Log In for the First Time
 
-When you log in for the first time, the first step is to set up your team. See [Team Members](team-members.md).
+初めてログインしたら、まずチームを設定します。[Team Members](team-members.md) を参照してください。
 
 ## Reset Password
 
-If you forget your password, just click the **Forgot Password** link on the login page. Provide your email address, and then look for the password reset message in your email account.
+パスワードを忘れた場合は、ログインページの **Forgot Password** リンクをクリックしてください。メールアドレスを入力し、メールアカウントでパスワードリセットのメッセージを探してください。
 
 <!-- eng_jp -->
