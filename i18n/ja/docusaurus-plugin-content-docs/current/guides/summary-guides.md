@@ -13,16 +13,24 @@ sidebar_position: 01
 
 | Integration Guide                                                                           | Content Description                                                                                                                                                                            |
 | :------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [UID2 SDK for JavaScript Integration Guide](./publisher-client-side.md)                  | このパブリッシャー向けインテグレーションガイドは、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を利用した標準的なウェブインテグレーションシナリオをカバーしています。    |
-| [Publisher Integration Guide, Server-Only](./custom-publisher-integration.md) | このパブリッシャー向けインテグレーションガイドは、[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用しないインテグレーションシナリオをカバーしています。   |
+
+| [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md) | パブリッシャー向けのこのインテグレーションガイドでは、UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオについて説明します。|
+| [Publisher Integration Guide, Server-Only](custom-publisher-integration.md) | このインテグレーションガイドは、UID2 SDK for JavaScript を使用しないパブリッシャー向けです。|
 | [DSP](./dsp-guide.md)                                                                       | この DSP のためのインテグレーションガイドは、入札のための UID2 の処理と、ユーザーのオプトアウトに対応することをカバーしています。                                                              |
 | [Advertiser/Data Provider](./advertiser-dataprovider-guide.md)                              | この広告主やデータプロバイダー向けのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 |
+
+## Plugins
+
+| Integration Guide |  Content Description |
+| :--- | :--- |
+| [UID2 GMA Plugin for Android Integration Guide](mobile-plugin-gma-android.md) | UID2 GMA Plugin for Android は、Google Mobile Ads (GMA) SDK を使用するパブリッシャーが、Android アプリからの広告リクエストで [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) を [secure signals](https://support.google.com/admob/answer/11556288?hl=en-GB) として送信できるようにします。 |
+| [UID2 GMA Plugin for iOS Integration Guide](mobile-plugin-gma-ios.md) | UID2 GMA Plugin for iOS は、Google Mobile Ads (GMA) SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストで [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) を [secure signals](https://support.google.com/admob/answer/11556288?hl=en-GB) として送信できるようにします。 |
 
 ## Supplementary Integrations
 
 | Integration Guide                                                        | Content Description                                                                                                                                                                                    |
 | :----------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Publisher - Google Ad Manager Secure Signals](google-ss-integration.md) | このインテグレーションガイドは、UID2 を Google Ad Manager の**secure signals**機能（旧称：encrypted signals from publishers、ESP）で使用するパブリッシャーに必要な追加ステップをカバーしています。 |
+| [Publisher - Google Ad Manager Secure Signals](google-ss-integration.md) | このインテグレーションガイドは、UID2 を Google Ad Manager の**secure signals**機能 (旧称: encrypted signals from publishers、ESP)で使用するパブリッシャーに必要な追加ステップをカバーしています。 |
 
 ## Open Operator Service Integration
 

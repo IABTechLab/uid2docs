@@ -11,9 +11,9 @@ sidebar_position: 18
 
 UID2 Operator サービスは、Intel SGX テクノロジーを搭載したトラステッドコンピューティングエンクレーブ内で実行できます。
 
-1. [Build（ビルド）](#build)
-2. [Test Run（テスト）](#test-run)
-3. [Deployment（デプロイ）](#deployment)
+1. [Build (ビルド)](#build)
+2. [Test Run (テスト)](#test-run)
+3. [Deployment (デプロイ)](#deployment)
 
 Operator のコードベースには、サービスをパッケージ化するためのスクリプトが含まれており、以下のいずれかの方法でデプロイすることが可能です:
 
@@ -81,7 +81,7 @@ mvn package -P azure
 
 ### Configuration
 
-Operator enclave には、以下の環境変数を設定する必要があります（docker 経由または k8s デプロイ経由）。
+Operator enclave には、以下の環境変数を設定する必要があります (docker 経由または k8s デプロイ経由)。
 
 - `core_api_token` -- Core サービスに接続するための API トークンです。
 - `optout_api_token` -- UID2 OptOut サービスに接続するための API トークンです。
