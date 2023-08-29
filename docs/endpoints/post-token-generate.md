@@ -6,11 +6,11 @@ sidebar_position: 02
 ---
 
 # POST /token/generate
-Opt in the user to UID2-based targeted advertising and generate a UID2 token from their provided email address or phone number. 
+Requests a UID2 token from the [DII](../ref-info/glossary-uid.md#gl-dii) (email address or phone number) provided by a user with their authorization for UID2-based targeted advertising. If the DII is valid, and the user has not opted out of UID2, this operation returns a UID2 token and associated values.
 
 Used by: This endpoint is used mainly by publishers.
 
->IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to UID2 tokens for targeted advertising. The required `policy` parameter checks whether the user has opted out.
+>IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s DII to UID2 tokens for targeted advertising. The `policy` parameter, required with a value of `1`, checks whether the user has opted out.
 
 ## Request Format 
 
@@ -30,7 +30,7 @@ Here's what you need to know about this endpoint requests:
 
 ### Unencrypted JSON Body Parameters
 
-You must include only one of the following parameters as a key-value pair in the JSON body of a request when encrypting it.
+Include only **one** of the four conditional parameters (`email`, `email_hash`, `phone`, or `phone_hash`) as a key-value pair in the JSON body of a request when encrypting it.
 
 | Body Parameter | Data Type | Attribute | Description | 
 | :--- | :--- | :--- | :--- |

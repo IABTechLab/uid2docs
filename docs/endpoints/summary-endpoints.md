@@ -15,7 +15,7 @@ The following endpoints are for retrieving and managing UID2 tokens (identity to
 
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |
-| [POST /token/generate](post-token-generate.md) | Opt in the user to UID2-based targeted advertising and generate a UID2 token from their provided email address or phone number. | Required | Required |
+| [POST /token/generate](post-token-generate.md) | Requests a UID2 token from an email address or phone number provided by a user with their authorization for UID2-based targeted advertising. If the DII is valid, and the user has not opted out of UID2, this operation returns a UID2 token and associated values. | Required | Required |
 | [POST /token/validate](post-token-validate.md) | Used for testing, to validate that an advertising token (UID2) matches the specified email address, phone number, or the respective hash. | Required | Required |
 | [POST /token/refresh](post-token-refresh.md) | Generate a new token for a user for their refresh token from the [POST /token/generate](post-token-generate.md) response. | N/A | Required |
 
