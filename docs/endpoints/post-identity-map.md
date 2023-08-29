@@ -36,7 +36,7 @@ Here's what you need to know:
 
 ###  Unencrypted JSON Body Parameters
 
->IMPORTANT: You must include only one of the following parameters as a key-value pair in the JSON body of a request when encrypting it.
+>IMPORTANT: You must include only **one** of the following four conditional parameters, plus the required `policy` parameter with a value of `1`, as key-value pairs in the JSON body of the request when encrypting it.
 
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
