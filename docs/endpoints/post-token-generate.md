@@ -10,7 +10,7 @@ Requests a UID2 token from the [DII](../ref-info/glossary-uid.md#gl-dii) (email 
 
 Used by: This endpoint is used mainly by publishers.
 
->IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s DII to UID2 tokens for targeted advertising. The required `policy` parameter checks whether the user has opted out.
+>IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s DII to UID2 tokens for targeted advertising. The `policy` parameter, required with a value of `1`, checks whether the user has opted out.
 
 ## Request Format 
 
