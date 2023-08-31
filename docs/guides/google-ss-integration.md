@@ -90,6 +90,6 @@ A sample application is also available for client-side integration using the SDK
 The following sample applications are available to illustrate how to integrate with the Google Ad Manager secure signals feature:
 
 - [Server-Only UID2 Integration Example](https://esp-srvonly-integ.uidapi.com/)
-- [ Client-Side UID2 SDK Integration Example](https://esp-jssdk-integ.uidapi.com/)
+- [Client-Side UID2 SDK Integration Example](https://esp-jssdk-integ.uidapi.com/)
 
 Each sample application has its own instructions.
