@@ -73,7 +73,7 @@ window.getUid2AdvertisingToken = async () => {
 
 For details, see [Publisher Integration Guide, Server-Only](custom-publisher-integration.md).
 
-Sample applications are available for server-only integration and client-side integration. See [Sample Applications](#sample-applications).
+A sample application is also available for server-only integration. See [Sample Applications](#sample-applications).
 
 ### UID2 Client-Side JavaScript SDK Integration
 
@@ -83,7 +83,7 @@ This script is hosted on CDN, and GPT automatically loads it with the secure sig
 
 For details, see [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md).
 
-A sample application is also available for client-side integration using the SDK. See [Sample Applications](#sample-applications).
+A sample application is also available for integration using the client-side JavaScript SDK. See [Sample Applications](#sample-applications).
 
 ## Sample Applications
 
