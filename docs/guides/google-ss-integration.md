@@ -11,14 +11,14 @@ sidebar_position: 10
 
 This guide covers integration steps for publishers using UID2 with the Google Ad Manager secure signals feature (previously known as Encrypted Signals for Publishers, ESP).
 
-It includes the following sections:
+<!-- It includes the following sections:
 
 * [Overview](#overview)
 * [Allow Secure Signal Sharing](#allow-secure-signal-sharing)
 * [Publisher Integrations](#publisher-integration)
 * [Server-Only Integration](#server-only-integration)
 * [UID2 Client-Side JavaScript SDK Integration](#uid2-client-side-javascript-sdk-integration)
-* [Sample Applications](#sample-applications)
+* [Sample Applications](#sample-applications) -->
 
 >NOTE: To use the UID2 Google Ad Manager secure signals integration, if you are using an SDK you must have your UID2 integration already set up. This does not apply if you are using server-only integration. For a summary of all the integration options available, see [UID2 Integration Guides](summary-guides.md).
 
@@ -73,7 +73,7 @@ window.getUid2AdvertisingToken = async () => {
 
 For details, see [Publisher Integration Guide, Server-Only](custom-publisher-integration.md).
 
-A sample application is also available for server-only integration. See [Sample Applications](#sample-applications).
+Sample applications are available for server-only integration and client-side integration. See [Sample Applications](#sample-applications).
 
 ### UID2 Client-Side JavaScript SDK Integration
 
