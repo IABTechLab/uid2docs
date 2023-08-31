@@ -83,7 +83,7 @@ This script is hosted on CDN, and GPT automatically loads it with the secure sig
 
 For details, see [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md).
 
-A sample application is also available for integration using the client-side JavaScript SDK. See [Sample Applications](#sample-applications).
+A sample application is also available for integration using the Client-Side JavaScript SDK. See [Sample Applications](#sample-applications).
 
 ## Sample Applications
 
