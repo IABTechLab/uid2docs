@@ -86,7 +86,7 @@ Consider how you want to manage UID2 identity information and use it for targete
 
 ### Refresh a UID2 Token
 
-Use the `POST /token/refresh` endpoint to make sure you always have a valid and up-to-date version of a UID2 token. The UID2 token must be refreshed to sync with the UID2 rotation. In addition, the token refresh process checks the user's opt-out status, and if the user has opted out, no new token is sent. This ends the token refresh chain, and you must not use that UID2 again.
+Use the `POST /token/refresh` endpoint to make sure you always have a valid and up-to-date UID2 token. The UID2 token must be refreshed to sync with the UID2 rotation. In addition, the token refresh process checks the user's opt-out status, and if the user has opted out, no new token is sent. This ends the token refresh chain, and you must not use that UID2 token again.
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
