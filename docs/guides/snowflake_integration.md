@@ -10,8 +10,8 @@ sidebar_position: 04
 # Snowflake Integration Guide
 
 <!-- This guide includes the following information:
-- [Workflow Diagram](#workflow-diagram)
 - [Functionality](#functionality)
+- [Workflow Diagram](#workflow-diagram)
 - [Access the UID2 Shares](#access-the-uid2-shares)
 - [Shared Objects](#shared-objects)
   -  [Database and Schema Names](#database-and-schema-names)
@@ -19,8 +19,8 @@ sidebar_position: 04
   -  [Regenerated UID2s](#regenerate-uid2s) 
 - [Migration Guide](#migration-guide)  
 - [Usage for UID2 Sharers](#usage-for-uid2-sharers)
-   - [FN_UID2_ENCRYPT](#fn_uid2_encrypt)
-   - [FN_UID2_DECRYPT](#fn_uid2_decrypt)
+   - [Encrypt Tokens](#encrypt-tokens)
+   - [Decrypt Tokens](#decrypt-tokens)
    - [UID2 Sharing Example](#uid2-sharing-example) -->
 
 [Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share authorized consumer identifier data without exposing sensitive [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii). Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
@@ -58,7 +58,7 @@ There are two personalized listings offered in the Snowflake Data Marketplace fo
 - [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV) for advertisers/brands
 - [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0) for data providers
 
->IMPORTANT: To be able to request data, you must have the `ACCOUNTADMIN` role privileges in your Snowflake account.
+>IMPORTANT: To be able to request data, you must use the `ACCOUNTADMIN` role or another role with the `CREATE DATABASE` and `IMPORT SHARE` privileges in your Snowflake account.
 
 To request access to a UID2 Share, complete the following steps:
 
@@ -89,8 +89,8 @@ The following functions are deprecated in favor of `FN_T_UID2_IDENTITY_MAP`. You
 To identify the UID2s that you must regenerate, use the `UID2_SALT_BUCKETS` view from the UID2 Share. For details, see [Regenerate UID2s](#regenerate-uid2s).
 
 The following functions are also available, for UID2 sharing participants:
-- [`FN_UID2_ENCRYPT`](#fn_uid2_encrypt)
-- [`FN_UID2_DECRYPT`](#fn_uid2_decrypt)
+- `FN_T_UID2_ENCRYPT` (See [Encrypt Tokens](#encrypt-tokens))
+- `FN_T_UID2_DECRYPT` (See [Decrypt Tokens](#decrypt-tokens))
 
 For details, see [Usage for UID2 Sharers](#usage-for-uid2-sharers).
 
@@ -134,7 +134,7 @@ A successful query returns the following information for the specified DII.
 | `BUCKET_ID` | TEXT | If DII was successfully mapped: The ID of the second-level salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view.<br/>DII was not successfully mapped: `NULL`. |
 | `UNMAPPED` | TEXT | If DII was successfully mapped: `NULL`.<br/>DII was not successfully mapped:  The reason why an identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`. For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).  |
 
-### Values for the UNMAPPED Column
+#### Values for the UNMAPPED Column
 
 Possible values for `UNMAPPED` are:
 
@@ -144,6 +144,8 @@ Possible values for `UNMAPPED` are:
 | `OPTOUT` | The user has opted out. |
 | `INVALID IDENTIFIER` | The email address or phone number is invalid. |
 | `INVALID INPUT TYPE` | The value of `INPUT_TYPE` is invalid. Valid values for INPUT_TYPE are: `email`, `email_hash`, `phone`, `phone_hash`. |
+
+#### Examples
 
 Mapping request examples in this section:
 
@@ -340,7 +342,7 @@ The following table identifies each item in the response, including `NULL` value
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
 |  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
 |  2 | NULL                                         | NULL                                         | NULL       | INVALID IDENTIFIER |
-|  3 |/XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g=  | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
+|  3 | /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g= | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
 ```
 
@@ -400,7 +402,7 @@ The following table identifies each item in the response, including `NULL` value
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
 |  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
 |  2 | NULL                                         | NULL                                         | NULL       | INVALID IDENTIFIER |
-|  3 |/XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g=  | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
+|  3 | /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g= | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
 ```
 
@@ -525,129 +527,218 @@ A UID2 sharer is any participant that wants to share UID2s with another particip
 
 A sharing participant must encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into [UID2 tokens](../ref-info/glossary-uid#gl-uid2-token) before sending them to another participant.
 
-The following functions support UID2 sharing:
+The following scenarios support UID2 sharing:
 
-- [`FN_UID2_ENCRYPT`](#fn_uid2_encrypt)
-- [`FN_UID2_DECRYPT`](#fn_uid2_decrypt)
+- [Encrypt Tokens](#encrypt-tokens)
+- [Decrypt Tokens](#decrypt-tokens)
 
-### FN_UID2_ENCRYPT
+### Encrypt Tokens
 
-This function encrypts a raw UID2 and returns the corresponding UID2 token.
-
-Use the applicable prefix to indicate your role:
-- For advertisers: `ADV.FN_UID2_ENCRYPT`
-- For data providers: `DP.FN_UID2_ENCRYPT`
-
->NOTE: The raw UID2 value is a Base64-encoded string.
-
-#### FN_UID2_ENCRYPT: Syntax
-
-The following is the syntax for this function:
-
-`FN_UID2_ENCRYPT(raw_uid VARCHAR)`
-
-The following table shows the arguments for this function.
+To encrypt raw UID2s to UID2 tokens, use the `FN_T_UID2_ENCRYPT` function. Use the applicable prefix to indicate your role:
+- For advertisers: `ADV.FN_T_UID2_ENCRYPT`
+- For data providers: `DP.FN_T_UID2_ENCRYPT`
 
 |Argument|Data Type|Description|
 | :--- | :--- | :--- |
-| `raw_uid` | varchar | The raw UID2. |
+| `RAW_UID2` | varchar(128) | The raw UID2 to encrypt to a UID2 token. |
 
-A successful query returns the encrypted UID2 token as a `VARCHAR`.
+A successful query returns the following information for the specified raw UID2.
 
-#### FN_UID2_ENCRYPT: Example
+|Column Name|Data Type|Description|
+| :--- | :--- | :--- |
+| `UID2_TOKEN` | TEXT | If raw UID2 was successfully encrypted: The UID2 token containing the raw UID2.<br/>Raw UID2 was not successfully encrypted: `NULL`. |
+| `ENCRYPTION_STATUS` | TEXT | If raw UID2 was successfully encrypted: `NULL`.<br/>Raw UID2 was not successfully encrypted:  The reason why a raw UID2 was not encrypted, for example: `INVALID_RAW_UID2`, `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`. For details, see [Values for the ENCRYPTION_STATUS Column](#values-for-the-encryption_status-column).  |
 
-The following example illustrates use of this function. In this example, `AUDIENCE_WITH_UID2` is the sender's table.
+#### Values for the ENCRYPTION_STATUS Column
+
+Possible values for `ENCRYPTION_STATUS` are:
+
+| Value | Meaning |
+| :-- | :-- |
+| `NULL` | The raw UID2 was successfully encrypted. |
+| `MISSING_OR_INVALID_RAW_UID2` | The raw UID2 is `NULL`. |
+| `INVALID_RAW_UID2` | The raw UID2 is invalid. |
+| `MISMATCHING_IDENTITY_SCOPE` | The raw UID2 belongs to an incorrect identity scope. For example, EUID is passed in where UID2 is expected. |
+| `NOT_AUTHORIZED_FOR_MASTER_KEY` | The caller does not have access to the required encryption keys. Contact the UID2 administrator. |
+| `NOT_AUTHORIZED_FOR_SITE_KEY` | The caller does not have access to the required encryption keys. Contact the UID2 administrator. |
+
+#### Encrypt Token Request Example - Single Raw UID2
+
+The following queries illustrate how to encrypt a single raw UID2 to a UID2 token, using the [default database and schema names](#database-and-schema-names).
+
+Advertiser solution query for a single raw UID2:
 
 ```
-SELECT T.raw_uid, LATERAL (FN_UID2_ENCRYPT(T.raw_uid)) AS token
-FROM AUDIENCE_WITH_UID2 T
+select UID2_TOKEN, ENCRYPTION_STATUS from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_ENCRYPT('2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU='));
 ```
 
-Result: An additional column named `token` is added to the query result.
+Data provider solution query for a single raw UID2:
 
 ```
-+------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| raw_uid                                                          | token                                                                                                                                                                                                                        |
-|------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF | AAMAAAACAAECAwQFBgcICQoL18RtKOdx1LlG2zgxK7bTW/nomJIeMFyEJOAMaer+20FTzLBNCJRajrXzXWzb9H3FCtTXs5Rl8PJhYnxxWmMtQ11VHfjI7XiA71CctX2vvCBzD6VEszdNq/t66B1cvLKVjoq2lijm6yyaRi0ovJPuk2dcb8dm4dkHMWGkkOrXbPPvrpsIvYQHH11sbqVycYJZm5w= |
-+------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+select UID2_TOKEN, ENCRYPTION_STATUS from table(UID2_PROD_DP_SH.DP.FN_T_UID2_ENCRYPT('2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU='));
 ```
 
-### FN_UID2_DECRYPT
+Query results for a single raw UID2:
 
-This function decrypts a UID2 token and returns the corresponding raw UID2.
+```
++------------------------+-------------------+
+| UID2_TOKEN             | ENCRYPTION_STATUS |
++--------------------------------------------+
+| A41234<rest of token>  | NULL              |
++--------------------------------------------+
+```
 
-Use the applicable prefix to indicate your role:
-- For advertisers: `ADV.FN_UID2_DECRYPT`
-- For data providers: `DP.FN_UID2_DECRYPT`
+#### Encrypt Token Request Example - Multiple Raw UID2s
 
-#### FN_UID2_DECRYPT: Syntax
+The following queries illustrate how to encrypt multiple raw UID2s, using the [default database and schema names](#database-and-schema-names).
 
-The following is the syntax for this function:
+Advertiser solution query for multiple raw UID2s:
 
-`FN_UID2_DECRYPT(token VARCHAR)`
+```
+select a.RAW_UID2, t.UID2_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_ENCRYPT(a.RAW_UID2) t;
+```
 
-The following table shows the arguments for this function.
+Data provider solution query for multiple raw UID2s:
+
+```
+select a.RAW_UID2, t.UID2_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_ENCRYPT(a.RAW_UID2) t;
+```
+
+Query results for multiple raw UID2s:
+
+The following table identifies each item in the response, including `NULL` values for `NULL` raw UID2s.
+
+```
++----+----------------------------------------------+-----------------------+-----------------------------+
+| ID | RAW_UID2                                     | UID2_TOKEN            | ENCRYPTION_STATUS           |
++----+----------------------------------------------+-----------------------+-----------------------------+
+|  1 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | A41234<rest of token> | NULL                        |
+|  2 | NULL                                         | NULL                  | MISSING_OR_INVALID_RAW_UID2 |
+|  3 | BXJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g5 | B45678<rest of token> | NULL                        |
++----+----------------------------------------------+-----------------------+-----------------------------+
+```
+
+### Decrypt Tokens
+
+To decrypt UID2 tokens to raw UID2s, use the `FN_T_UID2_DECRYPT` function. Use the applicable prefix to indicate your role:
+- For advertisers: `ADV.FN_T_UID2_DECRYPT`
+- For data providers: `DP.FN_T_UID2_DECRYPT`
 
 |Argument|Data Type|Description|
 | :--- | :--- | :--- |
-| `token` | varchar | The UID2 token. |
+| `UID2_TOKEN` | varchar(512) | The UID2 token to decrypt to a raw UID2. |
 
-A successful query returns the encrypted UID2 token as a `VARCHAR`.
+A successful query returns the following information for the specified UID2 token.
 
-####  FN_UID2_DECRYPT: Example
+|Column Name|Data Type|Description|
+| :--- | :--- | :--- |
+| `UID2` | TEXT | If UID2 token was successfully decrypted: The raw UID2 contained with it.<br/>UID2 token was not successfully decrypted: `NULL`. |
+| `SITE_ID` | INT | If UID2 token was successfully decrypted: The identifier of the UID2 participant that encrypted the token.<br/>UID2 token was not successfully decrypted: `NULL`. |
+| `DECRYPTION_STATUS` | TEXT | If UID2 token was successfully decrypted: `NULL`.<br/>UID2 token was not successfully decrypted:  The reason why a UID2 token was not decrypted, for example: `EXPIRED_TOKEN`. For details, see [Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column).  |
 
-The following example illustrates use of this function. In this example, `AUDIENCE_WITH_UID2` is the receiver's table.
+>NOTE: In most circumstances where UID2 token cannot be successfully decrypted, the function will not return any rows at all.
+
+#### Values for the DECRYPTION_STATUS Column
+
+Possible values for `DECRYPTION_STATUS` are:
+
+| Value | Meaning |
+| :-- | :-- |
+| `NULL` | The UID2 token was successfully decrypted. |
+| `EXPIRED_TOKEN` | The UID2 token is beyond its designated lifetime, i.e. it has expired. |
+
+#### Decrypt Token Request Example - Single UID2 Token
+
+The following queries illustrate how to decrypt a single UID2 token to a raw UID2, using the [default database and schema names](#database-and-schema-names).
+
+Advertiser solution query for a single UID2 token:
 
 ```
-SELECT T.token, LATERAL (FN_UID2_DECRYPT(T.token)) AS raw_uid
-FROM AUDIENCE_WITH_UID2 T
+select UID2, SITE_ID, DECRYPTION_STATUS from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_DECRYPT('A41234<rest of token>'));
 ```
 
-Result: An additional column named `raw_uid` is added to the query result.
+Data provider solution query for a single raw UID2:
 
 ```
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+
-| token                                                                                                                                                                                                                        | raw_uid                                                          |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AAMAAAACAAECAwQFBgcICQoL18RtKOdx1LlG2zgxK7bTW/nomJIeMFyEJOAMaer+20FTzLBNCJRajrXzXWzb9H3FCtTXs5Rl8PJhYnxxWmMtQ11VHfjI7XiA71CctX2vvCBzD6VEszdNq/t66B1cvLKVjoq2lijm6yyaRi0ovJPuk2dcb8dm4dkHMWGkkOrXbPPvrpsIvYQHH11sbqVycYJZm5w= | 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF |
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+select UID2, SITE_ID, DECRYPTION_STATUS from table(UID2_PROD_DP_SH.DP.FN_T_UID2_DECRYPT('A41234<rest of token>'));
+```
+
+Query results for a single UID2 token:
+
+```
++----------------------------------------------+-------------------+
+| UID2                                         | DECRYPTION_STATUS |
++----------------------------------------------+-------------------+
+| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL              |
++----------------------------------------------+-------------------+
+```
+
+#### Decrypt Token Request Example - Multiple UID2 Tokens
+
+The following queries illustrate how to decrypt multiple UID2 tokens, using the [default database and schema names](#database-and-schema-names).
+
+Advertiser solution query for multiple raw UID2s:
+
+```
+select a.ID, b.UID2, b.SITE_ID, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
+  from TEST_IMPRESSION_DATA a LEFT OUTER JOIN (
+    select ID, t.* from TEST_IMPRESSION_DATA, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_DECRYPT(UID2_TOKEN) t) b
+  on a.ID=b.ID;
+```
+
+Data provider solution query for multiple raw UID2s:
+
+```
+select a.ID, b.UID2, b.SITE_ID, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
+  from TEST_IMPRESSION_DATA a LEFT OUTER JOIN (
+    select ID, t.* from TEST_IMPRESSION_DATA, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_DECRYPT(UID2_TOKEN) t) b
+  on a.ID=b.ID;
+```
+
+Query results for multiple UID2 tokens:
+
+The following table identifies each item in the response, including `NULL` values for `NULL` and expired UID2 tokens.
+
+```
++----+----------------------------------------------+----------+-------------------+
+| ID | UID2                                         | SITE_ID  | DECRYPTION_STATUS |
++----+----------------------------------------------+----------+-------------------+
+|  1 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | 12345    | NULL              |
+|  2 | NULL                                         | NULL     | DECRYPT_FAILED    |
+|  3 | BXJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g5 | 23456    | NULL              |
+|  4 | NULL                                         | NULL     | EXPIRED_TOKEN     |
+|  5 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | 12345    | NULL              |
++----+----------------------------------------------+----------+-------------------+
 ```
 
 ### UID2 Sharing Example
 
-The following instructions provide an example of how sharing works for a sender and a receiver both using Snowflake.
+The following instructions provide an example of how sharing works for a sender and a receiver both using Snowflake. In this example scenario an advertiser (the sender) has an audience table with raw UID2s
+(`AUDIENCE_WITH_UID2`) and they want to make data in the table available to a data provider (the receiver) using [Snowflake Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) feature.
 
-- Senders: 
-   - Call one of the following, depending on whether you are an advertiser or a data provider:
+#### Sender Instructions
 
-     In this example, for advertisers, `AUDIENCE_WITH_UID2` is the sender's table.
+ 1. Create a new table `AUDIENCE_WITH_UID2_TOKENS`.
+ 2. Encrypt the raw UID2s in the `AUDIENCE_WITH_UID2S` table and store the result into the `AUDIENCE_WITH_UID2_TOKENS` table. For example, the following query could help achieve this task:
+    ```
+    insert into AUDIENCE_WITH_UID2_TOKENS select a.ID, t.UID2_TOKEN from AUDIENCE_WITH_UID2S a, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_ENCRYPT(a.RAW_UID2) t;
+    ```
+ 3. Create a secure share and grant it access to the AUDIENCE_WITH_UID2_TOKENS table.
+ 4. Grant the receiver access to the secure share.
 
-      ```
-      SELECT T.raw_uid, LATERAL (ADV.FN_UID2_ENCRYPT(T.raw_uid)) AS token
-      FROM AUDIENCE_WITH_UID2 T
-      ```
+>**WARNING**: To avoid shared UID2 tokens expiring, the sender should send the newly encrypted UID2 tokens to the receiver as soon as possible after encrypting.
+>
+#### Receiver Instructions
 
-     In this example, for data providers, `AUDIENCE_WITH_UID2` is the sender's table.
+ 1. Create a database from the secure share that the sender provided access to.
+ 2. Create a new table `RECEIVED_AUDIENCE_WITH_UID2`.
+ 3. Decrypt tokens from the shared `AUDIENCE_WITH_UID2_TOKENS` table and store the result into the `RECEIVED_AUDIENCE_WITH_UID2` table. For example, the following query could be used to achieve this:
+    ```
+    insert into RECEIVED_AUDIENCE_WITH_UID2
+      select a.ID, b.UID2, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
+        from AUDIENCE_WITH_UID2_TOKENS a LEFT OUTER JOIN (
+          select ID, t.* from AUDIENCE_WITH_UID2_TOKENS, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_DECRYPT(UID2_TOKEN) t) b
+        on a.ID=b.ID;
+    ```
 
-      ```
-      SELECT T.raw_uid, LATERAL (DP.FN_UID2_ENCRYPT(T.raw_uid)) AS token
-      FROM AUDIENCE_WITH_UID2 T
-      ```
-
-- Receivers: 
-   - Call one of the following, depending on whether you are an advertiser or a data provider:
-
-     In this example, for advertisers, `AUDIENCE_WITH_UID2` is the receiver's table.
-
-      ```
-      SELECT T.token, LATERAL (ADV.FN_UID2_DECRYPT(T.token)) AS raw_uid
-      FROM AUDIENCE_WITH_UID2 T
-      ```
-
-     In this example, for data providers, `AUDIENCE_WITH_UID2` is the receiver's table.
-
-      ```
-      SELECT T.token, LATERAL (DP.FN_UID2_DECRYPT(T.token)) AS raw_uid
-      FROM AUDIENCE_WITH_UID2 T
-      ```
+>**WARNING**: To avoid shared UID2 tokens expiring, the receiver should decrypt the UID2 tokens as soon as they become available from the sender.
