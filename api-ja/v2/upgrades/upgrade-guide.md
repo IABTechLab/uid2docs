@@ -4,11 +4,11 @@
 
 このガイドでは、UID2 v1 API と v2 API の違いを概説し、v2 API へのアップグレード方法について説明します。
 
-- [Improvements and Changes from Version 1（バージョン 1 からの改善点・変更点）](#improvements-and-changes-from-version-1)
-- [Prerequisites and Timeline（前提条件とスケジュール）](#prerequisites-and-timeline)
-- [Publisher Upgrade Workflow（パブリッシャーアップグレードのワークフロー）](#publisher-upgrade-workflow)
-- [Advertiser and Data Provider Upgrade Workflow（広告主およびデータプロバイダーのアップグレードワークフロー）](#advertiser-and-data-provider-upgrade-workflow)
-- [FAQs（よくある質問）](#faqs)
+- [Improvements and Changes from Version 1 (バージョン 1 からの改善点・変更点)](#improvements-and-changes-from-version-1)
+- [Prerequisites and Timeline (前提条件とスケジュール)](#prerequisites-and-timeline)
+- [Publisher Upgrade Workflow (パブリッシャーアップグレードのワークフロー)](#publisher-upgrade-workflow)
+- [Advertiser and Data Provider Upgrade Workflow (広告主およびデータプロバイダーのアップグレードワークフロー)](#advertiser-and-data-provider-upgrade-workflow)
+- [FAQs (よくある質問)](#faqs)
 
 ## Improvements and Changes from Version 1
 
@@ -27,13 +27,13 @@ UID2 API の v2 アップデートは以下のとおりです:
 
 アップグレードを開始する前に、以下の要件を必ず確認してください:
 
-- UID2 エンドポイントに対して認証を行うには、 [UID2 管理者へ連絡](../../README.md#contact-info) し API リクエストの暗号化と API 応答の復号化に使用する秘密鍵を入手します。[Authentication and Authorization（認証と承認）](../summary-doc-v2.md#authentication-and-authorization) も参照してください。
+- UID2 エンドポイントに対して認証を行うには、 [UID2 管理者へ連絡](../../README.md#contact-info) し API リクエストの暗号化と API 応答の復号化に使用する秘密鍵を入手します。[Authentication and Authorization (認証と承認)](../summary-doc-v2.md#authentication-and-authorization) も参照してください。
 - アップグレードは、すべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理外のエンドポイントが非推奨となり削除される、**2023 年 3 月 31 日** までに完了する必要があります。
 
 ## Publisher Upgrade Workflow
 
-- [Backward Compatibility（後方互換性）](#backward-compatibility-for-publishers)
-- [Upgrade Steps（アップグレードステップ）](#upgrade-steps-for-publishers)
+- [Backward Compatibility (後方互換性)](#backward-compatibility-for-publishers)
+- [Upgrade Steps (アップグレードステップ)](#upgrade-steps-for-publishers)
 
 ### Backward Compatibility for Publishers
 
@@ -43,7 +43,7 @@ UID2 API の v2 アップデートは以下のとおりです:
 - v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントは、v2 [POST /token/generate](../endpoints/post-token-generate.md) または v2 [POST /token/refresh](../endpoints/post-token-refresh.md) によって戻されたリフレッシュトークンにのみ応答を暗号化して、呼び出し側がこれらのエンドポイントが戻すリフレッシュ応答キーを持っていると仮定して、その応答を暗号化しています。
 - v2 [POST /token/generate](../endpoints/post-token-generate.md) または v2 [POST /token/refresh](../endpoints/post-token-refresh.md) のエンドポイントから返されたリフレッシュトークンを、応答を暗号化しない v1 `GET /token/refresh` エンドポイントに渡せます。
 
-[Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) は、Client-Side JavaScript SDK v1 との互換性を保った交換部品（a drop-in replacement）です。ここで知っておくべきことは以下のとおりです:
+[Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) は、Client-Side JavaScript SDK v1 との互換性を保った交換部品 (a drop-in replacement)です。ここで知っておくべきことは以下のとおりです:
 
 - ユーザーの ID を保存するために使用されるファーストパーティクッキーは、SDK の 2 つのバージョン間で完全に相互運用可能です。つまり、Client-Side JavaScript SDK v2 は v1 の Cookie を読むことができ、その逆も同様です。
 - [v2 SDK init()関数](../sdks/client-side-identity.md#initopts-object-void)は、v1 `GET /token/generate`エンドポイントが返す ID オブジェクトを受け取ります。
@@ -55,7 +55,7 @@ UID API v2 へのアップグレードは、以下の手順で行います。
 
 1. [Client-Side JavaScript SDK をアップグレードします](#upgrade-the-client-side-javascript-sdk).
 2. [トークン生成エンドポイントへの呼び出しをアップグレードします](#upgrade-token-generation-calls).
-3. [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) を使用しないインテグレーションの場合のみ必要です： [トークンリフレッシュエンドポイントの呼び出しをアップグレードします](#upgrade-token-refresh-calls).
+3. [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) を使用しないインテグレーションの場合のみ必要です: [トークンリフレッシュエンドポイントの呼び出しをアップグレードします](#upgrade-token-refresh-calls).
 
 #### Upgrade the Client-Side JavaScript SDK
 
@@ -86,7 +86,7 @@ SDK version 2:
 
 #### Upgrade Token Generation Calls
 
-アップグレードの一環として、アプリケーションのサーバー側で、v1 の `GET /token/generate` エンドポイントへの呼び出しを v2 [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントへの呼び出しに切り替える必要があります。
+アップグレードの一環として、アプリケーションの サーバーサイドで、v1 の `GET /token/generate` エンドポイントへの呼び出しを v2 [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントへの呼び出しに切り替える必要があります。
 
 以下は、知っておくべきことと、実行すべきことです:
 
@@ -100,7 +100,7 @@ SDK version 2:
 
 > NOTE: [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) を使用してトークンを更新・管理している場合は、これ以上の操作は必要ありません。
 
-SDK を使用せず、サーバー側またはクライアント側でトークンをリフレッシュする場合、v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントへのリクエストを行う際には、以下の点に留意してください：
+SDK を使用せず、 サーバーサイドまたはクライアントサイドでトークンをリフレッシュする場合、v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントへのリクエストを行う際には、以下の点に留意してください:
 
 - 返された Refresh Token は、リクエストボディに何も修正せずに渡せます。
 - v2 エンドポイントから返される Refresh Token は、Refresh Token と一緒に `refresh_response_key` 値が返されることが期待されています。このキーは [レスポンスの復号化](../getting-started/gs-encryption-decryption.md) のために必要とされます。
@@ -109,8 +109,8 @@ SDK を使用せず、サーバー側またはクライアント側でトーク�
 
 ## Advertiser and Data Provider Upgrade Workflow
 
-- [Backward Compatibility（後方互換性）](#backward-compatibility-for-advertisers-and-data-providers)
-- [Upgrade Steps（アップグレードステップ）](#upgrade-steps-for-advertisers-and-data-providers)
+- [Backward Compatibility (後方互換性)](#backward-compatibility-for-advertisers-and-data-providers)
+- [Upgrade Steps (アップグレードステップ)](#upgrade-steps-for-advertisers-and-data-providers)
 
 ### Backward Compatibility for Advertisers and Data Providers
 

@@ -7,7 +7,7 @@ sidebar_position: 04
 
 # UID2 SDK for Java (Server-Side) Reference Guide
 
-UID2 SDK for Java (Server-Side) を使用すると、以下のことが容易になります：
+UID2 SDK for Java (Server-Side) を使用すると、以下のことが容易になります:
 
 - UID2 Advertising Token の生成
 - UID2 Advertising Token の更新
@@ -18,7 +18,9 @@ UID2 SDK for Java (Server-Side) を使用すると、以下のことが容易に
 <!-- This guide includes the following information:
 
 - [Overview](#overview)
-- [Audience](#audience)
+- [Functionality](#functionality)
+- [Version](#version)
+- [GitHub Repository/Binary](#github-repositorybinary)
 - [Initialization](#initialization)
 - [Interface](#interface)
   - [Response Content](#response-content)
@@ -30,23 +32,27 @@ UID2 SDK for Java (Server-Side) を使用すると、以下のことが容易に
 
 ここで説明する関数は、設定に必要な情報やライブラリから取得できる情報を定義しています。以下に定義するパラメータとプロパティ名は擬似コードです。実際のパラメータやプロパティ名は言語によって異なりますが、ここで説明する情報と同様のものになります。
 
-## Audience
+## Functionality
 
-この SDK は、Server-Side のコーディングに C++ を使用しているパブリッシャー、DSP または UID2 Sharer のために、UID2 とのインテグレーションを簡素化します。
+このSDKは、サーバーサイドのコーディングに Java を使用しているパブリッシャー、DSP、UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
 
-| Audience | Functions |
-| :--- | :--- |
-| Publishers | [DII](../ref-info/glossary-uid.md#gl-dii) からの UID2 Token の生成やリフレッシュをサポートします。 |
-| DSPs | 入札リクエストからの UID2 Token の復号化をサポートします。 |
-| Sharers | UID2 Token の暗号化または復号化をサポートします。 |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
+| :--- | :--- | :--- | :--- |
+| Supported | Supported | Supported | Supported |
 
 ## Version
 
 この SDK には Java version 1.8 以降が必要です。
 
-## SDK Repository
+## GitHub Repository/Binary
 
-この SDK は GitHub で公開されています: [UID2 SDK for Java](https://github.com/IABTechLab/uid2-client-java/blob/master/README.md)
+この SDK は以下のオープンソースの GitHub リポジトリにあります:
+
+- [UID2 SDK for Java](https://github.com/IABTechLab/uid2-client-java/blob/master/README.md)
+
+バイナリは Maven リポジトリで公開されています:
+
+- [https://central.sonatype.com/artifact/com.uid2/uid2-client](https://central.sonatype.com/artifact/com.uid2/uid2-client)
 
 ## Initialization
 
@@ -55,7 +61,7 @@ UID2 SDK for Java (Server-Side) を使用すると、以下のことが容易に
 
 | Parameter | Description | Recommended Value |
 | :--- | :--- | :--- |
-| `endpoint` | UID2 Service　のエンドポイント。 | N/A |
+| `endpoint` | UID2 Service のエンドポイント。 | N/A |
 | `authKey` | クライアントに付与された認証トークン。UID2 へのアクセスについては、 [Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。 | N/A |
 
 ## Interface 
@@ -108,7 +114,7 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
    ```java
    IUID2Client client = UID2ClientFactory.create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
    ```
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします（推奨リフレッシュ間隔は1時間毎）:
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします (推奨リフレッシュ間隔は1時間毎):
 
    ```java
    client.refresh();
@@ -153,6 +159,6 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
 
 ## FAQs
 
-DSPに関するよくある質問については、[FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps)　を参照してください。
+DSPに関するよくある質問については、[FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps) を参照してください。
 
 すべてのリストは  [Frequently Asked Questions](../getting-started/gs-faqs.md) を参照してください。

@@ -62,7 +62,7 @@ No, publishers do not need to decrypt [UID2 tokens](../ref-info/glossary-uid.md#
 #### How will I be notified of user opt-out?
 
 If the user has opted out, the API response notifies you in either of these cases:
-- When you generate the UID2 token by a call to the  [POST /token/generate](../endpoints/post-token-generate.md) endpoint, either directly or via one of the UID2 SDKs, using the optional `policy` parameter with a value of `1`.
+- When you generate the UID2 token by a call to the [POST /token/generate](../endpoints/post-token-generate.md) endpoint, either directly or via one of the UID2 SDKs, using the required `policy` parameter with a value of `1`.
 - When you refresh the UID2 token by a call to the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, either directly or via one of the UID2 SDKs.
 
 #### Where should I make token generation calls&#8212;from the server side or the client side?
@@ -77,7 +77,7 @@ Yes. The [POST /token/refresh](../endpoints/post-token-refresh.md) can be called
 
 You can use the `optout@email.com` email address or the `+00000000000` phone number to test your token refresh workflow. Using either parameter value in a request always generates an identity response with a `refresh_token` that results in a logout response.
 
-The procedure is a little different depending on whether or not you are using an SDK. The difference is in Step 3.
+The procedure is a little different depending on whether or not you are using an SDK.
 
 ##### With SDK:
 

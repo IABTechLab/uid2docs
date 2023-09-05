@@ -1,19 +1,20 @@
 ---
 title: Email Contacts
-description: Learn how to set up and manage contacts for UID2 updates.
+description: UID2 アップデートのための連絡先の設定と管理方法について説明します。
 hide_table_of_contents: false
 sidebar_position: 09
 ---
 
 # Email Contacts
 
-In the UID2 Portal, you can specify people from your organization whom we should notify for information about the latest updates and releases for UID2. You can set up individual email addresses, or reference an email group that you've set up internally to notify multiple individuals in your organization.
+UID2 Portal では、UID2 の最新アップデートやリリースに関する情報を通知する組織内の担当者を指定できます。個別のメールアドレスを設定することも、組織内の複数の人に通知するために組織内に設定したメールグループを参照することもできます。
 
-Adding email groups rather than individuals has some benefits:
-- It's an efficient way to keep multiple people notified without having to create a lot of individual entries.
-- You can manage the list externally, as part of managing your internal email configuration, outside the UID2 Portal.
+個人ではなくメールグループを追加することには、いくつかの利点があります:
+- 多くの個別エントリーを作成することなく、複数の人に通知する効率的な方法です。
+- UID2 Portal の外部で、内部メール設定の管理の一環としてリストを管理できます。
 
->NOTE: Email contacts cannot log in to the UID2 Portal or modify the account. They only receive information notices. If an email contact wants to be removed, that action must be done by a team member.
+>NOTE: メール連絡先は、UID2 Portal にログインしたりアカウントを変更したりできません。受信できるのは情報通知のみです。メール連絡先を削除したい場合は、チームメンバーがその操作を行う必要があります。
+
 
 <!-- It includes the following:
 
@@ -24,7 +25,7 @@ Adding email groups rather than individuals has some benefits:
 
 ## Configuring Email Contacts
 
-On the Email Contacts page, you can perform all activities relating to configuring individuals who should be notified about UID2 updates, including the following:
+Email Contacts ページでは、UID2 の更新について通知を受ける個人を設定するための、以下のような操作を実行できます:
 
 - [Add an email contact](#add-an-email-contact)
 - [Edit information for an email contact](#edit-information-for-an-email-contact)
@@ -32,36 +33,36 @@ On the Email Contacts page, you can perform all activities relating to configuri
 
 ## Add an Email Contact
 
-Complete the following steps:
+以下のステップを完了させます:
 
-1. Log in to your UID2 Portal account.
-1. On the Email Contacts page, click **Add Email Contact**.
-2. In the Add Email Contact window, provide the following information for the email contact:
-   - Email Group Name: Provide one of the following:
+1. UID2 Portal アカウントにログインします。
+1. Email Contacts ページで、**Add Email Contact** をクリックします。
+2. Add Email Contact ウィンドウで、メールアドレス連絡先の以下の情報を入力します:
+   - Email Group Name: 以下のいずれかを入力します:
    
-     - For an individual: the name or role associated with the email address.
-     - For an email group: a text name for the group. For example, `Engineering`.
-   - Email Alias: Provide one of the following:
+     - 個人の場合: メールアドレスに関連付けられた名前または役割。
+     - メールアドレスグループの場合: グループのテキスト名。例えば、`Engineering`。
+   - Email Alias: 以下のいずれかを入力してください:
    
-     - For an individual: an email address.
-     - For a group: A valid email address for the group. For example, `engineering@example.com`.
-   - Contact Type: Choose from the drop-down list of contact types. For example, choose `Business` or `Technical`.
-3. Click **Save Email Contact**. Your entry is added to the list. 
+     - 個人の場合: メールアドレス。
+     - グループの場合: グループに有効なメールアドレス。例えば、`engineering@example.com`。
+   - Contact Type: コンタクトタイプのドロップダウンリストから選択します。例えば、`Business` または `Technical` を選択します。
+3. **Save Email Contact** をクリックします。エントリーがリストに追加されます。
 
->NOTE: For email contacts, no email confirmation is sent.
+>NOTE: Email Contacts では、確認のメールは送信されません。
 
 ## Edit Information for an Email Contact
 
-To edit information for an email contact, find the contact on the list and then, in the Actions column, click the Edit (pencil) icon.
+メールアドレス連絡先の情報を編集するには、リストで連絡先を見つけ、Actions 列で Edit (pencil) アイコンをクリックします。
 
-Update the information, and then save the changes.
+情報を更新し、変更を保存します。
 
 ## Remove an Email Contact
 
-To remove an email contact, follow these steps:
+メールコンタクトを削除するには、以下の手順に従ってください:
 
-1. Find the contact on the list and then, in the Actions column, click the delete (trashcan) icon.
-1. At the confirmation message, confirm deletion.
+1. リストで連絡先を見つけ、Actions 列で delete (trashcan) アイコンをクリックします。
+1. 確認メッセージが表示されたら、削除を確定します。
 
 <!-- (**GWH_KT_05 7/31 confirmation msg not yet added but per KT it will be and should be in the doc. Verify before publication.**) -->
 

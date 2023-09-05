@@ -166,7 +166,7 @@ echo '{"phone": ["+1111111111", "+2222222222"]}' | python3 uid2_request.py https
 | Property         | Data Type | Description                                                                          |
 | :--------------- | :-------- | :----------------------------------------------------------------------------------- |
 | `identifier`     | string    | リクエストボディで指定されたメールアドレス、電話番号、またはそれぞれのハッシュです。 |
-| `advertising_id` | string    | 対応する Advertising ID（raw UID2）です。                                            |
+| `advertising_id` | string    | 対応する Advertising ID (raw UID2)です。                                            |
 | `bucket_id`      | string    | raw UID2 の生成に使用したソルトバケットの ID です。                                      |
 
 ### Response Status Codes
@@ -183,7 +183,7 @@ echo '{"phone": ["+1111111111", "+2222222222"]}' | python3 uid2_request.py https
 
 ### Identity Map Policy
 
-ID マップポリシーは、トークンを生成するタイミングを呼び出し元が決定できるようにします。これは、リクエストボディに整数値の ID として渡されます（キー 'policy' を使用）。このパラメータが省略された場合、デフォルト値である policy = 0 が適用されます。
+ID マップポリシーは、トークンを生成するタイミングを呼び出し元が決定できるようにします。これは、リクエストボディに整数値の ID として渡されます (キー 'policy' を使用)。このパラメータが省略された場合、デフォルト値である policy = 0 が適用されます。
 
 | ID  | Description                                            |
 | :-- | :----------------------------------------------------- |

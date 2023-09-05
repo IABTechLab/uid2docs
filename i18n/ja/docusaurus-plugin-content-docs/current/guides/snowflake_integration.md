@@ -7,7 +7,7 @@ sidebar_position: 04
 
 # Snowflake Integration Guide
 
-[Snowflake](https://www.snowflake.com/?lang=ja) はクラウドデータウェアハウスソリューションで、パートナーとして顧客のデータを保存し、UID2 フレームワークとインテグレーションできます。Snowflake を使用することで、UID2 は、機密性の高い　[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii)　を公開することなく、認可された消費者識別子データを安全に共有できます。消費者識別子データを直接 Operator Web Services に問い合わせることもできますが、Snowflake UID2 とのインテグレーションにより、よりシームレスな体験が可能になります。
+[Snowflake](https://www.snowflake.com/?lang=ja) はクラウドデータウェアハウスソリューションで、パートナーとして顧客のデータを保存し、UID2 フレームワークとインテグレーションできます。Snowflake を使用することで、UID2 は、機密性の高い [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を公開することなく、認可された消費者識別子データを安全に共有できます。消費者識別子データを直接 Operator Web Services に問い合わせることもできますが、Snowflake UID2 とのインテグレーションにより、よりシームレスな体験が可能になります。
 
 次の図は、Snowflake が UID2 インテグレーションプロセスにどのように関わるかを示しています:
 
@@ -22,7 +22,7 @@ sidebar_position: 04
 
 UID2 Shareへのアクセスは、[Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/) を通して行います。ここでは、選択した UID2 パーソナライズドリストに基づいて特定のデータセットをリクエストすることができます。
 
-Snowflakeデータマーケットプレイスでは、UID2 用に2つのパーソナライズされたリストが提供されています：
+Snowflakeデータマーケットプレイスでは、UID2 用に2つのパーソナライズされたリストが提供されています:
 - 広告主/ブランド向けの [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV)
 - データプロバイダー向けの [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0)
 
@@ -43,7 +43,7 @@ UID2 Share へのアクセスを要求するには、次の手順を実行しま
 
 ## Shared Objects
 
-選択した UID 2ソリューションに関係なく、以下の関数を使って、DII を UID2にマッピングできます：
+選択した UID 2ソリューションに関係なく、以下の関数を使って、DII を UID2にマッピングできます:
 
 - `FN_T_UID2_IDENTITY_MAP` (See [Map DII](#map-dii))
 
@@ -102,8 +102,8 @@ DIIが電話番号の場合、UID2 [電話番号正規化](../getting-started/gs
 
 
 | `UID2` | TEXT | DII は正常にマッピングされました: <br/>DII は正常にマップされませんでした: `NULL`。 |
-| `BUCKET_ID` | TEXT | DIIは正常にマップされました： UID2 の生成に使われたセカンドレベルのソルトバケットの ID。この ID は `UID2_SALT_BUCKETS` ビューのバケットIDに対応します。<br/>DIIは正常にマップされませんでした: `NULL`。 |
-| `UNMAPPED` | TEXT |  DII は正常にマッピングされました: `NULL`<br/>DII は正常にマップされませんでした: `NULL`：  DII は正常にマップされませんでした: 識別子がマップされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、`INVALID INPUT TYPE` のいずれか。詳細は [Values for the UNMAPPED Column](#values-for-the-unmapped-column) を参照してください。
+| `BUCKET_ID` | TEXT | DIIは正常にマップされました: UID2 の生成に使われたセカンドレベルのソルトバケットの ID。この ID は `UID2_SALT_BUCKETS` ビューのバケットIDに対応します。<br/>DIIは正常にマップされませんでした: `NULL`。 |
+| `UNMAPPED` | TEXT |  DII は正常にマッピングされました: `NULL`<br/>DII は正常にマップされませんでした: `NULL`:  DII は正常にマップされませんでした: 識別子がマップされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、`INVALID INPUT TYPE` のいずれか。詳細は [Values for the UNMAPPED Column](#values-for-the-unmapped-column) を参照してください。
 
 ### Values for the UNMAPPED Column
 
@@ -114,7 +114,7 @@ DIIが電話番号の場合、UID2 [電話番号正規化](../getting-started/gs
 | `NULL` | DII は正常にマッピングされました。 |
 | `OPTOUT` | ユーザはオプトアウトしました。 |
 | `INVALID IDENTIFIER` | メールアドレスまたは電話番号が無効です。 |
-| `INVALID INPUT TYPE` | `INPUT_TYPE` の値が無効です。INPUT_TYPE の値は以下のいずれかでなければなりません: email`、`email_hash`、`phone`、`phone_hash`。　|
+| `INVALID INPUT TYPE` | `INPUT_TYPE` の値が無効です。INPUT_TYPE の値は以下のいずれかでなければなりません: email`、`email_hash`、`phone`、`phone_hash`。 |
 
 このセクションのマッピングリクエストの例:
 
@@ -131,13 +131,13 @@ DIIが電話番号の場合、UID2 [電話番号正規化](../getting-started/gs
 
 次のクエリは、[デフォルトのデータベースとスキーマ名](#database-and-schema-names) を使用して、単一のメールアドレスをマッピングする方法を示しています。
 
-単一のメールアドレスに対する広告主ソリューションのクエリー：
+単一のメールアドレスに対する広告主ソリューションのクエリー:
 
 ```
 select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP('validate@email.com', 'email'));
 ```
 
-単一のメールアドレスに対するデータプロバイダーソリューションのクエリー：
+単一のメールアドレスに対するデータプロバイダーソリューションのクエリー:
 
 ```
 select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP('validate@email.com', 'email'));
@@ -157,7 +157,7 @@ select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTIT
 
 以下のクエリは、[デフォルトのデータベースとスキーマ名](#database-and-schema-names) を使用して、複数のメールアドレスをマッピングする方法を示しています。
 
-複数のメールアドレスに対する広告主ソリューションのクエリー：
+複数のメールアドレスに対する広告主ソリューションのクエリー:
 
 ```
 select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
@@ -165,7 +165,7 @@ select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
     on a.ID=m.ID;
 ```
 
-複数のメールアドレスに対するデータプロバイダーソリューションのクエリー：
+複数のメールアドレスに対するデータプロバイダーソリューションのクエリー:
 
 ```
 select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID, UNMAPPED from AUDIENCE a LEFT JOIN(
@@ -194,13 +194,13 @@ select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID, UNMAPPED from AUDIENCE a LEFT JOIN(
 
 電話番号は、UID2 [電話番号正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) ルールを使って正規化する必要があります。
 
-単一の電話番号に対する広告主ソリューションのクエリー：
+単一の電話番号に対する広告主ソリューションのクエリー:
 
 ```
 select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP('+12345678901', 'phone'));
 ```
 
-単一の電話番号に対するデータプロバイダーソリューションのクエリー：
+単一の電話番号に対するデータプロバイダーソリューションのクエリー:
 
 ```
 select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP('+12345678901', 'phone'));
@@ -222,7 +222,7 @@ select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTIT
 
 電話番号は UID2 の[電話番号正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) ルールを使って正規化する必要があります。
 
-複数の電話番号に対する広告主ソリューションのクエリー：
+複数の電話番号に対する広告主ソリューションのクエリー:
 
 ```
 select a.ID, a.PHONE, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
@@ -230,7 +230,7 @@ select a.ID, a.PHONE, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
     on a.ID=m.ID;
 ```
 
-複数の電話番号に対するデータプロバイダーソリューションのクエリー：
+複数の電話番号に対するデータプロバイダーソリューションのクエリー:
 
 ```
 select a.ID, a.PHONE, m.UID2, m.BUCKET_ID, UNMAPPED from AUDIENCE a LEFT JOIN(
@@ -258,13 +258,13 @@ The following table identifies each item in the response, including `NULL` value
 
 以下のクエリは、[デフォルトのデータベースとスキーマ名](#database-and-schema-names) を使用して、単一のメールアドレスハッシュをマップする方法を示しています。
 
-単一のハッシュ化されたメールアドレスに対する広告主ソリューションのクエリー：
+単一のハッシュ化されたメールアドレスに対する広告主ソリューションのクエリー:
 
 ```
 select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256)), 'email_hash'));
 ```
 
-単一のハッシュ化されたメールアドレスに対するデータプロバイダーソリューションのクエリー：
+単一のハッシュ化されたメールアドレスに対するデータプロバイダーソリューションのクエリー:
 
 ```
 select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256)), 'email_hash'));
@@ -284,7 +284,7 @@ select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTIT
 
 以下のクエリは、[デフォルトのデータベースとスキーマ名](#database-and-schema-names) を使用して、複数のメールアドレスハッシュをマッピングする方法を示しています。
 
-複数のハッシュ化されたメールアドレスに対する広告主ソリューションのクエリー：
+複数のハッシュ化されたメールアドレスに対する広告主ソリューションのクエリー:
 
 ```
 select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
@@ -292,7 +292,7 @@ select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT 
     on a.ID=m.ID;
 ```
 
-複数のハッシュ化されたメールアドレスに対するデータプロバイダーソリューションのクエリー：
+複数のハッシュ化されたメールアドレスに対するデータプロバイダーソリューションのクエリー:
 
 ```
 select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
@@ -318,13 +318,13 @@ select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT 
 
 以下のクエリは、[デフォルトのデータベース名とスキーマ名](#database-and-schema-names) を使用して、単一の電話番号ハッシュをマップする方法を示しています。
 
-単一のハッシュ化された電話番号に対する広告主ソリューションのクエリー：
+単一のハッシュ化された電話番号に対する広告主ソリューションのクエリー:
 
 ```
 select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('+12345678901', 256)), 'phone_hash'));
 ```
 
-単一のハッシュ化された電話番号に対するデータプロバイダーソリューションのクエリー：
+単一のハッシュ化された電話番号に対するデータプロバイダーソリューションのクエリー:
 
 ```
 select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('+12345678901', 256)), 'phone_hash'));
@@ -344,7 +344,7 @@ select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTIT
 
 以下のクエリは、[デフォルトのデータベース名とスキーマ名](#database-and-schema-names)を使用して、複数の電話番号ハッシュをマップする方法を示しています。
 
-複数のハッシュ化された電話番号に対する広告主ソリューションのクエリー：
+複数のハッシュ化された電話番号に対する広告主ソリューションのクエリー:
 
 ```
 select a.ID, a.PHONE_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
@@ -352,7 +352,7 @@ select a.ID, a.PHONE_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT 
     on a.ID=m.ID;
 ```
 
-複数のハッシュ化された電話番号に対するデータプロバイダーソリューションのクエリー：
+複数のハッシュ化された電話番号に対するデータプロバイダーソリューションのクエリー:
 
 ```
 select a.ID, a.PHONE_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
@@ -403,7 +403,7 @@ select * from AUDIENCE_WITH_UID2;
 
 欠落しているまたは古い UID2 を見つけるには、[デフォルトのデータベースとスキーマ名](#database-and-schema-names) を使用する次のクエリ例を使用します。
 
-広告主ソリューションのクエリー：
+広告主ソリューションのクエリー:
 
 ```
 select a.*, b.LAST_SALT_UPDATE_UTC
@@ -412,7 +412,7 @@ select a.*, b.LAST_SALT_UPDATE_UTC
   where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
 ```
 
-データプロバイダーソリューションのクエリー：
+データプロバイダーソリューションのクエリー:
 
 ```
 select a.*, b.LAST_SALT_UPDATE_UTC
@@ -438,13 +438,13 @@ select a.*, b.LAST_SALT_UPDATE_UTC
 
 `FN_T_UID2_IDENTITY_MAP_EMAIL` 関数と `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用している場合は、できるだけ早く `FN_T_UID2_IDENTITY_MAP` 関数に移行することをお勧めします。この関数は、他の2つの関数が行うことをすべて行い、その他の改良も組み込まれています。
 
-`FN_T_UID2_IDENTITY_MAP`関数の利点：
+`FN_T_UID2_IDENTITY_MAP` 関数の利点:
 
 - 電話番号とハッシュ化された電話番号の両方のマッピングをサポートしています。
 - ユーザーのオプトアウトをサポートしました。
 - `UNMAPPED` という新しいカラムが追加されました。何らかの理由で DII を UID2 にマッピングできない場合、この列にはその理由についての情報が含まれます。詳細については、[Values for the UNMAPPED Column](#values-for-the-unmapped-column)を参照してください。
 
-このセクションには、新機能へのアップグレードに役立つ以下の情報が含まれています：
+このセクションには、新機能へのアップグレードに役立つ以下の情報が含まれています:
 
 - [既存のコードの変更](#changing-existing-code) 
 - [UNMAPPEDカラムの値を使う](#using-the-values-for-the-unmapped-column)

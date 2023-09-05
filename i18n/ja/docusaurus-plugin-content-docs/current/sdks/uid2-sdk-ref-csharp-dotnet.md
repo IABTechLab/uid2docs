@@ -12,7 +12,9 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 <!-- This guide includes the following information:
 
 - [Overview](#overview)
-- [Audience](#audience)
+- [Functionality](#functionality)
+- [Version](#version)
+- [GitHub Repository/Binary](#github-repositorybinary)
 - [Initialization](#initialization)
 - [Interface](#interface)
   - [Response Content](#response-content)
@@ -24,22 +26,27 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 
 ここで説明する関数は、設定に必要な情報やライブラリから取得できる情報を定義しています。以下に定義するパラメータとプロパティ名は擬似コードです。実際のパラメータやプロパティ名は言語によって異なりますが、ここで説明する情報と同様のものになります。
 
-## Audience
+## Functionality
 
-この SDK は、Server-Side のコーディングに C# / .NET を使用している DSP または UID2 Sharer のために、UID2 とのインテグレーションを簡素化します。
+この SDK は、サーバーサイドのコーディングに C# / .NET を使用している DSP または UID2 sharer のために、UID2 とのインテグレーションを簡素化します。次の表は、この SDK がサポートする機能を示しています。
 
-| Audience | Functions |
-| :--- | :--- |
-| DSPs | 入札リクエストからの UID2 Token の復号化をサポートします。 |
-| Sharers | UID2 Token の暗号化または復号化をサポートします。 |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
+| :--- | :--- | :--- | :--- |
+| Supported | Supported | Not supported | Not supported |
 
 ## Version
 
 このライブラリは、.NET Standard 2.1. のユニットテストを使用しています。サンプルアプリは .NET 5.0 を使用しています。
 
-## SDK Repository
+## GitHub Repository/Binary
 
-この SDK は GitHub で公開されています: [UID2 SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md)
+この SDK は以下のオープンソースの GitHub リポジトリにあります:
+
+- [UID2 SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md)
+
+バイナリはこちらに公開されています:
+
+- [https://www.nuget.org/packages/UID2.Client](https://www.nuget.org/packages/UID2.Client)
 
 ## Initialization
 
@@ -47,7 +54,7 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 
 | Parameter | Description | Recommended Value |
 | :--- | :--- | :--- |
-| `endpoint` | UID2 Service　のエンドポイント。 | N/A |
+| `endpoint` | UID2 Service のエンドポイント。 | N/A |
 | `authKey` | クライアントに付与された認証トークン。UID2 へのアクセスについては、 [Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。 | N/A |
 
 ## Interface 
@@ -100,7 +107,7 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
    ```cs
    var client = UID2ClientFactory.Create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
    ```
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします（推奨リフレッシュ間隔は1時間毎）:
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします (推奨リフレッシュ間隔は1時間毎):
 
     ```cs
    client.Refresh();
@@ -144,6 +151,6 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
 
 ## FAQs
 
-DSPに関するよくある質問については、[FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps)　を参照してください。
+DSPに関するよくある質問については、[FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps) を参照してください。
 
 すべてのリストは  [Frequently Asked Questions](../getting-started/gs-faqs.md) を参照してください。

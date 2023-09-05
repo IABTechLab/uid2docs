@@ -9,19 +9,19 @@ sidebar_position: 05
 
 このガイドは、ビッドストリームで UID2 の取引を行うDSPを対象としています。
 
-<!-- 以下のセクションが含まれています：
+<!-- It includes the following sections:
 
-- [Integration Steps（インテグレーション手順）](#integration-steps)
-  - [Honor User Opt-Outs（ユーザーオプトアウトの受け入れ）](#honor-user-opt-outs)
-  - [Decrypt UID2 Tokens for RTB Use（RTB で使用する UID2 Token の復号化）](#decrypt-uid2-tokens-for-rtb-use)
-- [FAQs（よくある質問）](#faqs) -->
+* [Integration Steps](#integration-steps)
+   - [Honor User Opt-Outs](#honor-user-opt-outs)
+   - [Decrypt UID2 Tokens for RTB Use](#decrypt-uid2-tokens-for-rtb-use)
+* [FAQs](#faqs) -->
 
 ## Integration Steps
 
 以下は、RTB で UID2 をサポートするための DSP のインテグレーションワークフローで、大きく 2 つのステップで構成されています:
 
-1. [Honor user Opt-Outs（ユーザーオプトアウトの受け入れ）](#honor-user-opt-outs)
-2. [Decrypt UID2 tokens to use in RTB（RTB で使用する UID2 Token の復号化）](#decrypt-uid2-tokens-for-rtb-use)
+1. [Honor user Opt-Outs (ユーザーオプトアウトの受け入れ)](#honor-user-opt-outs)
+2. [Decrypt UID2 tokens to use in RTB (RTB で使用する UID2 Token の復号化)](#decrypt-uid2-tokens-for-rtb-use)
 
 ![](images/dsp-guide-flow-mermaid.png)
 
@@ -44,7 +44,7 @@ https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 
 #### Bidding Opt-Out Logic
 
-入札時（2-b）に以下のロジックを使用し、ユーザーのオプトアウトを受け入れます。
+入札時 (2-b)に以下のロジックを使用し、ユーザーのオプトアウトを受け入れます。
 
 Server-Side SDK のいずれか([SDKs](../sdks/summary-sdks.md)を参照)を利用して、受信した UID2 Token を復号化します。応答には UID2 と UID2 が作成された時刻が含まれ、以下の疑似コードでは `established_timestamp`として表されます。DSP は UID2 の最新のオプトアウトタイムスタンプを確認する必要があります。
 
@@ -52,7 +52,7 @@ Server-Side SDK のいずれか([SDKs](../sdks/summary-sdks.md)を参照)を利�
 
 ![](images/dsp-guide-optout-check-mermaid.png)
 
-`established_timestamp` の値が `optout_timestamp` の値より小さい場合、ユーザーはオプトアウトしているため、UID2はRTBに使用されるべきではありません。このような場合、入札のために代替　ID　を送信するか、入札を行わないかは DSP 次第です。
+`established_timestamp` の値が `optout_timestamp` の値より小さい場合、ユーザーはオプトアウトしているため、UID2はRTBに使用されるべきではありません。このような場合、入札のために代替 ID を送信するか、入札を行わないかは DSP 次第です。
 
 <b>Check Opt-Out</b> ステップのロジックは以下のとおりです。
 
