@@ -130,13 +130,13 @@ A successful query returns the following information for the specified DII.
 
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
-| `UID2` | TEXT | If DII was successfully mapped: The UID2 associated with the DII.<br/>DII was not successfully mapped: `NULL`. |
-| `BUCKET_ID` | TEXT | If DII was successfully mapped: The ID of the second-level salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view.<br/>DII was not successfully mapped: `NULL`. |
-| `UNMAPPED` | TEXT | If DII was successfully mapped: `NULL`.<br/>DII was not successfully mapped:  The reason why an identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`. For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).  |
+| `UID2` | TEXT | The value is one of the following:<ul><li>DII was successfully mapped: The UID2 associated with the DII.</li><li>DII was not successfully mapped: `NULL`.</li></ul> |
+| `BUCKET_ID` | TEXT | The value is one of the following:<ul><li>DII was successfully mapped: The ID of the second-level salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view.</li><li>DII was not successfully mapped: `NULL`.</li></ul> |
+| `UNMAPPED` | TEXT | The value is one of the following:<ul><li>DII was successfully mapped: `NULL`.</li><li>DII was not successfully mapped:  The reason why the identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`.<br/>For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).</li></ul> |
 
 #### Values for the UNMAPPED Column
 
-Possible values for `UNMAPPED` are:
+The following table shows possible values for the `UNMAPPED` column.
 
 | Value | Meaning |
 | :-- | :-- |
@@ -477,7 +477,7 @@ Advantages of the `FN_T_UID2_IDENTITY_MAP` function:
 
 - It supports mapping both phone numbers and hashed phone numbers.
 - It supports user opt-out.
-- It adds a new column, `UNMAPPED`. In any scenario where the DII cannot be mapped to a UID2 for any reason, this column includes information about the reason. For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column)
+- It adds a new column, `UNMAPPED`. In any scenario where the DII cannot be mapped to a UID2 for any reason, this column includes information about the reason.<br/>For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column)
 
 This section includes the following information to help you upgrade to the new function:
 
@@ -523,7 +523,7 @@ For details about the values and their explanations, see [Values for the UNMAPPE
 
 ## Usage for UID2 Sharers
 
-A UID2 sharer is any participant that wants to share UID2s with another participant. Advertisers and data providers can share UID2s with other authorized UID2 sharing participants via Snowflake. <!-- For details, see [UID2 Sharing Overview](../sharing/sharing-overview). -->
+A UID2 sharer is any participant that wants to share UID2s with another participant. Advertisers and data providers can share UID2s with other authorized UID2 sharing participants via Snowflake. For details, see [UID2 Sharing: Overview](../sharing/sharing-overview).
 
 A sharing participant must encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into [UID2 tokens](../ref-info/glossary-uid#gl-uid2-token) before sending them to another participant.
 
@@ -546,19 +546,19 @@ A successful query returns the following information for the specified raw UID2.
 
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
-| `UID2_TOKEN` | TEXT | If raw UID2 was successfully encrypted: The UID2 token containing the raw UID2.<br/>Raw UID2 was not successfully encrypted: `NULL`. |
-| `ENCRYPTION_STATUS` | TEXT | If raw UID2 was successfully encrypted: `NULL`.<br/>Raw UID2 was not successfully encrypted:  The reason why a raw UID2 was not encrypted, for example: `INVALID_RAW_UID2`, `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`. For details, see [Values for the ENCRYPTION_STATUS Column](#values-for-the-encryption_status-column).  |
+| `UID2_TOKEN` | TEXT | The value is one of the following:<ul><li>Encryption successful: The UID2 token containing the raw UID2.</li><li>Encryption not successful: `NULL`.</li></ul> |
+| `ENCRYPTION_STATUS` | TEXT | The value is one of the following:<ul><li>Encryption successful: `NULL`.</li><li>Encryption not successful: The reason why the raw UID2 was not encrypted. For example: `INVALID_RAW_UID2` or `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`.<br/>For details, see [Values for the ENCRYPTION_STATUS Column](#values-for-the-encryption_status-column).</li></ul> |
 
 #### Values for the ENCRYPTION_STATUS Column
 
-Possible values for `ENCRYPTION_STATUS` are:
+The following table shows possible values for the `ENCRYPTION_STATUS` column.
 
 | Value | Meaning |
 | :-- | :-- |
 | `NULL` | The raw UID2 was successfully encrypted. |
 | `MISSING_OR_INVALID_RAW_UID2` | The raw UID2 is `NULL`. |
 | `INVALID_RAW_UID2` | The raw UID2 is invalid. |
-| `MISMATCHING_IDENTITY_SCOPE` | The raw UID2 belongs to an incorrect identity scope. For example, EUID is passed in where UID2 is expected. |
+| `MISMATCHING_IDENTITY_SCOPE` | The raw UID2 belongs to an incorrect identity scope; for example, EUID is passed in where UID2 is expected. |
 | `NOT_AUTHORIZED_FOR_MASTER_KEY` | The caller does not have access to the required encryption keys. Contact the UID2 administrator. |
 | `NOT_AUTHORIZED_FOR_SITE_KEY` | The caller does not have access to the required encryption keys. Contact the UID2 administrator. |
 
@@ -632,9 +632,9 @@ A successful query returns the following information for the specified UID2 toke
 
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
-| `UID2` | TEXT | If UID2 token was successfully decrypted: The raw UID2 contained with it.<br/>UID2 token was not successfully decrypted: `NULL`. |
-| `SITE_ID` | INT | If UID2 token was successfully decrypted: The identifier of the UID2 participant that encrypted the token.<br/>UID2 token was not successfully decrypted: `NULL`. |
-| `DECRYPTION_STATUS` | TEXT | If UID2 token was successfully decrypted: `NULL`.<br/>UID2 token was not successfully decrypted:  The reason why a UID2 token was not decrypted, for example: `EXPIRED_TOKEN`. For details, see [Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column).  |
+| `UID2` | TEXT | The value is one of the following:<ul><li>Decryption successful: The raw UID2 corresponding to the UID2 token.</li><li>Decryption not successful: `NULL`.</li></ul> |
+| `SITE_ID` | INT | The value is one of the following:<ul><li>Decryption successful: The identifier of the UID2 participant that encrypted the token.</li><li>Decryption not successful: `NULL`.</li></ul> |
+| `DECRYPTION_STATUS` | TEXT | The value is one of the following:<ul><li>Decryption successful: `NULL`.</li><li>Decryption not successful:  The reason why the UID2 token was not decrypted; for example, `EXPIRED_TOKEN`.<br/>For details, see [Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column).</li></ul> |
 
 >NOTE: In most circumstances where UID2 token cannot be successfully decrypted, the function will not return any rows at all.
 
@@ -645,9 +645,9 @@ Possible values for `DECRYPTION_STATUS` are:
 | Value | Meaning |
 | :-- | :-- |
 | `NULL` | The UID2 token was successfully decrypted. |
-| `EXPIRED_TOKEN` | The UID2 token is beyond its designated lifetime, i.e. it has expired. |
+| `EXPIRED_TOKEN` | The UID2 token is beyond its designated lifetime&#8212;the token has expired. |
 
-#### Decrypt Token Request Example - Single UID2 Token
+#### Decrypt Token Request Example&#8212;Single UID2 Token
 
 The following queries illustrate how to decrypt a single UID2 token to a raw UID2, using the [default database and schema names](#database-and-schema-names).
 
@@ -673,7 +673,7 @@ Query results for a single UID2 token:
 +----------------------------------------------+-------------------+
 ```
 
-#### Decrypt Token Request Example - Multiple UID2 Tokens
+#### Decrypt Token Request Example&#8212;Multiple UID2 Tokens
 
 The following queries illustrate how to decrypt multiple UID2 tokens, using the [default database and schema names](#database-and-schema-names).
 
@@ -714,16 +714,16 @@ The following table identifies each item in the response, including `NULL` value
 ### UID2 Sharing Example
 
 The following instructions provide an example of how sharing works for a sender and a receiver both using Snowflake. In this example scenario an advertiser (the sender) has an audience table with raw UID2s
-(`AUDIENCE_WITH_UID2`) and they want to make data in the table available to a data provider (the receiver) using [Snowflake Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) feature.
+(`AUDIENCE_WITH_UID2`) and wants to make data in the table available to a data provider (the receiver) using the [Snowflake Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) feature.
 
 #### Sender Instructions
 
- 1. Create a new table `AUDIENCE_WITH_UID2_TOKENS`.
- 2. Encrypt the raw UID2s in the `AUDIENCE_WITH_UID2S` table and store the result into the `AUDIENCE_WITH_UID2_TOKENS` table. For example, the following query could help achieve this task:
+ 1. Create a new table named `AUDIENCE_WITH_UID2_TOKENS`.
+ 2. Encrypt the raw UID2s in the `AUDIENCE_WITH_UID2S` table and store the result in the `AUDIENCE_WITH_UID2_TOKENS` table. For example, the following query could help achieve this task:
     ```
     insert into AUDIENCE_WITH_UID2_TOKENS select a.ID, t.UID2_TOKEN from AUDIENCE_WITH_UID2S a, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_ENCRYPT(a.RAW_UID2) t;
     ```
- 3. Create a secure share and grant it access to the AUDIENCE_WITH_UID2_TOKENS table.
+ 3. Create a secure share and grant it access to the `AUDIENCE_WITH_UID2_TOKENS` table.
  4. Grant the receiver access to the secure share.
 
 >**WARNING**: To avoid shared UID2 tokens expiring, the sender should send the newly encrypted UID2 tokens to the receiver as soon as possible after encrypting.
@@ -731,8 +731,8 @@ The following instructions provide an example of how sharing works for a sender 
 #### Receiver Instructions
 
  1. Create a database from the secure share that the sender provided access to.
- 2. Create a new table `RECEIVED_AUDIENCE_WITH_UID2`.
- 3. Decrypt tokens from the shared `AUDIENCE_WITH_UID2_TOKENS` table and store the result into the `RECEIVED_AUDIENCE_WITH_UID2` table. For example, the following query could be used to achieve this:
+ 2. Create a new table named `RECEIVED_AUDIENCE_WITH_UID2`.
+ 3. Decrypt tokens from the shared `AUDIENCE_WITH_UID2_TOKENS` table and store the result in the `RECEIVED_AUDIENCE_WITH_UID2` table. For example, the following query could be used to achieve this:
     ```
     insert into RECEIVED_AUDIENCE_WITH_UID2
       select a.ID, b.UID2, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
