@@ -8,7 +8,11 @@
 
 .header {
   h2 {
-    font-size: clamp(1.8125rem, calc(1.8125rem + ((1vw - 0.4rem) * 3.75)), 3.3125rem);
+    font-size: clamp(
+      1.8125rem,
+      calc(1.8125rem + ((1vw - 0.4rem) * 3.75)),
+      3.3125rem
+    );
     min-height: 0vw;
     font-weight: 600;
     line-height: 1.12;
@@ -34,7 +38,6 @@
   a {
     &:first-child {
       margin-bottom: 1.5rem;
-      padding: 0.9375rem 1.25rem;
 
       @media only screen and (min-width: 640px) {
         margin-bottom: 0;
@@ -42,7 +45,6 @@
       }
     }
   }
-
 }
 
 .ctaArrow {

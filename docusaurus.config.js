@@ -44,7 +44,22 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en", "ja"],
+    path: "i18n",
+    localeConfigs: {
+      en: {
+        label: "English",
+        direction: "ltr",
+        htmlLang: "en-US",
+        calendar: "gregory",
+      },
+      ja: {
+        label: "日本語",
+        direction: "ltr",
+        htmlLang: "jp-JP",
+        calendar: "japanese",
+      },
+    },
   },
   plugins: [
     "docusaurus-plugin-sass",
@@ -101,7 +116,7 @@ const config = {
           {
             to: "/request-access",
             label: "Request Access",
-            className: "mobile-only menu__cta button button--lemon",
+            className: "mobile-only menu__cta button button--nav",
             position: "left",
           },
           {
@@ -126,6 +141,12 @@ const config = {
             type: "doc",
             docId: "overviews/overview-data-providers",
             label: "Data Providers",
+            position: "left",
+          },
+          {
+            type: "doc",
+            docId: "intro",
+            label: "Documentation",
             position: "left",
           },
           // @TODO hiding until phase 2{
@@ -172,6 +193,10 @@ const config = {
           //   ],
           // },
           {
+            type: "localeDropdown",
+            position: "right",
+          },
+          {
             type: "search",
             position: "right",
             className: "desktop-only hide-on-marketing-page",
@@ -189,7 +214,7 @@ const config = {
           {
             type: "custom-NavbarCta",
             href: "/request-access",
-            text: "Request Access",
+            // text: "Request Access", moved to component for translation reasons
             position: "right",
             className: "desktop-only",
           },
@@ -268,10 +293,6 @@ const config = {
         appId: "GRNBXN1TTS", //prod
         apiKey: "97e7dc35be9559b65f0d03c0c9684272", //prod
         indexName: "unifiedid", //prod
-
-        // Setting this to false for now - it seems we don't have our docsearch meta tags 
-        // set correctly. See https://discourse.algolia.com/t/algolia-searchbar-is-not-working-with-docusaurus-v2/14659/2
-        contextualSearch: false,
 
         // appId: "TESTINGXSOWQK10AP", //staging
         // apiKey: "58f35480017be37aca9f762323a0b4d1", //staging

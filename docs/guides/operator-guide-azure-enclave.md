@@ -1,13 +1,15 @@
 ---
 title: UID2 Operator - Microsoft Azure Confidential Compute Operator Package
+sidebar_label: Microsoft Azure
+pagination_label: UID2 Operator - Microsoft Azure Confidential Compute Operator Package
 description: Integration information for Microsoft Azure private operator.
 hide_table_of_contents: false
-sidebar_position: 12
+sidebar_position: 18
 ---
 
-# Microsoft Azure Confidential Compute Operator Package
+# UID2 Operator - Microsoft Azure Confidential Compute Operator Package
 
->IMPORTANT: This documentation is currently only a proof of concept. Please [contact](../getting-started/gs-account-setup.md#contact-info) the UID2 administrator for additional guidance.
+>IMPORTANT: This documentation is currently only a proof of concept. For additional guidance, [contact](../getting-started/gs-account-setup.md#contact-info) the UID2 administrator.
 
 UID2 Operator service can be run within a trusted computing enclave powered by Intel SGX technology.
 
@@ -61,7 +63,7 @@ suffix.
 
 The build script produces a few artifacts:
 
- - `dev.docker.adsrvr.org/uid2/operator/occlum:dev` -- docker image containing occlum and the UID2 operator service enclave.
+ - `ghcr.io/iabtechlab/uid2-operator-azure-occlum:dev` -- docker image containing occlum and the UID2 operator service enclave.
  - `build/uid2-operator-azure-sgx.tar.gz` -- tarball of the docker image above.
  - `build/uid2-operator/uid2-operator.tar.gz` -- tarball of the occlum enclave package.
  - output of `sgx_quote` application within the container -- this verifies that the occlum enclave can be launched and gives you basic details about the enclave (MRSIGNER, MRENCLAVE, PRODID, SVN).
@@ -119,7 +121,7 @@ docker run \
         --device /dev/sgx/enclave --device /dev/sgx/provision \
         -p 8080:8080 \
         -p 9091:9091 \
-        dev.docker.adsrvr.org/uid2/operator/occlum:dev
+        ghcr.io/iabtechlab/uid2-operator-azure-occlum:dev
 ```
 
 #### Direct Invocation of Occlum (Advanced)

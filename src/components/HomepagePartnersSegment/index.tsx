@@ -2,12 +2,14 @@
 import React from "react";
 import clsx from "clsx";
 import Link from "@docusaurus/Link";
+import { translate } from "@docusaurus/Translate";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import styles from "./styles.module.scss";
 import RightArrow from "@site/static/img/right-arrow-icon.svg";
 import SectionHeader from "@site/src/components/SectionHeader";
 import { useIsMobile } from "@site/src/utils/isMobile";
 import { usePrefersReducedMotion } from "@site/src/utils/usePrefersReducesMotion";
+import { useIsJapanese } from "@site/src/utils/isJapanese";
 
 // @ts-ignore - Lottie animation data
 import chartIconAnimation from "./chartIconData.json";
@@ -28,40 +30,60 @@ type PartnerItem = {
 
 const PartnerList: PartnerItem[] = [
   {
-    heading: "Publishers",
+    heading: translate({
+      id: "homepage.partnersPublishersHeading",
+      message: "Publishers",
+    }),
     url: "/docs/overviews/overview-publishers",
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     Svg: require("@site/static/img/documents-icon.svg").default,
     animationData: documentsAnimation,
-    description:
-      "Maintain audience targeting without cookies for better impression monetization and more relevance.",
+    description: translate({
+      id: "homepage.partnersPublishersDescription",
+      message:
+        "Maintain audience targeting without cookies for better impression monetization and more relevance.",
+    }),
   },
   {
-    heading: "Advertisers",
+    heading: translate({
+      id: "homepage.partnersAdvertisersHeading",
+      message: "Advertisers",
+    }),
     url: "/docs/overviews/overview-advertisers",
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     Svg: require("@site/static/img/chart-icon.svg").default,
     animationData: chartIconAnimation,
-    description:
-      "Leverage first-party data for more durable identity strategies and better addressability.",
+    description: translate({
+      id: "homepage.partnersAdvertisersDescription",
+      message:
+        "Leverage first-party data for more durable identity strategies and better addressability.",
+    }),
   },
   {
-    heading: "Demand-Side Platforms",
+    heading: translate({
+      id: "homepage.partnersDspsHeading",
+      message: "Demand-Side Platforms",
+    }),
     url: "/docs/overviews/overview-dsps",
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     Svg: require("@site/static/img/flowchart-icon.svg").default,
     animationData: flowchartAnimation,
-    description:
-      "Maintain cross-device identity resolution and one-to-one targeting connections with deterministic IDs for more precision and omnichannel reach.",
+    description: translate({
+      id: "homepage.partnersDspsDescription",
+      message:
+        "Maintain cross-device identity resolution and one-to-one targeting connections with deterministic IDs for more precision and omnichannel reach.",
+    }),
   },
   {
-    heading: "Data Providers",
+    heading: translate({
+      id: "homepage.partnersDataProvidersHeading",
+      message: "Data Providers",
+    }),
     url: "/docs/overviews/overview-data-providers",
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     Svg: require("@site/static/img/cloud-upload-icon.svg").default,
     animationData: uploadAnimation,
-    description:
-      "Connect audience segments with deterministic signals across all partners for a cohesive identity offering.",
+    description: translate({
+      id: "homepage.partnersDataProvidersDescription",
+      message:
+        "Connect audience segments with deterministic signals across all partners for a cohesive identity offering.",
+    }),
   },
 ];
 
@@ -70,11 +92,25 @@ type PartnerProps = {
   playAnimation?: boolean;
 };
 
+const componentData = {
+  heading: translate({
+    id: "homepage.partnersHeading",
+    message: "It works with you, however you work",
+  }),
+  subheading: translate({
+    id: "homepage.partnersSubheading",
+    message:
+      "Easily integrate Unified ID 2.0 into your existing workflows through a flexible framework of implementation types.",
+  }),
+};
+
 function Partner({ partnerItem, playAnimation }: PartnerProps): JSX.Element {
   const prefersReducedMotion = usePrefersReducedMotion();
   const { heading, Svg, animationData, url, description } = partnerItem;
   const lottieRef = React.useRef<LottieRefCurrentProps>(null);
   const isMobile = useIsMobile();
+
+  const isJapanese = useIsJapanese();
 
   React.useEffect(() => {
     if (!isMobile) {
@@ -90,7 +126,7 @@ function Partner({ partnerItem, playAnimation }: PartnerProps): JSX.Element {
     <div className={styles.card}>
       <Link className={clsx("text-11-o-clock", styles.cardLink)} to={url}>
         <div className={styles.cardTitle}>
-          <h3 className="type-delta">
+          <h3 className={`${isJapanese ? styles.cardHeaderJa : "type-delta"}`}>
             <span>{heading}</span> <RightArrow />
           </h3>
         </div>
@@ -153,10 +189,8 @@ export default function HomepagePartnersSegment(): JSX.Element {
     >
       <div className="container">
         <SectionHeader
-          heading="It works with you, however you work"
-          subheading={
-            "Easily integrate Unified ID 2.0 into your existing workflows through a flexible framework of implementation types."
-          }
+          heading={componentData.heading}
+          subheading={componentData.subheading}
           extraClass={styles.header}
         />
         <div className={clsx(styles.partnerList)}>

@@ -32,7 +32,10 @@ The following documentation resources are available for DSPs to implement UID2.
 
 | Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
-| Server-Side SDK | [Server-Side SDK Guide](../sdks/dsp-client-v1-overview.md) | An SDK intended for anyone who wants to use UID2 server-side SDKs to facilitate decrypting UID2 advertising tokens to access the raw UID2.| DSPs |
+|UID2 SDK for Java | [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) | An SDK for anyone using Java server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.| DSPs |
+|UID2 SDK for Python | [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md) | An SDK for anyone using Python server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.| DSPs |
+|UID2 SDK for C# / .NET | [UID2 SDK for C# / .NET (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-csharp-dotnet.md) | An SDK for anyone using .NET server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.| DSPs |
+|UID2 SDK for C++ | [UID2 SDK for C++ (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-cplusplus.md) | An SDK for anyone using C++ server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.| DSPs |
 | Integration Guides | [DSP Integration Guide](../guides/dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. | DSPs |
 
 ## Workflow for DSPs

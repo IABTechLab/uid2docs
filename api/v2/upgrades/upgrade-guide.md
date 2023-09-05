@@ -46,8 +46,8 @@ You can upgrade calls to the token generation and refresh endpoints independentl
  - The v2 [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint encrypts responses only for refresh tokens returned by the v2 [POST /token/generate](../endpoints/post-token-generate.md) or v2 [POST /token/refresh](../endpoints/post-token-refresh.md) endpoints, with the assumption that the caller has the refresh response key returned by these endpoints.
  - You can pass refresh tokens returned by the v2 [POST /token/generate](../endpoints/post-token-generate.md) or v2 [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint to the v1 `GET /token/refresh` endpoint, which never encrypts responses.
 
-The [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) is a drop-in replacement for the Client-Side JavaScript SDK v1. Here's what you need to know:
-  - The first-party cookie used for storing the user's identity is fully interoperable between the two versions of the SDK. This means that the Client-Side JavaScript SDK v2 can read v1 cookies and vice versa.
+The UID2 SDK for JavaScript v2 (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) is a drop-in replacement for the UID2 SDK for JavaScript SDK v1. Here's what you need to know:
+  - The first-party cookie used for storing the user's identity is fully interoperable between the two versions of the SDK. This means that the UID2 SDK for JavaScript v2 can read v1 cookies and vice versa.
   - The [v2 SDK init() function](../sdks/client-side-identity.md#initopts-object-void) accepts the identity object returned by the v1 `GET /token/generate` endpoint.
   - The v1 SDK `init()` function accepts the identity object returned by the v2 [POST /token/generate](../endpoints/post-token-generate.md) endpoint.
 
@@ -55,15 +55,15 @@ The [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) is a drop
 
 To upgrade to the UID API v2, complete the following steps:
 
-1. [Upgrade the Client-Side JavaScript SDK](#upgrade-the-client-side-javascript-sdk).
+1. [Upgrade the UID2 SDK for JavaScript](#upgrade-the-uid2-sdk-for-javascript).
 1. [Upgrade calls to the token generate endpoint](#upgrade-token-generation-calls).
-1. (Required only for integrations that do not use the [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md): [Upgrade calls to the token refresh endpoint](#upgrade-token-refresh-calls).
+1. (Required only for integrations that do not use the [UID2 SDK for JavaScript)](../sdks/client-side-identity.md): [Upgrade calls to the token refresh endpoint](#upgrade-token-refresh-calls).
 
-#### Upgrade the Client-Side JavaScript SDK
+#### Upgrade the UID2 SDK for JavaScript
 
-To upgrade the Client-Side JavaScript SDK, you need to update the script that loads the SDK. Here's what you need to keep in mind during this step:
+To upgrade the UID2 SDK for JavaScript, you need to update the script that loads the SDK. Here's what you need to keep in mind during this step:
 
-- If you are using `version 0` of the Client-Side JavaScript SDK, be sure to upgrade to `version 1` of the  SDK first.
+- If you are using `version 0` of the UID2 SDK for JavaScript, be sure to upgrade to `version 1` of the  SDK first.
 - If you load the SDK from another location or hold a private copy of the SDK, be sure to update the locations accordingly.
 
 On your pages, update the script to load version 2 of the SDK instead of version 1.
@@ -88,13 +88,13 @@ Here's what you need to know and do:
 
 - Performing a [POST /token/generate](../endpoints/post-token-generate.md) call requires encrypting the request body and decrypting the response. For details and examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 - The JSON response from the [POST /token/generate](../endpoints/post-token-generate.md) endpoint contains a new property: `refresh_response_key`. 
-  - If you are using the [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) (regardless of the version), you must pass this key to the `init()` function of the SDK along with other response properties. 
+  - If you are using the UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)), regardless of the version, you must pass this key to the `init()` function of the SDK along with other response properties. 
   - If you are not using the SDK and are storing the response data in custom storage (for example, a database or a custom first-party cookie), you must update the storage to store the refresh response key. 
   - No updates are required for any existing sessions that store refresh tokens returned by the v1 `GET /token/refresh` endpoint and do not have a corresponding refresh response key. These sessions will continue working as is.
 
 #### Upgrade Token Refresh Calls
 
->NOTE: If you are using the [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) to refresh and manage tokens, no further action is required. 
+>NOTE: If you are using the [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) to refresh and manage tokens, no further action is required. 
 
 If you refresh tokens either on server or on client side without using the SDK, keep in mind the following, when making requests to the v2 [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint:
 

@@ -1,15 +1,14 @@
 import React from "react";
 import clsx from "clsx";
 import Lottie from "lottie-react";
+import Translate, { translate } from "@docusaurus/Translate";
 import { usePrefersReducedMotion } from "@site/src/utils/usePrefersReducesMotion";
 import styles from "./styles.module.scss";
 import SectionHeader from "@site/src/components/SectionHeader";
-// @ts-ignore - Lottie animation data
 import * as emailAnimation from "./email.json";
-// @ts-ignore - Lottie animation data
 import * as crossDeviceAnimation from "./crossDevice.json";
-// @ts-ignore - Lottie animation data
 import * as personLockAnimation from "./personLock.json";
+import { useIsJapanese } from "@site/src/utils/isJapanese";
 
 type FeatureItem = {
   Svg: React.ComponentType<React.ComponentProps<"svg">>;
@@ -17,34 +16,62 @@ type FeatureItem = {
   lottieAnimation?: JSON;
 };
 
+const componentData = {
+  heading: translate({
+    id: "homepage.featuredItemsHeading",
+    message: "Enable personalization and relevance on content and advertising",
+  }),
+  jaHeading: translate({
+    id: "homepage.featuredItemsJAHeading",
+    message: "Enable personalization and relevance on content and advertising",
+  }),
+  subheading: translate({
+    id: "homepage.featuredItemsSubheading",
+    message:
+      "Unified ID 2.0 offers greater personalization, targeting, measurement, and security for every use case — from advertisers to publishers and everyone in between.",
+  }),
+};
+
 const FeatureList: FeatureItem[] = [
   {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     Svg: require("@site/static/img/email-feature.svg").default,
-    description: <>Use deterministic data for greater precision.</>,
+    description: (
+      <Translate id="homepage.featureItem1Description">
+        Use deterministic data for greater precision.
+      </Translate>
+    ),
+    //@ts-ignore
     lottieAnimation: emailAnimation,
   },
   {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     Svg: require("@site/static/img/cross-device.svg").default,
-    description: <>Upgrade to an omnichannel and cross-device ID type.</>,
+    description: (
+      <Translate id="homepage.featureItem2Description">
+        Upgrade to an omnichannel and cross-device ID type.
+      </Translate>
+    ),
+    //@ts-ignore
     lottieAnimation: crossDeviceAnimation,
   },
   {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     Svg: require("@site/static/img/person-lock.svg").default,
     description: (
-      <>
+      <Translate id="homepage.featureItem3Description">
         Hash, salt, and transport directly identifying information (DII) as
         pseudonymized IDs.
-      </>
+      </Translate>
     ),
+    //@ts-ignore
     lottieAnimation: personLockAnimation,
   },
 ];
 
 function Feature({ Svg, description, lottieAnimation }: FeatureItem) {
   const prefersReducedMotion = usePrefersReducedMotion();
+
   return (
     <div className={clsx(styles.card)}>
       {prefersReducedMotion ? (
@@ -63,15 +90,15 @@ function Feature({ Svg, description, lottieAnimation }: FeatureItem) {
 }
 
 export default function HomepageFeatures(): JSX.Element {
+  const isJapanese = useIsJapanese();
   return (
     <section className={clsx("bg-lavender text-white", styles.features)}>
       <div className="container">
         <SectionHeader
-          heading=" Enable personalization and relevance on content and advertising"
-          subheading={
-            "Unified ID 2.0 offers greater personalization, targeting, measurement, and security for every use case — from advertisers to publishers and everyone in between."
-          }
-          extraClass={styles.header}
+          heading={componentData.heading}
+          jaHeading={isJapanese ? componentData.jaHeading : ""}
+          subheading={componentData.subheading}
+          extraClass={`${isJapanese ? styles.headerJa : styles.header}`}
         />
         <div className={clsx(styles.featuredList)}>
           {FeatureList.map((props, idx) => (

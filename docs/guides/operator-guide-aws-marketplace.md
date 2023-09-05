@@ -1,11 +1,13 @@
 ---
 title: UID2 Operator - AWS Marketplace Integration
+sidebar_label: AWS Marketplace
+pagination_label: UID2 Operator - AWS Marketplace Integration
 description: Integration information for AWS Marketplace private operator.
 hide_table_of_contents: false
-sidebar_position: 10
+sidebar_position: 17
 ---
 
-# UID2 Operator: AWS Marketplace Integration Guide
+# UID2 Operator - AWS Marketplace Integration Guide
 
 The UID2 Operator is the API server in the UID2 ecosystem. For a Private Operator service running in AWS Marketplace, the UID2 Operator solution is enhanced with [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave technology. This is an additional security measure to protect UID2 information from unauthorized access.
 
@@ -258,4 +260,4 @@ Here's what you need to know about upgrading:
 
 ## Technical Support
 
-If you have trouble subscribing or deploying the product, please contact us at [aws-mktpl-uid@thetradedesk.com](mailto:aws-mktpl-uid@thetradedesk.com).
+If you have trouble subscribing or deploying the product, contact us at [aws-mktpl-uid@thetradedesk.com](mailto:aws-mktpl-uid@thetradedesk.com).

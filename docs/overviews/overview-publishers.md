@@ -17,7 +17,7 @@ This page includes information about workflows, integration types, and documenta
 This page is for the following UID2 participants:
 
 - Publishers with web assets who want to use UID2 to generate identity tokens for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers.
-- Any organizations that propagate UID2 tokens to the bid stream via SSPs&#8212;for example, identity providers and SSO providers.
+- Any organizations that propagate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) to the bid stream via SSPs&#8212;for example, identity providers and SSO providers.
 <!-- - Data clean rooms. -->
 
 Publishers can choose to integrate with UID2 in a number of different ways:
@@ -37,24 +37,51 @@ Here are just some of the intended benefits of integrating with UID2:
 
 ## Resources
 
-The following documentation resources are available for publishers to implement UID2.
+The following documentation resources are available for publishers to implement UID2:
+- [Web Integration](#web-integration)
+- [Mobile and Google GMA/IMA integration](#mobile-and-google-gmaima-integration)
+- [Operator Deployment](#operator-deployment)
+
+### Web Integration
+
+The following documentation resources relate to web, Prebid, and Google Ad Manager integration for publishers.
 
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
-| Client-Side (Web) SDK | [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) | Client-Side JavaScript SDK that facilitates the process of establishing client identity using UID2 and retrieving advertising tokens for publishers. | Publishers |
-| Client-Side (Web) Integration Guide | [Client-Side JavaScript SDK Integration Guide](../guides/publisher-client-side.md) | This integration guide for publishers covers standard web integration scenarios that use the [Client-Side JavaScript SDK (v2)](/docs/sdks/client-side-identity.md). | Publishers |
-| Server-Side Integration Guide  | [Publisher Integration Guide, Server-Only (Without SDK)](../guides/custom-publisher-integration.md) | This integration guide is for publishers that do not use the [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md). | Publishers |
+| Prebid | [Prebid Integration Guide](../guides/integration-prebid.md) | An integration guide for publishers who want to directly integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. | Publishers |
+| Client-Side (Web) SDK | [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) | Client-Side JavaScript SDK that facilitates the process of establishing client identity using UID2 and retrieving advertising tokens for publishers. | Publishers |
+| Client-Side (Web) Integration Guide | [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) | This integration guide for publishers covers standard web integration scenarios that use the UID2 SDK for JavaScript. | Publishers |
+| Server-Side Integration Guide  | [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) | This integration guide is for publishers that do not use the [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md). | Publishers |
 | Publisher/SSP Integration with GAM | [Publisher - Google Ad Manager Secure Signals](../guides/google-ss-integration.md) | This integration guide covers the additional steps needed for publishers using UID2 with the Google Ad Manager Secure Signals feature (previously known as Encrypted Signals for Publishers, ESP). | Publishers |
-| Operator | [UID2 Operator - AWS Marketplace Integration Guide](../guides/operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. | Private Operators<br/>Publishers |
-| Operator| [UID2 Operator - Google Cloud Platform Confidential Computing package](../guides/operator-guide-gcp-enclave.md) | Instructions for setting up the Google Cloud Platform Confidential Computing package (GCP). | Private Operators<br/>Publishers |
-| Operator Integration Guide | [Operator - Microsoft Azure](../guides/operator-guide-azure-enclave.md) | IMPORTANT: This documentation is currently only a proof of concept. For additional guidance, please [contact](../getting-started/gs-account-setup.md#contact-info) the UID2 administrator.<br/>Instructions for setting up a Private Operator service for running on Microsoft Azure Confidential Computing platform.  | Private Operators<br/>Publishers |
+
+### Mobile and Google GMA/IMA integration
+
+The following documentation resources relate to mobile integrations, and Google integration in the context of mobile.
+
+| Integration Type| Documentation | Content Description | Audience |
+| :--- | :--- | :--- | :--- |
+| Mobile: Android | [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) |  This integration guide is for publishers who want to establish client identity using UID2 and retrieve advertising tokens on Android devices. | Publishers |
+| Mobile: iOS  | [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) | This integration guide is for publishers who want to establish client identity using UID2 and retrieve advertising tokens on iOS devices. | Publishers |
+| Mobile: GMA for Android | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) | This integration guide enables publishers that use the Google Mobile Ads (GMA) SDK to include UID2 tokens in ad requests from their Android apps. | Publishers |
+| Mobile: GMA for iOS | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) | This integration guide enables publishers that use the Google Mobile Ads (GMA) SDK to include UID2 tokens in ad requests from their iOS apps. | Publishers |
+| Mobile: IMA for Android | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) | This integration guide enables publishers that use the Google Interactive Media Ads (IMA) SDK to include UID2 tokens in ad requests from their Android apps. | Publishers |
+| Mobile: IMA for iOS | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) | This integration guide enables publishers that use the Google Interactive Media Ads (IMA) SDK to include UID2 tokens in ad requests from their iOS apps. | Publishers |
+
+### Operator Deployment
+
+The following documentation resources relate to private operator environments.
+
+| Integration Type| Documentation | Content Description | Audience |
+| :--- | :--- | :--- | :--- |
+| Operator | [UID2 Operator - AWS Marketplace Integration Guide](../guides/operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. | Private Operators,<br/>Publishers |
+| Operator| [UID2 Operator - Google Cloud Platform Confidential Computing package](../guides/operator-guide-gcp-enclave.md) | Instructions for setting up the Google Cloud Platform Confidential Computing package (GCP). | Private Operators,<br/>Publishers |
+| Operator Integration Guide | [UID2 Operator - Microsoft Azure Confidential Compute Operator Package](../guides/operator-guide-azure-enclave.md) | IMPORTANT: This documentation is currently only a proof of concept. For additional guidance, [contact](../getting-started/gs-account-setup.md#contact-info) the UID2 administrator.<br/>Instructions for setting up a Private Operator service for running on Microsoft Azure Confidential Computing platform.  | Private Operators,<br/>Publishers |
 
 ## Workflow for Publishers
 
 The following diagram shows the UID2 workflow for publishers.
 
 ![Publisher Workflow](../workflows/images/UID2PublisherAndSSPWorkflow.jpg)
-<!-- (LP/BB/GWH: the above URl works as relative but as /docs/ caused build failure. Need to debug that. 3/13) -->
 
 For details, see [Publisher Workflow Overview](../workflows/workflow-overview-supply-side.md).
 
@@ -78,9 +105,6 @@ To get started, follow these steps:
 
 ## Frequently Asked Questions for Publishers
 
-For a list of FAQs for the publisher audience, see either of the following:
-
--  [FAQs for Publishers Using an SDK](/docs/getting-started/gs-faqs.md#faqs-for-publishers-using-an-sdk)
- - [FAQs for Publishers Not Using an SDK](/docs/getting-started/gs-faqs.md#faqs-for-publishers-not-using-an-sdk)
+For a list of FAQs for publishers using the UID2 framework, see [FAQs for Publishers](/docs/getting-started/gs-faqs.md#faqs-for-publishers).
 
 For a full list, see [Frequently Asked Questions](/docs/getting-started/gs-faqs.md).

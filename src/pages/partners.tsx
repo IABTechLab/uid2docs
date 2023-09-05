@@ -1,4 +1,5 @@
 import React from "react";
+import { translate } from "@docusaurus/Translate";
 import clsx from "clsx";
 import Layout from "@theme/Layout";
 import type { PartnersDataType } from "@site/src/data/partners";
@@ -12,6 +13,51 @@ type PartnerSection = {
   partners: PartnersDataType;
 };
 
+const componentData = {
+  title: translate({
+    id: "partners.metaTitle",
+    message: "Partners",
+    description: "The partners page meta title",
+  }),
+  description: translate({
+    id: "partners.metaDescription",
+    message:
+      "A growing list of publishers, advertisers, data providers and DSPs leveraging Unified ID.",
+    description: "The partners page meta description",
+  }),
+  heading: translate({
+    id: "partners.heading",
+    message: "Unified ID 2.0 Partners",
+    description: "The partners page heading",
+  }),
+  subheading: translate({
+    id: "partners.subheading",
+    message:
+      "Access a broad marketplace of premier providers from the digital advertising ecosystem.",
+    description: "The partners page subheading",
+  }),
+  publishers: translate({
+    id: "partners.publishersTitle",
+    message: "Publishers",
+    description: "The partners page publishers title",
+  }),
+  dsp: translate({
+    id: "partners.dspTitle",
+    message: "DSPs/SSPs",
+    description: "The partners page DSPs/SSPs title",
+  }),
+  data: translate({
+    id: "partners.dataTitle",
+    message: "Data Providers",
+    description: "The partners page data providers title",
+  }),
+  cdp: translate({
+    id: "partners.cdpTitle",
+    message: "CDPs / Clean Rooms",
+    description: "The partners page CDPs / Clean Rooms title",
+  }),
+};
+
 const dspPartners = partnersData.filter((partner) =>
   partner.type.includes("DSP")
 );
@@ -22,6 +68,10 @@ const publishersPartners = partnersData.filter((partner) =>
 
 const dataPartners = partnersData.filter((partner) =>
   partner.type.includes("Data")
+);
+
+const cdpPartners = partnersData.filter((partner) =>
+  partner.type.includes("CDP")
 );
 
 function PartnerSection({ title, partners }: PartnerSection) {
@@ -61,20 +111,24 @@ function PartnerSection({ title, partners }: PartnerSection) {
 
 export default function Partners(): JSX.Element {
   return (
-    <Layout
-      title={"Partners"}
-      description="A growing list of publishers, advertisers, data providers and DSPs leveraging Unified ID."
-    >
+    <Layout title={componentData.title} description={componentData.description}>
       <main>
         <PageHeader
-          heading="Unified ID 2.0 Partners"
-          subheading="Access a broad marketplace of premier providers from the digital advertising ecosystem."
+          heading={componentData.heading}
+          subheading={componentData.subheading}
         />
         <div className={styles.partnersContainer}>
           <div className={clsx("container")}>
-            <PartnerSection title="Publishers" partners={publishersPartners} />
-            <PartnerSection title="DSPs/SSPs" partners={dspPartners} />
-            <PartnerSection title="Data Providers" partners={dataPartners} />
+            <PartnerSection
+              title={componentData.publishers}
+              partners={publishersPartners}
+            />
+            <PartnerSection title={componentData.dsp} partners={dspPartners} />
+            <PartnerSection
+              title={componentData.data}
+              partners={dataPartners}
+            />
+            <PartnerSection title={componentData.cdp} partners={cdpPartners} />
           </div>
         </div>
       </main>

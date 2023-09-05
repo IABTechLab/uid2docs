@@ -17,7 +17,7 @@ This page is for any participant that chooses to become a private operator (prev
 
 Here are some of the intended benefits of participating in UID2 as a private operator:
 - You can maintain privacy-conscious workflows for your customer data to be encrypted and activated across chosen partners.
-- You can participate in UID2 using your own first-party [directly Identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) without sharing it.
+- You can participate in UID2 using your own first-party [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) without sharing it.
 - You have full control of resources, performance, and latency for UID2.
 - You can aim to minimize network hops with a service that can provide regional proximity.
 - You can implement processes and policies that you control, as opposed to taking part in a shared service.
@@ -38,9 +38,9 @@ The following documentation resources are available for private operators to imp
 
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
-| Operator | [UID2 Operator - AWS Marketplace Integration Guide](../guides/operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. | Private Operators<br/>Publishers |
-| GCP| [UID2 Operator - Google Cloud Platform Confidential Computing package](../guides/operator-guide-gcp-enclave.md) | Instructions for setting up the Google Cloud Platform Confidential Computing package (GCP). | Private Operators<br/>Publishers |
-| Azure | [Operator - Microsoft Azure](../guides/operator-guide-azure-enclave.md) | IMPORTANT: This documentation is currently only a proof of concept. For additional guidance, please [contact](../getting-started/gs-account-setup.md#contact-info) the UID2 administrator.<br/>Instructions for setting up a Private Operator service for running on Microsoft Azure Confidential Computing platform.  | Private Operators<br/>Publishers |
+| Operator | [UID2 Operator - AWS Marketplace Integration Guide](../guides/operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. | Private Operators,<br/>Publishers |
+| GCP| [UID2 Operator - Google Cloud Platform Confidential Computing package](../guides/operator-guide-gcp-enclave.md) | Instructions for setting up the Google Cloud Platform Confidential Computing package (GCP). | Private Operators,<br/>Publishers |
+| Azure | [UID2 Operator - Microsoft Azure Confidential Compute Operator Package](../guides/operator-guide-azure-enclave.md) | IMPORTANT: This documentation is currently only a proof of concept. For additional guidance, [contact](../getting-started/gs-account-setup.md#contact-info) the UID2 administrator.<br/>Instructions for setting up a Private Operator service for running on Microsoft Azure Confidential Computing platform.  | Private Operators,<br/>Publishers |
 
 ## Getting Started
 

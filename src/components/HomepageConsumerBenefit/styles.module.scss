@@ -1,0 +1,40 @@
+.sectionPadding {
+  padding: 3.125rem 0;
+
+  @media only screen and (min-width: 996px) {
+    padding: 6.25rem 0;
+  }
+}
+
+.contentContainer {
+  @media only screen and (min-width: 996px) {
+    max-width: 48%;
+  }
+}
+
+.flexContainer {
+  @media only screen and (min-width: 996px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.ctaButton {
+  @media only screen and (min-width: 996px) {
+    margin-right: 8%;
+  }
+
+  &:hover {
+    background-color: var(--c-periwinkle-45);
+
+    svg {
+      fill: var(--c-eleven-o-clock);
+    }
+  }
+  svg {
+    transition: fill 0.3s ease-in-out;
+    fill: var(--c-white);
+    margin-left: 3px;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "UID2 Sharing",
+  "position": 10,
+  "link": {
+    "type": "generated-index",
+    "description": "Information about sharing UID2s with other UID2 participants."
+  }
+}

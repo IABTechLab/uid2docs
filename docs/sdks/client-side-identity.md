@@ -1,19 +1,22 @@
 ---
-title: Client-Side JavaScript SDK (v2)
-description: Reference information about the client-side JavaScript SDK.
+title: UID2 SDK for JavaScript
+description: Reference information about the JavaScript client-side SDK.
 hide_table_of_contents: false
 sidebar_position: 02
 ---
 
-# Client-Side JavaScript SDK (v2)
+# UID2 SDK for JavaScript Reference Guide
 
 Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). 
 
-- For integration steps for content publishers, see [Client-Side JavaScript SDK Integration Guide](../guides/publisher-client-side.md). 
+- For integration steps for content publishers, see [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md). 
 - For an [example application](https://example-jssdk-integ.uidapi.com/), with associated documentation, see the [UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) guide.
 
 <!-- This guide includes the following information:
 
+- [Functionality](#functionality)
+- [SDK Version](#sdk-version)
+- [GitHub Repository/Binary](#github-repositorybinary)
 - [Terminology](#terminology)
 - [Include the SDK Script](#include-the-sdk-script)
 - [Workflow Overview](#workflow-overview)
@@ -30,6 +33,29 @@ Use this SDK to facilitate the process of establishing client identity using UID
 - [UID2 Cookie Format](#uid2-cookie-format)
   - [Properties](#properties)
   - [Contents Structure](#contents-structure) -->
+
+## Functionality
+
+This SDK simplifies integration with UID2 for any publishers who want to support UID2. The following table shows the functions it supports.
+
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
+| :--- | :--- | :--- | :--- |
+| Not supported | Not supported | Not supported | Supported |
+
+## SDK Version
+
+This documentation is for version 2 of the UID2 SDK for JavaScript.
+
+## GitHub Repository
+
+This SDK is in the following open-source GitHub repository:
+
+- [https://github.com/iabtechlab/uid2-web-integrations](https://github.com/iabtechlab/uid2-web-integrations)
+
+<!-- The binary is published in these locations:
+
+- NPM: [https://www.npmjs.com/package/@uid2/uid2-sdk](https://www.npmjs.com/package/@uid2/uid2-sdk)
+- CDN: [https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js](https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js) (** v3 JS SDK: stash per SW 8/15/23**) -->
 
 ## Terminology
 
@@ -60,7 +86,7 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 	- If the advertising token is available, use it to initiate requests for targeted advertising.
 	- If the advertising token is not available, either use untargeted advertising or redirect the user to the UID2 login with the consent form.
 
-For web integration steps, see [Client-Side JavaScript SDK Integration Guide](../guides/publisher-client-side.md).
+For web integration steps, see [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md).
 
 ### Workflow States and Transitions
 
