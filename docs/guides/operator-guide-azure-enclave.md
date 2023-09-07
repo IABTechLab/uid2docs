@@ -1,13 +1,13 @@
 ---
 title: UID2 Operator - Microsoft Azure Confidential Compute Operator Package
-sidebar_label: Microsoft Azure Confidential Compute Operator Package
+sidebar_label: Microsoft Azure
 pagination_label: UID2 Operator - Microsoft Azure Confidential Compute Operator Package
 description: Integration information for Microsoft Azure private operator.
 hide_table_of_contents: false
 sidebar_position: 18
 ---
 
-# Microsoft Azure Confidential Compute Operator Package
+# UID2 Operator - Microsoft Azure Confidential Compute Operator Package
 
 >IMPORTANT: This documentation is currently only a proof of concept. For additional guidance, [contact](../getting-started/gs-account-setup.md#contact-info) the UID2 administrator.
 

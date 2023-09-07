@@ -1,6 +1,6 @@
 ---
 title: POST /token/generate
-description: DII から UID2 Token（Advertising Token）を生成します。 
+description: DII から UID2 Token (Advertising Token)を生成します。 
 hide_table_of_contents: false
 sidebar_position: 02
 ---
@@ -9,7 +9,7 @@ sidebar_position: 02
 
 UID2 ベースのターゲティング広告にユーザーをオプトインし、提供されたメールアドレスまたは電話番号から UID2 Token を生成します。
 
-Used by:　このエンドポイントは、主にパブリッシャーが使用します。
+Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
 > IMPORTANT: このエンドポイントは、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。デフォルトでは、このエンドポイントはオプトアウト記録をチェックしません。ユーザーがオプトアウトしたかどうかを確認するには、オプションの `policy` リクエストパラメータに `1` を指定して使用します。
 
@@ -19,7 +19,7 @@ Used by:　このエンドポイントは、主にパブリッシャーが使用
 
 このエンドポイントリクエストについて知っておくべきことは、以下のとおりです:
 
-- サービスにアクセスする際に使用する API キーを秘密にするため、 UID2 Token は認証後にサーバー側でのみ生成する必要があります。
+- サービスにアクセスする際に使用する API キーを秘密にするため、 UID2 Token は認証後にサーバーサイドでのみ生成する必要があります。
 - すべてのリクエストを秘密鍵で暗号化する必要があります。詳細と Python スクリプトの例は、 [リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ### Path Parameters
@@ -44,7 +44,7 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 
 ### Request Examples
 
-> IMPORTANT: サービスにアクセスするために使用される API キーを確実に秘密にするために、API キーを使用する必要のない [POST /token/refresh](post-token-refresh.md) と異なり、`POST /token/generate` エンドポイントをサーバー側から呼び出す必要があります。
+> IMPORTANT: サービスにアクセスするために使用される API キーを確実に秘密にするために、API キーを使用する必要のない [POST /token/refresh](post-token-refresh.md) と異なり、`POST /token/generate` エンドポイントをサーバーサイドから呼び出す必要があります。
 
 以下は、各パラメータの暗号化されていない JSON リクエストボディの例で、このうちの 1 つはトークン生成リクエストに含める必要があります:
 
@@ -109,7 +109,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' | python3 
 
 #### Optout
 
-以下は、`policy`パラメータがリクエストに含まれ、値が`1`で、ユーザーがオプトアウトした場合の応答例です。その他のシナリオでは、ユーザーがオプトアウトした場合、トークンが返されます（上記の [Successful Response](#successful-response) を参照してください）。
+以下は、`policy`パラメータがリクエストに含まれ、値が`1`で、ユーザーがオプトアウトした場合の応答例です。その他のシナリオでは、ユーザーがオプトアウトした場合、トークンが返されます (上記の [Successful Response](#successful-response) を参照してください)。
 
 ```json
 {
@@ -121,11 +121,11 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' | python3 
 
 | Property               | Data Type | Description                                                                                                                                                                                                                                                                             |
 | :--------------------- | :-------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `advertising_token`    | string    | ユーザーの暗号化された Advertising Token（UID2）です。                                                                                                                                                                                                                                  |
-| `refresh_token`        | string    | UID2 Service と最新の ID トークンのセットを交換できる暗号化されたトークンです。                                                                                                                                                                                                         |
-| `identity_expires`     | double    | Advertising Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                              |
-| `refresh_from`         | double    | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) が Advertising Token の更新を開始するタイミングを示す UNIX タイムスタンプ（ミリ秒単位）です。<br/>TIP: SDK を使用していない場合は、このタイムスタンプからも Advertising Token を更新することを検討してみてください。 |
-| `refresh_expires`      | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ（ミリ秒単位）です。                                                                                                                                                                                                                  |
+| `advertising_token`    | string    | ユーザーの暗号化された Advertising Token (UID2)です。                                                                                                                                                                                                                                  |
+| `refresh_token`        | string    | UID2 Service と最新の identity トークンのセットを交換できる暗号化されたトークンです。                                                                                                                                                                                                         |
+| `identity_expires`     | double    | Advertising Token の有効期限を示す UNIX タイムスタンプ (ミリ秒単位)です。                                                                                                                                                                                                              |
+| `refresh_from`         | double    | UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) が UID2 Token のリフレッシュを開始するタイミングを示す UNIX タイムスタンプ(ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから Advertising Token もリフレッシュすることを検討してください。|
+| `refresh_expires`      | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ (ミリ秒単位)です。                                                                                                                                                                                                                  |
 | `refresh_response_key` | string    | [POST /token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。                                                                                                                                                                                     |
 
 ### Response Status Codes
@@ -146,9 +146,9 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' | python3 
 | Type  | Identity             | Purpose                                                                                                                                 | Next Endpoint                                  |
 | :---- | :------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------- |
 | Email | `validate@email.com` | キャッシュした `advertising_token` が、指定したメールアドレスの `advertising_token` と一致するかどうかをテストします。                  | [POST /token/validate](post-token-validate.md) |
-| Email | `optout@email.com`   | このメールアドレスをリクエストに使用すると、常に `refresh_token` を使用した ID レスポンスが生成され、ログアウトのレスポンスになります。 | [POST /token/refresh](post-token-refresh.md)   |
+| Email | `optout@email.com`   | このメールアドレスをリクエストに使用すると、常に `refresh_token` を使用した identity レスポンスが生成され、`optout` のレスポンスになります。 | [POST /token/refresh](post-token-refresh.md)   |
 | Phone | `+12345678901`       | キャッシュした `advertising_token` が、指定した電話番号の `advertising_token` と一致するかどうかをテストします。                        | [POST /token/validate](post-token-validate.md) |
-| Phone | `+00000000000`       | この電話番号をリクエストに使用すると、常に `refresh_token` を含む ID レスポンスが生成され、ログアウトのレスポンスになります。           | [POST /token/refresh](post-token-refresh.md)   |
+| Phone | `+00000000000`       | この電話番号をリクエストに使用すると、常に `refresh_token` を含む identity レスポンスが生成され、`optout` のレスポンスになります。           | [POST /token/refresh](post-token-refresh.md)   |
 
 ## Token Generation Policy
 

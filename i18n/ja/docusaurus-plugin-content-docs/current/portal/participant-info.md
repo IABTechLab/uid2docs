@@ -1,18 +1,18 @@
 ---
 title: Participant Information
-description: Configure your UID2 sharing participant profile.
+description: UID2 sharing 参加者プロファイルを設定します。
 hide_table_of_contents: false
 sidebar_position: 06
 ---
 
 # Participant Information
 
-As part of requesting a UID2 Portal account, you must provide some information about yourself and your company, such as name and type of business.
+UID2 Portal アカウントを申請するには、氏名や業種など、あなた自身とあなたの会社に関する情報を提供する必要があります。
 
-When you have access to the portal, click **Participant Info** to review general information for your account, such as <a href="../ref-info/glossary-uid#gl-sharing-participant">participant</a> name and type. The information you provided when you created the account is displayed.
+ポータルにアクセスできるようになったら、**Participant Info** をクリックして、<a href="../ref-info/glossary-uid#gl-sharing-participant">参加者</a> の名前や種類など、アカウントの一般情報を確認します。アカウント作成時に提供した情報が表示されます。
 
-If you need to make any changes, contact UID2 Support.
+変更が必要な場合は、UID2 Support までご連絡ください。
 
-When you've verified the account information, the next step is to set up your team. See [Team Members](team-members.md).
+アカウント情報を確認したら、次はチームを設定します。[Team Members](team-members.md) を参照してください。
 
 <!-- eng_jp -->

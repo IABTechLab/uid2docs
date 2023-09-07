@@ -4,7 +4,7 @@ description: デマンドサイドプラットフォーム (DSP) 向けの情報
 hide_table_of_contents: false
 sidebar_position: 06
 use_banner: true
-banner_title: デマンドサイドプラットフォーム（DSP）向け UID2 の概要
+banner_title: デマンドサイドプラットフォーム (DSP)向け UID2 の概要
 banner_description: より耐久性のある識別子でデータ戦略を可能に。
 ---
 
@@ -12,11 +12,11 @@ banner_description: より耐久性のある識別子でデータ戦略を可能
 
 ## Audience
 
-このページは、DSP（Demand-Side Platforms）のためのページです。メディアバイイングプラットフォームは、Unified ID 2.0により、広告主のファーストパーティデータアクティベーションやパブリッシャーの在庫マネタイズのための ID 戦略を促進できます。
+このページは、DSP (Demand-Side Platforms)のためのページです。メディアバイイングプラットフォームは、Unified ID 2.0により、広告主のファーストパーティデータアクティベーションやパブリッシャーの在庫マネタイズのための ID 戦略を促進できます。
 
 ## Benefits of UID2 for DSPs
 
-UID2 を使用する DSP が得られるメリットの一部を次に示します：
+UID2 を使用する DSP が得られるメリットの一部を次に示します:
 - 認証された ID で ID 解決をアップグレードします。
 - サードパーティークッキーへの依存度を低減します。
 - オムニチャネルやクロスデバイスのフリケンシー管理と抑制を実行します。
@@ -62,16 +62,16 @@ UID2を実装するDSPには、以下のドキュメントリソースが用意�
 2. UID2 オプトアウトを受信するための Webhook を実装し、
 UID2 Admimnistrator と Webhook を共有します。
 3. Webhook 経由でオプトアウトフィードを受信していることを確認します。<br/>。
-    Webhook が設置されたら、認証情報を受け取ります（[API keys](../getting-started/gs-api-keys.md) を参照してください）。
+    Webhook が設置されたら、認証情報を受け取ります ([API keys](../getting-started/gs-api-keys.md) を参照してください)。
 4. どの実装オプションを使用するかを決定します。
 5. SDK を使用している場合は、SDKをダウンロードします。該当する SDK のガイドを参照してください。
 6. 選択したオプションの実装ガイドに記載されている手順に従います。
 
-     Note：リクエストメッセージは必ずUID2まで暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md)を参照してください。
-7. (条件付き）CRM オンボーディングソリューションを実装する場合は、データプロバイダワークフローのための資格情報の別のセットを要求します。[APIキー](../getting-started/gs-api-keys.md)を参照してください。
+     Note: リクエストメッセージは必ずUID2まで暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md)を参照してください。
+7. (条件付き)CRM オンボーディングソリューションを実装する場合は、データプロバイダワークフローのための資格情報の別のセットを要求します。[APIキー](../getting-started/gs-api-keys.md)を参照してください。
 8. テストします。
 9. 本番稼働します。
 
 ## Frequently Asked Questions for DSPs
 
-DSP向けのFAQ一覧は、[デマンドサイドプラットフォーム（DSP）向けFAQ](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps) を参照してください。
+DSP向けのFAQ一覧は、[デマンドサイドプラットフォーム (DSP)向けFAQ](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps) を参照してください。

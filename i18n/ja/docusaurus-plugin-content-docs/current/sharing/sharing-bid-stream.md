@@ -1,6 +1,6 @@
 ---
 title: Sharing in the Bid Stream
-description: Learn about sharing UID2s in the bid stream.
+description: ビッドストリームにおける UID2 の共有について説明します。
 hide_table_of_contents: false
 sidebar_position: 08
 ---
@@ -13,7 +13,10 @@ sidebar_position: 08
 - [UID2 Sharing Workflow: Sharing in the Bid Stream](#uid2-sharing-workflow-sharing-in-the-bid-stream)
 - [Token Example for Publishers in the Bid Stream](#token-example-for-publishers-in-the-bid-stream) -->
 
-Publishers share UID2s by encrypting [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) (email addresses or phone numbers) via API endpoints or via an SDK, into a UID2 token, and then sending the UID2 token into the bid stream.
+パブリッシャーは、API エンドポイントまたは SDK を介して [directly identifying information (直接識別情報: DII)](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) を UID2 Token に暗号化し、UID2 Token をビッドストリームに送信することで、UID2 を共有します。
+
+
+その他のリソース:
 
 Additional resources:
 - [UID2 Overview for Publishers](../overviews/overview-publishers.md)
@@ -21,59 +24,59 @@ Additional resources:
 
 ## Account Setup in the UID2 Portal
 
-In the UID2 Portal, the sender and the receiver must set up an account and then configure their sharing permissions.
+UID2 Portal では、送信者と受信者がアカウントを設定し、共有権限を設定する必要があります。
 
-The sender only needs to set up sharing permission once for each receiver or participant type. However, if you want to add new sharing permissions or change existing ones, you'll need to go back to adjust your settings.
+送信者が共有許可を設定する必要があるのは、受信者または参加者のタイプごとに一度だけです。ただし、新しい共有権限を追加したり、既存の共有権限を変更したりする場合は、設定を調整するために再度アクセスする必要があります。
 
-As a publisher, we recommend that you set up your sharing permissions to share with all DSPs.
+パブリッシャーとしては、すべての DSP と共有するように共有権限を設定することをお勧めします。
 
-For details, see [UID2 Portal Overview](../portal/portal-overview.md) and follow the links for each task.
+詳細については、[UID2 Portal Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
 
 ## UID2 Sharing Workflow: Sharing in the Bid Stream
 
-When you want to send UID2 tokens in the bid stream, you can integrate via the API or via one of these SDKs:
+ビッドストリームで UID2 Token を送信する場合は、API または以下の SDK のいずれかを使用してインテグレーションできます:
 
-- The Java server-side SDK (see [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md)).
-- The Python server-side SDK (see [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md)).
+- Java server-side SDK ([UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) を参照してください)。
+- Python server-side SDK ([UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md) を参照してください)。
 
-These options support generating UID2 tokens from email addresses or phone numbers and also refreshing the tokens regularly. Other SDKs do not support token generate and token refresh at this time.
+これらのオプションは、メールアドレスや電話番号から UID2 Token を生成し、トークンを定期的に更新することをサポートしています。他の SDK は、現時点ではトークン生成とトークン更新をサポートしていません。
 
-The workflow for generating UID2 tokens from DII, via the API or the specified server-side SDKs, consists of the following steps (each step links to the corresponding section):
+API または指定された server-side SDK を介して、DII から UID2 Token を生成するためのワークフローは、以下のステップで構成されています (各ステップは、対応するセクションにリンクしています):
 
-1. Publisher: Integrate with UID2, using one of the following:
+1. パブリッシャー: 以下のいずれかを使用して、UID2 とインテグレーションします:
 
-   - Java SDK: see [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md)).
-   - Python SDK: see [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md)).
-   - Direct integration with API endpoints: see [Endpoints](/docs/category/endpoints-v2).
-   - Direct integration with API endpoints to generate UID2 tokens using the [POST /token/generate](../endpoints/post-token-generate.md) endpoint, but using the UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) to refresh UID2 tokens.
+   - Java SDK: [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) を参照してください。
+   - Python SDK: [UID2 SDK for Python (Server-Side) リファレンスガイド](../sdks/uid2-sdk-ref-python.md) を参照してください。
+   - API endpoint との直接インテグレーション: [Endpoints](/docs/category/endpoints-v2) を参照してください。
+   - API endpoint との直接インテグレーションでは、[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを使用して UID2 Token を生成しますが、UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください)を使用して UID2 Token をリフレッシュします。
 
-   >NOTE: The DSP must integrate with UID2 using one of the server-side SDKs. See [Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary) (step 2).
+   >NOTE: DSPは、サーバーサイド SDK のいずれかを使用して UID2 とインテグレーションする必要があります。[Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary)(step 2) を参照してください。
 
-1. Publisher: Approve sharing permissions in the UID2 Portal:
+1. パブリッシャー: UID2 Portal で共有許可を承認します:
 
-   1. Publisher: Define which DSPs are allowed to decrypt the sender's UID2 token. 
-   1. Publisher and DSP: Create a UID2 Portal account.
-   1. Publisher: Log in to the UID2 Portal and navigate to the sharing permissions page.
-   1. Publisher: Select one or more DSPs that you want to share with. If needed, use the search feature to find specific DSPs.
-   1. Publisher: Save the sharing selection.
+   1. パブリッシャー: 送信者の UID2 Token の復号化を許可する DSP を定義します。
+   1. パブリッシャーおよび DSP: UID2 Portal アカウントを作成します。
+   1. パブリッシャー: UID2 Portal にログインし、sharing permissions ページに移動します。
+   1. パブリッシャー: 共有したい DSP を1つ以上選択します。必要に応じて、検索機能を使用して特定の DSP を検索します。
+   1. パブリッシャー: 共有の選択を保存します。
 
-1. The publisher completes the following steps to create and send the UID2 tokens:
+1. パブリッシャーが以下の手順を実行して、UID2 Token を作成して送信します:
 
-   1. Generates a UID2 token from an email or phone number.
-   1. Puts the UID2 token into the bid stream.
+   1. メールアドレスまたは電話番号から UID2 Token を生成します。
+   1. UID2 Token をビッドストリームに投入します。
 
-1. The DSP completes the following steps:
+1. DSP は以下の手順を実行します:
 
-   1. Receives the UID2 tokens.
-   1. Decrypts the UID2 tokens into raw UID2s and uses them.
+   1. UID2 Token を受信します。
+   1. UID2 Token ンを raw UID2 に復号して使用します。
 
-The following diagram illustrates the UID2 sharing workflow for publishers.
+以下の図は、パブリッシャー向けの UID2 sharing ワークフローを示しています。
 
 ![UID2 Sharing Permission Integration Workflow for publishers](images/UID2_Sharing_Diagram_Integrate_SDK_Bid_Stream.png)
 
 ## Token Example for Publishers in the Bid Stream
 
-Publishers convert the input email address or phone number directly to a UID2 token for use in the bid stream, using one operation, as shown in the following example.
+パブリッシャーは、次の例に示すように、1回の操作で、入力されたメールアドレスまたは電話番号をビッドストリームで使用する UID2 Token に直接変換します。
 
 <table>
 <colgroup>
@@ -98,7 +101,7 @@ Publishers convert the input email address or phone number directly to a UID2 to
 <tbody>
 <tr>
 <td>user@example.com</td>
-<td>Convert normalized email/phone number to UID2 token:<br/><a href="../endpoints/post-token-generate">POST /token/generate</a> endpoint<br/>NOTE: If you're using an SDK, the SDK manages token generation.</td>
+<td>正規化されたメールアドレス/電話番号を UID2 Token に変換します:<br/><a href="../endpoints/post-token-generate">POST /token/generate</a> エンドポイント<br/>NOTE: SDK を使用している場合は、SDK がトークン生成を管理します。</td>
 <td style={{
   wordBreak: "break-all"
 }}>KlKKKfE66A7xBnL/DsT1UV/Q+V/r3xwKL89Wp7hpNllxmNkPaF8vdzenDvfoatn6sSXbFf5DfW9wwbdDwMnnOVpPxojkb8KYSGUte/FLSHtg4CLKMX52UPRV7H9UbWYvXgXC4PaVrGp/Jl5zaxPIDbAW0chULHxS+3zQCiiwHbIHshM+oJ==</td>

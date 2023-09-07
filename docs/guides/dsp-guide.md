@@ -1,5 +1,6 @@
 ---
 title: DSP Integration
+sidebar_label: DSP Integration Guide
 description: A guide for DSPs who transact on UID2s in the bid stream.
 hide_table_of_contents: false
 sidebar_position: 05
