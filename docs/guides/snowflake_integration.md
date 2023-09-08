@@ -728,7 +728,7 @@ The following instructions provide an example of how sharing works for a sender 
  3. Create a secure share and grant it access to the `AUDIENCE_WITH_UID2_TOKENS` table.
  4. Grant the receiver access to the secure share.
 
->**WARNING**: To avoid shared UID2 tokens expiring, the sender should send the newly encrypted UID2 tokens to the receiver as soon as possible after encrypting.
+>**WARNING**: To help prevent UID2 tokens from expiring during sharing, send the newly encrypted UID2 tokens to the receiver as soon as possible.
 >
 #### Receiver Instructions
 
@@ -743,4 +743,4 @@ The following instructions provide an example of how sharing works for a sender 
         on a.ID=b.ID;
     ```
 
->**WARNING**: To avoid shared UID2 tokens expiring, the receiver should decrypt the UID2 tokens as soon as they become available from the sender.
+>**WARNING**: To help prevent UID2 tokens from expiring, decrypt the UID2 tokens as soon as they become available from the sender.
