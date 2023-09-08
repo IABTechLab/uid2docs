@@ -8,7 +8,16 @@ sidebar_position: 05
 
 # DSP Integration Guide
 
-This guide is for DSPs who transact on UID2s in the bid stream. (**GWH/JN _01) what actual functions do they do? 2) Do DSPs have to use SDKs? If so, which ones? I think we should list them?**) 
+This guide is for DSPs who transact on UID2s in the bid stream.
+
+DSPs receive UID2 tokens in bid requests, and decrypt the UID2 tokens to arrive at raw UID2s that they can use for bidding, using one of the server-side SDKs that support this function:
+
+- UID2 SDK for Java: see [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md)
+- UID2 SDK for Python: see [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md) 
+- UID2 SDK for C# / .NET: see [UID2 SDK for C# / .NET (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-csharp-dotnet.md)
+- UID2 SDK for C++: see [UID2 SDK for C++ (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-cplusplus.md)
+
+>NOTE: If your back end is written in a language not covered by one of these SDKs, ask your UID2 contact in case there is additional information available to help you. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
 
 <!-- It includes the following sections:
 
@@ -21,21 +30,19 @@ This guide is for DSPs who transact on UID2s in the bid stream. (**GWH/JN _01) w
 
 The following describes the integration workflow for DSP to support UID2 as part of RTB, which consists of two major steps:
 1. [Honor user opt-outs](#honor-user-opt-outs)
-2. [Decrypt UID2 tokens to use in RTB](#decrypt-uid2-tokens-for-rtb-use) (**GWH/JN_02 is this affected by mods for Sharing?**) 
+2. [Decrypt UID2 tokens for RTB use](#decrypt-uid2-tokens-for-rtb-use)
 
 ![DSP Flow](https://mermaid.ink/svg/eyJjb2RlIjoiICBzZXF1ZW5jZURpYWdyYW1cbiAgICBwYXJ0aWNpcGFudCBVIGFzIFVzZXJcbiAgICBwYXJ0aWNpcGFudCBTU1BcbiAgICBwYXJ0aWNpcGFudCBEU1BcbiAgICBwYXJ0aWNpcGFudCBVSUQyIGFzIFVJRDIgU2VydmljZVxuICAgIHBhcnRpY2lwYW50IFRDIGFzIFRyYW5zcGFyZW5jeSAmIENvbnNlbnQgUG9ydGFsXG4gICAgTm90ZSBvdmVyIFUsVEM6IDEuIEhvbm9yIHVzZXIgb3B0LW91dHMuXG4gICAgVS0-PlRDOiAxLWEuIFVzZXIgb3B0cyBvdXQuXG4gICAgYWN0aXZhdGUgVENcbiAgICBUQy0-PlVJRDI6IDEtYi4gVUlEMiBzZXJ2aWNlIHJlY2VpdmVzIG9wdC1vdXQuXG4gICAgZGVhY3RpdmF0ZSBUQ1xuICAgIGFjdGl2YXRlIFVJRDJcbiAgICBVSUQyLT4-RFNQOiAxLWMuIERTUCByZWNlaXZlcyBvcHQtb3V0LlxuICAgIGRlYWN0aXZhdGUgVUlEMlxuICAgIE5vdGUgb3ZlciBVLFRDOiAyLiBEZWNyeXB0IFVJRDIgdG9rZW5zIHRvIHVzZSBpbiBSVEIuXG4gICAgU1NQLS0-PkRTUDogVGhlIFNTUCBjYWxscyBhIERTUCBmb3IgYmlkLlxuICAgIERTUC0-PkRTUDogMi1hLiBEZWNyeXB0IFVJRDIgdG9rZW5zLlxuICAgIERTUC0-PkRTUDogMi1iLiBFeGVjdXRlIGJpZGRpbmcgbG9naWMsIGhvbm9yaW5nIHVzZXIgb3B0LW91dHMuXG4iLCJtZXJtYWlkIjp7InRoZW1lIjoiZm9yZXN0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 
- (**GWH/JN_03 Do we need changes to the diagram?**) 
-
 ### Honor User Opt-Outs
 
-To receive and honor user opt-outs from the UID2 service, the DSP establishes a pre-configured interface and provides it to the UID2 service during onboarding. The UID2 service sends the user's UID2 token and an opt-out timestamp to the pre-configured interface. Examples of interfaces include webhooks and API endpoints. (**GWH/JN_04 can we be clearer what we're talking about here? Maybe an example or something?**) 
+To receive and honor user opt-outs from the UID2 service, the DSP establishes a pre-configured interface (an opt-out webhook/API endpoint) and provides it to the UID2 service during onboarding. When a user opts out, the UID2 service sends the user's UID2 token and the corresponding opt-out timestamp to the pre-configured interface.
 
 The UID2 service sends the following data within seconds of a user's opt-out, which the DSP records and uses the bidding logic defined in [Decrypt UID2 Tokens for RTB Use](#decrypt-uid2-tokens-for-rtb-use).
 
 | Parameter | Description |
 | :--- | :--- |
-| `identity` | The UID2 for the user who opted out.  (**GWH/JN_05 is this incorrect now? On opt-out, we don't send the identity I believe?**) |
+| `identity` | The raw UID2 for the user who opted out. |
 | `timestamp` | The time when the user opted out. |
 
 
@@ -48,7 +55,7 @@ https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 
 Use the logic below during bidding (2-b) to honor a user's opt-out.
 
-Leverage one of the server-side SDKs (see [SDKs](../sdks/summary-sdks.md)) to decrypt incoming UID2 tokens. The response  (**GWH/JN_06 to what? to the decrypt function?**) contains the UID2 token and the time that the UID2 token was created, represented in the pseudocode below as `established_timestamp`. DSPs are required to check the most recent opt-out timestamp for a UID2, represented in the pseudocode below as `optout_timestamp`.  (**GWH/JN_07 I see no pseudocode. Would it be a good thing to add? Or, is it the "the logic..." below perhaps? Unclear.**) 
+Leverage one of the server-side SDKs (see [SDKs](../sdks/summary-sdks.md)) to decrypt incoming UID2 tokens into raw UID2s. The response to the decrypt function contains the raw UID2 and the time that the raw UID2 was created, represented in the pseudocode example below as `established_timestamp`. DSPs are required to check the most recent opt-out timestamp for a UID2, represented in the pseudocode below as `optout_timestamp`. 
 
 The following diagram illustrates opt-out logic.
 
@@ -56,7 +63,7 @@ The following diagram illustrates opt-out logic.
 
 If the `established_timestamp` value is less than the `optout_timestamp` value, the user has opted out and the UID2 should not be used for RTB. In these cases, the DSP can choose to send an alternate ID for bidding or can choose not to bid.
 
-The logic for the <b>check opt-out</b> step is the following:
+The following pseudocode shows sample logic for the <b>check opt-out</b> step:
 
 ```java
 if (established_timestamp < optout_timestamp) {
@@ -65,6 +72,8 @@ if (established_timestamp < optout_timestamp) {
 ```
 
 ### Decrypt UID2 Tokens for RTB Use
+
+The following table provides details for Step 2 of the workflow diagram shown in [Integration Steps](#integration-steps).
 
 | Step | SDK | Description |
 | :--- | :--- | :--- |
