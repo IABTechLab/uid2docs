@@ -86,7 +86,7 @@ Before setting up your UID2 Operator service in the Google Cloud Platform using 
 
 ### Confidential Space Account Setup
 
-You can run the UID2 Operator service on any GCP account and project. However, to support attestation, you'll need to create a service account that you can use to run Confidential Space virtual machines (VMs), and then grant it specific permissions.
+You can run the UID2 Operator service on any GCP account and project. However, to support attestation, you'll need to create a service account that you can use to run Confidential Space virtual machines (VMs), and then grant specific permissions to the account.
 
 to set up and configure the account, go to [Google Cloud Console](https://console.cloud.google.com/) and complete the following steps.
 
