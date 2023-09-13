@@ -20,7 +20,7 @@ For a summary of available server-side SDKs, see [UID2 SDK for Java (Server-Side
 
 * [Integration Steps](#integration-steps)
    - [Honor User Opt-Outs](#honor-user-opt-outs)
-   - [Decrypt UID2 Tokens for RTB Use](#decrypt-uid2-tokens-for-rtb-use)
+
 * [FAQs](#faqs) -->
 
 ## Integration Steps 
@@ -42,7 +42,7 @@ The UID2 service sends the following data within seconds of a user's opt-out, wh
 | `identity` | The raw UID2 for the user who opted out. |
 | `timestamp` | The time when the user opted out (for information only). |
 
-The following example  illustrates a webhook configured to receive the raw UID2 and the corresponding timestamp:
+The following example illustrates a webhook configured to receive the raw UID2 and the corresponding timestamp:
 
 ```html
 https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
@@ -65,7 +65,7 @@ The following table provides details for Step 2 of the workflow diagram shown in
 
 | Step | SDK | Description |
 | :--- | :--- | :--- |
-| 2-a | Server-side SDK (see [SDKs](../sdks/summary-sdks.md))  | Leverage the provided SDK to decrypt incoming UID2 tokens. The response contains the `UID2` and the UID2 creation time. |
+| 2-a | Server-side SDK (see [SDKs](../sdks/summary-sdks.md)) | Leverage the provided SDK to decrypt incoming UID2 tokens. The response contains the `UID2` and the UID2 creation time. |
 | 2-b | | DSPs are required to honor opt-out protocol for UID2s. For details on configuring user opt-outs and honoring them during bidding, see [Honor user opt-outs](#honor-user-opt-outs). |
 
 ## FAQs
