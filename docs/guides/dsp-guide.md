@@ -12,7 +12,7 @@ This guide is for DSPs who transact on UID2s in the bid stream.
 
 DSPs receive UID2 tokens in bid requests, and decrypt the UID2 tokens to arrive at raw UID2s that they can use for bidding, using one of the server-side SDKs that support this function.
 
-For a summary of available server-side SDKs, see [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/summary-sdks.md#sdk-functionality).
+For a summary of available server-side SDKs, see [SDKs - Summary](../sdks/summary-sdks.md).
 
 >NOTE: If your back end is written in a language not covered by one of the available server-side SDKs, ask your UID2 contact in case there is additional information available to help you. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
 
@@ -20,7 +20,7 @@ For a summary of available server-side SDKs, see [UID2 SDK for Java (Server-Side
 
 * [Integration Steps](#integration-steps)
    - [Honor User Opt-Outs](#honor-user-opt-outs)
-   - [Decrypt UID2 Tokens for RTB Use](#decrypt-uid2-tokens-for-rtb-use)
+
 * [FAQs](#faqs) -->
 
 ## Integration Steps 
@@ -40,10 +40,9 @@ The UID2 service sends the following data within seconds of a user's opt-out, wh
 | Parameter | Description |
 | :--- | :--- |
 | `identity` | The raw UID2 for the user who opted out. |
-| `timestamp` | The time when the user opted out. |
+| `timestamp` | The time when the user opted out (for information only). |
 
-
-The following example  illustrates a webhook configured to receive the UID2 and a corresponding timestamp:
+The following example illustrates a webhook configured to receive the raw UID2 and the corresponding timestamp:
 
 ```html
 https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
@@ -52,21 +51,13 @@ https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 
 Use the logic below during bidding (2-b) to honor a user's opt-out.
 
-Leverage one of the server-side SDKs (see [SDKs](../sdks/summary-sdks.md)) to decrypt incoming UID2 tokens into raw UID2s. The response to the decrypt function contains the raw UID2 and the timestamp (the time that the [POST /token/generate](../endpoints/post-token-generate.md) endpoint was called to create the UID2 token), represented in the pseudocode example below as `established_timestamp`. DSPs are required to check the most recent opt-out timestamp for a UID2, represented in the pseudocode below as `optout_timestamp`. 
+Leverage one of the server-side SDKs (see [SDKs](../sdks/summary-sdks.md)) to decrypt incoming UID2 tokens into raw UID2s. The response to the decrypt function contains the raw UID2. 
 
 The following diagram illustrates opt-out logic.
 
 ![DSP Opt-Out Check](images/dsp-guide-optout.png)
 
-If the `established_timestamp` value is less than the `optout_timestamp` value, the user has opted out and the UID2 should not be used for RTB. In these cases, the DSP can choose to send an alternate ID for bidding or can choose not to bid.
-
-The following pseudocode shows sample logic for the <b>check opt-out</b> step:
-
-```java
-if (established_timestamp < optout_timestamp) {
-  // Opted out
-}
-```
+If the user has opted out, the UID2 must not be used for RTB. In these cases, the DSP can choose to send an alternate ID for bidding or can choose not to bid.
 
 ### Decrypt UID2 Tokens for RTB Use
 
@@ -74,7 +65,7 @@ The following table provides details for Step 2 of the workflow diagram shown in
 
 | Step | SDK | Description |
 | :--- | :--- | :--- |
-| 2-a | Server-side SDK (see [SDKs](../sdks/summary-sdks.md))  | Leverage the provided SDK to decrypt incoming UID2 tokens. The response contains the `UID2` and the UID2 creation time. |
+| 2-a | Server-side SDK (see [SDKs](../sdks/summary-sdks.md)) | Leverage the provided SDK to decrypt incoming UID2 tokens. The response contains the `UID2` and the UID2 creation time. |
 | 2-b | | DSPs are required to honor opt-out protocol for UID2s. For details on configuring user opt-outs and honoring them during bidding, see [Honor user opt-outs](#honor-user-opt-outs). |
 
 ## FAQs
