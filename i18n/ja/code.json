@@ -408,7 +408,7 @@
     "message": "ご利用のお問合せや専門的なご相談はこちらから。最新版の技術文書もご覧いただけます。"
   },
   "homepage.ctaStripe1Text": {
-    "message": "アクセスをリクエストする"
+    "message": "導入についてお問合わせ"
   },
   "homepage.ctaStripe2Text": {
     "message": "技術文書を見る"
@@ -545,6 +545,6 @@
     "message": "Unified ID 2.0は、消費者のプライバシーを最優先にして生成しており、ユーザーは、オプトアウト・ポータルにアクセスすることで、自身のUID2の利用をオプトアウトすることができます。Unified ID 2.0への参加者は、本ポータルを通じてリクエストされたユーザーのオプトアウトに応じる必要があります。"
   },
   "homepage.benefitsButtonLabel": {
-    "message": "管理"
+    "message": "UID2を管理"
   }
 }
