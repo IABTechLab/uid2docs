@@ -11,28 +11,34 @@ sidebar_position: 20
 
 This guide provides information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. 
 
-Confidential Space offers a secure enclave environment, known as a <a href="#gl-tee">Trusted Execution Environment (TEE)</a>.
+Confidential Space offers a secure enclave environment, known as a Trusted Execution Environment (TEE).
 
 >NOTE: The UID2 Private Operator implementation for GCP Confidential Space is not supported in these regions: Europe, China.
 
-<!-- It includes the following information:
+It includes the following information:
 
-- [Terminology](#terminology)
+- [Overview](#overview)
 - [Prerequisites](#prerequisites)
   - [Confidential Space Account Setup](#confidential-space-account-setup)
   - [UID2 Operator Account Setup](#uid2-operator-account-setup)
-- [Build](#build) 
-- [Deploy](#deploy)
-  - [Integration Deployment](#integration-deployment)
-  - [Production Deployment](#production-deployment)
-  - [Deployment Example Using Terraform for Load Balancing](#deployment-example-using-terraform-for-load-balancing)
-- [Upgrade](#upgrade) 
--->
+- [Deployment Environments](#deployment-environments)
+- [Deployment Options](#deployment-options)
+  - [Deploy&#8212;Terraform Template](#deployterraform-template)
+  - [Deploy&#8212;gcloud Command Line](#deploygcloud-command-line)
+- [Viewing the UID2 Private Operator Logs](#viewing-the-uid2-private-operator-logs) 
+- [Running the Health Check](#running-the-health-check)
+   - [Health Check&#8212;Google Cloud](#health-checkgoogle-cloud)
+   - [Health Check&#8212;Terraform Template](#health-checkterraform-template)
+- [Upgrade](#upgrade)
+  - [Upgrading&#8212;Terraform Template](#upgradingterraform-template)
+  - [Upgrading&#8212;gcloud Command Line](#upgradinggcloud-command-line)
 
-## How It Works
+## Overview
 
 You can run the UID2 Operator service on Google Cloud Platform within a trusted
 [Confidential Space](https://cloud.google.com/confidential-computing/confidential-vm/docs/about-cvm#confidential-space) powered by Google.
+
+The Operator service runs in a Confidential Space "workload"&#8212;a containerized Docker image that runs in a secure cloud-based enclave on top of the Confidential Space image.
 
 When the Docker container for the UID2 Operator Confidential Space starts up, it does the following:
 
@@ -41,36 +47,6 @@ When the Docker container for the UID2 Operator Confidential Space starts up, it
 1. Sends the attestation document plus the UID2 `api_token` value, which identifies the private operator service, to the UID2 Core Service as an attestation request.
 
 When the attestation is successful, the UID2 Core Service provides seed information such as salts and keys to bootstrap the UID2 Operator in the secure Confidential Space container.
-
-## Terminology
-
-This document uses the following key terms with specialized definitions relating to the Google Cloud Platform Confidential Space.
-
-<dl>
-
-<dt class="jump-anchor" id="gl-attestation-service">Attestation service</dt>
-<dd>The attestation service is an OpenID Connect (OIDC) provider that verifies the attestation for the trusted execution environment and then issues an OIDC authentication token, which includes identification attributes.</dd>
-
-<dt class="jump-anchor" id="gl-confidential-space">Confidential Space</dt>
-<dd>Confidential Space is a highly secure solution for processing confidential data in Google Cloud Platform, within a trusted execution environment (TEE) in a secure enclave.</dd>
-<dd>For details, see <a href="https://cloud.google.com/docs/security/confidential-space">Confidential Space security overview</a>.</dd>
-
-<dt class="jump-anchor" id="gl-jwt">JSON Web Token (JWT)</dt>
-<dd>A JSON Web Token (JWT) is a type of bearer token, meaning that it contains all the information needed to allow the bearer to get access to a protected resource. With a JWT, the information is structured as a JSON object in a predefined format. It is URL-safe and digitally signed.</dd>
-
-<dt class="jump-anchor" id="gl-oidc-token">OpenID Connect (OIDC) token</dt>
-<dd>OpenID Connect (OIDC) is an identity layer on top of the OAuth 2.0 protocol that allows the client to verify the identity of an end-user based on authentication by an authorization server.</dd>
-<dd>In the context of Confidential Space, the Operator Service is the client and Confidential Space is the authorization server.</dd>
-
-<dt class="jump-anchor" id="gl-tee">TEE</dt>
-<dd>Acronym for Trusted Execution Environment. From the Confidential Space documentation:</dd>
-<dd>"Confidential Space uses a trusted execution environment that is designed to release secrets only to authorized workloads."</dd>
-<dd>For details, see <a href="https://cloud.google.com/docs/security/confidential-space#components-of-a-confidential-space-system">Components of a Confidential Space system</a> (Google Cloud documentation).</dd>
-
-<dt class="jump-anchor" id="gl-workload">Workload</dt>
-<dd>A containerized Docker image that runs in a cloud-based Trusted Execution Environment (see <a href="#gl-tee">TEE</a>) on top of the Confidential Space image.</dd>
-
-</dl>
 
 ## Prerequisites
 
@@ -87,10 +63,10 @@ For the account setup, you'll need to provide valid values for the placeholders 
 
 | Placeholder | Actual Value |
 | :--- | :--- |
-| `{PROJECT_ID}` | The ID of the GCP project that you want the GCP Operator to run in. |
-| `{SERVICE_ACCOUNT_NAME}` | A name you choose for this account. It's best to choose a clear but concise name. (**GWH_YS01 are there any naming constraints? I made that up re naming advice... we can take it out... just a guess.**)  |
+| `{SERVICE_ACCOUNT_NAME}` | A name you choose for the [Google Cloud Platform service account](https://cloud.google.com/iam/docs/service-accounts-create#creating) you create for your UID2 Operator Service; for example, `GCP_UID2`. |
+| `{PROJECT_ID}` | The ID of the GCP project that you want the GCP Operator to run in; for example, `UID2_Operator_Production`. |
 
-(**GWH_YS02 still not sure re PROJECT_ID... is this likely to be a GCP project that already exists, since the audience is someone who wants to set this up in GCP therefore already has an account? Or should setting up a GCP project be a step? (not that we tell them how to do it, but that we say do it). Not sure what the scope of a "GCP project" is.**)
+(**GWH_YS02 I updated to give examples for each. LMK what you think. Also FYI I put service account first based on reading the link you provided.**)
 
 To set up and configure the account, go to [Google Cloud Console](https://console.cloud.google.com/) and complete the following steps. Replace the placeholder values with your own valid values.
 
@@ -101,31 +77,34 @@ To set up and configure the account, go to [Google Cloud Console](https://consol
     $ gcloud config set project {PROJECT_ID}
     ```
  
-3. Enable required APIs:
+3. Enable the Confidential Computing APIs: (**GWH_YS03 Andrei said: "How about "Enable Confidential Computing APIs"? If this could be a link to some google docs even better." Is there somewhere we could link to?**)
     ```
     $ gcloud services enable compute.googleapis.com confidentialcomputing.googleapis.com
     ```
 
-4. Create a service account to run the <a href="#gl-workload">workload</a>:
+4. Create a service account to run the UID2 Operator service:
     ```
     $ gcloud iam service-accounts create {SERVICE_ACCOUNT_NAME}
     ```
 
-(**GWH_YS03 re the above -- the command says service-accounts but we are creating only one account... just checking it's correct, not service-account create?**)
+5. Grant the `confidentialcomputing.workloadUser` permission to the service account.
 
-5. Grant the required permission, `confidentialcomputing.workloadUser`, to the service account. This permission grants the ability to generate an attestation token and run a workload in a VM:
+   This permission grants the ability to generate an attestation token and run the UID2 Operator in a ConfidentialSpaces VM.
     ```
     $ gcloud projects add-iam-policy-binding {PROJECT_ID} \
       --member=serviceAccount:{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com \
       --role=roles/confidentialcomputing.workloadUser
     ```
 
-6. (Optional) Grant the optional permission, `logging.logWriter`, to the service account. This permission grants access to write and view logs in debug mode, and is useful for testing:
+6. Grant the `logging.logWriter` permission to the service account.
+
+    This permission grants access to write and view logs in debug mode, and is useful for testing.
     ```
     $ gcloud projects add-iam-policy-binding {PROJECT_ID} \
       --member=serviceAccount:{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com \
       --role=roles/logging.logWriter
     ```
+    For information on viewing the logs, see [Viewing the UID2 Private Operator Logs](#viewing-the-uid2-private-operator-logs).
   
 7. Add a VPC rule to allow public access on port 8080, the default exposed port for the UID2 operator:
     ```
@@ -136,7 +115,12 @@ To set up and configure the account, go to [Google Cloud Console](https://consol
       --target-service-accounts={SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com
     ```
 
-(**GWH_YS04 just checking -- do we need the \ at end of line in the above code snippets, 5, 6, and 7?**)
+(**GWH_YS04 Re the above, port 8080, various comments to be resolved:**
+**Andrei: This is not a good practice. We should not be recommending exposing port 8080 publicly -- it is not standard. We should also not be recommending exposing HTTP publicly. HTTP can be fine for internal use, but our recommendation should be to set up a TLS (HTTPS), e.g. on load balancer in front of the VM(s).**
+
+**Andrei: There should also be instructions for how to access the prometheus metrics port.**
+
+**Yishi: This is one deploy option to bring up only one VM with public IP. Partner probably could use this option for integ deployment. / We could also provide other options to deploy a LB with 80/443 port then forward to instances (with in a VPC) with 8080 port.**)
 
 ### UID2 Operator Account Setup
 Ask your UID2 contact to register your organization as a UID2 Operator. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
@@ -153,53 +137,189 @@ When the registration process is complete, you'll receive the following.
 
 When registration is complete, and your Confidential Space account is set up, it's time to download the Docker build and set up your GPC Confidential Space enclave.
 
-## Build
+## Deployment Environments
 
-To run UID2 Operator on a GCP Confidential Space enclave, download the official Docker image from the following GitHub location:
+The following environments are available, and the two available deployment options support both environments.
 
-- [UID2-Operator](https://github.com/iabtechlab/uid2-operator/pkgs/container/uid2-operator) (**GWH_YS05 is any additional guidance needed? There are several "tagged image versions" including Azure and AWS... to me it isn't obvious what they should go for. If it will be obvious to users, fine -- otherwise let's add detail.** )
+As a best practice, we recommend that you test and verify your implementation in the integration environment before deploying in the production environment.
 
-For example: (**GWH_YS06 I am tagging ghcr.io URLs for update. They are in all the examples (4 instances) and I don't want to mess with them.**)
+>NOTE: You'll receive separate `{API_TOKEN}` values for each environment. Be sure to use the correct one. The `{IMAGE_SHA}` value is the same for both environments.
+
+| Deployment Environment | Details |
+| :--- | :--- |
+| Integration (`integ`) | For testing only. Debug mode is available in the integration environment. |
+| Production (`prod`) | For managing production traffic, we recommend deploying via the Terraform template, with load balancing, and with HTTPS enabled. |
+
+## Deployment Options
+
+There are two deployment options:
+
+| Option | Details |
+| :--- | :--- |
+| [Terraform template](#deployterraform-template) | This option:<ul><li>Brings up a whole stack with a load balancer and a scaling group.</li><li>Is slightly more complex to set up than the `gcloud` option.</li><li>Is very simple to upgrade.</li><li>Is the recommended deployment solution.</li></ul> |
+| [gcloud command line](#deploy-at-the-gcloud-command-line) | This option:<ul><li>Brings up one public instance with the public IP address.</li><li>Is simpler to set up than the Terraform option.</li><li>For multiple instances, requires bringing up each instance manually, by running the command multiple times.</li><li>Requires setting up load balancing manually.</li><li>Upgrade is more complex with this option since more manual steps are needed.</li></ul> |
+
+Both deployment options support both deployment environments.
+
+To determine your deployment steps, do the following:
+1. First, choose the deployment option you want to use.
+2. Then, follow the applicable instructions:
+   - [Deploy&#8212;Terraform Template](#deployterraform-template)
+   - [Deploy at the gcloud Command Line](#deploy-at-the-gcloud-command-line)
+
+### Deploy&#8212;Terraform Template
+
+For ease of deployment and upgrade, you can use a Terraform template to deploy a UID2 Private Operator implementation with load balancing and auto-scaling features. In this scenario, all VM instances run on Confidential Space VMs, and are deployed in multiple availability zones (AZs).
+
+The Terraform template creates the following components:
+
+- Network: VPC and subnetwork.
+- Instances: Instance template, instance groups (with auto-scaling enabled).
+- Ingress: Load balancer (with health check), forwarding rules, and firewall rules.
+- Egress: [NAT](https://cloud.google.com/nat/docs/overview).
+
+To deploy a new UID2 Operator in the GCP Confidential Space Enclave, using the Terraform template, follow these steps:
+
+1. [Install Terraform](#install-terraform)
+1. [Set Up the Environment](#set-up-the-environment)
+1. [Download the Template Files](#download-the-template-files)
+1. [Provide Input Values](#provide-input-values)
+1. [Run Terraform](#run-terraform)
+1. [Test Terraform Using the Health Check Endpoint](#test-terraform-using-the-health-check-endpoint)
+1. [Clean Up](#clean-up)
+
+For additional information, see:
+- [Input Parameters and Values](#input-parameters-and-values)
+- [Outputs](#outputs)
+- [Terraform Template&#8212;Notes](#terraform-templatenotes)
+
+#### Install Terraform
+
+Install Terraform if it is not already installed: visit [terraform.io](https://www.terraform.io/).
+
+#### Set Up the Environment
+
+1. Create the project, replacing the `{PROJECT_ID}` placeholder with your own project ID (see [Confidential Space Account Setup](#confidential-space-account-setup)):
+
+   ```
+   gcloud config set project {PROJECT_ID}
+   ```
+
+2. Configure the environment for Terraform:
+
+   ```
+   gcloud auth application-default login
+   ```
+
+#### Download the Template Files
+
+From the [uid2-operator GitHub repository](https://github.com/IABTechLab/uid2-operator), download the template files listed in the following table.
+
+| File | Details |
+| :--- | :--- |
+| [main.tf](https://github.com/IABTechLab/uid2-operator/scripts/gcp-oidc/terraform/main.tf) | The Terraform template file. |
+| [variables.tf](https://github.com/IABTechLab/uid2-operator/scripts/gcp-oidc/terraform/variables.tf) | Includes input definitions. |
+| [outputs.tf](https://github.com/IABTechLab/uid2-operator/scripts/gcp-oidc/terraform/outputs.tf) | Includes output definitions. |
+
+For more information, refer to the readme file for the Terraform template: [Future, published URL (to keep)](https://github.com/IABTechLab/uid2-operator/scripts/gcp-oidc/terraform/README.md) | [PR URL (to delete when PR is merged)](https://github.com/IABTechLab/uid2-operator/pull/212/files#diff-154a1adda6944684fff3b5e1fc4a5afa2ae6173790c206ae062f4b173f585d05). (**GWH_YS05 to be updated when the template files are published**)
+
+#### Provide Input Values
+
+Provide values for input parameters, as needed. Some are required, others are optional.
+
+(**GWH_YS06 Provide them where, actually? In the template file? Is it in variables.tf actually? If so we should definitely say... and what if we include an example with fictitious values? Just a suggestion.**)
+
+For details about the fields and valid values, see [Input Parameters and Values](#input-parameters-and-values).
+
+1. Provide values for the following required input fields:
+   - project_id
+   - service_account_name
+   - uid_operator_image
+   - uid_api_token 
+
+1. (Conditional, for Production environment) Provide values for the following fields that are required for the Production environment:
+   - uid_machine_type: For Production, the value must be `n2d-standard-16`
+   - uid_deployment_env: For Production, the value must be `prod`
+
+1. (Optional) Provide values for these additional input fields that are always optional. These fields have default values, but you might want to modify them to better suit your requirements:
+   - region
+   - network_name
+   - min_replicas
+   - max_replicas
+   - debug_mode
+
+#### Run Terraform
+
+Run the following:
 
 ```
-docker pull ghcr.io/iabtechlab/uid2-operator
+terraform init
+terraform apply
 ```
 
-(**GWH_YS07 URL update please for the above URL**)
+#### Test Terraform Using the Health Check Endpoint
 
-You can use the following command to build a non-certified UID2 operator container image from the source code:
+Call the health check endpoint to test the health of your implementation. The expected result is HTTP 200 with a response body of `OK`.
+
+For instructions, see [Health Check&#8212;Terraform Template](#health-checkterraform-template).
+
+#### Clean Up
+
+Remove all resources created by Terraform:
 
 ```
-# From the root source folder
-# Update project version in pom to "1.0.0-SNAPSHOT"
-
-mvn -B package -P gcp 
-cp -r target scripts/gcp-oidc/
-docker build ./scripts/gcp-oidc/. -t ghcr.io/iabtechlab/uid2-operator:v1.0.0-SNAPSHOT
+terraform destroy
 ```
 
-(**GWH_YS08 URL update please for the above URL**)
+#### Input Parameters and Values
 
-## Deploy
+The following table summarizes all the input values for the Terraform template.
 
-(**GWH_YS09 is there something re can say re when they deploy integ versus production? Do they do integ then production? Do they generally have both, or transition one to the other? Some general info would be helpful.**)
+| Name               | Type     | Default  | Required | Description |
+| :---               | :--- | :--- | :--- | :--- |
+| project_id         | `string` | n/a   |   yes    | The ID of the GCP project that you want the GCP Operator to run in; for example, `UID2_Operator_Production`.**GWH_YS07 Guessing that's what it is though not sure why it would be project_id vs PROJECT_ID?** |
+| service_account_name    | `string` | n/a                 |   yes    | The input value is the name of the service account you want to use for your UID2 Operator instance in GCP Confidential Space. |
+| uid_operator_image | `string` | n/a                 |   yes    | The SHA for your UID2 operator image digest, received during your UID2 account setup. Provide the full image address. For example: `ghcr.io/iabtechlab/uid2-operator@sha256:{IMAGE_SHA}`. **GWH_YS09 do we send them the full image address? If not, how will they get it?** |
+| uid_api_token      | `string` | n/a                 |   yes    | **GWH_YS10 This is not mentioned elsewhere. Is it the UID2 `api_token` value?** |
+| region             | `string` | `asia-southeast1` |    no    | The region that you want to deploy to. You can choose any region. **GWH_YS11 Is there a list of valid values somewhere?** |
+| network_name       | `string` | `uid-operator`    |    no    | The VPC resource name (also used for rules/ instance tags). |
+| uid_machine_type   | `string` | `n2d-standard-16` |    no    | The machine type. The default value is the only value supported in the Production environment For the Integration environment you can change it if needed, but not for Production. |
+| uid_deployment_env | `string` | `integ`           |    no    | Valid values: `integ` or `prod`. The default is `integ`, so for your production deployment you'll need to include this input with a value of `prod`. |
+| max_replicas       | `number` | `5`                 |    no    | Indicates the maximum number of replicas you want to deploy. |
+| min_replicas       | `number` | `1`                 |    no    | Indicates the minimum number of replicas you want to deploy. |
+| debug_mode         | `bool`   | `false`             |    no    | Do not set to `true` unless you are working with UID2 team to debug issues. In any other circumstances, if you set this flag to `true`, attestation will fail. |
 
-The following environments are available:
+#### Outputs
 
-- Integration environment: see [Integration Deployment](#integration-deployment)
-- Production environment: see [Production Deployment](#production-deployment)
+The following table summarizes the output value from the Terraform template.
 
->NOTE: As a best practice, we recommend that you test and verify your implementation in the integration environment before deploying in the production environment.
+| Name             | Description |
+| :---             | :--- |
+| load-balancer-ip | The public IP address of the load balancer.<br/>You can use this value to [perform the health check](#health-checkterraform-template) or to configure the DNS. |
 
-### Integration Deployment
+#### Terraform Template&#8212;Notes
 
-To deploy a new UID2 Operator in the GCP Confidential Space Enclave into the integration environment, you'll need to create a VM instance.
+You might want to change the load balancer from HTTP to HTTPS. To do this, follow these steps:
 
-Follow these steps:
+1. Provide your certificate via Terraform, following the instructions on this Terraform documentation page:
+  [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate.html).
+
+2. Add the following configuration values in `module "gce-lb-http"` (**GWH_YS12 (old 20) is the syntax correct here? Is it a name/value pair? Don't understand this. Module not previously mentioned. It's a module of what? (Yi added info re downloading template files, https://github.com/IABTechLab/uid2docs/pull/291/files#r1325754579, but not sure it was an answer to this query).**)
+
+  ```
+   ssl                  = true
+   ssl_certificates     = [google_compute_ssl_certificate.you_cert.self_link]
+   use_ssl_certificates = true
+    https_redirect       = true
+  ```
+
+### Deploy&#8212;gcloud Command Line
+
+To deploy a new UID2 Operator in the GCP Confidential Space Enclave, using the gCloud command line, follow these steps:
 
 1. [Update the Script with Valid Values](#update-the-script-with-valid-values)
 1. [Run the Script](#run-the-script)
-1. [Test Using the Health Check Endpoint](#test-using-the-health-check-endpoint)
+1. [Test gcloud Using the Health Check Endpoint](#test-gcloud-using-the-health-check-endpoint)
 
 #### Update the Script with Valid Values
 
@@ -219,16 +339,12 @@ $ gcloud compute instances create {INSTANCE_NAME} \
   --metadata ^~^tee-image-reference=ghcr.io/iabtechlab/uid2-operator@sha256:{IMAGE_SHA}~tee-restart-policy=Never~tee-env-DEPLOYMENT_ENVIRONMENT=integ~tee-env-API_TOKEN={API_TOKEN}
 ```
 
-(**GWH_YS10 URL update please for the above URL**)
-
-(**GWH_YS11 Do we need the \ at the end of each line in the above?**)
-
 Placeholder values are defined in the following table.
 
 | Placeholder | Actual Value |
 | :--- | :--- |
 | `{INSTANCE_NAME}` | Your own valid VM name. |
-| `{SERVICE_ACCOUNT}` | The value you provided during account creation, in this format: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>For details, see [Confidential Space Account Setup](#confidential-space-account-setup) (Step 4). |
+| `{SERVICE_ACCOUNT}` | The service account email that you created as part of creating your account, in this format: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>For details, see [Confidential Space Account Setup](#confidential-space-account-setup) (Step 4). |
 | `{IMAGE_SHA}` | The SHA for your UID2 operator image digest, received during your UID2 account setup.<br/>For details, see [UID2 Operator Account Setup](#uid2-operator-account-setup). |
 | `{API_TOKEN}` | Your UID2 `api_token` value, received during your UID2 account setup, which identifies the private operator service.<br/>For details, see [UID2 Operator Account Setup](#uid2-operator-account-setup). |
 
@@ -236,31 +352,20 @@ Placeholder values are defined in the following table.
 
 When you've replaced the placeholder values with valid values, run the script.
 
-#### Test Using the Health Check Endpoint
+#### Test gcloud Using the Health Check Endpoint
 
-Call the health check endpoint to test the health of your implementation. The expected result is an `OK` response.
+Call the health check endpoint to test the health of your implementation. The expected result is HTTP 200 with a response body of `OK`.
 
-```
-Get the public Ip of the deployed instance
-gcloud compute instances describe {INSTANCE_NAME} \
-    --format='get(networkInterfaces[0].accessConfigs[0].natIP)'
-health check
-  http://{IP}:8080/ops/healthcheck
-```
+For instructions, see [Health Check&#8212;Google Cloud](#health-checkgoogle-cloud).
 
-(**GWH_YS12 Is the health check valid for both integration and production environments?**)
-
-(**GWH_YS13 Is there any info we can provide re the results of running the above, how they can make sure it was successful? Andrei said: "Where would this be accessible from?" and "Just give full different command lines for prod and integ." please help with that.**)
-
-### Production Deployment
+#### Deploying via the gCloud command line (production deployment instructions)
 
 To deploy a new UID2 Operator in the GCP Confidential Space Enclave into the production environment, the steps are similar to deploying in the integration environment (see [Integration Deployment](#integration-deployment)), but with the following important differences in the script values:
 
-- You'll receive separate `{API_TOKEN}` values for each environment. Be sure to use the correct one.
 - The following value is different depending on the environment:
   - `~tee-env-DEPLOYMENT_ENVIRONMENT=integ~` is for the integration environment.
   - `~tee-env-DEPLOYMENT_ENVIRONMENT=prod~` is for the production environment.
-- When deploying to the production environment you must specify a machine type of `n2d-standard-16` in the gcloud script. The default value is `n2d-standard-2`, which is not supported. Only a value of `n2d-standard-16` is supported. 
+- When deploying to the production environment you must specify a machine type of `n2d-standard-16` in the gcloud script. The default value is `n2d-standard-2`, which is not supported. Only `n2d-standard-16` is supported. 
 
 The following example of the production deployment script uses placeholder values:
 
@@ -277,61 +382,54 @@ $ gcloud compute instances create {INSTANCE_NAME} \
   --metadata ^~^tee-image-reference=ghcr.io/iabtechlab/uid2-operator@sha256:{IMAGE_SHA}~tee-restart-policy=Never~tee-env-DEPLOYMENT_ENVIRONMENT=prod~tee-env-API_TOKEN={API_TOKEN}
 ```
 
-(**GWH_YS14 URL update please for the above URL**)
+## Viewing the UID2 Private Operator Logs
 
-(**GWH_YS15 Andrei said: "Where would this be accessible from?" and "Just give full different command lines for prod and integ." please help with that.**)
+<!-- If you've enabled the ability to view the logs, xxx. -->
 
->NOTE: This script includes an additional option not used in the script for the integration environment, `--machine-type n2d-standard-16`. By specifying this value you can make sure that the production deployment of UID2 Operator runs on the recommended machine type that matches the production configuration.
+To view the logs, follow these steps. (**GWH_YS13 we had "if you've enabled the ability to view the logs"... do we need that wording? If so, how do they enable the ability to view the logs?**)
 
-### Deployment Example Using Terraform for Load Balancing
+1. Go to https://console.cloud.google.com/logs.
 
-For ease of deployment and upgrade, you can use a Terraform template to deploy a UID2 Private Operator implementation with load balancing and auto-scaling features. In this scenario, all VM instances run on Confidential Space VMs, and are deployed in multiple AZs. (**GWH_YS16 what is AZ?**)
+2. Verify that the correct Google Cloud project is displayed in the title area. If needed, specify the UID2 project.
 
-The Terraform template creates the following components:
-
-- Network: VPC and subnetwork.
-- Instances: Instance template, instance groups (with autoscaling enabled)
-- Ingress: Load balancer (with health check), forwarding rules, firewall rules.
-- Egress: NAT. (**GWH_YS17 what is NAT?**)
-
-In this section:
-- [Install Terraform](#install-terraform)
-- [Set Up the Environment](#set-up-the-environment)
-- [Run Terraform](#run-terraform)
-- [Test](#test)
-- [Clean Up](#clean-up)
-- [Inputs](#inputs)
-- [Outputs](#outputs)
-- [Terraform Template&#8212;Notes](#terraform-templatenotes)
-
-#### Install Terraform
-
-Install Terraform if it is not already installed: visit [terraform.io](https://www.terraform.io/).
-
-#### Set Up the Environment
-
-1. Set the project, replacing the `{PROJECT_ID}` placeholder with your own project ID (see [Confidential Space Account Setup](#confidential-space-account-setup)):
+3. Put the following filter info into the query:
 
    ```
-   gcloud config set project {PROJECT_ID}
+      resource.type="gce_instance"
+      log_name="projects/{PROJECT_ID}/logs/confidential-space-launcher"
    ```
 
-2. Configure the environment for Terraform:
+You could also add or select more filters on the left panel; for example, filter by `INSTANCE_ID`.
+
+## Running the Health Check
+
+Call the health check endpoint to test the health of your implementation.
+
+Running the health check is the same for the integration and production environments, except for the endpoints and the credentials.
+
+Follow the applicable instructions depending on the type of implementation you've chosen:
+
+- [Health Check&#8212;Google Cloud](#health-checkgoogle-cloud)
+- [Health Check&#8212;Terraform Template](#health-checkterraform-template)
+
+### Health Check&#8212;Google Cloud
+
+The following example shows the health check for the `gcloud` command line option:
+
+1. Get the public IP address of the deployed instance:
 
    ```
-   gcloud auth application-default login
+   $ gcloud compute instances describe {INSTANCE_NAME} \
+     --format='get(networkInterfaces[0].accessConfigs[0].natIP)'
    ```
+2. To test operator status, in your browser, go to `http://{IP}:8080/ops/healthcheck`.
 
-#### Run Terraform
+   An HTTP 200 with a response body of `OK` indicates healthy status.
 
-Run the following:
 
-```
-terraform init
-terraform apply
-```
+### Health Check&#8212;Terraform Template
 
-#### Test
+The following example shows the health check for the Terraform template option:
 
 1. Get the public IP address for the load balancer:
 
@@ -339,67 +437,25 @@ terraform apply
    terraform output load-balancer-ip
    ```
 
-2. Check health at the health check endpoint (for details, see [Test Using the Health Check Endpoint](#test-using-the-health-check-endpoint)):
+2. To test operator status, in your browser, go to the health check endpoint: `http://{IP}/ops/healthcheck`.
 
-   ```
-   http://{PUBLIC_IP}/ops/healthcheck
-   ```
-
-#### Clean Up
-
-Remove all resources created by Terraform:
-
-```
-terraform destroy
-```
-
-#### Inputs
-
-(**GWH_YS18 I need more data re the inputs and outputs so we can have some little intro line to these tables. Is this something they clean up? Or something that's required? Please help with some explanation for both inputs and outputs.**)
-
-| Name               | Description | Type     | Default             | Required |
-|--------------------|-------------|----------|---------------------|:--------:|
-| project_id         | n/a         | `string` | n/a                 |   yes    |
-| service_account    | n/a         | `string` | n/a                 |   yes    |
-| uid_operator_image | n/a         | `string` | n/a                 |   yes    |
-| uid_api_token      | n/a         | `string` | n/a                 |   yes    |
-| region             | n/a         | `string` | `"asia-southeast1"` |    no    |
-| network_name       | n/a         | `string` | `"uid-operator"`    |    no    |
-| uid_machine_type   | n/a         | `string` | `"n2d-standard-16"` |    no    |
-| uid_deployment_env | n/a         | `string` | `"integ"`           |    no    |
-| max_replicas       | n/a         | `number` | `5`                 |    no    |
-| min_replicas       | n/a         | `number` | `1`                 |    no    |
-| debug_mode         | n/a         | `bool`   | `false`             |    no    |
-
-#### Outputs
-
-| Name             | Description |
-|------------------|-------------|
-| load-balancer-ip | n/a         |
-
-#### Terraform Template&#8212;Notes
-
-1. You might want to change the load balancer from HTTP to HTTPS. To do this, follow these steps: (**GWH_YS19 surely they would have to use HTTPS? Should this be higher profile than a note at the end?**)
-
-   - Provide your cert via terraform following this page:
-  [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate.html)
-
-   - Then add the following configuration values in `module "gce-lb-http"` (**GWH_YS20 is the syntax correct here? Is it a name/value pair? Don't understand this. Module not previously mentioned. It's a module of what?**)
-
-     ```
-       ssl                  = true
-       ssl_certificates     = [google_compute_ssl_certificate.you_cert.self_link]
-       use_ssl_certificates = true
-       https_redirect       = true
-     ```
-
-2. Follow the [Prerequisites](https://github.com/IABTechLab/uid2-operator/tree/master/scripts/gcp-oidc#prerequisites)
-   section to set up a service account. (**GWH_YS21 this seems a little unkind to make the last step something they still need to do. Is this really all the information needed? Will it all make sense to our users and be easy to follow and implement?**)
+   An HTTP 200 with a response body of `OK` indicates healthy status.
 
 ## Upgrade
 
 When a new version of UID2 Google Cloud Platform Confidential Space is released, private operators receive an email notification of the update, with a new image version. There is a window of time for upgrade, after which the older version is deactivated and is no longer supported.
 
-If you're upgrading to a new version, all you need to do is update the `{IMAGE_SHA}` in your configuration ([Integration Deployment](#integration-deployment) and/or [Production Deployment](#production-deployment)) to the new value from the update notification.
+If you're upgrading to a new version, the upgrade process depends on the deployment option you chose. Follow the applicable steps:
 
-(**GWH_YS22 Not sure that the addition of the Terraform template info resolved Andrei's comment re upgrade and how it would be done -- and we'd have to cover with and without load balancing if it's only an option.**)
+- [Upgrading&#8212;Terraform Template](#upgradingterraform-template)
+- [Upgrading&#8212;gcloud Command Line](#upgradinggcloud-command-line)
+
+### Upgrading&#8212;Terraform Template
+
+If you deployed using the Terraform template, all you need to do to upgrade is update your deployment with the new `{IMAGE_SHA}` that you received in the upgrade notification.
+
+### Upgrading&#8212;gcloud Command Line
+
+If you deployed using the gcloud command line, you must manually bring up new instances that use the new with the new `{IMAGE_SHA}` and then shut down old instances.
+
+If you have manual load balancing in place, you'll also need to update the load balancing mapping.

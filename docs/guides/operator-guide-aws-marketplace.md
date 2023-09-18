@@ -144,7 +144,7 @@ Here's what you can customize during or after the [deployment](#deployment):
 
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
-| 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/opt/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Checking UID2 Operator Status](#checking-uid2-operator-status).|
+| 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Checking UID2 Operator Status](#checking-uid2-operator-status).|
 | 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). |
 | 443 | Outbound | HTTPS | Calls the UID2 Core Service; updates opt-out data and key store. |
 
