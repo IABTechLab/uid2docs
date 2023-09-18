@@ -63,10 +63,8 @@ For the account setup, you'll need to provide valid values for the placeholders 
 
 | Placeholder | Actual Value |
 | :--- | :--- |
+| `{PROJECT_ID}` | The ID of the GCP project that you want the GCP Operator to run in; for example, `UID2_Operator_Production`.<br/>Make sure you have a GCP project with billing enabled. We recommend that you create a new project for UID2 operator, but you could also re-use an existing one. |
 | `{SERVICE_ACCOUNT_NAME}` | A name you choose for the [Google Cloud Platform service account](https://cloud.google.com/iam/docs/service-accounts-create#creating) you create for your UID2 Operator Service; for example, `GCP_UID2`. |
-| `{PROJECT_ID}` | The ID of the GCP project that you want the GCP Operator to run in; for example, `UID2_Operator_Production`. |
-
-(**GWH_YS02 I updated to give examples for each. LMK what you think. Also FYI I put service account first based on reading the link you provided.**)
 
 To set up and configure the account, go to [Google Cloud Console](https://console.cloud.google.com/) and complete the following steps. Replace the placeholder values with your own valid values.
 
