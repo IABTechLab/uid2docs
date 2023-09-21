@@ -11,7 +11,7 @@ sidebar_position: 20
 
 This guide provides information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. Confidential Space offers a secure enclave environment, known as a Trusted Execution Environment (TEE).
 
->NOTE: The UID2 Private Operator implementation for GCP Confidential Space is not supported in these regions: Europe, China.
+>NOTE: The UID2 Private Operator implementation for GCP Confidential Space is not supported in these areas: Europe, China.
 
 The Operator Service runs in a Confidential Space "workload"&#8212;a containerized Docker image that runs in a secure cloud-based enclave on top of the Confidential Space image.
 
@@ -45,29 +45,16 @@ Before setting up your UID2 Operator Service in the Google Cloud Platform using 
 
 You can run the UID2 Operator Service on any GCP account and project. However, to support attestation, you'll need to create a service account that you can use to run Confidential Space virtual machines (VMs).
 
-Before choosing your deployment option, perform these setup steps:
-
-- [Create GCP Service Account and Project](#create-gcp-service-account-and-project)
-- [Install the gcloud CLI](#install-gcloud-cli)
-
-#### Create GCP Service Account and Project
-
-Complete the following steps to get your GCP account ready:
+Before choosing your deployment option, complete these Google Cloud setup steps:
 
 1. Create the GCP project that you want the UID2 Operator to run in. We recommend creating a new project for the UID2 Operator Service, but you could also use an existing one. Follow these guidelines:
 
-   - Choose a name; for example, `UID2_Operator_Production`. You'll use this as the `{PROJECT_ID}` value in later steps.
+   - Choose a project name; for example, `UID2_Operator_Production`. You'll use this as the `{PROJECT_ID}` value in later steps.
    - Make sure that you define a GCP project with billing enabled.
 
-1. Create the GCP service account. Follow these guidelines:
-   - Refer to these instructions from Google: [Google Cloud Platform service account](https://cloud.google.com/iam/docs/service-accounts-create#creating).
-   - Choose a name; for example, `GCP_UID2`. You'll use this as the `{SERVICE_ACCOUNT_NAME}` value in later steps.
+1. Choose a name for the GCP service account that you'll use to run Confidential Space VMs; for example, `GCP_UID2`. You'll use this as the `{SERVICE_ACCOUNT_NAME}` value in later steps.
 
-#### Install the gcloud CLI
-
-Both deployment options require the gcloud CLI. Follow the instructions provided by Google:
-
-- [Install the gcloud CLI](https://cloud.google.com/sdk/docs/install)
+1. Install the gcloud CLI, required by both deployment options. Follow the instructions provided by Google: [Install the gcloud CLI](https://cloud.google.com/sdk/docs/install).
 
 ### UID2 Operator Account Setup
 Ask your UID2 contact to register your organization as a UID2 Operator. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
@@ -78,8 +65,8 @@ When the registration process is complete, you'll receive the following:
 
 | Item | Description |
 | :--- | :--- |
-| `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration. For example: `us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator@sha256:{IMAGE_SHA}`.<br/>NOTE: Use the same image for both deployment environments. |
-| `{API_TOKEN}` | An API token, exclusive to you, that identifies you with the UID2 service as a private operator. This value is used in configuration.<br/>NOTE: You'll receive a separate API token for each deployment environment.
+| `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration. For example: `us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator@sha256:{IMAGE_SHA}`.<br/>NOTE: Use the same image for both deployment environments. (**GWH_YS61 TM commented "I think the example should include the full Image_SHA so that the reader knows what it looks like (i.e. is it the full sha or the short one)" -- could you help me with that example please?**) |
+| `{API_TOKEN}` | An API token, exclusive to you, that identifies you with the UID2 service as a private operator. This value is used in configuration. The API token is your unique identifier, like a password; store it securely and do not share it.<br/>NOTE: You'll receive a separate API token for each deployment environment. |
 | Instructions | Additional information details, such as instructions for setting up VMs or a link to the applicable information. |
 
 When UID2 account registration is complete, and you've installed the gcloud CLI, your next steps are:
@@ -238,7 +225,7 @@ The following table summarizes all the input parameters and values for the Terra
 | `uid_api_token_secret_name` | `string` | `"secret-api-token"` | no |  The name for the `api_token` secret value. The Terraform template creates a secret in the GCP Secret Manager to hold the `uid_api_token` value. You can define the name; for example, `uid2_operator_api_token_secret_integ`. |
 | `uid_machine_type` | `string` | `n2d-standard-16` | no | The machine type. `n2d-standard-16` is the only value supported in the Production environment. For the Integration environment you can change it if needed, but not for Production. |
 | `uid_deployment_env` | `string` | `integ` | no | Valid values: `integ` or `prod`. The default is `integ`, so for your production deployment you'll need to include this input with a value of `prod`. |
-| `region` | `string` | `us-east1` | no | The region that you want to deploy to. For a list of valid regions, see [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) in the Google Cloud documentation.<br/>NOTE: The UID2 Private Operator implementation for GCP Confidential Space is not supported in these regions: Europe, China. |
+| `region` | `string` | `us-east1` | no | The region that you want to deploy to. For a list of valid regions, see [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) in the Google Cloud documentation.<br/>NOTE: The UID2 Private Operator implementation for GCP Confidential Space is not supported in these areas: Europe, China. |
 | `network_name` | `string` | `uid-operator` | no | The VPC resource name (also used for rules/ instance tags). |
 | `min_replicas` | `number` | `1` | no | Indicates the minimum number of replicas you want to deploy. Default value: `1`. |
 | `max_replicas` | `number` | `5` | no | Indicates the maximum number of replicas you want to deploy. Default value: `5`. |
@@ -295,7 +282,7 @@ To set up and configure the account that you created in [Install the gcloud CLI]
    | logging.googleapis.com | Cloud Logging API | 
    | secretmanager.googleapis.com | Service Management API | 
 
-    For example:
+    Run this command to enable the APIs:
 
     ```
     $ gcloud services enable compute.googleapis.com \
@@ -362,7 +349,7 @@ Follow these steps:
 
     ```
     API_TOKEN="{API_TOKEN}"
-    echo -n $API_TOKEN | gcloud secrets create uid2_operator_api_token_secret_integ \
+    echo -n $API_TOKEN | gcloud secrets create {API_TOKEN_SECRET_NAME} \
          --replication-policy="automatic" \
        --data-file=-
     ```
@@ -370,19 +357,19 @@ Follow these steps:
     1. Prepare the script, using your own values: 
 
        - For `{API_TOKEN}`, use your own API token value for the environment.
-       - For `uid2_operator_api_token_secret_integ`, specify the name you want to use for your API secret, for this environment.
+       - For  `{API_TOKEN_SECRET_NAME}`, specify the name you want to use for your API secret, for this environment. For example: `uid2_operator_api_token_secret_integ`.
 
     2. Run the script.
 
-       The result of the script is the secret name that you specified; for example, `uid2_operator_api_token_secret_integ`.
+       The result of the script is the secret name that you specified; for example, `uid2_operator_api_token_secret_integ`. (**GWH_YS62 Yi commented "Remove this setence, not correct." but if I remove it, there is no info about the result of the script. Is there nothing? We said earlier that it creates a new secret for the integration environment. How do they get the secret? Clarify and fix.**)
 
-1. Run the following command to get the full secret name, including the path:     
+1. Run the following command to get the full secret name, including the path, first customizing with your own values:   
 
    ```
-   gcloud secrets versions describe latest --secret uid2_operator_api_token_secret_integ --format 'value(name)'
+   gcloud secrets versions describe latest --secret {API_TOKEN_SECRET_NAME} --format 'value(name)'
    ```
 
-In this example, the full secret name might be: `projects/111111111111/secrets/uid2_operator_api_token_secret_integ/versions/1`. This is the value that you would use to replace the `{API_TOKEN_SECRET_NAME}` placeholder in the next section.
+In this example, the full secret name might be: `projects/111111111111/secrets/uid2_operator_api_token_secret_integ/versions/1`. This is the value that you would use to replace the `{API_TOKEN_SECRET_FULL_NAME}` placeholder in the next section.
 
 #### Update the Script with Valid Values
 
@@ -403,12 +390,29 @@ Placeholder values are defined in the following table.
 | `{INSTANCE_NAME}` | Your own valid VM name. |
 | `{SERVICE_ACCOUNT}` | The service account email that you created as part of creating your account, in this format: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>For details, see [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions) (Step 4). |
 | `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration.<br/>For details, see [UID2 Operator Account Setup](#uid2-operator-account-setup). |
-| `{API_TOKEN_SECRET_NAME}` | The full name of the secret value that you created for the API token (see [Create Secret for the API Token in Secret Manager](#create-secret-for-the-api-token-in-secret-manager)), including the path, in the format `projects/<project_id>/secrets/<secret_id>/versions/<version>`. For example: `projects/111111111111/secrets/uid2_operator_api_token_secret_integ/versions/1`. 
+| `{API_TOKEN_SECRET_FULL_NAME}` | The full name of the secret value that you created for the API token (see [Create Secret for the API Token in Secret Manager](#create-secret-for-the-api-token-in-secret-manager)), including the path, in the format `projects/<project_id>/secrets/<secret_id>/versions/<version>`. For example: `projects/111111111111/secrets/uid2_operator_api_token_secret_integ/versions/1`. |
+| `{ZONE}` | The Google Cloud availability zone that the VM instance will be deployed on. (**GWH_YS63 please verify this explanation**) |
 
 ##### Sample Deployment Script&#8212;Integ
 
-The following example of the deployment script for the integration environment uses placeholder values.
+The following example of the deployment script for the integration environment uses some placeholder values.
+(**GWH_YS64 below is a fresh copy from https://github.com/IABTechLab/uid2-operator/tree/master/scripts/gcp-oidc#for-partner-create-vm-instance and has more differences than you pointed out. last line, machine type. Should I refresh to this?**)
 
+```
+$ gcloud compute instances create {INSTANCE_NAME} \
+  --zone {ZONE} \
+  --machine-type n2d-standard-2 \
+  --confidential-compute \
+  --shielded-secure-boot \
+  --maintenance-policy Terminate \
+  --scopes cloud-platform \
+  --image-project confidential-space-images \
+  --image-family confidential-space \
+  --service-account {SERVICE_ACCOUNT} \
+  --metadata ^~^tee-image-reference=us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator@sha256:{IMAGE_SHA}~tee-restart-policy=Never~tee-container-log-redirect=true~tee-env-DEPLOYMENT_ENVIRONMENT=integ~tee-env-API_TOKEN_SECRET_NAME={API_TOKEN_SECRET_FULL_NAME}
+```
+
+(**GWH_YS65 below is what I previously had**)
 ```
 $ gcloud compute instances create {INSTANCE_NAME} \
   --confidential-compute \
@@ -418,7 +422,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
   --image-project confidential-space-images \
   --image-family confidential-space \
   --service-account {SERVICE_ACCOUNT} \
-  --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-restart-policy=Never~tee-container-log-redirect=true~tee-env-DEPLOYMENT_ENVIRONMENT=integ~tee-env-API_TOKEN_SECRET_NAME={API_TOKEN_SECRET_NAME}
+  --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-restart-policy=Never~tee-container-log-redirect=true~tee-env-DEPLOYMENT_ENVIRONMENT=integ~tee-env-API_TOKEN_SECRET_NAME={API_TOKEN_SECRET_FULL_NAME}
 ```
 
 ##### Sample Deployment Script&#8212;Prod
