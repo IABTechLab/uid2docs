@@ -47,17 +47,21 @@ You can run the UID2 Operator Service on any GCP account and project. However, t
 
 Before choosing your deployment option, perform these setup steps:
 
-- [Determine Account Setup Values](#determine-account-setup-values)
+- [Create GCP Service Account and Project](#create-gcp-service-account-and-project)
 - [Install the gcloud CLI](#install-gcloud-cli)
 
-#### Determine Account Setup Values
+#### Create GCP Service Account and Project
 
-For the account setup, you'll need to provide valid values for the placeholders shown in the following tables.
+Complete the following steps to get your GCP account ready:
 
-| Placeholder | Details |
-| :--- | :--- |
-| `{PROJECT_ID}` | The ID of the GCP project that you want the UID2 Operator to run in; for example, `UID2_Operator_Production`.<br/>Make sure that you have a GCP project with billing enabled. We recommend creating a new project for the UID2 Operator Service, but you could also use an existing one. |
-| `{SERVICE_ACCOUNT_NAME}` | A name you choose for the [Google Cloud Platform service account](https://cloud.google.com/iam/docs/service-accounts-create#creating) that you create for your UID2 Operator Service; for example, `GCP_UID2`. |
+1. Create the GCP project that you want the UID2 Operator to run in. We recommend creating a new project for the UID2 Operator Service, but you could also use an existing one. Follow these guidelines:
+
+   - Choose a name; for example, `UID2_Operator_Production`. You'll use this as the `{PROJECT_ID}` value in later steps.
+   - Make sure that you define a GCP project with billing enabled.
+
+1. Create the GCP service account. Follow these guidelines:
+   - Refer to these instructions from Google: [Google Cloud Platform service account](https://cloud.google.com/iam/docs/service-accounts-create#creating).
+   - Choose a name; for example, `GCP_UID2`. You'll use this as the `{SERVICE_ACCOUNT_NAME}` value in later steps.
 
 #### Install the gcloud CLI
 
@@ -103,8 +107,6 @@ There are two deployment options:
 | :--- | :--- |
 | [Terraform template](#deployterraform-template) | This option:<ul><li>Does not require manually setting up a service account. The setup is very simple.</li><li>Brings up a whole stack with a load balancer and a scaling group.</li><li>Is easier to maintain and operate than the `gcloud` option.</li><li>Is very simple to upgrade.</li><li>Is the recommended deployment solution.</li></ul> |
 | [gcloud CLI](#deploygcloud-cli) | This option:<ul><li>Brings up one VM instance with a public IP address.</li><li>For multiple instances, requires bringing up each instance manually, by running the command multiple times.</li><li>Requires setting up the load balancer manually.</li><li>Is more complex to upgrade, since more manual steps are needed.</li></ul> |
-
-(**GWH_YS41 I changed "with the public IP address" to "with a public IP address" -- because, not sure what public IP address we're referring to**)
 
 Both deployment options support both deployment environments.
 
@@ -187,22 +189,18 @@ For details about the parameters and valid values, see [Input Parameters and Val
    - `service_account_name`
    - `uid_operator_image`
    - `uid_api_token` 
-   - `uid_api_token_secret_name`
-
-(**GWH_YS42 I added uid_api_token_secret_name per your comment. But, does uid_api_token stay in?**)
-
-(**GWH_YS43 https://github.com/IABTechLab/uid2-operator/blob/master/scripts/gcp-oidc/terraform/terraform.tfvars does not actually include `uid_api_token_secret_name`.**)
 
 1. (Conditional: Production environment only) Provide values for the following parameters that are required for the Production environment:
    - `uid_machine_type`: For Production, the value must be `n2d-standard-16`.
    - `uid_deployment_env`: For Production, the value must be `prod`.
 
-1. (Optional) Provide values for these additional input parameters that are always optional. These parameters have defaults, but you might want to modify the values to better suit your requirements:
+1. (Optional) Provide parameter names and values for these additional input parameters that are always optional. These parameters have defaults, but you might want to modify the values to better suit your requirements:
    - `region`
    - `network_name`
    - `min_replicas`
    - `max_replicas`
    - `debug_mode`
+   - `uid_api_token_secret_name`
 
 #### Run Terraform
 
@@ -238,10 +236,10 @@ The following table summarizes all the input parameters and values for the Terra
 | `uid_operator_image` | `string` | n/a | yes | The Docker image URL for the UID2 Private Operator for GCP, used in configuration, which you received as part of [UID2 Operator Account Setup](#uid2-operator-account-setup). For example: `us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator@sha256:{IMAGE_SHA}`. |
 | `uid_api_token` | `string` | n/a | yes | The UID2 `api_token` value. |
 | `uid_api_token_secret_name` | `string` | `"secret-api-token"` | no |  The name for the `api_token` secret value. The Terraform template creates a secret in the GCP Secret Manager to hold the `uid_api_token` value. You can define the name; for example, `uid2_operator_api_token_secret_integ`. |
-| `region` | `string` | `asia-southeast1` | no | The region that you want to deploy to. For a list of valid regions, see [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) in the Google Cloud documentation.<br/>NOTE: The UID2 Private Operator implementation for GCP Confidential Space is not supported in these regions: Europe, China. |
-| `network_name` | `string` | `uid-operator` | no | The VPC resource name (also used for rules/ instance tags). |
 | `uid_machine_type` | `string` | `n2d-standard-16` | no | The machine type. `n2d-standard-16` is the only value supported in the Production environment. For the Integration environment you can change it if needed, but not for Production. |
 | `uid_deployment_env` | `string` | `integ` | no | Valid values: `integ` or `prod`. The default is `integ`, so for your production deployment you'll need to include this input with a value of `prod`. |
+| `region` | `string` | `us-east1` | no | The region that you want to deploy to. For a list of valid regions, see [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) in the Google Cloud documentation.<br/>NOTE: The UID2 Private Operator implementation for GCP Confidential Space is not supported in these regions: Europe, China. |
+| `network_name` | `string` | `uid-operator` | no | The VPC resource name (also used for rules/ instance tags). |
 | `min_replicas` | `number` | `1` | no | Indicates the minimum number of replicas you want to deploy. Default value: `1`. |
 | `max_replicas` | `number` | `5` | no | Indicates the maximum number of replicas you want to deploy. Default value: `5`. |
 | `debug_mode` | `bool`  | `false` | no | Do not set to `true` unless you are working with the UID2 team to debug an issue. In any other circumstances, if you set this flag to `true`, attestation will fail. |
@@ -283,7 +281,7 @@ To deploy a new UID2 Operator in the GCP Confidential Space Enclave using the gc
 
 To set up and configure the account that you created in [Install the gcloud CLI](#install-gcloud-cli), complete the following steps. Replace the placeholder values with your own valid values.
 
-2. Switch to your project: (**GWH_YS44 Don't they need to first create the project? All they did was install the gcloud CLI. Or does this step create the project also?"**)
+2. Switch to the project that you created in [Create GCP Service Account and Project](#create-gcp-service-account-and-project):
     ```
     $ gcloud config set project {PROJECT_ID}
     ```
@@ -403,7 +401,7 @@ Placeholder values are defined in the following table.
 | Placeholder | Actual Value |
 | :--- | :--- |
 | `{INSTANCE_NAME}` | Your own valid VM name. |
-| `{SERVICE_ACCOUNT}` | The service account email that you created as part of creating your account, in this format: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>For details, see [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions) (Step 4). (**GWH_YS45 there is a problem here. We are in the Terraform instructions and we're relying on a step that's only in the gcloud CLI instructions. Do we need to move this step to the setup steps?**) |
+| `{SERVICE_ACCOUNT}` | The service account email that you created as part of creating your account, in this format: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>For details, see [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions) (Step 4). |
 | `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration.<br/>For details, see [UID2 Operator Account Setup](#uid2-operator-account-setup). |
 | `{API_TOKEN_SECRET_NAME}` | The full name of the secret value that you created for the API token (see [Create Secret for the API Token in Secret Manager](#create-secret-for-the-api-token-in-secret-manager)), including the path, in the format `projects/<project_id>/secrets/<secret_id>/versions/<version>`. For example: `projects/111111111111/secrets/uid2_operator_api_token_secret_integ/versions/1`. 
 
