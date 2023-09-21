@@ -21,7 +21,7 @@ The following steps provide a high-level outline of the workflow intended for us
 
 This workflow allows users to consent to the creation of UID2 identifiers and manage their UID2 consent and privacy settings through the Transparency and Control Portal.
 
-![User Trust Workflow](images/user_trust_workflow.jpg)
+![User Trust Workflow](images/UID2GlobalOptoutWorkflow.png)
 
 
 <!-- 3. If the user has opted out, the UID2 Operator Service distributes the opt-out information to various UID2 participant types, as follows:
