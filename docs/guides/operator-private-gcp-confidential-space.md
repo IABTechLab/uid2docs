@@ -230,6 +230,9 @@ The following table summarizes all the input parameters and values for the Terra
 | `min_replicas` | `number` | `1` | no | Indicates the minimum number of replicas you want to deploy. Default value: `1`. |
 | `max_replicas` | `number` | `5` | no | Indicates the maximum number of replicas you want to deploy. Default value: `5`. |
 | `debug_mode` | `bool`  | `false` | no | Do not set to `true` unless you are working with the UID2 team to debug an issue. In any other circumstances, if you set this flag to `true`, attestation will fail. |
+| `ssl` | `bool`  | `false`| no | To set the load balancer to use HTTPS, which is recommended, set this flag to `true`.<br/>If you're using HTTPS you must also specify values for the `certificate` and `private_key` parameters. |
+| `certificate` | `string`  | n/a | no | The contents of the certificate.<br/>For example: `file('path/to/certificate.crt')`.<br/>Required if `ssl` is set to `true`. |
+| `private_key` | `string`  | n/a | no | The contents of the private SSL key. For example: `file('path/to/private.key')`. <br/>Required if `ssl` is set to `true`. |
 
 #### Outputs
 
@@ -241,22 +244,23 @@ The following table summarizes the output value from the Terraform template.
 
 #### Terraform Template&#8212;Changing the Load Balancer to HTTPS
 
-If you want to change the load balancer from HTTP to HTTPS, follow these steps:
+If you want to change the load balancer from HTTP to HTTPS, which is highly recommended, follow these steps:
 
-1. Provide your certificate via Terraform, following the instructions on the Terraform [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate.html) documentation page.
+1. Provide your certificate via Terraform, following the instructions on the Terraform [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate.html) documentation page. (**GWH_YS62 Do we need this? Thomas said: "It looks like the mechanism has changed, so I don't think we need a link to that document, but Yi should have the final say on that one" please let me know.**)
 
-2. Add the following configuration values in the `main.tf` file, in the `module "gce_lb_http"` section:
+2. Add the following additional input parameters in the `terraform.tfvars` file:
 
-  ```
-   ssl                  = true
-   ssl_certificates     = [google_compute_ssl_certificate.you_cert.self_link]
-   use_ssl_certificates = true
-   https_redirect       = true
-  ```
+   - `ssl`: set to `true`.
+   - `certificate`: The contents of the certificate. 
+   - `private_key`: The contents of the private SSL key.
+
+For parameter details, see [Input Parameters and Values](#input-parameters-and-values).
 
 ### Deploy&#8212;gcloud CLI
 
 To deploy a new UID2 Operator in the GCP Confidential Space Enclave using the gcloud CLI, follow these steps.
+
+>NOTE: For deployment to the production environment we do not recommend this option. We recommend deploying via the Terraform template, with load balancing, and with HTTPS enabled.
 
    1. [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions)
    1. [Create Secret for the API Token in Secret Manager](#create-secret-for-the-api-token-in-secret-manager)
@@ -361,7 +365,7 @@ Follow these steps:
 
     2. Run the script.
 
-       The result of the script is the secret name that you specified; for example, `uid2_operator_api_token_secret_integ`. (**GWH_YS62 Yi commented "Remove this setence, not correct." but if I remove it, there is no info about the result of the script. Is there nothing? We said earlier that it creates a new secret for the integration environment. How do they get the secret? Clarify and fix.**)
+       The result of the script is the secret name that you specified; for example, `uid2_operator_api_token_secret_integ`. (**GWH_YS63 Yi commented "Remove this setence, not correct." but if I remove it, there is no info about the result of the script. Is there nothing? We said earlier that it creates a new secret for the integration environment. How do they get the secret? Clarify and fix.**)
 
 1. Run the following command to get the full secret name, including the path, first customizing with your own values:   
 
@@ -391,12 +395,12 @@ Placeholder values are defined in the following table.
 | `{SERVICE_ACCOUNT}` | The service account email that you created as part of creating your account, in this format: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>For details, see [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions) (Step 4). |
 | `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration.<br/>For details, see [UID2 Operator Account Setup](#uid2-operator-account-setup). |
 | `{API_TOKEN_SECRET_FULL_NAME}` | The full name of the secret value that you created for the API token (see [Create Secret for the API Token in Secret Manager](#create-secret-for-the-api-token-in-secret-manager)), including the path, in the format `projects/<project_id>/secrets/<secret_id>/versions/<version>`. For example: `projects/111111111111/secrets/uid2_operator_api_token_secret_integ/versions/1`. |
-| `{ZONE}` | The Google Cloud availability zone that the VM instance will be deployed on. (**GWH_YS63 please verify this explanation**) |
+| `{ZONE}` | The Google Cloud availability zone that the VM instance will be deployed on. (**GWH_YS64 please verify this explanation**) |
 
 ##### Sample Deployment Script&#8212;Integ
 
 The following example of the deployment script for the integration environment uses some placeholder values.
-(**GWH_YS64 below is a fresh copy from https://github.com/IABTechLab/uid2-operator/tree/master/scripts/gcp-oidc#for-partner-create-vm-instance and has more differences than you pointed out. last line, machine type. Should I refresh to this?**)
+(**GWH_YS65 below is a fresh copy from https://github.com/IABTechLab/uid2-operator/tree/master/scripts/gcp-oidc#for-partner-create-vm-instance and has more differences than you pointed out. last line, machine type. Should I refresh to this?**)
 
 ```
 $ gcloud compute instances create {INSTANCE_NAME} \
@@ -412,7 +416,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
   --metadata ^~^tee-image-reference=us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator@sha256:{IMAGE_SHA}~tee-restart-policy=Never~tee-container-log-redirect=true~tee-env-DEPLOYMENT_ENVIRONMENT=integ~tee-env-API_TOKEN_SECRET_NAME={API_TOKEN_SECRET_FULL_NAME}
 ```
 
-(**GWH_YS65 below is what I previously had**)
+(**GWH_YS66 below is what I previously had**)
 ```
 $ gcloud compute instances create {INSTANCE_NAME} \
   --confidential-compute \
