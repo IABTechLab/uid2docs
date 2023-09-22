@@ -11,7 +11,7 @@ This page provides information about normalizing and encoding [directly Identify
 
 <!-- It includes the following sections:
 - [Introduction](#introduction)
-- [Types of Directly Identifying Information (DII))](#types-of-directly-identifying-information-dii)
+- [Types of Directly Identifying Information](#types-of-directly-identifying-information)
 - [Email Address Normalization](#email-address-normalization)
 - [Email Address Hash Encoding](#email-address-hash-encoding)
 - [Phone Number Normalization](#phone-number-normalization)
@@ -22,8 +22,8 @@ When you're taking user information such as an email address, and following the 
 
 >Note: Raw UID2s, and their associated UID2 tokens, are case sensitive. When working with UID2, it's important to pass all IDs and tokens without changing the case. Mismatched IDs can cause ID parsing or token decryption errors.
 
-## Types of Directly Identifying Information (DII)
-UID2 supports the following types of directly identifying information:
+## Types of Directly Identifying Information
+UID2 supports the following types of directly identifying information (DII):
 - Email address
 - Phone number
 
