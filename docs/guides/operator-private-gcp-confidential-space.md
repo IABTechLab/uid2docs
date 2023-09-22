@@ -15,7 +15,9 @@ This guide provides information for setting up the UID2 Operator Service in [Con
 
 The Operator Service runs in a Confidential Space "workload"&#8212;a containerized Docker image that runs in a secure cloud-based enclave on top of the Confidential Space image.
 
-When the Docker container for the UID2 Operator Confidential Space starts up, it manages the attestation process. When the attestation is successful, the UID2 Core Service provides seed information such as salts and keys to bootstrap the UID2 Operator in the secure Confidential Space container.
+When the Docker container for the UID2 Operator Confidential Space starts up, it completes the attestation process that allows the UID2 Core Service to verify the authenticity of the Operator Service and the enclave environment the Operator Service is running in.
+
+When the attestation is successful, the UID2 Core Service provides seed information such as salts and keys to bootstrap the UID2 Operator in the secure Confidential Space container.
 
 ## Setup Overview
 
@@ -65,7 +67,7 @@ When the registration process is complete, you'll receive the following:
 
 | Item | Description |
 | :--- | :--- |
-| `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration. For example: `us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator@sha256:{IMAGE_SHA}`.<br/>NOTE: Use the same image for both deployment environments. (**GWH_YS61 TM commented "I think the example should include the full Image_SHA so that the reader knows what it looks like (i.e. is it the full sha or the short one)" -- could you help me with that example please?**) |
+| `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration. For example: `https://console.cloud.google.com/artifacts/docker/uid2-prod-project/us/iabtechlab/uid2-operator/sha256:2e4fae98b688002303c6263f7c4bf95344a1d9c15fb5fcf838b59032bb9813f2`.<br/>NOTE: Use the same image for both deployment environments. |
 | `{API_TOKEN}` | An API token, exclusive to you, that identifies you with the UID2 service as a private operator. This value is used in configuration. The API token is your unique identifier, like a password; store it securely and do not share it.<br/>NOTE: You'll receive a separate API token for each deployment environment. |
 | Instructions | Additional information details, such as instructions for setting up VMs or a link to the applicable information. |
 
@@ -246,7 +248,7 @@ The following table summarizes the output value from the Terraform template.
 
 If you want to change the load balancer from HTTP to HTTPS, which is highly recommended, follow these steps:
 
-1. Provide your certificate via Terraform, following the instructions on the Terraform [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate.html) documentation page. (**GWH_YS62 Do we need this? Thomas said: "It looks like the mechanism has changed, so I don't think we need a link to that document, but Yi should have the final say on that one" please let me know.**)
+1. Provide your certificate via Terraform, following the instructions on the Terraform [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate.html) documentation page. (**GWH_YS71 Thomas said: "It looks like the mechanism has changed, so I don't think we need a link to that document, but Yi should have the final say on that one" please let me know. / Yi said: "Don't need the whole section "Terraform Template—Changing the Load Balancer to HTTPS" now. If they want they could set ssl input to true and provide cert infos as input. / Gen said: "querying this. Maybe it could be discussed elsewhere -- your call -- but if I take it out we don't have any info at all about setting to HTTPS -- which we are strongly recommending. My suggestion is we add it in Provide Input Values section, as a new Step 3, Set Load Balancer to HTTPS. Then the additional input parameters would be step 4. LMK what you think. But I don't think we should just remove it. Not making this change for now."**)
 
 2. Add the following additional input parameters in the `terraform.tfvars` file:
 
@@ -272,7 +274,7 @@ To deploy a new UID2 Operator in the GCP Confidential Space Enclave using the gc
 
 To set up and configure the account that you created in [Install the gcloud CLI](#install-gcloud-cli), complete the following steps. Replace the placeholder values with your own valid values.
 
-2. Switch to the project that you created in [Create GCP Service Account and Project](#create-gcp-service-account-and-project):
+2. Switch to the project that you created in [Confidential Space Account Setup](#confidential-space-account-setup):
     ```
     $ gcloud config set project {PROJECT_ID}
     ```
@@ -365,7 +367,7 @@ Follow these steps:
 
     2. Run the script.
 
-       The result of the script is the secret name that you specified; for example, `uid2_operator_api_token_secret_integ`. (**GWH_YS63 Yi commented "Remove this setence, not correct." but if I remove it, there is no info about the result of the script. Is there nothing? We said earlier that it creates a new secret for the integration environment. How do they get the secret? Clarify and fix.**)
+       The secret is created in GCP Secret Manager. The secret (display) name is {API_TOKEN_SECRET_NAME} and the secret value is {API_TOKEN}. (**GWH_YS72 is it correct to say that the script creates the secret? If not, what creates the secret?**)
 
 1. Run the following command to get the full secret name, including the path, first customizing with your own values:   
 
@@ -392,31 +394,17 @@ Placeholder values are defined in the following table.
 | Placeholder | Actual Value |
 | :--- | :--- |
 | `{INSTANCE_NAME}` | Your own valid VM name. |
+| `{ZONE}` | The Google Cloud zone that the VM instance will be deployed on. |
 | `{SERVICE_ACCOUNT}` | The service account email that you created as part of creating your account, in this format: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>For details, see [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions) (Step 4). |
 | `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration.<br/>For details, see [UID2 Operator Account Setup](#uid2-operator-account-setup). |
 | `{API_TOKEN_SECRET_FULL_NAME}` | The full name of the secret value that you created for the API token (see [Create Secret for the API Token in Secret Manager](#create-secret-for-the-api-token-in-secret-manager)), including the path, in the format `projects/<project_id>/secrets/<secret_id>/versions/<version>`. For example: `projects/111111111111/secrets/uid2_operator_api_token_secret_integ/versions/1`. |
-| `{ZONE}` | The Google Cloud availability zone that the VM instance will be deployed on. (**GWH_YS64 please verify this explanation**) |
 
 ##### Sample Deployment Script&#8212;Integ
 
 The following example of the deployment script for the integration environment uses some placeholder values.
-(**GWH_YS65 below is a fresh copy from https://github.com/IABTechLab/uid2-operator/tree/master/scripts/gcp-oidc#for-partner-create-vm-instance and has more differences than you pointed out. last line, machine type. Should I refresh to this?**)
 
-```
-$ gcloud compute instances create {INSTANCE_NAME} \
-  --zone {ZONE} \
-  --machine-type n2d-standard-2 \
-  --confidential-compute \
-  --shielded-secure-boot \
-  --maintenance-policy Terminate \
-  --scopes cloud-platform \
-  --image-project confidential-space-images \
-  --image-family confidential-space \
-  --service-account {SERVICE_ACCOUNT} \
-  --metadata ^~^tee-image-reference=us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator@sha256:{IMAGE_SHA}~tee-restart-policy=Never~tee-container-log-redirect=true~tee-env-DEPLOYMENT_ENVIRONMENT=integ~tee-env-API_TOKEN_SECRET_NAME={API_TOKEN_SECRET_FULL_NAME}
-```
+(**GWH_YS73 query re difference between this and https://github.com/IABTechLab/uid2-operator/tree/master/scripts/gcp-oidc#for-partner-create-vm-instance. Should I refresh? Not sure why they would be different. Machine type and last line. You said machine type not needed in integ script. Last line maybe more important. But still, not sure why a technical example would be different in the doc vs the readme.**)
 
-(**GWH_YS66 below is what I previously had**)
 ```
 $ gcloud compute instances create {INSTANCE_NAME} \
   --confidential-compute \
