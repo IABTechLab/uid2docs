@@ -67,7 +67,7 @@ When the registration process is complete, you'll receive the following:
 
 | Item | Description |
 | :--- | :--- |
-| `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration. For example: `https://console.cloud.google.com/artifacts/docker/uid2-prod-project/us/iabtechlab/uid2-operator/sha256:2e4fae98b688002303c6263f7c4bf95344a1d9c15fb5fcf838b59032bb9813f2`.<br/>NOTE: Use the same image for both deployment environments. |
+| `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration. The following example is fictitious, but shows what the Docker image URL might look like: `https://console.cloud.google.com/artifacts/docker/uid2-prod-project/us/iabtechlab/uid2-operator/sha256:2e4fae98b688002303c6263f7c4bf95344a1d9c15fb5fcf838b59032bb9813f2`. Use the image URL provided to you as part of account setup.<br/>NOTE: The image is valid for both deployment environments. |
 | `{API_TOKEN}` | An API token, exclusive to you, that identifies you with the UID2 service as a private operator. This value is used in configuration. The API token is your unique identifier, like a password; store it securely and do not share it.<br/>NOTE: You'll receive a separate API token for each deployment environment. |
 | Instructions | Additional information details, such as instructions for setting up VMs or a link to the applicable information. |
 
@@ -129,7 +129,7 @@ To deploy a new UID2 Operator in the GCP Confidential Space Enclave, using the T
 1. [Provide Input Values](#provide-input-values)
 1. [Run Terraform](#run-terraform)
 1. [Test Terraform Using the Health Check Endpoint](#test-terraform-using-the-health-check-endpoint)
-1. [Clean Up](#clean-up)
+<!-- 1. [Clean Up](#clean-up) -->
 
 For additional information, see:
 - [Input Parameters and Values](#input-parameters-and-values)
@@ -158,14 +158,14 @@ Install Terraform if it is not already installed: visit [terraform.io](https://w
 
 From the UID2 Operator GitHub repository, download the template files listed in the following table.
 
+For more information, refer to the [readme file for the Terraform template](https://github.com/IABTechLab/uid2-operator/tree/master/scripts/gcp-oidc/terraform).
+
 | File | Details |
 | :--- | :--- |
-| [main.tf](https://github.com/IABTechLab/uid2-operator/blob/master/scripts/gcp-oidc/terraform/main.tf) | The Terraform template file. |
-| [variables.tf](https://github.com/IABTechLab/uid2-operator/blob/master/scripts/gcp-oidc/terraform/variables.tf) | Contains the definitions for the template input variables, including name, type, and default value. |
-| [outputs.tf](https://github.com/IABTechLab/uid2-operator/blob/master/scripts/gcp-oidc/terraform/outputs.tf) | Includes output definitions. |
-| [terraform.tfvars](https://github.com/IABTechLab/uid2-operator/blob/master/scripts/gcp-oidc/terraform/terraform.tfvars) | Contains the values for the template input variables. |
-
-For more information, refer to the [readme file for the Terraform template](https://github.com/IABTechLab/uid2-operator/tree/master/scripts/gcp-oidc/terraform).
+| main.tf | The Terraform template file. |
+| variables.tf | Contains the definitions for the template input variables, including name, type, and default value. |
+| outputs.tf | Includes output definitions. |
+| terraform.tfvars | Contains the values for the template input variables. |
 
 #### Provide Input Values
 
@@ -179,9 +179,9 @@ For details about the parameters and valid values, see [Input Parameters and Val
    - `uid_operator_image`
    - `uid_api_token` 
 
-1. (Conditional: Production environment only) Provide values for the following parameters that are required for the Production environment:
-   - `uid_machine_type`: For Production, the value must be `n2d-standard-16`.
-   - `uid_deployment_env`: For Production, the value must be `prod`.
+1. Provide values for the following environment-specific parameters:
+   - `uid_machine_type`: For the integration environment, the default is `n2d-standard-2`<!--  but you can change it -->. For the production environment, the default is `n2d-standard-16` which is the only valid value.
+   - `uid_deployment_env`: Valid values: `integ` for the integration environment, `prod` for the production environment.
 
 1. (Optional) Provide parameter names and values for these additional input parameters that are always optional. These parameters have defaults, but you might want to modify the values to better suit your requirements:
    - `region`
@@ -199,6 +199,9 @@ Run the following:
 terraform init
 terraform apply
 ```
+When you run `terraform apply`, the following file is generated in the same folder: [`terraform.tfstate`](https://developer.hashicorp.com/terraform/language/state). This file stores state information about your managed infrastructure and configuration.
+
+This file will be used for future maintenance. Be sure to persist it remotely.
 
 #### Test Terraform Using the Health Check Endpoint
 
@@ -206,13 +209,16 @@ Call the health check endpoint to test the health of your implementation. The ex
 
 For instructions, see [Health Check&#8212;Terraform Template](#health-checkterraform-template).
 
-#### Clean Up
+<!-- #### Clean Up
+
+(**GWH_YS75 Yi late comment in Word v6 review: "Clean up is not a "required" step for deploy, it will destroy all created resources..." /Gen "Then I am confused why we have it here. You don't say what you want me to do with this. Please advise! I'm commenting it out of the draft for the customer today as an interim measure." Additional questions: Do we need it at all? Should it perhaps go in Tasks? When, ever, would they do this?**)
 
 Remove all resources created by Terraform:
 
 ```
 terraform destroy
-```
+``` 
+-->
 
 #### Input Parameters and Values
 
@@ -223,10 +229,10 @@ The following table summarizes all the input parameters and values for the Terra
 | `project_id` | `string` | n/a | yes | The ID of the GCP project that you want the UID2 Operator to run in; for example, `UID2_Operator_Production`. |
 | `service_account_name` | `string` | n/a | yes | The name of the service account that you want to use for your UID2 Operator instance in GCP Confidential Space. |
 | `uid_operator_image` | `string` | n/a | yes | The Docker image URL for the UID2 Private Operator for GCP, used in configuration, which you received as part of [UID2 Operator Account Setup](#uid2-operator-account-setup). For example: `us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator@sha256:{IMAGE_SHA}`. |
-| `uid_api_token` | `string` | n/a | yes | The UID2 `api_token` value. |
+| `uid_api_token` | `string` | n/a | yes | The UID2 `api_token` value. <!-- (**GWH_JS76 Andrei had a question re upgrade, see https://ttdcorp-my.sharepoint.com/:w:/r/personal/gen_whitt_thetradedesk_com/_layouts/15/Doc.aspx?sourcedoc=%7B2DFFE791-D5B9-4B29-AFB6-8982EC7D99A2%7D&file=review_gwh-APIDOCS-1655-gcp-private-operator-v2_20210920.docx and says "We can start with this, but need to come up with a better approach." future mod?** ) -->|
 | `uid_api_token_secret_name` | `string` | `"secret-api-token"` | no |  The name for the `api_token` secret value. The Terraform template creates a secret in the GCP Secret Manager to hold the `uid_api_token` value. You can define the name; for example, `uid2_operator_api_token_secret_integ`. |
-| `uid_machine_type` | `string` | `n2d-standard-16` | no | The machine type. `n2d-standard-16` is the only value supported in the Production environment. For the Integration environment you can change it if needed, but not for Production. |
-| `uid_deployment_env` | `string` | `integ` | no | Valid values: `integ` or `prod`. The default is `integ`, so for your production deployment you'll need to include this input with a value of `prod`. |
+| `uid_machine_type` | `string` | `n2d-standard-16` | no | The machine type. For the Integration environment, the default is `n2d-standard-2`<!--  but you can change it -->. For the production environment, the default is `n2d-standard-16` which is the only valid value. |
+| `uid_deployment_env` | `string` | `integ` | yes | Valid values: `integ` for integration environment, `prod` for production environment. |
 | `region` | `string` | `us-east1` | no | The region that you want to deploy to. For a list of valid regions, see [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) in the Google Cloud documentation.<br/>NOTE: The UID2 Private Operator implementation for GCP Confidential Space is not supported in these areas: Europe, China. |
 | `network_name` | `string` | `uid-operator` | no | The VPC resource name (also used for rules/ instance tags). |
 | `min_replicas` | `number` | `1` | no | Indicates the minimum number of replicas you want to deploy. Default value: `1`. |
@@ -248,7 +254,7 @@ The following table summarizes the output value from the Terraform template.
 
 If you want to change the load balancer from HTTP to HTTPS, which is highly recommended, follow these steps:
 
-1. Provide your certificate via Terraform, following the instructions on the Terraform [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate.html) documentation page. (**GWH_YS71 Thomas said: "It looks like the mechanism has changed, so I don't think we need a link to that document, but Yi should have the final say on that one" please let me know. / Yi said: "Don't need the whole section "Terraform Template—Changing the Load Balancer to HTTPS" now. If they want they could set ssl input to true and provide cert infos as input. / Gen said: "querying this. Maybe it could be discussed elsewhere -- your call -- but if I take it out we don't have any info at all about setting to HTTPS -- which we are strongly recommending. My suggestion is we add it in Provide Input Values section, as a new Step 3, Set Load Balancer to HTTPS. Then the additional input parameters would be step 4. LMK what you think. But I don't think we should just remove it. Not making this change for now."**)
+1. Provide your certificate via Terraform, following the instructions on the Terraform [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate.html) documentation page. (**GWH_YS72 Thomas said: "It looks like the mechanism has changed, so I don't think we need a link to that document, but Yi should have the final say on that one" please let me know. / Yi said: "Don't need the whole section "Terraform Template—Changing the Load Balancer to HTTPS" now. If they want they could set ssl input to true and provide cert infos as input. / Gen said: "querying this. Maybe it could be discussed elsewhere -- your call -- but if I take it out we don't have any info at all about setting to HTTPS -- which we are strongly recommending. My suggestion is we add it in Provide Input Values section, as a new Step 3, Set Load Balancer to HTTPS. Then the additional input parameters would be step 4. LMK what you think. But I don't think we should just remove it. Not making this change for now."**)
 
 2. Add the following additional input parameters in the `terraform.tfvars` file:
 
@@ -367,7 +373,7 @@ Follow these steps:
 
     2. Run the script.
 
-       The secret is created in GCP Secret Manager. The secret (display) name is {API_TOKEN_SECRET_NAME} and the secret value is {API_TOKEN}. (**GWH_YS72 is it correct to say that the script creates the secret? If not, what creates the secret?**)
+       The script creates the secret in GCP Secret Manager. The secret (display) name is {API_TOKEN_SECRET_NAME} and the secret value is {API_TOKEN}.
 
 1. Run the following command to get the full secret name, including the path, first customizing with your own values:   
 
@@ -414,7 +420,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
   --image-project confidential-space-images \
   --image-family confidential-space \
   --service-account {SERVICE_ACCOUNT} \
-  --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-restart-policy=Never~tee-container-log-redirect=true~tee-env-DEPLOYMENT_ENVIRONMENT=integ~tee-env-API_TOKEN_SECRET_NAME={API_TOKEN_SECRET_FULL_NAME}
+  --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-restart-policy=Never~tee-env-DEPLOYMENT_ENVIRONMENT=integ~tee-env-API_TOKEN_SECRET_NAME={API_TOKEN_SECRET_FULL_NAME}
 ```
 
 ##### Sample Deployment Script&#8212;Prod
@@ -433,7 +439,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
   --image-project confidential-space-images \
   --image-family confidential-space \
   --service-account {SERVICE_ACCOUNT} \
-  --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-restart-policy=Never~tee-container-log-redirect=true~tee-env-DEPLOYMENT_ENVIRONMENT=prod~tee-env-API_TOKEN_SECRET_NAME={API_TOKEN_SECRET_NAME}
+  --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-restart-policy=Never~tee-env-DEPLOYMENT_ENVIRONMENT=prod~tee-env-API_TOKEN_SECRET_NAME={API_TOKEN_SECRET_NAME}
 ```
 
 #### Run the Script
@@ -450,11 +456,11 @@ For instructions, see [Health Check&#8212;gcloud CLI](#health-checkgcloud-cli).
 
 This section provides instructions for completing the following tasks. Where applicable, instructions are provided for both environments. It includes:
 
-- [Viewing the UID2 Private Operator Logs](#viewing-the-uid2-private-operator-logs)
+<!-- - [Viewing the UID2 Private Operator Logs](#viewing-the-uid2-private-operator-logs) (**GWH_YS74 is this gone permanently? Or just for the draft?**)-->
 - [Running the Health Check](#running-the-health-check)
 - [Upgrading](#upgrading)
 
-### Viewing the UID2 Private Operator Logs
+<!-- ### Viewing the UID2 Private Operator Logs
 
 >NOTE: You must have the following permission, from the project administrator, so that you can view logs: `The Logs Viewer ( roles/logging.viewer ) role`.
 
@@ -471,7 +477,7 @@ To view the logs, follow these steps.
       log_name="projects/{PROJECT_ID}/logs/confidential-space-launcher"
    ```
 
-You could also add or select more filters on the left panel; for example, filter by `INSTANCE_ID`.
+You could also add or select more filters on the left panel; for example, filter by `INSTANCE_ID`. -->
 
 ### Running the Health Check
 
