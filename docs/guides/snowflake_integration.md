@@ -39,7 +39,7 @@ The following table summarizes the functionality available with the UID2 Snowfla
 
 *You cannot generate a UID2 token directly from DII. However, you can convert DII to a raw UID2, and then encrypt the raw UID2 into a UID2 token.
 
->NOTE: If you are a publisher who is sharing UID2 tokens in the bid stream, see [Sharing in the Bid Stream](../sharing/sharing-bid-stream). 
+>NOTE: If you are a publisher who is sharing UID2 tokens in the bid stream, see [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md).
 
 ## Workflow Diagram
 
