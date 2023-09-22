@@ -529,6 +529,8 @@ A UID2 sharer is any participant that wants to share UID2s with another particip
 
 A sharing participant must encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into [UID2 tokens](../ref-info/glossary-uid#gl-uid2-token) before sending them to another participant.
 
+>IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bid stream. There is a different workflow for generating tokens for the bid stream: see [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md).
+
 The following scenarios support UID2 sharing:
 
 - [Encrypt Tokens](#encrypt-tokens)
