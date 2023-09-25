@@ -68,7 +68,7 @@ When the registration process is complete, you'll receive the following:
 | Item | Description |
 | :--- | :--- |
 | `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration. The following example is fictitious, but shows what the Docker image URL might look like: `https://console.cloud.google.com/artifacts/docker/uid2-prod-project/us/iabtechlab/uid2-operator/sha256:2e4fae98b688002303c6263f7c4bf95344a1d9c15fb5fcf838b59032bb9813f2`. Use the image URL provided to you as part of account setup.<br/>NOTE: The image is valid for both deployment environments. |
-| `{API_TOKEN}` | An API token, exclusive to you, that identifies you with the UID2 service as a private operator. This value is used in configuration. The API token is your unique identifier, like a password; store it securely and do not share it.<br/>NOTE: You'll receive a separate API token for each deployment environment. |
+| `{API_TOKEN}` | An API token, exclusive to you, that identifies you with the UID2 service as a private operator. This value is used in configuration. The API token is both your unique identifier and a password; store it securely and do not share it.<br/>NOTE: You'll receive a separate API token for each deployment environment. |
 | Instructions | Additional information details, such as instructions for setting up VMs or a link to the applicable information. |
 
 When UID2 account registration is complete, and you've installed the gcloud CLI, your next steps are:
@@ -118,29 +118,28 @@ The Terraform template does the following:
   - Instances: Instance template, instance groups (with auto-scaling enabled).
   - Ingress: Load balancer (with health check), forwarding rules, and firewall rules.
   - Egress: [Cloud Network Address Translation (NAT)](https://cloud.google.com/nat/docs/overview).
+- If HTTPS is enabled, provides your certificate to Terraform.
 
 >NOTE: The Terraform template uses the gcloud CLI. These deployment instructions assume that you completed this earlier step: [Install the gloud CLI](#install-gcloud-cli).
 
 To deploy a new UID2 Operator in the GCP Confidential Space Enclave, using the Terraform template, follow these steps:
 
 1. [Install Terraform](#install-terraform)
-1. [Set Up the Environment](#set-up-the-environment)
+1. [Set Up the Terraform Environment](#set-up-the-terraform-environment)
 1. [Download the Template Files](#download-the-template-files)
 1. [Provide Input Values](#provide-input-values)
 1. [Run Terraform](#run-terraform)
 1. [Test Terraform Using the Health Check Endpoint](#test-terraform-using-the-health-check-endpoint)
-<!-- 1. [Clean Up](#clean-up) -->
+1. [Delete All Created Resources](#delete-all-created-resources)
 
 For additional information, see:
-- [Input Parameters and Values](#input-parameters-and-values)
 - [Outputs](#outputs)
-- [Terraform Template&#8212;Changing the Load Balancer to HTTPS](#terraform-templatechanging-the-load-balancer-to-https)
 
 #### Install Terraform
 
 Install Terraform if it is not already installed: visit [terraform.io](https://www.terraform.io/).
 
-#### Set Up the Environment
+#### Set Up the Terraform Environment
 
 1. Create the project, replacing the `{PROJECT_ID}` placeholder with your own project ID (see [Confidential Space Account Setup](#confidential-space-account-setup)):
 
@@ -156,9 +155,7 @@ Install Terraform if it is not already installed: visit [terraform.io](https://w
 
 #### Download the Template Files
 
-From the UID2 Operator GitHub repository, download the template files listed in the following table.
-
-For more information, refer to the [readme file for the Terraform template](https://github.com/IABTechLab/uid2-operator/tree/master/scripts/gcp-oidc/terraform).
+Follow the instructions you receive when your registration process is complete (see) [UID2 Operator Account Setup](#uid2-operator-account-setup)) to download the template files listed in the following table.
 
 | File | Details |
 | :--- | :--- |
@@ -167,29 +164,42 @@ For more information, refer to the [readme file for the Terraform template](http
 | outputs.tf | Includes output definitions. |
 | terraform.tfvars | Contains the values for the template input variables. |
 
+Links to applicable readme files:
+- [readme file for the Google Cloud Platform Confidential Space Private Operator](https://github.com/IABTechLab/uid2-operator/tree/master/scripts/gcp-oidc)
+- [readme file for the Terraform template](https://github.com/IABTechLab/uid2-operator/tree/master/scripts/gcp-oidc/terraform)
+
 #### Provide Input Values
 
 Provide values for the input parameters, as needed, in the `terraform.tfvars` file that you downloaded. Some are required, others are optional.
 
-For details about the parameters and valid values, see [Input Parameters and Values](#input-parameters-and-values).
+1. Provide values for the required input parameters shown in the following table:
 
-1. Provide values for the following required input parameters:
-   - `project_id`
-   - `service_account_name`
-   - `uid_operator_image`
-   - `uid_api_token` 
+   | Name | Type | Default | Required | Description |
+   | :--- | :--- | :--- | :--- | :--- |
+   | `project_id` | `string` | n/a | yes | The ID of the GCP project that you want the UID2 Operator to run in; for example, `UID2_Operator_Production`. |
+   | `service_account_name` | `string` | n/a | yes | The name of the service account that you want to use for your UID2 Operator instance in GCP Confidential Space. |
+   | `uid_operator_image` | `string` | n/a | yes | The Docker image URL for the UID2 Private Operator for GCP, used in configuration, which you received as part of [UID2 Operator Account Setup](#uid2-operator-account-setup). For example: `us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator@sha256:{IMAGE_SHA}`. |
+   | `uid_api_token` | `string` | n/a | yes | The UID2 `api_token` value. |
+   | `uid_deployment_env` | `string` | `integ` | yes | Valid values: `integ` for integration environment, `prod` for production environment.<br/>Machine type is determined by the deployment environment: `integ` uses `n2d-standard-2` and `prod` uses `n2d-standard-16`. |
 
-1. Provide values for the following environment-specific parameters:
-   - `uid_machine_type`: For the integration environment, the default is `n2d-standard-2`<!--  but you can change it -->. For the production environment, the default is `n2d-standard-16` which is the only valid value.
-   - `uid_deployment_env`: Valid values: `integ` for the integration environment, `prod` for the production environment.
+1. (Optional, strongly recommended) Set the load balancer to HTTPS. Provide values for the parameters shown in the following table:
 
-1. (Optional) Provide parameter names and values for these additional input parameters that are always optional. These parameters have defaults, but you might want to modify the values to better suit your requirements:
-   - `region`
-   - `network_name`
-   - `min_replicas`
-   - `max_replicas`
-   - `debug_mode`
-   - `uid_api_token_secret_name`
+   | Name | Type | Default | Required | Description |
+   | :--- | :--- | :--- | :--- | :--- |
+   | `ssl` | `bool`  | `false`| no | To set the load balancer to use HTTPS, which is recommended, set this flag to `true`.<br/>If you're using HTTPS you must also specify values for the `certificate` and `private_key` parameters. |
+   | `certificate` | `string`  | n/a | no | The contents of the certificate.<br/>For example: `file('path/to/certificate.crt')`.<br/>Required if `ssl` is set to `true`. |
+   | `private_key` | `string`  | n/a | no | The contents of the private SSL key. For example: `file('path/to/private.key')`. <br/>Required if `ssl` is set to `true`. |
+   
+1. (Optional) Provide parameter names and values for the additional input parameters shown in the following table. These parameters are always optional, but you might want to modify from the default values to better suit your requirements.
+
+   | Name | Type | Default | Required | Description |
+   | :--- | :--- | :--- | :--- | :--- |
+   | `region` | `string` | `us-east1` | no | The region that you want to deploy to. For a list of valid regions, see [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) in the Google Cloud documentation.<br/>NOTE: The UID2 Private Operator implementation for GCP Confidential Space is not supported in these areas: Europe, China. |
+   | `network_name` | `string` | `uid-operator` | no | The VPC resource name (also used for rules/ instance tags). |
+   | `min_replicas` | `number` | `1` | no | Indicates the minimum number of replicas you want to deploy. Default value: `1`. |
+   | `max_replicas` | `number` | `5` | no | Indicates the maximum number of replicas you want to deploy. Default value: `5`. |
+   | `uid_api_token_secret_name` | `string` | `"secret-api-token"` | no |  The name for the `api_token` secret value. The Terraform template creates a secret in the GCP Secret Manager to hold the `uid_api_token` value. You can define the name; for example, `uid2_operator_api_token_secret_integ`. |
+   | `debug_mode` | `bool`  | `false` | no | Do not set to `true` unless you are working with the UID2 team to debug an issue. In any other circumstances, if you set this flag to `true`, attestation will fail. |
 
 #### Run Terraform
 
@@ -209,38 +219,15 @@ Call the health check endpoint to test the health of your implementation. The ex
 
 For instructions, see [Health Check&#8212;Terraform Template](#health-checkterraform-template).
 
-<!-- #### Clean Up
+#### Delete All Created Resources
 
-(**GWH_YS75 Yi late comment in Word v6 review: "Clean up is not a "required" step for deploy, it will destroy all created resources..." /Gen "Then I am confused why we have it here. You don't say what you want me to do with this. Please advise! I'm commenting it out of the draft for the customer today as an interim measure." Additional questions: Do we need it at all? Should it perhaps go in Tasks? When, ever, would they do this?**)
+In a scenario where you want to clean up, you can remove the resources created by the template. For example, you might want to test `integ` and remove the whole stack later.
 
-Remove all resources created by Terraform:
+To remove all resources created by Terraform, run the following:
 
 ```
 terraform destroy
 ``` 
--->
-
-#### Input Parameters and Values
-
-The following table summarizes all the input parameters and values for the Terraform template.
-
-| Name | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| `project_id` | `string` | n/a | yes | The ID of the GCP project that you want the UID2 Operator to run in; for example, `UID2_Operator_Production`. |
-| `service_account_name` | `string` | n/a | yes | The name of the service account that you want to use for your UID2 Operator instance in GCP Confidential Space. |
-| `uid_operator_image` | `string` | n/a | yes | The Docker image URL for the UID2 Private Operator for GCP, used in configuration, which you received as part of [UID2 Operator Account Setup](#uid2-operator-account-setup). For example: `us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator@sha256:{IMAGE_SHA}`. |
-| `uid_api_token` | `string` | n/a | yes | The UID2 `api_token` value. <!-- (**GWH_JS76 Andrei had a question re upgrade, see https://ttdcorp-my.sharepoint.com/:w:/r/personal/gen_whitt_thetradedesk_com/_layouts/15/Doc.aspx?sourcedoc=%7B2DFFE791-D5B9-4B29-AFB6-8982EC7D99A2%7D&file=review_gwh-APIDOCS-1655-gcp-private-operator-v2_20210920.docx and says "We can start with this, but need to come up with a better approach." future mod?** ) -->|
-| `uid_api_token_secret_name` | `string` | `"secret-api-token"` | no |  The name for the `api_token` secret value. The Terraform template creates a secret in the GCP Secret Manager to hold the `uid_api_token` value. You can define the name; for example, `uid2_operator_api_token_secret_integ`. |
-| `uid_machine_type` | `string` | `n2d-standard-16` | no | The machine type. For the Integration environment, the default is `n2d-standard-2`<!--  but you can change it -->. For the production environment, the default is `n2d-standard-16` which is the only valid value. |
-| `uid_deployment_env` | `string` | `integ` | yes | Valid values: `integ` for integration environment, `prod` for production environment. |
-| `region` | `string` | `us-east1` | no | The region that you want to deploy to. For a list of valid regions, see [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) in the Google Cloud documentation.<br/>NOTE: The UID2 Private Operator implementation for GCP Confidential Space is not supported in these areas: Europe, China. |
-| `network_name` | `string` | `uid-operator` | no | The VPC resource name (also used for rules/ instance tags). |
-| `min_replicas` | `number` | `1` | no | Indicates the minimum number of replicas you want to deploy. Default value: `1`. |
-| `max_replicas` | `number` | `5` | no | Indicates the maximum number of replicas you want to deploy. Default value: `5`. |
-| `debug_mode` | `bool`  | `false` | no | Do not set to `true` unless you are working with the UID2 team to debug an issue. In any other circumstances, if you set this flag to `true`, attestation will fail. |
-| `ssl` | `bool`  | `false`| no | To set the load balancer to use HTTPS, which is recommended, set this flag to `true`.<br/>If you're using HTTPS you must also specify values for the `certificate` and `private_key` parameters. |
-| `certificate` | `string`  | n/a | no | The contents of the certificate.<br/>For example: `file('path/to/certificate.crt')`.<br/>Required if `ssl` is set to `true`. |
-| `private_key` | `string`  | n/a | no | The contents of the private SSL key. For example: `file('path/to/private.key')`. <br/>Required if `ssl` is set to `true`. |
 
 #### Outputs
 
@@ -249,20 +236,6 @@ The following table summarizes the output value from the Terraform template.
 | Name | Description |
 | :--- | :--- |
 | `load_balancer_ip` | The public IP address of the load balancer.<br/>You can use this value to [perform the health check](#health-checkterraform-template) or to configure the DNS. |
-
-#### Terraform Template&#8212;Changing the Load Balancer to HTTPS
-
-If you want to change the load balancer from HTTP to HTTPS, which is highly recommended, follow these steps:
-
-1. Provide your certificate via Terraform, following the instructions on the Terraform [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate.html) documentation page. (**GWH_YS72 Thomas said: "It looks like the mechanism has changed, so I don't think we need a link to that document, but Yi should have the final say on that one" please let me know. / Yi said: "Don't need the whole section "Terraform Template—Changing the Load Balancer to HTTPS" now. If they want they could set ssl input to true and provide cert infos as input. / Gen said: "querying this. Maybe it could be discussed elsewhere -- your call -- but if I take it out we don't have any info at all about setting to HTTPS -- which we are strongly recommending. My suggestion is we add it in Provide Input Values section, as a new Step 3, Set Load Balancer to HTTPS. Then the additional input parameters would be step 4. LMK what you think. But I don't think we should just remove it. Not making this change for now."**)
-
-2. Add the following additional input parameters in the `terraform.tfvars` file:
-
-   - `ssl`: set to `true`.
-   - `certificate`: The contents of the certificate. 
-   - `private_key`: The contents of the private SSL key.
-
-For parameter details, see [Input Parameters and Values](#input-parameters-and-values).
 
 ### Deploy&#8212;gcloud CLI
 
@@ -280,7 +253,7 @@ To deploy a new UID2 Operator in the GCP Confidential Space Enclave using the gc
 
 To set up and configure the account that you created in [Install the gcloud CLI](#install-gcloud-cli), complete the following steps. Replace the placeholder values with your own valid values.
 
-2. Switch to the project that you created in [Confidential Space Account Setup](#confidential-space-account-setup):
+1. Switch to the project that you created in [Confidential Space Account Setup](#confidential-space-account-setup):
     ```
     $ gcloud config set project {PROJECT_ID}
     ```
@@ -409,10 +382,10 @@ Placeholder values are defined in the following table.
 
 The following example of the deployment script for the integration environment uses some placeholder values.
 
-(**GWH_YS73 query re difference between this and https://github.com/IABTechLab/uid2-operator/tree/master/scripts/gcp-oidc#for-partner-create-vm-instance. Should I refresh? Not sure why they would be different. Machine type and last line. You said machine type not needed in integ script. Last line maybe more important. But still, not sure why a technical example would be different in the doc vs the readme.**)
-
 ```
 $ gcloud compute instances create {INSTANCE_NAME} \
+  --zone {ZONE} \
+  --machine-type n2d-standard-2 \
   --confidential-compute \
   --shielded-secure-boot \
   --maintenance-policy Terminate \
@@ -431,6 +404,7 @@ The following example of the deployment script for the production environment us
 
 ```
 $ gcloud compute instances create {INSTANCE_NAME} \
+  --zone {ZONE} \
   --machine-type n2d-standard-16 \
   --confidential-compute \
   --shielded-secure-boot \
@@ -456,28 +430,8 @@ For instructions, see [Health Check&#8212;gcloud CLI](#health-checkgcloud-cli).
 
 This section provides instructions for completing the following tasks. Where applicable, instructions are provided for both environments. It includes:
 
-<!-- - [Viewing the UID2 Private Operator Logs](#viewing-the-uid2-private-operator-logs) (**GWH_YS74 is this gone permanently? Or just for the draft?**)-->
 - [Running the Health Check](#running-the-health-check)
 - [Upgrading](#upgrading)
-
-<!-- ### Viewing the UID2 Private Operator Logs
-
->NOTE: You must have the following permission, from the project administrator, so that you can view logs: `The Logs Viewer ( roles/logging.viewer ) role`.
-
-To view the logs, follow these steps.
-
-1. Go to https://console.cloud.google.com/logs.
-
-2. Verify that the correct Google Cloud project is displayed in the title area. If needed, specify the UID2 project.
-
-3. Put the following filter info into the query:
-
-   ```
-      resource.type="gce_instance"
-      log_name="projects/{PROJECT_ID}/logs/confidential-space-launcher"
-   ```
-
-You could also add or select more filters on the left panel; for example, filter by `INSTANCE_ID`. -->
 
 ### Running the Health Check
 
