@@ -43,7 +43,7 @@ The following documentation resources are available for publishers to implement 
 - [Google Ad Manager Integrations](#google-ad-manager-integrations)
 - [Prebid Integrations](#prebid-integrations)
 
-### Web Integration
+### Web Integrations
 
 The following resources are available for publisher web integrations.
 
