@@ -48,7 +48,7 @@ The following documentation resources are available for publishers to implement 
 The following resources are available for publisher web integrations.
 
 | Integration Type | Integration Guide |  Content Description | Audience |
-| :---| :--- | :--- |
+| :---| :--- | :--- | :--- |
 | Client-Side (Web) Integration | [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) | This integration guide for publishers covers standard web integration scenarios that use the UID2 SDK for JavaScript. | Publishers |
 | Server-Side Integration  | [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) | This integration guide is for publishers that do not use the [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md). | Publishers |
 
