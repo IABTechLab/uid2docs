@@ -103,8 +103,8 @@ To get started, follow these steps:
     Confirm that UID2s are being generated and passed correctly in requests.
 1. Go live.
 
-## Frequently Asked Questions for Publishers
+## FAQs for Publishers
 
-For a list of FAQs for publishers using the UID2 framework, see [FAQs for Publishers](/docs/getting-started/gs-faqs.md#faqs-for-publishers).
+For a list of frequently asked questions for publishers using the UID2 framework, see [FAQs for Publishers](/docs/getting-started/gs-faqs.md#faqs-for-publishers).
 
 For a full list, see [Frequently Asked Questions](/docs/getting-started/gs-faqs.md).
