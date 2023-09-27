@@ -152,6 +152,4 @@ The following instructions provide an example of how you can implement sharing u
 
 ## FAQs
 
-For a list of frequently asked questions for DSPs, see [FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps).
-
-For a full list, see [Frequently Asked Questions](../getting-started/gs-faqs.md).
+For a list of frequently asked questions for DSPs, see [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps).
