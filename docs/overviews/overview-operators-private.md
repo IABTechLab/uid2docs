@@ -53,6 +53,6 @@ The following documentation resources are available for private operators to imp
 5. Test.
 6. Go live.
 
-## Frequently Asked Questions
+## FAQs
 
-Here are some FAQs regarding the UID2 framework: [Frequently Asked Questions](../getting-started/gs-faqs.md).
+For a list of frequently asked questions regarding the UID2 framework, see  [Frequently Asked Questions](../getting-started/gs-faqs.md).

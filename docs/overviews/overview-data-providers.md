@@ -59,9 +59,6 @@ To get started, follow these steps:
 1. Test.
 1. Go live.
 
-## Frequently Asked Questions for Data Providers
+## FAQs for Data Providers
 
-For a list of FAQs for data providers using the UID2 framework, see [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
-
-For a full list, see [Frequently Asked Questions](../getting-started/gs-faqs.md).
-
+For a list of frequently asked questions for data providers using the UID2 framework, see [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).

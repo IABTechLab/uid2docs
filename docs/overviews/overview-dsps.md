@@ -63,6 +63,6 @@ To get started, follow these steps:
 8. Test.
 9. Go live.
 
-## Frequently Asked Questions for DSPs
+## FAQs for DSPs
 
-For a list of FAQs for DSPs, see [FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps).
+For a list of frequently asked questions for DSPs using the UID2 framework, see [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps).
