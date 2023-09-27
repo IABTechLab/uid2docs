@@ -106,5 +106,3 @@ To get started, follow these steps:
 ## FAQs for Publishers
 
 For a list of frequently asked questions for publishers using the UID2 framework, see [FAQs for Publishers](/docs/getting-started/gs-faqs.md#faqs-for-publishers).
-
-For a full list, see [Frequently Asked Questions](/docs/getting-started/gs-faqs.md).
