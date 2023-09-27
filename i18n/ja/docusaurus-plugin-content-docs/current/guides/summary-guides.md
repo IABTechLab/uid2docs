@@ -1,5 +1,7 @@
 ---
 title: UID2 Integration Guides - Summary
+sidebar_label: Summary
+pagination_label: UID2 Integration Guides - Summary
 description: 利用可能なすべてのインテグレーションガイドの概要。
 hide_table_of_contents: false
 sidebar_position: 01
@@ -44,4 +46,4 @@ sidebar_position: 01
 | :----------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [UID2 Operator - Microsoft Azure Confidential Compute Operator Package](./operator-guide-azure-enclave.md)                                  | IMPORTANT: このドキュメントは現在、PoC の段階です。詳細は、UID2 Administrator に [連絡](../getting-started/gs-account-setup.md#contact-info) してください。<br/>Closed Operator Service を Microsoft Azure Confidential Computing プラットフォーム上で動作させるためのセットアップ手順です。 |
 | [UID2 Operator - AWS Marketplace](./operator-guide-aws-marketplace.md)                                | AWS Marketplace のクローズドオペレーターサービスをセットアップする手順です。　                                                                                                                                                                                                |
-| [UID2 Operator - Google Cloud Platform Confidential Compute package](./operator-guide-gcp-enclave.md) | Google Cloud Platform Confidential Compute (GCP) パッケージのセットアップ手順です。                                                                                                                                                                                           |
+<!-- | UID2 Operator - Google Cloud Platform Confidential Compute package | Google Cloud Platform Confidential Compute (GCP) パッケージのセットアップ手順です。                                                                                                                                                                                           | -->
