@@ -562,6 +562,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Philo",
+    logo: "Philo_logo.png",
+    type: ["Publishers"],
+  },
+  {
     name: "Pixnet",
     logo: "pixnet-logo.png",
     type: ["Data"],
@@ -643,6 +648,11 @@ export const partnersData: PartnersDataType = [
     name: "Slate",
     logo: "slate.png",
     type: ["Publishers"],
+  },
+  {
+    name: "Smrtr",
+    logo: "smrtr-logo-518x250.png",
+    type: ["Data"],
   },
   {
     name: "Snowflake",
