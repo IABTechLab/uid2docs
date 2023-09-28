@@ -4,11 +4,11 @@ description: Information summary for demand-side platforms (DSPs).
 hide_table_of_contents: false
 sidebar_position: 06
 use_banner: true
-banner_title: UID2 Overview for Demand-Side Platforms (DSPs)
+banner_title: UID2 Overview for DSPs
 banner_description: Enable data strategies with a more durable identifier.
 ---
 
-This page provides information about what the Unified ID 2.0 (UID2) framework offers to DSPs, available implementation options, and how to get started. The following sections break down the workflows, integration types, and documentation for DSPs adopting UID2.
+This page provides information about what the Unified ID 2.0 (UID2) framework offers to demand-side platforms (DSPs), available implementation options, and how to get started. The following sections break down the workflows, integration types, and documentation for DSPs adopting UID2.
 
 ## Audience
 
@@ -63,6 +63,6 @@ To get started, follow these steps:
 8. Test.
 9. Go live.
 
-## Frequently Asked Questions for DSPs
+## FAQs for DSPs
 
-For a list of FAQs for DSPs, see [FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps).
+For a list of frequently asked questions for DSPs using the UID2 framework, see [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps).

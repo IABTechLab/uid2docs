@@ -14,7 +14,7 @@ Frequently asked questions for UID2 are grouped into general categories by audie
 - [FAQs&#8212;General](#faqsgeneral)
 - [FAQs for Publishers](#faqs-for-publishers)
 - [FAQs for Advertisers and Data Providers](#faqs-for-advertisers-and-data-providers)
-- [FAQs for Demand-Side Platforms (DSPs)](#faqs-for-demand-side-platforms-dsps) -->
+- [FAQs for DSPs)](#faqs-for-dsps) -->
 
 ## FAQs&#8212;General
 
@@ -169,9 +169,9 @@ When a user opts out of UID2-based targeted advertising through the [Transparenc
 
 If a user opts out through your website, you should follow your internal procedures for handling the optout, for example, you might choose not to generate a UID2 for that user.
 
-## FAQs for Demand-Side Platforms (DSPs)
+## FAQs for DSPs
 
-Here are some frequently asked questions for DSPs.
+Here are some frequently asked questions for demand-side platforms (DSPs).
 
    - [How do I know which decryption key to apply to a UID2?](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
    - [Where do I get the decryption keys?](#where-do-i-get-the-decryption-keys)
@@ -217,7 +217,7 @@ In some cases a DSP may receive a UID2 token for a newly-stored UID2 where the t
 
 #### How long should the DSP keep the opt-out list?
 <!-- FAQ_32 DSP -->
-At least for 30 days.
+We recommend that you keep the opt-out information indefinitely.
 
 #### Is the UID of an opted-out user sent to the opt-out endpoint in an encrypted form?
 <!-- FAQ_33 DSP -->
