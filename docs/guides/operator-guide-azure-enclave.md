@@ -2,7 +2,7 @@
 title: UID2 Operator - Microsoft Azure Confidential Compute Operator Package
 sidebar_label: Microsoft Azure
 pagination_label: UID2 Operator - Microsoft Azure Confidential Compute Operator Package
-description: Integration information in Microsoft Azure for private operators.
+description: Integration information for Private Operator in Microsoft Azure.
 hide_table_of_contents: false
 sidebar_position: 18
 ---

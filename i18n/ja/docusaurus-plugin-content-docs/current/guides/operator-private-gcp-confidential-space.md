@@ -2,7 +2,7 @@
 title: UID2 Operator - Google Cloud Platform Confidential Space
 sidebar_label: GCP Confidential Space
 pagination_label: UID2 Operator - Google Cloud Platform Confidential Space
-description: Integration information in Google Cloud Platform for private operators.
+description: Integration information for Private Operator in GCP.
 hide_table_of_contents: false
 sidebar_position: 18
 ---
@@ -15,7 +15,7 @@ This guide provides information for setting up the UID2 Operator Service in [Con
 
 The Operator Service runs in a Confidential Space "workload"&#8212;a containerized Docker image that runs in a secure cloud-based enclave on top of the Confidential Space image.
 
-When the Docker container for the UID2 Operator Confidential Space starts up, it completes the attestation process that allows the UID2 Core Service to verify the authenticity of the Operator Service and the enclave environment the Operator Service is running in.
+When the Docker container for the UID2 Operator Confidential Space starts up, it completes the attestation process that allows the UID2 Core Service to verify the authenticity of the Operator Service and the enclave environment that the Operator Service is running in.
 
 When the attestation is successful, the UID2 Core Service provides seed information such as salts and keys to bootstrap the UID2 Operator in the secure Confidential Space container.
 
@@ -68,7 +68,7 @@ When the registration process is complete, you'll receive the following:
 | Item | Description |
 | :--- | :--- |
 | `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration. The following example is fictitious, but shows what the Docker image URL might look like: `https://console.cloud.google.com/artifacts/docker/uid2-prod-project/us/iabtechlab/uid2-operator/sha256:2e4fae98b688002303c6263f7c4bf95344a1d9c15fb5fcf838b59032bb9813f2`. Use the image URL provided to you as part of account setup.<br/>NOTE: The image is valid for both deployment environments. |
-| `{OPERATOR_KEY}` | An /operator key, exclusive to you, that identifies you with the UID2 service as a private operator. Use this as the `OPERATOR_KEY` value during  configuration. This value is both your unique identifier and a password; store it securely and do not share it.<br/>NOTE: You'll receive a separate operator key for each deployment environment. |
+| `{OPERATOR_KEY}` | An operator key, exclusive to you, that identifies you with the UID2 service as a private operator. Use this as the `OPERATOR_KEY` value during  configuration. This value is both your unique identifier and a password; store it securely and do not share it.<br/>NOTE: You'll receive a separate operator key for each deployment environment. |
 | Instructions | Additional information details, such as instructions for setting up VMs or a link to the applicable information. |
 
 When UID2 account registration is complete, and you've installed the gcloud CLI, your next steps are:
@@ -99,11 +99,9 @@ There are two deployment options:
 
 Both deployment options support both deployment environments.
 
-To determine your deployment steps, do the following:
-1. First, choose the deployment option you want to use.
-2. Then, follow the applicable instructions:
-   - [Deploy&#8212;Terraform Template](#deployterraform-template)
-   - [Deploy&#8212;gcloud CLI](#deploygcloud-cli)
+To determine your next steps, choose the deployment option you want to use. Then, follow the applicable instructions:
+- [Deploy&#8212;Terraform Template](#deployterraform-template)
+- [Deploy&#8212;gcloud CLI](#deploygcloud-cli)
 
 ### Deploy&#8212;Terraform Template
 
@@ -120,7 +118,7 @@ The Terraform template does the following:
   - Egress: [Cloud Network Address Translation (NAT)](https://cloud.google.com/nat/docs/overview).
 - If HTTPS is enabled, provides your HTTPS certificate to Terraform.
 
->NOTE: The Terraform template uses the gcloud CLI. These deployment instructions assume that you completed this earlier step: [Install the gloud CLI](#install-gcloud-cli).
+>NOTE: The Terraform template uses the gcloud CLI that you installed in [Confidential Space Account Setup](#confidential-space-account-setup) Step 3.
 
 To deploy a new UID2 Operator in the GCP Confidential Space Enclave, using the Terraform template, follow these steps:
 
@@ -130,9 +128,9 @@ To deploy a new UID2 Operator in the GCP Confidential Space Enclave, using the T
 1. [Provide Input Values](#provide-input-values)
 1. [Run Terraform](#run-terraform)
 1. [Test Terraform Using the Health Check Endpoint](#test-terraform-using-the-health-check-endpoint)
-1. [Delete All Created Resources](#delete-all-created-resources)
 
 For additional information, see:
+- [Delete All Created Resources](#delete-all-created-resources)
 - [Outputs](#outputs)
 
 #### Install Terraform
@@ -155,7 +153,7 @@ Install Terraform if it is not already installed: visit [terraform.io](https://w
 
 #### Download the Template Files
 
-Follow the instructions you receive when your registration process is complete (see) [UID2 Operator Account Setup](#uid2-operator-account-setup)) to download the template files listed in the following table.
+Follow the instructions you receive when your registration process is complete (see [UID2 Operator Account Setup](#uid2-operator-account-setup)) to download the template files listed in the following table.
 
 | File | Details |
 | :--- | :--- |
@@ -183,8 +181,8 @@ Provide values for the input parameters, as needed, in the `terraform.tfvars` fi
    | Name | Type | Default | Required | Description |
    | :--- | :--- | :--- | :--- | :--- |
    | `ssl` | `bool`  | `false`| no | To set the load balancer to use HTTPS, which is recommended, set this flag to `true`.<br/>If you're using HTTPS you must also specify values for the `certificate` and `private_key` parameters. |
-   | `certificate` | `string`  | n/a | no | The contents of the HTTPS certificate.<br/>For example: `file('path/to/certificate.crt')`.<br/>Required if `ssl` is set to `true`.<br/>For details about the certificate format, see [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#certificate) in the Terraform documentation. |
-   | `private_key` | `string`  | n/a | no | The contents of the private key for the HTTPS certificate. For example: `file('path/to/private.key')`. <br/>Required if `ssl` is set to `true`.<br/>For details about the private key format, see [[google_compute_ssl_certificate]](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#private_key) in the Terraform documentation.<br/>(**GWH_YS clarification needed for both URLs.**) |
+   | `certificate` | `string`  | n/a | no | The contents of the HTTPS certificate. The certificate should be in PEM format.<br/>For example: `file('path/to/certificate.pem')`.<br/>Required if `ssl` is set to `true`.<br/>For details, see [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#certificate) in the Terraform documentation. |
+   | `private_key` | `string`  | n/a | no | The contents of the private key for the HTTPS certificate. The private key should be in PEM format.<br/>For example: `file('path/to/private_key.pem')`. <br/>Required if `ssl` is set to `true`.<br/>For details, see [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#private_key) in the Terraform documentation. |
    
 1. (Optional) Provide parameter names and values for the additional input parameters shown in the following table. These parameters are always optional, but you might want to modify from the default values to better suit your requirements.
 
@@ -247,7 +245,7 @@ To deploy a new UID2 Operator in the GCP Confidential Space Enclave using the gc
 
 #### Set Up Service Account Rules and Permissions
 
-To set up and configure the account that you created in [Install the gcloud CLI](#install-gcloud-cli), complete the following steps. Replace the placeholder values with your own valid values.
+To set up and configure the account that you created when you installed the gcloud CLI, complete the following steps. Replace the placeholder values with your own valid values.
 
 1. Switch to the project that you created in [Confidential Space Account Setup](#confidential-space-account-setup):
     ```
@@ -279,7 +277,7 @@ To set up and configure the account that you created in [Install the gcloud CLI]
 
 5. Grant the required permissions to the service account.
 
-   Permissions are shown in the following table:
+   Permissions are shown in the following table.
 
    | Permission | Description |
    | :--- | :--- |
@@ -394,7 +392,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
 
 ##### Sample Deployment Script&#8212;Prod
 
-The following example of the deployment script for the production environment uses placeholder values.
+The following example of the deployment script for the production environment uses some placeholder values.
 
 >NOTE: A `machine-type` value of `n2d-standard-16` is required for the production environment.
 
