@@ -2,12 +2,12 @@
 title: UID2 Operator - AWS Marketplace Integration
 sidebar_label: AWS Marketplace
 pagination_label: UID2 Operator - AWS Marketplace Integration
-description: Integration information for AWS Marketplace private operator.
+description: Integration information for Private Operator in AWS.
 hide_table_of_contents: false
 sidebar_position: 17
 ---
 
-# UID2 Operator - AWS Marketplace Integration Guide
+# UID2 Operator&#8212;AWS Marketplace Integration Guide
 
 The UID2 Operator is the API server in the UID2 ecosystem. For a Private Operator service running in AWS Marketplace, the UID2 Operator solution is enhanced with [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave technology. This is an additional security measure to protect UID2 information from unauthorized access.
 
@@ -144,7 +144,7 @@ Here's what you can customize during or after the [deployment](#deployment):
 
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
-| 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/opt/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Checking UID2 Operator Status](#checking-uid2-operator-status).|
+| 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Checking UID2 Operator Status](#checking-uid2-operator-status).|
 | 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). |
 | 443 | Outbound | HTTPS | Calls the UID2 Core Service; updates opt-out data and key store. |
 

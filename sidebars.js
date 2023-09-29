@@ -130,7 +130,7 @@ const sidebars = {
           collapsed: true,
           items: [
             'guides/operator-guide-aws-marketplace',
-            'guides/operator-guide-gcp-enclave',
+            'guides/operator-private-gcp-confidential-space',
             'guides/operator-guide-azure-enclave',
           ],
         },

@@ -73,7 +73,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
 | Operator | [UID2 Operator - AWS Marketplace Integration Guide](../guides/operator-guide-aws-marketplace.md) | AWS Marketplace の Private Operator Service を設定する手順です。 | Private Operators<br/>Publishers |
-| Operator| [UID2 Operator - Google Cloud Platform Confidential Computing package](../guides/operator-guide-gcp-enclave.md) | Google Cloud Platform Confidential Computing パッケージ (GCP)のセットアップ手順です。 | Private Operators<br/>Publishers |
+<!-- | Operator| UID2 Operator - Google Cloud Platform Confidential Computing package | Google Cloud Platform Confidential Computing パッケージ (GCP)のセットアップ手順です。 | Private Operators<br/>Publishers | -->
 | Operator Integration Guide | [Operator - Microsoft Azure](../guides/operator-guide-azure-enclave.md) | IMPORTANT: このドキュメントは現在、PoC の段階です。UID2 Administrator に [連絡](../getting-started/gs-account-setup.md#contact-info) してください。<br/>Microsoft Azure Confidential Computing platform 上で実行する Private Operator Service のセットアップ手順です。 | Private Operators<br/>Publishers |
 
 ## Workflow for Publishers
