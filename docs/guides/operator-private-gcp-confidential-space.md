@@ -95,7 +95,7 @@ There are two deployment options:
 | Option | Details |
 | :--- | :--- |
 | [Terraform template](#deployterraform-template) | This option:<ul><li>Does not require manually setting up a service account. The setup is very simple.</li><li>Brings up a whole stack with a load balancer and a scaling group.</li><li>Is easier to maintain and operate than the `gcloud` option.</li><li>Is very simple to upgrade.</li><li>Is the recommended deployment solution.</li></ul> |
-| [gcloud CLI](#deploygcloud-cli) | This option:<ul><li>Brings up one VM instance with a public IP address.</li><li>For multiple instances, requires bringing up each instance manually, by running the command multiple times.</li><li>Requires setting up the load balancer manually.</li><li>Is more complex to upgrade, since more manual steps are needed.</li></ul> |
+| [gcloud CLI](#deploygcloud-cli) | This option:<ul><li>Brings up one VM instance with a public IP address.</li><li>Can be easier for quick experimentation/evaluation.</li><li>For multiple instances, requires bringing up each instance manually, by running the command multiple times.</li><li>Requires setting up the load balancer manually.</li><li>Is more complex to upgrade, since more manual steps are needed.</li></ul> |
 
 Both deployment options support both deployment environments.
 
@@ -139,7 +139,7 @@ Install Terraform if it is not already installed: visit [terraform.io](https://w
 
 #### Set Up the Terraform Environment
 
-1. Create the project, replacing the `{PROJECT_ID}` placeholder with your own project ID (see [Confidential Space Account Setup](#confidential-space-account-setup)):
+1. Create a new project or select an existing one, replacing the `{PROJECT_ID}` placeholder with your own project ID (see [Confidential Space Account Setup](#confidential-space-account-setup)):
 
    ```
    gcloud config set project {PROJECT_ID}
@@ -157,10 +157,10 @@ Follow the instructions you receive when your registration process is complete (
 
 | File | Details |
 | :--- | :--- |
-| main.tf | The Terraform template file. |
-| variables.tf | Contains the definitions for the template input variables, including name, type, and default value. |
-| outputs.tf | Includes output definitions. |
-| terraform.tfvars | Contains the values for the template input variables. |
+| `main.tf` | The Terraform template file. |
+| `variables.tf` | Contains the definitions for the template input variables, including name, type, and default value. |
+| `outputs.tf` | Includes output definitions. |
+| `terraform.tfvars` | Contains the values for the template input variables. |
 
 #### Provide Input Values
 
@@ -190,8 +190,8 @@ Provide values for the input parameters, as needed, in the `terraform.tfvars` fi
    | :--- | :--- | :--- | :--- | :--- |
    | `region` | `string` | `us-east1` | no | The region that you want to deploy to. For a list of valid regions, see [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) in the Google Cloud documentation.<br/>NOTE: The UID2 Private Operator implementation for GCP Confidential Space is not supported in these areas: Europe, China. |
    | `network_name` | `string` | `uid-operator` | no | The VPC resource name (also used for rules/ instance tags). |
-   | `min_replicas` | `number` | `1` | no | Indicates the minimum number of replicas you want to deploy. Default value: `1`. |
-   | `max_replicas` | `number` | `5` | no | Indicates the maximum number of replicas you want to deploy. Default value: `5`. |
+   | `min_replicas` | `number` | `1` | no | Indicates the minimum number of replicas you want to deploy. |
+   | `max_replicas` | `number` | `5` | no | Indicates the maximum number of replicas you want to deploy. |
    | `uid_operator_key_secret_name` | `string` | `"secret-operator-key"` | no |  The name that you specify for your operator key secret. The Terraform template creates a secret in the GCP Secret Manager to hold the `uid_operator_key` value. You can define the name; for example, `uid2-operator-operator-key-secret-integ`. |
    | `debug_mode` | `bool`  | `false` | no | Do not set to `true` unless you are working with the UID2 team to debug an issue. In any other circumstances, if you set this flag to `true`, attestation will fail. |
 
@@ -252,7 +252,7 @@ To set up and configure the account that you created when you installed the gclo
     $ gcloud config set project {PROJECT_ID}
     ```
  
-3. Enable the following APIs:
+1. Enable the following APIs:
 
    | Name | Description |
    | :--- | :--- |
@@ -270,12 +270,12 @@ To set up and configure the account that you created when you installed the gclo
       secretmanager.googleapis.com
     ```
 
-4. Create a service account to run the UID2 Operator Service:
+1. Create a service account to run the UID2 Operator Service:
     ```
     $ gcloud iam service-accounts create {SERVICE_ACCOUNT_NAME}
     ```
 
-5. Grant the required permissions to the service account.
+1. Grant the required permissions to the service account.
 
    Permissions are shown in the following table.
 
@@ -308,7 +308,7 @@ To set up and configure the account that you created when you installed the gclo
       --role=roles/secretmanager.secretAccessor
     ```
 
-6. Add a VPC rule to allow public access on port 8080, the default exposed port for the UID2 operator:
+1. Add a VPC rule to allow public access on port 8080, the default exposed port for the UID2 operator:
     ```
     $ gcloud compute firewall-rules create operator-tcp \
       --direction=INGRESS --priority=1000 --network=default --action=ALLOW \
