@@ -187,6 +187,7 @@ const sidebars = {
       ],
     },
     'ref-info/glossary-uid',
+    'ref-info/updates-doc',
   ],
 };
 module.exports = sidebars;
