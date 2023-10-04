@@ -74,13 +74,13 @@ public Response Decrypt(String encryptedToken)
 
 ### Response Content
 
-Available information returned through the SDK is outlined in the following table.
+Available information returned through the SDK is outlined in the following table. (**GWH_JN mods in the below table**)
 
-| Property | Description |
+| Member Function | Description |
 | :--- | :--- |
-| `Status` | The decryption result status. For a list of possible values and definitions, see [Response Statuses](#response-statuses). |
-| `UID2` | The raw UID2 for the corresponding UID2 advertising token. |
-| `Established` | The timestamp indicating when a user first established the UID2 with the publisher. |
+| `GetStatus()` | The decryption result status. For a list of possible values and definitions, see [Response Statuses](#response-statuses). |
+| `GetUid()` | The raw UID2 for the corresponding UID2 advertising token. |
+| `GetEstablished()` | The timestamp indicating when a user first established the UID2 with the publisher. |
 
 ### Response Statuses
 
