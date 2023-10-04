@@ -45,7 +45,7 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 | `email_hash`   | string array | 条件付きで必要 | [正規化](../getting-started/gs-normalization-encoding#email-address-hash-encoding) したメールアドレスを [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding#email-address-normalization) したリストです。 |
 | `phone`        | string array | 条件付きで必要 | マッピングする [正規化](../getting-started/gs-normalization-encoding#phone-number-normalization) 済み電話番号のリストです。                                                                                   |
 | `phone_hash`   | string array | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding#phone-number-hash-encoding) した [正規化](../getting-started/gs-normalization-encoding#phone-number-normalization) 済み電話番号のリストです。         |
-| `policy`       | number       | オプション     | ユーザー識別子がオプトアウトされたときの ID マップの動作をカスタマイズします。詳しくは、[Identity Map Policy](#identity-map-policy) を参照してください。                         |
+| `optout_check`       | number       | オプション     | ユーザー識別子がオプトアウトされたときの ID マップの動作をカスタマイズします。詳しくは、[Identity Map Policy](#identity-map-policy) を参照してください。                         |
 
 ### Request Examples
 
@@ -138,7 +138,7 @@ echo '{"phone": ["+1111111111", "+2222222222"]}' | python3 uid2_request.py https
 }
 ```
 
-リクエストにパラメータ/値 `policy=1` が含まれ、一部の識別子が UID2 エコシステムからオプトアウトしている場合、オプトアウトした識別子は、見つかった無効な識別子とともに"unmapped"リストに移動されます。この場合でも、応答ステータスは "success" です。
+リクエストにパラメータ/値 `optout_check=1` が含まれ、一部の識別子が UID2 エコシステムからオプトアウトしている場合、オプトアウトした識別子は、見つかった無効な識別子とともに"unmapped"リストに移動されます。この場合でも、応答ステータスは "success" です。
 
 ```json
 {
@@ -183,7 +183,7 @@ echo '{"phone": ["+1111111111", "+2222222222"]}' | python3 uid2_request.py https
 
 ### Identity Map Policy
 
-ID マップポリシーは、トークンを生成するタイミングを呼び出し元が決定できるようにします。これは、リクエストボディに整数値の ID として渡されます (キー 'policy' を使用)。このパラメータが省略された場合、デフォルト値である policy = 0 が適用されます。
+ID マップポリシーは、トークンを生成するタイミングを呼び出し元が決定できるようにします。これは、リクエストボディに整数値の ID として渡されます (キー 'policy' を使用)。このパラメータが省略された場合、デフォルト値である optout_check = 0 が適用されます。
 
 | ID  | Description                                            |
 | :-- | :----------------------------------------------------- |

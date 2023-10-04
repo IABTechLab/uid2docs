@@ -11,7 +11,7 @@ UID2 ベースのターゲティング広告にユーザーをオプトインし
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
-> IMPORTANT: このエンドポイントは、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。デフォルトでは、このエンドポイントはオプトアウト記録をチェックしません。ユーザーがオプトアウトしたかどうかを確認するには、オプションの `policy` リクエストパラメータに `1` を指定して使用します。
+> IMPORTANT: このエンドポイントは、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。デフォルトでは、このエンドポイントはオプトアウト記録をチェックしません。ユーザーがオプトアウトしたかどうかを確認するには、オプションの `optout_check` リクエストパラメータに `1` を指定して使用します。
 
 ## Request Format
 
@@ -40,7 +40,7 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 | `email_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding#email-address-hash-encoding) した [正規化](../getting-started/gs-normalization-encoding#email-address-normalization) 済みメールアドレスです。 |
 | `phone`        | string    | 条件付きで必要 | トークンを生成する [正規化](../getting-started/gs-normalization-encoding#phone-number-normalization) 済み電話番号です。                                                                               |
 | `phone_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding#phone-number-hash-encoding) した、[正規化](../getting-started/gs-normalization-encoding#phone-number-normalization) 済み電話番号です。        |
-| `policy`       | number    | オプション     | トークン生成ポリシーの ID です。[Token Generation Policy](#token-generation-policy) を参照してください。                                                                 |
+| `optout_check`       | number    | オプション     | トークン生成ポリシーの ID です。[Token Generation Policy](#token-generation-policy) を参照してください。                                                                 |
 
 ### Request Examples
 
@@ -109,7 +109,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' | python3 
 
 #### Optout
 
-以下は、`policy`パラメータがリクエストに含まれ、値が`1`で、ユーザーがオプトアウトした場合の応答例です。その他のシナリオでは、ユーザーがオプトアウトした場合、トークンが返されます (上記の [Successful Response](#successful-response) を参照してください)。
+以下は、`optout_check`パラメータがリクエストに含まれ、値が`1`で、ユーザーがオプトアウトした場合の応答例です。その他のシナリオでは、ユーザーがオプトアウトした場合、トークンが返されます (上記の [Successful Response](#successful-response) を参照してください)。
 
 ```json
 {

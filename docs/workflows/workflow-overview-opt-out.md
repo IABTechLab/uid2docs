@@ -15,7 +15,7 @@ The following steps provide a high-level outline of the workflow intended for us
 
    | Participant | Distribution Method |
    | :--- | :--- | 
-   | Publishers | A publisher calling  [POST /token/generate](../endpoints/post-token-generate.md) with the optional `policy` parameter set to `1`, or [POST /token/refresh](../endpoints/post-token-refresh.md), receives the opt-out response instead of the UID2 token. |
+   | Publishers | A publisher calling  [POST /token/generate](../endpoints/post-token-generate.md) with the optional `optout_check` parameter set to `1`, or [POST /token/refresh](../endpoints/post-token-refresh.md), receives the opt-out response instead of the UID2 token. |
    | DSPs | The UID2 Operator Service distributes information on all opted-out users to DSPs via a webhook provided for the purpose. For details, see [Honor User Opt-Outs](../guides/dsp-guide#honor-user-opt-outs). |
    | Advertisers | The UID2 Operator Service distributes opt-out information to advertisers via the [POST /identity/map](../endpoints/post-identity-map.md) endpoint. |
 
