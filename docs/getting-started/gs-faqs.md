@@ -181,7 +181,7 @@ Here are some frequently asked questions for demand-side platforms (DSPs).
    - [Will all user opt-out traffic be sent to the DSP?](#will-all-user-opt-out-traffic-be-sent-to-the-dsp)
    - [Is the DSP expected to handle opt-out signals only for the UID2s that they already store?](#is-the-dsp-expected-to-handle-opt-out-signals-only-for-the-uid2s-that-they-already-store)
    - [How long should the DSP keep the opt-out list?](#how-long-should-the-dsp-keep-the-opt-out-list)
-   - [Is the UID of an opted-out user sent to the opt-out endpoint in an encrypted form?](#is-the-uid-of-an-opted-out-user-sent-to-the-opt-out-endpoint-in-an-encrypted-form)
+   - [Is the UID2 of an opted-out user sent to the opt-out endpoint in an encrypted form?](#is-the-uid2-of-an-opted-out-user-sent-to-the-opt-out-endpoint-in-an-encrypted-form)
    - [What request type do opt-outs use?](#what-request-type-do-opt-outs-use)
    - [How strict are the requirements for honoring opt-outs?](#how-strict-are-the-requirements-for-honoring-opt-outs)
    - [How many decryption keys may be present in memory at any point?](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
@@ -219,7 +219,7 @@ In some cases a DSP may receive a UID2 token for a newly-stored UID2 where the t
 <!-- FAQ_32 DSP -->
 We recommend that you keep the opt-out information indefinitely.
 
-#### Is the UID of an opted-out user sent to the opt-out endpoint in an encrypted form?
+#### Is the UID2 of an opted-out user sent to the opt-out endpoint in an encrypted form?
 <!-- FAQ_33 DSP -->
 No. It is sent as an unencrypted (raw) UID2.
 
