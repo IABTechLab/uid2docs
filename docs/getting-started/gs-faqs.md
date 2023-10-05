@@ -132,7 +132,7 @@ Here are some frequently asked questions for advertisers and data providers usin
 
    - [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
    - [Do refreshed emails get assigned to the same bucket with which they were previously associated?](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
-   - [How often should UIDs be refreshed for incremental updates?](#how-often-should-uids-be-refreshed-for-incremental-updates)
+   - [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)
    - [How should I generate the SHA-256 of DII for mapping?](#how-should-i-generate-the-sha-256-of-dii-for-mapping)
    - [Should I store large volumes of email address, phone number, or their hash mappings? ](#should-i-store-large-volumes-of-email-address-phone-number-or-their-hash-mappings)
    - [How should I handle user optouts?](#how-should-i-handle-user-optouts)
@@ -147,9 +147,9 @@ Not necessarily. After you remap emails associated with a particular bucket ID, 
 
 >IMPORTANT: When mapping and remapping emails, be sure not to make any assumptions of the number of buckets, their specific rotation dates, or to which bucket an email gets assigned. 
 
-#### How often should UIDs be refreshed for incremental updates?
-<!-- FAQ_21 ADP -->
-The recommended cadence for updating audiences is daily. 
+#### How often should UID2s be refreshed for incremental updates?
+
+The recommended cadence for updating audiences is daily.
 
 Even though each salt bucket is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets are rotated daily. If fidelity is critical, consider calling the [POST /identity/buckets](../endpoints/post-identity-buckets.md) endpoint more frequently, for example, hourly.
 
@@ -181,7 +181,7 @@ Here are some frequently asked questions for demand-side platforms (DSPs).
    - [Will all user opt-out traffic be sent to the DSP?](#will-all-user-opt-out-traffic-be-sent-to-the-dsp)
    - [Is the DSP expected to handle opt-out signals only for the UID2s that they already store?](#is-the-dsp-expected-to-handle-opt-out-signals-only-for-the-uid2s-that-they-already-store)
    - [How long should the DSP keep the opt-out list?](#how-long-should-the-dsp-keep-the-opt-out-list)
-   - [Is the UID of an opted-out user sent to the opt-out endpoint in an encrypted form?](#is-the-uid-of-an-opted-out-user-sent-to-the-opt-out-endpoint-in-an-encrypted-form)
+   - [Is the UID2 of an opted-out user sent to the opt-out endpoint in an encrypted form?](#is-the-uid2-of-an-opted-out-user-sent-to-the-opt-out-endpoint-in-an-encrypted-form)
    - [What request type do opt-outs use?](#what-request-type-do-opt-outs-use)
    - [How strict are the requirements for honoring opt-outs?](#how-strict-are-the-requirements-for-honoring-opt-outs)
    - [How many decryption keys may be present in memory at any point?](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
@@ -219,7 +219,7 @@ In some cases a DSP may receive a UID2 token for a newly-stored UID2 where the t
 <!-- FAQ_32 DSP -->
 We recommend that you keep the opt-out information indefinitely.
 
-#### Is the UID of an opted-out user sent to the opt-out endpoint in an encrypted form?
+#### Is the UID2 of an opted-out user sent to the opt-out endpoint in an encrypted form?
 <!-- FAQ_33 DSP -->
 No. It is sent as an unencrypted (raw) UID2.
 
