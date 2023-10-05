@@ -33,7 +33,7 @@ The following documentation resources are available for advertisers to implement
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
 | Integration steps for organizations that collect user data and push it to other UID2 participants | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | This integration guide for advertisers and data providers covers integration workflows for mapping identity for audience-building and targeting. | Advertisers,<br/>Data Providers |
-| Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | Instructions for generating UIDs from emails within Snowflake. | Advertisers,<br/>Data Providers |
+| Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | Instructions for generating UID2s from emails within Snowflake. | Advertisers,<br/>Data Providers |
 
 ## Workflow for Advertisers
 
