@@ -70,7 +70,10 @@ The following is the decrypt method in C#:
 
 ```cs
 using UID2.Client.IUID2Client
-DecryptionResponse Decrypt(string token)
+ 
+var client = UID2ClientFactory.Create(_baseUrl, _authKey, _secretKey);
+client.Refresh(); //Note that refresh() should be called once after create(), and then once per hour
+var result = client.Decrypt(_advertisingToken);
 ```
 
 ### Response Content

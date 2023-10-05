@@ -75,19 +75,22 @@ The following is the decrypt method in Python:
 
 ```python
 from uid2_client import Uid2ClientFactory
-client = Uid2ClientFactory.create(base_url, auth_key, secret_key)
-decrypt_result = client.decrypt(ad_token)
+ 
+client = Uid2ClientFactory.create('https://prod.uidapi.com', 'my-auth-token', 'my-secret-key')
+client.refresh_keys() # Note that refresh_keys() should be called once after create(), and then once per hour
+decrypted_token = client.decrypt(advertising_token)
 ```
 
 ### Response Content
 
 Available information returned through the SDK is outlined in the following table.
 
-| Property | Description |
+| Method | Description |
 | :--- | :--- |
-| `Status` | The decryption result status. For a list of possible values and definitions, see [Response Statuses](#response-statuses). |
-| `UID2` | The raw UID2 for the corresponding UID2 advertising token. |
-| `Established` | The timestamp indicating when a user first established the UID2 with the publisher. |
+| `uid2` | The raw UID2 for the corresponding UID2 advertising token. |
+| `established` | The timestamp indicating when a user first established the UID2 with the publisher. |
+
+>NOTE: If there is a decryption failure, an `EncryptionError` exception is raised.
 
 ### Response Statuses
 
@@ -117,11 +120,7 @@ The following instructions provide an example of how you can implement sharing u
    from uid2_client import Uid2ClientFactory
    client = Uid2ClientFactory.create(base_url, auth_key, secret_key)
    ```
-   <!-- Alternative to the above for EUID:
-   ```python
-   from uid2_client import EuidClientFactory
-   client = EuidClientFactory.create(base_url, auth_key, secret_key) 
-   ``` -->
+
 2. Refresh once at startup, and then periodically (recommended refresh interval is hourly):
 
    ```python

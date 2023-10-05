@@ -69,14 +69,18 @@ The following is the decrypt method in C++:
 
 ```cpp
 #include <uid2/uid2client.h>
-public Response Decrypt(String encryptedToken)
+using namespace uid2;
+ 
+const auto client = UID2ClientFactory::Create(baseUrl, apiKey, secretKey);
+client->Refresh(); //Note that Refresh() should be called once after create(), and then once per hour
+const auto result = client->Decrypt(adToken);
 ```
 
 ### Response Content
 
-Available information returned through the SDK is outlined in the following table. (**GWH_JN mods in the below table**)
+Available information returned through the SDK is outlined in the following table.
 
-| Member Function | Description |
+| Function | Description |
 | :--- | :--- |
 | `GetStatus()` | The decryption result status. For a list of possible values and definitions, see [Response Statuses](#response-statuses). |
 | `GetUid()` | The raw UID2 for the corresponding UID2 advertising token. |
