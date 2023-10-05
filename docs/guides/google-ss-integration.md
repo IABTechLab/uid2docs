@@ -34,7 +34,7 @@ With this framework, the following steps occur:
 
 ## Allow Secure Signal Sharing
 
-For your Google Ad Manager account to be eligible to receive encrypted UID tokens, you must make sure that encrypted signals are properly shared with third-party bidders on your Google Ad Manager account.
+For your Google Ad Manager account to be eligible to receive encrypted UID2 tokens, you must make sure that encrypted signals are properly shared with third-party bidders on your Google Ad Manager account.
 
 For details, see [Share encrypted signals with bidders](https://support.google.com/admanager/answer/10488752) (Google reference documentation) and then follow the steps in [Use a third-party signal provider](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/securesignals) to switch on UID2 as your signal provider.
 

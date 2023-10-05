@@ -52,10 +52,10 @@ The following resources are available for publishers integrating with Google Ad 
 | Integration Guide |  Content Description |
 | :--- | :--- |
 | [Publisher - Google Ad Manager Secure Signals](google-ss-integration.md) | This integration guide covers the additional steps needed for publishers using UID2 with the Google Ad Manager Secure Signals feature (previously known as Encrypted Signals for Publishers, ESP). |
-| [UID2 GMA Plugin for Android Integration Guide](mobile-plugin-gma-android.md) | The UID2 Google Mobile Ads (GMA) Plugin for Android enables publishers that use the [Google Mobile Ads (GMA) SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps. |
-| [UID2 GMA Plugin for iOS Integration Guide](mobile-plugin-gma-ios.md) | The UID2 GMA Plugin for iOS enables publishers that use the [Google Mobile Ads (GMA) SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS apps. |
-| [UID2 IMA Plugin for Android Integration Guide](mobile-plugin-ima-android.md) | The UID2 Interactive Media Ads (IMA) Plugin for Android enables publishers that use the [Google Interactive Media Ads (IMA) SDK for Android](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps. |
-| [UID2 IMA Plugin for iOS Integration Guide](mobile-plugin-ima-ios.md) | The UID2 IMA Plugin for iOS enables publishers that use the [Google Interactive Media Ads SDK for iOS](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS apps. |
+| [UID2 GMA Plugin for Android Integration Guide](mobile-plugin-gma-android.md) | The UID2 Google Mobile Ads (GMA) Plugin for Android enables publishers that use the [Google GMA SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps. |
+| [UID2 GMA Plugin for iOS Integration Guide](mobile-plugin-gma-ios.md) | The UID2 Google Mobile Ads (GMA) Plugin for iOS enables publishers that use the [Google GMA SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS apps. |
+| [UID2 IMA Plugin for Android Integration Guide](mobile-plugin-ima-android.md) | The UID2 Interactive Media Ads (IMA) Plugin for Android enables publishers that use the [Google IMA SDK for Android](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps. |
+| [UID2 IMA Plugin for iOS Integration Guide](mobile-plugin-ima-ios.md) | The UID2 Interactive Media Ads (IMA) Plugin for iOS enables publishers that use the [Google IMA SDK for iOS](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS apps. |
 
 ### Prebid Integrations
 
@@ -63,7 +63,7 @@ The following resources are available for publishers integrating with Prebid.
 
 | Integration Guide |  Content Description |
 | :--- | :--- |
-| [Prebid Integration Guide](integration-prebid.md) | An integration guide for publishers who want to directly integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. |
+| [Prebid Integration Guide](integration-prebid.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. |
 
 ## Advertiser/Data Provider Integrations
 
@@ -72,7 +72,7 @@ The following resources are available for advertisers and data providers integra
 | Integration Guide |  Content Description |
 | :--- | :--- |
 | [Advertiser/Data Provider](advertiser-dataprovider-guide.md) | This integration guide for advertisers and data providers covers integration workflows for mapping identity for audience-building and targeting. |
-| [Snowflake Integration Guide](snowflake_integration.md) | Instructions for generating UIDs from emails within Snowflake. |
+| [Snowflake Integration Guide](snowflake_integration.md) | Instructions for generating UID2s from emails within Snowflake. |
 
 ## DSP Integrations
 

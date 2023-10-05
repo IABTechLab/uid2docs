@@ -25,7 +25,7 @@ sidebar_position: 04
 - [Prebid Implementation Notes and Tips](#prebid-implementation-notes-and-tips)
 - [Configuration Parameters for `usersync`](#usersync-configuration-parameters) -->
 
-This guide is for publishers who want to directly integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid in the RTB bid stream.
+This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid in the RTB bid stream.
 
 It outlines the basic steps to consider if you're building a direct integration with UID2 and you use Prebid for header bidding. 
 

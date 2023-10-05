@@ -50,7 +50,7 @@ The workflow for UID2 sharing, for all sharers except when sharing UID2 tokens i
    1. Sender: Select the participants that you want to share with. If needed, use the search feature to find specific sharing participants.
    1. Sender: Save the sharing selection.
 
-1. Sender: Complete the following steps to encrypt and send the UIDs:
+1. Sender: Complete the following steps to encrypt and send the UID2s:
 
    1. Encrypt raw UID2s to convert them into UID2 tokens, using a UID2 SDK or Snowflake: see [Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary).
    1. Transmit the UID2 tokens to an authorized receiver.
