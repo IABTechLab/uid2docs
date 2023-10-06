@@ -65,22 +65,26 @@ The interface allows you to decrypt UID2 advertising tokens and return the corre
 
 If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising token and return the UID2. For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
 
-The following example calls the decrypt method in C++:
+The following is the decrypt method in C++:
 
 ```cpp
 #include <uid2/uid2client.h>
-public Response Decrypt(String encryptedToken)
+using namespace uid2;
+ 
+const auto client = UID2ClientFactory::Create(baseUrl, apiKey, secretKey);
+client->Refresh(); //Note that Refresh() should be called once after create(), and then once per hour
+const auto result = client->Decrypt(adToken);
 ```
 
 ### Response Content
 
 Available information returned through the SDK is outlined in the following table.
 
-| Property | Description |
+| Function | Description |
 | :--- | :--- |
-| `Status` | The decryption result status. For a list of possible values and definitions, see [Response Statuses](#response-statuses). |
-| `UID2` | The raw UID2 for the corresponding UID2 advertising token. |
-| `Established` | The timestamp indicating when a user first established the UID2 with the publisher. |
+| `GetStatus()` | The decryption result status. For a list of possible values and definitions, see [Response Statuses](#response-statuses). |
+| `GetUid()` | The raw UID2 for the corresponding UID2 advertising token. |
+| `GetEstablished()` | The timestamp indicating when a user first established the UID2 with the publisher. |
 
 ### Response Statuses
 

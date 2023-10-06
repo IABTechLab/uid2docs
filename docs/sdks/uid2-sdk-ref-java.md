@@ -70,22 +70,25 @@ The interface allows you to decrypt UID2 advertising tokens and return the corre
 
 If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising token and return the UID2. For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
 
-The following example calls the decrypt method in Java:
+The following is the decrypt method in Java:
 
 ```java
 import com.uid2.client.IUID2Client
-DecryptionResponse decrypt(String token)
+ 
+IUID2Client client = UID2ClientFactory.create(TEST_ENDPOINT, TEST_API_KEY, TEST_SECRET_KEY);
+client.refresh(); //Note that refresh() should be called once after create(), and then once per hour
+DecryptionResponse result = client.decrypt(TEST_TOKEN);
 ```
 
 ### Response Content
 
 Available information returned through the SDK is outlined in the following table.
 
-| Property | Description |
+| Function | Description |
 | :--- | :--- |
-| `Status` | The decryption result status. For a list of possible values and definitions, see [Response Statuses](#response-statuses). |
-| `UID2` | The raw UID2 for the corresponding UID2 advertising token. |
-| `Established` | The timestamp indicating when a user first established the UID2 with the publisher. |
+| `GetStatus()` | The decryption result status. For a list of possible values and definitions, see [Response Statuses](#response-statuses). |
+| `GetUid()` | The raw UID2 for the corresponding UID2 advertising token. |
+| `GetEstablished()` | The timestamp indicating when a user first established the UID2 with the publisher. |
 
 ### Response Statuses
 
