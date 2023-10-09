@@ -1,17 +1,17 @@
 ---
-title: UID2 Operator - Google Cloud Platform Confidential Space
+title: UID2 Private Operator for GCP Integration Guide
 sidebar_label: GCP Confidential Space
-pagination_label: UID2 Operator - Google Cloud Platform Confidential Space
+pagination_label: UID2 Private Operator for GCP Integration Guide
 description: Integration information for Private Operator in GCP.
 hide_table_of_contents: false
 sidebar_position: 18
 ---
 
-# UID2 Private Operator&#8212;Google Cloud Platform Confidential Space
+# UID2 Private Operator for GCP Integration Guide
 
 This guide provides information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. Confidential Space offers a secure enclave environment, known as a Trusted Execution Environment (TEE).
 
->NOTE: The UID2 Private Operator implementation for GCP Confidential Space is not supported in these areas: Europe, China.
+>NOTE: UID2 Private Operator for GCP is not supported in these areas: Europe, China.
 
 The Operator Service runs in a Confidential Space "workload"&#8212;a containerized Docker image that runs in a secure cloud-based enclave on top of the Confidential Space image.
 

@@ -15,7 +15,7 @@ Check out the latest updates to our UID2 documentation resources.
 
 This new guide provides information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from the Google Cloud Platform.
 
-For details, see [UID2 Private Operator&#8212;Google Cloud Platform Confidential Space](../guides/operator-private-gcp-confidential-space.md).
+For details, see [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md).
 
 
 ### Update: Normalization and Encoding Rules

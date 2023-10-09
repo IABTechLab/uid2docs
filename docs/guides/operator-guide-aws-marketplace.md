@@ -1,19 +1,19 @@
 ---
-title: UID2 Operator - AWS Marketplace Integration
+title: UID2 Private Operator for AWS Integration Guide
 sidebar_label: AWS Marketplace
-pagination_label: UID2 Operator - AWS Marketplace Integration
+pagination_label: UID2 Private Operator for AWS Integration Guide
 description: Integration information for Private Operator in AWS.
 hide_table_of_contents: false
 sidebar_position: 17
 ---
 
-# UID2 Operator&#8212;AWS Marketplace Integration Guide
+# UID2 Private Operator for AWS Integration Guide
 
 The UID2 Operator is the API server in the UID2 ecosystem. For a Private Operator service running in AWS Marketplace, the UID2 Operator solution is enhanced with [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave technology. This is an additional security measure to protect UID2 information from unauthorized access.
 
 <!-- This guide includes the following information:
 
-- [UID2 Operator on AWS Marketplace Product](#uid2-operator-on-aws-marketplace-product)
+- [UID2 Private Operator for AWS](#uid2-private-operator-for-aws)
   -  [Prerequisites](#prerequisites)
   -  [Resources Created](#resources-created)
   -  [Customization Options](#customization-options)
@@ -25,15 +25,15 @@ The UID2 Operator is the API server in the UID2 ecosystem. For a Private Operato
 - [Upgrading the UID2 Operator](#upgrading-the-uid2-operator)
 - [Technical Support](#technical-support) -->
 
-## UID2 Operator on AWS Marketplace Product
+## UID2 Private Operator for AWS
 
->NOTE: [Unified ID 2.0 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) is a free product. The cost displayed on the product page is an estimated cost for the necessary infrastructure.
+>NOTE: [UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) is a free product. The cost displayed on the product page is an estimated cost for the necessary infrastructure.
 
-By subscribing to the Unified ID 2.0 Operator on AWS Marketplace product, you gain access to the following:
+By subscribing to UID2 Private Operator for AWS, you gain access to the following:
 
-- **[Amazon Machine Image (AMI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)** with the UID2 Operator service installed and ready to bootstrap:<br/>
+- [Amazon Machine Image (AMI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) with the UID2 Operator service installed and ready to bootstrap:<br/>
     The AMI contains an [Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/?amazon-linux-whats-new.sort-by=item.additionalFields.postDateTime&amazon-linux-whats-new.sort-order=desc) operating system with the UID2 Operator service already set up. When an EC2 instance based on the AMI boots up, it automatically fetches the configuration from your AWS account and starts the UID2 Operator server inside an enclave.
-- **[CloudFormation](https://aws.amazon.com/cloudformation/) template**:<br/>
+- [CloudFormation](https://aws.amazon.com/cloudformation/) template:<br/>
     The template deploys the UID2 Operator AMI.
 
 ### Prerequisites
