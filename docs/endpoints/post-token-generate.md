@@ -10,7 +10,7 @@ Requests a UID2 token generated from the [DII](../ref-info/glossary-uid.md#gl-di
 
 Used by: This endpoint is used mainly by publishers.
 
->IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s DII to UID2 tokens for targeted advertising. The `policy` parameter, required with a value of `1`, checks whether the user has opted out.
+>IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s DII to UID2 tokens for targeted advertising. The `optout_check` parameter, required with a value of `1`, checks whether the user has opted out.
 
 ## Request Format 
 
@@ -30,7 +30,7 @@ Here's what you need to know about this endpoint requests:
 
 ### Unencrypted JSON Body Parameters
 
->IMPORTANT: You must include only **one** of the following four conditional parameters, plus the required `policy` parameter with a value of `1`, as key-value pairs in the JSON body of the request when encrypting it.
+>IMPORTANT: You must include only **one** of the following four conditional parameters, plus the required `optout_check` parameter with a value of `1`, as key-value pairs in the JSON body of the request when encrypting it.
 
 | Body Parameter | Data Type | Attribute | Description | 
 | :--- | :--- | :--- | :--- |
@@ -38,7 +38,7 @@ Here's what you need to know about this endpoint requests:
 | `email_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) hash of a [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email address. |
 | `phone` | string | Conditionally Required | The [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number for which to generate tokens. |
 | `phone_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) hash of a [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number. |
-| `policy` | number | Required | The token generation policy ID checks whether the user has opted out. Include this parameter with a value of `1`.|
+| `optout_check` | number | Required | Checks whether the user has opted out. Include this parameter with a value of `1`.|
 
 ### Request Examples
 
@@ -49,32 +49,32 @@ The following are unencrypted JSON request body examples for each parameter, one
 ```json
 {
     "email": "username@example.com",
-    "policy": 1
+    "optout_check": 1
 }
 ```
 ```json
 {
     "email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=",
-    "policy": 1
+    "optout_check": 1
 }
 ```
 ```json
 {
     "phone": "+12345678901",
-    "policy": 1
+    "optout_check": 1
 }
 ```
 ```json
 {
     "phone_hash": "wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ/FSK4=",
-    "policy": 1
+    "optout_check": 1
 }
 ```
 
 Here's an encrypted token generation request example for an email hash:
 
 ```sh
-echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","policy":1}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate [Your-Client-API-Key] [Your-Client-Secret] 
+echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","optout_check":1}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate [Your-Client-API-Key] [Your-Client-Secret] 
 ```
 For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
