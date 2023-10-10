@@ -203,9 +203,9 @@ Run the following:
 terraform init
 terraform apply
 ```
-When you run `terraform apply`, the following file is generated in the same folder: [`terraform.tfstate`](https://developer.hashicorp.com/terraform/language/state). This file stores state information about your managed infrastructure and configuration.
+When you run `terraform apply`, the following file is generated in the same folder: `terraform.tfstate`. This file stores state information about your managed infrastructure and configuration, and will be used for future maintenance.
 
-This file will be used for future maintenance. Be sure to persist it remotely.
+>NOTE: Be sure to follow the recommended practices for Terraform `state` files: they are required for maintaining the deployed infrastructure, and they might contain sensitive information. For details, see [state](https://developer.hashicorp.com/terraform/language/state) in the Terraform documentation.
 
 #### Test Terraform Using the Health Check Endpoint
 
