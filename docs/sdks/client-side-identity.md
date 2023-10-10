@@ -28,28 +28,6 @@ Use this SDK to facilitate the process of establishing client identity using UID
   - The UID2 Google ESP with SDK v3 example: [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3) and [running site](https://esp-jssdk-integ.uidapi.com/).
   - The Client-Side Token Generate example: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg) and [running site](https://cstg-integ.uidapi.com/).
 
-<!-- This guide includes the following information:
-
-- [Functionality](#functionality)
-- [SDK Version](#sdk-version)
-- [GitHub Repository/Binary](#github-repositorybinary)
-- [Terminology](#terminology)
-- [Include the SDK Script](#include-the-sdk-script)
-- [Workflow Overview](#workflow-overview)
-   - [Workflow States and Transitions](#workflow-states-and-transitions)
-   - [Background Token Auto-Refresh](#background-token-auto-refresh)
- - [API Reference](#api-reference)
-   - [constructor()](#constructor)
-   - [init()](#initopts-object-void)
-   - [getAdvertisingToken()](#getadvertisingtoken-string)
-   - [getAdvertisingTokenAsync()](#getadvertisingtokenasync-promise)
-   - [isLoginRequired()](#isloginrequired-boolean)
-   - [disconnect()](#disconnect-void)
-   - [abort()](#abort-void)
-- [UID2 Cookie Format](#uid2-cookie-format)
-  - [Properties](#properties)
-  - [Contents Structure](#contents-structure) -->
-
 ## Functionality
 
 This SDK simplifies development for publishers who want to build their own customized UID2 integration. The following table shows the functions it supports.

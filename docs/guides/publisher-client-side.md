@@ -7,12 +7,15 @@ hide_table_of_contents: false
 sidebar_position: 02
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # UID2 SDK for JavaScript Integration Guide
 
 This guide is intended for publishers with web assets who want to generate identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers.
 
 - For the technical details about the SDK, see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md).
-- For an [example application](https://example-jssdk-integ.uidapi.com/), with associated documentation, see the [UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) guide.
+- For an example application, see the UID2 Google ESP with SDK v3 example: [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3) and [running site](https://esp-jssdk-integ.uidapi.com/).
 
 <!-- It includes the following sections:
 
@@ -30,11 +33,15 @@ This guide outlines the [basic steps](#integration-steps) that you need to consi
 
 To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the UID2 SDK for JavaScript. Here's an [example application](https://example-jssdk-integ.uidapi.com/) that illustrates the integration steps described in this guide and the usage of the SDK (currently only for email addresses). For the application documentation, see [UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md).
 
->IMPORTANT: The SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the [Client-Side JavaScript SDK](../sdks/client-side-identity.md#api-reference) for your identity management.
+:::warning
+The SDK currently stores tokens in first-party cookies. Since implementation details like this may change in the future, to avoid potential issues, be sure to rely on the [Client-Side JavaScript SDK](../sdks/client-side-identity.md#api-reference) for your identity management.
+:::
 
 For integration scenarios for publishers that do not use the UID2 SDK for JavaScript, see [Publisher Integration Guide, Server-Only](custom-publisher-integration.md). 
 
->NOTE: If you are using Google Ad Manager and want to use the secure signals feature, first follow the steps in this guide and then follow the additional steps in the [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md).
+:::note
+If you are using Google Ad Manager and want to use the secure signals feature, first follow the steps in this guide and then follow the additional steps in the [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md).
+:::
 
 ## Integration Steps 
 
@@ -58,40 +65,95 @@ After authentication in step 1-c, which forces the user to accept the rules of e
 | :--- | :--- | :--- |
 | 1-d | [POST /token/generate](../endpoints/post-token-generate.md) | After the user authenticates and authorizes the creation of a UID2, use the [POST /token/generate](../endpoints/post-token-generate.md) endpoint to generate a UID2 token using the provided normalized email address or phone number of the user. |
 | 1-e | [POST /token/generate](../endpoints/post-token-generate.md) | Return a UID2 token generated from the user's email address, phone number, or the respective hash. |
-| 1-f | UID2 SDK for JavaScript | Send the returned UID2 token from step 1-e to the SDK in the `identity` property of its [init() function](../sdks/client-side-identity.md#initopts-object-void) and specify a [callback function](../sdks/client-side-identity.md#callback-function) as shown below. The mechanism ensures that UID2 tokens are available for the user for targeting advertising until they log out. |
+| 1-f | UID2 SDK for JavaScript | Send the returned UID2 token from step 1-e to the SDK in the `identity` property of its [init() function](../sdks/client-side-identity.md#initopts-object-void). |
+| 1-g | UID2 SDK for JavaScript | Provide a callback function to the SDK which will receive identity updates and use them to initiate targeted advertising. |
 
+<Tabs>
+<TabItem value='js' label='JavaScript'>
 
-```html
-<script>
- __uid2.init({
-   callback : function (state) {...}, // Check advertising token and its status within the passed state and initiate targeted advertising. 
-   identity : {...} // The `body` property value from the token/generate API response.
- });
-</script>
-```
+```js
+  window.__uid2 = window.__uid2 || {};
+  window.__uid2.callbacks = window.__uid2.callbacks || [];
 
-For example:
-
-```html
-<script>
- __uid2.init({
-   callback : onUid2IdentityUpdated,
-   identity : {
-        "advertising_token": "AgmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=",
-        "refresh_token": "Mr2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA==",
-        "identity_expires": 1633643601000,
-        "refresh_from": 1633643001000,
-        "refresh_expires": 1636322000000
+  // Step 1-f
+  window.__uid2.callbacks.push((eventType, payload) => {
+    if (eventType === 'SdkLoaded') {
+      __uid2.init({
+        identity : {
+          "advertising_token": "AgmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=",
+          "refresh_token": "Mr2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA==",
+          "identity_expires": 1633643601000,
+          "refresh_from": 1633643001000,
+          "refresh_expires": 1636322000000,
+          "refresh_response_key":"dYNTB20edyHJU9mZv11e3OBDlLTlS5Vb97iQVumc7b/8QY/DDxr6FrRfEB/D",
+        }
+      });
     }
- });
-</script>
+  });
+
+  // Step 1-g
+  window.__uid2.callbacks.push((eventType, payload) => {
+    if (eventType !== 'SdkLoaded') {
+      if (payload.identity) {
+        const advertisingToken = payload.identity.advertising_token;
+        // Pass advertising_token to your advertising system to use
+      } else {
+        // No identity is available for targeted advertising - trigger a login flow if you want to use UID2 for targeted advertising
+      }
+    }
+  });
 ```
+
+</TabItem>
+<TabItem value='ts' label='TypeScript'>
+
+```tsx
+  import { EventType, Uid2CallbackPayload } from "./uid2CallbackManager";
+
+  window.__uid2 = window.__uid2 || {};
+  window.__uid2.callbacks = window.__uid2.callbacks || [];
+
+  // Step 1-f
+  window.__uid2.callbacks.push((eventType: EventType, payload: Uid2CallbackPayload) => {
+    if (eventType === 'SdkLoaded') {
+      __uid2.init({
+        identity : {
+          "advertising_token": "AgmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=",
+          "refresh_token": "Mr2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA==",
+          "identity_expires": 1633643601000,
+          "refresh_from": 1633643001000,
+          "refresh_expires": 1636322000000,
+          "refresh_response_key":"dYNTB20edyHJU9mZv11e3OBDlLTlS5Vb97iQVumc7b/8QY/DDxr6FrRfEB/D",
+        }
+      });
+    }
+  });
+
+  // Step 1-g
+  window.__uid2.callbacks.push((eventType: EventType, payload: Uid2CallbackPayload) => {
+    if (eventType !== 'SdkLoaded') {
+      if (payload.identity) {
+        const advertisingToken = payload.identity.advertising_token;
+        // Pass advertising_token to your advertising system to use
+      } else {
+        // No identity is available for targeted advertising - trigger a login flow if you want to use UID2 for targeted advertising
+      }
+    }
+  });
+```
+
+</TabItem>
+</Tabs>
 
 The SDK invokes the specified [callback function](../sdks/client-side-identity.md#callback-function) (which indicates the identity availability) and makes the established identity available client-side for bidding. 
 
+:::tip
+Depending on the structure of your code, it might be convenient to combine the callbacks for steps 1-f and 1-g into a single callback function.
+:::
+
 ### Bid Using UID2 Tokens
 
-Based on the status and availability of a valid identity, the SDK sets up the background token auto-refresh, stores identity information in a [first-party cookie](../sdks/client-side-identity.md#uid2-cookie-format), and uses it to initiate requests for targeted advertising.
+Based on the status and availability of a valid identity, the SDK sets up the background token auto-refresh, stores identity information in [local storage or a first-party cookie](../sdks/client-side-identity.md#uid2-storage-format), and uses it to initiate requests for targeted advertising.
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
@@ -105,7 +167,13 @@ Based on the status and availability of a valid identity, the SDK sets up the ba
 </script>
 ```
 
->TIP: You need to consider how you pass the returned advertising token to SSPs.
+:::info
+You need to consider how you pass the returned advertising token to SSPs.
+:::
+
+:::tip
+Instead of calling `__uid2.getAdvertisingToken()`, you can use the `advertising_token` property of the identity passed to the callback you set up for step 1-g. The callback will be called every time the identity changes.
+:::
 
 ### Refresh Tokens
 
