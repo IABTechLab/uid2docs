@@ -71,15 +71,6 @@ const sidebars = {
         'sdks/uid2-sdk-ref-cplusplus',
         'sdks/uid2-sdk-ref-android',
         'sdks/uid2-sdk-ref-ios',
-        {
-          type: 'category',
-          label: 'Older versions',
-          link: {type: 'generated-index'},
-          collapsed: true,
-          items: [
-            'sdks/client-side-identity-v2',
-          ],
-        }
       ],
     },
 
