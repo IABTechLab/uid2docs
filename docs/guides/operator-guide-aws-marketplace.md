@@ -210,14 +210,14 @@ The following table explains the parameter values that you need to provide in st
 
 ## Checking UID2 Operator Status
 
-To find the EC2 instances, complete the following steps:
+To check the UID2 Operator status of your EC2 instance, complete the following steps:
 
-1. In the CloudFormation stack, click the **Resources** tab and find the Auto Scaling Group (ASG). 
-2. In the **Physical ID** column, click the ASG link.
-3. Inside the selected ASG, go to the **Instance management** tab where you can find the ID of the available EC2 instances (by default it starts only one instance).
-4. To test operator status, in your browser, go to `http://{public-dns-of-your-instance}/ops/healthcheck`. `OK` indicates good status.
-
+1. In the CloudFormation page, select your stack and then click the **Resources** tab. 
+2. Click the link in the **Physical ID** column that corresponds to your **AutoScalingGroup** (ASG).
 ![Stack Creation Resources](images/stack-creation-resources.png)
+3. Inside the selected ASG, go to the **Instance management** tab where you can find the ID of the available EC2 instances (by default it starts only one instance).
+4. Open an instance and copy its public DNS.
+5. In your browser, go to `http://{public-dns-of-your-instance}/ops/healthcheck`. A response of `OK` indicates good operator status.
 
 ## Creating a Load Balancer
 
@@ -228,24 +228,21 @@ To create a load balancer and a target operator auto-scaling group, complete the
 3. On the Load balancer types page, in the **Application Load Balancer** section, click **Create**.
 4. Enter the UID2 **Load balancer name** and, depending on whether or not you need to access UID2 APIs from public internet, choose the **Internet-facing** or **Internal** scheme.
 5. Select the **VPC** for your targets and at least two subnets used in your CloudFormation stack.
-6. Click **Create new security group** and enter `UID2SGALB` as its name.
-7. Under **Inbound rules**, select **HTTPS** and **Source IP range**, which depend on your requirements, and then click **Create security group**.
+6. Under **Security groups**, click **Create new security group** and do the following:
+    1. Enter `UID2SGALB` as its **Security group name**, as well as a relevant **Description**.
+    2. Under **Inbound rules**, click **Add rule**, then select the **HTTPS** Type and an appropriate **Source** according to your requirements.
+    3. Click **Create security group**.
 8. Go back to the Load Balancer page and select the newly created `UID2SGALB` security group.
-9. Under **Listeners and routing**, click the **Create target group** link and [specify the target group details](#specifying-target-group-details).
-10. Go back to the Load Balancer page. Under **Forward to**, select `UID2ALBTG`, and then change the **Port** value to `443`.
+9. Under **Listeners and routing**, click the **Create target group** link and do the following:
+    1. On the **Specify group details page**, select **Instances** as the target type, then enter `UID2ALBTG` as the **Target group name**.
+    2. Ensure **HTTP1** is selected as the **Protocol version**.
+    3. Under **Health checks**, provide `/ops/healthcheck` as the **Health check path**, and then click **Next**.
+    4. Select UID2 Operator EC2 Instances created by your auto-scaling group and then click **Include as pending below**. 
+    5. Make sure that all the ports for the targets contains `80`.
+    6. Click **Create target group**.
+10. Go back to the Load Balancer page, and under **Listeners and routing**, select `UID2ALBTG` as the target group to forward to as a default action. Also, change the listener **Port** value to `443`.
 11. Set up an HTTPS listener by following the instructions in the [AWS user guide](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html).
 12. Click **Create load balancer**.
-
-### Specifying Target Group Details
-
-To create a target group when [creating a load balancer](#creating-a-load-balancer), complete the following steps:
-
-1. On the Specify group details page, select **Instances** as the target type, then enter `UID2ALBTG` as the **Target group name** and select **HTTP1** as the **Protocol version**.
-2. Under **Health checks**, provide `/ops/healthcheck` as the **Health check path**, and then expand the **Advanced health check settings** section. 
-3. Select **Override** as the **Port** and change the default value to `9080`.
-4. Select UID2 Operator EC2 Instances created by your auto-scaling group and then click **Include as pending below**. 
-5. Make sure the **Ports for the selected instances** contains `80`.
-6. Click **Create target group**.
 
 ## Upgrading the UID2 Operator
 
