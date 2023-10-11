@@ -138,7 +138,6 @@ const sidebars = {
     },
 
      'summary-doc-v2',
- 
     {
       type: 'category',
       label: 'Endpoints (v2)',
