@@ -168,7 +168,7 @@ To deploy UID2 Operator on AWS Marketplace, complete the following steps:
 8. If you are prompted for permission to create IAM roles, select the **I acknowledge that AWS CloudFormation might create IAM resources** checkbox.
 9. Click **Create stack**.
 
-It takes several minutes for the stack to be created. When you see an Auto Scaling Group (ASG) created, you can select it and check the EC2 instances (by default, there is only one instance to start with).  For details, see [Checking UID2 Operator Status](#checking-uid2-operator-status).
+It takes several minutes for the stack to be created. When you see an Auto Scaling Group (ASG) created, you can select it and check the EC2 instances (by default, there is only one instance to start with).
 
 ### Stack Details
 
