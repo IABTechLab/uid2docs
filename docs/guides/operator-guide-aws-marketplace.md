@@ -110,24 +110,21 @@ To subscribe and deploy one or more UID2 Operators on AWS, complete the followin
 
 ### Resources Created
 
-The following table lists all resources that are created during the [deployment](#deployment), and indicates which resource are always created and which ones depend on the `CreateVPC` condition in the CloudFormation template.
+The following table lists all resources that are created during the [deployment](#deployment).
 
-| Name | Type | Description | Created |
-|:------|:------|:-------------|:--------------|
-| `KMSKey` | `AWS::KMS::Key` | The key for secret encryption (for configuration strings). | Always |
-| `SSMKeyAlias` | `AWS::KMS::Alias` | An alias that provides an easy way to access the [KMS](https://aws.amazon.com/kms/) key. | Always |
-| `TokenSecret` | `AWS::SecretsManager::Secret` | An encrypted configuration that includes the operator key. | Always |
-| `WorkerRole` | `AWS::IAM::Role` | The IAM role that your UID2 Operators run as. Roles provide access to configuration keys. | Always |
-| `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile` | The instance profile with Worker Role to attach to Operator EC2 instances. | Always |
-| `VPC` | `AWS::EC2::VPC` | Virtual Private Cloud (VPC) is a virtual private network that hosts private operators. You can customize and use an existing VPC as well. See also [VPC Chart](#vpc-chart).| Conditionally |
-| `Subnet1` | `AWS::EC2::Subnet` | The first subnet of the newly created VPC. | Conditionally |
-| `Subnet2` | `AWS::EC2::Subnet` | The second subnet of the newly created VPC. | Conditionally |
-| `RouteTable` | `AWS::EC2::RouteTable` | The Routing Table of the newly created VPC and subnets. | Conditionally |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `KMSKey` | `AWS::KMS::Key` | The key for secret encryption (for configuration strings). |
+| `SSMKeyAlias` | `AWS::KMS::Alias` | An alias that provides an easy way to access the [KMS](https://aws.amazon.com/kms/) key. |
+| `TokenSecret` | `AWS::SecretsManager::Secret` | An encrypted configuration that includes the operator key. |
+| `WorkerRole` | `AWS::IAM::Role` | The IAM role that your UID2 Operators run as. Roles provide access to configuration keys. |
+| `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile` | The instance profile with Worker Role to attach to Operator EC2 instances. |
+| `VPC` | `AWS::EC2::VPC` | Virtual Private Cloud (VPC) is a virtual private network that hosts private operators. You can customize and use an existing VPC as well. See also [VPC Chart](#vpc-chart).|
 | `InternetGateway` | `AWS::EC2::InternetGateway` | The Internet Gateway that allows operators to communicate with the UID2 Core Service and download security updates. | Conditionally|
-| `AttachGateway` | `AWS::EC2::VPCGatewayAttachment` | A value that associates the Internet Gateway with the VPC. | Conditionally |
-| `SecurityGroup` | `AWS::EC2::SecurityGroup` | A security group policy that provides rules for operator instances. See also [Security Group Policy](#security-group-policy).| Always |
-| `LaunchTemplate` | `AWS::EC2::LaunchTemplate` | A launch template with all configurations in place. You can spawn new UID2 Operator instances from it. | Always |
-| `AutoScalingGroup` | `AWS::AutoScaling::AutoScalingGroup` | An auto-scaling group (ASG) to which the launch template is attached. You can use this to update the desired number of instances later, if needed. | Always |
+| `AttachGateway` | `AWS::EC2::VPCGatewayAttachment` | A value that associates the Internet Gateway with the VPC. |
+| `SecurityGroup` | `AWS::EC2::SecurityGroup` | A security group policy that provides rules for operator instances. See also [Security Group Policy](#security-group-policy).|
+| `LaunchTemplate` | `AWS::EC2::LaunchTemplate` | A launch template with all configurations in place. You can spawn new UID2 Operator instances from it. |
+| `AutoScalingGroup` | `AWS::AutoScaling::AutoScalingGroup` | An auto-scaling group (ASG) to which the launch template is attached. You can use this to update the desired number of instances later, if needed. |
 
 ### Customization Options
 
@@ -191,7 +188,7 @@ The following table explains the parameter values that you need to provide in st
 |Instance root volume size |15 GB or more is recommended. |
 |Key Name for SSH |Your EC2 key pair for SSH access to the deployed EC2 instances. |
 |Trusted Network CIDR |The CIDR (Classless Inter-Domain Routing) value determines the IP address range that can access your operator service.<br/>To limit access to the UID2 Operators so that they can only be accessed through an internal network or a load balancer, specify an internal IP range as the CIDR value. |
-|Choose to use Existing VPC | To create a new VPC and subnets, set this parameter to `true`. To use an existing VPC and subnets which you provide, set the value to `false`.<br/>If you decide to use an existing VPC, you can find your own VPCs from the [VPC dashboard](https://console.aws.amazon.com/vpc/home). Otherwise, leave the **existing VPC Id**, **VpcSubnet1**, **VpcSubnet2** fields blank. |
+
 
 ### Stack Configuration Options
 
