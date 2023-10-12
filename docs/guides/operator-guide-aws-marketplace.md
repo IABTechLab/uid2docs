@@ -208,17 +208,6 @@ The following table explains the parameter values that you need to provide in st
 |Stack failure options |Choose what happens when deployment fails. The `Roll back all stack resources` option is recommended. |
 |Advanced options | These are optional. |
 
-## Checking UID2 Operator Status
-
-To check the UID2 Operator status of your EC2 instance, complete the following steps:
-
-1. In the CloudFormation page, select your stack and then click the **Resources** tab. 
-2. Click the link in the **Physical ID** column that corresponds to your **AutoScalingGroup** (ASG).
-![Stack Creation Resources](images/stack-creation-resources.png)
-3. Inside the selected ASG, go to the **Instance management** tab where you can find the ID of the available EC2 instances (by default it starts only one instance).
-4. Open an instance and copy its public DNS.
-5. In your browser, go to `http://{public-dns-of-your-instance}/ops/healthcheck`. A response of `OK` indicates good operator status.
-
 ## Creating a Load Balancer
 
 To create a load balancer and a target operator auto-scaling group, complete the following steps:
@@ -226,7 +215,7 @@ To create a load balancer and a target operator auto-scaling group, complete the
 1. In the AWS Console, navigate to the EC2 dashboard and search for `Load Balancer`.
 2. Click **Create Load Balancer**.
 3. On the Load balancer types page, in the **Application Load Balancer** section, click **Create**.
-4. Enter the UID2 **Load balancer name** and, depending on whether or not you need to access UID2 APIs from public internet, choose the **Internet-facing** or **Internal** scheme.
+4. Enter the UID2 **Load balancer name**. Depending on whether or not you need to access UID2 APIs from public internet, choose the **Internet-facing** or **Internal** scheme.
 5. Select the **VPC** for your targets and at least two subnets used in your CloudFormation stack.
 6. Under **Security groups**, click **Create new security group** and do the following:
     1. Enter `UID2SGALB` as its **Security group name**, as well as a relevant **Description**.
@@ -240,9 +229,17 @@ To create a load balancer and a target operator auto-scaling group, complete the
     4. Select UID2 Operator EC2 Instances created by your auto-scaling group and then click **Include as pending below**. 
     5. Make sure that all the ports for the targets contains `80`.
     6. Click **Create target group**.
-10. Go back to the Load Balancer page, and under **Listeners and routing**, select `UID2ALBTG` as the target group to forward to as a default action. Also, change the listener **Port** value to `443`.
+10. Go back to the Load Balancer page, and under **Listeners and routing**, select `UID2ALBTG` as the target group to forward to as a default action. Note that you may have to refresh the target groups for your newly created target group to appear. Change the listener **Port** value to `443`.
 11. Set up an HTTPS listener by following the instructions in the [AWS user guide](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html).
 12. Click **Create load balancer**.
+13. To verify the status of this load balancer, please continue in the below section: [Checking UID2 Operator Status](#checking-uid2-operator-status)
+
+## Checking UID2 Operator Status
+
+To check the UID2 Operator status of your Load Balancer, complete the following steps:
+
+1. Identify the DNS name of your load balancer by going to **EC2 > Load balancers** and looking at the **DNS name** column of your load balancer.
+2. In your browser, go to `http://{dns-name-of-your-load-balancer}/ops/healthcheck`. A response of `OK` indicates good operator status.
 
 ## Upgrading the UID2 Operator
 
