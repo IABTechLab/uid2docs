@@ -63,8 +63,10 @@ UID2 とインテグレーションすることで得られるメリットの一
 | :--- | :--- | :--- | :--- |
 | Mobile: Android | [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) | このインテグレーションガイドは、UID2 を使用してクライアントの identity を確立し、Android デバイス上で Advertising Token を取得したいパブリッシャー向けのものです。 | Publishers |
 | Mobile: iOS  | [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) | このインテグレーションガイドは、UID2 を使用してクライアントの identity を確立し、iOS デバイス上で Advertising Token を取得したいパブリッシャー向けのものです。 | Publishers |
-| Mobile: GMA for Android | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) | このインテグレーションガイドは、Google Mobile Ads (GMA)SDK を使用するパブリッシャーが、Android アプリからの広告リクエストに UID2 データを含めることを可能にします。 | Publishers |
-| Mobile: GMA for iOS | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) | このインテグレーションガイドは、Google Mobile Ads (GMA)SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストに UID2 データを含めることを可能にします。 | Publishers |
+| Mobile: GMA for Android | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) | このインテグレーションガイドは、Google Mobile Ads (GMA)SDK を使用するパブリッシャーが、Android アプリからの広告リクエストに UID2 Token を含めることを可能にします。 | Publishers |
+| Mobile: GMA for iOS | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) | このインテグレーションガイドは、Google Mobile Ads (GMA)SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストに UID2 Token を含めることを可能にします。 | Publishers |
+| Mobile: IMA for Android | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) |このインテグレーションガイドは、Google Interactive Media Ads (IMA) SDK を使用するパブリッシャーが、Android アプリからの広告リクエストに UID2 token を含めることを可能にします。 | Publishers |
+| Mobile: IMA for iOS | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) | このインテグレーションガイドは、Google Interactive Media Ads (IMA) SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストに UID2 token を含めることを可能にします。 | Publishers |
 
 ### Operator Deployment
 
