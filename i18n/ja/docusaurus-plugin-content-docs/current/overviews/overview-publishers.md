@@ -40,7 +40,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 パブリッシャーが UID2 を実装するために、以下のドキュメントリソースが利用可能です:
 - [Web Integration](#web-integration)
-- [Mobile and Google GMA integration](#mobile-and-google-gma-integration)
+- [Mobile and Google GMA/IMA integration](#mobile-and-google-gmaima-integration)
 - [Operator Deployment](#operator-deployment)
 
 ### Web Integration
@@ -55,7 +55,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 | Server-Side Integration Guide  | [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) | このインテグレーションガイドは、[UID2 SDK for JavaScript Integration Guide](../sdks/client-side-identity.md) を使用していないパブリッシャー向けです。 | Publishers |
 | Publisher/SSP Integration with GAM | [Publisher - Google Ad Manager Secure Signals](../guides/google-ss-integration.md) | このインテグレーションガイドでは、UID2 を Google Ad Manager の Secure Signals 機能 (旧称: Encrypted Signals for Publishers, ESP)で使用するパブリッシャーに必要な追加手順について説明します。 | Publishers |
 
-### Mobile and Google GMA integration
+### Mobile and Google GMA/IMA integration
 
 以下のドキュメントリソースは、モバイルインテグレーション、およびモバイルのコンテキストにおける Google インテグレーションに関するものです。
 
