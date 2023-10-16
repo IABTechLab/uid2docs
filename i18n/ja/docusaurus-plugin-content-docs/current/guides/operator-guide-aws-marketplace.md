@@ -193,30 +193,18 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 
 ### Stack Configuration Options
 
-以下は、スタック作成ウィザード ([デプロイ](#deployment) Step 6)の [スタックオプションの設定](#stack-configuration-options) ページのスクリーンショットです。
+次の図は、スタックの作成ウィザード ([Deployment](#deployment) Step 6)の**スタックオプションの設定**ページを示しています。
 
 ![Configure Stack Options](images/cloudformation-step-3.png)
 
-次の表は、[デプロイ](#deployment) の Step 6 で指定するパラメータ値について説明したものです。
+次の表は、[Deployment](#deployment) の Step 6 で指定するパラメータ値について説明したものです。
 
 | Parameter             | Description                                                                                                                                                     |
 | :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Tags                  | (オプション) スタックにタグをつけます。                                                                                                                         |
-| Permissions           | AWS Marketplace に登録する IAM ロールとスタックをデプロイする IAM ロールが分かれている場合、スタックをデプロイするために使用するロールの名前/ARN を入力します。 |
-| Stack failure options | デプロイメントに失敗したときの処理を選択します。`すべてのスタックリソースをロールバックする`オプションを推奨します。                                            |
+| Permissions           | AWS Marketplace にサブスクライブする IAM ロールとスタックをデプロイする IAM ロールが分かれている場合、スタックをデプロイするために使用するロールの名前/ARN を入力します。 |
+| Stack failure options | デプロイメントに失敗したときの処理を選択します。`Roll back all stack resources (すべてのスタックリソースをロールバックする)` オプションを推奨します。                                            |
 | Advanced options      | これらはオプションです。                                                                                                                                        |
-
-### Stack Configuration Options
-
-次の画像は、スタックの作成ウィザード ([デプロイメント](#deployment) Step 6)の**スタックオプションの設定**ページを示しています。
-
-![Configure Stack Options](images/cloudformation-step-3.png)
-
-| Parameter        | Description                                                                                                                                                   |
-| :--------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Tags             | (Optional) Tag your stack.                                                                                                                                    |
-| Permissions      | AWS Marketplace に加入する IAM ロールとスタックをデプロイする IAM ロールが分かれている場合、スタックのデプロイに使用するロールの名前/ARN を入力してください。 |
-| Advanced options | これらはオプションです。                                                                                                                                      |
 
 ## Checking UID2 Operator Status
 
