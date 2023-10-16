@@ -94,6 +94,8 @@ SDK は、有効な ID の状態と利用可能性に基づいて、バックグ
 | :--- | :----------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 2-a ｜ UID2 SDK for JavaScript ｜ 以下に示すように、[getAdvertisingToken() 関数](../sdks/client-side-identity.md#getadvertisingtoken-string) を使用して、現在のユーザーの Advertising Token を取得します。|
 
+>NOTE: UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[What does a UID2 token look like in the bid stream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bid-stream) を参照してください。
+
 ```html
 <script>
   let advertisingToken = __uid2.getAdvertisingToken();
