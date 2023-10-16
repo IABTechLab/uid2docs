@@ -20,6 +20,8 @@ sidebar_position: 13
 ## Introduction
 メールアドレスなどのユーザー情報を取得し、raw UID2 や UID2 Advertising Token を作成する手順に従う場合、必要な手順に正確に従うことが非常に重要です。情報を正規化する必要があろうがなかろうが、ハッシュ化する必要があろうがなかろうが、手順には正確に従ってください。そうすることで、作成した UID2 の値を、同じユーザーによる他のオンライン行動の事例と安全かつ匿名で照合できるようになります。
 
+>Note: raw UID2 とそれに関連する UID2 Token は、大文字と小文字を区別します。UID2 を扱う際には、大文字小文字を変えずにすべてのIDとトークンを渡すことが重要です。ID が不一致の場合、ID の解析やトークンの復号化でエラーが発生する可能性があります。
+
 ## Types of Directly Identifying Information (DII)
 UID2は、以下の種類の直接識別情報(direct identifying information)をサポートしています:
 - メールアドレス
