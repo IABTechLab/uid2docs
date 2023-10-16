@@ -1,5 +1,7 @@
 ---
 title: Client-Side JavaScript SDK Integration
+sidebar_label: Client-Side JavaScript SDK
+pagination_label: Client-Side JavaScript SDK Integration
 description: パブリッシャー向けの、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成する方法。
 hide_table_of_contents: false
 sidebar_position: 02

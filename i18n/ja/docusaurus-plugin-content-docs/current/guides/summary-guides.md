@@ -1,11 +1,13 @@
 ---
-title: UID2 Integration Guides - Summary
+title: UID2 Integration Guides&#8212;Summary
+sidebar_label: Summary
+pagination_label: UID2 Integration Guides - Summary
 description: 利用可能なすべてのインテグレーションガイドの概要。
 hide_table_of_contents: false
 sidebar_position: 01
 ---
 
-# UID2 Integration Guides
+# UID2 Integration Guides&#8212;Summary
 
 以下のガイドでは、パブリッシャー、DSP、データプロバイダー/広告主など、組織のニーズと要件、およびその主な役割に基づいたインテグレーション手順を提供します。メンバーとして、Open Operator Service との連携や Closed Operator Service のホスティングを可能にするエンタープライズパートナーを介してインテグレーションすることもできます。
 

@@ -1,5 +1,7 @@
 ---
 title: Prebid Integration
+sidebar_label: Prebid
+pagination_label: Prebid Integration
 description: UID2 実装のため、Prebid とのインテグレーションに関する情報。
 hide_table_of_contents: false
 sidebar_position: 04

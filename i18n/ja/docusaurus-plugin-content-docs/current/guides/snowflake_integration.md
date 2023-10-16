@@ -1,5 +1,7 @@
 ---
 title: Snowflake Integration
+sidebar_label: Snowflake
+pagination_label: Snowflake Integration
 description: UID2 実装のため、Snowflake の UID2 Share を通じて Snowflake とインテグレーションするための情報。
 hide_table_of_contents: false
 sidebar_position: 04
