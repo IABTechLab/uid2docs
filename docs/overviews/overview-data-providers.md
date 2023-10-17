@@ -37,7 +37,7 @@ The following documentation resources are available for data providers to implem
 | :--- | :--- | :--- | :--- |
 | Integration Guide | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | This integration guide for advertisers and data providers covers integration workflows for mapping identity for audience-building and targeting. | Advertisers,<br/>Data Providers |
 | Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | Instructions for generating UIDs from emails within Snowflake. | Advertisers,<br/>Data Providers |
-| AWS Entity Resolution | [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md) | Instructions for integrating with the UID2 framework using AWS Entity Resolution. | Advertisers,<br/>Data Providers |
+| AWS Entity Resolution | [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) | Instructions for integrating with the UID2 framework using AWS Entity Resolution. | Advertisers,<br/>Data Providers |
 
 ## Workflow for Data Providers
 
