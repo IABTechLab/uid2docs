@@ -119,8 +119,6 @@ The following table lists all resources that are created during the [deployment]
 | `TokenSecret` | `AWS::SecretsManager::Secret` | An encrypted configuration that includes the operator key. |
 | `WorkerRole` | `AWS::IAM::Role` | The IAM role that your UID2 Operators run as. Roles provide access to configuration keys. |
 | `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile` | The instance profile with Worker Role to attach to Operator EC2 instances. |
-| `VPC` | `AWS::EC2::VPC` | Virtual Private Cloud (VPC) is a virtual private network that hosts private operators. You can customize and use an existing VPC as well. See also [VPC Chart](#vpc-chart).|
-| `InternetGateway` | `AWS::EC2::InternetGateway` | The Internet Gateway that allows operators to communicate with the UID2 Core Service and download security updates. | Conditionally|
 | `AttachGateway` | `AWS::EC2::VPCGatewayAttachment` | A value that associates the Internet Gateway with the VPC. |
 | `SecurityGroup` | `AWS::EC2::SecurityGroup` | A security group policy that provides rules for operator instances. See also [Security Group Policy](#security-group-policy).|
 | `LaunchTemplate` | `AWS::EC2::LaunchTemplate` | A launch template with all configurations in place. You can spawn new UID2 Operator instances from it. |
