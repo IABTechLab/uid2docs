@@ -187,7 +187,7 @@ sidebar_position: 10
 <dd>For an overview of all the UID2 services, see <a href="../intro#components">Components</a>.</dd>
 
 <dt class="jump-anchor" id="gl-opt-out">Opt-out</dt>
-<dd>An end user who participates in the UID2 ecosystem can opt out at any time by going to the <a href="https://www.transparentadvertising.org/">Transparency and Control Portal</a>.</dd>
+<dd>An end user who participates in the UID2 ecosystem can opt out at any time by going to the <a href="https://www.transparentadvertising.com/">Transparency and Control Portal</a>.</dd>
 <dd>For details, see <a href="../intro#components">Components</a>.</dd>
 
 <dt class="jump-anchor" id="gl-opt-out-service">Opt-Out Service</dt>
@@ -241,7 +241,7 @@ sidebar_position: 10
 <dd>For details, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd>
 
 <dt class="jump-anchor" id="gl-transparency-and-control-portal">Transparency and Control Portal</dt>
-<dd>The UID2 Transparency and Control Portal is a user-facing website, <a href="https://www.transparentadvertising.org/">https://www.transparentadvertising.org</a>, that allows consumers to opt out of UID2 at any time.</dd>
+<dd>The UID2 Transparency and Control Portal is a user-facing website, <a href="https://www.transparentadvertising.com/">https://www.transparentadvertising.com/</a>, that allows consumers to opt out of UID2 at any time.</dd>
 
 <dt class="jump-anchor" id="gl-uid2-framework">UID2 framework</dt>
 <dd>The Unified ID 2.0 (UID2) framework enables deterministic identity for advertising opportunities on the open internet for many <a href="../intro#participants">participants</a> across the advertising ecosystem. It enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework focuses on transparency and privacy.</dd>
