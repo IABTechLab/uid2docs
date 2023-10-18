@@ -33,6 +33,7 @@ const sidebars = {
         'getting-started/gs-api-using',
         'getting-started/gs-encryption-decryption',
         'getting-started/gs-normalization-encoding',
+        'getting-started/gs-opt-out',       
         'getting-started/gs-faqs',
         'getting-started/gs-sharing',
       ],
