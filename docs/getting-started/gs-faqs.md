@@ -30,11 +30,11 @@ No. UID2 has its own framework, which is separate from EUID. As such, paperwork 
 
 #### Can users opt out of targeted advertising tied to their UID2 identity?
 <!-- FAQ_02 -->
-Yes. Through the [Transparency and Control Portal](https://transparentadvertising.org), users can opt out from being served targeted ads tied to their UID2 identity. Each request is distributed through the UID2 Opt-Out Service and UID2 Operators to all relevant participants. 
+Yes. Through the [Transparency and Control Portal](https://www.transparentadvertising.com/), users can opt out from being served targeted ads tied to their UID2 identity. Each request is distributed through the UID2 Opt-Out Service and UID2 Operators to all relevant participants. 
 
 #### How does a user know where to access the opt-out portal?
 <!-- FAQ_03 -->
-Publishers, SSO providers, or consent management platforms disclose links to the [Transparency and Control Portal](https://transparentadvertising.org) in their login flows, consent flows, and privacy policies, and by other means.
+Publishers, SSO providers, or consent management platforms disclose links to the [Transparency and Control Portal](https://www.transparentadvertising.com/) in their login flows, consent flows, and privacy policies, and by other means.
 
 ## FAQs for Publishers
 
@@ -165,7 +165,7 @@ Yes. Not storing mappings may increase processing time drastically when you have
 
 #### How should I handle user optouts?
 <!-- FAQ_24 ADP -->
-When a user opts out of UID2-based targeted advertising through the [Transparency and Control Portal](https://www.transparentadvertising.org/), the optout signal is sent to DSPs and publishers, which handle optouts at bid time. As an advertiser or data provider, you do not need to check for UID2 optout in this scenario.
+When a user opts out of UID2-based targeted advertising through the [Transparency and Control Portal](https://www.transparentadvertising.com/), the optout signal is sent to DSPs and publishers, which handle optouts at bid time. As an advertiser or data provider, you do not need to check for UID2 optout in this scenario.
 
 If a user opts out through your website, you should follow your internal procedures for handling the optout, for example, you might choose not to generate a UID2 for that user.
 
@@ -209,7 +209,7 @@ The UID2 has the same chance as a cookie of becoming stale. Hence, the DSP can a
 
 #### Will all user opt-out traffic be sent to the DSP?
 <!-- FAQ_30 DSP -->
-Yes, all opt-outs from the UID2 [Transparency and Control Portal](https://transparentadvertising.org/) hit the opt-out endpoint, which the DSP must configure to [honor user opt-outs](../guides/dsp-guide.md#honor-user-opt-outs).
+Yes, all opt-outs from the UID2 [Transparency and Control Portal](https://www.transparentadvertising.com/) hit the opt-out endpoint, which the DSP must configure to [honor user opt-outs](../guides/dsp-guide.md#honor-user-opt-outs).
 
 #### Is the DSP expected to handle opt-out signals only for the UID2s that they already store?
 <!-- FAQ_31 DSP -->

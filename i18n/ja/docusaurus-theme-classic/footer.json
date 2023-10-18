@@ -33,7 +33,7 @@
   },
   "link.item.label.Opt-out": {
     "message": "オプトアウト",
-    "description": "The label of footer link with label=Opt-out linking to https://transparentadvertising.org/"
+    "description": "The label of footer link with label=Opt-out linking to https://www.transparentadvertising.com/"
   },
   "link.item.label.Do not sell my data": {
     "message": "個人情報の販売許可について",
