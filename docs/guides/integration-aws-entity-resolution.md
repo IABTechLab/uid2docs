@@ -103,6 +103,10 @@ On receipt of your subscription request, the UID2 team do the following:
 - Match your request with the AWS account ID that you sent in [Create UID2 Account](#create-uid2-account).
 - Approve the request.
 
+If you send your request via your UID2 contact, you'll receive a custom invitation to the UID2 private service listing on AWS, as shown in the following example.
+
+![AWS UID2 Private Offer](images/integration-aws-entity-resolution-private-offer.png)
+
 ## Configure AWS Account
 
 UID2 participants store their data in AWS, in an S3 bucket, and integrate with AWS Entity Resolution. The basic steps, once you've created the AWS account (see [Create AWS Account](#create-aws-account)) are as follows.
