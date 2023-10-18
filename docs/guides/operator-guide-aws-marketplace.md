@@ -119,7 +119,6 @@ The following table lists all resources that are created during the [deployment]
 | `TokenSecret` | `AWS::SecretsManager::Secret` | An encrypted configuration that includes the operator key. |
 | `WorkerRole` | `AWS::IAM::Role` | The IAM role that your UID2 Operators run as. Roles provide access to configuration keys. |
 | `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile` | The instance profile with Worker Role to attach to Operator EC2 instances. |
-| `AttachGateway` | `AWS::EC2::VPCGatewayAttachment` | A value that associates the Internet Gateway with the VPC. |
 | `SecurityGroup` | `AWS::EC2::SecurityGroup` | A security group policy that provides rules for operator instances. See also [Security Group Policy](#security-group-policy).|
 | `LaunchTemplate` | `AWS::EC2::LaunchTemplate` | A launch template with all configurations in place. You can spawn new UID2 Operator instances from it. |
 | `AutoScalingGroup` | `AWS::AutoScaling::AutoScalingGroup` | An auto-scaling group (ASG) to which the launch template is attached. You can use this to update the desired number of instances later, if needed. |
@@ -234,7 +233,7 @@ To create a load balancer and a target operator auto-scaling group, complete the
 To check the UID2 Operator status of your Load Balancer, complete the following steps:
 
 1. Identify the DNS name of your load balancer by going to **EC2 > Load balancers** and looking at the **DNS name** column of your load balancer.
-2. In your browser, go to `http://{dns-name-of-your-load-balancer}/ops/healthcheck`. A response of `OK` indicates good operator status.
+2. In your browser, go to `https://{dns-name-of-your-load-balancer}/ops/healthcheck`. A response of `OK` indicates good operator status.
 
 ## Upgrading the UID2 Operator
 
