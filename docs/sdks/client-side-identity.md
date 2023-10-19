@@ -143,7 +143,7 @@ You can provide as many callback functions as you want, and register them from a
 
 Your callback function should accept two parameters: an event type and a payload. The type of the payload depends on the event type.
 
-The following example callback handles the `SdkLoaded` event to call `init` and then, if an identity isn't available once `init` has completed, calls the `InitCompleted` event to provide an identity.
+The following example callback handles the `SdkLoaded` event to call init and then, if an identity isn't available once `init` has completed, uses the `InitCompleted` event to provide an identity.
 
 <Tabs>
 <TabItem value='js' label='JavaScript'>
@@ -219,7 +219,7 @@ Unless the SDK is able to load a previously-stored identity from local storage o
 
 #### Provide an Identity by Setting a First-Party Cookie
 
-If you store a first-party cookie, as described in the [storage format section](#uid2-storage-format), and the value is newer than the value available in local storage, the SDK loads the value in the cookie. If you have set the `useCookie` init option to `true`, it always loads this value, and does not check local storage. You can control several other things about the cookie using [init parameters](#init-parameters).
+If you store a first-party cookie, as described in the [storage format section](#uid2-storage-format), and the value is newer than the value available in local storage, the SDK loads the value from the cookie. If you have set the `useCookie` init option to `true`, it always loads this value, and does not check local storage. You can control several other things about the cookie using [init parameters](#init-parameters).
 
 #### Provide an Identity in the Call to `init`
 
@@ -248,7 +248,7 @@ All interactions with the UID2 SDK for JavaScript are done through the global `_
 
 ### constructor()
 
-Constructs a UID2 object. This is not intended to be used directly: when the SDK loads, it automatically initializes an instance of the UID2 class and stores it as the global `__uid2` object. Advanced integrations could make use of this constructor directly, but be careful to avoid having multiple active instances of the SDK running. This is not a supported use case.
+Constructs a UID2 object. This is not intended to be used directly: when the SDK loads, it automatically initializes an instance of the UID2 class and stores it as the global __uid2 object. Advanced integrations may make use of this constructor directly, but must take care to avoid having multiple active instances of the SDK running. This is not a supported use case.
 
 :::tip
 Instead of calling this function, just use the global `__uid2` object.
@@ -262,7 +262,7 @@ Here's what you need to know about this function:
 
 - You can call `init()` any time after the SDK has been loaded. The recommended way to do this is by registering a callback function that handles the `SdkLoaded` event using the [Array Push Pattern](#array-push-pattern). By using this pattern you can make sure that your code works regardless of script load order, and that using `async` or `defer` on your script tags does not cause UID2 SDK errors.
 - The `identity` property in the `init()` call refers to the `body` property of the response JSON object returned from a successful [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md) call with the server-side generated identity. This is a good way to provide the identity if your server-side integration ensures you always have a current token available and it is more convenient to provide it using JavaScript.
-- If the `identity` property in the `init()` call is false, the SDK attempts to load the identity from local storage or the cookie.
+- If the `identity` property in the `init()` call is falsy, the SDK attempts to load the identity from local storage or the cookie.
   - Once `init()` is complete, all callbacks receive the `InitCompleted` event. If the `identity` property on the payload of this event is null, no identity could be loaded, and you should therefore [provide a valid identity](#provide-identity). This is the recommended way to provide an identity if your server-side integration does not ensure a current identity is always available, and you need to request it from the server only when necessary.
   - If you are using a first-party cookie (see [UID2 Storage Format](#uid2-storage-format)) to store the passed UID2 information for the session, a call to `init()` made by a page on a different domain might not be able to access the cookie. You can adjust the settings used for the cookie with the `cookieDomain` and `cookiePath` options.
 - To tune specific behaviors, initialization calls might include optional configuration [init parameters](#init-parameters).
@@ -462,7 +462,7 @@ If cookie storage is being used, the cookie uses the properties in the following
 | Properties | Default Value | Comments |
 | :--- | :--- | :--- |
 | `Name` | `__uid_2` | N/A |
-| `Expiry` | N/A | The value is the refresh token expiration timestamp as specified in the<br/>[POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md) response. |
+| `Expiry` | N/A | The value is the refresh token expiration timestamp as specified in the [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md) response. |
 | `Path` | `/` | If you want to use a different value, you can set it during SDK initialization using the `cookiePath` [init() parameter](#init-parameters). |
 | `Domain` | `undefined` | If you want to use a different value, you can set it during SDK initialization using the `cookieDomain` [init() parameter](#init-parameters). |
 
