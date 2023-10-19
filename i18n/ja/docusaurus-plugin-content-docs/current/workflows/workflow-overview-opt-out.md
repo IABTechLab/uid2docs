@@ -7,7 +7,7 @@ sidebar_position: 04
 
 以下のステップは、パブリッシャーまたはその ID プロバイダーと関わるユーザーを対象とした、ワークフローの概要を提供します。
 
-1. ユーザーは[Transparency and Control Portal](https://transparentadvertising.org)にアクセスし、そこで UID2 のオプトアウトをグローバルに行えます。
+1. ユーザーは[Transparency and Control Portal](https://www.transparentadvertising.com/)にアクセスし、そこで UID2 のオプトアウトをグローバルに行えます。
 2. Transparency and Control Portal は、オプトアウトリクエストを UID2 [Operator Service](../ref-info/glossary-uid.md#gl-operator-service)に送信します。
 3. ユーザーがオプトアウトした場合、UID2 Operator Service は、以下のようにオプトアウト情報を UID2 参加者に配布します:
 
