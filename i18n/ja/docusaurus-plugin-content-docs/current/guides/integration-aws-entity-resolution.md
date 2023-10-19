@@ -96,7 +96,11 @@ Send your UID2 contact the AWS account ID that you'll use for your UID2 integrat
 
 ### Subscribe to UID2 on AWS
 
-To participate in UID2 on the Amazon Data Exchange Marketplace, subscribe to the UID2 service. See [Unified ID 2.0 Operator on AWS](https://aws.amazon.com/advertising-marketing/solutions/uid2/).
+Currently, you need to send your request via your UID2 contact. Then, you'll receive a custom invitation to the UID2 private service listing on AWS, as shown in the following example, and must accept the invitation to continue.
+
+![AWS UID2 Private Offer](images/integration-aws-entity-resolution-private-offer.png)
+
+<!-- To participate in UID2 on the Amazon Data Exchange Marketplace, subscribe to the UID2 service. See [Unified ID 2.0 Operator on AWS](https://aws.amazon.com/advertising-marketing/solutions/uid2/). -->
 
 On receipt of your subscription request, the UID2 team do the following:
 - Review your subscription request.
@@ -129,18 +133,18 @@ UID2 participants store their data in AWS, in an S3 bucket, and integrate with A
 
 When your initial account creation and setup are done, the next step is to create a matching workflow for your data.
 
+The following steps are a summary of actions you'll take in the AWS Entity Resolution user interface. For additional details and instructions, see [Creating a matching workflow with UID 2.0](https://docs.aws.amazon.com/entityresolution/latest/userguide/create-matching-workflow-provider.html#create-mw-uid) in the AWS Entity Resolution documentation.
+
 :::note
 UID2 supports either email or phone number for UID2 generation. However, in AWS Entity Resolution, if both values are present in the schema mapping, the workflow uses the email and treats the phone number as a pass-through field. If your data includes a mix of emails and phone numbers, the best approach is to create a separate workflow for each, with separate schema mappings. In this scenario, go through the following steps twice&#8212;create one workflow for emails and a separate one for phone numbers.
 :::
-
-The following steps are a summary of actions you'll take in the AWS Entity Resolution user interface. For additional details and instructions, consult [the AWS Entity Resolution documentation](https://docs.aws.amazon.com/entityresolution/).
 
 To create the matching workflow, first sign in to the AWS Management console, open the **AWS Entity Resolution** page, and choose **Workflows** > **Matching workflows** > **Create matching workflow**. Then, complete the following steps for your matching workflow.
 
 1. Specify the following details for the matching workflow:
    - **Name**: This value is required. We recommend a short, clear, intuitive name. For example, with your own company name: `CompanyName_UID2_Daily_Matching`.
    - **Description**: An optional description for the matching workflow.
-   - **Data input**: The source for your data in AWS. From the drop-down list, select an AWS Glue database, then the AWS Glue table, and then the schema mapping. You can specify more than one data input. The following example shows one data input, email:
+   - **Data input**: The source for your data in AWS. From the drop-down list, select an AWS Glue database, then the AWS Glue table, and then the schema mapping. You can specify more than one data input. In the following example, email is the only type of data input:
 
      |UniqueId|Name|Email|Date of Birth|
      |--------|----|-----|-----------|

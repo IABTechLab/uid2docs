@@ -96,16 +96,16 @@ Send your UID2 contact the AWS account ID that you'll use for your UID2 integrat
 
 ### Subscribe to UID2 on AWS
 
-To participate in UID2 on the Amazon Data Exchange Marketplace, subscribe to the UID2 service. See [Unified ID 2.0 Operator on AWS](https://aws.amazon.com/advertising-marketing/solutions/uid2/).
+Currently, you need to send your request via your UID2 contact. Then, you'll receive a custom invitation to the UID2 private service listing on AWS, as shown in the following example, and must accept the invitation to continue.
+
+![AWS UID2 Private Offer](images/integration-aws-entity-resolution-private-offer.png)
+
+<!-- To participate in UID2 on the Amazon Data Exchange Marketplace, subscribe to the UID2 service. See [Unified ID 2.0 Operator on AWS](https://aws.amazon.com/advertising-marketing/solutions/uid2/). -->
 
 On receipt of your subscription request, the UID2 team do the following:
 - Review your subscription request.
 - Match your request with the AWS account ID that you sent in [Create UID2 Account](#create-uid2-account).
 - Approve the request.
-
-If you send your request via your UID2 contact, you'll receive a custom invitation to the UID2 private service listing on AWS, as shown in the following example.
-
-![AWS UID2 Private Offer](images/integration-aws-entity-resolution-private-offer.png)
 
 ## Configure AWS Account
 
