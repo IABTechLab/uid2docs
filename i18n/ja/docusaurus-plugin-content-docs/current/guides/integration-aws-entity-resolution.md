@@ -17,7 +17,7 @@ sidebar_position: 04
 - [Initial Setup Steps](#initial-setup-steps)
   - [Create UID2 Account](#create-uid2-account)
   - [Create AWS Account](#create-aws-account)
-  - [Subscribe to UID2 on AWS](#subscribe-to-uid2-on-aws)
+  - [Subscribe to UID2 on AWS Data Exchange](#subscribe-to-uid2-on-aws-data-exchange)
 - [Configure AWS Account](#configure-aws-account)
 - [Create a Matching Workflow](#create-a-matching-workflow)
 - [Run the Matching Workflow](#run-the-matching-workflow)
@@ -31,7 +31,7 @@ This service allows you to map [DII](../ref-info/glossary-uid.md#gl-dii) (email 
 
 The following table summarizes the functionality available with the AWS Entity Resolution integration.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a raw UID2 |
+| Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a Raw UID2 |
 | :--- |  :--- | :--- | :--- | :--- |
 | No | No | No | No | Yes |
 
@@ -41,7 +41,7 @@ The following table summarizes the steps to integrate with UID2 using AWS Entity
 
 | Step/Link | Details |
 | --- | --- |
-| [Initial Setup Steps](#initial-setup-steps) | Create UID2 account, create AWS account, and link them:<ul><li>[Create UID2 Account](#create-uid2-account)</li><li>[Create AWS Account](#create-aws-account)</li><li>[Subscribe to UID2 on AWS](#subscribe-to-uid2-on-aws)</li></ul> |
+| [Initial Setup Steps](#initial-setup-steps) | Create UID2 account, create AWS account, and link them:<ul><li>[Create UID2 Account](#create-uid2-account)</li><li>[Create AWS Account](#create-aws-account)</li><li>[Subscribe to UID2 on AWS Data Exchange](#subscribe-to-uid2-on-aws-data-exchange)</li></ul> |
 | [Configure AWS Account](#configure-aws-account) | Set up IAM users, data tables, and schema mapping for your data. |
 | [Create a Matching Workflow](#create-a-matching-workflow) | Create the workflow for matching your data, including input location, the matching technique to be applied, and output location. |
 | [Run the Matching Workflow](#run-the-matching-workflow) | Process the input data to create raw UID2s. |
@@ -80,7 +80,7 @@ The following are the initial steps for setting up your UID2 integration in AWS 
 
 - [Create AWS Account](#create-aws-account)
 - [Create UID2 Account](#create-uid2-account)
-- [Subscribe to UID2 on AWS](#subscribe-to-uid2-on-aws)
+- [Subscribe to UID2 on AWS Data Exchange](#subscribe-to-uid2-on-aws-data-exchange)
 
 ### Create AWS Account
 
@@ -94,7 +94,7 @@ Ask your UID2 contact to register you as a UID2 participant. If you're not sure 
 
 Send your UID2 contact the AWS account ID that you'll use for your UID2 integration on Entity Resolution.
 
-### Subscribe to UID2 on AWS
+### Subscribe to UID2 on AWS Data Exchange
 
 Currently, you need to send your request via your UID2 contact. Then, you'll receive a custom invitation to the UID2 private service listing on AWS, as shown in the following example, and must accept the invitation to continue.
 
@@ -102,10 +102,10 @@ Currently, you need to send your request via your UID2 contact. Then, you'll rec
 
 <!-- To participate in UID2 on the Amazon Data Exchange Marketplace, subscribe to the UID2 service. See [Unified ID 2.0 Operator on AWS](https://aws.amazon.com/advertising-marketing/solutions/uid2/). -->
 
-On receipt of your subscription request, the UID2 team do the following:
-- Review your subscription request.
-- Match your request with the AWS account ID that you sent in [Create UID2 Account](#create-uid2-account).
-- Approve the request.
+On receipt of your subscription request, the UID2 team does the following:
+- Reviews your subscription request.
+- Matches your request with the AWS account ID that you sent in [Create UID2 Account](#create-uid2-account).
+- Approves the request.
 
 ## Configure AWS Account
 
@@ -160,7 +160,7 @@ To create the matching workflow, first sign in to the AWS Management console, op
    - Then, under **Partner services**, choose **Unified ID2.0**.
    - Click **Next**.
 
-     If you've subscribed to the Unified ID 2.0 product on Amazon Data Exchange (see [Subscribe to UID2 on AWS](#subscribe-to-uid2-on-aws)), you'll see an **Approved** message.
+     If you completed the earlier step, see [Subscribe to UID2 on AWS Data Exchange](#subscribe-to-uid2-on-aws-data-exchange), you'll see an **Approved** message.
 
 3. Define the data output:
    - For **Data Output Destination**, specify the URI of the S3 bucket that you want to use for your output data. Select the data format: Normalized or Original.

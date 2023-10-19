@@ -31,7 +31,7 @@ This service allows you to map [DII](../ref-info/glossary-uid.md#gl-dii) (email 
 
 The following table summarizes the functionality available with the AWS Entity Resolution integration.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a raw UID2 |
+| Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a Raw UID2 |
 | :--- |  :--- | :--- | :--- | :--- |
 | No | No | No | No | Yes |
 
@@ -160,7 +160,7 @@ To create the matching workflow, first sign in to the AWS Management console, op
    - Then, under **Partner services**, choose **Unified ID2.0**.
    - Click **Next**.
 
-     If you've subscribed to the Unified ID 2.0 product on Amazon Data Exchange (see [Subscribe to UID2 on AWS Data Exchange](#subscribe-to-uid2-on-aws-data-exchange)), you'll see an **Approved** message.
+     If you completed the earlier step, see [Subscribe to UID2 on AWS Data Exchange](#subscribe-to-uid2-on-aws-data-exchange), you'll see an **Approved** message.
 
 3. Define the data output:
    - For **Data Output Destination**, specify the URI of the S3 bucket that you want to use for your output data. Select the data format: Normalized or Original.
