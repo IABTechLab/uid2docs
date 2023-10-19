@@ -118,7 +118,7 @@ UID2 共有者は、以下の例に示すように、2段階のプロセスを�
 </tbody>
 </table>
 
-## Sharing in the Bid Strea
+## Sharing in the Bid Stream
 
 パブリッシャーがビッドストリームで UID2 Token を共有するプロセスは、別のプロセスです。詳細は [Sharing in the Bid Stream](sharing-bid-stream.md) を参照してください。
 
