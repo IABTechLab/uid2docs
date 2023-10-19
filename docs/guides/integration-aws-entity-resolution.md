@@ -27,6 +27,8 @@ sidebar_position: 04
 
 This service allows you to map [DII](../ref-info/glossary-uid.md#gl-dii) (email addresses or phone numbers) to raw UID2s swiftly and securely.
 
+>NOTE: If you're not currently part of the UID2 ecosystem, go to the [Request Access to UID2](https://unifiedid.com/request-access) page.
+
 ## Functionality
 
 The following table summarizes the functionality available with the AWS Entity Resolution integration.
