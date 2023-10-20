@@ -96,6 +96,7 @@ const sidebars = {
           collapsed: true,
           items: [
             'guides/integration-prebid',
+            'guides/integration-prebid-advanced',
             'guides/publisher-client-side',
             'guides/custom-publisher-integration',
             'guides/google-ss-integration',
