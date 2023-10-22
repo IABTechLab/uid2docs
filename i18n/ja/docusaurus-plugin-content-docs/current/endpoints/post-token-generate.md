@@ -7,11 +7,11 @@ sidebar_position: 02
 
 # POST /token/generate
 
-UID2 ベースのターゲティング広告にユーザーをオプトインし、提供されたメールアドレスまたは電話番号から UID2 Token を生成します。
+UID2 ベースのターゲティング広告の承認とともにユーザーから提供された [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号)から UID2 Token をリクエストします。DII が有効で、ユーザーが UID2 をオプトアウトしていない場合、この操作は UID2 Token と関連する値を返します。
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
-> IMPORTANT: このエンドポイントは、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。必須の `policy` パラメータは、ユーザーがオプトアウトしたかどうかをチェックします。
+> IMPORTANT: このエンドポイントは、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。`policy` パラメータは値 `1` が必須で、ユーザーがオプトアウトしたかどうかをチェックします。
 
 ## Request Format
 
@@ -32,7 +32,7 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 
 ### Unencrypted JSON Body Parameters
 
-リクエストを暗号化する際、JSON ボディに Key-Value ペアとして含めるパラメータは、以下のいずれか 1 つだけである必要があります。
+リクエストを暗号化する際に、4つの条件付きパラメータ(`email`, `email_hash`, `phone`, `phone_hash`)のうち **1** つだけを、JSON ボディの key-value ペアとして含めます。
 
 | Body Parameter | Data Type | Attribute      | Description                                                                                                                                                              |
 | :------------- | :-------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

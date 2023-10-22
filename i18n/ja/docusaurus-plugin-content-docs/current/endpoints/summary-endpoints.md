@@ -15,7 +15,7 @@ sidebar_position: 01
 
 | Endpoint                                       | Description                                                                                                                   | Request Encryption | Response Decryption |
 | :--------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------- | :----------------- | :------------------ |
-| [POST /token/generate](post-token-generate.md) | UID2 ベースのターゲティング広告にユーザーをオプトインし、提供されたメールアドレスまたは電話番号から UID2 Token を生成します。 | 必須               | 必須                |
+| [POST /token/generate](post-token-generate.md) | UID2 ベースのターゲティング広告を承認するためにユーザーから提供されたメールアドレスまたは電話番号から、UID2 Tokenを要求します。DII が有効で、ユーザーが UID2 をオプトアウトしていない場合、この操作は UID2 Token と関連する値をします。 | 必須               | 必須                |
 | [POST /token/validate](post-token-validate.md) | Advertising Token (UID2) が指定されたメールアドレス、電話番号、またはそれぞれのハッシュと一致するかどうかを検証するためのテストに使用します。       | 必須               | 必須                |
 | [POST /token/refresh](post-token-refresh.md)   | [POST /token/generate](./post-token-generate.md) レスポンスから、ユーザーの Refresh Token 用に新しいトークンを生成します。    | N/A                | 必須                |
 
