@@ -31,16 +31,13 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 
 - Body Parameter の表にあるように、以下の4つの有効なオプションのうち1つだけを含めます: `email`、`email_hash`、`phone`、`phone_hash` のいずれかです。`email`、`email_hash`、`phone`、`phone_hash` です。テストするパラメータには、リストされている値を正確に指定してください。
 
-詳細については、[FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。
-
-
-| Body Parameter | Data Type | Attribute | Description | Value |
-| :--- | :--- | :--- | :--- | :--- |
+| Body Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
 | `token` | string | Required | [POST /token/generate](post-token-generate.md) レスポンスが返す advertising token です。 |
 | `email` | string | Conditionally Required | トークン検証用のメールアドレスです。<br/>有効な値は `validate@email.com` だけです。 |
-| `email_hash` | string | Conditionally Required | トークン検証用の [正規化された](../getting-started/gs-normalization-encoding#email-address-normalization) メールアドレス(`validate@email.com`)の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding#email-address-hash-encoding) ハッシュです。<br/>有効な値は `LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI=` だけです。 |
-| `phone` | string | Conditionally Required | トークンを生成するための [正規化された](../getting-started/gs-normalization-encoding#phone-number-normalization) 電話番号です。<br/>有効な値は`+12345678901` だけです。|
-| `phone_hash` | string | Conditionally Required | [正規化された](../getting-started/gs-normalization-encoding#phone-number-normalization) 電話番号の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding#phone-number-hash-encoding) ハッシュです。<br/>有効な値は`EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=` だけです。|
+| `email_hash` | string | Conditionally Required | トークン検証用の [正規化された](../getting-started/gs-normalization-encoding.md#email-address-normalization) メールアドレス(`validate@email.com`)の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) ハッシュです。<br/>有効な値は `LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI=` だけです。 |
+| `phone` | string | Conditionally Required | トークンを生成するための [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号です。<br/>有効な値は`+12345678901` だけです。|
+| `phone_hash` | string | Conditionally Required | [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) ハッシュです。<br/>有効な値は`EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=` だけです。|
 
 
 ### Request Examples
@@ -77,7 +74,7 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 以下は、メールアドレスハッシュの暗号化トークン検証リクエストの例です:
 
 ```sh
-echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D", "email_hash": "LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI="}' | python3 uid2_request.py  https://prod.uidapi.com/v2/token/validate [Your-Client-API-Key] [Your-Client-Secret]
+echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D", "email_hash": "LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI="}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/validate [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
 詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
@@ -111,16 +108,16 @@ echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXl
 | `client_error` | 400              | リクエストに不足している、または無効なパラメータがありました。                                                                                                                 |
 | `unauthorized` | 401              | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
-`status` の値が `success` 以外の場合、 `message` フィールドにその問題に関する追加情報が表示されます。
+`status` の値が `success` 以外であれば、 `message` フィールドにその問題に関する追加情報が表示されます。
 
-
-##  Using POST /token/validate to Test
+## Using POST /token/validate to Test
 
 このエンドポイントを使用して、[POST /token/generate](../ref-info/glossary-uid.md#gl-dii) で送信する [DII](../endpoints/post-token-generate.md) が有効かどうかをテストできます。以下の手順に従ってください。
 
 1. DII がハッシュ化されたメールアドレスか、ハッシュ化されていないメールアドレスか、電話番号かに応じて、[Unencrypted JSON Body Parameters](#unencrypted-json-body-parameters) の表に記載されている4つの有効なオプションのいずれかを使用して、[POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信する。表に記載されている対応する値 - `email`、`email_hash`、`phone`、`phone_hash` - を使用する。
 
 2. 返された `advertising_token` の値を次のステップで使用するために保存します。
-3. Step 2 で保存した `advertising_token` を `token` プロパティの値として、Step 1 で送信した `email`、`email_hash`、`phone`、`phone_hash` の値を使用して [POST /token/validate](../endpoints/post-token-validate.md) リクエストを送信します。
+3. Step 1 で送信した `email`、`email_hash`、`phone`、`phone_hash` の値と、Step 2 で保存した `advertising_token` を `token` プロパティの値として、`POST /token/validate` リクエストを送信します。
+4. `POST /token/validate` リクエストに対するレスポンスを確認します。結果は以下のように、処理の成功を示しています： 
     - `true` のレスポンスは、Step 1 でリクエストとして送った DII が、Step 1 のレスポンスで受け取ったトークンと一致していることを示します。
     - `false` のレスポンスは、メールアドレス、電話番号、またはそれぞれのハッシュを送信する方法に問題があるかもしれないことを示します。
