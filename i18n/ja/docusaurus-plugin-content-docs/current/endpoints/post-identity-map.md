@@ -45,7 +45,7 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 | `email_hash`   | string array | 条件付きで必要 | [正規化](../getting-started/gs-normalization-encoding#email-address-hash-encoding) したメールアドレスを [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding#email-address-normalization) したリストです。 |
 | `phone`        | string array | 条件付きで必要 | マッピングする [正規化](../getting-started/gs-normalization-encoding#phone-number-normalization) 済み電話番号のリストです。                                                                                   |
 | `phone_hash`   | string array | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding#phone-number-hash-encoding) した [正規化](../getting-started/gs-normalization-encoding#phone-number-normalization) 済み電話番号のリストです。         |
-| `policy`       | number       | オプション     | ユーザー識別子がオプトアウトされたときの ID マップの動作をカスタマイズします。詳しくは、[Identity Map Policy](#identity-map-policy) を参照してください。                         |
+| `policy`       | number       | 必須     | トークン生成ポリシー ID は、ユーザーがオプトアウトしたかどうかをチェックします。このパラメータは `1` とします。                         |
 
 ### Request Examples
 
@@ -53,7 +53,11 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 
 ```json
 {
-  "email": ["user@example.com", "user2@example.com"]
+  "email": [
+    "user@example.com",
+    "user2@example.com"
+  ],
+  "policy":1 
 }
 ```
 
@@ -62,13 +66,18 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
   "email_hash": [
     "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
     "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
-  ]
+  ],
+  "policy":1 
 }
 ```
 
 ```json
 {
-  "phone": ["+1111111111", "+2222222222"]
+  "phone": [
+    "+1111111111",
+    "+2222222222"
+  ],
+  "policy":1 
 }
 ```
 
@@ -77,14 +86,15 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
   "phone_hash": [
     "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
     "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
-  ]
+  ],
+  "policy":1 
 }
 ```
 
 以下は、メールアドレスハッシュに対する暗号化された ID マッピングリクエストの例です:
 
 ```sh
-echo '{"phone": ["+1111111111", "+2222222222"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk= DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
+echo '{"phone": ["+1111111111", "+2222222222"], "policy":1}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk= DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
 
 詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
@@ -138,7 +148,7 @@ echo '{"phone": ["+1111111111", "+2222222222"]}' | python3 uid2_request.py https
 }
 ```
 
-リクエストにパラメータ/値 `policy=1` が含まれ、一部の識別子が UID2 エコシステムからオプトアウトしている場合、オプトアウトした識別子は、見つかった無効な識別子とともに"unmapped"リストに移動されます。この場合でも、応答ステータスは "success" です。
+一部の識別子が UID2 エコシステムからオプトアウトしている場合、オプトアウトした識別子は、見つかった無効な識別子とともに "unmapped" リストに移動されます。この場合でも、応答ステータスは "success" です。
 
 ```json
 {
@@ -180,12 +190,3 @@ echo '{"phone": ["+1111111111", "+2222222222"]}' | python3 uid2_request.py https
 | `unauthorized` | 401              | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
 `status` の値が `success` 以外の場合、 `message` フィールドにその問題に関する追加情報が表示されます。
-
-### Identity Map Policy
-
-ID マップポリシーは、トークンを生成するタイミングを呼び出し元が決定できるようにします。これは、リクエストボディに整数値の ID として渡されます (キー 'policy' を使用)。このパラメータが省略された場合、デフォルト値である policy = 0 が適用されます。
-
-| ID  | Description                                            |
-| :-- | :----------------------------------------------------- |
-| 0   | 常にユーザー ID を UID2 にマッピングします。           |
-| 1   | オプトアウトしたユーザーは、マッピングに含まれません。 |

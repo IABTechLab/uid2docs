@@ -67,7 +67,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 #### ユーザーの out-out はどのように通知されますか？
 
 ユーザーがオプトアウトした場合、API レスポンスは以下のいずれかのケースで通知します:
-- 直接または UID2 SDK のいずれかで [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出し、オプションの `policy` パラメータに `1` を指定して UID2 Token を生成した場合。
+- 直接または UID2 SDK のいずれかで [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出し、UID2 Token を生成する場合、必須の `policy` パラメータに `1` を指定します。
 - 直接または UID2 SDK のいずれかで [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出し、UID2 Token をリフレッシュした場合。
 
 #### トークン生成の呼び出しは、サーバーサイドとクライアントサイドのどちらで行うべきですか？

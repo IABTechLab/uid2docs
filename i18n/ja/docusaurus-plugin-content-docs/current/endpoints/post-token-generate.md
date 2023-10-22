@@ -11,7 +11,7 @@ UID2 ベースのターゲティング広告にユーザーをオプトインし
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
-> IMPORTANT: このエンドポイントは、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。デフォルトでは、このエンドポイントはオプトアウト記録をチェックしません。ユーザーがオプトアウトしたかどうかを確認するには、オプションの `policy` リクエストパラメータに `1` を指定して使用します。
+> IMPORTANT: このエンドポイントは、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。`policy` パラメータは、ユーザーがオプトアウトしたかどうかをチェックします。
 
 ## Request Format
 
@@ -40,7 +40,7 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 | `email_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding#email-address-hash-encoding) した [正規化](../getting-started/gs-normalization-encoding#email-address-normalization) 済みメールアドレスです。 |
 | `phone`        | string    | 条件付きで必要 | トークンを生成する [正規化](../getting-started/gs-normalization-encoding#phone-number-normalization) 済み電話番号です。                                                                               |
 | `phone_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding#phone-number-hash-encoding) した、[正規化](../getting-started/gs-normalization-encoding#phone-number-normalization) 済み電話番号です。        |
-| `policy`       | number    | オプション     | トークン生成ポリシーの ID です。[Token Generation Policy](#token-generation-policy) を参照してください。                                                                 |
+| `policy`       | number    | 必須     | トークン生成ポリシー ID は、ユーザーがオプトアウトしたかどうかをチェックします。このパラメータは `1` とします。                                                                 |
 
 ### Request Examples
 
@@ -50,32 +50,36 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 
 ```json
 {
-  "email": "username@example.com"
+  "email": "username@example.com",
+  "policy": 1
 }
 ```
 
 ```json
 {
-  "email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
+  "email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=",
+  "policy": 1
 }
 ```
 
 ```json
 {
-  "phone": "+12345678901"
+  "phone": "+12345678901",
+  "policy": 1
 }
 ```
 
 ```json
 {
-  "phone_hash": "wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ/FSK4="
+  "phone_hash": "wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ/FSK4=",
+  "policy": 1
 }
 ```
 
 以下は、メールアドレスハッシュの暗号化トークン生成リクエストの例です:
 
 ```sh
-echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate [Your-Client-API-Key] [Your-Client-Secret]
+echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","policy":1}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
 詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
@@ -109,7 +113,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' | python3 
 
 #### Optout
 
-以下は、`policy`パラメータがリクエストに含まれ、値が`1`で、ユーザーがオプトアウトした場合の応答例です。その他のシナリオでは、ユーザーがオプトアウトした場合、トークンが返されます (上記の [Successful Response](#successful-response) を参照してください)。
+以下は、ユーザーがオプトアウトした場合の応答例です。その他のシナリオでは、ユーザーがオプトアウトした場合、トークンが返されます (上記の [Successful Response](#successful-response) を参照してください)。
 
 ```json
 {
@@ -149,12 +153,3 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' | python3 
 | Email | `optout@email.com`   | このメールアドレスをリクエストに使用すると、常に `refresh_token` を使用した identity レスポンスが生成され、`optout` のレスポンスになります。 | [POST /token/refresh](post-token-refresh.md)   |
 | Phone | `+12345678901`       | キャッシュした `advertising_token` が、指定した電話番号の `advertising_token` と一致するかどうかをテストします。                        | [POST /token/validate](post-token-validate.md) |
 | Phone | `+00000000000`       | この電話番号をリクエストに使用すると、常に `refresh_token` を含む identity レスポンスが生成され、`optout` のレスポンスになります。           | [POST /token/refresh](post-token-refresh.md)   |
-
-## Token Generation Policy
-
-トークン生成ポリシーは、トークンを生成するタイミングを呼び出し側に決定させるものです。パラメータを省略すると、ID = 0 のポリシーが適用されます。
-
-| ID  | Description                                                      |
-| :-- | :--------------------------------------------------------------- |
-| 0   | 必ずトークンを生成します。                                       |
-| 1   | ユーザーがオプトアウトしていない場合のみ、トークンを生成します。 |
