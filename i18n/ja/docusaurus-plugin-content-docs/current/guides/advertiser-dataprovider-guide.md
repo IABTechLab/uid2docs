@@ -1,5 +1,6 @@
 ---
 title: Advertiser/Data Provider Integration
+sidebar_label: Advertiser/Data Provider Integration Guide
 description: ユーザーデータを収集し、それを他の UID2 参加者にプッシュする組織のためのインテグレーション手順。
 hide_table_of_contents: false
 sidebar_position: 07

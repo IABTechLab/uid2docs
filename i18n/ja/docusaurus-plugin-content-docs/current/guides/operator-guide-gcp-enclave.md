@@ -1,6 +1,6 @@
 ---
 title: UID2 Operator - Google Cloud Platform Confidential Computing Package
-sidebar_label: Google Cloud Platform Confidential Computing Package
+sidebar_label: Google Cloud Platform
 pagination_label: UID2 Operator - Google Cloud Platform Confidential Computing Package
 description: Google Cloud Platform Private Operator のインテグレーション情報。
 hide_table_of_contents: false
