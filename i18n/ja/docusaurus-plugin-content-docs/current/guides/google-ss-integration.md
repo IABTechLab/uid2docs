@@ -17,8 +17,8 @@ sidebar_position: 10
 * [Allow Secure Signal Sharing](#allow-secure-signal-sharing)
 * [Publisher Integrations](#publisher-integration)
 * [Server-Only Integration](#server-only-integration)
-* [UID2 Client-Side JavaScript SDK Integration](#uid2-client-side-javascript-sdk-integration) -->
-<!--* [Sample Applications](#sample-applications)-->
+* [UID2 SDK for JavaScript Client-Side Integration](#uid2-sdk-for-javascript-client-side-integration)
+* [Sample Applications](#sample-applications) -->
 
 > NOTE: UID2 Google Ad Manager セキュアシグナルインテグレーションを使用するには、SDK を使用している場合、UID2 インテグレーションがすでに設定されている必要があります。サーバーのみのインテグレーションを使用している場合は、この限りではありません。使用可能なすべてのインテグレーションオプションの概要は、[UID2 Integration Guides](summary-guides.md)を参照してください。
 
@@ -73,11 +73,11 @@ window.getUid2AdvertisingToken = async () => {
 
 詳しくは、[Server-Only UID2 Integration Guide](custom-publisher-integration.md) を参照してください。
 
-<!--A sample application is also available for server-only integration. See [Sample Applications](#sample-applications).-->
+Server Only インテグレーションのためのサンプルアプリケーションも用意されています。[Sample Applications](#sample-applications)を参照してください。
 
-### UID2 Client-Side JavaScript SDK Integration
+### UID2 SDK for JavaScript Client-Side Integration
 
-Client-Side JavaScript SDK バージョン 3.0.0 以降を使用している場合、UID2 セキュアシグナルスクリプトは、SDK で提供される `getAdvertisingTokenAsync` 関数を使用して新しい Advertising Token を取得し、Google Ad Manager にそのトークンをプッシュします。
+UID2 SDK for JavaScript バージョン 3.0.0 以降を使用している場合、UID2 セキュアシグナルスクリプトは、SDKで提供されている `getAdvertisingTokenAsync` 関数を使用して新しい Advertising Token を取得し、そのトークンを Google Ad Manager にプッシュします。
 
 このスクリプトは CDN でホストされており、GPT はセキュアシグナル機能で自動的にロードします。
 
@@ -85,10 +85,10 @@ Client-Side JavaScript SDK バージョン 3.0.0 以降を使用している場�
 
 <!--A sample application is also available for client-side integration using the SDK. See [Sample Applications](#sample-applications).-->
 
-<!--## Sample Applications
+## Sample Applications
 
-The following sample applications are available to illustrate how to integrate with the Google Ad Manager secure signals feature:
-- Server-only integration: {link to come xxx}
-- Client-Side JavaScript SDK integration: {link to come xxx}
+Google Ad Manager のセキュアシグナル機能との連携方法については、以下のサンプルアプリケーションを参照してください:
+- [Server-Only UID2 Integration Example](https://esp-srvonly-integ.uidapi.com/)
+- [Client-Side UID2 SDK Integration Example](https://esp-jssdk-integ.uidapi.com/)
 
-Each sample application has its own instructions. -->
+各サンプルアプリケーションには独自のインストラクションがあります。
