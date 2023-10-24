@@ -9,7 +9,39 @@ sidebar_position: 04
 
 # Snowflake Integration Guide
 
+<!-- This guide includes the following information:
+- [Functionality](#functionality)
+- [Workflow Diagram](#workflow-diagram)
+- [Access the UID2 Shares](#access-the-uid2-shares)
+- [Shared Objects](#shared-objects)
+  -  [Database and Schema Names](#database-and-schema-names)
+  -  [Map DII](#map-dii)
+  -  [Regenerated UID2s](#regenerate-uid2s) 
+- [Migration Guide](#migration-guide)  
+- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
+   - [Encrypt Tokens](#encrypt-tokens)
+   - [Decrypt Tokens](#decrypt-tokens)
+   - [UID2 Sharing Example](#uid2-sharing-example) -->
+
 [Snowflake](https://www.snowflake.com/?lang=ja) はクラウドデータウェアハウスソリューションで、パートナーとして顧客のデータを保存し、UID2 フレームワークとインテグレーションできます。Snowflake を使用することで、UID2 は、機密性の高い [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を公開することなく、認可された消費者識別子データを安全に共有できます。消費者識別子データを直接 Operator Web Services に問い合わせることもできますが、Snowflake UID2 とのインテグレーションにより、よりシームレスな体験が可能になります。
+
+UID2 の以下のリストが Snowflake marketplace で入手可能です:
+- 広告主向け: [Unified ID 2.0: Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV/unified-id-2-0-unified-id-2-0-advertiser-identity-solution?originTab=provider&providerName=Unified+ID+2.0)
+- データプロバイダー向け: [Unified ID 2.0: Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0/unified-id-2-0-unified-id-2-0-data-provider-identity-solution?originTab=provider&providerName=Unified+ID+2.0)
+
+## Functionality
+
+以下の表は、UID2 Snowflake インテグレーションで利用可能な機能をまとめたものです。
+
+| Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a raw UID2 |
+| :--- |  :--- | :--- | :--- | :--- |
+| Yes | Yes | No* | No | Yes |
+
+*DII から直接 UID2 Token を生成することはできません。しかし、DII を raw UID2 に変換し、raw UID2 を暗号化して UID2 Token にすることはできます。
+
+>NOTE: 入札ストリームでUID2トークンを共有するパブリッシャーの場合は、[Sharing in the Bid Stream](sharing-bid-stream.md) を参照してください
+
+## Workflow Diagram
 
 次の図は、Snowflake が UID2 インテグレーションプロセスにどのように関わるかを示しています:
 
@@ -18,7 +50,7 @@ sidebar_position: 04
 | Partner Snowflake Account                                                                                                                                    | UID2 Snowflake Account                                                                                                                                                                                                                                                                               | UID2 Core Opt-Out Cloud Setup                                                                                                                                                                                                    |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | パートナーは、Snowflake アカウントを設定してデータをホストし、UID2 Share を通じて関数やビューを使うことで、UID2 インテグレーションに関与できます。 | Snowflake アカウントでホストされている UID2 インテグレーションでは、プライベートテーブルからデータを引き出す認可をされた関数とビューへのアクセスが許可されます。プライベートテーブルにはアクセスできません。UID2 Share では、UID2 関連のタスクを実行するために必要な重要なデータのみが公開されます。 | ETL (Extract Transform Load) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web Services を動かす内部データを提供します。Operator Web Services で使用されるデータは、UID2 Share からも入手できます。 |
-| Shared 関数とビューを使用する場合、Snowflake にトランザクションのコストを支払います。                                                                        | UID2 Snowflake アカウントで保護されたこれらのプライベートテーブルは、UID2 関連のタスクを完了するために使用される内部データを保持する UID2 Core/Optout Snowflake ストレージと自動的に同期されます。                                                                                                   |                                                                                                                                                                                                                                  |
+| Shared 関数とビューを使用する場合、Snowflake にトランザクションのコストを支払います。 | UID2 Snowflake アカウントで保護されたこれらのプライベートテーブルは、UID2 関連のタスクを完了するために使用される内部データを保持する UID2 Core/Optout Snowflake ストレージと自動的に同期されます。 |  |
 
 ## Access the UID2 Shares
 
@@ -27,7 +59,6 @@ UID2 Shareへのアクセスは、[Snowflake Data Marketplace](https://www.snowf
 Snowflakeデータマーケットプレイスでは、UID2 用に2つのパーソナライズされたリストが提供されています:
 - 広告主/ブランド向けの [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV)
 - データプロバイダー向けの [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0)
-
 
 > IMPORTANT: データをリクエストするには、Snowflake アカウントに`ACCOUNTADMIN` ロール権限が必要です。
 
@@ -107,7 +138,7 @@ DIIが電話番号の場合、UID2 [電話番号正規化](../getting-started/gs
 | `BUCKET_ID` | TEXT | DIIは正常にマップされました: UID2 の生成に使われたセカンドレベルのソルトバケットの ID。この ID は `UID2_SALT_BUCKETS` ビューのバケットIDに対応します。<br/>DIIは正常にマップされませんでした: `NULL`。 |
 | `UNMAPPED` | TEXT |  DII は正常にマッピングされました: `NULL`<br/>DII は正常にマップされませんでした: `NULL`:  DII は正常にマップされませんでした: 識別子がマップされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、`INVALID INPUT TYPE` のいずれか。詳細は [Values for the UNMAPPED Column](#values-for-the-unmapped-column) を参照してください。
 
-### Values for the UNMAPPED Column
+#### Values for the UNMAPPED Column
 
 `UNMAPPED`に指定できる値は以下の通りです:
 
@@ -117,6 +148,8 @@ DIIが電話番号の場合、UID2 [電話番号正規化](../getting-started/gs
 | `OPTOUT` | ユーザはオプトアウトしました。 |
 | `INVALID IDENTIFIER` | メールアドレスまたは電話番号が無効です。 |
 | `INVALID INPUT TYPE` | `INPUT_TYPE` の値が無効です。INPUT_TYPE の値は以下のいずれかでなければなりません: email`、`email_hash`、`phone`、`phone_hash`。 |
+
+#### Examples
 
 このセクションのマッピングリクエストの例:
 
@@ -497,6 +530,8 @@ FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash')
 UID2 sharer とは、UID2 を他の参加者と Sharing (共有)したい参加者のことです。広告主とデータプロバイダーは、Snowflake を介して、UID2 を他の認可された UID2 を sharing する参加者と共有することができます。詳細については、[UID2 Sharing: Overview](../sharing/sharing-overview)を参照してください。
 
 Sharing する参加者は、他の参加者に送信する前に、[raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を暗号化して [UID2 Token](../ref-info/glossary-uid#gl-uid2-token)に変換しなければなりません。
+
+>IMPORTANT: このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md) を参照してください。
 
 以下のシナリオは UID2 sharing に対応しています:
 
