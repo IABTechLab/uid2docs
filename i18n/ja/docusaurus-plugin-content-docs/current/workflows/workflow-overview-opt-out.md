@@ -19,7 +19,7 @@ sidebar_position: 04
 
 このワークフローでは、ユーザーが UID2 識別子の作成に同意し、透明性と管理ポータルを通じて UID2 の同意とプライバシー設定を管理できます。
 
-![User Trust Workflow](images/user_trust_workflow.jpg)
+![User Trust Workflow](images/UID2GlobalOptoutWorkflow.png)
 
 
 <!-- 3. If the user has opted out, the UID2 Operator Service distributes the opt-out information to various UID2 participant types, as follows:
