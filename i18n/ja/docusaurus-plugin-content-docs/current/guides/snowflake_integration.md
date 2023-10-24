@@ -491,3 +491,224 @@ FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash')
 新しい関数を実装したら、`FN_T_UID2_IDENTITY_MAP`が返す `UNMAPPED` カラムをチェックすることができます。DII が UID2 にマッピングできなかった場合、この列にはその理由が示されます。
 
 値とその説明の詳細については、[Values for the UNMAPPED Column](#values-for-the-unmapped-column)を参照してください。
+
+## Usage for UID2 Sharers
+
+UID2 sharer とは、UID2 を他の参加者と Sharing (共有)したい参加者のことです。広告主とデータプロバイダーは、Snowflake を介して、UID2 を他の認可された UID2 を sharing する参加者と共有することができます。詳細については、[UID2 Sharing: Overview](../sharing/sharing-overview)を参照してください。
+
+Sharing する参加者は、他の参加者に送信する前に、[raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を暗号化して [UID2 Token](../ref-info/glossary-uid#gl-uid2-token)に変換しなければなりません。
+
+以下のシナリオは UID2 sharing に対応しています:
+
+- [Encrypt Tokens](#encrypt-tokens)
+- [Decrypt Tokens](#decrypt-tokens)
+
+### Encrypt Tokens
+
+raw UID2 を UID2 Token 暗号化するには、関数 `FN_T_UID2_ENCRYPT` を使用します。該当する接頭辞を使用して自分の役割を示します:
+
+- 広告主の場合: `ADV.FN_T_UID2_ENCRYPT`
+- データプロバイダーの場合: `DP.FN_T_UID2_ENCRYPT`
+
+|Argument|Data Type|Description|
+| :--- | :--- | :--- |
+| `RAW_UID2` | varchar(128) | UID2 Token に暗号化する raw UID2。 |
+
+クエリーに成功すると、指定された raw UID2 について以下の情報が返されます。
+
+|Column Name|Data Type|Description|
+| :--- | :--- | :--- |
+| `UID2_TOKEN` | TEXT | 値は次のいずれかです:<ul><li>暗号化成功: raw UID2 を含む UID2 Token。</li><li>暗号化失敗: `NULL`</li></ul> |
+| `ENCRYPTION_STATUS` | TEXT | 値は次のいずれかです。<ul><li>暗号化成功: `NULL`</li><li>暗号化失敗: raw UID2 が暗号化されなかった理由。例: `INVALID_RAW_UID2` または `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`。<br/>詳細については、[Values for the ENCRYPTION_STATUS Column](#values-for-the-encryption_status-column) を参照してください。</li></ul> |
+
+#### Values for the ENCRYPTION_STATUS Column
+
+次の表は、`ENCRYPTION_STATUS` 列の有効な値です。
+
+| Value | Meaning |
+| :-- | :-- |
+| `NULL` | The raw UID2 was successfully encrypted. |
+| `MISSING_OR_INVALID_RAW_UID2` | raw UID2 の暗号化に成功しました。 |
+| `INVALID_RAW_UID2` | raw UID2 が無効です。 |
+| `MISMATCHING_IDENTITY_SCOPE` | raw UID2 が不正な ID スコープに属している。たとえば、UID2 が期待されているところに EUID が渡されているなど。|
+| `NOT_AUTHORIZED_FOR_MASTER_KEY` | 呼び出し元が必要な暗号化キーにアクセスできない。UID2 の管理者に連絡してください。 |
+| `NOT_AUTHORIZED_FOR_SITE_KEY` | 呼び出し元が必要な暗号化キーにアクセスできない。UID2 の管理者に連絡してください。 |
+
+#### Encrypt Token Request Example - Single Raw UID2
+
+以下のクエリは、[default database and schema names](#database-and-schema-names) を使用して、単一の raw UID2 を UID2 Token に暗号化する方法を示しています。
+
+単一の raw UID2 に対する広告主ソリューションクエリ:
+
+```
+select UID2_TOKEN, ENCRYPTION_STATUS from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_ENCRYPT('2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU='));
+```
+
+単一の raw UID2 に対するデータプロバイダのソリューションクエリ:
+
+```
+select UID2_TOKEN, ENCRYPTION_STATUS from table(UID2_PROD_DP_SH.DP.FN_T_UID2_ENCRYPT('2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU='));
+```
+
+単一の raw UID2 に対するクエリー結果:
+
+```
++------------------------+-------------------+
+| UID2_TOKEN             | ENCRYPTION_STATUS |
++--------------------------------------------+
+| A41234<rest of token>  | NULL              |
++--------------------------------------------+
+```
+
+#### Encrypt Token Request Example - Multiple Raw UID2s
+
+以下のクエリは、[default database and schema names](#database-and-schema-names) を使用して、複数の raw UID2 を暗号化する方法を示しています。
+
+複数の raw UID2 に対する広告主ソリューションのクエリ:
+
+```
+select a.RAW_UID2, t.UID2_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_ENCRYPT(a.RAW_UID2) t;
+```
+
+複数の raw UID2 に対するデータプロバイダのソリューションクエリ:
+
+```
+select a.RAW_UID2, t.UID2_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_ENCRYPT(a.RAW_UID2) t;
+```
+
+複数の raw UID2 に対するクエリー結果:
+
+以下の表は、raw UID2 が `NULL` の場合の `NULL` 値を含め、レスポンスの各項目を示しています。
+
++----+----------------------------------------------+-----------------------+-----------------------------+
+| ID | RAW_UID2                                     | UID2_TOKEN            | ENCRYPTION_STATUS           |
++----+----------------------------------------------+-----------------------+-----------------------------+
+|  1 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | A41234<rest of token> | NULL                        |
+|  2 | NULL                                         | NULL                  | MISSING_OR_INVALID_RAW_UID2 |
+|  3 | BXJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g5 | B45678<rest of token> | NULL                        |
++----+----------------------------------------------+-----------------------+-----------------------------+
+
+### Decrypt Tokens
+
+UID2 Token を raw UID2 に復号するには、関数 `FN_T_UID2_DECRYPT` を使用します。該当する接頭辞を使用して自分の役割を示します:
+
+- 広告主の場合: `ADV.FN_T_UID2_DECRYPT`
+- データプロバイダーの場合: `DP.FN_T_UID2_DECRYPT`
+
+|Argument|Data Type|Description|
+| :--- | :--- | :--- |
+| `UID2_TOKEN` | varchar(512) | raw UID2 に復号する UID2 Tokenです。 |
+
+クエリーに成功すると、指定された UID2 Token について以下の情報が返されます。
+
+|Column Name|Data Type|Description|
+| :--- | :--- | :--- |
+| `UID2` | TEXT | 値は次のいずれかです:<ul><li>復号化成功: UID2 Token に対応する raw UID2。</li><li>復号化失敗: `NULL`.</li></ul> |
+| `SITE_ID` | INT | 値は次のいずれかです:<ul><li>復号化成功: トークンを暗号化した UID2 参加者の識別子。</li><li>復号化失敗: `NULL`.</li></ul> |
+| `DECRYPTION_STATUS` | TEXT | 値は次のいずれかです:<ul><li>復号化成功: `NULL`.</li><li>暗号化失敗: UID2 Token が復号化されなかった理由。たとえば、`EXPIRED_TOKEN` です。<br/>詳細については、[Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column) を参照してください。</li></ul> |
+
+>NOTE: UID2 Token がうまく復号化できない場合、この関数は行を返しません。
+
+#### Values for the DECRYPTION_STATUS Column
+
+次の表は、`DECRYPTION_STATUS` 列の有効な値です。
+
+| Value | Meaning |
+| :-- | :-- |
+| `NULL` | UID2トークンは正常に復号化されました。 |
+| `EXPIRED_TOKEN` | UID2 Token の有効期限が切れています。 |
+
+#### Decrypt Token Request Example&#8212;Single UID2 Token
+
+以下のクエリは、[default database and schema names](#database-and-schema-names) を使用して、単一の UID2 Token を raw UID2 に復号する方法を示しています。
+
+単一の UID2 Token に対する広告主ソリューションクエリ:
+
+```
+select UID2, SITE_ID, DECRYPTION_STATUS from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_DECRYPT('A41234<rest of token>'));
+```
+
+単一の UID2 Token に対するデータプロバイダのソリューションクエリ:
+
+```
+select UID2, SITE_ID, DECRYPTION_STATUS from table(UID2_PROD_DP_SH.DP.FN_T_UID2_DECRYPT('A41234<rest of token>'));
+```
+
+単一の UID2 Token に対するクエリー結果:
+
+```
++----------------------------------------------+-------------------+
+| UID2                                         | DECRYPTION_STATUS |
++----------------------------------------------+-------------------+
+| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL              |
++----------------------------------------------+-------------------+
+```
+
+#### Decrypt Token Request Example&#8212;Multiple UID2 Tokens
+
+以下のクエリは、[default database and schema names](#database-and-schema-names)　を使用して、複数の UID2 Token を復号化する方法を示しています。
+
+複数の UID2 Token に対する広告主ソリューションクエリ:
+
+```
+select a.ID, b.UID2, b.SITE_ID, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
+  from TEST_IMPRESSION_DATA a LEFT OUTER JOIN (
+    select ID, t.* from TEST_IMPRESSION_DATA, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_DECRYPT(UID2_TOKEN) t) b
+  on a.ID=b.ID;
+```
+
+複数の UID2 Token に対するデータプロバイダのソリューションクエリ:
+
+```
+select a.ID, b.UID2, b.SITE_ID, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
+  from TEST_IMPRESSION_DATA a LEFT OUTER JOIN (
+    select ID, t.* from TEST_IMPRESSION_DATA, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_DECRYPT(UID2_TOKEN) t) b
+  on a.ID=b.ID;
+```
+
+複数の UID2 Token に対するクエリー結果:
+
+以下の表は、`NULL` 値や期限切れの UID2 Token など、レスポンスの各項目を示しています。
+
+```
++----+----------------------------------------------+----------+-------------------+
+| ID | UID2                                         | SITE_ID  | DECRYPTION_STATUS |
++----+----------------------------------------------+----------+-------------------+
+|  1 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | 12345    | NULL              |
+|  2 | NULL                                         | NULL     | DECRYPT_FAILED    |
+|  3 | BXJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g5 | 23456    | NULL              |
+|  4 | NULL                                         | NULL     | EXPIRED_TOKEN     |
+|  5 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | 12345    | NULL              |
++----+----------------------------------------------+----------+-------------------+
+```
+
+### UID2 Sharing Example
+
+以下の手順では、送信者と受信者の両方が Snowflake を使用している場合に、sharing がどのように機能するかの例を示しています。このシナリオ例では、広告主（送信者）が raw UID2 (`AUDIENCE_WITH_UID2`) を持つオーディエンステーブルを持っており、[Snowflake Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) 機能を使ってテーブル内のデータをデータプロバイダー（受信者）が利用できるようにしたいと考えています。
+
+#### Sender Instructions
+
+ 1. `AUDIENCE_WITH_UID2_TOKENS` という名前の新しいテーブルを作成します。
+ 2. `AUDIENCE_WITH_UID2S` テーブルの raw UID2 を暗号化し、その結果を `AUDIENCE_WITH_UID2_TOKENS` テーブルに格納します。例えば、以下のクエリはこのタスクを達成するのに役立ちます:
+    ```
+    insert into AUDIENCE_WITH_UID2_TOKENS select a.ID, t.UID2_TOKEN from AUDIENCE_WITH_UID2S a, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_ENCRYPT(a.RAW_UID2) t;
+    ```
+ 3. 安全な共有を作成し、`AUDIENCE_WITH_UID2_TOKENS` テーブルへのアクセス権を付与します。
+ 4. 受信者に安全な共有へのアクセスを許可します。
+
+>**WARNING**: 共有した UID2 Token の期限切れを避けるため、送信者は暗号化後できるだけ早く、新しく暗号化された UID2 Token を受信者に送るべきです。
+
+#### Receiver Instructions
+
+ 1. 送信者がアクセス権を提供した安全な共有からデータベースを作成します。
+ 2. `RECEIVED_AUDIENCE_WITH_UID2` という新しいテーブルを作成します。
+ 3. 共有された `AUDIENCE_WITH_UID2_TOKENS` テーブルからトークンを復号化し、その結果を `RECEIVED_AUDIENCE_WITH_UID2` テーブルに格納します。例えば、以下のようなクエリが考えられます:
+    ```
+    insert into RECEIVED_AUDIENCE_WITH_UID2
+      select a.ID, b.UID2, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
+        from AUDIENCE_WITH_UID2_TOKENS a LEFT OUTER JOIN (
+          select ID, t.* from AUDIENCE_WITH_UID2_TOKENS, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_DECRYPT(UID2_TOKEN) t) b
+        on a.ID=b.ID;
+    ```
+
+共有された UID2 Token の期限切れを避けるため、受信者は、送信者から UID2 Token が利用可能になり次第、復号化すべきです。
