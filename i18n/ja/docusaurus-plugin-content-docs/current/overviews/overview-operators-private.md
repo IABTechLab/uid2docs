@@ -54,6 +54,6 @@ Private Operator が UID2 を実装するために、以下のドキュメント
 5. テストします。
 6. 本番稼働します。
 
-## Frequently Asked Questions
+## FAQs
 
-UID2 フレームワークに関するFAQです: [よくある質問](../getting-started/gs-faqs.md) を参照してください。
+UID2 フレームワークに関するよくある質問のリストは、[Frequently Asked Questions](../getting-started/gs-faqs.md) を参照してください。

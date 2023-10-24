@@ -8,18 +8,17 @@ sidebar_position: 01
 
 このページでは、Unified ID 2.0 (UID2) フレームワークの概要について説明しています。
 
-<!-- 以下の内容が含まれています:
-
-- [Introduction (概要)](#introduction)
-  - [Guiding Principles (基本方針)](#guiding-principles)
-  - [Technical Design Principles (技術的な設計方針)](#technical-design-principles)
-- [Elements of the UID2 Infrastructure (UID2 インフラストラクチャの要素)](#elements-of-the-uid2-infrastructure)
-  - [UID2 Identifier Types (UID2 識別子タイプ)](#uid2-identifier-types)
-  - [Components (コンポーネント)](#components)
-  - [Participants (参加者)](#participants)
-  - [Workflows (ワークフロー)](#workflows)
-- [Frequently Asked Questions (FAQs) (よくある質問)](#faqs)
-- [License (ライセンス)](#license) -->
+<!-- It includes the following:
+- [Introduction](#introduction)
+  - [Guiding Principles](#guiding-principles)
+  - [Technical Design Principles](#technical-design-principles)
+- [Elements of the UID2 Infrastructure](#elements-of-the-uid2-infrastructure)
+  - [UID2 Identifier Types](#uid2-identifier-types)
+  - [Components](#components)
+  - [Participants](#participants)
+  - [Workflows](#workflows)
+- [FAQs](#faqs)
+- [License](#license) -->
 
 ## Introduction
 

@@ -132,6 +132,4 @@ SDK は、有効な ID の状態と利用可能性に基づいて、バックグ
 
 ## FAQs
 
-パブリッシャー向けのよくある質問は、[FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。
-
-すべてのリストは、[Frequently Asked Questions](../getting-started/gs-faqs.md)を参照してください。
+パブリッシャー向けのよくある質問については、[FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers)　を参照してください。

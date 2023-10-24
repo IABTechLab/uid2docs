@@ -59,8 +59,6 @@ banner_description: Unified ID 2.0 でキャンペーンのアクティベーシ
 1. 本番稼働します。
 
 
-## Frequently Asked Questions for Advertisers
+## FAQs for Advertisers
 
-UID2フレームワークを使用する広告主向けのFAQ一覧は、[広告主およびデータプロバイダー向けFAQ](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。
-
-すべてのリストは、[よくある質問](../getting-started/gs-faqs.md)を参照してください。
+UID2 フレームワークを使用する広告主向けのよくある質問については、[FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。

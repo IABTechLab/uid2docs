@@ -71,4 +71,4 @@ Server-Side SDK のいずれか ([SDKs](../sdks/summary-sdks.md)を参照) を�
 
 ## FAQs
 
-DSP に関するよくある質問は、[FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps) を参照してください。
+DSP に関するよくある質問は、[FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。

@@ -14,7 +14,7 @@ UID2 に関するよくある質問は、以下のカテゴリーに分かれて
 - [FAQs&#8212;General](#faqsgeneral)
 - [FAQs for Publishers](#faqs-for-publishers)
 - [FAQs for Advertisers and Data Providers](#faqs-for-advertisers-and-data-providers)
-- [FAQs for Demand-Side Platforms (DSPs)](#faqs-for-demand-side-platforms-dsps) -->
+- [FAQs for DSPs)](#faqs-for-dsps) -->
 
 ## FAQs&#8212;General
 
@@ -163,9 +163,9 @@ IMPORTANT: メールアドレスのマッピングや再マッピングを行う
 
 たとえば、そのユーザーに対して UID2 を生成しないことを選択することもできます。
 
-## FAQs for Demand-Side Platforms (DSPs)
+## FAQs for DSPs
 
-ここでは、DSP によくある質問を紹介します。
+demand-side platform (DSP) に関するよくある質問を紹介します。
 
 - [UID2 に適用する復号鍵はどのように決定すればよいですか？](#UID2-%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E5%BE%A9%E5%8F%B7%E9%8D%B5%E3%81%AF%E3%81%A9%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E6%B1%BA%E5%AE%9A%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B%EF%BC%9F)
 - [復号鍵はどこで手に入りますか？](#%E5%BE%A9%E5%8F%B7%E9%8D%B5%E3%81%AF%E3%81%A9%E3%81%93%E3%81%A7%E6%89%8B%E3%81%AB%E5%85%A5%E3%82%8A%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F)
@@ -227,7 +227,7 @@ UID2 は、クッキーと同じように古くなる可能性があります。
 
 <!-- FAQ_32 DSP -->
 
-少なくとも 30 日間です。
+オプトアウト情報は無期限に保管することを勧めます。
 
 #### オプトアウトしたユーザーの UID は、暗号化された形でオプトアウトエンドポイントに送信されますか？
 

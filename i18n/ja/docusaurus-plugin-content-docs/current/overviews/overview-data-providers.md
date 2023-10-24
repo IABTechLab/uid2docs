@@ -60,9 +60,6 @@ UID2 を使用するデータプロバイダーが得られるメリットの一
 1. テストします。
 1. 本番稼働します。
 
-## Frequently Asked Questions for Data Providers
+## FAQs for Data Providers
 
-UID2 フレームワークを使用するデータプロバイダー向けのFAQ一覧は、[広告主およびデータプロバイダー向けFAQ](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) をを参照してください。
-
-
-すべてのリストは、[よくある質問](../getting-started/gs-faqs.md)を参照してください。
+UID2 フレームワークを使用するデータプロバイダー向けのよくある質問のリストは、[FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。

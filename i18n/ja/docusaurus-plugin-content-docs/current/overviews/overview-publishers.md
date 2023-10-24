@@ -104,8 +104,4 @@ UID2 とインテグレーションすることで得られるメリットの一
     リクエストの中で UID2 が正しく生成され、渡されていることを確認します。
 1. 本番稼働します。
 
-## Frequently Asked Questions for Publishers
-
-UID2 フレームワークを使うパブリッシャー向けの FAQ のリストは、[FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。
-
-すべてのリストは、[よくある質問](../getting-started/gs-faqs.md)を参照してください。
+UID2 フレームワークを使用するうパブリッシャー向けのよくある質問のリストは、[FAQs for Publishers](/docs/getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。

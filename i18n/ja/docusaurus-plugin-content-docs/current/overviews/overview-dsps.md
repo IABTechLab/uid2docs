@@ -75,3 +75,7 @@ UID2 Admimnistrator と Webhook を共有します。
 ## Frequently Asked Questions for DSPs
 
 DSP向けのFAQ一覧は、[デマンドサイドプラットフォーム (DSP)向けFAQ](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps) を参照してください。
+
+## FAQs for DSPs
+
+UID2 フレームワークを使用する DSP に関するよくある質問については、 [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。

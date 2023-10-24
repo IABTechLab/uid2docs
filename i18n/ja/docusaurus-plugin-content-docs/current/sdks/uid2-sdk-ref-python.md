@@ -213,6 +213,4 @@ server-only インテグレーションを使用している場合 ([Publisher I
 
 ## FAQs
 
-DSPに関するよくある質問については、[FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps) を参照してください。
-
-すべてのリストは  [Frequently Asked Questions](../getting-started/gs-faqs.md) を参照してください。
+DSP に関するよくある質問については、 [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。
