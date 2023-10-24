@@ -12,7 +12,7 @@ sidebar_position: 05
 
 DSP はビッドリクエストで UID2 Token を受け取り、この機能をサポートする Server-Side SDK のいずれかを使用して UID2 Token を復号化し、入札に使用できる raw UID2 を取得します。
 
-利用可能な Server-Side SDK の概要については、[UID2 SDK for Java (Server-Side) Reference Guide](../sdks/summary-sdks.md#sdk-functionality) を参照してください。
+利用可能な Server-Side SDK の概要については、[SDKs - Summary](../sdks/summary-sdks.md) を参照してください。
 
 >NOTE: バックエンドが、利用可能な Server-Side SDK のいずれでもカバーされていない言語で書かれている場合は、UID2 の担当者に問い合わせてください。誰に聞けばいいかわからない場合は、[連絡先情報](../getting-started/gs-account-setup.md#contact-info) を参照してください。
 
@@ -20,8 +20,7 @@ DSP はビッドリクエストで UID2 Token を受け取り、この機能を�
 
 * [Integration Steps](#integration-steps)
    - [Honor User Opt-Outs](#honor-user-opt-outs)
-   - [Decrypt UID2 Tokens for RTB Use](#decrypt-uid2-tokens-for-rtb-use)
-* [FAQs](#faqs) -->
+ * [FAQs](#faqs) -->
 
 ## Integration Steps
 
@@ -41,9 +40,9 @@ UID2 Service は、ユーザーがオプトアウトしてから数秒以内に�
 | Parameter   | Description                            |
 | :---------- | :------------------------------------- |
 | `identity`  | オプトアウトしたユーザーの raw UID2 です。 |
-| `timestamp` | ユーザーがオプトアウトした時刻です。   |
+| `timestamp` | ユーザーがオプトアウトした時刻です。(情報のみ) |
 
-次の例は、UID2 とそれに対応するタイムスタンプを受信するように設定された Webhook を示しています。
+次の例は、raw UID2 とそれに対応するタイムスタンプを受信するように設定された Webhook を示しています。
 
 ```html
 https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
@@ -53,21 +52,13 @@ https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 
 入札時 (2-b)に以下のロジックを使用し、ユーザーのオプトアウトを受け入れます。
 
-Server-Side SDK のいずれか ([SDKs](../sdks/summary-sdks.md)を参照) を利用して、受信した UID2 Token を raw UID2 に復号します。decrypt関数への応答には、raw UID2 とタイムスタンプ ([POST /token/generate](../endpoints/post-token-generate.md) エンドポイントが UID2 Token を生成するために呼び出された時間) が含まれます。DSP は、UID2 の最新のオプトアウトタイムスタンプを確認する必要があります。
+Server-Side SDK のいずれか ([SDKs](../sdks/summary-sdks.md)を参照) を利用して、受信した UID2 Token を raw UID2 に復号します。decrypt関数への応答には、raw UID2 が含まれます。
 
 オプトアウトのロジックを次の図に示します。
 
 ![](images/dsp-guide-optout-check-mermaid.png)
 
-`established_timestamp` の値が `optout_timestamp` の値より小さい場合、ユーザーはオプトアウトしており、UID2 は RTB に使用されるべきではありません。このような場合、DSP は入札のために代替 ID を送信するか、入札しないことを選択できます。
-
-次の擬似コードは、<b>Check Opt-Out</b> ステップのロジック例です。
-
-```java
-if (established_timestamp < optout_timestamp) {
-  // Opted out
-}
-```
+ユーザーがオプトアウトして他場合、UID2 は RTB に使用されるべきではありません。このような場合、DSP は入札のために代替 ID を送信するか、入札しないことを選択できます。
 
 ### Decrypt UID2 Tokens for RTB Use
 
