@@ -39,7 +39,7 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 
 *DII から直接 UID2 Token を生成することはできません。しかし、DII を raw UID2 に変換し、raw UID2 を暗号化して UID2 Token にすることはできます。
 
->NOTE: 入札ストリームでUID2トークンを共有するパブリッシャーの場合は、[Sharing in the Bid Stream](sharing-bid-stream.md) を参照してください
+>NOTE: 入札ストリームでUID2トークンを共有するパブリッシャーの場合は、[Sharing in the Bid Stream](../sharing/sharing-bid-stream.md) を参照してください
 
 ## Workflow Diagram
 
