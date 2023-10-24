@@ -147,9 +147,9 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-enclave">Enclave</dt>
 <dd>Enclave は、コンピューティング環境のセキュアなサブセクションです。エンクレーブには追加のビジネスロジックとセキュリティ対策が施され、改ざんできないようになっています。</dd>
 <dd>UID2 のコンテキストでは、 <a href="#gl-private-operator">private operator</a> は、Enclave 内かプライベート環境で運用しなければなりません。must run inside an enclave or in a private environment. サポートされるエングレーブのバージョンは次のとおりです:<br/>
-- <a href="https://aws.amazon.com/ec2/nitro/">AWS Nitro</a>: <a href="../guides/operator-guide-aws-marketplace">UID2 Operator - AWS Marketplace Integration Guide</a> を参照してください。<br/>
-- <a href="https://cloud.google.com/confidential-computing">Google Cloud Platform Confidential Computing</a>: <a href="../guides/operator-guide-gcp-enclave">UID2 Operator - Google Cloud Platform Confidential Computing Package</a> を参照してください。<br/>
-- <a href="https://learn.microsoft.com/en-us/azure/confidential-computing/">Microsoft Azure confidential computing</a>: <a href="../guides/operator-guide-azure-enclave">Microsoft Azure Confidential Compute Operator Package</a> を参照してください。</dd>
+- <a href="https://aws.amazon.com/ec2/nitro/">AWS Nitro</a>: <a href="../guides/operator-guide-aws-marketplace">UID2 Operator&#8212;AWS Marketplace Integration Guide</a> を参照してください。<br/>
+- Google Cloud Platform <a href="https://cloud.google.com/confidential-computing#confidential-space">Confidential Space</a>: <a href="../guides/operator-private-gcp-confidential-space">UID2 Operator&#8212;Google Cloud Platform Confidential Space</a> を参照してください。<br/>
+- <a href="https://learn.microsoft.com/en-us/azure/confidential-computing/">Microsoft Azure confidential computing</a>: <a href="../guides/operator-guide-azure-enclave">UID2 Operator&#8212;Microsoft Azure Confidential Compute Operator Package</a> を参照してください。</dd>
 <dd>エンクレーブでは、オペレータ・イメージは非常に特殊で、事前に定義されたバージョンでなければならず、セキュリティを確保するために追加の制約が適用されます。</dd>
 
 <dt class="jump-anchor" id="gl-first-level-hash">First-level hash</dt>
@@ -168,8 +168,6 @@ UID2 のコンテキストでは、「ID」という用語は、UID2 Token、Ref
 <dt class="jump-anchor" id="gl-json-web-token">JSON Web Token (JWT)</dt>
 <dd>
 JSON Web Token (JWT) は、Web 上で一方の当事者から別の当事者に送信されるクレーム (情報) を表す、コンパクトで URL セーフな手段です。JWT 内のクレームは、JSON Web Signature (JWS) 構造のペイロードまたは JSON Web Encryption (JWE) 構造のプレーン テキストとして使用される JSON オブジェクトとしてエンコードされます。これにより、クレームにデジタル署名や暗号化を行うことができます。</dd>
-<dd>UID2 は、Google Cloud Platform (GCP) Enclave とのインターフェースの一部として JSON Web Token を使用します。</dd>
-<dd>詳細は、<a href="../guides/operator-guide-gcp-enclave">UID2 Operator - Google Cloud Platform Confidential Compute package</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-normalize">Normalize</dt>
 <dd>データセットを Normalize (正規化)するとは、それを標準的な状態 (Condition)や状態 (State)にすることを意味します。</dd>

@@ -2,12 +2,12 @@
 title: UID2 Operator - AWS Marketplace Integration
 sidebar_label: AWS Marketplace
 pagination_label: UID2 Operator - AWS Marketplace Integration
-description: AWS Marketplace Private Operator のインテグレーション情報。
+description: AWS の Private Operator インテグレーション情報。
 hide_table_of_contents: false
 sidebar_position: 17
 ---
 
-# UID2 Operator - AWS Marketplace Integration Guide
+# UID2 Operator&#8212;AWS Marketplace Integration Guide
 
 UID2 Operator は、UID2 エコシステムにおける API サーバーです。AWS Marketplace で稼働する Private Operator サービスの場合、UID2 Operator ソリューションは[AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave テクノロジーで強化されています。これは、UID2 情報を不正なアクセスから保護するための追加のセキュリティ対策です。
 
@@ -144,7 +144,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 | Port Number | Direction | Protocol | Description                                                                                                                                                                                                                                                                                |
 | ----------- | --------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 80          | Inbound   | HTTP     | Healthcheck エンドポイント `/opt/healthcheck` を含むすべての UID2 API を提供します。<br/>すべてが稼働している場合、エンドポイントは HTTP 200 を返し、レスポンスボディは `OK` となります。詳しくは、[Checking UID2 Operator Status](#checking-uid2-operator-status) を参照してください。 |
+| 80          | Inbound   | HTTP     | Healthcheck エンドポイント `/ops/healthcheck` を含むすべての UID2 API を提供します。<br/>すべてが稼働している場合、エンドポイントは HTTP 200 を返し、レスポンスボディは `OK` となります。詳しくは、[Checking UID2 Operator Status](#checking-uid2-operator-status) を参照してください。 |
 | 9080        | Inbound   | HTTP     | Prometheus metrics サービス (`/metrics`).                                                                                                                                                                                                                                                  |
 | 443         | Outbound  | HTTPS    | UID2 Core Service を呼び出し、オプトアウトデータとキーストアを更新します。                                                                                                                                                                                                                 |
 
