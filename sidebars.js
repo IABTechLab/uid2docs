@@ -117,6 +117,7 @@ const sidebars = {
           items: [
             'guides/advertiser-dataprovider-guide',
             'guides/snowflake_integration',
+            'guides/integration-aws-entity-resolution',
           ],
         },
 
