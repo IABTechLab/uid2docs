@@ -9,6 +9,10 @@ sidebar_position: 02
 
 # UID2 SDK for JavaScript Integration Guide
 
+:::tip
+This integration guide is for earlier versions of the UID2 SDK for JavaScript. If you're using an earlier version, we recommend upgrading. See [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md), which includes a migration guide.
+:::
+
 This guide is intended for publishers with web assets who want to generate identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers.
 
 - For the technical details about the SDK, see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md).

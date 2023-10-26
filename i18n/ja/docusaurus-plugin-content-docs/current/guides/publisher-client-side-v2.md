@@ -9,7 +9,7 @@ sidebar_position: 02
 # UID2 SDK for JavaScript (2.x and earlier versions) Reference Guide
 
 :::tip
-This documentation is for earlier versions of the UID2 SDK for JavaScript. If you're using an earlier version, we recommend upgrading. See [UID2 SDK for JavaScript Reference Guide](client-side-identity.md), which includes a migration guide.
+This integration guide is for earlier versions of the UID2 SDK for JavaScript. If you're using an earlier version, we recommend upgrading. See [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md), which includes a migration guide.
 :::
 
 このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成したい Web アセットを持つパブリッシャーを対象としています。
