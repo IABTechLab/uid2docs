@@ -9,7 +9,7 @@ sidebar_position: 04
 
 The following steps provide a high-level outline of the workflow intended for users who engage with publishers or their identity providers. 
 
-1. Users visit the [Transparency and Control Portal](https://transparentadvertising.org), where they can globally opt out of UID2.
+1. Users visit the [Transparency and Control Portal](https://www.transparentadvertising.com/), where they can globally opt out of UID2.
 2. The Transparency and Control Portal sends the opt-out request to the UID2 [Operator Service](../ref-info/glossary-uid.md#gl-operator-service).
 3. If the user has opted out, the UID2 Operator Service distributes the opt-out information to UID2 participants, as follows:
 

@@ -30,11 +30,11 @@ No. UID2 has its own framework, which is separate from EUID. As such, paperwork 
 
 #### Can users opt out of targeted advertising tied to their UID2 identity?
 <!-- FAQ_02 -->
-Yes. Through the [Transparency and Control Portal](https://transparentadvertising.org), users can opt out from being served targeted ads tied to their UID2 identity. Each request is distributed through the UID2 Opt-Out Service and UID2 Operators to all relevant participants. 
+Yes. Through the [Transparency and Control Portal](https://www.transparentadvertising.com/), users can opt out from being served targeted ads tied to their UID2 identity. Each request is distributed through the UID2 Opt-Out Service and UID2 Operators to all relevant participants. 
 
 #### How does a user know where to access the opt-out portal?
 <!-- FAQ_03 -->
-Publishers, SSO providers, or consent management platforms disclose links to the [Transparency and Control Portal](https://transparentadvertising.org) in their login flows, consent flows, and privacy policies, and by other means.
+Publishers, SSO providers, or consent management platforms disclose links to the [Transparency and Control Portal](https://www.transparentadvertising.com/) in their login flows, consent flows, and privacy policies, and by other means.
 
 ## FAQs for Publishers
 
@@ -141,11 +141,17 @@ Here are some frequently asked questions for advertisers and data providers usin
 <!-- FAQ_19 ADP -->
 Metadata supplied with the UID2 generation request indicates the salt bucket used for generating the UID2. Salt buckets persist and correspond to the underlying [DII](../ref-info/glossary-uid.md#gl-dii) used to generate a UID2. Use the  [POST /identity/buckets](../endpoints/post-identity-buckets.md) endpoint to return which salt buckets rotated since a given timestamp. The returned rotated salt buckets inform you which UID2s to refresh.
 
+:::note
+We do not make any promises about when the rotation takes place. To stay as up-to-date as possible, we recommend doing the checks once per hour.
+:::
+
 #### Do refreshed emails get assigned to the same bucket with which they were previously associated?
 <!-- FAQ_20 ADP -->
 Not necessarily. After you remap emails associated with a particular bucket ID, the emails might be assigned to a different bucket ID. To check the bucket ID, [call the mapping function](../guides/advertiser-dataprovider-guide.md#retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints) and save the returned UID2 and bucket ID again.
 
->IMPORTANT: When mapping and remapping emails, be sure not to make any assumptions of the number of buckets, their specific rotation dates, or to which bucket an email gets assigned. 
+:::info
+When mapping and remapping emails, be sure not to make any assumptions about the number of buckets, their rotation dates, or the specific bucket that an email gets assigned to.
+:::
 
 #### How often should UID2s be refreshed for incremental updates?
 
@@ -161,11 +167,13 @@ The system should follow the [email normalization rules](gs-normalization-encodi
 <!-- FAQ_23 ADP -->
 Yes. Not storing mappings may increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily.
 
->IMPORTANT: Unless you are using a private operator, you must map email addresses, phone numbers, or hashes consecutively, using a single HTTP connection, in batches of 5,000 emails at a time. In other words, do your mapping without creating multiple parallel connections. 
+:::info
+Unless you are using a private operator, you must map email addresses, phone numbers, or hashes consecutively, using a single HTTP connection, in batches of 5,000 emails at a time. In other words, do your mapping without creating multiple parallel connections. 
+:::
 
 #### How should I handle user optouts?
 <!-- FAQ_24 ADP -->
-When a user opts out of UID2-based targeted advertising through the [Transparency and Control Portal](https://www.transparentadvertising.org/), the optout signal is sent to DSPs and publishers, which handle optouts at bid time. As an advertiser or data provider, you do not need to check for UID2 optout in this scenario.
+When a user opts out of UID2-based targeted advertising through the [Transparency and Control Portal](https://www.transparentadvertising.com/), the optout signal is sent to DSPs and publishers, which handle optouts at bid time. As an advertiser or data provider, you do not need to check for UID2 optout in this scenario.
 
 If a user opts out through your website, you should follow your internal procedures for handling the optout, for example, you might choose not to generate a UID2 for that user.
 
@@ -209,7 +217,7 @@ The UID2 has the same chance as a cookie of becoming stale. Hence, the DSP can a
 
 #### Will all user opt-out traffic be sent to the DSP?
 <!-- FAQ_30 DSP -->
-Yes, all opt-outs from the UID2 [Transparency and Control Portal](https://transparentadvertising.org/) hit the opt-out endpoint, which the DSP must configure to [honor user opt-outs](../guides/dsp-guide.md#honor-user-opt-outs).
+Yes, all opt-outs from the UID2 [Transparency and Control Portal](https://www.transparentadvertising.com/) hit the opt-out endpoint, which the DSP must configure to [honor user opt-outs](../guides/dsp-guide.md#honor-user-opt-outs).
 
 #### Is the DSP expected to handle opt-out signals only for the UID2s that they already store?
 <!-- FAQ_31 DSP -->

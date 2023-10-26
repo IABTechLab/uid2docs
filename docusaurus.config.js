@@ -273,7 +273,7 @@ const config = {
               },
               {
                 label: "Opt-out",
-                href: "https://transparentadvertising.org/",
+                href: "https://www.transparentadvertising.com/",
               },
               {
                 label: "Do not sell my data",

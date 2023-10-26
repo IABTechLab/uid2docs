@@ -1,13 +1,13 @@
 ---
 title: Use Cases
-description: Use cases for sharing UID2s with partner participants.
+description: Use cases for sharing UID2s with other participants.
 hide_table_of_contents: false
 sidebar_position: 03
 ---
 
 # Sharing UID2s: Use Cases
 
-The secure sharing workflow allows you to share raw UID2s securely with trusted partners in many different ways. For example, here are some sample scenarios where a sender wants to share UID2s with a receiver: 
+The secure sharing workflow allows you to share raw UID2s securely with trusted participants in many different ways. For example, here are some sample scenarios where a sender wants to share UID2s with a receiver: 
 
 - A publisher (sender) sends a UID2 token via the bid stream to a DSP (receiver). For details, see [Sharing in the Bid Stream](sharing-bid-stream.md).
 - A measurement partner (sender) sends a UID2 token to an advertiser (receiver) via Amazon Simple Storage Service (S3).
