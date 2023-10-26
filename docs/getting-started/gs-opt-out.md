@@ -14,7 +14,8 @@ Many different publishers, advertisers, web sites, and other companies use UID2.
 * [How Users Can Opt Out of UID2](#how-users-can-opt-out-of-uid2)
 * [Results of Opting Out of UID2](#results-of-opting-out-of-uid2)
 * [Difference Between Opting Out from a Single Publisher and Opting Out of UID2](#difference-between-opting-out-from-a-single-publisher-and-opting-out-of-uid2)
-* [How to Opt Back In Again](#how-to-opt-back-in-again)
+* [Opt-Out Is Final](#opt-out-is-final)
+* [Opt-Out Workflow](#opt-out-workflow)
  -->
 
 ## How Users Can Opt Out of UID2
@@ -45,9 +46,9 @@ In addition, if a user opts out from a specific publisher, that information is n
 
 The sure way for a consumer to fully opt out of UID2 is in the [Transparency and Control Portal](https://www.transparentadvertising.com/).
 
-## How to Opt Back In Again
+## Opt-Out Is Final
 
-xxx (**Is there a way for users to opt back in again, other than using a different phone number or email address?**)
+Currently, if you opt out of UID2, there is no way to opt back in again. As a consumer, if you want to participate in UID2 you could use a different email address or phone number.
 
 ## Opt-Out Workflow
 
