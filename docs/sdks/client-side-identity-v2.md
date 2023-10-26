@@ -8,7 +8,7 @@ sidebar_position: 02
 # UID2 SDK for JavaScript (2.x and earlier versions) Reference Guide
 
 :::tip
-This documentation is for earlier versions of theUID2 SDK for JavaScript. If you're using an earlier version, we recommend upgrading. See [UID2 SDK for JavaScript Reference Guide](client-side-identity.md), which includes a migration guide.
+This documentation is for earlier versions of the UID2 SDK for JavaScript. If you're using an earlier version, we recommend upgrading. See [UID2 SDK for JavaScript Reference Guide](client-side-identity.md), which includes a migration guide.
 :::
 
 Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). 
