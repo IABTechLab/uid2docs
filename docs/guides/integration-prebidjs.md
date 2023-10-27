@@ -12,7 +12,12 @@ sidebar_position: 04
 
 This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bid stream.
 
-UID2 provides a [Prebid.js module](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) that handles generating, storing, and refreshing UID2 tokens, as well as passing these tokens to the bid stream.
+UID2 provides a [Prebid.js module](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) with the following features:
+
+- UID2 token generation.
+- Automatic UID2 token refresh.
+- Automatic storage of UID2 tokens in the browser.
+- Automatic passing of UID2 tokens to the bid stream.
 
 In order to follow this guide you will need to make changes to the HTML and JavaScript on your site. There is no server-side work required.
 
@@ -23,7 +28,7 @@ To integrate with UID2 using Prebid.js you will need to complete the following s
 3. Configure the UID2 module.
 
 :::info
-The UID2 module supports more advanced use-cases in which UID2 tokens are generated or refreshed server-side. To learn more, see the [Prebid.js Advanced Integration Guide](./integration-prebid.md).
+The UID2 module supports more advanced use cases in which UID2 tokens are generated or refreshed server-side. To learn more, see the [Prebid.js Advanced Integration Guide](./integration-prebid.md).
 :::
 
 ## Complete UID2 Account Setup
@@ -52,19 +57,21 @@ Ensure the UID2 module is installed by finding the string "uid2IdSystem" in the 
 
 To configure the UID2 module, call `pbjs.setConfig` with an object containing the **public key** and **subscription ID** obtained during account setup, as well as the user's [DII](../ref-info/glossary-uid.md#gl-dii) (email address or phone number).
 
-The following sections demonstrate the different ways to configure the UID2 module, as well as the requirements for the DII passed to the module.
+Once configured, the UID2 module will generate a UID2 token for the user and store it in the user's browser. The module will automatically refresh the token as required while your site is open in the user's browser.
 
-:::info
-The user's DII can be passed to the UID2 module hashed or unhashed. If the DII is passed to the module hashed, it must be normalized before hashing.
+When the UID2 module is configured it will check the user's browser for an existing UID2 token. If there is an existing token that was generated from the same DII and the token has not expired, the module will use the existing token instead of generating a new token.
 
-See [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) for more details.
-:::
+The user's DII can be passed to the UID2 module hashed or unhashed. If the DII is passed to the module hashed, it must be normalized before hashing. See [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) for more details.
 
-:::tip
 The UID2 module will ensure that all DII is hashed and encrypted before sending it to the UID2 service.
+
+The following sections demonstrate the different ways to configure the UID2 module and list the requirements for the DII passed to the module.
+
+:::note
+The examples assume you are using the UID2 production environment. During integration testing use the UID2 integration environment by setting `params.uid2ApiBase` to `"https://operator-integ.uidapi.com"`. You will have a different **subscription ID** and **public key** for the integration environment.
 :::
 
-### Configure for email
+### Configure for email address
 
 Configure the UID2 module with an email address:
 
@@ -83,9 +90,11 @@ pbjs.setConfig({
 });
 ```
 
+No normalization or hashing is required by the publisher.
+
 The UID2 module will normalize and hash the email address before sending the encrypted hash to the UID2 service.
 
-### Configure for phone
+### Configure for phone number
 
 Configure the UID2 module with a phone number:
 
@@ -104,11 +113,11 @@ pbjs.setConfig({
 });
 ```
 
+**The publisher is responsible for normalizing the phone number**. Refer to [Normalization and Encoding](../getting-started/gs-normalization-encoding.md#phone-number-normalization) for details on phone number normalization.
+
 The UID2 module will hash the phone number before sending the encrypted hash to the UID2 service.
 
-The publisher is responsible for normalizing the phone number. Refer to [Normalization and Encoding](../getting-started/gs-normalization-encoding.md#phone-number-normalization) for details on phone number normalization.
-
-### Configure for hashed email
+### Configure for hashed email address
 
 Configure the UID2 module with a hashed email address:
 
@@ -127,11 +136,11 @@ pbjs.setConfig({
 });
 ```
 
+**The publisher is responsible for normalizing and hashing the email address**. Refer to [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) for details on email address normalization and hashing.
+
 The UID2 module will encrypt the hash before sending it to the UID2 service.
 
-The publisher is responsible for normalizing and hashing the email address. Refer to [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) for details on email address normalization and hashing.
-
-### Configure for hashed phone
+### Configure for hashed phone number
 
 Configure the UID2 module with a hashed phone number:
 
@@ -150,19 +159,28 @@ pbjs.setConfig({
 });
 ```
 
-The UID2 module will encrypt the hash before sending it to the UID2 service.
+**The publisher is responsible for normalizing and hashing the phone number**. Refer to [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) for details on phone number normalization and hashing.
 
-The publisher is responsible for normalizing and hashing the phone number. Refer to [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) for details on phone number normalization and hashing.
+The UID2 module will encrypt the hash before sending it to the UID2 service.
 
 ## Check the integration
 
-Check that Prebid.js and the UID2 module are configured correctly by calling `pbjs.getUserIds().uid2`. If everything is working, this will return the UID2 token.
+Check that the UID2 module has successfully generated a UID2 token by calling `pbjs.getUserIds().uid2`. If a value is returned, a token has been successfully generated.
+
+If there are problems with the integration:
+
+- Check the browser console logs.
+- Check that you are using the correct **subscription ID** and **public key**.
+- Check that the domain name of the site was provided to UID2 during account setup.
+- Use the browser developer tools to inspect the API call(s) to the UID2 service.
+
+For further help, refer to Prebid's documentation on [Troubleshooting Prebid.js](https://docs.prebid.org/troubleshooting/troubleshooting-guide.html) and [Debugging Prebid.js](https://docs.prebid.org/debugging/debugging.html).
 
 ## Reconfigure the UID2 module as required
 
-If a user is visiting your site frequently, the UID2 module will be able to continually refresh the UID2 token.  However there are cases where this is not possible.
+The UID2 module will automatically refresh tokens while your site is open in the user's browser, including when a user returns to your site. If a user is visiting your site frequently, the tokens will keep being refreshed without the module needing to be reconfigured.
 
-A UID2 token can only be refreshed for a certain amount of time. If a user returns to your site after this amount of time, you will need to re-configure the UID2 module.
+However, a UID2 token can only be refreshed for a certain amount of time. If a user doesn't return to your site in this time, you will need to reconfigure the UID2 module.
 
 To check if the UID2 module needs to be reconfigured:
 
@@ -170,9 +188,11 @@ To check if the UID2 module needs to be reconfigured:
 TODO
 ```
 
-## Optional: Set the UID2 API Base URL
+## Optional: Reduce latency by setting the API base URL
 
-The UID2 module uses a default UID2 API base URL of `https://prod.uidapi.com`. To use a different base URL, set the `params.uid2ApiBase` parameter when configuring the UID2 module:
+By default, the UID2 module will make API calls to a UID2 server in the USA. Publishers should take into account where their users are based and consider choosing a server closer to their users in order to reduce latency.
+
+Publishers can choose a different UID2 server by setting the optional `params.uid2ApiBase` parameter when configuring the UID2 module:
 
 ```js
 pbjs.setConfig({
@@ -189,5 +209,3 @@ pbjs.setConfig({
 ```
 
 Refer to [Environments](../getting-started/gs-environments.md) for the list of possible base URLs.
-
-The default URL points to a server in the USA. Publishers should take into account where their readers are based, and consider choosing a different base URL in order to reduce latency.
