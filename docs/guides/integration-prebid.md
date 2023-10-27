@@ -14,11 +14,11 @@ This guide is for publishers who want to integrate with UID2 and generate [UID2 
 UID2 provides a [Prebid.js module](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) with the following features:
 
 - UID2 token generation.
-- Automatic UID2 token refresh.
+- Automatic refreshing of UID2 tokens.
 - Automatic storage of UID2 tokens in the browser.
 - Automatic passing of UID2 tokens to the bid stream.
 
-In order to follow this guide you will need to make changes to the HTML and JavaScript on your site. There is no server-side work required.
+In order to follow this guide you will need to make changes to the HTML and JavaScript on your site. No server-side work is required.
 
 To integrate with UID2 using Prebid.js you will need to complete the following steps:
 
@@ -83,7 +83,7 @@ pbjs.setConfig({
       name: 'uid2',
       params: {
         serverPublicKey: '...server public key...',
-        subscriptionId: '...subcription id...',
+        subscriptionId: '...subscription id...',
         email: 'user@example.com',
       }
     }]
@@ -106,7 +106,7 @@ pbjs.setConfig({
       name: 'uid2',
       params: {
         serverPublicKey: '...server public key...',
-        subscriptionId: '...subcription id...',
+        subscriptionId: '...subscription id...',
         phone: '+1111111111',
       }
     }]
@@ -129,7 +129,7 @@ pbjs.setConfig({
       name: 'uid2',
       params: {
         serverPublicKey: '...server public key...',
-        subscriptionId: '...subcription id...',
+        subscriptionId: '...subscription id...',
         emailHash: 'eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=',
       }
     }]
@@ -152,7 +152,7 @@ pbjs.setConfig({
       name: 'uid2',
       params: {
         serverPublicKey: '...server public key...',
-        subscriptionId: '...subcription id...',
+        subscriptionId: '...subscription id...',
         phoneHash: 'eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=',
       }
     }]
