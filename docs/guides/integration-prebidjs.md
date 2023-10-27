@@ -59,7 +59,9 @@ To configure the UID2 module, call `pbjs.setConfig` with an object containing th
 
 Once configured, the UID2 module will generate a UID2 token for the user and store it in the user's browser. The module will automatically refresh the token as required while your site is open in the user's browser.
 
-When the UID2 module is configured it will check the user's browser for an existing UID2 token. If there is an existing token that was generated from the same DII and the token has not expired, the module will use the existing token instead of generating a new token.
+When the UID2 module is configured it will check the user's browser for an existing UID2 token. If there is an existing token that was generated from the same DII and the token has not expired or can be refreshed, the module will use or refresh the existing token instead of generating a new token.
+
+As a result, you do not have to check for existing tokens before calling `pbjs.setConfig`. Calling `pbjs.setConfig` when there is an existing token will not have any negative consequences and will ensure that a new token is generated if the existing token can no longer be refreshed.
 
 The user's DII can be passed to the UID2 module hashed or unhashed. If the DII is passed to the module hashed, it must be normalized before hashing. See [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) for more details.
 
@@ -180,9 +182,13 @@ For further help, refer to Prebid's documentation on [Troubleshooting Prebid.js]
 
 The UID2 module will automatically refresh tokens while your site is open in the user's browser, including when a user returns to your site. If a user is visiting your site frequently, the tokens will keep being refreshed without the module needing to be reconfigured.
 
-However, a UID2 token can only be refreshed for a certain amount of time. If a user doesn't return to your site in this time, you will need to reconfigure the UID2 module.
+However, a UID2 token can only be refreshed for a certain amount of time. If a user doesn't return to your site in this time, you will need to provide the user's DII to the UID2 module in order to generate a new UID2 token.
 
-To check if the UID2 module needs to be reconfigured:
+If possible, always configure the UID2 module with the user's DII when a user visits your site. The UID2 module will automatically use or refresh an existing token if it can, and if not it will generate a new UID2 token.
+
+In some cases the user's DII might not be available when the user visits your site. For instance, you might have prompted the user for their DII but it was not stored anywhere. To avoid prompting the user for their DII more than is necessarily, you should first check for a UID2 token that has not expired or can be refreshed.
+
+In order to check for such a UID2 token before prompting the user for their DII:
 
 ```js
 TODO
