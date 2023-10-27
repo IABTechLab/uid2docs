@@ -213,14 +213,14 @@ Query results for multiple emails:
 The following table identifies each item in the response, including `NULL` values for `NULL` or improperly formatted emails.
 
 ```sh
-+----+--------------------+----------------------------------------------+------------+--------------------+
-| ID | EMAIL              | UID2                                         | BUCKET_ID  | UNMAPPED           |
-+----+--------------------+----------------------------------------------+------------+--------------------+
++----+----------------------+----------------------------------------------+------------+--------------------+
+| ID | EMAIL                | UID2                                         | BUCKET_ID  | UNMAPPED           |
++----+----------------------+----------------------------------------------+------------+--------------------+
 |  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
-|  2 | test@uidapi.com    | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
-|  3 | invalid-email      | NULL                                         | NULL       | INVALID IDENTIFIER |
-|  4 | NULL               | NULL                                         | NULL       | INVALID IDENTIFIER |
-+----+--------------------+----------------------------------------------+------------+--------------------+
+|  2 | test@uidapi.com      | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
+|  3 | invalid-email        | NULL                                         | NULL       | INVALID IDENTIFIER |
+|  4 | NULL                 | NULL                                         | NULL       | INVALID IDENTIFIER |
++----+----------------------+----------------------------------------------+------------+--------------------+
 ```
 
 #### Mapping Request Example - Single Unhashed Phone Number
