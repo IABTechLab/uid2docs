@@ -82,8 +82,8 @@ pbjs.setConfig({
     userIds: [{
       name: 'uid2',
       params: {
-        serverPublicKey: '...server public key...',
-        subscriptionId: '...subscription id...',
+        serverPublicKey: publicKey,
+        subscriptionId: subscriptionId,
         email: 'user@example.com',
       }
     }]
@@ -105,8 +105,8 @@ pbjs.setConfig({
     userIds: [{
       name: 'uid2',
       params: {
-        serverPublicKey: '...server public key...',
-        subscriptionId: '...subscription id...',
+        serverPublicKey: publicKey,
+        subscriptionId: subscriptionId,
         phone: '+1111111111',
       }
     }]
@@ -128,8 +128,8 @@ pbjs.setConfig({
     userIds: [{
       name: 'uid2',
       params: {
-        serverPublicKey: '...server public key...',
-        subscriptionId: '...subscription id...',
+        serverPublicKey: publicKey,
+        subscriptionId: subscriptionId,
         emailHash: 'eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=',
       }
     }]
@@ -151,8 +151,8 @@ pbjs.setConfig({
     userIds: [{
       name: 'uid2',
       params: {
-        serverPublicKey: '...server public key...',
-        subscriptionId: '...subscription id...',
+        serverPublicKey: publicKey,
+        subscriptionId: subscriptionId,
         phoneHash: 'eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=',
       }
     }]
