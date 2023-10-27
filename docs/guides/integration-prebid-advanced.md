@@ -1,5 +1,4 @@
 ---
-id: integration-prebid-advanced
 title: Prebid.js Advanced Integration
 sidebar_label: Prebid.js Advanced Integration
 pagination_label: Prebid Advanced Integration
