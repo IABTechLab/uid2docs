@@ -39,12 +39,12 @@ UID2 とインテグレーションすることで得られるメリットの一
 ## Resources
 
 パブリッシャーが UID2 を実装するために、以下のドキュメントリソースが利用可能です:
-- [Web Integrations](#web-integration)
+- [Web Integrations](#web-integrations)
 - [Mobile](#mobile)
-- [Google Ad Manager Integrations](#google-ad-manager-integration)
-- [Prebid Integrations](#prebid-integration)
+- [Google Ad Manager Integrations](#google-ad-manager-integrations)
+- [Prebid Integrations](#prebid-integrations)
 
-### Web Integration
+### Web Integrations
 
 以下のリソースは、パブリッシャーのウェブインテグレーションに利用できます。
 
