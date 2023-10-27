@@ -5,7 +5,7 @@ hide_table_of_contents: false
 sidebar_position: 02
 ---
 
-# UID2 SDK for JavaScript (2.x and earlier versions) Reference Guide
+# UID2 SDK for JavaScript Reference Guide (2.x and earlier versions)
 
 :::tip
 This documentation is for earlier versions of the UID2 SDK for JavaScript. If you're using an earlier version, we recommend upgrading. See [UID2 SDK for JavaScript Reference Guide](client-side-identity.md), which includes a migration guide.

@@ -37,10 +37,8 @@ For a workflow diagram, see [Integration Steps](#integration-steps). See also [F
 
 To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the UID2 SDK for JavaScript. Here's an [example application](https://example-jssdk-integ.uidapi.com/) that illustrates the integration steps described in this guide and the usage of the SDK (currently only for email addresses). For the application documentation, see [UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md).
 
-(**GWH_LP01 any way we could go a little gentler than Danger? It looks scary. Maybe just a Note? But, your call.**)
-
-:::warning
-The UID2 SDK for JavaScript currently stores tokens in first-party cookies, but implementation details such as this might change in the future. To avoid potential issues, be sure to rely on the [Client-Side JavaScript SDK](../sdks/client-side-identity.md#api-reference) for your identity management.
+:::tip
+The first-party cookie and local storage implementation details might change in the future. To avoid potential issues, be sure to rely on the functionality documented in the [UID2 SDK for JavaScript API Reference](../sdks/client-side-identity.md#api-reference) for your identity management.
 :::
 
 For integration scenarios for publishers that do not use the UID2 SDK for JavaScript, see [Publisher Integration Guide, Server-Only](custom-publisher-integration.md). 
@@ -72,9 +70,7 @@ After authentication in step 1-c, which forces the user to accept the rules of e
 | 1-d | [POST /token/generate](../endpoints/post-token-generate.md) | After the user authenticates and authorizes the creation of a UID2, use the [POST /token/generate](../endpoints/post-token-generate.md) endpoint to generate a UID2 token using the email address or phone number provided by the user. Make sure it is normalized. |
 | 1-e | [POST /token/generate](../endpoints/post-token-generate.md) | The endpoint returns a UID2 token generated from the user's email address, phone number, or the respective hash. |
 | 1-f | UID2 SDK for JavaScript | The SDK sends the returned UID2 token from step 1-e to the SDK in the `identity` property of its [init() function](../sdks/client-side-identity.md#initopts-object-void). |
-| 1-g | UID2 SDK for JavaScript | Provide a callback function to the SDK, which will receive identity updates and use them to initiate targeted advertising. |
-
-(**GWH_LP02 Hoping to clarify 1-g above. The SDK is listed as the actor but the statement says "Provide a callback function to the SDK" -- could we word this better? Maybe something like, set up the SDK's callback function to receive...?**)
+| 1-g | UID2 SDK for JavaScript | Provide the SDK a callback function that will receive identity updates from the SDK and use them to initiate targeted advertising. |
 
 <Tabs>
 <TabItem value='js' label='JavaScript'>
@@ -167,7 +163,7 @@ Based on the status and availability of a valid identity, the SDK does the follo
 1. Stores identity information in [local storage or a first-party cookie](../sdks/client-side-identity.md#uid2-storage-format).
 1. Uses the identity information to initiate requests for targeted advertising.
 
-(**GWH_LP03 question. Not sure about the relationship between the steps above and the table below. And the diagram 2-a which says "the publisher calls the SSP for ads using the UID2 token". Any way you could help me understand/clarify? They don't seem entirely in sync.**)
+<!-- (**GWH_TODO. Q: Not sure about the relationship between the steps above and the table below. And the diagram 2-a which says "the publisher calls the SSP for ads using the UID2 token". A: Diagram needs to be updated.**) -->
 
 The bidding step is shown in the following table.
 
@@ -184,10 +180,8 @@ The bidding step is shown in the following table.
 ```
 
 :::info
-You need to consider how you pass the returned advertising token to SSPs.
+You need to consider how you pass the returned advertising token to SSPs. With some other approaches to client-side UID2 implementation, such as using `Prebid.js` (see [Prebid Integration Guide](integration-prebid.md)) or Google Ad Manager Secure Signals (see [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md)), the implementation includes functions that manage passing the returned advertising token. If you're using the UID2 SDK for JavaScript you'll need to manage this yourself.
 :::
-
-(**GWH_LP04 is there any guidance at all that we can offer re the above? Maybe an example or something?**)
 
 :::tip
 Instead of calling `__uid2.getAdvertisingToken()`, you can use the `advertising_token` property of the identity passed to the callback that you set up for step 1-g. The callback will be called every time the identity changes.
