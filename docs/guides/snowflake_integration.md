@@ -105,7 +105,7 @@ The following sections include query examples for each solution, which are ident
 ```
 For example:
 ```
-select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTITY_MAP('validate@email.com', 'email'));
+select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTITY_MAP('validate@example.com', 'email'));
 ```
 
 All query examples use the following default values for each name variable:
@@ -169,13 +169,13 @@ The following queries illustrate how to map a single email address, using the [d
 Advertiser solution query for a single email:
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP('validate@email.com', 'email'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP('validate@example.com', 'email'));
 ```
 
 Data provider solution query for a single email:
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP('validate@email.com', 'email'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP('validate@example.com', 'email'));
 ```
 
 Query results for a single email:
@@ -216,7 +216,7 @@ The following table identifies each item in the response, including `NULL` value
 +----+--------------------+----------------------------------------------+------------+--------------------+
 | ID | EMAIL              | UID2                                         | BUCKET_ID  | UNMAPPED           |
 +----+--------------------+----------------------------------------------+------------+--------------------+
-|  1 | validate@email.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
 |  2 | test@uidapi.com    | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
 |  3 | invalid-email      | NULL                                         | NULL       | INVALID IDENTIFIER |
 |  4 | NULL               | NULL                                         | NULL       | INVALID IDENTIFIER |
@@ -295,13 +295,13 @@ The following queries illustrate how to map a single email address hash, using t
 Advertiser solution query for a single hashed email:
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256)), 'email_hash'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@example.com', 256)), 'email_hash'));
 ```
 
 Data provider solution query for a single hashed email:
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256)), 'email_hash'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@example.com', 256)), 'email_hash'));
 ```
 
 Query results for a single hashed email:
@@ -432,7 +432,7 @@ select * from AUDIENCE_WITH_UID2;
 +----+--------------------+----------------------------------------------+------------+-------------------------+
 | ID | EMAIL              | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    |
 +----+--------------------+----------------------------------------------+------------+-------------------------+
-|  1 | validate@email.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 |
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 |
 |  2 | test1@uidapi.com   | Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM= | ad1ANEmVZ  | 2021-03-03 00:00:00.000 |
 |  3 | test2@uidapi.com   | NULL                                         | NULL       | NULL                    |
 +----+--------------------+----------------------------------------------+------------+-------------------------+
@@ -466,7 +466,7 @@ The following table identifies each item in the response. The result includes an
 +----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
 | ID | EMAIL              | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    | LAST_SALT_UPDATE_UTC    |
 +----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
-|  1 | validate@email.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 | 2021-03-02 00:00:00.000 |
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 | 2021-03-02 00:00:00.000 |
 |  3 | test2@uidapi.com   | NULL                                         | NULL       | NULL                    | NULL                    |
 +----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
 ```
