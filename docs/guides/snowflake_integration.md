@@ -429,13 +429,13 @@ In this example scenario, the advertiser/data provider has stored the UID2s in a
 select * from AUDIENCE_WITH_UID2;
 ```
 ```
-+----+--------------------+----------------------------------------------+------------+-------------------------+
-| ID | EMAIL              | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    |
-+----+--------------------+----------------------------------------------+------------+-------------------------+
++----+----------------------+----------------------------------------------+------------+-------------------------+
+| ID | EMAIL                | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    |
++----+----------------------+----------------------------------------------+------------+-------------------------+
 |  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 |
-|  2 | test1@uidapi.com   | Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM= | ad1ANEmVZ  | 2021-03-03 00:00:00.000 |
-|  3 | test2@uidapi.com   | NULL                                         | NULL       | NULL                    |
-+----+--------------------+----------------------------------------------+------------+-------------------------+
+|  2 | test1@uidapi.com     | Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM= | ad1ANEmVZ  | 2021-03-03 00:00:00.000 |
+|  3 | test2@uidapi.com     | NULL                                         | NULL       | NULL                    |
++----+----------------------+----------------------------------------------+------------+-------------------------+
 ```
 
 To find missing or outdated UID2s, use the following query examples, which use the [default database and schema names](#database-and-schema-names).
@@ -463,12 +463,12 @@ Query results:
 The following table identifies each item in the response. The result includes an email, `UID2`, `BUCKET_ID`, `LAST_UID2_UPDATE_UTC`, and `LAST_SALT_UPDATE_UTC` as shown in the ID 1 example below. No information is returned for ID 2 because the corresponding UID2 was generated after the last bucket update. For ID 3, `NULL` values are returned due to a missing UID2.
 
 ```
-+----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
-| ID | EMAIL              | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    | LAST_SALT_UPDATE_UTC    |
-+----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
++----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
+| ID | EMAIL                | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    | LAST_SALT_UPDATE_UTC    |
++----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
 |  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 | 2021-03-02 00:00:00.000 |
-|  3 | test2@uidapi.com   | NULL                                         | NULL       | NULL                    | NULL                    |
-+----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
+|  3 | test2@uidapi.com     | NULL                                         | NULL       | NULL                    | NULL                    |
++----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
 ```
 
 ## Migration Guide
