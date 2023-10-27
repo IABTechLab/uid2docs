@@ -28,7 +28,7 @@ To integrate with UID2 using Prebid.js you will need to complete the following s
 3. Configure the UID2 module.
 
 :::info
-The UID2 module supports more advanced use cases in which UID2 tokens are generated or refreshed server-side. To learn more, see the [Prebid.js Advanced Integration Guide](./integration-prebid.md).
+The UID2 module supports more advanced use cases in which UID2 tokens are generated or refreshed server-side. To learn more, see the [Prebid.js Advanced Integration Guide](./integration-prebid-advanced.md).
 :::
 
 ## Complete UID2 Account Setup
