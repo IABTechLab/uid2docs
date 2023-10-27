@@ -7,7 +7,7 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-# Prebid Integration Guide
+# Prebid.js Advanced Integration Guide
 
 <!-- This guide includes the following information:
 
@@ -25,9 +25,9 @@ sidebar_position: 04
 - [Prebid Implementation Notes and Tips](#prebid-implementation-notes-and-tips)
 - [Configuration Parameters for `usersync`](#usersync-configuration-parameters) -->
 
-This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid in the RTB bid stream.
+This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid in the RTB bid stream. It covers advanced use cases for publishers who want to generate and optionally refresh UID2 token by making server-side API calls to the UID2 operator. For integration instructions that do not require server-side changes, please see [Prebid.js Integration](./integration-prebidjs.md).
 
-It outlines the basic steps to consider if you're building a direct integration with UID2 and you use Prebid for header bidding. 
+This guide outlines the basic steps to consider if you're building a direct integration with UID2 and you use Prebid for header bidding. 
 
 ## Introduction
 
@@ -52,11 +52,11 @@ At a high level, to integrate with UID2 using Prebid, you'll need to complete th
 
 ## Generate UID2 Token
 
-UID2 requires initial tokens to be generated server-side. You can do this by calling the [POST /token/generate](../endpoints/post-token-generate.md) endpoint to generate a new UID2 token.
+You can generate tokens by calling the [POST /token/generate](../endpoints/post-token-generate.md) endpoint.
 
 ## UID2 User ID Submodule
 
-UID2 requires initial tokens to be generated server-side. The UID2 module handles storing, providing, and optionally refreshing them. The module operates in Client Refresh mode.
+The UID2 module handles storing, providing, and optionally refreshing UID2 tokens.
 
 >**Important:** UID2 is not designed to be used where GDPR applies. The module checks the passed-in consent data, and does not operate if the `gdprApplies` flag is set to `true`.
 
