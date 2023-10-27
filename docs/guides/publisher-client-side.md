@@ -221,4 +221,4 @@ The client lifecycle is complete when the user decides to log out from the publi
 
 ## FAQs
 
-For a list of frequently asked questions for the publisher audience, see [FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers)
+For a list of frequently asked questions for the publisher audience, see [FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers).
