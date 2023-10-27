@@ -45,7 +45,7 @@ Used by: This endpoint is used mainly by publishers.
 
 The following are unencrypted JSON request body examples for each parameter, which you need to include in your token validation requests:
 
->NOTE: The advertising tokens in these example are fictitious, for illustrative purposes only. The values provided are not real values.
+>NOTE: The advertising tokens in these examples are fictitious, for illustrative purposes only. The values provided are not real values.
 
 ```json
 {
