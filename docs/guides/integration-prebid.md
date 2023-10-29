@@ -185,7 +185,7 @@ However, a UID2 token can only be refreshed for a certain amount of time. If a u
 
 The best way to handle this is to always configure the UID2 module with the user's DII when they visit your site. The UID2 module will automatically use or refresh an existing token if it can. If there is no existing token, or the existing token cannot be used or refreshed, the module will generate a new UID2 token.
 
-In some cases the user's DII might not be available when the user visits your site. For instance, you might have prompted the user for their DII initially but the DII was not stored anywhere.
+<!-- In some cases the user's DII might not be available when the user visits your site. For instance, you might have prompted the user for their DII initially but the DII was not stored anywhere.
 
 If the DII is not available, you will want to check if there is a UID2 token in the user's browser that can be refreshed. If there is, the UID2 module will automatically refresh the token and you can avoid prompting the user for their DII more than is necessary.
 
@@ -193,7 +193,7 @@ In order to check for a UID2 token that can be refreshed:
 
 ```js
 TODO
-```
+``` -->
 
 ## Optional: Reduce latency by setting the API base URL
 
