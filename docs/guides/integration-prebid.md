@@ -42,7 +42,7 @@ Only root-level domains are required for account setup. For example, if you are 
 
 ## Add Prebid.js to your site
 
-Follow the [Prebid.js documentation](https://docs.prebid.org/dev-docs/getting-started.html) to add Prebid.js to your site. Make sure to use Prebid.js version **TODO** or higher.
+Follow the [Prebid.js documentation](https://docs.prebid.org/dev-docs/getting-started.html) to add Prebid.js to your site. Make sure to use Prebid.js version 8.21.0 or higher.
 
 When you download the Prebid.js package, add the UID2 module by checking the box next to the module named "Unified ID 2.0". The module is listed under the section *User ID Modules*.
 
