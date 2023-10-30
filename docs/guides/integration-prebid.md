@@ -62,9 +62,9 @@ When the UID2 module is configured it will check the user's browser for an exist
 
 As a result, you do not have to check for existing tokens before calling `pbjs.setConfig`. Calling `pbjs.setConfig` when there is an existing token will not have any negative consequences and will ensure that a new token is generated if the existing token can no longer be refreshed.
 
-The user's DII can be passed to the UID2 module hashed or unhashed. If the DII is passed to the module hashed, it must be normalized before hashing. See [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) for more details.
+The user's DII can be passed to the UID2 module hashed or unhashed. If the DII is passed to the UID2 module unhashed, the module will hash it for you. If the DII is passed to the module hashed, it must be normalized before hashing. See [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) for more details.
 
-The UID2 module will ensure that all DII is hashed and encrypted before sending it to the UID2 service.
+The UID2 module will encrypt the hashed DII before sending it to the UID2 service.
 
 The following sections demonstrate the different ways to configure the UID2 module and list the requirements for the DII passed to the module.
 
