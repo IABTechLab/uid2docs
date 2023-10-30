@@ -19,6 +19,16 @@ This service allows you to map DII (email addresses or phone numbers) to raw UID
 
 For details, see [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md).
 
+### New: UID2 SDK for JavaScript Version 3 
+
+10 October 2023
+
+Significant documentation updates reflect the enhanced functionality of Version 3 of the UID2 SDK for JavaScript. The new documentation includes a [migration guide](../sdks/client-side-identity#migration-guide) for those upgrading from an earlier version of the SDK.
+
+For details, see:
+-  [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)
+-  [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md)
+
 ### New: Private Operator Guide for Google Confidential Space 
 
 30 September 2023

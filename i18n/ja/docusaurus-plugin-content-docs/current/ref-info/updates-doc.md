@@ -9,6 +9,26 @@ sidebar_position: 06
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: AWS Entity Resolution Integration Guide
+
+19 October 2023
+
+This new guide provides information for using [AWS Entity Resolution](https://aws.amazon.com/entity-resolution/), an identity resolution product from Amazon Web Services that allows AWS customers to integrate with the UID2 framework.
+
+This service allows you to map DII (email addresses or phone numbers) to raw UID2s swiftly and securely.
+
+For details, see [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md).
+
+### New: UID2 SDK for JavaScript Version 3 
+
+10 October 2023
+
+Significant documentation updates reflect the enhanced functionality of Version 3 of the UID2 SDK for JavaScript. The new documentation includes a [migration guide](../sdks/client-side-identity#migration-guide) for those upgrading from an earlier version of the SDK.
+
+For details, see:
+-  [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)
+-  [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md)
+
 ### New: Private Operator Guide for Google Confidential Space 
 
 30 September 2023
