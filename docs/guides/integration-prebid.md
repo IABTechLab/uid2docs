@@ -11,6 +11,9 @@ sidebar_position: 04
 
 This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bid stream.
 
+This guide does not apply to publishers that want to use a [private operator](../ref-info/glossary-uid.md#gl-private-operator), or those that want to generate tokens server-side.
+Those publishers should follow the [Prebid.js Advanced Integration Guide](./integration-prebid-advanced.md).
+
 UID2 provides a [Prebid.js module](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) with the following features:
 
 - UID2 token generation.
@@ -25,10 +28,6 @@ To integrate with UID2 using Prebid.js you will need to complete the following s
 1. Complete the [UID2 Account Setup](../getting-started/gs-account-setup.md).
 2. Add Prebid.js to your site.
 3. Configure the UID2 module.
-
-:::info
-The UID2 module supports more advanced use cases in which UID2 tokens are generated or refreshed server-side. To learn more, see the [Prebid.js Advanced Integration Guide](./integration-prebid-advanced.md).
-:::
 
 ## Complete UID2 Account Setup
 
