@@ -31,12 +31,12 @@ To integrate with UID2 using Prebid.js you will need to complete the following s
 
 ## Complete UID2 Account Setup
 
-Complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page. You will need to provide a list of domain names for the sites that you will be using with Prebid.js.
+Complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page. You will need to provide a list of domain names for the sites that you will be using with Prebid.js as part of the account setup process.
 
 When account setup is complete you will be provided with a **public key** and **subscription ID**. These will be used to configure the UID2 module.
 
 :::tip
-Only root-level domains are required for account setup. For example, if you are going to use UID2 with Prebid.js on example.com and shop.example.com, you only need to provide the domain name example.com.
+Only root-level domains are required for account setup. For example, if you are going to use UID2 with Prebid.js on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
 
 ## Add Prebid.js to your site
@@ -53,7 +53,7 @@ Ensure the UID2 module is installed by finding the string "uid2IdSystem" in the 
 
 ## Configure the UID2 module
 
-To configure the UID2 module, call `pbjs.setConfig` with an object containing the **public key** and **subscription ID** obtained during account setup, as well as the user's [DII](../ref-info/glossary-uid.md#gl-dii) (email address or phone number).
+To configure the UID2 module, call `pbjs.setConfig` with an object containing the **public key** and **subscription ID** obtained during account setup, as well as the user's hashed or unhashed [DII](../ref-info/glossary-uid.md#gl-dii) (email address or phone number).
 
 Once configured, the UID2 module will generate a UID2 token for the user and store it in the user's browser. The module will automatically refresh the token as required while your site is open in the user's browser.
 
@@ -61,10 +61,19 @@ The user's DII can be passed to the UID2 module hashed or unhashed. If the DII i
 
 The UID2 module will encrypt the hashed DII before sending it to the UID2 service.
 
+For a given user on your site, the module can be configured for **one** of the following at a time:
+
+- An email address,
+- A hashed email address,
+- A phone number, or
+- A hashed phone number.
+
+If the module is configured multiples times it will use the most recent configuration values.
+
 The following sections demonstrate the different ways to configure the UID2 module and list the requirements for the DII passed to the module.
 
 :::note
-The examples assume you are using the UID2 production environment. During integration testing use the UID2 integration environment by setting `params.uid2ApiBase` to `"https://operator-integ.uidapi.com"`. You will have a different **subscription ID** and **public key** for the integration environment.
+The examples assume you are using the UID2 production environment. During integration testing use the UID2 integration environment by setting `params.uid2ApiBase` to `"https://operator-integ.uidapi.com"`. Tokens from the UID2 integration environment must not be passed to the bid stream. You will have a different **subscription ID** and **public key** for the integration environment.
 :::
 
 ### Configure for email address
@@ -158,6 +167,10 @@ pbjs.setConfig({
 **The publisher is responsible for normalizing and hashing the phone number**. Refer to [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) for details on phone number normalization and hashing.
 
 The UID2 module will encrypt the hash before sending it to the UID2 service.
+
+## Module storage
+
+By default the UID2 module will store data using local storage. To use a cookie instead, set `params.storage` to "cookie". See the [UID2 module documentation](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) for more details.
 
 ## When to pass DII to the UID2 module
 
