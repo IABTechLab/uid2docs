@@ -168,7 +168,6 @@ const sidebars = {
         'workflows/workflow-overview-supply-side',
         'workflows/workflow-overview-buy-side',
         'workflows/workflow-overview-3p-data-provider',
-        'workflows/workflow-overview-opt-out',
       ],
     },
 
