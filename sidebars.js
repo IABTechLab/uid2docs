@@ -33,6 +33,7 @@ const sidebars = {
         'getting-started/gs-api-using',
         'getting-started/gs-encryption-decryption',
         'getting-started/gs-normalization-encoding',
+        'getting-started/gs-opt-out',       
         'getting-started/gs-faqs',
         'getting-started/gs-sharing',
       ],
@@ -167,7 +168,6 @@ const sidebars = {
         'workflows/workflow-overview-supply-side',
         'workflows/workflow-overview-buy-side',
         'workflows/workflow-overview-3p-data-provider',
-        'workflows/workflow-overview-opt-out',
       ],
     },
 

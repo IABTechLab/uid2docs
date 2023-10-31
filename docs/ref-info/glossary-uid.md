@@ -58,6 +58,7 @@ sidebar_position: 10
 <li><a href="#gl-operator-service">Operator Service</a></li>
 <li><a href="#gl-opt-out">Opt-out</a></li>
 <li><a href="#gl-opt-out-service">Opt-Out Service</a></li>
+<li><a href="#gl-participant">Participant</a></li>
 <li><a href="#gl-private-operator">Private operator</a></li>
 <li><a href="#gl-private-operator-service">Private Operator Service</a></li>
 <li><a href="#gl-raw-uid2">Raw UID2</a></li>
@@ -194,8 +195,12 @@ sidebar_position: 10
 <dd>The Opt-Out Service is a global UID2 service that manages and stores user opt-out requests.</dd>
 <dd>For an overview of all the UID2 services, see <a href="../intro#components">Components</a>.</dd>
 
+<dt class="jump-anchor" id="gl-participant">Participant</dt>
+<dd>An entity that fulfils a key role in UID2. Participants include the following: Core Administrator, Operator, DSP, data provider, advertiser, publisher, consumer.</dd>
+<dd>For details, see <a href="../intro#participants">participants</a>.</dd>
+
 <dt class="jump-anchor" id="gl-private-operator">Private operator</dt>
-<dd>A private <a href="#gl-operator">operator</a> is an entity that runs a private instance of the Operator Service. The private operator generates and manages UID2s for itself, using its own resources (such as hardware) in a secure environment.</dd> 
+<dd>A private <a href="#gl-operator">operator</a> is an entity that runs a private instance of the Operator Service. The private operator generates and manages UID2s for itself, using its own resources (such as hardware) in a secure environment.</dd>
 
 <dt class="jump-anchor" id="gl-private-operator-service">Private Operator Service</dt>
 <dd>A private instance of the Operator Service, run by a <a href="#gl-private-operator">private operator</a>.</dd>
