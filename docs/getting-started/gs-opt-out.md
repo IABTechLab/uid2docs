@@ -34,14 +34,6 @@ Consumers can always opt out of UID2 completely in the [Transparency and Control
 To opt out both your email address and your phone number, do them one at a time.
 :::
 
-## Results of Opting Out of UID2
-
-When a consumer opts out of UID2, that individual's UID2 is no longer accepted for targeted advertising anywhere in the UID2 ecosystem. However, because there is a delay in the time it takes to process and refresh UID2 information, the UID2 for a user who has opted out might be in play for a short while after opt-out:
-
-  - **Publishers**: Each publisher periodically refreshes the UID2 token. When a user opts out, the next time that the publisher's server-side integration requests a token refresh, it receives in response the information that the user has opted out. At this point, the publisher is required to no longer use the UID2 token.
-  
- - **Advertisers and Data Providers**: Advertisers periodically refresh their UID2 data. If a user has opted out, the response does not provide a UID2. Instead, there is a message stating that the user has opted out.  
-
 ## Difference Between Opting Out from a Single Participant and Opting Out of UID2
 
 If a consumer opts out from a specific participant, UID2 guidelines mandate that the participant no longer uses that consumer's information to create or generate a UID2, because the consumer opted out of that site specifically. Those are the requirements of the UID2 framework.
@@ -51,6 +43,8 @@ In addition, if a user opts out from a specific participant, that information is
 The sure way for a consumer to fully opt out of UID2 is in the [Transparency and Control Portal](https://www.transparentadvertising.com/).
 
 ## Opt-Out Workflow
+
+When a consumer opts out of UID2, that individual's UID2 is no longer accepted for targeted advertising anywhere in the UID2 ecosystem. However, because there is a delay in the time it takes to process and refresh UID2 information, the UID2 for a user who has opted out might be in play for a short while after opt-out. As each participant periodically refreshes their UID2s, the opt-out information is propagated to the participants.
 
 The following steps provide a high-level outline of the workflow intended for users who engage with publishers or their identity providers. 
 
