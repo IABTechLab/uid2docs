@@ -22,7 +22,7 @@ Snowflake Data Marketplace でホストされる Open Operator Service を使用
 
 ## Integration Steps
 
-次の図は、データコレクターがオーディエンスの構築とターゲティングのために [直接識別情報(DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 識別子にマッピングするために完了する必要がある手順の概要を示しています。
+次の図は、データコレクターがオーディエンスの構築とターゲティングのために [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 識別子にマッピングするために完了する必要がある手順の概要を示しています。
 
 DII とは、正規化されたメールアドレスや電話番号、あるいは正規化され SHA-256 ハッシュ化されたメールアドレスや電話番号のことです。
 
@@ -66,10 +66,7 @@ UID2 ベースのオーディエンス情報を正確かつ最新の状態に保
 1.  [UID2 retrieval step](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoint) のレスポンスにはマッピング情報が含まれています。以下をキャッシュします:
    - DII (`identifier`) と raw UID2 (`advertising_id`) とソルトバケット (`bucket_id`) のマッピング。
    - 最新の `last_updated` タイムスタンプ。
-2. [preceding salt bucket rotation step](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)の結果を使用して、[retrieving raw UID2s using the identity map endpoints](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoint) によってソルトバケットがローテーションされた raw UID2 を再マッピングします。オーディエンスのUID2を更新するには、[send raw UID2 to a DSP](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences) します。
-
-
-2. Step 3の結果を使用して、[Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)、 Step1 の [Retrieve a raw UID2 for DII using the identity map endpoint](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoint) に従って、ソルトバケットがローテーションされた ID の新しい raw UID2 を取得して、ソルトバケットのraw UID2 を再マッピングします。
+2. Step 3の結果を使用して、[Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)、 Step1 の [Retrieve a raw UID2 for DII using the identity map endpoint](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoint) に従って、ソルトバケットがローテーションされた ID の新しい raw UID2 を取得して、ソルトバケットの raw UID2 を再マッピングします。
 
    次に、Step 2の[send raw UID2 to a DSP](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences) に従って、リフレッシュされた UID2 を使ってオーディエンスを更新します。
 

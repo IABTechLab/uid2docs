@@ -129,14 +129,9 @@ DIIが電話番号の場合、UID2 [電話番号正規化](../getting-started/gs
 
 | Column Name | Data Type | Description                                                                                                                              |
 | :---------- | :-------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
-| `UID2`      | TEXT      | DII に関連付けられた UID2 です。                                                                                               |
-| `BUCKET_ID` | TEXT      | UID2 を生成するために使用する、セカンドレベルのソルトバケット ID です。この ID は `UID2_SALT_BUCKETS` ビューのバケット ID に対応します。 |
-| `UNMAPPED`  | TEXT      | 識別子がマッピングされなかった理由。 |
-
-
-| `UID2` | TEXT | DII は正常にマッピングされました: <br/>DII は正常にマップされませんでした: `NULL`。 |
+| `UID2`      | TEXT | DII は正常にマッピングされました: <br/>DII は正常にマップされませんでした: `NULL`。 |
 | `BUCKET_ID` | TEXT | DIIは正常にマップされました: UID2 の生成に使われたセカンドレベルのソルトバケットの ID。この ID は `UID2_SALT_BUCKETS` ビューのバケットIDに対応します。<br/>DIIは正常にマップされませんでした: `NULL`。 |
-| `UNMAPPED` | TEXT |  DII は正常にマッピングされました: `NULL`<br/>DII は正常にマップされませんでした: `NULL`:  DII は正常にマップされませんでした: 識別子がマップされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、`INVALID INPUT TYPE` のいずれか。詳細は [Values for the UNMAPPED Column](#values-for-the-unmapped-column) を参照してください。
+| `UNMAPPED`  | TEXT |  DII は正常にマッピングされました: `NULL`<br/>DII は正常にマップされませんでした: `NULL`:  DII は正常にマップされませんでした: 識別子がマップされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、`INVALID INPUT TYPE` のいずれか。詳細は [Values for the UNMAPPED Column](#values-for-the-unmapped-column) を参照してください。 |
 
 #### Values for the UNMAPPED Column
 
@@ -147,7 +142,7 @@ DIIが電話番号の場合、UID2 [電話番号正規化](../getting-started/gs
 | `NULL` | DII は正常にマッピングされました。 |
 | `OPTOUT` | ユーザはオプトアウトしました。 |
 | `INVALID IDENTIFIER` | メールアドレスまたは電話番号が無効です。 |
-| `INVALID INPUT TYPE` | `INPUT_TYPE` の値が無効です。INPUT_TYPE の値は以下のいずれかでなければなりません: email`、`email_hash`、`phone`、`phone_hash`。 |
+| `INVALID INPUT TYPE` | `INPUT_TYPE` の値が無効です。INPUT_TYPE の値は以下のいずれかでなければなりません: `email`、`email_hash`、`phone`、`phone_hash`。 |
 
 #### Examples
 
@@ -399,6 +394,7 @@ select a.ID, a.PHONE_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT 
 
 以下の表は、`NULL` ハッシュの `NULL` 値を含め、レスポンスの各項目を示しています。
 
+```
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
 | ID | PHONE_HASH                                   | UID2                                         | BUCKET_ID  | UNMAPPED           |
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
@@ -406,6 +402,7 @@ select a.ID, a.PHONE_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT 
 |  2 | NULL                                         | NULL                                         | NULL       | INVALID IDENTIFIER |
 |  3 |/XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g=  | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
+```
 
 ### Regenerate UID2s
 
@@ -615,6 +612,7 @@ select a.RAW_UID2, t.UID2_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, 
 
 以下の表は、raw UID2 が `NULL` の場合の `NULL` 値を含め、レスポンスの各項目を示しています。
 
+```
 +----+----------------------------------------------+-----------------------+-----------------------------+
 | ID | RAW_UID2                                     | UID2_TOKEN            | ENCRYPTION_STATUS           |
 +----+----------------------------------------------+-----------------------+-----------------------------+
@@ -622,6 +620,7 @@ select a.RAW_UID2, t.UID2_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, 
 |  2 | NULL                                         | NULL                  | MISSING_OR_INVALID_RAW_UID2 |
 |  3 | BXJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g5 | B45678<rest of token> | NULL                        |
 +----+----------------------------------------------+-----------------------+-----------------------------+
+```
 
 ### Decrypt Tokens
 

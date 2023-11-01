@@ -37,10 +37,10 @@ sidebar_position: 02
 UID2 とインテグレーションして、ブランド (ファーストパーティデータとして)やデータプロバイダー (サードパーティデータとして)から UID2 を受け取り、ビッドストリームにおける UID2 の入札情報に活用するためには、バイサイドは以下の要件を満たしている必要があります。
 
 - UID2 形式のデータを受け取る。
-- UID2 形式のデータに入札する。
-- オプトアウトリクエストに対応するための Webhook を構築する。
+- UID2 形式のデータに入札します。
+- オプトアウトリクエストに対応するための Webhook を構築します。
 - UID2 Administrator と暗号化キーを毎日同期させる。
 
 詳細は、[DSP Integration Guide](../guides/dsp-guide.md) を参照してください。
 
-オプションとして、DSP が個人を識別できる情報(DII)から UID2 を自ら生成したい場合は、[Third-Party Data Provider Workflow](workflow-overview-3p-data-provider.md) に従うこともできます。
+オプションとして、DSP が directly identifying information(DII) から UID2 を自ら生成したい場合は、[Third-Party Data Provider Workflow](workflow-overview-3p-data-provider.md) に従うこともできます。

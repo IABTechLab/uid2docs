@@ -165,7 +165,7 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
 
    `token_generate_response = client.generate_token(TokenGenerateInput.from_email(emailAddress).do_not_generate_tokens_for_opted_out())`
 
-   >IMPORTANT: この関数は、ターゲティング広告のためにユーザーの [直接識別情報(DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。
+   >IMPORTANT: この関数は、ターゲティング広告のためにユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。
 
    >`do_not_generate_tokens_for_opted_out()` applies `policy=1` in the [POST /token/generate](../endpoints/post-token-generate.md#token-generation-policy) call. Without this, `policy` is omitted to maintain backwards compatibility.
 

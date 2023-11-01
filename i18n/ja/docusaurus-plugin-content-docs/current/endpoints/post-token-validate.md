@@ -25,11 +25,11 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 | :-------------- | :-------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../summary-doc-v2.md#environments) を参照してください。 |
 
-NOTE: インテグレーション環境と本番環境では、異なる[APIキー](../ref-info/glossary-uid.md#gl-api-key)が必要です。
+NOTE: インテグレーション環境と本番環境では、異なる [APIキー](../ref-info/glossary-uid.md#gl-api-key) が必要です。
 
 ### Unencrypted JSON Body Parameters
 
-- Body Parameter の表にあるように、以下の4つの有効なオプションのうち1つだけを含めます: `email`、`email_hash`、`phone`、`phone_hash` のいずれかです。`email`、`email_hash`、`phone`、`phone_hash` です。テストするパラメータには、リストされている値を正確に指定してください。
+- Body Parameter の表にあるように、以下の4つの有効なオプションのうち1つだけを含めます: `email`、`email_hash`、`phone`、`phone_hash` のいずれかです。テストするパラメータには、リストされている値を正確に指定してください。
 
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
@@ -37,7 +37,7 @@ NOTE: インテグレーション環境と本番環境では、異なる[APIキ�
 | `email` | string | Conditionally Required | トークン検証用のメールアドレスです。<br/>有効な値は `validate@email.com` だけです。 |
 | `email_hash` | string | Conditionally Required | トークン検証用の [正規化された](../getting-started/gs-normalization-encoding.md#email-address-normalization) メールアドレス(`validate@email.com`)の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) ハッシュです。<br/>有効な値は `LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI=` だけです。 |
 | `phone` | string | Conditionally Required | トークンを生成するための [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号です。<br/>有効な値は`+12345678901` だけです。|
-| `phone_hash` | string | Conditionally Required | [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) ハッシュです。<br/>有効な値は`EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=` だけです。|
+| `phone_hash` | string | Conditionally Required | [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) ハッシュです。<br/>有効な値は `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=` だけです。|
 
 
 ### Request Examples
@@ -114,7 +114,7 @@ echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXl
 
 このエンドポイントを使用して、[POST /token/generate](../ref-info/glossary-uid.md#gl-dii) で送信する [DII](../endpoints/post-token-generate.md) が有効かどうかをテストできます。以下の手順に従ってください。
 
-1. DII がハッシュ化されたメールアドレスか、ハッシュ化されていないメールアドレスか、電話番号かに応じて、[Unencrypted JSON Body Parameters](#unencrypted-json-body-parameters) の表に記載されている4つの有効なオプションのいずれかを使用して、[POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信する。表に記載されている対応する値 - `email`、`email_hash`、`phone`、`phone_hash` - を使用する。
+1. DII がハッシュ化されたメールアドレスか、ハッシュ化されていないメールアドレスか、電話番号かに応じて、[Unencrypted JSON Body Parameters](#unencrypted-json-body-parameters) の表に記載されている4つの有効なオプションのいずれかを使用して、[POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信します。表に記載されている対応する値 - `email`、`email_hash`、`phone`、`phone_hash` - を使用します。
 
 2. 返された `advertising_token` の値を次のステップで使用するために保存します。
 3. Step 1 で送信した `email`、`email_hash`、`phone`、`phone_hash` の値と、Step 2 で保存した `advertising_token` を `token` プロパティの値として、`POST /token/validate` リクエストを送信します。

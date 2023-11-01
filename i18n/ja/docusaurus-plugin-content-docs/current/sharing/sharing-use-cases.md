@@ -11,7 +11,7 @@ sidebar_position: 03
 
 - パブリッシャー(送信者)がビッドストリームを通じて UID2 Token を DSP(受信者) に送信します。詳細については、[Sharing in the Bid Stream](sharing-bid-stream.md) を参照してください。
 - 測定パートナー(送信者)は、Amazon Simple Storage Service (S3)を介して UID2 Token を広告主 (受信者)に送信します。
-- DSP (送信者)は、UID2 Token をレポート経由で広告主(受信者)に送信する。
+- DSP (送信者)は、UID2 Token をレポート経由で広告主(受信者)に送信します。
 
 これらのシナリオとその他のシナリオを以下の図に示します。
 

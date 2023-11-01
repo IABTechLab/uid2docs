@@ -223,7 +223,7 @@ EC2 インスタンスを見つけるには、次の手順を実行します:
 
 ロードバランサーとターゲットオペレーターのオートスケーリンググループを作成するには、次の手順を実行します:
 
-1. AWS コンソールで、EC2 ダッシュボードに移動し、`Load Balancer` を検索する。
+1. AWS コンソールで、EC2 ダッシュボードに移動し、`Load Balancer` を検索します。
 2. **Create Load Balancer** をクリックします。
 3. ロードバランサータイプのページで、**Application Load Balancer** のセクションで、**Create** をクリックします。
 4. UID2 **Load balancer name** を入力し、パブリックインターネットから UID2 API にアクセスする必要があるかどうかに応じて、**Internet-facing** または **Internal** スキームを選択します。

@@ -7,7 +7,7 @@ banner_title: プライベートオペレータ向け UID2 の概要
 banner_description: プライベート環境で DII から UID2 を生成するプロセスを説明します。
 ---
 
-UID2 の Private Operator は、ファーストパーティーの[個人を識別できる情報 (DII)](../ref-info/glossary-uid.md#gl-dii)を安全な環境に送って翻訳し、その識別子の行き先を管理する。
+UID2 の Private Operator は、ファーストパーティーの[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii)を安全な環境に送って翻訳し、その識別子の行き先を管理します。
 
 このページでは、UID2 (Unified ID 2.0)フレームワークがプライベートオペレータにもたらすもの、利用可能な実装オプション、および開始方法についての情報を提供します。
 

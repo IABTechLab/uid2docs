@@ -11,10 +11,13 @@ sidebar_position: 04
 
 <!-- This guide includes the following information:
 
-- [Prebid Overview](#prebid-overview)
+- [Introduction](#introduction)
 - [UID2 Prebid Module Page](#uid2-prebid-module-page)
+- [Integration Steps](#integration-steps)
+- [Generate UID2 Token](#generate-uid2-token)
 - [UID2 User ID Submodule](#uid2-user-id-submodule)
 - [Client Refresh Mode](#client-refresh-mode)
+  -  [Response Storage Options](#response-storage-options)
   -  [Client Refresh Cookie Example](#client-refresh-cookie-example)
   -  [Client Refresh uid2Token Example](#client-refresh-uid2token-example)
 - [Storage of Internal Values](#storage-of-internal-values)
@@ -22,7 +25,8 @@ sidebar_position: 04
 - [Prebid Implementation Notes and Tips](#prebid-implementation-notes-and-tips)
 - [Configuration Parameters for `usersync`](#usersync-configuration-parameters) -->
 
-このガイドは、UID2 と直接インテグレーションし、RTB ビッドストリームで Prebid から渡される ID トークン を生成したいパブリッシャー向けのものです。
+このガイドは、UID2 と直接インテグレーションし、RTB ビッドストリームで Prebid から渡される [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token)(Advertising Token) を生成したいパブリッシャー向けのものです。
+
 UID2 との直接インテグレーションを行い、ヘッダービディングに Prebid を使用する場合に考慮すべき基本的なステップの概要を説明します。
 
 ## Introduction
@@ -33,7 +37,22 @@ UID2 との直接インテグレーションを行い、ヘッダービディン
 
 ## UID2 Prebid Module Page
 
-Prebid と UID2 のインテグレーション方法の詳細については、Prebid サイトの [Unified ID 2.0 Prebid User ID module](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) を参照してください。必ずすべての手順に従ってください。
+Prebid と UID2 とのインテグレーションに関する情報は、こちらにあります:
+- Prebid サイトの Prebid User ID サブモジュールの [Unified ID 2.0](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) ページ。
+- Prebid の GitHub リポジトリの [UID2 User ID Submodule](https://github.com/prebid/Prebid.js/blob/master/modules/uid2IdSystem.md) ページ。
+
+## Integration Steps
+
+大まかには、Prebid を使って UID2 とインテグレーションするには、以下の手順を完了する必要があります。
+
+| Step | Action | Link to Instructions |
+| --- | --- | --- |
+| 1 | UID2　Token を生成するために、サーバーサイド API を呼び出します。| [Generate UID2 Token](#generate-uid2-token) |
+| 2 | レスポンス値を保存し、必要に応じて Prebid モジュールがトークンのリフレッシュとオプトアウトを管理できるようにします。 | [Client Refresh Mode](#client-refresh-mode) |
+
+## Generate UID2 Token
+
+UID2 では、初期トークンをサーバーサイドで生成する必要があります。これを行うには、[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出して新しい UID2 Token を生成します。
 
 ## UID2 User ID Submodule
 
@@ -43,12 +62,23 @@ UID2 では、サーバーサイドで初期トークンを生成する必要が
 
 ## Client Refresh Mode
 
-Client Refresh モードでは、UID2 [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントからの完全なレスポンスボディをモジュールに提供する必要があります。Refresh Token が有効である限り、モジュールは必要に応じて UID2 Token (Advertising Token) をリフレッシュします。
+該当するエンドポイントからの完全な JSON レスポンスボディを Prebid モジュールに提供する必要があります:
 
-Client Refresh モードを使用するようにモジュールを設定するには、以下の **どちらか** を実行する必要があります:
-- `params.uid2Cookie` に、レスポンスボディを JSON 文字列として含むクッキーの名前を設定します。[Client Refresh Cookie Example](#client-refresh-cookie-example) を参照してください。
+- 新しい UID2 Token を取得するには、[POST /token/generate](../endpoints/post-token-generate.md)。
+- リフレッシュされた UID2 Token については、[POST /token/refresh](../endpoints/post-token-refresh.md)。
 
-- レスポンス本文に `params.uid2Token` を JavaScript オブジェクトとして設定します。[Client Refresh uid2Token Example](#client-refresh-uid2token-example) を参照してください。
+例については、[Sample Token](#sample-token) を参照してください。
+
+Refresh Token が有効である限り、モジュールは必要に応じて UID2 Token をリフレッシュします。
+
+### Response Storage Options
+
+Client Refresh モードを使用するようにモジュールを構成する場合、API レスポンス情報を保存するための以下のオプションの **1つ** を選択する必要があります。
+
+| Option | Details | Use Case | 
+| --- | --- | --- |
+| レスポンスボディを JSON 文字列として含むクッキーの名前を `params.uid2Cookie` に設定します。 | [Client Refresh Cookie Example](#client-refresh-cookie-example)　を参照してください。 | レスポンスボディを保存するのに十分な容量がクッキーに残っていることを確認しない限り、このオプションを選択しないでください。 |
+| `params.uid2Token` を JavaScript オブジェクトとしてレスポンスボディに設定します。 | [Client Refresh uid2Token Example](#client-refresh-uid2token-example) を参照してください。 | 以下の様な場合は、レスポンスボディを `params.uid2Token` 経由で提供することもできます:<br/>- クッキーにレスポンスボディを保存すると、クッキーのサイズ制限を超える場合。<br/>- レスポンスボディの保存を自分で管理する柔軟性を持ちたい場合。 |
 
 ### Client Refresh Cookie Example
 
@@ -125,6 +155,8 @@ Prebid の実装を計画する際には、以下を考慮してください:
 - リフレッシュされたトークンを生成するために使用された元のトークンと一致しない新しいトークンを提供した場合、保存されたトークンはすべて破棄され、代わりに新しいトークンが使用されます (必要に応じてリフレッシュされます)。
 
 - インテグレーションテストの際には、`params.uid2ApiBase` を `"https://operator-integ.uidapi.com"` に設定することができます。トークンの生成に使用する環境と同じ環境 (本番環境またはテスト環境) を使用しなければならないことに注意してください。
+
+- UID Token が SSP から DSP に送信される際、ビッドストリームでどのように見えるかの例については、[What does a UID2 token look like in the bid stream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bid-stream) を参照してください。
 
 ## Configuration Parameters for `usersync`
 
