@@ -178,7 +178,9 @@ If possible, configure the UID2 module with the user's DII on each page load.
 
 When the UID2 module is configured it will check for an existing UID2 token in the user's browser. If there is an existing token that was generated from the same DII and the token has not expired or can be refreshed, the module will use or refresh the existing token instead of generating a new token.
 
-As a result it's recommended to configure the UID2 module with the user's DII on each page load. Doing so will ensure the user has a UID2 token, and will only generate a new token if one is required.
+If there is no existing token, or the token has expired and cannot be refreshed, the UID2 module can not generate a new token without being passed DII.
+
+As a result it's recommended to configure the UID2 module with the user's DII on each page load.
 
 In some cases the user's DII is not available on page load and obtaining the DII has some associated cost. For example, an API call might be required to fetch the DII, or the user has to be prompted to enter their DII.
 
