@@ -32,8 +32,8 @@ The following resources are available for publisher web integrations.
 
 | Integration Guide |  Content Description |
 | :--- | :--- |
-| [Prebid.js Integration Guide](./integration-prebid.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. |
-| [Prebid.js Advanced Integration Guide](./integration-prebid-advanced.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. This guide is for publishers that are using a private operator or that want to generate tokens server-side. |
+| [Prebid.js Integration Guide](./integration-prebid.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. This guide is for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach. |
+| [Prebid.js Advanced Integration Guide](./integration-prebid-advanced.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. This guide is for publishers who are using a private operator or who want to generate tokens server-side. |
 | [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md) | This integration guide for publishers covers standard web integration scenarios that use the UID2 SDK for JavaScript. |
 | [Publisher Integration Guide, Server-Only](custom-publisher-integration.md) | This integration guide is for publishers that do not use the UID2 SDK for JavaScript. |
 
