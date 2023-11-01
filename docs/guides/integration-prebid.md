@@ -65,23 +65,16 @@ You can pass the user's DII to the UID2 module either hashed or unhashed. If you
 
 The UID2 module encrypts the hashed DII before sending it to the UID2 service.
 
-For a given user on your site, the module can be configured for **one** of the following at a time: (**GWH_MC01 not sure what this means: "For a given user on your site" -- can it be configured per user but I doubt it? Not sure.**)
+You can configure the module to send any one of the four accepted DII formats, for any specific user. The DII format might vary per user but you can only send one value per user.
 
-- Email address
-- Hashed email address
-- Phone number
-- Hashed phone number
-
-(**GWH_MC02 I think we should keep the sequence consistent between the above list and the below sections, but not sure which would be more logical. I prefer the above sequence (2 email options then 2 phone number options), so would rearrange the sections below. Thoughts?**)
-
-If the module is configured multiples times, it uses the most recent configuration values.
-
-The following sections demonstrate the different ways to configure the UID2 module and list the requirements for the DII passed to the module:
+The following sections demonstrate the different ways that you can configure the UID2 module and list the requirements for the DII passed to the module:
 
 - [Configure for Email Address](#configure-for-email-address)
-- [Configure for Phone Number](#configure-for-phone-number)
 - [Configure for Hashed Email Address](#configure-for-hashed-email-address)
+- [Configure for Phone Number](#configure-for-phone-number)
 - [Configure for Hashed Phone Number](#configure-for-hashed-phone-number)
+
+If the module is configured multiples times, it uses the most recent configuration values.
 
 :::note
 The examples assume that you're using the UID2 production environment. During integration testing, use the UID2 integration environment by setting `params.uid2ApiBase` to `"https://operator-integ.uidapi.com"`. Tokens from the UID2 integration environment are not valid for passing to the bid stream. For the integration environment, you will have different **subscription ID** and **public key** values.
@@ -110,29 +103,6 @@ No normalization or hashing is required by the publisher.
 
 The UID2 module normalizes and hashes the email address before sending the encrypted hash to the UID2 service.
 
-### Configure for Phone Number
-
-Configure the UID2 module with a phone number:
-
-```js
-pbjs.setConfig({
-  userSync: {
-    userIds: [{
-      name: 'uid2',
-      params: {
-        serverPublicKey: publicKey,
-        subscriptionId: subscriptionId,
-        phone: '+1111111111',
-      }
-    }]
-  }
-});
-```
-
-**The publisher is responsible for normalizing the phone number**. For details, see [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization).
-
-The UID2 module hashes the phone number before sending the encrypted hash to the UID2 service.
-
 ### Configure for Hashed Email Address
 
 Configure the UID2 module with a hashed email address:
@@ -155,6 +125,29 @@ pbjs.setConfig({
 **The publisher is responsible for normalizing and hashing the email address**. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
 
 The UID2 module encrypts the hash before sending it to the UID2 service.
+
+### Configure for Phone Number
+
+Configure the UID2 module with a phone number:
+
+```js
+pbjs.setConfig({
+  userSync: {
+    userIds: [{
+      name: 'uid2',
+      params: {
+        serverPublicKey: publicKey,
+        subscriptionId: subscriptionId,
+        phone: '+1111111111',
+      }
+    }]
+  }
+});
+```
+
+**The publisher is responsible for normalizing the phone number**. For details, see [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization).
+
+The UID2 module hashes the phone number before sending the encrypted hash to the UID2 service.
 
 ### Configure for Hashed Phone Number
 
