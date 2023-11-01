@@ -77,6 +77,11 @@ const ArticleList: ArticleItem[] = [
     url: "https://wbd.com/warner-bros-discovery-adopts-unified-id-2-0-solution-across-max-and-discovery/",
     date: "June 21, 2023",
   },
+  {
+    title: "AWS Entity Resolution",
+    url: "https://aws.amazon.com/blogs/industries/aws-entity-resolution-expands-data-matching-capabilities-with-liveramp-transunion-and-unified-id-2-0-integrations/",
+    date: "October 16, 2023",
+  },
 ];
 
 function ArticleCard({ title, url, date }: ArticleItem) {
