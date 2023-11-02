@@ -68,6 +68,31 @@ The following sections provide additional details for each step in the diagram:
 | 1-e  | [POST /token/generate](../endpoints/post-token-generate.md)        | ユーザーのメールアドレス、電話番号、またはそれぞれのハッシュから生成された UID2 Token を返します。                                                                                                                                                                                                                                                                 |
 | 1-f  | UID2 SDK for JavaScript | Step 1-e で返された UID2 Token を、SDK の [init()関数](../sdks/client-side-identity.md#initopts-object-void) の `identity` プロパティで SDK に送信し、以下に示すように [コールバック関数](../sdks/client-side-identity.md#callback-function) を指定します。このメカニズムにより、ユーザーがログアウトするまで、UID2 Token がターゲティング広告に利用できるようになります。|
 
+| 1-g | UID2 SDK for JavaScript | Provide the SDK a callback function that will receive identity updates from the SDK and use them to initiate targeted advertising. |
+
+<Tabs>
+<TabItem value='js' label='JavaScript'>
+
+```js
+  window.__uid2 = window.__uid2 || {};
+  window.__uid2.callbacks = window.__uid2.callbacks || [];
+
+  // Step 1-f
+  window.__uid2.callbacks.push((eventType, payload) => {
+    if (eventType === 'SdkLoaded') {
+      __uid2.init({
+        identity : {
+          "advertising_token": "AgmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=",
+          "refresh_token": "Mr2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA==",
+          "identity_expires": 1633643601000,
+          "refresh_from": 1633643001000,
+          "refresh_expires": 1636322000000,
+          "refresh_response_key":"dYNTB20edyHJU9mZv11e3OBDlLTlS5Vb97iQVumc7b/8QY/DDxr6FrRfEB/D",
+        }
+      });
+    }
+  });
+
   // Step 1-g
   window.__uid2.callbacks.push((eventType, payload) => {
     if (eventType !== 'SdkLoaded') {
