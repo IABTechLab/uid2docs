@@ -9,6 +9,26 @@ sidebar_position: 06
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: Prebid.js Integration Guide
+
+2 November 2023
+
+The Prebid.js Integration Guide is a completely new document at the existing URL, covering a new, simpler way of integrating UID2 with Prebid that does not require any server-side work.
+
+The content that was in the previous version of the Prebid document is now in a supplementary document, *Prebid.js Advanced Integration Guide*, for publishers who are using a private operator or who prefer to implement token generate on the server side.
+
+For details, see:
+- [Prebid.js Integration Guide](../guides/integration-prebid.md)
+- [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md)
+
+### New: Opt-Out
+
+31 October 2023
+
+This new "getting started" topic provides an overview of user opt-out.
+
+For details, see [User Opt-Out](../getting-started/gs-opt-out.md).
+
 ### New: AWS Entity Resolution Integration Guide
 
 19 October 2023
@@ -131,10 +151,10 @@ A new guide for publishers that provides information about the UID2 SDK for iOS,
 
 For details, see [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md).
 
-### New: Prebid Integration Guide
+<!-- ### New: Prebid Integration Guide
 
 1 August 2023
 
 A new guide for publishers who want to integrate with UID2 and generate UID2 tokens (advertising tokens) to be passed by Prebid in the RTB bid stream.
 
-For details, see [Prebid Integration Guide](../guides/integration-prebid.md).
+For details, see [Prebid Integration Guide](../guides/integration-prebid.md). -->
