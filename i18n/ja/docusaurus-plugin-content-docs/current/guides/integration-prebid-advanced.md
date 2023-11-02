@@ -1,11 +1,13 @@
 ---
-title: Prebid Integration
-description: UID2 実装のため、Prebid とのインテグレーションに関する情報。
+title: Prebid.js Advanced Integration
+sidebar_label: Prebid.js Advanced Integration
+pagination_label: Prebid Advanced Integration
+description: Information about integrating with Prebid as part of your UID2 implementation.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-# Prebid Integration Guide
+# Prebid.js Advanced Integration Guide
 
 <!-- This guide includes the following information:
 
