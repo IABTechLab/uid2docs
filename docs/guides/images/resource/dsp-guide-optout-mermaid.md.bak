@@ -1,0 +1,35 @@
+graph LR
+A[Decrypt UID2 Token] --> B[Retrieve Opt-out for UID2]
+    B --> C{Check Opt-out}
+    C --> |Opted Out| D[Bid without UID2]
+    C --> |Not Opted Out| E[Bid with UID2]
+
+<!-- Edit in Mermaid Live Editor: https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFJcbkFbRGVjcnlwdCBVSUQyIFRva2VuXSAtLT4gQltSZXRyaWV2ZSBPcHQtb3V0IGZvciBVSUQyXVxuICAgIEIgLS0-IEN7Q2hlY2sgT3B0LW91dH1cbiAgICBDIC0tPiB8T3B0ZWQgT3V0fCBEW0JpZCB3aXRob3V0IFVJRDJdXG4gICAgQyAtLT4gfE5vdCBPcHRlZCBPdXR8IEVbQmlkIHdpdGggVUlEMl1cbiIsIm1lcm1haWQiOnsidGhlbWUiOiJmb3Jlc3QifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0 -->
+
+-------------------- above is legacy --------------------
+
+For the above: link to SVG, in doc, is:
+
+<!-- https://mermaid.ink/svg/eyJjb2RlIjoiICBzZXF1ZW5jZURpYWdyYW1cbiAgICBwYXJ0aWNpcGFudCBVIGFzIFVzZXJcbiAgICBwYXJ0aWNpcGFudCBTU1BcbiAgICBwYXJ0aWNpcGFudCBEU1BcbiAgICBwYXJ0aWNpcGFudCBVSUQyIGFzIFVJRDIgU2VydmljZVxuICAgIHBhcnRpY2lwYW50IFRDIGFzIFRyYW5zcGFyZW5jeSAmIENvbnNlbnQgUG9ydGFsXG4gICAgTm90ZSBvdmVyIFUsVEM6IDEuIEhvbm9yIHVzZXIgb3B0LW91dHMuXG4gICAgVS0-PlRDOiAxLWEuIFVzZXIgb3B0cyBvdXQuXG4gICAgYWN0aXZhdGUgVENcbiAgICBUQy0-PlVJRDI6IDEtYi4gVUlEMiBzZXJ2aWNlIHJlY2VpdmVzIG9wdC1vdXQuXG4gICAgZGVhY3RpdmF0ZSBUQ1xuICAgIGFjdGl2YXRlIFVJRDJcbiAgICBVSUQyLT4-RFNQOiAxLWMuIERTUCByZWNlaXZlcyBvcHQtb3V0LlxuICAgIGRlYWN0aXZhdGUgVUlEMlxuICAgIE5vdGUgb3ZlciBVLFRDOiAyLiBEZWNyeXB0IFVJRDIgdG9rZW5zIHRvIHVzZSBpbiBSVEIuXG4gICAgU1NQLS0-PkRTUDogVGhlIFNTUCBjYWxscyBhIERTUCBmb3IgYmlkLlxuICAgIERTUC0-PkRTUDogMi1hLiBEZWNyeXB0IFVJRDIgdG9rZW5zLlxuICAgIERTUC0-PkRTUDogMi1iLiBFeGVjdXRlIGJpZGRpbmcgbG9naWMsIGhvbm9yaW5nIHVzZXIgb3B0LW91dHMuXG4iLCJtZXJtYWlkIjp7InRoZW1lIjoiZm9yZXN0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9 -->
+
+-------------------- below is update 9/5/23 --------------------
+
+graph LR
+A[Decrypt UID2 token] --> B[Retrieve UID2 opt-out status]
+    B --> C{Check for <br/>opt-out}
+    C --> |Opted out| D[Bid without UID2]
+    C --> |Not opted out| E[Bid with UID2]
+
+Edit link: 
+
+https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNpVkMtugzAQRX_FmjWkPJK4WFWkJmRRqQ8pVTcNWbgwKSgFIzO0pYR_r4EGqbPyXJ-5Y98WYpUgCHjXskzZ_S4qbvchxropib3chR4jdcLiwGx7xdb7HZLO8BPHK1WSrWpiFUmqq0NUMFPrAd20mxTjEzsqzW7e9NXqj-1GaDNA56eSMGFGPrNwv84S9pVR2jv29od_6KOift8F3074hQULctS5zBLzm7afjYBSzDECYY7mIVhRBFHRGVLWpJ6bIgZBukYL6jKRhGEmTQw5iKP8qCZ1m2Sk9CTi0D6MqQ3hWVDK4lWp_OJmWhAtfINw_Znjc-65rjsPgiXnFjQg5ov5zFkE3Fl4ge_yoLPgZxh3ZsFYfOka4Nrj3S-UhoHv
+
+SVG URL -- but the SVG doesn't include the colors so that doesn't work. Need to figure out how to include the CSS in the SVG output: 
+
+https://mermaid.ink/svg/pako:eNpVkM1ugzAQhF_F2jOkYBJCrCpSE3Ko1B8pVS8FDi5sCkrByCxtU8K715AmUnzyzn479k4HqcoQBHxoWefsYRtXd1GIqT7UxF7vQ85I7bFKmG0v2SraIukCv_DUUjXZqiXWkKS2SeKKmbMa0XW3zjHds53S7PZd3yz_2f4ErUfo-FwTZszIRxZGqyJj3wXlg-Ngn1yhT4qG98745oKfWbCgRF3KIjPbdMNsDJRjiTEIczUfwYZiiKvekLIl9XKoUhCkW7SgrTNJGBbSxFBei5usIKVB7ORnY0Qcy8dTaGN2FtSyelPqMmdKEB38gHC9iePN59zxA4d7fuD6FhxATGfTiTNb-AvuBTxw-ay34Hc0cPs_j19-aQ
+
+Exported SVG: dsp-guide-optout.svg but it didn't display, so, not saved.
+
+Summary 9/5/23: still not able to export to SVG with theme applied. Saved PNG in UI instead.
+
+PNG saved from UI display: dsp-guide-optout.png.

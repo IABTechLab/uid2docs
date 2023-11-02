@@ -13,6 +13,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Action IQ",
+    logo: "actioniq-logo.png",
+    type: ["CDP"],
+  },
+  {
     name: "Acxiom",
     logo: "Acxiom-2022-Logo-NAVY-and-TEAL.jpg",
     type: ["Data"],
@@ -76,9 +81,19 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Ameba",
+    logo: "Ameba_logo_580x250.png",
+    type: ["Publishers"],
+  },
+  {
     name: "Amobee",
     logo: "Amobee.png",
     type: ["DSP"],
+  },
+  {
+    name: "Amperity",
+    logo: "amperity-logo.png",
+    type: ["CDP"],
   },
   {
     name: "Angle Tech",
@@ -101,16 +116,26 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Aseal",
+    logo: "Aseal-Logo.png",
+    type: ["Data"],
+  },
+  {
     name: "Attain",
     logo: "Attain_Logo_Black_580x250.png",
     type: ["Data"],
   },
   {
     name: "Audigent",
-    logo: "PartnerLogo_Audigent_256x256.png",
+    logo: "audient_logo.png",
     type: ["Data"],
     featured: true,
     order: 5,
+  },
+  {
+    name: "AWS",
+    logo: "aws-logo.svg",
+    type: ["CDP"],
   },
   {
     name: "BabyCalendar",
@@ -126,6 +151,11 @@ export const partnersData: PartnersDataType = [
     name: "Billboard",
     logo: "billboard-logo-580x250.png",
     type: ["Publishers"],
+  },
+  {
+    name: "Bombora",
+    logo: "bombora-logo.png",
+    type: ["Data"],
   },
   {
     name: "BuzzFeed",
@@ -173,6 +203,11 @@ export const partnersData: PartnersDataType = [
     name: "deepintent",
     logo: "deepintent.png",
     type: ["DSP"],
+  },
+  {
+    name: "Dotdash Meredith",
+    logo: "DotdashMeredith_Logo_BLK.png",
+    type: ["Publishers"],
   },
   {
     name: "Environics",
@@ -254,6 +289,11 @@ export const partnersData: PartnersDataType = [
     name: "Hello Health Group",
     logo: "HHG1000px.png",
     type: ["Publishers"],
+  },
+  {
+    name: "Hightouch",
+    logo: "hightouch-logo.jpg",
+    type: ["CDP"],
   },
   {
     name: "Hipwee",
@@ -338,7 +378,7 @@ export const partnersData: PartnersDataType = [
   },
   {
     name: "LiveRamp",
-    logo: "PartnerLogo_LiveRamp_580x250.png",
+    logo: "liveramp-logo-black.svg",
     type: ["Data", "CDP"],
     featured: true,
     order: 12,
@@ -426,6 +466,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Narrative",
+    logo: "narrative-logo.png",
+    type: ["CDP"],
+  },
+  {
     name: "NBC Universal",
     logo: "NBCuniversal.png",
     type: ["Publishers"],
@@ -502,6 +547,11 @@ export const partnersData: PartnersDataType = [
     order: 16,
   },
   {
+    name: "Pass3",
+    logo: "PASS3_Logo-02.png",
+    type: ["DSP"],
+  },
+  {
     name: "Paramount",
     logo: "Paramount.png",
     type: ["Publishers"],
@@ -510,6 +560,16 @@ export const partnersData: PartnersDataType = [
     name: "Penske Media Corp PMC",
     logo: "PartnerLogo_Penske-Media-Corp-PMC_256x256.png",
     type: ["Publishers"],
+  },
+  {
+    name: "Philo",
+    logo: "Philo_logo.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "Pixnet",
+    logo: "pixnet-logo.png",
+    type: ["Data"],
   },
   {
     name: "Proper Media",
@@ -525,6 +585,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "Qiyi",
     logo: "PartnerLogo_iQiyi_256x256.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "Raptive",
+    logo: "Raptive_2023.svg",
     type: ["Publishers"],
   },
   {
@@ -583,6 +648,11 @@ export const partnersData: PartnersDataType = [
     name: "Slate",
     logo: "slate.png",
     type: ["Publishers"],
+  },
+  {
+    name: "Smrtr",
+    logo: "smrtr-logo-518x250.png",
+    type: ["Data"],
   },
   {
     name: "Snowflake",
@@ -665,6 +735,11 @@ export const partnersData: PartnersDataType = [
     name: "TNL Media Group",
     logo: "TNL-Media-Group-580x250.png",
     type: ["Publishers"],
+  },
+  {
+    name: "Treasure Data",
+    logo: "treasure-data-logo.svg",
+    type: ["CDP"],
   },
   {
     name: "TrueData",

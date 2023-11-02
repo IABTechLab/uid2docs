@@ -33,6 +33,7 @@ const sidebars = {
         'getting-started/gs-api-using',
         'getting-started/gs-encryption-decryption',
         'getting-started/gs-normalization-encoding',
+        'getting-started/gs-opt-out',       
         'getting-started/gs-faqs',
         'getting-started/gs-sharing',
       ],
@@ -96,6 +97,7 @@ const sidebars = {
           collapsed: true,
           items: [
             'guides/integration-prebid',
+            'guides/integration-prebid-advanced',
             'guides/publisher-client-side',
             'guides/custom-publisher-integration',
             'guides/google-ss-integration',
@@ -116,6 +118,7 @@ const sidebars = {
           items: [
             'guides/advertiser-dataprovider-guide',
             'guides/snowflake_integration',
+            'guides/integration-aws-entity-resolution',
           ],
         },
 
@@ -130,7 +133,7 @@ const sidebars = {
           collapsed: true,
           items: [
             'guides/operator-guide-aws-marketplace',
-            'guides/operator-guide-gcp-enclave',
+            'guides/operator-private-gcp-confidential-space',
             'guides/operator-guide-azure-enclave',
           ],
         },
@@ -138,7 +141,6 @@ const sidebars = {
     },
 
      'summary-doc-v2',
- 
     {
       type: 'category',
       label: 'Endpoints (v2)',
@@ -167,7 +169,6 @@ const sidebars = {
         'workflows/workflow-overview-supply-side',
         'workflows/workflow-overview-buy-side',
         'workflows/workflow-overview-3p-data-provider',
-        'workflows/workflow-overview-opt-out',
       ],
     },
 
@@ -187,6 +188,7 @@ const sidebars = {
       ],
     },
     'ref-info/glossary-uid',
+    'ref-info/updates-doc',
   ],
 };
 module.exports = sidebars;

@@ -1,0 +1,13 @@
+Source for the AWS Entity Resolution diagram:
+
+https://atlassian.thetradedesk.com/confluence/display/UID2/AWS+Venice+%28Entity+Resolution%29+Integration
+
+Authored by AQ who said:
+
+I created the diagram using draw.io which is also available as a macro in confluence. So if you can edit the doc, then you can edit the diagram as well. Let me see if I can export as an svg.
+
+The diagram is created in the context of that Confluence page. From there, I can export as PNG and also SVG (had to embed images for SVG).
+
+Gen 10/10/23
+
+

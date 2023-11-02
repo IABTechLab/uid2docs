@@ -39,7 +39,7 @@ The following table summarizes the functionality available with the UID2 Snowfla
 
 *You cannot generate a UID2 token directly from DII. However, you can convert DII to a raw UID2, and then encrypt the raw UID2 into a UID2 token.
 
->NOTE: If you are a publisher who is sharing UID2 tokens in the bid stream, see [Sharing in the Bid Stream](sharing-bid-stream.md).
+>NOTE: If you are a publisher who is sharing UID2 tokens in the bid stream, see [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md).
 
 ## Workflow Diagram
 
@@ -105,7 +105,7 @@ The following sections include query examples for each solution, which are ident
 ```
 For example:
 ```
-select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTITY_MAP('validate@email.com', 'email'));
+select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTITY_MAP('validate@example.com', 'email'));
 ```
 
 All query examples use the following default values for each name variable:
@@ -169,13 +169,13 @@ The following queries illustrate how to map a single email address, using the [d
 Advertiser solution query for a single email:
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP('validate@email.com', 'email'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP('validate@example.com', 'email'));
 ```
 
 Data provider solution query for a single email:
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP('validate@email.com', 'email'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP('validate@example.com', 'email'));
 ```
 
 Query results for a single email:
@@ -213,14 +213,14 @@ Query results for multiple emails:
 The following table identifies each item in the response, including `NULL` values for `NULL` or improperly formatted emails.
 
 ```sh
-+----+--------------------+----------------------------------------------+------------+--------------------+
-| ID | EMAIL              | UID2                                         | BUCKET_ID  | UNMAPPED           |
-+----+--------------------+----------------------------------------------+------------+--------------------+
-|  1 | validate@email.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
-|  2 | test@uidapi.com    | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
-|  3 | invalid-email      | NULL                                         | NULL       | INVALID IDENTIFIER |
-|  4 | NULL               | NULL                                         | NULL       | INVALID IDENTIFIER |
-+----+--------------------+----------------------------------------------+------------+--------------------+
++----+----------------------+----------------------------------------------+------------+--------------------+
+| ID | EMAIL                | UID2                                         | BUCKET_ID  | UNMAPPED           |
++----+----------------------+----------------------------------------------+------------+--------------------+
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
+|  2 | test@uidapi.com      | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
+|  3 | invalid-email        | NULL                                         | NULL       | INVALID IDENTIFIER |
+|  4 | NULL                 | NULL                                         | NULL       | INVALID IDENTIFIER |
++----+----------------------+----------------------------------------------+------------+--------------------+
 ```
 
 #### Mapping Request Example - Single Unhashed Phone Number
@@ -295,13 +295,13 @@ The following queries illustrate how to map a single email address hash, using t
 Advertiser solution query for a single hashed email:
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256)), 'email_hash'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@example.com', 256)), 'email_hash'));
 ```
 
 Data provider solution query for a single hashed email:
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256)), 'email_hash'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@example.com', 256)), 'email_hash'));
 ```
 
 Query results for a single hashed email:
@@ -429,13 +429,13 @@ In this example scenario, the advertiser/data provider has stored the UID2s in a
 select * from AUDIENCE_WITH_UID2;
 ```
 ```
-+----+--------------------+----------------------------------------------+------------+-------------------------+
-| ID | EMAIL              | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    |
-+----+--------------------+----------------------------------------------+------------+-------------------------+
-|  1 | validate@email.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 |
-|  2 | test1@uidapi.com   | Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM= | ad1ANEmVZ  | 2021-03-03 00:00:00.000 |
-|  3 | test2@uidapi.com   | NULL                                         | NULL       | NULL                    |
-+----+--------------------+----------------------------------------------+------------+-------------------------+
++----+----------------------+----------------------------------------------+------------+-------------------------+
+| ID | EMAIL                | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    |
++----+----------------------+----------------------------------------------+------------+-------------------------+
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 |
+|  2 | test1@uidapi.com     | Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM= | ad1ANEmVZ  | 2021-03-03 00:00:00.000 |
+|  3 | test2@uidapi.com     | NULL                                         | NULL       | NULL                    |
++----+----------------------+----------------------------------------------+------------+-------------------------+
 ```
 
 To find missing or outdated UID2s, use the following query examples, which use the [default database and schema names](#database-and-schema-names).
@@ -463,12 +463,12 @@ Query results:
 The following table identifies each item in the response. The result includes an email, `UID2`, `BUCKET_ID`, `LAST_UID2_UPDATE_UTC`, and `LAST_SALT_UPDATE_UTC` as shown in the ID 1 example below. No information is returned for ID 2 because the corresponding UID2 was generated after the last bucket update. For ID 3, `NULL` values are returned due to a missing UID2.
 
 ```
-+----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
-| ID | EMAIL              | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    | LAST_SALT_UPDATE_UTC    |
-+----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
-|  1 | validate@email.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 | 2021-03-02 00:00:00.000 |
-|  3 | test2@uidapi.com   | NULL                                         | NULL       | NULL                    | NULL                    |
-+----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
++----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
+| ID | EMAIL                | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    | LAST_SALT_UPDATE_UTC    |
++----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 | 2021-03-02 00:00:00.000 |
+|  3 | test2@uidapi.com     | NULL                                         | NULL       | NULL                    | NULL                    |
++----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
 ```
 
 ## Migration Guide
@@ -528,6 +528,8 @@ For details about the values and their explanations, see [Values for the UNMAPPE
 A UID2 sharer is any participant that wants to share UID2s with another participant. Advertisers and data providers can share UID2s with other authorized UID2 sharing participants via Snowflake. For details, see [UID2 Sharing: Overview](../sharing/sharing-overview).
 
 A sharing participant must encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into [UID2 tokens](../ref-info/glossary-uid#gl-uid2-token) before sending them to another participant.
+
+>IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bid stream. There is a different workflow for generating tokens for the bid stream: see [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md).
 
 The following scenarios support UID2 sharing:
 
@@ -728,7 +730,7 @@ The following instructions provide an example of how sharing works for a sender 
  3. Create a secure share and grant it access to the `AUDIENCE_WITH_UID2_TOKENS` table.
  4. Grant the receiver access to the secure share.
 
->**WARNING**: To avoid shared UID2 tokens expiring, the sender should send the newly encrypted UID2 tokens to the receiver as soon as possible after encrypting.
+>**WARNING**: To help prevent UID2 tokens from expiring during sharing, send the newly encrypted UID2 tokens to the receiver as soon as possible.
 >
 #### Receiver Instructions
 
@@ -743,4 +745,4 @@ The following instructions provide an example of how sharing works for a sender 
         on a.ID=b.ID;
     ```
 
->**WARNING**: To avoid shared UID2 tokens expiring, the receiver should decrypt the UID2 tokens as soon as they become available from the sender.
+>**WARNING**: To help prevent UID2 tokens from expiring, decrypt the UID2 tokens as soon as they become available from the sender.

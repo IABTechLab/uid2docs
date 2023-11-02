@@ -1,19 +1,19 @@
 ---
-title: UID2 Operator - AWS Marketplace Integration
+title: UID2 Private Operator for AWS Integration Guide
 sidebar_label: AWS Marketplace
-pagination_label: UID2 Operator - AWS Marketplace Integration
-description: Integration information for AWS Marketplace private operator.
+pagination_label: UID2 Private Operator for AWS Integration Guide
+description: Integration information for Private Operator in AWS.
 hide_table_of_contents: false
 sidebar_position: 17
 ---
 
-# UID2 Operator - AWS Marketplace Integration Guide
+# UID2 Private Operator for AWS Integration Guide
 
 The UID2 Operator is the API server in the UID2 ecosystem. For a Private Operator service running in AWS Marketplace, the UID2 Operator solution is enhanced with [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave technology. This is an additional security measure to protect UID2 information from unauthorized access.
 
 <!-- This guide includes the following information:
 
-- [UID2 Operator on AWS Marketplace Product](#uid2-operator-on-aws-marketplace-product)
+- [UID2 Private Operator for AWS](#uid2-private-operator-for-aws)
   -  [Prerequisites](#prerequisites)
   -  [Resources Created](#resources-created)
   -  [Customization Options](#customization-options)
@@ -25,15 +25,15 @@ The UID2 Operator is the API server in the UID2 ecosystem. For a Private Operato
 - [Upgrading the UID2 Operator](#upgrading-the-uid2-operator)
 - [Technical Support](#technical-support) -->
 
-## UID2 Operator on AWS Marketplace Product
+## UID2 Private Operator for AWS
 
->NOTE: [Unified ID 2.0 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) is a free product. The cost displayed on the product page is an estimated cost for the necessary infrastructure.
+>NOTE: [UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) is a free product. The cost displayed on the product page is an estimated cost for the necessary infrastructure.
 
-By subscribing to the Unified ID 2.0 Operator on AWS Marketplace product, you gain access to the following:
+By subscribing to UID2 Private Operator for AWS, you gain access to the following:
 
-- **[Amazon Machine Image (AMI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)** with the UID2 Operator service installed and ready to bootstrap:<br/>
+- [Amazon Machine Image (AMI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) with the UID2 Operator service installed and ready to bootstrap:<br/>
     The AMI contains an [Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/?amazon-linux-whats-new.sort-by=item.additionalFields.postDateTime&amazon-linux-whats-new.sort-order=desc) operating system with the UID2 Operator service already set up. When an EC2 instance based on the AMI boots up, it automatically fetches the configuration from your AWS account and starts the UID2 Operator server inside an enclave.
-- **[CloudFormation](https://aws.amazon.com/cloudformation/) template**:<br/>
+- [CloudFormation](https://aws.amazon.com/cloudformation/) template:<br/>
     The template deploys the UID2 Operator AMI.
 
 ### Prerequisites
@@ -110,24 +110,18 @@ To subscribe and deploy one or more UID2 Operators on AWS, complete the followin
 
 ### Resources Created
 
-The following table lists all resources that are created during the [deployment](#deployment), and indicates which resource are always created and which ones depend on the `CreateVPC` condition in the CloudFormation template.
+The following table lists all resources that are created during the [deployment](#deployment).
 
-| Name | Type | Description | Created |
-|:------|:------|:-------------|:--------------|
-| `KMSKey` | `AWS::KMS::Key` | The key for secret encryption (for configuration strings). | Always |
-| `SSMKeyAlias` | `AWS::KMS::Alias` | An alias that provides an easy way to access the [KMS](https://aws.amazon.com/kms/) key. | Always |
-| `TokenSecret` | `AWS::SecretsManager::Secret` | An encrypted configuration that includes the operator key. | Always |
-| `WorkerRole` | `AWS::IAM::Role` | The IAM role that your UID2 Operators run as. Roles provide access to configuration keys. | Always |
-| `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile` | The instance profile with Worker Role to attach to Operator EC2 instances. | Always |
-| `VPC` | `AWS::EC2::VPC` | Virtual Private Cloud (VPC) is a virtual private network that hosts private operators. You can customize and use an existing VPC as well. See also [VPC Chart](#vpc-chart).| Conditionally |
-| `Subnet1` | `AWS::EC2::Subnet` | The first subnet of the newly created VPC. | Conditionally |
-| `Subnet2` | `AWS::EC2::Subnet` | The second subnet of the newly created VPC. | Conditionally |
-| `RouteTable` | `AWS::EC2::RouteTable` | The Routing Table of the newly created VPC and subnets. | Conditionally |
-| `InternetGateway` | `AWS::EC2::InternetGateway` | The Internet Gateway that allows operators to communicate with the UID2 Core Service and download security updates. | Conditionally|
-| `AttachGateway` | `AWS::EC2::VPCGatewayAttachment` | A value that associates the Internet Gateway with the VPC. | Conditionally |
-| `SecurityGroup` | `AWS::EC2::SecurityGroup` | A security group policy that provides rules for operator instances. See also [Security Group Policy](#security-group-policy).| Always |
-| `LaunchTemplate` | `AWS::EC2::LaunchTemplate` | A launch template with all configurations in place. You can spawn new UID2 Operator instances from it. | Always |
-| `AutoScalingGroup` | `AWS::AutoScaling::AutoScalingGroup` | An auto-scaling group (ASG) to which the launch template is attached. You can use this to update the desired number of instances later, if needed. | Always |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `KMSKey` | `AWS::KMS::Key` | The key for secret encryption (for configuration strings). |
+| `SSMKeyAlias` | `AWS::KMS::Alias` | An alias that provides an easy way to access the [KMS](https://aws.amazon.com/kms/) key. |
+| `TokenSecret` | `AWS::SecretsManager::Secret` | An encrypted configuration that includes the operator key. |
+| `WorkerRole` | `AWS::IAM::Role` | The IAM role that your UID2 Operators run as. Roles provide access to configuration keys. |
+| `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile` | The instance profile with Worker Role to attach to Operator EC2 instances. |
+| `SecurityGroup` | `AWS::EC2::SecurityGroup` | A security group policy that provides rules for operator instances. See also [Security Group Policy](#security-group-policy).|
+| `LaunchTemplate` | `AWS::EC2::LaunchTemplate` | A launch template with all configurations in place. You can spawn new UID2 Operator instances from it. |
+| `AutoScalingGroup` | `AWS::AutoScaling::AutoScalingGroup` | An auto-scaling group (ASG) to which the launch template is attached. You can use this to update the desired number of instances later, if needed. |
 
 ### Customization Options
 
@@ -144,7 +138,7 @@ Here's what you can customize during or after the [deployment](#deployment):
 
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
-| 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/opt/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Checking UID2 Operator Status](#checking-uid2-operator-status).|
+| 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Checking UID2 Operator Status](#checking-uid2-operator-status).|
 | 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). |
 | 443 | Outbound | HTTPS | Calls the UID2 Core Service; updates opt-out data and key store. |
 
@@ -168,7 +162,7 @@ To deploy UID2 Operator on AWS Marketplace, complete the following steps:
 8. If you are prompted for permission to create IAM roles, select the **I acknowledge that AWS CloudFormation might create IAM resources** checkbox.
 9. Click **Create stack**.
 
-It takes several minutes for the stack to be created. When you see an Auto Scaling Group (ASG) created, you can select it and check the EC2 instances (by default, there is only one instance to start with).  For details, see [Checking UID2 Operator Status](#checking-uid2-operator-status).
+It takes several minutes for the stack to be created. When you see an Auto Scaling Group (ASG) created, you can select it and check the EC2 instances (by default, there is only one instance to start with).
 
 ### Stack Details
 
@@ -191,7 +185,7 @@ The following table explains the parameter values that you need to provide in st
 |Instance root volume size |15 GB or more is recommended. |
 |Key Name for SSH |Your EC2 key pair for SSH access to the deployed EC2 instances. |
 |Trusted Network CIDR |The CIDR (Classless Inter-Domain Routing) value determines the IP address range that can access your operator service.<br/>To limit access to the UID2 Operators so that they can only be accessed through an internal network or a load balancer, specify an internal IP range as the CIDR value. |
-|Choose to use Existing VPC | To create a new VPC and subnets, set this parameter to `true`. To use an existing VPC and subnets which you provide, set the value to `false`.<br/>If you decide to use an existing VPC, you can find your own VPCs from the [VPC dashboard](https://console.aws.amazon.com/vpc/home). Otherwise, leave the **existing VPC Id**, **VpcSubnet1**, **VpcSubnet2** fields blank. |
+
 
 ### Stack Configuration Options
 
@@ -208,17 +202,6 @@ The following table explains the parameter values that you need to provide in st
 |Stack failure options |Choose what happens when deployment fails. The `Roll back all stack resources` option is recommended. |
 |Advanced options | These are optional. |
 
-## Checking UID2 Operator Status
-
-To find the EC2 instances, complete the following steps:
-
-1. In the CloudFormation stack, click the **Resources** tab and find the Auto Scaling Group (ASG). 
-2. In the **Physical ID** column, click the ASG link.
-3. Inside the selected ASG, go to the **Instance management** tab where you can find the ID of the available EC2 instances (by default it starts only one instance).
-4. To test operator status, in your browser, go to `http://{public-dns-of-your-instance}/ops/healthcheck`. `OK` indicates good status.
-
-![Stack Creation Resources](images/stack-creation-resources.png)
-
 ## Creating a Load Balancer
 
 To create a load balancer and a target operator auto-scaling group, complete the following steps:
@@ -226,26 +209,31 @@ To create a load balancer and a target operator auto-scaling group, complete the
 1. In the AWS Console, navigate to the EC2 dashboard and search for `Load Balancer`.
 2. Click **Create Load Balancer**.
 3. On the Load balancer types page, in the **Application Load Balancer** section, click **Create**.
-4. Enter the UID2 **Load balancer name** and, depending on whether or not you need to access UID2 APIs from public internet, choose the **Internet-facing** or **Internal** scheme.
+4. Enter the UID2 **Load balancer name**. Depending on whether or not you need to access UID2 APIs from public internet, choose the **Internet-facing** or **Internal** scheme.
 5. Select the **VPC** for your targets and at least two subnets used in your CloudFormation stack.
-6. Click **Create new security group** and enter `UID2SGALB` as its name.
-7. Under **Inbound rules**, select **HTTPS** and **Source IP range**, which depend on your requirements, and then click **Create security group**.
+6. Under **Security groups**, click **Create new security group** and do the following:
+    1. Enter `UID2SGALB` as its **Security group name**, as well as a relevant **Description**.
+    2. Under **Inbound rules**, click **Add rule**, then select the **HTTPS** Type and an appropriate **Source** according to your requirements.
+    3. Click **Create security group**.
 8. Go back to the Load Balancer page and select the newly created `UID2SGALB` security group.
-9. Under **Listeners and routing**, click the **Create target group** link and [specify the target group details](#specifying-target-group-details).
-10. Go back to the Load Balancer page. Under **Forward to**, select `UID2ALBTG`, and then change the **Port** value to `443`.
+9. Under **Listeners and routing**, click the **Create target group** link and do the following:
+    1. On the **Specify group details page**, select **Instances** as the target type, then enter `UID2ALBTG` as the **Target group name**.
+    2. Ensure **HTTP1** is selected as the **Protocol version**.
+    3. Under **Health checks**, provide `/ops/healthcheck` as the **Health check path**, and then click **Next**.
+    4. Select UID2 Operator EC2 Instances created by your auto-scaling group and then click **Include as pending below**. 
+    5. Make sure that all the ports for the targets contains `80`.
+    6. Click **Create target group**.
+10. Go back to the Load Balancer page, and under **Listeners and routing**, select `UID2ALBTG` as the target group to forward to as a default action. Note that you may have to refresh the target groups for your newly created target group to appear. Change the listener **Port** value to `443`.
 11. Set up an HTTPS listener by following the instructions in the [AWS user guide](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html).
 12. Click **Create load balancer**.
+13. To verify the status of this load balancer, please continue in the below section: [Checking UID2 Operator Status](#checking-uid2-operator-status)
 
-### Specifying Target Group Details
+## Checking UID2 Operator Status
 
-To create a target group when [creating a load balancer](#creating-a-load-balancer), complete the following steps:
+To check the UID2 Operator status of your Load Balancer, complete the following steps:
 
-1. On the Specify group details page, select **Instances** as the target type, then enter `UID2ALBTG` as the **Target group name** and select **HTTP1** as the **Protocol version**.
-2. Under **Health checks**, provide `/ops/healthcheck` as the **Health check path**, and then expand the **Advanced health check settings** section. 
-3. Select **Override** as the **Port** and change the default value to `9080`.
-4. Select UID2 Operator EC2 Instances created by your auto-scaling group and then click **Include as pending below**. 
-5. Make sure the **Ports for the selected instances** contains `80`.
-6. Click **Create target group**.
+1. Identify the DNS name of your load balancer by going to **EC2 > Load balancers** and looking at the **DNS name** column of your load balancer.
+2. In your browser, go to `https://{dns-name-of-your-load-balancer}/ops/healthcheck`. A response of `OK` indicates good operator status.
 
 ## Upgrading the UID2 Operator
 

@@ -33,10 +33,11 @@ Here are just some of the intended benefits for data providers using UID2:
 
 The following documentation resources are available for data providers to implement UID2.
 
-| Integration Type| Documentation | Content Description | Audience |
+| Integration Type | Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
 | Integration Guide | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | This integration guide for advertisers and data providers covers integration workflows for mapping identity for audience-building and targeting. | Advertisers,<br/>Data Providers |
 | Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | Instructions for generating UIDs from emails within Snowflake. | Advertisers,<br/>Data Providers |
+| AWS Entity Resolution | [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) | Instructions for integrating with the UID2 framework using AWS Entity Resolution. | Advertisers,<br/>Data Providers |
 
 ## Workflow for Data Providers
 
@@ -59,9 +60,6 @@ To get started, follow these steps:
 1. Test.
 1. Go live.
 
-## Frequently Asked Questions for Data Providers
+## FAQs for Data Providers
 
-For a list of FAQs for data providers using the UID2 framework, see [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
-
-For a full list, see [Frequently Asked Questions](../getting-started/gs-faqs.md).
-
+For a list of frequently asked questions for data providers using the UID2 framework, see [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).

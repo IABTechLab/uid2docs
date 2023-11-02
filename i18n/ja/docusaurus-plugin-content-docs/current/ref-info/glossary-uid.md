@@ -191,7 +191,7 @@ JSON Web Token (JWT) は、Web 上で一方の当事者から別の当事者に�
 <dd>すべての UID2 Service の概要については、<a href="../intro#components">Components</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-opt-out">Opt-out</dt>
-<dd>UID2 エコシステムに参加しているエンドユーザーは、<a href="https://www.transparentadvertising.org/">Transparency and Control Portal</a> にアクセスすることで、いつでもオプトアウトすることができます。</dd>
+<dd>UID2 エコシステムに参加しているエンドユーザーは、<a href="https://www.transparentadvertising.com/">Transparency and Control Portal</a> にアクセスすることで、いつでもオプトアウトすることができます。</dd>
 <dd>詳細は、<a href="../intro#components">Components</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-opt-out-service">Opt-Out Service</dt>
@@ -242,7 +242,7 @@ SSO は Single Sign-On の頭字語です。SSO は、ユーザーがアプリ�
 
 <dt class="jump-anchor" id="gl-transparency-and-control-portal">Transparency and Control Portal</dt>
 <dd>
-UID2 Transparency and Control Portalは、ユーザー向けのウェブサイト <a href="https://www.transparentadvertising.org/">https://www.transparentadvertising.org</a> で、消費者はいつでもここから UID2 の Opt-Out を選択することができます。</dd>
+UID2 Transparency and Control Portalは、ユーザー向けのウェブサイト <a href="https://www.transparentadvertising.com/">https://www.transparentadvertising.com/</a> で、消費者はいつでもここから UID2 の Opt-Out を選択することができます。</dd>
 
 <dt class="jump-anchor" id="gl-uid2-framework">UID2 framework</dt>
 <dd>Unified ID 2.0 (UID2)framework は、広告エコシステム全体の多くの参加者 (<a href="../intro#participants">participants</a>)に対し、オープンなインターネット上での広告機会のための決定論的IDを可能にします。パブリッシャーのウェブサイト、モバイルアプリ、コネクテッドTV (CTV)アプリからのログイン体験を可能にし、プログラマティックワークフローによる収益化を実現します。独自の名前空間を持つオープンソースのスタンドアローン・ソリューションとして構築されたこのフレームワークは、透明性とプライバシーを重視しています。</dd>

@@ -34,7 +34,7 @@ You'll need to provide at least the following information:
 * Name
 * Email address
 * Company name
-* Name and contact information for an authorized individual who can sign the contract.*
+* Name and contact information for an authorized individual who can sign the contract.
 
 When you've signed a contract for participating in UID2, you'll be issued with [API keys](gs-api-keys.md) and other information for getting up and running with UID2.
 

@@ -59,19 +59,19 @@ Accepting the recommendations is the fastest and easiest way to configure your s
 
 For example, let's say you choose to share with all of 20 existing DSPs. The next day, when DSP 21 signs up for sharing, DSP 21 will automatically have permission to decrypt data that you send. To share with DSP 21, just send one or more UID2 tokens, and DSP 21 will be able to decrypt the tokens into raw UID2s. Because you chose automatic sharing, you do not need to log in to explicitly update your sharing permissions to include DSP 21, or any future DSPs that sign up for the UID2 ecosystem.
 
-If you prefer, you can set up individual sharing relationships with one or more sharing partners.
+If you prefer, you can set up individual sharing relationships with one or more sharing participants.
 
 ## Using Search to Add Sharing Relationships
 
-If you prefer to create specific sharing relationships, click **Search and Add Permissions** to find sharing partners and add them.
+If you prefer to create specific sharing relationships, click **Search and Add Permissions** to find sharing participants and add them.
 
-The following filters are available on the list of available sharing partners:
+The following filters are available on the list of available sharing participants:
 - Publishers
 - Advertisers
 - Data Providers
 - DSPs
 
->NOTE: When you manually create your sharing relationships using the search feature, you create current permissions, but not future ones. The only way to configure your sharing permissions to include future participants is to accept the recommendations. Alternatively, to add future participants, you must log in to the UID2 Portal again and search for the additional sharing partners.
+>NOTE: When you manually create your sharing relationships using the search feature, you create current permissions, but not future ones. The only way to configure your sharing permissions to include future participants is to accept the recommendations. Alternatively, to add future participants, you must log in to the UID2 Portal again and search for the additional sharing participants.
 
 ## Steps for Granting Sharing Permission
 

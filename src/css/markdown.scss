@@ -88,6 +88,17 @@
       }
     }
   }
+
+  .pill {
+    background-color: var(--c-lemon);
+    color: var(--c-eleven-o-clock);
+    border: none;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 0.625rem;
+    font-weight: 600;
+    padding: 1px 8px;
+  }
 }
 
 .theme-last-updated {
