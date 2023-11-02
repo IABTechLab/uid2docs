@@ -9,19 +9,6 @@ sidebar_position: 04
 
 # Prebid.js Advanced Integration Guide
 
-<!-- This guide includes the following information:
-
-- [Prebid Overview](#prebid-overview)
-- [UID2 Prebid Module Page](#uid2-prebid-module-page)
-- [UID2 User ID Submodule](#uid2-user-id-submodule)
-- [Client Refresh Mode](#client-refresh-mode)
-  -  [Client Refresh Cookie Example](#client-refresh-cookie-example)
-  -  [Client Refresh uid2Token Example](#client-refresh-uid2token-example)
-- [Storage of Internal Values](#storage-of-internal-values)
-- [Sample Token](#sample-token)
-- [Prebid Implementation Notes and Tips](#prebid-implementation-notes-and-tips)
-- [Configuration Parameters for `usersync`](#usersync-configuration-parameters) -->
-
 このガイドは、UID2 と直接インテグレーションし、RTB ビッドストリームで Prebid から渡される ID トークン を生成したいパブリッシャー向けのものです。
 UID2 との直接インテグレーションを行い、ヘッダービディングに Prebid を使用する場合に考慮すべき基本的なステップの概要を説明します。
 
