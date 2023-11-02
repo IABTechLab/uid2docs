@@ -49,6 +49,8 @@ The source for this SDK is in the following open-source GitHub repository:
 
 - [https://github.com/iabtechlab/uid2-web-integrations](https://github.com/iabtechlab/uid2-web-integrations)
 
+## SDK Distribution
+
 The SDK is published in these locations:
 
 <!-- - NPM: [https://www.npmjs.com/package/@uid2/uid2-sdk](https://www.npmjs.com/package/@uid2/uid2-sdk)
