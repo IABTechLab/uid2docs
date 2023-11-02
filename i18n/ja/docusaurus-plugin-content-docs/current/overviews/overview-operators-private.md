@@ -39,9 +39,9 @@ Private Operator が UID2 を実装するために、以下のドキュメント
 
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
-| Operator | [UID2 Operator - AWS Marketplace Integration Guide](../guides/operator-guide-aws-marketplace.md) | AWS MarketplaceのPrivate Operator Service を設定する手順です。 | Private Operators |
-| GCP Confidential Space | [UID2 Private Operator&#8212;Google Cloud Platform Confidential Space](../guides/operator-private-gcp-confidential-space.md) |[Google Cloud](https://cloud.google.com/docs/overview/) プラットフォームの機密コンピューティングオプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) に UID2 Operator Service を設定するための手順です。 | Private Operators |
-| Azure | [UID2 Operator - Microsoft Azure Confidential Compute Operator Package](../guides/operator-guide-azure-enclave.md) | IMPORTANT: このドキュメントは現在、PoCの段階です。<br/> Microsoft Azure Confidential Computingプラットフォーム上で実行するPrivate Operator Service のセットアップ手順です。 | Private Operators |
+| Operator | [UID2 Private Operator for AWS Integration Guide](../guides/operator-guide-aws-marketplace.md) | AWS MarketplaceのPrivate Operator Service を設定する手順です。 | Private Operators |
+| GCP Confidential Space | [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md) |[Google Cloud](https://cloud.google.com/docs/overview/) プラットフォームの機密コンピューティングオプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) に UID2 Operator Service を設定するための手順です。 | Private Operators |
+| Azure | [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md) | IMPORTANT: このドキュメントは現在、PoCの段階です。<br/> Microsoft Azure Confidential Computingプラットフォーム上で実行するPrivate Operator Service のセットアップ手順です。 | Private Operators |
 
 ## Getting Started
 
