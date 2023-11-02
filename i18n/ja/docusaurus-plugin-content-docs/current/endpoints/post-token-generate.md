@@ -11,7 +11,7 @@ UID2 ベースのターゲティング広告の承認とともにユーザーか
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
-> IMPORTANT: このエンドポイントは、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。`policy` パラメータは値 `1` が必須で、ユーザーがオプトアウトしたかどうかをチェックします。
+> IMPORTANT: このエンドポイントは、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。`optout_check` パラメータは値 `1` が必須で、ユーザーがオプトアウトしたかどうかをチェックします。
 
 ## Request Format
 
@@ -32,7 +32,7 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 
 ### Unencrypted JSON Body Parameters
 
-> IMPORTANT: リクエストを暗号化するときには、以下の4つの条件付きパラメータのうち **1つ** と、必須パラメータである `policy` の値 `1` のみを、JSON ボディのキーと値のペアとして含める必要があります。
+> IMPORTANT: リクエストを暗号化するときには、以下の4つの条件付きパラメータのうち **1つ** と、必須パラメータである `optout_check` の値 `1` のみを、JSON ボディのキーと値のペアとして含める必要があります。
 
 | Body Parameter | Data Type | Attribute      | Description                                                                                                                                                              |
 | :------------- | :-------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -40,7 +40,7 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 | `email_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) した [正規化](../getting-started/gs-normalization-encoding.md#email-address-normalization) 済みメールアドレスです。 |
 | `phone`        | string    | 条件付きで必要 | トークンを生成する [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号です。                                                                               |
 | `phone_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) した、[正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号です。        |
-| `policy`       | number    | 必須     | トークン生成ポリシー ID は、ユーザーがオプトアウトしたかどうかをチェックします。このパラメータは `1` とします。                                                                 |
+| `optout_check`       | number    | 必須     | トークン生成ポリシー ID は、ユーザーがオプトアウトしたかどうかをチェックします。このパラメータは `1` とします。                                                                 |
 
 ### Request Examples
 
@@ -51,35 +51,35 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 ```json
 {
   "email": "username@example.com",
-  "policy": 1
+  "optout_check": 1
 }
 ```
 
 ```json
 {
   "email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=",
-  "policy": 1
+  "optout_check": 1
 }
 ```
 
 ```json
 {
   "phone": "+12345678901",
-  "policy": 1
+  "optout_check": 1
 }
 ```
 
 ```json
 {
   "phone_hash": "wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ/FSK4=",
-  "policy": 1
+  "optout_check": 1
 }
 ```
 
 以下は、メールアドレスハッシュの暗号化トークン生成リクエストの例です:
 
 ```sh
-echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","policy":1}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate [Your-Client-API-Key] [Your-Client-Secret]
+echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","optout_check":1}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
 詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。

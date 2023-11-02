@@ -63,7 +63,3 @@ Email Contacts ページでは、UID2 の更新について通知を受ける個
 
 1. リストで連絡先を見つけ、Actions 列で delete (trashcan) アイコンをクリックします。
 1. 確認メッセージが表示されたら、削除を確定します。
-
-<!-- (**GWH_KT_05 7/31 confirmation msg not yet added but per KT it will be and should be in the doc. Verify before publication.**) -->
-
-<!-- eng_jp -->

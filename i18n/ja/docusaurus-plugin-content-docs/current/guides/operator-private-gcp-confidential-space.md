@@ -1,13 +1,13 @@
 ---
-title: UID2 Operator - Google Cloud Platform Confidential Computing Package
+title: UID2 Private Operator for GCP Integration Guide
 sidebar_label: Google Cloud Platform
-pagination_label: UID2 Operator - Google Cloud Platform Confidential Computing Package
+pagination_label: UID2 Private Operator for GCP Integration Guide
 description: Google Cloud Platform Private Operator のインテグレーション情報。
 hide_table_of_contents: false
 sidebar_position: 20
 ---
 
-# UID2 Operator - Google Cloud Platform Confidential Computing Package
+# UID2 Private Operator for GCP Integration Guide
 
 本ガイドでは、[Google Cloud](https://cloud.google.com/docs/overview/) Platform のセキュアなエンクレーブで UID2 Operator Service を設定するための情報を提供します。
 
@@ -203,4 +203,3 @@ $ gcloud compute instances \
 
 各オペレーターのバージョンを更新するために、Private operator は、古いバージョンが非アクティブになり、サポートされなくなるときに、アップグレードのウィンドウを持つメール通知を受け取ります。
 最新バージョンにアップグレードするには、元のオペレーターをデプロイしたのと同じ方法で、メールで提供される新しい `cloud-init` 設定をデプロイします。
-
