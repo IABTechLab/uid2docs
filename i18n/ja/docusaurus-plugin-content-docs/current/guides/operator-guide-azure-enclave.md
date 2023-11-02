@@ -1,13 +1,13 @@
 ---
-title: UID2 Private Operator for Azure Integration Guide
+title: UID2 Operator - Microsoft Azure Confidential Compute Operator Package
 sidebar_label: Microsoft Azure
-pagination_label: UID2 Private Operator for Azure Integration Guide
-description: Microsoft Azure Private Operator のインテグレーション情報。
+pagination_label: UID2 Operator - Microsoft Azure Confidential Compute Operator Package
+description: Microsoft Azure Private Operator インテグレーション情報。
 hide_table_of_contents: false
 sidebar_position: 18
 ---
 
-# UID2 Private Operator for Azure Integration Guide
+# UID2 Operator&#8212;Microsoft Azure Confidential Compute Operator Package
 
 >IMPORTANT: このドキュメントは現在、PoC の段階です。詳細は、UID2 Administrator に [連絡](../getting-started/gs-account-setup.md#contact-info) してください。
 

@@ -147,9 +147,9 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-enclave">Enclave</dt>
 <dd>Enclave は、コンピューティング環境のセキュアなサブセクションです。エンクレーブには追加のビジネスロジックとセキュリティ対策が施され、改ざんできないようになっています。</dd>
 <dd>UID2 のコンテキストでは、 <a href="#gl-private-operator">private operator</a> は、Enclave 内かプライベート環境で運用しなければなりません。must run inside an enclave or in a private environment. サポートされるエングレーブのバージョンは次のとおりです:<br/>
-- <a href="https://aws.amazon.com/ec2/nitro/">AWS Nitro</a>: <a href="../guides/operator-guide-aws-marketplace">UID2 Private Operator for AWS Integration Guide</a> を参照してください。<br/>
-- <a href="https://cloud.google.com/confidential-computing#confidential-space">Google Cloud Platform Confidential Space</a>: <a href="../guides/operator-private-gcp-confidential-space">UID2 Private Operator for GCP Integration Guide</a> を参照してください。<br/>
-- <a href="https://learn.microsoft.com/en-us/azure/confidential-computing/">Microsoft Azure confidential computing</a>: <a href="../guides/operator-guide-azure-enclave">UID2 Private Operator for Azure Integration Guide</a> を参照してください。</dd>
+- <a href="https://aws.amazon.com/ec2/nitro/">AWS Nitro</a>: <a href="../guides/operator-guide-aws-marketplace">UID2 Operator&#8212;AWS Marketplace Integration Guide</a> を参照してください。<br/>
+- Google Cloud Platform <a href="https://cloud.google.com/confidential-computing#confidential-space">Confidential Space</a>: <a href="../guides/operator-private-gcp-confidential-space">UID2 Operator&#8212;Google Cloud Platform Confidential Space</a> を参照してください。<br/>
+- <a href="https://learn.microsoft.com/en-us/azure/confidential-computing/">Microsoft Azure confidential computing</a>: <a href="../guides/operator-guide-azure-enclave">UID2 Operator&#8212;Microsoft Azure Confidential Compute Operator Package</a> を参照してください。</dd>
 <dd>エンクレーブでは、オペレータ・イメージは非常に特殊で、事前に定義されたバージョンでなければならず、セキュリティを確保するために追加の制約が適用されます。</dd>
 
 <dt class="jump-anchor" id="gl-first-level-hash">First-level hash</dt>
@@ -205,7 +205,7 @@ JSON Web Token (JWT) は、Web 上で一方の当事者から別の当事者に�
 <dd><a href="#gl-private-operator">private operator</a> が運用する Operator Service のインスタンスです。</dd>
 
 <dt class="jump-anchor" id="gl-raw-uid2">Raw UID2</dt>
-<dd>UID2 API または SDK を通じて、ユーザーの <a href="#gl-dii">directly identifying information</a> (メールアドレスまたは電話番号)を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。</dd>
+<dd>UID2 API または SDK を通じて、ユーザーの <a href="#gl-dii">directly identifying information</a> (メールアドレスまたは電話番号)を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。raw UID2 は一意な値であり、同じ UID2 は2つとありません。raw  UID2 とそれに関連付けられた UID2 Token は、大文字と小文字を区別します。</dd>
 <dd>詳細は、<a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-refresh-token">Refresh token</dt>
@@ -260,7 +260,7 @@ Unified ID 2.0 (UID2)Service は、<a href="#gl-uid2-framework">UID2 framework</
 <dt class="jump-anchor" id="gl-uid2-token">UID2 token (advertising token)</dt>
 <dd>Unified ID 2.0 (UID2)Token は Advertising Token とも呼ばれ、<a href="#gl-raw-uid2">raw UID2</a> を暗号化したものです。</dd>
 <dd>
-UID2 Token は、ハッシュ化された、またはハッシュ化されていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、暗号化されます。UID2 Token は一意な値であり、同じ UID2 TOken は2つとありません。</dd>
+UID2 Token は、ハッシュ化された、またはハッシュ化されていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、暗号化されます。UID2 Token は一意な値であり、同じ UID2 TOken は2つとありません。UID2 Token は大文字と小文字を区別します。</dd>
 <dd>
 トークンの寿命は限られていますが、<a href="#gl-refresh-token">refresh token</a> を使ってバックグラウンドでリフレッシュすることができます。</dd>
 <dd>詳細は、<a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>

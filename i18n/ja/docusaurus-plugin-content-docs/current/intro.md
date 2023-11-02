@@ -8,18 +8,17 @@ sidebar_position: 01
 
 このページでは、Unified ID 2.0 (UID2) フレームワークの概要について説明しています。
 
-<!-- 以下の内容が含まれています:
-
-- [Introduction (概要)](#introduction)
-  - [Guiding Principles (基本方針)](#guiding-principles)
-  - [Technical Design Principles (技術的な設計方針)](#technical-design-principles)
-- [Elements of the UID2 Infrastructure (UID2 インフラストラクチャの要素)](#elements-of-the-uid2-infrastructure)
-  - [UID2 Identifier Types (UID2 識別子タイプ)](#uid2-identifier-types)
-  - [Components (コンポーネント)](#components)
-  - [Participants (参加者)](#participants)
-  - [Workflows (ワークフロー)](#workflows)
-- [Frequently Asked Questions (FAQs) (よくある質問)](#faqs)
-- [License (ライセンス)](#license) -->
+<!-- It includes the following:
+- [Introduction](#introduction)
+  - [Guiding Principles](#guiding-principles)
+  - [Technical Design Principles](#technical-design-principles)
+- [Elements of the UID2 Infrastructure](#elements-of-the-uid2-infrastructure)
+  - [UID2 Identifier Types](#uid2-identifier-types)
+  - [Components](#components)
+  - [Participants](#participants)
+  - [Workflows](#workflows)
+- [FAQs](#faqs)
+- [License](#license) -->
 
 ## Introduction
 
@@ -72,8 +71,8 @@ UID2 は、メールアドレスや電話番号など、[directly identifying in
 
 | ID Type                            | Shared in Bid Stream? | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | :--------------------------------- | :-------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Raw UID2**                       | No                    | UID2 API または SDK を通じて、ハッシュ化またはハッシュ化されていないメールアドレスや電話番号など、ユーザーの検証可能な個人データを入力として作成される暗号化されていない英数字の識別子です。<br/>元の個人データの再識別を防ぐために、入力値はハッシュ化およびソルト化されて raw UID2 が作成されます。raw UID2 を作成するプロセスは、広告主、第三者データプロバイダー、およびデマンドサイドプラットフォーム (DSP)が保管できる、安全で不透明な値を作成するように設計されています。                                                               |
-| **UID2 Token (Advertising Token)** | Yes                   | raw UID2 を暗号化したものです。UID2 Token は、ハッシュ化またはハッシュ化されていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、ビッドストリームでの保護を確実にするために暗号化されます。<br/>UID2 Token は、パブリッシャーやパブリッシャーサービスプロバイダーが使用するよう設計されています。<br/>UID2 Token は、パブリッシャーまたはパブリッシャーサービスプロバイダーが使用するように設計されています。サプライサイドプラットフォーム (SSP)はビッドストリームで UID2 Token を渡し、DSP は入札要求時にそれを復号化します。 |
+| **Raw UID2**                       | No                    | UID2 API または SDK を通じて、ハッシュ化またはハッシュ化されていないメールアドレスや電話番号など、ユーザーの検証可能な個人データを入力として作成される暗号化されていない英数字の識別子です。<br/>元の個人データの再識別を防ぐために、入力値はハッシュ化およびソルト化されて raw UID2 が作成されます。raw UID2 を作成するプロセスは、広告主、第三者データプロバイダー、およびデマンドサイドプラットフォーム (DSP)が保管できる、安全で不透明な値を作成するように設計されています。<br/>raw UID2 は大文字と小文字を区別します。                                                               |
+| **UID2 Token (Advertising Token)** | Yes                   | raw UID2 を暗号化したものです。UID Token は、ハッシュ化またはハッシュ化されていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、ビッドストリームでの保護を確実にするために暗号化されます。<br/>UID2 Token は、パブリッシャーやパブリッシャーサービスプロバイダーが使用するよう設計されています。<br/>UID2 Token は、パブリッシャーまたはパブリッシャーサービスプロバイダーが使用するように設計されています。サプライサイドプラットフォーム (SSP)はビッドストリームで UID2 Token を渡し、DSP は入札要求時にそれを復号化します。<br/>UID2 Token は大文字と小文字を区別します。 |
 
 ### Components
 

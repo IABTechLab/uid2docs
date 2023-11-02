@@ -1,8 +1,8 @@
 ---
-title: UID2 Private Operator for AWS Integration Guide
+title: UID2 Operator - AWS Marketplace Integration
 sidebar_label: AWS Marketplace
-pagination_label: UID2 Private Operator for AWS Integration Guide
-description: AWS Marketplace Private Operator のインテグレーション情報。
+pagination_label: UID2 Operator - AWS Marketplace Integration
+description: AWS の Private Operator インテグレーション情報。
 hide_table_of_contents: false
 sidebar_position: 17
 ---
@@ -144,7 +144,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 | Port Number | Direction | Protocol | Description                                                                                                                                                                                                                                                                                |
 | ----------- | --------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 80          | Inbound   | HTTP     | Healthcheck エンドポイント `/opt/healthcheck` を含むすべての UID2 API を提供します。<br/>すべてが稼働している場合、エンドポイントは HTTP 200 を返し、レスポンスボディは `OK` となります。詳しくは、[Checking UID2 Operator Status](#checking-uid2-operator-status) を参照してください。 |
+| 80          | Inbound   | HTTP     | Healthcheck エンドポイント `/ops/healthcheck` を含むすべての UID2 API を提供します。<br/>すべてが稼働している場合、エンドポイントは HTTP 200 を返し、レスポンスボディは `OK` となります。詳しくは、[Checking UID2 Operator Status](#checking-uid2-operator-status) を参照してください。 |
 | 9080        | Inbound   | HTTP     | Prometheus metrics サービス (`/metrics`).                                                                                                                                                                                                                                                  |
 | 443         | Outbound  | HTTPS    | UID2 Core Service を呼び出し、オプトアウトデータとキーストアを更新します。                                                                                                                                                                                                                 |
 
@@ -195,30 +195,18 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 
 ### Stack Configuration Options
 
-以下は、スタック作成ウィザード ([デプロイ](#deployment) Step 6)の [スタックオプションの設定](#stack-configuration-options) ページのスクリーンショットです。
+次の図は、スタックの作成ウィザード ([Deployment](#deployment) Step 6)の**スタックオプションの設定**ページを示しています。
 
 ![Configure Stack Options](images/cloudformation-step-3.png)
 
-次の表は、[デプロイ](#deployment) の Step 6 で指定するパラメータ値について説明したものです。
+次の表は、[Deployment](#deployment) の Step 6 で指定するパラメータ値について説明したものです。
 
 | Parameter             | Description                                                                                                                                                     |
 | :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Tags                  | (オプション) スタックにタグをつけます。                                                                                                                         |
-| Permissions           | AWS Marketplace に登録する IAM ロールとスタックをデプロイする IAM ロールが分かれている場合、スタックをデプロイするために使用するロールの名前/ARN を入力します。 |
-| Stack failure options | デプロイメントに失敗したときの処理を選択します。`すべてのスタックリソースをロールバックする`オプションを推奨します。                                            |
+| Permissions           | AWS Marketplace にサブスクライブする IAM ロールとスタックをデプロイする IAM ロールが分かれている場合、スタックをデプロイするために使用するロールの名前/ARN を入力します。 |
+| Stack failure options | デプロイメントに失敗したときの処理を選択します。`Roll back all stack resources (すべてのスタックリソースをロールバックする)` オプションを推奨します。                                            |
 | Advanced options      | これらはオプションです。                                                                                                                                        |
-
-### Stack Configuration Options
-
-次の画像は、スタックの作成ウィザード ([デプロイメント](#deployment) Step 6)の**スタックオプションの設定**ページを示しています。
-
-![Configure Stack Options](images/cloudformation-step-3.png)
-
-| Parameter        | Description                                                                                                                                                   |
-| :--------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Tags             | (Optional) Tag your stack.                                                                                                                                    |
-| Permissions      | AWS Marketplace に加入する IAM ロールとスタックをデプロイする IAM ロールが分かれている場合、スタックのデプロイに使用するロールの名前/ARN を入力してください。 |
-| Advanced options | これらはオプションです。                                                                                                                                      |
 
 ## Checking UID2 Operator Status
 
@@ -235,7 +223,7 @@ EC2 インスタンスを見つけるには、次の手順を実行します:
 
 ロードバランサーとターゲットオペレーターのオートスケーリンググループを作成するには、次の手順を実行します:
 
-1. AWS コンソールで、EC2 ダッシュボードに移動し、`Load Balancer` を検索する。
+1. AWS コンソールで、EC2 ダッシュボードに移動し、`Load Balancer` を検索します。
 2. **Create Load Balancer** をクリックします。
 3. ロードバランサータイプのページで、**Application Load Balancer** のセクションで、**Create** をクリックします。
 4. UID2 **Load balancer name** を入力し、パブリックインターネットから UID2 API にアクセスする必要があるかどうかに応じて、**Internet-facing** または **Internal** スキームを選択します。

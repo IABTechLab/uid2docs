@@ -106,8 +106,9 @@ SDK から返される利用可能な情報の概要を次の表に示します�
 
 UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のことです。raw UID2を他の参加者に送信する前に、UID2 Token に暗号化する必要があります。使用例については、[com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` メソッド) を参照してください。
 
-次の手順では、UID2 SDK for Java を送信者または受信者として使用して共有を実装する方法の例を示します。
+>IMPORTANT: このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md) を参照してください。
 
+次の手順では、UID2 SDK for Java を送信者または受信者として使用して共有を実装する方法の例を示します。
 
 1. ```IUID2Client``` のリファレンスを作成します:
 
@@ -159,6 +160,4 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
 
 ## FAQs
 
-DSPに関するよくある質問については、[FAQs for Demand-Side Platforms (DSPs)](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps) を参照してください。
-
-すべてのリストは  [Frequently Asked Questions](../getting-started/gs-faqs.md) を参照してください。
+DSP に関するよくある質問については、 [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。

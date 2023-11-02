@@ -34,8 +34,8 @@ banner_description: Unified ID 2.0 でキャンペーンのアクティベーシ
 
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
-| ユーザーデータを収集し、それを他の UID2 参加者にプッシュする組織のためのインテグレーション手順 | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | 広告主とデータプロバイダーのためのインテグレーションガイドで、オーディエンスの構築とターゲティングのための ID マッピングのためのインテグレーションワークフローを網羅しています。 | Advertisers<br/>Data Providers |
-| Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | Snowflakeでメールアドレスから UID を生成する手順です。 | Advertisers<br/>Data Providers |
+| ユーザーデータを収集し、それを他の UID2 参加者にプッシュする組織のためのインテグレーション手順 | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | 広告主とデータプロバイダーのためのインテグレーションガイドで、オーディエンスの構築とターゲティングのための ID マッピングのためのインテグレーションワークフローをカバーしています。 | Advertisers<br/>Data Providers |
+| Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | Snowflakeでメールアドレスから UID を生成する手順です。 | Advertisers,<br/>Data Providers |
 
 ## Workflow for Advertisers
 
@@ -59,8 +59,6 @@ banner_description: Unified ID 2.0 でキャンペーンのアクティベーシ
 1. 本番稼働します。
 
 
-## Frequently Asked Questions for Advertisers
+## FAQs for Advertisers
 
-UID2フレームワークを使用する広告主向けのFAQ一覧は、[広告主およびデータプロバイダー向けFAQ](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。
-
-すべてのリストは、[よくある質問](../getting-started/gs-faqs.md)を参照してください。
+UID2 フレームワークを使用する広告主向けのよくある質問については、[FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。

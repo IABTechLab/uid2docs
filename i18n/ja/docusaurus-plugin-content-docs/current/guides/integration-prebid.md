@@ -1,8 +1,8 @@
 ---
-title: Prebid.js Integration
-sidebar_label: Prebid.js
-pagination_label: Prebid.js Integration
-description: Information about integrating with Prebid.js as part of your UID2 implementation.
+title: Prebid Integration
+sidebar_label: Prebid
+pagination_label: Prebid Integration
+description: UID2 実装のため、Prebid とのインテグレーションに関する情報。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -11,10 +11,24 @@ sidebar_position: 04
 
 This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bid stream.
 
-This guide does not apply to publishers who want to use a [private operator](../ref-info/glossary-uid.md#gl-private-operator), or want to generate tokens server-side.
-Those publishers should follow the [Prebid.js Advanced Integration Guide](./integration-prebid-advanced.md).
+<!--
+- [Introduction](#introduction)
+- [UID2 Prebid Module Page](#uid2-prebid-module-page)
+- [Integration Steps](#integration-steps)
+- [Generate UID2 Token](#generate-uid2-token)
+- [UID2 User ID Submodule](#uid2-user-id-submodule)
+- [Client Refresh Mode](#client-refresh-mode)
+  -  [Response Storage Options](#response-storage-options)
+  -  [Client Refresh Cookie Example](#client-refresh-cookie-example)
+  -  [Client Refresh uid2Token Example](#client-refresh-uid2token-example)
+- [Storage of Internal Values](#storage-of-internal-values)
+- [Sample Token](#sample-token)
+- [Prebid Implementation Notes and Tips](#prebid-implementation-notes-and-tips)
+- [Configuration Parameters for `usersync`](#usersync-configuration-parameters) -->
 
-UID2 provides a [Prebid.js module](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) with the following features:
+このガイドは、UID2 と直接インテグレーションし、RTB ビッドストリームで Prebid から渡される [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token)(Advertising Token) を生成したいパブリッシャー向けのものです。
+
+UID2 との直接インテグレーションを行い、ヘッダービディングに Prebid を使用する場合に考慮すべき基本的なステップの概要を説明します。
 
 - UID2 token generation
 - Automatic refreshing of UID2 tokens
@@ -29,7 +43,22 @@ You'll need to complete the following steps:
 2. [Add Prebid.js to your site](#add-prebidjs-to-your-site)
 3. [Configure the UID2 module](#configure-the-uid2-module)
 
-## Prebid.js Version
+Prebid と UID2 とのインテグレーションに関する情報は、こちらにあります:
+- Prebid サイトの Prebid User ID サブモジュールの [Unified ID 2.0](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) ページ。
+- Prebid の GitHub リポジトリの [UID2 User ID Submodule](https://github.com/prebid/Prebid.js/blob/master/modules/uid2IdSystem.md) ページ。
+
+## Integration Steps
+
+大まかには、Prebid を使って UID2 とインテグレーションするには、以下の手順を完了する必要があります。
+
+| Step | Action | Link to Instructions |
+| --- | --- | --- |
+| 1 | UID2　Token を生成するために、サーバーサイド API を呼び出します。| [Generate UID2 Token](#generate-uid2-token) |
+| 2 | レスポンス値を保存し、必要に応じて Prebid モジュールがトークンのリフレッシュとオプトアウトを管理できるようにします。 | [Client Refresh Mode](#client-refresh-mode) |
+
+## Generate UID2 Token
+
+UID2 では、初期トークンをサーバーサイドで生成する必要があります。これを行うには、[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出して新しい UID2 Token を生成します。
 
 This implementation requires Prebid.js version 8.21.0 or later. For version information, see [https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases).
 
@@ -39,13 +68,23 @@ Complete the UID2 account setup by following the steps described in the [Account
 
 When account setup is complete, you'll receive a **public key** and **subscription ID**. These values are unique to you, and you'll use them to configure the UID2 module.
 
-:::tip
-Only root-level domains are required for account setup. For example, if you're going to use UID2 with Prebid.js on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
-:::
+該当するエンドポイントからの完全な JSON レスポンスボディを Prebid モジュールに提供する必要があります:
 
-## Add Prebid.js to Your Site
+- 新しい UID2 Token を取得するには、[POST /token/generate](../endpoints/post-token-generate.md)。
+- リフレッシュされた UID2 Token については、[POST /token/refresh](../endpoints/post-token-refresh.md)。
 
-To add Prebid.js to your site, follow the [Prebid.js documentation](https://docs.prebid.org/dev-docs/getting-started.html). Be sure to use Prebid.js version 8.21.0 or later.
+例については、[Sample Token](#sample-token) を参照してください。
+
+Refresh Token が有効である限り、モジュールは必要に応じて UID2 Token をリフレッシュします。
+
+### Response Storage Options
+
+Client Refresh モードを使用するようにモジュールを構成する場合、API レスポンス情報を保存するための以下のオプションの **1つ** を選択する必要があります。
+
+| Option | Details | Use Case | 
+| --- | --- | --- |
+| レスポンスボディを JSON 文字列として含むクッキーの名前を `params.uid2Cookie` に設定します。 | [Client Refresh Cookie Example](#client-refresh-cookie-example)　を参照してください。 | レスポンスボディを保存するのに十分な容量がクッキーに残っていることを確認しない限り、このオプションを選択しないでください。 |
+| `params.uid2Token` を JavaScript オブジェクトとしてレスポンスボディに設定します。 | [Client Refresh uid2Token Example](#client-refresh-uid2token-example) を参照してください。 | 以下の様な場合は、レスポンスボディを `params.uid2Token` 経由で提供することもできます:<br/>- クッキーにレスポンスボディを保存すると、クッキーのサイズ制限を超える場合。<br/>- レスポンスボディの保存を自分で管理する柔軟性を持ちたい場合。 |
 
 When you download the Prebid.js package, add the UID2 module by checking the box next to the module named **Unified ID 2.0**, listed under the section **User ID Modules**.
 
@@ -226,7 +265,9 @@ For additional help, refer to Prebid's documentation on [Troubleshooting Prebid.
 
 ## Optional: Reduce Latency by Setting the API Base URL
 
-By default, the UID2 module makes API calls to a UID2 server in the USA. Depending on where your users are based, you might consider choosing a server closer to your users in order to reduce latency.
+- UID Token が SSP から DSP に送信される際、ビッドストリームでどのように見えるかの例については、[What does a UID2 token look like in the bid stream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bid-stream) を参照してください。
+
+## Configuration Parameters for `usersync`
 
 To specify a different UID2 server when you're configuring the UID2 module, set the optional `params.uid2ApiBase` parameter, as shown in the following example:
 

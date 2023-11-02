@@ -14,7 +14,7 @@ UID2 に関するよくある質問は、以下のカテゴリーに分かれて
 - [FAQs&#8212;General](#faqsgeneral)
 - [FAQs for Publishers](#faqs-for-publishers)
 - [FAQs for Advertisers and Data Providers](#faqs-for-advertisers-and-data-providers)
-- [FAQs for Demand-Side Platforms (DSPs)](#faqs-for-demand-side-platforms-dsps) -->
+- [FAQs for DSPs)](#faqs-for-dsps) -->
 
 ## FAQs&#8212;General
 
@@ -67,7 +67,8 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 #### ユーザーの out-out はどのように通知されますか？
 
 ユーザーがオプトアウトした場合、API レスポンスは以下のいずれかのケースで通知します:
-- 直接または UID2 SDK のいずれかで [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出し、オプションの `optout_check` パラメータに `1` を指定して UID2 Token を生成した場合。
+
+- 直接または UID2 SDK のいずれかで [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出し、UID2 Token を生成する場合、必須の `policy` パラメータに `1` を指定します。
 - 直接または UID2 SDK のいずれかで [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出し、UID2 Token をリフレッシュした場合。
 
 #### トークン生成の呼び出しは、サーバーサイドとクライアントサイドのどちらで行うべきですか？
@@ -82,14 +83,14 @@ UID2 Token は、認証後にサーバーサイドでのみ生成する必要が
 
 `optout@email.com` のメールアドレスまたは `+00000000000` の電話番号を使用して、トークンリフレッシュのワークフローをテストすることができます。どちらかのパラメータ値をリクエストに使用すると、常に `refresh_token` を含む identity レスポンスが生成され、ログアウトレスポンスが返されます。
 
-SDKを使うかどうかで手順は少し異なります。違いは Step 3 にあります。
+SDKを使うかどうかで手順は少し異なります。
 
 ##### With SDK:
 
 1. DII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して [POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信します:
    - `email` の値として `optout@email.com` を指定します。
    - `optout@email.com` のハッシュを `email_hash` 値として指定します。
-   - `phone` の値として `+00000000000` を指定する。
+   - `phone` の値として `+00000000000` を指定します。
    - `phone_hash` 値として `+000000000` のハッシュを指定します。
 2. SDK の [background auto-refresh](../sdks/client-side-identity.md#background-token-auto-refresh) が Advertising Token のリフレッシュを試み(これには数時間かかることがあります)、リフレッシュの試みが `OPTOUT` ステータスで失敗するのを観察するまで待ちます。この時点で SDK はファーストパーティクッキーもクリアします。
 
@@ -98,7 +99,7 @@ SDKを使うかどうかで手順は少し異なります。違いは Step 3 に
 1. DII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して [POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信します:
    - `email` の値として `optout@email.com` を指定します。
    - `optout@email.com` のハッシュを `email_hash` 値として指定します。
-   - `phone` の値として `+00000000000` を指定する。
+   - `phone` の値として `+00000000000` を指定します。
    - `phone_hash` 値として `+000000000` のハッシュを指定します。
 2. 返された `refresh_token` を次のステップで使用するために保存します。
 3. [POST /token/refresh](../endpoints/post-token-refresh.md) リクエストを `refresh_token` (Step 2 で保存) を `token` 値として送信します。<br/>ボディのレスポンスは空でなければならず、`optout@email.com` のメールアドレスと `+00000000000` の電話番号は常にログアウトしたユーザになるので、`status` の値は `optout` でなければなりません。
@@ -163,9 +164,9 @@ IMPORTANT: メールアドレスのマッピングや再マッピングを行う
 
 たとえば、そのユーザーに対して UID2 を生成しないことを選択することもできます。
 
-## FAQs for Demand-Side Platforms (DSPs)
+## FAQs for DSPs
 
-ここでは、DSP によくある質問を紹介します。
+demand-side platform (DSP) に関するよくある質問を紹介します。
 
 - [UID2 に適用する復号鍵はどのように決定すればよいですか？](#UID2-%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E5%BE%A9%E5%8F%B7%E9%8D%B5%E3%81%AF%E3%81%A9%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E6%B1%BA%E5%AE%9A%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B%EF%BC%9F)
 - [復号鍵はどこで手に入りますか？](#%E5%BE%A9%E5%8F%B7%E9%8D%B5%E3%81%AF%E3%81%A9%E3%81%93%E3%81%A7%E6%89%8B%E3%81%AB%E5%85%A5%E3%82%8A%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F)
@@ -227,7 +228,7 @@ UID2 は、クッキーと同じように古くなる可能性があります。
 
 <!-- FAQ_32 DSP -->
 
-少なくとも 30 日間です。
+オプトアウト情報は無期限に保管することを勧めます。
 
 #### オプトアウトしたユーザーの UID は、暗号化された形でオプトアウトエンドポイントに送信されますか？
 

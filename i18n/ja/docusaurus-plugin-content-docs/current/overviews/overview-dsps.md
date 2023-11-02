@@ -4,11 +4,11 @@ description: デマンドサイドプラットフォーム (DSP) 向けの情報
 hide_table_of_contents: false
 sidebar_position: 06
 use_banner: true
-banner_title: デマンドサイドプラットフォーム (DSP)向け UID2 の概要
+banner_title: UID2 Overview for DSPs
 banner_description: より耐久性のある識別子でデータ戦略を可能に。
 ---
 
-このページでは、Unified ID 2.0 (UID2) フレームワークが DSP にもたらすもの、利用可能な実装オプション、および開始方法に関する情報を提供します。以下のセクションでは、UID2 を採用するDSPのためのワークフロー、インテグレーションタイプ、ドキュメントについて説明します。
+このページでは、Unified ID 2.0 (UID2) フレームワークが demand-side platform (DSP) にもたらすもの、利用可能な実装オプション、および開始方法に関する情報を提供します。以下のセクションでは、UID2 を採用するDSPのためのワークフロー、インテグレーションタイプ、ドキュメントについて説明します。
 
 ## Audience
 
@@ -20,7 +20,7 @@ UID2 を使用する DSP が得られるメリットの一部を次に示しま�
 - 認証された ID で ID 解決をアップグレードします。
 - サードパーティークッキーへの依存度を低減します。
 - オムニチャネルやクロスデバイスのフリケンシー管理と抑制を実行します。
-- よりプライバシーに配慮した ID 暗号化規格により、ファーストパーティ・データの活性化を促進する。
+- よりプライバシーに配慮した ID 暗号化規格により、ファーストパーティ・データの活性化を促進します。
 - 決定論的データによる将来性のあるモデルの開発を目指します。
 - アドレサブルなオーディエンスターゲティングを維持します。
 - 消費者のプライバシー管理を向上させることを目的に、オプトアウトを提供します。
@@ -75,3 +75,7 @@ UID2 Admimnistrator と Webhook を共有します。
 ## Frequently Asked Questions for DSPs
 
 DSP向けのFAQ一覧は、[デマンドサイドプラットフォーム (DSP)向けFAQ](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps) を参照してください。
+
+## FAQs for DSPs
+
+UID2 フレームワークを使用する DSP に関するよくある質問については、 [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。

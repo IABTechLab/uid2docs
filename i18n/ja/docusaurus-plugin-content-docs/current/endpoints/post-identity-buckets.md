@@ -23,7 +23,7 @@ Used by: このエンドポイントは、主に広告主とデータプロバ�
 | :-------------- | :-------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `{environment}` | string    | Required  | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../summary-doc-v2.md#environments) を参照してください。 |
 
-NOTE: インテグレーション環境と本番環境では、異なる[APIキー](../ref-info/glossary-uid.md#gl-api-key)が必要です。
+NOTE: インテグレーション環境と本番環境では、異なる [APIキー](../ref-info/glossary-uid.md#gl-api-key) が必要です。
 
 ### Unencrypted JSON Body Parameters
 
@@ -94,4 +94,4 @@ echo '{"since_timestamp": "2023-04-19T13:00:00"}' | python3 uid2_request.py http
 | `client_error` | 400              | リクエストに不足している、または無効なパラメータがありました。                                                                                                                 |
 | `unauthorized` | 401              | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
-`status` の値が `success` 以外の場合、 `message` フィールドにその問題に関する追加情報が表示されます。
+`status` の値が `success` 以外であれば、 `message` フィールドにその問題に関する追加情報が表示されます。

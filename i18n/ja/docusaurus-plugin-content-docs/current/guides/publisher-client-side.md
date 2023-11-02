@@ -2,7 +2,7 @@
 title: Client-Side JavaScript SDK Integration
 sidebar_label: Client-Side JavaScript SDK
 pagination_label: Client-Side JavaScript SDK Integration
-description: Information for publishers about how to generate identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
+description: パブリッシャー向けの、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成する方法。
 hide_table_of_contents: false
 sidebar_position: 02
 ---
@@ -62,38 +62,11 @@ The following sections provide additional details for each step in the diagram:
 
 ### Establish Identity: User Login
 
-
-After authentication in step 1-c, which forces the user to accept the rules of engagement and allows the publisher to validate the user's email address or phone number, a UID2 token must be generated on the server side. The following table details the token generation steps.
-
-| Step | Endpoint/SDK | Description |
-| :--- | :--- | :--- |
-| 1-d | [POST /token/generate](../endpoints/post-token-generate.md) | After the user authenticates and authorizes the creation of a UID2, use the [POST /token/generate](../endpoints/post-token-generate.md) endpoint to generate a UID2 token using the email address or phone number provided by the user. Make sure it is normalized. |
-| 1-e | [POST /token/generate](../endpoints/post-token-generate.md) | The endpoint returns a UID2 token generated from the user's email address, phone number, or the respective hash. |
-| 1-f | UID2 SDK for JavaScript | The SDK sends the returned UID2 token from step 1-e to the SDK in the `identity` property of its [init() function](../sdks/client-side-identity.md#initopts-object-void). |
-| 1-g | UID2 SDK for JavaScript | Provide the SDK a callback function that will receive identity updates from the SDK and use them to initiate targeted advertising. |
-
-<Tabs>
-<TabItem value='js' label='JavaScript'>
-
-```js
-  window.__uid2 = window.__uid2 || {};
-  window.__uid2.callbacks = window.__uid2.callbacks || [];
-
-  // Step 1-f
-  window.__uid2.callbacks.push((eventType, payload) => {
-    if (eventType === 'SdkLoaded') {
-      __uid2.init({
-        identity : {
-          "advertising_token": "AgmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=",
-          "refresh_token": "Mr2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA==",
-          "identity_expires": 1633643601000,
-          "refresh_from": 1633643001000,
-          "refresh_expires": 1636322000000,
-          "refresh_response_key":"dYNTB20edyHJU9mZv11e3OBDlLTlS5Vb97iQVumc7b/8QY/DDxr6FrRfEB/D",
-        }
-      });
-    }
-  });
+| Step | Endpoint/SDK                                                       | Description                                                                                                                                                                                                                                                                                                                                                        |
+| :--- | :----------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1-d  | [POST /token/generate](../endpoints/post-token-generate.md)        | ユーザーが認証され、UID2 の作成が許可されたら、[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを使用して、ユーザーの正規化したメールアドレスまたは電話番号を使って UID2 Token を生成します。                                                                                                                                            |
+| 1-e  | [POST /token/generate](../endpoints/post-token-generate.md)        | ユーザーのメールアドレス、電話番号、またはそれぞれのハッシュから生成された UID2 Token を返します。                                                                                                                                                                                                                                                                 |
+| 1-f  | UID2 SDK for JavaScript | Step 1-e で返された UID2 Token を、SDK の [init()関数](../sdks/client-side-identity.md#initopts-object-void) の `identity` プロパティで SDK に送信し、以下に示すように [コールバック関数](../sdks/client-side-identity.md#callback-function) を指定します。このメカニズムにより、ユーザーがログアウトするまで、UID2 Token がターゲティング広告に利用できるようになります。|
 
   // Step 1-g
   window.__uid2.callbacks.push((eventType, payload) => {
@@ -167,11 +140,11 @@ Based on the status and availability of a valid identity, the SDK does the follo
 
 The bidding step is shown in the following table.
 
-| Step | Endpoint/SDK | Description |
-| :--- | :--- | :--- |
-| 2-a | UID2 SDK for JavaScript | Gets the current user's advertising token by using the [getAdvertisingToken() function](../sdks/client-side-identity.md#getadvertisingtoken-string) as shown below. |
+| Step | Endpoint/SDK                                                       | Description                                                                                                                                          |
+| :--- | :----------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2-a | UID2 SDK for JavaScript | 以下に示すように、[getAdvertisingToken() 関数](../sdks/client-side-identity.md#getadvertisingtoken-string) を使用して、現在のユーザーの Advertising Token を取得します。|
 
->NOTE: For an example of what a UID2 token might look like in the bid stream, when it's sent from an SSP to a DSP, see [What does a UID2 token look like in the bid stream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bid-stream)
+>NOTE: UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[What does a UID2 token look like in the bid stream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bid-stream) を参照してください。
 
 ```html
 <script>
@@ -215,4 +188,5 @@ The client lifecycle is complete when the user decides to log out from the publi
 
 ## FAQs
 
-For a list of frequently asked questions for the publisher audience, see [FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers).
+パブリッシャー向けのよくある質問については、[FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers)　を参照してください。
+

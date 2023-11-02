@@ -136,7 +136,7 @@ SDK が現在管理している UID2 Identity をリセットまたは削除し�
 
 #### refreshIdentity()
 
-SDK が管理している UID2 Identity を手動でリフレッシュする。
+SDK が管理している UID2 Identity を手動でリフレッシュします。
 
 #### getAdvertisingToken()
 
