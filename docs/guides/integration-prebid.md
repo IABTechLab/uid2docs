@@ -21,7 +21,7 @@ UID2 provides a [Prebid.js module](https://docs.prebid.org/dev-docs/modules/user
 - Automatic storage of UID2 tokens in the browser
 - Automatic passing of UID2 tokens to the bid stream
 
-To integrate with UID2 using Prebid.js on the client side, you'll need to make changes to the HTML and JavaScript on your site. No server-side work is required.
+To integrate with UID2 using Prebid.js, you'll need to make changes to the HTML and JavaScript on your site. No server-side work is required if you follow this guide. If you want to generate tokens with a server-side API call, or are using a private operator, follow the [Prebid.js Advanced Integration Guide](./integration-prebid-advanced.md) instead.
 
 You'll need to complete the following steps:
 
