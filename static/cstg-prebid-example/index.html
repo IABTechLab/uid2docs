@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>UID2 Prebid.js CSTG Integration Example</title>
+    <link rel="stylesheet" type="text/css" href="./app.css" />
+    <link rel="shortcut icon" href="/images/favicon.png" />
+    <script async src="./prebid.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      console.log('Initializing example.')
+      window.uid2_example_settings = {
+        UID2_BASE_URL: 'https://operator-integ.uidapi.com',
+        SERVER_PUBLIC_KEY: 'UID2-X-I-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEo+jcPlk8GWn3iG0R5Il2cbFQI9hR3TvHxaBUKHl5Vh+ugr+9uLMiXihka8To07ETFGghEifY96Hrpe5RnYko7Q==',
+        SUBSCRIPTION_ID: 'DMr7uHxqLU',
+      };
+
+      function updateGuiElements() {
+        console.log('Updating displayed values.');
+        const uid2  = pbjs.getUserIds().uid2;
+        $('#targeted_advertising_ready').text(uid2 ? 'yes' : 'no');
+        $('#advertising_token').text(uid2 ? String(uid2.id) : '');
+        if (!uid2) {
+          $('#login_form').show();
+          $('#clear_storage_form').hide();
+        } else {
+          $('#login_form').hide();
+          $('#clear_storage_form').show();
+        }
+      }
+
+      async function handleLogin() {
+        const email = $('#email').val();
+        setUid2Config(email);
+        await pbjs.refreshUserIds();
+        updateGuiElements();
+      }
+
+      function handleClearStorage() {
+        console.log('Clearing storage.');
+        localStorage.removeItem('__uid2_advertising_token');
+        location.reload();
+      }
+
+      function onDocumentReady() {
+        console.log('Setting up interface handlers.');
+        $('#login').click(handleLogin);
+        $('#clear_storage').click(handleClearStorage);
+        
+        updateGuiElements();
+      }
+
+      function setUid2Config(email) {
+        const cstgParams = email ? {email, subscriptionId: `${window.uid2_example_settings.SUBSCRIPTION_ID}`, serverPublicKey: `${window.uid2_example_settings.SERVER_PUBLIC_KEY}`} : {};
+        const uid2Params = {
+          uid2ApiBase: `${window.uid2_example_settings.UID2_BASE_URL}`,
+          ...cstgParams,
+        };
+        pbjs.setConfig({
+          debug: true,
+          userSync: {
+            userIds: [
+              {
+                name: 'uid2',
+                params: uid2Params,
+              },
+            ],
+            syncDelay: 5000,
+            auctionDelay: 1000,
+          },
+        });
+      }
+
+      var adUnits = [
+        {
+          code: 'test-div',
+          mediaTypes: {
+            banner: {
+              sizes: [
+                [300, 250],
+                [300, 600],
+                [728, 90],
+              ],
+            },
+          },
+          bids: [
+            {
+              bidder: 'appnexus',
+              params: {
+                placementId: 13144370,
+              },
+            },
+          ],
+        },
+      ];
+
+      var pbjs = pbjs || {};
+      pbjs.que = pbjs.que || [];
+      pbjs.que.push(function () {
+        setUid2Config();
+        pbjs.addAdUnits(adUnits);
+        pbjs.requestBids();
+
+        $(document).ready(onDocumentReady);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>UID2 Prebid.js CSTG Integration Example</h1>
+    <p class="intro">
+      This example demonstrates how a content publisher can use the <a href="https://unifiedid.com/docs/guides/integration-prebid">Prebid.js UID2 module</a>
+      to generate client-side UID2 advertising tokens.
+    </p>
+    <table id="uid2_state">
+      <tr>
+        <td class="label">Ready for Targeted Advertising:</td>
+        <td class="value"><pre id="targeted_advertising_ready"></pre></td>
+      </tr>
+      <tr>
+        <td class="label">UID2 Advertising Token:</td>
+        <td class="value"><pre id="advertising_token"></pre></td>
+      </tr>
+    </table>
+    <div id="test-div">
+    </div>
+    <div id="login_form" style="display: none" class="form">
+      <div class="email_prompt">
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="Enter an email address"
+          style="border-style: none"
+          value="test@example.com"
+        />
+      </div>
+      <div><button type="button" class="button" id="login">Log In</button></div>
+    </div>
+    <div id="clear_storage_form" style="display: none" class="form">
+      <form>
+        <button type="button" class="button" id="clear_storage">Clear Storage</button>
+      </form>
+    </div>
+    </div>
+  </body>
+</html>
