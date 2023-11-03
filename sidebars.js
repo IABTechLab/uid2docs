@@ -75,6 +75,17 @@ const sidebars = {
       ],
     },
 
+
+
+
+
+
+
+
+
+
+
+
     {
       type: 'category',
       label: 'Integration Guides',
@@ -88,6 +99,14 @@ const sidebars = {
       items: [
         'guides/summary-guides',
 
+
+
+
+
+
+
+
+
         {
           type: 'category',
           label: 'Publisher Integrations',
@@ -95,18 +114,70 @@ const sidebars = {
             type: 'generated-index',
           },
           collapsed: true,
+
           items: [
-            'guides/integration-prebid',
-            'guides/integration-prebid-advanced',
-            'guides/publisher-client-side',
-            'guides/custom-publisher-integration',
-            'guides/google-ss-integration',
-            'guides/mobile-plugin-gma-android',
-            'guides/mobile-plugin-gma-ios',
-            'guides/mobile-plugin-ima-android',
-            'guides/mobile-plugin-ima-ios',
+          {
+            type: 'category',
+            label: 'Web Integrations',
+            link: {
+              type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+              'guides/integration-prebid',
+              'guides/integration-prebid-advanced',
+              'guides/publisher-client-side',
+              'guides/custom-publisher-integration',            ],
+          },
+          {
+            type: 'category',
+            label: 'Mobile',
+            link: {
+              type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+              'sdks/uid2-sdk-ref-android',
+              'sdks/uid2-sdk-ref-ios',
+            ],
+          },
+          {
+            type: 'category',
+            label: 'Google Ad Manager Integrations',
+            link: {
+              type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+              'guides/google-ss-integration',
+              'guides/mobile-plugin-gma-android',
+              'guides/mobile-plugin-gma-ios',
+              'guides/mobile-plugin-ima-android',
+              'guides/mobile-plugin-ima-ios',
+            ],
+          },
+          {
+            type: 'category',
+            label: 'Something Else 5',
+            link: {
+              type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+              'guides/summary-guides',
+            ],
+          },
           ],
         },
+
+
+
+
+
+
+
+
+
 
         {
           type: 'category',
@@ -139,6 +210,17 @@ const sidebars = {
         },
        ],
     },
+
+
+
+
+
+
+
+
+
+
+
 
      'summary-doc-v2',
     {
