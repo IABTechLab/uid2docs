@@ -29,6 +29,10 @@ You'll need to complete the following steps:
 2. [Add Prebid.js to your site](#add-prebidjs-to-your-site)
 3. [Configure the UID2 module](#configure-the-uid2-module)
 
+For an example application, see the UID2 Prebid.js example:
+- Code: [UID2 Prebid.js code on GitHub](https://github.com/IABTechLab/uid2docs/tree/main/static/examples/cstg-prebid-example)
+- Running site: [UID2 Prebid.js example](https://unifiedid.com/examples/cstg-prebid-example/)
+
 ## Prebid.js Version
 
 This implementation requires Prebid.js version 8.21.0 or later. For version information, see [https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases).
