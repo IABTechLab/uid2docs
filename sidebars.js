@@ -75,17 +75,6 @@ const sidebars = {
       ],
     },
 
-
-
-
-
-
-
-
-
-
-
-
     {
       type: 'category',
       label: 'Integration Guides',
@@ -94,18 +83,8 @@ const sidebars = {
       },
       collapsed: true,
 
-
-
       items: [
         'guides/summary-guides',
-
-
-
-
-
-
-
-
 
         {
           type: 'category',
@@ -118,7 +97,7 @@ const sidebars = {
           items: [
           {
             type: 'category',
-            label: 'Web Integrations',
+            label: 'Web',
             link: {
               type: 'generated-index',
             },
@@ -127,7 +106,9 @@ const sidebars = {
               'guides/integration-prebid',
               'guides/integration-prebid-advanced',
               'guides/publisher-client-side',
-              'guides/custom-publisher-integration',            ],
+              'guides/custom-publisher-integration',
+              'guides/google-ss-integration',
+                    ],
           },
           {
             type: 'category',
@@ -143,7 +124,19 @@ const sidebars = {
           },
           {
             type: 'category',
-            label: 'Google Ad Manager Integrations',
+            label: 'Prebid',
+            link: {
+              type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+              'guides/integration-prebid',
+              'guides/integration-prebid-advanced',
+            ],
+          },
+          {
+            type: 'category',
+            label: 'Google Ad Manager',
             link: {
               type: 'generated-index',
             },
@@ -156,28 +149,8 @@ const sidebars = {
               'guides/mobile-plugin-ima-ios',
             ],
           },
-          {
-            type: 'category',
-            label: 'Something Else 5',
-            link: {
-              type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-              'guides/summary-guides',
-            ],
-          },
           ],
         },
-
-
-
-
-
-
-
-
-
 
         {
           type: 'category',
