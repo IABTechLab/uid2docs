@@ -1,7 +1,7 @@
 ---
 title: Prebid.js Express Integration
 sidebar_label: Prebid.js Express Integration
-pagination_label: Prebid.js Integration
+pagination_label: Prebid.js Express Integration
 description: Information about integrating with Prebid.js as part of your UID2 implementation.
 hide_table_of_contents: false
 sidebar_position: 04
