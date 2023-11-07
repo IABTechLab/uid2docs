@@ -7,7 +7,7 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-# Prebid.js Integration Guide
+# Prebid.js Express Integration Guide
 
 This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bid stream.
 

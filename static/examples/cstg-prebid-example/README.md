@@ -1,6 +1,8 @@
-# Prebid.js UID2 with client-side token generation
+# Example Prebid.js UID2 Integration
 
 ## Viewing live site
+
+This example demonstrates the [Prebid.js Express Integration guide](https://unifiedid.com/docs/guides/integration-prebid). 
 
 To view the site running, navigate to [https://unifiedid.com/examples/cstg-prebid-example/](https://unifiedid.com/examples/cstg-prebid-example/).
 
@@ -12,4 +14,4 @@ When running locally, the configuration values in `index.html` will not work, as
 
 ## Prebid.js
 
-This file is a build of Prebid.js for the CSTG example, with the userId, uid2IdSystem, appnexusBidAdapter modules included.
+This file is a build of Prebid.js with the userId, uid2IdSystem and appnexusBidAdapter modules included.

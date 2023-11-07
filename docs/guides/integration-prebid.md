@@ -1,13 +1,13 @@
 ---
-title: Prebid.js Integration
-sidebar_label: Prebid.js
-pagination_label: Prebid.js Integration
+title: Prebid.js Express Integration
+sidebar_label: Prebid.js Express Integration
+pagination_label: Prebid.js Express Integration
 description: Information about integrating with Prebid.js as part of your UID2 implementation.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-# Prebid.js Integration Guide
+# Prebid.js Express Integration Guide
 
 This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bid stream.
 
