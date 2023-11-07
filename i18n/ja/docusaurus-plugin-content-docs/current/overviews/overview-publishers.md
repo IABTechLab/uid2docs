@@ -59,8 +59,8 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
-| Mobile: IMA for Android | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) |このインテグレーションガイドは、Google Interactive Media Ads (IMA) SDK を使用するパブリッシャーが、Android アプリからの広告リクエストに UID2 token を含めることを可能にします。 | Publishers |
-| Mobile: IMA for iOS | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) | このインテグレーションガイドは、Google Interactive Media Ads (IMA) SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストに UID2 token を含めることを可能にします。 | Publishers |
+| Android | [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) |  このインテグレーションガイドは、UID2 を使用してクライアントの ID を確立し、Android デバイス上で Advertising Token を取得したいパブリッシャー向けのものです。 | Publishers |
+| iOS  | [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) |このインテグレーションガイドは、UID2 を使用してクライアントの ID を確立し、iOS デバイス上で Advertising Token を取得したいパブリッシャー向けのものです。 | Publishers |
 
 ### Google Ad Manager Integrations
 
