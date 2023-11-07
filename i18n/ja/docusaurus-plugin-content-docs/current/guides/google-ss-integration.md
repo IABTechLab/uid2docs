@@ -34,7 +34,7 @@ Google secure signals は、パブリッシャーが [Google Ad Manager](https:/
 
 ## Allow Secure Signal Sharing
 
-Google Ad Manager アカウントで暗号化 UID トークンを受け取るには、暗号化されたシグナルが Google Ad Manager アカウントで第三者の入札者と適切に共有されていることを確認する必要があります。
+Google Ad Manager アカウントで暗号化 UID2 Token を受け取るには、暗号化されたシグナルが Google Ad Manager アカウントで第三者の入札者と適切に共有されていることを確認する必要があります。
 
 詳しくは、[セキュア シグナルをビッダーと共有する](https://support.google.com/admanager/answer/10488752) (Google reference documentation) を確認し、[サードパーティのシグナルプロバイダーを使用する](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/securesignals) の手順にしたがって、シグナルプロバイダーとして UID2 をオンに設定してください。
 
