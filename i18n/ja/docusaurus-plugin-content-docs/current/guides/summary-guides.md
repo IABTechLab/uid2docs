@@ -72,7 +72,7 @@ UID2 とインテグレーションする広告主やデータプロバイダー
 | Integration Guide                                       | Content Description                                                                            |
 | :------------------------------------------------------ | :--------------------------------------------------------------------------------------------- |
 | [Advertiser/Data Provider](./advertiser-dataprovider-guide.md)                              | この広告主やデータプロバイダー向けのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 |
-| [Snowflake Integration Guide](snowflake_integration.md) | Snowflake 内でメールアドレスから UID を生成する手順です。 |
+| [Snowflake Integration Guide](snowflake_integration.md) | Snowflake 内でメールアドレスから UID2 を生成する手順です。 |
 
 ## DSP Integrations
 

@@ -55,7 +55,7 @@ UID2 sharing のワークフローは、ビッドストリームで UID2 Token �
    1. 送信者: 共有したい参加者を選択します。必要に応じて、検索機能を使用して特定の共有参加者を検索します。
    1. 送信者: 共有の選択を保存します。
 
-1. 送信者: 以下の手順で UID を暗号化して送信します:
+1. 送信者: 以下の手順で UID2 を暗号化して送信します:
 
    1. UID2 SDK または Snowflake を使用して、raw UID2 を暗号化し、UID2 Token に変換します: [Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary) を参照してください。
    1. UID2 Token を認証された受信者に送信します。
