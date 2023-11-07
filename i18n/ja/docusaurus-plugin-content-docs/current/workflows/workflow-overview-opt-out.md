@@ -13,7 +13,7 @@ sidebar_position: 04
 
    | Participant | Distribution Method |
    | :--- | :--- | 
-   | Publishers | パブリッシャーがオプションの `optout_check` パラメータを `1` に設定して [POST /token/generate](../endpoints/post-token-generate.md) あるいは [POST /token/refresh](../endpoints/post-token-refresh.md) を呼び出すと、UID2 Token の代わりにオプトアウト応答を受け取ります。 |
+   | Publishers | パブリッシャーが必須の `optout_check` パラメータを `1` に設定して [POST /token/generate](../endpoints/post-token-generate.md) あるいは [POST /token/refresh](../endpoints/post-token-refresh.md) を呼び出すと、UID2 Token の代わりにオプトアウト応答を受け取ります。 |
    | DSPs | UID2 Operator Service は、この目的のために提供される Webhook を介して、すべてのオプトアウト済みユーザーの情報を DSP に配信します。詳細については、[Honor User Opt-Outs](../guides/dsp-guide#honor-user-opt-outs)を参照してください。 |
    | Advertisers | UID2 Operator Service は、[POST /identity/map](../endpoints/post-identity-map.md) エンドポイントを介して、オプトアウト情報を広告主に配布します。 |
 
