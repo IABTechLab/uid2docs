@@ -14,13 +14,11 @@ import TabItem from '@theme/TabItem';
 
 This guide is intended for publishers with web assets who want to generate identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers.
 
-- For technical details about the SDK, see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md).
-- For an example application, see the UID2 Google ESP with SDK v3 example:
-  - Code and docs: [UID2 SDK ESP Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3)
-  - Running site: [Client-Side UID2 SDK Integration Example](https://esp-jssdk-integ.uidapi.com/)
+For technical details about the SDK, see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md).
 
 <!-- It includes the following sections:
 
+- [Sample Implementation Website](#sample-implementation-website)
 - [Introduction](#introduction)
 - [Integration Steps ](#integration-steps)
   - [Establish Identity: User Login](#establish-identity-user-login)
@@ -28,6 +26,12 @@ This guide is intended for publishers with web assets who want to generate ident
   - [Refresh Tokens](#refresh-tokens)
   - [Clear Identity: User Logout](#clear-identity-user-logout)
 - [FAQs](#faqs) -->
+
+## Sample Implementation Website
+
+For an example application, see the UID2 Google ESP with SDK v3 example:
+- Code and docs: [UID2 SDK ESP Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3)
+- Running site: [Client-Side UID2 SDK Integration Example](https://esp-jssdk-integ.uidapi.com/)
 
 ## Introduction
 
