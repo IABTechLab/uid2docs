@@ -80,7 +80,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
-| Prebid | [Prebid Integration Guide](../guides/integration-prebid.md) | UID2 と直接インテグレーションし、RTB ビッドストリームで Prebid から渡される identity トークンを生成したいパブリッシャー向けのインテグレーションガイドです。 | Publishers |
+| Prebid | [Prebid Integration Guide](../guides/integration-prebid.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid から渡される identity トークンを生成したいパブリッシャー向けのインテグレーションガイドです。 | Publishers |
 
 ## Workflow for Publishers
 
