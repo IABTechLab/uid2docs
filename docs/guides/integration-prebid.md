@@ -1,13 +1,13 @@
 ---
-title: Prebid.js Integration
-sidebar_label: Prebid.js
-pagination_label: Prebid.js Integration
+title: Prebid.js Express Integration
+sidebar_label: Prebid.js Express Integration
+pagination_label: Prebid.js Express Integration
 description: Information about integrating with Prebid.js as part of your UID2 implementation.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-# Prebid.js Integration Guide
+# Prebid.js Express Integration Guide
 
 This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bid stream.
 
@@ -29,13 +29,15 @@ You'll need to complete the following steps:
 2. [Add Prebid.js to your site](#add-prebidjs-to-your-site)
 3. [Configure the UID2 module](#configure-the-uid2-module)
 
-For an example application, see the UID2 Prebid.js example:
-- Code: [UID2 Prebid.js code on GitHub](https://github.com/IABTechLab/uid2docs/tree/main/static/examples/cstg-prebid-example)
-- Running site: [UID2 Prebid.js example](https://unifiedid.com/examples/cstg-prebid-example/)
-
 ## Prebid.js Version
 
 This implementation requires Prebid.js version 8.21.0 or later. For version information, see [https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases).
+
+## Sample Implementation Website
+
+For an example application, see the UID2 Prebid.js example:
+- Code: [Example Prebid.js UID2 Integration](https://github.com/IABTechLab/uid2docs/tree/main/static/examples/cstg-prebid-example)
+- Running site: [UID2 Prebid.js Express Integration Example](https://unifiedid.com/examples/cstg-prebid-example/)
 
 ## Complete UID2 Account Setup
 
