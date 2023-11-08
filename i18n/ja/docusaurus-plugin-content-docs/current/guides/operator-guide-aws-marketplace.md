@@ -29,11 +29,11 @@ UID2 Operator は、UID2 エコシステムにおける API サーバーです�
 
 NOTE: [UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) は無償製品です。製品ページに表示されている費用は、必要なインフラの概算費用となります。
 
-Unified ID 2.0 Operator on AWS Marketplace 製品を契約することで、以下を利用できます:
+UID2 Private Operator for AWS を契約することで、以下を利用できます:
 
-- **[Amazon Machine Image (AMI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)** UID2 Operator Service がインストールされ、ブートストラップの準備が整っている状態です:<br/>
+- [Amazon Machine Image (AMI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) UID2 Operator Service がインストールされ、ブートストラップの準備が整っている状態です:<br/>
   AMI には、UID2 Operator Service がすでにセットアップされた[Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/?amazon-linux-whats-new.sort-by=item.additionalFields.postDateTime&amazon-linux-whats-new.sort-order=desc)オペレーティングシステムが含まれています。AMI をベースにした EC2 インスタンスが起動すると、AWS アカウントから設定を自動的に取得し、エンクレーブ内で UID2 Operator サーバーを起動します。
-- **[CloudFormation](https://aws.amazon.com/cloudformation/) template**:<br/>
+- [CloudFormation](https://aws.amazon.com/cloudformation/) template:<br/>
   このテンプレートでは、UID2 Operator AMI がデプロイ展開されます。
 
 ### Prerequisites
