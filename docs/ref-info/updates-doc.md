@@ -13,12 +13,12 @@ Check out the latest updates to our UID2 documentation resources.
 
 2 November 2023
 
-The Prebid.js Integration Guide is a completely new document at the existing URL, covering a new, simpler way of integrating UID2 with Prebid that does not require any server-side work.
+The Prebid.js Express Integration Guide is a completely new document at the existing URL, covering a new, simpler way of integrating UID2 with Prebid that does not require any server-side work.
 
 The content that was in the previous version of the Prebid document is now in a supplementary document, *Prebid.js Advanced Integration Guide*, for publishers who are using a private operator or who prefer to implement token generate on the server side.
 
 For details, see:
-- [Prebid.js Integration Guide](../guides/integration-prebid.md)
+- [Prebid.js Express Integration Guide](../guides/integration-prebid.md)
 - [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md)
 
 ### New: Opt-Out
