@@ -160,20 +160,6 @@ const sidebars = {
 
     {
       type: 'category',
-      label: 'Workflows',
-      link: {
-        type: 'generated-index',
-      },
-      collapsed: true,
-      items: [
-        'workflows/workflow-overview-supply-side',
-        'workflows/workflow-overview-buy-side',
-        'workflows/workflow-overview-3p-data-provider',
-      ],
-    },
-
-    {
-      type: 'category',
       label: 'UID2 Sharing',
       link: {
         type: 'generated-index',

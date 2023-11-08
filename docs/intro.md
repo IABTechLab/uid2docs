@@ -105,14 +105,14 @@ The following table lists four key workflows in the UID2 framework with links to
 
 | Workflow | Intended Primary Participants |  Integration Guide |
 | :--- | :--- | :--- |
-| **DSP (Buy-Side)**<br/>[Overview](workflows/workflow-overview-buy-side.md) | DSPs who transact on UID2 tokens in the bid stream. |  [DSP Integration Guide](guides/dsp-guide.md) |
-| **Advertiser and Data Provider**<br/>[Overview](workflows/workflow-overview-3p-data-provider.md) | Organizations that collect user data and push it to DSPs. | [Advertiser/Data Provider Integration Guide](guides/advertiser-dataprovider-guide.md) |
-| **Publisher (Supply-Side)**<br/>[Overview](workflows/workflow-overview-supply-side.md) | Organizations that propagate UID2 tokens to the bid stream via SSPs.<br/> NOTE: Publishers can choose to leverage the UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](sdks/client-side-identity.md)) or complete their own server-only integration without using an SDK. | [UID2 SDK for JavaScript Integration Guide](guides/publisher-client-side.md)<br/>[Publisher Integration Guide, Server-Only](guides/custom-publisher-integration.md) |
-| **Opt-Out**<br/>[Overview](getting-started/gs-opt-out.md#opt-out-workflow) | Consumers who engage with publishers or their SSO providers and other identity providers. | N/A |
+| [Workflow for DSPs](overviews/overview-dsps.md#workflow-for-dsps) (Buy-Side) | DSPs who transact on UID2 tokens in the bid stream. |  [DSP Integration Guide](guides/dsp-guide.md) |
+| [Workflow for Advertisers](overviews/overview-advertisers.md#workflow-for-advertisers) and [Workflow for Data Providers](overviews/overview-data-providers.md#workflow-for-data-providers) | Organizations that collect user data and push it to DSPs. | [Advertiser/Data Provider Integration Guide](guides/advertiser-dataprovider-guide.md) |
+| [Workflow for Publishers](overviews/overview-publishers.md#workflow-for-publishers) | Organizations that propagate UID2 tokens to the bid stream via SSPs.<br/> NOTE: Publishers can choose to leverage the UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](sdks/client-side-identity.md)) or complete their own server-only integration without using an SDK. | [UID2 SDK for JavaScript Integration Guide](guides/publisher-client-side.md)<br/>[Publisher Integration Guide, Server-Only](guides/custom-publisher-integration.md) |
+| [Opt-Out Workflow](getting-started/gs-opt-out.md#opt-out-workflow) | Consumers who engage with publishers or their SSO providers and other identity providers. | N/A |
 
 The following diagram summarizes all four workflows. For each workflow, the [participants](#participants), [components](#components), [UID2 identifier types](#uid2-identifier-types), and numbered steps are color-coded.
 
-![The UID2 Ecosystem](workflows/images/UID2Workflows.jpg)
+![The UID2 Ecosystem](images/UID2Workflows.jpg)
 
 ## FAQs
 
