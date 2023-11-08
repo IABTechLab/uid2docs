@@ -207,8 +207,9 @@ terraform init
 terraform apply
 ```
 
-`terraform apply`を実行すると、同じフォルダに以下のファイルが生成されます: [`terraform.tfstate`](https://developer.hashicorp.com/terraform/language/state)。このファイルには、管理対象のインフラストラクチャと設定に関する状態情報が保存されます。
-このファイルは将来のメンテナンスに使用されます。必ずリモートに保存してください。
+`terraform apply` を実行すると、同じフォルダに以下のファイルが生成されます: `terraform.tfstate`。このファイルには管理対象のインフラストラクチャとコンフィギュレーションに関する状態情報が保存され、将来のメンテナンスに使用されます。
+
+>NOTE: Terraformの `state` ファイルについては、必ず推奨されるプラクティスに従ってください: これらはデプロイされたインフラストラクチャを維持するために必要であり、機密情報が含まれている可能性があります。詳細は Terraform ドキュメントの [state](https://developer.hashicorp.com/terraform/language/state) を参照してください。
 
 #### Delete All Created Resources
 
