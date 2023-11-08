@@ -8,11 +8,13 @@ banner_title: UID2 Overview for DSPs
 banner_description: Enable data strategies with a more durable identifier.
 ---
 
-This page provides information about what the Unified ID 2.0 (UID2) framework offers to demand-side platforms (DSPs), available implementation options, and how to get started. The following sections break down the workflows, integration types, and documentation for DSPs adopting UID2.
+This page provides information about what the Unified ID 2.0 (UID2) framework offers to demand-side platforms (DSPs), workflow, documentation and other resources, and how to get started.
+
+The following sections provide information about benefits, workflow, documentation, and other resources for DSPs adopting UID2.
 
 ## Audience
 
-This page is for DSPs (Demand-Side Platforms). Media-buying platforms can facilitate identity strategies for first-party data activation for advertisers and inventory monetization for publishers with Unified ID 2.0.
+This page is for DSPs (demand-side platforms). Media-buying platforms can facilitate identity strategies for first-party data activation for advertisers and inventory monetization for publishers with Unified ID 2.0.
 
 ## Benefits of UID2 for DSPs
 
@@ -25,35 +27,6 @@ Here are just some of the intended benefits for DSPs using UID2:
 - Maintain addressable audience targeting.
 - Offer opt-out, with the goal of improving consumer privacy controls.
 - More accurately measure campaigns with or without third-party cookies.
-
-## Resources
-
-The following documentation resources are available for DSPs to implement UID2.
-
-| Type| Documentation | Content Description | Audience |
-| :--- | :--- | :--- | :--- |
-|UID2 SDK for Java | [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) | An SDK for anyone using Java server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.| DSPs |
-|UID2 SDK for Python | [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md) | An SDK for anyone using Python server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.| DSPs |
-|UID2 SDK for C# / .NET | [UID2 SDK for C# / .NET (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-csharp-dotnet.md) | An SDK for anyone using .NET server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.| DSPs |
-|UID2 SDK for C++ | [UID2 SDK for C++ (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-cplusplus.md) | An SDK for anyone using C++ server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.| DSPs |
-| Integration Guides | [DSP Integration Guide](../guides/dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. | DSPs |
-
-## Getting Started
-
-To get started, follow these steps:
-
-1. Request access to UID2 by filling out the form on the [Request Access](/request-access) page.
-2. Implement a webhook to receive UID2 opt-out. Share the webhook with the UID2 administrator.
-3. Confirm that you are receiving the opt-out feed via the webhook.<br/>
-    When the webhook is in place, you'll receive your credentials (see [API keys](../getting-started/gs-api-keys.md)).
-4. Decide which implementation option you want to use.
-5. If you're using an SDK, download the SDK. Refer to the applicable SDK guide.
-6. Follow the instructions in the implementation guide for the option you chose.
-
-     NOTE: Be sure to encrypt request messages to UID2. For details, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
-7. (Conditional) If you will be implementing a CRM onboarding solution, request a separate set of credentials for the data provider workflow. See [API keys](../getting-started/gs-api-keys.md).
-8. Test.
-9. Go live.
 
 ## Workflow for DSPs
 
@@ -76,7 +49,36 @@ The following steps occur for each bid/ad impression:
 
 ![Buy-Side Workflow](images/UID2BuySIdeDSPWorkflow.jpg)
 
-## Integration Requirements
+## Getting Started
+
+To get started, follow these steps:
+
+1. Request access to UID2 by filling out the form on the [Request Access](/request-access) page.
+2. Implement a webhook to receive UID2 opt-out. Share the webhook with the UID2 administrator.
+3. Confirm that you are receiving the opt-out feed via the webhook.<br/>
+    When the webhook is in place, you'll receive your credentials (see [API keys](../getting-started/gs-api-keys.md)).
+4. Decide which implementation option you want to use.
+5. If you're using an SDK, download the SDK. Refer to the applicable SDK guide.
+6. Follow the instructions in the implementation guide for the option you chose.
+
+     NOTE: Be sure to encrypt request messages to UID2. For details, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+7. (Conditional) If you will be implementing a CRM onboarding solution, request a separate set of credentials for the data provider workflow. See [API keys](../getting-started/gs-api-keys.md).
+8. Test.
+9. Go live.
+
+## Resources
+
+The following documentation resources are available for DSPs to implement UID2.
+
+| Type| Documentation | Content Description | Audience |
+| :--- | :--- | :--- | :--- |
+|UID2 SDK for Java | [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) | An SDK for anyone using Java server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.| DSPs |
+|UID2 SDK for Python | [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md) | An SDK for anyone using Python server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.| DSPs |
+|UID2 SDK for C# / .NET | [UID2 SDK for C# / .NET (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-csharp-dotnet.md) | An SDK for anyone using .NET server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.| DSPs |
+|UID2 SDK for C++ | [UID2 SDK for C++ (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-cplusplus.md) | An SDK for anyone using C++ server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.| DSPs |
+| Integration Guides | [DSP Integration Guide](../guides/dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. | DSPs |
+
+<!-- ## Integration Requirements
 
 To integrate with UID2 to receive UID2s from brands (as first-party data) and data providers (as third-party data) and leverage them to inform bidding on UID2s in the bid stream, the buy-side participants must meet the following requirements:
 
@@ -87,7 +89,7 @@ To integrate with UID2 to receive UID2s from brands (as first-party data) and da
 
 For details, see [DSP Integration Guide](../guides/dsp-guide.md).
 
-Optionally, if DSPs want to generate UID2s themselves from DII, they can also follow the [Third-Party Data Provider Workflow](../workflows/workflow-overview-3p-data-provider.mdworkflow-overview-3p-data-provider.md).
+Optionally, if DSPs want to generate UID2s themselves from DII, they can also follow the [Third-Party Data Provider Workflow](overview-data-providers.md#workflow-for-data-providers). -->
 
 ## FAQs for DSPs
 
