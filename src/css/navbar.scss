@@ -260,3 +260,9 @@
     }
   }
 }
+
+.theme-doc-sidebar-item-category-level-3 .menu__link {
+  @include lg {
+    padding: 4px 0;
+  }
+}
