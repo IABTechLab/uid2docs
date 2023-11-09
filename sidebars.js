@@ -83,8 +83,6 @@ const sidebars = {
       },
       collapsed: true,
 
-
-
       items: [
         'guides/summary-guides',
 
@@ -95,16 +93,62 @@ const sidebars = {
             type: 'generated-index',
           },
           collapsed: true,
+
           items: [
-            'guides/integration-prebid',
-            'guides/integration-prebid-advanced',
-            'guides/publisher-client-side',
-            'guides/custom-publisher-integration',
-            'guides/google-ss-integration',
-            'guides/mobile-plugin-gma-android',
-            'guides/mobile-plugin-gma-ios',
-            'guides/mobile-plugin-ima-android',
-            'guides/mobile-plugin-ima-ios',
+          {
+            type: 'category',
+            label: 'Web',
+            link: {
+              type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+              'guides/integration-prebid',
+              'guides/integration-prebid-advanced',
+              'guides/publisher-client-side',
+              'guides/custom-publisher-integration',
+              'guides/google-ss-integration',
+                    ],
+          },
+          {
+            type: 'category',
+            label: 'Mobile',
+            link: {
+              type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+              'sdks/uid2-sdk-ref-android',
+              'sdks/uid2-sdk-ref-ios',
+            ],
+          },
+          {
+            type: 'category',
+            label: 'Prebid',
+            link: {
+              type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+              'guides/integration-prebid',
+              'guides/integration-prebid-advanced',
+            ],
+          },
+          {
+            type: 'category',
+            label: 'Google Ad Manager',
+            link: {
+              type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+              'guides/google-ss-integration',
+              'guides/mobile-plugin-gma-android',
+              'guides/mobile-plugin-gma-ios',
+              'guides/mobile-plugin-ima-android',
+              'guides/mobile-plugin-ima-ios',
+            ],
+          },
           ],
         },
 
@@ -139,6 +183,17 @@ const sidebars = {
         },
        ],
     },
+
+
+
+
+
+
+
+
+
+
+
 
      'summary-doc-v2',
     {
