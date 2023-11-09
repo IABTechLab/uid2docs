@@ -207,6 +207,11 @@
         padding-left: 1rem;
       }
     }
+    .menu__list {
+      @include lg {
+        margin-top: 0;
+      }
+    }
   }
 
   &__link {
