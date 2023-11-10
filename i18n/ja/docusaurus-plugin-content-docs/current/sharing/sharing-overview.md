@@ -18,9 +18,9 @@ UID2 では、sharing とは UID2 参加者間で [raw UID2](../ref-info/glossar
 
 UID2 の送信者は、[UID2 Portal](/docs/category/uid2-portal) で権限を設定することで、自分の UID2 Token を復号できる受信者を指定します。送信者が受信者に UID2 sharing の許可を与えると、送信者の復号鍵が UID2 SDK を介して受信者と共有されます。sharing の一環として、UID2 SDK と API が暗号化と復号化の処理を行います。
 
-例えば、広告主 (送信者)が、UID2 DSP である信頼できる sharing パートナーと raw UID2 を共有し、API 経由でセグメントを作成したいとします。sharing では、まず広告主が UID2 Potal を介して DSP に共有許可を与えます。次に広告主は、raw UID2 を UID2 Token に暗号化し、DSP (受信者)に安全に送信します。Sharing に参加している DSP も、 (UID2 Potal の共有許可設定を通じて)広告主の復号化キーにアクセスできるため、UID2 Token を復号化してセグメント作成のための raw UID2 に変換できます。
+例えば、広告主 (送信者)が、UID2 DSP である信頼できる sharing 参加者と raw UID2 を共有し、API 経由でセグメントを作成したいとします。sharing では、まず広告主が UID2 Potal を介して DSP に共有許可を与えます。次に広告主は、raw UID2 を UID2 Token に暗号化し、DSP (受信者)に安全に送信します。Sharing に参加している DSP も、 (UID2 Potal の共有許可設定を通じて)広告主の復号化キーにアクセスできるため、UID2 Token を復号化してセグメント作成のための raw UID2 に変換できます。
 
-Sharing に参加するには、UID2 の送信者と受信者の両方がアカウントを作成する必要があります。アカウントがないと、UID2 参加者は UID2 Portal の共有パートナーリストに表示されません。
+Sharing に参加するには、UID2 の送信者と受信者の両方がアカウントを作成する必要があります。アカウントがないと、UID2 参加者は UID2 Portal の共有参加者リストに表示されません。
 
 Sharing には多くのシナリオがあります。その他の例については、[Sharing UID2s: Use Cases](sharing-use-cases.md) を参照してください。
 
