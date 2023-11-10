@@ -207,6 +207,11 @@
         padding-left: 1rem;
       }
     }
+    .menu__list {
+      @include lg {
+        margin-top: 0;
+      }
+    }
   }
 
   &__link {
@@ -258,5 +263,11 @@
     &.menu__link--active {
       background-color: var(--c-lemon);
     }
+  }
+}
+
+.theme-doc-sidebar-item-category-level-3 .menu__link {
+  @include lg {
+    padding: 4px 0;
   }
 }

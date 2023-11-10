@@ -56,7 +56,7 @@ const config = {
       ja: {
         label: "日本語",
         direction: "ltr",
-        htmlLang: "jp-JP",
+        htmlLang: "ja",
         calendar: "japanese",
       },
     },
