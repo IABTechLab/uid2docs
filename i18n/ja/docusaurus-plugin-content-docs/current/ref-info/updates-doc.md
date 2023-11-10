@@ -9,6 +9,26 @@ sidebar_position: 06
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: Prebid.js Integration Guide
+
+2 November 2023
+
+Prebid.js インテグレーションガイドは、既存の URL の全く新しいドキュメントで、UID2 と Prebid を統合する、Server-Side の作業を必要としない、新しくシンプルな方法を扱っています。
+
+前バージョンの Prebid ドキュメントの内容は、Private Operator を使用しているパブリッシャーや、Server-Side でトークン生成を実装することを好むパブリッシャーのために、補足ドキュメントである *Prebid.js Advanced Integration Guide* に追加されました。
+
+詳細は、以下を参照してください:
+- [Prebid.js Integration Guide](../guides/integration-prebid.md)
+- [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md)
+
+### New: Opt-Out
+
+31 October 2023
+
+新しい "getting started" トピックでは、ユーザーのオプトアウトの概要を説明します。
+
+詳細については、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+
 ### New: AWS Entity Resolution Integration Guide
 
 19 October 2023
@@ -130,10 +150,10 @@ UID2 アカウントを管理できる新しい UID2 Portal ユーザーイン�
 
 詳細は [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) を参照してください。
 
-### New: Prebid Integration Guide
+<!-- ### New: Prebid Integration Guide
 
 1 August 2023
 
 UID2 とインテグレーションし、RTB ビッドストリームで Prebid が渡す UID2 Token (Advertising Token) を生成したいパブリッシャー向けの新しいガイドです。
 
-詳細は [Prebid Integration Guide](../guides/integration-prebid.md) を参照してください。
+詳細は [Prebid Integration Guide](../guides/integration-prebid.md) を参照してください。 -->
