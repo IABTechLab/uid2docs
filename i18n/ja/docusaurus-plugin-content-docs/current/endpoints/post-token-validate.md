@@ -35,7 +35,7 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 | :--- | :--- | :--- | :--- |
 | `token` | string | Required | [POST /token/generate](post-token-generate.md) レスポンスが返す advertising token です。 |
 | `email` | string | Conditionally Required | トークン検証用のメールアドレスです。<br/>有効な値は `validate@email.com` だけです。 |
-| `email_hash` | string | Conditionally Required | トークン検証用の [正規化された](../getting-started/gs-normalization-encoding.md#email-address-normalization) メールアドレス(`validate@email.com`)の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) ハッシュです。<br/>有効な値は `LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI=` だけです。 |
+| `email_hash` | string | Conditionally Required | トークン検証用の [正規化された](../getting-started/gs-normalization-encoding.md#email-address-normalization) メールアドレス(`validate@email.com`)の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) ハッシュです。<br/>有効な値は `ntI244ZRTXwAwpki6/M5cyBYW7h/Wq576lnN3l9+W/c=` だけです。 |
 | `phone` | string | Conditionally Required | トークンを生成するための [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号です。<br/>有効な値は`+12345678901` だけです。|
 | `phone_hash` | string | Conditionally Required | [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) ハッシュです。<br/>有効な値は `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=` だけです。|
 
@@ -44,17 +44,19 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 
 以下は、各パラメータの暗号化されていない JSON リクエストボディの例で、トークン検証のリクエストに含める必要があります:
 
+>NOTE: 以下の例の Advertising Token は、説明のみを目的とした架空のものです。提供された値は実際の値ではありません。
+
 ```json
 {
   "token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D",
-  "email": "validate@email.com"
+  "email": "validate@example.com"
 }
 ```
 
 ```json
 {
   "token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D",
-  "email_hash": "LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI="
+  "email_hash": "ntI244ZRTXwAwpki6/M5cyBYW7h/Wq576lnN3l9+W/c="
 }
 ```
 

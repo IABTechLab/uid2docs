@@ -81,28 +81,28 @@ UID2 Token は、認証後にサーバーサイドでのみ生成する必要が
 
 #### リフレッシュトークンのワークフローをテストするにはどうすればよいですか？
 
-`optout@email.com` のメールアドレスまたは `+00000000000` の電話番号を使用して、トークンリフレッシュのワークフローをテストすることができます。どちらかのパラメータ値をリクエストに使用すると、常に `refresh_token` を含む identity レスポンスが生成され、ログアウトレスポンスが返されます。
+`refresh-optout@example.com` のメールアドレスまたは `+00000000002` の電話番号を使用して、トークンリフレッシュのワークフローをテストすることができます。どちらかのパラメータ値をリクエストに使用すると、常に `refresh_token` を含む identity レスポンスが生成され、ログアウトレスポンスが返されます。
 
 SDKを使うかどうかで手順は少し異なります。
 
 ##### With SDK:
 
 1. DII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して [POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信します:
-   - `email` の値として `optout@email.com` を指定します。
-   - `optout@email.com` のハッシュを `email_hash` 値として指定します。
-   - `phone` の値として `+00000000000` を指定します。
-   - `phone_hash` 値として `+000000000` のハッシュを指定します。
+   - `email` の値として `refresh-optout@example.com` を指定します。
+   - ``refresh-optout@example.com` のハッシュを `email_hash` 値として指定します。
+   - `phone` の値として `+00000000002` を指定します。
+   - `phone_hash` 値として `+00000000002` のハッシュを指定します。
 2. SDK の [background auto-refresh](../sdks/client-side-identity.md#background-token-auto-refresh) が Advertising Token のリフレッシュを試み(これには数時間かかることがあります)、リフレッシュの試みが `OPTOUT` ステータスで失敗するのを観察するまで待ちます。この時点で SDK はファーストパーティクッキーもクリアします。
 
 ##### Without SDK:
 
 1. DII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して [POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信します:
-   - `email` の値として `optout@email.com` を指定します。
-   - `optout@email.com` のハッシュを `email_hash` 値として指定します。
-   - `phone` の値として `+00000000000` を指定します。
-   - `phone_hash` 値として `+000000000` のハッシュを指定します。
+   - `email` の値として `refresh-optout@example.com` を指定します。
+   - `refresh-optout@example.com` のハッシュを `email_hash` 値として指定します。
+   - `phone` の値として `+00000000002` を指定します。
+   - `phone_hash` 値として `+00000000002` のハッシュを指定します。
 2. 返された `refresh_token` を次のステップで使用するために保存します。
-3. [POST /token/refresh](../endpoints/post-token-refresh.md) リクエストを `refresh_token` (Step 2 で保存) を `token` 値として送信します。<br/>ボディのレスポンスは空でなければならず、`optout@email.com` のメールアドレスと `+00000000000` の電話番号は常にログアウトしたユーザになるので、`status` の値は `optout` でなければなりません。
+3. [POST /token/refresh](../endpoints/post-token-refresh.md) リクエストを `refresh_token` (Step 2 で保存) を `token` 値として送信します。<br/>ボディのレスポンスは空でなければならず、`refresh-optout@example.com` のメールアドレスと `+00000000002` の電話番号は常にログアウトしたユーザになるので、`status` の値は `optout` でなければなりません。
 
 #### UID2 Token の一意性とローテーションポリシーは？
 

@@ -100,7 +100,7 @@ NOTE: 非推奨の関数を使用していて、新しい関数への移行の�
 例:
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTITY_MAP('validate@email.com', 'email'));
+select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTITY_MAP('validate@example.com', 'email'));
 ```
 
 すべてのクエリ例では、各名前変数に以下のデフォルト値を使用しています:
@@ -164,13 +164,13 @@ DIIが電話番号の場合、UID2 [電話番号正規化](../getting-started/gs
 単一のメールアドレスに対する広告主ソリューションのクエリー:
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP('validate@email.com', 'email'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP('validate@example.com', 'email'));
 ```
 
 単一のメールアドレスに対するデータプロバイダーソリューションのクエリー:
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP('validate@email.com', 'email'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP('validate@example.com', 'email'));
 ```
 
 単一のメールアドレスに対するクエリー結果:
@@ -211,7 +211,7 @@ select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID, UNMAPPED from AUDIENCE a LEFT JOIN(
 +----+--------------------+----------------------------------------------+------------+--------------------+
 | ID | EMAIL              | UID2                                         | BUCKET_ID  | UNMAPPED           |
 +----+--------------------+----------------------------------------------+------------+--------------------+
-|  1 | validate@email.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
 |  2 | test@uidapi.com    | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
 |  3 | invalid-email      | NULL                                         | NULL       | INVALID IDENTIFIER |
 |  4 | NULL               | NULL                                         | NULL       | INVALID IDENTIFIER |
@@ -291,13 +291,13 @@ The following table identifies each item in the response, including `NULL` value
 単一のハッシュ化されたメールアドレスに対する広告主ソリューションのクエリー:
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256)), 'email_hash'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@example.com', 256)), 'email_hash'));
 ```
 
 単一のハッシュ化されたメールアドレスに対するデータプロバイダーソリューションのクエリー:
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@email.com', 256)), 'email_hash'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@example.com', 256)), 'email_hash'));
 ```
 
 単一のハッシュ化されたメールアドレスに対するクエリー結果:
@@ -429,7 +429,7 @@ select * from AUDIENCE_WITH_UID2;
 +----+--------------------+----------------------------------------------+------------+-------------------------+
 | ID | EMAIL              | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    |
 +----+--------------------+----------------------------------------------+------------+-------------------------+
-|  1 | validate@email.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 |
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 |
 |  2 | test1@uidapi.com   | Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM= | ad1ANEmVZ  | 2021-03-03 00:00:00.000 |
 |  3 | test2@uidapi.com   | NULL                                         | NULL       | NULL                    |
 +----+--------------------+----------------------------------------------+------------+-------------------------+
@@ -463,7 +463,7 @@ select a.*, b.LAST_SALT_UPDATE_UTC
 +----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
 | ID | EMAIL              | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    | LAST_SALT_UPDATE_UTC    |
 +----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
-|  1 | validate@email.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 | 2021-03-02 00:00:00.000 |
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 | 2021-03-02 00:00:00.000 |
 |  3 | test2@uidapi.com   | NULL                                         | NULL       | NULL                    | NULL                    |
 +----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
 ```
