@@ -62,11 +62,13 @@ Google Ad Manager を使用していて、セキュアシグナル機能を使�
 
 ### Establish Identity: User Login
 
+Step 1-c で認証を行い、ユーザーに利用規約を受け入てもらい、パブリッシャーがユーザーのメールアドレスまたは電話番号を検証した後、Server-Side で UID2 Token を生成する必要があります。次の表は、トークン生成ステップの詳細です。
+
 | Step | Endpoint/SDK                                                       | Description                                                                                                                                                                                                                                                                                                                                                        |
 | :--- | :----------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1-d  | [POST /token/generate](../endpoints/post-token-generate.md)        | ユーザーが認証され、UID2 の作成が許可されたら、[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを使用して、ユーザーの正規化したメールアドレスまたは電話番号を使用して UID2 Token を生成します。                                                                                                                                            |
-| 1-e  | [POST /token/generate](../endpoints/post-token-generate.md)        | ユーザーのメールアドレス、電話番号、またはそれぞれのハッシュから生成された UID2 Token を返します。                                                                                                                                                                                                                                                                 |
-| 1-f  | UID2 SDK for JavaScript | Step 1-e で返された UID2 Token を、SDK の [init()関数](../sdks/client-side-identity.md#initopts-object-void) の `identity` プロパティで SDK に送信し、以下に示すように [コールバック関数](../sdks/client-side-identity.md#callback-function) を指定します。このメカニズムにより、ユーザーがログアウトするまで、UID2 Token がターゲティング広告に利用できるようになります。|
+| 1-d  | [POST /token/generate](../endpoints/post-token-generate.md)        | ユーザーが認証され、UID2 の作成が許可されたら、[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを使用して、ユーザーの正規化したメールアドレスまたは電話番号を使用して UID2 Token を生成します。正規化されていることを確認してください。 |
+| 1-e  | [POST /token/generate](../endpoints/post-token-generate.md)        | エンドポイントは、ユーザーのメールアドレス、電話番号、またはそれぞれのハッシュから生成された UID2 Token を返します。 |
+| 1-f  | UID2 SDK for JavaScript | SDKは、[init()関数](../sdks/client-side-identity.md#initopts-object-void) の `identity` プロパティで Step 1-e から返された UID2 Token を SDK に送信します。|
 | 1-g | UID2 SDK for JavaScript | SDK から ID 更新を受け取り、ターゲティング広告を開始するために使用するコールバック関数を SDK に提供します。 |
 
 <Tabs>
@@ -177,7 +179,7 @@ SDK は、指定された [callback function](../sdks/client-side-identity.md#ca
 ```
 
 :::info
-You need to consider how you pass the returned advertising token to SSPs. With some other approaches to client-side UID2 implementation, such as using `Prebid.js` (see [Prebid Integration Guide](integration-prebid.md)) or Google Ad Manager Secure Signals (see [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md)), the implementation includes functions that manage passing the returned advertising token. If you're using the UID2 SDK for JavaScript you'll need to manage this yourself.
+返された Advertising Token をどのように SSP に渡すかを検討する必要があります。`Prebid.js`（[Prebid Integration Guide](integration-prebid.md) を参照してください）や Google Ad Manager セキュアシグナル（[Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) を参照してください）を使用するなど、Client-Side で UID2 を実装する他のいくつかのアプローチでは、実装に、返された Advertising Token の受け渡しを管理する関数が含まれています。UID2 SDK for JavaScript を使用している場合は、これを自分で管理する必要があります。
 :::
 
 :::tip
@@ -200,7 +202,7 @@ You need to consider how you pass the returned advertising token to SSPs. With s
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
 | 4-a | N/A | ユーザーはパブリッシャーのアセットからログアウトします。 |
-| 4-b | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | 以下のように、[disconnect() function](../sdks/client-side-identity.md#disconnect-void) を使用して、first-party cookie から UID2 をクリアし、クライアントのライフサイクルを切断します。 |
+| 4-b | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | SDKは、以下に示すように、[disconnect() function](../sdks/client-side-identity.md#disconnect-void) を使用して、first-party cookie から UID2 ID をクリアし、クライアントのライフサイクルを切断します。 |
 
 ```html
 <script>
