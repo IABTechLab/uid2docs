@@ -100,7 +100,7 @@ Web インテグレーションの詳細については、[UID2 SDK for JavaScri
 | :--- | :--- | :---| :---| :---|
 | Initialization | `undefined`| `undefined`| コールバックが呼び出されるまでの初期状態です。 | N/A |
 | Identity Is Available | available |`false` | 有効な ID が正常に確立または更新されました。ターゲティング広告で Advertising Toke を使用できます。 |`ESTABLISHED` or `REFRESHED` |
-| Identity Is Temporarily Unavailable |`undefined` | `false`| Advertising Token の有効期限が切れたため、自動更新に失敗しました。[Background auto-refresh](#background-token-auto-refresh) は、Refresh Token の有効期限が切れるか、ユーザーがオプトアウトするまで施行され続けます。<br/>以下のいずれかを行うことができます:<br/>- ターゲティング広告を使わない。<br/>- ユーザーを UID2 ログインにリダイレクトし、同意フォームを表示する。<br/>NOTE: ID はのちに正常にリフレッシュされるかもしれません。&#8212;例えば、UID2 サービスが一時的に利用できなくなった場合などです。 | `EXPIRED` |
+| Identity Is Temporarily Unavailable |`undefined` | `false`| Advertising Token の有効期限が切れたため、自動更新に失敗しました。[Background auto-refresh](#background-token-auto-refresh) は、Refresh Token の有効期限が切れるか、ユーザーがオプトアウトするまで施行され続けます。<br/>以下のいずれかを行うことができます:<br/>- ターゲティング広告を使わない。<br/>- ユーザーを UID2 ログインにリダイレクトし、同意フォームを表示する。<br/>NOTE: ID はのちに正常にリフレッシュされるかもしれません。&#8212;例えば、UID2 Serviceが一時的に利用できなくなった場合などです。 | `EXPIRED` |
 | Identity Is Not Available  | `undefined`| `false`| ID が利用できず、リフレッシュできません。SDK は first-party cookie をクリアします。<br/>UID2 ベースのターゲティング広告をサイド使用するには、同意フォームを使って、ユーザーを UID2 ログインにリダイレクトする昼葉があります。 | `INVALID`, `NO_IDENTITY`, `REFRESH_EXPIRED`, or `OPTOUT` |
 
 

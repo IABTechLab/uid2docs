@@ -69,7 +69,7 @@ UID2 の連絡先に、あなたの組織を UID2 Operator として登録する
 | Item | Description |
 | :--- | :--- |
 | `{OPERATOR_IMAGE}` | コンフィギュレーションで使用する UID2 Private Operator for GCP の Docker イメージ URL です。次の例は架空のものですが、Docker イメージ URL がどのように見えるかを示しています: `https://console.cloud.google.com/artifacts/docker/uid2-prod-project/us/iabtechlab/uid2-operator/sha256:2e4fae98b688002303c6263f7c4bf95344a1d9c15fb5fcf838b59032bb9813f2`。アカウントセットアップの一環として提供されたイメージ URL を使用してください。<br/>NOTE: イメージはどちらのデプロイ環境でも有効です。 |
-| `{OPERATOR_KEY}` | UID2 サービスであなたを Private Operator として識別する、あなた専用の Operator Key です。コンフィギュレーション時に `OPERATOR_KEY` の値として使用します。この値は、あなた固有の識別子であると同時にパスワードでもあります。; 安全に保管し、共有しないでください。<br/>NOTE: デプロイ環境ごとに個別の Operator Key を渡しします。 |
+| `{OPERATOR_KEY}` | UID2 Serviceであなたを Private Operator として識別する、あなた専用の Operator Key です。コンフィギュレーション時に `OPERATOR_KEY` の値として使用します。この値は、あなた固有の識別子であると同時にパスワードでもあります。; 安全に保管し、共有しないでください。<br/>NOTE: デプロイ環境ごとに個別の Operator Key を渡しします。 |
 | Instructions | VM のセットアップ手順や該当情報へのリンクなど、追加情報の詳細です。 |
 
 UID2 アカウントの登録が完了し、gcloud CLI をインストールしたら、次のステップに進みます:
