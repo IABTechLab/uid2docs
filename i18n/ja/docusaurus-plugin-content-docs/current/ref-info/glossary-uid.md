@@ -58,6 +58,7 @@ sidebar_position: 10
 <li><a href="#gl-operator-service">Operator Service</a></li>
 <li><a href="#gl-opt-out">Opt-out</a></li>
 <li><a href="#gl-opt-out-service">Opt-Out Service</a></li>
+<li><a href="#gl-participant">Participant</a></li>
 <li><a href="#gl-private-operator">Private operator</a></li>
 <li><a href="#gl-private-operator-service">Private Operator Service</a></li>
 <li><a href="#gl-raw-uid2">Raw UID2</a></li>
@@ -195,8 +196,12 @@ JSON Web Token (JWT) は、Web 上で一方の当事者から別の当事者に�
 <dd>Opt-Out Service は、ユーザーのオプトアウト要求を管理・保存するグローバルな UID2 Service です。</dd>
 <dd>すべての UID2 Service の概要については、<a href="../intro#components">Components</a> を参照してください。</dd>
 
+<dt class="jump-anchor" id="gl-participant">Participant</dt>
+<dd>UID2 において重要な役割を果たすエンティティです。参加者には以下が含まれます: Core Administrator、Operator、DSP、データプロバイダー、広告主、パブリッシャー、費者</dd>。
+<dd>詳細については、<a href="../intro#participants">参加者</a> を参照してください。</dd>
+
 <dt class="jump-anchor" id="gl-private-operator">Private operator</dt>
-<dd>Private <a href="#gl-operator">operator</a> は、Operator Service のプライベートインスタンスを実行する事業社です。Private operator は、安全な環境で独自のリソース (ハードウェアなど)を使用して、自身のために UID2 を生成および管理します。</dd> 
+<dd>Private <a href="#gl-operator">operator</a> は、Operator Service のプライベートインスタンスを実行する事業社です。Private operator は、安全な環境で独自のリソース (ハードウェアなど)を使用して、自身のために UID2 を生成および管理します。</dd>
 
 <dt class="jump-anchor" id="gl-private-operator-service">Private Operator Service</dt>
 <dd><a href="#gl-private-operator">private operator</a> が運用する Operator Service のインスタンスです。</dd>
