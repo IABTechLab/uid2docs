@@ -9,7 +9,7 @@ sidebar_position: 04
 
 # Javascript Express Integration Guide
 
-This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) using only Javascript/Typescript changes on their website with minimum effort.
+This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) using only Javascript/Typescript client-side changes on their website with minimum effort.
 
 This guide does not apply to publishers who want to use a [private operator](../ref-info/glossary-uid.md#gl-private-operator), or want to generate tokens server-side. Those publishers should follow the [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md).
 
