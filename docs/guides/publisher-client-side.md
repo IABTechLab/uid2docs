@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 # UID2 SDK for JavaScript Integration Guide
 
-This guide is intended for publishers with web assets who want to generate identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers.
+This guide is intended for publishers with web assets who want to generate identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. This requires server-side changes such as generating UID2 tokens on the server side. If you want to integrate with UID2 via client-side Javascript changes, please read the [Javascript Express Integration Guide](integration-javascript.md) 
 
 For technical details about the SDK, see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md).
 
