@@ -72,22 +72,25 @@ UID2 SDK for Java (Server-Side) を使用すると、以下のことが容易に
 
 DSP の場合は、入札のために UID2 Advertising Token を復号化して UID2 を返すインターフェースを呼び出します。ユーザーのオプトアウトを処理する入札ロジックの詳細については、[DSPインテグレーションガイド](../guides/dsp-guide.md) を参照してください。
 
-以下の例では、Java で decrypt メソッドを呼び出しています:
+以下は、Java での decrypt メソッド呼び出しです:
 
 ```java
 import com.uid2.client.IUID2Client
-DecryptionResponse decrypt(String token)
+
+IUID2Client client = UID2ClientFactory.create(TEST_ENDPOINT, TEST_API_KEY, TEST_SECRET_KEY);
+client.refresh(); //Note that refresh() should be called once after create(), and then once per hour
+DecryptionResponse result = client.decrypt(TEST_TOKEN);
 ```
 
 ### Response Content
 
 SDK から返される利用可能な情報の概要を次の表に示します。
 
-| Property | Description |
+| Function | Description |
 | :--- | :--- |
-| `Status` | 復号結果のステータス。指定可能な値の一覧と定義については、[Response Statuses](#response-statuses) を参照してください。 |
-| `UID2` | UID2 Advertising Token に対応する raw UID2。|
-| `Established` | ユーザーがパブリッシャーと最初に UID2 を確立した時を示すタイムスタンプ。|
+| `GetStatus()` | 復号結果のステータス。指定可能な値の一覧と定義については、[Response Statuses](#response-statuses) を参照してください。 |
+| `GetUid()` | UID2 Advertising Token に対応する raw UID2。 |
+| `GetEstablished()` | ユーザーがパブリッシャーと最初に UID2 を確立した時を示すタイムスタンプ。 |
 
 ### Response Statuses
 

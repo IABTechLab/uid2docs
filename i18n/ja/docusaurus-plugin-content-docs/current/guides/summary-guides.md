@@ -25,7 +25,6 @@ sidebar_position: 01
 - [Web Integrations](#web-integrations)
 - [Mobile](#mobile)
 - [Google Ad Manager Integrations](#google-ad-manager-integrations)
-- [Prebid Integrations](#prebid-integrations)
 
 ### Web Integrations
 
@@ -33,6 +32,9 @@ sidebar_position: 01
 
 | Integration Guide                                                                           | Content Description                                                                                                                                                                            |
 | :------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Prebid.js Integration Guide](./integration-prebid.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid から渡される ID トークンを生成したいパブリッシャー向けのインテグレーションガイドです。このガイドは、Cient-Side で UID2 Token を要求したいパブリッシャー向けのもので、最も簡単な実装方法です。 |
+| [Prebid.js Advanced Integration Guide](./integration-prebid-advanced.md) | 
+UID2 とインテグレーションし、RTB ビッドストリームで Prebid から渡される ID トークンを生成したいパブリッシャー向けのインテグレーションガイドです。このガイドは、Private Operator を使用しているパブリッシャー、または Server-Side でトークンを生成したいパブリッシャー向けです。 |
 | [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md) | パブリッシャー向けのこのインテグレーションガイドでは、UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオについて説明します。|
 | [Publisher Integration Guide, Server-Only](custom-publisher-integration.md) | このインテグレーションガイドは、UID2 SDK for JavaScript を使用しないパブリッシャー向けです。|
 
@@ -52,18 +54,10 @@ Google Ad Managerとインテグレーションするパブリッシャーは、
 | Integration Guide                                                        | Content Description                                                                                                                                                                                    |
 | :----------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Publisher - Google Ad Manager Secure Signals](google-ss-integration.md) | このインテグレーションガイドは、UID2 を Google Ad Manager の**secure signals**機能 (旧称: encrypted signals from publishers、ESP)で使用するパブリッシャーに必要な追加ステップをカバーしています。 |
-| [UID2 GMA Plugin for Android Integration Guide](mobile-plugin-gma-android.md) | UID2 GMA Plugin for Android は、Google Mobile Ads (GMA) SDK を使用するパブリッシャーが、Android アプリからの広告リクエストで [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) を [secure signals](https://support.google.com/admob/answer/11556288) として送信できるようにします。 |
-| [UID2 GMA Plugin for iOS Integration Guide](mobile-plugin-gma-ios.md) | UID2 GMA Plugin for iOS は、Google Mobile Ads (GMA) SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストで [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) を [secure signals](https://support.google.com/admob/answer/11556288) として送信できるようにします。 |
-| [UID2 IMA Plugin for Android Integration Guide](mobile-plugin-ima-android.md) | UID2 Interactive Media Ads (IMA) Plugin for Android は、[Google Interactive Media Ads (IMA) SDK for Android](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side) を使用するパブリッシャーが、Android アプリからの広告リクエストで [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) を [secure signals](https://support.google.com/admob/answer/11556288) として送信できるようにします。 |
-| [UID2 IMA Plugin for iOS Integration Guide](mobile-plugin-ima-ios.md) | UID2 IMA Plugin for iOS は、[Google Interactive Media Ads SDK for iOS](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side) を使用するパブリッシャーが、iOS アプリからの広告リクエストで [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) を [secure signals](https://support.google.com/admob/answer/11556288) として送信できるようにします。 |
-
-### Prebid Integrations
-
-Prebidとインテグレーションするパブリッシャーは、以下のリソースを利用できます。
-
-| Integration Guide |  Content Description |
-| :--- | :--- |
-| [Prebid Integration Guide](integration-prebid.md) | UID2 と直接インテグレーションし、RTB ビッドストリームで Prebid から渡される ID トークンを生成したいパブリッシャー向けのインテグレーションガイド。 |
+| [UID2 GMA Plugin for Android Integration Guide](mobile-plugin-gma-android.md) | UID2 Google Mobile Ads (GMA) Plugin for Android は、[Google GMA SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) を使用するパブリッシャーが、Android アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を [secure signals](https://support.google.com/admob/answer/11556288) として送信できるようにします。 |
+| [UID2 GMA Plugin for iOS Integration Guide](mobile-plugin-gma-ios.md) | UID2 Google Mobile Ads (GMA) Plugin for iOS は、[Google GMA SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) を使用するパブリッシャーが、iOS アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を [secure signals](https://support.google.com/admob/answer/11556288) として送信できるようにします。 |
+| [UID2 IMA Plugin for Android Integration Guide](mobile-plugin-ima-android.md) | UID2 Interactive Media Ads (IMA) Plugin for Android は、[Google IMA SDK for Android](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side) を使用するパブリッシャーが、Android アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を [secure signals](https://support.google.com/admob/answer/11556288) として送信できるようにします。 |
+| [UID2 IMA Plugin for iOS Integration Guide](mobile-plugin-ima-ios.md) | UID2 Interactive Media Ads (IMA) Plugin for iOS は、[Google IMA SDK for iOS](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side) を使用するパブリッシャーが、iOS アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を [secure signals](https://support.google.com/admob/answer/11556288) として送信できるようにします。 |
 
 ## Advertiser/Data Provider Integrations
 
@@ -72,7 +66,8 @@ UID2 とインテグレーションする広告主やデータプロバイダー
 | Integration Guide                                       | Content Description                                                                            |
 | :------------------------------------------------------ | :--------------------------------------------------------------------------------------------- |
 | [Advertiser/Data Provider](./advertiser-dataprovider-guide.md)                              | この広告主やデータプロバイダー向けのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 |
-| [Snowflake Integration Guide](snowflake_integration.md) | Snowflake 内でメールアドレスから UID を生成する手順です。 |
+| [Snowflake Integration Guide](snowflake_integration.md) | Snowflake 内でメールアドレスから UID2 を生成する手順です。 |
+| [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md) | AWS Entity Resolution を使用して UID2 フレームワークとインテグレーションする手順です。 |
 
 ## DSP Integrations
 
@@ -88,6 +83,6 @@ Private Operator のインテグレーションは、以下のリソースを利
 
 | Integration Guide                                                                                | Content Description                                                                                                                                                                                                                                                           |
 | :----------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [UID2 Private Operator for Azure](operator-guide-azure-enclave.md) | IMPORTANT: このドキュメントは現在、PoC の段階です。詳細は、UID2 Administrator に [連絡](../getting-started/gs-account-setup.md#contact-info) してください。<br/>Closed Operator Service を Microsoft Azure Confidential Computing プラットフォーム上で動作させるためのセットアップ手順です。 |
-| [UID2 Private Operator for AWS](operator-guide-aws-marketplace.md)                               | AWS Marketplace のクローズドオペレーターサービスをセットアップする手順です。 |
-| [UID2 Private Operator for GCP](operator-private-gcp-confidential-space.md) | [Google Cloud](https://cloud.google.com/docs/overview/) プラットフォームの機密コンピューティングオプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) に UID2 Operator Service を設定するための手順です。 |
+| [UID2 Private Operator for AWS](operator-guide-aws-marketplace.md) | AWS Marketplace の Private Operator サービスを設定する手順です。 |
+| [UID2 Private Operator for GCP](operator-private-gcp-confidential-space.md) | [Google Cloud](https://cloud.google.com/docs/overview/) プラットフォームの Confidential Computing オプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) に UID2 Operator Service を設定する手順です。 |
+| [UID2 Private Operator for Azure](operator-guide-azure-enclave.md) | IMPORTANT: このドキュメントは現在、PoC中です。追加のガイダンスについては、UID2管理者に [連絡](../getting-started/gs-account-setup.md#contact-info) してください<br/>Microsoft Azure コンフィデンシャル コンピューティング プラットフォーム上で実行する Private Operator Service を設定する手順です。 |

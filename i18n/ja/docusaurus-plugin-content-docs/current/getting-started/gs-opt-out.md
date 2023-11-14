@@ -1,13 +1,13 @@
 ---
 title: User Opt-Out
-description: Information about user opt-out.
+description: ユーザーのオプトアウトに関する情報。
 hide_table_of_contents: false
 sidebar_position: 02
 ---
 
 # User Opt-Out
 
-Many different publishers and advertisers use UID2. Different publishers might have different opt-out processes for their individual sites; however, UID2 as a whole has very specific opt-out processes that all UID2 [participants](../ref-info/glossary-uid.md#gl-participant) are expected to honor.
+さまざまなパブリッシャーや広告主が UID2 を使用しています。しかし、UID2 全体としては、すべての UID2 [参加者](../ref-info/glossary-uid.md#gl-participant) が受け入れるべき、非常に具体的なオプトアウトプロセスがあります。
 
 <!-- It includes:
 
@@ -20,45 +20,45 @@ Many different publishers and advertisers use UID2. Different publishers might h
 
 ## How Users Can Opt Out of UID2
 
-Within the UID2 ecosystem, there are two types of opt out:
-- Opt out of the participant's site
-- Opt out of UID2
+UID2 エコシステムには、2 種類のオプトアウトがあります:
+- 参加者のサイトからのオプトアウト
+- UID2 からのオプトアウト
 
-Because each participant has their own opt-out workflow, participants are mandated to respect a user's opted-out status and therefore not create a UID2 for any user who opted out from the participant.
+各参加者には独自のオプトアウトワークフローがあるため、参加者はユーザーのオプトアウトステータスを受け入れ、したがって参加者からオプトアウトしたユーザーの UID2 を作成しないことが義務付けられています。
 
-For example, if a user opts out of a publisher's site, but has not opted out of UID2, the publisher should not generate a UID2 token for that user.  
+例えば、あるユーザーがパブリッシャーのサイトからオプトアウトしたが、UID2 からオプトアウトしていない場合、パブリッシャーはそのユーザーの UID2 Token を生成すべきではありません。 
 
-Consumers can always opt out of UID2 completely in the [Transparency and Control Portal](https://www.transparentadvertising.com/). Choose email address or phone number, enter the data, and follow the prompts.
+消費者はいつでも、[Transparency and Control Portal](https://www.transparentadvertising.com/) で UID2 を完全にオプトアウトすることができます。メールアドレスまたは電話番号を選択し、データを入力し、プロンプトに従います。
 
 :::tip
-To opt out both your email address and your phone number, do them one at a time.
+メールアドレスと電話番号の両方をオプトアウトするには、それぞれ行います。
 :::
 
 ## Difference Between Opting Out from a Single Participant and Opting Out of UID2
 
-If a consumer opts out from a specific participant, UID2 guidelines mandate that the participant no longer uses that consumer's information to create or generate a UID2, because the consumer opted out of that site specifically. Those are the requirements of the UID2 framework.
+消費者が特定の参加者からオプトアウトした場合、UID2 のガイドラインでは、その参加者は、その消費者の情報を使用して UID2 を作成したり生成したりしないことを義務付けています。これは UID2 フレームワークの要件です。
 
-In addition, if a user opts out from a specific participant, that information is not relayed to UID2. Opting out from a specific participant does not opt a consumer out of UID2.
+さらに、ユーザーが特定の参加者からオプトアウトした場合、その情報は UID2 には伝わりません。特定の参加者からオプトアウトしても、消費者が UID2 からオプトアウトされるわけではありません。
 
-The sure way for a consumer to fully opt out of UID2 is in the [Transparency and Control Portal](https://www.transparentadvertising.com/).
+消費者が UID2 を完全にオプトアウトする確実な方法は、[Transparency and Control Portal](https://www.transparentadvertising.com/) にあります。
 
 ## Opt-Out Workflow
 
-When a consumer opts out of UID2, that individual's UID2 is no longer accepted for targeted advertising anywhere in the UID2 ecosystem. However, because there is a delay in the time it takes to process and refresh UID2 information, the UID2 for a user who has opted out might be in play for a short while after opt-out. As each participant periodically refreshes their UID2s, the opt-out information is propagated to the participants.
+消費者が UID2 をオプトアウトすると、その個人の UID2 は、UID2 エコシステムのどこででも、ターゲティング広告のために受け入れられることはなくなります。ただし、UID2 情報の処理と更新にかかる時間には遅延があるため、オプトアウトしたユーザーの UID2 は、オプトアウト後もしばらくの間は有効である可能性があります。各参加者が UID2 を定期的に更新すると、オプトアウト情報が参加者に伝搬されます。
 
-The following steps provide a high-level outline of the workflow intended for users who engage with publishers or their identity providers. 
+以下のステップは、パブリッシャーまたはその ID プロバイダーと関わるユーザーを対象とした、ワークフローの概要です。
 
-1. Users visit the [Transparency and Control Portal](https://www.transparentadvertising.com/), where they can globally opt out of UID2.
-2. The Transparency and Control Portal sends the opt-out request to the UID2 [Operator Service](../ref-info/glossary-uid.md#gl-operator-service).
-3. If the user has opted out, the UID2 Operator Service distributes the opt-out information to UID2 participants, as follows:
+1. ユーザーは [Transparency and Control Portal](https://www.transparentadvertising.com/) にアクセスし、UID2 のオプトアウトをグローバルに行うことができます。
+2. Transparency and Control Portalは、オプトアウト要求を UID2 [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) に送信します。
+3. ユーザーがオプトアウトした場合、UID2 Operator Service はオプトアウト情報を UID2 参加者に以下のように配布します:
 
    | Participant | Distribution Method |
    | :--- | :--- | 
-   | Publishers | A publisher calling  [POST /token/generate](../endpoints/post-token-generate.md) with the required `optout_check` parameter set to `1`, or [POST /token/refresh](../endpoints/post-token-refresh.md), receives the opt-out response instead of the UID2 token. |
-   | DSPs | The UID2 Operator Service distributes information on all opted-out users to DSPs via a webhook provided for the purpose. For details, see [Honor User Opt-Outs](../guides/dsp-guide#honor-user-opt-outs). |
-   | Advertisers | The UID2 Operator Service distributes opt-out information to advertisers via the [POST /identity/map](../endpoints/post-identity-map.md) endpoint. |
+   | Publishers | [POST /token/generate](../endpoints/post-token-generate.md) を必須パラメータ `optout_check` を `1` に設定して呼び出したパブリッシャー、または [POST /token/refresh](../endpoints/post-token-refresh.md) を呼び出したパブリッシャーは、UID2 Token の代わりにオプトアウト応答を受け取ります。|
+   | DSPs | UID2 Operator Service は、この目的のために提供される Webhook を介して、すべてのオプトアウト済みユーザーの情報を DSP に配信します。詳細については、[Honor User Opt-Outs](../guides/dsp-guide#honor-user-opt-outs)を参照してください。 |
+   | Advertisers | UID2 Operator Serviceは、[POST /identity/map](../endpoints/post-identity-map.md) エンドポイントを介して、オプトアウト情報を広告主に配布します。 |
 
-This workflow allows users to consent to the creation of UID2 identifiers and manage their UID2 consent and privacy settings through the Transparency and Control Portal.
+このワークフローにより、ユーザーは UID2 識別子の作成に同意し、Transparency and Control Portalを通じて UID2 の同意とプライバシー設定を管理することができます。
 
 ![User Trust Workflow](images/UID2GlobalOptoutWorkflow.png)
 

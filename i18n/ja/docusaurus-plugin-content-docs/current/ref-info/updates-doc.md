@@ -1,31 +1,51 @@
 ---
 title: Documentation Updates
-description: Summary of Significant UID2 Documentation Updates
+description: 重要な UID ドキュメントの更新の概要
 hide_table_of_contents: false
 sidebar_position: 06
 ---
 
 # Documentation Updates
 
-Check out the latest updates to our UID2 documentation resources.
+UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
+
+### New: Prebid.js Integration Guide
+
+2 November 2023
+
+Prebid.js インテグレーションガイドは、既存の URL の全く新しいドキュメントで、UID2 と Prebid を統合する、Server-Side の作業を必要としない、新しくシンプルな方法を扱っています。
+
+前バージョンの Prebid ドキュメントの内容は、Private Operator を使用しているパブリッシャーや、Server-Side でトークン生成を実装することを好むパブリッシャーのために、補足ドキュメントである *Prebid.js Advanced Integration Guide* に追加されました。
+
+詳細は、以下を参照してください:
+- [Prebid.js Integration Guide](../guides/integration-prebid.md)
+- [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md)
+
+### New: Opt-Out
+
+31 October 2023
+
+新しい "getting started" トピックでは、ユーザーのオプトアウトの概要を説明します。
+
+詳細については、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 ### New: AWS Entity Resolution Integration Guide
 
 19 October 2023
 
-This new guide provides information for using [AWS Entity Resolution](https://aws.amazon.com/entity-resolution/), an identity resolution product from Amazon Web Services that allows AWS customers to integrate with the UID2 framework.
+この新しいガイドは、Amazon Web Services の ID ソリューションプロダクトである [AWS Entity Resolution](https://aws.amazon.com/entity-resolution/) を使用するための情報を提供し、AWS の顧客が UID2 フレームワークとインテグレーションできるようにします。
 
-This service allows you to map DII (email addresses or phone numbers) to raw UID2s swiftly and securely.
+このサービスでは、DII (メールアドレスまたは電話番号) を raw UID2 に迅速かつ安全にマッピングすることができます。
 
-For details, see [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md).
+詳細は [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) を参照してください。
 
 ### New: UID2 SDK for JavaScript Version 3 
 
 10 October 2023
 
-Significant documentation updates reflect the enhanced functionality of Version 3 of the UID2 SDK for JavaScript. The new documentation includes a [migration guide](../sdks/client-side-identity#migration-guide) for those upgrading from an earlier version of the SDK.
+UID2 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメントが大幅に更新されました。新しいドキュメントには、以前のバージョンの SDK からのアップグレードのための [Migration Guide](../sdks/client-side-identity#migration-guide) が含まれています。
 
-For details, see:
+詳細は:
 -  [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)
 -  [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md)
 
@@ -33,19 +53,17 @@ For details, see:
 
 30 September 2023
 
-This new guide provides information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from the Google Cloud Platform.
+この新しいガイドでは、Google Cloud Platformの Confidential Computing オプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) でUID2 Operator Service を設定するための情報を提供します。
 
-For details, see [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md).
-
+詳細は [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md) を参照してください。
 
 ### Update: Normalization and Encoding Rules
 
 7 September 2023
 
-We clarified the instructions for normalizing and encoding [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to create a raw UID2 or UID2 token.
+[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を正規化してエンコードし、raw UID2 または UID2 Token を作成する手順を明確にした。
 
-For details, see:
-
+詳細は:
 - [Email Address Hash Encoding](../getting-started/gs-normalization-encoding#email-address-hash-encoding)
 - [Phone Number Hash Encoding](../getting-started/gs-normalization-encoding#phone-number-hash-encoding)
 
@@ -53,88 +71,89 @@ For details, see:
 
 8 August 2023
 
-A new guide for publishers that provides information about the UID2 Interactive Media Ads (IMA) Plugin for Android. This plugin enables publishers who use the Google IMA SDK for Android to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as secure signals in ad requests from Android apps.
+Android 向け UID2 Interactive Media Ads（IMA）Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google IMA SDK for Android を使用するパブリッシャーが、Android アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を secure signal として送信できるようになります。
 
-For details, see [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md).
+詳細は [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) を参照してください。
 
 
 ### New: IMA Mobile Plugin for iOS
 
 8 August 2023
 
-A new guide for publishers that provides information about the UID2 Interactive Media Ads (IMA) Plugin for iOS. This plugin enables publishers who use the Google IMA SDK for iOS to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as secure signals in ad requests from iOS apps.
+iOS 向け UID2 Interactive Media Ads（IMA）Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google IMA SDK for Android を使用するパブリッシャーが、iOS アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を secure signal として送信できるようになります。
 
-For details, see [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md).
+詳細は [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) を参照してください。
 
 ### New: GMA Mobile Plugin for Android
 
 4 August 2023
 
-A new guide for publishers that provides information about the UID2 Google Mobile Ads (GMA) Plugin for Android. This plugin enables publishers who use the Google GMA SDK to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as secure signals in ad requests from Android apps.
+Android　向け UID2 Google Mobile Ads（GMA）Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google GMA SDK を使用するパブリッシャーが、Android アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を secure signal として送信できるようになります。
 
-For details, see [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md).
+詳細は [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) を参照してください。
 
 
 ### New: GMA Mobile Plugin for iOS
 
 4 August 2023
 
-A new guide for publishers that provides information about the UID2 Google Mobile Ads (GMA) Plugin for iOS. This plugin enables publishers who use the Google GMA SDK to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as secure signals in ad requests from iOS apps.
+iOS　向け UID2 Google Mobile Ads（GMA）Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google GMA SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を secure signal として送信できるようになります。
 
-For details, see [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md).
+詳細は [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) を参照してください。
 
 ### New: UID2 Website in Japanese
 
 3 August 2023
 
-The entire UID2 website is now available in Japanese as well as English.
+UID2 のウェブサイト全体が、英語だけでなく日本語でも利用できるようになりました。
 
-For details, use the language drop-down at the top of any site page, or go straight to the [Unified ID 2.0 page in Japanese](https://unifiedid.com/ja/docs/intro).
+詳細については、各サイトのページ上部にある言語ドロップダウンを使うか、直接 [Unified ID 2.0 in Japanese](https://unifiedid.com/ja/docs/intro) にアクセスしてください。
+
 
 ### New: UID2 Portal Documentation
 
 3 August 2023
 
-We published several new documentation pages to help users navigating the new UID2 Portal user interface, where you can manage your UID2 account.
+UID2 アカウントを管理できる新しい UID2 Portal ユーザーインターフェースをナビゲートするための新しいドキュメントページをいくつか公開しました。
 
-For details, see [UID2 Portal](/docs/category/uid2-portal).
+詳細は [UID2 Portal](/docs/category/uid2-portal) を参照してください。
 
 ### New: Documentation for UID2 Sharing
 
 3 August 2023
 
-We published the following new and updated documents to support use of the new UID2 sharing feature:
+新しい UID2 Sharing 機能の使用をサポートするため、以下の新規および更新ドキュメントを公開しました:
 
-- A set of new pages providing information relating to UID2 sharing, including an overview, use cases, implementation instructions, best practices, and more. See [UID2 Sharing](/docs/category/uid2-sharing).
-- Updates to the four server-side SDKs to support UID2 sharing:
+- 概要、使用例、実装手順、ベストプラクティスなど、UID2 Sharing に関連する情報を提供する一連の新しいページ。[UID2 Sharing](/docs/category/uid2-sharing) を参照してください。
+- UID2 Sharing をサポートするために4つの Server-side SDK を更新しました：
 
   - [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers)
   - [UID2 SDK for C++: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-cplusplus.md#usage-for-uid2-sharers)
   - [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers)
   - [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers)
 
-- Updates to the Snowflake feature to support UID2 sharing. See [Snowflake Integration Guide: Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers).
+- UID2 Sharing をサポートするための Snowflake 機能の更新。[Snowflake Integration Guide: Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers) を参照してください。
 
 ### New: Android SDK Guide
 
 3 August 2023
 
-A new guide for publishers that provides information about the UID2 SDK for Android, an SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers who need to support Android apps.
+パブリッシャー向けの新しいガイドでは、Android アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にする SDK、UID2 SDK for Android に関する情報を提供しています。
 
-For details, see [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md).
+詳細は [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) を参照してください。
 
 ### New: iOS SDK Guide
 
 3 August 2023
 
-A new guide for publishers that provides information about the UID2 SDK for iOS, an SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers who need to support iOS apps.
+パブリッシャー向けの新しいガイドでは、iOS アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にする SDK、UID2 SDK for iOS に関する情報を提供しています。
 
-For details, see [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md).
+詳細は [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) を参照してください。
 
-### New: Prebid Integration Guide
+<!-- ### New: Prebid Integration Guide
 
 1 August 2023
 
-A new guide for publishers who want to integrate with UID2 and generate UID2 tokens (advertising tokens) to be passed by Prebid in the RTB bid stream.
+UID2 とインテグレーションし、RTB ビッドストリームで Prebid が渡す UID2 Token (Advertising Token) を生成したいパブリッシャー向けの新しいガイドです。
 
-For details, see [Prebid Integration Guide](../guides/integration-prebid.md).
+詳細は [Prebid Integration Guide](../guides/integration-prebid.md) を参照してください。 -->

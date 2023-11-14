@@ -34,10 +34,11 @@ UID2 を使用するデータプロバイダーが得られるメリットの一
 
 データプロバイダーが UID2 を実装するために、以下のドキュメントリソースを利用できます。
 
-| Integration Type| Documentation | Content Description | Audience |
+| Integration Type | Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
 | インテグレーションガイド | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | 広告主とデータプロバイダーのためのインテグレーションガイドで、オーディエンスの構築とターゲティングのための ID マッピングのためのインテグレーションワークフローを網羅しています。 | Advertisers,<br/>Data Providers |
 | Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | Snowflakeでメールアドレスから UID を生成する手順です。 | Advertisers,<br/>Data Providers |
+| [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) | AWS Entity Resolution を使用して UID2 フレームワークとインテグレーションする手順です。 | Advertisers,<br/>Data Providers |
 
 ## Workflow for Data Providers
 

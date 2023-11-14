@@ -42,7 +42,6 @@ UID2 とインテグレーションすることで得られるメリットの一
 - [Web Integrations](#web-integrations)
 - [Mobile](#mobile)
 - [Google Ad Manager Integrations](#google-ad-manager-integrations)
-- [Prebid Integrations](#prebid-integrations)
 
 ### Web Integrations
 
@@ -50,6 +49,8 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
+| Prebid | [Prebid.js Integration Guide](../guides/integration-prebid.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid から渡される ID トークンを生成したいパブリッシャー向けのインテグレーションガイドです。このガイドは、クライアントサイドで UID2 Token を要求したいパブリッシャー向けのもので、最も簡単な実装方法です。 | Publishers |
+| Prebid | [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md) |  UID2 とインテグレーションし、RTB ビッドストリームで Prebid から渡される ID トークンを生成したいパブリッシャー向けのインテグレーションガイドです。このガイドは、Private Operator を使用しているパブリッシャー、または Server-Side でトークンを生成したいパブリッシャー向けです。| Publishers |
 | Client-Side (Web) SDK | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | Client-Side JavaScript SDK は、UID2 を使用してクライアントの identity を確立し、パブリッシャーの Advertising Token を取得するプロセスを容易にします。| Publishers |
 | Server-Side Integration Guide  | [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) | このインテグレーションガイドは、[UID2 SDK for JavaScript Integration Guide](../sdks/client-side-identity.md) を使用していないパブリッシャー向けです。 | Publishers |
 
@@ -59,8 +60,8 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
-| Mobile: IMA for Android | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) |このインテグレーションガイドは、Google Interactive Media Ads (IMA) SDK を使用するパブリッシャーが、Android アプリからの広告リクエストに UID2 token を含めることを可能にします。 | Publishers |
-| Mobile: IMA for iOS | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) | このインテグレーションガイドは、Google Interactive Media Ads (IMA) SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストに UID2 token を含めることを可能にします。 | Publishers |
+| Android | [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) |  このインテグレーションガイドは、UID2 を使用してクライアントの ID を確立し、Android デバイス上で Advertising Token を取得したいパブリッシャー向けのものです。 | Publishers |
+| iOS  | [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) |このインテグレーションガイドは、UID2 を使用してクライアントの ID を確立し、iOS デバイス上で Advertising Token を取得したいパブリッシャー向けのものです。 | Publishers |
 
 ### Google Ad Manager Integrations
 
@@ -69,18 +70,10 @@ UID2 とインテグレーションすることで得られるメリットの一
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
 | Publisher/SSP Integration with GAM | [Publisher - Google Ad Manager Secure Signals](../guides/google-ss-integration.md) | このインテグレーションガイドでは、UID2 を Google Ad Manager のセキュアシグナル機能（旧称：パブリッシャー向け暗号化シグナル、ESP）で使用するパブリッシャーに必要な追加手順について説明しています。 | Publishers |
-| Mobile: GMA for Android | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) | このインテグレーションガイドは、Google Mobile Ads（GMA）SDK を使用するパブリッシャーが、Android アプリからの広告リクエストに UID2 Token を含めることを可能にします。 | Publishers |
-| Mobile: GMA for iOS | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) | このインテグレーションガイドは、Google Mobile Ads（GMA）SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストに UID2 Token を含めることを可能にします。 | Publishers |
-| Mobile: IMA for Android | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) | このインテグレーションガイドは、Google Interactive Media Ads (IMA) SDK を使用するパブリッシャーが、Android アプリからの広告リクエストに UID2 Token を含めることを可能にします。 | Publishers |
-| Mobile: IMA for iOS | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) | このインテグレーションガイドは、Google Interactive Media Ads (IMA) SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストに UID2 Token を含めることを可能にします | Publishers |
-
-### Prebid Integrations
-
-以下のリソースは、パブリッシャーの Prebid とのインテグレーションに利用できます。
-
-| Integration Type| Documentation | Content Description | Audience |
-| :--- | :--- | :--- | :--- |
-| Prebid | [Prebid Integration Guide](../guides/integration-prebid.md) | UID2 と直接インテグレーションし、RTB ビッドストリームで Prebid から渡される identity トークンを生成したいパブリッシャー向けのインテグレーションガイドです。 | Publishers |
+| GMA for Android | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) | このインテグレーションガイドは、Google Mobile Ads（GMA）SDK を使用するパブリッシャーが、Android アプリからの広告リクエストに UID2 Token を含めることを可能にします。 | Publishers |
+| GMA for iOS | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) | このインテグレーションガイドは、Google Mobile Ads（GMA）SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストに UID2 Token を含めることを可能にします。 | Publishers |
+| IMA for Android | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) | このインテグレーションガイドは、Google Interactive Media Ads (IMA) SDK を使用するパブリッシャーが、Android アプリからの広告リクエストに UID2 Token を含めることを可能にします。 | Publishers |
+| IMA for iOS | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) | このインテグレーションガイドは、Google Interactive Media Ads (IMA) SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストに UID2 Token を含めることを可能にします。 | Publishers |
 
 ## Workflow for Publishers
 

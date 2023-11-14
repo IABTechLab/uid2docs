@@ -40,7 +40,7 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 | `email_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) した [正規化](../getting-started/gs-normalization-encoding.md#email-address-normalization) 済みメールアドレスです。 |
 | `phone`        | string    | 条件付きで必要 | トークンを生成する [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号です。                                                                               |
 | `phone_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) した、[正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号です。        |
-| `optout_check`       | number    | 必須     | トークン生成ポリシー ID は、ユーザーがオプトアウトしたかどうかをチェックします。このパラメータは `1` とします。                                                                 |
+| `optout_check`       | number    | 必須     | ユーザーがオプトアウトしたかどうかをチェックします。このパラメータは `1` とします。                                                                 |
 
 ### Request Examples
 
@@ -147,9 +147,9 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","optout_chec
 
 ## Test Identities
 
-| Type  | Identity             | Purpose                                                                                                                                 | Next Endpoint                                  |
-| :---- | :------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------- |
-| Email | `validate@email.com` | キャッシュした `advertising_token` が、指定したメールアドレスの `advertising_token` と一致するかどうかをテストします。                  | [POST /token/validate](post-token-validate.md) |
-| Email | `optout@email.com`   | このメールアドレスをリクエストに使用すると、常に `refresh_token` を使用した identity レスポンスが生成され、`optout` のレスポンスになります。 | [POST /token/refresh](post-token-refresh.md)   |
-| Phone | `+12345678901`       | キャッシュした `advertising_token` が、指定した電話番号の `advertising_token` と一致するかどうかをテストします。                        | [POST /token/validate](post-token-validate.md) |
-| Phone | `+00000000000`       | この電話番号をリクエストに使用すると、常に `refresh_token` を含む identity レスポンスが生成され、`optout` のレスポンスになります。           | [POST /token/refresh](post-token-refresh.md)   |
+| Type  | Identity             | Purpose                                                                                                                                 |
+| :---- | :------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| Email | `validate@email.com` | キャッシュした `advertising_token` が、指定したメールアドレスの `advertising_token` と一致するかどうかをテストします。                  |
+| Email | `optout@email.com`   | このメールアドレスをリクエストに使用すると、常に `refresh_token` を使用した identity レスポンスが生成され、`optout` のレスポンスになります。 | 
+| Phone | `+12345678901`       | キャッシュした `advertising_token` が、指定した電話番号の `advertising_token` と一致するかどうかをテストします。                        |
+| Phone | `+00000000000`       | この電話番号をリクエストに使用すると、常に `refresh_token` を含む identity レスポンスが生成され、`optout` のレスポンスになります。           |

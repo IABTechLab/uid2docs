@@ -58,6 +58,7 @@ sidebar_position: 10
 <li><a href="#gl-operator-service">Operator Service</a></li>
 <li><a href="#gl-opt-out">Opt-out</a></li>
 <li><a href="#gl-opt-out-service">Opt-Out Service</a></li>
+<li><a href="#gl-participant">Participant</a></li>
 <li><a href="#gl-private-operator">Private operator</a></li>
 <li><a href="#gl-private-operator-service">Private Operator Service</a></li>
 <li><a href="#gl-raw-uid2">Raw UID2</a></li>
@@ -146,11 +147,8 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-enclave">Enclave</dt>
 <dd>Enclave は、コンピューティング環境のセキュアなサブセクションです。エンクレーブには追加のビジネスロジックとセキュリティ対策が施され、改ざんできないようになっています。</dd>
-<dd>UID2 のコンテキストでは、 <a href="#gl-private-operator">private operator</a> は、Enclave 内かプライベート環境で運用しなければなりません。must run inside an enclave or in a private environment. サポートされるエングレーブのバージョンは次のとおりです:<br/>
-- <a href="https://aws.amazon.com/ec2/nitro/">AWS Nitro</a>: <a href="../guides/operator-guide-aws-marketplace">UID2 Private Operator for AWS Integration Guide</a> を参照してください。<br/>
-- Google Cloud Platform <a href="https://cloud.google.com/confidential-computing#confidential-space">Confidential Space</a>: <a href="../guides/operator-private-gcp-confidential-space">UID2 Private Operator for GCP Integration Guide</a> を参照してください。<br/>
-- <a href="https://learn.microsoft.com/en-us/azure/confidential-computing/">Microsoft Azure confidential computing</a>: <a href="../guides/operator-guide-azure-enclave">UID2 Private Operator for Azure Integration Guide</a> を参照してください。</dd>
-<dd>エンクレーブでは、オペレータ・イメージは非常に特殊で、事前に定義されたバージョンでなければならず、セキュリティを確保するために追加の制約が適用されます。</dd>
+<dd>ID2 のコンテキストでは、 <a href="#gl-private-operator">private operator</a> は、Enclave 内かプライベート環境で運用しなければなりません。must run inside an enclave or in a private environment. サポートされるエングレーブのバージョンについては、<a href="../guides/summary-guides#private-operator-service-integrations">Private Operator Service Integrations</a>　を参照してください。</dd>
+<dd>Enclave　では、オペレータイメージは特殊で、事前に定義されたバージョンでなければならず、セキュリティを確保するために追加の制約が適用されます。</dd>
 
 <dt class="jump-anchor" id="gl-first-level-hash">First-level hash</dt>
 <dd>
@@ -198,8 +196,12 @@ JSON Web Token (JWT) は、Web 上で一方の当事者から別の当事者に�
 <dd>Opt-Out Service は、ユーザーのオプトアウト要求を管理・保存するグローバルな UID2 Service です。</dd>
 <dd>すべての UID2 Service の概要については、<a href="../intro#components">Components</a> を参照してください。</dd>
 
+<dt class="jump-anchor" id="gl-participant">Participant</dt>
+<dd>UID2 において重要な役割を果たすエンティティです。参加者には以下が含まれます: Core Administrator、Operator、DSP、データプロバイダー、広告主、パブリッシャー、費者</dd>。
+<dd>詳細については、<a href="../intro#participants">参加者</a> を参照してください。</dd>
+
 <dt class="jump-anchor" id="gl-private-operator">Private operator</dt>
-<dd>Private <a href="#gl-operator">operator</a> は、Operator Service のプライベートインスタンスを実行する事業社です。Private operator は、安全な環境で独自のリソース (ハードウェアなど)を使用して、自身のために UID2 を生成および管理します。</dd> 
+<dd>Private <a href="#gl-operator">operator</a> は、Operator Service のプライベートインスタンスを実行する事業社です。Private operator は、安全な環境で独自のリソース (ハードウェアなど)を使用して、自身のために UID2 を生成および管理します。</dd>
 
 <dt class="jump-anchor" id="gl-private-operator-service">Private Operator Service</dt>
 <dd><a href="#gl-private-operator">private operator</a> が運用する Operator Service のインスタンスです。</dd>
