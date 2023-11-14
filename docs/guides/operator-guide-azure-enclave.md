@@ -9,129 +9,169 @@ sidebar_position: 18
 
 # UID2 Private Operator for Azure Integration Guide
 
->IMPORTANT: This documentation is currently only a proof of concept. For additional guidance, [contact](../getting-started/gs-account-setup.md#contact-info) the UID2 administrator.
+This guide provides information for setting up the UID2 Operator Service in Confidential Container, a confidential computing option from Azure. Confidential containers run in a hardware backed Trusted Execution Environment (TEE) that provide intrinsic capabilities like data integrity, data confidentiality and code integrity.
+|NOTE: UID2 Private Operator for Azure is not supported in these areas: Europe, China.
 
-UID2 Operator service can be run within a trusted computing enclave powered by Intel SGX technology.
+## Overview
 
-1. [Build](#build)
-2. [Test Run](#test-run)
-3. [Deployment](#deployment)
+When the Docker container for the UID2 Operator Confidential Container starts up, it completes the attestation process that allows the UID2 Core Service to verify the authenticity of the Operator Service and the enclave environment that the Operator Service is running in. 
+When the attestation is successful, the UID2 Core Service provides seed information such as salts and keys to bootstrap the UID2 Operator in the secure UID2 Operator Confidential Container. 
 
-The Operator codebase contains scripts to package the service that make it possible for it to be deployed in either of the following ways:
 
-- (Recommended)To Azure Kubernetes Service (AKS)
-- Run directly on an Azure VM
 
->NOTE: Building and running SGX enclave is powered by [Occlum](https://github.com/occlum/occlum), an open
-source LibOS implementation.
+## Prerequisites
 
-## Build
-
-To build, follow the steps in these sections, in sequence.
-
-### Prerequisites
-
-Make sure the following prerequisites are in place.
-
- - You must run the build on an Intel SGX enabled machine; tested configuration is Standard_DC8_v2
-   VM running on Azure.
- - Operating system must be Ubuntu 18.04 LTS (recommended Azure Image is of the "Server" variant)
- - Once you have the machine up and running, launch `setup_build_vm.sh` from the `uid2-attestation-azure` repo to install the necessary dependencies.
- - You have sudo permissions during the build.
-
-### Steps
-
-1. Make sure the operator service is built using the `azure` profile:
-
-```
-# From the root source folder
-export enclave_platform=azure-sgx
-./setup_dependencies.sh
-mvn package -P azure
-```
-
-2. While in the `scripts/azure` directory, choose one of the operator config files to include
-in the enclave. The configs are available under `conf/` folder and you should omit the `-config.json`
-suffix.
-
-3. Build the enclave and the docker image and specify the config file to use. For example:
-
-```
-./build.sh prod
-```
-### Artifacts
-
-The build script produces a few artifacts:
-
- - `ghcr.io/iabtechlab/uid2-operator-azure-occlum:dev` -- docker image containing occlum and the UID2 operator service enclave.
- - `build/uid2-operator-azure-sgx.tar.gz` -- tarball of the docker image above.
- - `build/uid2-operator/uid2-operator.tar.gz` -- tarball of the occlum enclave package.
- - output of `sgx_quote` application within the container -- this verifies that the occlum enclave can be launched and gives you basic details about the enclave (MRSIGNER, MRENCLAVE, PRODID, SVN).
-
-## Test Run
-
-You can test run the built image locally on the build box:
-
- - `./run.sh` -- starts the operator service
- - `./run.sh occlum run /bin/sgx_quote` -- dump basic information about the enclave
-
+1. Ask your UID2 contact to register your organization as a UID2 Operator. If you're not sure who to ask, see Contact Info. 
+When the registration process is complete, you will receive an OPERATOR_KEY, and a link to Azure enclave GitHub release page (e.g. https://github.com/IABTechLab/uid2-operator/releases/tag/v5.20.39-SNAPSHOT-azure-cc , [TBD]). 
+OPERATOR_KEY: An operator key, exclusive to you, that identifies you with the UID2 service as a private operator. Use this as the OPERATOR_KEY value during configuration. This value is both your unique identifier and a password; store it securely and do not share it. 
+In GitHub release page, you can find below artifacts, which will be used by later deployment. 
+uid2-operator-deployment-artifacts-5.20.39-SNAPSHOT-azure-cc.zip
+ 
+2. Install Azure Cli: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli 
+ 
+3. Azure Permission 
+You need to have subscription owner permission to create resource group. 
+Afterwards, you only need contributor permission on that resource group level. 
+ 
 ## Deployment
 
-To deploy, follow the steps in these sections, in sequence.
+To deploy, complete the following steps:
 
-### Configuration
+1. Download deployment artifacts.
 
-The following environment variables need to be set for the Operator enclave (either via docker or via a k8s deployment):
+2. Create resource group.
 
- - `core_api_token` -- API token to connect to the Core service
- - `optout_api_token` -- API token to connect to the UID2 OptOut service
+3. Set up key value and save operator key to it.
 
-### AKS (Recommended)
+4. Set up VPC network.
+ 
+### Download deployment artifacts 
 
-1. Prepare an AKS cluster and node pool(s) according to your organization policies and be sure to [enable confidential computing](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-enclave-nodes-aks-get-started).
+Download the deployment artifacts from the release page. E.g. https://github.com/IABTechLab/uid2-operator/releases/tag/v5.20.39-SNAPSHOT-azure-cc [TBD] 
+Unzip uid2-operator-deployment-artifacts.zip file, the below files will be used in later sections: 
+vault.json & vault.parameters.json 
+vnet.json & vnet.parameters.json 
+operator.json & operator.parameters.json 
+gateway.json & gateway.parameters.json 
+ 
+### Create Resource Group 
+Run the commands below to create a resource group to run the UID2 operator 
+az group create --name {RESOURCE_GROUP_NAME} --location {LOCATION} 
+ 
+All the resources will be provisioned under this {RESOURCE_GROUP_NAME} later. 
+For location, please note: UID2 Private Operator for Azure is not supported in these areas: Europe, China. 
+Also check Resource availability by region - Azure Container Instances | Microsoft Learn 
+ 
+### Set Up Key Vault and Save Operator Key
+In this section we will set up a key vault and save the operator key in it. 
+We will also create a managed identity and grant it permission to access the created key vault. 
+Later ACIs will launch as this identity. 
+ 
+Below are the setup steps: 
+1. Update the vault.parameters.json file. 
+Required: 
+vaultName: the name of Key Vault for hosting the operator key secret. This name has to be globally unique. 
+operatorKeyValue: the operator key secret value, you should have received from UID2 team 
+Optional (In most cases you don’t need to update these parameters, we will provide default value): 
+operatorIdentifier: the name of the managed identity that will launch the container. Defaults to “uid-operator” 
+operatorKeyName: the operator key secret name. Defaults to “uid-operator” 
+ 
+2. Run the following command: 
+az deployment group create --name vault --resource-group {RESOURCE_GROUP_NAME} --parameters vault.parameters.json --template-file vault.json 
+ 
+### Set Up VPC Network
 
-2. Make the docker image available in your docker repository (e.g. Azure Container Service). For example:
+In this section we will set up the VPC network. 
+The following diagram illustrates the virtual private cloud that hosts private operators. 
 
-```
-cat uid2-operator-azure-sgx.tar.gz | docker import - uid20.azurecr.io/uid2/operator/occlum:0.2
-docker push uid20.azurecr.io/uid2/operator/occlum:0.2
-```
+(**GWH DIAGRAM HERE**)
 
-3. Craft the k8s deployment and service as required. You can use `uid2-operator-aks.yml` as an example.
+Below are the setup steps: 
+1. Update the vnet.parameters.json file. 
+Optional (In most cases you don’t need to update these parameters, we will provide default value): 
+vnetName: the virtual network name. Defaults to "unified-id-network" 
+computeSubnetName: the name of subnet that runs Operator. Defaults to “unified-id-subnet-operators” 
+gatewaySubnetName: the name of subnet that runs Gateway. Defaults to “unified-id-subnet-gateway” 
+VnetAddressPrefix: the vnet address prefix. Default to “10.0.0.0/20” 
+computeSubnetPrefix: the vnet address prefix of subnet that is delegated to run Operator. Defaults to “10.0.0.0/24” 
+gatewaySubnetPrefix: the vnet address prefix of subnet that runs Gateway. Defaults to “10.0.0.0/28” 
+ 
+2. Run the commands below: 
+az deployment group create --name vnet --resource-group {RESOURCE_GROUP_NAME} --parameters vnet.parameters.json  --template-file vnet.json
 
->IMPORTANT: Make sure that the operator image targets SGX enabled nodes (for example, by specifying a resource limit
-for `kubernetes.azure.com/sgx_epc_mem_in_MiB`).
+## Implementation
 
-Operator service is designed to run on Standard_DC8_v2 instances. Running on smaller nodes is not supported.
-Running multiple operator service instances on same node is not supported.
+To implement xxx, complete the following steps:
 
-### Advanced Deployment Options
+1. Set up operator.
 
->IMPORTANT: These are not recommended practices, but they may be useful for testing purposes.
+2. Set up Azure Gateway load balancer.
 
-#### Docker
 
-Make sure the host has Intel SGX DCAP driver installed and configured. Follow the steps from the AKS section
-to make the operator docker image available for running.
 
-Example of running the image:
+ 
+### Set Up Operator
+In this section we will bring up multiple Azure container instances in created VPC sub network. 
+ 
+Below are the setup steps: 
+1. Update the operator.parameters.json file. 
+In most cases you don’t need to update these parameters. 
+Required: 
+vaultName: the name of Key Vault for hosting the operator key secret. Must be same as you created in Step “Key vault & Managed identity setup” 
+operatorKeyName: the operator key secret name. Must be same as you created in Step “Key vault & Managed identity setup” 
+deploymentEnvironment: “integ” for integration environment, “prod” for production environment. 
+Optional (In most cases you don’t need to update these parameters, we will provide default value): 
+operatorIdentifier: the name of the managed identity that will launch the container. Must be same as you created in Step “Key vault & Managed identity setup” 
+vnetName: the virtual network name. Must be same as you created in Step “Network setup” 
+computeSubnetName: the name of subnet that runs Operator. Must be same as you created in Step “Network setup” 
+count: the instance count you want to bring up. Defaults to 2. 
+ 
+2. Run the commands below to deploy ACIs: 
+az deployment group create --name opeator --resource-group {RESOURCE_GROUP_NAME} --parameters operator.parameters.json  --template-file operator.json 
+ 
+3. Get the IPs of created ACI instances 
+az deployment group show -g {RESOURCE_GROUP_NAME} -n operator --query properties.outputs 
+You should see output like below: 
+{ "ipAddress": { "type": "Array", "value": [ "10.0.0.6", "10.0.0.5", "10.0.0.4" ] } } 
+ 
+ 
+### Set up Azure Gateway Load Balancer
+In this section we will set up Gateway load balancer. 
+The load balancer will use private IPs of those ACIs as backend pool. 
+ 
+Below are the setup steps: 
+1. Update the gateway.parameters.json file. 
+Required: 
+containerGroupIPs: the IPs of ACIs. The output of Setup “Operator setup” 
+Optional (In most cases you don’t need to update these parameters, we will provide default value): 
+vnetName: the virtual network name. Must be same as you created in Step “Network setup” 
+gatewaySubnetName: the name of subnet that runs Gateway. Must be same as you created in Step “Network setup” 
+ 
+2. Run the commands below: 
+az deployment group create --name gateway --resource-group {RESOURCE_GROUP_NAME} --parameters gateway.parameters.json  --template-file gateway.json 
+ 
+3. You can get the public IP of Gateway Load Balancer from 
+az deployment group show -g {RESOURCE_GROUP_NAME} -n gateway--query properties.outputs 
+You should see output like below: 
+{ "gatewayIP": { "type": "String", "value": "20.163.172.56" } } 
+NOTE: Azure backend pool will not be automatically updated with new container IPs if containers update. See https://learn.microsoft.com/en-us/azure/architecture/web-apps/guides/networking/automation-application-gateway for azure recommended solutions.
+ 
+## Running the Health Check 
 
-```
-docker run \
-        --device /dev/sgx/enclave --device /dev/sgx/provision \
-        -p 8080:8080 \
-        -p 9091:9091 \
-        ghcr.io/iabtechlab/uid2-operator-azure-occlum:dev
-```
+To test the health of your implementation, call the health check endpoint.
 
-#### Direct Invocation of Occlum (Advanced)
+Running the health check is the same for the integration and production environments, except for the endpoints. 
+To test operator status, in your browser, go to http://{LB_IP}/ops/healthcheck. 
+An HTTP 200 with a response body of OK indicates healthy status. 
+ 
+## Upgrading 
 
-You can also run the occlum enclave either from host VM or from your own docker image:
-
-```
-tar xvf uid2-operator.tar.gz
-cd uid2-operator
-occlum run /bin/launcher
-```
-
-Dockerfile under `scripts/azure` in the Operator codebase has full details on preparing the occlum enclave package for execution.
+When a new version of UID2 Azure Confidential Container is released, private operators receive an email notification of the update, with a new release link. There is a window of time for upgrade, after which the older version is deactivated and is no longer supported. 
+You need to
+Re-Run step “ACI setup” with new ARM file in release page to deploy ACIs with new versions. 
+Re-Run step “LB setup” to add those new ACIs to backend pool. 
+Ensure the new ACIs are showing success health 
+az network application-gateway show-backend-health --resource-group {RESOURCE_GROUP_NAME} --name uid-operator-gateway 
+Clean up old ACIs from LB: re-Run step “LB setup” to remove old ACIs from backend pool. 
+Showdown old ACIs.
+for i in {0..COUNT}; az container delete --name uid-operator-OLD-VERSION-$i --resource-group {RESOURCE_GROUP} --yes 
