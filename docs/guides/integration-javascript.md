@@ -22,8 +22,8 @@ UID2 provides a UID2 SDK for Javascript (TODO add links!!!) with the following f
 You'll need to complete the following steps:
 
 1. [Complete UID2 account setup](#complete-uid2-account-setup)
-2. [Add UID2 SDK For Javascript to Your Site](#add-js-to-your-site)
-3. [Configure the UID2 SDK For Javascript](#configure-the-uid2-sdk-for-javascript)
+2. [Add UID2 SDK For JavaScript to Your Site](#add-js-to-your-site)
+3. [Configure the UID2 SDK For JavaScript](#configure-the-uid2-sdk-for-javascript)
 4. [Retrieving the UID2 Advertising Token](#retrieving-the-uid2-advertising-token)
 
 
@@ -42,16 +42,16 @@ For an example application, see this example:
 
 ## Complete UID2 Account Setup
 
-Complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page. As part of the account setup process, you'll need to provide a list of domain names for the sites that you'll be using with this UID2 SDK for Javascript.
+Complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page. As part of the account setup process, you'll need to provide a list of domain names for the sites that you'll be using with this UID2 SDK for JavaScript.
 
 When account setup is complete, you'll receive a **public key** and **subscription ID**. These values are unique to you, and you'll use them to configure the UID2 module.
 
 :::tip
-Only root-level domains are required for account setup. For example, if you're going to use UID2 SDK for Javascript on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
+Only root-level domains are required for account setup. For example, if you're going to use UID2 SDK for JavaScript on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
 
 
-## Add UID2 SDK For Javascript to Your Site
+## Add UID2 SDK For JavaScript to Your Site
 
 The following code illustrates the different SDK events that we will respond to.
 
@@ -118,7 +118,7 @@ __uid2.init({
 });
 ```
 
-## Configure the UID2 SDK For Javascript
+## Configure the UID2 SDK For JavaScript
 
 UID2 will provide the publisher with the following values required to use the client-side token generation feature:
 
@@ -233,11 +233,11 @@ With the setup above, when the UID2 SDK generates a UID2 token, the advertising 
 </script>
 ```
 
-See more info and typescript example on [getAdvertisingToken API reference](../sdks/client-side-identity#getadvertisingtoken-string)
+See more info and Typescript example on [getAdvertisingToken API reference](../sdks/client-side-identity#getadvertisingtoken-string)
 
 There is another call ```getAdvertisingTokenAsync``` which can return a ```Promise``` string for the latest advertising token.   
 
-See more info and typescript example on [getAdvertisingTokenAsync API reference](../sdks/client-side-identity#getadvertisingtokenasync-promise)
+See more info and Typescript example on [getAdvertisingTokenAsync API reference](../sdks/client-side-identity#getadvertisingtokenasync-promise)
 
 ```js
 <script>
@@ -275,7 +275,7 @@ If there was a problem generating the token, find the request in the Network tab
 
 ## Example code: Hashing and Base64-encoding
 
-The following codes are examples on how to generate email and phone hashes in Javascript.
+The following codes are examples on how to generate email and phone hashes in JavaScript.
 
 ```js
 async function hash(value) {
