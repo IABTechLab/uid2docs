@@ -1,19 +1,19 @@
 ---
-title: Javascript Express Integration
-sidebar_label: Javascript Express Integration
-pagination_label: Javascript Express Integration
-description: Information about integrating with UID2 SDK for Javascript as part of your UID2 implementation.
+title: JavaScript Express Integration
+sidebar_label: JavaScript Express Integration
+pagination_label: JavaScript Express Integration
+description: Information about integrating with UID2 SDK for JavaScript as part of your UID2 implementation.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-# Javascript Express Integration Guide
+# JavaScript Express Integration Guide
 
-This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) using only Javascript/TypeScript client-side changes on their website with minimum effort.
+This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) using only JavaScript/TypeScript client-side changes on their website with minimum effort.
 
 This guide does not apply to publishers who want to use a [private operator](../ref-info/glossary-uid.md#gl-private-operator), or want to generate tokens server-side. Those publishers should follow the [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md).
 
-UID2 provides a UID2 SDK for Javascript (TODO add links!!!) with the following features:
+UID2 provides a UID2 SDK for JavaScript (TODO add links!!!) with the following features:
 
 - UID2 token generation
 - Automatic refreshing of UID2 tokens
