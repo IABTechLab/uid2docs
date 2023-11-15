@@ -9,7 +9,7 @@ sidebar_position: 04
 
 # Javascript Express Integration Guide
 
-This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) using only Javascript/Typescript client-side changes on their website with minimum effort.
+This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) using only Javascript/TypeScript client-side changes on their website with minimum effort.
 
 This guide does not apply to publishers who want to use a [private operator](../ref-info/glossary-uid.md#gl-private-operator), or want to generate tokens server-side. Those publishers should follow the [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md).
 
@@ -233,11 +233,11 @@ With the setup above, when the UID2 SDK generates a UID2 token, the advertising 
 </script>
 ```
 
-See more info and Typescript example on [getAdvertisingToken API reference](../sdks/client-side-identity#getadvertisingtoken-string)
+See more info and TypeScript example on [getAdvertisingToken API reference](../sdks/client-side-identity#getadvertisingtoken-string)
 
 There is another call ```getAdvertisingTokenAsync``` which can return a ```Promise``` string for the latest advertising token.   
 
-See more info and Typescript example on [getAdvertisingTokenAsync API reference](../sdks/client-side-identity#getadvertisingtokenasync-promise)
+See more info and TypeScript example on [getAdvertisingTokenAsync API reference](../sdks/client-side-identity#getadvertisingtokenasync-promise)
 
 ```js
 <script>
