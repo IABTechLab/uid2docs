@@ -1,8 +1,10 @@
-The content on this page has been moved. The new location is on the Unified ID website: [Unified ID 2.0 Overview](https://unifiedid.com/docs/intro).
+# UID2 Documentation
 
-Follow one of these links for the information you're looking for:
+>Note: The new location for viewing UID2 documentation content is on the Unified ID website: [Unified ID 2.0 Overview](https://unifiedid.com/docs/intro).
 
-- [Unified ID 2.0 Overview on the Unified ID website](https://unifiedid.com/docs/intro)
-- [UID2 API v1 to v2 Upgrade Guide in GitHub](api/v2/upgrades/upgrade-guide.md)
-- [Unified ID 2.0 Overview in Japanese](README-ja.md)
-- [Information about how to contribute to the repository](CONTRIBUTING.md)
+This repository contains all the content files and supporting site infrastructure for the [Unified ID 2.0 website](https://unifiedid.com). Site content is available in the following languages:
+
+- English (US)
+- Japanese
+
+For information about build tools and about contributing to this repository, see [CONTRIBUTING.md](CONTRIBUTING.md).
