@@ -30,7 +30,7 @@ The guide outlines the [basic steps](#integration-steps) that you need to consid
 - Manage UID2 identity information and use it for targeted advertising
 - Refresh UID2 tokens
 - Deal with missing identities
-- Manage user opt-outs
+- Manage user opt-outs 
 
 See also [FAQs](#faqs).
 
