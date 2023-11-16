@@ -237,9 +237,16 @@ After calling the methods mentioned above successfully, an Identity (TODO add li
 The format of the object stored under in local storage could change without notice. Therefore it is not recommended to read and update the object in local storage directly. 
 :::
 
-## Retrieving the UID2 Advertising Token and Example Integration Codes
+## Example Integration Codes and When to Pass DII to the UID2 SDK
 
-Once a UID2 Token is generated or refreshed, the advertising token (TODO add link to glossary!) you would send to bidstream will be available by waiting for the ```IdentityUpdated``` event from the SDK, for example, see how the value for ```advertising_token_to_use``` is set below:
+When this is the first page load with no identity (TODO link to glossary!), you will need to call one of the aforementioned ```setIdentity``` methods with a DII to start the token generation call. Once an identity (TODO link to glossary!) is generated, the advertising token (TODO link to glossary!) you would send to bidstream will be available by waiting for the ```IdentityUpdated``` event from the SDK, for example, see how the value for ```advertising_token_to_use``` is set in the code snippet below.
+
+In some cases, the user's DII is not available on page load, and getting the DII has some associated cost. For example, an API call might be required to fetch the DII, or the user has to be prompted to provide the DII information.
+
+You can potentially avoid that cost by checking for an existing token that you can use or refresh - simply calling
+[__uid2.isloginrequired](../sdks/client-side-identity#isloginrequired-boolean) which returns a boolean and if it returns true, this means UID2 SDK is unable to create a new advertising token with the existing resource and a DII is required to generate a brand new UID2 token.
+
+The following code snippets demonstrate how you might integrate with UID2 SDK for JavaScript for the two scenarios above - starts with no token as well as reusing/refresh any existing UID2 token if found. 
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
@@ -285,12 +292,18 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
         // }
         var advertising_token_to_use = payload.identity.advertising_token;
       } else {
-        // Call one of the setIdentityFrom functions to generate a new UID2 token.
-        // Add any retry logic around this call as required.
-        await __uid2.setIdentityFromEmailHash(
-          emailHash,
-          clientSideConfig
-        );
+          if (__uid2.isLoginRequired()) {
+            // Call one of the setIdentityFrom functions to generate a new UID2 token.
+            // Add any retry logic around this call as required.
+            await __uid2.setIdentityFromEmailHash(
+                emailHash,
+                clientSideConfig
+          );
+          else {
+            // there is a token generation API call in flight which will trigger
+            // a IdentityUpdated event 
+          }
+        }
       }
       break;
  
@@ -305,54 +318,6 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
 </script>
 ```
 
-## When to Pass DII to the UID2 SDK
-
-If possible, configure the UID2 SDK with the user's DII on each page load.
-
-When the UID2 SDK is configured, it checks for an existing UID2 token in the user's browser. If there is an existing token that was generated from the same DII, and the token is still valid or can be refreshed, the SDK uses or refreshes the existing token instead of generating a new token.
-
-If there is no existing token, or the token has expired and cannot be refreshed, the UID2 SDK cannot generate a new token without DII.
-
-As a result, the recommended approach is on every page load, call one of the following methods with the user's DII:
-
-*  ```__uid2.setIdentityFromEmail```
-*  ```__uid2.setIdentityFromEmailHash```
-*  ```__uid2.setIdentityFromPhone```
-*  ```__uid2.setIdentityFromPhoneHash```
-
-In some cases, the user's DII is not available on page load, and getting the DII has some associated cost. For example, an API call might be required to fetch the DII, or the user has to be prompted to provide the DII information.
-
-You can potentially avoid that cost by checking for an existing token that you can use or refresh - simply calling
-[getAdvertisingTokenAsync](../sdks/client-side-identity#getadvertisingtokenasync-promise) which returns a promise and if it returns an error, this means UID2 SDK is unable to create a new advertising token with the existing resource and therefore requires the publishers to provide the DII again by calling one of the methods above. Here is an example:
-
-```js
-<script>
-
-  // UID2 will provide these configuration values to the publisher.
-  const clientSideConfig = {
-   subscriptionId: "...",
-   serverPublicKey: "...",
-  };
-    
-  __uid2.getAdvertisingTokenAsync()
-    .then(advertisingToken => { 
-            /* an advertising token is available */
-            var advertising_token_to_use = payload.identity.advertising_token;
-          })
-    .catch(err => {
-        // there is no advertising token available, you have to provide a DII and call one of the setIdentity methods again
-        var emailHash = /* populate this */;
-        // make the call to generate new identity again 
-        await __uid2.setIdentityFromEmailHash(
-          emailHash,
-          clientSideConfig
-        );
-  });
-</script>
-```
-
-
-
 ## Checking the Integration
 
 To check that the token was successfully generated, use the browser's developer tools to look for the token in local storage.
@@ -364,7 +329,7 @@ If there was a problem generating the token, find the request in the Network tab
 ![Publisher Workflow](images/NetworkTraffic.png)
 
 
-## Example code: Hashing and Base64-encoding
+## Example codes: Hashing and Base64-encoding
 
 The following codes are examples on how to generate email and phone hashes in JavaScript.
 
