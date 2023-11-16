@@ -58,7 +58,7 @@ Only root-level domains are required for account setup. For example, if you're g
 The following code illustrates the different events that the SDK can trigger.
 
 ```js
-<script defer src="{{ UID2_JS_SDK_URL }}"></script>
+<script async src="{{ UID2_JS_SDK_URL }}"></script>
  
 <script>
  
@@ -242,7 +242,7 @@ The format of the object stored under in local storage could change without noti
 Once a UID2 Token is generated or refreshed, the advertising token (TODO add link to glossary!) you would send to bidstream will be available by waiting for the ```IdentityUpdated``` event from the SDK, for example, see how the value for ```advertising_token_to_use``` is set below:
 
 ```js
-<script defer src="{{ UID2_JS_SDK_URL }}"></script>
+<script async src="{{ UID2_JS_SDK_URL }}"></script>
  
 <script>
  
