@@ -40,7 +40,8 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 パブリッシャーが UID2 を実装するために、以下のドキュメントリソースが利用可能です:
 - [Web Integrations](#web-integrations)
-- [Mobile](#mobile)
+- [Mobile Integrations](#mobile-integrations)
+- [Prebid Integrations](#prebid-integrations)
 - [Google Ad Manager Integrations](#google-ad-manager-integrations)
 
 ### Web Integrations
@@ -54,7 +55,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 | Client-Side (Web) SDK         | [UID2 SDK for JavaScript](../sdks/client-side-identity.md)                            | Client-Side JavaScript SDK は、UID2 を使用してクライアントの identity を確立し、パブリッシャーの Advertising Token を取得するプロセスを容易にします。                                                                                                                           | Publishers |
 | Server-Side Integration Guide | [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) | このインテグレーションガイドは、[UID2 SDK for JavaScript Integration Guide](../sdks/client-side-identity.md) を使用していないパブリッシャー向けです。                                                                                                                           | Publishers |
 
-### Mobile
+### Mobile Integrations
 
 以下のリソースは、パブリッシャーの Android または iOS デバイスとのインテグレーションに利用できます。
 
@@ -62,6 +63,16 @@ UID2 とインテグレーションすることで得られるメリットの一
 | :--------------- | :---------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------- |
 | Android          | [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) | このインテグレーションガイドは、UID2 を使用してクライアントの ID を確立し、Android デバイス上で Advertising Token を取得したいパブリッシャー向けのものです。 | Publishers |
 | iOS              | [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)         | このインテグレーションガイドは、UID2 を使用してクライアントの ID を確立し、iOS デバイス上で Advertising Token を取得したいパブリッシャー向けのものです。     | Publishers |
+
+### Prebid Integrations
+
+Google Ad Manager とインテグレーションするパブリッシャーには、以下のリソースがあります。
+
+
+| Integration Type |                                  Documentation                                   |                                                                                                                               Content Description                                                                                                                               |  Audience  |
+| :--------------- | :------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :--------- |
+| Prebid           | [Prebid.js Integration Guide](../guides/integration-prebid.md)                   | UID2 とインテグレーションし、RTB ビッドストリームで Prebid から渡される ID トークンを生成したいパブリッシャー向けのインテグレーションガイドです。このガイドは、Client-Side で UID2 Token を要求したいパブリッシャー向けのもので、最も簡単な実装方法です。                       | Publishers |
+| Prebid           | [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid から渡される ID トークンを生成したいパブリッシャー向けのインテグレーションガイドです。このガイドは、Private Operator を使用しているパブリッシャー、または Server-Side でトークンを生成したいパブリッシャー向けです。 | Publishers |
 
 ### Google Ad Manager Integrations
 

@@ -1,6 +1,6 @@
 ---
 title: Prebid.js Advanced Integration
-sidebar_label: Prebid.js Advanced Integration
+sidebar_label: Prebid.js Advanced
 pagination_label: Prebid Advanced Integration
 description: UID2 の実装として Prebid とインテグレーションするための情報。
 hide_table_of_contents: false
