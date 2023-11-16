@@ -1,13 +1,30 @@
 ---
-title: API Keys
-description: Learn about the API keys you'll need and how to get them.
+title: UID2 Credentials
+description: Learn about the credentials you'll need and how to get them.
 hide_table_of_contents: false
 sidebar_position: 03
 ---
 
-# API Keys
+# UID2 Credentials
 
-Each UID2 <a href="/docs/intro#participants">participant</a> has an API key, also called a client key. Each key has a corresponding client secret, a value known only to the participant and the UID2 service.
+Each UID2 <a href="/docs/intro#participants">participant</a> gets a set of credentials, which might be either of the following:
+
+- API key, also called a client key, and a corresponding client secret, a value known only to the participant and the UID2 service.
+- Subscription ID and public key.
+
+The type of credentials you get is determined by how you are participating in UID2.
+
+If you're using the integration environment as well as the production environment, you'll require separate credentials for each environment.
+
+<!-- It includes:
+
+* [API Key and Client Secret](#api-key-and-client-secret)
+  * [Security of API Key and Client Secret](#security-of-api-key-and-client-secret)
+* [Subscription ID and Public Key](#subscription-id-and-public-key)
+* [Refreshing Credentials](#refreshing-credentials)
+ -->
+
+## API Key and Client Secret
 
 The API key and client secret allow the participant to connect to the [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) and call API endpoints. These values identify the participant to the service.
 
@@ -20,7 +37,7 @@ Here is some information about API keys and client secrets:
 
 As part of getting your UID2 account set up, one or more API keys, each with a corresponding client secret, will be issued to you. For details of who to talk to, see [Contact Info](gs-account-setup.md#contact-info).
 
-## Security of Keys and Client Secrets
+### Security of API Key and Client Secret
 
 Security of keys and client secrets is very important. Follow these guidelines:
 
@@ -29,5 +46,17 @@ Security of keys and client secrets is very important. Follow these guidelines:
 - Establish a process for replacing the key and secret with new values if the existing ones are compromised.
 
 We recommend that you refresh your API key and client secret on a regular cadence&#8212;for example, yearly&#8212;to help reduce the risk of your credentials being compromised.
+
+## Subscription ID and Public Key
+
+If you are a publisher and are implementing UID2 on the client side, you'll receive the following credentials:
+- **Subscription ID**: This value identifies your site to the UID2 service.
+- **Public key**: This value is used for encryption.
+
+Unlike the API key and client secret, the Subscription ID and public key do not have to be kept secure.
+
+When you're implementing UID2 on the client side, by using the UID2 JavaScript SDK or Prebid, provide the values to the SDK or to Prebid as part of configuration.
+
+## Refreshing Credentials
 
 To request new credentials at any time, ask your UID2 contact.
