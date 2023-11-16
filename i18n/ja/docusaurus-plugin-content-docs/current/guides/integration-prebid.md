@@ -37,6 +37,12 @@ Prebid.js を使って UID2 とインテグレーションするには、サイ�
 
 この実装には Prebid.js の version 8.21.0 以降が必要です。バージョン情報については、[https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases) を参照してください。
 
+## Sample Implementation Website
+
+For an example application, see the UID2 Prebid.js example:
+- Code: [Example Prebid.js UID2 Integration](https://github.com/IABTechLab/uid2docs/tree/main/static/examples/cstg-prebid-example)
+- 実行中のサイト: [UID2 Prebid.js Express Integration Example](https://unifiedid.com/examples/cstg-prebid-example/)
+
 ## Complete UID2 Account Setup
 
 [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了してください。アカウント設定プロセスの一環として、Prebid.js で使用するサイトのドメイン名のリストを提供する必要があります。
