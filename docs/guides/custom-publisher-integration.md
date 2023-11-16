@@ -45,7 +45,7 @@ This guide provides information for the last two options.
 
 There is also an example application that demonstrates the workflow. See [Sample Application](#sample-application).
 
->TIP: To facilitate the process of establishing client identity using UID2 and retrieving UID2 tokens, consider using the UID2 SDK for JavaScript. For details, see [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md).
+>TIP: To facilitate the process of establishing client identity using UID2 and retrieving UID2 tokens, consider using the UID2 SDK for JavaScript. For details, see [UID2 SDK for JavaScript Integration Guide](integration-javascript-advanced.md).
 
 ## Integration Steps
 
