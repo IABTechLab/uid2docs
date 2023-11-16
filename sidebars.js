@@ -106,7 +106,7 @@ const sidebars = {
               'guides/integration-prebid',
               'guides/publisher-client-side',
               'guides/integration-prebid-advanced',
-              'guides/integration-javascript-advanced',
+              'guides/integration-javascript-standard',
               'guides/custom-publisher-integration',
               'guides/google-ss-integration',
                     ],

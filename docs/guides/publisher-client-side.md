@@ -11,7 +11,7 @@ sidebar_position: 04
 
 This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) using only JavaScript client-side changes on their website with minimum effort.
 
-This guide does not apply to publishers who want to use a [private operator](../ref-info/glossary-uid.md#gl-private-operator), or want to generate tokens server-side. Those publishers should follow the [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md).
+This guide does not apply to publishers who want to use a [private operator](../ref-info/glossary-uid.md#gl-private-operator), or want to generate tokens server-side. Those publishers should follow the [Standard JavaScript Integration Guide](publisher-client-side.md).
 
 UID2 provides a UID2 SDK for JavaScript (TODO add links!!!) with the following features:
 
