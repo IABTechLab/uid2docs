@@ -244,7 +244,7 @@ When this is the first page load with no identity (TODO link to glossary!), you 
 In some cases, the user's DII is not available on page load, and getting the DII has some associated cost. For example, an API call might be required to fetch the DII, or the user has to be prompted to provide the DII information.
 
 You can potentially avoid that cost by checking for an existing token that you can use or refresh - simply calling
-[__uid2.isloginrequired](../sdks/client-side-identity#isloginrequired-boolean) which returns a boolean and if it returns true, this means UID2 SDK is unable to create a new advertising token with the existing resource and a DII is required to generate a brand new UID2 token.
+[__uid2.isLoginRequired](../sdks/client-side-identity#isloginrequired-boolean) which returns a boolean and if it returns true, this means UID2 SDK is unable to create a new advertising token with the existing resource and a DII is required to generate a brand new UID2 token.
 
 The following code snippets demonstrate how you might integrate with UID2 SDK for JavaScript for the two scenarios above - starts with no token as well as reusing/refresh any existing UID2 token if found. 
 
