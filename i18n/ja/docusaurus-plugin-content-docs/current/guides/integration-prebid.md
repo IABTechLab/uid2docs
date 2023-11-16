@@ -249,4 +249,4 @@ pbjs.setConfig({
 });
 ```
 
-base URL Lのリストは、[Environments](../getting-started/gs-environments.md) を参照してください。
+base URL のリストは、[Environments](../getting-started/gs-environments.md) を参照してください。
