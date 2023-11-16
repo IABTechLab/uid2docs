@@ -117,7 +117,7 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 	- If the advertising token is available, use it to initiate requests for targeted advertising.
 	- If the advertising token is not available, either use untargeted advertising or redirect the user to your UID2 login with the consent form.
 
-For more detailed web integration steps, see [Standard JavaScript Integration Guide](../guides/integration-javascript-standard.md).
+For more detailed web integration steps, see [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md).
 
 ### Background Token Auto-Refresh
 

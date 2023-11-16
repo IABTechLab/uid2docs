@@ -47,7 +47,7 @@ Significant documentation updates reflect the enhanced functionality of Version 
 
 For details, see:
 -  [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)
--  [Standard JavaScript Integration Guide](../guides/integration-javascript-standard.md)
+-  [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md)
 
 ### New: Private Operator Guide for Google Confidential Space 
 
