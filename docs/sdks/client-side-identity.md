@@ -27,7 +27,7 @@ This page describes version 3 of the UID2 SDK for JavaScript. If you are maintai
 Related information:
 - For integration steps for content publishers, see:
   - [JavaScript Express Integration Guide](../guides/publisher-client-side.md).
-  - [Standard Client-Side JavaScript Integration Guide](../guides/integration-javascript-standard.md). 
+  - [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md). 
 - For example applications with associated documentation, see:
   - The UID2 Google ESP with SDK v3 example:
     - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3) and [running site](https://esp-jssdk-integ.uidapi.com/).
@@ -57,9 +57,9 @@ The SDK is published in these locations:
 
 <!-- - NPM: [https://www.npmjs.com/package/@uid2/uid2-sdk](https://www.npmjs.com/package/@uid2/uid2-sdk)
   - This is the easiest way to include the SDK in your own build. Use this if you want to bundle the SDK along with your other JavaScript or TypeScript files.
-  - You can also use this for TypeScript type information and still load the script via the CDN. If you do this, ensure that the version of NPM package you have installed matches the version in the CDN url. TODO: Looking at the NPM package, I don't believe it's ready for use - it just includes the source and doesn't seem to include a ready-to-deploy build. LP 12 Sep 2023 -->
+  - You can also use this for TypeScript type information and still load the script via the CDN. If you do this, ensure that the version of NPM package you have installed matches the version in the CDN url. LP_TODO: Looking at the NPM package, I don't believe it's ready for use - it just includes the source and doesn't seem to include a ready-to-deploy build. LP 12 Sep 2023 -->
 - CDN: `https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js`
-  <!-- - This is the easiest way to include the SDK in your site if you don't use a build pipeline to bundle your JavaScript. TODO: This doesn't make sense until we add the NPM option above. -->
+  <!-- - This is the easiest way to include the SDK in your site if you don't use a build pipeline to bundle your JavaScript. LP_TODO: This doesn't make sense until we add the NPM option above. -->
 
   As of the latest update to this document, the most recent version is [3.2.0](https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js). You can also see [the list of available versions](https://cdn.prod.uidapi.com/).
 - CDN (Integration): `https://cdn.integ.uidapi.com/uid2-sdk-${VERSION_ID}.js`
