@@ -38,8 +38,8 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 
 [POST /token/generate](post-token-generate.md) リクエストで以下のパラメータのいずれかを使用すると、常に `refresh_token` による ID 応答が生成され、`POST /token/refresh` エンドポイントと共に使用するとログアウト応答となります。
 
-- メールアドレス `optout@email.com`
-- 電話番号 `+00000000000`
+- メールアドレス `refresh-optout@example.com`
+- 電話番号 `+00000000002`
 
 ### Request Example
 

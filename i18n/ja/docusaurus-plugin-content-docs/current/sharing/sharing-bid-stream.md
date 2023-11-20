@@ -68,7 +68,7 @@ API または指定された server-side SDK を介して、DII から UID2 Toke
 1. DSP は以下の手順を実行します:
 
    1. UID2 Token を受信します。
-   1. UID2 Token ンを raw UID2 に復号して使用します。
+   1. UID2 Token を raw UID2 に復号して使用します。
 
 以下の図は、パブリッシャー向けの UID2 sharing ワークフローを示しています。
 

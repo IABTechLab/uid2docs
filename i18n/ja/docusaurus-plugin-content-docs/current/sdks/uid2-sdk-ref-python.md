@@ -65,22 +65,25 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 
 DSP の場合は、入札のために UID2 Advertising Token を復号化して UID2 を返すインターフェースを呼び出します。ユーザーのオプトアウトを処理する入札ロジックの詳細については、[DSPインテグレーションガイド](../guides/dsp-guide.md) を参照してください。
 
-以下の例では、Python で decrypt メソッドを呼び出しています:
+以下は、Python での decrypt メソッド呼び出しです:
 
 ```python
 from uid2_client import decrypt
-def decrypt(token, keys, now=dt.datetime.now(tz=timezone.utc))
+
+client = Uid2ClientFactory.create('https://prod.uidapi.com', 'my-auth-token', 'my-secret-key')
+client.refresh_keys() # Note that refresh_keys() should be called once after create(), and then once per hour
+decrypted_token = client.decrypt(advertising_token)
 ```
 
 ### Response Content
 
 SDK から返される利用可能な情報の概要を次の表に示します。
 
-| Property | Description |
+| Function | Description |
 | :--- | :--- |
-| `Status` | 復号結果のステータス。指定可能な値の一覧と定義については、[Response Statuses](#response-statuses) を参照してください。 |
-| `UID2` | UID2 Advertising Token に対応する raw UID2。|
-| `Established` | ユーザーがパブリッシャーと最初に UID2 を確立した時を示すタイムスタンプ。|
+| `GetStatus()` | 復号結果のステータス。指定可能な値の一覧と定義については、[Response Statuses](#response-statuses) を参照してください。 |
+| `GetUid()` | UID2 Advertising Token に対応する raw UID2。 |
+| `GetEstablished()` | ユーザーがパブリッシャーと最初に UID2 を確立した時を示すタイムスタンプ。 |
 
 ### Response Statuses
 
@@ -109,6 +112,7 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
    from uid2_client import Uid2Client
    client = Uid2Client(base_url, auth_key, secret_key)
    ```
+   
 2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします (推奨リフレッシュ間隔は1時間毎):
 
    ```python

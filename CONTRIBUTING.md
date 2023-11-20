@@ -31,6 +31,14 @@ npm run build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
+## Build All Languages
+
+```
+npm run build && npm run serve
+```
+
+This command generates static content in all supported languages into the `build` directory and serves it to `http://localhost:3006/`.
+
 ## Deployment
 
-Whenever the `main` branch is updated, it will trigger the [Deploy to GitHub Pages](https://github.com/IABTechLab/uid2docs/actions/workflows/deploy.yml) workflow, which will automatically build the site and update the deployment.
+Whenever the `main` branch is updated, it triggers the [Deploy to GitHub Pages](https://github.com/IABTechLab/uid2docs/actions/workflows/deploy.yml) workflow, which automatically builds the site and updates the deployment.

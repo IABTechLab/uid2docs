@@ -1,16 +1,34 @@
 ---
 title: Prebid.js Advanced Integration
-sidebar_label: Prebid.js Advanced Integration
+sidebar_label: Prebid.js Advanced
 pagination_label: Prebid Advanced Integration
-description: Information about integrating with Prebid as part of your UID2 implementation.
+description: UID2 の実装として Prebid とインテグレーションするための情報。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
 # Prebid.js Advanced Integration Guide
 
-このガイドは、UID2 と直接インテグレーションし、RTB ビッドストリームで Prebid から渡される ID トークン を生成したいパブリッシャー向けのものです。
-UID2 との直接インテグレーションを行い、ヘッダービディングに Prebid を使用する場合に考慮すべき基本的なステップの概要を説明します。
+<!-- This guide includes the following information:
+- [Introduction](#introduction)
+- [UID2 Prebid Module Page](#uid2-prebid-module-page)
+- [Integration Steps](#integration-steps)
+- [Generate UID2 Token](#generate-uid2-token)
+- [UID2 User ID Submodule](#uid2-user-id-submodule)
+- [Client Refresh Mode](#client-refresh-mode)
+  -  [Response Storage Options](#response-storage-options)
+  -  [Client Refresh Cookie Example](#client-refresh-cookie-example)
+  -  [Client Refresh uid2Token Example](#client-refresh-uid2token-example)
+- [Storage of Internal Values](#storage-of-internal-values)
+- [Sample Token](#sample-token)
+- [Prebid Implementation Notes and Tips](#prebid-implementation-notes-and-tips)
+- [Configuration Parameters for `usersync`](#usersync-configuration-parameters) -->
+
+このガイドは、UID2 とインテグレーションし、RTB ビッドストリームで Prebid から渡される [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) (Advertising Token) を生成したいパブリッシャー向けのものです。UID2 Operator に Server-Side API コールを行うことで、UID2 Token を生成し、オプションでリフレッシュしたいパブリッシャー向けの高度なユースケースをカバーしています。
+
+Server-Side の変更を必要としないインテグレーション手順については、[Prebid.js Express Integration Guide](./integration-prebid.md) を参照してください。
+
+このガイドでは、UID2 との直接インテグレーションを構築し、ヘッダービディングに Prebid を使用する場合に考慮すべき基本的な手順の概要を説明します。
 
 ## Introduction
 

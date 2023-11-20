@@ -8,7 +8,9 @@ banner_title: UID2 Overview for DSPs
 banner_description: より耐久性のある識別子でデータ戦略を可能に。
 ---
 
-このページでは、Unified ID 2.0 (UID2) フレームワークが demand-side platform (DSP) にもたらすもの、利用可能な実装オプション、および開始方法に関する情報を提供します。以下のセクションでは、UID2 を採用するDSPのためのワークフロー、インテグレーションタイプ、ドキュメントについて説明します。
+このページでは、Unified ID 2.0（UID2）フレームワークがデマンドサイドプラットフォーム（DSP）にもたらすもの、ワークフロー、ドキュメント、その他のリソース、および開始方法に関する情報を提供します。
+
+以下のセクションでは、UID2 を採用する DSP のメリット、ワークフロー、ドキュメント、その他のリソースに関する情報を提供します。
 
 ## Audience
 
@@ -26,63 +28,26 @@ UID2 を使用する DSP が得られるメリットの一部を次に示しま�
 - 消費者のプライバシー管理を向上させることを目的に、オプトアウトを提供します。
 - サードパーティクッキーの有無にかかわらず、キャンペーンをより正確に測定します。
 
-## Resources
-
-UID2を実装するDSPには、以下のドキュメントリソースが用意されています。
-
-| Type| Documentation | Content Description | Audience |
-| :--- | :--- | :--- | :--- |
-| Server-Side SDK Guides for .NET, C++, Java, Python | [SDKs](../sdks/summary-sdks.md) | UID2 Server-Side SDK を使用して、UID2 Advertising Token を復号して raw UID2 にアクセスしたい人のための SDK です。| DSPs |
-| Integration Guides | [DSP Integration Guide](../guides/dsp-guide.md) | この DSP 向けインテグレーションガイドでは、入札における UID2 の取り扱いや、ユーザーのオプトアウトを受け入れることについて説明しています。 | DSPs |
-
-
-| Type| Documentation | Content Description | Audience |
-| :--- | :--- | :--- | :--- |
-|UID2 SDK for Java | [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) | UID2 advertising token を解読して raw UID2 にアクセスしたい Java Server-Side を使用する人向けの SDK。| DSPs |
-|UID2 SDK for Python | [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md) |  UID2 advertising token を解読して raw UID2 にアクセスしたい Python Server-Side を使用する人向けの SDK。 | DSPs |
-|UID2 SDK for C# / .NET | [UID2 SDK for C# / .NET (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-csharp-dotnet.md) | UID2 advertising token を解読して raw UID2 にアクセスしたい .Net Server-Side を使用する人向けの SDK。 | DSPs |
-|UID2 SDK for C++ | [UID2 SDK for C++ (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-cplusplus.md) | UID2 advertising token を解読して raw UID2 にアクセスしたい C++ Server-Side を使用する人向けの SDK。 | DSPs |
-| Integration Guides | [DSP Integration Guide](../guides/dsp-guide.md) | このインテグレーション・ガイドでは、DSP向けに入札のための UID2 の取り扱いと、ユーザーの Opt-Out の受け入れについて説明しています。 | DSPs |
-
 ## Workflow for DSPs
 
-以下のステップは、ビッドストリームで UID2 を取引するデマンドサイドプラットフォーム (DSP)を想定したワークフローのアウトラインです。
+以下のステップは、入札ストリームのUID2で取引を行う需要側プラットフォーム（DSP）を想定したワークフローのアウトラインです。
 
-1. データプロバイダーは、ファーストパーティおよびサードパーティのデータを raw UID2 として DSP に渡します。
-2. DSP は UID2 Administrator と同期し、復号鍵を受け取ります。
-3. DSP はビッドストリーム内の UID2 Token にアクセスし、入札時に復号化します。
-4. DSP は UID2 Administrator からのオプトアウトリクエストを受け、オプトアウトした UID2 の買い付けをブロックします。
+バックグラウンドで以下の処理が行われます:
+- 広告主またはデータプロバイダーは、ファーストパーティおよびサードパーティのオーディエンスセグメントを DSP に渡します。
+- DSP は、UID2 Operator と同期し、復号化キーを受け取ります。
+- DSP は、UID2 Operator からのオプトアウト要求を受け取ります。
 
-以下のプロセスはバックグラウンドで実行されますます:
+各入札/広告インプレッションには次のステップがあります:
 
-- 広告主やデータプロバイダーは、ファーストパーティおよびサードパーティのオーディエンスセグメントを DSP に渡します。
-- DSP は UID2 Operator と同期して、復号鍵を受け取ります。
-- DSP は、UID2 Operator からのオプトアウトの要求を聞きます。
-
-各ビッド/広告インプレッションについて、以下の手順が実行されます:
-
-1. 入札リクエストは、UID2 Token とともにビッドストリームに渡されます。
-2. 2.DSPは、UID2トークン付きの入札リクエストをビッドストリームから受信します。
-3. DSP は:
+1. ビッドリクエストが UID2 Token とともにビッドストリームに渡されます。
+2. DSP はビッドストリームから UID2 Token を持つビッドリクエストを受信します。
+3. DSP は
    - UID2 Token を復号して raw UID2 にします。
    - ユーザーがオプトアウトしたかどうかを確認し、オプトアウトした場合は入札を行いません。
-   - raw UID2 を視聴者セグメントにマッチングさせます。
-4. DSP は、raw UID2 に基づいて、ビッドストリームにビッドレスポンスを送信します。 
+   - raw UID2 をオーディエンスセグメントにマッチさせます。
+4. DSPは、raw UID2 に基づいてビッドストリームにビッドレスポンスを送信します。
 
 ![Buy-Side Workflow](images/UID2BuySIdeDSPWorkflow.jpg)
-
-<!-- ## Integration Requirements
-
-UID2 とインテグレーションして、ブランド (ファーストパーティデータとして)やデータプロバイダー (サードパーティデータとして)から UID2 を受け取り、ビッドストリームにおける UID2 の入札情報に活用するためには、バイサイドは以下の要件を満たしている必要があります。
-
-- UID2 形式のデータを受け取る。
-- UID2 形式のデータに入札します。
-- オプトアウトリクエストに対応するための Webhook を構築します。
-- UID2 Administrator と暗号化キーを毎日同期させる。
-
-詳細は、[DSP Integration Guide](../guides/dsp-guide.md) を参照してください。
-
-オプションとして、DSP が directly identifying information(DII) から UID2 を自ら生成したい場合は、[Third-Party Data Provider Workflow](overview-data-providers.md#workflow-for-data-providers) に従うこともできます。 -->
 
 ## Getting Started
 
@@ -102,9 +67,26 @@ UID2 Admimnistrator と Webhook を共有します。
 8. テストします。
 9. 本番稼働します。
 
-## Frequently Asked Questions for DSPs
+## Resources
 
-DSP向けのFAQ一覧は、[デマンドサイドプラットフォーム (DSP)向けFAQ](../getting-started/gs-faqs.md#faqs-for-demand-side-platforms-dsps) を参照してください。
+The following documentation resources are available for DSPs to implement UID2.
+
+| Type| Documentation | Content Description | Audience |
+| :--- | :--- | :--- | :--- |
+|UID2 SDK for Java | [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) | An SDK for anyone using Java server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.| DSPs |
+|UID2 SDK for Python | [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md) | An SDK for anyone using Python server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.| DSPs |
+|UID2 SDK for C# / .NET | [UID2 SDK for C# / .NET (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-csharp-dotnet.md) | An SDK for anyone using .NET server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.| DSPs |
+|UID2 SDK for C++ | [UID2 SDK for C++ (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-cplusplus.md) | An SDK for anyone using C++ server-side who wants to decrypt UID2 advertising tokens to access the raw UID2.| DSPs |
+| Integration Guides | [DSP Integration Guide](../guides/dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. | DSPs |
+
+<!-- ## Integration Requirements
+To integrate with UID2 to receive UID2s from brands (as first-party data) and data providers (as third-party data) and leverage them to inform bidding on UID2s in the bid stream, the buy-side participants must meet the following requirements:
+- Accept data in the form of UID2s
+- Bid on data in the form of UID2s
+- Build a webhook for honoring opt-out requests
+- Sync encryption keys daily with the UID2 Administrator
+For details, see [DSP Integration Guide](../guides/dsp-guide.md).
+Optionally, if DSPs want to generate UID2s themselves from DII, they can also follow the [Third-Party Data Provider Workflow](overview-data-providers.md#workflow-for-data-providers). -->
 
 ## FAQs for DSPs
 

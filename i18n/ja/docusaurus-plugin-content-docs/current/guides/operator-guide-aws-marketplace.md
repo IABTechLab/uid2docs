@@ -29,11 +29,11 @@ UID2 Operator は、UID2 エコシステムにおける API サーバーです�
 
 NOTE: [UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) は無償製品です。製品ページに表示されている費用は、必要なインフラの概算費用となります。
 
-Unified ID 2.0 Operator on AWS Marketplace 製品を契約することで、以下を利用できます:
+UID2 Private Operator for AWS を契約することで、以下を利用できます:
 
-- **[Amazon Machine Image (AMI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)** UID2 Operator Service がインストールされ、ブートストラップの準備が整っている状態です:<br/>
+- [Amazon Machine Image (AMI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) UID2 Operator Service がインストールされ、ブートストラップの準備が整っている状態です:<br/>
   AMI には、UID2 Operator Service がすでにセットアップされた[Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/?amazon-linux-whats-new.sort-by=item.additionalFields.postDateTime&amazon-linux-whats-new.sort-order=desc)オペレーティングシステムが含まれています。AMI をベースにした EC2 インスタンスが起動すると、AWS アカウントから設定を自動的に取得し、エンクレーブ内で UID2 Operator サーバーを起動します。
-- **[CloudFormation](https://aws.amazon.com/cloudformation/) template**:<br/>
+- [CloudFormation](https://aws.amazon.com/cloudformation/) template:<br/>
   このテンプレートでは、UID2 Operator AMI がデプロイ展開されます。
 
 ### Prerequisites
@@ -110,24 +110,18 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 ### Resources Created
 
-次の表は、[デプロイメント](#deployment) 中に作成されるすべてのリソースを一覧表、どのリソースが常に作成され、どのリソースが CloudFormation テンプレートの`CreateVPC`条件に依存しているかを示しています。
+次の表は、[deployment](#deployment) 中に作成されるすべてのリソースの一覧です。
 
-| Name                    | Type                                 | Description                                                                                                                                                                                              | Created       |
-| :---------------------- | :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------ |
-| `KMSKey`                | `AWS::KMS::Key`                      | 秘密暗号化用のキー (設定文字列用)です。                                                                                                                                                                 | Always        |
-| `SSMKeyAlias`           | `AWS::KMS::Alias`                    | [KMS](https://aws.amazon.com/kms/)キーに簡単にアクセスする方法を提供するエイリアスです。                                                                                                                 | Always        |
-| `TokenSecret`           | `AWS::SecretsManager::Secret`        | オペレーターキーを含む暗号化されたコンフィギュレーションです。                                                                                                                                           | Always        |
-| `WorkerRole`            | `AWS::IAM::Role`                     | UID2 Operator が実行する IAM ロールです。ロールは、設定キーへのアクセスを提供します。                                                                                                                    | Always        |
-| `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile`          | Operator EC2 インスタンスにアタッチする Worker Role を持つインスタンスプロファイルです。                                                                                                                 | Always        |
-| `VPC`                   | `AWS::EC2::VPC`                      | Virtual Private Cloud (VPC)は、プライベートオペレーターをホストとする仮想プライベートネットワークです。既存の VPC をカスタマイズして利用することも可能です。[VPC Chart](#vpc-chart)も参照してください。 | Conditionally |
-| `Subnet1`               | `AWS::EC2::Subnet`                   | 新しく作成された VPC の最初のサブネットです。                                                                                                                                                            | Conditionally |
-| `Subnet2`               | `AWS::EC2::Subnet`                   | 新しく作成された VPC の 2 番目のサブネットです。                                                                                                                                                         | Conditionally |
-| `RouteTable`            | `AWS::EC2::RouteTable`               | 新しく作成された VPC とサブネットのルーティングテーブルです。                                                                                                                                            | Conditionally |
-| `InternetGateway`       | `AWS::EC2::InternetGateway`          | オペレーターが UID2 CORE Service と通信したり、セキュリティアップデートをダウンロードしたりするためのインターネットゲートウェイです。                                                                      | Conditionally |
-| `AttachGateway`         | `AWS::EC2::VPCGatewayAttachment`     | インターネットゲートウェイと VPC を関連付ける値。                                                                                                                                                        | Conditionally |
-| `SecurityGroup`         | `AWS::EC2::SecurityGroup`            | オペレーターインスタンスに対するルールを提供するセキュリティグループポリシーです。[Security Group Policy](#security-group-policy)も参照してください。                                                      | Always        |
-| `LaunchTemplate`        | `AWS::EC2::LaunchTemplate`           | すべての構成が整った起動テンプレートです。このテンプレートから新しい UID2 Operator インスタンスを生成できます。                                                                                | Always        |
-| `AutoScalingGroup`      | `AWS::AutoScaling::AutoScalingGroup` | 起動テンプレートがアタッチされているオートスケーリンググループ (ASG)。必要に応じて、これを使用して、希望のインスタンス数を後で更新できます。                                                  | Always        |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `KMSKey` | `AWS::KMS::Key` | 秘密暗号化用のキー (設定文字列用)です。 |
+| `SSMKeyAlias` | `AWS::KMS::Alias` | [KMS](https://aws.amazon.com/kms/)キーに簡単にアクセスする方法を提供するエイリアスです。 |
+| `TokenSecret` | `AWS::SecretsManager::Secret` | オペレーターキーを含む暗号化されたコンフィギュレーションです。 |
+| `WorkerRole` | `AWS::IAM::Role` | UID2 Operator が実行する IAM ロールです。ロールは、設定キーへのアクセスを提供します。 |
+| `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile` | Operator EC2 インスタンスにアタッチする Worker Role を持つインスタンスプロファイルです。 |
+| `SecurityGroup` | `AWS::EC2::SecurityGroup` | オペレーターインスタンスに対するルールを提供するセキュリティグループポリシーです。[Security Group Policy](#security-group-policy) を参照してください。|
+| `LaunchTemplate` | `AWS::EC2::LaunchTemplate` | すべての設定が配置された起動テンプレートです。このテンプレートから新しい UID2 Operator インスタンスを起動できます。|
+| `AutoScalingGroup` | `AWS::AutoScaling::AutoScalingGroup` | 起動テンプレートがアタッチされている Auto Scaling Group(ASG)。必要であれば、これを使用して後でインスタンスの必要数を更新できます。 |
 
 ### Customization Options
 
@@ -168,7 +162,7 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 8. IAM ロールの作成許可を求められたら、**I acknowledge that AWS CloudFormation might create IAM resources** のチェックボックスを選択します。
 9. **Create stack** をクリックします。
 
-スタックが作成されるまでには数分かかります。作成された Auto Scaling Group (ASG)が表示されたら、それを選択して EC2 インスタンスを確認します (デフォルトでは、開始するインスタンスは１つだけです)。 詳しくは、[UID2 オペレーターの状態確認](#checking-uid2-operator-status) を参照してください。
+スタックが作成されるまでには数分かかります。作成された Auto Scaling Group (ASG)が表示されたら、それを選択して EC2 インスタンスを確認します (デフォルトでは、開始するインスタンスは１つだけです)。
 
 ### Stack Details
 
@@ -191,7 +185,6 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 | Instance root volume size  | 15GB 以上を推奨します。                                                                                                                                                                                                                                                                                                                                                                    |
 | Key Name for SSH           | デプロイされた EC2 インスタンスに SSH アクセスするための EC2 キーペアです。                                                                                                                                                                                                                                                                                                                |
 | Trusted Network CIDR       | CIDR (Classless Inter-Domain Routing) 値は、オペレーターサービスにアクセスできる IP アドレス範囲を決定します。<br/>UID2 オペレーターへのアクセスを制限して、内部ネットワークまたはロードバランサーからのみアクセスできるようにするには、CIDR 値として内部 IP 範囲を指定します。                                                                                                            |
-| Choose to use Existing VPC | 新しい VPC とサブネットを作成する場合は、このパラメータに`true`を設定します。既存の VPC とサブネットを使用する場合は、`false`に設定します。<br/>既存の VPC を使用する場合は、[VPC dashboard](https://console.aws.amazon.com/vpc/home)から自分の VPC を見つけることができます。それ以外の場合は、**existing VPC Id**, **VpcSubnet1**, **VpcSubnet2** フィールドを空白のままにしてください。 |
 
 ### Stack Configuration Options
 
@@ -207,17 +200,6 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 | Permissions           | AWS Marketplace にサブスクライブする IAM ロールとスタックをデプロイする IAM ロールが分かれている場合、スタックをデプロイするために使用するロールの名前/ARN を入力します。 |
 | Stack failure options | デプロイメントに失敗したときの処理を選択します。`Roll back all stack resources (すべてのスタックリソースをロールバックする)` オプションを推奨します。                                            |
 | Advanced options      | これらはオプションです。                                                                                                                                        |
-
-## Checking UID2 Operator Status
-
-EC2 インスタンスを見つけるには、次の手順を実行します:
-
-1. CloudFormation スタックで、**Resources** タブをクリックし、Auto Scaling Group (ASG) を見つけます。
-2. **Physical ID** 列の ASG リンクをクリックします。
-3. 選択した ASG 内で、**Instance management** タブに移動し、利用可能な EC2 インスタンスの ID を見つけることができます (デフォルトでは 1 つのインスタンスのみが起動します)。
-4. オペレーターの状態を調べるには、ブラウザで `http://{public-dns-of-your-instance}/ops/healthcheck` にアクセスしてください。`OK` は良好な状態を示します。
-
-![Stack Creation Resources](images/stack-creation-resources.png)
 
 ## Creating a Load Balancer
 
@@ -236,16 +218,38 @@ EC2 インスタンスを見つけるには、次の手順を実行します:
 11. [AWS ユーザーガイド](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html) の手順に従い、HTTPS リスナーを設定します。
 12. **Create load balancer** をクリックします。
 
-### Specifying Target Group Details
 
-[ロードバランサーの作成](#creating-a-load-balancer) でターゲットグループを作成する場合は、次の手順で行います:
+To create a load balancer and a target operator auto-scaling group, complete the following steps:
 
-1. グループの詳細ページで、ターゲットタイプ に **Instances** を選択し、**Target group name** に `UID2ALBTG` を入力し、**Protocol version** に **HTTP1** を選択します。
-2. **Health checks** の下で、**Health check path** として `/ops/healthcheck` を指定し、**Advanced health check settings** セクションを開きます。
-3. **Port** で **Override** を選択し、デフォルト値を `9080` に変更します。
-4. オートスケーリンググループで作成した UID2 Operator EC2 インスタンスを選択し、**Include as pending below** をクリックします。
-5. 選択したインスタンスの **Ports** に `80` が含まれていることを確認します。
-6. **Create target group** をクリックします。
+1. AWS コンソールで、EC2 ダッシュボードに移動し、`Load Balancer` を検索します。
+2. **Create Load Balancer** をクリックします。
+3. ロードバランサータイプのページで、**Application Load Balancer** のセクションで、**Create** をクリックします。
+4. UID2 の **Load balancer name** を入力し、パブリックインターネットから UID2 API にアクセスする必要があるかどうかに応じて、**Internet-facing** または **Internal** スキームを選択します。
+5. ターゲットの **VPC** と、CloudFormation スタックで使用する少なくとも 2 つのサブネットを選択します。
+6. **Security groups** で **Create new security group** をクリックし、以下を実行します:
+    1. `UID2SGALB` を **Security group name** として入力し、関連する **Description** も入力します。
+    2. **Inbound rules** で **Add rule** をクリックし、要件に応じて **HTTPS** タイプと適切な **Source** を選択します。
+    3. **Create security group** をクリックします。
+8. ロードバランサーのページに戻り、新しく作成した `UID2SGALB` セキュリティグループを選択します。
+9. **Listeners and routing** の下にある **Create target group** リンクをクリックし、以下を実行します:
+    1. **Specify group details page** で **Instances** を選択し、**Target group name** として `UID2ALBTG` を入力します。
+    2. **Protocol version**　として **HTTP1** が選択されていることを確認します。
+    3. **Health checks** で、`/ops/healthcheck` を **Health check path** として指定し、**Next** をクリックします。
+    4. Auto Scaling Group が作成した UID2 Operator EC2 Instances を選択し、**Include as pending below** をクリックします。
+    5. ターゲットのすべてのポート `80` が含まれていることを確認します。
+    6. **Create target group** をクリックします。
+10. ロードバランサーのページに戻って、**Listeners and routing** で、デフォルトのアクションとして `UID2ALBTG` を転送先のターゲットグループとして選択します。新しく作成したターゲットグループが表示されるように、ターゲットグループをリフレッシュする必要があるかもしれないことに注意してください。リスナーの **Port** 値を `443` に変更します。
+
+11. [AWS user guide](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html) の指示にしたがって、HTTPS リスナーを設定します。
+12. **Create load balancer** をクリックします。
+13. ロードバランサーのステータスを確認するには、次のセクションに進んでください: [Checking UID2 Operator Status](#checking-uid2-operator-status)
+
+## Checking UID2 Operator Status
+
+ロードバランサー配下の UID2 Operator のステータスを確認するには、次の手順を実行します:
+
+1. **EC2 > Load balancers** で、ロードバランサーの **DNS name** 列を見て、ロードバランサーの DNS 名を特定します。
+2. ブラウザで、`https://{dns-name-of-your-load-balancer}/ops/healthcheck` にアクセスします。`OK` の応答であれば、Operator のステータスは良好です。
 
 ## Upgrading the UID2 Operator
 

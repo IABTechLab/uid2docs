@@ -37,7 +37,7 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 
 ### Unencrypted JSON Body Parameters
 
-> IMPORTANT: リクエストを暗号化するときには、以下の4つの条件付きパラメータのうち **1つ** と、必須パラメータである `policy` の値 `1` のみを、JSON ボディのキーと値のペアとして含める必要があります。
+> IMPORTANT: リクエストを暗号化するときには、以下の4つの条件付きパラメータのうち **1つ** と、必須パラメータである `optout_check` の値 `1` のみを、JSON ボディのキーと値のペアとして含める必要があります。
 
 | Body Parameter | Data Type    | Attribute      | Description                                                                                                                                                                      |
 | :------------- | :----------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -45,7 +45,7 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 | `email_hash`   | string array | 条件付きで必要 | マッピングする [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#email-address-normalization) した [正規化](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) 済みメールアドレスのリストです。 |
 | `phone`        | string array | 条件付きで必要 | マッピングする [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号のリストです。                                                                                   |
 | `phone_hash`   | string array | 条件付きで必要 | マッピングする [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) した [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号のリストです。         |
-| `optout_check`       | integer       | 必須     | トークン生成ポリシー ID は、ユーザーがオプトアウトしたかどうかをチェックします。このパラメータは `1` とします。                         |
+| `optout_check`       | integer       | 必須     | ユーザーがオプトアウトしたかどうかをチェックします。このパラメータは `1` とします。                         |
 
 ### Request Examples
 
@@ -57,7 +57,7 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
     "user@example.com",
     "user2@example.com"
   ],
-  "policy":1 
+  "optout_check":1 
 }
 ```
 

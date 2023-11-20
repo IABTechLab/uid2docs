@@ -17,7 +17,7 @@ UID2 Portal は、UID2 アカウントを設定・構成するためのワンス
 
 - アカウントを申請し、名前や場所などの基本的なアカウント情報を設定し、初めてログインする: [Getting Started with the UID2 Portal](portal-getting-started.md) を参照してください。
 - 自分のプロフィールを確認する: [Participant Information](participant-info.md) を参照してください。
-- 個人の共有パートナーまたは共有パートナーのグループを設定する: [Sharing Permissions](sharing-permissions.md) を参照してください。
+- 個々の共有参加者または共有参加者のグループを設定する: [Sharing Permissions](sharing-permissions.md) を参照してください。
 - アカウントの管理権限を持つチームメンバーを追加する: [Team Members](team-members.md) を参照してください。
 - ニュースやアップデートを通知する指定メール連絡先を設定する: [Email Contacts](email-contacts.md) を参照してください。
 

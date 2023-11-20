@@ -66,23 +66,27 @@ Release tags は以下の GitHub で入手できますが、バイナリーは�
 
 DSP の場合は、入札のために UID2 Advertising Token を復号化して UID2 を返すインターフェースを呼び出します。ユーザーのオプトアウトを処理する入札ロジックの詳細については、[DSPインテグレーションガイド](../guides/dsp-guide.md) を参照してください。
 
-以下の例では、C++ で decrypt メソッドを呼び出しています:
+以下は、C++ での decrypt メソッド呼び出しです:
 
 
 ```cpp
 #include <uid2/uid2client.h>
-public Response Decrypt(String encryptedToken)
+using namespace uid2;
+
+const auto client = UID2ClientFactory::Create(baseUrl, apiKey, secretKey);
+client->Refresh(); //Note that Refresh() should be called once after create(), and then once per hour
+const auto result = client->Decrypt(adToken);
 ```
 
 ### Response Content
 
 SDK から返される利用可能な情報の概要を次の表に示します。
 
-| Property | Description |
+| Function | Description |
 | :--- | :--- |
-| `Status` | 復号結果のステータス。指定可能な値の一覧と定義については、[Response Statuses](#response-statuses) を参照してください。 |
-| `UID2` | UID2 Advertising Token に対応する raw UID2。|
-| `Established` | ユーザーがパブリッシャーと最初に UID2 を確立した時を示すタイムスタンプ。|
+| `GetStatus()` | 復号結果のステータス。指定可能な値の一覧と定義については、[Response Statuses](#response-statuses) を参照してください。 |
+| `GetUid()` | UID2 Advertising Token に対応する raw UID2。 |
+| `GetEstablished()` | ユーザーがパブリッシャーと最初に UID2 を確立した時を示すタイムスタンプ。 |
 
 ### Response Statuses
 

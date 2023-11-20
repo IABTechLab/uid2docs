@@ -1,127 +1,98 @@
 ---
-title: Prebid Integration
-sidebar_label: Prebid
-pagination_label: Prebid Integration
-description: UID2 実装のため、Prebid とのインテグレーションに関する情報。
+title: Prebid.js Express Integration
+sidebar_label: Prebid.js Express Integration
+pagination_label: Prebid.js Express Integration
+description: UID2 の実装として Prebid.js とインテグレーションするための情報。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
 # Prebid.js Express Integration Guide
 
-This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bid stream.
+このガイドは、UID2 とインテグレーションし、RTB ビッドストリームで Prebid.js から渡される [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token)(Advertising Token) を生成したいパブリッシャー向けのものです。
 
-<!--
-- [Introduction](#introduction)
-- [UID2 Prebid Module Page](#uid2-prebid-module-page)
-- [Integration Steps](#integration-steps)
-- [Generate UID2 Token](#generate-uid2-token)
-- [UID2 User ID Submodule](#uid2-user-id-submodule)
-- [Client Refresh Mode](#client-refresh-mode)
-  -  [Response Storage Options](#response-storage-options)
-  -  [Client Refresh Cookie Example](#client-refresh-cookie-example)
-  -  [Client Refresh uid2Token Example](#client-refresh-uid2token-example)
-- [Storage of Internal Values](#storage-of-internal-values)
-- [Sample Token](#sample-token)
-- [Prebid Implementation Notes and Tips](#prebid-implementation-notes-and-tips)
-- [Configuration Parameters for `usersync`](#usersync-configuration-parameters) -->
+このガイドは、[Private Operator](../ref-info/glossary-uid.md#gl-private-operator) を使用したいパブリッシャーや、Server-Side でトークンを生成したいパブリッシャーには適用されません。
+そのようなパブリッシャーは、[Prebid.js Advanced Integration Guide](./integration-prebid-advanced.md) に従ってください。
 
-このガイドは、UID2 と直接インテグレーションし、RTB ビッドストリームで Prebid から渡される [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token)(Advertising Token) を生成したいパブリッシャー向けのものです。
+UID2 は以下の機能を持つ [Prebid.js module](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) を提供しています:
 
-UID2 との直接インテグレーションを行い、ヘッダービディングに Prebid を使用する場合に考慮すべき基本的なステップの概要を説明します。
+- UID2 Token 生成
+- UID2 Token の自動更新
+- UID2 Token のブラウザへの自動保存
+- ビッドストリームに UID2 Token を自動的に渡す
 
-- UID2 token generation
-- Automatic refreshing of UID2 tokens
-- Automatic storage of UID2 tokens in the browser
-- Automatic passing of UID2 tokens to the bid stream
+Prebid.js を使って UID2 とインテグレーションするには、サイトの HTML と JavaScript を変更する必要があります。このガイドに従えば、Server-Side の作業は必要ありません。サーバーサイドの API コールでトークンを生成したい場合や、Private Operator を使用している場合は、[Prebid.js Advanced Integration Guide](./integration-prebid-advanced.md) に従ってください。
 
-To integrate with UID2 using Prebid.js, you'll need to make changes to the HTML and JavaScript on your site. No server-side work is required if you follow this guide. If you want to generate tokens with a server-side API call, or are using a private operator, follow the [Prebid.js Advanced Integration Guide](./integration-prebid-advanced.md) instead.
-
-You'll need to complete the following steps:
+以下のステップを完了する必要があります:
 
 1. [Complete UID2 account setup](#complete-uid2-account-setup)
 2. [Add Prebid.js to your site](#add-prebidjs-to-your-site)
 3. [Configure the UID2 module](#configure-the-uid2-module)
 
-Prebid と UID2 とのインテグレーションに関する情報は、こちらにあります:
-- Prebid サイトの Prebid User ID サブモジュールの [Unified ID 2.0](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) ページ。
-- Prebid の GitHub リポジトリの [UID2 User ID Submodule](https://github.com/prebid/Prebid.js/blob/master/modules/uid2IdSystem.md) ページ。
+アプリケーションの例については、UID2 Prebid.js の例を参照してください:
+- Code: [UID2 Prebid.js code on GitHub](https://github.com/IABTechLab/uid2docs/tree/main/static/examples/cstg-prebid-example)
+- 実行中のサイト: [UID2 Prebid.js example](https://unifiedid.com/examples/cstg-prebid-example/)
 
-## Integration Steps
+## Prebid.js Version
 
-大まかには、Prebid を使って UID2 とインテグレーションするには、以下の手順を完了する必要があります。
+この実装には Prebid.js の version 8.21.0 以降が必要です。バージョン情報については、[https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases) を参照してください。
 
-| Step | Action | Link to Instructions |
-| --- | --- | --- |
-| 1 | UID2　Token を生成するために、サーバーサイド API を呼び出します。| [Generate UID2 Token](#generate-uid2-token) |
-| 2 | レスポンス値を保存し、必要に応じて Prebid モジュールがトークンのリフレッシュとオプトアウトを管理できるようにします。 | [Client Refresh Mode](#client-refresh-mode) |
+## Sample Implementation Website
 
-## Generate UID2 Token
-
-UID2 では、初期トークンをサーバーサイドで生成する必要があります。これを行うには、[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出して新しい UID2 Token を生成します。
-
-This implementation requires Prebid.js version 8.21.0 or later. For version information, see [https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases).
+For an example application, see the UID2 Prebid.js example:
+- Code: [Example Prebid.js UID2 Integration](https://github.com/IABTechLab/uid2docs/tree/main/static/examples/cstg-prebid-example)
+- 実行中のサイト: [UID2 Prebid.js Express Integration Example](https://unifiedid.com/examples/cstg-prebid-example/)
 
 ## Complete UID2 Account Setup
 
-Complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page. As part of the account setup process, you'll need to provide a list of domain names for the sites that you'll be using with Prebid.js.
+[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了してください。アカウント設定プロセスの一環として、Prebid.js で使用するサイトのドメイン名のリストを提供する必要があります。
 
-When account setup is complete, you'll receive a **public key** and **subscription ID**. These values are unique to you, and you'll use them to configure the UID2 module.
-
-該当するエンドポイントからの完全な JSON レスポンスボディを Prebid モジュールに提供する必要があります:
-
-- 新しい UID2 Token を取得するには、[POST /token/generate](../endpoints/post-token-generate.md)。
-- リフレッシュされた UID2 Token については、[POST /token/refresh](../endpoints/post-token-refresh.md)。
-
-例については、[Sample Token](#sample-token) を参照してください。
-
-Refresh Token が有効である限り、モジュールは必要に応じて UID2 Token をリフレッシュします。
-
-### Response Storage Options
-
-Client Refresh モードを使用するようにモジュールを構成する場合、API レスポンス情報を保存するための以下のオプションの **1つ** を選択する必要があります。
-
-| Option | Details | Use Case | 
-| --- | --- | --- |
-| レスポンスボディを JSON 文字列として含むクッキーの名前を `params.uid2Cookie` に設定します。 | [Client Refresh Cookie Example](#client-refresh-cookie-example)　を参照してください。 | レスポンスボディを保存するのに十分な容量がクッキーに残っていることを確認しない限り、このオプションを選択しないでください。 |
-| `params.uid2Token` を JavaScript オブジェクトとしてレスポンスボディに設定します。 | [Client Refresh uid2Token Example](#client-refresh-uid2token-example) を参照してください。 | 以下の様な場合は、レスポンスボディを `params.uid2Token` 経由で提供することもできます:<br/>- クッキーにレスポンスボディを保存すると、クッキーのサイズ制限を超える場合。<br/>- レスポンスボディの保存を自分で管理する柔軟性を持ちたい場合。 |
-
-When you download the Prebid.js package, add the UID2 module by checking the box next to the module named **Unified ID 2.0**, listed under the section **User ID Modules**.
-
-When you've added Prebid.js to your site and confirmed that it's working properly, you're ready to configure the UID2 module.
+アカウントのセットアップが完了すると、**public key** と **subscription ID** が発行されます。これらの値はあなただけのもので、UID2モジュールの設定に使用されます。
 
 :::tip
-To make sure that the UID2 module is installed, find the string `uid2IdSystem` in the [`pbjs.installedModules` array](https://docs.prebid.org/dev-docs/publisher-api-reference/installedModules.html).
+アカウント設定に必要なのは、ルートレベルのドメインだけです。たとえば、Prebid.js で UID2 を example.com、shop.example.com、example.orgで使用する場合、ドメイン名 example.com と example.org を指定するだけです。
+:::
+
+## Add Prebid.js to Your Site
+
+サイトに Prebid.js を追加するには、[Prebid.jsdocumentation](https://docs.prebid.org/dev-docs/getting-started.html) に従ってください。Prebid.js の version は 8.21.0 以降を使用してください。
+
+Prebid.js パッケージをダウンロードしたら、**User ID Modules** セクションに記載されている **Unified ID 2.0** というモジュールの隣にあるボックスをチェックして、UID2 モジュールを追加します。
+
+サイトに Prebid.js を追加し、正常に動作することを確認したら、UID2 モジュールを設定する準備ができました。
+
+:::tip
+UID2 モジュールがインストールされていることを確認するには、[`pbjs.installedModules` array](https://docs.prebid.org/dev-docs/publisher-api-reference/installedModules.html) で文字列 `uid2IdSystem` を見つける。
 :::
 
 ## Configure the UID2 Module
 
-To configure the UID2 module, call `pbjs.setConfig` with an object containing the **public key** and **subscription ID** that you received during account setup, as well as the user's hashed or unhashed [DII](../ref-info/glossary-uid.md#gl-dii) (email address or phone number).
+UID2 モジュールを設定するには、アカウント設定時に受け取った **public key** と **subscription ID**、およびユーザーのハッシュ化されたまたはハッシュ化されていない [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) を含むオブジェクトを指定して、`pbjs.setConfig` を呼び出します。
 
-Once it's configured, the UID2 module generates a UID2 token for the user and stores it in the user's browser. The module automatically refreshes the token as required while your site is open in the user's browser.
+設定が行われると、UID2 モジュールはユーザー用の UID2 Token を生成し、ユーザーのブラウザに保存します。このモジュールは、ユーザーのブラウザでサイトが開いている間、必要に応じてトークンを自動的にリフレッシュします。
 
-You can pass the user's DII to the UID2 module either hashed or unhashed. If you pass the DII unhashed, the UID2 module hashes it for you. If want to pass the DII to the module already hashed, you must normalize it before hashing. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+ユーザーの DII を UID2 モジュールに渡すには、ハッシュ化することもハッシュ化しないこともできます。DII をハッシュせずに渡すと、UID 2モジュールが代わりにハッシュします。DII をすでにハッシュ化してモジュールに渡したい場合は、ハッシュ化する前に正規化する必要があります。詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 
-The UID2 module encrypts the hashed DII before sending it to the UID2 service.
+UID2 モジュールは、UID2 Service に送信する前に、ハッシュ化された DII を暗号化します。
 
-You can configure the module to send any one of the four accepted DII formats, for any specific user. The DII format might vary per user but you can only send one value per user.
+特定のユーザーに対して、4 つの DII フォーマットのいずれかを送信するようにモジュールを設定できます。DII フォーマットはユーザーごとに異なる場合がありますが、送信できる値はユーザーごとに 1 つだけです。
 
-The following sections demonstrate the different ways that you can configure the UID2 module and list the requirements for the DII passed to the module:
+以下のセクションでは、UID2 モジュールを構成するさまざまな方法を示し、モジュールに渡される DII の要件を示します:
 
 - [Configure for Email Address](#configure-for-email-address)
 - [Configure for Hashed Email Address](#configure-for-hashed-email-address)
 - [Configure for Phone Number](#configure-for-phone-number)
 - [Configure for Hashed Phone Number](#configure-for-hashed-phone-number)
 
-If the module is configured multiples times, it uses the most recent configuration values.
+モジュールが複数回設定された場合、最新の設定値が使用されます。
 
 :::note
-The examples assume that you're using the UID2 production environment. During integration testing, use the UID2 integration environment by setting `params.uid2ApiBase` to `"https://operator-integ.uidapi.com"`. Tokens from the UID2 integration environment are not valid for passing to the bid stream. For the integration environment, you will have different **subscription ID** and **public key** values.
+例では、UID2 本番環境を使用することを想定しています。インテグレーションテストの際には、`params.uid2ApiBase` を `"https://operator-integ.uidapi.com"` に設定して、UID2 テスト環境を使用します。UID2 テスト環境のトークンはビッドストリームに渡しても無効です。テスト環境は、**subscription ID** と **public key** の値が異なります。
 :::
 
 ### Configure for Email Address
 
-Configure the UID2 module with an email address:
+UID2 モジュールにメールアドレスを設定します:
 
 ```js
 pbjs.setConfig({
@@ -138,13 +109,13 @@ pbjs.setConfig({
 });
 ```
 
-No normalization or hashing is required by the publisher.
+パブリッシャーによる正規化やハッシュ化は必要ありません。
 
-The UID2 module normalizes and hashes the email address before sending the encrypted hash to the UID2 service.
+UID2 モジュールは、暗号化されたハッシュを UID2 Service に送信する前に、メールアドレスを正規化し、ハッシュ化します。
 
 ### Configure for Hashed Email Address
 
-Configure the UID2 module with a hashed email address:
+ハッシュ化したメールアドレスで UID2 モジュールを設定します:
 
 ```js
 pbjs.setConfig({
@@ -161,9 +132,9 @@ pbjs.setConfig({
 });
 ```
 
-**The publisher is responsible for normalizing and hashing the email address**. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+**パブリッシャーがメールアドレスの正規化とハッシュ化を行う必要があります**。詳細は、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 
-The UID2 module encrypts the hash before sending it to the UID2 service.
+UID2 モジュールに電話番号を設定します:
 
 ### Configure for Phone Number
 
@@ -184,9 +155,9 @@ pbjs.setConfig({
 });
 ```
 
-**The publisher is responsible for normalizing the phone number**. For details, see [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization).
+**パブリッシャーが電話番号の正規化を行う必要があります**。詳細は、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 
-The UID2 module hashes the phone number before sending the encrypted hash to the UID2 service.
+UID2モジュールは、暗号化されたハッシュを UID2 Service に送信する前に、電話番号をハッシュ化します。
 
 ### Configure for Hashed Phone Number
 
@@ -207,27 +178,27 @@ pbjs.setConfig({
 });
 ```
 
-**The publisher is responsible for normalizing and hashing the phone number**. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+**パブリッシャーが電話番号の正規化とハッシュ化を行う必要があります**。詳細は、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 
-The UID2 module encrypts the hash before sending it to the UID2 service.
+UID2 モジュールは、UID2 Service に送信する前にハッシュを暗号化します。
 
 ## Module Storage
 
-By default, the UID2 module stores data using local storage. To use a cookie instead, set `params.storage` to `cookie`. For details, see the Prebid [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) module documentation.
+デフォルトでは、UID2 モジュールはローカルストレージを使ってデータを保存します。代わりにクッキーを使用するには、`params.storage` を `cookie` に設定します。詳細については、Prebid [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) モジュールのドキュメントを参照してください。
 
 ## When to Pass DII to the UID2 Module
 
-If possible, configure the UID2 module with the user's DII on each page load.
+可能であれば、各ページのロード時に、ユーザーの DII で UID2 モジュールを設定します。
 
-When the UID2 module is configured, it checks for an existing UID2 token in the user's browser. If there is an existing token that was generated from the same DII, and the token is still valid or can be refreshed, the module uses or refreshes the existing token instead of generating a new token.
+UID2 モジュールが設定されると、ユーザーのブラウザに既存の UID2 Token があるかどうかをチェックします。同じ DII から生成された既存のトークンがあり、そのトークンがまだ有効であるか、リフレッシュできる場合、モジュールは新しいトークンを生成する代わりに、既存のトークンを使用するか、リフレッシュします。
 
-If there is no existing token, or the token has expired and cannot be refreshed, the UID2 module cannot generate a new token without DII.
+既存のトークンがないか、トークンの有効期限が切れていてリフレッシュできない場合、UID2 モジュールは DII がなければ新しいトークンを生成できません。
 
-As a result, the recommended approach is to configure the UID2 module with the user's DII on each page load.
+結果として、推奨されるアプローチは、各ページロード時にユーザーの DII で UID2 モジュールを構成することです。
 
-In some cases, the user's DII is not available on page load, and getting the DII has some associated cost. For example, an API call might be required to fetch the DII, or the user has to be prompted to provide the DII information.
+ユーザーの DII はページロード時に利用できず、DII の取得には何らかの関連コストがかかる場合があります。たとえば、DII を取得するために API コールが必要な場合や、DII 情報を提供するためにユーザーにプロンプトが表示される場合などです。
 
-You can potentially avoid that cost by checking for an existing token that you can use or refresh. To do this, check the value returned by `pbjs.getUserIds().uid2`:
+使用・更新できる既存のトークンをチェックすることで、そのコストを回避できる可能性があります。これを行うには、`pbjs.getUserIds().uid2` が返す値をチェックします:
 
 ```js
 const params = {};
@@ -252,24 +223,23 @@ pbjs.setConfig({
 
 ## Checking the Integration
 
-To check that the UID2 module has successfully generated a UID2 token, call `pbjs.getUserIds().uid2`. If a value is returned, a token has been successfully generated.
+UID2 モジュールが正常に UID2 Token を生成したかどうかを確認するには、 `pbjs.getUserIds().uid2` を呼び出します。値が返された場合、トークンは正常に生成されたことになります。
 
-If there are problems with the integration, here are some steps you can take:
+インテグレーションに問題がある場合、次のような手順があります:
 
-- Check the browser console logs.
-- Check that you're using the correct **subscription ID** and **public key**.
-- Check that the domain name of the site was provided to UID2 during account setup.
-- Use the browser developer tools to inspect the API calls to the UID2 service.
+- ブラウザのコンソールログを確認してください。
+- 正しい **subscription ID** と **public key** を使用しているか確認します。
+- アカウントのセットアップ時に、サイトのドメイン名が UID2 に提供されていることを確認します。
+- ブラウザの開発者ツールを使用して、UID2 Service への API コールを調査します。
+ervice.
 
-For additional help, refer to Prebid's documentation on [Troubleshooting Prebid.js](https://docs.prebid.org/troubleshooting/troubleshooting-guide.html) and [Debugging Prebid.js](https://docs.prebid.org/debugging/debugging.html).
+その他のヘルプについては、Prebid のドキュメント [Troubleshooting Prebid.js](https://docs.prebid.org/troubleshooting/troubleshooting-guide.html) および [Debugging Prebid.js](https://docs.prebid.org/debugging/debugging.html) を参照してください。
 
 ## Optional: Reduce Latency by Setting the API Base URL
 
-- UID Token が SSP から DSP に送信される際、ビッドストリームでどのように見えるかの例については、[What does a UID2 token look like in the bid stream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bid-stream) を参照してください。
+デフォルトでは、UID2 モジュールはアメリカにある UID2 サーバーに API コールを行います。ユーザーの居住地によっては、待ち時間を短縮するために、ユーザーに近いサーバーを選択することを検討してください。
 
-## Configuration Parameters for `usersync`
-
-To specify a different UID2 server when you're configuring the UID2 module, set the optional `params.uid2ApiBase` parameter, as shown in the following example:
+UID2 モジュールを設定する際に別の UID2 サーバーを指定するには、次の例に示すように、オプションの `params.uid2ApiBase` パラメータを設定します:
 
 ```js
 pbjs.setConfig({
@@ -285,4 +255,4 @@ pbjs.setConfig({
 });
 ```
 
-For the list of possible base URLs, see [Environments](../getting-started/gs-environments.md).
+base URL のリストは、[Environments](../getting-started/gs-environments.md) を参照してください。

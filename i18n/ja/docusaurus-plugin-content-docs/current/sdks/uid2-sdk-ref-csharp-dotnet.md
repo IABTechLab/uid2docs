@@ -65,11 +65,14 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 
 DSP の場合は、入札のために UID2 Advertising Token を復号化して UID2 を返すインターフェースを呼び出します。ユーザーのオプトアウトを処理する入札ロジックの詳細については、[DSPインテグレーションガイド](../guides/dsp-guide.md) を参照してください。
 
-以下の例では、C# で decrypt メソッドを呼び出しています:
+以下は、C# での decrypt メソッド呼び出しです:
 
 ```cs
 using UID2.Client.IUID2Client
-DecryptionResponse Decrypt(string token)
+
+var client = UID2ClientFactory.Create(_baseUrl, _authKey, _secretKey);
+client.Refresh(); //Note that refresh() should be called once after create(), and then once per hour
+var result = client.Decrypt(_advertisingToken);
 ```
 
 ### Response Content
