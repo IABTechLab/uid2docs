@@ -24,7 +24,7 @@ You'll need to complete the following steps:
 1. [Complete UID2 account setup](#complete-uid2-account-setup)
 2. [Add UID2 SDK For JavaScript to your site](#add-js-to-your-site)
 3. [Configure the UID2 SDK for JavaScript](#configure-the-uid2-sdk-for-javascript)
-4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated) {**GWH_SW_01: there is no heading/link for the step as it was. Wasn't sure what it should link to. I've done what I thought might be correct.**}
+4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
 
 ## UID2 SDK for JavaScript Version
 
@@ -57,12 +57,11 @@ When account setup is complete, you'll receive a **public key** and **subscripti
 Only root-level domains are required for account setup. For example, if you're going to use UID2 SDK for JavaScript on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
 
-
 ## Add UID2 SDK For JavaScript to Your Site
 
-{**GWH_SW_02: The title indicates that this is a step, so I'd expect some instruction here. Did we miss anything? Like, add this code to your site? (where). Or any other sort of guidance, like if this add this bit of code, if some other scenario add a different bit?**}
+The following code gives an overview of the code you will need to add into your website, and illustrates the different events that the SDK can trigger.
 
-The following code illustrates the different events that the SDK can trigger.
+{**GWH_SW_11 Do we need to offer any info? Does this go into every page? Are there some cases where they don't need to use some of the events or some of the code? Or they could just actually plug in the below, with the correct URL?**}
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
@@ -94,6 +93,10 @@ window.__uid2.callbacks.push((eventType, payload) => {
  
 </script>
 ```
+
+For a more detailed code example, see [Example Integration Code and When to Pass DII to the UID2 SDK](#example-integration-code-and-when-to-pass-dii-to-the-uid2-sdk).
+
+For more information about the SDK, see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md).
 
 ### Using the UID2 Integration Environment
 
@@ -164,6 +167,7 @@ The following sections demonstrate the different ways that you can configure the
 
 If the SDK is configured multiples times, it uses the most recent configuration values.
 
+For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base-64 Encoding](#example-code-hashing-and-base-64-encoding).
 
 ### Configure for Email Address
 
@@ -245,7 +249,7 @@ After calling one of the methods listed in [Configure the UID2 SDK for JavaScrip
 The format of the object stored in local storage could change without notice. We recommend that you do **not** read and update the object in local storage directly. 
 :::
 
-## Example Integration Codes and When to Pass DII to the UID2 SDK
+## Example Integration Code and When to Pass DII to the UID2 SDK
 
 When this is the first page load with no [identity](../ref-info/glossary-uid.md#gl-identity), to start the token generation call you'll need to call one of the `setIdentity` methods with DII. Once an identity is generated, the advertising token ([UID2 token](../ref-info/glossary-uid.md#gl-uid2-token)) that you would send to the bid stream will be available by waiting for the `IdentityUpdated` event from the SDK. For an example, see how the value for `advertising_token_to_use` is set in the following code snippet.
 
@@ -254,9 +258,7 @@ In some cases, the user's DII is not available on page load, and getting the DII
 You can potentially avoid that cost by checking for an existing token that you can use or refresh. To do this, call
 [__uid2.isLoginRequired](../sdks/client-side-identity#isloginrequired-boolean) which returns a Boolean value. If it returns `true`, this means that the UID2 SDK cannot create a new advertising token with the existing resource and DII is required to generate a brand new UID2 token.
 
-The following code snippets demonstrate how you might integrate with the UID2 SDK for JavaScript for the two scenarios above&#8212;starting with no token as well as reusing/refreshing any existing UID2 token if found. 
-
-{**GWH_SW_03 is there more than one snippet? Looks like one to me. Could we break it up and have a text intro for each piece? Maybe not a good idea. Just checking**}
+The following code snippet demonstrates how you might integrate with the UID2 SDK for JavaScript for the two scenarios above&#8212;starting with no token as well as reusing/refreshing any existing UID2 token if found. 
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
@@ -339,9 +341,9 @@ If there was a problem generating the token, find the request in the **Network**
 ![Publisher Workflow](images/NetworkTraffic.png)
 
 
-## Example codes: Hashing and Base64 Encoding
+## Example Code: Hashing and Base-64 Encoding
 
-The following codes are examples of how to generate email and phone hashes in JavaScript. {**GWH_SW_04 should I put this into the Normalization and Encoding article?**}
+The following code example demonstrates how to generate email and phone hashes in JavaScript.
 
 ```js
 async function hash(value) {

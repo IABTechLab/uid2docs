@@ -57,10 +57,11 @@ When account setup is complete, you'll receive a **public key** and **subscripti
 Only root-level domains are required for account setup. For example, if you're going to use UID2 SDK for JavaScript on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
 
-
 ## Add UID2 SDK For JavaScript to Your Site
 
-The following codes form the overview of the codes you will need to add into your websites and illustrate the different events that the SDK can trigger.
+The following code gives an overview of the code you will need to add into your website, and illustrates the different events that the SDK can trigger.
+
+{**GWH_SW_11 Do we need to offer any info? Does this go into every page? Are there some cases where they don't need to use some of the events or some of the code? Or they could just actually plug in the below, with the correct URL?**}
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
@@ -93,9 +94,9 @@ window.__uid2.callbacks.push((eventType, payload) => {
 </script>
 ```
 
-There is a thorough example code snippet in the section further below (TODO add link?).
+For a more detailed code example, see [Example Integration Code and When to Pass DII to the UID2 SDK](#example-integration-code-and-when-to-pass-dii-to-the-uid2-sdk).
 
-Further documentation for the SDK can be found on [UID2 SDK for JavaScript Reference Guide](..%2Fsdks%2Fclient-side-identity.md).
+For more information about the SDK, see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md).
 
 ### Using the UID2 Integration Environment
 
@@ -166,6 +167,7 @@ The following sections demonstrate the different ways that you can configure the
 
 If the SDK is configured multiples times, it uses the most recent configuration values.
 
+For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base-64 Encoding](#example-code-hashing-and-base-64-encoding).
 
 ### Configure for Email Address
 
@@ -247,7 +249,7 @@ After calling one of the methods listed in [Configure the UID2 SDK for JavaScrip
 The format of the object stored in local storage could change without notice. We recommend that you do **not** read and update the object in local storage directly. 
 :::
 
-## Example Integration Codes and When to Pass DII to the UID2 SDK
+## Example Integration Code and When to Pass DII to the UID2 SDK
 
 When this is the first page load with no [identity](../ref-info/glossary-uid.md#gl-identity), to start the token generation call you'll need to call one of the `setIdentity` methods with DII. Once an identity is generated, the advertising token ([UID2 token](../ref-info/glossary-uid.md#gl-uid2-token)) that you would send to the bid stream will be available by waiting for the `IdentityUpdated` event from the SDK. For an example, see how the value for `advertising_token_to_use` is set in the following code snippet.
 
@@ -339,9 +341,9 @@ If there was a problem generating the token, find the request in the **Network**
 ![Publisher Workflow](images/NetworkTraffic.png)
 
 
-## Example codes: Hashing and Base64 Encoding
+## Example Code: Hashing and Base-64 Encoding
 
-The following codes are examples of how to generate email and phone hashes in JavaScript.
+The following code example demonstrates how to generate email and phone hashes in JavaScript.
 
 ```js
 async function hash(value) {
