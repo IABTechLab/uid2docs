@@ -13,12 +13,13 @@ UID2 ドキュメンテーションリソースの最新アップデートを確
 
 2 November 2023
 
-Prebid.js インテグレーションガイドは、既存の URL の全く新しいドキュメントで、UID2 と Prebid を統合する、Server-Side の作業を必要としない、新しくシンプルな方法を扱っています。
+Prebid.js Express Integration Guide は、既存の URL にまったく新しいドキュメントを追加したもので、UID2 と Prebid をインテグレーションする、Server-Side の作業を必要としない、よりシンプルな新しい方法について説明しています。
 
-前バージョンの Prebid ドキュメントの内容は、Private Operator を使用しているパブリッシャーや、Server-Side でトークン生成を実装することを好むパブリッシャーのために、補足ドキュメントである *Prebid.js Advanced Integration Guide* に追加されました。
+前バージョンの Prebid ドキュメントにあった内容は、Private Operator を使用しているパブリッシャーや、Server-Side でトークン生成を実装したいパブリッシャーのために、補足ドキュメントである *Prebid.js Advanced Integration Guide* に追加されました。
 
 詳細は、以下を参照してください:
 - [Prebid.js Integration Guide](../guides/integration-prebid.md)
+- [Prebid.js Express Integration Guide](../guides/integration-prebid.md)
 - [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md)
 
 ### New: Opt-Out
