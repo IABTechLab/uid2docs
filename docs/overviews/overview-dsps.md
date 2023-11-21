@@ -55,14 +55,15 @@ To get started, follow these steps:
 
 1. Request access to UID2 by filling out the form on the [Request Access](/request-access) page.
 2. Implement a webhook to receive UID2 opt-out. Share the webhook with the UID2 administrator.
-3. Confirm that you are receiving the opt-out feed via the webhook.<br/>
-    When the webhook is in place, you'll receive your credentials (see [API keys](../getting-started/gs-api-keys.md)).
+3. Confirm that you are receiving the opt-out feed via the webhook.
+
+    When the webhook is in place, you'll receive your credentials (see [UID2 Credentials](../getting-started/gs-credentials.md)).
 4. Decide which implementation option you want to use.
 5. If you're using an SDK, download the SDK. Refer to the applicable SDK guide.
 6. Follow the instructions in the implementation guide for the option you chose.
 
      NOTE: Be sure to encrypt request messages to UID2. For details, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
-7. (Conditional) If you will be implementing a CRM onboarding solution, request a separate set of credentials for the data provider workflow. See [API keys](../getting-started/gs-api-keys.md).
+7. (Conditional) If you will be implementing a CRM onboarding solution, request a separate set of credentials for the data provider workflow. See [UID2 Credentials](../getting-started/gs-credentials.md).
 8. Test.
 9. Go live.
 

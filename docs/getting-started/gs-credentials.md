@@ -7,14 +7,16 @@ sidebar_position: 03
 
 # UID2 Credentials
 
-Each UID2 <a href="/docs/intro#participants">participant</a> gets a set of credentials, which might be either of the following:
+Each UID2 <a href="/docs/intro#participants">participant</a> gets a set of unique credentials. The set of credentials you get is determined by how you are participating in UID2, as shown in the following table.
 
-- API key, also called a client key, and a corresponding client secret, a value known only to the participant and the UID2 service.
-- Subscription ID and public key.
+| Audience | Credentials | Integration |
+| :--- | :--- | :--- |
+| Participants using a server-side endpoint  | Both of the following:<ul><li>[API key](../ref-info/glossary-uid.md#gl-api-key), also called a client key</li><li>[Client secret](../ref-info/glossary-uid.md#gl-client-secret), a value known only to the participant and the UID2 service</li></ul> | Any integration using one of these endpoints: <ul><li>[POST /identity/map](../endpoints/post-identity-map.md)</li><li>[POST /identity/buckets](../endpoints/post-identity-buckets.md)</li><li>[POST /token/generate](../endpoints/post-token-generate.md)</li></ul> |
+| Participants using a client-side implementation  | Both of the following: <ul><li>Subscription ID</li><li>Public key</li></ul> | Integrations using one of these: <ul><li>[Prebid.js Express Integration Guide](../guides/integration-prebid.md)</li><li>[JavaScript Express Integration Guide](../guides/publisher-client-side.md)</li></ul> |
 
-The type of credentials you get is determined by how you are participating in UID2.
 
-If you're using the integration environment as well as the production environment, you'll require separate credentials for each environment.
+
+If you're using the integration environment as well as the production environment, you'll get a separate set of credentials for each environment.
 
 <!-- It includes:
 
@@ -49,7 +51,7 @@ We recommend that you refresh your API key and client secret on a regular cadenc
 
 ## Subscription ID and Public Key
 
-If you are a publisher and are implementing UID2 on the client side, you'll receive the following credentials:
+If you're using a client-side implementation, you'll receive the following credentials:
 - **Subscription ID**: This value identifies your site to the UID2 service.
 - **Public key**: This value is used for encryption.
 

@@ -1,11 +1,11 @@
 ---
-title: API Keys
+title: UID2 Credentials
 description: 必要な API Key とその取得方法。
 hide_table_of_contents: false
 sidebar_position: 03
 ---
 
-# API Keys
+# UID2 Credentials
 
 UID2 <a href="/docs/intro#participants">参加者</a> はそれぞれ、クライアントキーとも呼ばれる API Key を持っています。各キーには対応する [client secret](../ref-info/glossary-uid.md#gl-client-secret) があり、これは参加者と UID2 Service だけが知っている値です。
 

@@ -66,7 +66,7 @@ To get started, follow these steps:
 1. Request access to UID2 by filling out the form on the [Request Access](/request-access) page.
 1. Identify the properties that you want to integrate with UID2.
 1. Sign the UID2 contract.
-1. Receive the UID2 authentication keys ([API keys](../getting-started/gs-api-keys.md)).
+1. Receive the UID2 authentication keys ([UID2 Credentials](../getting-started/gs-credentials.md)).
 1. Build your integration to UID2 via an SDK or direct integration with the UID2 APIs, using the applicable documentation.
 
      NOTE: Be sure to encrypt request messages to UID2. For details, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
@@ -114,7 +114,7 @@ The following resources are available for publishers integrating with Google Ad 
 
 | Integration Type| Documentation | Content Description | Audience |
 | :--- | :--- | :--- | :--- |
-| Prebid | [Prebid.js Integration Guide](../guides/integration-prebid.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. This guide is for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach. | Publishers |
+| Prebid | [Prebid.js Express Integration Guide](../guides/integration-prebid.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. This guide is for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach. | Publishers |
 | Prebid | [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. This guide is for publishers who are using a private operator or who want to generate tokens server-side. | Publishers |
 
 ### Google Ad Manager Integrations

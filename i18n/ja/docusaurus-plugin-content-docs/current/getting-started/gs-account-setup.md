@@ -41,7 +41,7 @@ UID2 に興味を示していただいたら、詳細を詰めるために担当
 * 会社名
 * 契約書に署名できる正式な個人の名前と連絡先
 
-UID2 に参加する契約を結ぶと、[APIキー](gs-api-keys.md)と UID2 を始めるために必要な情報が提供されます。
+UID2 に参加する契約を結ぶと、[UID2 credentials](gs-credentials.md)と UID2 を始めるために必要な情報が提供されます。
 
 
 ## API Versions

@@ -57,13 +57,13 @@ UID2 を使用する DSP が得られるメリットの一部を次に示しま�
 2. UID2 オプトアウトを受信するための Webhook を実装し、
 UID2 Admimnistrator と Webhook を共有します。
 3. Webhook 経由でオプトアウトフィードを受信していることを確認します。<br/>。
-    Webhook が設置されたら、認証情報を受け取ります ([API keys](../getting-started/gs-api-keys.md) を参照してください)。
+    Webhook が設置されたら、認証情報を受け取ります ([UID2 Credentials](../getting-started/gs-credentials.md) を参照してください)。
 4. どの実装オプションを使用するかを決定します。
 5. SDK を使用している場合は、SDKをダウンロードします。該当する SDK のガイドを参照してください。
 6. 選択したオプションの実装ガイドに記載されている手順に従います。
 
      Note: リクエストメッセージは必ずUID2まで暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md)を参照してください。
-7. (条件付き)CRM オンボーディングソリューションを実装する場合は、データプロバイダワークフローのための資格情報の別のセットを要求します。[APIキー](../getting-started/gs-api-keys.md)を参照してください。
+7. (条件付き)CRM オンボーディングソリューションを実装する場合は、データプロバイダワークフローのための資格情報の別のセットを要求します。[UID2 Credentials](../getting-started/gs-credentials.md)を参照してください。
 8. テストします。
 9. 本番稼働します。
 
