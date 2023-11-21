@@ -97,7 +97,7 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-api-key">API key</dt>
 <dd>UID2 <a href="/docs/intro#participants">参加者</a> はそれぞれ、API Key (クライアントキー)と、そのキーに関連付けられた Client Secret (APIシークレット)と呼ばれる秘密の値を持っています。Client Secretは、参加者と UID Service だけが知っています。</dd>
-<dd>詳細は <a href="/docs/getting-started/gs-api-keys">API Keys</a> を参照してください。</dd>
+<dd>詳細は <a href="/docs/getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-api-secret">API secret</dt>
 <dd><a href="#gl-client-secret">client secret</a> を参照してください。</dd>
@@ -115,7 +115,7 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-client-secret">Client secret</dt>
 <dd>
 各 UID2 <a href="/docs/intro#participants">参加者</a>は、API Key (クライアントキー)と、そのキーに関連付けられた秘密値 (Client secret (API シークレット))を持っています。Client secretは、参加者と UID2 Service だけが知っています。</dd>
-<dd>詳細については、<a href="/docs/getting-started/gs-api-keys">API Keys</a> を参照してください。</dd>
+<dd>詳細については、<a href="/docs/getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-closed-operator">Closed operator</dt>
 <dd>Closed operator は <a href="#gl-private-operator">private operator</a> の別名です。</dd>
