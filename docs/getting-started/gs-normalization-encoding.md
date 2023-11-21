@@ -88,4 +88,4 @@ The example below shows a simple input phone number, and the result as each step
 
 ## Example
 
-For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base-64 Encoding](../guides/publisher-client-side.md#example-code-hashing-and-base64-encoding).
+For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base-64 Encoding](../guides/publisher-client-side#example-code-hashing-and-base-64-encoding).

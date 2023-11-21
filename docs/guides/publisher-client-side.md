@@ -59,9 +59,9 @@ Only root-level domains are required for account setup. For example, if you're g
 
 ## Add UID2 SDK For JavaScript to Your Site
 
-The following code gives an overview of the code you will need to add into your website, and illustrates the different events that the SDK can trigger.
+The following code snippet shows the code overview you will need to add to your website. It also  illustrates the different events that the SDK can trigger.
 
-{**GWH_SW_11 Do we need to offer any info? Does this go into every page? Are there some cases where they don't need to use some of the events or some of the code? Or they could just actually plug in the below, with the correct URL?**}
+However for the detail code snippet you will need to implement for your website, see [Example Integration Code and When to Pass DII to the UID2 SDK](#example-integration-code-and-when-to-pass-dii-to-the-uid2-sdk).
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
@@ -93,8 +93,6 @@ window.__uid2.callbacks.push((eventType, payload) => {
  
 </script>
 ```
-
-For a more detailed code example, see [Example Integration Code and When to Pass DII to the UID2 SDK](#example-integration-code-and-when-to-pass-dii-to-the-uid2-sdk).
 
 For more information about the SDK, see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md).
 
