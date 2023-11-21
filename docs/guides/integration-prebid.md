@@ -1,6 +1,6 @@
 ---
 title: Prebid.js Express Integration
-sidebar_label: Prebid.js Express Integration
+sidebar_label: Prebid.js Express
 pagination_label: Prebid.js Express Integration
 description: Information about integrating with Prebid.js as part of your UID2 implementation.
 hide_table_of_contents: false
@@ -67,7 +67,7 @@ To configure the UID2 module, call `pbjs.setConfig` with an object containing th
 
 Once it's configured, the UID2 module generates a UID2 token for the user and stores it in the user's browser. The module automatically refreshes the token as required while your site is open in the user's browser.
 
-You can pass the user's DII to the UID2 module either hashed or unhashed. If you pass the DII unhashed, the UID2 module hashes it for you. If want to pass the DII to the module already hashed, you must normalize it before hashing. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+You can pass the user's DII to the UID2 module either hashed or unhashed. If you pass the DII unhashed, the UID2 module hashes it for you. If you want to pass the DII to the module already hashed, you must normalize it before hashing. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
 
 The UID2 module encrypts the hashed DII before sending it to the UID2 service.
 

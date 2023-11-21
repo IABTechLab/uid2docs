@@ -48,7 +48,7 @@ UID2 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメント�
 
 詳細は:
 -  [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)
--  [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md)
+-  [JavaScript Express Integration Guide](../guides/publisher-client-side.md)
 
 ### New: Private Operator Guide for Google Confidential Space 
 
