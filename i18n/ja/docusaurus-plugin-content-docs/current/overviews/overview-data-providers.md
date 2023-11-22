@@ -64,7 +64,7 @@ UID2 を使用するデータプロバイダーが得られるメリットの一
    担当者が連絡し、ニーズを伺い、適切なステップをアドバイスします。
 1. [参加者](../intro.md#participants)の役割を決めます。
 1. どの実装オプションを使用するかを決めます。
-1. 認証情報を受け取り ([API keys](../getting-started/gs-api-keys.md) を参照)、選択したオプションのインテグレーションガイドの指示に従います。
+1. 認証情報を受け取り ([UID2 Credentials](../getting-started/gs-credentials.md) を参照)、選択したオプションのインテグレーションガイドの指示に従います。
 
     Note: リクエストメッセージは必ずUID2まで暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md)を参照してください。
 1. テストします。

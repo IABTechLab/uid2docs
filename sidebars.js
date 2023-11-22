@@ -27,7 +27,7 @@ const sidebars = {
       collapsed: true,
       items: [
         'getting-started/gs-account-setup',
-        'getting-started/gs-api-keys',
+        'getting-started/gs-credentials',
         'getting-started/gs-roles-permissions',
         'getting-started/gs-auth',
         'getting-started/gs-environments',
@@ -105,8 +105,9 @@ const sidebars = {
             collapsed: true,
             items: [
               'guides/integration-prebid',
-              'guides/integration-prebid-advanced',
               'guides/publisher-client-side',
+              'guides/integration-prebid-advanced',
+              'guides/integration-javascript-standard',
               'guides/custom-publisher-integration',
               'guides/google-ss-integration',
                     ],
@@ -184,17 +185,6 @@ const sidebars = {
         },
        ],
     },
-
-
-
-
-
-
-
-
-
-
-
 
      'summary-doc-v2',
     {

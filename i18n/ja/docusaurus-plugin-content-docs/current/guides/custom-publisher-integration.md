@@ -47,7 +47,7 @@ sidebar_position: 03
 
 ワークフローを示すサンプルアプリケーションもあります。[サンプルアプリケーション](#sample-application)を参照してください。
 
-> TIP: UID2 を使用してクライアントの identity を確立し、UID2 Token を取得するプロセスを容易にするには、UID2 SDK for JavaScript の使用を検討してください。詳細については、[UID2 SDK for JavaScript Integration Guide](publisher-client-side.md)を参照してください。
+> TIP: UID2 を使用してクライアントの identity を確立し、UID2 Token を取得するプロセスを容易にするには、UID2 SDK for JavaScript の使用を検討してください。詳細については、[JavaScript Express Integration Guide](publisher-client-side.md)を参照してください。
 
 ## Integration Steps
 

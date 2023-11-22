@@ -18,7 +18,6 @@ Prebid.js Express Integration Guide は、既存の URL にまったく新しい
 前バージョンの Prebid ドキュメントにあった内容は、Private Operator を使用しているパブリッシャーや、Server-Side でトークン生成を実装したいパブリッシャーのために、補足ドキュメントである *Prebid.js Advanced Integration Guide* に追加されました。
 
 詳細は、以下を参照してください:
-- [Prebid.js Integration Guide](../guides/integration-prebid.md)
 - [Prebid.js Express Integration Guide](../guides/integration-prebid.md)
 - [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md)
 
@@ -48,7 +47,7 @@ UID2 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメント�
 
 詳細は:
 -  [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)
--  [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md)
+-  [JavaScript Express Integration Guide](../guides/publisher-client-side.md)
 
 ### New: Private Operator Guide for Google Confidential Space 
 
