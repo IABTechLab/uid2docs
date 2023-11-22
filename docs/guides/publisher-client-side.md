@@ -22,7 +22,7 @@ UID2 provides a UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference 
 You'll need to complete the following steps:
 
 1. [Complete UID2 account setup](#complete-uid2-account-setup)
-2. [Add UID2 SDK For JavaScript to your site](#add-js-to-your-site)
+2. [Add UID2 SDK For JavaScript to your site](#add-uid2-sdk-for-javascript-to-your-site)
 3. [Configure the UID2 SDK for JavaScript](#configure-the-uid2-sdk-for-javascript)
 4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
 
@@ -59,9 +59,11 @@ Only root-level domains are required for account setup. For example, if you're g
 
 ## Add UID2 SDK For JavaScript to Your Site
 
-The following code snippet shows the code overview you will need to add to your website. It also  illustrates the different events that the SDK can trigger.
+The following code snippet provides an overview of the code you will need to add to your website. It also illustrates the different events that the SDK can trigger.
 
-However for the detail code snippet you will need to implement for your website, see [Example Integration Code and When to Pass DII to the UID2 SDK](#example-integration-code-and-when-to-pass-dii-to-the-uid2-sdk).
+For a more detailed code snippet, see [Example Integration Code and When to Pass DII to the UID2 SDK](#example-integration-code-and-when-to-pass-dii-to-the-uid2-sdk).
+
+For the `UID2_JS_SDK_URL` value, see [UID2 SDK for JavaScript Version](#uid2-sdk-for-javascript-version).
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
