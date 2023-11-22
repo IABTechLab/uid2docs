@@ -28,6 +28,7 @@ const sidebars = {
       items: [
         'getting-started/gs-account-setup',
         'getting-started/gs-credentials',
+        'getting-started/gs-permissions',
         'getting-started/gs-auth',
         'getting-started/gs-environments',
         'getting-started/gs-api-using',
@@ -184,17 +185,6 @@ const sidebars = {
         },
        ],
     },
-
-
-
-
-
-
-
-
-
-
-
 
      'summary-doc-v2',
     {
