@@ -27,7 +27,7 @@ const sidebars = {
       collapsed: true,
       items: [
         'getting-started/gs-account-setup',
-        'getting-started/gs-api-keys',
+        'getting-started/gs-credentials',
         'getting-started/gs-auth',
         'getting-started/gs-environments',
         'getting-started/gs-api-using',

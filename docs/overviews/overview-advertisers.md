@@ -52,7 +52,7 @@ To get started, follow these steps:
    Someone will contact you to discuss your needs and advise on appropriate next steps.
 1. Decide on your [participant](../intro.md#participants) role or roles.
 1. Decide which implementation option you want to use.
-1. Receive your credentials (see [API keys](../getting-started/gs-api-keys.md)) and follow the instructions in the implementation guide for the option you chose.
+1. Receive your credentials (see [UID2 Credentials](../getting-started/gs-credentials.md)) and follow the instructions in the implementation guide for the option you chose.
 
      NOTE: Be sure to encrypt request messages to UID2. For details, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 1. Test.
