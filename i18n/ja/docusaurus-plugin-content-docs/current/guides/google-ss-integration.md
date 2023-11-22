@@ -1,6 +1,6 @@
 ---
 title: Google Ad Manager Secure Signals Integration
-sidebar_label: Google Ad Manager Secure Signals
+sidebar_label: GAM Secure Signals
 pagination_label: Google Ad Manager Secure Signals Integration
 description: UID2 と Google Ad Manager **セキュアシグナル** 機能を使用するパブリッシャー向けのインテグレーション手順。
 hide_table_of_contents: false
@@ -81,7 +81,7 @@ UID2 SDK for JavaScript バージョン 3.0.0 以降を使用している場合�
 
 このスクリプトは CDN でホストされており、GPT はセキュアシグナル機能で自動的にロードします。
 
-詳しくは、 [UID2 SDK for JavaScript Integration Guide](publisher-client-side.md) を参照してください。
+詳しくは、 [JavaScript Express Integration Guide](publisher-client-side.md) を参照してください。
 
 <!--A sample application is also available for client-side integration using the SDK. See [Sample Applications](#sample-applications).-->
 

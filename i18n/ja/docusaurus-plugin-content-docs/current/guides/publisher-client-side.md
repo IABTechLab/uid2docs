@@ -1,39 +1,52 @@
 ---
-title: Client-Side JavaScript SDK Integration
-sidebar_label: Client-Side JavaScript SDK
-pagination_label: Client-Side JavaScript SDK Integration
-description: パブリッシャー向けの、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成する方法。
+title: JavaScript Express Integration
+sidebar_label: JavaScript Express
+pagination_label: JavaScript Express Integration
+description: Information about integrating with UID2 SDK for JavaScript as part of your UID2 implementation.
 hide_table_of_contents: false
-sidebar_position: 02
+sidebar_position: 04
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# JavaScript Express Integration Guide
 
-# UID2 SDK for JavaScript Integration Guide
+This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) using only JavaScript client-side changes on their website with minimum effort.
 
 このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成したいウェブアセットを持つパブリッシャーを対象としています。
 
 - SDK の技術的な詳細については、[UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください。
 
-<!-- It includes the following sections:
+- UID2 token generation
+- Automatic refreshing of UID2 tokens
+- Automatic storage of UID2 tokens in the browser
 
-- [Sample Implementation Website](#sample-implementation-website)
-- [Introduction](#introduction)
-- [Integration Steps ](#integration-steps)
-  - [Establish Identity: User Login](#establish-identity-user-login)
-  - [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
-  - [Refresh Tokens](#refresh-tokens)
-  - [Clear Identity: User Logout](#clear-identity-user-logout)
-- [FAQs](#faqs) -->
+You'll need to complete the following steps:
+
+1. [Complete UID2 account setup](#complete-uid2-account-setup)
+2. [Add UID2 SDK For JavaScript to your site](#add-js-to-your-site)
+3. [Configure the UID2 SDK for JavaScript](#configure-the-uid2-sdk-for-javascript)
+4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
+
+## UID2 SDK for JavaScript Version
+
+Support for client-side token generation is available in version 3.2 and above of the SDK. 
+
+The URL for the SDK is:
+
+- [https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js](https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js)
+
+In the following code examples, the placeholder `{{ UID2_JS_SDK_URL }}` refers to this URL.
+
+If you want to use a debug build of the SDK, use the following URL instead:
+
+- [https://cdn.integ.uidapi.com/uid2-sdk-3.2.0.js](https://cdn.integ.uidapi.com/uid2-sdk-3.2.0.js)
 
 ## Sample Implementation Website
 
-For an example application, see the UID2 Google ESP with SDK v3 example:
+アプリケーションの例については、SDK v3 を使用した UID2 Google ESP の例を参照してください:
 - Code and docs: [UID2 SDK ESP Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3)
-- Running site: [Client-Side UID2 SDK Integration Example](https://esp-jssdk-integ.uidapi.com/)
+- 実行中のサイト: [Client-Side UID2 SDK Integration Example](https://esp-jssdk-integ.uidapi.com/)
 
-## Introduction
+## Complete UID2 Account Setup
 
 このガイドでは、SDK を使用せずにインテグレーションを行う場合に考慮すべき基本的なステップの概要を説明します。例えば、ユーザーのログインとログアウトの実装方法、UID2 ID 情報の管理方法とターゲティング広告への使用方法、トークンのリフレッシュ方法、紛失した ID の処理方法、ユーザーのオプトアウトの処理方法などを決定する必要があります。
 
@@ -55,7 +68,7 @@ Google Ad Manager を使用していて、セキュアシグナル機能を使�
 
 以下の図は、ユーザーの UID2 Token をパブリッシャーと確立するために必要なステップと、UID2 Token が RTB ビッドストリームとどのようにインテグレーションされるかを概説しています。
 
-![Publisher Flow](https://mermaid.ink/svg/eyJjb2RlIjoiICBzZXF1ZW5jZURpYWdyYW1cbiAgICBwYXJ0aWNpcGFudCBVIGFzIFVzZXJcbiAgICBwYXJ0aWNpcGFudCBQIGFzIFB1Ymxpc2hlclxuICAgIHBhcnRpY2lwYW50IFVJRDIgYXMgVUlEMiBTZXJ2aWNlXG4gICAgcGFydGljaXBhbnQgU1NQXG4gICAgTm90ZSBvdmVyIFUsU1NQOiAxLiBFc3RhYmxpc2ggSWRlbnRpdHlcbiAgICBVLT4-K1A6IDEtYS4gVGhlIHVzZXIgdmlzaXRzIGEgcHVibGlzaGVyIGFzc2V0LlxuICAgIFAtPj4tVTogMS1iLiBUaGUgcHVibGlzaGVyIGV4cGxhaW5zIHRoZSB2YWx1ZSBleGNoYW5nZSBvZiB0aGUgb3BlbiBpbnRlcm5ldCBhbmQgcmVxdWVzdHMgYSBsb2dpbi5cbiAgICBhY3RpdmF0ZSBVXG4gICAgVS0-PlA6IDEtYy4gVGhlIHVzZXIgYXV0aGVudGljYXRlcyBhbmQgYXV0aG9yaXplcyB0aGUgY3JlYXRpb24gb2YgYSBVSUQyLlxuICAgIGRlYWN0aXZhdGUgVVxuICAgIGFjdGl2YXRlIFBcbiAgICBQLT4-VUlEMjogMS1kLiBUaGUgcHVibGlzaGVyIHNlbmRzIHRoZSB1c2VyJ3MgUElJIHRvIHRoZSB0b2tlbiBnZW5lcmF0aW9uIHNlcnZpY2UuXG4gICAgZGVhY3RpdmF0ZSBQXG4gICAgYWN0aXZhdGUgVUlEMlxuICAgIFVJRDItPj5QOiAxLWUuIFRoZSB0b2tlbiBnZW5lcmF0aW9uIHNlcnZpY2UgcmV0dXJucyBVSUQyIHRva2Vucy5cbiAgICBkZWFjdGl2YXRlIFVJRDJcbiAgICBhY3RpdmF0ZSBQXG4gICAgUC0-PlU6IDEtZi4gVGhlIHB1Ymxpc2hlciBzZXRzIGEgVUlEMiBmb3IgdGhlIHVzZXIuXG4gICAgZGVhY3RpdmF0ZSBQXG4gICAgTm90ZSBvdmVyIFUsU1NQOiAyLiBCaWQgVXNpbmcgVUlEMiBUb2tlbnNcbiAgXG4gICAgUC0-PlNTUDogMi1hLiBUaGUgcHVibGlzaGVyIGNhbGxzIHRoZSBTU1AgZm9yIGFkcyB1c2luZyB0aGUgVUlEMiB0b2tlbi5cbiAgICBhY3RpdmF0ZSBTU1BcbiAgICBTU1AtPj5QOiAyLWIuIFRoZSBTU1AgcmV0dXJucyBhZHMgdG8gZGlzcGxheS5cbiAgICBkZWFjdGl2YXRlIFNTUFxuICAgIGFjdGl2YXRlIFBcbiAgICBQLT4-VTogMi1jLiBUaGUgcHVibGlzaGVyIGRpc3BsYXlzIHRoZSBhZHMgdG8gdGhlIHVzZXIuXG4gICAgZGVhY3RpdmF0ZSBQXG5cbiAgICBOb3RlIG92ZXIgVSxTU1A6IDMuIFJlZnJlc2ggVG9rZW5zXG4gICAgVS0-PlVJRDI6IDMtYS4gVGhlIFNESyBzZW5kcyBhIHJlcXVlc3QgdG8gcmVmcmVzaCB0aGUgVUlEMiB1c2luZyB0aGUgcmVmcmVzaCB0b2tlbi5cbiAgICBhY3RpdmF0ZSBVSUQyXG4gICAgVUlEMi0-PlU6IDMtYi4gSWYgYSB1c2VyIGhhc24ndCBvcHRlZCBvdXQsIHRoZSByZWZyZXNoIHRva2VuIHNlcnZpY2UgcmV0dXJucyBuZXcgaWRlbnRpdHkgdG9rZW5zLlxuICAgIGRlYWN0aXZhdGUgVUlEMlxuICAgIE5vdGUgb3ZlciBVLFNTUDogNC4gVXNlciBMb2dvdXRcbiAgICBVLT4-UDogNC1hLiBUaGUgdXNlciBsb2dzIG91dCBmcm9tIGEgcHVibGlzaGVyIGFzc2V0LlxuICAgIGFjdGl2YXRlIFBcbiAgICBQLT4-VTogNC1iLiBUaGUgdXNlcidzIGlkZW50aXR5IGNsZWFycy5cbiAgICBkZWFjdGl2YXRlIFAiLCJtZXJtYWlkIjp7InRoZW1lIjoiZm9yZXN0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
+![Publisher Flow](images/publisher-flow-mermaid.png)
 
 以下のセクションでは、図中の各ステップについての詳細を説明します:
  
@@ -178,7 +191,30 @@ SDK は、指定された [callback function](../sdks/client-side-identity.md#ca
 
 ```html
 <script>
-  let advertisingToken = __uid2.getAdvertisingToken();
+ 
+// When the UID2 SDK is executed, it looks for these callbacks and invokes them.
+window.__uid2 = window.__uid2 || {};
+window.__uid2.callbacks = window.__uid2.callbacks || [];
+window.__uid2.callbacks.push((eventType, payload) => {
+  switch (eventType) {
+    case "SdkLoaded":
+      // The SdkLoaded event occurs just once.
+      __uid2.init({});
+      break;
+ 
+    case "InitCompleted":
+      // The InitCompleted event occurs just once.
+      //
+      // If there is a valid UID2 token, it is in payload.identity.
+      break;
+ 
+    case "IdentityUpdated":
+      // The IdentityUpdated event happens when a UID2 token is generated or refreshed.
+      // payload.identity contains the resulting latest identity.
+      break;
+  }
+});
+ 
 </script>
 ```
 
@@ -190,7 +226,7 @@ SDK は、指定された [callback function](../sdks/client-side-identity.md#ca
 `__uid2.getAdvertisingToken()` を呼び出す代わりに、Step 1-g で設定したコールバックに渡された ID の `advertising_token` プロパティを使用することができます。このコールバックは ID が変更されるたびに呼び出されます。
 :::
 
-### Refresh Tokens
+## Example Integration Code and When to Pass DII to the UID2 SDK
 
 初期化の一環として、SDK は ID の [token auto-refresh](../sdks/client-side-identity.md#background-token-auto-refresh) を設定します。これは、ID のタイムスタンプまたは断続的なエラーによるリフレッシュの失敗によってバックグラウンドでトリガーされます。
 
@@ -199,7 +235,7 @@ SDK は、指定された [callback function](../sdks/client-side-identity.md#ca
 | 3-a | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | SDK はバックグラウンドで自動的に UID2 Token をリフレッシュします。手動で操作する必要はありません。 |
 | 3-b | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | ユーザーがオプトアウトしていない場合、[POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントは自動的に新しい ID トークンを返します。 |
 
-### Clear Identity: User Logout
+The following code snippet demonstrates how you might integrate with the UID2 SDK for JavaScript for the two scenarios above&#8212;starting with no token as well as reusing/refreshing any existing UID2 token if found. 
 
 ユーザーがパブリッシャーのサイトからログアウトすると、クライアントのライフサイクルは完了します(UID2 ではありません)。これによってクライアントのアイデンティティセッションが閉じられ、first-party cookie の情報が消去されます。
 
@@ -210,10 +246,72 @@ SDK は、指定された [callback function](../sdks/client-side-identity.md#ca
 
 ```html
 <script>
-  __uid2.disconnect();
+ 
+// UID2 provides these configuration values to the publisher.
+const clientSideConfig = {
+  subscriptionId: "...",
+  serverPublicKey: "...",
+};
+  
+// Example of a base-64 encoded SHA-256 hash of an email address.
+const emailHash = "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=";
+
+// When the UID2 SDK is executed, it looks for these callbacks and invokes them.
+window.__uid2 = window.__uid2 || {};
+window.__uid2.callbacks = window.__uid2.callbacks || [];
+window.__uid2.callbacks.push(async (eventType, payload) => {
+  switch (eventType) {
+    case "SdkLoaded":
+      // The SdkLoaded event occurs just once.
+      __uid2.init({});
+      break;
+ 
+    case "InitCompleted":
+      // The InitCompleted event occurs just once.
+      //
+      // If there is a valid UID2 token, it is in payload.identity.
+      if (payload.identity) {
+        // Pass the UID2 token to Prebid.js.
+        //
+        // payload looks like this:
+        // {
+        //   "identity": {
+        //     "advertising_token": "A4A...MqA",
+        //     "refresh_token": "A3A...pdg==",
+        //     "identity_expires": 1692257038260,
+        //     "refresh_expires": 1692339838260,
+        //     "refresh_from": 1692254338260
+        //     "refresh_response_key": "z0v...zL0="
+        //   }
+        // }
+        var advertising_token_to_use = payload.identity.advertising_token;
+      } else {
+          if (__uid2.isLoginRequired()) {
+            // Call one of the setIdentityFrom functions to generate a new UID2 token.
+            // Add any retry logic around this call as required.
+            await __uid2.setIdentityFromEmailHash(
+                emailHash,
+                clientSideConfig
+          );
+          else {
+            // there is a token generation API call in flight which triggers
+            // a IdentityUpdated event 
+          }
+        }
+      }
+      break;
+ 
+    case "IdentityUpdated":
+      // The IdentityUpdated event happens when a UID2 token is generated or refreshed.
+      // See previous comment for an example of how the payload looks.
+      var advertising_token_to_use = payload.identity.advertising_token;
+      break;
+  }
+});
+ 
 </script>
 ```
 
-## FAQs
+## Check that the Token Was Successfully Generated
 
 パブリッシャー向けのよくある質問については、[FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。

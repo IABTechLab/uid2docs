@@ -10,8 +10,7 @@ banner_description: 未来のためのIDソリューション。
 
 データおよび測定プロバイダーは、Unified ID 2.0 を採用してデータをより耐久性のある、オムニチャネルおよびクロスデバイスの識別子で接続し、顧客のユースケースを満たすことによって、ID の断片化を減らすことができます。
 
-以下のセクションでは、UID2 を採用するデータプロバイダー向けのワークフロー、インテグレーションタイプ、ドキュメントを説明します。
-
+以下のセクションでは、UID2 を採用するデータプロバイダーにとっての利点、ワークフロー、ドキュメント、その他のリソースに関する情報を提供します。
 
 ## Audience
 
@@ -30,16 +29,6 @@ UID2 を使用するデータプロバイダーが得られるメリットの一
 - オンラインとオフラインのデータを共通の ID で接続し、より精度の高いものを目指します。
 - サードパーティクッキーの有無にかかわらず、キャンペーンをより正確に測定します。
 
-## Resources
-
-データプロバイダーが UID2 を実装するために、以下のドキュメントリソースを利用できます。
-
-| Integration Type | Documentation | Content Description | Audience |
-| :--- | :--- | :--- | :--- |
-| インテグレーションガイド | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | 広告主とデータプロバイダーのためのインテグレーションガイドで、オーディエンスの構築とターゲティングのための ID マッピングのためのインテグレーションワークフローを網羅しています。 | Advertisers,<br/>Data Providers |
-| Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | Snowflakeでメールアドレスから UID を生成する手順です。 | Advertisers,<br/>Data Providers |
-| [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) | AWS Entity Resolution を使用して UID2 フレームワークとインテグレーションする手順です。 | Advertisers,<br/>Data Providers |
-
 ## Workflow for Data Providers
 
 以下のステップは、ユーザーデータを収集し DSP にプッシュする組織 (広告主、ID グラフプロバイダー、サードパーティデータプロバイダーなど)を対象としたワークフローのアウトラインを提供するものです。
@@ -51,9 +40,9 @@ UID2 を使用するデータプロバイダーが得られるメリットの一
 
 1. データプロバイダーが、同意を得たユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 Operator に送信します。
 2. UID2 Operator は、raw UID2 とソルトバケット ID を生成して返します。
-3. データプロバイダーは UID2 とソルトバケット ID を保存し、UID2 ベースのファーストパーティおよびサードパーティのオーディエンスセグメントをDSPに送信します。
-4. データプロバイダーは、行動規範で定義された許可されたトランスポートプロトコルを使用して、UID2 を DSP に送信します。
-5. データプロバイダーは、UID2 Operator がローテーションしたソルトバケットを監視し、必要に応じて UID2 を更新します。
+3. データプロバイダーは UID2 とソルトバケット ID を保存し、UID2 ベースのファーストパーティおよびサードパーティのオーディエンスセグメントを DSP に送信します。
+
+   Server-side: データプロバイダーは、UID2 をマッピングテーブル、DMP、データレイク、またはその他の Server-Side アプリケーションに格納します。
 
 ![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.jpg)
 
@@ -75,11 +64,21 @@ UID2 を使用するデータプロバイダーが得られるメリットの一
    担当者が連絡し、ニーズを伺い、適切なステップをアドバイスします。
 1. [参加者](../intro.md#participants)の役割を決めます。
 1. どの実装オプションを使用するかを決めます。
-1. 1. 認証情報を受け取り ([API keys](../getting-started/gs-api-keys.md) を参照)、選択したオプションのインテグレーションガイドの指示に従います。
+1. 認証情報を受け取り ([UID2 Credentials](../getting-started/gs-credentials.md) を参照)、選択したオプションのインテグレーションガイドの指示に従います。
 
     Note: リクエストメッセージは必ずUID2まで暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md)を参照してください。
 1. テストします。
 1. 本番稼働します。
+
+## Resources
+
+データプロバイダーが UID2 を実装するために、以下のドキュメントリソースを利用できます。
+
+|     Integration Type     |                                       Documentation                                       |                                                                               Content Description                                                                                |            Audience             |
+| :----------------------- | :---------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------ |
+| インテグレーションガイド | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md)  | 広告主とデータプロバイダーのためのインテグレーションガイドで、オーディエンスの構築とターゲティングのための ID マッピングのためのインテグレーションワークフローを網羅しています。 | Advertisers,<br/>Data Providers |
+| Snowflake                | [Snowflake Integration Guide](../guides/snowflake_integration.md)                         | Snowflakeでメールアドレスから UID を生成する手順です。                                                                                                                           | Advertisers,<br/>Data Providers |
+| AWS Entity Resolution    | [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) | AWS Entity Resolution を使用して UID2 フレームワークとインテグレーションする手順です。                                                                                           | Advertisers,<br/>Data Providers |
 
 ## FAQs for Data Providers
 

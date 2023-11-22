@@ -10,8 +10,7 @@ banner_description: Unified ID 2.0 でキャンペーンのアクティベーシ
 
 広告主は、Unified ID 2.0によってファーストパーティデータ戦術をアップグレードし、1つの識別子でデバイスをまたいだオムニチャネルキャンペーンを実現できます。
 
-以下のセクションでは、UID2 を採用する広告主のためのワークフロー、インテグレーションタイプ、ドキュメントを説明します。
-
+以下のセクションでは、UID2 を採用する広告主にとってのメリット、ワークフロー、ドキュメント、その他のリソースに関する情報を提供します。
 
 ## Audience
 
@@ -39,7 +38,7 @@ banner_description: Unified ID 2.0 でキャンペーンのアクティベーシ
 
 ## Workflow for Advertisers
 
-以下のステップは、ユーザーデータを収集し DSP にプッシュする組織 (広告主、ID グラフプロバイダー、サードパーティデータプロバイダーなど)を対象としたワークフローのアウトラインを提供するものです。
+以下のステップは、ユーザーデータを収集し DSP にプッシュする組織 (広告主、ID グラフプロバイダー、サードパーティデータプロバイダーなど) を想定したワークフローのアウトラインを提供するものです。
 
 バックグラウンドで以下の処理が行われます:
 * データプロバイダーは、ローテーションされたソルトバケットの UID2 Operator を監視し、必要に応じて UID2 を更新します。
@@ -72,12 +71,27 @@ banner_description: Unified ID 2.0 でキャンペーンのアクティベーシ
    担当者が連絡し、ニーズを伺い、適切なステップをアドバイスします。
 1. [参加者](../intro.md#participants)の役割を決めます。
 1. どの実装オプションを使用するかを決めます。
-1. 認証情報を受け取り ([API keys](../getting-started/gs-api-keys.md) を参照)、選択したオプションのインテグレーションガイドの指示に従います。
+1. 認証情報を受け取り ([UID2 Credentials](../getting-started/gs-credentials.md) を参照)、選択したオプションのインテグレーションガイドの指示に従います。
 
      Note: リクエストメッセージは必ずUID2まで暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md)を参照してください。
 1. テストします。
 1. 本番稼働します。
 
+## Resources
+
+広告主が UID2 を実装するために、以下のドキュメントリソースが利用可能です。
+
+|                                        Integration Type                                        |                                       Documentation                                       |                                                                                        Content Description                                                                                         |            Audience             |
+| :--------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------ |
+| ユーザーデータを収集し、それを他の UID2 参加者にプッシュする組織のためのインテグレーション手順 | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md)  | 広告主とデータプロバイダーのためのこのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 | Advertisers,<br/>Data Providers |
+| Snowflake                                                                                      | [Snowflake Integration Guide](../guides/snowflake_integration.md)                         | Snowflake でメールアドレスから UID2 を生成する手順です。                                                                                                                                           | Advertisers,<br/>Data Providers |
+| AWS Entity Resolution                                                                          | [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) | AWS Entity Resolution を使用して UID2 フレームワークとインテグレーションする手順です。                                                                                                             | Advertisers,<br/>Data Providers |
+
+<!-- ## Integration Requirements
+To generate UID2s from users' DII, third-party data providers must meet the following requirements:
+- Integrate with a UID2 Operator to generate UID2s and handle salt bucket rotations.
+- Have access to the UID2 Operator APIs.<br/>Some advertisers may choose to work through CDPs, data on-boarders, or other service providers instead.
+For details, see [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md). -->
 
 ## FAQs for Advertisers
 
