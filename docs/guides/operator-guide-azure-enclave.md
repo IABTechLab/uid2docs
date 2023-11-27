@@ -138,7 +138,7 @@ The next step is to set up a [key vault](https://learn.microsoft.com/en-us/azure
 
 When you've created the key vault, you can create a [managed identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview) and grant it permission to access the key vault.
 
-Later Azure Container Instances (ACIs) will launch as this identity.
+Later [Azure Container Instances](https://azure.microsoft.com/en-us/products/container-instances) (ACIs) will launch as this identity.
 
 Follow these steps:
 
@@ -193,7 +193,7 @@ Follow these steps:
 
 ### Complete the UID2 Private Operator Setup
 
-The next step is to bring up multiple Azure container instances (ACIs) in the VPC sub network that you created.
+The next step is to bring up multiple Azure Container Instances (ACIs) in the VPC sub network that you created.
 
 Follow these steps:
 
