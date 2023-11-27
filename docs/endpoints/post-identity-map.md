@@ -36,7 +36,7 @@ Here's what you need to know:
 
 ###  Unencrypted JSON Body Parameters
 
->IMPORTANT: You must include only **one** of the following four conditional parameters, plus the required `optout_check` parameter with a value of `1`, as key-value pairs in the JSON body of the request when encrypting it.
+>IMPORTANT: You must include only **one** of the following four conditional parameters as a key-value pair in the JSON body of the request when encrypting it.
 
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
@@ -44,7 +44,6 @@ Here's what you need to know:
 | `email_hash` | string array | Conditionally Required | The list of [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) hashes of [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email addresses to be mapped. |
 | `phone` | string array | Conditionally Required | The list of [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone numbers to be mapped. |
 | `phone_hash` | string array | Conditionally Required | The list of [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) hashes of [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone numbers to be mapped. |
-| `optout_check` | integer | Required | Checks whether the user has opted out. Include this parameter with a value of `1`.|
 
 ### Request Examples
 
@@ -55,8 +54,7 @@ The following are unencrypted JSON request body examples for each parameter, one
     "email":[
         "user@example.com",
         "user2@example.com"
-    ],
-    "optout_check":1 
+    ]
 }
 ```
 ```json
@@ -64,8 +62,7 @@ The following are unencrypted JSON request body examples for each parameter, one
     "email_hash":[
         "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
         "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
-    ],
-    "optout_check":1    
+    ]
 }
 ```
 ```json
@@ -73,8 +70,7 @@ The following are unencrypted JSON request body examples for each parameter, one
     "phone":[
         "+1111111111",
         "+2222222222"
-    ],
-    "optout_check":1 
+    ]
 }
 ```
 ```json
@@ -82,15 +78,14 @@ The following are unencrypted JSON request body examples for each parameter, one
     "phone_hash":[
         "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
         "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
-    ],
-    "optout_check":1   
+    ]
 }
 ```
 
 Here's an encrypted identity mapping request example for a phone number:
 
 ```sh
-echo '{"phone": ["+1111111111", "+2222222222"],"optout_check":1}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk= DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
+echo '{"phone": ["+1111111111", "+2222222222"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk= DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
 
 For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
