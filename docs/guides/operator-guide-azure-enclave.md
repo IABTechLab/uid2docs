@@ -15,20 +15,23 @@ When the Docker container for the UID2 Operator Confidential Container starts up
 
 When the attestation is successful, the UID2 Core Service provides seed information such as salts and keys to bootstrap the UID2 Operator in the secure UID2 Operator Confidential Container.
 
->NOTE: UID2 Private Operator for Azure is not supported in these areas: Europe, China.
+:::caution
+UID2 Private Operator for Azure is not supported in these areas: Europe, China.
+:::
 
 <!-- 
 * [Prerequisites](#prerequisites)
-   - [Complete UID2 Operator Account Setup](#complete-uid2-operator-account-setup)
+   - [Set Up UID2 Operator Account](#set-up-uid2-operator-account)
    - [Install Azure CLI](#install-azure-cli)
    - [Get the Required Azure Permissions](#install-azure-cli)
+* [Deployment Environments](#deployment-environments)
 * [Deployment](#deployment)
   - [Download UID2 Private Operator for Azure ZIP File](#download-uid2-private-operator-for-azure-zip-file)
   * [Create Resource Group](#create-resource-group)
   * [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup)
   * [Set Up the VPC Network](#set-up-the-vpc-network)
-  * [Complete the Operator Setup](#complete-the-operator-setup)
-  * [Set Up Gateway Load Balancer](#set-up-gateway-load-balancer)
+  * [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup)
+  * [Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer)
 * [Running the Health Check](#running-the-health-check)
 * [Upgrading](#upgrading)
  -->
@@ -37,236 +40,242 @@ When the attestation is successful, the UID2 Core Service provides seed informat
 
 Before deploying the UID2 Private Operator for Azure, complete these prerequisite steps:
 
-- [Complete UID2 Operator Account Setup](#complete-uid2-operator-account-setup)
+- [Set Up UID2 Operator Account](#set-up-uid2-operator-account)
 - [Install Azure CLI](#install-azure-cli)
 - [Get the Required Azure Permissions](#install-azure-cli)
 
-### Complete UID2 Operator Account Setup
+### Set Up UID2 Operator Account
 
 Ask your UID2 contact to register your organization as a UID2 Operator. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
 
 When the registration process is complete, you'll receive the following:
 
-- An operator key, exclusive to you, that identifies you with the UID2 service as a private operator. During configuration, use this as the value for `OPERATOR_KEY`. This value is both your unique identifier and a password; store it securely and do not share it.
+- An operator key, exclusive to you, that identifies you with the UID2 service as a Private Operator. During configuration, use this as the value for `OPERATOR_KEY`. This value is both your unique identifier and a password; store it securely and do not share it.
 
-  >NOTE: You'll receive a separate operator key for each deployment environment.
+  :::note
+  You'll receive a separate operator key for each deployment environment.
+  :::
 
-- A link to the Azure enclave GitHub release page. For example: [https://github.com/IABTechLab/uid2-operator/releases/tag/v5.20.39-SNAPSHOT-azure-cc](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.20.39-SNAPSHOT-azure-cc).
+- A link to the UID2 Private Operator for Azure GitHub release page. For example: [https://github.com/IABTechLab/uid2-operator/releases/tag/v5.20.39-SNAPSHOT-azure-cc](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.20.39-SNAPSHOT-azure-cc).
 
 ### Install Azure CLI
 
-Install the Azure command-line interface (Azure CLI), following the instructions in [How to install the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) from Microsoft.
+Install the Azure command-line interface. See [How to install the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) in the Azure documentation.
 
 ### Get the Required Azure Permissions
 
 You'll need to have subscription owner permission so that you can create a resource group.
 
-When that's done, you only need to have contributor permission on that resource group level.
+When that's done, you only need contributor permission on the resource group level for that resource.
 
-For details, see [Azure Roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) in the Microsoft documentation.
+For details, see [Azure roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) in the Azure documentation.
 
-When all prerequisite steps are complete, you're ready to deploy the UID2 Private Operator.
+When all prerequisite steps are complete, you're ready to deploy the UID2 Private Operator. See [Deployment](#deployment).
 
-{**GWH_YS: Do we need anything about deployment environments?**}
+## Deployment Environments
 
+The following environments are available. As a best practice, we recommend that you test and verify your implementation in the integration environment before deploying in the production environment.
+
+:::note
+You'll receive separate `{OPERATOR_KEY}` values for each environment. Be sure to use the correct key for the environment you're using. The deployment artifacts and the process flow are the same for both environments.
+:::
+
+| Environment | Details |
+| :--- | :--- |
+| Integration (`integ`) | For testing only. Debug mode is available in the integration environment. |
+| Production (`prod`) | For managing production traffic. |
 
 ## Deployment
 
-To deploy a new UID2 Private Operator for Azure, follow these steps:
+To deploy a new UID2 Private Operator for Azure, you'll need to complete the following high-level steps:
 
-- [Download UID2 Private Operator for Azure ZIP File](#download-uid2-private-operator-for-azure-zip-file)
+- [Download ZIP File and Extract Files](#download-zip-file-and-extract-files)
 - [Create Resource Group](#create-resource-group)
 - [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup)
 - [Set Up the VPC Network](#set-up-the-vpc-network)
-- [Complete the Operator Setup](#complete-the-operator-setup)
-- [Set Up Gateway Load Balancer](#set-up-gateway-load-balancer)
+- [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup)
+- [Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer)
 
-### Download UID2 Private Operator for Azure ZIP File and Extract Files
+### Download ZIP File and Extract Files
 
-In the Azure Enclave GitHub release page that you were given after completing your UID2 account setup (see [Complete UID2 Operator Account Setup](#complete-uid2-operator-account-setup)), locate and download the ZIP file containing the files you'll need for your deployment. The ZIP file is named according to the following convention:
+The first step is to get set up with the deployment files you'll need.
 
-```
-uid2-operator-deployment-artifacts-{VERSION_NUMBER}-azure-cc.zip
-```
+Follow these steps:
 
-Unzip the `uid2-operator-deployment-artifacts-{VERSION_NUMBER}-azure-cc.zip` file to extracts the following files which you will use for the deployment:
+1. In the Azure Enclave GitHub release page that you were given after completing your UID2 account setup (see [Set Up UID2 Operator Account](#set-up-uid2-operator-account)), locate and download the ZIP file containing the files you'll need for your deployment. The ZIP file is named according to the following convention:
 
-- `vault.json` and `vault.parameters.json`
+   ```
+   uid2-operator-deployment-artifacts-{VERSION_NUMBER}-azure-cc.zip
+   ```
 
-- `vnet.json` and `vnet.parameters.json`
+2. Unzip the `uid2-operator-deployment-artifacts-{VERSION_NUMBER}-azure-cc.zip` file to extract the following files, needed for the deployment:
 
-- `operator.json` and `operator.parameters.json`
-
-- `gateway.json` and `gateway.parameters.json`
+   - `vault.json` and `vault.parameters.json`
+   - `vnet.json` and `vnet.parameters.json`
+   - `operator.json` and `operator.parameters.json`
+   - `gateway.json` and `gateway.parameters.json`
 
 ### Create Resource Group
 
 In Azure, run the following command to create a resource group to run the UID2 operator:
 
 ```
-az  group create --name {RESOURCE_GROUP_NAME} --location {LOCATION}
+az group create --name {RESOURCE_GROUP_NAME} --location {LOCATION}
 ```
 
+:::info
 All the resources are provisioned later under the name you provide as the {RESOURCE_GROUP_NAME} value.
+:::
 
 There are some limitations with regard to location:
 - UID2 Private Operator for Azure is not supported in these areas: Europe, China.
 
-- For Azure virtual network deployment availability, check [Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-region-availability#linux-container-groups) in the Microsoft documentation. You can only deploy to regions with the **Confidential SKU** column set to **Y** in the table.
-
-(**GWH_YS per this column they cannot deploy to Australia... is that correct? Just checking. There are a lot of "N" values in that table!**)
+- For Azure virtual network deployment availability, check [Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-region-availability#linux-container-groups) in the Azure documentation. You can only deploy to regions with the **Confidential SKU** column set to **Y** in the table.
 
 ### Complete Key Vault and Managed Identity Setup
 
-In this section we will set up a [key vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview) and save the operator key in it.
+The next step is to set up a [key vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview) and save the operator key in it.
 
-We will also create a [managed identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview) and grant it permission to access the created key vault.
+When you've created the key vault, you can create a [managed identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview) and grant it permission to access the key vault.
 
-Later ACIs will launch as this identity.
+Later Azure Container Instances (ACIs) will launch as this identity.
 
-Below are the setup steps:
+Follow these steps:
 
-1. Update the vault.parameters.json file.
+1. Update the `vault.parameters.json` file with the following required values:
 
-Required:
+   | Parameter | Description |
+   | :--- | :--- |
+   | `vaultName` | The name of the key vault for hosting the operator key secret. The name you choose must be globally unique. |
+   | `operatorKeyValue` | The `OPERATOR_KEY` secret value, which you received from the UID team as part of account setup (see [Set Up UID2 Operator Account](#set-up-uid2-operator-account)). This value is unique to you, like a password: keep it secure and secret. |
 
-vaultName: the name of Key Vault for hosting the operator key secret. This name has to be globally unique.
+2. (Optional) If you don't want to accept the defaults, update the `vault.parameters.json` file with the following values. These parameters have default values and in most cases you won't need to make any updates.
 
-operatorKeyValue: the OPERATOR_KEY secret value, you should have received from UID2 team. Remember this value is unique to you and should be protected like a password.
+    Parameter | Description |
+   | :--- | :--- |
+   | `operatorIdentifier` | The name of the managed identity that will launch the container.<br/>Default: `uid-operator`. |
+   | `operatorKeyName` | The operator key secret name.<br/>Default: `uid-operator`. |
 
-Optional (In most cases you don’t need to update these parameters, we will provide default value):
+   (**GWH_YS_11 a request. Could we use different default values for `operatorIdentifier` and `operatorKeyName`? I appreciate this might be a technical change and the answer might therefore be no. But I think it would be clearer if we didn't use the same default value for different settings. For example, operatorKeyName could be `uid-operator-key`. Commented same in Word file.**)
 
-operatorIdentifier: the name of the managed identity that will launch the container. Defaults to “uid-operator”
+3. Run the following command to trigger the deployment:
 
-operatorKeyName: the operator key secret name. Defaults to “uid-operator”
-
-2. Run the following command:
-
-```
-az deployment group create --name vault --resource-group {RESOURCE_GROUP_NAME} --parameters vault.parameters.json  --template-file vault.json
-```
+   ```
+   az deployment group create --name vault --resource-group {RESOURCE_GROUP_NAME} --parameters vault.parameters.json  --template-file vault.json
+   ```
 
 ### Set Up the VPC Network
 
-In this section we will set up the VPC network.
+The next step is to set up the VPC network.
 
-The following diagram illustrates the virtual private cloud that hosts private operators.
+The following diagram illustrates the virtual private cloud that hosts a UID2 Private Operator in Microsoft Azure.
 
-**GWH FILL IN DIAGRAM HERE**
+![VPC Network](images/operator-azure-drawio.png)
 
-Below are the setup steps:
+Follow these steps:
 
-1.    Update the vnet.parameters.json file.
+1. (Optional) If you don't want to accept the defaults, update the `vnet.parameters.json` file with the following values. These parameters have default values and in most cases you won't need to make any updates.
 
-Optional (In most cases you don’t need to update these parameters, we provide default values):
+    Parameter | Description |
+   | :--- | :--- |
+   | `vnetName` | The virtual network name.<br/>Default: `unified-id-network` |
+   | `computeSubnetName` | The name of the subnet that runs the UID2 Operator.<br/>Default: `unified-id-subnet-operators` |
+   | `gatewaySubnetName` | The name of the subnet that runs the UID2 Gateway.<br/>Default: `unified-id-subnet-gateway` |
+   | `VnetAddressPrefix` | The vnet address prefix.<br/>Default: `10.0.0.0/20` |
+   | `computeSubnetPrefix` | The vnet address prefix of the subnet that is delegated to run the UID2 Operator.<br/>Default: `10.0.0.0/24` |
+   | `gatewaySubnetPrefix` | The vnet address prefix of the subnet that runs the UID2 Gateway.<br/>Default: `10.0.0.0/28` |
 
-vnetName: the virtual network name. Defaults to "unified-id-network"
+2. Run the following command to trigger the deployment:
 
-computeSubnetName: the name of the subnet that runs the UID2 Operator. Defaults to “unified-id-subnet-operators”
+   ```
+   az deployment group create --name vnet --resource-group {RESOURCE_GROUP_NAME} --parameters vnet.parameters.json  --template-file vnet.json
+   ```
 
-gatewaySubnetName: the name of the subnet that runs the UID2 Gateway. Defaults to “unified-id-subnet-gateway”
+### Complete the UID2 Private Operator Setup
 
-VnetAddressPrefix: the vnet address prefix. Default to “10.0.0.0/20”
+The next step is to bring up multiple Azure container instances (ACIs) in the VPC sub network that you created.
 
-computeSubnetPrefix: the vnet address prefix of the subnet that is delegated to run the UID2 Operator. Defaults to “10.0.0.0/24”
+Follow these steps:
 
-gatewaySubnetPrefix: the vnet address prefix of the subnet that runs the UID2 Gateway. Defaults to “10.0.0.0/28”
+1. Update the `operator.parameters.json` file with the following required values:
 
-2. Run the commands below:
+   | Parameter | Description |
+   | :--- | :--- |
+   | `vaultName` | The name of the key vault for hosting the operator key secret. The value must match the name you created in [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup). |
+   | `operatorKeyName` | The operator key secret name. The value must match the value specified in [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup). If you accepted the default, the value is `uid-operator`. |
+   | `deploymentEnvironment` | Indicates the environment you're deploying to: `integ` or `prod`. For details, see [Deployment Environments](#deployment-environments). |
 
-az deployment group create --name vnet --resource-group {RESOURCE_GROUP_NAME} --parameters vnet.parameters.json  --template-file vnet.json
+2. (Optional) If you don't want to accept the defaults, update the `operator.parameters.json` file with the following values. These parameters have default values and in most cases you won't need to make any updates.
 
-### Complete the Operator Setup
+    Parameter | Description |
+   | :--- | :--- |
+   | `operatorIdentifier` | The name of the managed identity that will launch the container. The value must match the value specified in [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup). If you accepted the default, the value is `uid-operator`. |
+   | `vnetName` | The virtual network name. The value must match the value specified in [Set Up the VPC Network](#set-up-the-vpc-network). If you accepted the default, the value is `unified-id-network`. |
+   | `computeSubnetName` | The name of the subnet that will run the Private Operator. The value must match the value specified in [Set Up the VPC Network](#set-up-the-vpc-network). If you accepted the default, the value is `unified-id-subnet-operators`. |
+   | `count` | The count for the number of instances you want to bring up. The default is `2`. |
 
-In this section we will bring up multiple Azure container instances in created VPC sub network.
+2. Run the following command to deploy the ACIs:
 
-Below are the setup steps:
+   ```
+   az deployment group create --name operator --resource-group {RESOURCE_GROUP_NAME} --parameters operator.parameters.json  --template-file operator.json
+   ```
 
-1.    Update the operator.parameters.json file.
+3. Get the IP addresses of the ACI instances you created by running the following command:
 
-In most cases you don’t need to update these parameters.
+   ```
+   az deployment group show -g {RESOURCE_GROUP_NAME} -n operator --query properties.outputs
+   ```
 
-Required:
+   The output should look something like the following:
+   
+   ```
+   { "ipAddress": { "type": "Array", "value": [ "10.0.0.6", "10.0.0.5", "10.0.0.4" ] } }
+   ```
 
-vaultName: the name of Key Vault for hosting the operator key secret. Must be same as you created in Step “Key vault & Managed identity setup”
+### Set Up the Gateway Load Balancer
 
-operatorKeyName: the operator key secret name. Must be same as you created in Step “Key vault & Managed identity setup”
+The next step is to set up the [Gateway Load Balancer](https://learn.microsoft.com/en-us/azure/load-balancer/gateway-overview), which takes the private IP addresses of the ACIs you created and uses them as a [backend pool](https://learn.microsoft.com/en-us/azure/load-balancer/backend-pool-management).
 
-deploymentEnvironment: “integ” for integration environment, “prod” for production environment.
+Follow these steps:
 
-Optional (In most cases you don’t need to update these parameters, we will provide default value):
+1. Update the `gateway.parameters.json` file with the following required value:
 
-operatorIdentifier: the name of the managed identity that will launch the container. Must be same as you created in Step “Key vault & Managed identity setup”
+   | Parameter | Description |
+   | :--- | :--- |
+   | `containerGroupIPs` | The IP addresses of the ACI instances you created&#8212;the values output as a result of [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup) Step 4. |
 
-vnetName: the virtual network name. Must be same as you created in Step “Network setup”
+2. (Optional) If you don't want to accept the defaults, update the `gateway.parameters.json` file with the following values. These parameters have default values and in most cases you won't need to make any updates.
 
-computeSubnetName: the name of subnet that runs Operator. Must be same as you created in Step “Network setup”
+    Parameter | Description |
+   | :--- | :--- |
+   | `vnetName` | The virtual network name. The value must match the value specified in [Set Up the VPC Network](#set-up-the-vpc-network). If you accepted the default, the value is `unified-id-network`. |
+   | `gatewaySubnetName` | The name of the subnet that runs the UID2 Gateway. The value must match the value specified in [Set Up the VPC Network](#set-up-the-vpc-network). If you accepted the default, the value is `unified-id-subnet-gateway`. |
+   
+2. Run the following command:
 
-count: the instance count you want to bring up. Defaults to 2.
+   ```
+   az deployment group create --name gateway --resource-group {RESOURCE_GROUP_NAME} --parameters gateway.parameters.json  --template-file gateway.json
+   ```
 
-2. Run the commands below to deploy ACIs:
+3. Get the public IP address of the Gateway Load Balancer by running the following command:
+   
+   ```
+   az deployment group show -g {RESOURCE_GROUP_NAME} -n gateway--query properties.outputs
+   ```
 
-```
-az deployment group create --name operator --resource-group {RESOURCE_GROUP_NAME} --parameters operator.parameters.json  --template-file operator.json
-```
+   The output should look something like the following:
 
-3.Get the IPs of created ACI instances
+   ```
+   { "gatewayIP": { "type": "String", "value": "20.163.172.56" } }
+   ```
 
-```
-az deployment group show -g {RESOURCE_GROUP_NAME} -n operator --query properties.outputs
-```
+:::tip
+If you update the container, the Azure backend pool is not automatically updated with the IP address for the new container. For solutions, see [Automate infrastructure reconfiguration by using Azure](https://learn.microsoft.com/en-us/azure/architecture/web-apps/guides/networking/automation-application-gateway) in the Azure documentation.
+:::
 
-You should see output like below:
-
-```
-{ "ipAddress": { "type": "Array", "value": [ "10.0.0.6", "10.0.0.5", "10.0.0.4" ] } }
-```
-
-### Set Up Gateway Load Balancer
-
-In this section we will set up the [Gateway Load Balancer](https://learn.microsoft.com/en-us/azure/load-balancer/gateway-overview).
-
-The load balancer will use private IPs of those ACIs as backend pool.
-
-Below are the setup steps:
-
-1.    Update the gateway.parameters.json file.
-
-Required:
-
-containerGroupIPs: the IPs of ACIs. The output of Setup “Operator setup”
-
-Optional (In most cases you don’t need to update these parameters, we will provide default value):
-
-vnetName: the virtual network name. Must be same as you created in Step “Network setup”
-
-gatewaySubnetName: the name of subnet that runs Gateway. Must be same as you created in Step “Network setup”
-
-
-
-2. Run the commands below:
-
-```
-az deployment group create --name gateway --resource-group {RESOURCE_GROUP_NAME} --parameters gateway.parameters.json  --template-file gateway.json
-
-```
-
-3.You can get the public IP of the Gateway Load Balancer by running the following command:
-
-```
-az deployment group show -g {RESOURCE_GROUP_NAME} -n gateway--query properties.outputs
-```
-
-You should see output like below:
-
-```
-{ "gatewayIP": { "type": "String", "value": "20.163.172.56" } }
-
-```
-
-NOTE: If you update the container, the Azure backend pool is not automatically updated with the IP address for the new container. See https://learn.microsoft.com/en-us/azure/architecture/web-apps/guides/networking/automation-application-gateway for azure recommended solutions. 
-
-Note: here we will deploy a Gateway Load Balancer with http. We suggest you follow this link to set up SSL.
+:::caution
+This example deploys a Gateway Load Balancer with HTTP. We strongly recommend you set up SSL. For instructions, see [Tutorial: Configure an Application Gateway with TLS termination using the Azure portal](https://learn.microsoft.com/en-us/azure/application-gateway/create-ssl-portal) in the Azure documentation.
+:::
 
 ## Running the Health Check
 
@@ -274,9 +283,13 @@ Call the health check endpoint to test the health of your implementation.
 
 Running the health check is the same for the integration and production environments, except for the endpoints.
 
-To test operator status, in your browser, go to the following URL: `http://{LB_IP}/ops/healthcheck`.
+Follow these steps:
 
-An HTTP 200 with a response body of OK indicates healthy status.
+1. Get the public IP address for the Gateway Load Balancer&#8212;the value output as a result of [Set Up theGateway Load Balancer](#set-up-the-gateway-load-balancer) Step 4.
+
+2. To test operator status, in your browser, go to the health check endpoint: `http://{LB_IP}/ops/healthcheck`.
+
+   An HTTP 200 with a response body of `OK` indicates healthy status.
 
 ## Upgrading
 
@@ -284,23 +297,21 @@ When a new version of UID2 Azure Confidential Container is released, private ope
 
 To upgrade, complete the following steps:
 
-(**GWH_YS_01 Two things 1) don't we first need to tell them to download the new file? 2) And, Step 1 below says "new ARM file" but the download was a ZIP file**)
+1. Follow the instructions in [Download ZIP File and Extract Files](#download-zip-file-and-extract-files) to download the deployment file for the new version and then unzip it.
 
-1. Follow the instructions in [Complete the Operator Setup](#complete-the-operator-setup) with new ARM file in release page to deploy ACIs with new versions.
+1. Follow the instructions in [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup), using the new files, to deploy ACIs with new versions.
 
-1. Follow the instructions in [Set Up Gateway Load Balancer](#set-up-gateway-load-balancer) to add the new ACIs to the backend pool.
+2. Follow the instructions in [Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer) to add the new ACIs to the backend pool.
 
-1. Check the health of the new ACIs and make sure the status is healthy, as shown in the following example:
+3. Check the health of the new ACIs and make sure the status is healthy, as shown in the following example:
 
    ```
    az network application-gateway show-backend-health --resource-group {RESOURCE_GROUP_NAME} --name uid-operator-gateway
    ```
 
-(GWH_YS: below says re-Run step “LB setup” but there was nothing with that title, only "Gateway Load Balancer setup " mentioned in Step 2. Do they need to run that same step again for the below? I think it must be but making sure. )
+4. Clean up old ACIs from the Gateway Load Balancer: Follow the instructions in [Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer) to remove the old ACIs from the backend pool.
 
-1. Clean up old ACIs from the load balancer: Follow the instructions in [Set Up Gateway Load Balancer](#set-up-gateway-load-balancer) to remove the old ACIs from backend pool.
-
-1. Shut down old ACIs by running the following command:
+5. Shut down old ACIs by running the following command:
 
    ```
    for i in {0..COUNT}; az container delete --name uid-operator-OLD-VERSION-$i --resource-group {RESOURCE_GROUP} --yes
