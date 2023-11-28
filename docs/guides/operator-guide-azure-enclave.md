@@ -124,7 +124,7 @@ az group create --name {RESOURCE_GROUP_NAME} --location {LOCATION}
 ```
 
 :::info
-All the resources are provisioned later under the name you provide as the {RESOURCE_GROUP_NAME} value.
+All the resources are provisioned later under the name you provide as the `{RESOURCE_GROUP_NAME}` value.
 :::
 
 There are some limitations with regard to location:
@@ -147,7 +147,7 @@ Follow these steps:
    | Parameter | Description |
    | :--- | :--- |
    | `vaultName` | The name of the key vault for hosting the operator key secret. The name you choose must be globally unique. |
-   | `operatorKeyValue` | The `OPERATOR_KEY` secret value, which you received from the UID team as part of account setup (see [Set Up UID2 Operator Account](#set-up-uid2-operator-account)). This value is unique to you, like a password: keep it secure and secret. |
+   | `operatorKeyValue` | The `OPERATOR_KEY` secret value, which you received from the UID team as part of account setup (see [Set Up UID2 Operator Account](#set-up-uid2-operator-account)). This value is unique to you, and acts as a password: keep it secure and secret. |
 
 2. (Optional) If you don't want to accept the defaults, update the `vault.parameters.json` file with the following values. These parameters have default values and in most cases you won't need to make any updates.
 
@@ -193,7 +193,7 @@ Follow these steps:
 
 ### Complete the UID2 Private Operator Setup
 
-The next step is to bring up multiple Azure Container Instances (ACIs) in the VPC sub network that you created.
+The next step is to bring up multiple Azure Container Instances (ACIs) in the VPC subnetwork that you created.
 
 Follow these steps:
 
@@ -285,7 +285,7 @@ Running the health check is the same for the integration and production environm
 
 Follow these steps:
 
-1. Get the public IP address for the Gateway Load Balancer&#8212;the value output as a result of [Set Up theGateway Load Balancer](#set-up-the-gateway-load-balancer) Step 4.
+1. Get the public IP address for the Gateway Load Balancer&#8212;the value output as a result of [Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer) Step 4.
 
 2. To test operator status, in your browser, go to the health check endpoint: `http://{LB_IP}/ops/healthcheck`.
 
