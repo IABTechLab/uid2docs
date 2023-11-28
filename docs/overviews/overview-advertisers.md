@@ -8,7 +8,7 @@ banner_title: UID2 Overview for Advertisers
 banner_description: Upgrade campaign activation with Unified ID 2.0.
 ---
 
-Advertisers can upgrade their first-party data tactics with Unified ID 2.0 to deliver omnichannel campaigns across devices with one identifier.
+As an advertiser, you can upgrade your first-party data tactics with Unified ID 2.0 to deliver omnichannel campaigns across devices with one identifier.
 
 The following sections provide information about benefits, workflow, documentation, and other resources for advertisers adopting UID2.
 

@@ -1,14 +1,12 @@
 const sidebars = {
   docs: [
-    'intro',
-
     {
       type: 'category',
-      label: 'Overview Pages',
+      label: 'UID2 Overview',
       link: {
-        type: 'generated-index',
+        type: 'doc',
+        id: 'intro',
       },
-      collapsed: true,
       items: [
         'overviews/overview-publishers',
         'overviews/overview-advertisers',
