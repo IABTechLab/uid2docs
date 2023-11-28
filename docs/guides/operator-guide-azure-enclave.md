@@ -56,7 +56,11 @@ When the registration process is complete, you'll receive the following:
   You'll receive a separate operator key for each deployment environment.
   :::
 
-- A link to the UID2 Private Operator for Azure GitHub release page. For example: [https://github.com/IABTechLab/uid2-operator/releases/tag/v5.20.39-SNAPSHOT-azure-cc](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.20.39-SNAPSHOT-azure-cc).
+- A link to the UID2 Private Operator for Azure GitHub release page. For example, it might look something like this: [https://github.com/IABTechLab/uid2-operator/releases/tag/v5.21.5-68a47aec9f-azure-cc](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.21.5-68a47aec9f-azure-cc).
+
+  :::note
+  This is just an example: use the link that we send you.
+  :::
 
 ### Install Azure CLI
 
