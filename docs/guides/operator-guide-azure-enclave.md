@@ -154,9 +154,7 @@ Follow these steps:
     Parameter | Description |
    | :--- | :--- |
    | `operatorIdentifier` | The name of the managed identity that will launch the container.<br/>Default: `uid-operator`. |
-   | `operatorKeyName` | The operator key secret name.<br/>Default: `uid-operator`. |
-
-   (**GWH_YS_11 a request. Could we use different default values for `operatorIdentifier` and `operatorKeyName`? I appreciate this might be a technical change and the answer might therefore be no. But I think it would be clearer if we didn't use the same default value for different settings. For example, operatorKeyName could be `uid-operator-key`. Commented same in Word file.**)
+   | `operatorKeyName` | The operator key secret name.<br/>Default: `operator-key`. |
 
 3. Run the following command to trigger the deployment:
 
@@ -202,7 +200,7 @@ Follow these steps:
    | Parameter | Description |
    | :--- | :--- |
    | `vaultName` | The name of the key vault for hosting the operator key secret. The value must match the name you created in [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup). |
-   | `operatorKeyName` | The operator key secret name. The value must match the value specified in [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup). If you accepted the default, the value is `uid-operator`. |
+   | `operatorKeyName` | The operator key secret name. The value must match the value specified in [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup). If you accepted the default, the value is `operator-key`. |
    | `deploymentEnvironment` | Indicates the environment you're deploying to: `integ` or `prod`. For details, see [Deployment Environments](#deployment-environments). |
 
 2. (Optional) If you don't want to accept the defaults, update the `operator.parameters.json` file with the following values. These parameters have default values and in most cases you won't need to make any updates.
