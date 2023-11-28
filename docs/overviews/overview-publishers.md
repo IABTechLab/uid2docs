@@ -8,7 +8,7 @@ banner_title: UID2 Overview for Publishers
 banner_description: Maintain audience targeting in the ever-changing advertising industry for better impression monetization and more relevance.
 ---
 
-Publishers can benefit from the cross-device presence of Unified ID 2.0 and take advantage of a consistent identity fabric on all of their inventory.
+As a publisher, you can benefit from the cross-device presence of Unified ID 2.0 and take advantage of a consistent identity fabric on all your inventory.
 
 The following sections provide information about benefits, workflow, documentation, and other resources for publishers adopting UID2.
 
