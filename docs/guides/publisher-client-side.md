@@ -289,7 +289,6 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
       //
       // If there is a valid UID2 token, it is in payload.identity.
       if (payload.identity) {
-        // Pass the UID2 token to Prebid.js.
         //
         // payload looks like this:
         // {
