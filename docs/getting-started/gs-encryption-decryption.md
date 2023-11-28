@@ -14,7 +14,7 @@ The only exception is that requests to the [POST /token/refresh](../endpoints/po
 Here's what you need to know about encrypting UID2 API requests and decrypting respective responses:
 
 - To use the APIs, in addition to your client API key, you need your client secret
-- You can write your own custom scripts or use the Python scripts provided in the following sections.
+- You can write your own custom scripts or use one of the script examples provided: see [Encryption and Decryption Script Examples](#encryption-and-decryption-script-examples).
 - Request and response use AES/GCM/NoPadding encryption algorithm with 96-bit initialization vector and 128-bit authentication tag.
 - The raw, unencrypted JSON body of the request is wrapped in a binary [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) which then gets encrypted and formatted according to the [Encrypted Request Envelope](#encrypted-request-envelope).
 - Response JSON body is wrapped in a binary [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) which is encrypted and formatted according to the [Encrypted Response Envelope](#encrypted-response-envelope).
@@ -34,13 +34,13 @@ The high-level request-response workflow for the UID2 APIs includes the followin
 9. (Optional, recommended) Ensure the nonce the in the response envelope matches the nonce in the request envelope.
 10. Extract the response JSON object from the unencrypted envelope.
 
-A Python example script for [encrypting requests and decrypting responses](#example-encryption-and-decryption-script) can help with automating steps 2-10 and serve as a reference of how to implement these steps in your application.
+An example script for [encrypting requests and decrypting responses](#encryption-and-decryption-script-examples) can help with automating steps 2-10 and serve as a reference of how to implement these steps in your application.
 
-The individual UID2 [endpoints](../endpoints/summary-endpoints.md) explain the respective JSON body format requirements and parameters, include call examples, and show decrypted responses. The following sections provide examples of the encryption and decryption script in Python, field layout requirements, and request and response examples. 
+The individual UID2 [endpoints](../endpoints/summary-endpoints.md) explain the respective JSON body format requirements and parameters, include call examples, and show decrypted responses. The following sections provide encryption and decryption script examples, field layout requirements, and request and response examples. 
 
 ## Encrypting Requests
 
-You have the option of writing your own script for encrypting requests, using a UID2 SDK, or using the provided [Python example script](#example-encryption-and-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) and [Encrypted Request Envelope](#encrypted-request-envelope).
+You have the option of writing your own script for encrypting requests, using a UID2 SDK, or using one of the provided scripts (see [Encryption and Decryption Script Examples](#encryption-and-decryption-script-examples)). If you choose to write your own script, be sure to follow the field layout requirements listed in [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) and [Encrypted Request Envelope](#encrypted-request-envelope).
 
 ### Unencrypted Request Data Envelope
 
@@ -58,16 +58,18 @@ The following table describes the field layout for request encryption scripts.
 
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
-| 0 | 1 | The version of the envelope format. Must be always `1`. |
+| 0 | 1 | The version of the envelope format. Must be `1`. |
 | 1 | 12 | 96-bit initialization vector (IV), which is used to randomize data encryption. |
 | 13 | N | Payload ([Unencrypted Request Data Envelope](#unencrypted-request-data-envelope)) encrypted using the AES/GCM/NoPadding algorithm. |
 | 13 + N | 16 | 128-bit GCM authentication tag used to verify data integrity. |
 
 ## Decrypting Responses
 
-You have the option of writing your own script for decrypting responses, using a UID2 SDK, or using the provided [Python example script](#example-encryption-and-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Encrypted Response Envelope](#encrypted-response-envelope) and [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
+You have the option of writing your own script for decrypting responses, using a UID2 SDK, or using one of the provided scripts (see [Encryption and Decryption Script Examples](#encryption-and-decryption-script-examples)). If you choose to write your own script, be sure to follow the field layout requirements listed in [Encrypted Response Envelope](#encrypted-response-envelope) and [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
 
->NOTE: Response is encrypted only if the service returns HTTP status code 200.
+:::note
+The response encrypted only if the service returns HTTP status code 200.
+:::
 
 ### Encrypted Response Envelope
 
@@ -108,21 +110,30 @@ For example, a decrypted response to the [POST /token/generate](../endpoints/pos
 }
 ```
 
-## Example Encryption and Decryption Script
+## Encryption and Decryption Script Examples
 
-Here's an example Python script (`uid2_request.py`) for encrypting requests and decrypting responses. The required parameters are shown at the top of the script, or by running `python3 uid2_request.py`
->For Windows, replace `python3` with `python`. If using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON (for example, use `echo {"email": "test@example.com"}` ).
+This section includes sample scripts in the following languages:
+- [Python](#script-example-for-python)
+- [C#](#script-example-for-c)
 
-For the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, the script takes values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md).
+### Script Example for Python
 
-### Prerequisites
+Here's an example Python script (`uid2_request.py`) for encrypting requests and decrypting responses. The required parameters are shown at the top of the script, or by running `python3 uid2_request.py`.
+
+:::note
+For Windows, if you're using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON. For example, use `echo {"email": "test@example.com"}`.
+:::
+
+For the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, the script takes the values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md).
+
+#### Prerequisites
 The script requires the `pycryptodomex` and `requests` packages. These can be installed as follows:
 ```console
 pip install pycryptodomex
 pip install requests
 ```
 
-#### uid2_request.py
+##### uid2_request.py
 ```py
 """
 Usage:
@@ -218,4 +229,71 @@ else:
    print("Response JSON:")
    print(json.dumps(json_resp, indent=4))
 
+
 ```
+
+### Script Example for C#
+
+Here's an example C# file (`uid2_request.cs`) for encrypting requests and decrypting responses. The required parameters are shown at the top of the file, or by building and running `.\uid2_request`.
+
+:::note
+For Windows, if you're using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON. For example, use `echo {"email": "test@example.com"}`.
+:::
+
+For the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, the script takes the values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md).
+
+#### Prerequisites
+
+This file requires .NET 7.0. You can target an earlier version if required, up to .NET Core 3.0, by replacing the top-level statements with a Main method and the using declarations with using statements. (**GWH_JN this needs mod but not sure exactly what it should say. Also do you mean up to 3.0 or 3.0 and later?**)
+
+##### uid2_request.cs
+
+:::cs
+using System.Buffers.Binary;
+using System.Net;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.Json;
+
+
+if (args.Length != 3 && args.Length != 4)
+{
+    Console.WriteLine("""
+Usage:
+   echo '{json}' | .\uid2_request {url} {api_key} {client_secret}
+
+Example:
+   echo '{"email": "test@example.com"}' | .\uid2_request https://prod.uidapi.com/v2/token/generate UID2-C-L-999-fCXrMM.fsR3mDqAXELtWWMS+xG1s7RdgRTMqdOH2qaAo= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=
+   
+
+Refresh Token Usage:
+   .\uid2_request {url} --refresh-token {refresh_token} {refresh_response_key}
+
+Refresh Token Usage example:
+   .\uid2_request https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s=
+""");
+
+    Environment.Exit(1);
+}
+
+const int GCM_IV_LENGTH = 12;
+
+string url = args[0];
+
+    var tag = new byte[AesGcm.TagByteSizes.MaxSize];
+    using AesGcm aesGcm = new AesGcm(secret);
+
+    byte[] unencryptedResponseDataEnvelope = new byte[encryptedPayload.Length];
+    aesGcm.Decrypt(iv, encryptedPayload, tag, unencryptedResponseDataEnvelope);
+
+    int offset = isRefresh ? 0 : 16; //8 bytes for timestamp + 8 bytes for nonce
+    var json = Encoding.UTF8.GetString(unencryptedResponseDataEnvelope, offset, unencryptedResponseDataEnvelope.Length - offset);
+
+    Console.WriteLine("Response JSON:");
+    
+    using var jDoc = JsonDocument.Parse(json);
+    Console.WriteLine(JsonSerializer.Serialize(jDoc, new JsonSerializerOptions { WriteIndented = true }));
+}
+:::
+
+
