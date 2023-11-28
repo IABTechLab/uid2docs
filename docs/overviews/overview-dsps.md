@@ -8,9 +8,9 @@ banner_title: UID2 Overview for DSPs
 banner_description: Enable data strategies with a more durable identifier.
 ---
 
-This page provides information about what the Unified ID 2.0 (UID2) framework offers to demand-side platforms (DSPs), workflow, documentation and other resources, and how to get started.
+The Unified ID 2.0 (UID2) framework offers many advantages to demand-side platforms (DSPs).
 
-The following sections provide information about benefits, workflow, documentation, and other resources for DSPs adopting UID2.
+The following sections provide information about benefits, workflow, documentation, and other resources for DSPs adopting UID2, as well as instructions for getting started.
 
 ## Audience
 
