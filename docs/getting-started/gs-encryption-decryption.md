@@ -144,7 +144,7 @@ pip install requests
 
 The sample C# file for encrypting requests and decrypting responses is `uid2_request.cs`. The required parameters are shown at the top of the file, or by building and running `.\uid2_request`.
 
-This file requires .NET 7.0. You can target an earlier version if required, up to .NET Core 3.0, by replacing the top-level statements with a Main method and the using declarations with using statements. (**GWH_JN this last part isn't quite right but not sure exactly what it should say. Also do you mean up to 3.0 or 3.0 and later?**)
+This file requires .NET 7.0. You can use an earlier version if required, but it must be .NET Core 3.0 or later. To change the version, replace the top-level statements with a Main method and the using declarations with using statements.
 
 ### Sample Script
 
