@@ -5,6 +5,9 @@ hide_table_of_contents: false
 sidebar_position: 11
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Encrypting Requests and Decrypting Responses
 
 For almost all UID2 [endpoints](../endpoints/summary-endpoints.md), requests sent to the endpoint must be [encrypted](#encrypting-requests) and responses from the endpoint must be [decrypted](#decrypting-responses). 
@@ -112,29 +115,45 @@ For example, a decrypted response to the [POST /token/generate](../endpoints/pos
 
 ## Encryption and Decryption Script Examples
 
-This section includes sample scripts in the following languages:
-- [Python](#script-example-for-python)
-- [C#](#script-example-for-c)
+This section includes a sample encryption and decryption script in different programming languages.
 
-### Script Example for Python
-
-Here's an example Python script (`uid2_request.py`) for encrypting requests and decrypting responses. The required parameters are shown at the top of the script, or by running `python3 uid2_request.py`.
+For the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, the script takes the values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md).
 
 :::note
 For Windows, if you're using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON. For example, use `echo {"email": "test@example.com"}`.
 :::
 
-For the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, the script takes the values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md).
+### Prerequisites and Notes
 
-#### Prerequisites
-The script requires the `pycryptodomex` and `requests` packages. These can be installed as follows:
+Before using the script, check the prerequisites and notes for the language you're using:
+- [Python](#prerequisites-and-notes-python)
+- [C#](#prerequisites-and-notes-python)
+
+#### Prerequisites and Notes: Python
+
+The sample Python script for encrypting requests and decrypting responses is `uid2_request.py`. The required parameters are shown at the top of the script, or by running `python3 uid2_request.py`.
+
+The Python script requires the `pycryptodomex` and `requests` packages. You can install these as follows:
+
 ```console
 pip install pycryptodomex
 pip install requests
 ```
 
-##### uid2_request.py
-```py
+#### Prerequisites and Notes: C#
+
+The sample C# file for encrypting requests and decrypting responses is `uid2_request.cs`. The required parameters are shown at the top of the file, or by building and running `.\uid2_request`.
+
+This file requires .NET 7.0. You can target an earlier version if required, up to .NET Core 3.0, by replacing the top-level statements with a Main method and the using declarations with using statements. (**GWH_JN this last part isn't quite right but not sure exactly what it should say. Also do you mean up to 3.0 or 3.0 and later?**)
+
+### Sample Script
+
+Choose the script you want from the available options. Remember to review the [Prerequisites and Notes](#prerequisites-and-notes) for the language you're using.
+
+<Tabs>
+<TabItem value='py' label='Python'>
+
+```py title="uid2_request.py"
 """
 Usage:
    echo '<json>' | python3 uid2_request.py <url> <api_key> <client_secret>
@@ -229,26 +248,11 @@ else:
    print("Response JSON:")
    print(json.dumps(json_resp, indent=4))
 
-
 ```
+</TabItem>
+<TabItem value='cs' label='C#'>
 
-### Script Example for C#
-
-Here's an example C# file (`uid2_request.cs`) for encrypting requests and decrypting responses. The required parameters are shown at the top of the file, or by building and running `.\uid2_request`.
-
-:::note
-For Windows, if you're using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON. For example, use `echo {"email": "test@example.com"}`.
-:::
-
-For the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, the script takes the values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md).
-
-#### Prerequisites
-
-This file requires .NET 7.0. You can target an earlier version if required, up to .NET Core 3.0, by replacing the top-level statements with a Main method and the using declarations with using statements. (**GWH_JN this needs mod but not sure exactly what it should say. Also do you mean up to 3.0 or 3.0 and later?**)
-
-##### uid2_request.cs
-
-:::cs
+```cs title="uid2_request.cs"
 using System.Buffers.Binary;
 using System.Net;
 using System.Security.Cryptography;
@@ -260,14 +264,14 @@ if (args.Length != 3 && args.Length != 4)
 {
     Console.WriteLine("""
 Usage:
-   echo '{json}' | .\uid2_request {url} {api_key} {client_secret}
+   echo '<json>' | .\uid2_request <url> <api_key> <client_secret>
 
 Example:
    echo '{"email": "test@example.com"}' | .\uid2_request https://prod.uidapi.com/v2/token/generate UID2-C-L-999-fCXrMM.fsR3mDqAXELtWWMS+xG1s7RdgRTMqdOH2qaAo= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=
    
 
 Refresh Token Usage:
-   .\uid2_request {url} --refresh-token {refresh_token} {refresh_response_key}
+   .\uid2_request <url> --refresh-token <refresh_token> <refresh_response_key>
 
 Refresh Token Usage example:
    .\uid2_request https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s=
@@ -279,10 +283,92 @@ Refresh Token Usage example:
 const int GCM_IV_LENGTH = 12;
 
 string url = args[0];
+byte[] secret;
 
+HttpResponseMessage? response;
+bool isRefresh = args[1] == "--refresh-token";
+
+if (isRefresh)
+{
+    string refreshToken = args[2];
+    secret = Convert.FromBase64String(args[3]);
+
+    Console.WriteLine($"\nRequest: Sending refresh_token to {url}\n");
+    using HttpClient httpClient = new HttpClient();
+    var content = new StringContent(refreshToken, Encoding.UTF8);
+    response = await httpClient.PostAsync(url, content);
+}
+else
+{
+    string apiKey = args[1];
+    secret = Convert.FromBase64String(args[2]);
+
+    string payload = Console.In.ReadToEnd();
+
+    var request = new HttpRequestMessage(HttpMethod.Post, url);
+    request.Headers.Add("Authorization", $"Bearer {apiKey}");
+
+    var unixTimestamp = new byte[8];
+    BinaryPrimitives.WriteInt64BigEndian(unixTimestamp, DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
+
+    var nonce = new byte[8];
+    var rnd = new Random();
+    rnd.NextBytes(nonce);
+
+    var payloadBytes = Encoding.UTF8.GetBytes(payload);
+
+    var unencryptedRequestDataEnvelope = new byte[unixTimestamp.Length + nonce.Length + payloadBytes.Length];
+    unixTimestamp.CopyTo(unencryptedRequestDataEnvelope, 0);
+    nonce.CopyTo(unencryptedRequestDataEnvelope, unixTimestamp.Length);
+    payloadBytes.CopyTo(unencryptedRequestDataEnvelope, unixTimestamp.Length + nonce.Length);
+
+    var iv = new byte[GCM_IV_LENGTH];
+    rnd.NextBytes(iv);
+
+    var encryptedPayload = new byte[unencryptedRequestDataEnvelope.Length];
     var tag = new byte[AesGcm.TagByteSizes.MaxSize];
     using AesGcm aesGcm = new AesGcm(secret);
+    aesGcm.Encrypt(iv, unencryptedRequestDataEnvelope, encryptedPayload, tag);
 
+    var envelopeMemoryStream = new MemoryStream(1 + iv.Length + encryptedPayload.Length + AesGcm.TagByteSizes.MaxSize);
+    envelopeMemoryStream.WriteByte(1); //version of the envelope format
+    envelopeMemoryStream.Write(iv);
+    envelopeMemoryStream.Write(encryptedPayload);
+    envelopeMemoryStream.Write(tag);
+    var envelope = Convert.ToBase64String(envelopeMemoryStream.ToArray());
+
+    request.Content = new StringContent(envelope, Encoding.UTF8);
+
+    var client = new HttpClient();
+    response = await client.SendAsync(request);
+}
+
+var responseStream = await response.Content.ReadAsStreamAsync();
+using var reader = new StreamReader(responseStream);
+
+var responseBody = await reader.ReadToEndAsync();
+
+if (response.StatusCode != HttpStatusCode.OK)
+{
+    Console.WriteLine($"Response: Error HTTP status code {(int)response.StatusCode}" + ((response.StatusCode == HttpStatusCode.Unauthorized) ? ", check api_key" : ""));
+    Console.WriteLine(responseBody);
+}
+else
+{
+    var encryptedResponseEnvelope = Convert.FromBase64String(responseBody);
+
+    var responseMemoryStream = new MemoryStream(encryptedResponseEnvelope);
+    byte[] iv = new byte[GCM_IV_LENGTH];
+    responseMemoryStream.Read(iv);
+
+    int encryptedPayloadLength = encryptedResponseEnvelope.Length - GCM_IV_LENGTH - AesGcm.TagByteSizes.MaxSize;
+    byte[] encryptedPayload = new byte[encryptedPayloadLength];
+    responseMemoryStream.Read(encryptedPayload);
+
+    byte[] tag = new byte[AesGcm.TagByteSizes.MaxSize];
+    responseMemoryStream.Read(tag);
+
+    using AesGcm aesGcm = new AesGcm(secret);
     byte[] unencryptedResponseDataEnvelope = new byte[encryptedPayload.Length];
     aesGcm.Decrypt(iv, encryptedPayload, tag, unencryptedResponseDataEnvelope);
 
@@ -294,6 +380,6 @@ string url = args[0];
     using var jDoc = JsonDocument.Parse(json);
     Console.WriteLine(JsonSerializer.Serialize(jDoc, new JsonSerializerOptions { WriteIndented = true }));
 }
-:::
-
-
+```
+</TabItem>
+</Tabs>
