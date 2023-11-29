@@ -185,7 +185,7 @@ Follow these steps:
    | `gatewaySubnetName` | The name of the subnet that runs the UID2 Gateway.<br/>Default: `unified-id-subnet-gateway` |
    | `VnetAddressPrefix` | The vnet address prefix.<br/>Default: `10.0.0.0/20` |
    | `computeSubnetPrefix` | The vnet address prefix of the subnet that is delegated to run the UID2 Operator.<br/>Default: `10.0.0.0/24` |
-   | `gatewaySubnetPrefix` | The vnet address prefix of the subnet that runs the UID2 Gateway.<br/>Default: `10.0.0.0/28` |
+   | `gatewaySubnetPrefix` | The vnet address prefix of the subnet that runs the UID2 Gateway.<br/>Default: `10.0.1.0/28` |
 
 2. Run the following command to trigger the deployment:
 
@@ -204,13 +204,13 @@ Follow these steps:
    | Parameter | Description |
    | :--- | :--- |
    | `vaultName` | The name of the key vault for hosting the operator key secret. The value must match the name you created in [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup). |
-   | `operatorKeyName` | The operator key secret name. The value must match the value specified in [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup). If you accepted the default, the value is `operator-key`. |
    | `deploymentEnvironment` | Indicates the environment you're deploying to: `integ` or `prod`. For details, see [Deployment Environments](#deployment-environments). |
 
 2. (Optional) If you don't want to accept the defaults, update the `operator.parameters.json` file with the following values. These parameters have default values and in most cases you won't need to make any updates.
 
     Parameter | Description |
    | :--- | :--- |
+   | `operatorKeyName` | The operator key secret name. The value must match the value specified in [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup). If you accepted the default, the value is `operator-key`. |
    | `operatorIdentifier` | The name of the managed identity that will launch the container. The value must match the value specified in [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup). If you accepted the default, the value is `uid-operator`. |
    | `vnetName` | The virtual network name. The value must match the value specified in [Set Up the VPC Network](#set-up-the-vpc-network). If you accepted the default, the value is `unified-id-network`. |
    | `computeSubnetName` | The name of the subnet that will run the Private Operator. The value must match the value specified in [Set Up the VPC Network](#set-up-the-vpc-network). If you accepted the default, the value is `unified-id-subnet-operators`. |
