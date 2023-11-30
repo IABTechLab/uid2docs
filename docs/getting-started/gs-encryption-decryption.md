@@ -17,7 +17,7 @@ The only exception is that requests to the [POST /token/refresh](../endpoints/po
 Here's what you need to know about encrypting UID2 API requests and decrypting respective responses:
 
 - To use the APIs, in addition to your client API key, you need your client secret
-- You can write your own custom scripts or use one of the script examples provided: see [Encryption and Decryption Script Examples](#encryption-and-decryption-script-examples).
+- You can write your own custom code or use one of the code examples provided: see [Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples).
 - Request and response use AES/GCM/NoPadding encryption algorithm with 96-bit initialization vector and 128-bit authentication tag.
 - The raw, unencrypted JSON body of the request is wrapped in a binary [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) which then gets encrypted and formatted according to the [Encrypted Request Envelope](#encrypted-request-envelope).
 - Response JSON body is wrapped in a binary [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) which is encrypted and formatted according to the [Encrypted Response Envelope](#encrypted-response-envelope).
@@ -37,17 +37,17 @@ The high-level request-response workflow for the UID2 APIs includes the followin
 9. (Optional, recommended) Ensure the nonce the in the response envelope matches the nonce in the request envelope.
 10. Extract the response JSON object from the unencrypted envelope.
 
-An example script for [encrypting requests and decrypting responses](#encryption-and-decryption-script-examples) can help with automating steps 2-10 and serve as a reference of how to implement these steps in your application.
+A code example for [encrypting requests and decrypting responses](#encryption-and-decryption-code-examples) can help with automating steps 2-10 and serve as a reference of how to implement these steps in your application.
 
-The individual UID2 [endpoints](../endpoints/summary-endpoints.md) explain the respective JSON body format requirements and parameters, include call examples, and show decrypted responses. The following sections provide encryption and decryption script examples, field layout requirements, and request and response examples. 
+The individual UID2 [endpoints](../endpoints/summary-endpoints.md) explain the respective JSON body format requirements and parameters, include call examples, and show decrypted responses. The following sections provide encryption and decryption code examples, field layout requirements, and request and response examples. 
 
 ## Encrypting Requests
 
-You have the option of writing your own script for encrypting requests, using a UID2 SDK, or using one of the provided scripts (see [Encryption and Decryption Script Examples](#encryption-and-decryption-script-examples)). If you choose to write your own script, be sure to follow the field layout requirements listed in [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) and [Encrypted Request Envelope](#encrypted-request-envelope).
+You have the option of writing your own code for encrypting requests, using a UID2 SDK, or using one of the provided code examples (see [Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples)). If you choose to write your own code, be sure to follow the field layout requirements listed in [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) and [Encrypted Request Envelope](#encrypted-request-envelope).
 
 ### Unencrypted Request Data Envelope
 
-The following table describes the field layout for request encryption scripts.
+The following table describes the field layout for request encryption code.
 
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
@@ -57,7 +57,7 @@ The following table describes the field layout for request encryption scripts.
 
 ### Encrypted Request Envelope
 
-The following table describes the field layout for request encryption scripts.
+The following table describes the field layout for request encryption code.
 
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
@@ -68,7 +68,7 @@ The following table describes the field layout for request encryption scripts.
 
 ## Decrypting Responses
 
-You have the option of writing your own script for decrypting responses, using a UID2 SDK, or using one of the provided scripts (see [Encryption and Decryption Script Examples](#encryption-and-decryption-script-examples)). If you choose to write your own script, be sure to follow the field layout requirements listed in [Encrypted Response Envelope](#encrypted-response-envelope) and [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
+You have the option of writing your own code for decrypting responses, using a UID2 SDK, or using one of the provided code examples (see [Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples)). If you choose to write your own code, be sure to follow the field layout requirements listed in [Encrypted Response Envelope](#encrypted-response-envelope) and [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
 
 :::note
 The response encrypted only if the service returns HTTP status code 200.
@@ -76,7 +76,7 @@ The response encrypted only if the service returns HTTP status code 200.
 
 ### Encrypted Response Envelope
 
-The following table describes the field layout for response decryption scripts.
+The following table describes the field layout for response decryption code.
 
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
@@ -86,7 +86,7 @@ The following table describes the field layout for response decryption scripts.
 
 ### Unencrypted Response Data Envelope
 
-The following table describes the field layout for response decryption scripts.
+The following table describes the field layout for response decryption code.
 
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
@@ -113,11 +113,11 @@ For example, a decrypted response to the [POST /token/generate](../endpoints/pos
 }
 ```
 
-## Encryption and Decryption Script Examples
+## Encryption and Decryption Code Examples
 
-This section includes a sample encryption and decryption script in different programming languages.
+This section includes an encryption and decryption code example in different programming languages.
 
-For the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, the script takes the values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md).
+For the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, the code takes the values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md).
 
 :::note
 For Windows, if you're using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON. For example, use `echo {"email": "test@example.com"}`.
@@ -125,14 +125,14 @@ For Windows, if you're using Windows Command Prompt instead of PowerShell, you m
 
 ### Prerequisites and Notes
 
-Before using the script, check the prerequisites and notes for the language you're using.
+Before using the code example, check the prerequisites and notes for the language you're using.
 
 <Tabs groupId="language-selection">
 <TabItem value='py' label='Python'>
 
-The sample Python script for encrypting requests and decrypting responses is `uid2_request.py`. The required parameters are shown at the top of the script, or by running `python3 uid2_request.py`.
+The Python code example for encrypting requests and decrypting responses is `uid2_request.py`. The required parameters are shown at the top of the code example, or by running `python3 uid2_request.py`.
 
-The Python script requires the `pycryptodomex` and `requests` packages. You can install these as follows:
+The Python code requires the `pycryptodomex` and `requests` packages. You can install these as follows:
 
 ```console
 pip install pycryptodomex
@@ -142,15 +142,15 @@ pip install requests
 </TabItem>
 <TabItem value='cs' label='C#'>
 
-The sample C# file for encrypting requests and decrypting responses is `uid2_request.cs`. The required parameters are shown at the top of the file, or by building and running `.\uid2_request`.
+The C# code example for encrypting requests and decrypting responses is `uid2_request.cs`. The required parameters are shown at the top of the file, or by building and running `.\uid2_request`.
 
 This file requires .NET 7.0. You can use an earlier version if required, but it must be .NET Core 3.0 or later. To change the version, replace the [top-level statements](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/program-structure/top-level-statements) with a Main method and the [using declarations](https://learn.microsoft.com/en-us/cpp/cpp/using-declaration?view=msvc-170) with [using statements](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-8.0/using).
 </TabItem>
 </Tabs>
 
-### Sample Script
+### Code Example
 
-Choose the script you want from the available options. Remember to review the [Prerequisites and Notes](#prerequisites-and-notes).
+Choose the code example you want to use. Remember to review the [Prerequisites and Notes](#prerequisites-and-notes).
 
 <Tabs groupId="language-selection">
 <TabItem value='py' label='Python'>
