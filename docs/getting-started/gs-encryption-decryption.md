@@ -5,6 +5,9 @@ hide_table_of_contents: false
 sidebar_position: 11
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Encrypting Requests and Decrypting Responses
 
 For almost all UID2 [endpoints](../endpoints/summary-endpoints.md), requests sent to the endpoint must be [encrypted](#encrypting-requests) and responses from the endpoint must be [decrypted](#decrypting-responses). 
@@ -14,7 +17,7 @@ The only exception is that requests to the [POST /token/refresh](../endpoints/po
 Here's what you need to know about encrypting UID2 API requests and decrypting respective responses:
 
 - To use the APIs, in addition to your client API key, you need your client secret
-- You can write your own custom scripts or use the Python scripts provided in the following sections.
+- You can write your own custom code or use one of the code examples provided: see [Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples).
 - Request and response use AES/GCM/NoPadding encryption algorithm with 96-bit initialization vector and 128-bit authentication tag.
 - The raw, unencrypted JSON body of the request is wrapped in a binary [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) which then gets encrypted and formatted according to the [Encrypted Request Envelope](#encrypted-request-envelope).
 - Response JSON body is wrapped in a binary [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) which is encrypted and formatted according to the [Encrypted Response Envelope](#encrypted-response-envelope).
@@ -34,17 +37,17 @@ The high-level request-response workflow for the UID2 APIs includes the followin
 9. (Optional, recommended) Ensure the nonce the in the response envelope matches the nonce in the request envelope.
 10. Extract the response JSON object from the unencrypted envelope.
 
-A Python example script for [encrypting requests and decrypting responses](#example-encryption-and-decryption-script) can help with automating steps 2-10 and serve as a reference of how to implement these steps in your application.
+A code example for [encrypting requests and decrypting responses](#encryption-and-decryption-code-examples) can help with automating steps 2-10 and serve as a reference of how to implement these steps in your application.
 
-The individual UID2 [endpoints](../endpoints/summary-endpoints.md) explain the respective JSON body format requirements and parameters, include call examples, and show decrypted responses. The following sections provide examples of the encryption and decryption script in Python, field layout requirements, and request and response examples. 
+The individual UID2 [endpoints](../endpoints/summary-endpoints.md) explain the respective JSON body format requirements and parameters, include call examples, and show decrypted responses. The following sections provide encryption and decryption code examples, field layout requirements, and request and response examples. 
 
 ## Encrypting Requests
 
-You have the option of writing your own script for encrypting requests, using a UID2 SDK, or using the provided [Python example script](#example-encryption-and-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) and [Encrypted Request Envelope](#encrypted-request-envelope).
+You have the option of writing your own code for encrypting requests, using a UID2 SDK, or using one of the provided code examples (see [Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples)). If you choose to write your own code, be sure to follow the field layout requirements listed in [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) and [Encrypted Request Envelope](#encrypted-request-envelope).
 
 ### Unencrypted Request Data Envelope
 
-The following table describes the field layout for request encryption scripts.
+The following table describes the field layout for request encryption code.
 
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
@@ -54,24 +57,26 @@ The following table describes the field layout for request encryption scripts.
 
 ### Encrypted Request Envelope
 
-The following table describes the field layout for request encryption scripts.
+The following table describes the field layout for request encryption code.
 
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
-| 0 | 1 | The version of the envelope format. Must be always `1`. |
+| 0 | 1 | The version of the envelope format. Must be `1`. |
 | 1 | 12 | 96-bit initialization vector (IV), which is used to randomize data encryption. |
 | 13 | N | Payload ([Unencrypted Request Data Envelope](#unencrypted-request-data-envelope)) encrypted using the AES/GCM/NoPadding algorithm. |
 | 13 + N | 16 | 128-bit GCM authentication tag used to verify data integrity. |
 
 ## Decrypting Responses
 
-You have the option of writing your own script for decrypting responses, using a UID2 SDK, or using the provided [Python example script](#example-encryption-and-decryption-script). If you choose to write your own script, be sure to follow the field layout requirements listed in [Encrypted Response Envelope](#encrypted-response-envelope) and [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
+You have the option of writing your own code for decrypting responses, using a UID2 SDK, or using one of the provided code examples (see [Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples)). If you choose to write your own code, be sure to follow the field layout requirements listed in [Encrypted Response Envelope](#encrypted-response-envelope) and [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
 
->NOTE: Response is encrypted only if the service returns HTTP status code 200.
+:::note
+The response encrypted only if the service returns HTTP status code 200.
+:::
 
 ### Encrypted Response Envelope
 
-The following table describes the field layout for response decryption scripts.
+The following table describes the field layout for response decryption code.
 
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
@@ -81,7 +86,7 @@ The following table describes the field layout for response decryption scripts.
 
 ### Unencrypted Response Data Envelope
 
-The following table describes the field layout for response decryption scripts.
+The following table describes the field layout for response decryption code.
 
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
@@ -108,22 +113,49 @@ For example, a decrypted response to the [POST /token/generate](../endpoints/pos
 }
 ```
 
-## Example Encryption and Decryption Script
+## Encryption and Decryption Code Examples
 
-Here's an example Python script (`uid2_request.py`) for encrypting requests and decrypting responses. The required parameters are shown at the top of the script, or by running `python3 uid2_request.py`
->For Windows, replace `python3` with `python`. If using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON (for example, use `echo {"email": "test@example.com"}` ).
+This section includes an encryption and decryption code example in different programming languages.
 
-For the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, the script takes values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md).
+For the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, the code takes the values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md).
 
-### Prerequisites
-The script requires the `pycryptodomex` and `requests` packages. These can be installed as follows:
+:::note
+For Windows, if you're using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON. For example, use `echo {"email": "test@example.com"}`.
+:::
+
+### Prerequisites and Notes
+
+Before using the code example, check the prerequisites and notes for the language you're using.
+
+<Tabs groupId="language-selection">
+<TabItem value='py' label='Python'>
+
+The Python code example for encrypting requests and decrypting responses is `uid2_request.py`. The required parameters are shown at the top of the code example, or by running `python3 uid2_request.py`.
+
+The Python code requires the `pycryptodomex` and `requests` packages. You can install these as follows:
+
 ```console
 pip install pycryptodomex
 pip install requests
 ```
 
-#### uid2_request.py
-```py
+</TabItem>
+<TabItem value='cs' label='C#'>
+
+The C# code example for encrypting requests and decrypting responses is `uid2_request.cs`. The required parameters are shown at the top of the file, or by building and running `.\uid2_request`.
+
+This file requires .NET 7.0. You can use an earlier version if required, but it must be .NET Core 3.0 or later. To change the version, replace the [top-level statements](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/program-structure/top-level-statements) with a Main method and the [using declarations](https://learn.microsoft.com/en-us/cpp/cpp/using-declaration?view=msvc-170) with [using statements](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-8.0/using).
+</TabItem>
+</Tabs>
+
+### Code Example
+
+Choose the code example you want to use. Remember to review the [Prerequisites and Notes](#prerequisites-and-notes).
+
+<Tabs groupId="language-selection">
+<TabItem value='py' label='Python'>
+
+```py title="uid2_request.py"
 """
 Usage:
    echo '<json>' | python3 uid2_request.py <url> <api_key> <client_secret>
@@ -219,3 +251,137 @@ else:
    print(json.dumps(json_resp, indent=4))
 
 ```
+</TabItem>
+<TabItem value='cs' label='C#'>
+
+```cs title="uid2_request.cs"
+using System.Buffers.Binary;
+using System.Net;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.Json;
+
+
+if (args.Length != 3 && args.Length != 4)
+{
+    Console.WriteLine("""
+Usage:
+   echo '<json>' | .\uid2_request <url> <api_key> <client_secret>
+
+Example:
+   echo '{"email": "test@example.com"}' | .\uid2_request https://prod.uidapi.com/v2/token/generate UID2-C-L-999-fCXrMM.fsR3mDqAXELtWWMS+xG1s7RdgRTMqdOH2qaAo= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=
+   
+
+Refresh Token Usage:
+   .\uid2_request <url> --refresh-token <refresh_token> <refresh_response_key>
+
+Refresh Token Usage example:
+   .\uid2_request https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s=
+""");
+
+    Environment.Exit(1);
+}
+
+const int GCM_IV_LENGTH = 12;
+
+string url = args[0];
+byte[] secret;
+
+HttpResponseMessage? response;
+bool isRefresh = args[1] == "--refresh-token";
+
+if (isRefresh)
+{
+    string refreshToken = args[2];
+    secret = Convert.FromBase64String(args[3]);
+
+    Console.WriteLine($"\nRequest: Sending refresh_token to {url}\n");
+    using HttpClient httpClient = new HttpClient();
+    var content = new StringContent(refreshToken, Encoding.UTF8);
+    response = await httpClient.PostAsync(url, content);
+}
+else
+{
+    string apiKey = args[1];
+    secret = Convert.FromBase64String(args[2]);
+
+    string payload = Console.In.ReadToEnd();
+
+    var request = new HttpRequestMessage(HttpMethod.Post, url);
+    request.Headers.Add("Authorization", $"Bearer {apiKey}");
+
+    var unixTimestamp = new byte[8];
+    BinaryPrimitives.WriteInt64BigEndian(unixTimestamp, DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
+
+    var nonce = new byte[8];
+    var rnd = new Random();
+    rnd.NextBytes(nonce);
+
+    var payloadBytes = Encoding.UTF8.GetBytes(payload);
+
+    var unencryptedRequestDataEnvelope = new byte[unixTimestamp.Length + nonce.Length + payloadBytes.Length];
+    unixTimestamp.CopyTo(unencryptedRequestDataEnvelope, 0);
+    nonce.CopyTo(unencryptedRequestDataEnvelope, unixTimestamp.Length);
+    payloadBytes.CopyTo(unencryptedRequestDataEnvelope, unixTimestamp.Length + nonce.Length);
+
+    var iv = new byte[GCM_IV_LENGTH];
+    rnd.NextBytes(iv);
+
+    var encryptedPayload = new byte[unencryptedRequestDataEnvelope.Length];
+    var tag = new byte[AesGcm.TagByteSizes.MaxSize];
+    using AesGcm aesGcm = new AesGcm(secret);
+    aesGcm.Encrypt(iv, unencryptedRequestDataEnvelope, encryptedPayload, tag);
+
+    var envelopeMemoryStream = new MemoryStream(1 + iv.Length + encryptedPayload.Length + AesGcm.TagByteSizes.MaxSize);
+    envelopeMemoryStream.WriteByte(1); //version of the envelope format
+    envelopeMemoryStream.Write(iv);
+    envelopeMemoryStream.Write(encryptedPayload);
+    envelopeMemoryStream.Write(tag);
+    var envelope = Convert.ToBase64String(envelopeMemoryStream.ToArray());
+
+    request.Content = new StringContent(envelope, Encoding.UTF8);
+
+    var client = new HttpClient();
+    response = await client.SendAsync(request);
+}
+
+var responseStream = await response.Content.ReadAsStreamAsync();
+using var reader = new StreamReader(responseStream);
+
+var responseBody = await reader.ReadToEndAsync();
+
+if (response.StatusCode != HttpStatusCode.OK)
+{
+    Console.WriteLine($"Response: Error HTTP status code {(int)response.StatusCode}" + ((response.StatusCode == HttpStatusCode.Unauthorized) ? ", check api_key" : ""));
+    Console.WriteLine(responseBody);
+}
+else
+{
+    var encryptedResponseEnvelope = Convert.FromBase64String(responseBody);
+
+    var responseMemoryStream = new MemoryStream(encryptedResponseEnvelope);
+    byte[] iv = new byte[GCM_IV_LENGTH];
+    responseMemoryStream.Read(iv);
+
+    int encryptedPayloadLength = encryptedResponseEnvelope.Length - GCM_IV_LENGTH - AesGcm.TagByteSizes.MaxSize;
+    byte[] encryptedPayload = new byte[encryptedPayloadLength];
+    responseMemoryStream.Read(encryptedPayload);
+
+    byte[] tag = new byte[AesGcm.TagByteSizes.MaxSize];
+    responseMemoryStream.Read(tag);
+
+    using AesGcm aesGcm = new AesGcm(secret);
+    byte[] unencryptedResponseDataEnvelope = new byte[encryptedPayload.Length];
+    aesGcm.Decrypt(iv, encryptedPayload, tag, unencryptedResponseDataEnvelope);
+
+    int offset = isRefresh ? 0 : 16; //8 bytes for timestamp + 8 bytes for nonce
+    var json = Encoding.UTF8.GetString(unencryptedResponseDataEnvelope, offset, unencryptedResponseDataEnvelope.Length - offset);
+
+    Console.WriteLine("Response JSON:");
+    
+    using var jDoc = JsonDocument.Parse(json);
+    Console.WriteLine(JsonSerializer.Serialize(jDoc, new JsonSerializerOptions { WriteIndented = true }));
+}
+```
+</TabItem>
+</Tabs>
