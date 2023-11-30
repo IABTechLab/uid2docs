@@ -9,7 +9,7 @@ banner_description: Own the process of generating UID2s from DII in a private en
 
 Private Operators of UID2 send first-party [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to a secure environment for translation, and control the destinations for those identifiers. A participant that chooses to become a private Operator (previously known as closed Operator) can generate and manage UID2s, running a UID2 Operator service in a private environment.
 
-The following sections provide information about what the Unified ID 2.0 (UID2) framework offers to private Operators, including benefits, hosting options, documentation and other resources, and how to get started.
+Learn about what the UID2 framework offers to private Operators, including benefits, hosting options, documentation and other resources, and how to get started.
 
 ## Benefits
 
@@ -51,7 +51,7 @@ The following documentation resources are available for private Operators to imp
 | :--- | :--- | :--- | :--- |
 | AWS | [UID2 Private Operator for AWS Integration Guide](../guides/operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. | Private Operators |
 | GCP Confidential Space | [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md) | Information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. | Private Operators |
-| Azure | [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md) | IMPORTANT: This documentation is currently only a proof of concept. For additional guidance, [contact](../getting-started/gs-account-setup.md#contact-info) the UID2 administrator.<br/>Instructions for setting up a Private Operator service for running on Microsoft Azure Confidential Computing platform. | Private Operators |
+| Azure | [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md) | Instructions for setting up the UID2 Operator Service in a Confidential Container, a confidential computing option from Microsoft Azure. | Private Operators |
 
 ## FAQs
 

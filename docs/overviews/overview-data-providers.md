@@ -8,7 +8,7 @@ banner_title: UID2 Overview for Data Providers
 banner_description: An identity solution for the future.
 ---
 
-As a data and measurement provider, you can reduce identity fragmentation by adopting Unified ID 2.0 to connect data with a more durable, omnichannel and cross-device identifier to fulfil your customer use cases.
+As a data and measurement provider, you can reduce identity fragmentation by adopting Unified ID 2.0 (UID2) to connect data with a more durable, omnichannel and cross-device identifier to fulfil your customer use cases.
 
 This solution is for you if you're offering data or related services for online or offline advertising, such as a provider of the following:
 - Data onboarding
@@ -16,7 +16,7 @@ This solution is for you if you're offering data or related services for online 
 - Identity resolution and graphs
 - Measurement and attribution
 
-The following sections provide information on the benefits, workflow, documentation, and other resources for data providers adopting UID2.
+Learn about the benefits, workflow, documentation, and other resources for data providers adopting UID2, as well as instructions for getting started.
 
 ## Benefits of UID2 for Data Providers
 
