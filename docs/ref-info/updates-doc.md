@@ -1,6 +1,6 @@
 ---
 title: Documentation Updates
-description: Summary of Significant UID2 Documentation Updates
+description: A summary of significant UID2 documentation updates.
 hide_table_of_contents: false
 sidebar_position: 06
 ---
@@ -8,6 +8,22 @@ sidebar_position: 06
 # Documentation Updates
 
 Check out the latest updates to our UID2 documentation resources.
+
+### New: UID2 Private Operator for Azure Integration Guide
+
+30 November 2023
+
+A UID2 <a href="../intro#participants">participant</a> who wants to be a [Private Operator](../ref-info/glossary-uid.md#gl-private-operator) can now set up the UID2 Operator Service in a [Confidential Container](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers), a confidential computing option from Microsoft Azure.
+
+For details, see [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md).
+
+### New: API Permissions
+
+22 November 2023
+
+A new article in the Getting Started section of the UID2 website provides information about the key UID2 permissions, the types of participants that commonly use them, and the key associated activities.
+
+For details, see [API Permissions](../getting-started/gs-permissions.md).
 
 ### New: UID2 Credentials Page
 

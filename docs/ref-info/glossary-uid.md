@@ -29,7 +29,7 @@ sidebar_position: 10
 <li><a href="#gl-bearer-token">Bearer token</a></li>
 <li><a href="#gl-client-key">Client key</a></li>
 <li><a href="#gl-client-secret">Client secret</a></li>
-<li><a href="#gl-closed-operator">Closed operator</a></li>
+<li><a href="#gl-closed-operator">Closed Operator</a></li>
 <li><a href="#gl-core-service">Core Service</a></li>
 <li><a href="#gl-customer-data-platform">Customer Data Platform (CDP)</a></li>
 <li><a href="#gl-data-provider">Data provider</a></li>
@@ -52,14 +52,14 @@ sidebar_position: 10
 <ul>
 <li><a href="#gl-json-web-token">JSON Web Token (JWT)</a></li>
 <li><a href="#gl-normalize">Normalize</a></li>
-<li><a href="#gl-open-operator">Open operator</a></li>
+<li><a href="#gl-open-operator">Open Operator</a></li>
 <li><a href="#gl-operator">Operator</a></li>
 <li><a href="#gl-operator-key">Operator key</a></li>
 <li><a href="#gl-operator-service">Operator Service</a></li>
 <li><a href="#gl-opt-out">Opt-out</a></li>
 <li><a href="#gl-opt-out-service">Opt-Out Service</a></li>
 <li><a href="#gl-participant">Participant</a></li>
-<li><a href="#gl-private-operator">Private operator</a></li>
+<li><a href="#gl-private-operator">Private Operator</a></li>
 <li><a href="#gl-private-operator-service">Private Operator Service</a></li>
 <li><a href="#gl-raw-uid2">Raw UID2</a></li>
 <li><a href="#gl-refresh-token">Refresh token</a></li>
@@ -119,8 +119,8 @@ sidebar_position: 10
 <dd>Each UID2 <a href="/docs/intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
 <dd>For details, see <a href="/docs/getting-started/gs-credentials">UID2 Credentials</a>.</dd>
 
-<dt class="jump-anchor" id="gl-closed-operator">Closed operator</dt>
-<dd>Closed operator is another term for a <a href="#gl-private-operator">private operator</a>.</dd>
+<dt class="jump-anchor" id="gl-closed-operator">Closed Operator</dt>
+<dd>Closed Operator is another term for a <a href="#gl-private-operator">Private Operator</a>.</dd>
 
 <dt class="jump-anchor" id="gl-core-service">Core Service</dt>
 <dd>The UID2 Core Service is a centralized service that manages access to <a href="#gl-salt">salts</a>, encryption keys, and other relevant data in the UID2 ecosystem.</dd>
@@ -149,7 +149,7 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-enclave">Enclave</dt>
 <dd>An enclave is a secure subsection of a computing environment. The enclave has additional business logic and security measures applied to it, to prevent anyone from tampering with it.</dd>
-<dd>In the context of UID2, a <a href="#gl-private-operator">private operator</a> must run inside an enclave or in a private environment. For a summary of the enclave versions supported, see <a href="../guides/summary-guides#private-operator-service-integrations">Private Operator Service Integrations</a>.</dd>
+<dd>In the context of UID2, a <a href="#gl-private-operator">Private Operator</a> must run inside an enclave or in a private environment. For a summary of the enclave versions supported, see <a href="../guides/summary-guides#private-operator-service-integrations">Private Operator Service Integrations</a>.</dd>
 <dd>In an enclave, the operator image must be a very specific, predefined version, and additional constraints are applied to ensure security.</dd>
 
 <dt class="jump-anchor" id="gl-first-level-hash">First-level hash</dt>
@@ -170,21 +170,21 @@ sidebar_position: 10
 <dd>To normalize a data set means to bring it to a standard condition or state.</dd>
 <dd>UID2 includes specific normalization rules. For details, see <a href="../getting-started/gs-normalization-encoding#email-address-normalization">Email Address Normalization</a> and <a href="../getting-started/gs-normalization-encoding#phone-number-normalization">Phone Number Normalization</a>.</dd>
 
-<dt class="jump-anchor" id="gl-open-operator">Open operator</dt>
-<dd>An open <a href="#gl-operator">operator</a> is an entity that runs a public instance of the UID2 Operator Service. For example, The Trade Desk currently serves as an open operator for the UID2 framework, available to all participants.</dd>
+<dt class="jump-anchor" id="gl-open-operator">Open Operator</dt>
+<dd>An open <a href="#gl-operator">Operator</a> is an entity that runs a public instance of the UID2 Operator Service. For example, The Trade Desk currently serves as an open Operator for the UID2 framework, available to all participants.</dd>
 
 <dt class="jump-anchor" id="gl-operator">Operator</dt>
-<dd>An operator is an organization or entity that runs the UID2 <a href="#gl-operator-service">Operator Service</a>. The UID2 Operator is the API server in the UID2 ecosystem.</dd>
+<dd>An Operator is an organization or entity that runs the UID2 <a href="#gl-operator-service">Operator Service</a>. The UID2 Operator is the API server in the UID2 ecosystem.</dd>
 <dd>Operators perform multiple functions, such as receiving encryption keys and salts from the UID2 Core Service, salting and hashing personal data to return raw UID2s, and encrypting raw UID2s to generate UID2 tokens.</dd>
-<dd>A participant can also choose to become a <a href="#gl-private-operator">private operator</a> to access UID2 APIs and to generate raw UID2s and UID2 tokens from within a private infrastructure.</dd>
+<dd>A participant can also choose to become a <a href="#gl-private-operator">Private Operator</a> to access UID2 APIs and to generate raw UID2s and UID2 tokens from within a private infrastructure.</dd>
 <dd>For details, see <a href="../intro#participants">participants</a>.</dd>
 
 <dt class="jump-anchor" id="gl-operator-key">Operator key</dt>
-<dd>Each UID2 private operator has an operator key that allows the private Operator Service to connect to the Core Service and Opt-Out Service and call some endpoints on it.</dd>
-<dd>The operator key identifies the participant operator to the UID2 service.</dd>
+<dd>Each UID2 Private Operator has an operator key that allows the private Operator Service to connect to the Core Service and Opt-Out Service and call some endpoints on it.</dd>
+<dd>The operator key identifies the participant Operator to the UID2 service.</dd>
 
 <dt class="jump-anchor" id="gl-operator-service">Operator Service</dt>
-<dd>A service that enables all functions of the <a href="#gl-operator">operator</a>.</dd>
+<dd>A service that enables all functions of the <a href="#gl-operator">Operator</a>.</dd>
 <dd>For an overview of all the UID2 services, see <a href="../intro#components">Components</a>.</dd>
 
 <dt class="jump-anchor" id="gl-opt-out">Opt-out</dt>
@@ -199,11 +199,11 @@ sidebar_position: 10
 <dd>An entity that fulfils a key role in UID2. Participants include the following: Core Administrator, Operator, DSP, data provider, advertiser, publisher, consumer.</dd>
 <dd>For details, see <a href="../intro#participants">participants</a>.</dd>
 
-<dt class="jump-anchor" id="gl-private-operator">Private operator</dt>
-<dd>A private <a href="#gl-operator">operator</a> is an entity that runs a private instance of the Operator Service. The private operator generates and manages UID2s for itself, using its own resources (such as hardware) in a secure environment.</dd>
+<dt class="jump-anchor" id="gl-private-operator">Private Operator</dt>
+<dd>A Private <a href="#gl-operator">Operator</a> is an entity that runs a private instance of the Operator Service. The Private Operator generates and manages UID2s for itself, using its own resources (such as hardware) in a secure environment.</dd>
 
 <dt class="jump-anchor" id="gl-private-operator-service">Private Operator Service</dt>
-<dd>A private instance of the Operator Service, run by a <a href="#gl-private-operator">private operator</a>.</dd>
+<dd>A private instance of the Operator Service, run by a <a href="#gl-private-operator">Private Operator</a>.</dd>
 
 <dt class="jump-anchor" id="gl-raw-uid2">Raw UID2</dt>
 <dd>An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's <a href="#gl-dii">directly identifying information</a> (email address or phone number) as input. The raw UID2 is encrypted to create a <a href="#gl-uid2-token">UID2 token</a>. The raw UID2 is a unique value; no two raw UID2s are the same. Raw UID2s, and their associated UID2 tokens, are case sensitive.</dd>
