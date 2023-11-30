@@ -125,11 +125,10 @@ For Windows, if you're using Windows Command Prompt instead of PowerShell, you m
 
 ### Prerequisites and Notes
 
-Before using the script, check the prerequisites and notes for the language you're using:
-- [Python](#prerequisites-and-notes-python)
-- [C#](#prerequisites-and-notes-python)
+Before using the script, check the prerequisites and notes for the language you're using
 
-#### Prerequisites and Notes: Python
+<Tabs groupId="language-selection">
+<TabItem value='py' label='Python'>
 
 The sample Python script for encrypting requests and decrypting responses is `uid2_request.py`. The required parameters are shown at the top of the script, or by running `python3 uid2_request.py`.
 
@@ -140,17 +139,20 @@ pip install pycryptodomex
 pip install requests
 ```
 
-#### Prerequisites and Notes: C#
+</TabItem>
+<TabItem value='cs' label='C#'>
 
 The sample C# file for encrypting requests and decrypting responses is `uid2_request.cs`. The required parameters are shown at the top of the file, or by building and running `.\uid2_request`.
 
-This file requires .NET 7.0. You can use an earlier version if required, but it must be .NET Core 3.0 or later. To change the version, replace the top-level statements with a Main method and the using declarations with using statements.
+This file requires .NET 7.0. You can use an earlier version if required, but it must be .NET Core 3.0 or later. To change the version, replace the [top-level statements](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/program-structure/top-level-statements) with a Main method and the [using declarations](https://learn.microsoft.com/en-us/cpp/cpp/using-declaration?view=msvc-170) with [using statements](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/using).
+</TabItem>
+</Tabs>
 
 ### Sample Script
 
 Choose the script you want from the available options. Remember to review the [Prerequisites and Notes](#prerequisites-and-notes) for the language you're using.
 
-<Tabs>
+<Tabs groupId="language-selection">
 <TabItem value='py' label='Python'>
 
 ```py title="uid2_request.py"
