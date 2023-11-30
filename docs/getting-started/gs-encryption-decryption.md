@@ -125,7 +125,7 @@ For Windows, if you're using Windows Command Prompt instead of PowerShell, you m
 
 ### Prerequisites and Notes
 
-Before using the script, check the prerequisites and notes for the language you're using
+Before using the script, check the prerequisites and notes for the language you're using.
 
 <Tabs groupId="language-selection">
 <TabItem value='py' label='Python'>
@@ -150,7 +150,7 @@ This file requires .NET 7.0. You can use an earlier version if required, but it 
 
 ### Sample Script
 
-Choose the script you want from the available options. Remember to review the [Prerequisites and Notes](#prerequisites-and-notes) for the language you're using.
+Choose the script you want from the available options. Remember to review the [Prerequisites and Notes](#prerequisites-and-notes).
 
 <Tabs groupId="language-selection">
 <TabItem value='py' label='Python'>
