@@ -231,7 +231,7 @@ Follow these steps:
    The output should look something like the following:
    
    ```
-   { "ipAddress": { "type": "Array", "value": [ "10.0.0.6", "10.0.0.5", "10.0.0.4" ] } }
+   { "ipAddress": { "type": "Array", "value": [ "10.0.0.5", "10.0.0.4" ] } }
    ```
 
 ### Set Up the Gateway Load Balancer
@@ -245,6 +245,17 @@ Follow these steps:
    | Parameter | Description |
    | :--- | :--- |
    | `containerGroupIPs` | The IP addresses of the ACI instances you created&#8212;the values output as a result of [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup) Step 4. |
+
+   For example, the updated file might look something like the following:
+   
+   ```
+   "containerGroupIPs":{
+     "value":[
+       "10.0.0.5",
+       "10.0.0.4"
+     ]
+   }
+   ```
 
 2. (Optional) If you don't want to accept the defaults, update the `gateway.parameters.json` file with the following values. These parameters have default values and in most cases you won't need to make any updates.
 
@@ -262,7 +273,7 @@ Follow these steps:
 3. Get the public IP address of the Gateway Load Balancer by running the following command:
    
    ```
-   az deployment group show -g {RESOURCE_GROUP_NAME} -n gateway--query properties.outputs
+   az deployment group show -g {RESOURCE_GROUP_NAME} -n gateway --query properties.outputs
    ```
 
    The output should look something like the following:
