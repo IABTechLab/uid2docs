@@ -7,8 +7,6 @@ sidebar_position: 07
 
 # Environments
 
-All UID2 endpoints use the same base URL.
-
 The following table lists all current testing and production environments for UID2.
 
 | Environment | Cloud Region | Code | Base URL |
@@ -23,4 +21,8 @@ The following table lists all current testing and production environments for UI
 
 For example, `https://operator-integ.uidapi.com/v2/token/generate`.
 
->NOTE: The integration environment and the production environment require different [API keys](../ref-info/glossary-uid.md#gl-api-key).
+Notes:
+
+- All UID2 endpoints use the same base URL.
+- The integration environment and the production environment require different [API keys](../ref-info/glossary-uid.md#gl-api-key).
+- Token expiration time is subject to change, but is always significantly shorter in the integration environment than it is in the production environment.
