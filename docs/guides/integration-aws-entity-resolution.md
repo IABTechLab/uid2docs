@@ -98,12 +98,11 @@ Send your UID2 contact the AWS account ID that you'll use for your UID2 integrat
 
 ### Subscribe to UID2 on AWS Data Exchange
 
-Visit the UID2 page on the AWS Data Exchange using this [link](https://aws.amazon.com/marketplace/pp/prodview-66zqls7iqsm6o?sr=0-4&ref_=beagle&applicationId=AWSMPContessa#offers) and click 'Continue to Subscribe'.
+Visit the [Unified ID 2.0 Identity Resolution](https://aws.amazon.com/marketplace/pp/prodview-66zqls7iqsm6o?sr=0-4&ref_=beagle&applicationId=AWSMPContessa#offers) page on the AWS Data Exchange and click **Continue to Subscribe.**
 
 ![AWS Data Exchange market place screenshot](images/integration-aws-entity-resolution-public-listing.png)
 
 
-<!-- To participate in UID2 on the Amazon Data Exchange Marketplace, subscribe to the UID2 service. See [Unified ID 2.0 Operator on AWS](https://aws.amazon.com/advertising-marketing/solutions/uid2/). -->
 
 On receipt of your subscription request, the UID2 team does the following:
 - Reviews your subscription request.
@@ -139,7 +138,7 @@ When your initial account creation and setup are done, the next step is to creat
 The following steps are a summary of actions you'll take in the AWS Entity Resolution user interface. For additional details and instructions, see [Creating a matching workflow with UID 2.0](https://docs.aws.amazon.com/entityresolution/latest/userguide/create-matching-workflow-provider.html#create-mw-uid) in the AWS Entity Resolution documentation.
 
 :::note
-UID2 supports both email and phone number for UID2 generation. However, in AWS Entity Resolution, if both values are present in the schema mapping, the workflow will duplicate each record in the output. One record will use the email for UID2 generation and the second record will use phone number. If you don't prefer this duplication of records in the output and if your data includes a mix of emails and phone numbers, the best approach is to create a separate workflow for each, with separate schema mappings. In this scenario, go through the following steps twice&#8212;create one workflow for emails and a separate one for phone numbers.
+UID2 supports both email and phone number for UID2 generation. However, in AWS Entity Resolution, if both values are present in the schema mapping, the workflow duplicates each record in the output. One record uses the email for UID2 generation and the second record uses phone number. If your data includes a mix of emails and phone numbers and you don't want this duplication of records in the output, the best approach is to create a separate workflow for each, with separate schema mappings. In this scenario, go through the following steps twice—create one workflow for emails and a separate one for phone numbers.
 :::
 
 To create the matching workflow, first sign in to the AWS Management console, open the **AWS Entity Resolution** page, and choose **Workflows** > **Matching workflows** > **Create matching workflow**. Then, complete the following steps for your matching workflow.
@@ -153,8 +152,8 @@ To create the matching workflow, first sign in to the AWS Management console, op
      |--------|----|-----|-----------|
      |0001|Test 1|test1@uidapi.com|1/1/90|
      |0002|Test 2|test2@gmail.com|1/2/78|
-   
-      NOTE: If you have both email and phone numbers in the same record, the workflow will duplicate each record in the output. If you don't prefer this, then the best approach is to create separate workflow for each. See details earlier in this section.
+
+     NOTE: If you have both email and phone numbers in the same record, the workflow duplicates each record in the output. If you don't want this, the best approach is to create a separate workflow for each. See details earlier in this section.
 
    - **Service access**: Grant specific permission to Entity Resolution to access the specified data in AWS Glue, using an existing or new service role. If the input data is encrypted, you must also specify the AWS Key Management Service (KMS) key for decryption.
 
