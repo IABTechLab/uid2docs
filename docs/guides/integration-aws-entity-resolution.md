@@ -99,7 +99,8 @@ Send your UID2 contact the AWS account ID that you'll use for your UID2 integrat
 ### Subscribe to UID2 on AWS Data Exchange
 
 Visit the UID2 page on the AWS Data Exchange using this [link](https://aws.amazon.com/marketplace/pp/prodview-66zqls7iqsm6o?sr=0-4&ref_=beagle&applicationId=AWSMPContessa#offers) and click 'Continue to Subscribe'.
-![AWS Data Exchange market place screenshot](https://github.com/IABTechLab/uid2docs/assets/1343899/c61182e2-aff3-4e09-89bd-9f9f4fab2bb0)
+
+![AWS Data Exchange market place screenshot](images/integration-aws-entity-resolution-public-listing.png)
 
 
 <!-- To participate in UID2 on the Amazon Data Exchange Marketplace, subscribe to the UID2 service. See [Unified ID 2.0 Operator on AWS](https://aws.amazon.com/advertising-marketing/solutions/uid2/). -->
