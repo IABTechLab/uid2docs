@@ -139,7 +139,7 @@ When your initial account creation and setup are done, the next step is to creat
 The following steps are a summary of actions you'll take in the AWS Entity Resolution user interface. For additional details and instructions, see [Creating a matching workflow with UID 2.0](https://docs.aws.amazon.com/entityresolution/latest/userguide/create-matching-workflow-provider.html#create-mw-uid) in the AWS Entity Resolution documentation.
 
 :::note
-UID2 supports either email or phone number for UID2 generation. However, in AWS Entity Resolution, if both values are present in the schema mapping, the workflow uses the email and treats the phone number as a pass-through field. If your data includes a mix of emails and phone numbers, the best approach is to create a separate workflow for each, with separate schema mappings. In this scenario, go through the following steps twice&#8212;create one workflow for emails and a separate one for phone numbers.
+UID2 supports both email and phone number for UID2 generation. However, in AWS Entity Resolution, if both values are present in the schema mapping, the workflow will duplicate each record in the output. One record will use the email for UID2 generation and the second record will use phone number. If you don't prefer this duplication of records in the output and if your data includes a mix of emails and phone numbers, the best approach is to create a separate workflow for each, with separate schema mappings. In this scenario, go through the following steps twice&#8212;create one workflow for emails and a separate one for phone numbers.
 :::
 
 To create the matching workflow, first sign in to the AWS Management console, open the **AWS Entity Resolution** page, and choose **Workflows** > **Matching workflows** > **Create matching workflow**. Then, complete the following steps for your matching workflow.
@@ -154,7 +154,7 @@ To create the matching workflow, first sign in to the AWS Management console, op
      |0001|Test 1|test1@uidapi.com|1/1/90|
      |0002|Test 2|test2@gmail.com|1/2/78|
    
-      NOTE: There can be only **one** email or phone number field per record. If email is present, phone number is treated as pass-through. To process phone numbers, create a separate workflow. See details earlier in this section.
+      NOTE: If you have both email and phone numbers in the same record, the workflow will duplicate each record in the output. If you don't prefer this, then the best approach is to create separate workflow for each. See details earlier in this section.
 
    - **Service access**: Grant specific permission to Entity Resolution to access the specified data in AWS Glue, using an existing or new service role. If the input data is encrypted, you must also specify the AWS Key Management Service (KMS) key for decryption.
 
