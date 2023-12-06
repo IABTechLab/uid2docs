@@ -12,6 +12,14 @@ export default function DocsBanner({
   title,
   description,
 }: DocsBannerProps): JSX.Element {
+  //remove the dulpicate html <header> + h1 tags within the .markdown
+  React.useEffect(() => {
+    const header = document.querySelector(".markdown > header");
+    if (header) {
+      header.remove();
+    }
+  }, []);
+
   return (
     <header className={clsx(styles.docsBanner)}>
       <div className={styles.docsBannerLeft}>
