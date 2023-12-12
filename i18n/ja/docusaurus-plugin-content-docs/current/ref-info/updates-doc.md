@@ -9,6 +9,24 @@ sidebar_position: 06
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: UID2 Credentials Page
+
+21 November 2023
+
+以前の **API Keys** ページを新しいページに置き換えました。このページには、サーバーサイドの実装戦略に従った場合の認証情報についての情報が含まれています。
+
+詳細は [UID2 Credentials](../getting-started/gs-credentials.md) を参照してください。
+
+### New: JavaScript Express Integration Guide
+
+21 November 2023
+
+JavaScript Express Integration Guide は、既存の URL の全く新しいドキュメントで、クライアントサイドパブリッシャー実装のために UID2 SDK for JavaScript を使用する、よりシンプルな新しい方法を網羅しています。
+
+詳細は、[JavaScript Express Integration Guide](../guides/publisher-client-side.md) を参照してください。
+
+以前の *UID2 SDK for JavaScript Integration Guide* にあった内容は、JavaScript SDK をサーバーサイドに実装したいパブリッシャーのための補足文書になりました: [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md).
+
 ### New: Prebid.js Integration Guide
 
 2 November 2023
