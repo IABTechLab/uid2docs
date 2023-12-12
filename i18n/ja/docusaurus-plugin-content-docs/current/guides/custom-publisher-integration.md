@@ -1,6 +1,6 @@
 ---
 title: Publisher Integration Guide, Server-Only
-sidebar_label: Publisher Integration, Server-Only
+sidebar_label: Server-Only
 pagination_label: Publisher Integration Guide, Server-Only
 description: UID2 対応シングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションを行いながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成する方法。
 hide_table_of_contents: false
@@ -47,7 +47,7 @@ sidebar_position: 03
 
 ワークフローを示すサンプルアプリケーションもあります。[サンプルアプリケーション](#sample-application)を参照してください。
 
-> TIP: UID2 を使用してクライアントの identity を確立し、UID2 Token を取得するプロセスを容易にするには、UID2 SDK for JavaScript の使用を検討してください。詳細については、[JavaScript Express Integration Guide](publisher-client-side.md)を参照してください。
+> TIP: UID2 を使用してクライアントの identity を確立し、UID2 Token を取得するプロセスを容易にするには、UID2 SDK for JavaScript の使用を検討してください。詳細については、[JavaScript Standard Integration Guide](integration-javascript-standard.md)を参照してください。
 
 ## Integration Steps
 

@@ -1,6 +1,6 @@
 ---
 title: Prebid.js Express Integration
-sidebar_label: Prebid.js Express Integration
+sidebar_label: Prebid.js Express
 pagination_label: Prebid.js Express Integration
 description: UID2 の実装として Prebid.js とインテグレーションするための情報。
 hide_table_of_contents: false
@@ -31,7 +31,7 @@ Prebid.js を使って UID2 とインテグレーションするには、サイ�
 
 アプリケーションの例については、UID2 Prebid.js の例を参照してください:
 - Code: [UID2 Prebid.js code on GitHub](https://github.com/IABTechLab/uid2docs/tree/main/static/examples/cstg-prebid-example)
-- 実行中のサイト: [UID2 Prebid.js example](https://unifiedid.com/examples/cstg-prebid-example/)
+- ランニングサイト: [UID2 Prebid.js example](https://unifiedid.com/examples/cstg-prebid-example/)
 
 ## Prebid.js Version
 
@@ -41,7 +41,7 @@ Prebid.js を使って UID2 とインテグレーションするには、サイ�
 
 For an example application, see the UID2 Prebid.js example:
 - Code: [Example Prebid.js UID2 Integration](https://github.com/IABTechLab/uid2docs/tree/main/static/examples/cstg-prebid-example)
-- 実行中のサイト: [UID2 Prebid.js Express Integration Example](https://unifiedid.com/examples/cstg-prebid-example/)
+- ランニングサイト: [UID2 Prebid.js Express Integration Example](https://unifiedid.com/examples/cstg-prebid-example/)
 
 ## Complete UID2 Account Setup
 
@@ -71,7 +71,7 @@ UID2 モジュールを設定するには、アカウント設定時に受け取
 
 設定が行われると、UID2 モジュールはユーザー用の UID2 Token を生成し、ユーザーのブラウザに保存します。このモジュールは、ユーザーのブラウザでサイトが開いている間、必要に応じてトークンを自動的にリフレッシュします。
 
-ユーザーの DII を UID2 モジュールに渡すには、ハッシュ化することもハッシュ化しないこともできます。DII をハッシュせずに渡すと、UID 2モジュールが代わりにハッシュします。DII をすでにハッシュ化してモジュールに渡したい場合は、ハッシュ化する前に正規化する必要があります。詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+ユーザーの DII を UID2 モジュールに渡すには、ハッシュ化することもハッシュ化しないこともできます。DII をハッシュせずに渡すと、UID2 モジュールが代わりにハッシュします。DII をすでにハッシュ化してモジュールに渡したい場合は、ハッシュ化する前に正規化する必要があります。詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 
 UID2 モジュールは、UID2 Service に送信する前に、ハッシュ化された DII を暗号化します。
 

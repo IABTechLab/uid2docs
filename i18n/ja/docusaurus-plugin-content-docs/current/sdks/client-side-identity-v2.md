@@ -13,7 +13,7 @@ sidebar_position: 02
 
 この SDK を使用して、UID2 を使用してクライアントの ID を確立し、広告トークンを取得するプロセスを容易にします。以下のセクションでは、UID2 を確立するための [workflow](#workflow-overview) について説明し、SDK の [API reference](#api-reference) を提供し、[UID2 cookie format](#uid2-cookie-format) について説明します。
 
-- コンテンツパブリッシャーのインテグレーション手順については、[UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) を参照してください。
+- コンテンツパブリッシャーのインテグレーション手順については、[JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照してください。
 - [example application](https://example-jssdk-integ.uidapi.com/)　と関連ドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) ガイドを参照してください。
 
 <!-- This guide includes the following information:
@@ -90,7 +90,7 @@ SDK を使用して UID2 ID を確立するための Client-Side ワークフロ
 	- Advertising Token が使用可能な場合は、それを使用してターゲティング広告の要求を開始します。
 	- Advertising Token が利用可能でない場合は、ターゲティング広告を使用するか、同意フォームを使用してユーザーを UID2 ログインにリダイレクトします。
  
-Web インテグレーションの詳細については、[UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) を参照してください。
+Web インテグレーションの詳細については、[JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照してください。
 
 ### Workflow States and Transitions
 

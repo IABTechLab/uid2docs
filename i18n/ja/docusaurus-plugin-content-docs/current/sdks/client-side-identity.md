@@ -25,11 +25,13 @@ UID2 アイデンティティモジュール ([Prebid Integration Guide](../guid
 - [earlier versions of the SDK](./client-side-identity-v2.md)　のドキュメントを参照します。
 
 関連情報:
-- コンテンツパブリッシャーのインテグレーション手順については、[UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) を参照してください。
-- アプリケーションの例と関連文書については、以下を参照してください:
-  - SDK v3 を使用した UID2 Google ESP の例:
-    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3) と [running site](https://esp-jssdk-integ.uidapi.com/) を参照してください。
-  - Client-Side トークン生成の例: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)および[running site](https://cstg-integ.uidapi.com/)。
+- コンテンツパブリッシャーのインテグレーションステップについては、以下を参照してください:
+  - [JavaScript Express Integration Guide](../guides/publisher-client-side.md).
+  - [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md). 
+- アプリケーションのサンプルと関連文書については、以下を参照してください:
+  - SDK v3を使用したUID2 Google ESPのサンプル:
+    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3) と [running site](https://esp-jssdk-integ.uidapi.com/).
+  - JavaScript Express Integration のサンプル: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg) と [running site](https://cstg-integ.uidapi.com/).
 
 ## Functionality
 
@@ -53,12 +55,12 @@ UID2 アイデンティティモジュール ([Prebid Integration Guide](../guid
 
 この SDK は、以下のロケーションに公開されています:
 
+<!-- - NPM: [https://www.npmjs.com/package/@uid2/uid2-sdk](https://www.npmjs.com/package/@uid2/uid2-sdk)
+  - This is the easiest way to include the SDK in your own build. Use this if you want to bundle the SDK along with your other JavaScript or TypeScript files.
+  - You can also use this for TypeScript type information and still load the script via the CDN. If you do this, ensure that the version of NPM package you have installed matches the version in the CDN url. LP_TODO: Looking at the NPM package, I don't believe it's ready for use - it just includes the source and doesn't seem to include a ready-to-deploy build. LP 12 Sep 2023 -->  
+
 - CDN: `https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js`
-
-  この文書の最新更新時点での最新バージョンは [3.2.0](https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js) です。[the list of available versions](https://cdn.prod.uidapi.com/) も参照してください。
-- CDN (Integration): `https://cdn.integ.uidapi.com/uid2-sdk-${VERSION_ID}.js`
-
-  このインテグレーション URL には最小化されていないコードが含まれており、テストのみを目的としています。この URL を本番サイトに使用しないでください。
+  <!-- - This is the easiest way to include the SDK in your site if you don't use a build pipeline to bundle your JavaScript. LP_TODO: This doesn't make sense until we add the NPM option above. -->
 
   この文書の最新更新時点での最新バージョンは [3.2.0](https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js) です。[the list of available versions](https://cdn.prod.uidapi.com/) も参照してください。
 
@@ -111,7 +113,7 @@ SDK を使用して UID2 ID を確立するための Client-Side ワークフロ
 	- Advertising Token が利用可能な場合、それを使用してターゲティング広告のリクエストを開始する。
 	- Advertising Token が利用可能でない場合は、ターゲティング広告を使用しないか、同意フォームを使用してユーザーを UID2 ログインにリダイレクトします。
 
-より詳細な Web インテグレーションの手順については、[UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md) を参照してください。
+より詳細な Web インテグレーションの手順については、[JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照してください。
 
 ### Background Token Auto-Refresh
 

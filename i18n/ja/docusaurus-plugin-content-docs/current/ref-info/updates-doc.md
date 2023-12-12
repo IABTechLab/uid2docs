@@ -45,9 +45,9 @@ Prebid.js Express Integration Guide は、既存の URL にまったく新しい
 
 UID2 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメントが大幅に更新されました。新しいドキュメントには、以前のバージョンの SDK からのアップグレードのための [Migration Guide](../sdks/client-side-identity#migration-guide) が含まれています。
 
-詳細は:
+詳細は以下を参照してください:
 -  [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)
--  [JavaScript Express Integration Guide](../guides/publisher-client-side.md)
+-  [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md)
 
 ### New: Private Operator Guide for Google Confidential Space 
 

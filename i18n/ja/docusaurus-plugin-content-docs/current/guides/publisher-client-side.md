@@ -44,7 +44,7 @@ If you want to use a debug build of the SDK, use the following URL instead:
 
 アプリケーションの例については、SDK v3 を使用した UID2 Google ESP の例を参照してください:
 - Code and docs: [UID2 SDK ESP Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3)
-- 実行中のサイト: [Client-Side UID2 SDK Integration Example](https://esp-jssdk-integ.uidapi.com/)
+- ランニングサイト: [Client-Side UID2 SDK Integration Example](https://esp-jssdk-integ.uidapi.com/)
 
 ## Complete UID2 Account Setup
 
