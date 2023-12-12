@@ -1,33 +1,62 @@
 ---
 title: UID2 Credentials
-description: 必要な API Key とその取得方法。
+description: 必要な認証情報とその取得方法について。
 hide_table_of_contents: false
 sidebar_position: 03
 ---
 
 # UID2 Credentials
 
-UID2 <a href="/docs/intro#participants">参加者</a> はそれぞれ、クライアントキーとも呼ばれる API Key を持っています。各キーには対応する [client secret](../ref-info/glossary-uid.md#gl-client-secret) があり、これは参加者と UID2 Service だけが知っている値です。
+UID2 <a href="/docs/intro#participants">参加者</a>はそれぞれ、固有の認証情報のセットを取得します。取得する認証情報のセットは、以下の表に示すように、UID2にどのように参加しているかによって決まります。
 
-API Key と Client Secretにより、参加者は [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) に接続し、API エンドポイントを呼び出すことができます。これらの値は、サービスへの参加者を識別します。
 
-ここでは、API Key と Client Secret について説明します:
+| Audience | Credentials | Integration |
+| :--- | :--- | :--- |
+| サーバーサイドのエンドポイントを使用する参加者 | 以下の両方:<ul><li>[API key](../ref-info/glossary-uid.md#gl-api-key)、クライアントキーとも呼ばれます。</li><li>[Client secret](../ref-info/glossary-uid.md#gl-client-secret)、参加者と UID2 Service だけが知る値。</li></ul> | これらのエンドポイントのいずれかを使用するインテグレーション: <ul><li>[POST /identity/map](../endpoints/post-identity-map.md)</li><li>[POST /identity/buckets](../endpoints/post-identity-buckets.md)</li><li>[POST /token/generate](../endpoints/post-token-generate.md)</li></ul> |
+| クライアントサイドの実装を使用する参加者 | 以下の両方: <ul><li>Subscription ID</li><li>Public key</li></ul> | これらのいずれかを使用したインテグレーション: <ul><li>[Prebid.js Express Integration Guide](../guides/integration-prebid.md)</li><li>[JavaScript Express Integration Guide](../guides/publisher-client-side.md)</li></ul> |
+
+本番環境だけでなくテスト環境も使用している場合は、それぞれの環境用に別々の認証情報を取得します。
+
+<!-- It includes:
+* [API Key and Client Secret](#api-key-and-client-secret)
+  * [Security of API Key and Client Secret](#security-of-api-key-and-client-secret)
+* [Subscription ID and Public Key](#subscription-id-and-public-key)
+* [Refreshing Credentials](#refreshing-credentials)
+ -->
+
+## API Key and Client Secret
+
+API キーとクライアントシークレットにより、参加者は [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) に接続し、API エンドポイントを呼び出すことができます。これらの値は、サービスの参加者を識別します。
+
+以下は API キーとクライアントシークレットに関する情報です:
 - UID2 参加者は、複数のキーを持つことができます。
-- 各キーには、どのエンドポイントで使用できるかを決定する一連の権限があります。
-- 各キーには、対応する Client Secret があります。
-- ほとんどの API エンドポイントは、認証のために API Key と Client Secret の両方を必要とします。詳細は [認証と認可](gs-auth.md) を参照してください。
-- インテグレーション環境と本番環境の両方を使用する場合は、それぞれの環境で別々の API Key が必要になります。
+- それぞれのキーには、どのエンドポイントで使用できるかを決定する権限セットがあります。
+- 各キーには対応するクライアントシークレットがあります。
+- ほとんどの API エンドポイントは、認証のために API キーとクライアントシークレットの両方を必要とします。詳細は [Authentication and Authorizatio](gs-auth.md) を参照してください。
+- 本番環境だけでなくテスト環境も利用する場合は、それぞれの環境で別々の API キーが必要になります。
 
-UID2 アカウントのセットアップの一環として、1つ以上の API Key が発行され、それぞれに対応するクライアントシークレットが割り当てられます。相談先の詳細については、[連絡先情報](gs-account-setup.md#contact-info) を参照してください。
+UID2 アカウントのセットアップの一環として、1つ以上の API キーが発行され、それぞれに対応するクライアントシークレットが割り当てられます。相談相手の詳細については、[Contact Info](gs-account-setup.md#contact-info) を参照してください。
 
-## Security of Keys and Client Secrets
+### Security of API Key and Client Secret
 
-キー と Client Secret のセキュリティは非常に重要です。以下のガイドラインに従ってください:
+キーとクライアントシークレットのセキュリティは非常に重要です。以下のガイドラインに従ってください:
 
-- API キーと Client Secrets を受け取ったら、安全な場所に保管してください。
+- API キーとクライアントシークレットを受け取ったら、安全な場所に保管してください。
 - これらの値が保存され使用されているすべての場所を追跡しておき、キーをローテーションする必要がある場合にすぐに実行できるようにしておいてください。
-- 既存のキーとシークレットが漏洩した場合は、新しいキーとシークレットに置き換えるプロセスを確立します。
+- 既存のキーとシークレットが漏洩した場合、新しいキーとシークレットに置き換えるプロセスを確立してください。
 
-認証情報が漏洩するリスクを減らすため、API キーと Client Secret を定期的に更新することをお勧めします。
+認証情報が漏洩するリスクを軽減するため、API キーとクライアントシークレットを定期的に（例えば1年ごとに）更新することをお勧めします。
 
-新しい認証情報をリクエストするには、いつでも UID2 の担当者にお尋ねください。
+## Subscription ID and Public Key
+
+クライアントサイドの実装している場合、以下の認証情報を受け取ります:
+- **Subscription ID**: UID2 Service に対してあなたのサイトを識別する値です。
+- **Public key**： この値は暗号化に使用されます。
+
+API キーとクライアントシークレットとは異なり、Subscription ID（サブスクリプション ID）とPublic key（パブリックキー）は安全に保管する必要はありません。
+
+UID2 JavaScript SDK または Prebid を使用して、クライアントサイドで UID2 を実装する場合、設定の一部として SDK または Prebid に値を提供します。
+
+## Refreshing Credentials
+
+新しいクレデンシャルをリクエストするには、いつでも UID2 の連絡先に連絡してください。
