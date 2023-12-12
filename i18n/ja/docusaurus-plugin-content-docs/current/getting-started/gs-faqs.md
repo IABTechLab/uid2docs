@@ -73,7 +73,10 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 
 #### トークン生成の呼び出しは、サーバーサイドとクライアントサイドのどちらで行うべきですか？
 
-UID2 Token は、認証後にサーバーサイドでのみ生成する必要があります。言い換えると、サービスにアクセスするために使用される API キーが秘密のままであることを保証するために、[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントはサーバーサイドからのみ呼び出されなければなりません。
+UID2 Token は、クライアントサイド、サーバーサイドのどちらでも生成できます。詳細については、以下を参照してください:
+- Prebid.js を使ってクライアントサイドでトークンを生成する: [Prebid.js Express Integration Guide](../guides/integration-prebid.md)
+- Prebid.jsを使ってサーバサイドからトークンを生成する: [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md)
+- その他のサーバーサイドオプション: [Publisher Integrations](../guides/summary-guides.md#publisher-integrations).
 
 #### クライアントサイドからトークンのリフレッシュを呼び出すことはできますか？
 
