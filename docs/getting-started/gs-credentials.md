@@ -26,14 +26,15 @@ If you're using the integration environment as well as the production environmen
 
 ## API Key and Client Secret
 
-The API key and client secret allow the participant to connect to the [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) and call API endpoints. These values identify the participant to the service.
+If you're using a server-side implementation, the API key and client secret allow you to connect to the [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) and call API endpoints. These values identify you to the service.
 
 Here is some information about API keys and client secrets:
 - One UID2 participant can have multiple keys.
-- Each key has a set of permissions that determine which endpoints it can be used on.
+- Each key has a set of [permissions](gs-permissions.md) that determine the endpoints you can use it on.
 - Each key has a corresponding client secret.
 - Most API endpoints require both API key and client secret for authentication. For details, see [Authentication and Authorization](gs-auth.md).
-- If you're using the integration environment as well as the production environment, you'll require separate API keys for each environment.
+- If you're using the integration environment as well as the production environment, you'll receive separate API keys for each environment.
+- The client secret is valid for a specific [environment](gs-environments.md). If you're using both the integration and production environments, you'll get a client secret for each environment.
 
 As part of getting your UID2 account set up, one or more API keys, each with a corresponding client secret, will be issued to you. For details of who to talk to, see [Contact Info](gs-account-setup.md#contact-info).
 
@@ -45,7 +46,7 @@ Security of keys and client secrets is very important. Follow these guidelines:
 - Keep track of all places where these values are stored and used, so that if you need to rotate the key you can do it quickly.
 - Establish a process for replacing the key and secret with new values if the existing ones are compromised.
 
-We recommend that you refresh your API key and client secret on a regular cadence&#8212;for example, yearly&#8212;to help reduce the risk of your credentials being compromised.
+It's best to refresh your API key and client secret on a regular cadence&#8212;for example, yearly&#8212;to help reduce the risk of your credentials being compromised.
 
 ## Subscription ID and Public Key
 
@@ -53,9 +54,13 @@ If you're using a client-side implementation, you'll receive the following crede
 - **Subscription ID**: This value identifies your site to the UID2 service.
 - **Public key**: This value is used for encryption.
 
-Unlike the API key and client secret, the Subscription ID and public key do not have to be kept secure.
-
 When you're implementing UID2 on the client side, by using the UID2 JavaScript SDK or Prebid, provide the values to the SDK or to Prebid as part of configuration.
+
+Notes:
+
+- Unlike the API key and client secret, the Subscription ID and public key do not have to be kept secure.
+
+- The values are valid for a specific [environment](gs-environments.md). If you're using both the integration and production environments, you'll get a set of credentials for each environment.
 
 ## Refreshing Credentials
 

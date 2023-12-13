@@ -104,7 +104,8 @@ const sidebars = {
             items: [
               'guides/integration-prebid',
               'guides/publisher-client-side',
-              'guides/integration-prebid-advanced',
+              'guides/integration-prebid-client-side',
+              'guides/integration-prebid-server-side',
               'guides/integration-javascript-standard',
               'guides/custom-publisher-integration',
               'guides/google-ss-integration',
@@ -124,13 +125,15 @@ const sidebars = {
           },
           {
             type: 'category',
-            label: 'Prebid',
+            label: 'Prebid (INCL OLD ONE)',
             link: {
               type: 'generated-index',
             },
             collapsed: true,
             items: [
               'guides/integration-prebid',
+              'guides/integration-prebid-client-side',
+              'guides/integration-prebid-server-side',
               'guides/integration-prebid-advanced',
             ],
           },
