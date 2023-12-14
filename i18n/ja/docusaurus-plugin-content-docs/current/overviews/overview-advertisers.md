@@ -22,16 +22,6 @@ UID2 を採用する広告主にとってのメリット、ワークフロー、
 - キャンペーンをより総合的にターゲティングし測定します。
 - 消費者のプライバシー管理を改善することを目的として、オプトアウトを提供します。
 
-
-## Resources
-
-広告主が UID2 を実装するために、以下のドキュメントリソースを用意しています。
-
-| Integration Type| Documentation | Content Description | Audience |
-| :--- | :--- | :--- | :--- |
-| ユーザーデータを収集し、それを他の UID2 参加者にプッシュする組織のためのインテグレーション手順 | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | 広告主とデータプロバイダーのためのインテグレーションガイドで、オーディエンスの構築とターゲティングのための ID マッピングのためのインテグレーションワークフローをカバーしています。 | Advertisers<br/>Data Providers |
-| Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | Snowflakeでメールアドレスから UID2 を生成する手順です。 | Advertisers,<br/>Data Providers |
-
 ## Workflow for Advertisers
 
 以下のステップは、ユーザーデータを収集し DSP にプッシュする組織 (広告主、ID グラフプロバイダー、サードパーティデータプロバイダーなど) を想定したワークフローのアウトラインを提供するものです。
@@ -46,15 +36,6 @@ UID2 を採用する広告主にとってのメリット、ワークフロー、
 3. 広告主またはデータプロバイダーは UID2 とソルトバケット ID を保存し、UID2 ベースのファーストパーティおよびサードパーティのオーディエンスセグメントをDSPに送信します。
 
 ![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.jpg)
-
-<!-- ## Integration Requirements
-
-ユーザーの DII から UID2 を生成するためには、サードパーティデータプロバイダーは以下の要件を満たしている必要があります。
-
-- UID2 Operator とインテグレーションして UID2 を生成し、ソルトバケットのローテーションを処理すること。
-- UID2 Operator の API にアクセスできること。<br/>広告主によっては、CDP、データオンボーダー、またはその他のサービスプロバイダーを経由する場合もあります。
-
-詳細は、[Advertiser/Data Provider Integration Guide](/guides/advertiser-dataprovider-guide.md) を参照してください。 -->
 
 ## Getting Started
 
