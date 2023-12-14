@@ -13,7 +13,6 @@ This guide includes the following information:
 
 - [Prebid.js Version](#prebidjs-version)
 - [UID2 Prebid Module Page](#uid2-prebid-module-page)
-- [Integration Example](#integration-example)
 - [Integration Overview: High-Level Steps](#integration-overview-high-level-steps)
   - [Complete UID2 Account Setup](#complete-uid2-account-setup)
   - [Add Prebid.js to Your Site](#add-prebidjs-to-your-site)
@@ -55,8 +54,9 @@ Information about how to integrate Prebid with UID2 is also in the following loc
 - On the Prebid site, on the [Unified ID 2.0](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) page for the Prebid User ID submodule.
 - In the Prebid GitHub repository, on the [UID2 User ID Submodule](https://github.com/prebid/Prebid.js/blob/master/modules/uid2IdSystem.md) page.
 
-## Integration Example
-(**GWH_SW11 is there an integration example for server-side? Gen to fill it in.**)
+## Module Storage
+
+By default, the UID2 module stores data using local storage. To use a cookie instead, set params.storage to cookie. For details, see [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration).
 
 ## Integration Overview: High-Level Steps
 
@@ -107,8 +107,8 @@ There are two ways to refresh a UID2 token, as shown in the following table.
 
 | Mode | Description | Link to Section | 
 | --- | --- | --- |
-| Client refresh mode | Prebid.js automatically refreshes the tokens internally. | [Client Refresh Mode](#client-refresh-mode) |
-| Server-only mode | Prebid.js doesn't automatically refresh the token. It is up to the publisher to manage token refresh. | [Server-Only Mode](#server-only-mode) |
+| Client refresh mode | Prebid.js automatically refreshes the tokens internally. This is the simplest approach. | [Client Refresh Mode](#client-refresh-mode) |
+| Server-only mode | Prebid.js doesn't automatically refresh the token. It is up to the publisher to manage token refresh. One reason to choose this option is if you're using the JavaScript SDK to refresh the token, but you still want to send the token to the bid stream via Prebid.js. | [Server-Only Mode](#server-only-mode) |
 
 ## Client Refresh Mode
 
@@ -127,18 +127,25 @@ When you configure the module to use Client Refresh mode, you must choose **one*
 
 | Option | Details | Use Case | 
 | --- | --- | --- |
-| Set `params.uid2Cookie` to the name of the cookie that contains the response body as a JSON string. | See [Client Refresh Cookie Example](#client-refresh-cookie-example). | Use this option only when there is enough space left in your cookie to store the response body. (**GWH_SW12 how will they know if there is space in the cookie?**)|
+| Set `params.uid2Cookie` to the name of the cookie that contains the response body as a JSON string. | See [Client Refresh Cookie Example](#client-refresh-cookie-example). | Use this option only when there is enough space left in your cookie to store the response body. (**GWH_LP do we need to address how they will they know if there is space in the cookie?**)|
 | Set `params.uid2Token` to the response body as a JavaScript object. | See [Client Refresh uid2Token Example](#client-refresh-uid2token-example). | You might choose to provide the response body via `params.uid2Token` in either of these cases:<ul><li>If storing the response body on the cookie will exceed the cookie size limit.</li><li>If you prefer to have the flexibility to manage the storage of the response body yourself.</li></ul> |
 
 ### Client Refresh Mode Cookie Example
 
 In the following example, the cookie is called `uid2_pub_cookie`.
 
+#### Cookie
+
+xxxxxx
+
 ```
 uid2_pub_cookie={"advertising_token":"...advertising token...","refresh_token":"...refresh token...","identity_expires":1684741472161,"refresh_from":1684741425653,"refresh_expires":1684784643668,"refresh_response_key":"...response key..."}
 ```
 
-### Configuration
+### Configuration to Store Token in a Cookie GWH REWORD LATER>
+
+In Client Refresh mode Prebid.js takes care of the token refresh. The following example stores the token in a cookie called `uid2_pub_cookie`.
+
 (**GWH_SW13 configuration of what exactly? And, is this an example, or exactly what they need to do? And, what should we say as an intro explanation for this piece of JS?**)
 
 The following example shows... xxx TODO
@@ -189,16 +196,16 @@ To configure the module to use server-only mode, do **one** of the following:
 
 ### Server-Only Mode Cookie Example
 
-The following example sets `value` to an ID block containing the advertising token.
+The following example stores the advertising token value in a cookie named `__uid2_advertising_token`. The configuration allows the UID2 module to retrieve the advertising token value directly from the cookie.
 
-**GWH_SW14 The following... my draft above but not sure what it's talking about with `value`.**
+**Cookie:**
 
-Cookie:
 ```
 __uid2_advertising_token=...advertising token...
 ```
 
-Configuration:
+**Configuration:**
+
 ```
 pbjs.setConfig({
     userSync: {
@@ -211,11 +218,8 @@ pbjs.setConfig({
 
 ### Server-Only Mode Value Example
 
-The following example...
+The following example sets the `value` field to an ID block containing the advertising token without storing it in a cookie.
 
-**GWH_SW15 The following... what can we say?.**
-
-Configuration:
 ```
 pbjs.setConfig({
     userSync: {
@@ -234,7 +238,7 @@ pbjs.setConfig({
 
 In planning your Prebid implementation, consider the following:
 
-- The module stores the original token provided to it, refreshes it as needed, and uses the refreshed token. If you provide an expired identity to the module, it checks against the stored token for a match. If the expired token you provided matches a token that the module refreshed, it uses the refreshed token in place of the expired one you provided. (**GWH_SW16 my rewrite of this item. Please check it. Thx.**)
+- The module stores the original token provided to it, refreshes it as needed, and uses the refreshed token. If you provide an expired identity to the module, it checks against the stored token for a match. If the expired token you provided matches a token that the module refreshed, it uses the refreshed token in place of the expired one you provided. (**GWH_SW16 my rewrite of this item. Please check it. Thx.**) SW says keep the original one: If you provide an expired identity, and the module has a valid identity which was refreshed from the identity you provide, the module uses the refreshed identity. The module stores the original token that it used for refreshing the token and uses the refreshed tokens as long as the original token matches the token that you provided. ALSO he suggests removing it altogether. Check with LP.
 
 - If you provide a new token that doesn't match the original token used to generate any refreshed tokens, the module discards all stored tokens and uses the new token instead, and keeps it refreshed.
 
@@ -284,7 +288,7 @@ In server-only mode mode, since the prebid.js UID2 module receives only the adve
 
 If needed, to determine if you need to provide a new token, see [Determining Whether the Prebid.js Module Has a Valid Token](#determining-whether-the-prebidjs-module-has-a-valid-token).
 
-### Determining Whether the Prebid.js Module Has a Valid Token
+## Determining Whether the Prebid.js Module Has a Valid Token
 (**GWH_SW18: not sure whether this is a new section level with "When to Pass a New Token to the UID2 Module" or a subsection?**)
 
 You can do a check to determine whether the Prebid.js module has a valid token or you need to provide a new one.
@@ -296,7 +300,8 @@ const params = {};
 
 if (!pbjs.getUserIds().uid2) {
   // There is no token that can be used or refreshed.
-  // Configure the UID2 module with a new token}
+  // Configure the UID2 module with a new token
+}
 
 pbjs.setConfig({
   userSync: {
@@ -308,20 +313,19 @@ pbjs.setConfig({
           'refresh_token': '...refresh token...',
           // etc. - see the sample token for contents of this object
         }
+      }
     }]
   }
 });
 ```
 
-(**GWH_SW19 do we need the curly bracket at the end of the comment line 289? Should that not be on the next line, as part of the code sample?**)
 :::caution
 If you configure a user ID by calling `setConfig` (or any similar function) twice, you will need to call `refreshUserIds` for the user ID submodules, to reinitialize their ID values.
 :::
 
 ## Checking the Integration
 
-To check that the UID2 module has a valid UID2 token, call `pbjs.getUserIds().uid2`. If a value is returned, a token has been successfully generated.
-(**GWH_SW just checking... wording is different for server-side, that the module generated the token. Is that correct? ALSO: this ection only has first and fourth bullets. Server-side same section has info re checking the subscription ID and public key, and the domain name. Surely those are valid here also?**)
+To check that the UID2 module has a valid UID2 token, call `pbjs.getUserIds().uid2`. If a value is returned, a valid UID2 token still exists in the UID2 module.
 
 If there are problems with the integration, here are some steps you can take:
 
@@ -350,10 +354,6 @@ The following parameters apply only to the UID2 Prebid User ID Module integratio
 | params.uid2ApiBase | Optional, client refresh mode | String | Overrides the default UID2 API endpoint. | `"https://prod.uidapi.com"` (the default)|
 | params.storage | Optional, client refresh mode | String | Specify the module internal storage method: `cookie` or `localStorage`. We recommend that you do not provide this parameter. Instead, allow the module to use the default. | `localStorage` (the default) |
 
-(**GWH_SW I know we discussed this already but I don't think we need to include the quotes (example: `"uid2"`). The quotes are part of the syntax not part of the string. I believe in other explanations we don't use quotes for string names. The source file isn't even consistent (link 187, localStorage)**)
-
-(**GWH_SW There are other values listed in https://github.com/prebid/Prebid.js/blob/master/modules/uid2IdSystem.md#parameter-descriptions-for-the-usersync-configuration-section do I need to add them?**) 
-
 (**GWH_SW I included the Sample Token section which was in the original doc and also the linked doc + referenced in the table**) 
 
 ### Configuration Parameter Examples: Value
@@ -377,7 +377,7 @@ pbjs.setConfig({
 
 ### Sample Token
 
-The following sample is fictitious, but shows what the token response object looks like:
+The following sample is fictitious, but shows what the token response object looks like: (**GWH ADD NOTE THAT IT'S THE TOKEN RESPONSE RETURNED BY TOKEN/GENERATE AND TOKEN/REFRESH. aND ADD LINKS TO THE ENDPOINT DOCS.**)
 
 ```js
 {
@@ -411,21 +411,3 @@ pbjs.setConfig({
 ```
 
 For the list of possible base URLs, see [Environments](../getting-started/gs-environments.md).
-
----------------------------------------------------------------------
-
-## LEGACY CONTENT BELOW THIS POINT, TO CHECK
-
-## UID2 User ID Submodule
-
-(**GWH_SW we didn't include this section. Do we not need it? Just making sure we intended to lose it. I think we need the GDPR notice?**)
-
-The UID2 module handles storing, providing, and optionally refreshing UID2 tokens.
-
->**Important:** UID2 is not designed to be used where GDPR applies. The module checks the passed-in consent data, and does not operate if the `gdprApplies` flag is set to `true`.
-
-## Storage of Internal Values
-
-(**GWH_SW we didn't include this section. Do we not need it? Just making sure we intended to lose it**)
-
-The UID2 Prebid module stores some internal values. By default, all values are stored in HTML5 local storage. If needed, you can switch to cookie storage by setting `params.storage` to `cookie`. The cookie size can be significant, so we don't recommend this solution, but it is a possible solution if local storage is not an option.

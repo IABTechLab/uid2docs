@@ -32,6 +32,12 @@ UID2 provides a Prebid.js module that supports the following:
 
 For additional flexibility, UID2 also provides alternative methods for some of the features and complementary products, such as a JavaScript SDK.
 
+## UID2 User ID Submodule
+
+The Prebid UID2 module handles storing, providing, and optionally refreshing UID2 tokens.
+
+>**Important:** UID2 is not designed to be used where GDPR applies. The module checks the passed-in consent data, and does not operate if the `gdprApplies` flag is set to `true`.
+
 ## Generating the UID2 Token
 
 Depending on access to DII, there are two methods to generate UID2 tokens for use with Prebid.js, as shown in the following table.
