@@ -54,7 +54,7 @@ To get started, follow these steps:
 1. Request access to UID2 by filling out the form on the [Request Access](/request-access) page.
 1. Identify the properties that you want to integrate with UID2.
 1. Sign the UID2 contract.
-1. Determine whether you want a client-side or server-side integration, and tell your UID2 contact. (**GWH_KK new page coming that we will link to**)
+1. Determine whether you want a client-side or server-side integration, and tell your UID2 contact. <!-- (**GWH_KK new page coming that we will link to**) -->
 1. Receive the UID2 credentials ([UID2 Credentials](../getting-started/gs-credentials.md)).
 1. Build your integration to UID2 via an SDK or direct integration with the UID2 APIs, using the applicable documentation.
 
