@@ -54,7 +54,7 @@ UID2 Portal では、送信者と受信者がアカウントを設定し、送�
    | Java | [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers) |
    | Python | [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers) |
 
-2. SDK をコードにインテグレーションして、あなたの役割が送信者であるか受信者であるかに応じて、各ステップを実装します。使用している言語のコード例を見るには、step 1 で提供された表のリンクをたどってください。
+2. SDK をコードにインテグレーションして、あなたの役割が送信者であるか受信者であるかに応じて、各ステップを実装します。使用している言語のコードサンプルを見るには、Step 1 で提供された表のリンクをたどってください。
    1. 送信者と受信者の両方: UID2 クライアントを定義します。
    
    2. 送信者と受信者の両方: 暗号化鍵を更新するスケジュールを定義します。
@@ -81,7 +81,7 @@ UID2 Portal では、送信者と受信者がアカウントを設定し、送�
 
 ## Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)
 
-SDK を使用している場合、共有キーの更新スケジュールを定義するのは step 2 です。
+SDK を使用している場合、共有キーの更新スケジュールを定義するのは Step 2 です。
 
 長時間あるいは継続的に実行されるプロセスでは、1 時間に 1 回 `uid2client.refresh()` 関数をコールします。これにより、SDK は復号のために最新の鍵を取得します。新しい共有許可が有効になると、新しい共有送信者が送信したデータを復号するために必要な暗号鍵の追加セットは、共有受信者が次に `uid2client.refresh()` 関数を呼び出したときに返されます。この処理は SDK によって処理されます。
 
