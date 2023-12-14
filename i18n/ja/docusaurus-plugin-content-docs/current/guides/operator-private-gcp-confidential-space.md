@@ -338,7 +338,7 @@ UID2 アカウントのセットアップ ([UID2 Operator Account Setup](#uid2-o
 
     2. スクリプトを実行します。
 
-       シークレット (表示) 名は {OPERATOR_KEY_SECRET_NAME} で、シークレットの値は {OPERATOR_KEY} です。
+       スクリプトは GCP Secret Manager にシークレットを作成します。シークレット（表示）名は `{OPERATOR_KEY_SECRET_NAME}` で、シークレットの値は `{OPERATOR_KEY}` です。
        
 1. 以下のコマンドを実行し、パスを含む完全なシークレットネームを取得します:
 
