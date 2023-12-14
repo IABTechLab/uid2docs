@@ -132,13 +132,15 @@
 
 /*** JA specific styles ****/
 
-.cardHeaderJa {
-  font-weight: 600;
-  line-height: 1.13;
-  letter-spacing: -0.02em;
-  font-size: 1.5rem;
+.cardHeader {
+  &.ja {
+    font-weight: 600;
+    line-height: 1.13;
+    letter-spacing: -0.02em;
+    font-size: 1.5rem;
 
-  @media only screen and (min-width: 996px) {
-    font-size: 1.8rem;
+    @media only screen and (min-width: 996px) {
+      font-size: 1.8rem;
+    }
   }
 }

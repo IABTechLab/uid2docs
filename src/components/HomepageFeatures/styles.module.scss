@@ -103,14 +103,10 @@
 
 .header {
   margin-bottom: 3.125rem;
-}
 
-/** Japanese Styles **/
-
-.headerJa {
-  margin-bottom: 3.125rem;
-
-  h2 {
-    font-size: 4.2vw;
+  &.ja {
+    h2 {
+      font-size: 4.2vw;
+    }
   }
 }

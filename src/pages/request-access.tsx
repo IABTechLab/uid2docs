@@ -1,7 +1,6 @@
 //TS and Marketo is not a good time so ignoring in eslint
 import React from "react";
 import { translate } from "@docusaurus/Translate";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import PageHeader from "@site/src/components/PageHeader";
 import styles from "./request-access.module.scss";
@@ -10,6 +9,8 @@ import {
   capitalizeFirstLetter,
   identifyClosestSiblingInput,
 } from "@site/src/utils";
+import { languageData } from "@site/src/data/languageData";
+import { useGetCurrentLocale } from "@site/src/utils/useGetCurrentLocale";
 
 const componentData = {
   title: translate({
@@ -42,7 +43,8 @@ declare global {
 }
 
 export default function RequestDemo(): JSX.Element {
-  const { i18n } = useDocusaurusContext();
+  const currentLocale = useGetCurrentLocale();
+  const formId = languageData[currentLocale].formId || 2753; //default is english
 
   React.useEffect(() => {
     const pageViewData = {
@@ -57,8 +59,6 @@ export default function RequestDemo(): JSX.Element {
   }, []);
 
   const formRef = React.useRef(null);
-
-  const formId = i18n.currentLocale === "ja" ? 3688 : 2753;
 
   const onChange = React.useCallback((event) => {
     const target = event.target;

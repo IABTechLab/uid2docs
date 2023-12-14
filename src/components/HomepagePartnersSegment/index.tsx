@@ -9,7 +9,7 @@ import RightArrow from "@site/static/img/right-arrow-icon.svg";
 import SectionHeader from "@site/src/components/SectionHeader";
 import { useIsMobile } from "@site/src/utils/isMobile";
 import { usePrefersReducedMotion } from "@site/src/utils/usePrefersReducesMotion";
-import { useIsJapanese } from "@site/src/utils/isJapanese";
+import { useGetCurrentLocale } from "@site/src/utils/useGetCurrentLocale";
 
 // @ts-ignore - Lottie animation data
 import chartIconAnimation from "./chartIconData.json";
@@ -36,6 +36,7 @@ const PartnerList: PartnerItem[] = [
     }),
     url: "/docs/overviews/overview-publishers",
     Svg: require("@site/static/img/documents-icon.svg").default,
+    //@ts-ignore
     animationData: documentsAnimation,
     description: translate({
       id: "homepage.partnersPublishersDescription",
@@ -50,6 +51,7 @@ const PartnerList: PartnerItem[] = [
     }),
     url: "/docs/overviews/overview-advertisers",
     Svg: require("@site/static/img/chart-icon.svg").default,
+    //@ts-ignore
     animationData: chartIconAnimation,
     description: translate({
       id: "homepage.partnersAdvertisersDescription",
@@ -64,6 +66,7 @@ const PartnerList: PartnerItem[] = [
     }),
     url: "/docs/overviews/overview-dsps",
     Svg: require("@site/static/img/flowchart-icon.svg").default,
+    //@ts-ignore
     animationData: flowchartAnimation,
     description: translate({
       id: "homepage.partnersDspsDescription",
@@ -78,6 +81,7 @@ const PartnerList: PartnerItem[] = [
     }),
     url: "/docs/overviews/overview-data-providers",
     Svg: require("@site/static/img/cloud-upload-icon.svg").default,
+    //@ts-ignore
     animationData: uploadAnimation,
     description: translate({
       id: "homepage.partnersDataProvidersDescription",
@@ -109,8 +113,7 @@ function Partner({ partnerItem, playAnimation }: PartnerProps): JSX.Element {
   const { heading, Svg, animationData, url, description } = partnerItem;
   const lottieRef = React.useRef<LottieRefCurrentProps>(null);
   const isMobile = useIsMobile();
-
-  const isJapanese = useIsJapanese();
+  const currentLocale = useGetCurrentLocale();
 
   React.useEffect(() => {
     if (!isMobile) {
@@ -126,7 +129,14 @@ function Partner({ partnerItem, playAnimation }: PartnerProps): JSX.Element {
     <div className={styles.card}>
       <Link className={clsx("text-11-o-clock", styles.cardLink)} to={url}>
         <div className={styles.cardTitle}>
-          <h3 className={`${isJapanese ? styles.cardHeaderJa : "type-delta"}`}>
+          <h3
+            className={clsx(
+              styles.cardHeader,
+              `${
+                currentLocale in styles ? styles[currentLocale] : "type-delta"
+              }`
+            )}
+          >
             <span>{heading}</span> <RightArrow />
           </h3>
         </div>

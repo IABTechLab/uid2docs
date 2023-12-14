@@ -8,7 +8,8 @@ import SectionHeader from "@site/src/components/SectionHeader";
 import * as emailAnimation from "./email.json";
 import * as crossDeviceAnimation from "./crossDevice.json";
 import * as personLockAnimation from "./personLock.json";
-import { useIsJapanese } from "@site/src/utils/isJapanese";
+import { useGetCurrentLocale } from "@site/src/utils/useGetCurrentLocale";
+import { isNonEmptyString } from "@site/src/utils";
 
 type FeatureItem = {
   Svg: React.ComponentType<React.ComponentProps<"svg">>;
@@ -21,9 +22,9 @@ const componentData = {
     id: "homepage.featuredItemsHeading",
     message: "Enable personalization and relevance on content and advertising",
   }),
-  jaHeading: translate({
-    id: "homepage.featuredItemsJAHeading",
-    message: "Enable personalization and relevance on content and advertising",
+  extraHeading: translate({
+    id: "homepage.featuredItemsExtraHeading",
+    message: "",
   }),
   subheading: translate({
     id: "homepage.featuredItemsSubheading",
@@ -90,15 +91,22 @@ function Feature({ Svg, description, lottieAnimation }: FeatureItem) {
 }
 
 export default function HomepageFeatures(): JSX.Element {
-  const isJapanese = useIsJapanese();
+  const currentLocale = useGetCurrentLocale();
+
   return (
     <section className={clsx("bg-lavender text-white", styles.features)}>
       <div className="container">
         <SectionHeader
           heading={componentData.heading}
-          jaHeading={isJapanese ? componentData.jaHeading : ""}
+          extraHeading={
+            isNonEmptyString(componentData.extraHeading)
+              ? componentData.extraHeading
+              : ""
+          }
           subheading={componentData.subheading}
-          extraClass={`${isJapanese ? styles.headerJa : styles.header}`}
+          extraClass={`${styles.header} ${
+            currentLocale in styles ? styles[currentLocale] : ""
+          }`}
         />
         <div className={clsx(styles.featuredList)}>
           {FeatureList.map((props, idx) => (
