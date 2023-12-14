@@ -140,6 +140,68 @@ pip install requests
 ```
 
 </TabItem>
+<TabItem value='java' label='Java'>
+
+--------------------------------------------------------
+The Java code example for encrypting requests and decrypting responses is Uid2Request.java. The required parameters are shown at the top of the main function, or by building and running the following:
+
+```
+java -jar Uid2Request-1.0-jar-with-dependencies.jar
+```
+
+The Java example is written for JDK version 11 and later, and you must have the com.google.code.gson library in your classpath.
+
+If you are using Maven, you can use the following minimal `pom.xml`, and run `mvn package` to build the project:
+
+```xml
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.example</groupId>
+  <artifactId>Uid2Request</artifactId>
+  <version>1.0</version>
+  
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.10</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.4.2</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+              <manifest>
+                <mainClass>org.example.Uid2Request</mainClass>
+              </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+```
+</TabItem>
 <TabItem value='cs' label='C#'>
 
 The C# code example for encrypting requests and decrypting responses is `uid2_request.cs`. The required parameters are shown at the top of the file, or by building and running `.\uid2_request`.
@@ -250,6 +312,126 @@ else:
    print("Response JSON:")
    print(json.dumps(json_resp, indent=4))
 
+```
+</TabItem>
+<TabItem value='java' label='Java'>
+
+```java title="Uid2Request.java"
+package org.example;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+import java.security.SecureRandom;
+import java.time.Instant;
+import java.util.Arrays;
+import java.util.Base64;
+import javax.crypto.Cipher;
+import javax.crypto.spec.GCMParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+
+public class Uid2Request {
+  public static final int NONCE_LENGTH_BYTES = 8;
+  private static final int GCM_TAG_LENGTH_BYTES = 16;
+  private static final int GCM_IV_LENGTH_BYTES = 12;
+
+  public static void main(String[] args) throws Exception {
+    if (args.length != 3 && args.length != 4) {
+      System.out.println("Usage: java -jar Uid2Request-jar-with-dependencies.jar <url> <api_key> <client_secret>" + "\n");
+      System.out.println("Example: echo '{\"email\": \"test@example.com\"}' |  java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/generate PRODGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=" + "\n");
+      System.out.println("Refresh Token Usage: java -jar Uid2Request-jar-with-dependencies.jar <url> --refresh-token <refresh_token> <refresh_response_key>"  + "\n");
+      System.out.println("Refresh Token Example: java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s="  + "\n");
+      System.out.println("Refresh Token Example: java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s="  + "\n");
+      System.exit(1);
+    }
+
+    String url = args[0];
+    boolean isRefresh = "--refresh-token".equals(args[1]);
+    byte[] secret = Base64.getDecoder().decode(args[isRefresh ? 3 : 2]);
+
+    String payload = isRefresh ? args[2] : new BufferedReader(new InputStreamReader(System.in)).readLine();
+
+    HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+    connection.setRequestMethod("POST");
+
+    if (!isRefresh) {
+      String apiKey = args[1];
+
+      byte[] iv = new byte[GCM_IV_LENGTH_BYTES];
+      long timestamp = Instant.now().toEpochMilli();
+      byte[] requestNonce = new byte[NONCE_LENGTH_BYTES];
+      byte[] plaintext = payload.getBytes(StandardCharsets.UTF_8);
+
+      SecureRandom secureRandom = new SecureRandom();
+      secureRandom.nextBytes(iv);
+      secureRandom.nextBytes(requestNonce);
+
+      ByteBuffer body = ByteBuffer.allocate(8 + requestNonce.length + plaintext.length);
+      body.putLong(timestamp);
+      body.put(requestNonce);
+      body.put(plaintext);
+
+      Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+      GCMParameterSpec parameterSpec = new GCMParameterSpec(GCM_TAG_LENGTH_BYTES * 8, iv);
+      cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(secret, "AES"), parameterSpec);
+
+      ByteBuffer envelope = ByteBuffer.allocate(1 + body.array().length + GCM_IV_LENGTH_BYTES + GCM_TAG_LENGTH_BYTES);
+      envelope.put((byte) 1);
+      envelope.put(iv);
+      envelope.put(cipher.doFinal(body.array()));
+
+      payload = Base64.getEncoder().encodeToString(envelope.array());
+      connection.setRequestProperty("Authorization", "Bearer " + apiKey);
+    }
+
+    connection.setDoOutput(true);
+    try (OutputStream os = connection.getOutputStream()) {
+      os.write(payload.getBytes(StandardCharsets.UTF_8));
+    }
+
+    // Handle response
+    int status = connection.getResponseCode();
+    BufferedReader reader = status == 200 ?
+        new BufferedReader(new InputStreamReader(connection.getInputStream())) :
+        new BufferedReader(new InputStreamReader(connection.getErrorStream()));
+    StringBuilder response = new StringBuilder();
+    String line;
+    while ((line = reader.readLine()) != null) {
+      response.append(line);
+    }
+    reader.close();
+
+    if (status != HttpURLConnection.HTTP_OK) {
+      System.out.println("Error: HTTP status code " + status);
+      System.out.println(response);
+      return;
+    }
+
+    byte[] respBytes = Base64.getDecoder().decode(response.toString());
+
+    Cipher respCipher = Cipher.getInstance("AES/GCM/NoPadding");
+    respCipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(secret, "AES"), new GCMParameterSpec(GCM_TAG_LENGTH_BYTES * 8, respBytes, 0, GCM_IV_LENGTH_BYTES));
+    byte[] decrypted = respCipher.doFinal(respBytes, GCM_IV_LENGTH_BYTES, respBytes.length - GCM_IV_LENGTH_BYTES);
+
+    JsonObject jsonResponse;
+    if (!isRefresh) {
+      jsonResponse = JsonParser.parseString(new String(Arrays.copyOfRange(decrypted, 8 + NONCE_LENGTH_BYTES, decrypted.length), StandardCharsets.UTF_8)).getAsJsonObject();
+    } else {
+      jsonResponse = JsonParser.parseString(new String(decrypted, StandardCharsets.UTF_8)).getAsJsonObject();
+    }
+    String prettyJsonResponse = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create().toJson(jsonResponse);
+    System.out.println("Response JSON:");
+    System.out.println(prettyJsonResponse);
+  }
+}
 ```
 </TabItem>
 <TabItem value='cs' label='C#'>
