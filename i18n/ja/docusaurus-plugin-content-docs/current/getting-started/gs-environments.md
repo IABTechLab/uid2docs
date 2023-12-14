@@ -19,7 +19,7 @@ sidebar_position: 07
 | 本番環境    | AWS Asia Pacific (Tokyo)     | `ap-northeast-1` | `https://jp.prod.uidapi.com`        |
 | 本番環境    | AWS Asia Pacific (Singapore) | `ap-southeast-1` | `https://sg.prod.uidapi.com`        |
 
-たとえば、`https://operator-integ.uidapi.com/v2/token/generate`
+例えば、`https://operator-integ.uidapi.com/v2/token/generate`
 
 Notes:
 

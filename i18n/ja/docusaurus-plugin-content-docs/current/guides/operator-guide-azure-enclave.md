@@ -56,7 +56,7 @@ UID2 の連絡先に、あなたの組織を UID2 Operator として登録する
   デプロイ環境ごとに個別の Operator Key を渡します。
   :::
 
-- UID2 Private Operator for Azure GitHubリリースページへのリンク。たとえば、次のようになります: [https://github.com/IABTechLab/uid2-operator/releases/tag/v5.21.5-68a47aec9f-azure-cc](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.21.5-68a47aec9f-azure-cc).
+- UID2 Private Operator for Azure GitHubリリースページへのリンク。例えば、次のようになります: [https://github.com/IABTechLab/uid2-operator/releases/tag/v5.21.5-68a47aec9f-azure-cc](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.21.5-68a47aec9f-azure-cc).
 
   :::note
   これは一例です。送られたリンクを利用してください。

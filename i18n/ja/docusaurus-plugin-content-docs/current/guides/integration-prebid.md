@@ -50,7 +50,7 @@ For an example application, see the UID2 Prebid.js example:
 アカウントのセットアップが完了すると、**public key** と **subscription ID** が発行されます。これらの値はあなただけのもので、UID2モジュールの設定に使用されます。
 
 :::tip
-アカウント設定に必要なのは、ルートレベルのドメインだけです。たとえば、Prebid.js で UID2 を example.com、shop.example.com、example.orgで使用する場合、ドメイン名 example.com と example.org を指定するだけです。
+アカウント設定に必要なのは、ルートレベルのドメインだけです。例えば、Prebid.js で UID2 を example.com、shop.example.com、example.orgで使用する場合、ドメイン名 example.com と example.org を指定するだけです。
 :::
 
 ## Add Prebid.js to Your Site
@@ -196,7 +196,7 @@ UID2 モジュールが設定されると、ユーザーのブラウザに既存
 
 結果として、推奨されるアプローチは、各ページロード時にユーザーの DII で UID2 モジュールを構成することです。
 
-ユーザーの DII はページロード時に利用できず、DII の取得には何らかの関連コストがかかる場合があります。たとえば、DII を取得するために API コールが必要な場合や、DII 情報を提供するためにユーザーにプロンプトが表示される場合などです。
+ユーザーの DII はページロード時に利用できず、DII の取得には何らかの関連コストがかかる場合があります。例えば、DII を取得するために API コールが必要な場合や、DII 情報を提供するためにユーザーにプロンプトが表示される場合などです。
 
 使用・更新できる既存のトークンをチェックすることで、そのコストを回避できる可能性があります。これを行うには、`pbjs.getUserIds().uid2` が返す値をチェックします:
 

@@ -562,7 +562,7 @@ raw UID2 を UID2 Token に暗号化するには、関数 `FN_T_UID2_ENCRYPT` �
 | `NULL` | The raw UID2 was successfully encrypted. |
 | `MISSING_OR_INVALID_RAW_UID2` | raw UID2 の暗号化に成功しました。 |
 | `INVALID_RAW_UID2` | raw UID2 が無効です。 |
-| `MISMATCHING_IDENTITY_SCOPE` | raw UID2 が不正な ID スコープに属している。たとえば、UID2 が期待されているところに EUID が渡されているなど。|
+| `MISMATCHING_IDENTITY_SCOPE` | raw UID2 が不正な ID スコープに属している。例えば、UID2 が期待されているところに EUID が渡されているなど。|
 | `NOT_AUTHORIZED_FOR_MASTER_KEY` | 呼び出し元が必要な暗号化キーにアクセスできない。UID2 の管理者に連絡してください。 |
 | `NOT_AUTHORIZED_FOR_SITE_KEY` | 呼び出し元が必要な暗号化キーにアクセスできない。UID2 の管理者に連絡してください。 |
 
@@ -639,7 +639,7 @@ UID2 Token を raw UID2 に復号するには、関数 `FN_T_UID2_DECRYPT` を�
 | :--- | :--- | :--- |
 | `UID2` | TEXT | 値は次のいずれかです:<ul><li>復号化成功: UID2 Token に対応する raw UID2。</li><li>復号化失敗: `NULL`.</li></ul> |
 | `SITE_ID` | INT | 値は次のいずれかです:<ul><li>復号化成功: トークンを暗号化した UID2 参加者の識別子。</li><li>復号化失敗: `NULL`.</li></ul> |
-| `DECRYPTION_STATUS` | TEXT | 値は次のいずれかです:<ul><li>復号化成功: `NULL`.</li><li>暗号化失敗: UID2 Token が復号化されなかった理由。たとえば、`EXPIRED_TOKEN` です。<br/>詳細については、[Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column) を参照してください。</li></ul> |
+| `DECRYPTION_STATUS` | TEXT | 値は次のいずれかです:<ul><li>復号化成功: `NULL`.</li><li>暗号化失敗: UID2 Token が復号化されなかった理由。例えば、`EXPIRED_TOKEN` です。<br/>詳細については、[Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column) を参照してください。</li></ul> |
 
 >NOTE: UID2 Token がうまく復号化できない場合、この関数は行を返しません。
 

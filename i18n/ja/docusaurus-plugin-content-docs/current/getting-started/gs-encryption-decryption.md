@@ -96,7 +96,7 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 ### Response Example
 
-たとえば、[先行例](#request-example) のメールアドレスに対する [POST /token/generate](../endpoints/post-token-generate.md) リクエストに対する復号されたレスポンスは、次のようになることが考えられます:
+例えば、[先行例](#request-example) のメールアドレスに対する [POST /token/generate](../endpoints/post-token-generate.md) リクエストに対する復号されたレスポンスは、次のようになることが考えられます:
 
 ```json
 {

@@ -53,7 +53,7 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 アカウントのセットアップが完了すると、Publicc Key（公開鍵）とSubesciption ID（サブスクリプション ID）が発行されます。これらの値はアカウント固有のもので、UID2 モジュールの設定に使用します。
 
 :::tip
-アカウント設定に必要なのは、ルートレベルのドメインだけです。たとえば、JavaScript 用の UID2 SDK を example.com、shop.example.com、example.org で使用する場合、ドメイン名 example.com と example.org を指定するだけです。
+アカウント設定に必要なのは、ルートレベルのドメインだけです。例えば、JavaScript 用の UID2 SDK を example.com、shop.example.com、example.org で使用する場合、ドメイン名 example.com と example.org を指定するだけです。
 :::
 
 ## Add UID2 SDK For JavaScript to Your Site
@@ -152,7 +152,7 @@ SDK を設定するには、アカウントセットアップ時に受け取っ�
 
 UID2 SDK には、ユーザーの DII をハッシュ化して渡すことも、ハッシュ化せずに渡すこともできます。ハッシュ化せずに DII を渡すと、UID2 SDK が代わりにハッシュ化します。すでにハッシュ化された DII を SDK に渡したい場合は、ハッシュ化する前に正規化する必要があります。詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md を参照してください。
 
-SDK は、UID2 サービスに送信する前に、ハッシュ化された DII を暗号化します。
+SDK は、UID2 Service に送信する前に、ハッシュ化された DII を暗号化します。
 
 SDK は、特定のユーザーに対して、4つの DII フォーマットのいずれかを送信するように設定できます。DII 形式はユーザーごとに異なる場合がありますが、送信できる値はユーザーごとに1つだけです。
 
@@ -183,7 +183,7 @@ await __uid2.setIdentityFromEmail(
 
 パブリッシャーによる正規化やハッシュ化は必要ありません。
 
-UID2 SDK は、暗号化されたハッシュを UID2 サービスに送信する前に、メールアドレスを正規化し、ハッシュ化します。
+UID2 SDK は、暗号化されたハッシュを UID2 Service に送信する前に、メールアドレスを正規化し、ハッシュ化します。
 
 ### Configure for Hashed Email Address
 
@@ -201,7 +201,7 @@ await __uid2.setIdentityFromEmailHash(
 
 **メールアドレスの正規化とハッシュ化はパブリッシャーの責任です。** 詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 
-UID2 SDK は、UID2 サービスに送信する前にハッシュを暗号化します。
+UID2 SDK は、UID2 Service に送信する前にハッシュを暗号化します。
 
 ### Configure for Phone Number
 
@@ -219,7 +219,7 @@ await __uid2.setIdentityFromPhone(
 
 **電話番号の正規化とハッシュ化はパブリッシャーの責任です。** 詳細は、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 
-UID2 SDK は、暗号化されたハッシュを UID2 サービスに送信する前に、電話番号をハッシュ化します。
+UID2 SDK は、暗号化されたハッシュを UID2 Service に送信する前に、電話番号をハッシュ化します。
 
 ### Configure for Hashed Phone Number
 
@@ -237,7 +237,7 @@ await __uid2.setIdentityFromPhoneHash(
 
 **電話番号の正規化とハッシュ化はパブリッシャーの責任です。** 詳細は、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 
-UID2 SDK は、UID2 サービスに送信する前にハッシュを暗号化します。
+UID2 SDK は、UID2 Service に送信する前にハッシュを暗号化します。
 
 ## Token Storage and Refresh
 
@@ -251,7 +251,7 @@ UID2 SDK は、UID2 サービスに送信する前にハッシュを暗号化し
 
 [identity](../ref-info/glossary-uid.md#gl-identity) がない状態で最初のページをロードする場合、トークン生成の呼び出しを開始するには、DII で `setIdentity` メソッドのいずれかを呼び出す必要があります。ID が生成されると、SDK からの `IdentityUpdated` イベントを待つことで、ビッドストリームに送信する Advertiser Token ([UID2 token](../ref-info/glossary-uid.md#gl-uid2-token)) を利用できるようになります。例として、`advertising_token_to_use` の値がどのように設定されるかを以下のコードスニペットで示します。
 
-場合によっては、ユーザーの DII はページロード時に利用できず、DII の取得には何らかの関連コストがかかります。たとえば、DII を取得するために API コールが必要な場合や、DII 情報を提供するためにユーザーにプロンプトが表示される場合があります。
+場合によっては、ユーザーの DII はページロード時に利用できず、DII の取得には何らかの関連コストがかかります。例えば、DII を取得するために API コールが必要な場合や、DII 情報を提供するためにユーザーにプロンプトが表示される場合があります。
 
 既存のトークンをチェックし、使用またはリフレッシュすることで、このコストを回避できる可能性があります。これを行うには
 [__uid2.isLoginRequired](../sdks/client-side-identity#isloginrequired-boolean) を呼び出し、ブール値を受け取ります。これが `true` の場合、UID2 SDK は既存のリソースで新しい Advertising Token を作成できず、DII はまったく新しい UID2 Token を生成する必要があることを意味します。

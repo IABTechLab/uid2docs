@@ -126,7 +126,7 @@ Token の Auto-refresh について知っておくべきことは以下のとお
 - SDK の初期化時に指定された [callback function](#callback-function) は、以下の場合に呼び出されます:
 	- リフレッシュが成功するたびに呼び出されます。
 	- 有効期限が切れた Advertising Token のリフレッシュに最初に失敗した場合。
-	- たとえば、ユーザーがオプトアウトした場合などです。<br/>NOTE: ID が一時的に利用できず、自動更新が失敗し続ける場合、コールバックは呼び出されません。この場合、SDK は既存の Advertising Token を使用し続けます。
+	- 例えば、ユーザーがオプトアウトした場合などです。<br/>NOTE: ID が一時的に利用できず、自動更新が失敗し続ける場合、コールバックは呼び出されません。この場合、SDK は既存の Advertising Token を使用し続けます。
 - [disconnect()](#disconnect-void) 呼び出しははアクティブなタイマーをキャンセルします。
 
 ### Callback Function
