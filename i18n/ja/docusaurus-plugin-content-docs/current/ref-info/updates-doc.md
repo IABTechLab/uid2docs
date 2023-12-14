@@ -1,6 +1,6 @@
 ---
 title: Documentation Updates
-description: 重要な UID ドキュメントの更新の概要
+description: UID2 ドキュメントの重要な更新の概要
 hide_table_of_contents: false
 sidebar_position: 06
 ---
@@ -8,6 +8,22 @@ sidebar_position: 06
 # Documentation Updates
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
+
+### New: UID2 Private Operator for Azure Integration Guide
+
+30 November 2023
+
+[Private Operator](../ref-info/glossary-uid.md#gl-private-operator) の運用を希望する UID2 <a href="../intro#participants">参加者は</a>、Microsoft Azure のコンフィデンシャルコンピューティングオプションである Confidential Container で UID2 Operator Service をセットアップできるようになりました。
+
+詳細については、[UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md) を参照してください。
+
+### New: API Permissions
+
+22 November 2023
+
+UID2 ウェブサイトの Getting Started セクションに新しい記事が掲載され、主要な UID2 権限、よく使う参加者のタイプ、関連する主なアクティビティについての情報が提供されています。
+
+詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 ### New: UID2 Credentials Page
 
