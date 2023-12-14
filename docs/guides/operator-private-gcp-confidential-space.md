@@ -340,7 +340,7 @@ Follow these steps:
 
     2. Run the script.
 
-       The script creates the secret in GCP Secret Manager. The secret (display) name is {OPERATOR_KEY_SECRET_NAME} and the secret value is {OPERATOR_KEY}.
+       The script creates the secret in GCP Secret Manager. The secret (display) name is `{OPERATOR_KEY_SECRET_NAME}` and the secret value is `{OPERATOR_KEY}`.
 
 1. Run the following command to get the full secret name, including the path, first customizing with your own values:   
 

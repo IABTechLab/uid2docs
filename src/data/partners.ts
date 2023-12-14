@@ -143,6 +143,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "BluID",
+    logo: "blu_logo.png",
+    type: ["Data"],
+  },
+  {
     name: "Bidswitch",
     logo: "PartnerLogo_Bidswitch_580x250.png",
     type: ["DSP"],
@@ -166,6 +171,11 @@ export const partnersData: PartnersDataType = [
     name: "Cadent",
     logo: "cadent.png",
     type: ["DSP"],
+  },
+  {
+    name: "Centillion",
+    logo: "centillion-logo.png",
+    type: ["Data"],
   },
   {
     name: "Cignal Play",
@@ -203,6 +213,11 @@ export const partnersData: PartnersDataType = [
     name: "deepintent",
     logo: "deepintent.png",
     type: ["DSP"],
+  },
+  {
+    name: "Dek-D",
+    logo: "ddlogo_orn_a 2.png",
+    type: ["Publishers"],
   },
   {
     name: "Dotdash Meredith",
@@ -329,6 +344,11 @@ export const partnersData: PartnersDataType = [
     name: "Kargo",
     logo: "PartnerLogo_Kargo_580x250.png",
     type: ["DSP"],
+  },
+  {
+    name: "KG Media",
+    logo: "KG-Media-518x250.png",
+    type: ["Publishers"],
   },
   {
     name: "LA Times",
@@ -785,6 +805,11 @@ export const partnersData: PartnersDataType = [
     name: "Verve",
     logo: "PartnerLogo_Verve_580x250.png",
     type: ["DSP"],
+  },
+  {
+    name: "WeTV",
+    logo: "WeTV logo_1200x628_.png",
+    type: ["Publishers"],
   },
   {
     name: "Windfall",

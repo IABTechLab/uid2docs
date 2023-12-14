@@ -287,7 +287,10 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['csharp'],
+        additionalLanguages: [
+          'csharp',
+          'java'
+        ],
       },
       algolia: {
         // N.b. per Algolia, these are public values - once we get them, we can commit them to the open source repo.
