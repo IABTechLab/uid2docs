@@ -68,8 +68,8 @@ If the user has opted out, the API response notifies you in either of these case
 #### Where should I make token generation calls&#8212;from the server side or the client side?
 
 You can generate UID2 tokens from either the client side or the server side. For more information, see:
-- Generating tokens from the client side using Prebid.js: [Prebid.js Express Integration Guide](../guides/integration-prebid.md).
-- Generating tokens from the server side using Prebid.js: [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md).
+- Generating tokens from the client side using Prebid.js: [Prebid.js Client-Side Integration](../guides/integration-prebid-client-side.md).
+- Generating tokens from the server side using Prebid.js: [Prebid.js Server-Side Integration](../guides/integration-prebid-server-side.md).
 - Other server-side options: [Publisher Integrations](../guides/summary-guides.md#publisher-integrations).
 
 #### Can I make token refresh calls from the client side?

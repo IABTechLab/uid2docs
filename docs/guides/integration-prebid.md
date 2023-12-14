@@ -10,17 +10,18 @@ sidebar_position: 04
 # Prebid.js Integration Overview
 
 This guide is an overview of integration options for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bid stream.
-
+<!-- 
 It includes the following sections:
 
 - [Introduction](#introduction)
+- [UID2 User ID Submodule](#uid2-user-id-submodule)
 - [Generating the UID2 Token](#generating-the-uid2-token)
 - [Refreshing the UID2 Token](#refreshing-the-uid2-token)
 - [Storing the UID2 Token in the Browser](#storing-the-uid2-token-in-the-browser)
 - [Passing the UID2 Token to the Bid Stream](#passing-the-uid2-token-to-the-bid-stream)
 - [Integration Overview: High-Level Steps](#integration-overview-high-level-steps)
 
-
+ -->
 ## Introduction
 
 UID2 provides a Prebid.js module that supports the following:
@@ -36,7 +37,9 @@ For additional flexibility, UID2 also provides alternative methods for some of t
 
 The Prebid UID2 module handles storing, providing, and optionally refreshing UID2 tokens.
 
->**Important:** UID2 is not designed to be used where GDPR applies. The module checks the passed-in consent data, and does not operate if the `gdprApplies` flag is set to `true`.
+:::caution
+UID2 is not designed to be used where GDPR applies. The module checks the consent data that's passed in, and does not operate if the `gdprApplies` flag is set to `true`.
+:::
 
 ## Generating the UID2 Token
 
@@ -51,7 +54,8 @@ Determine which method is best for you, and then follow the applicable integrati
 
 ## Refreshing the UID2 Token
 
-The Prebid.js UID2 module can automatically refresh the UID2 tokens. If you prefer to implement manual refresh outside Prebid.js, see **Server-Only Mode in the Server-Side Token Generation integration guide**. (**GWH_SW02: Why would they want to do manual refresh outside prebid.js? A bit more data here might be helpful? ANSWER (notes only) API call CSTG in JS SDK, JS SDK does refresh, do manual pass of DII into prebid.js therefore don't want prebid.js to refresh the tokens. If you don't want prebid.js to refresh the token because you're using something else. / also: the publisher might want to refresh on the server side. not sure why.**)
+The Prebid.js UID2 module can automatically refresh the UID2 tokens. If you prefer to implement manual refresh outside Prebid.js, see [Refreshing a UID2 Token](integration-prebid-server-side.md#refreshing-a-uid2-token) in the Server-Side Integration Guide.
+(**GWH_ query: is there no manual refresh option for client-side?**)
 
 ## Storing the UID2 Token in the Browser
 <!-- GWH same section in integration-prebid.md, integration-prebid-client-side.md, and integration-prebid-client-side.md. Ensure consistency -->
@@ -83,7 +87,9 @@ To configure the UID2 module, call `pbjs.setConfig`. For details on supported pa
 - [Prebid.js Integration Guide with Client-Side Token Generation (CSTG)](integration-prebid-client-side.md)
 - [Prebid.js Integration Guide with Server-Side Token Generation (SSTG)](integration-prebid-server-side.md)
 
-Once the UID2 module is configured, it manages a UID2 token for the user and stores it in the user's browser. When using [CSTG](../ref-info/glossary-uid.md#gl-cstg) and [SSTG](../ref-info/glossary-uid.md#gl-sstg) with Client Refresh mode, the module automatically takes care of refreshing the token as long as your site is open in the user's browser. However, you have the option to manage the refresh only on the server side. For details, see Prebid.js Integration Guide with Server-Side Token Generation (SSTG) (Specific Section link) (**GWH add link**)
+When the UID2 module is configured, it manages a UID2 token for the user and stores it in the user's browser.
+
+When using [client-side token generate (CSTG)](../ref-info/glossary-uid.md#gl-cstg) and [server-side token generate (SSTG)](../ref-info/glossary-uid.md#gl-sstg) with Client Refresh mode, the module automatically takes care of refreshing the token as long as your site is open in the user's browser. However, you also have the option to manage the token refresh on the server side. For details, see [Refreshing a UID2 Token](integration-prebid-server-side.md#refreshing-a-uid2-token) in the Server-Side Integration Guide.
 
 ## Integration Overview: High-Level Steps
 

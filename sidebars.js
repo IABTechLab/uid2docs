@@ -125,7 +125,7 @@ const sidebars = {
           },
           {
             type: 'category',
-            label: 'Prebid (INCL OLD ONE)',
+            label: 'Prebid',
             link: {
               type: 'generated-index',
             },
@@ -134,7 +134,6 @@ const sidebars = {
               'guides/integration-prebid',
               'guides/integration-prebid-client-side',
               'guides/integration-prebid-server-side',
-              'guides/integration-prebid-advanced',
             ],
           },
           {

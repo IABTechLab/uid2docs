@@ -13,8 +13,6 @@ This guide is for publishers who have access to [DII](../ref-info/glossary-uid.m
 
 To integrate with UID2 using Prebid.js, you'll need to make changes to the HTML and JavaScript on your site. No server-side work is required if you follow this guide.
 
-<!-- You'll need to complete the steps in [Configure the UID2 Module](#configure-the-uid2-module). (**GWH_SW08 I think we don't need this given the directions immediately below.**)-->
-
 <!-- 
 This guide includes the following information:
 
@@ -37,8 +35,8 @@ This implementation requires Prebid.js version 8.21.0 or later. For version info
 If you need to use an earlier version of Prebid.js, use the implementation solution presented in [Prebid.js Server-Side Integration](integration-prebid-server-side.md) instead.
 
 ## Module Storage
-
-By default, the UID2 module stores data using local storage. To use a cookie instead, set params.storage to cookie. For details, see [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration).
+<!-- GWH Module Storage section is the same for client side and server-side. -->
+By default, the UID2 module stores data using local storage. To use a cookie instead, set `params.storage` to `cookie`. For details, see [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration).
 
 ## Integration Example
 
@@ -67,7 +65,7 @@ Only root-level domains are required for account setup. For example, if you're g
 When account setup is complete, you'll receive a public key and subscription ID. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key).
 
 ### Add Prebid.js to Your Site
-<!-- GWH_SW "Add Prebid.js to Your Site" section is identical for client side and server side. -->
+<!-- GWH "Add Prebid.js to Your Site" section is identical for client side and server side. -->
 To add Prebid.js to your site, follow the instructions in [Getting Started for Developers](https://docs.prebid.org/dev-docs/getting-started.html) in the Prebid.js documentation. 
 
 When you download the Prebid.js package, add the UID2 module by checking the box next to the module named **Unified ID 2.0**, listed under the section **User ID Modules**.
@@ -183,7 +181,7 @@ pbjs.setConfig({
 
 ## Checking the Integration
 
-To check that the UID2 module has successfully generated a UID2 token, call `pbjs.getUserIds().uid2`. If a value is returned, a token has been successfully generated.
+To check that the UID2 module has successfully generated a UID2 token, call `pbjs.getUserIds().uid2`. If a value is returned, a valid UID2 token still exists in the UID2 module.
 
 If there are problems with the integration, here are some steps you can take:
 
@@ -202,7 +200,7 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 - Documentation on prebid.org: [Professor Prebid User Guide](https://docs.prebid.org/tools/professor-prebid.html)
 
 ## Optional: Reduce Latency by Setting the API Base URL
-<!-- GWH_SW "Reduce Latency by Setting the API Base URL" section is identical for client side and server side. -->
+<!-- GWH "Reduce Latency by Setting the API Base URL" section is identical for client side and server side. -->
 By default, the UID2 module makes API calls to a UID2 server in the USA. Depending on where your users are based, you might consider choosing a server closer to your users to reduce latency.
 
 To specify a different UID2 server when you're configuring the UID2 module, set the optional params.uid2ApiBase parameter, as shown in the following example:
