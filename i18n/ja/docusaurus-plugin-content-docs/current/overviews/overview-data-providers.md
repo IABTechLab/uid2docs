@@ -8,24 +8,20 @@ banner_title:  データプロバイダー向け UID2 の概要
 banner_description: 未来のためのIDソリューション。
 ---
 
-データおよび測定プロバイダーとして、Unified ID 2.0を 採用し、より耐久性のある、オムニチャネルおよびクロスデバイス識別子でデータを接続することで、ID の断片化を減らし、顧客のユースケースを満たすことができます。
+データおよび測定プロバイダーとして、Unified ID 2.0（UID2）を 採用し、より耐久性のある、オムニチャネルおよびクロスデバイス識別子でデータを接続することで、ID の断片化を減らし、顧客のユースケースを満たすことができます。
 
-データおよび測定プロバイダーは、Unified ID 2.0 を採用してデータをより耐久性のある、オムニチャネルおよびクロスデバイスの識別子で接続し、顧客のユースケースを満たすことによって、ID の断片化を減らすことができます。
-
-以下のセクションでは、UID2 を採用するデータプロバイダーにとっての利点、ワークフロー、ドキュメント、その他のリソースに関する情報を提供します。
-
-## Audience
-
-このページは、オンラインまたはオフライン広告のデータまたは関連サービスを提供するパートナー (以下のプロバイダーなど)を対象としています:
+このソリューションは、以下のようなオンラインまたはオフライン広告用のデータまたは関連サービスを提供している場合に適しています:
 - データオンボーディング
 - サードパーティオーディエンス
 - アイデンティティーの解決とグラフ
 - 測定とアトリビューション
 
+UID2 を採用するデータプロバイダーにとっての利点、ワークフロー、ドキュメント、その他のリソース、および UID2 を開始するための手順について説明します。
+
 ## Benefits of UID2 for Data Providers
 
-UID2 を使用するデータプロバイダーが得られるメリットの一部を次に示します:
-- 消費者のプライバシーを管理するためのオプトアウトを提供する、よりプライバシーに配慮した識別子にアップグレードすることができます。
+UID2 を使用することで、データプロバイダーとして得られる利点の一部を次に示します。以下が可能です:
+- 消費者のプライバシーを管理するためのオプトアウトを提供する、よりプライバシーに配慮した識別子にアップグレードします。
 - 解決、活性化、測定のためのプラットフォームとチャネル間の接続 ID スレッドの使用を促進します。
 - 広告主が決定論的な ID を使用して、オーディエンス・セグメントを将来にわたって保護することを目指します。
 - オンラインとオフラインのデータを共通の ID で接続し、より精度の高いものを目指します。
@@ -40,11 +36,11 @@ UID2 を使用するデータプロバイダーが得られるメリットの一
 
 以下のステップは、広告主やデータプロバイダーが UID2 とインテグレーションする方法の一例です:
 
-1. データプロバイダーが、同意を得たユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 Operator に送信します。
+1. 広告主またはデータプロバイダーが、同意を得たユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 Operator に送信します。
 2. UID2 Operator は、raw UID2 とソルトバケット ID を生成して返します。
-3. データプロバイダーは UID2 とソルトバケット ID を保存し、UID2 ベースのファーストパーティおよびサードパーティのオーディエンスセグメントを DSP に送信します。
+3. 広告主またはデータプロバイダーは UID2 とソルトバケット ID を保存し、UID2 ベースのファーストパーティおよびサードパーティのオーディエンスセグメントを DSP に送信します。
 
-   Server-side: データプロバイダーは、UID2 をマッピングテーブル、DMP、データレイク、またはその他の Server-Side アプリケーションに格納します。
+   Server-side: 広告主またはデータプロバイダーは、UID2 をマッピングテーブル、DMP、データレイク、またはその他のServer-Sideアプリケーションに格納します。
 
 ![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.jpg)
 
@@ -68,19 +64,21 @@ UID2 を使用するデータプロバイダーが得られるメリットの一
 1. どの実装オプションを使用するかを決めます。
 1. 認証情報を受け取り ([UID2 Credentials](../getting-started/gs-credentials.md) を参照)、選択したオプションのインテグレーションガイドの指示に従います。
 
-    Note: リクエストメッセージは必ずUID2まで暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md)を参照してください。
+   :::note
+   UID2 へのリクエストメッセージは必ず暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md)を参照してください。
+   :::
 1. テストします。
 1. 本番稼働します。
 
-## Resources
+## Implementation Resources
 
-データプロバイダーが UID2 を実装するために、以下のドキュメントリソースを利用できます。
+広告主が UID2 を実装するために、以下のドキュメントリソースを利用できます。
 
-|     Integration Type     |                                       Documentation                                       |                                                                               Content Description                                                                                |            Audience             |
-| :----------------------- | :---------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------ |
-| インテグレーションガイド | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md)  | 広告主とデータプロバイダーのためのインテグレーションガイドで、オーディエンスの構築とターゲティングのための ID マッピングのためのインテグレーションワークフローを網羅しています。 | Advertisers,<br/>Data Providers |
-| Snowflake                | [Snowflake Integration Guide](../guides/snowflake_integration.md)                         | Snowflakeでメールアドレスから UID を生成する手順です。                                                                                                                           | Advertisers,<br/>Data Providers |
-| AWS Entity Resolution    | [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) | AWS Entity Resolution を使用して UID2 フレームワークとインテグレーションする手順です。                                                                                           | Advertisers,<br/>Data Providers |
+| Integration Type| Documentation | Content Description | Audience |
+| :--- | :--- | :--- | :--- |
+| ユーザーデータを収集し、他の UID2 参加者にプッシュする組織のためのインテグレーション手順 | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | このガイドでは、オーディエンスの構築とターゲティングのために ID をマッピングするインテグレーションワークフローについて説明します。 | Advertisers,<br/>Data Providers |
+| Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | このガイドでは、Snowflake でメールアドレスから UID2 を生成する手順を説明します。 | Advertisers,<br/>Data Providers |
+| AWS Entity Resolution | [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) | このガイドでは、AWS Entity Resolution を使用して UID2 フレームワークとインテグレーションする手順を説明します。 | Advertisers,<br/>Data Providers |
 
 ## FAQs for Data Providers
 

@@ -39,7 +39,7 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 
 *DII から直接 UID2 Token を生成することはできません。しかし、DII を raw UID2 に変換し、raw UID2 を暗号化して UID2 Token にすることはできます。
 
->NOTE: 入札ストリームでUID2トークンを共有するパブリッシャーの場合は、[Sharing in the Bid Stream](../sharing/sharing-bid-stream.md) を参照してください
+>NOTE: ビッドストリームで UID2 Token を共有するパブリッシャーの場合は、[Sharing in the Bid Stream](../sharing/sharing-bid-stream.md) を参照してください
 
 ## Workflow Diagram
 
@@ -537,7 +537,7 @@ Sharing する参加者は、他の参加者に送信する前に、[raw UID2](.
 
 ### Encrypt Tokens
 
-raw UID2 を UID2 Token 暗号化するには、関数 `FN_T_UID2_ENCRYPT` を使用します。該当する接頭辞を使用して自分の役割を示します:
+raw UID2 を UID2 Token に暗号化するには、関数 `FN_T_UID2_ENCRYPT` を使用します。該当する接頭辞を使用して自分の役割を示します:
 
 - 広告主の場合: `ADV.FN_T_UID2_ENCRYPT`
 - データプロバイダーの場合: `DP.FN_T_UID2_ENCRYPT`
@@ -631,7 +631,7 @@ UID2 Token を raw UID2 に復号するには、関数 `FN_T_UID2_DECRYPT` を�
 
 |Argument|Data Type|Description|
 | :--- | :--- | :--- |
-| `UID2_TOKEN` | varchar(512) | raw UID2 に復号する UID2 Tokenです。 |
+| `UID2_TOKEN` | varchar(512) | raw UID2 に復号する UID2 Token です。 |
 
 クエリーに成功すると、指定された UID2 Token について以下の情報が返されます。
 

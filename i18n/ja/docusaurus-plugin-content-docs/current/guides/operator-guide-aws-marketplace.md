@@ -9,7 +9,7 @@ sidebar_position: 17
 
 # UID2 Private Operator for AWS Integration Guide
 
-UID2 Operator は、UID2 エコシステムにおける API サーバーです。AWS Marketplace で稼働する Private Operator サービスの場合、UID2 Operator ソリューションは[AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave テクノロジーで強化されています。これは、UID2 情報を不正なアクセスから保護するための追加のセキュリティ対策です。
+UID2 Operator は、UID2 エコシステムにおける API サーバーです。AWS Marketplace で稼働する Private Operator Service の場合、UID2 Operator ソリューションは[AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave テクノロジーで強化されています。これは、UID2 情報を不正なアクセスから保護するための追加のセキュリティ対策です。
 
 <!-- This guide includes the following information:
 
@@ -144,7 +144,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 ### VPC Chart
 
-次の図は、プライベートオペレーターをホストする仮想プライベートクラウドを示したものです。
+次の図は、Private Operator をホストする仮想プライベートクラウドを示したものです。
 
 ![UID2 Operator VPC Chart](images/uid2-private-operator-aws-chart.svg)
 

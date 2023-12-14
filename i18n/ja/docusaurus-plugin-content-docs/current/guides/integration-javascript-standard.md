@@ -2,7 +2,7 @@
 title: JavaScript Standard Integration
 sidebar_label: JavaScript Standard
 pagination_label: JavaScript Standard Integration Guide
-description: UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオをカバーするパブリッシャー向けの情報で、トークンをサーバーサイドで生成し、パブリッシャーのウェブページに渡す必要があります。
+description: UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオをカバーするパブリッシャー向けの情報で、トークンを Server-Side で生成し、パブリッシャーのウェブページに渡す必要があります。
 hide_table_of_contents: false
 sidebar_position: 02
 ---
@@ -149,7 +149,7 @@ Google Ad Managerを使用していて、セキュアシグナル機能を使用
 </TabItem>
 </Tabs>
 
-SDKは、指定された [callback function](../sdks/client-side-identity.md#callback-function) (ID の可用性を示します) を呼び出し、確立された ID をクライアントサイドで入札可能な状態にします。
+SDKは、指定された [callback function](../sdks/client-side-identity.md#callback-function) (ID の可用性を示します) を呼び出し、確立された ID をClient-Side で入札可能な状態にします。
 
 :::tip
 コードの構造によっては、Step 1-f と 1-g のコールバックを 1 つのコールバック関数にまとめると便利かもしれません。
@@ -180,7 +180,7 @@ SDKは、指定された [callback function](../sdks/client-side-identity.md#cal
 ```
 
 :::info
-返された Advertising Token をどのように SSP に渡すかを検討する必要があります。`Prebid.js`（[Prebid Integration Guide](integration-prebid.md) を参照）や Google Ad Manager セキュアシグナル（[Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) を参照）を使用するなど、クライアントサイドで UID2 を実装する他のいくつかのアプローチでは、実装に返された Advertising Token の受け渡しを管理する関数が含まれています。UID2 SDK for JavaScript を使用している場合は、これを自分で管理する必要があります。
+返された Advertising Token をどのように SSP に渡すかを検討する必要があります。`Prebid.js`（[Prebid Integration Guide](integration-prebid.md) を参照）や Google Ad Manager セキュアシグナル（[Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) を参照）を使用するなど、Client-Side で UID2 を実装する他のいくつかのアプローチでは、実装に返された Advertising Token の受け渡しを管理する関数が含まれています。UID2 SDK for JavaScript を使用している場合は、これを自分で管理する必要があります。
 :::
 
 :::tip

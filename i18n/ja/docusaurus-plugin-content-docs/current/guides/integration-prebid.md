@@ -21,7 +21,7 @@ UID2 は以下の機能を持つ [Prebid.js module](https://docs.prebid.org/dev-
 - UID2 Token のブラウザへの自動保存
 - ビッドストリームに UID2 Token を自動的に渡す
 
-Prebid.js を使って UID2 とインテグレーションするには、サイトの HTML と JavaScript を変更する必要があります。このガイドに従えば、Server-Side の作業は必要ありません。サーバーサイドの API コールでトークンを生成したい場合や、Private Operator を使用している場合は、[Prebid.js Advanced Integration Guide](./integration-prebid-advanced.md) に従ってください。
+Prebid.js を使って UID2 とインテグレーションするには、サイトの HTML と JavaScript を変更する必要があります。このガイドに従えば、Server-Side の作業は必要ありません。Server-Sideの API コールでトークンを生成したい場合や、Private Operator を使用している場合は、[Prebid.js Advanced Integration Guide](./integration-prebid-advanced.md) に従ってください。
 
 以下のステップを完了する必要があります:
 

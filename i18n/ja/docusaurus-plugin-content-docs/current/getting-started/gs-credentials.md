@@ -12,8 +12,8 @@ UID2 <a href="/docs/intro#participants">参加者</a>はそれぞれ、固有の
 
 | Audience | Credentials | Integration |
 | :--- | :--- | :--- |
-| サーバーサイドのエンドポイントを使用する参加者 | 以下の両方:<ul><li>[API key](../ref-info/glossary-uid.md#gl-api-key)、クライアントキーとも呼ばれます。</li><li>[Client secret](../ref-info/glossary-uid.md#gl-client-secret)、参加者と UID2 Service だけが知る値。</li></ul> | これらのエンドポイントのいずれかを使用するインテグレーション: <ul><li>[POST /identity/map](../endpoints/post-identity-map.md)</li><li>[POST /identity/buckets](../endpoints/post-identity-buckets.md)</li><li>[POST /token/generate](../endpoints/post-token-generate.md)</li></ul> |
-| クライアントサイドの実装を使用する参加者 | 以下の両方: <ul><li>Subscription ID</li><li>Public key</li></ul> | これらのいずれかを使用したインテグレーション: <ul><li>[Prebid.js Express Integration Guide](../guides/integration-prebid.md)</li><li>[JavaScript Express Integration Guide](../guides/publisher-client-side.md)</li></ul> |
+| Server-Sideのエンドポイントを使用する参加者 | 以下の両方:<ul><li>[API key](../ref-info/glossary-uid.md#gl-api-key)、クライアントキーとも呼ばれます。</li><li>[Client secret](../ref-info/glossary-uid.md#gl-client-secret)、参加者と UID2 Service だけが知る値。</li></ul> | これらのエンドポイントのいずれかを使用するインテグレーション: <ul><li>[POST /identity/map](../endpoints/post-identity-map.md)</li><li>[POST /identity/buckets](../endpoints/post-identity-buckets.md)</li><li>[POST /token/generate](../endpoints/post-token-generate.md)</li></ul> |
+| Client-Side の実装を使用する参加者 | 以下の両方: <ul><li>Subscription ID</li><li>Public key</li></ul> | これらのいずれかを使用したインテグレーション: <ul><li>[Prebid.js Express Integration Guide](../guides/integration-prebid.md)</li><li>[JavaScript Express Integration Guide](../guides/publisher-client-side.md)</li></ul> |
 
 本番環境だけでなくテスト環境も使用している場合は、それぞれの環境用に別々の認証情報を取得します。
 
@@ -49,13 +49,13 @@ UID2 アカウントのセットアップの一環として、1つ以上の API 
 
 ## Subscription ID and Public Key
 
-クライアントサイドの実装している場合、以下の認証情報を受け取ります:
+Client-Side の実装している場合、以下の認証情報を受け取ります:
 - **Subscription ID**: UID2 Service に対してあなたのサイトを識別する値です。
 - **Public key**： この値は暗号化に使用されます。
 
 API キーとクライアントシークレットとは異なり、Subscription ID（サブスクリプション ID）とPublic key（パブリックキー）は安全に保管する必要はありません。
 
-UID2 JavaScript SDK または Prebid を使用して、クライアントサイドで UID2 を実装する場合、設定の一部として SDK または Prebid に値を提供します。
+UID2 JavaScript SDK または Prebid を使用して、Client-Side で UID2 を実装する場合、設定の一部として SDK または Prebid に値を提供します。
 
 ## Refreshing Credentials
 

@@ -9,9 +9,9 @@ sidebar_position: 04
 
 # JavaScript Express Integration Guide
 
-このガイドは、UID2 と インテグレーションし、ウェブサイト上で JavaScript クライアントサイドの変更のみを使用して、最小限の労力で [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (Advertising Token) を生成したいパブリッシャー向けのものです。
+このガイドは、UID2 と インテグレーションし、ウェブサイト上で JavaScript Client-Side の変更のみを使用して、最小限の労力で [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (Advertising Token) を生成したいパブリッシャー向けのものです。
 
-このガイドは [Private Operator](../ref-info/glossary-uid.md#gl-private-operator) を使いたいパブリッシャーや、サーバーサイドでトークンを生成したいパブリッシャーには適用されません。それらのパブリッシャーは [JavaScript Standard Integration Guide](integration-javascript-standard.md) に従う必要があります。
+このガイドは [Private Operator](../ref-info/glossary-uid.md#gl-private-operator) を使いたいパブリッシャーや、Server-Side でトークンを生成したいパブリッシャーには適用されません。それらのパブリッシャーは [JavaScript Standard Integration Guide](integration-javascript-standard.md) に従う必要があります。
 
 UID2 は、以下の機能を備えた UID2 SDK for JavaScript（[UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください）を提供しています:
 
@@ -28,7 +28,7 @@ UID2 は、以下の機能を備えた UID2 SDK for JavaScript（[UID2 SDK for J
 
 ## UID2 SDK for JavaScript Version
 
-クライアントサイドでのトークン生成のサポートは、SDK のバージョン 3.2 以上で利用可能です。
+Client-Side でのトークン生成のサポートは、SDK のバージョン 3.2 以上で利用可能です。
 
 SDKのURLは以下のとおり:
 
@@ -129,7 +129,7 @@ __uid2.init({
 ```
 ## Configure the UID2 SDK for JavaScript
 
-UID2 は、クライアントサイドのトークン生成機能を使用するために必要な以下の値をパブリッシャーに提供します:
+UID2 は、Client-Side のトークン生成機能を使用するために必要な以下の値をパブリッシャーに提供します:
 
 * Subscription ID（サブスクリプション DI）
 * Public key（公開鍵）

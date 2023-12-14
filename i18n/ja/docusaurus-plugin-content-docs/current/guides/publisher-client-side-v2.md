@@ -53,7 +53,7 @@ UID2 SDK for JavaScript を使用しないパブリッシャー向けのイン�
 
 ### Establish Identity: User Login
 
-Step 1-c で認証を行い、ユーザーに利用規約を受け入れてもらい、パブリッシャーがメールアドレスや電話番号を認証した後、サーバーサイドで UID2 Token を生成する必要があります。次の表は、トークン生成ステップの詳細です。
+Step 1-c で認証を行い、ユーザーに利用規約を受け入れてもらい、パブリッシャーがメールアドレスや電話番号を認証した後、Server-Side で UID2 Token を生成する必要があります。次の表は、トークン生成ステップの詳細です。
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
@@ -88,7 +88,7 @@ Step 1-c で認証を行い、ユーザーに利用規約を受け入れても�
 </script>
 ```
 
-SDK は、指定された [callback function](../sdks/client-side-identity.md#callback-function) (ID の可用性を示す) を呼び出し、確立された ID をクライアントサイドで入札可能な状態にします。
+SDK は、指定された [callback function](../sdks/client-side-identity.md#callback-function) (ID の可用性を示す) を呼び出し、確立された ID をClient-Side で入札可能な状態にします。
 
 ### Bid Using UID2 Tokens
 

@@ -49,8 +49,9 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
   - [送信された DII と返されたトークンが一致していることをテストするにはどうすればよいですか？](#%E9%80%81%E4%BF%A1%E3%81%95%E3%82%8C%E3%81%9F-DII-%E3%81%A8%E8%BF%94%E3%81%95%E3%82%8C%E3%81%9F%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%8C%E4%B8%80%E8%87%B4%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B%EF%BC%9F)
   - [トークンを復号化する必要がありますか？](#%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%82%92%E5%BE%A9%E5%8F%B7%E5%8C%96%E3%81%99%E3%82%8B%E5%BF%85%E8%A6%81%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F)
   - [ユーザーの out-out はどのように通知されますか？](#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE-out-out-%E3%81%AF%E3%81%A9%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E9%80%9A%E7%9F%A5%E3%81%95%E3%82%8C%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F)
-  - [トークン生成の呼び出しは、サーバーサイドとクライアントサイドのどちらで行うべきですか？](#%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AE%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%81%AF%E3%80%81%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%82%B5%E3%82%A4%E3%83%89%E3%81%A8%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E3%82%B5%E3%82%A4%E3%83%89%E3%81%AE%E3%81%A9%E3%81%A1%E3%82%89%E3%81%A7%E8%A1%8C%E3%81%86%E3%81%B9%E3%81%8D%E3%81%A7%E3%81%99%E3%81%8B%EF%BC%9F)
-  - [クライアントサイドからトークンのリフレッシュを呼び出すことはできますか？](#%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E3%82%B5%E3%82%A4%E3%83%89%E3%81%8B%E3%82%89%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%AE%E3%83%AA%E3%83%95%E3%83%AC%E3%83%83%E3%82%B7%E3%83%A5%E3%82%92%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%99%E3%81%93%E3%81%A8%E3%81%AF%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F)
+  - [トークン生成の呼び出しは、Server-Side とClient-Side のどちらで行うべきですか？](#%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AE%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%81%AF%E3%80%81Server-Side-%E3%81%A8Client-Side-%E3%81%AE%E3%81%A9%E3%81%A1%E3%82%89%E3%81%A7%E8%A1%8C%E3%81%86%E3%81%B9%E3%81%8D%E3%81%A7%E3%81%99%E3%81%8B%EF%BC%9F)
+  - [Client-Side からトークンのリフレッシュを呼び出すことはできますか？](#Client-Side-%E3%81%8B%E3%82%89%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%AE%E3%83%AA%E3%83%95%E3%83%AC%E3%83%83%E3%82%B7%E3%83%A5%E3%82%92%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%99%E3%81%93%E3%81%A8%E3%81%AF%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F
+)
   - [リフレッシュトークンのワークフローをテストするにはどうすればよいですか？](#%E3%83%AA%E3%83%95%E3%83%AC%E3%83%83%E3%82%B7%E3%83%A5%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%AE%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B%EF%BC%9F)
   - [UID2 Token の一意性とローテーションポリシーは？](#uid2-token-%E3%81%AE%E4%B8%80%E6%84%8F%E6%80%A7%E3%81%A8%E3%83%AD%E3%83%BC%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%E3%81%AF%EF%BC%9F)
 
@@ -71,16 +72,16 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 - 直接または UID2 SDK のいずれかで [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出し、UID2 Token を生成する場合、必須の `optout_check` パラメータに `1` を指定します。
 - 直接または UID2 SDK のいずれかで [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出し、UID2 Token をリフレッシュした場合。
 
-#### トークン生成の呼び出しは、サーバーサイドとクライアントサイドのどちらで行うべきですか？
+#### トークン生成の呼び出しは、Server-Side とClient-Side のどちらで行うべきですか？
 
-UID2 Token は、クライアントサイド、サーバーサイドのどちらでも生成できます。詳細については、以下を参照してください:
-- Prebid.js を使ってクライアントサイドでトークンを生成する: [Prebid.js Express Integration Guide](../guides/integration-prebid.md)
+UID2 Token は、Client-Side、Server-Sideのどちらでも生成できます。詳細については、以下を参照してください:
+- Prebid.js を使ってClient-Side でトークンを生成する: [Prebid.js Express Integration Guide](../guides/integration-prebid.md)
 - Prebid.jsを使ってサーバサイドからトークンを生成する: [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md)
-- その他のサーバーサイドオプション: [Publisher Integrations](../guides/summary-guides.md#publisher-integrations).
+- その他の Server-Side オプション: [Publisher Integrations](../guides/summary-guides.md#publisher-integrations).
 
-#### クライアントサイドからトークンのリフレッシュを呼び出すことはできますか？
+#### Client-Side からトークンのリフレッシュを呼び出すことはできますか？
 
-はい。[POST /token/refresh](../endpoints/post-token-refresh.md) は、API キーを使用する必要がないため、クライアントサイド (例えば、ブラウザやモバイルアプリ)から呼び出すことができます。
+はい。[POST /token/refresh](../endpoints/post-token-refresh.md) は、API キーを使用する必要がないため、Client-Side (例えば、ブラウザやモバイルアプリ)から呼び出すことができます。
 
 #### リフレッシュトークンのワークフローをテストするにはどうすればよいですか？
 
