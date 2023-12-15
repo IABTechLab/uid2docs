@@ -1,6 +1,6 @@
 ---
 title: Documentation Updates
-description: 重要な UID ドキュメントの更新の概要
+description: UID2 ドキュメントの重要な更新の概要
 hide_table_of_contents: false
 sidebar_position: 06
 ---
@@ -8,6 +8,40 @@ sidebar_position: 06
 # Documentation Updates
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
+
+### New: UID2 Private Operator for Azure Integration Guide
+
+30 November 2023
+
+[Private Operator](../ref-info/glossary-uid.md#gl-private-operator) の運用を希望する UID2 <a href="../intro#participants">参加者は</a>、Microsoft Azure のコンフィデンシャルコンピューティングオプションである Confidential Container で UID2 Operator Service をセットアップできるようになりました。
+
+詳細については、[UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md) を参照してください。
+
+### New: API Permissions
+
+22 November 2023
+
+UID2 ウェブサイトの Getting Started セクションに新しい記事が掲載され、主要な UID2 権限、よく使う参加者のタイプ、関連する主なアクティビティについての情報が提供されています。
+
+詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+
+### New: UID2 Credentials Page
+
+21 November 2023
+
+以前の **API Keys** ページを新しいページに置き換えました。このページには、Server-Sideの実装戦略に従った場合の認証情報についての情報が含まれています。
+
+詳細は [UID2 Credentials](../getting-started/gs-credentials.md) を参照してください。
+
+### New: JavaScript Express Integration Guide
+
+21 November 2023
+
+JavaScript Express Integration Guide は、既存の URL の全く新しいドキュメントで、Client-Sideパブリッシャー実装のために UID2 SDK for JavaScript を使用する、よりシンプルな新しい方法を網羅しています。
+
+詳細は、[JavaScript Express Integration Guide](../guides/publisher-client-side.md) を参照してください。
+
+以前の *UID2 SDK for JavaScript Integration Guide* にあった内容は、JavaScript SDK を Server-Side に実装したいパブリッシャーのための補足文書になりました: [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md).
 
 ### New: Prebid.js Integration Guide
 
@@ -45,9 +79,9 @@ Prebid.js Express Integration Guide は、既存の URL にまったく新しい
 
 UID2 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメントが大幅に更新されました。新しいドキュメントには、以前のバージョンの SDK からのアップグレードのための [Migration Guide](../sdks/client-side-identity#migration-guide) が含まれています。
 
-詳細は:
+詳細は以下を参照してください:
 -  [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)
--  [JavaScript Express Integration Guide](../guides/publisher-client-side.md)
+-  [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md)
 
 ### New: Private Operator Guide for Google Confidential Space 
 

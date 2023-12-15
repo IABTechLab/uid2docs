@@ -29,8 +29,8 @@ Google secure signals は、パブリッシャーが [Google Ad Manager](https:/
 このフレームワークでは、次のようなステップを踏みます:
 
 1. パブリッシャーは、ユーザー ID シグナル (advertising token)をセキュアシグナル機能にプッシュします。
-2. セキュアシグナル機能は、クライアントサイドでそれらをキャッシュし、Google Ad Manager に透過的に渡します。
-3. Google Ad Manager は UID2 Token を使って入札リクエストを行い、パブリッシャーの設定に基づき Google AdX 内の承認済み入札者にトークンを転送します。
+2. セキュアシグナル機能は、Client-Side でそれらをキャッシュし、Google Ad Manager に透過的に渡します。
+3. Google Ad Manager は UID2 Token を使ってビッドリクエストを行い、パブリッシャーの設定に基づき Google AdX 内の承認済み入札者にトークンを転送します。
 
 ## Allow Secure Signal Sharing
 
@@ -59,7 +59,7 @@ window.googletag.cmd.push(function () {
 
 暗号化されたシグナルを共有できるように、ホストされ、自動ロードされたセキュアシグナルスクリプトは `window.getUid2AdvertisingToken` 関数を非同期に呼び出し、その応答として `advertising_token` を文字列として受け取れるようにしなければなりません。
 
-ID トークンがフレッシュであることを確認することが重要です。サーバーサイドのインテグレーションでは、[POST /token/refresh](../endpoints/post-token-refresh.md#post-tokenrefresh) というエンドポイントを呼び出し、JSON レスポンスから新しい [Advertising Token](../endpoints/post-token-refresh.md#decrypted-json-response-format) を取得することが推奨されます。
+ID トークンがフレッシュであることを確認することが重要です。Server-Sideのインテグレーションでは、[POST /token/refresh](../endpoints/post-token-refresh.md#post-tokenrefresh) というエンドポイントを呼び出し、JSON レスポンスから新しい [Advertising Token](../endpoints/post-token-refresh.md#decrypted-json-response-format) を取得することが推奨されます。
 
 次のコードは、その例です。
 
@@ -81,7 +81,7 @@ UID2 SDK for JavaScript バージョン 3.0.0 以降を使用している場合�
 
 このスクリプトは CDN でホストされており、GPT はセキュアシグナル機能で自動的にロードします。
 
-詳しくは、 [JavaScript Express Integration Guide](publisher-client-side.md) を参照してください。
+詳しくは、 [JavaScript Standard Integration Guide](integration-javascript-standard.md) を参照してください。
 
 <!--A sample application is also available for client-side integration using the SDK. See [Sample Applications](#sample-applications).-->
 

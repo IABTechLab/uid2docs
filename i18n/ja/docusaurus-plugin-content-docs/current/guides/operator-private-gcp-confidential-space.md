@@ -194,7 +194,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
    | `network_name` | `string` | `uid-operator` | no | VPC リソース名（ルール/インスタンスタグにも使用されます）です。 |
    | `min_replicas` | `number` | `1` | no | デプロイするレプリカの最小数です。 |
    | `max_replicas` | `number` | `5` | no | デプロイするレプリカの最大数です。 |
-   | `uid_operator_key_secret_name` | `string` | `"secret-operator-key"` | no | Operator Key Secret に指定する名前です。Terraform テンプレートは、`uid_operator_key` 値を保持するために GCP Secret Manager にシークレットを作成します。名前は定義できます。たとえば、`uid2-operator-operator-key-secret-integ` |
+   | `uid_operator_key_secret_name` | `string` | `"secret-operator-key"` | no | Operator Key Secret に指定する名前です。Terraform テンプレートは、`uid_operator_key` 値を保持するために GCP Secret Manager にシークレットを作成します。名前は定義できます。例えば、`uid2-operator-operator-key-secret-integ` |
    | `debug_mode` | `bool`  | `false` | no | UID2 チームと協力して問題をデバッグする場合を除き、`true` を設定しないでください。それ以外の状況では、このフラグを `true` に設定すると認証に失敗します。 |
 
 #### Run Terraform
@@ -212,7 +212,7 @@ terraform apply
 
 #### Delete All Created Resources
 
-クリーンアップするシナリオでは、テンプレートによって作成されたリソースを削除できます。たとえば、`integ` をテストして、後でスタック全体を削除したい場合など。
+クリーンアップするシナリオでは、テンプレートによって作成されたリソースを削除できます。例えば、`integ` をテストして、後でスタック全体を削除したい場合など。
 
 Terraform が作成したリソースをすべて削除するには、以下を実行します:
 
@@ -338,7 +338,7 @@ UID2 アカウントのセットアップ ([UID2 Operator Account Setup](#uid2-o
 
     2. スクリプトを実行します。
 
-       シークレット (表示) 名は {OPERATOR_KEY_SECRET_NAME} で、シークレットの値は {OPERATOR_KEY} です。
+       スクリプトは GCP Secret Manager にシークレットを作成します。シークレット（表示）名は `{OPERATOR_KEY_SECRET_NAME}` で、シークレットの値は `{OPERATOR_KEY}` です。
        
 1. 以下のコマンドを実行し、パスを含む完全なシークレットネームを取得します:
 
