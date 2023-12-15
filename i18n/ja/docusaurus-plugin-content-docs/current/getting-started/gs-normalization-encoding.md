@@ -15,7 +15,9 @@ sidebar_position: 13
 - [Email Address Normalization](#email-address-normalization)
 - [Email Address Hash Encoding](#email-address-hash-encoding)
 - [Phone Number Normalization](#phone-number-normalization)
-- [Phone Number Hash Encoding](#phone-number-hash-encoding) -->
+- [Phone Number Hash Encoding](#phone-number-hash-encoding)
+- [Example](#example)
+-->
 
 ## Introduction
 メールアドレスなどのユーザー情報を取得し、raw UID2 や UID2 Advertising Token を作成する手順に従う場合、必要な手順に正確に従うことが非常に重要です。情報を正規化する必要があろうがなかろうが、ハッシュ化する必要があろうがなかろうが、手順には正確に従ってください。そうすることで、作成した UID2 の値を、同じユーザーによる他のオンライン行動の事例と安全かつ匿名で照合できるようになります。
@@ -38,8 +40,8 @@ UID2 Operator Service にハッシュ化されていないメールアドレス�
 1. 先頭と末尾のスペースを削除します。
 2. ASCII 文字をすべて小文字に変換します。
 3. `gmail.com`のメールアドレスでは、ユーザー名の部分から以下の文字を削除してください。
-   1. ピリオド (`.` (ASCII コード 46)) <br/>たとえば、`jane.doe@gmail.com` を `janedoe@gmail.com` に正規化します。
-   2. プラス記号 (`+` (ASCII code 43)) とそれに続くすべての文字。<br/>たとえば、`janedoe+home@gmail.com` を `janedoe@gmail.com` に正規化します。
+   1. ピリオド (`.` (ASCII コード 46)) <br/>例えば、`jane.doe@gmail.com` を `janedoe@gmail.com` に正規化します。
+   2. プラス記号 (`+` (ASCII code 43)) とそれに続くすべての文字。<br/>例えば、`janedoe+home@gmail.com` を `janedoe@gmail.com` に正規化します。
 
 ## Email Address Hash Encoding
 
@@ -62,7 +64,7 @@ UID2 Operator Service にハッシュ化されていないメールアドレス�
 
 - UID2 Operator は、[E.164](https://ja.wikipedia.org/wiki/E.164) 形式の電話番号を受け付けます。これは、国際的に一意性を保証する国際電話番号の形式です。
 - E.164 電話番号は、最大 15 桁までです。
-- 正規化された E.164 電話番号では、次の構文を使用します。`[+] [国番号] [市外局番を含む加入者番号]`。スペース、ハイフン、括弧、その他の特殊文字は使用できません。たとえば、電話番号 `+123 44 555-66-77`と`1 (123) 456-7890`は、それぞれ`+123445556677`と`+11234567890` として正規化しなければなりません。
+- 正規化された E.164 電話番号では、次の構文を使用します。`[+] [国番号] [市外局番を含む加入者番号]`。スペース、ハイフン、括弧、その他の特殊文字は使用できません。例えば、電話番号 `+123 44 555-66-77`と`1 (123) 456-7890`は、それぞれ`+123445556677`と`+11234567890` として正規化しなければなりません。
 
 ## Phone Number Hash Encoding
 
@@ -75,3 +77,6 @@ UID2 Operator Service にハッシュ化されていないメールアドレス�
 | Base64-encodedd SHA-256 of phone number              | `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=`                     | リクエストボディで送信される `phone_hash` 値にはこのエンコーディングを使用します。                                                                                  |
 | URL-encoded, Base64-encodedd SHA-256 of phone number | `wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ%2FFSK4%3D`                 | この 44 文字の文字列は、32 バイトの SHA-256 を Base64 でエンコードしたものです。<br/>リクエストボディで送られる `phone_hash` 値には、このエンコードを使用します。 |
 
+## Example
+
+JavaScript でメールアドレスと電話のハッシュを生成する方法の例については、[Example Code: Hashing and Base-64 Encoding](../guides/publisher-client-side#example-code-hashing-and-base-64-encoding) を参照してください。

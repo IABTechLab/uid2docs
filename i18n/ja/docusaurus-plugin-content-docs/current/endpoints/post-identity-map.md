@@ -18,7 +18,7 @@ Used by: このエンドポイントは、主に広告主やデータプロバ�
 - リクエストの最大サイズは 1MB です。
 - 大量のメールアドレス、電話番号、またはそれぞれのハッシュをマップするには、1 バッチあたり最大 5,000 アイテムのバッチサイズで、それらを *連続した* バッチで送信してください。
 - バッチを並列で送信しないでください。
-- プライベートオペレーターを使用している場合を除き、バッチを並行して送信しないでください。つまり、1 つの HTTP 接続を使用して、[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を連続してマッピングしてください。
+- Private Operator を使用している場合を除き、バッチを並行して送信しないでください。つまり、1 つの HTTP 接続を使用して、[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を連続してマッピングしてください。
 - メールアドレス、電話番号、またはそれぞれのハッシュのマッピングを必ず保存してください。<br/>マッピングを保存しないと、数百万のメールアドレスや電話番号をマッピングする必要がある場合に、処理時間が大幅に増加する可能性があります。しかし、実際に更新が必要なマッピングのみを再計算することで、毎日更新が必要な raw UID2 の数は約 1/365 となり、総処理時間を短縮できます。[Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) と [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers)も参照してください。
 
 ## Request Format
@@ -37,7 +37,7 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 
 ### Unencrypted JSON Body Parameters
 
-> IMPORTANT: リクエストを暗号化するときには、以下の4つの条件付きパラメータのうち **1つ** と、必須パラメータである `optout_check` の値 `1` のみを、JSON ボディのキーと値のペアとして含める必要があります。
+> IMPORTANT: リクエストを暗号化するときは、以下の 4 つの条件パラメータのうち、 **1つ** だけをリクエストの JSON ボディにキーと値のペアとして含める必要がります。
 
 | Body Parameter | Data Type    | Attribute      | Description                                                                                                                                                                      |
 | :------------- | :----------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -45,7 +45,6 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 | `email_hash`   | string array | 条件付きで必要 | マッピングする [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#email-address-normalization) した [正規化](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) 済みメールアドレスのリストです。 |
 | `phone`        | string array | 条件付きで必要 | マッピングする [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号のリストです。                                                                                   |
 | `phone_hash`   | string array | 条件付きで必要 | マッピングする [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) した [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号のリストです。         |
-| `optout_check`       | integer       | 必須     | ユーザーがオプトアウトしたかどうかをチェックします。このパラメータは `1` とします。                         |
 
 ### Request Examples
 
@@ -56,8 +55,7 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
   "email": [
     "user@example.com",
     "user2@example.com"
-  ],
-  "optout_check":1 
+  ]
 }
 ```
 
@@ -66,8 +64,7 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
   "email_hash": [
     "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
     "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
-  ],
-  "optout_check":1 
+  ]
 }
 ```
 
@@ -76,8 +73,7 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
   "phone": [
     "+1111111111",
     "+2222222222"
-  ],
-  "optout_check":1 
+  ]
 }
 ```
 
@@ -86,15 +82,14 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
   "phone_hash": [
     "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
     "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
-  ],
-  "optout_check":1 
+  ]
 }
 ```
 
 以下は、メールアドレスハッシュに対する暗号化された ID マッピングリクエストの例です:
 
 ```sh
-echo '{"phone": ["+1111111111", "+2222222222"], "optout_check":1}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk= DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
+echo '{"phone": ["+1111111111", "+2222222222"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk= DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
 
 詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。

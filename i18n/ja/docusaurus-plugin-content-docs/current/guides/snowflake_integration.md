@@ -39,7 +39,7 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 
 *DII から直接 UID2 Token を生成することはできません。しかし、DII を raw UID2 に変換し、raw UID2 を暗号化して UID2 Token にすることはできます。
 
->NOTE: 入札ストリームでUID2トークンを共有するパブリッシャーの場合は、[Sharing in the Bid Stream](../sharing/sharing-bid-stream.md) を参照してください
+>NOTE: ビッドストリームで UID2 Token を共有するパブリッシャーの場合は、[Sharing in the Bid Stream](../sharing/sharing-bid-stream.md) を参照してください
 
 ## Workflow Diagram
 
@@ -537,7 +537,7 @@ Sharing する参加者は、他の参加者に送信する前に、[raw UID2](.
 
 ### Encrypt Tokens
 
-raw UID2 を UID2 Token 暗号化するには、関数 `FN_T_UID2_ENCRYPT` を使用します。該当する接頭辞を使用して自分の役割を示します:
+raw UID2 を UID2 Token に暗号化するには、関数 `FN_T_UID2_ENCRYPT` を使用します。該当する接頭辞を使用して自分の役割を示します:
 
 - 広告主の場合: `ADV.FN_T_UID2_ENCRYPT`
 - データプロバイダーの場合: `DP.FN_T_UID2_ENCRYPT`
@@ -562,7 +562,7 @@ raw UID2 を UID2 Token 暗号化するには、関数 `FN_T_UID2_ENCRYPT` を�
 | `NULL` | The raw UID2 was successfully encrypted. |
 | `MISSING_OR_INVALID_RAW_UID2` | raw UID2 の暗号化に成功しました。 |
 | `INVALID_RAW_UID2` | raw UID2 が無効です。 |
-| `MISMATCHING_IDENTITY_SCOPE` | raw UID2 が不正な ID スコープに属している。たとえば、UID2 が期待されているところに EUID が渡されているなど。|
+| `MISMATCHING_IDENTITY_SCOPE` | raw UID2 が不正な ID スコープに属している。例えば、UID2 が期待されているところに EUID が渡されているなど。|
 | `NOT_AUTHORIZED_FOR_MASTER_KEY` | 呼び出し元が必要な暗号化キーにアクセスできない。UID2 の管理者に連絡してください。 |
 | `NOT_AUTHORIZED_FOR_SITE_KEY` | 呼び出し元が必要な暗号化キーにアクセスできない。UID2 の管理者に連絡してください。 |
 
@@ -631,7 +631,7 @@ UID2 Token を raw UID2 に復号するには、関数 `FN_T_UID2_DECRYPT` を�
 
 |Argument|Data Type|Description|
 | :--- | :--- | :--- |
-| `UID2_TOKEN` | varchar(512) | raw UID2 に復号する UID2 Tokenです。 |
+| `UID2_TOKEN` | varchar(512) | raw UID2 に復号する UID2 Token です。 |
 
 クエリーに成功すると、指定された UID2 Token について以下の情報が返されます。
 
@@ -639,7 +639,7 @@ UID2 Token を raw UID2 に復号するには、関数 `FN_T_UID2_DECRYPT` を�
 | :--- | :--- | :--- |
 | `UID2` | TEXT | 値は次のいずれかです:<ul><li>復号化成功: UID2 Token に対応する raw UID2。</li><li>復号化失敗: `NULL`.</li></ul> |
 | `SITE_ID` | INT | 値は次のいずれかです:<ul><li>復号化成功: トークンを暗号化した UID2 参加者の識別子。</li><li>復号化失敗: `NULL`.</li></ul> |
-| `DECRYPTION_STATUS` | TEXT | 値は次のいずれかです:<ul><li>復号化成功: `NULL`.</li><li>暗号化失敗: UID2 Token が復号化されなかった理由。たとえば、`EXPIRED_TOKEN` です。<br/>詳細については、[Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column) を参照してください。</li></ul> |
+| `DECRYPTION_STATUS` | TEXT | 値は次のいずれかです:<ul><li>復号化成功: `NULL`.</li><li>暗号化失敗: UID2 Token が復号化されなかった理由。例えば、`EXPIRED_TOKEN` です。<br/>詳細については、[Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column) を参照してください。</li></ul> |
 
 >NOTE: UID2 Token がうまく復号化できない場合、この関数は行を返しません。
 

@@ -29,7 +29,7 @@ sidebar_position: 10
 <li><a href="#gl-bearer-token">Bearer token</a></li>
 <li><a href="#gl-client-key">Client key</a></li>
 <li><a href="#gl-client-secret">Client secret</a></li>
-<li><a href="#gl-closed-operator">Closed operator</a></li>
+<li><a href="#gl-closed-operator">Closed Operator</a></li>
 <li><a href="#gl-core-service">Core Service</a></li>
 <li><a href="#gl-customer-data-platform">Customer Data Platform (CDP)</a></li>
 <li><a href="#gl-data-provider">Data provider</a></li>
@@ -59,7 +59,7 @@ sidebar_position: 10
 <li><a href="#gl-opt-out">Opt-out</a></li>
 <li><a href="#gl-opt-out-service">Opt-Out Service</a></li>
 <li><a href="#gl-participant">Participant</a></li>
-<li><a href="#gl-private-operator">Private operator</a></li>
+<li><a href="#gl-private-operator">Private Operator</a></li>
 <li><a href="#gl-private-operator-service">Private Operator Service</a></li>
 <li><a href="#gl-raw-uid2">Raw UID2</a></li>
 <li><a href="#gl-refresh-token">Refresh token</a></li>
@@ -117,8 +117,8 @@ sidebar_position: 10
 各 UID2 <a href="/docs/intro#participants">参加者</a>は、API Key (クライアントキー)と、そのキーに関連付けられた秘密値 (Client secret (API シークレット))を持っています。Client secretは、参加者と UID2 Service だけが知っています。</dd>
 <dd>詳細については、<a href="/docs/getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
 
-<dt class="jump-anchor" id="gl-closed-operator">Closed operator</dt>
-<dd>Closed operator は <a href="#gl-private-operator">private operator</a> の別名です。</dd>
+<dt class="jump-anchor" id="gl-closed-operator">Closed Operator</dt>
+<dd>Closed Operator は <a href="#gl-private-operator">Private Operator</a> の別名です。</dd>
 
 <dt class="jump-anchor" id="gl-core-service">Core Service</dt>
 <dd>UID2 Core Serviceは、UID2 エコシステムの <a href="#gl-salt">salts</a>、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。</dd>
@@ -147,7 +147,7 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-enclave">Enclave</dt>
 <dd>Enclave は、コンピューティング環境のセキュアなサブセクションです。エンクレーブには追加のビジネスロジックとセキュリティ対策が施され、改ざんできないようになっています。</dd>
-<dd>ID2 のコンテキストでは、 <a href="#gl-private-operator">private operator</a> は、Enclave 内かプライベート環境で運用しなければなりません。must run inside an enclave or in a private environment. サポートされるエングレーブのバージョンについては、<a href="../guides/summary-guides#private-operator-service-integrations">Private Operator Service Integrations</a>　を参照してください。</dd>
+<dd>ID2 のコンテキストでは、 <a href="#gl-private-operator">Private Operator</a> は、Enclave 内かプライベート環境で運用しなければなりません。must run inside an enclave or in a private environment. サポートされるエングレーブのバージョンについては、<a href="../guides/summary-guides#private-operator-service-integrations">Private Operator Service Integrations</a>　を参照してください。</dd>
 <dd>Enclave　では、オペレータイメージは特殊で、事前に定義されたバージョンでなければならず、セキュリティを確保するために追加の制約が適用されます。</dd>
 
 <dt class="jump-anchor" id="gl-first-level-hash">First-level hash</dt>
@@ -177,11 +177,11 @@ JSON Web Token (JWT) は、Web 上で一方の当事者から別の当事者に�
 <dt class="jump-anchor" id="gl-operator">Operator</dt>
 <dd>Operator とは、UID2の  <a href="#gl-operator-service">Operator Service</a> を運営する組織や団体のことです。UID2 Operatorは、UID2 エコシステムの API サーバーです。</dd>
 <dd>Operator は、UID2 Core Service から暗号化キーとソルトを受け取り、個人のデータをソルティングおよびハッシュ化して raw UID2 を返し、raw UID2 を暗号化して UID2 Token を生成するなど、複数の機能を実行します。</dd>
-<dd>参加者は、UID2 API にアクセスし、プライベートインフラ内で raw UID2 と UID2 Token を生成するために、<a href="#gl-private-operator">Private operator</a> になることも選択できます。</dd>
+<dd>参加者は、UID2 API にアクセスし、プライベートインフラ内で raw UID2 と UID2 Token を生成するために、<a href="#gl-private-operator">Private Operator</a> になることも選択できます。</dd>
 <dd>詳細は、<a href="../intro#participants">participants</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-operator-key">Operator key</dt>
-<dd>各 UID2 private operator は、Private Operator Service が Core Service とOpt-Out Service に接続し、その上でいくつかのエンドポイントを呼び出すことを可能にする Operator key を持っています。</dd>
+<dd>各 UID2 Private Operator は、Private Operator Service が Core Service とOpt-Out Service に接続し、その上でいくつかのエンドポイントを呼び出すことを可能にする Operator key を持っています。</dd>
 <dd>Operator key は、UID2 Service への参加オペレータを識別すします。</dd>
 
 <dt class="jump-anchor" id="gl-operator-service">Operator Service</dt>
@@ -200,11 +200,11 @@ JSON Web Token (JWT) は、Web 上で一方の当事者から別の当事者に�
 <dd>UID2 において重要な役割を果たすエンティティです。参加者には以下が含まれます: Core Administrator、Operator、DSP、データプロバイダー、広告主、パブリッシャー、費者</dd>。
 <dd>詳細については、<a href="../intro#participants">参加者</a> を参照してください。</dd>
 
-<dt class="jump-anchor" id="gl-private-operator">Private operator</dt>
-<dd>Private <a href="#gl-operator">operator</a> は、Operator Service のプライベートインスタンスを実行する事業社です。Private operator は、安全な環境で独自のリソース (ハードウェアなど)を使用して、自身のために UID2 を生成および管理します。</dd>
+<dt class="jump-anchor" id="gl-private-operator">Private Operator</dt>
+<dd>Private <a href="#gl-operator">operator</a> は、Operator Service のプライベートインスタンスを実行する事業社です。Private Operator は、安全な環境で独自のリソース (ハードウェアなど)を使用して、自身のために UID2 を生成および管理します。</dd>
 
 <dt class="jump-anchor" id="gl-private-operator-service">Private Operator Service</dt>
-<dd><a href="#gl-private-operator">private operator</a> が運用する Operator Service のインスタンスです。</dd>
+<dd><a href="#gl-private-operator">private Operator</a> が運用する Operator Service のインスタンスです。</dd>
 
 <dt class="jump-anchor" id="gl-raw-uid2">Raw UID2</dt>
 <dd>UID2 API または SDK を通じて、ユーザーの <a href="#gl-dii">directly identifying information</a> (メールアドレスまたは電話番号)を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。raw UID2 は一意な値であり、同じ UID2 は2つとありません。raw  UID2 とそれに関連付けられた UID2 Token は、大文字と小文字を区別します。</dd>
