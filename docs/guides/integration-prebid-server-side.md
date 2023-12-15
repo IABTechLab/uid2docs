@@ -13,7 +13,6 @@ This guide includes the following information:
 
 - [Prebid.js Version](#prebidjs-version)
 - [UID2 Prebid Module Page](#uid2-prebid-module-page)
-- [Module Storage](#module-storage)
 - [Integration Overview: High-Level Steps](#integration-overview-high-level-steps)
 - [Complete UID2 Account Setup](#complete-uid2-account-setup)
 - [Add Prebid.js to Your Site](#add-prebidjs-to-your-site)
@@ -59,10 +58,6 @@ Information about how to integrate Prebid with UID2 is also in the following loc
 <!-- ## Integration Example
 
 GWH note 12/14/23: We have client-side and server-side examples for JS SDK but only server-side for Prebid. -->
-
-## Module Storage
-<!-- GWH Module Storage section is the same for client side and server-side. -->
-By default, the UID2 module stores data using local storage. To use a cookie instead, set `params.storage` to cookie. For details, see [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration).
 
 ## Integration Overview: High-Level Steps
 
@@ -112,7 +107,7 @@ There are two ways to refresh a UID2 token, as shown in the following table.
 | Mode | Description | Link to Section | 
 | --- | --- | --- |
 | Client refresh mode | Prebid.js automatically refreshes the tokens internally.<br/>This is the simplest approach. | [Client Refresh Mode](#client-refresh-mode) |
-| Server-only mode | Prebid.js doesn't automatically refresh the token. It is up to the publisher to manage token refresh.<br/>Choose this option if you want to use the [UID2 SDK for JavaScript](../sdks/client-side-identity.md) to refresh the token, and Prebid.js to send the token to the bid stream. | [Server-Only Mode](#server-only-mode) |
+| Server-only mode | Prebid.js doesn't automatically refresh the token. It is up to the publisher to manage token refresh.<br/>Examples of why you might want to choose this option:<ul><li>If you want to use the [UID2 SDK for JavaScript](../sdks/client-side-identity.md) to refresh the token, and Prebid.js to send the token to the bid stream.</li><li>If you want to send the token to the bid stream via multiple avenues (such as Prebid.js and also Google).</li></ul> | [Server-Only Mode](#server-only-mode) |
 
 ### Client Refresh Mode
 
@@ -137,7 +132,7 @@ When you configure the module to use Client Refresh mode, you must choose **one*
 
 | Option | Details | Use Case | 
 | --- | --- | --- |
-| Set `params.uid2Cookie` to the name of the cookie that contains the response body as a JSON string. | See [Client Refresh Cookie Example](#client-refresh-cookie-example). | Use this option only when there is enough space left in your cookie to store the response body. (**GWH_LP do we need to address how user will know if there is space in the cookie?**)|
+| Set `params.uid2Cookie` to the name of the cookie that contains the response body as a JSON string. | See [Client Refresh Cookie Example](#client-refresh-cookie-example). | Use this option only when there is enough space left in your cookie to store the response body. (**GWH_LP01 do we need to address how user will know if there is space in the cookie?**) (**also GWH_LP02 SW's question "is this optional even for when using local storage (i.e. not using cookie)?"**|
 | Set `params.uid2Token` to the response body as a JavaScript object. | See [Client Refresh uid2Token Example](#client-refresh-uid2token-example). | You might choose to provide the response body via `params.uid2Token` in either of these cases:<ul><li>If storing the response body on the cookie will exceed the cookie size limit.</li><li>If you prefer to have the flexibility to manage the storage of the response body yourself.</li></ul> |
 
 #### Client Refresh Mode Cookie Example
@@ -164,6 +159,9 @@ pbjs.setConfig({
   }
 });
 ```
+
+For an example of the token, see [Sample Token](#sample-token).
+
 #### Client Refresh Mode uid2Token Example
 
 The following example shows a sample configuration. For the contents of the token, see [Sample Token](#sample-token).
@@ -199,7 +197,7 @@ To configure the module to use server-only mode, do **one** of the following:
 
 | Implementation Method | Link to Example |
 | --- | --- |
-| Set a cookie named `__uid2_advertising_token`and store the advertising token value in it. | [Server-Only Cookie Example](#server-only-cookie-example) |
+| Set a cookie named `__uid2_advertising_token` and store the advertising token value in it. | [Server-Only Cookie Example](#server-only-cookie-example) |
 | Set `value` to an ID block containing the advertising token. | [Server-Only Value Example](#server-only-value-example) |
 
 This section includes the following information:
@@ -349,16 +347,16 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 
 The following parameters apply only to the UID2 Prebid User ID Module integration.
 
-(**GWH_SW question I missed asking you. When we say "Optional, client refresh" -- what does that mean? Is it required for client refresh? Or N/A for server-only and optional for client refresh? And will readers know? If something is required for a specific mode we should say that.**)
+In this table, CR = client refresh mode, SO = server-only mode, and N/A = not applicable.
 
-| Param under userSync.userIds[] | Scope | Type | Description | Example |
+| Param under userSync.userIds[] | Mode/Scope | Type | Description | Example |
 | --- | --- | --- | --- | --- |
-| name | Required | String | ID value for the UID2 module. Always `"uid2"`. | `"uid2"` |
-| value | Optional, server-only mode | Object | An object containing the value for the advertising token. | See [Configuration Parameter Examples: Value](#configuration-parameter-examples-value). |
-| params.uid2Token | Optional, client refresh mode | Object | The initial UID2 token. This should be the `body` element of the decrypted response from a call to the `/token/generate` or `/token/refresh` endpoint. | See [Sample Token](#sample-token). |
-| params.uid2Cookie | Optional, client refresh mode | String | The name of a cookie that holds the initial UID2 token, set by the server. The cookie should contain JSON in the same format as the uid2Token param. **If uid2Token is supplied, this param is ignored.** | See [Sample Token](#sample-token). |
-| params.uid2ApiBase | Optional, client refresh mode | String | Overrides the default UID2 API endpoint. | `"https://prod.uidapi.com"` (the default)|
-| params.storage | Optional, client refresh mode | String | Specify the module internal storage method: `cookie` or `localStorage`. We recommend that you do not provide this parameter. Instead, allow the module to use the default. | `localStorage` (the default) |
+| name | CR: N/A<br/>SO:&nbsp;Required | String | ID value for the UID2 module. Always `"uid2"`. | `"uid2"` |
+| value | CR: N/A<br/>SO: Optional | Object | An object containing the value for the advertising token. | See [Configuration Parameter Examples: Value](#configuration-parameter-examples-value). |
+| params.uid2Token | CR: Optional<br/>SO: N/A | Object | The initial UID2 token. This should be the `body` element of the decrypted response from a call to the `/token/generate` or `/token/refresh` endpoint. | See [Sample Token](#sample-token). |
+| params.uid2Cookie | CR: Optional<br/>SO: N/A  | String | The name of a cookie that holds the initial UID2 token, set by the server. The cookie should contain JSON in the same format as the uid2Token param. **If uid2Token is supplied, this param is ignored.** | See [Sample Token](#sample-token). |
+| params.uid2ApiBase | CR: Optional<br/>SO: N/A | String | Overrides the default UID2 API endpoint. | `"https://prod.uidapi.com"` (the default)|
+| params.storage | CR: Optional<br/>SO: N/A | String | Specify the module internal storage method: `cookie` or `localStorage`. We recommend that you do not provide this parameter. Instead, allow the module to use the default. (**GWH_LP: comment from SW: "probably need @lionell-pack-ttd to confirm if params.storage is really Only Optional for client-refresh mode and it's not even optional for server-only mode?"**) | `localStorage` (the default) |
 
 ### Configuration Parameter Examples: Value
 
@@ -381,7 +379,7 @@ pbjs.setConfig({
 
 ### Sample Token
 
-The following sample is fictitious, but shows what the token response object, returned from either the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints, looks like:
+The following sample is fictitious, but shows what the token response object, returned from either the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint, looks like:
 
 ```js
 {

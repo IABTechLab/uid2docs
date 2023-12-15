@@ -54,8 +54,7 @@ Determine which method is best for you, and then follow the applicable integrati
 
 ## Refreshing the UID2 Token
 
-The Prebid.js UID2 module can automatically refresh the UID2 tokens. If you prefer to implement manual refresh outside Prebid.js, see [Refreshing a UID2 Token](integration-prebid-server-side.md#refreshing-a-uid2-token) in the Server-Side Integration Guide.
-(**GWH_ query: is there no manual refresh option for client-side?**)
+The Prebid.js UID2 module can automatically refresh the UID2 tokens. If you prefer to implement manual refresh outside Prebid.js, see [Refreshing a UID2 Token](integration-prebid-server-side.md#refreshing-a-uid2-token) in the Server-Side Integration Guide. The client-side integration solution includes automated token refresh.
 
 ## Storing the UID2 Token in the Browser
 <!-- GWH same section in integration-prebid.md, integration-prebid-client-side.md, and integration-prebid-client-side.md. Ensure consistency -->
@@ -90,6 +89,8 @@ To configure the UID2 module, call `pbjs.setConfig`. For details on supported pa
 When the UID2 module is configured, it manages a UID2 token for the user and stores it in the user's browser.
 
 When using [client-side token generate (CSTG)](../ref-info/glossary-uid.md#gl-cstg) and [server-side token generate (SSTG)](../ref-info/glossary-uid.md#gl-sstg) with Client Refresh mode, the module automatically takes care of refreshing the token as long as your site is open in the user's browser. However, you also have the option to manage the token refresh on the server side. For details, see [Refreshing a UID2 Token](integration-prebid-server-side.md#refreshing-a-uid2-token) in the Server-Side Integration Guide.
+
+(**GWH_KK a query from SW noted on the glossary: "Generate or Generation? in Prebid.js Integration Overview page, it mentioned as Generation". I want your input on this. In general I think we've been saying generate, but the action is generation so it's a little awkward in some cases. Appreciate your input.**)
 
 ## Integration Overview: High-Level Steps
 

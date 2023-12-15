@@ -26,7 +26,7 @@ If you're using the integration environment as well as the production environmen
 
 ## API Key and Client Secret
 
-If you're using a server-side implementation, the API key and client secret allow you to connect to the [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) and call API endpoints. These values identify you to the service.
+If you're using a server-side implementation (see [Prebid.js Server-Side Integration](../guides/integration-prebid-server-side.md) or [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md)), the API key and client secret allow you to connect to the [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) and call API endpoints. These values identify you to the service.
 
 Here is some information about API keys and client secrets:
 - One UID2 participant can have multiple keys.
@@ -50,7 +50,7 @@ It's best to refresh your API key and client secret on a regular cadence&#8212;f
 
 ## Subscription ID and Public Key
 
-If you're using a client-side implementation, you'll receive the following credentials:
+If you're using a client-side implementation (see [Prebid.js Client-Side Integration](../guides/integration-prebid-client-side.md) or [JavaScript Express Integration Guide](../guides/publisher-client-side.md)), you'll receive the following credentials:
 - **Subscription ID**: This value identifies your site to the UID2 service.
 - **Public key**: This value is used for encryption.
 

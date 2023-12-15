@@ -34,10 +34,6 @@ This implementation requires Prebid.js version 8.21.0 or later. For version info
 
 If you need to use an earlier version of Prebid.js, use the implementation solution presented in [Prebid.js Server-Side Integration](integration-prebid-server-side.md) instead.
 
-## Module Storage
-<!-- GWH Module Storage section is the same for client side and server-side. -->
-By default, the UID2 module stores data using local storage. To use a cookie instead, set `params.storage` to `cookie`. For details, see [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration).
-
 ## Integration Example
 
 An example of the UID2 Prebid.js client-side integration is available at the following links:
