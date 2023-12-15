@@ -33,6 +33,7 @@ The following resources are available for publisher web integrations.
 
 | Integration Guide | Content Description |
 | :--- | :--- |
+| [Prebid.js Integration Overview](integration-prebid.md) | An overview of integration options for publishers who want to integrate with UID2 and generate UID2 tokens to be passed by Prebid.js in the RTB bid stream. |
 | [Prebid.js Client-Side Integration](integration-prebid-client-side.md) | An integration guide for publishers who want to integrate with UID2 and Prebid.js will manage token generation and refresh automatically as well as passing the tokens into the RTB bid stream. This guide is for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach. |
 | [JavaScript Express Integration Guide](publisher-client-side.md) | An integration guide for publishers who wants to integrate with UID2 using client-side only JavaScript changes with the easiest implementation approach. UID2 SDK for JavaScript will manage token generation and refresh automatically. |
 | [Prebid.js Server-Side Integration](../guides/integration-prebid-server-side.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. This guide is for publishers who are using a private operator or who want to generate tokens server-side. |
@@ -55,6 +56,7 @@ The following resources are available for publisher web integrations.
 
 | Integration Guide | Content Description |
 | :--- | :--- |
+| [Prebid.js Integration Overview](integration-prebid.md) | An overview of integration options for publishers who want to integrate with UID2 and generate UID2 tokens to be passed by Prebid.js in the RTB bid stream. |
 | [Prebid.js Client-Side Integration](integration-prebid-client-side.md) | An integration guide for publishers who want to integrate with UID2 and Prebid.js will manage token generation and refresh automatically as well as passing the tokens into the RTB bid stream. This guide is for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach. |
 | [Prebid.js Server-Side Integration](../guides/integration-prebid-server-side.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. This guide is for publishers who are using a private operator or who want to generate tokens server-side. |
 
