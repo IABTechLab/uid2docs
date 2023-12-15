@@ -130,7 +130,7 @@ Before using the code example, check the prerequisites and notes for the languag
 <Tabs groupId="language-selection">
 <TabItem value='py' label='Python'>
 
-The Python code example for encrypting requests and decrypting responses is `uid2_request.py`. The required parameters are shown at the top of the code example, or by running `python3 uid2_request.py`.
+The following code example encrypts requests and decrypts responses using Python. The required parameters are shown at the top of the code example, or by running `python3 uid2_request.py`.
 
 The Python code requires the `pycryptodomex` and `requests` packages. You can install these as follows:
 
@@ -142,8 +142,7 @@ pip install requests
 </TabItem>
 <TabItem value='java' label='Java'>
 
---------------------------------------------------------
-The Java code example for encrypting requests and decrypting responses is Uid2Request.java. The required parameters are shown at the top of the main function, or by building and running the following:
+The following code example encrypts requests and decrypts responses using Java. The required parameters are shown at the top of the main function, or by building and running the following:
 
 ```
 java -jar Uid2Request-1.0-jar-with-dependencies.jar
@@ -204,7 +203,7 @@ If you are using Maven, you can use the following minimal `pom.xml`, and run `mv
 </TabItem>
 <TabItem value='cs' label='C#'>
 
-The C# code example for encrypting requests and decrypting responses is `uid2_request.cs`. The required parameters are shown at the top of the file, or by building and running `.\uid2_request`.
+The following code example encrypts requests and decrypts responses using C#. The required parameters are shown at the top of the file, or by building and running `.\uid2_request`.
 
 This file requires .NET 7.0. You can use an earlier version if required, but it must be .NET Core 3.0 or later. To change the version, replace the [top-level statements](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/program-structure/top-level-statements) with a Main method and the [using declarations](https://learn.microsoft.com/en-us/cpp/cpp/using-declaration?view=msvc-170) with [using statements](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-8.0/using).
 </TabItem>
