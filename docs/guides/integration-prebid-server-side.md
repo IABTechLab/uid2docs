@@ -1,13 +1,13 @@
 ---
-title: Prebid.js Server-Side Integration
+title: Prebid.js Server-Side Integration Guide
 sidebar_label: Prebid.js Server-Side Integration
-pagination_label: Prebid.js Server-Side Integration
+pagination_label: Prebid.js Server-Side Integration Guide
 description: Information about setting up a server-side Prebid.js integration.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-# Prebid.js Server-Side Integration
+# Prebid.js Server-Side Integration Guide
 <!-- 
 This guide includes the following information:
 
@@ -351,11 +351,11 @@ In this table, CR = client refresh mode, SO = server-only mode, and N/A = not ap
 
 | Param under userSync.userIds[] | Mode/Scope | Type | Description | Example |
 | --- | --- | --- | --- | --- |
-| name | CR: N/A<br/>SO:&nbsp;Required | String | ID value for the UID2 module. Always `"uid2"`. | `"uid2"` |
+| name | CR: Required<br/>SO:&nbsp;Required | String | ID value for the UID2 module. Always `"uid2"`. | `"uid2"` |
 | value | CR: N/A<br/>SO: Optional | Object | An object containing the value for the advertising token. | See [Configuration Parameter Examples: Value](#configuration-parameter-examples-value). |
 | params.uid2Token | CR: Optional<br/>SO: N/A | Object | The initial UID2 token. This should be the `body` element of the decrypted response from a call to the `/token/generate` or `/token/refresh` endpoint. | See [Sample Token](#sample-token). |
 | params.uid2Cookie | CR: Optional<br/>SO: N/A  | String | The name of a cookie that holds the initial UID2 token, set by the server. The cookie should contain JSON in the same format as the uid2Token param. **If uid2Token is supplied, this param is ignored.** | See [Sample Token](#sample-token). |
-| params.uid2ApiBase | CR: Optional<br/>SO: N/A | String | Overrides the default UID2 API endpoint. | `"https://prod.uidapi.com"` (the default)|
+| params.uid2ApiBase | CR: Optional<br/>SO: Optional | String | Overrides the default UID2 API endpoint. For valid values, see [Environments](../getting-started/gs-environments.md). | `"https://prod.uidapi.com"` (the default)|
 | params.storage | CR: Optional<br/>SO: N/A | String | Specify the module internal storage method: `cookie` or `localStorage`. We recommend that you do not provide this parameter. Instead, allow the module to use the default. (**GWH_LP: comment from SW: "probably need @lionell-pack-ttd to confirm if params.storage is really Only Optional for client-refresh mode and it's not even optional for server-only mode?"**) | `localStorage` (the default) |
 
 ### Configuration Parameter Examples: Value

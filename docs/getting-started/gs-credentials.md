@@ -12,7 +12,7 @@ Each UID2 <a href="/docs/intro#participants">participant</a> gets a set of uniqu
 | Audience | Credentials | Integration |
 | :--- | :--- | :--- |
 | Participants using a server-side endpoint  | Both of the following:<ul><li>[API key](../ref-info/glossary-uid.md#gl-api-key), also called a client key</li><li>[Client secret](../ref-info/glossary-uid.md#gl-client-secret), a value known only to the participant and the UID2 service</li></ul> | Any integration using one of these endpoints: <ul><li>[POST /identity/map](../endpoints/post-identity-map.md)</li><li>[POST /identity/buckets](../endpoints/post-identity-buckets.md)</li><li>[POST /token/generate](../endpoints/post-token-generate.md)</li></ul> |
-| Participants using a client-side implementation  | Both of the following: <ul><li>Subscription ID</li><li>Public key</li></ul> | Integrations using one of these: <ul><li>[Prebid.js Express Integration Guide](../guides/integration-prebid.md)</li><li>[JavaScript Express Integration Guide](../guides/publisher-client-side.md)</li></ul> |
+| Participants using a client-side implementation  | Both of the following: <ul><li>Subscription ID</li><li>Public key</li></ul> | Integrations using one of these: <ul><li>[Prebid.js Client-Side Integration Guide](../guides/integration-prebid-client-side.md)</li><li>[JavaScript Express Integration Guide](../guides/publisher-client-side.md)</li></ul> |
 
 If you're using the integration environment as well as the production environment, you'll get a separate set of credentials for each environment.
 
@@ -50,7 +50,7 @@ It's best to refresh your API key and client secret on a regular cadence&#8212;f
 
 ## Subscription ID and Public Key
 
-If you're using a client-side implementation (see [Prebid.js Client-Side Integration](../guides/integration-prebid-client-side.md) or [JavaScript Express Integration Guide](../guides/publisher-client-side.md)), you'll receive the following credentials:
+If you're using a client-side implementation (see [Prebid.js Client-Side Integration Guide](../guides/integration-prebid-client-side.md) or [JavaScript Express Integration Guide](../guides/publisher-client-side.md)), you'll receive the following credentials:
 - **Subscription ID**: This value identifies your site to the UID2 service.
 - **Public key**: This value is used for encryption.
 

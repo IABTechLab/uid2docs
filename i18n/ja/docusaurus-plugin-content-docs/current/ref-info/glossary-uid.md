@@ -117,6 +117,9 @@ sidebar_position: 10
 各 UID2 <a href="/docs/intro#participants">参加者</a>は、API Key (クライアントキー)と、そのキーに関連付けられた秘密値 (Client secret (API シークレット))を持っています。Client secretは、参加者と UID2 Service だけが知っています。</dd>
 <dd>詳細については、<a href="/docs/getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
 
+<dt class="jump-anchor" id="gl-cstg">Client-side token generate (CSTG)</dt>
+<dd>In a publisher implementation of UID2, client-side token generate means that the request for the UID2 token is generated on the client side/from the front end, which can be done from the user's browser.</dd>
+
 <dt class="jump-anchor" id="gl-closed-operator">Closed Operator</dt>
 <dd>Closed Operator は <a href="#gl-private-operator">Private Operator</a> の別名です。</dd>
 
@@ -232,6 +235,9 @@ Google Ad Managerの機能。セキュアシグナル機能 (旧称: Encrypted S
 詳しくは、<a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a> (2番目のセクション)と <a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a> (いずれもGoogle)を参照してください。</dd>
 <dd>
 Google Secure signals の UID2 サポートの詳細については、<a href="../guides/google-ss-integration">Google Ad Manager Secure Signals Integration Guide</a> を参照してください。</dd>
+
+<dt class="jump-anchor" id="gl-sstg">Server-side token generate (SSTG)</dt>
+<dd>In a publisher implementation of UID2, server-side token generate means that the request for the UID2 token is generated from the publisher, data provider, or CDP back-end server.</dd>
 
 <dt class="jump-anchor" id="gl-sha-256">SHA-256</dt>
 <dd>SHA-256 は、UID2 が使用する安全なハッシュアルゴリズムです。</dd>

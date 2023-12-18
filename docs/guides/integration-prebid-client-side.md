@@ -1,13 +1,13 @@
 ---
-title: Prebid.js Client-Side Integration
+title: Prebid.js Client-Side Integration Guide
 sidebar_label: Prebid.js Client-Side Integration
-pagination_label: Prebid.js Client-Side Integration
+pagination_label: Prebid.js Client-Side Integration Guide
 description: Information about setting up a client-side Prebid.js integration.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-# Prebid.js Client-Side Integration
+# Prebid.js Client-Side Integration Guide
 
 This guide is for publishers who have access to [DII](../ref-info/glossary-uid.md#gl-dii) (email address or phone number) on the client side and want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bid stream.
 
@@ -32,14 +32,14 @@ This guide includes the following information:
 
 This implementation requires Prebid.js version 8.21.0 or later. For version information, see [https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases).
 
-If you need to use an earlier version of Prebid.js, use the implementation solution presented in [Prebid.js Server-Side Integration](integration-prebid-server-side.md) instead.
+If you need to use an earlier version of Prebid.js, use the implementation solution presented in the [Prebid.js Server-Side Integration Guide](integration-prebid-server-side.md) instead.
 
 ## Integration Example
 
 An example of the UID2 Prebid.js client-side integration is available at the following links:
 
 - Code: [Example Prebid.js UID2 Integration](https://github.com/IABTechLab/uid2docs/tree/main/static/examples/cstg-prebid-example)
-- Running site: [UID2 Prebid.js Express Integration Example](https://unifiedid.com/examples/cstg-prebid-example/) <!-- (**GWH_SW_09 for later: we'll need to be sure the integration example is updated. It links to the Express doc.**) -->
+- Running site: [UID2 Prebid.js Client-Side Integration Example](https://unifiedid.com/examples/cstg-prebid-example/)
 
 ## Integration Overview: High-Level Steps
 

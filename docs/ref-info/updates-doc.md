@@ -51,14 +51,10 @@ The Prebid.js Express Integration Guide is a completely new document at the exis
 
 The content that was in the previous version of the Prebid document is now in a supplementary document, *Prebid.js Advanced Integration Guide*, for publishers who are using a private operator or who prefer to implement token generate on the server side.
 
-<!-- For details, see:
-- [Prebid.js Express Integration Guide](../guides/integration-prebid.md)
-- [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md) -->
-
-NOTE: These documents were further updated in later revisions. Updated links are as follows:
-- [Prebid.js Express Integration Overview](../guides/integration-prebid.md)
-- [Prebid.js Client-Side Integration](../guides/integration-prebid-client-side.md)
-- [Prebid.js Server-Side Integration](../guides/integration-prebid-server-side.md)
+NOTE: These documents were further updated in later revisions. The Prebid.js Express Integration Guide is now the Prebid.js Client-Side Integration Guide. Updated links are as follows:
+- [Prebid.js Integration Overview](../guides/integration-prebid.md)
+- [Prebid.js Client-Side Integration Guide](../guides/integration-prebid-client-side.md)
+- [Prebid.js Server-Side Integration Guide](../guides/integration-prebid-server-side.md)
 
 ### New: Opt-Out
 
