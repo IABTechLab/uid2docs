@@ -110,7 +110,7 @@ UID2 共有者は、以下の例に示すように、2段階のプロセスを�
 </tr>
 <tr>
 <td>K2jlbu2ldlpKL1z6n5bET7L3<br/>g0xfqmldZPDdPTktdRQ=</td>
-<td>raw UID2 を暗号化して UID2 Token を作成します:<br/>encrypt() 関数を使用します。たとえば Java の場合は、<a href="../sdks/uid2-sdk-ref-java#usage-for-uid2-sharers">Usage for UID2 Sharers</a> の step3 を参照してください。</td>
+<td>raw UID2 を暗号化して UID2 Token を作成します:<br/>encrypt() 関数を使用します。例えば Java の場合は、<a href="../sdks/uid2-sdk-ref-java#usage-for-uid2-sharers">Usage for UID2 Sharers</a> の step3 を参照してください。</td>
 <td style={{
   wordBreak: "break-all"
 }}>KlKKKfE66A7xBnL/DsT1UV/Q+V/r3xwKL89Wp7hpNllxmNkPaF8vdzenDvfoatn6sSXbFf5DfW9wwbdDwMnnOVpPxojkb8KYSGUte/FLSHtg4CLKMX52UPRV7H9UbWYvXgXC4PaVrGp/Jl5zaxPIDbAW0chULHxS+3zQCiiwHbIHshM+oJ==</td>

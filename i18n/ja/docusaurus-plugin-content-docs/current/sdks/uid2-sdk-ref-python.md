@@ -28,7 +28,7 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 
 ## Functionality
 
-この SDK は、サーバーサイドのコーディングに Python を使用している DSP または UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
+この SDK は、Server-Sideのコーディングに Python を使用している DSP または UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
@@ -175,7 +175,7 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
 
 ### Standard Integration
 
-標準のインテグレーション (クライアントとサーバー)を使用している場合 ([JavaScript Express Integration Guide](../guides/publisher-client-side.md) を参照し)、この手順に従ってください:
+標準のインテグレーション (クライアントとサーバー)を使用している場合 ([[JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照し)、この手順に従ってください:
 
 * この identity を以下のように JSON 文字列としてクライアントに送り返します ([identity field](../sdks/client-side-identity.md#initopts-object-void) で使用するため):
 

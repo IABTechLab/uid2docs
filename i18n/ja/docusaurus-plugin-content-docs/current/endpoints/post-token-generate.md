@@ -19,14 +19,15 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 このエンドポイントリクエストについて知っておくべきことは、以下のとおりです:
 
-- サービスにアクセスする際に使用する API キーを秘密にするため、 UID2 Token は認証後にサーバーサイドでのみ生成する必要があります。
+- サービスにアクセスする際に使用する API キーを秘密にするため、 UID2 Token は認証後に Server-Side でのみ生成する必要があります。
 - すべてのリクエストを秘密鍵で暗号化する必要があります。詳細と Python スクリプトの例は、 [リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ### Path Parameters
 
-| Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                   |
-| :-------------- | :-------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../summary-doc-v2.md#environments) を参照してください。 |
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string | 必須 | テスト (integration) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>地域オペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください<br/>Notes:<ul><li>`integ` 環境と `prod` 環境では、異なる [API keys](../ref-info/glossary-uid.md#gl-api-key)　が必要です。</li><li>トークンの有効期限は変更される可能性がありますが、`integ` 環境では常に `prod` 環境よりも大幅に短くなります。</li></ul> |
+
 
 NOTE: インテグレーション環境と本番環境では、異なる [APIキー](../ref-info/glossary-uid.md#gl-api-key) が必要です。
 
@@ -44,7 +45,7 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 
 ### Request Examples
 
-> IMPORTANT: サービスにアクセスするために使用される API キーを確実に秘密にするために、API キーを使用する必要のない [POST /token/refresh](post-token-refresh.md) と異なり、`POST /token/generate` エンドポイントをサーバーサイドから呼び出す必要があります。
+> IMPORTANT: サービスにアクセスするために使用される API キーを確実に秘密にするために、API キーを使用する必要のない [POST /token/refresh](post-token-refresh.md) と異なり、`POST /token/generate` エンドポイントを Server-Side から呼び出す必要があります。
 
 以下は、各パラメータの暗号化されていない JSON リクエストボディの例で、このうちの 1 つはトークン生成リクエストに含める必要があります:
 

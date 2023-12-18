@@ -32,7 +32,7 @@ sidebar_position: 02
 
 UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスを容易にするために、このガイドで提供する Web インテグレーション手順は、JavaScript 用の UID2 SDK に依存しています。このガイドで説明するインテグレーション手順と SDK の使用方法(現在はメールアドレスのみ)を示す [example application](https://example-jssdk-integ.uidapi.com/) を以下に示します。アプリケーションのドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) を参照してください。
 
->IMPORTANT: SDKは現在、first-party cookie にトークンを保存します。このような実装の詳細は将来変更される可能性があります。潜在的な問題を回避するため、ID 管理には [Client-Side JavaScript SDK](../sdks/client-side-identity.md#api-reference) に依存するようにしてください。
+>IMPORTANT: SDKは現在、ファーストパーティ Cookie にトークンを保存します。このような実装の詳細は将来変更される可能性があります。潜在的な問題を回避するため、ID 管理には [Client-Side JavaScript SDK](../sdks/client-side-identity.md#api-reference) に依存するようにしてください。
 
 UID2 SDK for JavaScript を使用しないパブリッシャー向けのインテグレーションシナリオについては、[Publisher Integration Guide, Server-Only](custom-publisher-integration.md) を参照してください。
 
@@ -53,7 +53,7 @@ UID2 SDK for JavaScript を使用しないパブリッシャー向けのイン�
 
 ### Establish Identity: User Login
 
-Step 1-c で認証を行い、ユーザーに利用規約を受け入れてもらい、パブリッシャーがメールアドレスや電話番号を認証した後、サーバーサイドで UID2 Token を生成する必要があります。次の表は、トークン生成ステップの詳細です。
+Step 1-c で認証を行い、ユーザーに利用規約を受け入れてもらい、パブリッシャーがメールアドレスや電話番号を認証した後、Server-Side で UID2 Token を生成する必要があります。次の表は、トークン生成ステップの詳細です。
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
@@ -88,7 +88,7 @@ Step 1-c で認証を行い、ユーザーに利用規約を受け入れても�
 </script>
 ```
 
-SDK は、指定された [callback function](../sdks/client-side-identity.md#callback-function) (ID の可用性を示す) を呼び出し、確立された ID をクライアントサイドで入札可能な状態にします。
+SDK は、指定された [callback function](../sdks/client-side-identity.md#callback-function) (ID の可用性を示す) を呼び出し、確立された ID をClient-Side で入札可能な状態にします。
 
 ### Bid Using UID2 Tokens
 
