@@ -19,7 +19,7 @@ This guide includes the following information:
 - [Configure the UID2 Module](#configure-the-uid2-module)
   - [Generating a UID2 Token on the Server](#generating-a-uid2-token-on-the-server)
   - [Client Refresh Mode](#client-refresh-mode)
-    - [Client Refresh Mode Response Storage Options](#client-refresh-mode-response-storage-options)
+    - [Client Refresh Mode Response Configuration Options](#client-refresh-mode-response-configuration-options)
     - [Client Refresh Mode Cookie Example](#client-refresh-mode-cookie-example)
     - [Configuration](#configuration)
     - [Client Refresh Mode uid2Token Example](#client-refresh-mode-uid2token-example)
@@ -121,19 +121,19 @@ For an example, see [Sample Token](#sample-token).
 As long as the refresh token remains valid, the UID2 Prebid module refreshes the UID2 token as needed.
 
 This section includes the following information:
-- [Client Refresh Mode Response Storage Options](#client-refresh-mode-response-storage-options)
+- [Client Refresh Mode Response Configuration Options](#client-refresh-mode-response-configuration-options)
 - [Client Refresh Mode Cookie Example](#client-refresh-mode-cookie-example)
 - [Client Refresh Mode uid2Token Example](#client-refresh-mode-uid2token-example)
 - [Passing a New Token: Client Refresh Mode](#passing-a-new-token-client-refresh-mode)
 
-#### Client Refresh Mode Response Storage Options
+#### Client Refresh Mode Response Configuration Options
 
-When you configure the module to use Client Refresh mode, you must choose **one** of the following options for storing the API response information.
+When you configure the module to use Client Refresh mode, you must choose **one** of the following options for providing the token to the Prebid module.
 
 | Option | Details | Use Case | 
 | --- | --- | --- |
-| Set `params.uid2Cookie` to the name of the cookie that contains the response body as a JSON string. | See [Client Refresh Cookie Example](#client-refresh-cookie-example). | Use this option only when there is enough space left in your cookie to store the response body. (**GWH_LP01 do we need to address how user will know if there is space in the cookie?**) (**also GWH_LP02 SW's question "is this optional even for when using local storage (i.e. not using cookie)?"**|
-| Set `params.uid2Token` to the response body as a JavaScript object. | See [Client Refresh uid2Token Example](#client-refresh-uid2token-example). | You might choose to provide the response body via `params.uid2Token` in either of these cases:<ul><li>If storing the response body on the cookie will exceed the cookie size limit.</li><li>If you prefer to have the flexibility to manage the storage of the response body yourself.</li></ul> |
+| Set `params.uid2Cookie` to the name of the cookie that contains the response body as a JSON string. | See [Client Refresh Cookie Example](#client-refresh-cookie-example). | Use this option only if you're sure that there is enough space left in your cookie to store the response body. If you're not sure, or the cookie storage needs might vary, choose the other option. |
+| Set `params.uid2Token` to the response body as a JavaScript object. | See [Client Refresh uid2Token Example](#client-refresh-uid2token-example). | You might choose to provide the response body via `params.uid2Token` in either of these cases:<ul><li>If you are already storing a lot of data in the cookie and adding the response body might exceed the cookie size limit.</li><li>If you prefer to have the the Prebid module store the token value for you.</li></ul> |
 
 #### Client Refresh Mode Cookie Example
 
@@ -256,19 +256,11 @@ If needed, to determine if you need to provide a new token, see [Determining Whe
 
 In planning your Prebid implementation, consider the following:
 
-(**GWH_LP first two bullet points are a) original copy, which we need to simplify, b) my proposed rewrite. Any suggestions welcome.**)
-
-- (**ORIGINAL**): If you provide an expired identity, and the module has a valid identity which was refreshed from the identity you provide, the module uses the refreshed identity. The module stores the original token that it used for refreshing the token and uses the refreshed tokens as long as the original token matches the token that you provided. 
-
-- (**PROPOSED REVISION FROM GWH**): The module stores the original token provided to it, refreshes it as needed, and uses the refreshed token. If you provide an expired identity, and the module has a valid update from refreshing the same identity, the module uses the refreshed identity in place of the expired one you provided.
-
-   **ALSO SW suggests removing this bullet point altogether and said check with you (LP) (GWH)**.
+- The module stores the original token provided to it, refreshes it as needed, and uses the refreshed token. If you provide an expired identity, and the module has a valid update from refreshing the same identity, the module uses the refreshed identity in place of the expired one you provided.
 
 - If you provide a new token that doesn't match the original token used to generate any refreshed tokens, the module discards all stored tokens and uses the new token instead, and keeps it refreshed.
 
 - During integration testing, set `params.uid2ApiBase` to `"https://operator-integ.uidapi.com"`. You must set this value to the same environment (production or integration) that you use for generating tokens.
-
-- For an example of what a UID2 token might look like in the bid stream, when it's sent from an SSP to a DSP, see [What does a UID2 token look like in the bid stream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bid-stream) (**GWH_SW_LP_ Should this come out, per Andrei's comment?**)
 
 ## Storing the UID2 Token in the Browser
 <!-- GWH same section in integration-prebid.md, integration-prebid-client-side.md, and integration-prebid-client-side.md. Ensure consistency -->
@@ -354,9 +346,9 @@ In this table, CR = client refresh mode, SO = server-only mode, and N/A = not ap
 | name | CR: Required<br/>SO:&nbsp;Required | String | ID value for the UID2 module. Always `"uid2"`. | `"uid2"` |
 | value | CR: N/A<br/>SO: Optional | Object | An object containing the value for the advertising token. | See [Configuration Parameter Examples: Value](#configuration-parameter-examples-value). |
 | params.uid2Token | CR: Optional<br/>SO: N/A | Object | The initial UID2 token. This should be the `body` element of the decrypted response from a call to the `/token/generate` or `/token/refresh` endpoint. | See [Sample Token](#sample-token). |
-| params.uid2Cookie | CR: Optional<br/>SO: N/A  | String | The name of a cookie that holds the initial UID2 token, set by the server. The cookie should contain JSON in the same format as the uid2Token param. **If uid2Token is supplied, this param is ignored.** | See [Sample Token](#sample-token). |
+| params.uid2Cookie | CR: Optional<br/>SO: N/A  | String | The name of a cookie that holds the initial UID2 token, set by the server. The cookie should contain JSON in the same format as the uid2Token param. If `uid2Token` is supplied, this parameter is ignored. | See [Sample Token](#sample-token). |
 | params.uid2ApiBase | CR: Optional<br/>SO: Optional | String | Overrides the default UID2 API endpoint. For valid values, see [Environments](../getting-started/gs-environments.md). | `"https://prod.uidapi.com"` (the default)|
-| params.storage | CR: Optional<br/>SO: N/A | String | Specify the module internal storage method: `cookie` or `localStorage`. We recommend that you do not provide this parameter. Instead, allow the module to use the default. (**GWH_LP: comment from SW: "probably need @lionell-pack-ttd to confirm if params.storage is really Only Optional for client-refresh mode and it's not even optional for server-only mode?"**) | `localStorage` (the default) |
+| params.storage | CR: Optional<br/>SO: Optional | String | Specify the module internal storage method: `cookie` or `localStorage`. We recommend that you do not provide this parameter. Instead, allow the module to use the default. | `localStorage` (the default) |
 
 ### Configuration Parameter Examples: Value
 

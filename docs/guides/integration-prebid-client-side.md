@@ -78,7 +78,7 @@ To configure the UID2 module, call `pbjs.setConfig` with an object containing th
 
 Once it's configured, the UID2 module generates a UID2 token for the user and stores it in the user's browser. The module automatically refreshes the token as needed as long as your site is open in the user's browser.
 
-You can configure the UID2 module to send any one of the four accepted DII formats, for any specific user:
+You can configure the UID2 module using any one of the four accepted DII formats, for any specific user:
 
 - Normalized or un-normalized email address
 - Normalized and hashed email address
