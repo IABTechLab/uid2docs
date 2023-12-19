@@ -5,9 +5,9 @@ hide_table_of_contents: false
 sidebar_position: 02
 ---
 
-# Publisher Options
+# Publisher Integration Options
 
-This page xxxxx
+As a publisher, there are several different ways you can integrate with UID2 to generate identity tokens to be passed into the RTB bid stream. 
 
 <!-- It includes:
 
@@ -16,37 +16,38 @@ This page xxxxx
 * [xxx](#xxx)
  -->
 
-## xxx
+The integration option that's right for you depends on a number of factors&#8212;for example:
+- Do you want a client-side integration or a server-side integration?
+- Do you use Prebid? If yes:
+  - Are you constrained to a specific Prebid version?
+  - Do you want the UID2 Prebid module to do everything&#8212;generate the token, refresh the token, and pass the token into the bid stream?
+  - Do you prefer to use the UID2 SDK for JavaScript to generate and refresh the token, and use Prebid to pass the token into the bid stream?
 
-xxx
+## Client-Side or Server-Side Integration?
 
-## xxxx
+There are two main integration channels&#8212;choose whether you want the UID2 token generate request to be initiated on the client side or the server side. Each option has different advantages, as follows:
 
-xxx
+- Client-side integration advantages:
+  - There is a Prebid integration that handles all functions for you&#8212;token generate, token refresh, and passing the token into the bid stream. As long as you can use Prebid 8.21.0 or later (see [Integration Using Prebid](#integration-using-prebid)), this is the simplest and easiest implementation option.
 
+    If you choose this option, you'll need to provide a list of your top-level domains, for security purposes, as part of account setup. For details, see [Account Setup Details](../getting-started/gs-account-setup.md#account-setup-details).
 
-## xxxxxx
+  - No need for any server-side code modifications. This can be useful, for example, if server-side code is managed by a provider.
 
-CONVERSATION WITH KIMBERLY:
+- Server-side integration advantages:
+  - With a server-side integration, you can manage latency by using the nearest UID2 environment. For details, see [Environments](../getting-started/gs-environments.md). (**GWH_ get review by AT for this doc especially this part per KT**)
 
-CSTG would be one route. Basically, what we want here is a pro and con list of why you would do CSTG versus not.
-I can tell you what the pros are right now.
-For client-side token generate, the pros are going to be: If you’re integrating client-side, we have a Prebid integration that handles the entire UID2 integration from a pub level.
-And then… the con of that would then be:
-•	You have to update to the latest Prebid version if you’re using Prebid to generate UID2s, 
-•	and you need to keep an updated list of top level domains.
-Kimberly: So then, for server-side the pros are… but can we also say you need to update the latest Prebid version and then just say in parentheses, if you're using Prebid to generate UID2s.
-Kimberly: And then say, you can use the JavaScript SDK.
-Kimberly: So server side pros are, you manage latency. I don't know if latency is the right word. Please get this approved by Andrei. And then what are the cons? No need for updating the top level domain.
-Kimberly: and then, cons are, it's server side… what? That might not be a con. I feel like we need to –
-More, considerations.
-It's server side. Manage latency. And no need to update to any versions. Well… you do not need to update to the latest Prebid.
-Kimberly: I don't know if we really need a table of it. But maybe like considerations of each route. And then we could say, like fully… You know what I mean. Cons is a little bit not so great.
-Gen: Yeah. We don't want to present anything negatively. But… how can I say.. you know, have you seen Sunny's draft table? I feel like this ties into Sunny's table. Somehow or other, I think we need to present the potential paths and the considerations which would determine which path the publisher would choose. It could be even, if you don't want to upgrade to the latest Prebid you choose this, if you’re not using Prebid you choose this, or this, or whatever. There's different ways of doing it, I suppose.
-Kimberly: That's it for right now.
-Gen: So I just want, I just want to say, like, I feel like rather than a CSTG page, it's gonna be a publisher options.
-Kimberly: Publisher Options page, yes.
+  - For server-side Prebid integration, there is no requirement to update to the latest Prebid version. If you're using Prebid, and have a constraint with regard to version, choose server-side integration.
 
+(**GWH_KT you said "say, you can use the JavaScript SDK." but not sure where that fits in, sorry.**)
 
+## Integration Using Prebid
 
+If you want to integrate using Prebid, here are some additional questions you'll need to answer to determine the best integration approach, and some steps to take:
 
+- What Prebid version are you using?
+  - If you're using Prebid 8.21.0 or later, you can use the client-side Prebid integration option, which is the simplest and easiest implementation approach.
+  - If you're using a version prior to 8.21.0 (7.53.0 or later), and can't easily upgrade, you'll choose a server-side option.
+- Domain names:
+  - As part of account setup, if you're using the Prebid client-side option, you'll need to provide a list of your top-level domains.
+- Are you already using the UID2 JavaScript SDK to generate and refresh the token? If so, you can continue to use the Prebid server-side implementation. (**GWH_KT not sure which exactly and need to link here.**)

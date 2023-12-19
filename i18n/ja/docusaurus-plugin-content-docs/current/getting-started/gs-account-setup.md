@@ -12,7 +12,7 @@ sidebar_position: 02
 <!-- It includes:
 
 * [Contact Info](#contact-info)
-* [Account Setup](#account-setup)
+* [Account Setup](#account-setup-details)
 * [API Versions](#api-versions)
  -->
 
@@ -31,7 +31,7 @@ The Trade Desk のアクセス依頼は一時的なものです。システム�
 | アプリ開発者<br/>パブリッシャー                                  | UID2publishers@thetradedesk.com |
 | 代理店<br/>ブランド<br/>CDP<br/>データプロバイダー<br/>DSP<br/>SSP | UID2partners@thetradedesk.com   |
 
-## Account Setup
+## Account Setup Details
 
 UID2 に興味を示していただいたら、詳細を詰めるために担当者からご連絡を差し上げます。
 

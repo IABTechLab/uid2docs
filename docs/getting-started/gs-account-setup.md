@@ -12,7 +12,8 @@ This page provides general information required for you to get your account set 
 <!-- It includes:
 
 * [Contact Info](#contact-info)
-* [Account Setup](#account-setup)
+* [Account Setup](#account-setup-details)
+* [Credentials](#credentials)
 * [API Versions](#api-versions)
  -->
 ## Contact Info
@@ -30,15 +31,23 @@ Contacting The Trade Desk for access is temporary. When the system is moved to i
 | Publisher, App Developer | [UID2publishers@thetradedesk.com](mailto:UID2publishers@thetradedesk.com) |
 | Agency, Brand, DSP, SSP, CDP, Data Provider | [UID2partners@thetradedesk.com](mailto:UID2partners@thetradedesk.com) |
 
-## Account Setup
+## Account Setup Details
 
 Once you've expressed interest in UID2, someone will contact you to help work out the details.
 
-You'll need to provide at least the following information:
+All participants will need to provide at least the following information:
 * Name
 * Email address
 * Company name
 * Name and contact information for an authorized individual who can sign the contract.
+
+If you're a publisher, and you determine that you want to implement UID2 on the client side, you'll also need to provide a list of domain names for the sites on which you'll be implementing UID2 on the client side. This is a security measure.
+
+:::tip
+Only root-level domains are required for account setup. For example, if you're going to implement UID2 on the client side on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
+:::
+
+## Credentials
 
 When you've signed a contract for participating in UID2, you'll be issued with [UID2 credentials](gs-credentials.md) and other information for getting up and running with UID2.
 
