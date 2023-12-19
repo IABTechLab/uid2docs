@@ -94,6 +94,7 @@ const sidebars = {
           collapsed: true,
 
           items: [
+            'guides/integration-options-publishers',  
           {
             type: 'category',
             label: 'Web',
