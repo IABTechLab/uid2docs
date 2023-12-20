@@ -51,9 +51,10 @@ Prebid.js Express Integration Guide は、既存の URL にまったく新しい
 
 前バージョンの Prebid ドキュメントにあった内容は、Private Operator を使用しているパブリッシャーや、Server-Side でトークン生成を実装したいパブリッシャーのために、補足ドキュメントである *Prebid.js Advanced Integration Guide* に追加されました。
 
-詳細は、以下を参照してください:
-- [Prebid.js Express Integration Guide](../guides/integration-prebid.md)
-- [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md)
+NOTE: These documents were further updated in later revisions. The Prebid.js Express Integration Guide is now the UID2 Client-Side Integration Guide for Prebid.js. Updated links are as follows:
+- [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
+- [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
+- [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
 
 ### New: Opt-Out
 
@@ -190,4 +191,4 @@ UID2 アカウントを管理できる新しい UID2 Portal ユーザーイン�
 
 UID2 とインテグレーションし、RTB ビッドストリームで Prebid が渡す UID2 Token (Advertising Token) を生成したいパブリッシャー向けの新しいガイドです。
 
-詳細は [Prebid Integration Guide](../guides/integration-prebid.md) を参照してください。 -->
+詳細は [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md) を参照してください。 -->

@@ -68,8 +68,8 @@ If the user has opted out, the API response notifies you in either of these case
 #### Where should I make token generation calls&#8212;from the server side or the client side?
 
 You can generate UID2 tokens from either the client side or the server side. For more information, see:
-- Generating tokens from the client side using Prebid.js: [Prebid.js Express Integration Guide](../guides/integration-prebid.md).
-- Generating tokens from the server side using Prebid.js: [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md).
+- Generating tokens from the client side using Prebid.js: [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
+- Generating tokens from the server side using Prebid.js: [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md).
 - Other server-side options: [Publisher Integrations](../guides/summary-guides.md#publisher-integrations).
 
 #### Can I make token refresh calls from the client side?
@@ -109,7 +109,7 @@ The UID2 service encrypts UID2 tokens using random initialization vectors. The U
 
 There are many ways to approach UID2 implementation. Here is one example of a code snippet showing how a UID2 token is passed in the bid stream:
 
-```javascript
+```js
 {
   "user":{
     "ext":{
