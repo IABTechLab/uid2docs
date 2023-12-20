@@ -50,7 +50,7 @@ To integrate with UID2 using Prebid.js, you'll need to:
 This implementation requires Prebid.js version 7.53.0 or later. For version information, see [https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases).
 
 ## UID2 Prebid Module Page
-<!-- GWH TODO later: move to overview or to client side doc maybe when CSTG is added to the Prebid module pages. Now, they are only server side. -->
+<!-- GWH TODO later: move to overview or to client side doc maybe when client-side implementation is added to the Prebid module pages. Now, they are only server side. -->
 Information about how to integrate Prebid with UID2 is also in the following locations:
 - On the Prebid site, on the [Unified ID 2.0](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) page for the Prebid User ID submodule.
 - In the Prebid GitHub repository, on the [UID2 User ID Submodule](https://github.com/prebid/Prebid.js/blob/master/modules/uid2IdSystem.md) page.

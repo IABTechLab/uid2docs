@@ -49,8 +49,8 @@ Determine which method is best for you, and then follow the applicable integrati
 
 | Scenario | Integration Guide |
 | :--- | :--- |
-| You have access to DII on the client side and want to do front-end development only | [Prebid.js Client-Side Integration Guide](integration-prebid-client-side.md) |
-| You have access to DII on the server side and can do server-side development | [Prebid.js Server-Side Integration Guide](integration-prebid-server-side.md) |
+| You have access to DII on the client side and want to do front-end development only | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
+| You have access to DII on the server side and can do server-side development | [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md) |
 
 ## Refreshing the UID2 Token
 
@@ -83,8 +83,8 @@ The cookie size can be significant, which could be a problem. However, if local 
 
 To configure the UID2 module, call `pbjs.setConfig`. For details on supported parameters, refer to the guide that applies to your implementation:
 
-- [Prebid.js Client-Side Integration Guide](integration-prebid-client-side.md)
-- [Prebid.js Server-Side Integration Guide](integration-prebid-server-side.md)
+- [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
+- [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md)
 
 When the UID2 module is configured, it manages a UID2 token for the user and stores it in the user's browser. 
 
@@ -100,5 +100,5 @@ At a high level, to integrate your site with UID2 using Prebid.js, you'll need t
 
 For detailed instructions, refer to one of the following integration guides:
 
-- [Prebid.js Client-Side Integration Guide](integration-prebid-client-side.md)
-- [Prebid.js Server-Side Integration Guide](integration-prebid-server-side.md)
+- [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
+- [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md)
