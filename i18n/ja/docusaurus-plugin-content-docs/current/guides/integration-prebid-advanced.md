@@ -17,8 +17,8 @@ sidebar_position: 04
 - [UID2 User ID Submodule](#uid2-user-id-submodule)
 - [Client Refresh Mode](#client-refresh-mode)
   -  [Response Storage Options](#response-storage-options)
-  -  [Client Refresh Cookie Example](#client-refresh-cookie-example)
-  -  [Client Refresh uid2Token Example](#client-refresh-uid2token-example)
+  -  [Client Refresh Mode Cookie Example](#client-refresh-mode-cookie-example)
+  -  [Client Refresh Mode uid2Token Example](#client-refresh-mode-uid2token-example)
 - [Storage of Internal Values](#storage-of-internal-values)
 - [Sample Token](#sample-token)
 - [Prebid Implementation Notes and Tips](#prebid-implementation-notes-and-tips)
@@ -51,11 +51,11 @@ UID2 では、Server-Side で初期トークンを生成する必要がありま
 Client Refresh モードでは、UID2 [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントからの完全なレスポンスボディをモジュールに提供する必要があります。Refresh Token が有効である限り、モジュールは必要に応じて UID2 Token (Advertising Token) をリフレッシュします。
 
 Client Refresh モードを使用するようにモジュールを設定するには、以下の **どちらか** を実行する必要があります:
-- `params.uid2Cookie` に、レスポンスボディを JSON 文字列として含むクッキーの名前を設定します。[Client Refresh Cookie Example](#client-refresh-cookie-example) を参照してください。
+- `params.uid2Cookie` に、レスポンスボディを JSON 文字列として含むクッキーの名前を設定します。[Client Refresh Mode Cookie Example](#client-refresh-mode-cookie-example) を参照してください。
 
-- レスポンス本文に `params.uid2Token` を JavaScript オブジェクトとして設定します。[Client Refresh uid2Token Example](#client-refresh-uid2token-example) を参照してください。
+- レスポンス本文に `params.uid2Token` を JavaScript オブジェクトとして設定します。[Client Refresh Mode uid2Token Example](#client-refresh-mode-uid2token-example) を参照してください。
 
-### Client Refresh Cookie Example
+### Client Refresh Mode Cookie Example
 
 この例では、Cookie は `uid2_pub_cookie` です。
 
@@ -66,7 +66,7 @@ uid2_pub_cookie={"advertising_token":"...advertising token...","refresh_token":"
 
 #### Configuration
 
-```javascript
+```js
 pbjs.setConfig({
   userSync: {
     userIds: [{
@@ -79,11 +79,11 @@ pbjs.setConfig({
 });
 ```
 
-### Client Refresh uid2Token Example
+### Client Refresh Mode uid2Token Example
 
 次の例は、コンフィギュレーションのサンプルを示しています。トークンの内容については、[Sample Token](#sample-token) を参照してください。
 
-```javascript
+```js
 pbjs.setConfig({
   userSync: {
     userIds: [{
@@ -108,7 +108,7 @@ UID2 Prebid モジュールは、いくつかの内部値を保存します。�
 
 以下のサンプルは架空のものですが、トークンレスポンスオブジェクトがどのように見えるかを示しています:
 
-```javascript
+```js
 {
   "advertising_token": "...",
   "refresh_token": "...",

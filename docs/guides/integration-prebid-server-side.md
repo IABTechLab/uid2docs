@@ -132,8 +132,8 @@ When you configure the module to use Client Refresh mode, you must choose **one*
 
 | Option | Details | Use Case | 
 | --- | --- | --- |
-| Set `params.uid2Cookie` to the name of the cookie that contains the response body as a JSON string. | See [Client Refresh Cookie Example](#client-refresh-cookie-example). | Use this option only if you're sure that there is enough space left in your cookie to store the response body. If you're not sure, or the cookie storage needs might vary, choose the other option. |
-| Set `params.uid2Token` to the response body as a JavaScript object. | See [Client Refresh uid2Token Example](#client-refresh-uid2token-example). | You might choose to provide the response body via `params.uid2Token` in either of these cases:<ul><li>If you are already storing a lot of data in the cookie and adding the response body might exceed the cookie size limit.</li><li>If you prefer to have the the Prebid module store the token value for you.</li></ul> |
+| Set `params.uid2Cookie` to the name of the cookie that contains the response body as a JSON string. | See [Client Refresh Mode Cookie Example](#client-refresh-mode-cookie-example). | Use this option only if you're sure that there is enough space left in your cookie to store the response body. If you're not sure, or the cookie storage needs might vary, choose the other option. |
+| Set `params.uid2Token` to the response body as a JavaScript object. | See [Client Refresh Mode uid2Token Example](#client-refresh-mode-uid2token-example). | You might choose to provide the response body via `params.uid2Token` in either of these cases:<ul><li>If you are already storing a lot of data in the cookie and adding the response body might exceed the cookie size limit.</li><li>If you prefer to have the the Prebid module store the token value for you.</li></ul> |
 
 #### Client Refresh Mode Cookie Example
 
@@ -166,7 +166,7 @@ For an example of the token, see [Sample Token](#sample-token).
 
 The following example shows a sample configuration. For the contents of the token, see [Sample Token](#sample-token).
 
-```javascript
+```js
 pbjs.setConfig({
   userSync: {
     userIds: [{
@@ -197,8 +197,8 @@ To configure the module to use server-only mode, do **one** of the following:
 
 | Implementation Method | Link to Example |
 | --- | --- |
-| Set a cookie named `__uid2_advertising_token` and store the advertising token value in it. | [Server-Only Cookie Example](#server-only-cookie-example) |
-| Set `value` to an ID block containing the advertising token. | [Server-Only Value Example](#server-only-value-example) |
+| Set a cookie named `__uid2_advertising_token` and store the advertising token value in it. | [Server-Only Mode Cookie Example](#server-only-mode-cookie-example) |
+| Set `value` to an ID block containing the advertising token. | [Server-Only Mode Value Example](#server-only-mode-value-example) |
 
 This section includes the following information:
 - [Server-Only Mode Cookie Example](#server-only-mode-cookie-example)
@@ -211,13 +211,13 @@ The following example stores the advertising token value in a cookie named `__ui
 
 Cookie:
 
-```
+```js
 __uid2_advertising_token=...advertising token...
 ```
 
 Configuration:
 
-```
+```js
 pbjs.setConfig({
     userSync: {
         userIds: [{
@@ -231,7 +231,7 @@ pbjs.setConfig({
 
 The following example sets the `value` field to an ID block containing the advertising token without storing it in a cookie.
 
-```
+```js
 pbjs.setConfig({
     userSync: {
         userIds: [{
@@ -292,27 +292,24 @@ You can do a check to determine whether the Prebid.js module has a valid token o
 To do this, check the value returned by `pbjs.getUserIds().uid2`, as shown in the following example:
 
 ```js
-const params = {};
-
 if (!pbjs.getUserIds().uid2) {
   // There is no token that can be used or refreshed.
   // Configure the UID2 module with a new token
-}
-
-pbjs.setConfig({
-  userSync: {
-    userIds: [{
-      name: 'uid2',
-      params: {
-        uid2Token: {
-          'advertising_token': '...advertising token...',
-          'refresh_token': '...refresh token...',
-          // etc. - see the sample token for contents of this object
-        }
+  pbjs.setConfig({
+      userSync: {
+          userIds: [{
+              name: 'uid2',
+              params: {
+                  uid2Token: {
+                      'advertising_token': '...advertising token...',
+                      'refresh_token': '...refresh token...',
+                      // etc. - see the sample token for contents of this object
+                  }
+              }
+          }]
       }
-    }]
-  }
-});
+  });  
+}
 ```
 
 :::caution
@@ -390,7 +387,7 @@ By default, the UID2 module makes API calls to a UID2 server in the USA. Dependi
 
 To specify a different UID2 server when you're configuring the UID2 module, set the optional params.uid2ApiBase parameter, as shown in the following example:
 
-```
+```js
 pbjs.setConfig({ 
   userSync: { 
     userIds: [{ 

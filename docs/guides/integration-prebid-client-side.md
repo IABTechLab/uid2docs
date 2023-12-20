@@ -154,7 +154,7 @@ In some cases, the user's DII is not available on page load, and getting the DII
 
 If the UID2 token has expired and cannot be refreshed, you must configure the UID2 module with DII to generate a new token. To do this, check the value returned by `pbjs.getUserIds().uid2`, as shown in the following example:
 
-```
+```js
 const params = {}; 
  
 if (!pbjs.getUserIds().uid2) { 
@@ -201,7 +201,7 @@ By default, the UID2 module makes API calls to a UID2 server in the USA. Dependi
 
 To specify a different UID2 server when you're configuring the UID2 module, set the optional params.uid2ApiBase parameter, as shown in the following example:
 
-```
+```js
 pbjs.setConfig({ 
   userSync: { 
     userIds: [{ 

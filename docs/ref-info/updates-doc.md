@@ -52,7 +52,7 @@ The Prebid.js Express Integration Guide is a completely new document at the exis
 The content that was in the previous version of the Prebid document is now in a supplementary document, *Prebid.js Advanced Integration Guide*, for publishers who are using a private operator or who prefer to implement token generate on the server side.
 
 NOTE: These documents were further updated in later revisions. The Prebid.js Express Integration Guide is now the Prebid.js Client-Side Integration Guide. Updated links are as follows:
-- [Prebid.js Integration Overview](../guides/integration-prebid.md)
+- [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [Prebid.js Client-Side Integration Guide](../guides/integration-prebid-client-side.md)
 - [Prebid.js Server-Side Integration Guide](../guides/integration-prebid-server-side.md)
 
@@ -192,4 +192,4 @@ For details, see [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
 
 A new guide for publishers who want to integrate with UID2 and generate UID2 tokens (advertising tokens) to be passed by Prebid in the RTB bid stream.
 
-For details, see [Prebid Integration Guide](../guides/integration-prebid.md). -->
+For details, see [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md). [doc name updated]-->
