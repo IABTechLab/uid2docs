@@ -1,13 +1,13 @@
 ---
-title: Prebid.js Integration Overview
-sidebar_label: Prebid.js Integration Overview
-pagination_label: Prebid.js Integration Overview
+title: UID2 Integration Overview for Prebid.js
+sidebar_label: UID2 Integration Overview for Prebid.js
+pagination_label: UID2 Integration Overview for Prebid.js
 description: Overview of options for integrating with Prebid.js as part of your UID2 implementation.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-# Prebid.js Integration Overview
+# UID2 Integration Overview for Prebid.js
 
 This guide is an overview of integration options for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bid stream.
 <!-- 
@@ -86,11 +86,9 @@ To configure the UID2 module, call `pbjs.setConfig`. For details on supported pa
 - [Prebid.js Client-Side Integration Guide](integration-prebid-client-side.md)
 - [Prebid.js Server-Side Integration Guide](integration-prebid-server-side.md)
 
-When the UID2 module is configured, it manages a UID2 token for the user and stores it in the user's browser.
+When the UID2 module is configured, it manages a UID2 token for the user and stores it in the user's browser. 
 
-When using [client-side token generate (CSTG)](../ref-info/glossary-uid.md#gl-cstg) and [server-side token generate (SSTG)](../ref-info/glossary-uid.md#gl-sstg) with Client Refresh mode, the module automatically takes care of refreshing the token as long as your site is open in the user's browser. However, you also have the option to manage the token refresh on the server side. For details, see [Refreshing a UID2 Token](integration-prebid-server-side.md#refreshing-a-uid2-token) in the Server-Side Integration Guide. The client-side integration solution includes automated token refresh.
-
-(**GWH_KK a query from SW noted on the glossary: "Generate or Generation? in Prebid.js Integration Overview page, it mentioned as Generation". I want your input on this. In general I think we've been saying generate, but the action is generation so it's a little awkward in some cases. Appreciate your input.**)
+When generating tokens with Client Refresh mode on the client side or on the server side, the module automatically takes care of refreshing the token as long as your site is open in the user's browser. However, you also have the option to manage the token refresh on the server side. For details, see [Refreshing a UID2 Token](integration-prebid-server-side.md#refreshing-a-uid2-token) in the Server-Side Integration Guide. The client-side integration solution includes automated token refresh.
 
 ## Integration Overview: High-Level Steps
 

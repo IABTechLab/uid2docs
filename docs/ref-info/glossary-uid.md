@@ -29,7 +29,6 @@ sidebar_position: 10
 <li><a href="#gl-bearer-token">Bearer token</a></li>
 <li><a href="#gl-client-key">Client key</a></li>
 <li><a href="#gl-client-secret">Client secret</a></li>
-<li><a href="#gl-cstg">Client-side token generate (CSTG)</a></li>
 <li><a href="#gl-closed-operator">Closed Operator</a></li>
 <li><a href="#gl-core-service">Core Service</a></li>
 <li><a href="#gl-customer-data-platform">Customer Data Platform (CDP)</a></li>
@@ -74,7 +73,6 @@ sidebar_position: 10
 <li><a href="#gl-salted-hash">Salted hash</a></li>
 <li><a href="#gl-secret">Secret</a></li>
 <li><a href="#gl-secure-signals">Secure signals</a></li>
-<li><a href="#gl-sstg">Server-side token generate (SSTG)</a></li>
 <li><a href="#gl-sha-256">SHA-256</a></li>
 <li><a href="#gl-sharing">sharing (in UID2)</a></li>
 <li><a href="#gl-sharing-participant">sharing participant</a></li>
@@ -122,11 +120,6 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-client-secret">Client secret</dt>
 <dd>Each UID2 <a href="/docs/intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
 <dd>For details, see <a href="/docs/getting-started/gs-credentials">UID2 Credentials</a>.</dd>
-
-<dt class="jump-anchor" id="gl-cstg">Client-side token generate (CSTG)</dt>
-<dd>In a publisher implementation of UID2, client-side token generate means that the request for the UID2 token is generated on the client side/from the front end, which can be done from the user's browser.</dd>
-<dd>The CSTG token request requires specific publisher credentials that can be safely embedded into web pages and served to users. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
-<dd> (**GWH_SW KK KT need review on two new definitions CSTG and SSTG please.)**</dd>
 
 <dt class="jump-anchor" id="gl-closed-operator">Closed Operator</dt>
 <dd>Closed Operator is another term for a <a href="#gl-private-operator">Private Operator</a>.</dd>
@@ -215,8 +208,7 @@ sidebar_position: 10
 <dd>A private instance of the Operator Service, run by a <a href="#gl-private-operator">Private Operator</a>.</dd>
 
 <dt class="jump-anchor" id="gl-public-key">Public key</dt>
-<dd>In the context of client-side token generate (CSTG), the public key is one of the two values issued to publishers as their UID2 credentials. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
-<dd> (**GWH_SW KK KT need review on two new definitions subscription ID and public key please.)**</dd>
+<dd>For server-side publisher integrations, the public key is one of the two values issued to publishers as their UID2 credentials. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
 
 <dt class="jump-anchor" id="gl-raw-uid2">Raw UID2</dt>
 <dd>An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's <a href="#gl-dii">directly identifying information</a> (email address or phone number) as input. The raw UID2 is encrypted to create a <a href="#gl-uid2-token">UID2 token</a>. The raw UID2 is a unique value; no two raw UID2s are the same. Raw UID2s, and their associated UID2 tokens, are case sensitive.</dd>
@@ -242,11 +234,6 @@ sidebar_position: 10
 <dd>For details, see <a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a> (second section) and <a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a>, both from Google.</dd>
 <dd>For details about UID2 support of the Google secure signals feature, see <a href="../guides/google-ss-integration">Google Ad Manager Secure Signals Integration Guide</a>.</dd>
 
-<dt class="jump-anchor" id="gl-sstg">Server-side token generate (SSTG)</dt>
-<dd>In a publisher implementation of UID2, server-side token generate means that the request for the UID2 token is generated from the publisher, data provider, or CDP back-end server.</dd>
-<dd>The SSTG token request requires specific publisher credentials including a confidential API key. For details, see <a href="../getting-started/gs-credentials#api-key-and-client-secret">API Key and Client Secret</a></dd>
-<dd> (**GWH_SW KK KT need review on two new definitions CSTG and SSTG please.)**</dd>
-
 <dt class="jump-anchor" id="gl-sha-256">SHA-256</dt>
 <dd>SHA-256 is the secure hashing algorithm that UID2 uses.</dd>
 <dd>SHA-256 is part of the SHA-2 family of algorithms developed by the National Institute of Standards and Technology (NIST) and the National Security Agency (NSA) to succeed SHA-1. Each algorithm is named according to the number of bits in the output, so SHA-256 has 256 bits.</dd>
@@ -264,8 +251,7 @@ sidebar_position: 10
 <dd>SSO is an acronym for Single sign-on. SSO allows a user to log in with the same credentials (usually, but not always, ID and password) to one of several software systems, such as apps or websites. SSO allows the user to log in once to multiple applications or sites using one set of credentials. With SSO, websites/apps do not have to maintain their own authentication systems.</dd>
 
 <dt class="jump-anchor" id="gl-subscription-id">Subscription ID</dt>
-<dd>In the context of client-side token generate (CSTG), the subscription ID is one of the two values issued to publishers as their UID2 credentials. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
-<dd> (**GWH_SW KK KT need review on two new definitions subscription ID and public key please.)**</dd>
+<dd>For server-side publisher integrations, the subscription ID is one of the two values issued to publishers as their UID2 credentials. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
 
 <dt class="jump-anchor" id="gl-transparency-and-control-portal">Transparency and Control Portal</dt>
 <dd>The UID2 Transparency and Control Portal is a user-facing website, <a href="https://www.transparentadvertising.com/">https://www.transparentadvertising.com/</a>, that allows consumers to opt out of UID2 at any time.</dd>

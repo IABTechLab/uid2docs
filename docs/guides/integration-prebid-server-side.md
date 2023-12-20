@@ -1,13 +1,13 @@
 ---
-title: Prebid.js Server-Side Integration Guide
-sidebar_label: Prebid.js Server-Side Integration
-pagination_label: Prebid.js Server-Side Integration Guide
+title: UID2 Server-Side Integration Guide for Prebid.js
+sidebar_label: Server-Side Integration Guide for Prebid.js
+pagination_label: UID2 Server-Side Integration Guide for Prebid.js
 description: Information about setting up a server-side Prebid.js integration.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-# Prebid.js Server-Side Integration Guide
+# UID2 Server-Side Integration Guide for Prebid.js
 <!-- 
 This guide includes the following information:
 

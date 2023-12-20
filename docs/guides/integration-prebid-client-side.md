@@ -1,13 +1,13 @@
 ---
-title: Prebid.js Client-Side Integration Guide
-sidebar_label: Prebid.js Client-Side Integration
-pagination_label: Prebid.js Client-Side Integration Guide
+title: UID2 Client-Side Integration Guide for Prebid.js
+sidebar_label: Client-Side Integration Guide for Prebid.js
+pagination_label: UID2 Client-Side Integration Guide for Prebid.js
 description: Information about setting up a client-side Prebid.js integration.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-# Prebid.js Client-Side Integration Guide
+# UID2 Client-Side Integration Guide for Prebid.js
 
 This guide is for publishers who have access to [DII](../ref-info/glossary-uid.md#gl-dii) (email address or phone number) on the client side and want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bid stream.
 
