@@ -762,6 +762,11 @@ export const partnersData: PartnersDataType = [
     type: ["CDP"],
   },
   {
+    name: "TripleLift",
+    logo: "triplelift-logo.png",
+    type: ["DSP"],
+  },
+  {
     name: "TrueData",
     logo: "TrueData-580x250.png",
     type: ["Data"],
