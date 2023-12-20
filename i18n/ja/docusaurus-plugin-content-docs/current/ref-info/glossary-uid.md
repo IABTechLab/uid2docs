@@ -114,7 +114,8 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-client-secret">Client secret</dt>
 <dd>
-各 UID2 <a href="/docs/intro#participants">参加者</a>は、API Key (クライアントキー)と、そのキーに関連付けられた秘密値 (Client secret (API シークレット))を持っています。Client secretは、参加者と UID2 Service だけが知っています。</dd>
+各 UID2 <a href="/docs/intro#participants">参加者</a>は、API Key (クライアントキー)と、そのキーに関連付けられた秘密値 (Client secret (API シークレット))を持っています。Client secretは、参加者と UID2 Service だけが知っています。
+</dd>
 <dd>詳細については、<a href="/docs/getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-cstg">Client-side token generate (CSTG)</dt>
@@ -154,8 +155,8 @@ sidebar_position: 10
 <dd>Enclave　では、オペレータイメージは特殊で、事前に定義されたバージョンでなければならず、セキュリティを確保するために追加の制約が適用されます。</dd>
 
 <dt class="jump-anchor" id="gl-first-level-hash">First-level hash</dt>
-<dd>
-UID2 のコンテキストでは、First-level hash は匿名化された不透明で安全な値であり、そこから <a href="#gl-raw-uid2">raw UID2</a>、<a href="#gl-uid2-token">UID2 token</a>、<a href="#gl-refresh-token">refresh token</a>が生成されます。ソルティングやハッシュを含むいくつかの暗号関数が、メールアドレスや電話番号などの初期値に適用され、First-level hash が生成されます。</dd>
+
+<dd>UID2 のコンテキストでは、First-level hash は匿名化された不透明で安全な値であり、そこから <a href="#gl-raw-uid2">raw UID2</a>、<a href="#gl-uid2-token">UID2 token</a>、<a href="#gl-refresh-token">refresh token</a>が生成されます。ソルティングやハッシュを含むいくつかの暗号関数が、メールアドレスや電話番号などの初期値に適用され、First-level hash が生成されます</dd>
 
 <dt class="jump-anchor" id="gl-hash">Hash</dt>
 <dd>ハッシュ関数は、様々な/任意のサイズのデータセットを固定サイズのデータセットに変換します。ハッシュ関数の結果は、ハッシュ、ダイジェスト、またはハッシュ値と呼ばれます。</dd>
@@ -163,12 +164,12 @@ UID2 のコンテキストでは、First-level hash は匿名化された不透�
 <dd>UID2 は <a href="#gl-sha-256">SHA-256</a> ハッシュアルゴリズムを使用しています。</dd>
 
 <dt class="jump-anchor" id="gl-identity">Identity</dt>
-<dd>
-UID2 のコンテキストでは、「ID」という用語は、UID2 Token、Refresh Token、およびタイムスタンプなどの関連値を含む値のパッケージを指します。この値のセットは、<a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> エンドポイントおよび <a href="../endpoints/post-token-refresh">POST&nbsp;/token/refresh</a> エンドポイントからのレスポンスで返されます。</dd>
+
+<dd>UID2 のコンテキストでは、「ID」という用語は、UID2 Token、Refresh Token、およびタイムスタンプなどの関連値を含む値のパッケージを指します。この値のセットは、<a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> エンドポイントおよび <a href="../endpoints/post-token-refresh">POST&nbsp;/token/refresh</a> エンドポイントからのレスポンスで返されます。</dd>
 
 <dt class="jump-anchor" id="gl-json-web-token">JSON Web Token (JWT)</dt>
-<dd>
-JSON Web Token (JWT) は、Web 上で一方の当事者から別の当事者に送信されるクレーム (情報) を表す、コンパクトで URL セーフな手段です。JWT 内のクレームは、JSON Web Signature (JWS) 構造のペイロードまたは JSON Web Encryption (JWE) 構造のプレーン テキストとして使用される JSON オブジェクトとしてエンコードされます。これにより、クレームにデジタル署名や暗号化を行うことができます。</dd>
+
+<dd>JSON Web Token (JWT) は、Web 上で一方の当事者から別の当事者に送信されるクレーム (情報) を表す、コンパクトで URL セーフな手段です。JWT 内のクレームは、JSON Web Signature (JWS) 構造のペイロードまたは JSON Web Encryption (JWE) 構造のプレーン テキストとして使用される JSON オブジェクトとしてエンコードされます。これにより、クレームにデジタル署名や暗号化を行うことができます。</dd>
 
 <dt class="jump-anchor" id="gl-normalize">Normalize</dt>
 <dd>データセットを Normalize (正規化)するとは、それを標準的な状態 (Condition)や状態 (State)にすることを意味します。</dd>
@@ -229,12 +230,9 @@ JSON Web Token (JWT) は、Web 上で一方の当事者から別の当事者に�
 <dd><a href="#gl-client-secret">client secret</a> を参照してください</dd>
 
 <dt class="jump-anchor" id="gl-secure-signals">Secure signals</dt>
-<dd>
-Google Ad Managerの機能。セキュアシグナル機能 (旧称: Encrypted Signals for Publishers、略称: ESP)により、パブリッシャーは信頼できるサードパーティのバイイングパートナーとシグナルを安全に共有することができます。パブリッシャーは、<a href="https://admanager.google.com/home/">Google Ad Manager</a> と <a href="https://support.google.com/admanager/answer/6321605?hl=en">Google Ad Manager Ad Exchange (AdX)</a> を介して、Googleが承認した入札者に「暗号化された」ユーザーIDを渡すことができます。</dd>
-<dd>
-詳しくは、<a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a> (2番目のセクション)と <a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a> (いずれもGoogle)を参照してください。</dd>
-<dd>
-Google Secure signals の UID2 サポートの詳細については、<a href="../guides/google-ss-integration">Google Ad Manager Secure Signals Integration Guide</a> を参照してください。</dd>
+<dd>Google Ad Managerの機能。セキュアシグナル機能 (旧称: Encrypted Signals for Publishers、略称: ESP)により、パブリッシャーは信頼できるサードパーティのバイイングパートナーとシグナルを安全に共有することができます。パブリッシャーは、<a href="https://admanager.google.com/home/">Google Ad Manager</a> と <a href="https://support.google.com/admanager/answer/6321605?hl=en">Google Ad Manager Ad Exchange (AdX)</a> を介して、Googleが承認した入札者に「暗号化された」ユーザーIDを渡すことができます。</dd>
+<dd>詳しくは、<a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a> (2番目のセクション)と <a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a> (いずれもGoogle)を参照してください。</dd>
+<dd>Google Secure signals の UID2 サポートの詳細については、<a href="../guides/google-ss-integration">Google Ad Manager Secure Signals Integration Guide</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-sstg">Server-side token generate (SSTG)</dt>
 <dd>In a publisher implementation of UID2, server-side token generate means that the request for the UID2 token is generated from the publisher, data provider, or CDP back-end server.</dd>
@@ -245,39 +243,31 @@ Google Secure signals の UID2 サポートの詳細については、<a href=".
 <dd>詳細は、 <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> (specification) を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-sso">SSO</dt>
-<dd>
-SSO は Single Sign-On の頭字語です。SSO は、ユーザーがアプリやウェブサイトなどの複数のソフトウェアシステムの1つに、同じ認証情報 (通常は ID とパスワードですが、それに限りません)でログインすることを可能にします。SSO によって、ユーザーは 1 セットの認証情報を使って複数のアプリケーションやサイトに一度だけログインすることができます。SSO によって、ウェブサイトやアプリは独自の認証システムを維持する必要がなくなります。</dd>
+<dd>SSO は Single Sign-On の頭字語です。SSO は、ユーザーがアプリやウェブサイトなどの複数のソフトウェアシステムの1つに、同じ認証情報 (通常は ID とパスワードですが、それに限りません)でログインすることを可能にします。SSO によって、ユーザーは 1 セットの認証情報を使って複数のアプリケーションやサイトに一度だけログインすることができます。SSO によって、ウェブサイトやアプリは独自の認証システムを維持する必要がなくなります。</dd>
 
 <dt class="jump-anchor" id="gl-transparency-and-control-portal">Transparency and Control Portal</dt>
-<dd>
-UID2 Transparency and Control Portalは、ユーザー向けのウェブサイト <a href="https://www.transparentadvertising.com/">https://www.transparentadvertising.com/</a> で、消費者はいつでもここから UID2 の Opt-Out を選択することができます。</dd>
+<dd>UID2 Transparency and Control Portalは、ユーザー向けのウェブサイト <a href="https://www.transparentadvertising.com/">https://www.transparentadvertising.com/</a> で、消費者はいつでもここから UID2 の Opt-Out を選択することができます。</dd>
 
 <dt class="jump-anchor" id="gl-uid2-framework">UID2 framework</dt>
 <dd>Unified ID 2.0 (UID2)framework は、広告エコシステム全体の多くの参加者 (<a href="../intro#participants">participants</a>)に対し、オープンなインターネット上での広告機会のための決定論的IDを可能にします。パブリッシャーのウェブサイト、モバイルアプリ、コネクテッドTV (CTV)アプリからのログイン体験を可能にし、プログラマティックワークフローによる収益化を実現します。独自の名前空間を持つオープンソースのスタンドアローン・ソリューションとして構築されたこのフレームワークは、透明性とプライバシーを重視しています。</dd>
 
 <dt class="jump-anchor" id="gl-uid2-identifier">UID2 identifier</dt>
-<dd>
-Unified ID 2.0 (UID2)識別子には、<a href="#gl-raw-uid2">raw UID2s</a> と <a href="#gl-uid2-token">UID2 tokens</a> (Advertising token とも呼ばれるます)の2種類があります。</dd>
+<dd>Unified ID 2.0 (UID2)識別子には、<a href="#gl-raw-uid2">raw UID2s</a> と <a href="#gl-uid2-token">UID2 tokens</a> (Advertising token とも呼ばれるます)の2種類があります。</dd>
 <dd>詳細は、<a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-uid2-service">UID2 service</dt>
-<dd>
-Unified ID 2.0 (UID2)Service は、<a href="#gl-uid2-framework">UID2 framework</a> をまとめて実装し、関連する UID2 機能へのアクセスをクライアントに提供するコンポーネント、API エンドポイント、その他のタイプのソリューションのあつまりです。</dd>
+<dd>Unified ID 2.0 (UID2)Service は、<a href="#gl-uid2-framework">UID2 framework</a> をまとめて実装し、関連する UID2 機能へのアクセスをクライアントに提供するコンポーネント、API エンドポイント、その他のタイプのソリューションのあつまりです。</dd>
 <dd>"UID2 service" という用語は、UID2 <a href="#gl-operator-service">Operator Service</a> という意味でも使われます。</dd>
 
 <dt class="jump-anchor" id="gl-uid2-token">UID2 token (advertising token)</dt>
 <dd>Unified ID 2.0 (UID2)Token は Advertising Token とも呼ばれ、<a href="#gl-raw-uid2">raw UID2</a> を暗号化したものです。</dd>
-<dd>
-UID2 Token は、ハッシュ化された、またはハッシュ化されていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、暗号化されます。UID2 Token は一意な値であり、同じ UID2 TOken は2つとありません。UID2 Token は大文字と小文字を区別します。</dd>
-<dd>
-トークンの寿命は限られていますが、<a href="#gl-refresh-token">refresh token</a> を使ってバックグラウンドでリフレッシュすることができます。</dd>
+<dd>UID2 Token は、ハッシュ化された、またはハッシュ化されていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、暗号化されます。UID2 Token は一意な値であり、同じ UID2 TOken は2つとありません。UID2 Token は大文字と小文字を区別します。</dd>
+<dd>トークンの寿命は限られていますが、<a href="#gl-refresh-token">refresh token</a> を使ってバックグラウンドでリフレッシュすることができます。</dd>
 <dd>詳細は、<a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-unified-id-20">Unified ID 2.0 (UID2)</dt>
-<dd>
-"UID2" という用語は、<a href="#gl-uid2-framework">UID2 framework</a>、<a href="#gl-uid2-service">UID2 service</a>、<a href="#gl-raw-uid2">raw UID2</a>、または<a href="#gl-uid2-token">UID2 token</a> (Advertising Token) を意味でも使われます。</dd>
+<dd>"UID2" という用語は、<a href="#gl-uid2-framework">UID2 framework</a>、<a href="#gl-uid2-service">UID2 service</a>、<a href="#gl-raw-uid2">raw UID2</a>、または<a href="#gl-uid2-token">UID2 token</a> (Advertising Token) を意味でも使われます。</dd>
 
 <dt class="jump-anchor" id="gl-utc">UTC</dt>
 <dd>UTC は協定世界時 (Coordinated Universal Time)の略称で、ズールー時間 (Zulu time)とも呼ばれ、一般に使用されている主要な時間基準です。UTC は基本的にグリニッジ標準時 (GMT)に相当しますが、科学的により正確です。</dd>
-
 </dl>

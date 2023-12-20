@@ -1,6 +1,6 @@
 # Website
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator. We've settled on using npm as our package manager - please make sure you use that instead of yarn.
+This website is built using [Docusaurus 3](https://docusaurus.io/), a modern static website generator. We've settled on using npm as our package manager - please make sure you use that instead of yarn.
 
 ## Requirements
 

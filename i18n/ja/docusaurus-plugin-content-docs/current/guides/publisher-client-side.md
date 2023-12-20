@@ -7,6 +7,9 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # JavaScript Express Integration Guide
 
 このガイドは、UID2 と インテグレーションし、ウェブサイト上で JavaScript Client-Side の変更のみを使用して、最小限の労力で [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (Advertising Token) を生成したいパブリッシャー向けのものです。
