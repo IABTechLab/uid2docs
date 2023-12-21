@@ -116,7 +116,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 |:------|:------|:-------------|
 | `KMSKey` | `AWS::KMS::Key` | 秘密暗号化用のキー (設定文字列用)です。 |
 | `SSMKeyAlias` | `AWS::KMS::Alias` | [KMS](https://aws.amazon.com/kms/)キーに簡単にアクセスする方法を提供するエイリアスです。 |
-| `TokenSecret` | `AWS::SecretsManager::Secret` | オペレーターキーを含む暗号化されたコンフィギュレーションです。 |
+| `TokenSecret` | `AWS::SecretsManager::Secret` | Operator Key を含む暗号化されたコンフィギュレーションです。 |
 | `WorkerRole` | `AWS::IAM::Role` | UID2 Operator が実行する IAM ロールです。ロールは、設定キーへのアクセスを提供します。 |
 | `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile` | Operator EC2 インスタンスにアタッチする Worker Role を持つインスタンスプロファイルです。 |
 | `SecurityGroup` | `AWS::EC2::SecurityGroup` | オペレーターインスタンスに対するルールを提供するセキュリティグループポリシーです。[Security Group Policy](#security-group-policy) を参照してください。|
@@ -179,7 +179,7 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 | Parameter | Description |
 | :--- |:--- |
 | Stack name | 好きな名前をつけてください。 |
-| OPERATOR_KEY  | UID2 Admin チームから受け取ったオペレーターキーです。 |
+| OPERATOR_KEY  | UID2 Admin チームから受け取った Operator Key です。 |
 | UID2 Environment | 本番環境なら `prod`、インテグレーションテスト環境なら `integ` を選択します。 |
 | Instance Type | `m5.2xlarge` を推奨します。 |
 | Instance root volume size  | 15GB 以上を推奨します。 |
