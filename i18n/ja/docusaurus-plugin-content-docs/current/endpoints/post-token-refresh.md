@@ -11,7 +11,7 @@ sidebar_position: 04
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
-> NOTE: このエンドポイントは、API キーを使用する必要がないため、Client-Side (例えば、ブラウザやモバイルアプリなど)から呼び出せます。
+> NOTE: このエンドポイントは、API Key を使用する必要がないため、Client-Side (例えば、ブラウザやモバイルアプリなど)から呼び出せます。
 
 ## Request Format
 

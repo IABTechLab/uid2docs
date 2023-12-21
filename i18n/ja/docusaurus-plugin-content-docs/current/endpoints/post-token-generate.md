@@ -19,7 +19,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 このエンドポイントリクエストについて知っておくべきことは、以下のとおりです:
 
-- サービスにアクセスする際に使用する API キーを秘密にするため、 UID2 Token は認証後に Server-Side でのみ生成する必要があります。
+- サービスにアクセスする際に使用する API Key を秘密にするため、 UID2 Token は認証後に Server-Side でのみ生成する必要があります。
 - すべてのリクエストを秘密鍵で暗号化する必要があります。詳細と Python スクリプトの例は、 [リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ### Path Parameters
@@ -45,7 +45,7 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 
 ### Request Examples
 
-> IMPORTANT: サービスにアクセスするために使用される API キーを確実に秘密にするために、API キーを使用する必要のない [POST /token/refresh](post-token-refresh.md) と異なり、`POST /token/generate` エンドポイントを Server-Side から呼び出す必要があります。
+> IMPORTANT: サービスにアクセスするために使用される API Key を確実に秘密にするために、API Key を使用する必要のない [POST /token/refresh](post-token-refresh.md) と異なり、`POST /token/generate` エンドポイントを Server-Side から呼び出す必要があります。
 
 以下は、各パラメータの暗号化されていない JSON リクエストボディの例で、このうちの 1 つはトークン生成リクエストに含める必要があります:
 

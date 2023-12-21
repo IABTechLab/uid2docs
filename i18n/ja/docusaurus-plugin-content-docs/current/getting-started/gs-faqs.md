@@ -75,7 +75,7 @@ UID2 Token は、Client-Side、Server-Sideのどちらでも生成できます�
 
 #### Client-Side からトークンのリフレッシュを呼び出すことはできますか？
 
-はい。[POST /token/refresh](../endpoints/post-token-refresh.md) は、API キーを使用する必要がないため、Client-Side (例えば、ブラウザやモバイルアプリ)から呼び出すことができます。
+はい。[POST /token/refresh](../endpoints/post-token-refresh.md) は、API Key を使用する必要がないため、Client-Side (例えば、ブラウザやモバイルアプリ)から呼び出すことができます。
 
 #### リフレッシュトークンのワークフローをテストするにはどうすればよいですか？
 
