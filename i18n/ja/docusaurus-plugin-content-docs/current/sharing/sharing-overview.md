@@ -64,7 +64,7 @@ UID2 sharing のワークフローは、ビッドストリームで UID2 Token �
    1. UID2 Token を受信します。
    1. UID2 Token を復号化し、受信者が使用できる raw UID2 にします: [Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary) を参照してください。
 
-以下の図は、UID2 sharing permission SDK のインテグレーション・ワークフローを示しています:
+以下の図は、UID2 sharing permission SDK の インテグレーションワークフローを示しています:
 
 ![UID2 Sharing Permission SDK Integration Workflow](images/UID2_Sharing_Diagram_Integrate_SDK_Sharing_Token.png)
 

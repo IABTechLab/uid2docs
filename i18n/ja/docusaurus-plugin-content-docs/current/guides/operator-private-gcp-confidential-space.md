@@ -78,7 +78,7 @@ UID2 アカウントの登録が完了し、gcloud CLI をインストールし�
 
 ## Deployment Environments
 
-以下の環境が利用可能で、[deployment options](#deployment-options)　は両方の環境に対応しています。
+以下の環境が利用可能で、[deployment options](#deployment-options) は両方の環境に対応しています。
 
 ベストプラクティスとして、本番環境にデプロイする前にインテグレーション環境で実装をテストし、検証することを勧めます。
 
@@ -214,7 +214,7 @@ terraform apply
 
 Helth check エンドポイントを呼び出して、実装の健全性をテストします。期待される結果は HTTP 200 で、レスポンスボディは `OK` です。
 
-手順については、[Health Check&#8212;Terraform Template](#health-checkterraform-template)　を参照してください。
+手順については、[Health Check&#8212;Terraform Template](#health-checkterraform-template) を参照してください。
 
 #### Delete All Created Resources
 
@@ -373,8 +373,8 @@ UID2 アカウントのセットアップ ([UID2 Operator Account Setup](#uid2-o
 | `{INSTANCE_NAME}` | 有効な VM 名です。 |
 | `{ZONE}` | VM インスタンスがデプロイされる Google Cloud ゾーンです。 |
 | `{SERVICE_ACCOUNT}` | アカウント作成時に作成したサービスアカウントのメールアドレス: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`。<br/>詳細は [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions) (Step 4) を参照してください。 |
-| `{OPERATOR_IMAGE}` | コンフィギュレーションで使用する UID2 Private Operator for GCP の Docker イメージ URL。<br/>詳細は [UID2 Operator Account Setup](#uid2-operator-account-setup)　を参照してください。 |
-| `{OPERATOR_KEY_SECRET_FULL_NAME}` | パスを含む、`projects/<project_id>/secrets/<secret_id>/versions/<version>`の形式の、Operator Key のシークレットに指定した完全な名前　([Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager)　を参照してください)。例えば: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1` |
+| `{OPERATOR_IMAGE}` | コンフィギュレーションで使用する UID2 Private Operator for GCP の Docker イメージ URL。<br/>詳細は [UID2 Operator Account Setup](#uid2-operator-account-setup) を参照してください。 |
+| `{OPERATOR_KEY_SECRET_FULL_NAME}` | パスを含む、`projects/<project_id>/secrets/<secret_id>/versions/<version>`の形式の、Operator Key のシークレットに指定した完全な名前 ([Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager) を参照してください)。例えば: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1` |
 
 ##### Sample Deployment Script&#8212;Integ
 

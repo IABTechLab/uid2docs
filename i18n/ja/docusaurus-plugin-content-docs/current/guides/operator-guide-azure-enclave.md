@@ -138,7 +138,7 @@ az group create --name {RESOURCE_GROUP_NAME} --location {LOCATION}
 
 ### Complete Key Vault and Managed Identity Setup
 
-次のステップは、[Key Vault](https://learn.microsoft.com/ja-jp/azure/key-vault/general/overview)を設定し、Operator Key　を保存することです。
+次のステップは、[Key Vault](https://learn.microsoft.com/ja-jp/azure/key-vault/general/overview)を設定し、Operator Key を保存することです。
 
 Key Vault を作成したら、[マネージド ID](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview) を作成し、Key Vault にアクセスする権限を付与します。
 
@@ -211,7 +211,7 @@ Key Vault を作成したら、[マネージド ID](https://learn.microsoft.com/
     Parameter | Description |
    | :--- | :--- |
    | `operatorKeyName` | Operator Key 名。この値は、[Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup) で指定した値と一致する必要があります。デフォルトを受け入れた場合、値は `operator-key` となります。 |
-   | `operatorIdentifier` | コンテナを起動するマネージド ID の名前。 [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup)　で指定した値と一致する必要があります。デフォルトを受け入れた場合、値は `uid-operator`　となります。 |
+   | `operatorIdentifier` | コンテナを起動するマネージド ID の名前。 [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup) で指定した値と一致する必要があります。デフォルトを受け入れた場合、値は `uid-operator` となります。 |
    | `vnetName` | 仮想ネットワーク名。[Set Up the VPC Network](#set-up-the-vpc-network) で指定した値と一致する必要があります。デフォルトを受け入れた場合、値は `unified-id-network` となります。 |
    | `computeSubnetName` | Private Operator を実行するサブネットの名前。[Set Up the VPC Network](#set-up-the-vpc-network) で指定した値と一致する必要があります。デフォルトを受け入れた場合、値は `unified-id-subnet-operators` となります。 |
    | `count` | 立ち上げたいさせたいインスタンスの数。デフォルトは `2` となります。 |

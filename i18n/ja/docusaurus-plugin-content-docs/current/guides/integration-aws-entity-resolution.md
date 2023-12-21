@@ -177,7 +177,7 @@ UID2 は、UID2 生成のためにメールアドレスまたは電話番号の�
      |0001|Test 1|test1@uidapi.com|1/1/90|test1@uidapi.com|Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM=|ad1ANEmVZ|
      |0002|Test 2|test2@gmail.com|1/2/78|test2@gmail.com|kds8hgBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/jgksuh=|kd9ANE98d|
 
-4. **Review and Create**: マッチングワークフローのすべての詳細を確認します。値に問題がなければ、**Create**　をクリックします。
+4. **Review and Create**: マッチングワークフローのすべての詳細を確認します。値に問題がなければ、**Create** をクリックします。
 
    一致するワークフローが作成され、確認メッセージが表示されます。
 

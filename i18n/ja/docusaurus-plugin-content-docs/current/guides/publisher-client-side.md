@@ -244,7 +244,7 @@ UID2 SDK は、UID2 Service に送信する前にハッシュを暗号化しま�
 
 ## Token Storage and Refresh
 
-[Configure the UID2 SDK for JavaScript](#configure-the-uid2-sdk-for-javascript) に記載されているメソッドのいずれかを正常に呼び出すと、[identity](../ref-info/glossary-uid.md#gl-identity) が生成され、`UID2-sdk-identity`　というキーでローカルストレージに保存されます。SDK は UID2 Token を定期的にリフレッシュします。
+[Configure the UID2 SDK for JavaScript](#configure-the-uid2-sdk-for-javascript) に記載されているメソッドのいずれかを正常に呼び出すと、[identity](../ref-info/glossary-uid.md#gl-identity) が生成され、`UID2-sdk-identity` というキーでローカルストレージに保存されます。SDK は UID2 Token を定期的にリフレッシュします。
 
 :::danger
 ローカルストレージに保存されているオブジェクトのフォーマットは予告なく変更される可能性があります。ローカルストレージのオブジェクトを直接読み込んだり更新したり**しないこと**でください。

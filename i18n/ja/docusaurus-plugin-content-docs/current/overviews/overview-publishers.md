@@ -36,9 +36,9 @@ UID2 とインテグレーションすることで得られるメリットの一
    - UID2 Token を返します。
 5. パブリッシャーが UID2 Token を保存し、リアルタイムびっディングの際に SSP と共有します。
    - Server-Side: パブリッシャーは、トークンをマッピングテーブル、DMP、データレイク、またはその他の Server-Side アプリケーションに格納します。
-   - Client-Side: パブリッシャーは、トークンをClient-Sideアプリ、または First-Party Cookie としてユーザーのブラウザに保存します。
+   - Client-Side: パブリッシャーは、トークンを Client-Side アプリ、またはファーストパーティクッキーとしてユーザーのブラウザに保存します。
 6. パブリッシャーが UID2 Token をストレージから取得します。
-6. パブリッシャーは UID2 Token を SSP に送信する。
+6. パブリッシャーは UID2 Token を SSP に送信します。
 7. SSP は UID2 Token を含むビッドリクエストをビッドストリームに入れます。
 
 <!-- The publisher requests updated UID2 tokens using a refresh token. When applicable, the refresh token includes a user’s opt-out request. -->
@@ -65,7 +65,7 @@ UID2 とインテグレーションすることで得られるメリットの一
    - UID2 が生成され、リクエストで正しく渡されることを確認します。
 1. 本番稼動します。
 
-## Implementation　Resources
+## Implementation Resources
 
 パブリッシャーが UID2 を実装するために、以下のドキュメントリソースが利用可能です:
 

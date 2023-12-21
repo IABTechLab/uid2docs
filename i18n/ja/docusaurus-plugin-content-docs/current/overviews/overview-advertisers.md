@@ -53,7 +53,7 @@ UID2 を採用する広告主にとってのメリット、ワークフロー、
 1. テストします。
 1. 本番稼働します。
 
-## Implementation　Resources
+## Implementation Resources
 
 広告主が UID2 を実装するために、以下のドキュメントリソースが利用可能です。
 

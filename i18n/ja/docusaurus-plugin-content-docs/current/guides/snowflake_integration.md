@@ -122,7 +122,7 @@ select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_U
 
 DII がメールアドレスの場合、サービスは UID2 [メールアドレスの正規化](../getting-started/gs-normalization-encoding.md#email-address-normalization) 規則を使用して正規化されます。
 
-DII　が電話番号の場合、UID2 [電話番号正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) ルールを使用して、サービスに送信する前に正規化する必要があります。
+DII が電話番号の場合、UID2 [電話番号正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) ルールを使用して、サービスに送信する前に正規化する必要があります。
 
 
 | Argument     | Data Type    | Description                                                         |
@@ -210,7 +210,7 @@ select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID, UNMAPPED from AUDIENCE a LEFT JOIN(
 
 複数のメールアドレスに対するクエリー結果:
 
-以下の表は、`NULL` または不適切な書式のメールアドレスに対する `NULL` 値を含む、 応答の各項目です。
+以下の表は、`NULL` または不適切な書式のメールアドレスに対する `NULL` 値を含む、 レスポンスの各項目です。
 
 ```
 +----+--------------------+----------------------------------------------+------------+--------------------+
@@ -424,7 +424,7 @@ select a.ID, a.PHONE_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT 
 
 #### Targeted Input Table
 
-このシナリオ例では、広告主/データプロバイダーは UID2 を `AUDIENCE_WITH_UID2` という名前のテーブルに格納しています。最後の列 `LAST_UID2_UPDATE_UTC` は、UID2 が生成された時刻を記録するために使用されます。UID2 が生成されていない場合、3番目の例に示すように値は `NULL` となります。広告主/データプロバイダーはこのタイムスタンプ値を使って、どのUID2　を再生成する必要があるかを判断できます。
+このシナリオ例では、広告主/データプロバイダーは UID2 を `AUDIENCE_WITH_UID2` という名前のテーブルに格納しています。最後の列 `LAST_UID2_UPDATE_UTC` は、UID2 が生成された時刻を記録するために使用されます。UID2 が生成されていない場合、3番目の例に示すように値は `NULL` となります。広告主/データプロバイダーはこのタイムスタンプ値を使って、どのUID2 を再生成する必要があるかを判断できます。
 
 ```
 select * from AUDIENCE_WITH_UID2;
@@ -685,7 +685,7 @@ select UID2, SITE_ID, DECRYPTION_STATUS from table(UID2_PROD_DP_SH.DP.FN_T_UID2_
 
 #### Decrypt Token Request Example&#8212;Multiple UID2 Tokens
 
-以下のクエリは、[default database and schema names](#database-and-schema-names)　を使用して、複数の UID2 Token を復号化する方法を示しています。
+以下のクエリは、[default database and schema names](#database-and-schema-names) を使用して、複数の UID2 Token を復号化する方法を示しています。
 
 複数の UID2 Token に対する広告主ソリューションクエリ:
 

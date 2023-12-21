@@ -212,8 +212,8 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 5. ターゲットの **VPC** と、CloudFormationスタックで使用する少なくとも2つのサブネットを選択します。
 6. **Security groups** の下にある **Create new security group** をクリックし、以下を実行します:
     1. `UID2SGALB` を **Security group name** として入力し、関連する **Description** も入力します。
-    2. **Inbound rules**　の下で、**Add rule**　をクリックし、要件に応じて　**HTTPS**　タイプと適切な　**Source**　を選択します。
-    3. **Create security group**　をクリックします。
+    2. **Inbound rules** の下で、**Add rule** をクリックし、要件に応じて **HTTPS** タイプと適切な **Source** を選択します。
+    3. **Create security group** をクリックします。
 8. ロードバランサーのページに戻り、新しく作成した `UID2SGALB` セキュリティグループを選択します。
 9. **Listeners and routing** の下にある、**Create target group** リンクをクリックし、以下を実行します：
     1. **Specify group details page** で、ターゲットタイプとして **Instances** を選択し、 **Target group name** として `UID2ALBTG` を入力します。
@@ -224,7 +224,7 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
     6. **Create target group** をクリックします。
 10. ロードバランサーのページに戻り、**Listeners and routing** の下にある、`UID2ALBTG` をデフォルトのアクションとして転送するターゲットグループとして選択します。新しく作成したターゲットグループが表示されるように、ターゲットグループをリフレッシュする必要があるかもしれないことに注意してください。リスナーの **Port** を `443` に変更します。
 11. [AWS user guide](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html) の指示に従って、HTTPS リスナーをセットアップします。
-12. **Create load balancer**　をクリックします。
+12. **Create load balancer** をクリックします。
 13. ロードバランサーのステータスを確認するには、以下のセクションに進んでください: [Checking UID2 Operator Status](#checking-uid2-operator-status)
 
 ## Checking UID2 Operator Status
@@ -232,7 +232,7 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 ロードバランサー配下の UID2 Operator のステータスを確認するには、次の手順を実行します:
 
 1. **EC2 > Load balancers** で、ロードバランサーの **DNS name** 列を見て、ロードバランサーの DNS 名を特定します。
-2. ブラウザで、`https://{dns-name-of-your-load-balancer}/ops/healthcheck` にアクセスします。`OK` の応答であれば、Operator のステータスは良好です。
+2. ブラウザで、`https://{dns-name-of-your-load-balancer}/ops/healthcheck` にアクセスします。`OK` のレスポンスであれば、Operator のステータスは良好です。
 
 ## Upgrading the UID2 Operator
 

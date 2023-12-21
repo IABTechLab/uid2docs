@@ -52,7 +52,7 @@ https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 
 入札時 (2-b)に以下のロジックを使用し、ユーザーのオプトアウトを受け入れます。
 
-Server-Side SDK のいずれか ([SDKs](../sdks/summary-sdks.md)を参照) を利用して、受信した UID2 Token を raw UID2 に復号します。decrypt関数への応答には、raw UID2 が含まれます。
+Server-Side SDK のいずれか ([SDKs](../sdks/summary-sdks.md)を参照) を利用して、受信した UID2 Token を raw UID2 に復号します。decrypt関数へのレスポンスには、raw UID2 が含まれます。
 
 オプトアウトのロジックを次の図に示します。
 

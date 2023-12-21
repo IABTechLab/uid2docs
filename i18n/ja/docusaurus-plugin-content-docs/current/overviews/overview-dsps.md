@@ -44,7 +44,7 @@ UID2 を採用する DSP のメリット、ワークフロー、ドキュメン�
    - UID2 Token を復号して raw UID2 にします。
    - ユーザーがオプトアウトしたかどうかを確認し、オプトアウトした場合は入札を行いません。
    - raw UID2 をオーディエンスセグメントにマッチさせます。
-4. DSP は UID2 Token を付加した入札応答をビッドストリームに送信します。
+4. DSP は UID2 Token を付加した入札レスポンスをビッドストリームに送信します。
 
 ![Buy-Side Workflow](images/UID2BuySIdeDSPWorkflow.jpg)
 
