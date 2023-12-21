@@ -9,6 +9,28 @@ sidebar_position: 06
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: UID2 Integration Overview for Prebid.js
+
+20 December 2023
+
+A new overview guide summarizes the publisher options for integrating Prebid with UID2.
+
+In addition, the existing guides have been restructured and simplified.
+
+For details, see:
+
+- [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
+- [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
+- [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+
+### New: Encryption/Decryption Examples in Java and C#
+
+14 December 2023
+
+We've added instructions and code examples for encrypting UID2 requests and decrypting responses in additional programming languages. To the existing Python example, we've added Java and C#.
+
+For details, see [Encryption and Decryption Code Examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples).
+
 ### New: UID2 Private Operator for Azure Integration Guide
 
 30 November 2023
