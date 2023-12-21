@@ -102,8 +102,6 @@ UID2 の連絡先に、Entity Resolution での UID2 インテグレーション
 
 ![AWS UID2 Private Offer](images/integration-aws-entity-resolution-private-offer.png)
 
-<!-- To participate in UID2 on the Amazon Data Exchange Marketplace, subscribe to the UID2 service. See [Unified ID 2.0 Operator on AWS](https://aws.amazon.com/advertising-marketing/solutions/uid2/). -->
-
 加入リクエストを受け取ると、UID2 チームは以下を行います:
 - サブスクリプションのリクエストを確認します。
 - リクエストを [Create UID2 Account](#create-uid2-account) で送信した AWS アカウント ID と照合します。

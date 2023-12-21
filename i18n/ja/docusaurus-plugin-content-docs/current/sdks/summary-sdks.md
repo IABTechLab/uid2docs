@@ -39,14 +39,3 @@ UID2 インテグレーションについては、以下の SDK ドキュメン�
 | UID2 SDK for C++ | [UID2 SDK for C++ (Server-Side) Reference Guide](uid2-sdk-ref-cplusplus.md) | UID2 Token を作成するために raw UID2 を暗号化したい、あるいは raw UID2 にアクセスするために UID2 Token を復号化したいと考える C++ Server-Side を使用する人のための SDK。 | DSPs<br/>Advertisers<br/>Data Providers |
 | UID2 SDK for Android | [UID2 SDK for Android Reference Guide](uid2-sdk-ref-android.md) | Android アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント identity の確立と UID2 Token の取得プロセスを容易にするSDK。 | Publishers |
 | UID2 SDK for iOS | [UID2 SDK for iOS Reference Guide](uid2-sdk-ref-ios.md) | iOS アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント identity の確立と UID2 Token の取得プロセスを容易にするSDK。 | Publishers |
-
-<!-- # SDK Functionality
-The following table summarizes the functionality available with each SDK.
-| SDK | Client or Server | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
-| :--- | :--- |  :--- | :--- | :--- | :--- |
-|UID2 SDK for JavaScript | Client-Side | No | No | No | Yes |
-|UID2 SDK for Java | Server-Side | Yes | Yes | Yes | Yes |
-|UID2 SDK for Python | Server-Side | Yes | Yes | No | No |
-|UID2 SDK for C# / .NET | Server-Side | Yes | Yes | No | No |
-|UID2 SDK for C++ | Server-Side | Yes | Yes | No | No |
- -->

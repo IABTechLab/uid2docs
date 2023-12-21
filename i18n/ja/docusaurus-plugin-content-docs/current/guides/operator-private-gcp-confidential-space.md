@@ -210,6 +210,12 @@ terraform apply
 
 >NOTE: Terraformの `state` ファイルについては、必ず推奨されるプラクティスに従ってください: これらはデプロイされたインフラストラクチャを維持するために必要であり、機密情報が含まれている可能性があります。詳細は Terraform ドキュメントの [state](https://developer.hashicorp.com/terraform/language/state) を参照してください。
 
+#### Test Terraform Using the Health Check Endpoint
+
+Helth check エンドポイントを呼び出して、実装の健全性をテストします。期待される結果は HTTP 200 で、レスポンスボディは `OK` です。
+
+手順については、[Health Check&#8212;Terraform Template](#health-checkterraform-template)　を参照してください。
+
 #### Delete All Created Resources
 
 クリーンアップするシナリオでは、テンプレートによって作成されたリソースを削除できます。例えば、`integ` をテストして、後でスタック全体を削除したい場合など。

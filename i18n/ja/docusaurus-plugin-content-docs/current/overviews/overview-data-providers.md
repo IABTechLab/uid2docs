@@ -44,15 +44,6 @@ UID2 を使用することで、データプロバイダーとして得られる
 
 ![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.jpg)
 
-<!-- ## Integration Requirements
-
-ユーザーの DII から UID2 を生成するためには、サードパーティデータプロバイダーは以下の要件を満たしている必要があります。
-
-- UID2 Operator とインテグレーションして UID2 を生成し、ソルトバケットのローテーションを処理すること。
-- UID2 Operator の API にアクセスできること。<br/>広告主によっては、CDP、データオンボーダー、またはその他のサービスプロバイダーを経由する場合もあります。
-
-詳細は、[Advertiser/Data Provider Integration Guide](/guides/advertiser-dataprovider-guide.md) を参照してください。 -->
-
 ## Getting Started
 
 次の手順で始めます:

@@ -148,9 +148,11 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","optout_chec
 
 ## Test Identities
 
-| Type  | Identity             | Purpose                                                                                                                                 |
-| :---- | :------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
-| Email | `validate@email.com` | キャッシュした `advertising_token` が、指定したメールアドレスの `advertising_token` と一致するかどうかをテストします。                  |
-| Email | `optout@email.com`   | このメールアドレスをリクエストに使用すると、常に `refresh_token` を使用した identity レスポンスが生成され、`optout` のレスポンスになります。 | 
-| Phone | `+12345678901`       | キャッシュした `advertising_token` が、指定した電話番号の `advertising_token` と一致するかどうかをテストします。                        |
-| Phone | `+00000000000`       | この電話番号をリクエストに使用すると、常に `refresh_token` を含む identity レスポンスが生成され、`optout` のレスポンスになります。           |
+| Type  |           Identity           |                                                                    Purpose                                                                    |                 Next Endpoint                  |
+| :---- | :--------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------- |
+| Email | `validate@example.com`       | キャッシュした `advertising_token` が、指定したメールアドレスの `advertising_token` と一致するかテストします。                                | [POST /token/validate](post-token-validate.md) |
+| Email | `optout@example.com`         | このメールアドレスをリクエストに使用すると、常に `optout` レスポンスが生成されます                                                            | [POST /token/generate](post-token-generate.md) |
+| Email | `refresh-optout@example.com` | このメールアドレスをリクエストに使用すると、常に `refresh_token` による ID レスポンスが生成され、その結果 `optout` レスポンスが生成されます。 | [POST /token/refresh](post-token-refresh.md)   |
+| Phone | `+12345678901`               | キャッシュした `advertising_token` が、指定した電話番号の `advertising_token` と一致するかテストします。                                      | [POST /token/validate](post-token-validate.md) |
+| Phone | `+00000000002`               | この電話番号をリクエストに使用すると、常に `optout` レスポンスが生成されます。                                                                | [POST /token/generate](post-token-generate.md) |
+| Phone | `+00000000000`               | この電話番号をリクエストに使用すると、常に `refresh_token` による ID レスポンスが生成され、その結果`optout`応答が生成されます。               | [POST /token/refresh](post-token-refresh.md)   |

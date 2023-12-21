@@ -16,7 +16,6 @@ UID2 Portal アカウントを申請するには、氏名や業種など、ご�
 
 オンボーディングプロセスでサポートが必要な場合は、UID2 の担当者にお尋ねください。
 
-
 <!-- It includes the following:
 
 - [Gather Information](#gather-information)
@@ -92,5 +91,3 @@ UID2 Portal リンクを初めてクリックすると、ログインページ�
 ## Reset Password
 
 パスワードを忘れた場合は、ログインページの **Forgot Password** リンクをクリックしてください。メールアドレスを入力し、メールアカウントでパスワードリセットのメッセージを探してください。
-
-<!-- eng_jp -->

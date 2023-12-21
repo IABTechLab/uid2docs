@@ -17,7 +17,7 @@ export const New = () => (
 この SDK　を使用すると、UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスが容易になります。以下のセクションでは、UID2 ID を確立するための [workflow](#workflow-overview) について説明し、SDK の [API reference](#api-reference) を提供し、UID2の[storage format](#uid2-storage-format)について説明します。
 
 :::tip
-UID2 アイデンティティモジュール ([UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)を参照してください) とPrebid.js を使用している場合、または UID2 をサポートしている他の製品と Prebid.js を使用している場合は、このSDK を使用する必要はありません。
+UID2 アイデンティティモジュール ([Prebid Integration Guide](../guides/integration-prebid.md)を参照してください) とPrebid.js を使用している場合、または UID2 をサポートしている他の製品と Prebid.js を使用している場合は、このSDK を使用する必要はありません。
 :::
 
 このページでは、UID2 SDK for JavaScript version 3 について説明します。以前のバージョンを使用してインテグレーションを管理している場合は、以下のいずれかを行ってください:
@@ -185,8 +185,8 @@ Token の Auto-refresh について知っておくべきことは以下のとお
 | Event | Payload | Details |
 | :--- | :--- | :--- |
 | `SdkLoaded` | {} | SDK スクリプトがロードされ、グローバルな `__uid2` が構築されたときに呼び出されます。このイベントを受け取ると、安全に `__uid2.init` を呼び出すことができます。コールバックは常にこのイベントを一度だけ受け取ります。コールバックが登録されたときに SDK が既にロードされていた場合、コールバックは直ちにこのイベントを受け取ります。 |
-| `InitCompleted` | `{ identity: Uid2Identity  \| null }` | `init()` が終了すると呼び出されます。コールバックは `init` が正常に呼び出されている限り、常にこのイベントを一度だけ受け取ります。コールバックが登録されたときに `init` が完了していた場合は、`SdkLoaded` イベントを受信した直後にこのイベントを受け取ります。 |
-| `IdentityUpdated` | `{ identity: Uid2Identity \| null }` | 現在の ID が変更されるたびに呼び出されます。コールバックが登録された後に ID が変更されなかった場合、コールバックはこのイベントを受け取りません。 |
+| `InitCompleted` | { identity: Uid2Identity  \| null } | `init()` が終了すると呼び出されます。コールバックは `init` が正常に呼び出されている限り、常にこのイベントを一度だけ受け取ります。コールバックが登録されたときに `init` が完了していた場合は、`SdkLoaded` イベントを受信した直後にこのイベントを受け取ります。 |
+| `IdentityUpdated` | { identity: Uid2Identity \| null } | 現在の ID が変更されるたびに呼び出されます。コールバックが登録された後に ID が変更されなかった場合、コールバックはこのイベントを受け取りません。 |
 
 `Uid2Identity` 型は `init()` を呼び出す時に指定できる ID と同じ型です。
 
@@ -261,6 +261,7 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 - `init()` 呼び出しの `identity` プロパティが不正な場合、SDK はローカルストレージまたはクッキーから ID をロードしようとします。
   - `init()` が完了すると、すべてのコールバックは `InitCompleted` イベントを受信します。このイベントのペイロードの `identity` プロパティが null の場合、ID をロードできなかったことになるので、[provide a valid identity](#provide-identity) する必要があります。これは、Server-side のインテグレーションによって常に現在の ID が利用可能であることが保証されておらず、必要な場合にのみサーバーから ID を要求する必要がある場合に推奨される ID の提供方法です。
   - 渡された UID2 情報をセッションに保存するために first-party cookie ([UID2 Storage Format](#uid2-storage-format) を参照) を使用している場合、異なるドメインのページから `init()` を呼び出すと、そのクッキーにアクセスできないことがあります。`cookieDomain` オプションと `cookiePath` オプションで、クッキーに使用する設定を調整することができます。
+- 特定の動作を調整するために、初期化呼び出しにはオプションの設定 [init prarmeters](#init-parameters) を含めることができます。
 
 以下は、Server-side で生成された ID を含むコールバックを使った `init()` 呼び出しの例です。
 
@@ -492,7 +493,6 @@ UID2 Cookie の内容は、[POST /token/generate](../endpoints/post-token-genera
 
 ### Benefits of Migrating
 
-
 既存のインテグレーションが SDK の version 1.x または 2.x を使用している場合、version 3 は完全に下位互換性があります。新しい URL を参照するようにスクリプトタグを変更するだけで、SDK を version 3 に更新できます。こうすることで、次のような利点があります:
 
 - スクリプトは UID2 CDN を使用して配布されるようになったため、読み込みが速くなります。
@@ -519,7 +519,7 @@ Version 1.x と 2.x の機能の一部は非推奨となっており、将来の
 
 #### Update your script URL
 
-[version 3 CDN URL](#include-the-sdk-script) から SDK をロードするようにスクリプトタグを更新します。
+[Version 3 CDN URL](#include-the-sdk-script) から SDK をロードするようにスクリプトタグを更新します。
 
 ### Recommended Changes
 

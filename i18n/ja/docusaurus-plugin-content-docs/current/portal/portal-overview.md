@@ -31,5 +31,3 @@ UID2 Portal は、UID2 アカウントを設定・構成するためのワンス
 ## Set Up Your Account
 
 アカウントを設定するには、[Getting Started with the UID2 Portal](portal-getting-started.md) を参照してください。
-
-<!-- eng_jp -->

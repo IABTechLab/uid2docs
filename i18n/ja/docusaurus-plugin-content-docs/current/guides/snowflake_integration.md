@@ -47,8 +47,8 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 
 ![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture.svg)
 
-| Partner Snowflake Account                                                                                                                                    | UID2 Snowflake Account                                                                                                                                                                                                                                                                               | UID2 Core Opt-Out Cloud Setup                                                                                                                                                                                                    |
-| :----------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-Out Cloud Setup|
+| :--- | :--- | :--- |
 | パートナーは、Snowflake アカウントを設定してデータをホストし、UID2 Share を通じて関数やビューを使うことで、UID2 インテグレーションに関与できます。 | Snowflake アカウントでホストされている UID2 インテグレーションでは、プライベートテーブルからデータを引き出す認可をされた関数とビューへのアクセスが許可されます。プライベートテーブルにはアクセスできません。UID2 Share では、UID2 関連のタスクを実行するために必要な重要なデータのみが公開されます。 | ETL (Extract Transform Load) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web Services を動かす内部データを提供します。Operator Web Services で使用されるデータは、UID2 Share からも入手できます。 |
 | Shared 関数とビューを使用する場合、Snowflake にトランザクションのコストを支払います。 | UID2 Snowflake アカウントで保護されたこれらのプライベートテーブルは、UID2 関連のタスクを完了するために使用される内部データを保持する UID2 Core/Optout Snowflake ストレージと自動的に同期されます。 |  |
 
@@ -76,18 +76,24 @@ UID2 Share へのアクセスを要求するには、次の手順を実行しま
 
 ## Shared Objects
 
-選択した UID 2ソリューションに関係なく、以下の関数を使って、DII を UID2にマッピングできます:
+選択した UID2 ソリューションに関係なく、以下の関数を使って、DII を UID2 にマッピングできます:
 
-- `FN_T_UID2_IDENTITY_MAP` (See [Map DII](#map-dii))
+- `FN_T_UID2_IDENTITY_MAP` ([Map DII](#map-dii) を参照してください)
 
-以下の関数は非推奨となり、`FN_T_UID2_IDENTITY_MAP` が優先されます。これらの関数はまだ使用できますが、 `FN_T_UID2_IDENTITY_MAP` の方が優れています。すでにこれらの関数を使用している場合は、できるだけ早く廃止することを推奨します。
+以下の関数は非推奨となり、`FN_T_UID2_IDENTITY_MAP` が優先されます。これらの関数はまだ使用できますが、  `FN_T_UID2_IDENTITY_MAP` の方が優れています。すでにこれらの関数を使用している場合は、できるだけ早くアップグレードすることをお勧めします。
 
-NOTE: 非推奨の関数を使用していて、新しい関数への移行の手助けが必要な場合は、[移行ガイド](#migration-guide)を参照してください。
+- `FN_T_UID2_IDENTITY_MAP_EMAIL` (非推奨)
+- `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (非推奨)
 
-- `FN_T_UID2_IDENTITY_MAP_EMAIL` (deprecated)
-- `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (deprecated)
+>NOTE: 非推奨の関数を使用していて、新しい関数への移行の手助けが必要な場合は、[Migration Guide](#migration-guide) を参照してください。
 
 再生成が必要な UID2 を特定するには、UID Share から `UID2_SALT_BUCKETS` ビューを使用します。詳しくは、[Regenerate UID2s](#regenerate-uid2s) を参照してください。
+
+UID2 Sharing 参加者には、以下の機能も利用できます:
+- `FN_T_UID2_ENCRYPT` (See [Encrypt Tokens](#encrypt-tokens))
+- `FN_T_UID2_DECRYPT` (See [Decrypt Tokens](#decrypt-tokens))
+
+詳細は、[Usage for UID2 Sharers](#usage-for-uid2-sharers) を参照してください。
 
 ### Database and Schema Names
 
@@ -105,10 +111,10 @@ select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_U
 
 すべてのクエリ例では、各名前変数に以下のデフォルト値を使用しています:
 
-| Variable          | Advertiser Solution Default Value | Data Provider Solution Default Value | Comments                                                                                                                                               |
-| :---------------- | :-------------------------------- | :----------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `{DATABASE_NAME}` | `UID2_PROD_ADV_SH`                | `UID2_PROD_DP_SH`                    | 必要であれば、選択した UID2 Share へのアクセス権が与えられた後に新しいデータベースを作成する際に、デフォルトのデータベース名を変更できます。 |
-| `{SCHEMA_NAME}`   | `ADV`                             | `DP`                                 | これはイミュータブルです。                                                                                                                             |
+| Variable |Advertiser Solution Default Value | Data Provider Solution Default Value| Comments |
+| :--- | :--- | :--- | :--- |
+| `{DATABASE_NAME}` | `UID2_PROD_ADV_SH` | `UID2_PROD_DP_SH` | 必要であれば、選択した UID2 Share へのアクセス権が与えられた後に新しいデータベースを作成する際に、デフォルトのデータベース名を変更できます。 |
+| `{SCHEMA_NAME}`   | `ADV` | `DP` | これはイミュータブルです。 |
 
 ### Map DII
 
@@ -116,7 +122,7 @@ select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_U
 
 DII がメールアドレスの場合、サービスは UID2 [メールアドレスの正規化](../getting-started/gs-normalization-encoding.md#email-address-normalization) 規則を使用して正規化されます。
 
-DIIが電話番号の場合、UID2 [電話番号正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) ルールを使用して、サービスに送信する前に正規化する必要があります。
+DII　が電話番号の場合、UID2 [電話番号正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) ルールを使用して、サービスに送信する前に正規化する必要があります。
 
 
 | Argument     | Data Type    | Description                                                         |
@@ -126,9 +132,8 @@ DIIが電話番号の場合、UID2 [電話番号正規化](../getting-started/gs
 
 クエリに成功すると、指定された DII について以下の情報が返されます。
 
-
-| Column Name | Data Type | Description                                                                                                                              |
-| :---------- | :-------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
+|Column Name|Data Type|Description|
+| :--- | :--- | :--- |
 | `UID2`      | TEXT | DII は正常にマッピングされました: <br/>DII は正常にマップされませんでした: `NULL`。 |
 | `BUCKET_ID` | TEXT | DIIは正常にマップされました: UID2 の生成に使われたセカンドレベルのソルトバケットの ID。この ID は `UID2_SALT_BUCKETS` ビューのバケットIDに対応します。<br/>DIIは正常にマップされませんでした: `NULL`。 |
 | `UNMAPPED`  | TEXT |  DII は正常にマッピングされました: `NULL`<br/>DII は正常にマップされませんでした: `NULL`:  DII は正常にマップされませんでした: 識別子がマップされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、`INVALID INPUT TYPE` のいずれか。詳細は [Values for the UNMAPPED Column](#values-for-the-unmapped-column) を参照してください。 |
@@ -410,10 +415,10 @@ select a.ID, a.PHONE_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT 
 
 どの UID2 が再生成を必要としているかを判断するには、生成されたときのタイムスタンプを、セカンドレベルのソルトバケット更新の最新のタイムスタンプと比較します。
 
-| Column Name            | Data Type     | Description                                                                                                                                                                                                    |
-| :--------------------- | :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `BUCKET_ID`            | TEXT          | セカンドレベルのソルトバケットの ID です。この ID は、ID マップ関数が返す `BUCKET_ID` と同じものです。`BUCKET_ID` をキーとして、関数呼び出しの結果とこのビュー呼び出しの結果の間のジョインクエリを実行します。 |
-| `LAST_SALT_UPDATE_UTC` | TIMESTAMP_NTZ | バケット内のソルトが最後に更新された時刻です。この値は UTC タイムゾーンで表現されます。                                                                                                                        |
+|Column Name|Data Type|Description|
+| :--- | :--- | :--- |
+| `BUCKET_ID` | TEXT | セカンドレベルのソルトバケットの ID です。この ID は、ID マップ関数が返す `BUCKET_ID` と同じものです。`BUCKET_ID` をキーとして、関数呼び出しの結果とこのビュー呼び出しの結果の間のジョインクエリを実行します。 |
+| `LAST_SALT_UPDATE_UTC` | TIMESTAMP_NTZ | バケット内のソルトが最後に更新された時刻です。この値は UTC タイムゾーンで表現されます。 |
 
 次の例は、入力テーブルと、セカンドレベルのソルトが更新されたために再生成が必要なテーブルの UID2 を見つけるために使用されるクエリを示しています。
 
@@ -745,4 +750,4 @@ select a.ID, b.UID2, b.SITE_ID, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' E
         on a.ID=b.ID;
     ```
 
-共有された UID2 Token の期限切れを避けるため、受信者は、送信者から UID2 Token が利用可能になり次第、復号化すべきです。
+>**WARNING**: 共有された UID2 Token の期限切れを避けるため、受信者は、送信者から UID2 Token が利用可能になり次第、復号化すべきです。
