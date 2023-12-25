@@ -130,7 +130,7 @@ Windows の場合、PowerShell の代わりに Windows コマンドプロンプ�
 <Tabs groupId="language-selection">
 <TabItem value='py' label='Python'>
 
-リクエストを暗号化し、レスポンスを復号化する Python のコードサンプルは `uid2_request.py` です。必要なパラメータはコードサンプルの一番上に示されており、 `python3 uid2_request.py` を実行することで指定できます。
+以下のコードサンプルは Python を使ってリクエストを暗号化し、レスポンスを復号化します。必要なパラメータはコード例の一番上に示されており、 `python3 uid2_request.py` を実行することで得ることができます。
 
 Python のコードには `pycryptodomex` と `requests` パッケージが必要です。これらは以下のようにしてインストールできます:
 
@@ -143,7 +143,7 @@ pip install requests
 <TabItem value='java' label='Java'>
 
 --------------------------------------------------------
-リクエストを暗号化し、レスポンスを復号化するための Java のコードサンプルは Uid2Request.java です。必要なパラメータは main 関数の先頭に表示されるか、次のコマンドをビルドして実行することによって表示されます:
+以下のコードサンプルは、Java を使用してリクエストを暗号化し、レスポンスを復号化します。必要なパラメータは main 関数の先頭に示されています:
 
 ```
 java -jar Uid2Request-1.0-jar-with-dependencies.jar
@@ -205,7 +205,7 @@ Maven を使用している場合は、以下の最小限の `pom.xml` を使用
 </TabItem>
 <TabItem value='cs' label='C#'>
 
-リクエストを暗号化し、レスポンスを復号化する C# のコードサンプルは `uid2_request.cs` です。必要なパラメータはファイルの先頭に記載されており、`. \uid2_request` をビルドして実行することもできます。
+以下のコードサンプルは、C# を使用してリクエストを暗号化し、レスポンスを復号化します。必要なパラメータはファイルの先頭に記載されています。また、`.\uid2_request` をビルドして実行することでも確認できます。
 
 このファイルには.NET 7.0が必要です。必要であれば、それ以前のバージョンを使用することもできますが、.NET Core 3.0以降でなければなりません。
 
