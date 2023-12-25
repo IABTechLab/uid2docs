@@ -53,14 +53,14 @@ UID2 とインテグレーションすることで得られるメリットの一
 1. UID2 とインテグレーションしたいプロパティを特定する。
 1. UID2 契約を締結します。
 1. Client-Side と Server-Side のどちらのインテグレーションを希望するかを決定し、UID2 の担当者に伝えてください。<!-- (**GWH_KK new page coming that we will link to**) -->
-1. UID2 credential（[UID2 Credentials](../getting-started/gs-credentials.md)）を受け取ります。
+1. UID2 credential([UID2 Credentials](../getting-started/gs-credentials.md))を受け取ります。
 1. 該当するドキュメントを参照し、SDK または UID2 API との直接インテグレーションを通じて、UID2 とのインテグレーションを行います。
 
    :::note
    UID2 へのリクエストメッセージは必ず暗号化してください。詳細については、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
    :::
 
-1. テスト： 
+1. テスト: 
    - ビッドリクエストで UID2 を適切に渡すために、SSP と協力します。
    - UID2 が生成され、リクエストで正しく渡されることを確認します。
 1. 本番稼動します。
@@ -80,12 +80,13 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
-| Prebid | [Prebid.js Express Integration Guide](../guides/integration-prebid.md) | UID2 と Prebid.js をインテグレーションしたいパブリッシャー向けのインテグレーションガイドです。Prebid.js はトークンの生成と更新を自動的に管理し、トークンを RTB ビッドストリームに渡します。このガイドは、Client-Side で UID2 Token をリクエストしたいパブリッシャー向けのもので、最も簡単な実装方法です。 |
+| Prebid | [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md) | UID2 とインテグレーションし、RTB ビットストリームで Prebid.js から渡される UID2 Token を生成したいパブリッシャー向けのインテグレーションオプションの概要です。 |
+| Prebid | [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) | 最も簡単な実装方法であるク Client-Side で UID2 Token をリクエストし、Prebid.js に以下を管理させることを選択したいパブリッシャー向けのガイドです: <ul><li>トークン生成とトークンリフレッシュ。</li><li>トークンを RTB ビットストリームに渡す。</li></ul> |
 | JavaScript Client-Side Integration | [JavaScript Express Integration Guide](../guides/publisher-client-side.md) | 最も簡単な実装方法で、Client-Side の JavaScript の変更だけで UID2 とインテグレーションしたいパブリッシャー向けのインテグレーションガイドです。 |
-| Prebid | [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid から渡される ID トークンを生成したいパブリッシャー向けのインテグレーションガイドです。このガイドは、Private Operator を使用しているか、Server-Side でトークンを生成したいパブリッシャー向けです。 |
+| Prebid | [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) | UID2 とインテグレーションし、RTB ビットストリームで Prebid.js から渡される UID2 Token を生成したいが、トークンを Server-Side で生成したいパブリッシャー向けのガイドです: 例えば、Private Operatorを使用しているパブリッシャーなどです。 |
 | JavaScript Client-Side Integration | [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) | パブリッシャー向けのこのインテグレーションガイドでは、UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオについて説明します。トークンを Server-Side で生成し、パブリッシャーのウェブページに渡す必要があります。 |
 | Server-Side Integration | [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) | このインテグレーションガイドは、[UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を使用しないパブリッシャー向けです。 |
-| Publisher/SSP Integration with GAM  | [Publisher - Google Ad Manager Secure Signals](../guides/google-ss-integration.md) | このインテグレーションガイドでは、UID2 を Google Ad Manager のセキュアシグナル機能（旧称：パブリッシャー向け暗号化シグナル、ESP）で使用するパブリッシャーに必要な追加手順について説明します。 |
+| Publisher/SSP Integration with GAM  | [Publisher - Google Ad Manager Secure Signals](../guides/google-ss-integration.md) | このインテグレーションガイドでは、UID2 を Google Ad Manager のセキュアシグナル機能(旧称: Encrypted Signals for Publishers、ESP)で使用するパブリッシャーに必要な追加手順について説明します。 |
 
 ### Mobile Integrations
 
@@ -102,8 +103,9 @@ Google Ad Manager とインテグレーションするパブリッシャーに�
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
-| Prebid | [Prebid.js Express Integration Guide](../guides/integration-prebid.md) | 最も簡単な実装方法である、Client-Side でUID2 Token をリクエストし、Prebid.js に以下を管理させることを選択したいパブリッシャー向けのガイドです:<ul><li>トークンの生成とリフレッシュ。</li><li>トークンを RTB ビッドストリームに渡す。</li></ul> |
-| Prebid | [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid.js から渡される UID2 Token を生成したいが、トークンを Server-Side で生成したいパブリッシャー向けのガイドです。 |
+| Prebid | [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md) | UID2 とインテグレーションし、RTB ビットストリームで Prebid.js から渡される UID2 Token を生成したいパブリッシャー向けのインテグレーションオプションの概要。 |
+| Prebid | [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) | 最も簡単な実装方法である Client-Side で UID2 Token をリクエストし、Prebid.js に以下を管理させることを選択したいパブリッシャー向けのガイドです: <ul><li>トークン生成とトークンリフレッシュ。</li><li>トークンを RTB ビットストリームに渡す。</li></ul> |
+| Prebid | [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid.js から渡される UID2 Token を生成したいが、トークンを Server-Side で生成したいパブリッシャー向けのガイドです: 例えば、Private Operatorを使用しているパブリッシャーなどです。 |
 
 ### Google Ad Manager Integrations
 
@@ -111,8 +113,8 @@ Google Ad Manager とインテグレーションするパブリッシャーに�
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
-| Publisher/SSP Integration with GAM | [Google Ad Manager Secure Signals Integration Guide](../guides/google-ss-integration.md) | パブリッシャーが UID2 を Google Ad Manager のセキュアシグナル機能（旧称: Encrypted Signals for Publishers、ESP）で使用する際に必要な追加手順について説明したガイドです。 |
-| GMA for Android | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) | Google Mobile Ads（GMA）SDK を使用するパブリッシャーが、Android アプリからの広告リクエストに UID2 Token を使うためのガイドです。 |
+| Publisher/SSP Integration with GAM | [Google Ad Manager Secure Signals Integration Guide](../guides/google-ss-integration.md) | パブリッシャーが UID2 を Google Ad Manager のセキュアシグナル機能(旧称: Encrypted Signals for Publishers、ESP)で使用する際に必要な追加手順について説明したガイドです。 |
+| GMA for Android | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) | Google Mobile Ads(GMA)SDK を使用するパブリッシャーが、Android アプリからの広告リクエストに UID2 Token を使うためのガイドです。 |
 | GMA for iOS | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) | Google Mobile Ads (GMA) SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストに UID2 Token を使うためのガイドです。 |
 | IMA for Android | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) | Google Interactive Media Ads (IMA) SDK を使用するパブリッシャーが、Android アプリからの広告リクエストに UID2 Token を使うためのガイドです。 | Publishers |
 | IMA for iOS | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) | Google Interactive Media Ads (IMA) SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストに UID2 Token を使うためのガイドです。 |

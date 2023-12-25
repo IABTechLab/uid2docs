@@ -51,7 +51,7 @@ Prebid.js Express Integration Guide は、既存の URL にまったく新しい
 
 前バージョンの Prebid ドキュメントにあった内容は、Private Operator を使用しているパブリッシャーや、Server-Side でトークン生成を実装したいパブリッシャーのために、補足ドキュメントである *Prebid.js Advanced Integration Guide* に追加されました。
 
-NOTE: These documents were further updated in later revisions. The Prebid.js Express Integration Guide is now the UID2 Client-Side Integration Guide for Prebid.js. Updated links are as follows:
+NOTE: これらのドキュメントは、その後の改訂でさらに更新されました。Prebid.js の Express Integration Guide は、UID2 Client-Side Integration Guide for Prebid.js になりました。更新されたリンクは以下のとおりです:
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
@@ -92,6 +92,7 @@ UID2 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメント�
 
 詳細は [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md) を参照してください。
 
+
 ### Update: Normalization and Encoding Rules
 
 7 September 2023
@@ -99,6 +100,7 @@ UID2 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメント�
 [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を正規化してエンコードし、raw UID2 または UID2 Token を作成する手順を明確にした。
 
 詳細は:
+
 - [Email Address Hash Encoding](../getting-started/gs-normalization-encoding#email-address-hash-encoding)
 - [Phone Number Hash Encoding](../getting-started/gs-normalization-encoding#phone-number-hash-encoding)
 
@@ -106,7 +108,7 @@ UID2 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメント�
 
 8 August 2023
 
-Android 向け UID2 Interactive Media Ads（IMA）Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google IMA SDK for Android を使用するパブリッシャーが、Android アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を secure signal として送信できるようになります。
+Android 向け UID2 Interactive Media Ads(IMA)Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google IMA SDK for Android を使用するパブリッシャーが、Android アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を secure signal として送信できるようになります。
 
 詳細は [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) を参照してください。
 
@@ -115,7 +117,7 @@ Android 向け UID2 Interactive Media Ads（IMA）Plugin に関する情報を�
 
 8 August 2023
 
-iOS 向け UID2 Interactive Media Ads（IMA）Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google IMA SDK for Android を使用するパブリッシャーが、iOS アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を secure signal として送信できるようになります。
+iOS 向け UID2 Interactive Media Ads(IMA)Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google IMA SDK for Android を使用するパブリッシャーが、iOS アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を secure signal として送信できるようになります。
 
 詳細は [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) を参照してください。
 
@@ -123,7 +125,7 @@ iOS 向け UID2 Interactive Media Ads（IMA）Plugin に関する情報を提供
 
 4 August 2023
 
-Android 向け UID2 Google Mobile Ads（GMA）Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google GMA SDK を使用するパブリッシャーが、Android アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を secure signal として送信できるようになります。
+Android 向け UID2 Google Mobile Ads(GMA)Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google GMA SDK を使用するパブリッシャーが、Android アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を secure signal として送信できるようになります。
 
 詳細は [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) を参照してください。
 
@@ -132,7 +134,7 @@ Android 向け UID2 Google Mobile Ads（GMA）Plugin に関する情報を提供
 
 4 August 2023
 
-iOS 向け UID2 Google Mobile Ads（GMA）Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google GMA SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を secure signal として送信できるようになります。
+iOS 向け UID2 Google Mobile Ads(GMA)Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google GMA SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を secure signal として送信できるようになります。
 
 詳細は [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) を参照してください。
 
@@ -143,7 +145,6 @@ iOS 向け UID2 Google Mobile Ads（GMA）Plugin に関する情報を提供す�
 UID2 のウェブサイト全体が、英語だけでなく日本語でも利用できるようになりました。
 
 詳細については、各サイトのページ上部にある言語ドロップダウンを使うか、直接 [Unified ID 2.0 in Japanese](https://unifiedid.com/ja/docs/intro) にアクセスしてください。
-
 
 ### New: UID2 Portal Documentation
 
@@ -160,7 +161,7 @@ UID2 アカウントを管理できる新しい UID2 Portal ユーザーイン�
 新しい UID2 Sharing 機能の使用をサポートするため、以下の新規および更新ドキュメントを公開しました:
 
 - 概要、使用例、実装手順、ベストプラクティスなど、UID2 Sharing に関連する情報を提供する一連の新しいページ。[UID2 Sharing](/docs/category/uid2-sharing) を参照してください。
-- UID2 Sharing をサポートするために4つの Server-side SDK を更新しました：
+- UID2 Sharing をサポートするために4つの Server-side SDK を更新しました:
 
   - [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers)
   - [UID2 SDK for C++: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-cplusplus.md#usage-for-uid2-sharers)
@@ -191,4 +192,4 @@ UID2 アカウントを管理できる新しい UID2 Portal ユーザーイン�
 
 UID2 とインテグレーションし、RTB ビッドストリームで Prebid が渡す UID2 Token (Advertising Token) を生成したいパブリッシャー向けの新しいガイドです。
 
-詳細は [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md) を参照してください。 -->
+詳細は [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md) を参照してください。[doc name updated] -->

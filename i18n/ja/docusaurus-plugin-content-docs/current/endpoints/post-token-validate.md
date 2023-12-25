@@ -120,6 +120,6 @@ echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXl
 
 2. 返された `advertising_token` の値を次のステップで使用するために保存します。
 3. Step 1 で送信した `email`、`email_hash`、`phone`、`phone_hash` の値と、Step 2 で保存した `advertising_token` を `token` プロパティの値として、`POST /token/validate` リクエストを送信します。
-4. `POST /token/validate` リクエストに対するレスポンスを確認します。結果は以下のように、処理の成功を示しています： 
+4. `POST /token/validate` リクエストに対するレスポンスを確認します。結果は以下のように、処理の成功を示しています: 
     - `true` のレスポンスは、Step 1 でリクエストとして送った DII が、Step 1 のレスポンスで受け取ったトークンと一致していることを示します。
     - `false` のレスポンスは、メールアドレス、電話番号、またはそれぞれのハッシュを送信する方法に問題があるかもしれないことを示します。

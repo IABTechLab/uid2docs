@@ -69,8 +69,8 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 #### トークン生成の呼び出しは、Server-Side とClient-Side のどちらで行うべきですか？
 
 UID2 Token は、Client-Side、Server-Sideのどちらでも生成できます。詳細については、以下を参照してください:
-- Prebid.js を使ってClient-Side でトークンを生成する: [Prebid.js Express Integration Guide](../guides/integration-prebid.md)
-- Prebid.jsを使ってサーバサイドからトークンを生成する: [Prebid.js Advanced Integration Guide](../guides/integration-prebid-advanced.md)
+- Prebid.js を使用して Client-Side からトークンを生成する: [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
+- Prebid.js を使用して Server-Side からトークンを生成する: [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md).
 - その他の Server-Side オプション: [Publisher Integrations](../guides/summary-guides.md#publisher-integrations).
 
 #### Client-Side からトークンのリフレッシュを呼び出すことはできますか？
@@ -110,7 +110,7 @@ UID2 Service は、ランダムな初期化ベクトルを使用して UID2 Toke
 
 UID2 実装のアプローチにはさまざまな方法があります。以下は、UID2 Token がビッドストリームでどのように渡されるかを示すコードスニペットの一例です:
 
-```javascript
+```js
 {
   "user":{
     "ext":{
@@ -207,7 +207,7 @@ demand-side platform (DSP) に関するよくある質問を紹介します。
 
 #### 復号鍵はどこで手に入りますか？
 
-Server-Side SDK のいずれか（[SDK](../sdks/summary-sdks.md) を参照してください）を使用して UID2 Service と通信し、最新の鍵を取得することができます。鍵を確実に最新に保つため、1 時間に 1 回など、定期的に鍵を取得することを推奨します。
+Server-Side SDK のいずれか([SDK](../sdks/summary-sdks.md) を参照してください)を使用して UID2 Service と通信し、最新の鍵を取得することができます。鍵を確実に最新に保つため、1 時間に 1 回など、定期的に鍵を取得することを推奨します。
 
 #### メモリ上に存在する復号鍵の数はいくつですか？
 

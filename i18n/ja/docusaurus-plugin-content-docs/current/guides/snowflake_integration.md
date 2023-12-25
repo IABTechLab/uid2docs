@@ -490,7 +490,7 @@ select a.*, b.LAST_SALT_UPDATE_UTC
 
 ### Changing Existing Code
 
-このセクションのコード・スニペットは、以前の関数がどのように実装されているか、そして新しい関数を使用するためにどのように更新できるかを示す Before / After の例です。
+このセクションのコードスニペットは、以前の関数がどのように実装されているか、そして新しい関数を使用するためにどのように更新できるかを示す Before / After の例です。
 
 
 #### Example for mapping unhashed emails
@@ -723,7 +723,7 @@ select a.ID, b.UID2, b.SITE_ID, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' E
 
 ### UID2 Sharing Example
 
-以下の手順では、送信者と受信者の両方が Snowflake を使用している場合に、sharing がどのように機能するかの例を示しています。このシナリオ例では、広告主（送信者）が raw UID2 (`AUDIENCE_WITH_UID2`) を持つオーディエンステーブルを持っており、[Snowflake Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) 機能を使ってテーブル内のデータをデータプロバイダー（受信者）が利用できるようにしたいと考えています。
+以下の手順では、送信者と受信者の両方が Snowflake を使用している場合に、sharing がどのように機能するかの例を示しています。このシナリオ例では、広告主(送信者)が raw UID2 (`AUDIENCE_WITH_UID2`) を持つオーディエンステーブルを持っており、[Snowflake Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) 機能を使ってテーブル内のデータをデータプロバイダー(受信者)が利用できるようにしたいと考えています。
 
 #### Sender Instructions
 

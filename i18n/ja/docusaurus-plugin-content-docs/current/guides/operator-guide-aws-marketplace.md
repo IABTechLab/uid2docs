@@ -215,7 +215,7 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
     2. **Inbound rules** の下で、**Add rule** をクリックし、要件に応じて **HTTPS** タイプと適切な **Source** を選択します。
     3. **Create security group** をクリックします。
 8. ロードバランサーのページに戻り、新しく作成した `UID2SGALB` セキュリティグループを選択します。
-9. **Listeners and routing** の下にある、**Create target group** リンクをクリックし、以下を実行します：
+9. **Listeners and routing** の下にある、**Create target group** リンクをクリックし、以下を実行します:
     1. **Specify group details page** で、ターゲットタイプとして **Instances** を選択し、 **Target group name** として `UID2ALBTG` を入力します。
     2. **Protocol version** として **HTTP1** が選択されていることを確認します。
     3. **Health checks** の下で、**Health check path** に `/ops/healthcheck` を指定し、**Next** をクリックします。

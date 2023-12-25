@@ -22,9 +22,9 @@ sidebar_position: 10
 <td>
 <ul>
 <li><a href="#gl-advertising-id">Advertising ID</a></li>
+<li><a href="#gl-advertising-token">Advertising token</a></li>
 <li><a href="#gl-api-key">API key</a></li>
 <li><a href="#gl-api-secret">API secret</a></li>
-<li><a href="#gl-advertising-token">Advertising token</a></li>
 <li><a href="#gl-authorization-header">Authorization header</a></li>
 <li><a href="#gl-bearer-token">Bearer token</a></li>
 <li><a href="#gl-client-key">Client key</a></li>
@@ -34,7 +34,7 @@ sidebar_position: 10
 <li><a href="#gl-customer-data-platform">Customer Data Platform (CDP)</a></li>
 <li><a href="#gl-data-provider">Data provider</a></li>
 <li><a href="#gl-demand-side-platform">Demand-side platform</a></li>
-<li><a href="#gl-dii">directly identifying information (DII)</a></li>
+<li><a href="#gl-dii">Directly identifying information (DII)</a></li>
 <li><a href="#gl-docker">Docker</a></li>
 <li><a href="#gl-docker-build">Docker Build</a></li>
 
@@ -61,6 +61,7 @@ sidebar_position: 10
 <li><a href="#gl-participant">Participant</a></li>
 <li><a href="#gl-private-operator">Private Operator</a></li>
 <li><a href="#gl-private-operator-service">Private Operator Service</a></li>
+<li><a href="#gl-public-key">Public key</a></li>
 <li><a href="#gl-raw-uid2">Raw UID2</a></li>
 <li><a href="#gl-refresh-token">Refresh token</a></li>
 
@@ -71,14 +72,18 @@ sidebar_position: 10
 <li><a href="#gl-salt">Salt</a></li>
 <li><a href="#gl-salted-hash">Salted hash</a></li>
 <li><a href="#gl-secret">Secret</a></li>
-<li><a href="#gl-secure-signals">Secure signals</a></li>
+<li><a href="#gl-secure-signals">Secure Signals</a></li>
 <li><a href="#gl-sha-256">SHA-256</a></li>
-<li><a href="#gl-sso">SSO</a></li>
+<li><a href="#gl-sharing">Sharing (in UID2)</a></li>
+<li><a href="#gl-sharing-participant">Sharing Participant</a></li>
+<li><a href="#gl-sso">Single sign-on (SSO)</a></li>
+<li><a href="#gl-subscription-id">Subscription ID</a></li>
 <li><a href="#gl-transparency-and-control-portal">Transparency and Control Portal</a></li>
 <li><a href="#gl-uid2-framework">UID2 framework</a></li>
 <li><a href="#gl-uid2-identifier">UID2 identifier</a></li>
-<li><a href="#gl-uid2-service">UID2 service</a></li>
-<li><a href="#gl-uid2-token">UID2 token</a></li>
+<li><a href="#gl-uid2-portal">UID2 Portal</a></li>
+<li><a href="#gl-uid2-service">UID2 Service</a></li>
+<li><a href="#gl-uid2-token">UID2 Token (Advertising Token)</a></li>
 <li><a href="#gl-unified-id-20">Unified ID 2.0</a></li>
 <li><a href="#gl-utc">UTC</a></li>
 </ul>
@@ -113,9 +118,7 @@ sidebar_position: 10
 <dd><a href="#gl-api-key">API key</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-client-secret">Client secret</dt>
-<dd>
-各 UID2 <a href="/docs/intro#participants">参加者</a>は、API Key (クライアントキー)と、そのキーに関連付けられた秘密値 (Client secret (API シークレット))を持っています。Client secretは、参加者と UID2 Service だけが知っています。
-</dd>
+<dd>各 UID2 <a href="/docs/intro#participants">参加者</a>は、API Key (クライアントキー)と、そのキーに関連付けられた秘密値 (Client secret (API シークレット))を持っています。Client secretは、参加者と UID2 Service だけが知っています。</dd>
 <dd>詳細については、<a href="/docs/getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-closed-operator">Closed Operator</dt>
@@ -135,7 +138,7 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-demand-side-platform">Demand-side platform (DSP)</dt>
 <dd>デマンドサイドプラットフォーム (DSP)は、広告主、ブランド、メディアエージェンシーなど、デジタル広告を購入したい企業にサービスを提供するプラットフォームです。</dd>
 
-<dt class="jump-anchor" id="gl-dii">directly identifying information (DII)</dt>
+<dt class="jump-anchor" id="gl-dii">Directly Identifying Information (DII)</dt>
 <dd>直接識別情報 (directly identifying information, DII)とは、氏名、メールアドレス、電話番号など、個人を直接識別する情報のことです。</dd>
 <dd>UID2 はメールアドレスと電話番号をサポートし、DII をターゲットを絞った広告の目的で使用できる値に変換しますが、元の値に遡ることはできません。</dd>
 
@@ -152,8 +155,7 @@ sidebar_position: 10
 <dd>Enclave では、オペレータイメージは特殊で、事前に定義されたバージョンでなければならず、セキュリティを確保するために追加の制約が適用されます。</dd>
 
 <dt class="jump-anchor" id="gl-first-level-hash">First-level hash</dt>
-
-<dd>UID2 のコンテキストでは、First-level hash は匿名化された不透明で安全な値であり、そこから <a href="#gl-raw-uid2">raw UID2</a>、<a href="#gl-uid2-token">UID2 token</a>、<a href="#gl-refresh-token">refresh token</a>が生成されます。ソルティングやハッシュを含むいくつかの暗号関数が、メールアドレスや電話番号などの初期値に適用され、First-level hash が生成されます。</dd>
+<dd>UID2 のコンテキストでは、First-level hash は匿名化された不透明で安全な値であり、そこから <a href="#gl-raw-uid2">raw UID2</a>、<a href="#gl-uid2-token">UID2 Token</a>、<a href="#gl-refresh-token">Refresh Token</a>が生成されます。ソルティングやハッシュを含むいくつかの暗号関数が、メールアドレスや電話番号などの初期値に適用され、First-level hash が生成されます。</dd>
 
 <dt class="jump-anchor" id="gl-hash">Hash</dt>
 <dd>ハッシュ関数は、様々な/任意のサイズのデータセットを固定サイズのデータセットに変換します。ハッシュ関数の結果は、ハッシュ、ダイジェスト、またはハッシュ値と呼ばれます。</dd>
@@ -161,18 +163,16 @@ sidebar_position: 10
 <dd>UID2 は <a href="#gl-sha-256">SHA-256</a> ハッシュアルゴリズムを使用しています。</dd>
 
 <dt class="jump-anchor" id="gl-identity">Identity</dt>
-
 <dd>UID2 のコンテキストでは、「ID」という用語は、UID2 Token、Refresh Token、およびタイムスタンプなどの関連値を含む値のパッケージを指します。この値のセットは、<a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> エンドポイントおよび <a href="../endpoints/post-token-refresh">POST&nbsp;/token/refresh</a> エンドポイントからのレスポンスで返されます。</dd>
 
 <dt class="jump-anchor" id="gl-json-web-token">JSON Web Token (JWT)</dt>
-
 <dd>JSON Web Token (JWT) は、Web 上で一方の当事者から別の当事者に送信されるクレーム (情報) を表す、コンパクトで URL セーフな手段です。JWT 内のクレームは、JSON Web Signature (JWS) 構造のペイロードまたは JSON Web Encryption (JWE) 構造のプレーン テキストとして使用される JSON オブジェクトとしてエンコードされます。これにより、クレームにデジタル署名や暗号化を行うことができます。</dd>
 
 <dt class="jump-anchor" id="gl-normalize">Normalize</dt>
 <dd>データセットを Normalize (正規化)するとは、それを標準的な状態 (Condition)や状態 (State)にすることを意味します。</dd>
 <dd>UID2 には特定の正規化規則があります。詳細については、<a href="../getting-started/gs-normalization-encoding#email-address-normalization">Email Address Normalization</a> と <a href="../getting-started/gs-normalization-encoding#phone-number-normalization">Phone Number Normalization</a> を参照してください。</dd>
 
-<dt class="jump-anchor" id="gl-open-operator">Open operator</dt>
+<dt class="jump-anchor" id="gl-open-operator">Open Operator</dt>
 <dd>Open <a href="#gl-operator">operator</a> とは、UID2 Operator Service 公開インスタンスを実行する事業社です。例えば、The Trade Desk は現在、UID2 フレームワークの Open operator として機能しており、すべての参加者が利用できます。</dd>
 
 <dt class="jump-anchor" id="gl-operator">Operator</dt>
@@ -189,7 +189,7 @@ sidebar_position: 10
 <dd><a href="#gl-operator">Operator</a> のすべての機能を可能にするサービスです</dd>
 <dd>すべての UID2 Service の概要については、<a href="../intro#components">Components</a> を参照してください。</dd>
 
-<dt class="jump-anchor" id="gl-opt-out">Opt-out</dt>
+<dt class="jump-anchor" id="gl-opt-out">Opt-Out</dt>
 <dd>UID2 エコシステムに参加しているエンドユーザーは、<a href="https://www.transparentadvertising.com/">Transparency and Control Portal</a> にアクセスすることで、いつでもオプトアウトすることができます。</dd>
 <dd>詳細は、<a href="../intro#components">Components</a> を参照してください。</dd>
 
@@ -207,11 +207,14 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-private-operator-service">Private Operator Service</dt>
 <dd><a href="#gl-private-operator">private Operator</a> が運用する Operator Service のインスタンスです。</dd>
 
+<dt class="jump-anchor" id="gl-public-key">Public key</dt>
+<dd>Server-Side のパブリッシャーインテグレーションでは、Public Key はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの 1 つです。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>　を参照してください。</dd>
+
 <dt class="jump-anchor" id="gl-raw-uid2">Raw UID2</dt>
 <dd>UID2 API または SDK を通じて、ユーザーの <a href="#gl-dii">directly identifying information</a> (メールアドレスまたは電話番号)を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。raw UID2 は一意な値であり、同じ UID2 は2つとありません。raw  UID2 とそれに関連付けられた UID2 Token は、大文字と小文字を区別します。</dd>
 <dd>詳細は、<a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
-<dt class="jump-anchor" id="gl-refresh-token">Refresh token</dt>
+<dt class="jump-anchor" id="gl-refresh-token">Refresh Token</dt>
 <dd>Refresh tokenは、<a href="#gl-uid2-token">UID2 Token</a>とともに発行される不透明な文字列です。<a href="#gl-uid2-token">UID2 token</a> の有効期限を更新するために使用されます。</dd>
 <dd>UID2 Server は、新しい UID2 Token のリクエストとともに Refresh Token を受け取ると、ユーザーの Opt-Out をチェックします。ユーザーが UID2 を Opt-Out している場合、新しい UID2 Token は生成されません。</dd>
 <dd>新しい UID2 Token が生成されて返されると、新しい Refresh Token も一緒に返されます。ただし、ユーザーが長期間活動していない場合は、Refresh Token は期限切れとなります。</dd>
@@ -236,8 +239,19 @@ sidebar_position: 10
 <dd>SHA-256 は、米国国立標準技術研究所 (NIST)と国家安全保障局 (NSA)が SHA-1 の後継として開発した SHA-2 アルゴリズムファミリーの一部です。各アルゴリズムは出力のビット数によって名前が付けられており、SHA-256 は 256 ビットです。</dd>
 <dd>詳細は、 <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> (specification) を参照してください。</dd>
 
-<dt class="jump-anchor" id="gl-sso">SSO</dt>
-<dd>SSO は Single Sign-On の頭字語です。SSO は、ユーザーがアプリやウェブサイトなどの複数のソフトウェアシステムの1つに、同じ認証情報 (通常は ID とパスワードですが、それに限りません)でログインすることを可能にします。SSO によって、ユーザーは 1 セットの認証情報を使って複数のアプリケーションやサイトに一度だけログインすることができます。SSO によって、ウェブサイトやアプリは独自の認証システムを維持する必要がなくなります。</dd>
+<dt class="jump-anchor" id="gl-sharing">Sharing</dt>
+<dd>UID2 のコンテキストでは、Sharing は、<a href="#gl-raw-uid2">Raw UID2</a> を UID2 参加者間で安全に配布するためのプロセスです。未加工の UID2 を不正アクセスから保護するために、発信側の参加者(送信者)は未加工の UID2 を UID2 Token に暗号化してから送信しなければなりません。送信先の参加者(受信者)は、UID2 Token を内部で使用する Raw UID2 に復号化する必要があります。</dd>
+<dd>For details, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd>
+
+<dt class="jump-anchor" id="gl-sharing-participant">Sharing Participant</dt>
+<dd>UID2 では、Sharing Participant とは、UID2 参加者間で <a href="#gl-raw-uid2">Raw UID2</a> を安全に配布する<a href="#gl-sharing">Sharing</a> 参加する企業のことです。Sharing Participant は、パブリッシャー、広告主、DSP、データプロバイダのいずれかである場合もあれば、複数の役割を持つ場合もあります。</dd>
+<dd>詳細は、<a href="../sharing/sharing-overview">UID2 Sharing: Overview</a> を参照してください。</dd>
+
+<dt class="jump-anchor" id="gl-sso">Single sign-on (SSO)</dt>
+<dd>SSO はシングルサインオンの略語です。SSO は、ユーザーがアプリやウェブサイトなどの複数のソフトウェアシステムの 1 つに、同じ認証情報(通常は ID とパスワードですが、必ずしもそうではありません)でログインすることを可能にします。SSO によって、ユーザーは 1 セットの認証情報を使って複数のアプリケーションやサイトに一度だけログインすることができます。SSO によって、ウェブサイトやアプリは独自の認証システムを維持する必要がなくなります。</dd>
+
+<dt class="jump-anchor" id="gl-subscription-id">Subscription ID</dt>
+<dd>Server-Side のパブリッシャーインテグレーションでは、Subscription ID はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの1つです。詳細は、<a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-transparency-and-control-portal">Transparency and Control Portal</dt>
 <dd>UID2 Transparency and Control Portalは、ユーザー向けのウェブサイト <a href="https://www.transparentadvertising.com/">https://www.transparentadvertising.com/</a> で、消費者はいつでもここから UID2 の Opt-Out を選択することができます。</dd>
@@ -249,14 +263,19 @@ sidebar_position: 10
 <dd>Unified ID 2.0 (UID2)識別子には、<a href="#gl-raw-uid2">raw UID2s</a> と <a href="#gl-uid2-token">UID2 tokens</a> (Advertising token とも呼ばれるます)の2種類があります。</dd>
 <dd>詳細は、<a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
-<dt class="jump-anchor" id="gl-uid2-service">UID2 service</dt>
+<dt class="jump-anchor" id="gl-uid2-portal">UID2 Portal</dt>
+<dd>UID2 Portal は、UID2 参加者が自分のアカウントを管理するための独立したユーザーインターフェースです。</dd>
+<dd>詳細は、<a href="../portal/portal-overview">UID2 Portal Overview</a> を参照してください。</dd>
+
+<dt class="jump-anchor" id="gl-uid2-service">UID2 Service</dt>
 <dd>Unified ID 2.0 (UID2)Service は、<a href="#gl-uid2-framework">UID2 framework</a> をまとめて実装し、関連する UID2 機能へのアクセスをクライアントに提供するコンポーネント、API エンドポイント、その他のタイプのソリューションのあつまりです。</dd>
 <dd>"UID2 service" という用語は、UID2 <a href="#gl-operator-service">Operator Service</a> という意味でも使われます。</dd>
 
-<dt class="jump-anchor" id="gl-uid2-token">UID2 token (advertising token)</dt>
+<dt class="jump-anchor" id="gl-uid2-token">UID2 Token (Advertising Token)</dt>
 <dd>Unified ID 2.0 (UID2)Token は Advertising Token とも呼ばれ、<a href="#gl-raw-uid2">raw UID2</a> を暗号化したものです。</dd>
 <dd>UID2 Token は、ハッシュ化された、またはハッシュ化されていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、暗号化されます。UID2 Token は一意な値であり、同じ UID2 TOken は2つとありません。UID2 Token は大文字と小文字を区別します。</dd>
 <dd>トークンの寿命は限られていますが、<a href="#gl-refresh-token">refresh token</a> を使ってバックグラウンドでリフレッシュすることができます。</dd>
+<dd>パブリッシャーは、ビットストリームに UID2 Token を送信します。</dd>
 <dd>詳細は、<a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-unified-id-20">Unified ID 2.0 (UID2)</dt>
@@ -264,4 +283,5 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-utc">UTC</dt>
 <dd>UTC は協定世界時 (Coordinated Universal Time)の略称で、ズールー時間 (Zulu time)とも呼ばれ、一般に使用されている主要な時間基準です。UTC は基本的にグリニッジ標準時 (GMT)に相当しますが、科学的により正確です。</dd>
+
 </dl>

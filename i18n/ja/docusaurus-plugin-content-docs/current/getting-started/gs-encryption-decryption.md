@@ -43,7 +43,7 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 ## Encrypting Requests
 
-リクエストを暗号化するコードを自分で書くか、UID2 SDK を使うか、提供されているコード例のいずれかを使うかの選択肢があります（[Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples) を参照してください）。自分でコードを書く場合は、[Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) と [Encrypted Request Envelope](#encrypted-request-envelope) に記載されているフィールドレイアウトの要件に従うようにしてください。
+リクエストを暗号化するコードを自分で書くか、UID2 SDK を使うか、提供されているコード例のいずれかを使うかの選択肢があります([Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples) を参照してください)。自分でコードを書く場合は、[Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) と [Encrypted Request Envelope](#encrypted-request-envelope) に記載されているフィールドレイアウトの要件に従うようにしてください。
 
 ### Unencrypted Request Data Envelope
 
@@ -68,7 +68,7 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 ## Decrypting Responses
 
-レスポンスを復号化するコードを自分で書くか、UID2 SDKを使うか、提供されているコード例のいずれかを使うかの選択肢があります（[Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples) を参照してください）。独自のコードを書く場合は、[Encrypted Response Envelope](#encrypted-response-envelope) および [Encrypted Response Envelope](#unencrypted-response-data-envelope) に記載されているフィールドレイアウトの要件に従うようにしてください。
+レスポンスを復号化するコードを自分で書くか、UID2 SDKを使うか、提供されているコード例のいずれかを使うかの選択肢があります([Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples) を参照してください)。独自のコードを書く場合は、[Encrypted Response Envelope](#encrypted-response-envelope) および [Encrypted Response Envelope](#unencrypted-response-data-envelope) に記載されているフィールドレイアウトの要件に従うようにしてください。
 
 :::note
 レスポンスは、サービスが HTTP ステータスコード 200 を返す場合のみ、暗号化されます。
@@ -120,7 +120,7 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントでは、[POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) へのコールで事前に取得した `refresh_token` と `refresh_response_key` の値を使用します。
 
 :::note
-Windows の場合、PowerShell の代わりに Windows コマンドプロンプトを使用している場合は、JSON を囲むシングルクォートも削除する必要があります。例えば、`echo {"email"： "test@example.com"}` とします。
+Windows の場合、PowerShell の代わりに Windows コマンドプロンプトを使用している場合は、JSON を囲むシングルクォートも削除する必要があります。例えば、`echo {"email": "test@example.com"}` とします。
 :::
 
 ### Prerequisites and Notes
@@ -151,7 +151,7 @@ java -jar Uid2Request-1.0-jar-with-dependencies.jar
 
 Java のサンプルは JDK version 11 以降用に書かれており、クラスパスに com.google.code.gson ライブラリーが必要です。
 
-Maven を使用している場合は、以下の最小限の `pom.xml` を使用し、`mvn package` を実行してプロジェクトをビルドすることができます：
+Maven を使用している場合は、以下の最小限の `pom.xml` を使用し、`mvn package` を実行してプロジェクトをビルドすることができます:
 
 ```xml
 <project>

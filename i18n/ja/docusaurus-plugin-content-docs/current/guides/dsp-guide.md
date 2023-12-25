@@ -33,7 +33,7 @@ DSP はビッドリクエストで UID2 Token を受け取り、この機能を�
 
 ### Honor User Opt-Outs
 
-UID2 Service からユーザーのオプトアウトを受信して受け入れるために、DSP は事前に設定されたインターフェース（out-put Webhook/API endpoint）を確立し、オンボーディング中にUID2 Service に提供します。ユーザーがオプトアウトすると、UID2 Service はユーザーの raw UID2 と、対応するオプトアウトタイムスタンプを、事前に設定されたインターフェースに送信します。
+UID2 Service からユーザーのオプトアウトを受信して受け入れるために、DSP は事前に設定されたインターフェース(out-put Webhook/API endpoint)を確立し、オンボーディング中にUID2 Service に提供します。ユーザーがオプトアウトすると、UID2 Service はユーザーの raw UID2 と、対応するオプトアウトタイムスタンプを、事前に設定されたインターフェースに送信します。
 
 UID2 Service は、ユーザーがオプトアウトしてから数秒以内に以下のデータを送信します。これを DSP が記録し、[Decrypt UID2 Tokens for RTB Use](#decrypt-uid2-tokens-for-rtb-use) で定義されている入札ロジックを使用するようにします。
 
