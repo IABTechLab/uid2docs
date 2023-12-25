@@ -208,7 +208,7 @@ sidebar_position: 10
 <dd><a href="#gl-private-operator">private Operator</a> が運用する Operator Service のインスタンスです。</dd>
 
 <dt class="jump-anchor" id="gl-public-key">Public key</dt>
-<dd>Server-Side のパブリッシャーインテグレーションでは、Public Key はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの 1 つです。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>　を参照してください。</dd>
+<dd>Server-Side のパブリッシャーインテグレーションでは、Public Key はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの 1 つです。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-raw-uid2">Raw UID2</dt>
 <dd>UID2 API または SDK を通じて、ユーザーの <a href="#gl-dii">directly identifying information</a> (メールアドレスまたは電話番号)を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。raw UID2 は一意な値であり、同じ UID2 は2つとありません。raw  UID2 とそれに関連付けられた UID2 Token は、大文字と小文字を区別します。</dd>

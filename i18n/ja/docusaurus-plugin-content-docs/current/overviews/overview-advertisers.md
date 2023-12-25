@@ -55,13 +55,13 @@ UID2 を採用する広告主にとってのメリット、ワークフロー、
 
 ## Implementation Resources
 
-広告主が UID2 を実装するために、以下のドキュメントリソースが利用可能です。
+広告主やデータプロバイダーが UID2 を実装するために、以下のドキュメントリソースを利用できます。
 
-|                                        Integration Type                                        |                                       Documentation                                       |                                                                                        Content Description                                                                                         |            Audience             |
-| :--------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------ |
-| ユーザーデータを収集し、他の UID2 参加者にプッシュする組織のためのインテグレーション | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | このガイドでは、オーディエンスの構築とターゲティングのために ID をマッピングするインテグレーションワークフローについて説明します。 | Advertisers,<br/>Data Providers |
-| Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | このガイドでは、Snowflake でメールアドレスから UID2 を生成する手順を説明します。 | Advertisers,<br/>Data Providers |
-| AWS Entity Resolution | [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) | このガイドでは、AWS Entity Resolution を使用して UID2 フレームワークとインテグレーションする手順を説明します。 | Advertisers,<br/>Data Providers |
+| Integration Type| Documentation | Content Description |
+| :--- | :--- | :--- |
+| ユーザーデータを収集し、他の UID2 参加者にプッシュする組織のためのインテグレーション手順 | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | このガイドでは、オーディエンスの構築とターゲティングのために ID をマッピングするインテグレーションワークフローについて説明します。 |
+| Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | このガイドでは、Snowflake を使ってメールアドレスから UID2 を生成する手順を説明します。 |
+| AWS Entity Resolution | [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) | このガイドでは、AWS Entity Resolution を使用して UID2 とインテグレーションする手順を説明します。 |
 
 ## FAQs for Advertisers
 
