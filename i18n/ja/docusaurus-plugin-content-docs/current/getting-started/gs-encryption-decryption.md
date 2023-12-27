@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 UID2 API リクエストの暗号化と各レスポンスの復号化について知っておく必要があるのは、以下のとおりです:
 
-- API を使用するには、クライアントの API キーに加えて、クライアントシークレットが必要です。
+- API を使用するには、クライアントの API Key に加えて、クライアントシークレットが必要です。
 - 独自のコードを書くことも、提供されているコード例の一つを使うこともできます: [Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples) を参照してください。
 - リクエストとレスポンスには、96 ビットの初期化ベクトルと 128 ビットの認証タグを持つ AES/GCM/NoPadding 暗号化アルゴリズムが使用されます。
 - リクエストの暗号化されていない JSON ボディは、バイナリの [暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) にラップされ、その後 [暗号化リクエストエンベローブ](#encrypted-request-envelope) にしたがって暗号化とフォーマットが行われます。
@@ -39,11 +39,11 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 [encrypting requests and decrypting responses](#encryption-and-decryption-code-examples) のコード例は、Step 2-10 を自動化するのに役立ち、アプリケーションでこれらのステップを実装する方法のリファレンスとなります。
 
-各 UID2 [endpoints](../endpoints/summary-endpoints.md) では、JSONボディフォーマットの要件とパラメータを説明し、呼び出し例を含め、復号化された応答を示しています。以下のセクションでは、暗号化と復号のコード例、フィールドレイアウトの要件、リクエストとレスポンスの例を示します。
+各 UID2 [endpoints](../endpoints/summary-endpoints.md) では、JSONボディフォーマットの要件とパラメータを説明し、呼び出し例を含め、復号化されたレスポンスを示しています。以下のセクションでは、暗号化と復号のコード例、フィールドレイアウトの要件、リクエストとレスポンスの例を示します。
 
 ## Encrypting Requests
 
-リクエストを暗号化するコードを自分で書くか、UID2 SDK を使うか、提供されているコード例のいずれかを使うかの選択肢があります（[Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples) を参照してください）。自分でコードを書く場合は、[Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) と [Encrypted Request Envelope](#encrypted-request-envelope) に記載されているフィールドレイアウトの要件に従うようにしてください。
+リクエストを暗号化するコードを自分で書くか、UID2 SDK を使うか、提供されているコード例のいずれかを使うかの選択肢があります([Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples) を参照してください)。自分でコードを書く場合は、[Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) と [Encrypted Request Envelope](#encrypted-request-envelope) に記載されているフィールドレイアウトの要件に従うようにしてください。
 
 ### Unencrypted Request Data Envelope
 
@@ -68,7 +68,7 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 ## Decrypting Responses
 
-レスポンスを復号化するコードを自分で書くか、UID2 SDKを使うか、提供されているコード例のいずれかを使うかの選択肢があります（[Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples) を参照してください）。独自のコードを書く場合は、[Encrypted Response Envelope](#encrypted-response-envelope) および [Encrypted Response Envelope](#unencrypted-response-data-envelope) に記載されているフィールドレイアウトの要件に従うようにしてください。
+レスポンスを復号化するコードを自分で書くか、UID2 SDKを使うか、提供されているコード例のいずれかを使うかの選択肢があります([Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples) を参照してください)。独自のコードを書く場合は、[Encrypted Response Envelope](#encrypted-response-envelope) および [Encrypted Response Envelope](#unencrypted-response-data-envelope) に記載されているフィールドレイアウトの要件に従うようにしてください。
 
 :::note
 レスポンスは、サービスが HTTP ステータスコード 200 を返す場合のみ、暗号化されます。
@@ -76,7 +76,7 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 ### Encrypted Response Envelope
 
-次の表は、応答復号化コードのフィールドレイアウトを説明するものです。
+次の表は、レスポンス復号化コードのフィールドレイアウトを説明するものです。
 
 | Offset (Bytes) | Size (Bytes) | Description                                                                                                                                        |
 | :------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -86,7 +86,7 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 ### Unencrypted Response Data Envelope
 
-次の表は、応答復号化コードのフィールドレイアウトを説明するものです。
+次の表は、レスポンス復号化コードのフィールドレイアウトを説明するものです。
 
 | Offset (Bytes) | Size (Bytes) | Description                                                                                                                                                                |
 | :------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -120,7 +120,7 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントでは、[POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) へのコールで事前に取得した `refresh_token` と `refresh_response_key` の値を使用します。
 
 :::note
-Windows の場合、PowerShell の代わりに Windows コマンドプロンプトを使用している場合は、JSON を囲むシングルクォートも削除する必要があります。例えば、`echo {"email"： "test@example.com"}` とします。
+Windows の場合、PowerShell の代わりに Windows コマンドプロンプトを使用している場合は、JSON を囲むシングルクォートも削除する必要があります。例えば、`echo {"email": "test@example.com"}` とします。
 :::
 
 ### Prerequisites and Notes
@@ -130,7 +130,7 @@ Windows の場合、PowerShell の代わりに Windows コマンドプロンプ�
 <Tabs groupId="language-selection">
 <TabItem value='py' label='Python'>
 
-リクエストを暗号化し、レスポンスを復号化する Python のコードサンプルは `uid2_request.py` です。必要なパラメータはコードサンプルの一番上に示されており、 `python3 uid2_request.py` を実行することで指定できます。
+以下のコードサンプルは Python を使ってリクエストを暗号化し、レスポンスを復号化します。必要なパラメータはコード例の一番上に示されており、 `python3 uid2_request.py` を実行することで得ることができます。
 
 Python のコードには `pycryptodomex` と `requests` パッケージが必要です。これらは以下のようにしてインストールできます:
 
@@ -138,10 +138,74 @@ Python のコードには `pycryptodomex` と `requests` パッケージが必�
 pip install pycryptodomex
 pip install requests
 ```
+
+</TabItem>
+<TabItem value='java' label='Java'>
+
+--------------------------------------------------------
+以下のコードサンプルは、Java を使用してリクエストを暗号化し、レスポンスを復号化します。必要なパラメータは main 関数の先頭に示されています:
+
+```
+java -jar Uid2Request-1.0-jar-with-dependencies.jar
+```
+
+Java のサンプルは JDK version 11 以降用に書かれており、クラスパスに com.google.code.gson ライブラリーが必要です。
+
+Maven を使用している場合は、以下の最小限の `pom.xml` を使用し、`mvn package` を実行してプロジェクトをビルドすることができます:
+
+```xml
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.example</groupId>
+  <artifactId>Uid2Request</artifactId>
+  <version>1.0</version>
+
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.10</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.4.2</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+              <manifest>
+                <mainClass>org.example.Uid2Request</mainClass>
+              </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+```
+
 </TabItem>
 <TabItem value='cs' label='C#'>
 
-リクエストを暗号化し、レスポンスを復号化する C# コードサンプルは `uid2_request.cs` です。必要なパラメータはファイルの先頭に記載されており、`. \uid2_request` をビルドして実行することもできます。
+以下のコードサンプルは、C# を使用してリクエストを暗号化し、レスポンスを復号化します。必要なパラメータはファイルの先頭に記載されています。また、`.\uid2_request` をビルドして実行することでも確認できます。
 
 このファイルには.NET 7.0が必要です。必要であれば、それ以前のバージョンを使用することもできますが、.NET Core 3.0以降でなければなりません。
 
@@ -232,6 +296,125 @@ else:
    print("Response JSON:")
    print(json.dumps(json_resp, indent=4))
 ```
+</TabItem>
+<TabItem value='java' label='Java'>
+
+```java title="Uid2Request.java"
+package org.example;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+import java.security.SecureRandom;
+import java.time.Instant;
+import java.util.Arrays;
+import java.util.Base64;
+import javax.crypto.Cipher;
+import javax.crypto.spec.GCMParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+
+public class Uid2Request {
+  public static final int NONCE_LENGTH_BYTES = 8;
+  private static final int GCM_TAG_LENGTH_BYTES = 16;
+  private static final int GCM_IV_LENGTH_BYTES = 12;
+
+  public static void main(String[] args) throws Exception {
+    if (args.length != 3 && args.length != 4) {
+      System.out.println("Usage: java -jar Uid2Request-jar-with-dependencies.jar <url> <api_key> <client_secret>" + "\n");
+      System.out.println("Example: echo '{\"email\": \"test@example.com\"}' |  java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/generate PRODGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=" + "\n");
+      System.out.println("Refresh Token Usage: java -jar Uid2Request-jar-with-dependencies.jar <url> --refresh-token <refresh_token> <refresh_response_key>"  + "\n");
+      System.out.println("Refresh Token Example: java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s="  + "\n");
+      System.out.println("Refresh Token Example: java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s="  + "\n");
+      System.exit(1);
+    }
+
+    String url = args[0];
+    boolean isRefresh = "--refresh-token".equals(args[1]);
+    byte[] secret = Base64.getDecoder().decode(args[isRefresh ? 3 : 2]);
+
+    String payload = isRefresh ? args[2] : new BufferedReader(new InputStreamReader(System.in)).readLine();
+
+    HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+    connection.setRequestMethod("POST");
+
+    if (!isRefresh) {
+      String apiKey = args[1];
+
+      byte[] iv = new byte[GCM_IV_LENGTH_BYTES];
+      long timestamp = Instant.now().toEpochMilli();
+      byte[] requestNonce = new byte[NONCE_LENGTH_BYTES];
+      byte[] plaintext = payload.getBytes(StandardCharsets.UTF_8);
+
+      SecureRandom secureRandom = new SecureRandom();
+      secureRandom.nextBytes(iv);
+      secureRandom.nextBytes(requestNonce);
+
+      ByteBuffer body = ByteBuffer.allocate(8 + requestNonce.length + plaintext.length);
+      body.putLong(timestamp);
+      body.put(requestNonce);
+      body.put(plaintext);
+
+      Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+      GCMParameterSpec parameterSpec = new GCMParameterSpec(GCM_TAG_LENGTH_BYTES * 8, iv);
+      cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(secret, "AES"), parameterSpec);
+
+      ByteBuffer envelope = ByteBuffer.allocate(1 + body.array().length + GCM_IV_LENGTH_BYTES + GCM_TAG_LENGTH_BYTES);
+      envelope.put((byte) 1);
+      envelope.put(iv);
+      envelope.put(cipher.doFinal(body.array()));
+
+      payload = Base64.getEncoder().encodeToString(envelope.array());
+      connection.setRequestProperty("Authorization", "Bearer " + apiKey);
+    }
+
+    connection.setDoOutput(true);
+    try (OutputStream os = connection.getOutputStream()) {
+      os.write(payload.getBytes(StandardCharsets.UTF_8));
+    }
+
+    // Handle response
+    int status = connection.getResponseCode();
+    BufferedReader reader = status == 200 ?
+        new BufferedReader(new InputStreamReader(connection.getInputStream())) :
+        new BufferedReader(new InputStreamReader(connection.getErrorStream()));
+    StringBuilder response = new StringBuilder();
+    String line;
+    while ((line = reader.readLine()) != null) {
+      response.append(line);
+    }
+    reader.close();
+
+    if (status != HttpURLConnection.HTTP_OK) {
+      System.out.println("Error: HTTP status code " + status);
+      System.out.println(response);
+      return;
+    }
+
+    byte[] respBytes = Base64.getDecoder().decode(response.toString());
+
+    Cipher respCipher = Cipher.getInstance("AES/GCM/NoPadding");
+    respCipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(secret, "AES"), new GCMParameterSpec(GCM_TAG_LENGTH_BYTES * 8, respBytes, 0, GCM_IV_LENGTH_BYTES));
+    byte[] decrypted = respCipher.doFinal(respBytes, GCM_IV_LENGTH_BYTES, respBytes.length - GCM_IV_LENGTH_BYTES);
+
+    JsonObject jsonResponse;
+    if (!isRefresh) {
+      jsonResponse = JsonParser.parseString(new String(Arrays.copyOfRange(decrypted, 8 + NONCE_LENGTH_BYTES, decrypted.length), StandardCharsets.UTF_8)).getAsJsonObject();
+    } else {
+      jsonResponse = JsonParser.parseString(new String(decrypted, StandardCharsets.UTF_8)).getAsJsonObject();
+    }
+    String prettyJsonResponse = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create().toJson(jsonResponse);
+    System.out.println("Response JSON:");
+    System.out.println(prettyJsonResponse);
+  }
+}```
 
 </TabItem>
 <TabItem value='cs' label='C#'>

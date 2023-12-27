@@ -48,7 +48,7 @@ UID2 SDK for Android を使用すると、UID2 を使用してクライアント
 
 このドキュメントは UID2 Android SDK バージョン 0.5.0 以降用です。
 
-特定のリリース・バージョンについては、[https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases)　を参照してください。
+特定のリリース・バージョンについては、[https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases) を参照してください。
 
 ## Features
 

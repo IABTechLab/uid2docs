@@ -102,8 +102,6 @@ UID2 の連絡先に、Entity Resolution での UID2 インテグレーション
 
 ![AWS UID2 Private Offer](images/integration-aws-entity-resolution-private-offer.png)
 
-<!-- To participate in UID2 on the Amazon Data Exchange Marketplace, subscribe to the UID2 service. See [Unified ID 2.0 Operator on AWS](https://aws.amazon.com/advertising-marketing/solutions/uid2/). -->
-
 加入リクエストを受け取ると、UID2 チームは以下を行います:
 - サブスクリプションのリクエストを確認します。
 - リクエストを [Create UID2 Account](#create-uid2-account) で送信した AWS アカウント ID と照合します。
@@ -111,7 +109,7 @@ UID2 の連絡先に、Entity Resolution での UID2 インテグレーション
 
 ## Configure AWS Account
 
-UID2 の参加者は AWS の S3 バケットにデータを保存し、AWS Entity Resolution とインテグレーションします。AWS アカウントを作成したら（[Create AWS Account](#create-aws-account)を参照してください。）、基本的な手順は以下の通りです。
+UID2 の参加者は AWS の S3 バケットにデータを保存し、AWS Entity Resolution とインテグレーションします。AWS アカウントを作成したら([Create AWS Account](#create-aws-account)を参照してください。)、基本的な手順は以下の通りです。
 
 >NOTE: 詳細な手順については、AWSドキュメントの [Setting up AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html) を参照してください。
 
@@ -144,9 +142,9 @@ UID2 は、UID2 生成のためにメールアドレスまたは電話番号の�
 マッチングワークフローを作成するには、まず AWS Management コンソールにサインインし、**AWS Entity Resolution** ページを開き、**Workflows** > **Matching workflows** > **Create matching workflow** を選択します。次に、マッチングワークフローの以下のステップを完了します。
 
 1. 一致するワークフローについて、以下の詳細を指定します:
-   - **Name**： この値は必須です。短く、わかりやすく、直感的な名前をお勧めします。例えば、会社名を指定する場合: `CompanyName_UID2_Daily_Matching`。
-   - **Description**： マッチングワークフローの説明（オプション）。
-   - **Data input**： AWS のデータソース。ドロップダウンリストから、AWS Glue データベース、AWS Glue テーブル、スキーママッピングの順に選択します。データ入力は複数指定できます。以下の例では、メールアドレスのみを指定しています:
+   - **Name**: この値は必須です。短く、わかりやすく、直感的な名前をお勧めします。例えば、会社名を指定する場合: `CompanyName_UID2_Daily_Matching`。
+   - **Description**: マッチングワークフローの説明(オプション)。
+   - **Data input**: AWS のデータソース。ドロップダウンリストから、AWS Glue データベース、AWS Glue テーブル、スキーママッピングの順に選択します。データ入力は複数指定できます。以下の例では、メールアドレスのみを指定しています:
 
      |UniqueId|Name|Email|Date of Birth|
      |--------|----|-----|-----------|
@@ -179,7 +177,7 @@ UID2 は、UID2 生成のためにメールアドレスまたは電話番号の�
      |0001|Test 1|test1@uidapi.com|1/1/90|test1@uidapi.com|Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM=|ad1ANEmVZ|
      |0002|Test 2|test2@gmail.com|1/2/78|test2@gmail.com|kds8hgBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/jgksuh=|kd9ANE98d|
 
-4. **Review and Create**: マッチングワークフローのすべての詳細を確認します。値に問題がなければ、**Create**　をクリックします。
+4. **Review and Create**: マッチングワークフローのすべての詳細を確認します。値に問題がなければ、**Create** をクリックします。
 
    一致するワークフローが作成され、確認メッセージが表示されます。
 

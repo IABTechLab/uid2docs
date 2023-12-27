@@ -47,7 +47,7 @@ Before setting up your UID2 Operator Service in the Google Cloud Platform using 
 
 UID2 Operator Service は、どの GCP アカウントおよびプロジェクトでも実行できます。ただし、認証をサポートするには、Confidential Space virtual machine (VM) を実行するために使用できるサービスアカウントを作成する必要があります。
 
-デプロイメントオプションを選択する前に、以下の Google Cloud セットアップ手順を完了してください：
+デプロイメントオプションを選択する前に、以下の Google Cloud セットアップ手順を完了してください:
 
 1. UID2 Operator を実行する GCP プロジェクトを作成します。UID2 Operator Service 用に新しいプロジェクトを作成することを勧めますが、既存のプロジェクトを使用することもできます。以下のガイドラインに従ってください:
 
@@ -78,7 +78,7 @@ UID2 アカウントの登録が完了し、gcloud CLI をインストールし�
 
 ## Deployment Environments
 
-以下の環境が利用可能で、[deployment options](#deployment-options)　は両方の環境に対応しています。
+以下の環境が利用可能で、[deployment options](#deployment-options) は両方の環境に対応しています。
 
 ベストプラクティスとして、本番環境にデプロイする前にインテグレーション環境で実装をテストし、検証することを勧めます。
 
@@ -115,8 +115,8 @@ Terraform テンプレートは以下を行います:
 - `operator_key` 値を保持するためのシークレットを作成します。
 - 以下のコンポーネントを作成します:
   - Network: VPC とサブネットワーク。
-  - Instances: インスタンステンプレート、インスタンスグループ（オートスケーリングが有効）。
-  - Ingress: ロードバランサー（ヘルスチェックあり）、フォワーディングルール、ファイアウォールルール。
+  - Instances: インスタンステンプレート、インスタンスグループ(オートスケーリングが有効)。
+  - Ingress: ロードバランサー(ヘルスチェックあり)、フォワーディングルール、ファイアウォールルール。
   - Egress: [Cloud Network Address Translation (NAT)](https://cloud.google.com/nat/docs/overview)。
 - HTTPS が有効な場合、Terraform に HTTPS 証明書を提供します。
 
@@ -186,12 +186,12 @@ Terraform がインストールされていない場合は、[terraform.io](http
    | `certificate` | `string`  | n/a | no | HTTPS 証明書。証明書は PEM 形式でなければなりません。<br/>例えば: `file('path/to/certificate.pem')`.<br/>`ssl` が `true` に設定されている場合は必須です。<br/>詳細はTerraformドキュメントの [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#certificate) を参照してください。 |
    | `private_key` | `string`  | n/a | no | HTTPS証明書の秘密鍵。秘密鍵は PEM 形式でなければなりません。<br/>例えば: `file('path/to/private_key.pem')`. <br/>`ssl` が `true` に設定されている場合は必須です。<br/>詳細はTerraformドキュメントの [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#private_key) を参照してください。 |
    
-1. （オプション）以下の表に示す追加入力パラメータのパラメータ名と値を指定します。これらのパラメータはオプションですが、より要件に合うようにデフォルト値から変更したい場合に設定します。
+1. (オプション)以下の表に示す追加入力パラメータのパラメータ名と値を指定します。これらのパラメータはオプションですが、より要件に合うようにデフォルト値から変更したい場合に設定します。
 
    | Name | Type | Default | Required | Description |
    | :--- | :--- | :--- | :--- | :--- |
    | `region` | `string` | `us-east1` | no | デプロイ先のリージョンです。有効なリージョンの一覧については、Google Cloud ドキュメントの [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) 参照してください。<br/>NOTE: GCP Confidential Space の UID2 Private Operator は、以下の地域ではサポートされていません: Europe, China. |
-   | `network_name` | `string` | `uid-operator` | no | VPC リソース名（ルール/インスタンスタグにも使用されます）です。 |
+   | `network_name` | `string` | `uid-operator` | no | VPC リソース名(ルール/インスタンスタグにも使用されます)です。 |
    | `min_replicas` | `number` | `1` | no | デプロイするレプリカの最小数です。 |
    | `max_replicas` | `number` | `5` | no | デプロイするレプリカの最大数です。 |
    | `uid_operator_key_secret_name` | `string` | `"secret-operator-key"` | no | Operator Key Secret に指定する名前です。Terraform テンプレートは、`uid_operator_key` 値を保持するために GCP Secret Manager にシークレットを作成します。名前は定義できます。例えば、`uid2-operator-operator-key-secret-integ` |
@@ -209,6 +209,12 @@ terraform apply
 `terraform apply` を実行すると、同じフォルダに以下のファイルが生成されます: `terraform.tfstate`。このファイルには管理対象のインフラストラクチャとコンフィギュレーションに関する状態情報が保存され、将来のメンテナンスに使用されます。
 
 >NOTE: Terraformの `state` ファイルについては、必ず推奨されるプラクティスに従ってください: これらはデプロイされたインフラストラクチャを維持するために必要であり、機密情報が含まれている可能性があります。詳細は Terraform ドキュメントの [state](https://developer.hashicorp.com/terraform/language/state) を参照してください。
+
+#### Test Terraform Using the Health Check Endpoint
+
+Helth check エンドポイントを呼び出して、実装の健全性をテストします。期待される結果は HTTP 200 で、レスポンスボディは `OK` です。
+
+手順については、[Health Check&#8212;Terraform Template](#health-checkterraform-template) を参照してください。
 
 #### Delete All Created Resources
 
@@ -317,9 +323,9 @@ gcloud CLI をインストールしたときに作成したアカウントを設
     ```
 #### Create Secret for the Operator Key in Secret Manager
 
-UID2 アカウントのセットアップ ([UID2 Operator Account Setup](#uid2-operator-account-setup) を参照してください）の一環として、各環境の Operator Key を受け取ります。
+UID2 アカウントのセットアップ ([UID2 Operator Account Setup](#uid2-operator-account-setup) を参照してください)の一環として、各環境の Operator Key を受け取ります。
 
-次のステップでは、GCP Secret Manager に `{OPERATOR_KEY}` の値を保存し、Secret の名前を取得します。この名前は、後でデプロイスクリプトの `{OPERATOR_KEY_SECRET_FULL_NAME}` プレースホルダを置き換えるために使用します（[Update-the-Script-with-valid-values](#update-the-script-with-valid-values)を参照してください）。
+次のステップでは、GCP Secret Manager に `{OPERATOR_KEY}` の値を保存し、Secret の名前を取得します。この名前は、後でデプロイスクリプトの `{OPERATOR_KEY_SECRET_FULL_NAME}` プレースホルダを置き換えるために使用します([Update-the-Script-with-valid-values](#update-the-script-with-valid-values)を参照してください)。
 
 以下の手順に従ってください:
 
@@ -338,7 +344,7 @@ UID2 アカウントのセットアップ ([UID2 Operator Account Setup](#uid2-o
 
     2. スクリプトを実行します。
 
-       スクリプトは GCP Secret Manager にシークレットを作成します。シークレット（表示）名は `{OPERATOR_KEY_SECRET_NAME}` で、シークレットの値は `{OPERATOR_KEY}` です。
+       スクリプトは GCP Secret Manager にシークレットを作成します。シークレット(表示)名は `{OPERATOR_KEY_SECRET_NAME}` で、シークレットの値は `{OPERATOR_KEY}` です。
        
 1. 以下のコマンドを実行し、パスを含む完全なシークレットネームを取得します:
 
@@ -367,8 +373,8 @@ UID2 アカウントのセットアップ ([UID2 Operator Account Setup](#uid2-o
 | `{INSTANCE_NAME}` | 有効な VM 名です。 |
 | `{ZONE}` | VM インスタンスがデプロイされる Google Cloud ゾーンです。 |
 | `{SERVICE_ACCOUNT}` | アカウント作成時に作成したサービスアカウントのメールアドレス: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`。<br/>詳細は [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions) (Step 4) を参照してください。 |
-| `{OPERATOR_IMAGE}` | コンフィギュレーションで使用する UID2 Private Operator for GCP の Docker イメージ URL。<br/>詳細は [UID2 Operator Account Setup](#uid2-operator-account-setup)　を参照してください。 |
-| `{OPERATOR_KEY_SECRET_FULL_NAME}` | パスを含む、`projects/<project_id>/secrets/<secret_id>/versions/<version>`の形式の、Operator Key のシークレットに指定した完全な名前　([Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager)　を参照してください)。例えば: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1` |
+| `{OPERATOR_IMAGE}` | コンフィギュレーションで使用する UID2 Private Operator for GCP の Docker イメージ URL。<br/>詳細は [UID2 Operator Account Setup](#uid2-operator-account-setup) を参照してください。 |
+| `{OPERATOR_KEY_SECRET_FULL_NAME}` | パスを含む、`projects/<project_id>/secrets/<secret_id>/versions/<version>`の形式の、Operator Key のシークレットに指定した完全な名前 ([Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager) を参照してください)。例えば: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1` |
 
 ##### Sample Deployment Script&#8212;Integ
 

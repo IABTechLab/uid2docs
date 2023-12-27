@@ -27,7 +27,6 @@ Sharing には多くのシナリオがあります。その他の例について
 
 >NOTE: パブリッシャーが UID2 Token をビッドストリームで共有するプロセスは、別のプロセスです。もしあなたが UID2 Token をビッドストリームに入れるパブリッシャーであれば、[Sharing in the Bid Stream](sharing-bid-stream.md) を参照してください。
 
-
 その他のリソース:
 
 Additional resources:
@@ -65,7 +64,7 @@ UID2 sharing のワークフローは、ビッドストリームで UID2 Token �
    1. UID2 Token を受信します。
    1. UID2 Token を復号化し、受信者が使用できる raw UID2 にします: [Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary) を参照してください。
 
-以下の図は、UID2 sharing permission SDK のインテグレーション・ワークフローを示しています:
+以下の図は、UID2 sharing permission SDK の インテグレーションワークフローを示しています:
 
 ![UID2 Sharing Permission SDK Integration Workflow](images/UID2_Sharing_Diagram_Integrate_SDK_Sharing_Token.png)
 
@@ -129,5 +128,3 @@ UID2 Token は、元となる raw UID2 が同じであっても、そこから U
 例えば、UID2 Token は通常、ビッドストリームを通じてパブリッシャーから DSP に渡されます。UID2 Token は、SSP など複数の関係者を経由する可能性がありますが、UID2 Token を復号化できるのは UID2 参加者のみです。ビッドストリームを通過する際、UID2 Token は1つ以上の仲介者を安全に通過できます。
 
 UID2 Sharing 参加者間のすべての共有シナリオで同じことが言えます。UID2 Token は、UID2 以外の参加者を経由して渡すことができます。
-
-<!-- eng_jp -->

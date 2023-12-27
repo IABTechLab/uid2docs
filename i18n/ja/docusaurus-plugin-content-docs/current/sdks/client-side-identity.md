@@ -14,15 +14,15 @@ export const New = () => (
   <span className='pill'>NEW IN V3</span>
 );
 
-この SDK　を使用すると、UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスが容易になります。以下のセクションでは、UID2 ID を確立するための [workflow](#workflow-overview) について説明し、SDK の [API reference](#api-reference) を提供し、UID2の[storage format](#uid2-storage-format)について説明します。
+この SDK を使用すると、UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスが容易になります。以下のセクションでは、UID2 ID を確立するための [workflow](#workflow-overview) について説明し、SDK の [API reference](#api-reference) を提供し、UID2の[storage format](#uid2-storage-format)について説明します。
 
 :::tip
-UID2 アイデンティティモジュール ([UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)を参照してください) とPrebid.js を使用している場合、または UID2 をサポートしている他の製品と Prebid.js を使用している場合は、このSDK を使用する必要はありません。
+UID2 ID Module([UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)を参照) と一緒に Prebid.js を使用している場合、または UID2 をサポートしている他の製品と一緒に Prebid.js を使用している場合は、SDK を使用する必要はありません。
 :::
 
 このページでは、UID2 SDK for JavaScript version 3 について説明します。以前のバージョンを使用してインテグレーションを管理している場合は、以下のいずれかを行ってください:
-- [migration guide](#migration-guide)　を使用して、インテグレーションをアップグレードします。(推奨) 
-- [earlier versions of the SDK](./client-side-identity-v2.md)　のドキュメントを参照します。
+- [migration guide](#migration-guide) を使用して、インテグレーションをアップグレードします。(推奨) 
+- [earlier versions of the SDK](./client-side-identity-v2.md) のドキュメントを参照します。
 
 関連情報:
 - コンテンツパブリッシャーのインテグレーションステップについては、以下を参照してください:
@@ -215,7 +215,7 @@ SDK がローカルストレージまたはクッキーから以前に保存さ�
 
 #### Provide an Identity by Setting a First-Party Cookie
 
-[storage format section](#uid2-storage-format) で説明されているように、first-party cookie を保存していて、その値がローカルストレージで利用可能な値よりも新しい場合、SDK はその値をクッキーからロードします。もし `useCookie` init オプションを `true` に設定した場合、SDK は常にこの値をロードし、ローカルストレージをチェックしません。[init parameters](#init-parameters) を使用して、クッキーに関することを制御できます。
+[storage format section](#uid2-storage-format) で説明されているように、ファーストパーティクッキーを保存していて、その値がローカルストレージで利用可能な値よりも新しい場合、SDK はその値をクッキーからロードします。もし `useCookie` init オプションを `true` に設定した場合、SDK は常にこの値をロードし、ローカルストレージをチェックしません。[init parameters](#init-parameters) を使用して、クッキーに関することを制御できます。
 
 #### Provide an Identity in the Call to `init`
 
@@ -247,7 +247,7 @@ UID2 SDK for JavaScript とのやり取りはすべて `UID2` クラスのイン
 UID2 オブジェクトを構築します。SDK がロードされると、自動的に UID2 クラスのインスタンスが初期化され、グローバルな __uid2 オブジェクトとして保存されます。高度なインテグレーションでは、このコンストラクタを直接使用することができますが、SDK の複数のアクティブなインスタンスが実行されないように注意する必要があります。これはサポートされていない使用例です。
 
 :::tip
-この関数を呼び出す代わりに、グローバルの　`__uid2` オブジェクトを使用することができます。
+この関数を呼び出す代わりに、グローバルの `__uid2` オブジェクトを使用することができます。
 :::
 
 ### init(opts: object): void
@@ -260,7 +260,8 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 - `init()` 呼び出しの `identity` プロパティは、[POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) 呼び出しが成功したときに返されるレスポンス JSON オブジェクトの `body` プロパティを参照します。Server-side のインテグレーションで常に現在のトークンを使用できるようにしていて、JavaScript を使用して ID を提供するほうが便利な場合は、この方法を使用するとよいでしょう。
 - `init()` 呼び出しの `identity` プロパティが不正な場合、SDK はローカルストレージまたはクッキーから ID をロードしようとします。
   - `init()` が完了すると、すべてのコールバックは `InitCompleted` イベントを受信します。このイベントのペイロードの `identity` プロパティが null の場合、ID をロードできなかったことになるので、[provide a valid identity](#provide-identity) する必要があります。これは、Server-side のインテグレーションによって常に現在の ID が利用可能であることが保証されておらず、必要な場合にのみサーバーから ID を要求する必要がある場合に推奨される ID の提供方法です。
-  - 渡された UID2 情報をセッションに保存するために first-party cookie ([UID2 Storage Format](#uid2-storage-format) を参照) を使用している場合、異なるドメインのページから `init()` を呼び出すと、そのクッキーにアクセスできないことがあります。`cookieDomain` オプションと `cookiePath` オプションで、クッキーに使用する設定を調整することができます。
+  - 渡された UID2 情報をセッションに保存するためにファーストパーティクッキー ([UID2 Storage Format](#uid2-storage-format) を参照) を使用している場合、異なるドメインのページから `init()` を呼び出すと、そのクッキーにアクセスできないことがあります。`cookieDomain` オプションと `cookiePath` オプションで、クッキーに使用する設定を調整することができます。
+- 特定の動作を調整するために、初期化呼び出しにはオプションの設定 [init prarmeters](#init-parameters) を含めることができます。
 
 以下は、Server-side で生成された ID を含むコールバックを使った `init()` 呼び出しの例です。
 
@@ -304,12 +305,12 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 | Property | Data Type | Attribute | Description | Default Value |
 | :--- | :--- | :--- | :--- | :--- |
-| `identity` | object | オプション | [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) 呼び出しが成功したときの `body` プロパティ値です。<br/>[first-party cookie](#uid2-cookie-format) からの ID を使用するには、このプロパティを空にしておきます。 | N/A |
+| `identity` | object | オプション | [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) 呼び出しが成功したときの `body` プロパティ値です。<br/>[ファーストパーティクッキー](#uid2-cookie-format) からの ID を使用するには、このプロパティを空にしておきます。 | N/A |
 | `baseUrl` | string | オプション | [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出す際に使用する UID2 Operator のカスタム Base URLです。<br/>例えば: `https://my.operator.com`.  | `https://prod.uidapi.com`. |
 | `refreshRetryPeriod` | number | オプション | 断続的なエラーが発生した場合に、トークンのリフレッシュを再試行するミリ秒数です。<br/>この値は 1000 以上でなければなりません。 | 5000 |
 | `cookieDomain` | string | オプション | [UID2 cookie](#uid2-cookie-format) に適用するドメイン名文字列です。<br/>例えば、`baseUrl` が `https://my.operator.com` の場合、 `cookieDomain` の値は `operator.com` となります。 | `undefined` |
 | `cookiePath` | string | オプション | [UID2 cookie](#uid2-cookie-properties) に適用する Path 文字列です。 | `/` |
-| `useCookie` | `boolean` | オプション | この値を `true` に設定すると、SDK はローカルストレージではなくクッキーに ID を保存します。この値がfalseであるか、提供されていない場合でも、first-party cookie を使用して ID を提供することができます。 | 
+| `useCookie` | `boolean` | オプション | この値を `true` に設定すると、SDK はローカルストレージではなくクッキーに ID を保存します。この値がfalseであるか、提供されていない場合でも、ファーストパーティクッキーを使用して ID を提供することができます。 | 
 | `callback` | `function(object): void` | 非推奨 | 渡された ID を検証した後に SDK が呼び出す関数です。新しいインテグレーションには使用しないでください。 | N/A |
 
 
@@ -392,13 +393,13 @@ UID2 ログイン ([POST /token/generate](../endpoints/post-token-generate.md) 
 
 | Value | Description |
 | :--- | :--- |
-| `true` | ID が利用できないため、UID2 ログインが必要です。この値は以下のいずれかを示します:<br/>- ユーザーがオプトアウトした。<br/>- Refresh token の有効期限が切れた。<br/>- first-party cookie は利用できず、サーバーが生成した ID も提供されていない。 |
+| `true` | ID が利用できないため、UID2 ログインが必要です。この値は以下のいずれかを示します:<br/>- ユーザーがオプトアウトした。<br/>- Refresh token の有効期限が切れた。<br/>- ファーストパーティクッキーは利用できず、サーバーが生成した ID も提供されていない。 |
 | `false` | ログインは必要ありません。この値は以下のいずれかを示します:<ul><li>IDが存在し、有効。</li><li>IDの有効期限が切れており(ただし Refresh Token の有効期限は切れていない)、断続的なエラーによりトークンがリフレッシュされなかった。自動更新に成功すると、IDが復元される場合がある。</li></ul> |
 | `undefined` | SDK の初期化はまだ完了していません。 |
 
 ### disconnect(): void
 
-UID2 ID を first-party cookie とローカルストレージから消去します ([UID2 ストレージフォーマット](#uid2-storage-format) を参照してください)。これによりクライアントの ID セッションが閉じられ、クライアントのライフサイクルが切断されます。
+UID2 ID をファーストパーティクッキーとローカルストレージから消去します ([UID2 ストレージフォーマット](#uid2-storage-format) を参照してください)。これによりクライアントの ID セッションが閉じられ、クライアントのライフサイクルが切断されます。
 
 未認証のユーザーが存在する場合、またはユーザーがパブリッシャーのサイトのターゲティング広告からログアウトする場合、次の呼び出しを行います:
 
@@ -422,7 +423,7 @@ SDK が正しいクッキーにアクセスするために `cookieDomain` また
 
 ### callbacks
 
-これは、登録されたコールバックをすべて格納する配列です。[Array Push Pattern](#array-push-pattern)　を使ってのみ、この配列とやりとりする必要があります。
+これは、登録されたコールバックをすべて格納する配列です。[Array Push Pattern](#array-push-pattern) を使ってのみ、この配列とやりとりする必要があります。
 
 ### setIdentity(identity: Uid2Identity): void
 
@@ -444,9 +445,9 @@ UID2 SDK に新しい ID を提供するには、この関数を使用します�
 
 ## UID2 Storage Format
 
-SDK はユーザーの ID を保存するのに、ローカルストレージか first-party cookie のどちらかを使用します。デフォルトではローカルストレージを使用しますが、[init parameter](#init-parameters) を使用して変更できます。
+SDK はユーザーの ID を保存するのに、ローカルストレージかファーストパーティクッキーのどちらかを使用します。デフォルトではローカルストレージを使用しますが、[init parameter](#init-parameters) を使用して変更できます。
 
-ローカルストレージを使用する場合でも、SDK は first-party cookie に利用可能な新しい ID があるかどうかを確認します。これにより、SDK はローカルストレージを利用しながら、first-party cookie を設定することでIDを提供することができます。
+ローカルストレージを使用する場合でも、SDK はファーストパーティクッキーに利用可能な新しい ID があるかどうかを確認します。これにより、SDK はローカルストレージを利用しながら、ファーストパーティクッキーを設定することでIDを提供することができます。
 
 ### UID2 Cookie Properties
 
@@ -492,7 +493,6 @@ UID2 Cookie の内容は、[POST /token/generate](../endpoints/post-token-genera
 
 ### Benefits of Migrating
 
-
 既存のインテグレーションが SDK の version 1.x または 2.x を使用している場合、version 3 は完全に下位互換性があります。新しい URL を参照するようにスクリプトタグを変更するだけで、SDK を version 3 に更新できます。こうすることで、次のような利点があります:
 
 - スクリプトは UID2 CDN を使用して配布されるようになったため、読み込みが速くなります。
@@ -500,7 +500,7 @@ UID2 Cookie の内容は、[POST /token/generate](../endpoints/post-token-genera
 
    このアプローチに関する注意事項
   - ローカルストレージのデフォルトは、Cookie の最大サイズ制限に近い多くのパブリッシャーから要求されています。
-  - 新しい ID を提供するために first-party cookie の設定に依存している場合、この変更の利点はありません。
+  - 新しい ID を提供するためにファーストパーティクッキーの設定に依存している場合、この変更の利点はありません。
   - `init` に ID を渡すことによってのみ ID を提供する場合、SDK は Cookie に書き込みません。
 
 Version 1.x と 2.x の機能の一部は非推奨となっており、将来のインテグレーションを考慮した変更を行う必要があります。
@@ -519,7 +519,7 @@ Version 1.x と 2.x の機能の一部は非推奨となっており、将来の
 
 #### Update your script URL
 
-[version 3 CDN URL](#include-the-sdk-script) から SDK をロードするようにスクリプトタグを更新します。
+[Version 3 CDN URL](#include-the-sdk-script) から SDK をロードするようにスクリプトタグを更新します。
 
 ### Recommended Changes
 

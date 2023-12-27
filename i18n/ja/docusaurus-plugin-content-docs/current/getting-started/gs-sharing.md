@@ -15,6 +15,6 @@ sidebar_position: 24
 - UID2 Portal アカウントの設定と共有関係の設定については、以下を参照してください: [UID2 Portal Overview](../portal/portal-overview.md)
 
 
-UID2 Sharing に関するその他の情報については、UID2partners@thetradedesk.com までご連絡ください。
+UID2 Sharing に関するその他の情報については、[UID2partners@thetradedesk.com](mailto:UID2partners@thetradedesk.com) まで連絡してください。
 
 <!-- eng_jp -->

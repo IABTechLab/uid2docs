@@ -17,6 +17,5 @@ sidebar_position: 03
 
 ![Illustration of Sharing Use Cases](images/UID2_Sharing_Diagram_UseCases.png)
 
-> NOTE: どの送信者も、転送メソッドのいずれかを使用して、どの受信者にも UID2 Token を転送できます。ここで定義されている転送方法はほんの一握りであり、他にもたくさんあります。
+> NOTE: どの送信者も、転送メソッドのいずれかを使用して、どの受信者にも UID2 Token を転送できます。ここで定義されている転送方法はほんの一部であり、他にもいろいろあります。
 
-<!-- eng_jp -->

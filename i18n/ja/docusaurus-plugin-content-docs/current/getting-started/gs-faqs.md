@@ -47,6 +47,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
   - [Client-Side からトークンのリフレッシュを呼び出すことはできますか？](#Client-Side-%E3%81%8B%E3%82%89%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%AE%E3%83%AA%E3%83%95%E3%83%AC%E3%83%83%E3%82%B7%E3%83%A5%E3%82%92%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%99%E3%81%93%E3%81%A8%E3%81%AF%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F)
   - [リフレッシュトークンのワークフローをテストするにはどうすればよいですか？](#%E3%83%AA%E3%83%95%E3%83%AC%E3%83%83%E3%82%B7%E3%83%A5%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%AE%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B%EF%BC%9F)
   - [UID2 Token の一意性とローテーションポリシーは？](#uid2-token-%E3%81%AE%E4%B8%80%E6%84%8F%E6%80%A7%E3%81%A8%E3%83%AD%E3%83%BC%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%E3%81%AF%EF%BC%9F)
+  - [ビッドストリームで UID2 Token はどのように見えますか？](#%E3%83%93%E3%83%83%E3%83%89%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%A0%E3%81%A7-UID2-Token-%E3%81%AF%E3%81%A9%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E8%A6%8B%E3%81%88%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F)
 
 #### 送信された DII と返されたトークンが一致していることをテストするにはどうすればよいですか？
 
@@ -68,13 +69,13 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 #### トークン生成の呼び出しは、Server-Side とClient-Side のどちらで行うべきですか？
 
 UID2 Token は、Client-Side、Server-Sideのどちらでも生成できます。詳細については、以下を参照してください:
-- Prebid.js を使ってClient-Side でトークンを生成する: [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- Prebid.jsを使ってサーバサイドからトークンを生成する: [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+- Prebid.js を使用して Client-Side からトークンを生成する: [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
+- Prebid.js を使用して Server-Side からトークンを生成する: [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md).
 - その他の Server-Side オプション: [Publisher Integrations](../guides/summary-guides.md#publisher-integrations).
 
 #### Client-Side からトークンのリフレッシュを呼び出すことはできますか？
 
-はい。[POST /token/refresh](../endpoints/post-token-refresh.md) は、API キーを使用する必要がないため、Client-Side (例えば、ブラウザやモバイルアプリ)から呼び出すことができます。
+はい。[POST /token/refresh](../endpoints/post-token-refresh.md) は、API Key を使用する必要がないため、Client-Side (例えば、ブラウザやモバイルアプリ)から呼び出すことができます。
 
 #### リフレッシュトークンのワークフローをテストするにはどうすればよいですか？
 
@@ -104,6 +105,30 @@ SDKを使うかどうかで手順は少し異なります。
 #### UID2 Token の一意性とローテーションポリシーは？
 
 UID2 Service は、ランダムな初期化ベクトルを使用して UID2 Token を暗号化します。UID2 Token は、ユーザーがインターネットを閲覧する際に、特定のユーザーに対して一意になります。つまり、UID2 Token が生成されるたびに、同じ UID2 であっても常に異なるトークンが生成されます。トークンが更新されるたびに新しいトークンが生成され、暗号化されます。この仕組みにより、信頼できない当事者がユーザーの身元を追跡できないようにすることができます。
+
+#### ビッドストリームで UID2 Token はどのように見えますか？
+
+UID2 実装のアプローチにはさまざまな方法があります。以下は、UID2 Token がビッドストリームでどのように渡されるかを示すコードスニペットの一例です:
+
+```js
+{
+  "user":{
+    "ext":{
+      "eids":[
+        {
+          "source":"uidapi.com",
+          "uids":[
+            {
+              "id":"AgAAAHcy2ka1tSweERARV/wgwM+zM5wK98b9XItZGVgHaU23Eh0XOmAixO6VBcMd3k2ir/TGHLf7O7kQGLyeRPC5/VBSPmugOblMlzgy0B1ZfHQ7ccVurbyzgL1ZZOZ5cBvPDrvfR9MsKqPgWvrIKRkKVTYyUkG5YRAc++xRKfbL/ZSYxQ==",
+              "rtiPartner":"UID2"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
 
 ## FAQs for Advertisers and Data Providers
 
@@ -182,7 +207,7 @@ demand-side platform (DSP) に関するよくある質問を紹介します。
 
 #### 復号鍵はどこで手に入りますか？
 
-Server-Side SDK のいずれか（[SDK](../sdks/summary-sdks.md) を参照してください）を使用して UID2 Service と通信し、最新の鍵を取得することができます。鍵を確実に最新に保つため、1 時間に 1 回など、定期的に鍵を取得することを推奨します。
+Server-Side SDK のいずれか([SDK](../sdks/summary-sdks.md) を参照してください)を使用して UID2 Service と通信し、最新の鍵を取得することができます。鍵を確実に最新に保つため、1 時間に 1 回など、定期的に鍵を取得することを推奨します。
 
 #### メモリ上に存在する復号鍵の数はいくつですか？
 
