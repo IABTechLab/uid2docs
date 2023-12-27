@@ -22,9 +22,9 @@ sidebar_position: 10
 <td>
 <ul>
 <li><a href="#gl-advertising-id">Advertising ID</a></li>
+<li><a href="#gl-advertising-token">Advertising token</a></li>
 <li><a href="#gl-api-key">API key</a></li>
 <li><a href="#gl-api-secret">API secret</a></li>
-<li><a href="#gl-advertising-token">Advertising token</a></li>
 <li><a href="#gl-authorization-header">Authorization header</a></li>
 <li><a href="#gl-bearer-token">Bearer token</a></li>
 <li><a href="#gl-client-key">Client key</a></li>
@@ -34,7 +34,7 @@ sidebar_position: 10
 <li><a href="#gl-customer-data-platform">Customer Data Platform (CDP)</a></li>
 <li><a href="#gl-data-provider">Data provider</a></li>
 <li><a href="#gl-demand-side-platform">Demand-side platform</a></li>
-<li><a href="#gl-dii">directly identifying information (DII)</a></li>
+<li><a href="#gl-dii">Directly identifying information (DII)</a></li>
 <li><a href="#gl-docker">Docker</a></li>
 <li><a href="#gl-docker-build">Docker Build</a></li>
 
@@ -61,6 +61,7 @@ sidebar_position: 10
 <li><a href="#gl-participant">Participant</a></li>
 <li><a href="#gl-private-operator">Private Operator</a></li>
 <li><a href="#gl-private-operator-service">Private Operator Service</a></li>
+<li><a href="#gl-public-key">Public key</a></li>
 <li><a href="#gl-raw-uid2">Raw UID2</a></li>
 <li><a href="#gl-refresh-token">Refresh token</a></li>
 
@@ -73,15 +74,16 @@ sidebar_position: 10
 <li><a href="#gl-secret">Secret</a></li>
 <li><a href="#gl-secure-signals">Secure signals</a></li>
 <li><a href="#gl-sha-256">SHA-256</a></li>
-<li><a href="#gl-sso">SSO</a></li>
 <li><a href="#gl-sharing">sharing (in UID2)</a></li>
 <li><a href="#gl-sharing-participant">sharing participant</a></li>
+<li><a href="#gl-sso">Single sign-on (SSO)</a></li>
+<li><a href="#gl-subscription-id">Subscription ID</a></li>
 <li><a href="#gl-transparency-and-control-portal">Transparency and Control Portal</a></li>
 <li><a href="#gl-uid2-framework">UID2 framework</a></li>
 <li><a href="#gl-uid2-identifier">UID2 identifier</a></li>
 <li><a href="#gl-uid2-portal">UID2 Portal</a></li>
 <li><a href="#gl-uid2-service">UID2 service</a></li>
-<li><a href="#gl-uid2-token">UID2 token</a></li>
+<li><a href="#gl-uid2-token">UID2 token (advertising token)</a></li>
 <li><a href="#gl-unified-id-20">Unified ID 2.0</a></li>
 <li><a href="#gl-utc">UTC</a></li>
 </ul>
@@ -136,7 +138,7 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-demand-side-platform">Demand-side platform (DSP)</dt>
 <dd>A demand-side platform (DSP) provides services to companies that want to buy digital advertising, such as advertisers, brands, and media agencies.</dd>
 
-<dt class="jump-anchor" id="gl-dii">directly identifying information (DII)</dt>
+<dt class="jump-anchor" id="gl-dii">Directly identifying information (DII)</dt>
 <dd>Directly identifying information, or DII, is information that directly identifies an individual, including name, email address, or phone number.</dd>
 <dd>UID2 supports email address and phone number, and translates the DII to a value that can be used for the purpose of targeted advertising but cannot be traced back to the original value.</dd>
 
@@ -205,6 +207,9 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-private-operator-service">Private Operator Service</dt>
 <dd>A private instance of the Operator Service, run by a <a href="#gl-private-operator">Private Operator</a>.</dd>
 
+<dt class="jump-anchor" id="gl-public-key">Public key</dt>
+<dd>For server-side publisher integrations, the public key is one of the two values issued to publishers as their UID2 credentials. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
+
 <dt class="jump-anchor" id="gl-raw-uid2">Raw UID2</dt>
 <dd>An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's <a href="#gl-dii">directly identifying information</a> (email address or phone number) as input. The raw UID2 is encrypted to create a <a href="#gl-uid2-token">UID2 token</a>. The raw UID2 is a unique value; no two raw UID2s are the same. Raw UID2s, and their associated UID2 tokens, are case sensitive.</dd>
 <dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
@@ -234,9 +239,6 @@ sidebar_position: 10
 <dd>SHA-256 is part of the SHA-2 family of algorithms developed by the National Institute of Standards and Technology (NIST) and the National Security Agency (NSA) to succeed SHA-1. Each algorithm is named according to the number of bits in the output, so SHA-256 has 256 bits.</dd>
 <dd>For details, see <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> (specification).</dd>
 
-<dt class="jump-anchor" id="gl-sso">SSO</dt>
-<dd>SSO is an acronym for Single Sign-On. SSO allows a user to log in with the same credentials (usually, but not always, ID and password) to one of several software systems, such as apps or websites. SSO allows the user to log in once to multiple applications or sites using one set of credentials. With SSO, websites/apps do not have to maintain their own authentication systems.</dd>
-
 <dt class="jump-anchor" id="gl-sharing">sharing</dt>
 <dd>In the context of UID2, sharing is a process for distributing <a href="#gl-raw-uid2">raw UID2s</a> securely between UID2 participants. To protect raw UID2s from unauthorized access, the originating participant (sender) must encrypt the raw UID2s into UID2 tokens before transmission. The destination participant (receiver) must decrypt the UID2 tokens into raw UID2s for internal use.</dd>
 <dd>For details, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd>
@@ -244,6 +246,12 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-sharing-participant">sharing participant</dt>
 <dd>In UID2, a sharing participant is a company that takes part in <a href="#gl-sharing">sharing</a>&#8212;distributing <a href="#gl-raw-uid2">raw UID2s</a> securely between UID2 participants. A sharing participant can be a publisher, advertiser, DSP, or data provider, or might have more than one of these roles.</dd>
 <dd>For details, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd>
+
+<dt class="jump-anchor" id="gl-sso">Single sign-on (SSO)</dt>
+<dd>SSO is an acronym for Single sign-on. SSO allows a user to log in with the same credentials (usually, but not always, ID and password) to one of several software systems, such as apps or websites. SSO allows the user to log in once to multiple applications or sites using one set of credentials. With SSO, websites/apps do not have to maintain their own authentication systems.</dd>
+
+<dt class="jump-anchor" id="gl-subscription-id">Subscription ID</dt>
+<dd>For server-side publisher integrations, the subscription ID is one of the two values issued to publishers as their UID2 credentials. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
 
 <dt class="jump-anchor" id="gl-transparency-and-control-portal">Transparency and Control Portal</dt>
 <dd>The UID2 Transparency and Control Portal is a user-facing website, <a href="https://www.transparentadvertising.com/">https://www.transparentadvertising.com/</a>, that allows consumers to opt out of UID2 at any time.</dd>

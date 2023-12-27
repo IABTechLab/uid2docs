@@ -31,20 +31,21 @@ Publisher integrations fall into the following main categories:
 
 The following resources are available for publisher web integrations.
 
-| Integration Guide                                                           | Content Description                                                                                                                                                                                                                                                                                                     |
-|:----------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Prebid.js Express Integration Guide](./integration-prebid.md)              | An integration guide for publishers who want to integrate with UID2 and Prebid.js will manage token generation and refresh automatically as well as passing the tokens into the RTB bid stream. This guide is for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach. |
-| [JavaScript Express Integration Guide](publisher-client-side.md)           | An integration guide for publishers who wants to integrate with UID2 using client-side only JavaScript changes with the easiest implementation approach. UID2 SDK for JavaScript will manage token generation and refresh automatically.                                                                                |
-| [Prebid.js Advanced Integration Guide](./integration-prebid-advanced.md)    | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. This guide is for publishers who are using a private operator or who want to generate tokens server-side.                                                                |
-| [JavaScript Standard Integration Guide](integration-javascript-standard.md)       | This integration guide for publishers covers standard web integration scenarios that use the UID2 SDK for JavaScript and requires token to be generated on the server side and passed to the publishers' web pages.                                                                                                     |
-| [Publisher Integration Guide, Server-Only](custom-publisher-integration.md) | This integration guide is for publishers that do not use the UID2 SDK for JavaScript.                                                                                                                                                                                                                                   |
-| [Publisher - Google Ad Manager Secure Signals](google-ss-integration.md)    | This integration guide covers the additional steps needed for publishers using UID2 with the Google Ad Manager Secure Signals feature (previously known as Encrypted Signals for Publishers, ESP).                                                                                                                      |
+| Integration Guide | Content Description |
+| :--- | :--- |
+| [UID2 Integration Overview for Prebid.js](integration-prebid.md) | An overview of integration options for publishers who want to integrate with UID2 and generate UID2 tokens to be passed by Prebid.js in the RTB bid stream. |
+| [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) | An integration guide for publishers who want to integrate with UID2 and Prebid.js will manage token generation and refresh automatically as well as passing the tokens into the RTB bid stream. This guide is for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach. |
+| [JavaScript Express Integration Guide](publisher-client-side.md) | An integration guide for publishers who wants to integrate with UID2 using client-side only JavaScript changes with the easiest implementation approach. UID2 SDK for JavaScript will manage token generation and refresh automatically. |
+| [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. This guide is for publishers who are using a private operator or who want to generate tokens server-side. |
+| [JavaScript Standard Integration Guide](integration-javascript-standard.md) | This integration guide for publishers covers standard web integration scenarios that use the UID2 SDK for JavaScript and requires token to be generated on the server side and passed to the publishers' web pages. |
+| [Publisher Integration Guide, Server-Only](custom-publisher-integration.md) | This integration guide is for publishers that do not use the UID2 SDK for JavaScript. |
+| [Publisher - Google Ad Manager Secure Signals](google-ss-integration.md) | This integration guide covers the additional steps needed for publishers using UID2 with the Google Ad Manager Secure Signals feature (previously known as Encrypted Signals for Publishers, ESP). |
 
 ### Mobile Integrations
 
 The following resources are available for publishers integrating with Android or iOS devices.
 
-| Integration Guide |  Content Description |
+| Integration Guide | Content Description |
 | :--- | :--- |
 | [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) |An SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers that need to support Android apps. |
 | [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) | An SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers that need to support iOS apps. |
@@ -53,16 +54,17 @@ The following resources are available for publishers integrating with Android or
 
 The following resources are available for publisher web integrations.
 
-| Integration Guide |  Content Description |
+| Integration Guide | Content Description |
 | :--- | :--- |
-| [Prebid.js Express Integration Guide](./integration-prebid.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. This guide is for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach. |
-| [Prebid.js Advanced Integration Guide](./integration-prebid-advanced.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. This guide is for publishers who are using a private operator or who want to generate tokens server-side. |
+| [UID2 Integration Overview for Prebid.js](integration-prebid.md) | An overview of integration options for publishers who want to integrate with UID2 and generate UID2 tokens to be passed by Prebid.js in the RTB bid stream. |
+| [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) | An integration guide for publishers who want to integrate with UID2 and Prebid.js will manage token generation and refresh automatically as well as passing the tokens into the RTB bid stream. This guide is for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach. |
+| [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. This guide is for publishers who are using a private operator or who want to generate tokens server-side. |
 
 ### Google Ad Manager Integrations
 
 The following resources are available for publishers integrating with Google Ad Manager.
 
-| Integration Guide |  Content Description |
+| Integration Guide | Content Description |
 | :--- | :--- |
 | [Publisher - Google Ad Manager Secure Signals](google-ss-integration.md) | This integration guide covers the additional steps needed for publishers using UID2 with the Google Ad Manager Secure Signals feature (previously known as Encrypted Signals for Publishers, ESP). |
 | [UID2 GMA Plugin for Android Integration Guide](mobile-plugin-gma-android.md) | The UID2 Google Mobile Ads (GMA) Plugin for Android enables publishers that use the [Google GMA SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps. |
@@ -74,7 +76,7 @@ The following resources are available for publishers integrating with Google Ad 
 
 The following resources are available for advertisers and data providers integrating with UID2.
 
-| Integration Guide |  Content Description |
+| Integration Guide | Content Description |
 | :--- | :--- |
 | [Advertiser/Data Provider](advertiser-dataprovider-guide.md) | This integration guide for advertisers and data providers covers integration workflows for mapping identity for audience-building and targeting. |
 | [Snowflake Integration Guide](snowflake_integration.md) | Instructions for generating UID2s from emails within Snowflake. |
@@ -84,7 +86,7 @@ The following resources are available for advertisers and data providers integra
 
 The following resources are available for DSPs integrating with UID2.
 
-| Integration Guide |  Content Description |
+| Integration Guide | Content Description |
 | :--- | :--- |
 | [DSP](dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
 
@@ -92,7 +94,7 @@ The following resources are available for DSPs integrating with UID2.
 
 The following resources are available for Private Operator integrations.
  
-| Integration Guide |  Content Description |
+| Integration Guide | Content Description |
 | :--- | :--- |
 | [UID2 Private Operator for AWS](operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. |
 | [UID2 Private Operator for GCP](operator-private-gcp-confidential-space.md) | Information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. |

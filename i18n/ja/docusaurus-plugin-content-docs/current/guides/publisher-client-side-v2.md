@@ -92,7 +92,7 @@ SDK は、指定された [callback function](../sdks/client-side-identity.md#ca
 
 ### Bid Using UID2 Tokens
 
-SDK は、有効な ID のステータスと利用可能性に基づいて、バックグラウンドでのトークンの自動更新を設定し、ID 情報を [first-party cookie](../sdks/client-side-identity.md#uid2-cookie-formate) に格納し、ターゲティング広告のリクエストを開始するために使用します。
+SDK は、有効な ID のステータスと利用可能性に基づいて、バックグラウンドでのトークンの自動更新を設定し、ID 情報を [ファーストパーティクッキー](../sdks/client-side-identity.md#uid2-cookie-formate) に格納し、ターゲティング広告のリクエストを開始するために使用します。
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
@@ -119,12 +119,12 @@ SDK は、有効な ID のステータスと利用可能性に基づいて、バ
 
 ### Clear Identity: User Logout
 
-ユーザーがパブリッシャーのサイトからログアウトすると、クライアントのライフサイクルは完了します(UID2 ではありません)。これによってクライアントのアイデンティティセッションが閉じられ、first-party cookie の情報が消去されます。
+ユーザーがパブリッシャーのサイトからログアウトすると、クライアントのライフサイクルは完了します(UID2 ではありません)。これによってクライアントのアイデンティティセッションが閉じられ、ファーストパーティクッキーの情報が消去されます。
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
 | 4-a | N/A | ユーザーはパブリッシャーのアセットからログアウトします。 |
-| 4-b | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | 以下のように、[disconnect() function](../sdks/client-side-identity.md#disconnect-void) を使用して、first-party cookie から UID2 をクリアし、クライアントのライフサイクルを切断します。 |
+| 4-b | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | 以下のように、[disconnect() function](../sdks/client-side-identity.md#disconnect-void) を使用して、ファーストパーティクッキーから UID2 をクリアし、クライアントのライフサイクルを切断します。 |
 
 ```html
 <script>

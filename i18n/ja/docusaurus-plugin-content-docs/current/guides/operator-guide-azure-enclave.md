@@ -9,7 +9,7 @@ sidebar_position: 18
 
 # UID2 Private Operator for Azure Integration Guide
 
-このガイドでは、Microsoft Azure のコンフィデンシャルコンピューティングオプションである [Confidential Container](https://learn.microsoft.com/ja-jp/azure/confidential-computing/confidential-containers) で UID2 Operator Service をセットアップするための情報を提供します。Confidential Container（機密コンテナー）は、データ整合性、データ機密性、コード整合性などの本質的な機能を提供するハードウェア支援の実行環境（Trusted Execution Environment：TEE）で実行されます。
+このガイドでは、Microsoft Azure のコンフィデンシャルコンピューティングオプションである [Confidential Container](https://learn.microsoft.com/ja-jp/azure/confidential-computing/confidential-containers) で UID2 Operator Service をセットアップするための情報を提供します。Confidential Container(機密コンテナー)は、データ整合性、データ機密性、コード整合性などの本質的な機能を提供するハードウェア支援の実行環境(Trusted Execution Environment: TEE)で実行されます。
 
 UID2 Operator Confidential Container の Docker コンテナが起動すると、UID2 Core Service がOperator Service と Operator Service が実行されているエンクレーブ環境の信頼性を検証するための認証プロセスが完了します。
 
@@ -70,7 +70,7 @@ Azure コマンドラインインターフェイスをインストールしま�
 
 リソースグループを作成するには、サブスクリプションオーナー権限が必要です。
 
-これが完了すると、そのリソースのリソースグループレベルのContributor（共同作成者）権限だけが必要になります。
+これが完了すると、そのリソースのリソースグループレベルのContributor(共同作成者)権限だけが必要になります。
 
 詳細は、Azure ドキュメントの [Azure ロール](https://learn.microsoft.com/ja-jp/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) を参照してください。
 
@@ -106,7 +106,7 @@ Azure コマンドラインインターフェイスをインストールしま�
 
 以下の手順に従ってください:
 
-1. UID2 アカウントのセットアップ完了後に渡された Azure Enclave GitHub リリースページ（[Set Up UID2 Operator Account](#set-up-uid2-operator-account)を参照してください）から、デプロイに必要なファイルを含む ZIP ファイルを探してダウンロードします。ZIP ファイルの名前は以下の規則に従っています：
+1. UID2 アカウントのセットアップ完了後に渡された Azure Enclave GitHub リリースページ([Set Up UID2 Operator Account](#set-up-uid2-operator-account)を参照してください)から、デプロイに必要なファイルを含む ZIP ファイルを探してダウンロードします。ZIP ファイルの名前は以下の規則に従っています:
 
    ```
    uid2-operator-deployment-artifacts-{VERSION_NUMBER}-azure-cc.zip
@@ -138,7 +138,7 @@ az group create --name {RESOURCE_GROUP_NAME} --location {LOCATION}
 
 ### Complete Key Vault and Managed Identity Setup
 
-次のステップは、[Key Vault](https://learn.microsoft.com/ja-jp/azure/key-vault/general/overview)を設定し、Operator Key　を保存することです。
+次のステップは、[Key Vault](https://learn.microsoft.com/ja-jp/azure/key-vault/general/overview)を設定し、Operator Key を保存することです。
 
 Key Vault を作成したら、[マネージド ID](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview) を作成し、Key Vault にアクセスする権限を付与します。
 
@@ -153,7 +153,7 @@ Key Vault を作成したら、[マネージド ID](https://learn.microsoft.com/
    | `vaultName` | Operator Key を保持する Key Vault の名前。選択する名前は、グローバルに一意でなければなりません。 |
    | `operatorKeyValue` | アカウント設定の際に UID チームから受け取った `OPERATOR_KEY` の値です ([Set Up UID2 Operator Account](#set-up-uid2-operator-account)を参照してください)。この値は固有のもので、パスワードの役割を果たします。 |
 
-2. (オプション）デフォルト値を受け入れたくない場合は、`vault.parameters.json` ファイルを以下の値で更新します。これらのパラメータはデフォルト値であり、ほとんどの場合、更新する必要はありません。
+2. (オプション)デフォルト値を受け入れたくない場合は、`vault.parameters.json` ファイルを以下の値で更新します。これらのパラメータはデフォルト値であり、ほとんどの場合、更新する必要はありません。
 
     Parameter | Description |
    | :--- | :--- |
@@ -176,7 +176,7 @@ Key Vault を作成したら、[マネージド ID](https://learn.microsoft.com/
 
 以下の手順に従ってください:
 
-1. （オプション）デフォルト値を受け入れたくない場合は、`vnet.parameters.json` ファイルを以下の値で更新します。これらのパラメータはデフォルト値なので、ほとんどの場合、更新する必要はありません。
+1. (オプション)デフォルト値を受け入れたくない場合は、`vnet.parameters.json` ファイルを以下の値で更新します。これらのパラメータはデフォルト値なので、ほとんどの場合、更新する必要はありません。
 
     Parameter | Description |
    | :--- | :--- |
@@ -195,7 +195,7 @@ Key Vault を作成したら、[マネージド ID](https://learn.microsoft.com/
 
 ### Complete the UID2 Private Operator Setup
 
-次のステップは、作成した VPC サブネットワークに複数の Azure Container Instances（ACI）を立ち上げることです。
+次のステップは、作成した VPC サブネットワークに複数の Azure Container Instances(ACI)を立ち上げることです。
 
 以下の手順に従ってください:
 
@@ -204,14 +204,14 @@ Key Vault を作成したら、[マネージド ID](https://learn.microsoft.com/
    | Parameter | Description |
    | :--- | :--- |
    | `vaultName` | Operator Key をホストする Key Vault の名前。この値は、[Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup) で作成した名前と一致する必要があります。|
-   | `deploymentEnvironment` | デプロイ先の環境を示す： `integ` または `prod`。詳細は、[Deployment Environments](#deployment-environments)を参照してください。 |
+   | `deploymentEnvironment` | デプロイ先の環境を示す: `integ` または `prod`。詳細は、[Deployment Environments](#deployment-environments)を参照してください。 |
 
 2. (オプション) デフォルトを受け入れたくない場合は、`operator.parameters.json` ファイルを以下の値で更新します。これらのパラメーターにはデフォルト値があり、ほとんどの場合、更新する必要はありません。
 
     Parameter | Description |
    | :--- | :--- |
    | `operatorKeyName` | Operator Key 名。この値は、[Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup) で指定した値と一致する必要があります。デフォルトを受け入れた場合、値は `operator-key` となります。 |
-   | `operatorIdentifier` | コンテナを起動するマネージド ID の名前。 [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup)　で指定した値と一致する必要があります。デフォルトを受け入れた場合、値は `uid-operator`　となります。 |
+   | `operatorIdentifier` | コンテナを起動するマネージド ID の名前。 [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup) で指定した値と一致する必要があります。デフォルトを受け入れた場合、値は `uid-operator` となります。 |
    | `vnetName` | 仮想ネットワーク名。[Set Up the VPC Network](#set-up-the-vpc-network) で指定した値と一致する必要があります。デフォルトを受け入れた場合、値は `unified-id-network` となります。 |
    | `computeSubnetName` | Private Operator を実行するサブネットの名前。[Set Up the VPC Network](#set-up-the-vpc-network) で指定した値と一致する必要があります。デフォルトを受け入れた場合、値は `unified-id-subnet-operators` となります。 |
    | `count` | 立ち上げたいさせたいインスタンスの数。デフォルトは `2` となります。 |

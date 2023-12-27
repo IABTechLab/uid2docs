@@ -17,7 +17,7 @@ export const New = () => (
 Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the UID2 [storage format](#uid2-storage-format).
 
 :::tip
-If you're using Prebid.js with the UID2 Identity Module (see [Prebid Integration Guide](../guides/integration-prebid.md)), or with another product that has UID2 support, you probably don't need to use the SDK at all.
+If you're using Prebid.js with the UID2 Identity Module (see [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)), or with another product that has UID2 support, you probably don't need to use the SDK at all.
 :::
 
 This page describes version 3 of the UID2 SDK for JavaScript. If you are maintaining an integration using an earlier version, do one of the following:
@@ -193,8 +193,8 @@ The following example callback handles the `SdkLoaded` event to call init and th
 | Event | Payload | Details |
 | :--- | :--- | :--- |
 | `SdkLoaded` | {} | Called when the SDK script has loaded and the global `__uid2` has been constructed. When you receive this event, it is safe to call `__uid2.init`. Callbacks always receive this event once. If the SDK has already been loaded when the callback is registered, it receives the event immediately. |
-| `InitCompleted` | { identity: Uid2Identity  \| null } | Called once `init()` has finished. Callbacks always receive this event once, as long as a successful call to `init` has been made. If `init` has already been completed when the callback is registered, it receives this immediately after it receives the `SdkLoaded` event. |
-| `IdentityUpdated` | { identity: Uid2Identity \| null } | Called whenever the current identity changes. If the identity doesn't change after the callback is registered, callbacks do not receive this event. |
+| `InitCompleted` | `{ identity: Uid2Identity  \| null }` | Called once `init()` has finished. Callbacks always receive this event once, as long as a successful call to `init` has been made. If `init` has already been completed when the callback is registered, it receives this immediately after it receives the `SdkLoaded` event. |
+| `IdentityUpdated` | `{ identity: Uid2Identity \| null }` | Called whenever the current identity changes. If the identity doesn't change after the callback is registered, callbacks do not receive this event. |
 
 The `Uid2Identity` type is the same type as the identity you can provide when calling `init()`.
 

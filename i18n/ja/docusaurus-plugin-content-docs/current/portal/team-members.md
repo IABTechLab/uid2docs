@@ -48,7 +48,6 @@ UID2 Portal の Team Members ページでは、以下のようなアカウント
 
 チーム メンバーに招待状を再送信するには、リストでチーム メンバーを見つけ、Actions 列で **Resend Invitation** をクリックします。ステータスが **Invitation Sent** に更新され、新しい招待メールが送信されます。
 
-
 ## Edit Information for a Team Member
 
 チームメンバーの情報を編集するには、リストでチームメンバーを見つけてから、Actions 列で Edit (pencil) アイコンをクリックします。
@@ -70,5 +69,3 @@ UID2 Portal の Team Members ページでは、以下のようなアカウント
 1. パスワードを初期設定から更新するには、クリックしてください。
 1. メールアドレスと新しいパスワードを使用して、UID2 Portal にログインします。これでアカウントが確認されます。
 1. 初回ログイン時に、UID2 Sharing Portal 利用規約を確認し、同意します。
-
-<!-- eng_jp -->

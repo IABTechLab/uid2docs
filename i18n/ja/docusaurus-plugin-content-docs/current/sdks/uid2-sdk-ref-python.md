@@ -7,7 +7,12 @@ sidebar_position: 06
 
 # UID2 SDK for Python (Server-Side) Reference Guide
 
-UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2 にアクセスしやすくなります。
+UID2 Server-Side SDK を使用することで、以下のことが容易になります:
+
+- UID2 Advertising Token の生成
+- UID2 Advertising Token の更新
+- raw UID2 を暗号化して UID2 Token を作成する
+- UID2 Advertising Token を復号化して raw UID2 にアクセスする
 
 <!-- This guide includes the following information:
 
@@ -20,7 +25,8 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
   - [Response Content](#response-content)
   - [Response Statuses](#response-statuses)
 - [FAQs](#faqs)
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
+- [Usage for UID2 Sharers](#usage-for-uid2-sharers) 
+- [Usage for Publishers](#usage-for-publishers) -->
 
 ## Overview
 
@@ -96,7 +102,6 @@ SDK から返される利用可能な情報の概要を次の表に示します�
 | `ExpiredToken` | 受信した UID2 Advertising Token の有効期限が切れています。 |
 | `KeysNotSynced` | クライアントは UID2 Service からの鍵の同期に失敗しました。|
 | `VersionNotSupported` | クライアントライブラリが暗号化トークンのバージョンをサポートしていません。|
-
 
 ## Usage for UID2 Sharers
 

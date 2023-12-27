@@ -27,6 +27,7 @@ sidebar_position: 14
 UID2 SDK for iOS を使用すると、UID2 を使用してクライアント ID を確立し、iOS デバイスで Advertising Token を取得するプロセスを容易にすることができます。
 
 以下のiOS関連プラグインと関連ドキュメントも利用できます:
+
 | Purpose | Product/Documentation |
 | :--- | :--- |
 | Google Mobile Ads (GMA) SDK を使用して、iOS アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を [Secure Signal](https://support.google.com/admob/answer/11556288) として送信するには、次のの手順に従います。 | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) |

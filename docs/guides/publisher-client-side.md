@@ -156,7 +156,7 @@ You can pass the user's DII to the UID2 SDK either hashed or unhashed. If you pa
 
 The SDK encrypts the hashed DII before sending it to the UID2 service.
 
-You can configure the SDK to send any one of the four accepted DII formats, for any specific user. The DII format might vary per user but you can only send one value per user.
+You can configure the SDK using any one of the four accepted DII formats, for any specific user. The DII format might vary per user but you can only send one value per user.
 
 The following sections demonstrate the different ways that you can configure the UID2 SDK and list the requirements for the DII passed to the SDK:
 

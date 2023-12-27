@@ -12,7 +12,7 @@ sidebar_position: 07
 | Environment | Cloud Region                 | Code             | Base URL                            |
 | :---------- | :--------------------------- | :--------------- | :---------------------------------- |
 | テスト環境   | AWS US East (Ohio)           | `us-east-2`      | `https://operator-integ.uidapi.com` |
-| 本番環境    | 自動的に最適化されたリージョン・ルーティング<br/><a href='https://aws.amazon.com/global-accelerator/'>AWSグローバルアクセラレータ</a>経由 | `n/a` | `https://global.prod.uidapi.com` |
+| 本番環境    | <a href='https://aws.amazon.com/global-accelerator/'>AWS Global Accelerator</a> によるリージョンルーティングの自動最適化 | `n/a` | `https://global.prod.uidapi.com` |
 | 本番環境    | AWS US East (Ohio)           | `us-east-2`      | `https://prod.uidapi.com`           |
 | 本番環境    | AWS US West (Oregon)         | `us-west-2`      | `https://usw.prod.uidapi.com`       |
 | 本番環境    | AWS Asia Pacific (Sydney)    | `ap-southeast-2` | `https://au.prod.uidapi.com`        |

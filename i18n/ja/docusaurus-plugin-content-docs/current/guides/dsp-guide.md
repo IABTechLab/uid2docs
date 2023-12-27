@@ -33,7 +33,7 @@ DSP はビッドリクエストで UID2 Token を受け取り、この機能を�
 
 ### Honor User Opt-Outs
 
-UID2 Service からユーザーのオプトアウトを受信して受け入れるために、DSP は事前に設定されたインターフェース（out-put Webhook/API endpoint）を確立し、オンボーディング中にUID2 Service に提供します。ユーザーがオプトアウトすると、UID2 Service はユーザーの raw UID2 と、対応するオプトアウトタイムスタンプを、事前に設定されたインターフェースに送信します。
+UID2 Service からユーザーのオプトアウトを受信して受け入れるために、DSP は事前に設定されたインターフェース(out-put Webhook/API endpoint)を確立し、オンボーディング中にUID2 Service に提供します。ユーザーがオプトアウトすると、UID2 Service はユーザーの raw UID2 と、対応するオプトアウトタイムスタンプを、事前に設定されたインターフェースに送信します。
 
 UID2 Service は、ユーザーがオプトアウトしてから数秒以内に以下のデータを送信します。これを DSP が記録し、[Decrypt UID2 Tokens for RTB Use](#decrypt-uid2-tokens-for-rtb-use) で定義されている入札ロジックを使用するようにします。
 
@@ -52,7 +52,7 @@ https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 
 入札時 (2-b)に以下のロジックを使用し、ユーザーのオプトアウトを受け入れます。
 
-Server-Side SDK のいずれか ([SDKs](../sdks/summary-sdks.md)を参照) を利用して、受信した UID2 Token を raw UID2 に復号します。decrypt関数への応答には、raw UID2 が含まれます。
+Server-Side SDK のいずれか ([SDKs](../sdks/summary-sdks.md)を参照) を利用して、受信した UID2 Token を raw UID2 に復号します。decrypt関数へのレスポンスには、raw UID2 が含まれます。
 
 オプトアウトのロジックを次の図に示します。
 
@@ -64,10 +64,10 @@ Server-Side SDK のいずれか ([SDKs](../sdks/summary-sdks.md)を参照) を�
 
 以下の表は、[Integration Steps](#integration-steps) で示したワークフロー図の Step 2 の詳細です。
 
-| Step | SDK                                                        | Description                                                                                                                                                                                             |
-| :--- | :--------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 2-a  | Server-side SDK ([SDKs](../sdks/summary-sdks.md)を参照) | 提供されている SDK を活用して、入力された UID2 Token を復号化します。レスポンスには `UID2` と UID2 の作成時刻が含まれます。                                                                             |
-| 2-b  |                                                            | DSP は UID2 のオプトアウトプロトコルを受け入れることが要求されます。ユーザーオプトアウトの設定と入札時の受け入れは、[ユーザーオプトアウトの受け入れ](#honor-user-opt-outs) を参照してください。 |
+| Step | SDK | Description |
+| :--- | :--- | :--- |
+| 2-a  | Server-side SDK ([SDKs](../sdks/summary-sdks.md)を参照) | 提供されている SDK を活用して、入力された UID2 Token を復号化します。レスポンスには `UID2` と UID2 の作成時刻が含まれます。 |
+| 2-b  | | DSP は UID2 のオプトアウトプロトコルを受け入れることが要求されます。ユーザーオプトアウトの設定と入札時の受け入れは、[ユーザーオプトアウトの受け入れ](#honor-user-opt-outs) を参照してください。 |
 
 ## FAQs
 
