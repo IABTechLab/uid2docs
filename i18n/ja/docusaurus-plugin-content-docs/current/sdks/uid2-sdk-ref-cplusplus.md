@@ -68,7 +68,6 @@ DSP の場合は、入札のために UID2 Advertising Token を復号化して 
 
 以下は、C++ での decrypt メソッド呼び出しです:
 
-
 ```cpp
 #include <uid2/uid2client.h>
 using namespace uid2;

@@ -8,7 +8,7 @@ banner_title: UID2 Overview for DSPs
 banner_description: より耐久性のある識別子でデータ戦略を可能に。
 ---
 
-デマンドサイドプラットフォーム（DSP、メディアバイイングプラットフォーム）として、Unified ID 2.0（UID2）を活用した ID 戦略を実施することで、以下を促進することができます:
+デマンドサイドプラットフォーム(DSP、メディアバイイングプラットフォーム)として、Unified ID 2.0(UID2)を活用した ID 戦略を実施することで、以下を促進することができます:
 
 - 広告主のためのファーストパーティデータの有効化
 - パブリッシャー向けインベントリ収益化
@@ -44,7 +44,7 @@ UID2 を採用する DSP のメリット、ワークフロー、ドキュメン�
    - UID2 Token を復号して raw UID2 にします。
    - ユーザーがオプトアウトしたかどうかを確認し、オプトアウトした場合は入札を行いません。
    - raw UID2 をオーディエンスセグメントにマッチさせます。
-4. DSP は UID2 Token を付加した入札応答をビッドストリームに送信します。
+4. DSP は UID2 Token を付加した入札レスポンスをビッドストリームに送信します。
 
 ![Buy-Side Workflow](images/UID2BuySIdeDSPWorkflow.jpg)
 
@@ -71,13 +71,13 @@ UID2 を採用する DSP のメリット、ワークフロー、ドキュメン�
 
 UID2 を実装する DSP には、以下のドキュメントリソースが用意されています。
 
-| Type| Documentation | Content Description | Audience |
-| :--- | :--- | :--- | :--- |
-| UID2 SDK for Java | [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) | Java Server-Side を使用し、UID2 Advertising Token を解読して raw UID2 にアクセスするための SDK。 | DSPs |
-| UID2 SDK for Python | [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md) | Python Server-Side を使用し、UID2 Advertising Token を解読して raw UID2 にアクセスするための SDK。 | DSPs |
-| UID2 SDK for C# / .NET | [UID2 SDK for C# / .NET (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-csharp-dotnet.md) | .NET Server-Side を使用し、UID2 Advertising Token を解読して raw UID2 にアクセスしたい人のための SDK。 | DSPs |
-| UID2 SDK for C++ | [UID2 SDK for C++ (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-cplusplus.md) | C++ Server-Sode を使用し、UID2 Advertising Token を解読して raw UID2 にアクセスするための SDK。 | DSPs |
-| Integration Guide | [DSP Integration Guide](../guides/dsp-guide.md) | この DSP のためのインテグレーションガイドは、入札のための UID2 の取り扱いと、ユーザーのオプトアウトの受け入れについて説明しています。 | DSPs |
+| Type| Documentation | Content Description |
+| :--- | :--- | :--- |
+| UID2 SDK for Java | [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) | Java Server-Side を使用し、UID2 Advertising Token を復号して raw UID2 にアクセスしたい人のための SDK。 |
+| UID2 SDK for Python | [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md) | Python Server-Side を使用し、UID2 Advertising Token を復号して raw UID2 にアクセスしたい人のための SDK。 |
+| UID2 SDK for C# / .NET | [UID2 SDK for C# / .NET (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-csharp-dotnet.md) | .NET Server-Side を使用し、UID2 Advertising Token を復号して raw UID2 にアクセスしたい人のための SDK。 |
+| UID2 SDK for C++ | [UID2 SDK for C++ (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-cplusplus.md) | C++ Server-Side を使用し、UID2 Advertising Token を復号して raw UID2 にアクセスしたい人のための SDK。 |
+| Integration Guide | [DSP Integration Guide](../guides/dsp-guide.md) | DSP 向けのこのインテグレーションガイドでは、入札のための UID2 の取り扱いと、ユーザーのオプトアウトの受け入れについて説明します。 |
 
 <!-- ## Integration Requirements
 To integrate with UID2 to receive UID2s from brands (as first-party data) and data providers (as third-party data) and leverage them to inform bidding on UID2s in the bid stream, the buy-side participants must meet the following requirements:

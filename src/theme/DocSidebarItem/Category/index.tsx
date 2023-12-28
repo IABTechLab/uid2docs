@@ -9,7 +9,7 @@ import {
 } from "@docusaurus/theme-common";
 import {
   isActiveSidebarItem,
-  findFirstCategoryLink,
+  findFirstSidebarItemLink,
   useDocSidebarItemsExpandedState,
   isSamePath,
 } from "@docusaurus/theme-common/internal";
@@ -49,7 +49,7 @@ function useAutoExpandActiveCategory({
  * see https://github.com/facebook/docusaurus/issues/3030
  */
 function useCategoryHrefWithSSRFallback(
-  item: Props["item"]
+  item: Props["item"],
 ): string | undefined {
   const isBrowser = useIsBrowser();
   return useMemo(() => {
@@ -57,11 +57,11 @@ function useCategoryHrefWithSSRFallback(
       return item.href;
     }
     // In these cases, it's not necessary to render a fallback
-    // We skip the "findFirstCategoryLink" computation
+    // We skip the "findFirstSidebarItemLink" computation
     if (isBrowser || !item.collapsible) {
       return undefined;
     }
-    return findFirstCategoryLink(item);
+    return findFirstSidebarItemLink(item);
   }, [item, isBrowser]);
 }
 
@@ -81,7 +81,7 @@ function CollapseButton({
           description:
             "The ARIA label to toggle the collapsible sidebar category",
         },
-        { label: categoryLabel }
+        { label: categoryLabel },
       )}
       type="button"
       className="clean-btn menu__caret"
@@ -155,7 +155,7 @@ export default function DocSidebarItemCategory({
         {
           "menu__list-item--collapsed": collapsed,
         },
-        className
+        className,
       )}
     >
       <div

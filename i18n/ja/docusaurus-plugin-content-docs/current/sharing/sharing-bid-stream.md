@@ -108,5 +108,3 @@ API または指定された server-side SDK を介して、DII から UID2 Toke
 </tr>
 </tbody>
 </table>
-
-<!-- eng_jp -->

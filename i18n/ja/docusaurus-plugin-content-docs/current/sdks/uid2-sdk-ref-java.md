@@ -14,7 +14,6 @@ UID2 SDK for Java (Server-Side) を使用すると、以下のことが容易に
 - raw UID2を暗号化して UID2 Token を作成する
 - UID2 Advertising Token を復号化して raw UID2 にアクセスする
 
-
 <!-- This guide includes the following information:
 
 - [Overview](#overview)
@@ -103,7 +102,6 @@ SDK から返される利用可能な情報の概要を次の表に示します�
 | `ExpiredToken` | 受信した UID2 Advertising Token の有効期限が切れています。 |
 | `KeysNotSynced` | クライアントは UID2 Service からの鍵の同期に失敗しました。|
 | `VersionNotSupported` | クライアントライブラリが暗号化トークンのバージョンをサポートしていません。|
-
 
 ## Usage for UID2 Sharers
 

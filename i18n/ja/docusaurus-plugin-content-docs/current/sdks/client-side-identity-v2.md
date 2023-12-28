@@ -14,7 +14,7 @@ sidebar_position: 02
 この SDK を使用して、UID2 を使用してクライアントの ID を確立し、広告トークンを取得するプロセスを容易にします。以下のセクションでは、UID2 を確立するための [workflow](#workflow-overview) について説明し、SDK の [API reference](#api-reference) を提供し、[UID2 cookie format](#uid2-cookie-format) について説明します。
 
 - コンテンツパブリッシャーのインテグレーション手順については、[JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照してください。
-- [example application](https://example-jssdk-integ.uidapi.com/)　と関連ドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) ガイドを参照してください。
+- [example application](https://example-jssdk-integ.uidapi.com/) と関連ドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) ガイドを参照してください。
 
 <!-- This guide includes the following information:
 
@@ -84,9 +84,9 @@ SDK を使用して UID2 ID を確立するための Client-Side ワークフロ
 	- ID が利用可能な場合、SDK は[background token auto-refresh](#background-token-auto-refresh) を設定します。
 	- ID が利用できない場合、利用できない理由はコールバック関数に渡されるオブジェクトに指定されます。
 3. SDK: アイデンティティ [state](#workflow-states-and-transitions) に基づき、SDK は以下の処理を行います:
-  - 有効な ID が利用可能な場合、SDK はその ID が[first-party cookie](#uid2-cookie-format) で利用可能であることを保証します。
+  - 有効な ID が利用可能な場合、SDK はその ID が[ファーストパーティクッキー](#uid2-cookie-format) で利用可能であることを保証します。
   - ID が使用できない場合、SDK は ID が更新可能かどうかに基づいて適切なアクションを実行します。詳細については、[Workflow States and Transitions](#workflow-states-and-transitions) を参照してください。
-4. Publisher: ID の状態に基づいて ID を処理します：
+4. Publisher: ID の状態に基づいて ID を処理します:
 	- Advertising Token が使用可能な場合は、それを使用してターゲティング広告の要求を開始します。
 	- Advertising Token が利用可能でない場合は、ターゲティング広告を使用するか、同意フォームを使用してユーザーを UID2 ログインにリダイレクトします。
  
@@ -101,7 +101,7 @@ Web インテグレーションの詳細については、[JavaScript Standard I
 | Initialization | `undefined`| `undefined`| コールバックが呼び出されるまでの初期状態です。 | N/A |
 | Identity Is Available | available |`false` | 有効な ID が正常に確立または更新されました。ターゲティング広告で Advertising Toke を使用できます。 |`ESTABLISHED` or `REFRESHED` |
 | Identity Is Temporarily Unavailable |`undefined` | `false`| Advertising Token の有効期限が切れたため、自動更新に失敗しました。[Background auto-refresh](#background-token-auto-refresh) は、Refresh Token の有効期限が切れるか、ユーザーがオプトアウトするまで施行され続けます。<br/>以下のいずれかを行うことができます:<br/>- ターゲティング広告を使わない。<br/>- ユーザーを UID2 ログインにリダイレクトし、同意フォームを表示する。<br/>NOTE: ID はのちに正常にリフレッシュされるかもしれません。&#8212;例えば、UID2 Serviceが一時的に利用できなくなった場合などです。 | `EXPIRED` |
-| Identity Is Not Available  | `undefined`| `false`| ID が利用できず、リフレッシュできません。SDK は first-party cookie をクリアします。<br/>UID2 ベースのターゲティング広告をサイド使用するには、同意フォームを使って、ユーザーを UID2 ログインにリダイレクトする昼葉があります。 | `INVALID`, `NO_IDENTITY`, `REFRESH_EXPIRED`, or `OPTOUT` |
+| Identity Is Not Available  | `undefined`| `false`| ID が利用できず、リフレッシュできません。SDK はファーストパーティクッキーをクリアします。<br/>UID2 ベースのターゲティング広告をサイド使用するには、同意フォームを使って、ユーザーを UID2 ログインにリダイレクトする昼葉があります。 | `INVALID`, `NO_IDENTITY`, `REFRESH_EXPIRED`, or `OPTOUT` |
 
 
 次の図は、対応する ID の [status values](#identity-status-values) を含む 4 つの状態と、それらの間で可能な遷移を示しています。SDK は各遷移で [callback function](#callback-function) を呼び出します。
@@ -140,7 +140,7 @@ Token の Auto-refresh について知っておくべきことは以下のとお
 
 UID2 オブジェクトを構築します。
 
->TIP: この関数を呼び出す代わりに、グローバルの　`__uid2` オブジェクトを使用することができます。
+>TIP: この関数を呼び出す代わりに、グローバルの `__uid2` オブジェクトを使用することができます。
 
 ### init(opts: object): void
 
@@ -151,7 +151,7 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 - `init()` は、対応するスクリプトタグによって SDK がロードされた後、いつでも呼び出すことができます。
 - 初期化呼び出しには、SDK が初期化された後に呼び出される [callback function](#callback-function) が必要です。
 - クライアントで UID2 ライフサイクルのインスタンスを作成する場合、`init()` 呼び出しの `identity` プロパティは、Server-side で生成された ID を含む [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) 呼び出しが成功したときに返されるレスポンス JSON オブジェクトの `body` プロパティを参照します。
-- SDK はセッションに渡された UID2 情報の保存に [first-party cookie](#uid2-cookie-format) に依存しているため、異なるドメインのページから `init()` を呼び出すと、クッキーにアクセスできない可能性があります。`cookieDomain` オプションと `cookiePath` オプションでクッキーに使用する設定を調整することができます。
+- SDK はセッションに渡された UID2 情報の保存に [ファーストパーティクッキー](#uid2-cookie-format) に依存しているため、異なるドメインのページから `init()` を呼び出すと、クッキーにアクセスできない可能性があります。`cookieDomain` オプションと `cookiePath` オプションでクッキーに使用する設定を調整することができます。
 - 特定の動作を調整するために、初期化呼び出しにはオプションのコンフィギュレーション [parameter](#parameters) を含めることができます。
 
 以下は、Server-side で生成された ID を含む `init()` 呼び出しのテンプレートです。
@@ -182,7 +182,7 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 </script>
 ```
 
-以下は、first-party cookie から ID を取得する `init()` 呼び出しの例です。この様なスクリプトは、ID が確立された後にユーザーが訪れる可能性のある任意のページに配置することができます。
+以下は、ファーストパーティクッキーから ID を取得する `init()` 呼び出しの例です。この様なスクリプトは、ID が確立された後にユーザーが訪れる可能性のある任意のページに配置することができます。
 
 ```html
 <script>
@@ -198,8 +198,8 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 | Property | Data Type | Attribute | Description | Default Value |
 | :--- | :--- | :--- | :--- | :--- |
-| `callback` | `function(object): void` | 必須 | 渡された ID を検証した後に SDK が呼び出す関数です。[Callback Function](#callback-function)　を参照してください。 | N/A |
-| `identity` | object | オプション | [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) 呼び出しが成功したときの `body` プロパティ値です。<br/>[first-party cookie](#uid2-cookie-format) からの ID を使用するには、このプロパティを空にしておきます。 | N/A |
+| `callback` | `function(object): void` | 必須 | 渡された ID を検証した後に SDK が呼び出す関数です。[Callback Function](#callback-function) を参照してください。 | N/A |
+| `identity` | object | オプション | [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) 呼び出しが成功したときの `body` プロパティ値です。<br/>[ファーストパーティクッキー](#uid2-cookie-format) からの ID を使用するには、このプロパティを空にしておきます。 | N/A |
 | `baseUrl` | string | オプション | [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出す際に使用する UID2 Operator のカスタム Base URLです。<br/>例えば: `https://my.operator.com`.  | `https://prod.uidapi.com`. |
 | `refreshRetryPeriod` | number | オプション | 断続的なエラーが発生した場合に、トークンのリフレッシュを再試行する秒数です。 | 5 |
 | `cookieDomain` | string | オプション | [UID2 cookie](#uid2-cookie-format) に適用するドメイン名文字列です。<br/>例えば、`baseUrl` が `https://my.operator.com` の場合、 `cookieDomain` の値は `operator.com` となります。 | `undefined` |
@@ -225,24 +225,24 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
-| `advertisingToken` | string | ターゲティング広告のために SSP に渡す Token です。トークン/ID が無効または使用できない場合、値は `undefined`　になります。 |
+| `advertisingToken` | string | ターゲティング広告のために SSP に渡す Token です。トークン/ID が無効または使用できない場合、値は `undefined` になります。 |
 | `status` | `UID2.IdentityStatus` enum | ID のステータスを示す数値です。詳細は [Identity Status Values](#identity-status-values) を参照してください。 |
 | `statusText` | string | ID ステータスに関する追加情報です。 |
 
 #### Identity Status Values
 
-[callback function](#callback-function) は　`UID2.IdentityStatus` enum　から `status` フィールドの値を数値として返します。`UID2.IdentityStatus[state.status]` を呼び出すことで、対応する文字列に変換することができます。以下の表に `status` enum の文字列を示します。
+[callback function](#callback-function) は `UID2.IdentityStatus` enum から `status` フィールドの値を数値として返します。`UID2.IdentityStatus[state.status]` を呼び出すことで、対応する文字列に変換することができます。以下の表に `status` enum の文字列を示します。
 
 >IMPORTANT: 以下の値は、ID の可溶性を通知することのみを目的としています。条件文などでは使用しないでください。
 
 | Status | Advertising Token Availability | Description |
 | :--- | :--- | :--- |
-| `ESTABLISHED` | Available | ID は有効で、渡された値または first-party cookie から設定され、ターゲティング広告に利用できるようになりました。 |
+| `ESTABLISHED` | Available | ID は有効で、渡された値またはファーストパーティクッキーから設定され、ターゲティング広告に利用できるようになりました。 |
 | `REFRESHED` | Available | ID は UID2 オペレータへの呼び出しによってい正常に更新され、ターゲティング広告に使用できる様になりました。 |
 | `EXPIRED` | Not available | SDK がトークンのリフレッシュに失敗したため、ターゲティング広告に使用できる ID がありません。まだ有効な Refesh Token があるため、自動リフレッシュの試行は継続されます |
-| `REFRESH_EXPIRED` | Not available | first-party cookie の Refresh Token または渡された ID の有効期限が切れているため、ターゲティング広告に利用できる ID がありません。 |
-| `NO_IDENTITY` | Not available | first-party cookie が設定されておらず、`init()` 関数に ID が渡されていないため、ターゲティング広告に利用できる ID がありません。 |
-| `INVALID` | Not available | SDK　が　first-party cookie　または渡された　ID　の解析に失敗したため、ターゲティング広告に利用できる ID がありません。 |
+| `REFRESH_EXPIRED` | Not available | ファーストパーティクッキーの Refresh Token または渡された ID の有効期限が切れているため、ターゲティング広告に利用できる ID がありません。 |
+| `NO_IDENTITY` | Not available | ファーストパーティクッキーが設定されておらず、`init()` 関数に ID が渡されていないため、ターゲティング広告に利用できる ID がありません。 |
+| `INVALID` | Not available | SDK が ファーストパーティクッキーまたは渡された ID の解析に失敗したため、ターゲティング広告に利用できる ID がありません。 |
 | `OPTOUT` | Not available | ユーザーがオプトアウトしているため、ID を更新できず、ターゲティング広告に利用できる ID はありません。 |
 
 ID が利用できない場合は、[isLoginRequired()](#isloginrequired-boolean) 関数を使用して、最善の対応策を決定します。
@@ -305,14 +305,14 @@ UID2 ログイン ([POST /token/generate](../endpoints/post-token-generate.md) 
 
 | Value | Description |
 | :--- | :--- |
-| `true` | ID が利用できないため、UID2 ログインが必要です。この値は以下のいずれかを示します:<br/>- ユーザーがオプトアウトした。<br/>- Refresh token の有効期限が切れた。<br/>- first-party cookie は利用できず、サーバーが生成した ID も提供されていない。 |
+| `true` | ID が利用できないため、UID2 ログインが必要です。この値は以下のいずれかを示します:<br/>- ユーザーがオプトアウトした。<br/>- Refresh token の有効期限が切れた。<br/>- ファーストパーティクッキーは利用できず、サーバーが生成した ID も提供されていない。 |
 | `false` | ログインは必要ありません。この値は以下のいずれかを示します:<br/>- ID が存在し、有効。<br/>- ID の有効期限が切れており、断続的なエラーによりトークンがリフレッシュされなかった。<br/>- ID の有効期限が切れており、断続的なエラーによりトークンがリフレッシュされなかった。 |
 | `undefined` | SDK の初期化はまだ完了していません。 |
 
 
 ### disconnect(): void
 
-[first-party cookie](#uid2-cookie-format) から UID2 ID をクリアします。これにより、クライアントの ID セッションが閉じられ、クライアントのライフサイクルが切断されます。
+[ファーストパーティクッキー](#uid2-cookie-format) から UID2 ID をクリアします。これにより、クライアントの ID セッションが閉じられ、クライアントのライフサイクルが切断されます。
 
 未認証のユーザーが存在する場合、またはユーザーがパブリッシャーのサイトのターゲティング広告からログアウトする場合、次の呼び出しを行います:
 
@@ -332,7 +332,7 @@ UID2 ログイン ([POST /token/generate](../endpoints/post-token-generate.md) 
 
 ## UID2 Cookie Format
 
-SDK は first-party cookie を使用してユーザーの ID を保存します。
+SDK はファーストパーティクッキーを使用してユーザーの ID を保存します。
 
 ### Properties
 

@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const lightCodeTheme = require("prism-react-renderer").themes.github;
+const darkCodeTheme = require("prism-react-renderer").themes.dracula;
 
 function dropdownItemHtml(label, desc) {
   return `<div class="dropdown__heading">
@@ -102,6 +102,7 @@ const config = {
       // Replace with your project's social card
       image: "img/uid2-social-card.jpg",
       colorMode: {
+        defaultMode: "dark",
         disableSwitch: true,
       },
 
@@ -287,10 +288,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: [
-          'csharp',
-          'java'
-        ],
+        additionalLanguages: ["csharp", "java"],
       },
       algolia: {
         // N.b. per Algolia, these are public values - once we get them, we can commit them to the open source repo.
