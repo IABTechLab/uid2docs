@@ -32,7 +32,7 @@ const sidebars = {
         'getting-started/gs-api-using',
         'getting-started/gs-encryption-decryption',
         'getting-started/gs-normalization-encoding',
-        'getting-started/gs-opt-out',       
+        'getting-started/gs-opt-out',
         'getting-started/gs-faqs',
         'getting-started/gs-sharing',
       ],
@@ -219,6 +219,19 @@ const sidebars = {
         'sharing/sharing-bid-stream',
       ],
     },
+
+    {
+      type: 'category',
+      label: 'Reference Information',
+      link: {
+        type: 'generated-index',
+      },
+      collapsed: true,
+      items: [
+        'ref-info/ref-operators-private-public',
+      ],
+    },
+
     'ref-info/glossary-uid',
     'ref-info/updates-doc',
   ],

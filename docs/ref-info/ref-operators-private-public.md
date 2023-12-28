@@ -7,53 +7,63 @@ sidebar_position: 06
 
 # The UID2 Operator
 
-The 
-
-xxxxx
-
-
-The operator is the code that does the work for UID2. This is the code that any UID2 or EUID participant "hits" when they are calling any UID2/EUID API. It is the operational code of Unified Id 2.0 -  it's the code that turns an email into a UID2, EUID, UID2 token or EUID token. It is the code that a participant who is sharing uses to refresh their decryption keys.
+The UID2 Operator Service enables the management and storage of encryption keys and [salts](../ref-info/glossary-uid.md#gl-salt) from the UID2 Core Service, hashing of users' personal data ([DII](../ref-info/glossary-uid.md#gl-dii)), encryption of [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2), and decryption of [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token). 
 
 ## UID2 Operator: Overview
 
-The UID2 Operator includes a selection of specific API endpoints. Users have to have the correct credentials to access these endpoints, either via a UID2 SDK or by a direct API call to the endpoint.
+All instances of the Operator Service are designed with rigorous protections in place to keep critical UID2 data secure and interoperable, regardless of who operates the service.
 
-There are two possible implementations of the UID2 Operator code:
-- [Public Operator](#public-operator)
-- [Private Operator](#private-operator)
+There can be multiple instances of the Operator Service, operated by multiple participants. Each of these participants is known as a UID2 Operator. A UID2 Operator is simply an organization that runs the Operator Service, via the UID2 APIs. Operators receive and store encryption keys and salts from the UID2 Core Service, salt and hash personal data to return UID2 tokens, encrypt raw UID2s to generate UID2 tokens, and distribute UID2 token decryption keys.
 
-## Public Operator
+UID2 Operators fall into two categories:
 
-In most cases, UID2 participants will be using the public operator.
+- [Public Operators](#public-operator)
+- [Private Operators](#private-operator)
 
-The public operator is owned and managed by the UID2 administration. The which is TTD. 
+The Operator is the operational code of UID2&#8212;the code that turns an email into a raw UID2 or a UID2 token, and that a participant who is sharing uses to refresh decryption keys.
 
+## Public Operators
 
+A Public Operator, or Open Operator, is a UID2 Operator instance that is available to all relevant UID2 participants. Public Operators run publicly available instances of the Operator Service and make them available to participants.
 
-Key Points
+In most cases, UID2 participants use a Public Operator.
 
-TTD manages 
-TTD runs the code
-TTD makes the code changes
-TTD updates the code
-TTD pays for the infrastructure cost
-Data has to leave a participant's infrastructure to hit the endpoint 
-For example, the email has to go from P&G to the public operator endpoint, which is outside of P&G's walls
+The Public Operator is owned and managed by the UID2 administration. For example, The Trade Desk currently serves as a Public Operator for the UID2 framework, available to all participants. If other Public Operators are available, a participant can choose which operator to work with.
 
+## Public Operator: Benefits
 
-Benefits
+When you use a Public Operator, there is no additional work for you to do to host, configure, maintain, or update the Operator. All you need to do is configure your integration to use an SDK or to call the UID2 endpoints.
 
-No additional work for maintenance on the participant
-(Private operators require the participant to update their instance each time TTD releases an update – any change or update to any endpoint requires a private operator update)
-No cost to the participant
-Participant must sign a contract to gain keys to hit the public operator
-Service providers who act on behalf of a participant, can use the api keys of the participant and are not required to sign a contract. 
-Downfall
+There is no cost, to the participant, for using a Public Operator.
 
-Data leaves the participant's infrastructure
-Due to privacy, participants at times do not want DII to leave their infrastructure, in this case we recommend going the private operator route
+The participant must sign a contract to get the applicable credentials ([API key and client secret](../getting-started/gs-credentials.md#api-key-and-client-secret)) to use the UID2 APIs hosted on the Public Operator. However, a service provider who acts on behalf of a participant can use the participant's credentials, and is not required to sign a contract.
 
+:::note
+With a Public Operator, data leaves the participant's infrastructure and is sent to the Operator. Of course, rigorous measures are in place to keep the data secure.
+:::
 
+##  Private Operators
 
-#  Private Operator
+A Private Operator, or Closed Operator, is a private instance of the UID2 Operator. This means that a specific entity hosts a private instance exclusively for their own use.
 
+Any participant can also choose to become a Private Operator to generate and manage UID2s. However, becoming a Private Operator includes several additional steps, and uses resources that the participant must provide.
+
+The participant must host, configure, maintain, and update the Private Operator instance, and must conform to strict security measures. Engineering resources are required to integrate and to make ongoing updates.
+
+The participant must sign a contract to host a Private Operator instance.
+
+:::note
+A Private Operator cannot process raw UID2s or UID2 tokens from a Public Operator or another Private Operator. Each Private Operator is a completely closed infrastructure.
+:::
+
+## Private Operator: Benefits
+
+Some reasons why a participant might choose to become a Private Operator:
+
+- Within a Private Operator solution, DII does not leave your infrastructure.
+
+- When you have a Private Operator, you're completely in charge of resources. You have more control. For example, you can provide greater availability, without rate limitations.
+
+- If you are not physically located near to a Public Operator instance, you might choose to host a Private Operator solution for latency reasons.
+
+For most participants, Public Operator is the best solution. However, if you have significant security or latency concerns and also have significant engineering resources, you might consider the Private Operator solution.
