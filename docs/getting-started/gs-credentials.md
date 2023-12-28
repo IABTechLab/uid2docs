@@ -62,6 +62,8 @@ Notes:
 
 - The values are valid for a specific [environment](gs-environments.md). If you're using both the integration and production environments, you'll get a set of credentials for each environment.
 
+- Subscription ID and public key credentials can be used only to generate client-side tokens. If you need any additional roles (see [API Permissions](gs-permissions.md)), request API Key and Client Secret for those roles. <!-- (**GWH_KT added last bullet to this GS article based on work on Publisher Options page. Review please.**) -->
+
 ## Refreshing Credentials
 
 To request new credentials at any time, ask your UID2 contact.
