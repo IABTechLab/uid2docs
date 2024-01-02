@@ -23,6 +23,7 @@ Here are some frequently asked questions regarding the UID2 framework.
    - [Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
    - [Can users opt out of targeted advertising tied to their UID2 identity?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2-identity)
    - [How does a user know where to access the opt-out portal?](#how-does-a-user-know-where-to-access-the-opt-out-portal)
+   - [Does UID2 allow the processing of HIPAA-regulated data?](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
 
 #### Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?
 
@@ -35,6 +36,10 @@ Yes. Through the [Transparency and Control Portal](https://www.transparentadvert
 #### How does a user know where to access the opt-out portal?
 
 Publishers, SSO providers, or consent management platforms disclose links to the [Transparency and Control Portal](https://www.transparentadvertising.com/) in their login flows, consent flows, and privacy policies, and by other means.
+
+#### Does UID2 allow the processing of HIPAA-regulated data?
+
+No. UID2 participants must not generate UID2s from Protected Health Information, as defined by the Health Insurance Portability and Accountability Act (HIPAA), even if they have obtained consent to engage in marketing with respect to such data. 
 
 ## FAQs for Publishers
 
