@@ -104,7 +104,7 @@ UID2 共有者は、以下の例に示すように、2段階のプロセスを�
 <tbody>
 <tr>
 <td>user@example.com</td>
-<td>メールアドレス/電話番号を raw UID2 に変換します:<br/><a href="../endpoints/post-identity-map">POST /identity/map</a> endpoint</td>
+<td>メールアドレス/電話番号を raw UID2 に変換します:<br/><a href="../endpoints/post-identity-map">POST&nbsp;/identity/map</a> endpoint</td>
 <td>K2jlbu2ldlpKL1z6n5bET7L3<br/>g0xfqmldZPDdPTktdRQ=</td>
 </tr>
 <tr>

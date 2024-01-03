@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 For almost all UID2 [endpoints](../endpoints/summary-endpoints.md), requests sent to the endpoint must be [encrypted](#encrypting-requests) and responses from the endpoint must be [decrypted](#decrypting-responses). 
 
-The only exception is that requests to the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint do not need to be encrypted.
+The only exception is that requests to the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint do not need to be encrypted.
 
 Here's what you need to know about encrypting UID2 API requests and decrypting respective responses:
 
@@ -96,7 +96,7 @@ The following table describes the field layout for response decryption code.
 
 ### Response Example
 
-For example, a decrypted response to the [POST /token/generate](../endpoints/post-token-generate.md) request for an email address in the [preceding example](#request-example), may look like this:
+For example, a decrypted response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request for an email address in the [preceding example](#request-example), may look like this:
 
 ```json
 {
@@ -117,7 +117,7 @@ For example, a decrypted response to the [POST /token/generate](../endpoints/pos
 
 This section includes an encryption and decryption code example in different programming languages.
 
-For the [POST /token/refresh](../endpoints/post-token-refresh.md) endpoint, the code takes the values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST /token/generate](../endpoints/post-token-generate.md) or [POST /token/refresh](../endpoints/post-token-refresh.md).
+For the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint, the code takes the values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md).
 
 :::note
 For Windows, if you're using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON. For example, use `echo {"email": "test@example.com"}`.

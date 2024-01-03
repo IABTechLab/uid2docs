@@ -6,7 +6,7 @@ sidebar_position: 04
 ---
 
 # POST /token/refresh
-Generate a new [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) by sending the corresponding unexpired refresh token, returned by the [POST /token/generate](post-token-generate.md) endpoint.
+Generate a new [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) by sending the corresponding unexpired refresh token, returned by the [POST&nbsp;/token/generate](post-token-generate.md) endpoint.
 
 Used by: This endpoint is used mainly by publishers.
 
@@ -16,14 +16,14 @@ Used by: This endpoint is used mainly by publishers.
 
 `POST '{environment}/v2/token/refresh'`
 
-Add the content of the `refresh_token` value, returned in the response from the previous [POST /token/generate](post-token-generate.md) or `POST /token/refresh` operation, as the POST body.
+Add the content of the `refresh_token` value, returned in the response from the previous [POST&nbsp;/token/generate](post-token-generate.md) or `POST /token/refresh` operation, as the POST body.
 
 Here's what you need to know about this endpoint:
 
 - No encryption is required for token refresh requests.
 - If the request is successful, with an HTTP status code of 200, a new UID2 token or opt-out information is returned.
 - Successful responses, whether the response includes a new token or opt-out information, are encrypted. Error responses are not encrypted.
-- To decrypt responses, use the most recent `refresh_response_key` value for this token. The `refresh_response_key` value is returned in the response to the [POST /token/generate](post-token-generate.md) and `POST /token/refresh` operations. Each time a token is refreshed, a new `refresh_response_key` is returned. Be sure to use the most recent one to decrypt the current response.
+- To decrypt responses, use the most recent `refresh_response_key` value for this token. The `refresh_response_key` value is returned in the response to the [POST&nbsp;/token/generate](post-token-generate.md) and `POST /token/refresh` operations. Each time a token is refreshed, a new `refresh_response_key` is returned. Be sure to use the most recent one to decrypt the current response.
 
 ### Path Parameters
 
@@ -33,7 +33,7 @@ Here's what you need to know about this endpoint:
 
 #### Testing Notes
 
-Using either of the following parameters in a [POST /token/generate](post-token-generate.md) request always generates an identity response with a `refresh_token` that results in a logout response when used with the `POST /token/refresh` endpoint:
+Using either of the following parameters in a [POST&nbsp;/token/generate](post-token-generate.md) request always generates an identity response with a `refresh_token` that results in a logout response when used with the `POST /token/refresh` endpoint:
 
 - The `refresh-optout@example.com` email address
 - The `+00000000002` phone number
@@ -102,7 +102,7 @@ An error response might look like the following:
 | `identity_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the UID2 token expires. |
 | `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) will start refreshing the UID2 token, if the SDK is in use.<br/>TIP: If you are not using the SDK, consider refreshing the UID2 token from this timestamp, too. |
 | `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
-| `refresh_response_key` | string | A key to be used in a new [POST /token/refresh](post-token-refresh.md) request for response decryption. |
+| `refresh_response_key` | string | A key to be used in a new [POST&nbsp;/token/refresh](post-token-refresh.md) request for response decryption. |
 
 ### Response Status Codes
 
