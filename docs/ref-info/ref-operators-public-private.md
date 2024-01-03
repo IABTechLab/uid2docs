@@ -7,13 +7,15 @@ sidebar_position: 06
 
 # The UID2 Operator
 
-The UID2 Operator Service enables the management and storage of encryption keys and [salts](../ref-info/glossary-uid.md#gl-salt) from the UID2 Core Service, hashing of users' personal data ([DII](../ref-info/glossary-uid.md#gl-dii)), encryption of [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2), and decryption of [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token). 
-
-## UID2 Operator: Overview
+The UID2 Operator Service enables the management and storage of encryption keys and [salts](../ref-info/glossary-uid.md#gl-salt) from the UID2 Core Service, hashing of users' personal data ([DII](../ref-info/glossary-uid.md#gl-dii)), encryption of [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2), and decryption of [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token).
 
 All instances of the Operator Service are designed with rigorous protections in place to keep critical UID2 data secure and interoperable, regardless of who operates the service.
 
-There can be multiple instances of the Operator Service, operated by multiple participants. Each of these participants is known as a UID2 Operator. A UID2 Operator is simply an organization that runs the Operator Service. Operators receive and store encryption keys and salts from the UID2 Core Service, salt and hash personal data to return UID2 tokens, encrypt raw UID2s to generate UID2 tokens, and distribute UID2 token decryption keys.
+## UID2 Operator: Overview
+
+There can be multiple instances of the Operator Service, operated by multiple participants. Each of these participants is known as a UID2 Operator.
+
+A UID2 Operator is simply an organization that runs the Operator Service. Operators receive and store encryption keys and salts from the UID2 Core Service, salt and hash personal data to return UID2 tokens, encrypt raw UID2s to generate UID2 tokens, and distribute UID2 token decryption keys.
 
 UID2 Operators fall into two categories:
 
