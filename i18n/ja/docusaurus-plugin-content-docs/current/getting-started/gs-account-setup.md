@@ -43,8 +43,6 @@ UID2 に興味を示していただいたら、詳細を詰めるために担当
 
 UID2 に参加する契約を結ぶと、[UID2 credentials](gs-credentials.md)と UID2 を始めるために必要な情報が提供されます。
 
-
 ## API Versions
 
-UID2 API の現在のバージョンは [UID2 API v2](../summary-doc-v2.md) です。旧バージョンをお使いの場合は、[UID2 API v1 to v2 Upgrade Guide](https://github.com/IABTechLab/uid2docs/blob/main/api-ja/v2/upgrades/upgrade-guide.md)の説明にしたがって、必ず UID2 API v2 へアップグレードしてください。
-
+UID2 API の現在のバージョンは UID2 API v2 です。

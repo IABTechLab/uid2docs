@@ -20,6 +20,8 @@ Here are some of the intended benefits of participating in UID2 as a private Ope
 - You can plan to minimize network hops with a service that can provide regional proximity.
 - You can implement processes and policies that you control, as opposed to taking part in a shared service.
 
+For more information, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
+
 ## Hosting Options for Private Operators
 
 If you choose to be a private Operator, several implementation options are available. You can do any of the following:

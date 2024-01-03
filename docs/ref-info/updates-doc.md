@@ -9,6 +9,14 @@ sidebar_position: 06
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: UID2 Operator Page
+
+3 January 2024
+
+We've added a reference article explaining what the UID2 Operator does and the differences between a Public Operator and a Private Operator.
+
+For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
+
 ### New: UID2 Integration Overview for Prebid.js
 
 20 December 2023
