@@ -111,7 +111,7 @@ You can also write your own integration to pass the UID2 token into the bid stre
 There are two main approaches: you can initiate the UID2 token generate request on the client side or the server side. Each option has different advantages.
 
 **Client-side integration advantages:**
-- The code runs on the client side, and no server-side coding is required.
+- The code runs on the client side, on the consumer's web page, and no server-side coding is required.
 - There is a Prebid integration that handles all functions for you&#8212;token generate, token refresh, and passing the token into the bid stream. As long as you can use Prebid 8.21.0 or later (see [Integration Using Prebid](#integration-using-prebid)), this is the simplest and easiest implementation option.
 
 If you choose a client-side integration, you'll need to provide a list of your top-level domains, for security purposes, as part of account setup. For details, see [Account Setup Details](../getting-started/gs-account-setup.md#account-setup-details).
