@@ -97,7 +97,7 @@ UID2 Prebid モジュールを設定して、以下の2つのアクションを�
 
 ### Generating a UID2 Token on the Server
 
-トークンを生成するには、[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出します。
+トークンを生成するには、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出します。
 
 例については、[Sample Token](#sample-token) を参照してください。
 
@@ -114,8 +114,8 @@ UID2 Token をリフレッシュするには、次の表に示すように 2 つ
 
 該当するエンドポイントからの完全な JSON レスポンスボディを Prebid module に提供する必要があります:
 
-- 新しい UID2 Token を取得するには、[POST /token/generate](../endpoints/post-token-generate.md)。
-- リフレッシュされた UID2 Token については、[POST /token/refresh](../endpoints/post-token-refresh.md)。
+- 新しい UID2 Token を取得するには、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)。
+- リフレッシュされた UID2 Token については、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md)。
 
 例については、[Sample Token](#sample-token) を参照してください。
 

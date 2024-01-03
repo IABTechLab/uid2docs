@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 すべての UID2 [エンドポイント](../endpoints/summary-endpoints.md) は、リクエストの [暗号化](#encrypting-requests) とそれぞれのレスポンスの [復号化](#decrypting-responses) を必要とします。
 
-> NOTE: [POST /token/refresh](../endpoints/post-token-refresh.md) リクエストは暗号化を必要としません。
+> NOTE: [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) リクエストは暗号化を必要としません。
 
 UID2 API リクエストの暗号化と各レスポンスの復号化について知っておく必要があるのは、以下のとおりです:
 
@@ -96,7 +96,7 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 ### Response Example
 
-例えば、[先行例](#request-example) のメールアドレスに対する [POST /token/generate](../endpoints/post-token-generate.md) リクエストに対する復号されたレスポンスは、次のようになることが考えられます:
+例えば、[先行例](#request-example) のメールアドレスに対する [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) リクエストに対する復号されたレスポンスは、次のようになることが考えられます:
 
 ```json
 {
@@ -117,7 +117,7 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 このセクションには、さまざまなプログラミング言語による暗号化と復号化のコード例が示されています。
 
-[POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントでは、[POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) へのコールで事前に取得した `refresh_token` と `refresh_response_key` の値を使用します。
+[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントでは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) へのコールで事前に取得した `refresh_token` と `refresh_response_key` の値を使用します。
 
 :::note
 Windows の場合、PowerShell の代わりに Windows コマンドプロンプトを使用している場合は、JSON を囲むシングルクォートも削除する必要があります。例えば、`echo {"email": "test@example.com"}` とします。

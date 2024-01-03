@@ -7,7 +7,7 @@ sidebar_position: 04
 
 # POST /token/refresh
 
-[POST /token/generate](post-token-generate.md) エンドポイントから返された、対応する未使用のリフレッシュトークンを送信して、新しい [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を生成します。
+[POST&nbsp;/token/generate](post-token-generate.md) エンドポイントから返された、対応する未使用のリフレッシュトークンを送信して、新しい [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を生成します。
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
@@ -17,14 +17,14 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 `POST '{environment}/v2/token/refresh'`
 
-[POST /token/generate](post-token-generate.md) または `POST /token/refresh` のレスポンスで返された `refresh_token` 値の内容を POST body として追加します。
+[POST&nbsp;/token/generate](post-token-generate.md) または `POST /token/refresh` のレスポンスで返された `refresh_token` 値の内容を POST body として追加します。
 
 このエンドポイントについて知っておくべきことは、以下のとおりです:
 
 - トークン更新のリクエストには暗号化は必要ありません。
 - リクエストが HTTP ステータスコード 200 で成功すると、新しい UID2 Token または Out-Out 情報が返されます。
 - 成功したレスポンスは、そのレスポンスに新しいトークンまたは Opt-Out 情報が含まれているかどうかにかかわらず暗号化されます。エラー・レスポンスは暗号化されません。
-- レスポンスを復号化するには、このトークンに対する最新の `refresh_response_key` 値を使用します。`refresh_response_key` の値は、[POST /token/generate](post-token-generate.md) と `POST /token/refresh` のレスポンスで返されます。トークンがリフレッシュされるたびに、新しい `refresh_response_key` が返されます。現在のレスポンスを復号化するには、必ず最新のものを使用してください。
+- レスポンスを復号化するには、このトークンに対する最新の `refresh_response_key` 値を使用します。`refresh_response_key` の値は、[POST&nbsp;/token/generate](post-token-generate.md) と `POST /token/refresh` のレスポンスで返されます。トークンがリフレッシュされるたびに、新しい `refresh_response_key` が返されます。現在のレスポンスを復号化するには、必ず最新のものを使用してください。
 
 ### Path Parameters
 
@@ -34,7 +34,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 #### Testing Notes
 
-[POST /token/generate](post-token-generate.md) リクエストで以下のパラメータのいずれかを使用すると、常に `refresh_token` による ID レスポンスが生成され、`POST /token/refresh` エンドポイントと共に使用するとログアウトレスポンスとなります。
+[POST&nbsp;/token/generate](post-token-generate.md) リクエストで以下のパラメータのいずれかを使用すると、常に `refresh_token` による ID レスポンスが生成され、`POST /token/refresh` エンドポイントと共に使用するとログアウトレスポンスとなります。
 
 - メールアドレス `refresh-optout@example.com`
 - 電話番号 `+00000000002`
@@ -103,7 +103,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 | `identity_expires`     | double    | UID2 Token の有効期限を示す UNIX タイムスタンプ (ミリ秒単位)です。 |
 | `refresh_from`         | double    | UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) が UID2 Token のリフレッシュを開始するタイミングを示す UNIX タイムスタンプ(ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから Advertising Token もリフレッシュすることを検討してください。|
 | `refresh_expires`      | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ(ミリ秒単位)。 |
-| `refresh_response_key` | string    | [POST /token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。 |
+| `refresh_response_key` | string    | [POST&nbsp;/token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。 |
 
 ### Response Status Codes
 

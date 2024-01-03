@@ -64,7 +64,7 @@ sidebar_position: 02
 ## Terminology
 
 このドキュメントでは、以下の用語が使われます:
-- **ID** とは、[POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントによって返される、UID2 Token、Refresh Token、および Timestamp などの関連値を含む値のパッケージを指します。
+- **ID** とは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントによって返される、UID2 Token、Refresh Token、および Timestamp などの関連値を含む値のパッケージを指します。
 - **Advertising Token** は UID2 Token を指します。
 
 ## Include the SDK Script
@@ -116,7 +116,7 @@ SDKの [initialization](#initopts-object-void) の一部として、ID の Token
 Token の Auto-refresh について知っておくべきことは以下のとおりです:
 
 - 一度にアクティブにできる Token refresh call は 1 つだけです。
-- [POST /token/refresh](../endpoints/post-token-refresh.md) レスポンスが、ユーザーがオプトアウトしたため、あるいはリフレッシュトークンの有効期限が切れたために失敗した場合、バックグラウンドでの自動更新処理を中断し、新しいログインを要求します ([isLoginRequired()](#isloginrequired-boolean) は `true` を返します)。それ以外のケースでは、auto-refresh の試みはバックグラウンドで継続されます。
+- [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) レスポンスが、ユーザーがオプトアウトしたため、あるいはリフレッシュトークンの有効期限が切れたために失敗した場合、バックグラウンドでの自動更新処理を中断し、新しいログインを要求します ([isLoginRequired()](#isloginrequired-boolean) は `true` を返します)。それ以外のケースでは、auto-refresh の試みはバックグラウンドで継続されます。
 - SDK の初期化時に指定された [callback function](#callback-function) は、以下の場合に呼び出されます:
 	- リフレッシュが成功するたびに呼び出されます。
 	- 有効期限が切れた Advertising Token のリフレッシュに最初に失敗した場合。
@@ -150,7 +150,7 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 - `init()` は、対応するスクリプトタグによって SDK がロードされた後、いつでも呼び出すことができます。
 - 初期化呼び出しには、SDK が初期化された後に呼び出される [callback function](#callback-function) が必要です。
-- クライアントで UID2 ライフサイクルのインスタンスを作成する場合、`init()` 呼び出しの `identity` プロパティは、Server-side で生成された ID を含む [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) 呼び出しが成功したときに返されるレスポンス JSON オブジェクトの `body` プロパティを参照します。
+- クライアントで UID2 ライフサイクルのインスタンスを作成する場合、`init()` 呼び出しの `identity` プロパティは、Server-side で生成された ID を含む [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) 呼び出しが成功したときに返されるレスポンス JSON オブジェクトの `body` プロパティを参照します。
 - SDK はセッションに渡された UID2 情報の保存に [ファーストパーティクッキー](#uid2-cookie-format) に依存しているため、異なるドメインのページから `init()` を呼び出すと、クッキーにアクセスできない可能性があります。`cookieDomain` オプションと `cookiePath` オプションでクッキーに使用する設定を調整することができます。
 - 特定の動作を調整するために、初期化呼び出しにはオプションのコンフィギュレーション [parameter](#parameters) を含めることができます。
 
@@ -199,8 +199,8 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 | Property | Data Type | Attribute | Description | Default Value |
 | :--- | :--- | :--- | :--- | :--- |
 | `callback` | `function(object): void` | 必須 | 渡された ID を検証した後に SDK が呼び出す関数です。[Callback Function](#callback-function) を参照してください。 | N/A |
-| `identity` | object | オプション | [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) 呼び出しが成功したときの `body` プロパティ値です。<br/>[ファーストパーティクッキー](#uid2-cookie-format) からの ID を使用するには、このプロパティを空にしておきます。 | N/A |
-| `baseUrl` | string | オプション | [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出す際に使用する UID2 Operator のカスタム Base URLです。<br/>例えば: `https://my.operator.com`.  | `https://prod.uidapi.com`. |
+| `identity` | object | オプション | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) 呼び出しが成功したときの `body` プロパティ値です。<br/>[ファーストパーティクッキー](#uid2-cookie-format) からの ID を使用するには、このプロパティを空にしておきます。 | N/A |
+| `baseUrl` | string | オプション | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出す際に使用する UID2 Operator のカスタム Base URLです。<br/>例えば: `https://my.operator.com`.  | `https://prod.uidapi.com`. |
 | `refreshRetryPeriod` | number | オプション | 断続的なエラーが発生した場合に、トークンのリフレッシュを再試行する秒数です。 | 5 |
 | `cookieDomain` | string | オプション | [UID2 cookie](#uid2-cookie-format) に適用するドメイン名文字列です。<br/>例えば、`baseUrl` が `https://my.operator.com` の場合、 `cookieDomain` の値は `operator.com` となります。 | `undefined` |
 | `cookiePath` | string | オプション | [UID2 cookie](#uid2-cookie-format) に適用する Path 文字列です。 | `/` |
@@ -291,7 +291,7 @@ ID が利用できない場合は、[isLoginRequired()](#isloginrequired-boolean
 
 ### isLoginRequired(): boolean
 
-UID2 ログイン ([POST /token/generate](../endpoints/post-token-generate.md) 呼び出し) が必要かどうかを指定します。
+UID2 ログイン ([POST&nbsp;/token/generate](../endpoints/post-token-generate.md) 呼び出し) が必要かどうかを指定します。
 
 この関数は、[Workflow States and Transitions](#workflow-states-and-transitions) で示したように、ID が見つからない場合の処理に追加のコンテキストを提供することもできます。
 
@@ -328,7 +328,7 @@ UID2 ログイン ([POST /token/generate](../endpoints/post-token-generate.md) 
 
 バックグラウンドのタイマーやリクエストを終了します。UID2 オブジェクトは指定されていない状態のままで、これ以上使用することはできません。
 
-この関数は、既存の UID2 オブジェクトを新しいインスタンスで置き換えるような高度なシナリオで使用することを想定しています。例えば、シングルページのアプリケーションでこれを使用すると、 [POST /token/generate](../endpoints/post-token-generate.md) レスポンスでサーバーから新しい ID を受け取った後に、 現在の UID2 オブジェクトをクリアして新しいオブジェクトを作成したり初期化したりすることができます。
+この関数は、既存の UID2 オブジェクトを新しいインスタンスで置き換えるような高度なシナリオで使用することを想定しています。例えば、シングルページのアプリケーションでこれを使用すると、 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) レスポンスでサーバーから新しい ID を受け取った後に、 現在の UID2 オブジェクトをクリアして新しいオブジェクトを作成したり初期化したりすることができます。
 
 ## UID2 Cookie Format
 
@@ -340,13 +340,13 @@ SDK はファーストパーティクッキーを使用してユーザーの ID 
 
 | Properties | Default Value | Comments |
 | :--- | :--- | :--- |
-| `Name` | `__uid_2` | N/A || `Expiry` | N/A | 値は、[POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) レスポンスで指定された Refresh Token の有効期限タイムスタンプです。 |
+| `Name` | `__uid_2` | N/A || `Expiry` | N/A | 値は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) レスポンスで指定された Refresh Token の有効期限タイムスタンプです。 |
 | `Path` | `/` | 別の値を使用したい場合は、SDK の初期化時に `cookiePath` [init() parameter](#parameters) を使用して設定することができます。 |
 | `Domain` | `undefined` | 別の値を使用したい場合は、SDK の初期化時に `cookieDomain` [init() parameter](#parameters) を使用して設定することができます。 |
 
 ### Contents Structure
 
-UID2 Cookie の内容は、[POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) レスポンスの `body` プロパティと同じ構造を持つ JSON オブジェクトを、`private` オブジェクトを除いてURI エンコードした文字列表現です。
+UID2 Cookie の内容は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) レスポンスの `body` プロパティと同じ構造を持つ JSON オブジェクトを、`private` オブジェクトを除いてURI エンコードした文字列表現です。
 
 以下は UID2 cookie 構造の例です:
 
