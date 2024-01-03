@@ -62,6 +62,7 @@ sidebar_position: 10
 <li><a href="#gl-private-operator">Private Operator</a></li>
 <li><a href="#gl-private-operator-service">Private Operator Service</a></li>
 <li><a href="#gl-public-key">Public key</a></li>
+<li><a href="#gl-public-operator">Public Operator</a></li>
 <li><a href="#gl-raw-uid2">Raw UID2</a></li>
 <li><a href="#gl-refresh-token">Refresh token</a></li>
 
@@ -173,13 +174,13 @@ sidebar_position: 10
 <dd>UID2 includes specific normalization rules. For details, see <a href="../getting-started/gs-normalization-encoding#email-address-normalization">Email Address Normalization</a> and <a href="../getting-started/gs-normalization-encoding#phone-number-normalization">Phone Number Normalization</a>.</dd>
 
 <dt class="jump-anchor" id="gl-open-operator">Open Operator</dt>
-<dd>An open <a href="#gl-operator">Operator</a> is an entity that runs a public instance of the UID2 Operator Service. For example, The Trade Desk currently serves as an open Operator for the UID2 framework, available to all participants.</dd>
+<dd>Open Operator is another term for a <a href="#gl-public-operator">Public Operator</a>.</dd>
 
 <dt class="jump-anchor" id="gl-operator">Operator</dt>
 <dd>An Operator is an organization or entity that runs the UID2 <a href="#gl-operator-service">Operator Service</a>. The UID2 Operator is the API server in the UID2 ecosystem.</dd>
 <dd>Operators perform multiple functions, such as receiving encryption keys and salts from the UID2 Core Service, salting and hashing personal data to return raw UID2s, and encrypting raw UID2s to generate UID2 tokens.</dd>
 <dd>A participant can also choose to become a <a href="#gl-private-operator">Private Operator</a> to access UID2 APIs and to generate raw UID2s and UID2 tokens from within a private infrastructure.</dd>
-<dd>For details, see <a href="../intro#participants">participants</a>.</dd>
+<dd>For details, see <a href="../intro#participants">participants</a> and <a href="../ref-info/ref-operators-public-private">The UID2 Operator</a>.</dd>
 
 <dt class="jump-anchor" id="gl-operator-key">Operator key</dt>
 <dd>Each UID2 Private Operator has an operator key that allows the private Operator Service to connect to the Core Service and Opt-Out Service and call some endpoints on it.</dd>
@@ -203,12 +204,17 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-private-operator">Private Operator</dt>
 <dd>A Private <a href="#gl-operator">Operator</a> is an entity that runs a private instance of the Operator Service. The Private Operator generates and manages UID2s for itself, using its own resources (such as hardware) in a secure environment.</dd>
+<dd>For details, see <a href="../ref-info/ref-operators-public-private">The UID2 Operator</a>.</dd>
 
 <dt class="jump-anchor" id="gl-private-operator-service">Private Operator Service</dt>
 <dd>A private instance of the Operator Service, run by a <a href="#gl-private-operator">Private Operator</a>.</dd>
 
 <dt class="jump-anchor" id="gl-public-key">Public key</dt>
 <dd>For server-side publisher integrations, the public key is one of the two values issued to publishers as their UID2 credentials. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
+
+<dt class="jump-anchor" id="gl-public-operator">Public Operator</dt>
+<dd>A Public <a href="#gl-operator">Operator</a> is an entity that runs a public instance of the UID2 Operator Service. For example, The Trade Desk currently serves as a Public Operator for the UID2 framework, available to all participants.</dd>
+<dd>For details, see <a href="../ref-info/ref-operators-public-private">The UID2 Operator</a>.</dd>
 
 <dt class="jump-anchor" id="gl-raw-uid2">Raw UID2</dt>
 <dd>An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's <a href="#gl-dii">directly identifying information</a> (email address or phone number) as input. The raw UID2 is encrypted to create a <a href="#gl-uid2-token">UID2 token</a>. The raw UID2 is a unique value; no two raw UID2s are the same. Raw UID2s, and their associated UID2 tokens, are case sensitive.</dd>

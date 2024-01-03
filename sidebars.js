@@ -228,7 +228,7 @@ const sidebars = {
       },
       collapsed: true,
       items: [
-        'ref-info/ref-operators-private-public',
+        'ref-info/ref-operators-public-private',
       ],
     },
 
