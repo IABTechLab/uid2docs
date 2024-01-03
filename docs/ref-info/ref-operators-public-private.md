@@ -72,7 +72,7 @@ If you have significant security or latency concerns and also have extensive eng
 
 For most participants, Public Operator is the best solution.
 
-The down side of the Private Operator option is that it requires significant ongoing engineering effort to build and maintain. Because a Private Operator instance is managed by the participant, there are continual updates and changes that are required and must be completed within a specified time frame.
+The down side of the Private Operator option is that it requires ongoing engineering effort to build and maintain. Because a Private Operator instance is managed by the participant, there are continual updates and changes that are required and must be completed within a specified time frame.
 
 A Public Operator integration is a much easier option than creating your own instance. There is no cost to the participant, and virtually no engineering work is needed other than initial setup and configuration.
 
