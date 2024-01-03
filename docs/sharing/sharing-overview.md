@@ -99,7 +99,7 @@ UID2 sharers follow a two-step process, as shown in the following example. The s
 <tbody>
 <tr>
 <td>user@example.com</td>
-<td>Convert email/phone number to raw UID2:<br/><a href="../endpoints/post-identity-map">POST /identity/map</a> endpoint</td>
+<td>Convert email/phone number to raw UID2:<br/><a href="../endpoints/post-identity-map">POST&nbsp;/identity/map</a> endpoint</td>
 <td>K2jlbu2ldlpKL1z6n5bET7L3<br/>g0xfqmldZPDdPTktdRQ=</td>
 </tr>
 <tr>

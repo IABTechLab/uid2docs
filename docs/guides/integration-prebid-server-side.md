@@ -96,7 +96,7 @@ You'll need to configure the UID2 Prebid module to complete the following two ac
 
 ### Generating a UID2 Token on the Server
 
-To generate a token, call the [POST /token/generate](../endpoints/post-token-generate.md) endpoint.
+To generate a token, call the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint.
 
 For an example, see [Sample Token](#sample-token).
 
@@ -113,8 +113,8 @@ There are two ways to refresh a UID2 token, as shown in the following table.
 
 You must provide the Prebid module with the full JSON response body from the applicable endpoint:
 
-- [POST /token/generate](../endpoints/post-token-generate.md) for a new UID2 token.
-- [POST /token/refresh](../endpoints/post-token-refresh.md) for a refreshed UID2 token.
+- [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) for a new UID2 token.
+- [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) for a refreshed UID2 token.
 
 For an example, see [Sample Token](#sample-token).
 

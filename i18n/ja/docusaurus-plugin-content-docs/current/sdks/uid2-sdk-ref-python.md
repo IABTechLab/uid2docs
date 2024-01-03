@@ -176,7 +176,7 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
 
    >IMPORTANT: この関数は、ターゲティング広告のためにユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。
 
-   >`do_not_generate_tokens_for_opted_out()` は、[POST /token/generate](../endpoints/post-token-generate.md) 呼び出しで `optout_check=1` を適用します。これがないと、後方互換性を維持するために `optout_check` が省略されます。
+   >`do_not_generate_tokens_for_opted_out()` は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) 呼び出しで `optout_check=1` を適用します。これがないと、後方互換性を維持するために `optout_check` が省略されます。
 
 ### Standard Integration
 

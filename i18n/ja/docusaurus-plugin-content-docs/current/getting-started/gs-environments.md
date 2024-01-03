@@ -25,4 +25,4 @@ Notes:
 
 - すべてのUID2エンドポイントは同じベースURLを使用します。
 - テスト環境と本番環境では、異なる [API keys](../ref-info/glossary-uid.md#gl-api-key) が必要です。
-- [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントによって返される [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) の有効期限は変更される可能性がありますが、テスト環境では常に本番環境よりも大幅に短くなります。
+- [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントによって返される [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) の有効期限は変更される可能性がありますが、テスト環境では常に本番環境よりも大幅に短くなります。
