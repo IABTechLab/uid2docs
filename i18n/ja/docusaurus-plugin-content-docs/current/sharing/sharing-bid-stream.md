@@ -48,7 +48,7 @@ API または指定された server-side SDK を介して、DII から UID2 Toke
    - Java SDK: [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) を参照してください。
    - Python SDK: [UID2 SDK for Python (Server-Side) リファレンスガイド](../sdks/uid2-sdk-ref-python.md) を参照してください。
    - API endpoint との直接インテグレーション: [Endpoints](/docs/category/endpoints-v2) を参照してください。
-   - API endpoint との直接インテグレーションでは、[POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを使用して UID2 Token を生成しますが、UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください)を使用して UID2 Token をリフレッシュします。
+   - API endpoint との直接インテグレーションでは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを使用して UID2 Token を生成しますが、UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください)を使用して UID2 Token をリフレッシュします。
 
    >NOTE: DSPは、Server-Side SDK のいずれかを使用して UID2 とインテグレーションする必要があります。[Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary)(step 2) を参照してください。
 
@@ -101,7 +101,7 @@ API または指定された server-side SDK を介して、DII から UID2 Toke
 <tbody>
 <tr>
 <td>user@example.com</td>
-<td>正規化されたメールアドレス/電話番号を UID2 Token に変換します:<br/><a href="../endpoints/post-token-generate">POST /token/generate</a> エンドポイント<br/>NOTE: SDK を使用している場合は、SDK がトークン生成を管理します。</td>
+<td>正規化されたメールアドレス/電話番号を UID2 Token に変換します:<br/><a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> エンドポイント<br/>NOTE: SDK を使用している場合は、SDK がトークン生成を管理します。</td>
 <td style={{
   wordBreak: "break-all"
 }}>KlKKKfE66A7xBnL/DsT1UV/Q+V/r3xwKL89Wp7hpNllxmNkPaF8vdzenDvfoatn6sSXbFf5DfW9wwbdDwMnnOVpPxojkb8KYSGUte/FLSHtg4CLKMX52UPRV7H9UbWYvXgXC4PaVrGp/Jl5zaxPIDbAW0chULHxS+3zQCiiwHbIHshM+oJ==</td>

@@ -51,9 +51,9 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 
 #### 送信された DII と返されたトークンが一致していることをテストするにはどうすればよいですか？
 
-[POST /token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST /token/generate](../endpoints/post-token-generate.md)で送信している [DII](../ref-info/glossary-uid.md#gl-dii) が有効かどうかをチェックできます。`POST /token/validate` は主にテスト目的で使用されます。
+[POST&nbsp;/token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)で送信している [DII](../ref-info/glossary-uid.md#gl-dii) が有効かどうかをチェックできます。`POST /token/validate` は主にテスト目的で使用されます。
 
-詳細は [Using POST /token/validate to Test](../endpoints/post-token-validate.md#using-post-tokenvalidate-to-test) を参照してください。
+詳細は [Using POST&nbsp;/token/validate to Test](../endpoints/post-token-validate.md#using-post-tokenvalidate-to-test) を参照してください。
 
 #### トークンを復号化する必要がありますか？
 
@@ -63,8 +63,8 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 
 ユーザーがオプトアウトした場合、API レスポンスは以下のいずれかのケースで通知します:
 
-- 直接または UID2 SDK のいずれかで [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出し、UID2 Token を生成する場合、必須の `optout_check` パラメータに `1` を指定します。
-- 直接または UID2 SDK のいずれかで [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出し、UID2 Token をリフレッシュした場合。
+- 直接または UID2 SDK のいずれかで [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出し、UID2 Token を生成する場合、必須の `optout_check` パラメータに `1` を指定します。
+- 直接または UID2 SDK のいずれかで [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出し、UID2 Token をリフレッシュした場合。
 
 #### トークン生成の呼び出しは、Server-Side とClient-Side のどちらで行うべきですか？
 
@@ -75,7 +75,7 @@ UID2 Token は、Client-Side、Server-Sideのどちらでも生成できます�
 
 #### Client-Side からトークンのリフレッシュを呼び出すことはできますか？
 
-はい。[POST /token/refresh](../endpoints/post-token-refresh.md) は、API Key を使用する必要がないため、Client-Side (例えば、ブラウザやモバイルアプリ)から呼び出すことができます。
+はい。[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) は、API Key を使用する必要がないため、Client-Side (例えば、ブラウザやモバイルアプリ)から呼び出すことができます。
 
 #### リフレッシュトークンのワークフローをテストするにはどうすればよいですか？
 
@@ -85,7 +85,7 @@ SDKを使うかどうかで手順は少し異なります。
 
 ##### With SDK:
 
-1. DII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して [POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信します:
+1. DII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) リクエストを送信します:
    - `email` の値として `refresh-optout@example.com` を指定します。
    - ``refresh-optout@example.com` のハッシュを `email_hash` 値として指定します。
    - `phone` の値として `+00000000002` を指定します。
@@ -94,13 +94,13 @@ SDKを使うかどうかで手順は少し異なります。
 
 ##### Without SDK:
 
-1. DII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して [POST /token/generate](../endpoints/post-token-generate.md) リクエストを送信します:
+1. DII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) リクエストを送信します:
    - `email` の値として `refresh-optout@example.com` を指定します。
    - `refresh-optout@example.com` のハッシュを `email_hash` 値として指定します。
    - `phone` の値として `+00000000002` を指定します。
    - `phone_hash` 値として `+00000000002` のハッシュを指定します。
 2. 返された `refresh_token` を次のステップで使用するために保存します。
-3. [POST /token/refresh](../endpoints/post-token-refresh.md) リクエストを `refresh_token` (Step 2 で保存) を `token` 値として送信します。<br/>ボディのレスポンスは空でなければならず、`refresh-optout@example.com` のメールアドレスと `+00000000002` の電話番号は常にログアウトしたユーザになるので、`status` の値は `optout` でなければなりません。
+3. [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) リクエストを `refresh_token` (Step 2 で保存) を `token` 値として送信します。<br/>ボディのレスポンスは空でなければならず、`refresh-optout@example.com` のメールアドレスと `+00000000002` の電話番号は常にログアウトしたユーザになるので、`status` の値は `optout` でなければなりません。
 
 #### UID2 Token の一意性とローテーションポリシーは？
 
@@ -144,7 +144,7 @@ UID2 フレームワークを使用する広告主やデータプロバイダー
 
 #### ソルトバケットのローテーションにより、UID2 を更新するタイミングを知るにはどうすればよいですか？
 
-UID2 生成リクエストで提供されるメタデータには、UID2 の生成に使用されるソルトバケットが含まれます。ソルトバケットは持続し、UID2 の生成に使用された基礎的な DII に対応します。指定されたタイムスタンプ以降にローテーションしたソルトバケットを得るには、[POST /identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントを使用します。返されたローテーションしたソルトバケットは、どの UID2 をリフレッシュすべきかを教えてくれます。
+UID2 生成リクエストで提供されるメタデータには、UID2 の生成に使用されるソルトバケットが含まれます。ソルトバケットは持続し、UID2 の生成に使用された基礎的な DII に対応します。指定されたタイムスタンプ以降にローテーションしたソルトバケットを得るには、[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントを使用します。返されたローテーションしたソルトバケットは、どの UID2 をリフレッシュすべきかを教えてくれます。
 
 :::note
 ローテーションがいつ行われるかについては、いかなる約束もいたしません。可能な限り最新の状態を保つため、1 時間に 1 回のチェックをお勧めします。
@@ -162,7 +162,7 @@ UID2 生成リクエストで提供されるメタデータには、UID2 の生�
 
 オーディエンスの更新は、毎日行うことが推奨されています。
 
-ソルトバケットは 1 年に 1 回程度更新されますが、個々のバケットの更新は 1 年に分散して行われます。これは、全バケットの約 1/365 が毎日ローテーションされることを意味します。もし忠実さが重要であれば、[POST /identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントをもっと頻繁に、例えば 1 時間ごとに呼び出すことを検討してください。
+ソルトバケットは 1 年に 1 回程度更新されますが、個々のバケットの更新は 1 年に分散して行われます。これは、全バケットの約 1/365 が毎日ローテーションされることを意味します。もし忠実さが重要であれば、[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントをもっと頻繁に、例えば 1 時間ごとに呼び出すことを検討してください。
 
 #### マッピング用の DII の SHA-256 はどのように生成すればよいですか？
 
