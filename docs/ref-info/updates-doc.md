@@ -13,8 +13,6 @@ Check out the latest updates to our UID2 documentation resources.
 
 3 January 2024
 
-Happy New Year!
-
 We've added a reference article explaining what the UID2 Operator does and the differences between a Public Operator and a Private Operator.
 
 For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
