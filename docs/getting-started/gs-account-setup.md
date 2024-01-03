@@ -42,7 +42,6 @@ You'll need to provide at least the following information:
 
 When you've signed a contract for participating in UID2, you'll be issued with [UID2 credentials](gs-credentials.md) and other information for getting up and running with UID2.
 
-
 ## API Versions
 
-The current version of the UID2 API is [UID2 API v2](../summary-doc-v2.md). If you are using an older version, be sure to upgrade to the UID2 API v2, following the instructions in the [UID2 API v1 to v2 Upgrade Guide](https://github.com/IABTechLab/uid2docs/blob/main/api/v2/upgrades/upgrade-guide.md) on GitHub.
+The current version of the UID2 API is UID2 API v2.
