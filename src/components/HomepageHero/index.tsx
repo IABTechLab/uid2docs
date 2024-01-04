@@ -7,11 +7,18 @@ import { useIsJapanese } from "@site/src/utils/isJapanese";
 import { useColorMode } from "@docusaurus/theme-common";
 export default function HomepageHero(): JSX.Element {
   const isJapanese = useIsJapanese();
-  const { setColorMode } = useColorMode();
+  const { setColorMode, colorMode } = useColorMode();
 
   //quick fix for updating color mode on page load breaking after theme upgrade
   React.useEffect(() => {
-    setColorMode("dark");
+    const originalTheme = colorMode;
+
+    // The second parameter exists, it's just not on the type :(
+    setColorMode("dark", { persist: false });
+
+    return () => {
+      setColorMode(originalTheme);
+    };
   }, []);
 
   return (
