@@ -29,7 +29,7 @@ function RestoreTheme() {
 
 export default function LayoutProvider({ children }) {
   const location = useLocation();
-  let isDocsPage = location.pathname.startsWith("/docs");
+  let isDocsPage = location.pathname.includes("/docs/");
 
   return (
     <Provider>
