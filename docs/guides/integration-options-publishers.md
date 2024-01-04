@@ -25,8 +25,8 @@ Some questions you might ask:
 <!-- It includes:
 
 * [Integration Steps: Summary](#integration-steps-summary)
-* [Integration Options: Client-Side Token Request](#integration-options-client-side-token-request)
-* [Integration Options: Server-Side Token Request](#integration-options-server-side-token-request)
+* [Integration Options: Client Side](#integration-options-client-side)
+* [Integration Options: Server Side](#integration-options-server-side)
 * [Options to Generate/Refresh UID2 Token](#options-to-generaterefresh-uid2-token)
 * [Options to Pass the UID2 Token into the Bid Stream](#options-to-pass-the-uid2-token-into-the-bid-stream)
 * [Client-Side or Server-Side Integration?](#client-side-or-server-side-integration)
@@ -53,75 +53,58 @@ There are many ways you can accomplish these key steps. The simplest and fastest
 To choose your implementation and get started, follow these steps:
 
 1. Review the summary of implementation options and choose the option that's best for you:
-   - [Integration Options: Client-Side Token Request](#integration-options-client-side-token-request)
-   - [Integration Options: Server-Side Token Request](#integration-options-server-side-token-request)
-2. Go to [Integration Details](#integration-details) and choose the section for your option. From there, click through to the step-by-step implementation instructions.
+   - [Client-Side Options](#client-side-options)
+   - [Server-Side Options](#server-side-options)
+2. Go to [the Integration Options Summary](#integration-options-summary) and review the advantages.
+3. Choose your option, and then click through to the implementation documentation.
 
-## Integration Options: Client-Side Token Request
+## Integration Options
 
-The following table summarizes the options for publishers who want to generate the token request on the client side.
+There are two main paths that you can choose in integrating with UID2: you can choose to initiate the UID2 token generate request on the client side (in the user's browser) or on the server side.
 
-| Option | Token Generation managed by | Token Refresh managed by |Passing Token to the Bid Stream |
-| :--- |  :--- | :--- | :--- |
-| Prebid.js 8.21.0 or later | Prebid.js 8.21.0 or later | Prebid.js 8.21.0 or later | Prebid.js 8.21.0 or later |
-| UID2 JS SDK + Prebid.js 7.53.0 or later | UID2 JS SDK | UID2 JS SDK or Prebid.js 7.53.0 or later | Prebid.js 7.53.0 or later |
+Each option has different advantages. Client-side integration is easy and fast; integration using Prebid.js 8.21.0 or later is the easiest and fastest integration option.
 
-## Integration Options: Server-Side Token Request
+For additional information see the following sections.
 
-The following table summarizes the options for publishers who want to generate the token request on the server side.
+:::note
+For all integration options, you could store the UID2 token in local storage or cookie storage.
+:::
 
-| Option | Token Generation managed by | Token Refresh managed by |Passing Token to the Bid Stream |
-| :--- | :--- | :--- | :--- |
-| JavaScript SDK | JavaScript SDK | JavaScript SDK |  Publisher's choice. For example, Prebid.js. |
-| Java SDK | Java SDK | Java SDK | Publisher's choice.<br/>Can be integrated with Prebid.js. |
-| Python SDK | Python SDK | Python SDK | Publisher's choice.<br/>Can be integrated with Prebid.js. |
-| Direct integration<br/>(API endpoints) | [POST /token/generate](../endpoints/post-token-generate.md) | [POST /token/refresh](../endpoints/post-token-refresh.md) | Publisher's choice.<br/>Can be integrated with Prebid.js. |
+### Client-Side Options
 
-### Options to Generate/Refresh UID2 Token
+Client-side integration has the following advantages:
 
-Integration options for generating and refreshing the token on the client side are as follows.
-
-| Client-Side Token Generation Integration Option | Link to Documentation |
-| :--- | :--- |
-| Prebid.js UID2 module (latest version; Prebid manages all steps) | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
-| <ol><li>JavaScript SDK for token generate</li><li>Prebid for bidding (earlier version)</li></ol> | <ol><li>[JavaScript Express Integration Guide](publisher-client-side.md)</li><li>[UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md)</li></ol> |
-| <ol><li>JavaScript SDK for token generate</li><li>Publisher custom implementation for bidding.</li></ol> | [JavaScript Express Integration Guide](publisher-client-side.md) |
-| Prebid.js UID2 module | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
-
-Integration options for generating and refreshing the token on the server side are as follows.
-
-| Server-Side Token Generation Integration Option | Link to Documentation |
-| :--- | :--- |
-| JavaScript SDK, server-side implementation | Both of the following:<ul><li>[JavaScript Standard Integration Guide](integration-javascript-standard.md)</li><li>[Publisher Integration Guide, Server-Only](custom-publisher-integration.md)</li></ul> |
-| JavaScript SDK on the client side and the Java SDK on the server side | Client:&nbsp;[UID2&nbsp;SDK&nbsp;for&nbsp;JavaScript&nbsp;Reference&nbsp;Guide](../sdks/client-side-identity.md)<br/>Server: [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) |
-| UID2 SDK for Java | [Publisher Integration Guide, Server-Only](custom-publisher-integration.md) |
-| UID2 SDK for Python | [Publisher Integration Guide, Server-Only](custom-publisher-integration.md) |
-| UID2 API endpoints | [Publisher Integration Guide, Server-Only](custom-publisher-integration.md) |
-
-### Options to Pass the UID2 Token into the Bid Stream
-
-There are many ways that you could pass the UID2 token into the bid stream.
-
-Currently, the recommended option fully supported by code provided by the UID2 team is the UID2 Prebid integration (see [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)). If you implement the client-side option, the Prebid module supports all key UID2 functions: it generates the token, manages token refresh, and puts the token into the bid stream. If you prefer to manage the UID2 token generation on the server side, you can any of the implementation options with Prebid.js: see [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md).
-
-You can also write your own integration to pass the UID2 token into the bid stream.
-
-## Client-Side or Server-Side Integration?
-
-There are two main approaches: you can initiate the UID2 token generate request on the client side or the server side. Each option has different advantages.
-
-**Client-side integration advantages:**
 - The code runs on the client side, on the consumer's web page, and no server-side coding is required.
 - There is a Prebid integration that handles all functions for you&#8212;token generate, token refresh, and passing the token into the bid stream. As long as you can use Prebid 8.21.0 or later (see [Integration Using Prebid](#integration-using-prebid)), this is the simplest and easiest implementation option.
 
 If you choose a client-side integration, you'll need to provide a list of your top-level domains, for security purposes, as part of account setup. For details, see [Account Setup Details](../getting-started/gs-account-setup.md#account-setup-details).
 
-**Server-side integration advantages:**
-- With a server-side integration, you can manage latency by using the nearest UID2 environment. For details, see [Environments](../getting-started/gs-environments.md). <!-- (**GWH_ get review by AT for this doc especially this part per KT**) -->
+The following table summarizes the options for publishers who want to integrate with UID2 on the client side, via the web page. Documentation resources are listed inline.
 
+| Option | Token Generation managed by | Token Refresh managed by |Passing Token to the Bid Stream |
+| :--- |  :--- | :--- | :--- |
+| Prebid.js 8.21.0 or later<br/>[UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) | Prebid.js 8.21.0 or later | Prebid.js 8.21.0 or later | Prebid.js 8.21.0 or later |
+| UID2 JavaScript SDK +<br/>Prebid.js 7.53.0 or later | UID2 JS SDK<br/>[JavaScript Express Integration Guide](publisher-client-side.md) | UID2 JS SDK or Prebid.js 7.53.0 or later | Prebid.js 7.53.0 or later<br/>[UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md) |
+
+### Server-Side Options
+
+Server-side integration has the following advantages:
+
+- With a server-side integration, you can manage latency by using the nearest UID2 environment. For details, see [Environments](../getting-started/gs-environments.md). (**GWH_ note needs review**)
 - For server-side Prebid integration, there is no requirement to update to the latest Prebid version. If you're using Prebid, and have a constraint with regard to version, choose server-side integration.
 
+The following table summarizes the options for publishers who want to integrate with UID2 on the server side.
+
+| Option | Token Generation managed by | Token Refresh managed by |Passing Token to the Bid Stream |
+| :--- | :--- | :--- | :--- |
+| UID2 SDK for JavaScript<ul><li>[JavaScript Standard Integration Guide](integration-javascript-standard.md)</li><li>[Publisher Integration Guide, Server-Only](custom-publisher-integration.md)</li></ul> | JavaScript SDK | JavaScript SDK |  Publisher's choice. For example, Prebid.js.<br/>[UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md) |
+| UID2 SDK for Java<br/>[Publisher Integration Guide, Server-Only](custom-publisher-integration.md) | [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) | [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md)| Publisher's choice.<br/>Can be integrated with Prebid.js. |
+| UID2 SDK for Python<br/> [Publisher Integration Guide, Server-Only](custom-publisher-integration.md)| [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) | [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) | Publisher's choice.<br/>Can be integrated with Prebid.js. |
+| Direct integration<br/>(API endpoints)<br/>[Publisher Integration Guide, Server-Only](custom-publisher-integration.md) | [POST /token/generate](../endpoints/post-token-generate.md) | [POST /token/refresh](../endpoints/post-token-refresh.md) | Publisher's choice.<br/>Can be integrated with Prebid.js. |
+
 ## Integration Using Prebid
+
+(**GWH_KK not sure if we want this section. Would appreciate your input.**)
 
 If you want to integrate using Prebid, here are some additional questions you'll need to answer to determine the best integration approach, and some steps to take:
 
@@ -131,6 +114,24 @@ If you want to integrate using Prebid, here are some additional questions you'll
 - Domain names:
   - As part of account setup, if you're using the Prebid client-side option, you'll need to provide a list of your top-level domains.
 - Are you already using the UID2 JavaScript SDK to generate and refresh the token? If so, you can continue to use the Prebid server-side implementation. For details, see [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md).
+
+## Advantages: Summary
+
+The following table summarizes the advantages of each integration option.
+(**GWH_KK don't like having two tables but I can't fit it all into one. Also the docs are different. Need input re the best docs to link to... SDK ref or integration guide?**)
+
+| Option | Client/Server | Advantages | Documentation |
+| :--- |  :--- | :--- | :--- |
+| Prebid.js 8.21.0 or later | Client | <ul><li>No server-side coding needed.</li><li>Fast and easy implementation.</li></ul> | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
+| UID2 JavaScript SDK + Prebid.js 7.53.0 or later | Client | <ul><li>No need to upgrade to the latest Prebid version.</li><li>Easier to manage latency with a server-side implementation.</li><li>The JavaScript SDK takes care of generating and refreshing the token, and Prebid takes care of sending the token to the bid stream.</li></ul> | <ul><li>[JavaScript Express Integration Guide](publisher-client-side.md)</li><li>[UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md)</li></ul> |
+| UID2 SDK for JavaScript | Server | <ul><li>The SDK takes care of generating and refreshing the token.</li><li>Coded in JavaScript.</li></ul> If you use JavaScript, and client-side implementation is not suitable for you, this is your best choice. | [UID2 SDK for JavaScript Reference Guide (2.x and earlier versions)](../sdks/client-side-identity-v2.md) |
+| UID2 SDK for Java | Server | <ul><li>The SDK takes care of generating and refreshing the token.</li><li>Coded in Java.</li></ul> If your server-side coding is Java, and client-side implementation is not suitable for you, this is your best choice. | [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) |
+| UID2 SDK for Python] | Server | <ul><li>The SDK takes care of generating and refreshing the token.</li><li>Coded in Python.</li></ul> If your server-side coding is Python, and client-side implementation is not suitable for you, this is your best choice. | [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md) |
+| Direct integration (API endpoints) | Server | You're free to implement the APIs in whatever way you choose. | <ul><li>[POST /token/generate](../endpoints/post-token-generate.md)</li><li>[POST /token/refresh](../endpoints/post-token-refresh.md)</li></ul> |
+
+
+<!-- ## BELOW = TO DELETE
+-----------------------------BELOW = TO DELETE
 
 ## Integration Details
 
@@ -199,4 +200,4 @@ The advantages of this implementation approach are as follows:
 
 For details, see:
 - [POST /token/generate](../endpoints/post-token-generate.md)
-- [POST /token/refresh](../endpoints/post-token-refresh.md)
+- [POST /token/refresh](../endpoints/post-token-refresh.md) -->
