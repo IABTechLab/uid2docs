@@ -36,8 +36,8 @@ UID2 Portal では、送信者と受信者がアカウントを設定し、共�
 
 ビッドストリームで UID2 Token を送信する場合は、API または以下の SDK のいずれかを使用してインテグレーションできます:
 
-- Java server-side SDK ([UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) を参照してください)。
-- Python server-side SDK ([UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md) を参照してください)。
+- Java server-side SDK ([UID2 SDK for Java Reference Guide](../sdks/uid2-sdk-ref-java.md) を参照してください)。
+- Python server-side SDK ([UID2 SDK for Python Reference Guide](../sdks/uid2-sdk-ref-python.md) を参照してください)。
 
 これらのオプションは、メールアドレスや電話番号から UID2 Token を生成し、トークンを定期的に更新することをサポートしています。他の SDK は、現時点ではトークン生成とトークン更新をサポートしていません。
 
@@ -45,8 +45,8 @@ API または指定された server-side SDK を介して、DII から UID2 Toke
 
 1. パブリッシャー: 以下のいずれかを使用して、UID2 とインテグレーションします:
 
-   - Java SDK: [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) を参照してください。
-   - Python SDK: [UID2 SDK for Python (Server-Side) リファレンスガイド](../sdks/uid2-sdk-ref-python.md) を参照してください。
+   - Java SDK: [UID2 SDK for Java Reference Guide](../sdks/uid2-sdk-ref-java.md) を参照してください。
+   - Python SDK: [UID2 SDK for Python Reference Guide](../sdks/uid2-sdk-ref-python.md) を参照してください。
    - API endpoint との直接インテグレーション: [Endpoints](/docs/category/endpoints-v2) を参照してください。
    - API endpoint との直接インテグレーションでは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを使用して UID2 Token を生成しますが、UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください)を使用して UID2 Token をリフレッシュします。
 

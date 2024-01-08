@@ -33,8 +33,8 @@ For details, see [UID2 Portal Overview](../portal/portal-overview.md) and follow
 
 When you want to send UID2 tokens in the bid stream, you can integrate via the API or via one of these SDKs:
 
-- The Java server-side SDK (see [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md)).
-- The Python server-side SDK (see [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md)).
+- The Java server-side SDK (see [UID2 SDK for Java Reference Guide](../sdks/uid2-sdk-ref-java.md)).
+- The Python server-side SDK (see [UID2 SDK for Python Reference Guide](../sdks/uid2-sdk-ref-python.md)).
 
 These options support generating UID2 tokens from email addresses or phone numbers and also refreshing the tokens regularly. Other SDKs do not support token generate and token refresh at this time.
 
@@ -42,8 +42,8 @@ The workflow for generating UID2 tokens from DII, via the API or the specified s
 
 1. Publisher: Integrate with UID2, using one of the following:
 
-   - Java SDK: see [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md)).
-   - Python SDK: see [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md)).
+   - Java SDK: see [UID2 SDK for Java Reference Guide](../sdks/uid2-sdk-ref-java.md)).
+   - Python SDK: see [UID2 SDK for Python Reference Guide](../sdks/uid2-sdk-ref-python.md)).
    - Direct integration with API endpoints: see [Endpoints](/docs/category/endpoints-v2).
    - Direct integration with API endpoints to generate UID2 tokens using the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint, but using the UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) to refresh UID2 tokens.
 
