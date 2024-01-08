@@ -5,9 +5,9 @@ hide_table_of_contents: false
 sidebar_position: 08
 ---
 
-# UID2 SDK for C# / .NET (Server-Side) Reference Guide
+# UID2 SDK for C# / .NET Reference Guide
 
-You can use UID2 server-side SDKs to facilitate decrypting of UID2 tokens to access the raw UID2. 
+You can use the UID2 SDK for C# / .NET on the server side to facilitate decrypting of UID2 tokens to access the raw UID2. 
 
 <!-- This guide includes the following information:
 
