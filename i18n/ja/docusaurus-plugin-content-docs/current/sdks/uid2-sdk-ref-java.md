@@ -5,9 +5,9 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-# UID2 SDK for Java (Server-Side) Reference Guide
+# UID2 SDK for Java Reference Guide
 
-UID2 SDK for Java (Server-Side) を使用すると、以下のことが容易になります:
+UID2 SDK for Java を使用すると、以下のことが容易になります:
 
 - UID2 Advertising Token の生成
 - UID2 Advertising Token の更新

@@ -5,7 +5,7 @@ hide_table_of_contents: false
 sidebar_position: 08
 ---
 
-# UID2 SDK for C# / .NET (Server-Side) Reference Guide
+# UID2 SDK for C# / .NET Reference Guide
 
 UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2 にアクセスしやすくなります。
 
