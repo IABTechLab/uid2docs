@@ -7,7 +7,7 @@ sidebar_position: 08
 
 # POST /identity/map
 
-Map multiple email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs.
+Map multiple email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs. You can also use this endpoint to check for updates to opt-out information.
 
 Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md).
 

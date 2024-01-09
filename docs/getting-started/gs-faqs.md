@@ -31,7 +31,7 @@ No. UID2 has its own framework, which is separate from EUID. As such, paperwork 
 
 #### Can users opt out of targeted advertising tied to their UID2 identity?
 
-Yes. Through the [Transparency and Control Portal](https://www.transparentadvertising.com/), users can opt out from being served targeted ads tied to their UID2 identity. Each request is distributed through the UID2 Opt-Out Service and UID2 Operators to all relevant participants. 
+Yes. Through the [Transparency and Control Portal](https://www.transparentadvertising.com/), users can opt out from being served targeted ads tied to their UID2 identity. Each request is distributed through the UID2 Opt-Out Service, and UID2 Operators make the opt-out information available to all relevant participants.
 
 #### How does a user know where to access the opt-out portal?
 
@@ -181,7 +181,7 @@ Unless you are using a private operator, you must map email addresses, phone num
 
 #### How should I handle user opt-outs?
 
-When a user opts out of UID2-based targeted advertising through the [Transparency and Control Portal](https://www.transparentadvertising.com/), the opt-out signal is sent to DSPs and publishers, which handle opt-outs at bid time. As an advertiser or data provider, you do not need to check for UID2 opt-out in this scenario.
+When a user opts out of UID2-based targeted advertising through the [Transparency and Control Portal](https://www.transparentadvertising.com/), the opt-out signal is sent to DSPs and publishers, who handle opt-outs at bid time. We recommend that advertisers and data providers regularly check whether a user has opted out, via the [POST /identity/map](../endpoints/post-identity-map.md) endpoint.
 
 If a user opts out through your website, you should follow your internal procedures for handling the opt-out. For example, you might choose not to generate a UID2 for that user.
 
