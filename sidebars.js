@@ -94,7 +94,6 @@ const sidebars = {
           collapsed: true,
 
           items: [
-            'guides/integration-options-publishers',  
           {
             type: 'category',
             label: 'Web',
@@ -103,10 +102,11 @@ const sidebars = {
             },
             collapsed: true,
             items: [
+              'guides/integration-options-publisher-web',  
               'guides/integration-prebid',
-              'guides/publisher-client-side',
               'guides/integration-prebid-client-side',
               'guides/integration-prebid-server-side',
+              'guides/publisher-client-side',
               'guides/integration-javascript-standard',
               'guides/custom-publisher-integration',
               'guides/google-ss-integration',
