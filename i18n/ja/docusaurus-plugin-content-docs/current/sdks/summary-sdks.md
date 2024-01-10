@@ -1,14 +1,13 @@
 ---
-title: SDKs - Summary
+title: SDKs&#8212;Summary
+sidebar_label: SDKs - Summary
+pagination_label: SDKs - Summary
 description: SDK ドキュメントの概要。
 hide_table_of_contents: false
 sidebar_position: 01
 ---
 
-<!-- This guide includes the following information:
-- [SDKs](#sdks)
-- [SDK Functionality](#sdk-functionality)
-# SDKs -->
+# SDKs&#8212;Summary
 
 SDK の機能を確認して使用する SDK を決定し、SDK の表をクリックして参照ドキュメントを確認してください。
 
