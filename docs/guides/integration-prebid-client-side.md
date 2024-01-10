@@ -25,7 +25,7 @@ This guide includes the following information:
 - [Storing the UID2 Token in the Browser](#storing-the-uid2-token-in-the-browser)
 - [When to Pass DII to the UID2 Module](#when-to-pass-dii-to-the-uid2-module)
 - [Checking the Integration](#checking-the-integration)
-- [Optional: Reduce Latency by Setting the API Base URL](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment)
+- [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment)
  -->
 
 ## Prebid.js Version
@@ -196,7 +196,7 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 - Documentation on prebid.org: [Professor Prebid User Guide](https://docs.prebid.org/tools/professor-prebid.html)
 
 ## Optional: Reduce Latency by Setting the API Base URL for the Production Environment
-<!-- GWH "Reduce Latency by Setting the API Base URL" section is identical for client side and server side. -->
+<!-- GWH "Optional: Reduce Latency by Setting the API Base URL for the Production Environment" section is identical for client side and server side. -->
 By default, the UID2 module makes API calls to a UID2 server in the USA. Depending on where your users are based, you might consider choosing a server closer to your users to reduce latency.
 
 To specify a different UID2 server when you're configuring the UID2 module, set the optional params.uid2ApiBase parameter, as shown in the following example:

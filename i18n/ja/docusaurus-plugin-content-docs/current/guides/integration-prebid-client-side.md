@@ -13,21 +13,6 @@ sidebar_position: 04
 
 Prebid.js を使って UID2 とインテグレーションするには、サイトの HTML と JavaScript を変更する必要があります。このガイドに従えば、Server-Side の作業は必要ありません。
 
-<!-- 
-This guide includes the following information:
-
-- [Prebid.js Version](#prebidjs-version)
-- [Integration Example](#integration-example)
-- [Integration Overview: High-Level Steps](#integration-overview-high-level-steps)
-   - [Complete UID2 Account Setup](#complete-uid2-account-setup)
-   - [Add Prebid.js to Your Site](#add-prebidjs-to-your-site)
-   - [Configure the UID2 Module](#configure-the-uid2-module)
-- [Storing the UID2 Token in the Browser](#storing-the-uid2-token-in-the-browser)
-- [When to Pass DII to the UID2 Module](#when-to-pass-dii-to-the-uid2-module)
-- [Checking the Integration](#checking-the-integration)
-- [Optional: Reduce Latency by Setting the API Base URL](#optional-reduce-latency-by-setting-the-api-base-url)
- -->
-
 ## Prebid.js Version
 
 この実装には Prebid.js version 8.21.0 以降が必要です。バージョン情報については、[https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases) を参照してください。
@@ -195,8 +180,8 @@ Prebid.js の設定を検証・デバッグするツールの例として、オ�
 - Chrome ウェブストアのダウンロード場所: [Professor Prebid](https://chromewebstore.google.com/detail/professor-prebid/kdnllijdimhbledmfdbljampcdphcbdc)
 - prebid.org のドキュメント: [Professor Prebid User Guide](https://docs.prebid.org/tools/professor-prebid.html)
 
-## Optional: Reduce Latency by Setting the API Base URL
-<!-- GWH "Reduce Latency by Setting the API Base URL" section is identical for client side and server side. -->
+## Optional: Reduce Latency by Setting the API Base URL for the Production Environment
+<!-- GWH "Optional: Reduce Latency by Setting the API Base URL for the Production Environment" section is identical for client side and server side. -->
 デフォルトでは、UID2 module はアメリカにある UID2 サーバーに API コールを行います。ユーザーの居住地によっては、レイテンシー(遅延時間)を短縮するために、ユーザーに近いサーバーを選択することを検討してください。
 
 UID2 module を設定するときに別の UID2 サーバーを指定するには、次の例に示すように、オプションの `params.uid2ApiBase` パラメータを設定します:

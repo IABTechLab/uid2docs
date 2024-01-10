@@ -114,7 +114,7 @@ __uid2.init({
 UID2 テスト環境からのトークンは、ビッドストリームに渡しても無効です。テスト環境では、**subscription ID** と **public key** の値が異なります。
 :::
 
-### Optional: Reduce Latency by Setting the API Base URL
+### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
 
 デフォルトでは、本番環境の JS SDK はアメリカにある UID2 サーバーに API コールを行います。ユーザーの所在地によっては、待ち時間を短縮するために、ユーザーに近いサーバーを選択することができます。
 
