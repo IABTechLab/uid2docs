@@ -11,8 +11,8 @@ To authenticate to the UID2 endpoints in a server-side implementation, you need 
 
 - A client [API key](gs-credentials.md#api-key-and-client-secret). The API key is included as a bearer token in the request's Authorization header. For example:<br/>
   `Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=`
-- A client secret for encrypting API requests and decrypting API responses. This is needed for all endpoints except [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md). <br/>For details and Python examples, see [Encrypting Requests and Decrypting Responses](gs-encryption-decryption.md).
+- A client secret for encrypting API requests and decrypting API responses. This is needed for all endpoints except [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md). <br/>For details about encryption and decryption, and examples in several different coding languages, see [Encrypting Requests and Decrypting Responses](gs-encryption-decryption.md).
 
 :::note
-If you're a publisher and are implementing UID2 on the client side, the authentication and authorization is managed automatically by your implementation, such as the Prebid.js implementation or JavaScript SDK implementation. (**GWH UPTOHERE WRITE THIS PROPERLY**)
+If you're a publisher and are implementing UID2 on the client side, the authentication and authorization is managed automatically by your implementation, such as the Prebid.js implementation (see [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)) or the JavaScript SDK implementation (see [JavaScript Express Integration Guide](../guides/publisher-client-side.md)).
 :::
