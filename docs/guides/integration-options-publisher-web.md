@@ -87,8 +87,8 @@ The following table summarizes the options for publishers who want to integrate 
 
 Server-side integration has the following advantages:
 
-- You can keep your DII entirely on the server side&#8212;there is no need to embed DII into the web pages.
-- If your development resources are back-end developers, you might prefer a server-side integration
+- You can keep your DII entirely on the server side.
+- If your development resources are back-end developers, you might prefer a server-side integration.
 - For server-side Prebid integration, there is no requirement to update to the latest Prebid version. If you're using Prebid, and have a constraint with regard to version, choose server-side integration.
 
 The following table summarizes the options for publishers who want to integrate with UID2 on the server side.

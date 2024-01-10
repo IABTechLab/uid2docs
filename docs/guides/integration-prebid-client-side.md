@@ -25,7 +25,7 @@ This guide includes the following information:
 - [Storing the UID2 Token in the Browser](#storing-the-uid2-token-in-the-browser)
 - [When to Pass DII to the UID2 Module](#when-to-pass-dii-to-the-uid2-module)
 - [Checking the Integration](#checking-the-integration)
-- [Optional: Reduce Latency by Setting the API Base URL](#optional-reduce-latency-by-setting-the-api-base-url)
+- [Optional: Reduce Latency by Setting the API Base URL](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment)
  -->
 
 ## Prebid.js Version
