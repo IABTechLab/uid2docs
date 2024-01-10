@@ -81,13 +81,14 @@ The following table summarizes the options for publishers who want to integrate 
 | Option | Token Generation managed by | Token Refresh managed by |Passing Token to the Bid Stream |
 | :--- |  :--- | :--- | :--- |
 | Prebid.js 8.21.0 or later<br/>[UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) | Prebid.js 8.21.0 or later | Prebid.js 8.21.0 or later | Prebid.js 8.21.0 or later |
-| UID2 JavaScript SDK +<br/>Prebid.js 7.53.0 or later | UID2 JS SDK<br/>[JavaScript Express Integration Guide](publisher-client-side.md) | UID2 JS SDK or Prebid.js 7.53.0 or later | Prebid.js 7.53.0 or later<br/>[UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md) |
+| UID2 JavaScript SDK + <br/>Prebid.js 7.53.0 or later | UID2 JS SDK<br/>[JavaScript Express Integration Guide](publisher-client-side.md) | UID2 JS SDK or Prebid.js 7.53.0 or later | Prebid.js 7.53.0 or later<br/>[UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md) |
 
 ### Server-Side Integration Options
 
 Server-side integration has the following advantages:
 
-- With a server-side integration, you can manage latency by using the nearest UID2 environment. For details, see [Environments](../getting-started/gs-environments.md). (**GWH_ note needs review**)
+- You can keep your DII entirely on the server side&#8212;there is no need to embed DII into the web pages.
+- If your development resources are back-end developers, you might prefer a server-side integration
 - For server-side Prebid integration, there is no requirement to update to the latest Prebid version. If you're using Prebid, and have a constraint with regard to version, choose server-side integration.
 
 The following table summarizes the options for publishers who want to integrate with UID2 on the server side.
@@ -113,7 +114,8 @@ If you want to integrate using Prebid, here are some additional questions you'll
   - As part of account setup, if you're using the Prebid client-side option, you'll need to provide a list of your top-level domains.
 - Are you already using the UID2 JavaScript SDK to generate and refresh the token? If so, you can continue to use the Prebid server-side implementation. For details, see [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md). -->
 
-<!-- ## Advantages: Summary
+<!-- 
+## Advantages: Summary
 
 The following table summarizes the advantages of each integration option.
 (**GWH_KK don't like having two tables but I can't fit it all into one. Also the docs are different. Need input re the best docs to link to... SDK ref or integration guide?**)
@@ -125,8 +127,8 @@ The following table summarizes the advantages of each integration option.
 | UID2 SDK for JavaScript | Server | <ul><li>The SDK takes care of generating and refreshing the token.</li><li>Coded in JavaScript.</li></ul> If you use JavaScript, and client-side implementation is not suitable for you, this is your best choice. | [UID2 SDK for JavaScript Reference Guide (2.x and earlier versions)](../sdks/client-side-identity-v2.md) |
 | UID2 SDK for Java | Server | <ul><li>The SDK takes care of generating and refreshing the token.</li><li>Coded in Java.</li></ul> If your server-side coding is Java, and client-side implementation is not suitable for you, this is your best choice. | [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) |
 | UID2 SDK for Python] | Server | <ul><li>The SDK takes care of generating and refreshing the token.</li><li>Coded in Python.</li></ul> If your server-side coding is Python, and client-side implementation is not suitable for you, this is your best choice. | [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md) |
-| Direct integration (API endpoints) | Server | You're free to implement the APIs in whatever way you choose. | <ul><li>[POST /token/generate](../endpoints/post-token-generate.md)</li><li>[POST /token/refresh](../endpoints/post-token-refresh.md)</li></ul> | -->
-
+| Direct integration (API endpoints) | Server | You're free to implement the APIs in whatever way you choose. | <ul><li>[POST /token/generate](../endpoints/post-token-generate.md)</li><li>[POST /token/refresh](../endpoints/post-token-refresh.md)</li></ul> | 
+-->
 
 <!-- ## BELOW = TO DELETE
 -----------------------------BELOW = TO DELETE
