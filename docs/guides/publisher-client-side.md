@@ -111,7 +111,7 @@ __uid2.init({
 Tokens from the UID2 integration environment are not valid for passing to the bid stream. For the integration environment, you will have different **subscription ID** and **public key** values.
 :::
 
-### Optional: Reduce Latency by Setting the API Base URL
+### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
 
 By default, in the production environment, the JS SDK makes API calls to a UID2 server in the USA. Depending on where your users are based, you might consider choosing a server closer to your users in order to reduce latency.
 
