@@ -9,7 +9,11 @@ sidebar_position: 07
 
 The UID2 ecosystem includes several different API permissions that allow access to complete specific activities. This approach is part of the overall secure design of UID2.
 
-For each UID2 participant, the permissions are linked to the participant's API credentials (see [Account Setup](gs-account-setup.md) and [UID2 Credentials](gs-credentials.md)).
+For each UID2 participant that has API Key and Client Secret, the permissions are linked to the participant's API credentials (see [Account Setup](gs-account-setup.md) and [UID2 Credentials](gs-credentials.md)).
+
+:::note
+If you're a publisher and are implementing UID2 on the client side, API permissions do not apply to you. Instead, you'll receive a different set of credentials that are specifically for generating a client-side token request. For details, see [Subscription ID and Public Key](gs-credentials.md#subscription-id-and-public-key).
+:::
 
 A participant can have one or several sets of API credentials with associated permissions. In cases where you have more than one API permission, you have the option to have a separate set of credentials for each permission or have a single set of credentials for all permissions. We recommend having a separate set of credentials for each permission. 
 

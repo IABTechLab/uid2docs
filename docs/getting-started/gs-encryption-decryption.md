@@ -10,6 +10,10 @@ import TabItem from '@theme/TabItem';
 
 # Encrypting Requests and Decrypting Responses
 
+:::note
+If you're a publisher and are implementing UID2 on the client side, this information doesn't apply to you. etc. implementation manages it... Tthe authentication and authorization is managed automatically by your implementation, such as the Prebid.js implementation or JavaScript SDK implementation. (**GWH UPTOHERE WRITE THIS PROPERLY**)
+:::
+
 For almost all UID2 [endpoints](../endpoints/summary-endpoints.md), requests sent to the endpoint must be [encrypted](#encrypting-requests) and responses from the endpoint must be [decrypted](#decrypting-responses). 
 
 The only exception is that requests to the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint do not need to be encrypted.
