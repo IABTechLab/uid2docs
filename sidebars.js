@@ -29,7 +29,6 @@ const sidebars = {
         'getting-started/gs-permissions',
         'getting-started/gs-auth',
         'getting-started/gs-environments',
-        'getting-started/gs-api-using',
         'getting-started/gs-encryption-decryption',
         'getting-started/gs-normalization-encoding',
         'getting-started/gs-opt-out',
