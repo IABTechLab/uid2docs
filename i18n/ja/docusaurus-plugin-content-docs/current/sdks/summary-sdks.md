@@ -25,7 +25,7 @@ SDK の機能を確認して使用する SDK を決定し、SDK の表をクリ�
 |UID2 SDK for iOS | Client-Side| Not supported | Not supported | Not supported | Supported |
 |UID2 SDK for Android | Client-Side | Not supported | Not supported | Not supported | Supported |
 
-## SDKs
+## SDK Documentation
 
 UID2 インテグレーションについては、以下の SDK ドキュメントを参照してください。
 
