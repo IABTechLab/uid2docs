@@ -1,15 +1,15 @@
 ---
-title: Web Integration Options
-description: A comparison of the publisher options for UID2 web integration.
+title: Web Integration Overview
+description: Overview of the publisher options for UID2 web integration.
 hide_table_of_contents: false
 sidebar_position: 02
 ---
 
-# Web Integration Options
+# Web Integration Overview
 
 As a publisher, there are several different ways you can integrate with UID2 to generate identity tokens to be passed into the RTB bid stream in the context of your web pages.
 
-On this page you'll find a high-level overview of integration steps and integration options, with links to additional information.
+On this page, you'll find a high-level overview of integration steps and integration options, with links to additional information.
 
 <!-- The integration option that's right for you depends on many factors. For example, if the [DII](../ref-info/glossary-uid.md#gl-dii) is available on the client side, and you can use the latest version of Prebid, you can use the UID2 Prebid module, which manages the token generate request, token refresh request, and passing the token into the bid stream.
 
@@ -40,10 +40,10 @@ Some questions you might ask:
 
 ## Integration Steps: Summary
 
-At a high level, to integrate with UID2 requires the following key steps:
+At a high level, to integrate with UID2 includes implementing the following key activities:
 
 1. Generate a UID2 token.
-1. Keep the UID2 token refreshed as needed.
+1. Refresh the UID2 token as needed.
 1. Pass the UID2 token into the bid stream.
 
 There are many ways you can accomplish these key steps. The simplest and fastest implementation is a full client-side implementation using the latest version of Prebid.js.
@@ -55,13 +55,13 @@ To choose your implementation and get started, follow these steps:
    - [Server-Side Integration Options](#server-side-integration-options)
 2. Choose the option that's best for you, and then click through to the implementation documentation.
 
-## Token Generation Options
+## Generate a UID2 Token
 
-There are two main paths that you can choose in integrating with UID2: you can choose to initiate the UID2 token generate request on the client side (in the user's browser) or on the server side.
+There are two main paths that you can choose to generate a UID2 token: you can choose to initiate the UID2 token generate request on the client side (in the user's browser) or on the server side.
 
 Each option has different advantages. Client-side integration is easy and fast; integration using Prebid.js 8.21.0 or later is the easiest and fastest integration option.
 
-For additional information see the following sections.
+For additional information, see the following sections.
 
 :::note
 For all integration options, you could store the UID2 token in local storage or cookie storage.
@@ -72,7 +72,7 @@ For all integration options, you could store the UID2 token in local storage or 
 Client-side integration has the following advantages:
 
 - The code runs on the client side, on the consumer's web page, and no server-side coding is required.
-- There is a Prebid integration that handles all functions for you&#8212;token generate, token refresh, and passing the token into the bid stream. As long as you can use Prebid 8.21.0 or later (see [Integration Using Prebid](#integration-using-prebid)), this is the simplest and easiest implementation option.
+- There is a Prebid integration that handles all functions for you&#8212;token generation, token refresh, and passing the token into the bid stream. If you can use Prebid 8.21.0 or later (see [Integration Using Prebid](#integration-using-prebid)), this is the simplest and easiest implementation option.
 
 If you choose a client-side integration, you'll need to provide a list of your top-level domains, for security purposes, as part of account setup. For details, see [Account Setup Details](../getting-started/gs-account-setup.md#account-setup-details).
 

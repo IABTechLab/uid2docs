@@ -1,5 +1,6 @@
 const sidebars = {
   docs: [
+
     {
       type: 'category',
       label: 'UID2 Overview',
@@ -29,7 +30,6 @@ const sidebars = {
         'getting-started/gs-permissions',
         'getting-started/gs-auth',
         'getting-started/gs-environments',
-        'getting-started/gs-api-using',
         'getting-started/gs-encryption-decryption',
         'getting-started/gs-normalization-encoding',
         'getting-started/gs-opt-out',
@@ -98,11 +98,11 @@ const sidebars = {
             type: 'category',
             label: 'Web',
             link: {
-              type: 'generated-index',
+              type: 'doc',
+              id: 'guides/integration-options-publisher-web',
             },
             collapsed: true,
             items: [
-              'guides/integration-options-publisher-web',  
               'guides/integration-prebid',
               'guides/integration-prebid-client-side',
               'guides/integration-prebid-server-side',
@@ -112,6 +112,7 @@ const sidebars = {
               'guides/google-ss-integration',
                     ],
           },
+
           {
             type: 'category',
             label: 'Mobile',
