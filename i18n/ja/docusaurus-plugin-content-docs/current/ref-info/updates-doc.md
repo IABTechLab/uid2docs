@@ -152,7 +152,7 @@ UID2 のウェブサイト全体が、英語だけでなく日本語でも利用
 
 UID2 アカウントを管理できる新しい UID2 Portal ユーザーインターフェースをナビゲートするための新しいドキュメントページをいくつか公開しました。
 
-詳細は [UID2 Portal](/docs/category/uid2-portal) を参照してください。
+詳細は [UID2 Portal: Overview](../portal/portal-overview.md) を参照してください。
 
 ### New: Documentation for UID2 Sharing
 
@@ -160,7 +160,7 @@ UID2 アカウントを管理できる新しい UID2 Portal ユーザーイン�
 
 新しい UID2 Sharing 機能の使用をサポートするため、以下の新規および更新ドキュメントを公開しました:
 
-- 概要、使用例、実装手順、ベストプラクティスなど、UID2 Sharing に関連する情報を提供する一連の新しいページ。[UID2 Sharing](/docs/category/uid2-sharing) を参照してください。
+- 概要、使用例、実装手順、ベストプラクティスなど、UID2 Sharing に関連する情報を提供する一連の新しいページ。[UID2 Sharing: Overview](../sharing/sharing-overview.md) を参照してください。
 - UID2 Sharing をサポートするために4つの Server-side SDK を更新しました:
 
   - [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers)

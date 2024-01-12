@@ -12,7 +12,7 @@ This guide is for DSPs who transact on UID2s in the bid stream.
 
 DSPs receive UID2 tokens in bid requests, and decrypt the UID2 tokens to arrive at raw UID2s that they can use for bidding, using one of the server-side SDKs that support this function.
 
-For a summary of available server-side SDKs, see [SDKs - Summary](../sdks/summary-sdks.md).
+For a summary of available server-side SDKs, see [SDKs: Summary](../sdks/summary-sdks.md).
 
 >NOTE: If your back end is written in a language not covered by one of the available server-side SDKs, ask your UID2 contact in case there is additional information available to help you. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
 
@@ -51,7 +51,7 @@ https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 
 Use the logic below during bidding (2-b) to honor a user's opt-out.
 
-Leverage one of the server-side SDKs (see [SDKs](../sdks/summary-sdks.md)) to decrypt incoming UID2 tokens into raw UID2s. The response to the decrypt function contains the raw UID2. 
+Leverage one of the server-side SDKs (see [SDKs: Summary](../sdks/summary-sdks.md)) to decrypt incoming UID2 tokens into raw UID2s. The response to the decrypt function contains the raw UID2. 
 
 The following diagram illustrates opt-out logic.
 
@@ -65,7 +65,7 @@ The following table provides details for Step 2 of the workflow diagram shown in
 
 | Step | SDK | Description |
 | :--- | :--- | :--- |
-| 2-a | Server-side SDK (see [SDKs](../sdks/summary-sdks.md)) | Leverage the provided SDK to decrypt incoming UID2 tokens. The response contains the `UID2` and the UID2 creation time. |
+| 2-a | Server-side SDK (see [SDKs: Summary](../sdks/summary-sdks.md)) | Leverage the provided SDK to decrypt incoming UID2 tokens. The response contains the `UID2` and the UID2 creation time. |
 | 2-b | | DSPs are required to honor opt-out protocol for UID2s. For details on configuring user opt-outs and honoring them during bidding, see [Honor user opt-outs](#honor-user-opt-outs). |
 
 ## FAQs

@@ -15,7 +15,7 @@ sidebar_position: 01
 
 In UID2, sharing is a process for distributing [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) securely between UID2 participants. To protect raw UID2s from unauthorized access, the originating participant (sender) must encrypt the raw UID2s into [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) before transmission. The destination participant (receiver) must decrypt the UID2 tokens into raw UID2s for internal use.
 
-The UID2 sender specifies which receivers can decrypt their UID2 tokens, by configuring permissions in the [UID2 Portal](/docs/category/uid2-portal). When a sender grants permission to a receiver for UID2 sharing, the sender's decryption keys are shared with the receiver via a UID2 SDK. As part of sharing, the UID2 SDKs and APIs take care of the encryption and decryption.
+The UID2 sender specifies which receivers can decrypt their UID2 tokens, by configuring permissions in the UID2 Portal (see [UID2 Portal: Overview](../portal/portal-overview.md)). When a sender grants permission to a receiver for UID2 sharing, the sender's decryption keys are shared with the receiver via a UID2 SDK. As part of sharing, the UID2 SDKs and APIs take care of the encryption and decryption.
 
 For example, let's say that an advertiser (sender) wants to share raw UID2s with a trusted sharing participant who is a UID2 DSP, for segment creation via an API. Using sharing, the advertiser first enables the DSP with sharing permission via the UID2 Portal. The advertiser then encrypts the raw UID2s into UID2 tokens and sends them securely to the DSP (receiver). The DSP, who is also taking part in sharing, has access to the advertiser's decryption keys (through the UID2 Portal sharing permissions setup), and can therefore decrypt the UID2 tokens into raw UID2s for segment creation.
 
@@ -29,7 +29,7 @@ Additional resources:
 
 - [Implementing Sharing](sharing-implementing.md)
 - [UID2 Sharing: Best Practices](sharing-best-practices.md)
-- [UID2 Portal Overview](../portal/portal-overview.md)
+- [UID2 Portal: Overview](../portal/portal-overview.md)
 
 ## UID2 Sharing Workflow
 

@@ -1,5 +1,5 @@
 ---
-title: UID2 Integration Guides&#8212;Summary
+title: UID2 Integration Guides - Summary
 sidebar_label: Summary
 pagination_label: UID2 Integration Guides - Summary
 description: Summary of all the integration guides available.
@@ -7,7 +7,7 @@ hide_table_of_contents: false
 sidebar_position: 01
 ---
 
-# UID2 Integration Guides&#8212;Summary
+# UID2 Integration Guides: Summary
 
 The following guides provide integration instructions based on the needs and requirements of your organization and its primary role as a publisher, DSP, or data provider/advertiser. As a UID2 participant, you may also integrate via Enterprise Partners that enable engaging with an Open Operator service and hosting of a Private Operator service.
 

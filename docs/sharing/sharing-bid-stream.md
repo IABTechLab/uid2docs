@@ -17,7 +17,7 @@ Publishers share UID2s by encrypting [directly identifying information (DII)](..
 
 Additional resources:
 - [UID2 Overview for Publishers](../overviews/overview-publishers.md)
-- [UID2 Portal Overview](../portal/portal-overview.md)
+- [UID2 Portal: Overview](../portal/portal-overview.md)
 
 ## Account Setup in the UID2 Portal
 
@@ -27,7 +27,7 @@ The sender only needs to set up sharing permission once for each receiver or par
 
 As a publisher, we recommend that you set up your sharing permissions to share with all DSPs.
 
-For details, see [UID2 Portal Overview](../portal/portal-overview.md) and follow the links for each task.
+For details, see [UID2 Portal: Overview](../portal/portal-overview.md) and follow the links for each task.
 
 ## UID2 Sharing Workflow: Sharing in the Bid Stream
 
@@ -44,7 +44,7 @@ The workflow for generating UID2 tokens from DII, via the API or the specified s
 
    - Java SDK: see [UID2 SDK for Java Reference Guide](../sdks/uid2-sdk-ref-java.md)).
    - Python SDK: see [UID2 SDK for Python Reference Guide](../sdks/uid2-sdk-ref-python.md)).
-   - Direct integration with API endpoints: see [Endpoints](/docs/category/endpoints-v2).
+   - Direct integration with API endpoints: see [UID2 Endpoints: Summary](../endpoints/summary-endpoints.md).
    - Direct integration with API endpoints to generate UID2 tokens using the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint, but using the UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) to refresh UID2 tokens.
 
    >NOTE: The DSP must integrate with UID2 using one of the server-side SDKs. See [Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary) (step 2).
