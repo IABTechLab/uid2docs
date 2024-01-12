@@ -11,8 +11,6 @@ As a publisher, there are many ways that you can integrate with UID2 to generate
 
 On this page, you'll find a high-level overview of integration steps and integration options, with links to additional information for each option.
 
-For a quick visual summary, see [Integration Options Summary](#integration-options-summary).
-
 <!-- The integration option that's right for you depends on many factors. For example, if the [DII](../ref-info/glossary-uid.md#gl-dii) is available on the client side, and you can use the latest version of Prebid, you can use the UID2 Prebid module, which manages the token generate request, token refresh request, and passing the token into the bid stream.
 
 Some questions you might ask:

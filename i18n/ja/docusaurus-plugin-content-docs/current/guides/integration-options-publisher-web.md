@@ -11,8 +11,6 @@ As a publisher, there are many ways that you can integrate with UID2 to generate
 
 On this page, you'll find a high-level overview of integration steps and integration options, with links to additional information for each option.
 
-For a quick visual summary, see [Integration Options Summary](#integration-options-summary).
-
 ## Key Integration Steps
 
 At a high level, to integrate with UID2, you'll implement these three key activities:
