@@ -41,11 +41,11 @@ const sidebars = {
       type: 'category',
       label: 'UID2 Portal',
       link: {
-        type: 'generated-index',
+        type: 'doc',
+        id: 'portal/portal-overview',
       },
-      collapsed: true,
+
       items: [
-        'portal/portal-overview',
         'portal/portal-getting-started',
         'portal/sharing-permissions',
         'portal/participant-info',
@@ -58,11 +58,10 @@ const sidebars = {
       type: 'category',
       label: 'SDKs',
       link: {
-        type: 'generated-index',
+        type: 'doc',
+        id: 'sdks/summary-sdks',
       },
-      collapsed: true,
       items: [
-        'sdks/summary-sdks',
         'sdks/client-side-identity',
         'sdks/uid2-sdk-ref-java',
         'sdks/uid2-sdk-ref-python',
@@ -77,12 +76,11 @@ const sidebars = {
       type: 'category',
       label: 'Integration Guides',
       link: {
-        type: 'generated-index',
+        type: 'doc',
+        id: 'guides/summary-guides',
       },
-      collapsed: true,
 
       items: [
-        'guides/summary-guides',
 
         {
           type: 'category',
@@ -102,9 +100,9 @@ const sidebars = {
             collapsed: true,
             items: [
               'guides/integration-prebid',
-              'guides/publisher-client-side',
               'guides/integration-prebid-client-side',
               'guides/integration-prebid-server-side',
+              'guides/publisher-client-side',
               'guides/integration-javascript-standard',
               'guides/custom-publisher-integration',
               'guides/google-ss-integration',
@@ -189,11 +187,10 @@ const sidebars = {
       type: 'category',
       label: 'Endpoints (v2)',
       link: {
-        type: 'generated-index',
+        type: 'doc',
+        id: 'endpoints/summary-endpoints',
       },
-      collapsed: true,
       items: [
-        'endpoints/summary-endpoints',
         'endpoints/post-token-generate',
         'endpoints/post-token-validate',
         'endpoints/post-token-refresh',
@@ -206,11 +203,10 @@ const sidebars = {
       type: 'category',
       label: 'UID2 Sharing',
       link: {
-        type: 'generated-index',
+        type: 'doc',
+        id: 'sharing/sharing-overview',
       },
-      collapsed: true,
       items: [
-        'sharing/sharing-overview',
         'sharing/sharing-use-cases',
         'sharing/sharing-implementing',
         'sharing/sharing-best-practices',

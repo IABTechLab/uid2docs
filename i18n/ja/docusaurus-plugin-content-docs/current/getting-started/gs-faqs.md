@@ -203,7 +203,7 @@ demand-side platform (DSP) に関するよくある質問を紹介します。
 
 #### UID2 に適用する復号鍵はどのように決定すればよいですか？
 
-各 Server-Side SDK ([SDKs](../sdks/summary-sdks.md)を参照)は、復号鍵を自動的に更新します。UID2 Token と共に提供されるメタデータは、使用する復号鍵の ID を示します。
+各 Server-Side SDK ([SDKs: Summary](../sdks/summary-sdks.md)を参照)は、復号鍵を自動的に更新します。UID2 Token と共に提供されるメタデータは、使用する復号鍵の ID を示します。
 
 #### 復号鍵はどこで手に入りますか？
 

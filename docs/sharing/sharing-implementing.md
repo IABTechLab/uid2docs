@@ -37,7 +37,7 @@ In the UID2 Portal, the sender and the receiver must set up an account, and the 
 
 The sender only needs to set up sharing permission once for each receiver or participant type. However, if you want to add new sharing permissions or change existing ones, you'll need to go back to adjust your settings.
 
-For details, see [UID2 Portal Overview](../portal/portal-overview.md) and follow the links for each task.
+For details, see [UID2 Portal: Overview](../portal/portal-overview.md) and follow the links for each task.
 
 ## Steps to Implement Sharing with an SDK
 

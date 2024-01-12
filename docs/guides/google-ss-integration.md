@@ -20,7 +20,7 @@ This guide covers integration steps for publishers using UID2 with the Google Ad
 * [UID2 SDK for JavaScript Client-Side Integration](#uid2-sdk-for-javascript-client-side-integration)
 * [Sample Applications](#sample-applications) -->
 
->NOTE: To use the UID2 Google Ad Manager secure signals integration, if you are using an SDK you must have your UID2 integration already set up. This does not apply if you are using server-only integration. For a summary of all the integration options available, see [UID2 Integration Guides](summary-guides.md).
+>NOTE: To use the UID2 Google Ad Manager secure signals integration, if you are using an SDK you must have your UID2 integration already set up. This does not apply if you are using server-only integration. For a summary of all the integration options available, see [UID2 Integration Guides: Summary](summary-guides.md).
 
 ## Overview
 

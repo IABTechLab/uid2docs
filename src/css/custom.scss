@@ -260,3 +260,13 @@
     }
   }
 }
+
+.tabs-container {
+  > ul {
+    .tabs__item {
+      font-size: 0.875rem;
+      padding-top: 0;
+      padding-bottom: 4px;
+    }
+  }
+}

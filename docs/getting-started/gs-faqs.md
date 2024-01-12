@@ -206,11 +206,11 @@ Here are some frequently asked questions for demand-side platforms (DSPs).
 
 #### How do I know which decryption key to apply to a UID2?
 
-Each of the server-side SDKs  (see [SDKs](../sdks/summary-sdks.md)) updates decryption keys automatically. Metadata supplied with the UID2 token discloses the IDs of the decryption keys to use. 
+Each of the server-side SDKs  (see [SDKs: Summary](../sdks/summary-sdks.md)) updates decryption keys automatically. Metadata supplied with the UID2 token discloses the IDs of the decryption keys to use. 
 
 #### Where do I get the decryption keys?
 
-You can use one of the server-side SDKs (see [SDKs](../sdks/summary-sdks.md)) to communicate with the UID2 service and fetch the latest keys. To make sure that the keys remain up-to-date, it is recommended to fetch them periodically; for example, once every hour.
+You can use one of the server-side SDKs (see [SDKs: Summary](../sdks/summary-sdks.md)) to communicate with the UID2 service and fetch the latest keys. To make sure that the keys remain up-to-date, it is recommended to fetch them periodically; for example, once every hour.
 
 #### How many decryption keys may be present in memory at any point?
 

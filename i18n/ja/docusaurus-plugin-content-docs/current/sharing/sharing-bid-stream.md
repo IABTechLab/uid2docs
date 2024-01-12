@@ -20,7 +20,7 @@ sidebar_position: 08
 
 Additional resources:
 - [UID2 Overview for Publishers](../overviews/overview-publishers.md)
-- [UID2 Portal Overview](../portal/portal-overview.md)
+- [UID2 Portal: Overview](../portal/portal-overview.md)
 
 ## Account Setup in the UID2 Portal
 
@@ -30,7 +30,7 @@ UID2 Portal では、送信者と受信者がアカウントを設定し、共�
 
 パブリッシャーとしては、すべての DSP と共有するように共有権限を設定することをお勧めします。
 
-詳細については、[UID2 Portal Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
+詳細については、[UID2 Portal: Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
 
 ## UID2 Sharing Workflow: Sharing in the Bid Stream
 
@@ -47,7 +47,7 @@ API または指定された server-side SDK を介して、DII から UID2 Toke
 
    - Java SDK: [UID2 SDK for Java Reference Guide](../sdks/uid2-sdk-ref-java.md) を参照してください。
    - Python SDK: [UID2 SDK for Python Reference Guide](../sdks/uid2-sdk-ref-python.md) を参照してください。
-   - API endpoint との直接インテグレーション: [Endpoints](/docs/category/endpoints-v2) を参照してください。
+   - API endpoint との直接インテグレーション: [UID2 Endpoints: Summary](../endpoints/summary-endpoints.md) を参照してください。
    - API endpoint との直接インテグレーションでは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを使用して UID2 Token を生成しますが、UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください)を使用して UID2 Token をリフレッシュします。
 
    >NOTE: DSPは、Server-Side SDK のいずれかを使用して UID2 とインテグレーションする必要があります。[Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary)(step 2) を参照してください。
