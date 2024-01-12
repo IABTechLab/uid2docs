@@ -271,3 +271,9 @@
     padding: 4px 0;
   }
 }
+
+@media (min-width: 1850px) {
+  :root {
+    --doc-sidebar-width: 400px !important;
+  }
+}
