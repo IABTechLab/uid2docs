@@ -182,7 +182,7 @@ For details, use the language drop-down at the top of any site page, or go strai
 
 We published several new documentation pages to help users navigating the new UID2 Portal user interface, where you can manage your UID2 account.
 
-For details, see [UID2 Portal](/docs/category/uid2-portal).
+For details, see [UID2 Portal: Overview](../portal/portal-overview.md).
 
 ### New: Documentation for UID2 Sharing
 
@@ -190,7 +190,7 @@ For details, see [UID2 Portal](/docs/category/uid2-portal).
 
 We published the following new and updated documents to support use of the new UID2 sharing feature:
 
-- A set of new pages providing information relating to UID2 sharing, including an overview, use cases, implementation instructions, best practices, and more. See [UID2 Sharing](/docs/category/uid2-sharing).
+- A set of new pages providing information relating to UID2 sharing, including an overview, use cases, implementation instructions, best practices, and more. See [UID2 Sharing: Overview](../sharing/sharing-overview.md).
 - Updates to the four server-side SDKs to support UID2 sharing:
 
   - [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers)

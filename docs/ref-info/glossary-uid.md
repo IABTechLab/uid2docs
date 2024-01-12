@@ -358,7 +358,7 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-uid2-portal">UID2 Portal</dt>
 <dd>The UID2 Portal is a separate user interface that allows UID2 participants to manage their accounts.</dd>
-<dd>For details, see  <a href="../portal/portal-overview">UID2 Portal Overview</a>.</dd>
+<dd>For details, see  <a href="../portal/portal-overview">UID2 Portal: Overview</a>.</dd>
 
 <dt class="jump-anchor" id="gl-uid2-service">UID2 service</dt>
 <dd>The Unified ID 2.0 (UID2) service is a set of components, API endpoints, and other types of solutions that collectively implement the <a href="#gl-uid2-framework">UID2 framework</a> and provide clients with access to the relevant UID2 functionality.</dd>

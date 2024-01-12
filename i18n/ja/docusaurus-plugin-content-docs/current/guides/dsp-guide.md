@@ -12,7 +12,7 @@ sidebar_position: 05
 
 DSP はビッドリクエストで UID2 Token を受け取り、この機能をサポートする Server-Side SDK のいずれかを使用して UID2 Token を復号化し、入札に使用できる raw UID2 を取得します。
 
-利用可能な Server-Side SDK の概要については、[SDKs - Summary](../sdks/summary-sdks.md) を参照してください。
+利用可能な Server-Side SDK の概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
 
 >NOTE: バックエンドが、利用可能な Server-Side SDK のいずれでもカバーされていない言語で書かれている場合は、UID2 の担当者に問い合わせてください。誰に聞けばいいかわからない場合は、[連絡先情報](../getting-started/gs-account-setup.md#contact-info) を参照してください。
 
@@ -52,7 +52,7 @@ https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 
 入札時 (2-b)に以下のロジックを使用し、ユーザーのオプトアウトを受け入れます。
 
-Server-Side SDK のいずれか ([SDKs](../sdks/summary-sdks.md)を参照) を利用して、受信した UID2 Token を raw UID2 に復号します。decrypt関数へのレスポンスには、raw UID2 が含まれます。
+Server-Side SDK のいずれか ([SDKs: Summary](../sdks/summary-sdks.md)を参照) を利用して、受信した UID2 Token を raw UID2 に復号します。decrypt関数へのレスポンスには、raw UID2 が含まれます。
 
 オプトアウトのロジックを次の図に示します。
 
@@ -66,7 +66,7 @@ Server-Side SDK のいずれか ([SDKs](../sdks/summary-sdks.md)を参照) を�
 
 | Step | SDK | Description |
 | :--- | :--- | :--- |
-| 2-a  | Server-side SDK ([SDKs](../sdks/summary-sdks.md)を参照) | 提供されている SDK を活用して、入力された UID2 Token を復号化します。レスポンスには `UID2` と UID2 の作成時刻が含まれます。 |
+| 2-a  | Server-side SDK ([SDKs: Summary](../sdks/summary-sdks.md)を参照) | 提供されている SDK を活用して、入力された UID2 Token を復号化します。レスポンスには `UID2` と UID2 の作成時刻が含まれます。 |
 | 2-b  | | DSP は UID2 のオプトアウトプロトコルを受け入れることが要求されます。ユーザーオプトアウトの設定と入札時の受け入れは、[ユーザーオプトアウトの受け入れ](#honor-user-opt-outs) を参照してください。 |
 
 ## FAQs

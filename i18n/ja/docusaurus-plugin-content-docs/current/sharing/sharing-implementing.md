@@ -38,7 +38,7 @@ UID2 Portal では、送信者と受信者がアカウントを設定し、送�
 
 送信者が共有許可を設定する必要があるのは、受信者または参加者のタイプごとに1回だけです。ただし、新しい共有権限を追加したり、既存の共有権限を変更したりする場合は、もう一度設定を調整する必要があります。
 
-詳細については、[UID2 Portal Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
+詳細については、[UID2 Portal: Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
 
 
 ## Steps to Implement Sharing with an SDK

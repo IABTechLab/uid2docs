@@ -1,5 +1,5 @@
 ---
-title: SDKs&#8212;Summary
+title: SDKs - Summary
 sidebar_label: SDKs - Summary
 pagination_label: SDKs - Summary
 description: Summary of SDK documentation available.
@@ -7,7 +7,7 @@ hide_table_of_contents: false
 sidebar_position: 01
 ---
 
-# SDKs&#8212;Summary
+# SDKs: Summary
 
 Review the SDK functionality to determine which SDK or SDKs you want to use, then click through in the SDKs table to review the reference documentation.
 
