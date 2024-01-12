@@ -192,9 +192,27 @@ The following example callback handles the `SdkLoaded` event to call init and th
 
 | Event | Payload | Details |
 | :--- | :--- | :--- |
-| `SdkLoaded` | {} | Called when the SDK script has loaded and the global `__uid2` has been constructed. When you receive this event, it is safe to call `__uid2.init`. Callbacks always receive this event once. If the SDK has already been loaded when the callback is registered, it receives the event immediately. |
-| `InitCompleted` | `{ identity: Uid2Identity  \| null }` | Called once `init()` has finished. Callbacks always receive this event once, as long as a successful call to `init` has been made. If `init` has already been completed when the callback is registered, it receives this immediately after it receives the `SdkLoaded` event. |
-| `IdentityUpdated` | `{ identity: Uid2Identity \| null }` | Called whenever the current identity changes. If the identity doesn't change after the callback is registered, callbacks do not receive this event. |
+| `SdkLoaded` | See [Payload for SdkLoaded](#payload-for-sdkloaded) | Called when the SDK script has loaded and the global `__uid2` has been constructed. When you receive this event, it is safe to call `__uid2.init`. Callbacks always receive this event once. If the SDK has already been loaded when the callback is registered, it receives the event immediately. |
+| `InitCompleted` | See [Payload for InitCompleted](#payload-for-initcompleted) | Called once `init()` has finished. Callbacks always receive this event once, as long as a successful call to `init` has been made. If `init` has already been completed when the callback is registered, it receives this immediately after it receives the `SdkLoaded` event. |
+| `IdentityUpdated` | See [Payload for IdentityUpdated](#payload-for-identityupdated) | Called whenever the current identity changes. If the identity doesn't change after the callback is registered, callbacks do not receive this event. |
+
+##### Payload for SdkLoaded:
+
+```
+{}
+```
+
+##### Payload for InitCompleted:
+
+```
+{ identity: Uid2Identity  \| null }
+```
+
+##### Payload for IdentityUpdated:
+
+```
+{ identity: Uid2Identity \| null } 
+```
 
 The `Uid2Identity` type is the same type as the identity you can provide when calling `init()`.
 
