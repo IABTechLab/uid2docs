@@ -5,7 +5,7 @@ hide_table_of_contents: false
 sidebar_position: 01
 ---
 
-# UID2 Endpoints
+# UID2 Endpoints: Summary
 
 All UID2 endpoints require a client secret for encrypting API requests (except [POST&nbsp;/token/refresh](post-token-refresh.md) requests) and decrypting responses. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 

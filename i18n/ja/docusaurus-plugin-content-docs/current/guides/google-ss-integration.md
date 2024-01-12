@@ -20,7 +20,7 @@ sidebar_position: 10
 * [UID2 SDK for JavaScript Client-Side Integration](#uid2-sdk-for-javascript-client-side-integration)
 * [Sample Applications](#sample-applications) -->
 
-> NOTE: UID2 Google Ad Manager セキュアシグナルインテグレーションを使用するには、SDK を使用している場合、UID2 インテグレーションがすでに設定されている必要があります。サーバーのみのインテグレーションを使用している場合は、この限りではありません。使用可能なすべてのインテグレーションオプションの概要は、[UID2 Integration Guides](summary-guides.md)を参照してください。
+> NOTE: UID2 Google Ad Manager セキュアシグナルインテグレーションを使用するには、SDK を使用している場合、UID2 インテグレーションがすでに設定されている必要があります。サーバーのみのインテグレーションを使用している場合は、この限りではありません。使用可能なすべてのインテグレーションオプションの概要は、[UID2 Integration Guides: Summary](summary-guides.md)を参照してください。
 
 ## Overview
 
