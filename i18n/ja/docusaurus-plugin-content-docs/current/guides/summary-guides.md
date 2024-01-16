@@ -35,8 +35,8 @@ sidebar_position: 01
 | :--- | :--- |
 | [UID2 Integration Overview for Prebid.js](integration-prebid.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid.js から渡される UID2 Token を生成したいパブリッシャー向けのインテグレーションオプションの概要です。 |
 | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) | UID2 と Prebid.js をインテグレーションしたいパブリッシャー向けのインテグレーションガイドです。Prebid.js はトークンの生成と更新を自動的に管理し、トークンを RTB ビッドストリームに渡します。このガイドは、Client-Side で UID2 Token をリクエストしたいパブリッシャー向けのもので、最も簡単な実装方法です。 |
-| [JavaScript Express Integration Guide](publisher-client-side.md) | 最も簡単な実装方法で、Clent-Side の JavaScript の変更だけで UID2 とインテグレーションしたいパブリッシャー向けのインテグレーションガイドです。UID2 SDK for JavaScriptは、トークンの生成と更新を自動的に管理します。 |
 | [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid から渡される ID トークンを生成したいパブリッシャー向けのインテグレーションガイドです。このガイドは、Private Operator を使用しているか、Server-Side でトークンを生成したいパブリッシャー向けです。 |
+| [JavaScript Express Integration Guide](publisher-client-side.md) | 最も簡単な実装方法で、Clent-Side の JavaScript の変更だけで UID2 とインテグレーションしたいパブリッシャー向けのインテグレーションガイドです。UID2 SDK for JavaScriptは、トークンの生成と更新を自動的に管理します。 |
 | [JavaScript Standard Integration Guide](integration-javascript-standard.md) | パブリッシャー向けのこのインテグレーションガイドでは、UID2 SDK for JavaScript を使用する標準的なウェブインテグレーションシナリオについて説明し、トークンを Server-Side で生成し、パブリッシャーのウェブページに渡す必要があります。 |
 | [Publisher Integration Guide, Server-Only](custom-publisher-integration.md) | このインテグレーションガイドは、UID2 SDK for JavaScript を使用していないパブリッシャー向けです。 |
 | [Publisher - Google Ad Manager Secure Signals](google-ss-integration.md) | このインテグレーションガイドでは、UID2 を Google Ad Manager のセキュアシグナル機能(旧称: Encrypted Signals for Publishers、ESP)で使用するパブリッシャーに必要な追加手順について説明します。 |

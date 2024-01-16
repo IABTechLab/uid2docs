@@ -81,6 +81,8 @@ The following resources are available for publishers to implement UID2:
 
 The following resources are available for publisher web integrations.
 
+For a detailed summary of web integration options, see [Web Integration Overview](../guides/integration-options-publisher-web.md).
+
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
 | Prebid (Overview) | [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md) | An overview of integration options for publishers who want to integrate with UID2 and generate UID2 tokens to be passed by Prebid.js in the RTB bid stream. |

@@ -17,7 +17,7 @@ export const New = () => (
 Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the UID2 [storage format](#uid2-storage-format).
 
 :::tip
-If you're using Prebid.js with the UID2 Identity Module (see [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)), or with another product that has UID2 support, you probably don't need to use the SDK at all.
+If you're using Prebid.js with the UID2 Identity Module, or with another product that has UID2 support, you probably don't need to use the SDK at all. The Prebid.js module manages everything. For details, see [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
 :::
 
 This page describes version 3 of the UID2 SDK for JavaScript. If you are maintaining an integration using an earlier version, do one of the following:
