@@ -16,7 +16,8 @@ This page provides information about normalizing and encoding [directly Identify
 - [Email Address Hash Encoding](#email-address-hash-encoding)
 - [Phone Number Normalization](#phone-number-normalization)
 - [Phone Number Hash Encoding](#phone-number-hash-encoding)
-- [Example](#example)
+- [Normalization Examples for Email](#normalization-examples-for-email)
+- [Example](#example-code)
 -->
 
 ## Introduction
@@ -39,9 +40,15 @@ To normalize an email address, complete the following steps:
 
 1. Remove leading and trailing spaces.
 2. Convert all ASCII characters to lowercase.
-3. In `gmail.com` email addresses, remove the following characters from the username part of the email address:
-    1. The period  (`.` (ASCII code 46)).<br/>For example, normalize `jane.doe@gmail.com` to `janedoe@gmail.com`.
-    2. The plus sign (`+` (ASCII code 43)) and all subsequent characters.<br/>For example, normalize `janedoe+home@gmail.com` to `janedoe@gmail.com`.
+3. If there is a period (`.`) in the email address (ASCII code 46), remove it.<br/>For example, normalize `jane.doe@example.com` to `janedoe@example.com`.
+
+3. (Conditional) In `gmail.com` addresses only, you might see a plus sign (`+`) with an additional string after it, before the `@gmail.com`. In this scenario, you'll need to remove this extra part of the email address. This applies **only** to gmail addresses. Remove the following:
+    1. The plus sign (`+`) (ASCII code 43).
+    2. All subsequent characters.
+    
+       For example, normalize `janedoe+home@gmail.com` to `janedoe@gmail.com`.
+
+For examples of various scenarios, see [Normalization Examples for Email](#normalization-examples-for-email).
 
 ## Email Address Hash Encoding
 
@@ -54,6 +61,8 @@ An email hash is a Base64-encoded SHA-256 hash of a normalized email address. Th
 | Hex to Base64 SHA-256 encoding of normalized email address | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | This 44-character string is a Base64-encoded representation of the 32-byte SHA-256.<br/>WARNING: The SHA-256 hash string in the example above is a hex-encoded representation of the hash value. You must Base64-encode the raw bytes of the hash or use a Base64 encoder that takes a hex-encoded value as input.<br/>Use this encoding for `email_hash` values sent in the request body. |
 
 >WARNING: When applying Base64 encoding, be sure to Base64-encode the raw bytes of the hash or use a Base64 encoder that takes a hex-encoded value as input.
+
+For additional examples, see [Normalization Examples for Email](#normalization-examples-for-email).
 
 ## Phone Number Normalization
 
@@ -86,6 +95,27 @@ The example below shows a simple input phone number, and the result as each step
 
 >WARNING: When applying Base64 encoding, be sure to use a function that takes a hex value as input. If you use a function that takes text as input, the result is a longer string which is invalid for the purposes of UID2.
 
-## Example
+## Normalization Examples for Email
+
+The following table shows examples of original email addresses and the normalized and hashed values.
+
+| Original Value | Normalized | Hashed | Base64-Encoded |
+| :--- | :--- | :--- | :--- |
+| `MyEmail@example.com` | `myemail@example.com` | `TBD` | `TBD` |
+| `My.Email@example.com` | `myemail@example.com` | `TBD` | `TBD` |
+| `MyEmailUID2Example@gmail.com` | `myemailuid2example@gmail.com` | `TBD` | `TBD` |
+| `MyEmailUID2Example+jane@gmail.com` | `myemailuid2example@gmail.com` | `TBD` | `TBD` |
+| `JANEDOE@example.com` | `janedoe@example.com` | `TBD` | `TBD` |
+| `JaneDoe@example.com` | `janedoe@example.com` | `TBD` | `TBD` |
+| `Jane.Doe@example.com` | `janedoe@example.com` | `TBD` | `TBD` |
+
+(**GWH_SW: I posted on two lists for additional examples, but these cover all scenarios we've pointed out (except spaces). Do you know of any others?<br/>
+Also, see my two queries to you in direct Slack:<br/>
+1 You say janeSmith+abc@gmail.com ->janeSmith@gmail.com but shouldn't it be janesmith@gmail.com, all lowe case?<br/>
+2 Your example #2, "janeSmith+abc@domainexample.com  -> janesmith+abc@domainexample.com" -- is that a valid email address format?<br/>
+Also:<br/>
+3: How can I get the hashed and encoded values?**)
+
+## Example Code
 
 For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base-64 Encoding](../guides/publisher-client-side#example-code-hashing-and-base-64-encoding).
