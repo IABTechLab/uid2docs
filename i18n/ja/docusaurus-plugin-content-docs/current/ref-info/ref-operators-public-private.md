@@ -1,81 +1,81 @@
 ---
 title: The UID2 Operator
-description: Information about Public and Private Operators and the differences between them.
+description: Public と Private Operator、それぞれの違いについての情報。
 hide_table_of_contents: false
 sidebar_position: 06
 ---
 
 # The UID2 Operator
 
-The UID2 Operator Service enables the management and storage of encryption keys and [salts](../ref-info/glossary-uid.md#gl-salt) from the UID2 Core Service, hashing of users' personal data ([DII](../ref-info/glossary-uid.md#gl-dii)), encryption of [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2), and decryption of [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token).
+UID2 Operator Service により、UID2 Core Service からの暗号化キーと [Salt(ソルト)](../ref-info/glossary-uid.md#gl-salt) の管理と保存、ユーザーの個人データ ([DII](../ref-info/glossary-uid.md#gl-dii)) のハッシュ化、[raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) の暗号化、[UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) の復号化が可能になります。
 
-All instances of the Operator Service are designed with rigorous protections in place to keep critical UID2 data secure and interoperable, regardless of who operates the service.
+Operator Service のすべてのインスタンスは、誰がサービスを運営するかにかかわらず、重要な UID2 データを安全に保ち、相互運用できるよう、厳格な保護が施されて設計されています。
 
 ## UID2 Operator: Overview
 
-There can be multiple instances of the Operator Service, operated by multiple participants. Each of these participants is known as a UID2 Operator.
+複数の参加者によって運営される、複数の Operator Service のインスタンスが存在する可能性があります。これらの参加者はそれぞれ、UID2 Operator と呼ばれます。
 
-A UID2 Operator is simply an organization that runs the Operator Service. Operators receive and store encryption keys and salts from the UID2 Core Service, salt and hash personal data to return UID2 tokens, encrypt raw UID2s to generate UID2 tokens, and distribute UID2 token decryption keys.
+UID2 Operator は、単に Operator Service を実行する組織です。オペレーターは、UID2 Core Service から暗号化キーとソルトを受け取って保管し、個人に関するデータをソルトおよびハッシュ化して UID2 Token を返し、raw UID2 を暗号化して UID2 Token を生成し、UID2 Token の復号キーを配布します。
 
-UID2 Operators fall into two categories:
+UID2 Operator は、次の 2 つのカテゴリに分類されます:
 
 - [Public Operators](#public-operator)
 - [Private Operators](#private-operator)
 
-The Operator is the operational code of UID2&#8212;the code that turns an email into a raw UID2 or a UID2 token, and that a participant who is sharing uses to refresh decryption keys.
+Operator は UID2 の中核的なコードです。このコードは、メールアドレスを raw UID2 または UID2 Token に変換し、共有している参加者が復号キーを更新するために使用します。
 
 ## Public Operators
 
-A Public Operator, or Open Operator, is a UID2 Operator instance that is available to all relevant UID2 participants. Public Operators run publicly available instances of the Operator Service and make them available to participants.
+Public Operator または Open Operator は、関連するすべての UID2 参加者が利用できる UID2 Operator インスタンスです。Public Operator は、一般に利用可能な Operator Service のインスタンスを実行し、参加者が利用できるようにします。
 
-In most cases, UID2 participants use a Public Operator.
+ほとんどの場合、UID2 参加者は Public Operator を使用します。
 
-The Public Operator is owned and managed by the UID2 administration. For example, The Trade Desk currently serves as a Public Operator for the UID2 framework, available to all participants. If other Public Operators are available, a participant can choose which operator to work with.
+Public Operator は、UID2 administration が所有し管理します。例えば、現在 The Trade Desk は UID2 フレームワークの Public Operator として機能しており、すべての参加者が利用できます。他の Public Operator が利用可能な場合、参加者はどのオペレーターと連携するかを選択できます。
 
 ## Public Operator: Benefits
 
-When you use a Public Operator, there is no additional work for you to do to host, configure, maintain, or update the Operator. All you need to do is configure your integration to use an SDK or to call the UID2 endpoints.
+Public Operator を使用する場合、Operator をホスト、構成、維持、または更新するための追加作業は必要ありません。必要なのは、SDK を使用するか、UID2 endpoint を呼び出すようにインテグレーションするだけです。
 
-There is no cost, to the participant, for using a Public Operator.
+Public Operator を利用するための費用は、参加者には一切かかりません。
 
-The participant must sign a contract to get the applicable credentials ([API key and client secret](../getting-started/gs-credentials.md#api-key-and-client-secret)) to use the UID2 APIs hosted on the Public Operator.
+参加者は、Public Operator 上でホストされる UID2 API を使用するために、該当する資格情報 ([API key and client secret](../getting-started/gs-credentials.md#api-key-and-client-secret)) を取得する契約を締結する必要があります。
 
 :::note
-With a Public Operator, data leaves the participant's infrastructure and is sent to the Operator. Of course, rigorous measures are in place to keep the data secure.
+Public Operator の場合、データは参加者のインフラを離れ、オペレーターに送られます。もちろん、データを安全に保つための厳格な対策が講じられています。
 :::
 
 ##  Private Operators
 
-A Private Operator, or Closed Operator, is a private instance of the UID2 Operator. This means that a specific entity hosts a private instance exclusively for their own use.
+rivate Operator (Closed Operator) は、UID2 Operator のプライベートインスタンスです。これは、特定の組織が、その組織専用に Private Operator をホストすることを意味します。
 
-Any participant can also choose to become a Private Operator to generate and manage UID2s. However, becoming a Private Operator includes several additional steps, and uses resources that the participant must provide.
+参加者は誰でも、UID2 を生成および管理する Private Operator になることもできます。ただし、Private Operator になるにはいくつかの追加ステップが必要であり、参加者が提供する必要があるリソースを使用します。
 
-The participant must host, configure, maintain, and update the Private Operator instance, and must conform to strict security measures. Engineering resources are required to integrate and to make ongoing updates.
+参加者は、Private Operator インスタンスをホストし、構成し、維持し、更新する必要があり、厳密なセキュリティ対策に準拠する必要があります。インテグレーションと継続的な更新には、エンジニアリングリソースが必要です。
 
-The participant must sign a contract to host a Private Operator instance.
+参加者は、Private Operator インスタンスをホストする契約を締結する必要があります。
 
 :::note
-A Private Operator cannot process raw UID2s or UID2 tokens from a Public Operator or another Private Operator. Each Private Operator is a completely closed infrastructure.
+Private Operator は、Public Operator または別の Private Operator からの raw UID2 または UID2 Token を処理することはできません。各 Private Operator は、完全に閉じたインフラストラクチャです。
 :::
 
 ## Private Operator: Benefits
 
-Some reasons why a participant might choose to become a Private Operator:
+参加者が Private Operator になることを選択する理由はいくつかあります:
 
-- Within a Private Operator solution, DII does not leave your infrastructure.
+- Private Operator のソリューションでは、DII は運営する組織のインフラから離れません。
 
-- When you have a Private Operator, you're completely in charge of resources. You have more control. For example, you can provide greater availability, without rate limitations.
+- Private Operator になれば、リソースを完全に管理できます。より多くのコントロールが可能です。例えば、料金の制限なく、より大きな可用性を提供することができます。
 
-- If you are not physically located near to a Public Operator instance, you might choose to host a Private Operator solution for latency reasons.
+- 物理的に Public Operator のインスタンスの近くにない場合、レイテンシーの理由から Private Operator のソリューションをホストすることを選択することができます。
 
-If you have significant security or latency concerns and also have extensive engineering resources to both build and maintain your UID2 implementation, you might consider the Private Operator solution. 
+セキュリティやレイテンシに大きな懸念があり、UID2 実装を構築・維持するための広範なエンジニアリングリソースがある場合は、Private Operator ソリューションを検討することができます。
 
 ## Summary
 
-For most participants, Public Operator is the best solution.
+ほとんどの参加者にとって、Public Operator が最善の解決策です。
 
-The down side of the Private Operator option is that it requires ongoing engineering effort to build and maintain. Because a Private Operator instance is managed by the participant, there are continual updates and changes that are required and must be completed within a specified time frame.
+Private Operator オプションのマイナス面は、構築と維持に継続的なエンジニアリング努力が必要なことです。Private Operator のインスタンスは参加者によって管理されるため、継続的な更新と変更が必要となり、指定された期間内に完了する必要があります。
 
-A Public Operator integration is a much easier option than creating your own instance. There is no cost to the participant, and virtually no engineering work is needed other than initial setup and configuration.
+Public Operator インテグレーションは、独自のインスタンスを作成するよりもはるかに簡単なオプションです。参加者に費用はかからず、初期設定と構成以外のエンジニアリング作業は事実上必要ありません。
 
-For these reasons, we recommend choosing a Public Operator. 
+これらの理由から、Public Operator を選択することをお勧めします。

@@ -62,6 +62,7 @@ sidebar_position: 10
 <li><a href="#gl-private-operator">Private Operator</a></li>
 <li><a href="#gl-private-operator-service">Private Operator Service</a></li>
 <li><a href="#gl-public-key">Public key</a></li>
+<li><a href="#gl-public-operator">Public Operator</a></li>
 <li><a href="#gl-raw-uid2">Raw UID2</a></li>
 <li><a href="#gl-refresh-token">Refresh token</a></li>
 
@@ -173,13 +174,13 @@ sidebar_position: 10
 <dd>UID2 には特定の正規化規則があります。詳細については、<a href="../getting-started/gs-normalization-encoding#email-address-normalization">Email Address Normalization</a> と <a href="../getting-started/gs-normalization-encoding#phone-number-normalization">Phone Number Normalization</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-open-operator">Open Operator</dt>
-<dd>Open <a href="#gl-operator">operator</a> とは、UID2 Operator Service 公開インスタンスを実行する事業社です。例えば、The Trade Desk は現在、UID2 フレームワークの Open operator として機能しており、すべての参加者が利用できます。</dd>
+<dd>Open Operator は、<a href="#gl-public-operator">Public Operator</a> の別名です。</dd>
 
 <dt class="jump-anchor" id="gl-operator">Operator</dt>
 <dd>Operator とは、UID2の  <a href="#gl-operator-service">Operator Service</a> を運営する組織や団体のことです。UID2 Operatorは、UID2 エコシステムの API サーバーです。</dd>
 <dd>Operator は、UID2 Core Service から暗号化キーとソルトを受け取り、個人のデータをソルティングおよびハッシュ化して raw UID2 を返し、raw UID2 を暗号化して UID2 Token を生成するなど、複数の機能を実行します。</dd>
 <dd>参加者は、UID2 API にアクセスし、プライベートインフラ内で raw UID2 と UID2 Token を生成するために、<a href="#gl-private-operator">Private Operator</a> になることも選択できます。</dd>
-<dd>詳細は、<a href="../intro#participants">participants</a> を参照してください。</dd>
+<dd>詳細は、<a href="../intro#participants">participants</a> と <a href="../ref-info/ref-operators-public-private">The UID2 Operator</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-operator-key">Operator key</dt>
 <dd>各 UID2 Private Operator は、Private Operator Service が Core Service とOpt-Out Service に接続し、その上でいくつかのエンドポイントを呼び出すことを可能にする Operator key を持っています。</dd>
@@ -203,12 +204,17 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-private-operator">Private Operator</dt>
 <dd>Private <a href="#gl-operator">operator</a> は、Operator Service のプライベートインスタンスを実行する事業社です。Private Operator は、安全な環境で独自のリソース (ハードウェアなど)を使用して、自身のために UID2 を生成および管理します。</dd>
+<dd>詳細は、<a href="../ref-info/ref-operators-public-private">The UID2 Operator</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-private-operator-service">Private Operator Service</dt>
 <dd><a href="#gl-private-operator">private Operator</a> が運用する Operator Service のインスタンスです。</dd>
 
 <dt class="jump-anchor" id="gl-public-key">Public key</dt>
 <dd>Server-Side のパブリッシャーインテグレーションでは、Public Key はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの 1 つです。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
+
+<dt class="jump-anchor" id="gl-public-operator">Public Operator</dt>
+<dd>Public <a href="#gl-operator">Operator</a> は、UID2 Operator Service のパブリックインスタンスを実行する組織です。たとえば、The Trade Desk は現在、UID2 フレームワークの Public Operator として機能しており、すべての参加者が利用できます。</dd>
+<dd>詳細は、<a href="../ref-info/ref-operators-public-private">The UID2 Operator</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-raw-uid2">Raw UID2</dt>
 <dd>UID2 API または SDK を通じて、ユーザーの <a href="#gl-dii">directly identifying information</a> (メールアドレスまたは電話番号)を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。raw UID2 は一意な値であり、同じ UID2 は2つとありません。raw  UID2 とそれに関連付けられた UID2 Token は、大文字と小文字を区別します。</dd>
