@@ -270,3 +270,7 @@
     }
   }
 }
+
+.no-wrap-table-code table code {
+  white-space: nowrap;
+}
