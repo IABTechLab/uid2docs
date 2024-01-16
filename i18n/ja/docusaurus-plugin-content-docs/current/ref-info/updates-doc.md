@@ -9,6 +9,16 @@ sidebar_position: 06
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: UID2 Operator Page
+
+3 January 2024
+
+あけましておめでとうございます！
+
+UID2 Operator が何をするのか、Public Operator と Private Operator の違いについて説明したリファレンスコンテンツを追加しました。
+
+詳細は、[The UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
+
 ### New: UID2 Private Operator for Azure Integration Guide
 
 30 November 2023
