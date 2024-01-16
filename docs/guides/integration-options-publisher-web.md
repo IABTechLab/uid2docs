@@ -100,7 +100,7 @@ The following table summarizes the options for publishers who want to generate t
 | Option | Documentation |
 | :--- | :--- |
 | Prebid.js client-side implementation (8.21.0 or later) | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
-| UID2 SDK for JavaScript, client-side implementation | [JavaScript Express Integration Guide](publisher-client-side.md) |
+| UID2 SDK for JavaScript, client-side implementation | [Client-Side Integration Guide for JavaScript](publisher-client-side.md) |
 
 ### Server-Side Integration Options
 
@@ -116,7 +116,7 @@ The following table summarizes the options for publishers who want to generate t
 
 | Option | Documentation |
 | :--- | :--- |
-| UID2 SDK for JavaScript, server-side implementation | [JavaScript Standard Integration Guide](integration-javascript-standard.md) |
+| UID2 SDK for JavaScript, server-side implementation | [Server-Side Integration Guide for JavaScript](integration-javascript-standard.md) |
 | UID2 SDK for Java | - [Publisher Integration Guide, Server-Only](custom-publisher-integration.md)<br/>- [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) |
 | UID2 SDK for Python | - [Publisher Integration Guide, Server-Only](custom-publisher-integration.md)<br/>- [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md)  |
 | Direct integration (API endpoints) | [Publisher Integration Guide, Server-Only](custom-publisher-integration.md) |
@@ -133,8 +133,8 @@ The following table shows the integration options that support refreshing the UI
 | :--- | :--- |
 | Prebid.js client-side implementation (8.21.0 or later) | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
 | Prebid.js server-side implementation (7.53.0 or later) | [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md) |
-| UID2 SDK for JavaScript, client-side implementation | [JavaScript Express Integration Guide](publisher-client-side.md) |
-| UID2 SDK for JavaScript, server-side implementation | [JavaScript Standard Integration Guide](integration-javascript-standard.md) |
+| UID2 SDK for JavaScript, client-side implementation | [Client-Side Integration Guide for JavaScript](publisher-client-side.md) |
+| UID2 SDK for JavaScript, server-side implementation | [Server-Side Integration Guide for JavaScript](integration-javascript-standard.md) |
 | UID2 SDK for Java | - [Publisher Integration Guide, Server-Only](custom-publisher-integration.md)<br/>- [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) |
 | UID2 SDK for Python | - [Publisher Integration Guide, Server-Only](custom-publisher-integration.md)<br/>- [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md)  |
 | Direct integration (API endpoints) | [Publisher Integration Guide, Server-Only](custom-publisher-integration.md) |
@@ -177,7 +177,7 @@ The following table summarizes the advantages of each integration option.
 | Option | Client/Server | Advantages | Documentation |
 | :--- |  :--- | :--- | :--- |
 | Prebid.js 8.21.0 or later | Client | <ul><li>No server-side coding needed.</li><li>Fast and easy implementation.</li></ul> | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
-| UID2 JavaScript SDK + Prebid.js 7.53.0 or later | Client | <ul><li>No need to upgrade to the latest Prebid version.</li><li>Easier to manage latency with a server-side implementation.</li><li>The JavaScript SDK takes care of generating and refreshing the token, and Prebid takes care of sending the token to the bid stream.</li></ul> | <ul><li>[JavaScript Express Integration Guide](publisher-client-side.md)</li><li>[UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md)</li></ul> |
+| UID2 JavaScript SDK + Prebid.js 7.53.0 or later | Client | <ul><li>No need to upgrade to the latest Prebid version.</li><li>Easier to manage latency with a server-side implementation.</li><li>The JavaScript SDK takes care of generating and refreshing the token, and Prebid takes care of sending the token to the bid stream.</li></ul> | <ul><li>[Client-Side Integration Guide for JavaScript](publisher-client-side.md)</li><li>[UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md)</li></ul> |
 | UID2 SDK for JavaScript | Server | <ul><li>The SDK takes care of generating and refreshing the token.</li><li>Coded in JavaScript.</li></ul> If you use JavaScript, and client-side implementation is not suitable for you, this is your best choice. | [UID2 SDK for JavaScript Reference Guide (2.x and earlier versions)](../sdks/client-side-identity-v2.md) |
 | UID2 SDK for Java | Server | <ul><li>The SDK takes care of generating and refreshing the token.</li><li>Coded in Java.</li></ul> If your server-side coding is Java, and client-side implementation is not suitable for you, this is your best choice. | [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) |
 | UID2 SDK for Python] | Server | <ul><li>The SDK takes care of generating and refreshing the token.</li><li>Coded in Python.</li></ul> If your server-side coding is Python, and client-side implementation is not suitable for you, this is your best choice. | [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md) |
@@ -263,8 +263,8 @@ For details, see:
 | Option | Token Generation managed by | Token Refresh managed by |Passing Token to the Bid Stream |
 | :--- | :--- | :--- | :--- |
 | Prebid.js 8.21.0 or later<br/>[UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) | Prebid.js 8.21.0 or later | Prebid.js 8.21.0 or later | Prebid.js 8.21.0 or later |
-| UID2 JavaScript SDK + <br/>Prebid.js 7.53.0 or later | UID2 JS SDK<br/>[JavaScript Express Integration Guide](publisher-client-side.md) | UID2 JS SDK or Prebid.js 7.53.0 or later | Prebid.js 7.53.0 or later<br/>[UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md) |
-| UID2 SDK for JavaScript<ul><li>[JavaScript Standard Integration Guide](integration-javascript-standard.md)</li><li>[Publisher Integration Guide, Server-Only](custom-publisher-integration.md)</li></ul> | JavaScript SDK | JavaScript SDK |  Publisher's choice. For example, Prebid.js.<br/>[UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md) |
+| UID2 JavaScript SDK + <br/>Prebid.js 7.53.0 or later | UID2 JS SDK<br/>[Client-Side Integration Guide for JavaScript](publisher-client-side.md) | UID2 JS SDK or Prebid.js 7.53.0 or later | Prebid.js 7.53.0 or later<br/>[UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md) |
+| UID2 SDK for JavaScript<ul><li>[Server-Side Integration Guide for JavaScript](integration-javascript-standard.md)</li><li>[Publisher Integration Guide, Server-Only](custom-publisher-integration.md)</li></ul> | JavaScript SDK | JavaScript SDK |  Publisher's choice. For example, Prebid.js.<br/>[UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md) |
 | UID2 SDK for Java<br/>[Publisher Integration Guide, Server-Only](custom-publisher-integration.md) | [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) | [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md)| Publisher's choice.<br/>Can be integrated with Prebid.js. |
 | UID2 SDK for Python<br/> [Publisher Integration Guide, Server-Only](custom-publisher-integration.md)| [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) | [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) | Publisher's choice.<br/>Can be integrated with Prebid.js. |
 | GAM Secure Signals<br/> [xxx](custom-publisher-integration.md)| [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) | [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) | [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) |

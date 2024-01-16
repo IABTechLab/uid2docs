@@ -1,17 +1,17 @@
 ---
-title: JavaScript Express Integration
-sidebar_label: JavaScript Express
-pagination_label: JavaScript Express Integration
-description: Information about integrating with UID2 SDK for JavaScript as part of your UID2 implementation.
+title: Client-Side JavaScript Integration
+sidebar_label: Client-Side Integration, JavaScript
+pagination_label: Client-Side JavaScript
+description: Information about integrating with UID2 SDK for JavaScript as part of your UID2 client-side integration.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-# JavaScript Express Integration Guide
+# Client-Side Integration Guide for JavaScript
 
 This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) using only JavaScript client-side changes on their website with minimum effort.
 
-This guide does not apply to publishers who want to use a [private operator](../ref-info/glossary-uid.md#gl-private-operator), or who want to generate tokens server-side. Those publishers should follow the [JavaScript Standard Integration Guide](integration-javascript-standard.md).
+This guide does not apply to publishers who want to use a [private operator](../ref-info/glossary-uid.md#gl-private-operator), or who want to generate tokens server-side. Those publishers should follow the [Server-Side Integration Guide for JavaScript](integration-javascript-standard.md).
 
 UID2 provides a UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) with the following features:
 

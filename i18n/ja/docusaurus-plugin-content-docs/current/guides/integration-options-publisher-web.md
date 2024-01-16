@@ -73,7 +73,7 @@ The following table summarizes the options for publishers who want to generate t
 | Option | Documentation |
 | :--- | :--- |
 | Prebid.js client-side implementation (8.21.0 or later) | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
-| UID2 SDK for JavaScript, client-side implementation | [JavaScript Express Integration Guide](publisher-client-side.md) |
+| UID2 SDK for JavaScript, client-side implementation | [Client-Side Integration Guide for JavaScript](publisher-client-side.md) |
 
 ### Server-Side Integration Options
 
@@ -87,7 +87,7 @@ The following table summarizes the options for publishers who want to generate t
 
 | Option | Documentation |
 | :--- | :--- |
-| UID2 SDK for JavaScript, server-side implementation | [JavaScript Standard Integration Guide](integration-javascript-standard.md) |
+| UID2 SDK for JavaScript, server-side implementation | [Server-Side Integration Guide for JavaScript](integration-javascript-standard.md) |
 | UID2 SDK for Java | - [Publisher Integration Guide, Server-Only](custom-publisher-integration.md)<br/>- [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) |
 | UID2 SDK for Python | - [Publisher Integration Guide, Server-Only](custom-publisher-integration.md)<br/>- [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md)  |
 | Direct integration (API endpoints) | [Publisher Integration Guide, Server-Only](custom-publisher-integration.md) |
@@ -104,8 +104,8 @@ The following table shows the integration options that support refreshing the UI
 | :--- | :--- |
 | Prebid.js client-side implementation (8.21.0 or later) | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
 | Prebid.js server-side implementation (7.53.0 or later) | [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md) |
-| UID2 SDK for JavaScript, client-side implementation | [JavaScript Express Integration Guide](publisher-client-side.md) |
-| UID2 SDK for JavaScript, server-side implementation | [JavaScript Standard Integration Guide](integration-javascript-standard.md) |
+| UID2 SDK for JavaScript, client-side implementation | [Client-Side Integration Guide for JavaScript](publisher-client-side.md) |
+| UID2 SDK for JavaScript, server-side implementation | [Server-Side Integration Guide for JavaScript](integration-javascript-standard.md) |
 | UID2 SDK for Java | - [Publisher Integration Guide, Server-Only](custom-publisher-integration.md)<br/>- [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) |
 | UID2 SDK for Python | - [Publisher Integration Guide, Server-Only](custom-publisher-integration.md)<br/>- [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md)  |
 | Direct integration (API endpoints) | [Publisher Integration Guide, Server-Only](custom-publisher-integration.md) |

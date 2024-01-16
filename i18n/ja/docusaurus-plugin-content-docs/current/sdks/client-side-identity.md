@@ -26,8 +26,8 @@ UID2 ID Module([UID2 Integration Overview for Prebid.js](../guides/integration-p
 
 関連情報:
 - コンテンツパブリッシャーのインテグレーションステップについては、以下を参照してください:
-  - [JavaScript Express Integration Guide](../guides/publisher-client-side.md).
-  - [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md). 
+  - [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
+  - [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-standard.md). 
 - アプリケーションのサンプルと関連文書については、以下を参照してください:
   - SDK v3を使用したUID2 Google ESPのサンプル:
     - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3) と [running site](https://esp-jssdk-integ.uidapi.com/).
@@ -108,7 +108,7 @@ SDK を使用して UID2 ID を確立するための Client-Side ワークフロ
 	- Advertising Token が利用可能な場合、それを使用してターゲティング広告のリクエストを開始する。
 	- Advertising Token が利用可能でない場合は、ターゲティング広告を使用しないか、同意フォームを使用してユーザーを UID2 ログインにリダイレクトします。
 
-より詳細な Web インテグレーションの手順については、[JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照してください。
+より詳細な Web インテグレーションの手順については、[Server-Side Integration Guide for JavaScript](../guides/integration-javascript-standard.md) を参照してください。
 
 ### Background Token Auto-Refresh
 
