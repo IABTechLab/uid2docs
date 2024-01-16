@@ -9,6 +9,14 @@ sidebar_position: 06
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: Web Integration Overview for Publishers
+
+16 January 2024
+
+We've added a new page summarizing the web integration options available to publishers integrating with UID2.
+
+For details, see [Web Integration Overview](../guides/integration-options-publisher-web.md).
+
 ### New: UID2 Operator Page
 
 3 January 2024
@@ -16,6 +24,8 @@ Check out the latest updates to our UID2 documentation resources.
 We've added a reference article explaining what the UID2 Operator does and the differences between a Public Operator and a Private Operator.
 
 For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
+
+<!-- ## 2023 Updates -->
 
 ### New: UID2 Integration Overview for Prebid.js
 
