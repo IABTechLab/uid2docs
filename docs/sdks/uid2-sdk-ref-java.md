@@ -25,6 +25,7 @@ You can use the UID2 SDK for Java on the server side to facilitate the following
   - [Response Content](#response-content)
   - [Response Statuses](#response-statuses)
 * [FAQs](#faqs)
+- [Usage for Publishers](#usage-for-publishers) 
 * [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
 
 ## Overview
@@ -102,6 +103,183 @@ Available information returned through the SDK is outlined in the following tabl
 | `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
 | `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
 
+-------------------------------------------copy begin-----------------------------------------------
+
+Copy from: https://github.com/IABTechLab/uid2-client-java#usage-for-publishers
+
+## Usage for Publishers
+
+As a publisher, there are two ways to use the UID2 SDK for Java: 
+1. [**Basic Usage**](#basic-usage) is for publishers who want to use this SDK's HTTP implementation (synchronous [OkHttp](https://square.github.io/okhttp/)).
+2. [**Advanced Usage**](#advanced-usage) is for publishers who prefer to use their own HTTP library. 
+
+For an example application that demonstrates both Basic and Advanced usage, see [Java UID2 Integration Example](https://github.com/UnifiedID2/uid2-examples/tree/main/publisher/uid2-java-test-site#readme).
+
+### Basic Usage
+
+If you're using the SDK's HTTP implementation, follow these steps.
+
+1. Create an instance of `PublisherUid2Client` as an instance variable:
+
+   ```java
+   private final PublisherUid2Client publisherUid2Client = new PublisherUid2Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+   ```
+
+2. Call a function that takes the user's email address or phone number as input and generates a `TokenGenerateResponse` object. The following example uses an email address:
+   ```java
+   TokenGenerateResponse tokenGenerateResponse = publisherUid2Client.generateTokenResponse(TokenGenerateInput.fromEmail(emailAddress).doNotGenerateTokensForOptedOut());
+   ```
+
+   :::important
+   <ul><li>Be sure to call this function only when you have obtained legal basis to convert the user’s [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to UID2 tokens for targeted advertising.</li></ul>
+   
+   <ul><li>Always apply `doNotGenerateTokensForOptedOut()`. This applies `policy=1` in the [/token/generate](../endpoints/post-token-generate.md#token-generation-policy) call. Support for `policy=0` will be removed soon. (**GWH_SW01 to adjust this here + in the repo pending input. Readme line 53**)</li></ul>
+   :::
+
+#### Standard Integration
+
+If you're using standard integration (client and server) (see [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md)), follow this step: (**GWH_SW02 not sure is this doc link correct, should we link to the client doc, or to both? Same in repo.**)
+
+* Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)), using the following:
+
+   ```java
+   tokenGenerateResponse.getIdentityJsonString()
+   ```
+
+   :::note
+   If the user has opted out, this method returns `null`, so be sure to handle that case.
+   :::
+
+
+#### Server-Only Integration
+
+If you're using server-only integration (see [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md)), follow these steps:
+
+1. Store this identity as a JSON string in the user's session, using the `tokenGenerateResponse.getIdentityJsonString()` function.
+
+   If the user has opted out, this method returns `null`, so be sure to handle that case.
+
+2. To retrieve the user's UID2 token, use the following:
+
+   ```java
+   IdentityTokens identity = tokenGenerateResponse.getIdentity();
+   if (identity != null) { String advertisingToken = identity.getAdvertisingToken(); }
+   ```
+3. When the user accesses another page, or on a timer, determine whether a refresh is needed:
+   1. Retrieve the identity JSON string from the user's session, and then call the following function that takes the identity information as input and generates an `IdentityTokens` object:
+
+      ```java
+      IdentityTokens identity = IdentityTokens.fromJsonString(identityJsonString);
+      ```
+   2. Determine if the identity can be refreshed (that is, the refresh token hasn't expired):
+
+      ```java
+      if (identity == null || !identity.isRefreshable()) { we must no longer use this identity (for example, remove this identity from the user's session) }
+      ```
+   3. Determine if a refresh is needed:
+
+      ```java
+      if (identity.isDueForRefresh()) {..}
+      ```
+4. If needed, refresh the token and associated values:
+ 
+   ```java
+   TokenRefreshResponse tokenRefreshResponse = publisherUid2Client.refreshToken(identity);
+   ```
+ 
+5. Store `tokenRefreshResponse.getIdentityJsonString()` in the user's session.
+
+   If the user has opted out, this method returns `null`, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `tokenRefreshResponse.isOptout()` function.
+
+### Advanced Usage
+
+1. Create an instance of `PublisherUid2Helper` as an instance variable:
+
+    ```java
+    private final PublisherUid2Helper publisherUid2Helper = new PublisherUid2Helper(UID2_SECRET_KEY);
+    ```
+2. Call a function that takes the user's email address or phone number as input and creates a secure request data envelope. See [Encrypting requests](../getting-started/gs-encryption-decryption.md#encrypting-requests). The following example uses an email address:
+
+    ```java
+    EnvelopeV2 envelope = publisherUid2Helper.createEnvelopeForTokenGenerateRequest(TokenGenerateInput.fromEmail(emailAddress).doNotGenerateTokensForOptedOut());
+    ```
+3. Using an HTTP client library of your choice, post this envelope to the [POST token/generate](../endpoints/post-token-generate.md) endpoint, including headers and body:
+   1. Headers: Depending on your HTTP library, this might look something like the following:  
+    
+      `.putHeader("Authorization", "Bearer " + UID2_API_KEY)`  
+      `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHeader())`
+   2. Body: `envelope.getEnvelope()`
+   :::important
+   - Be sure to call this endpoint only when you have obtained legal basis to convert the user’s [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to UID2 tokens for targeted advertising.
+
+   - Always apply `doNotGenerateTokensForOptedOut()`. This applies `policy=1` in the [/token/generate](../endpoints/post-token-generate.md#token-generation-policy) call. Support for `policy=0` will be removed soon. (**GWH_SW03 same comment as earlier occurrence.**)
+   :::
+
+4. If the HTTP response status code is _not_ 200, see [Response Status Codes](../endpoints/post-token-generate.md#response-status-codes) to determine next steps. Otherwise, convert the UID2 identity response content into a `TokenGenerateResponse` object:
+
+   ```java
+   TokenGenerateResponse tokenGenerateResponse = publisherUid2Helper.createTokenGenerateResponse({response body}, envelope);
+   ```
+
+#### Standard Integration
+
+If you're using standard integration (client and server) (see [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md)): (**GWH_SW04 should this link to the client-side doc?**)
+
+* Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)) using the following:
+
+    ```java
+    tokenGenerateResponse.getIdentityJsonString()
+    ```
+
+    :::caution
+    This method returns null if the user has opted out, so be sure to handle that case.
+    :::
+
+#### Server-Only Integration
+
+If you're using server-only integration (see [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md)):
+
+1. Store this identity as a JSON string in the user's session, using: `tokenGenerateResponse.getIdentityJsonString()`.
+
+   This method returns null if the user has opted out, so be sure to handle that case.
+2. To retrieve the user's UID2 token, use:
+
+   ```java
+   IdentityTokens identity = tokenGenerateResponse.getIdentity();
+   if (identity != null) { String advertisingToken = identity.getAdvertisingToken(); }
+   ```
+
+3. When the user accesses another page, or on a timer, determine whether a refresh is needed:
+   1. Retrieve the identity JSON string from the user's session, and then call the following function that generates an `IdentityTokens` object:
+   
+       ```java
+       IdentityTokens identity = IdentityTokens.fromJsonString(identityJsonString);
+       ```
+   2. Determine whether the identity can be refreshed (that is, the refresh token hasn't expired): 
+    
+      ```java
+      if (identity == null || !identity.isRefreshable()) { we must no longer use this identity (for example, remove this identity from the user's session) }
+      ```
+   3. Determine whether a refresh is needed:
+   
+      ```java
+      if (identity.isDueForRefresh()) {..}
+      ```
+4. If a refresh is needed, call the [POST token/refresh](../endpoints/post-token-refresh.md) endpoint, with the following:
+   1. Headers: Depending on your HTTP library, this might look something like the following:
+    
+      `.putHeader("Authorization", "Bearer " + UID2_API_KEY)`  
+      `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHeader())`. 
+   2. Body: `identity.getRefreshToken()`
+5. If the refresh HTTP response status code is 200:
+
+   ```java
+   TokenRefreshResponse tokenRefreshResponse = PublisherUid2Helper.createTokenRefreshResponse({response body}, identity);
+   ```
+6. Store `tokenRefreshResponse.getIdentityJsonString()` in the user's session.
+
+   If the user has opted out, this method returns null, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `tokenRefreshResponse.isOptout()` function.
+
 ## Usage for UID2 Sharers
 
 A UID2 sharer is any participant that wants to share UID2s with another participant. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant. For an example of usage, see [com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` method).
@@ -110,12 +288,12 @@ A UID2 sharer is any participant that wants to share UID2s with another particip
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for Java, either as a sender or a receiver.
 
-1. Create an ```IUID2Client``` reference:
+1. Create a `IUID2Client` reference:
 
    ```java
    IUID2Client client = UID2ClientFactory.create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
    ```
-2. Refresh once at startup, and then periodically. Recommended refresh interval is hourly: for details, see [Best Practices for Managing UID2 Tokens](../sharing/sharing-best-practices#key-refresh-cadence).
+2. Refresh once at startup, and then periodically. Recommended refresh interval is hourly: for details, see [Best Practices for Managing UID2 Tokens](../sharing/sharing-best-practices.md#key-refresh-cadence).
 
    ```java
    client.refresh();
