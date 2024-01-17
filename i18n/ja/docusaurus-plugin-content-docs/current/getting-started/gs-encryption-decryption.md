@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 # Encrypting Requests and Decrypting Responses
 
 :::note
-パブリッシャーで、クライアント側にUID2を実装している場合、暗号化と復号化は、Prebid.js ([UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください) や JavaScript SDK ([JavaScript Express Integration Guide](../guides/publisher-client-side.md) を参照してください) などの実装によって自動的に行われます。
+パブリッシャーで、クライアント側にUID2を実装している場合、暗号化と復号化は、Prebid.js ([UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください) や JavaScript SDK ([JavaScript Express Integration Guide](../guides/publisher-client-side.md) を参照してください) などの実装によって自動的に管理されます。
 :::
 
 ほとんどすべての UID2 [endpoints](../endpoints/summary-endpoints.md) では、エンドポイントに送られるリクエストは [encrypted](#encrypting-requests) され、エンドポイントからのレスポンスは [decrypted](#decrypting-responses) する必要があります。
