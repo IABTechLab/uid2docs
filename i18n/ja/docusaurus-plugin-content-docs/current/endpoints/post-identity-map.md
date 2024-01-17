@@ -7,7 +7,7 @@ sidebar_position: 08
 
 # POST /identity/map
 
-複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 とソルトバケット ID にマッピングします。
+複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 とソルトバケット ID にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックすることもできます
 
 Used by: このエンドポイントは、主に広告主やデータプロバイダーが使用します。詳細は、[Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md)を参照してください。
 

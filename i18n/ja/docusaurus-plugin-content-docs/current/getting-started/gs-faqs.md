@@ -31,7 +31,7 @@ UID2 フレームワークに関するよくある質問を紹介します。
 
 #### ユーザーは、UID2 ID に関連するターゲティング広告の配信を拒否できますか？
 
-はい。[Transparency and Control Portal](https://www.transparentadvertising.com/)を通して、ユーザーは自分の UID2 ID に関連するターゲティング広告の配信をオプトアウトできます。各リクエストは、UID2 Opt-Opt Service と UID2 Operator を通じて、関連するすべての参加者に配信されます。
+はい。[Transparency and Control Portal](https://www.transparentadvertising.com/)を通して、ユーザーは自分の UID2 ID に関連するターゲティング広告の配信をオプトアウトできます。各リクエストは、UID2 Opt-Opt Service と UID2 Operator を通じて配信され、UID2 Operator はオプトアウト情報を関連するすべての参加者に公開します。
 
 #### オプトアウトポータルにアクセスする場所をユーザーが知るにはどうすればよいですか？
 
@@ -183,9 +183,9 @@ Private Operator を使用している場合を除き、メールアドレス、
 
 #### ユーザーのオプトアウトはどのように処理すればよいですか？
 
-ユーザーが[Transparency and Control Portal](https://www.transparentadvertising.com/)を通じて UID2 ベースのターゲティング広告をオプトアウトすると、オプトアウト信号が DSP とパブリッシャーに送信され、入札時にオプトアウトが処理されます。広告主やデータプロバイダーとして、このシナリオで UID2 オプトアウトを確認する必要はありません。
+ユーザーが [Transparency and Control Portal](https://www.transparentadvertising.com/) を通じて UID2 ベースのターゲティング広告をオプトアウトすると、オプトアウト信号が DSP とパブリッシャーに送信され、DSP とパブリッシャーが入札時にオプトアウトを処理します。広告主やデータプロバイダーは、[POST /identity/map](../endpoints/post-identity-map.md) エンドポイントを通じて、ユーザーがオプトアウトしたかどうかを定期的に確認することを勧めます。
 
-例えば、そのユーザーに対して UID2 を生成しないことを選択することもできます。
+ウェブサイトを通じてユーザーがオプトアウトした場合、オプトアウトを処理するための内部手順に従ってください。たとえば、そのユーザーの UID2 を生成しないことを選択することもできます。
 
 ## FAQs for DSPs
 
