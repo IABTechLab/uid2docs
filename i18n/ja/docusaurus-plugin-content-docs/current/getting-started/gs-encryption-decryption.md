@@ -10,9 +10,13 @@ import TabItem from '@theme/TabItem';
 
 # Encrypting Requests and Decrypting Responses
 
-すべての UID2 [エンドポイント](../endpoints/summary-endpoints.md) は、リクエストの [暗号化](#encrypting-requests) とそれぞれのレスポンスの [復号化](#decrypting-responses) を必要とします。
+:::note
+パブリッシャーで、クライアント側にUID2を実装している場合、暗号化と復号化は、Prebid.js ([UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください) や JavaScript SDK ([JavaScript Express Integration Guide](../guides/publisher-client-side.md) を参照してください) などの実装によって自動的に行われます。
+:::
 
-> NOTE: [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) リクエストは暗号化を必要としません。
+ほとんどすべての UID2 [endpoints](../endpoints/summary-endpoints.md) では、エンドポイントに送られるリクエストは [encrypted](#encrypting-requests) され、エンドポイントからのレスポンスは [decrypted](#decrypting-responses) する必要があります。
+
+唯一の例外は、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントへのリクエストは暗号化する必要がないことです。
 
 UID2 API リクエストの暗号化と各レスポンスの復号化について知っておく必要があるのは、以下のとおりです:
 
