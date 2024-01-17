@@ -93,6 +93,7 @@ sidebar_position: 10
 </tbody>
 </table>  -->
 
+### A
 <dl>
 
 <dt class="jump-anchor" id="gl-advertising-id">Advertising ID</dt>
@@ -112,8 +113,20 @@ sidebar_position: 10
 <dd>Authorization header は、UID2 Service に対してクライアントを認証する方法です。</dd>
 <dd>詳細については、HTTP 仕様の RFC 9110 <a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.authorization">11.6.2. Authorization</a> を参照してください。</dd>
 
+</dl>
+
+### B
+
+<dl>
+
 <dt class="jump-anchor" id="gl-bearer-token">Bearer token</dt>
 <dd>Bearer token はクライアントを識別する特別な文字列です。認証のために、いくつかのUID2 エンドポイントはリクエストの Authorization header で <a href="#gl-client-key">client key</a> を Beare token として指定する必要があります。例えば、<a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> です。</dd>
+
+</dl>
+
+### C
+
+<dl>
 
 <dt class="jump-anchor" id="gl-client-key">Client key</dt>
 <dd><a href="#gl-api-key">API key</a> を参照してください。</dd>
@@ -132,6 +145,12 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-customer-data-platform">Customer Data Platform (CDP)</dt>
 <dd>顧客データ・プラットフォーム (CDP)は、他のシステムからアクセス可能な統一された顧客データベースを作成するための、あらかじめ構築されたパッケージ・ソフトウェア・システムです。CDP は、複数のソースからの顧客データを一元化し、そのデータを他のシステムで利用できるようにします。</dd>
 
+</dl>
+
+### D
+
+<dl>
+
 <dt class="jump-anchor" id="gl-data-provider">Data provider</dt>
 <dd>UID2 のコンテキストでは、データプロバイダーは、データパートナー、測定パートナー、オフライン測定プロバイダーなど、広告に関連するデータおよび測定サービスを提供する事業社を指します。</dd>
 <dd>詳細は <a href="/docs/intro#participants">participant</a> (Data Providers) を参照してください。</dd>
@@ -147,31 +166,70 @@ sidebar_position: 10
 <dd>Docker は Platform as a Service (PaaS)製品群で、コンテナと呼ばれるパッケージを介してソフトウェアのデプロイを自動化するために使用します。Docker 製品群は、アプリケーションを、そのすべての依存関係とともに、ほとんどのオペレーティング・システム上で実行可能な仮想コンテナにパッケージ化できるため、アプリケーションをさまざまな環境で効率的に動作させることができます。</dd>
 <dd>詳細は、<a href="https://www.docker.com">https://www.docker.com</a> を参照してください。</dd>
 
-<!-- <dt class="jump-anchor" id="gl-docker-build">Docker Build</dt>
-<dd>For details, see <a href="https://docs.docker.com/build/">Overview of Docker Build</a>.</dd> -->
+</dl>
+
+### E
+
+<dl>
 
 <dt class="jump-anchor" id="gl-enclave">Enclave</dt>
 <dd>Enclave は、コンピューティング環境のセキュアなサブセクションです。エンクレーブには追加のビジネスロジックとセキュリティ対策が施され、改ざんできないようになっています。</dd>
 <dd>ID2 のコンテキストでは、 <a href="#gl-private-operator">Private Operator</a> は、Enclave 内かプライベート環境で運用しなければなりません。must run inside an enclave or in a private environment. サポートされるエングレーブのバージョンについては、<a href="../guides/summary-guides#private-operator-service-integrations">Private Operator Service Integrations</a> を参照してください。</dd>
 <dd>Enclave では、オペレータイメージは特殊で、事前に定義されたバージョンでなければならず、セキュリティを確保するために追加の制約が適用されます。</dd>
 
+</dl>
+
+### F
+
+<dl>
+
 <dt class="jump-anchor" id="gl-first-level-hash">First-level hash</dt>
 <dd>UID2 のコンテキストでは、First-level hash は匿名化された不透明で安全な値であり、そこから <a href="#gl-raw-uid2">raw UID2</a>、<a href="#gl-uid2-token">UID2 Token</a>、<a href="#gl-refresh-token">Refresh Token</a>が生成されます。ソルティングやハッシュを含むいくつかの暗号関数が、メールアドレスや電話番号などの初期値に適用され、First-level hash が生成されます。</dd>
+
+</dl>
+
+### H
+
+<dl>
 
 <dt class="jump-anchor" id="gl-hash">Hash</dt>
 <dd>ハッシュ関数は、様々な/任意のサイズのデータセットを固定サイズのデータセットに変換します。ハッシュ関数の結果は、ハッシュ、ダイジェスト、またはハッシュ値と呼ばれます。</dd>
 <dd>ハッシュは一方向性関数です。同じ入力値をハッシュ化すると、常に同じ出力値が得られますが、出力値を受け取って入力値に到達する対応する関数は存在しません。ハッシュはセキュリティ対策です。</dd>
 <dd>UID2 は <a href="#gl-sha-256">SHA-256</a> ハッシュアルゴリズムを使用しています。</dd>
 
+</dl>
+
+### I
+
+<dl>
+
 <dt class="jump-anchor" id="gl-identity">Identity</dt>
 <dd>UID2 のコンテキストでは、「ID」という用語は、UID2 Token、Refresh Token、およびタイムスタンプなどの関連値を含む値のパッケージを指します。この値のセットは、<a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> エンドポイントおよび <a href="../endpoints/post-token-refresh">POST&nbsp;/token/refresh</a> エンドポイントからのレスポンスで返されます。</dd>
+
+</dl>
+
+### J
+
+<dl>
 
 <dt class="jump-anchor" id="gl-json-web-token">JSON Web Token (JWT)</dt>
 <dd>JSON Web Token (JWT) は、Web 上で一方の当事者から別の当事者に送信されるクレーム (情報) を表す、コンパクトで URL セーフな手段です。JWT 内のクレームは、JSON Web Signature (JWS) 構造のペイロードまたは JSON Web Encryption (JWE) 構造のプレーン テキストとして使用される JSON オブジェクトとしてエンコードされます。これにより、クレームにデジタル署名や暗号化を行うことができます。</dd>
 
+</dl>
+
+### N
+
+<dl>
+
 <dt class="jump-anchor" id="gl-normalize">Normalize</dt>
 <dd>データセットを Normalize (正規化)するとは、それを標準的な状態 (Condition)や状態 (State)にすることを意味します。</dd>
 <dd>UID2 には特定の正規化規則があります。詳細については、<a href="../getting-started/gs-normalization-encoding#email-address-normalization">Email Address Normalization</a> と <a href="../getting-started/gs-normalization-encoding#phone-number-normalization">Phone Number Normalization</a> を参照してください。</dd>
+
+</dl>
+
+### O
+
+<dl>
 
 <dt class="jump-anchor" id="gl-open-operator">Open Operator</dt>
 <dd>Open Operator は、<a href="#gl-public-operator">Public Operator</a> の別名です。</dd>
@@ -198,8 +256,14 @@ sidebar_position: 10
 <dd>Opt-Out Service は、ユーザーのオプトアウト要求を管理・保存するグローバルな UID2 Service です。</dd>
 <dd>すべての UID2 Service の概要については、<a href="../intro#components">Components</a> を参照してください。</dd>
 
+</dl>
+
+### P
+
+<dl>
+
 <dt class="jump-anchor" id="gl-participant">Participant</dt>
-<dd>UID2 において重要な役割を果たすエンティティです。参加者には以下が含まれます: Core Administrator、Operator、DSP、データプロバイダー、広告主、パブリッシャー、費者</dd>。
+<dd>UID2 において重要な役割を果たすエンティティです。参加者には以下が含まれます: Core Administrator、Operator、DSP、データプロバイダー、広告主、パブリッシャー、消費者。</dd>
 <dd>詳細については、<a href="../intro#participants">参加者</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-private-operator">Private Operator</dt>
@@ -207,7 +271,7 @@ sidebar_position: 10
 <dd>詳細は、<a href="../ref-info/ref-operators-public-private">The UID2 Operator</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-private-operator-service">Private Operator Service</dt>
-<dd><a href="#gl-private-operator">private Operator</a> が運用する Operator Service のインスタンスです。</dd>
+<dd><a href="#gl-private-operator">Private Operator</a> が運用する Operator Service のインスタンスです。</dd>
 
 <dt class="jump-anchor" id="gl-public-key">Public key</dt>
 <dd>Server-Side のパブリッシャーインテグレーションでは、Public Key はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの 1 つです。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
@@ -215,6 +279,12 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-public-operator">Public Operator</dt>
 <dd>Public <a href="#gl-operator">Operator</a> は、UID2 Operator Service のパブリックインスタンスを実行する組織です。たとえば、The Trade Desk は現在、UID2 フレームワークの Public Operator として機能しており、すべての参加者が利用できます。</dd>
 <dd>詳細は、<a href="../ref-info/ref-operators-public-private">The UID2 Operator</a> を参照してください。</dd>
+
+</dl>
+
+### R
+
+<dl>
 
 <dt class="jump-anchor" id="gl-raw-uid2">Raw UID2</dt>
 <dd>UID2 API または SDK を通じて、ユーザーの <a href="#gl-dii">directly identifying information</a> (メールアドレスまたは電話番号)を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。raw UID2 は一意な値であり、同じ UID2 は2つとありません。raw  UID2 とそれに関連付けられた UID2 Token は、大文字と小文字を区別します。</dd>
@@ -224,6 +294,11 @@ sidebar_position: 10
 <dd>Refresh tokenは、<a href="#gl-uid2-token">UID2 Token</a>とともに発行される不透明な文字列です。<a href="#gl-uid2-token">UID2 token</a> の有効期限を更新するために使用されます。</dd>
 <dd>UID2 Server は、新しい UID2 Token のリクエストとともに Refresh Token を受け取ると、ユーザーの Opt-Out をチェックします。ユーザーが UID2 を Opt-Out している場合、新しい UID2 Token は生成されません。</dd>
 <dd>新しい UID2 Token が生成されて返されると、新しい Refresh Token も一緒に返されます。ただし、ユーザーが長期間活動していない場合は、Refresh Token は期限切れとなります。</dd>
+</dl>
+
+### S
+
+<dl>
 
 <dt class="jump-anchor" id="gl-salt">Salt</dt>
 <dd>メールアドレスや電話番号を、元の値に遡ることができない安全で不透明な値に変換するプロセスで使用される文字列です。</dd>
@@ -259,8 +334,20 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-subscription-id">Subscription ID</dt>
 <dd>Server-Side のパブリッシャーインテグレーションでは、Subscription ID はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの1つです。詳細は、<a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
 
+</dl>
+
+### T
+
+<dl>
+
 <dt class="jump-anchor" id="gl-transparency-and-control-portal">Transparency and Control Portal</dt>
 <dd>UID2 Transparency and Control Portalは、ユーザー向けのウェブサイト <a href="https://www.transparentadvertising.com/">https://www.transparentadvertising.com/</a> で、消費者はいつでもここから UID2 の Opt-Out を選択することができます。</dd>
+
+</dl>
+
+### U
+
+<dl>
 
 <dt class="jump-anchor" id="gl-uid2-framework">UID2 framework</dt>
 <dd>Unified ID 2.0 (UID2)framework は、広告エコシステム全体の多くの参加者 (<a href="../intro#participants">participants</a>)に対し、オープンなインターネット上での広告機会のための決定論的IDを可能にします。パブリッシャーのウェブサイト、モバイルアプリ、コネクテッドTV (CTV)アプリからのログイン体験を可能にし、プログラマティックワークフローによる収益化を実現します。独自の名前空間を持つオープンソースのスタンドアローン・ソリューションとして構築されたこのフレームワークは、透明性とプライバシーを重視しています。</dd>
@@ -288,6 +375,6 @@ sidebar_position: 10
 <dd>"UID2" という用語は、<a href="#gl-uid2-framework">UID2 framework</a>、<a href="#gl-uid2-service">UID2 service</a>、<a href="#gl-raw-uid2">raw UID2</a>、または<a href="#gl-uid2-token">UID2 token</a> (Advertising Token) を意味でも使われます。</dd>
 
 <dt class="jump-anchor" id="gl-utc">UTC</dt>
-<dd>UTC は協定世界時 (Coordinated Universal Time)の略称で、ズールー時間 (Zulu time)とも呼ばれ、一般に使用されている主要な時間基準です。UTC は基本的にグリニッジ標準時 (GMT)に相当しますが、科学的により正確です。</dd>
+<dd>UTC は協定世界時 (Coordinated Universal Time) の略称で、ズールー時間 (Zulu time)とも呼ばれ、一般に使用されている主要な時間基準です。UTC は基本的にグリニッジ標準時 (GMT) に相当しますが、科学的により正確です。</dd>
 
 </dl>

@@ -13,8 +13,6 @@ UID2 ドキュメンテーションリソースの最新アップデートを確
 
 3 January 2024
 
-あけましておめでとうございます！
-
 UID2 Operator が何をするのか、Public Operator と Private Operator の違いについて説明したリファレンスコンテンツを追加しました。
 
 詳細は、[The UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
