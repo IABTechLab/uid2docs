@@ -1,5 +1,5 @@
 ---
-title: SDKs - Summary
+title: SDKs&#8212;Summary
 sidebar_label: SDKs - Summary
 pagination_label: SDKs - Summary
 description: SDK ドキュメントの概要。
@@ -7,7 +7,7 @@ hide_table_of_contents: false
 sidebar_position: 01
 ---
 
-# SDKs: Summary
+# SDKs&#8212;Summary
 
 SDK の機能を確認して使用する SDK を決定し、SDK の表をクリックして参照ドキュメントを確認してください。
 
@@ -15,7 +15,7 @@ SDK の機能を確認して使用する SDK を決定し、SDK の表をクリ�
 
 以下の表は、各 SDK で利用可能な機能をまとめたものです。
 
-| UID2 SDK for... | Client-Side or Server-Side | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Generate Raw UID2 from DII |
+| UID2 SDK for... | Client-Side or Server-Side | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII&ast; | Refresh UID2 Token | Generate Raw UID2 from DII |
 | :--- | :--- |  :--- | :--- | :--- | :--- | :--- |
 |JavaScript | Client| &#10060; | &#10060; | &#10060; | &#9989; | &#10060; |
 |Java | Server | &#9989; | &#9989; | &#9989; | &#9989; | &#10060; |
@@ -25,7 +25,9 @@ SDK の機能を確認して使用する SDK を決定し、SDK の表をクリ�
 |Android | Client&nbsp;(Mobile) | &#10060; | &#10060; | &#10060; | &#9989; | &#10060; |
 |iOS | Client (Mobile)| &#10060; | &#10060; | &#10060; | &#9989; |&#10060; |
 
-<!-- &#9989; = Supported | &#10060; = Not Supported -->
+&ast;DII から raw UID2 を生成する必要がある広告主およびデータプロバイダは Snowflake ([Snowflake Integration Guide](../guides/snowflake_integration.md) を参照してください) または [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを使用することができます。
+
+<!-- &#9989; = Supported | &#10060; = Not Supported | &#8212; = Not Supported -->
 
 ## SDK Documentation
 
