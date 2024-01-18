@@ -56,9 +56,9 @@ Android または iOS デバイスとインテグレーションするパブリ�
 
 | Integration Guide | Content Description |
 | :--- | :--- |
-| [UID2 Integration Overview for Prebid.js](integration-prebid.md) | UID2 とインテグレーションし、RTB ビットストリームで Prebid.js から渡される UID2 Token を生成したいパブリッシャー向けのインテグレーションオプションの概要です。 |
+| [UID2 Integration Overview for Prebid.js](integration-prebid.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid.js から渡される UID2 Token を生成したいパブリッシャー向けのインテグレーションオプションの概要です。 |
 | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) | UID2 と Prebid.js をインテグレーションしたいパブリッシャー向けのインテグレーションガイドです。Prebid.js はトークンの生成とリフレッシュを自動的に管理し、トークンを RTB ビッドストリームに渡します。このガイドは、Client-Side サイドで UID2 Token をリクエストしたいパブリッシャー向けのもので、最も簡単な実装方法です。 |
-| [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) | UID2 とインテグレーションし、RTB ビットストリームで Prebid から渡される ID トークンを生成したいパブリッシャー向けのインテグレーションガイドです。このガイドは、Private Operator を使用しているパブリッシャー、または Server-Side でトークンを生成したいパブリッシャー向けです。 |
+| [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid から渡される ID トークンを生成したいパブリッシャー向けのインテグレーションガイドです。このガイドは、Private Operator を使用しているパブリッシャー、または Server-Side でトークンを生成したいパブリッシャー向けです。 |
 
 ### Google Ad Manager Integrations
 
