@@ -83,9 +83,15 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
+<<<<<<< HEAD
 | Prebid (Overview) | [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md) | UID2 とインテグレーションし、RTB ビットストリームで Prebid.js から渡されるUID2 Token を生成したいパブリッシャー向けのインテグレーションオプションの概要です。 |
 | Prebid Client-Side Integration | [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) | 最も簡単な実装方法であるClient-Side で UID2 Token をリクエストし、Prebid.js に以下を管理させることを選択したいパブリッシャー向けのガイドです: <ul><li>トークンの生成とトークンのリフレッシュ。</li><li>トークンを RTB ビットストリームに渡す。</li></ul> |
 | Prebid Server-Side Integration | [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) | UID2 とインテグレーションし、RTB ビットストリームで Prebid.js から渡される UID2 Token を生成したいが、トークンを Server-Side で生成したいパブリッシャー向けのガイドです: 例えば、Private Operator を利用しているパブリッシャーなど。 |
+=======
+| Prebid | [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md) | UID2 とインテグレーションし、RTB ビットストリームで Prebid.js から渡される UID2 Token を生成したいパブリッシャー向けのインテグレーションオプションの概要です。 |
+| Prebid | [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) | 最も簡単な実装方法である Client-Side で UID2 Token をリクエストし、Prebid.js に以下を管理させることを選択したいパブリッシャー向けのガイドです: <ul><li>トークン生成とトークンリフレッシュ。</li><li>トークンを RTB ビットストリームに渡す。</li></ul> |
+| Prebid | [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) | UID2 とインテグレーションし、RTB ビットストリームで Prebid.js から渡される UID2 Token を生成したいが、トークンを Server-Side で生成したいパブリッシャー向けのガイドです: 例えば、Private Operator を使用しているパブリッシャーなどです。 |
+>>>>>>> origin
 | JavaScript Client-Side Integration | [JavaScript Express Integration Guide](../guides/publisher-client-side.md) | Client-Side の JavaScript の変更だけで UID2 とインテグレーションしたいパブリッシャー向けのガイドで、最も簡単な実装方法です。<br/>UID2 SDK for JavaScript は、トークン生成とトークンリフレッシュを自動的に管理します。 |
 | JavaScript Client-Side Integration | [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) | UID2 SDK for JavaScript を使用し、トークンを Server-Side で生成してパブリッシャーのウェブページに渡す必要がある、標準的なウェブインテグレーションシナリオを網羅したパブリッシャーガイドです。 |
 | Server-Side Integration | [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用しないパブリッシャー向けのガイドです。 |

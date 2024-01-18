@@ -1,5 +1,6 @@
 const sidebars = {
   docs: [
+
     {
       type: 'category',
       label: 'UID2 Overview',
@@ -95,7 +96,8 @@ const sidebars = {
             type: 'category',
             label: 'Web',
             link: {
-              type: 'generated-index',
+              type: 'doc',
+              id: 'guides/integration-options-publisher-web',
             },
             collapsed: true,
             items: [
@@ -108,6 +110,7 @@ const sidebars = {
               'guides/google-ss-integration',
                     ],
           },
+
           {
             type: 'category',
             label: 'Mobile',
