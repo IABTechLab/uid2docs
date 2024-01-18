@@ -23,7 +23,10 @@ This page provides information about normalizing and encoding [directly Identify
 ## Introduction
 When you're taking user information such as an email address, and following the steps to create a raw UID2 and/or a UID2 advertising token, it's very important that you follow all the required steps. Whether you normalize the information or not, whether you hash it or not, follow the steps exactly. By doing so, you can ensure that the UID2 value you create can be securely and anonymously matched up with other instances of online behavior by the same user.
 
->Note: Raw UID2s, and their associated UID2 tokens, are case sensitive. When working with UID2, it's important to pass all IDs and tokens without changing the case. Mismatched IDs can cause ID parsing or token decryption errors.
+:::important
+- Raw UID2s, and their associated UID2 tokens, are case sensitive. When working with UID2, it's important to pass all IDs and tokens without changing the case. Mismatched IDs can cause ID parsing or token decryption errors.
+- If you miss any of the required steps, the output UID2 token value will not match.<br/>For example, let's say a Data Provider sends jane.saoirse@gmail.com to the UID2 Operator, and this normalizes to janesaoirse@gmail.com. Hashing and encoding are applied to that value, and the UID2 token is generated from the result. But, the publisher does not normalize jane.saoirse@gmail.com, so the hashed and encoded value, and the resulting UID2, are different.<br/>In this scenario, because the UID2 does not match other instances for the same user, the publisher risks not capturing that user as it would be seen through other participants. Therefore, it won’t be targetable, most likely resulting in lower advertising revenue.
+:::
 
 ## Types of Directly Identifying Information
 UID2 supports the following types of directly identifying information (DII):
@@ -99,22 +102,14 @@ The example below shows a simple input phone number, and the result as each step
 
 The following table shows examples of original email addresses and the normalized and hashed values.
 
-| Original Value | Normalized | Hashed | Base64-Encoded |
-| :--- | :--- | :--- | :--- |
-| `MyEmail@example.com` | `myemail@example.com` | `TBD` | `TBD` |
-| `My.Email@example.com` | `myemail@example.com` | `TBD` | `TBD` |
-| `MyEmailUID2Example@gmail.com` | `myemailuid2example@gmail.com` | `TBD` | `TBD` |
-| `MyEmailUID2Example+jane@gmail.com` | `myemailuid2example@gmail.com` | `TBD` | `TBD` |
-| `JANEDOE@example.com` | `janedoe@example.com` | `TBD` | `TBD` |
-| `JaneDoe@example.com` | `janedoe@example.com` | `TBD` | `TBD` |
-| `Jane.Doe@example.com` | `janedoe@example.com` | `TBD` | `TBD` |
+Some of the examples show email addresses that include the plus sign (+), with different domains. For `gmail` addresses, the plus sign and following characters, up to the `@` sign, are ignored in normalization. For other domains, these characters are included in the normalized value.
 
-(**GWH_SW: I posted on two lists for additional examples, but these cover all scenarios we've pointed out (except spaces). Do you know of any others?<br/>
-Also, see my two queries to you in direct Slack:<br/>
-1 You say janeSmith+abc@gmail.com ->janeSmith@gmail.com but shouldn't it be janesmith@gmail.com, all lowe case?<br/>
-2 Your example #2, "janeSmith+abc@domainexample.com  -> janesmith+abc@domainexample.com" -- is that a valid email address format?<br/>
-Also:<br/>
-3: How can I get the hashed and encoded values?**)
+| Original Value | Normalized | Hashed and Base64-Encoded |
+| :--- | :--- | :--- |
+| `MyEmail@example.com`<br/>`MYEMAIL@example.com`<br/>`My.Email@example.com` | `myemail@example.com` | Hashed: `16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`<br/>Base64-Encoded: `FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=` |
+| `JANESAOIRSE@example.com`<br/>`JaneSaoirse@example.com`<br/>`Jane.Saoirse@example.com` | `janesaoirse@example.com` | Hashed: `d6670e7a92007f1b5ff785f1fc81e53aa6d3d7bd06bdf5c473cdc7286c284b6d`<br/>Base64-Encoded: `1mcOepIAfxtf94Xx/IHlOqbT170GvfXEc83HKGwoS20=` |
+| `JaneSaoirse+UID2@example.com` | `janesaoirse+uid2@example.com` | Hashed: `6e143668c206593d5ecb8a7b2726af74d948438a5ed75febadcbf4bb58ebc427`<br/>Base64-Encoded: `bhQ2aMIGWT1ey4p7JyavdNlIQ4pe11/rrcv0u1jrxCc=` |
+| `JANE.SAOIRSE@gmail.com`<br/>`Jane.Saoirse@gmail.com`<br/>`JaneSaoirse+UID2@gmail.com` | `janesaoirse@gmail.com` | Hashed: `92ee26057ed9dea2535d6c8b141d48373932476599196e00352254896db5888f`<br/>Base64-Encoded: `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=` |
 
 ## Example Code
 
