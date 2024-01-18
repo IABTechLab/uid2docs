@@ -180,7 +180,7 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
 
 ### Standard Integration
 
-標準のインテグレーション (クライアントとサーバー)を使用している場合 ([[JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照し)、この手順に従ってください:
+標準のインテグレーション (クライアントとサーバー) を使用している場合 ([[JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照し)、この手順に従ってください:
 
 * この identity を以下のように JSON 文字列としてクライアントに送り返します ([identity field](../sdks/client-side-identity.md#initopts-object-void) で使用するため):
 
@@ -206,7 +206,7 @@ server-only インテグレーションを使用している場合 ([Publisher I
    1. ユーザーのセッションから identity の JSON 文字列を取得し、identity 情報を入力として受け取って `IdentityTokens` オブジェクトを生成する以下の関数を呼び出します:
 
       `identity = IdentityTokens.from_json_string(identityJsonString)`
-   2.  identity をリフレッシュできるかどうか (Refresh Token の有効期限が切れていないかどうか)を判断します:
+   2.  identity をリフレッシュできるかどうか (Refresh Token の有効期限が切れていないかどうか) を判断します:
       `if not identity or not identity.is_refreshable(): # we must no longer use this identity (for example, remove this identity from the user's session) `
    3. リフレッシュが必要かどうかを判断する:
       `if identity.is_due_for_refresh()):`
