@@ -226,6 +226,7 @@ const sidebars = {
       collapsed: true,
       items: [
         'ref-info/ref-operators-public-private',
+        'summary-doc-v2',
       ],
     },
 
