@@ -31,11 +31,15 @@ Publisher integrations fall into the following main categories:
 
 The following resources are available for publisher web integrations.
 
+:::tip
+For a detailed summary of web integration options, see [Web Integration Overview](../guides/integration-options-publisher-web.md).
+:::
+
 | Integration Guide | Content Description |
 | :--- | :--- |
 | [UID2 Integration Overview for Prebid.js](integration-prebid.md) | An overview of integration options for publishers who want to integrate with UID2 and generate UID2 tokens to be passed by Prebid.js in the RTB bid stream. |
 | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) | An integration guide for publishers who want to integrate with UID2 and Prebid.js will manage token generation and refresh automatically as well as passing the tokens into the RTB bid stream. This guide is for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach. |
-| [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. This guide is for publishers who are using a private operator or who want to generate tokens server-side. |
+| [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bid stream. This guide is for publishers who are using a private operator or who want to generate tokens server-side. |
 | [JavaScript Express Integration Guide](publisher-client-side.md) | An integration guide for publishers who wants to integrate with UID2 using client-side only JavaScript changes with the easiest implementation approach. UID2 SDK for JavaScript will manage token generation and refresh automatically. |
 | [JavaScript Standard Integration Guide](integration-javascript-standard.md) | This integration guide for publishers covers standard web integration scenarios that use the UID2 SDK for JavaScript and requires token to be generated on the server side and passed to the publishers' web pages. |
 | [Publisher Integration Guide, Server-Only](custom-publisher-integration.md) | This integration guide is for publishers that do not use the UID2 SDK for JavaScript. |
@@ -52,7 +56,7 @@ The following resources are available for publishers integrating with Android or
 
 ### Prebid Integrations
 
-The following resources are available for publisher web integrations.
+The following resources are available for publisher Prebid integrations.
 
 | Integration Guide | Content Description |
 | :--- | :--- |
