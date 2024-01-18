@@ -1,31 +1,31 @@
 ---
 title: Web Integration Overview
-description: Overview of the publisher options for UID2 web integration.
+description: UID2 ウェブインテグレーションにおけるパブリッシャーオプションの概要。
 hide_table_of_contents: false
 sidebar_position: 02
 ---
 
 # Web Integration Overview
 
-As a publisher, there are many ways that you can integrate with UID2 to generate identity tokens to be passed into the RTB bid stream in the context of your web pages.
+パブリッシャーとして、UID2 とインテグレーションしてア ID トークンを生成し、ウェブページのコンテキストで RTB ビッドストリームに渡す方法はたくさんあります。
 
-On this page, you'll find a high-level overview of integration steps and integration options, with links to additional information for each option.
+このページでは、インテグレーションステップとインテグレーションオプションの概要と、各オプションの追加情報へのリンクを紹介します。
 
 ## Key Integration Steps
 
-At a high level, to integrate with UID2, you'll implement these three key activities:
+UID2 とインテグレーションするには、次の 3 つの主要なアクティビティを実装します。
 
 1. [Generate the UID2 token](#generate-the-uid2-token)
 1. [Refresh the UID2 token as needed](#refresh-the-uid2-token)
 1. [Pass the UID2 token into the bid stream](#pass-the-uid2-token-into-the-bid-stream)
 
-There are many ways you can accomplish these key steps. The simplest and fastest implementation is a full client-side implementation using Prebid.js 8.21.0 or later.
+これらの重要なステップを達成する方法はたくさんあります。最もシンプルで高速な実装は、Prebid.js 8.21.0 以降を使用した完全な Client-Side の実装です。
 
 ## Integration Options Summary
 
-The following table summarizes the solutions available for each integration step.
+以下の表は、インテグレーションステップごとに利用可能なソリューションをまとめたものです。
 
-To accomplish all steps, you can combine solutions. For example, you could use the UID2 SDK for JavaScript, client-side, to generate and refresh the token, and Google Ad Manager Secure Signals to pass the token to the bid stream.
+すべてのステップを実行するには、ソリューションを組み合わせることができます。たとえば、Client-Side で UID2 SDK for JavaScript を使用してトークンを生成してリフレッシュし、Google Ad Manager Secure Signals を使用してトークンをビッドストリームに渡すことができます。
 
 | Integration Solution | Generate Token | Refresh Token |Pass Token to the Bid Stream |
 | :--- | :--- | :--- | :--- |
@@ -40,35 +40,35 @@ To accomplish all steps, you can combine solutions. For example, you could use t
 
 <!-- &#9989; = Supported | &#8212; = Not Supported -->
 
-To choose your implementation and get started, follow these steps:
+実装を選択し、開始するには、以下の手順に従ってください:
 
-1. Review the summary of options to generate a UID2 token:
+1. UID2 Token を生成するオプションの概要を確認します:
    - [Client-Side Integration Options](#client-side-integration-options)
    - [Server-Side Integration Options](#server-side-integration-options)
-1. Review the options to [refresh the UID2 token](#refresh-the-uid2-token).
-1. Review the options to [pass the token into the bid stream](#pass-the-uid2-token-into-the-bid-stream).
-1. Choose the option that's best for you, and then click through to the implementation documentation.
+1. [UID2 Token をリフレッシュする](#refresh-the-uid2-token) オプションを確認します。
+1. [トークンをビッドストリームに渡す](#pass-the-uid2-token-into-the-bid-stream) オプションを確認します。
+1. 最適なオプションを選択し、実装ドキュメントをクリックしてください。
 
 ## Generate the UID2 Token
 
-There are two main paths that you can choose to generate a UID2 token: you can choose to initiate the UID2 token generate request on the client side (in the user's browser) or on the server side.
+UID2 Token を生成するには、主に 2 つの方法があります。Client-Side (ユーザーのブラウザ内) で UID2 Token 生成リクエストを開始するか、Server-Side で UID2 Token 生成リクエストを開始するかです。
 
-Each option has different advantages. Client-side integration is easy and fast; integration using Prebid.js 8.21.0 or later is the easiest and fastest integration option.
+それぞれのオプションには異なる利点があります。Client-Side のインテグレーションは簡単で高速です。Prebid.js 8.21.0 以降を使用したインテグレーションは、最も簡単で高速なインテグレーションオプションです。
 
 :::note
-For all integration options, you can choose to store the UID2 token in local storage or cookie storage.
+すべてのインテグレーションオプションで、UID2 Token をローカルストレージまたはクッキーストレージに保存することを選択できます。
 :::
 
 ### Client-Side Integration Options
 
-Generating the UID2 token on the client side has the following advantages:
+Client-Side で UID2 Token を生成することには、次のような利点があります:
 
-- The code runs on the client side, on the consumer's web page, and no server-side coding is required.
-- There is a Prebid integration that handles all functions for you&#8212;token generation, token refresh, and passing the token into the bid stream. If you use Prebid 8.21.0 or later, this is the simplest and fastest implementation option.
+- コードは消費者のウェブページ上の Client-Side で実行され、Server-Side のコーディングは必要ありません。
+- トークンの生成、トークンのリフレッシュ、トークンのビッドストリームへの受け渡しなど、すべての機能を処理する Prebid インテグレーションがあります。Prebid 8.21.0 以降を使用している場合、これが最もシンプルで高速な実装オプションです。
 
-If you choose a client-side integration, you'll need to provide a list of your top-level domains, for security purposes, as part of account setup. For details, see [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers) on the Account Setup page.
+Client-Side のインテグレーションを選択した場合、アカウント設定の一環として、セキュリティのためにトップレベルドメインのリストを提供する必要があります。詳細については、アカウント設定ページの [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers) を参照してください。
 
-The following table summarizes the options for publishers who want to generate the UID2 token on the client side, via the web page, with corresponding documentation resources.
+以下の表は、Client-Side で UID2 Token を生成したいパブリッシャーが、ウェブページから UID2 Token を生成するためのオプションと、それに対応するドキュメントリソースをまとめたものです。
 
 | Option | Documentation |
 | :--- | :--- |
@@ -77,13 +77,13 @@ The following table summarizes the options for publishers who want to generate t
 
 ### Server-Side Integration Options
 
-Generating the UID2 token on the server side has the following advantages:
+Server-Side で UID2 Token を生成することには、次のような利点があります:
 
-- You can keep your [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) entirely on the server side.
-- If your development resources are back-end developers, you might prefer a server-side integration.
-- For server-side Prebid integration, there is no requirement to update to the latest Prebid version, as long as your version is 7.53.0 or later.
+- [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を完全に Server-Side に置いておくことができます。
+- 開発リソースがバックエンド開発者であれば、Server-Side のインテグレーションを好むかもしれません。
+- Server-Side の Prebid インテグレーションでは、バージョンが 7.53.0 以降であれば、最新の Prebid バージョンにアップデートする必要はありません。
 
-The following table summarizes the options for publishers who want to generate the UID2 token on the server side.
+以下の表は、Server-Side で UID2 Token を生成したいパブリッシャー向けのオプションをまとめたものです。
 
 | Option | Documentation |
 | :--- | :--- |
@@ -94,11 +94,11 @@ The following table summarizes the options for publishers who want to generate t
 
 ## Refresh the UID2 Token
 
-For security reasons, the UID2 token has a limited life, but there is a built-in mechanism to refresh the token so that you can still use it.
+セキュリティ上の理由から、UID2 Token の寿命は限られていますが、トークンをリフレッシュするメカニズムが組み込まれているので、続けて使用することができます。
 
-When you get the token, it comes with a refresh token and a time stamp indicating how long the token is valid for. As long as you use the refresh token to generate a new UID2 token before the current UID2 token expires, you'll get a new UID2 token and an updated refresh token each time. You can continue to refresh to keep the information valid.
+トークンを取得すると、Refresh Token と、トークンの有効期間を示すタイムスタンプが付いてきます。現在の UID2 Token の有効期限が切れる前に Refresh Token を使って新しい UID2 Token を生成すれば、毎回新しい UID2 Token と更新されたリフレッシュトークンが発行されます。情報を有効に保つためにリフレッシュを続けることができます。
 
-The following table shows the integration options that support refreshing the UID2 token.
+次の表は、UID2 Token のリフレッシュをサポートするインテグレーションオプションをまとめたものです。
 
 | Option | Documentation |
 | :--- | :--- |
@@ -112,9 +112,9 @@ The following table shows the integration options that support refreshing the UI
 
 ## Pass the UID2 Token Into the Bid Stream
 
-Publishers use UID2s by encrypting DII (email addresses or phone numbers) into UID2 tokens and then sending the UID2 tokens into the bid stream.
+パブリッシャーは、DII（メールアドレスや電話番号）を UID2 Token に暗号化し、UID2 Token をビッドストリームに送信することで UID2 を使用します。
 
-The following table shows integration options that support passing UID2 token into the bid stream.
+以下の表は、UID2 Token をビッドストリームに渡すことをサポートするインテグレーションオプションをまとめたものです。
 
 | Option | Documentation |
 | :--- | :--- |
@@ -123,5 +123,5 @@ The following table shows integration options that support passing UID2 token in
 | Google Ad Manager Secure Signals| [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) |
 
 :::note
-As long as you generate the token and keep it refreshed, you can also use other options for passing the UID2 token into the bid stream.
+トークンを生成し、それをリフレッシュし続ける限り、UID2 Token をビッドストリームに渡すために他のオプションを使用することもできます。
 :::
