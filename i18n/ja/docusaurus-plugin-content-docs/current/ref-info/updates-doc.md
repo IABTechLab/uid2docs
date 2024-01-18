@@ -9,6 +9,14 @@ sidebar_position: 06
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: Web Integration Overview for Publishers
+
+16 January 2024
+
+UID2 とインテグレーションするパブリッシャーが利用できるウェブインテグレーションオプションをまとめた新しいページを追加しました。
+
+詳細は、[Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
+
 ### New: UID2 Operator Page
 
 3 January 2024
@@ -16,6 +24,8 @@ UID2 ドキュメンテーションリソースの最新アップデートを確
 UID2 Operator が何をするのか、Public Operator と Private Operator の違いについて説明したリファレンスコンテンツを追加しました。
 
 詳細は、[The UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
+
+<!-- ## 2023 Updates -->
 
 ### New: UID2 Private Operator for Azure Integration Guide
 
