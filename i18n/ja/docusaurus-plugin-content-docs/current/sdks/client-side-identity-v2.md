@@ -121,7 +121,7 @@ Token の Auto-refresh について知っておくべきことは以下のとお
 	- リフレッシュが成功するたびに呼び出されます。
 	- 有効期限が切れた Advertising Token のリフレッシュに最初に失敗した場合。
 	- 例えば、ユーザーがオプトアウトした場合などです。<br/>NOTE: ID が一時的に利用できず、自動更新が失敗し続ける場合、コールバックは呼び出されません。この場合、SDK は既存の Advertising Token を使用し続けます。
-- [disconnect()](#disconnect-void) 呼び出しははアクティブなタイマーをキャンセルします。
+- [disconnect()](#disconnect-void) 呼び出しはアクティブなタイマーをキャンセルします。
 
 
 ## API Reference
