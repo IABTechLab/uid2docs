@@ -81,7 +81,9 @@ The following resources are available for publishers to implement UID2:
 
 The following resources are available for publisher web integrations.
 
+:::tip
 For a detailed summary of web integration options, see [Web Integration Overview](../guides/integration-options-publisher-web.md).
+:::
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
