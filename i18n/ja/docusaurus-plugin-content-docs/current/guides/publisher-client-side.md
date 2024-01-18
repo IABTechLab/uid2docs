@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 このガイドは [Private Operator](../ref-info/glossary-uid.md#gl-private-operator) を使いたいパブリッシャーや、Server-Side でトークンを生成したいパブリッシャーには適用されません。それらのパブリッシャーは [JavaScript Standard Integration Guide](integration-javascript-standard.md) に従う必要があります。
 
-UID2 は、以下の機能を備えた UID2 SDK for JavaScript([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください)を提供しています:
+UID2 は、以下の機能を備えた UID2 SDK for JavaScript([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) を提供しています:
 
 - UID2 Token 生成
 - UID2 Token 自動リフレッシュ
@@ -53,7 +53,7 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 
 アカウント設定ページに記載されている手順に従って、UID2 アカウントの設定を完了してください。アカウント設定プロセスの一環として、この UID2 SDK for JavaScript で使用するサイトのドメイン名のリストを提供する必要があります。
 
-アカウントのセットアップが完了すると、Publicc Key(公開鍵)とSubesciption ID(サブスクリプション ID)が発行されます。これらの値はアカウント固有のもので、UID2 モジュールの設定に使用します。
+アカウントのセットアップが完了すると、Publicc Key(公開鍵) とSubesciption ID(サブスクリプション ID) が発行されます。これらの値はアカウント固有のもので、UID2 モジュールの設定に使用します。
 
 :::tip
 アカウント設定に必要なのは、ルートレベルのドメインだけです。例えば、JavaScript 用の UID2 SDK を example.com、shop.example.com、example.org で使用する場合、ドメイン名 example.com と example.org を指定するだけです。
@@ -122,7 +122,7 @@ UID2 テスト環境からのトークンは、ビッドストリームに渡し
 
 Base URL のリストについては、[Environments](../getting-started/gs-environments.md) を参照してください。
 
-パブリッシャーは base URL を `https://global.prod.uidapi.com` に設定することもできます。この URL は読者(サイト利用者)を地理的に近い地域に誘導します。読者が地理的に分散している場合に最適です。
+パブリッシャーは base URL を `https://global.prod.uidapi.com` に設定することもできます。この URL は読者(サイト利用者) を地理的に近い地域に誘導します。読者が地理的に分散している場合に最適です。
 別の UID2 サーバーを指定するには、`init` 呼び出しで変更できます:
 
 ```js
@@ -139,7 +139,7 @@ UID2 は、Client-Side のトークン生成機能を使用するために必要
 
 パブリッシャーのテスト環境用に 1 セット、本番環境用に別のセットを用意します。
 
-SDK を設定するには、アカウントセットアップ時に受け取った **public key** と **subscription ID**、およびユーザーのハッシュ化またはハッシュ化していない [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号)を含むオブジェクトを指定して、以下のメソッドのいずれかを呼び出します:
+SDK を設定するには、アカウントセットアップ時に受け取った **public key** と **subscription ID**、およびユーザーのハッシュ化またはハッシュ化していない [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) を含むオブジェクトを指定して、以下のメソッドのいずれかを呼び出します:
 
 *  `__uid2.setIdentityFromEmail`
 *  `__uid2.setIdentityFromEmailHash`

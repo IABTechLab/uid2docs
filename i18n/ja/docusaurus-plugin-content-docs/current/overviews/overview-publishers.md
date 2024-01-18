@@ -36,7 +36,7 @@ UID2 とインテグレーションすることで得られるメリットの一
    - メールアドレスまたは電話番号を受け取ります。
    - ソルト化、ハッシュ化、暗号化処理を行います。
    - UID2 Token を返します。
-5. パブリッシャーが UID2 Token を保存し、リアルタイムびっディングの際に SSP と共有します。
+5. パブリッシャーが UID2 Token を保存し、リアルタイムビディングの際に SSP と共有します。
    - Server-Side: パブリッシャーは、トークンをマッピングテーブル、DMP、データレイク、またはその他の Server-Side アプリケーションに格納します。
    - Client-Side: パブリッシャーは、トークンを Client-Side アプリ、またはファーストパーティクッキーとしてユーザーのブラウザに保存します。
 6. パブリッシャーが UID2 Token をストレージから取得します。
@@ -89,7 +89,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 | JavaScript Client-Side Integration | [JavaScript Express Integration Guide](../guides/publisher-client-side.md) | Client-Side の JavaScript の変更だけで UID2 とインテグレーションしたいパブリッシャー向けのガイドで、最も簡単な実装方法です。<br/>UID2 SDK for JavaScript は、トークン生成とトークンリフレッシュを自動的に管理します。 |
 | JavaScript Client-Side Integration | [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) | UID2 SDK for JavaScript を使用し、トークンを Server-Side で生成してパブリッシャーのウェブページに渡す必要がある、標準的なウェブインテグレーションシナリオを網羅したパブリッシャーガイドです。 |
 | Server-Side Integration | [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用しないパブリッシャー向けのガイドです。 |
-| Publisher/SSP Integration with GAM | [Google Ad Manager Secure Signals Integration Guide](../guides/google-ss-integration.md) | パブリッシャーが UID2 を Google Ad Manager のセキュアシグナル機能（旧称: Encrypted Signals for Publishers、ESP）で使用する際に必要な追加手順について説明したガイドです。 |
+| Publisher/SSP Integration with GAM | [Google Ad Manager Secure Signals Integration Guide](../guides/google-ss-integration.md) | パブリッシャーが UID2 を Google Ad Manager のセキュアシグナル機能(旧称: Encrypted Signals for Publishers、ESP) で使用する際に必要な追加手順について説明したガイドです。 |
 
 ### Mobile Integrations
 
@@ -116,7 +116,7 @@ Google Ad Manager とインテグレーションするパブリッシャーに�
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
-| Publisher/SSP Integration with GAM | [Google Ad Manager Secure Signals Integration Guide](../guides/google-ss-integration.md) | パブリッシャーが UID2 を Google Ad Manager のセキュアシグナル機能(旧称: Encrypted Signals for Publishers、ESP)で使用する際に必要な追加手順について説明したガイドです。 |
+| Publisher/SSP Integration with GAM | [Google Ad Manager Secure Signals Integration Guide](../guides/google-ss-integration.md) | パブリッシャーが UID2 を Google Ad Manager のセキュアシグナル機能(旧称: Encrypted Signals for Publishers、ESP) で使用する際に必要な追加手順について説明したガイドです。 |
 | GMA for Android | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) | Google Mobile Ads(GMA)SDK を使用するパブリッシャーが、Android アプリからの広告リクエストに UID2 Token を使うためのガイドです。 |
 | GMA for iOS | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) | Google Mobile Ads (GMA) SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストに UID2 Token を使うためのガイドです。 |
 | IMA for Android | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) | Google Interactive Media Ads (IMA) SDK を使用するパブリッシャーが、Android アプリからの広告リクエストに UID2 Token を使うためのガイドです。 | Publishers |

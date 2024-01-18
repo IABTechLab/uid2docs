@@ -253,7 +253,7 @@ select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTIT
 
 #### Mapping Request Example - Multiple Unhashed Phone Numbers
 
-以下のクエリは、[デフォルトのデータベース名とスキーマ名](#database-and-schema-names)を使用して、複数の電話番号をマップする方法を示しています。
+以下のクエリは、[デフォルトのデータベース名とスキーマ名](#database-and-schema-names) を使用して、複数の電話番号をマップする方法を示しています。
 
 電話番号は UID2 の[電話番号正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) ルールを使って正規化する必要があります。
 
@@ -377,7 +377,7 @@ select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTIT
 
 #### Mapping Request Example - Multiple Hashed Phone Numbers
 
-以下のクエリは、[デフォルトのデータベース名とスキーマ名](#database-and-schema-names)を使用して、複数の電話番号ハッシュをマップする方法を示しています。
+以下のクエリは、[デフォルトのデータベース名とスキーマ名](#database-and-schema-names) を使用して、複数の電話番号ハッシュをマップする方法を示しています。
 
 複数のハッシュ化された電話番号に対する広告主ソリューションのクエリー:
 
@@ -481,7 +481,7 @@ select a.*, b.LAST_SALT_UPDATE_UTC
 
 - 電話番号とハッシュ化された電話番号の両方のマッピングをサポートしています。
 - ユーザーのオプトアウトをサポートしました。
-- `UNMAPPED` という新しいカラムが追加されました。何らかの理由で DII を UID2 にマッピングできない場合、この列にはその理由についての情報が含まれます。詳細については、[Values for the UNMAPPED Column](#values-for-the-unmapped-column)を参照してください。
+- `UNMAPPED` という新しいカラムが追加されました。何らかの理由で DII を UID2 にマッピングできない場合、この列にはその理由についての情報が含まれます。詳細については、[Values for the UNMAPPED Column](#values-for-the-unmapped-column) を参照してください。
 
 このセクションには、新機能へのアップグレードに役立つ以下の情報が含まれています:
 
@@ -525,11 +525,11 @@ FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash')
 
 新しい関数を実装したら、`FN_T_UID2_IDENTITY_MAP`が返す `UNMAPPED` カラムをチェックすることができます。DII が UID2 にマッピングできなかった場合、この列にはその理由が示されます。
 
-値とその説明の詳細については、[Values for the UNMAPPED Column](#values-for-the-unmapped-column)を参照してください。
+値とその説明の詳細については、[Values for the UNMAPPED Column](#values-for-the-unmapped-column) を参照してください。
 
 ## Usage for UID2 Sharers
 
-UID2 sharer とは、UID2 を他の参加者と Sharing (共有)したい参加者のことです。広告主とデータプロバイダーは、Snowflake を介して、UID2 を他の認可された UID2 を sharing する参加者と共有することができます。詳細については、[UID2 Sharing: Overview](../sharing/sharing-overview)を参照してください。
+UID2 sharer とは、UID2 を他の参加者と Sharing (共有)したい参加者のことです。広告主とデータプロバイダーは、Snowflake を介して、UID2 を他の認可された UID2 を sharing する参加者と共有することができます。詳細については、[UID2 Sharing: Overview](../sharing/sharing-overview) を参照してください。
 
 Sharing する参加者は、他の参加者に送信する前に、[raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を暗号化して [UID2 Token](../ref-info/glossary-uid#gl-uid2-token)に変換しなければなりません。
 
@@ -723,7 +723,7 @@ select a.ID, b.UID2, b.SITE_ID, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' E
 
 ### UID2 Sharing Example
 
-以下の手順では、送信者と受信者の両方が Snowflake を使用している場合に、sharing がどのように機能するかの例を示しています。このシナリオ例では、広告主(送信者)が raw UID2 (`AUDIENCE_WITH_UID2`) を持つオーディエンステーブルを持っており、[Snowflake Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) 機能を使ってテーブル内のデータをデータプロバイダー(受信者)が利用できるようにしたいと考えています。
+以下の手順では、送信者と受信者の両方が Snowflake を使用している場合に、sharing がどのように機能するかの例を示しています。このシナリオ例では、広告主(送信者) が raw UID2 (`AUDIENCE_WITH_UID2`) を持つオーディエンステーブルを持っており、[Snowflake Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) 機能を使ってテーブル内のデータをデータプロバイダー(受信者) が利用できるようにしたいと考えています。
 
 #### Sender Instructions
 

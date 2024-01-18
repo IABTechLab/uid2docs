@@ -109,7 +109,7 @@ UID2 の連絡先に、Entity Resolution での UID2 インテグレーション
 
 ## Configure AWS Account
 
-UID2 の参加者は AWS の S3 バケットにデータを保存し、AWS Entity Resolution とインテグレーションします。AWS アカウントを作成したら([Create AWS Account](#create-aws-account)を参照してください。)、基本的な手順は以下の通りです。
+UID2 の参加者は AWS の S3 バケットにデータを保存し、AWS Entity Resolution とインテグレーションします。AWS アカウントを作成したら([Create AWS Account](#create-aws-account) を参照してください。)、基本的な手順は以下の通りです。
 
 >NOTE: 詳細な手順については、AWSドキュメントの [Setting up AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html) を参照してください。
 

@@ -9,7 +9,7 @@ sidebar_position: 08
 
 複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 とソルトバケット ID にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックすることもできます
 
-Used by: このエンドポイントは、主に広告主やデータプロバイダーが使用します。詳細は、[Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md)を参照してください。
+Used by: このエンドポイントは、主に広告主やデータプロバイダーが使用します。詳細は、[Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) を参照してください。
 
 ## Batch Size and Request Parallelization Requirements
 
@@ -19,7 +19,7 @@ Used by: このエンドポイントは、主に広告主やデータプロバ�
 - 大量のメールアドレス、電話番号、またはそれぞれのハッシュをマップするには、1 バッチあたり最大 5,000 アイテムのバッチサイズで、それらを *連続した* バッチで送信してください。
 - バッチを並列で送信しないでください。
 - Private Operator を使用している場合を除き、バッチを並行して送信しないでください。つまり、1 つの HTTP 接続を使用して、[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を連続してマッピングしてください。
-- メールアドレス、電話番号、またはそれぞれのハッシュのマッピングを必ず保存してください。<br/>マッピングを保存しないと、数百万のメールアドレスや電話番号をマッピングする必要がある場合に、処理時間が大幅に増加する可能性があります。しかし、実際に更新が必要なマッピングのみを再計算することで、毎日更新が必要な raw UID2 の数は約 1/365 となり、総処理時間を短縮できます。[Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) と [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers)も参照してください。
+- メールアドレス、電話番号、またはそれぞれのハッシュのマッピングを必ず保存してください。<br/>マッピングを保存しないと、数百万のメールアドレスや電話番号をマッピングする必要がある場合に、処理時間が大幅に増加する可能性があります。しかし、実際に更新が必要なマッピングのみを再計算することで、毎日更新が必要な raw UID2 の数は約 1/365 となり、総処理時間を短縮できます。[Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) と [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) も参照してください。
 
 ## Request Format
 
@@ -171,7 +171,7 @@ echo '{"phone": ["+1111111111", "+2222222222"]}' | python3 uid2_request.py https
 | Property         | Data Type | Description                                                                          |
 | :--------------- | :-------- | :----------------------------------------------------------------------------------- |
 | `identifier`     | string    | リクエストボディで指定されたメールアドレス、電話番号、またはそれぞれのハッシュです。 |
-| `advertising_id` | string    | 対応する Advertising ID (raw UID2)です。                                            |
+| `advertising_id` | string    | 対応する Advertising ID (raw UID2) です。                                            |
 | `bucket_id`      | string    | raw UID2 の生成に使用したソルトバケットの ID です。                                      |
 
 ### Response Status Codes

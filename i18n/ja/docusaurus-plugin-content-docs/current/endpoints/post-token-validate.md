@@ -33,9 +33,9 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `token` | string | Required | [POST&nbsp;/token/generate](post-token-generate.md) レスポンスが返す advertising token です。 |
+| `token` | string | Required | [POST&nbsp;/token/generate](post-token-generate.md) レスポンスが返す Advertising Token です。 |
 | `email` | string | Conditionally Required | トークン検証用のメールアドレスです。<br/>有効な値は `validate@email.com` だけです。 |
-| `email_hash` | string | Conditionally Required | トークン検証用の [正規化された](../getting-started/gs-normalization-encoding.md#email-address-normalization) メールアドレス(`validate@email.com`)の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) ハッシュです。<br/>有効な値は `ntI244ZRTXwAwpki6/M5cyBYW7h/Wq576lnN3l9+W/c=` だけです。 |
+| `email_hash` | string | Conditionally Required | トークン検証用の [正規化された](../getting-started/gs-normalization-encoding.md#email-address-normalization) メールアドレス(`validate@email.com`) の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) ハッシュです。<br/>有効な値は `ntI244ZRTXwAwpki6/M5cyBYW7h/Wq576lnN3l9+W/c=` だけです。 |
 | `phone` | string | Conditionally Required | トークンを生成するための [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号です。<br/>有効な値は`+12345678901` だけです。|
 | `phone_hash` | string | Conditionally Required | [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) ハッシュです。<br/>有効な値は `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=` だけです。|
 

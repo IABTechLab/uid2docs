@@ -34,9 +34,9 @@ UID2 フレームワークは、以下の原則を基本としています:
 
 - **Non-proprietary (universal) standard**: 行動規範に従うことに同意した広告エコシステムのすべての [参加者](#participants) は、UID2 にアクセスできます。
 
-- **Open source**: UID2 の[コンポーネント](#components)のソースコードは一般に公開されています。
+- **Open source**: UID2 の[コンポーネント](#components) のソースコードは一般に公開されています。
 
-- **Interoperable**: このフレームワークにより、他の ID ソリューション (商用およびプロプライエタリ)が UID2 Token をインテグレーションし、提供できるようになります。
+- **Interoperable**: このフレームワークにより、他の ID ソリューション (商用およびプロプライエタリ) が UID2 Token をインテグレーションし、提供できるようになります。
 
 - **Secure and encrypted data**: UID2 は、ユーザーやその他の参加者のデータを保護するために、複数のセキュリティレイヤを利用しています。
 
@@ -52,9 +52,9 @@ UID2 フレームワークは、以下の技術原則に基づいて構築され
 
 - **Lean infrastructure**: UID2 システムは軽量で安価に運用できます。
 
-- **Internet scale**: UID2 インフラは、継続的に増加する[参加者](#participants)のニーズに対応し、特定の地域の性能要求に応えるために拡張できます。
+- **Internet scale**: UID2 インフラは、継続的に増加する[参加者](#participants) のニーズに対応し、特定の地域の性能要求に応えるために拡張できます。
 
-- **Self-reliant**: UID2 は、リアルタイム・ビッディング (RTB)データの処理において外部サービスに依存しません。
+- **Self-reliant**: UID2 は、リアルタイムビディング (RTB) データの処理において外部サービスに依存しません。
 
 ## Elements of the UID2 Infrastructure
 
@@ -67,11 +67,11 @@ UID2 フレームワークは、以下の技術原則に基づいて構築され
 
 ### UID2 Identifier Types
 
-UID2 は、メールアドレスや電話番号など、[directly identifying information (DII)](ref-info/glossary-uid.md#gl-dii) を基にした決定論的な ID です。UID2 には、raw UID2 と UID2 Token (Advertising Token とも呼ばれます)の 2 種類があります。以下の表で、それぞれのタイプについて説明します。
+UID2 は、メールアドレスや電話番号など、[directly identifying information (DII)](ref-info/glossary-uid.md#gl-dii) を基にした決定論的な ID です。UID2 には、raw UID2 と UID2 Token (Advertising Token とも呼ばれます) の 2 種類があります。以下の表で、それぞれのタイプについて説明します。
 
 | ID Type | Shared in Bid Stream? | Description |
 | :--- | :--- | :--- |
-| **Raw UID2** | No | UID2 API または SDK を通じて、ハッシュ化またはハッシュ化されていないメールアドレスや電話番号など、ユーザーの検証可能な個人データを入力として作成される暗号化されていない英数字の識別子です。<br/>元の個人データの再識別を防ぐために、入力値はハッシュ化およびソルト化されて raw UID2 が作成されます。raw UID2 を作成するプロセスは、広告主、第三者データプロバイダー、およびデマンドサイドプラットフォーム (DSP)が保管できる、安全で不透明な値を作成するように設計されています。<br/>raw UID2 は大文字と小文字を区別します。                                                                   |
+| **Raw UID2** | No | UID2 API または SDK を通じて、ハッシュ化またはハッシュ化されていないメールアドレスや電話番号など、ユーザーの検証可能な個人データを入力として作成される暗号化されていない英数字の識別子です。<br/>元の個人データの再識別を防ぐために、入力値はハッシュ化およびソルト化されて raw UID2 が作成されます。raw UID2 を作成するプロセスは、広告主、第三者データプロバイダー、およびデマンドサイドプラットフォーム (DSP) が保管できる、安全で不透明な値を作成するように設計されています。<br/>raw UID2 は大文字と小文字を区別します。                                                                   |
 | **UID2 Token (Advertising Token)** | Yes | raw UID2 を暗号化したものです。UID Token は、ハッシュ化またはハッシュ化されていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、ビッドストリームでの保護を確実にするために暗号化されます。<br/>UID2 Token は、パブリッシャーやパブリッシャーサービスプロバイダーが使用するよう設計されています。<br/>UID2 Token は、パブリッシャーまたはパブリッシャーサービスプロバイダーが使用するように設計されています。サプライサイドプラットフォーム (SSP)はビッドストリームで UID2 Token を渡し、DSP は入札要求時にそれを復号化します。<br/>UID2 Token は大文字と小文字を区別します。 |
 
 ### Components
@@ -119,7 +119,7 @@ UID2 は透明で相互運用可能なアプローチにより、広告エコシ
 
 ## FAQs
 
-[Frequently Asked Questions](getting-started/gs-faqs.md)を参照してください.
+[Frequently Asked Questions](getting-started/gs-faqs.md) を参照してください.
 
 ## License
 

@@ -41,7 +41,7 @@ UID2 Private Operator for AWS を契約することで、以下を利用でき�
 AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデプロイするには、次の手順を実行します:
 
 1. UID2 Operator としてあなたの組織を登録します。
-2. [最小限の権限](#minimal-iam-role-privileges)を持つ[IAM](https://aws.amazon.com/iam/)ロールで AWS アカウントを作成します。
+2. [最小限の権限](#minimal-iam-role-privileges) を持つ[IAM](https://aws.amazon.com/iam/)ロールで AWS アカウントを作成します。
 
 #### Minimal IAM Role Privileges
 
@@ -114,7 +114,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 | Name | Type | Description |
 |:------|:------|:-------------|
-| `KMSKey` | `AWS::KMS::Key` | 秘密暗号化用のキー (設定文字列用)です。 |
+| `KMSKey` | `AWS::KMS::Key` | 秘密暗号化用のキー (設定文字列用) です。 |
 | `SSMKeyAlias` | `AWS::KMS::Alias` | [KMS](https://aws.amazon.com/kms/)キーに簡単にアクセスする方法を提供するエイリアスです。 |
 | `TokenSecret` | `AWS::SecretsManager::Secret` | Operator Key を含む暗号化されたコンフィギュレーションです。 |
 | `WorkerRole` | `AWS::IAM::Role` | UID2 Operator が実行する IAM ロールです。ロールは、設定キーへのアクセスを提供します。 |
@@ -162,11 +162,11 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 8. IAM ロールの作成許可を求められたら、**I acknowledge that AWS CloudFormation might create IAM resources** のチェックボックスを選択します。
 9. **Create stack** をクリックします。
 
-スタックが作成されるまでには数分かかります。作成された Auto Scaling Group (ASG)が表示されたら、それを選択して EC2 インスタンスを確認します (デフォルトでは、開始するインスタンスは１つだけです)。
+スタックが作成されるまでには数分かかります。作成された Auto Scaling Group (ASG) が表示されたら、それを選択して EC2 インスタンスを確認します (デフォルトでは、開始するインスタンスは１つだけです)。
 
 ### Stack Details
 
-以下の画像は、スタックの作成ウィザード ([デプロイ](#deployment) Step 5)の**Specify stack details**ページを示しています。以下の表は、パラメータ値のリファレンスを提供します。
+以下の画像は、スタックの作成ウィザード ([デプロイ](#deployment) Step 5) の**Specify stack details**ページを示しています。以下の表は、パラメータ値のリファレンスを提供します。
 
 ![Application Configuration](images/cloudformation-step-2.png)
 
@@ -188,7 +188,7 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 
 ### Stack Configuration Options
 
-次の図は、スタックの作成ウィザード ([Deployment](#deployment) Step 6)の**スタックオプションの設定**ページを示しています。
+次の図は、スタックの作成ウィザード ([Deployment](#deployment) Step 6) の**スタックオプションの設定**ページを示しています。
 
 ![Configure Stack Options](images/cloudformation-step-3.png)
 

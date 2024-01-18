@@ -103,7 +103,7 @@ sidebar_position: 10
 <dd>Advertising token は <a href="#gl-uid2-token">UID2 token の別名です。</a>.</dd>
 
 <dt class="jump-anchor" id="gl-api-key">API key</dt>
-<dd>UID2 <a href="/docs/intro#participants">参加者</a> はそれぞれ、API Key (クライアントキー)と、そのキーに関連付けられた Client Secret (APIシークレット)と呼ばれる秘密の値を持っています。Client Secretは、参加者と UID Service だけが知っています。</dd>
+<dd>UID2 <a href="/docs/intro#participants">参加者</a> はそれぞれ、API Key (クライアントキー) と、そのキーに関連付けられた Client Secret (APIシークレット) と呼ばれる秘密の値を持っています。Client Secretは、参加者と UID Service だけが知っています。</dd>
 <dd>詳細は <a href="/docs/getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-api-secret">API secret</dt>
@@ -132,7 +132,7 @@ sidebar_position: 10
 <dd><a href="#gl-api-key">API key</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-client-secret">Client secret</dt>
-<dd>各 UID2 <a href="/docs/intro#participants">参加者</a>は、API Key (クライアントキー)と、そのキーに関連付けられた秘密値 (Client secret (API シークレット))を持っています。Client secretは、参加者と UID2 Service だけが知っています。</dd>
+<dd>各 UID2 <a href="/docs/intro#participants">参加者</a>は、API Key (クライアントキー) と、そのキーに関連付けられた秘密値 (Client secret (API シークレット)) を持っています。Client secretは、参加者と UID2 Service だけが知っています。</dd>
 <dd>詳細については、<a href="/docs/getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-closed-operator">Closed Operator</dt>
@@ -159,7 +159,7 @@ sidebar_position: 10
 <dd>デマンドサイドプラットフォーム (DSP)は、広告主、ブランド、メディアエージェンシーなど、デジタル広告を購入したい企業にサービスを提供するプラットフォームです。</dd>
 
 <dt class="jump-anchor" id="gl-dii">Directly Identifying Information (DII)</dt>
-<dd>直接識別情報 (directly identifying information, DII)とは、氏名、メールアドレス、電話番号など、個人を直接識別する情報のことです。</dd>
+<dd>直接識別情報 (directly identifying information, DII) とは、氏名、メールアドレス、電話番号など、個人を直接識別する情報のことです。</dd>
 <dd>UID2 はメールアドレスと電話番号をサポートし、DII をターゲットを絞った広告の目的で使用できる値に変換しますが、元の値に遡ることはできません。</dd>
 
 <dt class="jump-anchor" id="gl-docker">Docker</dt>
@@ -222,7 +222,7 @@ sidebar_position: 10
 <dl>
 
 <dt class="jump-anchor" id="gl-normalize">Normalize</dt>
-<dd>データセットを Normalize (正規化)するとは、それを標準的な状態 (Condition)や状態 (State)にすることを意味します。</dd>
+<dd>データセットを Normalize (正規化)するとは、それを標準的な状態 (Condition) や状態 (State)にすることを意味します。</dd>
 <dd>UID2 には特定の正規化規則があります。詳細については、<a href="../getting-started/gs-normalization-encoding#email-address-normalization">Email Address Normalization</a> と <a href="../getting-started/gs-normalization-encoding#phone-number-normalization">Phone Number Normalization</a> を参照してください。</dd>
 
 </dl>
@@ -267,7 +267,7 @@ sidebar_position: 10
 <dd>詳細については、<a href="../intro#participants">参加者</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-private-operator">Private Operator</dt>
-<dd>Private <a href="#gl-operator">operator</a> は、Operator Service のプライベートインスタンスを実行する事業社です。Private Operator は、安全な環境で独自のリソース (ハードウェアなど)を使用して、自身のために UID2 を生成および管理します。</dd>
+<dd>Private <a href="#gl-operator">operator</a> は、Operator Service のプライベートインスタンスを実行する事業社です。Private Operator は、安全な環境で独自のリソース (ハードウェアなど) を使用して、自身のために UID2 を生成および管理します。</dd>
 <dd>詳細は、<a href="../ref-info/ref-operators-public-private">The UID2 Operator</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-private-operator-service">Private Operator Service</dt>
@@ -287,7 +287,7 @@ sidebar_position: 10
 <dl>
 
 <dt class="jump-anchor" id="gl-raw-uid2">Raw UID2</dt>
-<dd>UID2 API または SDK を通じて、ユーザーの <a href="#gl-dii">directly identifying information</a> (メールアドレスまたは電話番号)を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。raw UID2 は一意な値であり、同じ UID2 は2つとありません。raw  UID2 とそれに関連付けられた UID2 Token は、大文字と小文字を区別します。</dd>
+<dd>UID2 API または SDK を通じて、ユーザーの <a href="#gl-dii">directly identifying information</a> (メールアドレスまたは電話番号) を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。raw UID2 は一意な値であり、同じ UID2 は2つとありません。raw  UID2 とそれに関連付けられた UID2 Token は、大文字と小文字を区別します。</dd>
 <dd>詳細は、<a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-refresh-token">Refresh Token</dt>
@@ -302,7 +302,7 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-salt">Salt</dt>
 <dd>メールアドレスや電話番号を、元の値に遡ることができない安全で不透明な値に変換するプロセスで使用される文字列です。</dd>
-<dd>UID2 Service は、ハッシュ化および暗号化とともに、プロセスの一部としてソルト(Salt)を使用し、元の値を保護します。ソルトは、ハッシュ化の前に入力値に加えられます。</dd>
+<dd>UID2 Service は、ハッシュ化および暗号化とともに、プロセスの一部としてソルト(Salt) を使用し、元の値を保護します。ソルトは、ハッシュ化の前に入力値に加えられます。</dd>
 
 <dt class="jump-anchor" id="gl-salted-hash">Salted hash</dt>
 <dd><a href="#gl-hash">hash</a> 関数を適用する前に入力文字列に <a href="#gl-salt">salt</a> 値を追加すると、結果はソルトハッシュとなります。入力値がハッシュ化される前にソルト化されると、ハッシュを持つ攻撃者は、同じ出力に到達するために多くの可能な入力を試して入力値を決定することができなくなります。</dd>
@@ -312,12 +312,12 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-secure-signals">Secure signals</dt>
 <dd>Google Ad Managerの機能。セキュアシグナル機能 (旧称: Encrypted Signals for Publishers、略称: ESP)により、パブリッシャーは信頼できるサードパーティのバイイングパートナーとシグナルを安全に共有することができます。パブリッシャーは、<a href="https://admanager.google.com/home/">Google Ad Manager</a> と <a href="https://support.google.com/admanager/answer/6321605?hl=en">Google Ad Manager Ad Exchange (AdX)</a> を介して、Googleが承認した入札者に「暗号化された」ユーザーIDを渡すことができます。</dd>
-<dd>詳しくは、<a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a> (2番目のセクション)と <a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a> (いずれもGoogle)を参照してください。</dd>
+<dd>詳しくは、<a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a> (2番目のセクション) と <a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a> (いずれもGoogle) を参照してください。</dd>
 <dd>Google Secure signals の UID2 サポートの詳細については、<a href="../guides/google-ss-integration">Google Ad Manager Secure Signals Integration Guide</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-sha-256">SHA-256</dt>
 <dd>SHA-256 は、UID2 が使用する安全なハッシュアルゴリズムです。</dd>
-<dd>SHA-256 は、米国国立標準技術研究所 (NIST)と国家安全保障局 (NSA)が SHA-1 の後継として開発した SHA-2 アルゴリズムファミリーの一部です。各アルゴリズムは出力のビット数によって名前が付けられており、SHA-256 は 256 ビットです。</dd>
+<dd>SHA-256 は、米国国立標準技術研究所 (NIST) と国家安全保障局 (NSA) が SHA-1 の後継として開発した SHA-2 アルゴリズムファミリーの一部です。各アルゴリズムは出力のビット数によって名前が付けられており、SHA-256 は 256 ビットです。</dd>
 <dd>詳細は、 <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> (specification) を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-sharing">Sharing</dt>
@@ -329,7 +329,7 @@ sidebar_position: 10
 <dd>詳細は、<a href="../sharing/sharing-overview">UID2 Sharing: Overview</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-sso">Single sign-on (SSO)</dt>
-<dd>SSO はシングルサインオンの略語です。SSO は、ユーザーがアプリやウェブサイトなどの複数のソフトウェアシステムの 1 つに、同じ認証情報(通常は ID とパスワードですが、必ずしもそうではありません)でログインすることを可能にします。SSO によって、ユーザーは 1 セットの認証情報を使って複数のアプリケーションやサイトに一度だけログインすることができます。SSO によって、ウェブサイトやアプリは独自の認証システムを維持する必要がなくなります。</dd>
+<dd>SSO はシングルサインオンの略語です。SSO は、ユーザーがアプリやウェブサイトなどの複数のソフトウェアシステムの 1 つに、同じ認証情報(通常は ID とパスワードですが、必ずしもそうではありません) でログインすることを可能にします。SSO によって、ユーザーは 1 セットの認証情報を使って複数のアプリケーションやサイトに一度だけログインすることができます。SSO によって、ウェブサイトやアプリは独自の認証システムを維持する必要がなくなります。</dd>
 
 <dt class="jump-anchor" id="gl-subscription-id">Subscription ID</dt>
 <dd>Server-Side のパブリッシャーインテグレーションでは、Subscription ID はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの1つです。詳細は、<a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
@@ -353,7 +353,7 @@ sidebar_position: 10
 <dd>Unified ID 2.0 (UID2)framework は、広告エコシステム全体の多くの参加者 (<a href="../intro#participants">participants</a>)に対し、オープンなインターネット上での広告機会のための決定論的IDを可能にします。パブリッシャーのウェブサイト、モバイルアプリ、コネクテッドTV (CTV)アプリからのログイン体験を可能にし、プログラマティックワークフローによる収益化を実現します。独自の名前空間を持つオープンソースのスタンドアローン・ソリューションとして構築されたこのフレームワークは、透明性とプライバシーを重視しています。</dd>
 
 <dt class="jump-anchor" id="gl-uid2-identifier">UID2 identifier</dt>
-<dd>Unified ID 2.0 (UID2)識別子には、<a href="#gl-raw-uid2">raw UID2s</a> と <a href="#gl-uid2-token">UID2 tokens</a> (Advertising token とも呼ばれるます)の2種類があります。</dd>
+<dd>Unified ID 2.0 (UID2)識別子には、<a href="#gl-raw-uid2">raw UID2s</a> と <a href="#gl-uid2-token">UID2 tokens</a> (Advertising token とも呼ばれるます) の2種類があります。</dd>
 <dd>詳細は、<a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
 <dt class="jump-anchor" id="gl-uid2-portal">UID2 Portal</dt>
@@ -375,6 +375,6 @@ sidebar_position: 10
 <dd>"UID2" という用語は、<a href="#gl-uid2-framework">UID2 framework</a>、<a href="#gl-uid2-service">UID2 service</a>、<a href="#gl-raw-uid2">raw UID2</a>、または<a href="#gl-uid2-token">UID2 token</a> (Advertising Token) を意味でも使われます。</dd>
 
 <dt class="jump-anchor" id="gl-utc">UTC</dt>
-<dd>UTC は協定世界時 (Coordinated Universal Time) の略称で、ズールー時間 (Zulu time)とも呼ばれ、一般に使用されている主要な時間基準です。UTC は基本的にグリニッジ標準時 (GMT) に相当しますが、科学的により正確です。</dd>
+<dd>UTC は協定世界時 (Coordinated Universal Time) の略称で、ズールー時間 (Zulu time) とも呼ばれ、一般に使用されている主要な時間基準です。UTC は基本的にグリニッジ標準時 (GMT) に相当しますが、科学的により正確です。</dd>
 
 </dl>

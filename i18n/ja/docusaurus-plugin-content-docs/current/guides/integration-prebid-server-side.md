@@ -78,7 +78,7 @@ UID2 Token をリフレッシュするには、次の表に示すように 2 つ
 | Mode | Description | Link to Section | 
 | --- | --- | --- |
 | Client refresh mode | Prebid.js は内部で自動的にトークンをリフレッシュします。<br/>これは最もシンプルなアプローチです。 | [Client Refresh Mode](#client-refresh-mode) |
-| Server-only mode | Prebid.js はトークンを自動的にリフレッシュしません。トークンのリフレッシュを管理するのはパブリッシャーです。<br/>このオプションを選択する理由の例:<ul><li>[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用してトークンをリフレッシュし、Prebid.js でトークンをビッドストリームに送信したい場合。</li><li>トークンを複数の手段(Prebid.js や Google など)でビッドストリームに送信したい場合。</li></ul> | [Server-Only Mode](#server-only-mode) |
+| Server-only mode | Prebid.js はトークンを自動的にリフレッシュしません。トークンのリフレッシュを管理するのはパブリッシャーです。<br/>このオプションを選択する理由の例:<ul><li>[UID2 SDK for JavaScript](../sdks/client-side-identity.md) を使用してトークンをリフレッシュし、Prebid.js でトークンをビッドストリームに送信したい場合。</li><li>トークンを複数の手段(Prebid.js や Google など) でビッドストリームに送信したい場合。</li></ul> | [Server-Only Mode](#server-only-mode) |
 
 ### Client Refresh Mode
 
@@ -284,7 +284,7 @@ if (!pbjs.getUserIds().uid2) {
 ```
 
 :::caution
- `setConfig`(または同様の関数)を 2 回呼び出してユーザー ID を設定した場合、User ID Submodule の ID 値を再初期化するために、`refreshUserIds` を呼び出す必要があります。
+ `setConfig`(または同様の関数) を 2 回呼び出してユーザー ID を設定した場合、User ID Submodule の ID 値を再初期化するために、`refreshUserIds` を呼び出す必要があります。
 :::
 
 ## Checking the Integration
@@ -354,7 +354,7 @@ pbjs.setConfig({
 
 ## Optional: Reduce Latency by Setting the API Base URL for the Production Environment
 <!-- GWH "Optional: Reduce Latency by Setting the API Base URL for the Production Environment" section is identical for client side and server side. -->
-デフォルトでは、UID2 module はアメリカにある UID2 サーバーに API コールを行います。ユーザーの居住地によっては、レイテンシー(遅延時間)を短縮するために、ユーザーに近いサーバーを選択することを検討してください。
+デフォルトでは、UID2 module はアメリカにある UID2 サーバーに API コールを行います。ユーザーの居住地によっては、レイテンシー(遅延時間) を短縮するために、ユーザーに近いサーバーを選択することを検討してください。
 
 UID2 module を設定するときに別の UID2 サーバーを指定するには、次の例に示すように、オプションの `params.uid2ApiBase` パラメータを設定します:
 

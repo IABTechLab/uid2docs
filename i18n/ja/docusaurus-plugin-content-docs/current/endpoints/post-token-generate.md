@@ -1,13 +1,13 @@
 ---
 title: POST /token/generate
-description: DII から UID2 Token (Advertising Token)を生成します。 
+description: DII から UID2 Token (Advertising Token) を生成します。 
 hide_table_of_contents: false
 sidebar_position: 02
 ---
 
 # POST /token/generate
 
-UID2 ベースのターゲティング広告の承認とともにユーザーから提供された [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号)から生成された UID2 Token をリクエストします。DII が有効で、ユーザーが UID2 をオプトアウトしていない場合、この操作は UID2 Token と関連する値を返します。
+UID2 ベースのターゲティング広告の承認とともにユーザーから提供された [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) から生成された UID2 Token をリクエストします。DII が有効で、ユーザーが UID2 をオプトアウトしていない場合、この操作は UID2 Token と関連する値を返します。
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
@@ -126,11 +126,11 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","optout_chec
 
 | Property               | Data Type | Description                                                                                                                                                                                                                                                                             |
 | :--------------------- | :-------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `advertising_token`    | string    | ユーザーの暗号化された Advertising Token (UID2)です。                                                                                                                                                                                                                                  |
+| `advertising_token`    | string    | ユーザーの暗号化された Advertising Token (UID2) です。                                                                                                                                                                                                                                  |
 | `refresh_token`        | string    | UID2 Service と最新の identity トークンのセットを交換できる暗号化されたトークンです。                                                                                                                                                                                                         |
-| `identity_expires`     | double    | Advertising Token の有効期限を示す UNIX タイムスタンプ (ミリ秒単位)です。                                                                                                                                                                                                              |
+| `identity_expires`     | double    | Advertising Token の有効期限を示す UNIX タイムスタンプ (ミリ秒単位) です。                                                                                                                                                                                                              |
 | `refresh_from`         | double    | UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) が UID2 Token のリフレッシュを開始するタイミングを示す UNIX タイムスタンプ(ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから UID2 Token もリフレッシュすることを検討してください。|
-| `refresh_expires`      | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ (ミリ秒単位)です。                                                                                                                                                                                                                  |
+| `refresh_expires`      | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ (ミリ秒単位) です。                                                                                                                                                                                                                  |
 | `refresh_response_key` | string    | [POST&nbsp;/token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。                                                                                                                                                                                     |
 
 ### Response Status Codes

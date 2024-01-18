@@ -31,7 +31,7 @@ UID2 フレームワークに関するよくある質問を紹介します。
 
 #### ユーザーは、UID2 ID に関連するターゲティング広告の配信を拒否できますか？
 
-はい。[Transparency and Control Portal](https://www.transparentadvertising.com/)を通して、ユーザーは自分の UID2 ID に関連するターゲティング広告の配信をオプトアウトできます。各リクエストは、UID2 Opt-Opt Service と UID2 Operator を通じて配信され、UID2 Operator はオプトアウト情報を関連するすべての参加者に公開します。
+はい。[Transparency and Control Portal](https://www.transparentadvertising.com/) を通して、ユーザーは自分の UID2 ID に関連するターゲティング広告の配信をオプトアウトできます。各リクエストは、UID2 Opt-Opt Service と UID2 Operator を通じて配信され、UID2 Operator はオプトアウト情報を関連するすべての参加者に公開します。
 
 #### オプトアウトポータルにアクセスする場所をユーザーが知るにはどうすればよいですか？
 
@@ -56,7 +56,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 
 #### 送信された DII と返されたトークンが一致していることをテストするにはどうすればよいですか？
 
-[POST&nbsp;/token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)で送信している [DII](../ref-info/glossary-uid.md#gl-dii) が有効かどうかをチェックできます。`POST /token/validate` は主にテスト目的で使用されます。
+[POST&nbsp;/token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) で送信している [DII](../ref-info/glossary-uid.md#gl-dii) が有効かどうかをチェックできます。`POST /token/validate` は主にテスト目的で使用されます。
 
 詳細は [Using POST&nbsp;/token/validate to Test](../endpoints/post-token-validate.md#using-post-tokenvalidate-to-test) を参照してください。
 
@@ -80,7 +80,7 @@ UID2 Token は、Client-Side、Server-Sideのどちらでも生成できます�
 
 #### Client-Side からトークンのリフレッシュを呼び出すことはできますか？
 
-はい。[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) は、API Key を使用する必要がないため、Client-Side (例えば、ブラウザやモバイルアプリ)から呼び出すことができます。
+はい。[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) は、API Key を使用する必要がないため、Client-Side (例えば、ブラウザやモバイルアプリ) から呼び出すことができます。
 
 #### リフレッシュトークンのワークフローをテストするにはどうすればよいですか？
 
@@ -208,11 +208,11 @@ demand-side platform (DSP) に関するよくある質問を紹介します。
 
 #### UID2 に適用する復号鍵はどのように決定すればよいですか？
 
-各 Server-Side SDK ([SDKs: Summary](../sdks/summary-sdks.md)を参照)は、復号鍵を自動的に更新します。UID2 Token と共に提供されるメタデータは、使用する復号鍵の ID を示します。
+各 Server-Side SDK ([SDKs: Summary](../sdks/summary-sdks.md) を参照)は、復号鍵を自動的に更新します。UID2 Token と共に提供されるメタデータは、使用する復号鍵の ID を示します。
 
 #### 復号鍵はどこで手に入りますか？
 
-Server-Side SDK のいずれか([SDK](../sdks/summary-sdks.md) を参照してください)を使用して UID2 Service と通信し、最新の鍵を取得することができます。鍵を確実に最新に保つため、1 時間に 1 回など、定期的に鍵を取得することを推奨します。
+Server-Side SDK のいずれか([SDK](../sdks/summary-sdks.md) を参照してください) を使用して UID2 Service と通信し、最新の鍵を取得することができます。鍵を確実に最新に保つため、1 時間に 1 回など、定期的に鍵を取得することを推奨します。
 
 #### メモリ上に存在する復号鍵の数はいくつですか？
 
@@ -228,15 +228,15 @@ UID2 Service は、入札プロセスに遅延を生じさせることはあり�
 
 #### UID2 で DSP がフリークエンシーキャッピングを行うには、どのようにすればよいですか？
 
-UID2 は、クッキーと同じように古くなる可能性があります。したがって、DSP は、クッキーまたは Device ID ベースのフリークエンシーキャッピングに現在使用されているものと同じインフラを UID2 に適応させることができます。詳細は、[ソルトバケットのローテーションにより、UID2 を更新するタイミングを知るにはどうすればよいですか？](#%E3%82%BD%E3%83%AB%E3%83%88%E3%83%90%E3%82%B1%E3%83%83%E3%83%88%E3%81%AE%E3%83%AD%E3%83%BC%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E3%82%88%E3%82%8Auid2-%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%E3%82%BF%E3%82%A4%E3%83%9F%E3%83%B3%E3%82%B0%E3%82%92%E7%9F%A5%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B)を参照してください。
+UID2 は、クッキーと同じように古くなる可能性があります。したがって、DSP は、クッキーまたは Device ID ベースのフリークエンシーキャッピングに現在使用されているものと同じインフラを UID2 に適応させることができます。詳細は、[ソルトバケットのローテーションにより、UID2 を更新するタイミングを知るにはどうすればよいですか？](#%E3%82%BD%E3%83%AB%E3%83%88%E3%83%90%E3%82%B1%E3%83%83%E3%83%88%E3%81%AE%E3%83%AD%E3%83%BC%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E3%82%88%E3%82%8Auid2-%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%E3%82%BF%E3%82%A4%E3%83%9F%E3%83%B3%E3%82%B0%E3%82%92%E7%9F%A5%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B) を参照してください。
 
 #### ユーザーのオプトアウトのトラフィックはすべて DSP に送信されるのでしょうか？
 
-はい、UID2 [Transparency and Control Portal](https://www.transparentadvertising.com/)からのすべてのオプトアウトは、オプトアウト エンドポイントに到達します。DSP は、ユーザーの[オプトアウトを受け入れる](../guides/dsp-guide.md#honor-user-opt-outs)ように構成する必要があります。
+はい、UID2 [Transparency and Control Portal](https://www.transparentadvertising.com/) からのすべてのオプトアウトは、オプトアウト エンドポイントに到達します。DSP は、ユーザーの[オプトアウトを受け入れる](../guides/dsp-guide.md#honor-user-opt-outs)ように構成する必要があります。
 
 #### DSP は、既に記憶している UID2 に対してのみオプトアウト信号を処理することを想定しているのでしょうか？
 
-場合によっては、DSP は、オプトアウト・タイムスタンプ以前に生成された、新たに保管された UID2 に対する UID2 Token を受け取ることがあります。DSP はこのようなトークンに入札することはできません。したがって、対応する UID2 が現在 DSP によって保存されているかどうかにかかわらず、すべてのオプトアウト信号を保存することが推奨されます。詳細は、[Bidding Opt-Out Logic](../guides/dsp-guide.md#bidding-opt-out-logic)の図を参照してください。
+場合によっては、DSP は、オプトアウト・タイムスタンプ以前に生成された、新たに保管された UID2 に対する UID2 Token を受け取ることがあります。DSP はこのようなトークンに入札することはできません。したがって、対応する UID2 が現在 DSP によって保存されているかどうかにかかわらず、すべてのオプトアウト信号を保存することが推奨されます。詳細は、[Bidding Opt-Out Logic](../guides/dsp-guide.md#bidding-opt-out-logic) の図を参照してください。
 
 #### オプトアウトリストはいつまで保存しておくべきですか？
 

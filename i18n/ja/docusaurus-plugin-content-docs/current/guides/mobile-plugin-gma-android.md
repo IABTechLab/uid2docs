@@ -11,7 +11,7 @@ UID2 Google Mobile Ads (GMA) Plugin for Android は、[Google Mobile Ads (GMA) S
 
 ## Functionality
 
-このプラグインは、Android 端末で動作するアプリで UID2 をサポートしたいパブリッシャー向けに、Google Mobile Ads (GMA)とのインテグレーションを簡素化します。
+このプラグインは、Android 端末で動作するアプリで UID2 をサポートしたいパブリッシャー向けに、Google Mobile Ads (GMA) とのインテグレーションを簡素化します。
 
 ## Version
 

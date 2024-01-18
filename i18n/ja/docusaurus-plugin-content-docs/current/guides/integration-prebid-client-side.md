@@ -182,7 +182,7 @@ Prebid.js の設定を検証・デバッグするツールの例として、オ�
 
 ## Optional: Reduce Latency by Setting the API Base URL for the Production Environment
 <!-- GWH "Optional: Reduce Latency by Setting the API Base URL for the Production Environment" section is identical for client side and server side. -->
-デフォルトでは、UID2 module はアメリカにある UID2 サーバーに API コールを行います。ユーザーの居住地によっては、レイテンシー(遅延時間)を短縮するために、ユーザーに近いサーバーを選択することを検討してください。
+デフォルトでは、UID2 module はアメリカにある UID2 サーバーに API コールを行います。ユーザーの居住地によっては、レイテンシー(遅延時間) を短縮するために、ユーザーに近いサーバーを選択することを検討してください。
 
 UID2 module を設定するときに別の UID2 サーバーを指定するには、次の例に示すように、オプションの `params.uid2ApiBase` パラメータを設定します:
 

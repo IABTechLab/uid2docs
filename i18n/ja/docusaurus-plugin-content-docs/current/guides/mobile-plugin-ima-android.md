@@ -11,7 +11,7 @@ UID2 Interactive Media Ads (IMA) Plugin for Android は、[Google IMA SDK for An
 
 ## Functionality
 
-このプラグインは、Android 端末で動作するアプリの UID2 をサポートしたいパブリッシャー向けに、Google Interactive Media Ads(IMA)とのインテグレーションを簡素化します。
+このプラグインは、Android 端末で動作するアプリの UID2 をサポートしたいパブリッシャー向けに、Google Interactive Media Ads(IMA) とのインテグレーションを簡素化します。
 
 ## Version
 
