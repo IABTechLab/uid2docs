@@ -67,7 +67,9 @@ The initialization function configures the parameters necessary for the SDK to a
 
 The interface allows you to decrypt UID2 advertising tokens and return the corresponding raw UID2. 
 
->NOTE: When you use an SDK, you do not need to store or manage decryption keys.
+:::note
+When you use an SDK, you do not need to store or manage decryption keys.
+:::
 
 If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising token and return the UID2. For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
 
@@ -131,14 +133,14 @@ If you're using the SDK's HTTP implementation, follow these steps.
    ```
 
    :::important
-   <ul><li>Be sure to call this function only when you have obtained legal basis to convert the user’s [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to UID2 tokens for targeted advertising.</li></ul>
-   
-   <ul><li>Always apply `doNotGenerateTokensForOptedOut()`. This applies `policy=1` in the [/token/generate](../endpoints/post-token-generate.md#token-generation-policy) call. Support for `policy=0` will be removed soon. (**GWH_SW01 to adjust this here + in the repo pending input. Readme line 53**)</li></ul>
+   - Be sure to call the POST&nbsp;/token/generate endpoint only when you have obtained legal basis to convert the user’s [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to UID2 tokens for targeted advertising.
+
+   - Always apply `doNotGenerateTokensForOptedOut()`. This applies a parameter similar to setting `optout_check=1` in the call to the POST&nbsp;/token/generate endpoint (see [Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters)).
    :::
 
 #### Standard Integration
 
-If you're using standard integration (client and server) (see [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md)), follow this step: (**GWH_SW02 not sure is this doc link correct, should we link to the client doc, or to both? Same in repo.**)
+If you're using standard integration (client and server) (see [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md)), follow this step:
 
 * Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)), using the following:
 
@@ -149,7 +151,6 @@ If you're using standard integration (client and server) (see [UID2 SDK for Java
    :::note
    If the user has opted out, this method returns `null`, so be sure to handle that case.
    :::
-
 
 #### Server-Only Integration
 
@@ -203,16 +204,16 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
     ```java
     EnvelopeV2 envelope = publisherUid2Helper.createEnvelopeForTokenGenerateRequest(TokenGenerateInput.fromEmail(emailAddress).doNotGenerateTokensForOptedOut());
     ```
-3. Using an HTTP client library of your choice, post this envelope to the [POST token/generate](../endpoints/post-token-generate.md) endpoint, including headers and body:
+3. Using an HTTP client library of your choice, post this envelope to the [POST&nbsp;token/generate](../endpoints/post-token-generate.md) endpoint, including headers and body:
    1. Headers: Depending on your HTTP library, this might look something like the following:  
     
       `.putHeader("Authorization", "Bearer " + UID2_API_KEY)`  
       `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHeader())`
    2. Body: `envelope.getEnvelope()`
    :::important
-   - Be sure to call this endpoint only when you have obtained legal basis to convert the user’s [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to UID2 tokens for targeted advertising.
+   - Be sure to call the POST&nbsp;/token/generate endpoint only when you have obtained legal basis to convert the user’s [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to UID2 tokens for targeted advertising.
 
-   - Always apply `doNotGenerateTokensForOptedOut()`. This applies `policy=1` in the [/token/generate](../endpoints/post-token-generate.md#token-generation-policy) call. Support for `policy=0` will be removed soon. (**GWH_SW03 same comment as earlier occurrence.**)
+   - Always apply `doNotGenerateTokensForOptedOut()`. This applies a parameter similar to setting `optout_check=1` in the call to the POST&nbsp;/token/generate endpoint (see [Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters)).
    :::
 
 4. If the HTTP response status code is _not_ 200, see [Response Status Codes](../endpoints/post-token-generate.md#response-status-codes) to determine next steps. Otherwise, convert the UID2 identity response content into a `TokenGenerateResponse` object:
@@ -223,7 +224,7 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
 
 #### Standard Integration
 
-If you're using standard integration (client and server) (see [UID2 SDK for JavaScript Integration Guide](../guides/publisher-client-side.md)): (**GWH_SW04 should this link to the client-side doc?**)
+If you're using standard integration (client and server) (see [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md)), follow this step:
 
 * Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)) using the following:
 
