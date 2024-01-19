@@ -16,13 +16,17 @@ This page provides information about normalizing and encoding [directly Identify
 - [Email Address Hash Encoding](#email-address-hash-encoding)
 - [Phone Number Normalization](#phone-number-normalization)
 - [Phone Number Hash Encoding](#phone-number-hash-encoding)
-- [Example](#example)
+- [Normalization Examples for Email](#normalization-examples-for-email)
+- [Example](#example-code)
 -->
 
 ## Introduction
 When you're taking user information such as an email address, and following the steps to create a raw UID2 and/or a UID2 advertising token, it's very important that you follow all the required steps. Whether you normalize the information or not, whether you hash it or not, follow the steps exactly. By doing so, you can ensure that the UID2 value you create can be securely and anonymously matched up with other instances of online behavior by the same user.
 
->Note: Raw UID2s, and their associated UID2 tokens, are case sensitive. When working with UID2, it's important to pass all IDs and tokens without changing the case. Mismatched IDs can cause ID parsing or token decryption errors.
+:::important
+- Raw UID2s, and their associated UID2 tokens, are case sensitive. When working with UID2, it's important to pass all IDs and tokens without changing the case. Mismatched IDs can cause ID parsing or token decryption errors.
+- If you miss any of the required steps&#8212;for example, you hash without first normalizing&#8212;the result will not be the valid UID2 value.<br/>For example, let's say a data provider wants to generate a UID2 from `Jane.Saoirse@gmail.com`. This normalizes to `janesaoirse@gmail.com`, and the hashed and Base64-encoded value is `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=`.<br/>The publisher, with the same email address, does not normalize. The hashed and Base64-encoded value for the un-normalized email, `Jane.Saoirse@gmail.com`, is `f8upG1hJazYKK8aEtAMq3j7loeAf5aA4lSq6qYOBR/w=`. These two different values result in two different UID2s. The first, processed correctly, will match other instances generated from the same original data. The second, incorrectly processed, will not.<br/>In this scenario, because the UID2 does not match other instances for the same user, the publisher misses the opportunity to benefit from targeted advertising.
+:::
 
 ## Types of Directly Identifying Information
 UID2 supports the following types of directly identifying information (DII):
@@ -39,9 +43,15 @@ To normalize an email address, complete the following steps:
 
 1. Remove leading and trailing spaces.
 2. Convert all ASCII characters to lowercase.
-3. In `gmail.com` email addresses, remove the following characters from the username part of the email address:
-    1. The period  (`.` (ASCII code 46)).<br/>For example, normalize `jane.doe@gmail.com` to `janedoe@gmail.com`.
-    2. The plus sign (`+` (ASCII code 43)) and all subsequent characters.<br/>For example, normalize `janedoe+home@gmail.com` to `janedoe@gmail.com`.
+3. If there is a period (`.`) in the email address (ASCII code 46), remove it.<br/>For example, normalize `jane.doe@example.com` to `janedoe@example.com`.
+
+3. (Conditional) In `gmail.com` addresses only, you might see a plus sign (`+`) with an additional string after it, before the `@gmail.com`. In this scenario, you'll need to remove this extra part of the email address. This applies **only** to gmail addresses. Remove the following:
+    1. The plus sign (`+`) (ASCII code 43).
+    2. All subsequent characters.
+    
+       For example, normalize `janedoe+home@gmail.com` to `janedoe@gmail.com`.
+
+For examples of various scenarios, see [Normalization Examples for Email](#normalization-examples-for-email).
 
 ## Email Address Hash Encoding
 
@@ -54,6 +64,8 @@ An email hash is a Base64-encoded SHA-256 hash of a normalized email address. Th
 | Hex to Base64 SHA-256 encoding of normalized email address | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | This 44-character string is a Base64-encoded representation of the 32-byte SHA-256.<br/>WARNING: The SHA-256 hash string in the example above is a hex-encoded representation of the hash value. You must Base64-encode the raw bytes of the hash or use a Base64 encoder that takes a hex-encoded value as input.<br/>Use this encoding for `email_hash` values sent in the request body. |
 
 >WARNING: When applying Base64 encoding, be sure to Base64-encode the raw bytes of the hash or use a Base64 encoder that takes a hex-encoded value as input.
+
+For additional examples, see [Normalization Examples for Email](#normalization-examples-for-email).
 
 ## Phone Number Normalization
 
@@ -86,6 +98,19 @@ The example below shows a simple input phone number, and the result as each step
 
 >WARNING: When applying Base64 encoding, be sure to use a function that takes a hex value as input. If you use a function that takes text as input, the result is a longer string which is invalid for the purposes of UID2.
 
-## Example
+## Normalization Examples for Email
+
+The following table shows examples of original email addresses and the normalized and hashed values.
+
+Some of the examples show email addresses that include the plus sign (+), with different domains. For `gmail` addresses, the plus sign and following characters, up to the `@` sign, are ignored in normalization. For other domains, these characters are included in the normalized value.
+
+| Original Value | Normalized | Hashed and Base64-Encoded |
+| :--- | :--- | :--- |
+| `MyEmail@example.com`<br/>`MYEMAIL@example.com`<br/>`My.Email@example.com` | `myemail@example.com` | Hashed: `16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`<br/>Base64-Encoded: `FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=` |
+| `JANESAOIRSE@example.com`<br/>`JaneSaoirse@example.com`<br/>`Jane.Saoirse@example.com` | `janesaoirse@example.com` | Hashed: `d6670e7a92007f1b5ff785f1fc81e53aa6d3d7bd06bdf5c473cdc7286c284b6d`<br/>Base64-Encoded: `1mcOepIAfxtf94Xx/IHlOqbT170GvfXEc83HKGwoS20=` |
+| `JaneSaoirse+UID2@example.com` | `janesaoirse+uid2@example.com` | Hashed: `6e143668c206593d5ecb8a7b2726af74d948438a5ed75febadcbf4bb58ebc427`<br/>Base64-Encoded: `bhQ2aMIGWT1ey4p7JyavdNlIQ4pe11/rrcv0u1jrxCc=` |
+| `JANE.SAOIRSE@gmail.com`<br/>`Jane.Saoirse@gmail.com`<br/>`JaneSaoirse+UID2@gmail.com` | `janesaoirse@gmail.com` | Hashed: `92ee26057ed9dea2535d6c8b141d48373932476599196e00352254896db5888f`<br/>Base64-Encoded: `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=` |
+
+## Example Code
 
 For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base-64 Encoding](../guides/publisher-client-side#example-code-hashing-and-base-64-encoding).
