@@ -13,8 +13,7 @@ sidebar_position: 08
 - [UID2 Sharing Workflow: Sharing in the Bid Stream](#uid2-sharing-workflow-sharing-in-the-bid-stream)
 - [Token Example for Publishers in the Bid Stream](#token-example-for-publishers-in-the-bid-stream) -->
 
-パブリッシャーは、API エンドポイントまたは SDK を介して [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) を UID2 Token に暗号化し、UID2 Token をビッドストリームに送信することで、UID2 を共有します。
-
+パブリッシャーは、API エンドポイントまたは SDK を介して [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) を UID2 Token に暗号化し、UID2 Token をビッドストリームに送信することで、UID2 を使用します。
 
 その他のリソース:
 

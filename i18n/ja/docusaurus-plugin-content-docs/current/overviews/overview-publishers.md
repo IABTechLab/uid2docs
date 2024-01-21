@@ -81,6 +81,8 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 以下のリソースは、パブリッシャーの Web インテグレーションに利用できます。
 
+ウェブインテグレーションオプションの詳細については、[Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
+
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
 | Prebid (Overview) | [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid.js から渡されるUID2 Token を生成したいパブリッシャー向けのインテグレーションオプションの概要です。 |
