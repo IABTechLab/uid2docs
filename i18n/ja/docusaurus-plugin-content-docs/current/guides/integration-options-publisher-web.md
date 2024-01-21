@@ -112,7 +112,7 @@ Server-Side で UID2 Token を生成することには、次のような利点�
 
 ## Pass the UID2 Token Into the Bid Stream
 
-パブリッシャーは、DII（メールアドレスや電話番号）を UID2 Token に暗号化し、UID2 Token をビッドストリームに送信することで UID2 を使用します。
+パブリッシャーは、DII (メールアドレスや電話番号) を UID2 Token に暗号化し、UID2 Token をビッドストリームに送信することで UID2 を使用します。
 
 以下の表は、UID2 Token をビッドストリームに渡すことをサポートするインテグレーションオプションをまとめたものです。
 
