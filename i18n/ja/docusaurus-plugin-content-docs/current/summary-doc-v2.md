@@ -8,7 +8,7 @@ sidebar_position: 06
 # UID2 API v2 Documentation
 
 :::note
-For upgrade instructions, see [UID2 API v1 to v2 Upgrade Guide](https://github.com/IABTechLab/uid2docs/blob/main/api-ja/v2/upgrades/upgrade-guide.md) in GitHub.
+アップグレードの手順については、GitHub の [UID2 API v1 to v2 Upgrade Guide](https://github.com/IABTechLab/uid2docs/blob/main/api-ja/v2/upgrades/upgrade-guide.md) を参照してください。
 :::
 
 UID2 の定義、ID タイプ、指針、構成要素、その他の概念的な詳細は、 [UID2 概要](intro.md) を参照してください。連絡先やライセンス情報、正規化およびハッシュエンコーディングの規則は、 [Getting Started](/docs/category/getting-started) を参照してください。
