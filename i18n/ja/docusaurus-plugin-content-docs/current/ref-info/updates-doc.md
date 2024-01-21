@@ -27,6 +27,28 @@ UID2 Operator が何をするのか、Public Operator と Private Operator の�
 
 <!-- ## 2023 Updates -->
 
+### New: UID2 Integration Overview for Prebid.js
+
+20 December 2023
+
+新しい概要ガイドには、Prebid と UID2 をインテグレーションするためのパブリッシャーオプションがまとめられています。
+
+さらに、既存のガイドも再編成され、簡素化されました。
+
+詳細は、以下を参照してください:
+
+- [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
+- [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
+- [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+
+### New: Encryption/Decryption Examples in Java and C#
+
+14 December 2023
+
+UID2 リクエストの暗号化とレスポンスの復号化について、追加のプログラミング言語での説明とコード例を追加しました。既存の Pythonの 例に、Java と C# を追加しました。
+
+詳細は、[Encryption and Decryption Code Examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples) を参照してください。
+
 ### New: UID2 Private Operator for Azure Integration Guide
 
 30 November 2023
