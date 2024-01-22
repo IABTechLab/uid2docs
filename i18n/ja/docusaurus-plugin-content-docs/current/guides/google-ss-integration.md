@@ -88,6 +88,7 @@ UID2 SDK for JavaScript バージョン 3.0.0 以降を使用している場合�
 ## Sample Applications
 
 Google Ad Manager のセキュアシグナル機能との連携方法については、以下のサンプルアプリケーションを参照してください:
+
 - [Server-Only UID2 Integration Example](https://esp-srvonly-integ.uidapi.com/)
 - [Client-Side UID2 SDK Integration Example](https://esp-jssdk-integ.uidapi.com/)
 

@@ -33,7 +33,6 @@ SDK の機能を確認して使用する SDK を決定し、SDK の表をクリ�
 
 UID2 インテグレーションについては、以下の SDK ドキュメントを参照してください。ドキュメンテーションのリンクは最初の欄にあります。
 
-
 | SDK/Link&nbsp;to&nbsp;Guide | Description | Audience
 | :--- | :--- | :--- |
 | [UID2 SDK for JavaScript](client-side-identity.md) | UID2 を使用したクライアント ID の確立と、パブリッシャー向けの UID2 Token の取得プロセスを容易にする、Client-Side  JavaScript SDK。 | Publishers |

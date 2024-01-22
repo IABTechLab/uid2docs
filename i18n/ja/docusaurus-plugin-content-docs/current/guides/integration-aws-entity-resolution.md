@@ -98,9 +98,11 @@ UID2 の連絡先に、Entity Resolution での UID2 インテグレーション
 
 ### Subscribe to UID2 on AWS Data Exchange
 
-現在のところ、UID2 の連絡先からリクエストを送信する必要があります。その後、以下の例に示すように、AWS 上の UID2 プライベート・サービス・リストへのカスタム招待状が届きます。
+AWS Data Exchange の [Unified ID 2.0 Identity Resolution](https://aws.amazon.com/marketplace/pp/prodview-66zqls7iqsm6o?sr=0-4&ref_=beagle&applicationId=AWSMPContessa#offers) ページにアクセスし、**Continue to Subscribe.** をクリックします。
 
-![AWS UID2 Private Offer](images/integration-aws-entity-resolution-private-offer.png)
+![AWS Data Exchange market place screenshot](images/integration-aws-entity-resolution-public-listing.png)
+
+
 
 加入リクエストを受け取ると、UID2 チームは以下を行います:
 - サブスクリプションのリクエストを確認します。
@@ -163,8 +165,7 @@ UID2 は、UID2 生成のためにメールアドレスまたは電話番号の�
      先のステップ、[Subscribe to UID2 on AWS Data Exchange](#subscribe-to-uid2-on-aws-data-exchange) を完了していれば、**Approved** のメッセージが表示されます。
 
 3.  データの出力先を定義します:
-   - **Data Output Destination** には、出力データに使用する S3 バケットの URI を指定します。
-   データフォーマットを選択します: Normalized または Original を選択します。
+   - **Data Output Destination** には、出力データに使用する S3 バケットの URI を指定します。データフォーマットを選択します: Normalized または Original を選択します。
    
      `Normalized` がデフォルトで、データ入力はマッチングの前に正規化されます。
 

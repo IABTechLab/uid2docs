@@ -186,6 +186,7 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 | Key Name for SSH | デプロイされた EC2 インスタンスに SSH アクセスするための EC2 キーペアです。 |
 | Trusted Network CIDR       | CIDR (Classless Inter-Domain Routing) 値は、オペレーターサービスにアクセスできる IP アドレス範囲を決定します。<br/>UID2 オペレーターへのアクセスを制限して、内部ネットワークまたはロードバランサーからのみアクセスできるようにするには、CIDR 値として内部 IP 範囲を指定します。 |
 
+
 ### Stack Configuration Options
 
 次の図は、スタックの作成ウィザード ([Deployment](#deployment) Step 6) の**スタックオプションの設定**ページを示しています。
@@ -235,8 +236,6 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 2. ブラウザで、`https://{dns-name-of-your-load-balancer}/ops/healthcheck` にアクセスします。`OK` のレスポンスであれば、Operator のステータスは良好です。
 
 ## Upgrading the UID2 Operator
-
-ここでは、バージョンアップについて説明します:
 
 各オペレーターのバージョンを更新するたびに、Private Operator は、アップグレードのウィンドウを持つメール通知を受け取ります。アップグレードウィンドウの後、古いバージョンは非アクティブ化され、サポートされなくなります。
 

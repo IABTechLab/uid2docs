@@ -16,8 +16,6 @@ sidebar_position: 08
 パブリッシャーは、API エンドポイントまたは SDK を介して [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) を UID2 Token に暗号化し、UID2 Token をビッドストリームに送信することで、UID2 を使用します。
 
 その他のリソース:
-
-Additional resources:
 - [UID2 Overview for Publishers](../overviews/overview-publishers.md)
 - [UID2 Portal: Overview](../portal/portal-overview.md)
 

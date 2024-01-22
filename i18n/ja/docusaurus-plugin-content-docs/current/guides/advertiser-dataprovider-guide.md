@@ -11,6 +11,7 @@ sidebar_position: 07
 このガイドでは、ユーザーデータを収集し、DSP にプッシュする組織のためのインテグレーション手順について説明します。データコレクターには、広告主、データオンボーダー、測定プロバイダー、ID グラフプロバイダー、サードパーティデータプロバイダー、および DSP にデータを送信する他の組織が含まれます。
 
 <!-- It includes the following sections:
+
 * [Integration Steps](#integration-steps)
    - [Retrieve a raw UID2 for DII using the identity map endpoints](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoint)
    - [Send stored raw UID2s to DSPs to create audiences](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences)

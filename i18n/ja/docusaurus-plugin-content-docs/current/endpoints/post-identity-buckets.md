@@ -19,9 +19,9 @@ Used by: このエンドポイントは、主に広告主とデータプロバ�
 
 ### Path Parameters
 
-| Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                   |
-| :-------------- | :-------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `{environment}` | string    | Required  | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string | Required  | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 NOTE: インテグレーション環境と本番環境では、異なる [APIキー](../ref-info/glossary-uid.md#gl-api-key) が必要です。
 
@@ -29,8 +29,8 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 
 > IMPORTANT: 暗号化する際には、リクエストの JSON ボディに以下のパラメータを key-value ペアとして含める必要があります。
 
-| Body Parameter    | Data Type            | Attribute | Description                                                       | Format                                   |
-| :---------------- | :------------------- | :-------- | :---------------------------------------------------------------- | :--------------------------------------- |
+| Body Parameter | Data Type | Attribute | Description | Format |
+| :--- | :--- | :--- | :--- | :--- |
 | `since_timestamp` | date-time or integer | 必須      | バケットの最終更新 UTC タイムスタンプを比較する日時を指定します。 | ISO 8601 形式:<br/>`YYYY-MM-DDThh:mm:ss` |
 
 ### Request Examples
@@ -42,7 +42,6 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
   "since_timestamp": "2022-06-01T13:00:00"
 }
 ```
-
 以下は、暗号化された ID バケットのローテーションリクエストの例です:
 
 ```sh
@@ -76,22 +75,21 @@ echo '{"since_timestamp": "2023-04-19T13:00:00"}' | python3 uid2_request.py http
   "status": "success"
 }
 ```
-
 ### Response Body Properties
 
-| Property       | Format    | Description                                                     |
-| :------------- | :-------- | :-------------------------------------------------------------- |
-| `bucket_id`    | string    | ソルトバケット ID です。                                        |
+| Property | Format | Description |
+| :--- | :--- | :--- ||
+| `bucket_id` | string | ソルトバケット ID です。 |
 | `last_updated` | date-time | バケットソルトが最後にローテーションされた UTC タイムスタンプです。 |
 
 ### Response Status Codes
 
 次の表は、`status` プロパティの値と、それに対応する HTTP ステータスコードの一覧です。
 
-| Status         | HTTP Status Code | Description                                                                                                                                                                    |
-| :------------- | :--------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `success`      | 200              | リクエストは成功しました。レスポンスは暗号化されています。                                                                                                                     |
-| `client_error` | 400              | リクエストに不足している、または無効なパラメータがありました。                                                                                                                 |
-| `unauthorized` | 401              | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
+| Status | HTTP Status Code | Description |
+| :--- | :--- | :--- |
+| `success` | 200 | リクエストは成功しました。レスポンスは暗号化されています。 |
+| `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。|
+| `unauthorized` | 401 | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
 `status` の値が `success` 以外であれば、 `message` フィールドにその問題に関する追加情報が表示されます。

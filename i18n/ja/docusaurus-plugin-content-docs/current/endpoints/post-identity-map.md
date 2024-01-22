@@ -17,7 +17,6 @@ Used by: このエンドポイントは、主に広告主やデータプロバ�
 
 - リクエストの最大サイズは 1MB です。
 - 大量のメールアドレス、電話番号、またはそれぞれのハッシュをマップするには、1 バッチあたり最大 5,000 アイテムのバッチサイズで、それらを *連続した* バッチで送信してください。
-- バッチを並列で送信しないでください。
 - Private Operator を使用している場合を除き、バッチを並行して送信しないでください。つまり、1 つの HTTP 接続を使用して、[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を連続してマッピングしてください。
 - メールアドレス、電話番号、またはそれぞれのハッシュのマッピングを必ず保存してください。<br/>マッピングを保存しないと、数百万のメールアドレスや電話番号をマッピングする必要がある場合に、処理時間が大幅に増加する可能性があります。しかし、実際に更新が必要なマッピングのみを再計算することで、毎日更新が必要な raw UID2 の数は約 1/365 となり、総処理時間を短縮できます。[Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) と [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) も参照してください。
 
@@ -29,9 +28,9 @@ Used by: このエンドポイントは、主に広告主やデータプロバ�
 
 ### Path Parameters
 
-| Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                   |
-| :-------------- | :-------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string  | 必須 | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 NOTE: インテグレーション環境と本番環境では、異なる [APIキー](../ref-info/glossary-uid.md#gl-api-key) が必要です。
 
@@ -39,12 +38,12 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 
 > IMPORTANT: リクエストを暗号化するときは、以下の 4 つの条件パラメータのうち、 **1つ** だけをリクエストの JSON ボディにキーと値のペアとして含める必要がります。
 
-| Body Parameter | Data Type    | Attribute      | Description                                                                                                                                                                      |
-| :------------- | :----------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `email`        | string array | 条件付きで必要 | マッピングするメールアドレスのリストです。                                                                                                                                       |
-| `email_hash`   | string array | 条件付きで必要 | マッピングする [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#email-address-normalization) した [正規化](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) 済みメールアドレスのリストです。 |
-| `phone`        | string array | 条件付きで必要 | マッピングする [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号のリストです。                                                                                   |
-| `phone_hash`   | string array | 条件付きで必要 | マッピングする [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) した [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号のリストです。         |
+| Body Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `email` | string array | 条件付きで必要 | マッピングするメールアドレスのリストです。 |
+| `email_hash` | string array | 条件付きで必要 | マッピングする [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#email-address-normalization) した [正規化](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) 済みメールアドレスのリストです。 |
+| `phone` | string array | 条件付きで必要 | マッピングする [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号のリストです。 |
+| `phone_hash` | string array | 条件付きで必要 | マッピングする [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) した [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号のリストです。 |
 
 ### Request Examples
 
@@ -58,7 +57,6 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
   ]
 }
 ```
-
 ```json
 {
   "email_hash": [
@@ -67,7 +65,6 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
   ]
 }
 ```
-
 ```json
 {
   "phone": [
@@ -76,7 +73,6 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
   ]
 }
 ```
-
 ```json
 {
   "phone_hash": [
@@ -168,20 +164,20 @@ echo '{"phone": ["+1111111111", "+2222222222"]}' | python3 uid2_request.py https
 
 ### Response Body Properties
 
-| Property         | Data Type | Description                                                                          |
-| :--------------- | :-------- | :----------------------------------------------------------------------------------- |
-| `identifier`     | string    | リクエストボディで指定されたメールアドレス、電話番号、またはそれぞれのハッシュです。 |
-| `advertising_id` | string    | 対応する Advertising ID (raw UID2) です。                                            |
-| `bucket_id`      | string    | raw UID2 の生成に使用したソルトバケットの ID です。                                      |
+| Property | Data Type | Description |
+| :--- | :--- | :--- |
+| `identifier` | string | リクエストボディで指定されたメールアドレス、電話番号、またはそれぞれのハッシュです。 |
+| `advertising_id` | string | 対応する Advertising ID (raw UID2) です。 |
+| `bucket_id` | string | raw UID2 の生成に使用したソルトバケットの ID です。 |
 
 ### Response Status Codes
 
 次の表は、`status` プロパティの値と、それに対応する HTTP ステータスコードの一覧です。
 
-| Status         | HTTP Status Code | Description                                                                                                                                                                    |
-| :------------- | :--------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `success`      | 200              | リクエストは成功しました。レスポンスは暗号化されています。                                                                                                                     |
-| `client_error` | 400              | リクエストに不足している、または無効なパラメータがありました。                                                                                                                 |
-| `unauthorized` | 401              | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていた。 |
+| Status | HTTP Status Code | Description |
+| :--- | :--- | :--- |
+| `success` | 200 | リクエストは成功しました。レスポンスは暗号化されています。 |
+| `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。 |
+| `unauthorized` | 401 | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていた。 |
 
 `status` の値が `success` 以外であれば、 `message` フィールドにその問題に関する追加情報が表示されます。

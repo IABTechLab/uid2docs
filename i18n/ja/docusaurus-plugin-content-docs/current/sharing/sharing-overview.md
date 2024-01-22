@@ -13,8 +13,7 @@ sidebar_position: 01
 - [Generating the Token for UID2 Sharing: Example](#creating-the-token-for-sharing-example)
 - [Sharing in the Bid Stream](#sharing-in-the-bid-stream) -->
 
-UID2 では、sharing とは UID2 参加者間で [raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) を安全に配布するためのプロセスです。未加工の UID2 を不正アクセスから保護するために、送信元の参加者 (送信者)は未加工の UID2 を暗号化して [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) に変換してから送信しなければなりません。
-送信先の参加者(受信者)は、UID2 Token を内部で使用する raw UID2 に復号化しなければなりません。
+UID2 では、sharing とは UID2 参加者間で [raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) を安全に配布するためのプロセスです。未加工の UID2 を不正アクセスから保護するために、送信元の参加者 (送信者)は未加工の UID2 を暗号化して [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) に変換してから送信しなければなりません。送信先の参加者(受信者)は、UID2 Token を内部で使用する raw UID2 に復号化しなければなりません。
 
 UID2 の送信者は、UID2 Portal で権限を設定することで、自分の UID2 Token を復号できる受信者を指定します。送信者が受信者に UID2 sharing の許可を与えると、送信者の復号鍵が UID2 SDK を介して受信者と共有されます。sharing の一環として、UID2 SDK と API が暗号化と復号化の処理を行います。
 
@@ -24,12 +23,9 @@ Sharing に参加するには、UID2 の送信者と受信者の両方がアカ�
 
 Sharing には多くのシナリオがあります。その他の例については、[Sharing UID2s: Use Cases](sharing-use-cases.md) を参照してください。
 
-
 >NOTE: パブリッシャーが UID2 Token をビッドストリームで共有するプロセスは、別のプロセスです。もしあなたが UID2 Token をビッドストリームに入れるパブリッシャーであれば、[Sharing in the Bid Stream](sharing-bid-stream.md) を参照してください。
 
 その他のリソース:
-
-Additional resources:
 
 - [Implementing Sharing](sharing-implementing.md)
 - [UID2 Sharing: Best Practices](sharing-best-practices.md)
@@ -73,7 +69,6 @@ UID2 sharing のワークフローは、ビッドストリームで UID2 Token �
 >Note: もしあなたがパブリッシャーであれば、[Token Example for Publishers in the Bid Stream](sharing-bid-stream.md#token-example-for-publishers-in-the-bid-stream) を参照してください。
 
 UID2 共有者は、以下の例に示すように、2段階のプロセスを踏みます。手順は以下の通りです:
-
 1. メールアドレスまたは電話番号を raw UID2 に変換します:
 
     入力されたメールアドレスまたは電話番号を raw UID2 に変換し、安全に保存できるようにします。
@@ -122,7 +117,6 @@ UID2 共有者は、以下の例に示すように、2段階のプロセスを�
 パブリッシャーがビッドストリームで UID2 Token を共有するプロセスは、別のプロセスです。詳細は [Sharing in the Bid Stream](sharing-bid-stream.md) を参照してください。
 
 ## UID2 Token Pass-Through
-
 UID2 Token は、元となる raw UID2 が同じであっても、そこから UID2 Token が生成されるたびにトークンの値が異なるように設計されています。つまり、UID2 Token は誰でも見ることができますが、復号鍵にアクセスできる UID2 参加者のみが使用できます。
 
 例えば、UID2 Token は通常、ビッドストリームを通じてパブリッシャーから DSP に渡されます。UID2 Token は、SSP など複数の関係者を経由する可能性がありますが、UID2 Token を復号化できるのは UID2 参加者のみです。ビッドストリームを通過する際、UID2 Token は1つ以上の仲介者を安全に通過できます。

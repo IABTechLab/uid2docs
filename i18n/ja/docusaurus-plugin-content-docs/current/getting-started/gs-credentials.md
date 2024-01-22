@@ -9,7 +9,6 @@ sidebar_position: 03
 
 UID2 <a href="/docs/intro#participants">参加者</a>はそれぞれ、固有の認証情報のセットを取得します。取得する認証情報のセットは、以下の表に示すように、UID2にどのように参加しているかによって決まります。
 
-
 | Audience | Credentials | Integration |
 | :--- | :--- | :--- |
 | Server-Sideのエンドポイントを使用する参加者 | 以下の両方:<ul><li>[API key](../ref-info/glossary-uid.md#gl-api-key)、クライアントキーとも呼ばれます。</li><li>[Client secret](../ref-info/glossary-uid.md#gl-client-secret)、参加者と UID2 Service だけが知る値。</li></ul> | これらのエンドポイントのいずれかを使用するインテグレーション: <ul><li>[POST&nbsp;/identity/map](../endpoints/post-identity-map.md)</li><li>[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md)</li><li>[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)</li></ul> |
@@ -18,6 +17,7 @@ UID2 <a href="/docs/intro#participants">参加者</a>はそれぞれ、固有の
 本番環境だけでなくテスト環境も使用している場合は、それぞれの環境用に別々の認証情報を取得します。
 
 <!-- It includes:
+
 * [API Key and Client Secret](#api-key-and-client-secret)
   * [Security of API Key and Client Secret](#security-of-api-key-and-client-secret)
 * [Subscription ID and Public Key](#subscription-id-and-public-key)

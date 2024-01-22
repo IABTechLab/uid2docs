@@ -24,8 +24,6 @@ sidebar_position: 03
 
 ## Introduction
 
-このガイドでは、Client-Side または Server-Side SDK を使用せずにインテグレーションを行う場合に考慮する必要がある[基本的な手順](#integration-steps) を概説します。例えば、ユーザーのログインとログアウトの実装方法、UID2 ID 情報の管理とターゲティング広告への使用方法、トークンのリフレッシュ、ID の欠落への対処、ユーザーのオプトアウトの処理方法などを決定する必要があります。[FAQ](#faqs) も参照してください。
-
 このガイドでは、Client-Side または Server-Side SDK を使用せずにインテグレーションを行う場合に考慮する必要がある[基本的な手順](#integration-steps) を概説しています。例えば、以下のような方法を決定する必要があります:
 
 - ユーザーログインとログアウトの実装方法
@@ -56,6 +54,8 @@ sidebar_position: 03
 Server-Side SDK を使用している場合、SDK はエンドポイントに関連するすべてのステップを処理します。例えば、Step 1-d では、発行者はユーザーの DII をトークン生成サービスに送信します。
 
 ![](images/custom-publisher-flow-mermaid.png)
+
+
 
 次のセクションでは、図中の各ステップについて詳細を説明します:
 
@@ -99,6 +99,8 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 
 ### Clear Identity: User Logout
 
+ユーザーがログアウトした場合は、UID2 Token を使用しないでください。
+
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
 | 4-a  | N/A | ユーザーがパブリッシャーアセットからログアウトしました。|
@@ -106,8 +108,7 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 
 ## Sample Application
 
-A sample application is available for server-only integration. See:
-Server-only のインテグレーションの場合は、サンプル・アプリケーションをがあります:
+Server-only のインテグレーションの場合は、サンプルアプリケーションをがあります。参照してください:
 
 - [Server-Only UID2 Integration Example (sample application)](https://esp-srvonly-integ.uidapi.com/)
 - [Server-Only UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)

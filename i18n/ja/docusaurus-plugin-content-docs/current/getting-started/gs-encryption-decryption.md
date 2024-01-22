@@ -53,22 +53,22 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 以下の表に、リクエスト暗号化コードのフィールドレイアウトを示します。
 
-| Offset (Bytes) | Size (Bytes) | Description                                                                                                                                                                                                                                                   |
-| :------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0              | 8            | UNIX タイムスタンプ (ミリ秒単位) です。int64 のビッグエンディアンでなければなりません。                                                                                                                                                                       |
-| 8              | 8            | Nonce: リプレイ攻撃から保護するために使用されるランダムな 64 ビットのデータです。対応する [復号化済みレスポンスデータエンベローブ](#unencrypted-response-data-envelope) には、レスポンスが有効とみなされるために同じ nonce 値が含まれていなければなりません。 |
-| 16             | N            | UTF-8 エンコーディングでシリアライズされたリクエスト JSON ドキュメントをペイロードとします。                                                                                                                                                                  |
+| Offset (Bytes) | Size (Bytes) | Description |
+| :--- | :--- | :--- |
+| 0 | 8 | UNIX タイムスタンプ (ミリ秒単位) です。int64 のビッグエンディアンでなければなりません。 |
+| 8 | 8 | Nonce: リプレイ攻撃から保護するために使用されるランダムな 64 ビットのデータです。対応する [復号化済みレスポンスデータエンベローブ](#unencrypted-response-data-envelope) には、レスポンスが有効とみなされるために同じ nonce 値が含まれていなければなりません。 |
+| 16 | N | UTF-8 エンコーディングでシリアライズされたリクエスト JSON ドキュメントをペイロードとします。 |
 
 ### Encrypted Request Envelope
 
 次の表は、リクエスト暗号化コードのフィールドレイアウトを説明するものです。
 
-| Offset (Bytes) | Size (Bytes) | Description                                                                                                                                 |
-| :------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0              | 1            | エンベローブフォーマットのバージョン。`1` でなければなりません。                                                                       |
-| 1              | 12           | 96 ビットの初期化ベクトル (IV)、データ暗号化のランダム化に使用されます。                                                                   |
-| 13             | N            | ペイロード([暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope)) は AES/GCM/NoPadding アルゴリズムで暗号化されます。 |
-| 13 + N         | 16           | データの整合性を確認するために使用される 128 ビット GCM 認証タグです。                                                                      |
+| Offset (Bytes) | Size (Bytes) | Description |
+| :--- | :--- | :--- |
+| 0 | 1 | エンベローブフォーマットのバージョン。`1` でなければなりません。 |
+| 1 | 12 | 96 ビットの初期化ベクトル (IV)、データ暗号化のランダム化に使用されます。 |
+| 13 | N | ペイロード([暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope)) は AES/GCM/NoPadding アルゴリズムで暗号化されます。 |
+| 13 + N | 16 | データの整合性を確認するために使用される 128 ビット GCM 認証タグです。 |
 
 ## Decrypting Responses
 
@@ -82,21 +82,21 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 次の表は、レスポンス復号化コードのフィールドレイアウトを説明するものです。
 
-| Offset (Bytes) | Size (Bytes) | Description                                                                                                                                        |
-| :------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0              | 12           | 96 ビットの初期化ベクトル (IV)、データ暗号化のランダム化に使用されます。                                                                          |
-| 12             | N            | ペイロード([復号化済みレスポンスデータエンベローブ](#unencrypted-response-data-envelope)) は、AES/GCM/NoPadding アルゴリズムで暗号化されています。 |
-| 12 + N         | 16           | データの整合性を確認するために使用される 128 ビット GCM 認証タグ。                                                                                 |
+| Offset (Bytes) | Size (Bytes) | Description |
+| :--- | :--- | :--- |
+| 0 | 12 | 96 ビットの初期化ベクトル (IV)、データ暗号化のランダム化に使用されます。 |
+| 12 | N | ペイロード([復号化済みレスポンスデータエンベローブ](#unencrypted-response-data-envelope)) は、AES/GCM/NoPadding アルゴリズムで暗号化されています。 |
+| 12 + N | 16 | データの整合性を確認するために使用される 128 ビット GCM 認証タグ。 |
 
 ### Unencrypted Response Data Envelope
 
 次の表は、レスポンス復号化コードのフィールドレイアウトを説明するものです。
 
-| Offset (Bytes) | Size (Bytes) | Description                                                                                                                                                                |
-| :------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0              | 8            | UNIX タイムスタンプ (ミリ秒単位) です。int64 のビッグエンディアンでなければなりません。                                                                                    |
-| 8              | 8            | Nonce: レスポンスが有効であるとみなされるためには、これは [暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) の nonce と一致する必要があります。 |
-| 16             | N            | UTF-8 エンコーディングでシリアライズされたレスポンス JSON ドキュメントをペイロードとします。                                                                               |
+| Offset (Bytes) | Size (Bytes) | Description |
+| :--- | :--- | :--- |
+| 0 | 8 | UNIX タイムスタンプ (ミリ秒単位) です。int64 のビッグエンディアンでなければなりません。 |
+| 8 | 8 | Nonce: レスポンスが有効であるとみなされるためには、これは [暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) の nonce と一致する必要があります。 |
+| 16  | N | UTF-8 エンコーディングでシリアライズされたレスポンス JSON ドキュメントをペイロードとします。 |
 
 ### Response Example
 
@@ -146,7 +146,6 @@ pip install requests
 </TabItem>
 <TabItem value='java' label='Java'>
 
---------------------------------------------------------
 以下のコードサンプルは、Java を使用してリクエストを暗号化し、レスポンスを復号化します。必要なパラメータは main 関数の先頭に示されています:
 
 ```
@@ -205,15 +204,12 @@ Maven を使用している場合は、以下の最小限の `pom.xml` を使用
   </build>
 </project>
 ```
-
 </TabItem>
 <TabItem value='cs' label='C#'>
 
 以下のコードサンプルは、C# を使用してリクエストを暗号化し、レスポンスを復号化します。必要なパラメータはファイルの先頭に記載されています。また、`.\uid2_request` をビルドして実行することでも確認できます。
 
-このファイルには.NET 7.0が必要です。必要であれば、それ以前のバージョンを使用することもできますが、.NET Core 3.0以降でなければなりません。
-
- バージョンを変更するには、[top-level statements](https://learn.microsoft.com/ja-jp/dotnet/csharp/fundamentals/program-structure/top-level-statements) を Main メソッドに、[using 宣言](https://learn.microsoft.com/ja-jp/cpp/cpp/using-declaration?view=msvc-170) を [using ステートメント](https://learn.microsoft.com/ja-jp/dotnet/csharp/language-reference/proposals/csharp-8.0/using) に置き換えてください。
+このファイルには.NET 7.0が必要です。必要であれば、それ以前のバージョンを使用することもできますが、.NET Core 3.0以降でなければなりません。バージョンを変更するには、[top-level statements](https://learn.microsoft.com/ja-jp/dotnet/csharp/fundamentals/program-structure/top-level-statements) を Main メソッドに、[using 宣言](https://learn.microsoft.com/ja-jp/cpp/cpp/using-declaration?view=msvc-170) を [using ステートメント](https://learn.microsoft.com/ja-jp/dotnet/csharp/language-reference/proposals/csharp-8.0/using) に置き換えてください。
 </TabItem>
 </Tabs>
 
@@ -228,21 +224,28 @@ Maven を使用している場合は、以下の最小限の `pom.xml` を使用
 """
 Usage:
    echo '<json>' | python3 uid2_request.py <url> <api_key> <client_secret>
+
 Example:
    echo '{"email": "test@example.com"}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate PRODGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=
-   
+
+
 Refresh Token Usage:
    python3 uid2_request.py <url> --refresh-token <refresh_token> <refresh_response_key>
+
 Refresh Token Usage example:
    python3 uid2_request.py https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s=
+
 """
+
 import base64
 import os
 import sys	
 import time
 import json
+
 import requests
 from Cryptodome.Cipher import AES
+
 def b64decode(b64string, param):
    try:
       return base64.b64decode(b64string)
@@ -253,7 +256,9 @@ def b64decode(b64string, param):
 if len(sys.argv) != 4 and len(sys.argv) != 5:
    print(__doc__)
    sys.exit()
+
 url = sys.argv[1]
+
 is_refresh = 1 if sys.argv[2] == '--refresh-token' else 0
 if is_refresh:
    refresh_token = sys.argv[3]
@@ -264,20 +269,28 @@ else:
    api_key = sys.argv[2]
    secret = b64decode(sys.argv[3], "client_secret")
    payload = "".join(sys.stdin.readlines())
+
    iv = os.urandom(12)
    cipher = AES.new(secret, AES.MODE_GCM, nonce=iv)
+
    millisec = int(time.time() * 1000)
    request_nonce = os.urandom(8)
+
    print(f"\nRequest: Encrypting and sending to {url} : {payload}")
+
    body = bytearray(millisec.to_bytes(8, 'big'))
    body += bytearray(request_nonce)
    body += bytearray(bytes(payload, 'utf-8'))
+
    ciphertext, tag = cipher.encrypt_and_digest(body)
+
    envelope = bytearray(b'\x01')
    envelope += bytearray(iv)
    envelope += bytearray(ciphertext)
    envelope += bytearray(tag)
+
    base64Envelope = base64.b64encode(bytes(envelope)).decode()
+   
    http_response = requests.post(url, base64Envelope, headers={"Authorization": "Bearer " + api_key})
    
 # Decryption 
@@ -290,8 +303,10 @@ else:
    iv = resp_bytes[:12]
    data = resp_bytes[12:len(resp_bytes) - 16]
    tag = resp_bytes[len(resp_bytes) - 16:]
+   
    cipher = AES.new(secret, AES.MODE_GCM, nonce=iv)
    decrypted = cipher.decrypt_and_verify(data, tag)
+
    if is_refresh != 1:
       json_resp = json.loads(decrypted[16:].decode("utf-8"))
    else:
@@ -299,6 +314,7 @@ else:
       
    print("Response JSON:")
    print(json.dumps(json_resp, indent=4))
+
 ```
 </TabItem>
 <TabItem value='java' label='Java'>
@@ -436,11 +452,14 @@ if (args.Length != 3 && args.Length != 4)
     Console.WriteLine("""
 Usage:
    echo '<json>' | .\uid2_request <url> <api_key> <client_secret>
+
 Example:
    echo '{"email": "test@example.com"}' | .\uid2_request https://prod.uidapi.com/v2/token/generate UID2-C-L-999-fCXrMM.fsR3mDqAXELtWWMS+xG1s7RdgRTMqdOH2qaAo= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=
-   
+
+
 Refresh Token Usage:
    .\uid2_request <url> --refresh-token <refresh_token> <refresh_response_key>
+
 Refresh Token Usage example:
    .\uid2_request https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s=
 """);

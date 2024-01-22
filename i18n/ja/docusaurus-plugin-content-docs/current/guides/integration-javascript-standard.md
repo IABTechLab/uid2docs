@@ -58,12 +58,16 @@ Google Ad Managerを使用していて、セキュアシグナル機能を使用
 ![Publisher Flow](images/publisher-flow-mermaid.png)
 
 以下のセクションでは、図中の各ステップについての詳細を説明します: 
+
  1. [Establish identity: User Login](#establish-identity-user-login)
  2. [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
  3. [Refresh Tokens](#refresh-tokens)
  4. [Clear Identity: User Logout](#clear-identity-user-logout)
 
 ### Establish Identity: User Login
+
+
+Step 1-c で認証を行い、ユーザーに利用規約を受け入れさせ、パブリッシャーがユーザーのメールアドレスまたは電話番号を検証した後、Server-Side で UID2 Token を生成する必要があります。次の表は、トークン生成ステップの詳細です。
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
@@ -216,4 +220,3 @@ SDKは、指定された [callback function](../sdks/client-side-identity.md#cal
 ## FAQs
 
 パブリッシャー向けのよくある質問については、[FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。
-

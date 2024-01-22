@@ -329,3 +329,4 @@ UID2 Azure Confidential Container の新しいバージョンがリリースさ�
    ```
    for i in {0..COUNT}; az container delete --name uid-operator-OLD-VERSION-$i --resource-group {RESOURCE_GROUP} --yes
    ```
+   

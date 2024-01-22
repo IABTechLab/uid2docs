@@ -7,9 +7,6 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # JavaScript Express Integration Guide
 
 このガイドは、UID2 と インテグレーションし、ウェブサイト上で JavaScript Client-Side の変更のみを使用して、最小限の労力で [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (Advertising Token) を生成したいパブリッシャー向けのものです。
@@ -123,6 +120,7 @@ UID2 テスト環境からのトークンは、ビッドストリームに渡し
 Base URL のリストについては、[Environments](../getting-started/gs-environments.md) を参照してください。
 
 パブリッシャーは base URL を `https://global.prod.uidapi.com` に設定することもできます。この URL は読者(サイト利用者) を地理的に近い地域に誘導します。読者が地理的に分散している場合に最適です。
+
 別の UID2 サーバーを指定するには、`init` 呼び出しで変更できます:
 
 ```js
@@ -130,6 +128,7 @@ __uid2.init({
   baseUrl: "https://global.prod.uidapi.com",
 });
 ```
+
 ## Configure the UID2 SDK for JavaScript
 
 UID2 は、Client-Side のトークン生成機能を使用するために必要な以下の値をパブリッシャーに提供します:
@@ -290,7 +289,6 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
       //
       // If there is a valid UID2 token, it is in payload.identity.
       if (payload.identity) {
-        // Pass the UID2 token to Prebid.js.
         //
         // payload looks like this:
         // {

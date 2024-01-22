@@ -20,8 +20,6 @@ sidebar_position: 01
 - [FAQs](#faqs)
 - [License](#license) -->
 
-## Introduction
-
 UID2 は、広告エコシステム全体の多くの [参加者](#participants) にとって、オープンインターネット上の広告機会に対する決定論的な ID を可能にするフレームワークです。UID2 フレームワークにより、パブリッシャーのウェブサイト、モバイルアプリ、Connected TV (CTV)アプリからのログイン体験が、プログラマティックワークフローを通じて収益化できるようになります。独自の名前空間を持つオープンソースのスタンドアローンソリューションとして構築されたこのフレームワークは、ローカル市場の要件に合わせて設計された透明性とプライバシー制御をユーザーに提供します。
 
 > NOTE: 「UID2」という用語は、フレームワークと実際の識別子のいずれかを指すことがあります。特に断りのない限り、このページでは UID2 フレームワークの概要を説明します。
@@ -78,7 +76,6 @@ UID2 は、メールアドレスや電話番号など、[directly identifying in
 
 UID2 フレームワークは以下のコンポーネントで構成されており、現在、すべて The Trade Desk が管理しています。
 
-
 | Component | Description |
 | :--- | :--- |
 | **Core Service** | UID2エコシステムのソルト、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。 |
@@ -122,5 +119,4 @@ UID2 は透明で相互運用可能なアプローチにより、広告エコシ
 [Frequently Asked Questions](getting-started/gs-faqs.md) を参照してください.
 
 ## License
-
 All work and artifacts are licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).

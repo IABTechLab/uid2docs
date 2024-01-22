@@ -35,6 +35,8 @@ UID2 を採用する広告主にとってのメリット、ワークフロー、
 2. UID2 Operator は、raw UID2 とソルトバケット ID を生成して返します。
 3. 広告主またはデータプロバイダーは UID2 とソルトバケット ID を保存し、UID2 ベースのファーストパーティおよびサードパーティのオーディエンスセグメントをDSPに送信します。
 
+      Server-Side: 広告主またはデータプロバイダーは、マッピングテーブル、DMP、データレイク、またはその他のサーバーサイドアプリケーションに UID2 を保存します。
+
 ![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.jpg)
 
 ## Getting Started

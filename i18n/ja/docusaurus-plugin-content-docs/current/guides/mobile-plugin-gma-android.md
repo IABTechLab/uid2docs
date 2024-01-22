@@ -50,7 +50,6 @@ UID2 Android SDK と Google IMA SDK がインストールされている既存�
 
 Gradle でインストールするには、`build.gradle` ファイルに依存関係として SDK を追加します:
 
-
 ``` javascript
 implementation 'com.uid2:uid2-android-sdk-gma:0.5.0'
 ```
@@ -58,7 +57,6 @@ implementation 'com.uid2:uid2-android-sdk-gma:0.5.0'
 ### Maven 
 
 Maven でインストールするには、`pom.xml` ファイルに依存関係として SDK を追加します:
-
 
 ``` xml
 <dependency>
