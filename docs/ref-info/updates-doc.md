@@ -9,6 +9,22 @@ sidebar_position: 06
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: UID2 SDK for Java, Usage for Publishers Sections
+
+22 January 2024
+
+We've added new sections in the UID2 SDK for Java documentation to help publishers implementing the SDK.
+
+For details, see [Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers) in the UID2 SDK for Java Reference Guide.
+
+### New: Normalization and Encoding Documentation, Examples Section
+
+19 January 2024
+
+We've expanded and clarified the existing Normalization and Encoding doc, and added a new examples section to help you make sure that you're following the process correctly.
+
+For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+
 ### New: Web Integration Overview for Publishers
 
 16 January 2024
