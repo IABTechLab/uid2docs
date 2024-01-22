@@ -9,6 +9,46 @@ sidebar_position: 06
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: Web Integration Overview for Publishers
+
+16 January 2024
+
+UID2 とインテグレーションするパブリッシャーが利用できる Web インテグレーションオプションをまとめた新しいページを追加しました。
+
+詳細は、[Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
+
+### New: UID2 Operator Page
+
+3 January 2024
+
+UID2 Operator が何をするのか、Public Operator と Private Operator の違いについて説明したリファレンスコンテンツを追加しました。
+
+詳細は、[The UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
+
+<!-- ## 2023 Updates -->
+
+### New: UID2 Integration Overview for Prebid.js
+
+20 December 2023
+
+新しい概要ガイドには、Prebid と UID2 をインテグレーションするためのパブリッシャーオプションがまとめられています。
+
+さらに、既存のガイドも再編成され、簡素化されました。
+
+詳細は、以下を参照してください:
+
+- [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
+- [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
+- [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+
+### New: Encryption/Decryption Examples in Java and C#
+
+14 December 2023
+
+UID2 リクエストの暗号化とレスポンスの復号化について、追加のプログラミング言語での説明とコード例を追加しました。既存の Pythonの 例に、Java と C# を追加しました。
+
+詳細は、[Encryption and Decryption Code Examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples) を参照してください。
+
 ### New: UID2 Private Operator for Azure Integration Guide
 
 30 November 2023

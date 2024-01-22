@@ -190,7 +190,7 @@ class MyApplication : Application() {
 UID2Manager.getInstance().setIdentity(identity: UID2Identity)
 ```
 
-Get the UID2 token (advertising token) to pass to the Advertising SDK:
+SDK に渡す UID2 Token (Advertising Token) を取得します:
 
 ``` javascript
 UID2Manager.getInstance().getAdvertisingToken()

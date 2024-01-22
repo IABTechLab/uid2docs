@@ -115,13 +115,14 @@ SDKの [initialization](#initopts-object-void) の一部として、ID の Token
 
 Token の Auto-refresh について知っておくべきことは以下のとおりです:
 
+
 - 一度にアクティブにできる Token refresh call は 1 つだけです。
 - [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) レスポンスが、ユーザーがオプトアウトしたため、あるいはリフレッシュトークンの有効期限が切れたために失敗した場合、バックグラウンドでの自動更新処理を中断し、新しいログインを要求します ([isLoginRequired()](#isloginrequired-boolean) は `true` を返します)。それ以外のケースでは、auto-refresh の試みはバックグラウンドで継続されます。
 - SDK の初期化時に指定された [callback function](#callback-function) は、以下の場合に呼び出されます:
 	- リフレッシュが成功するたびに呼び出されます。
 	- 有効期限が切れた Advertising Token のリフレッシュに最初に失敗した場合。
 	- 例えば、ユーザーがオプトアウトした場合などです。<br/>NOTE: ID が一時的に利用できず、自動更新が失敗し続ける場合、コールバックは呼び出されません。この場合、SDK は既存の Advertising Token を使用し続けます。
-- [disconnect()](#disconnect-void) 呼び出しははアクティブなタイマーをキャンセルします。
+- [disconnect()](#disconnect-void) 呼び出しはアクティブなタイマーをキャンセルします。
 
 
 ## API Reference
@@ -340,7 +341,8 @@ SDK はファーストパーティクッキーを使用してユーザーの ID 
 
 | Properties | Default Value | Comments |
 | :--- | :--- | :--- |
-| `Name` | `__uid_2` | N/A || `Expiry` | N/A | 値は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) レスポンスで指定された Refresh Token の有効期限タイムスタンプです。 |
+| `Name` | `__uid_2` | N/A |
+| `Expiry` | N/A | 値は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) レスポンスで指定された Refresh Token の有効期限タイムスタンプです。 |
 | `Path` | `/` | 別の値を使用したい場合は、SDK の初期化時に `cookiePath` [init() parameter](#parameters) を使用して設定することができます。 |
 | `Domain` | `undefined` | 別の値を使用したい場合は、SDK の初期化時に `cookieDomain` [init() parameter](#parameters) を使用して設定することができます。 |
 

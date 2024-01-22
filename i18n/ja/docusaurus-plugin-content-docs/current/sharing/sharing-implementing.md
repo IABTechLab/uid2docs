@@ -20,7 +20,6 @@ UID2 sharing の設定には、各参加者がいくつかの手順を踏む必�
 
 >NOTE: ビッドストリームで UID2 Token を共有するパブリッシャーの場合は、[Sharing in the Bid Stream](sharing-bid-stream.md) を参照してください。
 
-
 ## Sharing Steps: Summary
 
 共有の設定と構成は、次の手順で行います:
@@ -39,7 +38,6 @@ UID2 Portal では、送信者と受信者がアカウントを設定し、送�
 送信者が共有許可を設定する必要があるのは、受信者または参加者のタイプごとに1回だけです。ただし、新しい共有権限を追加したり、既存の共有権限を変更したりする場合は、もう一度設定を調整する必要があります。
 
 詳細については、[UID2 Portal: Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
-
 
 ## Steps to Implement Sharing with an SDK
 
@@ -66,8 +64,6 @@ UID2 Portal では、送信者と受信者がアカウントを設定し、送�
    4. 受信者は復号化を設定します。
 
 ## Steps to Implement Sharing Using Snowflake
-
->NOTE: Snowflake共有はまだ利用できません。#8212;近日公開
 
 以下の手順は、送信者または受信者として UID2 sharing に参加したい Snowflake ユーザーのためのものです。
 
@@ -106,4 +102,3 @@ SDK を使用している場合、共有キーの更新スケジュールを定�
    データプロバイダー XYZ は、1時間ごとに再び `uid2client.refresh()` を呼び出します。新しい共有パーミッションがあるので、広告主 ABC のキーがレスポンスで返されます。
 
    データプロバイダー XYZ は、広告主 ABC から受け取った UID2 Token を raw UID2 に復号できるようになります。
-

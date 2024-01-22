@@ -1,5 +1,5 @@
 ---
-title: SDKs - Summary
+title: SDKs&#8212;Summary
 sidebar_label: SDKs - Summary
 pagination_label: SDKs - Summary
 description: SDK ドキュメントの概要。
@@ -7,7 +7,7 @@ hide_table_of_contents: false
 sidebar_position: 01
 ---
 
-# SDKs: Summary
+# SDKs&#8212;Summary
 
 SDK の機能を確認して使用する SDK を決定し、SDK の表をクリックして参照ドキュメントを確認してください。
 
@@ -15,26 +15,30 @@ SDK の機能を確認して使用する SDK を決定し、SDK の表をクリ�
 
 以下の表は、各 SDK で利用可能な機能をまとめたものです。
 
-| SDK | Client or Server | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
-| :--- | :--- |  :--- | :--- | :--- | :--- |
-|UID2 SDK for JavaScript | Client-Side| Not supported | Not supported | Not supported | Supported |
-|UID2 SDK for Java | Server-Side | Supported | Supported | Supported | Supported |
-|UID2 SDK for Python | Server-Side | Supported | Supported | Supported | Supported |
-|UID2 SDK for C# / .NET | Server-Side | Supported | Supported | Not supported | Not supported |
-|UID2 SDK for C++ | Server-Side | Supported | Supported | Not supported | Not supported |
-|UID2 SDK for iOS | Client-Side| Not supported | Not supported | Not supported | Supported |
-|UID2 SDK for Android | Client-Side | Not supported | Not supported | Not supported | Supported |
+| UID2 SDK for... | Client-Side or Server-Side | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII&ast; | Refresh UID2 Token | Generate Raw UID2 from DII |
+| :--- | :--- |  :--- | :--- | :--- | :--- | :--- |
+|JavaScript | Client| &#10060; | &#10060; | &#10060; | &#9989; | &#10060; |
+|Java | Server | &#9989; | &#9989; | &#9989; | &#9989; | &#10060; |
+|Python | Server | &#9989; | &#9989; | &#9989; | &#9989; | &#10060; |
+|C# / .NET | Server | &#9989; | &#9989; | &#10060; | &#10060; | &#10060; |
+|C++ | Server | &#9989; | &#9989; | &#10060; | &#10060; | &#10060; |
+|Android | Client&nbsp;(Mobile) | &#10060; | &#10060; | &#10060; | &#9989; | &#10060; |
+|iOS | Client (Mobile)| &#10060; | &#10060; | &#10060; | &#9989; |&#10060; |
+
+&ast;DII から raw UID2 を生成する必要がある広告主およびデータプロバイダは Snowflake ([Snowflake Integration Guide](../guides/snowflake_integration.md) を参照してください) または [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを使用することができます。
+
+<!-- &#9989; = Supported | &#10060; = Not Supported | &#8212; = Not Supported -->
 
 ## SDK Documentation
 
-UID2 インテグレーションについては、以下の SDK ドキュメントを参照してください。
+UID2 インテグレーションについては、以下の SDK ドキュメントを参照してください。ドキュメンテーションのリンクは最初の欄にあります。
 
-| SDK | Document | Description | Audience |
-| :--- | :--- | :--- | :--- |
-| UID2 SDK for JavaScript | [UID2 SDK for JavaScript Reference Guide](client-side-identity.md) | Client-Side JavaScript SDK は、UID2 を使用してクライアントの ID を確立し、パブリッシャー向けに UID2 Token を取得するプロセスを容易にします。 | Publishers |
-| UID2 SDK for Java | [UID2 SDK for Java Reference Guide](uid2-sdk-ref-java.md) | Java Server-Side で、以下を行いたい人向けのSDK:<br/>- UID2 Token の生成または更新します。<br/>- raw UID2 を暗号化して UID2 Token を作成したり、UID2 Token を復号化して raw UID2 にアクセスします。 | Publishers<br/>DSPs<br/>Advertisers<br/>Data Providers |
-| UID2 SDK for Python | [UID2 SDK for Python Reference Guide](uid2-sdk-ref-python.md) | UID2 Token を作成するために raw UID2 を暗号化したい、あるいは raw UID2 にアクセスするために UID2 Token を復号化したいと考える Python Server-Side を使用する人のための SDK。 | Publishers<br/>DSPs<br/>Advertisers<br/>Data Providers |
-| UID2 SDK for C# / .NET | [UID2 SDK for C# / .NET Reference Guide](uid2-sdk-ref-csharp-dotnet.md) | UID2 Token を作成するために raw UID2 を暗号化したい、あるいは raw UID2 にアクセスするために UID2 Token を復号化したいと考える .NET Server-Side を使用する人のための SDK。 |DSPs<br/>Advertisers<br/>Data Providers |
-| UID2 SDK for C++ | [UID2 SDK for C++ Reference Guide](uid2-sdk-ref-cplusplus.md) | UID2 Token を作成するために raw UID2 を暗号化したい、あるいは raw UID2 にアクセスするために UID2 Token を復号化したいと考える C++ Server-Side を使用する人のための SDK。 | DSPs<br/>Advertisers<br/>Data Providers |
-| UID2 SDK for Android | [UID2 SDK for Android Reference Guide](uid2-sdk-ref-android.md) | Android アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント identity の確立と UID2 Token の取得プロセスを容易にするSDK。 | Publishers |
-| UID2 SDK for iOS | [UID2 SDK for iOS Reference Guide](uid2-sdk-ref-ios.md) | iOS アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント identity の確立と UID2 Token の取得プロセスを容易にするSDK。 | Publishers |
+| SDK/Link&nbsp;to&nbsp;Guide | Description | Audience
+| :--- | :--- | :--- |
+| [UID2 SDK for JavaScript](client-side-identity.md) | UID2 を使用したクライアント ID の確立と、パブリッシャー向けの UID2 Token の取得プロセスを容易にする、Client-Side  JavaScript SDK。 | Publishers |
+| [UID2 SDK for Java](uid2-sdk-ref-java.md) | Java Server-Side を使用するオーディエンスのための SDK:<ul><li>パブリッシャーが [DII](../ref-info/glossary-uid.md#gl-dii) から UID2 Token を生成したりリフレッシュしたりするのを支援します。([POST&nbsp;/token/generate](../endpoints/post-token-generate))</li><li>UID2 Sharer が UID2 Token を暗号化・復号化するのを支援します。([Usage for UID2 Sharers](uid2-sdk-ref-java.md#usage-for-uid2-sharers))</li><li>入札リクエストから UID2 Token を復号する DSP を支援します。([Decrypt UID2 Tokens for RTB Use](guides/dsp-guide.md#decrypt-uid2-tokens-for-rtb-use))</li></ul> | Publishers<br/>DSPs<br/>Advertisers<br/>Data&nbsp;Providers |
+| [UID2 SDK for Python](uid2-sdk-ref-python.md) | Python Server-Side を使用するオーディエンスのための SDK:<ul><li>パブリッシャーが [DII](../ref-info/glossary-uid.md#gl-dii) から UID2 Token を生成したりリフレッシュしたりするのを支援します。([POST&nbsp;/token/generate](../endpoints/post-token-generate))</li><li>UID2 Sharer が UID2 Token を暗号化・復号化するのを支援します。([Usage for UID2 Sharers](uid2-sdk-ref-java.md#usage-for-uid2-sharers))</li><li>入札リクエストから UID2 Token を復号する DSP を支援します。([Decrypt UID2 Tokens for RTB Use](guides/dsp-guide.md#decrypt-uid2-tokens-for-rtb-use))</li></ul> | Publishers<br/>DSPs<br/>Advertisers<br/>Data Providers |
+| [UID2 SDK for C# / .NET](uid2-sdk-ref-csharp-dotnet.md) | .NET Server-Side を使用するオーディエンスのための SDK:<ul><li>DSP が入札リクエストから UID2 Token を復号化するのを支援します。</li><li>UID2 Sharer が UID2 Token を暗号化または復号化するのを支援します。</li></ul> | DSPs<br/>Advertisers<br/>Data Providers |
+| [UID2 SDK for C++](uid2-sdk-ref-cplusplus.md) | C++ Server-Side を使用するオーディエンスのための SDK:<ul><li>DSP が入札リクエストから UID2 Token を復号化するのを支援します。</li><li>UID2 Sharer が UID2 Token を暗号化または復号化するのを支援します。</li></ul> | DSPs<br/>Advertisers<br/>Data Providers |
+| [UID2 SDK for Android](uid2-sdk-ref-android.md) | Android アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にする SDK。 | Publishers |
+| [UID2 SDK for iOS](uid2-sdk-ref-ios.md) | iOS アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にする SDK。 | Publishers |

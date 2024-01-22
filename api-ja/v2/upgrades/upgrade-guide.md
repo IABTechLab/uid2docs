@@ -30,7 +30,10 @@ UID2 API の v2 アップデートは以下のとおりです:
 - UID2 エンドポイントに対して認証を行うには、 [UID2 管理者へ連絡](../../README.md#contact-info) し API リクエストの暗号化と API 応答の復号化に使用する秘密鍵を入手します。[Authentication and Authorization (認証と承認)](../summary-doc-v2.md#authentication-and-authorization) も参照してください。
 - アップグレードは、すべての v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理外のエンドポイントが非推奨となり削除される、**2023 年 3 月 31 日** までに完了する必要があります。
 
+
 ## Publisher Upgrade Workflow
+
+このセクションには、パブリッシャー向けの下位互換性とアップグレード手順に関する以下の情報が含まれています:
 
 - [Backward Compatibility (後方互換性)](#backward-compatibility-for-publishers)
 - [Upgrade Steps (アップグレードステップ)](#upgrade-steps-for-publishers)
@@ -44,7 +47,6 @@ UID2 API の v2 アップデートは以下のとおりです:
 - v2 [POST /token/generate](../endpoints/post-token-generate.md) または v2 [POST /token/refresh](../endpoints/post-token-refresh.md) のエンドポイントから返されたリフレッシュトークンを、応答を暗号化しない v1 `GET /token/refresh` エンドポイントに渡せます。
 
 [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) は、Client-Side JavaScript SDK v1 との互換性を保った交換部品 (a drop-in replacement)です。ここで知っておくべきことは以下のとおりです:
-
 - ユーザーの ID を保存するために使用されるファーストパーティクッキーは、SDK の 2 つのバージョン間で完全に相互運用可能です。つまり、Client-Side JavaScript SDK v2 は v1 の Cookie を読むことができ、その逆も同様です。
 - [v2 SDK init()関数](../sdks/client-side-identity.md#initopts-object-void)は、v1 `GET /token/generate`エンドポイントが返す ID オブジェクトを受け取ります。
 - v1 SDK の `init()` 関数は、v2 [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントによって返される ID オブジェクトを受け入れます。
@@ -69,19 +71,13 @@ Client-Side JavaScript SDK をアップグレードするには、SDK をロー�
 SDK version 1:
 
 ```html
-<script
-  src="https://prod.uidapi.com/static/js/uid2-sdk-1.0.0.js"
-  type="text/javascript"
-></script>
+<script src="https://prod.uidapi.com/static/js/uid2-sdk-1.0.0.js" type="text/javascript"></script>
 ```
 
 SDK version 2:
 
 ```html
-<script
-  src="https://prod.uidapi.com/static/js/uid2-sdk-2.0.0.js"
-  type="text/javascript"
-></script>
+<script src="https://prod.uidapi.com/static/js/uid2-sdk-2.0.0.js" type="text/javascript"></script>
 ```
 
 #### Upgrade Token Generation Calls
@@ -112,6 +108,7 @@ SDK を使用せず、 サーバーサイドまたはクライアントサイド
 - [Backward Compatibility (後方互換性)](#backward-compatibility-for-advertisers-and-data-providers)
 - [Upgrade Steps (アップグレードステップ)](#upgrade-steps-for-advertisers-and-data-providers)
 
+
 ### Backward Compatibility for Advertisers and Data Providers
 
 UID2 API v2 へのアップグレードについて知っておくべきことは、以下のとおりです:
@@ -124,13 +121,14 @@ UID2 API v2 へのアップグレードについて知っておくべきこと�
 
 UID API v2 にアップグレードするには、以下の v1 エンドポイントへの呼び出しを、対応する v2 エンドポイントに置き換えます。
 
-| v1 Endpoint             | v2 Endpoint                                                     | Comments                                                                                                                              |
-| :---------------------- | :-------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
-| `GET /identity/buckets` | [POST /identity/buckets](../endpoints/post-identity-buckets.md) | HTTP リクエストの種類が変更されました。                                                                                               |
-| `POST /identity/map`    | [POST /identity/map](../endpoints/post-identity-map.md)         | v2 エンドポイントは、シングルユーザーの DII もマッピングする以外は、v1 エンドポイントと同じです。                                     |
-| `GET /identity/map      | [POST /identity/map](../endpoints/post-identity-map.md)         | HTTP リクエストタイプが変更されました。<br/>新しい POST エンドポイントでは、単一ユーザーおよび複数ユーザーの DII をマッピングします。 |
+| v1 Endpoint | v2 Endpoint | Comments |
+| :--- |:--- |:--- |
+| `GET /identity/buckets` | [POST /identity/buckets](../endpoints/post-identity-buckets.md) | HTTP リクエストの種類が変更されました。 |
+| `POST /identity/map` | [POST /identity/map](../endpoints/post-identity-map.md) | v2 エンドポイントは、シングルユーザーの DII もマッピングする以外は、v1 エンドポイントと同じです。 |
+| `GET /identity/map | [POST /identity/map](../endpoints/post-identity-map.md) | HTTP リクエストタイプが変更されました。<br/>新しい POST エンドポイントでは、単一ユーザーおよび複数ユーザーの DII をマッピングします。 |
 
 > IMPORTANT: UID2 API v2 の呼び出しを行うには、POST リクエストボディを暗号化し、レスポンスを復号化する必要があります。詳細および例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+
 
 ## FAQs
 

@@ -8,7 +8,7 @@ banner_title: UID2 Overview for DSPs
 banner_description: より耐久性のある識別子でデータ戦略を可能に。
 ---
 
-デマンドサイドプラットフォーム(DSP、メディアバイイングプラットフォーム)として、Unified ID 2.0(UID2)を活用した ID 戦略を実施することで、以下を促進することができます:
+デマンドサイドプラットフォーム(DSP、メディアバイイングプラットフォーム) として、Unified ID 2.0(UID2) を活用した ID 戦略を実施することで、以下を促進することができます:
 
 - 広告主のためのファーストパーティデータの有効化
 - パブリッシャー向けインベントリ収益化
@@ -54,7 +54,8 @@ UID2 を採用する DSP のメリット、ワークフロー、ドキュメン�
 
 1. [アクセスリクエスト](/request-access) ページにあるフォームに記入して、UID2へのアクセスをリクエストします。
 2. UID2 のオプトアウト情報を受け取るための Webhook を実装し、Webhook を UID2 Admimnistrator と共有します。
-3. Webhook 経由でオプトアウトフィードを受信していることを確認します。<br/>。
+3. Webhook 経由でオプトアウトフィードを受信していることを確認します。<br/>
+
     Webhook が設置されたら、認証情報を受け取ります ([UID2 Credentials](../getting-started/gs-credentials.md) を参照してください)。
 4. どの実装オプションを使用するかを決定します。
 5. SDK を使用している場合は、SDKをダウンロードします。該当する SDK のガイドを参照してください。
@@ -63,11 +64,11 @@ UID2 を採用する DSP のメリット、ワークフロー、ドキュメン�
     :::note
     UID2 へのリクエストメッセージは必ず暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
     :::
-7. (条件付き) CRM オンボーディングソリューションを実装する場合は、データプロバイダワークフローのための資格情報の別のセットを要求します。[UID2 Credentials](../getting-started/gs-credentials.md)を参照してください。
+7. (条件付き) CRM オンボーディングソリューションを実装する場合は、データプロバイダワークフローのための資格情報の別のセットを要求します。[UID2 Credentials](../getting-started/gs-credentials.md) を参照してください。
 8. テストします。
 9. 本番稼働します。
 
-## Resources
+## Implementation Resources
 
 UID2 を実装する DSP には、以下のドキュメントリソースが用意されています。
 
@@ -80,12 +81,16 @@ UID2 を実装する DSP には、以下のドキュメントリソースが用�
 | Integration Guide | [DSP Integration Guide](../guides/dsp-guide.md) | DSP 向けのこのインテグレーションガイドでは、入札のための UID2 の取り扱いと、ユーザーのオプトアウトの受け入れについて説明します。 |
 
 <!-- ## Integration Requirements
+
 To integrate with UID2 to receive UID2s from brands (as first-party data) and data providers (as third-party data) and leverage them to inform bidding on UID2s in the bid stream, the buy-side participants must meet the following requirements:
+
 - Accept data in the form of UID2s
 - Bid on data in the form of UID2s
 - Build a webhook for honoring opt-out requests
 - Sync encryption keys daily with the UID2 Administrator
+
 For details, see [DSP Integration Guide](../guides/dsp-guide.md).
+
 Optionally, if DSPs want to generate UID2s themselves from DII, they can also follow the [Third-Party Data Provider Workflow](overview-data-providers.md#workflow-for-data-providers). -->
 
 ## FAQs for DSPs

@@ -1,13 +1,12 @@
 ---
 title: POST /token/generate
-description: DII から UID2 Token (Advertising Token)を生成します。 
+description: DII から UID2 Token (Advertising Token) を生成します。 
 hide_table_of_contents: false
 sidebar_position: 02
 ---
 
 # POST /token/generate
-
-UID2 ベースのターゲティング広告の承認とともにユーザーから提供された [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号)から生成された UID2 Token をリクエストします。DII が有効で、ユーザーが UID2 をオプトアウトしていない場合、この操作は UID2 Token と関連する値を返します。
+UID2 ベースのターゲティング広告の承認とともにユーザーから提供された [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) から生成された UID2 Token をリクエストします。DII が有効で、ユーザーが UID2 をオプトアウトしていない場合、この操作は UID2 Token と関連する値を返します。
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
@@ -18,7 +17,6 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 `POST '{environment}/v2/token/generate'`
 
 このエンドポイントリクエストについて知っておくべきことは、以下のとおりです:
-
 - サービスにアクセスする際に使用する API Key を秘密にするため、 UID2 Token は認証後に Server-Side でのみ生成する必要があります。
 - すべてのリクエストを秘密鍵で暗号化する必要があります。詳細と Python スクリプトの例は、 [リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
@@ -28,20 +26,17 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | 必須 | テスト (integration) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>地域オペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください<br/>Notes:<ul><li>`integ` 環境と `prod` 環境では、異なる [API keys](../ref-info/glossary-uid.md#gl-api-key) が必要です。</li><li>トークンの有効期限は変更される可能性がありますが、`integ` 環境では常に `prod` 環境よりも大幅に短くなります。</li></ul> |
 
-
-NOTE: インテグレーション環境と本番環境では、異なる [APIキー](../ref-info/glossary-uid.md#gl-api-key) が必要です。
-
 ### Unencrypted JSON Body Parameters
 
 > IMPORTANT: リクエストを暗号化するときには、以下の4つの条件付きパラメータのうち **1つ** と、必須パラメータである `optout_check` の値 `1` のみを、JSON ボディのキーと値のペアとして含める必要があります。
 
-| Body Parameter | Data Type | Attribute      | Description                                                                                                                                                              |
-| :------------- | :-------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `email`        | string    | 条件付きで必要 | トークンを生成するメールアドレスです。                                                                                                                                   |
-| `email_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) した [正規化](../getting-started/gs-normalization-encoding.md#email-address-normalization) 済みメールアドレスです。 |
-| `phone`        | string    | 条件付きで必要 | トークンを生成する [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号です。                                                                               |
-| `phone_hash`   | string    | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) した、[正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号です。        |
-| `optout_check`       | number    | 必須     | ユーザーがオプトアウトしたかどうかをチェックします。このパラメータは `1` とします。                                                                 |
+| Body Parameter | Data Type | Attribute | Description | 
+| :--- | :--- | :--- | :--- |
+| `email` | string | 条件付きで必要 | トークンを生成するメールアドレスです。 |
+| `email_hash` | string | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) した [正規化](../getting-started/gs-normalization-encoding.md#email-address-normalization) 済みメールアドレスです。 |
+| `phone` | string | 条件付きで必要 | トークンを生成する [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号です。 |
+| `phone_hash` | string | 条件付きで必要 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) した、[正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号です。|
+| `optout_check` | number | 必須 | ユーザーがオプトアウトしたかどうかをチェックします。このパラメータは `1` とします。 |
 
 ### Request Examples
 
@@ -55,21 +50,18 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
   "optout_check": 1
 }
 ```
-
 ```json
 {
   "email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=",
   "optout_check": 1
 }
 ```
-
 ```json
 {
   "phone": "+12345678901",
   "optout_check": 1
 }
 ```
-
 ```json
 {
   "phone_hash": "wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ/FSK4=",
@@ -82,7 +74,6 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 ```sh
 echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","optout_check":1}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate [Your-Client-API-Key] [Your-Client-Secret]
 ```
-
 詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON Response Format
@@ -124,25 +115,25 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","optout_chec
 
 ### Response Body Properties
 
-| Property               | Data Type | Description                                                                                                                                                                                                                                                                             |
-| :--------------------- | :-------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `advertising_token`    | string    | ユーザーの暗号化された Advertising Token (UID2)です。                                                                                                                                                                                                                                  |
-| `refresh_token`        | string    | UID2 Service と最新の identity トークンのセットを交換できる暗号化されたトークンです。                                                                                                                                                                                                         |
-| `identity_expires`     | double    | Advertising Token の有効期限を示す UNIX タイムスタンプ (ミリ秒単位)です。                                                                                                                                                                                                              |
-| `refresh_from`         | double    | UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) が UID2 Token のリフレッシュを開始するタイミングを示す UNIX タイムスタンプ(ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから UID2 Token もリフレッシュすることを検討してください。|
-| `refresh_expires`      | double    | Refresh Token の有効期限を示す UNIX タイムスタンプ (ミリ秒単位)です。                                                                                                                                                                                                                  |
-| `refresh_response_key` | string    | [POST&nbsp;/token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。                                                                                                                                                                                     |
+| Property | Data Type | Description |
+| :--- | :--- | :--- |
+| `advertising_token` | string | ユーザーの暗号化された Advertising Token (UID2) です。 |
+| `refresh_token` | string | UID2 Service と最新の identity トークンのセットを交換できる暗号化されたトークンです。 |
+| `identity_expires` | double | Advertising Token の有効期限を示す UNIX タイムスタンプ (ミリ秒単位) です。 |
+| `refresh_from` | double | UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) が UID2 Token のリフレッシュを開始するタイミングを示す UNIX タイムスタンプ(ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから UID2 Token もリフレッシュすることを検討してください。|
+| `refresh_expires` | double | Refresh Token の有効期限を示す UNIX タイムスタンプ (ミリ秒単位) です。 |
+| `refresh_response_key` | string | [POST&nbsp;/token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。 |
 
 ### Response Status Codes
 
 次の表は、`status` プロパティの値と、それに対応する HTTP ステータスコードの一覧です。
 
-| Status         | HTTP Status Code | Description                                                                                                                                                                    |
-| :------------- | :--------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `success`      | 200              | リクエストは成功しました。レスポンスは暗号化されています。                                                                                                                     |
-| `optout`       | 200              | リクエストは成功しました。ユーザーがオプトアウトしたため、トークンを生成できませんでした。                                                                                     |
-| `client_error` | 400              | リクエストに不足している、または無効なパラメータがありました。                                                                                                                 |
-| `unauthorized` | 401              | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
+| Status | HTTP Status Code | Description |
+| :--- | :--- | :--- |
+| `success` | 200 | リクエストは成功しました。レスポンスは暗号化されています。 |
+| `optout` | 200 | リクエストは成功しました。ユーザーがオプトアウトしたため、トークンを生成できませんでした。 |
+| `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。 |
+| `unauthorized` | 401 | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
 `status` の値が `success` 以外であれば、 `message` フィールドにその問題に関する追加情報が表示されます。
 

@@ -85,11 +85,12 @@ decrypted_token = client.decrypt(advertising_token)
 
 SDK から返される利用可能な情報の概要を次の表に示します。
 
-| Function | Description |
+| Instance Variable | Description |
 | :--- | :--- |
-| `GetStatus()` | 復号結果のステータス。指定可能な値の一覧と定義については、[Response Statuses](#response-statuses) を参照してください。 |
-| `GetUid()` | UID2 Advertising Token に対応する raw UID2。 |
-| `GetEstablished()` | ユーザーがパブリッシャーと最初に UID2 を確立した時を示すタイムスタンプ。 |
+| `uid2` | UID2 Advertising Token に対応する raw UID2。 |
+| `established` | ユーザーがパブリッシャーと最初に UID2 を確立した時を示すタイムスタンプ。 |
+
+>NOTE: 復号化に失敗した場合、例外 `EncryptionError` が発生します。
 
 ### Response Statuses
 
@@ -128,34 +129,18 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
    1. `encrypt` 関数を呼び出します。暗号化に成功したら、UID2 Token を受信者に送信します:
 
       ```python
-      from uid2_client import encrypt
-      from uid2_client.identity_scope import IdentityScope
-      
       try:
-         identity_scope = IdentityScope.UID2
-         encrypted_data = encrypt(raw_uid, identity_scope, keys)
-         #send encrypted_data to receiver
+         encrypted_data = client.encrypt(raw_uid)
+         # send encrypted_data to receiver
       except EncryptionError as err:
-        #check for failure reason
+        # check for failure reason
         print(err)
-      ``` 
-<!-- Alternative to the above for EUID:
-      from uid2_client import encrypt
-      from uid2_client.identity_scope import IdentityScope
-      
-        try:
-         identity_scope = IdentityScope.UID2  # or IdentityScope.EUID
-         encrypted_data = encrypt(raw_uid, identity_scope, keys)
-         #send encrypted_data to receiver
-      except EncryptionError as err:
-        #check for failure reason
-        print(err) -->
+      ```
 
 4. 受信者:
    1. `decrypt` 関数を呼び出します。復号化に成功したら、raw UID2 を使用します:
 
       ```python
-      from uid2_client import decrypt
       try:
         result = decrypt(ad_token, keys)
         #use successfully decrypted result.uid2
@@ -180,7 +165,7 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
 
 ### Standard Integration
 
-標準のインテグレーション (クライアントとサーバー)を使用している場合 ([[JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照し)、この手順に従ってください:
+標準のインテグレーション (クライアントとサーバー) を使用している場合 ([[JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照し)、この手順に従ってください:
 
 * この identity を以下のように JSON 文字列としてクライアントに送り返します ([identity field](../sdks/client-side-identity.md#initopts-object-void) で使用するため):
 
@@ -206,9 +191,11 @@ server-only インテグレーションを使用している場合 ([Publisher I
    1. ユーザーのセッションから identity の JSON 文字列を取得し、identity 情報を入力として受け取って `IdentityTokens` オブジェクトを生成する以下の関数を呼び出します:
 
       `identity = IdentityTokens.from_json_string(identityJsonString)`
-   2.  identity をリフレッシュできるかどうか (Refresh Token の有効期限が切れていないかどうか)を判断します:
+   2.  identity をリフレッシュできるかどうか (Refresh Token の有効期限が切れていないかどうか) を判断します:
+
       `if not identity or not identity.is_refreshable(): # we must no longer use this identity (for example, remove this identity from the user's session) `
    3. リフレッシュが必要かどうかを判断する:
+
       `if identity.is_due_for_refresh()):`
 4. 必要であれば、トークンと関連する値をリフレッシュします:
 
