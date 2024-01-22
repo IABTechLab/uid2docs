@@ -180,7 +180,7 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
 
 ### Standard Integration
 
-標準のインテグレーション (クライアントとサーバー)を使用している場合 ([Server-Side Integration Guide for JavaScript](../guides/integration-javascript-standard.md) を参照し)、この手順に従ってください:
+標準のインテグレーション (クライアントとサーバー)を使用している場合 ([Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照し)、この手順に従ってください:
 
 * この identity を以下のように JSON 文字列としてクライアントに送り返します ([identity field](../sdks/client-side-identity.md#initopts-object-void) で使用するため):
 

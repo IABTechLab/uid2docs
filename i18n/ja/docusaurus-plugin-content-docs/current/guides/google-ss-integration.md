@@ -81,7 +81,7 @@ UID2 SDK for JavaScript バージョン 3.0.0 以降を使用している場合�
 
 このスクリプトは CDN でホストされており、GPT はセキュアシグナル機能で自動的にロードします。
 
-詳しくは、 [Server-Side Integration Guide for JavaScript](integration-javascript-standard.md) を参照してください。
+詳しくは、 [Server-Side Integration Guide for JavaScript](integration-javascript-server-side.md) を参照してください。
 
 <!--A sample application is also available for client-side integration using the SDK. See [Sample Applications](#sample-applications).-->
 

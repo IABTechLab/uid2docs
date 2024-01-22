@@ -41,7 +41,7 @@ JavaScript Express Integration Guide は、既存の URL の全く新しいド�
 
 詳細は、[JavaScript Express Integration Guide](../guides/publisher-client-side.md) を参照してください。
 
-以前の *UID2 SDK for JavaScript Integration Guide* にあった内容は、JavaScript SDK を Server-Side に実装したいパブリッシャーのための補足文書になりました: [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md).
+以前の *UID2 SDK for JavaScript Integration Guide* にあった内容は、JavaScript SDK を Server-Side に実装したいパブリッシャーのための補足文書になりました: [JavaScript Standard Integration Guide](../guides/integration-javascript-server-side.md).
 
 ### New: Prebid.js Integration Guide
 
@@ -82,7 +82,7 @@ UID2 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメント�
 
 詳細は以下を参照してください:
 -  [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)
--  [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md)
+-  [JavaScript Standard Integration Guide](../guides/integration-javascript-server-side.md)
 
 ### New: Private Operator Guide for Google Confidential Space 
 

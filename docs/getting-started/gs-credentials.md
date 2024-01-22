@@ -26,7 +26,7 @@ If you're using the integration environment as well as the production environmen
 
 ## API Key and Client Secret
 
-If you're using a server-side implementation (see [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) or [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-standard.md)), the API key and client secret allow you to connect to the [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) and call API endpoints. These values identify you to the service.
+If you're using a server-side implementation (see [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) or [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), the API key and client secret allow you to connect to the [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) and call API endpoints. These values identify you to the service.
 
 Here is some information about API keys and client secrets:
 - One UID2 participant can have multiple keys.

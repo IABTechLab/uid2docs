@@ -104,8 +104,9 @@ const sidebars = {
               'guides/integration-prebid',
               'guides/integration-prebid-client-side',
               'guides/integration-prebid-server-side',
+              'guides/integration-javascript',
               'guides/publisher-client-side',
-              'guides/integration-javascript-standard',
+              'guides/integration-javascript-server-side',
               'guides/custom-publisher-integration',
               'guides/google-ss-integration',
                     ],
@@ -226,6 +227,7 @@ const sidebars = {
       collapsed: true,
       items: [
         'ref-info/ref-operators-public-private',
+        'summary-doc-v2',
       ],
     },
 

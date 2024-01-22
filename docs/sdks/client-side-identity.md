@@ -27,7 +27,7 @@ This page describes version 3 of the UID2 SDK for JavaScript. If you are maintai
 Related information:
 - For integration steps for content publishers, see:
   - [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
-  - [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-standard.md). 
+  - [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md). 
 - For example applications with associated documentation, see:
   - The UID2 Google ESP with SDK v3 example:
     - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3) and [running site](https://esp-jssdk-integ.uidapi.com/).
@@ -117,7 +117,7 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 	- If the advertising token is available, use it to initiate requests for targeted advertising.
 	- If the advertising token is not available, either use untargeted advertising or redirect the user to your UID2 login with the consent form.
 
-For more detailed web integration steps, see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-standard.md).
+For more detailed web integration steps, see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md).
 
 ### Background Token Auto-Refresh
 
