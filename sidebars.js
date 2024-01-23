@@ -101,14 +101,35 @@ const sidebars = {
             },
             collapsed: true,
             items: [
-              'guides/integration-prebid',
-              'guides/integration-prebid-client-side',
-              'guides/integration-prebid-server-side',
-              'guides/publisher-client-side',
-              'guides/integration-javascript-standard',
+              {
+                type: 'category',
+                label: 'Prebid',
+                link: {
+                  type: 'doc',
+                  id: 'guides/integration-prebid',
+                },
+                collapsed: true,
+                items: [
+                  'guides/integration-prebid-client-side',
+                  'guides/integration-prebid-server-side',
+                ],
+              },
+
+              {
+                type: 'category',
+                label: 'JavaScript',
+                link: {
+                  type: 'generated-index',
+                },
+                collapsed: true,
+                items: [
+                  'guides/publisher-client-side',
+                  'guides/integration-javascript-standard',
+                ],
+              },
               'guides/custom-publisher-integration',
               'guides/google-ss-integration',
-                    ],
+            ],
           },
 
           {
