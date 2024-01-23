@@ -6,6 +6,7 @@ sidebar_position: 02
 use_banner: true
 banner_title: UID2 Overview for Publishers
 banner_description: Maintain audience targeting in the ever-changing advertising industry for better impression monetization and more relevance.
+displayed_sidebar: sidebarPublishers
 ---
 
 As a publisher, you can benefit from the cross-device presence of Unified ID 2.0 (UID2) and take advantage of a consistent identity fabric on all your inventory.
