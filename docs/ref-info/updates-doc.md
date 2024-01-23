@@ -17,6 +17,8 @@ We've added new sections in the UID2 SDK for Java documentation to help publishe
 
 For details, see [Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers) in the UID2 SDK for Java Reference Guide.
 
+<!-- APIDOCS-1705 -->
+
 ### New: Normalization and Encoding Documentation, Examples Section
 
 19 January 2024
@@ -24,6 +26,8 @@ For details, see [Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-p
 We've expanded and clarified the existing Normalization and Encoding doc, and added a new examples section to help you make sure that you're following the process correctly.
 
 For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+
+<!-- APIDOCS-1183, APIDOCS-1880 -->
 
 ### New: Web Integration Overview for Publishers
 
@@ -33,6 +37,8 @@ We've added a new page summarizing the web integration options available to publ
 
 For details, see [Web Integration Overview](../guides/integration-options-publisher-web.md).
 
+<!-- APIDOCS-1846 -->
+
 ### New: UID2 Operator Page
 
 3 January 2024
@@ -40,6 +46,8 @@ For details, see [Web Integration Overview](../guides/integration-options-publis
 We've added a reference article explaining what the UID2 Operator does and the differences between a Public Operator and a Private Operator.
 
 For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
+
+<!-- APIDOCS-1720 -->
 
 <!-- ## 2023 Updates -->
 
