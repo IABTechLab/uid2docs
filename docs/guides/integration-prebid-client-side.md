@@ -1,7 +1,7 @@
 ---
 title: UID2 Client-Side Integration Guide for Prebid.js
-sidebar_label: Client-Side Integration Guide for Prebid.js
-pagination_label: UID2 Client-Side Integration Guide for Prebid.js
+sidebar_label: Client-Side Integration for Prebid.js
+pagination_label: UID2 Client-Side Integration for Prebid.js
 description: Information about setting up a client-side Prebid.js integration.
 hide_table_of_contents: false
 sidebar_position: 04

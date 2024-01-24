@@ -59,8 +59,7 @@ UID2 Operator Service は、どの GCP アカウントおよびプロジェク�
 1. 両方のデプロイオプションで必要な gcloud CLI をインストールします。Google が提供する指示に従ってください: [Install the gcloud CLI](https://cloud.google.com/sdk/docs/install)。
 
 ### UID2 Operator Account Setup
-
-UID2 の連絡先に、あなたの組織を UID2 Operator として登録するよう依頼してください。誰に頼めばわからない場合は、[連絡先情報](../getting-started/gs-account-setup.md#contact-info)を参照してください。
+UID2 の連絡先に、あなたの組織を UID2 Operator として登録するよう依頼してください。誰に頼めばわからない場合は、[連絡先情報](../getting-started/gs-account-setup.md#contact-info) を参照してください。
 
 >TIP: 新しいバージョンやその他の技術的な通知や要求について知らせておくべき人の社内メール配信リストを設定し、それをメールアドレスとして提供するのは良い考えです。
 
@@ -101,7 +100,6 @@ UID2 アカウントの登録が完了し、gcloud CLI をインストールし�
 どちらのデプロイメント・オプションも、両方のデプロイメント環境をサポートします。
 
 次のステップを決定するには、使用するデプロイオプションを選択します。次に、該当する手順に従ってください:
-
 - [Deploy&#8212;Terraform Template](#deployterraform-template)
 - [Deploy&#8212;gcloud CLI](#deploygcloud-cli)
 
@@ -141,7 +139,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
 
 #### Set Up the Terraform Environment
 
-1. `{PROJECT_ID}` のプレースホルダを自分のプロジェクト ID に置き換えて、新しいプロジェクトを作成するか、既存のプロジェクトを選択します ([Confidential Space Account Setup](#confidential-space-account-setup)を参照してください)
+1. `{PROJECT_ID}` のプレースホルダを自分のプロジェクト ID に置き換えて、新しいプロジェクトを作成するか、既存のプロジェクトを選択します ([Confidential Space Account Setup](#confidential-space-account-setup) を参照してください)
 
    ```
    gcloud config set project {PROJECT_ID}
@@ -191,7 +189,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
    | Name | Type | Default | Required | Description |
    | :--- | :--- | :--- | :--- | :--- |
    | `region` | `string` | `us-east1` | no | デプロイ先のリージョンです。有効なリージョンの一覧については、Google Cloud ドキュメントの [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) 参照してください。<br/>NOTE: GCP Confidential Space の UID2 Private Operator は、以下の地域ではサポートされていません: Europe, China. |
-   | `network_name` | `string` | `uid-operator` | no | VPC リソース名(ルール/インスタンスタグにも使用されます)です。 |
+   | `network_name` | `string` | `uid-operator` | no | VPC リソース名(ルール/インスタンスタグにも使用されます) です。 |
    | `min_replicas` | `number` | `1` | no | デプロイするレプリカの最小数です。 |
    | `max_replicas` | `number` | `5` | no | デプロイするレプリカの最大数です。 |
    | `uid_operator_key_secret_name` | `string` | `"secret-operator-key"` | no | Operator Key Secret に指定する名前です。Terraform テンプレートは、`uid_operator_key` 値を保持するために GCP Secret Manager にシークレットを作成します。名前は定義できます。例えば、`uid2-operator-operator-key-secret-integ` |
@@ -205,7 +203,6 @@ Terraform がインストールされていない場合は、[terraform.io](http
 terraform init
 terraform apply
 ```
-
 `terraform apply` を実行すると、同じフォルダに以下のファイルが生成されます: `terraform.tfstate`。このファイルには管理対象のインフラストラクチャとコンフィギュレーションに関する状態情報が保存され、将来のメンテナンスに使用されます。
 
 >NOTE: Terraformの `state` ファイルについては、必ず推奨されるプラクティスに従ってください: これらはデプロイされたインフラストラクチャを維持するために必要であり、機密情報が含まれている可能性があります。詳細は Terraform ドキュメントの [state](https://developer.hashicorp.com/terraform/language/state) を参照してください。
@@ -274,7 +271,6 @@ gcloud CLI をインストールしたときに作成したアカウントを設
     ```
 
 1. UID2 Operator Serviceを実行するためのサービスアカウントを作成します:
-
     ```
     $ gcloud iam service-accounts create {SERVICE_ACCOUNT_NAME}
     ```
@@ -323,9 +319,9 @@ gcloud CLI をインストールしたときに作成したアカウントを設
     ```
 #### Create Secret for the Operator Key in Secret Manager
 
-UID2 アカウントのセットアップ ([UID2 Operator Account Setup](#uid2-operator-account-setup) を参照してください)の一環として、各環境の Operator Key を受け取ります。
+UID2 アカウントのセットアップ ([UID2 Operator Account Setup](#uid2-operator-account-setup) を参照してください) の一環として、各環境の Operator Key を受け取ります。
 
-次のステップでは、GCP Secret Manager に `{OPERATOR_KEY}` の値を保存し、Secret の名前を取得します。この名前は、後でデプロイスクリプトの `{OPERATOR_KEY_SECRET_FULL_NAME}` プレースホルダを置き換えるために使用します([Update-the-Script-with-valid-values](#update-the-script-with-valid-values)を参照してください)。
+次のステップでは、GCP Secret Manager に `{OPERATOR_KEY}` の値を保存し、Secret の名前を取得します。この名前は、後でデプロイスクリプトの `{OPERATOR_KEY_SECRET_FULL_NAME}` プレースホルダを置き換えるために使用します([Update-the-Script-with-valid-values](#update-the-script-with-valid-values) を参照してください)。
 
 以下の手順に従ってください:
 
@@ -457,7 +453,6 @@ Health check エンドポイントを呼び出し、実装の健全性をテス�
    レスポンスボディが `OK` の HTTP 200 は、健全なステータスを示します。
 
 #### Health Check&#8212;gcloud CLI
-
 次の例は、ヘルスチェックの `gcloud` コマンドラインオプションです:
 
 1. ロードバランサーのパブリック IP アドレスを取得します:

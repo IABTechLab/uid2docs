@@ -20,6 +20,8 @@ UID2 に Private Operator として参加することの利点を次に示しま
 - 地域的な近接性を提供できるサービスを利用することで、ネットワークホップを最小限に抑える計画を立てることができます。
 - 共有サービスに参加するのではなく、自社で管理するプロセスやポリシーを導入することができます。
 
+詳細については、[The UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
+
 ## Hosting Options for Private Operators
 
 Private Operator を選択した場合、いくつかの実施オプションがあります。以下のいずれかを実行できます:
@@ -38,7 +40,7 @@ Private Operator を選択した場合、いくつかの実施オプションが
 4. 選択したオプションの実装ガイドに記載されている手順に従います。
 
     :::note
-    UID2 へのリクエストメッセージは必ず暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md)を参照してください。
+    UID2 へのリクエストメッセージは必ず暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
     :::
 5. テストします。
 6. 本番稼働します。

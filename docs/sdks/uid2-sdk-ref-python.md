@@ -14,7 +14,8 @@ You can use the UID2 SDK for Python on the server side to facilitate the followi
 - Encrypting raw UID2s to create UID2 tokens
 - Decrypting UID2 advertising tokens to access the raw UID2s
 
-<!-- This guide includes the following information:
+<!--
+ This guide includes the following information:
 
 - [Overview](#overview)
 - [Functionality](#functionality)
@@ -25,8 +26,9 @@ You can use the UID2 SDK for Python on the server side to facilitate the followi
   - [Response Content](#response-content)
   - [Response Statuses](#response-statuses)
 - [FAQs](#faqs)
+- [Usage for Publishers](#usage-for-publishers) 
 - [Usage for UID2 Sharers](#usage-for-uid2-sharers) 
-- [Usage for Publishers](#usage-for-publishers) -->
+-->
 
 ## Overview
 
@@ -73,7 +75,7 @@ If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising t
 
 The following is the decrypt method in Python:
 
-```python
+```py
 from uid2_client import Uid2ClientFactory
  
 client = Uid2ClientFactory.create('https://prod.uidapi.com', 'my-auth-token', 'my-secret-key')
@@ -104,6 +106,81 @@ Available information returned through the SDK is outlined in the following tabl
 | `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
 | `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
 
+## Usage for Publishers
+
+1. Create an instance of Uid2PublisherClient:
+   ```py
+   client = Uid2PublisherClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
+   ```
+2. Call a function that takes the user's email address or phone number as input and generates a `TokenGenerateResponse` object. The following example uses an email address:
+
+   ```py
+   token_generate_response = client.generate_token(TokenGenerateInput.from_email(emailAddress).do_not_generate_tokens_for_opted_out())
+   ```
+
+      :::important
+      Be sure to call this function only when you have obtained legal basis to convert the user’s [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to UID2 tokens for targeted advertising.
+      :::
+
+ `do_not_generate_tokens_for_opted_out()` applies `optout_check=1` in the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call. Without this, `optout_check` is omitted to maintain backwards compatibility.
+
+### Standard Integration
+
+If you're using standard integration (client and server) (see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
+
+* Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)) using the following:
+
+  ```py
+  token_generate_response.get_identity_json_string()
+  ```
+
+  :::note
+  If the user has opted out, this method returns None, so be sure to handle that case.
+  :::
+
+### Server-Only Integration
+
+If you're using server-only integration (see [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md)):
+
+1. Store this identity as a JSON string in the user's session, using the `token_generate_response.get_identity_json_string()` function.
+
+   If the user has opted out, this method returns `None`, so be sure to handle that case.
+2. To retrieve the user's UID2 token, use the following:
+
+   ```py
+   identity = token_generate_response.get_identity()
+   if identity:
+      advertising_token = identity.get_advertising_token()
+   ```
+3. Periodically check if the user's UID2 token should be refreshed. This can be done at fixed intervals using a timer, or can be done whenever the user accesses another page:
+   1. Retrieve the identity JSON string from the user's session, and then call the following function that takes the identity information as input and generates an `IdentityTokens` object:
+
+      ```py
+      identity = IdentityTokens.from_json_string(identityJsonString)
+      ```
+
+   2. Determine if the identity can be refreshed (that is, the refresh token hasn't expired):
+
+      ```py
+      if not identity or not identity.is_refreshable(): # we must no longer use this identity (for example, remove this identity from the user's session) 
+      ```
+
+   3. Determine if a refresh is needed:
+
+      ```py
+      if identity.is_due_for_refresh()):
+      ```
+
+4. If needed, refresh the token and associated values:
+
+   ```py
+   token_refresh_response = client.refresh_token(identity)`
+   ```
+
+5. Store `token_refresh_response.get_identity_json_string()` in the user's session.
+
+   If the user has opted out, this method returns `None`, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `token_refresh_response.is_optout()` function.
+
 ## Usage for UID2 Sharers
 
 A UID2 sharer is any participant that wants to share UID2s with another participant. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant. For an example of usage, see [examples/sample_sharing.py](https://github.com/IABTechLab/uid2-client-python/blob/master/examples/sample_sharing.py) script.
@@ -112,23 +189,23 @@ A UID2 sharer is any participant that wants to share UID2s with another particip
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for Python, either as a sender or a receiver.
 
-1. Create a ```UID2Client``` reference:
+1. Create a `UID2Client` reference:
  
-   ```python
+   ```py
    from uid2_client import Uid2ClientFactory
    client = Uid2ClientFactory.create(base_url, auth_key, secret_key)
    ```
 
 2. Refresh once at startup, and then periodically (recommended refresh interval is hourly):
 
-   ```python
+   ```py
    client.refresh_keys()
    ```
 
 3. Senders: 
    1. Call the `encrypt` function. Then, if encryption succeeded, send the UID2 token to the receiver:
 
-      ```python
+      ```py
       try:
          encrypted_data = client.encrypt(raw_uid)
          # send encrypted_data to receiver
@@ -140,7 +217,7 @@ The following instructions provide an example of how you can implement sharing u
 4. Receivers:
    1. Call the `decrypt` function. Then, if decryption succeeded, use the raw UID2:
     
-      ```python
+      ```py
       try:
         result = client.decrypt(ad_token)
         # use successfully decrypted result.uid2

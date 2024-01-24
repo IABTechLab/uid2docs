@@ -9,6 +9,26 @@ sidebar_position: 06
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: UID2 SDK for Java, Usage for Publishers Sections
+
+22 January 2024
+
+We've added new sections in the UID2 SDK for Java documentation to help publishers implementing the SDK.
+
+For details, see [Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers) in the UID2 SDK for Java Reference Guide.
+
+<!-- APIDOCS-1705 -->
+
+### New: Normalization and Encoding Documentation, Examples Section
+
+19 January 2024
+
+We've expanded and clarified the existing Normalization and Encoding doc, and added a new examples section to help you make sure that you're following the process correctly.
+
+For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+
+<!-- APIDOCS-1183, APIDOCS-1880 -->
+
 ### New: Web Integration Overview for Publishers
 
 16 January 2024
@@ -17,6 +37,8 @@ We've added a new page summarizing the web integration options available to publ
 
 For details, see [Web Integration Overview](../guides/integration-options-publisher-web.md).
 
+<!-- APIDOCS-1846 -->
+
 ### New: UID2 Operator Page
 
 3 January 2024
@@ -24,6 +46,8 @@ For details, see [Web Integration Overview](../guides/integration-options-publis
 We've added a reference article explaining what the UID2 Operator does and the differences between a Public Operator and a Private Operator.
 
 For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
+
+<!-- APIDOCS-1720 -->
 
 <!-- ## 2023 Updates -->
 
@@ -79,9 +103,9 @@ For details, see [UID2 Credentials](../getting-started/gs-credentials.md).
 
 The *JavaScript Express Integration Guide* is a completely new document at the existing URL, covering a new, simpler way of using the UID2 SDK for JavaScript for a client-side publisher implementation.
 
-For details, see [JavaScript Express Integration Guide](../guides/publisher-client-side.md).
+For details, see [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
 
-The content that was in the previous *UID2 SDK for JavaScript Integration Guide*  is now in a supplementary document for publishers who want to implement the JavaScript SDK on the server side: [JavaScript Standard Integration Guide](../guides/integration-javascript-server-side.md).
+The content that was in the previous *UID2 SDK for JavaScript Integration Guide*  is now in a supplementary document for publishers who want to implement the JavaScript SDK on the server side.
 
 :::note
 This document was updated in January 2024 to [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md), and the JavaScript Standard Integration Guide. is now the [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md).
@@ -128,7 +152,7 @@ Significant documentation updates reflect the enhanced functionality of Version 
 
 For details, see:
 -  [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)
--  [JavaScript Standard Integration Guide](../guides/integration-javascript-server-side.md)
+-  [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
 
 ### New: Private Operator Guide for Google Confidential Space 
 

@@ -19,11 +19,13 @@ Sharing permissions (共有権限) を設定することで、他の UID2 参加
 
 適切な共有関係を作成するのに役立つ多くのオプションがあります:
 
-- **Recommendations**: 1つ以上のカテゴリ (パブリッシャー、広告主、DSP、またはデータプロバイダー)の現在および将来の参加者全員と共有するための推奨を、ワンクリックで受け入れることができます。 [Bulk Add Sharing Permissions](#bulk-add-sharing-permissions) を参照してください。
+- **Recommendations**: 1つ以上のカテゴリ (パブリッシャー、広告主、DSP、またはデータプロバイダー) の現在および将来の参加者全員と共有するための推奨を、ワンクリックで受け入れることができます。 [Bulk Add Sharing Permissions](#bulk-add-sharing-permissions) を参照してください。
 
   Recommendations は、アカウント設定で指定した参加者のタイプに基づいています。
-- **Sharing Categories**: 設定した1つ以上の特定のカテゴリ (パブリッシャー、広告主、DSP、またはデータプロバイダー)のすべての現在および将来の参加者と共有することができます。
+- **Sharing Categories**: 設定した1つ以上の特定のカテゴリ (パブリッシャー、広告主、DSP、またはデータプロバイダー) のすべての現在および将来の参加者と共有することができます。
 - **Individual Sharing Relationships**: 1つ以上の現在の参加者との共有関係を作成できます。このオプションでは、将来の共有権限を手動で追加する必要があります。
+<!-- - You can choose to have your name on the sharing list, so that others can create sharing relationships with you, or you can participate in sharing without your name appearing on the list. (GWH_KT_01 I didn't see this in the wireframes or UI?) -->
+<!-- - You can generate a Sharing Number that you can share with specific participants you want to share with. They can use the Sharing Number to create a sharing relationship with you even if you chose to be private. (GWH_KT_02 I didn't see this in the wireframes or UI?) -->
 
 >NOTE: 他の参加者と共有許可を設定しても、データが共有されるわけではありません。受信者があなたの UID2 Token を raw UID2 に復号化できるようになるだけです。情報が共有されるのは、あなたが他の参加者に明示的に送信するか、他の参加者があなたに送信した場合のみです。
 
@@ -32,7 +34,6 @@ Sharing permissions (共有権限) を設定することで、他の UID2 参加
 意図した UID2 Token の受信者が UID2 Token を解読して raw UID2 にできるよう、送信者は受信者に許可を与える必要があります。共有許可は UID2 Portal で定義します。
 
 UID2 Portal へのアクセスについては、UID2 の担当者にお尋ねください。詳細については、[Request an Account](portal-getting-started.md#request-an-account) を参照してください。UID2 を初めて使用する場合は、[Account Setup](../getting-started/gs-account-setup.md) を参照してください。
-
 
 ## Sharing Options
 
@@ -49,10 +50,10 @@ UID2 Portal では、以下の共有オプションを利用できます。こ�
 ## Bulk Add Sharing Permissions
 
 UID2 Portal は、あなたの役割に基づいて推奨を行います。例えば:
-- パブリッシャーであれば、すべてのDSP (現在および将来)と共有できます。
-- 広告主であれば、すべてのデータプロバイダー (現在および将来)と共有できます。
-- DSP であれば、すべての広告主とすべてのデータプロバイダー (現在および将来)と共有できます。
-- データプロバイダーであれば、すべての広告主、すべてのパブリッシャー、すべてのDSP (現在および将来)と共有できます。 
+- パブリッシャーであれば、すべてのDSP (現在および将来) と共有できます。
+- 広告主であれば、すべてのデータプロバイダー (現在および将来) と共有できます。
+- DSP であれば、すべての広告主とすべてのデータプロバイダー (現在および将来) と共有できます。
+- データプロバイダーであれば、すべての広告主、すべてのパブリッシャー、すべてのDSP (現在および将来) と共有できます。 
 
 推奨を受け入れることが、共有オプションを設定する最も速く簡単な方法です。
 
@@ -82,7 +83,7 @@ UID2 Portal は、あなたの役割に基づいて推奨を行います。例�
 1. **Sharing Permissions** をクリックします。
 1. 以下のいずれかを実行します:
 
-   - **Bulk Add Permission to Sharing Categories**: 設定した1つ以上の特定のカテゴリ (パブリッシャー、広告主、DSP、またはデータプロバイダー)の現在および将来の参加者全員と共有できます。
+   - **Bulk Add Permission to Sharing Categories**: 設定した1つ以上の特定のカテゴリ (パブリッシャー、広告主、DSP、またはデータプロバイダー) の現在および将来の参加者全員と共有できます。
 
    - **Review and Accept Recommendations**: 推奨を確認し、必要に応じて推奨カテゴリを追加またはクリアし、**Add Permissions** をクリックします。
 

@@ -40,6 +40,7 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 
 ## GitHub Repository/Binary
 
+
 この SDK は以下のオープンソースの GitHub リポジトリにあります:
 
 - [UID2 SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md)

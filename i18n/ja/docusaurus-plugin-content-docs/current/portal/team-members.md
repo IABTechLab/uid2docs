@@ -30,7 +30,6 @@ UID2 Portal の Team Members ページでは、以下のようなアカウント
 - チームメンバーの追加、変更、削除: [Add a Team Member](#add-a-team-member) を参照してください。
 - メール連絡先の追加、変更、削除: [Email Contacts](email-contacts.md) を参照してください。
 - 共有関係と共有設定の追加と削除: [Sharing Permissions](sharing-permissions.md) を参照してください。
-
 ## Add a Team Member
 
 以下のステップを完了させます:
@@ -53,7 +52,6 @@ UID2 Portal の Team Members ページでは、以下のようなアカウント
 チームメンバーの情報を編集するには、リストでチームメンバーを見つけてから、Actions 列で Edit (pencil) アイコンをクリックします。
 
 情報を更新し、変更を保存します。
-
 ## Remove a Team Member
 
 チームから誰かを外すには、以下の手順に従ってください:

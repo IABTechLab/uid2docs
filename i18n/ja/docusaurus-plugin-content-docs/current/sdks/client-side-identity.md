@@ -17,7 +17,7 @@ export const New = () => (
 この SDK を使用すると、UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスが容易になります。以下のセクションでは、UID2 ID を確立するための [workflow](#workflow-overview) について説明し、SDK の [API reference](#api-reference) を提供し、UID2の[storage format](#uid2-storage-format)について説明します。
 
 :::tip
-UID2 ID Module([UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)を参照) と一緒に Prebid.js を使用している場合、または UID2 をサポートしている他の製品と一緒に Prebid.js を使用している場合は、SDK を使用する必要はありません。
+Prebid.js を UID2 ID モジュールと一緒に使用しているや、UID2 をサポートしている他の製品と一緒に使用している場合、おそらく SDK を使用する必要はないでしょう。Prebid.js モジュールがすべてを管理します。詳細については、[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください。
 :::
 
 このページでは、UID2 SDK for JavaScript version 3 について説明します。以前のバージョンを使用してインテグレーションを管理している場合は、以下のいずれかを行ってください:
@@ -55,9 +55,18 @@ UID2 ID Module([UID2 Integration Overview for Prebid.js](../guides/integration-p
 
 この SDK は、以下のロケーションに公開されています:
 
+<!-- - NPM: [https://www.npmjs.com/package/@uid2/uid2-sdk](https://www.npmjs.com/package/@uid2/uid2-sdk)
+  - This is the easiest way to include the SDK in your own build. Use this if you want to bundle the SDK along with your other JavaScript or TypeScript files.
+  - You can also use this for TypeScript type information and still load the script via the CDN. If you do this, ensure that the version of NPM package you have installed matches the version in the CDN url. LP_TODO: Looking at the NPM package, I don't believe it's ready for use - it just includes the source and doesn't seem to include a ready-to-deploy build. LP 12 Sep 2023 -->
 - CDN: `https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js`
+  <!-- - This is the easiest way to include the SDK in your site if you don't use a build pipeline to bundle your JavaScript. LP_TODO: This doesn't make sense until we add the NPM option above. -->
 
   この文書の最新更新時点での最新バージョンは [3.2.0](https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js) です。[the list of available versions](https://cdn.prod.uidapi.com/) も参照してください。
+- CDN (Integration): `https://cdn.integ.uidapi.com/uid2-sdk-${VERSION_ID}.js`
+
+  このインテグレーション URL には最小化されていないコードが含まれており、テストのみを目的としています。この URL を本番サイトに使用しないでください。
+
+
 
 ## Terminology
 
@@ -120,9 +129,8 @@ Token の Auto-refresh について知っておくべきことは以下のとお
 - [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) レスポンスが、ユーザーがオプトアウトしたため、あるいはリフレッシュトークンの有効期限が切れたために失敗した場合、バックグラウンドでの自動更新処理を中断し、新しいログインを要求します ([isLoginRequired()](#isloginrequired-boolean) は `true` を返します)。それ以外のケースでは、auto-refresh の試みはバックグラウンドで継続されます。
 - SDK の初期化時に指定された [callback function](#callback-function) は、以下の場合に呼び出されます:
 	- リフレッシュが成功するたびに呼び出されます。
-	- 有効期限が切れた Advertising Token のリフレッシュに最初に失敗した場合。
-	- 例えば、ユーザーがオプトアウトした場合などです。<br/>NOTE: ID が一時的に利用できず、自動更新が失敗し続ける場合、コールバックは呼び出されません。この場合、SDK は既存の Advertising Token を使用し続けます。
-- [disconnect()](#disconnect-void) 呼び出しははアクティブなタイマーをキャンセルします。
+	- ユーザがオプトアウトした場合など、IDが無効になった場合。<br/>NOTE: ID が一時的に使用できなくなり、自動リフレッシュに失敗し続けた場合、コールバックは呼び出されません。この場合、SDK は有効期限が切れていない限り、既存の Advertising Token を使用し続けます。
+- [disconnect()](#disconnect-void) 呼び出しはアクティブなタイマーをキャンセルします。
 
 ### Callback Function
 
@@ -182,11 +190,15 @@ Token の Auto-refresh について知っておくべきことは以下のとお
 
 #### Event Types and Payload Details
 
+<div className='no-wrap-table-code'>
+
 | Event | Payload | Details |
 | :--- | :--- | :--- |
-| `SdkLoaded` | {} | SDK スクリプトがロードされ、グローバルな `__uid2` が構築されたときに呼び出されます。このイベントを受け取ると、安全に `__uid2.init` を呼び出すことができます。コールバックは常にこのイベントを一度だけ受け取ります。コールバックが登録されたときに SDK が既にロードされていた場合、コールバックは直ちにこのイベントを受け取ります。 |
+| `SdkLoaded` | `{}` | SDK スクリプトがロードされ、グローバルな `__uid2` が構築されたときに呼び出されます。このイベントを受け取ると、安全に `__uid2.init` を呼び出すことができます。コールバックは常にこのイベントを一度だけ受け取ります。コールバックが登録されたときに SDK が既にロードされていた場合、コールバックは直ちにこのイベントを受け取ります。 |
 | `InitCompleted` | `{ identity: Uid2Identity  \| null }` | `init()` が終了すると呼び出されます。コールバックは `init` が正常に呼び出されている限り、常にこのイベントを一度だけ受け取ります。コールバックが登録されたときに `init` が完了していた場合は、`SdkLoaded` イベントを受信した直後にこのイベントを受け取ります。 |
 | `IdentityUpdated` | `{ identity: Uid2Identity \| null }` | 現在の ID が変更されるたびに呼び出されます。コールバックが登録された後に ID が変更されなかった場合、コールバックはこのイベントを受け取りません。 |
+
+</div>
 
 `Uid2Identity` 型は `init()` を呼び出す時に指定できる ID と同じ型です。
 
@@ -344,6 +356,8 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 ```
 
 `getAdvertisingToken()` 関数を使うと、初期化完了時のコールバックだけでなく、どこからでも Advertising Token にアクセスすることができます。この関数は以下の条件のいずれかに該当する場合に `undefined` をします:
+
+この関数は、以下の条件のいずれかに該当する場合、`undefined` を返します:
 
 - [callback function](#callback-function) はまだ呼び出されていません。これは SDK の初期化が完了していないことを意味します。
 - SDK の初期化は完了していますが、使用する有効な ID がありません。

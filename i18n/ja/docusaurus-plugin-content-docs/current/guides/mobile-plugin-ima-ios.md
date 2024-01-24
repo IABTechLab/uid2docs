@@ -11,7 +11,7 @@ UID2 Interactive Media Ads (IMA) Plugin for iOS は、[Google IMA SDK for iOS](h
 
 ## Functionality
 
-このプラグインは、iOS デバイス上で動作するアプリの UID2 をサポートしたいパブリッシャー向けに、Google Interactive Media Ads(IMA)とのインテグレーションを簡素化します。
+このプラグインは、iOS デバイス上で動作するアプリの UID2 をサポートしたいパブリッシャー向けに、Google Interactive Media Ads(IMA) とのインテグレーションを簡素化します。
 
 ## Version
 

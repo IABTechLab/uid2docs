@@ -17,7 +17,6 @@ UID2 Token を他の UID2 正規のユーザーと安全に共有できるよう
 
 しかし、UID2 参加者は皆、UID2 エコシステムのセキュリティを維持する責任を負っています。ここでは、UID2 sharing を円滑かつ安全に行うためのベストプラクティスをいくつかご紹介します。
 
-
 ## Best Practices for Managing Raw UID2s
 
 以下のガイドラインに従ってください:
@@ -25,7 +24,6 @@ UID2 Token を他の UID2 正規のユーザーと安全に共有できるよう
 
   UID2 Token は短命であるため、これは重要です。UID2 Token の作成に使用した鍵の有効期限が切れると、トークンを復号化できなくなります。
 - コードでは、将来の拡張性を考慮して、raw UID2 の長さを 100 文字としてください。
-
 
 ## Best Practices for Managing UID2 Tokens
 

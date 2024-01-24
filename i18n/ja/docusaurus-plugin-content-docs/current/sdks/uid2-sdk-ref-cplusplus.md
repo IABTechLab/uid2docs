@@ -52,7 +52,6 @@ Release tags は以下の GitHub で入手できますが、バイナリーは�
 
 初期化関数は、SDKが UID2 Service で認証するために必要なパラメータを設定します。また、エラー発生時の再試行間隔を設定することもできます。
 
-
 | Parameter | Description | Recommended Value |
 | :--- | :--- | :--- |
 | `endpoint` | UID2 Service のエンドポイント。 | N/A |
@@ -100,7 +99,6 @@ SDK から返される利用可能な情報の概要を次の表に示します�
 | `VersionNotSupported` | クライアントライブラリが暗号化トークンのバージョンをサポートしていません。|
 
 ## Usage for UID2 Sharers
-
 
 UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のことです。raw UID2を他の参加者に送信する前に、UID2 Token に暗号化する必要があります。使用例については、[com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` メソッド) を参照してください。
 

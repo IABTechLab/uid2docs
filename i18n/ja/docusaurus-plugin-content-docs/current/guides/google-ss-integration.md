@@ -9,7 +9,7 @@ sidebar_position: 10
 
 # Google Ad Manager Secure Signals Integration Guide
 
-このガイドでは、UID2 を Google Ad Manager のセキュアシグナル機能 (旧称: Encrypted Signals for Publishers、ESP)で使用するパブリッシャー向けのインテグレーション手順について説明します。
+このガイドでは、UID2 を Google Ad Manager のセキュアシグナル機能 (旧称: Encrypted Signals for Publishers、ESP) で使用するパブリッシャー向けのインテグレーション手順について説明します。
 
 <!-- It includes the following sections:
 
@@ -20,7 +20,7 @@ sidebar_position: 10
 * [UID2 SDK for JavaScript Client-Side Integration](#uid2-sdk-for-javascript-client-side-integration)
 * [Sample Applications](#sample-applications) -->
 
-> NOTE: UID2 Google Ad Manager セキュアシグナルインテグレーションを使用するには、SDK を使用している場合、UID2 インテグレーションがすでに設定されている必要があります。サーバーのみのインテグレーションを使用している場合は、この限りではありません。使用可能なすべてのインテグレーションオプションの概要は、[UID2 Integration Guides: Summary](summary-guides.md)を参照してください。
+> NOTE: UID2 Google Ad Manager セキュアシグナルインテグレーションを使用するには、SDK を使用している場合、UID2 インテグレーションがすでに設定されている必要があります。サーバーのみのインテグレーションを使用している場合は、この限りではありません。使用可能なすべてのインテグレーションオプションの概要は、[UID2 Integration Guides: Summary](summary-guides.md) を参照してください。
 
 ## Overview
 
@@ -28,7 +28,7 @@ Google secure signals は、パブリッシャーが [Google Ad Manager](https:/
 
 このフレームワークでは、次のようなステップを踏みます:
 
-1. パブリッシャーは、ユーザー ID シグナル (advertising token)をセキュアシグナル機能にプッシュします。
+1. パブリッシャーは、ユーザー ID シグナル (Advertising Token) をセキュアシグナル機能にプッシュします。
 2. セキュアシグナル機能は、Client-Side でそれらをキャッシュし、Google Ad Manager に透過的に渡します。
 3. Google Ad Manager は UID2 Token を使ってビッドリクエストを行い、パブリッシャーの設定に基づき Google AdX 内の承認済み入札者にトークンを転送します。
 
@@ -73,7 +73,7 @@ window.getUid2AdvertisingToken = async () => {
 
 詳しくは、[Server-Only UID2 Integration Guide](custom-publisher-integration.md) を参照してください。
 
-Server Only インテグレーションのためのサンプルアプリケーションも用意されています。[Sample Applications](#sample-applications)を参照してください。
+Server Only インテグレーションのためのサンプルアプリケーションも用意されています。[Sample Applications](#sample-applications) を参照してください。
 
 ### UID2 SDK for JavaScript Client-Side Integration
 
@@ -88,6 +88,7 @@ UID2 SDK for JavaScript バージョン 3.0.0 以降を使用している場合�
 ## Sample Applications
 
 Google Ad Manager のセキュアシグナル機能との連携方法については、以下のサンプルアプリケーションを参照してください:
+
 - [Server-Only UID2 Integration Example](https://esp-srvonly-integ.uidapi.com/)
 - [Client-Side UID2 SDK Integration Example](https://esp-jssdk-integ.uidapi.com/)
 

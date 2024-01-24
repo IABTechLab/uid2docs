@@ -49,8 +49,8 @@ Determine which method is best for you, and then follow the applicable integrati
 
 | Scenario | Integration Guide |
 | :--- | :--- |
-| You have access to DII on the client side and want to do front-end development only | [xxx](publisher-client-side.md) |
-| You have access to DII on the server side and can do server-side development | [xxx](integration-javascript-server-side.md) |
+| You have access to DII on the client side and want to do front-end development only | [Client-Side Integration Guide for JavaScript](publisher-client-side.md) |
+| You have access to DII on the server side and can do server-side development | [Server-Side Integration Guide for JavaScript](integration-javascript-server-side.md) |
 
 ## Refreshing the UID2 Token
 

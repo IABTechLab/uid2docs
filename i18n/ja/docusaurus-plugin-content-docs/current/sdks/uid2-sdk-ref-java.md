@@ -57,7 +57,6 @@ UID2 SDK for Java を使用すると、以下のことが容易になります:
 
 初期化関数は、SDKが UID2 Service で認証するために必要なパラメータを設定します。また、エラー発生時の再試行間隔を設定することもできます。
 
-
 | Parameter | Description | Recommended Value |
 | :--- | :--- | :--- |
 | `endpoint` | UID2 Service のエンドポイント。 | N/A |
@@ -121,7 +120,6 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
    ```java
    client.refresh();
    ```
-
 3. 送信者: 
    1. 以下を呼び出します:
 

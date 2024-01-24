@@ -24,9 +24,7 @@ sidebar_position: 03
 
 ## Introduction
 
-このガイドでは、Client-Side または Server-Side SDK を使用せずにインテグレーションを行う場合に考慮する必要がある[基本的な手順](#integration-steps)を概説します。例えば、ユーザーのログインとログアウトの実装方法、UID2 ID 情報の管理とターゲティング広告への使用方法、トークンのリフレッシュ、ID の欠落への対処、ユーザーのオプトアウトの処理方法などを決定する必要があります。[FAQ](#faqs)も参照してください。
-
-このガイドでは、Client-Side または Server-Side SDK を使用せずにインテグレーションを行う場合に考慮する必要がある[基本的な手順](#integration-steps)を概説しています。例えば、以下のような方法を決定する必要があります:
+このガイドでは、Client-Side または Server-Side SDK を使用せずにインテグレーションを行う場合に考慮する必要がある[基本的な手順](#integration-steps) を概説しています。例えば、以下のような方法を決定する必要があります:
 
 - ユーザーログインとログアウトの実装方法
 - UID2 アイデンティティ情報を管理し、ターゲティング広告に使用する方法
@@ -34,7 +32,7 @@ sidebar_position: 03
 - 紛失した ID の対処方法
 - ユーザーのオプトアウトを管理する方法
 
-[FAQ](#faqs)も参照してください。
+[FAQ](#faqs) も参照してください。
 
 パブリッシャーが UID2 とインテグレーションするために利用できるオプションは以下のとおりです:
 
@@ -45,7 +43,7 @@ sidebar_position: 03
 
 このガイドでは、最後の 2 つのオプションに関する情報を提供します。
 
-ワークフローを示すサンプルアプリケーションもあります。[サンプルアプリケーション](#sample-application)を参照してください。
+ワークフローを示すサンプルアプリケーションもあります。[サンプルアプリケーション](#sample-application) を参照してください。
 
 > TIP: UID2 を使用してクライアントの identity を確立し、UID2 Token を取得するプロセスを容易にするには、UID2 SDK for JavaScript の使用を検討してください。詳細については、[Server-Side Integration Guide for JavaScript](integration-javascript-server-side.md)を参照してください。
 
@@ -57,6 +55,8 @@ Server-Side SDK を使用している場合、SDK はエンドポイントに関
 
 ![](images/custom-publisher-flow-mermaid.png)
 
+
+
 次のセクションでは、図中の各ステップについて詳細を説明します:
 
 1. [Establish identity: user login](#establish-identity-user-login)
@@ -66,7 +66,7 @@ Server-Side SDK を使用している場合、SDK はエンドポイントに関
 
 ### Establish Identity: User Login
 
-Step 1-c での認証(ユーザーの同意を得ること、パブリッシャーがユーザーのメールアドレスまたは電話番号を検証することを含む)の後、パブリッシャーは Server-Side で UID2 Token を生成するリクエストを送ることがでます。以下の表は、トークン生成ステップの詳細です。
+Step 1-c での認証(ユーザーの同意を得ること、パブリッシャーがユーザーのメールアドレスまたは電話番号を検証することを含む) の後、パブリッシャーは Server-Side で UID2 Token を生成するリクエストを送ることがでます。以下の表は、トークン生成ステップの詳細です。
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
@@ -82,7 +82,7 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 | :--- | :--- | :--- |
 | 2-a  | N/A      | Step [1-e](#establish-identity-user-login) の `advertising_token` を入札のために SSP に送信します。そのままの値を送信します。 |
 
->NOTE: UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[What does a UID2 token look like in the bid stream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bid-stream) を参照してください。
+>NOTE: UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#%E3%83%93%E3%83%83%E3%83%89%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%A0%E3%81%A7-UID2-Token-%E3%81%AF%E3%81%A9%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E8%A6%8B%E3%81%88%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F) を参照してください。
 
 ### Refresh a UID2 Token
 
@@ -99,6 +99,8 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 
 ### Clear Identity: User Logout
 
+ユーザーがログアウトした場合は、UID2 Token を使用しないでください。
+
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
 | 4-a  | N/A | ユーザーがパブリッシャーアセットからログアウトしました。|
@@ -106,8 +108,7 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 
 ## Sample Application
 
-A sample application is available for server-only integration. See:
-Server-only のインテグレーションの場合は、サンプル・アプリケーションをがあります:
+Server-only のインテグレーションの場合は、サンプルアプリケーションをがあります。参照してください:
 
 - [Server-Only UID2 Integration Example (sample application)](https://esp-srvonly-integ.uidapi.com/)
 - [Server-Only UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)

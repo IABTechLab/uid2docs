@@ -101,15 +101,36 @@ const sidebars = {
             },
             collapsed: true,
             items: [
-              'guides/integration-prebid',
-              'guides/integration-prebid-client-side',
-              'guides/integration-prebid-server-side',
-              'guides/integration-javascript',
-              'guides/publisher-client-side',
-              'guides/integration-javascript-server-side',
+              {
+                type: 'category',
+                label: 'Prebid',
+                link: {
+                  type: 'doc',
+                  id: 'guides/integration-prebid',
+                },
+                collapsed: true,
+                items: [
+                  'guides/integration-prebid-client-side',
+                  'guides/integration-prebid-server-side',
+                ],
+              },
+
+              {
+                type: 'category',
+                label: 'JavaScript',
+                link: {
+                  type: 'doc',
+                  id: 'guides/integration-javascript',
+                },
+                collapsed: true,
+                items: [
+                  'guides/publisher-client-side',
+                  'guides/integration-javascript-server-side',
+                ],
+              },
               'guides/custom-publisher-integration',
               'guides/google-ss-integration',
-                    ],
+            ],
           },
 
           {
@@ -128,11 +149,11 @@ const sidebars = {
             type: 'category',
             label: 'Prebid',
             link: {
-              type: 'generated-index',
+              type: 'doc',
+              id: 'guides/integration-prebid',
             },
             collapsed: true,
             items: [
-              'guides/integration-prebid',
               'guides/integration-prebid-client-side',
               'guides/integration-prebid-server-side',
             ],
