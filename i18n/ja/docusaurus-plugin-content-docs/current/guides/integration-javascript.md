@@ -42,7 +42,7 @@ From the table in [Client-Side or Server-Side Integration](#client-side-or-serve
 
 The UID2 SDK for JavaScript includes automated token refresh.
 
-(**GWH_03. The wording below is from the Prebid overview. I see no info re manual refresh in the JS guides so prob this just comes out?... but, checking.**)
+(**GWH_01. The wording below is from the Prebid overview. I see no info re manual refresh in the JS guides so prob this just comes out?... but, checking.**)
 
 **If you prefer to implement manual refresh, see [Refreshing a UID2 Token](integration-prebid-server-side.md#refreshing-a-uid2-token) in the Server-Side Integration Guide.**
 
