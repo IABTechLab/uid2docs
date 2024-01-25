@@ -30,7 +30,7 @@ For technical details about the SDK, see [UID2 SDK for JavaScript Reference Guid
 ## Sample Implementation Website
 
 For an example application, see the UID2 Google ESP with SDK v3 example:
-- Code and docs: [UID2 SDK ESP Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3)
+- Code and docs: [UID2 SDK Secure Signals Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
 - Running site: [Client-Side UID2 SDK Integration Example](https://esp-jssdk-integ.uidapi.com/)
 
 ## Introduction

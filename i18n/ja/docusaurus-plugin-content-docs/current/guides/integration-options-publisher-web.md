@@ -165,8 +165,8 @@ If you want to integrate using Prebid, here are some additional questions you'll
   - If you're using Prebid 8.21.0 or later, you can use the client-side Prebid integration option, which is the simplest and easiest implementation approach.
   - If you're using a version prior to 8.21.0 (7.53.0 or later), and can't easily upgrade, you'll choose a server-side option.
 - Domain names:
-  - As part of account setup, if you're using the Prebid client-side option, you'll need to provide a list of your top-level domains.
-- Are you already using the UID2 JavaScript SDK to generate and refresh the token? If so, you can continue to use the Prebid server-side implementation. For details, see [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md). -->
+  - As part of account setup, if you're using the Prebid.js client-side option, you'll need to provide a list of your top-level domains.
+- Are you already using the UID2 JavaScript SDK to generate and refresh the token? If so, you can continue to use the Prebid.js server-side implementation. For details, see [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md). -->
 
 <!-- 
 ## Advantages: Summary

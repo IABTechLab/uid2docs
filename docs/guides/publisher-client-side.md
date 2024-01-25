@@ -42,9 +42,11 @@ If you want to use a debug build of the SDK, use the following URL instead:
 
 ## Sample Implementation Website
 
-For an example application, see this example:
-- Code: [Example JavaScript Express Integration](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)
-- Running site: [UID2 SDK Integration Example](https://cstg-integ.uidapi.com/)
+For an example website, see this example:
+- Code: [Example Client-Side Integration for JavaScript](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)
+- Running site: [Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)
+
+<!-- (Source code for running site: https://github.com/IABTechLab/uid2-web-integrations) -->
   
 
 ## Complete UID2 Account Setup

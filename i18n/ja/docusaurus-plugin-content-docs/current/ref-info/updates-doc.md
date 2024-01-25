@@ -73,25 +73,25 @@ UID2 ウェブサイトの Getting Started セクションに新しい記事が�
 
 詳細は [UID2 Credentials](../getting-started/gs-credentials.md) を参照してください。
 
-### New: JavaScript Express Integration Guide
+### New: Client-Side Integration Guide for JavaScript
 
 21 November 2023
 
-JavaScript Express Integration Guide は、既存の URL の全く新しいドキュメントで、Client-Sideパブリッシャー実装のために UID2 SDK for JavaScript を使用する、よりシンプルな新しい方法を網羅しています。
+Client-Side Integration Guide for JavaScript は、既存の URL の全く新しいドキュメントで、Client-Sideパブリッシャー実装のために UID2 SDK for JavaScript を使用する、よりシンプルな新しい方法を網羅しています。
 
 詳細は、[Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) を参照してください。
 
 以前の *UID2 SDK for JavaScript Integration Guide* にあった内容は、JavaScript SDK を Server-Side に実装したいパブリッシャーのための補足文書になりました: [JavaScript Standard Integration Guide](../guides/integration-javascript-server-side.md).
 
-### New: Prebid.js Integration Guide
+### New: UID2 Client-Side Integration Guide for Prebid.js
 
 2 November 2023
 
-Prebid.js Express Integration Guide は、既存の URL にまったく新しいドキュメントを追加したもので、UID2 と Prebid をインテグレーションする、Server-Side の作業を必要としない、よりシンプルな新しい方法について説明しています。
+UID2 Client-Side Integration Guide for Prebid.js は、既存の URL にまったく新しいドキュメントを追加したもので、UID2 と Prebid をインテグレーションする、Server-Side の作業を必要としない、よりシンプルな新しい方法について説明しています。
 
 前バージョンの Prebid ドキュメントにあった内容は、Private Operator を使用しているパブリッシャーや、Server-Side でトークン生成を実装したいパブリッシャーのために、補足ドキュメントである *Prebid.js Advanced Integration Guide* に追加されました。
 
-NOTE: これらのドキュメントは、その後の改訂でさらに更新されました。Prebid.js の Express Integration Guide は、UID2 Client-Side Integration Guide for Prebid.js になりました。更新されたリンクは以下のとおりです:
+NOTE: これらのドキュメントは、その後の改訂でさらに更新されました。更新されたリンクは以下のとおりです:
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)

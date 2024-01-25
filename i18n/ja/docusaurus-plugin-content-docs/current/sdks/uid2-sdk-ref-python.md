@@ -104,51 +104,6 @@ SDK から返される利用可能な情報の概要を次の表に示します�
 | `KeysNotSynced` | クライアントは UID2 Service からの鍵の同期に失敗しました。|
 | `VersionNotSupported` | クライアントライブラリが暗号化トークンのバージョンをサポートしていません。|
 
-## Usage for UID2 Sharers
-
-UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のことです。raw UID2を他の参加者に送信する前に、UID2 Token に暗号化する必要があります。使用例については、[com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` メソッド) を参照してください。
-
->IMPORTANT: このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md) を参照してください。
-
-次の手順では、UID2 SDK for Python を送信者または受信者として使用して共有を実装する方法の例を示します。
-
-1. ```UID2Client``` のリファレンスを作成します:
- 
-   ```python
-   from uid2_client import Uid2Client
-   client = Uid2Client(base_url, auth_key, secret_key)
-   ```
-   
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします (推奨リフレッシュ間隔は1時間毎):
-
-   ```python
-   keys = client.refresh_keys()
-   ```
-
-3. 送信者: 
-   1. `encrypt` 関数を呼び出します。暗号化に成功したら、UID2 Token を受信者に送信します:
-
-      ```python
-      try:
-         encrypted_data = client.encrypt(raw_uid)
-         # send encrypted_data to receiver
-      except EncryptionError as err:
-        # check for failure reason
-        print(err)
-      ```
-
-4. 受信者:
-   1. `decrypt` 関数を呼び出します。復号化に成功したら、raw UID2 を使用します:
-
-      ```python
-      try:
-        result = decrypt(ad_token, keys)
-        #use successfully decrypted result.uid2
-      except EncryptionError as err:
-        #check for failure reason
-        print(err)
-      ```
-
 ## Usage for Publishers
 
 1. Uid2PublisherClientのインスタンスを作成します:
@@ -204,6 +159,51 @@ server-only インテグレーションを使用している場合 ([Publisher I
 5. ユーザーのセッションに `token_refresh_response.get_identity_json_string()` を格納します。
 
    ユーザーがオプトアウトした場合、このメソッドは `None` を返し、ユーザーの identity をセッションから削除する必要があることを示します。オプトアウトを確認するには、 `token_refresh_response.is_optout()` 関数を使用します。
+
+## Usage for UID2 Sharers
+
+UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のことです。raw UID2を他の参加者に送信する前に、UID2 Token に暗号化する必要があります。使用例については、[com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` メソッド) を参照してください。
+
+>IMPORTANT: このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md) を参照してください。
+
+次の手順では、UID2 SDK for Python を送信者または受信者として使用して共有を実装する方法の例を示します。
+
+1. ```UID2Client``` のリファレンスを作成します:
+ 
+   ```python
+   from uid2_client import Uid2Client
+   client = Uid2Client(base_url, auth_key, secret_key)
+   ```
+   
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします (推奨リフレッシュ間隔は1時間毎):
+
+   ```python
+   keys = client.refresh_keys()
+   ```
+
+3. 送信者: 
+   1. `encrypt` 関数を呼び出します。暗号化に成功したら、UID2 Token を受信者に送信します:
+
+      ```python
+      try:
+         encrypted_data = client.encrypt(raw_uid)
+         # send encrypted_data to receiver
+      except EncryptionError as err:
+        # check for failure reason
+        print(err)
+      ```
+
+4. 受信者:
+   1. `decrypt` 関数を呼び出します。復号化に成功したら、raw UID2 を使用します:
+
+      ```python
+      try:
+        result = decrypt(ad_token, keys)
+        #use successfully decrypted result.uid2
+      except EncryptionError as err:
+        #check for failure reason
+        print(err)
+      ```
 
 ## FAQs
 
