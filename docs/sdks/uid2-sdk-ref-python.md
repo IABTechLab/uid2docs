@@ -19,6 +19,7 @@ You can use the UID2 SDK for Python on the server side to facilitate the followi
 
 - [Overview](#overview)
 - [Functionality](#functionality)
+- [API Permissions](#api-permissions)
 - [Version](#version)
 - [GitHub Repository/Package](#github-repositorypackage)
 - [Initialization](#initialization)
@@ -41,6 +42,14 @@ This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are u
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
 | Supported | Supported | Supported | Supported |
+
+## API Permissions
+
+To use this SDK, you'll need to complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page.
+
+You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For example, publishers get a specific API permission to generate and refresh tokens, but the SDK might support other activities, such as sharing, which require a different API permission.
+
+For details, see [API Permissions](../getting-started/gs-permissions.md).
 
 ## Version
 
