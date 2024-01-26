@@ -9,6 +9,20 @@ sidebar_position: 06
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: UID2 Integration Overview for JavaScript 
+
+26 January 2024
+
+We've added a new overview guide summarizing the options for publishers using the UID2 SDK for JavaScript for client-side or server-side integration. In addition, the existing guides have been renamed for consistency, with minor updates.
+
+For details, see:
+
+- [UID2 Integration Overview for JavaScript](../guides/integration-javascript)
+- [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md)
+- [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
+
+<!-- APIDOCS-1924 -->
+
 ### New: UID2 SDK for Java, Usage for Publishers Sections
 
 22 January 2024
