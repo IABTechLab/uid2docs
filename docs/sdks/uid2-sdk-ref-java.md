@@ -145,7 +145,7 @@ If you're using the SDK's HTTP implementation, follow these steps.
 
 #### Standard Integration
 
-If you're using standard integration (client and server) (see [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md)), follow this step:
+If you're using standard integration (client and server) (see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
 
 * Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)), using the following:
 
@@ -229,7 +229,7 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
 
 #### Standard Integration
 
-If you're using standard integration (client and server) (see [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md)), follow this step:
+If you're using standard integration (client and server) (see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
 
 * Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)) using the following:
 

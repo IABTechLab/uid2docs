@@ -1,17 +1,20 @@
 ---
-title: JavaScript Express Integration
-sidebar_label: JavaScript Express
-pagination_label: JavaScript Express Integration
+title: Client-Side Integration Guide for JavaScript
+sidebar_label: Client-Side Integration, JavaScript
+pagination_label: Client-Side Integration Guide for JavaScript
 description: UID2 SDK for JavaScript を UID2 実装の一部としてインテグレーションするための情報。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-# JavaScript Express Integration Guide
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Client-Side Integration Guide for JavaScript
 
 このガイドは、UID2 と インテグレーションし、ウェブサイト上で JavaScript Client-Side の変更のみを使用して、最小限の労力で [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (Advertising Token) を生成したいパブリッシャー向けのものです。
 
-このガイドは [Private Operator](../ref-info/glossary-uid.md#gl-private-operator) を使いたいパブリッシャーや、Server-Side でトークンを生成したいパブリッシャーには適用されません。それらのパブリッシャーは [JavaScript Standard Integration Guide](integration-javascript-standard.md) に従う必要があります。
+このガイドは [Private Operator](../ref-info/glossary-uid.md#gl-private-operator) を使いたいパブリッシャーや、Server-Side でトークンを生成したいパブリッシャーには適用されません。それらのパブリッシャーは [Server-Side Integration Guide for JavaScript](integration-javascript-server-side.md) に従う必要があります。
 
 UID2 は、以下の機能を備えた UID2 SDK for JavaScript([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) を提供しています:
 
@@ -43,8 +46,8 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 ## Sample Implementation Website
 
 アプリケーションの例については、SDK v3 を使用した UID2 Google ESP の例を参照してください:
-- Code and docs: [UID2 SDK ESP Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3)
-- ランニングサイト: [Client-Side UID2 SDK Integration Example](https://esp-jssdk-integ.uidapi.com/)
+- Code: [Example Client-Side Integration for JavaScript](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)
+- ランニングサイト: [Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)
 
 ## Complete UID2 Account Setup
 

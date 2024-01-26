@@ -12,7 +12,7 @@ UID2 <a href="/docs/intro#participants">参加者</a>はそれぞれ、固有の
 | Audience | Credentials | Integration |
 | :--- | :--- | :--- |
 | Server-Sideのエンドポイントを使用する参加者 | 以下の両方:<ul><li>[API key](../ref-info/glossary-uid.md#gl-api-key)、クライアントキーとも呼ばれます。</li><li>[Client secret](../ref-info/glossary-uid.md#gl-client-secret)、参加者と UID2 Service だけが知る値。</li></ul> | これらのエンドポイントのいずれかを使用するインテグレーション: <ul><li>[POST&nbsp;/identity/map](../endpoints/post-identity-map.md)</li><li>[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md)</li><li>[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)</li></ul> |
-| Client-Side の実装を使用する参加者 | 以下の両方: <ul><li>Subscription ID</li><li>Public key</li></ul> | これらのいずれかを使用したインテグレーション: <ul><li>[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)</li><li>[JavaScript Express Integration Guide](../guides/publisher-client-side.md)</li></ul> |
+| Client-Side の実装を使用する参加者 | 以下の両方: <ul><li>Subscription ID</li><li>Public key</li></ul> | これらのいずれかを使用したインテグレーション: <ul><li>[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)</li><li>[Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md)</li></ul> |
 
 本番環境だけでなくテスト環境も使用している場合は、それぞれの環境用に別々の認証情報を取得します。
 
@@ -26,7 +26,7 @@ UID2 <a href="/docs/intro#participants">参加者</a>はそれぞれ、固有の
 
 ## API Key and Client Secret
 
-Server-Side の実装([UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) または [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照) を使用している場合、API Key とクライアントシークレットにより、[Operator Service](../ref-info/glossary-uid.md#gl-operator-service) に接続し、API エンドポイントを呼び出すことができます。これらの値は、サービスの参加者を識別します。
+Server-Side の実装([UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) または [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照) を使用している場合、API Key とクライアントシークレットにより、[Operator Service](../ref-info/glossary-uid.md#gl-operator-service) に接続し、API エンドポイントを呼び出すことができます。これらの値は、サービスの参加者を識別します。
 
 以下は API Key とクライアントシークレットに関する情報です:
 - UID2 参加者は、複数のキーを持つことができます。
@@ -50,7 +50,8 @@ API Key とクライアントシークレットは、認証情報が漏洩する
 
 ## Subscription ID and Public Key
 
-Client-Side の実装([UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) または [JavaScript Express Integration Guide](../guides/publisher-client-side.md) を参照) を使用している場合は、以下の認証情報を受け取ります:
+Client-Side の実装([UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) または [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) を参照) を使用している場合は、以下の認証情報を受け取ります:
+
 - **Subscription ID**: UID2 Service に対してサイトを識別する値です。
 - **Public key**: この値は暗号化に使用されます。
 
