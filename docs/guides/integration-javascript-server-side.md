@@ -1,7 +1,7 @@
 ---
-title: Server-Side JavaScript Integration
+title: Server-Side Integration Guide for JavaScript
 sidebar_label: Server-Side Integration, JavaScript
-pagination_label: Server-Side JavaScript
+pagination_label: Server-Side Integration Guide for JavaScript
 description: Information for publishers covering standard web integration scenarios that use the UID2 SDK for JavaScript and requires token to be generated on the server side and passed to the publishers' web pages.
 hide_table_of_contents: false
 sidebar_position: 02
@@ -65,7 +65,6 @@ The following sections provide additional details for each step in the diagram:
  4. [Clear Identity: User Logout](#clear-identity-user-logout)
 
 ### Establish Identity: User Login
-
 
 After authentication in step 1-c, which forces the user to accept the rules of engagement and allows the publisher to validate the user's email address or phone number, a UID2 token must be generated on the server side. The following table details the token generation steps.
 

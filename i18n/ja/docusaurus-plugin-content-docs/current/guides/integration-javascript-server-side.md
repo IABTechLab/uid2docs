@@ -1,7 +1,7 @@
 ---
-title: Server-Side JavaScript Integration
+title: Server-Side Integration Guide for JavaScript
 sidebar_label: Server-Side Integration, JavaScript
-pagination_label: Server-Side JavaScript
+pagination_label: Server-Side Integration Guide for JavaScript
 description: UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオをカバーするパブリッシャー向けの情報で、トークンを Server-Side で生成し、パブリッシャーのウェブページに渡す必要があります。
 hide_table_of_contents: false
 sidebar_position: 02
@@ -65,7 +65,6 @@ Google Ad Managerを使用していて、セキュアシグナル機能を使用
  4. [Clear Identity: User Logout](#clear-identity-user-logout)
 
 ### Establish Identity: User Login
-
 
 Step 1-c で認証を行い、ユーザーに利用規約を受け入れさせ、パブリッシャーがユーザーのメールアドレスまたは電話番号を検証した後、Server-Side で UID2 Token を生成する必要があります。次の表は、トークン生成ステップの詳細です。
 
