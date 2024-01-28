@@ -105,10 +105,6 @@ SDK から返される利用可能な情報の概要を次の表に示します�
 | `KeysNotSynced` | クライアントは UID2 Service からの鍵の同期に失敗しました。|
 | `VersionNotSupported` | クライアントライブラリが暗号化トークンのバージョンをサポートしていません。|
 
--------------------------------------------copy begin-----------------------------------------------
-
-Copy from: https://github.com/IABTechLab/uid2-client-java#usage-for-publishers
-
 ## Usage for Publishers
 
 パブリッシャーとして、UID2 SDK for Java を使用するには 2 つの方法があります: 
