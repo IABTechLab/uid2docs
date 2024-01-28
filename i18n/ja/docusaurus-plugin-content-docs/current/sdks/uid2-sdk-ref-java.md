@@ -129,14 +129,14 @@ SDK の HTTP 実装を使用している場合は、以下の手順に従って�
    ```
 
    :::important
-   - POST&nbsp;/token/generate エンドポイントは、ユーザーの[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii)をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。
+   - POST&nbsp;/token/generate エンドポイントは、ユーザーの[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。
 
    - 常に `doNotGenerateTokensForOptedOut()` を適用します。これは POST&nbsp;/token/generate エンドポイントの呼び出しで `optout_check=1` を設定するのと同様のパラメータを適用します([Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters)) を参照してください。
    :::
 
 #### Standard Integration
 
-Standard Integration (Client and Server) を使用している場合([JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md)を参照してください)、このステップに従ってください：
+Standard Integration (Client and Server) を使用している場合([JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照してください)、このステップに従ってください：
 
 * この ID を JSON 文字列としてクライアントに送り返します ([identity field](../sdks/client-side-identity.md#initopts-object-void) で使用するため):
 
@@ -220,7 +220,7 @@ Server-Only Integration ([Publisher Integration Guide, Server-Only](../guides/cu
 
 #### Standard Integration
 
-Standard Integration (client and server) を使用している場合　([JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md)を参照してください)、以下の手順に従ってください:
+Standard Integration (client and server) を使用している場合　([JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照してください)、以下の手順に従ってください:
 
 * この ID を JSON 文字列としてクライアントに送り返します ([identity field](../sdks/client-side-identity.md#initopts-object-void) で使用するため):
 
