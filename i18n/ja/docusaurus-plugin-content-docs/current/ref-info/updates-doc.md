@@ -17,6 +17,8 @@ UID2 SDK for Java のドキュメントに、SDK を実装するパブリッシ�
 
 詳細は、UID2 SDK for Java Reference Guide の [Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers) を参照してください。
 
+<!-- APIDOCS-1705 -->
+
 ### New: Normalization and Encoding Documentation, Examples Section
 
 19 January 2024
@@ -24,6 +26,8 @@ UID2 SDK for Java のドキュメントに、SDK を実装するパブリッシ�
 既存の正規化とエンコードに関するドキュメントを拡張して明確にし、新しい例のセクションを追加しました。
 
 詳細は、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+
+<!-- APIDOCS-1183, APIDOCS-1880 -->
 
 ### New: Web Integration Overview for Publishers
 
@@ -33,6 +37,8 @@ UID2 とインテグレーションするパブリッシャーが利用できる
 
 詳細は、[Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
 
+<!-- APIDOCS-1846 -->
+
 ### New: UID2 Operator Page
 
 3 January 2024
@@ -40,6 +46,8 @@ UID2 とインテグレーションするパブリッシャーが利用できる
 UID2 Operator が何をするのか、Public Operator と Private Operator の違いについて説明したリファレンスコンテンツを追加しました。
 
 詳細は、[The UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
+
+<!-- APIDOCS-1720 -->
 
 <!-- ## 2023 Updates -->
 
