@@ -452,6 +452,7 @@ Health check エンドポイントを呼び出し、実装の健全性をテス�
 
    レスポンスボディが `OK` の HTTP 200 は、健全なステータスを示します。
 
+
 #### Health Check&#8212;gcloud CLI
 次の例は、ヘルスチェックの `gcloud` コマンドラインオプションです:
 
@@ -461,7 +462,6 @@ Health check エンドポイントを呼び出し、実装の健全性をテス�
    $ gcloud compute instances describe {INSTANCE_NAME} \
      --format='get(networkInterfaces[0].accessConfigs[0].natIP)'
    ```
-
 2. Operator のステータスをテストするには、ブラウザで `http://{IP}:8080/ops/healthcheck` にアクセスしてください。
 
    レスポンスボディが `OK` の HTTP 200 は、健全なステータスを示します。

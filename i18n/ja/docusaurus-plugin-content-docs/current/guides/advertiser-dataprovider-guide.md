@@ -27,7 +27,9 @@ Snowflake Data Marketplace でホストされる Open Operator Service を使用
 
 DII とは、正規化されたメールアドレスや電話番号、あるいは正規化され SHA-256 ハッシュ化されたメールアドレスや電話番号のことです。
 
-![](images/advertiser-flow-mermaid.png)
+![Advertiser Flow](images/advertiser-flow-mermaid.png)
+
+<!-- diagram source: resource/advertiser-flow-mermaid.md -->
 
 図の各部の詳細については、以下のセクションを参照してください:
 1. [Retrieve a raw UID2 for DII using the identity map endpoints](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoint)
@@ -46,7 +48,6 @@ DII とは、正規化されたメールアドレスや電話番号、あるい�
 Step 1-b で返された `advertising_id` (raw UID2) を、オーディエンスを構築しながら DSP に送信します。各 DSP はオーディエンスを構築するための独自のインテグレーションプロセスを持っています。raw UID2 を送信してオーディエンスを構築するには、DSP が提供するインテグレーションガイダンスに従ってください。
 
 ### 3: Monitor for salt bucket rotations related to your stored raw UID2s
-
 raw UID2 は、特定の時点のユーザーに対する識別子です。特定のユーザーの raw UID2 は、ソルトのローテーションの結果、少なくとも 1 年に 1 回は変化します。
 
 ソルトバケットの更新は 1 年に 1 回程度ですが、個々のバケットの更新は 1 年に分散しています。全ソルトバケットの約 1/365 を毎日ローテーションしています。
@@ -70,7 +71,6 @@ UID2 ベースのオーディエンス情報を正確かつ最新の状態に保
 2. Step 3の結果を使用して、[Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)、 Step1 の [Retrieve a raw UID2 for DII using the identity map endpoint](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoint) に従って、ソルトバケットがローテーションされた ID の新しい raw UID2 を取得して、ソルトバケットの raw UID2 を再マッピングします。
 
    次に、Step 2の[send raw UID2 to a DSP](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences) に従って、リフレッシュされた UID2 を使ってオーディエンスを更新します。
-
 
 ## FAQs
 

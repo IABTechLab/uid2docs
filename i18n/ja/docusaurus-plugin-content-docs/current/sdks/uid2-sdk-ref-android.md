@@ -95,6 +95,7 @@ Android UID2 SDK をインストールするには、2 つの方法がありま�
 
 Gradle を使用してインストールするには、build.gradle ファイルに依存関係として SDK を追加します:
 
+
 ``` javascript
 implementation 'com.uid2.uid2-android-sdk:0.5.0'
 ```

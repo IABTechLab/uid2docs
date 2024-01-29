@@ -20,12 +20,12 @@ DSP はビッドリクエストで UID2 Token を受け取り、この機能を�
 
 * [Integration Steps](#integration-steps)
    - [Honor User Opt-Outs](#honor-user-opt-outs)
- * [FAQs](#faqs) -->
 
-## Integration Steps
+* [FAQs](#faqs) -->
+
+## Integration Steps 
 
 以下は、RTB で UID2 をサポートするための DSP のインテグレーションワークフローで、大きく 2 つのステップで構成されています:
-
 1. [Honor user opt-outs](#honor-user-opt-outs)
 2. [Decrypt UID2 tokens for RTB use](#decrypt-uid2-tokens-for-rtb-use)
 
@@ -47,7 +47,6 @@ UID2 Service は、ユーザーがオプトアウトしてから数秒以内に�
 ```html
 https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 ```
-
 #### Bidding Opt-Out Logic
 
 入札時 (2-b)に以下のロジックを使用し、ユーザーのオプトアウトを受け入れます。

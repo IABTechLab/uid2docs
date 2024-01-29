@@ -51,7 +51,6 @@ API Key とクライアントシークレットは、認証情報が漏洩する
 ## Subscription ID and Public Key
 
 Client-Side の実装([UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) または [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) を参照) を使用している場合は、以下の認証情報を受け取ります:
-
 - **Subscription ID**: UID2 Service に対してサイトを識別する値です。
 - **Public key**: この値は暗号化に使用されます。
 
