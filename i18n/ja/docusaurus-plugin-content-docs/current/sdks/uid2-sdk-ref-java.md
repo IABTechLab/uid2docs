@@ -159,7 +159,7 @@ Standard Integration (Client and Server) を使用している場合([JavaScript
 
 #### Server-Only Integration
 
-Server-Only Integration ([Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) を参照してください）を使用している場合は、以下の手順に従ってください:
+Server-Only Integration ([Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) を参照してください) を使用している場合は、以下の手順に従ってください:
 
 1. `tokenGenerateResponse.getIdentityJsonString()` 関数を使用して、この ID をユーザーのセッションに JSON 文字列として格納します。
 
@@ -229,7 +229,7 @@ Server-Only Integration ([Publisher Integration Guide, Server-Only](../guides/cu
 
 #### Standard Integration
 
-Standard Integration (client and server) を使用している場合　([JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照してください)、以下の手順に従ってください:
+Standard Integration (client and server) を使用している場合 ([JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照してください)、以下の手順に従ってください:
 
 * この ID を JSON 文字列としてクライアントに送り返します ([identity field](../sdks/client-side-identity.md#initopts-object-void) で使用するため):
 

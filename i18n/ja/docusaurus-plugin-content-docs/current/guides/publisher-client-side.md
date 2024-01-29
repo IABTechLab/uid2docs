@@ -167,10 +167,10 @@ SDK は、特定のユーザーに対して、4 つの DII フォーマットの
 
 以下のセクションでは、UID2 SDK を構成するさまざまな方法を示し、SDK に渡される DII の要件を示します:
 
-- Configure for Email Address
-- Configure for Hashed Email Address
-- Configure for Phone Number
-- Configure for Hashed Phone Number
+- メールアドレスの設定
+- ハッシュ化されたメールアドレスの設定
+- 電話番号の設定
+- ハッシュ化された電話番号の設定
 
 SDK が複数回設定された場合、最新の設定値が使用されます。
 
@@ -237,7 +237,7 @@ await __uid2.setIdentityFromPhone(
 </TabItem>
 <TabItem value='example_phone_hash' label='Phone, Normalized and Hashed'>
 
-以下の例では、UID2 SDK をハッシュ化された電話番号で設定しています:
+以下の例では、UID2 SDK をハッシュ化された電話番号で設定しています。
 
 ```js
 await __uid2.setIdentityFromPhoneHash(
