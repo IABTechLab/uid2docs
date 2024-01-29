@@ -18,6 +18,7 @@ UID2 SDK for Java を使用すると、以下のことが容易になります:
 
 - [Overview](#overview)
 - [Functionality](#functionality)
+- [API Permissions](#api-permissions)
 - [Version](#version)
 - [GitHub Repository/Binary](#github-repositorybinary)
 - [Initialization](#initialization)
@@ -39,6 +40,14 @@ UID2 SDK for Java を使用すると、以下のことが容易になります:
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
 | Supported | Supported | Supported | Supported |
+
+## API Permissions
+
+この SDK を使用するには、[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了する必要があります。
+
+SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。SDK には、使用する権限を持たない機能があるかもしれないことに留意してください。例えば、パブリッシャーはトークンの生成と更新のために特定の API Permissions を取得しますが、SDK は共有などの他のアクティビティをサポートするかもしれません。
+
+詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 ## Version
 
