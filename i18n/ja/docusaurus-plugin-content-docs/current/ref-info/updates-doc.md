@@ -9,6 +9,20 @@ sidebar_position: 06
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: UID2 Integration Overview for JavaScript 
+
+26 January 2024
+
+パブリッシャーが UID2 SDK for JavaScript を Client-Side または Server-Side のインテグレーションに使用する際のオプションをまとめた、新しい概要ガイドを追加しました。さらに、既存のガイドの名称を変更して一貫性を持たせ、マイナーアップデートを行いました。
+
+詳細は以下を参照してください:
+
+- [UID2 Integration Overview for JavaScript](../guides/integration-javascript)
+- [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md)
+- [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
+
+<!-- APIDOCS-1924 -->
+
 ### New: UID2 SDK for Java, Usage for Publishers Sections
 
 22 January 2024
