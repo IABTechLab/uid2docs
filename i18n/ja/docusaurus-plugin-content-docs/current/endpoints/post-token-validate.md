@@ -6,18 +6,18 @@ sidebar_position: 03
 ---
 
 # POST /token/validate
-
 Advertising Token が指定されたハッシュ化された、またはハッシュ化されていないメールアドレスまたは電話番号と一致するかどうかを検証します。
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
 > NOTE: このエンドポイントは、主に新しいインテグレーションのテストとトラブルシューティングのために用意されています。
 
-## Request Format
+## Request Format 
 
 `POST '{environment}/v2/token/validate'`
 
 > IMPORTANT: すべてのリクエストは、秘密鍵を使用して暗号化する必要があります。詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+
 
 ### Path Parameters
 
@@ -26,6 +26,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 | `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 NOTE: インテグレーション環境と本番環境では、異なる [APIキー](../ref-info/glossary-uid.md#gl-api-key) が必要です。
+
 
 ### Unencrypted JSON Body Parameters
 
@@ -52,27 +53,25 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
   "email": "validate@example.com"
 }
 ```
-
 ```json
 {
   "token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D",
   "email_hash": "ntI244ZRTXwAwpki6/M5cyBYW7h/Wq576lnN3l9+W/c="
 }
 ```
-
 ```json
 {
   "token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D",
   "phone": "+12345678901"
 }
 ```
-
 ```json
 {
   "token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D",
   "phone_hash": "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="
 }
 ```
+
 以下は、メールアドレスハッシュの暗号化トークン検証リクエストの例です:
 
 ```sh

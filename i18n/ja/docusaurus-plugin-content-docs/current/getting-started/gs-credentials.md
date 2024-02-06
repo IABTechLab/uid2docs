@@ -51,7 +51,6 @@ API Key とクライアントシークレットは、認証情報が漏洩する
 ## Subscription ID and Public Key
 
 Client-Side の実装([UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) または [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) を参照) を使用している場合は、以下の認証情報を受け取ります:
-
 - **Subscription ID**: UID2 Service に対してサイトを識別する値です。
 - **Public key**: この値は暗号化に使用されます。
 
@@ -63,7 +62,7 @@ Notes:
 
 - これらの値は特定の [Environment](gs-environments.md) に対して有効です。テスト環境と本番環境の両方を使用している場合、それぞれの環境用の認証情報のセットを取得します。
 
-- Subscription ID と Public Key の認証情報は、Client-Side トークンの生成にのみ使用できます。追加のロールが必要な場合は ([API Permissions](gs-permissions.md)を参照してください)、そのロールの API Key と Client Secret をリクエストしてください。 <!-- (**GWH_KT added last bullet to this GS article based on work on Publisher Options page. Review please.**) -->
+- Subscription ID と Public Key の認証情報は、Client-Side トークンの生成にのみ使用できます。追加のロールが必要な場合は ([API Permissions](gs-permissions.md) を参照してください)、そのロールの API Key と Client Secret をリクエストしてください。 <!-- (**GWH_KT added last bullet to this GS article based on work on Publisher Options page. Review please.**) -->
 
 ## Refreshing Credentials
 

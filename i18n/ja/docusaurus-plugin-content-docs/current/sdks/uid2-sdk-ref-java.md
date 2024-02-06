@@ -18,6 +18,7 @@ UID2 SDK for Java を使用すると、以下のことが容易になります:
 
 - [Overview](#overview)
 - [Functionality](#functionality)
+- [API Permissions](#api-permissions)
 - [Version](#version)
 - [GitHub Repository/Binary](#github-repositorybinary)
 - [Initialization](#initialization)
@@ -25,6 +26,7 @@ UID2 SDK for Java を使用すると、以下のことが容易になります:
   - [Response Content](#response-content)
   - [Response Statuses](#response-statuses)
 * [FAQs](#faqs)
+- [Usage for Publishers](#usage-for-publishers) 
 * [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
 
 ## Overview
@@ -38,6 +40,14 @@ UID2 SDK for Java を使用すると、以下のことが容易になります:
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
 | Supported | Supported | Supported | Supported |
+
+## API Permissions
+
+この SDK を使用するには、[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了する必要があります。
+
+SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。SDK には、使用する権限を持たない機能があるかもしれないことに留意してください。例えば、パブリッシャーはトークンの生成と更新のために特定の API Permissions を取得しますが、SDK は共有などの他のアクティビティをサポートするかもしれません。
+
+詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 ## Version
 
@@ -66,7 +76,9 @@ UID2 SDK for Java を使用すると、以下のことが容易になります:
 
 このインターフェイスを使用すると、UID2 Advertising Token を復号化し、対応する raw UID2 を返すことができます。
 
->NOTE: SDK を使用する際に、復号鍵を保存したり管理したりする必要はありません。
+:::note
+SDK を使用する際に、復号鍵を保存したり管理したりする必要はありません。
+:::
 
 DSP の場合は、入札のために UID2 Advertising Token を復号化して UID2 を返すインターフェースを呼び出します。ユーザーのオプトアウトを処理する入札ロジックの詳細については、[DSPインテグレーションガイド](../guides/dsp-guide.md) を参照してください。
 
@@ -102,6 +114,178 @@ SDK から返される利用可能な情報の概要を次の表に示します�
 | `KeysNotSynced` | クライアントは UID2 Service からの鍵の同期に失敗しました。|
 | `VersionNotSupported` | クライアントライブラリが暗号化トークンのバージョンをサポートしていません。|
 
+## Usage for Publishers
+
+パブリッシャーとして、UID2 SDK for Java を使用するには 2 つの方法があります: 
+1. [**Basic Usage**](#basic-usage) は、この SDK の HTTP 実装 (synchronous [OkHttp](https://square.github.io/okhttp/)) を使いたいパブリッシャー向けです。
+2. [**Advanced Usage**](#advanced-usage) は、独自の HTTP ライブラリを使用したいパブリッシャー向けです。
+
+Basic と Advanced 両方の使い方を示すサンプルアプリケーションについては、[Java UID2 Integration Example](https://github.com/UnifiedID2/uid2-examples/tree/main/publisher/uid2-java-test-site#readme) を参照してください。
+
+### Basic Usage
+
+SDK の HTTP 実装を使用している場合は、以下の手順に従ってください。
+
+1. インスタンス変数として `PublisherUid2Client` のインスタンスを作成します:
+
+   ```java
+   private final PublisherUid2Client publisherUid2Client = new PublisherUid2Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+   ```
+
+2. ユーザーのメールアドレスまたは電話番号を入力として受け取り、`TokenGenerateResponse` オブジェクトを生成する関数を呼び出します。以下の例では、メールアドレスを使用しています:
+   ```java
+   TokenGenerateResponse tokenGenerateResponse = publisherUid2Client.generateTokenResponse(TokenGenerateInput.fromEmail(emailAddress).doNotGenerateTokensForOptedOut());
+   ```
+
+   :::important
+   - POST&nbsp;/token/generate エンドポイントは、ユーザーの[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。
+
+   - 常に `doNotGenerateTokensForOptedOut()` を適用します。これは POST&nbsp;/token/generate エンドポイントの呼び出しで `optout_check=1` を設定するのと同様のパラメータを適用します([Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters)) を参照してください。
+   :::
+
+#### Standard Integration
+
+Standard Integration (Client and Server) を使用している場合([JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照してください)、このステップに従ってください：
+
+* この ID を JSON 文字列としてクライアントに送り返します ([identity field](../sdks/client-side-identity.md#initopts-object-void) で使用するため):
+
+   ```java
+   tokenGenerateResponse.getIdentityJsonString()
+   ```
+
+   :::note
+   ユーザーがオプトアウトした場合、このメソッドは `null` を返しますので、必ず処理してください。
+   :::
+
+#### Server-Only Integration
+
+Server-Only Integration ([Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) を参照してください) を使用している場合は、以下の手順に従ってください:
+
+1. `tokenGenerateResponse.getIdentityJsonString()` 関数を使用して、この ID をユーザーのセッションに JSON 文字列として格納します。
+
+   ユーザーがオプトアウトした場合、このメソッドは `null` を返します。
+
+2. ユーザーの UID2 Token を取得するには、以下を使用します:
+
+   ```java
+   IdentityTokens identity = tokenGenerateResponse.getIdentity();
+   if (identity != null) { String advertisingToken = identity.getAdvertisingToken(); }
+   ```
+3. ユーザーが別のページにアクセスしたときや、タイマーで、更新が必要かどうかを判断します:
+   1. ユーザーのセッションから ID の JSON 文字列を取得し、ID 情報を入力として受け取って `IdentityTokens` オブジェクトを生成する以下の関数を呼び出します：
+
+      ```java
+      IdentityTokens identity = IdentityTokens.fromJsonString(identityJsonString);
+      ```
+   2. ID をリフレッシュできるかどうか (Refresh Token の有効期限が切れていないかどうか) を判断します:
+
+      ```java
+      if (identity == null || !identity.isRefreshable()) { we must no longer use this identity (for example, remove this identity from the user's session) }
+      ```
+   3. リフレッシュが必要かどうかを判断します:
+
+      ```java
+      if (identity.isDueForRefresh()) {..}
+      ```
+4. 必要であれば、トークンと関連する値をリフレッシュします:
+ 
+   ```java
+   TokenRefreshResponse tokenRefreshResponse = publisherUid2Client.refreshToken(identity);
+   ```
+ 
+5. ユーザーのセッションに `tokenRefreshResponse.getIdentityJsonString()` を格納します。
+
+   ユーザーがオプトアウトした場合、このメソッドは `null` を返し、ユーザーの ID をセッションから削除する必要があることを示します。オプトアウトを確認するには、`tokenRefreshResponse.isOptout()` 関数を使用します。
+
+### Advanced Usage
+
+1. インスタンス変数として `PublisherUid2Helper` のインスタンスを作成します:
+
+    ```java
+    private final PublisherUid2Helper publisherUid2Helper = new PublisherUid2Helper(UID2_SECRET_KEY);
+    ```
+2. ユーザーのメールアドレスまたは電話番号を入力として受け取り、安全なリクエストデータエンベロープを作成する関数を呼び出します。[Encrypting requests](../getting-started/gs-encryption-decryption.md#encrypting-requests) を参照してください。以下の例ではメールアドレスを使用しています:
+
+    ```java
+    EnvelopeV2 envelope = publisherUid2Helper.createEnvelopeForTokenGenerateRequest(TokenGenerateInput.fromEmail(emailAddress).doNotGenerateTokensForOptedOut());
+    ```
+3. 選択した HTTP クライアントライブラリを使用して、ヘッダーとボディを含むこのエンベロープを [POST&nbsp;token/generate](../endpoints/post-token-generate.md) エンドポイントにポストします:
+   1. Headers: HTTP ライブラリによっては、以下のようになります:  
+
+      `.putHeader("Authorization", "Bearer " + UID2_API_KEY)`  
+      `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHeader())`
+   2. Body: `envelope.getEnvelope()`
+   :::important
+   - POST&nbsp;/token/generateエンドポイントは、ユーザーの[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。
+
+   - 常に `doNotGenerateTokensForOptedOut()` を適用してください。これは POST&nbsp;/token/generate エンドポイントの呼び出しで `optout_check=1` を設定するのと同様のパラメータを適用します ([Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters) を参照してください)。
+   :::
+
+4. HTTP レスポンスステータスコードが 200 でない場合は、[Response Status Codes](../endpoints/post-token-generate.md#response-status-codes) を参照して次のステップを決定します。そうでない場合は、UID2 ID レスポンスの内容を `TokenGenerateResponse` オブジェクトに変換します:
+
+   ```java
+   TokenGenerateResponse tokenGenerateResponse = publisherUid2Helper.createTokenGenerateResponse({response body}, envelope);
+   ```
+
+#### Standard Integration
+
+Standard Integration (client and server) を使用している場合 ([JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照してください)、以下の手順に従ってください:
+
+* この ID を JSON 文字列としてクライアントに送り返します ([identity field](../sdks/client-side-identity.md#initopts-object-void) で使用するため):
+
+    ```java
+    tokenGenerateResponse.getIdentityJsonString()
+    ```
+
+    :::caution
+    ユーザーがオプトアウトした場合、このメソッドは `null` を返しますので、必ず処理してください。
+    :::
+
+#### Server-Only Integration
+
+Server-Only Integration ([Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) を参照してください) を使用している場合は、以下の手順に従ってください:
+
+1. `tokenGenerateResponse.getIdentityJsonString()` を使用して、この ID をユーザーのセッションに JSON 文字列として保存します。
+
+   このメソッドは、ユーザーがオプトアウトした場合は `null` を返すので、必ず処理してください。
+2. ユーザーの UID2 Token を取得するには、以下を使用します:
+
+   ```java
+   IdentityTokens identity = tokenGenerateResponse.getIdentity();
+   if (identity != null) { String advertisingToken = identity.getAdvertisingToken(); }
+   ```
+
+3. ユーザーが別のページにアクセスしたときや、タイマーで、更新が必要かどうかを判断します:
+   1. ユーザーのセッションから ID JSON 文字列を取得し、`IDentityTokens` オブジェクトを生成する以下の関数を呼び出します:
+   
+       ```java
+       IdentityTokens identity = IdentityTokens.fromJsonString(identityJsonString);
+       ```
+   2. ID をリフレッシュできるかどうか (Refresh Token の有効期限が切れていないかどうか) を判断します: 
+
+      ```java
+      if (identity == null || !identity.isRefreshable()) { we must no longer use this identity (for example, remove this identity from the user's session) }
+      ```
+   3. リフレッシュが必要かどうかを判断します:
+   
+      ```java
+      if (identity.isDueForRefresh()) {..}
+      ```
+4. リフレッシュが必要な場合は、[POST token/refresh](../endpoints/post-token-refresh.md)エンドポイントを、以下のように呼び出します:
+   1. Headers: HTTPライブラリによっては、次のようになります:
+    
+      `.putHeader("Authorization", "Bearer " + UID2_API_KEY)`  
+      `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHeader())`. 
+   2. Body: `identity.getRefreshToken()`
+5. Refresh HTTP レスポンスステータスコードが 200 の場合:
+
+   ```java
+   TokenRefreshResponse tokenRefreshResponse = PublisherUid2Helper.createTokenRefreshResponse({response body}, identity);
+   ```
+6. ユーザーのセッションに `tokenRefreshResponse.getIdentityJsonString()` を格納します。
+
+   ユーザーがオプトアウトした場合、このメソッドは `null` を返し、ユーザーの ID をセッションから削除する必要があることを示します。オプトアウトを確認するには、`tokenRefreshResponse.isOptout()` 関数を使用します。
+   
 ## Usage for UID2 Sharers
 
 UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のことです。raw UID2を他の参加者に送信する前に、UID2 Token に暗号化する必要があります。使用例については、[com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` メソッド) を参照してください。
@@ -110,12 +294,12 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
 
 次の手順では、UID2 SDK for Java を送信者または受信者として使用して共有を実装する方法の例を示します。
 
-1. ```IUID2Client``` のリファレンスを作成します:
+1. `IUID2Client` のリファレンスを作成します:
 
    ```java
    IUID2Client client = UID2ClientFactory.create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
    ```
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします (推奨リフレッシュ間隔は1時間毎):
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします。推奨されるリフレッシュ間隔は1時間ごとです。詳細については、[Best Practices for Managing UID2 Tokens](../sharing/sharing-best-practices.md#key-refresh-cadence) を参照してください。
 
    ```java
    client.refresh();

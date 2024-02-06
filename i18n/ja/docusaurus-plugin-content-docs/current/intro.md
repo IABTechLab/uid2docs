@@ -4,11 +4,11 @@ description: UID2 ドキュメントの紹介。
 hide_table_of_contents: false
 sidebar_position: 01
 ---
+
 # Unified ID 2.0 Overview
 
-このページでは、Unified ID 2.0 (UID2) フレームワークの概要について説明しています。
-
 <!-- It includes the following:
+
 - [Introduction](#introduction)
   - [Guiding Principles](#guiding-principles)
   - [Technical Design Principles](#technical-design-principles)
@@ -83,7 +83,7 @@ UID2 フレームワークは以下のコンポーネントで構成されてお
 | **Opt-Out Service** | ユーザーのオプトアウトリクエストを管理・保存し、パブリッシャー、オペレーターのサービスインスタンス、DSP に配信するグローバルサービスです。 |
 | **Transparency and Control Portal** | ユーザー向けウェブサイト [https://www.transparentadvertising.com/](https://www.transparentadvertising.com/) では、消費者がいつでも UID2 からの脱退を選択できるようになっています。 |
 
-### Participants
+### Participants 
 
 UID2 は透明で相互運用可能なアプローチにより、広告エコシステム全体、すなわち広告主、パブリッシャー、DSP、SSP、シングルサインオン (SSO)プロバイダー、カスタマーデータプラットフォーム (CDP)、同意管理プロバイダー (CMP)、ID プロバイダー、サードパーティデータプロバイダー、測定プロバイダーなどの多くの参加者に協調フレームワークを提供しています。
 

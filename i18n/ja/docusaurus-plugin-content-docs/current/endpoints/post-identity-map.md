@@ -34,7 +34,7 @@ Used by: このエンドポイントは、主に広告主やデータプロバ�
 
 NOTE: インテグレーション環境と本番環境では、異なる [APIキー](../ref-info/glossary-uid.md#gl-api-key) が必要です。
 
-### Unencrypted JSON Body Parameters
+###  Unencrypted JSON Body Parameters
 
 > IMPORTANT: リクエストを暗号化するときは、以下の 4 つの条件パラメータのうち、 **1つ** だけをリクエストの JSON ボディにキーと値のペアとして含める必要がります。
 

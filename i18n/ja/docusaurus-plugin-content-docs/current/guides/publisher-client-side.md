@@ -49,6 +49,9 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 - Code: [Example Client-Side Integration for JavaScript](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)
 - ランニングサイト: [Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)
 
+<!-- (Source code for running site: https://github.com/IABTechLab/uid2-web-integrations) -->
+  
+
 ## Complete UID2 Account Setup
 
 アカウント設定ページに記載されている手順に従って、UID2 アカウントの設定を完了してください。アカウント設定プロセスの一環として、この UID2 SDK for JavaScript で使用するサイトのドメイン名のリストを提供する必要があります。
@@ -109,7 +112,6 @@ __uid2.init({
   baseUrl: "https://operator-integ.uidapi.com",
 });
 ```
-
 :::note
 UID2 テスト環境からのトークンは、ビッドストリームに渡しても無効です。テスト環境では、**subscription ID** と **public key** の値が異なります。
 :::
@@ -155,7 +157,9 @@ SDK を設定するには、アカウントセットアップ時に受け取っ�
 - トークンをユーザーのブラウザに保存します。
 - ユーザーのブラウザでサイトを開いている間、必要に応じてトークンを自動的にリフレッシュします。
 
-UID2 SDK には、ユーザーの DII をハッシュ化して渡すことも、ハッシュ化せずに渡すこともできます。ハッシュ化せずに DII を渡すと、UID2 SDK が代わりにハッシュ化します。すでにハッシュ化された DII を SDK に渡したい場合は、ハッシュ化する前に正規化する必要があります。詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md を参照してください。
+UID2 SDK には、ユーザーの DII をハッシュ化して渡すことも、ハッシュ化せずに渡すこともできます。ハッシュ化せずに DII を渡すと、UID2 SDK が代わりにハッシュ化します。すでにハッシュ化された DII を SDK に渡したい場合は、ハッシュ化する前に正規化する必要があります。詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+
+## Format Examples for DII
 
 SDK は、UID2 Service に送信する前に、ハッシュ化された DII を暗号化します。
 
@@ -163,18 +167,19 @@ SDK は、特定のユーザーに対して、4 つの DII フォーマットの
 
 以下のセクションでは、UID2 SDK を構成するさまざまな方法を示し、SDK に渡される DII の要件を示します:
 
-- [Configure for Email Address](#configure-for-email-address)
-- [Configure for Hashed Email Address](#configure-for-hashed-email-address)
-- [Configure for Phone Number](#configure-for-phone-number)
-- [Configure for Hashed Phone Number](#configure-for-hashed-phone-number)
+- メールアドレスの設定
+- ハッシュ化されたメールアドレスの設定
+- 電話番号の設定
+- ハッシュ化された電話番号の設定
 
 SDK が複数回設定された場合、最新の設定値が使用されます。
 
 JavaScript でメールアドレスと電話のハッシュを生成する方法の例については、[Example Code: Hashing and Base-64 Encoding](#example-code-hashing-and-base-64-encoding) を参照してください。
 
-### Configure for Email Address
+<Tabs>
+<TabItem value='example_email_unhashed' label='Email, Unhashed'>
 
-UID2 SDK をメールアドレスで設定します:
+以下の例では、メールアドレスで UID2 SDK を設定しています。
 
 ```js
 await __uid2.setIdentityFromEmail(
@@ -186,13 +191,15 @@ await __uid2.setIdentityFromEmail(
 );
 ```
 
-パブリッシャーによる正規化やハッシュ化は必要ありません。
+このシナリオでは:
 
-UID2 SDK は、暗号化されたハッシュを UID2 Service に送信する前に、メールアドレスを正規化し、ハッシュ化します。
+- パブリッシャーによる正規化やハッシュ化は必要ありません。
+- UID2 SDK は、暗号化されたハッシュを UID2 Service に送信する前に、メールアドレスを正規化し、ハッシュ化します。
 
-### Configure for Hashed Email Address
+</TabItem>
+<TabItem value='example_email_hash' label='Email, Normalized and Hashed'>
 
-UID2 SDK をハッシュ化したメールアドレスで設定します:
+以下の例では、ハッシュ化されたメールアドレスで UID2 SDK を設定しています。
 
 ```js
 await __uid2.setIdentityFromEmailHash(
@@ -204,13 +211,14 @@ await __uid2.setIdentityFromEmailHash(
 );
 ```
 
-**メールアドレスの正規化とハッシュ化はパブリッシャーの責任です。** 詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+このシナリオでは:
+- **メールアドレスの正規化とハッシュ化はパブリッシャーの責任です。** 詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+- UID2 SDK は、UID2 Service に送信する前にハッシュを暗号化します。
 
-UID2 SDK は、UID2 Service に送信する前にハッシュを暗号化します。
+</TabItem>
+<TabItem value='example_phone_unhashed' label='Phone number, Unhashed'>
 
-### Configure for Phone Number
-
-UID2 SDK を電話番号で設定します:
+以下の例では、UID2 SDK を電話番号で設定しています。
 
 ```js
 await __uid2.setIdentityFromPhone(
@@ -221,14 +229,15 @@ await __uid2.setIdentityFromPhone(
     }
 );
 ```
+このシナリオでは:
 
-**電話番号の正規化とハッシュ化はパブリッシャーの責任です。** 詳細は、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+- **電話番号の正規化とハッシュ化はパブリッシャーの責任です。** 詳細は、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+- UID2 SDK は、暗号化されたハッシュを UID2 Service に送信する前に、電話番号をハッシュ化します。
 
-UID2 SDK は、暗号化されたハッシュを UID2 Service に送信する前に、電話番号をハッシュ化します。
+</TabItem>
+<TabItem value='example_phone_hash' label='Phone, Normalized and Hashed'>
 
-### Configure for Hashed Phone Number
-
-UID2 SDK をハッシュ化した電話番号で設定します:
+以下の例では、UID2 SDK をハッシュ化された電話番号で設定しています。
 
 ```js
 await __uid2.setIdentityFromPhoneHash(
@@ -240,9 +249,12 @@ await __uid2.setIdentityFromPhoneHash(
 );
 ```
 
-**電話番号の正規化とハッシュ化はパブリッシャーの責任です。** 詳細は、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+このシナリオでは:
+- **電話番号の正規化とハッシュ化はパブリッシャーの責任です。** 詳細は、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+- UID2 SDK は、UID2 Service に送信する前にハッシュを暗号化します。
 
-UID2 SDK は、UID2 Service に送信する前にハッシュを暗号化します。
+</TabItem>
+</Tabs>
 
 ## Token Storage and Refresh
 
@@ -342,10 +354,10 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
 
 ![Publisher Workflow](images/NetworkTraffic.png)
 
+
 ## Example Code: Hashing and Base-64 Encoding
 
 次のコードサンプルは、JavaScript でメールアドレスと電話のハッシュを生成する方法を示しています。
-
 
 ```js
 async function hash(value) {
