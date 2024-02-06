@@ -145,7 +145,7 @@ SDK の HTTP 実装を使用している場合は、以下の手順に従って�
 
 #### Standard Integration
 
-Standard Integration (Client and Server) を使用している場合([JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照してください)、このステップに従ってください：
+Standard Integration (Client and Server) を使用している場合([Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください)、このステップに従ってください：
 
 * この ID を JSON 文字列としてクライアントに送り返します ([identity field](../sdks/client-side-identity.md#initopts-object-void) で使用するため):
 
@@ -229,7 +229,7 @@ Server-Only Integration ([Publisher Integration Guide, Server-Only](../guides/cu
 
 #### Standard Integration
 
-Standard Integration (client and server) を使用している場合 ([JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照してください)、以下の手順に従ってください:
+Standard Integration (client and server) を使用している場合 ([Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください)、以下の手順に従ってください:
 
 * この ID を JSON 文字列としてクライアントに送り返します ([identity field](../sdks/client-side-identity.md#initopts-object-void) で使用するため):
 
