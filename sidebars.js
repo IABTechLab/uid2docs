@@ -9,6 +9,19 @@ const sidebars = {
         id: 'intro',
       },
       items: [
+        'ref-info/ref-principles',
+        'ref-info/ref-infrastructure',
+      ],
+    },
+
+    {
+      type: 'category',
+      label: 'Participants',
+      link: {
+        type: 'doc',
+        id: 'ref-info/ref-participants',
+      },
+      items: [
         'overviews/overview-publishers',
         'overviews/overview-advertisers',
         'overviews/overview-dsps',
@@ -247,6 +260,9 @@ const sidebars = {
       },
       collapsed: true,
       items: [
+        'ref-info/ref-principles',
+        'ref-info/ref-infrastructure',
+        'ref-info/ref-participants',
         'ref-info/ref-operators-public-private',
         'summary-doc-v2',
       ],
