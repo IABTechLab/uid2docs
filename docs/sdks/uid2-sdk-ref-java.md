@@ -18,6 +18,7 @@ You can use the UID2 SDK for Java on the server side to facilitate the following
 
 - [Overview](#overview)
 - [Functionality](#functionality)
+- [API Permissions](#api-permissions)
 - [Version](#version)
 - [GitHub Repository/Binary](#github-repositorybinary)
 - [Initialization](#initialization)
@@ -39,6 +40,14 @@ This SDK simplifies integration with UID2 for any publishers, DSPs, and UID2 sha
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
 | Supported | Supported | Supported | Supported |
+
+## API Permissions
+
+To use this SDK, you'll need to complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page.
+
+You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For example, publishers get a specific API permission to generate and refresh tokens, but the SDK might support other activities, such as sharing, which require a different API permission.
+
+For details, see [API Permissions](../getting-started/gs-permissions.md).
 
 ## Version
 
@@ -136,7 +145,7 @@ If you're using the SDK's HTTP implementation, follow these steps.
 
 #### Standard Integration
 
-If you're using standard integration (client and server) (see [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md)), follow this step:
+If you're using standard integration (client and server) (see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
 
 * Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)), using the following:
 
@@ -220,7 +229,7 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
 
 #### Standard Integration
 
-If you're using standard integration (client and server) (see [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md)), follow this step:
+If you're using standard integration (client and server) (see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
 
 * Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)) using the following:
 

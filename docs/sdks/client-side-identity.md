@@ -26,12 +26,12 @@ This page describes version 3 of the UID2 SDK for JavaScript. If you are maintai
 
 Related information:
 - For integration steps for content publishers, see:
-  - [JavaScript Express Integration Guide](../guides/publisher-client-side.md).
-  - [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md). 
+  - [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
+  - [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md). 
 - For example applications with associated documentation, see:
   - The UID2 Google ESP with SDK v3 example:
-    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3) and [running site](https://esp-jssdk-integ.uidapi.com/).
-  - The example of JavaScript Express Integration: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg) and [running site](https://cstg-integ.uidapi.com/).
+    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3) and running site: [Client-Side UID2 SDK Integration Example](https://esp-jssdk-integ.uidapi.com/).
+  - The example of JavaScript client-side integration: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg) and running site ([Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)).
 
 ## Functionality
 
@@ -40,6 +40,14 @@ This SDK simplifies development for publishers who want to build their own custo
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
 | Not supported | Not supported | Not supported | Supported |
+
+## API Permissions
+
+To use this SDK, you'll need to complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page.
+
+You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For example, publishers get a specific API permission to generate and refresh tokens, but the SDK might support other activities, such as sharing, which require a different API permission.
+
+For details, see [API Permissions](../getting-started/gs-permissions.md).
 
 ## SDK Version
 
@@ -117,7 +125,7 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 	- If the advertising token is available, use it to initiate requests for targeted advertising.
 	- If the advertising token is not available, either use untargeted advertising or redirect the user to your UID2 login with the consent form.
 
-For more detailed web integration steps, see [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md).
+For more detailed web integration steps, see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md).
 
 ### Background Token Auto-Refresh
 

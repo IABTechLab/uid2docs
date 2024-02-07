@@ -1,7 +1,7 @@
 ---
-title: JavaScript Standard Integration
-sidebar_label: JavaScript Standard
-pagination_label: JavaScript Standard Integration Guide
+title: Server-Side Integration Guide for JavaScript
+sidebar_label: Server-Side Integration, JavaScript
+pagination_label: Server-Side Integration Guide for JavaScript
 description: UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオをカバーするパブリッシャー向けの情報で、トークンを Server-Side で生成し、パブリッシャーのウェブページに渡す必要があります。
 hide_table_of_contents: false
 sidebar_position: 02
@@ -10,7 +10,7 @@ sidebar_position: 02
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# JavaScript Standard Integration Guide
+# Server-Side Integration Guide for JavaScript
 
 このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接統インテグレーションしながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成したいウェブアセットを持つパブリッシャーを対象としています。
 
@@ -30,7 +30,7 @@ SDK の技術的な詳細については、[UID2 SDK for JavaScript Reference Gu
 ## Sample Implementation Website
 
 アプリケーションの例については、SDK v3 を使用した UID2 Google ESP の例を参照してください:
-- コードとドキュメント: [UID2 SDK ESP Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3)
+- コードとドキュメント: [UID2 SDK Secure Signals Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
 - ランニングサイト: [Client-Side UID2 SDK Integration Example](https://esp-jssdk-integ.uidapi.com/)
 
 ## Introduction
@@ -65,7 +65,6 @@ Google Ad Managerを使用していて、セキュアシグナル機能を使用
  4. [Clear Identity: User Logout](#clear-identity-user-logout)
 
 ### Establish Identity: User Login
-
 
 Step 1-c で認証を行い、ユーザーに利用規約を受け入れさせ、パブリッシャーがユーザーのメールアドレスまたは電話番号を検証した後、Server-Side で UID2 Token を生成する必要があります。次の表は、トークン生成ステップの詳細です。
 

@@ -10,6 +10,7 @@ sidebar_position: 14
 <!-- This guide includes the following information:
 
 - [Functionality](#functionality)
+- [API Permissions](#api-permissions)
 - [SDK Version](#sdk-version)
 - [Features](#features)
 - [GitHub Open-Source Repository](#github-open-source-repository)
@@ -40,6 +41,14 @@ This SDK simplifies integration with UID2 for any publishers who want to support
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
 | Not supported | Not supported | Not supported | Supported |
+
+## API Permissions
+
+To use this SDK, you'll need to complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page.
+
+You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For example, publishers get a specific API permission to generate and refresh tokens, but the SDK might support other activities, such as sharing, which require a different API permission.
+
+For details, see [API Permissions](../getting-started/gs-permissions.md).
 
 ## SDK Version
 

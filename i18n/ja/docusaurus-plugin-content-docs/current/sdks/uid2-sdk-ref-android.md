@@ -10,6 +10,7 @@ sidebar_position: 12
 <!-- This guide includes the following information:
 
 - [Functionality](#functionality)
+- [API Permissions](#api-permissions)
 - [SDK Version](#sdk-version)
 - [Features](#features)
 - [GitHub Repository/Binary](#github-repositorybinary)
@@ -26,7 +27,6 @@ sidebar_position: 12
 
 UID2 SDK for Android を使用すると、UID2 を使用してクライアント ID を確立し、Android デバイス上で Advertising Token を取得するプロセスを容易にすることができます。
 
-
 以下の Android 関連プラグインと関連ドキュメントも利用できます。
 
 | Purpose | Product/Documentation |
@@ -41,6 +41,14 @@ UID2 SDK for Android を使用すると、UID2 を使用してクライアント
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
 | Not supported | Not supported | Not supported | Supported |
+
+## API Permissions
+
+この SDK を使用するには、[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了する必要があります。
+
+SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。SDK には、使用する権限を持たない機能があるかもしれないことに留意してください。例えば、パブリッシャーはトークンの生成と更新のために特定の API Permissions を取得しますが、SDK は共有などの他のアクティビティをサポートするかもしれません。
+
+詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 ## SDK Version
 
@@ -86,6 +94,7 @@ Android UID2 SDK をインストールするには、2 つの方法がありま�
 ### Installing with Gradle
 
 Gradle を使用してインストールするには、build.gradle ファイルに依存関係として SDK を追加します:
+
 
 ``` javascript
 implementation 'com.uid2.uid2-android-sdk:0.5.0'

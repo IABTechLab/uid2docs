@@ -45,7 +45,7 @@ UID2 sharing のワークフローは、ビッドストリームで UID2 Token �
 1. 送信者と受信者: UID2 Portal で共有許可を承認します:
 
    1. 送信者: 送信者の UID2 Token の復号化を許可する共有参加者を定義します。
-   1. 送信者と受信者: UID2 Portal アカウントを要求する: [Request an Account](../portal/portal-getting-started.md#request-an-account) を参照してください。
+   1. 送信者と受信者: UID2 Portal アカウントを要求します: [Request an Account](../portal/portal-getting-started.md#request-an-account) を参照してください。
    1. 送信者: UID2 Portal にログインし、共有許可ページに移動します。[Sharing Permissions](../portal/sharing-permissions.md) を参照してください。
    1. 送信者: 共有したい参加者を選択します。必要に応じて、検索機能を使用して特定の共有参加者を検索します。
    1. 送信者: 共有の選択を保存します。

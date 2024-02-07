@@ -119,12 +119,13 @@ const sidebars = {
                 type: 'category',
                 label: 'JavaScript',
                 link: {
-                  type: 'generated-index',
+                  type: 'doc',
+                  id: 'guides/integration-javascript',
                 },
                 collapsed: true,
                 items: [
                   'guides/publisher-client-side',
-                  'guides/integration-javascript-standard',
+                  'guides/integration-javascript-server-side',
                 ],
               },
               'guides/custom-publisher-integration',

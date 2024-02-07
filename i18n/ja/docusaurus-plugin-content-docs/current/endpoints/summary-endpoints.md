@@ -5,7 +5,7 @@ hide_table_of_contents: false
 sidebar_position: 01
 ---
 
-# UID2 Endpoints
+# UID2 Endpoints: Summary
 
 すべての UID2 エンドポイントでは、API リクエストの暗号化([POST&nbsp;/token/refresh](post-token-refresh.md) を除く) とレスポンスの復号化にクライアントシークレットが必要です。詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 

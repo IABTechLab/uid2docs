@@ -12,7 +12,7 @@ Each UID2 <a href="/docs/intro#participants">participant</a> gets a set of uniqu
 | Audience | Credentials | Integration |
 | :--- | :--- | :--- |
 | Participants using a server-side endpoint  | Both of the following:<ul><li>[API key](../ref-info/glossary-uid.md#gl-api-key), also called a client key</li><li>[Client secret](../ref-info/glossary-uid.md#gl-client-secret), a value known only to the participant and the UID2 service</li></ul> | Any integration using one of these endpoints: <ul><li>[POST&nbsp;/identity/map](../endpoints/post-identity-map.md)</li><li>[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md)</li><li>[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)</li></ul> |
-| Participants using a client-side implementation  | Both of the following: <ul><li>Subscription ID</li><li>Public key</li></ul> | Integrations using one of these: <ul><li>[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)</li><li>[JavaScript Express Integration Guide](../guides/publisher-client-side.md)</li></ul> |
+| Participants using a client-side implementation  | Both of the following: <ul><li>Subscription ID</li><li>Public key</li></ul> | Integrations using one of these: <ul><li>[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)</li><li>[Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md)</li></ul> |
 
 If you're using the integration environment as well as the production environment, you'll get a separate set of credentials for each environment.
 
@@ -26,7 +26,7 @@ If you're using the integration environment as well as the production environmen
 
 ## API Key and Client Secret
 
-If you're using a server-side implementation (see [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) or [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md)), the API key and client secret allow you to connect to the [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) and call API endpoints. These values identify you to the service.
+If you're using a server-side implementation (see [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) or [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), the API key and client secret allow you to connect to the [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) and call API endpoints. These values identify you to the service.
 
 Here is some information about API keys and client secrets:
 - One UID2 participant can have multiple keys.
@@ -50,7 +50,7 @@ It's best to refresh your API key and client secret on a regular cadence&#8212;f
 
 ## Subscription ID and Public Key
 
-If you're using a client-side implementation (see [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) or [JavaScript Express Integration Guide](../guides/publisher-client-side.md)), you'll receive the following credentials:
+If you're using a client-side implementation (see [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) or [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md)), you'll receive the following credentials:
 - **Subscription ID**: This value identifies your site to the UID2 service.
 - **Public key**: This value is used for encryption.
 

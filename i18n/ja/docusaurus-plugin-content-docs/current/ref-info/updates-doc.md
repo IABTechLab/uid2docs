@@ -9,6 +9,40 @@ sidebar_position: 06
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: UID2 Integration Overview for JavaScript 
+
+26 January 2024
+
+パブリッシャーが UID2 SDK for JavaScript を Client-Side または Server-Side のインテグレーションに使用する際のオプションをまとめた、新しい概要ガイドを追加しました。さらに、既存のガイドの名称を変更して一貫性を持たせ、マイナーアップデートを行いました。
+
+詳細は以下を参照してください:
+
+- [UID2 Integration Overview for JavaScript](../guides/integration-javascript)
+- [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md)
+- [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
+
+<!-- APIDOCS-1924 -->
+
+### New: UID2 SDK for Java, Usage for Publishers Sections
+
+22 January 2024
+
+UID2 SDK for Java のドキュメントに、SDK を実装するパブリッシャーに役立つ新しいセクションを追加しました。
+
+詳細は、UID2 SDK for Java Reference Guide の [Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers) を参照してください。
+
+<!-- APIDOCS-1705 -->
+
+### New: Normalization and Encoding Documentation, Examples Section
+
+19 January 2024
+
+既存の正規化とエンコードに関するドキュメントを拡張して明確にし、新しい例のセクションを追加しました。
+
+詳細は、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+
+<!-- APIDOCS-1183, APIDOCS-1880 -->
+
 ### New: Web Integration Overview for Publishers
 
 16 January 2024
@@ -17,6 +51,8 @@ UID2 とインテグレーションするパブリッシャーが利用できる
 
 詳細は、[Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
 
+<!-- APIDOCS-1846 -->
+
 ### New: UID2 Operator Page
 
 3 January 2024
@@ -24,6 +60,8 @@ UID2 とインテグレーションするパブリッシャーが利用できる
 UID2 Operator が何をするのか、Public Operator と Private Operator の違いについて説明したリファレンスコンテンツを追加しました。
 
 詳細は、[The UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
+
+<!-- APIDOCS-1720 -->
 
 <!-- ## 2023 Updates -->
 
@@ -73,28 +111,34 @@ UID2 ウェブサイトの Getting Started セクションに新しい記事が�
 
 詳細は [UID2 Credentials](../getting-started/gs-credentials.md) を参照してください。
 
-### New: JavaScript Express Integration Guide
+### New: Client-Side Integration Guide for JavaScript
 
 21 November 2023
 
-JavaScript Express Integration Guide は、既存の URL の全く新しいドキュメントで、Client-Sideパブリッシャー実装のために UID2 SDK for JavaScript を使用する、よりシンプルな新しい方法を網羅しています。
+Client-Side Integration Guide for JavaScript は、既存の URL の全く新しいドキュメントで、Client-Sideパブリッシャー実装のために UID2 SDK for JavaScript を使用する、よりシンプルな新しい方法を網羅しています。
 
-詳細は、[JavaScript Express Integration Guide](../guides/publisher-client-side.md) を参照してください。
+詳細は、[Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) を参照してください。
 
-以前の *UID2 SDK for JavaScript Integration Guide* にあった内容は、JavaScript SDK を Server-Side に実装したいパブリッシャーのための補足文書になりました: [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md).
+以前の *UID2 SDK for JavaScript Integration Guide* にあった内容は、JavaScript SDK を Server-Side に実装したいパブリッシャーのための補足文書になりました: [JavaScript Standard Integration Guide](../guides/integration-javascript-server-side.md).
 
-### New: Prebid.js Integration Guide
+:::note
+このドキュメントは2024年1月に [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) に更新され、JavaScript Standard Integration Guide は[Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) になりました。
+:::
+
+### New: UID2 Client-Side Integration Guide for Prebid.js
 
 2 November 2023
 
-Prebid.js Express Integration Guide は、既存の URL にまったく新しいドキュメントを追加したもので、UID2 と Prebid をインテグレーションする、Server-Side の作業を必要としない、よりシンプルな新しい方法について説明しています。
+UID2 Client-Side Integration Guide for Prebid.js は、既存の URL にまったく新しいドキュメントを追加したもので、UID2 と Prebid をインテグレーションする、Server-Side の作業を必要としない、よりシンプルな新しい方法について説明しています。
 
 前バージョンの Prebid ドキュメントにあった内容は、Private Operator を使用しているパブリッシャーや、Server-Side でトークン生成を実装したいパブリッシャーのために、補足ドキュメントである *Prebid.js Advanced Integration Guide* に追加されました。
 
-NOTE: これらのドキュメントは、その後の改訂でさらに更新されました。Prebid.js の Express Integration Guide は、UID2 Client-Side Integration Guide for Prebid.js になりました。更新されたリンクは以下のとおりです:
+:::note
+これらのドキュメントは、その後の改訂でさらに更新されました。更新されたリンクは以下のとおりです:
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+:::
 
 ### New: Opt-Out
 
@@ -122,7 +166,7 @@ UID2 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメント�
 
 詳細は以下を参照してください:
 -  [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)
--  [JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md)
+-  [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
 
 ### New: Private Operator Guide for Google Confidential Space 
 

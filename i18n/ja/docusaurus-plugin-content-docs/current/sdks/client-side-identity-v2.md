@@ -13,12 +13,13 @@ sidebar_position: 02
 
 この SDK を使用して、UID2 を使用してクライアントの ID を確立し、広告トークンを取得するプロセスを容易にします。以下のセクションでは、UID2 を確立するための [workflow](#workflow-overview) について説明し、SDK の [API reference](#api-reference) を提供し、[UID2 cookie format](#uid2-cookie-format) について説明します。
 
-- コンテンツパブリッシャーのインテグレーション手順については、[JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照してください。
+- コンテンツパブリッシャーのインテグレーション手順については、[Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください。
 - [example application](https://example-jssdk-integ.uidapi.com/) と関連ドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) ガイドを参照してください。
 
 <!-- This guide includes the following information:
 
 - [Functionality](#functionality)
+- [API Permissions](#api-permissions)
 - [SDK Version](#sdk-version)
 - [GitHub Repository/Binary](#github-repositorybinary)
 - [Terminology](#terminology)
@@ -45,6 +46,14 @@ sidebar_position: 02
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
 | Not supported | Not supported | Not supported | Supported |
+
+## API Permissions
+
+この SDK を使用するには、[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了する必要があります。
+
+SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。SDK には、使用する権限を持たない機能があるかもしれないことに留意してください。例えば、パブリッシャーはトークンの生成と更新のために特定の API Permissions を取得しますが、SDK は共有などの他のアクティビティをサポートするかもしれません。
+
+詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 ## SDK Version
 
@@ -90,7 +99,7 @@ SDK を使用して UID2 ID を確立するための Client-Side ワークフロ
 	- Advertising Token が使用可能な場合は、それを使用してターゲティング広告の要求を開始します。
 	- Advertising Token が利用可能でない場合は、ターゲティング広告を使用するか、同意フォームを使用してユーザーを UID2 ログインにリダイレクトします。
  
-Web インテグレーションの詳細については、[JavaScript Standard Integration Guide](../guides/integration-javascript-standard.md) を参照してください。
+Web インテグレーションの詳細については、[Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください。
 
 ### Workflow States and Transitions
 

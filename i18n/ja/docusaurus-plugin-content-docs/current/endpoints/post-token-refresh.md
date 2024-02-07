@@ -6,14 +6,13 @@ sidebar_position: 04
 ---
 
 # POST /token/refresh
-
 [POST&nbsp;/token/generate](post-token-generate.md) エンドポイントから返された、対応する未使用のリフレッシュトークンを送信して、新しい [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を生成します。
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
 > NOTE: このエンドポイントは、API Key を使用する必要がないため、Client-Side (例えば、ブラウザやモバイルアプリなど) から呼び出せます。
 
-## Request Format
+## Request Format 
 
 `POST '{environment}/v2/token/refresh'`
 
