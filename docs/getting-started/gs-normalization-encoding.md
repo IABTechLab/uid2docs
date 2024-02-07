@@ -91,7 +91,7 @@ Here's what you need to know about phone number normalization rules:
 
 ## Phone Number Hash Encoding
 
-A phone number hash is a Base64-encoded SHA-256 hash of a normalized phone number. The phone number is first normalized, then hashed using the SHA-256 hashing algorithm, and the resulting bytes of the hash value are encoded using Base64 encoding.
+A phone number hash is a Base64-encoded SHA-256 hash of a normalized phone number. The phone number is first normalized, then hashed using the SHA-256 hashing algorithm, and then the resulting bytes of the hash value are encoded using Base64 encoding.
 
 :::note
 - Make sure that the normalized phone number is UTF-8, not another encoding system such as UTD-16, before hashing.
