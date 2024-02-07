@@ -6,6 +6,7 @@ sidebar_position: 06
 use_banner: true
 banner_title: UID2 Overview for DSPs
 banner_description: Enable data strategies with a more durable identifier.
+displayed_sidebar: sidebarDSPs
 ---
 
 As a demand-side platform (DSP, media-buying platform), you can facilitate identity strategies that leverage Unified ID 2.0 (UID2) to facilitate the following:
