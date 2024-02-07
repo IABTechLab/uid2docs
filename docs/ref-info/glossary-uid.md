@@ -288,7 +288,7 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-raw-uid2">Raw UID2</dt>
 <dd>An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's <a href="#gl-dii">directly identifying information</a> (email address or phone number) as input. The raw UID2 is encrypted to create a <a href="#gl-uid2-token">UID2 token</a>. The raw UID2 is a unique value; no two raw UID2s are the same. Raw UID2s, and their associated UID2 tokens, are case sensitive.</dd>
-<dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
+<dd>For details, see <a href="ref-infrastructure#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
 
 <dt class="jump-anchor" id="gl-refresh-token">Refresh token</dt>
 <dd>A refresh token is an opaque string that is issued along with the <a href="#gl-uid2-token">UID2 token</a>. It is used to refresh the UID2 token, which has a limited life.</dd>
@@ -350,11 +350,11 @@ sidebar_position: 10
 <dl>
 
 <dt class="jump-anchor" id="gl-uid2-framework">UID2 framework</dt>
-<dd>The Unified ID 2.0 (UID2) framework enables deterministic identity for advertising opportunities on the open internet for many <a href="../intro#participants">participants</a> across the advertising ecosystem. It enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework focuses on transparency and privacy.</dd>
+<dd>The Unified ID 2.0 (UID2) framework enables deterministic identity for advertising opportunities on the open internet for many <a href="../intro#participants">participants</a> across the advertising ecosystem. It enables consumer experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to be monetized through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework focuses on transparency and privacy.</dd>
 
 <dt class="jump-anchor" id="gl-uid2-identifier">UID2 identifier</dt>
 <dd>There are two Unified ID 2.0 (UID2) identifier types: <a href="#gl-raw-uid2">raw UID2s</a> and <a href="#gl-uid2-token">UID2 tokens</a> (also known as advertising tokens).</dd>
-<dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
+<dd>For details, see <a href="ref-infrastructure#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
 
 <dt class="jump-anchor" id="gl-uid2-portal">UID2 Portal</dt>
 <dd>The UID2 Portal is a separate user interface that allows UID2 participants to manage their accounts.</dd>
@@ -369,7 +369,7 @@ sidebar_position: 10
 <dd>UID2 tokens are generated from hashed or unhashed email addresses or phone numbers that are converted to raw UID2s and then encrypted. The UID2 token is a unique value; no two UID2 tokens are the same. UID2 tokens are case sensitive.</dd>
 <dd>The token has a limited life, but can be refreshed in the background using the <a href="#gl-refresh-token">refresh token</a>.</dd>
 <dd>Publishers send UID2 tokens in the bid stream.</dd>
-<dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
+<dd>For details, see <a href="ref-infrastructure#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
 
 <dt class="jump-anchor" id="gl-unified-id-20">Unified ID 2.0 (UID2)</dt>
 <dd>The term UID2 can be used to mean the <a href="#gl-uid2-framework">UID2 framework</a>, the <a href="#gl-uid2-service">UID2 service</a>, a <a href="#gl-raw-uid2">raw UID2</a>, or a <a href="#gl-uid2-token">UID2 token</a> (advertising token).</dd>
