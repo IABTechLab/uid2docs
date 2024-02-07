@@ -55,7 +55,12 @@ For examples of various scenarios, see [Normalization Examples for Email](#norma
 
 ## Email Address Hash Encoding
 
-An email hash is a Base64-encoded SHA-256 hash of a normalized email address. The email address is first normalized, then hashed using the SHA-256 hashing algorithm, and then the resulting bytes of the hash value are encoded using Base64 encoding. Note that the bytes of the hash value are encoded, not the hex-encoded string representation.
+An email hash is a Base64-encoded SHA-256 hash of a normalized email address. The email address is first normalized, then hashed using the SHA-256 hashing algorithm, and then the resulting bytes of the hash value are encoded using Base64 encoding.
+
+:::note
+- Make sure that the normalized email is UTF-8, not another encoding system such as UTD-16, before hashing.
+- The bytes of the hash value are Base64-encoded, not the hex-encoded string representation.
+:::
 
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
@@ -86,7 +91,12 @@ Here's what you need to know about phone number normalization rules:
 
 ## Phone Number Hash Encoding
 
-A phone number hash is a Base64-encoded SHA-256 hash of a normalized phone number. The phone number is first normalized, then hashed using the SHA-256 hashing algorithm, and the resulting hex value is encoded using Base64 encoding.
+A phone number hash is a Base64-encoded SHA-256 hash of a normalized phone number. The phone number is first normalized, then hashed using the SHA-256 hashing algorithm, and then the resulting bytes of the hash value are encoded using Base64 encoding.
+
+:::note
+- Make sure that the normalized phone number is UTF-8, not another encoding system such as UTD-16, before hashing.
+- The bytes of the hash value are Base64-encoded, not the hex-encoded string representation.
+:::
 
 The example below shows a simple input phone number, and the result as each step is applied to arrive at a secure, opaque, URL-safe value.
 
