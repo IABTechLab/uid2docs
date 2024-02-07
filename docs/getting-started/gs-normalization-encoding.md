@@ -59,7 +59,7 @@ An email hash is a Base64-encoded SHA-256 hash of a normalized email address. Th
 
 :::note
 - Make sure that the normalized email is UTF-8, not another encoding system such as UTD-16, before hashing.
-- The bytes of the hash value are Based64-encoded, not the hex-encoded string representation.
+- The bytes of the hash value are Base64-encoded, not the hex-encoded string representation.
 :::
 
 | Type | Example | Comments and Usage |
@@ -95,7 +95,7 @@ A phone number hash is a Base64-encoded SHA-256 hash of a normalized phone numbe
 
 :::note
 - Make sure that the normalized phone number is UTF-8, not another encoding system such as UTD-16, before hashing.
-- The bytes of the hash value are Based64-encoded, not the hex-encoded string representation.
+- The bytes of the hash value are Base64-encoded, not the hex-encoded string representation.
 :::
 
 The example below shows a simple input phone number, and the result as each step is applied to arrive at a secure, opaque, URL-safe value.
