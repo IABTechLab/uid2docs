@@ -96,6 +96,7 @@ const fullSidebar = [
         type: 'doc',
         id: 'guides/summary-guides',
       },
+      collapsed: false,
 
       items: [
 
@@ -105,7 +106,7 @@ const fullSidebar = [
           link: {
             type: 'generated-index',
           },
-          collapsed: true,
+          collapsed: false,
 
           items: [
           {
@@ -230,6 +231,7 @@ const fullSidebar = [
         type: 'doc',
         id: 'endpoints/summary-endpoints',
       },
+      collapsed: true,
       items: [
         'endpoints/post-token-generate',
         'endpoints/post-token-validate',
@@ -283,7 +285,9 @@ const sidebars = {
     'guides/advertiser-dataprovider-guide',
     'guides/snowflake_integration',
     'guides/integration-aws-entity-resolution',
-    'guides/dsp-guide'
+    'guides/dsp-guide',
+    'endpoints/post-identity-buckets',
+    'endpoints/post-identity-map'
   ),
 
 
@@ -292,8 +296,39 @@ const sidebars = {
     'overviews/overview-dsps',
     'overviews/overview-data-providers',
     'overviews/overview-operators-private',
-    'guides/dsp-guide'
-  ),
+    'Publisher Integrations',
+    'Web',
+    'guides/integration-options-publisher-web',
+    'Prebid',
+    'guides/integration-prebid',
+    'guides/integration-prebid-client-side',
+    'guides/integration-prebid-server-side',
+    'JavaScript',
+    'guides/integration-javascript',
+    'guides/publisher-client-side',
+    'guides/integration-javascript-server-side',
+    'Server-Only',
+    'guides/custom-publisher-integration',
+    'GAM Secure Signals',
+    'guides/google-ss-integration',
+    'Mobile',
+    'guides/uid2-sdk-ref-android',
+    'guides/uid2-sdk-ref-ios',
+    'Prebid',
+    'guides/integration-prebid',
+    'guides/integration-prebid-client-side',
+    'guides/integration-prebid-server-side',
+    'Google Ad Manager',
+    'guides/google-ss-integration',
+    'guides/mobile-plugin-gma-android',
+    'guides/mobile-plugin-gma-ios',
+    'guides/mobile-plugin-ima-android',
+    'guides/mobile-plugin-ima-ios',
+    'guides/dsp-guide',  
+    'endpoints/post-token-generate',
+    'endpoints/post-token-validate',
+    'endpoints/post-token-refresh' 
+    ),
 
   sidebarDSPs: removeItems(fullSidebar, 
     'overviews/overview-publishers',
@@ -302,7 +337,7 @@ const sidebars = {
     'overviews/overview-operators-private',
     'guides/advertiser-dataprovider-guide',
     'guides/snowflake_integration',
-    'guides/integration-aws-entity-resolution',
+    'guides/integration-aws-entity-resolution'
   ),
 
   sidebarDataProviders: removeItems(fullSidebar, 
@@ -310,7 +345,38 @@ const sidebars = {
     'overviews/overview-advertisers',
     'overviews/overview-dsps',
     'overviews/overview-operators-private',
-    'guides/dsp-guide'
+    'Publisher Integrations',
+    'Web',
+    'guides/integration-options-publisher-web',
+    'Prebid',
+    'guides/integration-prebid',
+    'guides/integration-prebid-client-side',
+    'guides/integration-prebid-server-side',
+    'JavaScript',
+    'guides/integration-javascript',
+    'guides/publisher-client-side',
+    'guides/integration-javascript-server-side',
+    'Server-Only',
+    'guides/custom-publisher-integration',
+    'GAM Secure Signals',
+    'guides/google-ss-integration',
+    'Mobile',
+    'guides/uid2-sdk-ref-android',
+    'guides/uid2-sdk-ref-ios',
+    'Prebid',
+    'guides/integration-prebid',
+    'guides/integration-prebid-client-side',
+    'guides/integration-prebid-server-side',
+    'Google Ad Manager',
+    'guides/google-ss-integration',
+    'guides/mobile-plugin-gma-android',
+    'guides/mobile-plugin-gma-ios',
+    'guides/mobile-plugin-ima-android',
+    'guides/mobile-plugin-ima-ios',
+    'guides/dsp-guide',  
+    'endpoints/post-token-generate',
+    'endpoints/post-token-validate',
+    'endpoints/post-token-refresh' 
   ),
 
 };
