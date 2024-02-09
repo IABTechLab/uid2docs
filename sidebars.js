@@ -73,24 +73,6 @@ const fullSidebar = [
 
     {
       type: 'category',
-      label: 'SDKs',
-      link: {
-        type: 'doc',
-        id: 'sdks/summary-sdks',
-      },
-      items: [
-        'sdks/client-side-identity',
-        'sdks/uid2-sdk-ref-java',
-        'sdks/uid2-sdk-ref-python',
-        'sdks/uid2-sdk-ref-csharp-dotnet',
-        'sdks/uid2-sdk-ref-cplusplus',
-        'sdks/uid2-sdk-ref-android',
-        'sdks/uid2-sdk-ref-ios',
-      ],
-    },
-
-    {
-      type: 'category',
       label: 'Integration Guides',
       link: {
         type: 'doc',
@@ -226,6 +208,25 @@ const fullSidebar = [
 
     {
       type: 'category',
+      label: 'SDKs',
+      link: {
+        type: 'doc',
+        id: 'sdks/summary-sdks',
+      },
+      collapsed: true,
+      items: [
+        'sdks/client-side-identity',
+        'sdks/uid2-sdk-ref-java',
+        'sdks/uid2-sdk-ref-python',
+        'sdks/uid2-sdk-ref-csharp-dotnet',
+        'sdks/uid2-sdk-ref-cplusplus',
+        'sdks/uid2-sdk-ref-android',
+        'sdks/uid2-sdk-ref-ios',
+      ],
+    },
+
+    {
+      type: 'category',
       label: 'Endpoints (v2)',
       link: {
         type: 'doc',
@@ -248,6 +249,7 @@ const fullSidebar = [
         type: 'doc',
         id: 'sharing/sharing-overview',
       },
+      collapsed: true,
       items: [
         'sharing/sharing-use-cases',
         'sharing/sharing-implementing',
@@ -290,7 +292,6 @@ const sidebars = {
     'endpoints/post-identity-map'
   ),
 
-
   sidebarAdvertisers: removeItems(fullSidebar, 
     'overviews/overview-publishers',
     'overviews/overview-dsps',
@@ -324,10 +325,14 @@ const sidebars = {
     'guides/mobile-plugin-gma-ios',
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
-    'guides/dsp-guide',  
+    'guides/dsp-guide',
+    'sdks/client-side-identity',
+    'sdks/uid2-sdk-ref-android',
+    'sdks/uid2-sdk-ref-ios',
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
-    'endpoints/post-token-refresh' 
+    'endpoints/post-token-refresh',
+    'sharing/sharing-bid-stream'
     ),
 
   sidebarDSPs: removeItems(fullSidebar, 
@@ -335,10 +340,42 @@ const sidebars = {
     'overviews/overview-advertisers',
     'overviews/overview-data-providers',
     'overviews/overview-operators-private',
+    'Publisher Integrations',
+    'Web',
+    'guides/integration-options-publisher-web',
+    'Prebid',
+    'guides/integration-prebid',
+    'guides/integration-prebid-client-side',
+    'guides/integration-prebid-server-side',
+    'JavaScript',
+    'guides/integration-javascript',
+    'guides/publisher-client-side',
+    'guides/integration-javascript-server-side',
+    'Server-Only',
+    'guides/custom-publisher-integration',
+    'GAM Secure Signals',
+    'guides/google-ss-integration',
+    'Mobile',
+    'guides/uid2-sdk-ref-android',
+    'guides/uid2-sdk-ref-ios',
+    'Prebid',
+    'guides/integration-prebid',
+    'guides/integration-prebid-client-side',
+    'guides/integration-prebid-server-side',
+    'Google Ad Manager',
+    'guides/google-ss-integration',
+    'guides/mobile-plugin-gma-android',
+    'guides/mobile-plugin-gma-ios',
+    'guides/mobile-plugin-ima-android',
+    'guides/mobile-plugin-ima-ios',
     'guides/advertiser-dataprovider-guide',
     'guides/snowflake_integration',
-    'guides/integration-aws-entity-resolution'
-  ),
+    'guides/integration-aws-entity-resolution',
+    'sdks/client-side-identity',
+    'sdks/uid2-sdk-ref-android',
+    'sdks/uid2-sdk-ref-ios',
+    'sharing/sharing-bid-stream'
+    ),
 
   sidebarDataProviders: removeItems(fullSidebar, 
     'overviews/overview-publishers',
@@ -374,9 +411,13 @@ const sidebars = {
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
     'guides/dsp-guide',  
+    'sdks/client-side-identity',
+    'sdks/uid2-sdk-ref-android',
+    'sdks/uid2-sdk-ref-ios',
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
-    'endpoints/post-token-refresh' 
+    'endpoints/post-token-refresh',
+    'sharing/sharing-bid-stream'
   ),
 
 };
