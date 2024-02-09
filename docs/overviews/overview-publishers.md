@@ -69,8 +69,8 @@ To get started, follow these steps:
 
 1. Test: 
 
-    - Work with SSPs to properly pass UID2s in bid requests.
-    - Confirm that UID2s are being generated and passed correctly in requests.
+    - Confirm that UID2 tokens are being generated and passed correctly within the bid request.
+    - Troubleshoot as needed, and work with SSPs to properly pass UID2 tokens in bid requests.
 1. Go live.
 
 ## Implementation Resources
