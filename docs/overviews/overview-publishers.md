@@ -13,6 +13,10 @@ As a publisher, you can benefit from the cross-device presence of Unified ID 2.0
 
 Learn about benefits, workflow, documentation, and other resources for publishers adopting UID2, as well as instructions for getting started.
 
+:::note
+If you want access in the left sidebar to the full set of UID2 documentation, see [Unified ID 2.0 Overview](../intro.md).
+:::
+
 <!-- Learn about what the UID2 framework offers to publishers, including benefits, workflow, documentation and other resources, and how to get started. -->
 
 ## Benefits of UID2 for Publishers

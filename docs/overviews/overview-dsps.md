@@ -16,6 +16,10 @@ As a demand-side platform (DSP, media-buying platform), you can facilitate ident
 
 Learn about benefits, workflow, documentation, and other resources for DSPs adopting UID2, as well as instructions for getting started.
 
+:::note
+If you want access in the left sidebar to the full set of UID2 documentation, see [Unified ID 2.0 Overview](../intro.md).
+:::
+
 ## Benefits of UID2 for DSPs
 
 Here are just some of the intended benefits for DSPs using UID2. You can:

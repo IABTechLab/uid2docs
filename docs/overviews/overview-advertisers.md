@@ -13,6 +13,10 @@ As an advertiser, you can upgrade your first-party data tactics with Unified ID 
 
 Learn about benefits, workflow, documentation, and other resources for advertisers adopting UID2, as well as instructions for getting started.
 
+:::note
+If you want access in the left sidebar to the full set of UID2 documentation, see [Unified ID 2.0 Overview](../intro.md).
+:::
+
 ## Benefits of UID2 for Advertisers
 
 Here are just some of the intended benefits of using UID2 as part of your advertising strategy:

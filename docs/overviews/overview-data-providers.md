@@ -19,6 +19,10 @@ This solution is for you if you're offering data or related services for online 
 
 Learn about the benefits, workflow, documentation, and other resources for data providers adopting UID2, as well as instructions for getting started.
 
+:::note
+If you want access in the left sidebar to the full set of UID2 documentation, see [Unified ID 2.0 Overview](../intro.md).
+:::
+
 ## Benefits of UID2 for Data Providers
 
 Here are just some of the intended benefits available to you as a data provider using UID2. You can:
