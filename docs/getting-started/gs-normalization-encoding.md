@@ -52,7 +52,7 @@ To normalize an email address, complete the following steps:
        For example, normalize `janedoe+home@gmail.com` to `janedoe@gmail.com`.
 
 :::warning
-Make sure that the normalized email is UTF-8, not another encoding system such as UTD-16.
+Make sure that the normalized email is UTF-8, not another encoding system such as UTF-16.
 :::
 
 For examples of various scenarios, see [Normalization Examples for Email](#normalization-examples-for-email).
@@ -89,7 +89,7 @@ Here's what you need to know about phone number normalization rules:
    - Sydney, Australia: `(02) 1234 5678` is normalized to drop the leading zero for the city plus include the country code: `+61212345678`.
 
 :::warning
-Make sure that the normalized phone number is UTF-8, not another encoding system such as UTD-16.
+Make sure that the normalized phone number is UTF-8, not another encoding system such as UTF-16.
 :::
 
 ## Phone Number Hash Encoding
