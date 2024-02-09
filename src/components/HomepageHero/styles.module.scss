@@ -1,13 +1,18 @@
 .homepageHero {
   display: flex;
   min-height: 60vh;
-  align-items: center;
+  align-items: end;
   padding: 3.125rem 0;
   position: relative;
   overflow: hidden;
 
+  @media only screen and (min-width: 600px) {
+    align-items: center;
+  }
+  
+
   @media only screen and (min-width: 996px) {
-    padding: 8.25rem 0;
+    padding: 8.25rem 20px;
     height: auto;
     --ifm-heading-margin-bottom: 3rem;
     --ifm-spacing-horizontal: 0.4rem;
@@ -34,44 +39,45 @@
   text-shadow: 0px 6px 44px #030a40;
 }
 
-.heroBgAnimationMobile {
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 0;
+//using static SVG now instead
+// .heroBgAnimationMobile {
+//   position: absolute;
+//   right: 0;
+//   top: 0;
+//   z-index: 0;
 
-  svg {
-    object-fit: cover;
-    display: block;
-  }
+//   svg {
+//     object-fit: cover;
+//     display: block;
+//   }
 
-  @media only screen and (min-width: 996px) {
-    display: none;
-  }
-}
+//   @media only screen and (min-width: 996px) {
+//     display: none;
+//   }
+// }
 
-.heroBgAnimationDesktop {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  top: 0;
-  z-index: 0;
-  display: none;
+// .heroBgAnimationDesktop {
+//   position: absolute;
+//   bottom: 0;
+//   right: 0;
+//   top: 0;
+//   z-index: 0;
+//   display: none;
 
-  svg {
-    // position: absolute;
-    // top: 0;
-    // right: 0;
-    // bottom: 0;
-    // height: 100%;
-    width: auto !important;
-  }
+//   svg {
+//     // position: absolute;
+//     // top: 0;
+//     // right: 0;
+//     // bottom: 0;
+//     // height: 100%;
+//     width: auto !important;
+//   }
 
-  @media only screen and (min-width: 996px) {
-    display: flex;
-    justify-content: flex-end;
-  }
-}
+//   @media only screen and (min-width: 996px) {
+//     display: flex;
+//     justify-content: flex-end;
+//   }
+// }
 
 .homepageHeroContent {
   position: relative;
@@ -87,6 +93,29 @@
 
   p {
     margin-bottom: 0;
+  }
+}
+
+.heroBg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 0;
+  bottom: 0;
+  height: 100%;
+  width: auto;
+}
+
+.heroMobileBg {
+  @media screen and (min-width: 996px) {
+   display: none;
+  }
+}
+
+.heroDesktopBg {
+  display: none;
+  @media screen and (min-width: 996px) {
+   display: block;
   }
 }
 
