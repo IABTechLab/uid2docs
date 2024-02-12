@@ -16,15 +16,17 @@ The term "UID2" can refer to either the framework or an actual [UID2 identifier]
 
 ## Why UID2?
 
-UID2 is structured to enable deterministic identity for advertising opportunities on the open internet with full consumer transparency and controls. What does that mean? Deterministic identity means that an instance of online activity that generates a specific unrecognizable identifier, and another instance of online activity by the same authorized user generates a specific unrecognizable identifier that can be matched with the first identifier, but cannot be matched with the user. Here is an example of an identifier ([raw UID2](ref-info/glossary-uid.md#gl-raw-uid2)):
+UID2 is structured to enable deterministic identity for advertising opportunities on the open internet, centered on full consumer transparency and controls. UID2s are built on hashed [DII](ref-info/glossary-uid.md#gl-dii) which is physically changed so that it cannot be reverse engineered back to a phone number or email.
+
+This layer of deterministic identity means that an instance of online activity can be tied to a specific pseudo-anonymous synthetic identifier that can then be matched to behaviors across a user's browsing behavior in a privacy-compliant way.
+
+Here's an example of what a [raw UID2](ref-info/glossary-uid.md#gl-raw-uid2) looks like after starting life as an email:
 
 `AdvIvSiaum0P5s3X/7X8h8sz+OhF2IG8DNbEnkWSbYM=`
 
-The raw UID2 is a hashed identifier and can be matched against other instances of online activity by the same individual, but can never be used to determine the original personal information. It's completely anonymous, and yet consistent.
+This raw UID2 is further encrypted with metadata in the bid stream to prevent any misuse of the identifier.
 
-UID2 is the perfect marriage of privacy and targeted advertising, enabling consumers to be served ads that are more relevant to them while at the same time preserving anonymity.
-
-Following this open and interoperable approach, UID2 provides a collaborative framework for all participants. This facilitates a healthy open internet where consumers can consent to targeted advertising in exchange for viewing quality content, without compromising their privacy.
+The result is the perfect marriage of privacy and targeted advertising, enabling consumers to be served ads that are more relevant to them while at the same time preserving anonymity. Following this open and interoperable approach, UID2 provides a collaborative framework for all participants. This facilitates a healthy open internet where consumers can consent to targeted advertising in exchange for viewing quality content, without compromising their privacy.
 
 ## Additional Resources
 
