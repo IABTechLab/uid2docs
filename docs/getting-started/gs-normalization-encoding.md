@@ -51,11 +51,15 @@ To normalize an email address, complete the following steps:
     
        For example, normalize `janedoe+home@gmail.com` to `janedoe@gmail.com`.
 
+:::warning
+Make sure that the normalized email is UTF-8, not another encoding system such as UTF-16.
+:::
+
 For examples of various scenarios, see [Normalization Examples for Email](#normalization-examples-for-email).
 
 ## Email Address Hash Encoding
 
-An email hash is a Base64-encoded SHA-256 hash of a normalized email address. The email address is first normalized, then hashed using the SHA-256 hashing algorithm, and then the resulting bytes of the hash value are encoded using Base64 encoding. Note that the bytes of the hash value are encoded, not the hex-encoded string representation.
+An email hash is a Base64-encoded SHA-256 hash of a normalized email address. The email address is first normalized, then hashed using the SHA-256 hashing algorithm, and then the resulting bytes of the hash value are encoded using Base64 encoding. Note that the Base64 encoding is applied to the bytes of the hash value, not the hex-encoded string representation.
 
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
@@ -84,9 +88,13 @@ Here's what you need to know about phone number normalization rules:
    - Singapore: `65 1243 5678` is normalized to `+6512345678`.
    - Sydney, Australia: `(02) 1234 5678` is normalized to drop the leading zero for the city plus include the country code: `+61212345678`.
 
+:::warning
+Make sure that the normalized phone number is UTF-8, not another encoding system such as UTF-16.
+:::
+
 ## Phone Number Hash Encoding
 
-A phone number hash is a Base64-encoded SHA-256 hash of a normalized phone number. The phone number is first normalized, then hashed using the SHA-256 hashing algorithm, and the resulting hex value is encoded using Base64 encoding.
+A phone number hash is a Base64-encoded SHA-256 hash of a normalized phone number. The phone number is first normalized, then hashed using the SHA-256 hashing algorithm, and then the resulting bytes of the hash value are encoded using Base64 encoding. Note that the Base64 encoding is applied to the bytes of the hash value, not the hex-encoded string representation. 
 
 The example below shows a simple input phone number, and the result as each step is applied to arrive at a secure, opaque, URL-safe value.
 

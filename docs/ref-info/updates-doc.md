@@ -9,6 +9,20 @@ sidebar_position: 06
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: Audience-Specific Documentation Sidebars
+
+9 February 2024
+
+We've improved the website so that specific users clicking through on the links at the top of the [UID2 home page](https://unifiedid.com/) (Publishers, Advertisers, DSPs, Data Providers) now have a custom left sidebar, with the specific documentation that's applicable to that audience.
+
+Anyone wanting to see the full set of docs for all audiences can just click through on the Documentation link on the UID2 home page.
+
+Note that many docs are applicable to multiple audiences, and there are many interlinks between docs, so the sidebar view might change on your journey through the site. You can always get back to your specific view by clicking the link at the top: these links appear on all pages.
+
+To view the custom sidebars, go to [https://unifiedid.com](https://unifiedid.com/) and click on one of the audience links at the top: [Publishers](../overviews/overview-publishers.md). [Advertisers](../overviews/overview-advertisers.md), [DSPs](../overviews/overview-dsps.md), or [Data Providers](../overviews/overview-data-providers.md).
+
+<!-- APIDOCS-1681 -->
+
 ### New: UID2 Integration Overview for JavaScript 
 
 26 January 2024

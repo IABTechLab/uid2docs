@@ -6,11 +6,16 @@ sidebar_position: 02
 use_banner: true
 banner_title: UID2 Overview for Publishers
 banner_description: Maintain audience targeting in the ever-changing advertising industry for better impression monetization and more relevance.
+displayed_sidebar: sidebarPublishers
 ---
 
 As a publisher, you can benefit from the cross-device presence of Unified ID 2.0 (UID2) and take advantage of a consistent identity fabric on all your inventory.
 
 Learn about benefits, workflow, documentation, and other resources for publishers adopting UID2, as well as instructions for getting started.
+
+:::note
+If you want access in the left sidebar to the full set of UID2 documentation, see [Unified ID 2.0 Overview](../intro.md).
+:::
 
 <!-- Learn about what the UID2 framework offers to publishers, including benefits, workflow, documentation and other resources, and how to get started. -->
 
@@ -64,8 +69,8 @@ To get started, follow these steps:
 
 1. Test: 
 
-    - Work with SSPs to properly pass UID2s in bid requests.
-    - Confirm that UID2s are being generated and passed correctly in requests.
+    - Confirm that UID2 tokens are being generated and passed correctly within the bid request.
+    - Troubleshoot as needed, and work with SSPs to properly pass UID2 tokens in bid requests.
 1. Go live.
 
 ## Implementation Resources

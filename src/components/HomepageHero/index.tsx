@@ -1,7 +1,9 @@
 import React from "react";
 import clsx from "clsx";
 import Translate from "@docusaurus/Translate";
-import HeroBg from "./HeroBgAnimation";
+
+import HeroDesktopBg from "@site/static/img/hero-desktop.svg";
+import HeroMobileBg from "@site/static/img/hero-mobile.svg";
 import styles from "./styles.module.scss";
 import { useIsJapanese } from "@site/src/utils/isJapanese";
 import { useColorMode } from "@docusaurus/theme-common";
@@ -53,7 +55,8 @@ export default function HomepageHero(): JSX.Element {
           </div>
         </div>
       </div>
-      <HeroBg />
+      <HeroMobileBg className={clsx(styles.heroBg, styles.heroMobileBg)} />
+      <HeroDesktopBg className={clsx(styles.heroBg, styles.heroDesktopBg)} />
     </header>
   );
 }
