@@ -63,7 +63,7 @@ If you prefer, you can set up individual sharing relationships with one or more 
 
 ## Using Search to Add Sharing Relationships
 
-If you prefer to create specific sharing relationships, click **Search and Add Permissions** to find sharing participants and add them.
+If you prefer to create specific sharing relationships, click **Add Permissions** to find sharing participants and add them.
 
 The following filters are available on the list of available sharing participants:
 - Publishers
