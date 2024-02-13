@@ -177,7 +177,7 @@ pbjs.setConfig({
 
 ## Checking the Integration
 
-To check that the UID2 module has successfully generated a UID2 token, call `pbjs.getUserIds().uid2`. If a value is returned, a valid UID2 token still exists in the UID2 module.
+To check that the UID2 module has successfully generated a UID2 token, call `pbjs.getUserIds().uid2`. If a value is returned, a valid UID2 token exists in the UID2 module.
 
 If there are problems with the integration, here are some steps you can take:
 

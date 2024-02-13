@@ -248,7 +248,7 @@ pbjs.setConfig({
 
 #### Passing a New Token: Server-Only Mode
 
-Server-Only Mode では、prebid.js UID2 module は Advertising Token のみを受け取るため、トークンは短時間しか有効ではありません。このため、各ページのロード時に Advertising Token を提供するのが最善です。
+Server-Only Mode では、Prebid.js UID2 module は Advertising Token のみを受け取るため、トークンは短時間しか有効ではありません。このため、各ページのロード時に Advertising Token を提供するのが最善です。
 
 必要であれば、新しいトークンを提供する必要があるかどうかを判断するために、[Determining Whether the Module Has a Valid Token](#determining-whether-the-module-has-a-valid-token) を参照してください。
 
