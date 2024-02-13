@@ -133,7 +133,7 @@ When you configure the module to use Client Refresh mode, you must choose **one*
 | Option | Details | Use Case | 
 | --- | --- | --- |
 | Set `params.uid2Cookie` to the name of the cookie that contains the response body as a JSON string. | See [Client Refresh Mode Cookie Example](#client-refresh-mode-cookie-example). | Use this option only if you're sure that there is enough space left in your cookie to store the response body. If you're not sure, or the cookie storage needs might vary, choose the other option. |
-| Set `params.uid2Token` to the response body as a JavaScript object. | See [Client Refresh Mode uid2Token Example](#client-refresh-mode-uid2token-example). | You might choose to provide the response body via `params.uid2Token` in either of these cases:<ul><li>If you are already storing a lot of data in the cookie and adding the response body might exceed the cookie size limit.</li><li>If you prefer to have the the Prebid module store the token value for you.</li></ul> |
+| Set `params.uid2Token` to the response body as a JavaScript object. | See [Client Refresh Mode uid2Token Example](#client-refresh-mode-uid2token-example). | You might choose to provide the response body via `params.uid2Token` in either of these cases:<ul><li>If you are already storing a lot of data in the cookie and adding the response body might exceed the cookie size limit.</li><li>If you prefer to have the Prebid module store the token value for you.</li></ul> |
 
 #### Client Refresh Mode Cookie Example
 
@@ -248,7 +248,7 @@ pbjs.setConfig({
 
 #### Passing a New Token: Server-Only Mode
 
-In server-only mode, since the prebid.js UID2 module receives only the advertising token, the token is only valid for a short period of time. For this reason, it is best to provide an advertising token on each page load.
+In server-only mode, since the Prebid.js UID2 module receives only the advertising token, the token is only valid for a short period of time. For this reason, it is best to provide an advertising token on each page load.
 
 If needed, to determine if you need to provide a new token, see [Determining Whether the Module Has a Valid Token](#determining-whether-the-module-has-a-valid-token).
 
@@ -318,7 +318,7 @@ If you configure a user ID by calling `setConfig` (or any similar function) twic
 
 ## Checking the Integration
 
-To check that the UID2 module has a valid UID2 token, call `pbjs.getUserIds().uid2`. If a value is returned, a valid UID2 token still exists in the UID2 module.
+To check that the UID2 module has a valid UID2 token, call `pbjs.getUserIds().uid2`. If a value is returned, a valid UID2 token exists in the UID2 module.
 
 If there are problems with the integration, here are some steps you can take:
 
