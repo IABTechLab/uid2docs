@@ -63,7 +63,7 @@ If you prefer, you can set up individual sharing relationships with one or more 
 
 ## Using Search to Add Sharing Relationships
 
-If you prefer to create specific sharing relationships, click **Search and Add Permissions** to find sharing participants and add them.
+If you prefer to create specific sharing relationships, click **Add Permissions** to find sharing participants and add them.
 
 The following filters are available on the list of available sharing participants:
 - Publishers
@@ -89,7 +89,7 @@ Enabling sharing permissions includes the following steps.
 
      If you accept a participant category, such as Advertisers or DSPs, sharing is enabled for current participants of that type, and also future participants of that type that join the UID2 ecosystem.
    
-   - **Search and Add Permissions**: If you prefer, you can search for individual participants to share with. For details, see [Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships).
+   - **Add Permissions**: If you prefer, you can search for individual participants to share with. For details, see [Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships).
 1. Save changes.
 
 >NOTE: When you enable sharing permission, this allows the selected sharing participants to access your decryption keys. Each participant that you enable for sharing can use your keys, via a UID2 SDK or Snowflake integration, to decrypt a UID2 token into a raw UID2. However, granting permission is just the first step. In order for sharing to occur, you must send the tokens to the participant. The UID2 Portal enables the permissions. It does not send any data&#8212;that is up to you.
