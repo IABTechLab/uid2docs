@@ -213,7 +213,7 @@ const fullSidebar = [
         type: 'doc',
         id: 'sdks/summary-sdks',
       },
-      collapsed: true,
+      collapsed: false,
       items: [
         'sdks/client-side-identity',
         'sdks/uid2-sdk-ref-java',
@@ -249,7 +249,7 @@ const fullSidebar = [
         type: 'doc',
         id: 'sharing/sharing-overview',
       },
-      collapsed: true,
+      collapsed: false,
       items: [
         'sharing/sharing-use-cases',
         'sharing/sharing-implementing',
