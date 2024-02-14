@@ -18,7 +18,7 @@ The term "UID2" can refer to either the framework or an actual [UID2 identifier]
 
 UID2 is structured to enable deterministic identity for advertising opportunities on the open internet, centered on full consumer transparency and controls. UID2s are built on hashed [DII](ref-info/glossary-uid.md#gl-dii) which is physically changed so that it cannot be reverse engineered back to a phone number or email.
 
-This layer of deterministic identity means that an instance of online activity can be tied to a specific pseudo-anonymous synthetic identifier that can then be matched to behaviors across a user's browsing behavior in a privacy-compliant way.
+This layer of deterministic identity means that an instance of online activity can be tied to a specific pseudo-anonymous synthetic identifier. This enables matching a user's behavior across media consumption habits in a privacy-compliant way.
 
 Here's an example of what a [raw UID2](ref-info/glossary-uid.md#gl-raw-uid2) looks like after starting life as an email:
 
