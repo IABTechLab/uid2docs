@@ -105,7 +105,7 @@ A successful decrypted response returns the user's advertising and refresh token
 
 #### Optout
 
-Here is an example response when the the user has opted out.
+Here is an example response when the user has opted out.
 
 ```json
 {
