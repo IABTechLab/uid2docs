@@ -29,7 +29,7 @@ Prebid.js を UID2 ID モジュールと一緒に使用しているや、UID2 �
   - [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
   - [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md). 
 - アプリケーションのサンプルと関連文書については、以下を参照してください:
-  - SDK v3を使用したUID2 Google ESPのサンプル:
+  - SDK v3を使用したUID2 Google Secure Signals のサンプル:
     - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3) and running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/).
   - The example of JavaScript client-side integration: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg) and running site ([Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)).
 
