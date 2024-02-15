@@ -256,7 +256,7 @@ Typically GET requests, but different DSPs may use different types.
 
 #### How strict are the requirements for honoring opt-outs? 
 
-Opt-outs must be always respected. It may take some time for an opt-out request to propagate through the system during which time it is expected that some bids may not honor the opt-out.
+Opt-outs must always be respected. It may take some time for an opt-out request to propagate through the system during which time it is expected that some bids may not honor the opt-out.
 
 #### How do SDK errors impact the DSP's ability to respond to a bid?
 

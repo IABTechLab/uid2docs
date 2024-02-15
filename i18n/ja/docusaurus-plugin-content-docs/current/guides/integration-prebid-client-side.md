@@ -129,7 +129,7 @@ pbjs.setConfig({
     userIds: [{ 
       name: 'uid2', 
       params: { 
-        //default value is 'localStorage' 
+        // default value is 'localStorage' 
         storage: 'cookie'   
       } 
     }] 
