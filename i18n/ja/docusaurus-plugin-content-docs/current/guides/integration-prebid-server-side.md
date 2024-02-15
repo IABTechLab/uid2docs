@@ -274,9 +274,8 @@ pbjs.setConfig({
     userIds: [{ 
       name: 'uid2', 
       params: { 
-
-                 //default value is ‘localStorage’ 
-        storage: ‘cookie’  
+        //default value is 'localStorage' 
+        storage: 'cookie'    
       } 
     }] 
   } 
@@ -345,7 +344,7 @@ Prebid.js の設定を検証・デバッグするツールの例として、オ�
 | params.uid2Token | CR: Optional<br/>SO: N/A | Object | 最初の UID2 Token。これは `/token/generate` または `/token/refresh` エンドポイントをコールした際に復号されたレスポンスの `body` 要素でなければなりません。 | [Sample Token](#sample-token) を参照してください。 |
 | params.uid2Cookie | CR: オプション<br/>SO: N/A  | String | サーバが設定した UID2 Token を保持するクッキーの名前。クッキーは uid2Token パラメータと同じ形式の JSON を含む必要があります。`uid2Token` を指定した場合、このパラメータは無視されます。 | [Sample Token](#sample-token) を参照してください。 |
 | params.uid2ApiBase | CR: オプション<br/>SO: オプション | String | デフォルトの UID2 API エンドポイントを上書きします。有効な値については、[Environments](../getting-started/gs-environments.md) を参照してください。 | `"https://prod.uidapi.com"` (デフォルト)|
-| params.storage | CR: オプション<br/>SO: オプション | String | モジュール内部の保存方法を指定します: `cookie` または `localStorage`。このパラメータは指定しないことを推奨します。代わりに、モジュールがデフォルトを使用するようにします。 | `localStorage` (デフォルト) |
+| params.storage | CR: オプション<br/>SO: オプション | String | モジュール内部の保存方法を指定します: `cookie` または `localStorage`。このパラメータは指定しないことを推奨します。代わりに、モジュールがデフォルトを使用するようにします。 | `"localStorage"` (デフォルト) |
 
 ### Configuration Parameter Examples: Value
 
