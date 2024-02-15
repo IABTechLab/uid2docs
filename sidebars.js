@@ -1,9 +1,11 @@
 function removeItems(sidebar, ...remove) {
   const result = [];
   for (let item of sidebar) {
-    if (typeof item === 'string') 
+    if (typeof item === 'string')
     {
-      if (!remove.includes(item)) result.push(item);
+      if (!remove.includes(item)) result.push({
+        type: 'ref', id: item
+      });
     }
     else {
       if (!remove.includes(item.label)) {
