@@ -30,7 +30,7 @@ Related information:
   - [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md). 
 - For example applications with associated documentation, see:
   - The UID2 Google ESP with SDK v3 example:
-    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3) and running site: [Client-Side UID2 SDK Integration Example](https://esp-jssdk-integ.uidapi.com/).
+    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3) and running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/).
   - The example of JavaScript client-side integration: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg) and running site ([Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)).
 
 ## Functionality

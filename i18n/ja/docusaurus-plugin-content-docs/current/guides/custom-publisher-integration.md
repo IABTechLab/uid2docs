@@ -110,7 +110,7 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 
 Server-only のインテグレーションの場合は、サンプルアプリケーションをがあります。参照してください:
 
-- [Server-Only UID2 Integration Example (sample application)](https://esp-srvonly-integ.uidapi.com/)
+- [Server-Only UID2 Integration Example (sample application)](https://secure-signals-srvonly-integ.uidapi.com/)
 - [Server-Only UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
 
 ## FAQs

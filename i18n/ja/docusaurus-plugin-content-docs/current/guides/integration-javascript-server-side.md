@@ -31,7 +31,7 @@ SDK の技術的な詳細については、[UID2 SDK for JavaScript Reference Gu
 
 アプリケーションの例については、SDK v3 を使用した UID2 Google ESP の例を参照してください:
 - コードとドキュメント: [UID2 SDK Secure Signals Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
-- ランニングサイト: [Client-Side UID2 SDK Integration Example](https://esp-jssdk-integ.uidapi.com/)
+- ランニングサイト: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
 
 ## Introduction
 
