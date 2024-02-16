@@ -10,6 +10,12 @@ import TabItem from '@theme/TabItem';
 
 # Refreshing the UID2 Token
 
+
+
+THIS IS A DRAFT STUB ARTICLE STARTED 2/16/24 FOR apidocs-1964. uptohere in review of meeting with Sunny 2/14.
+
+
+
 This article offers a couple of code examples for UID2 token refresh in different languages.
 
 There are many ways you could refresh the UID2 token. If you are using an SDK, the SDK takes care of token refresh for you.
