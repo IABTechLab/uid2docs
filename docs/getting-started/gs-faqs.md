@@ -38,7 +38,7 @@ Yes. Through the [Transparency and Control Portal](https://www.transparentadvert
 
 No, UID2 does not store any DII. In addition, in almost all cases, UID2 doesn't store any values at all once the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md), [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md), or [POST /identity/map](../endpoints/post-identity-map.md) call is complete.
 
-A necessary exception is the case where a user has opted out. In this scenario, UID2 stores a hashed, opaque value to indicate the opted-out user. The stored value cannot be reverse engineered to recognize the DII, but can be used to identify future requests for a UID2 generated from the same DII, which are therefore denied.
+A necessary exception is the case where a user has opted out. In this scenario, UID2 stores a hashed, opaque value to indicate the opted-out user. The stored value cannot be reverse engineered back to the original value of the DII, but can be used to identify future requests for a UID2 generated from the same DII, which are therefore denied.
 
 #### How does a user know where to access the opt-out portal?
 
@@ -195,10 +195,12 @@ When a user opts out of UID2-based targeted advertising through the [Transparenc
 If a user opts out through your website, you should follow your internal procedures for handling the opt-out. For example, you might choose not to generate a UID2 for that user.
 
 #### Does the same DII always result in the same raw UID2?
-xxx
+
 In general yes, the process of generating a raw UID2 from DII is the same, and results in the same value, no matter who sent the request. If two UID2 participants were to send the same email address to the [POST /identity/map](../endpoints/post-identity-map.md) endpoint at the same time, they would both get the same raw UID2 in response.
 
 However, there is a variable factor, which is the [salt](../ref-info/glossary-uid.md#gl-salt) value that's used in generating the raw UID2. The salt values are rotated periodically. If the salt value changes between one request and another, those two requests result in two different raw UID2, even when the DII is the same.
+
+For more information, see [Monitor for salt bucket rotations related to your stored raw UID2s](../guides/advertiser-dataprovider-guide.md#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s) in the *Advertiser/Data Provider Integration Guide*.
 
 ## FAQs for DSPs
 
