@@ -42,11 +42,11 @@ If you send unhashed email addresses to the UID2 Operator Service, the service n
 To normalize an email address, complete the following steps:
 
 1. Remove leading and trailing spaces.
-2. Convert all ASCII characters to lowercase.
-3. If there is a period (`.`) in the email address (ASCII code 46), remove it.<br/>For example, normalize `jane.doe@example.com` to `janedoe@example.com`.
+2. If there are uppercase characters, convert them to lowercase.
+3. If there is a period (`.`) in the email address (ASCII decimal code 46/UTF-8 hexadecimal code 2E), remove it.<br/>For example, normalize `jane.doe@example.com` to `janedoe@example.com`.
 
 3. (Conditional) In `gmail.com` addresses only, you might see a plus sign (`+`) with an additional string after it, before the `@gmail.com`. In this scenario, you'll need to remove this extra part of the email address. This applies **only** to gmail addresses. Remove the following:
-    1. The plus sign (`+`) (ASCII code 43).
+    1. The plus sign (`+`) (ASCII decimal code 43/UTF-8 hexadecimal code 2B).
     2. All subsequent characters.
     
        For example, normalize `janedoe+home@gmail.com` to `janedoe@gmail.com`.
