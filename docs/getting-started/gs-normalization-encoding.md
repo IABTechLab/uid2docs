@@ -43,11 +43,12 @@ To normalize an email address, complete the following steps:
 
 1. Remove leading and trailing spaces.
 2. If there are uppercase characters, convert them to lowercase.
-3. (Conditional) In `gmail.com` addresses only, if there is a period (`.`) in the address (ASCII decimal code 46/UTF-8 hexadecimal code 2E), remove it.<br/>For example, normalize `jane.doe@gmail.com` to `janedoe@gmail.com`.
+3. In `gmail.com` addresses only:
+   1. If there is a period (`.`) in the address (ASCII decimal code 46/UTF-8 hexadecimal code 2E), remove it.
+   
+      For example, normalize `jane.doe@gmail.com` to `janedoe@gmail.com`.
 
-3. (Conditional) In `gmail.com` addresses only, you might see a plus sign (`+`) with an additional string after it, before the `@gmail.com`. In this scenario, you'll need to remove this extra part of the email address. This applies **only** to gmail addresses. Remove the following:
-    1. The plus sign (`+`) (ASCII decimal code 43/UTF-8 hexadecimal code 2B).
-    2. All subsequent characters.
+   2. If there is a plus sign (`+`) with an additional string after it, before the `@gmail.com`, remove the plus sign (`+`) (ASCII decimal code 43/UTF-8 hexadecimal code 2B) and all subsequent characters.
     
        For example, normalize `janedoe+home@gmail.com` to `janedoe@gmail.com`.
 
