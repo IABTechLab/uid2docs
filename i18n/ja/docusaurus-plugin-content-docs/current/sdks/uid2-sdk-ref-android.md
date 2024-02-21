@@ -97,7 +97,7 @@ Gradle を使用してインストールするには、build.gradle ファイル
 
 
 ``` javascript
-implementation 'com.uid2.uid2-android-sdk:0.5.0'
+implementation 'com.uid2:uid2-android-sdk:0.5.0'
 ```
 
 ### Installing with Maven 
