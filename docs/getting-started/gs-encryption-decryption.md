@@ -119,7 +119,7 @@ For example, a decrypted response to the [POST&nbsp;/token/generate](../endpoint
 
 ## Encryption and Decryption Code Examples
 
-This section includes an encryption and decryption code example in different programming languages.
+This section includes encryption and decryption code examples in different programming languages.
 
 For the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint, the code takes the values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md).
 

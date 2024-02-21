@@ -25,7 +25,7 @@ When you're taking user information such as an email address, and following the 
 
 :::important
 - Raw UID2s, and their associated UID2 tokens, are case sensitive. When working with UID2, it's important to pass all IDs and tokens without changing the case. Mismatched IDs can cause ID parsing or token decryption errors.
-- If you miss any of the required steps&#8212;for example, you hash without first normalizing&#8212;the result will not be the valid UID2 value.<br/>For example, let's say a data provider wants to generate a UID2 from `Jane.Saoirse@gmail.com`. This normalizes to `janesaoirse@gmail.com`, and the hashed and Base64-encoded value is `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=`.<br/>The publisher, with the same email address, does not normalize. The hashed and Base64-encoded value for the un-normalized email, `Jane.Saoirse@gmail.com`, is `f8upG1hJazYKK8aEtAMq3j7loeAf5aA4lSq6qYOBR/w=`. These two different values result in two different UID2s. The first, processed correctly, will match other instances generated from the same original data. The second, incorrectly processed, will not.<br/>In this scenario, because the UID2 does not match other instances for the same user, the publisher misses the opportunity to benefit from targeted advertising.
+- If you miss any of the required steps&#8212;for example, you hash without first normalizing&#8212;the result will not be the correct valid UID2 value for the input data.<br/>For example, let's say a data provider wants to generate a UID2 from `Jane.Saoirse@gmail.com`. This normalizes to `janesaoirse@gmail.com`, and the hashed and Base64-encoded value is `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=`.<br/>The publisher, with the same email address, does not normalize. The hashed and Base64-encoded value for the un-normalized email, `Jane.Saoirse@gmail.com`, is `f8upG1hJazYKK8aEtAMq3j7loeAf5aA4lSq6qYOBR/w=`. These two different values result in two different UID2s. The first, processed correctly, will match other instances generated from the same original data. The second, incorrectly processed, will not.<br/>In this scenario, because the UID2 does not match other instances for the same user, the publisher misses the opportunity to benefit from targeted advertising.
 :::
 
 ## Types of Directly Identifying Information
@@ -96,7 +96,7 @@ Make sure that the normalized phone number is UTF-8, not another encoding system
 
 A phone number hash is a Base64-encoded SHA-256 hash of a normalized phone number. The phone number is first normalized, then hashed using the SHA-256 hashing algorithm, and then the resulting bytes of the hash value are encoded using Base64 encoding. Note that the Base64 encoding is applied to the bytes of the hash value, not the hex-encoded string representation. 
 
-The example below shows a simple input phone number, and the result as each step is applied to arrive at a secure, opaque, URL-safe value.
+The following table shows an example of a simple input phone number, and the result as each step is applied to arrive at a secure, opaque, URL-safe value.
 
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |

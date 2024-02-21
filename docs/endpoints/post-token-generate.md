@@ -18,7 +18,7 @@ Used by: This endpoint is used mainly by publishers.
 
 Here's what you need to know about this endpoint requests:
 - To ensure that the API key used to access the service remains secret, UID2 tokens must be generated only on the server side after authentication. 
-- You must encrypt all requests using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+- You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
 ### Path Parameters
 
@@ -74,7 +74,7 @@ Here's an encrypted token generation request example for an email hash:
 ```sh
 echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","optout_check":1}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate [Your-Client-API-Key] [Your-Client-Secret] 
 ```
-For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
 ## Decrypted JSON Response Format 
 
