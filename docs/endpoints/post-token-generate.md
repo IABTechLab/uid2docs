@@ -12,6 +12,8 @@ Used by: This endpoint is used mainly by publishers.
 
 >IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s DII to UID2 tokens for targeted advertising. The `optout_check` parameter, required with a value of `1`, checks whether the user has opted out.
 
+>NOTE: Rather than calling this endpoint directly, you could use one of the UID2 SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).
+
 ## Request Format 
 
 `POST '{environment}/v2/token/generate'`

@@ -154,4 +154,4 @@ To obtain your secret key, [contact the UID2 administrator](../../README.md#cont
 
 ### How do I encrypt requests and decrypt responses?
 
-The [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) page explains the workflow and provides examples in Python.
+The [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) page explains the workflow and provides examples in different programming languages.
