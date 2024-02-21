@@ -97,7 +97,7 @@ To install with Gradle, add the SDK as a dependency in the build.gradle
 file:
 
 ``` javascript
-implementation 'com.uid2.uid2-android-sdk:0.5.0'
+implementation 'com.uid2:uid2-android-sdk:0.5.0'
 ```
 
 ### Installing with Maven 
