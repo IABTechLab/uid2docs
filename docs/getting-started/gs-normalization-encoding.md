@@ -43,7 +43,7 @@ To normalize an email address, complete the following steps:
 
 1. Remove leading and trailing spaces.
 2. If there are uppercase characters, convert them to lowercase.
-3. If there is a period (`.`) in the email address (ASCII decimal code 46/UTF-8 hexadecimal code 2E), remove it.<br/>For example, normalize `jane.doe@example.com` to `janedoe@example.com`.
+3. (Conditional) In `gmail.com` addresses only, if there is a period (`.`) in the address (ASCII decimal code 46/UTF-8 hexadecimal code 2E), remove it.<br/>For example, normalize `jane.doe@gmail.com` to `janedoe@gmail.com`.
 
 3. (Conditional) In `gmail.com` addresses only, you might see a plus sign (`+`) with an additional string after it, before the `@gmail.com`. In this scenario, you'll need to remove this extra part of the email address. This applies **only** to gmail addresses. Remove the following:
     1. The plus sign (`+`) (ASCII decimal code 43/UTF-8 hexadecimal code 2B).
@@ -114,8 +114,10 @@ Some of the examples show email addresses that include the plus sign (+), with d
 
 | Original Value | Normalized | Hashed and Base64-Encoded |
 | :--- | :--- | :--- |
-| `MyEmail@example.com`<br/>`MYEMAIL@example.com`<br/>`My.Email@example.com` | `myemail@example.com` | Hashed: `16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`<br/>Base64-Encoded: `FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=` |
-| `JANESAOIRSE@example.com`<br/>`JaneSaoirse@example.com`<br/>`Jane.Saoirse@example.com` | `janesaoirse@example.com` | Hashed: `d6670e7a92007f1b5ff785f1fc81e53aa6d3d7bd06bdf5c473cdc7286c284b6d`<br/>Base64-Encoded: `1mcOepIAfxtf94Xx/IHlOqbT170GvfXEc83HKGwoS20=` |
+| `MyEmail@example.com`<br/>`MYEMAIL@example.com` | `myemail@example.com` | Hashed: `16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`<br/>Base64-Encoded: `FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=` |
+| `My.Email@example.com` | `my.email@example.com` | Hashed: `e22b53bc6f871274f3a62ab37a3caed7214fc14d676215a96a242fcfada1c81f`<br/>Base64-Encoded: `4itTvG+HEnTzpiqzejyu1yFPwU1nYhWpaiQvz62hyB8=` |
+| `JANESAOIRSE@example.com`<br/>`JaneSaoirse@example.com` | `janesaoirse@example.com` | Hashed: `d6670e7a92007f1b5ff785f1fc81e53aa6d3d7bd06bdf5c473cdc7286c284b6d`<br/>Base64-Encoded: `1mcOepIAfxtf94Xx/IHlOqbT170GvfXEc83HKGwoS20=` |
+| `Jane.Saoirse@example.com` | `jane.saoirse@example.com` | Hashed: `	b196432c7b989a2ca91c83799957c515da53e6c13abf20b78fea94f117e90bf8`<br/>Base64-Encoded: `sZZDLHuYmiypHIN5mVfFFdpT5sE6vyC3j+qU8RfpC/g=` |
 | `JaneSaoirse+UID2@example.com` | `janesaoirse+uid2@example.com` | Hashed: `6e143668c206593d5ecb8a7b2726af74d948438a5ed75febadcbf4bb58ebc427`<br/>Base64-Encoded: `bhQ2aMIGWT1ey4p7JyavdNlIQ4pe11/rrcv0u1jrxCc=` |
 | `JANE.SAOIRSE@gmail.com`<br/>`Jane.Saoirse@gmail.com`<br/>`JaneSaoirse+UID2@gmail.com` | `janesaoirse@gmail.com` | Hashed: `92ee26057ed9dea2535d6c8b141d48373932476599196e00352254896db5888f`<br/>Base64-Encoded: `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=` |
 
