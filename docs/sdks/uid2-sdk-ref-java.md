@@ -292,14 +292,12 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
    final private IdentityMapClient identityMapClient = new IdentityMapClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
    ```
 
-
-2. Call a function that takes users' email addresses or phone numbers as input and generates an IdentityMapResponse object. The following example uses email addresses:
+2. Call a function that takes email addresses or phone numbers as input and generates an IdentityMapResponse object. The following example uses email addresses:
    ```java
    IdentityMapResponse identityMapResponse = identityMapClient.generateIdentityMap(IdentityMapInput.fromEmails(Arrays.asList("email1@example.com", "email2@example.com")));
    ```
 
-
->Note: Inputs will be hashed by the SDK before being sent. This ensures that raw email addresses and phone numbers do not leave your server.
+>Note: The SDK hashes input values before sending them. This ensures that raw email addresses and phone numbers do not leave your server.
 
 3. Retrieve the mapped and unmapped results as follows:
    ```java
