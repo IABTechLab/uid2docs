@@ -63,7 +63,7 @@ The binary is published on the Maven repository:
 
 - [https://central.sonatype.com/artifact/com.uid2/uid2-client](https://central.sonatype.com/artifact/com.uid2/uid2-client)
 
-## Initialization
+## Usage for DSPs
 
 The initialization function configures the parameters necessary for the SDK to authenticate with the UID2 service. It also allows you to configure retry intervals in the event of errors.
 
@@ -72,7 +72,7 @@ The initialization function configures the parameters necessary for the SDK to a
 | `endpoint` | The endpoint for the UID2 service. | N/A |
 | `authKey` | The authentication token that belongs to the client. For access to UID2, see [Contact Info](../getting-started/gs-account-setup.md#contact-info). | N/A |
 
-## Interface 
+### Interface 
 
 The interface allows you to decrypt UID2 advertising tokens and return the corresponding raw UID2. 
 
