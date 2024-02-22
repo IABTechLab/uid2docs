@@ -14,7 +14,7 @@ This page provides general information required for you to get your account set 
 * [Contact Info](#contact-info)
 * [Account Setup](#account-setup-details)
 * [Credentials](#credentials)
-* [API Versions](#api-versions)
+* [API Version](#api-version)
  -->
 ## Contact Info
 
@@ -53,6 +53,6 @@ Only root-level domains are required for account setup. For example, if you're g
 
 When you've signed a contract for participating in UID2, you'll be issued with [UID2 credentials](gs-credentials.md) and other information for getting up and running with UID2.
 
-## API Versions
+## API Version
 
 The current version of the UID2 API is UID2 API v2.
