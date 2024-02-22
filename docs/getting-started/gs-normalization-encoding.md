@@ -25,7 +25,7 @@ When you're taking user information such as an email address, and following the 
 
 :::important
 - Raw UID2s, and their associated UID2 tokens, are case sensitive. When working with UID2, it's important to pass all IDs and tokens without changing the case. Mismatched IDs can cause ID parsing or token decryption errors.
-- If you miss any of the required steps&#8212;for example, you hash without first normalizing&#8212;the result will not be the correct valid UID2 value for the input data.<br/>For example, let's say a data provider wants to generate a UID2 from `Jane.Saoirse@gmail.com`. This normalizes to `janesaoirse@gmail.com`, and the hashed and Base64-encoded value is `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=`.<br/>The publisher, with the same email address, by mistake does not normalize. The hashed and Base64-encoded value for the un-normalized email, `Jane.Saoirse@gmail.com`, is `f8upG1hJazYKK8aEtAMq3j7loeAf5aA4lSq6qYOBR/w=`. These two different values result in two different UID2s. The first, processed correctly, will match other instances generated from the same original data. The second, incorrectly processed, will not.<br/>In this scenario, because the UID2 does not match other instances for the same user, the publisher misses the opportunity to benefit from targeted advertising.
+- If you miss any of the required steps&#8212;for example, you hash without first normalizing&#8212;the result will not be the correct valid UID2 value for the input data.<br/>For example, let's say a data provider wants to generate a UID2 from `JANESaoirse@gmail.com`. This normalizes to `janesaoirse@gmail.com`, and the hashed and Base64-encoded value is `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=`.<br/>The publisher, with the same email address, by mistake does not normalize. The hashed and Base64-encoded value for the un-normalized email, `JANESaoirse@gmail.com`, is `VpLXEp5N1bj/V1WzjgZsC+FfuYdntAOywSVIO00FD/E=`. These two different values result in two different UID2s. The first, processed correctly, matches other instances generated from the same original data. The second, incorrectly processed, does not.<br/>In this scenario, because the UID2 does not match other instances for the same user, the publisher misses the opportunity to benefit from targeted advertising.
 :::
 
 ## Types of Directly Identifying Information
@@ -116,8 +116,8 @@ Some of the examples show email addresses that include the plus sign (+), with d
 | :--- | :--- | :--- |
 | `MyEmail@example.com`<br/>`MYEMAIL@example.com`<br/>`My.Email@example.com` | `myemail@example.com` | Hashed: `16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`<br/>Base64-Encoded: `FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=` |
 | `JANESAOIRSE@example.com`<br/>`JaneSaoirse@example.com`<br/>`Jane.Saoirse@example.com` | `janesaoirse@example.com` | Hashed: `d6670e7a92007f1b5ff785f1fc81e53aa6d3d7bd06bdf5c473cdc7286c284b6d`<br/>Base64-Encoded: `1mcOepIAfxtf94Xx/IHlOqbT170GvfXEc83HKGwoS20=` |
-| `JaneSaoirse+UID2@example.com` | `janesaoirse+uid2@example.com` | Hashed: `6e143668c206593d5ecb8a7b2726af74d948438a5ed75febadcbf4bb58ebc427`<br/>Base64-Encoded: `bhQ2aMIGWT1ey4p7JyavdNlIQ4pe11/rrcv0u1jrxCc=` |
-| `JANE.SAOIRSE@gmail.com`<br/>`Jane.Saoirse@gmail.com`<br/>`JaneSaoirse+UID2@gmail.com` | `janesaoirse@gmail.com` | Hashed: `92ee26057ed9dea2535d6c8b141d48373932476599196e00352254896db5888f`<br/>Base64-Encoded: `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=` |
+| `JaneSaoirse+Work@example.com` | `janesaoirse+work@example.com` | Hashed: `28aaee4815230cd3b4ebd88c515226550666e91ac019929e3adac3f66c288180`<br/>Base64-Encoded: `KKruSBUjDNO069iMUVImVQZm6RrAGZKeOtrD9mwogYA=` |
+| `JANE.SAOIRSE@gmail.com`<br/>`Jane.Saoirse@gmail.com`<br/>`JaneSaoirse+Work@gmail.com` | `janesaoirse@gmail.com` | Hashed: `92ee26057ed9dea2535d6c8b141d48373932476599196e00352254896db5888f`<br/>Base64-Encoded: `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=` |
 
 ## Example Code
 
