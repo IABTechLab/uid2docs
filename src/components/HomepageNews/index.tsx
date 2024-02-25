@@ -82,6 +82,31 @@ const ArticleList: ArticleItem[] = [
     url: "https://aws.amazon.com/blogs/industries/aws-entity-resolution-expands-data-matching-capabilities-with-liveramp-transunion-and-unified-id-2-0-integrations/",
     date: "October 16, 2023",
   },
+  {
+    title: "HP",
+    url: "https://www.adexchanger.com/ctv-roundup/hp-taps-uid2-for-better-ctv-targeting/",
+    date: "November 3, 2023",
+  },
+  {
+    title: "Lotame",
+    url: "https://www.lotame.com/lotame-elevates-data-interoperability-with-unified-id-2-0-adoption/",
+    date: "January 18, 2024",
+  },
+  {
+    title: "lockr",
+    url: "https://www.prnewswire.com/news-releases/lockr-launches-alternative-identity-manager-aim-for-publishers-to-free-up-engineering-resources-and-meet-advertisers-demand-in-a-cookieless-environment-302043972.html",
+    date: "January 25, 2024",
+  },
+  {
+    title: "Dish Media",
+    url: "https://www.prnewswire.com/news-releases/dish-media-adopts-unified-id-2-0--enhancing-first-party-data-audiences-for-advertisers-across-dish-tv-and-sling-tv-302047385.html",
+    date: "January 30, 2024",
+  },
+  {
+    title: "Times Internet",
+    url: "https://brandequity.economictimes.indiatimes.com/news/industry/times-internet-adopts-unified-id-2-0-spearheading-the-future-of-identity-solutions/107365806",
+    date: "February 5, 2024",
+  },
 ];
 
 function ArticleCard({ title, url, date }: ArticleItem) {
