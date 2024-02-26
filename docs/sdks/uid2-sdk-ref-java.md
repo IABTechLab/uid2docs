@@ -301,8 +301,8 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
 
 3. Retrieve the mapped and unmapped results as follows:
    ```java
-   Map<String, IdentityMapResponse.MappedIdentity> mappedIdentities = identityMapResponse.getMappedIdentities();
-   Map<String, IdentityMapResponse.UnmappedIdentity> unmappedIdentities = identityMapResponse.getUnmappedIdentities();`
+   Map<String, MappedIdentity> mappedIdentities = identityMapResponse.getMappedIdentities();
+   Map<String, UnmappedIdentity> unmappedIdentities = identityMapResponse.getUnmappedIdentities();`
    ```
 
 4. Iterate through the mapped and unmapped results, or do a lookup. The following example does a lookup:
