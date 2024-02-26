@@ -149,7 +149,7 @@ pip install requests
 The following code example encrypts requests and decrypts responses using Java. The required parameters are shown at the top of the main function, or by building and running the following:
 
 ```
-java -jar ./target/Uid2Request-jar-with-dependencies.jar
+java -jar Uid2Request-jar-with-dependencies.jar
 ```
 
 The Java example is written for JDK version 11 and later, and you must have the com.google.code.gson library in your classpath.
