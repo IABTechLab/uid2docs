@@ -149,7 +149,7 @@ pip install requests
 The following code example encrypts requests and decrypts responses using Java. The required parameters are shown at the top of the main function, or by building and running the following:
 
 ```
-java -jar Uid2Request-jar-with-dependencies.jar
+java -jar ./target/Uid2Request-jar-with-dependencies.jar
 ```
 
 The Java example is written for JDK version 11 and later, and you must have the com.google.code.gson library in your classpath.
@@ -359,7 +359,7 @@ public class Uid2Request {
       +       "Refresh Token Usage:" + "\n\t"
       +             "java -jar Uid2Request-jar-with-dependencies.jar <url> --refresh-token <refresh_token> <refresh_response_key>"  + "\n\n"
                       
-      +       "Refresh Token Example:" + "\n" 
+      +       "Refresh Token Example:" + "\n\t" 
       +             "java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s="  + "\n"
       );
       System.exit(1);
