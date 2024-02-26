@@ -136,6 +136,10 @@ Before using the code example, check the prerequisites and notes for the languag
 
 The following code example encrypts requests and decrypts responses using Python. The required parameters are shown at the top of the code example, or by running `python3 uid2_request.py`.
 
+:::note
+For Windows, replace `python3` with `python`. If you're using Windows command prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON (for example, use `echo {"email": "test@example.com"}` ).
+:::
+
 The Python code requires the `pycryptodomex` and `requests` packages. You can install these as follows:
 
 ```console
