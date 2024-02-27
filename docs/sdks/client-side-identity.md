@@ -178,11 +178,11 @@ The following example callback handles the `SdkLoaded` event to call init and th
 <TabItem value='ts' label='TypeScript'>
 
 ```tsx
-  import { EventType, Uid2CallbackPayload } from "./uid2CallbackManager";
+  import { EventType, CallbackPayload } from "./callbackManager";
 
   window.__uid2 = window.__uid2 || {};
   window.__uid2.callbacks = window.__uid2.callbacks || [];
-  window.__uid2.callbacks.push((eventType: EventType, payload: Uid2CallbackPayload) => {
+  window.__uid2.callbacks.push((eventType: EventType, payload: CallbackPayload) => {
     if (eventType === 'SdkLoaded') {
       __uid2.init({});
     }
@@ -203,12 +203,12 @@ The following example callback handles the `SdkLoaded` event to call init and th
 | Event | Payload | Details |
 | :--- | :--- | :--- |
 | `SdkLoaded` | `{}` | Called when the SDK script has loaded and the global `__uid2` has been constructed. When you receive this event, it is safe to call `__uid2.init`. Callbacks always receive this event once. If the SDK has already been loaded when the callback is registered, it receives the event immediately. |
-| `InitCompleted` | `{ identity: Uid2Identity  \| null }` | Called once `init()` has finished. Callbacks always receive this event once, as long as a successful call to `init` has been made. If `init` has already been completed when the callback is registered, it receives this immediately after it receives the `SdkLoaded` event. |
-| `IdentityUpdated` | `{ identity: Uid2Identity \| null }` | Called whenever the current identity changes. If the identity doesn't change after the callback is registered, callbacks do not receive this event. |
+| `InitCompleted` | `{ identity: Identity  \| null }` | Called once `init()` has finished. Callbacks always receive this event once, as long as a successful call to `init` has been made. If `init` has already been completed when the callback is registered, it receives this immediately after it receives the `SdkLoaded` event. |
+| `IdentityUpdated` | `{ identity: Identity \| null }` | Called whenever the current identity changes. If the identity doesn't change after the callback is registered, callbacks do not receive this event. |
 
 </div>
 
-The `Uid2Identity` type is the same type as the identity you can provide when calling `init()`.
+The `Identity` type is the same type as the identity you can provide when calling `init()`.
 
 #### Array Push Pattern
 
@@ -243,7 +243,7 @@ You can provide a new identity when you call [`init`](#initopts-object-void).
 
 #### Provide an Identity by Calling `setIdentity`
 
-At any time after `init` has completed, you can call [`setIdentity`](#setidentityidentity-uid2identity-void) to provide the SDK with a new identity to use.
+At any time after `init` has completed, you can call [`setIdentity`](#setidentityidentity-identity-void) to provide the SDK with a new identity to use.
 
 ## API Reference
 
@@ -259,8 +259,8 @@ All interactions with the UID2 SDK for JavaScript are done through the global `_
 - [disconnect()](#disconnect-void)
 - [abort()](#abort-void)
 - [callbacks](#callbacks) <New />
-- [setIdentity()](#setidentityidentity-uid2identity-void) <New />
-- [getIdentity()](#getidentity-uid2identity--null) <New />
+- [setIdentity()](#setidentityidentity-identity-void) <New />
+- [getIdentity()](#getidentity-identity--null) <New />
 
 ### constructor()
 
@@ -447,7 +447,7 @@ This function is intended for use in advanced scenarios where you might want to 
 
 This is an array that stores all of the registered callbacks. You should only interact with it using the [Array Push Pattern](#array-push-pattern).
 
-### setIdentity(identity: Uid2Identity): void
+### setIdentity(identity: Identity): void
 
 Use this function to provide a new identity to the UID2 SDK. Any existing refresh attempts are cancelled, and the new identity is used for all future operations. A new refresh timer is started. Once the identity has been validated, all registered event handlers are called with an `IdentityUpdated` event containing the new identity.
 
@@ -457,7 +457,7 @@ Use this function to provide a new identity to the UID2 SDK. Any existing refres
 `setIdentity()` is useful if your page is a single-page app that might not have the identity available when it first loads. This allows you to call `init` (and load any stored identity) on page load, and then provide an identity later if there was no stored identity.
 :::
 
-### getIdentity(): Uid2Identity | null
+### getIdentity(): Identity | null
 
 Returns the current stored identity, if available.
 
