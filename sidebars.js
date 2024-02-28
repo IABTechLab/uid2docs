@@ -248,11 +248,11 @@ const fullSidebar = [
       type: 'category',
       label: 'UID2 Sharing',
       link: {
-        type: 'doc',
-        id: 'sharing/sharing-overview',
+        type: 'generated-index',
       },
-      collapsed: false,
+      collapsed: true,
       items: [
+        'sharing/sharing-overview',
         'sharing/sharing-use-cases',
         'sharing/sharing-implementing',
         'sharing/sharing-best-practices',

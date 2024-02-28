@@ -15,7 +15,7 @@ Used by: This endpoint is used mainly by advertisers and data providers. For det
 
 `POST '{environment}/v2/identity/buckets'`
 
->IMPORTANT: You must encrypt all request using your secret. For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+>IMPORTANT: You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
 ### Path Parameters
 
@@ -48,7 +48,7 @@ Here's an encrypted identity bucket rotation request example:
 echo '{"since_timestamp": "2023-04-19T13:00:00"}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/buckets [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
-For details and Python script examples, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
 ## Decrypted JSON Response Format
 
