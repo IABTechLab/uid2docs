@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>UID2 Hashing Tool</title>
+    <link rel="stylesheet" type="text/css" href="./app.css" />
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <!-- <script src="https://cdn.integ.uidapi.com/uid2-sdk-3.2.0.js"></script> -->
+    <script src="./uid2-sdk-3.3.0.js"></script>
+    <!-- <script type="module">
+      //import * as exportsTest from './uid2-sdk-3.3.0.js';
+      //console.log(exportsTest);
+      //import { hashAndEncodeIdentifier } from '@uid2/uid2-sdk';
+       //import { hashAndEncodeIdentifier } from './uid2-sdk-3.3.0.js'
+      
+    </script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <script>
+    console.log('Initializing example.');
+    
+
+    const inputs = document.querySelectorAll('.radiogroup');
+
+    async function updateGuiElements(email) {
+      console.log('Updating displayed values.');
+      const normalizedEmail = window.__uid2Helper.normalizeEmail(email);
+      $('#normalization').text(normalizedEmail ? normalizedEmail : " ");
+      let hashedValue = undefined;
+      if (normalizedEmail) {
+        hashedValue = await window.__uid2Helper.hashIdentifier(normalizedEmail);
+        $('#hashed').text(hashedValue ? hashedValue : " ");
+        const encodedValue = await window.__uid2Helper.hashAndEncodeIdentifier(normalizedEmail);
+        $('#base64_encoded').text(encodedValue ? encodedValue : ' ');
+      }
+      
+      $('#email_form').show();
+      $('#clear_storage_form').hide();
+    }
+
+    function clearElements() {
+      
+    }
+
+    function onDocumentReady() {
+        console.log('Setting up interface handlers.');
+        $('#enter').click(handleEnter);
+        updateGuiElements('');
+    }
+
+    async function handleEnter() {
+        const email = $('#email').val();
+        updateGuiElements(email);
+    }
+
+    $(document).ready(onDocumentReady);
+
+  </script>
+  <body>
+    <h1>UID2 Hashing Tool Example</h1>
+    <p class="intro">
+     * Add description here * 
+    </p>
+    <input type="radio" id="toggle_email" name="toggle_input_type" value="toggle_email">
+    <label for="html">Email</label>
+    <input type="radio" id="toggle_phonenumber" name="toggle_input_type" value="toggle_phonenumber">
+    <label for="css">Phone Number</label><br>
+    <div id="email_form" class="form">
+      <div class="email_prompt">
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="Enter an email address"
+          style="border-style: none"
+        />
+    </div>
+    <div><button type="button" class="button" id="enter">Enter</button></div>
+    <br>
+    <br>
+    <br>
+    <div>
+      <h3 class="label">Normalized Value:</h3>
+      <h4 class="value"><pre id="normalization"></pre></h4>
+    
+      <h3 class="label">Hashed Value:</h3>
+      <h4 class="value"><pre id="hashed"></pre></h4>
+    
+      <h3 class="label">Base64 Encoded Value:</h3>
+      <h4 class="value"><pre id="base64_encoded"></pre></h4>
+     
+    </div>
+ 
+    <div id="test-div">
+    </div>
+   
+      
+    </div>
+    <div id="clear_storage_form" style="display: none" class="form">
+      <form>
+        <button type="button" class="button" id="clear_storage">Clear Storage</button>
+      </form>
+    </div>
+    </div>
+  </body>
+</html>
