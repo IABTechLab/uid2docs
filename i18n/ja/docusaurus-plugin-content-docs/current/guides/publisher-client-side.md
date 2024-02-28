@@ -45,7 +45,7 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 
 ## Sample Implementation Website
 
-アプリケーションの例については、SDK v3 を使用した UID2 Google ESP の例を参照してください:
+アプリケーションの例については、SDK v3 を使用した UID2 Google Secure Signals の例を参照してください:
 - Code: [Example Client-Side Integration for JavaScript](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)
 - ランニングサイト: [Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)
 

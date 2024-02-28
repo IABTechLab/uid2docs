@@ -1,9 +1,11 @@
 function removeItems(sidebar, ...remove) {
   const result = [];
   for (let item of sidebar) {
-    if (typeof item === 'string') 
+    if (typeof item === 'string')
     {
-      if (!remove.includes(item)) result.push(item);
+      if (!remove.includes(item)) result.push({
+        type: 'ref', id: item
+      });
     }
     else {
       if (!remove.includes(item.label)) {
@@ -226,7 +228,7 @@ const fullSidebar = [
         type: 'doc',
         id: 'sdks/summary-sdks',
       },
-      collapsed: true,
+      collapsed: false,
       items: [
         'sdks/client-side-identity',
         'sdks/uid2-sdk-ref-java',
@@ -245,7 +247,7 @@ const fullSidebar = [
         type: 'doc',
         id: 'endpoints/summary-endpoints',
       },
-      collapsed: true,
+      collapsed: false,
       items: [
         'endpoints/post-token-generate',
         'endpoints/post-token-validate',
@@ -259,11 +261,11 @@ const fullSidebar = [
       type: 'category',
       label: 'UID2 Sharing',
       link: {
-        type: 'doc',
-        id: 'sharing/sharing-overview',
+        type: 'generated-index',
       },
       collapsed: true,
       items: [
+        'sharing/sharing-overview',
         'sharing/sharing-use-cases',
         'sharing/sharing-implementing',
         'sharing/sharing-best-practices',

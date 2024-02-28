@@ -20,30 +20,30 @@ The only exception is that requests to the [POST&nbsp;/token/refresh](../endpoin
 
 Here's what you need to know about encrypting UID2 API requests and decrypting respective responses:
 
-- To use the APIs, in addition to your client API key, you need your client secret
+- To use the APIs, in addition to your client API key, you need your client secret.
 - You can write your own custom code or use one of the code examples provided: see [Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples).
 - Request and response use AES/GCM/NoPadding encryption algorithm with 96-bit initialization vector and 128-bit authentication tag.
-- The raw, unencrypted JSON body of the request is wrapped in a binary [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) which then gets encrypted and formatted according to the [Encrypted Request Envelope](#encrypted-request-envelope).
-- Response JSON body is wrapped in a binary [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) which is encrypted and formatted according to the [Encrypted Response Envelope](#encrypted-response-envelope).
+- The raw, unencrypted JSON body of the request is wrapped in a binary [unencrypted request data envelope](#unencrypted-request-data-envelope) which then gets encrypted and formatted according to the [Encrypted Request Envelope](#encrypted-request-envelope).
+- The response JSON body is wrapped in a binary [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) which is encrypted and formatted according to the [Encrypted Response Envelope](#encrypted-response-envelope).
 
 ## Workflow
 
 The high-level request-response workflow for the UID2 APIs includes the following steps:
 
 1. Prepare the request body with input parameters in the JSON format.
-2. Wrap the request JSON in an [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope).
+2. Wrap the request JSON in an [unencrypted request data envelope](#unencrypted-request-data-envelope).
 3. Encrypt the envelope using AES/GCM/NoPadding algorithm and your secret key.
 4. Assemble the [Encrypted Request Envelope](#encrypted-request-envelope).
 5. Send the encrypted request and receive the encrypted response.
 6. Parse the [Encrypted Response Envelope](#encrypted-response-envelope).
 7. Decrypt the data in the response envelope.
 8. Parse the resulting [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
-9. (Optional, recommended) Ensure the nonce the in the response envelope matches the nonce in the request envelope.
+9. (Optional, recommended) Ensure that the nonce in the response envelope matches the nonce in the request envelope.
 10. Extract the response JSON object from the unencrypted envelope.
 
-A code example for [encrypting requests and decrypting responses](#encryption-and-decryption-code-examples) can help with automating steps 2-10 and serve as a reference of how to implement these steps in your application.
+A code example for [encrypting requests and decrypting responses](#encryption-and-decryption-code-examples) can help with automating steps 2-10 and serves as a reference of how to implement these steps in your application.
 
-The individual UID2 [endpoints](../endpoints/summary-endpoints.md) explain the respective JSON body format requirements and parameters, include call examples, and show decrypted responses. The following sections provide encryption and decryption code examples, field layout requirements, and request and response examples. 
+Documentation for the individual UID2 [endpoints](../endpoints/summary-endpoints.md) explains the respective JSON body format requirements and parameters, includes call examples, and shows decrypted responses. The following sections provide encryption and decryption code examples, field layout requirements, and request and response examples. 
 
 ## Encrypting Requests
 
@@ -67,7 +67,7 @@ The following table describes the field layout for request encryption code.
 | :--- | :--- | :--- |
 | 0 | 1 | The version of the envelope format. Must be `1`. |
 | 1 | 12 | 96-bit initialization vector (IV), which is used to randomize data encryption. |
-| 13 | N | Payload ([Unencrypted Request Data Envelope](#unencrypted-request-data-envelope)) encrypted using the AES/GCM/NoPadding algorithm. |
+| 13 | N | Payload ([unencrypted request data envelope](#unencrypted-request-data-envelope)) encrypted using the AES/GCM/NoPadding algorithm. |
 | 13 + N | 16 | 128-bit GCM authentication tag used to verify data integrity. |
 
 ## Decrypting Responses
@@ -75,7 +75,7 @@ The following table describes the field layout for request encryption code.
 You have the option of writing your own code for decrypting responses, using a UID2 SDK, or using one of the provided code examples (see [Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples)). If you choose to write your own code, be sure to follow the field layout requirements listed in [Encrypted Response Envelope](#encrypted-response-envelope) and [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
 
 :::note
-The response encrypted only if the service returns HTTP status code 200.
+The response is encrypted only if the service returns HTTP status code 200.
 :::
 
 ### Encrypted Response Envelope
@@ -95,12 +95,12 @@ The following table describes the field layout for response decryption code.
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
 | 0 | 8 | The UNIX timestamp (in milliseconds). Must be int64 big endian. |
-| 8 | 8 | Nonce. For the response to be considered valid, this should match the nonce in the [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope). |
+| 8 | 8 | Nonce. For the response to be considered valid, this should match the nonce in the [unencrypted request data envelope](#unencrypted-request-data-envelope). |
 | 16 | N | Payload, which is a response JSON document serialized in UTF-8 encoding. |
 
 ### Response Example
 
-For example, a decrypted response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request for an email address in the [preceding example](#request-example), may look like this:
+For example, a decrypted response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request for an email address in the [preceding example](#request-example), might look like this:
 
 ```json
 {
@@ -119,10 +119,11 @@ For example, a decrypted response to the [POST&nbsp;/token/generate](../endpoint
 
 ## Encryption and Decryption Code Examples
 
-This section includes an encryption and decryption code example in different programming languages.
+This section includes encryption and decryption code examples in different programming languages.
 
 For the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint, the code takes the values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md).
 
+## Encryption and Decryption Code Examples
 :::note
 For Windows, if you're using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON. For example, use `echo {"email": "test@example.com"}`.
 :::
@@ -135,6 +136,10 @@ Before using the code example, check the prerequisites and notes for the languag
 <TabItem value='py' label='Python'>
 
 The following code example encrypts requests and decrypts responses using Python. The required parameters are shown at the top of the code example, or by running `python3 uid2_request.py`.
+
+:::note
+For Windows, replace `python3` with `python`.
+:::
 
 The Python code requires the `pycryptodomex` and `requests` packages. You can install these as follows:
 
@@ -149,7 +154,7 @@ pip install requests
 The following code example encrypts requests and decrypts responses using Java. The required parameters are shown at the top of the main function, or by building and running the following:
 
 ```
-java -jar Uid2Request-1.0-jar-with-dependencies.jar
+java -jar Uid2Request-jar-with-dependencies.jar
 ```
 
 The Java example is written for JDK version 11 and later, and you must have the com.google.code.gson library in your classpath.
@@ -201,6 +206,7 @@ If you are using Maven, you can use the following minimal `pom.xml`, and run `mv
         </configuration>
       </plugin>
     </plugins>
+    <finalName>${artifactId}</finalName>
   </build>
 </project>
 ```
@@ -348,11 +354,19 @@ public class Uid2Request {
 
   public static void main(String[] args) throws Exception {
     if (args.length != 3 && args.length != 4) {
-      System.out.println("Usage: java -jar Uid2Request-jar-with-dependencies.jar <url> <api_key> <client_secret>" + "\n");
-      System.out.println("Example: echo '{\"email\": \"test@example.com\"}' |  java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/generate PRODGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=" + "\n");
-      System.out.println("Refresh Token Usage: java -jar Uid2Request-jar-with-dependencies.jar <url> --refresh-token <refresh_token> <refresh_response_key>"  + "\n");
-      System.out.println("Refresh Token Example: java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s="  + "\n");
-      System.out.println("Refresh Token Example: java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s="  + "\n");
+      System.out.println(
+              "Usage:" + "\n   "
+      +             "java -jar Uid2Request-jar-with-dependencies.jar <url> <api_key> <client_secret>" + "\n\n"
+      
+      +       "Example:" + "\n   "  
+      +             "echo '{\"email\": \"test@example.com\"}' |  java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/generate PRODGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=" + "\n\n\n"
+      
+      +       "Refresh Token Usage:" + "\n   "
+      +             "java -jar Uid2Request-jar-with-dependencies.jar <url> --refresh-token <refresh_token> <refresh_response_key>"  + "\n\n"
+                      
+      +       "Refresh Token Example:" + "\n   " 
+      +             "java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s="  + "\n"
+      );
       System.exit(1);
     }
 

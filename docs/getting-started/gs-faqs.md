@@ -22,6 +22,7 @@ Here are some frequently asked questions regarding the UID2 framework.
 
    - [Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
    - [Can users opt out of targeted advertising tied to their UID2 identity?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2-identity)
+   - [When I send DII to UID2, does UID2 store the information?](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
    - [How does a user know where to access the opt-out portal?](#how-does-a-user-know-where-to-access-the-opt-out-portal)
    - [Does UID2 allow the processing of HIPAA-regulated data?](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
 
@@ -32,6 +33,12 @@ No. UID2 has its own framework, which is separate from EUID. As such, paperwork 
 #### Can users opt out of targeted advertising tied to their UID2 identity?
 
 Yes. Through the [Transparency and Control Portal](https://www.transparentadvertising.com/), users can opt out from being served targeted ads tied to their UID2 identity. Each request is distributed through the UID2 Opt-Out Service, and UID2 Operators make the opt-out information available to all relevant participants.
+
+#### When I send DII to UID2, does UID2 store the information?
+
+No, UID2 does not store any DII. In addition, in almost all cases, UID2 doesn't store any values at all once the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md), [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md), or [POST /identity/map](../endpoints/post-identity-map.md) call is complete.
+
+A necessary exception is the case where a user has opted out. In this scenario, UID2 stores a hashed, opaque value to indicate the opted-out user. The stored value cannot be reverse engineered back to the original value of the DII, but can be used to identify future requests for a UID2 generated from the same DII, which are therefore denied.
 
 #### How does a user know where to access the opt-out portal?
 
@@ -144,6 +151,8 @@ Here are some frequently asked questions for advertisers and data providers usin
    - [How should I generate the SHA-256 of DII for mapping?](#how-should-i-generate-the-sha-256-of-dii-for-mapping)
    - [Should I store large volumes of email address, phone number, or their hash mappings? ](#should-i-store-large-volumes-of-email-address-phone-number-or-their-hash-mappings)
    - [How should I handle user opt-outs?](#how-should-i-handle-user-opt-outs)
+   - [Does the same DII always result in the same raw UID2?](#does-the-same-dii-always-result-in-the-same-raw-uid2)
+
 
 #### How do I know when to refresh the UID2 due to salt bucket rotation?
 
@@ -184,6 +193,14 @@ Unless you are using a private operator, you must map email addresses, phone num
 When a user opts out of UID2-based targeted advertising through the [Transparency and Control Portal](https://www.transparentadvertising.com/), the opt-out signal is sent to DSPs and publishers, who handle opt-outs at bid time. We recommend that advertisers and data providers regularly check whether a user has opted out, via the [POST /identity/map](../endpoints/post-identity-map.md) endpoint.
 
 If a user opts out through your website, you should follow your internal procedures for handling the opt-out. For example, you might choose not to generate a UID2 for that user.
+
+#### Does the same DII always result in the same raw UID2?
+
+In general yes, the process of generating a raw UID2 from DII is the same, and results in the same value, no matter who sent the request. If two UID2 participants were to send the same email address to the [POST /identity/map](../endpoints/post-identity-map.md) endpoint at the same time, they would both get the same raw UID2 in response.
+
+However, there is a variable factor, which is the [salt](../ref-info/glossary-uid.md#gl-salt) value that's used in generating the raw UID2. The salt values are rotated roughly once per year (for details, see [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)). If the salt value changes between one request and another, those two requests result in two different raw UID2, even when the DII is the same.
+
+For more information, see [Monitor for salt bucket rotations related to your stored raw UID2s](../guides/advertiser-dataprovider-guide.md#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s) in the *Advertiser/Data Provider Integration Guide*.
 
 ## FAQs for DSPs
 
@@ -256,7 +273,7 @@ Typically GET requests, but different DSPs may use different types.
 
 #### How strict are the requirements for honoring opt-outs? 
 
-Opt-outs must be always respected. It may take some time for an opt-out request to propagate through the system during which time it is expected that some bids may not honor the opt-out.
+Opt-outs must always be respected. It may take some time for an opt-out request to propagate through the system during which time it is expected that some bids may not honor the opt-out.
 
 #### How do SDK errors impact the DSP's ability to respond to a bid?
 

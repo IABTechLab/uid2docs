@@ -110,7 +110,7 @@ If the user logs out, do not use the UID2 token.
 
 A sample application is available for server-only integration. See:
 
-- [Server-Only UID2 Integration Example (sample application)](https://esp-srvonly-integ.uidapi.com/)
+- [Server-Only UID2 Integration Example (sample application)](https://secure-signals-srvonly-integ.uidapi.com/)
 - [Server-Only UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
 
 ## FAQs

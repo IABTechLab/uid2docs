@@ -14,7 +14,7 @@ This page provides general information required for you to get your account set 
 * [Contact Info](#contact-info)
 * [Account Setup](#account-setup-details)
 * [Credentials](#credentials)
-* [API Versions](#api-versions)
+* [API Version](#api-version)
  -->
 ## Contact Info
 
@@ -43,7 +43,7 @@ All participants will need to provide at least the following information:
 
 ### Client-Side Implementation for Publishers
 
-If you're a publisher, and you determine that you want to implement UID2 so that tokens are generated on the client side, you'll also need to provide a list of domain names for your sites. This is a security measure, for client-side implementation only.
+If you're a publisher, and you determine that you want to implement UID2 so that tokens are generated on the client side, you'll also need to provide a list of **domain names** for your sites. This is a security measure, for client-side implementation only.
 
 :::tip
 Only root-level domains are required for account setup. For example, if you're going to implement UID2 to generate tokens on the client side on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
@@ -53,6 +53,6 @@ Only root-level domains are required for account setup. For example, if you're g
 
 When you've signed a contract for participating in UID2, you'll be issued with [UID2 credentials](gs-credentials.md) and other information for getting up and running with UID2.
 
-## API Versions
+## API Version
 
 The current version of the UID2 API is UID2 API v2.

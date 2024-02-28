@@ -5,6 +5,7 @@ pagination_label: UID2 Integration Overview for Prebid.js
 description: Overview of options for integrating with Prebid.js as part of your UID2 implementation.
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: sidebarPublishers
 ---
 
 # UID2 Integration Overview for Prebid.js
@@ -14,7 +15,6 @@ This guide is an overview of integration options for publishers who want to inte
 It includes the following sections:
 
 - [Introduction](#introduction)
-- [UID2 User ID Submodule](#uid2-user-id-submodule)
 - [Generating the UID2 Token](#generating-the-uid2-token)
 - [Refreshing the UID2 Token](#refreshing-the-uid2-token)
 - [Storing the UID2 Token in the Browser](#storing-the-uid2-token-in-the-browser)
@@ -32,10 +32,6 @@ UID2 provides a Prebid.js module that supports the following:
 - [Passing the UID2 token to the bid stream](#passing-the-uid2-token-to-the-bid-stream)
 
 For additional flexibility, UID2 also provides alternative methods for some of the features and complementary products, such as a JavaScript SDK.
-
-## UID2 User ID Submodule
-
-The Prebid UID2 module handles storing, providing, and optionally refreshing UID2 tokens.
 
 :::caution
 UID2 is not designed to be used where GDPR applies. The module checks the consent data that's passed in, and does not operate if the `gdprApplies` flag is set to `true`.
@@ -68,9 +64,8 @@ pbjs.setConfig({
     userIds: [{ 
       name: 'uid2', 
       params: { 
-
-                 //default value is ‘localStorage’ 
-        storage: ‘cookie’  
+        // default value is 'localStorage' 
+        storage: 'cookie'   
       } 
     }] 
   } 

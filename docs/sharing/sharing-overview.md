@@ -3,6 +3,7 @@ title: Overview of Sharing
 description: Learn about sharing UID2s with other participants.
 hide_table_of_contents: false
 sidebar_position: 01
+displayed_sidebar: docs
 ---
 
 # UID2 Sharing: Overview 

@@ -63,7 +63,7 @@ The binary is published on the Maven repository:
 
 - [https://central.sonatype.com/artifact/com.uid2/uid2-client](https://central.sonatype.com/artifact/com.uid2/uid2-client)
 
-## Initialization
+## Usage for DSPs
 
 The initialization function configures the parameters necessary for the SDK to authenticate with the UID2 service. It also allows you to configure retry intervals in the event of errors.
 
@@ -72,7 +72,7 @@ The initialization function configures the parameters necessary for the SDK to a
 | `endpoint` | The endpoint for the UID2 service. | N/A |
 | `authKey` | The authentication token that belongs to the client. For access to UID2, see [Contact Info](../getting-started/gs-account-setup.md#contact-info). | N/A |
 
-## Interface 
+### Interface 
 
 The interface allows you to decrypt UID2 advertising tokens and return the corresponding raw UID2. 
 
@@ -85,7 +85,7 @@ If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising t
 The following is the decrypt method in Java:
 
 ```java
-import com.uid2.client.IUID2Client
+import com.uid2.client.IUID2Client;
  
 IUID2Client client = UID2ClientFactory.create(TEST_ENDPOINT, TEST_API_KEY, TEST_SECRET_KEY);
 client.refresh(); //Note that refresh() should be called once after create(), and then once per hour
@@ -285,6 +285,37 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
 6. Store `tokenRefreshResponse.getIdentityJsonString()` in the user's session.
 
    If the user has opted out, this method returns null, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `tokenRefreshResponse.isOptout()` function.
+
+## Usage for Advertisers and Data Providers
+1. Create an instance of IdentityMapClient as an instance variable.
+   ```java
+   final private IdentityMapClient identityMapClient = new IdentityMapClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+   ```
+
+2. Call a function that takes email addresses or phone numbers as input and generates an IdentityMapResponse object. The following example uses email addresses:
+   ```java
+   IdentityMapResponse identityMapResponse = identityMapClient.generateIdentityMap(IdentityMapInput.fromEmails(Arrays.asList("email1@example.com", "email2@example.com")));
+   ```
+
+>Note: The SDK hashes input values before sending them. This ensures that raw email addresses and phone numbers do not leave your server.
+
+3. Retrieve the mapped and unmapped results as follows:
+   ```java
+   Map<String, IdentityMapResponse.MappedIdentity> mappedIdentities = identityMapResponse.getMappedIdentities();
+   Map<String, IdentityMapResponse.UnmappedIdentity> unmappedIdentities = identityMapResponse.getUnmappedIdentities();`
+   ```
+
+4. Iterate through the mapped and unmapped results, or do a lookup. The following example does a lookup:
+   ```java
+   IdentityMapResponse.MappedIdentity mappedIdentity = mappedIdentities.get("email1@example.com");
+   if (mappedIdentity != null) {
+        String rawUid = mappedIdentity.getRawUid();
+   } else {
+        IdentityMapResponse.UnmappedIdentity unmappedIdentity = unmappedIdentities.get("email1@example.com");
+        String reason = unmappedIdentity.getReason();
+   }
+   ```
+
 
 ## Usage for UID2 Sharers
 
