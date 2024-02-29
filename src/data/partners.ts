@@ -336,6 +336,11 @@ export const partnersData: PartnersDataType = [
     type: ["Data"],
   },
   {
+    name: "HK01",
+    logo: "HK01-logo.png",
+    type: ["Publishers"],
+  },
+  {
     name: "i Cook",
     logo: "PartnerLogo_iCook_256x256.png",
     type: ["Publishers", "Data"],
@@ -424,6 +429,11 @@ export const partnersData: PartnersDataType = [
     type: ["Data"],
   },
   {
+    name: "Lotame",
+    logo: "lotame-logo.png",
+    type: ["Data"],
+  },
+  {
     name: "Lotte Members",
     logo: "lottemembers.png",
     type: ["Data"],
@@ -484,6 +494,11 @@ export const partnersData: PartnersDataType = [
     name: "Mingpao",
     logo: "MP-580x250.png",
     type: ["Publishers"],
+  },
+  {
+    name: "mParticle",
+    logo: "mparticle-logo.png",
+    type: ["CDP"],
   },
   {
     name: "Motiv-i",
@@ -727,6 +742,11 @@ export const partnersData: PartnersDataType = [
     type: ["CDP"],
   },
   {
+    name: "Thairath",
+    logo: "Thairath_Online_Logo2023.png",
+    type: ["Publishers"],
+  },
+  {
     name: "Thanh Nien",
     logo: "logo_ThanhNien-580x250.png",
     type: ["Publishers"],
@@ -803,6 +823,11 @@ export const partnersData: PartnersDataType = [
   },
   {
     name: "Unruly",
+    logo: "UnwindLogo.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "Unwind Media",
     logo: "PartnerLogo_Unruly_580x250.png",
     type: ["DSP"],
   },
@@ -825,6 +850,11 @@ export const partnersData: PartnersDataType = [
     name: "Verve",
     logo: "PartnerLogo_Verve_580x250.png",
     type: ["DSP"],
+  },
+  {
+    name: "VNExpress",
+    logo: "VNExpress.png",
+    type: ["Publishers"],
   },
   {
     name: "WeTV",
