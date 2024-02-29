@@ -115,13 +115,13 @@ Step 1-c で認証を行い、ユーザーに利用規約を受け入れさせ�
 <TabItem value='ts' label='TypeScript'>
 
 ```tsx
-  import { EventType, Uid2CallbackPayload } from "./uid2CallbackManager";
+  import { EventType, CallbackPayload } from "./callbackManager";
 
   window.__uid2 = window.__uid2 || {};
   window.__uid2.callbacks = window.__uid2.callbacks || [];
 
   // Step 1-f
-  window.__uid2.callbacks.push((eventType: EventType, payload: Uid2CallbackPayload) => {
+  window.__uid2.callbacks.push((eventType: EventType, payload: CallbackPayload) => {
     if (eventType === 'SdkLoaded') {
       __uid2.init({
         identity : {
@@ -137,7 +137,7 @@ Step 1-c で認証を行い、ユーザーに利用規約を受け入れさせ�
   });
 
   // Step 1-g
-  window.__uid2.callbacks.push((eventType: EventType, payload: Uid2CallbackPayload) => {
+  window.__uid2.callbacks.push((eventType: EventType, payload: CallbackPayload) => {
     if (eventType !== 'SdkLoaded') {
       if (payload.identity) {
         const advertisingToken = payload.identity.advertising_token;
