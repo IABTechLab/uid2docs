@@ -9,6 +9,14 @@ sidebar_position: 06
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: Java SDK Support for Advertiser/Data Provider
+
+28 February 2024
+
+The Java SDK now supports Advertisers and Data Providers wanting to use the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.
+
+For details, see the updated documentation in the *UID2 SDK for Java Reference Guide*: [Usage for Advertisers and Data Providers](../sdks/uid2-sdk-ref-java.md#usage-for-advertisers-and-data-providers).
+
 ### New: Audience-Specific Documentation Sidebars
 
 9 February 2024
