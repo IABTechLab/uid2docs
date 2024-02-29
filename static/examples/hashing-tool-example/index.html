@@ -20,37 +20,82 @@
     console.log('Initializing example.');
     
 
-    const inputs = document.querySelectorAll('.radiogroup');
+    
 
-    async function updateGuiElements(email) {
+    async function updateGuiElements(input) {
       console.log('Updating displayed values.');
-      const normalizedEmail = window.__uid2Helper.normalizeEmail(email);
-      $('#normalization').text(normalizedEmail ? normalizedEmail : " ");
-      let hashedValue = undefined;
-      if (normalizedEmail) {
-        hashedValue = await window.__uid2Helper.hashIdentifier(normalizedEmail);
-        $('#hashed').text(hashedValue ? hashedValue : " ");
-        const encodedValue = await window.__uid2Helper.hashAndEncodeIdentifier(normalizedEmail);
-        $('#base64_encoded').text(encodedValue ? encodedValue : ' ');
+      const input_type = document.querySelector('input[name="toggle_input_type"]:checked').value;
+      let normalizedInput = input;
+      if (input_type === "email") {
+        normalizedInput = window.__uid2Helper.normalizeEmail(input);
+        $('#normalization').text(input);
       }
       
-      $('#email_form').show();
-      $('#clear_storage_form').hide();
+      if (normalizedInput) {
+        const hashedValue = await window.__uid2Helper.hashIdentifier(normalizedInput);
+        $('#hashed').text(hashedValue);
+        const encodedValue = await window.__uid2Helper.hashAndEncodeIdentifier(normalizedInput);
+        $('#base64_encoded').text(encodedValue);  
+      }
+      else {
+        $('#normalization').text(' ');
+        $('#hashed').text(' ');
+        $('#base64_encoded').text(' ');
+        $('#alert_box_email').show();
+      }
     }
 
     function clearElements() {
-      
+      document.querySelector('.input_value').value = "";
+      $('#normalization').text(' ');
+      $('#hashed').text(' ');
+      $('#base64_encoded').text(' ');
+      $('.alert').hide();
     }
 
     function onDocumentReady() {
         console.log('Setting up interface handlers.');
+        document.querySelector('.input_value').placeholder = "Enter an email address";
         $('#enter').click(handleEnter);
-        updateGuiElements('');
+        $('#clear_values_form').click(clearElements);
+        $('.alert').hide();
+        $('#clear_values_form').show();
+        $('#normalization').text(' ');
+        $('#hashed').text(' ');
+        $('#base64_encoded').text(" ");
+    }
+
+    function handleRadioClick(radioButton) {
+      clearElements();
+      const input_type = radioButton.value;
+      let placeholder = "";
+      if (input_type == "email") {
+        placeholder = "Enter an email address";
+        $('#normalization').show();
+        $('#normalization_label').show();
+      } 
+      else if (input_type == "mobile") {
+        placeholder = "Enter a phone number";
+        $('#normalization').hide();
+        $('#normalization_label').hide();
+      } 
+      document.querySelector('.input_value').placeholder = placeholder;
     }
 
     async function handleEnter() {
-        const email = $('#email').val();
-        updateGuiElements(email);
+        const input_value = $('#input_value').val();
+        const input_type = document.querySelector('input[name="toggle_input_type"]:checked').value;
+        if (input_type == "mobile") {
+          const isNormalizedPhone = window.__uid2Helper.isNormalizedPhone(input_value)
+          if (!isNormalizedPhone) {
+            $('#hashed').text(" ");
+            $('#base64_encoded').text(" ");
+            document.querySelector('.alert').innerText = "Phone number format is invalid or is not normalized."
+            $('#alert_box_mobile').show();
+            return;
+          }
+        }
+        updateGuiElements(input_value);
     }
 
     $(document).ready(onDocumentReady);
@@ -59,28 +104,44 @@
   <body>
     <h1>UID2 Hashing Tool Example</h1>
     <p class="intro">
-     * Add description here * 
+     Use this tool to verify that your own implementation is normalizing and 
+     encoding correctly. Choose Email or Phone Number, then type or paste the
+     value and click Enter. <br><br>
+     <b>NOTE:</b> Normalize phone numbers before using the tool.
+     For details and examples, see <a href="https://unifiedid.com/docs/getting-started/gs-normalization-encoding">Normalization and Encoding</a>.
     </p>
-    <input type="radio" id="toggle_email" name="toggle_input_type" value="toggle_email">
+
+    <input type="radio" id="toggle_email" name="toggle_input_type" value="email" onclick="handleRadioClick(this)" checked>
     <label for="html">Email</label>
-    <input type="radio" id="toggle_phonenumber" name="toggle_input_type" value="toggle_phonenumber">
+    <input type="radio" id="toggle_mobile" name="toggle_input_type" value="mobile" onclick="handleRadioClick(this)">
     <label for="css">Phone Number</label><br>
-    <div id="email_form" class="form">
-      <div class="email_prompt">
+    
+    <div id="input_value_form" class="form">
+      <div class="prompt">
         <input
           type="text"
-          id="email"
-          name="email"
-          placeholder="Enter an email address"
+          id="input_value"
+          class="input_value"
+          name="input_value"
+          placeholder=""
           style="border-style: none"
         />
     </div>
+
+    <div class="alert" id="alert_box_email">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      Email is invalid.
+    </div>
+    <div class="alert" id="alert_box_mobile">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      Phone number format is invalid or is not normalized.
+    </div>
+    <br>
+    </div>
     <div><button type="button" class="button" id="enter">Enter</button></div>
-    <br>
-    <br>
-    <br>
+    <br><br><br>
     <div>
-      <h3 class="label">Normalized Value:</h3>
+      <h3 class="label" id="normalization_label">Normalized Value:</h3>
       <h4 class="value"><pre id="normalization"></pre></h4>
     
       <h3 class="label">Hashed Value:</h3>
@@ -96,9 +157,9 @@
    
       
     </div>
-    <div id="clear_storage_form" style="display: none" class="form">
+    <div id="clear_values_form" style="display: none" class="form">
       <form>
-        <button type="button" class="button" id="clear_storage">Clear Storage</button>
+        <button type="button" class="button" id="clear_values">Clear</button>
       </form>
     </div>
     </div>

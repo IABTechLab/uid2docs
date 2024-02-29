@@ -11,6 +11,28 @@ a {
   color: #00b7ff;
 }
 
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  width: 400px;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
 .button {
   border-style: none;
   cursor: pointer;
@@ -39,7 +61,7 @@ a {
   margin-top: 40px;
 }
 
-.email_prompt {
+.prompt {
   align-items: center;
   align-self: center;
   background-color: white;
@@ -59,7 +81,7 @@ a {
   width: auto;
 }
 
-#email {
+#input_value {
   background-color: white;
   flex-shrink: 0;
   height: auto;
@@ -83,20 +105,4 @@ h1 {
   padding-bottom: 20px;
 }
 
-#uid2_state .label {
-  white-space: nowrap;
-  padding-right: 20px;
-}
-#uid2_state tr {
-  margin-top: 10px;
-}
 
-.message {
-  color: green;
-  padding: 20px;
-  margin-left: -22px;
-  font-size: 16px;
-  font-weight: 500;
-  border: 2px solid green;
-  border-radius: 5px;
-}
