@@ -28,7 +28,7 @@
       let normalizedInput = input;
       if (input_type === "email") {
         normalizedInput = window.__uid2Helper.normalizeEmail(input);
-        $('#normalization').text(input);
+        $('#normalization').text(normalizedInput);
       }
       
       if (normalizedInput) {
