@@ -70,6 +70,7 @@
     }
 
     async function handleEnter() {
+        $('.alert').hide();
         const inputValue = $('#input_value').val();
         const inputType = document.querySelector('input[name="toggle_input_type"]:checked').value;
         let normalizedInput = undefined;
