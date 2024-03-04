@@ -59,6 +59,7 @@ a {
 
 .form {
   margin-top: 40px;
+ 
 }
 
 .prompt {
@@ -83,6 +84,7 @@ a {
 
 #input_value {
   background-color: white;
+  border-style: none;
   flex-shrink: 0;
   height: auto;
   letter-spacing: 0.12px;

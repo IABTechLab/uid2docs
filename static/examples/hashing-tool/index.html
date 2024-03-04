@@ -22,15 +22,9 @@
 
     
 
-    async function updateGuiElements(input) {
+    async function updateGuiElements(normalizedInput, inputType) {
       console.log('Updating displayed values.');
-      const input_type = document.querySelector('input[name="toggle_input_type"]:checked').value;
-      let normalizedInput = input;
-      if (input_type === "email") {
-        normalizedInput = window.__uid2Helper.normalizeEmail(input);
-        $('#normalization').text(normalizedInput);
-      }
-      
+
       if (normalizedInput) {
         const hashedValue = await window.__uid2Helper.hashIdentifier(normalizedInput);
         $('#hashed').text(hashedValue);
@@ -38,16 +32,21 @@
         $('#base64_encoded').text(encodedValue);  
       }
       else {
-        $('#normalization').text(' ');
         $('#hashed').text(' ');
         $('#base64_encoded').text(' ');
-        $('#alert_box_email').show();
+        if (inputType === "email") {
+          $("#normalization_value").text(' ');
+          $('#alert_box_email').show();
+        }
+        else if (inputType === "mobile") {
+          $('#alert_box_mobile').show();
+        }
       }
     }
 
     function clearElements() {
       document.querySelector('.input_value').value = "";
-      $('#normalization').text(' ');
+      $('#normalization_value').text(' ');
       $('#hashed').text(' ');
       $('#base64_encoded').text(' ');
       $('.alert').hide();
@@ -55,47 +54,47 @@
 
     function onDocumentReady() {
         console.log('Setting up interface handlers.');
+        clearElements();
         document.querySelector('.input_value').placeholder = "Enter an email address";
         $('#enter').click(handleEnter);
         $('#clear_values_form').click(clearElements);
-        $('.alert').hide();
         $('#clear_values_form').show();
-        $('#normalization').text(' ');
-        $('#hashed').text(' ');
-        $('#base64_encoded').text(" ");
     }
 
     function handleRadioClick(radioButton) {
       clearElements();
-      const input_type = radioButton.value;
+      const inputType = radioButton.value;
       let placeholder = "";
-      if (input_type == "email") {
+      if (inputType == "email") {
         placeholder = "Enter an email address";
         $('#normalization').show();
-        $('#normalization_label').show();
+        $('#alert_email').show();
+        $('#alert_mobile').hide();
       } 
-      else if (input_type == "mobile") {
+      else if (inputType == "mobile") {
         placeholder = "Enter a phone number";
         $('#normalization').hide();
-        $('#normalization_label').hide();
+        $('#alert_email').hide();
+        $('#alert_mobile').show();
       } 
       document.querySelector('.input_value').placeholder = placeholder;
     }
 
     async function handleEnter() {
-        const input_value = $('#input_value').val();
-        const input_type = document.querySelector('input[name="toggle_input_type"]:checked').value;
-        if (input_type == "mobile") {
-          const isNormalizedPhone = window.__uid2Helper.isNormalizedPhone(input_value)
-          if (!isNormalizedPhone) {
-            $('#hashed').text(" ");
-            $('#base64_encoded').text(" ");
-            document.querySelector('.alert').innerText = "Phone number format is invalid or is not normalized."
-            $('#alert_box_mobile').show();
-            return;
+        const inputValue = $('#input_value').val();
+        const inputType = document.querySelector('input[name="toggle_input_type"]:checked').value;
+        let normalizedInput = undefined;
+        if (inputType == "mobile") {
+          const isNormalizedPhone = window.__uid2Helper.isNormalizedPhone(inputValue)
+          if (isNormalizedPhone) {
+            normalizedInput = inputValue;
           }
         }
-        updateGuiElements(input_value);
+        if (inputType === "email") {
+          normalizedInput = window.__uid2Helper.normalizeEmail(inputValue);
+          $('#normalization_value').text(normalizedInput);
+        }
+        updateGuiElements(normalizedInput, inputType);
     }
 
     $(document).ready(onDocumentReady);
@@ -124,7 +123,6 @@
           class="input_value"
           name="input_value"
           placeholder=""
-          style="border-style: none"
         />
     </div>
 
@@ -141,8 +139,10 @@
     <div><button type="button" class="button" id="enter">Enter</button></div>
     <br><br><br>
     <div>
-      <h3 class="label" id="normalization_label">Normalized Value:</h3>
-      <h4 class="value"><pre id="normalization"></pre></h4>
+      <div id="normalization">
+        <h3 class="label" id="normalization_label">Normalized Value:</h3>
+        <h4 class="value"><pre id="normalization_value"></pre></h4> 
+      </div>
     
       <h3 class="label">Hashed Value:</h3>
       <h4 class="value"><pre id="hashed"></pre></h4>
@@ -151,8 +151,6 @@
       <h4 class="value"><pre id="base64_encoded"></pre></h4>
      
     </div>
- 
-    <div id="test-div">
     </div>
    
       
