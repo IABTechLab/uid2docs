@@ -124,6 +124,7 @@ const fullSidebar = [
                 },
                 collapsed: true,
                 items: [
+                  'guides/integration-javascript',
                   'guides/publisher-client-side',
                   'guides/integration-javascript-server-side',
                 ],
