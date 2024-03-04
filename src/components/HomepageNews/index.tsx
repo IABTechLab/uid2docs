@@ -28,19 +28,9 @@ const ArticleList: ArticleItem[] = [
     date: "September 21, 2022",
   },
   {
-    title: "Environics Analytics",
-    url: "https://www.globenewswire.com/news-release/2022/09/22/2520965/0/en/Environics-Analytics-Announces-Adoption-of-Unified-ID-2-0.html",
-    date: "September 22, 2022",
-  },
-  {
     title: "LineTV (Taiwan)",
     url: "https://www.cdns.com.tw/articles/662817",
     date: "September 22, 2022",
-  },
-  {
-    title: "Optable",
-    url: "https://www.prnewswire.com/news-releases/optable-integrates-with-the-trade-desk-to-securely-transact-unified-id-2-0--301635816.html?tc=eml_cleartime",
-    date: "September 29, 2022",
   },
   {
     title: "RainBarrel",
