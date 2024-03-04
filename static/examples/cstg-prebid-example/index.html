@@ -11,21 +11,31 @@
       console.log('Initializing example.')
       window.uid2_example_settings = {
         UID2_BASE_URL: 'https://operator-integ.uidapi.com',
-        SERVER_PUBLIC_KEY: 'UID2-X-I-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEo+jcPlk8GWn3iG0R5Il2cbFQI9hR3TvHxaBUKHl5Vh+ugr+9uLMiXihka8To07ETFGghEifY96Hrpe5RnYko7Q==',
-        SUBSCRIPTION_ID: 'DMr7uHxqLU',
+        SERVER_PUBLIC_KEY: 'UID2-X-L-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEWyCP9O/6ppffj8f5PUWsEhAoMNdTBnpnkiOPZBkVnLkxOyTjPsKzf5J3ApPHzutAGNGgKAzFc6TuCfo+BWsZtQ==',
+        SUBSCRIPTION_ID: 'LBk2xJsgrS',
       };
 
       function updateGuiElements() {
         console.log('Updating displayed values.');
         const uid2  = pbjs.getUserIds().uid2;
+        const euid = pbjs.getUserIds().euid;
         $('#targeted_advertising_ready').text(uid2 ? 'yes' : 'no');
         $('#advertising_token').text(uid2 ? String(uid2.id) : '');
+        $('#targeted_advertising_ready').text(euid ? 'yes' : 'no');
+        $('#advertising_token').text(uid2 ? String(euid.id) : '');
         if (!uid2) {
           $('#login_form').show();
           $('#clear_storage_form').hide();
         } else {
           $('#login_form').hide();
           $('#clear_storage_form').show();
+        }
+        if (!euid) {
+          $('#login_form_euid').show();
+          $('#clear_storage_form_euid').hide();
+        } else {
+          $('#login_form_euid').hide();
+          $('#clear_storage_form_euid').show();
         }
       }
 
@@ -53,7 +63,7 @@
       function setUid2Config(email) {
         const cstgParams = email ? {email, subscriptionId: `${window.uid2_example_settings.SUBSCRIPTION_ID}`, serverPublicKey: `${window.uid2_example_settings.SERVER_PUBLIC_KEY}`} : {};
         const uid2Params = {
-          uid2ApiBase: `${window.uid2_example_settings.UID2_BASE_URL}`,
+          uid2ApiBase: `http://localhost:8080`,
           ...cstgParams,
         };
         pbjs.setConfig({
@@ -106,6 +116,7 @@
     </script>
   </head>
   <body>
+    <div>
     <h1>UID2 Prebid.js Client-Side Integration Example</h1>
     <p class="intro">
       This example demonstrates how a content publisher can integrate with UID2 and Prebid.js using the <a href="https://unifiedid.com/docs/guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>, which includes generating UID2 tokens within the browser.
@@ -141,5 +152,44 @@
       </form>
     </div>
     </div>
+  </div>
+  <br><br><br><br><br>
+  <div>
+    <h1>EUID Prebid.js Client-Side Integration Example</h1>
+    <p class="intro_euid">
+      This example demonstrates how a content publisher can integrate with EUID and Prebid.js using the <a href="https://unifiedid.com/docs/guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>, which includes generating UID2 tokens within the browser.
+    </p>
+    <table id="euid_state">
+      <tr>
+        <td class="label">Ready for Targeted Advertising:</td>
+        <td class="value"><pre id="targeted_advertising_ready_euid"></pre></td>
+      </tr>
+      <tr>
+        <td class="label">UID2 Advertising Token:</td>
+        <td class="value"><pre id="advertising_token_euid"></pre></td>
+      </tr>
+    </table>
+    <div id="test-div">
+    </div>
+    <div id="login_form_euid" style="display: none" class="form">
+      <div class="email_prompt">
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="Enter an email address"
+          style="border-style: none"
+          value="test@example.com"
+        />
+      </div>
+      <div><button type="button" class="button" id="login_euid">Log In</button></div>
+    </div>
+    <div id="clear_storage_form_euid" style="display: none" class="form">
+      <form>
+        <button type="button" class="button" id="clear_storage_euid">Clear Storage</button>
+      </form>
+    </div>
+    </div>
+  </div>
   </body>
 </html>
