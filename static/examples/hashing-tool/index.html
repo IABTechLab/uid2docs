@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>UID2 Hashing Tool</title>
+    <link rel="stylesheet" type="text/css" href="./app.css" />
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <script src="./uid2-sdk-3.3.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <script>
+    console.log('Initializing example.');
+    
+    async function updateGuiElements(normalizedInput, inputType) {
+      console.log('Updating displayed values.');
+
+      if (normalizedInput) {
+        const hashedValue = await window.__uid2Helper.hashIdentifier(normalizedInput);
+        $('#hashed').text(hashedValue);
+        const encodedValue = await window.__uid2Helper.hashAndEncodeIdentifier(normalizedInput);
+        $('#base64_encoded').text(encodedValue);  
+      }
+      else {
+        $('#hashed').text(' ');
+        $('#base64_encoded').text(' ');
+        if (inputType === "email") {
+          $("#normalization_value").text(' ');
+          $('#alert_box_email').show();
+        }
+        else if (inputType === "mobile") {
+          $('#alert_box_mobile').show();
+        }
+      }
+    }
+
+    function clearElements() {
+      document.querySelector('.input_value').value = "";
+      $('#normalization_value').text(' ');
+      $('#hashed').text(' ');
+      $('#base64_encoded').text(' ');
+      $('.alert').hide();
+    }
+
+    function onDocumentReady() {
+        console.log('Setting up interface handlers.');
+        clearElements();
+        document.querySelector('.input_value').placeholder = "Enter an email address";
+        $('#enter').click(handleEnter);
+        $('#clear_values_form').click(clearElements);
+        $('#clear_values_form').show();
+    }
+
+    function handleRadioClick(radioButton) {
+      clearElements();
+      const inputType = radioButton.value;
+      let placeholder = "";
+      if (inputType == "email") {
+        placeholder = "Enter an email address";
+        $('#normalization').show();
+        $('#alert_email').show();
+        $('#alert_mobile').hide();
+      } 
+      else if (inputType == "mobile") {
+        placeholder = "Enter a phone number";
+        $('#normalization').hide();
+        $('#alert_email').hide();
+        $('#alert_mobile').show();
+      } 
+      document.querySelector('.input_value').placeholder = placeholder;
+    }
+
+    async function handleEnter() {
+        $('.alert').hide();
+        const inputValue = $('#input_value').val();
+        const inputType = document.querySelector('input[name="toggle_input_type"]:checked').value;
+        let normalizedInput = undefined;
+        if (inputType == "mobile") {
+          const isNormalizedPhone = window.__uid2Helper.isNormalizedPhone(inputValue)
+          if (isNormalizedPhone) {
+            normalizedInput = inputValue;
+          }
+        }
+        if (inputType === "email") {
+          normalizedInput = window.__uid2Helper.normalizeEmail(inputValue);
+          $('#normalization_value').text(normalizedInput);
+        }
+        updateGuiElements(normalizedInput, inputType);
+    }
+
+    $(document).ready(onDocumentReady);
+
+  </script>
+  <body>
+    <h1>UID2 Hashing Tool</h1>
+    <p class="intro">
+     Use this tool to verify that your own implementation is normalizing and 
+     encoding correctly. Choose Email or Phone Number, then type or paste the
+     value and click Enter. <br><br>
+     <b>NOTE:</b> Normalize phone numbers before using the tool.
+     For details and examples, see <a href="https://unifiedid.com/docs/getting-started/gs-normalization-encoding">Normalization and Encoding</a>.
+    </p>
+
+    <input type="radio" id="toggle_email" name="toggle_input_type" value="email" onclick="handleRadioClick(this)" checked>
+    <label for="html">Email</label>
+    <input type="radio" id="toggle_mobile" name="toggle_input_type" value="mobile" onclick="handleRadioClick(this)">
+    <label for="css">Phone Number</label><br>
+    
+    <div id="input_value_form" class="form">
+      <div class="prompt">
+        <input
+          type="text"
+          id="input_value"
+          class="input_value"
+          name="input_value"
+          placeholder=""
+        />
+    </div>
+
+    <div class="alert" id="alert_box_email">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      Email format is invalid.
+    </div>
+    <div class="alert" id="alert_box_mobile">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      Phone number format is invalid or is not normalized.
+    </div>
+    <br>
+    </div>
+    <div><button type="button" class="button" id="enter">Enter</button></div>
+    <br><br><br>
+    <div>
+      <div id="normalization">
+        <h3 class="label" id="normalization_label">Normalized Value:</h3>
+        <h4 class="value"><pre id="normalization_value"></pre></h4> 
+      </div>
+    
+      <h3 class="label">Hashed Value:</h3>
+      <h4 class="value"><pre id="hashed"></pre></h4>
+    
+      <h3 class="label">Base64-encoded Value:</h3>
+      <h4 class="value"><pre id="base64_encoded"></pre></h4>
+     
+    </div>
+    </div>
+   
+      
+    </div>
+    <div id="clear_values_form" style="display: none" class="form">
+      <form>
+        <button type="button" class="button" id="clear_values">Clear</button>
+      </form>
+    </div>
+    </div>
+  </body>
+</html>
