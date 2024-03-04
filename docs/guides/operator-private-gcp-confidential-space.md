@@ -407,7 +407,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
   --image-project confidential-space-images \
   --image-family confidential-space \
   --service-account {SERVICE_ACCOUNT} \
-  --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-restart-policy=Never~tee-env-DEPLOYMENT_ENVIRONMENT=prod~tee-env-API_TOKEN_SECRET_NAME={OPERATOR_KEY_SECRET_NAME}
+  --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-restart-policy=Never~tee-env-DEPLOYMENT_ENVIRONMENT=prod~tee-env-API_TOKEN_SECRET_NAME={OPERATOR_KEY_SECRET_FULL_NAME}
 ```
 
 #### Run the Script
