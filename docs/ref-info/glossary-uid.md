@@ -156,7 +156,7 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-dii">Directly identifying information (DII)</dt>
 <dd>Directly identifying information, or DII, is information that directly identifies an individual, including name, email address, or phone number.</dd>
-<dd>UID2 supports email address and phone number, and translates the DII to a value that can be used for the purpose of targeted advertising but cannot be traced back to the original value.</dd>
+<dd>UID2 supports email address and phone number, and translates the DII to a value that can be used for the purpose of targeted advertising but cannot by itself be traced back to the original value.</dd>
 
 <dt class="jump-anchor" id="gl-docker">Docker</dt>
 <dd>Docker is a Platform as a Service (PaaS) suite of products that is used for automating the deployment of software via packages called containers. The set of Docker products allows packaging of an application, with all its dependencies, into a virtual container that can run on most operating systems so that applications can work efficiently in different environments.</dd>
@@ -297,7 +297,7 @@ sidebar_position: 10
 <dl>
 
 <dt class="jump-anchor" id="gl-salt">Salt</dt>
-<dd>A string of characters that is used in the process of transforming an email address or phone number into a secure, opaque value that cannot be traced back to the original value.</dd>
+<dd>A string of characters that is used in the process of transforming an email address or phone number into a secure, opaque value that cannot by itself be traced back to the original value.</dd>
 <dd>The UID2 service uses salt as part of the process, along with hashing and encryption, to secure the original value. Salt is added to the input value before hashing.</dd>
 
 <dt class="jump-anchor" id="gl-salted-hash">Salted hash</dt>
