@@ -31,7 +31,6 @@ sidebar_position: 10
 <li><a href="#gl-client-secret">Client secret</a></li>
 <li><a href="#gl-closed-operator">Closed Operator</a></li>
 <li><a href="#gl-core-service">Core Service</a></li>
-<li><a href="#gl-customer-data-platform">Customer Data Platform (CDP)</a></li>
 <li><a href="#gl-data-provider">Data provider</a></li>
 <li><a href="#gl-demand-side-platform">Demand-side platform</a></li>
 <li><a href="#gl-dii">Directly identifying information (DII)</a></li>
@@ -141,9 +140,6 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-core-service">Core Service</dt>
 <dd>The UID2 Core Service is a centralized service that manages access to <a href="#gl-salt">salts</a>, encryption keys, and other relevant data in the UID2 ecosystem.</dd>
 <dd>For an overview of all the UID2 services, see <a href="/docs/intro#components">Components</a>.</dd>
-
-<dt class="jump-anchor" id="gl-customer-data-platform">Customer Data Platform (CDP)</dt>
-<dd>A Customer Data Platform (CDP) is a prebuilt, packaged software system that creates a unified customer database that is accessible to other systems. The CDP centralizes customer data from multiple sources and makes the data available to other systems.</dd>
 
 </dl>
 
