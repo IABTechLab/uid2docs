@@ -29,7 +29,7 @@ Contacting The Trade Desk for access is temporary. When the system is moved to i
 | Your Role | Contact Email |
 | :--- | :--- |
 | Publisher, App Developer | [UID2publishers@thetradedesk.com](mailto:UID2publishers@thetradedesk.com) |
-| Agency, Brand, DSP, SSP, CDP, Data Provider | [UID2partners@thetradedesk.com](mailto:UID2partners@thetradedesk.com) |
+| Agency, Brand, DSP, SSP, customer data platform (CDP), Data Provider | [UID2partners@thetradedesk.com](mailto:UID2partners@thetradedesk.com) |
 
 ## Account Setup Details
 
