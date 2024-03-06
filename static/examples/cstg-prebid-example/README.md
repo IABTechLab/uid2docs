@@ -2,7 +2,7 @@
 
 ## Viewing live site
 
-This example demonstrates the [UID2 Client-Side Integration Guide for Prebid.js](https://unifiedid.com/docs/guides/integration-prebid-client-side). 
+This example demonstrates the [UID2 Client-Side Integration Guide for Prebid.js](https://unifiedid.com/docs/guides/integration-prebid-client-side) and [EUID Client-Side Integration Guide for Prebid.js](https://github.com/European-Unified-ID/EUID-docs/blob/main/api/v2/guides/integration-prebid-client-side.md). 
 
 To view the site running, navigate to [https://unifiedid.com/examples/cstg-prebid-example/](https://unifiedid.com/examples/cstg-prebid-example/).
 
