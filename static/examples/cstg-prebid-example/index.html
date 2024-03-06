@@ -5,31 +5,36 @@
     <title>UID2 Prebid.js Client-Side Integration Example</title>
     <link rel="stylesheet" type="text/css" href="./app.css" />
     <link rel="shortcut icon" href="/img/favicon.ico" />
-    <script async src="./prebid.js"></script>
+    <script async src="./prebid8.39.0.js"></script>
+    <!-- <script async src="./prebid8.39.0_euid.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       console.log('Initializing example.')
-      window.uid2_example_settings = {
-        UID2_BASE_URL: 'https://operator-integ.uidapi.com',
+      window.example_settings = {
+        BASE_URL: 'https://operator-integ.uidapi.com',
         SERVER_PUBLIC_KEY: 'UID2-X-L-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEWyCP9O/6ppffj8f5PUWsEhAoMNdTBnpnkiOPZBkVnLkxOyTjPsKzf5J3ApPHzutAGNGgKAzFc6TuCfo+BWsZtQ==',
         SUBSCRIPTION_ID: 'LBk2xJsgrS',
       };
 
-      function updateGuiElements() {
+      function updateGuiElementsUID2() {
         console.log('Updating displayed values.');
         const uid2  = pbjs.getUserIds().uid2;
-        const euid = pbjs.getUserIds().euid;
-        $('#targeted_advertising_ready').text(uid2 ? 'yes' : 'no');
-        $('#advertising_token').text(uid2 ? String(uid2.id) : '');
-        $('#targeted_advertising_ready').text(euid ? 'yes' : 'no');
-        $('#advertising_token').text(uid2 ? String(euid.id) : '');
+        $('#targeted_advertising_ready_uid2').text(uid2 ? 'yes' : 'no');
+        $('#advertising_token_uid2').text(uid2 ? String(uid2.id) : '');
+
         if (!uid2) {
-          $('#login_form').show();
-          $('#clear_storage_form').hide();
+          $('#login_form_uid2').show();
+          $('#clear_storage_form_uid2').hide();
         } else {
-          $('#login_form').hide();
-          $('#clear_storage_form').show();
+          $('#login_form_uid2').hide();
+          $('#clear_storage_form_uid2').show();
         }
+        
+      }
+
+      function updateGuiElementsEUID() {
+        console.log('Updating displayed values.');
+        const euid  = pbjs.getUserIds().euid;
         if (!euid) {
           $('#login_form_euid').show();
           $('#clear_storage_form_euid').hide();
@@ -37,49 +42,154 @@
           $('#login_form_euid').hide();
           $('#clear_storage_form_euid').show();
         }
+        $('#targeted_advertising_ready_euid').text(euid ? 'yes' : 'no');
+        $('#advertising_token_euid').text(euid ? String(euid.id) : '');
       }
 
-      async function handleLogin() {
+      async function handleLoginUID2() {
         const email = $('#email').val();
-        setUid2Config(email);
+        setConfigUID2(email);
         await pbjs.refreshUserIds();
-        updateGuiElements();
+        updateGuiElementsUID2();
       }
 
-      function handleClearStorage() {
+      
+      async function handleLoginEUID() {
+        const email = document.querySelector('#email_euid').value;
+        setConfigEUID(email);
+        await pbjs.refreshUserIds();
+        updateGuiElementsEUID();
+      }
+
+      function handleClearStorageUID2() {
         console.log('Clearing storage.');
         localStorage.removeItem('__uid2_advertising_token');
-        location.reload();
+        $('#targeted_advertising_ready_uid2').text('no');
+        $('#advertising_token_uid2').text('');
+        $('#login_form_uid2').show();
+        $('#clear_storage_form_uid2').hide();
       }
+
+      function handleClearStorageEUID() {
+        console.log('Clearing storage.');
+        localStorage.removeItem('__euid_advertising_token');
+        $('#targeted_advertising_ready_euid').text('no');
+        $('#advertising_token_euid').text('');
+        $('#login_form_euid').show();
+        $('#clear_storage_form_euid').hide();
+      }
+
 
       function onDocumentReady() {
         console.log('Setting up interface handlers.');
-        $('#login').click(handleLogin);
-        $('#clear_storage').click(handleClearStorage);
+        $('#login_uid2').click(handleLoginUID2);
+        $('#clear_storage_uid2').click(handleClearStorageUID2);
+        $('#login_euid').click(handleLoginEUID);
+        $('#clear_storage_euid').click(handleClearStorageEUID);
         
-        updateGuiElements();
+        updateGuiElementsUID2();
+        updateGuiElementsEUID();
       }
 
-      function setUid2Config(email) {
-        const cstgParams = email ? {email, subscriptionId: `${window.uid2_example_settings.SUBSCRIPTION_ID}`, serverPublicKey: `${window.uid2_example_settings.SERVER_PUBLIC_KEY}`} : {};
+      let consentManagementObj = {
+        "cmpApi": "static",
+        "consentData": {
+          "getTCData": {
+            "tcString": "CO-HDlqO-HDlqAKAXCENBDCsAP_AAH_AACiQHKNd_X_fb39j-_59_9t0eY1f9_7_v20zjgeds-8Nyd_X_L8X42M7vF36pq4KuR4Eu3LBIQFlHOHcTUmw6IkVqTPsak2Mr7NKJ7PEinMbe2dYGHtfn9VTuZKYr97s___z__-__v__75f_r-3_3_vp9V---_fA5QAkw1L4CLMSxwJJo0qhRAhCuJDoAQAUUIwtE1hASuCnZXAR-ggYAIDUBGBECDEFGLIIAAAAAkoiAkAPBAIgCIBAACAFSAhAARoAgsAJAwCAAUA0LACKAIQJCDI4KjlMCAiRaKCeSMASi72MMIQyigBoFH4AAAAA.cAAAAAAAAAAA",
+            "cmpId": 10,
+            "cmpVersion": 23,
+            "tcfPolicyVersion": 2,
+            "gdprApplies": true,
+            "cmpStatus": "loaded",
+            "eventStatus": "tcloaded",
+            "purpose": {
+              "consents": {
+                "1": true,
+                "2": true
+              }
+            },
+            "vendor": {
+              "consents": {
+                // add your GVL ID here and set to true to give consent within pbjs
+                "52": true,     // rubicon for adserving
+                "21": true,     // unifiedId
+                "131": true,    // id5Id
+                "929": true,    // parrableId
+                "97": true,     // identityLink
+                "887": true,    // uid2
+                "95": true,     // lotamePanoramaId
+                "301": true,    // zeotapIdPlus
+                "91": true,     // criteo
+                "737": true,    // amxId
+                "58": true,     // 33acrossId
+              }
+            }
+          }
+        }
+      }
+
+      function getConsentManagementObj(idType) {
+        if (idType === "uid2") {
+          consentManagementObj["consentData"]["getTCData"]["gdprApplies"] = false;
+        }
+        else if (idType === "euid") {
+          consentManagementObj["consentData"]["getTCData"]["gdprApplies"] = true;
+        }
+        return consentManagementObj;
+      }
+
+      function setConfigUID2(email) {
+        const cstgParams = email ? {email, subscriptionId: `${window.example_settings.SUBSCRIPTION_ID}`, serverPublicKey: `${window.example_settings.SERVER_PUBLIC_KEY}`} : {};
         const uid2Params = {
           uid2ApiBase: `http://localhost:8080`,
           ...cstgParams,
         };
+        
+        let configObj = {
+          debug: true,
+            userSync: {
+              userIds: [
+                {
+                  name: 'uid2',
+                  params: uid2Params,
+                },
+              ],
+              syncDelay: 5000,
+              auctionDelay: 1000,
+            },
+        };
+        let consentManagement = window.pbjs.getConfig("consentManagement");
+        // if EUID has already been generated, consentManagement prop will need to be updated
+        if (consentManagement) {
+          configObj["consentManagement"] = getConsentManagementObj('uid2');
+          pbjs.setConfig(configObj);
+        }
+        else {
+          pbjs.setConfig(configObj);
+        }
+      }
+
+      function setConfigEUID(email) {
+        const cstgParams = email ? {email, subscriptionId: window.example_settings.SUBSCRIPTION_ID, serverPublicKey: window.example_settings.SERVER_PUBLIC_KEY} : {};
+        const euidParams = {
+          euidApiBase: `http://localhost:8080`,
+          ...cstgParams,
+        };
         pbjs.setConfig({
           debug: true,
+          "consentManagement": getConsentManagementObj("euid"),
           userSync: {
             userIds: [
               {
-                name: 'uid2',
-                params: uid2Params,
+                name: 'euid',
+                params: euidParams,
               },
             ],
             syncDelay: 5000,
             auctionDelay: 1000,
           },
         });
-      }
+      };
 
       var adUnits = [
         {
@@ -107,7 +217,6 @@
       var pbjs = pbjs || {};
       pbjs.que = pbjs.que || [];
       pbjs.que.push(function () {
-        setUid2Config();
         pbjs.addAdUnits(adUnits);
         pbjs.requestBids();
 
@@ -124,16 +233,16 @@
     <table id="uid2_state">
       <tr>
         <td class="label">Ready for Targeted Advertising:</td>
-        <td class="value"><pre id="targeted_advertising_ready"></pre></td>
+        <td class="value"><pre id="targeted_advertising_ready_uid2"></pre></td>
       </tr>
       <tr>
         <td class="label">UID2 Advertising Token:</td>
-        <td class="value"><pre id="advertising_token"></pre></td>
+        <td class="value"><pre id="advertising_token_uid2"></pre></td>
       </tr>
     </table>
     <div id="test-div">
     </div>
-    <div id="login_form" style="display: none" class="form">
+    <div id="login_form_uid2" style="display: none" class="form">
       <div class="email_prompt">
         <input
           type="text"
@@ -144,11 +253,11 @@
           value="test@example.com"
         />
       </div>
-      <div><button type="button" class="button" id="login">Log In</button></div>
+      <div><button type="button" class="button" id="login_uid2">Log In</button></div>
     </div>
-    <div id="clear_storage_form" style="display: none" class="form">
+    <div id="clear_storage_form_uid2" style="display: none" class="form">
       <form>
-        <button type="button" class="button" id="clear_storage">Clear Storage</button>
+        <button type="button" class="button" id="clear_storage_uid2">Clear Storage</button>
       </form>
     </div>
     </div>
@@ -175,7 +284,7 @@
       <div class="email_prompt">
         <input
           type="text"
-          id="email"
+          id="email_euid"
           name="email"
           placeholder="Enter an email address"
           style="border-style: none"
