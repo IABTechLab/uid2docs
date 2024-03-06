@@ -5,8 +5,7 @@
     <title>UID2 Prebid.js Client-Side Integration Example</title>
     <link rel="stylesheet" type="text/css" href="./app.css" />
     <link rel="shortcut icon" href="/img/favicon.ico" />
-    <script async src="./prebid8.39.0.js"></script>
-    <!-- <script async src="./prebid8.39.0_euid.js"></script> -->
+    <script async src="./prebid.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       console.log('Initializing example.')
@@ -16,34 +15,31 @@
         SUBSCRIPTION_ID: 'LBk2xJsgrS',
       };
 
+      function updateGuiElements(idType, id) {
+        if (!id) {
+          $(`#login_form_${idType}`).show();
+          $(`#clear_storage_form_${idType}`).hide();
+        } else {
+          $(`#login_form_${idType}`).hide();
+          $(`#clear_storage_form_${idType}`).show();
+        }
+
+        $(`#targeted_advertising_ready_${idType}`).text(id ? 'yes' : 'no');
+        $(`#advertising_token_${idType}`).text(id ? String(id.id) : '');
+
+      }
+
       function updateGuiElementsUID2() {
         console.log('Updating displayed values.');
         const uid2  = pbjs.getUserIds().uid2;
-        $('#targeted_advertising_ready_uid2').text(uid2 ? 'yes' : 'no');
-        $('#advertising_token_uid2').text(uid2 ? String(uid2.id) : '');
-
-        if (!uid2) {
-          $('#login_form_uid2').show();
-          $('#clear_storage_form_uid2').hide();
-        } else {
-          $('#login_form_uid2').hide();
-          $('#clear_storage_form_uid2').show();
-        }
+        updateGuiElements("uid2", uid2);
         
       }
 
       function updateGuiElementsEUID() {
         console.log('Updating displayed values.');
         const euid  = pbjs.getUserIds().euid;
-        if (!euid) {
-          $('#login_form_euid').show();
-          $('#clear_storage_form_euid').hide();
-        } else {
-          $('#login_form_euid').hide();
-          $('#clear_storage_form_euid').show();
-        }
-        $('#targeted_advertising_ready_euid').text(euid ? 'yes' : 'no');
-        $('#advertising_token_euid').text(euid ? String(euid.id) : '');
+        updateGuiElements("euid", euid);
       }
 
       async function handleLoginUID2() {
@@ -61,22 +57,21 @@
         updateGuiElementsEUID();
       }
 
-      function handleClearStorageUID2() {
+      function handleClearStorage(idType) {
         console.log('Clearing storage.');
-        localStorage.removeItem('__uid2_advertising_token');
-        $('#targeted_advertising_ready_uid2').text('no');
-        $('#advertising_token_uid2').text('');
-        $('#login_form_uid2').show();
-        $('#clear_storage_form_uid2').hide();
+        localStorage.removeItem(`__${idType}_advertising_token`);
+        $(`#targeted_advertising_ready_${idType}`).text('no');
+        $(`#advertising_token_${idType}`).text('');
+        $(`#login_form_${idType}`).show();
+        $(`#clear_storage_form_${idType}`).hide();
+      }
+
+      function handleClearStorageUID2() {
+        handleClearStorage("uid2");
       }
 
       function handleClearStorageEUID() {
-        console.log('Clearing storage.');
-        localStorage.removeItem('__euid_advertising_token');
-        $('#targeted_advertising_ready_euid').text('no');
-        $('#advertising_token_euid').text('');
-        $('#login_form_euid').show();
-        $('#clear_storage_form_euid').hide();
+        handleClearStorage("euid");
       }
 
 
@@ -141,7 +136,7 @@
       function setConfigUID2(email) {
         const cstgParams = email ? {email, subscriptionId: `${window.example_settings.SUBSCRIPTION_ID}`, serverPublicKey: `${window.example_settings.SERVER_PUBLIC_KEY}`} : {};
         const uid2Params = {
-          uid2ApiBase: `http://localhost:8080`,
+          uid2ApiBase: `${window.uid2_example_settings.UID2_BASE_URL}`,
           ...cstgParams,
         };
         
@@ -172,7 +167,7 @@
       function setConfigEUID(email) {
         const cstgParams = email ? {email, subscriptionId: window.example_settings.SUBSCRIPTION_ID, serverPublicKey: window.example_settings.SERVER_PUBLIC_KEY} : {};
         const euidParams = {
-          euidApiBase: `http://localhost:8080`,
+          euidApiBase: `${window.uid2_example_settings.UID2_BASE_URL}`,
           ...cstgParams,
         };
         pbjs.setConfig({
@@ -266,7 +261,7 @@
   <div>
     <h1>EUID Prebid.js Client-Side Integration Example</h1>
     <p class="intro_euid">
-      This example demonstrates how a content publisher can integrate with EUID and Prebid.js using the <a href="https://unifiedid.com/docs/guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>, which includes generating UID2 tokens within the browser.
+      This example demonstrates how a content publisher can integrate with EUID and Prebid.js.
     </p>
     <table id="euid_state">
       <tr>
