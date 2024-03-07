@@ -30,7 +30,7 @@ Prebid.js を UID2 ID モジュールと一緒に使用しているや、UID2 �
   - [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md). 
 - アプリケーションのサンプルと関連文書については、以下を参照してください:
   - SDK v3を使用したUID2 Google Secure Signals のサンプル:
-    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3) and running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/).
+    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3) and running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/).
   - The example of JavaScript client-side integration: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg) and running site ([Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)).
 
 ## Functionality
@@ -178,11 +178,11 @@ Token の Auto-refresh について知っておくべきことは以下のとお
 <TabItem value='ts' label='TypeScript'>
 
 ```tsx
-  import { EventType, Uid2CallbackPayload } from "./uid2CallbackManager";
+  import { EventType, CallbackPayload } from "./callbackManager";
 
   window.__uid2 = window.__uid2 || {};
   window.__uid2.callbacks = window.__uid2.callbacks || [];
-  window.__uid2.callbacks.push((eventType: EventType, payload: Uid2CallbackPayload) => {
+  window.__uid2.callbacks.push((eventType: EventType, payload: CallbackPayload) => {
     if (eventType === 'SdkLoaded') {
       __uid2.init({});
     }
@@ -203,12 +203,12 @@ Token の Auto-refresh について知っておくべきことは以下のとお
 | Event | Payload | Details |
 | :--- | :--- | :--- |
 | `SdkLoaded` | `{}` | SDK スクリプトがロードされ、グローバルな `__uid2` が構築されたときに呼び出されます。このイベントを受け取ると、安全に `__uid2.init` を呼び出すことができます。コールバックは常にこのイベントを一度だけ受け取ります。コールバックが登録されたときに SDK が既にロードされていた場合、コールバックは直ちにこのイベントを受け取ります。 |
-| `InitCompleted` | `{ identity: Uid2Identity  \| null }` | `init()` が終了すると呼び出されます。コールバックは `init` が正常に呼び出されている限り、常にこのイベントを一度だけ受け取ります。コールバックが登録されたときに `init` が完了していた場合は、`SdkLoaded` イベントを受信した直後にこのイベントを受け取ります。 |
-| `IdentityUpdated` | `{ identity: Uid2Identity \| null }` | 現在の ID が変更されるたびに呼び出されます。コールバックが登録された後に ID が変更されなかった場合、コールバックはこのイベントを受け取りません。 |
+| `InitCompleted` | `{ identity: Identity  \| null }` | `init()` が終了すると呼び出されます。コールバックは `init` が正常に呼び出されている限り、常にこのイベントを一度だけ受け取ります。コールバックが登録されたときに `init` が完了していた場合は、`SdkLoaded` イベントを受信した直後にこのイベントを受け取ります。 |
+| `IdentityUpdated` | `{ identity: Identity \| null }` | 現在の ID が変更されるたびに呼び出されます。コールバックが登録された後に ID が変更されなかった場合、コールバックはこのイベントを受け取りません。 |
 
 </div>
 
-`Uid2Identity` 型は `init()` を呼び出す時に指定できる ID と同じ型です。
+`Identity` 型は `init()` を呼び出す時に指定できる ID と同じ型です。
 
 #### Array Push Pattern
 
@@ -243,7 +243,7 @@ SDK がローカルストレージまたはクッキーから以前に保存さ�
 
 #### Provide an Identity by Calling `setIdentity`
 
-`init` が完了したら、いつでも [`setIdentity`](#setidentityidentity-uid2identity-void) を呼び出して、SDK に新しい ID を渡すことができあす。
+`init` が完了したら、いつでも [`setIdentity`](#setidentityidentity-identity-void) を呼び出して、SDK に新しい ID を渡すことができあす。
 
 ## API Reference
 
@@ -259,8 +259,8 @@ UID2 SDK for JavaScript とのやり取りはすべて `UID2` クラスのイン
 - [disconnect()](#disconnect-void)
 - [abort()](#abort-void)
 - [callbacks](#callbacks) <New />
-- [setIdentity()](#setidentityidentity-uid2identity-void) <New />
-- [getIdentity()](#getidentity-uid2identity--null) <New />
+- [setIdentity()](#setidentityidentity-identity-void) <New />
+- [getIdentity()](#getidentity-identity--null) <New />
 
 ### constructor()
 
@@ -447,7 +447,7 @@ SDK が正しいクッキーにアクセスするために `cookieDomain` また
 
 これは、登録されたコールバックをすべて格納する配列です。[Array Push Pattern](#array-push-pattern) を使ってのみ、この配列とやりとりする必要があります。
 
-### setIdentity(identity: Uid2Identity): void
+### setIdentity(identity: Identity): void
 
 UID2 SDK に新しい ID を提供するには、この関数を使用します。既存のリフレッシュ試行はすべてキャンセルされ、新しい ID が今後のすべての操作に使用されます。新しいリフレッシュタイマーが開始されます。ID が検証されると、登録されているすべてのイベントハンドラが新しい ID を含む `IdentityUpdated` イベントと共に呼び出されます。
 
@@ -457,7 +457,7 @@ UID2 SDK に新しい ID を提供するには、この関数を使用します�
 `setIdentity()` は、ページがシングルページのアプリで、最初に読み込んだときに ID が利用できない場合に便利です。これにより、ページロード時に `init` (および保存されている ID を読み込む) を呼び出しし、保存されている ID がない場合は後で ID を指定することができます。
 :::
 
-### getIdentity(): Uid2Identity | null
+### getIdentity(): Identity | null
 
 有効な ID がある場合は、現在格納されている ID を返します。
 

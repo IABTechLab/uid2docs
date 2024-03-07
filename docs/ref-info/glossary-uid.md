@@ -31,7 +31,6 @@ sidebar_position: 10
 <li><a href="#gl-client-secret">Client secret</a></li>
 <li><a href="#gl-closed-operator">Closed Operator</a></li>
 <li><a href="#gl-core-service">Core Service</a></li>
-<li><a href="#gl-customer-data-platform">Customer Data Platform (CDP)</a></li>
 <li><a href="#gl-data-provider">Data provider</a></li>
 <li><a href="#gl-demand-side-platform">Demand-side platform</a></li>
 <li><a href="#gl-dii">Directly identifying information (DII)</a></li>
@@ -142,9 +141,6 @@ sidebar_position: 10
 <dd>The UID2 Core Service is a centralized service that manages access to <a href="#gl-salt">salts</a>, encryption keys, and other relevant data in the UID2 ecosystem.</dd>
 <dd>For an overview of all the UID2 services, see <a href="/docs/intro#components">Components</a>.</dd>
 
-<dt class="jump-anchor" id="gl-customer-data-platform">Customer Data Platform (CDP)</dt>
-<dd>A Customer Data Platform (CDP) is a prebuilt, packaged software system that creates a unified customer database that is accessible to other systems. The CDP centralizes customer data from multiple sources and makes the data available to other systems.</dd>
-
 </dl>
 
 ### D
@@ -160,7 +156,7 @@ sidebar_position: 10
 
 <dt class="jump-anchor" id="gl-dii">Directly identifying information (DII)</dt>
 <dd>Directly identifying information, or DII, is information that directly identifies an individual, including name, email address, or phone number.</dd>
-<dd>UID2 supports email address and phone number, and translates the DII to a value that can be used for the purpose of targeted advertising but cannot be traced back to the original value.</dd>
+<dd>UID2 supports email address and phone number, and translates the DII to a value that can be used for the purpose of targeted advertising but cannot by itself be traced back to the original value.</dd>
 
 <dt class="jump-anchor" id="gl-docker">Docker</dt>
 <dd>Docker is a Platform as a Service (PaaS) suite of products that is used for automating the deployment of software via packages called containers. The set of Docker products allows packaging of an application, with all its dependencies, into a virtual container that can run on most operating systems so that applications can work efficiently in different environments.</dd>
@@ -301,7 +297,7 @@ sidebar_position: 10
 <dl>
 
 <dt class="jump-anchor" id="gl-salt">Salt</dt>
-<dd>A string of characters that is used in the process of transforming an email address or phone number into a secure, opaque value that cannot be traced back to the original value.</dd>
+<dd>A string of characters that is used in the process of transforming an email address or phone number into a secure, opaque value that cannot by itself be traced back to the original value.</dd>
 <dd>The UID2 service uses salt as part of the process, along with hashing and encryption, to secure the original value. Salt is added to the input value before hashing.</dd>
 
 <dt class="jump-anchor" id="gl-salted-hash">Salted hash</dt>

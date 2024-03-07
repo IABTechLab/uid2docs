@@ -28,19 +28,9 @@ const ArticleList: ArticleItem[] = [
     date: "September 21, 2022",
   },
   {
-    title: "Environics Analytics",
-    url: "https://www.globenewswire.com/news-release/2022/09/22/2520965/0/en/Environics-Analytics-Announces-Adoption-of-Unified-ID-2-0.html",
-    date: "September 22, 2022",
-  },
-  {
     title: "LineTV (Taiwan)",
     url: "https://www.cdns.com.tw/articles/662817",
     date: "September 22, 2022",
-  },
-  {
-    title: "Optable",
-    url: "https://www.prnewswire.com/news-releases/optable-integrates-with-the-trade-desk-to-securely-transact-unified-id-2-0--301635816.html?tc=eml_cleartime",
-    date: "September 29, 2022",
   },
   {
     title: "RainBarrel",
@@ -81,6 +71,31 @@ const ArticleList: ArticleItem[] = [
     title: "AWS Entity Resolution",
     url: "https://aws.amazon.com/blogs/industries/aws-entity-resolution-expands-data-matching-capabilities-with-liveramp-transunion-and-unified-id-2-0-integrations/",
     date: "October 16, 2023",
+  },
+  {
+    title: "HP",
+    url: "https://www.adexchanger.com/ctv-roundup/hp-taps-uid2-for-better-ctv-targeting/",
+    date: "November 3, 2023",
+  },
+  {
+    title: "Lotame",
+    url: "https://www.lotame.com/lotame-elevates-data-interoperability-with-unified-id-2-0-adoption/",
+    date: "January 18, 2024",
+  },
+  {
+    title: "lockr",
+    url: "https://www.prnewswire.com/news-releases/lockr-launches-alternative-identity-manager-aim-for-publishers-to-free-up-engineering-resources-and-meet-advertisers-demand-in-a-cookieless-environment-302043972.html",
+    date: "January 25, 2024",
+  },
+  {
+    title: "Dish Media",
+    url: "https://www.prnewswire.com/news-releases/dish-media-adopts-unified-id-2-0--enhancing-first-party-data-audiences-for-advertisers-across-dish-tv-and-sling-tv-302047385.html",
+    date: "January 30, 2024",
+  },
+  {
+    title: "Times Internet",
+    url: "https://brandequity.economictimes.indiatimes.com/news/industry/times-internet-adopts-unified-id-2-0-spearheading-the-future-of-identity-solutions/107365806",
+    date: "February 5, 2024",
   },
 ];
 

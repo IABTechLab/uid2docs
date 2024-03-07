@@ -123,6 +123,7 @@ This section includes encryption and decryption code examples in different progr
 
 For the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint, the code takes the values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md).
 
+## Encryption and Decryption Code Examples
 :::note
 For Windows, if you're using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON. For example, use `echo {"email": "test@example.com"}`.
 :::
@@ -135,6 +136,10 @@ Before using the code example, check the prerequisites and notes for the languag
 <TabItem value='py' label='Python'>
 
 The following code example encrypts requests and decrypts responses using Python. The required parameters are shown at the top of the code example, or by running `python3 uid2_request.py`.
+
+:::note
+For Windows, replace `python3` with `python`.
+:::
 
 The Python code requires the `pycryptodomex` and `requests` packages. You can install these as follows:
 
