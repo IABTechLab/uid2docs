@@ -230,6 +230,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Disney",
+    logo: "disney-logo.png",
+    type: ["Publishers"],
+  },
+  {
     name: "Dotdash Meredith",
     logo: "DotdashMeredith_Logo_BLK.png",
     type: ["Publishers"],
@@ -683,6 +688,11 @@ export const partnersData: PartnersDataType = [
     name: "ShareThis",
     logo: "ShareThis.png",
     type: ["Data"],
+  },
+  {
+    name: "Sharethrough",
+    logo: "str-logo.png",
+    type: ["DSP"],
   },
   {
     name: "Skyperfect JSAT",
