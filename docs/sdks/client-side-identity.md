@@ -25,12 +25,15 @@ This page describes version 3 of the UID2 SDK for JavaScript. If you are maintai
 - Refer to the documentation for [earlier versions of the SDK](./client-side-identity-v2.md).
 
 Related information:
-- For integration steps for content publishers, see:
+
+For integration steps for content publishers, see:
   - [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
   - [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md). 
-- For example applications with associated documentation, see:
+
+For example applications with associated documentation, see:
   - The UID2 Google Secure Signals with SDK v3 example:
-    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3) and running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/).
+    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
+    - Running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
   - The example of JavaScript client-side integration: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg) and running site ([Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)).
 
 ## Functionality

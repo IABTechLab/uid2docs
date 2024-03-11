@@ -1,5 +1,6 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
+import ConfigLocalized from "./docusaurus.config.localized.json";
 
 const lightCodeTheme = require("prism-react-renderer").themes.github;
 const darkCodeTheme = require("prism-react-renderer").themes.dracula;
@@ -11,6 +12,23 @@ function dropdownItemHtml(label, desc) {
   <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0757 22.4521L21.8352 15.7165L-4.42505e-07 15.7165L-6.51935e-07 10.9253L21.6238 10.9253L14.8626 4.18915L18.2631 0.801381L31 13.362L18.4768 25.8398L15.0757 22.4521Z" fill="currentColor"/></svg>
   </div>
   <span class="dropdown__description type-paragraph-small">${desc}</span>`;
+}
+
+const defaultLocale = "en";
+
+function getLocalizedConfigValue(key) {
+  const currentLocale = process.env.DOCUSAURUS_CURRENT_LOCALE ?? defaultLocale;
+  const values = ConfigLocalized[key];
+  if (!values) {
+    throw new Error(`Localized config key=${key} not found`);
+  }
+  const value = values[currentLocale] ?? values[defaultLocale];
+  if (!value) {
+    throw new Error(
+      `Localized value for config key=${key} not found for both currentLocale=${currentLocale} or defaultLocale=${defaultLocale}`,
+    );
+  }
+  return value;
 }
 
 /** @type {import('@docusaurus/types').Config} */
@@ -33,6 +51,9 @@ const config = {
 
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
+  //setting to ignore until we have time to properly code markdown jump anchors through docusaurus react hook
+  //https://docusaurus.io/docs/docusaurus-core#useBrokenLinks
+  onBrokenAnchors: "ignore",
 
   scripts: [
     // String format.
@@ -102,7 +123,7 @@ const config = {
       // Replace with your project's social card
       image: "img/uid2-social-card.jpg",
       colorMode: {
-        defaultMode: "light"
+        defaultMode: "light",
       },
 
       navbar: {
@@ -277,7 +298,7 @@ const config = {
               },
               {
                 label: "Do not sell my data",
-                href: "https://www.adsrvr.org/",
+                href: getLocalizedConfigValue("adsrvrURL"),
               },
             ],
           },
