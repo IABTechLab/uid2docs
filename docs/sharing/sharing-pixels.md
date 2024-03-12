@@ -1,19 +1,18 @@
 ---
-title: Sharing in Pixels
-description: Learn about sharing PIXEL
+title: Sharing UID2 Tokens in Pixels
+description: Learn about sharing UID2 in pixels.
 hide_table_of_contents: false
 sidebar_position: 08
 ---
 
-# Sharing in Pixels
+# Sharing UID2 Tokens in Pixels
 
-KL 2/14:
+In instances where a UID2 is used in a pixel, client-side, it must always be a UID2 token, not a raw UID2. Client-side activity is not secure and can be viewed by anyone inspecting web traffic.
 
-Universal pixel: we would have the new page for this, and I think this would be helpful. But this is  CSTG.
+In general, UID2 activity encompasses the pixel uses shown in the following table.
 
-Pixel | Creative Pixel | Tracking Pixel (Universal Pixel) | 
+Pixel Type | Creative Pixel | Tracking Pixel (Universal Pixel) | 
 | :--- | :--- | :--- |
 | What it measures | Impression (user sees an ad) | Conversion (user does something) |
 | Where | Publisher site |Advertiser site  |
 | For | Advertiser or third party | Advertiser or third party |
-

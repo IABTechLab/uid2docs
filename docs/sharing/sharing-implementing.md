@@ -14,7 +14,7 @@ Setting up UID2 sharing requires some steps by each participant:
 - The **sender**, who encrypts raw UID2s into UID2 sharing tokens and sends them to an authorized sharing participant.
 - The **receiver**, an authorized sharing participant who receives the UID2 sharing tokens and decrypts them.
 
->NOTE: If you are a publisher who is sharing UID2 tokens in the bid stream, see [Sharing in the Bid Stream](sharing-bid-stream.md).
+>NOTE: If you are a publisher who is sharing UID2 tokens in the bid stream, see [Tokenized Sharing for Publishers in the Bid Stream](sharing-tokenized.md#tokenized-sharing-for-publishers-in-the-bid-stream).
 
 ## Sharing Steps: Summary
 

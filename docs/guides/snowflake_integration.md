@@ -39,7 +39,7 @@ The following table summarizes the functionality available with the UID2 Snowfla
 
 *You cannot generate a UID2 token directly from DII. However, you can convert DII to a raw UID2, and then encrypt the raw UID2 into a UID2 token.
 
->NOTE: If you are a publisher who is sharing UID2 tokens in the bid stream, see [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md).
+>NOTE: If you are a publisher who is sharing UID2 tokens in the bid stream, see [Tokenized Sharing for Publishers in the Bid Stream](../sharing/sharing-tokenized.md#tokenized-sharing-for-publishers-in-the-bid-stream).
 
 ## Workflow Diagram
 
@@ -529,7 +529,7 @@ A UID2 sharer is any participant that wants to share UID2s with another particip
 
 A sharing participant must encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into [UID2 tokens](../ref-info/glossary-uid#gl-uid2-token) before sending them to another participant.
 
->IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bid stream. There is a different workflow for generating tokens for the bid stream: see [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md).
+>IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bid stream. There is a different workflow for generating tokens for the bid stream: see [Tokenized Sharing for Publishers in the Bid Stream](../sharing/sharing-tokenized.md#tokenized-sharing-for-publishers-in-the-bid-stream).
 
 The following scenarios support UID2 sharing:
 
