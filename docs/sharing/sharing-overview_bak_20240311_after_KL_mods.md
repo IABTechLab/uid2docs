@@ -12,11 +12,17 @@ displayed_sidebar: docs
 
 - [UID2 Sharing Workflow](#uid2-sharing-workflow)
 - [Generating the Token for UID2 Sharing: Example](#creating-the-token-for-sharing-example)
-- [Sharing within the Bid Stream](#sharing-within-the-bid-stream) -->
-
-(**GWH_KL I've reorganized slightly to first have an intro para, then the security stuff, then the table with summary of options and then a little bit of detail on each that leads into the other pages.**)
+- [Sharing in the Bid Stream](#sharing-in-the-bid-stream) -->
 
 In UID2, sharing is a process for distributing either [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) or [UID2 tokens](../ref-info/glossary-uid.md#gl-raw-uid2) securely between UID2 participants.
+
+There are several main sharing scenarios, summarized in the following table.
+
+| Sharing scenario | Audience | Sharing methodology | Sharing route | Link for details
+| :--- | :--- | :--- | :--- | :--- |
+| Sharing within the bid stream | Publisher | Tokenized sharing for bid stream | Publisher gets generated UID2 token and sends within bid stream.  | [Sharing in the Bid Stream](sharing-bid-stream.md) |
+| Sharing with another UID2 sharing participant, outside of the bid steam or pixels. | Any authorized sharer | Raw UID2 sharing | Sharing by any secure channel: for example, via API, Amazon S3 drop. | [Raw UID2 Sharing](#raw-uid2-sharing) |
+| Sending a UID2 in a pixel | Any authorized sharer | Tokenized sharing (UID2 token) | Tracking pixel or creative pixel | Tokenized Sharing: Sharing Via Pixel **NEW PAGE TO COME** |
 
 ## UID2 Sharing Options
 
@@ -76,17 +82,7 @@ Secure transport is the mechanism that's in place to ensure that the transition 
 
 >NOTE: ALL the above security points must be in place, continuously, if you are sending or receiving raw UID2s.
 
-## Sharing Scenarios
-
-There are several main sharing scenarios, summarized in the following table.
-
-| Sharing scenario | Audience | Sharing methodology | Sharing route | Link for details
-| :--- | :--- | :--- | :--- | :--- |
-| Sharing within the bid stream | Publisher | Tokenized sharing for bid stream | Publisher gets generated UID2 token and sends within bid stream.  | [Sharing in the Bid Stream](sharing-bid-stream.md) |
-| Sharing with another UID2 sharing participant, outside of the bid steam or pixels. | Any authorized sharer | Raw UID2 sharing | Sharing by any secure channel: for example, via API, Amazon S3 drop. | [Raw UID2 Sharing](#raw-uid2-sharing) |
-| Sending a UID2 in a pixel | Any authorized sharer | Tokenized sharing (UID2 token) | Tracking pixel or creative pixel | Tokenized Sharing: Sharing Via Pixel **NEW PAGE TO COME** |
-
-### Raw UID2 Sharing
+## Raw UID2 Sharing
 
 If you want to share raw UID2s with other authorized sharing participants, you must make sure that all points of the [Security Requirements for Raw UID2 Sharing](#security-requirements-for-raw-uid2-sharing) are rigorously followed, so that the raw UID2s are kept secure at all times.
 
@@ -94,11 +90,7 @@ For instructions for implementing raw UID2 sharing, see (**NEW PAGE YET TO COME.
 
 (**GWH_ updates done up to here**)
 
-### Sharing in the Bid Stream
-
-The process for publishers sharing UID2 tokens in the bid stream is a different process. For details, see [Sharing in the Bid Stream](sharing-bid-stream.md).
-
-### Tokenized UID2 Sharing
+## Tokenized UID2 Sharing
 
 To protect raw UID2s from unauthorized access, if messaging is not secure per [Security Requirements for Raw UID2 Sharing](#security-requirements-for-raw-uid2-sharing), the originating participant (sender) must encrypt the raw UID2s into [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) before transmission. The destination participant (receiver) must decrypt the UID2 tokens into raw UID2s for internal use.
 
@@ -120,16 +112,15 @@ Both the UID2 sender and receiver must create an account in order to take part i
 
 There are many scenarios for sharing. For additional examples, see [Sharing UID2s: Use Cases](sharing-use-cases.md).
 
->NOTE: The process for publishers sharing UID2 tokens within the bid stream is a different process. If you are a publisher who is putting UID2 tokens into the bid stream, see [Sharing in the Bid Stream](sharing-bid-stream.md). (**GWH_KL I think this note should come out?**)
+>NOTE: The process for publishers sharing UID2 tokens in the bid stream is a different process. If you are a publisher who is putting UID2 tokens into the bid stream, see [Sharing in the Bid Stream](sharing-bid-stream.md).
 
 Additional resources:
 
 - [Implementing Sharing](sharing-implementing.md)
-- [Sharing in Pixels (**GWH_KL title??**)](sharing-pixels.md)
 - [UID2 Sharing: Best Practices](sharing-best-practices.md)
 - [UID2 Portal: Overview](../portal/portal-overview.md)
 
-### UID2 Tokenized Sharing Workflow
+## UID2 Tokenized Sharing Workflow
 
 Sharing of UID2 data securely between UID2 participants, if messaging is not secure per [Security Requirements for Raw UID2 Sharing](#security-requirements-for-raw-uid2-sharing), includes encrypting raw UID2s into UID2 tokens that the receiver can decrypt using your encryption keys. To do this, you must use one of the UID2 server-side SDKs or the UID2 Snowflake integration.
 
