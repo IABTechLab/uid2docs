@@ -52,7 +52,7 @@ UID2 Operator Service にハッシュ化されていないメールアドレス�
        例えば、`janedoe+home@gmail.com` を `janedoe@gmail.com` に正規化します。
 
 :::warning
-正規化されたメールアドレスが UTD-16 のような他のエンコーディングシステムではなく、UTF-8 であることを確認してください。
+正規化されたメールアドレスが UTF-16 のような他のエンコーディングシステムではなく、UTF-8 であることを確認してください。
 :::
 
 さまざまなシナリオの例は、[Normalization Examples for Email](#normalization-examples-for-email) を参照してください。
@@ -89,7 +89,7 @@ UID2 Operator Service にハッシュ化されていないメールアドレス�
    - Sydney, Australia: `(02) 1234 5678` は、都市名の先頭のゼロを削除し、国コードを含むように正規化されます: `+61212345678`。
 
 :::warning
-正規化されたメールアドレスが UTD-16 のような他のエンコーディングシステムではなく、UTF-8 であることを確認してください。
+正規化されたメールアドレスが UTF-16 のような他のエンコーディングシステムではなく、UTF-8 であることを確認してください。
 :::
 
 ## Phone Number Hash Encoding
