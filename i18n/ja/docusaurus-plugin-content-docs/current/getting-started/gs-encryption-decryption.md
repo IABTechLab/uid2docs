@@ -43,7 +43,7 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 [encrypting requests and decrypting responses](#encryption-and-decryption-code-examples) のコード例は、Step 2-10 を自動化するのに役立ち、アプリケーションでこれらのステップを実装する方法のリファレンスとなります。
 
-各 UID2 [endpoints](../endpoints/summary-endpoints.md) では、JSONボディフォーマットの要件とパラメータを説明し、呼び出し例を含め、復号化されたレスポンスを示しています。以下のセクションでは、暗号化と復号のコード例、フィールドレイアウトの要件、リクエストとレスポンスの例を示します。
+各 UID2 [endpoints](../endpoints/summary-endpoints.md) では、JSON ボディのフォーマットの要件とパラメータを説明し、呼び出し例を含め、復号化されたレスポンスを示しています。以下のセクションでは、暗号化と復号化のコード例、フィールドレイアウトの要件、リクエストとレスポンスの例を示します。
 
 ## Encrypting Requests
 
