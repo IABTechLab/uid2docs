@@ -43,7 +43,7 @@ UID2 に興味を示していただいたら、詳細を詰めるために担当
 
 ### Client-Side Implementation for Publishers
 
-パブリッシャーが、Client-Side でトークンが生成されるように UID2 を実装することに決めた場合は、サイトのドメイン名のリストも提供する必要があります。これは、Client-Side の実装のみを対象としたセキュリティ対策です。
+パブリッシャーが、Client-Side でトークンが生成されるように UID2 を実装することに決めた場合は、サイトの**ドメイン名**のリストも提供する必要があります。これは、Client-Side の実装のみを対象としたセキュリティ対策です。
 
 :::tip
 アカウント設定に必要なのは、ルートレベルのドメインだけです。たとえば、example.com、shop.example.com、example.org の Client-Side でトークンを生成するために UID2 を実装する場合、ドメイン名 example.com と example.org だけを提供します。
