@@ -6,6 +6,7 @@ sidebar_position: 08
 use_banner: true
 banner_title:  データプロバイダー向け UID2 の概要
 banner_description: 未来のためのIDソリューション。
+displayed_sidebar: sidebarDataProviders
 ---
 
 データおよび測定プロバイダーとして、Unified ID 2.0(UID2) を 採用し、より耐久性のある、オムニチャネルおよびクロスデバイス識別子でデータを接続することで、ID の断片化を減らし、顧客のユースケースを満たすことができます。
@@ -17,6 +18,10 @@ banner_description: 未来のためのIDソリューション。
 - 測定とアトリビューション
 
 UID2 を採用するデータプロバイダーにとっての利点、ワークフロー、ドキュメント、その他のリソース、および UID2 を開始するための手順について説明します。
+
+:::note
+UID2 のドキュメント一式に左サイドバーからアクセスしたい場合は、[Unified ID 2.0 Overview](../intro.md) を参照してください。
+:::
 
 ## Benefits of UID2 for Data Providers
 

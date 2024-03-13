@@ -6,11 +6,16 @@ sidebar_position: 02
 use_banner: true
 banner_title: パブリッシャー向け UID2 概要
 banner_description: 変化し続ける広告業界においてオーディエンスターゲティングを維持し、より良いインプレッション収益化と関連性の向上を実現します。
+displayed_sidebar: sidebarPublishers
 ---
 
 パブリッシャーとして、Unified ID 2.0 (UID2) のクロスデバイスプレゼンスの恩恵を受け、すべてのインベントリで一貫した ID ファブリックを活用することができます。
 
 UID2 を採用するパブリッシャーにとってのメリット、ワークフロー、ドキュメント、その他のリソース、および UID2 の導入手順について説明します。
+
+:::note
+UID2 のドキュメント一式に左サイドバーからアクセスしたい場合は、[Unified ID 2.0 Overview](../intro.md) を参照してください。
+:::
 
 <!-- Learn about what the UID2 framework offers to publishers, including benefits, workflow, documentation and other resources, and how to get started. -->
 

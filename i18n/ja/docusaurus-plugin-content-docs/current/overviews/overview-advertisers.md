@@ -6,11 +6,16 @@ sidebar_position: 04
 use_banner: true
 banner_title: 広告主向け UID2 の概要
 banner_description: Unified ID 2.0 でキャンペーンのアクティベーションをアップグレードしましょう。
+displayed_sidebar: sidebarAdvertisers
 ---
 
 広告主として、Unified ID 2.0(UID2) でファーストパーティデータ戦術をアップグレードし、1 つの識別子でデバイスをまたいだオムニチャネルキャンペーンを提供することで、より耐久性のある ID 戦略とより優れたアドレサビリティを実現できます。
 
 UID2 を採用する広告主にとってのメリット、ワークフロー、ドキュメント、その他のリソース、および UID2 の導入手順について説明します。
+
+:::note
+UID2 のドキュメント一式に左サイドバーからアクセスしたい場合は、[Unified ID 2.0 Overview](../intro.md) を参照してください。
+:::
 
 ## Benefits of UID2 for Advertisers
 

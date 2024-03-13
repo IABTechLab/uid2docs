@@ -3,6 +3,7 @@ title: UID2 Overview
 description: UID2 ドキュメントの紹介。
 hide_table_of_contents: false
 sidebar_position: 01
+displayed_sidebar: docs
 ---
 
 # Unified ID 2.0 Overview
