@@ -5,6 +5,7 @@ pagination_label: UID2 Integration Guides - Summary
 description: 利用可能なすべてのインテグレーションガイドの概要。
 hide_table_of_contents: false
 sidebar_position: 01
+displayed_sidebar: docs
 ---
 
 # UID2 Integration Guides: Summary

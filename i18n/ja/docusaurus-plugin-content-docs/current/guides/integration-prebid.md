@@ -5,6 +5,7 @@ pagination_label: UID2 Integration Overview for Prebid.js
 description: UID2 実装の一部として Prebid.js とインテグレーションするためのオプションの概要。
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: sidebarPublishers
 ---
 
 # UID2 Integration Overview for Prebid.js

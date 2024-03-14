@@ -3,6 +3,7 @@ title: UID2 Endpoints - Summary
 description: UID2 Service で利用可能なエンドポイントの概要。
 hide_table_of_contents: false
 sidebar_position: 01
+displayed_sidebar: docs
 ---
 
 # UID2 Endpoints: Summary
