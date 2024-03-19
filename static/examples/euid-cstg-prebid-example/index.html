@@ -9,13 +9,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       console.log('Initializing example.')
-      window.example_settings = {
-        // EUID_BASE_URL: 'https://operator-integ.uidapi.com',
-        // SERVER_PUBLIC_KEY: 'UID2-X-I-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEo+jcPlk8GWn3iG0R5Il2cbFQI9hR3TvHxaBUKHl5Vh+ugr+9uLMiXihka8To07ETFGghEifY96Hrpe5RnYko7Q==',
-        // SUBSCRIPTION_ID: 'DMr7uHxqLU',
-        EUID_BASE_URL: 'http://localhost:8080/',
-        SERVER_PUBLIC_KEY: 'UID2-X-L-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEWyCP9O/6ppffj8f5PUWsEhAoMNdTBnpnkiOPZBkVnLkxOyTjPsKzf5J3ApPHzutAGNGgKAzFc6TuCfo+BWsZtQ==',
-        SUBSCRIPTION_ID: 'LBk2xJsgrS',
+      window.euid_example_settings = {
+        EUID_BASE_URL: 'https://operator-integ.uidapi.com',
+        SERVER_PUBLIC_KEY: 'UID2-X-I-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEo+jcPlk8GWn3iG0R5Il2cbFQI9hR3TvHxaBUKHl5Vh+ugr+9uLMiXihka8To07ETFGghEifY96Hrpe5RnYko7Q==',
+        SUBSCRIPTION_ID: 'DMr7uHxqLU',
       };
 
       function updateGuiElements(euid) {
@@ -101,9 +98,9 @@
       }
 
       function setConfigEUID(email) {
-        const cstgParams = email ? {email, subscriptionId: window.example_settings.SUBSCRIPTION_ID, serverPublicKey: window.example_settings.SERVER_PUBLIC_KEY} : {};
+        const cstgParams = email ? {email, subscriptionId: window.euid_example_settings.SUBSCRIPTION_ID, serverPublicKey: window.euid_example_settings.SERVER_PUBLIC_KEY} : {};
         const euidParams = {
-          euidApiBase: `${window.example_settings.EUID_BASE_URL}`,
+          euidApiBase: `${window.euid_example_settings.EUID_BASE_URL}`,
           ...cstgParams,
         };
         pbjs.setConfig({
