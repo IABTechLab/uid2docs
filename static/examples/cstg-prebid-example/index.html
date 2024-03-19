@@ -9,182 +9,70 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       console.log('Initializing example.')
-      window.example_settings = {
-        BASE_URL: 'https://operator-integ.uidapi.com',
-        SERVER_PUBLIC_KEY:  'UID2-X-I-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEo+jcPlk8GWn3iG0R5Il2cbFQI9hR3TvHxaBUKHl5Vh+ugr+9uLMiXihka8To07ETFGghEifY96Hrpe5RnYko7Q==',
-        SUBSCRIPTION_ID: 'DMr7uHxqLU',
+      window.uid2_example_settings = {
+        // UID2_BASE_URL: 'https://operator-integ.uidapi.com',
+        // SERVER_PUBLIC_KEY: 'UID2-X-I-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEo+jcPlk8GWn3iG0R5Il2cbFQI9hR3TvHxaBUKHl5Vh+ugr+9uLMiXihka8To07ETFGghEifY96Hrpe5RnYko7Q==',
+        // SUBSCRIPTION_ID: 'DMr7uHxqLU',
+        UID2_BASE_URL: 'http://localhost:8080/',
+        SERVER_PUBLIC_KEY: 'UID2-X-L-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEWyCP9O/6ppffj8f5PUWsEhAoMNdTBnpnkiOPZBkVnLkxOyTjPsKzf5J3ApPHzutAGNGgKAzFc6TuCfo+BWsZtQ==',
+        SUBSCRIPTION_ID: 'LBk2xJsgrS',
       };
 
-      function updateGuiElements(idType, id) {
-        if (!id) {
-          $(`#login_form_${idType}`).show();
-          $(`#clear_storage_form_${idType}`).hide();
-        } else {
-          $(`#login_form_${idType}`).hide();
-          $(`#clear_storage_form_${idType}`).show();
-        }
-
-        $(`#targeted_advertising_ready_${idType}`).text(id ? 'yes' : 'no');
-        $(`#advertising_token_${idType}`).text(id ? String(id.id) : '');
-
-      }
-
-      function updateGuiElementsUID2() {
+      function updateGuiElements() {
         console.log('Updating displayed values.');
         const uid2  = pbjs.getUserIds().uid2;
-        updateGuiElements("uid2", uid2);
-        
+        $('#targeted_advertising_ready').text(uid2 ? 'yes' : 'no');
+        $('#advertising_token').text(uid2 ? String(uid2.id) : '');
+        if (!uid2) {
+          $('#login_form').show();
+          $('#clear_storage_form').hide();
+        } else {
+          $('#login_form').hide();
+          $('#clear_storage_form').show();
+        }
       }
 
-      function updateGuiElementsEUID() {
-        console.log('Updating displayed values.');
-        const euid  = pbjs.getUserIds().euid;
-        updateGuiElements("euid", euid);
-      }
-
-      async function handleLoginUID2() {
+      async function handleLogin() {
         const email = $('#email').val();
-        setConfigUID2(email);
+        setUid2Config(email);
         await pbjs.refreshUserIds();
-        updateGuiElementsUID2();
+        updateGuiElements();
       }
 
-      
-      async function handleLoginEUID() {
-        const email = document.querySelector('#email_euid').value;
-        setConfigEUID(email);
-        await pbjs.refreshUserIds();
-        updateGuiElementsEUID();
-      }
-
-      function handleClearStorage(idType) {
+      function handleClearStorage() {
         console.log('Clearing storage.');
-        localStorage.removeItem(`__${idType}_advertising_token`);
-        $(`#targeted_advertising_ready_${idType}`).text('no');
-        $(`#advertising_token_${idType}`).text('');
-        $(`#login_form_${idType}`).show();
-        $(`#clear_storage_form_${idType}`).hide();
+        localStorage.removeItem('__uid2_advertising_token');
+        location.reload();
       }
-
-      function handleClearStorageUID2() {
-        handleClearStorage("uid2");
-      }
-
-      function handleClearStorageEUID() {
-        handleClearStorage("euid");
-      }
-
 
       function onDocumentReady() {
         console.log('Setting up interface handlers.');
-        $('#login_uid2').click(handleLoginUID2);
-        $('#clear_storage_uid2').click(handleClearStorageUID2);
-        $('#login_euid').click(handleLoginEUID);
-        $('#clear_storage_euid').click(handleClearStorageEUID);
+        $('#login').click(handleLogin);
+        $('#clear_storage').click(handleClearStorage);
         
-        updateGuiElementsUID2();
-        updateGuiElementsEUID();
+        updateGuiElements();
       }
 
-      let consentManagementObj = {
-        "cmpApi": "static",
-        "consentData": {
-          "getTCData": {
-            "tcString": "CO-HDlqO-HDlqAKAXCENBDCsAP_AAH_AACiQHKNd_X_fb39j-_59_9t0eY1f9_7_v20zjgeds-8Nyd_X_L8X42M7vF36pq4KuR4Eu3LBIQFlHOHcTUmw6IkVqTPsak2Mr7NKJ7PEinMbe2dYGHtfn9VTuZKYr97s___z__-__v__75f_r-3_3_vp9V---_fA5QAkw1L4CLMSxwJJo0qhRAhCuJDoAQAUUIwtE1hASuCnZXAR-ggYAIDUBGBECDEFGLIIAAAAAkoiAkAPBAIgCIBAACAFSAhAARoAgsAJAwCAAUA0LACKAIQJCDI4KjlMCAiRaKCeSMASi72MMIQyigBoFH4AAAAA.cAAAAAAAAAAA",
-            "cmpId": 10,
-            "cmpVersion": 23,
-            "tcfPolicyVersion": 2,
-            "gdprApplies": true,
-            "cmpStatus": "loaded",
-            "eventStatus": "tcloaded",
-            "purpose": {
-              "consents": {
-                "1": true,
-                "2": true
-              }
-            },
-            "vendor": {
-              "consents": {
-                // add your GVL ID here and set to true to give consent within pbjs
-                "52": true,     // rubicon for adserving
-                "21": true,     // unifiedId
-                "131": true,    // id5Id
-                "929": true,    // parrableId
-                "97": true,     // identityLink
-                "887": true,    // uid2
-                "95": true,     // lotamePanoramaId
-                "301": true,    // zeotapIdPlus
-                "91": true,     // criteo
-                "737": true,    // amxId
-                "58": true,     // 33acrossId
-              }
-            }
-          }
-        }
-      }
-
-      function getConsentManagementObj(idType) {
-        if (idType === "uid2") {
-          consentManagementObj["consentData"]["getTCData"]["gdprApplies"] = false;
-        }
-        else if (idType === "euid") {
-          consentManagementObj["consentData"]["getTCData"]["gdprApplies"] = true;
-        }
-        return consentManagementObj;
-      }
-
-      function setConfigUID2(email) {
-        const cstgParams = email ? {email, subscriptionId: `${window.example_settings.SUBSCRIPTION_ID}`, serverPublicKey: `${window.example_settings.SERVER_PUBLIC_KEY}`} : {};
+      function setUid2Config(email) {
+        const cstgParams = email ? {email, subscriptionId: `${window.uid2_example_settings.SUBSCRIPTION_ID}`, serverPublicKey: `${window.uid2_example_settings.SERVER_PUBLIC_KEY}`} : {};
         const uid2Params = {
-          uid2ApiBase: `${window.example_settings.BASE_URL}`,
-          ...cstgParams,
-        };
-        
-        let configObj = {
-          debug: true,
-            userSync: {
-              userIds: [
-                {
-                  name: 'uid2',
-                  params: uid2Params,
-                },
-              ],
-              syncDelay: 5000,
-              auctionDelay: 1000,
-            },
-        };
-        let consentManagement = window.pbjs.getConfig("consentManagement");
-        // if EUID has already been generated, consentManagement prop will need to be updated
-        if (consentManagement) {
-          configObj["consentManagement"] = getConsentManagementObj('uid2');
-          pbjs.setConfig(configObj);
-        }
-        else {
-          pbjs.setConfig(configObj);
-        }
-      }
-
-      function setConfigEUID(email) {
-        const cstgParams = email ? {email, subscriptionId: window.example_settings.SUBSCRIPTION_ID, serverPublicKey: window.example_settings.SERVER_PUBLIC_KEY} : {};
-        const euidParams = {
-          euidApiBase: `${window.example_settings.BASE_URL}`,
+          uid2ApiBase: `${window.uid2_example_settings.UID2_BASE_URL}`,
           ...cstgParams,
         };
         pbjs.setConfig({
           debug: true,
-          "consentManagement": getConsentManagementObj("euid"),
           userSync: {
             userIds: [
               {
-                name: 'euid',
-                params: euidParams,
+                name: 'uid2',
+                params: uid2Params,
               },
             ],
             syncDelay: 5000,
             auctionDelay: 1000,
           },
         });
-      };
+      }
 
       var adUnits = [
         {
@@ -212,6 +100,7 @@
       var pbjs = pbjs || {};
       pbjs.que = pbjs.que || [];
       pbjs.que.push(function () {
+        setUid2Config();
         pbjs.addAdUnits(adUnits);
         pbjs.requestBids();
 
@@ -220,7 +109,6 @@
     </script>
   </head>
   <body>
-    <div>
     <h1>UID2 Prebid.js Client-Side Integration Example</h1>
     <p class="intro">
       This example demonstrates how a content publisher can integrate with UID2 and Prebid.js using the <a href="https://unifiedid.com/docs/guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>, which includes generating UID2 tokens within the browser.
@@ -228,16 +116,16 @@
     <table id="uid2_state">
       <tr>
         <td class="label">Ready for Targeted Advertising:</td>
-        <td class="value"><pre id="targeted_advertising_ready_uid2"></pre></td>
+        <td class="value"><pre id="targeted_advertising_ready"></pre></td>
       </tr>
       <tr>
         <td class="label">UID2 Advertising Token:</td>
-        <td class="value"><pre id="advertising_token_uid2"></pre></td>
+        <td class="value"><pre id="advertising_token"></pre></td>
       </tr>
     </table>
     <div id="test-div">
     </div>
-    <div id="login_form_uid2" style="display: none" class="form">
+    <div id="login_form" style="display: none" class="form">
       <div class="email_prompt">
         <input
           type="text"
@@ -248,52 +136,13 @@
           value="test@example.com"
         />
       </div>
-      <div><button type="button" class="button" id="login_uid2">Log In</button></div>
+      <div><button type="button" class="button" id="login">Log In</button></div>
     </div>
-    <div id="clear_storage_form_uid2" style="display: none" class="form">
+    <div id="clear_storage_form" style="display: none" class="form">
       <form>
-        <button type="button" class="button" id="clear_storage_uid2">Clear Storage</button>
+        <button type="button" class="button" id="clear_storage">Clear Storage</button>
       </form>
     </div>
     </div>
-  </div>
-  <br><br><br><br><br>
-  <div>
-    <h1>EUID Prebid.js Client-Side Integration Example</h1>
-    <p class="intro_euid">
-      This example demonstrates how a content publisher can integrate with EUID and Prebid.js using the <a href="https://github.com/European-Unified-ID/EUID-docs/blob/main/api/v2/guides/integration-prebid-client-side.md">EUID Client-Side Integration Guide for Prebid.js</a>, which includes generating EUID tokens within the browser.
-    </p>
-    <table id="euid_state">
-      <tr>
-        <td class="label">Ready for Targeted Advertising:</td>
-        <td class="value"><pre id="targeted_advertising_ready_euid"></pre></td>
-      </tr>
-      <tr>
-        <td class="label">EUID Advertising Token:</td>
-        <td class="value"><pre id="advertising_token_euid"></pre></td>
-      </tr>
-    </table>
-    <div id="test-div">
-    </div>
-    <div id="login_form_euid" style="display: none" class="form">
-      <div class="email_prompt">
-        <input
-          type="text"
-          id="email_euid"
-          name="email"
-          placeholder="Enter an email address"
-          style="border-style: none"
-          value="test@example.com"
-        />
-      </div>
-      <div><button type="button" class="button" id="login_euid">Log In</button></div>
-    </div>
-    <div id="clear_storage_form_euid" style="display: none" class="form">
-      <form>
-        <button type="button" class="button" id="clear_storage_euid">Clear Storage</button>
-      </form>
-    </div>
-    </div>
-  </div>
   </body>
 </html>
