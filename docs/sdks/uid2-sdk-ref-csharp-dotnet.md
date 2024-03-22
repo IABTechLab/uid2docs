@@ -61,7 +61,7 @@ The binary is published in this location:
 
 DSPs should create an instance of the `BidstreamClient` class. Sharers should create an instance of the `SharingClient` class.
 
-Whether you are a DSP or a sharer, you will need to provide the values necessary for the SDK to authenticate with the UID2 service.
+You will need to provide the values necessary for the SDK to authenticate with the UID2 service.
 
 | Parameter | Description |
 | :--- | :--- |
