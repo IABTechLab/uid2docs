@@ -10,9 +10,12 @@
     <script>
       console.log('Initializing example.')
       window.euid_example_settings = {
-        EUID_BASE_URL: 'https://integ.euid.eu/',
-        SERVER_PUBLIC_KEY: 'EUID-X-I-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEYla1YQ6N+surF4Yjaax46mPxCv7ixCR0zd3AYV5D8nhEVbQOuhs+GGxp0rUVpucJGQxNvkINwdSeCTpyzLMtFA==',
-        SUBSCRIPTION_ID: 'QRtT141htm',
+        // EUID_BASE_URL: 'https://integ.euid.eu/',
+        // SERVER_PUBLIC_KEY: 'EUID-X-I-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEYla1YQ6N+surF4Yjaax46mPxCv7ixCR0zd3AYV5D8nhEVbQOuhs+GGxp0rUVpucJGQxNvkINwdSeCTpyzLMtFA==',
+        // SUBSCRIPTION_ID: 'QRtT141htm',
+        EUID_BASE_URL: 'http://localhost:8080/',
+        SERVER_PUBLIC_KEY: 'UID2-X-L-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEWyCP9O/6ppffj8f5PUWsEhAoMNdTBnpnkiOPZBkVnLkxOyTjPsKzf5J3ApPHzutAGNGgKAzFc6TuCfo+BWsZtQ==',
+        SUBSCRIPTION_ID: 'LBk2xJsgrS',
       };
 
       function updateGuiElements(euid) {
@@ -25,7 +28,8 @@
         }
 
         $(`#targeted_advertising_ready_euid`).text(euid ? 'yes' : 'no');
-        $(`#advertising_token_euid`).text(euid ? String(euid.id) : '');
+
+        $('#advertising_token_euid').text(euid && !euid.optout ? String(euid.id) : euid && euid.optout ? 'This email has opted out.' : '');
 
       }
 
