@@ -3,19 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <title>EUID Publisher Client-Side Integration Example using UID2 JavsScript SDK</title>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/app.css" />
+    <link rel="stylesheet" type="text/css" href="./app.css" />
     <link rel="shortcut icon" href="/images/favicon.png" />
     <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script defer src="https://cdn.integ.euid.eu/euid-sdk-3.3.0.js"></script>
     <script>
-      window.euid_example_settings = {
-        // EUID_BASE_URL: 'https://integ.euid.eu/',
-        // SERVER_PUBLIC_KEY: 'EUID-X-I-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEYla1YQ6N+surF4Yjaax46mPxCv7ixCR0zd3AYV5D8nhEVbQOuhs+GGxp0rUVpucJGQxNvkINwdSeCTpyzLMtFA==',
-        // SUBSCRIPTION_ID: 'QRtT141htm',
-        EUID_BASE_URL: 'http://localhost:8080/',
-        SERVER_PUBLIC_KEY: 'UID2-X-L-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEWyCP9O/6ppffj8f5PUWsEhAoMNdTBnpnkiOPZBkVnLkxOyTjPsKzf5J3ApPHzutAGNGgKAzFc6TuCfo+BWsZtQ==',
-        SUBSCRIPTION_ID: 'LBk2xJsgrS',
-
+      const clientSideIdentityOptions = {
+        serverPublicKey:  'EUID-X-I-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEYla1YQ6N+surF4Yjaax46mPxCv7ixCR0zd3AYV5D8nhEVbQOuhs+GGxp0rUVpucJGQxNvkINwdSeCTpyzLMtFA==',
+        subscriptionId: 'QRtT141htm',
       };
 
       let callbackCounter = 0;
@@ -75,15 +70,13 @@
 
       window.__euid.callbacks.push(onEuidIdentityUpdated);
       window.__euid.callbacks.push((eventType, payload) => {
-        $(document).ready(onDocumentReady);
         if (eventType === 'SdkLoaded') {
           window.__euid.init({
-            baseUrl: EUID_BASE_URL,
+            baseUrl: 'https://integ.euid.eu/',
           });
           $(document).ready(onDocumentReady);
         }
       });
-     
     </script>
   </head>
   <body>
