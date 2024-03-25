@@ -25,7 +25,8 @@
         }
 
         $(`#targeted_advertising_ready_euid`).text(euid ? 'yes' : 'no');
-        $(`#advertising_token_euid`).text(euid ? String(euid.id) : '');
+
+        $('#advertising_token_euid').text(euid && !euid.optout ? String(euid.id) : euid && euid.optout ? 'This email has opted out.' : '');
 
       }
 
