@@ -7,10 +7,10 @@ sidebar_position: 08
 
 # UID2 SDK for C# / .NET Reference Guide
 
-You can use the UID2 SDK for C# / .NET on the server-side to facilitate the following:
+You can use the UID2 SDK for C# / .NET on the server side to facilitate the following:
 
 - Encrypting raw UID2s to create UID2 tokens for sharing.
-- Decrypting UID2 advertising tokens to access the raw UID2s.
+- Decrypting UID2 tokens to access the raw UID2s.
 
 <!-- This guide includes the following information:
 
@@ -71,10 +71,10 @@ You will need to provide the values necessary for the SDK to authenticate with t
 
 ## Interface
 
-The `BidstreamClient` class allows you to decrypt UID2 advertising tokens into raw UID2s.
+The `BidstreamClient` class allows you to decrypt UID2 tokens into raw UID2s.
 For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
 
-The `SharingClient` class allows you to encrypt raw UID2 into UID2 advertising tokens, as well as decrypt UID2 advertising tokens into raw UID2s.
+The `SharingClient` class allows you to encrypt raw UID2s into UID2 tokens and decrypt UID2 tokens into raw UID2s.
 
 :::note
 When you use an SDK, you do not need to store or manage decryption keys.
@@ -82,40 +82,40 @@ When you use an SDK, you do not need to store or manage decryption keys.
 
 ### Decryption Response Content
 
-Whether decrypting with the `BidstreamClient` or the `SharingClient`, the SDK will return the following information:
+Whether decrypting with the `BidstreamClient` or the `SharingClient`, the SDK returns the following information:
 
 | Property | Description |
 | :--- | :--- |
 | `Status` | The decryption result status. For a list of possible values and definitions, see [Decryption Response Statuses](#decryption-response-statuses). |
-| `Uid` | The raw UID2 for the corresponding UID2 advertising token. |
+| `Uid` | The raw UID2 for the corresponding UID2 token. |
 | `Established` | The timestamp indicating when a user first established the UID2 with the publisher. |
 
 ### Decryption Response Statuses
 
 | Value | Description |
 | :--- | :--- |
-| `Success` | The UID2 advertising token was decrypted successfully and a raw UID2 was returned. |
-| `NotAuthorizedForKey` | The requester does not have authorization to decrypt this UID2 advertising token.|
+| `Success` | The UID2 token was decrypted successfully and a raw UID2 was returned. |
+| `NotAuthorizedForKey` | The requester does not have authorization to decrypt this UID2 token.|
 | `NotInitialized` | The client library is waiting to be initialized. |
-| `InvalidPayload` | The incoming UID2 advertising token is not a valid payload. |
-| `ExpiredToken` | The incoming UID2 advertising token has expired. |
+| `InvalidPayload` | The incoming UID2 token is not a valid payload. |
+| `ExpiredToken` | The incoming UID2 token has expired. |
 | `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
 | `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
 
 ### Encryption Response Content
 
-When encrypting with the `SharingClient`, the SDK will return the following information:
+When encrypting with the `SharingClient`, the SDK returns the following information:
 
 | Property | Description |
 | :--- | :--- |
 | `Status` | The encryption result status. For a list of possible values and definitions, see [Encryption Response Statuses](#encryption-response-statuses). |
-| `EncryptedData` | The encrypted UID2 advertising token. |
+| `EncryptedData` | The encrypted UID2 token. |
 
 ### Encryption Response Statuses
 
 | Value | Description |
 | :--- | :--- |
-| `Success` | The raw UID2 was successfully encrypted and a UID2 advertising token was returned. |
+| `Success` | The raw UID2 was successfully encrypted and a UID2 token was returned. |
 | `NotAuthorizedForKey` | The requester does not have authorization to use the encryption key. |
 | `NotAuthorizedForMasterKey` | The requester does not have authorization to use the master key. |
 | `NotInitialized` | The client library is waiting to be initialized. |
