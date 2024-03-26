@@ -1,0 +1,103 @@
+body {
+  padding: 50px;
+  font:
+    14px 'Lucida Grande',
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+a {
+  color: #00b7ff;
+}
+
+.button {
+  border-style: none;
+  cursor: pointer;
+  align-items: center;
+  height: 40px;
+  width: 401px;
+  text-align: center;
+  position: absolute;
+  letter-spacing: 0.28px;
+  box-sizing: border-box;
+  color: white;
+  font-family: 'Raleway', Helvetica, Arial, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: none;
+  text-indent: 0;
+  text-shadow: none;
+  margin: 0;
+  padding: 1px 6px;
+  background-color: rgba(2, 10, 64);
+  border-image: initial;
+}
+
+.form {
+  margin-top: 40px;
+}
+
+.email_prompt {
+  align-items: center;
+  align-self: center;
+  background-color: white;
+  border: 1px solid rgba(2, 10, 64);
+  border-radius: 2px;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  height: 40px;
+  justify-content: flex-start;
+  margin-right: 1px;
+  margin-bottom: 20px;
+  min-width: 399px;
+  padding: 0 16px;
+  position: relative;
+  width: auto;
+}
+
+
+#email_euid {
+  background-color: white;
+  flex-shrink: 0;
+  height: auto;
+  letter-spacing: 0.12px;
+  line-height: 16px;
+  min-height: 16px;
+  position: relative;
+  text-align: left;
+  white-space: nowrap;
+  width: 351px;
+  color: rgba(2, 10, 64, 1);
+  font-family: 'Raleway', Helvetica, Arial, serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  padding: 1px 2px;
+  outline: none;
+}
+
+h1 {
+  padding-bottom: 20px;
+}
+
+#euid_state .label {
+  white-space: nowrap;
+  padding-right: 20px;
+}
+#euid_state tr {
+  margin-top: 10px;
+}
+
+.message {
+  color: green;
+  padding: 20px;
+  margin-left: -22px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid green;
+  border-radius: 5px;
+}
