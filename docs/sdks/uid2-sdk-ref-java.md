@@ -143,9 +143,9 @@ If you're using the SDK's HTTP implementation, follow these steps.
    - Always apply `doNotGenerateTokensForOptedOut()`. This applies a parameter similar to setting `optout_check=1` in the call to the POST&nbsp;/token/generate endpoint (see [Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters)).
    :::
 
-#### Standard Integration
+#### Client-Server Integration
 
-If you're using standard integration (client and server) (see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
+If you're using client-server integration (see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
 
 * Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)), using the following:
 
@@ -227,9 +227,9 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
    TokenGenerateResponse tokenGenerateResponse = publisherUid2Helper.createTokenGenerateResponse({response body}, envelope);
    ```
 
-#### Standard Integration
+#### Client-Server Integration
 
-If you're using standard integration (client and server) (see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
+If you're using client-server integration (see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
 
 * Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)) using the following:
 
