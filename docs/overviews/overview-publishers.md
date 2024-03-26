@@ -34,7 +34,11 @@ The following steps provide a high-level outline of the workflow intended for or
 
 1. A user visits a publisher website, mobile app, or CTV app.
 2. The publisher explains the value exchange of the open internet and asks the user to provide an email address or phone number, by login or other means.
+<!-- uid2_only_ep_20240312: The publisher explains the value exchange of the open internet and asks the user to provide an email address or phone number, by login or other means. -->
+<!-- euid_only_ep_20240312: The publisher explains the value exchange of the open internet and asks the user to provide an email address, by login or other means, and consent to the use of their email address for EUID. -->
 3. Once the user has provided an email address or phone number, the publisher sends it to the UID2 Operator via an SDK or direct API integration.
+<!-- uid2_only_ep_20240312: Once the user has provided an email address or phone number, the publisher sends it to the UID2 Operator via an SDK or direct API integration. -->
+<!-- euid_only_ep_20240312: Once the user has provided an email address, and consented, the publisher sends it to the EUID Operator via an SDK or direct API integration. -->
 
    A publisher can authorize an SSO provider or identity provider to pass [DII](../ref-info/glossary-uid.md#gl-dii) and privacy settings on their behalf.
 4. The UID2 Operator:
