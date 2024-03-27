@@ -126,7 +126,7 @@ Whether decrypting with the `BidstreamClient` or the `SharingClient`, the SDK re
 
 ## Usage for DSPs
 
-The following instructions provide an example of how you can decode bidstream tokens using the UID2 SDK for .NET as a DSP.
+The following instructions provide an example of how you can decode bid stream tokens using the UID2 SDK for .NET as a DSP.
 
 1. Create a `BidstreamClient`:
 
