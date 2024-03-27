@@ -4,7 +4,7 @@ description: Reference information about earlier versions of the JavaScript clie
 hide_table_of_contents: false
 sidebar_position: 02
 ---
-
+ 
 # UID2 SDK for JavaScript Reference Guide (2.x and earlier versions)
 
 :::tip
