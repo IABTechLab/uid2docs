@@ -80,28 +80,6 @@ The `SharingClient` class allows you to encrypt raw UID2s into UID2 tokens and d
 When you use an SDK, you do not need to store or manage decryption keys.
 :::
 
-### Decryption Response Content
-
-Whether decrypting with the `BidstreamClient` or the `SharingClient`, the SDK returns the following information:
-
-| Property | Description |
-| :--- | :--- |
-| `Status` | The decryption result status. For a list of possible values and definitions, see [Decryption Response Statuses](#decryption-response-statuses). |
-| `Uid` | The raw UID2 for the corresponding UID2 token. |
-| `Established` | The timestamp indicating when a user first established the UID2 with the publisher. |
-
-### Decryption Response Statuses
-
-| Value | Description |
-| :--- | :--- |
-| `Success` | The UID2 token was decrypted successfully and a raw UID2 was returned. |
-| `NotAuthorizedForKey` | The requester does not have authorization to decrypt this UID2 token.|
-| `NotInitialized` | The client library is waiting to be initialized. |
-| `InvalidPayload` | The incoming UID2 token is not a valid payload. |
-| `ExpiredToken` | The incoming UID2 token has expired. |
-| `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
-| `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
-
 ### Encryption Response Content
 
 When encrypting with the `SharingClient`, the SDK returns the following information:
@@ -123,6 +101,28 @@ When encrypting with the `SharingClient`, the SDK returns the following informat
 | `KeyInactive` | The encryption key is not active. |
 | `EncryptionFailure` | A generic encryption failure occurred. |
 <!-- `TokenDecryptFailure` intentionally omitted. Does not seem to be used by SharingClient. -->
+
+### Decryption Response Content
+
+Whether decrypting with the `BidstreamClient` or the `SharingClient`, the SDK returns the following information:
+
+| Property | Description |
+| :--- | :--- |
+| `Status` | The decryption result status. For a list of possible values and definitions, see [Decryption Response Statuses](#decryption-response-statuses). |
+| `Uid` | The raw UID2 for the corresponding UID2 token. |
+| `Established` | The timestamp indicating when a user first established the UID2 with the publisher. |
+
+### Decryption Response Statuses
+
+| Value | Description |
+| :--- | :--- |
+| `Success` | The UID2 token was decrypted successfully and a raw UID2 was returned. |
+| `NotAuthorizedForKey` | The requester does not have authorization to decrypt this UID2 token.|
+| `NotInitialized` | The client library is waiting to be initialized. |
+| `InvalidPayload` | The incoming UID2 token is not a valid payload. |
+| `ExpiredToken` | The incoming UID2 token has expired. |
+| `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
+| `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
 
 ## Usage for DSPs
 
