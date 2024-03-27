@@ -143,7 +143,7 @@ SDK の HTTP 実装を使用している場合は、以下の手順に従って�
    - 常に `doNotGenerateTokensForOptedOut()` を適用します。これは POST&nbsp;/token/generate エンドポイントの呼び出しで `optout_check=1` を設定するのと同様のパラメータを適用します([Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters)) を参照してください。
    :::
 
-#### Standard Integration
+#### Client-Server Integration
 
 Standard Integration (Client and Server) を使用している場合([Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください)、このステップに従ってください：
 
@@ -227,7 +227,7 @@ Server-Only Integration ([Publisher Integration Guide, Server-Only](../guides/cu
    TokenGenerateResponse tokenGenerateResponse = publisherUid2Helper.createTokenGenerateResponse({response body}, envelope);
    ```
 
-#### Standard Integration
+#### Client-Server Integration
 
 Standard Integration (client and server) を使用している場合 ([Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください)、以下の手順に従ってください:
 
