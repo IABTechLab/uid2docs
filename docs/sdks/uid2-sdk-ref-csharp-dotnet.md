@@ -7,7 +7,10 @@ sidebar_position: 08
 
 # UID2 SDK for C# / .NET Reference Guide
 
-You can use the UID2 SDK for C# / .NET on the server side to facilitate decrypting of UID2 tokens to access the raw UID2. 
+You can use the UID2 SDK for C# / .NET on the server side to facilitate the following:
+
+- Encrypting raw UID2s to create UID2 tokens for sharing.
+- Decrypting UID2 tokens to access the raw UID2s.
 
 <!-- This guide includes the following information:
 
@@ -23,10 +26,6 @@ You can use the UID2 SDK for C# / .NET on the server side to facilitate decrypti
 - [FAQs](#faqs)
 - [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
 
-## Overview
-
-The functions outlined here define the information that you'll need to configure or can retrieve from the library. The parameters and property names defined below are pseudocode. Actual parameters and property names vary by language but will be similar to the information outlined here.
-
 ## Functionality
 
 This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using C# / .NET for their server-side coding. The following table shows the functions it supports.
@@ -39,13 +38,13 @@ This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are u
 
 To use this SDK, you'll need to complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For example, publishers get a specific API permission to generate and refresh tokens, but the SDK might support other activities, such as sharing, which require a different API permission.
+You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use.
 
 For details, see [API Permissions](../getting-started/gs-permissions.md).
 
 ## Version
 
-The library uses .NET Standard 2.1. unit tests. The sample app uses .NET 5.0.
+This documentation is for the UID2 .NET SDK version 5.6.0 and above. The SDK is built for .NET Standard 2.0.
 
 ## GitHub Repository/Binary
 
@@ -60,107 +59,156 @@ The binary is published in this location:
 
 ## Initialization
 
-The initialization function configures the parameters necessary for the SDK to authenticate with the UID2 service. It also allows you to configure retry intervals in the event of errors.
+DSPs should create an instance of the `BidstreamClient` class. Sharers should create an instance of the `SharingClient` class.
 
-| Parameter | Description | Recommended Value |
-| :--- | :--- | :--- |
-| `endpoint` | The endpoint for the UID2 service. | N/A |
-| `authKey` | The authentication token that belongs to the client. For access to UID2, see [Contact Info](../getting-started/gs-account-setup.md#contact-info). | N/A |
+You will need to provide the values necessary for the SDK to authenticate with the UID2 service.
 
-## Interface 
+| Parameter | Description |
+| :--- | :--- |
+| `endpoint` | The endpoint for the UID2 service. See [Environments](../getting-started/gs-environments) 
+| `authKey` | The API key. See [UID2 Credentials](../getting-started/gs-credentials). | N/A |
+| `secretKey` | The client secret. See [UID2 Credentials](../getting-started/gs-credentials). |
 
-The interface allows you to decrypt UID2 advertising tokens and return the corresponding raw UID2. 
+## Interface
 
->NOTE: When you use an SDK, you do not need to store or manage decryption keys.
+The `BidstreamClient` class allows you to decrypt UID2 tokens into raw UID2s.
+For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
 
-If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising token and return the UID2. For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
+The `SharingClient` class allows you to encrypt raw UID2s into UID2 tokens and decrypt UID2 tokens into raw UID2s.
 
-The following is the decrypt method in C#:
+:::note
+When you use an SDK, you do not need to store or manage decryption keys.
+:::
 
-```cs
-using UID2.Client.IUID2Client
- 
-var client = UID2ClientFactory.Create(_baseUrl, _authKey, _secretKey);
-client.Refresh(); //Note that refresh() should be called once after create(), and then once per hour
-var result = client.Decrypt(_advertisingToken);
-```
+### Encryption Response Content
 
-### Response Content
-
-Available information returned through the SDK is outlined in the following table.
+When encrypting with the `SharingClient`, the SDK returns the following information:
 
 | Property | Description |
 | :--- | :--- |
-| `Status` | The decryption result status. For a list of possible values and definitions, see [Response Statuses](#response-statuses). |
-| `UID2` | The raw UID2 for the corresponding UID2 advertising token. |
-| `Established` | The timestamp indicating when a user first established the UID2 with the publisher. |
+| `Status` | The encryption result status. For a list of possible values and definitions, see [Encryption Response Statuses](#encryption-response-statuses). |
+| `EncryptedData` | The encrypted UID2 token. |
 
-### Response Statuses
+### Encryption Response Statuses
 
 | Value | Description |
 | :--- | :--- |
-| `Success` | The UID2 advertising token was decrypted successfully and a raw UID2 was returned. |
-| `NotAuthorizedForKey` | The requester does not have authorization to decrypt this UID2 advertising token.|
+| `Success` | The raw UID2 was successfully encrypted and a UID2 token was returned. |
+| `NotAuthorizedForKey` | The requester does not have authorization to use the encryption key. |
+| `NotAuthorizedForMasterKey` | The requester does not have authorization to use the master key. |
 | `NotInitialized` | The client library is waiting to be initialized. |
-| `InvalidPayload` | The incoming UID2 advertising token is not a valid payload. |
-| `ExpiredToken` | The incoming UID2 advertising token has expired. |
+| `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
+| `KeyInactive` | The encryption key is not active. |
+| `EncryptionFailure` | A generic encryption failure occurred. |
+<!-- `TokenDecryptFailure` intentionally omitted. Does not seem to be used by SharingClient. -->
+
+### Decryption Response Content
+
+Whether decrypting with the `BidstreamClient` or the `SharingClient`, the SDK returns the following information:
+
+| Property | Description |
+| :--- | :--- |
+| `Status` | The decryption result status. For a list of possible values and definitions, see [Decryption Response Statuses](#decryption-response-statuses). |
+| `Uid` | The raw UID2 for the corresponding UID2 token. |
+| `Established` | The timestamp indicating when a user first established the UID2 with the publisher. |
+
+### Decryption Response Statuses
+
+| Value | Description |
+| :--- | :--- |
+| `Success` | The UID2 token was decrypted successfully and a raw UID2 was returned. |
+| `NotAuthorizedForKey` | The requester does not have authorization to decrypt this UID2 token.|
+| `NotInitialized` | The client library is waiting to be initialized. |
+| `InvalidPayload` | The incoming UID2 token is not a valid payload. |
+| `ExpiredToken` | The incoming UID2 token has expired. |
 | `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
 | `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
 
+## Usage for DSPs
+
+The following instructions provide an example of how you can decode bid stream tokens using the UID2 SDK for .NET as a DSP.
+
+1. Create a `BidstreamClient`:
+
+```cs
+var client = new BidstreamClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+```
+
+2. Refresh once at startup, and then periodically (recommended refresh interval is hourly):
+
+```cs
+client.Refresh();
+```
+
+3. Decrypt a token into a raw UID2. Pass the domain name of the site where the bid originated from:
+
+```cs
+var decrypted = client.DecryptTokenIntoRawUid(uidToken, domain);
+// If decryption succeeded, use the raw UID2.
+if (decrypted.Success) 
+{
+    // Use decrypted.Uid.
+} 
+else 
+{
+    // Check decrypted.Status for the failure reason.
+}
+```
+
+For a full example, see the `ExampleBidStreamClient` method in [SampleApp/Program.cs](https://github.com/IABTechLab/uid2-client-net/blob/main/src/SampleApp/Program.cs).
+
 ## Usage for UID2 Sharers
 
-A UID2 sharer is any participant that wants to share UID2s with another participant. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant. For an example of usage, see [com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` method).
+A UID2 sharer is any participant that wants to share UID2s with another participant. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant.
 
->IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bid stream. There is a different workflow for generating tokens for the bid stream: see [Tokenized Sharing for Publishers in the Bid Stream](../sharing/sharing-tokenized.md#tokenized-sharing-for-publishers-in-the-bid-stream).
+:::important
+The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bid stream. There is a different workflow for generating tokens for the bid stream: see [Tokenized Sharing for Publishers in the Bid Stream](../sharing/sharing-tokenized.md#tokenized-sharing-for-publishers-in-the-bid-stream).
+:::
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for C# / .NET, either as a sender or a receiver.
 
-1. Create an ```IUID2Client``` reference:
- 
-    ```cs
-   var client = UID2ClientFactory.Create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
-   ```
+1. Create a `SharingClient`:
+
+```cs
+var client = new SharingClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+```
+
 2. Refresh once at startup, and then periodically (recommended refresh interval is hourly):
 
-    ```cs
-   client.Refresh();
-    ```
-3. Senders: 
-   1. Call the following:
+```cs
+client.Refresh();
+```
 
-       ```cs
-      var encrypted = client.Encrypt(rawUid);
-      ```
-   2. If encryption succeeded, send the UID2 token to the receiver:   
+3. If you are a sender, call `EncryptRawUidIntoToken`:
 
-       ```cs
-      if (encrypted.isSuccess()) 
-      { 
-         //send encrypted.EncryptedData to receiver
-      } 
-      else 
-      {
-         //check encrypted.Status for the failure reason
-      }
-      ```
-4. Receivers: 
-   1. Call the following:
+```cs
+var encrypted = client.EncryptRawUidIntoToken(rawUid);
+// If encryption succeeded, send the UID2 token to the receiver.
+if (encrypted.Success) 
+{ 
+    // Send encrypted.EncryptedData to receiver.
+} 
+else 
+{
+    // Check encrypted.Status for the failure reason.
+}
+```
+If you are a receiver, call `DecryptTokenIntoRawUid`:
 
-      ```cs
-      DecryptionResponse decrypted = client.Decrypt(uidToken);
-      ```
-   2. If decryption succeeded, use the raw UID2:
-    
-      ```cs
-      if (decrypted.Success()) 
-      {
-         // use decrypted.Uid 
-      } 
-      else 
-      {
-         // check decrypted.Status for the failure reason 
-      }
-      ```
+```cs
+var decrypted = client.DecryptTokenIntoRawUid(uidToken);
+// If decryption succeeded, use the raw UID2.
+if (decrypted.Success) 
+{
+    // Use decrypted.Uid.
+} 
+else 
+{
+    // Check decrypted.Status for the failure reason.
+}
+```
+
+For a full example, see the `ExampleSharingClient` method in [SampleApp/Program.cs](https://github.com/IABTechLab/uid2-client-net/blob/main/src/SampleApp/Program.cs).
 
 ## FAQs
 
