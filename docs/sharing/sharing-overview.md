@@ -12,17 +12,15 @@ In UID2, sharing is a process for distributing either [raw UID2s](../ref-info/gl
 
 All instances where a raw UID2 or UID2 token is shared with another participant fall under the definition of sharing, and all instances must follow one of the standard [sharing scenarios](#sharing-scenarios). In addition, sharing of raw UID2s must meet the [security requirements](#security-requirements-for-raw-uid2-sharing).
 
-(**GWH_KL: in our last meeting you discussed the DSP taking the token and decrypting it to get the raw UID2. That isn't covered in this sharing doc. Do we need to add that also?**)
-
 ## Sharing Scenarios
 
 There are several main sharing scenarios, summarized in the following table.
 
 | Sharing scenario | Audience | Sharing methodology | Sharing route | Link for details
 | :--- | :--- | :--- | :--- | :--- |
-| Sharing in the bid stream | Publisher | Tokenized sharing (UID2 token) | Publisher gets generated UID2 token and sends in bid stream.  | [Tokenized Sharing for Publishers in the Bid Stream](sharing-tokenized.md#tokenized-sharing-for-publishers-in-the-bid-stream) |
+| Sharing in the bid stream | Publisher | Tokenized sharing (UID2 token) | Publisher generates UID2 token and sends it into the bid stream.  | [Tokenized Sharing for Publishers in the Bid Stream](sharing-tokenized.md#tokenized-sharing-for-publishers-in-the-bid-stream) |
 | Sharing via a pixel | Any authorized sharer | Tokenized sharing (UID2 token) | Sharing via any pixel, such as a tracking pixel or creative pixel. | [Sharing UID2 Tokens in Pixels](sharing-pixels.md) |
-| Sharing with another UID2 sharing participant, outside of the bid steam or pixels. | Any authorized sharer | Raw UID2 sharing | Sharing by any secure channel, such as via API or Amazon S3 drop. | [Raw UID2 Sharing](#raw-uid2-sharing) |
+| Sharing with another UID2 sharing participant, outside of the bid steam or pixels. | Any authorized sharer | Raw UID2 sharing or optional tokenized sharing | Sharing by any secure channel, such as via API or Amazon S3 drop. | [Raw UID2 Sharing](#raw-uid2-sharing) |
 
 ## UID2 Sharing: Responsibilities
 
@@ -32,7 +30,11 @@ A key reason for the creation of a UID2 token from a raw UID2 is that the UID2 t
 
 In a scenario where a sharing participant wants to share UID2s with another authorized sharing participant, there are two possible paths:
 
-- **UID2 Tokens**: Sender encrypts the raw UID2s into UID2 sharing tokens, using one of the UID2 server-side SDKs or the UID2 Snowflake integration. The receiver, in turn, decrypts the UID2 sharing tokens into raw UID2s.
+- **UID2 Tokens**:
+
+  1. The sender sets up sharing permissions in the UID2 Portal (see [Sharing Permissions](../portal/sharing-permissions.md)).
+  2. The sender encrypts the raw UID2s into UID2 tokens, using one of the UID2 server-side SDKs or the UID2 Snowflake integration.
+  3. The receiver decrypts the UID2 sharing tokens into raw UID2s.
 
 - **Raw UID2s**: Both sender and receiver have the resources, processes, and facilities in place to ensure secure transit of the raw UID2s, without risk of compromising the data. In this scenario, as long as all UID2 [security requirements](#security-requirements-for-raw-uid2-sharing) are met, the sender can send raw UID2s to an authorized sharing participant.
 
@@ -87,13 +89,3 @@ Secure transport is the mechanism that's in place to ensure that the transition 
 If you want to share raw UID2s with other authorized sharing participants, you must make sure that all points of the [Security Requirements for Raw UID2 Sharing](#security-requirements-for-raw-uid2-sharing) are rigorously followed, so that the raw UID2s are kept secure at all times.
 
 For instructions for implementing raw UID2 sharing, see (**NEW PAGE YET TO COME. KL question should I clone and customize the "Implementing Tokenized Sharing" page for sharing of raw UID2s? And, if so, where will I get actual procedure.**).
-
-## UID2 Token Pass-Through
-
-**(GWH_KL should this go into the Tokenized Sharing page, or stay in the overview?)**
-
-The UID2 token is designed so that even if the underlying raw UID2 remains the same, each time a UID2 token is generated from it, the token value is different. This means that the UID2 token can be seen by all but can only be used by UID2 participants that have access to the decryption key. 
-
-For example, UID2 tokens are habitually passed through the bid stream from a publisher to a DSP. Although a UID2 token might go through several parties, such as an SSP, it can be decrypted only by an authorized UID2 participant. On its journey through the bid stream, the UID2 token can safely pass through one or more intermediaries.
-
-The same is true in all sharing scenarios between UID2 sharing participants. A UID2 token can be passed through non-UID2 participants.

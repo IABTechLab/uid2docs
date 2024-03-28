@@ -7,8 +7,6 @@ sidebar_position: 08
 
 # Sharing of UID2 Tokens
 
-**(Note: was previously "Sharing in the Bid Stream")**
-
 Sharing of UID2 tokens, also called tokenized sharing, includes any scenarios where a UID2 token is shared with another UID2 participant.
 
 There are two main implementation paths for sharing UID2 tokens:
@@ -16,16 +14,22 @@ There are two main implementation paths for sharing UID2 tokens:
 - [Tokenized Sharing for Publishers in the Bid Stream](#tokenized-sharing-for-publishers-in-the-bid-stream)
 - [Tokenized Sharing Outside the Bid Stream](#tokenized-sharing-outside-the-bid-stream)
 
-<!-- It includes the following:
+<!-- 
+It includes the following:
 
-- [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)
-- [UID2 Sharing Workflow: Sharing in the Bid Stream](#uid2-sharing-workflow-sharing-in-the-bid-stream)
-- [Token Example for Publishers in the Bid Stream](#token-example-for-publishers-in-the-bid-stream) -->
+- [Tokenized Sharing for Publishers in the Bid Stream](#tokenized-sharing-for-publishers-in-the-bid-stream)
+  - [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)
+  - [Workflow: Tokenized Sharing in the Bid Stream](#workflow-tokenized-sharing-in-the-bid-stream)
+  - [Token Example for Publishers in the Bid Stream](#token-example-for-publishers-in-the-bid-stream) 
+- [Tokenized Sharing Outside the Bid Stream](#tokenized-sharing-outside-the-bid-stream)
+  - [Workflow: Tokenized Sharing Outside the Bid Stream](#workflow-tokenized-sharing-outside-the-bid-stream)
+  - [Tokenized Sharing Examples](#tokenized-sharing-examples)
+- [UID2 Token Pass-Through](#uid2-token-pass-through) 
+ -->
 
 ## Tokenized Sharing for Publishers in the Bid Stream
 
 Publishers use UID2s by encrypting [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) (an email address or phone number) via API endpoints or via an SDK, into a UID2 token, and then sending the UID2 token into the bid stream.
-
 Additional information, including account setup and workflow information, is in the following sections:
 - [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)
 - [UID2 Sharing Workflow: Sharing in the Bid Stream](#uid2-sharing-workflow-sharing-in-the-bid-stream)
@@ -44,13 +48,16 @@ As a publisher, we recommend that you set up your sharing permissions to share w
 
 For details, see [UID2 Portal: Overview](../portal/portal-overview.md) and follow the links for each task.
 
-### UID2 Sharing Workflow: Sharing in the Bid Stream
+### Workflow: Tokenized Sharing in the Bid Stream
 
-When you want to send UID2 tokens in the bid stream, you can integrate via the API or via one of these SDKs:
+When you want to send UID2 tokens in the bid stream, you can integrate using one of the following approaches:
 
 - The Java server-side SDK (see [UID2 SDK for Java Reference Guide](../sdks/uid2-sdk-ref-java.md)).
 - The Python server-side SDK (see [UID2 SDK for Python Reference Guide](../sdks/uid2-sdk-ref-python.md)).
-- Via the UID2 API (token/generate and token/refresh endpoints).
+- One of the following implementation approaches that generates the UID2 token on the client side:
+  - The JavaScript SDK, implemented on the client side (see [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md)).
+  - The UID2 Prebid implementation (see [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)).
+- The UID2 API ([POST&nbsp;/token/generate](../endpoints/post-token-generate.md) and [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints).
 
 These options support generating UID2 tokens from email addresses or phone numbers and also refreshing the tokens regularly. Other SDKs do not support token generate and token refresh at this time.
 
@@ -124,13 +131,15 @@ Publishers convert the input email address or phone number directly to a UID2 to
 
 ## Tokenized Sharing Outside the Bid Stream
 
-The main implementation of tokenized sharing outside of the bid stream is tokenized sharing in pixels.
+Tokenized sharing can be used in any sharing route, but the main implementation outside of the bid stream is tokenized sharing in pixels. 
 
-To protect raw UID2s from unauthorized access, if messaging is not secure per [Security Requirements for Raw UID2 Sharing](sharing-overview.md#security-requirements-for-raw-uid2-sharing), the originating participant (sender) must encrypt the raw UID2s into [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) before transmission. The destination participant (receiver) must decrypt the UID2 tokens into raw UID2s for internal use.
+To protect raw UID2s from unauthorized access, if messaging is not secure per [Security Requirements for Raw UID2 Sharing](sharing-overview.md#security-requirements-for-raw-uid2-sharing), the originating participant (sender) must encrypt the raw UID2s into [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) before transmission. The destination participant (receiver) then decrypts the UID2 tokens into raw UID2s for internal use.
+
+Of course, sharing UID2s via UID2 tokens is also an option, in any sharing scenario.
 
 The UID2 sender specifies which receivers can decrypt their UID2 tokens, by configuring permissions in the UID2 Portal (see [UID2 Portal: Overview](../portal/portal-overview.md)). When a sender grants permission to a receiver for UID2 sharing, the sender's decryption keys are shared with the receiver via a UID2 SDK. As part of sharing, the UID2 SDKs and APIs take care of the encryption and decryption.
 
-For example, let's say that an advertiser (sender) wants to share raw UID2s with a trusted sharing participant who is a UID2 DSP, for conversion tracking via a tracking pixel. Using sharing, here's the sequence:
+For example, let's say that an advertiser (sender) wants to share UID2 tokens with a trusted sharing participant who is a UID2 DSP, for conversion tracking via a tracking pixel. Using sharing, here's the sequence:
 
 1. The advertiser is the sender, and does the following:
 
@@ -153,7 +162,7 @@ Additional resources:
 - [UID2 Sharing: Best Practices](sharing-best-practices.md)
 - [UID2 Portal: Overview](../portal/portal-overview.md)
 
-## UID2 Tokenized Sharing Workflow
+### Workflow: Tokenized Sharing Outside the Bid Stream
 
 Sharing of UID2 data securely from one UID2 participant to another, if messaging is not secure per [Security Requirements for Raw UID2 Sharing](#security-requirements-for-raw-uid2-sharing), includes encrypting raw UID2s into UID2 tokens that the receiver can decrypt using your encryption keys. To do this, you must use one of the UID2 server-side SDKs or the UID2 Snowflake integration.
 
@@ -177,7 +186,7 @@ The workflow for UID2 tokenized sharing, for all sharers except when sharing UID
 
    1. Complete the following steps to encrypt the UID2s:
 
-      1. If starting from DII: Generate a UID2 token, using a UID2 SDK or the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint. (**GWH_KL I think we need to link to all the choices here but not sure what they all are: Publisher web options page maybe?**)  
+      1. If starting from DII: Generate a UID2 token, using either one of the SDK options listed in [UID2 Sharing Workflow: Sharing in the Bid Stream](#uid2-sharing-workflow-sharing-in-the-bid-stream) or the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint. 
       1. If starting from raw UID2:  Encrypt raw UID2s to convert them into UID2 tokens, using a UID2 SDK or Snowflake: see [Sharing Steps: Summary](sharing-implementing.md#sharing-steps-summary).
    2. Transmit the UID2 tokens to an authorized receiver.
 
@@ -190,38 +199,30 @@ The following diagram illustrates the UID2 sharing permission SDK integration wo
 
 ![UID2 Sharing Permission SDK Integration Workflow](images/UID2_Sharing_Diagram_Integrate_SDK_Sharing_Token.png)
 
-## Generating the Token for UID2 Tokenized Sharing: Examples
+### Tokenized Sharing Examples
 
-UID2 sharers follow a two-step process, as shown in the following example. The steps depend on whether you're starting with DII or with a raw UID2:
+UID2 sharers follow a two-step process, as shown in the following example. The steps depend on whether you're starting with DII or with a raw UID2. This section includes the following:
 
-- [Starting with DII](#tokenized-sharing-starting-with-dii)
-- [Starting with a Raw UID2](#tokenized-sharing-starting-with-a-raw-uid2)
+- [Tokenized Sharing: Starting with DII](#tokenized-sharing-starting-with-dii)
+- [Example: DII to UID2 Token](#example-dii-to-uid2-token)
+- [Tokenized Sharing: Starting with a Raw UID2](#tokenized-sharing-starting-with-a-raw-uid2)
+- [Example: Raw UID2 to UID2 Token](#example-raw-uid2-to-uid2-token)
 
-### Tokenized Sharing: Starting with DII
+#### Tokenized Sharing: Starting with DII
 
-If you're starting with DII, follow either of these paths:
+If you're starting with DII, first generate the UID2 token by following either of these paths:
 
-1. Convert to raw UID2 and then encrypt:
+- Option 1: Convert to raw UID2 and then encrypt:
 
-   1. Convert email or phone number to raw UID2:
+   1. Convert the input email address or phone number to a raw UID2, which you can store securely.
 
-       Convert the input email address or phone number to a raw UID2, which they can store securely.
+   2. Encrypt the raw UID2 to create a UID2 token that you can share with another trusted UID2 sharing participant. For an example, see [Example: Raw UID2 to UID2 Token](#example-raw-uid2-to-uid2-token).
 
-   2. Convert raw UID2 to UID2 token:
+- Option 2: Generate UID2 token from DII using a UID2 SDK or the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint.
 
-      Encrypt the raw UID2 to create a UID2 token that they can share with another trusted UID2 sharing participant. For an example, see [Example: Raw UID2 to UID2 Token](#example-raw-uid2-to-uid2-token).
+Then, share the resulting UID2 token with another trusted UID2 sharing participant.
 
-2. Generate UID2 token from DII using a UID2 SDK or the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint.
-
-### Tokenized Sharing: Starting with a Raw UID2
-
-If you're starting with a raw UID2, follow these steps:
-
-1. Encrypt the raw UID2, using one of the UID2 server-side SDKs or the UID2 Snowflake integration, to create a UID2 token that you can share with another trusted UID2 sharing participant. For an example, see [Example: Raw UID2 to UID2 Token](#example-raw-uid2-to-uid2-token).
-
-2. Share the resulting UID2 token with another trusted UID2 sharing participant.
-
-### Example: DII to UID2 Token
+#### Example: DII to UID2 Token
 
 The following example shows sample values when converting input DII directly to a UID2 token.
 
@@ -255,7 +256,15 @@ The following example shows sample values when converting input DII directly to 
 </tbody>
 </table>
 
-### Example: Raw UID2 to UID2 Token
+#### Tokenized Sharing: Starting with a Raw UID2
+
+If you're starting with a raw UID2, follow these steps:
+
+1. Encrypt the raw UID2, using one of the UID2 server-side SDKs or the UID2 Snowflake integration, to create a UID2 token that you can share with another trusted UID2 sharing participant. For an example, see [Example: Raw UID2 to UID2 Token](#example-raw-uid2-to-uid2-token).
+
+2. Share the resulting UID2 token with another trusted UID2 sharing participant.
+
+#### Example: Raw UID2 to UID2 Token
 
 The following example shows sample values when converting input DII to a raw UID2 and then encoding the result.
 
@@ -293,3 +302,15 @@ The following example shows sample values when converting input DII to a raw UID
 </tr>
 </tbody>
 </table>
+
+## UID2 Token Pass-Through
+
+The UID2 token is designed so that even if the underlying raw UID2 remains the same, each time a UID2 token is generated from it, the token value is different. This means that the UID2 token can be seen by all but can only be used by UID2 participants that have access to the decryption key. 
+
+For example, UID2 tokens are habitually passed through the bid stream from a publisher to a DSP. Although a UID2 token might go through several parties, such as an SSP, it can be decrypted only by an authorized UID2 participant. On its journey through the bid stream, the UID2 token can safely pass through one or more intermediaries.
+
+The same is true in tokenized sharing scenarios between UID2 sharing participants. A UID2 token can be passed through non-UID2 participants.
+
+:::caution
+Pass-through is only permissible in a tokenized sharing scenario. A raw UID2 **must not** be passed through non-participants.
+:::

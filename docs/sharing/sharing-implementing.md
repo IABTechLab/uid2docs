@@ -7,18 +7,16 @@ sidebar_position: 04
 
 # Implementing Tokenized Sharing
 
-UID2 tokenized sharing means sharing encrypted raw UID2s with authorized sharing participants. Setting up tokenized sharing requires some steps by each participant:
+UID2 tokenized sharing means sharing UID2 tokens with authorized sharing participants. the tokens might be either encrypted raw UID2s, or tokens generated directly from DII.
 
-Setting up UID2 sharing requires some steps by each participant:
+Setting up tokenized sharing to encrypt raw UID2s requires some steps by each participant:
 
 - The **sender**, who encrypts raw UID2s into UID2 sharing tokens and sends them to an authorized sharing participant.
 - The **receiver**, an authorized sharing participant who receives the UID2 sharing tokens and decrypts them.
 
 >NOTE: If you are a publisher who is sharing UID2 tokens in the bid stream, see [Tokenized Sharing for Publishers in the Bid Stream](sharing-tokenized.md#tokenized-sharing-for-publishers-in-the-bid-stream).
 
-## Sharing Steps: Summary
-
-(**GWH_KT does this section, and the rest of this file, apply to both tokenized sharing and sharing raw UID2? Not modified as yet. Account setup applies to all, but not sure about the rest. And, do we want a parallel file for sharing raw UID2s? I think.**)
+## Tokenized Sharing Steps: Summary
 
 At a very high level, the following are the steps to set up and configure sharing:
 
