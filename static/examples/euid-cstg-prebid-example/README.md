@@ -1,10 +1,10 @@
-# Example Prebid.js UID2 Integration
+# Example Prebid.js EUID Integration
 
 ## Viewing live site
 
 This example demonstrates the [EUID Client-Side Integration Guide for Prebid.js](https://github.com/European-Unified-ID/EUID-docs/blob/main/api/v2/guides/integration-prebid-client-side.md). 
 
-To view the site running, navigate to [https://unifiedid.com/examples/euid-cstg-prebid-example/](https://unifiedid.com/examples/euid-cstg-prebid-example/).
+To view the site running, navigate to [EUID Prebid.js Client-Side Integration Example](https://unifiedid.com/examples/euid-cstg-prebid-example/).
 
 ## Running locally
 
@@ -14,4 +14,4 @@ When running locally, the configuration values in `index.html` will not work, as
 
 ## Prebid.js
 
-This file is a build of Prebid.js with the userId, uid2IdSystem and appnexusBidAdapter modules included.
+This file is a build of Prebid.js with the userId, uid2IdSystem/euidIdSystem and appnexusBidAdapter modules included.
