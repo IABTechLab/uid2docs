@@ -4,7 +4,7 @@
 
 This example demonstrates the [EUID Client-Side Integration Guide for Prebid.js](https://github.com/European-Unified-ID/EUID-docs/blob/main/api/v2/guides/integration-prebid-client-side.md). 
 
-To view the site running, navigate to [https://unifiedid.com/examples/euid-cstg-prebid-example/](https://unifiedid.com/examples/euid-cstg-prebid-example/).
+To view the site running, navigate to [EUID Prebid.js Client-Side Integration Example](https://unifiedid.com/examples/euid-cstg-prebid-example/).
 
 ## Running locally
 
