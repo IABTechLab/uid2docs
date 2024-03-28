@@ -1,4 +1,4 @@
-# Example Prebid.js UID2 Integration
+# Example Prebid.js EUID Integration
 
 ## Viewing live site
 
@@ -14,4 +14,4 @@ When running locally, the configuration values in `index.html` will not work, as
 
 ## Prebid.js
 
-This file is a build of Prebid.js with the userId, uid2IdSystem and appnexusBidAdapter modules included.
+This file is a build of Prebid.js with the userId, uid2IdSystem/euidIdSystem and appnexusBidAdapter modules included.
