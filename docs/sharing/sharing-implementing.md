@@ -1,26 +1,22 @@
 ---
-title: Implementing Sharing
+title: Implementing Tokenized Sharing
 description: Learn how to implement sharing.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-# Implementing Sharing
+# Implementing Tokenized Sharing
 
-<!-- It includes the following:
+UID2 tokenized sharing means sharing UID2 tokens with authorized sharing participants. the tokens might be either encrypted raw UID2s, or tokens generated directly from DII.
 
-- [Steps to Implement Sharing With an SDK](#steps-to-implement-sharing-with-an-sdk)
-- [Steps to Implement Sharing Using Snowflake](#steps-to-implement-sharing-using-snowflake) 
-- [Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)](#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only) -->
+Setting up tokenized sharing to encrypt raw UID2s requires some steps by each participant:
 
-Setting up UID2 sharing requires some steps by each participant:
+- The **sender**, who encrypts raw UID2s into UID2 sharing tokens and sends them to an authorized sharing participant.
+- The **receiver**, an authorized sharing participant who receives the UID2 sharing tokens and decrypts them.
 
-- The **sender**, who sends UID2 tokens to an authorized sharing participant.
-- The **receiver**, an authorized sharing participant who receives the UID2 tokens and decrypts them.
+>NOTE: If you are a publisher who is sharing UID2 tokens in the bid stream, see [Tokenized Sharing for Publishers in the Bid Stream](sharing-tokenized.md#tokenized-sharing-for-publishers-in-the-bid-stream).
 
->NOTE: If you are a publisher who is sharing UID2 tokens in the bid stream, see [Sharing in the Bid Stream](sharing-bid-stream.md).
-
-## Sharing Steps: Summary
+## Tokenized Sharing Steps: Summary
 
 At a very high level, the following are the steps to set up and configure sharing:
 

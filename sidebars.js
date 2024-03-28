@@ -257,7 +257,8 @@ const fullSidebar = [
         'sharing/sharing-use-cases',
         'sharing/sharing-implementing',
         'sharing/sharing-best-practices',
-        'sharing/sharing-bid-stream',
+        'sharing/sharing-tokenized',
+        'sharing/sharing-pixels',
       ],
     },
 
