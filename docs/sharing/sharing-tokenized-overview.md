@@ -1,16 +1,38 @@
 ---
-title: Tokenized Sharing Setup
+title: Tokenized Sharing Overview
 description: Learn about tokenized sharing.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-# Tokenized Sharing: Setup
-
-(**Was Implementing Sharing and Implementing Tokenized Sharing**)
+# Tokenized Sharing Overview
 
 UID2 tokenized sharing means sharing UID2 tokens with authorized sharing participants. The tokens might be either encrypted raw UID2s, or tokens generated directly from DII.
-[**GWH_KT you said tokenized sharing setup should include setting up an account in the UID2 Portal. But there are two scenarios, and a portal account is only required for encrypted raw UID2s, not for tokens generated from DII, correct? So still not sure if I've understood this correctly. I think that the account setup stuff should just be in **]
+
+In this file:
+- [Tokenized Sharing Steps: Summary](#tokenized-sharing-steps-summary)
+- [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)
+- [Steps to Implement Sharing with an SDK](#steps-to-implement-sharing-with-an-sdk)
+  - [Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)](#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only)
+  - [Decryption Key Refresh Example](#decryption-key-refresh-example)
+- [Steps to Implement Sharing Using Snowflake](#steps-to-implement-sharing-using-snowflake)
+- [Sending UID2s to Another Sharing Participant](#sending-uid2s-to-another-sharing-participant)
+
+UID2 tokenized sharing means sharing UID2 tokens with authorized sharing participants. The tokens might be either encrypted raw UID2s, or tokens generated directly from DII.
+
+(**GWH_KT you said tokenized sharing setup should include setting up an account in the UID2 Portal. But there are two scenarios, and a portal account is only required for encrypted raw UID2s, not for tokens generated from DII, correct? So still not sure if I've understood this correctly. I think that the account setup stuff should just be in**)
+
+---------------------------------------------------- this table moved from another file hope it belongs here ----------------------------------------------------
+
+In many scenarios, UID2 data is shared in the form of a [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token). Key use cases are shown in the following table.
+
+| Scenario | Who? | Sharing Approach |
+| :--- | :--- | :--- |
+| Sending a UID2 to the bid stream | Publisher | See [Tokenized Sharing for Publishers in the Bid Stream](#tokenized-sharing-for-publishers-in-the-bid-stream). |
+| Sending a UID2 in a tracking pixel | Advertiser | See [Sharing UID2 Tokens in Pixels](#sharing-uid2-tokens-in-pixels). |
+| Sending UID2s to another sharing participant | Any sharing participant, if all security requirements listed in [Security Requirements for UID2 Sharing](sharing-overview.md#security-requirements-for-uid2-sharing) cannot be followed. | See [Sending UID2s to Another Sharing Participant](#sending-uid2s-to-another-sharing-participant). | -->
+
+---------------------------------------------------- end of moved section ----------------------------------------------------
 
 Setting up tokenized sharing to encrypt raw UID2s requires some steps by each participant:
 
@@ -30,7 +52,7 @@ At a very high level, the following are the steps to set up and configure sharin
    - [Steps to Implement Sharing With an SDK](#steps-to-implement-sharing-with-an-sdk)
    - [Steps to Implement Sharing Using Snowflake](#steps-to-implement-sharing-using-snowflake)
 
-## Steps to Implement Sharing: UID2 Portal Account Setup
+### Account Setup in the UID2 Portal
 
 In the UID2 Portal, the sender and the receiver must set up an account, and the sender must configure sharing permissions.
 
@@ -62,19 +84,7 @@ The following steps are for all sharing participants who are using an SDK&#8212;
 
    4. Receivers, set up decryption.
 
-## Steps to Implement Sharing Using Snowflake
-
-The following steps are for Snowflake users who want to take part in UID2 sharing, either as senders or receivers.
-
-1. Review the examples in the Snowflake Integration Guide, [Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers) section, to see what the sharing code might look like.
-
-2. Integrate the SDK into your code, according to whether your role is sender or receiver. Use the code examples in the documentation referenced in the Snowflake Integration Guide, [UID2 Sharing Example](../guides/snowflake_integration.md#uid2-sharing-example):
-
-   - Senders, set up encryption.
-
-   - Receivers, set up decryption.
-
-## Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)
+### Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)
 
 If you're using an SDK, defining the schedule for refreshing the sharing keys is part of step 2.
 
@@ -101,3 +111,22 @@ This example illustrates how the `uid2client.refresh()` function enables a new s
    Data Provider XYZ, on an hourly cadence, again calls `uid2client.refresh()`. Because there is a new sharing permission, the key for Advertiser ABC is returned in the response.
 
    Data Provider XYZ can now decrypt any UID2 token received from Advertiser ABC into a raw UID2.
+
+## Steps to Implement Sharing Using Snowflake
+
+The following steps are for Snowflake users who want to take part in UID2 sharing, either as senders or receivers.
+
+1. Review the examples in the Snowflake Integration Guide, [Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers) section, to see what the sharing code might look like.
+
+2. Integrate the SDK into your code, according to whether your role is sender or receiver. Use the code examples in the documentation referenced in the Snowflake Integration Guide, [UID2 Sharing Example](../guides/snowflake_integration.md#uid2-sharing-example):
+
+   - Senders, set up encryption.
+
+   - Receivers, set up decryption.
+   
+## Sending UID2s to Another Sharing Participant
+
+You can also send UID2 tokens to another authorized sharing participant. Sharing UID2s via UID2 tokens is an option in any sharing scenario.
+
+If you're starting with DII, be sure to follow the directions (**LINK TO SHARING VIA PIXELS FOR THE DII SECTION**) 
+If you're starting with a raw UID2, be sure to follow the directions (**LINK TO SHARING VIA PIXELS FOR THE raw UID2 SECTION**) 

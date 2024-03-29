@@ -1,15 +1,13 @@
 ---
-title: Tokenized Sharing from DII
+title: Tokenized Sharing in Pixels
 description: Learn about sharing UID2 tokens generated from DII.
 hide_table_of_contents: false
 sidebar_position: 08
 ---
 
-# Tokenized Sharing from DII
+# Tokenized Sharing in Pixels
 
-<!-- (**"pixels is going to be part of tokenized sharing outside the bid stream"**)
-
-(**"in DII we can explain bid stream and pixels, two things"**)  -->
+(**copy of Tokenized Sharing from DII... to be edited to take out the bid stream stuff**)
 
 (**GWH_KT01 I also added something for tokenized sharing in other circumstances... we have it in the table in the overview "Raw UID2 sharing or optional tokenized sharing"... do we therefore need it here?**)
 
@@ -134,15 +132,18 @@ We recommend generating the UID2 token directly from DII. You can do this in sev
 
 In general, UID2 activity encompasses the pixel uses shown in the following table.
 
-Pixel Type | Creative Pixel | Tracking Pixel (Universal Pixel) | 
+Pixel Type | Creative Pixel | Tracking Pixel | 
 | :--- | :--- | :--- |
-| What it measures | Impression (user sees an ad) | Conversion (user does something) |
-| Where | Publisher site via DSP |Advertiser site  |
-| For | Advertiser or data provider | Advertiser or data provider |
+| What it measures | Impression (user sees an ad) | Conversion/retargeting (user does something) |
+| Where | Publisher site via DSP |Advertiser or publisher site  |
+| For | Advertiser or data provider | Advertiser, data provider, or publisher |
+| Starting Point | DII | Raw UID2 |
 
 **AND ANOTHER PIECE TO COMBINE WITH THIS:**
 
-## Tokenized Sharing Outside the Bid Stream
+## Workflow: Tokenized Sharing Via Tracking Pixel
+
+(**GWH also add: Workflow: Tokenized Sharing Via Creative Pixel -- after this section. KL will provide content**)
 
 Tokenized sharing can be used in any sharing route, but the main implementation outside of the bid stream is tokenized sharing in pixels. 
 
@@ -164,12 +165,8 @@ For example, let's say that an advertiser (sender) wants to share UID2 tokens wi
 
 2. The DSP, who is also taking part in sharing, is the receiver. The DSP has access to the advertiser's decryption keys, through the UID2 Portal sharing permissions setup, and can therefore decrypt the UID2 tokens into raw UID2s for segment creation.
 
-Both the UID2 sender and receiver must create an account in order to take part in sharing. Without an account, a UID2 participant is not displayed in the list of sharing participants in the UID2 Portal.
+Both the UID2 sender and receiver must [create a UID2 Portal account](link to account setup section) in order to take part in sharing. Without an account, a UID2 participant is not displayed in the list of sharing participants in the UID2 Portal.
 
 There are many scenarios for sharing. For additional examples, see [Sharing UID2s: Use Cases](sharing-use-cases.md).
-
-## Sending UID2s to Another Sharing Participant
-
-You can also send UID2 tokens to another authorized sharing participant. Sharing UID2s via UID2 tokens is an option in any sharing scenario.
 
 (**GWH_KT not sure what needs to go here.**}

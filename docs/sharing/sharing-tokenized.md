@@ -78,7 +78,7 @@ UID2 sharers follow a two-step process, as shown in the following example. The s
 
 #### Tokenized Sharing: Starting with DII
 
-If you're starting with DII, first generate the UID2 token by following either of these paths:
+If you're starting with DII, generate the UID2 token by following either of these paths:
 
 - Option 1: Convert to raw UID2 and then encrypt:
 

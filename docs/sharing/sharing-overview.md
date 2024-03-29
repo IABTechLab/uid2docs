@@ -49,7 +49,7 @@ The security requirements for sharing UID2s between authorized sharing participa
 
 ### Authentication
 
-In essence, authentication means that you verify that the sharing participant you're working with is who they say they are.
+Authentication means that you verify that the sharing participant you're working with is who they say they are.
 
 Common ways of achieving this are to require verification via credentials, such as:
 - Username and password
@@ -57,7 +57,7 @@ Common ways of achieving this are to require verification via credentials, such 
 
 ### Authorization
 
-Essentially, authorization means that you verify that the sharing participant you're working with is authorized to receive the data you're sending -- or to send the data you're receiving. In the context of sharing, this means that the participant has the appropriate role required to access the specific UID2 data. Some examples are the following:
+Authorization means that you verify that the sharing participant you're working with is authorized to receive the data you're sending -- or to send the data you're receiving. In the context of sharing, this means that the participant has the appropriate role required to access the specific UID2 data. Some examples are the following:
 
 - The receiver has an appropriate security role for all steps of the transmission flow. For example, if transmission is via Amazon AWS, the receiver must have an appropriate security role for the applicable Amazon AWS account.
 
