@@ -251,14 +251,26 @@ const fullSidebar = [
       link: {
         type: 'generated-index',
       },
-      collapsed: true,
+      collapsed: false,
       items: [
         'sharing/sharing-overview',
         'sharing/sharing-use-cases',
-        'sharing/sharing-implementing',
+        {
+          type: 'category',
+          label: 'Tokenized Sharing',
+          link: {
+            type: 'generated-index',
+          },
+          collapsed: false,
+          items: [
+            'sharing/sharing-tokenized',
+            'sharing/sharing-tokenized-setup',
+            'sharing/sharing-tokenized-from-data',
+            'sharing/sharing-tokenized-from-raw',
+          ],
+        },
+        'sharing/sharing-raw',
         'sharing/sharing-best-practices',
-        'sharing/sharing-tokenized',
-        'sharing/sharing-pixels',
       ],
     },
 

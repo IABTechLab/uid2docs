@@ -38,9 +38,9 @@ In a scenario where a sharing participant wants to share UID2s with another auth
 
 - **Raw UID2s**: Both sender and receiver have the resources, processes, and facilities in place to ensure secure transit of the raw UID2s, without risk of compromising the data. In this scenario, as long as all UID2 [security requirements](#security-requirements-for-raw-uid2-sharing) are met, the sender can send raw UID2s to an authorized sharing participant.
 
-## Security Requirements for Raw UID2 Sharing
+## Security Requirements for UID2 Sharing
 
-The security requirements for sharing raw UID2s between authorized sharing participants include these criteria, which must all be met consistently:
+The security requirements for sharing UID2s between authorized sharing participants include these criteria, which must all be met consistently:
 
 - [Authentication](#authentication)
 - [Authorization](#authorization)
@@ -77,15 +77,9 @@ Accounting means that there is a record of what happens, so that activity can be
 
 ### Secure Transport
 
-Secure transport is the mechanism that's in place to ensure that the transition of the raw UID2s from sender to receiver is secure, end to end. There must be no possibility that the raw UID2s are accessible or modifiable by an onlooker. Examples of secure transport include:
+Secure transport is the mechanism that's in place to ensure that the transition of the UID2s from sender to receiver is secure, end to end. There must be no possibility that the UID2s are accessible or modifiable by an onlooker. Examples of secure transport include:
 
 - HTTPS or TLS
 - Message-based encryption
 
->NOTE: ALL the above security points must be in place, continuously, if you are sending or receiving raw UID2s.
-
-#### Raw UID2 Sharing
-
-If you want to share raw UID2s with other authorized sharing participants, you must make sure that all points of the [Security Requirements for Raw UID2 Sharing](#security-requirements-for-raw-uid2-sharing) are rigorously followed, so that the raw UID2s are kept secure at all times.
-
-For instructions for implementing raw UID2 sharing, see (**NEW PAGE YET TO COME. KL question should I clone and customize the "Implementing Tokenized Sharing" page for sharing of raw UID2s? And, if so, where will I get actual procedure.**).
+>NOTE: ALL the above security points must be in place, continuously, if you are sending or receiving UID2s.

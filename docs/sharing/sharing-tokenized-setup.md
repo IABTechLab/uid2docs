@@ -1,13 +1,16 @@
 ---
-title: Implementing Tokenized Sharing
-description: Learn how to implement sharing.
+title: Tokenized Sharing Setup
+description: Learn about tokenized sharing.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-# Implementing Tokenized Sharing
+# Tokenized Sharing: Setup
 
-UID2 tokenized sharing means sharing UID2 tokens with authorized sharing participants. the tokens might be either encrypted raw UID2s, or tokens generated directly from DII.
+(**Was Implementing Sharing and Implementing Tokenized Sharing**)
+
+UID2 tokenized sharing means sharing UID2 tokens with authorized sharing participants. The tokens might be either encrypted raw UID2s, or tokens generated directly from DII.
+[**GWH_KT you said tokenized sharing setup should include setting up an account in the UID2 Portal. But there are two scenarios, and a portal account is only required for encrypted raw UID2s, not for tokens generated from DII, correct? So still not sure if I've understood this correctly. I think that the account setup stuff should just be in **]
 
 Setting up tokenized sharing to encrypt raw UID2s requires some steps by each participant:
 
