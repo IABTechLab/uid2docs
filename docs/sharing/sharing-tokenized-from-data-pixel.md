@@ -165,7 +165,7 @@ For example, let's say that an advertiser (sender) wants to share UID2 tokens wi
 
 2. The DSP, who is also taking part in sharing, is the receiver. The DSP has access to the advertiser's decryption keys, through the UID2 Portal sharing permissions setup, and can therefore decrypt the UID2 tokens into raw UID2s for segment creation.
 
-Both the UID2 sender and receiver must [create a UID2 Portal account](link to account setup section) in order to take part in sharing. Without an account, a UID2 participant is not displayed in the list of sharing participants in the UID2 Portal.
+Both the UID2 sender and receiver must [create a UID2 Portal account](**GWH_link to account setup section**) in order to take part in sharing. Without an account, a UID2 participant is not displayed in the list of sharing participants in the UID2 Portal.
 
 There are many scenarios for sharing. For additional examples, see [Sharing UID2s: Use Cases](sharing-use-cases.md).
 

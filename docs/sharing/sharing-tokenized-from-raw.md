@@ -8,9 +8,6 @@ sidebar_position: 08
 # Tokenized Sharing from Raw UID2s
 
 
-(**GWH_KT "pixels is going to be part of tokenized sharing outside the bid stream"**)
-
-
 xxx
 
 
