@@ -16,7 +16,7 @@ displayed_sidebar: docs
 
 The UID2 Portal is your one-stop shop for setting up and configuring your UID2 account. In this self-serve portal, you can complete all basic setup steps for UID2 participation. Click through on the links below for more information about each activity:
 
-- Request an account, configure basic account information such as name and location, and log in for the first time: see Getting Started with the UID2 Portal](portal-getting-started.md).
+- Request an account, configure basic account information such as name and location, and log in for the first time: see [Getting Started with the UID2 Portal](portal-getting-started.md).
 - Review your profile: see [Participant Information](participant-info.md).
 - Configure individual sharing participants or groups of sharing participants: see [Sharing Permissions](sharing-permissions.md).
 - Add team members who will have permission to manage your account: see [Team Members](team-members.md).
