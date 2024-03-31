@@ -264,8 +264,7 @@ const fullSidebar = [
           collapsed: false,
           items: [
             'sharing/sharing-tokenized-overview',
-            'sharing/sharing-tokenized',
-            'sharing/sharing-tokenized-from-data-bidstream',
+            'sharing/sharing-tokenized-from-data-bid-stream',
             'sharing/sharing-tokenized-from-data-pixel',
             'sharing/sharing-tokenized-from-raw',
           ],

@@ -12,13 +12,22 @@ In UID2, sharing is a process for distributing either [raw UID2s](../ref-info/gl
 
 All instances where a raw UID2 or UID2 token is shared with another participant fall under the definition of sharing, and all instances must follow one of the standard [sharing scenarios](#sharing-scenarios). In addition, sharing of raw UID2s must meet the [security requirements](#security-requirements-for-raw-uid2-sharing).
 
+In this file:
+- [Sharing Scenarios](#sharing-scenarios)
+- [UID2 Sharing: Responsibilities](#uid2-sharing-responsibilities)
+- [Security Requirements for UID2 Sharing](#security-requirements-for-uid2-sharing)
+  - [Authentication](#authentication)
+  - [Authorization](#authorization)
+  - [Accounting](#accounting)
+  - [Secure Transport](#secure-transport)
+
 ## Sharing Scenarios
 
 There are several main sharing scenarios, summarized in the following table.
 
-| Sharing scenario | Audience | Sharing methodology | Sharing route | Link for details
+| Sharing scenario | Sender | Sharing methodology | Sharing route | Link for details
 | :--- | :--- | :--- | :--- | :--- |
-| Sharing in the bid stream | Publisher | Tokenized sharing (UID2 token) | Publisher generates UID2 token and sends it into the bid stream.  | [Tokenized Sharing for Publishers in the Bid Stream](sharing-tokenized.md#tokenized-sharing-for-publishers-in-the-bid-stream) |
+| Sharing in the bid stream | Publisher | Tokenized sharing (UID2 token) | Publisher generates UID2 token and sends it into the bid stream.  | [Tokenized Sharing in the Bid Stream](sharing-tokenized-from-data-bid-stream.md) |
 | Sharing via a pixel | Any authorized sharer | Tokenized sharing (UID2 token) | Sharing via any pixel, such as a tracking pixel or creative pixel. | [Sharing UID2 Tokens in Pixels](sharing-pixels.md) |
 | Sharing with another UID2 sharing participant, outside of the bid steam or pixels. | Any authorized sharer | Raw UID2 sharing or optional tokenized sharing | Sharing by any secure channel, such as via API or Amazon S3 drop. | [Raw UID2 Sharing](#raw-uid2-sharing) |
 
