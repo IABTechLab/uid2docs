@@ -7,15 +7,15 @@ sidebar_position: 05
 
 # UID2 Sharing: Best Practices
 
-<!-- It includes the following:
-
-- [Best Practices for Managing Raw UID2s](#best-practices-for-managing-raw-uid2s)
-- [Best Practices for Managing UID2 Tokens](#best-practices-for-managing-uid2-bid-stream-tokens-or-sharing-tokens)
-- [Key Refresh Cadence for Sharing](#key-refresh-cadence-for-sharing) -->
-
 The ability to securely share UID2 tokens with other authorized UID2 users opens the door to using UID2 in many additional ways in your business.
 
 However, every UID2 participant has a responsibility to maintain the security of the UID2 ecosystem. Here are some best practices to help ensure that UID2 sharing runs smoothly and securely.
+
+In this file:
+
+- [Best Practices for Managing Raw UID2s](#best-practices-for-managing-raw-uid2s)
+- [Best Practices for Managing UID2 Tokens](#best-practices-for-managing-uid2-tokens)
+- [Key Refresh Cadence for Sharing](#key-refresh-cadence-for-sharing)
 
 ## Best Practices for Managing Raw UID2s
 
@@ -44,4 +44,4 @@ The following are reasons to refresh the keys on an hourly cadence:
 - Regular refresh allows the SDK to fetch the latest keys for decryption.
 - The UID2 framework periodically rotates encryption keys.
 
-For details, see [Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)](sharing-implementing.md#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only).
+For details, see [Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)](sharing-tokenized-from-raw.md#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only).
