@@ -52,8 +52,6 @@ These options support generating UID2 tokens from email addresses or phone numbe
 
 ### Optional: Account Setup in the UID2 Portal
 
-**(GWH need to change the title so it isn't the same as the overview. But later.**)
-
 If your only sharing activity is generating UID2 tokens from DII and sending them in the bid stream, you do not need to set up an account in the UID2 Portal and create sharing relationships. By default, publishers automatically share with all DSPs who are integrated with UID2.
 
 However, you might choose to do this so that you can control who you share with. For example, you might want to share with a limited audience, one or more sharing partners, for security or other reasons.
@@ -131,9 +129,8 @@ Publishers convert the input email address or phone number directly to a UID2 to
 
 To be able to decrypt a UID2 token into a raw UID2, you must be an authorized sharing receiver and have the sender's decryption keys. In most cases you also need a sharing relationship with the sender.
 
-For details, see [Sharing Overview: ](sharing-tokenized-overview.md#information-for-tokenized-sharing-receivers).
+For details, see [Sharing Overview: Information for Tokenized Sharing Receivers](sharing-tokenized-overview.md#information-for-tokenized-sharing-receivers).
 
-    :::note
-    By default, for publishers sending UID2 tokens to the bid stream, the publisher's decryption keys are shared with all authorized DSPs. However, if the publisher sending the UID2 token has set up specific sharing relationships, you'll only receive that publisher's decryption keys if the publisher has created a sharing relationship with you.
-    :::
-    
+:::note
+By default, for publishers sending UID2 tokens to the bid stream, the publisher's decryption keys are shared with all authorized DSPs. However, if the publisher sending the UID2 token has set up specific sharing relationships, you'll only receive that publisher's decryption keys if the publisher has created a sharing relationship with you.
+:::

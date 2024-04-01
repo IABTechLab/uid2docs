@@ -102,4 +102,4 @@ The following steps are for Snowflake users who want to take part in UID2 sharin
 
 To be able to decrypt a UID2 token into a raw UID2, you must be an authorized sharing receiver and have the sender's decryption keys. In most cases you also need a sharing relationship with the sender.
 
-For details, see [Sharing Overview: ](sharing-tokenized-overview.md#information-for-tokenized-sharing-receivers). 
+For details, see [Sharing Overview: Information for Tokenized Sharing Receivers](sharing-tokenized-overview.md#information-for-tokenized-sharing-receivers).
