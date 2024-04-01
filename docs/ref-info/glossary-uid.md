@@ -317,11 +317,11 @@ sidebar_position: 10
 <dd>For details, see <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> (specification).</dd>
 
 <dt class="jump-anchor" id="gl-sharing">Sharing</dt>
-<dd>In the context of UID2, sharing is a process for distributing <a href="#gl-raw-uid2">raw UID2s</a> securely between UID2 participants. To protect raw UID2s from unauthorized access, the originating participant (sender) must encrypt the raw UID2s into UID2 tokens before transmission. The destination participant (receiver) must decrypt the UID2 tokens into raw UID2s for internal use.</dd>
+<dd>In the context of UID2, sharing is a process for distributing <a href="#gl-raw-uid2">raw UID2s</a> securely from one UID2 participant to another. To protect raw UID2s from unauthorized access, if messaging is not secure per [Security Requirements for Raw UID2 Sharing](../sharing/sharing-overview.md#security-requirements-for-raw-uid2-sharing), the originating participant (sender) must encrypt the raw UID2s into UID2 tokens before transmission. The destination participant (receiver) must decrypt the UID2 tokens into raw UID2s for internal use.</dd>
 <dd>For details, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd>
 
 <dt class="jump-anchor" id="gl-sharing-participant">Sharing participant</dt>
-<dd>In UID2, a sharing participant is a company that takes part in <a href="#gl-sharing">sharing</a>&#8212;distributing <a href="#gl-raw-uid2">raw UID2s</a> securely between UID2 participants. A sharing participant can be a publisher, advertiser, DSP, or data provider, or might have more than one of these roles.</dd>
+<dd>In UID2, a sharing participant is a company that takes part in <a href="#gl-sharing">sharing</a>&#8212;distributing <a href="#gl-raw-uid2">raw UID2s</a> securely from one UID2 participant to another. A sharing participant can be a publisher, advertiser, DSP, or data provider, or might have more than one of these roles.</dd>
 <dd>For details, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd>
 
 <dt class="jump-anchor" id="gl-sso">Single sign-on (SSO)</dt>
