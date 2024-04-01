@@ -10,7 +10,7 @@ displayed_sidebar: docs
 
 In UID2, sharing is a process for distributing either [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) or [UID2 tokens](../ref-info/glossary-uid.md#gl-raw-uid2) securely between UID2 participants.
 
-All instances where a raw UID2 or UID2 token is shared with another participant fall under the definition of sharing, and all instances must follow one of the standard [sharing scenarios](#sharing-scenarios). In addition, sharing of raw UID2s must meet the [security requirements](#security-requirements-for-raw-uid2-sharing).
+All instances where a raw UID2 or UID2 token is shared with another participant fall under the definition of sharing, and all instances must follow all of the standard [sharing scenarios](#sharing-scenarios). In addition, sharing of raw UID2s must meet the [security requirements](#security-requirements-for-raw-uid2-sharing).
 
 In this file:
 - [Sharing Scenarios](#sharing-scenarios)
@@ -35,14 +35,14 @@ There are several main sharing scenarios, summarized in the following table.
 
 All UID2 participants have a core responsibility to make sure that the UID2 data is protected from unauthorized access or use, in all states including storage and transit.
 
-A key reason for the creation of a UID2 token from a raw UID2 is that the UID2 token is more secure.
-
 In a scenario where a sharing participant wants to share UID2s with another authorized sharing participant, there are two possible paths:
 
 - **UID2 Tokens**:
 
   1. The sender sets up sharing permissions in the UID2 Portal (see [Sharing Permissions](../portal/sharing-permissions.md)).
-  2. The sender encrypts the raw UID2s into UID2 tokens, using one of the UID2 server-side SDKs or the UID2 Snowflake integration.
+  2. The sender generates a UID2 token from DII, or encrypts raw UID2s into UID2 tokens using one of the UID2 server-side SDKs or the UID2 Snowflake integration.
+  
+      For more information about the options for sharing UID2 tokens, see [Tokenized Sharing Overview](sharing-tokenized-overview.md).
   3. The receiver decrypts the UID2 sharing tokens into raw UID2s.
 
 - **Raw UID2s**: Both sender and receiver have the resources, processes, and facilities in place to ensure secure transit of the raw UID2s, without risk of compromising the data. In this scenario, as long as all UID2 [security requirements](#security-requirements-for-raw-uid2-sharing) are met, the sender can send raw UID2s to an authorized sharing participant.

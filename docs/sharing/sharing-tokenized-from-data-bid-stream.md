@@ -32,7 +32,7 @@ Additional information for publishers is on the following pages:
 Tokenized sharing in the bid stream is applicable to the following audiences:
 
 - **Sender**: Publisher. Account Setup in the UID2 Portal is optional.
-- **Receiver**: DSP (**GWH_KL others?**). See [Information for Tokenized Sharing Receivers](#information-for-tokenized-sharing-receivers).
+- **Receiver**: DSP. See [Information for Tokenized Sharing Receivers](#information-for-tokenized-sharing-receivers).
 
 ### Tokenized Sharing in the Bid Stream: Implementation Options
 
@@ -127,7 +127,7 @@ Publishers convert the input email address or phone number directly to a UID2 to
 
 ## Information for Sharing Receivers
 
-To be able to decrypt a UID2 token into a raw UID2, you must be an authorized sharing receiver and have the sender's decryption keys. In most cases you also need a sharing relationship with the sender.
+To be able to decrypt a UID2 token into a raw UID2, you must be an authorized sharing receiver and have the sender's decryption keys. The sender must also create a sharing relationship with you.
 
 For details, see [Sharing Overview: Information for Tokenized Sharing Receivers](sharing-tokenized-overview.md#information-for-tokenized-sharing-receivers).
 

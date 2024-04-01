@@ -20,6 +20,8 @@ For example, here are some sample scenarios where a sender wants to share UID2s 
 
 These scenarios, and others, are represented in the following diagram.
 
+(**GWH_KL note Kimberly is working with Marketing to redo this diagram.**)
+
 ![Illustration of Sharing Use Cases](images/UID2_Sharing_Diagram_UseCases.png)
 
 :::note
