@@ -1,6 +1,6 @@
 ---
 title: Server-Side Integration Guide for JavaScript
-sidebar_label: Server-Side Integration, JavaScript
+sidebar_label: Server-Side Integration for JavaScript
 pagination_label: Server-Side Integration Guide for JavaScript
 description: UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオをカバーするパブリッシャー向けの情報で、トークンを Server-Side で生成し、パブリッシャーのウェブページに渡す必要があります。
 hide_table_of_contents: false
