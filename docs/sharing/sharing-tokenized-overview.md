@@ -256,7 +256,7 @@ The following example shows sample values when converting input DII directly to 
 
 ### Tokenized Sharing: Starting with a Raw UID2
 
-Tokenized sharing starting with a raw UID2 is common for [sharing via tracking pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-via-tracking-pixels). It can also be used in other scenarios. For details, see  [Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md).
+Tokenized sharing starting with a raw UID2 is common for [sharing via creative pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-via-creative-pixels). It can also be used in other scenarios. For details, see  [Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md).
 
 If you're starting with a raw UID2, follow these steps:
 
