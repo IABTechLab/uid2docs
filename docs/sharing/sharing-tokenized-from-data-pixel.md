@@ -36,13 +36,13 @@ Tokenized sharing in pixels is applicable to the following audiences:
 
 ## Sharing UID2 Tokens in Pixels
 
-In instances where a UID2 is used in a pixel, client-side&#8212;for example, an advertiser or data provider sharing via a creative pixel or a tracking pixel&#8212;it must always be a UID2 token, not a raw UID2. Client-side activity is not secure and can be viewed by anyone inspecting web traffic.
-
 :::tip
 We recommend generating the UID2 token directly from DII. You can do this in several ways; our recommendation is to generate the UID2 token client-side. For instructions, see [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
 :::
 
-In general, UID2 activity encompasses the pixel uses shown in the following table.
+Different participants might use pixels in different ways. The following table shows two very common use cases for pixels in the advertising technology ecosystem.
+
+(**GWH_KT I combined the note you requested with the intro copy -- hope that's OK. Just don't want to have too many notes and tips and we have one above already.**)
 
 Pixel Type |  Tracking Pixel | Creative Pixel |
 | :--- | :--- | :--- |
@@ -50,8 +50,9 @@ Pixel Type |  Tracking Pixel | Creative Pixel |
 | Where | Advertiser or publisher site | Publisher site via DSP |
 | For | Advertiser, data provider, or publisher | Advertiser or data provider |
 | Starting point | DII | Raw UID2 |
+| Format shared in pixel | UID2 token | UID2 token |
 
-(**GWH_KT please check the revised table. Also I altered the sequence so tracking pixel is first, since we put it first down below. If you prefer it the other way no prob just LMK. In a way logically I think creative might be first? But I think you wanted the subsequent articles in this sequence.**)
+(**GWH_KT I added last line but if you don't like it we can lose it. Just wanted to spell it out.**)
 
 There are two scenarios:
 
@@ -60,7 +61,7 @@ There are two scenarios:
 
 ## Account Setup in the UID2 Portal
 
-In the UID2 Portal, in all scenarios except tokenized sharing in the bid stream, the sender and the receiver must set up an account and the sender must configure sharing permissions.
+In the UID2 Portal, for tokenized sharing in pixels, the sender and the receiver must set up an account and then configure their sharing permissions.
 
 The sender needs to set up sharing permission only once for each receiver or participant type. However, if you want to add new sharing permissions or change existing ones, you'll need to go back to adjust your settings.
 
@@ -68,10 +69,9 @@ For details, see [UID2 Portal: Overview](../portal/portal-overview.md) and follo
 
 ## Workflow: Tokenized Sharing Via Tracking Pixels
 
-If you're using tracking pixels that fire when someone completes an action such as purchasing a product on a website, you start with DII and convert it to a UID2 token. 
-You must also create a UID2 Portal account.
+If you're using tracking pixels that fire when someone completes an action such as purchasing a product on a website, it's most likely that you'll start with DII and convert it to a UID2 token, for tokenized sharing.
 
-The UID2 sender specifies which receivers can decrypt their UID2 tokens, by configuring permissions in the UID2 Portal (see [Sharing Permissions](../portal/sharing-permissions.md)). When a sender grants permission to a receiver for UID2 sharing, the sender's decryption keys are shared with the receiver via a UID2 SDK. As part of sharing, the UID2 SDKs and APIs take care of the encryption and decryption.
+The UID2 sender specifies which receivers can decrypt their UID2 tokens, by configuring permissions in the UID2 Portal (see [Sharing Permissions](../portal/sharing-permissions.md)). When a sender grants permission to a receiver for UID2 sharing, the sender's decryption keys are shared with the receiver via a UID2 SDK or Snowflake. As part of sharing, the UID2 SDKs and APIs take care of the encryption and decryption.
 
 For example, let's say that an advertiser (sender) wants to share UID2 tokens with a trusted sharing participant who is a UID2 DSP, for conversion tracking via a tracking pixel. Using sharing, here's the sequence:
 
