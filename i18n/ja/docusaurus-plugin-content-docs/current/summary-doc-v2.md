@@ -17,7 +17,7 @@ API の使用方法は、以下のページを参照してください。
 
 | Documentation | Content Description |
 | :--- | :--- |
-| [Encrypting Requests and Decrypting Responses](getting-started/gs-encryption-decryption.md) | UID2 API のリクエスト/レスポンスワークフロー、リクエストの暗号化と応答の復号化の要件、および Python でのスクリプトの例です。 |
-| [Endpoints](endpoints/summary-endpoints.md) | ID トークンを管理し、メールアドレス、電話番号、ハッシュを UID2 と UID2 の生成に使用したソルトバケット ID に対応付けるための API リファレンスです。<br/>NOTE: インテグレーション環境と本番環境では、異なる[APIキー](ref-info/glossary-uid.md#gl-api-key)が必要です。 |
+| [Encrypting Requests and Decrypting Responses](getting-started/gs-encryption-decryption.md) | UID2 API のリクエスト/レスポンスワークフロー、リクエストの暗号化と応答の復号化の要件と、いくつかのプログラミング言語でのスクリプトの例です。 |
+| [Endpoints](endpoints/summary-endpoints.md) | ID トークンを管理し、メールアドレス、電話番号、ハッシュを UID2 と UID2 の生成に使用したソルトバケット ID に対応付けるための API リファレンスです。<br/>NOTE: インテグレーション環境と本番環境では、異なる [APIキー](ref-info/glossary-uid.md#gl-api-key) が必要です。 |
 | [Integration Guides](guides/summary-guides.md) | パブリッシャー、DSP、広告主、データプロバイダーなどの UID2 参加者、および Microsoft Azure、AWS、Snowflake などの Operator Enterprise Partner 向けの UID2 インテグレーション・ワークフローです。 |
 | [SDKs](sdks/summary-sdks.md) | UID2 SDK を使用するためのドキュメントへのリンクです。 |

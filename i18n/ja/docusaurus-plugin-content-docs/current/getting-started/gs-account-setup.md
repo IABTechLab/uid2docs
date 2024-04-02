@@ -14,7 +14,7 @@ sidebar_position: 02
 * [Contact Info](#contact-info)
 * [Account Setup](#account-setup-details)
 * [Credentials](#credentials)
-* [API Versions](#api-versions)
+* [API Version](#api-version)
  -->
 ## Contact Info
 
@@ -53,6 +53,6 @@ UID2 に興味を示していただいたら、詳細を詰めるために担当
 
 UID2 に参加する契約を結ぶと、[UID2 credentials](gs-credentials.md) と UID2 を始めるために必要な情報が提供されます。
 
-## API Versions
+## API Version
 
 UID2 API の現在のバージョンは UID2 API v2 です。
