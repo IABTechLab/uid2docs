@@ -10,11 +10,11 @@ displayed_sidebar: docs
 
 In UID2, sharing is a process for distributing either [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) or [UID2 tokens](../ref-info/glossary-uid.md#gl-raw-uid2) securely between UID2 participants.
 
-All instances where a raw UID2 or UID2 token is shared with another participant fall under the definition of sharing, and all instances must follow all of the standard [sharing scenarios](#sharing-scenarios). In addition, sharing of raw UID2s must meet the [security requirements](#security-requirements-for-uid2-sharing).
+All instances where a raw UID2 or UID2 token is shared with another participant fall under the definition of sharing, and all instances must follow all of the standard [sharing scenarios](#sharing-scenarios). In addition, sharing must meet the [security requirements](#security-requirements-for-uid2-sharing).
 
 In this file:
 - [Sharing Scenarios](#sharing-scenarios)
-- [UID2 Sharing Paths](#uid2-sharing-paths)
+- [UID2 Sharing Approaches](#uid2-sharing-approaches)
   - [Sharing UID2 Tokens](#sharing-uid2-tokens)
   - [Sharing Raw UID2s](#sharing-raw-uid2s)
 - [Security Requirements for UID2 Sharing](#security-requirements-for-uid2-sharing)
@@ -27,7 +27,7 @@ In this file:
 
 There are several main sharing scenarios, summarized in the following table.
 
-| Sharing scenario | Sender | Receiver | Sharing methodology | Sharing route | Link for details
+| Sharing Scenario | Sender | Receiver | Sharing Approach | Sharing Route | Link for Details
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Sharing in the bid stream | Publisher | DSP | Tokenized sharing (UID2 token) | Publisher generates UID2 token and sends it into the bid stream.  | [Tokenized Sharing in the Bid Stream](sharing-tokenized-from-data-bid-stream.md) |
 | Sharing via a pixel | Any authorized sharer | Any authorized sharer | Tokenized sharing (UID2 token) | Sharing via any pixel, such as a tracking pixel or creative pixel. | [Tokenized Sharing in Pixels](sharing-tokenized-from-data-pixel.md) |
@@ -35,20 +35,20 @@ There are several main sharing scenarios, summarized in the following table.
 
 (**GWH_KL 4/2: we added a Receiver line in the table in Tokenized Sharing Overview. Added it here also, per AT's edits.**)
 
-## UID2 Sharing Paths
+## UID2 Sharing Approaches
 
-In a scenario where a sharing participant wants to share UID2s with another authorized sharing participant, there are two possible paths:
+If a sharing participant wants to share UID2s with another authorized sharing participant, there are two possible paths:
 
 - [Sharing UID2 Tokens](#sharing-uid2-tokens)
 - [Sharing Raw UID2s](#sharing-raw-uid2s)
 
 ### Sharing UID2 Tokens
 
-The following are the high-level steps for sharing UID2 tokens (tokenized sharing):
+The following are the high-level steps for sharing UID2 tokens ([tokenized sharing](../ref-info/glossary-uid.md#gl-tokenized-sharing)):
 
   1. The sender sets up sharing permissions in the UID2 Portal (see [Sharing Permissions](../portal/sharing-permissions.md)).
   2. The sender generates a UID2 token from DII, or encrypts raw UID2s into UID2 tokens using [one of the UID2 server-side SDKs](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-with-an-sdk) or the [UID2 Snowflake integration](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-using-snowflake).
-  3. The receiver decrypts the UID2 sharing tokens into raw UID2s, using [one of the UID2 server-side SDKs](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-with-an-sdk) or the [UID2 Snowflake integration](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-using-snowflake).
+  3. The receiver decrypts the UID2 tokens into raw UID2s, using [one of the UID2 server-side SDKs](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-with-an-sdk) or the [UID2 Snowflake integration](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-using-snowflake).
 
 For more information about the options for sharing UID2 tokens, see [Tokenized Sharing Overview](sharing-tokenized-overview.md).
 
@@ -77,11 +77,10 @@ Common ways of achieving this are to require verification via credentials, such 
 
 ### Authorization
 
-Authorization means that you verify that the sharing participant you're working with is authorized to receive the data you're sending -- or to send the data you're receiving. In the context of sharing, this means that the participant has the appropriate role required to access the specific UID2 data. Some examples are the following:
-
-- The receiver has an appropriate security role for all steps of the transmission flow. For example, if transmission is via Amazon AWS, the receiver must have an appropriate security role for the applicable Amazon AWS account.
+Authorization means that you verify that the sharing participant you're working with is authorized to receive the data that you're sending&#8212;or to send the data that you're receiving. In the context of sharing, this means that the participant has the appropriate role required to access the specific UID2 data. Some examples are the following:
 
 - The receiver has accepted the terms of the applicable UID2 participation policy. (**GWH_KL note 3/7: "we'll need to confirm with legal that we need that"**)
+- The receiver has an appropriate security role for all steps of the transmission flow. For example, if transmission is via Amazon AWS, the receiver must have an appropriate security role for the applicable Amazon AWS account.
 
 :::note
 Only authorized sharing participants are available for creating a sharing relationship in the UID2 Portal.

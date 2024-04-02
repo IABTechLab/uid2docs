@@ -36,7 +36,7 @@ Tokenized sharing in the bid stream is applicable to the following audiences:
 
 ### Tokenized Sharing in the Bid Stream: Implementation Options
 
-The following approaches are available for encrypting the DII directly into a UID2 token for sending in the bid stream:
+The following approaches are available for encrypting the DII directly into a UID2 token for sending in the bid stream.
 
 | Integration Option | Token Generated Client-Side or Server-Side? | Integration Guide |
 | :--- | :--- | :--- |
@@ -46,7 +46,7 @@ The following approaches are available for encrypting the DII directly into a UI
 | JavaScript SDK | Server-Side | [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) |
 | Java SDK | Server-Side | [UID2 SDK for Java Reference Guide](../sdks/uid2-sdk-ref-java.md) |
 | Python SDK | Server-Side | [UID2 SDK for Python Reference Guide](../sdks/uid2-sdk-ref-python.md) |
-| UID2 API (token generate and refresh) | Server-Side | [UID2 Tokens](../endpoints/summary-endpoints.md#uid2-tokens) | 
+| UID2 API (token generate and refresh) | Server-Side | [UID2 Endpoints Summary: UID2 Tokens](../endpoints/summary-endpoints.md#uid2-tokens) | 
 
 These options support generating UID2 tokens from email addresses or phone numbers and also refreshing the tokens regularly. Other SDKs do not support token generate and token refresh at this time.
 
@@ -54,27 +54,24 @@ These options support generating UID2 tokens from email addresses or phone numbe
 
 If your only sharing activity is generating UID2 tokens from DII and sending them in the bid stream, you do not need to set up an account in the UID2 Portal and create sharing relationships. By default, publishers automatically share with all DSPs who are integrated with UID2.
 
-However, you might choose to do this so that you can control who you share with. For example, you might want to share with a limited audience of one or more sharing partners for security or other reasons.
+However, you might choose to create an account and set up sharing permissions so that you can control who you share with. For example, you might want to share with a limited audience of one or more sharing partners for security or other reasons.
 
-For account setup information, see [Account Setup in the UID2 Portal](sharing-tokenized-overview.md#account-setup-in-the-uid2-portal).
-
-For details, see [UID2 Portal: Overview](../portal/portal-overview.md) and follow the links for each task.
+For details, see [Tokenized Sharing Overview: Account Setup in the UID2 Portal](sharing-tokenized-overview.md#account-setup-in-the-uid2-portal).
 
 ### Workflow: Tokenized Sharing in the Bid Stream
 
-The workflow for generating UID2 tokens from DII, via the API or the specified server-side SDKs, consists of the following steps (each step links to the corresponding section):
+The workflow for generating UID2 tokens from DII, via the API or the specified server-side SDKs, consists of the following steps:
 
 1. Publisher: Integrate with UID2 using one of the integration options listed in [Tokenized Sharing in the Bid Stream: Implementation Options](#tokenized-sharing-in-the-bid-stream-implementation-options).
 
-   >NOTE: The DSP must integrate with UID2 using one of the server-side SDKs. See [Tokenized Sharing Steps: Summary](../sharing/sharing-tokenized-overview.md#tokenized-sharing-steps-summary) (step 2).
+1. DSP: Integrate with UID2 using one of the server-side SDKs. See [Tokenized Sharing Steps: Summary](../sharing/sharing-tokenized-overview.md#tokenized-sharing-steps-summary) (step 2).
 
 1. (Optional) Publisher: Set up sharing permissions in the UID2 Portal to restrict who can decrypt your UID2 tokens:
 
-   1. Publisher: Determine the DSPs you want to allow to decrypt your UID2 tokens. 
-   1. Publisher and DSP: Create a UID2 Portal account.
-   1. Publisher: Log in to the UID2 Portal and navigate to the sharing permissions page.
-   1. Publisher: Select one or more DSPs that you want to share with. If needed, use the search feature to find specific DSPs.
-   1. Publisher: Save the sharing selection.
+   1. Determine the DSPs you want to allow to decrypt your UID2 tokens. 
+   1. Create a UID2 Portal account.
+   1. Log in to the UID2 Portal, go to the [Sharing Permissions](../portal/sharing-permissions.md) page, and select one or more DSPs that you want to share with. If needed, use the search feature to find specific DSPs.
+   1. Save the sharing selection.
 
 1. The publisher completes the following steps to create and send the UID2 tokens:
 
@@ -94,7 +91,7 @@ The following diagram illustrates the UID2 sharing workflow for publishers.
 
 ### Token Example for Publishers in the Bid Stream
 
-Publishers convert the input email address or phone number directly to a UID2 token for use in the bid stream, using one operation, as shown in the following example.
+Publishers convert the input email address or phone number directly to a UID2 token for use in the bid stream, as shown in the following example.
 
 <table>
 <colgroup>
@@ -129,10 +126,8 @@ Publishers convert the input email address or phone number directly to a UID2 to
 
 ## Information for Sharing Receivers
 
-To be able to decrypt a UID2 token into a raw UID2, you must be an authorized sharing receiver and have the sender's decryption keys. The sender must also create a sharing relationship with you.
+To be able to decrypt a UID2 token into a raw UID2, you must be an authorized sharing receiver and have the sender's decryption keys.
+
+By default, for publishers sending UID2 tokens to the bid stream, the publisher's decryption keys are shared with all authorized DSPs. However, if a publisher has set up specific sharing relationships, you'll only receive that publisher's decryption keys if the publisher has created a sharing relationship with you.
 
 For details, see [Sharing Overview: Information for Tokenized Sharing Receivers](sharing-tokenized-overview.md#information-for-tokenized-sharing-receivers).
-
-:::note
-By default, for publishers sending UID2 tokens to the bid stream, the publisher's decryption keys are shared with all authorized DSPs. However, if the publisher sending the UID2 token has set up specific sharing relationships, you'll only receive that publisher's decryption keys if the publisher has created a sharing relationship with you.
-:::

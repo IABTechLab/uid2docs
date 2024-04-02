@@ -9,4 +9,4 @@ sidebar_position: 08
 
 If you want to share raw UID2s with another authorized sharing participant, you must adhere to the responsibilities of authentication, authorization, accounting, and secure transport, as specified in the [Security Requirements for UID2 Sharing](sharing-overview.md#security-requirements-for-uid2-sharing).
 
-You must make sure all points are rigorously followed, so that the raw UID2s are kept secure at all times, whether in transit or in storage.
+Make sure that all points are rigorously followed, so that the raw UID2s are kept secure at all times, whether in transit or in storage.

@@ -25,13 +25,9 @@ Tokenized sharing from raw UID2s could be applicable to any sharing participant,
 
 ## Overview
 
-To share raw UID2s with another participant by encrypting before sending, the sharing **sender** must:
-1. **Create a UID2 Portal account** and set up sharing permissions. See [Account Setup in the UID2 Portal](sharing-tokenized-overview.md#account-setup-in-the-uid2-portal).
-2. **Implement sharing** via one of the following:
-   - One of the SDKs that support encryption of raw UID2s. See [Implementing Sharing Encryption/Decryption with an SDK](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-with-an-sdk).
-   - Snowflake (see [Implementing Sharing Encryption/Decryption Using Snowflake](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-using-snowflake)).
+To share raw UID2s with another participant by encrypting into UID2 tokens before sending, the sharing **sender** must create a UID2 Portal account and implement sharing, and must create a sharing relationship with the receiver.
 
-The sharing **receiver** must have a UID2 sharing account, with a sharing relationship set up, so that the receiver has the encryption keys necessary to decrypt the encrypted raw UID2s.
+The sharing **receiver** must create a UID2 Portal account and implement sharing, and must have a sharing relationship with the sender, so that the receiver has the encryption keys necessary to decrypt the UID2 tokens into raw UID2s.
 
 ## Tokenized Sharing Steps: Summary
 
@@ -46,7 +42,7 @@ At a very high level, the following are the steps to set up and configure tokeni
 
 ## Implementing Sharing Encryption/Decryption with an SDK
 
-The following steps are for all sharing participants who are using an SDK to encrypt/decrypt raw UID2s&#8212;senders and receivers.
+The following steps are for all sharing participants who are using an SDK to encrypt raw UID2s into UID2 tokens or decrypt back to raw UID2s&#8212;senders and receivers.
 
 1. Decide which SDK to use, from the following options, and review the examples in the applicable sharing documentation to see what the sharing code might look like.
 
@@ -72,7 +68,7 @@ The following steps are for all sharing participants who are using an SDK to enc
 
 If you're using an SDK, defining the schedule for refreshing the sharing keys is part of step 2.
 
-For long/continuously running processes, call the `uid2client.refresh()` function once per hour. This allows the SDK to fetch the latest keys for decryption. When a new sharing permission is enabled, the additional set of encryption keys needed to decrypt the data sent by the new sharing sender is returned the next time the sharing receiver calls the `uid2client.refresh()` function. This process is handled by the SDK.
+For long/continuously running processes, call the `uid2client.refresh()` function once per hour. This allows the SDK to fetch the latest keys for decryption. When a new sharing permission is enabled, the additional set of encryption keys needed to decrypt the data sent by the new sharing sender is returned the next time the sharing receiver calls the `uid2client.refresh()` function. This process is managed by the SDK.
 
 >NOTE: If you're using Snowflake, you don't need to do this step. The Snowflake UID2 integration takes care of refreshing the keys.
 
