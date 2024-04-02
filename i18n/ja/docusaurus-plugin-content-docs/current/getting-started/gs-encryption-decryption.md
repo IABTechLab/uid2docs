@@ -123,6 +123,7 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントでは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) へのコールで事前に取得した `refresh_token` と `refresh_response_key` の値を使用します。
 
+## Encryption and Decryption Code Examples
 :::note
 Windows の場合、PowerShell の代わりに Windows コマンドプロンプトを使用している場合は、JSON を囲むシングルクォートも削除する必要があります。例えば、`echo {"email": "test@example.com"}` とします。
 :::
@@ -135,6 +136,10 @@ Windows の場合、PowerShell の代わりに Windows コマンドプロンプ�
 <TabItem value='py' label='Python'>
 
 以下のコードサンプルは Python を使ってリクエストを暗号化し、レスポンスを復号化します。必要なパラメータはコード例の一番上に示されており、 `python3 uid2_request.py` を実行することで得ることができます。
+
+:::note
+Windowsの場合は `python3` を `python` に置き換えてください。
+:::
 
 Python のコードには `pycryptodomex` と `requests` パッケージが必要です。これらは以下のようにしてインストールできます:
 
