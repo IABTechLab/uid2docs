@@ -42,7 +42,7 @@ We recommend generating the UID2 token directly from DII. You can do this in sev
 
 Different participants might use pixels in different ways. The following table shows two very common use cases for pixels in the advertising technology ecosystem.
 
-(**GWH_KT I combined the note you requested with the intro copy -- hope that's OK. Just don't want to have too many notes and tips and we have one above already.**)
+(**GWH_KL_new I combined the note you requested with the intro copy -- hope that's OK. Just don't want to have too many notes and tips and we have one above already.**)
 
 Pixel Type |  Tracking Pixel | Creative Pixel |
 | :--- | :--- | :--- |
@@ -52,7 +52,7 @@ Pixel Type |  Tracking Pixel | Creative Pixel |
 | Starting point | DII | Raw UID2 |
 | Format shared in pixel | UID2 token | UID2 token |
 
-(**GWH_KT I added last line but if you don't like it we can lose it. Just wanted to spell it out.**)
+(**GWH_KL_new I added last line but if you don't like it we can lose it. Just wanted to spell it out.**)
 
 There are two scenarios:
 

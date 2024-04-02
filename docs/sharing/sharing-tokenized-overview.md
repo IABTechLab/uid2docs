@@ -172,7 +172,7 @@ The workflow for UID2 tokenized sharing, for all sharers except when sharing UID
 
 1. Sender and receiver: Approve sharing permissions in the UID2 Portal:
 
-   1. Sender: Define which sharing participants are allowed to decrypt the sender's UID2 token. 
+   1. Sender: Define which sharing participants you want to allow to decrypt your UID2 token. 
    1. Sender and receiver: Request a UID2 Portal account: see [Request an Account](../portal/participant-info.md#request-an-account).
    1. Sender: Log in to the UID2 Portal and navigate to the sharing permissions page: see [Sharing Permissions](../portal/sharing-permissions.md).
    1. Sender: Select the participants that you want to share with. If needed, use the search feature to find specific sharing participants.
@@ -253,6 +253,8 @@ The following example shows sample values when converting input DII directly to 
 </tr>
 </tbody>
 </table>
+
+(**GWH_KL 4/2 I have edits from AT on both the examples, that I don't understand... will need to fix.**)
 
 ### Tokenized Sharing: Starting with a Raw UID2
 

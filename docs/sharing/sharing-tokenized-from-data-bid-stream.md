@@ -32,7 +32,7 @@ Additional information for publishers is on the following pages:
 Tokenized sharing in the bid stream is applicable to the following audiences:
 
 - **Sender**: Publisher. Account Setup in the UID2 Portal is optional.
-- **Receiver**: DSP. See [Information for Tokenized Sharing Receivers](#information-for-tokenized-sharing-receivers).
+- **Receiver**: DSP. See [Information for Sharing Receivers](#information-for-sharing-receivers).
 
 ### Tokenized Sharing in the Bid Stream: Implementation Options
 
@@ -54,7 +54,7 @@ These options support generating UID2 tokens from email addresses or phone numbe
 
 If your only sharing activity is generating UID2 tokens from DII and sending them in the bid stream, you do not need to set up an account in the UID2 Portal and create sharing relationships. By default, publishers automatically share with all DSPs who are integrated with UID2.
 
-However, you might choose to do this so that you can control who you share with. For example, you might want to share with a limited audience, one or more sharing partners, for security or other reasons.
+However, you might choose to do this so that you can control who you share with. For example, you might want to share with a limited audience of one or more sharing partners for security or other reasons.
 
 For account setup information, see [Account Setup in the UID2 Portal](sharing-tokenized-overview.md#account-setup-in-the-uid2-portal).
 
@@ -70,7 +70,7 @@ The workflow for generating UID2 tokens from DII, via the API or the specified s
 
 1. (Optional) Publisher: Set up sharing permissions in the UID2 Portal to restrict who can decrypt your UID2 tokens:
 
-   1. Publisher: Define which DSPs are allowed to decrypt your UID2 tokens. 
+   1. Publisher: Determine the DSPs you want to allow to decrypt your UID2 tokens. 
    1. Publisher and DSP: Create a UID2 Portal account.
    1. Publisher: Log in to the UID2 Portal and navigate to the sharing permissions page.
    1. Publisher: Select one or more DSPs that you want to share with. If needed, use the search feature to find specific DSPs.
@@ -85,6 +85,8 @@ The workflow for generating UID2 tokens from DII, via the API or the specified s
 
    1. Receives the UID2 tokens.
    1. Decrypts the UID2 tokens into raw UID2s and uses them.
+
+   (**GWH_KT 4/2: AT comment that DSP must check optout. Not sure exactly where that fits in the sequence... before decrypt probably?**)
 
 The following diagram illustrates the UID2 sharing workflow for publishers.
 
