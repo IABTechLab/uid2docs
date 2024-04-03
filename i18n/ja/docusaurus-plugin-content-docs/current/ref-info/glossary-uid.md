@@ -297,7 +297,7 @@ sidebar_position: 10
 <dl>
 
 <dt class="jump-anchor" id="gl-salt">Salt</dt>
-<dd>メールアドレスや電話番号を、元の値に遡ることができない安全で不透明な値に変換するプロセスで使用される文字列です。</dd>
+<dd>メールアドレスや電話番号を、それ自体では元の値を追跡できない安全で不透明な値に変換するプロセスで使用されます。</dd>
 <dd>UID2 Service は、ハッシュ化および暗号化とともに、プロセスの一部としてソルト(Salt) を使用し、元の値を保護します。ソルトは、ハッシュ化の前に入力値に加えられます。</dd>
 
 <dt class="jump-anchor" id="gl-salted-hash">Salted hash</dt>
