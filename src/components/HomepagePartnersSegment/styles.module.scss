@@ -24,7 +24,7 @@
 .partnerList {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 26px;
 }
 
 .card {
@@ -39,7 +39,7 @@
   }
 
   @media only screen and (min-width: 996px) {
-    flex-basis: 48%;
+    flex-basis: calc(50% - 13px);
   }
 }
 
