@@ -18,6 +18,7 @@ sidebar_position: 13
 - [Phone Number Hash Encoding](#phone-number-hash-encoding)
 - [Normalization Examples for Email](#normalization-examples-for-email)
 - [Example](#example-code)
+- [UID2 Hashing Tool](#uid2-hashing-tool)
 -->
 
 ## Introduction
@@ -125,3 +126,27 @@ UID2 Operator Service にハッシュ化されていないメールアドレス�
 ## Example Code
 
 JavaScript でメールアドレスと電話のハッシュを生成する方法の例については、[Example Code: Hashing and Base-64 Encoding](../guides/publisher-client-side#example-code-hashing-and-base-64-encoding) を参照してください。
+
+## UID2 Hashing Tool
+
+正規化、ハッシュ化、エンコードが正しく行われているかチェックするには、[UUID2 hashing tool](https://unifiedid.com/examples/hashing-tool) を使ってテストすることができます。
+
+Email または Phone Number を選択し、値を入力またはペーストして、Enter をクリックします。
+
+このツールは以下を行います:
+- Email: 以下の３つの値を表示します:
+  - Normalized value (正規化した値)
+  - Hashed value (ハッシュした値)
+  - Base64-encoded value (Base64 エンコードした値)
+
+- Phone: 以下の2つの値を表示します:
+  - Hashed value (ハッシュした値)
+  - Base64-encoded value (Base64 エンコードした値)
+
+  :::note
+  電話番号の場合は、まずデータを正規化する必要があります。
+  :::
+
+入力データが有効なメールアドレスまたは電話番号の形式でない場合、または電話番号が正規化されていない場合、ツールはエラーを表示します。
+
+このツールを使って、UID2 の正規化した値、ハッシュした値、エンコードした値が正しく作成されるように内部プロセスが設定されているかどうかを確認することができます。
