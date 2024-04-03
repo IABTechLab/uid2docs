@@ -18,7 +18,7 @@ SDK の機能を確認して使用する SDK を決定し、SDK の表をクリ�
 
 | UID2 SDK for... | Client-Side or Server-Side | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII&ast; | Refresh UID2 Token | Generate Raw UID2 from DII |
 | :--- | :--- |  :--- | :--- | :--- | :--- | :--- |
-|JavaScript | Client| &#10060; | &#10060; | &#10060; | &#9989; | &#10060; |
+|JavaScript | Client| &#10060; | &#10060; | &#9989; | &#9989; | &#10060; |
 |Java | Server | &#9989; | &#9989; | &#9989; | &#9989; | &#10060; |
 |Python | Server | &#9989; | &#9989; | &#9989; | &#9989; | &#10060; |
 |C# / .NET | Server | &#9989; | &#9989; | &#10060; | &#10060; | &#10060; |
