@@ -50,8 +50,6 @@ Pixel Type |  Tracking Pixel | Creative Pixel |
 | Starting point | DII | Raw UID2 |
 | Format shared in pixel | UID2 token | UID2 token |
 
-(**GWH_KL_new I added last line but if you don't like it we can lose it. Just wanted to spell it out.**)
-
 There are two scenarios:
 
 - [Tokenized Sharing Via Tracking Pixels](#workflow-tokenized-sharing-via-tracking-pixels)
@@ -95,4 +93,4 @@ All the implementation steps are the same as for [tokenized sharing from raw UID
 
 To be able to decrypt a UID2 token into a raw UID2, you must be an authorized sharing receiver and have the sender's decryption keys. The sender must also create a sharing relationship with you.
 
-For details, see [Sharing Overview: Information for Tokenized Sharing Receivers](sharing-tokenized-overview.md#information-for-tokenized-sharing-receivers). 
+For details, see [Sharing Overview: Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant). 

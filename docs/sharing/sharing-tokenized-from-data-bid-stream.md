@@ -81,9 +81,8 @@ The workflow for generating UID2 tokens from DII, via the API or the specified s
 1. The DSP completes the following steps:
 
    1. Receives the UID2 tokens.
-   1. Decrypts the UID2 tokens into raw UID2s and uses them.
-
-   (**GWH_KT 4/2: AT comment that DSP must check optout. Not sure exactly where that fits in the sequence... before decrypt probably?**)
+   1. Decrypts the UID2 tokens into raw UID2s.
+   1. Checks that the UID2s are not opted out. If they are not opted out, uses the raw UID2s for bidding.
 
 The following diagram illustrates the UID2 sharing workflow for publishers.
 
@@ -130,4 +129,4 @@ To be able to decrypt a UID2 token into a raw UID2, you must be an authorized sh
 
 By default, for publishers sending UID2 tokens to the bid stream, the publisher's decryption keys are shared with all authorized DSPs. However, if a publisher has set up specific sharing relationships, you'll only receive that publisher's decryption keys if the publisher has created a sharing relationship with you.
 
-For details, see [Sharing Overview: Information for Tokenized Sharing Receivers](sharing-tokenized-overview.md#information-for-tokenized-sharing-receivers).
+For details, see [Receiving UID2 Tokens from Another Sharing Participant](#receiving-uid2-tokens-from-another-sharing-participant).

@@ -33,8 +33,6 @@ There are several main sharing scenarios, summarized in the following table.
 | Sharing via a pixel | Any authorized sharer | Any authorized sharer | Tokenized sharing (UID2 token) | Sharing via any pixel, such as a tracking pixel or creative pixel. | [Tokenized Sharing in Pixels](sharing-tokenized-from-data-pixel.md) |
 | Sharing with another UID2 sharing participant, outside of the bid steam or pixels. | Any authorized sharer | Any authorized sharer | Raw UID2 sharing or optional tokenized sharing | Sharing by any secure channel, such as via API or Amazon S3 drop. | [Raw UID2 Sharing](sharing-raw.md) or [Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md) |
 
-(**GWH_KL 4/2: we added a Receiver line in the table in Tokenized Sharing Overview. Added it here also, per AT's edits.**)
-
 ## UID2 Sharing Approaches
 
 If a sharing participant wants to share UID2s with another authorized sharing participant, there are two possible paths:
@@ -47,7 +45,7 @@ If a sharing participant wants to share UID2s with another authorized sharing pa
 The following are the high-level steps for sharing UID2 tokens ([tokenized sharing](../ref-info/glossary-uid.md#gl-tokenized-sharing)):
 
   1. The sender sets up sharing permissions in the UID2 Portal (see [Sharing Permissions](../portal/sharing-permissions.md)).
-  2. The sender generates a UID2 token from DII, or encrypts raw UID2s into UID2 tokens using [one of the UID2 server-side SDKs](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-with-an-sdk) or the [UID2 Snowflake integration](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-using-snowflake).
+  2. The sender generates a UID2 token from DII (see [Tokenized Sharing in the Bid Stream: Implementation Options](sharing-tokenized-from-bid-stream.md#tokenized-sharing-in-the-bid-stream-implementation-options)), or encrypts raw UID2s into UID2 tokens using [one of the UID2 server-side SDKs](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-with-an-sdk) or the [UID2 Snowflake integration](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-using-snowflake).
   3. The receiver decrypts the UID2 tokens into raw UID2s, using [one of the UID2 server-side SDKs](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-with-an-sdk) or the [UID2 Snowflake integration](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-using-snowflake).
 
 For more information about the options for sharing UID2 tokens, see [Tokenized Sharing Overview](sharing-tokenized-overview.md).

@@ -17,11 +17,7 @@ In this file:
 - [Tokenized Sharing Steps: Summary](#tokenized-sharing-steps-summary)
 - [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)
 - [Sending UID2 Tokens to Another Sharing Participant](#sending-uid2-tokens-to-another-sharing-participant)
-- [Implementing Sharing Encryption/Decryption with an SDK](#implementing-sharing-encryptiondecryption-with-an-sdk)
-  - [Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)](#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only)
-  - [Decryption Key Refresh Example](#decryption-key-refresh-example)
-- [Implementing Sharing Encryption/Decryption Using Snowflake](#implementing-sharing-encryptiondecryption-using-snowflake)
-- [Information for Tokenized Sharing Receivers](#information-for-tokenized-sharing-receivers)
+- [Receiving UID2 Tokens from Another Sharing Participant](#receiving-uid2-tokens-from-another-sharing-participant)
 - [Workflow: Tokenized Sharing](#workflow-tokenized-sharing)
 - [Tokenized Sharing Examples](#tokenized-sharing-examples)
   - [Tokenized Sharing: Starting with DII](#tokenized-sharing-starting-with-dii)
@@ -53,8 +49,8 @@ At a very high level, the following are the steps to set up and configure sharin
 
    | Scenario | Link to Doc |
    | :--- | :--- |
-   | Tokenized sharing from raw UID2s with SDK | [Implementing Sharing Encryption/Decryption with an SDK](#implementing-sharing-encryptiondecryption-with-an-sdk) |
-   | Tokenized sharing from raw UID2s with Snowflake | [Implementing Sharing Encryption/Decryption Using Snowflake](#implementing-sharing-encryptiondecryption-using-snowflake) |
+   | Tokenized sharing from raw UID2s with SDK | [Implementing Sharing Encryption/Decryption with an SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk) |
+   | Tokenized sharing from raw UID2s with Snowflake | [Implementing Sharing Encryption/Decryption Using Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake) |
    | Tokenized sharing in the bid stream from DII | [Tokenized Sharing in the Bid Stream: Implementation Options](sharing-tokenized-from-data-bid-stream.md#tokenized-sharing-in-the-bid-stream-implementation-options) |
    | Tokenized sharing via tracking pixels from DII | [Workflow: Tokenized Sharing Via Tracking Pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-via-tracking-pixels) |
    | Tokenized sharing via creative pixels from raw UID2s | [Workflow: Tokenized Sharing Via Creative Pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-via-creative-pixels) |
@@ -79,63 +75,7 @@ You can send UID2 tokens to another authorized sharing participant. Sharing UID2
   - [Tokenized Sharing in Pixels](sharing-tokenized-from-data-pixel.md)
 - If you're starting with a raw UID2, follow the directions in [Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md).
 
-## Implementing Sharing Encryption/Decryption with an SDK
-
-The following steps are for all sharing participants who are using an SDK to encrypt raw UID2s into UID2 tokens or decrypt back to raw UID2s&#8212;senders and receivers.
-
-1. Decide which SDK to use, from the following options, and review the examples in the applicable sharing documentation to see what the sharing code might look like.
-
-   | SDK/Integration Tool | Link to Sharing Section |
-   | :--- | :--- | 
-   | C# / .NET | [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers) |
-   | C++ | [UID2 SDK for C++: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-cplusplus.md#usage-for-uid2-sharers) |
-   | Java | [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers) |
-   | Python | [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers) |
-
-2. Integrate the SDK into your code to implement each step, depending on whether your role is sender or receiver. To see code examples for the language you're using, follow the link in the table provided in Step 1.
-   1. Both senders and receivers: define the UID2 client.
-   
-   2. Both senders and receivers: define the schedule for refreshing encryption keys.
-   
-      Recommended refresh interval is hourly. For an example, see [Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)](#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only).
-
-   3. Senders, set up encryption.
-
-   4. Receivers, set up decryption.
-
-### Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)
-
-If you're using an SDK, defining the schedule for refreshing the sharing keys is part of step 2.
-
-For long/continuously running processes, we recommend calling the `uid2client.refresh()` function once per hour. However, you can choose another refresh cadence if you prefer.
-
-Calling this function regularly allows the SDK to fetch the latest keys for decryption. When a new sharing permission is enabled, the additional set of encryption keys needed to decrypt the data sent by the new sharing sender is returned the next time the sharing receiver calls the `uid2client.refresh()` function. This process is managed by the SDK.
-
->NOTE: If you're using Snowflake, you don't need to do this step. The Snowflake UID2 integration takes care of refreshing the keys.
-
-### Decryption Key Refresh Example
-
-This example illustrates how the `uid2client.refresh()` function enables a new sharing permission. In this example, Advertiser ABC wants to send data to Data Provider XYZ.
-
-| Time | Event |
-| :--- | :--- | 
-| 12:00 pm | The sharing permission is not yet enabled.<br/>Data Provider XYZ calls `uid2client.refresh()`. The decryption key for Advertiser ABC is not returned, so Data Provider XYZ cannot decrypt the UID2 tokens. |
-| 12:30 pm | Advertiser ABC logs in to the UID2 Portal and creates a sharing permission with Data Provider XYZ. |
-| 1:00 pm | Data Provider XYZ, on an hourly cadence, again calls `uid2client.refresh()`. Because there is a new sharing permission, the key for Advertiser ABC is returned in the response.<br/>Data Provider XYZ can now decrypt any UID2 token received from Advertiser ABC into a raw UID2. |
-
-## Implementing Sharing Encryption/Decryption Using Snowflake
-
-The following steps are for Snowflake users who want to take part in UID2 sharing, either as senders or receivers.
-
-1. Review the examples in the Snowflake Integration Guide, [Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers) section, to see what the sharing code might look like.
-
-2. Integrate the SDK into your code, according to whether your role is sender or receiver. Use the code examples in the documentation referenced in the Snowflake Integration Guide, [UID2 Sharing Example](../guides/snowflake_integration.md#uid2-sharing-example):
-
-   - Senders, set up encryption.
-
-   - Receivers, set up decryption.
-
-## Information for Tokenized Sharing Receivers
+## Receiving UID2 Tokens from Another Sharing Participant
 
 In all tokenized sharing scenarios, the receiver must decrypt the UID2 token to arrive at the raw UID2.
 
@@ -164,8 +104,8 @@ The workflow for UID2 tokenized sharing, for all sharers except when sharing UID
 
 1. Sender and receiver: Integrate with UID2 sharing, using one of the following:
 
-   - SDK for sharing: see [Implementing Sharing Encryption/Decryption with an SDK](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-with-an-sdk).
-   - Snowflake integration for sharing: see [Implementing Sharing Encryption/Decryption Using Snowflake](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-using-snowflake).
+   - SDK for sharing: see [Implementing Sharing Encryption/Decryption with an SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk).
+   - Snowflake integration for sharing: see [Implementing Sharing Encryption/Decryption Using Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake).
    - If the sender is generating the UID2 token from DII via the UID2 API: [POST&nbsp;/token/generate](../endpoints/post-token-generate.md).
 
 1. Sender and receiver: Approve sharing permissions in the UID2 Portal:
@@ -185,14 +125,14 @@ The workflow for UID2 tokenized sharing, for all sharers except when sharing UID
          The Prebid options are available only for publishers sending UID2 tokens to the bid stream.
          :::
       
-      1. If starting from raw UID2:  Encrypt raw UID2s to convert them into UID2 tokens, using a UID2 SDK (see [Implementing Sharing Encryption/Decryption with an SDK](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-with-an-sdk)) or Snowflake (see  [Implementing Sharing Encryption/Decryption Using Snowflake](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-using-snowflake)).
+      1. If starting from raw UID2:  Encrypt raw UID2s to convert them into UID2 tokens, using a UID2 SDK (see [Implementing Sharing Encryption/Decryption with an SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk)) or Snowflake (see  [Implementing Sharing Encryption/Decryption Using Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake)).
 
    2. Securely transmit the UID2 tokens to an authorized receiver.
 
 1. Receiver: Complete the following steps to decrypt the UID2 tokens:
 
    1. Securely receive the UID2 tokens.
-   1. Decrypt the UID2 tokens into raw UID2s that you can use: see [Implementing Sharing Encryption/Decryption with an SDK](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-with-an-sdk) or [Implementing Sharing Encryption/Decryption Using Snowflake](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-using-snowflake).
+   1. Decrypt the UID2 tokens into raw UID2s that you can use: see [Implementing Sharing Encryption/Decryption with an SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk) or [Implementing Sharing Encryption/Decryption Using Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake).
 
 The following diagram illustrates the UID2 sharing permission SDK integration workflow:
 
