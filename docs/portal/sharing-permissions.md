@@ -1,6 +1,6 @@
 ---
 title: Sharing Permissions
-description: Learn how to configure sharing permissions in the UID2 Portal.
+description: Configure sharing permissions in the UID2 Portal.
 hide_table_of_contents: false
 sidebar_position: 04
 ---

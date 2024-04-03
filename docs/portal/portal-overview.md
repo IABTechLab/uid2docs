@@ -1,5 +1,5 @@
 ---
-title: UID2 Portal - Overview
+title: UID2 Portal Overview
 description: General information about the UID2 Portal.
 hide_table_of_contents: false
 sidebar_position: 01
@@ -23,6 +23,7 @@ The UID2 Portal is your one-stop shop for setting up and configuring your UID2 a
 | Configure individual sharing participants or groups of sharing participants. | [Sharing Permissions](sharing-permissions.md) |
 | Add team members who will have permission to manage your account. | [Team Members](team-members.md) |
 | Set up designated email contacts who will be notified of news or updates. | [Email Contacts](email-contacts.md) |
+| Manage API keys for your account, including adding, modifying, or deleting keys. | [API Key Management](api-key-management.md) |
 
 ## Access the UID2 Portal
 

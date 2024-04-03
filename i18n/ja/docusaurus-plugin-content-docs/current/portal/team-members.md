@@ -56,7 +56,7 @@ UID2 Portal の Team Members ページでは、以下のようなアカウント
 
 チームから誰かを外すには、以下の手順に従ってください:
 
-1. リストでチームメンバーを見つけ、Actions 列で delete (trashcan) アイコンをクリックします。
+1. リストでチームメンバーを見つけ、Actions 列で Delete (trashcan) アイコンをクリックします。
 1. 確認メッセージが表示されたら、**Delete Team Member** をクリックします。チームメンバーがチームから削除されます。
 
 ## Log In for the First Time as a Team Member
