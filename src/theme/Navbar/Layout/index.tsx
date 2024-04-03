@@ -51,7 +51,7 @@ export default function NavbarLayout({ children }: Props): JSX.Element {
         },
       )}
     >
-      <div className="container">{children}</div>
+      {children}
       <NavbarBackdrop onClick={mobileSidebar.toggle} />
       <NavbarMobileSidebar />
     </nav>
