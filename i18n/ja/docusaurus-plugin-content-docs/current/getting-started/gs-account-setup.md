@@ -29,7 +29,7 @@ The Trade Desk のアクセス依頼は一時的なものです。システム�
 | Your Role | Contact Email |
 | :--- | :--- |
 | アプリ開発者<br/>パブリッシャー                                  | UID2publishers@thetradedesk.com |
-| 代理店<br/>ブランド<br/>CDP<br/>データプロバイダー<br/>DSP<br/>SSP | UID2partners@thetradedesk.com   |
+| 代理店<br/>ブランド<br/>Customer Data Platform (CDP)<br/>データプロバイダー<br/>DSP<br/>SSP | UID2partners@thetradedesk.com   |
 
 ## Account Setup Details
 
