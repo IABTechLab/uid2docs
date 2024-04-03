@@ -11,6 +11,16 @@ UID2 ドキュメンテーションリソースの最新アップデートを確
 
 ### New: Java SDK Support for Advertiser/Data Provider
 
+4 March 2024
+
+新しい UID2 ハッシュツールを追加しました。正規化とエンコーディングが正しく行われているかどうかをチェックすることができます。
+
+詳細は、*Normalization and Encoding* ドキュメントの [UID2 Hashing Tool](../getting-started/gs-normalization-encoding#uid2-hashing-tool) を参照してください。
+
+<!-- APIDOCS-1974 -->
+
+### New: Java SDK Support for Advertiser/Data Provider
+
 28 February 2024
 
 Java SDKは、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントの使用を希望する広告主およびデータプロバイダーをサポートするようになりました。
