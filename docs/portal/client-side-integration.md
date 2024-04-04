@@ -1,37 +1,47 @@
 ---
 title: Client-Side Integration
-description: Learn how to set up and manage xxx
+description: Set up and manage information needed for client-side integration.
 hide_table_of_contents: false
 sidebar_position: 09
 ---
 
 # Client-Side Integration
 
-In the UID2 Portal, you can specify people from your organization whom we should notify for information about the latest updates and releases for UID2. You can set up individual email addresses, or reference an email group that you've set up internally to notify multiple individuals in your organization.
+In the UID2 Portal, if you want an implementation that generates UID2 tokens on the client side, you'll need to define the following:
 
-Adding email groups rather than individuals has some benefits:
-- It's an efficient way to keep multiple people notified without having to create a lot of individual entries.
-- You can manage the list externally, as part of managing your internal email configuration, outside the UID2 Portal.
+- Key pairs. In your implementation, you'll share the public key.  For details, see [Subscription ID and Public Key](getting-started/gs-credentials.md#subscription-id-and-public-key).
+- A complete list of root-level domain names for your sites. This is a security measure, for client-side implementation only. For details, see [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers).
 
->NOTE: Email contacts cannot log in to the UID2 Portal or modify the account. They only receive information notices. If an email contact wants to be removed, that action must be done by a team member.
+Client-side implementation options include the following:
+- The JavaScript SDK: see [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
+- For publishers, the Prebid.js client-side integration: see [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
 
-<!-- It includes the following:
+On the Client-Side Integration page you can perform all activities relating to setting up and managing these values, including:
 
-- [xxx](#xxx)
--->
+- [Adding a Key Pair](#adding-a-key-pair)
+- [Copying a Public Key](#copying-a-public-key)
+- (**GWH_What about deleting a key pair? Or modifying could be changing the name?**)
+- [Adding a Top-Level Domain](#adding-a-top-level-domain)
+- [Modifying a Top-Level Domain](#modifying-a-top-level-domain)
+- [Deleting a Top-Level Domain](#deleting-a-top-level-domain)
 
-## xxx
-
-xxx
-
-## xxx
-
-xxx
-
-## xxx
+## Adding a Key Pair
 
 xxx
 
-## xxx
+## Copying a Public Key
 
+xxx
+
+## Adding a Top-Level Domain
+
+xxx
+
+TIP
+Only root-level domains are required for account setup. For example, if you're going to implement UID2 to generate tokens on the client side on example.com, shop.example.com, and example.org, you 
+
+## Modifying a Top-Level Domain
+xxx
+
+## Deleting a Top-Level Domain
 xxx

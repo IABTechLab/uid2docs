@@ -23,6 +23,7 @@ The UID2 Portal is your one-stop shop for setting up and configuring your UID2 a
 | Configure individual sharing participants or groups of sharing participants. | [Sharing Permissions](sharing-permissions.md) |
 | Add team members who will have permission to manage your account. | [Team Members](team-members.md) |
 | Set up designated email contacts who will be notified of news or updates. | [Email Contacts](email-contacts.md) |
+| Client-side implementation only: Set up and manage the values needed for generating UID2 tokens on the client side. | [Client-Side Integration](client-side-integration.md) |
 
 ## Access the UID2 Portal
 
