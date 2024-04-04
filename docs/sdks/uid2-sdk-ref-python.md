@@ -13,8 +13,8 @@ You can use the UID2 SDK for Python on the server side to facilitate the followi
 
 - Generating UID2 advertising tokens
 - Refreshing UID2 advertising tokens
-- Encrypting raw UID2s to create UID2 tokens
-- Decrypting UID2 advertising tokens to access the raw UID2s
+- Encrypting raw UID2s to create UID2 tokens for sharing
+- Decrypting UID2 tokens to access the raw UID2s
 
 <!--
  This guide includes the following information:
@@ -29,13 +29,10 @@ You can use the UID2 SDK for Python on the server side to facilitate the followi
   - [Response Content](#response-content)
   - [Response Statuses](#response-statuses)
 - [FAQs](#faqs)
+- [Usage for DSPs](#usage-for-dsps)
 - [Usage for Publishers](#usage-for-publishers) 
 - [Usage for UID2 Sharers](#usage-for-uid2-sharers) 
 -->
-
-## Overview
-
-The functions outlined here define the information that you'll need to configure or can retrieve from the library. The parameters and property names defined below are pseudocode. Actual parameters and property names vary by language but will be similar to the information outlined here.
 
 ## Functionality
 
@@ -68,58 +65,111 @@ The package is published in this location:
 - [https://pypi.org/project/uid2-client/](https://pypi.org/project/uid2-client/)
 
 ## Initialization
+The initialization step depends on the role, as shown in the following table.
 
-The initialization function configures the parameters necessary for the SDK to authenticate with the UID2 service. It also allows you to configure retry intervals in the event of errors.
+| Role	     | Create Instance of Class	 | Link to Instructions                          |
+|:----------|:--------------------------|:----------------------------------------------|
+| DSP       | `BidstreamClient`         | [Usage for DSPs](#usage-for-dsps)             |
+| Sharer    | `SharingClient`           | [Usage for Sharers](#usage-for-uid2-sharers)  |
+| Publisher | `Uid2PublisherClient`     | [Usage for Publishers](#usage-for-publishers) |
 
-| Parameter | Description | Recommended Value |
-| :--- | :--- | :--- |
-| `endpoint` | The endpoint for the UID2 service. | N/A |
-| `authKey` | The authentication token that belongs to the client. For access to UID2, see [Contact Info](../getting-started/gs-account-setup.md#contact-info). | N/A |
+
+You will need to provide the values necessary for the SDK to authenticate with the UID2 service.
+
+| Parameter    | Description                                                                                |
+|:-------------|:-------------------------------------------------------------------------------------------|
+| `base_url`   | The endpoint for the UID2 service. See [Environments](../getting-started/gs-environments). |
+| `auth_key`   | The API key. See [UID2 Credentials](../getting-started/gs-credentials).                    |
+| `secret_key` | The client secret. See [UID2 Credentials](../getting-started/gs-credentials).              |
 
 ## Interface 
 
-The interface allows you to decrypt UID2 advertising tokens and return the corresponding raw UID2. 
+The `BidstreamClient` class allows you to decrypt UID2 tokens into raw UID2s.
+For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
+
+The `SharingClient` class allows you to encrypt raw UID2s into UID2 tokens and decrypt UID2 tokens into raw UID2s.
+
 
 >NOTE: When you use an SDK, you do not need to store or manage decryption keys.
 
-If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising token and return the UID2. For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
+### Encryption Response Content
 
-The following is the decrypt method in Python:
+When encrypting with the `SharingClient`, the SDK returns the information shown in the following table.
+
+| Property         | Description                                                                                                                                     |
+|:-----------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
+| `status`         | The encryption result status. For a list of possible values and definitions, see [Encryption Response Statuses](#encryption-response-statuses). |
+| `encrypted_data` | The encrypted UID2 token.                                                                                                                       |
+
+### Encryption Response Statuses
+Encryption response codes, and their meanings, are shown in the following table.
+
+| Value                           | Description                                                            |
+|:--------------------------------|:-----------------------------------------------------------------------|
+| `SUCCESS`                       | The raw UID2 was successfully encrypted and a UID2 token was returned. |
+| `NOT_AUTHORIZED_FOR_KEY`        | The requester does not have authorization to use the encryption key.   |
+| `NOT_AUTHORIZED_FOR_MASTER_KEY` | The requester does not have authorization to use the master key.       |
+| `NOT_INITIALIZED`               | The client library is waiting to be initialized.                       |
+| `KEYS_NOT_SYNCED`               | The client has failed to synchronize keys from the UID2 service.       |
+| `ENCRYPTION_FAILURE`            | A generic encryption failure occurred.                                 |
+
+### Decryption Response Content
+
+Whether decrypting with the `BidstreamClient` or the `SharingClient`, the SDK returns the information shown in the following table.
+
+| Property      | Description                                                                                                                                     |
+|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
+| `status`      | The decryption result status. For a list of possible values and definitions, see [Decryption Response Statuses](#decryption-response-statuses). |
+| `uid`         | The raw UID2 for the corresponding UID2 token.                                                                                                  |
+| `established` | The timestamp indicating when a user first established the UID2 with the publisher.                                                             |
+
+### Decryption Response Statuses
+Decryption response codes, and their meanings, are shown in the following table.
+
+| Value                      | Description                                                             |
+|:---------------------------|:------------------------------------------------------------------------|
+| `SUCCESS`                  | The UID2 token was decrypted successfully and a raw UID2 was returned.  |
+| `NOT_AUTHORIZED_FOR_KEY`   | The requester does not have authorization to decrypt this UID2 token.   |
+| `NOT_INITIALIZED`          | The client library is waiting to be initialized.                        |
+| `INVALID_PAYLOAD`          | The incoming UID2 token is not a valid payload.                         |
+| `EXPIRED_TOKEN`            | The incoming UID2 token has expired.                                    |
+| `KEYS_NOT_SYNCED`          | The client has failed to synchronize keys from the UID2 service.        |
+| `VERSION_NOT_SUPPORTED`    | The client library does not support the version of the encrypted token. |
+| `DOMAIN_NAME_CHECK_FAILED` | The domain name doesn't match the domain of the encrypted token.        |
+| `INVALID_TOKEN_LIFETIME`   | The token has an invalid timestamp.                                     |
+
+## Usage for DSPs
+
+The following instructions provide an example of how you can decode bid stream tokens using the UID2 SDK for Python as a DSP.
+
+1. Create a `BidstreamClient`:
 
 ```py
-from uid2_client import Uid2ClientFactory
- 
-client = Uid2ClientFactory.create('https://prod.uidapi.com', 'my-auth-token', 'my-secret-key')
-client.refresh_keys() # Note that refresh_keys() should be called once after create(), and then once per hour
-decrypted_token = client.decrypt(advertising_token)
+client = BidstreamClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
 ```
 
-### Response Content
+2. Refresh once at startup, and then periodically (recommended refresh interval is hourly):
 
-Available information returned through the SDK is outlined in the following table.
+```py
+client.refresh()
+```
 
-| Instance Variable | Description |
-| :--- | :--- |
-| `uid2` | The raw UID2 for the corresponding UID2 advertising token. |
-| `established` | The timestamp indicating when a user first established the UID2 with the publisher. |
+3. Decrypt a token into a raw UID2. Pass the token, and the domain name of the site where the bid originated from. The domain name must be all lower case, without spaces and without subdomain. For example, for `Subdomain.DOMAIN.com` , pass `domain.com` instead:
 
->NOTE: If there is a decryption failure, an `EncryptionError` exception is raised.
+```py
+decrypted = client.decrypt_token_into_raw_uid(uid_token, domain)
+# If decryption succeeded, use the raw UID2.
+if decrypted.success:
+    #  Use decrypted.uid
+else:
+   # Check decrypted.status for the failure reason.
+```
 
-### Response Statuses
-
-| Value | Description |
-| :--- | :--- |
-| `Success` | The UID2 advertising token was decrypted successfully and a raw UID2 was returned. |
-| `NotAuthorizedForKey` | The requester does not have authorization to decrypt this UID2 advertising token.|
-| `NotInitialized` | The client library is waiting to be initialized. |
-| `InvalidPayload` | The incoming UID2 advertising token is not a valid payload. |
-| `ExpiredToken` | The incoming UID2 advertising token has expired. |
-| `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
-| `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
+For a full example, see the `sample_bidstream_client.py` in [examples/sample_bidstream_client.py](https://github.com/IABTechLab/uid2-client-python/blob/main/examples/sample_bidstream_client.py).
 
 ## Usage for Publishers
 
-1. Create an instance of Uid2PublisherClient:
+1. Create an instance of `Uid2PublisherClient`:
    ```py
    client = Uid2PublisherClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
    ```
@@ -194,48 +244,46 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
 
 ## Usage for UID2 Sharers
 
-A UID2 sharer is any participant that wants to share UID2s with another participant. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant. For an example of usage, see [examples/sample_sharing.py](https://github.com/IABTechLab/uid2-client-python/blob/master/examples/sample_sharing.py) script.
+In UID2, sharing is a process for distributing either raw UID2s or UID2 tokens securely between UID2 participants. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant.
 
 >IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bid stream. There is a different workflow for generating tokens for the bid stream: see [Tokenized Sharing in the Bid Stream](../sharing/sharing-tokenized-from-data-bid-stream.md).
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for Python, either as a sender or a receiver.
 
-1. Create a `UID2Client` reference:
- 
-   ```py
-   from uid2_client import Uid2ClientFactory
-   client = Uid2ClientFactory.create(base_url, auth_key, secret_key)
-   ```
+1. Create a `SharingClient`:
+
+```py
+client = SharingClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
+```
 
 2. Refresh once at startup, and then periodically (recommended refresh interval is hourly):
 
-   ```py
-   client.refresh_keys()
-   ```
+```py
+client.refresh()
+```
 
-3. Senders: 
-   1. Call the `encrypt` function. Then, if encryption succeeded, send the UID2 token to the receiver:
+3. If you are a sender, call `encrypt_raw_uid_into_token()`:
 
-      ```py
-      try:
-         encrypted_data = client.encrypt(raw_uid)
-         # send encrypted_data to receiver
-      except EncryptionError as err:
-        # check for failure reason
-        print(err)
-      ```
+```py
+encrypted = client.encrypt_raw_uid_into_token(raw_uid)
+# If encryption succeeded, send the UID2 token to the receiver.
+if encrypted.success:
+    # Send encrypted.encrypted_data to receiver
+else:
+    # Check encrypted.status for the failure reason.
+```
+If you are a receiver, call `decrypt_token_into_raw_uid()`:
 
-4. Receivers:
-   1. Call the `decrypt` function. Then, if decryption succeeded, use the raw UID2:
-    
-      ```py
-      try:
-        result = client.decrypt(ad_token)
-        # use successfully decrypted result.uid2
-      except EncryptionError as err:
-        # check for failure reason
-        print(err)
-      ```
+```py
+decrypted = client.decrypt_token_into_raw_uid(uid_token)
+# If decryption succeeded, use the raw UID2.
+if decrypted.success:
+    #  Use decrypted.uid
+else:
+    # Check decrypted.status for the failure reason.
+```
+
+For a full example, see the `sample_sharing_client.py` in [examples/sample_sharing_client.py](https://github.com/IABTechLab/uid2-client-python/blob/main/examples/sample_sharing_client.py).
 
 ## FAQs
 
