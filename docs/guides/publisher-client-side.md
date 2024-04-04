@@ -1,6 +1,6 @@
 ---
 title: Client-Side Integration Guide for JavaScript
-sidebar_label: Client-Side Integration, JavaScript
+sidebar_label: Client-Side Integration for JavaScript
 pagination_label: Client-Side Integration Guide for JavaScript
 description: Information about integrating with UID2 SDK for JavaScript as part of your UID2 client-side integration.
 hide_table_of_contents: false

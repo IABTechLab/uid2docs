@@ -1,6 +1,6 @@
 ---
 title: Server-Side Integration Guide for JavaScript
-sidebar_label: Server-Side Integration, JavaScript
+sidebar_label: Server-Side Integration for JavaScript
 pagination_label: Server-Side Integration Guide for JavaScript
 description: Information for publishers covering standard web integration scenarios that use the UID2 SDK for JavaScript and requires token to be generated on the server side and passed to the publishers' web pages.
 hide_table_of_contents: false

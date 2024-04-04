@@ -133,7 +133,7 @@ SDK から返される利用可能な情報の概要を次の表に示します�
 
    `do_not_generate_tokens_for_opted_out()` は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) 呼び出しで `optout_check=1` を適用します。これがないと、後方互換性を維持するために `optout_check` が省略されます。
 
-### Standard Integration
+#### Client-Server Integration
 
 標準のインテグレーション (クライアントとサーバー) を使用している場合 ([Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照し)、この手順に従ってください:
 
