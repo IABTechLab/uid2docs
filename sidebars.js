@@ -120,11 +120,11 @@ const fullSidebar = [
                 type: 'category',
                 label: 'JavaScript',
                 link: {
-                  type: 'generated-index',
+                  type: 'doc',
+                  id: 'guides/integration-javascript',
                 },
                 collapsed: true,
                 items: [
-                  'guides/integration-javascript',
                   'guides/publisher-client-side',
                   'guides/integration-javascript-server-side',
                 ],
@@ -216,7 +216,7 @@ const fullSidebar = [
         type: 'doc',
         id: 'sdks/summary-sdks',
       },
-      collapsed: false,
+      collapsed: true,
       items: [
         'sdks/client-side-identity',
         'sdks/uid2-sdk-ref-java',
@@ -329,9 +329,6 @@ const sidebars = {
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
     'guides/dsp-guide',
-    'sdks/client-side-identity',
-    'sdks/uid2-sdk-ref-android',
-    'sdks/uid2-sdk-ref-ios',
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
     'endpoints/post-token-refresh',
@@ -374,9 +371,6 @@ const sidebars = {
     'guides/advertiser-dataprovider-guide',
     'guides/snowflake_integration',
     'guides/integration-aws-entity-resolution',
-    'sdks/client-side-identity',
-    'sdks/uid2-sdk-ref-android',
-    'sdks/uid2-sdk-ref-ios',
     'sharing/sharing-bid-stream'
     ),
 
@@ -414,9 +408,6 @@ const sidebars = {
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
     'guides/dsp-guide',  
-    'sdks/client-side-identity',
-    'sdks/uid2-sdk-ref-android',
-    'sdks/uid2-sdk-ref-ios',
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
     'endpoints/post-token-refresh',
