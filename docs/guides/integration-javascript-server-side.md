@@ -21,7 +21,7 @@ For technical details about the SDK, see [UID2 SDK for JavaScript Reference Guid
 - [Sample Implementation Website](#sample-implementation-website)
 - [Introduction](#introduction)
 - [Integration Steps ](#integration-steps)
-  - [Establish Identity: User Login](#establish-identity-user-login)
+  - [Establish Identity: Capture User Data](#establish-identity-capture-user-data)
   - [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
   - [Refresh Tokens](#refresh-tokens)
   - [Clear Identity: User Logout](#clear-identity-user-logout)
@@ -35,7 +35,7 @@ For an example application, see the UID2 Google Secure Signals with SDK v3 examp
 
 ## Introduction
 
-This guide outlines the basic steps that you need to consider if you are building an integration without using an SDK. For example, you need to decide how to implement user login and logout, how to manage UID2 identity information and use it for targeted advertising, and how to refresh tokens, deal with missing identities, and handle user opt-outs.
+This guide outlines the basic steps that you need to consider if you are building an integration without using an SDK. For example, you need to decide how to implement user authentication and data capture, how to manage UID2 identity information and use it for targeted advertising, and how to refresh tokens, deal with missing identities, and handle user opt-outs.
 
 For a workflow diagram, see [Integration Steps](#integration-steps). See also [FAQs](#faqs).
 
@@ -59,12 +59,12 @@ The following diagram outlines the steps required for establishing a user's UID2
 
 The following sections provide additional details for each step in the diagram:
  
- 1. [Establish identity: User Login](#establish-identity-user-login)
+ 1. [Establish identity: capture user data](#establish-identity-capture-user-data)
  2. [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
  3. [Refresh Tokens](#refresh-tokens)
  4. [Clear Identity: User Logout](#clear-identity-user-logout)
 
-### Establish Identity: User Login
+### Establish Identity: Capture User Data
 
 After authentication in step 1-c, which forces the user to accept the rules of engagement and allows the publisher to validate the user's email address or phone number, a UID2 token must be generated on the server side. The following table details the token generation steps.
 

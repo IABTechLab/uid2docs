@@ -126,7 +126,7 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 	 The `identity` property on the event payload either contains the new identity, or is null if a valid identity is not available.
 5. Handle the identity based on its state:
 	- If the advertising token is available, use it to initiate requests for targeted advertising.
-	- If the advertising token is not available, either use untargeted advertising or redirect the user to your UID2 login with the consent form.
+	- If the advertising token is not available, either use untargeted advertising or redirect the user to the data capture with the consent form.
 
 For more detailed web integration steps, see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md).
 

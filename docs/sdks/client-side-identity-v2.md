@@ -97,7 +97,7 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 	- If the identity is unavailable, the SDK takes the appropriate action based on whether the identity is refreshable or not. For details, see [Workflow States and Transitions](#workflow-states-and-transitions).
 4. Publisher: Handle the identity based on its state:
 	- If the advertising token is available, use it to initiate requests for targeted advertising.
-	- If the advertising token is not available, either use untargeted advertising or redirect the user to the UID2 login with the consent form.
+	- If the advertising token is not available, either use untargeted advertising or redirect the user to the data capture with the consent form.
 
 For web integration steps, see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md).
 
@@ -301,7 +301,7 @@ This function can be called before or after the [init()](#initopts-object-void) 
 
 ### isLoginRequired(): boolean
 
-Specifies whether a UID2 login ([POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call) is required. 
+Specifies whether a UID2 ([POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call is required. 
 
 This function can also provide additional context for handling missing identities, as shown in [Workflow States and Transitions](#workflow-states-and-transitions).
 
