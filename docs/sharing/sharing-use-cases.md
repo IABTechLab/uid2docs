@@ -9,7 +9,7 @@ sidebar_position: 03
 
 The secure sharing workflow allows you to share UID2s with trusted participants in many different ways. Depending on the route, you might send either raw UID2s or UID2 tokens.
 
-For example, here are some sample scenarios where a sender wants to share raw UID2s or UID2 tokens with a receiver:
+For example, here are some scenarios where a sender wants to share raw UID2s or UID2 tokens with a receiver:
 
 - Tokenized sharing (sharing a UID2 token) examples:
   - A publisher (sender) sends a UID2 token via the bid stream to a DSP (receiver) (see [Tokenized Sharing in the Bid Stream](sharing-tokenized-from-data-bid-stream.md)).
@@ -25,5 +25,5 @@ These scenarios, and others, are represented in the following diagram.
 ![Illustration of Sharing Use Cases](images/UID2_Sharing_Diagram_UseCases.png)
 
 :::note
-Any sender can transfer a UID2 token to any receiver using one of the transfer methods. Only a handful of transfer methods are defined here; there are many others.
+Any sender can transfer a raw UID2 or UID2 token to any receiver using one of the transfer methods. Only a handful of transfer methods are defined here; there are many others.
 :::

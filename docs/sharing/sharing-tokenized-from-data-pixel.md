@@ -15,7 +15,7 @@ UID2 data shared in pixels must be in the form of UID2 tokens generated in one o
 [Tokenized sharing](../ref-info/glossary-uid.md#gl-tokenized-sharing) can be used in any sharing route, but the main implementation outside of the bid stream is tokenized sharing in pixels. 
 
 :::caution
-Data in pixels can be viewed in web traffic, so it is never acceptable to share raw UID2s in pixels. If you're sharing in pixels, tokenized sharing is required.
+Data in pixels can be accessed by unauthorized parties, so it is never acceptable to share raw UID2s in pixels. If you're sharing in pixels, tokenized sharing is required.
 :::
 
 In this file:
@@ -23,15 +23,15 @@ In this file:
 - [Audience](#audience)
 - [Sharing UID2 Tokens in Pixels](#sharing-uid2-tokens-in-pixels)
 - [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)
-- [Workflow: Tokenized Sharing Via Tracking Pixels](#workflow-tokenized-sharing-via-tracking-pixels)
-- [Workflow: Tokenized Sharing Via Creative Pixels](#workflow-tokenized-sharing-via-creative-pixels)
+- [Workflow: Tokenized Sharing in Tracking Pixels](#workflow-tokenized-sharing-in-tracking-pixels)
+- [Workflow: Tokenized Sharing in Creative Pixels](#workflow-tokenized-sharing-in-creative-pixels)
 - [Information for Sharing Receivers](#information-for-sharing-receivers)
 
 ### Audience
 
 Tokenized sharing in pixels is applicable to the following audiences:
 
-- **Sender**: Most commonly an advertiser or data provider, but can be any authorized sharing participant.
+- **Sender**: Most commonly an advertiser or data provider, but can be any authorized sharing participant. <!-- (**GWH_KT for verification AT said not sure about the data provider.**) -->
 - **Receiver**: Any authorized sharing participant. See [Information for Sharing Receivers](#information-for-sharing-receivers).
 
 ## Sharing UID2 Tokens in Pixels
@@ -46,22 +46,24 @@ Pixel Type |  Tracking Pixel | Creative Pixel |
 | :--- | :--- | :--- |
 | What it measures | Conversion/retargeting (user does something) | Impression (user sees an ad) |
 | Where | Advertiser or publisher site | Publisher site via DSP |
-| For | Advertiser, data provider, or publisher | Advertiser or data provider |
-| Starting point | DII | Raw UID2 |
+| Who uses it | Advertiser, data provider, or publisher | Advertiser or data provider |
+| Starting point | DII<br/>NOTE: If DII is the starting point, encryption must be done on the server side. | Raw UID2 |
 | Format shared in pixel | UID2 token | UID2 token |
 
 There are two scenarios:
 
-- [Tokenized Sharing Via Tracking Pixels](#workflow-tokenized-sharing-via-tracking-pixels)
-- [Tokenized Sharing Via Creative Pixels](#workflow-tokenized-sharing-via-creative-pixels)
+- [Tokenized Sharing in Tracking Pixels](#workflow-tokenized-sharing-in-tracking-pixels)
+- [Tokenized Sharing in Creative Pixels](#workflow-tokenized-sharing-in-creative-pixels)
 
 ## Account Setup in the UID2 Portal
 
-In the UID2 Portal, for tokenized sharing in pixels, the sender and the receiver must set up an account and the sender must configure sharing permissions.
+In the UID2 Portal, the sender and the receiver must set up an account and the sender must configure sharing permissions.
 
-For details, see [Tokenized Sharing Overview: Account Setup in the UID2 Portal](sharing-tokenized-overview.md#account-setup-in-the-uid2-portal).
+The sender only needs to set up sharing permission once for each receiver or participant type. However, if you want to add new sharing permissions or change existing ones, you'll need to go back to adjust your settings.
 
-## Workflow: Tokenized Sharing Via Tracking Pixels
+For details, see [UID2 Portal: Overview](../portal/portal-overview.md) and follow the links for each task.
+
+## Workflow: Tokenized Sharing in Tracking Pixels
 
 If you're using tracking pixels that fire when someone completes an action such as purchasing a product on a website, it's most likely that you'll start with DII and convert it to a UID2 token, for tokenized sharing.
 
@@ -71,7 +73,7 @@ For example, let's say that an advertiser (sender) wants to share UID2 tokens wi
 
 1. The advertiser is the sender, and does the following:
 
-   1. Enables the DSP with sharing permission via the UID2 Portal.
+   1. Enables the DSP with sharing permission in the UID2 Portal.
 
    2. Directly generates UID2 tokens from the [DII](../ref-info/glossary-uid.md#gl-dii) provided by the user using the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint or one of the SDKs that support generating a UID2 token from DII.
    
@@ -81,9 +83,9 @@ For example, let's say that an advertiser (sender) wants to share UID2 tokens wi
 
 2. The DSP, who is also taking part in sharing, is the receiver. The DSP has access to the advertiser's decryption keys, through the UID2 Portal sharing permissions setup, and can therefore decrypt the UID2 tokens into raw UID2s for segment creation.
 
-Both the UID2 sender and receiver must create a UID2 Portal account (see [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)) in order to take part in sharing. Without an account, a UID2 participant is not displayed in the list of sharing participants in the UID2 Portal.
+Both the UID2 sender and receiver must create a UID2 Portal account (see [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)) in order to take part in sharing. Without an account, a UID2 participant is not displayed in the list of sharing participants in the UID2 Portal, and cannot receive the sender's decryption keys.
 
-## Workflow: Tokenized Sharing Via Creative Pixels
+## Workflow: Tokenized Sharing in Creative Pixels
 
 If you're using creative pixels, the DSP takes the raw UID2 and encrypts it into a UID2 token. The token is added into the creative pixel that is fired on impression.
 
@@ -91,6 +93,6 @@ All the implementation steps are the same as for [tokenized sharing from raw UID
 
 ## Information for Sharing Receivers
 
-To be able to decrypt a UID2 token into a raw UID2, you must be an authorized sharing receiver and have the sender's decryption keys. The sender must also create a sharing relationship with you.
+To be able to decrypt a UID2 token into a raw UID2, you must have a UID2 Portal account and the sender must create a sharing relationship with you.
 
 For details, see [Sharing Overview: Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant). 

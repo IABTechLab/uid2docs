@@ -318,11 +318,12 @@ sidebar_position: 10
 <dd>For details, see <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> (specification).</dd>
 
 <dt class="jump-anchor" id="gl-sharing">Sharing</dt>
-<dd>In the context of UID2, sharing is a process for distributing <a href="#gl-raw-uid2">raw UID2s</a> or <a href="#gl-uid2-token">UID2 tokens</a> securely from one UID2 participant to another. To protect raw UID2s from unauthorized access when sharing in the bid stream or in pixels, per [Security Requirements for UID2 Sharing](../sharing/sharing-overview.md#security-requirements-for-uid2-sharing), the originating participant (sender) must encrypt the raw UID2s into UID2 tokens before transmission. The destination participant (receiver) must decrypt the UID2 tokens into raw UID2s for internal use.</dd>
+<dd>In the context of UID2, sharing is a process for distributing <a href="#gl-raw-uid2">raw UID2s</a> or <a href="#gl-uid2-token">UID2 tokens</a> securely from one UID2 participant to another. UID2 sharing is subject to the rules outlined in [Security Requirements for UID2 Sharing](../sharing/sharing-overview.md#security-requirements-for-uid2-sharing).</dd>
 <dd>For details, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd>
 
 <dt class="jump-anchor" id="gl-sharing-participant">Sharing participant</dt>
-<dd>In UID2, a sharing participant is a company that takes part in <a href="#gl-sharing">sharing</a>&#8212;distributing <a href="#gl-raw-uid2">raw UID2s</a> or <a href="#gl-uid2-token">UID2 tokens</a> securely from one UID2 participant to another. A sharing participant can be a publisher, advertiser, DSP, or data provider, or might have more than one of these roles.</dd>
+<dd>In UID2, a sharing participant is a company that takes part in <a href="#gl-sharing">sharing</a>&#8212;distributing <a href="#gl-raw-uid2">raw UID2s</a> or <a href="#gl-uid2-token">UID2 tokens</a> securely from one UID2 participant to another&#8212;either as a sender or a receiver.</dd>
+<dd>A sharing participant can be a publisher, advertiser, DSP, or data provider, or might have more than one of these roles.</dd>
 <dd>For details, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd>
 
 <dt class="jump-anchor" id="gl-sso">Single sign-on (SSO)</dt>
@@ -338,7 +339,8 @@ sidebar_position: 10
 <dl>
 
 <dt class="jump-anchor" id="gl-tokenized-sharing">Tokenized sharing</dt>
-<dd><a href="#gl-sharing">Sharing</a> of UID2 tokens, also called tokenized sharing, includes any scenarios where a <a href="#gl-uid2-token">UID2 token</a> is shared with another UID2 participant. </dd>
+<dd>Tokenized sharing is a means of <a href="#gl-sharing">sharing</a> UID2 data in the form of <a href="#gl-uid2-token">UID2 tokens</a>. This protects <a href="#gl-raw-uid2">raw UID2s</a> in the end-to-end transit between the sender and the receiver.</dd>
+<dd>For details, see <a href="../sharing/sharing-tokenized-overview">Tokenized Sharing Overview</a>.</dd>
 
 <dt class="jump-anchor" id="gl-transparency-and-control-portal">Transparency and Control Portal</dt>
 <dd>The UID2 Transparency and Control Portal is a user-facing website, <a href="https://www.transparentadvertising.com/">https://www.transparentadvertising.com/</a>, that allows consumers to opt out of UID2 at any time.</dd>

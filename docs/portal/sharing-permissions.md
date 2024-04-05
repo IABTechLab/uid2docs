@@ -75,7 +75,7 @@ The following filters are available on the list of available sharing participant
 
 Enabling sharing permissions includes the following steps.
 
->NOTE: As well as granting sharing permission in the UID2 Portal, you'll also need to integrate an SDK, or Snowflake functionality, into your code. See [Tokenized Sharing Steps: Summary](../sharing/sharing-tokenized-overview.md#tokenized-sharing-steps-summary) (step 2).
+>NOTE: As well as granting sharing permission in the UID2 Portal, you'll also need to integrate an SDK, or Snowflake functionality, into your code. See [Tokenized Sharing Implementation Options](../sharing/sharing-tokenized-overview.md#tokenized-sharing-implementation-options).
 
 1. Log in to your UID2 Portal account.
 1. Click **Sharing Permissions**.

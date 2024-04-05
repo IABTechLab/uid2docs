@@ -11,7 +11,7 @@ sidebar_position: 04
 
 - [Steps to Implement Sharing With an SDK](#steps-to-implement-sharing-with-an-sdk)
 - [Steps to Implement Sharing Using Snowflake](#steps-to-implement-sharing-using-snowflake) 
-- [Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)](#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only) -->
+- [Decryption Key Refresh Cadence for Sharing (SDK Only)](#decryption-key-refresh-cadence-for-sharing-sdk-only) -->
 
 UID2 sharing の設定には、各参加者がいくつかの手順を踏む必要があります:
 
@@ -75,7 +75,7 @@ UID2 Portal では、送信者と受信者がアカウントを設定し、送�
 
    - 受信者は復号化を設定します。
 
-## Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)
+## Decryption Key Refresh Cadence for Sharing (SDK Only)
 
 SDK を使用している場合、共有キーの更新スケジュールを定義するのは Step 2 です。
 

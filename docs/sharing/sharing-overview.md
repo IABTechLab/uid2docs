@@ -13,6 +13,7 @@ In UID2, sharing is a process for distributing either [raw UID2s](../ref-info/gl
 All instances where a raw UID2 or UID2 token is shared with another participant fall under the definition of sharing, and all instances must follow all of the standard [sharing scenarios](#sharing-scenarios). In addition, sharing must meet the [security requirements](#security-requirements-for-uid2-sharing).
 
 In this file:
+- [Sharing Participants](#sharing-participants)
 - [Sharing Scenarios](#sharing-scenarios)
 - [UID2 Sharing Approaches](#uid2-sharing-approaches)
   - [Sharing UID2 Tokens](#sharing-uid2-tokens)
@@ -23,15 +24,21 @@ In this file:
   - [Accounting](#accounting)
   - [Secure Transport](#secure-transport)
 
+## Sharing Participants
+
+In UID2, a sharing participant is a company that takes part in distributing raw UID2s or UID2 tokens securely from one UID2 participant to another, either as a sender or a receiver.
+
+A sharing participant can be a publisher, advertiser, DSP, or data provider, or might have more than one of these roles.
+
 ## Sharing Scenarios
 
-There are several main sharing scenarios, summarized in the following table.
+There are several main sharing scenarios, summarized in the following table. For examples, see [Sharing UID2s: Use Cases](sharing-use-cases.md).
 
 | Sharing Scenario | Sender | Receiver | Sharing Approach | Sharing Route | Link for Details
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Sharing in the bid stream | Publisher | DSP | Tokenized sharing (UID2 token) | Publisher generates UID2 token and sends it into the bid stream.  | [Tokenized Sharing in the Bid Stream](sharing-tokenized-from-data-bid-stream.md) |
 | Sharing via a pixel | Any authorized sharer | Any authorized sharer | Tokenized sharing (UID2 token) | Sharing via any pixel, such as a tracking pixel or creative pixel. | [Tokenized Sharing in Pixels](sharing-tokenized-from-data-pixel.md) |
-| Sharing with another UID2 sharing participant, outside of the bid steam or pixels. | Any authorized sharer | Any authorized sharer | Raw UID2 sharing or optional tokenized sharing | Sharing by any secure channel, such as via API or Amazon S3 drop. | [Raw UID2 Sharing](sharing-raw.md) or [Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md) |
+| Sharing with another UID2 sharing participant, outside of the bid steam or pixels | Any authorized sharer | Any authorized sharer | Raw UID2 sharing<br/>or<br/>Tokenized sharing (UID2 token) | Sharing by any secure channel, such as via API or Amazon S3 drop. | [Raw UID2 Sharing](sharing-raw.md) or [Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md) |
 
 ## UID2 Sharing Approaches
 
@@ -44,11 +51,11 @@ If a sharing participant wants to share UID2s with another authorized sharing pa
 
 The following are the high-level steps for sharing UID2 tokens ([tokenized sharing](../ref-info/glossary-uid.md#gl-tokenized-sharing)):
 
-  1. The sender sets up sharing permissions in the UID2 Portal (see [Sharing Permissions](../portal/sharing-permissions.md)).
-  2. The sender generates a UID2 token from DII (see [Tokenized Sharing in the Bid Stream: Implementation Options](sharing-tokenized-from-bid-stream.md#tokenized-sharing-in-the-bid-stream-implementation-options)), or encrypts raw UID2s into UID2 tokens using [one of the UID2 server-side SDKs](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-with-an-sdk) or the [UID2 Snowflake integration](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-using-snowflake).
-  3. The receiver decrypts the UID2 tokens into raw UID2s, using [one of the UID2 server-side SDKs](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-with-an-sdk) or the [UID2 Snowflake integration](sharing-tokenized-overview.md#implementing-sharing-encryptiondecryption-using-snowflake).
+  1. The sender sets up sharing permissions in the UID2 Portal.
+  2. The sender generates a UID2 token from DII or encrypts raw UID2s into UID2 tokens.
+  3. The receiver decrypts the UID2 tokens into raw UID2s.
 
-For more information about the options for sharing UID2 tokens, see [Tokenized Sharing Overview](sharing-tokenized-overview.md).
+For more information about the options for sharing UID2 tokens, and links to instructions, see [Tokenized Sharing Overview](sharing-tokenized-overview.md).
 
 ### Sharing Raw UID2s
 
@@ -65,6 +72,10 @@ The security requirements for sharing UID2s between authorized sharing participa
 - [Accounting](#accounting)
 - [Secure Transport](#secure-transport)
 
+:::important
+**All** these security points must be in place, continuously, if you are sending or receiving UID2s.
+:::
+
 ### Authentication
 
 Authentication means that you verify that the sharing participant you're working with is who they say they are.
@@ -80,10 +91,6 @@ Authorization means that you verify that the sharing participant you're working 
 - The receiver has accepted the terms of the applicable UID2 participation policy. (**GWH_KL note 3/7: "we'll need to confirm with legal that we need that"**)
 - The receiver has an appropriate security role for all steps of the transmission flow. For example, if transmission is via Amazon AWS, the receiver must have an appropriate security role for the applicable Amazon AWS account.
 
-:::note
-Only authorized sharing participants are available for creating a sharing relationship in the UID2 Portal.
-:::
-
 ### Accounting
 
 Accounting means that there is a record of what happens, so that activity can be reviewed or audited if necessary. The following are some examples of accounting:
@@ -94,11 +101,7 @@ Accounting means that there is a record of what happens, so that activity can be
 
 ### Secure Transport
 
-Secure transport protects raw UID2s from being accessible or modifiable by an onlooker during the transition of data from sender to receiver, end to end. There must be no possibility that the UID2s can be accessed or modified by an onlooker. Examples of secure transport include:
+Secure transport protects raw UID2s from being accessible or modifiable by an onlooker during the transition of data from sender to receiver, end to end. Examples of secure transport include:
 
 - HTTPS or TLS
 - Message-based encryption
-
-:::important
-ALL the above security points must be in place, continuously, if you are sending or receiving UID2s.
-:::

@@ -44,4 +44,4 @@ The following are reasons to refresh the keys on an hourly cadence:
 - Regular refresh allows the SDK to fetch the latest keys for decryption.
 - The UID2 framework periodically rotates encryption keys.
 
-For details, see [Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)](sharing-tokenized-from-raw.md#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only).
+For details, see [Decryption Key Refresh Cadence for Sharing (SDK Only)](sharing-tokenized-from-raw.md#decryption-key-refresh-cadence-for-sharing-sdk-only).

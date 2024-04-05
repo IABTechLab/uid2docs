@@ -44,4 +44,4 @@ UID2 Token を他の UID2 正規のユーザーと安全に共有できるよう
 - 定期的に更新することで、SDK が復号のために最新の鍵を取得できるようになります。
 - UID2 フレームワークは定期的に暗号鍵をローテーションしています。
 
-詳細については、[Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)](sharing-implementing.md#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only) を参照してください。
+詳細については、[Decryption Key Refresh Cadence for Sharing (SDK Only)](sharing-implementing.md#decryption-key-refresh-cadence-for-sharing-sdk-only) を参照してください。
