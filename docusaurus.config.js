@@ -136,7 +136,7 @@ const config = {
         items: [
           {
             to: "/request-access",
-            label: "Request Access",
+            label: getLocalizedConfigValue("navbarCta"),
             className: "mobile-only menu__cta button button--nav",
             position: "left",
           },
@@ -233,11 +233,10 @@ const config = {
             classNames: "desktop-only hide-on-marketing-page navbar__divider",
           },
           {
-            type: "custom-NavbarCta",
-            href: "/request-access",
-            // text: "Request Access", moved to component for translation reasons
+            to: "/request-access",
+            label: getLocalizedConfigValue("navbarCta"),
+            className: "button button--nav desktop-only",
             position: "right",
-            className: "desktop-only",
           },
         ],
       },
