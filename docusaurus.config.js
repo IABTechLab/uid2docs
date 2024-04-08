@@ -284,6 +284,10 @@ const config = {
                 label: "Prebid",
                 to: "https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html",
               },
+              {
+                label: "EUID",
+                to: "https://euid.eu/",
+              },
             ],
           },
           {
