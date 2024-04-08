@@ -22,14 +22,14 @@ export default function HomepageConsumerBenefit(): JSX.Element {
         <div className={styles.contentContainer}>
           <h2 className="text-11-o-clock type-delta">
             <Translate id="homepage.benefitsTitle">
-              Unified ID 2.0 Benefits
+              Unified ID 2.0 benefits
             </Translate>
           </h2>
           <p>
             <Translate id="homepage.benefitsCopy">
               Unified ID 2.0 was created with consumer privacy as a top
-              priority. Users can opt out of the use of their UID2 universally
-              by visiting the opt-out portal. Participants are required to honor
+              priority. User can opt out of the use of their UID2 universally by
+              visiting the opt-out portal. Participants are required to honor
               the users' opt-out requests made through the portal.
             </Translate>
           </p>
