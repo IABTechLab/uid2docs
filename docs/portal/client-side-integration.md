@@ -20,7 +20,8 @@ On the Client-Side Integration page you can perform all activities relating to s
 
 - [Adding a Key Pair](#adding-a-key-pair)
 - [Copying a Public Key](#copying-a-public-key)
-- (**GWH_What about deleting a key pair? Or modifying could be changing the name?**)
+- [Changing the Name of a Public Key](#changing-the-name-of-a-key-pair)
+- [Deleting a Key Pair](#deleting-a-key-pair)
 - [Adding a Top-Level Domain](#adding-a-top-level-domain)
 - [Modifying a Top-Level Domain](#modifying-a-top-level-domain)
 - [Deleting a Top-Level Domain](#deleting-a-top-level-domain)
@@ -30,6 +31,18 @@ On the Client-Side Integration page you can perform all activities relating to s
 xxx
 
 ## Copying a Public Key
+
+xxx
+
+## Changing the Name of a Key Pair
+
+When you've created a public key, the only value you can change is the name. To change the actual key, you'll need to create a new key pair.
+
+To change the name of a public key (key pair?)
+
+xxx
+
+## Deleting a Key Pair
 
 xxx
 
