@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Disallowing indexing or URLs with query parameters
+Disallow: /*?
+
 Sitemap: https://unifiedid.com/sitemap.xml
