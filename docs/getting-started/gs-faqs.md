@@ -202,6 +202,11 @@ However, there is a variable factor, which is the [salt](../ref-info/glossary-ui
 
 For more information, see [Monitor for salt bucket rotations related to your stored raw UID2s](../guides/advertiser-dataprovider-guide.md#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s) in the *Advertiser/Data Provider Integration Guide*.
 
+#### Why does a Private Operator need to run in an enclave?
+
+The Private Operator runs in an [enclave](../ref-info/glossary-uid.md#gl-enclave) (confidential space) because the Operator manages DII along with salt values. This is an extra layer of security so no one can see the salt values used to produce raw UID2s, and instead only the salt bucket ID is stored outside the Operator.
+
+
 ## FAQs for DSPs
 
 Here are some frequently asked questions for demand-side platforms (DSPs).
