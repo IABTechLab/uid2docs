@@ -152,7 +152,8 @@ Here are some frequently asked questions for advertisers and data providers usin
    - [Should I store large volumes of email address, phone number, or their hash mappings? ](#should-i-store-large-volumes-of-email-address-phone-number-or-their-hash-mappings)
    - [How should I handle user opt-outs?](#how-should-i-handle-user-opt-outs)
    - [Does the same DII always result in the same raw UID2?](#does-the-same-dii-always-result-in-the-same-raw-uid2)
-
+   - [Why does a Private Operator need to run in an enclave?](#why-does-a-private-operator-need-to-run-in-an-enclave)
+   - [How does a Private Operator access the salt values from the core service?](#how-does-a-private-operator-access-the-salt-values-from-the-core-service)
 
 #### How do I know when to refresh the UID2 due to salt bucket rotation?
 
@@ -205,6 +206,9 @@ For more information, see [Monitor for salt bucket rotations related to your sto
 #### Why does a Private Operator need to run in an enclave?
 
 The Private Operator runs in an [enclave](../ref-info/glossary-uid.md#gl-enclave) (confidential space) because the Operator manages DII along with salt values. This is an extra layer of security so no one can see the salt values used to produce raw UID2s, and instead only the salt bucket ID is stored outside the Operator.
+
+#### How does a Private Operator access the salt values from the core service?
+A Private Operator does not need any special authentication to retrieve salts. The Operator uses presigned S3 URLs to retrieve files. The only access requirement is the Operator needs outbound and inbound network access to S3.
 
 
 ## FAQs for DSPs

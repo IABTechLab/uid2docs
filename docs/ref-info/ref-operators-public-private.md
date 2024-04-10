@@ -24,6 +24,12 @@ UID2 Operators fall into two categories:
 
 The Operator is the operational code of UID2&#8212;the code that turns an email into a raw UID2 or a UID2 token, and that a participant who is sharing uses to refresh decryption keys.
 
+### Salts
+
+The Operator service retrieves all available salts periodically. The avaiable salt values are changing every day (expired salts are removed and new salts added). A DII is mapped to the same raw UID2 regardless of who makes the request as the hashed value maps to a corresponding salt bucket ID.
+
+One salt bucket ID corresponds to one salt value. The core service holds the salt bucket ID, salt value, and timestamp mappings. The Operator does not save the salt values but it must use the salt to produce a raw UID2 from DII. Once the raw UID2 is created, the Operator returns only the salt bucket ID in the API response for tracking when the salt value expires.
+
 ## Public Operators
 
 A Public Operator, or Open Operator, is a UID2 Operator instance that is available to all relevant UID2 participants. Public Operators run publicly available instances of the Operator Service and make them available to participants.
