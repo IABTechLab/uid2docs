@@ -70,7 +70,7 @@ const fullSidebar = [
         'portal/participant-info',
         'portal/team-members',
         'portal/email-contacts',
-        'portal/api-key-management',
+        'portal/api-keys',
       ],
     },
 
