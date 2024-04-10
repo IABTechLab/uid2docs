@@ -140,7 +140,7 @@ var client = new BidstreamClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
 client.Refresh();
 ```
 
-3. Decrypt a token into a raw UID2. Pass the domain name of the site where the bid originated from:
+3. Decrypt a token into a raw UID2. Pass the domain name of the site where the bid originated from. The domain name must be all lower cased without spaces and without subdomain, e.g. for ```Subdomain.DOMAIN.com``` , ```domain.com``` should be passed instead): 
 
 ```cs
 var decrypted = client.DecryptTokenIntoRawUid(uidToken, domain);
