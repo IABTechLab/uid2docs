@@ -36,9 +36,9 @@ There are several main sharing scenarios, summarized in the following table. For
 
 | Sharing Scenario | Sender | Receiver | Sharing Approach | Sharing Route | Link for Details
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Sharing in the bid stream | Publisher | DSP | Tokenized sharing (UID2 token) | Publisher generates UID2 token and sends it into the bid stream.  | [Tokenized Sharing in the Bid Stream](sharing-tokenized-from-data-bid-stream.md) |
-| Sharing via a pixel | Any authorized sharer | Any authorized sharer | Tokenized sharing (UID2 token) | Sharing via any pixel, such as a tracking pixel or creative pixel. | [Tokenized Sharing in Pixels](sharing-tokenized-from-data-pixel.md) |
-| Sharing with another UID2 sharing participant, outside of the bid steam or pixels | Any authorized sharer | Any authorized sharer | Raw UID2 sharing<br/>or<br/>Tokenized sharing (UID2 token) | Sharing by any secure channel, such as via API or Amazon S3 drop. | [Raw UID2 Sharing](sharing-raw.md) or [Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md) |
+| Sharing in the bid stream | Publisher | DSP | Sharing UID2 tokens (tokenized sharing) | Publisher generates UID2 token and sends it into the bid stream.  | [Tokenized Sharing in the Bid Stream](sharing-tokenized-from-data-bid-stream.md) |
+| Sharing via a pixel | Any authorized sharer | Any authorized sharer | Sharing UID2 tokens (tokenized sharing) | Sharing via any pixel, such as a tracking pixel or creative pixel. | [Tokenized Sharing in Pixels](sharing-tokenized-from-data-pixel.md) |
+| Sharing with another UID2 sharing participant, outside of the bid steam or pixels | Any authorized sharer | Any authorized sharer | Sharing raw UID2s<br/>or<br/>Sharing UID2 tokens (tokenized sharing) | Sharing by any secure channel, such as via API or Amazon S3 drop. | [Raw UID2 Sharing](sharing-raw.md) or [Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md) |
 
 ## UID2 Sharing Approaches
 
@@ -52,7 +52,10 @@ If a sharing participant wants to share UID2s with another authorized sharing pa
 The following are the high-level steps for sharing UID2 tokens ([tokenized sharing](../ref-info/glossary-uid.md#gl-tokenized-sharing)):
 
   1. The sender sets up sharing permissions in the UID2 Portal.
-  2. The sender generates a UID2 token from DII or encrypts raw UID2s into UID2 tokens.
+  2. The sender does either of the following:
+  
+     - Generates UID2 tokens from DII.
+     - Encrypts raw UID2s into UID2 tokens.
   3. The receiver decrypts the UID2 tokens into raw UID2s.
 
 For more information about the options for sharing UID2 tokens, and links to instructions, see [Tokenized Sharing Overview](sharing-tokenized-overview.md).

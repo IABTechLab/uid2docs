@@ -339,7 +339,7 @@ sidebar_position: 10
 <dl>
 
 <dt class="jump-anchor" id="gl-tokenized-sharing">Tokenized sharing</dt>
-<dd>Tokenized sharing means <a href="#gl-sharing">sharing</a> raw UID2s in the form of <a href="#gl-uid2-token">UID2 tokens</a>. This protects <a href="#gl-raw-uid2">raw UID2s</a> in the end-to-end transit between the sender and the receiver.</dd>
+<dd>Tokenized sharing means encrypting <a href="#gl-dii">DII</a> or <a href="#gl-raw-uid2">Raw UID2s</a> into <a href="#gl-uid2-token">UID2 tokens</a> and sharing the tokens with authorized recipients. Using UID2 tokens protects raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bid stream or via pixels, but you can use it in any sharing use case.</dd>
 <dd>For details, see <a href="../sharing/sharing-tokenized-overview">Tokenized Sharing Overview</a>.</dd>
 
 <dt class="jump-anchor" id="gl-transparency-and-control-portal">Transparency and Control Portal</dt>

@@ -49,11 +49,6 @@ At a very high level, the following are the steps to set up and configure tokeni
    - [Implementing Sharing Encryption/Decryption with an SDK](#implementing-sharing-encryptiondecryption-with-an-sdk)
    - [Implementing Sharing Encryption/Decryption Using Snowflake](#implementing-sharing-encryptiondecryption-using-snowflake)
 
-
-
-
-
-
 ## Workflow: Tokenized Sharing from Raw UID2
 
 The workflow for tokenized sharing by generating UID2 tokens from raw UID2s consists of the following steps.
@@ -109,9 +104,9 @@ The following steps are for all sharing participants who are using an SDK to enc
 
 If you're using an SDK, defining the schedule for refreshing the sharing keys is part of step 2.
 
-For long/continuously running processes, we recommend calling the `uid2client.refresh()` function once per hour. However, you can choose another refresh cadence if you prefer.
+For long/continuously running processes, we recommend calling the `uid2client.refresh()` function once per hour.
 
-Calling this function regularly allows the SDK to fetch the latest keys for decryption. When a new sharing permission is enabled, the additional set of encryption keys needed to decrypt the data sent by the new sharing sender is returned the next time the sharing receiver calls the `uid2client.refresh()` function. This process is managed by the SDK.
+For details, see [Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) in *UID2 Sharing: Best Practices*.
 
 :::note
 If you're using Snowflake, you don't need to do this step. The Snowflake UID2 integration takes care of refreshing the keys.
@@ -140,6 +135,13 @@ The following steps are for Snowflake users who want to take part in UID2 sharin
 
 ## Information for Sharing Receivers
 
-To be able to decrypt a UID2 token into a raw UID2, you must be an authorized sharing receiver and have the sender's decryption keys. The sender must also create a sharing relationship with you.
+To be able to decrypt a UID2 token into a raw UID2, you must have a UID2 Portal account and the sender must create a sharing relationship with you.
 
 For details, see [Sharing Overview: Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant).
+
+It's important to set up a regular cadence for refreshing decryption keys, and to decrypt UID2 tokens promptly.
+
+For details, see the following sections in *UID2 Sharing: Best Practices*:
+
+- [Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing)
+- [Best Practices for Managing Raw UID2s](sharing-best-practices.md#best-practices-for-managing-raw-uid2s)

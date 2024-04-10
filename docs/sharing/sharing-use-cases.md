@@ -20,10 +20,6 @@ For example, here are some scenarios where a sender wants to share raw UID2s or 
 
 These scenarios, and others, are represented in the following diagram.
 
-(**GWH_KL note Kimberly is working with Marketing to redo this diagram.**)
+<!-- (**GWH_KL note Kimberly is working with Marketing to redo this diagram.**) -->
 
 ![Illustration of Sharing Use Cases](images/UID2_Sharing_Diagram_UseCases.png)
-
-:::note
-Any sender can transfer a raw UID2 or UID2 token to any receiver using one of the transfer methods. Only a handful of transfer methods are defined here; there are many others.
-:::

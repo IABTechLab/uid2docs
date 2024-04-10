@@ -7,11 +7,11 @@ sidebar_position: 04
 
 # Tokenized Sharing Overview
 
-In UID2, tokenized sharing means sharing UID2 tokens with authorized sharing participants. The tokens can be generated in either of the following ways:
-- By encrypting raw UID2s into UID2 tokens.
-- By generating UID2 tokens directly from [DII](../ref-info/glossary-uid.md#gl-dii).
+In UID2, tokenized sharing means encrypting [DII](../ref-info/glossary-uid.md#gl-dii) or [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) into [UID2 tokens](../ref-info/glossary-uid.md#gl-raw-uid2) and sharing the tokens with authorized recipients. Using UID2 tokens protects raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bid stream or via pixels, but you can use it in any sharing use case.
 
-Tokenized sharing is required for sharing in the bid stream or via pixels, but you can use it in any sharing use case.
+ The tokens can be generated in either of the following ways:
+- By encrypting raw UID2s into UID2 tokens.
+- By generating UID2 tokens directly from DII.
 
 In this file:
 - [Tokenized Sharing Scenarios](#tokenized-sharing-scenarios)
@@ -53,6 +53,10 @@ Choose the integration option that's right for your implementation, and then cli
 ## Receiving UID2 Tokens from Another Sharing Participant
 
 The steps that the receiver takes are similar for all sharing scenarios. The receiver must decrypt the UID2 token to arrive at the raw UID2. To do this, you must have a UID2 Portal account and the sender must create a sharing relationship with you, so that you can access the sender's decryption keys.
+
+:::tip
+When you receive the tokens, we recommend decrypting as soon as possible to avoid token expiration. See [Best Practices for Managing Raw UID2s](sharing-best-practices.md#best-practices-for-managing-raw-uid2s).
+:::
 
 The following implementation options are available for decrypting UID2 tokens.
 

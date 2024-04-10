@@ -95,7 +95,7 @@ The workflow for generating UID2 tokens from DII, via the API or the specified s
 
    1. Receives the UID2 tokens.
    1. Decrypts the UID2 tokens into raw UID2s.
-   1. Checks that the UID2s are not opted out. If they are not opted out, uses the raw UID2s for bidding.
+   1. Checks that the UID2s are not opted out. For details, see [Honor User Opt-Outs](../guides/dsp-guide.md#honor-user-opt-outs). If they are not opted out, uses the raw UID2s for bidding.
 
 The following diagram illustrates the UID2 sharing workflow for publishers.
 
@@ -138,8 +138,15 @@ Publishers convert the input email address or phone number directly to a UID2 to
 
 ## Information for Sharing Receivers
 
-To be able to decrypt a UID2 token into a raw UID2, you must be an authorized sharing receiver and have the sender's decryption keys.
+To be able to decrypt a UID2 token into a raw UID2, you must be an authorized sharer and have the sender's decryption keys.
 
 By default, for publishers sending UID2 tokens to the bid stream, the publisher's decryption keys are shared with all authorized DSPs. However, if a publisher has set up specific sharing relationships, you'll only receive that publisher's decryption keys if the publisher has created a sharing relationship with you.
 
 For details, see [Sharing Overview: Receiving UID2 Tokens from Another Sharing Participant](#receiving-uid2-tokens-from-another-sharing-participant).
+
+It's important to set up a regular cadence for refreshing decryption keys, and to decrypt UID2 tokens promptly.
+
+For details, see the following sections in *UID2 Sharing: Best Practices*:
+
+- [Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing)
+- [Best Practices for Managing Raw UID2s](sharing-best-practices.md#best-practices-for-managing-raw-uid2s)

@@ -31,7 +31,7 @@ In this file:
 
 Tokenized sharing in pixels is applicable to the following audiences:
 
-- **Sender**: Most commonly an advertiser or data provider, but can be any authorized sharing participant. <!-- (**GWH_KT for verification AT said not sure about the data provider.**) -->
+- **Sender**: Most commonly an advertiser or data provider, but can be any authorized sharing participant.
 - **Receiver**: Any authorized sharing participant. See [Information for Sharing Receivers](#information-for-sharing-receivers).
 
 ## Sharing UID2 Tokens in Pixels
@@ -46,8 +46,7 @@ Pixel Type |  Tracking Pixel | Creative Pixel |
 | :--- | :--- | :--- |
 | What it measures | Conversion/retargeting (user does something) | Impression (user sees an ad) |
 | Where | Advertiser or publisher site | Publisher site via DSP |
-| Who uses it | Advertiser, data provider, or publisher | Advertiser or data provider |
-| Starting point | DII<br/>NOTE: If DII is the starting point, encryption must be done on the server side. | Raw UID2 |
+| Starting point | DII in most cases<br/>Raw UID2 is also possible, but encryption must be done on the server side. | Raw UID2 |
 | Format shared in pixel | UID2 token | UID2 token |
 
 There are two scenarios:
@@ -95,4 +94,11 @@ All the implementation steps are the same as for [tokenized sharing from raw UID
 
 To be able to decrypt a UID2 token into a raw UID2, you must have a UID2 Portal account and the sender must create a sharing relationship with you.
 
-For details, see [Sharing Overview: Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant). 
+For details, see [Sharing Overview: Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant).
+
+It's important to set up a regular cadence for refreshing decryption keys, and to decrypt UID2 tokens promptly.
+
+For details, see the following sections in *UID2 Sharing: Best Practices*:
+
+- [Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing)
+- [Best Practices for Managing Raw UID2s](sharing-best-practices.md#best-practices-for-managing-raw-uid2s)

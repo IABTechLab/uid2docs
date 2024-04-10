@@ -10,8 +10,8 @@ sidebar_position: 05
 <!-- It includes the following:
 
 - [Best Practices for Managing Raw UID2s](#best-practices-for-managing-raw-uid2s)
-- [Best Practices for Managing UID2 Tokens](#best-practices-for-managing-uid2-bid-stream-tokens-or-sharing-tokens)
-- [Key Refresh Cadence for Sharing](#key-refresh-cadence-for-sharing) -->
+- [Best Practices for Managing UID2 Tokens](#best-practices-for-managing-uid2-tokens)
+- [Decryption Key Refresh Cadence for Sharing](#decryption-key-refresh-cadence-for-sharing) -->
 
 UID2 Token を他の UID2 正規のユーザーと安全に共有できるようになったことで、UID2 をビジネスでさまざまな形で活用する道が開けました。
 
@@ -35,7 +35,7 @@ UID2 Token を他の UID2 正規のユーザーと安全に共有できるよう
 
 - コードでは、将来の拡張性を考慮して、UID2 Token の長さを 500 文字まで許容してください。
 
-## Key Refresh Cadence for Sharing
+## Decryption Key Refresh Cadence for Sharing
 
 長時間/継続的に実行されるプロセスでは、1時間に1回 `uid2client.refresh()` 関数を呼び出します。
 

@@ -15,12 +15,12 @@ In this file:
 
 - [Best Practices for Managing Raw UID2s](#best-practices-for-managing-raw-uid2s)
 - [Best Practices for Managing UID2 Tokens](#best-practices-for-managing-uid2-tokens)
-- [Key Refresh Cadence for Sharing](#key-refresh-cadence-for-sharing)
+- [Decryption Key Refresh Cadence for Sharing](#decryption-key-refresh-cadence-for-sharing)
 
 ## Best Practices for Managing Raw UID2s
 
 Follow these guidelines:
-- For any UID2s that are in your platform, use and store them as raw UID2s, not as UID2 tokens.
+- For any UID2s that are in your platform, use and store them as raw UID2s, not as UID2 tokens. When you receive UID2 tokens, decrypt them as soon as possible.
 
   This is important because a UID2 token is short-lived. When the key that was used to create a UID2 token expires, you can no longer decrypt the token.
 - In your code, for future extensibility, allow for a raw UID2 length of 100 characters.
@@ -35,13 +35,17 @@ Follow these guidelines:
 
 - In your code, for future extensibility, allow for a UID2 token length of 500 characters.
 
-## Key Refresh Cadence for Sharing
+## Decryption Key Refresh Cadence for Sharing
 
-For long/continuously running processes, call the `uid2client.refresh()` function once per hour. 
+If you're using an SDK, defining the schedule for refreshing the sharing keys is part of setup.
+
+For long/continuously running processes, we recommend calling the `uid2client.refresh()` function once per hour. However, you can choose another refresh cadence if you prefer.
 
 The following are reasons to refresh the keys on an hourly cadence:
 
-- Regular refresh allows the SDK to fetch the latest keys for decryption.
+- Regular refresh allows the SDK to fetch the latest keys for decryption. When a new sharing permission is enabled, the additional set of encryption keys needed to decrypt the data sent by the new sharing sender is returned the next time the sharing receiver calls the `uid2client.refresh()` function. This process is managed by the SDK.
 - The UID2 framework periodically rotates encryption keys.
 
-For details, see [Decryption Key Refresh Cadence for Sharing (SDK Only)](sharing-tokenized-from-raw.md#decryption-key-refresh-cadence-for-sharing-sdk-only).
+:::note
+If you're using Snowflake, you don't need to do this step. The Snowflake UID2 integration takes care of refreshing the keys.
+:::
