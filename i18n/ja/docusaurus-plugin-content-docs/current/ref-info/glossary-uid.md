@@ -31,7 +31,6 @@ sidebar_position: 10
 <li><a href="#gl-client-secret">Client secret</a></li>
 <li><a href="#gl-closed-operator">Closed Operator</a></li>
 <li><a href="#gl-core-service">Core Service</a></li>
-<li><a href="#gl-customer-data-platform">Customer Data Platform (CDP)</a></li>
 <li><a href="#gl-data-provider">Data provider</a></li>
 <li><a href="#gl-demand-side-platform">Demand-side platform</a></li>
 <li><a href="#gl-dii">Directly identifying information (DII)</a></li>
@@ -141,9 +140,6 @@ sidebar_position: 10
 <dt class="jump-anchor" id="gl-core-service">Core Service</dt>
 <dd>UID2 Core Serviceは、UID2 エコシステムの <a href="#gl-salt">salts</a>、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。</dd>
 <dd>すべてのUID2 Service の概要については、<a href="/docs/intro#components">Components</a> を参照してください。</dd>
-
-<dt class="jump-anchor" id="gl-customer-data-platform">Customer Data Platform (CDP)</dt>
-<dd>顧客データ・プラットフォーム (CDP)は、他のシステムからアクセス可能な統一された顧客データベースを作成するための、あらかじめ構築されたパッケージ・ソフトウェア・システムです。CDP は、複数のソースからの顧客データを一元化し、そのデータを他のシステムで利用できるようにします。</dd>
 
 </dl>
 
@@ -301,7 +297,7 @@ sidebar_position: 10
 <dl>
 
 <dt class="jump-anchor" id="gl-salt">Salt</dt>
-<dd>メールアドレスや電話番号を、元の値に遡ることができない安全で不透明な値に変換するプロセスで使用される文字列です。</dd>
+<dd>メールアドレスや電話番号を、それ自体では元の値を追跡できない安全で不透明な値に変換するプロセスで使用されます。</dd>
 <dd>UID2 Service は、ハッシュ化および暗号化とともに、プロセスの一部としてソルト(Salt) を使用し、元の値を保護します。ソルトは、ハッシュ化の前に入力値に加えられます。</dd>
 
 <dt class="jump-anchor" id="gl-salted-hash">Salted hash</dt>
