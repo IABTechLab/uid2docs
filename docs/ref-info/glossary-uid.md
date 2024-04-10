@@ -300,6 +300,11 @@ sidebar_position: 10
 <dd>A string of characters that is used in the process of transforming an email address or phone number into a secure, opaque value that cannot by itself be traced back to the original value.</dd>
 <dd>The UID2 service uses salt as part of the process, along with hashing and encryption, to secure the original value. Salt is added to the input value before hashing.</dd>
 
+<dt class="jump-anchor" id="gl-salt-bucket">Salt bucket</dt>
+<dd>A unique string of characters used to identify one <a href="#gl-salt">salt</a> value used to make a raw UID2.</dd>
+<dd>Since salts expire periodically, a salt bucket is the ID used to track when a salt is expired. See request: <a href="../endpoints/post-identity-buckets">POST&nbsp;/identity/buckets</a></dd>
+<dd>Example: "aeRQ9L7wRN"</dd>
+
 <dt class="jump-anchor" id="gl-salted-hash">Salted hash</dt>
 <dd>When a <a href="#gl-salt">salt</a> value is added to the input string before applying the <a href="#gl-hash">hash</a> function, the result is a salted hash. When the input value is salted before hashing, an attacker who has the hash cannot determine the input value by trying many possible inputs to arrive at the same output.</dd>
 
