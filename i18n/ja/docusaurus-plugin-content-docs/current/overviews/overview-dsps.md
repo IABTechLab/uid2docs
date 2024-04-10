@@ -6,6 +6,7 @@ sidebar_position: 06
 use_banner: true
 banner_title: UID2 Overview for DSPs
 banner_description: より耐久性のある識別子でデータ戦略を可能に。
+displayed_sidebar: sidebarDSPs
 ---
 
 デマンドサイドプラットフォーム(DSP、メディアバイイングプラットフォーム) として、Unified ID 2.0(UID2) を活用した ID 戦略を実施することで、以下を促進することができます:
@@ -14,6 +15,10 @@ banner_description: より耐久性のある識別子でデータ戦略を可能
 - パブリッシャー向けインベントリ収益化
 
 UID2 を採用する DSP のメリット、ワークフロー、ドキュメント、その他のリソース、および UID2 を開始するための手順について説明します。
+
+:::note
+UID2 のドキュメント一式に左サイドバーからアクセスしたい場合は、[Unified ID 2.0 Overview](../intro.md) を参照してください。
+:::
 
 ## Benefits of UID2 for DSPs
 

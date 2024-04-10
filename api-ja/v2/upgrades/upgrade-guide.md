@@ -154,4 +154,4 @@ UID2 API v2 は UID2 API v1 とは互換性がないため、アップグレー�
 
 ### リクエストを暗号化し、レスポンスを復号化するにはどうしたらいいですか？
 
-[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) ページでワークフローを説明し、Python での例を示しています。
+[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) ページでワークフローを説明し、複数のプログラミング言語での例を示しています。
