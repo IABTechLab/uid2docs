@@ -301,7 +301,7 @@ sidebar_position: 10
 <dd>The UID2 service uses salt as part of the process, along with hashing and encryption, to secure the original value. Salt is added to the input value before hashing.</dd>
 
 <dt class="jump-anchor" id="gl-salt-bucket">Salt bucket</dt>
-<dd>A unique string of characters used to identify one <a href="#gl-salt">salt</a> value used to make a raw UID2.</dd>
+<dd>A unique string of characters used to identify one <a href="#gl-salt">salt</a> value used to make a raw UID2. The term "bucket" does not reference a cloud storage bucket; it refers to a specific salt value.</dd>
 <dd>Since salts expire periodically, a salt bucket is the ID used to track when a salt is expired. See request: <a href="../endpoints/post-identity-buckets">POST&nbsp;/identity/buckets</a></dd>
 <dd>Example: "aeRQ9L7wRN"</dd>
 
