@@ -339,7 +339,7 @@ sidebar_position: 10
 <dl>
 
 <dt class="jump-anchor" id="gl-tokenized-sharing">Tokenized sharing</dt>
-<dd>Tokenized sharing is a means of <a href="#gl-sharing">sharing</a> UID2 data in the form of <a href="#gl-uid2-token">UID2 tokens</a>. This protects <a href="#gl-raw-uid2">raw UID2s</a> in the end-to-end transit between the sender and the receiver.</dd>
+<dd>Tokenized sharing means <a href="#gl-sharing">sharing</a> raw UID2s in the form of <a href="#gl-uid2-token">UID2 tokens</a>. This protects <a href="#gl-raw-uid2">raw UID2s</a> in the end-to-end transit between the sender and the receiver.</dd>
 <dd>For details, see <a href="../sharing/sharing-tokenized-overview">Tokenized Sharing Overview</a>.</dd>
 
 <dt class="jump-anchor" id="gl-transparency-and-control-portal">Transparency and Control Portal</dt>

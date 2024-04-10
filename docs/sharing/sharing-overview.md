@@ -88,7 +88,7 @@ Common ways of achieving this are to require verification via credentials, such 
 
 Authorization means that you verify that the sharing participant you're working with is authorized to receive the data that you're sending&#8212;or to send the data that you're receiving. In the context of sharing, this means that the participant has the appropriate role required to access the specific UID2 data. Some examples are the following:
 
-- The receiver has accepted the terms of the applicable UID2 participation policy. (**GWH_KL note 3/7: "we'll need to confirm with legal that we need that"**)
+- The receiver has accepted the terms of the applicable UID2 participation policy. (**GWH Legal please confirm or correct on this point"**)
 - The receiver has an appropriate security role for all steps of the transmission flow. For example, if transmission is via Amazon AWS, the receiver must have an appropriate security role for the applicable Amazon AWS account.
 
 ### Accounting

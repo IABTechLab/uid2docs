@@ -42,7 +42,7 @@ You can send UID2 tokens to another authorized sharing participant. Sharing UID2
 
 Choose the integration option that's right for your implementation, and then click through for details.
 
-| Starting Point | Scenario | Link to Details |
+| Starting Point | Encryption Option/Scenario | Link to Details |
 | :--- | :--- | :--- |
 | DII | Sharing UID2 tokens from DII  in the bid stream | [Tokenized Sharing in the Bid Stream](sharing-tokenized-from-data-bid-stream.md) |
 | DII | Sharing UID2 tokens from DII in tracking pixels |  [Workflow: Tokenized Sharing in Tracking Pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-tracking-pixels) |
@@ -56,15 +56,14 @@ The steps that the receiver takes are similar for all sharing scenarios. The rec
 
 The following implementation options are available for decrypting UID2 tokens.
 
-| Starting Point | Decryption Option | Link to Details |
+| Starting Point | Decryption Option/Scenario | Link to Details |
 | :--- | :--- | :--- |
 | Token | C# / .NET SDK | [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers) |
 | Token | C++ SDK | [UID2 SDK for C++: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-cplusplus.md#usage-for-uid2-sharers) |
 | Token | Java SDK | [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers) |
 | Token | Python SDK | [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers) |
 | Token | Snowflake | [Snowflake Integration Guide: Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers)
-
-(**GWH_KT Do we need to cover the decryption of UID2 tokens in the bid stream, by DSPs? I guess?**)
+| Token | Decryption of UID2 tokens sent in the bid stream (DSPs only) | [DSP Integration Guide: Decrypt UID2 Tokens for RTB Use](../guides/dsp-guide#decrypt-uid2-tokens-for-rtb-use)
 
 ## Tokenized Sharing Examples
 
@@ -171,7 +170,7 @@ The following example shows sample values when converting input DII to a raw UID
 </tr>
 <tr>
 <td>K2jlbu2ldlpKL1z6n5bET7L3<br/>g0xfqmldZPDdPTktdRQ=</td>
-<td>Encrypt raw UID2 to create a UID2 token:<br/>`encrypt()` function in applicable SDK. For example, for Java, see [Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers) step 3.</td>
+<td>Encrypt raw UID2 to create a UID2 token:<br/>`encrypt()` function in applicable SDK. For example, for Java, see <a href="../sdks/uid2-sdk-ref-java#usage-for-uid2-sharers">Usage for UID2 Sharers</a> step 3.</td>
 <td style={{
   wordBreak: "break-all"
 }}>KlKKKfE66A7xBnL/DsT1UV/Q+V/r3xwKL89Wp7hpNllxmNkPaF8vdzenDvfoatn6sSXbFf5DfW9wwbdDwMnnOVpPxojkb8KYSGUte/FLSHtg4CLKMX52UPRV7H9UbWYvXgXC4PaVrGp/Jl5zaxPIDbAW0chULHxS+3zQCiiwHbIHshM+oJ==</td>
