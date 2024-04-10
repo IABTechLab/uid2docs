@@ -5,6 +5,7 @@ pagination_label: UID2 Integration Overview for Prebid.js
 description: UID2 実装の一部として Prebid.js とインテグレーションするためのオプションの概要。
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: sidebarPublishers
 ---
 
 # UID2 Integration Overview for Prebid.js
@@ -14,7 +15,6 @@ sidebar_position: 04
 It includes the following sections:
 
 - [Introduction](#introduction)
-- [UID2 User ID Submodule](#uid2-user-id-submodule)
 - [Generating the UID2 Token](#generating-the-uid2-token)
 - [Refreshing the UID2 Token](#refreshing-the-uid2-token)
 - [Storing the UID2 Token in the Browser](#storing-the-uid2-token-in-the-browser)
@@ -32,10 +32,6 @@ UID2 は、以下をサポートする Prebid.js module を提供しています
 - [Passing the UID2 token to the bid stream](#passing-the-uid2-token-to-the-bid-stream)
 
 さらに柔軟性を高めるため、UID2 は JavaScript SDK など、一部の機能や補完的なプロダクトの代替手段も提供しています。
-
-## UID2 User ID Submodule
-
-Prebid UID2 Module は、UID2 Token の保存、提供、およびオプションのリフレッシュを処理します。
 
 :::caution
 UID2 は GDPR が適用される場所では使用しないように設計されています。このモジュールは渡された同意データをチェックし、`gdprApplies` フラグが `true` に設定されている場合は動作しません。

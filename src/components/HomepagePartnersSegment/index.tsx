@@ -60,7 +60,7 @@ const PartnerList: PartnerItem[] = [
   {
     heading: translate({
       id: "homepage.partnersDspsHeading",
-      message: "Demand-Side Platforms",
+      message: "Demand-Side platforms",
     }),
     url: "/docs/overviews/overview-dsps",
     Svg: require("@site/static/img/flowchart-icon.svg").default,
@@ -74,7 +74,7 @@ const PartnerList: PartnerItem[] = [
   {
     heading: translate({
       id: "homepage.partnersDataProvidersHeading",
-      message: "Data Providers",
+      message: "Data providers",
     }),
     url: "/docs/overviews/overview-data-providers",
     Svg: require("@site/static/img/cloud-upload-icon.svg").default,
@@ -165,7 +165,7 @@ export default function HomepagePartnersSegment(): JSX.Element {
       {
         rootMargin: "0px",
         threshold: 0.75, //fire animations when 50% of the element is visible
-      }
+      },
     );
 
     if (sectionRef.current) {
@@ -183,7 +183,7 @@ export default function HomepagePartnersSegment(): JSX.Element {
     <section
       className={clsx(
         "bg-11-o-clock text-white",
-        styles.homepagePartnersSegment
+        styles.homepagePartnersSegment,
       )}
       ref={sectionRef}
     >

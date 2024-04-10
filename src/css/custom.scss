@@ -160,6 +160,12 @@
       border-color: var(--c-lemon);
     }
 
+    span {
+      &:after {
+        display: none;
+      }
+    }
+
     @include dark {
       color: var(--c-eleven-o-clock);
       background-color: var(--c-cyan);

@@ -9,6 +9,38 @@ sidebar_position: 06
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: Java SDK Support for Advertiser/Data Provider
+
+4 March 2024
+
+新しい UID2 ハッシュツールを追加しました。正規化とエンコーディングが正しく行われているかどうかをチェックすることができます。
+
+詳細は、*Normalization and Encoding* ドキュメントの [UID2 Hashing Tool](../getting-started/gs-normalization-encoding#uid2-hashing-tool) を参照してください。
+
+<!-- APIDOCS-1974 -->
+
+### New: Java SDK Support for Advertiser/Data Provider
+
+28 February 2024
+
+Java SDKは、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントの使用を希望する広告主およびデータプロバイダーをサポートするようになりました。
+
+詳細については、*UID2 SDK for Javaリファレンスガイド*: [Usage-for-Advertisers-and-data-providers](../sdks/uid2-sdk-ref-java.md#usage-for-advertisers-and-data-providers) の更新されたドキュメントを参照してください。
+
+### New: Audience-Specific Documentation Sidebars
+
+9 February 2024
+
+ [UID2 home page](https://unifiedid.com/) の上部にあるリンクをクリックした特定のユーザー(パブリッシャー、広告主、DSP、データプロバイダー)に、カスタマイズした左サイドバーが表示されるようにウェブサイトを改善しました。サイドバーには、その対象者に適用される特定のドキュメントが含まれています。
+
+UID2 home page の "ドキュメント" リンクをクリックするだけで、すべてのユーザー向けのドキュメント一式を見ることができます。
+
+多くのドキュメントは複数の対象者に適用可能であり、ドキュメント間には多くの相互リンクがあるため、サイト内を移動するにつれてサイドバーの表示が変わる可能性があることに注意してください。上部のリンクをクリックすると、いつでも特定のビューに戻ることができます。これらのリンクはすべてのページに表示されます。
+
+カスタムサイドバーを表示するには、[https://unifiedid.com](https://unifiedid.com/) にアクセスし、上部にあるオーディエンスのリンクの1つをクリックしてください: [Publishers](../overviews/overview-publishers.md)。[Advertisers](../overviews/overview-advertisers.md)、[DSPs](../overviews/overview-dsps.md)、[Data Providers](../overviews/overview-data-providers.md)。
+
+<!-- APIDOCS-1681 -->
+
 ### New: UID2 Integration Overview for JavaScript 
 
 26 January 2024

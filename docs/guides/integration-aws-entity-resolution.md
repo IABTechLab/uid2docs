@@ -29,6 +29,8 @@ This service allows you to map [DII](../ref-info/glossary-uid.md#gl-dii) (email 
 
 >NOTE: If you're not currently part of the UID2 ecosystem, go to the [Request Access to UID2](https://unifiedid.com/request-access) page.
 
+For a video presentation about integration with UID2 by using AWS Entity Resolution, and a demo, see [Getting Started with AWS Entity Resolution Integration with Unified ID 2.0](https://www.youtube.com/watch?v=ORbSsKMgVj8) on YouTube.
+
 ## Functionality
 
 The following table summarizes the functionality available with the AWS Entity Resolution integration.
