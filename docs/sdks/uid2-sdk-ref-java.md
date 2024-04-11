@@ -11,12 +11,11 @@ You can use the UID2 SDK for Java on the server side to facilitate the following
 
 - Generating UID2 advertising tokens
 - Refreshing UID2 advertising tokens
-- Encrypting raw UID2s to create UID2 tokens
-- Decrypting UID2 advertising tokens to access the raw UID2s
+- Encrypting raw UID2s to create UID2 tokens for sharing
+- Decrypting UID2 tokens to access the raw UID2s
 
 <!-- This guide includes the following information:
 
-- [Overview](#overview)
 - [Functionality](#functionality)
 - [API Permissions](#api-permissions)
 - [Version](#version)
@@ -28,10 +27,6 @@ You can use the UID2 SDK for Java on the server side to facilitate the following
 * [FAQs](#faqs)
 - [Usage for Publishers](#usage-for-publishers) 
 * [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
-
-## Overview
-
-The functions outlined here define the information that you'll need to configure or can retrieve from the library. The parameters and property names defined below are pseudocode. Actual parameters and property names vary by language but will be similar to the information outlined here.
 
 ## Functionality
 
@@ -63,56 +58,165 @@ The binary is published on the Maven repository:
 
 - [https://central.sonatype.com/artifact/com.uid2/uid2-client](https://central.sonatype.com/artifact/com.uid2/uid2-client)
 
-## Usage for DSPs
+## Initialization
 
-The initialization function configures the parameters necessary for the SDK to authenticate with the UID2 service. It also allows you to configure retry intervals in the event of errors.
+The initialization step depends on the role, as shown in the following table.
 
-| Parameter | Description | Recommended Value |
-| :--- | :--- | :--- |
-| `endpoint` | The endpoint for the UID2 service. | N/A |
-| `authKey` | The authentication token that belongs to the client. For access to UID2, see [Contact Info](../getting-started/gs-account-setup.md#contact-info). | N/A |
+| Role        | Create Instance of Class | Link to Instructions                              |
+|:------------| :--- |:--------------------------------------------------|
+| `DSP`       | BidstreamClient | [Usage for DSPs](#usage-for-dsps)                 |
+| `Sharer`    | SharingClient | [Usage for UID2 Sharers](#usage-for-uid2-sharers) |
+| `Publisher` | Uid2PublisherClient | [Usage for Publishers](#usage-for-publishers)     |
+
+You will need to provide the values necessary for the SDK to authenticate with the UID2 service.
+
+| Parameter | Description | 
+| :--- | :--- |
+| `endpoint` | The endpoint for the UID2 service. See [Environments](../getting-started/gs-environments) | 
+| `auth_key` | The API key. See [UID2 Credentials](../getting-started/gs-credentials). | 
+| `secret_key` | The client secret. See [UID2 Credentials](../getting-started/gs-credentials). | 
 
 ### Interface 
 
-The interface allows you to decrypt UID2 advertising tokens and return the corresponding raw UID2. 
+The `BidstreamClient` class allows you to decrypt UID2 tokens into raw UID2s.
+For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
+
+The `SharingClient` class allows you to encrypt raw UID2s into UID2 tokens and decrypt UID2 tokens into raw UID2s.
 
 :::note
 When you use an SDK, you do not need to store or manage decryption keys.
 :::
 
-If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising token and return the UID2. For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
+### Encryption Response Content
 
-The following is the decrypt method in Java:
+When encrypting with the `SharingClient`, the SDK returns the information shown in the following table.
+
+| Property         | Description                                                                                                                                     |
+|:-----------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
+| `status`         | The encryption result status. For a list of possible values and definitions, see [Encryption Response Statuses](#encryption-response-statuses). |
+| `encrypted_data` | The encrypted UID2 token.                                                                                                                       |
+
+### Encryption Response Statuses
+
+Encryption response codes, and their meanings, are shown in the following table.
+
+| Value                           | Description
+|:--------------------------------|:-----------------------------------------------------------------------|
+| `SUCCESS`                       | The raw UID2 was successfully encrypted and a UID2 token was returned. |
+| `NOT_AUTHORIZED_FOR_KEY`        | The requester does not have authorization to use the encryption key.   |
+| `NOT_AUTHORIZED_FOR_MASTER_KEY` | The requester does not have authorization to use the master key.       |
+| `NOT_INITIALIZED`               | The client library is waiting to be initialized.                       |
+| `KEYS_NOT_SYNCED`               | The client has failed to synchronize keys from the UID2 service.       |
+| `ENCRYPTION_FAILURE`            | A generic encryption failure occurred.                                 |
+
+### Decryption Response Content
+
+Whether decrypting with the `BidstreamClient` or the `SharingClient`, the SDK returns the information shown in the following table.
+
+| Property      | Description                                                                                                                                     |
+|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
+| `status`      | The decryption result status. For a list of possible values and definitions, see [Decryption Response Statuses](#decryption-response-statuses). |
+| `uid`         | The raw UID2 for the corresponding UID2 token.                                                                                                  |
+| `established` | The timestamp indicating when a user first established the UID2 with the publisher.                                                             |
+
+### Decryption Response Statuses
+
+Decryption response codes, and their meanings, are shown in the following table.
+
+| Value                      | Description                                                             |
+|:---------------------------|:------------------------------------------------------------------------|
+| `SUCCESS`                  | The UID2 token was decrypted successfully and a raw UID2 was returned.  |
+| `NOT_AUTHORIZED_FOR_KEY`   | The requester does not have authorization to decrypt this UID2 token.   |
+| `NOT_INITIALIZED`          | The client library is waiting to be initialized.                        |
+| `INVALID_PAYLOAD`          | The incoming UID2 token is not a valid payload.                         |
+| `EXPIRED_TOKEN`            | The incoming UID2 token has expired.                                    |
+| `KEYS_NOT_SYNCED`          | The client has failed to synchronize keys from the UID2 service.        |
+| `VERSION_NOT_SUPPORTED`    | The client library does not support the version of the encrypted token. |
+| `INVALID_TOKEN_LIFETIME`   | The token has invalid timestamp.        |
+
+## Usage for DSPs
+
+
+The following instructions provide an example of how you can decode bid stream tokens using the UID2 SDK for Java as a DSP.
+
+1. Create a `BidstreamClient`:
 
 ```java
-import com.uid2.client.IUID2Client;
- 
-IUID2Client client = UID2ClientFactory.create(TEST_ENDPOINT, TEST_API_KEY, TEST_SECRET_KEY);
-client.refresh(); //Note that refresh() should be called once after create(), and then once per hour
-DecryptionResponse result = client.decrypt(TEST_TOKEN);
+Bidstream client = new BidstreamClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
 ```
 
-### Response Content
+2. Refresh once at startup, and then periodically (recommended refresh interval is hourly):
 
-Available information returned through the SDK is outlined in the following table.
+```java
+client.refresh();
+```
 
-| Function | Description |
-| :--- | :--- |
-| `GetStatus()` | The decryption result status. For a list of possible values and definitions, see [Response Statuses](#response-statuses). |
-| `GetUid()` | The raw UID2 for the corresponding UID2 advertising token. |
-| `GetEstablished()` | The timestamp indicating when a user first established the UID2 with the publisher. |
+3. Decrypt a token into a raw UID2. Pass the domain name of the site where the bid originated from:
 
-### Response Statuses
+```java
+DecryptionResponse decrypted = client.decryptTokenIntoRawUid(uidToken, domain); 
+//If decryption succeeded, use the raw UID2.
+if (decrypted.isSuccess()) 
+{
+    //Use decrypted.uid
+}
+else 
+{
+    // Check decrypted.status for the failure reason.
+}
+```
 
-| Value | Description |
-| :--- | :--- |
-| `Success` | The UID2 advertising token was decrypted successfully and a raw UID2 was returned. |
-| `NotAuthorizedForKey` | The requester does not have authorization to decrypt this UID2 advertising token.|
-| `NotInitialized` | The client library is waiting to be initialized. |
-| `InvalidPayload` | The incoming UID2 advertising token is not a valid payload. |
-| `ExpiredToken` | The incoming UID2 advertising token has expired. |
-| `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
-| `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
+For a full example, see the `ExampleBidStreamClient` method in [test/IntegrationExamples.java](https://github.com/IABTechLab/uid2-client-java/blob/main/src/test/java/com/uid2/client/test/IntegrationExamples.java).
+
+## Usage for UID2 Sharers
+
+A UID2 sharer is any participant that wants to share UID2s with another participant. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant.
+
+:::warning
+The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bid stream. There is a different workflow for generating tokens for the bid stream: see [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md).
+:::
+
+The following instructions provide an example of how you can implement sharing using the UID2 SDK for Java, either as a sender or a receiver.
+
+1. Create a `SharingClient`:
+```java
+SharingClient client = new SharingClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+```
+
+2. Refresh once at startup, and then periodically (recommended refresh interval is hourly):
+```java
+client.refresh();
+```
+
+3. If you are a sender, call `encryptRawUidIntoToken`:
+```java
+EncryptionDataResponse encrypted = client.encryptRawUidIntoToken(raw_uid);
+// If encryption succeeded, send the UID2 token to the receiver.
+if (encrypted.isSuccess())
+{
+        // Send encrypted.uid to receiver
+}
+else
+{
+        // Check encrypted.status for the failure reason.
+}
+```
+If you are a receiver, call `decryptTokenIntoRawUid`:
+
+```java
+DecryptionResponse decrypted = client.decryptTokenIntoRawUid(uid_token);
+// If decryption succeeded, use the raw UID2.
+if (decrypted.isSuccess())
+{
+    //  Use decrypted.uid
+}
+else
+{
+    // Check decrypted.status for the failure reason.
+}
+```
+
+For a full example, see the `ExampleSharingClient` method in [test/IntegrationExamples.java](https://github.com/IABTechLab/uid2-client-java/blob/main/src/test/java/com/uid2/client/test/IntegrationExamples.java).
 
 ## Usage for Publishers
 
@@ -315,62 +419,6 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
         String reason = unmappedIdentity.getReason();
    }
    ```
-
-
-## Usage for UID2 Sharers
-
-A UID2 sharer is any participant that wants to share UID2s with another participant. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant. For an example of usage, see [com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` method).
-
->IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bid stream. There is a different workflow for generating tokens for the bid stream: see [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md).
-
-The following instructions provide an example of how you can implement sharing using the UID2 SDK for Java, either as a sender or a receiver.
-
-1. Create a `IUID2Client` reference:
-
-   ```java
-   IUID2Client client = UID2ClientFactory.create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
-   ```
-2. Refresh once at startup, and then periodically. Recommended refresh interval is hourly: for details, see [Best Practices for Managing UID2 Tokens](../sharing/sharing-best-practices.md#key-refresh-cadence).
-
-   ```java
-   client.refresh();
-   ```
-3. Senders: 
-   1. Call the following:
-
-      ```java
-      EncryptionDataResponse encrypted = client.encrypt(rawUid);
-      ```
-   2. If encryption succeeded, send the UID2 token to the receiver:   
-
-      ```java
-      if (encrypted.isSuccess()) 
-      { 
-         //send encrypted.getEncryptedData() to receiver
-      } 
-      else 
-      {
-         //check encrypted.getStatus() for the failure reason
-      }
-      ```
-4. Receivers: 
-   1. Call the following:
-
-      ```java
-      DecryptionResponse decrypted = client.decrypt(uidToken);
-      ```
-   2. If decryption succeeded, use the raw UID2:
-
-      ```java    
-      if (decrypted.isSuccess()) 
-      {
-         //use decrypted.getUid() 
-      } 
-      else 
-      {
-       //check decrypted.getStatus() for the failure reason 
-      }
-      ```
 
 ## FAQs
 
