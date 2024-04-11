@@ -25,13 +25,16 @@ Prebid.js を UID2 ID モジュールと一緒に使用しているや、UID2 �
 - [earlier versions of the SDK](./client-side-identity-v2.md) のドキュメントを参照します。
 
 関連情報:
-- コンテンツパブリッシャーのインテグレーションステップについては、以下を参照してください:
+
+コンテンツパブリッシャーのインテグレーションステップについては、以下を参照してください:
   - [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
   - [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md). 
-- アプリケーションのサンプルと関連文書については、以下を参照してください:
+
+アプリケーションのサンプルと関連文書については、以下を参照してください:
   - SDK v3を使用したUID2 Google Secure Signals のサンプル:
-    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3) and running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/).
-  - The example of JavaScript client-side integration: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg) and running site ([Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)).
+    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
+    - Running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
+  - JavaScript Client-Side インテグレーションの例: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)、Running site ([Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)).
 
 ## Functionality
 

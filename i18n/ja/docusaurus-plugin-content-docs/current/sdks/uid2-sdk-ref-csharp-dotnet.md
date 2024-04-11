@@ -7,7 +7,10 @@ sidebar_position: 08
 
 # UID2 SDK for C# / .NET Reference Guide
 
-UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2 にアクセスしやすくなります。
+Server-Side で UID2 SDK for C# / .NET を使用すると、以下を簡単に行うことができます:
+
+- raw UID2 を暗号化して、共有用の UID2 Token を作成する。
+- raw UID2 にアクセスするための UID2 Token の復号化。
 
 <!-- This guide includes the following information:
 
@@ -22,10 +25,6 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
   - [Response Statuses](#response-statuses)
 - [FAQs](#faqs)
 - [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
-
-## Overview
-
-ここで説明する関数は、設定に必要な情報やライブラリから取得できる情報を定義しています。以下に定義するパラメータとプロパティ名は擬似コードです。実際のパラメータやプロパティ名は言語によって異なりますが、ここで説明する情報と同様のものになります。
 
 ## Functionality
 
@@ -60,107 +59,156 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 ## Initialization
 
-初期化関数は、SDKが UID2 Service で認証するために必要なパラメータを設定します。また、エラー発生時の再試行間隔を設定することもできます。
+DSP は `BidstreamClient` クラスのインスタンスを作成します。Sharer は `SharingClient` クラスのインスタンスを作成する必要があります。
 
-| Parameter | Description | Recommended Value |
-| :--- | :--- | :--- |
-| `endpoint` | UID2 Service のエンドポイント。 | N/A |
-| `authKey` | クライアントに付与された認証トークン。UID2 へのアクセスについては、 [Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。 | N/A |
+SDK が UID2 Service で認証するために必要な値を提供する必要があります。
 
-## Interface 
+| Parameter | Description |
+| :--- | :--- |
+| `endpoint` | UID2 Service のエンドポイント。[Environments](../getting-started/gs-environments) を参照してください。 |
+| `authKey` | API キー。[UID2 Credentials](../getting-started/gs-credentials) を参照してください |
+| `secretKey` | クライアントシークレット。[UID2 Credentials](../getting-started/gs-credentials) を参照してください。 |
 
-このインターフェイスを使用すると、UID2 Advertising Token を復号化し、対応する raw UID2 を返すことができます。
+## Interface
 
->NOTE: SDK を使用する際に、復号鍵を保存したり管理したりする必要はありません。
+`BidstreamClient` クラスを使用すると、UID2 Token を raw UID2 に復号することができます。
+ユーザーのオプトアウトを処理する入札ロジックの詳細については、[DDSP Integration Guide](../guides/dsp-guide.md) を参照してください。
 
-DSP の場合は、入札のために UID2 Advertising Token を復号化して UID2 を返すインターフェースを呼び出します。ユーザーのオプトアウトを処理する入札ロジックの詳細については、[DSPインテグレーションガイド](../guides/dsp-guide.md) を参照してください。
+`SharingClient` クラスを使うと、raw UID2 を暗号化して UID2 Token に変換したり、UID2 Token を復号して生の UID2 に変換したりすることができます。
 
-以下は、C# での decrypt メソッド呼び出しです:
+:::note
+SDK を使用する場合、復号鍵を保存したり管理したりする必要はありません。
+:::
 
-```cs
-using UID2.Client.IUID2Client
+### Encryption Response Content
 
-var client = UID2ClientFactory.Create(_baseUrl, _authKey, _secretKey);
-client.Refresh(); //Note that refresh() should be called once after create(), and then once per hour
-var result = client.Decrypt(_advertisingToken);
-```
-
-### Response Content
-
-SDK から返される利用可能な情報の概要を次の表に示します。
+`SharingClient`で暗号化する場合、SDKは以下の情報を返します：
 
 | Property | Description |
 | :--- | :--- |
-| `Status` | 復号結果のステータス。指定可能な値の一覧と定義については、[Response Statuses](#response-statuses) を参照してください。 |
-| `UID2` | UID2 Advertising Token に対応する raw UID2。|
-| `Established` | ユーザーがパブリッシャーと最初に UID2 を確立した時を示すタイムスタンプ。|
+| `Status` | 暗号化結果のステータス。取り得る値のリストと定義については [Encryption Response Statuses](#encryption-response-statuses) を参照してください。 |
+| `EncryptedData` | 暗号化された UID2 Token。 |
 
-### Response Statuses
+### Encryption Response Statuses
 
 | Value | Description |
 | :--- | :--- |
-| `Success` | UID2 Advertising Token は正常に復号され、raw UID2 が返されました。 |
-| `NotAuthorizedForKey` | リクエスト元はこの UID2 Advertising Token を復号化する権限を持っていません。|
+| `Success` | raw UID2 は正常に暗号化され、UID2 Token が返されました。 |
+| `NotAuthorizedForKey` | 要求者には暗号鍵を使用する権限がありません。 |
+| `NotAuthorizedForMasterKey` |要求者はマスターキーを使用する権限がありません。 |
 | `NotInitialized` | クライアントライブラリは初期化待ちです。 |
-| `InvalidPayload` | 受信した UID2 Advertising Token は有効なペイロードではありません。 |
-| `ExpiredToken` | 受信した UID2 Advertising Token の有効期限が切れています。 |
-| `KeysNotSynced` | クライアントは UID2 Service からの鍵の同期に失敗しました。|
-| `VersionNotSupported` | クライアントライブラリが暗号化トークンのバージョンをサポートしていません。|
+| `KeysNotSynced` | クライアントが UID2 Service からの鍵の同期に失敗しました。 |
+| `KeyInactive` | 暗号化キーはアクティブではありません。 |
+| `EncryptionFailure` | 一般的な暗号化に失敗しました。 |
+<!-- `TokenDecryptFailure` intentionally omitted. Does not seem to be used by SharingClient. -->
+
+### Decryption Response Content
+
+`BidstreamClient`、`SharingClient` いずれでも、SDK は以下の情報を返します:
+
+| Property | Description |
+| :--- | :--- |
+| `Status` | 復号結果のステータス。取り得る値のリストと定義については [Decryption Response Statuses](#decryption-response-statuses) を参照してください。 |
+| `Uid` | UID2 Token に対応する raw UID2。 |
+| `Established` | ユーザーがパブリッシャーと最初に UID2 を確立した時のタイムスタンプ。 |
+
+### Decryption Response Statuses
+
+| Value | Description |
+| :--- | :--- |
+| `Success` | UID2 Token は正常に復号化され、raw UID2 が返されました。 |
+| `NotAuthorizedForKey` | 要求者はこの UID2 Token を復号化する権限を持っていません。 |
+| `NotInitialized` | クライアントライブラリは初期化待ちです。 |
+| `InvalidPayload` | 受信した UID2 Token は有効なペイロードではありません。 |
+| `ExpiredToken` | 受信した UID2 Token の有効期限が切れています。 |
+| `KeysNotSynced` | クライアントが UID2 Service からの鍵の同期に失敗しました。 |
+| `VersionNotSupported` | クライアントライブラリはこのバージョンの暗号化トークンをサポートしていません。 |
+
+## Usage for DSPs
+
+以下では、UID2 SDK for .NET を DSP として使用してビッドストリームトークンをデコードする方法の例を示します。
+
+1. `BidstreamClient` を作成します:
+
+```cs
+var client = new BidstreamClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+```
+
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします(推奨リフレッシュ間隔は1時間毎):
+
+```cs
+client.Refresh();
+```
+
+3. トークンを raw UID2 に複合する。入札元サイトのドメイン名を渡す:
+
+```cs
+var decrypted = client.DecryptTokenIntoRawUid(uidToken, domain);
+// If decryption succeeded, use the raw UID2.
+if (decrypted.Success) 
+{
+    // Use decrypted.Uid.
+} 
+else 
+{
+    // Check decrypted.Status for the failure reason.
+}
+```
+
+完全な例については、[SampleApp/Program.cs](https://github.com/IABTechLab/uid2-client-net/blob/main/src/SampleApp/Program.cs) の `ExampleBidStreamClient` メソッドを参照してください。
 
 ## Usage for UID2 Sharers
 
-UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のことです。raw UID2を他の参加者に送信する前に、UID2 Token に暗号化する必要があります。使用例については、[com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` メソッド) を参照してください。
+UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のことです。raw UID2 を他の参加者に送信する前に、UID2 Tokenに暗号化する必要があります。
 
->IMPORTANT: このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md) を参照してください。
+:::warning
+このプロセスで生成される UID2 Token は共有専用です。ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md) を参照してください。
+:::
 
-次の手順では、UID2 SDK for C# / .NET を送信者または受信者として使用して共有を実装する方法の例を示します。
+以下は、UID2 SDK for C# / .NET を使用して、送信側または受信側として共有を実装する方法の例です。
 
-1. ```IUID2Client``` のリファレンスを作成します:
- 
-   ```cs
-   var client = UID2ClientFactory.Create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
-   ```
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします (推奨リフレッシュ間隔は1時間毎):
+1. `SharingClient` を作成します:
 
-    ```cs
-   client.Refresh();
-    ```
-3. 送信者: 
-   1. 以下を呼び出します:
+```cs
+var client = new SharingClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+```
 
-      ```cs
-      var encrypted = client.Encrypt(rawUid);
-      ```
-   2. 暗号化に成功した場合、UID2 Token を受信者に送信します:    
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします(推奨リフレッシュ間隔は1時間毎):
 
-      ```cs
-      if (encrypted.isSuccess()) 
-      { 
-         //send encrypted.EncryptedData to receiver
-      } 
-      else 
-      {
-         //check encrypted.Status for the failure reason
-      }
-      ```
-4. 受信者: 
-   1. 以下を呼び出します:
+```cs
+client.Refresh();
+```
 
-      ```cs
-      DecryptionResponse decrypted = client.Decrypt(uidToken);
-      ```
-   2. 復号化に成功した場合は、raw UID2を使用します:
-    
-      ```cs
-      if (decrypted.Success()) 
-      {
-         // use decrypted.Uid 
-      } 
-      else 
-      {
-         // check decrypted.Status for the failure reason 
-      }
-      ```
+3. 送信者の場合、`EncryptRawUidIntoToken` を呼び出します:
+
+```cs
+var encrypted = client.EncryptRawUidIntoToken(rawUid);
+// If encryption succeeded, send the UID2 token to the receiver.
+if (encrypted.Success) 
+{ 
+    // Send encrypted.EncryptedData to receiver.
+} 
+else 
+{
+    // Check encrypted.Status for the failure reason.
+}
+```
+受信者の場合は、`DecryptTokenIntoRawUid` を呼び出します。:
+
+```cs
+var decrypted = client.DecryptTokenIntoRawUid(uidToken);
+// If decryption succeeded, use the raw UID2.
+if (decrypted.Success) 
+{
+    // Use decrypted.Uid.
+} 
+else 
+{
+    // Check decrypted.Status for the failure reason.
+}
+```
+
+For a full example, see the `ExampleSharingClient` method in [SampleApp/Program.cs](https://github.com/IABTechLab/uid2-client-net/blob/main/src/SampleApp/Program.cs).
 
 ## FAQs
 
