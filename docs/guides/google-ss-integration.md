@@ -40,9 +40,9 @@ For details, see [Share encrypted signals with bidders](https://support.google.c
 
 ## Publisher Integration
 
-When an encrypted signal is cached, the secure signals feature does not execute the handler to generate a new signal. Because of this, it is necessary to clear the cache before login and after logout.
+When an encrypted signal is cached, the secure signals feature does not execute the handler to generate a new signal. Because of this, it is necessary to clear the cache before and after data capture.
 
-Since the secure signals feature does not provide a way to delete or invalidate a specific ID, publishers must call the `window.googletag.secureSignalProviders.clearAllCache()` function to clear all shared encrypted signals as part of their login/logout workflows.
+Since the secure signals feature does not provide a way to delete or invalidate a specific ID, publishers must call the `window.googletag.secureSignalProviders.clearAllCache()` function to clear all shared encrypted signals as part of their data capture workflows.
 
 The following is an example of calling the `window.googletag.secureSignalProviders.clearAllCache()` function:
 
