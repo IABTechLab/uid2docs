@@ -20,7 +20,7 @@ For technical details about the SDK, see [UID2 SDK for JavaScript Reference Guid
 
 - [Sample Implementation Website](#sample-implementation-website)
 - [Introduction](#introduction)
-- [Integration Steps ](#integration-steps)
+- [Integration Steps](#integration-steps)
   - [Establish Identity: User Login](#establish-identity-user-login)
   - [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
   - [Refresh Tokens](#refresh-tokens)
