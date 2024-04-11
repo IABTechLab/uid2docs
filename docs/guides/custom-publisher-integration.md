@@ -15,7 +15,7 @@ This guide is for publishers who want to generate UID2 tokens (advertising token
 
 - [Introduction](#introduction)
 - [Integration Steps](#integration-steps)
-  - [Establish Identity: User Login](#establish-identity-user-login)
+  - [Establish Identity: Capture User Data](#establish-identity-capture-user-data)
   - [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
   - [Refresh Tokens](#refresh-tokens)
   - [Clear Identity: User Logout](#clear-identity-user-logout)
@@ -27,6 +27,7 @@ This guide is for publishers who want to generate UID2 tokens (advertising token
 The guide outlines the [basic steps](#integration-steps) that you need to consider if you're building an integration without using a client-side or server-side SDK. For example, you need to decide how to do the following:
 
 - Implement user login and logout
+- Implement opportunities to capture email or phone number: for example, promotional exchanges, sign-ups and subscriptions, or marketing form fills.
 - Manage UID2 identity information and use it for targeted advertising
 - Refresh UID2 tokens
 - Deal with missing identities
@@ -59,12 +60,12 @@ If you're using a server-side SDK, the SDK takes care of all the steps that ment
 
 The following sections provide additional details for each step in the diagram:
  
- 1. [Establish identity: user login](#establish-identity-user-login)
+ 1. [Establish identity: capture user data](#establish-identity-capture-user-data)
  2. [Bid using a UID2 token](#bid-using-uid2-tokens)
  3. [Refresh a UID2 token](#refresh-tokens)
  4. [Clear Identity: user logout](#clear-identity-user-logout)
 
-### Establish Identity: User Login
+### Establish Identity: Capture User Data
 
 After authentication in step 1-c, which includes getting the user's consent and allows the publisher to validate the user's email address or phone number, the publisher can send a request to generate a UID2 token, on the server side. The following table details the token generation steps.
 
