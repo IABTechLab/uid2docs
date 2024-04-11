@@ -26,7 +26,6 @@ This guide is for publishers who want to generate UID2 tokens (advertising token
 
 The guide outlines the [basic steps](#integration-steps) that you need to consider if you're building an integration without using a client-side or server-side SDK. For example, you need to decide how to do the following:
 
-- Implement user login and logout
 - Implement opportunities to capture email or phone number: for example, promotional exchanges, sign-ups and subscriptions, or marketing form fills.
 - Manage UID2 identity information and use it for targeted advertising
 - Refresh UID2 tokens
