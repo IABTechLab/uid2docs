@@ -14,7 +14,7 @@ This guide is for publishers who want to generate UID2 tokens (advertising token
 <!-- It includes the following sections:
 
 - [Introduction](#introduction)
-- [Integration Steps ](#integration-steps)
+- [Integration Steps](#integration-steps)
   - [Establish Identity: Capture User Data](#establish-identity-capture-user-data)
   - [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
   - [Refresh Tokens](#refresh-tokens)
