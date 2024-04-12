@@ -53,7 +53,7 @@ const config = {
   onBrokenMarkdownLinks: "warn",
   //setting to ignore until we have time to properly code markdown jump anchors through docusaurus react hook
   //https://docusaurus.io/docs/docusaurus-core#useBrokenLinks
-  onBrokenAnchors: "ignore",
+  onBrokenAnchors: "warn",
 
   scripts: [
     // String format.

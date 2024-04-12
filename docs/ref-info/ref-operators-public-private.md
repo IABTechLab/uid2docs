@@ -19,8 +19,8 @@ A UID2 Operator is simply an organization that runs the Operator Service. Operat
 
 UID2 Operators fall into two categories:
 
-- [Public Operators](#public-operator)
-- [Private Operators](#private-operator)
+- [Public Operators](#public-operators)
+- [Private Operators](#private-operators)
 
 The Operator is the operational code of UID2&#8212;the code that turns an email into a raw UID2 or a UID2 token, and that a participant who is sharing uses to refresh decryption keys.
 

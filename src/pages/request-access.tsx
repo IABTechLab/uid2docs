@@ -45,15 +45,18 @@ export default function RequestDemo(): JSX.Element {
   const { i18n } = useDocusaurusContext();
 
   React.useEffect(() => {
-    const pageViewData = {
-      event: "Initialize_dataLayer",
-      document_type: "request access",
-      document_title: document.title,
-      article_author: undefined,
-      tags: undefined,
-    };
+    const timerId = setTimeout(() => {
+      const pageViewData = {
+        event: "Initialize_dataLayer",
+        document_type: "request access",
+        document_title: document.title,
+        article_author: undefined,
+        tags: undefined,
+      };
+      pushGtmEvent(pageViewData);
+    }, 50);
 
-    pushGtmEvent(pageViewData);
+    return () => clearTimeout(timerId);
   }, []);
 
   const formRef = React.useRef(null);
@@ -94,7 +97,7 @@ export default function RequestDemo(): JSX.Element {
       const siblingInput = identifyClosestSiblingInput(label);
 
       const tagName = capitalizeFirstLetter(
-        siblingInput?.tagName.toLowerCase()
+        siblingInput?.tagName.toLowerCase(),
       );
       const inputTypeClassName = `for${tagName}`;
 
@@ -109,13 +112,13 @@ export default function RequestDemo(): JSX.Element {
       window.MktoForms2.loadForm(
         "//pages.thetradedesk.com",
         "527-INM-364",
-        formId
+        formId,
       );
 
       window.MktoForms2.whenRendered(function (form) {
         const formEl = form.getFormElem()[0];
         const styledEls = Array.from(formEl.querySelectorAll("[style]")).concat(
-          formEl
+          formEl,
         );
         styledEls.forEach(function (el: Element) {
           el.removeAttribute("style");

@@ -16,8 +16,8 @@ sidebar_position: 03
 - [Introduction](#introduction)
 - [Integration Steps](#integration-steps)
   - [Establish Identity: Capture User Data](#establish-identity-capture-user-data)
-  - [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
-  - [Refresh Tokens](#refresh-tokens)
+  - [Bid Using UID2 Tokens](#bid-using-a-uid2-token)
+  - [Refresh a UID2 Token](#refresh-a-uid2-token)
   - [Clear Identity: User Logout](#clear-identity-user-logout)
   - [Sample Application](#sample-application)
 - [FAQs](#faqs) -->
