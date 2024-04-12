@@ -330,7 +330,7 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
    ```java
    IUID2Client client = UID2ClientFactory.create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
    ```
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします。推奨されるリフレッシュ間隔は1時間ごとです。詳細については、[Best Practices for Managing UID2 Tokens](../sharing/sharing-best-practices.md#key-refresh-cadence) を参照してください。
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします。推奨されるリフレッシュ間隔は1時間ごとです。詳細については、[Best Practices for Managing UID2 Tokens](../sharing/sharing-best-practices.md#key-refresh-cadence-for-sharing) を参照してください。
 
    ```java
    client.refresh();

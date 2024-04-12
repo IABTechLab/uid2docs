@@ -120,7 +120,7 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 2. When your callback receives the `SdkLoaded` event, initialize the SDK using the [init](#initopts-object-void) function.
 3. Wait for your event listener to receive the `InitCompleted` event. The event data indicates the identity availability:
 	- If the identity is available, it is returned in the event payload. The SDK sets up a [background token auto-refresh](#background-token-auto-refresh).
-	- If the identity is unavailable, the `identity` property on the payload is null. No UID2 is available until you [provide a valid identity](#provide-identity).
+	- If the identity is unavailable, the `identity` property on the payload is null. No UID2 is available until you [provide an identity to the SDK](#provide-an-identity-to-the-sdk).
 4. Handle the `IdentityUpdated` callback event that indicates changes to the identity.
 
 	 The `identity` property on the event payload either contains the new identity, or is null if a valid identity is not available.
@@ -282,7 +282,7 @@ Here's what you need to know about this function:
 - You can call `init()` any time after the SDK has been loaded. The recommended way to do this is by registering a callback function that handles the `SdkLoaded` event using the [Array Push Pattern](#array-push-pattern). By using this pattern you can make sure that your code works regardless of script load order, and that using `async` or `defer` on your script tags does not cause UID2 SDK errors.
 - The `identity` property in the `init()` call refers to the `body` property of the response JSON object returned from a successful [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) call with the server-side generated identity. This is a good way to provide the identity if your server-side integration ensures you always have a current token available and it is more convenient to provide it using JavaScript.
 - If the `identity` property in the `init()` call is falsy, the SDK attempts to load the identity from local storage or the cookie.
-  - Once `init()` is complete, all callbacks receive the `InitCompleted` event. If the `identity` property on the payload of this event is null, no identity could be loaded, and you should therefore [provide a valid identity](#provide-identity). This is the recommended way to provide an identity if your server-side integration does not ensure a current identity is always available, and you need to request it from the server only when necessary.
+  - Once `init()` is complete, all callbacks receive the `InitCompleted` event. If the `identity` property on the payload of this event is null, no identity could be loaded, and you should therefore [provide an identity to the SDK](#provide-an-identity-to-the-sdk). This is the recommended way to provide an identity if your server-side integration does not ensure a current identity is always available, and you need to request it from the server only when necessary.
   - If you are using a first-party cookie (see [UID2 Storage Format](#uid2-storage-format)) to store the passed UID2 information for the session, a call to `init()` made by a page on a different domain might not be able to access the cookie. You can adjust the settings used for the cookie with the `cookieDomain` and `cookiePath` options.
 - To tune specific behaviors, initialization calls might include optional configuration [init parameters](#init-parameters).
 
