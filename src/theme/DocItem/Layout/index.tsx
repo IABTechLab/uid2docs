@@ -53,15 +53,18 @@ export default function DocItemLayout({ children }: Props): JSX.Element {
   const customFrontMatter = frontMatter as CustomDocFrontMatter;
 
   React.useEffect(() => {
-    const pageViewData = {
-      event: "Initialize_dataLayer",
-      document_type: "Doc",
-      document_title: document.title,
-      article_author: undefined,
-      tags: frontMatter.tags || undefined,
-    };
+    const timerId = setTimeout(() => {
+      const pageViewData = {
+        event: "Initialize_dataLayer",
+        document_type: "Doc",
+        document_title: document.title,
+        article_author: undefined,
+        tags: frontMatter.tags || undefined,
+      };
+      pushGtmEvent(pageViewData);
+    }, 50);
 
-    pushGtmEvent(pageViewData);
+    return () => clearTimeout(timerId);
   }, []);
 
   const useBanner = customFrontMatter.use_banner;
