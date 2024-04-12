@@ -99,16 +99,20 @@ function PartnerSection({ title, partners }: PartnerSection) {
 }
 
 export default function Partners(): JSX.Element {
+  // Delayed GTM event to ensure the document has loaded with updated information
   React.useEffect(() => {
-    const pageViewData = {
-      event: "Initialize_dataLayer",
-      document_type: "partners",
-      document_title: document.title,
-      article_author: undefined,
-      tags: undefined,
-    };
+    const timerId = setTimeout(() => {
+      const pageViewData = {
+        event: "Initialize_dataLayer",
+        document_type: "partners",
+        document_title: document.title,
+        article_author: undefined,
+        tags: undefined,
+      };
+      pushGtmEvent(pageViewData);
+    }, 50);
 
-    pushGtmEvent(pageViewData);
+    return () => clearTimeout(timerId);
   }, []);
 
   return (
