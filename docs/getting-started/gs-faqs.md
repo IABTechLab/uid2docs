@@ -164,7 +164,7 @@ We do not make any promises about when the rotation takes place. To stay as up-t
 
 #### Do refreshed emails get assigned to the same bucket with which they were previously associated?
 
-Not necessarily. After you remap emails associated with a particular bucket ID, the emails might be assigned to a different bucket ID. To check the bucket ID, [call the mapping function](../guides/advertiser-dataprovider-guide.md#retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoints) and save the returned UID2 and bucket ID again.
+Not necessarily. After you remap emails associated with a particular bucket ID, the emails might be assigned to a different bucket ID. To check the bucket ID, [call the mapping function](../guides/advertiser-dataprovider-guide.md#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoint) and save the returned UID2 and bucket ID again.
 
 :::info
 When mapping and remapping emails, be sure not to make any assumptions about the number of buckets, their rotation dates, or the specific bucket that an email gets assigned to.

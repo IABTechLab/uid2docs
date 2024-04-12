@@ -19,8 +19,8 @@ UID2 Operator は、単に Operator Service を実行する組織です。オペ
 
 UID2 Operator は、次の 2 つのカテゴリに分類されます:
 
-- [Public Operators](#public-operator)
-- [Private Operators](#private-operator)
+- [Public Operators](#public-operators)
+- [Private Operators](#private-operators)
 
 Operator は UID2 の中核的なコードです。このコードは、メールアドレスを raw UID2 または UID2 Token に変換し、共有している参加者が復号キーを更新するために使用します。
 

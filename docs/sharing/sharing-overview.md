@@ -46,7 +46,7 @@ The workflow for UID2 sharing, for all sharers except when sharing UID2 tokens i
 1. Sender and receiver: Approve sharing permissions in the UID2 Portal:
 
    1. Sender: Define which sharing participants are allowed to decrypt the sender's UID2 token. 
-   1. Sender and receiver: Request a UID2 Portal account: see [Request an Account](../portal/participant-info.md#request-an-account).
+   1. Sender and receiver: Request a UID2 Portal account: see [Request an Account](../portal/portal-getting-started.md#request-an-account).
    1. Sender: Log in to the UID2 Portal and navigate to the sharing permissions page: see [Sharing Permissions](../portal/sharing-permissions.md).
    1. Sender: Select the participants that you want to share with. If needed, use the search feature to find specific sharing participants.
    1. Sender: Save the sharing selection.

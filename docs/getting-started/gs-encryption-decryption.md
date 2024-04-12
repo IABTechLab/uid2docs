@@ -100,7 +100,7 @@ The following table describes the field layout for response decryption code.
 
 ### Response Example
 
-For example, a decrypted response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request for an email address in the [preceding example](#request-example), might look like this:
+For example, a decrypted response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request for an email address might look like this:
 
 ```json
 {
