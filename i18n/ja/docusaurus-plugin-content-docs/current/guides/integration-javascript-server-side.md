@@ -20,8 +20,8 @@ SDK の技術的な詳細については、[UID2 SDK for JavaScript Reference Gu
 
 - [Sample Implementation Website](#sample-implementation-website)
 - [Introduction](#introduction)
-- [Integration Steps ](#integration-steps)
-  - [Establish Identity: User Login](#establish-identity-user-login)
+- [Integration Steps](#integration-steps)
+  - [Establish Identity: Capture User Data](#establish-identity-capture-user-data)
   - [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
   - [Refresh Tokens](#refresh-tokens)
   - [Clear Identity: User Logout](#clear-identity-user-logout)
@@ -59,12 +59,12 @@ Google Ad Managerを使用していて、セキュアシグナル機能を使用
 
 以下のセクションでは、図中の各ステップについての詳細を説明します: 
 
- 1. [Establish identity: User Login](#establish-identity-user-login)
+ 1. [Establish identity: capture user data](#establish-identity-capture-user-data)
  2. [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
  3. [Refresh Tokens](#refresh-tokens)
  4. [Clear Identity: User Logout](#clear-identity-user-logout)
 
-### Establish Identity: User Login
+### Establish Identity: Capture User Data
 
 Step 1-c で認証を行い、ユーザーに利用規約を受け入れさせ、パブリッシャーがユーザーのメールアドレスまたは電話番号を検証した後、Server-Side で UID2 Token を生成する必要があります。次の表は、トークン生成ステップの詳細です。
 

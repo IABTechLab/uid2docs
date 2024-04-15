@@ -59,33 +59,22 @@ const componentData = {
 };
 
 const dspPartners = partnersData.filter((partner) =>
-  partner.type.includes("DSP")
+  partner.type.includes("DSP"),
 );
 
 const publishersPartners = partnersData.filter((partner) =>
-  partner.type.includes("Publishers")
+  partner.type.includes("Publishers"),
 );
 
 const dataPartners = partnersData.filter((partner) =>
-  partner.type.includes("Data")
+  partner.type.includes("Data"),
 );
 
 const cdpPartners = partnersData.filter((partner) =>
-  partner.type.includes("CDP")
+  partner.type.includes("CDP"),
 );
 
 function PartnerSection({ title, partners }: PartnerSection) {
-  React.useEffect(() => {
-    const pageViewData = {
-      event: "Initialize_dataLayer",
-      document_type: "partners",
-      document_title: document.title,
-      article_author: undefined,
-      tags: undefined,
-    };
-
-    pushGtmEvent(pageViewData);
-  }, []);
   return (
     <section className={styles.partnersSection}>
       <div className={clsx("container")}>
@@ -110,6 +99,22 @@ function PartnerSection({ title, partners }: PartnerSection) {
 }
 
 export default function Partners(): JSX.Element {
+  // Delayed GTM event to ensure the document has loaded with updated information
+  React.useEffect(() => {
+    const timerId = setTimeout(() => {
+      const pageViewData = {
+        event: "Initialize_dataLayer",
+        document_type: "partners",
+        document_title: document.title,
+        article_author: undefined,
+        tags: undefined,
+      };
+      pushGtmEvent(pageViewData);
+    }, 50);
+
+    return () => clearTimeout(timerId);
+  }, []);
+
   return (
     <Layout title={componentData.title} description={componentData.description}>
       <main>

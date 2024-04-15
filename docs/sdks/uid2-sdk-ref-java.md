@@ -329,6 +329,7 @@ The following instructions provide an example of how you can implement sharing u
    ```java
    IUID2Client client = UID2ClientFactory.create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
    ```
+
 2. Refresh once at startup, and then periodically. Recommended refresh interval is hourly: for details, see [Decryption Key Refresh Cadence for Sharing](../sharing/sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing).
 
    ```java
