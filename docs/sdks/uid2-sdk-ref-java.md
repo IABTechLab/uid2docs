@@ -62,12 +62,12 @@ The binary is published on the Maven repository:
 
 The initialization step depends on the role, as shown in the following table.
 
-| Role        | Create Instance of Class | Link to Instructions                              |
-|:------------| :--- |:--------------------------------------------------|
-| `DSP`       | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps)                 |
-| `Publisher` | `PublisherUid2Client` | [Usage for Publishers](#usage-for-publishers)     |
-| `Advertisers and Data Providers` | `IdentityMapClient` | [Usage for Advertisers and Data Providers](#usage-for-advertisers-and-data-providers)     |
-| `Sharer`    | `SharingClient` | [Usage for UID2 Sharers](#usage-for-uid2-sharers) |
+| Role                           | Create Instance of Class | Link to Instructions                              |
+|:-------------------------------| :--- |:--------------------------------------------------|
+| DSP                            | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps)                 |
+| Publisher                      | `PublisherUid2Client` | [Usage for Publishers](#usage-for-publishers)     |
+| Advertisers and Data Providers | `IdentityMapClient` | [Usage for Advertisers and Data Providers](#usage-for-advertisers-and-data-providers)     |
+| Sharer                         | `SharingClient` | [Usage for UID2 Sharers](#usage-for-uid2-sharers) |
 
 You will need to provide the values necessary for the SDK to authenticate with the UID2 service.
 
@@ -90,7 +90,7 @@ When you use an SDK, you do not need to store or manage decryption keys.
 
 ### Encryption Response Content
 
-When encrypting with the `SharingClient`, the SDK returns the information shown in the following table.
+When encrypting with the `SharingClient` class, the SDK returns the information shown in the following table.
 
 | Method               | Description                                                                                                                                     |
 |:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -112,7 +112,7 @@ Encryption response codes, and their meanings, are shown in the following table.
 
 ### Decryption Response Content
 
-Whether decrypting with the `BidstreamClient` or the `SharingClient`, the SDK returns the information shown in the following table.
+Whether decrypting with the `BidstreamClient` class or the `SharingClient` class, the SDK returns the information shown in the following table.
 
 | Methods            | Description                                                                                                                                     |
 |:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -152,7 +152,7 @@ Bidstream client = new BidstreamClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_
 client.refresh();
 ```
 
-3. Decrypt a token into a raw UID2. Pass the token, and the domain name of the site where the bid originated from. The domain name must be all lower case, without spaces and without subdomain. For example, for `Subdomain.DOMAIN.com` , pass `domain.com` instead:
+3. Decrypt a token into a raw UID2. Pass the token, and the domain name of the site where the bid originated from. The domain name must be all lower case, without spaces and without subdomain. For example, for `Subdomain.DOMAIN.com`, pass `domain.com` instead:
 
 ```java
 DecryptionResponse decrypted = client.decryptTokenIntoRawUid(uidToken, domain); 
