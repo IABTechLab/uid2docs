@@ -54,7 +54,7 @@ For details, see [API Permissions](../getting-started/gs-permissions.md).
 
 <!-- As of 2023-07-15 -->
 
-This documentation is for the UID2 iOS SDK version 0.2.0.
+This documentation is for the UID2 iOS SDK version 0.3.0.
 
 ## Features
 
@@ -91,7 +91,7 @@ Add the following dependency to Package.swift:
 
 ``` javascript
 dependencies: [
-.package(url: \"https://github.com/IABTechLab/uid2-ios-sdk.git\", from: "0.2.0"),
+.package(url: \"https://github.com/IABTechLab/uid2-ios-sdk.git\", from: "0.3.0"),
 ]
 ```
 
