@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 # UID2 Sharing: Overview 
 
-In UID2, sharing is a process for distributing either [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) or [UID2 tokens](../ref-info/glossary-uid.md#gl-raw-uid2) securely between UID2 participants.
+In UID2, sharing is a process for distributing either [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) or [UID2 tokens](../ref-info/glossary-uid.md#gl-raw-uid2) between UID2 participants.
 
 All instances where a raw UID2 or UID2 token is shared with another participant fall under the definition of sharing, and all instances must follow all of the standard [sharing scenarios](#sharing-scenarios). In addition, sharing must meet the [security requirements](#security-requirements-for-uid2-sharing).
 
@@ -26,7 +26,7 @@ In this file:
 
 ## Sharing Participants
 
-In UID2, a sharing participant is a company that takes part in distributing raw UID2s or UID2 tokens securely from one UID2 participant to another, either as a sender or a receiver.
+In UID2, a sharing participant is a company that takes part in distributing raw UID2s or UID2 tokens from one UID2 participant to another, either as a sender or a receiver.
 
 A sharing participant can be a publisher, advertiser, DSP, or data provider, or might have more than one of these roles.
 
