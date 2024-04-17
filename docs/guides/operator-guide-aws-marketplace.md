@@ -7,6 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 17
 ---
 
+import ChartSvg from './images/uid2-private-operator-aws-chart.svg';
+
 # UID2 Private Operator for AWS Integration Guide
 
 The UID2 Operator is the API server in the UID2 ecosystem. For a Private Operator service running in AWS Marketplace, the UID2 Operator solution is enhanced with [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave technology. This is an additional security measure to protect UID2 information from unauthorized access.
@@ -146,7 +148,7 @@ Here's what you can customize during or after the [deployment](#deployment):
 
 The following diagram illustrates the virtual private cloud that hosts private operators.
 
-![UID2 Operator VPC Chart](images/uid2-private-operator-aws-chart.svg)
+<ChartSvg />
 
 ## Deployment
 
