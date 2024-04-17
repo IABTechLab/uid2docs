@@ -24,7 +24,7 @@ Used by: このエンドポイントは、主に広告主やデータプロバ�
 
 `POST '{environment}/v2/identity/map'`
 
-> IMPORTANT: すべてのリクエストは、秘密鍵を使用して暗号化する必要があります。詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+> IMPORTANT: すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ### Path Parameters
 
@@ -88,7 +88,7 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 echo '{"phone": ["+1111111111", "+2222222222"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk= DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
 
-詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON Response Format
 

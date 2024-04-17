@@ -63,7 +63,7 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 - [https://central.sonatype.com/artifact/com.uid2/uid2-client](https://central.sonatype.com/artifact/com.uid2/uid2-client)
 
-## Initialization
+## Usage for DSPs
 
 初期化関数は、SDKが UID2 Service で認証するために必要なパラメータを設定します。また、エラー発生時の再試行間隔を設定することもできます。
 
@@ -72,7 +72,7 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 | `endpoint` | UID2 Service のエンドポイント。 | N/A |
 | `authKey` | クライアントに付与された認証トークン。UID2 へのアクセスについては、 [Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。 | N/A |
 
-## Interface 
+### Interface 
 
 このインターフェイスを使用すると、UID2 Advertising Token を復号化し、対応する raw UID2 を返すことができます。
 
@@ -285,7 +285,38 @@ Server-Only Integration ([Publisher Integration Guide, Server-Only](../guides/cu
 6. ユーザーのセッションに `tokenRefreshResponse.getIdentityJsonString()` を格納します。
 
    ユーザーがオプトアウトした場合、このメソッドは `null` を返し、ユーザーの ID をセッションから削除する必要があることを示します。オプトアウトを確認するには、`tokenRefreshResponse.isOptout()` 関数を使用します。
-   
+
+## Usage for Advertisers and Data Providers
+1. IdentityMapClient のインスタンスをインスタンス変数として作成します。
+   ```java
+   final private IdentityMapClient identityMapClient = new IdentityMapClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+   ```
+
+2. メールアドレスまたは電話番号を入力として受け取り、IdentityMapResponse オブジェクトを生成する関数を呼び出します。以下の例では、メールアドレスを使用しています:
+   ```java
+   IdentityMapResponse identityMapResponse = identityMapClient.generateIdentityMap(IdentityMapInput.fromEmails(Arrays.asList("email1@example.com", "email2@example.com")));
+   ```
+
+>Note: SDK は入力値を送信する前にハッシュ化します。これにより、元のメールアドレスや電話番号がサーバーから送信されることはありません。
+
+3. マップされた結果とマップされていない結果を以下のように取得します:
+   ```java
+   Map<String, IdentityMapResponse.MappedIdentity> mappedIdentities = identityMapResponse.getMappedIdentities();
+   Map<String, IdentityMapResponse.UnmappedIdentity> unmappedIdentities = identityMapResponse.getUnmappedIdentities();`
+   ```
+
+4. マップされた結果とマップされていない結果を Iterate するか、lookup を行います。以下の例では lookup を行っています:
+   ```java
+   IdentityMapResponse.MappedIdentity mappedIdentity = mappedIdentities.get("email1@example.com");
+   if (mappedIdentity != null) {
+        String rawUid = mappedIdentity.getRawUid();
+   } else {
+        IdentityMapResponse.UnmappedIdentity unmappedIdentity = unmappedIdentities.get("email1@example.com");
+        String reason = unmappedIdentity.getReason();
+   }
+   ```
+
+
 ## Usage for UID2 Sharers
 
 UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のことです。raw UID2を他の参加者に送信する前に、UID2 Token に暗号化する必要があります。使用例については、[com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` メソッド) を参照してください。
@@ -299,7 +330,7 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
    ```java
    IUID2Client client = UID2ClientFactory.create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
    ```
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします。推奨されるリフレッシュ間隔は1時間ごとです。詳細については、[Best Practices for Managing UID2 Tokens](../sharing/sharing-best-practices.md#key-refresh-cadence) を参照してください。
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします。推奨されるリフレッシュ間隔は1時間ごとです。詳細については、[Best Practices for Managing UID2 Tokens](../sharing/sharing-best-practices.md#key-refresh-cadence-for-sharing) を参照してください。
 
    ```java
    client.refresh();

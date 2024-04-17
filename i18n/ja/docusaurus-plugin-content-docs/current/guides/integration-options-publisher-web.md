@@ -3,6 +3,7 @@ title: Web Integration Overview
 description: UID2 Web インテグレーションにおけるパブリッシャーオプションの概要。
 hide_table_of_contents: false
 sidebar_position: 02
+displayed_sidebar: sidebarPublishers
 ---
 
 # Web Integration Overview

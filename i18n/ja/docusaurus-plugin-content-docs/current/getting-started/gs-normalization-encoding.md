@@ -18,6 +18,7 @@ sidebar_position: 13
 - [Phone Number Hash Encoding](#phone-number-hash-encoding)
 - [Normalization Examples for Email](#normalization-examples-for-email)
 - [Example](#example-code)
+- [UID2 Hashing Tool](#uid2-hashing-tool)
 -->
 
 ## Introduction
@@ -25,7 +26,7 @@ sidebar_position: 13
 
 :::important
 - Raw UID2 とそれに関連する UID2 Token は、大文字と小文字を区別します。UID2 を扱う際には、大文字小文字を変えずにすべての ID とトークンを渡すことが重要です。ID が不一致の場合、ID の解析やトークンの復号化でエラーが発生する可能性があります。
-- 必要なステップのどれかを欠いた場合&#8212;たとえば、最初に正規化せずにハッシュした場合&#8212;その結果は有効な UID2 値にはなりません。<br/>例えば、あるデータプロバイダが `Jane.Saoirse@gmail.com` から UID2 を生成したいとします。これは `janesaoirse@gmail.com` に正規化され、ハッシュ化されて Base64 エンコードされた値は `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=` となります。<br/>同じメールアドレスを持つパブリッシャーは正規化しません。正規化されていないメールアドレス `Jane.Saoirse@gmail.com` をハッシュ化し Base64 エンコードした値は `f8upG1hJazYKK8aEtAMq3j7loeAf5aA4lSq6qYOBR/w=` です。これら2つの異なる値は、2つの異なる UID2 になります。最初のものは正しく処理され、同じ元データから生成された他のインスタンスと一致すします。2つ目は正しく処理されていないため、一致しません。<br/>このシナリオでは、UID2 が同じユーザーの他のインスタンスと一致しないため、パブリッシャーはターゲティング広告から利益を得る機会を逃してしまいます。
+- 必要なステップのどれかを欠いた場合&#8212;たとえば、最初に正規化せずにハッシュした場合&#8212;その結果は有効な UID2 値にはなりません。<br/>例えば、データプロバイダが `Jane.Saoirse@gmail.com` から UID2 を生成したいとします。これは `janesaoirse@gmail.com` に正規化され、ハッシュ化されて Base64 エンコードされた値は `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=` となります。<br/>同じメールアドレスを持つパブリッシャーは誤って正規化しませんでした。メールアドレス `Jane.Saoirse@gmail.com` をハッシュ化し Base64 エンコードした値は `f8upG1hJazYKK8aEtAMq3j7loeAf5aA4lSq6qYOBR/w=` です。これら2つの異なる値は、2つの異なる UID2 になります。最初のものは正しく処理され、同じ元データから生成された他のインスタンスと一致すします。2つ目は正しく処理されていないため、一致しません。<br/>このシナリオでは、UID2 が同じユーザーの他のインスタンスと一致しないため、パブリッシャーはターゲティング広告から利益を得る機会を逃してしまいます。
 :::
 
 ## Types of Directly Identifying Information
@@ -42,20 +43,25 @@ UID2 Operator Service にハッシュ化されていないメールアドレス�
 メールアドレスを正規化するには、次の手順を実行します:
 
 1. 先頭と末尾のスペースを削除します。
-2. ASCII 文字をすべて小文字に変換します。
-3. メールアドレス (ASCII コード 46) にピリオド (`.`) がある場合は、削除します。<br/>例えば、`jane.doe@example.com` を `janedoe@example.com` に正規化します。
+2. 大文字があれば小文字に変換します。
+3. `gmail.com` アドレスのみ:
+   1. アドレスの中にピリオド(`.`)(ASCII 10 進コード 46 / UTF-8 16 進コード 2E) があれば、それを削除します。
 
-3. (条件付き) `gmail.com` のアドレスの場合のみ、`@gmail.com` の前にプラス記号 (`+`) とその後ろに追加の文字列が表示されることがあります。この場合、メールアドレスのこの部分を削除する必要があります。これは gmail アドレスに**のみ**適用されます。以下を削除してください:
-    1. プラス記号 (`+`) (ASCII code 43)。
-    2. それ以降のすべての文字。
+      例えば、`jane.doe@gmail.com` を `janedoe@gmail.com` に正規化します。
+
+   2. プラス記号(`+`)とその後ろに追加文字列がある場合、`@gmail.com` の前にあるプラス記号 (`+`)(ASCII 10 進コード 43 / UTF-8 16 進コード 2B)とそれに続くすべての文字を削除します。  
 
        例えば、`janedoe+home@gmail.com` を `janedoe@gmail.com` に正規化します。
+
+:::warning
+正規化されたメールアドレスが UTF-16 のような他のエンコーディングシステムではなく、UTF-8 であることを確認してください。
+:::
 
 さまざまなシナリオの例は、[Normalization Examples for Email](#normalization-examples-for-email) を参照してください。
 
 ## Email Address Hash Encoding
 
-メールアドレスハッシュは、正規化されたメールアドレスの SHA-256 ハッシュを Base64 エンコードしたものです。メールアドレスはまず正規化され、次に SHA-256 ハッシュアルゴリズムを使ってハッシュ化され、その結果のハッシュ値のバイトが Base64 エンコーディングを使ってエンコードされます。16進エンコードされた文字列表現ではなく、ハッシュ値のバイトがエンコードされることに注意してください。
+メールアドれづハッシュは、正規化されたメールアドレスの SHA-256 ハッシュを Base64 エンコードしたものです。メールアドレスはまず正規化され、次に SHA-256 ハッシュアルゴリズムを使ってハッシュ化され、その結果のハッシュ値のバイトが Base64 エンコーディングを使ってエンコードされます。Base64 エンコーディングはハッシュ値のバイトに適用されるのであって、16 進エンコーディングされた文字列表現には適用されないことに注意してください。
 
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
@@ -84,11 +90,15 @@ UID2 Operator Service にハッシュ化されていないメールアドレス�
    - Singapore: `65 1243 5678` は `+6512345678` に正規化されます。
    - Sydney, Australia: `(02) 1234 5678` は、都市名の先頭のゼロを削除し、国コードを含むように正規化されます: `+61212345678`。
 
+:::warning
+正規化されたメールアドレスが UTF-16 のような他のエンコーディングシステムではなく、UTF-8 であることを確認してください。
+:::
+
 ## Phone Number Hash Encoding
 
-電話番号ハッシュは、正規化された電話番号を SHA-256 ハッシュを Base64 エンコードしたものです。電話番号はまず正規化され、次に SHA-256 ハッシュアルゴリズムを使ってハッシュ化され、その結果の 16 進値が Base64 エンコーディングを使ってエンコードされます。
+電話番号ハッシュは、正規化された電話番号の SHA-256 ハッシュを Base64 エンコードしたものです。電話番号はまず正規化され、次にSHA-256ハッシュアルゴリズムを使ってハッシュ化され、その結果のハッシュ値のバイトが Base64 エンコーディングを使ってエンコードされます。Base64 エンコーディングはハッシュ値のバイトに適用されるのであって、16 進エンコーディングされた文字列表現には適用されないことに注意してください。
 
-以下の例は、単純な入力電話番号と、安全で不透明な URL-safe な値を得るために各ステップが適用された結果を示しています。
+以下の表は、単純な入力電話番号の例と、安全で不透明な URL-safe な値を得るために各ステップが適用された結果を示しています。
 
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
@@ -106,11 +116,37 @@ UID2 Operator Service にハッシュ化されていないメールアドレス�
 
 | Original Value | Normalized | Hashed and Base64-Encoded |
 | :--- | :--- | :--- |
-| `MyEmail@example.com`<br/>`MYEMAIL@example.com`<br/>`My.Email@example.com` | `myemail@example.com` | Hashed: `16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`<br/>Base64-Encoded: `FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=` |
-| `JANESAOIRSE@example.com`<br/>`JaneSaoirse@example.com`<br/>`Jane.Saoirse@example.com` | `janesaoirse@example.com` | Hashed: `d6670e7a92007f1b5ff785f1fc81e53aa6d3d7bd06bdf5c473cdc7286c284b6d`<br/>Base64-Encoded: `1mcOepIAfxtf94Xx/IHlOqbT170GvfXEc83HKGwoS20=` |
-| `JaneSaoirse+UID2@example.com` | `janesaoirse+uid2@example.com` | Hashed: `6e143668c206593d5ecb8a7b2726af74d948438a5ed75febadcbf4bb58ebc427`<br/>Base64-Encoded: `bhQ2aMIGWT1ey4p7JyavdNlIQ4pe11/rrcv0u1jrxCc=` |
-| `JANE.SAOIRSE@gmail.com`<br/>`Jane.Saoirse@gmail.com`<br/>`JaneSaoirse+UID2@gmail.com` | `janesaoirse@gmail.com` | Hashed: `92ee26057ed9dea2535d6c8b141d48373932476599196e00352254896db5888f`<br/>Base64-Encoded: `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=` |
+| `MyEmail@example.com`<br/>`MYEMAIL@example.com` | `myemail@example.com` | Hashed: `16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`<br/>Base64-Encoded: `FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=` |
+| `My.Email@example.com` | `my.email@example.com` | Hashed: `e22b53bc6f871274f3a62ab37a3caed7214fc14d676215a96a242fcfada1c81f`<br/>Base64-Encoded: `4itTvG+HEnTzpiqzejyu1yFPwU1nYhWpaiQvz62hyB8=` |
+| `JANESAOIRSE@example.com`<br/>`JaneSaoirse@example.com` | `janesaoirse@example.com` | Hashed: `d6670e7a92007f1b5ff785f1fc81e53aa6d3d7bd06bdf5c473cdc7286c284b6d`<br/>Base64-Encoded: `1mcOepIAfxtf94Xx/IHlOqbT170GvfXEc83HKGwoS20=` |
+| `jane.saoirse@example.com`<br/>`Jane.Saoirse@example.com` | `jane.saoirse@example.com` | Hashed: `	b196432c7b989a2ca91c83799957c515da53e6c13abf20b78fea94f117e90bf8`<br/>Base64-Encoded: `sZZDLHuYmiypHIN5mVfFFdpT5sE6vyC3j+qU8RfpC/g=` |
+| `JaneSaoirse+Work@example.com` | `janesaoirse+work@example.com` | Hashed: `28aaee4815230cd3b4ebd88c515226550666e91ac019929e3adac3f66c288180`<br/>Base64-Encoded: `KKruSBUjDNO069iMUVImVQZm6RrAGZKeOtrD9mwogYA=` |
+| `JANE.SAOIRSE@gmail.com`<br/>`Jane.Saoirse@gmail.com`<br/>`JaneSaoirse+Work@gmail.com` | `janesaoirse@gmail.com` | Hashed: `92ee26057ed9dea2535d6c8b141d48373932476599196e00352254896db5888f`<br/>Base64-Encoded: `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=` |
 
 ## Example Code
 
 JavaScript でメールアドレスと電話のハッシュを生成する方法の例については、[Example Code: Hashing and Base-64 Encoding](../guides/publisher-client-side#example-code-hashing-and-base-64-encoding) を参照してください。
+
+## UID2 Hashing Tool
+
+正規化、ハッシュ化、エンコードが正しく行われているかチェックするには、[UUID2 hashing tool](https://unifiedid.com/examples/hashing-tool) を使ってテストすることができます。
+
+Email または Phone Number を選択し、値を入力またはペーストして、Enter をクリックします。
+
+このツールは以下を行います:
+- Email: 以下の３つの値を表示します:
+  - Normalized value (正規化した値)
+  - Hashed value (ハッシュした値)
+  - Base64-encoded value (Base64 エンコードした値)
+
+- Phone: 以下の2つの値を表示します:
+  - Hashed value (ハッシュした値)
+  - Base64-encoded value (Base64 エンコードした値)
+
+  :::note
+  電話番号の場合は、まずデータを正規化する必要があります。
+  :::
+
+入力データが有効なメールアドレスまたは電話番号の形式でない場合、または電話番号が正規化されていない場合、ツールはエラーを表示します。
+
+このツールを使って、UID2 の正規化した値、ハッシュした値、エンコードした値が正しく作成されるように内部プロセスが設定されているかどうかを確認することができます。

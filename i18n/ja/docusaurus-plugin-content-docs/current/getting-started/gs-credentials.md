@@ -62,7 +62,7 @@ Notes:
 
 - これらの値は特定の [Environment](gs-environments.md) に対して有効です。テスト環境と本番環境の両方を使用している場合、それぞれの環境用の認証情報のセットを取得します。
 
-- Subscription ID と Public Key の認証情報は、Client-Side トークンの生成にのみ使用できます。追加のロールが必要な場合は ([API Permissions](gs-permissions.md) を参照してください)、そのロールの API Key と Client Secret をリクエストしてください。 <!-- (**GWH_KT added last bullet to this GS article based on work on Publisher Options page. Review please.**) -->
+- Subscription ID と Public Key の認証情報は、Client-Side トークンの生成にのみ使用できます。追加のロールが必要な場合は ([API Permissions](gs-permissions.md) を参照してください)、そのロールの API Key と Client Secret をリクエストしてください。
 
 ## Refreshing Credentials
 

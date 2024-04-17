@@ -3,6 +3,7 @@ title: UID2 Overview
 description: UID2 ドキュメントの紹介。
 hide_table_of_contents: false
 sidebar_position: 01
+displayed_sidebar: docs
 ---
 
 # Unified ID 2.0 Overview
@@ -69,8 +70,10 @@ UID2 は、メールアドレスや電話番号など、[directly identifying in
 
 | ID Type | Shared in Bid Stream? | Description |
 | :--- | :--- | :--- |
-| **Raw UID2** | No | UID2 API または SDK を通じて、ハッシュ化またはハッシュ化されていないメールアドレスや電話番号など、ユーザーの検証可能な個人データを入力として作成される暗号化されていない英数字の識別子です。<br/>元の個人データの再識別を防ぐために、入力値はハッシュ化およびソルト化されて raw UID2 が作成されます。raw UID2 を作成するプロセスは、広告主、第三者データプロバイダー、およびデマンドサイドプラットフォーム (DSP) が保管できる、安全で不透明な値を作成するように設計されています。<br/>raw UID2 は大文字と小文字を区別します。                                                                   |
-| **UID2 Token (Advertising Token)** | Yes | raw UID2 を暗号化したものです。UID Token は、ハッシュ化またはハッシュ化されていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、ビッドストリームでの保護を確実にするために暗号化されます。<br/>UID2 Token は、パブリッシャーやパブリッシャーサービスプロバイダーが使用するよう設計されています。<br/>UID2 Token は、パブリッシャーまたはパブリッシャーサービスプロバイダーが使用するように設計されています。サプライサイドプラットフォーム (SSP)はビッドストリームで UID2 Token を渡し、DSP は入札要求時にそれを復号化します。<br/>UID2 Token は大文字と小文字を区別します。 |
+| **Raw UID2** | No | ハッシュ化またはハッシュ化されていないメールアドレスや電話番号などのユーザーの検証可能な個人のデータを入力として、UID2 API または SDK を通じて作成された暗号化されていない英数字の識別子です。<br/>元の個人のデータの再識別を防ぐために、入力値はハッシュ化され、ソルト化されて raw UID2 が作成されます。Raw UID2 を作成するプロセスは、広告主、サードパーティデータ プロバイダー、デマンドサイド プラットフォーム (DSP) が保存できる安全で不透明な値を作成するように設計されています。<br/>raw UID2 では大文字と小文字が区別されます。<br/>例: 架空のメールアドレス `user@example.com` の raw UID2 をリクエストすると、次の値が返されました: `E2dxEv3oMBzNHPw5iUVmwH2Hv+60D4AXYe+2ge9U0No=` |
+| **UID2 Token (Advertising Token)** | Yes | Raw UID2 を暗号化したものです。UID2 Token は、ハッシュ化またはハッシュ化されていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、ビッドストリームでの保護を確実にするために暗号化されます。<br/>UID2 Token は、パブリッシャーやパブリッシャーサービスプロバイダーが使用するように設計されています。サプライサイドプラットフォーム(SSP)はビッドストリームで UID2 Token を渡し、DSP はビッドリクエスト時にそれを復号化します。<br/>UID2 Token は大文字と小文字を区別します。<br/>例：`user@example.com`という架空のメールアドレスの UID2 Token をリクエストした結果、次のような値が得られました：  `AAAABrexFHvQVhNJqu+y/ua7rsgShF8e9NUXUJOZFmeFRD8TAsJadaLfOlLkwC5iSxcOKWFD9YwMBzbbcPa92CInba+bcPTaAFNmM2ZpIHgGy6lDcNPzvEnPQh/5fyZ3MD44SX/tHyIXa0R2OBAOLBA1A81r3jefhSsxZdyyBF58KtnaX6UbaeOEaguOfMnJdmhaPeWKj33v7vGfROWtxDWmi6wvGL5lHTX9H6iIZ9i1WSsemYPUgmoDOQeT7nzllJK968OECFj5LkCazDN3pCrYSeuJby9o0fMuSZNxzp6EVzi6XVED4ETtzpcaY0AArzzdh0IXV9MgH8jyg7bJSUWXQG+8kMPZzwbs9EB+7ddAUOLZL/GBna8Hm3Im03EjN3sJ` |
+
+NOTE: これらの例で使用されている架空のメールアドレス `user@example.com` に対応する Refresh Token は次のとおりです: `AAAABrexFHvQVhNJqu+y/ua7rsgShF8e9NUXUJOZFmeFRD8TAsJadaLfOlLkwC5iSxcOKWFD9YwMBzbbcPa92CInba+bcPTaAFNmM2ZpIHgGy6lDcNPzvEnPQh/5fyZ3MD44SX/tHyIXa0R2OBAOLBA1A81r3jefhSsxZdyyBF58KtnaX6UbaeOEaguOfMnJdmhaPeWKj33v7vGfROWtxDWmi6wvGL5lHTX9H6iIZ9i1WSsemYPUgmoDOQeT7nzllJK968OECFj5LkCazDN3pCrYSeuJby9o0fMuSZNxzp6EVzi6XVED4ETtzpcaY0AArzzdh0IXV9MgH8jyg7bJSUWXQG+8kMPZzwbs9EB+7ddAUOLZL/GBna8Hm3Im03EjN3sJ`.
 
 ### Components
 

@@ -14,10 +14,10 @@ sidebar_position: 03
 <!-- It includes the following sections:
 
 - [Introduction](#introduction)
-- [Integration Steps ](#integration-steps)
-  - [Establish Identity: User Login](#establish-identity-user-login)
-  - [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
-  - [Refresh Tokens](#refresh-tokens)
+- [Integration Steps](#integration-steps)
+  - [Establish Identity: Capture User Data](#establish-identity-capture-user-data)
+  - [Bid Using UID2 Tokens](#bid-using-a-uid2-token)
+  - [Refresh a UID2 Token](#refresh-a-uid2-token)
   - [Clear Identity: User Logout](#clear-identity-user-logout)
   - [Sample Application](#sample-application)
 - [FAQs](#faqs) -->
@@ -59,12 +59,12 @@ Server-Side SDK を使用している場合、SDK はエンドポイントに関
 
 次のセクションでは、図中の各ステップについて詳細を説明します:
 
-1. [Establish identity: user login](#establish-identity-user-login)
+1. [Establish identity: capture user data](#establish-identity-capture-user-data)
 2. [Bid using a UID2 token](#bid-using-a-uid2-token)
 3. [Refresh a UID2 token](#refresh-a-uid2-token)
 4. [Clear Identity: user logout](#clear-identity-user-logout)
 
-### Establish Identity: User Login
+### Establish Identity: Capture User Data
 
 Step 1-c での認証(ユーザーの同意を得ること、パブリッシャーがユーザーのメールアドレスまたは電話番号を検証することを含む) の後、パブリッシャーは Server-Side で UID2 Token を生成するリクエストを送ることがでます。以下の表は、トークン生成ステップの詳細です。
 
@@ -80,7 +80,7 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
-| 2-a  | N/A      | Step [1-e](#establish-identity-user-login) の `advertising_token` を入札のために SSP に送信します。そのままの値を送信します。 |
+| 2-a  | N/A      | Step [1-e](#establish-identity-capture-user-data) の `advertising_token` を入札のために SSP に送信します。そのままの値を送信します。 |
 
 >NOTE: UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#%E3%83%93%E3%83%83%E3%83%89%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%A0%E3%81%A7-UID2-Token-%E3%81%AF%E3%81%A9%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E8%A6%8B%E3%81%88%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F) を参照してください。
 
@@ -91,7 +91,7 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
 | 3-a  | N/A | ユーザーがアセットに戻り、再びアクティブになったとき、UID2 Token をリフレッシュしてから、SSP に送信します。 |
-| 3-b  | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) | Step [1-e](#establish-identity-user-login) で取得した `refresh_token` をクエリパラメータとして送信します。 |
+| 3-b  | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) | Step [1-e](#establish-identity-capture-user-data) で取得した `refresh_token` をクエリパラメータとして送信します。 |
 | 3-c  | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) | UID2 Service は、オプトアウトしていないユーザーに対して新しい ID トークンを発行します。 |
 | 3-d  | N/A | `POST /token/refresh` エンドポイントから返される値、`advertising_token` と `refresh_token` を、ユーザーにリンクされるように配置します。ファーストパーティのクッキーのようなClient-Side のストレージか、サーバサイドのストレージを検討するとよいでしょう。 |
 

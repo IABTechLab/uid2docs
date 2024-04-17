@@ -43,7 +43,7 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 [encrypting requests and decrypting responses](#encryption-and-decryption-code-examples) のコード例は、Step 2-10 を自動化するのに役立ち、アプリケーションでこれらのステップを実装する方法のリファレンスとなります。
 
-各 UID2 [endpoints](../endpoints/summary-endpoints.md) では、JSONボディフォーマットの要件とパラメータを説明し、呼び出し例を含め、復号化されたレスポンスを示しています。以下のセクションでは、暗号化と復号のコード例、フィールドレイアウトの要件、リクエストとレスポンスの例を示します。
+各 UID2 [endpoints](../endpoints/summary-endpoints.md) では、JSON ボディのフォーマットの要件とパラメータを説明し、呼び出し例を含め、復号化されたレスポンスを示しています。以下のセクションでは、暗号化と復号化のコード例、フィールドレイアウトの要件、リクエストとレスポンスの例を示します。
 
 ## Encrypting Requests
 
@@ -100,7 +100,7 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 ### Response Example
 
-例えば、[先行例](#request-example) のメールアドレスに対する [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) リクエストに対する復号されたレスポンスは、次のようになることが考えられます:
+例えば、先行例 のメールアドレスに対する [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) リクエストに対する復号されたレスポンスは、次のようになることが考えられます:
 
 ```json
 {
@@ -123,6 +123,7 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントでは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) へのコールで事前に取得した `refresh_token` と `refresh_response_key` の値を使用します。
 
+## Encryption and Decryption Code Examples
 :::note
 Windows の場合、PowerShell の代わりに Windows コマンドプロンプトを使用している場合は、JSON を囲むシングルクォートも削除する必要があります。例えば、`echo {"email": "test@example.com"}` とします。
 :::
@@ -135,6 +136,10 @@ Windows の場合、PowerShell の代わりに Windows コマンドプロンプ�
 <TabItem value='py' label='Python'>
 
 以下のコードサンプルは Python を使ってリクエストを暗号化し、レスポンスを復号化します。必要なパラメータはコード例の一番上に示されており、 `python3 uid2_request.py` を実行することで得ることができます。
+
+:::note
+Windowsの場合は `python3` を `python` に置き換えてください。
+:::
 
 Python のコードには `pycryptodomex` と `requests` パッケージが必要です。これらは以下のようにしてインストールできます:
 
@@ -149,7 +154,7 @@ pip install requests
 以下のコードサンプルは、Java を使用してリクエストを暗号化し、レスポンスを復号化します。必要なパラメータは main 関数の先頭に示されています:
 
 ```
-java -jar Uid2Request-1.0-jar-with-dependencies.jar
+java -jar Uid2Request-jar-with-dependencies.jar
 ```
 
 Java のサンプルは JDK version 11 以降用に書かれており、クラスパスに com.google.code.gson ライブラリーが必要です。
@@ -201,6 +206,7 @@ Maven を使用している場合は、以下の最小限の `pom.xml` を使用
         </configuration>
       </plugin>
     </plugins>
+     <finalName>${artifactId}</finalName>
   </build>
 </project>
 ```
@@ -348,11 +354,19 @@ public class Uid2Request {
 
   public static void main(String[] args) throws Exception {
     if (args.length != 3 && args.length != 4) {
-      System.out.println("Usage: java -jar Uid2Request-jar-with-dependencies.jar <url> <api_key> <client_secret>" + "\n");
-      System.out.println("Example: echo '{\"email\": \"test@example.com\"}' |  java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/generate PRODGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=" + "\n");
-      System.out.println("Refresh Token Usage: java -jar Uid2Request-jar-with-dependencies.jar <url> --refresh-token <refresh_token> <refresh_response_key>"  + "\n");
-      System.out.println("Refresh Token Example: java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s="  + "\n");
-      System.out.println("Refresh Token Example: java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s="  + "\n");
+      System.out.println(
+              "Usage:" + "\n   "
+      +             "java -jar Uid2Request-jar-with-dependencies.jar <url> <api_key> <client_secret>" + "\n\n"
+
+      +       "Example:" + "\n   "  
+      +             "echo '{\"email\": \"test@example.com\"}' |  java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/generate PRODGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=" + "\n\n\n"
+
+      +       "Refresh Token Usage:" + "\n   "
+      +             "java -jar Uid2Request-jar-with-dependencies.jar <url> --refresh-token <refresh_token> <refresh_response_key>"  + "\n\n"
+
+      +       "Refresh Token Example:" + "\n   " 
+      +             "java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s="  + "\n"
+      );
       System.exit(1);
     }
 

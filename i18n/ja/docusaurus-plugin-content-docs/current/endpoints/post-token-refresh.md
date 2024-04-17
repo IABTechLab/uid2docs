@@ -10,7 +10,9 @@ sidebar_position: 04
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
-> NOTE: このエンドポイントは、API Key を使用する必要がないため、Client-Side (例えば、ブラウザやモバイルアプリなど) から呼び出せます。
+このエンドポイントは API キーを使用する必要がないため、クライアントサイド(ブラウザやモバイルアプリなど)から呼び出すことができます。
+
+>NOTE: このエンドポイントを直接呼び出すのではなく、UID2 SDK を使って管理することもできます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
 
 ## Request Format 
 
@@ -40,7 +42,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 ### Request Example
 
-詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化 (Python script example)](../getting-started/gs-encryption-decryption.md#uid2_requestpy) を参照してください。
+詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON Response Format
 

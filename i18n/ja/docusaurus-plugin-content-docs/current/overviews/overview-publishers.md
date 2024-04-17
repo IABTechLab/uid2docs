@@ -6,11 +6,16 @@ sidebar_position: 02
 use_banner: true
 banner_title: パブリッシャー向け UID2 概要
 banner_description: 変化し続ける広告業界においてオーディエンスターゲティングを維持し、より良いインプレッション収益化と関連性の向上を実現します。
+displayed_sidebar: sidebarPublishers
 ---
 
 パブリッシャーとして、Unified ID 2.0 (UID2) のクロスデバイスプレゼンスの恩恵を受け、すべてのインベントリで一貫した ID ファブリックを活用することができます。
 
 UID2 を採用するパブリッシャーにとってのメリット、ワークフロー、ドキュメント、その他のリソース、および UID2 の導入手順について説明します。
+
+:::note
+UID2 のドキュメント一式に左サイドバーからアクセスしたい場合は、[Unified ID 2.0 Overview](../intro.md) を参照してください。
+:::
 
 <!-- Learn about what the UID2 framework offers to publishers, including benefits, workflow, documentation and other resources, and how to get started. -->
 
@@ -29,7 +34,11 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 1. ユーザーがパブリッシャーのウェブサイト、モバイルアプリ、CTV アプリにアクセスします。
 2. パブリッシャーは、オープンなインターネットの価値交換について説明し、ログインやその他の手段で、メールアドレスや電話番号の提供をユーザーに求めます。
+<!-- uid2_only_ep_20240312: The publisher explains the value exchange of the open internet and asks the user to provide an email address or phone number, by login or other means. -->
+<!-- euid_only_ep_20240312: The publisher explains the value exchange of the open internet and asks the user to provide an email address, by login or other means, and consent to the use of their email address for EUID. -->
 3. ユーザーがメールアドレスまたは電話番号を提供すると、パブリッシャーは SDK または直接 API インテグレーションを介して、それを UID2 Operator に送信します。
+<!-- uid2_only_ep_20240312: Once the user has provided an email address or phone number, the publisher sends it to the UID2 Operator via an SDK or direct API integration. -->
+<!-- euid_only_ep_20240312: Once the user has provided an email address, and consented, the publisher sends it to the EUID Operator via an SDK or direct API integration. -->
 
    パブリッシャーは、SSO プロバイダーやアイデンティティプロバイダーに、[DII](../ref-info/glossary-uid.md#gl-dii) やプライバシーの設定を自分たちに代わって渡すことができます。
 4. UID2 Operator:
@@ -64,8 +73,8 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 1. テスト: 
 
-   - ビッドリクエストで UID2 を適切に渡すために、SSP と協力します。
-   - UID2 が生成され、リクエストで正しく渡されることを確認します。
+   - ビッドリクエストで UID2 Token が正しく生成され、渡されていることを確認します。
+   - 必要に応じてトラブルシューティングを行い、ビッドリクエストで UID2 Token が正しく渡されるように SSP と協力します。
 1. 本番稼動します。
 
 ## Implementation Resources

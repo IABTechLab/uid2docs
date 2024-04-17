@@ -14,17 +14,19 @@ You can use the UID2 SDK for C# / .NET on the server side to facilitate the foll
 
 <!-- This guide includes the following information:
 
-- [Overview](#overview)
 - [Functionality](#functionality)
 - [API Permissions](#api-permissions)
 - [Version](#version)
 - [GitHub Repository/Binary](#github-repositorybinary)
 - [Initialization](#initialization)
 - [Interface](#interface)
-  - [Response Content](#response-content)
-  - [Response Statuses](#response-statuses)
-- [FAQs](#faqs)
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
+  - [Encryption Response Content](#encryption-response-content)
+  - [Encryption Response Statuses](#encryption-response-statuses)
+  - [Decryption Response Content](#decryption-response-content)
+  - [Decryption Response Statuses](#decryption-response-statuses)
+- [Usage for DSPs](#usage-for-dsps)
+- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
+- [FAQs](#faqs) -->
 
 ## Functionality
 
@@ -65,13 +67,14 @@ You will need to provide the values necessary for the SDK to authenticate with t
 
 | Parameter | Description |
 | :--- | :--- |
-| `endpoint` | The endpoint for the UID2 service. See [Environments](../getting-started/gs-environments) 
-| `authKey` | The API key. See [UID2 Credentials](../getting-started/gs-credentials). | N/A |
+| `endpoint` | The endpoint for the UID2 service. See [Environments](../getting-started/gs-environments). | 
+| `authKey` | The API key. See [UID2 Credentials](../getting-started/gs-credentials). |
 | `secretKey` | The client secret. See [UID2 Credentials](../getting-started/gs-credentials). |
 
 ## Interface
 
 The `BidstreamClient` class allows you to decrypt UID2 tokens into raw UID2s.
+
 For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
 
 The `SharingClient` class allows you to encrypt raw UID2s into UID2 tokens and decrypt UID2 tokens into raw UID2s.
@@ -140,7 +143,7 @@ var client = new BidstreamClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
 client.Refresh();
 ```
 
-3. Decrypt a token into a raw UID2. Pass the domain name of the site where the bid originated from:
+3. Decrypt a token into a raw UID2. Pass the token, and the domain name of the site where the bid originated from. The domain name must be all lower case, without spaces and without subdomain. For example, for `Subdomain.DOMAIN.com` , pass `domain.com` instead:
 
 ```cs
 var decrypted = client.DecryptTokenIntoRawUid(uidToken, domain);

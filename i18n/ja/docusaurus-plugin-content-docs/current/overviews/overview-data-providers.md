@@ -6,6 +6,7 @@ sidebar_position: 08
 use_banner: true
 banner_title:  データプロバイダー向け UID2 の概要
 banner_description: 未来のためのIDソリューション。
+displayed_sidebar: sidebarDataProviders
 ---
 
 データおよび測定プロバイダーとして、Unified ID 2.0(UID2) を 採用し、より耐久性のある、オムニチャネルおよびクロスデバイス識別子でデータを接続することで、ID の断片化を減らし、顧客のユースケースを満たすことができます。
@@ -17,6 +18,10 @@ banner_description: 未来のためのIDソリューション。
 - 測定とアトリビューション
 
 UID2 を採用するデータプロバイダーにとっての利点、ワークフロー、ドキュメント、その他のリソース、および UID2 を開始するための手順について説明します。
+
+:::note
+UID2 のドキュメント一式に左サイドバーからアクセスしたい場合は、[Unified ID 2.0 Overview](../intro.md) を参照してください。
+:::
 
 ## Benefits of UID2 for Data Providers
 
@@ -37,6 +42,9 @@ UID2 を使用することで、データプロバイダーとして得られる
 以下のステップは、広告主やデータプロバイダーが UID2 とインテグレーションする方法の一例です:
 
 1. 広告主またはデータプロバイダーが、同意を得たユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 Operator に送信します。
+
+   <!-- euid_only_ep_20240312 ("consented" in above line DP only EUID only) -->
+   
 2. UID2 Operator は、raw UID2 とソルトバケット ID を生成して返します。
 3. 広告主またはデータプロバイダーは UID2 とソルトバケット ID を保存し、UID2 ベースのファーストパーティおよびサードパーティのオーディエンスセグメントを DSP に送信します。
 

@@ -9,7 +9,7 @@ sidebar_position: 06
 
 Check out the latest updates to our UID2 documentation resources.
 
-### New: Java SDK Support for Advertiser/Data Provider
+### New: UID2 Hashing Tool
 
 4 March 2024
 
