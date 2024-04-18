@@ -10,14 +10,14 @@ displayed_sidebar: docs
 
 In UID2, sharing is a process for distributing either [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) or [UID2 tokens](../ref-info/glossary-uid.md#gl-raw-uid2) between UID2 participants.
 
-All instances where a raw UID2 or UID2 token is shared with another participant fall under the definition of sharing, and all instances must follow all of the standard [sharing scenarios](#sharing-scenarios). In addition, sharing must meet the [security guidelines](sharing-security.md).
+All instances where a raw UID2 or UID2 token is shared with another participant fall under the definition of sharing. We encourage all participants to keep the UID2 ecosystem safe by following the standard security practices. For details, see [Security Requirements for UID2 Sharing](sharing-security.md).
 
-In this file:
+<!-- In this file:
 - [Sharing Participants](#sharing-participants)
-- [Sharing Scenarios](#sharing-scenarios)
+- [Approved Sharing Scenarios](#approved-sharing-scenarios)
 - [UID2 Sharing Approaches](#uid2-sharing-approaches)
   - [Sharing UID2 Tokens](#sharing-uid2-tokens)
-  - [Sharing Raw UID2s](#sharing-raw-uid2s)
+  - [Sharing Raw UID2s](#sharing-raw-uid2s) -->
 
 ## Sharing Participants
 
@@ -25,12 +25,9 @@ In UID2, a sharing participant is a company that takes part in distributing raw 
 
 A sharing participant can be a publisher, advertiser, DSP, or data provider, or might have more than one of these roles.
 
-## Sharing Scenarios
+## Approved Sharing Scenarios
 
 There are several main sharing scenarios, summarized in the following table. 
-
-
-
 
 For examples, see [Sharing UID2s: Use Cases](sharing-use-cases.md).
 
@@ -56,12 +53,10 @@ The following are the high-level steps for sharing UID2 tokens ([tokenized shari
   
      - Generates UID2 tokens from DII.
      - Encrypts raw UID2s into UID2 tokens.
-  3. The receiver decrypts the UID2 tokens into raw UID2s.
+  3. The receiver decrypts the UID2 tokens into raw UID2s, following the instructions that apply to your scenario (see [Approved Sharing Scenarios](#approved-sharing-scenarios)).
 
 For more information about the options for sharing UID2 tokens, and links to instructions, see [Tokenized Sharing Overview](sharing-tokenized-overview.md).
 
 ### Sharing Raw UID2s
 
-To share raw UID2s, both sender and receiver must have  the resources, processes, and facilities in place to ensure secure transit of the raw UID2s, without risk of compromising the data. In this scenario, as long as the information in [Security Within UID2 Sharing](sharing-security.md) is followed, the sender can send raw UID2s to an authorized sharing participant.
-
-(**GWH_KL opinion on revised wording for removing "requirements" above?)**}
+To share raw UID2s, we expect that both the sender and receiver are [sharing participants](ref-info/glossary-uid.md#gl-sharing-participant) with the resources, processes, and facilities in place to ensure that the raw UID2s are not compromised, and will follow standard security practices as defined in [Security Requirements for UID2 Sharing](sharing-security.md).

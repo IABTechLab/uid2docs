@@ -77,7 +77,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <li><a href="#gl-secure-signals">Secure Signals</a></li>
 <li><a href="#gl-sha-256">SHA-256</a></li>
 <li><a href="#gl-sharing">Sharing (in UID2)</a></li>
-<li><a href="#gl-sharing-participant">Sharing Participant</a></li>
+<li><a href="#gl-sharing-participant">Sharing participant</a></li>
 <li><a href="#gl-sso">Single sign-on (SSO)</a></li>
 <li><a href="#gl-subscription-id">Subscription ID</a></li>
 <li><a href="#gl-transparency-and-control-portal">Transparency and Control Portal</a></li>
@@ -322,8 +322,8 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>UID2 のコンテキストでは、Sharing は、<a href="#gl-raw-uid2">Raw UID2</a> を UID2 参加者間で安全に配布するためのプロセスです。未加工の UID2 を不正アクセスから保護するために、発信側の参加者(送信者)は未加工の UID2 を UID2 Token に暗号化してから送信しなければなりません。送信先の参加者(受信者)は、UID2 Token を内部で使用する Raw UID2 に復号化する必要があります。</dd>
 <dd>For details, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd>
 
-<dt><MdxJumpAnchor id="gl-sharing-participant">Sharing Participant</MdxJumpAnchor></dt>
-<dd>UID2 では、Sharing Participant とは、UID2 参加者間で <a href="#gl-raw-uid2">Raw UID2</a> を安全に配布する<a href="#gl-sharing">Sharing</a> 参加する企業のことです。Sharing Participant は、パブリッシャー、広告主、DSP、データプロバイダのいずれかである場合もあれば、複数の役割を持つ場合もあります。</dd>
+<dt><MdxJumpAnchor id="gl-sharing-participant">Sharing participant</MdxJumpAnchor></dt>
+<dd>UID2 では、sharing participant とは、UID2 参加者間で <a href="#gl-raw-uid2">Raw UID2</a> を安全に配布する<a href="#gl-sharing">Sharing</a> 参加する企業のことです。sharing participant は、パブリッシャー、広告主、DSP、データプロバイダのいずれかである場合もあれば、複数の役割を持つ場合もあります。</dd>
 <dd>詳細は、<a href="../sharing/sharing-overview">UID2 Sharing: Overview</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-sso">Single sign-on (SSO)</MdxJumpAnchor></dt>

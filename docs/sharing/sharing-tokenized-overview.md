@@ -32,7 +32,7 @@ In many scenarios, UID2 data is shared in the form of a [UID2 token](../ref-info
 | :--- | :--- | :--- | :--- |
 | Sending a UID2 to the bid stream | Publisher | DSP | See [Tokenized Sharing in the Bid Stream](sharing-tokenized-from-data-bid-stream.md) |
 | Sending a UID2 in a tracking pixel | Any sharing participant | Any sharing participant | See [Tokenized Sharing in Pixels](sharing-tokenized-from-data-pixel.md) |
-| Sending UID2 tokens to another sharing participant | Any sharing participant, if all security guidelines listed in [Security Within UID2 Sharing](sharing-security.md) cannot be followed, or for any other reason. | Any sharing participant | See [Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md) | 
+| Sending UID2 tokens to another sharing participant | Any sharing participant, if all security requirements listed in [Security Requirements for UID2 Sharing](sharing-security.md) cannot be followed, or for any other reason. | Any sharing participant | See [Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md) | 
 
 For additional examples, see [Sharing UID2s: Use Cases](sharing-use-cases.md).
 
@@ -52,7 +52,7 @@ Choose the integration option that's right for your implementation, and then cli
 
 ## Receiving UID2 Tokens from Another Sharing Participant
 
-The steps that the receiver takes are similar for all sharing scenarios. The receiver must decrypt the UID2 token to arrive at the raw UID2. To do this, you must have a UID2 Portal account and the sender must create a sharing relationship with you, so that you can access the sender's decryption keys.
+The steps that the receiver takes are similar for all approved sharing scenarios. The receiver must decrypt the UID2 token to arrive at the raw UID2. To do this, you must have a UID2 Portal account and the sender must create a sharing relationship with you, so that you can access the sender's decryption keys.
 
 :::tip
 When you receive the tokens, we recommend decrypting as soon as possible to avoid token expiration. See [Best Practices for Managing Raw UID2s](sharing-best-practices.md#best-practices-for-managing-raw-uid2s).

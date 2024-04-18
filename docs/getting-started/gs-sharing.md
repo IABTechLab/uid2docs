@@ -9,9 +9,11 @@ sidebar_position: 24
 
 In UID2, sharing is a process for distributing either [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) or [UID2 tokens](../ref-info/glossary-uid.md#gl-raw-uid2) between UID2 participants.
 
-All instances where a raw UID2 or UID2 token is shared with another participant fall under the definition of sharing. All sharing participants must meet the [legal requirements](#legal-requirements-for-uid2-sharing) specified in the following section, [Legal Requirements for UID2 Sharing](#legal-requirements-for-uid2-sharing).
+All instances where a raw UID2 or UID2 token is shared with another participant fall under the definition of sharing. All sharing participants must meet the legal requirements specified in the following section, [Legal Requirements for UID2 Sharing](#legal-requirements-for-uid2-sharing).
 
-Technical requirements vary according to your role and the implementation approach, and are covered in the instructions for each scenario in the sharing documentation. For a summary of scenarios, see [Sharing Scenarios](sharing/sharing-overview.md#sharing-scenarios) in the Sharing Overview.
+In addition, all sharing participants must follow the security requirements specified in [Security Requirements for UID2 Sharing](../sharing/sharing-security).
+
+Technical requirements vary according to your role and the implementation approach, and are covered in the instructions for each scenario in the sharing documentation. For a summary of scenarios, see [Approved Sharing Scenarios](sharing/sharing-overview.md#approved-sharing-scenarios) in the Sharing Overview.
 
 ## Legal Requirements for UID2 Sharing
 
@@ -30,7 +32,7 @@ If you've agreed to comply with the UID2 Participation Policy, you can proceed w
 For more information on UID2 sharing, refer to the following pages:
 
 - General information: [UID2 Sharing: Overview](../sharing/sharing-overview.md)
-- [Security Within UID2 Sharing](sharing-security)
+- [Security Requirements for UID2 Sharing](../sharing/sharing-security)
 - Information about setting up a UID2 Portal account and configuring sharing relationships: [UID2 Portal: Overview](../portal/portal-overview.md)
 - [Tokenized Sharing Overview](../sharing/sharing-tokenized-overview.md)
 - [Sharing UID2s: Use Cases](../sharing/sharing-use-cases.md)

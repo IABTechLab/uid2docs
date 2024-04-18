@@ -1,15 +1,15 @@
 ---
-title: Security Within UID2 Sharing
+title: Security Requirements for UID2 Sharing
 description: Information about UID2 security, including authentication, authorization, accounting, and secure transport.
 hide_table_of_contents: false
 sidebar_position: 03
 ---
 
-# Security Within UID2 Sharing
+# Security Requirements for UID2 Sharing
 
-All UID2 participants have a core responsibility to make sure that the UID2 data is protected from unauthorized access or use, in all states including storage and transit.
+All UID2 participants have a core responsibility to ensure that the UID2 ecosystem is safe. The following are standard security practices that we recommend all UID2 participants use.
 
-The security guidelines for sharing UID2s between authorized sharing participants include these criteria, which must all be met consistently:
+The security requirements for sharing UID2s between authorized sharing participants include these criteria, which must all be met consistently:
 
 - [Authentication](#authentication)
 - [Authorization](#authorization)
@@ -28,20 +28,35 @@ Common ways of achieving this are to require verification via credentials, such 
 - Username and password
 - API keys
 
+It's important that authentication includes some type of verification such as two-factor authentication. For example, if the recipient provides an email address, first verify that the individual is the authorized owner of the email address. (**GWH__ I added this based on discussion in meeting 4/18**)
+
 ## Authorization
 
-Authorization means that you verify that the sharing participant you're working with is authorized to receive the data that you're sending&#8212;or to send the data that you're receiving. In the context of sharing, this means that the participant has the appropriate role required to access the specific UID2 data. Some examples are the following:
+Authorization means that before taking an action, such as sending data, you verify that the recipient of the action is authorized and trusted.
 
-- The receiver has accepted the terms of the applicable UID2 participation policy.
-- The receiver has an appropriate security role for all steps of the transmission flow. For example, if transmission is via Amazon AWS, the receiver must have an appropriate security role for the applicable Amazon AWS account.
+For example, if transmission is facilitated through AWS S3, an authenticated recipient should be granted access via a role specifically for this purpose.
+
+(**GWH__ per TimH and others in meeting 4/18 there needs to be the third party that is the authorization provider ie us... how?**)
 
 ## Accounting
 
-Accounting means that there is a record of the transaction, so that activity can be reviewed or audited if necessary. The following are some examples of accounting:
+Accounting means that there is a record of the transaction, so that activity can be reviewed or audited if necessary. To ensure a comprehensive and attributable transaction log for data transfers between two [sharing participants](ref-info/glossary-uid.md#gl-sharing-participant), it's important to record specific fields that capture the details and context of each transaction.
 
-- Application logs
-- Web server logs
-- Cloud storage logs
+The following table shows the key fields you should consider including in the transaction log.
+
+| Data | Explanation |
+| :--- | :--- |
+| Timestamp | The exact date and time when the data transfer occurred. |
+| Data recipient ID | The identifier of the participant who is receiving the data. |
+| Transaction ID | A unique identifier for each transaction. This ID can be used to track and reference specific transactions in the log. |
+| Data volume | The amount of data transferred, typically measured in terms of lines (number of distinct UID2s) or file size (for example, megabytes or gigabytes). |
+| Transfer method | The method or protocol used for the data transfer (for example, HTTPS, SFTP, or an S3 presigned URL). |
+| Status of transfer | The outcome of the transfer (for example, successful, failed, or partial). |
+| Error codes/logs | If the transfer fails or encounters issues, recording error codes or a brief log of the error can assist in diagnosing and resolving the problem. |
+| Authorization details | Information about who authorized the transfer, including relevant permissions or approvals. |
+| Checksum or hash value | A checksum or hash value to verify the integrity of the data after the transfer. This helps in ensuring that the data was not altered during the transfer. |
+
+Additional logs, such as network logs, application logs, and cloud audit logs, can also help by providing additional information such as source and destination IP addresses or cloud platform account IDs.
 
 ## Secure Transport
 
