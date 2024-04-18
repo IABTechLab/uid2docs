@@ -254,6 +254,7 @@ const fullSidebar = [
       collapsed: false,
       items: [
         'sharing/sharing-overview',
+        'sharing/sharing-security',
         'sharing/sharing-use-cases',
         {
           type: 'category',

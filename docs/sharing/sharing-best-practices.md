@@ -23,6 +23,9 @@ Follow these guidelines:
 - For any UID2s that are in your platform, use and store them as raw UID2s, not as UID2 tokens. When you receive UID2 tokens, decrypt them as soon as possible.
 
   This is important because a UID2 token is short-lived. When the key that was used to create a UID2 token expires, you can no longer decrypt the token.
+
+- A raw UID2 **must not** be passed through non-participants. For more information, see [UID2 Token Pass-Through](sharing-tokenized-overview.md#uid2-token-pass-through).
+
 - In your code, for future extensibility, allow for a raw UID2 length of 100 characters.
 
 ## Best Practices for Managing UID2 Tokens
