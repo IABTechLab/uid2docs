@@ -157,7 +157,8 @@ To create the matching workflow, first sign in to the AWS Management console, op
 
      NOTE: If you have both email and phone numbers in the same record, the workflow duplicates each record in the output. If you don't want this, the best approach is to create a separate workflow for each. See details earlier in this section.
 
-   - **Service access**: Grant permissions to Entity Resolution to access the specified data in AWS Glue and to call AWS Data Exchange on your behalf. We highly recommend selecting "Create and use a new service role" and let the workflow create a new role with all the required permissions. If you are using an existing service role then make sure it has permission to call AWS Data Exchange by adding the following permission
+   - **Service access**: Grant permissions to Entity Resolution to access the specified data in AWS Glue and to call AWS Data Exchange on your behalf. We highly recommend that you select "Create and use a new service role" and let the workflow create a new role with all the required permissions. If you're using an existing service role, make sure that it is authorized to call AWS Data Exchange by adding the following permission:
+
         ```json
        {
         "Version": "2012-10-17",
