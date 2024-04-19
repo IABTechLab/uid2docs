@@ -28,7 +28,7 @@ Tokenized sharing from raw UID2s could be applicable to any sharing participant,
 
 To share raw UID2s with another participant by encrypting into UID2 tokens before sending, the sharing **sender** must create a UID2 Portal account and implement sharing, and must create a sharing relationship with the receiver.
 
-The sharing **receiver** must create a UID2 Portal account and implement sharing, and must have a sharing relationship with the sender, so that the receiver has the encryption keys necessary to decrypt the UID2 tokens into raw UID2s.
+The sharing **receiver** must create a UID2 Portal account and implement sharing, and must have a sharing relationship with the sender, so that the receiver has the cryptographic keys necessary to decrypt the UID2 tokens into raw UID2s.
 
 ## Account Setup in the UID2 Portal
 
@@ -92,7 +92,7 @@ The following steps are for all sharing participants who are using an SDK to enc
 2. Integrate the SDK into your code to implement each step, depending on whether your role is sender or receiver. To see code examples for the language you're using, follow the link in the table provided in Step 1.
    1. Both senders and receivers: define the UID2 client.
    
-   2. Both senders and receivers: define the schedule for refreshing encryption keys.
+   2. Both senders and receivers: define the schedule for refreshing cryptographic keys.
    
       Recommended refresh interval is hourly. For an example, see [Decryption Key Refresh Cadence for Sharing (SDK Only)](#decryption-key-refresh-cadence-for-sharing-sdk-only).
 
@@ -144,4 +144,4 @@ It's important to set up a regular cadence for refreshing decryption keys, and t
 For details, see the following sections in *UID2 Sharing: Best Practices*:
 
 - [Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing)
-- [Best Practices for Managing Raw UID2s](sharing-best-practices.md#best-practices-for-managing-raw-uid2s)
+- [Best Practices for Managing Raw UID2s and UID2 Tokens](sharing-best-practices.md#best-practices-for-managing-raw-uid2s-and-uid2-tokens)

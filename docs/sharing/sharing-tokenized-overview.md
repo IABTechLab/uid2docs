@@ -10,8 +10,8 @@ sidebar_position: 04
 In UID2, tokenized sharing means encrypting [DII](../ref-info/glossary-uid.md#gl-dii) or [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) into [UID2 tokens](../ref-info/glossary-uid.md#gl-raw-uid2) and sharing the tokens with authorized recipients. Using UID2 tokens protects raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bid stream or via pixels, but you can use it in any sharing use case.
 
  The tokens can be generated in either of the following ways:
-- By encrypting raw UID2s into UID2 tokens.
-- By generating UID2 tokens directly from DII.
+- By encrypting raw UID2s into UID2 tokens: see [Tokenized Sharing: Starting with a Raw UID2](#tokenized-sharing-starting-with-a-raw-uid2).
+- By generating UID2 tokens directly from DII: see [Tokenized Sharing: Starting with DII](#tokenized-sharing-starting-with-dii).
 
 In this file:
 - [Tokenized Sharing Scenarios](#tokenized-sharing-scenarios)
@@ -55,7 +55,7 @@ Choose the integration option that's right for your implementation, and then cli
 The steps that the receiver takes are similar for all approved sharing scenarios. The receiver must decrypt the UID2 token to arrive at the raw UID2. To do this, you must have a UID2 Portal account and the sender must create a sharing relationship with you, so that you can access the sender's decryption keys.
 
 :::tip
-When you receive the tokens, we recommend decrypting as soon as possible to avoid token expiration. See [Best Practices for Managing Raw UID2s](sharing-best-practices.md#best-practices-for-managing-raw-uid2s).
+When you receive the tokens, we recommend decrypting as soon as possible to avoid token expiration. See [Best Practices for Managing Raw UID2s and UID2 Tokens](sharing-best-practices.md#best-practices-for-managing-raw-uid2s-and-uid2-tokens).
 :::
 
 The following implementation options are available for decrypting UID2 tokens.
@@ -186,7 +186,7 @@ The following example shows sample values when converting input DII to a raw UID
 
 The UID2 token is designed so that even if the underlying raw UID2 remains the same, each time a UID2 token is generated from it, the token value is different. This means that the UID2 token can be seen by all but can only be used by UID2 participants that have access to the decryption key. 
 
-For example, UID2 tokens are habitually passed through the bid stream from a publisher to a DSP. Although a UID2 token might go through several parties, such as an SSP, it can be decrypted only by an authorized UID2 participant. On its journey through the bid stream, the UID2 token can safely pass through one or more intermediaries.
+For example, UID2 tokens are regularly passed through the bid stream from a publisher to a DSP. Although a UID2 token might go through several parties, such as an SSP, it can be decrypted only by an authorized UID2 participant. On its journey through the bid stream, the UID2 token can safely pass through one or more intermediaries.
 
 The same is true in tokenized sharing scenarios between UID2 sharing participants. A UID2 token can be passed through non-UID2 participants.
 

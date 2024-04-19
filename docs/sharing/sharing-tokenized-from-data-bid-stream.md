@@ -83,7 +83,7 @@ The workflow for generating UID2 tokens from DII, via the API or the specified s
 
    - Publisher: Use one of the integration options listed in [Implementation Options for Senders](#implementation-options-for-senders).
 
-     Optional to restrict who can decrypt your UID2 tokens: Set up sharing permissions in the UID2 Portal. See [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal).
+     Optional to restrict which DSPs can decrypt your UID2 tokens: Set up sharing permissions in the UID2 Portal. See [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal).
    - DSP: Use one of the integration options listed in [Decryption Options for Receivers](#decryption-options-for-receivers).
 
 1. The publisher completes the following steps to create and send the UID2 tokens:
@@ -149,4 +149,4 @@ It's important to set up a regular cadence for refreshing decryption keys, and t
 For details, see the following sections in *UID2 Sharing: Best Practices*:
 
 - [Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing)
-- [Best Practices for Managing Raw UID2s](sharing-best-practices.md#best-practices-for-managing-raw-uid2s)
+- [Best Practices for Managing Raw UID2s and UID2 Tokens](sharing-best-practices.md#best-practices-for-managing-raw-uid2s-and-uid2-tokens)

@@ -321,11 +321,11 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-sharing">Sharing</MdxJumpAnchor></dt>
 <dd>In the context of UID2, sharing is a process for distributing <a href="#gl-raw-uid2">raw UID2s</a>, directly or by <a href="#gl-uid2-token">UID2 tokens</a>, from one UID2 <a href="#gl-sharing-participant">sharing participant</a> to another.</dd>
-<dd>For details, see <a href="/docs/category/uid2-sharing">UID2 Sharing</a>.</dd>
+<dd>For details, see <a href="../getting-started/gs-sharing">UID2 Sharing</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-sharing-participant">Sharing participant</MdxJumpAnchor></dt>
-<dd>In UID2, a sharing participant is a company that takes part in <a href="#gl-sharing">sharing</a>&#8212;distributing <a href="#gl-raw-uid2">raw UID2s</a> or <a href="#gl-uid2-token">UID2 tokens</a> from one UID2 participant to another&#8212;either as a sender or a receiver.</dd>
-<dd>For details, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd>
+<dd>In UID2, a sharing participant is a company that has agreed to comply with the Participation Policy and takes part in <a href="#gl-sharing">sharing</a>&#8212;distributing <a href="#gl-raw-uid2">raw UID2s</a> or <a href="#gl-uid2-token">UID2 tokens</a> from one authorized UID2 participant to another&#8212;either as a sender or a receiver.</dd>
+<dd>For details, see <a href="../getting-started/gs-sharing">UID2 Sharing</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-sso">Single sign-on (SSO)</MdxJumpAnchor></dt>
 <dd>SSO is an acronym for Single sign-on. SSO allows a user to log in with the same credentials (usually, but not always, ID and password) to one of several software systems, such as apps or websites. SSO allows the user to log in once to multiple applications or sites using one set of credentials. With SSO, websites/apps do not have to maintain their own authentication systems.</dd>
@@ -340,7 +340,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dl>
 
 <dt><MdxJumpAnchor id="gl-tokenized-sharing">Tokenized sharing</MdxJumpAnchor></dt>
-<dd>Tokenized sharing means encrypting <a href="#gl-dii">DII</a> or <a href="#gl-raw-uid2">Raw UID2s</a> into <a href="#gl-uid2-token">UID2 tokens</a> and sharing the tokens with authorized recipients. Using UID2 tokens protects raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bid stream or via pixels, but you can use it in any sharing use case.</dd>
+<dd>Tokenized sharing means encrypting <a href="#gl-dii">DII</a> or <a href="#gl-raw-uid2">Raw UID2s</a> into <a href="#gl-uid2-token">UID2 tokens</a> and sharing the tokens with authorized recipients. Using UID2 tokens protects (**GWH__KL see comment https://ttdcorp-my.sharepoint.com/:w:/r/personal/grant_miller_thetradedesk_com/_layouts/15/Doc.aspx?sourcedoc=%7B2D57BC3B-8BE8-42BE-A987-E38E763E187D%7D&file=LEGAL%20COMMENTS%20-%20review_gwh-APIDOCS-2134-sharing-updates_08_20240410_Legal.docx&nav=eyJjIjoxNzEzOTcyOTAwfQ&action=default&mobileredirect=true**)raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bid stream or via pixels, but you can use it in any sharing use case.</dd>
 <dd>For details, see <a href="../sharing/sharing-tokenized-overview">Tokenized Sharing Overview</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-transparency-and-control-portal">Transparency and Control Portal</MdxJumpAnchor></dt>

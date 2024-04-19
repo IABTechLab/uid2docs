@@ -13,11 +13,10 @@ However, every UID2 participant has a responsibility to maintain the security of
 
 In this file:
 
-- [Best Practices for Managing Raw UID2s](#best-practices-for-managing-raw-uid2s)
-- [Best Practices for Managing UID2 Tokens](#best-practices-for-managing-uid2-tokens)
+- [Best Practices for Managing Raw UID2s and UID2 Tokens](#best-practices-for-managing-raw-uid2s-and-uid2-tokens)
 - [Decryption Key Refresh Cadence for Sharing](#decryption-key-refresh-cadence-for-sharing)
 
-## Best Practices for Managing Raw UID2s
+## Best Practices for Managing Raw UID2s and UID2 Tokens
 
 Follow these guidelines:
 - For any UID2s that are in your platform, use and store them as raw UID2s, not as UID2 tokens. When you receive UID2 tokens, decrypt them as soon as possible.
@@ -26,17 +25,11 @@ Follow these guidelines:
 
 - A raw UID2 **must not** be passed through non-participants. For more information, see [UID2 Token Pass-Through](sharing-tokenized-overview.md#uid2-token-pass-through).
 
-- In your code, for future extensibility, allow for a raw UID2 length of 100 characters.
+- In your code, for future extensibility, allow for the following:
 
-## Best Practices for Managing UID2 Tokens
+  - Raw UID2 length: 100 characters.
 
-Follow these guidelines:
-
-- When data is coming into your platform, or you are sending it out, make sure that the data is always in the form of UID2 tokens, not raw UID2s.
-
-  However, within your infrastructure, it's important to store raw UID2s, rather than UID2 tokens (see [Best Practices for Managing Raw UID2s](#best-practices-for-managing-raw-uid2s)). 
-
-- In your code, for future extensibility, allow for a UID2 token length of 500 characters.
+  - UID2 token length: 500 characters.
 
 ## Decryption Key Refresh Cadence for Sharing
 
