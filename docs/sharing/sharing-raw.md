@@ -7,4 +7,4 @@ sidebar_position: 08
 
 # Raw UID2 Sharing
 
-[Sharing participants](ref-info/glossary-uid.md#gl-sharing-participant) who want to share [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) with another authorized sharing participant are expected to adhere to the responsibilities of authentication, authorization, accounting, and secure transport, as specified in [Security Requirements for UID2 Sharing](sharing-security.md). Make sure that all points are rigorously followed.
+[Sharing participants](ref-info/glossary-uid.md#gl-sharing-participant) who want to share [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) with another authorized sharing participant must adhere to the responsibilities of authentication, authorization, accounting, and secure transport, as specified in [Security Requirements for UID2 Sharing](sharing-security.md). Make sure that all points are rigorously followed.

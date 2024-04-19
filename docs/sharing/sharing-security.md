@@ -18,7 +18,7 @@ The security requirements for sharing UID2s between authorized sharing participa
 - [Example Workflow](#example-workflow)
 
 :::important
-**All** these security points must be in place, continuously, if you are sending or receiving UID2s.
+**All** these security points must be in place continuously if you are sending or receiving UID2s, with two exceptions described in the [Exceptions](../getting-started/gs-sharing.md#exceptions) section on the UID2 Sharing *Getting Started* page.
 :::
 
 ## Authentication

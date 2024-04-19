@@ -18,7 +18,7 @@ Technical requirements vary according to your role and the implementation approa
 ## Legal Requirements for UID2 Sharing
 
 :::important
-UID2 sharing is allowed only for UID2 participants who have agreed to comply with the UID2 Participation Policy, with two exceptions described in the following section, [Exceptions](#exceptions). 
+UID2 sharing is allowed only for UID2 participants who have agreed to comply with the UID2 Participation Policy, with two exceptions described in the following section, [Exceptions](#exceptions).
 :::
 
 Before you can participate with UID2 sharing you must have in place an effective UID2 agreement that incorporates the UID2 Participation Policy. If you haven't satisfied this requirement, you cannot proceed with UID2 sharing.
@@ -29,7 +29,7 @@ If you still need to satisfy this requirement, or if you have any questions, ple
 
 ### Exceptions
 
-UID2 participants who have not yet agreed to comply with the UID2 Participation Policy, but have an effective UID2 agreement in place, may until further notice continue to do the following:
+The following specific types of UID2 participants who have not yet agreed to comply with the UID2 Participation Policy, but have an effective UID2 agreement in place, may until further notice continue with the following activities:
 
 - Publishers: Share UID2 tokens in the bid stream.
 
