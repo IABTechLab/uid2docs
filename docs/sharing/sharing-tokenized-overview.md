@@ -5,9 +5,11 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # Tokenized Sharing Overview
 
-In UID2, tokenized sharing means encrypting [DII](../ref-info/glossary-uid.md#gl-dii) or [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) into [UID2 tokens](../ref-info/glossary-uid.md#gl-raw-uid2) and sharing the tokens with authorized recipients. Using UID2 tokens protects raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bid stream or via pixels, but you can use it in any sharing use case.
+In UID2, tokenized sharing means encrypting <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> or <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2s</Link> into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and sharing the tokens with authorized recipients. Using UID2 tokens protects raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bid stream or via pixels, but you can use it in any sharing use case.
 
  The tokens can be generated in either of the following ways:
 - By encrypting raw UID2s into UID2 tokens: see [Tokenized Sharing: Starting with a Raw UID2](#tokenized-sharing-starting-with-a-raw-uid2).
@@ -26,7 +28,7 @@ In this file:
 
 ## Tokenized Sharing Scenarios
 
-In many scenarios, UID2 data is shared in the form of a [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token). Key use cases are shown in the following table.
+In many scenarios, UID2 data is shared in the form of a <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>. Key use cases are shown in the following table.
 
 | Scenario | Sender | Receiver | Sharing Approach |
 | :--- | :--- | :--- | :--- |
@@ -38,7 +40,7 @@ For additional examples, see [Sharing UID2s: Use Cases](sharing-use-cases.md).
 
 ## Sending UID2 Tokens to Another Sharing Participant
 
-You can send UID2 tokens to another authorized sharing participant. Sharing UID2s via UID2 tokens is an option in any sharing scenario, but is required within the bid stream or in pixels. The process is a little different depending on the starting point, as shown in the following table.
+You can send UID2 tokens to another authorized sharing participant. Sharing UID2s via <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> is an option in any sharing scenario, but is required within the bid stream or in pixels. The process is a little different depending on the starting point, as shown in the following table.
 
 Choose the integration option that's right for your implementation, and then click through for details.
 
