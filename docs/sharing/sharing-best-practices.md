@@ -13,10 +13,10 @@ The ability to securely share raw UID2s or UID2 tokens with other authorized UID
 
 However, every UID2 participant has a responsibility to maintain the security of the UID2 ecosystem. Here are some best practices to help ensure that UID2 sharing runs smoothly and securely.
 
-In this file:
+<!-- In this file:
 
 - [Best Practices for Managing Raw UID2s and UID2 Tokens](#best-practices-for-managing-raw-uid2s-and-uid2-tokens)
-- [Decryption Key Refresh Cadence for Sharing](#decryption-key-refresh-cadence-for-sharing)
+- [Decryption Key Refresh Cadence for Sharing](#decryption-key-refresh-cadence-for-sharing) -->
 
 ## Best Practices for Managing Raw UID2s and UID2 Tokens
 

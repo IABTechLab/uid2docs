@@ -25,6 +25,8 @@ All instances where a raw UID2 or UID2 token is shared with another participant 
 
 In UID2, a sharing participant is a company that takes part in distributing raw UID2s or UID2 tokens from one UID2 participant to another, either as a sender or a receiver.
 
+(**GWH__KL01 Grant x'd out the above "from one UID2 participant to another"in the glossary and I didn't understand his comment "We had proposed this in the other doc.  It sounds like it was aligned on the call.  If anyone has any objections, feel free to raise them." -- is it OK here or should it come out?**)
+
 A sharing participant can be a publisher, advertiser, DSP, or data provider, or might have more than one of these roles.
 
 ## Approved Sharing Scenarios

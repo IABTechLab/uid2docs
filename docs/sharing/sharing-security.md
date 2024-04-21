@@ -9,19 +9,19 @@ import Link from '@docusaurus/Link';
 
 # Security Requirements for UID2 Sharing
 
-All UID2 participants have a core responsibility to ensure that the UID2 ecosystem is safe. The following are standard security practices that we recommend all UID2 participants use.
+All UID2 participants have a core responsibility to ensure that the UID2 ecosystem is safe. The following are standard security practices for all UID2 participants. If you are sharing raw UID2s they are required; if you are sharing UID2 tokens they are recommended.
 
-The security requirements for sharing UID2s between authorized sharing participants include these criteria, which must all be met consistently:
+:::important
+**All** these security points must be in place continuously if you are sending or receiving raw UID2s.
+:::
+
+The security requirements for sharing raw UID2s between authorized sharing participants include these criteria, which must all be met consistently:
 
 - [Authentication](#authentication)
 - [Authorization](#authorization)
 - [Accounting](#accounting)
 - [Secure Transport](#secure-transport)
 - [Example Workflow](#example-workflow)
-
-:::important
-**All** these security points must be in place continuously if you are sending or receiving UID2s, with two exceptions described in the [Exceptions](../getting-started/gs-sharing.md#exceptions) section on the UID2 Sharing *Getting Started* page.
-:::
 
 ## Authentication
 
@@ -38,9 +38,7 @@ Security questions, email verification links, or SMS verification codes are also
 Authorization online determines what resources a user can access and what actions they can perform after they have been authenticated. This process involves:
 
 - Setting permissions and restrictions based on the user's role or account details.
-- Ensuring that users can only access information and functionality relevant to their privileges.
-
-Sharing participants must have an executed contract in place with UID2 in order to be authorized to send or receive raw UID2s or UID2 tokens.
+- Ensuring that users can only access information and functionality relevant to their privileges. In addition, sharing participants must have an executed contract in place with UID2, and must have signed the UID2 Participation Policy, in order to be authorized to send or receive raw UID2s or UID2 tokens, with the exception of the two cases specified in [Exceptions](../getting-started/gs-sharing.md#exceptions) in the UID2 Sharing Getting Started document.
 
 To verify that your authenticated recipient is an authorized UID2 sharing participant, ask your UID2 contact.
 
@@ -87,7 +85,7 @@ The following is an example workflow for an online AAA (Authentication, Authoriz
      This step involves checking a database or directory service to confirm the user’s access rights based on the authenticated identity. It answers the question, "Is this person authorized to receive UID2 data from me?"
 
 4. UID2 Participant Authorization:
-   - A designated verifier verifies that a valid, signed contract exists between the recipient (or their organization) and UID2.
+   - A designated verifier verifies that a valid, signed contract, including the UID2 Participation Policy, exists between the recipient (or their organization) and UID2.
    
      For help with this step, ask your UID2 contact.
 

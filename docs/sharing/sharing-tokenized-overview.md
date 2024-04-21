@@ -9,13 +9,13 @@ import Link from '@docusaurus/Link';
 
 # Tokenized Sharing Overview
 
-In UID2, tokenized sharing means encrypting <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> or <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2s</Link> into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and sharing the tokens with authorized recipients. Using UID2 tokens protects raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bid stream or via pixels, but you can use it in any sharing use case.
+In UID2, tokenized sharing means encrypting <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> or <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2s</Link> into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and sharing the tokens with authorized recipients. Using UID2 tokens helps protect raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bid stream or via pixels, but you can use it in any sharing use case.
 
  The tokens can be generated in either of the following ways:
 - By encrypting raw UID2s into UID2 tokens: see [Tokenized Sharing: Starting with a Raw UID2](#tokenized-sharing-starting-with-a-raw-uid2).
 - By generating UID2 tokens directly from DII: see [Tokenized Sharing: Starting with DII](#tokenized-sharing-starting-with-dii).
 
-In this file:
+<!-- In this file:
 - [Tokenized Sharing Scenarios](#tokenized-sharing-scenarios)
 - [Sending UID2 Tokens to Another Sharing Participant](#sending-uid2-tokens-to-another-sharing-participant)
 - [Receiving UID2 Tokens from Another Sharing Participant](#receiving-uid2-tokens-from-another-sharing-participant)
@@ -24,7 +24,7 @@ In this file:
   - [Example: DII to UID2 Token](#example-dii-to-uid2-token)
   - [Tokenized Sharing: Starting with a Raw UID2](#tokenized-sharing-starting-with-a-raw-uid2)
   - [Example: Raw UID2 to UID2 Token](#example-raw-uid2-to-uid2-token)
-- [UID2 Token Pass-Through](#uid2-token-pass-through)
+- [UID2 Token Pass-Through](#uid2-token-pass-through) -->
 
 ## Tokenized Sharing Scenarios
 

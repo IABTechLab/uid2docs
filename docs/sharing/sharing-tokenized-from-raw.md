@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 In some cases, sharing participants might have raw UID2s and want to encrypt them before sending to another sharing participant. One example is for advertisers sharing UID2s in creative pixels.
 
-In this file:
+<!-- In this file:
 - [Audience](#audience)
 - [Overview](#overview)
 - [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)
@@ -20,7 +20,7 @@ In this file:
   - [Decryption Key Refresh Cadence for Sharing (SDK Only)](#decryption-key-refresh-cadence-for-sharing-sdk-only)
   - [Decryption Key Refresh Example](#decryption-key-refresh-example)
 - [Implementing Sharing Encryption/Decryption Using Snowflake](#implementing-sharing-encryptiondecryption-using-snowflake)
-- [Information for Sharing Receivers](#information-for-sharing-receivers)
+- [Information for Sharing Receivers](#information-for-sharing-receivers) -->
 
 ### Audience
 

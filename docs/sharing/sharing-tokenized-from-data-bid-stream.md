@@ -15,14 +15,14 @@ Publishers can encrypt the DII into a UID2 token, using one of the [implementati
 
 Other sharing participants might also use this form of tokenized sharing. For example, an advertiser might use it for creating a UID2 token for a tracking pixel. 
 
-In this file:
+<!-- In this file:
 - [Audience](#audience)
 - [Implementation Options for Senders](#implementation-options-for-senders)
 - [Decryption Options for Receivers](#decryption-options-for-receivers)
 - [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)
 - [Workflow: Tokenized Sharing in the Bid Stream](#workflow-tokenized-sharing-in-the-bid-stream)
 - [Token Example for Publishers in the Bid Stream](#token-example-for-publishers-in-the-bid-stream)
-- [Information for Sharing Receivers](#information-for-sharing-receivers)
+- [Information for Sharing Receivers](#information-for-sharing-receivers) -->
 
 :::caution
 Data in the bid stream can be accessed by unauthorized parties, so it is never acceptable to share raw UID2s in the bid stream. If you're sharing in the bid stream, tokenized sharing is required.
