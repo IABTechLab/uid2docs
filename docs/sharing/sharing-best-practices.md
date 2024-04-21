@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 05
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Sharing: Best Practices
 
 The ability to securely share raw UID2s or UID2 tokens with other authorized UID2 users opens the door to using UID2 in many additional ways in your business.

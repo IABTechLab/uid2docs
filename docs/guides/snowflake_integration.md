@@ -7,6 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # Snowflake Integration Guide
 
 <!-- This guide includes the following information:
@@ -23,7 +25,7 @@ sidebar_position: 04
    - [Decrypt Tokens](#decrypt-tokens)
    - [UID2 Sharing Example](#uid2-sharing-example) -->
 
-[Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share authorized consumer identifier data without exposing sensitive [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii). Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
+[Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share authorized consumer identifier data without exposing sensitive <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>. Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
 
 The following listings for UID2 are available on the Snowflake marketplace:
 - For advertisers: [Unified ID 2.0: Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV/unified-id-2-0-unified-id-2-0-advertiser-identity-solution?originTab=provider&providerName=Unified+ID+2.0)
@@ -117,7 +119,7 @@ All query examples use the following default values for each name variable:
 
 ### Map DII
 
-To map all types of [DII](../ref-info/glossary-uid.md#gl-dii), use the `FN_T_UID2_IDENTITY_MAP` function.
+To map all types of <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>, use the `FN_T_UID2_IDENTITY_MAP` function.
 
 If the DII is an email address, the service normalizes the data using the UID2 [Email Address Normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization) rules.
 

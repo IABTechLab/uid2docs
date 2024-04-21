@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 08
 ---
 
+import Link from '@docusaurus/Link';
+
 # Tokenized Sharing from Raw UID2s
 
 In some cases, sharing participants might have raw UID2s and want to encrypt them before sending to another sharing participant. One example is for advertisers sharing UID2s in creative pixels.
@@ -42,7 +44,7 @@ For details, see [UID2 Portal: Overview](../portal/portal-overview.md) and follo
 
 At a very high level, the following are the steps to set up and configure tokenized sharing from raw UID2s:
 
-1. All users must set up an account and configure sharing options. See [Tokenized Sharing Overview: Account Setup in the UID2 Portal](sharing-tokenized-overview.md#account-setup-in-the-uid2-portal).
+1. All users must set up an account and configure sharing options. See [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal).
 
 2. To implement sharing in your code, choose from the following, depending on the integration option you're using:
 
@@ -53,7 +55,7 @@ At a very high level, the following are the steps to set up and configure tokeni
 
 The workflow for tokenized sharing by generating UID2 tokens from raw UID2s consists of the following steps.
 
-NOTE: Both sender and receiver must have a UID2 Portal account. See [Request an Account](../portal/participant-info.md#request-an-account).
+NOTE: Both sender and receiver must have a UID2 Portal account. See [Request an Account](../portal/portal-getting-started.md#request-an-account).
 
 1. Sender and receiver: Integrate with UID2 sharing, using a [UID2 SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk) or [Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake).
 
@@ -137,7 +139,7 @@ The following steps are for Snowflake users who want to take part in UID2 sharin
 
 To be able to decrypt a UID2 token into a raw UID2, you must have a UID2 Portal account and the sender must create a sharing relationship with you.
 
-For details, see [Sharing Overview: Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant).
+For details, see [Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant).
 
 It's important to set up a regular cadence for refreshing decryption keys, and to decrypt UID2 tokens promptly.
 

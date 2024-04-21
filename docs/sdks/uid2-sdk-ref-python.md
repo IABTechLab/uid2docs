@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 06
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 SDK for Python Reference Guide
 
 You can use the UID2 SDK for Python on the server side to facilitate the following:
@@ -128,7 +130,7 @@ Available information returned through the SDK is outlined in the following tabl
    ```
 
       :::important
-      Be sure to call this function only when you have obtained legal basis to convert the user’s [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to UID2 tokens for targeted advertising.
+      Be sure to call this function only when you have obtained legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
       :::
 
  `do_not_generate_tokens_for_opted_out()` applies `optout_check=1` in the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call. Without this, `optout_check` is omitted to maintain backwards compatibility.

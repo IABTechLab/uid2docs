@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 24
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Sharing
 
 In UID2, sharing is a process for distributing [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2), either directly or encrypted into [UID2 tokens](../ref-info/glossary-uid.md#gl-raw-uid2), between UID2 participants.

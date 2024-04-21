@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 08
 ---
 
+import Link from '@docusaurus/Link';
+
 # Tokenized Sharing in Pixels
 
 UID2 data shared in pixels must be in the form of UID2 tokens generated in one of these two ways:
@@ -94,7 +96,7 @@ All the implementation steps are the same as for [tokenized sharing from raw UID
 
 To be able to decrypt a UID2 token into a raw UID2, you must have a UID2 Portal account and the sender must create a sharing relationship with you.
 
-For details, see [Sharing Overview: Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant).
+For details, see [Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant).
 
 It's important to set up a regular cadence for refreshing decryption keys, and to decrypt UID2 tokens promptly.
 

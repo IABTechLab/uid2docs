@@ -6,6 +6,8 @@ sidebar_position: 01
 displayed_sidebar: docs
 ---
 
+import Link from '@docusaurus/Link';
+
 # Unified ID 2.0 Overview
 
 <!-- It includes the following:
@@ -66,7 +68,7 @@ The following sections explain and illustrate the key elements of the UID2 frame
 
 ### UID2 Identifier Types
 
-UID2 is a deterministic ID that is based on [directly identifying information (DII)](ref-info/glossary-uid.md#gl-dii), such as email address or phone number. There are two types of UID2s: raw UID2s and UID2 tokens (also known as advertising tokens). The following table explains each type.
+UID2 is a deterministic ID that is based on <Link href="ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>, such as email address or phone number. There are two types of UID2s: raw UID2s and UID2 tokens (also known as advertising tokens). The following table explains each type.
 
 | ID Type | Shared in Bid Stream? | Description |
 | :--- | :--- | :--- |

@@ -7,6 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 18
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Private Operator for Azure Integration Guide
 
 This guide provides information for setting up the UID2 Operator Service in a [Confidential Container](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers), a confidential computing option from Microsoft Azure. Confidential containers run in a hardware-backed Trusted Execution Environment (TEE) that provides intrinsic capabilities such as data integrity, data confidentiality, and code integrity.

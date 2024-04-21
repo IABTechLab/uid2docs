@@ -5,10 +5,11 @@ hide_table_of_contents: false
 sidebar_position: 02
 ---
 
-# UID2 SDK for JavaScript Reference Guide
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
+
+# UID2 SDK for JavaScript Reference Guide
 
 export const New = () => (
   <span className='pill'>NEW IN V3</span>

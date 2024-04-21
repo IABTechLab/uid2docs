@@ -7,6 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 03
 ---
 
+import Link from '@docusaurus/Link';
+
 # Publisher Integration Guide, Server-Only
 
 このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 Token (Advertising Token) を生成したいパブリッシャーを対象としています。
@@ -82,7 +84,7 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 | :--- | :--- | :--- |
 | 2-a  | N/A      | Step [1-e](#establish-identity-capture-user-data) の `advertising_token` を入札のために SSP に送信します。そのままの値を送信します。 |
 
->NOTE: UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#%E3%83%93%E3%83%83%E3%83%89%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%A0%E3%81%A7-UID2-Token-%E3%81%AF%E3%81%A9%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E8%A6%8B%E3%81%88%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F) を参照してください。
+>NOTE: UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bid-stream) を参照してください。
 
 ### Refresh a UID2 Token
 

@@ -9,6 +9,7 @@ sidebar_position: 04
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
 
 # Client-Side Integration Guide for JavaScript
 
@@ -145,7 +146,7 @@ UID2 provides the publisher with the following values required to use the client
 
 You'll have one set of these values for your publisher testing environment, and a separate set for your production environment.
 
-To configure the SDK, call one of the following methods, with an object containing the **public key** and **subscription ID** that you received during account setup, as well as the user's hashed or unhashed [DII](../ref-info/glossary-uid.md#gl-dii) (email address or phone number):
+To configure the SDK, call one of the following methods, with an object containing the **public key** and **subscription ID** that you received during account setup, as well as the user's hashed or unhashed <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number):
 
 *  `__uid2.setIdentityFromEmail`
 *  `__uid2.setIdentityFromEmailHash`

@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 07
 ---
 
+import Link from '@docusaurus/Link';
+
 # API Permissions
 
 UID2 エコシステムには、特定のアクティビティを完了するためのアクセスを許可する、いくつかの異なる API パーミッション(権限) が含まれています。このアプローチは、UID2 の全体的な安全設計の一部です。

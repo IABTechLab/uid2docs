@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 13
 ---
 
+import Link from '@docusaurus/Link';
+
 # Normalization and Encoding
 
 このページでは、ユーザー情報の正規化とエンコードに関する情報を提供します。UID2 を使用する際には、正規化とエンコードを正しく行うことが重要です。

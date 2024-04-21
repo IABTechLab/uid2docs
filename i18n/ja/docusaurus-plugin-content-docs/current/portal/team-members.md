@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 07
 ---
 
+import Link from '@docusaurus/Link';
+
 # Team Members
 
 <!-- It includes the following:

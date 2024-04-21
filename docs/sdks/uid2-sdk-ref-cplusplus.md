@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 10
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 SDK for C++ Reference Guide
 
 You can use the UID2 SDK for C++ on the server side to facilitate decrypting of UID2 tokens to access the raw UID2. 

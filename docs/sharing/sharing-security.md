@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 03
 ---
 
+import Link from '@docusaurus/Link';
+
 # Security Requirements for UID2 Sharing
 
 All UID2 participants have a core responsibility to ensure that the UID2 ecosystem is safe. The following are standard security practices that we recommend all UID2 participants use.

@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 08
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 SDK for C# / .NET Reference Guide
 
 Server-Side で UID2 SDK for C# / .NET を使用すると、以下を簡単に行うことができます:
