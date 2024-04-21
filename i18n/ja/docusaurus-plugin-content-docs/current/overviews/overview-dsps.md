@@ -9,6 +9,8 @@ banner_description: より耐久性のある識別子でデータ戦略を可能
 displayed_sidebar: sidebarDSPs
 ---
 
+import Link from '@docusaurus/Link';
+
 デマンドサイドプラットフォーム(DSP、メディアバイイングプラットフォーム) として、Unified ID 2.0(UID2) を活用した ID 戦略を実施することで、以下を促進することができます:
 
 - 広告主のためのファーストパーティデータの有効化

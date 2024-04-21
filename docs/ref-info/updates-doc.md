@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 06
 ---
 
+import Link from '@docusaurus/Link';
+
 # Documentation Updates
 
 Check out the latest updates to our UID2 documentation resources.
@@ -213,7 +215,7 @@ For details, see [UID2 Private Operator for GCP Integration Guide](../guides/ope
 
 7 September 2023
 
-We clarified the instructions for normalizing and encoding [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to create a raw UID2 or UID2 token.
+We clarified the instructions for normalizing and encoding <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to create a raw UID2 or UID2 token.
 
 For details, see:
 

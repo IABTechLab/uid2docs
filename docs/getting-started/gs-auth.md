@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 05
 ---
 
+import Link from '@docusaurus/Link';
+
 # Authentication and Authorization
 
 To authenticate to the UID2 endpoints in a server-side implementation, you need the following:

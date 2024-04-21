@@ -5,9 +5,11 @@ hide_table_of_contents: false
 sidebar_position: 13
 ---
 
+import Link from '@docusaurus/Link';
+
 # Normalization and Encoding
 
-This page provides information about normalizing and encoding [directly Identifying information (DII)](../ref-info/glossary-uid.md#gl-dii). It's important that, in working with UID2, normalizing and encoding are performed correctly.
+This page provides information about normalizing and encoding <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>. It's important that, in working with UID2, normalizing and encoding are performed correctly.
 
 <!-- It includes the following sections:
 - [Introduction](#introduction)

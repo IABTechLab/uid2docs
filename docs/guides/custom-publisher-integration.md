@@ -7,6 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 03
 ---
 
+import Link from '@docusaurus/Link';
+
 # Publisher Integration Guide, Server-Only
 
 This guide is for publishers who want to generate UID2 tokens (advertising tokens) for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 

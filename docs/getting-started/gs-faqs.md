@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 20
 ---
 
+import Link from '@docusaurus/Link';
+
 # Frequently Asked Questions
 
 Frequently asked questions for UID2 are grouped into general categories by audience.
@@ -55,7 +57,7 @@ Here are some frequently asked questions for publishers using the UID2 framework
   - [How can I test that the DII sent and the returned token match up?](#how-can-i-test-that-the-dii-sent-and-the-returned-token-match-up)
   - [Do I need to decrypt tokens?](#do-i-need-to-decrypt-tokens)
   - [How will I be notified of user opt-out?](#how-will-i-be-notified-of-user-opt-out)
-  - [Where should I make token generation calls&#8212;from the server or client side?](#where-should-i-make-token-generation-callsfrom-the-server-side-or-the-client-side)
+  - [Where should I make token generation calls&#8212;from the server side or the client side?](#where-should-i-make-token-generation-callsfrom-the-server-side-or-the-client-side)
   - [Can I make token refresh calls from the client side?](#can-i-make-token-refresh-calls-from-the-client-side)
   - [How can I test the refresh token workflow?](#how-can-i-test-the-refresh-token-workflow)
   - [What is the uniqueness and rotation policy for UID2 tokens?](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
@@ -63,7 +65,7 @@ Here are some frequently asked questions for publishers using the UID2 framework
 
 #### How can I test that the DII sent and the returned token match up?
 
-You can use the [POST&nbsp;/token/validate](../endpoints/post-token-validate.md) endpoint to check whether the [DII](../ref-info/glossary-uid.md#gl-dii) that you are sending through [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) is valid. `POST /token/validate` is used primarily for testing purposes.
+You can use the [POST&nbsp;/token/validate](../endpoints/post-token-validate.md) endpoint to check whether the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> that you are sending through [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) is valid. `POST /token/validate` is used primarily for testing purposes.
 
 For details, see [Using POST&nbsp;/token/validate to Test](../endpoints/post-token-validate.md#using-post-tokenvalidate-to-test).
 
@@ -105,7 +107,7 @@ The procedure is a little different depending on whether or not you are using an
 
 ##### Without SDK:
 
-1. Depending on whether the [DII](../ref-info/glossary-uid.md#gl-dii) is an email address or a phone number, send a [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request using one of the following values:
+1. Depending on whether the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> is an email address or a phone number, send a [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request using one of the following values:
     - The `refresh-optout@example.com` as the `email` value.
     - The hash of `refresh-optout@example.com` as the `email_hash` value. 
     - The `+00000000002` as the `phone` value.
@@ -156,7 +158,7 @@ Here are some frequently asked questions for advertisers and data providers usin
 
 #### How do I know when to refresh the UID2 due to salt bucket rotation?
 
-Metadata supplied with the UID2 generation request indicates the salt bucket used for generating the UID2. Salt buckets persist and correspond to the underlying [DII](../ref-info/glossary-uid.md#gl-dii) used to generate a UID2. Use the  [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) endpoint to return which salt buckets rotated since a given timestamp. The returned rotated salt buckets inform you which UID2s to refresh.
+Metadata supplied with the UID2 generation request indicates the salt bucket used for generating the UID2. Salt buckets persist and correspond to the underlying <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> used to generate a UID2. Use the  [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) endpoint to return which salt buckets rotated since a given timestamp. The returned rotated salt buckets inform you which UID2s to refresh.
 
 :::note
 We do not make any promises about when the rotation takes place. To stay as up-to-date as possible, we recommend doing the checks once per hour.
@@ -243,7 +245,7 @@ The UID2 service does not introduce latency into the bidding process. Any latenc
 
 #### How should the DSP maintain proper frequency capping with UID2?
 
-The UID2 has the same chance as a cookie of becoming stale. Hence, the DSP can adapt the same infrastructure currently used for cookie or deviceID-based frequency capping for UID2. For details, see [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
+The UID2 has the same chance as a cookie of becoming stale. Hence, the DSP can adapt the same infrastructure currently used for cookie or deviceID-based frequency capping for UID2. For details, see [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation).
 
 #### Will all user opt-out traffic be sent to the DSP?
 

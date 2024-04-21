@@ -7,6 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # AWS Entity Resolution Integration Guide
 
 <!-- This guide includes the following information:

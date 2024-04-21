@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 06
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 SDK for Python Reference Guide
 
 UID2 Server-Side SDK を使用することで、以下のことが容易になります:

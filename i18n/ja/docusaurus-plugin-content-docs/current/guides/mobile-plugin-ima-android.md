@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 14
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 IMA Plugin for Android Integration Guide
 
 UID2 Interactive Media Ads (IMA) Plugin for Android は、[Google IMA SDK for Android](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side) を使用するパブリッシャーが、Android アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を [Secure Signal](https://support.google.com/admob/answer/11556288) として送信できるようにします。これは自動的に行われるため、アプリ開発者が直接コーディングする必要はありません。

@@ -7,6 +7,8 @@ sidebar_position: 07
 displayed_sidebar: sidebarAdvertisers
 ---
 
+import Link from '@docusaurus/Link';
+
 # Advertiser/Data Provider Integration Guide
 
 このガイドでは、ユーザーデータを収集し、DSP にプッシュする組織のためのインテグレーション手順について説明します。データコレクターには、広告主、データオンボーダー、測定プロバイダー、ID グラフプロバイダー、サードパーティデータプロバイダー、および DSP にデータを送信する他の組織が含まれます。

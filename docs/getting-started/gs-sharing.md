@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 24
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Sharing
 
 This page is in support of a feature that is currently in limited release.

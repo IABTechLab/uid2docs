@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # Sharing Permissions
 
 Sharing permissions (共有権限) を設定することで、他の UID2 参加者と UID2 を共有できるようになります。
