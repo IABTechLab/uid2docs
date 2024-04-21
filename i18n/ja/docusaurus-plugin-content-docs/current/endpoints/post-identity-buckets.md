@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 07
 ---
 
+import Link from '@docusaurus/Link';
+
 # POST /identity/buckets
 
 ソルトバケットのローテーションをモニターします。
@@ -23,7 +25,7 @@ Used by: このエンドポイントは、主に広告主とデータプロバ�
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required  | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
-NOTE: インテグレーション環境と本番環境では、異なる [APIキー](../ref-info/glossary-uid.md#gl-api-key) が必要です。
+NOTE: インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">APIキー</Link> が必要です。
 
 ### Unencrypted JSON Body Parameters
 

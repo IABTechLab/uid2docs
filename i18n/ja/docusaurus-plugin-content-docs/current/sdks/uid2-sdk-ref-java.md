@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 SDK for Java Reference Guide
 
 UID2 SDK for Java を使用すると、以下のことが容易になります:

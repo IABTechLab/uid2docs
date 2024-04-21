@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 14
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 SDK for iOS Reference Guide
 
 <!-- This guide includes the following information:

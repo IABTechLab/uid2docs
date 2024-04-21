@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # Sharing Permissions
 
 Configuring your sharing permissions opens the door to you being able to share UID2s with other UID2 participants.

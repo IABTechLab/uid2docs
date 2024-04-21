@@ -7,6 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 18
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Private Operator for Azure Integration Guide
 
 このガイドでは、Microsoft Azure のコンフィデンシャルコンピューティングオプションである [Confidential Container](https://learn.microsoft.com/ja-jp/azure/confidential-computing/confidential-containers) で UID2 Operator Service をセットアップするための情報を提供します。Confidential Container(機密コンテナー)は、データ整合性、データ機密性、コード整合性などの本質的な機能を提供するハードウェア支援の実行環境(Trusted Execution Environment: TEE) で実行されます。

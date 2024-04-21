@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 09
 ---
 
+import Link from '@docusaurus/Link';
+
 # Email Contacts
 
 In the UID2 Portal, you can specify people from your organization whom we should notify for information about the latest updates and releases for UID2. You can set up individual email addresses, or reference an email group that you've set up internally to notify multiple individuals in your organization.

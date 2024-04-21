@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 03
 ---
 
+import Link from '@docusaurus/Link';
+
 # Getting Started with the UID2 Portal
 
 As part of requesting a UID2 Portal account, you must provide some information about yourself and your company, such as name and type of business.

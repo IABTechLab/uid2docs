@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 05
 ---
 
+import Link from '@docusaurus/Link';
+
 # Authentication and Authorization
 
 UID2 エンドポイントの認証には、以下が必要です:

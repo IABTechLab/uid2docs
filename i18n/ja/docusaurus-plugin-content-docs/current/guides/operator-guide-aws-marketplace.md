@@ -7,6 +7,7 @@ hide_table_of_contents: false
 sidebar_position: 17
 ---
 
+import Link from '@docusaurus/Link';
 import ChartSvg from './images/uid2-private-operator-aws-chart.svg';
 
 # UID2 Private Operator for AWS Integration Guide

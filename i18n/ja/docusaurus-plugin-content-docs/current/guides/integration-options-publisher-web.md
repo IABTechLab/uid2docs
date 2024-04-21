@@ -6,6 +6,8 @@ sidebar_position: 02
 displayed_sidebar: sidebarPublishers
 ---
 
+import Link from '@docusaurus/Link';
+
 # Web Integration Overview
 
 パブリッシャーとして、UID2 とインテグレーションしてア ID トークンを生成し、ウェブページのコンテキストで RTB ビッドストリームに渡す方法はたくさんあります。

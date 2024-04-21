@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 12
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 SDK for Android Reference Guide
 
 <!-- This guide includes the following information:

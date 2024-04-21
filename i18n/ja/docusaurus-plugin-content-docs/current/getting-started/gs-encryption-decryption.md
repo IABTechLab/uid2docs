@@ -7,6 +7,7 @@ sidebar_position: 11
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
 
 # Encrypting Requests and Decrypting Responses
 

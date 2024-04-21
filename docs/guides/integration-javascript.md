@@ -7,6 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Integration Overview for JavaScript
 
 This guide is an overview of integration options for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) using the UID2 SDK for JavaScript.
@@ -34,7 +36,7 @@ The options for integrating with UID2 using the UID2 SDK for JavaScript are summ
 
 ## Generating the UID2 Token
 
-Depending on access to [DII](../ref-info/glossary-uid.md#gl-dii), there are two methods to generate UID2 tokens using the UID2 SDK for JavaScript: client-side or server-side.
+Depending on access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>, there are two methods to generate UID2 tokens using the UID2 SDK for JavaScript: client-side or server-side.
 
 From the table in [Client-Side or Server-Side Integration](#client-side-or-server-side-integration), determine which option is best for you, and then follow the applicable integration guide.
 
