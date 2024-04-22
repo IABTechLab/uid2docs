@@ -17,6 +17,8 @@ This guide is for publishers who want to integrate with UID2 and generate [UID2 
 
 This guide does not apply to publishers who want to use a [private operator](../ref-info/glossary-uid.md#gl-private-operator), or who want to generate tokens server-side. Those publishers should follow the [Server-Side Integration Guide for JavaScript](integration-javascript-server-side.md).
 
+It is also applicable to anyone who wants to share UID2 tokens in pixels, such as tracking pixels.
+
 UID2 provides a UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) with the following features:
 
 - UID2 token generation

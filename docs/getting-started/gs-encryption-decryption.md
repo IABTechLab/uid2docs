@@ -1,6 +1,6 @@
 ---
 title: Encryption and Decryption
-description: Information about encrypting UID2 requests and decrypting responses
+description: Information about encrypting UID2 requests and decrypting responses.
 hide_table_of_contents: false
 sidebar_position: 11
 ---
@@ -57,7 +57,7 @@ The following table describes the field layout for request encryption code.
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
 | 0 | 8 | The UNIX timestamp (in milliseconds). Must be int64 big endian. |
-| 8 | 8 | Nonce: Random 64 bits of data used to protect against replay attacks. The corresponding [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) should contain the same nonce value for the response to be considered valid. |
+| 8 | 8 | Nonce: Random 64 bits of data used to help protect against replay attacks. The corresponding [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) should contain the same nonce value for the response to be considered valid. |
 | 16 | N | Payload, which is a request JSON document serialized in UTF-8 encoding. |
 
 ### Encrypted Request Envelope

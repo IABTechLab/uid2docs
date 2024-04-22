@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 03
 ---
 
+import Link from '@docusaurus/Link';
+
 # Sharing UID2s: Use Cases
 
 安全な共有ワークフローでは、信頼できる共有と raw UID2 をさまざまな方法で安全に共有することができます。例えば、送信者が受信者と UID2 を共有したい場合のシナリオ例を以下に示します:
