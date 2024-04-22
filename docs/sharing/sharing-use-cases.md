@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 03
 ---
 
+import Link from '@docusaurus/Link';
+
 # Sharing UID2s: Use Cases
 
 The secure sharing workflow allows you to share raw UID2s securely with trusted participants in many different ways. For example, here are some sample scenarios where a sender wants to share UID2s with a receiver: 

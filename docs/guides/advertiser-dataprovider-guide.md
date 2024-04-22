@@ -7,6 +7,8 @@ sidebar_position: 07
 displayed_sidebar: sidebarAdvertisers
 ---
 
+import Link from '@docusaurus/Link';
+
 # Advertiser/Data Provider Integration Guide
 
 This guide covers integration steps for organizations that collect user data and push it to other UID2 participants. Data collectors include advertisers, data on-boarders, measurement providers, identity graph providers, third-party data providers, and any other organizations that send data to other participants.
@@ -24,7 +26,7 @@ If you are using an Open Operator service hosted in the Snowflake Data Marketpla
 
 ## Integration Steps
 
-The following diagram outlines the steps that data collectors must complete to map [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to UID2 identifiers for audience building and targeting.
+The following diagram outlines the steps that data collectors must complete to map <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 identifiers for audience building and targeting.
 
 DII refers to a user's normalized email address or phone number, or the normalized and SHA-256-hashed email address or phone number.
 

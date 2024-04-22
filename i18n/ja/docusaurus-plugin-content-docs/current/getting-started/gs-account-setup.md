@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 02
 ---
 
+import Link from '@docusaurus/Link';
+
 # Account Setup
 
 このページでは、UID2 でアカウントを設定するために必要な一般的な情報を提供します。

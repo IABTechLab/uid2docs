@@ -7,6 +7,8 @@ banner_title: Private Operator 向け UID2 の概要
 banner_description: プライベート環境で DII から UID2 を生成するプロセスを説明します。
 ---
 
+import Link from '@docusaurus/Link';
+
 UID2 の Private Operator は、ファーストパーティの[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を安全な環境に送信して変換し、その識別子の送信先を管理します。Private Operator(以前は Closed Operator と呼ばれていました)になることを選択した参加者は、プライベート環境で UID2 Operator Service を実行し、UID2 を生成および管理できます。
 
 UID2 フレームワークが Private Operator に提供するメリット、ホスティングオプション、ドキュメント、その他のリソース、開始方法などについて説明します。

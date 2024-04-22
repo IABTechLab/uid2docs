@@ -9,6 +9,7 @@ sidebar_position: 04
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
 
 # Client-Side Integration Guide for JavaScript
 

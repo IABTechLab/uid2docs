@@ -6,6 +6,8 @@ sidebar_position: 01
 displayed_sidebar: docs
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Endpoints: Summary
 
 すべての UID2 エンドポイントでは、API リクエストの暗号化([POST&nbsp;/token/refresh](post-token-refresh.md) を除く) とレスポンスの復号化にクライアントシークレットが必要です。詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。

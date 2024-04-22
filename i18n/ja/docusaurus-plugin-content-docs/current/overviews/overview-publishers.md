@@ -9,6 +9,8 @@ banner_description: 変化し続ける広告業界においてオーディエン
 displayed_sidebar: sidebarPublishers
 ---
 
+import Link from '@docusaurus/Link';
+
 パブリッシャーとして、Unified ID 2.0 (UID2) のクロスデバイスプレゼンスの恩恵を受け、すべてのインベントリで一貫した ID ファブリックを活用することができます。
 
 UID2 を採用するパブリッシャーにとってのメリット、ワークフロー、ドキュメント、その他のリソース、および UID2 の導入手順について説明します。

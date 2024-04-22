@@ -7,6 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 10
 ---
 
+import Link from '@docusaurus/Link';
+
 # Google Ad Manager Secure Signals Integration Guide
 
 This guide covers integration steps for publishers using UID2 with the Google Ad Manager secure signals feature (previously known as Encrypted Signals for Publishers, ESP).

@@ -6,6 +6,8 @@ sidebar_position: 01
 displayed_sidebar: docs
 ---
 
+import Link from '@docusaurus/Link';
+
 # Unified ID 2.0 Overview
 
 <!-- It includes the following:

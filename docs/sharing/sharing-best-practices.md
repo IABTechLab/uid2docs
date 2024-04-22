@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 05
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Sharing: Best Practices
 
 <!-- It includes the following:

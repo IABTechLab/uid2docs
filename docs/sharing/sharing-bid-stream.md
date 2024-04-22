@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 08
 ---
 
+import Link from '@docusaurus/Link';
+
 # Sharing in the Bid Stream
 
 <!-- It includes the following:
@@ -13,7 +15,7 @@ sidebar_position: 08
 - [UID2 Sharing Workflow: Sharing in the Bid Stream](#uid2-sharing-workflow-sharing-in-the-bid-stream)
 - [Token Example for Publishers in the Bid Stream](#token-example-for-publishers-in-the-bid-stream) -->
 
-Publishers use UID2s by encrypting [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) (email addresses or phone numbers) via API endpoints or via an SDK, into a UID2 token, and then sending the UID2 token into the bid stream.
+Publishers use UID2s by encrypting <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> (email addresses or phone numbers) via API endpoints or via an SDK, into a UID2 token, and then sending the UID2 token into the bid stream.
 
 Additional resources:
 - [UID2 Overview for Publishers](../overviews/overview-publishers.md)

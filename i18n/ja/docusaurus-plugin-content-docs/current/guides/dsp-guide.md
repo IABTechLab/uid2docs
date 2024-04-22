@@ -6,6 +6,8 @@ hide_table_of_contents: false
 sidebar_position: 05
 ---
 
+import Link from '@docusaurus/Link';
+
 # DSP Integration Guide
 
 このガイドは、ビッドストリームで UID2 の取引を行う DSP を対象としています。

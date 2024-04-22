@@ -8,6 +8,8 @@ sidebar_position: 04
 displayed_sidebar: sidebarPublishers
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Integration Overview for Prebid.js
 
 このガイドは、UID2 とインテグレーションし、RTB ビッドストリームで Prebid.js によって渡される [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token)(Advertising Token) を生成したいパブリッシャー向けのインテグレーションオプションの概要です。
