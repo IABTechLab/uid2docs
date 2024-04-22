@@ -1,6 +1,6 @@
 ---
 title: Tokenized Sharing Overview
-description: Learn about tokenized sharing.
+description: Learn about the options for tokenized sharing.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -9,9 +9,9 @@ import Link from '@docusaurus/Link';
 
 # Tokenized Sharing Overview
 
-In UID2, tokenized sharing means encrypting <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> or <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2s</Link> into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and sharing the tokens with authorized recipients. Using UID2 tokens helps protect raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bid stream or via pixels, but you can use it in any sharing use case.
+In UID2, tokenized sharing means encrypting <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> or <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2s</Link> into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and sharing the tokens with recipients who are authorized [sharing participants](ref-info/glossary-uid.md#gl-sharing-participant). Using UID2 tokens helps protect raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bid stream or via pixels, but you can use it in any sharing use case.
 
- The tokens can be generated in either of the following ways:
+Tokens are generated in one of the following ways:
 - By encrypting raw UID2s into UID2 tokens: see [Tokenized Sharing: Starting with a Raw UID2](#tokenized-sharing-starting-with-a-raw-uid2).
 - By generating UID2 tokens directly from DII: see [Tokenized Sharing: Starting with DII](#tokenized-sharing-starting-with-dii).
 
@@ -40,7 +40,7 @@ For additional examples, see [Sharing UID2s: Use Cases](sharing-use-cases.md).
 
 ## Sending UID2 Tokens to Another Sharing Participant
 
-You can send UID2 tokens to another authorized sharing participant. Sharing UID2s via <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> is an option in any sharing scenario, but is required within the bid stream or in pixels. The process is a little different depending on the starting point, as shown in the following table.
+Sharing UID2s with another sharing participant via <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> is an option in any sharing scenario, but is required within the bid stream or in pixels. The process is a little different depending on the starting point, as shown in the following table.
 
 Choose the integration option that's right for your implementation, and then click through for details.
 
@@ -54,10 +54,10 @@ Choose the integration option that's right for your implementation, and then cli
 
 ## Receiving UID2 Tokens from Another Sharing Participant
 
-The steps that the receiver takes are similar for all approved sharing scenarios. The receiver must decrypt the UID2 token to arrive at the raw UID2. To do this, you must have a UID2 Portal account and the sender must create a sharing relationship with you, so that you can access the sender's decryption keys.
+The steps that the receiver takes are similar for all approved sharing scenarios. The receiver must decrypt the UID2 token to arrive at the raw UID2. To do this, the receiver must have a UID2 Portal account and the sender must create a sharing relationship with the receiver in the UID2 Portal, so that the receiver can access the sender's decryption keys.
 
 :::tip
-When you receive the tokens, we recommend decrypting as soon as possible to avoid token expiration. See [Best Practices for Managing Raw UID2s and UID2 Tokens](sharing-best-practices.md#best-practices-for-managing-raw-uid2s-and-uid2-tokens).
+We recommend decrypting the tokens as soon as possible after receiving them, to avoid token expiration. See [Best Practices for Managing Raw UID2s and UID2 Tokens](sharing-best-practices.md#best-practices-for-managing-raw-uid2s-and-uid2-tokens).
 :::
 
 The following implementation options are available for decrypting UID2 tokens.
@@ -73,7 +73,7 @@ The following implementation options are available for decrypting UID2 tokens.
 
 ## Tokenized Sharing Examples
 
-UID2 sharers follow a two-step process, as shown in the following example. The steps depend on whether you're starting with DII or with a raw UID2. This section includes the following:
+The steps for tokenized sharing depend on whether you're starting with DII or with a raw UID2. This section includes the following:
 
 - [Tokenized Sharing: Starting with DII](#tokenized-sharing-starting-with-dii)
 - [Example: DII to UID2 Token](#example-dii-to-uid2-token)
@@ -152,10 +152,13 @@ The following example shows sample values when converting input DII to a raw UID
 <table>
 <colgroup>
     <col style={{
+      width: "5%"
+    }} />
+    <col style={{
       width: "30%"
     }} />
     <col style={{
-      width: "40%"
+      width: "35%"
     }} />
     <col style={{
       width: "30%"
@@ -163,6 +166,7 @@ The following example shows sample values when converting input DII to a raw UID
   </colgroup>
 <thead>
 <tr>
+<th>Step</th>
 <th>Input Example</th>
 <th>Process/User</th>
 <th >Result</th>
@@ -170,11 +174,13 @@ The following example shows sample values when converting input DII to a raw UID
 </thead>
 <tbody>
 <tr>
+<td>1</td>
 <td>user@example.com</td>
 <td>Convert email/phone number to raw UID2:<br/><a href="../endpoints/post-identity-map">POST&nbsp;/identity/map</a> endpoint</td>
 <td>K2jlbu2ldlpKL1z6n5bET7L3<br/>g0xfqmldZPDdPTktdRQ=</td>
 </tr>
 <tr>
+<td>2</td>
 <td>K2jlbu2ldlpKL1z6n5bET7L3<br/>g0xfqmldZPDdPTktdRQ=</td>
 <td>Encrypt raw UID2 to create a UID2 token:<br/>`encrypt()` function in applicable SDK. For example, for Java, see <a href="../sdks/uid2-sdk-ref-java#usage-for-uid2-sharers">Usage for UID2 Sharers</a> step 3.</td>
 <td style={{

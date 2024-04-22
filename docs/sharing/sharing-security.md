@@ -15,7 +15,7 @@ All UID2 participants have a core responsibility to ensure that the UID2 ecosyst
 **All** these security points must be in place continuously if you are sending or receiving raw UID2s.
 :::
 
-The security requirements for sharing raw UID2s between authorized sharing participants include these criteria, which must all be met consistently:
+The security requirements for sharing raw UID2s between authorized [sharing participants](../ref-info/glossary-uid.md#gl-sharing-participant) include these criteria, which must all be met consistently:
 
 - [Authentication](#authentication)
 - [Authorization](#authorization)
@@ -54,8 +54,8 @@ The following table shows the key fields you should consider including in the tr
 | Data recipient ID | The identifier of the participant who is receiving the data. |
 | Transaction ID | A unique identifier for each transaction. This ID can be used to track and reference specific transactions in the log. |
 | Data volume | The amount of data transferred, typically measured in terms of lines (number of distinct UID2s) or file size (for example, megabytes or gigabytes). |
-| Transfer method | The method or protocol used for the data transfer (for example, HTTPS, SFTP, or an S3 presigned URL). |
-| Status of transfer | The outcome of the transfer (for example, successful, failed, or partial). |
+| Transfer method | The method or protocol used for the data transfer, such as HTTPS, SFTP, or an S3 presigned URL. |
+| Status of transfer | The outcome of the transfer, such as successful, failed, or partial. |
 | Error codes/logs | If the transfer fails or encounters issues, recording error codes or a brief log of the error can assist in diagnosing and resolving the problem. |
 | Authorization details | Information about who authorized the transfer, including relevant permissions or approvals. |
 | Checksum or hash value | A checksum or hash value to verify the integrity of the data after the transfer. This helps in ensuring that the data was not altered during the transfer. |
@@ -70,14 +70,14 @@ Secure transport protects raw UID2s from being accessible or modifiable by an on
 - Message-based encryption
 
 ## Example Workflow
-The following is an example workflow for an online AAA (Authentication, Authorization, and Accounting) flow, with an additional human verification step for contract validation:
+The following is an example workflow for an online AAA (Authentication, Authorization, and Accounting) flow, with an additional human verification step for contract validation.
 
 1. Pre-Authentication:
    - A sharing participant verifies the identity of an intended recipient (sharing receiver) and then issues a set of credentials, such as a username and password or an API key, to the recipient.
 
 2. Authentication:
    - The intended recipient begins by providing their credentials, such as a username and password.
-   - To further secure the process, two-factor authentication might be required. The user would receive a code via SMS, email, or an authentication app, which they must enter to proceed.
+   - To further secure the process, two-factor authentication might be required. The user would receive a code via SMS, email, or an authentication app, and must enter the code to proceed.
 
 3. Pre-Authorization:
    - When authentication is complete, the system checks the user's role and permissions to determine whether they have initial clearance to access the requested resources or services.
@@ -94,9 +94,9 @@ The following is an example workflow for an online AAA (Authentication, Authoriz
    - The sender's system updates the recipient's access status to reflect this authorization, allowing the recipient to access the requested resources.
 
 6. Accounting:
-   - During the session, the system logs all transactions and access details for future auditing and monitoring. This includes logging the initial authentication, authorization details, and any instances of human intervention.
+   - During the session, the system logs all transactions and access details for future auditing and monitoring. This includes logging the initial authentication, the authorization details, and any instances of human intervention.
 
-     The system also logs usage metrics such as access times, duration, and resource usage are also recorded to ensure compliance with the contract terms and for billing purposes if applicable.
+     The system also logs usage metrics such as access times, duration, and resource usage, to ensure compliance with the contract terms and for billing purposes if applicable.
 
 7. Feedback and Notification:
    - Upon completion of the authorization process, the recipient receives a notification about their access status. If access is granted, they are notified and can proceed. If access is denied, they receive an explanation or steps for further action. For example, the sharing receiver might get an email notification that the download is ready. 
@@ -104,5 +104,5 @@ The following is an example workflow for an online AAA (Authentication, Authoriz
    - The verifier might also receive a notification confirming that their intervention has been successfully recorded and acted upon.
 
 :::important
-Before sharing raw UID2s or UID2 tokens you must validate that the participant you are sharing with has signed the UID2 Participation Policy. If you are unsure whether the sharing receiver has signed, reach out to your UID2 contact.
+Before sharing raw UID2s or UID2 tokens you must validate that the participant you are sharing with has signed the UID2 Participation Policy. If you are unsure whether the sharing receiver has signed, ask your UID2 contact.
 :::

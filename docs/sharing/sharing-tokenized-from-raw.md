@@ -28,9 +28,9 @@ Tokenized sharing from raw UID2s could be applicable to any sharing participant,
 
 ## Overview
 
-To share raw UID2s with another participant by encrypting into UID2 tokens before sending, the sharing **sender** must create a UID2 Portal account and implement sharing, and must create a sharing relationship with the receiver.
+To share raw UID2s with another participant by encrypting into UID2 tokens before sending, the sharing sender must create a UID2 Portal account and implement sharing, and must create a sharing relationship with the receiver.
 
-The sharing **receiver** must create a UID2 Portal account and implement sharing, and must have a sharing relationship with the sender, so that the receiver has the cryptographic keys necessary to decrypt the UID2 tokens into raw UID2s.
+The sharing receiver must create a UID2 Portal account and implement sharing, and must have a sharing relationship with the sender, so that the receiver has the cryptographic keys necessary to decrypt the UID2 tokens into raw UID2s.
 
 ## Account Setup in the UID2 Portal
 
@@ -67,7 +67,7 @@ NOTE: Both sender and receiver must have a UID2 Portal account. See [Request an 
 
 1. Sender: Encrypt raw UID2s to convert them into UID2 tokens, using a [UID2 SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk) or [Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake).
 
-   2. Securely transmit the UID2 tokens to an authorized receiver.
+   -  Securely transmit the UID2 tokens to an authorized receiver.
 
 1. Receiver: Complete the following steps to decrypt the UID2 tokens:
 
@@ -121,7 +121,7 @@ This example illustrates how the `uid2client.refresh()` function enables a new s
 | Time | Event |
 | :--- | :--- | 
 | 12:00 pm | The sharing permission is not yet enabled.<br/>Data Provider XYZ calls `uid2client.refresh()`. The decryption key for Advertiser ABC is not returned, so Data Provider XYZ cannot decrypt the UID2 tokens. |
-| 12:30 pm | Advertiser ABC logs in to the UID2 Portal and creates a sharing permission with Data Provider XYZ. |
+| 12:30&nbsp;pm | Advertiser ABC logs in to the UID2 Portal and creates a sharing permission with Data Provider XYZ. |
 | 1:00 pm | Data Provider XYZ, on an hourly cadence, again calls `uid2client.refresh()`. Because there is a new sharing permission, the key for Advertiser ABC is returned in the response.<br/>Data Provider XYZ can now decrypt any UID2 token received from Advertiser ABC into a raw UID2. |
 
 ## Implementing Sharing Encryption/Decryption Using Snowflake

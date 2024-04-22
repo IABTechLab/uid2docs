@@ -33,6 +33,8 @@ Follow these guidelines:
 
   - UID2 token length: 500 characters.
 
+- Never store raw UID2s or UID2 tokens with their associated [DII](../ref-info/glossary-uid.md#gl-dii) (emails or phone numbers).
+
 ## Decryption Key Refresh Cadence for Sharing
 
 If you're using an SDK, defining the schedule for refreshing the sharing keys is part of setup.
@@ -41,8 +43,8 @@ For long/continuously running processes, we recommend calling the `uid2client.re
 
 The following are reasons to refresh the keys on an hourly cadence:
 
-- Regular refresh allows the SDK to fetch the latest keys for decryption. When a new sharing permission is enabled, the additional set of encryption keys needed to decrypt the data sent by the new sharing sender is returned the next time the sharing receiver calls the `uid2client.refresh()` function. This process is managed by the SDK.
-- The UID2 framework periodically rotates encryption keys.
+- Regular refresh allows the SDK to fetch the latest keys for decryption. When a new sharing permission is enabled, the additional set of cryptographic keys needed to decrypt the data sent by the new sharing sender is returned the next time the sharing receiver calls the `uid2client.refresh()` function. This process is managed by the SDK.
+- The UID2 framework periodically rotates cryptographic keys.
 
 :::note
 If you're using Snowflake, you don't need to do this step. The Snowflake UID2 integration takes care of refreshing the keys.

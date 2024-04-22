@@ -1,6 +1,6 @@
 ---
 title: UID2 Sharing
-description: Information about UID2 sharing
+description: Information about UID2 sharing.
 hide_table_of_contents: false
 sidebar_position: 24
 ---
@@ -13,9 +13,9 @@ In UID2, sharing is a process for distributing [raw UID2s](../ref-info/glossary-
 
 All instances where a raw UID2 or UID2 token is shared with another participant fall under the definition of sharing. All sharing participants must meet the legal requirements specified in the following section, [Legal Requirements for UID2 Sharing](#legal-requirements-for-uid2-sharing).
 
-In addition, all sharing participants who send raw UID2s must follow the security requirements specified in [Security Requirements for UID2 Sharing](../sharing/sharing-security). We encourage all participants who are sharing UID2 tokens to also follow these steps.
+In addition, all sharing participants who send raw UID2s must follow the security requirements specified in [Security Requirements for UID2 Sharing](../sharing/sharing-security). We encourage all participants who are sharing UID2 tokens to follow these steps.
 
-Technical requirements vary according to your role and the implementation approach, and are covered in the instructions for each scenario in the sharing documentation. For a summary of scenarios, see [Approved Sharing Scenarios](sharing/sharing-overview.md#approved-sharing-scenarios) in the Sharing Overview.
+Technical requirements vary according to your role and the implementation approach, and are covered in the instructions for each scenario in the sharing documentation. For a summary of scenarios, see [Approved Sharing Scenarios](sharing/sharing-overview.md#approved-sharing-scenarios) in the sharing overview.
 
 ## Legal Requirements for UID2 Sharing
 

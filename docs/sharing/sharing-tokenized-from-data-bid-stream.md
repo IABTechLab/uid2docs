@@ -140,13 +140,13 @@ Publishers convert the input email address or phone number directly to a UID2 to
 
 ## Information for Sharing Receivers
 
-To be able to decrypt a UID2 token into a raw UID2, you must be an authorized sharer and have the sender's decryption keys.
+To be able to decrypt a UID2 token into a raw UID2, you must be an authorized sharer and have the sender's cryptographic keys.
 
-By default, for publishers sending UID2 tokens to the bid stream, the publisher's decryption keys are shared with all authorized DSPs. However, if a publisher has set up specific sharing relationships, you'll only receive that publisher's decryption keys if the publisher has created a sharing relationship with you.
+By default, for publishers sending UID2 tokens to the bid stream, the publisher's cryptographic keys are shared with all authorized DSPs. However, if a publisher has set up specific sharing relationships, you'll only receive that publisher's cryptographic keys if the publisher has created a sharing relationship with you.
 
 For details, see [Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant).
 
-It's important to set up a regular cadence for refreshing decryption keys, and to decrypt UID2 tokens promptly.
+It's important to set up a regular cadence for refreshing cryptographic keys, and to decrypt UID2 tokens promptly.
 
 For details, see the following sections in *UID2 Sharing: Best Practices*:
 
