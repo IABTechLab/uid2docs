@@ -33,8 +33,6 @@ Follow these guidelines:
 
   - UID2 token length: 500 characters.
 
-- Never store raw UID2s or UID2 tokens with their associated [DII](../ref-info/glossary-uid.md#gl-dii) (emails or phone numbers).
-
 ## Decryption Key Refresh Cadence for Sharing
 
 If you're using an SDK, defining the schedule for refreshing the sharing keys is part of setup.

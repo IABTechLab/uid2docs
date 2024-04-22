@@ -9,13 +9,9 @@ import Link from '@docusaurus/Link';
 
 # Security Requirements for UID2 Sharing
 
-All UID2 participants have a core responsibility to ensure that the UID2 ecosystem is safe. The following are standard security practices for all UID2 participants. If you are sharing raw UID2s they are required; if you are sharing UID2 tokens they are recommended.
+All UID2 participants have a core responsibility to ensure that the UID2 ecosystem is safe. The following are standard security practices for all UID2 participants. If you are sharing raw UID2s between authorized [sharing participants](../ref-info/glossary-uid.md#gl-sharing-participant) they are required and must all be met consistently; if you are sharing UID2 tokens they are recommended.
 
-:::important
-**All** these security points must be in place continuously if you are sending or receiving raw UID2s.
-:::
-
-The security requirements for sharing raw UID2s between authorized [sharing participants](../ref-info/glossary-uid.md#gl-sharing-participant) include these criteria, which must all be met consistently:
+The security requirements are as follows:
 
 - [Authentication](#authentication)
 - [Authorization](#authorization)
@@ -40,7 +36,7 @@ Authorization online determines what resources a user can access and what action
 - Setting permissions and restrictions based on the user's role or account details.
 - Ensuring that users can only access information and functionality relevant to their privileges. In addition, sharing participants must have an executed contract in place with UID2, and must have signed the UID2 Participation Policy, in order to be authorized to send or receive raw UID2s or UID2 tokens, with the exception of the two cases specified in [Exceptions](../getting-started/gs-sharing.md#exceptions) in the UID2 Sharing Getting Started document.
 
-To verify that your authenticated recipient is an authorized UID2 sharing participant, ask your UID2 contact.
+To verify that your authenticated recipient is an authorized UID2 sharing participant, one option is to ask your UID2 contact.
 
 ## Accounting
 
@@ -64,7 +60,7 @@ Additional logs, such as network logs, application logs, and cloud audit logs, c
 
 ## Secure Transport
 
-Secure transport protects raw UID2s from being accessible or modifiable by an onlooker during the transition of data from sender to receiver, end to end. Examples of secure transport include:
+Secure transport helps protect raw UID2s from being accessible or modifiable by an onlooker during the transition of data from sender to receiver, end to end. Examples of secure transport include:
 
 - HTTPS or TLS
 - Message-based encryption
@@ -87,7 +83,7 @@ The following is an example workflow for an online AAA (Authentication, Authoriz
 4. UID2 Participant Authorization:
    - A designated verifier verifies that a valid, signed contract, including the UID2 Participation Policy, exists between the recipient (or their organization) and UID2.
    
-     For help with this step, ask your UID2 contact.
+     For help with this step, one option is to ask your UID2 contact.
 
 5. Post-Verification Authorization:
    - When the verifier has confirmed the existence and validity of the contract, the sharing participant has permission to grant access to the data to be shared.
@@ -104,5 +100,5 @@ The following is an example workflow for an online AAA (Authentication, Authoriz
    - The verifier might also receive a notification confirming that their intervention has been successfully recorded and acted upon.
 
 :::important
-Before sharing raw UID2s or UID2 tokens you must validate that the participant you are sharing with has signed the UID2 Participation Policy. If you are unsure whether the sharing receiver has signed, ask your UID2 contact.
+Before sharing raw UID2s or UID2 tokens you must validate that the participant you are sharing with has signed the UID2 Participation Policy. If you are unsure whether the sharing receiver has signed, one option is to ask your UID2 contact.
 :::
