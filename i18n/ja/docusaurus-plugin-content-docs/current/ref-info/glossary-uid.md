@@ -80,6 +80,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <li><a href="#gl-sharing-participant">Sharing participant</a></li>
 <li><a href="#gl-sso">Single sign-on (SSO)</a></li>
 <li><a href="#gl-subscription-id">Subscription ID</a></li>
+<li><a href="#gl-tokenized-sharing">Tokenized sharing</a></li>
 <li><a href="#gl-transparency-and-control-portal">Transparency and Control Portal</a></li>
 <li><a href="#gl-uid2-framework">UID2 framework</a></li>
 <li><a href="#gl-uid2-identifier">UID2 identifier</a></li>
@@ -319,12 +320,12 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>詳細は、 <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> (specification) を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-sharing">Sharing</MdxJumpAnchor></dt>
-<dd>UID2 のコンテキストでは、Sharing は、<a href="#gl-raw-uid2">Raw UID2</a> を UID2 参加者間で安全に配布するためのプロセスです。未加工の UID2 を不正アクセスから保護するために、発信側の参加者(送信者)は未加工の UID2 を UID2 Token に暗号化してから送信しなければなりません。送信先の参加者(受信者)は、UID2 Token を内部で使用する Raw UID2 に復号化する必要があります。</dd>
-<dd>For details, see <a href="../sharing/sharing-overview">UID2 Sharing: Overview</a>.</dd>
+<dd>In the context of UID2, sharing is a process for distributing <a href="#gl-raw-uid2">raw UID2s</a>, either directly or encrypted into <a href="#gl-uid2-token">UID2 tokens</a>, from one UID2 <a href="#gl-sharing-participant">sharing participant</a> to another.</dd>
+<dd>For details, see <a href="../getting-started/gs-sharing">UID2 Sharing</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-sharing-participant">Sharing participant</MdxJumpAnchor></dt>
-<dd>UID2 では、sharing participant とは、UID2 参加者間で <a href="#gl-raw-uid2">Raw UID2</a> を安全に配布する<a href="#gl-sharing">Sharing</a> 参加する企業のことです。sharing participant は、パブリッシャー、広告主、DSP、データプロバイダのいずれかである場合もあれば、複数の役割を持つ場合もあります。</dd>
-<dd>詳細は、<a href="../sharing/sharing-overview">UID2 Sharing: Overview</a> を参照してください。</dd>
+<dd>For UID2, a sharing participant is a company that either has agreed to comply with the UID2 Participation Policy or fits within one of the <a href="../getting-started/gs-sharing#exceptions">exceptions</a>, and that takes part in <a href="#gl-sharing">sharing</a>, either as a sender or a receiver.</dd>
+<dd>For details, see <a href="../getting-started/gs-sharing">UID2 Sharing</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-sso">Single sign-on (SSO)</MdxJumpAnchor></dt>
 <dd>SSO はシングルサインオンの略語です。SSO は、ユーザーがアプリやウェブサイトなどの複数のソフトウェアシステムの 1 つに、同じ認証情報(通常は ID とパスワードですが、必ずしもそうではありません) でログインすることを可能にします。SSO によって、ユーザーは 1 セットの認証情報を使って複数のアプリケーションやサイトに一度だけログインすることができます。SSO によって、ウェブサイトやアプリは独自の認証システムを維持する必要がなくなります。</dd>
@@ -337,6 +338,10 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 ### T
 
 <dl>
+
+<dt><MdxJumpAnchor id="gl-tokenized-sharing">Tokenized sharing</MdxJumpAnchor></dt>
+<dd>Tokenized sharing means encrypting <a href="#gl-dii">DII</a> or <a href="#gl-raw-uid2">Raw UID2s</a> into <a href="#gl-uid2-token">UID2 tokens</a> and sharing the tokens with authorized recipients. Using UID2 tokens helps protect raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bid stream or via pixels, but you can use it in any sharing use case.</dd>
+<dd>For details, see <a href="../sharing/sharing-tokenized-overview">Tokenized Sharing Overview</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-transparency-and-control-portal">Transparency and Control Portal</MdxJumpAnchor></dt>
 <dd>UID2 Transparency and Control Portalは、ユーザー向けのウェブサイト <a href="https://www.transparentadvertising.com/">https://www.transparentadvertising.com/</a> で、消費者はいつでもここから UID2 の Opt-Out を選択することができます。</dd>
