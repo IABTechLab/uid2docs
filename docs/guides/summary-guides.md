@@ -60,7 +60,7 @@ The following resources are available for publishers integrating with Android or
 
 ### Prebid Integrations
 
-The following resources are available for publisher Prebid integrations.
+The following resources are available for publishers integrating with Prebid.
 
 | Integration Guide | Content Description |
 | :--- | :--- |

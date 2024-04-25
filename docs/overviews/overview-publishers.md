@@ -118,7 +118,7 @@ The following resources are available for publisher integrations supporting Andr
 
 ### Prebid Integrations
 
-The following resources are available for publishers integrating with Google Ad Manager.
+The following resources are available for publishers integrating with Prebid.
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |

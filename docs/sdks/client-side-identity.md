@@ -407,7 +407,7 @@ It might be easier to use the [callback function](#callback-function) to be noti
 
 ### isLoginRequired(): boolean
 
-Specifies whether a UID2 login ([POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call) is required. 
+Specifies whether a UID2 login ([POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call) is required.
 
 ```html
 <script>

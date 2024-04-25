@@ -6,6 +6,7 @@ sidebar_position: 10
 ---
 
 import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
+import Link from '@docusaurus/Link';
 
 # Unified ID 2.0 Glossary
 <p>This page defines some key terms used in the UID2 documentation.</p>

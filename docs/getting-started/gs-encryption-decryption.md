@@ -217,6 +217,7 @@ If you are using Maven, you can use the following minimal `pom.xml`, and run `mv
 The following code example encrypts requests and decrypts responses using C#. The required parameters are shown at the top of the file, or by building and running `.\uid2_request`.
 
 This file requires .NET 7.0. You can use an earlier version if required, but it must be .NET Core 3.0 or later. To change the version, replace the [top-level statements](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/program-structure/top-level-statements) with a Main method and the [using declarations](https://learn.microsoft.com/en-us/cpp/cpp/using-declaration?view=msvc-170) with [using statements](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-8.0/using).
+
 </TabItem>
 </Tabs>
 
@@ -323,8 +324,10 @@ else:
    print(json.dumps(json_resp, indent=4))
 
 ```
+
 </TabItem>
 <TabItem value='java' label='Java'>
+
 
 ```java title="Uid2Request.java"
 package org.example;
@@ -451,8 +454,10 @@ public class Uid2Request {
   }
 }
 ```
+
 </TabItem>
 <TabItem value='cs' label='C#'>
+
 
 ```cs title="uid2_request.cs"
 using System.Buffers.Binary;
