@@ -239,6 +239,15 @@ To check the UID2 Operator status of your Load Balancer, complete the following 
 1. Identify the DNS name of your load balancer by going to **EC2 > Load balancers** and looking at the **DNS name** column of your load balancer.
 2. In your browser, go to `https://{dns-name-of-your-load-balancer}/ops/healthcheck`. A response of `OK` indicates good operator status.
 
+## Private Operator Attestation Failure
+
+UID2 Private operators will fail if the operator fails to attest with our Core service. Their are two senarios that can cause this:
+
+1. 401 response. If your operator key recieves a 401 response from our Core service, the operator will terminate itself immediately.
+2. Any other non 200. If your operator attest request recieves any other non 200. The operator will continue to function for 12 hours. If the issue is not resolved in this time frame, the operator will terminate itself.
+
+Private operator hosts will need to have infrustructure in place to handle alerting and restarting operators in the case of an error.
+
 ## Upgrading the UID2 Operator
 
 For each operator version update, each private operator receives an email notification with an upgrade window. After the upgrade window, the old version is deactivated and is no longer supported.
