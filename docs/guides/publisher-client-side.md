@@ -28,8 +28,8 @@ UID2 provides a UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference 
 You'll need to complete the following steps:
 
 1. [Complete UID2 account setup](#complete-uid2-account-setup)
-2. [Add UID2 SDK For JavaScript to your site](#add-uid2-sdk-for-javascript-to-your-site)
-3. [Configure the UID2 SDK for JavaScript](#configure-the-uid2-sdk-for-javascript)
+2. [Add SDK For JavaScript to your site](#add-sdk-for-javascript-to-your-site)
+3. [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript)
 4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
 
 ## UID2 SDK for JavaScript Version
@@ -65,7 +65,7 @@ When account setup is complete, you'll receive a **public key** and **subscripti
 Only root-level domains are required for account setup. For example, if you're going to use UID2 SDK for JavaScript on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
 
-## Add UID2 SDK For JavaScript to Your Site
+## Add SDK For JavaScript to Your Site
 
 The following code snippet provides an overview of the code you will need to add to your website. It also illustrates the different events that the SDK can trigger.
 
@@ -137,7 +137,7 @@ __uid2.init({
 });
 ```
 
-## Configure the UID2 SDK for JavaScript
+## Configure the SDK for JavaScript
 
 UID2 provides the publisher with the following values required to use the client-side token generation feature:
 
@@ -261,7 +261,7 @@ In this scenario:
 
 ## Token Storage and Refresh
 
-After calling one of the methods listed in [Configure the UID2 SDK for JavaScript](#configure-the-uid2-sdk-for-javascript) successfully, an [identity](../ref-info/glossary-uid.md#gl-identity) is generated and stored in local storage, under the key `UID2-sdk-identity`. The SDK refreshes the UID2 token periodically.
+After calling one of the methods listed in [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript) successfully, an [identity](../ref-info/glossary-uid.md#gl-identity) is generated and stored in local storage, under the key `UID2-sdk-identity`. The SDK refreshes the UID2 token periodically.
 
 :::danger
 The format of the object stored in local storage could change without notice. We recommend that you do **not** read and update the object in local storage directly. 
