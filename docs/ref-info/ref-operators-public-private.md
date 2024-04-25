@@ -5,9 +5,11 @@ hide_table_of_contents: false
 sidebar_position: 06
 ---
 
+import Link from '@docusaurus/Link';
+
 # The UID2 Operator
 
-The UID2 Operator Service enables the management and storage of encryption keys and [salts](../ref-info/glossary-uid.md#gl-salt) from the UID2 Core Service, hashing of users' personal data ([DII](../ref-info/glossary-uid.md#gl-dii)), encryption of [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2), and decryption of [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token).
+The UID2 Operator Service enables the management and storage of encryption keys and [salts](../ref-info/glossary-uid.md#gl-salt) from the UID2 Core Service, hashing of users' personal data (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>), encryption of [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2), and decryption of [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token).
 
 All instances of the Operator Service are designed with rigorous protections in place to keep critical UID2 data secure and interoperable, regardless of who operates the service.
 
@@ -19,8 +21,8 @@ A UID2 Operator is simply an organization that runs the Operator Service. Operat
 
 UID2 Operators fall into two categories:
 
-- [Public Operators](#public-operator)
-- [Private Operators](#private-operator)
+- [Public Operators](#public-operators)
+- [Private Operators](#private-operators)
 
 The Operator is the operational code of UID2&#8212;the code that turns an email into a raw UID2 or a UID2 token, and that a participant who is sharing uses to refresh decryption keys.
 

@@ -6,6 +6,8 @@ sidebar_position: 01
 displayed_sidebar: docs
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Portal: Overview
 
 <!-- It includes the following:
@@ -20,7 +22,7 @@ The UID2 Portal is your one-stop shop for setting up and configuring your UID2 a
 | :--- | :--- | 
 | Request an account, configure basic account information such as name and location, log in for the first time, and reset your password. | [Getting Started with the UID2 Portal](portal-getting-started.md) |
 | Review your profile. | [Participant Information](participant-info.md) |
-| Configure individual sharing participants or groups of sharing participants. | [Sharing Permissions](sharing-permissions.md) |
+| Configure permissions for individual sharing participants or groups of sharing participants. | [Sharing Permissions](sharing-permissions.md) |
 | Add team members who will have permission to manage your account. | [Team Members](team-members.md) |
 | Set up designated email contacts who will be notified of news or updates. | [Email Contacts](email-contacts.md) |
 | Manage API keys for your account, including adding, modifying, or deleting keys. | [API Keys](api-keys.md) |

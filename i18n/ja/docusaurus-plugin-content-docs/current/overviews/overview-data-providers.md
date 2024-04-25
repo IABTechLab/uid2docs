@@ -9,6 +9,8 @@ banner_description: 未来のためのIDソリューション。
 displayed_sidebar: sidebarDataProviders
 ---
 
+import Link from '@docusaurus/Link';
+
 データおよび測定プロバイダーとして、Unified ID 2.0(UID2) を 採用し、より耐久性のある、オムニチャネルおよびクロスデバイス識別子でデータを接続することで、ID の断片化を減らし、顧客のユースケースを満たすことができます。
 
 このソリューションは、以下のようなオンラインまたはオフライン広告用のデータまたは関連サービスを提供している場合に適しています:

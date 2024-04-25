@@ -9,6 +9,8 @@ banner_description: Maintain audience targeting in the ever-changing advertising
 displayed_sidebar: sidebarPublishers
 ---
 
+import Link from '@docusaurus/Link';
+
 As a publisher, you can benefit from the cross-device presence of Unified ID 2.0 (UID2) and take advantage of a consistent identity fabric on all your inventory.
 
 Learn about benefits, workflow, documentation, and other resources for publishers adopting UID2, as well as instructions for getting started.
@@ -40,7 +42,7 @@ The following steps provide a high-level outline of the workflow intended for or
 <!-- uid2_only_ep_20240312: Once the user has provided an email address or phone number, the publisher sends it to the UID2 Operator via an SDK or direct API integration. -->
 <!-- euid_only_ep_20240312: Once the user has provided an email address, and consented, the publisher sends it to the EUID Operator via an SDK or direct API integration. -->
 
-   A publisher can authorize an SSO provider or identity provider to pass [DII](../ref-info/glossary-uid.md#gl-dii) and privacy settings on their behalf.
+   A publisher can authorize an SSO provider or identity provider to pass <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> and privacy settings on their behalf.
 4. The UID2 Operator:
    - Takes the email or phone number.
    - Performs the salt, hash, and encryption process.
@@ -116,7 +118,7 @@ The following resources are available for publisher integrations supporting Andr
 
 ### Prebid Integrations
 
-The following resources are available for publishers integrating with Google Ad Manager.
+The following resources are available for publishers integrating with Prebid.
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |

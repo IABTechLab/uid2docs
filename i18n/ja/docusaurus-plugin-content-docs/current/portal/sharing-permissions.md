@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # Sharing Permissions
 
 Sharing permissions (共有権限) を設定することで、他の UID2 参加者と UID2 を共有できるようになります。
@@ -77,7 +79,7 @@ UID2 Portal は、あなたの役割に基づいて推奨を行います。例�
 
 共有許可を有効にするには、以下の手順を実行します。
 
->NOTE: UID2 Portal で共有許可を与えるだけでなく、SDK または Snowflake の機能をコードにインテグレーションする必要があります。[Sharing Steps: Summary](../sharing/sharing-implementing.md#sharing-steps-summary) を参照してください。
+>NOTE: UID2 Portal で共有許可を与えるだけでなく、SDK または Snowflake の機能をコードにインテグレーションする必要があります。[Tokenized Sharing Overview](../sharing/sharing-tokenized-overview.md) を参照してください。
 
 1. UID2 Portal アカウントにログインします。
 1. **Sharing Permissions** をクリックします。

@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 SDK for Java Reference Guide
 
 UID2 SDK for Java を使用すると、以下のことが容易になります:
@@ -321,7 +323,7 @@ Server-Only Integration ([Publisher Integration Guide, Server-Only](../guides/cu
 
 UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のことです。raw UID2を他の参加者に送信する前に、UID2 Token に暗号化する必要があります。使用例については、[com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` メソッド) を参照してください。
 
->IMPORTANT: このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md) を参照してください。
+>IMPORTANT: このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bid Stream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 
 次の手順では、UID2 SDK for Java を送信者または受信者として使用して共有を実装する方法の例を示します。
 
@@ -330,7 +332,7 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
    ```java
    IUID2Client client = UID2ClientFactory.create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
    ```
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします。推奨されるリフレッシュ間隔は1時間ごとです。詳細については、[Best Practices for Managing UID2 Tokens](../sharing/sharing-best-practices.md#key-refresh-cadence) を参照してください。
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします。推奨されるリフレッシュ間隔は1時間ごとです。詳細については、[Decryption Key Refresh Cadence for Sharing](../sharing/sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) を参照してください。
 
    ```java
    client.refresh();

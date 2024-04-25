@@ -9,6 +9,7 @@ sidebar_position: 04
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
 
 # Client-Side Integration Guide for JavaScript
 
@@ -26,7 +27,7 @@ UID2 は、以下の機能を備えた UID2 SDK for JavaScript([UID2 SDK for Jav
 
 1. [Complete UID2 account setup](#complete-uid2-account-setup)
 2. [Add UID2 SDK For JavaScript to your site](#add-uid2-sdk-for-javascript-to-your-site)
-3. [Configure the UID2 SDK for JavaScript](#configure-the-uid2-sdk-for-javascript)
+3. [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript)
 4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
 
 ## UID2 SDK for JavaScript Version
@@ -134,7 +135,7 @@ __uid2.init({
 });
 ```
 
-## Configure the UID2 SDK for JavaScript
+## Configure the SDK for JavaScript
 
 UID2 は、Client-Side のトークン生成機能を使用するために必要な以下の値をパブリッシャーに提供します:
 
@@ -258,7 +259,7 @@ await __uid2.setIdentityFromPhoneHash(
 
 ## Token Storage and Refresh
 
-[Configure the UID2 SDK for JavaScript](#configure-the-uid2-sdk-for-javascript) に記載されているメソッドのいずれかを正常に呼び出すと、[identity](../ref-info/glossary-uid.md#gl-identity) が生成され、`UID2-sdk-identity` というキーでローカルストレージに保存されます。SDK は UID2 Token を定期的にリフレッシュします。
+[Configure the SDK for JavaScript](#configure-the-sdk-for-javascript) に記載されているメソッドのいずれかを正常に呼び出すと、[identity](../ref-info/glossary-uid.md#gl-identity) が生成され、`UID2-sdk-identity` というキーでローカルストレージに保存されます。SDK は UID2 Token を定期的にリフレッシュします。
 
 :::danger
 ローカルストレージに保存されているオブジェクトのフォーマットは予告なく変更される可能性があります。ローカルストレージのオブジェクトを直接読み込んだり更新したり**しないこと**でください。

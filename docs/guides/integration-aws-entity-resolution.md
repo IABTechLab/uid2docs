@@ -7,6 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # AWS Entity Resolution Integration Guide
 
 <!-- This guide includes the following information:
@@ -25,7 +27,7 @@ sidebar_position: 04
 
 [AWS Entity Resolution](https://aws.amazon.com/entity-resolution/) is an identity resolution product from Amazon Web Services that allows AWS customers to integrate with the UID2 framework. Through the integration, you can securely and seamlessly generate UID2s for your data without making direct calls to the UID2 operator or handling sensitive client ID and secret key values.
 
-This service allows you to map [DII](../ref-info/glossary-uid.md#gl-dii) (email addresses or phone numbers) to raw UID2s swiftly and securely.
+This service allows you to map <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email addresses or phone numbers) to raw UID2s swiftly and securely.
 
 >NOTE: If you're not currently part of the UID2 ecosystem, go to the [Request Access to UID2](https://unifiedid.com/request-access) page.
 
@@ -150,14 +152,32 @@ To create the matching workflow, first sign in to the AWS Management console, op
    - **Description**: An optional description for the matching workflow.
    - **Data input**: The source for your data in AWS. From the drop-down list, select an AWS Glue database, then the AWS Glue table, and then the schema mapping. You can specify more than one data input. In the following example, email is the only type of data input:
 
-     |UniqueId|Name|Email|Date of Birth|
-     |--------|----|-----|-----------|
-     |0001|Test 1|test1@uidapi.com|1/1/90|
-     |0002|Test 2|test2@gmail.com|1/2/78|
+     | UniqueId | Name   | Email            | Date of Birth |
+     |----------|--------|------------------|---------------|
+     | 0001     | Test 1 | test1@uidapi.com | 1/1/90        |
+     | 0002     | Test 2 | test2@gmail.com  | 1/2/78        |
 
      NOTE: If you have both email and phone numbers in the same record, the workflow duplicates each record in the output. If you don't want this, the best approach is to create a separate workflow for each. See details earlier in this section.
 
-   - **Service access**: Grant specific permission to Entity Resolution to access the specified data in AWS Glue, using an existing or new service role. If the input data is encrypted, you must also specify the AWS Key Management Service (KMS) key for decryption.
+   - **Service access**: Grant permissions to Entity Resolution to access the specified data in AWS Glue and to call AWS Data Exchange on your behalf. We highly recommend that you select "Create and use a new service role" and let the workflow create a new role with all the required permissions. If you're using an existing service role, make sure that it is authorized to call AWS Data Exchange by adding the following permission:
+
+        ```json
+       {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Sid": "DataExchangePermissions",
+                "Action": "dataexchange:SendApiAsset",
+                "Resource": [
+                    "<Asset ARN>"
+                ]
+              }
+          ]
+        }
+       ```
+       The Asset ARN is available on the AWS Data Exchange console at "AWS Data Exchange" > "Entitled data" > "Unified ID 2.0 Identity Resolution" > "Data set: UnifiedID-2.0" > "Revision: Date" > "Asset: venice-api-gateway-prod"
+   - **Decryption Key**: If the input data is encrypted, you must also specify the AWS Key Management Service (KMS) key for decryption.
 
 2. Choose the matching technique:
    - Under **Matching method**, choose the **Partner services** option.
@@ -175,10 +195,10 @@ To create the matching workflow, first sign in to the AWS Management console, op
 
    - Select the input fields that you want to exclude from the output, and the fields that you want to hash in the output data, as shown in the following example.
    
-     |UniqueId|Name|Email|Date of Birth|UID2_identifier|UID2_advertising_id|UID2_bucket_id|
-     |--------|----|-----|-----------|-------------|---------------|-------------------|
-     |0001|Test 1|test1@uidapi.com|1/1/90|test1@uidapi.com|Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM=|ad1ANEmVZ|
-     |0002|Test 2|test2@gmail.com|1/2/78|test2@gmail.com|kds8hgBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/jgksuh=|kd9ANE98d|
+     | UniqueId | Name   | Email            | Date of Birth | UID2_identifier  | UID2_advertising_id                            | UID2_bucket_id |
+     |----------|--------|------------------|---------------|------------------|------------------------------------------------|----------------|
+     | 0001     | Test 1 | test1@uidapi.com | 1/1/90        | test1@uidapi.com | Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM=   | ad1ANEmVZ      |
+     | 0002     | Test 2 | test2@gmail.com  | 1/2/78        | test2@gmail.com  | kds8hgBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/jgksuh= | kd9ANE98d      |
 
 4. **Review and Create**: Review all the details of the matching workflow. When you're satisfied with the values, click **Create**.
 

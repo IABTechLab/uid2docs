@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 08
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 SDK for C# / .NET Reference Guide
 
 You can use the UID2 SDK for C# / .NET on the server side to facilitate the following:
@@ -14,17 +16,19 @@ You can use the UID2 SDK for C# / .NET on the server side to facilitate the foll
 
 <!-- This guide includes the following information:
 
-- [Overview](#overview)
 - [Functionality](#functionality)
 - [API Permissions](#api-permissions)
 - [Version](#version)
 - [GitHub Repository/Binary](#github-repositorybinary)
 - [Initialization](#initialization)
 - [Interface](#interface)
-  - [Response Content](#response-content)
-  - [Response Statuses](#response-statuses)
-- [FAQs](#faqs)
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
+  - [Encryption Response Content](#encryption-response-content)
+  - [Encryption Response Statuses](#encryption-response-statuses)
+  - [Decryption Response Content](#decryption-response-content)
+  - [Decryption Response Statuses](#decryption-response-statuses)
+- [Usage for DSPs](#usage-for-dsps)
+- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
+- [FAQs](#faqs) -->
 
 ## Functionality
 
@@ -65,13 +69,14 @@ You will need to provide the values necessary for the SDK to authenticate with t
 
 | Parameter | Description |
 | :--- | :--- |
-| `endpoint` | The endpoint for the UID2 service. See [Environments](../getting-started/gs-environments) 
-| `authKey` | The API key. See [UID2 Credentials](../getting-started/gs-credentials). | N/A |
+| `endpoint` | The endpoint for the UID2 service. See [Environments](../getting-started/gs-environments). | 
+| `authKey` | The API key. See [UID2 Credentials](../getting-started/gs-credentials). |
 | `secretKey` | The client secret. See [UID2 Credentials](../getting-started/gs-credentials). |
 
 ## Interface
 
 The `BidstreamClient` class allows you to decrypt UID2 tokens into raw UID2s.
+
 For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
 
 The `SharingClient` class allows you to encrypt raw UID2s into UID2 tokens and decrypt UID2 tokens into raw UID2s.
@@ -161,8 +166,8 @@ For a full example, see the `ExampleBidStreamClient` method in [SampleApp/Progra
 
 A UID2 sharer is any participant that wants to share UID2s with another participant. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant.
 
-:::warning
-The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bid stream. There is a different workflow for generating tokens for the bid stream: see [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md).
+:::important
+The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bid stream. There is a different workflow for generating tokens for the bid stream: see [Tokenized Sharing in the Bid Stream](../sharing/sharing-tokenized-from-data-bid-stream.md).
 :::
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for C# / .NET, either as a sender or a receiver.

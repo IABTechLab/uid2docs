@@ -8,6 +8,8 @@ sidebar_position: 01
 displayed_sidebar: docs
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Integration Guides: Summary
 
 以下のガイドでは、各組織のニーズと要件、およびパブリッシャー、DSP、データプロバイダー/広告主としての主な役割に基づいたインテグレーション手順を説明しています。UID2 参加者として、Open Operator Service との連携や Private Operator Service のホスティングを可能にするエンタープライズパートナーを介してインテグレーションすることもできます。

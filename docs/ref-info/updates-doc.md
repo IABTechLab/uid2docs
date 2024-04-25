@@ -5,11 +5,25 @@ hide_table_of_contents: false
 sidebar_position: 06
 ---
 
+import Link from '@docusaurus/Link';
+
 # Documentation Updates
 
 Check out the latest updates to our UID2 documentation resources.
 
-### New: Java SDK Support for Advertiser/Data Provider
+### Documentation for Sharing Including Raw UID2 Sharing
+
+22 April 2024
+
+We've completely reworked and significantly expanded the sharing documentation to include instructions for all sharing scenarios.
+
+The documentation now supports additional sharing scenarios, including the ability to share raw UID2s when senders and receivers follow the applicable legal, security, and technical requirements.
+
+For details, see [UID2 Sharing: Overview](../sharing/sharing-overview.md).
+
+<!-- APIDOCS-2134 -->
+
+### New: UID2 Hashing Tool
 
 4 March 2024
 
@@ -213,7 +227,7 @@ For details, see [UID2 Private Operator for GCP Integration Guide](../guides/ope
 
 7 September 2023
 
-We clarified the instructions for normalizing and encoding [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to create a raw UID2 or UID2 token.
+We clarified the instructions for normalizing and encoding <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to create a raw UID2 or UID2 token.
 
 For details, see:
 

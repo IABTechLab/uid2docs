@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 06
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 SDK for Python Reference Guide
 
 UID2 Server-Side SDK を使用することで、以下のことが容易になります:
@@ -194,7 +196,7 @@ server-only インテグレーションを使用している場合 ([Publisher I
 
 UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のことです。raw UID2を他の参加者に送信する前に、UID2 Token に暗号化する必要があります。使用例については、[examples/sample_sharing.py](https://github.com/IABTechLab/uid2-client-python/blob/master/examples/sample_sharing.py) スクリプトを参照してください。
 
->IMPORTANT: このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md) を参照してください。
+>IMPORTANT: このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bid Stream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 
 次の手順では、UID2 SDK for Python を送信者または受信者として使用して共有を実装する方法の例を示します。
 

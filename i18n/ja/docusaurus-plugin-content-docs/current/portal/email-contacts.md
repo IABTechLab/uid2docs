@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 09
 ---
 
+import Link from '@docusaurus/Link';
+
 # Email Contacts
 
 UID2 Portal では、UID2 の最新アップデートやリリースに関する情報を通知する組織内の担当者を指定できます。個別のメールアドレスを設定することも、組織内の複数の人に通知するために組織内に設定したメールグループを参照することもできます。

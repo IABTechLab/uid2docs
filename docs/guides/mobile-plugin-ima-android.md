@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 14
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 IMA Plugin for Android Integration Guide
 
 The UID2 Interactive Media Ads (IMA) Plugin for Android enables publishers that use the [Google IMA SDK for Android](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side) to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps. This is done automatically, with no direct coding needed from the app developer.

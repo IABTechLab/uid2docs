@@ -9,6 +9,8 @@ banner_description: Upgrade campaign activation with Unified ID 2.0.
 displayed_sidebar: sidebarAdvertisers
 ---
 
+import Link from '@docusaurus/Link';
+
 As an advertiser, you can upgrade your first-party data tactics with Unified ID 2.0 (UID2) to deliver omnichannel campaigns across devices with one identifier, for more durable identity strategies and better addressability.
 
 Learn about benefits, workflow, documentation, and other resources for advertisers adopting UID2, as well as instructions for getting started.
@@ -36,7 +38,7 @@ The following process occurs in the background:
 
 The following steps are an example of how an advertiser can integrate with UID2:
 
-1. The advertiser sends a user’s [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to the UID2 Operator.
+1. The advertiser sends a user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to the UID2 Operator.
 2. The UID2 Operator generates and returns a raw UID2 and salt bucket ID.
 3. The advertiser stores the UID2 and salt bucket ID and sends the UID2-based first-party and third-party audience segments to the DSP. 
 
