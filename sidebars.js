@@ -60,16 +60,17 @@ const fullSidebar = [
       type: 'category',
       label: 'UID2 Portal',
       link: {
-        type: 'doc',
-        id: 'portal/portal-overview',
+        type: 'generated-index',
       },
-
+      collapsed: true,
       items: [
+        'portal/portal-overview',
         'portal/portal-getting-started',
         'portal/sharing-permissions',
         'portal/participant-info',
         'portal/team-members',
         'portal/email-contacts',
+        'portal/api-keys',
       ],
     },
 
