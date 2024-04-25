@@ -306,14 +306,9 @@ Follow these steps:
 
    An HTTP 200 with a response body of `OK` indicates healthy status.
 
-## Private Operator Attestation Failure
+import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
 
-UID2 Private operators will fail if the operator fails to attest with our Core service. Their are two senarios that can cause this:
-
-1. 401 response. If your operator key recieves a 401 response from our Core service, the operator will terminate itself immediately.
-2. Any other non 200. If your operator attest request recieves any other non 200. The operator will continue to function for 12 hours. If the issue is not resolved in this time frame, the operator will terminate itself.
-
-Private operator hosts will need to have infrustructure in place to handle alerting and restarting operators in the case of an error.
+<AttestFailure />
 
 ## Upgrading
 
