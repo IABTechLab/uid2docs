@@ -11,6 +11,16 @@ import Link from '@docusaurus/Link';
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: UID2 Portal API Keys Page
+
+25 April 2024
+
+The UID2 Portal documentation now includes a new page, [API Keys](../portal/api-keys.md).
+
+The API Keys page in the UID2 Portal allows you to perform all activities relating to managing API keys, and their associated secret values and permission settings, for your UID2 account.
+
+<!-- APIDOCS-2133 -->
+
 ### Documentation for Sharing Including Raw UID2 Sharing
 
 22 April 2024
