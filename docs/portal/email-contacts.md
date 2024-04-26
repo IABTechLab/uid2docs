@@ -54,7 +54,7 @@ Complete the following steps:
 
 ## Edit Information for an Email Contact
 
-To edit information for an email contact, find the contact on the list and then, in the Actions column, click the Edit (pencil) icon.
+To edit information for an email contact, find the contact on the list and then, in the Actions column, click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon).
 
 Update the information, and then save the changes.
 
@@ -62,5 +62,5 @@ Update the information, and then save the changes.
 
 To remove an email contact, follow these steps:
 
-1. Find the contact on the list and then, in the Actions column, click the Delete (trashcan) icon.
+1. Find the contact on the list and then, in the Actions column, click ![the Delete icon](images/icon-trash-can-solid.png) (the Delete icon).
 1. At the confirmation message, confirm deletion.
