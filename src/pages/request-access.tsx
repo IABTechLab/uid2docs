@@ -43,6 +43,7 @@ declare global {
 
 export default function RequestDemo(): JSX.Element {
   const { i18n } = useDocusaurusContext();
+  const formRef = React.useRef<HTMLFormElement>(null);
 
   React.useEffect(() => {
     const timerId = setTimeout(() => {
@@ -59,55 +60,9 @@ export default function RequestDemo(): JSX.Element {
     return () => clearTimeout(timerId);
   }, []);
 
-  const formRef = React.useRef(null);
-
   const formId = i18n.currentLocale === "ja" ? 3688 : 2753;
 
-  const onChange = React.useCallback((event) => {
-    const target = event.target;
-    const parent = target.parentElement;
-    const label = parent.getElementsByTagName("label")[0];
-    const value = target.value;
-
-    value
-      ? label?.classList.add(styles.hasContentLabel)
-      : label?.classList.remove(styles.hasContentLabel);
-  }, []);
-
-  const onFocus = React.useCallback((event) => {
-    const target = event.target;
-    const parent = target.parentElement;
-    const label = parent.getElementsByTagName("label")[0];
-
-    label?.classList.add(styles.focusedLabel);
-  }, []);
-
-  const onBlur = React.useCallback((event) => {
-    const target = event.target;
-    const parent = target.parentElement;
-    const label = parent.getElementsByTagName("label")[0];
-
-    label?.classList.remove(styles.focusedLabel);
-  }, []);
-
-  const onFormMutation = React.useCallback(() => {
-    const labelNodes = formRef.current.querySelectorAll("label");
-
-    labelNodes.forEach((label) => {
-      const siblingInput = identifyClosestSiblingInput(label);
-
-      const tagName = capitalizeFirstLetter(
-        siblingInput?.tagName.toLowerCase(),
-      );
-      const inputTypeClassName = `for${tagName}`;
-
-      if (inputTypeClassName in styles) {
-        label.classList.add(styles[inputTypeClassName]);
-      }
-    });
-  }, [formRef]);
-
-  React.useEffect(() => {
+  const loadMarketoForm = React.useCallback(() => {
     if (window.MktoForms2) {
       window.MktoForms2.loadForm(
         "//pages.thetradedesk.com",
@@ -141,7 +96,69 @@ export default function RequestDemo(): JSX.Element {
   }, [formId]);
 
   React.useEffect(() => {
-    if (formRef?.current) {
+    // call marketo after delay to prevent race conditions on rapid multiple renders
+    const timer = setTimeout(loadMarketoForm, formId);
+    return () => clearTimeout(timer);
+  }, [loadMarketoForm]);
+
+  const onChange = React.useCallback((event) => {
+    const target = event.target;
+    const parent = target.parentElement;
+    const label = parent.getElementsByTagName("label")[0];
+    const value = target.value;
+
+    value
+      ? label?.classList.add(styles.hasContentLabel)
+      : label?.classList.remove(styles.hasContentLabel);
+  }, []);
+
+  const onFocus = React.useCallback((event) => {
+    const target = event.target;
+    const parent = target.parentElement;
+    const label = parent.getElementsByTagName("label")[0];
+
+    label?.classList.add(styles.focusedLabel);
+  }, []);
+
+  const onBlur = React.useCallback((event) => {
+    const target = event.target;
+    const parent = target.parentElement;
+    const label = parent.getElementsByTagName("label")[0];
+
+    label?.classList.remove(styles.focusedLabel);
+  }, []);
+
+  const onFormMutation = React.useCallback(() => {
+    const labelNodes = formRef?.current.querySelectorAll("label");
+    const submitButton = formRef?.current.querySelector(
+      'button[type="submit"]',
+    );
+
+    labelNodes.forEach((label) => {
+      const siblingInput = identifyClosestSiblingInput(label);
+
+      const tagName = capitalizeFirstLetter(
+        siblingInput?.tagName.toLowerCase(),
+      );
+      const inputTypeClassName = `for${tagName}`;
+
+      if (inputTypeClassName in styles) {
+        label.classList.add(styles[inputTypeClassName]);
+      }
+    });
+    if (submitButton) {
+      submitButton.addEventListener("click", function () {
+        pushGtmEvent({
+          event: "form_submit",
+          form_id: formId,
+        });
+      });
+    }
+  }, [formRef]);
+
+  React.useEffect(() => {
+    if (formRef.current) {
+      // Event listeners and observer setup
       formRef.current.addEventListener("focusin", onFocus);
       formRef.current.addEventListener("focusout", onBlur);
       formRef.current.addEventListener("change", onChange);
