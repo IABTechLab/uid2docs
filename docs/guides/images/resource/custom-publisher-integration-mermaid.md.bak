@@ -14,7 +14,7 @@
 
     Note over U,SSP: 1. Establish Identity
     U->>+P: 1-a. User visits a publisher asset.
-    P->>-U: 1-b. Publisher explains the value exchange of the open internet and requests a login.
+    P->>-U: 1-b. Publisher provides transparency around its data practices.
     activate U
     U->>P: 1-c. User authenticates and authorizes the creation of a UID2.
     deactivate U

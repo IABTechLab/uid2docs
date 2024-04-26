@@ -25,13 +25,11 @@ UID2 フレームワークに関するよくある質問を紹介します。
    - [Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
    - [Can users opt out of targeted advertising tied to their UID2 identity?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2-identity)
    - [When I send DII to UID2, does UID2 store the information?](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
-   - [How does a user know where to access the opt-out portal?](#how-does-a-user-know-where-to-access-the-opt-out-portal)
    - [Does UID2 allow the processing of HIPAA-regulated data?](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
 
 <!-- - [EUID インフラストラクチャのすべてのインテグレーションパートナー (SSP、第三者データプロバイダー、測定プロバイダー)は、自動的に UID2 にインテグレーションされるのでしょうか？](#EUID-%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%83%81%E3%83%A3%E3%81%AE%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%86%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC-%28SSP%E3%80%81%E7%AC%AC%E4%B8%89%E8%80%85%E3%83%87%E3%83%BC%E3%82%BF%E3%83%97%E3%83%AD%E3%83%90%E3%82%A4%E3%83%80%E3%83%BC%E3%80%81%E6%B8%AC%E5%AE%9A%E3%83%97%E3%83%AD%E3%83%90%E3%82%A4%E3%83%80%E3%83%BC%29%E3%81%AF%E3%80%81%E8%87%AA%E5%8B%95%E7%9A%84%E3%81%AB-UID2-%E3%81%AB%E3%82%A4%E3%83%B3%E3%83%86%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%95%E3%82%8C%E3%82%8B%E3%81%AE%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8B%EF%BC%9F)
 - [ユーザーは、UID2 ID に関連するターゲティング広告の配信を拒否できますか？](#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AF%E3%80%81UID2-ID-%E3%81%AB%E9%96%A2%E9%80%A3%E3%81%99%E3%82%8B%E3%82%BF%E3%83%BC%E3%82%B2%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E5%BA%83%E5%91%8A%E3%81%AE%E9%85%8D%E4%BF%A1%E3%82%92%E6%8B%92%E5%90%A6%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F)
 - [UID2 に DII を送信すると、UID2 はその情報を保存しますか？](#UID2-%E3%81%AB-DII-%E3%82%92%E9%80%81%E4%BF%A1%E3%81%99%E3%82%8B%E3%81%A8%E3%80%81UID2-%E3%81%AF%E3%81%9D%E3%81%AE%E6%83%85%E5%A0%B1%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%97%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F)
-- [オプトアウトポータルにアクセスする場所をユーザーが知るにはどうすればよいですか？](#%E3%82%AA%E3%83%97%E3%83%88%E3%82%A2%E3%82%A6%E3%83%88%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%AB%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%E5%A0%B4%E6%89%80%E3%82%92%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%8C%E7%9F%A5%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B)
  - [DUID2 では、HIPAA で規制されているデータを処理できますか？](#UID2-%E3%81%A7%E3%81%AF%E3%80%81HIPAA-%E3%81%A7%E8%A6%8F%E5%88%B6%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E5%87%A6%E7%90%86%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F) -->
 
 #### Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?
@@ -47,10 +45,6 @@ UID2 フレームワークに関するよくある質問を紹介します。
 いいえ、UID2 にはは DII を保存しません。さらに、ほとんどの場合、UID2は[POST&nbsp;/token/generate](../endpoints/post-token-generate.md), [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md)、[POST /identity/map](../endpoints/post-identity-map.md) が実行されると、値をまったく保存しません。
 
 必要な例外は、ユーザーがオプトアウトした場合です。このシナリオでは、UID2 には、オプトアウトされたユーザーを示すハッシュ化された不透明な値が格納されます。保存された値をリバース エンジニアリングして DII の元の値に戻すことはできませんが、同じ DII から生成された UID2 に対する将来の要求を識別するために使用できるため、これらのリクエストは拒否されます。
-
-#### How does a user know where to access the opt-out portal?
-
-パブリッシャー、SSO プロバイダー、または同意管理プラットフォームは、ログインフロー、同意フロー、プライバシーポリシー、およびその他の手段で、[Transparency and Control Portal](https://www.transparentadvertising.com/)へのリンクを開示します。
 
 #### Does UID2 allow the processing of HIPAA-regulated data?
 

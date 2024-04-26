@@ -111,8 +111,8 @@ The following table outlines the four main states that the SDK can be in, based 
 | :--- | :--- | :---| :---| :---|
 | Initialization | `undefined`| `undefined`| Initial state until the callback is invoked. | N/A |
 | Identity Is Available | available |`false` | A valid identity has been successfully established or refreshed. You can use the advertising token in targeted advertising.  |`ESTABLISHED` or `REFRESHED` |
-| Identity Is Temporarily Unavailable |`undefined` | `false`| The advertising token has expired, therefore automatic refresh failed. [Background auto-refresh](#background-token-auto-refresh) attempts will continue until the refresh token expires or the user opts out.<br/>You can do either of the following:<br/>- Use untargeted advertising.<br/>- Redirect the user to the UID2 login with a consent form.<br/>NOTE: Identity might be successfully refreshed at a later time&#8212;for example, if the UID2 service is temporarily unavailable.| `EXPIRED` |
-| Identity Is Not Available  | `undefined`| `false`| The identity is not available and cannot be refreshed. The SDK clears the first-party cookie.<br/>To use UID2-based targeted advertising again, you must redirect the user to a login or form fill where UID2s can be captured. | `INVALID`, `NO_IDENTITY`, `REFRESH_EXPIRED`, or `OPTOUT` |
+| Identity Is Temporarily Unavailable |`undefined` | `false`| The advertising token has expired, therefore automatic refresh failed. [Background auto-refresh](#background-token-auto-refresh) attempts will continue until the refresh token expires or the user opts out.<br/>You can do either of the following:<br/>- Redirect the user, asking for the email or phone number.<br/>- Use untargeted advertising.<br/>NOTE: Identity might be successfully refreshed at a later time&#8212;for example, if the UID2 service is temporarily unavailable.| `EXPIRED` |
+| Identity Is Not Available  | `undefined`| `false`| The identity is not available and cannot be refreshed. The SDK clears the first-party cookie.<br/>To use UID2-based targeted advertising again, you must obtain the email or phone number from the consumer. | `INVALID`, `NO_IDENTITY`, `REFRESH_EXPIRED`, or `OPTOUT` |
 
 
 The following diagram illustrates the four states, including the corresponding identity [status values](#identity-status-values) and possible transitions between them. The SDK invokes the [callback function](#callback-function) on each transition.
@@ -128,7 +128,7 @@ Here's what you need to know about the token auto-refresh:
 
 
 - Only one token refresh call can be active at a time. 
-- If the  [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) response is unsuccessful because the user has opted out, or because the refresh token has expired, this suspends the background auto-refresh process and requires a new login ([isLoginRequired()](#isloginrequired-boolean) returns `true`). In all other cases, auto-refresh attempts continue in the background.
+- If the  [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) response is unsuccessful because the user has opted out, or because the refresh token has expired, this suspends the background auto-refresh process. To use UID2-based targeted advertising again, you must obtain the email or phone number from the consumer ([isLoginRequired()](#isloginrequired-boolean) returns `true`). In all other cases, auto-refresh attempts continue in the background.
 - The [callback function](#callback-function) specified during the SDK initialization is invoked in the following cases:
 	- After each successful refresh attempt.
 	- After an initial failure to refresh an expired advertising token.
@@ -303,7 +303,7 @@ This function can be called before or after the [init()](#initopts-object-void) 
 
 ### isLoginRequired(): boolean
 
-Specifies whether a UID2 ([POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call is required. 
+Specifies whether a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call is required. 
 
 This function can also provide additional context for handling missing identities, as shown in [Workflow States and Transitions](#workflow-states-and-transitions).
 
@@ -317,8 +317,8 @@ This function can also provide additional context for handling missing identitie
 
 | Value | Description |
 | :--- | :--- |
-| `true` | The identity is not available, and the UID2 login is required. This value indicates any of the following:<br/>- The user has opted out.<br/>- The refresh token has expired.<br/>- A first-party cookie is not available and no server-generated identity has been supplied. |
-| `false` | No login is required. This value indicates one of the following:<br/>- The identity is present and valid.<br/>- The identity has expired, and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt. |
+| `true` | The identity is not available. This value indicates any of the following:<br/>- The user has opted out.<br/>- The refresh token has expired.<br/>- A first-party cookie is not available and no server-generated identity has been supplied. |
+| `false` | This value indicates one of the following:<br/>- The identity is present and valid.<br/>- The identity has expired, and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt. |
 | `undefined` | The SDK initialization is not yet complete. |
 
 
@@ -326,7 +326,7 @@ This function can also provide additional context for handling missing identitie
 
 Clears the UID2 identity from the [first-party cookie](#uid2-cookie-format). This closes the client's identity session and disconnects the client lifecycle.
 
-When an unauthenticated user is present, or a user wants to log out of targeted advertising on the publisher's site, make the following call:
+When a user logs out of the publisher's site, make the following call:
 
 ```html
 <script>

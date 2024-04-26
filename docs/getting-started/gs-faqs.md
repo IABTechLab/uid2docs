@@ -25,7 +25,6 @@ Here are some frequently asked questions regarding the UID2 framework.
    - [Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
    - [Can users opt out of targeted advertising tied to their UID2 identity?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2-identity)
    - [When I send DII to UID2, does UID2 store the information?](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
-   - [How does a user know where to access the opt-out portal?](#how-does-a-user-know-where-to-access-the-opt-out-portal)
    - [Does UID2 allow the processing of HIPAA-regulated data?](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
 
 #### Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?
@@ -41,10 +40,6 @@ Yes. Through the [Transparency and Control Portal](https://www.transparentadvert
 No, UID2 does not store any DII. In addition, in almost all cases, UID2 doesn't store any values at all once the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md), [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md), or [POST /identity/map](../endpoints/post-identity-map.md) call is complete.
 
 A necessary exception is the case where a user has opted out. In this scenario, UID2 stores a hashed, opaque value to indicate the opted-out user. The stored value cannot be reverse engineered back to the original value of the DII, but can be used to identify future requests for a UID2 generated from the same DII, which are therefore denied.
-
-#### How does a user know where to access the opt-out portal?
-
-Publishers, SSO providers, or consent management platforms disclose links to the [Transparency and Control Portal](https://www.transparentadvertising.com/) in their login flows, consent flows, and privacy policies, and by other means.
 
 #### Does UID2 allow the processing of HIPAA-regulated data?
 
