@@ -55,14 +55,14 @@ To edit information for a team member, complete the following steps:
 
 1. In the UID2 Portal, go to the **Team Members** page.
 1. Find the team member on the list.
-1. In the Actions column, click the Edit (pencil) icon.
+1. In the Actions column, click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon).
 1. Update the information, and then save the changes.
 
 ## Remove a Team Member
 
 To remove someone from the team, follow these steps:
 
-1. Find the team member on the list and then, in the Actions column, click the Delete (trashcan) icon.
+1. Find the team member on the list and then, in the Actions column, click ![the Delete icon](images/icon-trash-can-solid.png) (the Delete icon).
 1. At the confirmation message, click **Delete Team Member**.
 
    The team member is removed from the team.
