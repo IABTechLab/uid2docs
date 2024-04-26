@@ -106,7 +106,7 @@ Step 1-c で認証を行い、ユーザーに利用規約を受け入れさせ�
         const advertisingToken = payload.identity.advertising_token;
         // Pass advertising_token to your advertising system to use
       } else {
-        // No identity is available for targeted advertising - trigger a login flow if you want to use UID2 for targeted advertising
+        // No identity is available. Trigger a workflow for obtaining email address or phone number if you want to use UID2 for targeted advertising.
       }
     }
   });
@@ -144,7 +144,7 @@ Step 1-c で認証を行い、ユーザーに利用規約を受け入れさせ�
         const advertisingToken = payload.identity.advertising_token;
         // Pass advertising_token to your advertising system to use
       } else {
-        // No identity is available for targeted advertising - trigger a login flow if you want to use UID2 for targeted advertising
+        // No identity is available. Trigger a workflow for obtaining email address or phone number if you want to use UID2 for targeted advertising.
       }
     }
   });

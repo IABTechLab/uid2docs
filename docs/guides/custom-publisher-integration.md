@@ -55,9 +55,7 @@ The following diagram outlines the steps required for a user to establish a UID2
 
 If you're using a server-side SDK, the SDK takes care of all the steps that mention endpoints: for example, step 1-d, the publisher sends the user's DII to the token generation service.
 
-![Publisher Flow Without SDK](images/custom-publisher-integration-mermaid.svg)
-
-<!-- https://mermaid.live/edit#pako:eNqdVTtv2zAQ_isHLRlqC6idyUOGwh0MtIVQV5sWRjzJRGVSJSm3bpD_3uPDUmRZDZIske_I73F3JJ-SUnFMNgmAwV8dyhK3gtWaHQsJ9NcybUUpWiYt5MAM5Ab1NJW5VNY9NsIcbuXz3Xbld7v_e9QnUeJ01X6fFTKEvymLoE6oIV9QeAMfU_hsLPMMsOMorbDnsDZfPjx8cEuWLPX64CSMsAYYtBdJRG7QpmFDRhuWudvwmA6qAf-0DRPSgD0gnFjTIYXKA5M1Sal8VLUoQUiLWqIFJjloVzXjyRpVCxkpWGnFiZGHfNDoJZZRIusIj0yUtMh4JBdRWvzFIKDUyKxQ0lEzX7gIzfEavP-dDf7cBsfHXzo0KHlA70jDnYHtbgdW-YhVP8lbjRJ14DWhTVPW7NoiUUWX9HUxiin8mIGkotlOSxN9Beob7nrcmwYdSTV2Z3vISune500HM2O2SuGT4NQiIeuA5E0MtGGVm7SBuGRNE8pKWU_NqMydx3DRicleiJ94F6GPULiVm0kH09fIdUwBF4am8zz10kPMFGnlRm7QGnGC3Ij9nkKtU_iOlUY6jddlirO-7o_jxQpRzR3J-RFejw8p6XRN1pE7TC0Bx3NIKYm_X1T89Ul4dZbXroK7qkeBAzPyztJlYJGD6uzCp8aSpqM-1vWOcV9fH2YbuvhWwzMdvY_d-qJq8jRq5X3fSrrjjLMMlVbHt3XTwYxaWTbI9Og6-l95smSRHFEfmeD0XD25fJHQ3iMWyYY-yTb1v0gK-Uwr6TJV-7Msk43VHS6SruUEEp-2ZFOxxlAUubBKfw0voH8In_8BLSZHlA -->
+![Publisher Flow](images/custom-publisher-integration-mermaid.svg)
 
 The following sections provide additional details for each step in the diagram:
  
