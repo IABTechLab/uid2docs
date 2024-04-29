@@ -81,9 +81,12 @@ To choose your implementation and get started, follow these steps:
 
 ## Generate the UID2 Token
 
-There are two main paths that you can choose to generate a UID2 token: you can choose to initiate the UID2 token generate request on the client side (in the user's browser) or on the server side.
+There are two main paths that you can choose to generate a UID2 token&#8212;you can choose to initiate the UID2 token generate request:
 
-Each option has different advantages. Client-side integration is easy and fast; integration using Prebid.js 8.21.0 or later is the easiest and fastest integration option.
+- On the client side (in the user's browser): see [Client-Side Integration Options](#client-side-integration-options).
+- On the server side: see [Server-Side Integration Options](#server-side-integration-options).
+
+Each option has different advantages. We recommend client-side integration using Prebid.js 8.21.0 or later as the easiest and fastest integration option.
 
 :::note
 For all integration options, you can choose to store the UID2 token in local storage or cookie storage.
