@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 02
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 SDK for JavaScript Reference Guide (2.x and earlier versions)
 
 :::tip

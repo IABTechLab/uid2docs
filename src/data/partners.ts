@@ -8,6 +8,11 @@ export type PartnersDataType = {
 
 export const partnersData: PartnersDataType = [
   {
+    name: "3+",
+    logo: "CH3-logo.png",
+    type: ["Publishers"],
+  },
+  {
     name: "4 GTV TV",
     logo: "4GTV.tv-logo_2022-07-12-203714_dakq.png",
     type: ["Publishers"],
@@ -40,6 +45,11 @@ export const partnersData: PartnersDataType = [
     type: ["Data", "CDP"],
     featured: true,
     order: 2,
+  },
+  {
+    name: "Adobe Advertising",
+    logo: "adobe-advertising.png",
+    type: ["DSP"],
   },
   {
     name: "Adsquare",
@@ -143,6 +153,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Beachfront",
+    logo: "beachfront-logo.png",
+    type: ["DSP"],
+  },
+  {
     name: "BluID",
     logo: "blu_logo.png",
     type: ["Data"],
@@ -176,11 +191,6 @@ export const partnersData: PartnersDataType = [
     name: "Centillion",
     logo: "centillion-logo.png",
     type: ["Data"],
-  },
-  {
-    name: "Cignal Play",
-    logo: "CignalPlay_logo-580x250.png",
-    type: ["Publishers"],
   },
   {
     name: "Cinema Café",
@@ -217,6 +227,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "Dek-D",
     logo: "ddlogo_orn_a 2.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "Disney",
+    logo: "disney-logo.png",
     type: ["Publishers"],
   },
   {
@@ -321,6 +336,16 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Hotai",
+    logo: "hotai-logo.png",
+    type: ["Data"],
+  },
+  {
+    name: "HK01",
+    logo: "HK01-logo.png",
+    type: ["Publishers"],
+  },
+  {
     name: "i Cook",
     logo: "PartnerLogo_iCook_256x256.png",
     type: ["Publishers", "Data"],
@@ -409,6 +434,11 @@ export const partnersData: PartnersDataType = [
     type: ["Data"],
   },
   {
+    name: "Lotame",
+    logo: "lotame-logo.png",
+    type: ["Data"],
+  },
+  {
     name: "Lotte Members",
     logo: "lottemembers.png",
     type: ["Data"],
@@ -471,6 +501,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "mParticle",
+    logo: "mparticle-logo.png",
+    type: ["CDP"],
+  },
+  {
     name: "Motiv-i",
     logo: "MI_LOGO_500x240.png",
     type: ["DSP"],
@@ -493,11 +528,6 @@ export const partnersData: PartnersDataType = [
   {
     name: "NBC Universal",
     logo: "NBCuniversal.png",
-    type: ["Publishers"],
-  },
-  {
-    name: "NCT",
-    logo: "NCT_logo-580x250.png",
     type: ["Publishers"],
   },
   {
@@ -660,6 +690,11 @@ export const partnersData: PartnersDataType = [
     type: ["Data"],
   },
   {
+    name: "Sharethrough",
+    logo: "str-logo.png",
+    type: ["DSP"],
+  },
+  {
     name: "Skyperfect JSAT",
     logo: "skyperfect-logo-700x400.png",
     type: ["Publishers", "Data"],
@@ -715,6 +750,11 @@ export const partnersData: PartnersDataType = [
     name: "Tealium",
     logo: "tealium.png",
     type: ["CDP"],
+  },
+  {
+    name: "Thairath",
+    logo: "Thairath_Online_Logo2023.png",
+    type: ["Publishers"],
   },
   {
     name: "Thanh Nien",
@@ -782,12 +822,22 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Twilio Segment",
+    logo: "twilio-logo.png",
+    type: ["CDP"],
+  },
+  {
     name: "ucfunnel",
     logo: "PartnerLogo_ucfunnel_580x250.png",
     type: ["DSP"],
   },
   {
     name: "Unruly",
+    logo: "UnwindLogo.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "Unwind Media",
     logo: "PartnerLogo_Unruly_580x250.png",
     type: ["DSP"],
   },
@@ -810,6 +860,11 @@ export const partnersData: PartnersDataType = [
     name: "Verve",
     logo: "PartnerLogo_Verve_580x250.png",
     type: ["DSP"],
+  },
+  {
+    name: "VNExpress",
+    logo: "VNExpress.png",
+    type: ["Publishers"],
   },
   {
     name: "WeTV",

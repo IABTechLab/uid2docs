@@ -7,7 +7,9 @@ banner_title: UID2 Overview for Private Operators
 banner_description: Own the process of generating UID2s from DII in a private environment.
 ---
 
-Private Operators of UID2 send first-party [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to a secure environment for translation, and control the destinations for those identifiers. A participant that chooses to become a private Operator (previously known as closed Operator) can generate and manage UID2s, running a UID2 Operator service in a private environment.
+import Link from '@docusaurus/Link';
+
+Private Operators of UID2 send first-party <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to a secure environment for translation, and control the destinations for those identifiers. A participant that chooses to become a private Operator (previously known as closed Operator) can generate and manage UID2s, running a UID2 Operator service in a private environment.
 
 Learn about what the UID2 framework offers to private Operators, including benefits, hosting options, documentation and other resources, and how to get started.
 
@@ -15,7 +17,7 @@ Learn about what the UID2 framework offers to private Operators, including benef
 
 Here are some of the intended benefits of participating in UID2 as a private Operator:
 - You can maintain privacy-conscious workflows for your customer data to be encrypted and activated across chosen partners.
-- You can participate in UID2 using your own first-party [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) without sharing it.
+- You can participate in UID2 using your own first-party <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> without sharing it.
 - You have full control of resources, performance, and latency for UID2.
 - You can plan to minimize network hops with a service that can provide regional proximity.
 - You can implement processes and policies that you control, as opposed to taking part in a shared service.

@@ -43,22 +43,63 @@ declare global {
 
 export default function RequestDemo(): JSX.Element {
   const { i18n } = useDocusaurusContext();
+  const formRef = React.useRef<HTMLFormElement>(null);
 
   React.useEffect(() => {
-    const pageViewData = {
-      event: "Initialize_dataLayer",
-      document_type: "request access",
-      document_title: document.title,
-      article_author: undefined,
-      tags: undefined,
-    };
+    const timerId = setTimeout(() => {
+      const pageViewData = {
+        event: "Initialize_dataLayer",
+        document_type: "request access",
+        document_title: document.title,
+        article_author: undefined,
+        tags: undefined,
+      };
+      pushGtmEvent(pageViewData);
+    }, 50);
 
-    pushGtmEvent(pageViewData);
+    return () => clearTimeout(timerId);
   }, []);
 
-  const formRef = React.useRef(null);
-
   const formId = i18n.currentLocale === "ja" ? 3688 : 2753;
+
+  const loadMarketoForm = React.useCallback(() => {
+    if (window.MktoForms2) {
+      window.MktoForms2.loadForm(
+        "//pages.thetradedesk.com",
+        "527-INM-364",
+        formId,
+      );
+
+      window.MktoForms2.whenRendered(function (form) {
+        const formEl = form.getFormElem()[0];
+        const styledEls = Array.from(formEl.querySelectorAll("[style]")).concat(
+          formEl,
+        );
+        styledEls.forEach(function (el: Element) {
+          el.removeAttribute("style");
+        });
+
+        // disable remote stylesheets and local <style>
+        const styleSheets = Array.from(document.styleSheets);
+        styleSheets.forEach(function (ss) {
+          if (
+            // @ts-ignore
+            [mktoForms2BaseStyle, mktoForms2ThemeStyle].indexOf(ss.ownerNode) !=
+              -1 ||
+            formEl.contains(ss.ownerNode)
+          ) {
+            ss.disabled = true;
+          }
+        });
+      });
+    }
+  }, [formId]);
+
+  React.useEffect(() => {
+    // call marketo after delay to prevent race conditions on rapid multiple renders
+    const timer = setTimeout(loadMarketoForm, formId);
+    return () => clearTimeout(timer);
+  }, [loadMarketoForm]);
 
   const onChange = React.useCallback((event) => {
     const target = event.target;
@@ -88,13 +129,16 @@ export default function RequestDemo(): JSX.Element {
   }, []);
 
   const onFormMutation = React.useCallback(() => {
-    const labelNodes = formRef.current.querySelectorAll("label");
+    const labelNodes = formRef?.current.querySelectorAll("label");
+    const submitButton = formRef?.current.querySelector(
+      'button[type="submit"]',
+    );
 
     labelNodes.forEach((label) => {
       const siblingInput = identifyClosestSiblingInput(label);
 
       const tagName = capitalizeFirstLetter(
-        siblingInput?.tagName.toLowerCase()
+        siblingInput?.tagName.toLowerCase(),
       );
       const inputTypeClassName = `for${tagName}`;
 
@@ -102,43 +146,19 @@ export default function RequestDemo(): JSX.Element {
         label.classList.add(styles[inputTypeClassName]);
       }
     });
-  }, [formRef]);
-
-  React.useEffect(() => {
-    if (window.MktoForms2) {
-      window.MktoForms2.loadForm(
-        "//pages.thetradedesk.com",
-        "527-INM-364",
-        formId
-      );
-
-      window.MktoForms2.whenRendered(function (form) {
-        const formEl = form.getFormElem()[0];
-        const styledEls = Array.from(formEl.querySelectorAll("[style]")).concat(
-          formEl
-        );
-        styledEls.forEach(function (el: Element) {
-          el.removeAttribute("style");
-        });
-
-        // disable remote stylesheets and local <style>
-        const styleSheets = Array.from(document.styleSheets);
-        styleSheets.forEach(function (ss) {
-          if (
-            // @ts-ignore
-            [mktoForms2BaseStyle, mktoForms2ThemeStyle].indexOf(ss.ownerNode) !=
-              -1 ||
-            formEl.contains(ss.ownerNode)
-          ) {
-            ss.disabled = true;
-          }
+    if (submitButton) {
+      submitButton.addEventListener("click", function () {
+        pushGtmEvent({
+          event: "form_submit",
+          form_id: formId,
         });
       });
     }
-  }, [formId]);
+  }, [formRef]);
 
   React.useEffect(() => {
-    if (formRef?.current) {
+    if (formRef.current) {
+      // Event listeners and observer setup
       formRef.current.addEventListener("focusin", onFocus);
       formRef.current.addEventListener("focusout", onBlur);
       formRef.current.addEventListener("change", onChange);

@@ -9,6 +9,8 @@ banner_description: An identity solution for the future.
 displayed_sidebar: sidebarDataProviders
 ---
 
+import Link from '@docusaurus/Link';
+
 As a data and measurement provider, you can reduce identity fragmentation by adopting Unified ID 2.0 (UID2) to connect data with a more durable, omnichannel, and cross-device identifier to fulfil your customer use cases.
 
 This solution is for you if you're offering data or related services for online or offline advertising, such as a provider of the following:
@@ -37,15 +39,18 @@ Here are just some of the intended benefits available to you as a data provider 
 The following steps provide a high-level outline of the workflow intended for organizations that collect user data and push it to DSPs—for example, advertisers, identity graph providers, and third-party data providers.
 
 The following process occurs in the background:
-* The data provider monitors the UID2 Operator for rotated salt buckets, and updates UID2s as needed.
+* The advertiser or data provider monitors the UID2 Operator for rotated salt buckets, and updates UID2s as needed.
 
-The following steps are an example of how an advertiser or data provider can integrate with UID2:
+The following steps are an example of how a data provider can integrate with UID2:
 
-1. The advertiser or data provider sends a user’s consented [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to the UID2 Operator.
+1. The data provider sends a user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to the UID2 Operator.
+
+   <!-- euid_only_ep_20240312 ("consented" in above line DP only EUID only) -->
+
 2. The UID2 Operator generates and returns a raw UID2 and salt bucket ID.
-3. The advertiser or data provider stores the UID2 and salt bucket ID and sends the UID2-based first-party and third-party audience segments to the DSP. 
+3. The data provider stores the UID2 and salt bucket ID and sends the UID2-based first-party and third-party audience segments to the DSP. 
 
-   Server-side: The advertiser or data provider stores the UID2 in a mapping table, DMP, data lake, or other server-side application.
+   Server-side: The data provider stores the UID2 in a mapping table, DMP, data lake, or other server-side application.
 
 ![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.jpg)
 

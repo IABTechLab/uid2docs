@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 12
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 SDK for Android Reference Guide
 
 <!-- This guide includes the following information:
@@ -16,8 +18,8 @@ sidebar_position: 12
 - [GitHub Repository/Binary](#github-repositorybinary)
 - [Minimum Requirements](#minimum-requirements)
 - [Installation](#installation)
-  -  [Installing with Gradle ](#installing-with-gradle)
-  -  [Installing with Maven ](#installing-with-maven)
+  -  [Installing with Gradle](#installing-with-gradle)
+  -  [Installing with Maven](#installing-with-maven)
 - [Usage Guidelines](#usage-guidelines)
 - [UID2Manager API](#uid2manager-api)
   -  [Functions](#functions)

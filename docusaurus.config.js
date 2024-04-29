@@ -1,5 +1,6 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
+import ConfigLocalized from "./docusaurus.config.localized.json";
 
 const lightCodeTheme = require("prism-react-renderer").themes.github;
 const darkCodeTheme = require("prism-react-renderer").themes.dracula;
@@ -11,6 +12,23 @@ function dropdownItemHtml(label, desc) {
   <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0757 22.4521L21.8352 15.7165L-4.42505e-07 15.7165L-6.51935e-07 10.9253L21.6238 10.9253L14.8626 4.18915L18.2631 0.801381L31 13.362L18.4768 25.8398L15.0757 22.4521Z" fill="currentColor"/></svg>
   </div>
   <span class="dropdown__description type-paragraph-small">${desc}</span>`;
+}
+
+const defaultLocale = "en";
+
+function getLocalizedConfigValue(key) {
+  const currentLocale = process.env.DOCUSAURUS_CURRENT_LOCALE ?? defaultLocale;
+  const values = ConfigLocalized[key];
+  if (!values) {
+    throw new Error(`Localized config key=${key} not found`);
+  }
+  const value = values[currentLocale] ?? values[defaultLocale];
+  if (!value) {
+    throw new Error(
+      `Localized value for config key=${key} not found for both currentLocale=${currentLocale} or defaultLocale=${defaultLocale}`,
+    );
+  }
+  return value;
 }
 
 /** @type {import('@docusaurus/types').Config} */
@@ -33,6 +51,9 @@ const config = {
 
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
+  //setting to ignore until we have time to properly code markdown jump anchors through docusaurus react hook
+  //https://docusaurus.io/docs/docusaurus-core#useBrokenLinks
+  onBrokenAnchors: "warn",
 
   scripts: [
     // String format.
@@ -102,7 +123,7 @@ const config = {
       // Replace with your project's social card
       image: "img/uid2-social-card.jpg",
       colorMode: {
-        defaultMode: "light"
+        defaultMode: "light",
       },
 
       navbar: {
@@ -115,7 +136,7 @@ const config = {
         items: [
           {
             to: "/request-access",
-            label: "Request Access",
+            label: getLocalizedConfigValue("navbarCta"),
             className: "mobile-only menu__cta button button--nav",
             position: "left",
           },
@@ -212,11 +233,10 @@ const config = {
             classNames: "desktop-only hide-on-marketing-page navbar__divider",
           },
           {
-            type: "custom-NavbarCta",
-            href: "/request-access",
-            // text: "Request Access", moved to component for translation reasons
+            to: "/request-access",
+            label: getLocalizedConfigValue("navbarCta"),
+            className: "button button--nav desktop-only",
             position: "right",
-            className: "desktop-only",
           },
         ],
       },
@@ -231,26 +251,6 @@ const config = {
             items: [
               {
                 type: "doc",
-                label: "Publishers",
-                to: "/docs/overviews/overview-publishers",
-              },
-              {
-                type: "doc",
-                label: "Advertisers",
-                to: "/docs/overviews/overview-advertisers",
-              },
-              {
-                type: "doc",
-                label: "DSPs",
-                to: "/docs/overviews/overview-dsps",
-              },
-              {
-                type: "doc",
-                label: "Data Providers",
-                to: "/docs/overviews/overview-data-providers",
-              },
-              {
-                type: "doc",
                 label: "UID2 Overview",
                 to: "/docs/intro",
               },
@@ -262,6 +262,10 @@ const config = {
                 type: "doc",
                 label: "Prebid",
                 to: "https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html",
+              },
+              {
+                label: "EUID",
+                to: "https://euid.eu/",
               },
             ],
           },
@@ -277,7 +281,7 @@ const config = {
               },
               {
                 label: "Do not sell my data",
-                href: "https://www.adsrvr.org/",
+                href: getLocalizedConfigValue("adsrvrURL"),
               },
             ],
           },

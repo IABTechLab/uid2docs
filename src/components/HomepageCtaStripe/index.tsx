@@ -43,7 +43,7 @@ export default function HomepageCtaStripe(): JSX.Element {
             className="button button--11-o-clock"
             onClick={() => pushGtmEvent(pageViewData)}
           >
-            <Translate id="homepage.ctaStripe1Text">Request Access</Translate>
+            <Translate id="homepage.ctaStripe1Text">Request access</Translate>
           </Link>
           <Link
             to="/docs/intro"

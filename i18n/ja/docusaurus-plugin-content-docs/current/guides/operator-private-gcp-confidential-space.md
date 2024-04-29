@@ -7,6 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 20
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Private Operator for GCP Integration Guide
 
 このガイドでは、[Google Cloud](https://cloud.google.com/docs/overview/) Platform の Confidential Computing オプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) で UID2 Operator Service をセットアップするための情報を提供します。Confidential Space は、Trusted Execution Environment (TEE) として知られるセキュアなエンクレーブ環境を提供します。
@@ -407,7 +409,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
   --image-project confidential-space-images \
   --image-family confidential-space \
   --service-account {SERVICE_ACCOUNT} \
-  --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-restart-policy=Never~tee-env-DEPLOYMENT_ENVIRONMENT=prod~tee-env-API_TOKEN_SECRET_NAME={OPERATOR_KEY_SECRET_NAME}
+  --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-restart-policy=Never~tee-env-DEPLOYMENT_ENVIRONMENT=prod~tee-env-API_TOKEN_SECRET_NAME={OPERATOR_KEY_SECRET_FULL_NAME}
 ```
 
 #### Run the Script

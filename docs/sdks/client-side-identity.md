@@ -5,10 +5,11 @@ hide_table_of_contents: false
 sidebar_position: 02
 ---
 
-# UID2 SDK for JavaScript Reference Guide
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
+
+# UID2 SDK for JavaScript Reference Guide
 
 export const New = () => (
   <span className='pill'>NEW IN V3</span>
@@ -25,12 +26,15 @@ This page describes version 3 of the UID2 SDK for JavaScript. If you are maintai
 - Refer to the documentation for [earlier versions of the SDK](./client-side-identity-v2.md).
 
 Related information:
-- For integration steps for content publishers, see:
+
+For integration steps for content publishers, see:
   - [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
   - [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md). 
-- For example applications with associated documentation, see:
+
+For example applications with associated documentation, see:
   - The UID2 Google Secure Signals with SDK v3 example:
-    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-esp-integration/with_sdk_v3) and running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/).
+    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
+    - Running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
   - The example of JavaScript client-side integration: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg) and running site ([Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)).
 
 ## Functionality
@@ -117,13 +121,13 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 2. When your callback receives the `SdkLoaded` event, initialize the SDK using the [init](#initopts-object-void) function.
 3. Wait for your event listener to receive the `InitCompleted` event. The event data indicates the identity availability:
 	- If the identity is available, it is returned in the event payload. The SDK sets up a [background token auto-refresh](#background-token-auto-refresh).
-	- If the identity is unavailable, the `identity` property on the payload is null. No UID2 is available until you [provide a valid identity](#provide-identity).
+	- If the identity is unavailable, the `identity` property on the payload is null. No UID2 is available until you [provide an identity to the SDK](#provide-an-identity-to-the-sdk).
 4. Handle the `IdentityUpdated` callback event that indicates changes to the identity.
 
 	 The `identity` property on the event payload either contains the new identity, or is null if a valid identity is not available.
 5. Handle the identity based on its state:
 	- If the advertising token is available, use it to initiate requests for targeted advertising.
-	- If the advertising token is not available, either use untargeted advertising or redirect the user to your UID2 login with the consent form.
+	- If the advertising token is not available, either use untargeted advertising or redirect the user to the data capture with the consent form.
 
 For more detailed web integration steps, see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md).
 
@@ -134,7 +138,7 @@ As part of the SDK [initialization](#initopts-object-void), a token auto-refresh
 Here's what you need to know about the token auto-refresh:
 
 - Only one token refresh call can be active at a time. 
-- If the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) response is unsuccessful because the user has opted out, or because the refresh token has expired, this suspends the background auto-refresh process and requires a new login. In all other cases, auto-refresh attempts continue in the background.
+- If the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) response is unsuccessful because the user has opted out, or because the refresh token has expired, this suspends the background auto-refresh process. To use UID2-based targeted advertising again, you must obtain the email or phone number from the consumer. In all other cases, auto-refresh attempts continue in the background.
 - All [callback functions](#callback-function) provided using the [Array Push Pattern](#array-push-pattern) are invoked in the following cases:
 	- After each successful refresh attempt.
 	- When identity has become invalid&#8212;for example, because the user has opted out.<br/>NOTE: The callback is *not* invoked when identity is temporarily unavailable and the auto-refresh keeps failing. In this case, the SDK continues using the existing advertising token as long as it hasn't expired.
@@ -178,11 +182,11 @@ The following example callback handles the `SdkLoaded` event to call init and th
 <TabItem value='ts' label='TypeScript'>
 
 ```tsx
-  import { EventType, Uid2CallbackPayload } from "./uid2CallbackManager";
+  import { EventType, CallbackPayload } from "./callbackManager";
 
   window.__uid2 = window.__uid2 || {};
   window.__uid2.callbacks = window.__uid2.callbacks || [];
-  window.__uid2.callbacks.push((eventType: EventType, payload: Uid2CallbackPayload) => {
+  window.__uid2.callbacks.push((eventType: EventType, payload: CallbackPayload) => {
     if (eventType === 'SdkLoaded') {
       __uid2.init({});
     }
@@ -203,12 +207,12 @@ The following example callback handles the `SdkLoaded` event to call init and th
 | Event | Payload | Details |
 | :--- | :--- | :--- |
 | `SdkLoaded` | `{}` | Called when the SDK script has loaded and the global `__uid2` has been constructed. When you receive this event, it is safe to call `__uid2.init`. Callbacks always receive this event once. If the SDK has already been loaded when the callback is registered, it receives the event immediately. |
-| `InitCompleted` | `{ identity: Uid2Identity  \| null }` | Called once `init()` has finished. Callbacks always receive this event once, as long as a successful call to `init` has been made. If `init` has already been completed when the callback is registered, it receives this immediately after it receives the `SdkLoaded` event. |
-| `IdentityUpdated` | `{ identity: Uid2Identity \| null }` | Called whenever the current identity changes. If the identity doesn't change after the callback is registered, callbacks do not receive this event. |
+| `InitCompleted` | `{ identity: Identity  \| null }` | Called once `init()` has finished. Callbacks always receive this event once, as long as a successful call to `init` has been made. If `init` has already been completed when the callback is registered, it receives this immediately after it receives the `SdkLoaded` event. |
+| `IdentityUpdated` | `{ identity: Identity \| null }` | Called whenever the current identity changes. If the identity doesn't change after the callback is registered, callbacks do not receive this event. |
 
 </div>
 
-The `Uid2Identity` type is the same type as the identity you can provide when calling `init()`.
+The `Identity` type is the same type as the identity you can provide when calling `init()`.
 
 #### Array Push Pattern
 
@@ -243,7 +247,7 @@ You can provide a new identity when you call [`init`](#initopts-object-void).
 
 #### Provide an Identity by Calling `setIdentity`
 
-At any time after `init` has completed, you can call [`setIdentity`](#setidentityidentity-uid2identity-void) to provide the SDK with a new identity to use.
+At any time after `init` has completed, you can call [`setIdentity`](#setidentityidentity-identity-void) to provide the SDK with a new identity to use.
 
 ## API Reference
 
@@ -259,8 +263,8 @@ All interactions with the UID2 SDK for JavaScript are done through the global `_
 - [disconnect()](#disconnect-void)
 - [abort()](#abort-void)
 - [callbacks](#callbacks) <New />
-- [setIdentity()](#setidentityidentity-uid2identity-void) <New />
-- [getIdentity()](#getidentity-uid2identity--null) <New />
+- [setIdentity()](#setidentityidentity-identity-void) <New />
+- [getIdentity()](#getidentity-identity--null) <New />
 
 ### constructor()
 
@@ -279,7 +283,7 @@ Here's what you need to know about this function:
 - You can call `init()` any time after the SDK has been loaded. The recommended way to do this is by registering a callback function that handles the `SdkLoaded` event using the [Array Push Pattern](#array-push-pattern). By using this pattern you can make sure that your code works regardless of script load order, and that using `async` or `defer` on your script tags does not cause UID2 SDK errors.
 - The `identity` property in the `init()` call refers to the `body` property of the response JSON object returned from a successful [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) call with the server-side generated identity. This is a good way to provide the identity if your server-side integration ensures you always have a current token available and it is more convenient to provide it using JavaScript.
 - If the `identity` property in the `init()` call is falsy, the SDK attempts to load the identity from local storage or the cookie.
-  - Once `init()` is complete, all callbacks receive the `InitCompleted` event. If the `identity` property on the payload of this event is null, no identity could be loaded, and you should therefore [provide a valid identity](#provide-identity). This is the recommended way to provide an identity if your server-side integration does not ensure a current identity is always available, and you need to request it from the server only when necessary.
+  - Once `init()` is complete, all callbacks receive the `InitCompleted` event. If the `identity` property on the payload of this event is null, no identity could be loaded, and you should therefore [provide an identity to the SDK](#provide-an-identity-to-the-sdk). This is the recommended way to provide an identity if your server-side integration does not ensure a current identity is always available, and you need to request it from the server only when necessary.
   - If you are using a first-party cookie (see [UID2 Storage Format](#uid2-storage-format)) to store the passed UID2 information for the session, a call to `init()` made by a page on a different domain might not be able to access the cookie. You can adjust the settings used for the cookie with the `cookieDomain` and `cookiePath` options.
 - To tune specific behaviors, initialization calls might include optional configuration [init parameters](#init-parameters).
 
@@ -403,7 +407,7 @@ It might be easier to use the [callback function](#callback-function) to be noti
 
 ### isLoginRequired(): boolean
 
-Specifies whether a UID2 login ([POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call) is required. 
+Specifies whether a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call is required. 
 
 ```html
 <script>
@@ -415,15 +419,15 @@ Specifies whether a UID2 login ([POST&nbsp;/token/generate](../endpoints/post-to
 
 | Value | Description |
 | :--- | :--- |
-| `true` | The identity is not available, and the UID2 login is required. This value indicates any of the following:<ul><li>The user has opted out.</li><li>The refresh token has expired.</li><li>A first-party cookie is not available and no server-generated identity has been supplied.</li></ul> |
-| `false` | No login is required. This value indicates one of the following:<ul><li>The identity is present and valid.</li><li>The identity has expired (but the refresh token has not expired), and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt.</li></ul> |
+| `true` | The identity is not available. This value indicates any of the following:<ul><li>The user has opted out.</li><li>The refresh token has expired.</li><li>A first-party cookie is not available and no server-generated identity has been supplied.</li></ul> |
+| `false` | This value indicates one of the following:<ul><li>The identity is present and valid.</li><li>The identity has expired (but the refresh token has not expired), and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt.</li></ul> |
 | `undefined` | The SDK initialization is not yet complete. |
 
 ### disconnect(): void
 
 Clears the UID2 identity from the first-party cookie and local storage (see [UID2 Storage Format](#uid2-storage-format)). This closes the client's identity session and disconnects the client lifecycle.
 
-When an unauthenticated user is present, or a user wants to log out of targeted advertising on the publisher's site, make the following call:
+When a user logs out of the publisher's site, make the following call:
 
 ```html
 <script>
@@ -447,7 +451,7 @@ This function is intended for use in advanced scenarios where you might want to 
 
 This is an array that stores all of the registered callbacks. You should only interact with it using the [Array Push Pattern](#array-push-pattern).
 
-### setIdentity(identity: Uid2Identity): void
+### setIdentity(identity: Identity): void
 
 Use this function to provide a new identity to the UID2 SDK. Any existing refresh attempts are cancelled, and the new identity is used for all future operations. A new refresh timer is started. Once the identity has been validated, all registered event handlers are called with an `IdentityUpdated` event containing the new identity.
 
@@ -457,7 +461,7 @@ Use this function to provide a new identity to the UID2 SDK. Any existing refres
 `setIdentity()` is useful if your page is a single-page app that might not have the identity available when it first loads. This allows you to call `init` (and load any stored identity) on page load, and then provide an identity later if there was no stored identity.
 :::
 
-### getIdentity(): Uid2Identity | null
+### getIdentity(): Identity | null
 
 Returns the current stored identity, if available.
 

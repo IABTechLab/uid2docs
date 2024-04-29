@@ -73,16 +73,17 @@ const fullSidebar = [
       type: 'category',
       label: 'UID2 Portal',
       link: {
-        type: 'doc',
-        id: 'portal/portal-overview',
+        type: 'generated-index',
       },
-
+      collapsed: true,
       items: [
+        'portal/portal-overview',
         'portal/portal-getting-started',
         'portal/sharing-permissions',
         'portal/participant-info',
         'portal/team-members',
         'portal/email-contacts',
+        'portal/api-keys',
       ],
     },
 
@@ -133,7 +134,8 @@ const fullSidebar = [
                 type: 'category',
                 label: 'JavaScript',
                 link: {
-                  type: 'generated-index',
+                  type: 'doc',
+                  id: 'guides/integration-javascript',
                 },
                 collapsed: true,
                 items: [
@@ -228,7 +230,7 @@ const fullSidebar = [
         type: 'doc',
         id: 'sdks/summary-sdks',
       },
-      collapsed: false,
+      collapsed: true,
       items: [
         'sdks/client-side-identity',
         'sdks/uid2-sdk-ref-java',
@@ -263,13 +265,27 @@ const fullSidebar = [
       link: {
         type: 'generated-index',
       },
-      collapsed: true,
+      collapsed: false,
       items: [
         'sharing/sharing-overview',
+        'sharing/sharing-security',
         'sharing/sharing-use-cases',
-        'sharing/sharing-implementing',
+        {
+          type: 'category',
+          label: 'Tokenized Sharing',
+          link: {
+            type: 'generated-index',
+          },
+          collapsed: false,
+          items: [
+            'sharing/sharing-tokenized-overview',
+            'sharing/sharing-tokenized-from-data-bid-stream',
+            'sharing/sharing-tokenized-from-data-pixel',
+            'sharing/sharing-tokenized-from-raw',
+          ],
+        },
+        'sharing/sharing-raw',
         'sharing/sharing-best-practices',
-        'sharing/sharing-bid-stream',
       ],
     },
 
@@ -344,9 +360,6 @@ const sidebars = {
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
     'guides/dsp-guide',
-    'sdks/client-side-identity',
-    'sdks/uid2-sdk-ref-android',
-    'sdks/uid2-sdk-ref-ios',
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
     'endpoints/post-token-refresh',
@@ -389,9 +402,6 @@ const sidebars = {
     'guides/advertiser-dataprovider-guide',
     'guides/snowflake_integration',
     'guides/integration-aws-entity-resolution',
-    'sdks/client-side-identity',
-    'sdks/uid2-sdk-ref-android',
-    'sdks/uid2-sdk-ref-ios',
     'sharing/sharing-bid-stream'
     ),
 
@@ -429,9 +439,6 @@ const sidebars = {
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
     'guides/dsp-guide',  
-    'sdks/client-side-identity',
-    'sdks/uid2-sdk-ref-android',
-    'sdks/uid2-sdk-ref-ios',
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
     'endpoints/post-token-refresh',

@@ -5,9 +5,11 @@ hide_table_of_contents: false
 sidebar_position: 13
 ---
 
+import Link from '@docusaurus/Link';
+
 # Normalization and Encoding
 
-This page provides information about normalizing and encoding [directly Identifying information (DII)](../ref-info/glossary-uid.md#gl-dii). It's important that, in working with UID2, normalizing and encoding are performed correctly.
+This page provides information about normalizing and encoding <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>. It's important that, in working with UID2, normalizing and encoding are performed correctly.
 
 <!-- It includes the following sections:
 - [Introduction](#introduction)
@@ -18,6 +20,7 @@ This page provides information about normalizing and encoding [directly Identify
 - [Phone Number Hash Encoding](#phone-number-hash-encoding)
 - [Normalization Examples for Email](#normalization-examples-for-email)
 - [Example](#example-code)
+- [UID2 Hashing Tool](#uid2-hashing-tool)
 -->
 
 ## Introduction
@@ -125,3 +128,27 @@ Some of the examples show email addresses that include the plus sign (+), with d
 ## Example Code
 
 For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base-64 Encoding](../guides/publisher-client-side#example-code-hashing-and-base-64-encoding).
+
+## UID2 Hashing Tool
+
+To check that you're correctly normalizing, hashing, and encoding, you can test with the [UID2 hashing tool](https://unifiedid.com/examples/hashing-tool).
+
+Choose Email or Phone Number, type or paste the value, and then click Enter.
+
+The tool does the following:
+- Email: Displays each of the following three values:
+  - Normalized value
+  - Hashed value
+  - Base64-encoded value
+
+- Phone: Displays each of the following two values:
+  - Hashed value
+  - Base64-encoded value
+
+  :::note
+  For phone numbers, you must first normalize the data.
+  :::
+
+If the input data doesn't have a valid email or phone number format, or if the phone number is not normalized, the tool gives an error.
+
+You can use this tool to verify that your internal processes are set up to correctly create normalized, hashed, and encoded values for UID2.
