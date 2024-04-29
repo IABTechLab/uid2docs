@@ -145,7 +145,7 @@ var client = new BidstreamClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
 client.Refresh();
 ```
 
-3. Decrypt a token into a raw UID2. Pass the token, and: 
+3. Decrypt a token into a raw UID2. Pass the token, and then do one of the following: 
  * If the bid request originated from a publisher's website, pass the domain name. The domain name must be all lower case, without spaces and without subdomain. For example, for `Subdomain.DOMAIN.com`, pass `domain.com` instead.
  * If the bid request originated from a mobile app, pass the [app name](../ref-info/glossary-uid.md#gl-app-name).
  * Otherwise, pass `null`.
