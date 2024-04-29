@@ -35,12 +35,8 @@ Here are just some of the intended benefits for publishers integrating with UID2
 The following steps provide a high-level outline of the workflow intended for organizations that propagate UID2 tokens to the bid stream via SSPs&#8212;for example, identity providers, publishers, and SSO providers. Publishers can choose to work with an SSO provider or an independent ID provider that is interoperable with UID2 and can handle the UID2 integration on behalf of publishers.
 
 1. A user visits a publisher website, mobile app, or CTV app.
-2. The publisher provides transparency around its data practices and asks the user to provide an email address or phone number, by login or other means.
-<!-- uid2_only_ep_20240312: The publisher explains the value exchange of the open internet and asks the user to provide an email address or phone number, by login or other means. -->
-<!-- euid_only_ep_20240312: The publisher provides transparency around its data practices and asks the user to provide an email address, by login or other means, and consent to the use of their email address for EUID. -->
+2. The publisher provides transparency around its data practices and asks the user to provide an email address or phone number.
 3. Once the user has provided an email address or phone number, the publisher sends it to the UID2 Operator via an SDK or direct API integration.
-<!-- uid2_only_ep_20240312: Once the user has provided an email address or phone number, the publisher sends it to the UID2 Operator via an SDK or direct API integration. -->
-<!-- euid_only_ep_20240312: Once the user has provided an email address, and consented, the publisher sends it to the EUID Operator via an SDK or direct API integration. -->
 
    A publisher can authorize an SSO provider or identity provider to pass <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> and privacy settings on their behalf.
 4. The UID2 Operator:
