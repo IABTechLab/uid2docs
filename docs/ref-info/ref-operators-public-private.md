@@ -40,21 +40,21 @@ When you use a Public Operator, there is no additional work for you to do to hos
 
 There is no cost, to the participant, for using a Public Operator.
 
-The participant must sign a contract to get the applicable credentials ([API key and client secret](../getting-started/gs-credentials.md#api-key-and-client-secret)) to use the UID2 APIs hosted on the Public Operator.
+The participant must sign a contract (see [Account Setup](../getting-started/gs-account-setup.md)) to get the applicable credentials ([API key and client secret](../getting-started/gs-credentials.md#api-key-and-client-secret)) to use the UID2 APIs hosted on the Public Operator.
 
 :::note
-With a Public Operator, data leaves the participant's infrastructure and is sent to the Operator. Of course, rigorous measures are in place to keep the data secure.
+With a Public Operator, data leaves the participant's infrastructure and is sent to the Operator. Rigorous security measures are in place to help protect the data within the Public Operator.
 :::
 
 ##  Private Operators
 
 A Private Operator, or Closed Operator, is a private instance of the UID2 Operator. This means that a specific entity hosts a private instance exclusively for their own use.
 
-Any participant can also choose to become a Private Operator to generate and manage UID2s. However, becoming a Private Operator includes several additional steps, and uses resources that the participant must provide.
+Any participant can also choose to become a Private Operator to generate and manage their UID2s. However, becoming a Private Operator includes several additional steps, and uses resources that the participant must provide.
 
 The participant must host, configure, maintain, and update the Private Operator instance, and must conform to strict security measures. Engineering resources are required to integrate and to make ongoing updates.
 
-The participant must sign a contract to host a Private Operator instance.
+The participant must sign a contract (see [Account Setup](../getting-started/gs-account-setup.md)) to host a Private Operator instance.
 
 :::note
 A Private Operator cannot process raw UID2s or UID2 tokens from a Public Operator or another Private Operator. Each Private Operator is a completely closed infrastructure.
@@ -66,15 +66,15 @@ Some reasons why a participant might choose to become a Private Operator:
 
 - Within a Private Operator solution, DII does not leave your infrastructure.
 
-- When you have a Private Operator, you're completely in charge of resources. You have more control. For example, you can provide greater availability, without rate limitations.
+- When you have a Private Operator, you're in charge of resources. You have more control. For example, you can provide greater availability, without rate limitations.
 
 - If you are not physically located near to a Public Operator instance, you might choose to host a Private Operator solution for latency reasons.
 
-If you have significant security or latency concerns and also have extensive engineering resources to both build and maintain your UID2 implementation, you might consider the Private Operator solution. 
+If you have significant latency concerns, or your security requirements dictate that data stays within your systems, and you also have extensive engineering resources to both build and maintain your UID2 implementation, you might consider the Private Operator solution. 
 
 ## Summary
 
-For most participants, Public Operator is the best solution.
+For most participants, Public Operator is the simplest solution.
 
 The down side of the Private Operator option is that it requires ongoing engineering effort to build and maintain. Because a Private Operator instance is managed by the participant, there are continual updates and changes that are required and must be completed within a specified time frame.
 
