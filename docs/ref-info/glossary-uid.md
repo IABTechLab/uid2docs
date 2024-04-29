@@ -114,7 +114,7 @@ import Link from '@docusaurus/Link';
 <dd>See <a href="#gl-client-secret">client secret</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-app-name">App name</MdxJumpAnchor></dt>
-<dd>The Android application ID,  the iOS app store ID, or the iOS bundle identifier.</dd>
+<dd>The Android application ID, the iOS app store ID, or the iOS bundle identifier.</dd>
 
 <dt><MdxJumpAnchor id="gl-authorization-header">Authorization header</MdxJumpAnchor></dt>
 <dd>The Authorization header is a way to authenticate the client to the UID2 service.</dd>
