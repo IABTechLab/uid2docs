@@ -5,13 +5,15 @@ hide_table_of_contents: false
 sidebar_position: 03
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Credentials
 
 Each UID2 <a href="/docs/intro#participants">participant</a> gets a set of unique credentials. The set of credentials you get is determined by how you are participating in UID2, as shown in the following table.
 
 | Audience | Credentials | Integration |
 | :--- | :--- | :--- |
-| Participants using a server-side endpoint | Both of the following:<ul><li>[API key](../ref-info/glossary-uid.md#gl-api-key), also called a client key</li><li>[Client secret](../ref-info/glossary-uid.md#gl-client-secret), a value known only to the participant and the UID2 service</li></ul> | Any integration using one of these endpoints: <ul><li>[POST&nbsp;/identity/map](../endpoints/post-identity-map.md)</li><li>[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md)</li><li>[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)</li></ul> |
+| Participants using a server-side endpoint | Both of the following:<ul><li><Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key</li><li>[Client secret](../ref-info/glossary-uid.md#gl-client-secret), a value known only to the participant and the UID2 service</li></ul> | Any integration using one of these endpoints: <ul><li>[POST&nbsp;/identity/map](../endpoints/post-identity-map.md)</li><li>[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md)</li><li>[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)</li></ul> |
 | Participants using a client-side implementation | Both of the following: <ul><li>Subscription ID</li><li>Public key</li></ul> | Integrations using one of these: <ul><li>[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)</li><li>[Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md)</li></ul> |
 
 If you're using the integration environment as well as the production environment, you'll get a separate set of credentials for each environment.
@@ -62,7 +64,7 @@ Notes:
 
 - The values are valid for a specific [environment](gs-environments.md). If you're using both the integration and production environments, you'll get a set of credentials for each environment.
 
-- Subscription ID and public key credentials can be used only to generate client-side tokens. If you need any additional roles (see [API Permissions](gs-permissions.md)), request API Key and Client Secret for those roles. <!-- (**GWH_KT added last bullet to this GS article based on work on Publisher Options page. Review please.**) -->
+- Subscription ID and public key credentials can be used only to generate client-side tokens. If you need any additional roles (see [API Permissions](gs-permissions.md)), request API Key and Client Secret for those roles.
 
 ## Refreshing Credentials
 

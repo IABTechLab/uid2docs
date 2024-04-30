@@ -7,9 +7,11 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Client-Side Integration Guide for Prebid.js
 
-This guide is for publishers who have access to [DII](../ref-info/glossary-uid.md#gl-dii) (email address or phone number) on the client side and want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bid stream.
+This guide is for publishers who have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the client side and want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bid stream.
 
 To integrate with UID2 using Prebid.js, you'll need to make changes to the HTML and JavaScript on your site. No server-side work is required if you follow this guide.
 

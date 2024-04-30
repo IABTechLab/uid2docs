@@ -60,16 +60,17 @@ const fullSidebar = [
       type: 'category',
       label: 'UID2 Portal',
       link: {
-        type: 'doc',
-        id: 'portal/portal-overview',
+        type: 'generated-index',
       },
-
+      collapsed: true,
       items: [
+        'portal/portal-overview',
         'portal/portal-getting-started',
         'portal/sharing-permissions',
         'portal/participant-info',
         'portal/team-members',
         'portal/email-contacts',
+        'portal/api-keys',
       ],
     },
 
@@ -251,13 +252,27 @@ const fullSidebar = [
       link: {
         type: 'generated-index',
       },
-      collapsed: true,
+      collapsed: false,
       items: [
         'sharing/sharing-overview',
+        'sharing/sharing-security',
         'sharing/sharing-use-cases',
-        'sharing/sharing-implementing',
+        {
+          type: 'category',
+          label: 'Tokenized Sharing',
+          link: {
+            type: 'generated-index',
+          },
+          collapsed: false,
+          items: [
+            'sharing/sharing-tokenized-overview',
+            'sharing/sharing-tokenized-from-data-bid-stream',
+            'sharing/sharing-tokenized-from-data-pixel',
+            'sharing/sharing-tokenized-from-raw',
+          ],
+        },
+        'sharing/sharing-raw',
         'sharing/sharing-best-practices',
-        'sharing/sharing-bid-stream',
       ],
     },
 

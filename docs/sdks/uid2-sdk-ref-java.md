@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 SDK for Java Reference Guide
 
 You can use the UID2 SDK for Java on the server side to facilitate the following:
@@ -193,7 +195,7 @@ If you're using the SDK's HTTP implementation, follow these steps.
    ```
 
    :::important
-   - Be sure to call the POST&nbsp;/token/generate endpoint only when you have obtained legal basis to convert the user’s [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to UID2 tokens for targeted advertising.
+   - Be sure to call the POST&nbsp;/token/generate endpoint only when you have obtained legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
 
    - Always apply `doNotGenerateTokensForOptedOut()`. This applies a parameter similar to setting `optout_check=1` in the call to the POST&nbsp;/token/generate endpoint (see [Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters)).
    :::
@@ -271,7 +273,7 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
       `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHeader())`
    2. Body: `envelope.getEnvelope()`
    :::important
-   - Be sure to call the POST&nbsp;/token/generate endpoint only when you have obtained legal basis to convert the user’s [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to UID2 tokens for targeted advertising.
+   - Be sure to call the POST&nbsp;/token/generate endpoint only when you have obtained legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
 
    - Always apply `doNotGenerateTokensForOptedOut()`. This applies a parameter similar to setting `optout_check=1` in the call to the POST&nbsp;/token/generate endpoint (see [Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters)).
    :::
@@ -375,9 +377,7 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
 
 In UID2, sharing is a process for distributing either raw UID2s or UID2 tokens securely between UID2 participants. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant.
 
-:::warning
-The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bid stream. There is a different workflow for generating tokens for the bid stream: see [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md).
-:::
+>IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bid stream. There is a different workflow for generating tokens for the bid stream: see [Tokenized Sharing in the Bid Stream](../sharing/sharing-tokenized-from-data-bid-stream.md).
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for Java, either as a sender or a receiver.
 
@@ -386,7 +386,7 @@ The following instructions provide an example of how you can implement sharing u
 SharingClient client = new SharingClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
 ```
 
-2. Refresh once at startup, and then periodically (recommended refresh interval is hourly):
+2. Refresh once at startup, and then periodically. Recommended refresh interval is hourly: for details, see [Decryption Key Refresh Cadence for Sharing](../sharing/sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing).
 ```java
 client.refresh();
 ```

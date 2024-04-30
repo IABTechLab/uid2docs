@@ -8,6 +8,8 @@ sidebar_position: 01
 displayed_sidebar: docs
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Integration Guides: Summary
 
 The following guides provide integration instructions based on the needs and requirements of your organization and its primary role as a publisher, DSP, or data provider/advertiser. As a UID2 participant, you may also integrate via Enterprise Partners that enable engaging with an Open Operator service and hosting of a Private Operator service.
@@ -58,7 +60,7 @@ The following resources are available for publishers integrating with Android or
 
 ### Prebid Integrations
 
-The following resources are available for publisher Prebid integrations.
+The following resources are available for publishers integrating with Prebid.
 
 | Integration Guide | Content Description |
 | :--- | :--- |

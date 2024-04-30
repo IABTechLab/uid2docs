@@ -6,13 +6,15 @@ sidebar_position: 02
 displayed_sidebar: sidebarPublishers
 ---
 
+import Link from '@docusaurus/Link';
+
 # Web Integration Overview
 
 As a publisher, there are many ways that you can integrate with UID2 to generate identity tokens to be passed into the RTB bid stream in the context of your web pages.
 
 On this page, you'll find a high-level overview of integration steps and integration options, with links to additional information for each option.
 
-<!-- The integration option that's right for you depends on many factors. For example, if the [DII](../ref-info/glossary-uid.md#gl-dii) is available on the client side, and you can use the latest version of Prebid, you can use the UID2 Prebid module, which manages the token generate request, token refresh request, and passing the token into the bid stream.
+<!-- The integration option that's right for you depends on many factors. For example, if the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> is available on the client side, and you can use the latest version of Prebid, you can use the UID2 Prebid module, which manages the token generate request, token refresh request, and passing the token into the bid stream.
 
 Some questions you might ask:
 - Do you want to generate the UID2 token request on the client side or the server side?
@@ -79,9 +81,12 @@ To choose your implementation and get started, follow these steps:
 
 ## Generate the UID2 Token
 
-There are two main paths that you can choose to generate a UID2 token: you can choose to initiate the UID2 token generate request on the client side (in the user's browser) or on the server side.
+There are two main paths that you can choose to generate a UID2 token&#8212;you can choose to initiate the UID2 token generate request:
 
-Each option has different advantages. Client-side integration is easy and fast; integration using Prebid.js 8.21.0 or later is the easiest and fastest integration option.
+- On the client side (in the user's browser): see [Client-Side Integration Options](#client-side-integration-options).
+- On the server side: see [Server-Side Integration Options](#server-side-integration-options).
+
+Each option has different advantages. We recommend client-side integration using Prebid.js 8.21.0 or later as the easiest and fastest integration option.
 
 :::note
 For all integration options, you can choose to store the UID2 token in local storage or cookie storage.
@@ -107,7 +112,7 @@ The following table summarizes the options for publishers who want to generate t
 
 Generating the UID2 token on the server side has the following advantages:
 
-- You can keep your [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) entirely on the server side.
+- You can keep your <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> entirely on the server side.
 - If your development resources are back-end developers, you might prefer a server-side integration.
 - For server-side Prebid integration, there is no requirement to update to the latest Prebid version, as long as your version is 7.53.0 or later.
 

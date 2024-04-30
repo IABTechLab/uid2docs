@@ -6,6 +6,8 @@ hide_table_of_contents: false
 sidebar_position: 05
 ---
 
+import Link from '@docusaurus/Link';
+
 # DSP Integration Guide
 
 This guide is for DSPs who transact on UID2s in the bid stream.

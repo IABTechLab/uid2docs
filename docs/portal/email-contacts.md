@@ -1,15 +1,17 @@
 ---
 title: Email Contacts
-description: Learn how to set up and manage contacts for UID2 updates.
+description: Set up and manage contacts for UID2 updates.
 hide_table_of_contents: false
 sidebar_position: 09
 ---
+
+import Link from '@docusaurus/Link';
 
 # Email Contacts
 
 In the UID2 Portal, you can specify people from your organization whom we should notify for information about the latest updates and releases for UID2. You can set up individual email addresses, or reference an email group that you've set up internally to notify multiple individuals in your organization.
 
-Adding email groups rather than individuals has some benefits:
+Adding email groups rather than individuals has these benefits:
 - It's an efficient way to keep multiple people notified without having to create a lot of individual entries.
 - You can manage the list externally, as part of managing your internal email configuration, outside the UID2 Portal.
 
@@ -52,7 +54,7 @@ Complete the following steps:
 
 ## Edit Information for an Email Contact
 
-To edit information for an email contact, find the contact on the list and then, in the Actions column, click the Edit (pencil) icon.
+To edit information for an email contact, find the contact on the list and then, in the Actions column, click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon).
 
 Update the information, and then save the changes.
 
@@ -60,5 +62,5 @@ Update the information, and then save the changes.
 
 To remove an email contact, follow these steps:
 
-1. Find the contact on the list and then, in the Actions column, click the delete (trashcan) icon.
+1. Find the contact on the list and then, in the Actions column, click ![the Delete icon](images/icon-trash-can-solid.png) (the Delete icon).
 1. At the confirmation message, confirm deletion.

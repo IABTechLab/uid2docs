@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 14
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 SDK for iOS Reference Guide
 
 <!-- This guide includes the following information:
@@ -16,8 +18,8 @@ sidebar_position: 14
 - [GitHub Open-Source Repository](#github-open-source-repository)
 - [Minimum Requirements](#minimum-requirements)
 - [Installation](#installation)
-  -  [Installing with Gradle ](#installing-with-gradle)
-  -  [Installing with Maven ](#installing-with-maven)
+  -  [Installing with Gradle](#installing-with-gradle)
+  -  [Installing with Maven](#installing-with-maven)
 - [Usage Guidelines](#usage-guidelines)
 - [UID2Manager API](#uid2manager-api)
   -  [Functions](#functions)
