@@ -137,43 +137,6 @@ Decryption response codes, and their meanings, are shown in the following table.
 | `VERSION_NOT_SUPPORTED`    | The client library does not support the version of the encrypted token. |
 | `INVALID_TOKEN_LIFETIME`   | The token has an invalid timestamp.                                     |
 
-## Usage for DSPs
-
-
-The following instructions provide an example of how a DSP can decode bid stream tokens using the UID2 SDK for Java.
-
-1. Create a `BidstreamClient`:
-
-```java
-Bidstream client = new BidstreamClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
-```
-
-2. Refresh once at startup, and then periodically (recommended refresh interval is hourly):
-
-```java
-client.refresh();
-```
-
-3. Decrypt a token into a raw UID2. Pass the token, and then do one of the following:
-* If the bid request originated from a publisher's website, pass the domain name. The domain name must be all lower case, without spaces and without subdomain. For example, for `Subdomain.DOMAIN.com`, pass `domain.com` instead.
-* If the bid request originated from a mobile app, pass the [app name](../ref-info/glossary-uid.md#gl-app-name).
-* Otherwise, pass `null`.
-
-```java
-DecryptionResponse decrypted = client.decryptTokenIntoRawUid(uidToken, domainOrAppName); 
-//If decryption succeeded, use the raw UID2.
-if (decrypted.isSuccess()) 
-{
-    //Use decrypted.getUid()
-}
-else 
-{
-    // Check decrypted.getStatus() for the failure reason.
-}
-```
-
-For a full example, see the `ExampleBidStreamClient` method in [test/IntegrationExamples.java](https://github.com/IABTechLab/uid2-client-java/blob/main/src/test/java/com/uid2/client/test/IntegrationExamples.java).
-
 ## Usage for Publishers
 
 As a publisher, there are two ways to use the UID2 SDK for Java: 
@@ -375,6 +338,42 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
         String reason = unmappedIdentity.getReason();
    }
    ```
+
+## Usage for DSPs
+
+The following instructions provide an example of how a DSP can decode bid stream tokens using the UID2 SDK for Java.
+
+1. Create a `BidstreamClient`:
+
+```java
+Bidstream client = new BidstreamClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+```
+
+2. Refresh once at startup, and then periodically (recommended refresh interval is hourly):
+
+```java
+client.refresh();
+```
+
+3. Decrypt a token into a raw UID2. Pass the token, and then do one of the following:
+* If the bid request originated from a publisher's website, pass the domain name. The domain name must be all lower case, without spaces and without subdomain. For example, for `Subdomain.DOMAIN.com`, pass `domain.com` instead.
+* If the bid request originated from a mobile app, pass the [app name](../ref-info/glossary-uid.md#gl-app-name).
+* Otherwise, pass `null`.
+
+```java
+DecryptionResponse decrypted = client.decryptTokenIntoRawUid(uidToken, domainOrAppName); 
+//If decryption succeeded, use the raw UID2.
+if (decrypted.isSuccess()) 
+{
+    //Use decrypted.getUid()
+}
+else 
+{
+    // Check decrypted.getStatus() for the failure reason.
+}
+```
+
+For a full example, see the `ExampleBidStreamClient` method in [test/IntegrationExamples.java](https://github.com/IABTechLab/uid2-client-java/blob/main/src/test/java/com/uid2/client/test/IntegrationExamples.java).
 
 ## Usage for UID2 Sharers
 
