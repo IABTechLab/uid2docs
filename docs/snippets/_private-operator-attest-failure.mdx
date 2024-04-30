@@ -1,5 +1,5 @@
 ## Private Operator Attestation Failure
-If the Private Operator fails to attest with the UID2 Core service, the Private Operator will fail. This results in one of the following:
+If the Private Operator's attempt to attest with the UID2 Core service, the Private Operator fails. This results in one of the following:
 - HTTP 401 response. If your operator key receives a 401 response from the UID2 Core service, the Private Operator terminates itself immediately.
 - Any other non-200 response code. If your Private Operator attest request receives any response code other than a 200 or a 401, it continues to function for 12 hours. If the issue is not resolved in this time frame, the Private Operator terminates itself.
 
