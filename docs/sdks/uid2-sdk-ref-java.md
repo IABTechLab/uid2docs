@@ -154,10 +154,13 @@ Bidstream client = new BidstreamClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_
 client.refresh();
 ```
 
-3. Decrypt a token into a raw UID2. Pass the token, and the domain name of the site where the bid originated from. The domain name must be all lower case, without spaces and without subdomain. For example, for `Subdomain.DOMAIN.com`, pass `domain.com` instead:
+3. Decrypt a token into a raw UID2. Pass the token, and then do one of the following:
+* If the bid request originated from a publisher's website, pass the domain name. The domain name must be all lower case, without spaces and without subdomain. For example, for `Subdomain.DOMAIN.com`, pass `domain.com` instead.
+* If the bid request originated from a mobile app, pass the [app name](../ref-info/glossary-uid.md#gl-app-name).
+* Otherwise, pass `null`.
 
 ```java
-DecryptionResponse decrypted = client.decryptTokenIntoRawUid(uidToken, domain); 
+DecryptionResponse decrypted = client.decryptTokenIntoRawUid(uidToken, domainOrAppName); 
 //If decryption succeeded, use the raw UID2.
 if (decrypted.isSuccess()) 
 {
