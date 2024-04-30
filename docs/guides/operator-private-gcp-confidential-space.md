@@ -468,6 +468,10 @@ The following example shows the health check for the `gcloud` command line optio
 
    An HTTP 200 with a response body of `OK` indicates healthy status.
 
+import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
+
+<AttestFailure />
+
 ### Upgrading
 
 When a new version of UID2 Google Cloud Platform Confidential Space is released, private operators receive an email notification of the update, with a new image version. There is a window of time for upgrade, after which the older version is deactivated and is no longer supported.
