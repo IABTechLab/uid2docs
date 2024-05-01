@@ -53,7 +53,7 @@ const config = {
   onBrokenMarkdownLinks: "warn",
   //setting to ignore until we have time to properly code markdown jump anchors through docusaurus react hook
   //https://docusaurus.io/docs/docusaurus-core#useBrokenLinks
-  onBrokenAnchors: "ignore",
+  onBrokenAnchors: "warn",
 
   scripts: [
     // String format.
@@ -136,7 +136,7 @@ const config = {
         items: [
           {
             to: "/request-access",
-            label: "Request Access",
+            label: getLocalizedConfigValue("navbarCta"),
             className: "mobile-only menu__cta button button--nav",
             position: "left",
           },
@@ -233,11 +233,10 @@ const config = {
             classNames: "desktop-only hide-on-marketing-page navbar__divider",
           },
           {
-            type: "custom-NavbarCta",
-            href: "/request-access",
-            // text: "Request Access", moved to component for translation reasons
+            to: "/request-access",
+            label: getLocalizedConfigValue("navbarCta"),
+            className: "button button--nav desktop-only",
             position: "right",
-            className: "desktop-only",
           },
         ],
       },
@@ -252,26 +251,6 @@ const config = {
             items: [
               {
                 type: "doc",
-                label: "Publishers",
-                to: "/docs/overviews/overview-publishers",
-              },
-              {
-                type: "doc",
-                label: "Advertisers",
-                to: "/docs/overviews/overview-advertisers",
-              },
-              {
-                type: "doc",
-                label: "DSPs",
-                to: "/docs/overviews/overview-dsps",
-              },
-              {
-                type: "doc",
-                label: "Data Providers",
-                to: "/docs/overviews/overview-data-providers",
-              },
-              {
-                type: "doc",
                 label: "UID2 Overview",
                 to: "/docs/intro",
               },
@@ -283,6 +262,10 @@ const config = {
                 type: "doc",
                 label: "Prebid",
                 to: "https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html",
+              },
+              {
+                label: "EUID",
+                to: "https://euid.eu/",
               },
             ],
           },

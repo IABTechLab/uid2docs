@@ -7,6 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 18
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Private Operator for GCP Integration Guide
 
 This guide provides information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. Confidential Space offers a secure enclave environment, known as a Trusted Execution Environment (TEE).
@@ -465,6 +467,10 @@ The following example shows the health check for the `gcloud` command line optio
 2. To test operator status, in your browser, go to `http://{IP}:8080/ops/healthcheck`.
 
    An HTTP 200 with a response body of `OK` indicates healthy status.
+
+import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
+
+<AttestFailure />
 
 ### Upgrading
 

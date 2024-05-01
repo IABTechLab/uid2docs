@@ -1,0 +1,5 @@
+# List any vulnerability that are to be accepted
+# See https://aquasecurity.github.io/trivy/v0.35/docs/vulnerability/examples/filter/ 
+# for more details
+# e.g. 
+# CVE-2022-3996

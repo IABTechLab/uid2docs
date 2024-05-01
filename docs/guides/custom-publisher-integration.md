@@ -7,6 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 03
 ---
 
+import Link from '@docusaurus/Link';
+
 # Publisher Integration Guide, Server-Only
 
 This guide is for publishers who want to generate UID2 tokens (advertising tokens) for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
@@ -14,10 +16,10 @@ This guide is for publishers who want to generate UID2 tokens (advertising token
 <!-- It includes the following sections:
 
 - [Introduction](#introduction)
-- [Integration Steps ](#integration-steps)
-  - [Establish Identity: User Login](#establish-identity-user-login)
-  - [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
-  - [Refresh Tokens](#refresh-tokens)
+- [Integration Steps](#integration-steps)
+  - [Establish Identity: Capture User Data](#establish-identity-capture-user-data)
+  - [Bid Using UID2 Tokens](#bid-using-a-uid2-token)
+  - [Refresh a UID2 Token](#refresh-a-uid2-token)
   - [Clear Identity: User Logout](#clear-identity-user-logout)
   - [Sample Application](#sample-application)
 - [FAQs](#faqs) -->
@@ -26,7 +28,7 @@ This guide is for publishers who want to generate UID2 tokens (advertising token
 
 The guide outlines the [basic steps](#integration-steps) that you need to consider if you're building an integration without using a client-side or server-side SDK. For example, you need to decide how to do the following:
 
-- Implement user login and logout
+- Implement opportunities to capture email or phone number: for example, promotional exchanges, sign-ups and subscriptions, or marketing form fills.
 - Manage UID2 identity information and use it for targeted advertising
 - Refresh UID2 tokens
 - Deal with missing identities
@@ -53,18 +55,16 @@ The following diagram outlines the steps required for a user to establish a UID2
 
 If you're using a server-side SDK, the SDK takes care of all the steps that mention endpoints: for example, step 1-d, the publisher sends the user's DII to the token generation service.
 
-![Publisher Flow Without SDK](images/custom-publisher-integration-mermaid.svg)
-
-<!-- https://mermaid.live/edit#pako:eNqdVTtv2zAQ_isHLRlqC6idyUOGwh0MtIVQV5sWRjzJRGVSJSm3bpD_3uPDUmRZDZIske_I73F3JJ-SUnFMNgmAwV8dyhK3gtWaHQsJ9NcybUUpWiYt5MAM5Ab1NJW5VNY9NsIcbuXz3Xbld7v_e9QnUeJ01X6fFTKEvymLoE6oIV9QeAMfU_hsLPMMsOMorbDnsDZfPjx8cEuWLPX64CSMsAYYtBdJRG7QpmFDRhuWudvwmA6qAf-0DRPSgD0gnFjTIYXKA5M1Sal8VLUoQUiLWqIFJjloVzXjyRpVCxkpWGnFiZGHfNDoJZZRIusIj0yUtMh4JBdRWvzFIKDUyKxQ0lEzX7gIzfEavP-dDf7cBsfHXzo0KHlA70jDnYHtbgdW-YhVP8lbjRJ14DWhTVPW7NoiUUWX9HUxiin8mIGkotlOSxN9Beob7nrcmwYdSTV2Z3vISune500HM2O2SuGT4NQiIeuA5E0MtGGVm7SBuGRNE8pKWU_NqMydx3DRicleiJ94F6GPULiVm0kH09fIdUwBF4am8zz10kPMFGnlRm7QGnGC3Ij9nkKtU_iOlUY6jddlirO-7o_jxQpRzR3J-RFejw8p6XRN1pE7TC0Bx3NIKYm_X1T89Ul4dZbXroK7qkeBAzPyztJlYJGD6uzCp8aSpqM-1vWOcV9fH2YbuvhWwzMdvY_d-qJq8jRq5X3fSrrjjLMMlVbHt3XTwYxaWTbI9Og6-l95smSRHFEfmeD0XD25fJHQ3iMWyYY-yTb1v0gK-Uwr6TJV-7Msk43VHS6SruUEEp-2ZFOxxlAUubBKfw0voH8In_8BLSZHlA -->
+![Publisher Flow](images/custom-publisher-integration-mermaid.svg)
 
 The following sections provide additional details for each step in the diagram:
  
- 1. [Establish identity: user login](#establish-identity-user-login)
- 2. [Bid using a UID2 token](#bid-using-uid2-tokens)
- 3. [Refresh a UID2 token](#refresh-tokens)
+ 1. [Establish identity: capture user data](#establish-identity-capture-user-data)
+ 2. [Bid using a UID2 token](#bid-using-a-uid2-token)
+ 3. [Refresh a UID2 token](#refresh-a-uid2-token)
  4. [Clear Identity: user logout](#clear-identity-user-logout)
 
-### Establish Identity: User Login
+### Establish Identity: Capture User Data
 
 After authentication in step 1-c, which includes getting the user's consent and allows the publisher to validate the user's email address or phone number, the publisher can send a request to generate a UID2 token, on the server side. The following table details the token generation steps.
 
@@ -80,7 +80,7 @@ Consider how you want to manage UID2 identity information and use it for targete
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
-| 2-a | N/A| Send the `advertising_token` from step [1-e](#establish-identity) to the SSP for bidding. Send the value as is. |
+| 2-a | N/A| Send the `advertising_token` from step [1-e](#establish-identity-capture-user-data) to the SSP for bidding. Send the value as is. |
 
 >NOTE: For an example of what a UID2 token might look like in the bid stream, when it's sent from an SSP to a DSP, see [What does a UID2 token look like in the bid stream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bid-stream)
 
@@ -91,7 +91,7 @@ Use the `POST /token/refresh` endpoint to make sure you always have a valid and 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
 | 3-a |N/A | When a user returns to an asset and becomes active again, refresh the UID2 token before sending it to the SSP. | 
-| 3-b | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md)  | Send the `refresh_token` obtained in step [1-e](#establish-identity) as a query parameter. |
+| 3-b | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md)  | Send the `refresh_token` obtained in step [1-e](#establish-identity-capture-user-data) as a query parameter. |
 | 3-c | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) | The UID2 service issues a new identity token for users that haven't opted out. |
 | 3-d | N/A| Place the values returned by the `POST /token/refresh` endpoint, `advertising_token` and `refresh_token`, so that they are linked to the user. You might consider client-side storage, such as a first-party cookie, or server-side storage. |
 

@@ -9,12 +9,15 @@ sidebar_position: 04
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
 
 # Client-Side Integration Guide for JavaScript
 
 This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) using only JavaScript client-side changes on their website with minimum effort.
 
 This guide does not apply to publishers who want to use a [private operator](../ref-info/glossary-uid.md#gl-private-operator), or who want to generate tokens server-side. Those publishers should follow the [Server-Side Integration Guide for JavaScript](integration-javascript-server-side.md).
+
+It is also applicable to anyone who wants to share UID2 tokens in pixels, such as tracking pixels.
 
 UID2 provides a UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) with the following features:
 
@@ -25,8 +28,8 @@ UID2 provides a UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference 
 You'll need to complete the following steps:
 
 1. [Complete UID2 account setup](#complete-uid2-account-setup)
-2. [Add UID2 SDK For JavaScript to your site](#add-uid2-sdk-for-javascript-to-your-site)
-3. [Configure the UID2 SDK for JavaScript](#configure-the-uid2-sdk-for-javascript)
+2. [Add SDK For JavaScript to your site](#add-sdk-for-javascript-to-your-site)
+3. [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript)
 4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
 
 ## UID2 SDK for JavaScript Version
@@ -62,7 +65,7 @@ When account setup is complete, you'll receive a **public key** and **subscripti
 Only root-level domains are required for account setup. For example, if you're going to use UID2 SDK for JavaScript on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
 
-## Add UID2 SDK For JavaScript to Your Site
+## Add SDK For JavaScript to Your Site
 
 The following code snippet provides an overview of the code you will need to add to your website. It also illustrates the different events that the SDK can trigger.
 
@@ -134,7 +137,7 @@ __uid2.init({
 });
 ```
 
-## Configure the UID2 SDK for JavaScript
+## Configure the SDK for JavaScript
 
 UID2 provides the publisher with the following values required to use the client-side token generation feature:
 
@@ -143,7 +146,7 @@ UID2 provides the publisher with the following values required to use the client
 
 You'll have one set of these values for your publisher testing environment, and a separate set for your production environment.
 
-To configure the SDK, call one of the following methods, with an object containing the **public key** and **subscription ID** that you received during account setup, as well as the user's hashed or unhashed [DII](../ref-info/glossary-uid.md#gl-dii) (email address or phone number):
+To configure the SDK, call one of the following methods, with an object containing the **public key** and **subscription ID** that you received during account setup, as well as the user's hashed or unhashed <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number):
 
 *  `__uid2.setIdentityFromEmail`
 *  `__uid2.setIdentityFromEmailHash`
@@ -258,7 +261,7 @@ In this scenario:
 
 ## Token Storage and Refresh
 
-After calling one of the methods listed in [Configure the UID2 SDK for JavaScript](#configure-the-uid2-sdk-for-javascript) successfully, an [identity](../ref-info/glossary-uid.md#gl-identity) is generated and stored in local storage, under the key `UID2-sdk-identity`. The SDK refreshes the UID2 token periodically.
+After calling one of the methods listed in [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript) successfully, an [identity](../ref-info/glossary-uid.md#gl-identity) is generated and stored in local storage, under the key `UID2-sdk-identity`. The SDK refreshes the UID2 token periodically.
 
 :::danger
 The format of the object stored in local storage could change without notice. We recommend that you do **not** read and update the object in local storage directly. 

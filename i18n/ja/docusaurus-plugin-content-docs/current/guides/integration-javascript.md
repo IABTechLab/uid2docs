@@ -7,6 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Integration Overview for JavaScript
 
 このガイドは、UID2 とインテグレーションし、UID2 SDK for JavaScript を使って[UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token)(Advertising Token) を生成したいパブリッシャー向けのインテグレーションオプションの概要です。

@@ -1,9 +1,11 @@
 ---
 title: Sharing Permissions
-description: Learn how to configure sharing permissions in the UID2 Portal.
+description: Configure sharing permissions in the UID2 Portal.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
+
+import Link from '@docusaurus/Link';
 
 # Sharing Permissions
 
@@ -24,8 +26,6 @@ There are many options to help you create the exact sharing relationships that y
   Recommendations are based on the participant type specified in your account setup.
 - **Sharing Categories**: You can share with all current and future participants in one or more specific categories that you configure (Publishers, Advertisers, DSPs, or Data Providers).
 - **Individual Sharing Relationships**: You can create a sharing relationship with one or more current participants. With this option, you must manually add any future sharing permissions.
-<!-- - You can choose to have your name on the sharing list, so that others can create sharing relationships with you, or you can participate in sharing without your name appearing on the list. (GWH_KT_01 I didn't see this in the wireframes or UI?) -->
-<!-- - You can generate a Sharing Number that you can share with specific participants you want to share with. They can use the Sharing Number to create a sharing relationship with you even if you chose to be private. (GWH_KT_02 I didn't see this in the wireframes or UI?) -->
 
 >NOTE: Configuring a sharing permission with another participant doesn't mean that data is shared. It only makes it possible for the receiver to decrypt your UID2 tokens into raw UID2s. Information is only shared when you explicitly send it to another participant, or another participant sends it to you.
 
@@ -77,7 +77,7 @@ The following filters are available on the list of available sharing participant
 
 Enabling sharing permissions includes the following steps.
 
->NOTE: As well as granting sharing permission in the UID2 Portal, you'll also need to integrate an SDK, or Snowflake functionality, into your code. See [Sharing Steps: Summary](../sharing/sharing-implementing.md#sharing-steps-summary).
+>NOTE: As well as granting sharing permission in the UID2 Portal, you'll also need to integrate an SDK, or Snowflake functionality, into your code. See [Tokenized Sharing Overview](../sharing/sharing-tokenized-overview.md).
 
 1. Log in to your UID2 Portal account.
 1. Click **Sharing Permissions**.

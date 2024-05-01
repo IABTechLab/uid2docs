@@ -1,20 +1,27 @@
 ---
 title: Use Cases
-description: 参加者と UID2 を共有するためのユースケース。
+description: Use cases for sharing UID2s with other participants.
 hide_table_of_contents: false
 sidebar_position: 03
 ---
 
+import Link from '@docusaurus/Link';
+
 # Sharing UID2s: Use Cases
 
-安全な共有ワークフローでは、信頼できる共有と raw UID2 をさまざまな方法で安全に共有することができます。例えば、送信者が受信者と UID2 を共有したい場合のシナリオ例を以下に示します:
+The secure sharing workflow allows you to share UID2s with trusted participants in many different ways. Depending on the route, you might send either raw UID2s or UID2 tokens.
 
-- パブリッシャー(送信者) がビッドストリームを通じて UID2 Token を DSP(受信者) に送信します。詳細については、[Sharing in the Bid Stream](sharing-bid-stream.md) を参照してください。
-- 測定パートナー(送信者)は、Amazon Simple Storage Service (S3) を介して UID2 Token を広告主 (受信者)に送信します。
-- DSP (送信者)は、UID2 Token をレポート経由で広告主(受信者)に送信します。
+For example, here are some scenarios where a sender wants to share raw UID2s or UID2 tokens with a receiver:
 
-これらのシナリオとその他のシナリオを以下の図に示します。
+- Tokenized sharing (sharing a UID2 token) examples:
+  - A publisher (sender) sends a UID2 token via the bid stream to a DSP (receiver) (see [Tokenized Sharing in the Bid Stream](sharing-tokenized-from-data-bid-stream.md)).
+  - An advertiser (sender) sends a UID2 token to a data provider (receiver) via a tracking pixel (see [Tokenized Sharing in Pixels](sharing-tokenized-from-data-pixel.md)).
+- Raw UID2 sharing (sharing a raw UID2) examples:
+  - A measurement partner (sender) sends a raw UID2 to an advertiser (receiver) via Amazon Simple Storage Service (S3) (see [Raw UID2 Sharing](sharing-raw.md)).
+  - A DSP (sender) sends a raw UID2 to an advertiser (receiver) via reporting (see [Raw UID2 Sharing](sharing-raw.md)).
 
-![Illustration of Sharing Use Cases](images/UID2_Sharing_Diagram_UseCases.png)
+<!-- These scenarios, and others, are represented in the following diagram. -->
 
-> NOTE: どの送信者も、転送メソッドのいずれかを使用して、どの受信者にも UID2 Token を転送できます。ここで定義されている転送方法はほんの一部であり、他にもいろいろあります。
+<!-- (**GWH_KL note Kimberly is working with Marketing to redo this diagram.**) -->
+
+<!-- ![Illustration of Sharing Use Cases](images/UID2_Sharing_Diagram_UseCases.png) -->

@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # Sharing Permissions
 
 Sharing permissions (共有権限) を設定することで、他の UID2 参加者と UID2 を共有できるようになります。
@@ -63,7 +65,7 @@ UID2 Portal は、あなたの役割に基づいて推奨を行います。例�
 
 ## Using Search to Add Sharing Relationships
 
-特定の共有関係を作成したい場合は、**Search and Add Permissions** をクリックして、共有参加者を見つけて追加します。
+特定の共有関係を作成したい場合は、**Add Permissions** をクリックして、共有参加者を見つけて追加します。
 
 利用可能な共有参加者のリストでは、次のフィルタが利用可能です:
 - パブリッシャー
@@ -77,7 +79,7 @@ UID2 Portal は、あなたの役割に基づいて推奨を行います。例�
 
 共有許可を有効にするには、以下の手順を実行します。
 
->NOTE: UID2 Portal で共有許可を与えるだけでなく、SDK または Snowflake の機能をコードにインテグレーションする必要があります。[Sharing Steps: Summary](../sharing/sharing-implementing.md#sharing-steps-summary) を参照してください。
+>NOTE: UID2 Portal で共有許可を与えるだけでなく、SDK または Snowflake の機能をコードにインテグレーションする必要があります。[Tokenized Sharing Overview](../sharing/sharing-tokenized-overview.md) を参照してください。
 
 1. UID2 Portal アカウントにログインします。
 1. **Sharing Permissions** をクリックします。
@@ -89,7 +91,7 @@ UID2 Portal は、あなたの役割に基づいて推奨を行います。例�
 
     広告主や DSP などの参加者カテゴリーを承認すると、そのタイプの現在の参加者だけでなく、将来 UID2 エコシステムに参加する同じタイプの参加者にも共有が有効になります。
    
-   - **Search and Add Permissions**: 必要に応じて、共有する個々の参加者を検索することができます。詳しくは [Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships) を参照してください。
+   - **Add Permissions**: 必要に応じて、共有する個々の参加者を検索することができます。詳しくは [Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships) を参照してください。
 1. 変更を保存します。
 
 >NOTE: 共有権限を有効にすると、選択した共有参加者が復号鍵にアクセスできるようになります。共有許可を有効にした各参加者は、UID2 SDK または Snowflake インテグレーションを介して、UID2 Token を raw UID2 に復号化するためにあなたのキーを使用できます。ただし、許可を与えることは最初のステップに過ぎません。共有するためには、トークンを参加者に送信する必要があります。UID2 Portal は許可を有効にしますが、データを送信することはありません。

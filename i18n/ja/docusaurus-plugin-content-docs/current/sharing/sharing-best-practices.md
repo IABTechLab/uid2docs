@@ -1,47 +1,49 @@
 ---
 title: Best Practices
-description: UID2 sharing のベストプラクティス。
+description: Best practices for UID2 sharing.
 hide_table_of_contents: false
 sidebar_position: 05
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 Sharing: Best Practices
 
-<!-- It includes the following:
+The ability to securely share raw UID2s or UID2 tokens with other authorized UID2 users opens the door to using UID2 in many additional ways in your business.
 
-- [Best Practices for Managing Raw UID2s](#best-practices-for-managing-raw-uid2s)
-- [Best Practices for Managing UID2 Tokens](#best-practices-for-managing-uid2-bid-stream-tokens-or-sharing-tokens)
-- [Key Refresh Cadence for Sharing](#key-refresh-cadence-for-sharing) -->
+However, every UID2 participant has a responsibility to maintain the security of the UID2 ecosystem. Here are some best practices to help ensure that UID2 sharing runs smoothly and securely.
 
-UID2 Token を他の UID2 正規のユーザーと安全に共有できるようになったことで、UID2 をビジネスでさまざまな形で活用する道が開けました。
+<!-- In this file:
 
-しかし、UID2 参加者は皆、UID2 エコシステムのセキュリティを維持する責任を負っています。ここでは、UID2 sharing を円滑かつ安全に行うためのベストプラクティスをいくつかご紹介します。
+- [Best Practices for Managing Raw UID2s and UID2 Tokens](#best-practices-for-managing-raw-uid2s-and-uid2-tokens)
+- [Decryption Key Refresh Cadence for Sharing](#decryption-key-refresh-cadence-for-sharing) -->
 
-## Best Practices for Managing Raw UID2s
+## Best Practices for Managing Raw UID2s and UID2 Tokens
 
-以下のガイドラインに従ってください:
-- プラットフォームの UID2 については、UID2 Token としてではなく、UID2 として使用・保存してください。
+Follow these guidelines:
+- For any UID2s that are in your platform, use and store them as raw UID2s, not as UID2 tokens. When you receive UID2 tokens, decrypt them as soon as possible.
 
-  UID2 Token は短命であるため、これは重要です。UID2 Token の作成に使用した鍵の有効期限が切れると、トークンを復号化できなくなります。
-- コードでは、将来の拡張性を考慮して、raw UID2 の長さを 100 文字としてください。
+  This is important because a UID2 token is short-lived. When the key that was used to create a UID2 token expires, you can no longer decrypt the token.
 
-## Best Practices for Managing UID2 Tokens
+- A raw UID2 **must not** be passed through non-participants. For more information, see [UID2 Token Pass-Through](sharing-tokenized-overview.md#uid2-token-pass-through).
 
-以下のガイドラインに従ってください:
+- In your code, for future extensibility, allow for the following:
 
-- データがプラットフォームに入るとき、またはデータを送信するときは、データが常に UID2 Token の形式であり、raw UID2 ではないことを確認してください。
+  - Raw UID2 length: 100 characters.
 
-  ただしインフラストラクチャ内では、UID2 Token ではなく raw UID2 を保存することが重要です (上記の [Best Practices for Managing Raw UID2s](#best-practices-for-managing-raw-uid2s) を参照してください)。 
+  - UID2 token length: 500 characters.
 
-- コードでは、将来の拡張性を考慮して、UID2 Token の長さを 500 文字まで許容してください。
+## Decryption Key Refresh Cadence for Sharing
 
-## Key Refresh Cadence for Sharing
+If you're using an SDK, defining the schedule for refreshing the sharing keys is part of setup.
 
-長時間/継続的に実行されるプロセスでは、1時間に1回 `uid2client.refresh()` 関数を呼び出します。
+For long/continuously running processes, we recommend calling the `uid2client.refresh()` function once per hour. However, you can choose another refresh cadence if you prefer.
 
-1時間に1回の頻度で鍵を更新する理由は以下のとおりです:
+The following are reasons to refresh the keys on an hourly cadence:
 
-- 定期的に更新することで、SDK が復号のために最新の鍵を取得できるようになります。
-- UID2 フレームワークは定期的に暗号鍵をローテーションしています。
+- Regular refresh allows the SDK to fetch the latest keys for decryption. When a new sharing permission is enabled, the additional set of cryptographic keys needed to decrypt the data sent by the new sharing sender is returned the next time the sharing receiver calls the `uid2client.refresh()` function. This process is managed by the SDK.
+- The UID2 framework periodically rotates cryptographic keys.
 
-詳細については、[Encryption/Decryption Key Refresh Cadence for Sharing (SDK Only)](sharing-implementing.md#encryptiondecryption-key-refresh-cadence-for-sharing-sdk-only) を参照してください。
+:::note
+If you're using Snowflake, you don't need to do this step. The Snowflake UID2 integration takes care of refreshing the keys.
+:::

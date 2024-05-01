@@ -6,6 +6,8 @@ hide_table_of_contents: false
 sidebar_position: 05
 ---
 
+import Link from '@docusaurus/Link';
+
 # DSP Integration Guide
 
 This guide is for DSPs who transact on UID2s in the bid stream.
@@ -41,6 +43,8 @@ The UID2 service sends the following data within seconds of a user's opt-out, wh
 | :--- | :--- |
 | `identity` | The raw UID2 for the user who opted out. |
 | `timestamp` | The time when the user opted out (for information only). |
+
+The DSP must respond to the opt-out data with a 200 response code.
 
 The following example illustrates a webhook configured to receive the raw UID2 and the corresponding timestamp:
 

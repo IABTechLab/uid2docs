@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 03
 ---
 
+import Link from '@docusaurus/Link';
+
 # Getting Started with the UID2 Portal
 
 UID2 Portal アカウントを申請するには、氏名や業種など、ご自身と会社に関する情報を提供する必要があります。

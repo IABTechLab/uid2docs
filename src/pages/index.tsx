@@ -25,16 +25,20 @@ export default function Home(): JSX.Element {
     }),
   };
 
+  // Delayed GTM event to ensure the document has loaded with updated information
   React.useEffect(() => {
-    const pageViewData = {
-      event: "Initialize_dataLayer",
-      document_type: "home",
-      document_title: document.title,
-      article_author: undefined,
-      tags: undefined,
-    };
+    const timerId = setTimeout(() => {
+      const pageViewData = {
+        event: "Initialize_dataLayer",
+        document_type: "homepage",
+        document_title: document.title,
+        article_author: undefined,
+        tags: undefined,
+      };
+      pushGtmEvent(pageViewData);
+    }, 50);
 
-    pushGtmEvent(pageViewData);
+    return () => clearTimeout(timerId);
   }, []);
 
   return (

@@ -5,10 +5,11 @@ hide_table_of_contents: false
 sidebar_position: 02
 ---
 
-# UID2 SDK for JavaScript Reference Guide
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
+
+# UID2 SDK for JavaScript Reference Guide
 
 export const New = () => (
   <span className='pill'>NEW IN V3</span>
@@ -25,13 +26,16 @@ Prebid.js を UID2 ID モジュールと一緒に使用しているや、UID2 �
 - [earlier versions of the SDK](./client-side-identity-v2.md) のドキュメントを参照します。
 
 関連情報:
-- コンテンツパブリッシャーのインテグレーションステップについては、以下を参照してください:
+
+コンテンツパブリッシャーのインテグレーションステップについては、以下を参照してください:
   - [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
   - [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md). 
-- アプリケーションのサンプルと関連文書については、以下を参照してください:
+
+アプリケーションのサンプルと関連文書については、以下を参照してください:
   - SDK v3を使用したUID2 Google Secure Signals のサンプル:
-    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3) and running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/).
-  - The example of JavaScript client-side integration: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg) and running site ([Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)).
+    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
+    - Running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
+  - JavaScript Client-Side インテグレーションの例: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)、Running site ([Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)).
 
 ## Functionality
 
@@ -117,7 +121,7 @@ SDK を使用して UID2 ID を確立するための Client-Side ワークフロ
 2. コールバックが `SdkLoaded` イベントを受信したら、[init](#initopts-object-void) 関数を使用して SDK を初期化します。
 3. イベントリスナーが `InitCompleted` イベントを受信するのを待ちます。イベントデータは ID が利用可能かどうかを示します:
 	- ID が利用可能な場合、その ID がイベントペイロードに返されます。SDK は [background token auto-refresh](#background-token-auto-refresh) を設定します。
-	- ID が利用できない場合、ペイロードの `identity` プロパティは null になります。[provide a valid identity](#provide-identity) するまで、UID2 は利用できません。
+	- ID が利用できない場合、ペイロードの `identity` プロパティは null になります。[provide an identity to the SDK](#provide-an-identity-to-the-sdk) するまで、UID2 は利用できません。
 4. ID の変更を示す `IdentityUpdated` コールバックイベントを処理します。
 
 	 イベントペイロードの `identity` プロパティには新しい ID が格納されるか、有効な ID がない場合は null が格納されます。
@@ -279,7 +283,7 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 - `init()` は SDK がロードされた後であれば、いつでも呼び出すことができます。これを行うには、[Array Push Pattern](#array-push-pattern) を使用して `SdkLoaded` イベントを処理するコールバック関数を登録することを推奨します。このパターンを使うことで、スクリプトのロード順序に関係なくコードが動作し、スクリプトタグで `async` や `defer` を使っても UID2 SDK のエラーが発生しないようにすることができます。
 - `init()` 呼び出しの `identity` プロパティは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) 呼び出しが成功したときに返されるレスポンス JSON オブジェクトの `body` プロパティを参照します。Server-side のインテグレーションで常に現在のトークンを使用できるようにしていて、JavaScript を使用して ID を提供するほうが便利な場合は、この方法を使用するとよいでしょう。
 - `init()` 呼び出しの `identity` プロパティが不正な場合、SDK はローカルストレージまたはクッキーから ID をロードしようとします。
-  - `init()` が完了すると、すべてのコールバックは `InitCompleted` イベントを受信します。このイベントのペイロードの `identity` プロパティが null の場合、ID をロードできなかったことになるので、[provide a valid identity](#provide-identity) する必要があります。これは、Server-side のインテグレーションによって常に現在の ID が利用可能であることが保証されておらず、必要な場合にのみサーバーから ID を要求する必要がある場合に推奨される ID の提供方法です。
+  - `init()` が完了すると、すべてのコールバックは `InitCompleted` イベントを受信します。このイベントのペイロードの `identity` プロパティが null の場合、ID をロードできなかったことになるので、[provide an identity to the SDK](#provide-an-identity-to-the-sdk) する必要があります。これは、Server-side のインテグレーションによって常に現在の ID が利用可能であることが保証されておらず、必要な場合にのみサーバーから ID を要求する必要がある場合に推奨される ID の提供方法です。
   - 渡された UID2 情報をセッションに保存するためにファーストパーティクッキー ([UID2 Storage Format](#uid2-storage-format) を参照) を使用している場合、異なるドメインのページから `init()` を呼び出すと、そのクッキーにアクセスできないことがあります。`cookieDomain` オプションと `cookiePath` オプションで、クッキーに使用する設定を調整することができます。
 - 特定の動作を調整するために、初期化呼び出しにはオプションの設定 [init prarmeters](#init-parameters) を含めることができます。
 
@@ -325,11 +329,11 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 | Property | Data Type | Attribute | Description | Default Value |
 | :--- | :--- | :--- | :--- | :--- |
-| `identity` | object | オプション | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) 呼び出しが成功したときの `body` プロパティ値です。<br/>[ファーストパーティクッキー](#uid2-cookie-format) からの ID を使用するには、このプロパティを空にしておきます。 | N/A |
+| `identity` | object | オプション | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) 呼び出しが成功したときの `body` プロパティ値です。<br/>[ファーストパーティクッキー](client-side-identity-v2.md#uid2-cookie-format) からの ID を使用するには、このプロパティを空にしておきます。 | N/A |
 | `baseUrl` | string | オプション | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出す際に使用する UID2 Operator のカスタム Base URLです。<br/>例えば: `https://my.operator.com`.  | `https://prod.uidapi.com`. |
 | `refreshRetryPeriod` | number | オプション | 断続的なエラーが発生した場合に、トークンのリフレッシュを再試行するミリ秒数です。<br/>この値は 1000 以上でなければなりません。 | 5000 |
-| `cookieDomain` | string | オプション | [UID2 cookie](#uid2-cookie-format) に適用するドメイン名文字列です。<br/>例えば、`baseUrl` が `https://my.operator.com` の場合、 `cookieDomain` の値は `operator.com` となります。 | `undefined` |
-| `cookiePath` | string | オプション | [UID2 cookie](#uid2-cookie-properties) に適用する Path 文字列です。 | `/` |
+| `cookieDomain` | string | オプション | [UID2 cookie](client-side-identity-v2.md#uid2-cookie-format) に適用するドメイン名文字列です。<br/>例えば、`baseUrl` が `https://my.operator.com` の場合、 `cookieDomain` の値は `operator.com` となります。 | `undefined` |
+| `cookiePath` | string | オプション | [UID2 cookie](client-side-identity-v2.md#uid2-cookie-format) に適用する Path 文字列です。 | `/` |
 | `useCookie` | `boolean` | オプション | この値を `true` に設定すると、SDK はローカルストレージではなくクッキーに ID を保存します。この値がfalseであるか、提供されていない場合でも、ファーストパーティクッキーを使用して ID を提供することができます。 | 
 | `callback` | `function(object): void` | 非推奨 | 渡された ID を検証した後に SDK が呼び出す関数です。新しいインテグレーションには使用しないでください。 | N/A |
 
