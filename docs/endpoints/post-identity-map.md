@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 08
 ---
 
+import Link from '@docusaurus/Link';
+
 # POST /identity/map
 
 Map multiple email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs. You can also use this endpoint to check for updates to opt-out information.
@@ -17,7 +19,7 @@ Here's what you need to know:
 
 - The maximum request size is 1MB. 
 - To map a large number of email addresses, phone numbers, or their respective hashes, send them in *sequential* batches with a maximum batch size of 5,000 items per batch.
-- Unless you are using a private operator, do not send batches in parallel. In other words, use a single HTTP connection and map [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) consecutively.
+- Unless you are using a private operator, do not send batches in parallel. In other words, use a single HTTP connection and map <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> consecutively.
 - Be sure to store mappings of email addresses, phone numbers, or their respective hashes.<br/>Not storing mappings may increase processing time drastically when you have to map millions of emails addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of raw UID2s need to be updated daily. See also [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) and [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
 
 ## Request Format
@@ -32,7 +34,7 @@ Here's what you need to know:
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md). |
 
->NOTE: The integration environment and the production environment require different [API keys](../ref-info/glossary-uid.md#gl-api-key).
+>NOTE: The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.
 
 ###  Unencrypted JSON Body Parameters
 
@@ -92,7 +94,9 @@ For details, and code examples in different programming languages, see [Encrypti
 
 ## Decrypted JSON Response Format
 
->NOTE: The responses are encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+:::note
+The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+:::
 
 A successful decrypted response returns the raw UID2s and salt bucket IDs for the specified email addresses, phone numbers, or their respective hashes.
 

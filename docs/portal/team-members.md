@@ -1,9 +1,11 @@
 ---
 title: Team Members
-description: Learn how to set up and manage your UID2 team.
+description: Set up and manage your UID2 team.
 hide_table_of_contents: false
 sidebar_position: 07
 ---
+
+import Link from '@docusaurus/Link';
 
 # Team Members
 
@@ -16,7 +18,7 @@ sidebar_position: 07
 - [Remove a Team Member](#remove-a-team-member)
 - [Log In for the First Time as a Team Member](#log-in-for-the-first-time-as-a-team-member) DONE -->
 
-In the UID2 Portal, on the Team Members page, you can perform all activities relating to configuring individuals who you want to authorize for access to your account, including the following:
+In the UID2 Portal, on the **Team Members** page, you can perform all activities relating to configuring individuals who you want to authorize for access to your account, including the following:
 
 - [Add a Team Member](#add-a-team-member)
 - [Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member) 
@@ -49,15 +51,21 @@ To re-send the invitation for a team member, find the team member on the list an
 
 ## Edit Information for a Team Member
 
-To edit information for a team member, find the team member on the list and then, in the Actions column, click the Edit (pencil) icon.
+To edit information for a team member, complete the following steps:
 
-Update the information, and then save the changes.
+1. In the UID2 Portal, go to the **Team Members** page.
+1. Find the team member on the list.
+1. In the Actions column, click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon).
+1. Update the information, and then save the changes.
+
 ## Remove a Team Member
 
 To remove someone from the team, follow these steps:
 
-1. Find the team member on the list and then, in the Actions column, click the delete (trashcan) icon.
-1. At the confirmation message, click **Delete Team Member**. The team member is removed from the team.
+1. Find the team member on the list and then, in the Actions column, click ![the Delete icon](images/icon-trash-can-solid.png) (the Delete icon).
+1. At the confirmation message, click **Delete Team Member**.
+
+   The team member is removed from the team.
 
 ## Log In for the First Time as a Team Member
 

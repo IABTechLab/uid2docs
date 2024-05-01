@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 09
 ---
 
+import Link from '@docusaurus/Link';
+
 # Email Contacts
 
 UID2 Portal では、UID2 の最新アップデートやリリースに関する情報を通知する組織内の担当者を指定できます。個別のメールアドレスを設定することも、組織内の複数の人に通知するために組織内に設定したメールグループを参照することもできます。
@@ -60,5 +62,5 @@ Email Contacts ページでは、UID2 の更新について通知を受ける個
 
 メールコンタクトを削除するには、以下の手順に従ってください:
 
-1. リストで連絡先を見つけ、Actions 列で delete (trashcan) アイコンをクリックします。
+1. リストで連絡先を見つけ、Actions 列で Delete (trashcan) アイコンをクリックします。
 1. 確認メッセージが表示されたら、削除を確定します。

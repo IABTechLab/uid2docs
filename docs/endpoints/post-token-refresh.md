@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # POST /token/refresh
 Generate a new [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) by sending the corresponding unexpired refresh token, returned by the [POST&nbsp;/token/generate](post-token-generate.md) endpoint.
 
@@ -31,7 +33,7 @@ Here's what you need to know about this endpoint:
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Testing (integration) environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md).<br/>Notes:<ul><li>The `integ` environment and the `prod` environment require different [API keys](../ref-info/glossary-uid.md#gl-api-key).</li><li>Token expiration time is subject to change, but is always significantly shorter in the `integ` environment than it is in the `prod` environment.</li></ul> |
+| `{environment}` | string | Required | Testing (integration) environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md).<br/>Notes:<ul><li>The `integ` environment and the `prod` environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.</li><li>Token expiration time is subject to change, but is always significantly shorter in the `integ` environment than it is in the `prod` environment.</li></ul> |
 
 #### Testing Notes
 
@@ -48,7 +50,9 @@ For details, and code examples in different programming languages, see [Encrypti
 
 A decrypted successful response includes a new UID2 token (`advertising_token`) and associated values for the user, or indicates that the user has opted out. 
 
->NOTE: The responses are encrypted only if the HTTP status code is 200. Error responses are not encrypted.
+:::note
+The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+:::
 
 This section includes the following sample responses:
 

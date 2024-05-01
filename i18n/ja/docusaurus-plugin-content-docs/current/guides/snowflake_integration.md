@@ -7,6 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # Snowflake Integration Guide
 
 <!-- This guide includes the following information:
@@ -39,7 +41,7 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 
 *DII から直接 UID2 Token を生成することはできません。しかし、DII を raw UID2 に変換し、raw UID2 を暗号化して UID2 Token にすることはできます。
 
->NOTE: ビッドストリームで UID2 Token を共有するパブリッシャーの場合は、[Sharing in the Bid Stream](../sharing/sharing-bid-stream.md) を参照してください
+>NOTE: ビッドストリームで UID2 Token を共有するパブリッシャーの場合は、[Tokenized Sharing in the Bid Stream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください
 
 ## Workflow Diagram
 
@@ -529,7 +531,7 @@ UID2 sharer とは、UID2 を他の参加者と Sharing (共有)したい参加�
 
 Sharing する参加者は、他の参加者に送信する前に、[raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を暗号化して [UID2 Token](../ref-info/glossary-uid#gl-uid2-token)に変換しなければなりません。
 
->IMPORTANT: このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md) を参照してください。
+>IMPORTANT: このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bid Stream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 
 以下のシナリオは UID2 sharing に対応しています:
 

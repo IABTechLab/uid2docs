@@ -9,6 +9,8 @@ banner_description: An identity solution for the future.
 displayed_sidebar: sidebarDataProviders
 ---
 
+import Link from '@docusaurus/Link';
+
 As a data and measurement provider, you can reduce identity fragmentation by adopting Unified ID 2.0 (UID2) to connect data with a more durable, omnichannel, and cross-device identifier to fulfil your customer use cases.
 
 This solution is for you if you're offering data or related services for online or offline advertising, such as a provider of the following:
@@ -41,7 +43,7 @@ The following process occurs in the background:
 
 The following steps are an example of how a data provider can integrate with UID2:
 
-1. The data provider sends a user’s [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to the UID2 Operator.
+1. The data provider sends a user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to the UID2 Operator.
 
    <!-- euid_only_ep_20240312 ("consented" in above line DP only EUID only) -->
 

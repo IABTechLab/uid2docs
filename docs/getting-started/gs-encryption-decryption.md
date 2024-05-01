@@ -1,12 +1,13 @@
 ---
 title: Encryption and Decryption
-description: Information about encrypting UID2 requests and decrypting responses
+description: Information about encrypting UID2 requests and decrypting responses.
 hide_table_of_contents: false
 sidebar_position: 11
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
 
 # Encrypting Requests and Decrypting Responses
 
@@ -56,7 +57,7 @@ The following table describes the field layout for request encryption code.
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
 | 0 | 8 | The UNIX timestamp (in milliseconds). Must be int64 big endian. |
-| 8 | 8 | Nonce: Random 64 bits of data used to protect against replay attacks. The corresponding [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) should contain the same nonce value for the response to be considered valid. |
+| 8 | 8 | Nonce: Random 64 bits of data used to help protect against replay attacks. The corresponding [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) should contain the same nonce value for the response to be considered valid. |
 | 16 | N | Payload, which is a request JSON document serialized in UTF-8 encoding. |
 
 ### Encrypted Request Envelope
@@ -100,7 +101,7 @@ The following table describes the field layout for response decryption code.
 
 ### Response Example
 
-For example, a decrypted response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request for an email address in the [preceding example](#request-example), might look like this:
+For example, a decrypted response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request for an email address might look like this:
 
 ```json
 {
@@ -216,6 +217,7 @@ If you are using Maven, you can use the following minimal `pom.xml`, and run `mv
 The following code example encrypts requests and decrypts responses using C#. The required parameters are shown at the top of the file, or by building and running `.\uid2_request`.
 
 This file requires .NET 7.0. You can use an earlier version if required, but it must be .NET Core 3.0 or later. To change the version, replace the [top-level statements](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/program-structure/top-level-statements) with a Main method and the [using declarations](https://learn.microsoft.com/en-us/cpp/cpp/using-declaration?view=msvc-170) with [using statements](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-8.0/using).
+
 </TabItem>
 </Tabs>
 
@@ -322,8 +324,10 @@ else:
    print(json.dumps(json_resp, indent=4))
 
 ```
+
 </TabItem>
 <TabItem value='java' label='Java'>
+
 
 ```java title="Uid2Request.java"
 package org.example;
@@ -450,8 +454,10 @@ public class Uid2Request {
   }
 }
 ```
+
 </TabItem>
 <TabItem value='cs' label='C#'>
+
 
 ```cs title="uid2_request.cs"
 using System.Buffers.Binary;

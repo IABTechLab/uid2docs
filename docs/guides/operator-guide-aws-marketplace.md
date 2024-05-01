@@ -7,9 +7,13 @@ hide_table_of_contents: false
 sidebar_position: 17
 ---
 
+import Link from '@docusaurus/Link';
+
+import ChartSvg from './images/uid2-private-operator-aws-chart.svg';
+
 # UID2 Private Operator for AWS Integration Guide
 
-The UID2 Operator is the API server in the UID2 ecosystem. For a Private Operator service running in AWS Marketplace, the UID2 Operator solution is enhanced with [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave technology. This is an additional security measure to protect UID2 information from unauthorized access.
+The UID2 Operator is the API server in the UID2 ecosystem. For a Private Operator service running in AWS Marketplace, the UID2 Operator solution is enhanced with [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave technology. This is an additional security measure to help protect UID2 information from unauthorized access.
 
 <!-- This guide includes the following information:
 
@@ -146,7 +150,7 @@ Here's what you can customize during or after the [deployment](#deployment):
 
 The following diagram illustrates the virtual private cloud that hosts private operators.
 
-![UID2 Operator VPC Chart](images/uid2-private-operator-aws-chart.svg)
+<ChartSvg />
 
 ## Deployment
 
@@ -234,6 +238,10 @@ To check the UID2 Operator status of your Load Balancer, complete the following 
 
 1. Identify the DNS name of your load balancer by going to **EC2 > Load balancers** and looking at the **DNS name** column of your load balancer.
 2. In your browser, go to `https://{dns-name-of-your-load-balancer}/ops/healthcheck`. A response of `OK` indicates good operator status.
+
+import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
+
+<AttestFailure />
 
 ## Upgrading the UID2 Operator
 

@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 06
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 SDK for Python Reference Guide
 
 You can use the UID2 SDK for Python on the server side to facilitate the following:
@@ -128,7 +130,7 @@ Available information returned through the SDK is outlined in the following tabl
    ```
 
       :::important
-      Be sure to call this function only when you have obtained legal basis to convert the user’s [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) to UID2 tokens for targeted advertising.
+      Be sure to call this function only when you have obtained legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
       :::
 
  `do_not_generate_tokens_for_opted_out()` applies `optout_check=1` in the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call. Without this, `optout_check` is omitted to maintain backwards compatibility.
@@ -194,7 +196,7 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
 
 A UID2 sharer is any participant that wants to share UID2s with another participant. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant. For an example of usage, see [examples/sample_sharing.py](https://github.com/IABTechLab/uid2-client-python/blob/master/examples/sample_sharing.py) script.
 
->IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bid stream. There is a different workflow for generating tokens for the bid stream: see [Sharing in the Bid Stream](../sharing/sharing-bid-stream.md).
+>IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bid stream. There is a different workflow for generating tokens for the bid stream: see [Tokenized Sharing in the Bid Stream](../sharing/sharing-tokenized-from-data-bid-stream.md).
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for Python, either as a sender or a receiver.
 

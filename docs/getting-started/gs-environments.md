@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 07
 ---
 
+import Link from '@docusaurus/Link';
+
 # Environments
 
 The following table lists all current testing and production environments for UID2.
@@ -24,5 +26,5 @@ For example, `https://operator-integ.uidapi.com/v2/token/generate`.
 Notes:
 
 - All UID2 endpoints use the same base URL.
-- The integration environment and the production environment require different [API keys](../ref-info/glossary-uid.md#gl-api-key).
+- The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.
 - The expiration time of the [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) returned by  the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints is subject to change, but is always significantly shorter in the integration environment than it is in the production environment.

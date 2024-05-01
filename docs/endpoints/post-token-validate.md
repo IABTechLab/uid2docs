@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 03
 ---
 
+import Link from '@docusaurus/Link';
+
 # POST /token/validate
 Validate that an advertising token matches the specified hashed or unhashed email address or phone number. 
 
@@ -25,7 +27,7 @@ Used by: This endpoint is used mainly by publishers.
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md). |
 
->NOTE: The integration environment and the production environment require different [API keys](../ref-info/glossary-uid.md#gl-api-key).
+>NOTE: The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.
 
 
 ### Unencrypted JSON Body Parameters
@@ -82,7 +84,9 @@ For details, and code examples in different programming languages, see [Encrypti
 
 ## Decrypted JSON Response Format
 
->NOTE: The responses are encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+:::note
+The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+:::
 
 A successful decrypted response returns a boolean value that indicates the validation status of the specified advertising token, as shown in the following example: 
 
@@ -113,7 +117,7 @@ If the `status` value is anything other than `success`, the `message` field prov
 
 ## Using POST /token/validate to Test
 
-You can use this endpoint to test whether the [DII](../ref-info/glossary-uid.md#gl-dii) you are sending through [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) is valid. Follow these steps.
+You can use this endpoint to test whether the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> you are sending through [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) is valid. Follow these steps.
 
 1. Depending on whether the DII is a hashed or unhashed email address or phone number, send a [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request using one of the four valid options listed in the [Unencrypted JSON Body Parameters](#unencrypted-json-body-parameters) table&#8212;`email`, `email_hash`, `phone`, or `phone_hash`&#8212;with the corresponding value as listed in the table.
 

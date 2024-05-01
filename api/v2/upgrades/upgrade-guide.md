@@ -12,7 +12,7 @@ This guide outlines the differences between the UID2 v1 and v2 APIs and explains
 
 The v2 updates to the UID2 API include the following:
 
-- [Application API layer encryption](https://unifiedid.com/docs/getting-started/gs-encryption-decryption) has been added. It provides E2E content protection and prevents sensitive UID2 information from leaking to a network operator or the UID2 service operator.<br/>This also means that performing calls to the v2 endpoints requires encrypting the POST request body and decrypting the response.
+- [Application API layer encryption](https://unifiedid.com/docs/getting-started/gs-encryption-decryption) has been added. It helps protect E2E content and prevents sensitive UID2 information from leaking to a network operator or the UID2 service operator.<br/>This also means that performing calls to the v2 endpoints requires encrypting the POST request body and decrypting the response.
 - In addition to the client API key for [authentication](https://unifiedid.com/docs/getting-started/gs-auth), a client secret is now required for encrypting API requests and decrypting API responses.
 - The HTTP request type of all GET endpoints in the UID2 API v1 has changed from GET to POST in the [UID2 API v2](https://unifiedid.com/docs/endpoints/summary-endpoints).
 - No more query parameters are required in requests. The new POST methods take input parameters as the request body in JSON format. 

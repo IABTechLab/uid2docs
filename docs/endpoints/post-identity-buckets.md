@@ -5,6 +5,8 @@ hide_table_of_contents: false
 sidebar_position: 07
 ---
 
+import Link from '@docusaurus/Link';
+
 # POST /identity/buckets
 
 Monitor rotated salt buckets.
@@ -23,7 +25,7 @@ Used by: This endpoint is used mainly by advertisers and data providers. For det
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md). |
 
->NOTE: The integration environment and the production environment require different [API keys](../ref-info/glossary-uid.md#gl-api-key).
+>NOTE: The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.
 
 ### Unencrypted JSON Body Parameters
 
@@ -52,7 +54,9 @@ For details, and code examples in different programming languages, see [Encrypti
 
 ## Decrypted JSON Response Format
 
->NOTE: The responses are encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+:::note
+The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+:::
 
 A successful decrypted response returns a list of salt bucket IDs and the timestamps of their last updates.
 
