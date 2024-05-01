@@ -349,7 +349,7 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
 
 トークンが正常に生成されたことを確認するには、ブラウザの開発者ツールを使ってローカルストレージからトークンを探します。
 
-![Publisher Workflow](images/TokenDebugger.png)
+![Publisher Workflow](images/TokenDebugger-uid2.png)
 
 トークンの生成に問題があった場合は、**Network** タブでリクエストを見つけてください。`client-generate` という文字列でフィルタリングすることで、リクエストを見つけることができます。リクエストに失敗した理由についての情報は、レスポンスの中にあるはずです。
 
