@@ -6,6 +6,7 @@ import clsx from "clsx";
 import styles from "./styles.module.scss";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import { articleList, ArticleItem } from "@site/src/data/pressReleases";
+import { useIsJapanese } from "@site/src/utils/isJapanese";
 
 function ArticleCard({ title, url, date }: ArticleItem) {
   return (
@@ -22,8 +23,11 @@ function ArticleCard({ title, url, date }: ArticleItem) {
 }
 
 export default function HomepageNews(): JSX.Element {
-  const { i18n } = useDocusaurusContext();
-  const locale = i18n.currentLocale;
+  const {
+    i18n: { currentLocale },
+  } = useDocusaurusContext();
+  const isJapanese = useIsJapanese();
+
   return (
     <section className={clsx("bg-dirty-socks", styles.homepageNews)}>
       <div className="container">
@@ -39,12 +43,28 @@ export default function HomepageNews(): JSX.Element {
         </header>
         <div className={styles.cardGrid}>
           {articleList
-            .filter((article) => article.locale === locale)
+            .filter((article) => article.locale === currentLocale)
             .reverse()
             .map((article, idx) => (
               <ArticleCard key={idx} {...article} />
             ))}
         </div>
+        {isJapanese && (
+          <div className={styles.pressReleasesButton}>
+            <Link
+              to={"/"}
+              autoAddBaseUrl={false}
+              className="button button--11-o-clock"
+            >
+              <Translate
+                id="homepage.newsLink"
+                description="Link to english press releases"
+              >
+                国外のニュース（英語）はこちら
+              </Translate>
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );
