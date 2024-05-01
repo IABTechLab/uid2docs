@@ -94,7 +94,9 @@ For details, and code examples in different programming languages, see [Encrypti
 
 ## Decrypted JSON Response Format
 
->NOTE: The responses are encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+:::note
+The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+:::
 
 A successful decrypted response returns the raw UID2s and salt bucket IDs for the specified email addresses, phone numbers, or their respective hashes.
 
