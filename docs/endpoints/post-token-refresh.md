@@ -50,7 +50,9 @@ For details, and code examples in different programming languages, see [Encrypti
 
 A decrypted successful response includes a new UID2 token (`advertising_token`) and associated values for the user, or indicates that the user has opted out. 
 
->NOTE: The responses are encrypted only if the HTTP status code is 200. Error responses are not encrypted.
+:::note
+The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+:::
 
 This section includes the following sample responses:
 
