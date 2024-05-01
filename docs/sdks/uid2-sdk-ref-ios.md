@@ -27,7 +27,7 @@ import Link from '@docusaurus/Link';
 - [Android Initialization](#android-initialization)
 - [Code Samples](#code-samples) -->
 
-You can use the UID2 SDK for iOS and tvOS to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens on iOS devices for bid stream use.
+You can use the UID2 SDK for iOS and tvOS to facilitate the process of generating or establishing client identity using UID2 and retrieving advertising tokens on iOS devices for bid stream use.
 
 The following iOS-related plugins, and associated documentation, are also available:
 
