@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for iOS
+title: UID2 SDK for iOS and tvOS
 description: Reference information about the iOS SDK.
 hide_table_of_contents: false
 sidebar_position: 14
@@ -7,7 +7,7 @@ sidebar_position: 14
 
 import Link from '@docusaurus/Link';
 
-# UID2 SDK for iOS Reference Guide
+# UID2 SDK for iOS and tvOS Reference Guide
 
 <!-- This guide includes the following information:
 
@@ -27,14 +27,19 @@ import Link from '@docusaurus/Link';
 - [Android Initialization](#android-initialization)
 - [Code Samples](#code-samples) -->
 
-You can use the UID2 SDK for iOS to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens on iOS devices for bid stream use.
+You can use the UID2 SDK for iOS and tvOS to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens on iOS devices for bid stream use.
 
 The following iOS-related plugins, and associated documentation, are also available:
 
-| Purpose | Product/Documentation |
-| :--- | :--- |
-| To use the Google Mobile Ads (GMA) SDK to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS apps | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) |
-| To use the Google Interactive Media Ads SDK for iOS to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS apps | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) |
+| Purpose                                                                                                                                                                                                                 | Product/Documentation |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :--- |
+| To use the Google Mobile Ads (GMA) SDK to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS/tvOS apps         | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) |
+| To use the Google Interactive Media Ads SDK for iOS to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS/tvOS apps | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) |
+
+
+## tvOS Support
+
+Note that while this documents refer as UID2 SDK for iOS and tvOS, this SDK can also be used for tvOS integration. Check the Github respository for [minimum tvOS version requirement](https://github.com/IABTechLab/uid2-ios-sdk) 
 
 ## Functionality
 
