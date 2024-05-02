@@ -52,7 +52,7 @@ To view or copy a public key, follow these steps:
 1. In the UID2 Portal, go to the **Client-Side Integration** page.
 1. Find the key pair on the list and then, in the Public Key column, do one of the following:
 
-   - Click ![the View Public Key icon](images/icon-trash-can-solid.png) (the View Public Key icon) to view the key in a popup.(**GWH__ new/correct icon coming**)
+   - Click ![the View Public Key icon](images/icon-eye-solid.png) (the View Public Key icon) to view the key in a popup.
    - Click ![the Copy icon](images/icon-copy-solid.png)  (the Copy Public Key to Clipboard icon).
 
      Save the public key in a safe place.
