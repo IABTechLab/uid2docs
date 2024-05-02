@@ -351,7 +351,7 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
 
 To check that the token was successfully generated, use the browser's developer tools to look for the token in local storage.
 
-![Publisher Workflow](images/TokenDebugger.png)
+![Publisher Workflow](images/TokenDebugger-uid2.png)
 
 If there was a problem generating the token, find the request in the **Network** tab. You can find the request by filtering for the string `client-generate`. Information about why the request failed should be available in the response.
 
