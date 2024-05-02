@@ -81,6 +81,7 @@ Minimum requirements for this SDK are as follows:
 
 - Xcode version: 14.0+
 - iOS	minimum target version: 13.0+	
+- tvOS	minimum target version: 13.0+
 - Swift version: 5.0+
 
 <!-- See also: [Requirements](https://github.com/IABTechLab/uid2-ios-sdk/blob/main/README.md#requirements). -->
