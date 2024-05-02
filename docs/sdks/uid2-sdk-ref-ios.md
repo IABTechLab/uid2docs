@@ -11,6 +11,7 @@ import Link from '@docusaurus/Link';
 
 <!-- This guide includes the following information:
 
+- [tvOS Support](#tvos-support)
 - [Functionality](#functionality)
 - [API Permissions](#api-permissions)
 - [SDK Version](#sdk-version)

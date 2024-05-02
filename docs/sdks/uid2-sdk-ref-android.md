@@ -11,6 +11,7 @@ import Link from '@docusaurus/Link';
 
 <!-- This guide includes the following information:
 
+- [Non-mobile Android device support](#non-mobile-android-device-support)
 - [Functionality](#functionality)
 - [API Permissions](#api-permissions)
 - [SDK Version](#sdk-version)
@@ -35,6 +36,10 @@ The following Android-related plugins, and associated documentation, are also av
 | :--- | :--- |
 | To use the Google Mobile Ads (GMA) SDK to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) |
 | To use the Google Interactive Media Ads (IMA) SDK for Android to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) |
+
+## Non-mobile Android device support
+
+This UID2 SDK for Android can be used for non-mobile devices for Android platforms as well.
 
 ## Functionality
 
