@@ -7,54 +7,134 @@ sidebar_position: 09
 
 # Client-Side Integration
 
-In the UID2 Portal, if you want an implementation that generates UID2 tokens on the client side, you'll need to define the following:
+In the UID2 Portal, if you want to use an implementation option that generates UID2 tokens on the client side, you'll need to define one or more of each of the values shown in the following table.
 
-- Key pairs. In your implementation, you'll share the public key.  For details, see [Subscription ID and Public Key](getting-started/gs-credentials.md#subscription-id-and-public-key).
-- A complete list of root-level domain names for your sites. This is a security measure, for client-side implementation only. For details, see [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers).
+| Value | Details | Documentation Link |
+| :--- | :--- | :---|
+| Key pair | At least one. In your implementation, you'll share the public key. | [Subscription ID and Public Key](getting-started/gs-credentials.md#subscription-id-and-public-key) |
+| Root-level domain | At least one. Provide a complete list of your domains. | [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers) |
 
-Client-side implementation options include the following:
-- The JavaScript SDK: see [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
-- For publishers, the Prebid.js client-side integration: see [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
+:::important
+It's important to provide a complete list of root-level domain names for your sites. This is a security measure, for client-side implementation only. If a domain is not defined in the UID2 Portal, UID2 token requests from that domain will fail.
+:::
 
-On the Client-Side Integration page you can perform all activities relating to setting up and managing these values, including:
+On the Client-Side Integration page you can perform all activities relating to setting up and managing these values.
 
-- [Adding a Key Pair](#adding-a-key-pair)
-- [Copying a Public Key](#copying-a-public-key)
-- [Changing the Name of a Public Key](#changing-the-name-of-a-key-pair)
-- [Deleting a Key Pair](#deleting-a-key-pair)
-- [Adding a Top-Level Domain](#adding-a-top-level-domain)
-- [Modifying a Top-Level Domain](#modifying-a-top-level-domain)
-- [Deleting a Top-Level Domain](#deleting-a-top-level-domain)
+:::note
+When you go into the Client-Side Integration page, you'll be prompted to provide missing configuration items if you haven't yet created at least one key pair and at least one top-level domain.
+:::
+
+## Client-Side Implementation Options
+
+Client-side implementation options are shown in the following table. The options available to you depend on your role.
+
+| Client-Side Implementation Option | Available For (Role) | Documentation Link |
+| :--- | :--- | :---|
+| UID2 JavaScript SDK | Publishers, Advertisers | [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) |
+| Prebid.js client-side integration | Publishers only |[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) |
 
 ## Adding a Key Pair
 
-xxx
+To add a key pair, complete the following steps:
 
-## Copying a Public Key
+1. Log in to your UID2 Portal account.
+1. On the **Client-Side Integration** page, click **Add Key Pair**.
+1. In the **Add Key Pair** overlay, provide a name, and then click **Add Key Pair**.
 
-xxx
+   On the **Client-Side Integration** page, the new key pair is displayed with the name, Subscription ID, public key, and the date it was created.
+
+## Copying or Viewing a Public Key
+
+When you create a key pair in the Client-Side Integration page, you can share your public key. The UID2 service uses the corresponding private key, plus other values, to authenticate your messages.
+
+To view or copy a public key, follow these steps:
+
+1. In the UID2 Portal, go to the **Client-Side Integration** page.
+1. Find the key pair on the list and then, in the Public Key column, do one of the following:
+
+   - Click ![the View Public Key icon](images/icon-trash-can-solid.png) (the View Public Key icon) to view the key in a popup.(**GWH__ new/correct icon coming**)
+   - Click ![the Copy icon](images/icon-copy-solid.png)  (the Copy Public Key to Clipboard icon).
+
+     Save the public key in a safe place.
 
 ## Changing the Name of a Key Pair
 
-When you've created a public key, the only value you can change is the name. To change the actual key, you'll need to create a new key pair.
+When you've created a key pair, the only value you can change is the name. To change the value, you'll need to create a new key pair.
 
-To change the name of a public key (key pair?)
+To change the name of a key pair, complete the following steps:
 
-xxx
+1. In the UID2 Portal, go to the **Client-Side Integration** page.
+1. Find the key pair on the list.
+1. In the Actions column, click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon).
+1. Update the name, and then click **Save Key Pair**.
 
 ## Deleting a Key Pair
 
-xxx
+To delete a key pair, follow these steps:
 
-## Adding a Top-Level Domain
+1. Find the key on the list and then, in the Actions column, click ![the Delete icon](images/icon-trash-can-solid.png) (the Delete icon).
+1. At the confirmation message, type the Subscription ID to confirm that you want to delete the key pair. You can copy and paste from the display.
+1. Click **Delete Key Pair**.
 
-xxx
+   The key pair is removed from the display and is no longer valid.
 
-TIP
-Only root-level domains are required for account setup. For example, if you're going to implement UID2 to generate tokens on the client side on example.com, shop.example.com, and example.org, you 
+## Adding Top-Level Domains
 
-## Modifying a Top-Level Domain
-xxx
+:::tip
+Only root-level domains are required for account setup. For example, if you're going to implement UID2 to generate tokens on the client side on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
+:::
+
+To add one or more top-level domains, complete the following steps:
+
+1. Log in to your UID2 Portal account.
+1. On the **Client-Side Integration** page, click **Add Domains**.
+1. In the **Add Domains** overlay, type or paste the list of domains. Note:
+
+   - The following are valid as separators for domains in the list: comma, semicolon, space, tab, or new line.
+   - By default, the domains you add are appended to the list. To replace the existing list, check **Replace all existing domains with the new ones.**
+
+1. Click **Add Domains**.
+
+   On the **Client-Side Integration** page, the list is updated.
+
+## Changing a Top-Level Domain
+
+To change the name of a domain on the list, complete the following steps:
+
+1. In the UID2 Portal, go to the **Client-Side Integration** page.
+1. Find the domain on the list.
+1. In the Actions column, click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon).
+1. Update the name, and then click **Save Domain**.
 
 ## Deleting a Top-Level Domain
-xxx
+
+To delete a domain from your domains list, follow these steps:
+
+1. In the UID2 Portal, go to the **Client-Side Integration** page.
+1. Find the domain on the list.
+1. In the Actions column, click ![the Delete icon](images/icon-trash-can-solid.png) (the Delete icon).
+1. At the confirmation message, click **Delete Domain**.
+
+   The domain is removed from your domains list.
+
+## Deleting Multiple Top-Level Domains
+
+There are two ways that you can delete more than one top-level domain at a time:
+
+- Choose multiple individual domains from the list and then delete the selected domains.
+- Replace your existing domains list with an updated list that you are adding. See [Adding Top-Level Domains](#adding-top-level-domains).
+
+To multi-select domains for deletion:
+
+1. In the UID2 Portal, go to the **Client-Side Integration** page.
+1. In the **Top-Level Domains** section of the page, check the box below the heading.
+
+   All domains are selected for deletion.
+
+1. Conditional: if you want to keep some of the domains, clear the check boxes for those domains.
+
+1. Above the list, click ![the Delete icon](images/icon-trash-can-solid.png) Delete Domains.
+
+1. At the confirmation message, click **Delete Domains**.
+
+   The domains are removed from your domains list.
