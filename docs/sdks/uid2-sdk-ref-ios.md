@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for iOS and tvOS
+title: UID2 SDK for iOS
 description: Reference information about the iOS SDK.
 hide_table_of_contents: false
 sidebar_position: 14
@@ -7,7 +7,7 @@ sidebar_position: 14
 
 import Link from '@docusaurus/Link';
 
-# UID2 SDK for iOS and tvOS Reference Guide
+# UID2 SDK for iOS Reference Guide
 
 <!-- This guide includes the following information:
 
@@ -27,7 +27,7 @@ import Link from '@docusaurus/Link';
 - [Android Initialization](#android-initialization)
 - [Code Samples](#code-samples) -->
 
-You can use the UID2 SDK for iOS and tvOS to facilitate the process of generating or establishing client identity using UID2 and retrieving advertising tokens on iOS devices for bid stream use.
+You can use the UID2 SDK for iOS to facilitate the process of generating or establishing client identity using UID2 and retrieving advertising tokens on iOS devices for bid stream use.
 
 The following iOS-related plugins, and associated documentation, are also available:
 
@@ -39,7 +39,7 @@ The following iOS-related plugins, and associated documentation, are also availa
 
 ## tvOS Support
 
-Note that while this documents refer as UID2 SDK for iOS and tvOS, this SDK can also be used for tvOS integration. Check the Github respository for [minimum tvOS version requirement](https://github.com/IABTechLab/uid2-ios-sdk) 
+Note that while this page refers to UID2 SDK for iOS, this SDK also supports tvOS. Check the Minimum Requirements section below for required tvOS version.
 
 ## Functionality
 

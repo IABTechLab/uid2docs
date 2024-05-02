@@ -53,10 +53,10 @@ For a detailed summary of web integration options, see [Web Integration Overview
 
 The following resources are available for publishers integrating with Android or iOS devices.
 
-| Integration Guide                                                        | Content Description |
-|:-------------------------------------------------------------------------| :--- |
-| [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)  |An SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers that need to support Android apps. |
-| [UID2 SDK for iOS and tvOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) | An SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers that need to support iOS apps. |
+| Integration Guide                                                        | Content Description                                                                                                                                              |
+|:-------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)  | An SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers that need to support Android apps.      |
+| [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) | An SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers that need to support iOS apps. |
 
 ### Prebid Integrations
 

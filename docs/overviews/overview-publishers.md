@@ -114,7 +114,7 @@ The following resources are available for publisher integrations supporting Andr
 | Integration Type | Documentation                                                            | Content Description                                                                                                                                       |
 |:-----------------|:-------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Android          | [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)  | Android SDK reference for publishers who want to generate or establish client identity using UID2 and retrieve advertising tokens on Android devices.     |
-| iOS and tvOS     | [UID2 SDK for iOS and tvOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) | iOS and tvOS SDK reference is for publishers who want to generate or establish client identity using UID2 and retrieve advertising tokens on iOS devices. |
+| iOS     | [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) | iOS SDK reference is for publishers who want to generate or establish client identity using UID2 and retrieve advertising tokens on iOS devices. |
 
 ### Prebid Integrations
 
