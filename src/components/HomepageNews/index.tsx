@@ -29,7 +29,10 @@ export default function HomepageNews(): JSX.Element {
   const isJapanese = useIsJapanese();
 
   return (
-    <section className={clsx("bg-dirty-socks", styles.homepageNews)}>
+    <section
+      className={clsx("bg-dirty-socks", styles.homepageNews)}
+      id="home-news"
+    >
       <div className="container">
         <header className={styles.header}>
           <h2 className="type-gamma text-11-o-clock">
@@ -52,16 +55,12 @@ export default function HomepageNews(): JSX.Element {
         {isJapanese && (
           <div className={styles.pressReleasesButton}>
             <Link
-              to={"/"}
-              autoAddBaseUrl={false}
+              //URL has to be hardcoded when switching languages :(
+              href={"https://unifiedid.com/#home-news"}
               className="button button--11-o-clock"
+              target="_self"
             >
-              <Translate
-                id="homepage.newsLink"
-                description="Link to english press releases"
-              >
-                国外のニュース（英語）はこちら
-              </Translate>
+              国外のニュース（英語）はこちら
             </Link>
           </div>
         )}
