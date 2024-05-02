@@ -104,11 +104,11 @@ dependencies: [
 
 ### Installing with Xcode
 
-Add the following dependency via Xcode Package Dependencies:
+Add the following entry in your application's Package Dependencies:
 
-| Name | Version Rules | Location |
+| Name | Location | Dependency Rule |
 | :--- | :--- |:-----------------------------| 
-| uid2-ios-sdk | 1.0.0 | git@github.com:IABTechLab/uid2-ios-sdk.git |
+| uid2-ios-sdk | git@github.com:IABTechLab/uid2-ios-sdk.git | Up to next major version: 1.0.0 < 2.0.0 |
 
 
 <!-- ![Xcode Dependency](images/xcode-uid2-ios-sdk.png) -->
