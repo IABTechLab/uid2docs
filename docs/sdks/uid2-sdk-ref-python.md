@@ -28,10 +28,10 @@ You can use the UID2 SDK for Python on the server side to facilitate the followi
 - [Interface](#interface)
   - [Response Content](#response-content)
   - [Response Statuses](#response-statuses)
-- [FAQs](#faqs)
-- [Usage for DSPs](#usage-for-dsps)
 - [Usage for Publishers](#usage-for-publishers) 
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers) 
+- [Usage for DSPs](#usage-for-dsps)
+- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
+- [FAQs](#faqs)
 -->
 
 ## Functionality
@@ -138,6 +138,81 @@ Decryption response codes, and their meanings, are shown in the following table.
 | `DOMAIN_NAME_CHECK_FAILED` | The domain name doesn't match the domain of the encrypted token.        |
 | `INVALID_TOKEN_LIFETIME`   | The token has an invalid timestamp.                                     |
 
+## Usage for Publishers
+
+1. Create an instance of `Uid2PublisherClient`:
+   ```py
+   client = Uid2PublisherClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
+   ```
+2. Call a function that takes the user's email address or phone number as input and generates a `TokenGenerateResponse` object. The following example uses an email address:
+
+   ```py
+   token_generate_response = client.generate_token(TokenGenerateInput.from_email(emailAddress).do_not_generate_tokens_for_opted_out())
+   ```
+
+   :::important
+   Be sure to call this function only when you have obtained legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
+   :::
+
+`do_not_generate_tokens_for_opted_out()` applies `optout_check=1` in the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call. Without this, `optout_check` is omitted to maintain backwards compatibility.
+
+#### Client-Server Integration
+
+If you're using client-server integration (see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
+
+* Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)) using the following:
+
+  ```py
+  token_generate_response.get_identity_json_string()
+  ```
+
+  :::note
+  If the user has opted out, this method returns None, so be sure to handle that case.
+  :::
+
+### Server-Only Integration
+
+If you're using server-only integration (see [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md)):
+
+1. Store this identity as a JSON string in the user's session, using the `token_generate_response.get_identity_json_string()` function.
+
+   If the user has opted out, this method returns `None`, so be sure to handle that case.
+2. To retrieve the user's UID2 token, use the following:
+
+   ```py
+   identity = token_generate_response.get_identity()
+   if identity:
+      advertising_token = identity.get_advertising_token()
+   ```
+3. Periodically check if the user's UID2 token should be refreshed. This can be done at fixed intervals using a timer, or can be done whenever the user accesses another page:
+    1. Retrieve the identity JSON string from the user's session, and then call the following function that takes the identity information as input and generates an `IdentityTokens` object:
+
+       ```py
+       identity = IdentityTokens.from_json_string(identityJsonString)
+       ```
+
+    2. Determine if the identity can be refreshed (that is, the refresh token hasn't expired):
+
+       ```py
+       if not identity or not identity.is_refreshable(): # we must no longer use this identity (for example, remove this identity from the user's session)
+       ```
+
+    3. Determine if a refresh is needed:
+
+       ```py
+       if identity.is_due_for_refresh()):
+       ```
+
+4. If needed, refresh the token and associated values:
+
+   ```py
+   token_refresh_response = client.refresh_token(identity)`
+   ```
+
+5. Store `token_refresh_response.get_identity_json_string()` in the user's session.
+
+   If the user has opted out, this method returns `None`, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `token_refresh_response.is_optout()` function.
+
 ## Usage for DSPs
 
 The following instructions provide an example of how you can decode bid stream tokens using the UID2 SDK for Python as a DSP.
@@ -169,81 +244,6 @@ else:
 ```
 
 For a full example, see the `sample_bidstream_client.py` in [examples/sample_bidstream_client.py](https://github.com/IABTechLab/uid2-client-python/blob/main/examples/sample_bidstream_client.py).
-
-## Usage for Publishers
-
-1. Create an instance of `Uid2PublisherClient`:
-   ```py
-   client = Uid2PublisherClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
-   ```
-2. Call a function that takes the user's email address or phone number as input and generates a `TokenGenerateResponse` object. The following example uses an email address:
-
-   ```py
-   token_generate_response = client.generate_token(TokenGenerateInput.from_email(emailAddress).do_not_generate_tokens_for_opted_out())
-   ```
-
-      :::important
-      Be sure to call this function only when you have obtained legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
-      :::
-
- `do_not_generate_tokens_for_opted_out()` applies `optout_check=1` in the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call. Without this, `optout_check` is omitted to maintain backwards compatibility.
-
-#### Client-Server Integration
-
-If you're using client-server integration (see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
-
-* Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)) using the following:
-
-  ```py
-  token_generate_response.get_identity_json_string()
-  ```
-
-  :::note
-  If the user has opted out, this method returns None, so be sure to handle that case.
-  :::
-
-### Server-Only Integration
-
-If you're using server-only integration (see [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md)):
-
-1. Store this identity as a JSON string in the user's session, using the `token_generate_response.get_identity_json_string()` function.
-
-   If the user has opted out, this method returns `None`, so be sure to handle that case.
-2. To retrieve the user's UID2 token, use the following:
-
-   ```py
-   identity = token_generate_response.get_identity()
-   if identity:
-      advertising_token = identity.get_advertising_token()
-   ```
-3. Periodically check if the user's UID2 token should be refreshed. This can be done at fixed intervals using a timer, or can be done whenever the user accesses another page:
-   1. Retrieve the identity JSON string from the user's session, and then call the following function that takes the identity information as input and generates an `IdentityTokens` object:
-
-      ```py
-      identity = IdentityTokens.from_json_string(identityJsonString)
-      ```
-
-   2. Determine if the identity can be refreshed (that is, the refresh token hasn't expired):
-
-      ```py
-      if not identity or not identity.is_refreshable(): # we must no longer use this identity (for example, remove this identity from the user's session) 
-      ```
-
-   3. Determine if a refresh is needed:
-
-      ```py
-      if identity.is_due_for_refresh()):
-      ```
-
-4. If needed, refresh the token and associated values:
-
-   ```py
-   token_refresh_response = client.refresh_token(identity)`
-   ```
-
-5. Store `token_refresh_response.get_identity_json_string()` in the user's session.
-
-   If the user has opted out, this method returns `None`, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `token_refresh_response.is_optout()` function.
 
 ## Usage for UID2 Sharers
 
