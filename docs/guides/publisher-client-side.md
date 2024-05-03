@@ -357,7 +357,6 @@ If there was a problem generating the token, find the request in the **Network**
 
 ![Publisher Workflow](images/NetworkTraffic.png)
 
-
 ## Example Code: Hashing and Base-64 Encoding
 
 The following code example demonstrates how to generate email and phone hashes in JavaScript.
