@@ -80,7 +80,7 @@ This SDK is in the following open-source GitHub repository:
 
 Minimum requirements for this SDK are as follows:
 
-- Xcode version: 14.0+
+- Xcode version: 15.0+
 - iOS	minimum target version: 13.0+	
 - tvOS	minimum target version: 13.0+
 - Swift version: 5.0+
