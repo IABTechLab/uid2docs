@@ -12,10 +12,10 @@ In the UID2 Portal, if you want to use an implementation option that generates U
 | Value | Details | Documentation Link |
 | :--- | :--- | :---|
 | Key pair | At least one. In your implementation, you'll share the public key. | [Subscription ID and Public Key](getting-started/gs-credentials.md#subscription-id-and-public-key) |
-| Root-level domain | At least one. Provide a complete list of your domains. | [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers) |
+| Top-level domain | At least one. Provide a complete list of your domains. | [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers) |
 
 :::important
-It's important to provide a complete list of root-level domain names for your sites. This is a security measure, for client-side implementation only. If a domain is not defined in the UID2 Portal, UID2 token requests from that domain will fail.
+It's important to provide a complete list of top-level domain names for your sites. This is a security measure, for client-side implementation only. If a domain is not defined in the UID2 Portal, UID2 token requests from that domain will fail.
 :::
 
 On the Client-Side Integration page you can perform all activities relating to setting up and managing these values.
@@ -81,7 +81,7 @@ To delete a key pair, follow these steps:
 ## Adding Top-Level Domains
 
 :::tip
-Only root-level domains are required for account setup. For example, if you're going to implement UID2 to generate tokens on the client side on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
+Only top-level domains are required for account setup. For example, if you're going to implement UID2 to generate tokens on the client side on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
 
 To add one or more top-level domains, complete the following steps:
