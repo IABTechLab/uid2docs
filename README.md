@@ -8,4 +8,3 @@ This repository contains all the content files and supporting site infrastructur
 - Japanese
 
 For information about build tools and about contributing to this repository, see [CONTRIBUTING.md](CONTRIBUTING.md).
-
