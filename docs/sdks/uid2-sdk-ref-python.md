@@ -69,9 +69,10 @@ The initialization step depends on the role, as shown in the following table.
 
 | Role	     | Create Instance of Class	 | Link to Instructions                          |
 |:----------|:--------------------------|:----------------------------------------------|
+| Publisher | `Uid2PublisherClient`     | [Usage for Publishers](#usage-for-publishers) |
 | DSP       | `BidstreamClient`         | [Usage for DSPs](#usage-for-dsps)             |
 | Sharer    | `SharingClient`           | [Usage for Sharers](#usage-for-uid2-sharers)  |
-| Publisher | `Uid2PublisherClient`     | [Usage for Publishers](#usage-for-publishers) |
+
 
 
 You will need to provide the values necessary for the SDK to authenticate with the UID2 service.
