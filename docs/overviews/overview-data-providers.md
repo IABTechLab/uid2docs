@@ -52,7 +52,7 @@ The following steps are an example of how a data provider can integrate with UID
 
    Server-side: The data provider stores the UID2 in a mapping table, DMP, data lake, or other server-side application.
 
-![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.jpg)
+![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.svg)
 
 ## Getting Started
 

@@ -71,6 +71,7 @@ const fullSidebar = [
         'portal/team-members',
         'portal/email-contacts',
         'portal/api-keys',
+        'portal/client-side-integration',
       ],
     },
 

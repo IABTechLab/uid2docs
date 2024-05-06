@@ -1,5 +1,5 @@
 The files in this folder are an earlier version.
-Not sure about the Figma file, but the svg file is translated to Japaanese.
+Not sure about the Figma file, but the svg file is translated to Japanese.
 But, the English file in the /images/ folder is updated.
 So we need a Japanese version that includes all the updates.
 
