@@ -1,4 +1,4 @@
-For the three workflow files:
+UID2GlobalOptoutWorkflow.svg
 
 Source is the same as for the workflow diagrams in docs/overviews/images, for UID2 and EUID:
 

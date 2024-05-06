@@ -53,7 +53,7 @@ The following steps occur for each bid/ad impression:
    - Matches the raw UID2 to an audience segment. 
 4. The DSP sends a bid response to the bid stream with the UID2 token.
 
-![Buy-Side Workflow](images/UID2BuySIdeDSPWorkflow.jpg)
+![Buy-Side Workflow](images/UID2BuySIdeDSPWorkflow.svg)
 
 ## Getting Started
 
