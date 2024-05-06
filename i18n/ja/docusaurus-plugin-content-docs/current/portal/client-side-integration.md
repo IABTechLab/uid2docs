@@ -12,16 +12,16 @@ In the UID2 Portal, if you want to use an implementation option that generates U
 | Value | Details | Documentation Link |
 | :--- | :--- | :---|
 | Key pair | At least one. In your implementation, you'll share the public key. | [Subscription ID and Public Key](getting-started/gs-credentials.md#subscription-id-and-public-key) |
-| Top-level domain | At least one. Provide a complete list of your domains. | [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers) |
+| Domain | At least one. Provide a complete list of your root-level domains. | [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers) |
 
 :::important
-It's important to provide a complete list of top-level domain names for your sites. This is a security measure, for client-side implementation only. If a domain is not defined in the UID2 Portal, UID2 token requests from that domain will fail.
+It's important to provide a complete list of root-level domain names for your sites. This is a security measure, for client-side implementation only. If a domain is not defined in the UID2 Portal, UID2 token requests from that domain will fail.
 :::
 
 On the Client-Side Integration page you can perform all activities relating to setting up and managing these values.
 
 :::note
-When you go into the Client-Side Integration page, you'll be prompted to provide missing configuration items if you haven't yet created at least one key pair and at least one top-level domain.
+When you go into the Client-Side Integration page, you'll be prompted to provide missing configuration items if you haven't yet created at least one key pair and at least one top-level (root-level) domain.
 :::
 
 ## Client-Side Implementation Options
@@ -78,13 +78,13 @@ To delete a key pair, follow these steps:
 
    The key pair is removed from the display and is no longer valid.
 
-## Adding Top-Level Domains
+## Adding Domains
 
 :::tip
-Only top-level domains are required for account setup. For example, if you're going to implement UID2 to generate tokens on the client side on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
+Only root-level domains are required for account setup. For example, if you're going to implement UID2 to generate tokens on the client side on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
 
-To add one or more top-level domains, complete the following steps:
+To add one or more top-level (root-level) domains, complete the following steps:
 
 1. Log in to your UID2 Portal account.
 1. On the **Client-Side Integration** page, click **Add Domains**.
@@ -97,7 +97,7 @@ To add one or more top-level domains, complete the following steps:
 
    On the **Client-Side Integration** page, the list is updated.
 
-## Changing a Top-Level Domain
+## Changing a Domain
 
 To change the name of a domain on the list, complete the following steps:
 
@@ -106,7 +106,7 @@ To change the name of a domain on the list, complete the following steps:
 1. In the Actions column, click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon).
 1. Update the name, and then click **Save Domain**.
 
-## Deleting a Top-Level Domain
+## Deleting a Domain
 
 To delete a domain from your domains list, follow these steps:
 
@@ -117,12 +117,12 @@ To delete a domain from your domains list, follow these steps:
 
    The domain is removed from your domains list.
 
-## Deleting Multiple Top-Level Domains
+## Deleting Multiple Domains
 
-There are two ways that you can delete more than one top-level domain at a time:
+There are two ways that you can delete more than one domain at a time:
 
 - Choose multiple individual domains from the list and then delete the selected domains.
-- Replace your existing domains list with an updated list that you are adding. See [Adding Top-Level Domains](#adding-top-level-domains).
+- Replace your existing domains list with an updated list that you are adding. See [Adding Domains](#adding-domains).
 
 To multi-select domains for deletion:
 
