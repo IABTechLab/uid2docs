@@ -66,9 +66,9 @@ The initialization step depends on the role, as shown in the following table.
 
 | Role                           | Create Instance of Class | Link to Instructions                              |
 |:-------------------------------| :--- |:--------------------------------------------------|
-| DSP                            | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps)                 |
 | Publisher                      | `PublisherUid2Client` | [Usage for Publishers](#usage-for-publishers)     |
 | Advertisers and Data Providers | `IdentityMapClient` | [Usage for Advertisers and Data Providers](#usage-for-advertisers-and-data-providers)     |
+| DSP                            | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps)                 |
 | Sharer                         | `SharingClient` | [Usage for UID2 Sharers](#usage-for-uid2-sharers) |
 
 You will need to provide the values necessary for the SDK to authenticate with the UID2 service.
