@@ -48,7 +48,7 @@ All participants will need to provide at least the following information:
 If you're a publisher, and you determine that you want to implement UID2 so that tokens are generated on the client side, you'll also need to provide a list of **domain names** for your sites. This is a security measure, for client-side implementation only.
 
 :::tip
-Only root-level domains are required for account setup. For example, if you're going to implement UID2 to generate tokens on the client side on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
+Only top-level (root-level) domains are required for account setup. For example, if you're going to implement UID2 to generate tokens on the client side on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
 
 ## Credentials
