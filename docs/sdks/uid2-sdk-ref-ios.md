@@ -148,11 +148,11 @@ The following functions are available as part of the UID2Manager API:
 
 #### generateIdentity()
 
-Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link>. For instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).(**GWH__SW add fragment to link.**)
+Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link>. For instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).(**GWH__SW add fragment to link. Also verify which function should link to which doc.**)
 
 #### setIdentity()
 
-Sets a UID2 Identity, created from the back-end server, to be managed by the SDK. For details, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md). (**GWH__ figure out more exact link**)
+Sets a UID2 Identity, created from the back-end server, to be managed by the SDK. For details, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md). (**GWH__ figure out more exact link**)
 
 #### resetIdentity()
 

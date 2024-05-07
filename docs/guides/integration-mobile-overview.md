@@ -36,8 +36,6 @@ For additional flexibility, UID2 also provides alternative methods for some of t
 
 The options for integrating with UID2 using the UID2 mobile SDKs are summarized in the following table. Choose the option that's best for you.
 
-(GWH__SW: Sunny, can I say )
-
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |
 | You have access to DII on the client side/within the mobile app, and want to keep changes within your app only. | Client-side integration | [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) |

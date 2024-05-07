@@ -123,8 +123,9 @@ To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 
 There are two ways to establish an initial UID2 Identity:
 
-1. Generate the UID2 identity using a DII - email (hash) or phone no (hash). For integration instructions, refer to [Client-Side Integration Guide for Mobile/Android](https://ttdcorp-my.sharepoint.com/:w:/g/personal/sunny_wu_thetradedesk_com/EV4SjPzJjCZCig_kI8lGjJYBrLLhiiNh3mHq75pAtSs2qQ?e=2F7aMb).
-2. Create a UID2 identity from your server backend and then passed into the UID2 SDK. For integration instructions, refer to  [Client-Server Integration Guide for Mobile](https://ttdcorp-my.sharepoint.com/:w:/g/personal/sunny_wu_thetradedesk_com/EX2dEa2NAcRPs3Pfchwua40ByY0g0DASgLybKJs11TLHqw?e=vxRjFa).
+1. Generate the UID2 identity using a DII - email (hash) or phone no (hash). For instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md).(**GWH__SW add fragment to link.**)
+
+2. Create a UID2 identity from your server backend and then passed into the UID2 SDK. For integration instructions, refer to [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).(**GWH__SW add fragment to link.**)
 
 The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity is established. This is because the refresh functionality relies on the refresh tokens that are part of the UID2 Identity.
 
@@ -148,13 +149,11 @@ The following functions are available as part of the UID2Manager API:
 
 #### generateIdentity()
 
-Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link>. For instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md).(**GWH__SW add fragment to link.**)
-
-Generate a UID2 Identity using a <Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link>. Refer to [Client-Side Integration Guide for Mobile/Android](https://ttdcorp-my.sharepoint.com/:w:/g/personal/sunny_wu_thetradedesk_com/EV4SjPzJjCZCig_kI8lGjJYBrLLhiiNh3mHq75pAtSs2qQ?e=2F7aMb)
+Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link>. For instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).(**GWH__SW add fragment to link.**)
 
 #### setIdentity()
 
-Sets a UID2 Identity, created from the back-end server, to be managed by the SDK. For details, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md). (**GWH__ figure out more exact link**)
+Sets a UID2 Identity, created from the back-end server, to be managed by the SDK. For details, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md). (**GWH__ figure out more exact link**)
 
 #### resetIdentity()
 
