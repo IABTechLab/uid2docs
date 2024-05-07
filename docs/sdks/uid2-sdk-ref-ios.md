@@ -100,7 +100,7 @@ Install the iOS SDK via Swift Package Manager (SPM). There are two installation 
 
 Add the following dependency to Package.swift:
 
-``` javascript
+```js
 dependencies: [
 .package(url: \"https://github.com/IABTechLab/uid2-ios-sdk.git\", from: "1.0.0"),
 ]
@@ -191,7 +191,7 @@ The following code samples provide examples of performing specific activities re
 
 Generate an initial UID2 Identity (for instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)):(**GWH__SW add fragment to link.**)
 
-``` javascript
+```js
 UID2Manager.shared.generateIdentity(
     _ identity: IdentityType,
     subscriptionID: String,
@@ -201,6 +201,6 @@ UID2Manager.shared.generateIdentity(
 ```
 Set the Initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)):(**GWH__SW add fragment to link.**)
 
-``` javascript
+```js
 UID2Manager.shared.getAdvertisingToken()
 ```

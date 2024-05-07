@@ -91,7 +91,7 @@ Swift Package Manager (SPM) を使って iOS SDK をインストールします�
 
 Package.swift に以下の依存関係を追加します:
 
-``` javascript
+```js
 dependencies: [
 .package(url: \"https://github.com/IABTechLab/uid2-ios-sdk.git\", from: "0.2.0"),
 ]
@@ -167,12 +167,12 @@ identityStatus 変数は、SDK が管理している現在の UID2 Identity の�
 
 初期 UID2 Identity を設定します:
 
-``` javascript
+```js
 UID2Manager.shared.setIdentity(_ identity: UID2Identity)
 ```
 
 Advertising SDK に渡す UID2 Token (Advertising Token) を取得します:
 
-``` javascript
+```js
 UID2Manager.shared.getAdvertisingToken()
 ```

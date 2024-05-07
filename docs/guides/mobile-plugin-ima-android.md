@@ -52,7 +52,7 @@ Install the UID2 Android IMA Plugin to an existing app with the UID2 Android SDK
 ### Gradle 
 To install with Gradle, add the SDK as a dependency in the `build.gradle` file:
 
-``` javascript
+```js
 implementation 'com.uid2:uid2-android-sdk-ima:0.5.0'
 ```
 

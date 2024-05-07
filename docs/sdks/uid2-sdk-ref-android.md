@@ -103,7 +103,7 @@ There are two options for installing the Android UID2 SDK:
 To install with Gradle, add the SDK as a dependency in the build.gradle
 file:
 
-``` javascript
+```js
 implementation 'com.uid2:uid2-android-sdk:1.0.0'
 ```
 
@@ -125,7 +125,7 @@ There are two ways to establish an initial UID2 Identity:
 
 1. Generate the UID2 identity using a DII - email (hash) or phone no (hash). For instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md).(**GWH__SW add fragment to link.**)
 
-2. Create a UID2 identity from your server backend and then passed into the UID2 SDK. For integration instructions, refer to [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).(**GWH__SW add fragment to link.**)
+2. Create a UID2 identity from your back-end server and then passed into the UID2 SDK. For integration instructions, refer to [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).(**GWH__SW add fragment to link.**)
 
 The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity is established. This is because the refresh functionality relies on the refresh tokens that are part of the UID2 Identity.
 
@@ -196,7 +196,7 @@ The Android implementation expects the singleton to be initialized before use. T
 
 The initialization can be done during the creation of the APPLICATION instance, as shown in the following example:
 
-``` javascript
+```js
 class MyApplication : Application() {
   override fun onCreate() {
     super.onCreate()
@@ -211,12 +211,12 @@ The following code samples provide examples of performing specific activities re
 
 Set the Initial UID2 Identity:
 
-``` javascript
+```js
 UID2Manager.getInstance().setIdentity(identity: UID2Identity)
 ```
 
 Get the UID2 token (advertising token) to pass to the Advertising SDK:
 
-``` javascript
+```js
 UID2Manager.getInstance().getAdvertisingToken()
 ```

@@ -10,6 +10,7 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
+import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
 
 # Client-Side Integration Guide for JavaScript
 
@@ -121,13 +122,7 @@ Tokens from the UID2 integration environment are not valid for passing to the bi
 
 ### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
 
-By default, in the production environment, the JS SDK makes API calls to a UID2 server in the USA. Depending on where your users are based, you might consider choosing a server closer to your users in order to reduce latency.
-
-For example, a publisher in Singapore can set the base URL to `https://sg.prod.uidapi.com`. This is still the UID2 production environment, but the servers are in Singapore.
-
-For the list of valid base URLs, see [Environments](../getting-started/gs-environments.md).
-
-You can also set the base URL to `https://global.prod.uidapi.com`. This URL directs readers to a region geographically close to them, which is ideal if your audience is geographically distributed.
+<ReduceLatency />
 
 To specify a different UID2 server, you can change it in the `init` call:
 

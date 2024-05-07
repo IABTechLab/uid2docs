@@ -98,7 +98,7 @@ Android UID2 SDK をインストールするには、2 つの方法がありま�
 Gradle を使用してインストールするには、build.gradle ファイルに依存関係として SDK を追加します:
 
 
-``` javascript
+```js
 implementation 'com.uid2:uid2-android-sdk:0.5.0'
 ```
 
@@ -182,7 +182,7 @@ Android の実装では、使用前にシングルトンを初期化します。
 
 初期化は、次の例に示すように、APPLICATION インスタンスの生成時に行うことができます:
 
-``` javascript
+```js
 class MyApplication : Application() {
   override fun onCreate() {
     super.onCreate()
@@ -197,12 +197,12 @@ class MyApplication : Application() {
 
 初期 UID2 Identity を設定します:
 
-``` javascript
+```js
 UID2Manager.getInstance().setIdentity(identity: UID2Identity)
 ```
 
 SDK に渡す UID2 Token (Advertising Token) を取得します:
 
-``` javascript
+```js
 UID2Manager.getInstance().getAdvertisingToken()
 ```
