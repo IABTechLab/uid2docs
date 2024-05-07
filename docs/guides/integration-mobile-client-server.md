@@ -20,21 +20,21 @@ It includes the following sections:
 - [Client-Server Mobile Integration Data Flow Overview](#client-server-mobile-integration-data-flow-overview)
 - [Implement Server-Side Token Generation On Your Back-End Server](#xxx)
 - [Server-Side Token Refresh](#server-side-token-refresh)
-- [Add UID2 Mobile SDK into Your Mobile Application](#add-uid2-mobile-sdk-into-your-mobile-application)
+- [Add UID2 Mobile SDK into Your Mobile App](#add-uid2-mobile-sdk-into-your-mobile-app)
 - [Using the UID2 Integration Environment](#using-the-uid2-integration-environment)
 - [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment)
 - [Token Storage](#token-storage)
-- [Check that the token was successfully generated and then pass it for bid stream use](#check-that-the-token-was-successfully-generated-and-then-pass-it-for-bid-stream-use)
+- [Pass Generated Token for Bid Stream Use](#pass-generated-token-for-bid-stream-use)
 - [Best Practice on When to Pass New UID2 Token to the UID2 SDK](#best-practice-on-when-to-pass-new-uid2-token-to-the-uid2-sdk)
 - [Enable Logging (For Android Only)](#enable-logging-for-android-only)
 - [Enable Automatic Token Refresh in Mobile App/Client Side](#enable-automatic-token-refresh-in-mobile-appclient-side)
 - [Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration)
 
-This page is intended for the mobile application publishers who want to integrate with UID2 by generating UID2 tokens on their backend servers (or server side) via either a public or private operators and then pass the tokens and user identities into their mobile applications which will in-turn pass the tokens for bid stream use.  
+This page is intended for the mobile app publishers who want to integrate with UID2 by generating UID2 tokens on their backend servers (or server side) via either a public or private operators and then pass the tokens and user identities into their mobile apps which will in-turn pass the tokens for bid stream use.  
 
 This is called Client-Server Integration because it requires critical integration steps in both client and server side.
 
-If you want to integrate with UID2 via client-side only changes (i.e. all integration changes required are within the mobile applications), refer to the [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) instead.
+If you want to integrate with UID2 via client-side only changes (i.e. all integration changes required are within the mobile apps), refer to the [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) instead.
 
 This page provides a high-level overview of integration steps and links to additional documentation.
 
@@ -49,9 +49,9 @@ You'll need to complete the following steps:
 
 1. Complete UID2 account setup.
 1. Implement Server-Side Token Generation on your back-end server.
-1. Add UID2 Mobile SDK into your mobile application.
-1. Configure the UID2 Mobile SDK for your mobile application.
-1. Check that the token was successfully generated and then pass it for bid stream use.
+1. Add UID2 Mobile SDK into your mobile app.
+1. Configure the UID2 Mobile SDK for your mobile app.
+1. [Check that the token was successfully generated and then pass it for bid stream use](#pass-generated-token-for-bid-stream-use).
 1. Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration.
 
 ## Complete UID2 Account Setup
@@ -62,14 +62,14 @@ When account setup is complete, you'll receive your unique API key and client se
 
 ## Client-Server Mobile Integration Data Flow Overview
 
-This diagram presents the data flow this Client-Server Mobile Integration requires to be implemented by the mobile app publishers. It is demonstrating using UID2 SDK for Android in the client side mobile application and UID2 SDK for Java on the server side.
+This diagram presents the data flow this Client-Server Mobile Integration requires to be implemented by the mobile app publishers. It is demonstrating using UID2 SDK for Android in the client-side mobile app and UID2 SDK for Java on the server side.
 
 TODO: Add Rita’s latest diagram from here
 
 
 ## Implement Server-Side Token Generation On Your Back-End Server
 
-The first step of UID2 integration is to be able to generate UID2 token on your backend server to then pass it into your mobile applications for passing the token into the RTB bid stream.
+The first step of UID2 integration is to be able to generate UID2 token on your backend server to then pass it into your mobile apps for passing the token into the RTB bid stream.
 
 There are two ways to generate UID2 tokens on the server side by providing directly identifying information (DII), as summarized in the table below:
 
@@ -117,39 +117,35 @@ For Java: tokenGenerateResponse.getIdentityJsonString()
 
 Note that the endpoint and SDK API above may return optout status if the DII (Directly Identifiable Information) you are generating token for has opted out of UID2.  You should save this information and should not call token generation endpoint for this DII again. 
 
-You will need to pass this into the mobile app in the Configure the UID2 Mobile SDK for your mobile application section below.
+You will need to pass this into the mobile app in the Configure the UID2 Mobile SDK for your mobile app section below.
 
-Note: that for security reasons, API key and secret used in token generation must be called server-side and cannot be stored inside the mobile applications.
+Note: that for security reasons, API key and secret used in token generation must be called server-side and cannot be stored inside the mobile apps.
 
 ## Server-Side Token Refresh
 
-Token Refresh are automatically enabled inside the UID2 Mobile SDKs and is not required to be done explicitly on the server side.
+Token refresh is automatically enabled inside the UID2 mobile SDKs; you don't need to manage it explicitly on the server side.
 
+You might decide to do server-side token refresh if you want to keep your changes in the mobile apps as simple as possible.
 
-
-You may decide to do server-side token refresh if you want to keep your changes in the mobile applications as simple as possible.
-
-
-
-However, should you decide you want to do it on the server side and not client/mobile side, you can do so using one of the following:
+However, if you decide you want to do it on the server side and not client/mobile side, you can do so using one of the following:
 
 Call the POST /token/refresh endpoint.
 
 Utilize one of the server-side SDKs’ UID2 Publisher Client classes that simplifies such request into a single method call. Please refer to the Publisher Server-Only Integration section of the UID2 SDK for Java or UID2 SDK for Python for instructions
 
- and pass the newly refreshed Identity to the mobile application by following the rest of this guide below.
+ and pass the newly refreshed Identity to the mobile app by following the rest of this guide below.
 
 
 
-## Add UID2 Mobile SDK into Your Mobile Application
+## Add UID2 Mobile SDK into Your Mobile App
 
 For installation instructions, please see the UID2 SDK for Android Reference Guide and iOS Reference Guide.
 
 Follow the UID2 SDK documentation to:
 
-Add the pre-built UID2 SDK for Android libraries into your mobile application here.
+Add the pre-built UID2 SDK for Android libraries into your mobile app here.
 
-Learn how to instantiate the UID2Manager instance in your Android application here. For iOS, refer to the Usage Guidelines.
+Learn how to instantiate the UID2Manager instance in your Android app here. For iOS, refer to the Usage Guidelines.
 
 
 
@@ -157,9 +153,7 @@ Learn how to instantiate the UID2Manager instance in your Android application he
 
 By default, the SDK is configured to work with the UID2 production environment https://prod.uidapi.com . If you want to use the UID2 integration environment instead, provide the following URL in your call to UID2Manager initiation.
 
-For Android:
-
-For Android:
+#### For Android:
 
 UID2Manager.init(
 
@@ -169,7 +163,7 @@ UID2Manager.init(
 
 
 
-For iOS:
+#### For iOS:
 
 // Must be set before UID2Manager.shared is accessed UID2Settings.shared.environment = .custom(
 
@@ -191,21 +185,15 @@ Tokens from the UID2 integration environment are not valid for passing to the bi
 
 By default, in the production environment, the UID2 SDK for Android makes API calls to a UID2 server in the USA. Depending on where your users are based, you might consider choosing a server closer to your users to reduce latency.
 
+For example, a publisher in Singapore can set the base URL to `https://sg.prod.uidapi.com`. This is still the UID2 production environment, but the servers are in Singapore.
 
+For the list of valid base URLs, see [Environments](../getting-started/gs-environments.md).
 
-For example, a publisher in Singapore can set the server URL to https://sg.prod.uidapi.com . This is still the UID2 production environment, but the servers are in Singapore.
-
-
-
-For the list of possible base URLs, see Environments.
-
-
-
-A publisher can also set the base URL to https://global.prod.uidapi.com . This URL directs readers to a region geographically close to them, which is ideal if your audience is geographically distributed.
+You can also set the base URL to `https://global.prod.uidapi.com`. This URL directs readers to a region geographically close to them, which is ideal if your audience is geographically distributed.
 
 To specify a different UID2 server, you can change it in the init call:
 
-For Android:
+#### For Android:
 
 UID2Manager.init(
 
@@ -215,7 +203,7 @@ UID2Manager.init(
 
 
 
-For iOS:
+#### For iOS:
 
 UID2Settings.shared.environment = .singapore
 
@@ -237,31 +225,26 @@ UID2Settings.shared.environment = .custom(
 
 
 
-Configure the UID2 Mobile SDK for your mobile application
+Configure the UID2 Mobile SDK for your mobile app
 
 
 
-After you have instantiated UID2Manager correctly in your mobile app, you will need to pass a UID2 Identity generated from your backend server via Implement Server-Side Token Generation on your backend server section above and pass into the mobile application using the setIdentity method:
+After you have instantiated UID2Manager correctly in your mobile app, you will need to pass a UID2 Identity generated from your backend server via Implement Server-Side Token Generation on your backend server section above and pass into the mobile app using the setIdentity method:
 
+For Android: `UID2Manager.getInstance().generateIdentity()`
 
-
-For Android: UID2Manager.getInstance().generateIdentity()
-
-For iOS: UID2Manager.shared.setIdentity()
-
-
+For iOS: `UID2Manager.shared.setIdentity()`
 
 ## Token Storage
 
-After you call the setIdentity method, the UID2 Identity will be persisted in local file storage.
+After you call the `setIdentity` method, the UID2 Identity will be persisted in local file storage.
 
-DANGER
+:::warning
+The format of the file stored in the local file storage, or the filename itself, could change without notice. We recommend that you do not read and update the file directly.
+:::
 
-The format of the file stored in the local file storage or the filename itself could change without notice. We recommend that you do not read and update the file directly.
 
-
-
-## Check that the token was successfully generated and then pass it for bid stream use
+## Pass Generated Token for Bid Stream Use
 
 (**GWH__SW we have to make this (heading) shorter. I wonder can we break it into two steps? Just an idea.**)
 
@@ -293,7 +276,7 @@ The identity is invalid
 
 The advertising token inside the UID2 identity has expired and the refresh token expires too so token cannot be refreshed
 
-In such situation, you will need to follow Implement Server-Side Token Generation on your backend server section above and generate a new UID2 identity and pass the result into the mobile application’s UID2Manager again.
+In such situation, you will need to follow Implement Server-Side Token Generation on your backend server section above and generate a new UID2 identity and pass the result into the mobile app’s UID2Manager again.
 
 
 
@@ -307,13 +290,13 @@ For Android: UID2Manager.getInstance().getAdvertisingToken()
 
 For iOS: UID2Manager.shared.getAdvertisingToken()
 
-On application startup/resumption, if it returns null, it is time to generate new identity on the backend server by following the Implement Server-Side Token Generation on your backend server section above and pass it into the mobile application’s UID2Manager instance again
+On startup/resumption of the app, if it returns null, it is time to generate new identity on the backend server by following the Implement Server-Side Token Generation on your backend server section above and pass it into the mobile app’s UID2Manager instance again
 
 ## Enable Logging (For Android Only)
 
 The UID2 SDK may generate logs which could help debugging any issues during UID2 integration work. You can enable the logging during UID2Manager initialization:
 
-For Android:
+#### For Android:
 
 UID2Manager.init(
 
@@ -345,7 +328,7 @@ For Android Kotlin:
 
 UID2Manager.getInstance().automaticRefreshEnabled = false
 
-For iOS:
+#### For iOS:
 
 UID2Manager.shared.automaticRefreshEnabled = false
 
@@ -353,7 +336,7 @@ UID2Manager.shared.automaticRefreshEnabled = false
 
 ## Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration
 
-If you intend to generate UID2 tokens to send it to Google GMA/IMA SDKs, assuming you have followed the Client-Side or Server-Side Integration Guides for Mobile, you need to add UID2 GMA/IMA plugins into your mobile application. Refer to the Plugin guides on how to install it into your apps:
+If you intend to generate UID2 tokens to send it to Google GMA/IMA SDKs, assuming you have followed the Client-Side or Server-Side Integration Guides for Mobile, you need to add UID2 GMA/IMA plugins into your mobile app. Refer to the Plugin guides on how to install it into your apps:
 
 - [UID2 GMA Plugin for Android Integration Guide](mobile-plugin-gma-android.md)
 - [UID2 GMA Plugin for iOS Integration Guide](mobile-plugin-gma-ios.md)

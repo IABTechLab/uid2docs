@@ -216,4 +216,4 @@ pbjs.setConfig({
 }); 
 ```
 
-For the list of possible base URLs, see [Environments](../getting-started/gs-environments.md).
+For the list of valid base URLs, see [Environments](../getting-started/gs-environments.md).

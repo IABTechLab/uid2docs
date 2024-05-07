@@ -125,9 +125,9 @@ By default, in the production environment, the JS SDK makes API calls to a UID2 
 
 For example, a publisher in Singapore can set the base URL to `https://sg.prod.uidapi.com`. This is still the UID2 production environment, but the servers are in Singapore.
 
-For the list of possible base URLs, see [Environments](../getting-started/gs-environments.md).
+For the list of valid base URLs, see [Environments](../getting-started/gs-environments.md).
 
-A publisher can also set the base URL to `https://global.prod.uidapi.com`. This URL directs readers to a region geographically close to them, which is ideal if your audience is geographically distributed.
+You can also set the base URL to `https://global.prod.uidapi.com`. This URL directs readers to a region geographically close to them, which is ideal if your audience is geographically distributed.
 
 To specify a different UID2 server, you can change it in the `init` call:
 
