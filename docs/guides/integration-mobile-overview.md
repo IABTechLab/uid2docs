@@ -2,7 +2,7 @@
 title: UID2 Mobile Integration Overview for Android and iOS
 sidebar_label: Integration Overview for Mobile
 pagination_label: Mobile Integration Overview for Android and iOS
-description: Overview of options for mobile integration as part of your UID2 implementation.
+description: Overview of options for UID2  mobile integration.
 hide_table_of_contents: false
 sidebar_position: 04
 displayed_sidebar: sidebarPublishers
@@ -39,13 +39,13 @@ The options for integrating with UID2 using the UID2 mobile SDKs are summarized 
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |
 | You have access to DII on the client side/within the mobile app, and want to keep changes within your app only. | Client-side integration | [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) |
-| You have access to DII on the server side only and can do the necessary development to generate UID2 tokens server-side, or you are using a [Private Operator](../ref-info/glossary-uid.md#gl-private-operator). | Client-Server Integration | [UID2 Client-Server Integration Guide for Mobile](integration-mobile-client-server.md) |
+| You have access to DII on the server side only and can do the necessary development to generate UID2 tokens server-side, or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Client-Server Integration | [UID2 Client-Server Integration Guide for Mobile](integration-mobile-client-server.md) |
 
 ## Integration Overview: High-Level Steps
 
 At a high level, to integrate your mobile app with UID2 using the UID2 mobile SDKs, you' wi'll need to complete the following steps:
 
-1. Complete UID2 account setup.
+1. Complete the UID2 account setup.
 
 1. Client-Server Integration Only: Integrate server-side token generation on your back-end server.
 
@@ -53,7 +53,7 @@ At a high level, to integrate your mobile app with UID2 using the UID2 mobile SD
 
 1. Configure the SDK.
 
-1. [Check that the token was successfully generated and then pass it for bid stream use](#pass-generated-token-for-bid-stream-use).
+1. Check that the token was successfully generated and then pass it for bid stream use.
 
 1. Optionally, configure the UID2 GMA/IMA plugins for integration with the Google GMA/IMA SDKs.
 

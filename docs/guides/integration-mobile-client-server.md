@@ -2,10 +2,9 @@
 title: UID2 Client-Server Integration Guide for Mobile
 sidebar_label: Client-Server Integration for Mobile
 pagination_label: UID2 Client-Server Integration Guide for Mobile
-description: Information about setting up a client-server mobile integration.
+description: Setting up a mobile integration with token generate on server and refresh on client.
 hide_table_of_contents: false
 sidebar_position: 04
-displayed_sidebar: sidebarPublishers
 ---
 
 import Tabs from '@theme/Tabs';
@@ -15,18 +14,18 @@ import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
 
 # UID2 Client-Server Integration Guide for Mobile
 
-(**Android tabs: 9. iOS: 9**)
+This guide is intended for mobile app publishers who want to integrate with UID2 by generating UID2 tokens on their back-end servers (or server-side) via either a public or Private Operator and then pass the tokens and user identities into their mobile apps, which will in turn pass the tokens for bid stream use.  
 
+This is called Client-Server Integration because some integration steps are client-side and some are server-side.
 
-This guide is an overview of integration options for publishers who want to perform the following activities using Android or iOS apps:
+If you want to integrate with UID2 via client-side only changes (that is, all integration changes required are within the mobile apps), refer to the [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) instead.
 
-- Generate or establish client identity using UID2.
-- Retrieve advertising tokens on Android or iOS devices for bid stream use.
+This page provides a high-level overview of integration steps and links to additional documentation.
 
 <!-- It includes the following sections:
 
 - [Overview](#overview)
-- [Complete UID2 Account Setup](#complete-uid2-account-setup)
+- [Complete the UID2 Account Setup](#complete-the-uid2-account-setup)
 - [Client-Server Mobile Integration Data Flow Overview](#client-server-mobile-integration-data-flow-overview)
 - [Implement Server-Side Token Generation On Your Back-End Server](#implement-server-side-token-generation-on-your-back-end-server)
 - [Server-Side Token Refresh](#server-side-token-refresh)
@@ -40,14 +39,6 @@ This guide is an overview of integration options for publishers who want to perf
 - [Enable Automatic Token Refresh in Mobile App/Client Side](#enable-automatic-token-refresh-in-mobile-appclient-side)
 - [Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration) -->
 
-This page is intended for mobile app publishers who want to integrate with UID2 by generating UID2 tokens on their back-end servers (or server-side) via either a public or Private Operator and then pass the tokens and user identities into their mobile apps, which will in turn pass the tokens for bid stream use.  
-
-This is called Client-Server Integration because it requires critical integration steps in both client and server side.
-
-If you want to integrate with UID2 via client-side only changes (that is, all integration changes required are within the mobile apps), refer to the [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) instead.
-
-This page provides a high-level overview of integration steps and links to additional documentation.
-
 ## Overview
 
 UID2 provides mobile SDKs for Android and iOS. Each SDK has the following features:
@@ -57,61 +48,50 @@ UID2 provides mobile SDKs for Android and iOS. Each SDK has the following featur
 
 You'll need to complete the following steps:
 
-1. [Complete UID2 account setup](#complete-uid2-account-setup).
+1. [Complete the UID2 account setup](#complete-the-uid2-account-setup).
 1. [Implement server-side token generation on your back-end server](#implement-server-side-token-generation-on-your-back-end-server).
 1. [Add the UID2 mobile SDK into your mobile app](#add-uid2-mobile-sdk-into-your-mobile-app).
 1. [Configure the UID2 mobile SDK for your mobile app](#configure-the-uid2-mobile-sdk-for-your-mobile-app).
 1. [Check that the token was successfully generated and then pass it for bid stream use](#pass-generated-token-for-bid-stream-use).
 1. [Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
 
-## Complete UID2 Account Setup
+## Complete the UID2 Account Setup
 
-Complete the UID2 account setup by following the steps described in the Account Setup page.
+To set up your account, follow the steps described in [Account Setup](../getting-started/gs-account-setup.md).
 
-When account setup is complete, you'll receive your unique API key and client secret. These values are unique to you, and it is important to keep them secure. For details, see API Key and Client Secret.
+(**GWH__SW do we not need them to provide the values listed in the client-side doc: Android Application ID etc? Line 181. Prob not as it's not client-side, like the domains list? If so... do I need to update the Account Setup page to list those credentials where we currently have Domains List? Amd what about the UID2 Portal??**)
+
+When account setup is complete, you'll receive your unique API key and client secret. These values are unique to you, and it is important to keep them secure. For details, see [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret).
 
 ## Client-Server Mobile Integration Data Flow Overview
 
-This diagram presents the data flow this Client-Server Mobile Integration requires to be implemented by the mobile app publishers. It is demonstrating using UID2 SDK for Android in the client-side mobile app and UID2 SDK for Java on the server side.
+The following diagram shows the data flow that the publisher must implement for UID2 client-server mobile integration.
 
-TODO: Add Rita’s latest diagram from here
+This example uses the UID2 SDK for Android in the client-side mobile app and the UID2 SDK for Java on the server side.
 
+**TODO: Add Rita’s latest diagram from here** (**GWH_ https://thetradedesk.slack.com/archives/C04TA13AQKF/p1715204733836019 to Rita**)
+
+![Mobile Client-Server Integration Example](images/integration-mobile-client-server.png)
+
+<!-- (**GWH_ https://ttdcorp-my.sharepoint.com/:p:/r/personal/rita_aleksanyan_thetradedesk_com/_layouts/15/Doc.aspx?sourcedoc=%7BDF894943-3D6A-4A60-A1E2-176ACD0BBBCC%7D&file=Sample%20Data%20Flow.pptx&wdLOR=c8FEF9DB2-E2FD-4F07-B411-B094C4813ACE&fromShare=true&action=edit&mobileredirect=true**) -->
 
 ## Implement Server-Side Token Generation On Your Back-End Server
 
-The first step of UID2 integration is to be able to generate UID2 token on your back-end server to then pass it into your mobile apps for passing the token into the RTB bid stream.
+The first step of UID2 integration is to be able to generate the UID2 token on your back-end server. Then, you can pass the token into your mobile apps for sending to the RTB bid stream.
 
-There are two ways to generate UID2 tokens on the server side by providing directly identifying information (DII), as summarized in the table below:
+There are two ways to generate UID2 tokens on the server side by providing directly identifying information (DII), as summarized in the following table.
 
-Integration Solution 
+| Integration Solution  | Generate Token | Refresh Token |
+| :--- | :--- |  :--- |
+| UID2 SDK for Java | ✅ | ✅ |
+| UID2 SDK for Python | ✅ | ✅ |
+| Direct integration (API endpoints with custom code) | ✅ | ✅ |
 
-Generate Token 
+(**GWH__SW just saying... we say there are two ways and then show three... I can change 2 to 3 but just checking if any other adjustment is needed.**)
 
-Refresh Token 
+Whatever integration option you choose, you'll need to implement one of the following:
 
-UID2 SDK for Java 
-
-✅ 
-
-✅ 
-
-UID2 SDK for Python 
-
-✅ 
-
-✅ 
-
-Direct Integration (API endpoints with custom code) 
-
-✅ 
-
-✅ 
-
-
-
-Regardless from the integration option, you will need to implement one of the following:
-
-
+**Gen uptohere end Wed 5/8/24**
 
 Call the POST /token/generate endpoint.
 

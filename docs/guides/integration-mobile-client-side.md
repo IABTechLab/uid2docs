@@ -2,10 +2,9 @@
 title: UID2 Client-Side Integration Guide for Mobile
 sidebar_label: Client-Side Integration for Mobile
 pagination_label: UID2 Client-Side Integration Guide for Mobile
-description: Information about setting up a client-side mobile integration.
+description: Setting up a mobile integration with token generate and refresh both on the client side.
 hide_table_of_contents: false
 sidebar_position: 04
-displayed_sidebar: sidebarPublishers
 ---
 
 import Tabs from '@theme/Tabs';
@@ -14,8 +13,6 @@ import Link from '@docusaurus/Link';
 import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
 
 # UID2 Client-Side Integration Guide for Mobile
-
-(**GWH__SW: audience? Is this only for publishers, or possibly advertisers also? (advertisers with apps?) 25 Android tabs 25 iOS tabs. End tabs 25. 48 tick sets 2 missing**)
 
 This page is intended for mobile app publishers who want to integrate with UID2 with changes only within their mobile app.
 
@@ -727,7 +724,7 @@ UID2Settings.shared.isLoggingEnabled = true
 
 ## Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration
 
-If you intend to generate UID2 tokens to send to Google GMA/IMA SDKs, assuming you have followed the instructions in the [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) or the [Server-Side Integration Guide for Mobile](integration-mobile-server-side.md), you must also add the UID2 GMA/IMA plugins into your mobile app. For instructions, refer to the applicable plug-in guide:
+If you intend to generate UID2 tokens to send to Google GMA/IMA SDKs, assuming you have followed the instructions in the [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) or the [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md), you must also add the UID2 GMA/IMA plugins into your mobile app. For instructions, refer to the applicable plug-in guide:
 
 - [UID2 GMA Plugin for Android Integration Guide](mobile-plugin-gma-android.md)
 - [UID2 GMA Plugin for iOS Integration Guide](mobile-plugin-gma-ios.md)
