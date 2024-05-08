@@ -60,7 +60,7 @@ For an example website, see this example:
 
 Complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page. As part of the account setup process, you'll need to provide a list of **domain names** for the sites that you'll be using with this UID2 SDK for JavaScript.
 
-When account setup is complete, you'll receive a **public key** and **subscription ID**. These values are unique to you, and you'll use them to configure the UID2 module.
+When account setup is complete, you'll receive a **public key** and **Subscription ID**. These values are unique to you, and you'll use them to configure the UID2 module.
 
 :::tip
 Only root-level domains are required for account setup. For example, if you're going to use UID2 SDK for JavaScript on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
@@ -117,7 +117,7 @@ __uid2.init({
 });
 ```
 :::note
-Tokens from the UID2 integration environment are not valid for passing to the bid stream. For the integration environment, you will have different **subscription ID** and **public key** values.
+Tokens from the UID2 integration environment are not valid for passing to the bid stream. For the integration environment, you will have different **Subscription ID** and **public key** values.
 :::
 
 ### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
@@ -136,12 +136,12 @@ __uid2.init({
 
 UID2 provides the publisher with the following values required to use the client-side token generation feature:
 
-* A subscription ID
+* A Subscription ID
 * A public key
 
 You'll have one set of these values for your publisher testing environment, and a separate set for your production environment.
 
-To configure the SDK, call one of the following methods, with an object containing the **public key** and **subscription ID** that you received during account setup, as well as the user's hashed or unhashed <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number):
+To configure the SDK, call one of the following methods, with an object containing the **public key** and **Subscription ID** that you received during account setup, as well as the user's hashed or unhashed <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number):
 
 *  `__uid2.setIdentityFromEmail`
 *  `__uid2.setIdentityFromEmailHash`

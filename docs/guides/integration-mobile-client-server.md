@@ -50,10 +50,10 @@ This page provides a high-level overview of integration steps and links to addit
 
 ## Overview
 
-UID2 provides a mobile SDK for Android and iOS with the following features: (**GWH__SW are we now going to have a combo mobile SDK? If we still have two I'll fix the wording.**)
+UID2 provides mobile SDKs for Android and iOS. Each SDK has the following features:
 
-- Takes in a UID2 Identity (including a UID2 token) and persisting it in local file storage
-- Automatic refreshing of UID2 tokens
+- Takes in a UID2 Identity (including a UID2 token) and persists it in local file storage.
+- Automatically refreshes UID2 tokens. (**GWH__SW: curious... how often? Do the SDKs take our own advice of refreshing every hour? We don't need to say this, but we could, and even if we don't I'd like to know if we take our own advice.**)
 
 You'll need to complete the following steps:
 
@@ -376,8 +376,6 @@ On iOS, you must set UID2Settings before you first access UID2Manager.shared. An
 </Tabs>
 
 ## Enable Automatic Token Refresh in Mobile App/Client Side
-
-(**GWH__SW could we use tabs here?**)
 
 The UID2Manager will perform automatic token refresh, after a valid UID2 identity has been passed into it. If for any reason token refresh should be disabled, this can be done by:
 
