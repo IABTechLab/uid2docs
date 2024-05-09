@@ -20,13 +20,11 @@ This guide does not apply to publishers who want to use a Private Operator, or w
 
 The page provides a high-level overview, integration steps, and links to additional documentation.
 
-UID2 provides mobile SDKs for [Android](../sdks/uid2-sdk-ref-android.md) and [iOS](../sdks/uid2-sdk-ref-ios.md). Each SDK has the following features:
+UID2 provides a mobile SDK for Android and iOS with the following features:
 
-- Generates UID2 tokens.
-- Automatically refreshes UID2 tokens.
-- Manages automatic storage of UID2 tokens.
-
-(**GWH__SW_N02: Should the list of what the SDKs do be identical for client-side and client-server? They are not currently.**)
+- UID2 token generation
+- Automatic refreshing of UID2 tokens
+- Automatic storage of UID2 tokens
 
 To integrate with UID2 client-side, you'll need to complete the following steps:
 
@@ -63,7 +61,7 @@ To follow this client-side integration guide, it requires v1.0.0 or higher of UI
 
 For an example of how to configure a UID2 mobile SDK, and how to generate tokens using client-side integration for mobile, you can try out the UID2 development app.
 
-Follow the applicable instructions, for Android or iOS:
+Follow the applicable instructions:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -71,7 +69,7 @@ Follow the applicable instructions, for Android or iOS:
 1. Check out the main branch of the [UID2 SDK for Android source code repository on GitHub](https://github.com/IABTechLab/uid2-android-sdk/tree/main).
 1. In Android Studio, open the directory that you checked out.
 1. Run the **dev-app** app.
-1. When you've started the app, make sure that the **Client Side** checkbox is checked.
+1. When you've started the app, make sure the **Client Side** checkbox is checked.
 1. Enter an email or phone number.
 
 </TabItem>
@@ -84,13 +82,13 @@ Follow the applicable instructions, for Android or iOS:
    Development/UID2SDKDevelopmentApp/UID2SDKDevelopmentApp.xcodeproj
    ```
 1. Run the **UID2SDKDevelopmentApp** app scheme.
-1. When you've started the app, make sure that the **Client Side** checkbox is checked.
+1. When you've started the app, make sure the **Client Side** checkbox is checked.
 1. Enter an email or phone number.
 
 </TabItem>
 </Tabs>
 
-Behind the scenes, the sample app makes the following UID2 SDK API call. This call sends a request to the UID2 service to generate an <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (a UID2 token and associated values) for the email/phone input:
+Behind the scenes, the sample app makes the following UID2 SDK API call. This call sends a request to the UID2 service to generate an identity and resulting UID2 token for the email/phone input: (**GWH__SW03 I need to understand the exact difference between an identity and the token. And, should identity be capitalized? Not sure why. "sends a request to the UID2 service to return an identity including UID2 token" maybe? LINK TO IDENTITY DEF IN GLOSSARY AND KEEP IT SIMPLE MAYBE ALSO USE SIMPLE DEF INLINE. CAPITALIZE... NOT SURE.**)
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -178,7 +176,7 @@ If necessary, you can also change the default Subscription ID and public key to 
 
 ## Complete the UID2 Account Setup
 
-To set up your account, follow the steps described in [Account Setup](../getting-started/gs-account-setup.md). As part of the account setup process, you'll need to provide a list of <Link href="../ref-info/glossary-uid#gl-app-name">app names</Link> for all the mobile apps that you'll be integrating with the UID2 mobile SDKs, including any of these values that apply:
+To set up your account, follow the steps described in [Account Setup](../getting-started/gs-account-setup.md). As part of the account setup process, you'll need to provide a list of names for all the mobile apps that you'll be integrating with the UID2 mobile SDKs, including any of these values that apply:
 
 - Android Application ID
 - iOS App Bundle ID
@@ -268,7 +266,7 @@ UID2 provides the publisher with the following values, which are needed for gene
 
 You'll have one set of these values for your testing environment, and a separate set for your production environment.
 
-To configure the SDK, you must pass in the Subscription ID and public key that you received during account setup, as well as the user’s hashed or unhashed directly identifying information (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) (email address or phone number), into the following method call:
+To configure the SDK, you must pass in the Subscription ID and public key that you received during account setup, as well as the user’s hashed or unhashed directly identifying information ([DII](../ref-info/glossary-uid.md#gl-dii)) (email address or phone number), into the following method call:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -294,7 +292,7 @@ Once it's configured, the UID2 mobile SDK does the following:
 - Automatically refreshes the token as required while your app is open
 
 :::tip
-You can pass the user’s <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> to the UID2 mobile SDK either hashed or unhashed. If you pass the DII unhashed, the SDK hashes it for you. If you want to pass the DII to the SDK already hashed, you must normalize it before hashing. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+You can pass the user’s [DII](../ref-info/glossary-uid.md#gl-dii) to the UID2 mobile SDK either hashed or unhashed. If you pass the DII unhashed, the SDK hashes it for you. If you want to pass the DII to the SDK already hashed, you must normalize it before hashing. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
 :::
 
 ## Format Examples for DII

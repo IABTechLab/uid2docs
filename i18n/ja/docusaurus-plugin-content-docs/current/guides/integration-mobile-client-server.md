@@ -41,19 +41,19 @@ This page provides a high-level overview of integration steps and links to addit
 
 ## Overview
 
-UID2 provides mobile SDKs for [Android](../sdks/uid2-sdk-ref-android.md) and [iOS](../sdks/uid2-sdk-ref-ios.md). Each SDK has the following features:
+UID2 provides mobile SDKs for Android and iOS. Each SDK has the following features:
 
-- Takes in a UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (a UID2 token and associated values) and persists it in local file storage.
-- Automatically refreshes UID2 tokens. (**GWH__SW_N01: curious... how often? Do the SDKs take our own advice of refreshing every hour? We don't need to say this, but we could, and even if we don't I'd like to know if we take our own advice.**)
+- Takes in a UID2 Identity (including a UID2 token) and persists it in local file storage.
+- Automatically refreshes UID2 tokens. (**GWH__SW: curious... how often? Do the SDKs take our own advice of refreshing every hour? We don't need to say this, but we could, and even if we don't I'd like to know if we take our own advice.**)
 
 You'll need to complete the following steps:
 
 1. [Complete the UID2 account setup](#complete-the-uid2-account-setup).
-2. [Implement server-side token generation on your back-end server](#implement-server-side-token-generation-on-your-back-end-server).
-3. [Add the UID2 mobile SDK into your mobile app](#add-uid2-mobile-sdk-into-your-mobile-app).
-4. [Configure the UID2 mobile SDK for your mobile app](#configure-the-uid2-mobile-sdk-for-your-mobile-app).
-5. [Check that the token was successfully generated and then pass it for bid stream use](#pass-generated-token-for-bid-stream-use).
-6. [Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
+1. [Implement server-side token generation on your back-end server](#implement-server-side-token-generation-on-your-back-end-server).
+1. [Add the UID2 mobile SDK into your mobile app](#add-uid2-mobile-sdk-into-your-mobile-app).
+1. [Configure the UID2 mobile SDK for your mobile app](#configure-the-uid2-mobile-sdk-for-your-mobile-app).
+1. [Check that the token was successfully generated and then pass it for bid stream use](#pass-generated-token-for-bid-stream-use).
+1. [Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
 
 ## Complete the UID2 Account Setup
 
@@ -67,9 +67,9 @@ When account setup is complete, you'll receive your unique API key and client se
 
 The following diagram shows the data flow that the publisher must implement for UID2 client-server mobile integration.
 
-This example uses the [UID2 SDK for Android](../sdks/uid2-sdk-ref-android.md) in the client-side mobile app and the [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) on the server side.
+This example uses the UID2 SDK for Android in the client-side mobile app and the UID2 SDK for Java on the server side.
 
-**GWH__SWN__N03: do we need to do anything re the diagram? Fix TTD colors at least, probably?**)
+**TODO: Add Rita’s latest diagram from here** (**GWH_ https://thetradedesk.slack.com/archives/C04TA13AQKF/p1715204733836019 to Rita**)
 
 ![Mobile Client-Server Integration Example](images/integration-mobile-client-server.png)
 
@@ -79,31 +79,27 @@ This example uses the [UID2 SDK for Android](../sdks/uid2-sdk-ref-android.md) in
 
 The first step of UID2 integration is to be able to generate the UID2 token on your back-end server. Then, you can pass the token into your mobile apps for sending to the RTB bid stream.
 
-There are two ways to generate UID2 tokens on the server side by providing directly identifying information (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) (email address or phone number), as summarized in the following table.
+There are two ways to generate UID2 tokens on the server side by providing directly identifying information (DII), as summarized in the following table.
 
 | Integration Solution  | Generate Token | Refresh Token |
 | :--- | :--- |  :--- |
-| [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) | ✅ | ✅ |
-| [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md | ✅ | ✅ |
-| [Direct integration (API endpoints with custom code)](../guides/custom-publisher-integration.md) | ✅ | ✅ |
+| UID2 SDK for Java | ✅ | ✅ |
+| UID2 SDK for Python | ✅ | ✅ |
+| Direct integration (API endpoints with custom code) | ✅ | ✅ |
 
-(**GWH__SW (missed this one in last meeting) just saying... we say there are two ways and then show three... I can change 2 to 3 but just checking if any other adjustment is needed.**)
-
-(**GWH__SW_N04 not sure if the doc is the correct target for the third item. Is it?**)
+(**GWH__SW just saying... we say there are two ways and then show three... I can change 2 to 3 but just checking if any other adjustment is needed.**)
 
 Whatever integration option you choose, you'll need to implement one of the following:
 
 **Gen uptohere end Wed 5/8/24**
 
-Call the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint.
+Call the POST /token/generate endpoint.
 
-The identity output you need for the rest of this guide is the content inside the body section of a successful endpoint response. For an example, see [Successful Response](../endpoints/post-token-generate.md#successful-response).
+The identity output you need for the rest of this guide is the content inside the body section of a successful endpoint response, see an example here
 
-Use one of the Publisher Client classes, in one of the UID2 server-side SDKs. These classes simplify the request into a single method call. 
+Utilize one of the server-side SDKs’ UID2 Publisher Client classes that simplifies such request into a single method call. Please refer to the Publisher Basic Usage of the UID2 SDK for Java or UID2 SDK for Python for instructions
 
-For instructions, see [UID2 SDK for Java, Publisher Basic Usage](../sdks/uid2-sdk-ref-java.md#basic-usage) or [UID2 SDK for Python, Publisher Basic Usage](../sdks/uid2-sdk-ref-python.md#basic-usage).
-
-The `Identity` response you need for the rest of this guide is the output of the following two methods:
+The Identity output you need for the rest of this guide is the output of the following two methods:
 
 <Tabs groupId="language-selection">
 <TabItem value='py' label='Python'>
