@@ -47,7 +47,7 @@ At a high level, to integrate your mobile app with UID2 using the UID2 mobile SD
 
 1. Complete the UID2 account setup.
 
-1. Client-Server Integration Only: Integrate server-side token generation on your back-end server.
+1. Client-Server Integration Only: Integrate server-side token generation.
 
 1. Add the UID2 SDK for Android or iOS into your mobile app.
 
