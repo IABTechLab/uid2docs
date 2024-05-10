@@ -27,6 +27,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <li><a href="#gl-advertising-token">Advertising token</a></li>
 <li><a href="#gl-api-key">API key</a></li>
 <li><a href="#gl-api-secret">API secret</a></li>
+<li><a href="#gl-app-name">App name</a></li>
 <li><a href="#gl-authorization-header">Authorization header</a></li>
 <li><a href="#gl-bearer-token">Bearer token</a></li>
 <li><a href="#gl-client-key">Client key</a></li>
@@ -110,6 +111,9 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-api-secret">API secret</MdxJumpAnchor></dt>
 <dd><a href="#gl-client-secret">client secret</a> を参照してください。</dd>
+
+<dt><MdxJumpAnchor id="gl-app-name">App name</MdxJumpAnchor></dt>
+<dd>In the context of mobile implementation, app name is a group term for the Android application ID, iOS app store ID, or iOS bundle identifier.</dd>
 
 <dt><MdxJumpAnchor id="gl-authorization-header">Authorization header</MdxJumpAnchor></dt>
 <dd>Authorization header は、UID2 Service に対してクライアントを認証する方法です。</dd>

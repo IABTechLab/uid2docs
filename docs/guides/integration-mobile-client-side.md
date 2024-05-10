@@ -11,6 +11,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
+import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
+import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 
 # UID2 Client-Side Integration Guide for Mobile
 
@@ -23,10 +25,14 @@ The page provides a high-level overview, integration steps, and links to additio
 UID2 provides mobile SDKs for [Android](../sdks/uid2-sdk-ref-android.md) and [iOS](../sdks/uid2-sdk-ref-ios.md). Each SDK has the following features:
 
 - Generates UID2 tokens.
+- Takes in a UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (a UID2 token and associated values) and persists it in local file storage.
 - Automatically refreshes UID2 tokens.
-- Manages automatic storage of UID2 tokens.
 
-(**GWH__SW_11: Should the list of what the SDKs do be identical for client-side and client-server? They are not currently.**)
+(**GWH__SW_004: Just an FYI I made the last two items above consistent between both docs (wording was different) lines 47-48 in client-server doc.**)
+
+:::note
+This guide uses the group term **UID2 mobile SDKs** to include both the UID2 SDK for Android and the UID2 SDK for iOS.
+:::
 
 To integrate with UID2 client-side, you'll need to complete the following steps:
 
@@ -42,7 +48,7 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 
 <!-- It includes the following sections:
 
-- [UID2 Mobile SDK Version](#uid2-mobile-sdk-version)
+- [Mobile SDK Version](#mobile-sdk-version)
 - [Client-Side Integration Example](#client-side-integration-example)
 - [Complete the UID2 Account Setup](#complete-the-uid2-account-setup)
 - [Add the UID2 Mobile SDK into Your Mobile App](#add-the-uid2-mobile-sdk-into-your-mobile-app)
@@ -50,14 +56,14 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 - [Format Examples for DII](#format-examples-for-dii)
 - [Token Storage and Refresh](#token-storage-and-refresh)
 - [Pass Generated Token for Bid Stream Use](#pass-generated-token-for-bid-stream-use)
-- [Best Practice on When to Pass DII to the UID2 Mobile SDK](#best-practice-on-when-to-pass-dii-to-the-uid2-mobile-sdk)
+- [When to Pass a New UID2 Identity into the SDK](#when-to-pass-a-new-uid2-identity-into-the-sdk)
 - [Opt-Out Handling](#opt-out-handling)
 - [Enable Logging](#enable-logging)
 - [Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration) -->
 
-## Add UID2 Mobile SDK Version
+## Mobile SDK Version
 
-This guide provides instructions for using version v1.0.0 or higher of either of these UID2 mobile SDKs:
+This guide provides instructions for using version v1.2.0 or higher of either of these UID2 mobile SDKs:
 
 - [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
 - [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
@@ -95,7 +101,7 @@ Follow the applicable instructions, for Android or iOS:
 </TabItem>
 </Tabs>
 
-Behind the scenes, the sample app makes the following UID2 SDK API call. This call sends a request to the UID2 service to generate an <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (a UID2 token and associated values) for the email/phone input:
+Behind the scenes, the development app makes the following UID2 SDK API call. This call sends a request to the UID2 service to generate an <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (a UID2 token and associated values) for the email/phone input:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -158,7 +164,7 @@ RootViewModel
 </TabItem>
 </Tabs>
 
-To test, you can connect to the UID2 integration environment as specified in the following Android method call/iOS file:
+By default, the development app is configured to connect to the UID2 integration environment, as specified in the following Android method call/iOS file:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -189,7 +195,7 @@ To set up your account, follow the steps described in [Account Setup](../getting
 
 When account setup is complete, you'll receive a [Subscription ID and public key](../getting-started/gs-credentials.md#subscription-id-and-public-key). These values are unique to you, and you'll use them when you [configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 
-## Add the UID2 Mobile SDK to Your Mobile App
+## Add the UID2 Mobile SDK into Your Mobile App
 
 To add the mobile SDK to your app, follow the applicable documentation:
 
@@ -235,7 +241,7 @@ Bear in mind the following differences between environments:
 
 <ReduceLatency />
 
-To specify a different UID2 server, you can change it in the `init` call, as shown in the following examples.
+To specify a different UID2 server, you can make config changes, as shown in the following examples:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -543,13 +549,15 @@ If the `getAdvertisingToken()` method call returns `null`, there was no identity
 
 Some possible reasons for this, and some things you could do to troubleshoot, are as follows:
 
-- Check to see whether there are any errors from the `generateIdentity()` call.
-- Enable logging to get more information: see [Enable Logging](#enable-logging)
-- It's possible that the identity that was generated has expired. If this happens, you'll need to call the `generateIdentity()` method again: see [Client-Side Integration Example](#client-side-integration-example).
+- The identity is invalid. Check to see whether there are any errors from the previous `generateIdentity()` call.
+- You could enable logging to get more information: see [Enable Logging](#enable-logging).
+- The advertising token inside the UID2 identity has expired, and the refresh token has also expired, so the SDK cannot refresh the token.
 
-For more information, see [Best Practices on When to Pass DII to the UID2 Mobile SDK](#best-practices-on-when-to-pass-dii-to-the-uid2-mobile-sdk).
+If there is no identity, you'll need to call the `generateIdentity()` method again: see [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk).
 
-## Best Practices on When to Pass DII to the UID2 Mobile SDK
+For more information, see [When to Pass a New UID2 Identity into the SDK](#when-to-pass-a-new-uid2-identity-into-the-sdk).
+
+## When to Pass a New UID2 Identity into the SDK
 
 The first time a new user opens the app, no UID2 identity exists. You'll need to call the `generateIdentity()` method, with the DII, to start the token generation:
 
@@ -616,9 +624,7 @@ If `getAdvertisingToken()` returns `null`, you'll need to generate a new token. 
 
 ## Opt-Out Handling
 
-(**GWH note: reviewed this doc up to this point. Rest is partially unreviewed (and the below needs fixing).**)
-
-If the DII provided to the `generateIdentity()` method has been opted out of UID2, this method returns `null`. To check the status of the UID2, you can call the following method:
+If the DII provided to the `generateIdentity()` method has been opted out of UID2, this method returns `null`. To check the status of the UID2 identity, you can call the following:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -637,64 +643,12 @@ UID2Manager.shared.identityStatus
 </TabItem>
 </Tabs>
 
-In this case you should avoid making repeated calls to check the identity, because if the DII has a status of opted out, the UID2 token is not generated. (**GWH__SW_12 is there any more to this than a wasted API call?**)
+In this case, you might want to avoid making repeated calls to check the status of the UID2 identity, because if the DII has a status of opted out, the UID2 token is not generated.
 
 ## Enable Logging
 
-The UID2 mobile SDK can generate logs, which could help in debugging any issues during UID2 integration work. To enable logging, do the following:
-
-<Tabs groupId="language-selection">
-<TabItem value='android' label='Android'>
-
-```js
-// During UID2Manager initialization:
-UID2Manager.init(
-  context = this,
-  isLoggingEnabled = true
-)
-```
-
-</TabItem>
-<TabItem value='ios' label='iOS'>
-
-```swift
-UID2Settings.shared.isLoggingEnabled = true
-// On iOS, you must set UID2Settings before you first access UID2Manager.shared. Changes made to settings after first access are not read.
-```
-
-</TabItem>
-</Tabs>
+<EnableLogging />
 
 ## Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration
 
-If you intend to generate UID2 tokens to send to Google GMA/IMA SDKs, assuming you have followed the instructions in the [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) or the [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md), you must also add the UID2 GMA/IMA plugins into your mobile app. For instructions, refer to the applicable plug-in guide:
-
-- [UID2 GMA Plugin for Android Integration Guide](mobile-plugin-gma-android.md)
-- [UID2 GMA Plugin for iOS Integration Guide](mobile-plugin-gma-ios.md)
-- [UID2 IMA Plugin for Android Integration Guide](mobile-plugin-ima-android.md)
-- [UID2 IMA Plugin for iOS Integration Guide](mobile-plugin-ima-ios.md)
-
-:::note
-You do not need to explicitly run the `getAdvertisingToken()` method call to retrieve the advertising tokens and pass them into Google GMA/IMA SDK manually. The UID2 GMA/IMA plugins manage this for you.
-:::
-
-All you need to do is make sure that `getAdvertisingToken()` returns a non-null string object:
-
-<Tabs groupId="language-selection">
-<TabItem value='android' label='Android'>
-
-```js
-UID2Manager.getInstance().getAdvertisingToken()
-```
-
-</TabItem>
-<TabItem value='ios' label='iOS'>
-
-```js
-UID2Manager.shared.getAdvertisingToken()
-```
-
-</TabItem>
-</Tabs>
-
-If the token exists, the Google GMA/IMA plug-ins can retrieve it via the UID2 GMA/IMA plugins.
+<GMAIMA_Plugins />

@@ -64,7 +64,7 @@ For details, see [API Permissions](../getting-started/gs-permissions.md).
 
 <!-- As of 7 May 2024 -->
 
-This documentation is for the UID2 iOS SDK version 1.0.0. (**GWH__SW_17 question. Android says "and later" do we want to say this here?)**
+This documentation is for the UID2 iOS SDK version 1.2.0 and later.
 
 ## Features
 
@@ -102,29 +102,25 @@ Add the following dependency to Package.swift:
 
 ```js
 dependencies: [
-.package(url: \"https://github.com/IABTechLab/uid2-ios-sdk.git\", from: "1.0.0"),
+.package(url: \"https://github.com/IABTechLab/uid2-ios-sdk.git\", from: "1.2.0"),
 ]
 ```
 
 ### Installing with Xcode
 
-Add the following entry in the Package Dependencies for your apps: (**GWH__SW_18 is it correct re Package Dependencies, wording and capitalization?**)
+Add the following entry in the Package Dependencies for your apps:
 
 | Name | Location | Dependency Rule |
 | :--- | :--- |:-----------------------------| 
 | uid2-ios-sdk | git@github.com:IABTechLab/uid2-ios-sdk.git | Up to next major version: 1.0.0 < 2.0.0 |
 
-<!-- ![Xcode Dependency](images/xcode-uid2-ios-sdk.png) --> 
-
-(**GWH__SW_19 should we remove this image? No longer needed? In which case we can remove this reference and also the actual file?**)
-
 ## Usage Guidelines
 
 There are two ways to establish an initial UID2 Identity:
 
-1. Generate the UID2 identity using DII&#8212;email (hashed) or phone number (hashed). For integration instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).(**GWH__SW_20 add fragment to link.**)
+1. Generate the UID2 identity using DII&#8212;email (hashed) or phone number (hashed). For integration instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).(**GWH__SW_5 add fragment to link.**)
 
-2. Create a UID2 identity from your server's back end and then pass it to the UID2 SDK. For integration instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).(**GWH__SW_21 add fragment to link.**)
+2. Create a UID2 identity from your server's back end and then pass it to the UID2 SDK. For integration instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).(**GWH__SW_6 add fragment to link.**)
 
 The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity is established. This is because the refresh functionality relies on the refresh tokens that are part of the UID2 Identity.
 
@@ -148,11 +144,11 @@ The following functions are available as part of the UID2Manager API:
 
 #### generateIdentity()
 
-Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link>. For instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md).(**GWH__SW_22 figure out more exact link, add fragment to link**)
+Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link>. For details, see [Configure the UID2 mobile SDK](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) in the *Client-Side Integration Guide for Mobile*.
 
 #### setIdentity()
 
-Sets a UID2 Identity, created server-side, to be managed by the SDK. For details, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md). (**GWH__SW_23 figure out more exact link, add fragment to link**)
+Sets a UID2 Identity, created server-side, to be managed by the SDK. For details, see [Configure the UID2 Mobile SDK for Your Mobile App](../guides/integration-mobile-client-server.md#configure-the-uid2-mobile-sdk-for-your-mobile-app) in the *Client-Server Integration Guide for Mobile*.
 
 #### resetIdentity()
 
@@ -189,7 +185,7 @@ The identityStatus variable stores and returns the status of the current UID2 Id
 
 The following code samples provide examples of performing specific activities relating to managing UID2 with the UID2 iOS SDK.
 
-Generate an initial UID2 Identity (for instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)):(**GWH__SW_24 add fragment to link.**)
+Generate an initial UID2 Identity (for instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)):(**GWH__SW_7 add fragment to link.**)
 
 ```js
 UID2Manager.shared.generateIdentity(
@@ -199,7 +195,7 @@ UID2Manager.shared.generateIdentity(
     appName: String? = nil
 )
 ```
-Set the Initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)):(**GWH__SW_25 add fragment to link.**)
+Set the Initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)):(**GWH__SW_7 add fragment to link.**)
 
 ```js
 UID2Manager.shared.getAdvertisingToken()

@@ -14,7 +14,9 @@ import Link from '@docusaurus/Link';
 
 This guide is an overview of integration options for mobile app publishers who want to integrate with UID2 using the UID2 SDK for Android or the UID2 SDK for iOS.
 
-This guide groups those two SDKs as UID2 mobile SDKs.
+:::note
+This guide uses the group term **UID2 mobile SDKs** to include both the UID2 SDK for Android and the UID2 SDK for iOS.
+:::
 
 <!-- It includes the following sections:
 
@@ -38,12 +40,12 @@ The options for integrating with UID2 using the UID2 mobile SDKs are summarized 
 
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |
-| You have access to DII on the client side/within the mobile app, and want to keep changes within your app only. | Client-side integration | [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) |
+| You have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the client side/within the mobile app, and want to keep changes within your app only. | Client-side integration | [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) |
 | You have access to DII on the server side only and can do the necessary development to generate UID2 tokens server-side, or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Client-Server Integration | [UID2 Client-Server Integration Guide for Mobile](integration-mobile-client-server.md) |
 
 ## Integration Overview: High-Level Steps
 
-At a high level, to integrate your mobile app with UID2 using the UID2 mobile SDKs, you' wi'll need to complete the following steps:
+At a high level, to integrate your mobile app with UID2 using the UID2 mobile SDKs, you'll need to complete the following steps:
 
 1. Complete the UID2 account setup.
 
@@ -55,7 +57,7 @@ At a high level, to integrate your mobile app with UID2 using the UID2 mobile SD
 
 1. Check that the token was successfully generated and then pass it for bid stream use.
 
-1. Optionally, configure the UID2 GMA/IMA plugins for integration with the Google GMA/IMA SDKs.
+1. Optionally, configure the UID2 GMA/IMA plugins for integration with the [Google GMA SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) and the [Google IMA SDK](https://developers.google.com/interactive-media-ads/).
 
 For details, refer to one of the following guides:
 
