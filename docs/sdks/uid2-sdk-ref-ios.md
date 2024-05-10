@@ -118,9 +118,9 @@ Add the following entry in the Package Dependencies for your apps:
 
 There are two ways to establish an initial UID2 Identity:
 
-1. Generate the UID2 identity using DII&#8212;email (hashed) or phone number (hashed). For integration instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).(**GWH__SW_5 add fragment to link.**)
+1. Generate the UID2 identity using DII&#8212;email (hashed) or phone number (hashed). For integration instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).(**GWH__SW_005 add fragment to link.**)
 
-2. Create a UID2 identity from your server's back end and then pass it to the UID2 SDK. For integration instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).(**GWH__SW_6 add fragment to link.**)
+2. Create a UID2 identity from your server's back end and then pass it to the UID2 SDK. For integration instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).(**GWH__SW_006 add fragment to link.**)
 
 The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity is established. This is because the refresh functionality relies on the refresh tokens that are part of the UID2 Identity.
 
@@ -185,7 +185,7 @@ The identityStatus variable stores and returns the status of the current UID2 Id
 
 The following code samples provide examples of performing specific activities relating to managing UID2 with the UID2 iOS SDK.
 
-Generate an initial UID2 Identity (for instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)):(**GWH__SW_7 add fragment to link.**)
+Generate an initial UID2 Identity (for instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)):(**GWH__SW_007 add fragment to link.**)
 
 ```js
 UID2Manager.shared.generateIdentity(
@@ -195,7 +195,7 @@ UID2Manager.shared.generateIdentity(
     appName: String? = nil
 )
 ```
-Set the Initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)):(**GWH__SW_7 add fragment to link.**)
+Set the Initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)):(**GWH__SW_008 add fragment to link.**)
 
 ```js
 UID2Manager.shared.getAdvertisingToken()
