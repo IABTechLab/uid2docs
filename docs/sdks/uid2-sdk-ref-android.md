@@ -124,24 +124,11 @@ To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 
 ## Usage Guidelines
 
-The **UID2Manager** singleton is the primary developer API for the UID2 SDK for Android. It is responsible for storing, refreshing, and retrieving UID2 Identity.
+The **UID2Manager** singleton is the primary developer API for the UID2 SDK for Android. It is responsible for storing, refreshing, and retrieving UID2 Identity and according token.
 
-For Android, you must initialize the `UID2Manager` manually before you can use it. See [Android Initialization](#android-initialization).
-
-There are two ways to establish an initial UID2 Identity:
-
-1. Generate the UID2 identity using DII - email (hash) or phone no (hash). For integration instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md).
-
-2. Create a UID2 identity server-side and then pass it into the UID2 SDK. For integration instructions, refer to [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).
-
-The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity is established. This is because the refresh functionality relies on the refresh tokens that are part of the UID2 Identity.
-
-## Android Initialization
-
-The Android implementation expects the singleton to be initialized before use. This does two things:
+You must initialize the `UID2Manager` manually before you can use it, as the SDK expects the singleton to be initialized before use. This does two things:
 
 -   It allows for easier access later.
-
 -   It allows the consuming application to potentially provide its own network instance, responsible for making requests.
 
 The initialization can be done during the creation of the APPLICATION instance, as shown in the following example:
@@ -154,6 +141,14 @@ class MyApplication : Application() {
    // custom implementation. This can be done to allow wrapping something like OkHttp.
    UID2Manager.init(this.applicationContext)
 ```
+
+There are two ways to establish an initial UID2 Identity:
+
+1. Generate the UID2 identity using DII - email (hash) or phone no (hash). For integration instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md).
+
+2. Create a UID2 identity server-side and then pass it into the UID2 SDK. For integration instructions, refer to [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).
+
+The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity is established. This is because the refresh functionality relies on the refresh tokens that are part of the UID2 Identity.
 
 ## Code Samples
 

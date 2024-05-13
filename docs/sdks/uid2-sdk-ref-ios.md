@@ -111,7 +111,7 @@ Add the following entry in the Package Dependencies for your apps:
 
 ## Usage Guidelines
 
-The **UID2Manager** singleton is the primary developer API for the UID2 SDK for iOS. It is responsible for storing, refreshing, and retrieving UID2 Identity.
+The **UID2Manager** singleton is the primary developer API for the UID2 SDK for iOS. It is responsible for storing, refreshing, and retrieving UID2 Identity and according token.
 
 For iOS, the `UID2Manager` is initialized automatically the first time it is accessed. You can configure it to support automatic or manual refresh capabilities.
 
