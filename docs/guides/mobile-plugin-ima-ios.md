@@ -41,9 +41,9 @@ To run this plugin, install the following:
 
 ## Installation
 
-Prerequisite: Install the Google Interactive Media Ads SDK and the UID2 iOS SDK.
+Prerequisite: Install the Google Interactive Media Ads SDK and the UID2 SDK for iOS.
 
-Install the UID2 iOS IMA Plugin via Swift Package Manager to an existing app with the UID2 iOS SDK and the Google Interactive Media Ads SDK installed.
+Install the UID2 iOS IMA Plugin via Swift Package Manager to an existing app with the UID2 SDK for iOS and the Google Interactive Media Ads SDK installed.
 
 ```
 .package(url: https://github.com/IABTechLab/uid2-ios-plugin-google-ima.git, exact: "0.3.0")

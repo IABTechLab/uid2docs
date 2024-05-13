@@ -59,11 +59,11 @@ You'll be granted permission to use specific functions offered by the SDK, and g
 
 <!-- As of 7 May 2024 -->
 
-This documentation is for the UID2 iOS SDK version 1.2.0 and later.
+This documentation is for the UID2 SDK for iOS version 1.2.0 and later.
 
 ## Features
 
-The UID2 iOS SDK is designed to manage UID2 identity on behalf of iOS apps. It enables UID2 identity to be persisted across app lifecycles by securely storing the identity on a device via platform-native encryption tools.
+The UID2 SDK for iOS is designed to manage UID2 identity on behalf of iOS apps. It enables UID2 identity to be persisted across app lifecycles by securely storing the identity on a device via platform-native encryption tools.
 
 By default, the SDK automatically refreshes UID2 identity based on expiration dates. However, you can disable this to allow implementing apps to manage the UID2 identity lifecycle manually.
 
@@ -126,7 +126,7 @@ The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity
 
 ## Code Samples
 
-The following code samples provide examples of performing specific activities relating to managing UID2 with the UID2 iOS SDK.
+The following code samples provide examples of performing specific activities relating to managing UID2 with the UID2 SDK for iOS.
 
 Generate an initial UID2 Identity (for instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk)):
 

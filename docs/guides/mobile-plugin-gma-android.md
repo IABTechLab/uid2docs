@@ -41,9 +41,9 @@ To run this plugin, install the following:
 
 ## Installation
 
-Prerequisite: Install the Google Mobile Ads SDK and the UID2 Android SDK.
+Prerequisite: Install the Google Mobile Ads SDK and the UID2 SDK for Android.
 
-Install the UID2 Android GMA Plugin v0.5.0 to an existing app with the UID2 Android SDK and Google GMA SDK installed. There are two installation options:
+Install the UID2 Android GMA Plugin v0.5.0 to an existing app with the UID2 SDK for Android and Google GMA SDK installed. There are two installation options:
 
 - [Gradle](#gradle)
 - [Maven](#maven)
