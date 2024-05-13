@@ -22,11 +22,11 @@ import Link from '@docusaurus/Link';
   -  [Installing with Gradle](#installing-with-gradle)
   -  [Installing with Maven](#installing-with-maven)
 - [Usage Guidelines](#usage-guidelines)
+- [Code Samples](#code-samples)
 - [UID2Manager API](#uid2manager-api)
   -  [Functions](#functions)
   -  [Variables](#variables)
-- [Android Initialization](#android-initialization)
-- [Code Samples](#code-samples) -->
+ -->
 
 You can use the UID2 SDK for Android to facilitate the process of performing the following activities:
 
