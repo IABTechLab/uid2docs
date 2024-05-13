@@ -329,7 +329,7 @@ The following example configures the UID2 mobile SDK with an email address.
 <TabItem value='android' label='Android'>
 
 ```js
-manager.generateIdentity(
+UID2Manager.getInstance().generateIdentity(
     IdentityRequest.Email("test@example.com"),
     subscriptionId,
     publicKey,
@@ -371,7 +371,7 @@ The following example configures the UID2 SDK with a hashed email address.
 <TabItem value='android' label='Android'>
 
 ```js
-manager.generateIdentity(
+UID2Manager.getInstance().generateIdentity(
     IdentityRequest.EmailHash(
         “eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=”
     ),
@@ -412,7 +412,7 @@ The following example configures the UID2 mobile SDK with a phone number.
 <TabItem value='android' label='Android'>
 
 ```js
-manager.generateIdentity(
+UID2Manager.getInstance().generateIdentity(
     IdentityRequest.Phone(“+1111111111”),
     subscriptionId,
     publicKey,
@@ -454,7 +454,7 @@ The following example configures the UID2 mobile SDK with a hashed phone number.
 <TabItem value='android' label='Android'>
 
 ```js
-manager.generateIdentity(
+UID2Manager.getInstance().generateIdentity(
     IdentityRequest.PhoneHash(
         “eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=”
     ),
