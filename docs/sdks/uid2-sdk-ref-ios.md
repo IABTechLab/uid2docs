@@ -25,7 +25,6 @@ import Link from '@docusaurus/Link';
 - [UID2Manager API](#uid2manager-api)
   -  [Functions](#functions)
   -  [Variables](#variables)
-- [Android Initialization](#android-initialization)
 - [Code Samples](#code-samples) -->
 
 You can use the UID2 SDK for iOS to facilitate the process of performing the following activities:
@@ -40,9 +39,8 @@ The following iOS-related plugins, and associated documentation, are also availa
 | To use the Google Mobile Ads (GMA) SDK to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS/tvOS apps | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) |
 | To use the Google Interactive Media Ads SDK for iOS to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS/tvOS apps | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) |
 
-:::note
+## tvOS Support
 Although this page refers to UID2 SDK for iOS, this SDK also supports tvOS. For the required tvOS version, see [Minimum Requirements](#minimum-requirements).
-:::
 
 ## Functionality
 
@@ -55,10 +53,7 @@ This SDK simplifies integration with UID2 for any publishers who want to support
 ## API Permissions
 
 To use this SDK, you'll need to complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page.
-
-You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For example, publishers get a specific API permission to generate and refresh tokens, but the SDK might support other activities, such as sharing, which require a different API permission.
-
-For details, see [API Permissions](../getting-started/gs-permissions.md).
+You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access.
 
 ## SDK Version
 
@@ -110,23 +105,51 @@ dependencies: [
 
 Add the following entry in the Package Dependencies for your apps:
 
-| Name | Location | Dependency Rule |
-| :--- | :--- |:-----------------------------| 
-| uid2-ios-sdk | git@github.com:IABTechLab/uid2-ios-sdk.git | Up to next major version: 1.0.0 < 2.0.0 |
+| Name | Location | Dependency Rule                         |
+| :--- | :--- |:----------------------------------------| 
+| uid2-ios-sdk | git@github.com:IABTechLab/uid2-ios-sdk.git | Up to next major version: 1.2.0 < 2.0.0 |
 
 ## Usage Guidelines
 
+The **UID2Manager** singleton is the primary developer API for the UID2 SDK for iOS. It is responsible for storing, refreshing, and retrieving UID2 Identity.
+
+For iOS, the `UID2Manager` is initialized automatically the first time it is accessed. You can configure it to support automatic or manual refresh capabilities.
+
 There are two ways to establish an initial UID2 Identity:
 
-1. Generate the UID2 identity using DII&#8212;email (hashed) or phone number (hashed). For integration instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).(**GWH__SW_005 add fragment to link.**)
+1. Generate the UID2 identity using DII&#8212;email (hashed) or phone number (hashed). For integration instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-side).
 
-2. Create a UID2 identity from your server's back end and then pass it to the UID2 SDK. For integration instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).(**GWH__SW_006 add fragment to link.**)
+2. Create a UID2 identity from your server's back end and then pass it to the UID2 SDK. For integration instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server).
 
 The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity is established. This is because the refresh functionality relies on the refresh tokens that are part of the UID2 Identity.
 
-The **UID2Manager** singleton is the primary developer API for the UID2 Android and iOS SDKs. It is responsible for storing, refreshing, and retrieving UID2 Identity.
 
-For iOS, the `UID2Manager` is initialized automatically the first time it is accessed. You can configure it to support automatic or manual refresh capabilities.
+## Code Samples
+
+The following code samples provide examples of performing specific activities relating to managing UID2 with the UID2 iOS SDK.
+
+Generate an initial UID2 Identity (for instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk)):
+
+```js
+UID2Manager.shared.generateIdentity(
+    _ identity: IdentityType,
+    subscriptionID: String,
+    serverPublicKey: String,
+    appName: String? = nil
+)
+```
+Set the Initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk-for-your-mobile-app)):
+
+``` javascript
+UID2Manager.shared.setIdentity(_ identity: UID2Identity)
+```
+
+
+Get the UID2 token (advertising token) to pass to the Advertising SDK (for ad request or bid stream use):
+
+```js
+UID2Manager.shared.getAdvertisingToken()
+```
 
 ## UID2Manager API
 
@@ -181,22 +204,3 @@ The Identity variable stores and returns the current UID2Identity data object be
 
 The identityStatus variable stores and returns the status of the current UID2 Identity being managed by the SDK.
 
-## Code Samples
-
-The following code samples provide examples of performing specific activities relating to managing UID2 with the UID2 iOS SDK.
-
-Generate an initial UID2 Identity (for instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)):(**GWH__SW_007 add fragment to link.**)
-
-```js
-UID2Manager.shared.generateIdentity(
-    _ identity: IdentityType,
-    subscriptionID: String,
-    serverPublicKey: String,
-    appName: String? = nil
-)
-```
-Set the Initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)):(**GWH__SW_008 add fragment to link.**)
-
-```js
-UID2Manager.shared.getAdvertisingToken()
-```

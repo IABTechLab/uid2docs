@@ -19,7 +19,7 @@ This plugin simplifies integration with Google Mobile Ads (GMA) for any publishe
 
 <!-- As of 2024-04-17 -->
 
-This documentation is for the UID2 GMA Plugin for iOS version 0.3.0.
+This documentation is for the UID2 GMA Plugin for iOS version 0.3.0 or later.
 
 ## GitHub Repository
 

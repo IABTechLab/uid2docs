@@ -28,6 +28,12 @@ import Link from '@docusaurus/Link';
 - [Android Initialization](#android-initialization)
 - [Code Samples](#code-samples) -->
 
+You can use the UID2 SDK for Android to facilitate the process of performing the following activities:
+
+- Generating or establishing client identity using UID2.
+- Retrieving advertising tokens on iOS devices for bid stream use.
+
+
 You can use the UID2 SDK for Android to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens on Android devices for use in the bid stream.
 
 The following Android-related plugins, and associated documentation, are also available.
@@ -52,10 +58,7 @@ This SDK simplifies integration with UID2 for any publishers who want to support
 ## API Permissions
 
 To use this SDK, you'll need to complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page.
-
-You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For example, publishers get a specific API permission to generate and refresh tokens, but the SDK might support other activities, such as sharing, which require a different API permission.
-
-For details, see [API Permissions](../getting-started/gs-permissions.md).
+You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access.
 
 ## SDK Version
 
@@ -121,17 +124,64 @@ To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 
 ## Usage Guidelines
 
+The **UID2Manager** singleton is the primary developer API for the UID2 SDK for Android. It is responsible for storing, refreshing, and retrieving UID2 Identity.
+
+For Android, you must initialize the `UID2Manager` manually before you can use it. See [Android Initialization](#android-initialization).
+
 There are two ways to establish an initial UID2 Identity:
 
-1. Generate the UID2 identity using DII - email (hash) or phone no (hash). For instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md).
+1. Generate the UID2 identity using DII - email (hash) or phone no (hash). For integration instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md).
 
 2. Create a UID2 identity server-side and then pass it into the UID2 SDK. For integration instructions, refer to [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).
 
 The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity is established. This is because the refresh functionality relies on the refresh tokens that are part of the UID2 Identity.
 
-The **UID2Manager** singleton is the primary developer API for the UID2 Android and iOS SDKs. It is responsible for storing, refreshing, and retrieving UID2 Identity.
+## Android Initialization
 
-For Android, you must initialize the `UID2Manager` manually before you can use it. See [Android Initialization](#android-initialization).
+The Android implementation expects the singleton to be initialized before use. This does two things:
+
+-   It allows for easier access later.
+
+-   It allows the consuming application to potentially provide its own network instance, responsible for making requests.
+
+The initialization can be done during the creation of the APPLICATION instance, as shown in the following example:
+
+```js
+class MyApplication : Application() {
+  override fun onCreate() {
+    super.onCreate()
+   // Initialize the UID2Manager class. Use DefaultNetworkSession rather than providing our own
+   // custom implementation. This can be done to allow wrapping something like OkHttp.
+   UID2Manager.init(this.applicationContext)
+```
+
+## Code Samples
+
+The following code samples provide examples of performing specific activities relating to managing UID2 with the UID2 Android SDK.
+
+Generate an initial UID2 Identity (refer to [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk)):
+``` javascript
+UID2Manager.getInstance().generateIdentity(
+    identityRequest: IdentityRequest,
+    subscriptionId: String,
+    publicKey: String,
+    onResult: (GenerateIdentityResult) -> Unit
+)
+```
+Set the UID2 Identity (refer to [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk-for-your-mobile-app)):
+
+```js
+UID2Manager.getInstance().setIdentity(identity: UID2Identity)
+```
+
+Get the UID2 token (advertising token) to pass to the Advertising SDK (for ad request or bid stream use):
+
+```js
+UID2Manager.getInstance().getAdvertisingToken()
+```
+
+
+
 
 ## UID2Manager API
 
@@ -186,37 +236,3 @@ The Identity variable stores and returns the current UID2Identity data object be
 
 The identityStatus variable stores and returns the status of the current UID2 Identity being managed by the SDK.
 
-## Android Initialization
-
-The Android implementation expects the singleton to be initialized before use. This does two things:
-
--   It allows for easier access later.
-
--   It allows the consuming application to potentially provide its own network instance, responsible for making requests.
-
-The initialization can be done during the creation of the APPLICATION instance, as shown in the following example:
-
-```js
-class MyApplication : Application() {
-  override fun onCreate() {
-    super.onCreate()
-   // Initialize the UID2Manager class. Use DefaultNetworkSession rather than providing our own
-   // custom implementation. This can be done to allow wrapping something like OkHttp.
-   UID2Manager.init(this.applicationContext)
-```
-
-## Code Samples
-
-The following code samples provide examples of performing specific activities relating to managing UID2 with the UID2 Android SDK.
-
-Set the Initial UID2 Identity:
-
-```js
-UID2Manager.getInstance().setIdentity(identity: UID2Identity)
-```
-
-Get the UID2 token (advertising token) to pass to the Advertising SDK:
-
-```js
-UID2Manager.getInstance().getAdvertisingToken()
-```

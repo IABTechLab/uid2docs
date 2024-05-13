@@ -19,7 +19,7 @@ This plugin simplifies integration with Google Interactive Media Ads (IMA) for a
 
 <!-- As of 2024-04-17 -->
 
-This documentation is for the UID2 IMA Plugin for iOS version 0.3.0.
+This documentation is for the UID2 IMA Plugin for iOS version 0.3.0 or later.
 
 ## GitHub Repository
 
