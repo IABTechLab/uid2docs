@@ -24,11 +24,8 @@ The page provides a high-level overview, integration steps, and links to additio
 
 UID2 provides mobile SDKs for [Android](../sdks/uid2-sdk-ref-android.md) and [iOS](../sdks/uid2-sdk-ref-ios.md). Each SDK has the following features:
 
-- Generates UID2 tokens.
-- Takes in a UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (a UID2 token and associated values) and persists it in local file storage.
+- Generates a UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (a UID2 token and associated values) and persists it in local file storage.
 - Automatically refreshes UID2 tokens.
-
-(**GWH__SW_004: Just an FYI I made the last two items above consistent between both docs (wording was different) lines 47-48 in client-server doc.**)
 
 :::note
 This guide uses the group term **UID2 mobile SDKs** to include both the UID2 SDK for Android and the UID2 SDK for iOS.
@@ -56,7 +53,7 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 - [Format Examples for DII](#format-examples-for-dii)
 - [Token Storage and Refresh](#token-storage-and-refresh)
 - [Pass Generated Token for Bid Stream Use](#pass-generated-token-for-bid-stream-use)
-- [When to Pass a New UID2 Identity into the SDK](#when-to-pass-a-new-uid2-identity-into-the-sdk)
+- [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk)
 - [Opt-Out Handling](#opt-out-handling)
 - [Enable Logging](#enable-logging)
 - [Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration) -->
@@ -65,8 +62,8 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 
 This guide provides instructions for using version v1.2.0 or higher of either of these UID2 mobile SDKs:
 
-- [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
-- [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
+- UID2 SDK for Android
+- UID2 SDK for iOS
 
 For instructions for installing the correct SDK/version into your mobile app, see [Add the UID2 Mobile SDK into Your Mobile App](#add-the-uid2-mobile-sdk-into-your-mobile-app).
 
@@ -190,7 +187,7 @@ If necessary, you can also change the default Subscription ID and public key to 
 To set up your account, follow the steps described in [Account Setup](../getting-started/gs-account-setup.md). As part of the account setup process, you'll need to provide a list of <Link href="../ref-info/glossary-uid#gl-app-name">app names</Link> for all the mobile apps that you'll be integrating with the UID2 mobile SDKs, including any of these values that apply:
 
 - Android Application ID
-- iOS App Bundle ID
+- iOS App Store ID
 - App Store ID
 
 When account setup is complete, you'll receive a [Subscription ID and public key](../getting-started/gs-credentials.md#subscription-id-and-public-key). These values are unique to you, and you'll use them when you [configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
@@ -275,7 +272,7 @@ UID2 provides the publisher with the following values, which are needed for gene
 - Subscription ID
 - Public key
 
-You'll have one set of these values for your testing environment, and a separate set for your production environment.
+You'll have one set of these values for your Integration environment, and a separate set for your production environment.
 
 To configure the SDK, you must pass in the Subscription ID and public key that you received during account setup, as well as the user’s hashed or unhashed directly identifying information (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) (email address or phone number), into the following method call:
 
@@ -298,15 +295,15 @@ UID2Manager.shared.generateIdentity()
 
 Once it's configured, the UID2 mobile SDK does the following:
 
-- Generates a UID2 token for the user
-- Stores the token locally on the user’s device
-- Automatically refreshes the token as required while your app is open
+- Generates a UID2 identity, including token, for the user.
+- Stores the token locally on the user’s device.
+- Automatically refreshes the token as required while your app is open.
 
 :::tip
 You can pass the user’s <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> to the UID2 mobile SDK either hashed or unhashed. If you pass the DII unhashed, the SDK hashes it for you. If you want to pass the DII to the SDK already hashed, you must normalize it before hashing. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
 :::
 
-## Format Examples for DII
+### Format Examples for DII
 
 The SDK encrypts the hashed DII before sending it to the UID2 service.
 
@@ -321,7 +318,7 @@ The following examples demonstrate the different ways that you can configure the
 
 If the `generateIdentity` method is called multiple times, the UID2 mobile SDK uses the most recent configuration values.
 
-### Email, Unhashed
+#### Email, Unhashed
 
 The following example configures the UID2 mobile SDK with an email address.
 
@@ -363,7 +360,7 @@ In this scenario:
 - No normalization or hashing is required by the publisher
 - The UID2 mobile SDK normalizes and hashes the email address before sending the encrypted hash to the UID2 service.
 
-### Email, Normalized and Hashed
+#### Email, Normalized and Hashed
 
 The following example configures the UID2 SDK with a hashed email address.
 
@@ -404,7 +401,7 @@ In this scenario:
 - The publisher is responsible for normalizing and hashing the email address. For details, see [Email Address Normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization).
 - The UID2 mobile SDK encrypts the hashed DII before sending it to the UID2 service.
 
-### Phone Number, Unhashed
+#### Phone Number, Unhashed
 
 The following example configures the UID2 mobile SDK with a phone number.
 
@@ -446,7 +443,7 @@ In this scenario:
 - The publisher is responsible for normalizing the phone number. For details, see [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization).
 - The UID2 mobile SDK hashes the phone number before sending the encrypted hash to the UID2 service.
 
-### Phone Number, Normalized and Hashed
+#### Phone Number, Normalized and Hashed
 
 The following example configures the UID2 mobile SDK with a hashed phone number.
 
@@ -489,7 +486,9 @@ In this scenario:
 
 ## Token Storage and Refresh
 
-After a call to the applicable method listed in [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) is successful, an identity is generated and stored in local file storage. The UID2 mobile SDK refreshes the UID2 token periodically. 
+After a call to the applicable method listed in [Format Examples for DII](#format-examples-for-dii) is successful, an identity is generated and stored in local file storage. The UID2 mobile SDK refreshes the UID2 token periodically.
+
+(**GWH_SW_31 updated the above but not sure it's now pointing to the correct section?**)
 
 :::warning
 The format of the file stored in the local file storage, or the filename itself, could change without notice. We recommend that you do not read and update the file directly.
@@ -497,28 +496,7 @@ The format of the file stored in the local file storage, or the filename itself,
  
 ## Pass Generated Token for Bid Stream Use
 
-In your mobile app, if the call to `generateIdentity()` was successful, it returned an identity, which you can then use in the bid stream.
-
-First, the method call to generate the identity:
-
-<Tabs groupId="language-selection">
-<TabItem value='android' label='Android'>
-
-```js
-UID2Manager.getInstance().generateIdentity()
-```
-
-</TabItem>
-<TabItem value='ios' label='iOS'>
-
-```js
-UID2Manager.shared.generateIdentity()
-```
-
-</TabItem>
-</Tabs>
-
-Then, the method call to get the advertising token:
+In your mobile app, if the call to `generateIdentity()` was successful, it returned an identity. The next step is to call the `getAdvertisingToken()` method, which gets the advertising token, as follows:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -537,27 +515,30 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-If successful, this method call returns a non-null string object such as the following: 
+If successful, this method call returns the token&#8212;a non-null string object such as the following: 
 
 ```js
 AgAAAQFt3aNLXKXEyWS8Tpezcymk1Acv3n+ClOHLdAgqR0kt0Y+pQWSOVaW0tsKZI4FOv9K/rZH9+c4lpm2DBpmFJqjdF6FAaAzva5vxDIX/67UOspsYtiwxH73zU7Fj8PhVf1JcpsxUHRHzuk3vHF+ODrM13A8NAVlO1p0Wkb+cccIIhQ==
 ```
 
-You can use this identity to pass downstream for sending in the RTB bid stream.
+You can use this token to pass downstream for sending in the RTB bid stream.
 
 If the `getAdvertisingToken()` method call returns `null`, there was no identity or valid token generated.
 
 Some possible reasons for this, and some things you could do to troubleshoot, are as follows:
 
-- The identity is invalid. Check to see whether there are any errors from the previous `generateIdentity()` call.
+- The identity is invalid. In this scenario there are a couple of options:
+  - Check to see whether there are any errors from the previous `generateIdentity()` call.
+  - Check the Identity status, using `UID2Manager.getInstance().getIdentityStatus()` for Android or `UID2Manager.shared.identityStatus` for iOS, to determine the status of the identity.
 - You could enable logging to get more information: see [Enable Logging](#enable-logging).
 - The advertising token inside the UID2 identity has expired, and the refresh token has also expired, so the SDK cannot refresh the token.
+- 
 
 If there is no identity, you'll need to call the `generateIdentity()` method again: see [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk).
 
-For more information, see [When to Pass a New UID2 Identity into the SDK](#when-to-pass-a-new-uid2-identity-into-the-sdk).
+For more information, see [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk) (next section).
 
-## When to Pass a New UID2 Identity into the SDK
+## When to Pass DII into the SDK
 
 The first time a new user opens the app, no UID2 identity exists. You'll need to call the `generateIdentity()` method, with the DII, to start the token generation:
 
@@ -582,7 +563,7 @@ When this method call completes successfully, the advertising token (UID2 token)
 
 If the UID2 identity stored in local file storage has expired and cannot be refreshed, you must call the `generateIdentity()` method again to generate a new identity and get the resulting UID2 token.
 
-The only exception is if the following Android method/iOS object returns a status of `OPT_OUT`, which means that the DII has been opted out of UID2 and no identity/token should be generated for it:
+The only exception is if response to the following Android method/iOS object indicates that the DII was opted out of UID2:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -600,6 +581,8 @@ UID2Manager.shared.identityStatus
 
 </TabItem>
 </Tabs>
+
+A response status of `OPT_OUT` for Android, or a response object of `optOut` for iOS, indicates that the DII has been opted out of UID2 and no identity/token should be generated for it.
 
 The best way to determine if DII is required by the UID2 mobile SDKs is to always call the `getAdvertisingToken()` method when the app starts up or resumes:
 
@@ -620,7 +603,7 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-If `getAdvertisingToken()` returns `null`, you'll need to generate a new token. Pass the DII into a call to the `generateIdentity()` method again.
+If `getAdvertisingToken()` returns null, and the identity status is not `OPT_OUT`/`optOut`), you'll need to generate a new token. TO do this, pass the DII into the `generateIdentity()` method again.
 
 ## Opt-Out Handling
 
@@ -643,7 +626,7 @@ UID2Manager.shared.identityStatus
 </TabItem>
 </Tabs>
 
-In this case, you might want to avoid making repeated calls to check the status of the UID2 identity, because if the DII has a status of opted out, the UID2 token is not generated.
+If the response status indicates that the DII has been opted out of UID2, you might want to avoid making repeated calls to check the status of the UID2 identity: if the DII has a status of opted out, the UID2 token is not generated.
 
 ## Enable Logging
 

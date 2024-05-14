@@ -138,12 +138,11 @@ UID2Manager.shared.generateIdentity(
     appName: String? = nil
 )
 ```
-Set the Initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk-for-your-mobile-app)):
+Set the Initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk)):
 
 ``` javascript
 UID2Manager.shared.setIdentity(_ identity: UID2Identity)
 ```
-
 
 Get the UID2 token (advertising token) to pass to the Advertising SDK (for ad request or bid stream use):
 
@@ -171,7 +170,7 @@ Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Dire
 
 #### setIdentity()
 
-Sets a UID2 Identity, created server-side, to be managed by the SDK. For details, see [Configure the UID2 Mobile SDK for Your Mobile App](../guides/integration-mobile-client-server.md#configure-the-uid2-mobile-sdk-for-your-mobile-app) in the *Client-Server Integration Guide for Mobile*.
+Sets a UID2 Identity, created server-side, to be managed by the SDK. For details, see [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-server.md#configure-the-uid2-mobile-sdk) in the *Client-Server Integration Guide for Mobile*.
 
 #### resetIdentity()
 

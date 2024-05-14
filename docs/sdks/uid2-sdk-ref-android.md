@@ -163,7 +163,7 @@ UID2Manager.getInstance().generateIdentity(
     onResult: (GenerateIdentityResult) -> Unit
 )
 ```
-Set the UID2 Identity (refer to [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk-for-your-mobile-app)):
+Set the UID2 Identity (refer to [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk)):
 
 ```js
 UID2Manager.getInstance().setIdentity(identity: UID2Identity)
@@ -174,9 +174,6 @@ Get the UID2 token (advertising token) to pass to the Advertising SDK (for ad re
 ```js
 UID2Manager.getInstance().getAdvertisingToken()
 ```
-
-
-
 
 ## UID2Manager API
 
@@ -198,7 +195,7 @@ Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Dire
 
 #### setIdentity()
 
-Sets a UID2 Identity, created server-side, to be managed by the SDK. For details, see [Configure the UID2 Mobile SDK for Your Mobile App](../guides/integration-mobile-client-server.md#configure-the-uid2-mobile-sdk-for-your-mobile-app) in the *Client-Server Integration Guide for Mobile*.
+Sets a UID2 Identity, created server-side, to be managed by the SDK. For details, see [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-server.md#configure-the-uid2-mobile-sdk) in the *Client-Server Integration Guide for Mobile*.
 
 #### resetIdentity()
 

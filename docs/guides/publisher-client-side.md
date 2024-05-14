@@ -139,7 +139,7 @@ UID2 provides the publisher with the following values required to use the client
 * A Subscription ID
 * A public key
 
-You'll have one set of these values for your publisher testing environment, and a separate set for your production environment.
+You'll have one set of these values for your publisher Integration environment, and a separate set for your production environment.
 
 To configure the SDK, call one of the following methods, with an object containing the **public key** and **Subscription ID** that you received during account setup, as well as the user's hashed or unhashed <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number):
 
