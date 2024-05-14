@@ -83,8 +83,6 @@ The following diagram shows the data flow that the publisher must implement for 
 
 This example uses the [UID2 SDK for Android](../sdks/uid2-sdk-ref-android.md) in the client-side mobile app and the [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) on the server side.
 
-**GWH__KL_01: diagram updates to remove TTD colors at least?**)
-
 ![Mobile Client-Server Integration Example](images/integration-mobile-client-server.png)
 
 <!-- (**GWH_ https://ttdcorp-my.sharepoint.com/:p:/r/personal/rita_aleksanyan_thetradedesk_com/_layouts/15/Doc.aspx?sourcedoc=%7BDF894943-3D6A-4A60-A1E2-176ACD0BBBCC%7D&file=Sample%20Data%20Flow.pptx&wdLOR=c8FEF9DB2-E2FD-4F07-B411-B094C4813ACE&fromShare=true&action=edit&mobileredirect=true**) -->
@@ -262,8 +260,6 @@ The format of the file stored in the local file storage, or the filename itself,
 :::
 
 ## Pass Generated Token for Bid Stream Use
-
-(**GWH__KL02 Question from SW: "his is a question for PM probably - bid stream does not exist in UID2 Glossary - should it? I dunno if bid stream actually makes sense to publishers to be honest" Do we add it into glossary... I'd thought everyone would know that term, SW doesn't think so. And, bid stream two words... is that a company decision?**)
 
 To retrieve the token, in your mobile app, call the following:
 
