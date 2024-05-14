@@ -139,7 +139,7 @@ The endpoint and SDK API returns opt-out status if the <Link href="../ref-info/g
 
 You will need to pass the `Identity` response into the mobile app: see [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk).
 
-:::danger
+:::warning
 For security reasons, the API key and secret used in token generation must be called server-side. Do not store these values inside a mobile app. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
 :::
 
