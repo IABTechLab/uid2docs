@@ -170,7 +170,7 @@ For installation instructions, refer to one of the following:
 
 At this point, you are ready to use the UID2 Identity generated server-side in the mobile SDK.
 
-## Using the UID2 Integration Environment
+### Using the UID2 Integration Environment
 
 By default, the SDK is configured to work with the UID2 production environment: `https://prod.uidapi.com`. If you want to use the UID2 integration environment instead, provide the following URL in your call to UID2Manager initialization:
 
@@ -203,7 +203,7 @@ Bear in mind the following differences between environments:
 - You'll have a different set of Subscription ID and public key values for each environment (integ and prod). Be sure to use the correct values for each environment.
 :::
 
-## Optional: Reduce Latency by Setting the API Base URL for the Production Environment
+### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
 
 <ReduceLatency />
 
