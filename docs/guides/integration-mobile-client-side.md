@@ -488,8 +488,6 @@ In this scenario:
 
 After a call to the applicable method listed in [Format Examples for DII](#format-examples-for-dii) is successful, an identity is generated and stored in local file storage. The UID2 mobile SDK refreshes the UID2 token periodically.
 
-(**GWH_SW_31 updated the above but not sure it's now pointing to the correct section?**)
-
 :::warning
 The format of the file stored in the local file storage, or the filename itself, could change without notice. We recommend that you do not read and update the file directly.
 :::
@@ -603,7 +601,7 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-If `getAdvertisingToken()` returns null, and the identity status is not `OPT_OUT`/`optOut`), you'll need to generate a new token. TO do this, pass the DII into the `generateIdentity()` method again.
+If `getAdvertisingToken()` returns null, and the identity status is not `OPT_OUT`/`optOut`), you'll need to generate a new token. To do this, pass the DII into the `generateIdentity()` method again.
 
 ## Opt-Out Handling
 

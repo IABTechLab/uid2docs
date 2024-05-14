@@ -117,8 +117,6 @@ Whatever integration option you choose to generate the <Link href="../ref-info/g
 
    For instructions, see [UID2 SDK for Java, Publisher Basic Usage](../sdks/uid2-sdk-ref-java.md#basic-usage) or [UID2 SDK for Python, Usage for Publishers](../sdks/uid2-sdk-ref-python.md#usage-for-publishers).
 
-   (**GWH__SW_003 in the Python SDK doc there is no Basic Usage section.**)
-
    If you're using one of these options, the `Identity` response that you need for the rest of this guide is the output of the applicable method, as follows:
 
    <Tabs groupId="language-selection">
@@ -170,13 +168,7 @@ For installation instructions, refer to one of the following:
 - [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
 - [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
 
-For example, for Android, follow the UID2 SDK documentation to:
-- Add the pre-built UID2 SDK for Android libraries into your mobile app: see [Installation](../sdks/uid2-sdk-ref-android.md#installation).
-- Learn how to instantiate the UID2Manager instance in your Android app: see [Usage Guidelines](../sdks/uid2-sdk-ref-android.md#usage-guidelines).
-
-(**GWH__SW_35 is the Android link correct? It was a link to "Android Initialization" which doesn't exist. Showed up on a broken links check and I updated it as above.**)
- 
- For iOS, refer to the [Usage Guidelines](../sdks/uid2-sdk-ref-ios.md#usage-guidelines).
+At this point, you are ready to use the UID2 Identity generated server-side in the mobile SDK.
 
 ## Using the UID2 Integration Environment
 
@@ -261,8 +253,6 @@ UID2Manager.shared.setIdentity()
 
 </TabItem>
 </Tabs>
-
-(**GWH_SW_32 line 251 above you said: "should be setIdentity() instead" but I'm not sure of the whole of it. I don't see the anywhere else not sure it's correct. https://github.com/IABTechLab/uid2docs/pull/557/files#r1598149873**)
 
 ## Token Storage
 
