@@ -40,7 +40,7 @@ You'll need to complete the following steps:
 3. [Add the UID2 mobile SDK into your mobile app](#add-the-uid2-mobile-sdk-into-your-mobile-app).
 4. [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 5. [Check that the token was successfully generated and then pass it for bid stream use](#pass-generated-token-for-bid-stream-use).
-6. [Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
+6. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
 
 <!-- It includes the following sections:
 
