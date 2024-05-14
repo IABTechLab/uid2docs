@@ -15,7 +15,6 @@ import Link from '@docusaurus/Link';
 - [Functionality](#functionality)
 - [API Permissions](#api-permissions)
 - [SDK Version](#sdk-version)
-- [Features](#features)
 - [GitHub Open-Source Repository](#github-open-source-repository)
 - [Minimum Requirements](#minimum-requirements)
 - [Installation](#installation)
@@ -31,6 +30,7 @@ You can use the UID2 SDK for iOS to facilitate the process of performing the fol
 
 - Generating or establishing client identity using UID2.
 - Retrieving advertising tokens on iOS devices for bid stream use.
+- Automatically refreshes UID2 tokens.
 
 The following iOS-related plugins, and associated documentation, are also available:
 
@@ -50,6 +50,10 @@ This SDK simplifies integration with UID2 for any publishers who want to support
 | :--- | :--- | :--- | :--- |
 | Not supported | Not supported | Supported | Supported |
 
+The UID2 SDK for iOS is designed to generate and/or manage UID2 identity on behalf of iOS apps. It enables UID2 identity to be persisted across app lifecycles by securely storing the identity on a device via platform-native encryption tools.
+
+By default, the SDK automatically refreshes UID2 identity based on expiration dates. However, you can disable this to allow implementing apps to manage the UID2 identity lifecycle manually.
+
 ## API Permissions
 
 To use this SDK, you'll need to complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page.
@@ -60,12 +64,6 @@ You'll be granted permission to use specific functions offered by the SDK, and g
 <!-- As of 7 May 2024 -->
 
 This documentation is for the UID2 SDK for iOS version 1.2.0 and later.
-
-## Features
-
-The UID2 SDK for iOS is designed to manage UID2 identity on behalf of iOS apps. It enables UID2 identity to be persisted across app lifecycles by securely storing the identity on a device via platform-native encryption tools.
-
-By default, the SDK automatically refreshes UID2 identity based on expiration dates. However, you can disable this to allow implementing apps to manage the UID2 identity lifecycle manually.
 
 ## GitHub Open-Source Repository
 
@@ -117,7 +115,7 @@ For iOS, the `UID2Manager` is initialized automatically the first time it is acc
 
 There are two ways to establish an initial UID2 Identity:
 
-1. Generate the UID2 identity using DII&#8212;email (hashed) or phone number (hashed). For integration instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-side).
+1. Generate the UID2 identity using DII&#8212;email (hashed) or phone number (hashed). For integration instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md).
 
 2. Create a UID2 identity from your server's back end and then pass it to the UID2 SDK. For integration instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server).
 
@@ -128,7 +126,7 @@ The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity
 
 The following code samples provide examples of performing specific activities relating to managing UID2 with the UID2 SDK for iOS.
 
-Generate an initial UID2 Identity (for instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk)):
+Generate an initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk)):
 
 ```js
 UID2Manager.shared.generateIdentity(
@@ -138,7 +136,7 @@ UID2Manager.shared.generateIdentity(
     appName: String? = nil
 )
 ```
-Set the Initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk)):
+Set the Initial UID2 Identity (for instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk)):
 
 ``` javascript
 UID2Manager.shared.setIdentity(_ identity: UID2Identity)

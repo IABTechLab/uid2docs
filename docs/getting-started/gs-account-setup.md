@@ -56,8 +56,8 @@ Only top-level (root-level) domains are required for account setup. For example,
 If you're publishing to [mobile apps](../guides/integration-mobile-client-side.md), you'll need to provide a list of <Link href="../ref-info/glossary-uid#gl-app-name">app names</Link> for all the mobile apps that you'll be integrating with the UID2 mobile SDKs, including any of these values that apply:
 
 - Android Application ID
+- iOS Bundle Identifier
 - iOS App Store ID
-- App Store ID
 
 ## Credentials
 

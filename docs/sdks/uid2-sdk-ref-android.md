@@ -15,7 +15,6 @@ import Link from '@docusaurus/Link';
 - [Functionality](#functionality)
 - [API Permissions](#api-permissions)
 - [SDK Version](#sdk-version)
-- [Features](#features)
 - [GitHub Repository/Binary](#github-repositorybinary)
 - [Minimum Requirements](#minimum-requirements)
 - [Installation](#installation)
@@ -32,9 +31,7 @@ You can use the UID2 SDK for Android to facilitate the process of performing the
 
 - Generating or establishing client identity using UID2.
 - Retrieving advertising tokens on iOS devices for bid stream use.
-
-
-You can use the UID2 SDK for Android to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens on Android devices for use in the bid stream.
+- Automatically refreshes UID2 tokens.
 
 The following Android-related plugins, and associated documentation, are also available.
 
@@ -55,6 +52,10 @@ This SDK simplifies integration with UID2 for any publishers who want to support
 | :--- | :--- | :--- | :--- |
 | Not supported | Not supported | Supported | Supported |
 
+The UID2 SDK for Android is designed to generate and/or manage UID2 identity on behalf of Android apps. It enables UID2 identity to be persisted across app lifecycles by securely storing the identity on a device via platform-native encryption tools.
+
+By default, the SDK automatically refreshes UID2 identity based on expiration dates. However, you can disable this to allow implementing apps to manage the UID2 identity lifecycle manually.
+
 ## API Permissions
 
 To use this SDK, you'll need to complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page.
@@ -67,12 +68,6 @@ You'll be granted permission to use specific functions offered by the SDK, and g
 This documentation is for the UID2 SDK for Android version 1.2.0 and later.
 
 For information about specific release versions, see [https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases).
-
-## Features
-
-The UID2 SDK for Android is designed to manage UID2 identity on behalf of Android apps. It enables UID2 identity to be persisted across app lifecycles by securely storing the identity on a device via platform-native encryption tools.
-
-By default, the SDK automatically refreshes UID2 identity based on expiration dates. However, you can disable this to allow implementing apps to manage the UID2 identity lifecycle manually.
 
 ## GitHub Repository/Binary
 

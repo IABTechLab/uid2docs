@@ -41,7 +41,7 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 
 1. [Check that the token was successfully generated and then pass it for bid stream use](#pass-generated-token-for-bid-stream-use).
 
-1. Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signal integration.
+1. [Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
 
 <!-- It includes the following sections:
 
@@ -530,7 +530,6 @@ Some possible reasons for this, and some things you could do to troubleshoot, ar
   - Check the Identity status, using `UID2Manager.getInstance().getIdentityStatus()` for Android or `UID2Manager.shared.identityStatus` for iOS, to determine the status of the identity.
 - You could enable logging to get more information: see [Enable Logging](#enable-logging).
 - The advertising token inside the UID2 identity has expired, and the refresh token has also expired, so the SDK cannot refresh the token.
-- 
 
 If there is no identity, you'll need to call the `generateIdentity()` method again: see [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk).
 
@@ -580,7 +579,7 @@ UID2Manager.shared.identityStatus
 </TabItem>
 </Tabs>
 
-A response status of `OPT_OUT` for Android, or a response object of `optOut` for iOS, indicates that the DII has been opted out of UID2 and no identity/token should be generated for it.
+A response status of `OPT_OUT` for Android or `optOut` for iOS, indicates that the DII has been opted out of UID2 and no identity/token should be generated for it. You might want to avoid making repeated `generateIdentity()` calls: if the DII has a status of opted out, the UID2 token is not generated.
 
 The best way to determine if DII is required by the UID2 mobile SDKs is to always call the `getAdvertisingToken()` method when the app starts up or resumes:
 
@@ -601,9 +600,9 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-If `getAdvertisingToken()` returns null, and the identity status is not `OPT_OUT`/`optOut`), you'll need to generate a new token. To do this, pass the DII into the `generateIdentity()` method again.
+If `getAdvertisingToken()` returns null, and the identity status is not `OPT_OUT`/`optOut`, you'll need to generate a new token. To do this, pass the DII into the `generateIdentity()` method again, see [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 
-## Opt-Out Handling
+<!--## Opt-Out Handling
 
 If the DII provided to the `generateIdentity()` method has been opted out of UID2, this method returns `null`. To check the status of the UID2 identity, you can call the following:
 
@@ -625,6 +624,8 @@ UID2Manager.shared.identityStatus
 </Tabs>
 
 If the response status indicates that the DII has been opted out of UID2, you might want to avoid making repeated calls to check the status of the UID2 identity: if the DII has a status of opted out, the UID2 token is not generated.
+
+-->
 
 ## Enable Logging
 

@@ -24,6 +24,24 @@ If you want to integrate with UID2 via client-side only changes (that is, all in
 
 This page provides a high-level overview of integration steps and links to additional documentation.
 
+UID2 provides mobile SDKs for [Android](../sdks/uid2-sdk-ref-android.md) and [iOS](../sdks/uid2-sdk-ref-ios.md). Each SDK has the following features:
+
+- Takes in a UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (a UID2 token and associated values) and persists it in local file storage.
+- Automatically refreshes UID2 tokens.
+
+:::note
+This guide uses the group term **UID2 mobile SDKs** to include both the UID2 SDK for Android and the UID2 SDK for iOS.
+:::
+
+You'll need to complete the following steps:
+
+1. [Complete the UID2 account setup](#complete-the-uid2-account-setup).
+2. [Implement server-side token generation](#implement-server-side-token-generation).
+3. [Add the UID2 mobile SDK into your mobile app](#add-the-uid2-mobile-sdk-into-your-mobile-app).
+4. [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
+5. [Check that the token was successfully generated and then pass it for bid stream use](#pass-generated-token-for-bid-stream-use).
+6. [Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
+
 <!-- It includes the following sections:
 
 - [Mobile SDK Version](#mobile-sdk-version)
@@ -52,25 +70,6 @@ This guide provides instructions for using version v1.2.0 or higher of either of
 
 For instructions for installing the correct SDK/version into your mobile app, see [Add the UID2 Mobile SDK into Your Mobile App](#add-the-uid2-mobile-sdk-into-your-mobile-app).
 
-:::note
-This guide uses the group term **UID2 mobile SDKs** to include both the UID2 SDK for Android and the UID2 SDK for iOS.
-:::
-
-## Overview
-
-UID2 provides mobile SDKs for [Android](../sdks/uid2-sdk-ref-android.md) and [iOS](../sdks/uid2-sdk-ref-ios.md). Each SDK has the following features:
-
-- Takes in a UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (a UID2 token and associated values) and persists it in local file storage.
-- Automatically refreshes UID2 tokens.
-
-You'll need to complete the following steps:
-
-1. [Complete the UID2 account setup](#complete-the-uid2-account-setup).
-2. [Implement server-side token generation](#implement-server-side-token-generation).
-3. [Add the UID2 mobile SDK into your mobile app](#add-the-uid2-mobile-sdk-into-your-mobile-app).
-4. [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
-5. [Check that the token was successfully generated and then pass it for bid stream use](#pass-generated-token-for-bid-stream-use).
-6. [Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
 
 ## Complete the UID2 Account Setup
 
@@ -142,7 +141,7 @@ The endpoint and SDK API returns opt-out status if the <Link href="../ref-info/g
 
 You will need to pass the `Identity` response into the mobile app: see [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk).
 
-:::note
+:::danger
 For security reasons, the API key and secret used in token generation must be called server-side. Do not store these values inside a mobile app. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
 :::
 
@@ -303,7 +302,7 @@ If the `getAdvertisingToken()` method call returns `null`, there was no identity
 
 If there is no identity, follow the instructions in [Implement Server-Side Token Generation](#implement-server-side-token-generation) again, generate a new identity, and pass the result into your mobile app's UID2Manager again.
 
-## When to Pass DII into the SDK
+## When to Pass a new UID2 Identity/Token into the SDK
 
 The best way to determine whether a new UID2 identity is required by the UID2 SDK again is to call the `getAdvertisingToken()` method in all cases:
 
@@ -324,7 +323,7 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-On startup/resumption of the app, if `getAdvertisingToken()` returns `null`, it is time to generate new identity on the server by following the instructions in [Implement Server-Side Token Generation](#implement-server-side-token-generation). Then, pass the result into the mobile app’s UID2Manager again.
+On startup/resumption of the app, if `getAdvertisingToken()` returns `null`, it is time to generate new identity on the server by following the instructions in [Implement Server-Side Token Generation](#implement-server-side-token-generation). Then, pass the result into the mobile app’s UID2Manager again, see [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 
 ## Enable Logging
 
