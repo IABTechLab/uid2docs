@@ -342,14 +342,25 @@ UID2Manager.getInstance().generateIdentity(
 <TabItem value='ios' label='iOS'>
 
 ```js
-guard let normalizedEmail = IdentityType.NormalizedEmail(string: "test@example.com") else {
-    // email is invalid and cannot be normalized, handle error
+struct InvalidEmailError: Error, LocalizedError {
+    var errorDescription: String = "Invalid email address"
 }
-try await UID2Manager.shared.generateIdentity(
-    .email(normalizedEmail),
-    subscriptionID: subscriptionID,
-    serverPublicKey: serverPublicKeyString
-) 
+Task<Void, Never> {
+    do {
+        guard let normalizedEmail = IdentityType.NormalizedEmail(string: "test@example.com") else {
+            throw InvalidEmailError() // email is invalid and cannot be normalized, handle error
+        }
+        try await UID2Manager.shared.generateIdentity(
+            .email(normalizedEmail),
+            subscriptionID: subscriptionID,
+            serverPublicKey: serverPublicKeyString
+        )
+    } catch {
+        // read `error` object for troubleshooting or enable logging to view it in logs
+    }
+}
+
+
 ```
 
 </TabItem>
@@ -386,11 +397,17 @@ UID2Manager.getInstance().generateIdentity(
 <TabItem value='ios' label='iOS'>
 
 ```js
-try await UID2Manager.shared.generateIdentity(
-    .emailHash("eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc="),
-    subscriptionID: subscriptionID,
-    serverPublicKey: serverPublicKeyString
-)
+Task<Void, Never> {
+    do {
+        try await UID2Manager.shared.generateIdentity(
+            .emailHash("eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc="),
+            subscriptionID: subscriptionID,
+            serverPublicKey: serverPublicKeyString
+        )
+    } catch {
+        // read `error` object for troubleshooting or enable logging to view it in logs
+    }
+}
 ```
 
 </TabItem>
@@ -425,14 +442,23 @@ UID2Manager.getInstance().generateIdentity(
 <TabItem value='ios' label='iOS'>
 
 ```js
-guard let normalizedPhone = IdentityType.NormalizedPhone(normalized: "+1111111111") else {
-    // phone number is invalid and cannot be normalized, handle error
+struct InvalidPhoneError: Error, LocalizedError {
+    var errorDescription: String = "Invalid phone number"
 }
-try await UID2Manager.shared.generateIdentity(
-    .phone(normalizedPhone),
-    subscriptionID: subscriptionID,
-    serverPublicKey: serverPublicKeyString
-) 
+Task<Void, Never> {
+    do {
+        guard let normalizedPhone = IdentityType.NormalizedPhone(normalized: "+1111111111") else {
+            throw InvalidPhoneError() // phone number is invalid and cannot be normalized, handle error
+        }
+        try await UID2Manager.shared.generateIdentity(
+            .phone(normalizedPhone),
+            subscriptionID: subscriptionID,
+            serverPublicKey: serverPublicKeyString
+        )
+    } catch {
+        // read `error` object for troubleshooting or enable logging to view it in logs
+    }
+}
 ```
 
 </TabItem>
@@ -469,11 +495,17 @@ UID2Manager.getInstance().generateIdentity(
 <TabItem value='ios' label='iOS'>
 
 ```js
-try await UID2Manager.shared.generateIdentity(
-    .phoneHash("eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc="),
-    subscriptionID: subscriptionID,
-    serverPublicKey: serverPublicKeyString
-) 
+Task<Void, Never> {
+    do {
+        try await UID2Manager.shared.generateIdentity(
+            .phoneHash("eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc="),
+            subscriptionID: subscriptionID,
+            serverPublicKey: serverPublicKeyString
+        )
+    } catch {
+        // read `error` object for troubleshooting or enable logging to view it in logs
+    }
+}
 ```
 
 </TabItem>
