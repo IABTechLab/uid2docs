@@ -449,7 +449,7 @@ struct InvalidPhoneError: Error, LocalizedError {
 Task<Void, Never> {
     do {
         guard let normalizedPhone = IdentityType.NormalizedPhone(normalized: "+1111111111") else {
-            throw InvalidPhoneError() // phone number is invalid and cannot be normalized, handle error
+            throw InvalidPhoneError() // Phone number is not normalized according to ITU E.164.
         }
         try await UID2Manager.shared.generateIdentity(
             .phone(normalizedPhone),
