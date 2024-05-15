@@ -67,7 +67,7 @@ You'll be granted permission to use specific functions offered by the SDK, and g
 
 This documentation is for the UID2 SDK for Android version 1.2.0 and later.
 
-For information about specific release versions, see [https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases).
+For current and past release notes information, see [https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases).
 
 ## GitHub Repository/Binary
 
