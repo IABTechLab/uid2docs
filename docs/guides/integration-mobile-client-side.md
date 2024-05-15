@@ -309,7 +309,7 @@ The SDK encrypts the hashed DII before sending it to the UID2 service.
 
 You can invoke the `generateIdentity` method using any of the four accepted formats for DII, for any specific user. The DII format might vary per user, but you can only send one value per user.
 
-The following examples demonstrate the different ways that you can configure the UID2 mobile SDK and list the requirements for the DII passed into the SDK.
+The following examples demonstrate the different ways that you can configure the UID2 mobile SDK and list the requirements for the DII passed into the SDK:
 
 - Configure for Email Address
 - Configure for Hashed Email Address
@@ -318,7 +318,8 @@ The following examples demonstrate the different ways that you can configure the
 
 If the `generateIdentity` method is called multiple times, the UID2 mobile SDK uses the most recent configuration values.
 
-#### Email, Unhashed
+<Tabs>
+<TabItem value='example_email_unhashed' label='Email, Unhashed'>
 
 The following example configures the UID2 mobile SDK with an email address.
 
@@ -359,8 +360,6 @@ Task<Void, Never> {
         // read `error` object for troubleshooting or enable logging to view it in logs
     }
 }
-
-
 ```
 
 </TabItem>
@@ -371,7 +370,8 @@ In this scenario:
 - No normalization or hashing is required by the publisher
 - The UID2 mobile SDK normalizes and hashes the email address before sending the encrypted hash to the UID2 service.
 
-#### Email, Normalized and Hashed
+</TabItem>
+<TabItem value='example_email_hash' label='Email, Normalized and Hashed'>
 
 The following example configures the UID2 SDK with a hashed email address.
 
@@ -418,7 +418,8 @@ In this scenario:
 - The publisher is responsible for normalizing and hashing the email address. For details, see [Email Address Normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization).
 - The UID2 mobile SDK encrypts the hashed DII before sending it to the UID2 service.
 
-#### Phone Number, Unhashed
+</TabItem>
+<TabItem value='example_phone_unhashed' label='Phone number, Unhashed'>
 
 The following example configures the UID2 mobile SDK with a phone number.
 
@@ -469,7 +470,8 @@ In this scenario:
 - The publisher is responsible for normalizing the phone number. For details, see [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization).
 - The UID2 mobile SDK hashes the phone number before sending the encrypted hash to the UID2 service.
 
-#### Phone Number, Normalized and Hashed
+</TabItem>
+<TabItem value='example_phone_hash' label='Phone, Normalized and Hashed'>
 
 The following example configures the UID2 mobile SDK with a hashed phone number.
 
@@ -515,6 +517,9 @@ In this scenario:
 
 - The publisher is responsible for normalizing and hashing the phone number. For details, see [Phone Number Hash Encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding).
 - The UID2 mobile SDK encrypts the hashed DII before sending it to the UID2 service.
+
+</TabItem>
+</Tabs>
 
 ## Token Storage and Refresh
 
