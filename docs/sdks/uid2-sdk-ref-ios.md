@@ -97,7 +97,7 @@ Add the following dependency to Package.swift:
 
 ```js
 dependencies: [
-.package(url: \"https://github.com/IABTechLab/uid2-ios-sdk.git\", from: "1.2.0"),
+  .package(url: "https://github.com/IABTechLab/uid2-ios-sdk.git", from: "1.2.0"),
 ]
 ```
 
