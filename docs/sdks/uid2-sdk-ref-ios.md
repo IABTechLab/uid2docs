@@ -29,7 +29,7 @@ import Link from '@docusaurus/Link';
 You can use the UID2 SDK for iOS to facilitate the process of performing the following activities:
 
 - Generating or establishing client identity using UID2.
-- Retrieving advertising tokens on iOS devices for bid stream use.
+- Retrieving advertising tokens for bid stream use.
 - Automatically refreshes UID2 tokens.
 
 The following iOS-related plugins, and associated documentation, are also available:
