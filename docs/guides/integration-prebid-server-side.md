@@ -264,6 +264,12 @@ In planning your Prebid implementation, consider the following:
 
 - During integration testing, set `params.uid2ApiBase` to `"https://operator-integ.uidapi.com"`. You must set this value to the same environment (production or integration) that you use for generating tokens.
 
+- For a Prebid.js server-side integration, you can create a smaller Prebid.js build by disabling client-side integration functionality. To do this, pass the `--disable UID2_CSTG` flag:
+
+```
+    $ gulp build --modules=uid2IdSystem --disable UID2_CSTG
+```
+
 ## Storing the UID2 Token in the Browser
 <!-- GWH same section in integration-prebid.md, integration-prebid-client-side.md, and integration-prebid-client-side.md. Ensure consistency -->
 By default, the UID2 module stores data using local storage. To use a cookie instead, set `params.storage` to `cookie`, as shown in the following example.
