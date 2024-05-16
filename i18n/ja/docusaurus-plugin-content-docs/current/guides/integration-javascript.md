@@ -51,11 +51,11 @@ Client-Side のオプションでは、ローカルストレージを使用し�
 
 クッキーのサイズが大きくなる可能性があり、それが問題になるかもしれません。しかし、ローカルストレージがオプションでない場合、これは一つの可能なアプローチです。
 
-## Passing the UID2 Token to the Bid Stream
+## Passing the UID2 Token to the Bidstream
 
 JavaScript SDK は、UID2 Token の生成、更新、保存を管理しますが、トークンをビッドストリームに渡すことは管理しません。
 
-トークンは、Prebid.jsなどのオプションを使用してビッドストリームに渡すことができます。いくつかの提案については、*Webインテグレーション概要*の [Pass the UID2 Token Into the Bid Stream](integration-options-publisher-web.md#pass-the-uid2-token-into-the-bid-stream) を参照してください。
+トークンは、Prebid.jsなどのオプションを使用してビッドストリームに渡すことができます。いくつかの提案については、*Webインテグレーション概要*の [Pass the UID2 Token Into the Bidstream](integration-options-publisher-web.md#pass-the-uid2-token-into-the-bidstream) を参照してください。
 
 ## JavaScript Integration Overview: High-Level Steps
 

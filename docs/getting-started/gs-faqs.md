@@ -56,7 +56,7 @@ Here are some frequently asked questions for publishers using the UID2 framework
   - [Can I make token refresh calls from the client side?](#can-i-make-token-refresh-calls-from-the-client-side)
   - [How can I test the refresh token workflow?](#how-can-i-test-the-refresh-token-workflow)
   - [What is the uniqueness and rotation policy for UID2 tokens?](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
-  - [What does a UID2 token look like in the bid stream?](#what-does-a-uid2-token-look-like-in-the-bid-stream)
+  - [What does a UID2 token look like in the bidstream?](#what-does-a-uid2-token-look-like-in-the-bidstream)
 
 #### How can I test that the DII sent and the returned token match up?
 
@@ -114,9 +114,9 @@ The procedure is a little different depending on whether or not you are using an
 
 The UID2 service encrypts UID2 tokens using random initialization vectors. The UID2 token is unique for a given user as the user browses the internet. This means that every time a UID2 token is generated, the token is always different, even for the same underlying raw UID2. Every time the token is refreshed, a new token is generated and encrypted. This mechanism helps ensure that untrusted parties cannot track a user's identity.
 
-#### What does a UID2 token look like in the bid stream?
+#### What does a UID2 token look like in the bidstream?
 
-There are many ways to approach UID2 implementation. Here is one example of a code snippet showing how a UID2 token is passed in the bid stream:
+There are many ways to approach UID2 implementation. Here is one example of a code snippet showing how a UID2 token is passed in the bidstream:
 
 ```js
 {

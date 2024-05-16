@@ -330,6 +330,6 @@ For details, see [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
 
 1 August 2023
 
-A new guide for publishers who want to integrate with UID2 and generate UID2 tokens (advertising tokens) to be passed by Prebid in the RTB bid stream.
+A new guide for publishers who want to integrate with UID2 and generate UID2 tokens (advertising tokens) to be passed by Prebid in the RTB bidstream.
 
 For details, see [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md). [doc name updated]-->

@@ -20,7 +20,7 @@ It includes the following sections:
 - [Generating the UID2 Token](#generating-the-uid2-token)
 - [Refreshing the UID2 Token](#refreshing-the-uid2-token)
 - [Storing the UID2 Token in the Browser](#storing-the-uid2-token-in-the-browser)
-- [Passing the UID2 Token to the Bid Stream](#passing-the-uid2-token-to-the-bid-stream)
+- [Passing the UID2 Token to the Bidstream](#passing-the-uid2-token-to-the-bidstream)
 - [Integration Overview: High-Level Steps](#integration-overview-high-level-steps)
 
  -->
@@ -31,7 +31,7 @@ UID2 は、以下をサポートする Prebid.js module を提供しています
 - [Generating the UID2 token](#generating-the-uid2-token)
 - [Refreshing the UID2 token](#refreshing-the-uid2-token)
 - [Storing the UID2 token in the browser](#storing-the-uid2-token-in-the-browser)
-- [Passing the UID2 token to the bid stream](#passing-the-uid2-token-to-the-bid-stream)
+- [Passing the UID2 token to the bidstream](#passing-the-uid2-token-to-the-bidstream)
 
 さらに柔軟性を高めるため、UID2 は JavaScript SDK など、一部の機能や補完的なプロダクトの代替手段も提供しています。
 
@@ -76,7 +76,7 @@ pbjs.setConfig({
 
 クッキーのサイズが大きくなり、問題が発生する可能性があります。ただし、ローカルストレージがオプションでない場合、これが考えられるアプローチの 1 つです。
 
-## Passing the UID2 Token to the Bid Stream
+## Passing the UID2 Token to the Bidstream
 
 UID2 module を設定するには、 `pbjs.setConfig` を呼び出します。サポートされているパラメータの詳細については、実装に適用されるガイドを参照してください:
 
