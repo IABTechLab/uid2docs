@@ -13,7 +13,7 @@ import Link from '@docusaurus/Link';
 
 # Server-Side Integration Guide for JavaScript
 
-This guide is intended for publishers with web assets who want to generate identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. This requires server-side changes such as generating UID2 tokens on the server side and passing them to the publishers' web pages. If you want to integrate with UID2 via only client-side JavaScript changes, refer to [Client-Side Integration Guide for JavaScript](publisher-client-side.md) instead. 
+This guide is intended for publishers with web assets who want to generate identity tokens using UID2 for the RTB bidstream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. This requires server-side changes such as generating UID2 tokens on the server side and passing them to the publishers' web pages. If you want to integrate with UID2 via only client-side JavaScript changes, refer to [Client-Side Integration Guide for JavaScript](publisher-client-side.md) instead. 
 
 For technical details about the SDK, see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md).
 
@@ -54,7 +54,7 @@ If you are using Google Ad Manager and want to use the secure signals feature, f
 
 ## Integration Steps 
 
-The following diagram outlines the steps required for establishing a user's UID2 token with a publisher and how the UID2 token integrates with the RTB bid stream.
+The following diagram outlines the steps required for establishing a user's UID2 token with a publisher and how the UID2 token integrates with the RTB bidstream.
 
 ![Publisher Flow](images/custom-publisher-integration-mermaid.svg)
 
@@ -175,7 +175,7 @@ The bidding step is shown in the following table.
 | :--- | :--- | :--- |
 | 2-a | UID2 SDK for JavaScript | Gets the current user's advertising token by using the [getAdvertisingToken() function](../sdks/client-side-identity.md#getadvertisingtoken-string) as shown below. |
 
->NOTE: For an example of what a UID2 token might look like in the bid stream, when it's sent from an SSP to a DSP, see [What does a UID2 token look like in the bid stream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bid-stream)
+>NOTE: For an example of what a UID2 token might look like in the bidstream, when it's sent from an SSP to a DSP, see [What does a UID2 token look like in the bidstream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream)
 
 ```html
 <script>

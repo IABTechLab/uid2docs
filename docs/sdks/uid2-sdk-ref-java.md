@@ -342,7 +342,7 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
 
 ## Usage for DSPs
 
-The following instructions provide an example of how a DSP can decode bid stream tokens using the UID2 SDK for Java.
+The following instructions provide an example of how a DSP can decode bidstream tokens using the UID2 SDK for Java.
 
 1. Create a `BidstreamClient`:
 
@@ -380,7 +380,7 @@ For a full example, see the `ExampleBidStreamClient` method in [test/Integration
 
 In UID2, sharing is a process for distributing either raw UID2s or UID2 tokens securely between UID2 participants. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant.
 
->IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bid stream. There is a different workflow for generating tokens for the bid stream: see [Tokenized Sharing in the Bid Stream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+>IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for Java, either as a sender or a receiver.
 

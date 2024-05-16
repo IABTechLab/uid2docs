@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # Tokenized Sharing Overview
 
-In UID2, tokenized sharing means encrypting <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> or <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2s</Link> into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and sharing the tokens with recipients who are authorized [sharing participants](ref-info/glossary-uid.md#gl-sharing-participant). Using UID2 tokens helps protect raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bid stream or via pixels, but you can use it in any sharing use case.
+In UID2, tokenized sharing means encrypting <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> or <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2s</Link> into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and sharing the tokens with recipients who are authorized [sharing participants](ref-info/glossary-uid.md#gl-sharing-participant). Using UID2 tokens helps protect raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bidstream or via pixels, but you can use it in any sharing use case.
 
 Tokens are generated in one of the following ways:
 - By encrypting raw UID2s into UID2 tokens: see [Tokenized Sharing: Starting with a Raw UID2](#tokenized-sharing-starting-with-a-raw-uid2).
@@ -32,7 +32,7 @@ In many scenarios, UID2 data is shared in the form of a <Link href="../ref-info/
 
 | Scenario | Sender | Receiver | Sharing Approach |
 | :--- | :--- | :--- | :--- |
-| Sending a UID2 to the bid stream | Publisher | DSP | See [Tokenized Sharing in the Bid Stream](sharing-tokenized-from-data-bid-stream.md) |
+| Sending a UID2 to the bidstream | Publisher | DSP | See [Tokenized Sharing in the Bidstream](sharing-tokenized-from-data-bid-stream.md) |
 | Sending a UID2 in a tracking pixel | Any sharing participant | Any sharing participant | See [Tokenized Sharing in Pixels](sharing-tokenized-from-data-pixel.md) |
 | Sending UID2 tokens to another sharing participant | Any sharing participant, if all security requirements listed in [Security Requirements for UID2 Sharing](sharing-security.md) cannot be followed, or for any other reason. | Any sharing participant | See [Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md) | 
 
@@ -40,13 +40,13 @@ For additional examples, see [Sharing UID2s: Use Cases](sharing-use-cases.md).
 
 ## Sending UID2 Tokens to Another Sharing Participant
 
-Sharing UID2s with another sharing participant via <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> is an option in any sharing scenario, but is required within the bid stream or in pixels. The process is a little different depending on the starting point, as shown in the following table.
+Sharing UID2s with another sharing participant via <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> is an option in any sharing scenario, but is required within the bidstream or in pixels. The process is a little different depending on the starting point, as shown in the following table.
 
 Choose the integration option that's right for your implementation, and then click through for details.
 
 | Starting Point | Encryption Option/Scenario | Link to Details |
 | :--- | :--- | :--- |
-| DII | Sharing UID2 tokens from DII  in the bid stream | [Tokenized Sharing in the Bid Stream](sharing-tokenized-from-data-bid-stream.md) |
+| DII | Sharing UID2 tokens from DII  in the bidstream | [Tokenized Sharing in the Bidstream](sharing-tokenized-from-data-bid-stream.md) |
 | DII | Sharing UID2 tokens from DII in tracking pixels |  [Workflow: Tokenized Sharing in Tracking Pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-tracking-pixels) |
 | Raw UID2 | Sharing UID2 tokens from raw UID2s in creative pixels | [Workflow: Tokenized Sharing in Creative Pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-creative-pixels) |
 | Raw UID2 | Sharing UID2 tokens from raw UID2s using an SDK | [Implementing Sharing Encryption/Decryption with an SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk) |
@@ -69,7 +69,7 @@ The following implementation options are available for decrypting UID2 tokens.
 | Token | Java SDK | [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers) |
 | Token | Python SDK | [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers) |
 | Token | Snowflake | [Snowflake Integration Guide: Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers)
-| Token | Decryption of UID2 tokens sent in the bid stream (DSPs only) | [DSP Integration Guide: Decrypt UID2 Tokens for RTB Use](../guides/dsp-guide#decrypt-uid2-tokens-for-rtb-use)
+| Token | Decryption of UID2 tokens sent in the bidstream (DSPs only) | [DSP Integration Guide: Decrypt UID2 Tokens for RTB Use](../guides/dsp-guide#decrypt-uid2-tokens-for-rtb-use)
 
 ## Tokenized Sharing Examples
 
@@ -82,7 +82,7 @@ The steps for tokenized sharing depend on whether you're starting with DII or wi
 
 ### Tokenized Sharing: Starting with DII
 
-Starting with DII is most common for publishers [sharing in the bid stream](sharing-tokenized-from-data-bid-stream.md) and for [sharing in tracking pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-tracking-pixels).
+Starting with DII is most common for publishers [sharing in the bidstream](sharing-tokenized-from-data-bid-stream.md) and for [sharing in tracking pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-tracking-pixels).
 
 If you're starting with DII, generate the UID2 token by following either of these paths:
 
@@ -194,7 +194,7 @@ The following example shows sample values when converting input DII to a raw UID
 
 The UID2 token is designed so that even if the underlying raw UID2 remains the same, each time a UID2 token is generated from it, the token value is different. This means that the UID2 token can be seen by all but can only be used by UID2 participants that have access to the decryption key. 
 
-For example, UID2 tokens are regularly passed through the bid stream from a publisher to a DSP. Although a UID2 token might go through several parties, such as an SSP, it can be decrypted only by an authorized UID2 participant. On its journey through the bid stream, the UID2 token can safely pass through one or more intermediaries.
+For example, UID2 tokens are regularly passed through the bidstream from a publisher to a DSP. Although a UID2 token might go through several parties, such as an SSP, it can be decrypted only by an authorized UID2 participant. On its journey through the bidstream, the UID2 token can safely pass through one or more intermediaries.
 
 The same is true in tokenized sharing scenarios between UID2 sharing participants. A UID2 token can be passed through non-UID2 participants.
 
