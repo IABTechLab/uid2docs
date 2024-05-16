@@ -80,7 +80,7 @@ Follow the applicable instructions, for Android or iOS:
 1. In Android Studio, open the directory that you checked out.
 1. Run the **dev-app** app.
 1. When you've started the app, make sure that the **Client Side** checkbox is checked.
-1. Enter an email or phone number.
+1. Enter an email or phone number, and then click the arrow to the right.
 
 </TabItem>
 <TabItem value='ios' label='iOS'>
@@ -93,7 +93,7 @@ Follow the applicable instructions, for Android or iOS:
    ```
 1. Run the **UID2SDKDevelopmentApp** app scheme.
 1. When you've started the app, make sure that the **Client Side** checkbox is checked.
-1. Enter an email or phone number.
+1. Enter an email or phone number, and then click the arrow to the right.
 
 </TabItem>
 </Tabs>
