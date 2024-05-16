@@ -35,7 +35,7 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 
 1. [Complete the UID2 account setup](#complete-the-uid2-account-setup).
 
-1. [Add the UID2 mobile SDK into your mobile app](#add-the-uid2-mobile-sdk-into-your-mobile-app).
+1. [Add the UID2 mobile SDK to your mobile app](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 
 1. [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 
@@ -48,7 +48,7 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 - [Mobile SDK Version](#mobile-sdk-version)
 - [Client-Side Integration Example](#client-side-integration-example)
 - [Complete the UID2 Account Setup](#complete-the-uid2-account-setup)
-- [Add the UID2 Mobile SDK into Your Mobile App](#add-the-uid2-mobile-sdk-into-your-mobile-app)
+- [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app)
 - [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk)
 - [Format Examples for DII](#format-examples-for-dii)
 - [Token Storage and Refresh](#token-storage-and-refresh)
@@ -65,7 +65,7 @@ This guide provides instructions for using version v1.2.0 or higher of either of
 - UID2 SDK for Android
 - UID2 SDK for iOS
 
-For instructions for installing the correct SDK/version into your mobile app, see [Add the UID2 Mobile SDK into Your Mobile App](#add-the-uid2-mobile-sdk-into-your-mobile-app).
+For instructions for installing the correct SDK/version into your mobile app, see [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 
 ## Client-Side Integration Example
 
@@ -104,14 +104,24 @@ Behind the scenes, the development app makes the following UID2 SDK API call. Th
 <TabItem value='android' label='Android'>
 
 ```js
-UID2Manager.getInstance().generateIdentity()
+UID2Manager.getInstance().generateIdentity(
+    identityRequest: IdentityRequest,
+    subscriptionId: String,
+    publicKey: String,
+    onResult: (GenerateIdentityResult) -> Unit
+)
 ```
 
 </TabItem>
 <TabItem value='ios' label='iOS'>
 
 ```js
-UID2Manager.shared.generateIdentity()
+UID2Manager.shared.generateIdentity(
+    _ identity: IdentityType,
+    subscriptionID: String,
+    serverPublicKey: String,
+    appName: String? = nil
+)
 ```
 
 </TabItem>
@@ -187,12 +197,12 @@ If necessary, you can also change the default Subscription ID and public key to 
 To set up your account, follow the steps described in [Account Setup](../getting-started/gs-account-setup.md). As part of the account setup process, you'll need to provide a list of <Link href="../ref-info/glossary-uid#gl-app-name">app names</Link> for all the mobile apps that you'll be integrating with the UID2 mobile SDKs, including any of these values that apply:
 
 - Android Application ID
+- iOS Bundle Identifier
 - iOS App Store ID
-- App Store ID
 
 When account setup is complete, you'll receive a [Subscription ID and public key](../getting-started/gs-credentials.md#subscription-id-and-public-key). These values are unique to you, and you'll use them when you [configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 
-## Add the UID2 Mobile SDK into Your Mobile App
+## Add the UID2 Mobile SDK to Your Mobile App
 
 To add the mobile SDK to your app, follow the applicable documentation:
 
@@ -231,7 +241,7 @@ UID2Settings.shared.environment = .custom(
 :::note
 Bear in mind the following differences between environments:
 - Tokens from the UID2 integration environment are not valid for passing to the bid stream.
-- You'll have a different set of Subscription ID and public key values for each environment (integ and prod). Be sure to use the correct values for each environment.
+- You'll have a different set of Subscription ID and public key values for each environment (integration and production). Be sure to use the correct values for each environment.
 :::
 
 ### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
@@ -246,7 +256,7 @@ To specify a different UID2 server, you can make config changes, as shown in the
 ```js
 UID2Manager.init(
   context = this,
-  serverUrl = " https://global.prod.uidapi.com"
+  serverUrl = "https://global.prod.uidapi.com"
 )
 ```
 
@@ -280,14 +290,24 @@ To configure the SDK, you must pass in the Subscription ID and public key that y
 <TabItem value='android' label='Android'>
 
 ```js
-UID2Manager.getInstance().generateIdentity()
+UID2Manager.getInstance().generateIdentity(
+    identityRequest: IdentityRequest,
+    subscriptionId: String,
+    publicKey: String,
+    onResult: (GenerateIdentityResult) -> Unit
+)
 ```
 
 </TabItem>
 <TabItem value='ios' label='iOS'>
 
 ```js
-UID2Manager.shared.generateIdentity()
+UID2Manager.shared.generateIdentity(
+    _ identity: IdentityType,
+    subscriptionID: String,
+    serverPublicKey: String,
+    appName: String? = nil
+)
 ```
 
 </TabItem>
@@ -526,12 +546,12 @@ In this scenario:
 After a call to the applicable method listed in [Format Examples for DII](#format-examples-for-dii) is successful, an identity is generated and stored in local file storage. The UID2 mobile SDK refreshes the UID2 token periodically.
 
 :::warning
-The format of the file stored in the local file storage, or the filename itself, could change without notice. We recommend that you do not read and update the file directly.
+The format of the file stored in the local file storage, or the filename itself, could change without notice. We recommend that you do not read or update the file directly.
 :::
  
 ## Pass Generated Token for Bid Stream Use
 
-In your mobile app, if the call to `generateIdentity()` was successful, it returned an identity. The next step is to call the `getAdvertisingToken()` method, which gets the advertising token, as follows:
+In your mobile app, if the call to `generateIdentity` was successful, it returned an identity. The next step is to call the `getAdvertisingToken()` method, which gets the advertising token, as follows:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -563,31 +583,41 @@ If the `getAdvertisingToken()` method call returns `null`, there was no identity
 Some possible reasons for this, and some things you could do to troubleshoot, are as follows:
 
 - The identity is invalid. In this scenario there are a couple of options:
-  - Check to see whether there are any errors from the previous `generateIdentity()` call.
+  - Check to see whether there are any errors from the previous `generateIdentity` call.
   - Check the Identity status, using `UID2Manager.getInstance().getIdentityStatus()` for Android or `UID2Manager.shared.identityStatus` for iOS, to determine the status of the identity.
 - You could enable logging to get more information: see [Enable Logging](#enable-logging).
 - The advertising token inside the UID2 identity has expired, and the refresh token has also expired, so the SDK cannot refresh the token.
 
-If there is no identity, you'll need to call the `generateIdentity()` method again: see [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk).
+If there is no identity, you'll need to call the `generateIdentity` method again: see [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk).
 
 For more information, see [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk) (next section).
 
 ## When to Pass DII into the SDK
 
-The first time a new user opens the app, no UID2 identity exists. You'll need to call the `generateIdentity()` method, with the DII, to start the token generation:
+The first time a new user opens the app, no UID2 identity exists. You'll need to call the `generateIdentity` method, with the DII, to start the token generation:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
 
 ```js
-UID2Manager.getInstance().generateIdentity()
+UID2Manager.getInstance().generateIdentity(
+    identityRequest: IdentityRequest,
+    subscriptionId: String,
+    publicKey: String,
+    onResult: (GenerateIdentityResult) -> Unit
+)
 ```
 
 </TabItem>
 <TabItem value='ios' label='iOS'>
 
 ```js
-UID2Manager.shared.generateIdentity()
+UID2Manager.shared.generateIdentity(
+    _ identity: IdentityType,
+    subscriptionID: String,
+    serverPublicKey: String,
+    appName: String? = nil
+)
 ```
 
 </TabItem>
@@ -595,7 +625,7 @@ UID2Manager.shared.generateIdentity()
 
 When this method call completes successfully, the advertising token (UID2 token) is available for you to send to the bid stream.
 
-If the UID2 identity stored in local file storage has expired and cannot be refreshed, you must call the `generateIdentity()` method again to generate a new identity and get the resulting UID2 token.
+If the UID2 identity stored in local file storage has expired and cannot be refreshed, you must call the `generateIdentity` method again to generate a new identity and get the resulting UID2 token.
 
 The only exception is if response to the following Android method/iOS object indicates that the DII was opted out of UID2:
 
@@ -616,7 +646,7 @@ UID2Manager.shared.identityStatus
 </TabItem>
 </Tabs>
 
-A response status of `OPT_OUT` for Android or `optOut` for iOS, indicates that the DII has been opted out of UID2 and no identity/token should be generated for it. You might want to avoid making repeated `generateIdentity()` calls: if the DII has a status of opted out, the UID2 token is not generated.
+A response status of `OPT_OUT` for Android or `optOut` for iOS, indicates that the DII has been opted out of UID2 and no identity/token should be generated for it. You might want to avoid making repeated `generateIdentity` calls: if the DII has a status of opted out, the UID2 token is not generated.
 
 The best way to determine if DII is required by the UID2 mobile SDKs is to always call the `getAdvertisingToken()` method when the app starts up or resumes:
 
@@ -637,11 +667,11 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-If `getAdvertisingToken()` returns null, and the identity status is not `OPT_OUT`/`optOut`, you'll need to generate a new token. To do this, pass the DII into the `generateIdentity()` method again, see [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
+If `getAdvertisingToken()` returns null, and the identity status is not `OPT_OUT`/`optOut`, you'll need to generate a new token. To do this, pass the DII into the `generateIdentity` method again, see [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 
 <!--## Opt-Out Handling
 
-If the DII provided to the `generateIdentity()` method has been opted out of UID2, this method returns `null`. To check the status of the UID2 identity, you can call the following:
+If the DII provided to the `generateIdentity` method has been opted out of UID2, this method returns `null`. To check the status of the UID2 identity, you can call the following:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>

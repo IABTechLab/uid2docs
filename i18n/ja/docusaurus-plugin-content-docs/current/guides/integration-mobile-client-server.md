@@ -37,7 +37,7 @@ You'll need to complete the following steps:
 
 1. [Complete the UID2 account setup](#complete-the-uid2-account-setup).
 2. [Implement server-side token generation](#implement-server-side-token-generation).
-3. [Add the UID2 mobile SDK into your mobile app](#add-the-uid2-mobile-sdk-into-your-mobile-app).
+3. [Add the UID2 mobile SDK to your mobile app](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 4. [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 5. [Check that the token was successfully generated and then pass it for bid stream use](#pass-generated-token-for-bid-stream-use).
 6. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
@@ -50,7 +50,7 @@ You'll need to complete the following steps:
 - [Client-Server Mobile Integration Data Flow Overview](#client-server-mobile-integration-data-flow-overview)
 - [Implement Server-Side Token Generation](#implement-server-side-token-generation)
 - [Server-Side Token Refresh](#server-side-token-refresh)
-- [Add the UID2 Mobile SDK into Your Mobile App](#add-the-uid2-mobile-sdk-into-your-mobile-app)
+- [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app)
 - [Using the UID2 Integration Environment](#using-the-uid2-integration-environment)
 - [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment)
 - [Token Storage](#token-storage)
@@ -68,7 +68,7 @@ This guide provides instructions for using version v1.2.0 or higher of either of
 - UID2 SDK for Android
 - UID2 SDK for iOS
 
-For instructions for installing the correct SDK/version into your mobile app, see [Add the UID2 Mobile SDK into Your Mobile App](#add-the-uid2-mobile-sdk-into-your-mobile-app).
+For instructions for installing the correct SDK/version into your mobile app, see [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 
 
 ## Complete the UID2 Account Setup
@@ -158,7 +158,7 @@ However, if you decide you want to manage token refresh on the server side and n
 
 Then, pass the newly refreshed `Identity` value to the mobile app by following the rest of this guide.
 
-## Add the UID2 Mobile SDK into Your Mobile App
+## Add the UID2 Mobile SDK to Your Mobile App
 
 For installation instructions, refer to one of the following:
 
@@ -197,7 +197,7 @@ UID2Settings.shared.environment = .custom(
 :::note
 Bear in mind the following differences between environments:
 - Tokens from the UID2 integration environment are not valid for passing to the bid stream.
-- You'll have a different set of Subscription ID and public key values for each environment (integ and prod). Be sure to use the correct values for each environment.
+- You'll have a different set of Subscription ID and public key values for each environment (integration and production). Be sure to use the correct values for each environment.
 :::
 
 ### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
@@ -212,7 +212,7 @@ To specify a different UID2 server, you can change it in the `init` call:
 ```js
 UID2Manager.init(
   context = this,
-  serverUrl = " https://global.prod.uidapi.com"
+  serverUrl = "https://global.prod.uidapi.com"
 )
 ```
 
@@ -256,7 +256,7 @@ UID2Manager.shared.setIdentity()
 After you call the `setIdentity` method, the UID2 Identity is persisted in local file storage.
 
 :::warning
-The format of the file stored in the local file storage, or the filename itself, could change without notice. We recommend that you do not read and update the file directly.
+The format of the file stored in the local file storage, or the filename itself, could change without notice. We recommend that you do not read or update the file directly.
 :::
 
 ## Pass Generated Token for Bid Stream Use

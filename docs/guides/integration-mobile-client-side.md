@@ -35,7 +35,7 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 
 1. [Complete the UID2 account setup](#complete-the-uid2-account-setup).
 
-1. [Add the UID2 mobile SDK into your mobile app](#add-the-uid2-mobile-sdk-into-your-mobile-app).
+1. [Add the UID2 mobile SDK to your mobile app](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 
 1. [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 
@@ -48,7 +48,7 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 - [Mobile SDK Version](#mobile-sdk-version)
 - [Client-Side Integration Example](#client-side-integration-example)
 - [Complete the UID2 Account Setup](#complete-the-uid2-account-setup)
-- [Add the UID2 Mobile SDK into Your Mobile App](#add-the-uid2-mobile-sdk-into-your-mobile-app)
+- [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app)
 - [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk)
 - [Format Examples for DII](#format-examples-for-dii)
 - [Token Storage and Refresh](#token-storage-and-refresh)
@@ -65,7 +65,7 @@ This guide provides instructions for using version v1.2.0 or higher of either of
 - UID2 SDK for Android
 - UID2 SDK for iOS
 
-For instructions for installing the correct SDK/version into your mobile app, see [Add the UID2 Mobile SDK into Your Mobile App](#add-the-uid2-mobile-sdk-into-your-mobile-app).
+For instructions for installing the correct SDK/version into your mobile app, see [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 
 ## Client-Side Integration Example
 
@@ -202,7 +202,7 @@ To set up your account, follow the steps described in [Account Setup](../getting
 
 When account setup is complete, you'll receive a [Subscription ID and public key](../getting-started/gs-credentials.md#subscription-id-and-public-key). These values are unique to you, and you'll use them when you [configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 
-## Add the UID2 Mobile SDK into Your Mobile App
+## Add the UID2 Mobile SDK to Your Mobile App
 
 To add the mobile SDK to your app, follow the applicable documentation:
 
@@ -241,7 +241,7 @@ UID2Settings.shared.environment = .custom(
 :::note
 Bear in mind the following differences between environments:
 - Tokens from the UID2 integration environment are not valid for passing to the bid stream.
-- You'll have a different set of Subscription ID and public key values for each environment (integ and prod). Be sure to use the correct values for each environment.
+- You'll have a different set of Subscription ID and public key values for each environment (integration and production). Be sure to use the correct values for each environment.
 :::
 
 ### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
@@ -256,7 +256,7 @@ To specify a different UID2 server, you can make config changes, as shown in the
 ```js
 UID2Manager.init(
   context = this,
-  serverUrl = " https://global.prod.uidapi.com"
+  serverUrl = "https://global.prod.uidapi.com"
 )
 ```
 
@@ -546,7 +546,7 @@ In this scenario:
 After a call to the applicable method listed in [Format Examples for DII](#format-examples-for-dii) is successful, an identity is generated and stored in local file storage. The UID2 mobile SDK refreshes the UID2 token periodically.
 
 :::warning
-The format of the file stored in the local file storage, or the filename itself, could change without notice. We recommend that you do not read and update the file directly.
+The format of the file stored in the local file storage, or the filename itself, could change without notice. We recommend that you do not read or update the file directly.
 :::
  
 ## Pass Generated Token for Bid Stream Use

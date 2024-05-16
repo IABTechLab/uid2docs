@@ -26,7 +26,7 @@ import Link from '@docusaurus/Link';
   -  [Variables](#variables)
 - [Code Samples](#code-samples) -->
 
-You can use the UID2 SDK for iOS to facilitate the process of performing the following activities:
+You can use the UID2 SDK for Android for the following:
 
 - Generating or establishing client identity using UID2.
 - Retrieving advertising tokens for bid stream use.
@@ -107,11 +107,11 @@ Add the following entry in the Package Dependencies for your apps:
 
 | Name | Location | Dependency Rule                         |
 | :--- | :--- |:----------------------------------------| 
-| uid2-ios-sdk | git@github.com:IABTechLab/uid2-ios-sdk.git | Up to next major version: 1.2.0 < 2.0.0 |
+| uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 1.2.0 < 2.0.0 |
 
 ## Usage Guidelines
 
-The **UID2Manager** singleton is the primary developer API for the UID2 SDK for iOS. It is responsible for storing, refreshing, and retrieving UID2 Identity and according token.
+The **UID2Manager** singleton is the primary developer API for the UID2 SDK for Android. It is responsible for storing, refreshing, and retrieving the UID2 Identity including the UID2 token.
 
 For iOS, the `UID2Manager` is initialized automatically the first time it is accessed. You can configure it to support automatic or manual refresh capabilities.
 

@@ -27,7 +27,7 @@ import Link from '@docusaurus/Link';
   -  [Variables](#variables)
  -->
 
-You can use the UID2 SDK for Android to facilitate the process of performing the following activities:
+You can use the UID2 SDK for Android for the following:
 
 - Generating or establishing client identity using UID2.
 - Retrieving advertising tokens for bid stream use.
@@ -119,7 +119,7 @@ To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 
 ## Usage Guidelines
 
-The **UID2Manager** singleton is the primary developer API for the UID2 SDK for Android. It is responsible for storing, refreshing, and retrieving UID2 Identity and according token.
+The **UID2Manager** singleton is the primary developer API for the UID2 SDK for Android. It is responsible for storing, refreshing, and retrieving the UID2 Identity including the UID2 token.
 
 The UID2Manager singleton must be initialized before use because:
 

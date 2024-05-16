@@ -259,7 +259,7 @@ In this scenario:
 After calling one of the methods listed in [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript) successfully, an <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> is generated and stored in local storage, under the key `UID2-sdk-identity`. The SDK refreshes the UID2 token periodically.
 
 :::warning
-The format of the object stored in local storage could change without notice. We recommend that you do **not** read and update the object in local storage directly. 
+The format of the object stored in local storage could change without notice. We recommend that you do **not** read or update the object in local storage directly. 
 :::
 
 ## Example Integration Code and When to Pass DII to the UID2 SDK
