@@ -15,6 +15,7 @@ You can use the UID2 SDK for Java on the server side to facilitate the following
 - Refreshing UID2 advertising tokens
 - Encrypting raw UID2s to create UID2 tokens for sharing
 - Decrypting UID2 tokens to access the raw UID2s
+- Mapping DII to raw UID2s
 
 <!-- This guide includes the following information:
 
@@ -32,11 +33,11 @@ You can use the UID2 SDK for Java on the server side to facilitate the following
 
 ## Functionality
 
-This SDK simplifies integration with UID2 for any publishers, DSPs, and UID2 sharers who are using Java for their server-side coding. The following table shows the functions it supports.
+This SDK simplifies integration with UID2 for any publishers, DSPs, advertisers, data providers, and UID2 sharers who are using Java for their server-side coding. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
-| :--- | :--- | :--- | :--- |
-| Supported | Supported | Supported | Supported |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a Raw UID2 |
+| :--- | :--- | :--- | :--- | :--- |
+| Supported | Supported | Supported | Supported | Supported |
 
 ## API Permissions
 
