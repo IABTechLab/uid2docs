@@ -67,12 +67,12 @@ The package is published in this location:
 ## Initialization
 The initialization step depends on the role, as shown in the following table.
 
-| Role	                          | Create Instance of Class	 | Link to Instructions                          |
-|:-------------------------------|:--------------------------|:----------------------------------------------|
-| Publisher                      | `Uid2PublisherClient`     | [Usage for Publishers](#usage-for-publishers) |
-| Advertisers and Data Providers | `IdentityMapClient`       | [Usage for Advertisers and Data Providers](#usage-for-advertisers-and-data-providers)     |
-| DSP                            | `BidstreamClient`         | [Usage for DSPs](#usage-for-dsps)             |
-| Sharer                         | `SharingClient`           | [Usage for Sharers](#usage-for-uid2-sharers)  |
+| Role	                      | Create Instance of Class	 | Link to Instructions                                                         |
+|:---------------------------|:--------------------------|:-----------------------------------------------------------------------------|
+| Publisher                  | `Uid2PublisherClient`     | [Usage for Publishers](#usage-for-publishers)                                |
+| Advertisers/Data Providers | `IdentityMapClient`       | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
+| DSP                        | `BidstreamClient`         | [Usage for DSPs](#usage-for-dsps)                                            |
+| Sharer                     | `SharingClient`           | [Usage for Sharers](#usage-for-uid2-sharers)                                 |
 
 
 
@@ -215,13 +215,13 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
 
    If the user has opted out, this method returns `None`, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `token_refresh_response.is_optout()` function.
 
-## Usage for Advertisers and Data Providers
-1. Create an instance of IdentityMapClient as an instance variable.
+## Usage for Advertisers/Data Providers
+1. Create an instance of `IdentityMapClient` as an instance variable.
    ```py
    client = IdentityMapClient(base_url, auth_key, secret_key)
    ```
 
-2. Call a function that takes email addresses or phone numbers as input and generates an IdentityMapResponse object. The following example uses email addresses:
+2. Call a function that takes email addresses or phone numbers as input and generates an `IdentityMapResponse` object. The following example uses email addresses:
    ```py
    identity_map_response = client.generate_identity_map(IdentityMapInput.from_emails(["email1@example.com", "email2@example.com"]))
    ```
