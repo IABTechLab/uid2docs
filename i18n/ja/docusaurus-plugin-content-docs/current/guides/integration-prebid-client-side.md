@@ -116,7 +116,7 @@ const baseConfig = {
 ```
 
 :::note
-この例では、UID2 本番環境を使用することを想定しています。インテグレーションテストでは、`params.uid2ApiBase` を `'https://operator-integ.uidapi.com'` に設定して UID2 テスト環境を使用します。UID2 テスト環境のトークンはビッドストリームに渡すには無効です。テスト環境では、**subscription ID** と **public key** の値が異なります。
+この例では、UID2 本番環境を使用することを想定しています。インテグレーションテストでは、`params.uid2ApiBase` を `'https://operator-integ.uidapi.com'` に設定して UID2 テスト環境を使用します。UID2 テスト環境のトークンはビッドストリームに渡すには無効です。テスト環境では、**Subscription ID** と **public key** の値が異なります。
 :::
 
 ## Storing the UID2 Token in the Browser

@@ -437,7 +437,7 @@ UID2 ID をファーストパーティクッキーとローカルストレージ
 
 この関数が実行されると、[getAdvertisingToken()](#getadvertisingtoken-string) 関数は `undefined` を返し、[isLoginRequired()](#isloginrequired-boolean) 関数は `true` を返します。
 
-:::danger
+:::warning
 SDK が正しいクッキーにアクセスするために `cookieDomain` または `cookiePath` を指定する必要があり、かつ `init` が完了していない場合、SDK はクッキーをクリアできません。この場合、エラーは発生しません。
 :::
 
@@ -504,7 +504,7 @@ UID2 Cookie の内容は、[POST&nbsp;/token/generate](../endpoints/post-token-g
    }
 }
 ```
-:::danger
+:::warning
 `private` オブジェクトの内容は明示的に指定されておらず、SDK が解釈するようになっています。このオブジェクトの構造、セマンティクス、互換性について、いかなる仮定もしないでください。クッキーの更新はその構造を保持しなければなりません。
 :::
 

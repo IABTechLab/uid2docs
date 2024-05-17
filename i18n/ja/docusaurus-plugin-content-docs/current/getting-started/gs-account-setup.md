@@ -51,6 +51,14 @@ UID2 に興味を示していただいたら、詳細を詰めるために担当
 アカウント設定に必要なのは、ルートレベルのドメインだけです。たとえば、example.com、shop.example.com、example.org の Client-Side でトークンを生成するために UID2 を実装する場合、ドメイン名 example.com と example.org だけを提供します。
 :::
 
+### Client-Side Mobile Integrations
+
+If you're publishing to [mobile apps](../guides/integration-mobile-client-side.md), you'll need to provide a list of <Link href="../ref-info/glossary-uid#gl-app-name">app names</Link> for all the mobile apps that you'll be integrating with the UID2 mobile SDKs, including any of these values that apply:
+
+- Android Application ID
+- iOS App Store ID
+- App Store ID
+
 ## Credentials
 
 UID2 に参加する契約を結ぶと、[UID2 credentials](gs-credentials.md) と UID2 を始めるために必要な情報が提供されます。

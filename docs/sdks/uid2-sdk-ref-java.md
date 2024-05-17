@@ -15,6 +15,7 @@ You can use the UID2 SDK for Java on the server side to facilitate the following
 - Refreshing UID2 advertising tokens
 - Encrypting raw UID2s to create UID2 tokens for sharing
 - Decrypting UID2 tokens to access the raw UID2s
+- Mapping DII to raw UID2s
 
 <!-- This guide includes the following information:
 
@@ -32,11 +33,11 @@ You can use the UID2 SDK for Java on the server side to facilitate the following
 
 ## Functionality
 
-This SDK simplifies integration with UID2 for any publishers, DSPs, and UID2 sharers who are using Java for their server-side coding. The following table shows the functions it supports.
+This SDK simplifies integration with UID2 for any publishers, DSPs, advertisers, data providers, and UID2 sharers who are using Java for their server-side coding. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
-| :--- | :--- | :--- | :--- |
-| Supported | Supported | Supported | Supported |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a Raw UID2 |
+| :--- | :--- | :--- | :--- | :--- |
+| Supported | Supported | Supported | Supported | Supported |
 
 ## API Permissions
 
@@ -341,7 +342,7 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
 
 ## Usage for DSPs
 
-The following instructions provide an example of how a DSP can decode bid stream tokens using the UID2 SDK for Java.
+The following instructions provide an example of how a DSP can decode bidstream tokens using the UID2 SDK for Java.
 
 1. Create a `BidstreamClient`:
 
@@ -379,7 +380,7 @@ For a full example, see the `ExampleBidStreamClient` method in [test/Integration
 
 In UID2, sharing is a process for distributing either raw UID2s or UID2 tokens securely between UID2 participants. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant.
 
->IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bid stream. There is a different workflow for generating tokens for the bid stream: see [Tokenized Sharing in the Bid Stream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+>IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for Java, either as a sender or a receiver.
 
