@@ -130,8 +130,8 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-bearer-token">Bearer token</MdxJumpAnchor></dt>
 <dd>A bearer token is a special string that identifies the client. For authentication, some UID2 endpoints require the <a href="#gl-client-key">client key</a> to be specified as a bearer token in the Authorization header of the request: for example, <a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a>.</dd>
 
-<dt><MdxJumpAnchor id="gl-bidstream">Bid stream</MdxJumpAnchor></dt>
-<dd>To place a request for an ad to be placed in an advertising spot, the publisher sends a bid request that includes different pieces of information, so that advertisers can bid on it, generally through an advertising exchange or DSP. The flow of bid request information, in both directions, is the bid stream.</dd>
+<dt><MdxJumpAnchor id="gl-bidstream">Bidstream</MdxJumpAnchor></dt>
+<dd>To place a request for an ad to be placed in an advertising spot (bid request), the publisher sends different pieces of information, so that advertisers can bid on it, generally through an advertising exchange or DSP. The flow of bidding data is the bidstream.</dd>
 <dd>Bid stream data goes from publishers to other entities (depending on the publisher's configuration) and back to the publisher.</dd>
 
 </dl>
