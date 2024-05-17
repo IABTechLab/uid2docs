@@ -67,12 +67,12 @@ The package is published in this location:
 ## Initialization
 The initialization step depends on the role, as shown in the following table.
 
-| Role	                      | Create Instance of Class	 | Link to Instructions                                                         |
-|:---------------------------|:--------------------------|:-----------------------------------------------------------------------------|
-| Publisher                  | `Uid2PublisherClient`     | [Usage for Publishers](#usage-for-publishers)                                |
-| Advertisers/Data Providers | `IdentityMapClient`       | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
-| DSP                        | `BidstreamClient`         | [Usage for DSPs](#usage-for-dsps)                                            |
-| Sharer                     | `SharingClient`           | [Usage for Sharers](#usage-for-uid2-sharers)                                 |
+| Role	                    | Create Instance of Class	 | Link to Instructions                                                         |
+|:-------------------------|:--------------------------|:-----------------------------------------------------------------------------|
+| Publisher                | `Uid2PublisherClient`     | [Usage for Publishers](#usage-for-publishers)                                |
+| Advertiser/Data Provider | `IdentityMapClient`       | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
+| DSP                      | `BidstreamClient`         | [Usage for DSPs](#usage-for-dsps)                                            |
+| Sharer                   | `SharingClient`           | [Usage for Sharers](#usage-for-uid2-sharers)                                 |
 
 
 
