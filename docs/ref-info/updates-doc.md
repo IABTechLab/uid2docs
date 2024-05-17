@@ -11,6 +11,29 @@ import Link from '@docusaurus/Link';
 
 Check out the latest updates to our UID2 documentation resources.
 
+
+### New: Client-Side and Server-Side Guides for Mobile
+
+17 May 2024
+
+We've added the following integration guides to support publishers who want to implement UID2 for their Android or iOS mobile apps:
+
+- [UID2 Mobile Integration Overview for Android and iOS](../guides/integration-mobile-overview)
+- [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side)
+- [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server)
+
+<!-- APIDOCS-1903-->
+
+### New: UID2 Portal Client-Side Integration Page
+
+6 May 2024
+
+The UID2 Portal documentation now includes a new page, [Client-Side Integration](../portal/client-side-integration.md).
+
+The Client-Side Integration page in the UID2 Portal allows you to set up and manage the values that are needed if you are generating UID2 tokens on the client side, such as specifying your domains.
+
+<!-- APIDOCS-2120-->
+
 ### New: UID2 Portal API Keys Page
 
 25 April 2024
@@ -232,6 +255,7 @@ This new guide provides information for setting up the UID2 Operator Service in 
 
 For details, see [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md).
 
+<!-- APIDOCS-1655 -->
 
 ### Update: Normalization and Encoding Rules
 
@@ -330,6 +354,6 @@ For details, see [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
 
 1 August 2023
 
-A new guide for publishers who want to integrate with UID2 and generate UID2 tokens (advertising tokens) to be passed by Prebid in the RTB bid stream.
+A new guide for publishers who want to integrate with UID2 and generate UID2 tokens (advertising tokens) to be passed by Prebid in the RTB bidstream.
 
 For details, see [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md). [doc name updated]-->
