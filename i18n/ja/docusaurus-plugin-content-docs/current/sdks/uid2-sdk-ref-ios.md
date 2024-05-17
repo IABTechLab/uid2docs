@@ -93,7 +93,7 @@ Package.swift に以下の依存関係を追加します:
 
 ```js
 dependencies: [
-.package(url: "https://github.com/IABTechLab/uid2-ios-sdk.git", from: "0.2.0"),
+  .package(url: "https://github.com/IABTechLab/uid2-ios-sdk.git", from: "1.2.0"),
 ]
 ```
 
