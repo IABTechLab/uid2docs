@@ -31,7 +31,7 @@ You can use the UID2 SDK for Android for the following:
 
 - Generating or establishing client identity using UID2.
 - Retrieving advertising tokens for bidstream use.
-- Automatically refreshes UID2 tokens.
+- Automatically refreshing UID2 tokens.
 
 The following Android-related plugins, and associated documentation, are also available.
 
@@ -139,7 +139,7 @@ class MyApplication : Application() {
 
 There are two ways to establish an initial UID2 Identity:
 
-1. Generate the UID2 identity using DII - email (hash) or phone no (hash). For integration instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md).
+1. Generate the UID2 identity using DII&#8212;email (hashed or unhashed) or phone number (hashed or unhashed). For integration instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md).
 
 2. Create a UID2 identity server-side and then pass it into the UID2 SDK. For integration instructions, refer to [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).
 

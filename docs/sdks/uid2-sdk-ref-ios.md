@@ -30,7 +30,7 @@ You can use the UID2 SDK for iOS for the following:
 
 - Generating or establishing client identity using UID2.
 - Retrieving advertising tokens for bidstream use.
-- Automatically refreshes UID2 tokens.
+- Automatically refreshing UID2 tokens.
 
 The following iOS-related plugins, and associated documentation, are also available:
 
@@ -111,7 +111,7 @@ Add the following entry in the Package Dependencies for your apps:
 
 ## Usage Guidelines
 
-The **UID2Manager** singleton is the primary developer API for the UID2 SDK for Android. It is responsible for storing, refreshing, and retrieving the UID2 Identity including the UID2 token.
+The **UID2Manager** singleton is the primary developer API for the UID2 SDK for iOS. It is responsible for storing, refreshing, and retrieving the UID2 Identity including the UID2 token.
 
 For iOS, the `UID2Manager` is initialized automatically the first time it is accessed. You can configure it to support automatic or manual refresh capabilities.
 
