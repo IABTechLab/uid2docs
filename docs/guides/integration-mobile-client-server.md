@@ -16,7 +16,7 @@ import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 
 # UID2 Client-Server Integration Guide for Mobile
 
-This guide is intended for mobile app publishers who want to integrate with UID2 by generating UID2 tokens server-side via a Public Operator or Private Operator and then passing the tokens and user identities into their mobile apps, which will in turn pass the tokens for bid stream use.  
+This guide is intended for mobile app publishers who want to integrate with UID2 by generating UID2 tokens server-side via a Public Operator or Private Operator and then passing the tokens and user identities into their mobile apps, which will in turn pass the tokens for bidstream use.  
 
 This is called Client-Server Integration because some integration steps are client-side and some are server-side.
 
@@ -39,7 +39,7 @@ You'll need to complete the following steps:
 2. [Implement server-side token generation](#implement-server-side-token-generation).
 3. [Add the UID2 mobile SDK to your mobile app](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 4. [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
-5. [Check that the token was successfully generated and then pass it for bid stream use](#pass-generated-token-for-bid-stream-use).
+5. [Check that the token was successfully generated and then pass it for bidstream use](#pass-generated-token-for-bidstream-use).
 6. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
 
 <!-- It includes the following sections:
@@ -54,7 +54,7 @@ You'll need to complete the following steps:
 - [Using the UID2 Integration Environment](#using-the-uid2-integration-environment)
 - [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment)
 - [Token Storage](#token-storage)
-- [Pass Generated Token for Bid Stream Use](#pass-generated-token-for-bid-stream-use)
+- [Pass Generated Token for Bidstream Use](#pass-generated-token-for-bidstream-use)
 - [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk)
 - [Enable Logging)](#enable-logging)
 - [Enable Automatic Token Refresh in Mobile App/Client Side](#enable-automatic-token-refresh-in-mobile-appclient-side)
@@ -89,7 +89,7 @@ This example uses the [UID2 SDK for Android](../sdks/uid2-sdk-ref-android.md) in
 
 ## Implement Server-Side Token Generation
 
-The first step of UID2 integration is to be able to generate the UID2 token on your server. Then, you can pass the token into your mobile apps for sending to the RTB bid stream.
+The first step of UID2 integration is to be able to generate the UID2 token on your server. Then, you can pass the token into your mobile apps for sending to the RTB bidstream.
 
 There are two approaches to generating UID2 tokens on the server side by providing directly identifying information (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) (email address or phone number):
 
@@ -196,7 +196,7 @@ UID2Settings.shared.environment = .custom(
 
 :::note
 Bear in mind the following differences between environments:
-- Tokens from the UID2 integration environment are not valid for passing to the bid stream.
+- Tokens from the UID2 integration environment are not valid for passing to the bidstream.
 - You'll have a different set of Subscription ID and public key values for each environment (integration and production). Be sure to use the correct values for each environment.
 :::
 
@@ -259,7 +259,7 @@ After you call the `setIdentity` method, the UID2 Identity is persisted in local
 The format of the file stored in the local file storage, or the filename itself, could change without notice. We recommend that you do not read or update the file directly.
 :::
 
-## Pass Generated Token for Bid Stream Use
+## Pass Generated Token for Bidstream Use
 
 To retrieve the token, in your mobile app, call the following:
 
@@ -286,7 +286,7 @@ If a successful identity was added into the UID2Manager, this method returns a s
 AgAAAQFt3aNLXKXEyWS8Tpezcymk1Acv3n+ClOHLdAgqR0kt0Y+pQWSOVaW0tsKZI4FOv9K/rZH9+c4lpm2DBpmFJqjdF6FAaAzva5vxDIX/67UOspsYtiwxH73zU7Fj8PhVf1JcpsxUHRHzuk3vHF+ODrM13A8NAVlO1p0Wkb+cccIIhQ==
 ```
 
-You can use this identity to pass downstream for sending in the RTB bid stream.
+You can use this identity to pass downstream for sending in the RTB bidstream.
 
 If the `getAdvertisingToken()` method call returns `null`, there was no identity or valid token generated. Some possible reasons for this, and some things you could do to troubleshoot, are as follows:
 

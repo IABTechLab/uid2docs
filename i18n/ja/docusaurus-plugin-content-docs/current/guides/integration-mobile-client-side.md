@@ -39,7 +39,7 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 
 1. [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 
-1. [Check that the token was successfully generated and then pass it for bid stream use](#pass-generated-token-for-bid-stream-use).
+1. [Check that the token was successfully generated and then pass it for bidstream use](#pass-generated-token-for-bidstream-use).
 
 1. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
 
@@ -52,7 +52,7 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 - [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk)
 - [Format Examples for DII](#format-examples-for-dii)
 - [Token Storage and Refresh](#token-storage-and-refresh)
-- [Pass Generated Token for Bid Stream Use](#pass-generated-token-for-bid-stream-use)
+- [Pass Generated Token for Bidstream Use](#pass-generated-token-for-bidstream-use)
 - [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk)
 - [Opt-Out Handling](#opt-out-handling)
 - [Enable Logging](#enable-logging)
@@ -148,7 +148,7 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-This method call returns the value that you need to make an ad request: see [Pass Generated Token for Bid Stream Use](#pass-generated-token-for-bid-stream-use).
+This method call returns the value that you need to make an ad request: see [Pass Generated Token for Bidstream Use](#pass-generated-token-for-bidstream-use).
 
 ### Testing With Your Own Configuration
 
@@ -240,7 +240,7 @@ UID2Settings.shared.environment = .custom(
 
 :::note
 Bear in mind the following differences between environments:
-- Tokens from the UID2 integration environment are not valid for passing to the bid stream.
+- Tokens from the UID2 integration environment are not valid for passing to the bidstream.
 - You'll have a different set of Subscription ID and public key values for each environment (integration and production). Be sure to use the correct values for each environment.
 :::
 
@@ -549,7 +549,7 @@ After a call to the applicable method listed in [Format Examples for DII](#forma
 The format of the file stored in the local file storage, or the filename itself, could change without notice. We recommend that you do not read or update the file directly.
 :::
  
-## Pass Generated Token for Bid Stream Use
+## Pass Generated Token for Bidstream Use
 
 In your mobile app, if the call to `generateIdentity` was successful, it returned an identity. The next step is to call the `getAdvertisingToken()` method, which gets the advertising token, as follows:
 
@@ -576,7 +576,7 @@ If successful, this method call returns the token&#8212;a non-null string object
 AgAAAQFt3aNLXKXEyWS8Tpezcymk1Acv3n+ClOHLdAgqR0kt0Y+pQWSOVaW0tsKZI4FOv9K/rZH9+c4lpm2DBpmFJqjdF6FAaAzva5vxDIX/67UOspsYtiwxH73zU7Fj8PhVf1JcpsxUHRHzuk3vHF+ODrM13A8NAVlO1p0Wkb+cccIIhQ==
 ```
 
-You can use this token to pass downstream for sending in the RTB bid stream.
+You can use this token to pass downstream for sending in the RTB bidstream.
 
 If the `getAdvertisingToken()` method call returns `null`, there was no identity or valid token generated.
 
@@ -623,7 +623,7 @@ UID2Manager.shared.generateIdentity(
 </TabItem>
 </Tabs>
 
-When this method call completes successfully, the advertising token (UID2 token) is available for you to send to the bid stream.
+When this method call completes successfully, the advertising token (UID2 token) is available for you to send to the bidstream.
 
 If the UID2 identity stored in local file storage has expired and cannot be refreshed, you must call the `generateIdentity` method again to generate a new identity and get the resulting UID2 token.
 

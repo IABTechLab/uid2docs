@@ -12,7 +12,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Integration Overview for Prebid.js
 
-This guide is an overview of integration options for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bid stream.
+This guide is an overview of integration options for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bidstream.
 <!-- 
 It includes the following sections:
 
@@ -20,7 +20,7 @@ It includes the following sections:
 - [Generating the UID2 Token](#generating-the-uid2-token)
 - [Refreshing the UID2 Token](#refreshing-the-uid2-token)
 - [Storing the UID2 Token in the Browser](#storing-the-uid2-token-in-the-browser)
-- [Passing the UID2 Token to the Bid Stream](#passing-the-uid2-token-to-the-bid-stream)
+- [Passing the UID2 Token to the Bidstream](#passing-the-uid2-token-to-the-bidstream)
 - [Integration Overview: High-Level Steps](#integration-overview-high-level-steps)
 
  -->
@@ -31,7 +31,7 @@ UID2 provides a Prebid.js module that supports the following:
 - [Generating the UID2 token](#generating-the-uid2-token)
 - [Refreshing the UID2 token](#refreshing-the-uid2-token)
 - [Storing the UID2 token in the browser](#storing-the-uid2-token-in-the-browser)
-- [Passing the UID2 token to the bid stream](#passing-the-uid2-token-to-the-bid-stream)
+- [Passing the UID2 token to the bidstream](#passing-the-uid2-token-to-the-bidstream)
 
 For additional flexibility, UID2 also provides alternative methods for some of the features and complementary products, such as a JavaScript SDK.
 
@@ -76,7 +76,7 @@ pbjs.setConfig({
 
 The cookie size can be significant, which could be a problem. However, if local storage is not an option, this is one possible approach.
 
-## Passing the UID2 Token to the Bid Stream
+## Passing the UID2 Token to the Bidstream
 
 To configure the UID2 module, call `pbjs.setConfig`. For details on supported parameters, refer to the guide that applies to your implementation:
 

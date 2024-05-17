@@ -29,7 +29,7 @@ import Link from '@docusaurus/Link';
 You can use the UID2 SDK for Android for the following:
 
 - Generating or establishing client identity using UID2.
-- Retrieving advertising tokens for bid stream use.
+- Retrieving advertising tokens for bidstream use.
 - Automatically refreshes UID2 tokens.
 
 The following iOS-related plugins, and associated documentation, are also available:
@@ -144,7 +144,7 @@ Set the Initial UID2 Identity (for instructions, see [Client-Server Integration 
 UID2Manager.shared.setIdentity(_ identity: UID2Identity)
 ```
 
-Get the UID2 token (advertising token) to pass to the Advertising SDK (for ad request or bid stream use):
+Get the UID2 token (advertising token) to pass to the Advertising SDK (for ad request or bidstream use):
 
 ```js
 UID2Manager.shared.getAdvertisingToken()

@@ -89,7 +89,7 @@ UID2 を実装する DSP には、以下のドキュメントリソースが用�
 
 <!-- ## Integration Requirements
 
-To integrate with UID2 to receive UID2s from brands (as first-party data) and data providers (as third-party data) and leverage them to inform bidding on UID2s in the bid stream, the buy-side participants must meet the following requirements:
+To integrate with UID2 to receive UID2s from brands (as first-party data) and data providers (as third-party data) and leverage them to inform bidding on UID2s in the bidstream, the buy-side participants must meet the following requirements:
 
 - Accept data in the form of UID2s
 - Bid on data in the form of UID2s
