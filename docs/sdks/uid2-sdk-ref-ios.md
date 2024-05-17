@@ -26,7 +26,7 @@ import Link from '@docusaurus/Link';
   -  [Variables](#variables)
 - [Code Samples](#code-samples) -->
 
-You can use the UID2 SDK for Android for the following:
+You can use the UID2 SDK for iOS for the following:
 
 - Generating or establishing client identity using UID2.
 - Retrieving advertising tokens for bidstream use.
