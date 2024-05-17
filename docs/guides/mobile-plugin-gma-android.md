@@ -34,7 +34,7 @@ To run this plugin, install the following:
 1. Google Mobile Ads SDK v22.0.0 or later:
    - [SDK](https://developers.google.com/admob/android/sdk)
    - [Release notes](https://developers.google.com/admob/android/rel-notes)
-1. UID2 SDK for Android v0.5.0:
+1. UID2 SDK for Android v0.5.0 or later:
    - [SDK](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
    - [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
 1. [UID2 Android GMA Plugin v0.5.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-gma/)
