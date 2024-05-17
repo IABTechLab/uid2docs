@@ -626,9 +626,7 @@ UID2Manager.shared.generateIdentity(
 
 When this method call completes successfully, the advertising token (UID2 token) is available for you to send to the bidstream.
 
-If the UID2 identity stored in local file storage has expired and cannot be refreshed, you must call the `generateIdentity` method again to generate a new identity and get the resulting UID2 token.
-
-The only exception is if response to the following Android method/iOS object indicates that the DII was opted out of UID2:
+If the UID2 identity stored in local file storage has expired and cannot be refreshed, you must call the `generateIdentity` method again to generate a new identity and get the resulting UID2 token. The only exception is when the response to the following Android method/iOS object indicates that the DII was opted out of UID2:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -668,7 +666,7 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-If `getAdvertisingToken()` returns null, and the identity status is not `OPT_OUT`/`optOut`, you'll need to generate a new token. To do this, pass the DII into the `generateIdentity` method again, see [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
+If `getAdvertisingToken()` returns null, and the identity status is not `OPT_OUT`/`optOut`, you'll need to generate a new token. To do this, pass the DII into the `generateIdentity` method again. For details, see [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 
 <!--## Opt-Out Handling
 

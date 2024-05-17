@@ -77,7 +77,7 @@ Follow the applicable instructions, for Android or iOS:
 <TabItem value='android' label='Android'>
 
 1. Check out the main branch of the [UID2 SDK for Android source code repository on GitHub](https://github.com/IABTechLab/uid2-android-sdk/tree/main).
-1. In Android Studio, open the directory that you checked out.
+1. In Android Studio (Jellyfish/v2023.3.1 or whichever future version supports the Android Gradle Plugin version required by the UID2 SDK for Android release at the time), open the directory that you checked out.
 1. Run the **dev-app** app.
 1. When you've started the app, make sure that the **Client Side** checkbox is checked.
 1. Enter an email or phone number, and then click the arrow to the right.
@@ -585,6 +585,7 @@ Some possible reasons for this, and some things you could do to troubleshoot, ar
 - The identity is invalid. In this scenario there are a couple of options:
   - Check to see whether there are any errors from the previous `generateIdentity` call.
   - Check the Identity status, using `UID2Manager.getInstance().getIdentityStatus()` for Android or `UID2Manager.shared.identityStatus` for iOS, to determine the status of the identity.
+    - It's possible that the DII has opted out of UID2, see [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk) for more details.
 - You could enable logging to get more information: see [Enable Logging](#enable-logging).
 - The advertising token inside the UID2 identity has expired, and the refresh token has also expired, so the SDK cannot refresh the token.
 
@@ -625,9 +626,7 @@ UID2Manager.shared.generateIdentity(
 
 When this method call completes successfully, the advertising token (UID2 token) is available for you to send to the bidstream.
 
-If the UID2 identity stored in local file storage has expired and cannot be refreshed, you must call the `generateIdentity` method again to generate a new identity and get the resulting UID2 token.
-
-The only exception is if response to the following Android method/iOS object indicates that the DII was opted out of UID2:
+If the UID2 identity stored in local file storage has expired and cannot be refreshed, you must call the `generateIdentity` method again to generate a new identity and get the resulting UID2 token. The only exception is when the response to the following Android method/iOS object indicates that the DII was opted out of UID2:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -667,7 +666,7 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-If `getAdvertisingToken()` returns null, and the identity status is not `OPT_OUT`/`optOut`, you'll need to generate a new token. To do this, pass the DII into the `generateIdentity` method again, see [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
+If `getAdvertisingToken()` returns null, and the identity status is not `OPT_OUT`/`optOut`, you'll need to generate a new token. To do this, pass the DII into the `generateIdentity` method again. For details, see [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 
 <!--## Opt-Out Handling
 
