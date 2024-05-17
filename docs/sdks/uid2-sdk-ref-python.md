@@ -218,7 +218,7 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
 ## Usage for Advertisers/Data Providers
 1. Create an instance of `IdentityMapClient` as an instance variable.
    ```py
-   client = IdentityMapClient(base_url, auth_key, secret_key)
+   client = IdentityMapClient(base_url, api_key, client_secret)
    ```
 
 2. Call a function that takes email addresses or phone numbers as input and generates an `IdentityMapResponse` object. The following example uses email addresses:
@@ -238,7 +238,7 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
    ```py
     mapped_identity = mapped_identities.get("email1@example.com")
     if mapped_identity is not None:
-    raw_uid = mapped_identity.get_raw_id()
+    raw_uid = mapped_identity.get_raw_uid()
     else:
     unmapped_identity = unmapped_identities.get("email1@example.com")
     reason = unmapped_identity.get_reason()
