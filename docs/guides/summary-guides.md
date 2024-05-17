@@ -35,7 +35,7 @@ Publisher integrations fall into the following main categories:
 The following resources are available for publisher web integrations.
 
 :::tip
-For a detailed summary of web integration options, see [Web Integration Overview](../guides/integration-options-publisher-web.md).
+For a detailed summary of web integration options, see [Web Integration Overview](integration-options-publisher-web.md).
 :::
 
 | Integration Guide | Content Description |
@@ -53,10 +53,11 @@ For a detailed summary of web integration options, see [Web Integration Overview
 
 The following resources are available for publishers integrating with Android or iOS devices.
 
-| Integration Guide | Content Description |
-| :--- | :--- |
-| [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) |An SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers that need to support Android apps. |
-| [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) | An SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers that need to support iOS apps. |
+| Integration Type| Documentation | Content Description |
+| :--- | :--- | :--- |
+| Android/iOS (Overview) | [Mobile Integration Overview for Android and iOS](integration-mobile-overview.md) | An overview of options for mobile app publishers who want to integrate with UID2 using the UID2 SDK for Android or the UID2 SDK for iOS. |
+| Android/iOS, Client-Side Integration | [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) | An integration guide for mobile app publishers who want to integrate with UID2 with changes only within the mobile app (no server-side changes). |
+| Android/iOS, Client-Server Integration | [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | An integration guide for mobile app publishers who want to integrate with UID2 by doing the following:<ol><li>Generating UID2 tokens server-side via either a Public or Private Operator.</li><li>Passing the resulting <Link href="../ref-info/glossary-uid#gl-identity">identities</Link> to a mobile app for passing into the bidstream.</li></ol> |
 
 ### Prebid Integrations
 
@@ -66,7 +67,7 @@ The following resources are available for publishers integrating with Prebid.
 | :--- | :--- |
 | [UID2 Integration Overview for Prebid.js](integration-prebid.md) | An overview of options for publishers who want to integrate with UID2 and generate UID2 tokens to be passed by Prebid.js in the RTB bidstream. |
 | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) | An integration guide for publishers who want to integrate with UID2 and want Prebid.js to manage token generation and automatic token refresh as well as passing the tokens into the RTB bidstream. This guide is for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach. |
-| [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bidstream. This guide is for publishers who are using a private operator or who want to generate tokens server-side. |
+| [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bidstream. This guide is for publishers who are using a private operator or who want to generate tokens server-side. |
 
 ### Google Ad Manager Integrations
 

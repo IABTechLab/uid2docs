@@ -109,8 +109,9 @@ The following resources are available for publisher integrations supporting Andr
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
-| Android | [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) | Android SDK reference for publishers who want to establish client identity using UID2 and retrieve advertising tokens on Android devices. |
-| iOS | [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) | iOS SDK reference is for publishers who want to establish client identity using UID2 and retrieve advertising tokens on iOS devices. |
+| Android/iOS (Overview) | [Mobile Integration Overview for Android and iOS](../guides/integration-mobile-overview.md) | An overview of options for mobile app publishers who want to integrate with UID2 using the UID2 SDK for Android or the UID2 SDK for iOS. |
+| Android/iOS, Client-Side Integration | [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) | An integration guide for mobile app publishers who want to integrate with UID2 with changes only within the mobile app (no server-side changes). |
+| Android/iOS, Client-Server Integration | [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | An integration guide for mobile app publishers who want to integrate with UID2 by doing the following:<ol><li>Generating UID2 tokens server-side via either a Public or Private Operator.</li><li>Passing the resulting <Link href="../ref-info/glossary-uid#gl-identity">identities</Link> to a mobile app for passing into the bidstream.</li></ol> |
 
 ### Prebid Integrations
 

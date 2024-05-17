@@ -34,16 +34,16 @@ To run this plugin, install the following:
 1. Google Mobile Ads SDK v22.0.0 or later:
    - [SDK](https://developers.google.com/admob/android/sdk)
    - [Release notes](https://developers.google.com/admob/android/rel-notes)
-1. UID2 SDK for Android v0.5.0:
+1. UID2 SDK for Android v0.5.0 or later:
    - [SDK](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
    - [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
 1. [UID2 Android GMA Plugin v0.5.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-gma/)
 
 ## Installation
 
-Prerequisite: Install the Google Mobile Ads SDK and the UID2 Android SDK.
+Prerequisite: Install the Google Mobile Ads SDK and the UID2 SDK for Android.
 
-Install the UID2 Android GMA Plugin v0.5.0 to an existing app with the UID2 Android SDK and Google GMA SDK installed. There are two installation options:
+Install the UID2 Android GMA Plugin v0.5.0 to an existing app with the UID2 SDK for Android and Google GMA SDK installed. There are two installation options:
 
 - [Gradle](#gradle)
 - [Maven](#maven)
@@ -52,7 +52,7 @@ Install the UID2 Android GMA Plugin v0.5.0 to an existing app with the UID2 Andr
 
 To install with Gradle, add the SDK as a dependency in the `build.gradle` file:
 
-``` javascript
+```js
 implementation 'com.uid2:uid2-android-sdk-gma:0.5.0'
 ```
 
