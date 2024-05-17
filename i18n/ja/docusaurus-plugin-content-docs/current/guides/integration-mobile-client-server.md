@@ -16,7 +16,7 @@ import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 
 # UID2 Client-Server Integration Guide for Mobile
 
-This guide is intended for mobile app publishers who want to integrate with UID2 by generating UID2 tokens server-side via a Public Operator or Private Operator and then passing the tokens and user identities into their mobile apps, which will in turn pass the tokens for bidstream use.  
+This guide is for mobile app publishers who want to integrate with UID2 by generating UID2 tokens server-side via a Public Operator or Private Operator and then passing the tokens and user identities into their mobile apps, which will in turn pass the tokens for bidstream use.  
 
 This is called Client-Server Integration because some integration steps are client-side and some are server-side.
 
@@ -63,7 +63,7 @@ You'll need to complete the following steps:
 
 ## Mobile SDK Version
 
-This guide provides instructions for using version v1.2.0 or higher of either of these UID2 mobile SDKs:
+This guide provides instructions for using version 1.2.0 or higher of either of these UID2 mobile SDKs:
 
 - UID2 SDK for Android
 - UID2 SDK for iOS
@@ -75,7 +75,7 @@ For instructions for installing the correct SDK/version into your mobile app, se
 
 To set up your account, follow the steps described in [Account Setup](../getting-started/gs-account-setup.md).
 
-When account setup is complete, you'll receive your unique API key and client secret. These values are unique to you, and it is important to keep them secure. For details, see [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret).
+When account setup is complete, you'll receive your unique API key and client secret. These values are unique to you, and it's important to keep them secure. For details, see [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret).
 
 ## Client-Server Mobile Integration Data Flow Overview
 
@@ -94,7 +94,7 @@ The first step of UID2 integration is to be able to generate the UID2 token on y
 There are two approaches to generating UID2 tokens on the server side by providing directly identifying information (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) (email address or phone number):
 
 - Integration with an SDK
-- Direct integration to API endpoints.
+- Direct integration to API endpoints
 
 Options are summarized in the following table.
 
@@ -114,7 +114,7 @@ Whatever integration option you choose to generate the <Link href="../ref-info/g
 
    For instructions, see [UID2 SDK for Java, Publisher Basic Usage](../sdks/uid2-sdk-ref-java.md#basic-usage) or [UID2 SDK for Python, Usage for Publishers](../sdks/uid2-sdk-ref-python.md#usage-for-publishers).
 
-   If you're using one of these options, the `Identity` response that you need for the rest of this guide is the output of the applicable method, as follows:
+   If you're using an SDK option, the `Identity` response that you need for the rest of this guide is the output of the applicable method, as follows:
 
    <Tabs groupId="language-selection">
    <TabItem value='java' label='Java'>
@@ -149,7 +149,7 @@ Token refresh is automatically enabled inside the UID2 mobile SDKs; you don't ne
 
 You might decide to do server-side token refresh if you want to keep your changes in the mobile apps as simple as possible.
 
-However, if you decide you want to manage token refresh on the server side and not the client/mobile side, you can do so using one of the following:
+If you want to manage token refresh on the server side and not the client/mobile side, you can do so using one of the following:
 
 - Call the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint.
 - Use one of the Publisher Client classes, in one of the UID2 server-side SDKs. These classes simplify the request into a single method call. 
@@ -197,7 +197,7 @@ UID2Settings.shared.environment = .custom(
 :::note
 Bear in mind the following differences between environments:
 - Tokens from the UID2 integration environment are not valid for passing to the bidstream.
-- You'll have a different set of Subscription ID and public key values for each environment (integration and production). Be sure to use the correct values for each environment.
+- You'll have a different set of API key and client secret values for each environment (integration and production). Be sure to use the correct values for each environment.
 :::
 
 ### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
@@ -253,7 +253,7 @@ UID2Manager.shared.setIdentity()
 
 ## Token Storage
 
-After you call the `setIdentity` method, the UID2 Identity is persisted in local file storage.
+After you call the `setIdentity` method, the UID2 identity is persisted in local file storage.
 
 :::warning
 The format of the file stored in the local file storage, or the filename itself, could change without notice. We recommend that you do not read or update the file directly.
@@ -292,7 +292,7 @@ If the `getAdvertisingToken()` method call returns `null`, there was no identity
 
 - The identity is invalid. In this scenario there are a couple of options:
   - Check to see whether there are any errors from the previous `setIdentity()` call.
-  - Check the Identity status, using `UID2Manager.getInstance().getIdentityStatus()` for Android or `UID2Manager.shared.identityStatus` for iOS, to determine the status of the identity.
+  - Check the status of the identity, using `UID2Manager.getInstance().getIdentityStatus()` for Android or `UID2Manager.shared.identityStatus` for iOS.
 - You could enable logging to get more information: see [Enable Logging](#enable-logging).
 - The advertising token inside the UID2 identity has expired, and the refresh token has also expired, so the SDK cannot refresh the token.
 
@@ -319,7 +319,7 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-On startup/resumption of the app, if `getAdvertisingToken()` returns `null`, it is time to generate new identity on the server by following the instructions in [Implement Server-Side Token Generation](#implement-server-side-token-generation). Then, pass the result into the mobile app’s UID2Manager again, see [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
+On startup/resumption of the app, if `getAdvertisingToken()` returns `null`, it is time to generate new identity on the server by following the instructions in [Implement Server-Side Token Generation](#implement-server-side-token-generation). Then, pass the result into the mobile app’s UID2Manager again: see [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 
 ## Enable Logging
 
@@ -335,7 +335,7 @@ By default, after a valid UID2 identity has been passed into the UID2Manager, it
 **Android Java**:
 
 ```java
-UID2Manager.getInstance()setAutomaticRefreshEnabled(false)
+UID2Manager.getInstance().setAutomaticRefreshEnabled(false)
 ```
 
 **Android Kotlin**:

@@ -16,11 +16,11 @@ import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 
 # UID2 Client-Side Integration Guide for Mobile
 
-This page is intended for mobile app publishers who want to integrate with UID2 with changes only within their mobile app.
+This guide is for mobile app publishers who want to integrate with UID2 with changes only within their mobile app.
 
-This guide does not apply to publishers who want to use a Private Operator, or who want to generate tokens server-side. Those publishers should follow the [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md).
+These instructions do not apply to publishers who want to use a Private Operator, or who want to generate tokens server-side. Those publishers should follow the [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md).
 
-The page provides a high-level overview, integration steps, and links to additional documentation.
+This page provides a high-level overview of integration steps and links to additional documentation.
 
 UID2 provides mobile SDKs for [Android](../sdks/uid2-sdk-ref-android.md) and [iOS](../sdks/uid2-sdk-ref-ios.md). Each SDK has the following features:
 
@@ -60,7 +60,7 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 
 ## Mobile SDK Version
 
-This guide provides instructions for using version v1.2.0 or higher of either of these UID2 mobile SDKs:
+This guide provides instructions for using version 1.2.0 or higher of either of these UID2 mobile SDKs:
 
 - UID2 SDK for Android
 - UID2 SDK for iOS
@@ -190,7 +190,7 @@ see UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist
 </TabItem>
 </Tabs>
 
-If necessary, you can also change the default Subscription ID and public key to ones assigned to you, and connect to the UID2 Production environment. For details, see [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment).
+If necessary, you can also change the default Subscription ID and public key to values assigned to you, and connect to the UID2 Production environment. For details, see [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment).
 
 ## Complete the UID2 Account Setup
 
@@ -331,10 +331,10 @@ You can invoke the `generateIdentity` method using any of the four accepted form
 
 The following examples demonstrate the different ways that you can configure the UID2 mobile SDK and list the requirements for the DII passed into the SDK:
 
-- Configure for Email Address
-- Configure for Hashed Email Address
-- Configure for Phone Number
-- Configure for Hashed Phone Number
+- Email, Unhashed
+- Email, Normalized and Hashed
+- Phone Number, Unhashed
+- Phone Number, Normalized and Hashed
 
 If the `generateIdentity` method is called multiple times, the UID2 mobile SDK uses the most recent configuration values.
 
@@ -387,7 +387,7 @@ Task<Void, Never> {
 
 In this scenario:
 
-- No normalization or hashing is required by the publisher
+- No normalization or hashing is required by the publisher.
 - The UID2 mobile SDK normalizes and hashes the email address before sending the encrypted hash to the UID2 service.
 
 </TabItem>
@@ -439,7 +439,7 @@ In this scenario:
 - The UID2 mobile SDK encrypts the hashed DII before sending it to the UID2 service.
 
 </TabItem>
-<TabItem value='example_phone_unhashed' label='Phone number, Unhashed'>
+<TabItem value='example_phone_unhashed' label='Phone Number, Unhashed'>
 
 The following example configures the UID2 mobile SDK with a phone number.
 
@@ -491,7 +491,7 @@ In this scenario:
 - The UID2 mobile SDK hashes the phone number before sending the encrypted hash to the UID2 service.
 
 </TabItem>
-<TabItem value='example_phone_hash' label='Phone, Normalized and Hashed'>
+<TabItem value='example_phone_hash' label='Phone Number, Normalized and Hashed'>
 
 The following example configures the UID2 mobile SDK with a hashed phone number.
 
@@ -551,7 +551,7 @@ The format of the file stored in the local file storage, or the filename itself,
  
 ## Pass Generated Token for Bidstream Use
 
-In your mobile app, if the call to `generateIdentity` was successful, it returned an identity. The next step is to call the `getAdvertisingToken()` method, which gets the advertising token, as follows:
+In your mobile app, if the call to `generateIdentity` was successful, it returned an identity. The next step is to call the `getAdvertisingToken()` method, as follows:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -584,8 +584,9 @@ Some possible reasons for this, and some things you could do to troubleshoot, ar
 
 - The identity is invalid. In this scenario there are a couple of options:
   - Check to see whether there are any errors from the previous `generateIdentity` call.
-  - Check the Identity status, using `UID2Manager.getInstance().getIdentityStatus()` for Android or `UID2Manager.shared.identityStatus` for iOS, to determine the status of the identity.
-    - It's possible that the DII has opted out of UID2, see [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk) for more details.
+  - Check the status of the identity, using `UID2Manager.getInstance().getIdentityStatus()` for Android or `UID2Manager.shared.identityStatus` for iOS.
+
+    It's possible that the DII has been opted out of UID2: for details, see [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk).
 - You could enable logging to get more information: see [Enable Logging](#enable-logging).
 - The advertising token inside the UID2 identity has expired, and the refresh token has also expired, so the SDK cannot refresh the token.
 
@@ -645,7 +646,7 @@ UID2Manager.shared.identityStatus
 </TabItem>
 </Tabs>
 
-A response status of `OPT_OUT` for Android or `optOut` for iOS, indicates that the DII has been opted out of UID2 and no identity/token should be generated for it. You might want to avoid making repeated `generateIdentity` calls: if the DII has a status of opted out, the UID2 token is not generated.
+A response status of `OPT_OUT` for Android, or `optOut` for iOS, indicates that the DII has been opted out of UID2 and no identity/token should be generated for it. You might want to avoid making repeated `generateIdentity` calls: if the DII has a status of opted out, the UID2 token is not generated.
 
 The best way to determine if DII is required by the UID2 mobile SDKs is to always call the `getAdvertisingToken()` method when the app starts up or resumes:
 

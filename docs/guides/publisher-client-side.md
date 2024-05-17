@@ -165,10 +165,10 @@ You can configure the SDK using any one of the four accepted DII formats, for an
 
 The following examples demonstrate the different ways that you can configure the UID2 SDK and list the requirements for the DII passed to the SDK:
 
-- Configure for Email Address
-- Configure for Hashed Email Address
-- Configure for Phone Number
-- Configure for Hashed Phone Number
+- Email, Unhashed
+- Email, Normalized and Hashed
+- Phone Number, Unhashed
+- Phone Number, Normalized and Hashed
 
 If the SDK is configured multiples times, it uses the most recent configuration values.
 
@@ -214,7 +214,7 @@ In this scenario:
 - The UID2 SDK encrypts the hash before sending it to the UID2 service.
 
 </TabItem>
-<TabItem value='example_phone_unhashed' label='Phone number, Unhashed'>
+<TabItem value='example_phone_unhashed' label='Phone Number, Unhashed'>
 
 The following example configures the UID2 SDK with a phone number.
 
@@ -233,7 +233,7 @@ In this scenario:
 - The UID2 SDK hashes the phone number before sending the encrypted hash to the UID2 service.
 
 </TabItem>
-<TabItem value='example_phone_hash' label='Phone, Normalized and Hashed'>
+<TabItem value='example_phone_hash' label='Phone Number, Normalized and Hashed'>
 
 The following example configures the UID2 SDK with a hashed phone number:
 

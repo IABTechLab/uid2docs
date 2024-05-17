@@ -217,7 +217,7 @@ await __uid2.setIdentityFromEmailHash(
 - UID2 SDK は、UID2 Service に送信する前にハッシュを暗号化します。
 
 </TabItem>
-<TabItem value='example_phone_unhashed' label='Phone number, Unhashed'>
+<TabItem value='example_phone_unhashed' label='Phone Number, Unhashed'>
 
 以下の例では、UID2 SDK を電話番号で設定しています。
 
@@ -236,7 +236,7 @@ await __uid2.setIdentityFromPhone(
 - UID2 SDK は、暗号化されたハッシュを UID2 Service に送信する前に、電話番号をハッシュ化します。
 
 </TabItem>
-<TabItem value='example_phone_hash' label='Phone, Normalized and Hashed'>
+<TabItem value='example_phone_hash' label='Phone Number, Normalized and Hashed'>
 
 以下の例では、UID2 SDK をハッシュ化された電話番号で設定しています。
 
