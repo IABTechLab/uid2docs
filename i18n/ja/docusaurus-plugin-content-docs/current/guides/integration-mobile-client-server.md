@@ -290,7 +290,7 @@ You can use this identity to pass downstream for sending in the RTB bidstream.
 
 If the `getAdvertisingToken()` method call returns `null`, there was no identity or valid token generated. Some possible reasons for this, and some things you could do to troubleshoot, are as follows:
 
-- The identity is invalid. - The identity is invalid. In this scenario there are a couple of options:
+- The identity is invalid. In this scenario there are a couple of options:
   - Check to see whether there are any errors from the previous `setIdentity()` call.
   - Check the Identity status, using `UID2Manager.getInstance().getIdentityStatus()` for Android or `UID2Manager.shared.identityStatus` for iOS, to determine the status of the identity.
 - You could enable logging to get more information: see [Enable Logging](#enable-logging).
