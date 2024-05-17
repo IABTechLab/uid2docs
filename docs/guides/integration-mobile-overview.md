@@ -32,7 +32,7 @@ UID2 provides SDKs for Android/iOS that support the following:
 - Refreshing the UID2 token
 - Storing the UID2 token
 
-For additional flexibility, UID2 also provides alternative methods for some of the features and complementary products, such as Google GMA/IMA Plugins (described later in this document).
+For additional flexibility, UID2 also provides alternative methods for some of the features and complementary products, such as UID2 Google GMA/IMA Plugins (described in the stated guides below).
 
 ## Client-Side or Client-Server Integration
 

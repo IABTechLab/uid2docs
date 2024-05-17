@@ -83,7 +83,7 @@ The binary is published on Sonatype:
 
 Minimum requirements for this SDK are as follows:
 
-- Android Studio version: 2022.1.1 Patch 2+
+- Android Studio version: v2023.3.1+
 - Minimum target Android version: 4.4+ / API 19+ (SDK) 5.0+ / API 21+ (Dev-App)
 
 <!-- See also: [Requirements](https://github.com/IABTechLab/uid2-android-sdk/blob/main/README.md#requirements). -->

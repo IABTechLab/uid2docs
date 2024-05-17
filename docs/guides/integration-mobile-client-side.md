@@ -627,6 +627,7 @@ When this method call completes successfully, the advertising token (UID2 token)
 
 If the UID2 identity stored in local file storage has expired and cannot be refreshed, you must call the `generateIdentity` method again to generate a new identity and get the resulting UID2 token.
 
+<!--
 The only exception is if response to the following Android method/iOS object indicates that the DII was opted out of UID2:
 
 <Tabs groupId="language-selection">
@@ -647,6 +648,7 @@ UID2Manager.shared.identityStatus
 </Tabs>
 
 A response status of `OPT_OUT` for Android or `optOut` for iOS, indicates that the DII has been opted out of UID2 and no identity/token should be generated for it. You might want to avoid making repeated `generateIdentity` calls: if the DII has a status of opted out, the UID2 token is not generated.
+-->
 
 The best way to determine if DII is required by the UID2 mobile SDKs is to always call the `getAdvertisingToken()` method when the app starts up or resumes:
 
@@ -667,7 +669,7 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-If `getAdvertisingToken()` returns null, and the identity status is not `OPT_OUT`/`optOut`, you'll need to generate a new token. To do this, pass the DII into the `generateIdentity` method again, see [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
+If `getAdvertisingToken()` returns null, <!--and the identity status is not `OPT_OUT`/`optOut`,--> you'll need to generate a new token. To do this, pass the DII into the `generateIdentity` method again, see [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 
 <!--## Opt-Out Handling
 
