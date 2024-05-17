@@ -77,7 +77,7 @@ Follow the applicable instructions, for Android or iOS:
 <TabItem value='android' label='Android'>
 
 1. Check out the main branch of the [UID2 SDK for Android source code repository on GitHub](https://github.com/IABTechLab/uid2-android-sdk/tree/main).
-1. In Android Studio, open the directory that you checked out.
+1. In Android Studio (Jellyfish/v2023.3.1 or whichever future version supports the Android Gradle Plugin version required by the UID2 SDK for Android release at the time), open the directory that you checked out.
 1. Run the **dev-app** app.
 1. When you've started the app, make sure that the **Client Side** checkbox is checked.
 1. Enter an email or phone number, and then click the arrow to the right.

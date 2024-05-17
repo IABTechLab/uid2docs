@@ -31,7 +31,7 @@ UID2 Interactive Media Ads (IMA) Plugin for iOS は、[Google IMA SDK for iOS](h
 
 このプラグインを実行するには、以下をインストールします:
 
-1. Google IMA SDK v3.18.5 or later:
+1. Google IMA SDK v3.19.1 or later:
    - [SDK](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side)
    - [Release history](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side/history)
 1. UID2 SDK for iOS v0.3.0 or later:
