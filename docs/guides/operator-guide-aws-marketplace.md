@@ -252,6 +252,69 @@ Here's what you need to know about upgrading:
 
 >TIP: For a smooth transition, create the new stack first. After the new stack is bootstrapped and ready to serve, delete the old stack. If you are using a load balancer, first get the new instances up and running and then convert the DNS name from the previous one to the new one.
 
+## Logs
+### Where to read logs
+To access the logs, the participants need to ssh into the EC2 instance and access the logs.
+
+The logs are located at `/var/logs/` . The logs are in the format of `operator.log-<timestamp rotated>` . 
+
+### Default log settings
+#### logrotate config
+- After deploying the operator instance, the default log rotation settings will be applied:
+    - 30 rotations of logs will be kept
+    - Normally if no abnormal logs, it should be equivalent to 30 days' worth of logs as it will be rotated daily
+    - If abnormality is encountered and the log size increased abnormally, the log will be rotated once it reaches 30MB
+- The default logrotate settings is below (defined in /etc/logrotate.d/uid2operator.conf ):
+```
+/var/log/operator.log*
+{
+        rotate 30
+        daily
+        maxsize 30M
+        dateext dateformat -%Y-%m-%d-%s
+        notifempty
+        sharedscripts
+        postrotate
+                /usr/sbin/syslog-ng-ctl reload
+        endscript
+}
+```
+- The explanation of the above config can be found https://linux.die.net/man/8/logrotate or running logrotate man in the linux environment
+
+#### cronjob config
+- The logrotate will have the below script generated in /etc/cron.daily by default:
+```
+#!/bin/sh
+   
+/usr/sbin/logrotate -s /var/lib/logrotate/logrotate.status /etc/logrotate.conf
+EXITVALUE=$?
+if [ $EXITVALUE != 0 ]; then
+    /usr/bin/logger -t logrotate “ALERT exited abnormally with [$EXITVALUE]”
+fi
+exit 0
+```
+- We put the below script in /etc/cron.d so that logrotate check will be run every minute:
+```
+# Run the minutely jobs
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+* * * * * root /usr/sbin/logrotate -s /var/lib/logrotate/logrotate.status /etc/logrotate.conf
+```
+- The reason why we have this as default setting is because:
+    - We want maxsize condition to be checked minutely
+    - The command will refer /var/lib/logrotate/logrotate.status and check if it has reached the daily rotation time, so it won't make extra rotation
+
+### How to change log rotation schedule
+Simply change the file etc/logrotate.d/uid2operator.conf following the logrotate documentation (https://linux.die.net/man/8/logrotate) will apply the custom change.
+
+**The service does NOT need to be restarted to pick up the change.**
+
+### Useful commands
+- Run `sudo logrotate -f /etc/logrotate.conf --debug` to see detail explanation of what will be rotated
+- Run `sudo logrotate -f /etc/logrotate.conf --force` to run one iteration of logrotate manually without scheduling it on some interval 
+- To reload syslog-ng, run `sudo /usr/sbin/syslog-ng-ctl reload` 
+
 ## Technical Support
 
 If you have trouble subscribing or deploying the product, contact us at [aws-mktpl-uid@thetradedesk.com](mailto:aws-mktpl-uid@thetradedesk.com).
