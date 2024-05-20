@@ -121,6 +121,13 @@ Follow these steps:
    - `operator.json` and `operator.parameters.json`
    - `gateway.json` and `gateway.parameters.json`
 
+#### Operator Version
+The latest zip can be found under Azure Version Below:
+
+import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
+
+<ReleaseMatrix />
+
 ### Create Resource Group
 
 In Azure, run the following command to create a resource group to run the UID2 operator:
