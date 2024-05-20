@@ -2,7 +2,7 @@
 title: Publisher Integration Guide, Server-Only
 sidebar_label: Server-Only
 pagination_label: Publisher Integration Guide, Server-Only
-description: Information about generating identity tokens using UID2 for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers.
+description: Information about generating identity tokens using UID2 for the RTB bidstream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers.
 hide_table_of_contents: false
 sidebar_position: 03
 ---
@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 # Publisher Integration Guide, Server-Only
 
-This guide is for publishers who want to generate UID2 tokens (advertising tokens) for the RTB bid stream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
+This guide is for publishers who want to generate UID2 tokens (advertising tokens) for the RTB bidstream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
 
 <!-- It includes the following sections:
 
@@ -51,7 +51,7 @@ There is also an example application that demonstrates the workflow. See [Sample
 
 ## Integration Steps
 
-The following diagram outlines the steps required for a user to establish a UID2 token with a publisher and how the UID2 token integrates with the RTB bid stream.
+The following diagram outlines the steps required for a user to establish a UID2 token with a publisher and how the UID2 token integrates with the RTB bidstream.
 
 If you're using a server-side SDK, the SDK takes care of all the steps that mention endpoints: for example, step 1-d, the publisher sends the user's DII to the token generation service.
 
@@ -82,7 +82,7 @@ Consider how you want to manage UID2 identity information and use it for targete
 | :--- | :--- | :--- |
 | 2-a | N/A| Send the `advertising_token` from step [1-e](#establish-identity-capture-user-data) to the SSP for bidding. Send the value as is. |
 
->NOTE: For an example of what a UID2 token might look like in the bid stream, when it's sent from an SSP to a DSP, see [What does a UID2 token look like in the bid stream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bid-stream)
+>NOTE: For an example of what a UID2 token might look like in the bidstream, when it's sent from an SSP to a DSP, see [What does a UID2 token look like in the bidstream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream)
 
 ### Refresh a UID2 Token
 

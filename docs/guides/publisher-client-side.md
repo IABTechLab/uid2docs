@@ -10,12 +10,13 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
+import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
 
 # Client-Side Integration Guide for JavaScript
 
 This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) using only JavaScript client-side changes on their website with minimum effort.
 
-This guide does not apply to publishers who want to use a [private operator](../ref-info/glossary-uid.md#gl-private-operator), or who want to generate tokens server-side. Those publishers should follow the [Server-Side Integration Guide for JavaScript](integration-javascript-server-side.md).
+This guide does not apply to publishers who want to use a <Link href="../ref-info/glossary-uid#gl-private-operator">private operator</Link>, or who want to generate tokens server-side. Those publishers should follow the [Server-Side Integration Guide for JavaScript](integration-javascript-server-side.md).
 
 It is also applicable to anyone who wants to share UID2 tokens in pixels, such as tracking pixels.
 
@@ -59,7 +60,7 @@ For an example website, see this example:
 
 Complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page. As part of the account setup process, you'll need to provide a list of **domain names** for the sites that you'll be using with this UID2 SDK for JavaScript.
 
-When account setup is complete, you'll receive a **public key** and **subscription ID**. These values are unique to you, and you'll use them to configure the UID2 module.
+When account setup is complete, you'll receive a **public key** and **Subscription ID**. These values are unique to you, and you'll use them to configure the UID2 module.
 
 :::tip
 Only root-level domains are required for account setup. For example, if you're going to use UID2 SDK for JavaScript on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
@@ -116,18 +117,12 @@ __uid2.init({
 });
 ```
 :::note
-Tokens from the UID2 integration environment are not valid for passing to the bid stream. For the integration environment, you will have different **subscription ID** and **public key** values.
+Tokens from the UID2 integration environment are not valid for passing to the bidstream. For the integration environment, you will have different **Subscription ID** and **public key** values.
 :::
 
 ### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
 
-By default, in the production environment, the JS SDK makes API calls to a UID2 server in the USA. Depending on where your users are based, you might consider choosing a server closer to your users in order to reduce latency.
-
-For example, a publisher in Singapore can set the base URL to `https://sg.prod.uidapi.com`. This is still the UID2 production environment, but the servers are in Singapore.
-
-For the list of possible base URLs, see [Environments](../getting-started/gs-environments.md).
-
-A publisher can also set the base URL to `https://global.prod.uidapi.com`. This URL directs readers to a region geographically close to them, which is ideal if your audience is geographically distributed.
+<ReduceLatency />
 
 To specify a different UID2 server, you can change it in the `init` call:
 
@@ -141,12 +136,12 @@ __uid2.init({
 
 UID2 provides the publisher with the following values required to use the client-side token generation feature:
 
-* A subscription ID
+* A Subscription ID
 * A public key
 
-You'll have one set of these values for your publisher testing environment, and a separate set for your production environment.
+You'll have one set of these values for your publisher Integration environment, and a separate set for your production environment.
 
-To configure the SDK, call one of the following methods, with an object containing the **public key** and **subscription ID** that you received during account setup, as well as the user's hashed or unhashed <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number):
+To configure the SDK, call one of the following methods, with an object containing the **public key** and **Subscription ID** that you received during account setup, as well as the user's hashed or unhashed <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number):
 
 *  `__uid2.setIdentityFromEmail`
 *  `__uid2.setIdentityFromEmailHash`
@@ -170,10 +165,10 @@ You can configure the SDK using any one of the four accepted DII formats, for an
 
 The following examples demonstrate the different ways that you can configure the UID2 SDK and list the requirements for the DII passed to the SDK:
 
-- Configure for Email Address
-- Configure for Hashed Email Address
-- Configure for Phone Number
-- Configure for Hashed Phone Number
+- Email, Unhashed
+- Email, Normalized and Hashed
+- Phone Number, Unhashed
+- Phone Number, Normalized and Hashed
 
 If the SDK is configured multiples times, it uses the most recent configuration values.
 
@@ -219,7 +214,7 @@ In this scenario:
 - The UID2 SDK encrypts the hash before sending it to the UID2 service.
 
 </TabItem>
-<TabItem value='example_phone_unhashed' label='Phone number, Unhashed'>
+<TabItem value='example_phone_unhashed' label='Phone Number, Unhashed'>
 
 The following example configures the UID2 SDK with a phone number.
 
@@ -238,7 +233,7 @@ In this scenario:
 - The UID2 SDK hashes the phone number before sending the encrypted hash to the UID2 service.
 
 </TabItem>
-<TabItem value='example_phone_hash' label='Phone, Normalized and Hashed'>
+<TabItem value='example_phone_hash' label='Phone Number, Normalized and Hashed'>
 
 The following example configures the UID2 SDK with a hashed phone number:
 
@@ -261,15 +256,15 @@ In this scenario:
 
 ## Token Storage and Refresh
 
-After calling one of the methods listed in [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript) successfully, an [identity](../ref-info/glossary-uid.md#gl-identity) is generated and stored in local storage, under the key `UID2-sdk-identity`. The SDK refreshes the UID2 token periodically.
+After calling one of the methods listed in [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript) successfully, an <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> is generated and stored in local storage, under the key `UID2-sdk-identity`. The SDK refreshes the UID2 token periodically.
 
-:::danger
-The format of the object stored in local storage could change without notice. We recommend that you do **not** read and update the object in local storage directly. 
+:::warning
+The format of the object stored in local storage could change without notice. We recommend that you do **not** read or update the object in local storage directly. 
 :::
 
 ## Example Integration Code and When to Pass DII to the UID2 SDK
 
-When this is the first page load with no [identity](../ref-info/glossary-uid.md#gl-identity), to start the token generation call you'll need to call one of the `setIdentity` methods with DII. Once an identity is generated, the advertising token ([UID2 token](../ref-info/glossary-uid.md#gl-uid2-token)) that you would send to the bid stream will be available by waiting for the `IdentityUpdated` event from the SDK. For an example, see how the value for `advertising_token_to_use` is set in the following code snippet.
+When this is the first page load with no <Link href="../ref-info/glossary-uid#gl-identity">identity</Link>, to start the token generation call you'll need to call one of the `setIdentity` methods with DII. Once an identity is generated, the advertising token ([UID2 token](../ref-info/glossary-uid.md#gl-uid2-token)) that you would send to the bidstream will be available by waiting for the `IdentityUpdated` event from the SDK. For an example, see how the value for `advertising_token_to_use` is set in the following code snippet.
 
 In some cases, the user's DII is not available on page load, and getting the DII has some associated cost. For example, an API call might be required to fetch the DII, or the user has to be prompted to provide the DII information.
 
@@ -356,7 +351,6 @@ To check that the token was successfully generated, use the browser's developer 
 If there was a problem generating the token, find the request in the **Network** tab. You can find the request by filtering for the string `client-generate`. Information about why the request failed should be available in the response.
 
 ![Publisher Workflow](images/NetworkTraffic.png)
-
 
 ## Example Code: Hashing and Base-64 Encoding
 

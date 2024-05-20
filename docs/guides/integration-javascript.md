@@ -32,7 +32,7 @@ The options for integrating with UID2 using the UID2 SDK for JavaScript are summ
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |
 | You have access to DII on the client side and want to do front-end development only. | Client-side integration | [Client-Side Integration Guide for JavaScript](publisher-client-side.md) |
-| You have access to DII on the server side and can do server-side development, or you are using a [Private Operator](../ref-info/glossary-uid.md#gl-private-operator). | Server-side integration | [Server-Side Integration Guide for JavaScript](integration-javascript-server-side.md) |
+| You have access to DII on the server side and can do server-side development, or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Server-side integration | [Server-Side Integration Guide for JavaScript](integration-javascript-server-side.md) |
 
 ## Generating the UID2 Token
 
@@ -51,11 +51,11 @@ The client-side option stores data using local storage. The server-side option u
 
 The cookie size can be significant, which could be a problem. However, if local storage is not an option, this is one possible approach.
 
-## Passing the UID2 Token to the Bid Stream
+## Passing the UID2 Token to the Bidstream
 
-The JavaScript SDK manages generating, refreshing, and storing the UID2 token, but it does not manage passing the token to the bid stream.
+The JavaScript SDK manages generating, refreshing, and storing the UID2 token, but it does not manage passing the token to the bidstream.
 
-You can pass the token into the bid stream using any option you choose&#8212;for example, Prebid.js. For some suggestions, see [Pass the UID2 Token Into the Bid Stream](integration-options-publisher-web.md#pass-the-uid2-token-into-the-bid-stream) in the *Web Integration Overview*.
+You can pass the token into the bidstream using any option you choose&#8212;for example, Prebid.js. For some suggestions, see [Pass the UID2 Token Into the Bidstream](integration-options-publisher-web.md#pass-the-uid2-token-into-the-bidstream) in the *Web Integration Overview*.
 
 ## JavaScript Integration Overview: High-Level Steps
 
