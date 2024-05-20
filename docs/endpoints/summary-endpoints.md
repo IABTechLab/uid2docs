@@ -22,7 +22,7 @@ The following endpoints are for retrieving and managing UID2 tokens (identity to
 | [POST&nbsp;/token/validate](post-token-validate.md) | Used for testing, to validate that an advertising token (UID2) matches the specified email address, phone number, or the respective hash. | Required | Required |
 | [POST&nbsp;/token/refresh](post-token-refresh.md) | Generate a new token for a user for their refresh token from the [POST&nbsp;/token/generate](post-token-generate.md) response. | N/A | Required |
 
-## Identity Maps
+## Identity Map and Opt-Out
 
 The following endpoints are used by advertisers and third-party data providers. Publishers do not need to use these endpoints.
 
@@ -30,4 +30,5 @@ The following endpoints are used by advertisers and third-party data providers. 
 | :--- | :--- | :--- | :--- |
 | [POST&nbsp;/identity/buckets](post-identity-buckets.md) | Monitor rotated salt buckets using their last updated timestamp. | Required | Required |
 | [POST&nbsp;/identity/map](post-identity-map.md) | Retrieve UID2s and salt bucket IDs for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
+| [POST&nbsp;/optout/status](post-optout-status.md) | Checks the opt-out status of raw UID2s. This endpoint takes a list of raw UID2s as input, and returns the raw UID2s that have opted out, as well as the time that the opt-out took place.  | Required | Required |
 

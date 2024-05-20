@@ -35,6 +35,14 @@ The following describes the integration workflow for DSP to support UID2 as part
 
 ### Honor User Opt-Outs
 
+This section includes the following information for DSPs, who must honor user opt-out of UID2:
+
+- [Opt-Out Webhook](#opt-out-webhook)
+- [POST /optout/status Endpoint](#post-optoutstatus-endpoint)
+- [Bidding Opt-Out Logic](#bidding-opt-out-logic)
+
+#### Opt-Out Webhook
+
 To receive and honor user opt-outs from the UID2 service, the DSP establishes a pre-configured interface (an opt-out webhook/API endpoint) and provides it to the UID2 service during onboarding. When a user opts out, the UID2 service sends the user's raw UID2 and the corresponding opt-out timestamp to the pre-configured interface.
 
 The UID2 service sends the following data within seconds of a user's opt-out, which the DSP records and uses the bidding logic defined in [Decrypt UID2 Tokens for RTB Use](#decrypt-uid2-tokens-for-rtb-use).
@@ -51,6 +59,11 @@ The following example illustrates a webhook configured to receive the raw UID2 a
 ```html
 https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 ```
+
+#### POST /optout/status Endpoint
+
+DSPs can check the opt-out status of raw UID2s using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint.
+
 #### Bidding Opt-Out Logic
 
 Use the logic below during bidding (2-b) to honor a user's opt-out.
