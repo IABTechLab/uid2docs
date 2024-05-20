@@ -78,7 +78,7 @@ When UID2 account registration is complete, and you've installed the gcloud CLI,
 -  Review information about the [deployment options](#deployment-options) available, including the benefits of each, and decide which to use.
 
 #### Operator Versions
-For {operator-version} pick lastest GCP version below: 
+For operator-version pick lastest GCP version below: 
 
 import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
 
