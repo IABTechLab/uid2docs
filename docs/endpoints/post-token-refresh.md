@@ -1,6 +1,6 @@
 ---
 title: POST /token/refresh
-description: Use the refresh token to generate an updated UID2 token.
+description: Uses the refresh token to generate an updated UID2 token.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -8,7 +8,7 @@ sidebar_position: 04
 import Link from '@docusaurus/Link';
 
 # POST /token/refresh
-Generate a new [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) by sending the corresponding unexpired refresh token, returned by the [POST&nbsp;/token/generate](post-token-generate.md) endpoint.
+Generates a new [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) by sending the corresponding unexpired refresh token, returned by the [POST&nbsp;/token/generate](post-token-generate.md) endpoint.
 
 Used by: This endpoint is used mainly by publishers.
 
@@ -100,6 +100,8 @@ An error response might look like the following:
 ```
 
 ### Response Body Properties
+
+The response body includes the properties shown in the following table.
 
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
