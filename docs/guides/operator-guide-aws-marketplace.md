@@ -156,7 +156,7 @@ To deploy UID2 Operator on AWS Marketplace, complete the following steps:
 
 1. Subscribe to [Unified ID 2.0 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la). It might take several minutes before AWS completes your subscription.
 2. Click **Configuration**.
-  a. for software version see below.
+    1. For software version, see the AWS Version in the table below.
 3. On the Configuration page, click **Launch** and then select the **Launch CloudFormation** action.
 4. In the Create stack wizard, specify the template and then click **Next**. The S3 path for the template file is automatically filled in.
 5. Fill in the [stack details](#stack-details) and then click **Next**.
