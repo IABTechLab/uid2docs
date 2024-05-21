@@ -58,12 +58,6 @@ When the registration process is complete, you'll receive the following:
   You'll receive a separate operator key for each deployment environment.
   :::
 
-- A link to the UID2 Private Operator for Azure GitHub release page. For example, it might look something like this: [https://github.com/IABTechLab/uid2-operator/releases/tag/v5.21.5-68a47aec9f-azure-cc](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.21.5-68a47aec9f-azure-cc).
-
-  :::note
-  This is just an example: use the link that we send you.
-  :::
-
 ### Install Azure CLI
 
 Install the Azure command-line interface. See [How to install the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) in the Azure documentation.
@@ -104,17 +98,9 @@ To deploy a new UID2 Private Operator for Azure, you'll need to complete the fol
 
 ### Download ZIP File and Extract Files
 
-The first step is to get set up with the deployment files you'll need.
+The first step is to get set up with the deployment files you'll need. Download the zip file linked in the table below for the Azure Download for the version you are installing. In most cases, you should install the latest version.
 
-Follow these steps:
-
-1. In the Azure Enclave GitHub release page that you were given after completing your UID2 account setup (see [Set Up UID2 Operator Account](#set-up-uid2-operator-account)), locate and download the ZIP file containing the files you'll need for your deployment. The ZIP file is named according to the following convention:
-
-   ```
-   uid2-operator-deployment-artifacts-{VERSION_NUMBER}-azure-cc.zip
-   ```
-
-2. Unzip the `uid2-operator-deployment-artifacts-{VERSION_NUMBER}-azure-cc.zip` file to extract the following files, needed for the deployment:
+1. Unzip the zip file to extract the following files, needed for the deployment:
 
    - `vault.json` and `vault.parameters.json`
    - `vnet.json` and `vnet.parameters.json`

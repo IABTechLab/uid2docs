@@ -69,8 +69,7 @@ When the registration process is complete, you'll receive the following:
 
 | Item | Description |
 | :--- | :--- |
-| `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration. The following example is fictitious, but shows what the Docker image URL might look like: `https://console.cloud.google.com/artifacts/docker/uid2-prod-project/us/iabtechlab/uid2-operator/{operator-version}`. Use the image URL provided to you as part of account setup.<br/>NOTE: The image is valid for both deployment environments. |
-| `{OPERATOR_KEY}` | An operator key, exclusive to you, that identifies you with the UID2 service as a private operator. Use this as the `OPERATOR_KEY` value during  configuration. This value is both your unique identifier and a password; store it securely and do not share it.<br/>NOTE: You'll receive a separate operator key for each deployment environment. |
+| `{OPERATOR_KEY}` | An operator key, exclusive to you, that identifies you with the UID2 service as a private operator. Use this as the `OPERATOR_KEY` value during  configuration. This value is both your unique identifier and a password; store it securely and do not share it. The operator key is not specific to a version of the operator.<br/>NOTE: You'll receive a separate operator key for each deployment environment. |
 | Instructions | Additional information details, such as instructions for setting up VMs or a link to the applicable information. |
 
 When UID2 account registration is complete, and you've installed the gcloud CLI, your next steps are:
@@ -162,7 +161,7 @@ Install Terraform if it is not already installed: visit [terraform.io](https://w
 
 #### Download the Template Files
 
-Follow the instructions you receive when your registration process is complete (see [UID2 Operator Account Setup](#uid2-operator-account-setup)) to download the template files listed in the following table.
+Download the zip file from the [Operator Versions](#operator-versions) above. Be sure to select the GCP Download for the version you are installing. In most circumstances, you should use the latest version. Unzip the files to a convenient location. You will have the files listed in the following table.
 
 | File | Details |
 | :--- | :--- |
@@ -179,11 +178,13 @@ Provide values for the input parameters, as needed, in the `terraform.tfvars` fi
 
    | Name | Type | Default | Required | Description |
    | :--- | :--- | :--- | :--- | :--- |
-   | `project_id` | `string` | n/a | yes | The ID of the GCP project that you want the UID2 Operator to run in; for example, `UID2-Operator-Production`. |
-   | `service_account_name` | `string` | n/a | yes | The name of the service account that you want to use for your UID2 Operator instance in GCP Confidential Space. |
-   | `uid_operator_image` | `string` | n/a | yes | The Docker image URL for the UID2 Private Operator for GCP, used in configuration, which you received as part of [UID2 Operator Account Setup](#uid2-operator-account-setup). For example: `us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator@sha256:{IMAGE_SHA}`. |
+   | `project_id` | `string` | `uid2-test` | yes | The ID of the GCP project that you want the UID2 Operator to run in; for example, `UID2-Operator-Production`. |
+   | `service_account_name` | `string` | `tf-test` | yes | The name of the service account that you want to use for your UID2 Operator instance in GCP Confidential Space. |
+   | `uid_operator_image` | `string` | `us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator:{version_number}` | yes | The Docker image URL for the UID2 Private Operator for GCP, used in configuration. The version number will change depending on the version being deployed |
    | `uid_operator_key` | `string` | n/a | yes | The UID2 operator key, which you received as part of [UID2 Operator Account Setup](#uid2-operator-account-setup). |
+   | `uid_operator_key_secret_name` | `string` | `secret-operator-key` | yes | The name of the key to create in Secret Manager. |
    | `uid_deployment_env` | `string` | `integ` | yes | Valid values: `integ` for integration environment, `prod` for production environment.<br/>Machine type is determined by the deployment environment: `integ` uses `n2d-standard-2` and `prod` uses `n2d-standard-16`. |
+   | `debug_mode` | `bool` | `true` | yes | Set to true to enable more diagnostic information. For the production environment, this must be set to `false` or the operator will not start. |
 
 1. (Optional, strongly recommended) Set the load balancer to HTTPS. Provide values for the parameters shown in the following table:
 
@@ -378,7 +379,7 @@ Placeholder values are defined in the following table.
 | `{INSTANCE_NAME}` | Your own valid VM name. |
 | `{ZONE}` | The Google Cloud zone that the VM instance will be deployed on. |
 | `{SERVICE_ACCOUNT}` | The service account email that you created as part of creating your account, in this format: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>For details, see [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions) (Step 4). |
-| `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration.<br/>For details, see [UID2 Operator Account Setup](#uid2-operator-account-setup). |
+| `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration.<br/>This can be found in the `terraform.tfvars` file in the GCP Download in [Operator Versions](#operator-versions). |
 | `{OPERATOR_KEY_SECRET_FULL_NAME}` | The full name that you specified for the Operator Key secret (see [Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager)), including the path, in the format `projects/<project_id>/secrets/<secret_id>/versions/<version>`. For example: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1`. |
 
 ##### Sample Deployment Script&#8212;Integ
