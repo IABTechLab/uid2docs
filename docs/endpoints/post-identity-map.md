@@ -1,6 +1,6 @@
 ---
 title: POST /identity/map
-description: Map DII to raw UID2s and salt bucket IDs.
+description: Maps DII to raw UID2s and salt bucket IDs.
 hide_table_of_contents: false
 sidebar_position: 08
 ---
@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # POST /identity/map
 
-Map multiple email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs. You can also use this endpoint to check for updates to opt-out information.
+Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs. You can also use this endpoint to check for updates to opt-out information.
 
 Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md).
 
@@ -167,6 +167,8 @@ If some identifiers have opted out from the UID2 ecosystem, the opted-out identi
 ```
 
 ### Response Body Properties
+
+The response body includes the properties shown in the following table.
 
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
