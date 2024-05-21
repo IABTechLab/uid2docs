@@ -1,6 +1,6 @@
 ---
 title: POST /token/generate
-description: Generate a UID2 token (advertising token) from DII. 
+description: Generates a UID2 token (advertising token) from DII. 
 hide_table_of_contents: false
 sidebar_position: 02
 ---
@@ -120,6 +120,8 @@ Here is an example response when the user has opted out.
 ```
 
 ### Response Body Properties
+
+The response body includes the properties shown in the following table.
 
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
