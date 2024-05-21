@@ -9,9 +9,11 @@ import Link from '@docusaurus/Link';
 
 # Getting Started with the UID2 Portal
 
-As part of requesting a UID2 Portal account, you must provide some information about yourself and your company, such as name and type of business.
+As part of requesting a UID2 Portal account, you must provide some information about yourself and your company, to your UID2 contact.
 
-Once you've initiated the request, there are two steps before you can actually access the UID2 Portal:
+Once you've initiated the request, with your UID2 contact, you'll receive a confirmation email that will allow you to log in to the UID2 Portal and finish setting up your account.
+
+There are two steps before you can actually access the UID2 Portal:
 
 1. You'll get a confirmation email. Click the button in the email to verify your account.
 1. Your account is created. This might take a few days. When the account is ready, you'll get a confirmation email and can then go into your account to verify the details, set up participants and teams, and configure your settings for UID2 sharing permissions.
@@ -26,25 +28,33 @@ If at any time you need assistance with the onboarding process, ask your UID2 co
 - [Log In for the First Time](#log-in-for-the-first-time)
 - [Reset Password](#reset-password) -->
 
-## Gather Information
+## Request Account
 
-There's some information you'll need to provide for your account request, and some additional information you'll need to collect so that you can set up your account when it's approved.
+There's some information you'll need to provide to your UID2 contact, for your account request, and some additional information you'll need to collect so that you can set up your account when it's approved.
 
 The following tables show the information to gather up front so that you'll have it in hand when needed.
 
 Information needed for your account request:
 
-| Item | Needed for... | 
+| Item | Details | 
 | :--- | :--- |
-| Information about yourself:<br/>- First name<br/>- Last name<br/>- Email<br/>- Job function | Request Account page |
-| Information about your company:<br/>- Participant name (Company name)<br/>- Participant type (for example, DSP) | Participant Information page |
+| Information about yourself | Provide the following:<br/>- First name<br/>- Last name<br/>- Email<br/>- Job function |
+| Information about your company | Provide the following:<br/>- Participant name (Company name)<br/>- Participant type (for example, DSP) |
 
-Information needed for account configuration:
+Once you've sent this information, your UID2 contact creates the account for you and sends you a confirmation email.
 
-| Item | Needed for... | 
-| :--- | :--- |
-| Team member information. For each:<br/>- First name<br/>- Last name<br/>- Email<br/>- Job function | Team Members page|
-| Email contact information. For each:<br/>- Email group name<br/>- Email alias<br/>- Contact type | Email Contacts page |
+## Logging In for the First Time
+
+When you receive the confirmation email, click the link to complete the initial account setup.
+
+(TODO GWH NEW ACCOUNT WORKFLOW}
+
+Create a new password and log into the UID2 Portal.  
+
+
+
+
+
 
 ## Request an Account
 
@@ -86,9 +96,19 @@ When you've requested your account including confirming your email address, your
 
 When the approval process is complete and your account has been authorized, you'll receive a confirmation email with a link to log in to the UID2 Portal.
 
-## Log In for the First Time
+## Set Up Team Members and Email Contacts
 
-When you log in for the first time, the first step is to set up your team. See [Team Members](team-members.md).
+When you log in for the first time, you can complete the following configuration steps:
+
+- Set up your team members.
+- Add info for anyone who should receive notifications about the latest updates and releases for UID2.
+
+The following table includes details of the information you'll need, and a link to instructions.
+
+| Item | Details | Link to Instructions | 
+| :--- | :--- | :--- |
+| Team member information | For each, provide the following:<br/>- First name<br/>- Last name<br/>- Email<br/>- Job function | [Team Members](team-members.md) |
+| Email contact information | For each, provide the following:<br/>- Email group name<br/>- Email alias<br/>- Contact type | [Email Contacts](email-contacts.md) |
 
 ## Reset Password
 
