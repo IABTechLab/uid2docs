@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Client-Side Integration Guide for Prebid.js
 
-This guide is for publishers who have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the client side and want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bid stream.
+This guide is for publishers who have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the client side and want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bidstream.
 
 To integrate with UID2 using Prebid.js, you'll need to make changes to the HTML and JavaScript on your site. No server-side work is required if you follow this guide.
 
@@ -60,7 +60,7 @@ Complete the UID2 account setup by following the steps described in the [Account
 Only root-level domains are required for account setup. For example, if you're going to use UID2 with Prebid.js on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
 
-When account setup is complete, you'll receive a public key and subscription ID. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key).
+When account setup is complete, you'll receive a public key and Subscription ID. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key).
 
 ### Add Prebid.js to Your Site
 <!-- GWH "Add Prebid.js to Your Site" section is identical for client side and server side. -->
@@ -76,7 +76,7 @@ To make sure that the UID2 module is installed, find the string `uid2IdSystem` i
 
 ### Configure the UID2 Module
 
-To configure the UID2 module, call `pbjs.setConfig` with an object containing the **public key** and **subscription ID** that you received during account setup, as well as the user's hashed or unhashed email address or phone number.
+To configure the UID2 module, call `pbjs.setConfig` with an object containing the **public key** and **Subscription ID** that you received during account setup, as well as the user's hashed or unhashed email address or phone number.
 
 Once it's configured, the UID2 module generates a UID2 token for the user and stores it in the user's browser. The module automatically refreshes the token as needed as long as your site is open in the user's browser.
 
@@ -116,7 +116,7 @@ const baseConfig = {
 ```
 
 :::note
-This example assumes that you're using the UID2 production environment. During integration testing, use the UID2 integration environment by setting `params.uid2ApiBase` to `'https://operator-integ.uidapi.com'`. Tokens from the UID2 integration environment are not valid for passing to the bid stream. For the integration environment, you will have different **subscription ID** and **public key** values.
+This example assumes that you're using the UID2 production environment. During integration testing, use the UID2 integration environment by setting `params.uid2ApiBase` to `'https://operator-integ.uidapi.com'`. Tokens from the UID2 integration environment are not valid for passing to the bidstream. For the integration environment, you will have different **Subscription ID** and **public key** values.
 :::
 
 ## Storing the UID2 Token in the Browser
@@ -183,9 +183,9 @@ To check that the UID2 module has successfully generated a UID2 token, call `pbj
 If there are problems with the integration, here are some steps you can take:
 
 - Check the browser console logs.
-- Check the values for **subscription ID** and **public key**:
+- Check the values for **Subscription ID** and **public key**:
   - Make sure they are exactly the same values that you received from the UID2 team.
-  - Check that you have the correct values for the environment you're using. You'll have different **subscription ID** and **public key** values for each [environment](../getting-started/gs-environments.md).
+  - Check that you have the correct values for the environment you're using. You'll have different **Subscription ID** and **public key** values for each [environment](../getting-started/gs-environments.md).
 - Check that you provided the domain name of the site to the UID2 team during account setup. If needed, to confirm, ask your UID2 contact.
 - Use the browser developer tools to inspect the API calls to the UID2 service.
 
@@ -198,7 +198,7 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 
 ## Optional: Reduce Latency by Setting the API Base URL for the Production Environment
 <!-- GWH "Optional: Reduce Latency by Setting the API Base URL for the Production Environment" section is identical for client side and server side. -->
-By default, the UID2 module makes API calls to a UID2 server in the USA. Depending on where your users are based, you might consider choosing a server closer to your users to reduce latency.
+By default, the UID2 module makes API calls to a UID2 production environment server in the USA. Depending on where your users are based, you might consider choosing a server closer to your users to reduce latency.
 
 To specify a different UID2 server when you're configuring the UID2 module, set the optional params.uid2ApiBase parameter, as shown in the following example:
 
@@ -216,4 +216,4 @@ pbjs.setConfig({
 }); 
 ```
 
-For the list of possible base URLs, see [Environments](../getting-started/gs-environments.md).
+For the list of valid base URLs, see [Environments](../getting-started/gs-environments.md).

@@ -1,7 +1,7 @@
 ---
 title: DSP Integration
 sidebar_label: DSP Integration Guide
-description: A guide for DSPs who transact on UID2s in the bid stream.
+description: A guide for DSPs who transact on UID2s in the bidstream.
 hide_table_of_contents: false
 sidebar_position: 05
 ---
@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # DSP Integration Guide
 
-This guide is for DSPs who transact on UID2s in the bid stream.
+This guide is for DSPs who transact on UID2s in the bidstream.
 
 DSPs receive UID2 tokens in bid requests, and decrypt the UID2 tokens to arrive at raw UID2s that they can use for bidding, using one of the server-side SDKs that support this function.
 

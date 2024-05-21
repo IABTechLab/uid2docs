@@ -71,6 +71,7 @@ const fullSidebar = [
         'portal/team-members',
         'portal/email-contacts',
         'portal/api-keys',
+        'portal/client-side-integration',
       ],
     },
 
@@ -143,8 +144,9 @@ const fullSidebar = [
             },
             collapsed: true,
             items: [
-              'sdks/uid2-sdk-ref-android',
-              'sdks/uid2-sdk-ref-ios',
+              'guides/integration-mobile-overview',
+              'guides/integration-mobile-client-side',
+              'guides/integration-mobile-client-server',
             ],
           },
           {

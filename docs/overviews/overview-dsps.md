@@ -36,7 +36,7 @@ Here are just some of the intended benefits for DSPs using UID2. You can:
 
 ## Workflow for DSPs
 
-The following steps provide a high-level outline of the workflow intended for DSPs that transact on UID2s in the bid stream.
+The following steps provide a high-level outline of the workflow intended for DSPs that transact on UID2s in the bidstream.
 
 The following processes occur in the background:
 - The advertiser and/or data provider passes first-party and third-party audience segments to the DSP.
@@ -45,15 +45,15 @@ The following processes occur in the background:
 
 The following steps occur for each bid/ad impression:
 
-1. A bid request is passed into the bid stream with the UID2 token.
-2. The DSP receives the bid request with the UID2 token from the bid stream.
+1. A bid request is passed into the bidstream with the UID2 token.
+2. The DSP receives the bid request with the UID2 token from the bidstream.
 3. The DSP:
    - Decrypts the UID2 token into a raw UID2.
    - Checks to see if the user opted out and, if so, does not bid.
    - Matches the raw UID2 to an audience segment. 
-4. The DSP sends a bid response to the bid stream with the UID2 token.
+4. The DSP sends a bid response to the bidstream with the UID2 token.
 
-![Buy-Side Workflow](images/UID2BuySIdeDSPWorkflow.jpg)
+![Buy-Side Workflow](images/UID2BuySIdeDSPWorkflow.svg)
 
 ## Getting Started
 
@@ -89,7 +89,7 @@ The following documentation resources are available for DSPs to implement UID2.
 
 <!-- ## Integration Requirements
 
-To integrate with UID2 to receive UID2s from brands (as first-party data) and data providers (as third-party data) and leverage them to inform bidding on UID2s in the bid stream, the buy-side participants must meet the following requirements:
+To integrate with UID2 to receive UID2s from brands (as first-party data) and data providers (as third-party data) and leverage them to inform bidding on UID2s in the bidstream, the buy-side participants must meet the following requirements:
 
 - Accept data in the form of UID2s
 - Bid on data in the form of UID2s

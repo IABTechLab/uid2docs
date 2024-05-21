@@ -61,7 +61,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
   - [Can I make token refresh calls from the client side?](#can-i-make-token-refresh-calls-from-the-client-side)
   - [How can I test the refresh token workflow?](#how-can-i-test-the-refresh-token-workflow)
   - [What is the uniqueness and rotation policy for UID2 tokens?](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
-  - [What does a UID2 token look like in the bid stream?](#what-does-a-uid2-token-look-like-in-the-bid-stream)
+  - [What does a UID2 token look like in the bidstream?](#what-does-a-uid2-token-look-like-in-the-bidstream)
 
 <!--   - [送信された DII と返されたトークンが一致していることをテストするにはどうすればよいですか？](#%E9%80%81%E4%BF%A1%E3%81%95%E3%82%8C%E3%81%9F-DII-%E3%81%A8%E8%BF%94%E3%81%95%E3%82%8C%E3%81%9F%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%8C%E4%B8%80%E8%87%B4%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B%EF%BC%9F)
   - [トークンを復号化する必要がありますか？](#%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%82%92%E5%BE%A9%E5%8F%B7%E5%8C%96%E3%81%99%E3%82%8B%E5%BF%85%E8%A6%81%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F)
@@ -128,7 +128,7 @@ SDKを使うかどうかで手順は少し異なります。
 
 UID2 Service は、ランダムな初期化ベクトルを使用して UID2 Token を暗号化します。UID2 Token は、ユーザーがインターネットを閲覧する際に、特定のユーザーに対して一意になります。つまり、UID2 Token が生成されるたびに、同じ UID2 であっても常に異なるトークンが生成されます。トークンが更新されるたびに新しいトークンが生成され、暗号化されます。この仕組みにより、信頼できない当事者がユーザーの身元を追跡できないようにすることができます。
 
-#### What does a UID2 token look like in the bid stream?
+#### What does a UID2 token look like in the bidstream?
 
 UID2 実装のアプローチにはさまざまな方法があります。以下は、UID2 Token がビッドストリームでどのように渡されるかを示すコードスニペットの一例です:
 

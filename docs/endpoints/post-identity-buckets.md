@@ -1,6 +1,6 @@
 ---
 title: POST /identity/buckets
-description: Monitor rotated salt buckets.
+description: Monitors rotated salt buckets.
 hide_table_of_contents: false
 sidebar_position: 07
 ---
@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # POST /identity/buckets
 
-Monitor rotated salt buckets.
+Monitors rotated salt buckets.
 
 Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md).
 
@@ -23,7 +23,7 @@ Used by: This endpoint is used mainly by advertisers and data providers. For det
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md). |
+| `{environment}` | string | Required | Integration environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md). |
 
 >NOTE: The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.
 
@@ -80,6 +80,8 @@ A successful decrypted response returns a list of salt bucket IDs and the timest
 }
 ```
 ### Response Body Properties
+
+The response body includes the properties shown in the following table.
 
 | Property | Format | Description |
 | :--- | :--- | :--- |

@@ -437,7 +437,7 @@ When a user logs out of the publisher's site, make the following call:
 
 After this function is executed, the [getAdvertisingToken()](#getadvertisingtoken-string) function returns `undefined` and the [isLoginRequired()](#isloginrequired-boolean) function returns `true`.
 
-:::danger
+:::warning
 If you need to provide a `cookieDomain` or `cookiePath` for the SDK to access the correct cookie, and `init` has not been completed, the SDK cannot clear the cookie. In this case, no error is raised.
 :::
 
@@ -504,7 +504,7 @@ The following is an example of the UID2 cookie structure:
    }
 }
 ```
-:::danger
+:::warning
 The contents of the `private` object are explicitly unspecified and are left for the SDK to interpret. Do not make any assumptions about the structure, semantics, or compatibility of this object. Any updates to the cookie must retain its structure.
 :::
 

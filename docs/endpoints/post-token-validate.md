@@ -1,6 +1,6 @@
 ---
 title: POST /token/validate
-description: Validate an advertising token (for testing purposes). 
+description: Validates an advertising token (for testing purposes). 
 hide_table_of_contents: false
 sidebar_position: 03
 ---
@@ -8,7 +8,7 @@ sidebar_position: 03
 import Link from '@docusaurus/Link';
 
 # POST /token/validate
-Validate that an advertising token matches the specified hashed or unhashed email address or phone number. 
+Validates that an advertising token matches the specified hashed or unhashed email address or phone number. 
 
 Used by: This endpoint is used mainly by publishers.
 
@@ -25,7 +25,7 @@ Used by: This endpoint is used mainly by publishers.
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Testing environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md). |
+| `{environment}` | string | Required | Integration environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md). |
 
 >NOTE: The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.
 

@@ -31,6 +31,7 @@ import Link from '@docusaurus/Link';
 <li><a href="#gl-app-name">App name</a></li>
 <li><a href="#gl-authorization-header">Authorization header</a></li>
 <li><a href="#gl-bearer-token">Bearer token</a></li>
+<li><a href="#gl-bidstream">Bidstream</a></li>
 <li><a href="#gl-client-key">Client key</a></li>
 <li><a href="#gl-client-secret">Client secret</a></li>
 <li><a href="#gl-closed-operator">Closed Operator</a></li>
@@ -114,7 +115,7 @@ import Link from '@docusaurus/Link';
 <dd>See <a href="#gl-client-secret">client secret</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-app-name">App name</MdxJumpAnchor></dt>
-<dd>The Android application ID, the iOS app store ID, or the iOS bundle identifier.</dd>
+<dd>In the context of mobile integrations, the app name is the Android application ID, the iOS app store ID, or the iOS bundle identifier.</dd>
 
 <dt><MdxJumpAnchor id="gl-authorization-header">Authorization header</MdxJumpAnchor></dt>
 <dd>The Authorization header is a way to authenticate the client to the UID2 service.</dd>
@@ -128,6 +129,10 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-bearer-token">Bearer token</MdxJumpAnchor></dt>
 <dd>A bearer token is a special string that identifies the client. For authentication, some UID2 endpoints require the <a href="#gl-client-key">client key</a> to be specified as a bearer token in the Authorization header of the request: for example, <a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a>.</dd>
+
+<dt><MdxJumpAnchor id="gl-bidstream">Bidstream</MdxJumpAnchor></dt>
+<dd>To place a request for an ad to be placed in an advertising spot (bid request), the publisher sends different pieces of information, so that advertisers can bid on it, generally through an advertising exchange or DSP. The flow of bidding data is the bidstream.</dd>
+<dd>Bidstream data goes from publishers to other entities (depending on the publisher's configuration) and back to the publisher.</dd>
 
 </dl>
 
@@ -278,7 +283,7 @@ import Link from '@docusaurus/Link';
 <dd>A private instance of the Operator Service, run by a <a href="#gl-private-operator">Private Operator</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-public-key">Public key</MdxJumpAnchor></dt>
-<dd>For server-side publisher integrations, the public key is one of the two values issued to publishers as their UID2 credentials. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
+<dd>For client-side publisher integrations, the public key is one of the two values issued to publishers as their UID2 credentials. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-public-operator">Public Operator</MdxJumpAnchor></dt>
 <dd>A Public <a href="#gl-operator">Operator</a> is an entity that runs a public instance of the UID2 Operator Service. For example, The Trade Desk currently serves as a Public Operator for the UID2 framework, available to all participants.</dd>
@@ -336,7 +341,7 @@ import Link from '@docusaurus/Link';
 <dd>SSO is an acronym for Single sign-on. SSO allows a user to log in with the same credentials (usually, but not always, ID and password) to one of several software systems, such as apps or websites. SSO allows the user to log in once to multiple applications or sites using one set of credentials. With SSO, websites/apps do not have to maintain their own authentication systems.</dd>
 
 <dt><MdxJumpAnchor id="gl-subscription-id">Subscription ID</MdxJumpAnchor></dt>
-<dd>For server-side publisher integrations, the subscription ID is one of the two values issued to publishers as their UID2 credentials. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
+<dd>For client-side publisher integrations, the Subscription ID is one of the two values issued to publishers as their UID2 credentials. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
 
 </dl>
 
@@ -345,7 +350,7 @@ import Link from '@docusaurus/Link';
 <dl>
 
 <dt><MdxJumpAnchor id="gl-tokenized-sharing">Tokenized sharing</MdxJumpAnchor></dt>
-<dd>Tokenized sharing means encrypting <a href="#gl-dii">DII</a> or <a href="#gl-raw-uid2">Raw UID2s</a> into <a href="#gl-uid2-token">UID2 tokens</a> and sharing the tokens with authorized recipients. Using UID2 tokens helps protect raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bid stream or via pixels, but you can use it in any sharing use case.</dd>
+<dd>Tokenized sharing means encrypting <a href="#gl-dii">DII</a> or <a href="#gl-raw-uid2">Raw UID2s</a> into <a href="#gl-uid2-token">UID2 tokens</a> and sharing the tokens with authorized recipients. Using UID2 tokens helps protect raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bidstream or via pixels, but you can use it in any sharing use case.</dd>
 <dd>For details, see <a href="../sharing/sharing-tokenized-overview">Tokenized Sharing Overview</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-transparency-and-control-portal">Transparency and Control Portal</MdxJumpAnchor></dt>
@@ -376,7 +381,7 @@ import Link from '@docusaurus/Link';
 <dd>A Unified ID 2.0 (UID2) token, also called an advertising token, is an encrypted form of a <a href="#gl-raw-uid2">raw UID2</a>.</dd>
 <dd>UID2 tokens are generated from hashed or unhashed email addresses or phone numbers that are converted to raw UID2s and then encrypted. The UID2 token is a unique value; no two UID2 tokens are the same. UID2 tokens are case sensitive.</dd>
 <dd>The token has a limited life, but can be refreshed in the background using the <a href="#gl-refresh-token">refresh token</a>.</dd>
-<dd>Publishers send UID2 tokens in the bid stream.</dd>
+<dd>Publishers send UID2 tokens in the bidstream.</dd>
 <dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-unified-id-20">Unified ID 2.0 (UID2)</MdxJumpAnchor></dt>

@@ -144,7 +144,7 @@ UID2 は、Client-Side のトークン生成機能を使用するために必要
 
 パブリッシャーのテスト環境用に 1 セット、本番環境用に別のセットを用意します。
 
-SDK を設定するには、アカウントセットアップ時に受け取った **public key** と **subscription ID**、およびユーザーのハッシュ化またはハッシュ化していない [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) を含むオブジェクトを指定して、以下のメソッドのいずれかを呼び出します:
+SDK を設定するには、アカウントセットアップ時に受け取った **public key** と **Subscription ID**、およびユーザーのハッシュ化またはハッシュ化していない [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) を含むオブジェクトを指定して、以下のメソッドのいずれかを呼び出します:
 
 *  `__uid2.setIdentityFromEmail`
 *  `__uid2.setIdentityFromEmailHash`
@@ -217,7 +217,7 @@ await __uid2.setIdentityFromEmailHash(
 - UID2 SDK は、UID2 Service に送信する前にハッシュを暗号化します。
 
 </TabItem>
-<TabItem value='example_phone_unhashed' label='Phone number, Unhashed'>
+<TabItem value='example_phone_unhashed' label='Phone Number, Unhashed'>
 
 以下の例では、UID2 SDK を電話番号で設定しています。
 
@@ -236,7 +236,7 @@ await __uid2.setIdentityFromPhone(
 - UID2 SDK は、暗号化されたハッシュを UID2 Service に送信する前に、電話番号をハッシュ化します。
 
 </TabItem>
-<TabItem value='example_phone_hash' label='Phone, Normalized and Hashed'>
+<TabItem value='example_phone_hash' label='Phone Number, Normalized and Hashed'>
 
 以下の例では、UID2 SDK をハッシュ化された電話番号で設定しています。
 
@@ -259,15 +259,15 @@ await __uid2.setIdentityFromPhoneHash(
 
 ## Token Storage and Refresh
 
-[Configure the SDK for JavaScript](#configure-the-sdk-for-javascript) に記載されているメソッドのいずれかを正常に呼び出すと、[identity](../ref-info/glossary-uid.md#gl-identity) が生成され、`UID2-sdk-identity` というキーでローカルストレージに保存されます。SDK は UID2 Token を定期的にリフレッシュします。
+[Configure the SDK for JavaScript](#configure-the-sdk-for-javascript) に記載されているメソッドのいずれかを正常に呼び出すと、<Link href="../ref-info/glossary-uid#gl-identity">identity</Link> が生成され、`UID2-sdk-identity` というキーでローカルストレージに保存されます。SDK は UID2 Token を定期的にリフレッシュします。
 
-:::danger
+:::warning
 ローカルストレージに保存されているオブジェクトのフォーマットは予告なく変更される可能性があります。ローカルストレージのオブジェクトを直接読み込んだり更新したり**しないこと**でください。
 :::
 
 ## Example Integration Code and When to Pass DII to the UID2 SDK
 
-[identity](../ref-info/glossary-uid.md#gl-identity) がない状態で最初のページをロードする場合、トークン生成の呼び出しを開始するには、DII で `setIdentity` メソッドのいずれかを呼び出す必要があります。ID が生成されると、SDK からの `IdentityUpdated` イベントを待つことで、ビッドストリームに送信する Advertiser Token ([UID2 token](../ref-info/glossary-uid.md#gl-uid2-token)) を利用できるようになります。例として、`advertising_token_to_use` の値がどのように設定されるかを以下のコードスニペットで示します。
+<Link href="../ref-info/glossary-uid#gl-identity">identity</Link> がない状態で最初のページをロードする場合、トークン生成の呼び出しを開始するには、DII で `setIdentity` メソッドのいずれかを呼び出す必要があります。ID が生成されると、SDK からの `IdentityUpdated` イベントを待つことで、ビッドストリームに送信する Advertiser Token ([UID2 token](../ref-info/glossary-uid.md#gl-uid2-token)) を利用できるようになります。例として、`advertising_token_to_use` の値がどのように設定されるかを以下のコードスニペットで示します。
 
 場合によっては、ユーザーの DII はページロード時に利用できず、DII の取得には何らかの関連コストがかかります。例えば、DII を取得するために API コールが必要な場合や、DII 情報を提供するためにユーザーにプロンプトが表示される場合があります。
 
