@@ -238,10 +238,10 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
    ```py
     mapped_identity = mapped_identities.get("email1@example.com")
     if mapped_identity is not None:
-    raw_uid = mapped_identity.get_raw_uid()
+        raw_uid = mapped_identity.get_raw_uid()
     else:
-    unmapped_identity = unmapped_identities.get("email1@example.com")
-    reason = unmapped_identity.get_reason()
+        unmapped_identity = unmapped_identities.get("email1@example.com")
+        reason = unmapped_identity.get_reason()
    ```
 
 ## Usage for DSPs
