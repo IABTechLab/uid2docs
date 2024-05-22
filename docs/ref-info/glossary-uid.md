@@ -190,7 +190,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-euid-framework">EUID framework</MdxJumpAnchor></dt>
 <dd>The European Unified ID (EUID) framework enables deterministic identity for advertising opportunities on the open internet for many <a href="../intro#participants">participants</a> across the advertising ecosystem. It enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework focuses on transparency and privacy.</dd>
-<dd>EUID operates in the European region, including many European countries, such as France, Italy, and Spain, some non-European countries, such as Iceland, and some other regions, such as the Azores, Martinique, and the United Kingdom.</dd>
+<dd>EUID operates in the European region, including many European countries, such as France, Italy, and Spain, some non-European countries, such as Iceland, and some other regions, such as the Azores, Martinique, and the United Kingdom. It was designed with EU privacy law compliance in mind.</dd>
 <dd>There are many similarities between UID2 and EUID, but they are completely separate, and their tokens are not interchangeable.</dd>
 
 </dl>
@@ -370,8 +370,9 @@ import Link from '@docusaurus/Link';
 <dl>
 
 <dt><MdxJumpAnchor id="gl-uid">UID</MdxJumpAnchor></dt>
-<dd>UID is a general term used to encompass both <a href="#gl-uid2-framework">UID2</a> and <a href="#gl-euid">EUID</a>. The UID2 framework is comparable to the EUID framework, but there are also important differences, and their tokens are not interoperable.</dd>
+<dd>UID is a general term used to encompass both <a href="#gl-uid2-framework">UID2</a> and <a href="#gl-euid">EUID</a>.</dd>
 <dd>Since there are code components that support both UID2 and EUID, such as the server-side SDKs, the term UID is used as an umbrella term.</dd>
+<dd>There are many similarities between UID2 and EUID, but they are completely separate, and their tokens are not interchangeable.</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-framework">UID2 framework</MdxJumpAnchor></dt>
 <dd>The Unified ID 2.0 (UID2) framework enables deterministic identity for advertising opportunities on the open internet for many <a href="../intro#participants">participants</a> across the advertising ecosystem. It enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework focuses on transparency and privacy.</dd>
