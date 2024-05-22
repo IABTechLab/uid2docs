@@ -63,11 +63,11 @@ dependencies: [
 
 ### Installing with Xcode
 
-Add the following entry in the Package Dependencies for your apps:
+Add the following entry in the package dependencies for your apps:
 
 | Name | Location | Dependency Rule                         |
 | :--- | :--- |:----------------------------------------| 
-| uid2-ios-plugin-google-gma | `git@github.com:IABTechLab/uid2-ios-plugin-google-gma.git` | Exact Version: 0.3.0 |
+| uid2-ios-plugin-google-gma | `git@github.com:IABTechLab/uid2-ios-plugin-google-gma.git` | Exact version: 0.3.0 |
 
 ### Installing with CocoaPods
 
