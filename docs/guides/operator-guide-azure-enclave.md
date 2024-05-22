@@ -52,11 +52,11 @@ Ask your UID2 contact to register your organization as a UID2 Operator. If you'r
 
 When the registration process is complete, you'll receive the following:
 
-- An operator key, exclusive to you, that identifies you with the UID2 service as a Private Operator. During configuration, use this as the value for `OPERATOR_KEY`. This value is both your unique identifier and a password; store it securely and do not share it.
+An operator key, exclusive to you, that identifies you with the UID2 service as a Private Operator. During configuration, use this as the value for `OPERATOR_KEY`. This value is both your unique identifier and a password; store it securely and do not share it.
 
-  :::note
-  You'll receive a separate operator key for each deployment environment.
-  :::
+:::note
+You'll receive a separate operator key for each deployment environment.
+:::
 
 ### Install Azure CLI
 
@@ -98,9 +98,9 @@ To deploy a new UID2 Private Operator for Azure, you'll need to complete the fol
 
 ### Download ZIP File and Extract Files
 
-The first step is to get set up with the deployment files you'll need. Download the zip file linked in the table below for the Azure Download for the version you are installing. In most cases, you should install the latest version.
+The first step is to get set up with the deployment files you'll need. Download the ZIP file linked in the following table, Azure Download column, for the latest version. 
 
-1. Unzip the zip file to extract the following files, needed for the deployment:
+1. Unzip the ZIP file to extract the following files, needed for the deployment:
 
    - `vault.json` and `vault.parameters.json`
    - `vnet.json` and `vnet.parameters.json`
@@ -108,7 +108,7 @@ The first step is to get set up with the deployment files you'll need. Download 
    - `gateway.json` and `gateway.parameters.json`
 
 #### Operator Version
-The latest zip can be found under Azure Version Below:
+The latest ZIP file is linked in the Azure Download column in the following table.
 
 import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
 
