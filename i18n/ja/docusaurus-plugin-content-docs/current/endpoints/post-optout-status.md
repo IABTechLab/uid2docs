@@ -13,10 +13,11 @@ Checks the opt-out status of raw UID2s. Given a list of raw UID2s, this endpoint
 
 Used by: This endpoint is used by advertisers, data providers, DSPs, and sharers. More generally, this is for participants who have access to raw UID2s but do not have access to the underlying email addresses or phone numbers and want to know opt-out status.
 
-For details, see one of the following guides:
+For details, refer to the following documentation, depending on your role:
 
 - [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md)
 - [DSP Integration Guide](../guides/dsp-guide.md)
+- [UID2 Sharing: Overview](../sharing/sharing-overview)
 
 ## Batch Size and Request Parallelization Requirements
 
@@ -66,8 +67,6 @@ The following is an example of an unencrypted JSON request body:
 ```
 
 The following is an encrypted opt-out status request example:
-
-(**GWH_MC just checking that the example below is all correct, with the pipe and the links in it?**)
 
 ```json
 echo '{"advertising_ids": ["ufv1uGRovNiJNbJqiE/xzM+aKE7jP69MgspOZoEQ3xc="]}' | python3 uid2_request.py https://prod.uidapi.com/v2/optout/status [Your-Client-API-Key] [Your-Client-Secret]

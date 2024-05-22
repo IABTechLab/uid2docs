@@ -65,12 +65,12 @@ The binary is published on the Maven repository:
 
 The initialization step depends on the role, as shown in the following table.
 
-| Role                           | Create Instance of Class | Link to Instructions                              |
-|:-------------------------------| :--- |:--------------------------------------------------|
-| Publisher                      | `PublisherUid2Client` | [Usage for Publishers](#usage-for-publishers)     |
-| Advertisers and Data Providers | `IdentityMapClient` | [Usage for Advertisers and Data Providers](#usage-for-advertisers-and-data-providers)     |
-| DSP                            | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps)                 |
-| Sharer                         | `SharingClient` | [Usage for UID2 Sharers](#usage-for-uid2-sharers) |
+| Role                     | Create Instance of Class | Link to Instructions                                                         |
+|:-------------------------| :--- |:-----------------------------------------------------------------------------|
+| Publisher                | `PublisherUid2Client` | [Usage for Publishers](#usage-for-publishers)                                |
+| Advertiser/Data Provider | `IdentityMapClient` | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
+| DSP                      | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps)                                            |
+| Sharer                   | `SharingClient` | [Usage for UID2 Sharers](#usage-for-uid2-sharers)                            |
 
 You will need to provide the values necessary for the SDK to authenticate with the UID2 service.
 
@@ -310,7 +310,7 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
 
    If the user has opted out, this method returns null, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `tokenRefreshResponse.isOptout()` function.
 
-## Usage for Advertisers and Data Providers
+## Usage for Advertisers/Data Providers
 1. Create an instance of IdentityMapClient as an instance variable.
    ```java
    final private IdentityMapClient identityMapClient = new IdentityMapClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
