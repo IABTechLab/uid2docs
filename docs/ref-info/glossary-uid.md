@@ -47,6 +47,7 @@ import Link from '@docusaurus/Link';
 <td>
 <ul>
 <li><a href="#gl-enclave">Enclave</a></li>
+<li><a href="#gl-euid">EUID</a></li>
 <li><a href="#gl-first-level-hash">First-level hash</a></li>
 <li><a href="#gl-hash">Hash</a></li>
 <li><a href="#gl-identity">Identity</a></li>
@@ -85,6 +86,7 @@ import Link from '@docusaurus/Link';
 <li><a href="#gl-subscription-id">Subscription ID</a></li>
 <li><a href="#gl-tokenized-sharing">Tokenized sharing</a></li>
 <li><a href="#gl-transparency-and-control-portal">Transparency and Control Portal</a></li>
+<li><a href="#gl-uid">UID</a></li>
 <li><a href="#gl-uid2-framework">UID2 framework</a></li>
 <li><a href="#gl-uid2-identifier">UID2 identifier</a></li>
 <li><a href="#gl-uid2-portal">UID2 Portal</a></li>
@@ -185,6 +187,11 @@ import Link from '@docusaurus/Link';
 <dd>An enclave is a secure subsection of a computing environment. The enclave has additional business logic and security measures applied to it, to prevent anyone from tampering with it.</dd>
 <dd>In the context of UID2, a <a href="#gl-private-operator">Private Operator</a> must run inside an enclave or in a private environment. For a summary of the enclave versions supported, see <a href="../guides/summary-guides#private-operator-service-integrations">Private Operator Service Integrations</a>.</dd>
 <dd>In an enclave, the operator image must be a very specific, predefined version, and additional constraints are applied to ensure security.</dd>
+
+<dt><MdxJumpAnchor id="gl-euid-framework">EUID framework</MdxJumpAnchor></dt>
+<dd>The European Unified ID (EUID) framework enables deterministic identity for advertising opportunities on the open internet for many <a href="../intro#participants">participants</a> across the advertising ecosystem. It enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework focuses on transparency and privacy.</dd>
+<dd>EUID operates in the European region, including many European countries, such as France, Italy, and Spain, some non-European countries, such as Iceland, and some other regions, such as the Azores, Martinique, and the United Kingdom. It was designed with EU privacy law compliance in mind.</dd>
+<dd>There are many similarities between UID2 and EUID, but they are completely separate, and their tokens are not interchangeable.</dd>
 
 </dl>
 
@@ -362,8 +369,15 @@ import Link from '@docusaurus/Link';
 
 <dl>
 
+<dt><MdxJumpAnchor id="gl-uid">UID</MdxJumpAnchor></dt>
+<dd>UID is a general term used to encompass both <a href="#gl-uid2-framework">UID2</a> and <a href="#gl-euid">EUID</a>.</dd>
+<dd>Since there are code components that support both UID2 and EUID, such as the server-side SDKs, the term UID is used as an umbrella term.</dd>
+<dd>There are many similarities between UID2 and EUID, but they are completely separate, and their tokens are not interchangeable.</dd>
+
 <dt><MdxJumpAnchor id="gl-uid2-framework">UID2 framework</MdxJumpAnchor></dt>
 <dd>The Unified ID 2.0 (UID2) framework enables deterministic identity for advertising opportunities on the open internet for many <a href="../intro#participants">participants</a> across the advertising ecosystem. It enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework focuses on transparency and privacy.</dd>
+<dd>UID2 operates in North America, parts of Asia, and some other regions.</dd>
+<dd>There are many similarities between UID2 and EUID, but they are completely separate, and their tokens are not interchangeable.</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-identifier">UID2 identifier</MdxJumpAnchor></dt>
 <dd>There are two Unified ID 2.0 (UID2) identifier types: <a href="#gl-raw-uid2">raw UID2s</a> and <a href="#gl-uid2-token">UID2 tokens</a> (also known as advertising tokens).</dd>
