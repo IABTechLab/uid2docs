@@ -25,6 +25,7 @@ The UID2 Operator is the API server in the UID2 ecosystem. For a Private Operato
 - [Checking UID2 Operator Status](#checking-uid2-operator-status)
 - [Creating a Load Balancer](#creating-a-load-balancer)
 - [Upgrading the UID2 Operator](#upgrading-the-uid2-operator)
+- [Managing the Logs](#managing-the-logs)
 - [Technical Support](#technical-support) -->
 
 ## UID2 Private Operator for AWS
@@ -252,6 +253,96 @@ Here's what you need to know about upgrading:
 
 >TIP: For a smooth transition, create the new stack first. After the new stack is bootstrapped and ready to serve, delete the old stack. If you are using a load balancer, first get the new instances up and running and then convert the DNS name from the previous one to the new one.
 
+## Managing the Logs
+Use the following sections to help you make the best use of your logs:
+
+- [Where to Read Logs](#where-to-read-logs)
+- [Default Log Settings](#default-log-settings)
+- [Changing the Log Rotation Schedule](#changing-the-log-rotation-schedule)
+- [Additional Commands for Logging](#additional-commands-for-logging)
+
+### Where to Read Logs
+To access the logs, ssh into the EC2 instance. The logs are located at `/var/logs/` and are in the format `operator.log-<timestamp rotated>`.
+
+### Default Log Settings
+The UID2 system uses `syslog-ng` for log generation and employs `logrotate` with cron jobs to manage log rotation and prevent excessive log size. The following sections provide information on the default settings and the reasons behind them, and give guidance for customizing the log rotation configuration to meet your specific requirements:
+
+- [Log Rotation Configuration](#log-rotation-configuration)
+- [Log Rotation Default Settings](#log-rotation-default-settings)
+- [cronjob Configuration](#cronjob-configuration)
+
+#### Log Rotation Configuration
+When the operator instance has been deployed, the default log rotation settings are applied, as follows:
+- Logs are rotated daily and 30 log entries are kept, so the log history is equivalent to 30 days of data if the log entries are not abnormally large.
+- If log entries are very large, and the log size reaches 30 MB within a 24-hour period, the log is rotated at that point.
+
+#### Log Rotation Default Settings
+
+The following are the default logrotate settings, defined in `/etc/logrotate.d/uid2operator.conf`:
+```
+/var/log/operator.log*
+{
+        rotate 30
+        daily
+        maxsize 30M
+        dateext dateformat -%Y-%m-%d-%s
+        notifempty
+        sharedscripts
+        postrotate
+                /usr/sbin/syslog-ng-ctl reload
+        endscript
+}
+```
+
+For a detailed explanation of this config, see [logrotate(8) - Linux man page](https://linux.die.net/man/8/logrotate), or run `logrotate man` in the Linux environment.
+
+#### cronjob Configuration
+The logrotate generates the following script in `/etc/cron.daily` by default:
+
+```
+#!/bin/sh
+   
+/usr/sbin/logrotate -s /var/lib/logrotate/logrotate.status /etc/logrotate.conf
+EXITVALUE=$?
+if [ $EXITVALUE != 0 ]; then
+    /usr/bin/logger -t logrotate “ALERT exited abnormally with [$EXITVALUE]”
+fi
+exit 0
+```
+
+The following script in `/etc/cron.d` ensures that the logrotate check is run every minute:
+
+```
+# Run the minutely jobs
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+* * * * * root /usr/sbin/logrotate -s /var/lib/logrotate/logrotate.status /etc/logrotate.conf
+```
+
+These are the default settings for the following reasons:
+- The script ensure that the `maxsize` condition is checked frequently.
+- The command refers to `/var/lib/logrotate/logrotate.status` to check the log status and see if it has reached the rotation condition, so that it won't make extra rotations when `logrotate` is run every minute.
+
+### Changing the Log Rotation Schedule
+To change the log rotation schedule, update the `etc/logrotate.d/uid2operator.conf` file.
+
+Follow the instructions in the logrotate documentation: see [logrotate(8) - Linux man](https://linux.die.net/man/8/logrotate) page.
+
+:::note
+The service does NOT need to be restarted to pick up the change.
+:::
+
+### Additional Commands for Logging
+
+The following table includes some additional commands that might help you manage logs.
+
+| Action | Command |
+| :--- | :--- |
+| Provides a detailed explanation of what will be rotated. | `sudo logrotate -f /etc/logrotate.conf --debug` |
+| Runs one iteration of `logrotate` manually, without changing the scheduled interval. |  `sudo logrotate -f /etc/logrotate.conf --force` |
+| Reloads `syslog-ng`. |  `sudo /usr/sbin/syslog-ng-ctl reload` |
+
 ## Technical Support
 
-If you have trouble subscribing or deploying the product, contact us at [aws-mktpl-uid@thetradedesk.com](mailto:aws-mktpl-uid@thetradedesk.com).
+If you have trouble subscribing to the product, or deploying, contact us at [contact us](mailto:aws-mktpl-uid@thetradedesk.com).
