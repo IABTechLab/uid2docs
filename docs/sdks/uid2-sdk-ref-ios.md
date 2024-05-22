@@ -104,7 +104,7 @@ dependencies: [
 
 ### Installing with Xcode
 
-Add the following entry in the package dependencies for your apps:
+In the XCode user interface, under Package Dependencies, add the following entry for your apps:
 
 | Name | Location | Dependency Rule                         |
 | :--- | :--- |:----------------------------------------| 
