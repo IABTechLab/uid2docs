@@ -86,10 +86,11 @@ Minimum requirements for this SDK are as follows:
 
 ## Installation
 
-Install the iOS SDK via Swift Package Manager (SPM). There are two installation options:
+Install the iOS SDK via Swift Package Manager (SPM) or CocoaPods. There are three installation options:
 
 -   [Package.swift](#installing-with-packageswift)
 -   [Xcode](#installing-with-xcode)
+-   [CocoaPods](#installing-with-cocoapods)
 
 ### Installing with Package.swift
 
@@ -103,11 +104,19 @@ dependencies: [
 
 ### Installing with Xcode
 
-Add the following entry in the Package Dependencies for your apps:
+In the XCode user interface, under Package Dependencies, add the following entry for your apps:
 
 | Name | Location | Dependency Rule                         |
 | :--- | :--- |:----------------------------------------| 
 | uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 1.2.0 < 2.0.0 |
+
+### Installing with CocoaPods
+
+Add the following entry in your `Podfile`:
+
+```
+pod 'UID2', '~> 1.2'
+```
 
 ## Usage Guidelines
 

@@ -22,8 +22,8 @@ You can use the UID2 SDK for C++ on the server side to facilitate decrypting of 
 - [Interface](#interface)
   - [Response Content](#response-content)
   - [Response Statuses](#response-statuses)
-- [FAQs](#faqs)
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
+- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
+- [FAQs](#faqs) -->
 
 ## Overview
 
