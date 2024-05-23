@@ -8,6 +8,7 @@ sidebar_position: 18
 ---
 
 import Link from '@docusaurus/Link';
+import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
@@ -50,9 +51,7 @@ Before deploying the UID2 Private Operator for Azure, complete these prerequisit
 
 Ask your UID2 contact to register your organization as a UID2 Operator. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
 
-When the registration process is complete, you'll receive the following:
-
-An operator key, exclusive to you, that identifies you with the UID2 service as a Private Operator. During configuration, use this as the value for `OPERATOR_KEY`. This value is both your unique identifier and a password; store it securely and do not share it.
+When the registration process is complete, you'll receive an operator key, exclusive to you, that identifies you with the UID2 service as a Private Operator. During configuration, use this as the value for `OPERATOR_KEY`. This value is both your unique identifier and a password; store it securely and do not share it.
 
 :::note
 You'll receive a separate operator key for each deployment environment.
@@ -60,7 +59,7 @@ You'll receive a separate operator key for each deployment environment.
 
 ### Install Azure CLI
 
-Install the Azure command-line interface. See [How to install the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) in the Azure documentation.
+Install the Azure command-line interface. For details, see [How to install the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) in the Azure documentation.
 
 ### Get the Required Azure Permissions
 
@@ -98,7 +97,9 @@ To deploy a new UID2 Private Operator for Azure, you'll need to complete the fol
 
 ### Download ZIP File and Extract Files
 
-The first step is to get set up with the deployment files you'll need. Download the ZIP file linked in the following table, Azure Download column, for the latest version. 
+The first step is to get set up with the deployment files you'll need:
+
+1. Download the ZIP file linked in the following table, Azure Download column, for the latest version. 
 
 1. Unzip the ZIP file to extract the following files, needed for the deployment:
 
@@ -107,10 +108,9 @@ The first step is to get set up with the deployment files you'll need. Download 
    - `operator.json` and `operator.parameters.json`
    - `gateway.json` and `gateway.parameters.json`
 
-#### Operator Version
-The latest ZIP file is linked in the Azure Download column in the following table.
+### Operator Version
 
-import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
+The latest ZIP file is linked in the Azure Download column in the following table.
 
 <ReleaseMatrix />
 
