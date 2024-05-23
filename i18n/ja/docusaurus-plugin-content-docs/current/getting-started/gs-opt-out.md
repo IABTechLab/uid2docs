@@ -62,7 +62,7 @@ UID2 エコシステムには、2 種類のオプトアウトがあります:
 
 このワークフローにより、ユーザーは UID2 識別子の作成に同意し、Transparency and Control Portalを通じて UID2 の同意とプライバシー設定を管理することができます。
 
-![User Trust Workflow](images/UID2GlobalOptoutWorkflow.png)
+![User Trust Workflow](images/UID2GlobalOptoutWorkflow.svg)
 
 
 <!-- 3. If the user has opted out, the UID2 Operator Service distributes the opt-out information to various UID2 participant types, as follows:
