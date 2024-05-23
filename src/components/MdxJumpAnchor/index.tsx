@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import React from "react";
 import useBrokenLinks from "@docusaurus/useBrokenLinks";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLink } from '@fortawesome/free-solid-svg-icons'
 
 /*** Custom component created for JumpAnchors to pass brokenlinks checker in Docusaurus
  * https://docusaurus.io/blog/releases/3.1#broken-anchors-checker
@@ -20,6 +22,10 @@ export default function MdxJumpAnchor({
   return (
     <span id={id} className="jump-anchor">
       {children}
+      {' '}
+      <a href={'#' + id}>
+        <FontAwesomeIcon icon={faLink} />
+      </a>
     </span>
   );
 }
