@@ -48,8 +48,8 @@ The integration environment and the production environment require different <Li
 
 There is a single body parameter.
 
-| Body Parameter | Data Type | Attribute | Description | Format |
-| :--- | :--- | :--- | :--- | :--- |
+| Body Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
 | `advertising_ids` |	string array |	Required |	The list of raw UID2s for which you want to check the opt-out status.<br/>Include a maximum of 5,000 entries in one API call. |
 
 ### Request Example
