@@ -8,6 +8,7 @@ sidebar_position: 17
 ---
 
 import Link from '@docusaurus/Link';
+import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
 
@@ -156,16 +157,24 @@ The following diagram illustrates the virtual private cloud that hosts private o
 To deploy UID2 Operator on AWS Marketplace, complete the following steps:
 
 1. Subscribe to [Unified ID 2.0 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la). It might take several minutes before AWS completes your subscription.
-2. Click **Configuration**.
+2. Click **Configuration** and then specify configuration values.
+
+   For software version, see [Operator Version](#operator-version) and choose the value in the AWS Version column.
 3. On the Configuration page, click **Launch** and then select the **Launch CloudFormation** action.
-4. In the Create stack wizard, specify the template and then click **Next**. The S3 path for the template file is automatically filled in.
+4. In the Create Stack wizard, specify the template and then click **Next**. The S3 path for the template file is automatically filled in.
 5. Fill in the [stack details](#stack-details) and then click **Next**.
 6. Configure the [stack options](#stack-configuration-options) and then click **Next**.
 7. Review the information you have entered, and make changes if needed.
 8. If you are prompted for permission to create IAM roles, select the **I acknowledge that AWS CloudFormation might create IAM resources** checkbox.
 9. Click **Create stack**.
 
-It takes several minutes for the stack to be created. When you see an Auto Scaling Group (ASG) created, you can select it and check the EC2 instances (by default, there is only one instance to start with).
+It takes several minutes for the stack to be created. When you see an Auto Scaling Group (ASG) created, you can select it and check the EC2 instances. By default, there is only one instance to start with.
+
+### Operator Version
+
+The latest ZIP file is linked in the AWS Version column in the following table.
+
+<ReleaseMatrix />
 
 ### Stack Details
 

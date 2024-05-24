@@ -189,6 +189,8 @@ Unless you are using a private operator, you must map email addresses, phone num
 
 When a user opts out of UID2-based targeted advertising through the [Transparency and Control Portal](https://www.transparentadvertising.com/), the opt-out signal is sent to DSPs and publishers, who handle opt-outs at bid time. We recommend that advertisers and data providers regularly check whether a user has opted out, via the [POST /identity/map](../endpoints/post-identity-map.md) endpoint.
 
+Advertisers and data providers can also check the opt-out status of raw UID2s using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint.
+
 If a user opts out through your website, you should follow your internal procedures for handling the opt-out. For example, you might choose not to generate a UID2 for that user.
 
 #### Does the same DII always result in the same raw UID2?
@@ -216,6 +218,7 @@ Here are some frequently asked questions for demand-side platforms (DSPs).
    - [In what format is the UID2 of an opted-out user sent to the webhook?](#in-what-format-is-the-uid2-of-an-opted-out-user-sent-to-the-webhook)
    - [What request type do opt-outs use?](#what-request-type-do-opt-outs-use)
    - [How strict are the requirements for honoring opt-outs?](#how-strict-are-the-requirements-for-honoring-opt-outs)
+  - [How can I check if a user has opted out?](#how-can-i-check-if-a-user-has-opted-out)
    - [How do SDK errors impact the DSP's ability to respond to a bid?](#how-do-sdk-errors-impact-the-dsps-ability-to-respond-to-a-bid)
 
 #### How do I know which decryption key to apply to a UID2?
@@ -271,6 +274,10 @@ Typically GET requests, but different DSPs may use different types.
 #### How strict are the requirements for honoring opt-outs? 
 
 Opt-outs must always be respected. It may take some time for an opt-out request to propagate through the system during which time it is expected that some bids may not honor the opt-out.
+
+#### How can I check if a user has opted out?
+
+DSPs can check the opt-out status of raw UID2s using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint.
 
 #### How do SDK errors impact the DSP's ability to respond to a bid?
 

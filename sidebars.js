@@ -245,6 +245,7 @@ const fullSidebar = [
         'endpoints/post-token-refresh',
         'endpoints/post-identity-buckets',
         'endpoints/post-identity-map',
+        'endpoints/post-optout-status',
       ],
     },
 
@@ -309,7 +310,8 @@ const sidebars = {
     'guides/integration-aws-entity-resolution',
     'guides/dsp-guide',
     'endpoints/post-identity-buckets',
-    'endpoints/post-identity-map'
+    'endpoints/post-identity-map',
+    'endpoints/post-optout-status'
   ),
 
   sidebarAdvertisers: removeItems(fullSidebar, 
