@@ -57,7 +57,7 @@ Create a new password, and then log into the UID2 Portal.
 The Accept Invitation link takes you to the Update Password page.
 
 :::tip
-As a security measure, the **Sign out from other devices** box is checked. If you want to be signed in on more than one device, clear this box.
+ If you're changing your password because you think your account might have been compromised, be sure that the **Sign out from other devices** box is checked.
 
 (**GWH_ question on this, what's it actually for**)
 :::
