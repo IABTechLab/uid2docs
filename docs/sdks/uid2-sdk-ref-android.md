@@ -88,7 +88,7 @@ To consume the binary package of this SDK in your app:
 
 To run the development app as mentioned in the [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#client-side-integration-example) or build binary from source code, minimum requirements are as follows:
 
-- Android Studio version: v2023.3.1+ and the Gradle 
+- Android Studio version: the version which supports the Android Gradle Plugin (AGP) version required by the UID2 SDK specified in the [code repository](https://github.com/IABTechLab/uid2-android-sdk/blob/main/gradle/libs.versions.toml) at the time, check [here](https://developer.android.com/build/releases/gradle-plugin) for the corresponding Android Studio version required
 - Minimum target Android version: 4.4+ / API 19+ (SDK) 5.0+ / API 21+ (Dev-App)
 
 <!-- See also: [Requirements](https://github.com/IABTechLab/uid2-android-sdk/blob/main/README.md#requirements). -->
