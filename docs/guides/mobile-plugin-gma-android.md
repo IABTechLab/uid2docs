@@ -38,7 +38,7 @@ To run this plugin, install the following:
    - [SDK](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
    - [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
 1. [UID2 Android GMA Plugin v0.5.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-gma/)
-1. If you are using R8 or Proguard, add the necessary file mentioned in [here](#notes-for-using-r8-or-proguard)
+1. If you are using R8 or Proguard, add the applicable option specified in [Notes for Using R8 or ProGuard](#notes-for-using-r8-or-proguard)
 
 ## Installation
 
@@ -69,10 +69,9 @@ To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 </dependency>
 ```
 
-## Notes for using R8 or ProGuard
+## Notes for Using R8 or ProGuard
 
-If you are using R8 the shrinking and obfuscation rules are included automatically.
+If you are using R8, the shrinking and obfuscation rules are included automatically.
 
-ProGuard users must manually add the options from
-[uid2-gma.pro](https://github.com/IABTechLab/uid2-android-sdk/blob/main/securesignals-gma/uid2-gma.pro).
+If you are using ProGuard, you must manually add the option specified in [uid2-gma.pro](https://github.com/IABTechLab/uid2-android-sdk/blob/main/securesignals-gma/uid2-gma.pro).
 
