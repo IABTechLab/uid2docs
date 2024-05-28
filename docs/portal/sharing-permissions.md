@@ -57,7 +57,10 @@ The UID2 Portal makes recommendations based on your role. For example:
 
 The following image shows the recommendations for an advertiser.
 
+
 ![UID2 Portal, Sharing Permissions page, Recommendations (Advertiser)](images/portal-sharing-permissions.png)
+
+(**GWH_KL: Just making sure you’re OK with the screen cap… also are you in favor of adding others as time goes on? I didn’t at first because of the volatility, but I think it helps here and there.**)
 
 Accepting the recommendations is the fastest and easiest way to configure your sharing options.
 

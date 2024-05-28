@@ -26,8 +26,6 @@ Sharing permissions (共有権限) を設定することで、他の UID2 参加
   Recommendations は、アカウント設定で指定した参加者のタイプに基づいています。
 - **Sharing Categories**: 設定した1つ以上の特定のカテゴリ (パブリッシャー、広告主、DSP、またはデータプロバイダー) のすべての現在および将来の参加者と共有することができます。
 - **Individual Sharing Relationships**: 1つ以上の現在の参加者との共有関係を作成できます。このオプションでは、将来の共有権限を手動で追加する必要があります。
-<!-- - You can choose to have your name on the sharing list, so that others can create sharing relationships with you, or you can participate in sharing without your name appearing on the list. (GWH_KT_01 I didn't see this in the wireframes or UI?) -->
-<!-- - You can generate a Sharing Number that you can share with specific participants you want to share with. They can use the Sharing Number to create a sharing relationship with you even if you chose to be private. (GWH_KT_02 I didn't see this in the wireframes or UI?) -->
 
 >NOTE: 他の参加者と共有許可を設定しても、データが共有されるわけではありません。受信者があなたの UID2 Token を raw UID2 に復号化できるようになるだけです。情報が共有されるのは、あなたが他の参加者に明示的に送信するか、他の参加者があなたに送信した場合のみです。
 

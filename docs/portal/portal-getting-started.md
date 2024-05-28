@@ -15,20 +15,20 @@ When we've processed your request, we'll send you a confirmation email that will
 
 For the initial steps, follow these instructions:
 
-- [Request Account](#request-account)
-- [Logging In for the First Time](#logging-in-for-the-first-time)
-- [Changing Your Password](#changing-your-password)
+- [Request an Account](#request-an-account)
+- [Log In for the First Time](#log-in-for-the-first-time)
+- [Change Your Password](#change-your-password)
 
 If at any time you need assistance with the onboarding process, ask your UID2 contact.
 
-## Request Account
+## Request an Account
 
 There's some information you'll need to provide to your UID2 contact with your account request. Include the details listed in the following table.
 
 | Item | Details |
 | :--- | :--- |
 | Information about yourself | Provide the following:<br/>- First name<br/>- Last name<br/>- Email<br/>- Job function |
-| Information about your company | Provide the following:<br/>- Participant name (Company name)<br/>- Participant type (for example, DSP) |
+| Information about your company | Provide the following:<br/>- Participant name (Company name)<br/>- Participant type (publisher, advertiser, DSP, or data provider) |
 
 ## Account Approval
 
@@ -47,21 +47,22 @@ There's some additional information that you'll need so that, when we've created
 
 ## Determine Integration Path
 
-The values you'll receive to identify your account, and the setup actions, are different depending on your integration path.
+To use the UID2 service, you need a set of keys. The specific key types are different depending on whether you are integrating on the client side or the server side. When you have access to your company's account, you can use the UID2 Portal to retrieve your keys.
 
-There are two main options, as shown in the following table.
+The integration options are shown in the following table.
 
 | Integration | Details | Instructions |
 | :--- | :--- | :--- |
-| Client-side integration | Tokens are generated on the client side. |  Go to the **Client-Side Integration** page and set up key pairs and root-level domains. We use these to identify your transactions.<br/>For details, see [Client-Side Integration](client-side-integration.md). |
-| Client-server integration | Tokens are generated on the server side and refreshed on the client side. | Go to the **API Keys** page and create at least one set of credentials. When you add an API key, you're assigned two values, a secret and a key, which you'll use in your implementation.<br/>For details, see [API Keys](api-keys.md). |
+| Client-side integration | UID2 integration is entirely on the client side. |  Go to the **Client-Side Integration** page and set up key pairs and root-level domains. We use these to identify your transactions.<br/>For details, see [Client-Side Integration](client-side-integration.md). |
+| Client-server integration | UID2 integration is on the server side, with some activity on the client side.<br/>For example, publishers might generate tokens on the server side and refresh on the client side. | Go to the **API Keys** page and create at least one set of credentials. When you add an API key, you're assigned two values, a secret and a key, which you'll use in your implementation.<br/>For details, see [API Keys](api-keys.md). |
+| Server-side integration | UID2 integration is entirely on the server side. | As above: see [API Keys](api-keys.md). |
 
 ## Log In for the First Time
 
 When you receive the confirmation email, click the **Accept Invitation** link in the email to get started, then click through to complete these tasks:
 - [Change your password](#change-your-password)
 - [Log In](#log-in)
-- [Configure your account](#configure-your-account)
+- [Configure unique account values](#configure-unique-account-values)
 
 Create a new password, and then log into the UID2 Portal.
 
