@@ -12,6 +12,18 @@ import Link from '@docusaurus/Link';
 Check out the latest updates to our UID2 documentation resources.
 
 
+### New: Opt-Out API
+
+24 May 2024
+
+We added documentation for a new API call that checks the opt-out status of raw UID2s.
+
+Given a list of raw UID2s, this endpoint returns the raw UID2s that have opted out, as well as the time that the opt-out took place.
+
+For details, see [POST&nbsp;/optout/status](../endpoints/post-optout-status.md).
+
+<!-- APIDOCS-2252 -->
+
 ### New: Client-Side and Server-Side Guides for Mobile
 
 17 May 2024
@@ -32,7 +44,7 @@ The UID2 Portal documentation now includes a new page, [Client-Side Integration]
 
 The Client-Side Integration page in the UID2 Portal allows you to set up and manage the values that are needed if you are generating UID2 tokens on the client side, such as specifying your domains.
 
-<!-- APIDOCS-2120-->
+<!-- APIDOCS-2120 -->
 
 ### New: UID2 Portal API Keys Page
 
