@@ -21,7 +21,6 @@ In this file:
 - [UID2 Sharing Approaches](#uid2-sharing-approaches)
   - [Sharing UID2 Tokens](#sharing-uid2-tokens)
   - [Sharing Raw UID2s](#sharing-raw-uid2s) 
- - [Sharing Examples: Diagram](#sharing-examples-diagram) 
   -->
 
 ## Sharing Participants
@@ -65,9 +64,3 @@ For more information about the options for sharing UID2 tokens, and links to ins
 ### Sharing Raw UID2s
 
 To share raw UID2s, we expect that both the sender and receiver are [sharing participants](ref-info/glossary-uid.md#gl-sharing-participant) who have the resources, processes, and facilities in place to ensure that the raw UID2s are not compromised, and who will follow standard security practices as defined in [Security Requirements for UID2 Sharing](sharing-security.md).
-
-## Sharing Examples: Diagram
-
-The following diagram illustrates some popular scenarios for UID2 sharing.
-
-![UID2 sharing examples](images/SharingSlide-Examples.png)

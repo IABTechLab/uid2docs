@@ -55,6 +55,10 @@ The UID2 Portal makes recommendations based on your role. For example:
 - If you’re a DSP, you could share with all advertisers and all data providers (current and future). 
 - If you’re a data provider, you could share with all advertisers, all publishers, and all DSPs (current and future).  
 
+The following image shows the recommendations for an advertiser.
+
+![UID2 Portal, Sharing Permissions page, Recommendations (Advertiser)](images/portal-sharing-permissions.png)
+
 Accepting the recommendations is the fastest and easiest way to configure your sharing options.
 
 For example, let's say you choose to share with all of 20 existing DSPs. The next day, when DSP 21 signs up for sharing, DSP 21 will automatically have permission to decrypt data that you send. To share with DSP 21, just send one or more UID2 tokens, and DSP 21 will be able to decrypt the tokens into raw UID2s. Because you chose automatic sharing, you do not need to log in to explicitly update your sharing permissions to include DSP 21, or any future DSPs that sign up for the UID2 ecosystem.
