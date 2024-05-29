@@ -29,7 +29,9 @@ If you are using an Open Operator service hosted in the Snowflake Data Marketpla
 
 As an advertiser, or a data provider acting on behalf of an advertiser, you might send or receive UID2 data in different ways.
 
-As an advertiser, you can send data in the following ways:
+Within the ad tech industry, advertisers use identity to build audiences, track conversions, and generate their graphs. As an advertiser, here are some examples of how you can do these things with UID2. There are other examples of how you can use UID2, outside these use cases. Examples:
+
+(**GWH_KL uptohere**)
 
 - For audiences:
   - Via pixels
