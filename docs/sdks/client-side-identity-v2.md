@@ -53,7 +53,7 @@ This SDK simplifies integration with UID2 for any publishers who want to support
 
 To use this SDK, you'll need to complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For example, publishers get a specific API permission to generate and refresh tokens, but the SDK might support other activities, such as sharing, which require a different API permission.
+You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For example, publishers get a specific API permission to generate and refresh tokens, but the SDK might support other activities that require a different API permission.
 
 For details, see [API Permissions](../getting-started/gs-permissions.md).
 
@@ -110,10 +110,9 @@ The following table outlines the four main states that the SDK can be in, based 
 | Workflow State | Advertising Token | Login Required | Description| Identity Status Value |
 | :--- | :--- | :---| :---| :---|
 | Initialization | `undefined`| `undefined`| Initial state until the callback is invoked. | N/A |
-| Identity Is Available | available |`false` | A valid identity has been successfully established or refreshed. You can use the advertising token in targeted advertising.  |`ESTABLISHED` or `REFRESHED` |
+| Identity Is Available | available |`false` | A valid identity has been successfully established or refreshed. You can use the advertising token in targeted advertising. |`ESTABLISHED` or `REFRESHED` |
 | Identity Is Temporarily Unavailable |`undefined` | `false`| The advertising token has expired, therefore automatic refresh failed. [Background auto-refresh](#background-token-auto-refresh) attempts will continue until the refresh token expires or the user opts out.<br/>You can do either of the following:<br/>- Redirect the user, asking for the email or phone number.<br/>- Use untargeted advertising.<br/>NOTE: Identity might be successfully refreshed at a later time&#8212;for example, if the UID2 service is temporarily unavailable.| `EXPIRED` |
 | Identity Is Not Available  | `undefined`| `false`| The identity is not available and cannot be refreshed. The SDK clears the first-party cookie.<br/>To use UID2-based targeted advertising again, you must obtain the email or phone number from the consumer. | `INVALID`, `NO_IDENTITY`, `REFRESH_EXPIRED`, or `OPTOUT` |
-
 
 The following diagram illustrates the four states, including the corresponding identity [status values](#identity-status-values) and possible transitions between them. The SDK invokes the [callback function](#callback-function) on each transition.
 
@@ -136,7 +135,7 @@ Here's what you need to know about the token auto-refresh:
 
 ## API Reference
 
->IMPORTANT: All interactions with the Client-Side JavaScript SDK are done through the global `__uid2` object, which is a member of the `UID2` class. All of following JavaScript functions are members of the `UID2` class. 
+>IMPORTANT: All interactions with the Client-Side JavaScript SDK are done through the global `__uid2` object, which is a member of the `UID2` class. All of the following JavaScript functions are members of the `UID2` class. 
 
 - [constructor()](#constructor)
 - [init()](#initopts-object-void)
@@ -255,7 +254,7 @@ The [callback function](#callback-function) returns the `status` field values as
 | `INVALID` | Not available | No identity is available for targeted advertising, because the SDK failed to parse the first-party cookie or the passed identity. |
 | `OPTOUT` | Not available | No identity is available for targeted advertising, because the user has opted out and therefore the identity cannot be refreshed. |
 
-If the identity is not available, to determine the best course of action, use the [isLoginRequired()](#isloginrequired-boolean) function.
+If the identity is not available, use the [isLoginRequired()](#isloginrequired-boolean) function to determine the best course of action.
 
 ### getAdvertisingToken(): string
 
@@ -271,7 +270,7 @@ Before calling this function, be sure to call [init()](#initopts-object-void) an
 
 The `getAdvertisingToken()` function allows you to access the advertising token from anywhere&#8212;not just from the callback that's done when initialization is complete. This function returns `undefined` if any of the following conditions apply:
 
-- The [callback function](#callback-function) has not been called yet, which means that the SDK initialization is not yet complete.
+- The [callback function](#callback-function) has not yet been called, which means that the SDK initialization is not yet complete.
 - The SDK initialization is complete, but there is no valid identity to use.
 - The SDK initialization is complete, but the auto-refresh has cleared the identity&#8212;for example, because the user has opted out.
 

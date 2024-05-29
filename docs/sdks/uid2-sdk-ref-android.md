@@ -81,9 +81,14 @@ The binary is published on Sonatype:
 
 ## Minimum Requirements
 
-Minimum requirements for this SDK are as follows:
+To consume the binary package of this SDK in your app:
 
-- Android Studio version: v2023.3.1+
+- Minimum target Android version: 4.4+ / API 19+ (SDK) 5.0+
+
+
+To run the development app (see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#client-side-integration-example) or to build binary from source code, the minimum requirements are as follows:
+
+- Android Studio version: Check the Android Gradle Plugin (AGP) version required by the UID2 SDK specified in the [code repository](https://github.com/IABTechLab/uid2-android-sdk/blob/main/gradle/libs.versions.toml) (see the stated `agp` version), and check [the Android Gradle Plugin release notes](https://developer.android.com/build/releases/gradle-plugin) for the corresponding Android Studio version required.
 - Minimum target Android version: 4.4+ / API 19+ (SDK) 5.0+ / API 21+ (Dev-App)
 
 <!-- See also: [Requirements](https://github.com/IABTechLab/uid2-android-sdk/blob/main/README.md#requirements). -->
@@ -94,7 +99,7 @@ There are two options for installing the Android UID2 SDK:
 
 -   [Gradle](#installing-with-gradle)
 
--  [ Maven](#installing-with-maven)
+-  [Maven](#installing-with-maven)
 
 ### Installing with Gradle
 
