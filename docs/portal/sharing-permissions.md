@@ -35,6 +35,10 @@ The sender must grant permission to the receiver, so that the intended receiver 
 
 For UID2 Portal access, ask your UID2 contact. For details, see [Request an Account](portal-getting-started.md#request-an-account). If you're completely new to UID2, see [Account Setup](../getting-started/gs-account-setup.md).
 
+:::note
+Use of sharing requires an API key (see [API Keys](api-keys.md)) or client-side key pair (see [Client-Side Integration](client-side-integration.md)). Configure these values before setting up sharing permissions.
+:::
+
 ## Sharing Options
 
 The following sharing options are available via the UID2 Portal. These options are not mutually exclusive&#8212;you can mix and match as needed:

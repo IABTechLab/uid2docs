@@ -53,6 +53,10 @@ If a sharing participant wants to share UID2s with another authorized sharing pa
 The following are the high-level steps for sharing UID2 tokens ([tokenized sharing](../ref-info/glossary-uid.md#gl-tokenized-sharing)):
 
   1. The sender sets up sharing permissions in the UID2 Portal.
+
+     :::note
+     Use of sharing requires an API key (see [API Keys](../portal/api-keys.md)) or client-side key pair (see [Client-Side Integration](../portal/client-side-integration.md)). In the UID2 Portal, configure these values before setting up sharing permissions.
+     :::
   2. The sender does either of the following:
   
      - Generates UID2 tokens from DII.
