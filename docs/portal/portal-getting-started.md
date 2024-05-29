@@ -51,11 +51,12 @@ To use the UID2 service, you need a set of keys. The specific key types are diff
 
 The integration options are shown in the following table.
 
-| Integration | Details | Instructions |
+| Integration | Examples | Instructions |
 | :--- | :--- | :--- |
-| Client-side integration | UID2 integration is entirely on the client side. |  Go to the **Client-Side Integration** page and set up key pairs and root-level domains. We use these to identify your transactions.<br/>For details, see [Client-Side Integration](client-side-integration.md). |
-| Client-server integration | UID2 integration is on the server side, with some activity on the client side.<br/>For example, publishers might generate tokens on the server side and refresh on the client side. | Go to the **API Keys** page and create at least one set of credentials. When you add an API key, you're assigned two values, a secret and a key, which you'll use in your implementation.<br/>For details, see [API Keys](api-keys.md). |
-| Server-side integration | UID2 integration is entirely on the server side. | As above: see [API Keys](api-keys.md). |
+| Client-side integration | Advertisers generate UID2 tokens for tracking pixels.<br/>Publishers generate UID2 tokens for bidstream use. |  Go to the **Client-Side Integration** page and set up key pairs and root-level domains. We use these to identify your transactions.<br/>For details, see [Client-Side Integration](client-side-integration.md). |
+| Server-side integration | Advertisers generate raw UID2s to be delivered for audience targeting.<br/>Publishers generate UID2 tokens for bidstream use. | As above: see [API Keys](api-keys.md). |
+
+Some participants might use both client-side and server-side integration. For example, advertisers might generate UID2 tokens on the client side for pixels ([API Keys](api-keys.md)), but integrate on the server side for raw UID2 generation ([API Keys](api-keys.md)).
 
 ## Log In for the First Time
 
