@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
-### New: Java SDK Support for Advertiser/Data Provider
+### New: UID2 Hashing Tool
 
 4 March 2024
 
