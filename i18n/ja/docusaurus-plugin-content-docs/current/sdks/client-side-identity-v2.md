@@ -99,7 +99,7 @@ SDK を使用して UID2 ID を確立するための Client-Side ワークフロ
   - ID が使用できない場合、SDK は ID が更新可能かどうかに基づいて適切なアクションを実行します。詳細については、[Workflow States and Transitions](#workflow-states-and-transitions) を参照してください。
 4. Publisher: ID の状態に基づいて ID を処理します:
 	- Advertising Token が使用可能な場合は、それを使用してターゲティング広告の要求を開始します。
-	- Advertising Token が利用可能でない場合は、ターゲティング広告を使用するか、同意フォームを使用してユーザーを UID2 ログインにリダイレクトします。
+	- Advertising Token が利用可能でない場合は、ターゲティング広告を使用しないか、同意フォームでユーザーを データキャプチャにリダイレクトします。
  
 Web インテグレーションの詳細については、[Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください。
 
@@ -112,7 +112,7 @@ Web インテグレーションの詳細については、[Server-Side Integrati
 | Initialization | `undefined`| `undefined`| コールバックが呼び出されるまでの初期状態です。 | N/A |
 | Identity Is Available | available |`false` | 有効な ID が正常に確立または更新されました。ターゲティング広告で Advertising Toke を使用できます。 |`ESTABLISHED` or `REFRESHED` |
 | Identity Is Temporarily Unavailable |`undefined` | `false`| Advertising Token の有効期限が切れたため、自動更新に失敗しました。[Background auto-refresh](#background-token-auto-refresh) は、Refresh Token の有効期限が切れるか、ユーザーがオプトアウトするまで施行され続けます。<br/>以下のいずれかを行うことができます:<br/>- ターゲティング広告を使わない。<br/>- ユーザーを UID2 ログインにリダイレクトし、同意フォームを表示する。<br/>NOTE: ID はのちに正常にリフレッシュされるかもしれません。&#8212;例えば、UID2 Serviceが一時的に利用できなくなった場合などです。 | `EXPIRED` |
-| Identity Is Not Available  | `undefined`| `false`| ID が利用できず、リフレッシュできません。SDK はファーストパーティクッキーをクリアします。<br/>UID2 ベースのターゲティング広告をサイド使用するには、同意フォームを使って、ユーザーを UID2 ログインにリダイレクトする昼葉があります。 | `INVALID`, `NO_IDENTITY`, `REFRESH_EXPIRED`, or `OPTOUT` |
+| Identity Is Not Available  | `undefined`| `false`| ID が利用できず、リフレッシュできません。SDK はファーストパーティクッキーをクリアします。<br/>UID2 ベースのターゲティング広告を再度使用するには、UID2 を取得できるログインまたはフォーム入力にユーザーをリダイレクトする必要があります。 | `INVALID`, `NO_IDENTITY`, `REFRESH_EXPIRED`, or `OPTOUT` |
 
 
 次の図は、対応する ID の [status values](#identity-status-values) を含む 4 つの状態と、それらの間で可能な遷移を示しています。SDK は各遷移で [callback function](#callback-function) を呼び出します。
@@ -303,7 +303,7 @@ ID が利用できない場合は、[isLoginRequired()](#isloginrequired-boolean
 
 ### isLoginRequired(): boolean
 
-UID2 ログイン ([POST&nbsp;/token/generate](../endpoints/post-token-generate.md) 呼び出し) が必要かどうかを指定します。
+UID2 ([POST&nbsp;/token/generate](../endpoints/post-token-generate.md) 呼び出し) が必要かどうかを指定します。
 
 この関数は、[Workflow States and Transitions](#workflow-states-and-transitions) で示したように、ID が見つからない場合の処理に追加のコンテキストを提供することもできます。
 
