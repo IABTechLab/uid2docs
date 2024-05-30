@@ -23,10 +23,13 @@ Server-Side で UID2 SDK for C# / .NET を使用すると、以下を簡単に�
 - [GitHub Repository/Binary](#github-repositorybinary)
 - [Initialization](#initialization)
 - [Interface](#interface)
-  - [Response Content](#response-content)
-  - [Response Statuses](#response-statuses)
-- [FAQs](#faqs)
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
+  - [Encryption Response Content](#encryption-response-content)
+  - [Encryption Response Statuses](#encryption-response-statuses)
+  - [Decryption Response Content](#decryption-response-content)
+  - [Decryption Response Statuses](#decryption-response-statuses)
+- [Usage for DSPs](#usage-for-dsps)
+- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
+- [FAQs](#faqs) -->
 
 ## Functionality
 
@@ -74,6 +77,7 @@ SDK が UID2 Service で認証するために必要な値を提供する必要�
 ## Interface
 
 `BidstreamClient` クラスを使用すると、UID2 Token を raw UID2 に復号することができます。
+
 ユーザーのオプトアウトを処理する入札ロジックの詳細については、[DDSP Integration Guide](../guides/dsp-guide.md) を参照してください。
 
 `SharingClient` クラスを使うと、raw UID2 を暗号化して UID2 Token に変換したり、UID2 Token を復号して生の UID2 に変換したりすることができます。
