@@ -35,6 +35,8 @@ import Link from '@docusaurus/Link';
 <li><a href="#gl-bidstream">Bidstream</a></li>
 <li><a href="#gl-client-key">Client key</a></li>
 <li><a href="#gl-client-secret">Client secret</a></li>
+<li><a href="#gl-client-server">Client-server integration</a></li>
+<li><a href="#gl-client-side">Client-side integration</a></li>
 <li><a href="#gl-closed-operator">Closed Operator</a></li>
 <li><a href="#gl-core-service">Core Service</a></li>
 <li><a href="#gl-data-provider">Data provider</a></li>
@@ -80,6 +82,7 @@ import Link from '@docusaurus/Link';
 <li><a href="#gl-salted-hash">Salted hash</a></li>
 <li><a href="#gl-secret">Secret</a></li>
 <li><a href="#gl-secure-signals">Secure signals</a></li>
+<li><a href="#gl-server-side">Server-side integration</a></li>
 <li><a href="#gl-sha-256">SHA-256</a></li>
 <li><a href="#gl-sharing">sharing (in UID2)</a></li>
 <li><a href="#gl-sharing-participant">Sharing participant</a></li>
@@ -150,6 +153,15 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-client-secret">Client secret</MdxJumpAnchor></dt>
 <dd>Each UID2 <a href="/docs/intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
 <dd>For details, see <a href="/docs/getting-started/gs-credentials">UID2 Credentials</a>.</dd>
+
+<dt><MdxJumpAnchor id="gl-client-server">Client-server integration</MdxJumpAnchor></dt>
+<dd>UID2 integrations can be entirely on the <a href="#gl-client-side">client side</a>, entirely on the <a href="#gl-server-side">server side</a>, or partially on the client side and partially on the server side (client-server).</dd>
+<dd>For example, in a client-server integration for a publisher, the UID2 token is generated on the server side and refreshed on the client side.</dd>
+
+<dt><MdxJumpAnchor id="gl-client-side">Client-side integration</MdxJumpAnchor></dt>
+<dd>UID2 integrations can be entirely on the client side, entirely on the <a href="#gl-server-side">server side</a>, or partially on the client side and partially on the server side (<a href="#gl-client-server">client-server</a>).</dd>
+<dd>in a client-side integration, all activities relating to UID2, such as generating and refreshing UID3 tokens, are performed on the client side.</dd>
+<dd>For example, in a client-side integration, advertisers generate UID2 tokens on the client side for tracking pixels, and publishers generate UID2 tokens on the client side for bidstream use, as well as refreshing the tokens.</dd>
 
 <dt><MdxJumpAnchor id="gl-closed-operator">Closed Operator</MdxJumpAnchor></dt>
 <dd>Closed Operator is another term for a <a href="#gl-private-operator">Private Operator</a>.</dd>
@@ -333,6 +345,11 @@ import Link from '@docusaurus/Link';
 <dd>A feature of Google Ad Manager. The secure signals feature (previously known as Encrypted Signals for Publishers, abbreviated to ESP) allows publishers to securely share signals with trusted third-party buying partners. It allows publishers to pass "encrypted" user IDs to bidders that are approved by Google, via <a href="https://admanager.google.com/home/">Google Ad Manager</a> and the <a href="https://support.google.com/admanager/answer/6321605?hl=en">Google Ad Manager Ad Exchange (AdX)</a>.</dd>
 <dd>For details, see <a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a> (second section) and <a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a>, both from Google.</dd>
 <dd>For details about UID2 support of the Google secure signals feature, see <a href="../guides/google-ss-integration">Google Ad Manager Secure Signals Integration Guide</a>.</dd>
+
+<dt><MdxJumpAnchor id="gl-server-side">Server-side integration</MdxJumpAnchor></dt>
+<dd>UID2 integrations can be entirely on the <a href="#gl-client-side">client side</a>, entirely on the server side, or partially on the client side and partially on the server side (<a href="#gl-client-server">client-server</a>).</dd>
+<dd>In a server-side integration, all activities relating to UID2, such as generating and refreshing UID2 tokens, are performed on the server.</dd>
+<dd>For example, in a server-side integration, advertisers generate raw UID2s on the server side to be delivered for audience targeting, and publishers generate UID2 tokens on the server side for bidstream use.</dd>
 
 <dt><MdxJumpAnchor id="gl-sha-256">SHA-256</MdxJumpAnchor></dt>
 <dd>SHA-256 is the secure hashing algorithm that UID2 uses.</dd>
