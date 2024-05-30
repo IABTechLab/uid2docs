@@ -33,6 +33,10 @@ You can use the UID2 SDK for Android for the following:
 - Retrieving advertising tokens for bidstream use.
 - Automatically refreshing UID2 tokens.
 
+:::note
+To generate tokens on the back-end server, follow the instructions in [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md).
+:::
+
 The following Android-related plugins, and associated documentation, are also available.
 
 | Purpose | Product/Documentation |
