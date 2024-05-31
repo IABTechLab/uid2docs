@@ -54,6 +54,7 @@ import Link from '@docusaurus/Link';
 <li><a href="#gl-first-level-hash">First-level hash</a></li>
 <li><a href="#gl-hash">Hash</a></li>
 <li><a href="#gl-identity">Identity</a></li>
+<li><a href="#gl-integration-approaches">Integration approaches</a></li>
 </ul>
 </td>
 <td>
@@ -155,13 +156,15 @@ import Link from '@docusaurus/Link';
 <dd>For details, see <a href="/docs/getting-started/gs-credentials">UID2 Credentials</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-client-server">Client-server integration</MdxJumpAnchor></dt>
-<dd>UID2 integrations can be entirely on the <a href="#gl-client-side">client side</a>, entirely on the <a href="#gl-server-side">server side</a>, or partially on the client side and partially on the server side (client-server).</dd>
+<dd>One of the UID2 <a href="#gl-integration-approaches">integration approaches</a> is to integrate partially on the client side and partially on the server side (client-server).</dd>
 <dd>For example, in a client-server integration for a publisher, the UID2 token is generated on the server side and refreshed on the client side.</dd>
+<dd>Examples of documentation for publisher client-server integrations: <a href="../guides/integration-prebid-server-side">UID2 Server-Side Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-server-side">Server-Side Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-server">UID2 Client-Server Integration Guide for Mobile</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-client-side">Client-side integration</MdxJumpAnchor></dt>
-<dd>UID2 integrations can be entirely on the client side, entirely on the <a href="#gl-server-side">server side</a>, or partially on the client side and partially on the server side (<a href="#gl-client-server">client-server</a>).</dd>
-<dd>in a client-side integration, all activities relating to UID2, such as generating and refreshing UID3 tokens, are performed on the client side.</dd>
+<dd>One of the UID2 <a href="#gl-integration-approaches">integration approaches</a> is to integrate entirely on the client side.</dd>
+<dd>In a client-side integration, UID2 tokens are generated and refreshed on the client side.</dd>
 <dd>For example, in a client-side integration, advertisers generate UID2 tokens on the client side for tracking pixels, and publishers generate UID2 tokens on the client side for bidstream use, as well as refreshing the tokens.</dd>
+<dd>Examples of documentation for publisher client-side integrations: <a href="../guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>, <a href="../guides/publisher-client-side">Client-Side Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-side">UID2 Client-Side Integration Guide for Mobile</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-closed-operator">Closed Operator</MdxJumpAnchor></dt>
 <dd>Closed Operator is another term for a <a href="#gl-private-operator">Private Operator</a>.</dd>
@@ -236,6 +239,9 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-identity">Identity</MdxJumpAnchor></dt>
 <dd>In the context of UID2, the term "identity" refers to a package of values that includes the UID2 token, the refresh token, and associated values such as timestamps. This set of values is returned in the response from the <a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> endpoint and also from the <a href="../endpoints/post-token-refresh">POST&nbsp;/token/refresh</a> endpoint.</dd>
+
+<dt><MdxJumpAnchor id="gl-integration-approaches">Integration approaches</MdxJumpAnchor></dt>
+<dd>UID2 integrations can be entirely on the <a href="#gl-client-side">client side</a>, entirely on the <a href="#gl-server-side">server side</a>, or partially on the client side and partially on the server side (<a href="#gl-client-server">client-server</a>).</dd>
 
 </dl>
 
@@ -347,9 +353,10 @@ import Link from '@docusaurus/Link';
 <dd>For details about UID2 support of the Google secure signals feature, see <a href="../guides/google-ss-integration">Google Ad Manager Secure Signals Integration Guide</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-server-side">Server-side integration</MdxJumpAnchor></dt>
-<dd>UID2 integrations can be entirely on the <a href="#gl-client-side">client side</a>, entirely on the server side, or partially on the client side and partially on the server side (<a href="#gl-client-server">client-server</a>).</dd>
-<dd>In a server-side integration, all activities relating to UID2, such as generating and refreshing UID2 tokens, are performed on the server.</dd>
+<dd>One of the UID2 <a href="#gl-integration-approaches">integration approaches</a> is to integrate entirely on the server side.</dd>
+<dd>In a server-side integration, raw UID2s or UID2 tokens are generated and refreshed on the server.</dd>
 <dd>For example, in a server-side integration, advertisers generate raw UID2s on the server side to be delivered for audience targeting, and publishers generate UID2 tokens on the server side for bidstream use.</dd>
+<dd>An example of documentation for publisher client-side integration is <a href="../guides/custom-publisher-integration">Publisher Integration Guide, Server-Only</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-sha-256">SHA-256</MdxJumpAnchor></dt>
 <dd>SHA-256 is the secure hashing algorithm that UID2 uses.</dd>
