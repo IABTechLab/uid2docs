@@ -15,7 +15,9 @@ import Link from '@docusaurus/Link';
 
 このサービスは、[DII](../ref-info/glossary-uid.md#gl-dii) (メールアドレスまたは電話番号) を raw UID2 に迅速かつ安全にマッピングすることができます。
 
->NOTE: 現在 UID2 エコシステムに参加していない場合は、[Request Access to UID2](https://unifiedid.com/request-access) にアクセスしてください。
+:::note
+現在 UID2 エコシステムに参加していない場合は、[Request Access to UID2](https://unifiedid.com/request-access) にアクセスしてください。
+:::
 
 ## Functionality
 
@@ -101,7 +103,9 @@ AWS Data Exchange の [Unified ID 2.0 Identity Resolution](https://aws.amazon.co
 
 UID2 の参加者は AWS の S3 バケットにデータを保存し、AWS Entity Resolution とインテグレーションします。AWS アカウントを作成したら([Create AWS Account](#create-aws-account) を参照してください。)、基本的な手順は以下の通りです。
 
->NOTE: 詳細な手順については、AWSドキュメントの [Setting up AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html) を参照してください。
+:::note
+詳細な手順については、AWSドキュメントの [Setting up AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html) を参照してください。
+:::
 
 1. [管理者ユーザーを作成します](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html#setting-up-create-iam-user).
 

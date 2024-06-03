@@ -74,7 +74,9 @@ For details on the bidding logic for handling user opt-outs, see [DSP Integratio
 The `SharingClient` class allows you to encrypt raw UID2s into UID2 tokens and decrypt UID2 tokens into raw UID2s.
 
 
->NOTE: When you use an SDK, you do not need to store or manage decryption keys.
+:::note
+When you use an SDK, you do not need to store or manage decryption keys.
+:::
 
 ### Encryption Response Content
 

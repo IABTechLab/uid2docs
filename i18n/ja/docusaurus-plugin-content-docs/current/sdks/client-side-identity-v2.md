@@ -265,7 +265,9 @@ ID が利用できない場合は、[isLoginRequired()](#isloginrequired-boolean
 - Advertising Token が利用可能な場合、Promise は現在の Advertising Token で実行されます。
 - Advertising Token が利用可能であれば、Promise は現在の Advertising Token で実行されます。Advertising Token が一時的にでも利用できない場合、Promise は `Error` のインスタンスで拒否されます。この場合に最適なアクションを決定するには、[isLoginRequired()](#isloginrequired-boolean) を使います。
 
->NOTE: もし `getAdvertisingTokenAsync()` 関数が初期化が完了した *後* に呼ばれた場合、Promise は現在の状態に基づいて即座に Settle されます。
+:::note
+もし `getAdvertisingTokenAsync()` 関数が初期化が完了した *後* に呼ばれた場合、Promise は現在の状態に基づいて即座に Settle されます。
+:::
 
 
 ```html

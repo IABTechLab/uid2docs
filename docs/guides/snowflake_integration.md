@@ -77,7 +77,9 @@ The following functions are deprecated in favor of `FN_T_UID2_IDENTITY_MAP`. You
 - `FN_T_UID2_IDENTITY_MAP_EMAIL` (deprecated)
 - `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (deprecated)
 
->NOTE: If you are using the deprecated functions, and need help migrating to the newer function, see [Migration Guide](#migration-guide).
+:::note
+If you are using the deprecated functions, and need help migrating to the newer function, see [Migration Guide](#migration-guide).
+:::
 
 To identify the UID2s that you must regenerate, use the `UID2_SALT_BUCKETS` view from the UID2 Share. For details, see [Regenerate UID2s](#regenerate-uid2s).
 
@@ -151,7 +153,9 @@ Mapping request examples in this section:
 - [Single Hashed Phone Number](#mapping-request-example---single-hashed-phone-number)
 - [Multiple Hashed Phone Numbers](#mapping-request-example---multiple-hashed-phone-numbers)
 
->NOTE: The input and output data in these examples is fictitious, for illustrative purposes only. The values provided are not real values.
+:::note
+The input and output data in these examples is fictitious, for illustrative purposes only. The values provided are not real values.
+:::
 
 #### Mapping Request Example - Single Unhashed Email
 
@@ -635,7 +639,9 @@ A successful query returns the following information for the specified UID2 toke
 | `SITE_ID` | INT | The value is one of the following:<ul><li>Decryption successful: The identifier of the UID2 participant that encrypted the token.</li><li>Decryption not successful: `NULL`.</li></ul> |
 | `DECRYPTION_STATUS` | TEXT | The value is one of the following:<ul><li>Decryption successful: `NULL`.</li><li>Decryption not successful:  The reason why the UID2 token was not decrypted; for example, `EXPIRED_TOKEN`.<br/>For details, see [Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column).</li></ul> |
 
->NOTE: In most circumstances where UID2 token cannot be successfully decrypted, the function will not return any rows at all.
+:::note
+In most circumstances where UID2 token cannot be successfully decrypted, the function will not return any rows at all.
+:::
 
 #### Values for the DECRYPTION_STATUS Column
 

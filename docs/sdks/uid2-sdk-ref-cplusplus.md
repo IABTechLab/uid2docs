@@ -58,7 +58,9 @@ The initialization function configures the parameters necessary for the SDK to a
 
 The interface allows you to decrypt UID2 advertising tokens and return the corresponding raw UID2. 
 
->NOTE: When you use an SDK, you do not need to store or manage decryption keys.
+:::note
+When you use an SDK, you do not need to store or manage decryption keys.
+:::
 
 If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising token and return the UID2. For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
 

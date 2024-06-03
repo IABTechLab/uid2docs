@@ -262,8 +262,9 @@ This function can be called before or after the [init()](#initopts-object-void) 
 - If the advertising token is available, the promise is fulfilled with the current advertising token.
 - If the advertising token is not available, even temporarily, the promise is rejected with an instance of `Error`. To determine the best course of action in this case, you can use [isLoginRequired()](#isloginrequired-boolean).
 
->NOTE: If the `getAdvertisingTokenAsync()` function is called *after* the initialization is complete, the promise is settled immediately based on the current state.
-
+:::note
+If the `getAdvertisingTokenAsync()` function is called *after* the initialization is complete, the promise is settled immediately based on the current state.
+:::
 
 ```html
 <script>

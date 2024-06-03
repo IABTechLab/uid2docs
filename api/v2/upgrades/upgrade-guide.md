@@ -92,7 +92,9 @@ Here's what you need to know and do:
 
 #### Upgrade Token Refresh Calls
 
->NOTE: If you are using the [UID2 SDK for JavaScript Reference Guide](https://unifiedid.com/docs/sdks/client-side-identity) to refresh and manage tokens, no further action is required. 
+:::note
+If you are using the [UID2 SDK for JavaScript Reference Guide](https://unifiedid.com/docs/sdks/client-side-identity) to refresh and manage tokens, no further action is required.
+:::
 
 If you refresh tokens either on server or on client side without using the SDK, keep in mind the following, when making requests to the v2 [POST /token/refresh](https://unifiedid.com/docs/endpoints/post-token-refresh) endpoint:
 

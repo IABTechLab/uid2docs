@@ -27,7 +27,9 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 
 *DII から直接 UID2 Token を生成することはできません。しかし、DII を raw UID2 に変換し、raw UID2 を暗号化して UID2 Token にすることはできます。
 
->NOTE: ビッドストリームで UID2 Token を共有するパブリッシャーの場合は、[Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください
+:::note
+ビッドストリームで UID2 Token を共有するパブリッシャーの場合は、[Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください
+:::
 
 ## Workflow Diagram
 
@@ -74,7 +76,9 @@ UID2 Share へのアクセスを要求するには、次の手順を実行しま
 - `FN_T_UID2_IDENTITY_MAP_EMAIL` (非推奨)
 - `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (非推奨)
 
->NOTE: 非推奨の関数を使用していて、新しい関数への移行の手助けが必要な場合は、[Migration Guide](#migration-guide) を参照してください。
+:::note
+非推奨の関数を使用していて、新しい関数への移行の手助けが必要な場合は、[Migration Guide](#migration-guide) を参照してください。
+:::
 
 再生成が必要な UID2 を特定するには、UID Share から `UID2_SALT_BUCKETS` ビューを使用します。詳しくは、[Regenerate UID2s](#regenerate-uid2s) を参照してください。
 
@@ -148,7 +152,9 @@ DII が電話番号の場合、UID2 [電話番号正規化](../getting-started/g
 - [Single Hashed Phone Number](#mapping-request-example---single-hashed-phone-number)
 - [Multiple Hashed Phone Numbers](#mapping-request-example---multiple-hashed-phone-numbers)
 
->NOTE: これらの例の入出力データは、説明のみを目的とした架空のものです。提供された値は実際の値ではありません。
+:::note
+これらの例の入出力データは、説明のみを目的とした架空のものです。提供された値は実際の値ではありません。
+:::
 
 #### Mapping Request Example - Single Unhashed Email
 
@@ -628,7 +634,9 @@ UID2 Token を raw UID2 に復号するには、関数 `FN_T_UID2_DECRYPT` を�
 | `SITE_ID` | INT | 値は次のいずれかです:<ul><li>復号化成功: トークンを暗号化した UID2 参加者の識別子。</li><li>復号化失敗: `NULL`.</li></ul> |
 | `DECRYPTION_STATUS` | TEXT | 値は次のいずれかです:<ul><li>復号化成功: `NULL`.</li><li>暗号化失敗: UID2 Token が復号化されなかった理由。例えば、`EXPIRED_TOKEN` です。<br/>詳細については、[Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column) を参照してください。</li></ul> |
 
->NOTE: UID2 Token がうまく復号化できない場合、この関数は行を返しません。
+:::note
+UID2 Token がうまく復号化できない場合、この関数は行を返しません。
+:::
 
 #### Values for the DECRYPTION_STATUS Column
 

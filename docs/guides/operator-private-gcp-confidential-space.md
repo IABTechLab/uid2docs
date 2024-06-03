@@ -414,7 +414,9 @@ $ gcloud compute instances create {INSTANCE_NAME} \
 
 The following example of the deployment script for the production environment uses some placeholder values.
 
->NOTE: A `machine-type` value of `n2d-standard-16` is required for the production environment.
+:::note
+A `machine-type` value of `n2d-standard-16` is required for the production environment.
+:::
 
 ```
 $ gcloud compute instances create {INSTANCE_NAME} \

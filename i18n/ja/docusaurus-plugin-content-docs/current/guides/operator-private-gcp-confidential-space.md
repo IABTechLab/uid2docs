@@ -13,7 +13,9 @@ import Link from '@docusaurus/Link';
 
 このガイドでは、[Google Cloud](https://cloud.google.com/docs/overview/) Platform の Confidential Computing オプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) で UID2 Operator Service をセットアップするための情報を提供します。Confidential Space は、Trusted Execution Environment (TEE) として知られるセキュアなエンクレーブ環境を提供します。
 
->NOTE: UID2 Private Operator for GCPは、以下の地域ではサポートされていません: Europe, China.
+:::note
+UID2 Private Operator for GCPは、以下の地域ではサポートされていません: Europe, China.
+:::
 
 Operator Service は、Confidential Space の "workload"&#8212;コンテナ化された Docker イメージで実行され、Confidential Space イメージの上の安全なクラウドベースのエンクレーブで実行されます。
 
@@ -83,7 +85,9 @@ UID2 アカウントの登録が完了し、gcloud CLI をインストールし�
 
 ベストプラクティスとして、本番環境にデプロイする前にインテグレーション環境で実装をテストし、検証することを勧めます。
 
->NOTE: 各環境ごとに `{OPERATOR_KEY}` の値を受け取ります。必ず正しいものを使用してください。`{OPERATOR_IMAGE}` の値はどちらの環境でも同じです。
+:::note
+各環境ごとに `{OPERATOR_KEY}` の値を受け取ります。必ず正しいものを使用してください。`{OPERATOR_IMAGE}` の値はどちらの環境でも同じです。
+:::
 
 | Environment | Details |
 | :--- | :--- |
@@ -120,7 +124,9 @@ Terraform テンプレートは以下を行います:
   - Egress: [Cloud Network Address Translation (NAT)](https://cloud.google.com/nat/docs/overview)。
 - HTTPS が有効な場合、Terraform に HTTPS 証明書を提供します。
 
->NOTE: Terraform テンプレートは、[Confidential Space Account Setup](#confidential-space-account-setup) Step 3 でインストールした gcloud CLI を使用します。
+:::note
+Terraform テンプレートは、[Confidential Space Account Setup](#confidential-space-account-setup) Step 3 でインストールした gcloud CLI を使用します。
+:::
 
 Terraform テンプレートを使用して、GCP Confidential Space Enclave に新しい UID2 Operator をデプロイするには、以下の手順に従います:
 
@@ -207,11 +213,13 @@ terraform apply
 ```
 `terraform apply` を実行すると、同じフォルダに以下のファイルが生成されます: `terraform.tfstate`。このファイルには管理対象のインフラストラクチャとコンフィギュレーションに関する状態情報が保存され、将来のメンテナンスに使用されます。
 
->NOTE: Terraformの `state` ファイルについては、必ず推奨されるプラクティスに従ってください: これらはデプロイされたインフラストラクチャを維持するために必要であり、機密情報が含まれている可能性があります。詳細は Terraform ドキュメントの [state](https://developer.hashicorp.com/terraform/language/state) を参照してください。
+:::note
+Terraformの `state` ファイルについては、必ず推奨されるプラクティスに従ってください: これらはデプロイされたインフラストラクチャを維持するために必要であり、機密情報が含まれている可能性があります。詳細は Terraform ドキュメントの [state](https://developer.hashicorp.com/terraform/language/state) を参照してください。
+:::
 
 #### Test Terraform Using the Health Check Endpoint
 
-Helth check エンドポイントを呼び出して、実装の健全性をテストします。期待される結果は HTTP 200 で、レスポンスボディは `OK` です。
+Health check エンドポイントを呼び出して、実装の健全性をテストします。期待される結果は HTTP 200 で、レスポンスボディは `OK` です。
 
 手順については、[Health Check&#8212;Terraform Template](#health-checkterraform-template) を参照してください。
 
@@ -237,7 +245,9 @@ terraform destroy
 
 gcloud CLI を使用して GCP Confidential Space Enclave に新しい UID2 Operator をデプロイするには、以下の手順に従います。
 
->NOTE: 本番環境へのデプロイでは、このオプションは勧めません。ロードバランシングを行い、HTTPS を有効にして、Terraform テンプレート経由でデプロイすることを勧めます。
+:::note
+ 本番環境へのデプロイでは、このオプションは勧めません。ロードバランシングを行い、HTTPS を有効にして、Terraform テンプレート経由でデプロイすることを勧めます。
+ :::
 
    1. [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions)
    1. [Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager)
@@ -396,7 +406,9 @@ $ gcloud compute instances create {INSTANCE_NAME} \
 
 次のプロダクション環境へのデプロイスクリプトでは、プレースホルダ値をいくつか使用しています。
 
->NOTE: `machine-type` の値は、プロダクション環境では `n2d-standard-16` とする必要があります。
+:::note
+`machine-type` の値は、プロダクション環境では `n2d-standard-16` とする必要があります。
+:::
 
 ```
 $ gcloud compute instances create {INSTANCE_NAME} \

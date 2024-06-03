@@ -63,7 +63,9 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 このインターフェイスを使用すると、UID2 Advertising Token を復号化し、対応する raw UID2 を返すことができます。
 
->NOTE: SDK を使用する際に、復号鍵を保存したり管理したりする必要はありません。
+:::note
+SDK を使用する際に、復号鍵を保存したり管理したりする必要はありません。
+:::
 
 DSP の場合は、入札のために UID2 Advertising Token を復号化して UID2 を返すインターフェースを呼び出します。ユーザーのオプトアウトを処理する入札ロジックの詳細については、[DSPインテグレーションガイド](../guides/dsp-guide.md) を参照してください。
 
@@ -86,7 +88,9 @@ SDK から返される利用可能な情報の概要を次の表に示します�
 | `uid2` | UID2 Advertising Token に対応する raw UID2。 |
 | `established` | ユーザーがパブリッシャーと最初に UID2 を確立した時を示すタイムスタンプ。 |
 
->NOTE: 復号化に失敗した場合、例外 `EncryptionError` が発生します。
+:::note
+復号化に失敗した場合、例外 `EncryptionError` が発生します。
+:::
 
 ### Response Statuses
 

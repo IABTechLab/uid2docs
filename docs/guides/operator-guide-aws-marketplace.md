@@ -16,7 +16,9 @@ The UID2 Operator is the API server in the UID2 ecosystem. For a Private Operato
 
 ## UID2 Private Operator for AWS
 
->NOTE: [UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) is a free product. The cost displayed on the product page is an estimated cost for the necessary infrastructure.
+:::note
+[UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) is a free product. The cost displayed on the product page is an estimated cost for the necessary infrastructure.
+:::
 
 By subscribing to UID2 Private Operator for AWS, you gain access to the following:
 

@@ -15,7 +15,9 @@ Adding email groups rather than individuals has these benefits:
 - It's an efficient way to keep multiple people notified without having to create a lot of individual entries.
 - You can manage the list externally, as part of managing your internal email configuration, outside the UID2 Portal.
 
->NOTE: Email contacts cannot log in to the UID2 Portal or modify the account. They only receive information notices. If an email contact wants to be removed, that action must be done by a team member.
+:::note
+Email contacts cannot log in to the UID2 Portal or modify the account. They only receive information notices. If an email contact wants to be removed, that action must be done by a team member.
+:::
 
 ## Configuring Email Contacts
 
@@ -43,7 +45,9 @@ Complete the following steps:
    - Contact Type: Choose from the drop-down list of contact types. For example, choose `Business` or `Technical`.
 3. Click **Save Email Contact**. Your entry is added to the list. 
 
->NOTE: For email contacts, no email confirmation is sent.
+:::note
+For email contacts, no email confirmation is sent.
+:::
 
 ## Edit Information for an Email Contact
 

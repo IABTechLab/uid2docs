@@ -19,7 +19,9 @@ There are many options to help you create the exact sharing relationships that y
 - **Sharing Categories**: You can share with all current and future participants in one or more specific categories that you configure (Publishers, Advertisers, DSPs, or Data Providers).
 - **Individual Sharing Relationships**: You can create a sharing relationship with one or more current participants. With this option, you must manually add any future sharing permissions.
 
->NOTE: Configuring a sharing permission with another participant doesn't mean that data is shared. It only makes it possible for the receiver to decrypt your UID2 tokens into raw UID2s. Information is only shared when you explicitly send it to another participant, or another participant sends it to you.
+:::note
+Configuring a sharing permission with another participant doesn't mean that data is shared. It only makes it possible for the receiver to decrypt your UID2 tokens into raw UID2s. Information is only shared when you explicitly send it to another participant, or another participant sends it to you.
+:::
 
 ## Sharing Permissions Overview
 
@@ -71,13 +73,17 @@ The following filters are available on the list of available sharing participant
 - Data Providers
 - DSPs
 
->NOTE: When you manually create your sharing relationships using the search feature, you create current permissions, but not future ones. The only way to configure your sharing permissions to include future participants is to accept the recommendations. Alternatively, to add future participants, you must log in to the UID2 Portal again and search for the additional sharing participants.
+:::note
+When you manually create your sharing relationships using the search feature, you create current permissions, but not future ones. The only way to configure your sharing permissions to include future participants is to accept the recommendations. Alternatively, to add future participants, you must log in to the UID2 Portal again and search for the additional sharing participants.
+:::
 
 ## Steps for Granting Sharing Permission
 
 Enabling sharing permissions includes the following steps.
 
->NOTE: As well as granting sharing permission in the UID2 Portal, you'll also need to integrate an SDK, or Snowflake functionality, into your code. See [Tokenized Sharing Overview](../sharing/sharing-tokenized-overview.md).
+:::note
+As well as granting sharing permission in the UID2 Portal, you'll also need to integrate an SDK, or Snowflake functionality, into your code. See [Tokenized Sharing Overview](../sharing/sharing-tokenized-overview.md).
+:::
 
 1. Log in to your UID2 Portal account.
 1. Click **Sharing Permissions**.
@@ -92,4 +98,6 @@ Enabling sharing permissions includes the following steps.
    - **Add Permissions**: If you prefer, you can search for individual participants to share with. For details, see [Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships).
 1. Save changes.
 
->NOTE: When you enable sharing permission, this allows the selected sharing participants to access your decryption keys. Each participant that you enable for sharing can use your keys, via a UID2 SDK or Snowflake integration, to decrypt a UID2 token into a raw UID2. However, granting permission is just the first step. In order for sharing to occur, you must send the tokens to the participant. The UID2 Portal enables the permissions. It does not send any data&#8212;that is up to you.
+:::note
+When you enable sharing permission, this allows the selected sharing participants to access your decryption keys. Each participant that you enable for sharing can use your keys, via a UID2 SDK or Snowflake integration, to decrypt a UID2 token into a raw UID2. However, granting permission is just the first step. In order for sharing to occur, you must send the tokens to the participant. The UID2 Portal enables the permissions. It does not send any data&#8212;that is up to you.
+:::

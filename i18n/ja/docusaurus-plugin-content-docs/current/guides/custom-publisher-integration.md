@@ -73,7 +73,9 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 | :--- | :--- | :--- |
 | 2-a  | N/A      | Step [1-e](#establish-identity-capture-user-data) の `advertising_token` を入札のために SSP に送信します。そのままの値を送信します。 |
 
->NOTE: UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream) を参照してください。
+:::note
+UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream) を参照してください。
+:::
 
 ### Refresh a UID2 Token
 

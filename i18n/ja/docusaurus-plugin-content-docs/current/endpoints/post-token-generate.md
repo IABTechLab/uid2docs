@@ -14,7 +14,9 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 > IMPORTANT: このエンドポイントは、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。`optout_check` パラメータは値 `1` が必須で、ユーザーがオプトアウトしたかどうかをチェックします。
 
->NOTE: このエンドポイントを直接呼び出すのではなく、UID2 SDK を使って管理することもできます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
+:::note
+このエンドポイントを直接呼び出すのではなく、UID2 SDK を使って管理することもできます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
+:::
 
 ## Request Format 
 
