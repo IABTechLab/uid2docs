@@ -117,7 +117,7 @@ Web インテグレーションの詳細については、[Client-Server Integra
 
 次の図は、対応する ID の [status values](#identity-status-values) を含む 4 つの状態と、それらの間で可能な遷移を示しています。SDK は各遷移で [callback function](#callback-function) を呼び出します。
 
-![Client-Side JavaScript SDK Workflow](images/uid2-js-sdk-workflow.svg)
+![Client-Side JavaScript SDK Workflow](images/uid2-js-sdk-workflow.png)
 
 
 ### Background Token Auto-Refresh
