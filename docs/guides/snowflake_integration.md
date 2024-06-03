@@ -8,6 +8,7 @@ sidebar_position: 04
 ---
 
 import Link from '@docusaurus/Link';
+import SnowflakeIntegrationArchitecture from './images/uid2-snowflake-integration-architecture.svg';
 
 # Snowflake Integration Guide
 
@@ -33,7 +34,7 @@ The following table summarizes the functionality available with the UID2 Snowfla
 
 The following diagram illustrates how you engage with the UID2 integration process in Snowflake:
 
-![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture.svg)
+<SnowflakeIntegrationArchitecture />
 
 |Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-Out Cloud Setup|
 | :--- | :--- | :--- |
