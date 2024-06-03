@@ -25,20 +25,20 @@ UID2 provides an SDK for JavaScript that supports the following:
 
 For additional flexibility, UID2 also provides alternative methods for some of the features and complementary products, such as a Prebid integration.
 
-## Client-Side or Server-Side Integration
+## Client-Side or Client-Server Integration
 
 The options for integrating with UID2 using the UID2 SDK for JavaScript are summarized in the following table. Choose the option that's best for you.
 
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |
 | You have access to DII on the client side and want to do front-end development only. | Client-side integration | [Client-Side Integration Guide for JavaScript](publisher-client-side.md) |
-| You have access to DII on the server side and can do server-side development, or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Server-side integration | [Server-Side Integration Guide for JavaScript](integration-javascript-server-side.md) |
+| You have access to DII on the server side and can do server-side development, or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Server-side integration | [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md) |
 
 ## Generating the UID2 Token
 
 Depending on access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>, there are two methods to generate UID2 tokens using the UID2 SDK for JavaScript: client-side or server-side.
 
-From the table in [Client-Side or Server-Side Integration](#client-side-or-server-side-integration), determine which option is best for you, and then follow the applicable integration guide.
+From the table in [Client-Side or Client-Server Integration](#client-side-or-client-server-integration), determine which option is best for you, and then follow the applicable integration guide.
 
 ## Refreshing the UID2 Token
 
@@ -68,4 +68,4 @@ At a high level, to integrate your site with UID2 using the UID2 SDK for JavaScr
 For detailed instructions, refer to one of the following integration guides:
 
 - [Client-Side Integration Guide for JavaScript](publisher-client-side.md)
-- [Server-Side Integration Guide for JavaScript](integration-javascript-server-side.md)
+- [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md)

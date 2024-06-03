@@ -25,20 +25,20 @@ UID2 は、以下をサポートする JavaScript 用の SDK を提供してい�
 
 さらに柔軟性を高めるため、UID2 は、Prebid インテグレーションなど、一部の機能や補完的な製品の代替方法も提供しています。
 
-## Client-Side or Server-Side Integration
+## Client-Side or Client-Server Integration
 
 UID2 SDK for JavaScript を使って UID2 とインテグレーションするためのオプションを、以下の表にまとめました。最適なオプションを選択してください。
 
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |
 | Client-Side で DII にアクセスでき、フロントエンド開発のみを行いたい。 | Client-side integration | [Client-Side Integration Guide for JavaScript](publisher-client-side.md) |
-| Server-Side で DII にアクセスでき、Server-Side の開発が可能であるか、[Private Operator](../ref-info/glossary-uid.md#gl-private-operator) を使用している。 | Server-side integration | [Server-Side Integration Guide for JavaScript](integration-javascript-server-side.md) |
+| Server-Side で DII にアクセスでき、Server-Side の開発が可能であるか、[Private Operator](../ref-info/glossary-uid.md#gl-private-operator) を使用している。 | Server-side integration | [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md) |
 
 ## Generating the UID2 Token
 
 [DII](../ref-info/glossary-uid.md#gl-dii) へのアクセスに応じて、UID2 SDK for JavaScript を使用して UID2 Token を生成するには、Client-Side または Server-Side の2つの方法があります。
 
-[Client-Side or Server-Side Integration](#client-side-or-server-side-integration) の表から、どちらのオプションが最適かを判断し、該当するインテグレーションガイドに従ってください。
+[Client-Side or Client-Server Integration](#client-side-or-client-server-integration) の表から、どちらのオプションが最適かを判断し、該当するインテグレーションガイドに従ってください。
 
 ## Refreshing the UID2 Token
 
@@ -68,4 +68,4 @@ UID2 SDK for JavaScript を使って UID2 とインテグレーションする�
 詳細な手順については、以下のインテグレーションガイドのいずれかを参照してください:
 
 - [Client-Side Integration Guide for JavaScript](publisher-client-side.md)
-- [Server-Side Integration Guide for JavaScript](integration-javascript-server-side.md)
+- [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md)

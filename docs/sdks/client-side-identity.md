@@ -29,7 +29,7 @@ Related information:
 
 For integration steps for content publishers, see:
   - [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
-  - [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md). 
+  - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md). 
 
 For example applications with associated documentation, see:
   - The UID2 Google Secure Signals with SDK v3 example:
@@ -129,7 +129,7 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 	- If the advertising token is available, use it to initiate requests for targeted advertising.
 	- If the advertising token is not available, either use untargeted advertising or redirect the user to the data capture with the consent form.
 
-For more detailed web integration steps, see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md).
+For more detailed web integration steps, see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md).
 
 ### Background Token Auto-Refresh
 
