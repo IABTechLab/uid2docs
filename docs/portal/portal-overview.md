@@ -10,12 +10,6 @@ import Link from '@docusaurus/Link';
 
 # UID2 Portal: Overview
 
-<!-- It includes the following:
-
-- [Access the UID2 Portal](#access-the-uid2-portal)
-- [Set Up Your Account](#set-up-your-account)
--->
-
 The UID2 Portal is your one-stop shop for setting up and configuring your UID2 account. In this self-serve portal, you can complete all basic setup steps for UID2 participation. Click through on the links for more information about each activity.
 
 | Activity | Documentation Link |

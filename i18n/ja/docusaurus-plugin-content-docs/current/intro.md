@@ -10,19 +10,6 @@ import Link from '@docusaurus/Link';
 
 # Unified ID 2.0 Overview
 
-<!-- It includes the following:
-
-- [Introduction](#introduction)
-  - [Guiding Principles](#guiding-principles)
-  - [Technical Design Principles](#technical-design-principles)
-- [Elements of the UID2 Infrastructure](#elements-of-the-uid2-infrastructure)
-  - [UID2 Identifier Types](#uid2-identifier-types)
-  - [Components](#components)
-  - [Participants](#participants)
-  - [Workflows](#workflows)
-- [FAQs](#faqs)
-- [License](#license) -->
-
 UID2 は、広告エコシステム全体の多くの [参加者](#participants) にとって、オープンインターネット上の広告機会に対する決定論的な ID を可能にするフレームワークです。UID2 フレームワークにより、パブリッシャーのウェブサイト、モバイルアプリ、Connected TV (CTV)アプリからのログイン体験が、プログラマティックワークフローを通じて収益化できるようになります。独自の名前空間を持つオープンソースのスタンドアローンソリューションとして構築されたこのフレームワークは、ローカル市場の要件に合わせて設計された透明性とプライバシー制御をユーザーに提供します。
 
 > NOTE: 「UID2」という用語は、フレームワークと実際の識別子のいずれかを指すことがあります。特に断りのない限り、このページでは UID2 フレームワークの概要を説明します。

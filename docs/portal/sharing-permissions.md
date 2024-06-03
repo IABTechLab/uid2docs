@@ -11,14 +11,6 @@ import Link from '@docusaurus/Link';
 
 Configuring your sharing permissions opens the door to you being able to share UID2s with other UID2 participants.
 
-<!-- It includes the following:
-
-- [Sharing Permissions Overview](#sharing-permissions-overview)
-- [Sharing Options](#sharing-options)
-- [Bulk Add Sharing Permissions](#bulk-add-sharing-permissions)
-- [Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships)
-- [Steps for Granting Sharing Permission](#steps-for-granting-sharing-permission) DONE -->
-
 There are many options to help you create the exact sharing relationships that you want:
 
 - **Recommendations**: You can accept recommendations, with one click, to share with all current and future participants in one or more categories (Publishers, Advertisers, DSPs, or Data Providers). See [Bulk Add Sharing Permissions](#bulk-add-sharing-permissions).

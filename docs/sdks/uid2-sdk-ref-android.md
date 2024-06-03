@@ -9,24 +9,6 @@ import Link from '@docusaurus/Link';
 
 # UID2 SDK for Android Reference Guide
 
-<!-- This guide includes the following information:
-
-- [Non-Mobile Android Device Support](#non-mobile-android-device-support)
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [SDK Version](#sdk-version)
-- [GitHub Repository/Binary](#github-repositorybinary)
-- [Minimum Requirements](#minimum-requirements)
-- [Installation](#installation)
-  -  [Installing with Gradle](#installing-with-gradle)
-  -  [Installing with Maven](#installing-with-maven)
-- [Usage Guidelines](#usage-guidelines)
-- [Code Samples](#code-samples)
-- [UID2Manager API](#uid2manager-api)
-  -  [Functions](#functions)
-  -  [Variables](#variables)
- -->
-
 You can use the UID2 SDK for Android for the following:
 
 - Generating or establishing client identity using UID2.

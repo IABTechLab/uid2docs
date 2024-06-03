@@ -11,20 +11,6 @@ import Link from '@docusaurus/Link';
 
 # Snowflake Integration Guide
 
-<!-- This guide includes the following information:
-- [Functionality](#functionality)
-- [Workflow Diagram](#workflow-diagram)
-- [Access the UID2 Shares](#access-the-uid2-shares)
-- [Shared Objects](#shared-objects)
-  -  [Database and Schema Names](#database-and-schema-names)
-  -  [Map DII](#map-dii)
-  -  [Regenerated UID2s](#regenerate-uid2s) 
-- [Migration Guide](#migration-guide)  
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
-   - [Encrypt Tokens](#encrypt-tokens)
-   - [Decrypt Tokens](#decrypt-tokens)
-   - [UID2 Sharing Example](#uid2-sharing-example) -->
-
 [Snowflake](https://www.snowflake.com/?lang=ja) はクラウドデータウェアハウスソリューションで、パートナーとして顧客のデータを保存し、UID2 フレームワークとインテグレーションできます。Snowflake を使用することで、UID2 は、機密性の高い [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を公開することなく、認可された消費者識別子データを安全に共有できます。消費者識別子データを直接 Operator Web Services に問い合わせることもできますが、Snowflake UID2 とのインテグレーションにより、よりシームレスな体験が可能になります。
 
 UID2 の以下のリストが Snowflake marketplace で入手可能です:

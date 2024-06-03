@@ -11,13 +11,6 @@ import Link from '@docusaurus/Link';
 
 Frequently asked questions for UID2 are grouped into general categories by audience.
 
-<!-- This page includes:
-
-- [FAQs&#8212;General](#faqsgeneral)
-- [FAQs for Publishers](#faqs-for-publishers)
-- [FAQs for Advertisers and Data Providers](#faqs-for-advertisers-and-data-providers)
-- [FAQs for DSPs)](#faqs-for-dsps) -->
-
 ## FAQs&#8212;General
 
 Here are some frequently asked questions regarding the UID2 framework.

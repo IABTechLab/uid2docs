@@ -17,13 +17,6 @@ Adding email groups rather than individuals has these benefits:
 
 >NOTE: Email contacts cannot log in to the UID2 Portal or modify the account. They only receive information notices. If an email contact wants to be removed, that action must be done by a team member.
 
-<!-- It includes the following:
-
-- [Configuring Email Contacts](#configuring-email-contacts)
-- [Add an Email Contact](#add-an-email-contact)
-- [Edit Information for an Email Contact](#edit-information-for-an-email-contact)
-- [Remove an Email Contact](#remove-an-email-contact) DONE -->
-
 ## Configuring Email Contacts
 
 On the Email Contacts page, you can perform all activities relating to configuring individuals who should be notified about UID2 updates, including the following:

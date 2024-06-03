@@ -17,13 +17,6 @@ UID2 Portal では、UID2 の最新アップデートやリリースに関する
 
 >NOTE: メール連絡先は、UID2 Portal にログインしたりアカウントを変更したりできません。受信できるのは情報通知のみです。メール連絡先を削除したい場合は、チームメンバーがその操作を行う必要があります。
 
-<!-- It includes the following:
-
-- [Configuring Email Contacts](#configuring-email-contacts)
-- [Add an Email Contact](#add-an-email-contact)
-- [Edit Information for an Email Contact](#edit-information-for-an-email-contact)
-- [Remove an Email Contact](#remove-an-email-contact) DONE -->
-
 ## Configuring Email Contacts
 
 Email Contacts ページでは、UID2 の更新について通知を受ける個人を設定するための、以下のような操作を実行できます:

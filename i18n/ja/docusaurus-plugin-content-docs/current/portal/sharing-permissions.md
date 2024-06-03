@@ -11,14 +11,6 @@ import Link from '@docusaurus/Link';
 
 Sharing permissions (共有権限) を設定することで、他の UID2 参加者と UID2 を共有できるようになります。
 
-<!-- It includes the following:
-
-- [Sharing Permissions Overview](#sharing-permissions-overview)
-- [Sharing Options](#sharing-options)
-- [Bulk Add Sharing Permissions](#bulk-add-sharing-permissions)
-- [Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships)
-- [Steps for Granting Sharing Permission](#steps-for-granting-sharing-permission) DONE -->
-
 適切な共有関係を作成するのに役立つ多くのオプションがあります:
 
 - **Recommendations**: 1つ以上のカテゴリ (パブリッシャー、広告主、DSP、またはデータプロバイダー) の現在および将来の参加者全員と共有するための推奨を、ワンクリックで受け入れることができます。 [Bulk Add Sharing Permissions](#bulk-add-sharing-permissions) を参照してください。

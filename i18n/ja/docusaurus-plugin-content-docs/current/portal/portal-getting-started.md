@@ -18,14 +18,6 @@ UID2 Portal アカウントを申請するには、氏名や業種など、ご�
 
 オンボーディングプロセスでサポートが必要な場合は、UID2 の担当者にお尋ねください。
 
-<!-- It includes the following:
-
-- [Gather Information](#gather-information)
-- [Request an Account](#request-an-account)
-- [Account Approval Step](#account-approval-step)
-- [Log In for the First Time](#log-in-for-the-first-time)
-- [Reset Password](#reset-password) -->
-
 ## Gather Information
 
 アカウント開設の申し込みの際に必要な情報と、アカウント開設が承認された際に必要な追加情報があります。

@@ -42,25 +42,6 @@ You'll need to complete the following steps:
 5. [Check that the token was successfully generated and then pass it for bidstream use](#pass-generated-token-for-bidstream-use).
 6. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
 
-<!-- It includes the following sections:
-
-- [Mobile SDK Version](#mobile-sdk-version)
-- [Overview](#overview)
-- [Complete the UID2 Account Setup](#complete-the-uid2-account-setup)
-- [Client-Server Mobile Integration Data Flow Overview](#client-server-mobile-integration-data-flow-overview)
-- [Implement Server-Side Token Generation](#implement-server-side-token-generation)
-- [Server-Side Token Refresh](#server-side-token-refresh)
-- [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app)
-- [Using the UID2 Integration Environment](#using-the-uid2-integration-environment)
-- [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment)
-- [Token Storage](#token-storage)
-- [Pass Generated Token for Bidstream Use](#pass-generated-token-for-bidstream-use)
-- [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk)
-- [Enable Logging)](#enable-logging)
-- [Enable Automatic Token Refresh in Mobile App/Client Side](#enable-automatic-token-refresh-in-mobile-appclient-side)
-- [Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration) -->
-
-
 ## Mobile SDK Version
 
 This guide provides instructions for using version 1.2.0 or higher of either of these UID2 mobile SDKs:

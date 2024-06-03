@@ -18,14 +18,6 @@ Each UID2 <a href="/docs/intro#participants">participant</a> gets a set of uniqu
 
 If you're using the integration environment as well as the production environment, you'll get a separate set of credentials for each environment.
 
-<!-- It includes:
-
-* [API Key and Client Secret](#api-key-and-client-secret)
-  * [Security of API Key and Client Secret](#security-of-api-key-and-client-secret)
-* [Subscription ID and Public Key](#subscription-id-and-public-key)
-* [Refreshing Credentials](#refreshing-credentials)
- -->
-
 ## API Key and Client Secret
 
 If you're using a client-server or server-side implementation (see [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) or [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), the API key and client secret allow you to connect to the [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) and call API endpoints. These values identify you to the service.
