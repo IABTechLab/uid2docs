@@ -14,7 +14,9 @@ Used by: This endpoint is used mainly by publishers.
 
 You can call this endpoint from the client side (for example, a browser or a mobile app) because it does not require using an API key.
 
->NOTE: Rather than calling this endpoint directly, you could use one of the UID2 SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).
+:::note
+Rather than calling this endpoint directly, you could use one of the UID2 SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).
+:::
 
 ## Request Format 
 

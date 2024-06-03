@@ -123,7 +123,9 @@ Here's what you can customize during or after the [deployment](#deployment):
 
 ### Security Group Policy
 
->NOTE: To avoid passing certificates associated with your domain into the enclave, inbound HTTP is allowed instead of HTTPS. This also avoids the cost of a secure layer, if used in a private network that is internal to your organization. 
+:::note
+To avoid passing certificates associated with your domain into the enclave, inbound HTTP is allowed instead of HTTPS. This also avoids the cost of a secure layer, if used in a private network that is internal to your organization.
+:::
 
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |

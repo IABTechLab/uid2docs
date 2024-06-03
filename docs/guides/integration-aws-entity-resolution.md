@@ -15,7 +15,9 @@ import Link from '@docusaurus/Link';
 
 This service allows you to map <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email addresses or phone numbers) to raw UID2s swiftly and securely.
 
->NOTE: If you're not currently part of the UID2 ecosystem, go to the [Request Access to UID2](https://unifiedid.com/request-access) page.
+:::note
+If you're not currently part of the UID2 ecosystem, go to the [Request Access to UID2](https://unifiedid.com/request-access) page.
+:::
 
 For a video presentation about integration with UID2 by using AWS Entity Resolution, and a demo, see [Getting Started with AWS Entity Resolution Integration with Unified ID 2.0](https://www.youtube.com/watch?v=ORbSsKMgVj8) on YouTube.
 
@@ -103,7 +105,9 @@ On receipt of your subscription request, the UID2 team does the following:
 
 UID2 participants store their data in AWS, in an S3 bucket, and integrate with AWS Entity Resolution. The basic steps, once you've created the AWS account (see [Create AWS Account](#create-aws-account)) are as follows.
 
->NOTE: For detailed instructions, see [Setting up AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html) in the AWS documentation.
+:::note
+For detailed instructions, see [Setting up AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html) in the AWS documentation.
+:::
 
 1. [Create an administrator user](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html#setting-up-create-iam-user).
 
@@ -143,7 +147,9 @@ To create the matching workflow, first sign in to the AWS Management console, op
      | 0001     | Test 1 | test1@uidapi.com | 1/1/90        |
      | 0002     | Test 2 | test2@gmail.com  | 1/2/78        |
 
-     NOTE: If you have both email and phone numbers in the same record, the workflow duplicates each record in the output. If you don't want this, the best approach is to create a separate workflow for each. See details earlier in this section.
+     :::note
+     If you have both email and phone numbers in the same record, the workflow duplicates each record in the output. If you don't want this, the best approach is to create a separate workflow for each. See details earlier in this section.
+     :::
 
    - **Service access**: Grant permissions to Entity Resolution to access the specified data in AWS Glue and to call AWS Data Exchange on your behalf. We highly recommend that you select "Create and use a new service role" and let the workflow create a new role with all the required permissions. If you're using an existing service role, make sure that it is authorized to call AWS Data Exchange by adding the following permission:
 
