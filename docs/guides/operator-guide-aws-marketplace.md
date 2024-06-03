@@ -249,7 +249,9 @@ Here's what you need to know about upgrading:
 - Information on the availability of new versions is provided on the [Unified ID 2.0 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) page.
 - To upgrade your UID2 Operators, create a new CloudFormation stack. For details, see [Deployment](#deployment).
 
->TIP: For a smooth transition, create the new stack first. After the new stack is bootstrapped and ready to serve, delete the old stack. If you are using a load balancer, first get the new instances up and running and then convert the DNS name from the previous one to the new one.
+:::tip
+For a smooth transition, create the new stack first. After the new stack is bootstrapped and ready to serve, delete the old stack. If you are using a load balancer, first get the new instances up and running and then convert the DNS name from the previous one to the new one.
+:::
 
 ## Managing the Logs
 Use the following sections to help you make the best use of your logs:

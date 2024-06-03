@@ -66,7 +66,9 @@ Before choosing your deployment option, complete these Google Cloud setup steps:
 ### UID2 Operator Account Setup
 Ask your UID2 contact to register your organization as a UID2 Operator. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
 
->TIP: It's a good idea to set  up an internal email distribution list of individuals who should be kept informed about new versions and any other technical notifications or requests, and provide that as the email contact.
+:::tip
+It's a good idea to set  up an internal email distribution list of individuals who should be kept informed about new versions and any other technical notifications or requests, and provide that as the email contact.
+:::
 
 When the registration process is complete, you'll receive the following:
 

@@ -129,7 +129,9 @@ Token の Auto-refresh について知っておくべきことは以下のとお
 
 UID2 オブジェクトを構築します。
 
->TIP: この関数を呼び出す代わりに、グローバルの `__uid2` オブジェクトを使用することができます。
+:::tip
+この関数を呼び出す代わりに、グローバルの `__uid2` オブジェクトを使用することができます。
+:::
 
 ### init(opts: object): void
 
@@ -278,7 +280,9 @@ ID が利用できない場合は、[isLoginRequired()](#isloginrequired-boolean
 </script>
 ```
 
->TIP: この関数を使用すると、`init()`を呼び出したコンポーネントではないコンポーネントから、Client-Side JavaScript SDK の初期化の完了を通知することができます。
+:::tip
+この関数を使用すると、`init()`を呼び出したコンポーネントではないコンポーネントから、Client-Side JavaScript SDK の初期化の完了を通知することができます。
+:::
 
 ### isLoginRequired(): boolean
 
