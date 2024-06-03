@@ -14,17 +14,7 @@ import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-i
 # UID2 Integration Overview for Prebid.js
 
 このガイドは、UID2 とインテグレーションし、RTB ビッドストリームで Prebid.js によって渡される [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token)(Advertising Token) を生成したいパブリッシャー向けのインテグレーションオプションの概要です。
-<!-- 
-It includes the following sections:
 
-- [Introduction](#introduction)
-- [Generating the UID2 Token](#generating-the-uid2-token)
-- [Refreshing the UID2 Token](#refreshing-the-uid2-token)
-- [Storing the UID2 Token in the Browser](#storing-the-uid2-token-in-the-browser)
-- [Passing the UID2 Token to the Bidstream](#passing-the-uid2-token-to-the-bidstream)
-- [Integration Overview: High-Level Steps](#integration-overview-high-level-steps)
-
- -->
 ## Introduction
 
 UID2 は、以下をサポートする Prebid.js module を提供しています:

@@ -16,24 +16,6 @@ You can use the UID2 SDK for Python on the server side to facilitate the followi
 - Encrypting raw UID2s to create UID2 tokens for sharing
 - Decrypting UID2 tokens to access the raw UID2s
 
-<!--
- This guide includes the following information:
-
-- [Overview](#overview)
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [Version](#version)
-- [GitHub Repository/Package](#github-repositorypackage)
-- [Initialization](#initialization)
-- [Interface](#interface)
-  - [Response Content](#response-content)
-  - [Response Statuses](#response-statuses)
-- [Usage for Publishers](#usage-for-publishers) 
-- [Usage for DSPs](#usage-for-dsps)
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
-- [FAQs](#faqs)
--->
-
 ## Functionality
 
 This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using Python for their server-side coding. The following table shows the functions it supports.

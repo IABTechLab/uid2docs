@@ -18,29 +18,6 @@ import Link from '@docusaurus/Link';
 - コンテンツパブリッシャーのインテグレーション手順については、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください。
 - [example application](https://example-jssdk-integ.uidapi.com/) と関連ドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) ガイドを参照してください。
 
-<!-- This guide includes the following information:
-
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [SDK Version](#sdk-version)
-- [GitHub Repository/Binary](#github-repositorybinary)
-- [Terminology](#terminology)
-- [Include the SDK Script](#include-the-sdk-script)
-- [Workflow Overview](#workflow-overview)
-   - [Workflow States and Transitions](#workflow-states-and-transitions)
-   - [Background Token Auto-Refresh](#background-token-auto-refresh)
- - [API Reference](#api-reference)
-   - [constructor()](#constructor)
-   - [init()](#initopts-object-void)
-   - [getAdvertisingToken()](#getadvertisingtoken-string)
-   - [getAdvertisingTokenAsync()](#getadvertisingtokenasync-promise)
-   - [isLoginRequired()](#isloginrequired-boolean)
-   - [disconnect()](#disconnect-void)
-   - [abort()](#abort-void)
-- [UID2 Cookie Format](#uid2-cookie-format)
-  - [Properties](#properties)
-  - [Contents Structure](#contents-structure) -->
-
 ## Functionality
 
 この SDK は、UID2 をサポートしたいすべてのパブリッシャーに対して、UID2 とのインテグレーションを簡素化します。以下の表は、SDK がサポートする機能を示しています。

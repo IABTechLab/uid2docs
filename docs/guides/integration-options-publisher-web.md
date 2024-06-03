@@ -23,24 +23,6 @@ Some questions you might ask:
   - Do you want the UID2 Prebid module to do everything&#8212;generate the token, refresh the token, and pass the token into the bidstream?
   - Do you prefer to use the UID2 SDK for JavaScript to generate and refresh the token, and use Prebid to pass the token into the bidstream? -->
 
-<!-- It includes:
-
-* [Integration Steps: Summary](#integration-steps-summary)
-* [Integration Options: Client Side](#integration-options-client-side)
-* [Integration Options: Server Side](#integration-options-server-side)
-* [Options to Generate/Refresh UID2 Token](#options-to-generaterefresh-uid2-token)
-* [Options to Pass the UID2 Token into the Bidstream](#options-to-pass-the-uid2-token-into-the-bidstream)
-* [Client-Side or Client-Server Integration?](#client-side-or-client-server-integration)
-* [Integration Using Prebid](#integration-using-prebid)
-* [IntegrationDetails](#integration-details)
-  * [Prebid.js 8.21.0 or Later](#prebidjs-8210-or-later)
-  * [UID2 JavaScript SDK + Prebid.js 7.53.0 or later](#uid2-sdk-for-javascript--prebidjs-7530-or-later)
-  * [UID2 SDK for JavaScript](#uid2-sdk-for-javascript)
-  * [UID2 SDK for Java](#uid2-sdk-for-java)
-  * [UID2 SDK for Python](#uid2-sdk-for-python)
-  * [Direct integration (API endpoints)](#direct-integration-api-endpoints)
- -->
-
 ## Key Integration Steps
 
 At a high level, to integrate with UID2, you'll implement these three key activities:

@@ -14,21 +14,6 @@ import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
 
 The UID2 Operator is the API server in the UID2 ecosystem. For a Private Operator service running in AWS Marketplace, the UID2 Operator solution is enhanced with [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave technology. This is an additional security measure to help protect UID2 information from unauthorized access.
 
-<!-- This guide includes the following information:
-
-- [UID2 Private Operator for AWS](#uid2-private-operator-for-aws)
-  -  [Prerequisites](#prerequisites)
-  -  [Resources Created](#resources-created)
-  -  [Customization Options](#customization-options)
-  -  [Security Group Policy](#security-group-policy)
-  -  [VPC Chart](#vpc-chart)
-- [Deployment](#deployment)
-- [Checking UID2 Operator Status](#checking-uid2-operator-status)
-- [Creating a Load Balancer](#creating-a-load-balancer)
-- [Upgrading the UID2 Operator](#upgrading-the-uid2-operator)
-- [Managing the Logs](#managing-the-logs)
-- [Technical Support](#technical-support) -->
-
 ## UID2 Private Operator for AWS
 
 >NOTE: [UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) is a free product. The cost displayed on the product page is an estimated cost for the necessary infrastructure.

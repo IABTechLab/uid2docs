@@ -11,20 +11,6 @@ import Link from '@docusaurus/Link';
 
 UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2 にアクセスしやすくなります。
 
-<!-- This guide includes the following information:
-
-- [Overview](#overview)
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [Version](#version)
-- [GitHub Repository/Binary](#github-repositorybinary)
-- [Initialization](#initialization)
-- [Interface](#interface)
-  - [Response Content](#response-content)
-  - [Response Statuses](#response-statuses)
-- [FAQs](#faqs)
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
-
 ## Overview
 
 ここで説明する関数は、設定に必要な情報やライブラリから取得できる情報を定義しています。以下に定義するパラメータとプロパティ名は擬似コードです。実際のパラメータやプロパティ名は言語によって異なりますが、ここで説明する情報と同様のものになります。

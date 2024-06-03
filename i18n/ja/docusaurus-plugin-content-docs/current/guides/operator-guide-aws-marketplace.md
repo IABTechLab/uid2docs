@@ -14,20 +14,6 @@ import ChartSvg from './images/uid2-private-operator-aws-chart.svg';
 
 UID2 Operator は、UID2 エコシステムにおける API サーバーです。AWS Marketplace で稼働する Private Operator Service の場合、UID2 Operator ソリューションは[AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave テクノロジーで強化されています。これは、UID2 情報を不正なアクセスから保護するための追加のセキュリティ対策です。
 
-<!-- This guide includes the following information:
-
-- [UID2 Private Operator for AWS](#uid2-private-operator-for-aws)
-  -  [Prerequisites](#prerequisites)
-  -  [Resources Created](#resources-created)
-  -  [Customization Options](#customization-options)
-  -  [Security Group Policy](#security-group-policy)
-  -  [VPC Chart](#vpc-chart)
-- [Deployment](#deployment)
-- [Checking UID2 Operator Status](#checking-uid2-operator-status)
-- [Creating a Load Balancer](#creating-a-load-balancer)
-- [Upgrading the UID2 Operator](#upgrading-the-uid2-operator)
-- [Technical Support](#technical-support) -->
-
 ## UID2 Private Operator for AWS
 
 NOTE: [UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) は無償製品です。製品ページに表示されている費用は、必要なインフラの概算費用となります。

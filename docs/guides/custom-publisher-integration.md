@@ -13,17 +13,6 @@ import Link from '@docusaurus/Link';
 
 This guide is for publishers who want to generate UID2 tokens (advertising tokens) for the RTB bidstream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
 
-<!-- It includes the following sections:
-
-- [Introduction](#introduction)
-- [Integration Steps](#integration-steps)
-  - [Establish Identity: Capture User Data](#establish-identity-capture-user-data)
-  - [Bid Using UID2 Tokens](#bid-using-a-uid2-token)
-  - [Refresh a UID2 Token](#refresh-a-uid2-token)
-  - [Clear Identity: User Logout](#clear-identity-user-logout)
-  - [Sample Application](#sample-application)
-- [FAQs](#faqs) -->
-
 ## Introduction
 
 The guide outlines the [basic steps](#integration-steps) that you need to consider if you're building an integration without using a client-side or server-side SDK. For example, you need to decide how to do the following:

@@ -9,24 +9,6 @@ import Link from '@docusaurus/Link';
 
 # UID2 SDK for Android Reference Guide
 
-<!-- This guide includes the following information:
-
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [SDK Version](#sdk-version)
-- [Features](#features)
-- [GitHub Repository/Binary](#github-repositorybinary)
-- [Minimum Requirements](#minimum-requirements)
-- [Installation](#installation)
-  -  [Installing with Gradle](#installing-with-gradle)
-  -  [Installing with Maven](#installing-with-maven)
-- [Usage Guidelines](#usage-guidelines)
-- [UID2Manager API](#uid2manager-api)
-  -  [Functions](#functions)
-  -  [Variables](#variables)
-- [Android Initialization](#android-initialization)
-- [Code Samples](#code-samples) -->
-
 UID2 SDK for Android を使用すると、UID2 を使用してクライアント ID を確立し、Android デバイス上で Advertising Token を取得するプロセスを容易にすることができます。
 
 以下の Android 関連プラグインと関連ドキュメントも利用できます。

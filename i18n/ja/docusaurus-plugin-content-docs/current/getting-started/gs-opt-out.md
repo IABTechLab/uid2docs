@@ -11,15 +11,6 @@ import Link from '@docusaurus/Link';
 
 さまざまなパブリッシャーや広告主が UID2 を使用しています。しかし、UID2 全体としては、すべての UID2 [参加者](../ref-info/glossary-uid.md#gl-participant) が受け入れるべき、非常に具体的なオプトアウトプロセスがあります。
 
-<!-- It includes:
-
-* [How Users Can Opt Out of UID2](#how-users-can-opt-out-of-uid2)
-* [Results of Opting Out of UID2](#results-of-opting-out-of-uid2)
-* [Difference Between Opting Out from a Single Participant and Opting Out of UID2](#difference-between-opting-out-from-a-single-participant-and-opting-out-of-uid2)
-* [Opt-Out Is Final](#opt-out-is-final)
-* [Opt-Out Workflow](#opt-out-workflow)
- -->
-
 ## How Users Can Opt Out of UID2
 
 UID2 エコシステムには、2 種類のオプトアウトがあります:

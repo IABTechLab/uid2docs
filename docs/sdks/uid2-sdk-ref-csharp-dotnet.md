@@ -14,22 +14,6 @@ You can use the UID2 SDK for C# / .NET on the server side to facilitate the foll
 - Encrypting raw UID2s to create UID2 tokens for sharing.
 - Decrypting UID2 tokens to access the raw UID2s.
 
-<!-- This guide includes the following information:
-
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [Version](#version)
-- [GitHub Repository/Binary](#github-repositorybinary)
-- [Initialization](#initialization)
-- [Interface](#interface)
-  - [Encryption Response Content](#encryption-response-content)
-  - [Encryption Response Statuses](#encryption-response-statuses)
-  - [Decryption Response Content](#decryption-response-content)
-  - [Decryption Response Statuses](#decryption-response-statuses)
-- [Usage for DSPs](#usage-for-dsps)
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
-- [FAQs](#faqs) -->
-
 ## Functionality
 
 This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using C# / .NET for their server-side coding. The following table shows the functions it supports.

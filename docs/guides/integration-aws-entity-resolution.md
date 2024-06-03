@@ -11,20 +11,6 @@ import Link from '@docusaurus/Link';
 
 # AWS Entity Resolution Integration Guide
 
-<!-- This guide includes the following information:
-
-- [Functionality](#functionality)
-- [Integration Summary](#integration-summary)
-- [Workflow Diagram](#workflow-diagram)
-- [Initial Setup Steps](#initial-setup-steps)
-  - [Create UID2 Account](#create-uid2-account)
-  - [Create AWS Account](#create-aws-account)
-  - [Subscribe to UID2 on AWS Data Exchange](#subscribe-to-uid2-on-aws-data-exchange)
-- [Configure AWS Account](#configure-aws-account)
-- [Create a Matching Workflow](#create-a-matching-workflow)
-- [Run the Matching Workflow](#run-the-matching-workflow)
- -->
-
 [AWS Entity Resolution](https://aws.amazon.com/entity-resolution/) is an identity resolution product from Amazon Web Services that allows AWS customers to integrate with the UID2 framework. Through the integration, you can securely and seamlessly generate UID2s for your data without making direct calls to the UID2 operator or handling sensitive client ID and secret key values.
 
 This service allows you to map <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email addresses or phone numbers) to raw UID2s swiftly and securely.

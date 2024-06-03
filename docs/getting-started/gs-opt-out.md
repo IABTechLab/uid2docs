@@ -11,15 +11,6 @@ import Link from '@docusaurus/Link';
 
 Many different publishers and advertisers use UID2. Different publishers might have different opt-out processes for their individual sites; however, UID2 as a whole has very specific opt-out processes that all UID2 [participants](../ref-info/glossary-uid.md#gl-participant) are expected to honor.
 
-<!-- It includes:
-
-* [How Users Can Opt Out of UID2](#how-users-can-opt-out-of-uid2)
-* [Results of Opting Out of UID2](#results-of-opting-out-of-uid2)
-* [Difference Between Opting Out from a Single Participant and Opting Out of UID2](#difference-between-opting-out-from-a-single-participant-and-opting-out-of-uid2)
-* [Opt-Out Is Final](#opt-out-is-final)
-* [Opt-Out Workflow](#opt-out-workflow)
- -->
-
 ## How Users Can Opt Out of UID2
 
 Within the UID2 ecosystem, there are two types of opt out:

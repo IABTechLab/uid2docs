@@ -12,36 +12,6 @@ import AddPrebidjsToYourSite from '/docs/snippets/_prebid-add-prebidjs-to-your-s
 import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser.mdx';
 
 # UID2 Client-Server Integration Guide for Prebid.js
-<!-- 
-This guide includes the following information:
-
-- [Prebid.js Version](#prebidjs-version)
-- [UID2 Prebid Module Page](#uid2-prebid-module-page)
-- [Integration Overview: High-Level Steps](#integration-overview-high-level-steps)
-- [Complete UID2 Account Setup](#complete-uid2-account-setup)
-- [Add Prebid.js to Your Site](#add-prebidjs-to-your-site)
-- [Configure the UID2 Module](#configure-the-uid2-module)
-  - [Generating a UID2 Token on the Server](#generating-a-uid2-token-on-the-server)
-  - [Client Refresh Mode](#client-refresh-mode)
-    - [Client Refresh Mode Response Configuration Options](#client-refresh-mode-response-configuration-options)
-    - [Client Refresh Mode Cookie Example](#client-refresh-mode-cookie-example)
-    - [Configuration](#configuration)
-    - [Client Refresh Mode uid2Token Example](#client-refresh-mode-uid2token-example)
-  - [Server-Only Mode](#server-only-mode)
-    - [Server-Only Mode Cookie Example](#server-only-mode-cookie-example)
-    - [Server-Only Mode Value Example](#server-only-mode-value-example)
-- [Prebid Implementation Notes and Tips](#prebid-implementation-notes-and-tips)
-- [Storing the UID2 Token in the Browser](#storing-the-uid2-token-in-the-browser)
-- [When to Pass a New Token to the UID2 Module](#when-to-pass-a-new-token-to-the-uid2-module)
-  - [Passing a New Token: Client Refresh Mode](#passing-a-new-token-client-refresh-mode)
-  - [Passing a New Token: Server-Only Mode](#passing-a-new-token-server-only-mode)
-- [Determining Whether the Module Has a Valid Token](#determining-whether-the-module-has-a-valid-token)
-- [Checking the Integration](#checking-the-integration)
-- [Configuration Parameters for userSync](#configuration-parameters-for-usersync) 
-  - [Configuration Parameter Examples: Value](#configuration-parameter-examples-value)
-  - [Sample Token](#sample-token)
-- [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment) 
- -->
 
 This guide is for publishers who have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the server side and want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bidstream. 
 

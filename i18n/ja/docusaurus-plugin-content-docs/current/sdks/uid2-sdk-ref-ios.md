@@ -9,24 +9,6 @@ import Link from '@docusaurus/Link';
 
 # UID2 SDK for iOS Reference Guide
 
-<!-- This guide includes the following information:
-
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [SDK Version](#sdk-version)
-- [Features](#features)
-- [GitHub Open-Source Repository](#github-open-source-repository)
-- [Minimum Requirements](#minimum-requirements)
-- [Installation](#installation)
-  -  [Installing with Gradle](#installing-with-gradle)
-  -  [Installing with Maven](#installing-with-maven)
-- [Usage Guidelines](#usage-guidelines)
-- [UID2Manager API](#uid2manager-api)
-  -  [Functions](#functions)
-  -  [Variables](#variables)
-- [Android Initialization](#android-initialization)
-- [Code Samples](#code-samples) -->
-
 UID2 SDK for iOS を使用すると、UID2 を使用してクライアント ID を確立し、iOS デバイスで Advertising Token を取得するプロセスを容易にすることができます。
 
 以下のiOS関連プラグインと関連ドキュメントも利用できます:

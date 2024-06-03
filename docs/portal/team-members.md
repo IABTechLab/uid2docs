@@ -9,15 +9,6 @@ import Link from '@docusaurus/Link';
 
 # Team Members
 
-<!-- It includes the following:
-
-- [Team Member Rights and Responsibilities](#team-member-rights-and-responsibilities)
-- [Add a Team Member](#add-a-team-member)
-- [Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member) 
-- [Edit Information for a Team Member](#edit-information-for-a-team-member) 
-- [Remove a Team Member](#remove-a-team-member)
-- [Log In for the First Time as a Team Member](#log-in-for-the-first-time-as-a-team-member) DONE -->
-
 In the UID2 Portal, on the **Team Members** page, you can perform all activities relating to configuring individuals who you want to authorize for access to your account, including the following:
 
 - [Add a Team Member](#add-a-team-member)

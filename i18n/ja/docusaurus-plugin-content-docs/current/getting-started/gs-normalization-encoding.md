@@ -11,18 +11,6 @@ import Link from '@docusaurus/Link';
 
 このページでは、ユーザー情報の正規化とエンコードに関する情報を提供します。UID2 を使用する際には、正規化とエンコードを正しく行うことが重要です。
 
-<!-- It includes the following sections:
-- [Introduction](#introduction)
-- [Types of Directly Identifying Information](#types-of-directly-identifying-information)
-- [Email Address Normalization](#email-address-normalization)
-- [Email Address Hash Encoding](#email-address-hash-encoding)
-- [Phone Number Normalization](#phone-number-normalization)
-- [Phone Number Hash Encoding](#phone-number-hash-encoding)
-- [Normalization Examples for Email](#normalization-examples-for-email)
-- [Example](#example-code)
-- [UID2 Hashing Tool](#uid2-hashing-tool)
--->
-
 ## Introduction
 メールアドレスなどのユーザー情報を取得し、raw UID2 や UID2 Advertising Token を作成する手順に従う場合、必要な手順に正確に従うことが非常に重要です。情報を正規化する必要があろうがなかろうが、ハッシュ化する必要があろうがなかろうが、手順には正確に従ってください。そうすることで、作成した UID2 の値を、同じユーザーによる他のオンライン行動の事例と安全かつ匿名で照合できるようになります。
 

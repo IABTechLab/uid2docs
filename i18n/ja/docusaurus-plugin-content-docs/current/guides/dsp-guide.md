@@ -18,13 +18,6 @@ DSP はビッドリクエストで UID2 Token を受け取り、この機能を�
 
 >NOTE: バックエンドが、利用可能な Server-Side SDK のいずれでもカバーされていない言語で書かれている場合は、UID2 の担当者に問い合わせてください。誰に聞けばいいかわからない場合は、[連絡先情報](../getting-started/gs-account-setup.md#contact-info) を参照してください。
 
-<!-- It includes the following sections:
-
-* [Integration Steps](#integration-steps)
-   - [Honor User Opt-Outs](#honor-user-opt-outs)
-
-* [FAQs](#faqs) -->
-
 ## Integration Steps 
 
 以下は、RTB で UID2 をサポートするための DSP のインテグレーションワークフローで、大きく 2 つのステップで構成されています:

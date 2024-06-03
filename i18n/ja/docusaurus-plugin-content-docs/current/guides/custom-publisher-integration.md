@@ -13,17 +13,6 @@ import Link from '@docusaurus/Link';
 
 このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 Token (Advertising Token) を生成したいパブリッシャーを対象としています。
 
-<!-- It includes the following sections:
-
-- [Introduction](#introduction)
-- [Integration Steps](#integration-steps)
-  - [Establish Identity: Capture User Data](#establish-identity-capture-user-data)
-  - [Bid Using UID2 Tokens](#bid-using-a-uid2-token)
-  - [Refresh a UID2 Token](#refresh-a-uid2-token)
-  - [Clear Identity: User Logout](#clear-identity-user-logout)
-  - [Sample Application](#sample-application)
-- [FAQs](#faqs) -->
-
 ## Introduction
 
 このガイドでは、Client-Side または Server-Side SDK を使用せずにインテグレーションを行う場合に考慮する必要がある[基本的な手順](#integration-steps) を概説しています。例えば、以下のような方法を決定する必要があります:

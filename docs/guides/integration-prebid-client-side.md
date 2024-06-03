@@ -17,21 +17,6 @@ This guide is for publishers who have access to <Link href="../ref-info/glossary
 
 To integrate with UID2 using Prebid.js, you'll need to make changes to the HTML and JavaScript on your site. No server-side work is required if you follow this guide.
 
-<!-- 
-This guide includes the following information:
-
-- [Prebid.js Version](#prebidjs-version)
-- [Integration Example](#integration-example)
-- [Integration Overview: High-Level Steps](#integration-overview-high-level-steps)
-   - [Complete UID2 Account Setup](#complete-uid2-account-setup)
-   - [Add Prebid.js to Your Site](#add-prebidjs-to-your-site)
-   - [Configure the UID2 Module](#configure-the-uid2-module)
-- [Storing the UID2 Token in the Browser](#storing-the-uid2-token-in-the-browser)
-- [When to Pass DII to the UID2 Module](#when-to-pass-dii-to-the-uid2-module)
-- [Checking the Integration](#checking-the-integration)
-- [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment)
- -->
-
 ## Prebid.js Version
 
 This implementation requires Prebid.js version 8.21.0 or later. For version information, see [https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases).

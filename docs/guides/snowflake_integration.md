@@ -11,20 +11,6 @@ import Link from '@docusaurus/Link';
 
 # Snowflake Integration Guide
 
-<!-- This guide includes the following information:
-- [Functionality](#functionality)
-- [Workflow Diagram](#workflow-diagram)
-- [Access the UID2 Shares](#access-the-uid2-shares)
-- [Shared Objects](#shared-objects)
-  -  [Database and Schema Names](#database-and-schema-names)
-  -  [Map DII](#map-dii)
-  -  [Regenerated UID2s](#regenerate-uid2s) 
-- [Migration Guide](#migration-guide)  
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
-   - [Encrypt Tokens](#encrypt-tokens)
-   - [Decrypt Tokens](#decrypt-tokens)
-   - [UID2 Sharing Example](#uid2-sharing-example) -->
-
 [Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share authorized consumer identifier data without exposing sensitive <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>. Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
 
 The following listings for UID2 are available on the Snowflake marketplace:
