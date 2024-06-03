@@ -8,6 +8,8 @@ sidebar_position: 04
 ---
 
 import Link from '@docusaurus/Link';
+import AddPrebidjsToYourSite from '/docs/snippets/_prebid-add-prebidjs-to-your-site.mdx';
+import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser.mdx';
 
 # UID2 Client-Side Integration Guide for Prebid.js
 
@@ -63,16 +65,8 @@ Only root-level domains are required for account setup. For example, if you're g
 When account setup is complete, you'll receive a public key and Subscription ID. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key).
 
 ### Add Prebid.js to Your Site
-<!-- GWH "Add Prebid.js to Your Site" section is identical for client side and server side. -->
-To add Prebid.js to your site, follow the instructions in [Getting Started for Developers](https://docs.prebid.org/dev-docs/getting-started.html) in the Prebid.js documentation. 
 
-When you download the Prebid.js package, add the UID2 module by checking the box next to the module named **Unified ID 2.0**, listed under the section **User ID Modules**.
-
-When you've added Prebid.js to your site and confirmed that it's working properly, you're ready to configure the UID2 module.
-
-:::tip
-To make sure that the UID2 module is installed, find the string `uid2IdSystem` in the [`pbjs.installedModules` array](https://docs.prebid.org/dev-docs/publisher-api-reference/installedModules.html).
-:::
+<AddPrebidjsToYourSite />
 
 ### Configure the UID2 Module
 
@@ -120,26 +114,8 @@ This example assumes that you're using the UID2 production environment. During i
 :::
 
 ## Storing the UID2 Token in the Browser
-<!-- GWH same section in integration-prebid.md, integration-prebid-client-side.md, and integration-prebid-client-side.md. Ensure consistency -->
-By default, the UID2 module stores data using local storage. To use a cookie instead, set `params.storage` to `cookie`, as shown in the following example.
 
-For details, see [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) in the Prebid documentation.
-
-```js
-pbjs.setConfig({ 
-  userSync: { 
-    userIds: [{ 
-      name: 'uid2', 
-      params: { 
-        // default value is 'localStorage' 
-        storage: 'cookie'  
-      } 
-    }] 
-  } 
-}); 
-```
-
-The cookie size can be significant, which could be a problem. However, if local storage is not an option, this is one possible approach.
+<StoreUID2TokenInBrowser />
 
 ## When to Pass DII to the UID2 Module
 

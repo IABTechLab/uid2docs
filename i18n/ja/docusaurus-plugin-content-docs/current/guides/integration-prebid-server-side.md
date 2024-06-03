@@ -8,6 +8,8 @@ sidebar_position: 04
 ---
 
 import Link from '@docusaurus/Link';
+import AddPrebidjsToYourSite from '/docs/snippets/_prebid-add-prebidjs-to-your-site-ja.mdx';
+import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser-ja.mdx';
 
 # UID2 Server-Side Integration Guide for Prebid.js
 <!-- 
@@ -76,16 +78,8 @@ GWH note 12/14/23: We have client-side and server-side examples for JS SDK but o
 アカウントのセットアップが完了すると、固有の API Keyと クライアントシークレットが発行されます。ここれらの値はアカウント独自のもので、安全に管理することが重要です。詳細は [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
 
 ## Add Prebid.js to Your Site
-<!-- GWH "Add Prebid.js to Your Site" section is identical for client side and server side. -->
-Prebid.js をサイトに追加するには、Prebid.js ドキュメントの [Getting Started for Developers](https://docs.prebid.org/dev-docs/getting-started.html) の指示に従ってください。
 
-Prebid.js パッケージをダウンロードするときに、**User ID Modules** セクションに記載されている **Unified ID 2.0** というモジュールの隣にあるボックスをチェックして、UID2 module を追加します。
-
-サイトに Prebid.js を追加し、正常に動作することを確認したら、UID2 module を設定する準備が整います。
-
-:::tip
-UID2 module がインストールされていることを確認するには、[`pbjs.installedModules` array](https://docs.prebid.org/dev-docs/publisher-api-reference/installedModules.html) で文字列 `uid2IdSystem` を見つけます。
-:::
+<AddPrebidjsToYourSite />
 
 ## Configure the UID2 Module
 
@@ -265,26 +259,8 @@ Prebid の実施を計画する際には、以下を考慮してください:
 - インテグレーションテストでは、`params.uid2ApiBase` を `"https://operator-integ.uidapi.com"` に設定します。この値は、トークンを生成する環境と同じ環境 (本番環境またはテスト環境) に設定しなければなりません。
 
 ## Storing the UID2 Token in the Browser
-<!-- GWH same section in integration-prebid.md, integration-prebid-client-side.md, and integration-prebid-client-side.md. Ensure consistency -->
-デフォルトでは、UID2 module はローカルストレージを使ってデータを保存します。代わりにクッキーを使用するには、以下の例に示すように `params.storage` を `cookie` に設定します。
 
-詳細は Prebid ドキュメントの [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) を参照してください。
-
-```js
-pbjs.setConfig({ 
-  userSync: { 
-    userIds: [{ 
-      name: 'uid2', 
-      params: { 
-        // default value is 'localStorage' 
-        storage: 'cookie'    
-      } 
-    }] 
-  } 
-}); 
-```
-
-クッキーのサイズが大きくなり、問題が発生する可能性があります。ただし、ローカルストレージがオプションでない場合、これが考えられるアプローチの 1 つです。
+<StoreUID2TokenInBrowser />
 
 ## Determining Whether the Module Has a Valid Token
 

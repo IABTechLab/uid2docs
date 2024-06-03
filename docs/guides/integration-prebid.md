@@ -9,6 +9,7 @@ displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
+import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser.mdx';
 
 # UID2 Integration Overview for Prebid.js
 
@@ -22,8 +23,8 @@ It includes the following sections:
 - [Storing the UID2 Token in the Browser](#storing-the-uid2-token-in-the-browser)
 - [Passing the UID2 Token to the Bidstream](#passing-the-uid2-token-to-the-bidstream)
 - [Integration Overview: High-Level Steps](#integration-overview-high-level-steps)
-
  -->
+
 ## Introduction
 
 UID2 provides a Prebid.js module that supports the following:
@@ -55,26 +56,8 @@ Determine which method is best for you, and then follow the applicable integrati
 The Prebid.js UID2 module can automatically refresh the UID2 tokens. If you prefer to implement manual refresh outside Prebid.js, see [Refreshing a UID2 Token](integration-prebid-server-side.md#refreshing-a-uid2-token) in the Server-Side Integration Guide. The client-side integration solution includes automated token refresh.
 
 ## Storing the UID2 Token in the Browser
-<!-- GWH same section in integration-prebid.md, integration-prebid-client-side.md, and integration-prebid-client-side.md. Ensure consistency -->
-By default, the UID2 module stores data using local storage. To use a cookie instead, set `params.storage` to `cookie`, as shown in the following example.
 
-For details, see [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) in the Prebid documentation.
-
-```js
-pbjs.setConfig({ 
-  userSync: { 
-    userIds: [{ 
-      name: 'uid2', 
-      params: { 
-        // default value is 'localStorage' 
-        storage: 'cookie'   
-      } 
-    }] 
-  } 
-}); 
-```
-
-The cookie size can be significant, which could be a problem. However, if local storage is not an option, this is one possible approach.
+<StoreUID2TokenInBrowser />
 
 ## Passing the UID2 Token to the Bidstream
 

@@ -9,6 +9,7 @@ displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
+import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser-ja.mdx';
 
 # UID2 Integration Overview for Prebid.js
 
@@ -55,26 +56,8 @@ DII へのアクセスに応じて、Prebid.js で使用する UID2 Token を生
 Prebid.js UID2 Module は、UID2 Token を自動的にリフレッシュすることができます。Prebid.js の外部で手動リフレッシュを実装したい場合は、Server-Side インテグレーションガイドの [Refreshing a UID2 Token](integration-prebid-server-side.md#refreshing-a-uid2-token) を参照してください。Client-Side のインテグレーションソリューションには、トークンの自動リフレッシュが含まれています。
 
 ## Storing the UID2 Token in the Browser
-<!-- GWH same section in integration-prebid.md, integration-prebid-client-side.md, and integration-prebid-client-side.md. Ensure consistency -->
-デフォルトでは、UID2 module はローカルストレージを使ってデータを保存します。代わりにクッキーを使用するには、以下の例に示すように `params.storage` を `cookie` に設定します。
 
-詳細は、Prebid ドキュメントの [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) を参照してください。
-
-```js
-pbjs.setConfig({ 
-  userSync: { 
-    userIds: [{ 
-      name: 'uid2', 
-      params: { 
-        // default value is 'localStorage' 
-        storage: 'cookie'  
-      } 
-    }] 
-  } 
-}); 
-```
-
-クッキーのサイズが大きくなり、問題が発生する可能性があります。ただし、ローカルストレージがオプションでない場合、これが考えられるアプローチの 1 つです。
+<StoreUID2TokenInBrowser />
 
 ## Passing the UID2 Token to the Bidstream
 
