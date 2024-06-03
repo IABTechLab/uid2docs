@@ -28,7 +28,7 @@ UID2 <a href="/docs/intro#participants">参加者</a>はそれぞれ、固有の
 
 ## API Key and Client Secret
 
-Server-Side の実装([UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) または [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照) を使用している場合、API Key とクライアントシークレットにより、[Operator Service](../ref-info/glossary-uid.md#gl-operator-service) に接続し、API エンドポイントを呼び出すことができます。これらの値は、サービスの参加者を識別します。
+Server-Side の実装([UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) または [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照) を使用している場合、API Key とクライアントシークレットにより、[Operator Service](../ref-info/glossary-uid.md#gl-operator-service) に接続し、API エンドポイントを呼び出すことができます。これらの値は、サービスの参加者を識別します。
 
 以下は API Key とクライアントシークレットに関する情報です:
 - UID2 参加者は、複数のキーを持つことができます。

@@ -104,13 +104,13 @@ To view the custom sidebars, go to [https://unifiedid.com](https://unifiedid.com
 
 26 January 2024
 
-We've added a new overview guide summarizing the options for publishers using the UID2 SDK for JavaScript for client-side or server-side integration. In addition, the existing guides have been renamed for consistency, with minor updates.
+We've added a new overview guide summarizing the options for publishers using the UID2 SDK for JavaScript for client-side or client-server integration. In addition, the existing guides have been renamed for consistency, with minor updates.
 
 For details, see:
 
 - [UID2 Integration Overview for JavaScript](../guides/integration-javascript)
 - [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md)
-- [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
+- [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
 
 <!-- APIDOCS-1924 -->
 
@@ -168,7 +168,7 @@ For details, see:
 
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
 
 ### New: Encryption/Decryption Examples in Java and C#
 
@@ -213,7 +213,7 @@ For details, see [Client-Side Integration Guide for JavaScript](../guides/publis
 The content that was in the previous *UID2 SDK for JavaScript Integration Guide*  is now in a supplementary document for publishers who want to implement the JavaScript SDK on the server side.
 
 :::note
-This document was updated in January 2024 to [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md), and the JavaScript Standard Integration Guide is now the [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md).
+This document was updated in January 2024 to [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md), and the JavaScript Standard Integration Guide is now the [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md).
 :::
 
 ### New: UID2 Client-Side Integration Guide for Prebid.js
@@ -228,7 +228,7 @@ The content that was in the previous version of the Prebid document is now in a 
 These documents were further updated in later revisions. Updated links are as follows:
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
 :::
 
 ### New: Opt-Out
@@ -257,7 +257,7 @@ Significant documentation updates reflect the enhanced functionality of Version 
 
 For details, see:
 -  [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)
--  [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
+-  [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
 
 ### New: Private Operator Guide for Google Confidential Space 
 

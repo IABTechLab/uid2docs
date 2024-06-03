@@ -49,7 +49,7 @@ DII へのアクセスに応じて、Prebid.js で使用する UID2 Token を生
 | Scenario | Integration Guide |
 | :--- | :--- |
 | Client-Side で DII にアクセスでき、フロントエンドの開発のみを行いたい。 | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
-| Server-Side で DII にアクセスし、Server-Side の開発ができる。 | [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md) |
+| Server-Side で DII にアクセスし、Server-Side の開発ができる。 | [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md) |
 
 ## Refreshing the UID2 Token
 
@@ -64,7 +64,7 @@ Prebid.js UID2 Module は、UID2 Token を自動的にリフレッシュする�
 UID2 module を設定するには、 `pbjs.setConfig` を呼び出します。サポートされているパラメータの詳細については、実装に適用されるガイドを参照してください:
 
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
-- [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md)
 
 UID2 module が設定されると、ユーザーの UID2 Token を管理し、ユーザーのブラウザに保存します。
 
@@ -81,4 +81,4 @@ Prebid.js を使ってサイトを UID2 とインテグレーションするに�
 詳細な手順については、以下のインテグレーションガイドのいずれかを参照してください:
 
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
-- [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md)

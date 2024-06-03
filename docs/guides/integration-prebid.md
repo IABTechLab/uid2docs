@@ -49,7 +49,7 @@ Determine which method is best for you, and then follow the applicable integrati
 | Scenario | Integration Guide |
 | :--- | :--- |
 | You have access to DII on the client side and want to do front-end development only | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
-| You have access to DII on the server side and can do server-side development | [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md) |
+| You have access to DII on the server side and can do server-side development | [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md) |
 
 ## Refreshing the UID2 Token
 
@@ -64,7 +64,7 @@ The Prebid.js UID2 module can automatically refresh the UID2 tokens. If you pref
 To configure the UID2 module, call `pbjs.setConfig`. For details on supported parameters, refer to the guide that applies to your implementation:
 
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
-- [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md)
 
 When the UID2 module is configured, it manages a UID2 token for the user and stores it in the user's browser. 
 
@@ -81,4 +81,4 @@ At a high level, to integrate your site with UID2 using Prebid.js, you'll need t
 For detailed instructions, refer to one of the following integration guides:
 
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
-- [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md)

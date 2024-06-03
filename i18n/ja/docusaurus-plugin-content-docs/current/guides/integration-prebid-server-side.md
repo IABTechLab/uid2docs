@@ -1,5 +1,5 @@
 ---
-title: UID2 Server-Side Integration Guide for Prebid.js
+title: UID2 Client-Server Integration Guide for Prebid.js
 sidebar_label: Server-Side Integration for Prebid.js
 pagination_label: UID2 Server-Side Integration for Prebid.js
 description: Server-Side の Prebid.js インテグレーションの設定に関する情報。
@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 import AddPrebidjsToYourSite from '/docs/snippets/_prebid-add-prebidjs-to-your-site-ja.mdx';
 import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser-ja.mdx';
 
-# UID2 Server-Side Integration Guide for Prebid.js
+# UID2 Client-Server Integration Guide for Prebid.js
 <!-- 
 This guide includes the following information:
 

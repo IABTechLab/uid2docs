@@ -1,7 +1,7 @@
 ---
-title: Server-Side Integration Guide for JavaScript
+title: Client-Server Integration Guide for JavaScript
 sidebar_label: Server-Side Integration for JavaScript
-pagination_label: Server-Side Integration Guide for JavaScript
+pagination_label: Client-Server Integration Guide for JavaScript
 description: Information for publishers covering standard web integration scenarios that use the UID2 SDK for JavaScript and requires token to be generated on the server side and passed to the publishers' web pages.
 hide_table_of_contents: false
 sidebar_position: 02
@@ -11,7 +11,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 
-# Server-Side Integration Guide for JavaScript
+# Client-Server Integration Guide for JavaScript
 
 This guide is for publishers with web assets who want to generate identity tokens using UID2 for the RTB bidstream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. This requires server-side changes such as generating UID2 tokens on the server side and passing them to the publishers' web pages. If you want to integrate with UID2 via only client-side JavaScript changes, refer to [Client-Side Integration Guide for JavaScript](publisher-client-side.md) instead. 
 

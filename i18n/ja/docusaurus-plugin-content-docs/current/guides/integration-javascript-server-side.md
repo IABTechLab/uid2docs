@@ -1,7 +1,7 @@
 ---
-title: Server-Side Integration Guide for JavaScript
+title: Client-Server Integration Guide for JavaScript
 sidebar_label: Server-Side Integration for JavaScript
-pagination_label: Server-Side Integration Guide for JavaScript
+pagination_label: Client-Server Integration Guide for JavaScript
 description: UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオをカバーするパブリッシャー向けの情報で、トークンを Server-Side で生成し、パブリッシャーのウェブページに渡す必要があります。
 hide_table_of_contents: false
 sidebar_position: 02
@@ -11,7 +11,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 
-# Server-Side Integration Guide for JavaScript
+# Client-Server Integration Guide for JavaScript
 
 このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接統インテグレーションしながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成したいウェブアセットを持つパブリッシャーを対象としています。
 
