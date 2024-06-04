@@ -8,7 +8,6 @@ sidebar_position: 04
 ---
 
 import Link from '@docusaurus/Link';
-import SnowflakeIntegrationArchitecture from './images/uid2-snowflake-integration-architecture.svg';
 
 # Snowflake Integration Guide
 
@@ -28,13 +27,15 @@ The following table summarizes the functionality available with the UID2 Snowfla
 
 *You cannot generate a UID2 token directly from DII. However, you can convert DII to a raw UID2, and then encrypt the raw UID2 into a UID2 token.
 
->NOTE: If you are a publisher who is sharing UID2 tokens in the bidstream, see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+:::note
+If you are a publisher who is sharing UID2 tokens in the bidstream, see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+:::
 
 ## Workflow Diagram
 
 The following diagram illustrates how you engage with the UID2 integration process in Snowflake:
 
-<SnowflakeIntegrationArchitecture />
+![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture.png)
 
 |Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-Out Cloud Setup|
 | :--- | :--- | :--- |
@@ -49,7 +50,9 @@ There are two personalized listings offered in the Snowflake Data Marketplace fo
 - [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV) for advertisers/brands
 - [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0) for data providers
 
->IMPORTANT: To be able to request data, you must use the `ACCOUNTADMIN` role or another role with the `CREATE DATABASE` and `IMPORT SHARE` privileges in your Snowflake account.
+:::important
+To be able to request data, you must use the `ACCOUNTADMIN` role or another role with the `CREATE DATABASE` and `IMPORT SHARE` privileges in your Snowflake account.
+:::
 
 To request access to a UID2 Share, complete the following steps:
 
@@ -75,7 +78,9 @@ The following functions are deprecated in favor of `FN_T_UID2_IDENTITY_MAP`. You
 - `FN_T_UID2_IDENTITY_MAP_EMAIL` (deprecated)
 - `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (deprecated)
 
->NOTE: If you are using the deprecated functions, and need help migrating to the newer function, see [Migration Guide](#migration-guide).
+:::note
+If you are using the deprecated functions, and need help migrating to the newer function, see [Migration Guide](#migration-guide).
+:::
 
 To identify the UID2s that you must regenerate, use the `UID2_SALT_BUCKETS` view from the UID2 Share. For details, see [Regenerate UID2s](#regenerate-uid2s).
 
@@ -149,7 +154,9 @@ Mapping request examples in this section:
 - [Single Hashed Phone Number](#mapping-request-example---single-hashed-phone-number)
 - [Multiple Hashed Phone Numbers](#mapping-request-example---multiple-hashed-phone-numbers)
 
->NOTE: The input and output data in these examples is fictitious, for illustrative purposes only. The values provided are not real values.
+:::note
+The input and output data in these examples is fictitious, for illustrative purposes only. The values provided are not real values.
+:::
 
 #### Mapping Request Example - Single Unhashed Email
 
@@ -633,7 +640,9 @@ A successful query returns the following information for the specified UID2 toke
 | `SITE_ID` | INT | The value is one of the following:<ul><li>Decryption successful: The identifier of the UID2 participant that encrypted the token.</li><li>Decryption not successful: `NULL`.</li></ul> |
 | `DECRYPTION_STATUS` | TEXT | The value is one of the following:<ul><li>Decryption successful: `NULL`.</li><li>Decryption not successful:  The reason why the UID2 token was not decrypted; for example, `EXPIRED_TOKEN`.<br/>For details, see [Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column).</li></ul> |
 
->NOTE: In most circumstances where UID2 token cannot be successfully decrypted, the function will not return any rows at all.
+:::note
+In most circumstances where UID2 token cannot be successfully decrypted, the function will not return any rows at all.
+:::
 
 #### Values for the DECRYPTION_STATUS Column
 
@@ -723,8 +732,10 @@ The following instructions provide an example of how sharing works for a sender 
  3. Create a secure share and grant it access to the `AUDIENCE_WITH_UID2_TOKENS` table.
  4. Grant the receiver access to the secure share.
 
->**WARNING**: To help prevent UID2 tokens from expiring during sharing, send the newly encrypted UID2 tokens to the receiver as soon as possible.
->
+:::warning
+To help prevent UID2 tokens from expiring during sharing, send the newly encrypted UID2 tokens to the receiver as soon as possible.
+:::
+
 #### Receiver Instructions
 
  1. Create a database from the secure share that the sender provided access to.
@@ -738,4 +749,6 @@ The following instructions provide an example of how sharing works for a sender 
         on a.ID=b.ID;
     ```
 
->**WARNING**: To help prevent UID2 tokens from expiring, decrypt the UID2 tokens as soon as they become available from the sender.
+:::warning
+To help prevent UID2 tokens from expiring, decrypt the UID2 tokens as soon as they become available from the sender.
+:::

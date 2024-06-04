@@ -36,7 +36,9 @@ This guide provides information for the last two options.
 
 There is also an example application that demonstrates the workflow. See [Sample Application](#sample-application).
 
->TIP: To facilitate the process of establishing client identity using UID2 and retrieving UID2 tokens, consider using the UID2 SDK for JavaScript. For details, see [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md).
+:::tip
+To facilitate the process of establishing client identity using UID2 and retrieving UID2 tokens, consider using the UID2 SDK for JavaScript. For details, see [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md).
+:::
 
 ## Integration Steps
 
@@ -71,7 +73,9 @@ Consider how you want to manage UID2 identity information and use it for targete
 | :--- | :--- | :--- |
 | 2-a | N/A| Send the `advertising_token` from step [1-e](#establish-identity-capture-user-data) to the SSP for bidding. Send the value as is. |
 
->NOTE: For an example of what a UID2 token might look like in the bidstream, when it's sent from an SSP to a DSP, see [What does a UID2 token look like in the bidstream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream)
+:::note
+For an example of what a UID2 token might look like in the bidstream, when it's sent from an SSP to a DSP, see [What does a UID2 token look like in the bidstream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream).
+:::
 
 ### Refresh a UID2 Token
 
@@ -84,7 +88,9 @@ Use the `POST /token/refresh` endpoint to make sure you always have a valid and 
 | 3-c | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) | The UID2 service issues a new identity token for users that haven't opted out. |
 | 3-d | N/A| Place the values returned by the `POST /token/refresh` endpoint, `advertising_token` and `refresh_token`, so that they are linked to the user. You might consider client-side storage, such as a first-party cookie, or server-side storage. |
 
->TIP: Refresh tokens starting from the `refresh_from` timestamp, which is part of the identity returned by the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints. 
+:::tip
+Refresh tokens starting from the `refresh_from` timestamp, which is part of the identity returned by the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints.
+:::
 
 ### Clear Identity: User Logout
 

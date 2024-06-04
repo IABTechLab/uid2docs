@@ -112,7 +112,7 @@ Here's what you need to know about the token auto-refresh:
 
 ## API Reference
 
->IMPORTANT: All interactions with the Client-Side JavaScript SDK are done through the global `__uid2` object, which is a member of the `UID2` class. All of the following JavaScript functions are members of the `UID2` class. 
+All interactions with the Client-Side JavaScript SDK are done through the global `__uid2` object, which is a member of the `UID2` class. All of the following JavaScript functions are members of the `UID2` class:
 
 - [constructor()](#constructor)
 - [init()](#initopts-object-void)
@@ -126,7 +126,9 @@ Here's what you need to know about the token auto-refresh:
 
 Constructs a UID2 object.
 
->TIP: Instead of calling this function, you can just use the global `__uid2` object. 
+:::tip
+Instead of calling this function, you can just use the global `__uid2` object.
+:::
 
 ### init(opts: object): void
 
@@ -219,7 +221,9 @@ The `object` parameter includes the following properties.
 
 The [callback function](#callback-function) returns the `status` field values as numbers from the `UID2.IdentityStatus` enum, which can be turned into the corresponding strings by calling `UID2.IdentityStatus[state.status]`. The following table lists the string values for the `status` enum.
 
->IMPORTANT: The following values are intended only to inform you of identity availability. Do not use them in conditional logic. 
+:::important
+The following values are intended only to inform you of identity availability. Do not use them in conditional logic.
+:::
 
 | Status | Advertising Token Availability | Description |
 | :--- | :--- | :--- |
@@ -262,8 +266,9 @@ This function can be called before or after the [init()](#initopts-object-void) 
 - If the advertising token is available, the promise is fulfilled with the current advertising token.
 - If the advertising token is not available, even temporarily, the promise is rejected with an instance of `Error`. To determine the best course of action in this case, you can use [isLoginRequired()](#isloginrequired-boolean).
 
->NOTE: If the `getAdvertisingTokenAsync()` function is called *after* the initialization is complete, the promise is settled immediately based on the current state.
-
+:::note
+If the `getAdvertisingTokenAsync()` function is called *after* the initialization is complete, the promise is settled immediately based on the current state.
+:::
 
 ```html
 <script>
@@ -273,7 +278,9 @@ This function can be called before or after the [init()](#initopts-object-void) 
 </script>
 ```
 
->TIP: You can use this function to be notified of the completion of the Client-Side JavaScript SDK initialization from a component that might not be the one that called `init()`.
+:::tip
+You can use this function to be notified of the completion of the Client-Side JavaScript SDK initialization from a component that might not be the one that called `init()`.
+:::
 
 ### isLoginRequired(): boolean
 
@@ -348,4 +355,7 @@ The following is an example of the UID2 cookie structure:
    }
 }
 ```
->IMPORTANT: The contents of the `private` object are explicitly unspecified and are left for the SDK to interpret. Do not make any assumptions about the structure, semantics, or compatibility of this object. Any updates to the cookie must retain its structure.
+
+:::important
+The contents of the `private` object are explicitly unspecified and are left for the SDK to interpret. Do not make any assumptions about the structure, semantics, or compatibility of this object. Any updates to the cookie must retain its structure.
+:::

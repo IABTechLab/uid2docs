@@ -115,7 +115,7 @@ Token の Auto-refresh について知っておくべきことは以下のとお
 
 ## API Reference
 
->IMPORTANT: Client-Side JavaScript SDK とのやり取りはすべて `UID2` クラスのインスタンスであるグローバルな `__uid2` オブジェクトを介して行われます。以下の JavaScript 関数はすべて `UID2` クラスのメンバです。
+Client-Side JavaScript SDK とのやり取りはすべて `UID2` クラスのインスタンスであるグローバルな `__uid2` オブジェクトを介して行われます。以下の JavaScript 関数はすべて `UID2` クラスのメンバです。
 
 - [constructor()](#constructor)
 - [init()](#initopts-object-void)
@@ -129,7 +129,9 @@ Token の Auto-refresh について知っておくべきことは以下のとお
 
 UID2 オブジェクトを構築します。
 
->TIP: この関数を呼び出す代わりに、グローバルの `__uid2` オブジェクトを使用することができます。
+:::tip
+この関数を呼び出す代わりに、グローバルの `__uid2` オブジェクトを使用することができます。
+:::
 
 ### init(opts: object): void
 
@@ -222,7 +224,9 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 [callback function](#callback-function) は `UID2.IdentityStatus` enum から `status` フィールドの値を数値として返します。`UID2.IdentityStatus[state.status]` を呼び出すことで、対応する文字列に変換することができます。以下の表に `status` enum の文字列を示します。
 
->IMPORTANT: 以下の値は、ID の可溶性を通知することのみを目的としています。条件文などでは使用しないでください。
+:::important
+以下の値は、ID の可溶性を通知することのみを目的としています。条件文などでは使用しないでください。
+:::
 
 | Status | Advertising Token Availability | Description |
 | :--- | :--- | :--- |
@@ -265,7 +269,9 @@ ID が利用できない場合は、[isLoginRequired()](#isloginrequired-boolean
 - Advertising Token が利用可能な場合、Promise は現在の Advertising Token で実行されます。
 - Advertising Token が利用可能であれば、Promise は現在の Advertising Token で実行されます。Advertising Token が一時的にでも利用できない場合、Promise は `Error` のインスタンスで拒否されます。この場合に最適なアクションを決定するには、[isLoginRequired()](#isloginrequired-boolean) を使います。
 
->NOTE: もし `getAdvertisingTokenAsync()` 関数が初期化が完了した *後* に呼ばれた場合、Promise は現在の状態に基づいて即座に Settle されます。
+:::note
+もし `getAdvertisingTokenAsync()` 関数が初期化が完了した *後* に呼ばれた場合、Promise は現在の状態に基づいて即座に Settle されます。
+:::
 
 
 ```html
@@ -276,7 +282,9 @@ ID が利用できない場合は、[isLoginRequired()](#isloginrequired-boolean
 </script>
 ```
 
->TIP: この関数を使用すると、`init()`を呼び出したコンポーネントではないコンポーネントから、Client-Side JavaScript SDK の初期化の完了を通知することができます。
+:::tip
+この関数を使用すると、`init()`を呼び出したコンポーネントではないコンポーネントから、Client-Side JavaScript SDK の初期化の完了を通知することができます。
+:::
 
 ### isLoginRequired(): boolean
 
@@ -351,4 +359,6 @@ UID2 Cookie の内容は、[POST&nbsp;/token/generate](../endpoints/post-token-g
    }
 }
 ```
->IMPORTANT: `private` オブジェクトの内容は明示的に指定されておらず、SDK が解釈するようになっています。このオブジェクトの構造、セマンティクス、互換性について、いかなる仮定もしないでください。クッキーの更新はその構造を保持しなければなりません。
+:::important
+`private` オブジェクトの内容は明示的に指定されておらず、SDK が解釈するようになっています。このオブジェクトの構造、セマンティクス、互換性について、いかなる仮定もしないでください。クッキーの更新はその構造を保持しなければなりません。
+:::

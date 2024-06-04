@@ -12,9 +12,11 @@ Requests a UID2 token generated from the <Link href="../ref-info/glossary-uid#gl
 
 Used by: This endpoint is used mainly by publishers.
 
->IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s DII to UID2 tokens for targeted advertising. The `optout_check` parameter, required with a value of `1`, checks whether the user has opted out.
+:::important
+Be sure to call this endpoint only when you have obtained legal basis to convert the user’s DII to UID2 tokens for targeted advertising. The `optout_check` parameter, required with a value of `1`, checks whether the user has opted out.
+:::
 
->NOTE: Rather than calling this endpoint directly, you could use one of the UID2 SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).
+Rather than calling this endpoint directly, you could use one of the SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).
 
 ## Request Format 
 
@@ -32,7 +34,9 @@ Here's what you need to know about this endpoint requests:
 
 ### Unencrypted JSON Body Parameters
 
->IMPORTANT: You must include only **one** of the following four conditional parameters, plus the required `optout_check` parameter with a value of `1`, as key-value pairs in the JSON body of the request when encrypting it.
+:::important
+You must include only **one** of the following four conditional parameters, plus the required `optout_check` parameter with a value of `1`, as key-value pairs in the JSON body of the request when encrypting it.
+:::
 
 | Body Parameter | Data Type | Attribute | Description | 
 | :--- | :--- | :--- | :--- |
@@ -44,7 +48,9 @@ Here's what you need to know about this endpoint requests:
 
 ### Request Examples
 
->IMPORTANT: To ensure that the API key used to access the service remains secret, the `POST /token/generate` endpoint must be called from the server side, unlike the [POST&nbsp;/token/refresh](post-token-refresh.md), which does not require using an API key.
+:::important
+To ensure that the API key used to access the service remains secret, the `POST /token/generate` endpoint must be called from the server side, unlike the [POST&nbsp;/token/refresh](post-token-refresh.md), which does not require using an API key.
+:::
 
 The following are unencrypted JSON request body examples for each parameter, one of which you should include in your token generation requests:
 

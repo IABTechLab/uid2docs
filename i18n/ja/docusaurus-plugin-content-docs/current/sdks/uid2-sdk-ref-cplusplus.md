@@ -58,7 +58,9 @@ Release tags は以下の GitHub で入手できますが、バイナリーは�
 
 このインターフェイスを使用すると、UID2 Advertising Token を復号化し、対応する raw UID2 を返すことができます。
 
->NOTE: SDK を使用する際に、復号鍵を保存したり管理したりする必要はありません。
+:::note
+SDK を使用する際に、復号鍵を保存したり管理したりする必要はありません。
+:::
 
 DSP の場合は、入札のために UID2 Advertising Token を復号化して UID2 を返すインターフェースを呼び出します。ユーザーのオプトアウトを処理する入札ロジックの詳細については、[DSPインテグレーションガイド](../guides/dsp-guide.md) を参照してください。
 
@@ -99,7 +101,9 @@ SDK から返される利用可能な情報の概要を次の表に示します�
 
 UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のことです。raw UID2を他の参加者に送信する前に、UID2 Token に暗号化する必要があります。使用例については、[com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` メソッド) を参照してください。
 
->IMPORTANT: このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
+:::important
+このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
+:::
 
 次の手順では、UID2 SDK for C++ を送信者または受信者として使用して共有を実装する方法の例を示します。
 

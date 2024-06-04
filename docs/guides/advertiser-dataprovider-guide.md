@@ -46,7 +46,9 @@ A raw UID2 is an identifier for a user at a specific moment in time. The raw UID
 
 Even though each salt bucket is updated approximately once per year, individual bucket updates are spread over the year. Approximately 1/365th of all salt buckets are rotated daily.
 
->IMPORTANT: To ensure that your integration has the current raw UID2s, check salt bucket rotation for active users every day.
+:::important
+To ensure that your integration has the current raw UID2s, check salt bucket rotation for active users every day.
+:::
 
 | Step | Endpoint | Description |
 | --- | --- | --- |
