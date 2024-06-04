@@ -26,7 +26,9 @@ Used by: このエンドポイントは、主に広告主やデータプロバ�
 
 `POST '{environment}/v2/identity/map'`
 
-> IMPORTANT: すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+:::important
+すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+:::
 
 ### Path Parameters
 
@@ -34,11 +36,15 @@ Used by: このエンドポイントは、主に広告主やデータプロバ�
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string  | 必須 | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
-NOTE: インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">APIキー</Link> が必要です。
+:::note
+インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">APIキー</Link> が必要です。
+:::
 
 ###  Unencrypted JSON Body Parameters
 
-> IMPORTANT: リクエストを暗号化するときは、以下の 4 つの条件パラメータのうち、 **1つ** だけをリクエストの JSON ボディにキーと値のペアとして含める必要がります。
+:::important
+リクエストを暗号化するときは、以下の 4 つの条件パラメータのうち、 **1つ** だけをリクエストの JSON ボディにキーと値のペアとして含める必要がります。
+:::
 
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
@@ -94,7 +100,9 @@ echo '{"phone": ["+1111111111", "+2222222222"]}' | python3 uid2_request.py https
 
 ## Decrypted JSON Response Format
 
-> NOTE: レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されません。
+:::note
+レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されません。
+:::
 
 復号化に成功すると、指定したメールアドレス、電話番号、またはそれぞれのハッシュに対する raw UID2 とソルトバケット ID が返されます。
 

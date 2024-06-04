@@ -12,11 +12,11 @@ UID2 ベースのターゲティング広告の承認とともにユーザーか
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
-> IMPORTANT: このエンドポイントは、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。`optout_check` パラメータは値 `1` が必須で、ユーザーがオプトアウトしたかどうかをチェックします。
-
-:::note
-このエンドポイントを直接呼び出すのではなく、UID2 SDK を使って管理することもできます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
+:::important
+このエンドポイントは、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。`optout_check` パラメータは値 `1` が必須で、ユーザーがオプトアウトしたかどうかをチェックします。
 :::
+
+このエンドポイントを直接呼び出すのではなく、UID2 SDK を使って管理することもできます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
 
 ## Request Format 
 
@@ -33,8 +33,9 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 | `{environment}` | string | 必須 | テスト (integration) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>地域オペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください<br/>Notes:<ul><li>`integ` 環境と `prod` 環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link> が必要です。</li><li>トークンの有効期限は変更される可能性がありますが、`integ` 環境では常に `prod` 環境よりも大幅に短くなります。</li></ul> |
 
 ### Unencrypted JSON Body Parameters
-
-> IMPORTANT: リクエストを暗号化するときには、以下の4つの条件付きパラメータのうち **1つ** と、必須パラメータである `optout_check` の値 `1` のみを、JSON ボディのキーと値のペアとして含める必要があります。
+:::important
+リクエストを暗号化するときには、以下の4つの条件付きパラメータのうち **1つ** と、必須パラメータである `optout_check` の値 `1` のみを、JSON ボディのキーと値のペアとして含める必要があります。
+:::
 
 | Body Parameter | Data Type | Attribute | Description | 
 | :--- | :--- | :--- | :--- |
@@ -46,7 +47,9 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 ### Request Examples
 
-> IMPORTANT: サービスにアクセスするために使用される API Key を確実に秘密にするために、API Key を使用する必要のない [POST&nbsp;/token/refresh](post-token-refresh.md) と異なり、`POST /token/generate` エンドポイントを Server-Side から呼び出す必要があります。
+:::important
+サービスにアクセスするために使用される API Key を確実に秘密にするために、API Key を使用する必要のない [POST&nbsp;/token/refresh](post-token-refresh.md) と異なり、`POST /token/generate` エンドポイントを Server-Side から呼び出す必要があります。
+:::
 
 以下は、各パラメータの暗号化されていない JSON リクエストボディの例で、このうちの 1 つはトークン生成リクエストに含める必要があります:
 
@@ -84,7 +87,9 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","optout_chec
 
 ## Decrypted JSON Response Format 
 
-> NOTE: レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されません。
+:::note
+レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されません。
+:::
 
 このセクションには、次のサンプルレスポンスが含まれています:
 

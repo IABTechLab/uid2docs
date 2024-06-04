@@ -8,7 +8,6 @@ sidebar_position: 04
 ---
 
 import Link from '@docusaurus/Link';
-import SnowflakeIntegrationArchitecture from './images/uid2-snowflake-integration-architecture.svg';
 
 # Snowflake Integration Guide
 
@@ -36,7 +35,7 @@ If you are a publisher who is sharing UID2 tokens in the bidstream, see [Tokeniz
 
 The following diagram illustrates how you engage with the UID2 integration process in Snowflake:
 
-<SnowflakeIntegrationArchitecture />
+![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture.png)
 
 |Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-Out Cloud Setup|
 | :--- | :--- | :--- |
@@ -51,7 +50,9 @@ There are two personalized listings offered in the Snowflake Data Marketplace fo
 - [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV) for advertisers/brands
 - [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0) for data providers
 
->IMPORTANT: To be able to request data, you must use the `ACCOUNTADMIN` role or another role with the `CREATE DATABASE` and `IMPORT SHARE` privileges in your Snowflake account.
+:::important
+To be able to request data, you must use the `ACCOUNTADMIN` role or another role with the `CREATE DATABASE` and `IMPORT SHARE` privileges in your Snowflake account.
+:::
 
 To request access to a UID2 Share, complete the following steps:
 
@@ -731,8 +732,10 @@ The following instructions provide an example of how sharing works for a sender 
  3. Create a secure share and grant it access to the `AUDIENCE_WITH_UID2_TOKENS` table.
  4. Grant the receiver access to the secure share.
 
->**WARNING**: To help prevent UID2 tokens from expiring during sharing, send the newly encrypted UID2 tokens to the receiver as soon as possible.
->
+:::warning
+To help prevent UID2 tokens from expiring during sharing, send the newly encrypted UID2 tokens to the receiver as soon as possible.
+:::
+
 #### Receiver Instructions
 
  1. Create a database from the secure share that the sender provided access to.
@@ -746,4 +749,6 @@ The following instructions provide an example of how sharing works for a sender 
         on a.ID=b.ID;
     ```
 
->**WARNING**: To help prevent UID2 tokens from expiring, decrypt the UID2 tokens as soon as they become available from the sender.
+:::warning
+To help prevent UID2 tokens from expiring, decrypt the UID2 tokens as soon as they become available from the sender.
+:::

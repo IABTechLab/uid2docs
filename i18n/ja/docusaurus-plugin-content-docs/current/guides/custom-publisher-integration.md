@@ -36,7 +36,9 @@ import Link from '@docusaurus/Link';
 
 ワークフローを示すサンプルアプリケーションもあります。[サンプルアプリケーション](#sample-application) を参照してください。
 
-> TIP: UID2 を使用してクライアントの identity を確立し、UID2 Token を取得するプロセスを容易にするには、UID2 SDK for JavaScript の使用を検討してください。詳細については、[Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md) を参照してください。
+:::tip
+UID2 を使用してクライアントの identity を確立し、UID2 Token を取得するプロセスを容易にするには、UID2 SDK for JavaScript の使用を検討してください。詳細については、[Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md) を参照してください。
+:::
 
 ## Integration Steps
 
@@ -88,7 +90,9 @@ UID2 Token が SSP から DSP に送信されるとき、ビッドストリー�
 | 3-c  | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) | UID2 Service は、オプトアウトしていないユーザーに対して新しい ID トークンを発行します。 |
 | 3-d  | N/A | `POST /token/refresh` エンドポイントから返される値、`advertising_token` と `refresh_token` を、ユーザーにリンクされるように配置します。ファーストパーティのクッキーのようなClient-Side のストレージか、サーバサイドのストレージを検討するとよいでしょう。 |
 
-> TIP: [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントによって返された ID の `refresh_from` タイムスタンプからトークンのリフレッシュを始めてください。
+:::tip
+[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントによって返された ID の `refresh_from` タイムスタンプからトークンのリフレッシュを始めてください。
+:::
 
 ### Clear Identity: User Logout
 

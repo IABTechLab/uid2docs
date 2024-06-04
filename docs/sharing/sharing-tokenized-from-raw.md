@@ -44,7 +44,9 @@ At a very high level, the following are the steps to set up and configure tokeni
 
 The workflow for tokenized sharing by generating UID2 tokens from raw UID2s consists of the following steps.
 
-NOTE: Both sender and receiver must have a UID2 Portal account. See [Request an Account](../portal/portal-getting-started.md#request-an-account).
+:::note
+Both sender and receiver must have a UID2 Portal account. See [Request an Account](../portal/portal-getting-started.md#request-an-account).
+:::
 
 1. Sender and receiver: Integrate with UID2 sharing, using a [UID2 SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk) or [Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake).
 

@@ -12,14 +12,17 @@ Advertising Token が指定されたハッシュ化された、またはハッ�
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
-> NOTE: このエンドポイントは、主に新しいインテグレーションのテストとトラブルシューティングのために用意されています。
+:::note
+このエンドポイントは、主に新しいインテグレーションのテストとトラブルシューティングのために用意されています。
+:::
 
 ## Request Format 
 
 `POST '{environment}/v2/token/validate'`
 
-> IMPORTANT: すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
-
+:::important
+すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+:::
 
 ### Path Parameters
 
@@ -88,7 +91,9 @@ echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXl
 
 ## Decrypted JSON Response Format
 
-> NOTE: レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されません。
+:::note
+レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されません。
+:::
 
 復号化に成功したレスポンスは、以下の例に示すように、指定された Advertising Token の検証結果を示す論理値を返します。
 

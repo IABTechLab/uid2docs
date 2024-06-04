@@ -17,7 +17,9 @@ Used by: This endpoint is used mainly by advertisers and data providers. For det
 
 `POST '{environment}/v2/identity/buckets'`
 
->IMPORTANT: You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+:::important
+You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+:::
 
 ### Path Parameters
 
@@ -31,7 +33,9 @@ The integration environment and the production environment require different <Li
 
 ### Unencrypted JSON Body Parameters
 
->IMPORTANT: You must include the following parameter as a key-value pair in the JSON body of a request when encrypting it.
+:::important
+You must include the following parameter as a key-value pair in the JSON body of a request when encrypting it.
+:::
 
 | Body Parameter | Data Type | Attribute | Description | Format |
 | :--- | :--- | :--- | :--- | :--- |

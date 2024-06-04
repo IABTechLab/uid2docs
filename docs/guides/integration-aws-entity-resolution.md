@@ -44,7 +44,7 @@ The following table summarizes the steps to integrate with UID2 using AWS Entity
 
 The following diagram illustrates the end-to-end UID2 process, from signing up for the service, through the configuration steps, to receiving the raw UID2s.
 
-![AWS Entity Resolution Workflow](images/integration-aws-entity-resolution.svg)
+![AWS Entity Resolution Workflow](images/integration-aws-entity-resolution.png)
 
 The following table shows the sequence of steps shown in the diagram.
 
@@ -93,8 +93,6 @@ Send your UID2 contact the AWS account ID that you'll use for your UID2 integrat
 Visit the [Unified ID 2.0 Identity Resolution](https://aws.amazon.com/marketplace/pp/prodview-66zqls7iqsm6o?sr=0-4&ref_=beagle&applicationId=AWSMPContessa#offers) page on the AWS Data Exchange and click **Continue to Subscribe.**
 
 ![AWS Data Exchange market place screenshot](images/integration-aws-entity-resolution-public-listing.png)
-
-
 
 On receipt of your subscription request, the UID2 team does the following:
 - Reviews your subscription request.

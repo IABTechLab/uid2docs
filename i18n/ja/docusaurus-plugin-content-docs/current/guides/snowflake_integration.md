@@ -35,7 +35,7 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 
 次の図は、Snowflake が UID2 インテグレーションプロセスにどのように関わるかを示しています:
 
-![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture.svg)
+![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture.png)
 
 |Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-Out Cloud Setup|
 | :--- | :--- | :--- |
@@ -50,7 +50,9 @@ Snowflakeデータマーケットプレイスでは、UID2 用に2つのパー�
 - 広告主/ブランド向けの [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV)
 - データプロバイダー向けの [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0)
 
-> IMPORTANT: データをリクエストするには、Snowflake アカウントに`ACCOUNTADMIN` ロール権限が必要です。
+:::important
+データをリクエストするには、Snowflake アカウントに`ACCOUNTADMIN` ロール権限が必要です。
+:::
 
 UID2 Share へのアクセスを要求するには、次の手順を実行します。
 
@@ -523,7 +525,9 @@ UID2 sharer とは、UID2 を他の参加者と Sharing (共有)したい参加�
 
 Sharing する参加者は、他の参加者に送信する前に、[raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を暗号化して [UID2 Token](../ref-info/glossary-uid#gl-uid2-token)に変換しなければなりません。
 
->IMPORTANT: このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
+:::important
+このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
+:::
 
 以下のシナリオは UID2 sharing に対応しています:
 
@@ -726,7 +730,9 @@ select a.ID, b.UID2, b.SITE_ID, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' E
  3. 安全な共有を作成し、`AUDIENCE_WITH_UID2_TOKENS` テーブルへのアクセス権を付与します。
  4. 受信者に安全な共有へのアクセスを許可します。
 
->**WARNING**: 共有した UID2 Token の期限切れを避けるため、送信者は暗号化後できるだけ早く、新しく暗号化された UID2 Token を受信者に送るべきです。
+:::warning
+共有した UID2 Token の期限切れを避けるため、送信者は暗号化後できるだけ早く、新しく暗号化された UID2 Token を受信者に送るべきです。
+:::
 
 #### Receiver Instructions
 
@@ -741,4 +747,6 @@ select a.ID, b.UID2, b.SITE_ID, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' E
         on a.ID=b.ID;
     ```
 
->**WARNING**: 共有された UID2 Token の期限切れを避けるため、受信者は、送信者から UID2 Token が利用可能になり次第、復号化すべきです。
+:::warning
+共有された UID2 Token の期限切れを避けるため、受信者は、送信者から UID2 Token が利用可能になり次第、復号化すべきです。
+:::

@@ -26,7 +26,9 @@ Here's what you need to know:
 
 `POST '{environment}/v2/identity/map'`
 
->IMPORTANT: You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+:::important
+You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+:::
 
 ### Path Parameters
 
@@ -40,7 +42,9 @@ The integration environment and the production environment require different <Li
 
 ###  Unencrypted JSON Body Parameters
 
->IMPORTANT: You must include only **one** of the following four conditional parameters as a key-value pair in the JSON body of the request when encrypting it.
+:::important
+You must include only **one** of the following four conditional parameters as a key-value pair in the JSON body of the request when encrypting it.
+:::
 
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |

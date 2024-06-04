@@ -115,7 +115,7 @@ Token の Auto-refresh について知っておくべきことは以下のとお
 
 ## API Reference
 
->IMPORTANT: Client-Side JavaScript SDK とのやり取りはすべて `UID2` クラスのインスタンスであるグローバルな `__uid2` オブジェクトを介して行われます。以下の JavaScript 関数はすべて `UID2` クラスのメンバです。
+Client-Side JavaScript SDK とのやり取りはすべて `UID2` クラスのインスタンスであるグローバルな `__uid2` オブジェクトを介して行われます。以下の JavaScript 関数はすべて `UID2` クラスのメンバです。
 
 - [constructor()](#constructor)
 - [init()](#initopts-object-void)
@@ -224,7 +224,9 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 [callback function](#callback-function) は `UID2.IdentityStatus` enum から `status` フィールドの値を数値として返します。`UID2.IdentityStatus[state.status]` を呼び出すことで、対応する文字列に変換することができます。以下の表に `status` enum の文字列を示します。
 
->IMPORTANT: 以下の値は、ID の可溶性を通知することのみを目的としています。条件文などでは使用しないでください。
+:::important
+以下の値は、ID の可溶性を通知することのみを目的としています。条件文などでは使用しないでください。
+:::
 
 | Status | Advertising Token Availability | Description |
 | :--- | :--- | :--- |
@@ -357,4 +359,6 @@ UID2 Cookie の内容は、[POST&nbsp;/token/generate](../endpoints/post-token-g
    }
 }
 ```
->IMPORTANT: `private` オブジェクトの内容は明示的に指定されておらず、SDK が解釈するようになっています。このオブジェクトの構造、セマンティクス、互換性について、いかなる仮定もしないでください。クッキーの更新はその構造を保持しなければなりません。
+:::important
+`private` オブジェクトの内容は明示的に指定されておらず、SDK が解釈するようになっています。このオブジェクトの構造、セマンティクス、互換性について、いかなる仮定もしないでください。クッキーの更新はその構造を保持しなければなりません。
+:::

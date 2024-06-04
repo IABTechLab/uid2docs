@@ -8,7 +8,6 @@ sidebar_position: 17
 ---
 
 import Link from '@docusaurus/Link';
-import ChartSvg from './images/uid2-private-operator-aws-chart.svg';
 
 # UID2 Private Operator for AWS Integration Guide
 
@@ -16,7 +15,9 @@ UID2 Operator は、UID2 エコシステムにおける API サーバーです�
 
 ## UID2 Private Operator for AWS
 
-NOTE: [UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) は無償製品です。製品ページに表示されている費用は、必要なインフラの概算費用となります。
+:::note
+[UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) は無償製品です。製品ページに表示されている費用は、必要なインフラの概算費用となります。
+:::
 
 UID2 Private Operator for AWS を契約することで、以下を利用できます:
 
@@ -34,7 +35,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 #### Minimal IAM Role Privileges
 
-> IMPORTANT: ワンクリックデプロイを成功させるためには、AWS アカウントに以下のアクションを実行する権限が必要です:
+ワンクリックデプロイを成功させるためには、AWS アカウントに以下のアクションを実行する権限が必要です:
 
 ```json
 {
@@ -123,7 +124,9 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 ### Security Group Policy
 
-> NOTE: ドメインに関連する証明書をエンクレーブに渡すのを避けるため、HTTPS の代わりにインバウンド HTTP が許可されています。これは、組織内部のプライベートネットワークで使用する場合、セキュアレイヤーのコストを回避することにもなります。
+:::note
+ドメインに関連する証明書をエンクレーブに渡すのを避けるため、HTTPS の代わりにインバウンド HTTP が許可されています。これは、組織内部のプライベートネットワークで使用する場合、セキュアレイヤーのコストを回避することにもなります。
+:::
 
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
@@ -135,7 +138,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 次の図は、Private Operator をホストする仮想プライベートクラウドを示したものです。
 
-<ChartSvg />
+![UID2 Operator VPC Chart](images/aws-vpc-chart-uid2.png)
 
 ## Deployment
 
@@ -233,7 +236,9 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 - 新しいバージョンの提供に関する情報は、[UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) のページで提供されます。
 - UID2 Operator をアップグレードするには、新しい CloudFormation スタックを作成します。詳しくは、[デプロイ](#deployment) を参照してください。
 
-> TIP: スムーズな移行を行うには、まず新しいスタックを作成します。新しいスタックが起動し、サービスを提供する準備ができたら、古いスタックを削除してください。ロードバランサーを使用している場合は、まず新しいインスタンスを立ち上げて実行してから、DNS 名を以前のものから新しいものに変換してください。
+:::tip
+スムーズな移行を行うには、まず新しいスタックを作成します。新しいスタックが起動し、サービスを提供する準備ができたら、古いスタックを削除してください。ロードバランサーを使用している場合は、まず新しいインスタンスを立ち上げて実行してから、DNS 名を以前のものから新しいものに変換してください。
+:::
 
 ## Technical Support
 

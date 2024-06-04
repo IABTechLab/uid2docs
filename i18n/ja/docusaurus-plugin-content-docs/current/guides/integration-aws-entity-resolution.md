@@ -42,7 +42,7 @@ import Link from '@docusaurus/Link';
 
 以下の図は、サービスへの登録から設定ステップを経て raw UID2 を受け取るまでの、エンドツーエンドの UID2 プロセスを示しています。
 
-![AWS Entity Resolution Workflow](images/integration-aws-entity-resolution.svg)
+![AWS Entity Resolution Workflow](images/integration-aws-entity-resolution.png)
 
 以下の表は、図に示されたステップを示しています。
 
@@ -145,7 +145,9 @@ UID2 は、UID2 生成のためにメールアドレスまたは電話番号の�
      |0001|Test 1|test1@uidapi.com|1/1/90|
      |0002|Test 2|test2@gmail.com|1/2/78|
    
-      NOTE: 1レコードにつき、メールアドレスまたは電話番号フィールドは **1** つだけです。メールアドレスが存在する場合、電話番号はパススルーとして扱われます。電話番号を処理するには、別のワークフローを作成してください。詳細はこのセクションの前を参照してください。
+      :::note
+      1レコードにつき、メールアドレスまたは電話番号フィールドは **1** つだけです。メールアドレスが存在する場合、電話番号はパススルーとして扱われます。電話番号を処理するには、別のワークフローを作成してください。詳細はこのセクションの前を参照してください。
+      :::
 
    - **Service access**: 既存または新規のサービスロールを使用して、AWS Glue で指定されたデータにアクセスするための特定の権限を Entity Resolution に付与します。入力データが暗号化されている場合は、復号化のための AWS Key Management Service (KMS) キーも指定する必要があります。
 

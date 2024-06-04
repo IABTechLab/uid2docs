@@ -36,7 +36,7 @@ To subscribe and deploy one or more UID2 Operators on AWS, complete the followin
 
 #### Minimal IAM Role Privileges
 
->IMPORTANT: To succeed in a one-click deployment, your AWS account must have the privileges to run the following actions:
+To succeed in a one-click deployment, your AWS account **must** have the privileges to run the following actions:
 
 ```json
 {
@@ -139,7 +139,7 @@ To avoid passing certificates associated with your domain into the enclave, inbo
 
 The following diagram illustrates the virtual private cloud that hosts private operators.
 
-![EUID Operator VPC Chart](images/aws-vpc-chart-uid2.svg)
+![UID2 Operator VPC Chart](images/aws-vpc-chart-uid2.png)
 
 ## Deployment
 
