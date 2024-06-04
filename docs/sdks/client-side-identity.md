@@ -251,9 +251,7 @@ At any time after `init` has completed, you can call [`setIdentity`](#setidentit
 
 ## API Reference
 
-:::info
-All interactions with the UID2 SDK for JavaScript are done through the global `__uid2` object, which is an instance of the `UID2` class. All of the following JavaScript functions are members of the `UID2` class. 
-:::
+All interactions with the UID2 SDK for JavaScript are done through the global `__uid2` object, which is an instance of the `UID2` class. All of the following JavaScript functions are members of the `UID2` class: 
 
 - [constructor()](#constructor)
 - [init()](#initopts-object-void)

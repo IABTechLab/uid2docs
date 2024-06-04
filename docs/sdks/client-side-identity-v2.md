@@ -112,7 +112,7 @@ Here's what you need to know about the token auto-refresh:
 
 ## API Reference
 
-All interactions with the Client-Side JavaScript SDK are done through the global `__uid2` object, which is a member of the `UID2` class. All of the following JavaScript functions are members of the `UID2` class.
+All interactions with the Client-Side JavaScript SDK are done through the global `__uid2` object, which is a member of the `UID2` class. All of the following JavaScript functions are members of the `UID2` class:
 
 - [constructor()](#constructor)
 - [init()](#initopts-object-void)
