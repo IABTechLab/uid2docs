@@ -109,23 +109,23 @@ import Link from '@docusaurus/Link';
 ### A
 <dl>
 
-<dt><MdxJumpAnchor id="gl-advertising-id">Advertising ID</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-advertising-id"><a href="#gl-advertising-id">Advertising ID</a></MdxJumpAnchor></dt>
 <dd>Advertising ID is another term for a <a href="#gl-raw-uid2">raw UID2</a>.</dd>
 
-<dt><MdxJumpAnchor id="gl-advertising-token">Advertising token</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-advertising-token"><a href="#gl-advertising-token">Advertising token</a></MdxJumpAnchor></dt>
 <dd>Advertising token is another term for a <a href="#gl-uid2-token">UID2 token</a>.</dd>
 
-<dt><MdxJumpAnchor id="gl-api-key">API key</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-api-key"><a href="#gl-api-key">API key</a></MdxJumpAnchor></dt>
 <dd>Each UID2 <a href="/docs/intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
 <dd>For details, see <a href="/docs/getting-started/gs-credentials">UID2 Credentials</a>.</dd>
 
-<dt><MdxJumpAnchor id="gl-api-secret">API secret</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-api-secret"><a href="#gl-api-secret">API secret</a></MdxJumpAnchor></dt>
 <dd>See <a href="#gl-client-secret">client secret</a>.</dd>
 
-<dt><MdxJumpAnchor id="gl-app-name">App name</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-app-name"><a href="#gl-app-name">App name</a></MdxJumpAnchor></dt>
 <dd>In the context of mobile integrations, the app name is the Android application ID, the iOS app store ID, or the iOS bundle identifier.</dd>
 
-<dt><MdxJumpAnchor id="gl-authorization-header">Authorization header</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-authorization-header"><a href="#gl-authorization-header">Authorization header</a> </MdxJumpAnchor></dt>
 <dd>The Authorization header is a way to authenticate the client to the UID2 service.</dd>
 <dd>For details, see <a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.authorization">11.6.2. Authorization</a> in RFC 9110, the HTTP specification.</dd>
 
@@ -135,10 +135,10 @@ import Link from '@docusaurus/Link';
 
 <dl>
 
-<dt><MdxJumpAnchor id="gl-bearer-token">Bearer token</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-bearer-token"><a href="#gl-bearer-token">Bearer token</a></MdxJumpAnchor></dt>
 <dd>A bearer token is a special string that identifies the client. For authentication, some UID2 endpoints require the <a href="#gl-client-key">client key</a> to be specified as a bearer token in the Authorization header of the request: for example, <a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a>.</dd>
 
-<dt><MdxJumpAnchor id="gl-bidstream">Bidstream</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-bidstream"><a href="#gl-bidstream">Bidstream</a></MdxJumpAnchor></dt>
 <dd>To place a request for an ad to be placed in an advertising spot (bid request), the publisher sends different pieces of information, so that advertisers can bid on it, generally through an advertising exchange or DSP. The flow of bidding data is the bidstream.</dd>
 <dd>Bidstream data goes from publishers to other entities (depending on the publisher's configuration) and back to the publisher.</dd>
 
@@ -148,28 +148,28 @@ import Link from '@docusaurus/Link';
 
 <dl>
 
-<dt><MdxJumpAnchor id="gl-client-key">Client key</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-client-key"><a href="#gl-client-key">Client key</a></MdxJumpAnchor></dt>
 <dd>See <a href="#gl-api-key">API key</a>.</dd>
 
-<dt><MdxJumpAnchor id="gl-client-secret">Client secret</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-client-secret"><a href="#gl-client-secret">Client secret</a></MdxJumpAnchor></dt>
 <dd>Each UID2 <a href="/docs/intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
 <dd>For details, see <a href="/docs/getting-started/gs-credentials">UID2 Credentials</a>.</dd>
 
-<dt><MdxJumpAnchor id="gl-client-server">Client-server integration</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-client-server"><a href="#gl-client-server">Client-server integration</a></MdxJumpAnchor></dt>
 <dd>One of the UID2 <a href="#gl-integration-approaches">integration approaches</a> is to integrate partially on the client side and partially on the server side (client-server).</dd>
 <dd>For example, in a client-server integration for a publisher, the UID2 token is generated on the server side and refreshed on the client side.</dd>
 <dd>Examples of documentation for publisher client-server integrations: <a href="../guides/integration-prebid-server-side">UID2 Client-Server Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-server-side">Client-Server Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-server">UID2 Client-Server Integration Guide for Mobile</a>.</dd>
 
-<dt><MdxJumpAnchor id="gl-client-side">Client-side integration</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-client-side"><a href="#gl-client-side">Client-side integration</a></MdxJumpAnchor></dt>
 <dd>One of the UID2 <a href="#gl-integration-approaches">integration approaches</a> is to integrate entirely on the client side.</dd>
 <dd>In a client-side integration, UID2 tokens are generated and refreshed on the client side.</dd>
 <dd>For example, in a client-side integration, advertisers generate UID2 tokens on the client side for tracking pixels, and publishers generate UID2 tokens on the client side for bidstream use, as well as refreshing the tokens.</dd>
 <dd>Examples of documentation for publisher client-side integrations: <a href="../guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>, <a href="../guides/publisher-client-side">Client-Side Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-side">UID2 Client-Side Integration Guide for Mobile</a>.</dd>
 
-<dt><MdxJumpAnchor id="gl-closed-operator">Closed Operator</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-closed-operator"><a href="#gl-closed-operator">Closed Operator</a></MdxJumpAnchor></dt>
 <dd>Closed Operator is another term for a <a href="#gl-private-operator">Private Operator</a>.</dd>
 
-<dt><MdxJumpAnchor id="gl-core-service">Core Service</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-core-service"><a href="#gl-core-service">Core Service</a></MdxJumpAnchor></dt>
 <dd>The UID2 Core Service is a centralized service that manages access to <a href="#gl-salt">salts</a>, encryption keys, and other relevant data in the UID2 ecosystem.</dd>
 <dd>For an overview of all the UID2 services, see <a href="/docs/intro#components">Components</a>.</dd>
 
@@ -179,18 +179,18 @@ import Link from '@docusaurus/Link';
 
 <dl>
 
-<dt><MdxJumpAnchor id="gl-data-provider">Data provider</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-data-provider"><a href="#gl-data-provider">Data provider</a></MdxJumpAnchor></dt>
 <dd>In the context of UID2, a data provider is any entity that provides data and measurement services relating to advertising, such as a data partner, measurement partner, or offline measurement provider.</dd>
 <dd>For details, see <a href="/docs/intro#participants">participant</a> (Data Providers).</dd>
 
-<dt><MdxJumpAnchor id="gl-demand-side-platform">Demand-side platform (DSP)</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-demand-side-platform"><a href="#gl-demand-side-platform">Demand-side platform</a></MdxJumpAnchor></dt>
 <dd>A demand-side platform (DSP) provides services to companies that want to buy digital advertising, such as advertisers, brands, and media agencies.</dd>
 
-<dt><MdxJumpAnchor id="gl-dii">Directly identifying information (DII)</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-dii"><a href="#gl-dii">Directly identifying information (DII)</a></MdxJumpAnchor></dt>
 <dd>Directly identifying information, or DII, is information that directly identifies an individual, including name, email address, or phone number.</dd>
 <dd>UID2 supports email address and phone number, and translates the DII to a value that can be used for the purpose of targeted advertising but cannot by itself be traced back to the original value.</dd>
 
-<dt><MdxJumpAnchor id="gl-docker">Docker</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-docker"><a href="#gl-docker">Docker</a></MdxJumpAnchor></dt>
 <dd>Docker is a Platform as a Service (PaaS) suite of products that is used for automating the deployment of software via packages called containers. The set of Docker products allows packaging of an application, with all its dependencies, into a virtual container that can run on most operating systems so that applications can work efficiently in different environments.</dd>
 <dd>For details, see <a href="https://www.docker.com">https://www.docker.com</a>.</dd>
 
