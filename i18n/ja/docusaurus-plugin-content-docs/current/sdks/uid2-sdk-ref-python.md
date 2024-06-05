@@ -136,9 +136,9 @@ SDK から返される利用可能な情報の概要を次の表に示します�
   ユーザがオプトアウトした場合、このメソッドは None を返すので、その場合は必ず処理してください。
   :::
 
-### Server-Only Integration
+### Server-Side Integration
 
-server-only インテグレーションを使用している場合 ([Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) を参照してください):
+server-only インテグレーションを使用している場合 ([Publisher Integration Guide, Server-Side](../guides/custom-publisher-integration.md) を参照してください):
 
 1. `token_generate_response.get_identity_json_string()` 関数を使用して、identity をユーザーのセッションに JSON 文字列として格納します。
 

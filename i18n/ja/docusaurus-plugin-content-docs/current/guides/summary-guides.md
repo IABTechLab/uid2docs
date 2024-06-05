@@ -46,7 +46,7 @@ Web インテグレーションオプションの詳細については、[Web In
 | [UID2 Integration Overview for JavaScript](integration-javascript.md) | JavaScript SDK を使って UID2 とインテグレーションしたいパブリッシャー向けのオプションの概要です。 |
 | [Client-Side Integration Guide for JavaScript](publisher-client-side.md) | 最も簡単な実装方法で、Clent-Side の JavaScript の変更だけで UID2 とインテグレーションしたいパブリッシャー向けのインテグレーションガイドです。UID2 SDK for JavaScriptは、トークンの生成と更新を自動的に管理します。 |
 | [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md) | パブリッシャー向けのこのインテグレーションガイドでは、UID2 SDK for JavaScript を使用する標準的なウェブインテグレーションシナリオについて説明し、トークンを Server-Side で生成し、パブリッシャーのウェブページに渡す必要があります。 |
-| [Publisher Integration Guide, Server-Only](custom-publisher-integration.md) | このインテグレーションガイドは、UID2 SDK for JavaScript を使用していないパブリッシャー向けです。 |
+| [Publisher Integration Guide, Server-Side](custom-publisher-integration.md) | このインテグレーションガイドは、UID2 SDK for JavaScript を使用していないパブリッシャー向けです。 |
 | [Publisher - Google Ad Manager Secure Signals](google-ss-integration.md) | このインテグレーションガイドでは、UID2 を Google Ad Manager のセキュアシグナル機能(旧称: Encrypted Signals for Publishers、ESP) で使用するパブリッシャーに必要な追加手順について説明します。 |
 
 ### Mobile Integrations

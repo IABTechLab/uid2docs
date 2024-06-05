@@ -1,7 +1,7 @@
 ---
-title: Publisher Integration Guide, Server-Only
-sidebar_label: Server-Only
-pagination_label: Publisher Integration Guide, Server-Only
+title: Publisher Integration Guide, Server-Side
+sidebar_label: Server-Side
+pagination_label: Publisher Integration Guide, Server-Side
 description: Information about generating identity tokens using UID2 for the RTB bidstream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers.
 hide_table_of_contents: false
 sidebar_position: 03
@@ -9,9 +9,9 @@ sidebar_position: 03
 
 import Link from '@docusaurus/Link';
 
-# Publisher Integration Guide, Server-Only
+# Publisher Integration Guide, Server-Side
 
-This guide is for publishers who want to generate UID2 tokens (advertising tokens) for the RTB bidstream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
+This guide is for publishers who want to generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) for the RTB bidstream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers, with all integration activity on the server side.
 
 ## Introduction
 
@@ -29,8 +29,8 @@ The following are the options available for publishers to integrate with UID2:
 
 - Client UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)), with [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) on the server.
 - Client UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)), with custom server code.
-- Server-only integration, with [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) or [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) on the server.
-- Server-only integration, with custom server code.
+- Client-server integration, with [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) or [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) on the server.
+- Server-side integration, with custom server code.
 
 This guide provides information for the last two options.
 
@@ -103,10 +103,10 @@ If the user logs out, do not use the UID2 token.
 
 ## Sample Application
 
-A sample application is available for server-only integration. See:
+A sample application is available for server-side integration. See:
 
-- [Server-Only UID2 Integration Example (sample application)](https://secure-signals-srvonly-integ.uidapi.com/)
-- [Server-Only UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
+- [Server-Side UID2 Integration Example (sample application)](https://secure-signals-srvonly-integ.uidapi.com/)
+- [Server-Side UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
 
 ## FAQs
 

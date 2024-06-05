@@ -14,7 +14,7 @@ import Link from '@docusaurus/Link';
 This guide covers integration steps for publishers using UID2 with the Google Ad Manager secure signals feature (previously known as Encrypted Signals for Publishers, ESP).
 
 :::note
-To use the UID2 Google Ad Manager secure signals integration, if you are using an SDK you must have your UID2 integration already set up. This does not apply if you are using server-only integration. For a summary of all the integration options available, see [UID2 Integration Guides: Summary](summary-guides.md).
+To use the UID2 Google Ad Manager secure signals integration, if you are using an SDK you must have your UID2 integration already set up. This does not apply if you are using server-side integration. For a summary of all the integration options available, see [UID2 Integration Guides: Summary](summary-guides.md).
 :::
 
 ## Overview
@@ -50,7 +50,7 @@ window.googletag.cmd.push(function () {
 });
 ```
 
-### Server-Only Integration
+### Server-Side Integration
 
 So that it can share encrypted signals, the hosted auto-loaded secure signals script must be able to make an asynchronous call to the `window.getUid2AdvertisingToken` function and, in response, receive `advertising_token` as a string.
 
@@ -66,9 +66,9 @@ window.getUid2AdvertisingToken = async () => {
 }
 ```
 
-For details, see [Publisher Integration Guide, Server-Only](custom-publisher-integration.md).
+For details, see [Publisher Integration Guide, Server-Side](custom-publisher-integration.md).
 
-A sample application is also available for server-only integration. See [Sample Applications](#sample-applications).
+A sample application is also available for server-side integration. See [Sample Applications](#sample-applications).
 
 ### UID2 SDK for JavaScript Client-Side Integration
 
@@ -84,7 +84,7 @@ A sample application is also available for integration using the UID2 SDK for Ja
 
 The following sample applications are available to illustrate how to integrate with the Google Ad Manager secure signals feature:
 
-- [Server-Only UID2 Integration Example](https://secure-signals-srvonly-integ.uidapi.com/)
+- [Server-Side UID2 Integration Example](https://secure-signals-srvonly-integ.uidapi.com/)
 - [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
 
 Each sample application has its own instructions.

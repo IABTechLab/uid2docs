@@ -47,7 +47,7 @@ The UID2 SDK for JavaScript includes automated token refresh.
 ## Storing the UID2 Token in the Browser
 <!-- GWH check corresponding (not identical) section in integration-prebid.md, integration-prebid-client-side.md, integration-prebid-client-side.md, for consistency -->
 
-The client-side option stores data using local storage. The server-side option uses local storage by default, but you can also choose to use a cookie instead. For details, see [UID2 Storage Format](../sdks/client-side-identity.md#uid2-storage-format) in the *UID2 SDK for JavaScript Reference Guide*.
+The client-side option stores data using local storage. The client-server option uses local storage by default, but you can also choose to use a cookie instead. For details, see [UID2 Storage Format](../sdks/client-side-identity.md#uid2-storage-format) in the *UID2 SDK for JavaScript Reference Guide*.
 
 The cookie size can be significant, which could be a problem. However, if local storage is not an option, this is one possible approach.
 

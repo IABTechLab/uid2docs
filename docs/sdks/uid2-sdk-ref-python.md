@@ -156,9 +156,9 @@ If you're using client-server integration (see [Client-Server Integration Guide 
   If the user has opted out, this method returns None, so be sure to handle that case.
   :::
 
-### Server-Only Integration
+### Server-Side Integration
 
-If you're using server-only integration (see [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md)):
+If you're using server-side integration (see [Publisher Integration Guide, Server-Side](../guides/custom-publisher-integration.md)):
 
 1. Store this identity as a JSON string in the user's session, using the `token_generate_response.get_identity_json_string()` function.
 
