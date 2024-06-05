@@ -12,7 +12,7 @@ Generates a new [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) by sendi
 
 Used by: This endpoint is used mainly by publishers.
 
-You can call this endpoint from the client side (for example, a browser or a mobile app) because it does not require using an API key.
+You can call this endpoint from the client side (for example, a browser or a mobile app) because it does not require using an <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>.
 
 :::note
 Rather than calling this endpoint directly, you could use one of the UID2 SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).

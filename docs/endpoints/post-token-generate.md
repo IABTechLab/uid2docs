@@ -23,7 +23,7 @@ Rather than calling this endpoint directly, you could use one of the SDKs to man
 `POST '{environment}/v2/token/generate'`
 
 Here's what you need to know about this endpoint requests:
-- To ensure that the API key used to access the service remains secret, UID2 tokens must be generated only on the server side after authentication. 
+- To ensure that the <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link> used to access the service remains secret, UID2 tokens must be generated only on the server side after authentication. 
 - You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
 ### Path Parameters
