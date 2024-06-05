@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # Tokenized Sharing from Raw UID2s
 
-In some cases, sharing participants might have raw UID2s and want to encrypt them before sending to another sharing participant. One example is for advertisers sharing UID2s in creative pixels.
+いくつかのケースでは、共有参加者が raw UID2 を他の共有参加者に送信する前に、それらを暗号化したい場合があります。広告主がクリエイティブピクセルで UID2 を共有する場合がその一例です。
 
 <!-- In this file:
 - [Audience](#audience)
@@ -24,65 +24,63 @@ In some cases, sharing participants might have raw UID2s and want to encrypt the
 
 ### Audience
 
-Tokenized sharing from raw UID2s could be applicable to any sharing participant, depending on the use case.
+raw UID2 からの Tokenized sharing は、ユースケースによっては、どの共有参加者にも適用可能です。
 
 ## Overview
 
-To share raw UID2s with another participant by encrypting into UID2 tokens before sending, the sharing sender must create a UID2 Portal account and implement sharing, and must create a sharing relationship with the receiver.
-
-The sharing receiver must create a UID2 Portal account and implement sharing, and must have a sharing relationship with the sender, so that the receiver has the cryptographic keys necessary to decrypt the UID2 tokens into raw UID2s.
+送信前に UID2 Token に暗号化して raw UID2 を別の参加者と共有するには、共有送信者は UID2 Portal アカウントを作成して共有を実装し、受信者と共有関係を作成する必要があります。
 
 ## Account Setup in the UID2 Portal
 
-In the UID2 Portal, the sender and the receiver must set up an account and the sender must configure sharing permissions.
+UID2 Portal では、送信者と受信者はアカウントを設定し、送信者は共有権限を設定する必要があります。
 
-The sender only needs to set up sharing permission once for each receiver or participant type. However, if you want to add new sharing permissions or change existing ones, you'll need to go back to adjust your settings.
+送信者は、受信者または参加者のタイプごとに共有許可を1回だけ設定する必要があります。ただし、新しい共有権限を追加したり、既存の共有権限を変更したりする場合は、再度設定し直す必要があります。
 
-For details, see [UID2 Portal: Overview](../portal/portal-overview.md) and follow the links for each task.
+詳細は、[UID2 Portal: Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
 
 ## Tokenized Sharing Steps: Summary
 
-At a very high level, the following are the steps to set up and configure tokenized sharing from raw UID2s:
+raw UID2 から UID2 Token を生成して共有する手順を以下に説明します:
 
-1. All users must set up an account and configure sharing options. See [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal).
+1. すべてのユーザーはアカウントを設定し、共有オプションを構成する必要があります。[Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal) を参照してください。
 
-2. To implement sharing in your code, choose from the following, depending on the integration option you're using:
+2. コードに共有を実装するには、以下から選択してください。選択肢は、使用しているインテグレーションオプションによって異なります:
 
    - [Implementing Sharing Encryption/Decryption with an SDK](#implementing-sharing-encryptiondecryption-with-an-sdk)
    - [Implementing Sharing Encryption/Decryption Using Snowflake](#implementing-sharing-encryptiondecryption-using-snowflake)
 
 ## Workflow: Tokenized Sharing from Raw UID2
 
-The workflow for tokenized sharing by generating UID2 tokens from raw UID2s consists of the following steps.
+raw UID2 から UID2 Token を生成して共有するワークフローは、以下の手順で構成されます。
 
-NOTE: Both sender and receiver must have a UID2 Portal account. See [Request an Account](../portal/portal-getting-started.md#request-an-account).
+NOTE: 送信者と受信者の両方が UID2 Portal アカウントを持っている必要があります。アカウントをリクエストするには、[Request an Account](../portal/portal-getting-started.md#request-an-account) を参照してください。
 
-1. Sender and receiver: Integrate with UID2 sharing, using a [UID2 SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk) or [Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake).
+1. 送信者と受信者: [UID2 SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk) または [Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake) を使用して UID2 Sharing をインテグレーションします。
 
-1. Sender: Approve sharing permissions in the UID2 Portal:
+1. 送信者: UID2 Portal で共有権限を承認します:
 
-   1. Define which sharing participants you want to allow to decrypt your UID2 tokens. 
-   1. Log in to the UID2 Portal, go to the [Sharing Permissions](../portal/sharing-permissions.md) page, and specify the participants that you want to share with. If needed, use the search feature to find specific sharing participants.
-   1. Save the sharing selection.
+   1. UID2 Token を復号することを許可する共有参加者を定義します。
+   1. UID2 Portal にログインし、[Sharing Permissions](../portal/sharing-permissions.md) ページに移動し、共有したい参加者を指定します。必要に応じて、特定の共有参加者を検索するために検索機能を使用します。
+   1. 共有選択肢を保存します。
 
-1. Sender: Encrypt raw UID2s to convert them into UID2 tokens, using a [UID2 SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk) or [Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake).
+1. 送信者: UID2 Token に変換するために raw UID2 を暗号化します。これには、[UID2 SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk) または [Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake) を使用します。
 
-   -  Securely transmit the UID2 tokens to an authorized receiver.
+   -  UID2 Token を安全に受信者に送信します。
 
-1. Receiver: Complete the following steps to decrypt the UID2 tokens:
+1. 受信者: UID2 Token を復号化するために以下の手順を完了します:
+   
+      1. UID2 Token を安全に受信します。
+      1. UID2 Token を raw UID2 に復号化します: [Implementing Sharing Encryption/Decryption with an SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk) または [Implementing Sharing Encryption/Decryption Using Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake) を参照してください。
 
-   1. Securely receive the UID2 tokens.
-   1. Decrypt the UID2 tokens into raw UID2s that you can use: see [Implementing Sharing Encryption/Decryption with an SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk) or [Implementing Sharing Encryption/Decryption Using Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake).
-
-The following diagram illustrates the UID2 sharing permission SDK integration workflow:
+次の図は、UID2 Sharing Permission SDK インテグレーションワークフローを示しています:
 
 ![UID2 Sharing Permission SDK Integration Workflow](images/UID2_Sharing_Diagram_Integrate_SDK_Sharing_Token.png)
 
 ## Implementing Sharing Encryption/Decryption with an SDK
 
-The following steps are for all sharing participants who are using an SDK to encrypt raw UID2s into UID2 tokens or decrypt back to raw UID2s&#8212;senders and receivers.
+以下の手順は、SDK を使用して raw UID2 を UID2 Token に暗号化するか、UID2 Token を raw UID2 に復号化するすべての共有参加者に適用されます。&#8212;送信者と受信者。
 
-1. Decide which SDK to use, from the following options, and review the examples in the applicable sharing documentation to see what the sharing code might look like.
+1. 使用する SDK を決定し、以下の選択肢から適用する共有ドキュメントの例を確認して、共有コードがどのように見えるかを確認します。
 
    | SDK/Integration Tool | Link to Sharing Section |
    | :--- | :--- | 
@@ -91,59 +89,60 @@ The following steps are for all sharing participants who are using an SDK to enc
    | Java | [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers) |
    | Python | [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers) |
 
-2. Integrate the SDK into your code to implement each step, depending on whether your role is sender or receiver. To see code examples for the language you're using, follow the link in the table provided in Step 1.
-   1. Both senders and receivers: define the UID2 client.
-   
-   2. Both senders and receivers: define the schedule for refreshing cryptographic keys.
-   
-      Recommended refresh interval is hourly. For an example, see [Decryption Key Refresh Cadence for Sharing (SDK Only)](#decryption-key-refresh-cadence-for-sharing-sdk-only).
+2. 以下の手順に従って、SDK をコードに組み込み、送信者または受信者の役割に応じて各ステップを実装します。使用している言語のコード例を確認するには、以下の表のリンクを参照してください。
 
-   3. Senders, set up encryption.
+   1. 送信者と受信者: UID2 Client を定義します。
+   
+   2. 送信者と受信者: 暗号鍵の更新スケジュールを定義します。
+   
+      推奨される更新間隔は1時間です。例については、[Decryption Key Refresh Cadence for Sharing (SDK Only)](#decryption-key-refresh-cadence-for-sharing-sdk-only) を参照してください。
 
-   4. Receivers, set up decryption.
+   3. 送信者: 暗号化を設定します。
+
+   4. 受信者: 復号化を設定します。
 
 ### Decryption Key Refresh Cadence for Sharing (SDK Only)
 
-If you're using an SDK, defining the schedule for refreshing the sharing keys is part of step 2.
+SDK を使用している場合、共有キーの更新スケジュールを定義することもStep 2の一部です。
 
-For long/continuously running processes, we recommend calling the `uid2client.refresh()` function once per hour.
+長時間/継続的に実行されるプロセスでは、1時間に1回 `uid2client.refresh()` 関数を呼び出すことを推奨します。
 
-For details, see [Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) in *UID2 Sharing: Best Practices*.
+詳細は、[Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) の *UID2 Sharing: Best Practices*　を参照してください。
 
 :::note
-If you're using Snowflake, you don't need to do this step. The Snowflake UID2 integration takes care of refreshing the keys.
+Snowflake を使用している場合は、この手順を実行する必要はありません。Snowflake UID2 インテグレーションがキーのリフレッシュを行います。
 :::
 
 ### Decryption Key Refresh Example
 
-This example illustrates how the `uid2client.refresh()` function enables a new sharing permission. In this example, Advertiser ABC wants to send data to Data Provider XYZ.
+この例は、`uid2client.refresh()` 関数が新しい共有許可を有効にする方法を示しています。この例では、広告主 ABC がデータプロバイダ XYZ にデータを送信したいとします。
 
 | Time | Event |
-| :--- | :--- | 
-| 12:00 pm | The sharing permission is not yet enabled.<br/>Data Provider XYZ calls `uid2client.refresh()`. The decryption key for Advertiser ABC is not returned, so Data Provider XYZ cannot decrypt the UID2 tokens. |
-| 12:30&nbsp;pm | Advertiser ABC logs in to the UID2 Portal and creates a sharing permission with Data Provider XYZ. |
-| 1:00 pm | Data Provider XYZ, on an hourly cadence, again calls `uid2client.refresh()`. Because there is a new sharing permission, the key for Advertiser ABC is returned in the response.<br/>Data Provider XYZ can now decrypt any UID2 token received from Advertiser ABC into a raw UID2. |
+| :--- | :--- |
+| 12:00 pm | 共有権限がまだ有効になっていません。<br/>データプロバイダ XYZ が `uid2client.refresh()` を呼び出します。広告主 ABC の復号鍵が返されないため、データプロバイダ XYZ は UID2 Token を復号化できません。 |
+| 12:30&nbsp;pm | 広告主 ABC が UID2 Portal にログインし、データプロバイダ XYZ との共有許可を作成します。 |
+| 1:00 pm | データプロバイダ XYZ は、1時間ごとに `uid2client.refresh()` を再度呼び出します。新しい共有許可があるため、広告主 ABC の鍵が応答に返されます。<br/>データプロバイダ XYZ は、広告主 ABC から受け取った UID2 Token を復号化して raw UID2 に変換できます。 |
 
 ## Implementing Sharing Encryption/Decryption Using Snowflake
 
-The following steps are for Snowflake users who want to take part in UID2 sharing, either as senders or receivers.
+Snowflake を使用している UID2 参加者は、送信者または受信者として UID2 Sharing に参加することができます。
 
-1. Review the examples in  [Snowflake Integration Guide: Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers) to see what the sharing code might look like.
+1. [Snowflake Integration Guide: Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers) の例を確認して、共有コードがどのように見えるかを確認します。
 
-2. Integrate Snowflake into your code, according to whether your role is sender or receiver. Use the code examples in the documentation referenced in the Snowflake Integration Guide, [UID2 Sharing Example](../guides/snowflake_integration.md#uid2-sharing-example):
+2. 送信者または受信者の役割に応じて、コードに Snowflake を組み込みます。以下のドキュメントにあるコード例を使用してください: [UID2 Sharing Example](../guides/snowflake_integration.md#uid2-sharing-example):
 
-   - Senders, set up encryption.
-   - Receivers, set up decryption.
+   - 送信者: 暗号化を設定します。
+   - 受信者: 復号化を設定します。
 
 ## Information for Sharing Receivers
 
-To be able to decrypt a UID2 token into a raw UID2, you must have a UID2 Portal account and the sender must create a sharing relationship with you.
+UID2 Token を raw UID2 に復号化するには、UID2 Portal アカウントが必要であり、送信者があなたとの共有関係を作成する必要があります。
 
-For details, see [Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant).
+詳細については、[Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant) を参照してください。
 
-It's important to set up a regular cadence for refreshing decryption keys, and to decrypt UID2 tokens promptly.
+暗号鍵を定期的に更新し、UID2 Token をすみやかに復号化することが重要です。
 
-For details, see the following sections in *UID2 Sharing: Best Practices*:
+詳細については、*UID2 Sharing: Best Practices* の次のセクションを参照してください:
 
 - [Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing)
 - [Best Practices for Managing Raw UID2s and UID2 Tokens](sharing-best-practices.md#best-practices-for-managing-raw-uid2s-and-uid2-tokens)
