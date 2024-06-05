@@ -11,6 +11,18 @@ import Link from '@docusaurus/Link';
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### Documentation for Sharing Including Raw UID2 Sharing
+
+22 April 2024
+
+すべての共有シナリオに対応できるよう、共有ドキュメントを全面的に見直し、大幅に拡充しました。
+
+このドキュメントでは、送信者と受信者が適用される法的、セキュリティ、および技術的要件に従う場合に、raw UID2 を共有する機能など、追加の共有シナリオをサポートするようになりました。
+
+詳細は、[UID2 Sharing: Overview](../sharing/sharing-overview.md) を参照してください。
+
+<!-- APIDOCS-2134 -->
+
 ### New: UID2 Hashing Tool
 
 4 March 2024
