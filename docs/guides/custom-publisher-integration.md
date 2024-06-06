@@ -13,6 +13,20 @@ import Link from '@docusaurus/Link';
 
 This guide is for publishers who want to generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) for the RTB bidstream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers, with all integration activity on the server side.
 
+The following options are available for publishers to integrate with UID2 on the server side:
+
+- UID2 SDK for Java (see [Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers) section)
+- UID2 SDK for Python (see [Usage for Publishers](../sdks/uid2-sdk-ref-python.md#usage-for-publishers) section)
+- Custom server code
+
+There is also an example application that demonstrates the workflow. See [Sample Application](#sample-application).
+
+For a complete summary of publisher integration options, see [Publisher Integrations](summary-guides.md#publisher-integrations).
+
+:::tip
+To facilitate the process of establishing client identity using UID2 and retrieving UID2 tokens, consider using the UID2 SDK for JavaScript. For details, see [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md).
+:::
+
 ## Introduction
 
 The guide outlines the [basic steps](#integration-steps) that you need to consider if you're building an integration without using a client-side or server-side SDK. For example, you need to decide how to do the following:
@@ -24,21 +38,6 @@ The guide outlines the [basic steps](#integration-steps) that you need to consid
 - Manage user opt-outs
 
 See also [FAQs](#faqs).
-
-The following are the options available for publishers to integrate with UID2:
-
-- Client UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)), with [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) on the server.
-- Client UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)), with custom server code.
-- Client-server integration, with [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) or [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) on the server.
-- Server-side integration, with custom server code.
-
-This guide provides information for the last two options.
-
-There is also an example application that demonstrates the workflow. See [Sample Application](#sample-application).
-
-:::tip
-To facilitate the process of establishing client identity using UID2 and retrieving UID2 tokens, consider using the UID2 SDK for JavaScript. For details, see [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md).
-:::
 
 ## Integration Steps
 
@@ -58,6 +57,10 @@ The following sections provide additional details for each step in the diagram:
 ### Establish Identity: Capture User Data
 
 After authentication in step 1-c, which includes getting the user's consent and allows the publisher to validate the user's email address or phone number, the publisher can send a request to generate a UID2 token, on the server side. The following table details the token generation steps.
+
+:::tip
+Rather than calling this endpoint directly, you could use one of the SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).
+:::
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
