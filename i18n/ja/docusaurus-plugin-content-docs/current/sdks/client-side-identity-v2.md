@@ -15,31 +15,8 @@ import Link from '@docusaurus/Link';
 
 この SDK を使用して、UID2 を使用してクライアントの ID を確立し、広告トークンを取得するプロセスを容易にします。以下のセクションでは、UID2 を確立するための [workflow](#workflow-overview) について説明し、SDK の [API reference](#api-reference) を提供し、[UID2 cookie format](#uid2-cookie-format) について説明します。
 
-- コンテンツパブリッシャーのインテグレーション手順については、[Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください。
+- コンテンツパブリッシャーのインテグレーション手順については、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください。
 - [example application](https://example-jssdk-integ.uidapi.com/) と関連ドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) ガイドを参照してください。
-
-<!-- This guide includes the following information:
-
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [SDK Version](#sdk-version)
-- [GitHub Repository/Binary](#github-repositorybinary)
-- [Terminology](#terminology)
-- [Include the SDK Script](#include-the-sdk-script)
-- [Workflow Overview](#workflow-overview)
-   - [Workflow States and Transitions](#workflow-states-and-transitions)
-   - [Background Token Auto-Refresh](#background-token-auto-refresh)
- - [API Reference](#api-reference)
-   - [constructor()](#constructor)
-   - [init()](#initopts-object-void)
-   - [getAdvertisingToken()](#getadvertisingtoken-string)
-   - [getAdvertisingTokenAsync()](#getadvertisingtokenasync-promise)
-   - [isLoginRequired()](#isloginrequired-boolean)
-   - [disconnect()](#disconnect-void)
-   - [abort()](#abort-void)
-- [UID2 Cookie Format](#uid2-cookie-format)
-  - [Properties](#properties)
-  - [Contents Structure](#contents-structure) -->
 
 ## Functionality
 
@@ -101,7 +78,7 @@ SDK を使用して UID2 ID を確立するための Client-Side ワークフロ
 	- Advertising Token が使用可能な場合は、それを使用してターゲティング広告の要求を開始します。
 	- Advertising Token が利用可能でない場合は、ターゲティング広告を使用しないか、同意フォームでユーザーを データキャプチャにリダイレクトします。
  
-Web インテグレーションの詳細については、[Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください。
+Web インテグレーションの詳細については、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください。
 
 ### Workflow States and Transitions
 
@@ -117,7 +94,7 @@ Web インテグレーションの詳細については、[Server-Side Integrati
 
 次の図は、対応する ID の [status values](#identity-status-values) を含む 4 つの状態と、それらの間で可能な遷移を示しています。SDK は各遷移で [callback function](#callback-function) を呼び出します。
 
-![Client-Side JavaScript SDK Workflow](images/uid2-js-sdk-workflow.svg)
+![Client-Side JavaScript SDK Workflow](images/uid2-js-sdk-workflow.png)
 
 
 ### Background Token Auto-Refresh
@@ -138,7 +115,7 @@ Token の Auto-refresh について知っておくべきことは以下のとお
 
 ## API Reference
 
->IMPORTANT: Client-Side JavaScript SDK とのやり取りはすべて `UID2` クラスのインスタンスであるグローバルな `__uid2` オブジェクトを介して行われます。以下の JavaScript 関数はすべて `UID2` クラスのメンバです。
+Client-Side JavaScript SDK とのやり取りはすべて `UID2` クラスのインスタンスであるグローバルな `__uid2` オブジェクトを介して行われます。以下の JavaScript 関数はすべて `UID2` クラスのメンバです。
 
 - [constructor()](#constructor)
 - [init()](#initopts-object-void)
@@ -152,7 +129,9 @@ Token の Auto-refresh について知っておくべきことは以下のとお
 
 UID2 オブジェクトを構築します。
 
->TIP: この関数を呼び出す代わりに、グローバルの `__uid2` オブジェクトを使用することができます。
+:::tip
+この関数を呼び出す代わりに、グローバルの `__uid2` オブジェクトを使用することができます。
+:::
 
 ### init(opts: object): void
 
@@ -245,7 +224,9 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 [callback function](#callback-function) は `UID2.IdentityStatus` enum から `status` フィールドの値を数値として返します。`UID2.IdentityStatus[state.status]` を呼び出すことで、対応する文字列に変換することができます。以下の表に `status` enum の文字列を示します。
 
->IMPORTANT: 以下の値は、ID の可溶性を通知することのみを目的としています。条件文などでは使用しないでください。
+:::important
+以下の値は、ID の可溶性を通知することのみを目的としています。条件文などでは使用しないでください。
+:::
 
 | Status | Advertising Token Availability | Description |
 | :--- | :--- | :--- |
@@ -288,7 +269,9 @@ ID が利用できない場合は、[isLoginRequired()](#isloginrequired-boolean
 - Advertising Token が利用可能な場合、Promise は現在の Advertising Token で実行されます。
 - Advertising Token が利用可能であれば、Promise は現在の Advertising Token で実行されます。Advertising Token が一時的にでも利用できない場合、Promise は `Error` のインスタンスで拒否されます。この場合に最適なアクションを決定するには、[isLoginRequired()](#isloginrequired-boolean) を使います。
 
->NOTE: もし `getAdvertisingTokenAsync()` 関数が初期化が完了した *後* に呼ばれた場合、Promise は現在の状態に基づいて即座に Settle されます。
+:::note
+もし `getAdvertisingTokenAsync()` 関数が初期化が完了した *後* に呼ばれた場合、Promise は現在の状態に基づいて即座に Settle されます。
+:::
 
 
 ```html
@@ -299,7 +282,9 @@ ID が利用できない場合は、[isLoginRequired()](#isloginrequired-boolean
 </script>
 ```
 
->TIP: この関数を使用すると、`init()`を呼び出したコンポーネントではないコンポーネントから、Client-Side JavaScript SDK の初期化の完了を通知することができます。
+:::tip
+この関数を使用すると、`init()`を呼び出したコンポーネントではないコンポーネントから、Client-Side JavaScript SDK の初期化の完了を通知することができます。
+:::
 
 ### isLoginRequired(): boolean
 
@@ -374,4 +359,6 @@ UID2 Cookie の内容は、[POST&nbsp;/token/generate](../endpoints/post-token-g
    }
 }
 ```
->IMPORTANT: `private` オブジェクトの内容は明示的に指定されておらず、SDK が解釈するようになっています。このオブジェクトの構造、セマンティクス、互換性について、いかなる仮定もしないでください。クッキーの更新はその構造を保持しなければなりません。
+:::important
+`private` オブジェクトの内容は明示的に指定されておらず、SDK が解釈するようになっています。このオブジェクトの構造、セマンティクス、互換性について、いかなる仮定もしないでください。クッキーの更新はその構造を保持しなければなりません。
+:::

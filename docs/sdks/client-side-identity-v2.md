@@ -15,31 +15,8 @@ This documentation is for earlier versions of the UID2 SDK for JavaScript. If yo
 
 Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). 
 
-- For integration steps for content publishers, see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md).
+- For integration steps for content publishers, see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md).
 - For an [example application](https://example-jssdk-integ.uidapi.com/), with associated documentation, see the [UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) guide.
-
-<!-- This guide includes the following information:
-
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [SDK Version](#sdk-version)
-- [GitHub Repository/Binary](#github-repositorybinary)
-- [Terminology](#terminology)
-- [Include the SDK Script](#include-the-sdk-script)
-- [Workflow Overview](#workflow-overview)
-   - [Workflow States and Transitions](#workflow-states-and-transitions)
-   - [Background Token Auto-Refresh](#background-token-auto-refresh)
- - [API Reference](#api-reference)
-   - [constructor()](#constructor)
-   - [init()](#initopts-object-void)
-   - [getAdvertisingToken()](#getadvertisingtoken-string)
-   - [getAdvertisingTokenAsync()](#getadvertisingtokenasync-promise)
-   - [isLoginRequired()](#isloginrequired-boolean)
-   - [disconnect()](#disconnect-void)
-   - [abort()](#abort-void)
-- [UID2 Cookie Format](#uid2-cookie-format)
-  - [Properties](#properties)
-  - [Contents Structure](#contents-structure) -->
 
 ## Functionality
 
@@ -101,7 +78,7 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 	- If the advertising token is available, use it to initiate requests for targeted advertising.
 	- If the advertising token is not available, either use untargeted advertising or redirect the user to the data capture with the consent form.
 
-For web integration steps, see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md).
+For web integration steps, see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md).
 
 ### Workflow States and Transitions
 
@@ -116,7 +93,7 @@ The following table outlines the four main states that the SDK can be in, based 
 
 The following diagram illustrates the four states, including the corresponding identity [status values](#identity-status-values) and possible transitions between them. The SDK invokes the [callback function](#callback-function) on each transition.
 
-![Client-Side JavaScript SDK Workflow](images/uid2-js-sdk-workflow.svg)
+![Client-Side JavaScript SDK Workflow](images/uid2-js-sdk-workflow.png)
 
 ### Background Token Auto-Refresh
 
@@ -135,7 +112,7 @@ Here's what you need to know about the token auto-refresh:
 
 ## API Reference
 
->IMPORTANT: All interactions with the Client-Side JavaScript SDK are done through the global `__uid2` object, which is a member of the `UID2` class. All of the following JavaScript functions are members of the `UID2` class. 
+All interactions with the Client-Side JavaScript SDK are done through the global `__uid2` object, which is a member of the `UID2` class. All of the following JavaScript functions are members of the `UID2` class:
 
 - [constructor()](#constructor)
 - [init()](#initopts-object-void)
@@ -149,7 +126,9 @@ Here's what you need to know about the token auto-refresh:
 
 Constructs a UID2 object.
 
->TIP: Instead of calling this function, you can just use the global `__uid2` object. 
+:::tip
+Instead of calling this function, you can just use the global `__uid2` object.
+:::
 
 ### init(opts: object): void
 
@@ -242,7 +221,9 @@ The `object` parameter includes the following properties.
 
 The [callback function](#callback-function) returns the `status` field values as numbers from the `UID2.IdentityStatus` enum, which can be turned into the corresponding strings by calling `UID2.IdentityStatus[state.status]`. The following table lists the string values for the `status` enum.
 
->IMPORTANT: The following values are intended only to inform you of identity availability. Do not use them in conditional logic. 
+:::important
+The following values are intended only to inform you of identity availability. Do not use them in conditional logic.
+:::
 
 | Status | Advertising Token Availability | Description |
 | :--- | :--- | :--- |
@@ -285,8 +266,9 @@ This function can be called before or after the [init()](#initopts-object-void) 
 - If the advertising token is available, the promise is fulfilled with the current advertising token.
 - If the advertising token is not available, even temporarily, the promise is rejected with an instance of `Error`. To determine the best course of action in this case, you can use [isLoginRequired()](#isloginrequired-boolean).
 
->NOTE: If the `getAdvertisingTokenAsync()` function is called *after* the initialization is complete, the promise is settled immediately based on the current state.
-
+:::note
+If the `getAdvertisingTokenAsync()` function is called *after* the initialization is complete, the promise is settled immediately based on the current state.
+:::
 
 ```html
 <script>
@@ -296,7 +278,9 @@ This function can be called before or after the [init()](#initopts-object-void) 
 </script>
 ```
 
->TIP: You can use this function to be notified of the completion of the Client-Side JavaScript SDK initialization from a component that might not be the one that called `init()`.
+:::tip
+You can use this function to be notified of the completion of the Client-Side JavaScript SDK initialization from a component that might not be the one that called `init()`.
+:::
 
 ### isLoginRequired(): boolean
 
@@ -371,4 +355,7 @@ The following is an example of the UID2 cookie structure:
    }
 }
 ```
->IMPORTANT: The contents of the `private` object are explicitly unspecified and are left for the SDK to interpret. Do not make any assumptions about the structure, semantics, or compatibility of this object. Any updates to the cookie must retain its structure.
+
+:::important
+The contents of the `private` object are explicitly unspecified and are left for the SDK to interpret. Do not make any assumptions about the structure, semantics, or compatibility of this object. Any updates to the cookie must retain its structure.
+:::

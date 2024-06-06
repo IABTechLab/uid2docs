@@ -13,11 +13,6 @@ raw UID2 や UID2 Token を、UID2 の許可を受けた他のユーザーと安
 
 しかし、UID2 参加者は皆、UID2 エコシステムのセキュリティを維持する責任を負っています。ここでは、UID2 の共有を円滑かつ安全に行うためのベストプラクティスをいくつか紹介します。
 
-<!-- In this file:
-
-- [Best Practices for Managing Raw UID2s and UID2 Tokens](#best-practices-for-managing-raw-uid2s-and-uid2-tokens)
-- [Decryption Key Refresh Cadence for Sharing](#decryption-key-refresh-cadence-for-sharing) -->
-
 ## Best Practices for Managing Raw UID2s and UID2 Tokens
 
 以下のガイドラインに従ってください:

@@ -92,7 +92,9 @@ Here's what you need to know and do:
 
 #### Upgrade Token Refresh Calls
 
->NOTE: If you are using the [UID2 SDK for JavaScript Reference Guide](https://unifiedid.com/docs/sdks/client-side-identity) to refresh and manage tokens, no further action is required. 
+:::note
+If you are using the [UID2 SDK for JavaScript Reference Guide](https://unifiedid.com/docs/sdks/client-side-identity) to refresh and manage tokens, no further action is required.
+:::
 
 If you refresh tokens either on server or on client side without using the SDK, keep in mind the following, when making requests to the v2 [POST /token/refresh](https://unifiedid.com/docs/endpoints/post-token-refresh) endpoint:
 
@@ -125,7 +127,9 @@ To upgrade to the UID API v2, replace calls to the following v1 endpoints with t
 | `POST /identity/map` | [POST /identity/map](https://unifiedid.com/docs/endpoints/post-identity-map)| The v2 endpoint is identical to the v1 endpoint, except it also maps DII for single users. |
 | `GET /identity/map` |[POST /identity/map](https://unifiedid.com/docs/endpoints/post-identity-map) |The HTTP request type has changed.<br/>The new POST endpoint maps DII for single and multiple users. |
 
->IMPORTANT: Performing calls to the UID2 API v2 requires encrypting the POST request body and decrypting the response. For details and examples, see [Encrypting Requests and Decrypting Responses](https://unifiedid.com/docs/getting-started/gs-encryption-decryption).
+:::important
+Performing calls to the UID2 API v2 requires encrypting the POST request body and decrypting the response. For details and examples, see [Encrypting Requests and Decrypting Responses](https://unifiedid.com/docs/getting-started/gs-encryption-decryption).
+:::
 
 
 ## FAQs

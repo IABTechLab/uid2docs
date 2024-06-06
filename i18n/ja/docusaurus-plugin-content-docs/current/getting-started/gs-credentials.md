@@ -18,17 +18,9 @@ UID2 <a href="/docs/intro#participants">参加者</a>はそれぞれ、固有の
 
 本番環境だけでなくテスト環境も使用している場合は、それぞれの環境用に別々の認証情報を取得します。
 
-<!-- It includes:
-
-* [API Key and Client Secret](#api-key-and-client-secret)
-  * [Security of API Key and Client Secret](#security-of-api-key-and-client-secret)
-* [Subscription ID and Public Key](#subscription-id-and-public-key)
-* [Refreshing Credentials](#refreshing-credentials)
- -->
-
 ## API Key and Client Secret
 
-Server-Side の実装([UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) または [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照) を使用している場合、API Key とクライアントシークレットにより、[Operator Service](../ref-info/glossary-uid.md#gl-operator-service) に接続し、API エンドポイントを呼び出すことができます。これらの値は、サービスの参加者を識別します。
+Server-Side の実装([UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) または [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照) を使用している場合、API Key とクライアントシークレットにより、[Operator Service](../ref-info/glossary-uid.md#gl-operator-service) に接続し、API エンドポイントを呼び出すことができます。これらの値は、サービスの参加者を識別します。
 
 以下は API Key とクライアントシークレットに関する情報です:
 - UID2 参加者は、複数のキーを持つことができます。

@@ -18,12 +18,6 @@ This guide is an overview of integration options for mobile app publishers who w
 This guide uses the group term **UID2 mobile SDKs** to include both the UID2 SDK for Android and the UID2 SDK for iOS.
 :::
 
-<!-- It includes the following sections:
-
-- [Introduction](#introduction)
-- [Client-Side or Client-Server Integration ](#client-side-or-client-server-integration)
-- [Integration Overview: High-Level Steps](#integration-overview-high-level-steps) -->
-
 ## Introduction 
 
 UID2 provides SDKs for Android/iOS that support the following:

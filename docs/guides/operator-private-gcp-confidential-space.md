@@ -14,7 +14,9 @@ import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
 
 This guide provides information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. Confidential Space offers a secure enclave environment, known as a Trusted Execution Environment (TEE).
 
->NOTE: UID2 Private Operator for GCP is not supported in these areas: Europe, China.
+:::note
+ UID2 Private Operator for GCP is not supported in these areas: Europe, China.
+ :::
 
 The Operator Service runs in a Confidential Space "workload"&#8212;a containerized Docker image that runs in a secure cloud-based enclave on top of the Confidential Space image.
 
@@ -64,7 +66,9 @@ Before choosing your deployment option, complete these Google Cloud setup steps:
 ### UID2 Operator Account Setup
 Ask your UID2 contact to register your organization as a UID2 Operator. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
 
->TIP: It's a good idea to set  up an internal email distribution list of individuals who should be kept informed about new versions and any other technical notifications or requests, and provide that as the email contact.
+:::tip
+It's a good idea to set  up an internal email distribution list of individuals who should be kept informed about new versions and any other technical notifications or requests, and provide that as the email contact.
+:::
 
 When the registration process is complete, you'll receive the following:
 
@@ -89,7 +93,9 @@ The following environments are available, and both [deployment options](#deploym
 
 As a best practice, we recommend that you test and verify your implementation in the integration environment before deploying in the production environment.
 
->NOTE: You'll receive separate `{OPERATOR_KEY}` values for each environment. Be sure to use the correct one. The `{OPERATOR_IMAGE}` value is the same for both environments.
+:::note
+You'll receive separate `{OPERATOR_KEY}` values for each environment. Be sure to use the correct one. The `{OPERATOR_IMAGE}` value is the same for both environments.
+:::
 
 | Environment | Details |
 | :--- | :--- |
@@ -126,7 +132,9 @@ The Terraform template does the following:
   - Egress: [Cloud Network Address Translation (NAT)](https://cloud.google.com/nat/docs/overview).
 - If HTTPS is enabled, provides your HTTPS certificate to Terraform.
 
->NOTE: The Terraform template uses the gcloud CLI that you installed in [Confidential Space Account Setup](#confidential-space-account-setup) Step 3.
+:::note
+The Terraform template uses the gcloud CLI that you installed in [Confidential Space Account Setup](#confidential-space-account-setup) Step 3.
+:::
 
 To deploy a new UID2 Operator in the GCP Confidential Space Enclave, using the Terraform template, follow these steps:
 
@@ -215,7 +223,9 @@ terraform apply
 ```
 When you run `terraform apply`, the following file is generated in the same folder: `terraform.tfstate`. This file stores state information about your managed infrastructure and configuration, and will be used for future maintenance.
 
->NOTE: Be sure to follow the recommended practices for Terraform `state` files: they are required for maintaining the deployed infrastructure, and they might contain sensitive information. For details, see [state](https://developer.hashicorp.com/terraform/language/state) in the Terraform documentation.
+:::note
+Be sure to follow the recommended practices for Terraform `state` files: they are required for maintaining the deployed infrastructure, and they might contain sensitive information. For details, see [state](https://developer.hashicorp.com/terraform/language/state) in the Terraform documentation.
+:::
 
 #### Test Terraform Using the Health Check Endpoint
 
@@ -245,7 +255,9 @@ The following table summarizes the output value from the Terraform template.
 
 To deploy a new UID2 Operator in the GCP Confidential Space Enclave using the gcloud CLI, follow these steps.
 
->NOTE: For deployment to the production environment we do not recommend this option. We recommend deploying via the Terraform template, with load balancing, and with HTTPS enabled.
+:::note
+For deployment to the production environment we do not recommend this option. We recommend deploying via the Terraform template, with load balancing, and with HTTPS enabled.
+:::
 
    1. [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions)
    1. [Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager)
@@ -404,7 +416,9 @@ $ gcloud compute instances create {INSTANCE_NAME} \
 
 The following example of the deployment script for the production environment uses some placeholder values.
 
->NOTE: A `machine-type` value of `n2d-standard-16` is required for the production environment.
+:::note
+A `machine-type` value of `n2d-standard-16` is required for the production environment.
+:::
 
 ```
 $ gcloud compute instances create {INSTANCE_NAME} \

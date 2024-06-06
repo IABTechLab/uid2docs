@@ -9,23 +9,6 @@ import Link from '@docusaurus/Link';
 
 # UID2 SDK for iOS Reference Guide
 
-<!-- This guide includes the following information:
-
-- [tvOS Support](#tvos-support)
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [SDK Version](#sdk-version)
-- [GitHub Open-Source Repository](#github-open-source-repository)
-- [Minimum Requirements](#minimum-requirements)
-- [Installation](#installation)
-  -  [Installing with Gradle](#installing-with-gradle)
-  -  [Installing with Maven](#installing-with-maven)
-- [Usage Guidelines](#usage-guidelines)
-- [UID2Manager API](#uid2manager-api)
-  -  [Functions](#functions)
-  -  [Variables](#variables)
-- [Code Samples](#code-samples) -->
-
 You can use the UID2 SDK for iOS for the following:
 
 - Generating or establishing client identity using UID2.

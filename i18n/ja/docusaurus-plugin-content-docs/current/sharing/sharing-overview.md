@@ -14,13 +14,6 @@ UID2 では、Sharing とは、UID2 参加者間で [raw UID2](../ref-info/gloss
 
 raw UID2 または UID2 Token が他の参加者と共有される場合はすべて、Sharing の定義に該当します。raw UID2 を送信するすべての共有参加者は、標準セキュリティプラクティスで指定されているセキュリティ要件に従わなければなりません。詳細については、[Security Requirements for UID2 Sharing](sharing-security.md) を参照してください。UID2 Token を共有するすべての参加者は、以下の手順に従うことを推奨します。
 
-<!-- In this file:
-- [Sharing Participants](#sharing-participants)
-- [Approved Sharing Scenarios](#approved-sharing-scenarios)
-- [UID2 Sharing Approaches](#uid2-sharing-approaches)
-  - [Sharing UID2 Tokens](#sharing-uid2-tokens)
-  - [Sharing Raw UID2s](#sharing-raw-uid2s) -->
-
 ## Sharing Participants
 
 UID2 では、Sharing Participant とは、ある UID2 参加者から別の UID2 参加者への raw UID2 または UID2 Token の配布に参加する企業のことです。

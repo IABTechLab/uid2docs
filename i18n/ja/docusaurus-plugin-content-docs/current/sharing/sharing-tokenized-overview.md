@@ -15,17 +15,6 @@ UID2 では、Tokenized Sharing は、<Link href="../ref-info/glossary-uid#gl-di
 - raw UID2 を UID2 Token に暗号化する: [Tokenized Sharing: Starting with a Raw UID2](#tokenized-sharing-starting-with-a-raw-uid2) を参照してください。
 - DII から直接 UID2 Token を生成する: [Tokenized Sharing: Starting with DII](#tokenized-sharing-starting-with-dii) を参照してください。
 
-<!-- In this file:
-- [Tokenized Sharing Scenarios](#tokenized-sharing-scenarios)
-- [Sending UID2 Tokens to Another Sharing Participant](#sending-uid2-tokens-to-another-sharing-participant)
-- [Receiving UID2 Tokens from Another Sharing Participant](#receiving-uid2-tokens-from-another-sharing-participant)
-- [Tokenized Sharing Examples](#tokenized-sharing-examples)
-  - [Tokenized Sharing: Starting with DII](#tokenized-sharing-starting-with-dii)
-  - [Example: DII to UID2 Token](#example-dii-to-uid2-token)
-  - [Tokenized Sharing: Starting with a Raw UID2](#tokenized-sharing-starting-with-a-raw-uid2)
-  - [Example: Raw UID2 to UID2 Token](#example-raw-uid2-to-uid2-token)
-- [UID2 Token Pass-Through](#uid2-token-pass-through) -->
-
 ## Tokenized Sharing Scenarios
 
 多くのシナリオでは、UID2 データは <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> の形で共有されます。主なユースケースは以下の表に示されています。

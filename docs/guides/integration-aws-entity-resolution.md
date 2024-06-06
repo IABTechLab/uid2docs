@@ -11,25 +11,13 @@ import Link from '@docusaurus/Link';
 
 # AWS Entity Resolution Integration Guide
 
-<!-- This guide includes the following information:
-
-- [Functionality](#functionality)
-- [Integration Summary](#integration-summary)
-- [Workflow Diagram](#workflow-diagram)
-- [Initial Setup Steps](#initial-setup-steps)
-  - [Create UID2 Account](#create-uid2-account)
-  - [Create AWS Account](#create-aws-account)
-  - [Subscribe to UID2 on AWS Data Exchange](#subscribe-to-uid2-on-aws-data-exchange)
-- [Configure AWS Account](#configure-aws-account)
-- [Create a Matching Workflow](#create-a-matching-workflow)
-- [Run the Matching Workflow](#run-the-matching-workflow)
- -->
-
 [AWS Entity Resolution](https://aws.amazon.com/entity-resolution/) is an identity resolution product from Amazon Web Services that allows AWS customers to integrate with the UID2 framework. Through the integration, you can securely and seamlessly generate UID2s for your data without making direct calls to the UID2 operator or handling sensitive client ID and secret key values.
 
 This service allows you to map <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email addresses or phone numbers) to raw UID2s swiftly and securely.
 
->NOTE: If you're not currently part of the UID2 ecosystem, go to the [Request Access to UID2](https://unifiedid.com/request-access) page.
+:::note
+If you're not currently part of the UID2 ecosystem, go to the [Request Access to UID2](https://unifiedid.com/request-access) page.
+:::
 
 For a video presentation about integration with UID2 by using AWS Entity Resolution, and a demo, see [Getting Started with AWS Entity Resolution Integration with Unified ID 2.0](https://www.youtube.com/watch?v=ORbSsKMgVj8) on YouTube.
 
@@ -56,7 +44,7 @@ The following table summarizes the steps to integrate with UID2 using AWS Entity
 
 The following diagram illustrates the end-to-end UID2 process, from signing up for the service, through the configuration steps, to receiving the raw UID2s.
 
-![AWS Entity Resolution Workflow](images/integration-aws-entity-resolution.svg)
+![AWS Entity Resolution Workflow](images/integration-aws-entity-resolution.png)
 
 The following table shows the sequence of steps shown in the diagram.
 
@@ -106,8 +94,6 @@ Visit the [Unified ID 2.0 Identity Resolution](https://aws.amazon.com/marketplac
 
 ![AWS Data Exchange market place screenshot](images/integration-aws-entity-resolution-public-listing.png)
 
-
-
 On receipt of your subscription request, the UID2 team does the following:
 - Reviews your subscription request.
 - Matches your request with the AWS account ID that you sent in [Create UID2 Account](#create-uid2-account).
@@ -117,7 +103,9 @@ On receipt of your subscription request, the UID2 team does the following:
 
 UID2 participants store their data in AWS, in an S3 bucket, and integrate with AWS Entity Resolution. The basic steps, once you've created the AWS account (see [Create AWS Account](#create-aws-account)) are as follows.
 
->NOTE: For detailed instructions, see [Setting up AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html) in the AWS documentation.
+:::note
+For detailed instructions, see [Setting up AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html) in the AWS documentation.
+:::
 
 1. [Create an administrator user](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html#setting-up-create-iam-user).
 
@@ -157,7 +145,9 @@ To create the matching workflow, first sign in to the AWS Management console, op
      | 0001     | Test 1 | test1@uidapi.com | 1/1/90        |
      | 0002     | Test 2 | test2@gmail.com  | 1/2/78        |
 
-     NOTE: If you have both email and phone numbers in the same record, the workflow duplicates each record in the output. If you don't want this, the best approach is to create a separate workflow for each. See details earlier in this section.
+     :::note
+     If you have both email and phone numbers in the same record, the workflow duplicates each record in the output. If you don't want this, the best approach is to create a separate workflow for each. See details earlier in this section.
+     :::
 
    - **Service access**: Grant permissions to Entity Resolution to access the specified data in AWS Glue and to call AWS Data Exchange on your behalf. We highly recommend that you select "Create and use a new service role" and let the workflow create a new role with all the required permissions. If you're using an existing service role, make sure that it is authorized to call AWS Data Exchange by adding the following permission:
 

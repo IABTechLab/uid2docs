@@ -1,7 +1,7 @@
 ---
-title: Server-Side Integration Guide for JavaScript
+title: Client-Server Integration Guide for JavaScript
 sidebar_label: Server-Side Integration for JavaScript
-pagination_label: Server-Side Integration Guide for JavaScript
+pagination_label: Client-Server Integration Guide for JavaScript
 description: UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオをカバーするパブリッシャー向けの情報で、トークンを Server-Side で生成し、パブリッシャーのウェブページに渡す必要があります。
 hide_table_of_contents: false
 sidebar_position: 02
@@ -11,22 +11,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 
-# Server-Side Integration Guide for JavaScript
+# Client-Server Integration Guide for JavaScript
 
 このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接統インテグレーションしながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成したいウェブアセットを持つパブリッシャーを対象としています。
 
 SDK の技術的な詳細については、[UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください。
-
-<!-- It includes the following sections:
-
-- [Sample Implementation Website](#sample-implementation-website)
-- [Introduction](#introduction)
-- [Integration Steps](#integration-steps)
-  - [Establish Identity: Capture User Data](#establish-identity-capture-user-data)
-  - [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
-  - [Refresh Tokens](#refresh-tokens)
-  - [Clear Identity: User Logout](#clear-identity-user-logout)
-- [FAQs](#faqs) -->
 
 ## Sample Implementation Website
 
@@ -175,7 +164,9 @@ SDKは、指定された [callback function](../sdks/client-side-identity.md#cal
 | :--- | :--- | :--- |
 | 2-a | UID2 SDK for JavaScript | 以下に示すように、[getAdvertisingToken() 関数](../sdks/client-side-identity.md#getadvertisingtoken-string) を使用して、現在のユーザーの Advertising Token を取得します。|
 
->NOTE: UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream) を参照してください。
+:::note
+UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream) を参照してください。
+:::
 
 ```html
 <script>

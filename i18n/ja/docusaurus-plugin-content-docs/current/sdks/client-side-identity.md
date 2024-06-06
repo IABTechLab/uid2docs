@@ -28,7 +28,7 @@ Prebid.js を UID2 ID モジュールと一緒に使用しているや、UID2 �
 
 コンテンツパブリッシャーのインテグレーションステップについては、以下を参照してください:
   - [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
-  - [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md). 
+  - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md). 
 
 アプリケーションのサンプルと関連文書については、以下を参照してください:
   - SDK v3を使用したUID2 Google Secure Signals のサンプル:
@@ -128,7 +128,7 @@ SDK を使用して UID2 ID を確立するための Client-Side ワークフロ
 	- Advertising Token が利用可能な場合、それを使用してターゲティング広告のリクエストを開始する。
 	- Advertising Token が利用可能でない場合は、ターゲティング広告を使用しないか、同意フォームでユーザーをデータキャプチャにリダイレクトします。
 
-より詳細な Web インテグレーションの手順については、[Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください。
+より詳細な Web インテグレーションの手順については、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください。
 
 ### Background Token Auto-Refresh
 

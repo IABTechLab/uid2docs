@@ -22,23 +22,6 @@ When the attestation is successful, the UID2 Core Service provides seed informat
 UID2 Private Operator for Azure is not supported in these areas: Europe, China.
 :::
 
-<!-- 
-* [Prerequisites](#prerequisites)
-   - [Set Up UID2 Operator Account](#set-up-uid2-operator-account)
-   - [Install Azure CLI](#install-azure-cli)
-   - [Get the Required Azure Permissions](#install-azure-cli)
-* [Deployment Environments](#deployment-environments)
-* [Deployment](#deployment)
-  - [Download UID2 Private Operator for Azure ZIP File](#download-uid2-private-operator-for-azure-zip-file)
-  * [Create Resource Group](#create-resource-group)
-  * [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup)
-  * [Set Up the VPC Network](#set-up-the-vpc-network)
-  * [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup)
-  * [Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer)
-* [Running the Health Check](#running-the-health-check)
-* [Upgrading](#upgrading)
- -->
-
 ## Prerequisites
 
 Before deploying the UID2 Private Operator for Azure, complete these prerequisite steps:

@@ -43,21 +43,6 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 
 1. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
 
-<!-- It includes the following sections:
-
-- [Mobile SDK Version](#mobile-sdk-version)
-- [Client-Side Integration Example](#client-side-integration-example)
-- [Complete the UID2 Account Setup](#complete-the-uid2-account-setup)
-- [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app)
-- [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk)
-- [Format Examples for DII](#format-examples-for-dii)
-- [Token Storage and Refresh](#token-storage-and-refresh)
-- [Pass Generated Token for Bidstream Use](#pass-generated-token-for-bidstream-use)
-- [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk)
-- [Opt-Out Handling](#opt-out-handling)
-- [Enable Logging](#enable-logging)
-- [Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration) -->
-
 ## Mobile SDK Version
 
 This guide provides instructions for using version 1.2.0 or higher of either of these UID2 mobile SDKs:

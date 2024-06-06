@@ -16,14 +16,9 @@ DSPs receive UID2 tokens in bid requests, and decrypt the UID2 tokens to arrive 
 
 For a summary of available server-side SDKs, see [SDKs: Summary](../sdks/summary-sdks.md).
 
->NOTE: If your back end is written in a language not covered by one of the available server-side SDKs, ask your UID2 contact in case there is additional information available to help you. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
-
-<!-- It includes the following sections:
-
-* [Integration Steps](#integration-steps)
-   - [Honor User Opt-Outs](#honor-user-opt-outs)
-
-* [FAQs](#faqs) -->
+:::note
+If your back end is written in a language not covered by one of the available server-side SDKs, ask your UID2 contact in case there is additional information available to help you. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
+:::
 
 ## Integration Steps 
 

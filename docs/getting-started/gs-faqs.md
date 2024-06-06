@@ -11,13 +11,6 @@ import Link from '@docusaurus/Link';
 
 Frequently asked questions for UID2 are grouped into general categories by audience.
 
-<!-- This page includes:
-
-- [FAQs&#8212;General](#faqsgeneral)
-- [FAQs for Publishers](#faqs-for-publishers)
-- [FAQs for Advertisers and Data Providers](#faqs-for-advertisers-and-data-providers)
-- [FAQs for DSPs)](#faqs-for-dsps) -->
-
 ## FAQs&#8212;General
 
 Here are some frequently asked questions regarding the UID2 framework.
@@ -78,7 +71,7 @@ If the user has opted out, the API response notifies you in either of these case
 
 You can generate UID2 tokens from either the client side or the server side. For more information, see:
 - Generating tokens from the client side using Prebid.js: [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
-- Generating tokens from the server side using Prebid.js: [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md).
+- Generating tokens from the server side using Prebid.js: [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md).
 - Other server-side options: [Publisher Integrations](../guides/summary-guides.md#publisher-integrations).
 
 #### Can I make token refresh calls from the client side?

@@ -16,24 +16,6 @@ You can use the UID2 SDK for Python on the server side to facilitate the followi
 - Encrypting raw UID2s to create UID2 tokens for sharing
 - Decrypting UID2 tokens to access the raw UID2s
 
-<!--
- This guide includes the following information:
-
-- [Overview](#overview)
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [Version](#version)
-- [GitHub Repository/Package](#github-repositorypackage)
-- [Initialization](#initialization)
-- [Interface](#interface)
-  - [Response Content](#response-content)
-  - [Response Statuses](#response-statuses)
-- [Usage for Publishers](#usage-for-publishers) 
-- [Usage for DSPs](#usage-for-dsps)
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
-- [FAQs](#faqs)
--->
-
 ## Functionality
 
 This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using Python for their server-side coding. The following table shows the functions it supports.
@@ -92,7 +74,9 @@ For details on the bidding logic for handling user opt-outs, see [DSP Integratio
 The `SharingClient` class allows you to encrypt raw UID2s into UID2 tokens and decrypt UID2 tokens into raw UID2s.
 
 
->NOTE: When you use an SDK, you do not need to store or manage decryption keys.
+:::note
+When you use an SDK, you do not need to store or manage decryption keys.
+:::
 
 ### Encryption Response Content
 
@@ -160,7 +144,7 @@ Decryption response codes, and their meanings, are shown in the following table.
 
 #### Client-Server Integration
 
-If you're using client-server integration (see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
+If you're using client-server integration (see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
 
 * Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)) using the following:
 
@@ -280,7 +264,9 @@ For a full example, see the `sample_bidstream_client.py` in [examples/sample_bid
 
 In UID2, sharing is a process for distributing either raw UID2s or UID2 tokens securely between UID2 participants. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant.
 
->IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+:::important
+The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+:::
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for Python, either as a sender or a receiver.
 

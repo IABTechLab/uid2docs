@@ -13,16 +13,6 @@ import Link from '@docusaurus/Link';
 
 This guide covers integration steps for organizations that collect user data and push it to other UID2 participants. Data collectors include advertisers, data on-boarders, measurement providers, identity graph providers, third-party data providers, and any other organizations that send data to other participants.
 
-<!-- It includes the following sections:
-
-* [Integration Steps](#integration-steps)
-   - [Retrieve a raw UID2 for DII using the identity map endpoints](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoint)
-   - [Send stored raw UID2s to DSPs to create audiences](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences)
-   - [Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
-* [Use an incremental process to continuously update raw UID2s](#use-an-incremental-process-to-continuously-update-raw-uid2s)
-* [Check Opt-Out Status](#check-opt-out-status)
-* [FAQs](#faqs) -->
-
 If you are using an Open Operator service hosted in the Snowflake Data Marketplace, see also [Snowflake Integration Guide](snowflake_integration.md).
 
 ## Integration Steps
@@ -56,7 +46,9 @@ A raw UID2 is an identifier for a user at a specific moment in time. The raw UID
 
 Even though each salt bucket is updated approximately once per year, individual bucket updates are spread over the year. Approximately 1/365th of all salt buckets are rotated daily.
 
->IMPORTANT: To ensure that your integration has the current raw UID2s, check salt bucket rotation for active users every day.
+:::important
+To ensure that your integration has the current raw UID2s, check salt bucket rotation for active users every day.
+:::
 
 | Step | Endpoint | Description |
 | --- | --- | --- |

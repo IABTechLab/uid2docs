@@ -65,7 +65,7 @@ UID2 home page の "ドキュメント" リンクをクリックするだけで�
 
 - [UID2 Integration Overview for JavaScript](../guides/integration-javascript)
 - [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md)
-- [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
+- [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
 
 <!-- APIDOCS-1924 -->
 
@@ -123,7 +123,7 @@ UID2 Operator が何をするのか、Public Operator と Private Operator の�
 
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
 
 ### New: Encryption/Decryption Examples in Java and C#
 
@@ -168,7 +168,7 @@ Client-Side Integration Guide for JavaScript は、既存の URL の全く新し
 以前の *UID2 SDK for JavaScript Integration Guide* にあった内容は、JavaScript SDK を Server-Side に実装したいパブリッシャーのための補足文書になりました: [JavaScript Standard Integration Guide](../guides/integration-javascript-server-side.md).
 
 :::note
-このドキュメントは2024年1月に [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) に更新され、JavaScript Standard Integration Guide は[Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) になりました。
+このドキュメントは2024年1月に [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) に更新され、JavaScript Standard Integration Guide は[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) になりました。
 :::
 
 ### New: UID2 Client-Side Integration Guide for Prebid.js
@@ -183,7 +183,7 @@ UID2 Client-Side Integration Guide for Prebid.js は、既存の URL にまっ�
 これらのドキュメントは、その後の改訂でさらに更新されました。更新されたリンクは以下のとおりです:
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 Server-Side Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
 :::
 
 ### New: Opt-Out
@@ -212,7 +212,7 @@ UID2 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメント�
 
 詳細は以下を参照してください:
 -  [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)
--  [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
+-  [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
 
 ### New: Private Operator Guide for Google Confidential Space 
 

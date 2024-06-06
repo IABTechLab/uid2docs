@@ -11,13 +11,6 @@ import Link from '@docusaurus/Link';
 
 This page provides general information required for you to get your account set up with UID2.
 
-<!-- It includes:
-
-* [Contact Info](#contact-info)
-* [Account Setup](#account-setup-details)
-* [Credentials](#credentials)
-* [API Version](#api-version)
- -->
 ## Contact Info
 
 To get access to the UID2 framework, contact the appropriate team at The Trade Desk listed below. 

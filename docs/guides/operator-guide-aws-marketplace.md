@@ -14,24 +14,11 @@ import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
 
 The UID2 Operator is the API server in the UID2 ecosystem. For a Private Operator service running in AWS Marketplace, the UID2 Operator solution is enhanced with [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave technology. This is an additional security measure to help protect UID2 information from unauthorized access.
 
-<!-- This guide includes the following information:
-
-- [UID2 Private Operator for AWS](#uid2-private-operator-for-aws)
-  -  [Prerequisites](#prerequisites)
-  -  [Resources Created](#resources-created)
-  -  [Customization Options](#customization-options)
-  -  [Security Group Policy](#security-group-policy)
-  -  [VPC Chart](#vpc-chart)
-- [Deployment](#deployment)
-- [Checking UID2 Operator Status](#checking-uid2-operator-status)
-- [Creating a Load Balancer](#creating-a-load-balancer)
-- [Upgrading the UID2 Operator](#upgrading-the-uid2-operator)
-- [Managing the Logs](#managing-the-logs)
-- [Technical Support](#technical-support) -->
-
 ## UID2 Private Operator for AWS
 
->NOTE: [UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) is a free product. The cost displayed on the product page is an estimated cost for the necessary infrastructure.
+:::note
+[UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) is a free product. The cost displayed on the product page is an estimated cost for the necessary infrastructure.
+:::
 
 By subscribing to UID2 Private Operator for AWS, you gain access to the following:
 
@@ -49,7 +36,7 @@ To subscribe and deploy one or more UID2 Operators on AWS, complete the followin
 
 #### Minimal IAM Role Privileges
 
->IMPORTANT: To succeed in a one-click deployment, your AWS account must have the privileges to run the following actions:
+To succeed in a one-click deployment, your AWS account **must** have the privileges to run the following actions:
 
 ```json
 {
@@ -138,7 +125,9 @@ Here's what you can customize during or after the [deployment](#deployment):
 
 ### Security Group Policy
 
->NOTE: To avoid passing certificates associated with your domain into the enclave, inbound HTTP is allowed instead of HTTPS. This also avoids the cost of a secure layer, if used in a private network that is internal to your organization. 
+:::note
+To avoid passing certificates associated with your domain into the enclave, inbound HTTP is allowed instead of HTTPS. This also avoids the cost of a secure layer, if used in a private network that is internal to your organization.
+:::
 
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
@@ -150,7 +139,7 @@ Here's what you can customize during or after the [deployment](#deployment):
 
 The following diagram illustrates the virtual private cloud that hosts private operators.
 
-![EUID Operator VPC Chart](images/aws-vpc-chart-uid2.svg)
+![UID2 Operator VPC Chart](images/aws-vpc-chart-uid2.png)
 
 ## Deployment
 
@@ -260,7 +249,9 @@ Here's what you need to know about upgrading:
 - Information on the availability of new versions is provided on the [Unified ID 2.0 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) page.
 - To upgrade your UID2 Operators, create a new CloudFormation stack. For details, see [Deployment](#deployment).
 
->TIP: For a smooth transition, create the new stack first. After the new stack is bootstrapped and ready to serve, delete the old stack. If you are using a load balancer, first get the new instances up and running and then convert the DNS name from the previous one to the new one.
+:::tip
+For a smooth transition, create the new stack first. After the new stack is bootstrapped and ready to serve, delete the old stack. If you are using a load balancer, first get the new instances up and running and then convert the DNS name from the previous one to the new one.
+:::
 
 ## Managing the Logs
 Use the following sections to help you make the best use of your logs:

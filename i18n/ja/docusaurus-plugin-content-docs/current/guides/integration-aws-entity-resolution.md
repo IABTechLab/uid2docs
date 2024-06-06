@@ -11,25 +11,13 @@ import Link from '@docusaurus/Link';
 
 # AWS Entity Resolution Integration Guide
 
-<!-- This guide includes the following information:
-
-- [Functionality](#functionality)
-- [Integration Summary](#integration-summary)
-- [Workflow Diagram](#workflow-diagram)
-- [Initial Setup Steps](#initial-setup-steps)
-  - [Create UID2 Account](#create-uid2-account)
-  - [Create AWS Account](#create-aws-account)
-  - [Subscribe to UID2 on AWS Data Exchange](#subscribe-to-uid2-on-aws-data-exchange)
-- [Configure AWS Account](#configure-aws-account)
-- [Create a Matching Workflow](#create-a-matching-workflow)
-- [Run the Matching Workflow](#run-the-matching-workflow)
- -->
-
 [AWS Entity Resolution](https://aws.amazon.com/entity-resolution/) は、Amazon Web Services が提供する ID ソリューションプロダクトで、AWS の顧客が UID2 フレームワークとインテグレーションすることを可能にします。このインテグレーションにより、UID2 Operator を直接呼び出したり、機密性の高いクライアント ID や秘密鍵の値を扱ったりすることなく、安全かつシームレスに UID2 を生成することができます。
 
 このサービスは、[DII](../ref-info/glossary-uid.md#gl-dii) (メールアドレスまたは電話番号) を raw UID2 に迅速かつ安全にマッピングすることができます。
 
->NOTE: 現在 UID2 エコシステムに参加していない場合は、[Request Access to UID2](https://unifiedid.com/request-access) にアクセスしてください。
+:::note
+現在 UID2 エコシステムに参加していない場合は、[Request Access to UID2](https://unifiedid.com/request-access) にアクセスしてください。
+:::
 
 ## Functionality
 
@@ -54,7 +42,7 @@ import Link from '@docusaurus/Link';
 
 以下の図は、サービスへの登録から設定ステップを経て raw UID2 を受け取るまでの、エンドツーエンドの UID2 プロセスを示しています。
 
-![AWS Entity Resolution Workflow](images/integration-aws-entity-resolution.svg)
+![AWS Entity Resolution Workflow](images/integration-aws-entity-resolution.png)
 
 以下の表は、図に示されたステップを示しています。
 
@@ -115,7 +103,9 @@ AWS Data Exchange の [Unified ID 2.0 Identity Resolution](https://aws.amazon.co
 
 UID2 の参加者は AWS の S3 バケットにデータを保存し、AWS Entity Resolution とインテグレーションします。AWS アカウントを作成したら([Create AWS Account](#create-aws-account) を参照してください。)、基本的な手順は以下の通りです。
 
->NOTE: 詳細な手順については、AWSドキュメントの [Setting up AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html) を参照してください。
+:::note
+詳細な手順については、AWSドキュメントの [Setting up AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html) を参照してください。
+:::
 
 1. [管理者ユーザーを作成します](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html#setting-up-create-iam-user).
 
@@ -155,7 +145,9 @@ UID2 は、UID2 生成のためにメールアドレスまたは電話番号の�
      |0001|Test 1|test1@uidapi.com|1/1/90|
      |0002|Test 2|test2@gmail.com|1/2/78|
    
-      NOTE: 1レコードにつき、メールアドレスまたは電話番号フィールドは **1** つだけです。メールアドレスが存在する場合、電話番号はパススルーとして扱われます。電話番号を処理するには、別のワークフローを作成してください。詳細はこのセクションの前を参照してください。
+      :::note
+      1レコードにつき、メールアドレスまたは電話番号フィールドは **1** つだけです。メールアドレスが存在する場合、電話番号はパススルーとして扱われます。電話番号を処理するには、別のワークフローを作成してください。詳細はこのセクションの前を参照してください。
+      :::
 
    - **Service access**: 既存または新規のサービスロールを使用して、AWS Glue で指定されたデータにアクセスするための特定の権限を Entity Resolution に付与します。入力データが暗号化されている場合は、復号化のための AWS Key Management Service (KMS) キーも指定する必要があります。
 

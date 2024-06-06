@@ -15,14 +15,9 @@ UID2 Portal では、UID2 の最新アップデートやリリースに関する
 - 多くの個別エントリーを作成することなく、複数の人に通知する効率的な方法です。
 - UID2 Portal の外部で、内部メール設定の管理の一環としてリストを管理できます。
 
->NOTE: メール連絡先は、UID2 Portal にログインしたりアカウントを変更したりできません。受信できるのは情報通知のみです。メール連絡先を削除したい場合は、チームメンバーがその操作を行う必要があります。
-
-<!-- It includes the following:
-
-- [Configuring Email Contacts](#configuring-email-contacts)
-- [Add an Email Contact](#add-an-email-contact)
-- [Edit Information for an Email Contact](#edit-information-for-an-email-contact)
-- [Remove an Email Contact](#remove-an-email-contact) DONE -->
+:::note
+メール連絡先は、UID2 Portal にログインしたりアカウントを変更したりできません。受信できるのは情報通知のみです。メール連絡先を削除したい場合は、チームメンバーがその操作を行う必要があります。
+:::
 
 ## Configuring Email Contacts
 
@@ -50,7 +45,9 @@ Email Contacts ページでは、UID2 の更新について通知を受ける個
    - Contact Type: コンタクトタイプのドロップダウンリストから選択します。例えば、`Business` または `Technical` を選択します。
 3. **Save Email Contact** をクリックします。エントリーがリストに追加されます。
 
->NOTE: Email Contacts では、確認のメールは送信されません。
+:::note
+Email Contacts では、確認のメールは送信されません。
+:::
 
 ## Edit Information for an Email Contact
 
