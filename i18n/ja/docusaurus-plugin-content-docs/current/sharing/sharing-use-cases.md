@@ -17,5 +17,5 @@ import Link from '@docusaurus/Link';
   - パブリッシャー(送信者)は、UID2 Token をビッドストリーム経由で DSP(受信者) に送信します。([Tokenized Sharing in the Bidstream](sharing-tokenized-from-data-bid-stream.md) を参照してください)
   - 広告主(送信者)がトラッキングピクセルを通じて UID2 Token をデータプロバイダー(受信者)に送信します。([Tokenized Sharing in Pixels](sharing-tokenized-from-data-pixel.md) を参照してください)
 - Raw UID2 sharing (sharing a raw UID2) examples:
-  - 測定パートナー(送信者)は、Amazon Simple Storage Service（S3）を介して、raw UID2を広告主(受信者)に送信します。([Raw UID2 Sharing](sharing-raw.md) を参照してください)
+  - 測定パートナー(送信者)は、Amazon Simple Storage Service(S3)を介して、raw UID2を広告主(受信者)に送信します。([Raw UID2 Sharing](sharing-raw.md) を参照してください)
   - DSP(送信者)は、raw UID2 をレポート経由で広告主(受信者)に送信します。([Raw UID2 Sharing](sharing-raw.md) を参照してください)

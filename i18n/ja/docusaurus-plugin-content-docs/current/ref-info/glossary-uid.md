@@ -41,7 +41,7 @@ import Link from '@docusaurus/Link';
 <li><a href="#gl-demand-side-platform">Demand-side platform</a></li>
 <li><a href="#gl-dii">Directly identifying information (DII)</a></li>
 <li><a href="#gl-docker">Docker</a></li>
-<li><a href="#gl-docker-build">Docker Build</a></li>
+<li><a href="#gl-docker-build">Docker Build</li>
 
 </ul>
 </td>
@@ -135,8 +135,8 @@ import Link from '@docusaurus/Link';
 <dd>Bearer token はクライアントを識別する特別な文字列です。認証のために、いくつかのUID2 エンドポイントはリクエストの Authorization header で <a href="#gl-client-key">client key</a> を Beare token として指定する必要があります。例えば、<a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> です。</dd>
 
 <dt><MdxJumpAnchor id="gl-bidstream">Bidstream</MdxJumpAnchor></dt>
-<dd>広告スポットに広告を掲載するリクエスト（ビッドリクエスト）を行うために、パブリッシャーはさまざまな情報を送信し、広告主は Ad Exchange や DSP を通じて入札を行うことができます。入札データの流れがビッドストリームです。</dd>
-<dd>ビッドストリームデータは、パブリッシャーから他の組織（パブリッシャーの設定によります）へ行き、パブリッシャーへ戻ります。</dd>
+<dd>広告スポットに広告を掲載するリクエスト(ビッドリクエスト)を行うために、パブリッシャーはさまざまな情報を送信し、広告主は Ad Exchange や DSP を通じて入札を行うことができます。入札データの流れがビッドストリームです。</dd>
+<dd>ビッドストリームデータは、パブリッシャーから他の組織(パブリッシャーの設定によります)へ行き、パブリッシャーへ戻ります。</dd>
 
 </dl>
 
@@ -191,7 +191,7 @@ import Link from '@docusaurus/Link';
 <dd>Enclave では、オペレータイメージは特殊で、事前に定義されたバージョンでなければならず、セキュリティを確保するために追加の制約が適用されます。</dd>
 
 <dt><MdxJumpAnchor id="gl-euid-framework">EUID framework</MdxJumpAnchor></dt>
-<dd>EUID（European Unified ID）フレームワークは、広告エコシステム全体の多くの参加者に対し、オープンインターネット上での広告機会のための決定論的 ID を可能にします。これにより、パブリッシャーのウェブサイト、モバイルアプリ、コネクテッドTV（CTV）アプリからのログイン体験が可能になり、プログラマティックワークフローによる収益化が実現します。独自の名前空間を持つオープンソースのスタンドアローンソリューションとして構築されたこのフレームワークは、透明性とプライバシーを重視しています。</dd>
+<dd>EUID(European Unified ID)フレームワークは、広告エコシステム全体の多くの参加者に対し、オープンインターネット上での広告機会のための決定論的 ID を可能にします。これにより、パブリッシャーのウェブサイト、モバイルアプリ、コネクテッドTV(CTV)アプリからのログイン体験が可能になり、プログラマティックワークフローによる収益化が実現します。独自の名前空間を持つオープンソースのスタンドアローンソリューションとして構築されたこのフレームワークは、透明性とプライバシーを重視しています。</dd>
 <dd>EUID は、フランス、イタリア、スペインなどのヨーロッパ諸国、アイスランドなどの非ヨーロッパ諸国、アゾレス諸島、マルティニーク、イギリスなどのその他の地域を含むヨーロッパ地域で運営されています。EU プライバシー法の遵守を念頭に置いて設計されています。</dd>
 <dd>UID2 と EUID には多くの類似点がありますが、両者は完全に別物であり、トークンに互換性はありません。</dd>
 <dd>詳細は <a href="https://euid.eu/docs/intro">European Unified ID Overview</a> を参照してください。</dd>
@@ -378,8 +378,7 @@ import Link from '@docusaurus/Link';
 <dd>UID2 と EUID には多くの類似点があります、両者は完全に別物であり、トークンに互換性はありません。</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-framework">UID2 framework</MdxJumpAnchor></dt>
-<dd>Unified ID 2.0（UID2）フレームワークは、広告エコシステム全体の多くの <a href="../intro#participants">参加者</a> に対して、オープンインターネット上の広告機会に対する決定論的 ID を可能にします。パブリッシャーのウェブサイト、モバイルアプリ、コネクテッドTV（CTV）アプリからのログイン体験を可能にし、プログラマティックワークフローを通じて収益化を実現します。独自の名前空間を持つオープンソースのスタンドアローンソリューションとして構築されたこのフレームワークは、透明性とプライバシーを重視しています。
-</dd>
+<dd>Unified ID 2.0(UID2)フレームワークは、広告エコシステム全体の多くの <a href="../intro#participants">参加者</a> に対して、オープンインターネット上の広告機会に対する決定論的 ID を可能にします。パブリッシャーのウェブサイト、モバイルアプリ、コネクテッドTV(CTV)アプリからのログイン体験を可能にし、プログラマティックワークフローを通じて収益化を実現します。独自の名前空間を持つオープンソースのスタンドアローンソリューションとして構築されたこのフレームワークは、透明性とプライバシーを重視しています。</dd>
 <dd>UID2 Operator は北米、アジアの一部、その他の地域でにあります。</dd>
 <dd>UID2 と EUID には多くの類似点がありますが、両者は完全に別物であり、トークンに互換性はありません。</dd>
 

@@ -190,7 +190,7 @@ UID2 生成リクエストで提供されるメタデータには、UID2 の生�
 #### How should I generate the SHA-256 of DII for mapping?
 マッピング用の DII の SHA-256 はどのように生成すればよいですか？
 
-システムは[メールアドレス正規化ルール](../getting-started/gs-normalization-encoding#email-address-normalization)にしたがって、salt せずにハッシュ化する必要があります。
+システムは[メールアドレス正規化ルール](../getting-started/gs-normalization-encoding#email-address-normalization)に従って、salt せずにハッシュ化する必要があります。
 
 #### Should I store large volumes of email address, phone number, or their hash mappings?
 大量のメールアドレスや電話番号やそれらのハッシュマッピングを保存すべきか？

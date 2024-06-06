@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Sharing: Best Practices
 
-raw UID2 や UID2 Token を、UID2 の認可を受けた他のユーザーと安全に共有できるようになったことで、UID2 をビジネスでさまざまに活用できるようになりました。
+raw UID2 や UID2 Token を、UID2 の許可を受けた他のユーザーと安全に共有できるようになったことで、UID2 をビジネスでさまざまに活用できるようになりました。
 
 しかし、UID2 参加者は皆、UID2 エコシステムのセキュリティを維持する責任を負っています。ここでは、UID2 の共有を円滑かつ安全に行うためのベストプラクティスをいくつか紹介します。
 

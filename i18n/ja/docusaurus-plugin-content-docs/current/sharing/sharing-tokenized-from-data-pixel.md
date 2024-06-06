@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # Tokenized Sharing in Pixels
 
-ピクセルで共有される UID2 データは、以下の2つの方法のいずれかで生成された UID2 Token でなければならなりません:
+ピクセルで共有される UID2 データは、以下の2つの方法のいずれかで生成された UID2 Token でなければなりません:
 
 - [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号)を直接暗号化して UID2 Token にする。
 - raw UID2 を UID2 Token に暗号化する。

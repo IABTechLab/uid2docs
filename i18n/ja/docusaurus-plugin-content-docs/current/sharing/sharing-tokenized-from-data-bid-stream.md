@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # Tokenized Sharing in the Bidstream
 
-ビッドストリームに共有されるUID2データは、[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) (メールアドレスまたは電話番号) を直接 UID2 Token に暗号化して生成された UID2 Token の形式でなければなりません。
+ビッドストリームに共有される UID2 データは、[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) (メールアドレスまたは電話番号) を直接 UID2 Token に暗号化して生成された UID2 Token の形式でなければなりません。
 
 パブリッシャーは、[implementation options](#implementation-options-for-senders) のいずれかを使用して DII を UID2 Token に暗号化し、UID2 Token をビッドストリームに送信できます。
 
@@ -86,7 +86,7 @@ API または指定された Server-Side SDK を介して、DII から UID2 Toke
    - パブリッシャー: [Implementation Options for Senders](#implementation-options-for-senders) に記載されているいずれかの方法を使用します。
 
      オプションで、UID2 Token を復号化できる DSP を制限できます: UID2 Portal で共有権限を設定します。[Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal) を参照してください。
-   - DSP: [Decryption Options for Receivers](#decryption-options-for-receivers)　に記載されている統合オプションのいずれかを使用します。
+   - DSP: [Decryption Options for Receivers](#decryption-options-for-receivers)　に記載されているインテグレーションオプションのいずれかを使用します。
 
 1. パブリッシャーは以下の手順で UID2 Token を作成し、送信します:
 
@@ -140,7 +140,7 @@ API または指定された Server-Side SDK を介して、DII から UID2 Toke
 
 ## Information for Sharing Receivers
 
-UID2 Token を raw UID2 に復号するには、認可された共有者であり、送信者の暗号鍵を持っている必要があります。
+UID2 Token を raw UID2 に復号するには、許可された共有者であり、送信者の暗号鍵を持っている必要があります。
 
 デフォルトでは、パブリッシャーが UID2 Token をビッドストリームに送信する場合、パブリッシャーの暗号キーはすべての承認済み DSP と共有されます。ただし、パブリッシャーが特定の共有関係を設定している場合は、パブリッシャーが共有関係を作成している場合にのみ、そのパブリッシャーの暗号キーを受け取ることができます。
 
