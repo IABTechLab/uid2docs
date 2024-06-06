@@ -140,11 +140,11 @@ const fullSidebar = [
             type: 'category',
             label: 'Mobile',
             link: {
-              type: 'generated-index',
+              type: 'doc',
+              id: 'guides/integration-mobile-overview',
             },
             collapsed: true,
             items: [
-              'guides/integration-mobile-overview',
               'guides/integration-mobile-client-side',
               'guides/integration-mobile-client-server',
             ],
