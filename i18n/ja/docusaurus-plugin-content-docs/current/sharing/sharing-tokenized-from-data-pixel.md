@@ -9,89 +9,89 @@ import Link from '@docusaurus/Link';
 
 # Tokenized Sharing in Pixels
 
-UID2 data shared in pixels must be in the form of UID2 tokens generated in one of these two ways:
+ピクセルで共有される UID2 データは、以下の2つの方法のいずれかで生成された UID2 Token でなければなりません:
 
-- By encrypting [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) (an email address or phone number) directly into a UID2 token.
-- By encrypting a raw UID2 into a UID2 token.
+- [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号)を直接暗号化して UID2 Token にする。
+- raw UID2 を UID2 Token に暗号化する。
 
-[Tokenized sharing](../ref-info/glossary-uid.md#gl-tokenized-sharing) is an option for any sharing route, but the main implementation outside of the bidstream is tokenized sharing in pixels. 
+[Tokenized sharing](../ref-info/glossary-uid.md#gl-tokenized-sharing) は、どの共有ルートでも選択可能ですが、ビッドストリーム以外の主な実装は、ピクセルでのトークンの共有です。
 
 :::caution
-Data in pixels can be accessed by unauthorized parties, so it is never acceptable to share raw UID2s in pixels. If you're sharing in pixels, tokenized sharing is required.
+ピクセルのデータは不正アクセスされる可能性があるため、raw UID2 をピクセルで共有することは決して許されません。ピクセルで共有する場合は、Tokenized sharing が必要です。
 :::
 
 ### Audience
 
-Tokenized sharing in pixels is applicable to the following audiences:
+ピクセルでの Tokenized sharing は、以下の対象者に適用されます:
 
-- **Sender**: Most commonly an advertiser or data provider, but can be any authorized sharing participant.
-- **Receiver**: Any authorized sharing participant. See [Information for Sharing Receivers](#information-for-sharing-receivers).
+- **Sender**: 最も一般的なのは広告主またはデータプロバイダーですが、承認された共有参加者であれば誰でもかまいません。
+- **Receiver**: 承認された共有参加者であれば誰でも構いません。[Information for Sharing Receivers](#information-for-sharing-receivers) を参照してください。
 
 ## Sharing UID2 Tokens in Pixels
 
 :::tip
-We recommend generating the UID2 token directly from DII. You can do this in several ways; our recommendation is to generate the UID2 token client-side. For instructions, see [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
+DII から UID2 Token を直接生成することを勧めます。これにはいくつかの方法がありますが、勧めるのは Client-Side で UID2 Token を生成する方法です。手順については、[Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) を参照してください。
 :::
 
-Different participants might use pixels in different ways. The following table shows two common use cases for pixels in the advertising technology ecosystem.
+参加者によって、ピクセルの使用方法は異なります。次の表は、広告技術のエコシステムにおけるピクセルの2つの一般的な使用例を示しています。
 
 | |  Tracking Pixel | Creative Pixel |
 | :--- | :--- | :--- |
-| What it measures | Conversion/retargeting (user does something) | Impression (user sees an ad) |
-| Where | Advertiser or publisher site | Publisher site via DSP |
-| Starting point | DII in most cases<br/>Raw UID2 is also possible, but encryption must be done on the server side. | Raw UID2 |
-| Format shared in pixel | UID2 token | UID2 token |
+| 何を測定するか | コンバージョン/リターゲティング (ユーザーが何かをしたとき) | インプレッション (ユーザーが広告を見たとき) |
+| どこで | 広告主やパブリッシャーのサイト | DSP 経由のパブリッシャーのサイト |
+| 開始点 | ほとんどの場合 DII<br/>Raw UID2 も可能ですが、暗号化は Server-Side で行う必要があります。 | Raw UID2 |
+| ピクセルで共有されるフォーマット | UID2 Token | UID2 Token |
 
-There are two scenarios:
+2つのシナリオがあります:
 
 - [Tokenized Sharing in Tracking Pixels](#workflow-tokenized-sharing-in-tracking-pixels)
 - [Tokenized Sharing in Creative Pixels](#workflow-tokenized-sharing-in-creative-pixels)
 
 ## Account Setup in the UID2 Portal
 
-In the UID2 Portal, the sender and the receiver must set up an account and the sender must configure sharing permissions.
+UID2 Portal では、送信者と受信者がアカウントを設定し、送信者が共有許可を行う必要があります。
 
-The sender only needs to set up sharing permission once for each receiver or participant type. However, if you want to add new sharing permissions or change existing ones, you'll need to go back to adjust your settings.
+送信者は、受信者または参加者タイプごとに共有許可を1回だけ設定するだけで済みます。ただし、新しい共有許可を追加したり、既存の設定を変更したい場合は、設定を調整する必要があります。
 
-For details, see [UID2 Portal: Overview](../portal/portal-overview.md) and follow the links for each task.
+詳細については、[UID2 Portal: Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
 
 ## Workflow: Tokenized Sharing in Tracking Pixels
 
-If you're using tracking pixels that fire when someone completes an action such as purchasing a product on a website, it's most likely that you'll start with DII and then convert it to a UID2 token, for tokenized sharing.
+ウェブサイトで製品の購入などのアクションが完了したときにトリガーされるトラッキングピクセルを使用している場合、おそらく DII から始めて、UID2 Token に変換して共有します。
 
-The UID2 sender specifies which receivers can decrypt their UID2 tokens, by configuring permissions in the UID2 Portal (see [Sharing Permissions](../portal/sharing-permissions.md)). When a sender grants permission to a receiver for UID2 sharing, the sender's cryptographic keys are shared with the receiver via a UID2 SDK or Snowflake. As part of sharing, the UID2 SDKs and APIs take care of the encryption and decryption.
+UID2 送信者は、UID2 Token を復号化できる受信者を指定します。これは、UID2 Portal で権限を設定することで行います(詳細は、[Sharing Permissions](../portal/sharing-permissions.md) を参照してください)。送信者が UID2 Sharing の権限を受信者に付与すると、送信者の暗号キーが UID2 SDK または Snowflake を介して受信者と共有されます。共有の一環として、UID2 SDK と API は暗号化と復号化を処理します。
 
-For example, let's say that an advertiser (sender) wants to share UID2 tokens with a trusted sharing participant who is a UID2 DSP, for conversion tracking via a tracking pixel. Using sharing, here's the sequence:
+たとえば、広告主(送信者)が UID2 Token を UID2 DSP と共有することを望んでいるとします。これは、トラッキングピクセルを介したコンバージョントラッキングのためです。共有を使用するには、次のシーケンスになります:
 
-1. The advertiser is the sender, and does the following:
+1. 広告主は送信者であり、次の操作を行います:
 
-   1. Enables the DSP with sharing permission in the UID2 Portal.
+   1. UID2 Portal で DSP に共有を許可します。
 
-   2. Directly generates UID2 tokens from the [DII](../ref-info/glossary-uid.md#gl-dii) provided by the user using the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint or one of the SDKs that support generating a UID2 token from DII.
+   2. ユーザーから提供された [DII](../ref-info/glossary-uid.md#gl-dii) から UID2 Token を直接生成します。これは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントまたは UID2 Token を生成する SDK のいずれかを使用して行います。
    
-      For a summary of options, see [SDK Functionality](../sdks/summary-sdks.md#sdk-functionality). We recommend using the [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
+      オプションの概要については、[SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) を参照してください。JavaScript を使用して UID2 Token を生成する方法については、[Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) を勧めます。
    
-   3. Sends the UID2 tokens securely to the DSP.
+   3. UID2 Tokeb を DSP に安全に送信します。
 
-2. The DSP, who is also taking part in sharing, is the receiver. The DSP has access to the advertiser's cryptographic keys, through the UID2 Portal sharing permissions setup, and can therefore decrypt the UID2 tokens into raw UID2s for segment creation.
+2. DSPは、受信者であり、共有に参加しています。DSPは、UID2 Portal の共有権限設定を通じて広告主の暗号鍵にアクセスできるため、UID2 Token をセグメント作成のための raw UID2 に復号化できます。
 
-Both the UID2 sender and receiver must create a UID2 Portal account (see [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)) in order to take part in sharing. Without an account, a UID2 participant is not displayed in the list of sharing participants in the UID2 Portal, and cannot receive the sender's cryptographic keys for decryption.
+UID2 送信者と受信者の両方が、UID2 Portal アカウントを作成する必要があります(詳細は、[Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal) を参照してください)。アカウントがない場合、UID2 参加者は UID2 Portal の共有参加者リストに表示されず、送信者の暗号キーを受信して復号化することができません。
 
 ## Workflow: Tokenized Sharing in Creative Pixels
 
-If you're using creative pixels, the DSP takes the raw UID2 and encrypts it into a UID2 token. The token is added into the creative pixel that is fired on impression.
+クリエイティブピクセルを使用している場合、DSP は raw UID2 を UID2 Token に変換してクリエイティブピクセルに追加します。トークンはインプレッション時に発火されるクリエイティブピクセルに追加されます。
 
-All the implementation steps are the same as for [tokenized sharing from raw UID2](sharing-tokenized-from-raw.md).
+すべての実装ステップは、[raw UID2 からの Tokenized sharing](sharing-tokenized-from-raw.md) と同じです。
 
 ## Information for Sharing Receivers
 
-To be able to decrypt a UID2 token into a raw UID2, you must have a UID2 Portal account and the sender must create a sharing relationship with you.
+UID2 Token を raw UID2 に復号化するには、UID2 Portal アカウントが必要であり、送信者があなたとの共有関係を作成する必要があります。
 
 For details, see [Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant).
 
-It's important to set up a regular cadence for refreshing cryptographic keys, and to decrypt UID2 tokens promptly.
+暗号鍵の更新を定期的に行い、UID2 Token をすみやかに復号化することが重要です。
 
-For details, see the following sections in *UID2 Sharing: Best Practices*:
+詳細については、*UID2 Sharing: Best Practices* の次のセクションを参照してください:
 
 - [Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing)
 - [Best Practices for Managing Raw UID2s and UID2 Tokens](sharing-best-practices.md#best-practices-for-managing-raw-uid2s-and-uid2-tokens)

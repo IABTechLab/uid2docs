@@ -5,8 +5,6 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
-import Link from '@docusaurus/Link';
-
 # UID2 SDK for Java Reference Guide
 
 UID2 SDK for Java を使用すると、以下のことが容易になります:
@@ -15,9 +13,9 @@ UID2 SDK for Java を使用すると、以下のことが容易になります:
 - UID2 Advertising Token の更新
 - raw UID2を暗号化して UID2 Token を作成する
 - UID2 Advertising Token を復号化して raw UID2 にアクセスする
+- DII から raw UID2 へのマッピング
 
 ## Overview
-
 ここで説明する関数は、設定に必要な情報やライブラリから取得できる情報を定義しています。以下に定義するパラメータとプロパティ名は擬似コードです。実際のパラメータやプロパティ名は言語によって異なりますが、ここで説明する情報と同様のものになります。
 
 ## Functionality

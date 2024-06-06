@@ -7,7 +7,6 @@ sidebar_position: 02
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
 
 # UID2 SDK for JavaScript Reference Guide
 
@@ -127,7 +126,7 @@ SDK を使用して UID2 ID を確立するための Client-Side ワークフロ
 	 イベントペイロードの `identity` プロパティには新しい ID が格納されるか、有効な ID がない場合は null が格納されます。
 5. 状態に基づいて ID を処理します:
 	- Advertising Token が利用可能な場合、それを使用してターゲティング広告のリクエストを開始する。
-	- Advertising Token が利用可能でない場合は、ターゲティング広告を使用しないか、同意フォームを使用してユーザーを UID2 ログインにリダイレクトします。
+	- Advertising Token が利用可能でない場合は、ターゲティング広告を使用しないか、同意フォームでユーザーをデータキャプチャにリダイレクトします。
 
 より詳細な Web インテグレーションの手順については、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください。
 

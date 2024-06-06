@@ -9,13 +9,13 @@ import Link from '@docusaurus/Link';
 
 # Sharing UID2s: Use Cases
 
-The secure sharing workflow allows you to share UID2s with trusted participants in many different ways. Depending on the route, you might send either raw UID2s or UID2 tokens.
+安全な共有ワークフローでは、信頼できる参加者と UID2 をさまざまな方法で共有できます。ルートによっては、raw UID2 か UID2 Token を送ることができます。
 
-For example, here are some scenarios where a sender wants to share raw UID2s or UID2 tokens with a receiver:
+例として、送信者が raw UID2 や UID2 Token を受信者と共有したい場合のシナリオをいくつか挙げます:
 
 - Tokenized sharing (sharing a UID2 token) examples:
-  - A publisher (sender) sends a UID2 token via the bidstream to a DSP (receiver) (see [Tokenized Sharing in the Bidstream](sharing-tokenized-from-data-bid-stream.md)).
-  - An advertiser (sender) sends a UID2 token to a data provider (receiver) via a tracking pixel (see [Tokenized Sharing in Pixels](sharing-tokenized-from-data-pixel.md)).
+  - パブリッシャー(送信者)は、UID2 Token をビッドストリーム経由で DSP(受信者) に送信します。([Tokenized Sharing in the Bidstream](sharing-tokenized-from-data-bid-stream.md) を参照してください)
+  - 広告主(送信者)がトラッキングピクセルを通じて UID2 Token をデータプロバイダー(受信者)に送信します。([Tokenized Sharing in Pixels](sharing-tokenized-from-data-pixel.md) を参照してください)
 - Raw UID2 sharing (sharing a raw UID2) examples:
-  - A measurement partner (sender) sends a raw UID2 to an advertiser (receiver) via Amazon Simple Storage Service (S3) (see [Raw UID2 Sharing](sharing-raw.md)).
-  - A DSP (sender) sends a raw UID2 to an advertiser (receiver) via reporting (see [Raw UID2 Sharing](sharing-raw.md)).
+  - 測定パートナー(送信者)は、Amazon Simple Storage Service(S3)を介して、raw UID2を広告主(受信者)に送信します。([Raw UID2 Sharing](sharing-raw.md) を参照してください)
+  - DSP(送信者)は、raw UID2 をレポート経由で広告主(受信者)に送信します。([Raw UID2 Sharing](sharing-raw.md) を参照してください)
