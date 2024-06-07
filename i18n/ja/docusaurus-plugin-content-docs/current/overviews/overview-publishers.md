@@ -114,7 +114,7 @@ Web インテグレーションオプションの詳細については、[Web In
 
 ### Prebid Integrations
 
-Google Ad Manager とインテグレーションするパブリッシャーには、以下のリソースがあります。
+Prebid とインテグレーションするパブリッシャーには、以下のリソースがあります。
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
