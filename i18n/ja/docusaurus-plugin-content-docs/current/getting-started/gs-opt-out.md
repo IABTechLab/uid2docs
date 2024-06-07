@@ -42,7 +42,7 @@ UID2 エコシステムには、2 種類のオプトアウトがあります:
 以下のステップは、パブリッシャーまたはその ID プロバイダーと関わるユーザーを対象とした、ワークフローの概要です。
 
 1. ユーザーは [Transparency and Control Portal](https://www.transparentadvertising.com/) にアクセスし、UID2 のオプトアウトをグローバルに行うことができます。
-2. Transparency and Control Portalは、オプトアウト要求を UID2 [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) に送信します。
+2. Transparency and Control Portalは、オプトアウト要求を UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> に送信します。
 3. ユーザーがオプトアウトした場合、UID2 Operator Service はオプトアウト情報を UID2 参加者に以下のように配布します:
 
    | Participant | Distribution Method |

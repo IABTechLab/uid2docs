@@ -12,6 +12,7 @@ import Link from '@docusaurus/Link';
 This page provides information about normalizing and encoding <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>. It's important that, in working with UID2, normalizing and encoding are performed correctly.
 
 ## Introduction
+
 When you're taking user information such as an email address, and following the steps to create a raw UID2 and/or a UID2 advertising token, it's very important that you follow all the required steps. Whether you normalize the information or not, whether you hash it or not, follow the steps exactly. By doing so, you can ensure that the UID2 value you create can be securely and anonymously matched up with other instances of online behavior by the same user.
 
 :::important
@@ -20,6 +21,7 @@ When you're taking user information such as an email address, and following the 
 :::
 
 ## Types of Directly Identifying Information
+
 UID2 supports the following types of directly identifying information (DII):
 - Email address
 - Phone number

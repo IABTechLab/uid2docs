@@ -72,7 +72,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 #### Do I need to decrypt tokens?
 トークンを復号化する必要がありますか？
 
-いいえ、パブリッシャーは [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を復号化する必要はありません。しかし、社内でのみ使用するために [raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) にアクセスしたい場合は、UID2 support と協力してアクセスしてください。
+いいえ、パブリッシャーは <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を復号化する必要はありません。しかし、社内でのみ使用するために [raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) にアクセスしたい場合は、UID2 support と協力してアクセスしてください。
 
 #### How will I be notified of user opt-out?
 ユーザーのオプトアウトはどのように通知されますか？

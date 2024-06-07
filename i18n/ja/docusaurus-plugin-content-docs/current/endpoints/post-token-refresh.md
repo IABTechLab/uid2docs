@@ -8,7 +8,7 @@ sidebar_position: 04
 import Link from '@docusaurus/Link';
 
 # POST /token/refresh
-[POST&nbsp;/token/generate](post-token-generate.md) エンドポイントから返された、対応する未使用のリフレッシュトークンを送信して、新しい [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を生成します。
+[POST&nbsp;/token/generate](post-token-generate.md) エンドポイントから返された、対応する未使用のリフレッシュトークンを送信して、新しい <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を生成します。
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
@@ -105,7 +105,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 | Property  | Data Type | Description |
 | :--- | :--- | :--- |
-| `advertising_token`    | string    | ユーザーの [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) (Advertising Token とも呼ばれます) です。 |
+| `advertising_token`    | string    | ユーザーの <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> (Advertising Token とも呼ばれます) です。 |
 | `refresh_token`        | string    | UID2 Service と最新の ID トークンのセットを交換できる暗号化されたトークンです。 |
 | `identity_expires`     | number    | UID2 Token の有効期限を示す UNIX タイムスタンプ (ミリ秒単位) です。 |
 | `refresh_from`         | number    | UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) が UID2 Token のリフレッシュを開始するタイミングを示す UNIX タイムスタンプ(ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから Advertising Token もリフレッシュすることを検討してください。|

@@ -15,7 +15,7 @@ import Link from '@docusaurus/Link';
 If you're a publisher and are implementing UID2 on the client side, encryption and decryption is managed automatically by your implementation, such as Prebid.js (see [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)) or the JavaScript SDK (see [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md)).
 :::
 
-For almost all UID2 [endpoints](../endpoints/summary-endpoints.md), requests sent to the endpoint must be [encrypted](#encrypting-requests) and responses from the endpoint must be [decrypted](#decrypting-responses). 
+For almost all UID2 [endpoints](../endpoints/summary-endpoints.md), requests sent to the endpoint must be [encrypted](#encrypting-requests) and responses from the endpoint must be [decrypted](#decrypting-responses).
 
 The only exception is that requests to the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint do not need to be encrypted.
 
@@ -24,8 +24,8 @@ Here's what you need to know about encrypting UID2 API requests and decrypting r
 - To use the APIs, in addition to your client API key, you need your client secret.
 - You can write your own custom code or use one of the code examples provided: see [Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples).
 - Request and response use AES/GCM/NoPadding encryption algorithm with 96-bit initialization vector and 128-bit authentication tag.
-- The raw, unencrypted JSON body of the request is wrapped in a binary [unencrypted request data envelope](#unencrypted-request-data-envelope) which then gets encrypted and formatted according to the [Encrypted Request Envelope](#encrypted-request-envelope).
-- The response JSON body is wrapped in a binary [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) which is encrypted and formatted according to the [Encrypted Response Envelope](#encrypted-response-envelope).
+- The raw, unencrypted JSON body of the request is wrapped in a binary [unencrypted request data envelope](#unencrypted-request-data-envelope) which then gets encrypted and formatted according to the [encrypted request envelope](#encrypted-request-envelope).
+- The response JSON body is wrapped in a binary [unencrypted response data envelope](#unencrypted-response-data-envelope) which is encrypted and formatted according to the [encrypted response envelope](#encrypted-response-envelope).
 
 ## Workflow
 
@@ -44,7 +44,7 @@ The high-level request-response workflow for the UID2 APIs includes the followin
 
 A code example for [encrypting requests and decrypting responses](#encryption-and-decryption-code-examples) can help with automating steps 2-10 and serves as a reference of how to implement these steps in your application.
 
-Documentation for the individual UID2 [endpoints](../endpoints/summary-endpoints.md) explains the respective JSON body format requirements and parameters, includes call examples, and shows decrypted responses. The following sections provide encryption and decryption code examples, field layout requirements, and request and response examples. 
+Documentation for the individual UID2 [endpoints](../endpoints/summary-endpoints.md) explains the respective JSON body format requirements and parameters, includes call examples, and shows decrypted responses. The following sections provide encryption and decryption code examples, field layout requirements, and request and response examples.
 
 ## Encrypting Requests
 
@@ -124,7 +124,6 @@ This section includes encryption and decryption code examples in different progr
 
 For the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint, the code takes the values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md).
 
-## Encryption and Decryption Code Examples
 :::note
 For Windows, if you're using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON. For example, use `echo {"email": "test@example.com"}`.
 :::
@@ -211,6 +210,7 @@ If you are using Maven, you can use the following minimal `pom.xml`, and run `mv
   </build>
 </project>
 ```
+
 </TabItem>
 <TabItem value='cs' label='C#'>
 
@@ -327,7 +327,6 @@ else:
 
 </TabItem>
 <TabItem value='java' label='Java'>
-
 
 ```java title="Uid2Request.java"
 package org.example;
@@ -588,5 +587,6 @@ else
     Console.WriteLine(JsonSerializer.Serialize(jDoc, new JsonSerializerOptions { WriteIndented = true }));
 }
 ```
+
 </TabItem>
 </Tabs>
