@@ -142,9 +142,9 @@ Standard Integration (Client and Server) を使用している場合([Client-Ser
    ユーザーがオプトアウトした場合、このメソッドは `null` を返しますので、必ず処理してください。
    :::
 
-#### Server-Only Integration
+#### Server-Side Integration
 
-Server-Only Integration ([Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) を参照してください) を使用している場合は、以下の手順に従ってください:
+Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/custom-publisher-integration.md) を参照してください) を使用している場合は、以下の手順に従ってください:
 
 1. `tokenGenerateResponse.getIdentityJsonString()` 関数を使用して、この ID をユーザーのセッションに JSON 文字列として格納します。
 
@@ -226,9 +226,9 @@ Standard Integration (client and server) を使用している場合 ([Client-Se
     ユーザーがオプトアウトした場合、このメソッドは `null` を返しますので、必ず処理してください。
     :::
 
-#### Server-Only Integration
+#### Server-Side Integration
 
-Server-Only Integration ([Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) を参照してください) を使用している場合は、以下の手順に従ってください:
+Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/custom-publisher-integration.md) を参照してください) を使用している場合は、以下の手順に従ってください:
 
 1. `tokenGenerateResponse.getIdentityJsonString()` を使用して、この ID をユーザーのセッションに JSON 文字列として保存します。
 

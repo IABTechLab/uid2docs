@@ -1,7 +1,7 @@
 ---
-title: Publisher Integration Guide, Server-Only
-sidebar_label: Server-Only
-pagination_label: Publisher Integration Guide, Server-Only
+title: Publisher Integration Guide, Server-Side
+sidebar_label: Server-Side
+pagination_label: Publisher Integration Guide, Server-Side
 description: Information about generating identity tokens using UID2 for the RTB bidstream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers.
 hide_table_of_contents: false
 sidebar_position: 03
@@ -9,9 +9,23 @@ sidebar_position: 03
 
 import Link from '@docusaurus/Link';
 
-# Publisher Integration Guide, Server-Only
+# Publisher Integration Guide, Server-Side
 
-This guide is for publishers who want to generate UID2 tokens (advertising tokens) for the RTB bidstream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. 
+This guide is for publishers who want to generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) for the RTB bidstream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers, with all integration activity on the server side.
+
+The following options are available for publishers to integrate with UID2 on the server side:
+
+- UID2 SDK for Java (see [Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers) section).
+- UID2 SDK for Python (see [Usage for Publishers](../sdks/uid2-sdk-ref-python.md#usage-for-publishers) section).
+- Custom server code to generate and refresh the UID2 token by calling the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) and [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints.
+
+There is also an example application that demonstrates the workflow. See [Sample Application](#sample-application).
+
+For a complete summary of publisher integration options, see [Publisher Integrations](summary-guides.md#publisher-integrations).
+
+:::tip
+To facilitate the process of establishing client identity using UID2 and retrieving UID2 tokens, consider using the UID2 SDK for JavaScript. For details, see [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md).
+:::
 
 ## Introduction
 
@@ -24,21 +38,6 @@ The guide outlines the [basic steps](#integration-steps) that you need to consid
 - Manage user opt-outs
 
 See also [FAQs](#faqs).
-
-The following are the options available for publishers to integrate with UID2:
-
-- Client UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)), with [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) on the server.
-- Client UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)), with custom server code.
-- Server-only integration, with [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) or [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) on the server.
-- Server-only integration, with custom server code.
-
-This guide provides information for the last two options.
-
-There is also an example application that demonstrates the workflow. See [Sample Application](#sample-application).
-
-:::tip
-To facilitate the process of establishing client identity using UID2 and retrieving UID2 tokens, consider using the UID2 SDK for JavaScript. For details, see [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md).
-:::
 
 ## Integration Steps
 
@@ -58,6 +57,10 @@ The following sections provide additional details for each step in the diagram:
 ### Establish Identity: Capture User Data
 
 After authentication in step 1-c, which includes getting the user's consent and allows the publisher to validate the user's email address or phone number, the publisher can send a request to generate a UID2 token, on the server side. The following table details the token generation steps.
+
+:::tip
+Rather than calling this endpoint directly, you could use one of the SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).
+:::
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
@@ -103,10 +106,10 @@ If the user logs out, do not use the UID2 token.
 
 ## Sample Application
 
-A sample application is available for server-only integration. See:
+A sample application is available for server-side integration. See:
 
-- [Server-Only UID2 Integration Example (sample application)](https://secure-signals-srvonly-integ.uidapi.com/)
-- [Server-Only UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
+- [Server-Side UID2 Integration Example (sample application)](https://secure-signals-srvonly-integ.uidapi.com/)
+- [Server-Side UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
 
 ## FAQs
 

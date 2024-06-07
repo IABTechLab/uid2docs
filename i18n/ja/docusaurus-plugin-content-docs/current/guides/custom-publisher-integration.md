@@ -1,7 +1,7 @@
 ---
-title: Publisher Integration Guide, Server-Only
-sidebar_label: Server-Only
-pagination_label: Publisher Integration Guide, Server-Only
+title: Publisher Integration Guide, Server-Side
+sidebar_label: Server-Side
+pagination_label: Publisher Integration Guide, Server-Side
 description: UID2 対応シングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションを行いながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成する方法。
 hide_table_of_contents: false
 sidebar_position: 03
@@ -9,7 +9,7 @@ sidebar_position: 03
 
 import Link from '@docusaurus/Link';
 
-# Publisher Integration Guide, Server-Only
+# Publisher Integration Guide, Server-Side
 
 このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 Token (Advertising Token) を生成したいパブリッシャーを対象としています。
 
@@ -29,8 +29,8 @@ import Link from '@docusaurus/Link';
 
 - Client UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) と [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) on the server.
 - Client UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) と custom server code.
-- Server-only integration と [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) または [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) on the server.
-- Server-only integration と custom server code.
+- Server-side integration と [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) または [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) on the server.
+- Server-side integration と custom server code.
 
 このガイドでは、最後の 2 つのオプションに関する情報を提供します。
 

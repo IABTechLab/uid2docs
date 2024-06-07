@@ -123,7 +123,7 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-app-name"><a href="#gl-app-name">App name</a></MdxJumpAnchor></dt>
 <dd>In the context of mobile integrations, the app name is the Android application ID, the iOS app store ID, or the iOS bundle identifier.</dd>
 
-<dt><MdxJumpAnchor id="gl-authorization-header"><a href="#gl-authorization-header">Authorization header</a> </MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-authorization-header"><a href="#gl-authorization-header">Authorization header</a></MdxJumpAnchor></dt>
 <dd>The Authorization header is a way to authenticate the client to the UID2 service.</dd>
 <dd>For details, see <a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.authorization">11.6.2. Authorization</a> in RFC 9110, the HTTP specification.</dd>
 
@@ -353,7 +353,7 @@ import Link from '@docusaurus/Link';
 <dd>One of the UID2 <a href="#gl-integration-approaches">integration approaches</a> is to integrate entirely on the server side.</dd>
 <dd>In a server-side integration, raw UID2s or UID2 tokens are generated and refreshed on the server.</dd>
 <dd>For example, in a server-side integration, advertisers generate raw UID2s on the server side to be delivered for audience targeting, and publishers generate UID2 tokens on the server side for bidstream use.</dd>
-<dd>An example of documentation for publisher client-side integration is <a href="../guides/custom-publisher-integration">Publisher Integration Guide, Server-Only</a>.</dd>
+<dd>An example of documentation for publisher server-side integration is <a href="../guides/custom-publisher-integration">Publisher Integration Guide, Server-Side</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-sha-256"><a href="#gl-sha-256">SHA-256</a></MdxJumpAnchor></dt>
 <dd>SHA-256 is the secure hashing algorithm that UID2 uses.</dd>

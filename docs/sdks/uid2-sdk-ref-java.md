@@ -167,9 +167,9 @@ If you're using client-server integration (see [Client-Server Integration Guide 
    If the user has opted out, this method returns `null`, so be sure to handle that case.
    :::
 
-#### Server-Only Integration
+#### Server-Side Integration
 
-If you're using server-only integration (see [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md)), follow these steps:
+If you're using server-side integration (see [Publisher Integration Guide, Server-Side](../guides/custom-publisher-integration.md)), follow these steps:
 
 1. Store this identity as a JSON string in the user's session, using the `tokenGenerateResponse.getIdentityJsonString()` function.
 
@@ -251,9 +251,9 @@ If you're using client-server integration (see [Client-Server Integration Guide 
     This method returns null if the user has opted out, so be sure to handle that case.
     :::
 
-#### Server-Only Integration
+#### Server-Side Integration
 
-If you're using server-only integration (see [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md)):
+If you're using server-side integration (see [Publisher Integration Guide, Server-Side](../guides/custom-publisher-integration.md)):
 
 1. Store this identity as a JSON string in the user's session, using: `tokenGenerateResponse.getIdentityJsonString()`.
 

@@ -18,7 +18,7 @@ import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 
 This guide is for mobile app publishers who want to integrate with UID2 by generating UID2 tokens server-side via a Public Operator or Private Operator and then passing the tokens and user identities into their mobile apps, which will in turn pass the tokens for bidstream use.  
 
-This is called Client-Server Integration because some integration steps are client-side and some are server-side.
+This is called client-server integration because some integration steps are client-side and some are server-side.
 
 If you want to integrate with UID2 via client-side only changes (that is, all integration changes required are within the mobile apps), refer to the [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) instead.
 
@@ -135,7 +135,7 @@ If you want to manage token refresh on the server side and not the client/mobile
 - Call the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint.
 - Use one of the Publisher Client classes, in one of the UID2 server-side SDKs. These classes simplify the request into a single method call. 
 
-  For instructions, see [UID2 SDK for Java, Publisher Server-Only Integration section](../sdks/uid2-sdk-ref-java.md#server-only-integration) or [UID2 SDK for Python, Publisher Server-Only Integration section](../sdks/uid2-sdk-ref-python.md#server-only-integration).
+  For instructions, see [UID2 SDK for Java, Publisher Server-Side Integration section](../sdks/uid2-sdk-ref-java.md#server-side-integration) or [UID2 SDK for Python, Publisher Server-Side Integration section](../sdks/uid2-sdk-ref-python.md#server-side-integration).
 
 Then, pass the newly refreshed `Identity` value to the mobile app by following the rest of this guide.
 

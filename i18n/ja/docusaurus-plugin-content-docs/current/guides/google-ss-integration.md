@@ -50,7 +50,7 @@ window.googletag.cmd.push(function () {
 });
 ```
 
-### Server-Only Integration
+### Server-Side Integration
 
 暗号化されたシグナルを共有できるように、ホストされ、自動ロードされたセキュアシグナルスクリプトは `window.getUid2AdvertisingToken` 関数を非同期に呼び出し、そのレスポンスとして `advertising_token` を文字列として受け取れるようにしなければなりません。
 

@@ -15,6 +15,8 @@ import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-i
 
 This guide is for publishers who have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the server side and want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bidstream. 
 
+This is called client-server integration because some integration steps are client-side and some are server-side.
+
 To integrate with UID2 using Prebid.js, you'll need to:
 
 - Make changes to the HTML and JavaScript on your site.
@@ -228,7 +230,7 @@ In planning your Prebid implementation, consider the following:
 
 - During integration testing, set `params.uid2ApiBase` to `"https://operator-integ.uidapi.com"`. You must set this value to the same environment (production or integration) that you use for generating tokens.
 
-- For a Prebid.js server-side integration, you can create a smaller Prebid.js build by disabling client-side integration functionality. To do this, pass the `--disable UID2_CSTG` flag:
+- For a Prebid.js client-server integration, you can create a smaller Prebid.js build by disabling client-side integration functionality. To do this, pass the `--disable UID2_CSTG` flag:
 
 ```
     $ gulp build --modules=uid2IdSystem --disable UID2_CSTG
