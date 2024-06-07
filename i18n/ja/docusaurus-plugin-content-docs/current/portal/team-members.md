@@ -1,6 +1,6 @@
 ---
 title: Team Members
-description: UID2 team の設定と管理方法について説明します。
+description: UID2 team の設定し管理する。
 hide_table_of_contents: false
 sidebar_position: 07
 ---
@@ -9,7 +9,16 @@ import Link from '@docusaurus/Link';
 
 # Team Members
 
-UID2 Portal の Team Members ページでは、以下のようなアカウントへのアクセスを許可する個人の設定に関する操作を実行できます:
+<!-- It includes the following:
+- [Team Member Rights and Responsibilities](#team-member-rights-and-responsibilities)
+
+- [Add a Team Member](#add-a-team-member)
+- [Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member) 
+- [Edit Information for a Team Member](#edit-information-for-a-team-member) 
+- [Remove a Team Member](#remove-a-team-member)
+- [Log In for the First Time as a Team Member](#log-in-for-the-first-time-as-a-team-member) DONE -->
+
+UID2 Portal の **Team Members** ページでは、以下のようなアカウントへのアクセスを許可する個人の設定に関する操作を実行できます:
 
 - [Add a Team Member](#add-a-team-member)
 - [Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member) 
@@ -36,21 +45,27 @@ UID2 Portal の Team Members ページでは、以下のようなアカウント
 
 ## Resend an Invitation to a Team Member
 
-チームメンバーを追加した場合、招待状を再送する必要がある場合があります。例えば、チーム メンバーが招待状を受け取っていなかったり、誤って削除してしまったり、招待状の有効期限が切れてしまった場合などです。
+チームメンバーを追加した場合、招待状を再送する必要がある場合があります。例えば、チームメンバーが招待状を受け取っていなかったり、誤って削除してしまったり、招待状の有効期限が切れてしまった場合などです。
 
-チーム メンバーに招待状を再送信するには、リストでチーム メンバーを見つけ、Actions 列で **Resend Invitation** をクリックします。ステータスが **Invitation Sent** に更新され、新しい招待メールが送信されます。
+チームメンバーに招待状を再送信するには、リストでチームメンバーを見つけ、Actions 列で **Resend Invitation** をクリックします。ステータスが **Invitation Sent** に更新され、新しい招待メールが送信されます。
 
 ## Edit Information for a Team Member
 
-チームメンバーの情報を編集するには、リストでチームメンバーを見つけてから、Actions 列で Edit (pencil) アイコンをクリックします。
+チームメンバーの情報を編集するには、以下の手順を実行します:
 
-情報を更新し、変更を保存します。
+1. UID2 Portal で、**Team Members** ページに移動します。
+1. リストでチームメンバーを見つけます。
+1. Actions 列で Edit (鉛筆) アイコンをクリックします。
+1. 情報を更新し、変更を保存します。
+
 ## Remove a Team Member
 
 チームから誰かを外すには、以下の手順に従ってください:
 
-1. リストでチームメンバーを見つけ、Actions 列で Delete (trashcan) アイコンをクリックします。
-1. 確認メッセージが表示されたら、**Delete Team Member** をクリックします。チームメンバーがチームから削除されます。
+1. リストでチームメンバーを見つけ、Actions 列で Delete (ゴミ箱) アイコンをクリックします。
+1. 確認メッセージで **Delete Team Member** をクリックします。
+
+   チームメンバーがチームから削除されます。
 
 ## Log In for the First Time as a Team Member
 

@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # API Keys
 
-In the UID2 Portal, on the **API Keys** page, you can perform all activities relating to managing the API keys for your UID2 account, including the following:
+UID2 Portal の **API Keys** ページでは、UID2 アカウントの API キーを管理するためのすべての操作を実行できます:
 
 - [Adding an API Key](#adding-an-api-key)
 - [Modifying an API Key](#modifying-an-api-key)
@@ -17,76 +17,76 @@ In the UID2 Portal, on the **API Keys** page, you can perform all activities rel
 
 ## Overview
 
-The API key and client secret allow you to connect to the UID2 Operator Service and call API endpoints, directly or via one of the UID2 SDKs. These values identify you to the service.
+API キーとクライアント シークレットを使用すると、UID2 Operator サービスに接続して API エンドポイントを呼び出すことができます。これらの値は、サービスに対してあなたを識別します。
 
-When you add an API key in the UID2 Portal, it's very important that you store the key and its corresponding secret securely and do everything necessary to make sure that these values are not compromised. For more information, see [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret).
+UID2 Portal で API キーを追加するときは、キーとそれに対応するシークレットを安全に保存し、これらの値が漏洩しないようにするために必要なすべての措置を講じることが重要です。詳細については、[API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
 
-We recommend rotating each API key on a yearly basis. 
+各 API キーは、1 年ごとにローテーションすることを勧めます。
 
-When you add an API key, you can assign one or more of the following permissions:
+API キーを追加するときには、次のいずれかの権限を割り当てることができます:
 
 - Mapper
 - Generator
 - Sharer
 - Bidder
 
-For details, see [API Permissions](../getting-started/gs-permissions.md).
+詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 ## Adding an API Key
 
-To add an API key, complete the following steps:
+API キーを追加するには、次の手順を実行します:
 
-1. Log in to your UID2 Portal account.
-1. On the **API Keys** page, click **Add API Key**.
-1. In the  **Add API Key** page, provide a name for the new key.
-1. In the API Permissions section, choose one or more permissions for your key.
+1. UID2 Portal アカウントにログインします。
+1. **API Keys** ページに移動し、**Add API Key** をクリックします。
+1. **Add API Key** ページで、新しいキーの名前を指定します。
+1. API Permissions セクションで、キーに割り当てる権限を 1 つ以上選択します。
 
-    Choose only the permissions that you need. For example, if you're a publisher, choose the Generator role. For details, see [API Permissions](../getting-started/gs-permissions.md).
+    必要な権限のみを選択してください。たとえば、パブリッシャーの場合は Generator ロールを選択します。詳細については、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
     :::note
-    If the permission that you want to add isn't available for selection, ask your UID2 contact.
+    選択可能な権限が表示されない場合は、UID2 連絡先に問い合わせてください。
     :::
 
-1. Click **Add API Key**.
-
-   In the **API Key (Your API Key Name) Credentials** page, the API key and secret are displayed.
+1. **Add API Key** をクリックします。
    
-1. In each field, click ![the Copy icon](images/icon-copy-solid.png) (the Copy icon) to copy the value. Store the Secret and Key values in a secure location, and do not share them.
+      **API Key (Your API Key Name) Credentials** ページに API キーとシークレットが表示されます。
 
-   When you close the window, these values are not saved and are no longer available to you. If they are lost, you'll need to add a new key.
+1. 各フィールドで、値をコピーするために ![the Copy icon](images/icon-copy-solid.png) (コピーアイコン) をクリックします。シークレットとキーの値を安全な場所に保存し、共有しないでください。
+   
+      ウィンドウを閉じると、これらの値は保存されず、利用できなくなります。失った場合は、新しいキーを追加する必要があります。
 
-1. When done, click **Close**.
+1. 完了したら、**Close** をクリックします。
 
-1. At the reminder prompt, you have a chance to go back if you didn't yet save the values. Click **Cancel** to go back, or **Close** to confirm.
+1. リマインダープロンプトで、まだ値を保存していない場合は戻ることができます。値を保存していない場合は、**Cancel** をクリックして戻るか、**Close** をクリックして確認します。
 
-   On the **API Keys** page, the new key is displayed with the name, Key ID, permissions, and the date it was created.
+   **API Keys** ページには、新しいキーが名前、キー ID、権限、および作成日付とともに表示されます。
 
 ## Modifying an API Key
 
-After you've added an API key, you can edit the following:
+API キーを追加した後は、次の情報を編集できます:
 
 - API key name
 - Permission assignments 
 
-To modify an API key, complete the following steps:
+API キーを変更するには、次の手順を実行します:
 
-1. In the UID2 Portal, go to the **API Keys** page.
-1. Find the key on the list.
-1. In the Actions column, click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon).
-1. Update the information, and then click **Save Key**.
+1. UID2 Portal で **API Keys** ページに移動します。
+1. リストでキーを見つけます。
+1. アクション列で ![the Edit icon](images/icon-pencil-solid.png) (編集アイコン) をクリックします。
+1. 情報を更新し、**Save Key** をクリックします。
 
 ## Deleting an API Key
 
-If a key is compromised, you'll need to remove it.
+Key が漏洩した場合、その Key を削除する必要があります。
 
 :::warning
-Be sure that your implementation is updated with a new key before deleting an active key. When you delete a key, any subsequent API traffic using that key is rejected.
+アクティブな Key を削除する前に、実装が新しい Key で更新されていることを確認してください。Key を削除すると、その Key を使用するすべての API トラフィックが拒否されます。
 :::
 
-To delete an API key, follow these steps:
+API キーを削除するには、次の手順を実行します:
 
-1. Find the key on the list and then, in the Actions column, click ![the Delete icon](images/icon-trash-can-solid.png) (the Delete icon).
-1. At the confirmation message, type the API key to confirm that you want to delete it. You can copy and paste from the display.
-2. Click **Delete Key**.
+1. リストでキーを見つけ、アクション列で ![the Delete icon](images/icon-trash-can-solid.png) (削除アイコン) をクリックします。
+1. 確認メッセージで、削除を確認するために API キーを入力します。表示からコピーして貼り付けることができます。
+2. **Delete Key** をクリックします。
 
-   The key is removed from the display and is no longer valid.
+   キーは表示から削除され、無効になります。

@@ -1,6 +1,6 @@
 ---
 title: Sharing Permissions
-description: UID2 Portal で共有権限を設定する方法について説明します。
+description: UID2 Portalで共有権限を設定する。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
