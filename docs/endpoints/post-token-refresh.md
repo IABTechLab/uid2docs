@@ -8,7 +8,7 @@ sidebar_position: 04
 import Link from '@docusaurus/Link';
 
 # POST /token/refresh
-Generates a new [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) by sending the corresponding unexpired refresh token, returned by the [POST&nbsp;/token/generate](post-token-generate.md) endpoint.
+Generates a new <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> by sending the corresponding unexpired refresh token, returned by the [POST&nbsp;/token/generate](post-token-generate.md) endpoint.
 
 Used by: This endpoint is used mainly by publishers.
 
@@ -107,7 +107,7 @@ The response body includes the properties shown in the following table.
 
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
-| `advertising_token` | string | The [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) (also known as advertising token) for the user. |
+| `advertising_token` | string | The <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> (also known as advertising token) for the user. |
 | `refresh_token` | string | An encrypted token that can be exchanged with the UID2 Service for the latest set of identity tokens. |
 | `identity_expires` | number | The UNIX timestamp (in milliseconds) that indicates when the UID2 token expires. |
 | `refresh_from` | number | The UNIX timestamp (in milliseconds) that indicates when the UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) will start refreshing the UID2 token, if the SDK is in use.<br/>TIP: If you are not using the SDK, consider refreshing the UID2 token from this timestamp, too. |

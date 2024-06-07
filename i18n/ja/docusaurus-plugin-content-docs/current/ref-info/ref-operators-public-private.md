@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # The UID2 Operator
 
-UID2 Operator Service により、UID2 Core Service からの暗号化キーと [Salt(ソルト)](../ref-info/glossary-uid.md#gl-salt) の管理と保存、ユーザーの個人データ ([DII](../ref-info/glossary-uid.md#gl-dii)) のハッシュ化、[raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) の暗号化、[UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) の復号化が可能になります。
+UID2 Operator Service により、UID2 Core Service からの暗号化キーと [Salt(ソルト)](../ref-info/glossary-uid.md#gl-salt) の管理と保存、ユーザーの個人データ ([DII](../ref-info/glossary-uid.md#gl-dii)) のハッシュ化、[raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) の暗号化、<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> の復号化が可能になります。
 
 Operator Service のすべてのインスタンスは、誰がサービスを運営するかにかかわらず、重要な UID2 データを安全に保ち、相互運用できるよう、厳格な保護が施されて設計されています。
 
