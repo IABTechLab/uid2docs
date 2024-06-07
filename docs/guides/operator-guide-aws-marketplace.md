@@ -9,6 +9,7 @@ sidebar_position: 17
 
 import Link from '@docusaurus/Link';
 import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
+import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
 
@@ -236,8 +237,6 @@ To check the UID2 Operator status of your Load Balancer, complete the following 
 1. Identify the DNS name of your load balancer by going to **EC2 > Load balancers** and looking at the **DNS name** column of your load balancer.
 2. In your browser, go to `https://{dns-name-of-your-load-balancer}/ops/healthcheck`. A response of `OK` indicates good operator status.
 
-import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
-
 <AttestFailure />
 
 ## Upgrading the UID2 Operator
@@ -345,4 +344,4 @@ The following table includes some additional commands that might help you manage
 
 ## Technical Support
 
-If you have trouble subscribing to the product, or deploying, contact us at [contact us](mailto:aws-mktpl-uid@thetradedesk.com).
+If you have trouble subscribing to the product, or deploying, [contact us](mailto:aws-mktpl-uid@thetradedesk.com).
