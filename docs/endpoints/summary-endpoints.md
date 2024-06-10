@@ -29,7 +29,7 @@ The following endpoints are used by advertisers and third-party data providers. 
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |
 | [POST&nbsp;/identity/buckets](post-identity-buckets.md) | Monitors rotated salt buckets using their last updated timestamp. | Required | Required |
-| [POST&nbsp;/identity/map](post-identity-map.md) | Retrieves UID2s and salt bucket IDs for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
+| [POST&nbsp;/identity/map](post-identity-map.md) | Retrieves raw UID2s and salt bucket IDs for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
 
 ## Opt-Out Status
 
