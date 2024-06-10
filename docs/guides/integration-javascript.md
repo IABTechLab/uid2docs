@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Integration Overview for JavaScript
 
-This guide is an overview of integration options for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) using the UID2 SDK for JavaScript.
+This guide is an overview of integration options for publishers who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) using the UID2 SDK for JavaScript.
 
 For a summary of all web options, including Prebid.js and additional SDK options, see [Web Integration Overview](integration-options-publisher-web.md).
 

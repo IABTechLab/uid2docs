@@ -523,7 +523,7 @@ FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash')
 
 UID2 sharer とは、UID2 を他の参加者と Sharing (共有)したい参加者のことです。広告主とデータプロバイダーは、Snowflake を介して、UID2 を他の認可された UID2 を sharing する参加者と共有することができます。詳細については、[UID2 Sharing: Overview](../sharing/sharing-overview) を参照してください。
 
-Sharing する参加者は、他の参加者に送信する前に、[raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を暗号化して [UID2 Token](../ref-info/glossary-uid#gl-uid2-token)に変換しなければなりません。
+Sharing する参加者は、他の参加者に送信する前に、[raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) を暗号化して <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link>に変換しなければなりません。
 
 :::important
 このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
