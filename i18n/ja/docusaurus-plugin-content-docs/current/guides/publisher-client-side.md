@@ -13,7 +13,7 @@ import Link from '@docusaurus/Link';
 
 # Client-Side Integration Guide for JavaScript
 
-このガイドは、UID2 と インテグレーションし、ウェブサイト上で JavaScript Client-Side の変更のみを使用して、最小限の労力で [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (Advertising Token) を生成したいパブリッシャー向けのものです。
+このガイドは、UID2 と インテグレーションし、ウェブサイト上で JavaScript Client-Side の変更のみを使用して、最小限の労力で <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (Advertising Token) を生成したいパブリッシャー向けのものです。
 
 このガイドは [Private Operator](../ref-info/glossary-uid.md#gl-private-operator) を使いたいパブリッシャーや、Server-Side でトークンを生成したいパブリッシャーには適用されません。それらのパブリッシャーは [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md) に従う必要があります。
 
