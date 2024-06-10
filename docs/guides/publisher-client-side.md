@@ -10,7 +10,6 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
 
 # Client-Side Integration Guide for JavaScript
 
@@ -120,17 +119,13 @@ __uid2.init({
 Tokens from the UID2 integration environment are not valid for passing to the bidstream. For the integration environment, you will have different **Subscription ID** and **public key** values.
 :::
 
-### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
+### Optional: Reduce Latency by Setting the API Base URL
 
-<ReduceLatency />
+By default, UID2 SDKs make API calls to a UID2 production environment server in the USA. Depending on where your users are based, you might consider choosing a server closer to your users to reduce latency.
 
-To specify a different UID2 server, you can change it in the `init` call:
+For details and implementation examples, see [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](../getting-started/gs-environments.md#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment).
 
-```js
-__uid2.init({
-  baseUrl: "https://global.prod.uidapi.com",
-});
-```
+For the list of valid base URLs, see [Environments](../getting-started/gs-environments.md).
 
 ## Configure the SDK for JavaScript
 
