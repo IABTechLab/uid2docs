@@ -8,6 +8,7 @@ sidebar_position: 04
 import Link from '@docusaurus/Link';
 
 # POST /token/refresh
+
 Generates a new <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> by sending the corresponding unexpired refresh token, returned by the [POST&nbsp;/token/generate](post-token-generate.md) endpoint.
 
 Used by: This endpoint is used mainly by publishers.
@@ -50,7 +51,7 @@ For details, and code examples in different programming languages, see [Encrypti
 
 ## Decrypted JSON Response Format
 
-A decrypted successful response includes a new UID2 token (`advertising_token`) and associated values for the user, or indicates that the user has opted out. 
+A decrypted successful response includes a new UID2 token (`advertising_token`) and associated values for the user, or indicates that the user has opted out.
 
 :::note
 The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.

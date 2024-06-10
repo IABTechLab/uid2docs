@@ -8,6 +8,7 @@ sidebar_position: 03
 import Link from '@docusaurus/Link';
 
 # POST /token/validate
+
 Validates that an advertising token matches the specified hashed or unhashed email address or phone number. 
 
 Used by: This endpoint is used mainly by publishers.

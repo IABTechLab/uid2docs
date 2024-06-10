@@ -8,6 +8,7 @@ sidebar_position: 02
 import Link from '@docusaurus/Link';
 
 # POST /token/generate
+
 Requests a UID2 token generated from the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) provided by a user with their authorization for UID2-based targeted advertising. If the DII is valid, and the user has not opted out of UID2, this operation returns a UID2 token and associated values.
 
 Used by: This endpoint is used mainly by publishers.
