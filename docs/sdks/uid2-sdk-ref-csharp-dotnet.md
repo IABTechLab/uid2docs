@@ -155,7 +155,7 @@ For a full example, see the `ExampleBidStreamClient` method in [SampleApp/Progra
 A UID2 sharer is any participant that wants to share UID2s with another participant. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant.
 
 :::important
-The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
 :::
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for C# / .NET, either as a sender or a receiver.

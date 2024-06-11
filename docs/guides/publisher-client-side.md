@@ -116,7 +116,7 @@ __uid2.init({
 });
 ```
 :::note
-Tokens from the UID2 integration environment are not valid for passing to the bidstream. For the integration environment, you will have different **Subscription ID** and **public key** values.
+Tokens from the UID2 integration environment are not valid for passing to the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>. For the integration environment, you will have different **Subscription ID** and **public key** values.
 :::
 
 ### Optional: Reduce Latency by Setting the API Base URL

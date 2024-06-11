@@ -14,7 +14,7 @@ The secure sharing workflow allows you to share UID2s with trusted participants 
 For example, here are some scenarios where a sender wants to share raw UID2s or UID2 tokens with a receiver:
 
 - Tokenized sharing (sharing a UID2 token) examples:
-  - A publisher (sender) sends a UID2 token via the bidstream to a DSP (receiver) (see [Tokenized Sharing in the Bidstream](sharing-tokenized-from-data-bid-stream.md)).
+  - A publisher (sender) sends a UID2 token via the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> to a DSP (receiver) (see [Tokenized Sharing in the Bidstream](sharing-tokenized-from-data-bid-stream.md)).
   - An advertiser (sender) sends a UID2 token to a data provider (receiver) via a tracking pixel (see [Tokenized Sharing in Pixels](sharing-tokenized-from-data-pixel.md)).
 - Raw UID2 sharing (sharing a raw UID2) examples:
   - A measurement partner (sender) sends a raw UID2 to an advertiser (receiver) via Amazon Simple Storage Service (S3) (see [Raw UID2 Sharing](sharing-raw.md)).

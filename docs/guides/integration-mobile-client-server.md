@@ -15,7 +15,7 @@ import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 
 # UID2 Client-Server Integration Guide for Mobile
 
-This guide is for mobile app publishers who want to integrate with UID2 by generating UID2 tokens server-side via a Public Operator or Private Operator and then passing the tokens and user identities into their mobile apps, which will in turn pass the tokens for bidstream use.  
+This guide is for mobile app publishers who want to integrate with UID2 by generating UID2 tokens server-side via a Public Operator or Private Operator and then passing the tokens and user identities into their mobile apps, which will in turn pass the tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use.  
 
 This is called client-server integration because some integration steps are client-side and some are server-side.
 

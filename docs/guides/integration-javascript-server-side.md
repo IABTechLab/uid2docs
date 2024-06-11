@@ -13,7 +13,7 @@ import Link from '@docusaurus/Link';
 
 # Client-Server Integration Guide for JavaScript
 
-This guide is for publishers with web assets who want to generate identity tokens using UID2 for the RTB bidstream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. This requires server-side changes such as generating UID2 tokens on the server side and passing them to the publishers' web pages. If you want to integrate with UID2 via only client-side JavaScript changes, refer to [Client-Side Integration Guide for JavaScript](publisher-client-side.md) instead.
+This guide is for publishers with web assets who want to generate identity tokens using UID2 for the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers. This requires server-side changes such as generating UID2 tokens on the server side and passing them to the publishers' web pages. If you want to integrate with UID2 via only client-side JavaScript changes, refer to [Client-Side Integration Guide for JavaScript](publisher-client-side.md) instead.
 
 This is called client-server integration because these JavaScript integration steps are client-side and some other steps are server-side.
 

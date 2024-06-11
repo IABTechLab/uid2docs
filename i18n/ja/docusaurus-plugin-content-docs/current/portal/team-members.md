@@ -9,15 +9,6 @@ import Link from '@docusaurus/Link';
 
 # Team Members
 
-<!-- It includes the following:
-- [Team Member Rights and Responsibilities](#team-member-rights-and-responsibilities)
-
-- [Add a Team Member](#add-a-team-member)
-- [Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member) 
-- [Edit Information for a Team Member](#edit-information-for-a-team-member) 
-- [Remove a Team Member](#remove-a-team-member)
-- [Log In for the First Time as a Team Member](#log-in-for-the-first-time-as-a-team-member) DONE -->
-
 UID2 Portal の **Team Members** ページでは、以下のようなアカウントへのアクセスを許可する個人の設定に関する操作を実行できます:
 
 - [Add a Team Member](#add-a-team-member)

@@ -109,7 +109,7 @@ The UID2 service encrypts UID2 tokens using random initialization vectors. The U
 
 #### What does a UID2 token look like in the bidstream?
 
-There are many ways to approach UID2 implementation. Here is one example of a code snippet showing how a UID2 token is passed in the bidstream:
+There are many ways to approach UID2 implementation. Here is one example of a code snippet showing how a UID2 token is passed in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>:
 
 ```js
 {
