@@ -66,8 +66,6 @@ This example uses the [UID2 SDK for Android](../sdks/uid2-sdk-ref-android.md) in
 
 ![Mobile Client-Server Integration Example](images/integration-mobile-client-server.png)
 
-<!-- (**GWH_ https://ttdcorp-my.sharepoint.com/:p:/r/personal/rita_aleksanyan_thetradedesk_com/_layouts/15/Doc.aspx?sourcedoc=%7BDF894943-3D6A-4A60-A1E2-176ACD0BBBCC%7D&file=Sample%20Data%20Flow.pptx&wdLOR=c8FEF9DB2-E2FD-4F07-B411-B094C4813ACE&fromShare=true&action=edit&mobileredirect=true**) -->
-
 ## Implement Server-Side Token Generation
 
 The first step of UID2 integration is to be able to generate the UID2 token on your server. Then, you can pass the token into your mobile apps for sending to the RTB bidstream.
