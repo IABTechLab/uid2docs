@@ -54,10 +54,3 @@ UID2 エコシステムには、2 種類のオプトアウトがあります:
 このワークフローにより、ユーザーは UID2 識別子の作成に同意し、Transparency and Control Portalを通じて UID2 の同意とプライバシー設定を管理することができます。
 
 ![User Trust Workflow](images/UID2GlobalOptoutWorkflow.svg)
-
-
-<!-- 3. If the user has opted out, the UID2 Operator Service distributes the opt-out information to various UID2 participant types, as follows:
-   - **Publishers**: A publisher calling  the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint receives the opt-out response. At this point, there is no longer a valid UID2 token for that user.
-   - **DSPs**: The UID2 Operator Service distributes information on all opted-out users to DSPs via a webhook provided for the purpose. For details, see [Honor User Opt-Outs](../guides/dsp-guide#honor-user-opt-outs).
-   - **Advertisers**: The UID2 Operator Service distributes opt-out information to advertisers via the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.
- -->

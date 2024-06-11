@@ -19,8 +19,6 @@ UID2 を採用するパブリッシャーにとってのメリット、ワーク
 UID2 のドキュメント一式に左サイドバーからアクセスしたい場合は、[Unified ID 2.0 Overview](../intro.md) を参照してください。
 :::
 
-<!-- Learn about what the UID2 framework offers to publishers, including benefits, workflow, documentation and other resources, and how to get started. -->
-
 ## Benefits of UID2 for Publishers
 
 UID2 とインテグレーションすることで得られるメリットの一部を次に示します:
@@ -50,8 +48,6 @@ UID2 とインテグレーションすることで得られるメリットの一
 6. パブリッシャーは UID2 Token を SSP に送信します。
 7. SSP は UID2 Token を含むビッドリクエストをビッドストリームに入れます。
 
-<!-- The publisher requests updated UID2 tokens using a refresh token. When applicable, the refresh token includes a user’s opt-out request. -->
-
 ![Publisher Workflow](images/UID2PublisherAndSSPWorkflow.jpg)
 
 ## Getting Started
@@ -61,7 +57,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 1. [Request Access](/request-access) ページのフォームに記入して、UID2 へのアクセスをリクエストします。
 1. UID2 とインテグレーションしたいプロパティを特定する。
 1. UID2 契約を締結します。
-1. Client-Side と Server-Side のどちらのインテグレーションを希望するかを決定し、UID2 の担当者に伝えてください。<!-- (**GWH_KK new page coming that we will link to**) -->
+1. Client-Side と Server-Side のどちらのインテグレーションを希望するかを決定し、UID2 の担当者に伝えてください。
 1. UID2 credential([UID2 Credentials](../getting-started/gs-credentials.md)) を受け取ります。
 1. 該当する [implementation resources](#implementation-resources) を使用して、SDK または UID2 と直接インテグレーションしてください。
 
