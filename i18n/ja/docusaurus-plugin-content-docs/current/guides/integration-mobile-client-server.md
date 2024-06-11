@@ -179,7 +179,7 @@ Bear in mind the following differences between environments:
 - You'll have a different set of API key and client secret values for each environment (integration and production). Be sure to use the correct values for each environment.
 :::
 
-### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
+### Optional: Specifying the API Base URL to Reduce Latency
 
 <ReduceLatency />
 

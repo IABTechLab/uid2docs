@@ -175,7 +175,7 @@ see UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist
 </TabItem>
 </Tabs>
 
-If necessary, you can also change the default Subscription ID and public key to values assigned to you, and connect to the UID2 Production environment. For details, see [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment).
+If necessary, you can also change the default Subscription ID and public key to values assigned to you, and connect to the UID2 Production environment. For details, see [Optional: Specifying the API Base URL to Reduce Latency](#optional-specifying-the-api-base-url-to-reduce-latency).
 
 ## Complete the UID2 Account Setup
 
@@ -229,7 +229,7 @@ Bear in mind the following differences between environments:
 - You'll have a different set of Subscription ID and public key values for each environment (integration and production). Be sure to use the correct values for each environment.
 :::
 
-### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
+### Optional: Specifying the API Base URL to Reduce Latency
 
 <ReduceLatency />
 

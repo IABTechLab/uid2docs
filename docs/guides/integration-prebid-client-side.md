@@ -10,6 +10,7 @@ sidebar_position: 04
 import Link from '@docusaurus/Link';
 import AddPrebidjsToYourSite from '/docs/snippets/_prebid-add-prebidjs-to-your-site.mdx';
 import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser.mdx';
+import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
 
 # UID2 Client-Side Integration Guide for Prebid.js
 
@@ -157,10 +158,24 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 - Chrome web store download location: [Professor Prebid](https://chromewebstore.google.com/detail/professor-prebid/kdnllijdimhbledmfdbljampcdphcbdc)
 - Documentation on prebid.org: [Professor Prebid User Guide](https://docs.prebid.org/tools/professor-prebid.html)
 
-## Optional: Reduce Latency by Setting the API Base URL
+## Optional: Specifying the API Base URL to Reduce Latency
 
-By default, the UID2 Prebid.js integration makes API calls to a UID2 production environment server in the USA. Depending on where your users are based, you might consider choosing a server closer to your users to reduce latency.
+<ReduceLatency />
 
-For details and implementation examples, see [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](../getting-started/gs-environments.md#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment).
+To specify a different UID2 server when you're configuring the UID2 module, set the optional `params.uid2ApiBase` parameter, as shown in the following example:
 
-For the list of valid base URLs, see [Environments](../getting-started/gs-environments.md).
+```js
+pbjs.setConfig({ 
+  userSync: { 
+    userIds: [{ 
+      name: 'uid2', 
+      params: { 
+        uid2ApiBase: baseUrl, 
+        // ... 
+      } 
+    }] 
+  } 
+}); 
+```
+
+For a full list of valid base URLs, including regional operators, see [Environments](../getting-started/gs-environments.md).

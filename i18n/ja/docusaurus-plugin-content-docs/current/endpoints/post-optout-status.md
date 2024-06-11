@@ -38,7 +38,7 @@ You must encrypt all requests using your secret. For details, and code examples 
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Integration environment: `https://operator-integ.uidapi.com`.<br/>Production environment: `https://prod.uidapi.com`.<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md). |
+| `{environment}` | string | Required | Integration environment: `https://operator-integ.uidapi.com`.<br/>Production environment: `https://prod.uidapi.com`.<br/>For a full list of valid base URLs, including regional operators, see [Environments](../getting-started/gs-environments.md). |
 
 :::note
 The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.

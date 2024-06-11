@@ -10,6 +10,7 @@ sidebar_position: 04
 import Link from '@docusaurus/Link';
 import AddPrebidjsToYourSite from '/docs/snippets/_prebid-add-prebidjs-to-your-site.mdx';
 import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser.mdx';
+import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
 
 # UID2 Client-Server Integration Guide for Prebid.js
 
@@ -299,7 +300,7 @@ In this table, CR = client refresh mode, SO = server-only mode, and N/A = not ap
 | value | CR: N/A<br/>SO: Optional | Object | An object containing the value for the advertising token. | See [Configuration Parameter Examples: Value](#configuration-parameter-examples-value) |
 | params.uid2Token | CR: Optional<br/>SO: N/A | Object | The initial UID2 token. This should be the `body` element of the decrypted response from a call to the `/token/generate` or `/token/refresh` endpoint. | See [Sample Token](#sample-token) |
 | params.uid2Cookie | CR: Optional<br/>SO: N/A  | String | The name of a cookie that holds the initial UID2 token, set by the server. The cookie should contain JSON in the same format as the uid2Token param. If `uid2Token` is supplied, this parameter is ignored. | See [Sample Token](#sample-token) |
-| params.uid2ApiBase | CR: Optional<br/>SO: Optional | String | Overrides the default UID2 API endpoint. For valid values, see [Environments](../getting-started/gs-environments.md). | `"https://prod.uidapi.com"` (the default)|
+| params.uid2ApiBase | CR: Optional<br/>SO: Optional | String | Overrides the default UID2 API endpoint. For a full list of valid base URLs, including regional operators, see [Environments](../getting-started/gs-environments.md). | `"https://prod.uidapi.com"` (the default)|
 | params.storage | CR: Optional<br/>SO: Optional | String | Specify the module internal storage method: `cookie` or `localStorage`. We recommend that you do not provide this parameter. Instead, allow the module to use the default. | `"localStorage"` (the default) |
 
 ### Configuration Parameter Examples: Value
@@ -336,10 +337,25 @@ The following sample is fictitious, but shows what the token response object, re
 }
 ```
 
-## Optional: Reduce Latency by Setting the API Base URL for the Production Environment
+## Optional: Specifying the API Base URL to Reduce Latency
 
-By default, the UID2 Prebid.js integration makes API calls to a UID2 production environment server in the USA. Depending on where your users are based, you might consider choosing a server closer to your users to reduce latency.
+<ReduceLatency />
 
-For details and implementation examples, see [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](../getting-started/gs-environments.md#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment).
 
-For the list of valid base URLs, see [Environments](../getting-started/gs-environments.md).
+To specify a different UID2 server when you're configuring the UID2 module, set the optional params.uid2ApiBase parameter, as shown in the following example:
+
+```js
+pbjs.setConfig({ 
+  userSync: { 
+    userIds: [{ 
+      name: 'uid2', 
+      params: { 
+        uid2ApiBase: baseUrl, 
+        // ... 
+      } 
+    }] 
+  } 
+}); 
+```
+
+For a full list of valid base URLs, including regional operators, see [Environments](../getting-started/gs-environments.md).

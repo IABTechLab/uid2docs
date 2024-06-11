@@ -10,6 +10,7 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
+import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 
@@ -180,13 +181,37 @@ Bear in mind the following differences between environments:
 - You'll have a different set of API key and client secret values for each environment (integration and production). Be sure to use the correct values for each environment.
 :::
 
-### Optional: Reduce Latency by Setting the API Base URL
+### Optional: Specifying the API Base URL to Reduce Latency
 
-By default, UID2 SDKs make API calls to a UID2 production environment server in the USA. Depending on where your users are based, you might consider choosing a server closer to your users to reduce latency.
+<ReduceLatency />
 
-For details and implementation examples, see [Optional: Reduce Latency by Setting the API Base URL](../getting-started/gs-environments.md#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment).
+To specify a different UID2 server, you can change it in the `init` call:
 
-For the list of valid base URLs, see [Environments](../getting-started/gs-environments.md).
+<Tabs groupId="language-selection">
+<TabItem value='android' label='Android'>
+
+```js
+UID2Manager.init(
+  context = this,
+  serverUrl = "https://global.prod.uidapi.com"
+)
+```
+
+</TabItem>
+<TabItem value='ios' label='iOS'>
+
+```js
+UID2Settings.shared.environment = .singapore
+// or
+UID2Settings.shared.environment = .custom(
+  url: URL(string: "https://global.prod.uidapi.com")!
+)
+```
+
+</TabItem>
+</Tabs>
+
+For a full list of valid base URLs, including regional operators, see [Environments](../getting-started/gs-environments.md).
 
 ## Configure the UID2 Mobile SDK
 
