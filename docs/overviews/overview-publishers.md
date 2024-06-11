@@ -30,7 +30,7 @@ Here are just some of the intended benefits for publishers integrating with UID2
 
 ## Workflow for Publishers
 
-The following steps provide a high-level outline of the workflow intended for organizations that propagate UID2 tokens to the bidstream via SSPs&#8212;for example, identity providers, publishers, and SSO providers. Publishers can choose to work with an SSO provider or an independent ID provider that is interoperable with UID2 and can handle the UID2 integration on behalf of publishers.
+The following steps provide a high-level outline of the workflow intended for organizations that propagate UID2 tokens to the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> via SSPs&#8212;for example, identity providers, publishers, and SSO providers. Publishers can choose to work with an SSO provider or an independent ID provider that is interoperable with UID2 and can handle the UID2 integration on behalf of publishers.
 
 1. A user visits a publisher website, mobile app, or CTV app.
 2. The publisher provides transparency around its data practices and asks the user to provide an email address or phone number.

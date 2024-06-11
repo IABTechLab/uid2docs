@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 # Publisher Integration Guide, Server-Side
 
-This guide is for publishers who want to generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) for the RTB bidstream, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers, with all integration activity on the server side.
+This guide is for publishers who want to generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) for the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>, while integrating directly with UID2 rather than UID2-enabled single-sign-on or identity providers, with all integration activity on the server side.
 
 The following options are available for publishers to integrate with UID2 on the server side:
 

@@ -36,7 +36,7 @@ Here are just some of the intended benefits for DSPs using UID2. You can:
 
 ## Workflow for DSPs
 
-The following steps provide a high-level outline of the workflow intended for DSPs that transact on UID2s in the bidstream.
+The following steps provide a high-level outline of the workflow intended for DSPs that transact on UID2s in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.
 
 The following processes occur in the background:
 - The advertiser and/or data provider passes first-party and third-party audience segments to the DSP.

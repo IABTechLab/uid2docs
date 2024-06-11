@@ -328,7 +328,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
 
 ## Usage for DSPs
 
-The following instructions provide an example of how a DSP can decode bidstream tokens using the UID2 SDK for Java.
+The following instructions provide an example of how a DSP can decode <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> tokens using the UID2 SDK for Java.
 
 1. Create a `BidstreamClient`:
 
