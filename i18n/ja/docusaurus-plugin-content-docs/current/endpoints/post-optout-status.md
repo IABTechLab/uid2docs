@@ -9,11 +9,11 @@ import Link from '@docusaurus/Link';
 
 # POST /optout/status
 
-Checks the opt-out status of raw UID2s. Given a list of raw UID2s, this endpoint returns the raw UID2s that have opted out, as well as the time that the opt-out took place. For more information, see [User Opt-Out](../getting-started/gs-opt-out.md).
+raw UID2 のオプトアウトステータスを確認します。指定された raw UID2 のリストを使用して、このエンドポイントはオプトアウトした raw UID2 とそのオプトアウトが行われた時刻を返します。詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
-Used by: This endpoint is used by advertisers, data providers, DSPs, and sharers. More generally, this is for participants who have access to raw UID2s but do not have access to the underlying email addresses or phone numbers and want to know opt-out status.
+Used by: このエンドポイントは、主に広告主、データプロバイダー、DSP、共有者によって使用されます。一般的には、元のメールアドレスや電話番号にアクセスできないが、オプトアウトステータスを知りたい参加者向けです。
 
-For details, refer to the following documentation, depending on your role:
+詳細については、役割に応じて以下のドキュメントを参照してください:
 
 - [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md)
 - [DSP Integration Guide](../guides/dsp-guide.md)
@@ -21,40 +21,40 @@ For details, refer to the following documentation, depending on your role:
 
 ## Batch Size and Request Parallelization Requirements
 
-The key guidelines for managing batches of requests to this endpoint are as follows:
+このエンドポイントへのリクエストのバッチを管理するための主要なガイドラインは次のとおりです:
 
-- To check the opt-out status of a large number of UID2s, send them in sequential batches with a maximum batch size of 5,000 items per batch.
-- Unless you are using a Private Operator, do not send batches in parallel. In other words, use a single HTTP connection and send batches of raw UID2s consecutively.
+- 多数の UID2 のオプトアウトステータスを確認するには、1 バッチあたりのバッチサイズが最大 5,000 件となるように、順次バッチを送信してください。
+- Private Operator を使用している場合を除き、バッチを並行して送信しないでください。つまり、1 つの HTTP 接続を使用して、連続して raw UID2 のバッチを送信してください。
 
 ## Request Format
 
 `POST '{environment}/v2/optout/status'`
 
 :::important
-You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 :::
 
 ### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Integration environment: `https://operator-integ.uidapi.com`.<br/>Production environment: `https://prod.uidapi.com`.<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md). |
+| `{environment}` | string | 必須 | テスト環境: `https://operator-integ.uidapi.com`.<br/>本番環境: `https://prod.uidapi.com`.<br/>リージョナルオペレーターを含む全リストは、[Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
-The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.
+テスト環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API キー</Link> が必要です。
 :::
 
 ### Unencrypted JSON Body Parameters
 
-There is a single body parameter.
+ボディパラメータは 1 つだけです。
 
 | Body Parameter | Data Type | Attribute | Description | Format |
 | :--- | :--- | :--- | :--- | :--- |
-| `advertising_ids` |	string array |	Required |	The list of raw UID2s for which you want to check the opt-out status.<br/>Include a maximum of 5,000 entries in one API call. |
+| `advertising_ids` |	string array |	必須 | オプトアウトのステータスをチェックしたい raw UID2 のリスト。<br/>１回の API 呼び出しで最大 5,000 件のエントリー。 |
 
 ### Request Example
 
-The following is an example of an unencrypted JSON request body:
+以下は、暗号化されていない JSON リクエストボディの例です:
 
 ```json
 {
@@ -66,21 +66,21 @@ The following is an example of an unencrypted JSON request body:
 }
 ```
 
-The following is an encrypted opt-out status request example:
+以下は、暗号化されたオプトアウトリクエストの例です:
 
 ```json
 echo '{"advertising_ids": ["ufv1uGRovNiJNbJqiE/xzM+aKE7jP69MgspOZoEQ3xc="]}' | python3 uid2_request.py https://prod.uidapi.com/v2/optout/status [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
-For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+詳細と、さまざまなプログラミング言語でのコード例については、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON Response Format
 
 :::note
-The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されません。
 :::
 
-A successful decrypted response returns the raw UID2s that have opted out. For each, it includes the time at which the opt-out request was made. UID2s that have not opted out are not included in the response.
+復号化に成功した応答は、オプトアウトした raw UID2 を返します。それぞれについて、オプトアウトリクエストが行われた時刻が含まれます。オプトアウトしていない UID2 は応答に含まれません。
 
 ```json
 {
@@ -102,21 +102,21 @@ A successful decrypted response returns the raw UID2s that have opted out. For e
 
 ### Response Body Properties
 
-The response body includes the following properties.
+レスポンスボディには、次のプロパティが含まれます。
 
 | Property | Format | Description |
 | :--- | :--- | :--- |
-| `advertising_id` | string | The <Link href="../ref-info/glossary-uid#gl-advertising-id">advertising ID</Link> (raw UID2). |
-| `opted_out_since` | number | The UNIX timestamp (in milliseconds) that indicates when the raw UID2 was opted out. |
+| `advertising_id` | string | <Link href="../ref-info/glossary-uid#gl-advertising-id">Advertising ID</Link> (raw UID2). |
+| `opted_out_since` | number | raw UID2 がいつオプトアウトされたかを示す UNIX timestamp (ミリ秒単位)。 |
 
 ### Response Status Codes
 
-The following table lists the status property values and their HTTP status code equivalents.
+ステータスプロパティの値と、HTTP ステータスコードに対応する値は次の表の通りです。
 
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
-| `success` | 200 | The request was successful. The response will be encrypted. |
-| `client_error` | 400 | The request had missing or invalid parameters. |
-| `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
+| `success` | 200 | リクエストは成功しました。応答は暗号化されます。 |
+| `client_error` | 400 | リクエストにパラメータがないか無効でした。 |
+| `unauthorized` | 401 | リクエストにベアラートークンが含まれていないか、無効なベアラートークンが含まれているか、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれています。 |
 
-If the status value is anything other than `success`, the message field provides additional information about the issue.
+ステータスの値が `success` 以外の場合、メッセージフィールドにその問題に関する追加情報が表示されます。

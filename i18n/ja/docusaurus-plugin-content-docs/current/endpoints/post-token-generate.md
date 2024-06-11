@@ -12,9 +12,7 @@ UID2 ベースのターゲティング広告の承認とともにユーザーか
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
-:::important
-このエンドポイントは、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。`optout_check` パラメータは値 `1` が必須で、ユーザーがオプトアウトしたかどうかをチェックします。
-:::
+>IMPORTANT: このエンドポイントは、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。`optout_check` パラメータは値 `1` が必須で、ユーザーがオプトアウトしたかどうかをチェックします。
 
 このエンドポイントを直接呼び出すのではなく、UID2 SDK を使って管理することもできます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
 
@@ -33,9 +31,8 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 | `{environment}` | string | 必須 | テスト (integration) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>地域オペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください<br/>Notes:<ul><li>`integ` 環境と `prod` 環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link> が必要です。</li><li>トークンの有効期限は変更される可能性がありますが、`integ` 環境では常に `prod` 環境よりも大幅に短くなります。</li></ul> |
 
 ### Unencrypted JSON Body Parameters
-:::important
-リクエストを暗号化するときには、以下の4つの条件付きパラメータのうち **1つ** と、必須パラメータである `optout_check` の値 `1` のみを、JSON ボディのキーと値のペアとして含める必要があります。
-:::
+
+>IMPORTANT: リクエストを暗号化するときには、以下の4つの条件付きパラメータのうち **1つ** と、必須パラメータである `optout_check` の値 `1` のみを、JSON ボディのキーと値のペアとして含める必要があります。
 
 | Body Parameter | Data Type | Attribute | Description | 
 | :--- | :--- | :--- | :--- |
@@ -47,9 +44,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 ### Request Examples
 
-:::important
-サービスにアクセスするために使用される API Key を確実に秘密にするために、API Key を使用する必要のない [POST&nbsp;/token/refresh](post-token-refresh.md) と異なり、`POST /token/generate` エンドポイントを Server-Side から呼び出す必要があります。
-:::
+>IMPORTANT: サービスにアクセスするために使用される API Key を確実に秘密にするために、API Key を使用する必要のない [POST&nbsp;/token/refresh](post-token-refresh.md) と異なり、`POST /token/generate` エンドポイントを Server-Side から呼び出す必要があります。
 
 以下は、各パラメータの暗号化されていない JSON リクエストボディの例で、このうちの 1 つはトークン生成リクエストに含める必要があります:
 
