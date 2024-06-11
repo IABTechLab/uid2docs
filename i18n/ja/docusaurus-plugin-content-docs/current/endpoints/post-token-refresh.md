@@ -8,7 +8,7 @@ sidebar_position: 04
 import Link from '@docusaurus/Link';
 
 # POST /token/refresh
-[POST&nbsp;/token/generate](post-token-generate.md) エンドポイントから返された、対応する未使用のリフレッシュトークンを送信して、新しい <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を生成します。
+[POST&nbsp;/token/generate](post-token-generate.md) エンドポイントから返された、対応する未使用の Refresh Token を送信して、新しい <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を生成します。
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 

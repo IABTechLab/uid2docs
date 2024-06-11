@@ -35,7 +35,9 @@ UID2 とインテグレーションすることで得られるメリットの一
 以下の手順は、ID プロバイダー、パブリッシャー、SSO プロバイダーなど、SSP を介して UID2 Token をビッドストリームに伝播する組織を想定したワークフローの概要です。パブリッシャーは、UID2 と相互運用可能で、パブリッシャーに代わって UID2 インテグレーションを処理できる SSO プロバイダーまたは独立した ID プロバイダーと連携することを選択できます。
 
 1. ユーザーがパブリッシャーのウェブサイト、モバイルアプリ、CTV アプリにアクセスします。
-2. パブリッシャーは、オープンなインターネットの価値交換について説明し、ログインやその他の手段で、メールアドレスや電話番号の提供をユーザーに求めます。
+2. パブリッシャーは、オデータの取り扱いに関する透明性を提供し、ログインまたはその他の手段で、電子メールアドレスまたは電話番号の提供をユーザーに求めます。
+<!-- uid2_only_ep_20240312: The publisher explains the value exchange of the open internet and asks the user to provide an email address or phone number, by login or other means. -->
+<!-- euid_only_ep_20240312: The publisher provides transparency around its data practices and asks the user to provide an email address, by login or other means, and consent to the use of their email address for EUID. -->
 3. ユーザーがメールアドレスまたは電話番号を提供すると、パブリッシャーは SDK または直接 API インテグレーションを介して、それを UID2 Operator に送信します。
 
    パブリッシャーは、SSO プロバイダーやアイデンティティプロバイダーに、[DII](../ref-info/glossary-uid.md#gl-dii) やプライバシーの設定を自分たちに代わって渡すことができます。

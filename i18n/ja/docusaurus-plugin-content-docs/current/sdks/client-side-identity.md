@@ -7,6 +7,7 @@ sidebar_position: 02
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
 
 # UID2 SDK for JavaScript Reference Guide
 
@@ -137,7 +138,7 @@ SDKの [initialization](#initopts-object-void) の一部として、ID の Token
 Token の Auto-refresh について知っておくべきことは以下のとおりです:
 
 - 一度にアクティブにできる Token refresh call は 1 つだけです。
-- [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) レスポンスが、ユーザーがオプトアウトしたため、あるいはリフレッシュトークンの有効期限が切れたために失敗した場合、バックグラウンドでの自動更新処理を中断し、新しいログインを要求します ([isLoginRequired()](#isloginrequired-boolean) は `true` を返します)。それ以外のケースでは、auto-refresh の試みはバックグラウンドで継続されます。
+- [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) レスポンスが、ユーザーがオプトアウトしたため、あるいは Refresh Token の有効期限が切れたために失敗した場合、バックグラウンドでの自動更新処理を一時停止します。UID2ベースのターゲティング広告を再び使用するには、ユーザーからメールアドレスまたは電話番号を取得する必要があります（[isLoginRequired()](#isloginrequired-boolean)は`true`を返します）。
 - SDK の初期化時に指定された [callback function](#callback-function) は、以下の場合に呼び出されます:
 	- リフレッシュが成功するたびに呼び出されます。
 	- ユーザがオプトアウトした場合など、IDが無効になった場合。<br/>NOTE: ID が一時的に使用できなくなり、自動リフレッシュに失敗し続けた場合、コールバックは呼び出されません。この場合、SDK は有効期限が切れていない限り、既存の Advertising Token を使用し続けます。
@@ -406,7 +407,7 @@ ID が利用できない場合は、[isLoginRequired()](#isloginrequired-boolean
 
 ### isLoginRequired(): boolean
 
-UID2 ログイン ([POST&nbsp;/token/generate](../endpoints/post-token-generate.md) 呼び出し) が必要かどうかを指定します。
+UID2 ログイン [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) 呼び出しが必要かどうかを指定します。
 
 ```html
 <script>
@@ -418,15 +419,15 @@ UID2 ログイン ([POST&nbsp;/token/generate](../endpoints/post-token-generate
 
 | Value | Description |
 | :--- | :--- |
-| `true` | ID が利用できないため、UID2 ログインが必要です。この値は以下のいずれかを示します:<br/>- ユーザーがオプトアウトした。<br/>- Refresh token の有効期限が切れた。<br/>- ファーストパーティクッキーは利用できず、サーバーが生成した ID も提供されていない。 |
-| `false` | ログインは必要ありません。この値は以下のいずれかを示します:<ul><li>IDが存在し、有効。</li><li>IDの有効期限が切れており(ただし Refresh Token の有効期限は切れていない)、断続的なエラーによりトークンがリフレッシュされなかった。自動更新に成功すると、IDが復元される場合がある。</li></ul> |
+| `true` | ID が利用できません。この値は以下のいずれかを示します:<ul><li>ユーザーがオプトアウトした。</li><li>Refresh token の有効期限が切れた。</li><li>ファーストパーティクッキーは利用できず、サーバーで生成した ID も提供されていない。</li></ul> |
+| `false` | この値は以下のいずれかを示します:<ul><li>ID が存在し、有効。</li><li>ID の有効期限が切れており、断続的なエラーによりトークンがリフレッシュされなかった。</li><li>ID の有効期限が切れており、断続的なエラーによりトークンがリフレッシュされなかった。</li></ul> |
 | `undefined` | SDK の初期化はまだ完了していません。 |
 
 ### disconnect(): void
 
 UID2 ID をファーストパーティクッキーとローカルストレージから消去します ([UID2 ストレージフォーマット](#uid2-storage-format) を参照してください)。これによりクライアントの ID セッションが閉じられ、クライアントのライフサイクルが切断されます。
 
-未認証のユーザーが存在する場合、またはユーザーがパブリッシャーのサイトのターゲティング広告からログアウトする場合、次の呼び出しを行います:
+ユーザーがパブリッシャーのサイトからログアウトしたら、次の呼び出しを行います:
 
 ```html
 <script>

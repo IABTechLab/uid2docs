@@ -17,6 +17,17 @@ import Link from '@docusaurus/Link';
 
 SDK の技術的な詳細については、[UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください。
 
+<!-- It includes the following sections:
+
+- [Sample Implementation Website](#sample-implementation-website)
+- [Introduction](#introduction)
+- [Integration Steps](#integration-steps)
+  - [Establish Identity: Capture User Data](#establish-identity-capture-user-data)
+  - [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
+  - [Refresh Tokens](#refresh-tokens)
+  - [Clear Identity: User Logout](#clear-identity-user-logout)
+- [FAQs](#faqs) -->
+
 ## Sample Implementation Website
 
 アプリケーションの例については、SDK v3 を使用した UID2 Google Secure Signals の例を参照してください:
@@ -45,7 +56,7 @@ Google Ad Managerを使用していて、セキュアシグナル機能を使用
 
 以下の図は、ユーザーの UID2 Token をパブリッシャーと確立するために必要なステップと、UID2 Token が RTB ビッドストリームとどのようにインテグレーションされるかを説明しています。
 
-![Publisher Flow](images/publisher-flow-mermaid.png)
+![Publisher Flow](images/custom-publisher-integration-mermaid.png)
 
 以下のセクションでは、図中の各ステップについての詳細を説明します: 
 
