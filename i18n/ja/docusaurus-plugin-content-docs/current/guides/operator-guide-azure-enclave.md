@@ -21,6 +21,23 @@ UID2 Operator Confidential Container の Docker コンテナが起動すると�
 UID2 Private Operator for Azureは、以下の地域ではサポートされていません: ヨーロッパ、中国
 :::
 
+<!-- 
+* [Prerequisites](#prerequisites)
+   - [Set Up UID2 Operator Account](#set-up-uid2-operator-account)
+   - [Install Azure CLI](#install-azure-cli)
+   - [Get the Required Azure Permissions](#install-azure-cli)
+* [Deployment Environments](#deployment-environments)
+* [Deployment](#deployment)
+  - [Download UID2 Private Operator for Azure ZIP File](#download-uid2-private-operator-for-azure-zip-file)
+  * [Create Resource Group](#create-resource-group)
+  * [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup)
+  * [Set Up the VPC Network](#set-up-the-vpc-network)
+  * [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup)
+  * [Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer)
+* [Running the Health Check](#running-the-health-check)
+* [Upgrading](#upgrading)
+ -->
+
 ## Prerequisites
 
 UID2 Private Operator for Azureをデプロイする前に、以下の前提条件を完了してください:
@@ -288,6 +305,10 @@ Health Check の実行は、エンドポイントを除いてテスト環境と�
 2. Operator のステータスをテストするには、ブラウザでヘルスチェックのエンドポイントにアクセスします: `http://{LB_IP}/ops/healthcheck`.
 
    レスポンスボディが `OK` で、HTTP 200 であれば、健全なステータスを示します。
+
+import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
+
+<AttestFailure />
 
 ## Upgrading
 
