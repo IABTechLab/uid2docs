@@ -23,6 +23,24 @@ Some questions you might ask:
   - Do you want the UID2 Prebid module to do everything&#8212;generate the token, refresh the token, and pass the token into the bidstream?
   - Do you prefer to use the UID2 SDK for JavaScript to generate and refresh the token, and use Prebid to pass the token into the bidstream? -->
 
+<!-- It includes:
+
+* [Integration Steps: Summary](#integration-steps-summary)
+* [Integration Options: Client Side](#integration-options-client-side)
+* [Integration Options: Server Side](#integration-options-server-side)
+* [Options to Generate/Refresh UID2 Token](#options-to-generaterefresh-uid2-token)
+* [Options to Pass the UID2 Token into the Bid Stream](#options-to-pass-the-uid2-token-into-the-bid-stream)
+* [Client-Side or Server-Side Integration?](#client-side-or-server-side-integration)
+* [Integration Using Prebid](#integration-using-prebid)
+* [IntegrationDetails](#integration-details)
+  * [Prebid.js 8.21.0 or Later](#prebidjs-8210-or-later)
+  * [UID2 JavaScript SDK + Prebid.js 7.53.0 or later](#uid2-sdk-for-javascript--prebidjs-7530-or-later)
+  * [UID2 SDK for JavaScript](#uid2-sdk-for-javascript)
+  * [UID2 SDK for Java](#uid2-sdk-for-java)
+  * [UID2 SDK for Python](#uid2-sdk-for-python)
+  * [Direct integration (API endpoints)](#direct-integration-api-endpoints)
+ -->
+
 ## Key Integration Steps
 
 UID2 とインテグレーションするには、次の 3 つの主要なアクティビティを実装します。
@@ -63,9 +81,12 @@ UID2 とインテグレーションするには、次の 3 つの主要なアク
 
 ## Generate the UID2 Token
 
-UID2 Token を生成するには、主に 2 つの方法があります。Client-Side (ユーザーのブラウザ内) で UID2 Token 生成リクエストを開始するか、Server-Side で UID2 Token 生成リクエストを開始するかです。
+UID2 Token を生成するには、主に2つの方法があります。&#8212;UID2 Token 生成リクエストを選択することができます:
 
-それぞれのオプションには異なる利点があります。Client-Side のインテグレーションは簡単で高速です。Prebid.js 8.21.0 以降を使用したインテグレーションは、最も簡単で高速なインテグレーションオプションです。
+- Client-Side (ユーザーのブラウザ内): [Client-Side Integration Options](#client-side-integration-options) を参照してください。
+- Server-Side: [Server-Side Integration Options](#server-side-integration-options) を参照してください。
+
+それぞれのオプションには利点があります。最も簡単で高速なインテグレーションオプションとして、Prebid.js 8.21.0 以降を使用した Client-Side インテグレーションを勧めます。
 
 :::note
 すべてのインテグレーションオプションで、UID2 Token をローカルストレージまたはクッキーストレージに保存することを選択できます。
