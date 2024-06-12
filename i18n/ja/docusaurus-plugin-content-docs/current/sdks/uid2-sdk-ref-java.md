@@ -15,6 +15,7 @@ UID2 SDK for Java を使用すると、以下のことが容易になります:
 - UID2 Advertising Token の更新
 - raw UID2 を暗号化して共有用の UID2 Token を作成する
 - UID2 Token を復号化して raw UID2 にアクセスする
+- DII から raw UID2 への変換
 
 <!-- This guide includes the following information:
 
@@ -32,11 +33,11 @@ UID2 SDK for Java を使用すると、以下のことが容易になります:
 
 ## Functionality
 
-このSDKは、Server-Sideのコーディングに Java を使用しているパブリッシャー、DSP、UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
+この SDK は、Server-Side のコーディングに Java を使用しているパブリッシャー、DSP、広告主、データプロバイダー、UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
-| :--- | :--- | :--- | :--- |
-| Supported | Supported | Supported | Supported |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a Raw UID2 |
+| :--- | :--- | :--- | :--- | :--- |
+| Supported | Supported | Supported | Supported | Supported |
 
 ## API Permissions
 
