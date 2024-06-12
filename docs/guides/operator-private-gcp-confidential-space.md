@@ -38,6 +38,8 @@ At a high level, the setup steps are as follows:
 1. Follow the applicable instructions for the deployment option you chose, out of the following:
    - [Terraform Template](#deployterraform-template)
    - [gcloud CLI](#deploygcloud-cli)
+1. Enable egress rule if required.
+   - [Enable egress rule]
 
 When all steps are complete, your implementation should be up and running.
 
@@ -62,6 +64,8 @@ Before choosing your deployment option, complete these Google Cloud setup steps:
 1. Choose a name for the GCP service account that you'll use to run Confidential Space VMs; for example, `uid2-operator`. You'll use this as the `{SERVICE_ACCOUNT_NAME}` value in later steps.
 
 1. Install the gcloud CLI, required by both deployment options. Follow the instructions provided by Google: [Install the gcloud CLI](https://cloud.google.com/sdk/docs/install).
+
+1. Enable egress rule. If your VPC infrastructure only allows egress to known endpoints, you will need to enable an egress rule to allow the operator to retrieve the certificates required for attestation. Follow the details on this document from Google to enable this: [VPC Service Controls](https://cloud.google.com/vpc-service-controls/docs/supported-products#table_confidential_space).
 
 ### UID2 Operator Account Setup
 Ask your UID2 contact to register your organization as a UID2 Operator. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
@@ -390,6 +394,7 @@ Placeholder values are defined in the following table.
 | :--- | :--- |
 | `{INSTANCE_NAME}` | Your own valid VM name. |
 | `{ZONE}` | The Google Cloud zone that the VM instance will be deployed on. |
+| `{IMAGE_FAMILY}` | Use `confidential-space` for Integration and Production, `confidential-space-debug` for debugging purposes in Integration only. Note that `confidential-space-debug` will not work in Production. |
 | `{SERVICE_ACCOUNT}` | The service account email that you created as part of creating your account, in this format: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>For details, see [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions) (Step 4). |
 | `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration.<br/>This can be found in the `terraform.tfvars` file in the GCP download file (see [Operator Versions](#operator-versions)). |
 | `{OPERATOR_KEY_SECRET_FULL_NAME}` | The full name that you specified for the Operator Key secret (see [Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager)), including the path, in the format `projects/<project_id>/secrets/<secret_id>/versions/<version>`. For example: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1`. |
@@ -407,9 +412,9 @@ $ gcloud compute instances create {INSTANCE_NAME} \
   --maintenance-policy Terminate \
   --scopes cloud-platform \
   --image-project confidential-space-images \
-  --image-family confidential-space \
+  --image-family {IMAGE_FAMILY} \
   --service-account {SERVICE_ACCOUNT} \
-  --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-restart-policy=Never~tee-env-DEPLOYMENT_ENVIRONMENT=integ~tee-env-API_TOKEN_SECRET_NAME={OPERATOR_KEY_SECRET_FULL_NAME}
+  --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-container-log-redirect=true~tee-restart-policy=Never~tee-env-DEPLOYMENT_ENVIRONMENT=integ~tee-env-API_TOKEN_SECRET_NAME={OPERATOR_KEY_SECRET_FULL_NAME}~tee-env-CORE_BASE_URL=https://core-integ.uidapi.com~tee-env-OPTOUT_BASE_URL=https://optout-integ.uidapi.com
 ```
 
 ##### Sample Deployment Script&#8212;Prod
@@ -431,7 +436,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
   --image-project confidential-space-images \
   --image-family confidential-space \
   --service-account {SERVICE_ACCOUNT} \
-  --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-restart-policy=Never~tee-env-DEPLOYMENT_ENVIRONMENT=prod~tee-env-API_TOKEN_SECRET_NAME={OPERATOR_KEY_SECRET_FULL_NAME}
+  --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-container-log-redirect=true~tee-restart-policy=Never~tee-env-DEPLOYMENT_ENVIRONMENT=prod~tee-env-API_TOKEN_SECRET_NAME={OPERATOR_KEY_SECRET_FULL_NAME}~tee-env-CORE_BASE_URL=https://core-prod.uidapi.com~tee-env-OPTOUT_BASE_URL=https://optout-prod.uidapi.com
 ```
 
 #### Run the Script
@@ -484,6 +489,7 @@ The following example shows the health check for the `gcloud` command line optio
 
    ```
    $ gcloud compute instances describe {INSTANCE_NAME} \
+     --zone={ZONE} \
      --format='get(networkInterfaces[0].accessConfigs[0].natIP)'
    ```
 2. To test operator status, in your browser, go to `http://{IP}:8080/ops/healthcheck`.
@@ -494,7 +500,7 @@ import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
 
 <AttestFailure />
 
-### Upgrading
+## Upgrading
 
 When a new version of UID2 Google Cloud Platform Confidential Space is released, private operators receive an email notification of the update, with a new image version. There is a window of time for upgrade, after which the older version is deactivated and is no longer supported.
 
@@ -503,11 +509,11 @@ If you're upgrading to a new version, the upgrade process depends on the deploym
 - [Upgrading&#8212;Terraform Template](#upgradingterraform-template)
 - [Upgrading&#8212;gcloud CLI](#upgradinggcloud-cli)
 
-#### Upgrading&#8212;Terraform Template
+### Upgrading&#8212;Terraform Template
 
 If you deployed using the Terraform template, all you need to do to upgrade is update your deployment with the new `{OPERATOR_IMAGE}` that you received in the upgrade notification.
 
-#### Upgrading&#8212;gcloud CLI
+### Upgrading&#8212;gcloud CLI
 
 If you deployed using the gcloud CLI, you must manually bring up new instances that use the new `{OPERATOR_IMAGE}` and then shut down old instances.
 
