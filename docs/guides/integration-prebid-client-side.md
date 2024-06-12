@@ -160,6 +160,8 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 
 ## Optional: Specifying the API Base URL to Reduce Latency
 
+By default, the UID2 module makes calls to a UID2 production environment server in the USA.
+
 <ReduceLatency />
 
 To specify a different UID2 server when you're configuring the UID2 module, set the optional `params.uid2ApiBase` parameter, as shown in the following example:

@@ -36,4 +36,6 @@ Notes:
 
 ## Specifying the Base URL to Reduce Latency
 
+By default, some implementation options make API calls to a UID2 production environment server in the USA.
+
 <ReduceLatency />

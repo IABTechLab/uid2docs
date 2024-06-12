@@ -231,6 +231,8 @@ Bear in mind the following differences between environments:
 
 ### Optional: Specifying the API Base URL to Reduce Latency
 
+By default, this SDK makes calls to a UID2 production environment server in the USA.
+
 <ReduceLatency />
 
 To specify a different UID2 server, you can make config changes, as shown in the following examples:
