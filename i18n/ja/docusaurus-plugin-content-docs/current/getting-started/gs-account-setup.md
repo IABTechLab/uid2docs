@@ -11,6 +11,13 @@ import Link from '@docusaurus/Link';
 
 このページでは、UID2 でアカウントを設定するために必要な一般的な情報を提供します。
 
+<!-- It includes:
+
+* [Contact Info](#contact-info)
+* [Account Setup](#account-setup-details)
+* [Credentials](#credentials)
+* [API Version](#api-version)
+ -->
 ## Contact Info
 
 UID2 フレームワークにアクセスするには、以下の The Trade Desk の担当チームにご連絡ください。
@@ -41,7 +48,7 @@ UID2 に興味を示していただいたら、詳細を詰めるために担当
 パブリッシャーが、Client-Side でトークンが生成されるように UID2 を実装することに決めた場合は、サイトの**ドメイン名**のリストも提供する必要があります。これは、Client-Side の実装のみを対象としたセキュリティ対策です。
 
 :::tip
-アカウント設定に必要なのは、ルートレベルのドメインだけです。たとえば、example.com、shop.example.com、example.org の Client-Side でトークンを生成するために UID2 を実装する場合、ドメイン名 example.com と example.org だけを提供します。
+アカウント設定に必要なのは、トップレベルのドメインだけです。たとえば、example.com、shop.example.com、example.org の Client-Side でトークンを生成するために UID2 を実装する場合、ドメイン名 example.com と example.org だけを提供します。
 :::
 
 ### Client-Side Mobile Integrations

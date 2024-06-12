@@ -26,6 +26,7 @@ UID2 Portal は、UID2 アカウントを設定・構成するためのワンス
 | アカウントの管理権限を持つチームメンバーを追加します。 | [Team Members](team-members.md) |
 | ニュースやアップデートを通知する指定メール連絡先を設定します。 | [Email Contacts](email-contacts.md) |
 | キーの追加、変更、削除など、アカウントのAPIキーを管理します。 | [API Keys](api-keys.md) |
+| Client-Side 実装のみ: Client-Side で UID2 Token を生成するために必要な値を設定し、管理する。 | [Client-Side Integration](client-side-integration.md) |
 
 ## Access the UID2 Portal
 
