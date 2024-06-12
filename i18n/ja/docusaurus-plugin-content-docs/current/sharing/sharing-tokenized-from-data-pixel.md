@@ -20,6 +20,15 @@ import Link from '@docusaurus/Link';
 ピクセルのデータは不正アクセスされる可能性があるため、raw UID2 をピクセルで共有することは決して許されません。ピクセルで共有する場合は、Tokenized sharing が必要です。
 :::
 
+<!-- In this file:
+
+- [Audience](#audience)
+- [Sharing UID2 Tokens in Pixels](#sharing-uid2-tokens-in-pixels)
+- [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)
+- [Workflow: Tokenized Sharing in Tracking Pixels](#workflow-tokenized-sharing-in-tracking-pixels)
+- [Workflow: Tokenized Sharing in Creative Pixels](#workflow-tokenized-sharing-in-creative-pixels)
+- [Information for Sharing Receivers](#information-for-sharing-receivers) -->
+
 ### Audience
 
 ピクセルでの Tokenized sharing は、以下の対象者に適用されます:
@@ -82,6 +91,8 @@ UID2 送信者と受信者の両方が、UID2 Portal アカウントを作成す
 クリエイティブピクセルを使用している場合、DSP は raw UID2 を UID2 Token に変換してクリエイティブピクセルに追加します。トークンはインプレッション時に発火されるクリエイティブピクセルに追加されます。
 
 すべての実装ステップは、[raw UID2 からの Tokenized sharing](sharing-tokenized-from-raw.md) と同じです。
+
+Snowflake を使用してピクセルで Tokenized Sharing を実装する方法の例については、[Snowflake Integration Guide: Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers) を参照してください。
 
 ## Information for Sharing Receivers
 
