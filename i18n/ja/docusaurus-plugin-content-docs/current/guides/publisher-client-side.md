@@ -17,6 +17,8 @@ import Link from '@docusaurus/Link';
 
 このガイドは [Private Operator](../ref-info/glossary-uid.md#gl-private-operator) を使いたいパブリッシャーや、Server-Side でトークンを生成したいパブリッシャーには適用されません。それらのパブリッシャーは [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md) に従う必要があります。
 
+また、トラッキングピクセルなどのピクセルで UID2 Token を共有したい人にも適用できます。
+
 UID2 は、以下の機能を備えた UID2 SDK for JavaScript([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) を提供しています:
 
 - UID2 Token 生成
