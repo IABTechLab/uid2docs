@@ -49,7 +49,7 @@ At a high level, to integrate your mobile app with UID2 using the UID2 mobile SD
 
 1. Configure the SDK.
 
-1. Check that the token was successfully generated and then pass it for bidstream use.
+1. Check that the token was successfully generated and then pass it for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use.
 
 1. Optionally, configure the UID2 GMA/IMA plugins for integration with the [Google GMA SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) and the [Google IMA SDK](https://developers.google.com/interactive-media-ads/).
 

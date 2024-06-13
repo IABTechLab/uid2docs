@@ -225,7 +225,7 @@ UID2Settings.shared.environment = .custom(
 
 :::note
 Bear in mind the following differences between environments:
-- Tokens from the UID2 integration environment are not valid for passing to the bidstream.
+- Tokens from the UID2 integration environment are not valid for passing to the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.
 - You'll have a different set of Subscription ID and public key values for each environment (integration and production). Be sure to use the correct values for each environment.
 :::
 

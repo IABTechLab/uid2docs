@@ -230,7 +230,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
 
 ## Usage for DSPs
 
-The following instructions provide an example of how you can decode bidstream tokens using the UID2 SDK for Python as a DSP.
+The following instructions provide an example of how you can decode <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> tokens using the UID2 SDK for Python as a DSP.
 
 1. Create a `BidstreamClient`:
 

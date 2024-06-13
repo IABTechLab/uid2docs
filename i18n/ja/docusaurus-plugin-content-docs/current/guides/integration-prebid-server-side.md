@@ -52,14 +52,10 @@ Prebid.js を使って UID2 とインテグレーションするには、以下�
 この実装には、Prebid.js version 7.53.0 以降が必要です。バージョン情報については、[https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases) を参照してください。
 
 ## UID2 Prebid Module Page
-<!-- GWH TODO later: move to overview or to client side doc maybe when client-side implementation is added to the Prebid module pages. Now, they are only server side. -->
+
 Prebid と UID2 のインテグレーション方法に関する情報は、以下の場所にもあります:
 - Prebid サイトの Prebid User ID Submodule の [Unified ID 2.0](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) ページ。
 - Prebid GitHub リポジトリの [UID2 User ID Submodule](https://github.com/prebid/Prebid.js/blob/master/modules/uid2IdSystem.md) ページ。
-
-<!-- ## Integration Example
-
-GWH note 12/14/23: We have client-side and server-side examples for JS SDK but only server-side for Prebid. -->
 
 ## Integration Overview: High-Level Steps
 

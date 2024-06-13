@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # Web Integration Overview
 
-As a publisher, there are many ways that you can integrate with UID2 to generate identity tokens to be passed into the RTB bidstream in the context of your web pages.
+As a publisher, there are many ways that you can integrate with UID2 to generate identity tokens to be passed into the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> in the context of your web pages.
 
 On this page, you'll find a high-level overview of integration steps and integration options, with links to additional information for each option.
 
