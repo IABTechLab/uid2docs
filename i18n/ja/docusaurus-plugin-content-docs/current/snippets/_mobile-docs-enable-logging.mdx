@@ -1,17 +1,14 @@
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
-The UID2 SDK can generate logs, which could help in debugging any issues during UID2 integration work. To enable logging, do the following:
+UID2 SDK はログを生成することができ、UID2 インテグレーション作業中の問題のデバッグに役立ちます。ログを有効にするには、以下を実行します:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
 
 ```js
 // During UID2Manager initialization:
-UID2Manager.init(
-  context = this,
-  isLoggingEnabled = true
-)
+UID2Manager.init((context = this), (isLoggingEnabled = true));
 ```
 
 </TabItem>

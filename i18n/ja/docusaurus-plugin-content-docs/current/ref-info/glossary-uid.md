@@ -11,8 +11,7 @@ import Link from '@docusaurus/Link';
 # Unified ID 2.0 Glossary
 <p>このページでは、UID2のドキュメントで使用されるいくつかの重要な用語を定義しています。</p>
 
-<!-- 
-<table>
+<!-- <table>
 <thead>
 <tr align= "center">
 <th></th>
@@ -32,7 +31,6 @@ import Link from '@docusaurus/Link';
 <li><a href="#gl-app-name">App name</a></li>
 <li><a href="#gl-authorization-header">Authorization header</a></li>
 <li><a href="#gl-bearer-token">Bearer token</a></li>
-<li><a href="#gl-bidstream">Bidstream</a></li>
 <li><a href="#gl-client-key">Client key</a></li>
 <li><a href="#gl-client-secret">Client secret</a></li>
 <li><a href="#gl-closed-operator">Closed Operator</a></li>
@@ -41,14 +39,13 @@ import Link from '@docusaurus/Link';
 <li><a href="#gl-demand-side-platform">Demand-side platform</a></li>
 <li><a href="#gl-dii">Directly identifying information (DII)</a></li>
 <li><a href="#gl-docker">Docker</a></li>
-<li><a href="#gl-docker-build">Docker Build</li>
+<li><a href="#gl-docker-build">Docker Build</a></li>
 
 </ul>
 </td>
 <td>
 <ul>
 <li><a href="#gl-enclave">Enclave</a></li>
-<li><a href="#gl-euid-framework">EUID framework</a></li>
 <li><a href="#gl-first-level-hash">First-level hash</a></li>
 <li><a href="#gl-hash">Hash</a></li>
 <li><a href="#gl-identity">Identity</a></li>
@@ -71,8 +68,8 @@ import Link from '@docusaurus/Link';
 <li><a href="#gl-public-operator">Public Operator</a></li>
 <li><a href="#gl-raw-uid2">Raw UID2</a></li>
 <li><a href="#gl-refresh-token">Refresh token</a></li>
-
 </ul>
+
 </td>
 <td>
 <ul>
@@ -87,7 +84,6 @@ import Link from '@docusaurus/Link';
 <li><a href="#gl-subscription-id">Subscription ID</a></li>
 <li><a href="#gl-tokenized-sharing">Tokenized sharing</a></li>
 <li><a href="#gl-transparency-and-control-portal">Transparency and Control Portal</a></li>
-<li><a href="#gl-uid">UID</a></li>
 <li><a href="#gl-uid2-framework">UID2 framework</a></li>
 <li><a href="#gl-uid2-identifier">UID2 identifier</a></li>
 <li><a href="#gl-uid2-portal">UID2 Portal</a></li>
@@ -99,8 +95,7 @@ import Link from '@docusaurus/Link';
 </td>
 </tr>
 </tbody>
-</table>
-  -->
+</table>  -->
 
 ### A
 <dl>
@@ -119,7 +114,7 @@ import Link from '@docusaurus/Link';
 <dd><a href="#gl-client-secret">client secret</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-app-name">App name</MdxJumpAnchor></dt>
-<dd>In the context of mobile implementation, app name is a group term for the Android application ID, iOS app store ID, or iOS bundle identifier.</dd>
+<dd>モバイル実装の文脈では、アプリ名は、Android　application ID、iOS app store ID、または iOS  bundle identifier のグループ用語です。</dd>
 
 <dt><MdxJumpAnchor id="gl-authorization-header">Authorization header</MdxJumpAnchor></dt>
 <dd>Authorization header は、UID2 Service に対してクライアントを認証する方法です。</dd>
@@ -133,10 +128,6 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-bearer-token">Bearer token</MdxJumpAnchor></dt>
 <dd>Bearer token はクライアントを識別する特別な文字列です。認証のために、いくつかのUID2 エンドポイントはリクエストの Authorization header で <a href="#gl-client-key">client key</a> を Beare token として指定する必要があります。例えば、<a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> です。</dd>
-
-<dt><MdxJumpAnchor id="gl-bidstream">Bidstream</MdxJumpAnchor></dt>
-<dd>広告スポットに広告を掲載するリクエスト(ビッドリクエスト)を行うために、パブリッシャーはさまざまな情報を送信し、広告主は Ad Exchange や DSP を通じて入札を行うことができます。入札データの流れがビッドストリームです。</dd>
-<dd>ビッドストリームデータは、パブリッシャーから他の組織(パブリッシャーの設定によります)へ行き、パブリッシャーへ戻ります。</dd>
 
 </dl>
 
@@ -189,12 +180,6 @@ import Link from '@docusaurus/Link';
 <dd>Enclave は、コンピューティング環境のセキュアなサブセクションです。エンクレーブには追加のビジネスロジックとセキュリティ対策が施され、改ざんできないようになっています。</dd>
 <dd>ID2 のコンテキストでは、 <a href="#gl-private-operator">Private Operator</a> は、Enclave 内かプライベート環境で運用しなければなりません。must run inside an enclave or in a private environment. サポートされるエングレーブのバージョンについては、<a href="../guides/summary-guides#private-operator-service-integrations">Private Operator Service Integrations</a> を参照してください。</dd>
 <dd>Enclave では、オペレータイメージは特殊で、事前に定義されたバージョンでなければならず、セキュリティを確保するために追加の制約が適用されます。</dd>
-
-<dt><MdxJumpAnchor id="gl-euid-framework">EUID framework</MdxJumpAnchor></dt>
-<dd>EUID(European Unified ID)フレームワークは、広告エコシステム全体の多くの参加者に対し、オープンインターネット上での広告機会のための決定論的 ID を可能にします。これにより、パブリッシャーのウェブサイト、モバイルアプリ、コネクテッドTV(CTV)アプリからのログイン体験が可能になり、プログラマティックワークフローによる収益化が実現します。独自の名前空間を持つオープンソースのスタンドアローンソリューションとして構築されたこのフレームワークは、透明性とプライバシーを重視しています。</dd>
-<dd>EUID は、フランス、イタリア、スペインなどのヨーロッパ諸国、アイスランドなどの非ヨーロッパ諸国、アゾレス諸島、マルティニーク、イギリスなどのその他の地域を含むヨーロッパ地域で運営されています。EU プライバシー法の遵守を念頭に置いて設計されています。</dd>
-<dd>UID2 と EUID には多くの類似点がありますが、両者は完全に別物であり、トークンに互換性はありません。</dd>
-<dd>詳細は <a href="https://euid.eu/docs/intro">European Unified ID Overview</a> を参照してください。</dd>
 
 </dl>
 
@@ -293,7 +278,7 @@ import Link from '@docusaurus/Link';
 <dd><a href="#gl-private-operator">Private Operator</a> が運用する Operator Service のインスタンスです。</dd>
 
 <dt><MdxJumpAnchor id="gl-public-key">Public key</MdxJumpAnchor></dt>
-<dd>Server-Side のパブリッシャーインテグレーションでは、Public Key はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの 1 つです。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
+<dd>Client-Side のパブリッシャーインテグレーションでは、Public Key はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの 1 つです。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-public-operator">Public Operator</MdxJumpAnchor></dt>
 <dd>Public <a href="#gl-operator">Operator</a> は、UID2 Operator Service のパブリックインスタンスを実行する組織です。たとえば、The Trade Desk は現在、UID2 フレームワークの Public Operator として機能しており、すべての参加者が利用できます。</dd>
@@ -351,7 +336,7 @@ import Link from '@docusaurus/Link';
 <dd>SSO はシングルサインオンの略語です。SSO は、ユーザーがアプリやウェブサイトなどの複数のソフトウェアシステムの 1 つに、同じ認証情報(通常は ID とパスワードですが、必ずしもそうではありません) でログインすることを可能にします。SSO によって、ユーザーは 1 セットの認証情報を使って複数のアプリケーションやサイトに一度だけログインすることができます。SSO によって、ウェブサイトやアプリは独自の認証システムを維持する必要がなくなります。</dd>
 
 <dt><MdxJumpAnchor id="gl-subscription-id">Subscription ID</MdxJumpAnchor></dt>
-<dd>Server-Side のパブリッシャーインテグレーションでは、Subscription ID はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの1つです。詳細は、<a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
+<dd>Client-Side のパブリッシャーインテグレーションでは、Subscription ID はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの1つです。詳細は、<a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
 
 </dl>
 
@@ -372,15 +357,8 @@ import Link from '@docusaurus/Link';
 
 <dl>
 
-<dt><MdxJumpAnchor id="gl-uid">UID</MdxJumpAnchor></dt>
-<dd>UID は <a href="#gl-uid2-framework">UID2</a> と <a href="#gl-euid">EUID</a> の両方を包含する用語です。</dd>
-<dd>Server Side SDK など、UID2 と EUID の両方をサポートするコードコンポーネントがあるため、UID は包括的な用語として使用されています。</dd>
-<dd>UID2 と EUID には多くの類似点があります、両者は完全に別物であり、トークンに互換性はありません。</dd>
-
 <dt><MdxJumpAnchor id="gl-uid2-framework">UID2 framework</MdxJumpAnchor></dt>
 <dd>Unified ID 2.0(UID2)フレームワークは、広告エコシステム全体の多くの <a href="../intro#participants">参加者</a> に対して、オープンインターネット上の広告機会に対する決定論的 ID を可能にします。パブリッシャーのウェブサイト、モバイルアプリ、コネクテッドTV(CTV)アプリからのログイン体験を可能にし、プログラマティックワークフローを通じて収益化を実現します。独自の名前空間を持つオープンソースのスタンドアローンソリューションとして構築されたこのフレームワークは、透明性とプライバシーを重視しています。</dd>
-<dd>UID2 Operator は北米、アジアの一部、その他の地域でにあります。</dd>
-<dd>UID2 と EUID には多くの類似点がありますが、両者は完全に別物であり、トークンに互換性はありません。</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-identifier">UID2 identifier</MdxJumpAnchor></dt>
 <dd>Unified ID 2.0 (UID2)識別子には、<a href="#gl-raw-uid2">raw UID2s</a> と <a href="#gl-uid2-token">UID2 tokens</a> (Advertising token とも呼ばれるます) の2種類があります。</dd>

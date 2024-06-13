@@ -33,7 +33,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 以下の手順は、ID プロバイダー、パブリッシャー、SSO プロバイダーなど、SSP を介して UID2 Token をビッドストリームに伝播する組織を想定したワークフローの概要です。パブリッシャーは、UID2 と相互運用可能で、パブリッシャーに代わって UID2 インテグレーションを処理できる SSO プロバイダーまたは独立した ID プロバイダーと連携することを選択できます。
 
 1. ユーザーがパブリッシャーのウェブサイト、モバイルアプリ、CTV アプリにアクセスします。
-2. パブリッシャーは、オープンなインターネットの価値交換について説明し、ログインやその他の手段で、メールアドレスや電話番号の提供をユーザーに求めます。
+2. パブリッシャーは、オデータの取り扱いに関する透明性を提供し、ログインまたはその他の手段で、メールアドレスまたは電話番号の提供をユーザーに求めます。
 3. ユーザーがメールアドレスまたは電話番号を提供すると、パブリッシャーは SDK または直接 API インテグレーションを介して、それを UID2 Operator に送信します。
 
    パブリッシャーは、SSO プロバイダーやアイデンティティプロバイダーに、[DII](../ref-info/glossary-uid.md#gl-dii) やプライバシーの設定を自分たちに代わって渡すことができます。
@@ -105,8 +105,9 @@ Web インテグレーションオプションの詳細については、[Web In
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
-| Android | [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) | UID2 を使用してクライアント ID を確立し、Android デバイス上で Advertising Token を取得したいパブリッシャー向けの Android SDK リファレンスです。 |
-| iOS | [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) | UID2 を使用してクライアント ID を確立し、iOS デバイス上で Advertising Token を取得したいパブリッシャー向けの Android SDK リファレンスです。 |
+| Android/iOS (Overview) | [Mobile Integration Overview for Android and iOS](../guides/integration-mobile-overview.md) | UID2 SDK for Android または UID2 SDK for iOS を使用して UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けのオプションの概要です。 |
+| Android/iOS, Client-Side Integration | [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) | モバイルアプリ内のみの変更で UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けのインテグレーションガイドです（Server-Side の変更はありません）。 |
+| Android/iOS, Client-Server Integration | [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | UID2 とインテグレーションしたいモバイルアプリのパブリッシャー向けのインテグレーションガイドです:<ol><li>UID2 Token を Server-Side で生成するには、PublicまたはPrivate Operatorを使用します。</li><li>その結果、<Link href="../ref-info/glossary-uid#gl-identity">identities</Link> をモバイルアプリに渡し、ビッドストリームに渡します。</li></ol> |
 
 ### Prebid Integrations
 

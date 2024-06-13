@@ -10,11 +10,22 @@ import Link from '@docusaurus/Link';
 
 # Unified ID 2.0 Overview
 
+<!-- It includes the following:
+
+- [Introduction](#introduction)
+  - [Guiding Principles](#guiding-principles)
+  - [Technical Design Principles](#technical-design-principles)
+- [Elements of the UID2 Infrastructure](#elements-of-the-uid2-infrastructure)
+  - [UID2 Identifier Types](#uid2-identifier-types)
+  - [Components](#components)
+  - [Participants](#participants)
+  - [Workflows](#workflows)
+- [FAQs](#faqs)
+- [License](#license) -->
+
 UID2 は、広告エコシステム全体の多くの [参加者](#participants) にとって、オープンインターネット上の広告機会に対する決定論的な ID を可能にするフレームワークです。UID2 フレームワークにより、パブリッシャーのウェブサイト、モバイルアプリ、Connected TV (CTV)アプリからのログイン体験が、プログラマティックワークフローを通じて収益化できるようになります。独自の名前空間を持つオープンソースのスタンドアローンソリューションとして構築されたこのフレームワークは、ローカル市場の要件に合わせて設計された透明性とプライバシー制御をユーザーに提供します。
 
-:::note
-「UID2」という用語は、フレームワークと実際の識別子のいずれかを指すことがあります。特に断りのない限り、このページでは UID2 フレームワークの概要を説明します。
-:::
+>NOTE: 「UID2」という用語は、フレームワークと実際の識別子のいずれかを指すことがあります。特に断りのない限り、このページでは UID2 フレームワークの概要を説明します。
 
 ### Guiding Principles
 
@@ -61,7 +72,7 @@ UID2 は、メールアドレスや電話番号など、[directly identifying in
 
 | ID Type | Shared in Bidstream? | Description |
 | :--- | :--- | :--- |
-| **Raw UID2** | No | ハッシュ化またはハッシュ化されていないメールアドレスや電話番号などのユーザーの検証可能な個人のデータを入力として、UID2 API または SDK を通じて作成された暗号化されていない英数字の識別子です。<br/>元の個人のデータの再識別を防ぐために、入力値はハッシュ化され、ソルト化されて raw UID2 が作成されます。Raw UID2 を作成するプロセスは、広告主、サードパーティデータ プロバイダー、デマンドサイド プラットフォーム (DSP) が保存できる安全で不透明な値を作成するように設計されています。<br/>raw UID2 では大文字と小文字が区別されます。<br/>例: 架空のメールアドレス `user@example.com` の raw UID2 をリクエストすると、次の値が返されました: `E2dxEv3oMBzNHPw5iUVmwH2Hv+60D4AXYe+2ge9U0No=` |
+| **Raw UID2** | No | ハッシュ化またはハッシュ化されていないメールアドレスや電話番号などのユーザーの検証可能な個人のデータを入力として、UID2 API または SDK を通じて作成された暗号化されていない英数字の識別子です。<br/>元の個人のデータの再識別を防ぐために、入力値がまだハッシュ化されていない場合はハッシュ化し、ソルト化された後、Raw UID2 を作成するために再度ハッシュ化されます。Raw UID2 を作成するプロセスは、広告主、サードパーティデータ プロバイダー、デマンドサイド プラットフォーム (DSP) が保存できる安全で不透明な値を作成するように設計されています。<br/>raw UID2 では大文字と小文字が区別されます。<br/>例: 架空のメールアドレス `user@example.com` の raw UID2 をリクエストすると、次の値が返されました: `E2dxEv3oMBzNHPw5iUVmwH2Hv+60D4AXYe+2ge9U0No=` |
 | **UID2 Token (Advertising Token)** | Yes | Raw UID2 を暗号化したものです。UID2 Token は、ハッシュ化またはハッシュ化されていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、ビッドストリームでの保護を確実にするために暗号化されます。<br/>UID2 Token は、パブリッシャーやパブリッシャーサービスプロバイダーが使用するように設計されています。サプライサイドプラットフォーム(SSP)はビッドストリームで UID2 Token を渡し、DSP はビッドリクエスト時にそれを復号化します。<br/>UID2 Token は大文字と小文字を区別します。<br/>例：`user@example.com`という架空のメールアドレスの UID2 Token をリクエストした結果、次のような値が得られました：  `AAAABrexFHvQVhNJqu+y/ua7rsgShF8e9NUXUJOZFmeFRD8TAsJadaLfOlLkwC5iSxcOKWFD9YwMBzbbcPa92CInba+bcPTaAFNmM2ZpIHgGy6lDcNPzvEnPQh/5fyZ3MD44SX/tHyIXa0R2OBAOLBA1A81r3jefhSsxZdyyBF58KtnaX6UbaeOEaguOfMnJdmhaPeWKj33v7vGfROWtxDWmi6wvGL5lHTX9H6iIZ9i1WSsemYPUgmoDOQeT7nzllJK968OECFj5LkCazDN3pCrYSeuJby9o0fMuSZNxzp6EVzi6XVED4ETtzpcaY0AArzzdh0IXV9MgH8jyg7bJSUWXQG+8kMPZzwbs9EB+7ddAUOLZL/GBna8Hm3Im03EjN3sJ` |
 
 :::note

@@ -42,9 +42,9 @@ UID2 API の v2 アップデートは以下のとおりです:
 
 トークン生成エンドポイントおよびリフレッシュエンドポイントへのコールを独立してアップグレードできます。ここで知っておくべきことは以下のとおりです:
 
-- v1 `GET /token/generate` または v1 `GET /token/refresh` エンドポイントから v2 [POST /token/refresh](../endpoints/post-token-refresh.md) にリフレッシュトークンを渡せますが、レスポンスの暗号化はされません。
-- v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントは、v2 [POST /token/generate](../endpoints/post-token-generate.md) または v2 [POST /token/refresh](../endpoints/post-token-refresh.md) によって戻されたリフレッシュトークンにのみ応答を暗号化して、呼び出し側がこれらのエンドポイントが戻すリフレッシュ応答キーを持っていると仮定して、その応答を暗号化しています。
-- v2 [POST /token/generate](../endpoints/post-token-generate.md) または v2 [POST /token/refresh](../endpoints/post-token-refresh.md) のエンドポイントから返されたリフレッシュトークンを、応答を暗号化しない v1 `GET /token/refresh` エンドポイントに渡せます。
+- v1 `GET /token/generate` または v1 `GET /token/refresh` エンドポイントから v2 [POST /token/refresh](../endpoints/post-token-refresh.md) に Refresh Token を渡せますが、レスポンスの暗号化はされません。
+- v2 [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントは、v2 [POST /token/generate](../endpoints/post-token-generate.md) または v2 [POST /token/refresh](../endpoints/post-token-refresh.md) によって戻された Refresh Token にのみ応答を暗号化して、呼び出し側がこれらのエンドポイントが戻すリフレッシュ応答キーを持っていると仮定して、その応答を暗号化しています。
+- v2 [POST /token/generate](../endpoints/post-token-generate.md) または v2 [POST /token/refresh](../endpoints/post-token-refresh.md) のエンドポイントから返された Refresh Token を、応答を暗号化しない v1 `GET /token/refresh` エンドポイントに渡せます。
 
 [Client-Side JavaScript SDK (v2)](../sdks/client-side-identity.md) は、Client-Side JavaScript SDK v1 との互換性を保った交換部品 (a drop-in replacement)です。ここで知っておくべきことは以下のとおりです:
 - ユーザーの ID を保存するために使用されるファーストパーティクッキーは、SDK の 2 つのバージョン間で完全に相互運用可能です。つまり、Client-Side JavaScript SDK v2 は v1 の Cookie を読むことができ、その逆も同様です。

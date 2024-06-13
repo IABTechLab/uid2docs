@@ -7,134 +7,134 @@ sidebar_position: 09
 
 # Client-Side Integration
 
-In the UID2 Portal, if you want to use an implementation option that generates UID2 tokens on the client side, you'll need to define one or more of each of the values shown in the following table.
+UID2 Portal では、Client-Side でトークンを生成する実装オプションを使用する場合、次の表に示す各値の 1 つ以上を定義する必要があります。
 
 | Value | Details | Documentation Link |
-| :--- | :--- | :---|
-| Key pair | At least one. In your implementation, you'll share the public key. | [Subscription ID and Public Key](getting-started/gs-credentials.md#subscription-id-and-public-key) |
-| Domain | At least one. Provide a complete list of your root-level domains. | [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers) |
+| :--- | :--- | :--- |
+| Key pair | 少なくとも一つ。実装では、公開鍵を共有します。 | [Subscription ID and Public Key](getting-started/gs-credentials.md#subscription-id-and-public-key) |
+| Domain | 少なくとも1つ。ルートレベルドメインの完全なリストを提供します。 | [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers) |
 
 :::important
-It's important to provide a complete list of root-level domain names for your sites. This is a security measure, for client-side implementation only. If a domain is not defined in the UID2 Portal, UID2 token requests from that domain will fail.
+サイトのルートレベルドメインの完全なリストを提供することが重要です。これは、クライアントサイドの実装にのみ関連するセキュリティ対策です。UID2 Portal で定義されていないドメインの場合、そのドメインからの UID2 Token リクエストは失敗します。
 :::
 
-On the Client-Side Integration page you can perform all activities relating to setting up and managing these values.
+Client-Side インテグレーションページでは、これらの値の設定と管理に関連するすべてのアクティビティを実行できます。
 
 :::note
-When you go into the Client-Side Integration page, you'll be prompted to provide missing configuration items if you haven't yet created at least one key pair and at least one top-level (root-level) domain.
+Client-Side インテグレーションページに移動すると、少なくとも 1 つのキーペアと、少なくとも 1 つのトップレベル（ルートレベル）ドメインを作成していない場合、不足している構成項目を提供するよう促されます。
 :::
 
 ## Client-Side Implementation Options
 
-Client-side implementation options are shown in the following table. The options available to you depend on your role.
+Client-Side の実装オプションは、次の表に示すとおりです。利用可能なオプションは、あなたの役割によって異なります。
 
 | Client-Side Implementation Option | Available For (Role) | Documentation Link |
-| :--- | :--- | :---|
+| :--- | :--- | :--- |
 | UID2 JavaScript SDK | Publishers, Advertisers | [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) |
 | Prebid.js client-side integration | Publishers only |[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) |
 
 ## Adding a Key Pair
 
-To add a key pair, complete the following steps:
+キーペアを追加するには、次の手順を実行します:
 
-1. Log in to your UID2 Portal account.
-1. On the **Client-Side Integration** page, click **Add Key Pair**.
-1. In the **Add Key Pair** overlay, provide a name, and then click **Add Key Pair**.
+1. UID2 Portal アカウントにログインします。
+1. **Client-Side Integration** ページに移動し、**Add Key Pair** をクリックします。
+1. **Add Key Pair** オーバーレイで名前を入力し、**Add Key Pair** をクリックします。
 
-   On the **Client-Side Integration** page, the new key pair is displayed with the name, Subscription ID, public key, and the date it was created.
+   **Client-Side Integration** ページに、名前、Subscription ID、Public key、および作成日が表示されます。
 
 ## Copying or Viewing a Public Key
 
-When you create a key pair in the Client-Side Integration page, you can share your public key. The UID2 service uses the corresponding private key, plus other values, to authenticate your messages.
+Client-Side インテグレーションページでキーペアを作成すると、公開鍵を共有できます。UID2 Service は、メッセージを認証するために、対応する秘密鍵と他の値を使用します。
 
-To view or copy a public key, follow these steps:
+Public key を表示またはコピーするには、次の手順を実行します:
 
-1. In the UID2 Portal, go to the **Client-Side Integration** page.
-1. Find the key pair on the list and then, in the Public Key column, do one of the following:
+1. UID2 Portal で、**Client-Side Integration** ページに移動します。
+1. リストでキーペアを見つけ、次のいずれかを実行します:
 
-   - Click ![the View Public Key icon](images/icon-eye-solid.png) (the View Public Key icon) to view the key in a popup.
-   - Click ![the Copy icon](images/icon-copy-solid.png)  (the Copy Public Key to Clipboard icon).
+   - **Public Key** 列の ![View Public Key icon](images/icon-eye-solid.png) (View Public Key アイコン) をクリックして、ポップアップでキーを表示します。
+   - **Public Key** 列の ![Copy icon](images/icon-copy-solid.png) (Copy Public Key to Clipboard アイコン) をクリックします。
 
-     Save the public key in a safe place.
+     公開鍵を安全な場所に保存します。
 
 ## Changing the Name of a Key Pair
 
-When you've created a key pair, the only value you can change is the name. To change the value, you'll need to create a new key pair.
+キーペアを作成した後は、名前のみを変更できます。値を変更するには、新しいキーペアを作成する必要があります。
 
-To change the name of a key pair, complete the following steps:
+キーペアの名前を変更するには、次の手順を実行します:
 
-1. In the UID2 Portal, go to the **Client-Side Integration** page.
-1. Find the key pair on the list.
-1. In the Actions column, click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon).
-1. Update the name, and then click **Save Key Pair**.
+1. UID2 Portal で、**Client-Side Integration** ページに移動します。
+1. リストでキーを見つけ、**Actions** 列で ![the Edit icon](images/icon-pencil-solid.png) (Edit アイコン) をクリックします。
+1. 名前を更新し、**Save Key Pair** をクリックします。
 
 ## Deleting a Key Pair
 
-To delete a key pair, follow these steps:
+キーペアを削除するには、次の手順を実行します:
 
-1. Find the key on the list and then, in the Actions column, click ![the Delete icon](images/icon-trash-can-solid.png) (the Delete icon).
-1. At the confirmation message, type the Subscription ID to confirm that you want to delete the key pair. You can copy and paste from the display.
-1. Click **Delete Key Pair**.
+1. UID2 Portal で、**Client-Side Integration** ページに移動します。
+1. リストでキーを見つけ、**Actions** 列で ![the Delete icon](images/icon-trash-can-solid.png) (Delete アイコン) をクリックします。
+1. 確認メッセージで、キーペアを削除することを確認するために Subscription ID を入力します。画面からコピーして貼り付けることができます。
+1. **Delete Key Pair** をクリックします。
 
-   The key pair is removed from the display and is no longer valid.
+   キーペアはリストから削除され、有効ではなくなります。
 
 ## Adding Domains
 
 :::tip
-Only root-level domains are required for account setup. For example, if you're going to implement UID2 to generate tokens on the client side on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
+ルートレベルドメインのみがアカウント設定に必要です。たとえば、example.com、shop.example.com、example.org の Client-Side でトークンを生成するために UID2 を実装する場合、ドメイン名 example.com と example.org だけを提供します。
 :::
 
-To add one or more top-level (root-level) domains, complete the following steps:
+1 つ以上のトップレベル（ルートレベル）ドメインを追加するには、次の手順を実行します:
 
-1. Log in to your UID2 Portal account.
-1. On the **Client-Side Integration** page, click **Add Domains**.
-1. In the **Add Domains** overlay, type or paste the list of domains. Note:
+1. UID2 Portal アカウントにログインします。
+1. **Client-Side Integration** ページに移動し、**Add Domains** をクリックします。
+1. **Add Domains** オーバーレイで、ドメインのリストを入力または貼り付けます。注:
 
-   - The following are valid as separators for domains in the list: comma, semicolon, space, tab, or new line.
-   - By default, the domains you add are appended to the list. To replace the existing list, check **Replace all existing domains with the new ones.**
+   - ドメインのリストの区切り文字として、次のものが有効です: カンマ、セミコロン、スペース、タブ、または改行。
+   - 追加するドメインはデフォルトでリストに追加されます。既存のリストを置き換える場合は、**Replace all existing domains with the new ones** をチェックします。
 
-1. Click **Add Domains**.
-
-   On the **Client-Side Integration** page, the list is updated.
+1. **Add Domains** をクリックします。
+   
+      **Client-Side Integration** ページが更新されます。
 
 ## Changing a Domain
 
-To change the name of a domain on the list, complete the following steps:
+リストのドメイン名を変更するには、次の手順を実行します:
 
-1. In the UID2 Portal, go to the **Client-Side Integration** page.
-1. Find the domain on the list.
-1. In the Actions column, click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon).
-1. Update the name, and then click **Save Domain**.
+1. UID2 Portal で、**Client-Side Integration** ページに移動します。
+1. リストでドメインを見つけます。
+1. **Actions** 列で ![the Edit icon](images/icon-pencil-solid.png) (Edit アイコン) をクリックします。
+1. 名前を更新し、**Save Domain** をクリックします。
 
 ## Deleting a Domain
 
-To delete a domain from your domains list, follow these steps:
+ドメインをドメインリストから削除するには、次の手順を実行します:
 
-1. In the UID2 Portal, go to the **Client-Side Integration** page.
-1. Find the domain on the list.
-1. In the Actions column, click ![the Delete icon](images/icon-trash-can-solid.png) (the Delete icon).
-1. At the confirmation message, click **Delete Domain**.
+1. UID2 Portal で、**Client-Side Integration** ページに移動します。
+1. リストでドメインを見つけます。
+1. **Actions** 列で ![the Delete icon](images/icon-trash-can-solid.png) (Delete アイコン) をクリックします。
+1. 確認メッセージで、**Delete Domain** をクリックします。
 
-   The domain is removed from your domains list.
+   ドメインはドメインリストから削除されます。
 
 ## Deleting Multiple Domains
 
-There are two ways that you can delete more than one domain at a time:
+複数のドメインを一度に削除する方法は 2 つあります:
 
-- Choose multiple individual domains from the list and then delete the selected domains.
-- Replace your existing domains list with an updated list that you are adding. See [Adding Domains](#adding-domains).
+- リストから複数のドメインを選択してから、選択したドメインを削除します。
+- 既存のドメインリストを、追加する最新のリストに置き換えます。[Adding Domains](#adding-domains) を参照してください。
 
-To multi-select domains for deletion:
+複数のドメインを削除するには:
 
-1. In the UID2 Portal, go to the **Client-Side Integration** page.
-1. In the **Top-Level Domains** section of the page, check the box below the heading.
+1. UID2 Portal で、**Client-Side Integration** ページに移動します。
+1. ページの**Top-Level Domains** セクションで、見出しの下のチェックボックスをオンにします。
 
-   All domains are selected for deletion.
+   すべてのドメインが削除されます。
 
-1. Conditional: if you want to keep some of the domains, clear the check boxes for those domains.
+1. 条件付き: いくつかのドメインを保持する場合は、それらのドメインのチェックボックスをクリアします。
 
-1. Above the list, click ![the Delete icon](images/icon-trash-can-solid.png) Delete Domains.
+1. リストの上にある ![the Delete icon](images/icon-trash-can-solid.png) Delete Domains をクリックします。
 
-1. At the confirmation message, click **Delete Domains**.
+1. 確認メッセージで、**Delete Domains** をクリックします。
 
-   The domains are removed from your domains list.
+   ドメインはドメインリストから削除されます。

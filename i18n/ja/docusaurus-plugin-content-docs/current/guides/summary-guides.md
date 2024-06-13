@@ -53,10 +53,11 @@ Web インテグレーションオプションの詳細については、[Web In
 
 Android または iOS デバイスとインテグレーションするパブリッシャーは、以下のリソースを利用できます。
 
-| Integration Guide | Content Description |
-| :--- | :--- |
-| [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) | Android アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にするSDKです。 |
-| [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) | iOS アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にするSDKです。 |
+| Integration Type| Documentation | Content Description |
+| :--- | :--- | :--- |
+| Android/iOS (Overview) | [Mobile Integration Overview for Android and iOS](integration-mobile-overview.md) | UID2 SDK for Android または UID2 SDK for iOS を使用して UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けのオプションの概要です。 |
+| Android/iOS, Client-Side Integration | [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) | モバイルアプリ内のみの変更で UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けの統合ガイドです (Server-Side の変更はありません)。 |
+| Android/iOS, Client-Server Integration | [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | UID2 とインテグレーションしたいモバイルアプリのパブリッシャー向けのインテグレーションガイドです:<ol><li>UID2 Token を Server-Side で生成するには、PublicまたはPrivate Operatorを使用します。</li><li>その結果、<Link href="../ref-info/glossary-uid#gl-identity">identities</Link> をモバイルアプリに渡し、ビッドストリームに渡します。</li></ol> |
 
 ### Prebid Integrations
 

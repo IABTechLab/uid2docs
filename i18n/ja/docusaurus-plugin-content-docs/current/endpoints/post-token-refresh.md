@@ -8,15 +8,13 @@ sidebar_position: 04
 import Link from '@docusaurus/Link';
 
 # POST /token/refresh
-[POST&nbsp;/token/generate](post-token-generate.md) エンドポイントから返された、対応する未使用のリフレッシュトークンを送信して、新しい <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を生成します。
+[POST&nbsp;/token/generate](post-token-generate.md) エンドポイントから返された、対応する未使用の Refresh Token を送信して、新しい <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を生成します。
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
 このエンドポイントは API キーを使用する必要がないため、クライアントサイド(ブラウザやモバイルアプリなど)から呼び出すことができます。
 
-:::note
-このエンドポイントを直接呼び出すのではなく、UID2 SDK を使って管理することもできます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
-:::
+>NOTE: このエンドポイントを直接呼び出すのではなく、UID2 SDK を使って管理することもできます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
 
 ## Request Format 
 
@@ -35,7 +33,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | 必須 | テスト (インテグレーション) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>地域オペレーターを含む全リストは、[Environments](../getting-started/gs-environments.md) を参照してください。<br/>Notes:<ul><li>`integ` 環境と `prod` 環境は異なる <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link> を必要とします。</li><li>トークンの有効期限は変更される可能性がありますが、`integ` 環境では常に `prod` 環境よりも大幅に短くなります。</li></ul> |
+| `{environment}` | string | 必須 | インテグレーション環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>地域オペレーターを含む全リストは、[Environments](../getting-started/gs-environments.md) を参照してください。<br/>Notes:<ul><li>`integ` 環境と `prod` 環境は異なる <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link> を必要とします。</li><li>トークンの有効期限は変更される可能性がありますが、`integ` 環境では常に `prod` 環境よりも大幅に短くなります。</li></ul> |
 
 #### Testing Notes
 
