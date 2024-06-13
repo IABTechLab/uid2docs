@@ -148,7 +148,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 次の図は、Private Operator をホストする仮想プライベートクラウドを示したものです。
 
-![EUID Operator VPC Chart](images/aws-vpc-chart-uid2.svg)
+![EUID Operator VPC Chart](images/aws-vpc-chart-uid2.png)
 
 ## Deployment
 
