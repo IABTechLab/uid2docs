@@ -41,9 +41,9 @@ UID2 Google Mobile Ads (GMA) Plugin for Android は、[Google Mobile Ads (GMA) S
 
 ## Installation
 
-前提条件: Google Mobile Ads SDK と UID2 Android SDK をインストールしてください。
+前提条件: Google Mobile Ads SDK と UID2 SDK for Android をインストールしてください。
 
-UID2 Android SDK と Google IMA SDK がインストールされている既存のアプリに、UID2 Android GMA Plugin v0.5.0 をインストールします。インストール方法は 2 つあります:
+UID2 SDK for Android と Google IMA SDK がインストールされている既存のアプリに、UID2 Android GMA Plugin v0.5.0 をインストールします。インストール方法は 2 つあります:
 
 - [Gradle](#gradle)
 - [Maven](#maven)

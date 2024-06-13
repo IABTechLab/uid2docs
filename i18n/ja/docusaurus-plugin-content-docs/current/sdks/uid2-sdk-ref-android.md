@@ -9,7 +9,29 @@ import Link from '@docusaurus/Link';
 
 # UID2 SDK for Android Reference Guide
 
-UID2 SDK for Android を使用すると、UID2 を使用してクライアント ID を確立し、Android デバイス上で Advertising Token を取得するプロセスを容易にすることができます。
+<!-- This guide includes the following information:
+
+- [Non-Mobile Android Device Support](#non-mobile-android-device-support)
+- [Functionality](#functionality)
+- [API Permissions](#api-permissions)
+- [SDK Version](#sdk-version)
+- [GitHub Repository/Binary](#github-repositorybinary)
+- [Minimum Requirements](#minimum-requirements)
+- [Installation](#installation)
+  -  [Installing with Gradle](#installing-with-gradle)
+  -  [Installing with Maven](#installing-with-maven)
+- [Usage Guidelines](#usage-guidelines)
+- [Code Samples](#code-samples)
+- [UID2Manager API](#uid2manager-api)
+  -  [Functions](#functions)
+  -  [Variables](#variables)
+ -->
+
+UID2 SDK for Android は、以下の用途に使用できます:
+
+- UID2 を使用して Android アプリでクライアント ID を生成または確立する。
+- ビッドストリーム様に Advertising Token を取得する。
+- UID2 トークンの自動リフレッシュ。
 
 以下の Android 関連プラグインと関連ドキュメントも利用できます。
 
@@ -18,35 +40,34 @@ UID2 SDK for Android を使用すると、UID2 を使用してクライアント
 | Google Mobile Ads (GMA) SDK を使用して、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を [Secure Signal](https://support.google.com/admob/answer/11556288) として送信するには、次の手順に従います。 | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) |
 | Google Interactive Media Ads (IMA) SDK for Android を使用して、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を [Secure Signal](https://support.google.com/admob/answer/11556288) として送信するには、次の手順に従います。 | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) |
 
+## Non-Mobile Android Device Support
+
+この UID2 SDK for Android は、Android プラットフォームの非モバイルデバイスにも使用できます。
+
 ## Functionality
 
 この SDK は、Android デバイス上で動作するアプリで UID2 をサポートしたいパブリッシャー向けに、UID2 とのインテグレーションを簡素化します。以下の表に、この SDK がサポートする機能を示します。
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
-| Not supported | Not supported | Not supported | Supported |
+| Not supported | Not supported | Supported | Supported |
+
+UID2 SDK for Android は、Android アプリに代わって UID2 ID を生成または管理するように設計されています。プラットフォームネイティブの暗号化ツールを使って ID をデバイス上に安全に保存することで、アプリのライフサイクル全体にわたって UID2 ID を持続させることができます。
+
+デフォルトでは、SDK は有効期限に基づいて UID2 ID を自動的にリフレッシュします。ただし、これを無効にして、実装アプリが UID2 ID のライフサイクルを手動で管理できるようにすることもできます。
 
 ## API Permissions
 
 この SDK を使用するには、[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了する必要があります。
-
-SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。SDK には、使用する権限を持たない機能があるかもしれないことに留意してください。例えば、パブリッシャーはトークンの生成と更新のために特定の API Permissions を取得しますが、SDK は共有などの他のアクティビティをサポートするかもしれません。
-
-詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。
 
 ## SDK Version
 
-<!-- As of 2023-07-15 -->
+<!-- As of 7 May 2024 -->
 
-このドキュメントは UID2 Android SDK バージョン 0.5.0 以降用です。
+このドキュメントは、UID2 SDK for Android バージョン1.2.0以降用です。
 
-特定のリリース・バージョンについては、[https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases) を参照してください。
-
-## Features
-
-UID2 Android SDK は、Android アプリに代わって UID2 Identity を管理するように設計されています。プラットフォームネイティブの暗号化ツールを使って Identity をデバイス上に安全に保存することで、アプリのライフサイクル全体にわたって UID2 Identity を持続させることができます。
-
-デフォルトでは、SDK は有効期限に基づいて UID2 Identity を自動的にリフレッシュします。ただし、これを無効にして、実装アプリが UID2 Identity のライフサイクルを手動で管理できるようにすることもできます。
+リリースノートの情報については、[https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases) を参照してください。
 
 ## GitHub Repository/Binary
 
@@ -62,7 +83,7 @@ UID2 Android SDK は、Android アプリに代わって UID2 Identity を管理�
 
 この SDK の最小要件は以下の通りです:
 
-- Android Studio version: 2022.1.1 Patch 2+
+- Android Studio version: v2023.3.1+
 - Minimum target Android version: 4.4+ / API 19+ (SDK) 5.0+ / API 21+ (Dev-App)
 
 <!-- See also: [Requirements](https://github.com/IABTechLab/uid2-android-sdk/blob/main/README.md#requirements). -->
@@ -92,77 +113,20 @@ Maven を使用してインストールするには、`pom.xml` ファイルに�
 <dependency> 
   <groupId>com.uid2</groupId> 
   <artifactId>uid2-android-sdk</artifactId> 
-  <version>0.5.0</version> 
+  <version>1.2.0</version>
 </dependency> 
 ```
 
 ## Usage Guidelines
 
-最初の UID2 Identity は、実装アプリケーションが生成し、UID2 SDK に渡す必要があります。セキュリティ要件のため、UID2 Mobile SDK は新しい UID2 Identity を作成できません。
+**UID2Manager** シングルトンは、UID2 SDK for Android の主要な開発者 API です。UID2 Token を含む UID2 Identity の保存、リフレッシュ、取得を行います。
 
-UID2 Mobile SDKは、ID が確立された後、UID2 Identity のリフレッシュを実行できます。これは、リフレッシュ機能が UID2 Identity の一部である Refresh Token に依存しているからです。
+UDI2Manager シングルトンは使用前に初期化する必要があります。なぜなら:
 
-**UID2Manager** シングルトンは、UID2 Android および iOS SDK の主要な開発者 API です。UID2 Identity の保存、リフレッシュ、取得を行います。
+-   後でのアクセスが容易になるからです。
+-   消費アプリケーションがリクエストを行うためのネットワークインスタンスを提供できる可能性があるからです。
 
-Android では、`UID2Manager` を使用する前に手動で初期化する必要があります。[Android Initialization](#android-initialization) を参照してください。
-
-## UID2Manager API
-
-このセクションには、UID2Manager API の一部である関数と変数が含まれています。
-
-### Functions
-
-UID2Manager API の一部として、以下の関数が利用できます:
-- [setIdentity()](#setidentity)
-- [resetIdentity()](#resetidentity)
-- [refreshIdentity()](#refreshidentity)
-- [getAdvertisingToken()](#getadvertisingtoken)
-- [setAutomaticRefreshEnabled()](#setautomaticrefreshenabled)
-
-#### setIdentity()
-
-SDK が管理する UID2 Identity を設定します。
-
-#### resetIdentity()
-
-SDK が現在管理している UID2 Identity をリセットまたは削除します。
-
-#### refreshIdentity()
-
-SDK が管理している UID2 Identity を手動でリフレッシュします。
-
-#### getAdvertisingToken()
-
-現在の UID2 Identity が有効な場合、この関数は UID2 Token (Advertising Token) を返します。
-
-#### setAutomaticRefreshEnabled()
-
-自動更新機能のトグルです。
-
-### Variables
-
-UID2Manager API では、以下の変数を使用できます:
-
-- [identity](#identity)
-- [identityStatus](#identitystatus)
-
-#### identity
-
-identity 変数は、SDK によって管理されている現在の UID2Identity データオブジェクトを格納し、返します。
-
-#### identityStatus
-
-identityStatus 変数は、SDK が管理している現在の UID2 Identity のステータスを格納し、返します。
-
-## Android Initialization
-
-Android の実装では、使用前にシングルトンを初期化します。これには2つの意味があります:
-
-- 後で簡単にアクセスできるようになります。
-
-- 使用側アプリケーションがリクエストの作成を担当する独自のネットワークインスタンスを提供できるようになります。
-
-初期化は、次の例に示すように、APPLICATION インスタンスの生成時に行うことができます:
+初期化は、アプリケーションインスタンスの作成時に行うことができます。次の例を参照してください:
 
 ```js
 class MyApplication : Application() {
@@ -173,18 +137,88 @@ class MyApplication : Application() {
    UID2Manager.init(this.applicationContext)
 ```
 
+最初の UID2 Identity を確立する方法は 2 つあります:
+
+1. DII を使用して UID2 ID を生成します&#8212;メール (ハッシュ化または非ハッシュ化) または電話番号 (ハッシュ化または非ハッシュ化) を使用します。インテグレーション手順については、[Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) を参照してください。
+
+2. Server-Side で UID2 ID を生成し、それを UID2 SDK に渡します。インテグレーション手順については、[Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) を参照してください。
+
+UID2 Mobile SDK は、UID2 identifier が確立された後に UID2 identities をリフレッシュできます。これは、リフレッシュ機能が UID2 Identity の一部である Refresh Token に依存しているためです。
+
 ## Code Samples
 
-以下のコードサンプルは、UID2 Android SDK を使用して UID2 を管理する具体的なアクティビティを実行する例です。
+以下のコードサンプルは、UID2 SDK for Android を使用して具体的なアクティビティを実行する例を示しています。
 
-初期 UID2 Identity を設定します:
+初期の UID2 Identity を生成します ([Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照してください):
+``` javascript
+UID2Manager.getInstance().generateIdentity(
+    identityRequest: IdentityRequest,
+    subscriptionId: String,
+    publicKey: String,
+    onResult: (GenerateIdentityResult) -> Unit
+)
+```
+UID2 Identity を設定します ([Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk) を参照してください):
 
 ```js
 UID2Manager.getInstance().setIdentity(identity: UID2Identity)
 ```
 
-SDK に渡す UID2 Token (Advertising Token) を取得します:
+Advertising SDK に渡す UID2 Token (Advertising Token) を取得します:
 
 ```js
 UID2Manager.getInstance().getAdvertisingToken()
 ```
+
+## UID2Manager API
+
+このセクションには、UID2Manager APIの一部である関数と変数が含まれています。
+
+### Functions
+
+UID2Manager API の一部として利用可能な関数は次のとおりです:
+- [generateIdentity()](#generateidentity)
+- [setIdentity()](#setidentity)
+- [resetIdentity()](#resetidentity)
+- [refreshIdentity()](#refreshidentity)
+- [getAdvertisingToken()](#getadvertisingtoken)
+- [setAutomaticRefreshEnabled()](#setautomaticrefreshenabled)
+
+#### generateIdentity()
+
+<Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link> を使用して UID2 Identity を生成します。手順については、*Client-Side Integration Guide for Mobile* の [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照してください。
+
+#### setIdentity()
+
+SDK が管理する、Server-Side で作成された UID2 Identity を設定します。詳細については、*Client-Server Integration Guide for Mobile* の [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-server.md#configure-the-uid2-mobile-sdk) を参照してください。
+
+#### resetIdentity()
+
+SDK が管理している UID2 Identity をリセットまたは削除します。
+
+#### refreshIdentity()
+
+SDK が管理している UID2 Identity を手動でリフレッシュします。
+
+#### getAdvertisingToken()
+
+現在の UID2 Identity が有効である場合、この関数は UID2 Token (Advertising Token) を返します。
+
+#### setAutomaticRefreshEnabled()
+
+自動リフレッシュ機能の有効/無効を切り替えます。
+
+### Variables
+
+UID2Manager API の一部として利用可能な変数は次のとおりです:
+
+- [identity](#identity)
+- [identityStatus](#identitystatus)
+
+#### identity
+
+Identity 変数は、SDK が管理している現在の UID2 Identity を格納し、返します。
+
+#### identityStatus
+
+identityStatus 変数は、SDK が管理している現在の UID2 Identity のステータスを格納し、返します。

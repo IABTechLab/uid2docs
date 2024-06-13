@@ -262,7 +262,7 @@ Prebid の実施を計画する際には、以下を考慮してください:
 
 - リフレッシュされたトークンを生成するために使用された元のトークンと一致しない新しいトークンを提供した場合、モジュールは保存されているすべてのトークンを破棄し、代わりに新しいトークンを使用し、リフレッシュされた状態を維持します。
 
-- インテグレーションテストでは、`params.uid2ApiBase` を `"https://operator-integ.uidapi.com"` に設定します。この値は、トークンを生成する環境と同じ環境 (本番環境またはテスト環境) に設定しなければなりません。
+- インテグレーションテストでは、`params.uid2ApiBase` を `"https://operator-integ.uidapi.com"` に設定します。この値は、トークンを生成する環境と同じ環境 (本番環境またはインテグレーション環境) に設定しなければなりません。
 
 - Prebid.js Server-Side インテグレーションの場合、クライアントサイドインテグレーション機能を無効にして、より小さな Prebid.js ビルドを作成できます。これを行うには、`--disable UID2_CSTG` フラグを渡します:
 
@@ -390,7 +390,7 @@ pbjs.setConfig({
 
 ## Optional: Reduce Latency by Setting the API Base URL for the Production Environment
 <!-- GWH "Optional: Reduce Latency by Setting the API Base URL for the Production Environment" section is identical for client side and server side. -->
-デフォルトでは、UID2 module はアメリカにある UID2 サーバーに API コールを行います。ユーザーの居住地によっては、レイテンシー(遅延時間) を短縮するために、ユーザーに近いサーバーを選択することを検討してください。
+デフォルトでは、UID2 module はアメリカにある UID2 本番環境サーバーに API コールを行います。ユーザーの居住地によっては、レイテンシー(遅延時間) を短縮するために、ユーザーに近いサーバーを選択することを検討してください。
 
 UID2 module を設定するときに別の UID2 サーバーを指定するには、次の例に示すように、オプションの `params.uid2ApiBase` パラメータを設定します:
 

@@ -10,6 +10,7 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
+import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
 
 # Client-Side Integration Guide for JavaScript
 
@@ -59,7 +60,7 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 
 アカウント設定ページに記載されている手順に従って、UID2 アカウントの設定を完了してください。アカウント設定プロセスの一環として、この UID2 SDK for JavaScript で使用するサイトの**ドメイン名**のリストを提供する必要があります。
 
-アカウントのセットアップが完了すると、Publicc Key(公開鍵) とSubesciption ID(サブスクリプション ID) が発行されます。これらの値はアカウント固有のもので、UID2 モジュールの設定に使用します。
+アカウントのセットアップが完了すると、Publicc Key(公開鍵) と Subesciption ID(サブスクリプション ID) が発行されます。これらの値はアカウント固有のもので、UID2 モジュールの設定に使用します。
 
 :::tip
 アカウント設定に必要なのは、ルートレベルのドメインだけです。例えば、JavaScript 用の UID2 SDK を example.com、shop.example.com、example.org で使用する場合、ドメイン名 example.com と example.org を指定するだけです。
@@ -108,7 +109,7 @@ SDK の詳細については、[UID2 SDK for JavaScript Reference Guide](../sdks
 
 ### Using the UID2 Integration Environment
 
-デフォルトでは、SDK は UID2 本番環境 `https://prod.uidapi.com` で動作するように設定されています。代わりに UID2 テスト環境を使用したい場合は、`init` を呼び出す際に以下の URL を指定してください:
+デフォルトでは、SDK は UID2 本番環境 `https://prod.uidapi.com` で動作するように設定されています。代わりに UID2 インテグレーション環境を使用したい場合は、`init` を呼び出す際に以下の URL を指定してください:
 
 ```js
 __uid2.init({
@@ -116,18 +117,12 @@ __uid2.init({
 });
 ```
 :::note
-UID2 テスト環境からのトークンは、ビッドストリームに渡しても無効です。テスト環境では、**subscription ID** と **public key** の値が異なります。
+UID2 インテグレーション環境からのトークンは、ビッドストリームに渡しても無効です。インテグレーション環境では、**subscription ID** と **public key** の値が異なります。
 :::
 
 ### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
 
-デフォルトでは、本番環境の JS SDK はアメリカにある UID2 サーバーに API コールを行います。ユーザーの所在地によっては、待ち時間を短縮するために、ユーザーに近いサーバーを選択することができます。
-
-例えば、シンガポールのパブリッシャーは base URL を `https://sg.prod.uidapi.com` に設定することができます。これは UID2 の本番環境ですが、サーバーはシンガポールにあります。
-
-Base URL のリストについては、[Environments](../getting-started/gs-environments.md) を参照してください。
-
-パブリッシャーは base URL を `https://global.prod.uidapi.com` に設定することもできます。この URL は読者(サイト利用者) を地理的に近い地域に誘導します。読者が地理的に分散している場合に最適です。
+<ReduceLatency />
 
 別の UID2 サーバーを指定するには、`init` 呼び出しで変更できます:
 
@@ -141,10 +136,10 @@ __uid2.init({
 
 UID2 は、Client-Side のトークン生成機能を使用するために必要な以下の値をパブリッシャーに提供します:
 
-* Subscription ID(サブスクリプション DI)
+* Subscription ID(サブスクリプション ID)
 * Public key(公開鍵)
 
-パブリッシャーのテスト環境用に 1 セット、本番環境用に別のセットを用意します。
+パブリッシャーのインテグレーション環境用に 1 セット、本番環境用に別のセットを用意します。
 
 SDK を設定するには、アカウントセットアップ時に受け取った **public key** と **Subscription ID**、およびユーザーのハッシュ化またはハッシュ化していない [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) を含むオブジェクトを指定して、以下のメソッドのいずれかを呼び出します:
 
@@ -170,10 +165,10 @@ SDK は、特定のユーザーに対して、4 つの DII フォーマットの
 
 以下のセクションでは、UID2 SDK を構成するさまざまな方法を示し、SDK に渡される DII の要件を示します:
 
-- メールアドレスの設定
-- ハッシュ化されたメールアドレスの設定
-- 電話番号の設定
-- ハッシュ化された電話番号の設定
+- メールアドレス, ハッシュ化されていない
+- メールアドレス, 正規化とハッシュ化
+- 電話番号, ハッシュ化されていない
+- 電話番号, 正規化とハッシュ化
 
 SDK が複数回設定された場合、最新の設定値が使用されます。
 
@@ -356,7 +351,6 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
 トークンの生成に問題があった場合は、**Network** タブでリクエストを見つけてください。`client-generate` という文字列でフィルタリングすることで、リクエストを見つけることができます。リクエストに失敗した理由についての情報は、レスポンスの中にあるはずです。
 
 ![Publisher Workflow](images/NetworkTraffic.png)
-
 
 ## Example Code: Hashing and Base-64 Encoding
 

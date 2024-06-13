@@ -13,7 +13,8 @@ import Link from '@docusaurus/Link';
 
 # Client-Server Integration Guide for JavaScript
 
-このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接統インテグレーションしながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成したいウェブアセットを持つパブリッシャーを対象としています。
+このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成したいウェブアセットを持つパブリッシャー向けのものです。
+これには、Server-Side で UID2 Token を生成してパブリッシャーのウェブページに渡すなど、Server-Side の変更が必要です。Client-Side の JavaScript の変更だけで UID2 とインテグレーションしたい場合は、代わりに [Client-Side Integration Guide for JavaScript](publisher-client-side.md) を参照してください。
 
 SDK の技術的な詳細については、[UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください。
 

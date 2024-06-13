@@ -45,7 +45,7 @@ UID2 に興味を示していただいたら、詳細を詰めるために担当
 
 ### Client-Side Implementation for Publishers
 
-パブリッシャーが、Client-Side でトークンが生成されるように UID2 を実装することに決めた場合は、サイトの**ドメイン名**のリストも提供する必要があります。これは、Client-Side の実装のみを対象としたセキュリティ対策です。
+パブリッシャーが [mobile](../overviews/overview-publishers.md#mobile-integrations) ではなく [web](../overviews/overview-publishers.md#web-integrations) にパブリッシングする場合で、UID2 を実装してトークンが Client-Side で生成されるようにしたい場合は、サイトの **ドメイン名** のリストも提供する必要があります。これはセキュリティ対策であり、Client-Side 実装のためだけです。
 
 :::tip
 アカウント設定に必要なのは、トップレベルのドメインだけです。たとえば、example.com、shop.example.com、example.org の Client-Side でトークンを生成するために UID2 を実装する場合、ドメイン名 example.com と example.org だけを提供します。
@@ -53,7 +53,7 @@ UID2 に興味を示していただいたら、詳細を詰めるために担当
 
 ### Client-Side Mobile Integrations
 
-If you're publishing to [mobile apps](../guides/integration-mobile-client-side.md), you'll need to provide a list of <Link href="../ref-info/glossary-uid#gl-app-name">app names</Link> for all the mobile apps that you'll be integrating with the UID2 mobile SDKs, including any of these values that apply:
+[mobile apps](../overviews/overview-publishers.md#mobile-integrations) にパブリッシングする場合、UID2 mobile SDKs とインテグレーションするすべてのモバイルアプリの <Link href="../ref-info/glossary-uid#gl-app-name">app names</Link> のリストを提供する必要があります。以下の値が適用される場合は、これらの値を提供してください:
 
 - Android Application ID
 - iOS App Store ID

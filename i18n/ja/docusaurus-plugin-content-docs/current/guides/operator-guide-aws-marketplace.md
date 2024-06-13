@@ -182,7 +182,7 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 | :--- |:--- |
 | Stack name | 好きな名前をつけてください。 |
 | OPERATOR_KEY  | UID2 Admin チームから受け取った Operator Key です。 |
-| UID2 Environment | 本番環境なら `prod`、インテグレーションテスト環境なら `integ` を選択します。 |
+| UID2 Environment | 本番環境なら `prod`、インテグレーションインテグレーション環境なら `integ` を選択します。 |
 | Instance Type | `m5.2xlarge` を推奨します。 |
 | Instance root volume size  | 15GB 以上を推奨します。 |
 | Key Name for SSH | デプロイされた EC2 インスタンスに SSH アクセスするための EC2 キーペアです。 |
