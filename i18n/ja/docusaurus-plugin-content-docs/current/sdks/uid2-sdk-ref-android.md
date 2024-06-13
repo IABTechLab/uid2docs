@@ -105,7 +105,7 @@ Gradle を使用してインストールするには、build.gradle ファイル
 implementation 'com.uid2:uid2-android-sdk:0.5.0'
 ```
 
-### Installing with Maven
+### Installing with Maven 
 
 Maven を使用してインストールするには、`pom.xml` ファイルに依存関係として SDK を追加します:
 
