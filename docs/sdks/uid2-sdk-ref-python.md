@@ -46,6 +46,13 @@ The package is published in this location:
 
 - [https://pypi.org/project/uid2-client/](https://pypi.org/project/uid2-client/)
 
+## Installation
+The SDK can be installed using pip.
+
+```
+pip install uid2-client
+```
+
 ## Initialization
 The initialization step depends on the role, as shown in the following table.
 
@@ -304,6 +311,20 @@ else:
 ```
 
 For a full example, see the `sample_sharing_client.py` in [examples/sample_sharing_client.py](https://github.com/IABTechLab/uid2-client-python/blob/main/examples/sample_sharing_client.py).
+
+## Developement
+
+### Example Usage
+You can run specific examples from the [examples](https://github.com/IABTechLab/uid2-client-python/blob/main/examples) directory
+
+```py
+python3 examples/sample_bidstream_client.py $BASE_URL $AUTH_KEY $SECRET_KEY $DOMAIN_NAME $AD_TOKEN
+```
+
+### Running tests
+```py
+python3 -m unittest discover -s ./tests/
+```
 
 ## FAQs
 
