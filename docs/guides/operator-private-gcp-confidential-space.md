@@ -39,7 +39,7 @@ At a high level, the setup steps are as follows:
    - [Terraform Template](#deployterraform-template)
    - [gcloud CLI](#deploygcloud-cli)
 1. Enable egress rule if required.
-   - [Enable egress rule]
+   - See [Confidential Space Account Setup](#confidential-space-account-setup), Step 4.
 
 When all steps are complete, your implementation should be up and running.
 
@@ -65,7 +65,7 @@ Before choosing your deployment option, complete these Google Cloud setup steps:
 
 1. Install the gcloud CLI, required by both deployment options. Follow the instructions provided by Google: [Install the gcloud CLI](https://cloud.google.com/sdk/docs/install).
 
-1. Enable egress rule. If your VPC infrastructure only allows egress to known endpoints, you will need to enable an egress rule to allow the operator to retrieve the certificates required for attestation. Follow the details on this document from Google to enable this: [VPC Service Controls](https://cloud.google.com/vpc-service-controls/docs/supported-products#table_confidential_space).
+1. Enable egress rule. If your VPC infrastructure only allows egress to known endpoints, you will need to enable an egress rule to allow the operator to retrieve the certificates required for attestation. To enable this, follow the details in this document from Google: [VPC Service Controls](https://cloud.google.com/vpc-service-controls/docs/supported-products#table_confidential_space).
 
 ### UID2 Operator Account Setup
 Ask your UID2 contact to register your organization as a UID2 Operator. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
