@@ -54,9 +54,12 @@ UID2 とインテグレーションするには、次の 3 つの主要なアク
 
 ## Generate the UID2 Token
 
-UID2 Token を生成するには、主に 2 つの方法があります。Client-Side (ユーザーのブラウザ内) で UID2 Token 生成リクエストを開始するか、Server-Side で UID2 Token 生成リクエストを開始するかです。
+UID2 Token を生成するには、主に2つの方法があります。&#8212;UID2 Token 生成リクエストを選択することができます:
 
-それぞれのオプションには異なる利点があります。Client-Side のインテグレーションは簡単で高速です。Prebid.js 8.21.0 以降を使用したインテグレーションは、最も簡単で高速なインテグレーションオプションです。
+- Client-Side (ユーザーのブラウザ内): [Client-Side Integration Options](#client-side-integration-options) を参照してください。
+- Server-Side: [Server-Side Integration Options](#server-side-integration-options) を参照してください。
+
+それぞれのオプションには利点があります。最も簡単で高速なインテグレーションオプションとして、Prebid.js 8.21.0 以降を使用した Client-Side インテグレーションを勧めます。
 
 :::note
 すべてのインテグレーションオプションで、UID2 Token をローカルストレージまたはクッキーストレージに保存することを選択できます。
@@ -99,7 +102,7 @@ Server-Side で UID2 Token を生成することには、次のような利点�
 
 セキュリティ上の理由から、UID2 Token の寿命は限られていますが、トークンをリフレッシュするメカニズムが組み込まれているので、続けて使用することができます。
 
-トークンを取得すると、Refresh Token と、トークンの有効期間を示すタイムスタンプが付いてきます。現在の UID2 Token の有効期限が切れる前に Refresh Token を使って新しい UID2 Token を生成すれば、毎回新しい UID2 Token と更新されたリフレッシュトークンが発行されます。情報を有効に保つためにリフレッシュを続けることができます。
+トークンを取得すると、Refresh Token と、トークンの有効期間を示すタイムスタンプが付いてきます。現在の UID2 Token の有効期限が切れる前に Refresh Token を使って新しい UID2 Token を生成すれば、毎回新しい UID2 Token と更新された Refresh Token が発行されます。情報を有効に保つためにリフレッシュを続けることができます。
 
 次の表は、UID2 Token のリフレッシュをサポートするインテグレーションオプションをまとめたものです。
 

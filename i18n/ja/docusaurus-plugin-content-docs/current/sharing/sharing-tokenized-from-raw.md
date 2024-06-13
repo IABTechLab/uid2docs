@@ -11,6 +11,17 @@ import Link from '@docusaurus/Link';
 
 いくつかのケースでは、共有参加者が raw UID2 を他の共有参加者に送信する前に、それらを暗号化したい場合があります。広告主がクリエイティブピクセルで UID2 を共有する場合がその一例です。
 
+<!-- In this file:
+- [Audience](#audience)
+- [Overview](#overview)
+- [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)
+- [Tokenized Sharing Steps: Summary](#tokenized-sharing-steps-summary)
+- [Implementing Sharing Encryption/Decryption with an SDK](#implementing-sharing-encryptiondecryption-with-an-sdk)
+  - [Decryption Key Refresh Cadence for Sharing (SDK Only)](#decryption-key-refresh-cadence-for-sharing-sdk-only)
+  - [Decryption Key Refresh Example](#decryption-key-refresh-example)
+- [Implementing Sharing Encryption/Decryption Using Snowflake](#implementing-sharing-encryptiondecryption-using-snowflake)
+- [Information for Sharing Receivers](#information-for-sharing-receivers) -->
+
 ### Audience
 
 raw UID2 からの Tokenized sharing は、ユースケースによっては、どの共有参加者にも適用可能です。
@@ -18,6 +29,8 @@ raw UID2 からの Tokenized sharing は、ユースケースによっては、�
 ## Overview
 
 送信前に UID2 Token に暗号化して raw UID2 を別の参加者と共有するには、共有送信者は UID2 Portal アカウントを作成して共有を実装し、受信者と共有関係を作成する必要があります。
+
+共有受信者は、UID2 Portal アカウントを作成して共有を実装し、送信者と共有関係を持つ必要があります。
 
 ## Account Setup in the UID2 Portal
 
@@ -42,11 +55,7 @@ raw UID2 から UID2 Token を生成して共有する手順を以下に説明�
 
 raw UID2 から UID2 Token を生成して共有するワークフローは、以下の手順で構成されます。
 
-:::note
-送信者と受信者の両方が UID2 Portal アカウントを持っている必要があります。[Request an Account](../portal/portal-getting-started.md#request-an-account) を参照してください。
-:::
-
-NOTE: 送信者と受信者の両方が UID2 Portal アカウントを持っている必要があります。アカウントをリクエストするには、[Request an Account](../portal/portal-getting-started.md#request-an-account) を参照してください。
+NOTE: 送信者と受信者の両方が UID2 Portal アカウントを持っている必要があります。[Request an Account](../portal/portal-getting-started.md#request-an-account) を参照してください。
 
 1. 送信者と受信者: [UID2 SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk) または [Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake) を使用して UID2 Sharing をインテグレーションします。
 
@@ -83,7 +92,6 @@ NOTE: 送信者と受信者の両方が UID2 Portal アカウントを持って�
    | Python | [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers) |
 
 2. 以下の手順に従って、SDK をコードに組み込み、送信者または受信者の役割に応じて各ステップを実装します。使用している言語のコード例を確認するには、以下の表のリンクを参照してください。
-
    1. 送信者と受信者: UID2 Client を定義します。
    
    2. 送信者と受信者: 暗号鍵の更新スケジュールを定義します。

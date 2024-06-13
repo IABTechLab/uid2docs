@@ -11,6 +11,29 @@ import Link from '@docusaurus/Link';
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+
+### New: Client-Side and Server-Side Guides for Mobile
+
+17 May 2024
+
+Android または iOS モバイルアプリのパブリッシャーが UID2 を実装するためのサポートを提供するため、以下のインテグレーションガイドを追加しました:
+
+- [UID2 Mobile Integration Overview for Android and iOS](../guides/integration-mobile-overview)
+- [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side)
+- [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server)
+
+<!-- APIDOCS-1903-->
+
+### New: UID2 Portal Client-Side Integration Page
+
+6 May 2024
+
+UID2 Portal のドキュメントに新しいページ、[Client-Side Integration](../portal/client-side-integration.md) を追加しました。
+
+UID2 Portal の Client-Side Integration ページでは、ドメインなど、クライアントサイドで UID2 Token を生成する場合に必要な値を設定・管理できます。
+
+<!-- APIDOCS-2120-->
+
 ### New: UID2 Portal API Keys Page
 
 25 April 2024
