@@ -65,7 +65,7 @@ If your server-side code is in Java or Python, you can use one of the UID2 SDKs 
 
 The client-server option is for publishers who want to generate UID2 tokens on the server side and then refresh them as needed from within the CTV app.
 
-If your CTV app is mobile based, to implement using this approach, follow the instructions in the[ UID2 Client-Server Integration Guide for Mobile](integration-mobile-client-server.md).
+To implement using this approach, follow the instructions in the[ UID2 Client-Server Integration Guide for Mobile](integration-mobile-client-server.md).
 
 :::note
 The UID2 iOS SDK is also compatible with [Apple tvOS](https://developer.apple.com/tvos/). Similarly, the UID2 Android SDK is compatible with [Android TV](https://www.android.com/tv/).
