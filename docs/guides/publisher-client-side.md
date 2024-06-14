@@ -10,7 +10,6 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
 
 # Client-Side Integration Guide for JavaScript
 
@@ -120,11 +119,13 @@ __uid2.init({
 Tokens from the UID2 integration environment are not valid for passing to the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>. For the integration environment, you will have different **Subscription ID** and **public key** values.
 :::
 
-### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
+### Optional: Specifying the API Base URL to Reduce Latency
 
-<ReduceLatency />
+By default, this SDK makes calls to a UID2 production environment server in the USA.
 
-To specify a different UID2 server, you can change it in the `init` call:
+For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md).
+
+To specify a UID2 server that is not the default, you can change it in the `init` call:
 
 ```js
 __uid2.init({

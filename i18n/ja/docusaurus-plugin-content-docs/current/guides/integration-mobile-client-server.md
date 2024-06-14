@@ -10,7 +10,7 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
+import ReduceLatencyJa from '/docs/snippets/_sdk-reduce-latency-ja.mdx';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 
@@ -179,9 +179,11 @@ UID2Settings.shared.environment = .custom(
 - 各環境（インテグレーションおよび本番）には異なる API キーとクライアントシークレット値があります。各環境で正しい値を使用してください。
 :::
 
-### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
+### Optional: Specifying the API Base URL to Reduce Latency
 
-<ReduceLatency />
+By default, this SDK makes calls to a UID2 production environment server in the USA.
+
+<ReduceLatencyJa />
 
 異なる UID2 サーバーを指定するには、`init` 呼び出しで変更してください:
 

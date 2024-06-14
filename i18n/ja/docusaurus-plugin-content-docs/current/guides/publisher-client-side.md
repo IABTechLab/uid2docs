@@ -10,7 +10,7 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
+import ReduceLatencyJa from '/docs/snippets/_sdk-reduce-latency-ja.mdx';
 
 # Client-Side Integration Guide for JavaScript
 
@@ -120,9 +120,9 @@ __uid2.init({
 UID2 インテグレーション環境からのトークンは、ビッドストリームに渡しても無効です。インテグレーション環境では、**subscription ID** と **public key** の値が異なります。
 :::
 
-### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
+### Optional: Specifying the API Base URL to Reduce Latency
 
-<ReduceLatency />
+<ReduceLatencyJa />
 
 別の UID2 サーバーを指定するには、`init` 呼び出しで変更できます:
 
