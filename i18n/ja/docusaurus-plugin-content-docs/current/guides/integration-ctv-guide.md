@@ -1,8 +1,8 @@
 ---
-title: CTV Integration Overview
-sidebar_label: CTV Integration Overview
-pagination_label: CTV Integration Overview
-description: Overview of options for UID2  mobile integration.
+title: CTV Integration Guide
+sidebar_label: CTV Integration Guide
+pagination_label: CTV Integration Guide
+description: Summary of options for UID2 mobile integration.
 hide_table_of_contents: false
 sidebar_position: 04
 displayed_sidebar: sidebarPublishers
@@ -10,7 +10,7 @@ displayed_sidebar: sidebarPublishers
 
 import Link from '@docusaurus/Link';
 
-# CTV Integration Overview
+# CTV Integration Guide
 
 If you're a CTV publisher, there are several ways that you can integrate with UID2 to generate identity tokens to be passed into the RTB bidstream in the context of your CTV apps.
 
