@@ -147,7 +147,7 @@ const fullSidebar = [
             items: [
               'guides/integration-mobile-client-side',
               'guides/integration-mobile-client-server',
-              'guides/integration-ctv-overview',
+              'guides/integration-ctv-guide',
             ],
           },
           {
