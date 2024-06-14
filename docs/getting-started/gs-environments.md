@@ -6,7 +6,6 @@ sidebar_position: 07
 ---
 
 import Link from '@docusaurus/Link';
-import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
 
 # Environments
 
@@ -38,4 +37,8 @@ Notes:
 
 By default, some implementation options make API calls to a UID2 production environment server in the USA.
 
-<ReduceLatency />
+In this scenario, depending on where your users are based, you might consider choosing a server closer to your users to reduce latency.
+
+For example, a publisher in Singapore can set the base URL to `https://sg.prod.uidapi.com`. This is still the UID2 production environment, but the servers are in Singapore.
+
+You can also set the base URL to `https://global.prod.uidapi.com`. This URL directs readers to a region geographically close to them, which is ideal if your audience is geographically distributed.

@@ -10,7 +10,6 @@ sidebar_position: 04
 import Link from '@docusaurus/Link';
 import AddPrebidjsToYourSite from '/docs/snippets/_prebid-add-prebidjs-to-your-site.mdx';
 import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser.mdx';
-import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
 
 # UID2 Client-Side Integration Guide for Prebid.js
 
@@ -162,9 +161,9 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 
 By default, the UID2 module makes calls to a UID2 production environment server in the USA.
 
-<ReduceLatency />
+For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md).
 
-To specify a different UID2 server when you're configuring the UID2 module, set the optional `params.uid2ApiBase` parameter, as shown in the following example:
+To specify a UID2 server that is not the default, when you're configuring the UID2 module, set the optional `params.uid2ApiBase` parameter, as shown in the following example:
 
 ```js
 pbjs.setConfig({ 
@@ -179,5 +178,3 @@ pbjs.setConfig({
   } 
 }); 
 ```
-
-For a full list of valid base URLs, including regional operators, see [Environments](../getting-started/gs-environments.md).

@@ -10,7 +10,6 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
 
 # Client-Side Integration Guide for JavaScript
 
@@ -124,17 +123,15 @@ Tokens from the UID2 integration environment are not valid for passing to the <L
 
 By default, this SDK makes calls to a UID2 production environment server in the USA.
 
-<ReduceLatency />
+For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md).
 
-To specify a different UID2 server, you can change it in the `init` call:
+To specify a UID2 server that is not the default, you can change it in the `init` call:
 
 ```js
 __uid2.init({
   baseUrl: "https://global.prod.uidapi.com",
 });
 ```
-
-For a full list of valid base URLs, including regional operators, see [Environments](../getting-started/gs-environments.md). 
 
 ## Configure the SDK for JavaScript
 
