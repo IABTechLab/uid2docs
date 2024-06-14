@@ -5,26 +5,39 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 SDK for Java Reference Guide
 
 UID2 SDK for Java を使用すると、以下のことが容易になります:
 
 - UID2 Advertising Token の生成
 - UID2 Advertising Token の更新
-- raw UID2を暗号化して UID2 Token を作成する
-- UID2 Advertising Token を復号化して raw UID2 にアクセスする
-- DII から raw UID2 へのマッピング
+- raw UID2 を暗号化して共有用の UID2 Token を作成する
+- UID2 Token を復号化して raw UID2 にアクセスする
+- DII から raw UID2 への変換
 
-## Overview
-ここで説明する関数は、設定に必要な情報やライブラリから取得できる情報を定義しています。以下に定義するパラメータとプロパティ名は擬似コードです。実際のパラメータやプロパティ名は言語によって異なりますが、ここで説明する情報と同様のものになります。
+<!-- This guide includes the following information:
+
+- [Functionality](#functionality)
+- [API Permissions](#api-permissions)
+- [Version](#version)
+- [GitHub Repository/Binary](#github-repositorybinary)
+- [Initialization](#initialization)
+- [Interface](#interface)
+  - [Response Content](#response-content)
+  - [Response Statuses](#response-statuses)
+* [FAQs](#faqs)
+- [Usage for Publishers](#usage-for-publishers) 
+* [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
 
 ## Functionality
 
-このSDKは、Server-Sideのコーディングに Java を使用しているパブリッシャー、DSP、UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
+この SDK は、Server-Side のコーディングに Java を使用しているパブリッシャー、DSP、広告主、データプロバイダー、UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
-| :--- | :--- | :--- | :--- |
-| Supported | Supported | Supported | Supported |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a Raw UID2 |
+| :--- | :--- | :--- | :--- | :--- |
+| Supported | Supported | Supported | Supported | Supported |
 
 ## API Permissions
 
@@ -48,56 +61,82 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 - [https://central.sonatype.com/artifact/com.uid2/uid2-client](https://central.sonatype.com/artifact/com.uid2/uid2-client)
 
-## Usage for DSPs
+## Initialization
 
-初期化関数は、SDKが UID2 Service で認証するために必要なパラメータを設定します。また、エラー発生時の再試行間隔を設定することもできます。
+初期化ステップは、以下の表に示すように、役割によって異なります。
 
-| Parameter | Description | Recommended Value |
-| :--- | :--- | :--- |
-| `endpoint` | UID2 Service のエンドポイント。 | N/A |
-| `authKey` | クライアントに付与された認証トークン。UID2 へのアクセスについては、 [Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。 | N/A |
+| Role                           | Create Instance of Class | Link to Instructions                              |
+|:-------------------------------| :--- |:--------------------------------------------------|
+| DSP                            | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps)                 |
+| Publisher                      | `PublisherUid2Client` | [Usage for Publishers](#usage-for-publishers)     |
+| Advertisers and Data Providers | `IdentityMapClient` | [Usage for Advertisers and Data Providers](#usage-for-advertisers-and-data-providers)     |
+| Sharer                         | `SharingClient` | [Usage for UID2 Sharers](#usage-for-uid2-sharers) |
+
+SDK が UID2 Service で認証するために必要な値を提供する必要があります。
+
+| Parameter | Description                                                                                | 
+| :--- |:-------------------------------------------------------------------------------------------|
+| `baseUrl/uid2BaseUrl` | The endpoint for the UID2 service. See [Environments](../getting-started/gs-environments). | 
+| `clientApiKey` | The API key. See [UID2 Credentials](../getting-started/gs-credentials).                    | 
+| `base64SecretKey` | The client secret. See [UID2 Credentials](../getting-started/gs-credentials).              | 
 
 ### Interface 
 
-このインターフェイスを使用すると、UID2 Advertising Token を復号化し、対応する raw UID2 を返すことができます。
+`BidstreamClient` クラスを使用すると、UID2 Token を raw UID2 に復号することができます。
+ユーザーのオプトアウトを処理する入札ロジックの詳細については、[DSP Integration Guide](../guides/dsp-guide.md) を参照してください。
+
+`SharingClient` クラスを使うと、raw UID2 を暗号化して UID2 Token にしたり、UID2 Token を復号して raw UID2 にしたりすることができます。
 
 :::note
 SDK を使用する際に、復号鍵を保存したり管理したりする必要はありません。
 :::
 
-DSP の場合は、入札のために UID2 Advertising Token を復号化して UID2 を返すインターフェースを呼び出します。ユーザーのオプトアウトを処理する入札ロジックの詳細については、[DSPインテグレーションガイド](../guides/dsp-guide.md) を参照してください。
+### Encryption Response Content
 
-以下は、Java での decrypt メソッド呼び出しです:
+`SharingClient` クラスで暗号化する場合、SDKは以下の表に示す情報を返します。
 
-```java
-import com.uid2.client.IUID2Client
-
-IUID2Client client = UID2ClientFactory.create(TEST_ENDPOINT, TEST_API_KEY, TEST_SECRET_KEY);
-client.refresh(); //Note that refresh() should be called once after create(), and then once per hour
-DecryptionResponse result = client.decrypt(TEST_TOKEN);
-```
-
-### Response Content
-
-SDK から返される利用可能な情報の概要を次の表に示します。
-
-| Function | Description |
+| Method | Description |
 | :--- | :--- |
-| `GetStatus()` | 復号結果のステータス。指定可能な値の一覧と定義については、[Response Statuses](#response-statuses) を参照してください。 |
-| `GetUid()` | UID2 Advertising Token に対応する raw UID2。 |
-| `GetEstablished()` | ユーザーがパブリッシャーと最初に UID2 を確立した時を示すタイムスタンプ。 |
+| `getStatus()` | 暗号化結果のステータス。取り得る値のリストと定義については、[Encryption Response Statuses](#encryption-response-statuses) を参照してください。 |
+| `getEncryptedData()` | 暗号化された UID2 token。 |
 
-### Response Statuses
+### Encryption Response Statuses
+
+暗号化レスポンスコードとその意味は以下の表の通りです。
 
 | Value | Description |
 | :--- | :--- |
-| `Success` | UID2 Advertising Token は正常に復号され、raw UID2 が返されました。 |
-| `NotAuthorizedForKey` | リクエスト元はこの UID2 Advertising Token を復号化する権限を持っていません。|
-| `NotInitialized` | クライアントライブラリは初期化待ちです。 |
-| `InvalidPayload` | 受信した UID2 Advertising Token は有効なペイロードではありません。 |
-| `ExpiredToken` | 受信した UID2 Advertising Token の有効期限が切れています。 |
-| `KeysNotSynced` | クライアントは UID2 Service からの鍵の同期に失敗しました。|
-| `VersionNotSupported` | クライアントライブラリが暗号化トークンのバージョンをサポートしていません。|
+| `SUCCESS` | raw UID2 は正常に暗号化され、UID2 Token が返されました。 |
+| `NOT_AUTHORIZED_FOR_KEY` | 呼び出し元は暗号鍵を使用する権限を持っていません。 |
+| `NOT_AUTHORIZED_FOR_MASTER_KEY` | 呼び出し元はマスターキーを使用する権限を持っていません。 |
+| `NOT_INITIALIZED` | クライアントライブラリは初期化待ちです。 |
+| `KEYS_NOT_SYNCED` | クライアントが UID2 Service との鍵の同期に失敗しました。 |
+| `ENCRYPTION_FAILURE` | 一般的な暗号化に失敗しました。 |
+
+### Decryption Response Content
+
+`BidstreamClient` クラスと `SharingClient` クラスのどちらで復号化しても、SDKは以下の表に示す情報を返します。
+
+| Methods | Description |
+| :--- | :--- |
+| `getStatus()` | 復号結果のステータス。取り得る値のリストと定義については、[Decryption Response Statuses](#decryption-response-statuses) を参照してください。 |
+| `getSiteId()` | UID2 Token に対応する raw UID2  |
+| `getEstablished()` | ユーザーがパブリッシャーと最初に UID2 を確立した時のタイムスタンプ。 |
+
+### Decryption Response Statuses
+
+復号化レスポンスコードとその意味は以下の表の通りです。
+
+| Value | Description |
+| :--- | :--- |
+| `SUCCESS` | UID2 Token は正常に復号化され、raw UID2が返されました。 |
+| `NOT_AUTHORIZED_FOR_KEY` | 呼び出し元はこの UID2 Token を復号化する権限を持っていません。 |
+| `NOT_INITIALIZED` | クライアントライブラリは初期化待ちです。 |
+| `INVALID_PAYLOAD` | 受信した UID2 Token は有効なペイロードではありません。 |
+| `EXPIRED_TOKEN` | 受信した UID2 Token の有効期限が切れました。 |
+| `KEYS_NOT_SYNCED` | クライアントが UID2 Service との鍵の同期に失敗しました。 |
+| `VERSION_NOT_SUPPORTED` | クライアントライブラリが暗号化トークンのバージョンをサポートしていません。 |
+| `INVALID_TOKEN_LIFETIME` | トークンのタイムスタンプが無効です。 |
 
 ## Usage for Publishers
 
@@ -301,63 +340,89 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/cu
    }
    ```
 
+## Usage for DSPs
+
+以下の手順は、UID2 SDK for Java を使用して DSP がビッドストリームのトークンを復号化する方法の例です。
+
+1. `BidstreamClient` を生成します:
+
+```java
+Bidstream client = new BidstreamClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+```
+
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします (推奨リフレッシュ間隔は1時間毎):
+
+```java
+client.refresh();
+```
+
+3. トークンを raw UID2に復号します。トークンを渡し、以下のいずれかを実行します:
+* ビッドリクエスト元がパブリッシャーのウェブサイトである場合は、ドメイン名を渡します。ドメイン名はすべて小文字で、スペースを入れず、サブドメインを含まないものでなければなりません。例えば、`Subdomain.DOMAIN.com` は `domain.com` を代わりに渡します。
+*ビッドリクエストがモバイルアプリから発生した場合は、[app name](../ref-info/glossary-uid.md#gl-app-name) を渡します。
+* 上記以外は `null` を渡します。
+
+```java
+DecryptionResponse decrypted = client.decryptTokenIntoRawUid(uidToken, domainOrAppName); 
+//If decryption succeeded, use the raw UID2.
+if (decrypted.isSuccess()) 
+{
+    //Use decrypted.getUid()
+}
+else 
+{
+    // Check decrypted.getStatus() for the failure reason.
+}
+```
+
+完全な例については、[test/IntegrationExamples.java](https://github.com/IABTechLab/uid2-client-java/blob/main/src/test/java/com/uid2/client/test/IntegrationExamples.java) の `ExampleBidStreamClient` メソッドを参照してください。
 
 ## Usage for UID2 Sharers
 
-UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のことです。raw UID2を他の参加者に送信する前に、UID2 Token に暗号化する必要があります。使用例については、[com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` メソッド) を参照してください。
+UID2 では、共有とは、raw UID2 または UID2 Token を UID2 参加者間で安全に配布するためのプロセスです。raw UID2は、別の参加者に送る前に UID2 Token に暗号化されなければなりません。
 
-:::important
-このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
-:::
+>IMPORTANT: このプロセスで生成される UID2 Token は共有専用で、ビッドストリームでは使用できません: [Tokenized Sharing in the Bid Stream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 
-次の手順では、UID2 SDK for Java を送信者または受信者として使用して共有を実装する方法の例を示します。
+以下の手順は、UID2 SDK for Java を使用して、送信者または受信者として共有を実装する方法の例です。
 
-1. `IUID2Client` のリファレンスを作成します:
+1. `SharingClient`　を生成します:
+```java
+SharingClient client = new SharingClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+```
 
-   ```java
-   IUID2Client client = UID2ClientFactory.create(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
-   ```
 2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします。推奨されるリフレッシュ間隔は1時間ごとです。詳細については、[Decryption Key Refresh Cadence for Sharing](../sharing/sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) を参照してください。
 
    ```java
    client.refresh();
    ```
-3. 送信者: 
-   1. 以下を呼び出します:
+3. 送信者なら `encryptRawUidIntoToken` を呼び出します:
+```java
+EncryptionDataResponse encrypted = client.encryptRawUidIntoToken(raw_uid);
+// If encryption succeeded, send the UID2 token to the receiver.
+if (encrypted.isSuccess())
+{
+        // Send encrypted.getEncryptedData() to receiver
+}
+else
+{
+        // Check encrypted.getStatus() for the failure reason.
+}
+```
+受信者なら `decryptTokenIntoRawUid` を呼び出します:
 
-      ```java
-      EncryptionDataResponse encrypted = client.encrypt(rawUid);
-      ```
-   2. 暗号化に成功した場合、UID2 Token を受信者に送信します:    
+```java
+DecryptionResponse decrypted = client.decryptTokenIntoRawUid(uid_token);
+// If decryption succeeded, use the raw UID2.
+if (decrypted.isSuccess())
+{
+    //  Use decrypted.getUid()
+}
+else
+{
+    // Check decrypted.getStatus() for the failure reason.
+}
+```
 
-      ```java
-      if (encrypted.isSuccess()) 
-      { 
-         //send encrypted.getEncryptedData() to receiver
-      } 
-      else 
-      {
-         //check encrypted.getStatus() for the failure reason
-      }
-      ```
-4. 受信者: 
-   1. 以下を呼び出します:
-
-      ```java
-      DecryptionResponse decrypted = client.decrypt(uidToken);
-      ```
-   2. 復号化に成功した場合は、raw UID2を使用します:
-
-      ```java    
-      if (decrypted.isSuccess()) 
-      {
-         //use decrypted.getUid() 
-      } 
-      else 
-      {
-       //check decrypted.getStatus() for the failure reason 
-      }
-      ```
+完全な例については、[test/IntegrationExamples.java](https://github.com/IABTechLab/uid2-client-java/blob/main/src/test/java/com/uid2/client/test/IntegrationExamples.java) の `ExampleSharingClient` メソッドを参照してください。
 
 ## FAQs
 

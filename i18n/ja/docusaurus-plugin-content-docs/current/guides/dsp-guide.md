@@ -16,9 +16,14 @@ DSP はビッドリクエストで UID2 Token を受け取り、この機能を�
 
 利用可能な Server-Side SDK の概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
 
-:::note
-バックエンドが、利用可能な Server-Side SDK のいずれでもカバーされていない言語で書かれている場合は、UID2 の担当者に問い合わせてください。誰に聞けばいいかわからない場合は、[連絡先情報](../getting-started/gs-account-setup.md#contact-info) を参照してください。
-:::
+>NOTE: バックエンドが、利用可能な Server-Side SDK のいずれでもカバーされていない言語で書かれている場合は、UID2 の担当者に問い合わせてください。誰に聞けばいいかわからない場合は、[連絡先情報](../getting-started/gs-account-setup.md#contact-info) を参照してください。
+
+<!-- It includes the following sections:
+
+* [Integration Steps](#integration-steps)
+   - [Honor User Opt-Outs](#honor-user-opt-outs)
+
+* [FAQs](#faqs) -->
 
 ## Integration Steps 
 
@@ -38,6 +43,8 @@ UID2 Service は、ユーザーがオプトアウトしてから数秒以内に�
 | :---------- | :------------------------------------- |
 | `identity`  | オプトアウトしたユーザーの raw UID2 です。 |
 | `timestamp` | ユーザーがオプトアウトした時刻です。(情報のみ) |
+
+DSPは、オプトアウトデータに対して200応答コードで応答しなければなりません。
 
 次の例は、raw UID2 とそれに対応するタイムスタンプを受信するように設定された Webhook を示しています。
 

@@ -9,11 +9,11 @@ import Link from '@docusaurus/Link';
 
 # Environments
 
-以下の表は、UID2 の現在のテスト環境と本番環境の一覧です。
+以下の表は、UID2 の現在のインテグレーション環境と本番環境の一覧です。
 
 | Environment | Cloud Region                 | Code             | Base URL                            |
 | :---------- | :--------------------------- | :--------------- | :---------------------------------- |
-| テスト環境   | AWS US East (Ohio)           | `us-east-2`      | `https://operator-integ.uidapi.com` |
+| インテグレーション環境   | AWS US East (Ohio)           | `us-east-2`      | `https://operator-integ.uidapi.com` |
 | 本番環境    | <a href='https://aws.amazon.com/global-accelerator/'>AWS Global Accelerator</a> によるリージョンルーティングの自動最適化 | `n/a` | `https://global.prod.uidapi.com` |
 | 本番環境    | AWS US East (Ohio)           | `us-east-2`      | `https://prod.uidapi.com`           |
 | 本番環境    | AWS US West (Oregon)         | `us-west-2`      | `https://usw.prod.uidapi.com`       |
@@ -26,5 +26,5 @@ import Link from '@docusaurus/Link';
 Notes:
 
 - すべてのUID2エンドポイントは同じベースURLを使用します。
-- テスト環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link> が必要です。
-- [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントによって返される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> の有効期限は変更される可能性がありますが、テスト環境では常に本番環境よりも大幅に短くなります。
+- インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link> が必要です。
+- [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントによって返される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> の有効期限は変更される可能性がありますが、インテグレーション環境では常に本番環境よりも大幅に短くなります。

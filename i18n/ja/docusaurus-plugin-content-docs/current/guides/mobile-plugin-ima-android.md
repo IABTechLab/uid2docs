@@ -41,9 +41,9 @@ UID2 Interactive Media Ads (IMA) Plugin for Android は、[Google IMA SDK for An
 
 ## Installation
 
-前提条件: Google Interactive Media Ads SDKとUID2 Android SDK をインストールします。
+前提条件: Google Interactive Media Ads SDKとUID2 SDK for Android をインストールします。
 
-UID2 Android SDK と Google IMA SDK がインストールされている既存のアプリに、UID2 Android IMA Plugin をインストールします。インストールオプションは2つあります:
+UID2 SDK for Android と Google IMA SDK がインストールされている既存のアプリに、UID2 Android IMA Plugin をインストールします。インストールオプションは2つあります:
 
 - [Gradle](#gradle)
 - [Maven](#maven)

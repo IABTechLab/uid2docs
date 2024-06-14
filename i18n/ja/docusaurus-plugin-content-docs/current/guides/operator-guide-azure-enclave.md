@@ -21,6 +21,23 @@ UID2 Operator Confidential Container の Docker コンテナが起動すると�
 UID2 Private Operator for Azureは、以下の地域ではサポートされていません: ヨーロッパ、中国
 :::
 
+<!-- 
+* [Prerequisites](#prerequisites)
+   - [Set Up UID2 Operator Account](#set-up-uid2-operator-account)
+   - [Install Azure CLI](#install-azure-cli)
+   - [Get the Required Azure Permissions](#install-azure-cli)
+* [Deployment Environments](#deployment-environments)
+* [Deployment](#deployment)
+  - [Download UID2 Private Operator for Azure ZIP File](#download-uid2-private-operator-for-azure-zip-file)
+  * [Create Resource Group](#create-resource-group)
+  * [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup)
+  * [Set Up the VPC Network](#set-up-the-vpc-network)
+  * [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup)
+  * [Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer)
+* [Running the Health Check](#running-the-health-check)
+* [Upgrading](#upgrading)
+ -->
+
 ## Prerequisites
 
 UID2 Private Operator for Azureをデプロイする前に、以下の前提条件を完了してください:
@@ -63,7 +80,7 @@ Azure コマンドラインインターフェイスをインストールしま�
 
 ## Deployment Environments
 
-以下の環境が利用可能です。ベストプラクティスとして、本番環境にデプロイする前に、テスト環境で実装をテストし、検証することをお勧めします。
+以下の環境が利用可能です。ベストプラクティスとして、本番環境にデプロイする前に、インテグレーション環境で実装をテストし、検証することをお勧めします。
 
 :::note
 `{OPERATOR_KEY}` は環境ごとに別々の値になります。使用する環境に適したキーを使用してください。デプロイの成果物と処理の流れは、どちらの環境でも同じです。
@@ -71,7 +88,7 @@ Azure コマンドラインインターフェイスをインストールしま�
 
 | Environment | Details |
 | :--- | :--- |
-| Integration (`integ`) | テスト専用。デバッグモードはテスト環境で使用できます。 |
+| Integration (`integ`) | テスト専用。デバッグモードはインテグレーション環境で使用できます。 |
 | Production (`prod`) | 実稼働トラフィックの管理用。 |
 
 ## Deployment
@@ -279,7 +296,7 @@ Key Vault を作成したら、[マネージド ID](https://learn.microsoft.com/
 
 Health Check エンドポイントを呼び出して、実装の健全性をテストします。
 
-Health Check の実行は、エンドポイントを除いてテスト環境と本番環境で同じです。
+Health Check の実行は、エンドポイントを除いてインテグレーション環境と本番環境で同じです。
 
 以下の手順に従ってください:
 
@@ -288,6 +305,10 @@ Health Check の実行は、エンドポイントを除いてテスト環境と�
 2. Operator のステータスをテストするには、ブラウザでヘルスチェックのエンドポイントにアクセスします: `http://{LB_IP}/ops/healthcheck`.
 
    レスポンスボディが `OK` で、HTTP 200 であれば、健全なステータスを示します。
+
+import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
+
+<AttestFailure />
 
 ## Upgrading
 

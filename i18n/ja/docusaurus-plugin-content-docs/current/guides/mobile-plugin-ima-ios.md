@@ -19,7 +19,7 @@ UID2 Interactive Media Ads (IMA) Plugin for iOS は、[Google IMA SDK for iOS](h
 
 <!-- As of 2023-07-15 -->
 
-このドキュメントはUID2 IMA Plugin for iOS version 0.3.0 用です。
+このドキュメントはUID2 IMA Plugin for iOS version 0.3.0 以降用です。
 
 ## GitHub Repository
 
@@ -41,9 +41,9 @@ UID2 Interactive Media Ads (IMA) Plugin for iOS は、[Google IMA SDK for iOS](h
 
 ## Installation
 
-前提条件: Google Interactive Media Ads SDK と UID2 iOS SDK をインストールします。
+前提条件: Google Interactive Media Ads SDK と UID2 SDK for iOS をインストールします。
 
-UID2 iOS SDK と Google Interactive Media Ads SDK がインストールされている既存のアプリに、Swift Package Manager 経由で UID2 iOS IMA Plugin v0.2.0 をインストールします。
+UID2 SDK for iOS と Google Interactive Media Ads SDK がインストールされている既存のアプリに、Swift Package Manager 経由で UID2 iOS IMA Plugin v0.2.0 をインストールします。
 
 ```
 .package(url: "https://github.com/IABTechLab/uid2-ios-plugin-google-ima.git", exact: "0.3.0")

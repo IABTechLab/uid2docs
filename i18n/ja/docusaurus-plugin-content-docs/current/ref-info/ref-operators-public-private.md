@@ -40,10 +40,10 @@ Public Operator を使用する場合、Operator をホスト、構成、維持�
 
 Public Operator を利用するための費用は、参加者には一切かかりません。
 
-参加者は、Public Operator 上でホストされる UID2 API を使用するために、該当する資格情報 ([API key and client secret](../getting-started/gs-credentials.md#api-key-and-client-secret)) を取得する契約を締結する必要があります。
+参加者は、契約に署名し ([Account setup](../getting-started/gs-account-setup.md) を参照してください)、Public Operator でホストされている UID2 API を使用するために該当する認証情報 ([API key and client secret](../getting-started/gs-credentials.md#api-key-and-client-secret)) を取得する必要があります。
 
 :::note
-Public Operator の場合、データは参加者のインフラを離れ、オペレーターに送られます。もちろん、データを安全に保つための厳格な対策が講じられています。
+Public Operator の場合、データは参加者のインフラを離れ、オペレーターに送られます。Public Operator 内のデータを保護するために、厳格なセキュリティ対策が実施されています。
 :::
 
 ##  Private Operators
@@ -54,7 +54,7 @@ rivate Operator (Closed Operator) は、UID2 Operator のプライベートイ�
 
 参加者は、Private Operator インスタンスをホストし、構成し、維持し、更新する必要があり、厳密なセキュリティ対策に準拠する必要があります。インテグレーションと継続的な更新には、エンジニアリングリソースが必要です。
 
-参加者は、Private Operator インスタンスをホストする契約を締結する必要があります。
+参加者は、Private Operator インスタンスをホストする契約 ([Account setup](../getting-started/gs-account-setup.md) を参照してください) を締結する必要があります。
 
 :::note
 Private Operator は、Public Operator または別の Private Operator からの raw UID2 または UID2 Token を処理することはできません。各 Private Operator は、完全に閉じたインフラストラクチャです。
@@ -66,15 +66,15 @@ Private Operator は、Public Operator または別の Private Operator から�
 
 - Private Operator のソリューションでは、DII は運営する組織のインフラから離れません。
 
-- Private Operator になれば、リソースを完全に管理できます。より多くのコントロールが可能です。例えば、料金の制限なく、より大きな可用性を提供することができます。
+- Private Operator になれば、リソースを管理できます。より多くのコントロールが可能です。例えば、料金の制限なく、より大きな可用性を提供することができます。
 
 - 物理的に Public Operator のインスタンスの近くにない場合、レイテンシーの理由から Private Operator のソリューションをホストすることを選択することができます。
 
-セキュリティやレイテンシに大きな懸念があり、UID2 実装を構築・維持するための広範なエンジニアリングリソースがある場合は、Private Operator ソリューションを検討することができます。
+レイテンシーに大きな懸念がある場合、セキュリティ要件によりデータがシステム内に留まる必要がある場合、さらに UID2 実装を構築・維持するための広範なエンジニアリングリソースがある場合は、Private Operator ソリューションを検討されることをお勧めします。
 
 ## Summary
 
-ほとんどの参加者にとって、Public Operator が最善の解決策です。
+ほとんどの参加者にとって、Public Operator が最もシンプル解決策です。
 
 Private Operator オプションのマイナス面は、構築と維持に継続的なエンジニアリング努力が必要なことです。Private Operator のインスタンスは参加者によって管理されるため、継続的な更新と変更が必要となり、指定された期間内に完了する必要があります。
 
