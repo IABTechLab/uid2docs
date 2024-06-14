@@ -16,24 +16,6 @@ You can use the UID2 SDK for Python on the server side to facilitate the followi
 - Encrypting raw UID2s to create UID2 tokens for sharing
 - Decrypting UID2 tokens to access the raw UID2s
 
-<!--
- This guide includes the following information:
-
-- [Overview](#overview)
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [Version](#version)
-- [GitHub Repository/Package](#github-repositorypackage)
-- [Initialization](#initialization)
-- [Interface](#interface)
-  - [Response Content](#response-content)
-  - [Response Statuses](#response-statuses)
-- [Usage for Publishers](#usage-for-publishers) 
-- [Usage for DSPs](#usage-for-dsps)
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
-- [FAQs](#faqs)
--->
-
 ## Functionality
 
 This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using Python for their server-side coding. The following table shows the functions it supports.
@@ -64,6 +46,13 @@ The package is published in this location:
 
 - [https://pypi.org/project/uid2-client/](https://pypi.org/project/uid2-client/)
 
+## Installation
+You can use the [Pip](https://packaging.python.org/en/latest/guides/tool-recommendations/#installing-packages) package manager to install the SDK.
+
+```
+pip install uid2-client
+```
+
 ## Initialization
 The initialization step depends on the role, as shown in the following table.
 
@@ -92,7 +81,9 @@ For details on the bidding logic for handling user opt-outs, see [DSP Integratio
 The `SharingClient` class allows you to encrypt raw UID2s into UID2 tokens and decrypt UID2 tokens into raw UID2s.
 
 
->NOTE: When you use an SDK, you do not need to store or manage decryption keys.
+:::note
+When you use an SDK, you do not need to store or manage decryption keys.
+:::
 
 ### Encryption Response Content
 
@@ -160,7 +151,7 @@ Decryption response codes, and their meanings, are shown in the following table.
 
 #### Client-Server Integration
 
-If you're using client-server integration (see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
+If you're using client-server integration (see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
 
 * Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)) using the following:
 
@@ -172,9 +163,9 @@ If you're using client-server integration (see [Server-Side Integration Guide fo
   If the user has opted out, this method returns None, so be sure to handle that case.
   :::
 
-### Server-Only Integration
+### Server-Side Integration
 
-If you're using server-only integration (see [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md)):
+If you're using server-side integration (see [Publisher Integration Guide, Server-Side](../guides/custom-publisher-integration.md)):
 
 1. Store this identity as a JSON string in the user's session, using the `token_generate_response.get_identity_json_string()` function.
 
@@ -246,7 +237,7 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
 
 ## Usage for DSPs
 
-The following instructions provide an example of how you can decode bidstream tokens using the UID2 SDK for Python as a DSP.
+The following instructions provide an example of how you can decode <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> tokens using the UID2 SDK for Python as a DSP.
 
 1. Create a `BidstreamClient`:
 
@@ -262,7 +253,7 @@ client.refresh()
 
 3. Decrypt a token into a raw UID2. Pass the token, and then do one of the following:
 * If the bid request originated from a publisher's website, pass the domain name. The domain name must be all lower case, without spaces and without subdomain. For example, for `Subdomain.DOMAIN.com`, pass `domain.com` instead.
-* If the bid request originated from a mobile app, pass the [app name](../ref-info/glossary-uid.md#gl-app-name).
+* If the bid request originated from a mobile app, pass the <Link href="../ref-info/glossary-uid#gl-app-name">app name</Link>.
 * Otherwise, pass `null`.
 
 ```py
@@ -280,7 +271,9 @@ For a full example, see the `sample_bidstream_client.py` in [examples/sample_bid
 
 In UID2, sharing is a process for distributing either raw UID2s or UID2 tokens securely between UID2 participants. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant.
 
->IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+:::important
+The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+:::
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for Python, either as a sender or a receiver.
 
@@ -318,6 +311,21 @@ else:
 ```
 
 For a full example, see the `sample_sharing_client.py` in [examples/sample_sharing_client.py](https://github.com/IABTechLab/uid2-client-python/blob/main/examples/sample_sharing_client.py).
+
+## Development
+
+### Example Usage
+You can run specific examples from the [examples](https://github.com/IABTechLab/uid2-client-python/blob/main/examples) directory.
+
+```py
+python3 examples/sample_bidstream_client.py $BASE_URL $AUTH_KEY $SECRET_KEY $DOMAIN_NAME $AD_TOKEN
+```
+
+### Running tests
+You can run unit tests from command line or use your favorite Python IDE (example PyCharm).
+```py
+python3 -m unittest discover -s ./tests/
+```
 
 ## FAQs
 

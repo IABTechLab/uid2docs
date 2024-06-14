@@ -10,15 +10,14 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 
 # UID2 Client-Server Integration Guide for Mobile
 
-This guide is for mobile app publishers who want to integrate with UID2 by generating UID2 tokens server-side via a Public Operator or Private Operator and then passing the tokens and user identities into their mobile apps, which will in turn pass the tokens for bidstream use.  
+This guide is for mobile app publishers who want to integrate with UID2 by generating UID2 tokens server-side via a Public Operator or Private Operator and then passing the tokens and user identities into their mobile apps, which will in turn pass the tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use.  
 
-This is called Client-Server Integration because some integration steps are client-side and some are server-side.
+This is called client-server integration because some integration steps are client-side and some are server-side.
 
 If you want to integrate with UID2 via client-side only changes (that is, all integration changes required are within the mobile apps), refer to the [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) instead.
 
@@ -41,25 +40,6 @@ You'll need to complete the following steps:
 4. [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 5. [Check that the token was successfully generated and then pass it for bidstream use](#pass-generated-token-for-bidstream-use).
 6. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
-
-<!-- It includes the following sections:
-
-- [Mobile SDK Version](#mobile-sdk-version)
-- [Overview](#overview)
-- [Complete the UID2 Account Setup](#complete-the-uid2-account-setup)
-- [Client-Server Mobile Integration Data Flow Overview](#client-server-mobile-integration-data-flow-overview)
-- [Implement Server-Side Token Generation](#implement-server-side-token-generation)
-- [Server-Side Token Refresh](#server-side-token-refresh)
-- [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app)
-- [Using the UID2 Integration Environment](#using-the-uid2-integration-environment)
-- [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment)
-- [Token Storage](#token-storage)
-- [Pass Generated Token for Bidstream Use](#pass-generated-token-for-bidstream-use)
-- [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk)
-- [Enable Logging)](#enable-logging)
-- [Enable Automatic Token Refresh in Mobile App/Client Side](#enable-automatic-token-refresh-in-mobile-appclient-side)
-- [Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration) -->
-
 
 ## Mobile SDK Version
 
@@ -154,7 +134,7 @@ If you want to manage token refresh on the server side and not the client/mobile
 - Call the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint.
 - Use one of the Publisher Client classes, in one of the UID2 server-side SDKs. These classes simplify the request into a single method call. 
 
-  For instructions, see [UID2 SDK for Java, Publisher Server-Only Integration section](../sdks/uid2-sdk-ref-java.md#server-only-integration) or [UID2 SDK for Python, Publisher Server-Only Integration section](../sdks/uid2-sdk-ref-python.md#server-only-integration).
+  For instructions, see [UID2 SDK for Java, Publisher Server-Side Integration section](../sdks/uid2-sdk-ref-java.md#server-side-integration) or [UID2 SDK for Python, Publisher Server-Side Integration section](../sdks/uid2-sdk-ref-python.md#server-side-integration).
 
 Then, pass the newly refreshed `Identity` value to the mobile app by following the rest of this guide.
 
@@ -200,11 +180,13 @@ Bear in mind the following differences between environments:
 - You'll have a different set of API key and client secret values for each environment (integration and production). Be sure to use the correct values for each environment.
 :::
 
-### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
+### Optional: Specifying the API Base URL to Reduce Latency
 
-<ReduceLatency />
+By default, this SDK makes calls to a UID2 production environment server in the USA.
 
-To specify a different UID2 server, you can change it in the `init` call:
+For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md).
+
+To specify a UID2 server that is not the default, you can change it in the `init` call:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>

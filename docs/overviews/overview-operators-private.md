@@ -28,7 +28,7 @@ For more information, see [The UID2 Operator](../ref-info/ref-operators-public-p
 
 If you choose to be a private Operator, several implementation options are available. You can do any of the following:
 
-- Use a cloud services setup. UID2 supports hosting UID2 in an [enclave](../ref-info/glossary-uid.md#gl-enclave) on the following cloud service providers (medium level of effort to implement):
+- Use a cloud services setup. UID2 supports hosting UID2 in an <Link href="../ref-info/glossary-uid#gl-enclave">enclave</Link> on the following cloud service providers (medium level of effort to implement):
   - Amazon Web Services (AWS)
   - Microsoft Azure
   - Google Cloud Platform (GCP)

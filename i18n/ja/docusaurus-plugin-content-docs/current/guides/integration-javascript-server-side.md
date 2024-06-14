@@ -1,7 +1,7 @@
 ---
-title: Server-Side Integration Guide for JavaScript
+title: Client-Server Integration Guide for JavaScript
 sidebar_label: Server-Side Integration for JavaScript
-pagination_label: Server-Side Integration Guide for JavaScript
+pagination_label: Client-Server Integration Guide for JavaScript
 description: UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオをカバーするパブリッシャー向けの情報で、トークンを Server-Side で生成し、パブリッシャーのウェブページに渡す必要があります。
 hide_table_of_contents: false
 sidebar_position: 02
@@ -11,9 +11,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 
-# Server-Side Integration Guide for JavaScript
+# Client-Server Integration Guide for JavaScript
 
-このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接統インテグレーションしながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成したいウェブアセットを持つパブリッシャーを対象としています。
+このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成したいウェブアセットを持つパブリッシャー向けのものです。
+これには、Server-Side で UID2 Token を生成してパブリッシャーのウェブページに渡すなど、Server-Side の変更が必要です。Client-Side の JavaScript の変更だけで UID2 とインテグレーションしたい場合は、代わりに [Client-Side Integration Guide for JavaScript](publisher-client-side.md) を参照してください。
 
 SDK の技術的な詳細については、[UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください。
 
@@ -36,7 +37,7 @@ SDK の技術的な詳細については、[UID2 SDK for JavaScript Reference Gu
 
 ## Introduction
 
-このガイドでは、SDK を使用せずにインテグレーションを行う場合に考慮すべき基本的な手順を説明します。例えば、ユーザーログインとログアウトの実装方法、UID2 ID 情報の管理方法とターゲティング広告への使用方法、トークンのリフレッシュ方法、紛失した ID の処理方法、ユーザーのオプトアウトの処理方法などを決定する必要があります。
+このガイドでは、SDK を使用せずにインテグレーションを行う場合に考慮すべき基本的な手順を説明します。例えば、ユーザー認証とデータ取得の実装方法、UID2 ID 情報の管理方法とターゲティング広告への使用方法、トークンのリフレッシュ方法、紛失した ID の処理方法、ユーザーのオプトアウトの処理方法などを決定する必要があります。
 
 ワークフロー図は、[Integration Steps](#integration-steps) を参照してください。また、[FAQ](#faqs) も参照してください。
 
@@ -46,7 +47,7 @@ UID2 を使用してクライアントの ID を確立し、Advertising Token �
 ファーストパーティ Cookie とローカルストレージの実装の詳細は、将来変更される可能性があります。潜在的な問題を回避するため、ID 管理には [UID2 SDK for JavaScript API Reference](../sdks/client-side-identity.md#api-reference) に記載されている機能を使用してください。
 :::
 
-UID2 SDK for JavaScript を使用しないパブリッシャーのインテグレーションシナリオについては、[Publisher Integration Guide, Server-Only](custom-publisher-integration.md) を参照してください。
+UID2 SDK for JavaScript を使用しないパブリッシャーのインテグレーションシナリオについては、[Publisher Integration Guide, Server-Side](custom-publisher-integration.md) を参照してください。
 
 :::note
 Google Ad Managerを使用していて、セキュアシグナル機能を使用したい場合は、まずこのガイドの手順に従った後、[Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) の追加手順に従ってください。
@@ -56,7 +57,7 @@ Google Ad Managerを使用していて、セキュアシグナル機能を使用
 
 以下の図は、ユーザーの UID2 Token をパブリッシャーと確立するために必要なステップと、UID2 Token が RTB ビッドストリームとどのようにインテグレーションされるかを説明しています。
 
-![Publisher Flow](images/publisher-flow-mermaid.png)
+![Publisher Flow](images/custom-publisher-integration-mermaid.png)
 
 以下のセクションでは、図中の各ステップについての詳細を説明します: 
 
@@ -167,15 +168,15 @@ SDKは、指定された [callback function](../sdks/client-side-identity.md#cal
 1. ID 情報を [ローカルストレージまたはファーストパーティクッキー](../sdks/client-side-identity.md#uid2-storage-format) に保存します。
 1. ID 情報を使用して、ターゲティング広告のリクエストを始めます。
 
-<!-- (**GWH_TODO. Q: Not sure about the relationship between the steps above and the table below. And the diagram 2-a which says "the publisher calls the SSP for ads using the UID2 token". A: Diagram needs to be updated.**) -->
-
 ビッドステップを以下の表に示します。
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
 | 2-a | UID2 SDK for JavaScript | 以下に示すように、[getAdvertisingToken() 関数](../sdks/client-side-identity.md#getadvertisingtoken-string) を使用して、現在のユーザーの Advertising Token を取得します。|
 
->NOTE: UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream) を参照してください。
+:::note
+UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream) を参照してください。
+:::
 
 ```html
 <script>

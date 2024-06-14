@@ -11,15 +11,6 @@ import Link from '@docusaurus/Link';
 
 さまざまなパブリッシャーや広告主が UID2 を使用しています。しかし、UID2 全体としては、すべての UID2 [参加者](../ref-info/glossary-uid.md#gl-participant) が受け入れるべき、非常に具体的なオプトアウトプロセスがあります。
 
-<!-- It includes:
-
-* [How Users Can Opt Out of UID2](#how-users-can-opt-out-of-uid2)
-* [Results of Opting Out of UID2](#results-of-opting-out-of-uid2)
-* [Difference Between Opting Out from a Single Participant and Opting Out of UID2](#difference-between-opting-out-from-a-single-participant-and-opting-out-of-uid2)
-* [Opt-Out Is Final](#opt-out-is-final)
-* [Opt-Out Workflow](#opt-out-workflow)
- -->
-
 ## How Users Can Opt Out of UID2
 
 UID2 エコシステムには、2 種類のオプトアウトがあります:
@@ -51,7 +42,7 @@ UID2 エコシステムには、2 種類のオプトアウトがあります:
 以下のステップは、パブリッシャーまたはその ID プロバイダーと関わるユーザーを対象とした、ワークフローの概要です。
 
 1. ユーザーは [Transparency and Control Portal](https://www.transparentadvertising.com/) にアクセスし、UID2 のオプトアウトをグローバルに行うことができます。
-2. Transparency and Control Portalは、オプトアウト要求を UID2 [Operator Service](../ref-info/glossary-uid.md#gl-operator-service) に送信します。
+2. Transparency and Control Portalは、オプトアウト要求を UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> に送信します。
 3. ユーザーがオプトアウトした場合、UID2 Operator Service はオプトアウト情報を UID2 参加者に以下のように配布します:
 
    | Participant | Distribution Method |
@@ -63,10 +54,3 @@ UID2 エコシステムには、2 種類のオプトアウトがあります:
 このワークフローにより、ユーザーは UID2 識別子の作成に同意し、Transparency and Control Portalを通じて UID2 の同意とプライバシー設定を管理することができます。
 
 ![User Trust Workflow](images/UID2GlobalOptoutWorkflow.svg)
-
-
-<!-- 3. If the user has opted out, the UID2 Operator Service distributes the opt-out information to various UID2 participant types, as follows:
-   - **Publishers**: A publisher calling  the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint receives the opt-out response. At this point, there is no longer a valid UID2 token for that user.
-   - **DSPs**: The UID2 Operator Service distributes information on all opted-out users to DSPs via a webhook provided for the purpose. For details, see [Honor User Opt-Outs](../guides/dsp-guide#honor-user-opt-outs).
-   - **Advertisers**: The UID2 Operator Service distributes opt-out information to advertisers via the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.
- -->

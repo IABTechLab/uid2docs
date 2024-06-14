@@ -1,7 +1,7 @@
 ---
-title: Publisher Integration Guide, Server-Only
-sidebar_label: Server-Only
-pagination_label: Publisher Integration Guide, Server-Only
+title: Publisher Integration Guide, Server-Side
+sidebar_label: Server-Side
+pagination_label: Publisher Integration Guide, Server-Side
 description: UID2 対応シングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションを行いながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成する方法。
 hide_table_of_contents: false
 sidebar_position: 03
@@ -9,7 +9,7 @@ sidebar_position: 03
 
 import Link from '@docusaurus/Link';
 
-# Publisher Integration Guide, Server-Only
+# Publisher Integration Guide, Server-Side
 
 このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 Token (Advertising Token) を生成したいパブリッシャーを対象としています。
 
@@ -28,7 +28,7 @@ import Link from '@docusaurus/Link';
 
 このガイドでは、Client-Side または Server-Side SDK を使用せずにインテグレーションを行う場合に考慮する必要がある[基本的な手順](#integration-steps) を概説しています。例えば、以下のような方法を決定する必要があります:
 
-- ユーザーログインとログアウトの実装方法
+- メールアドレスや電話番号を取得する機会を設けます: 例えば、プロモーションの交換、登録やサブスクリプション、マーケティングフォームへの記入など。
 - UID2 アイデンティティ情報を管理し、ターゲティング広告に使用する方法
 - UID2 Token をリフレッシュする方法
 - 紛失した ID の対処方法
@@ -40,14 +40,14 @@ import Link from '@docusaurus/Link';
 
 - Client UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) と [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) on the server.
 - Client UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) と custom server code.
-- Server-only integration と [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) または [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) on the server.
-- Server-only integration と custom server code.
+- Server-side integration と [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) または [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) on the server.
+- Server-side integration と custom server code.
 
 このガイドでは、最後の 2 つのオプションに関する情報を提供します。
 
 ワークフローを示すサンプルアプリケーションもあります。[サンプルアプリケーション](#sample-application) を参照してください。
 
-> TIP: UID2 を使用してクライアントの identity を確立し、UID2 Token を取得するプロセスを容易にするには、UID2 SDK for JavaScript の使用を検討してください。詳細については、[Server-Side Integration Guide for JavaScript](integration-javascript-server-side.md) を参照してください。
+>TIP: UID2 を使用してクライアントの identity を確立し、UID2 Token を取得するプロセスを容易にするには、UID2 SDK for JavaScript の使用を検討してください。詳細については、[Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md) を参照してください。
 
 ## Integration Steps
 
@@ -55,7 +55,7 @@ import Link from '@docusaurus/Link';
 
 Server-Side SDK を使用している場合、SDK はエンドポイントに関連するすべてのステップを処理します。例えば、Step 1-d では、発行者はユーザーの DII をトークン生成サービスに送信します。
 
-![](images/custom-publisher-flow-mermaid.png)
+![](images/custom-publisher-integration-mermaid.png)
 
 
 
@@ -84,7 +84,9 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 | :--- | :--- | :--- |
 | 2-a  | N/A      | Step [1-e](#establish-identity-capture-user-data) の `advertising_token` を入札のために SSP に送信します。そのままの値を送信します。 |
 
->NOTE: UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream) を参照してください。
+:::note
+UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream) を参照してください。
+:::
 
 ### Refresh a UID2 Token
 
@@ -97,7 +99,9 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 | 3-c  | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) | UID2 Service は、オプトアウトしていないユーザーに対して新しい ID トークンを発行します。 |
 | 3-d  | N/A | `POST /token/refresh` エンドポイントから返される値、`advertising_token` と `refresh_token` を、ユーザーにリンクされるように配置します。ファーストパーティのクッキーのようなClient-Side のストレージか、サーバサイドのストレージを検討するとよいでしょう。 |
 
-> TIP: [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントによって返された ID の `refresh_from` タイムスタンプからトークンのリフレッシュを始めてください。
+:::tip
+[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントによって返された ID の `refresh_from` タイムスタンプからトークンのリフレッシュを始めてください。
+:::
 
 ### Clear Identity: User Logout
 

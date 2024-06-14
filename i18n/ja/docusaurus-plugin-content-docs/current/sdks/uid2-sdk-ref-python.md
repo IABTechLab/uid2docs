@@ -16,23 +16,6 @@ UID2 Server-Side SDK を使用することで、以下のことが容易にな�
 - raw UID2 を暗号化して UID2 Token を作成する
 - UID2 Advertising Token を復号化して raw UID2 にアクセスする
 
-<!--
- This guide includes the following information:
-
-- [Overview](#overview)
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [Version](#version)
-- [GitHub Repository/Package](#github-repositorypackage)
-- [Initialization](#initialization)
-- [Interface](#interface)
-  - [Response Content](#response-content)
-  - [Response Statuses](#response-statuses)
-- [FAQs](#faqs)
-- [Usage for Publishers](#usage-for-publishers) 
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers) 
--->
-
 ## Overview
 
 ここで説明する関数は、設定に必要な情報やライブラリから取得できる情報を定義しています。以下に定義するパラメータとプロパティ名は擬似コードです。実際のパラメータやプロパティ名は言語によって異なりますが、ここで説明する情報と同様のものになります。
@@ -80,7 +63,9 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 このインターフェイスを使用すると、UID2 Advertising Token を復号化し、対応する raw UID2 を返すことができます。
 
->NOTE: SDK を使用する際に、復号鍵を保存したり管理したりする必要はありません。
+:::note
+SDK を使用する際に、復号鍵を保存したり管理したりする必要はありません。
+:::
 
 DSP の場合は、入札のために UID2 Advertising Token を復号化して UID2 を返すインターフェースを呼び出します。ユーザーのオプトアウトを処理する入札ロジックの詳細については、[DSPインテグレーションガイド](../guides/dsp-guide.md) を参照してください。
 
@@ -103,7 +88,9 @@ SDK から返される利用可能な情報の概要を次の表に示します�
 | `uid2` | UID2 Advertising Token に対応する raw UID2。 |
 | `established` | ユーザーがパブリッシャーと最初に UID2 を確立した時を示すタイムスタンプ。 |
 
->NOTE: 復号化に失敗した場合、例外 `EncryptionError` が発生します。
+:::note
+復号化に失敗した場合、例外 `EncryptionError` が発生します。
+:::
 
 ### Response Statuses
 
@@ -137,7 +124,7 @@ SDK から返される利用可能な情報の概要を次の表に示します�
 
 #### Client-Server Integration
 
-標準のインテグレーション (クライアントとサーバー) を使用している場合 ([Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照し)、この手順に従ってください:
+標準のインテグレーション (クライアントとサーバー) を使用している場合 ([Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照し)、この手順に従ってください:
 
 * この identity を以下のように JSON 文字列としてクライアントに送り返します ([identity field](../sdks/client-side-identity.md#initopts-object-void) で使用するため):
 
@@ -149,9 +136,9 @@ SDK から返される利用可能な情報の概要を次の表に示します�
   ユーザがオプトアウトした場合、このメソッドは None を返すので、その場合は必ず処理してください。
   :::
 
-### Server-Only Integration
+### Server-Side Integration
 
-server-only インテグレーションを使用している場合 ([Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md) を参照してください):
+server-only インテグレーションを使用している場合 ([Publisher Integration Guide, Server-Side](../guides/custom-publisher-integration.md) を参照してください):
 
 1. `token_generate_response.get_identity_json_string()` 関数を使用して、identity をユーザーのセッションに JSON 文字列として格納します。
 
@@ -196,7 +183,9 @@ server-only インテグレーションを使用している場合 ([Publisher I
 
 UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のことです。raw UID2を他の参加者に送信する前に、UID2 Token に暗号化する必要があります。使用例については、[examples/sample_sharing.py](https://github.com/IABTechLab/uid2-client-python/blob/master/examples/sample_sharing.py) スクリプトを参照してください。
 
->IMPORTANT: このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
+:::important
+このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
+:::
 
 次の手順では、UID2 SDK for Python を送信者または受信者として使用して共有を実装する方法の例を示します。
 

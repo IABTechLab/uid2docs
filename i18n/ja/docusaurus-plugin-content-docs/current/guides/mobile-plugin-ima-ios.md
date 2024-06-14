@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 IMA Plugin for iOS Integration Guide
 
-UID2 Interactive Media Ads (IMA) Plugin for iOS は、[Google IMA SDK for iOS](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side) を使用するパブリッシャーが、iOS アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を [Secure Signal](https://support.google.com/admob/answer/11556288) として送信できるようにします。これは自動的に行われるため、アプリ開発者が直接コーディングする必要はありません。
+UID2 Interactive Media Ads (IMA) Plugin for iOS は、[Google IMA SDK for iOS](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side) を使用するパブリッシャーが、iOS アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を [Secure Signal](https://support.google.com/admob/answer/11556288) として送信できるようにします。これは自動的に行われるため、アプリ開発者が直接コーディングする必要はありません。
 
 ## Functionality
 
@@ -19,7 +19,7 @@ UID2 Interactive Media Ads (IMA) Plugin for iOS は、[Google IMA SDK for iOS](h
 
 <!-- As of 2023-07-15 -->
 
-このドキュメントはUID2 IMA Plugin for iOS version 0.3.0 用です。
+このドキュメントはUID2 IMA Plugin for iOS version 0.3.0 以降用です。
 
 ## GitHub Repository
 
@@ -41,9 +41,9 @@ UID2 Interactive Media Ads (IMA) Plugin for iOS は、[Google IMA SDK for iOS](h
 
 ## Installation
 
-前提条件: Google Interactive Media Ads SDK と UID2 iOS SDK をインストールします。
+前提条件: Google Interactive Media Ads SDK と UID2 SDK for iOS をインストールします。
 
-UID2 iOS SDK と Google Interactive Media Ads SDK がインストールされている既存のアプリに、Swift Package Manager 経由で UID2 iOS IMA Plugin v0.2.0 をインストールします。
+UID2 SDK for iOS と Google Interactive Media Ads SDK がインストールされている既存のアプリに、Swift Package Manager 経由で UID2 iOS IMA Plugin v0.2.0 をインストールします。
 
 ```
 .package(url: "https://github.com/IABTechLab/uid2-ios-plugin-google-ima.git", exact: "0.3.0")

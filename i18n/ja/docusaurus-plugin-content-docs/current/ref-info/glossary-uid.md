@@ -6,9 +6,10 @@ sidebar_position: 10
 ---
 
 import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
+import Link from '@docusaurus/Link';
 
 # Unified ID 2.0 Glossary
-<p>This page defines some key terms used in the UID2 documentation.</p>
+<p>このページでは、UID2のドキュメントで使用されるいくつかの重要な用語を定義しています。</p>
 
 <!-- <table>
 <thead>
@@ -54,7 +55,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <ul>
 <li><a href="#gl-json-web-token">JSON Web Token (JWT)</a></li>
 <li><a href="#gl-normalize">Normalize</a></li>
-<li><a href="#gl-open-operator">Open operator</a></li>
+<li><a href="#gl-open-operator">Open Operator</a></li>
 <li><a href="#gl-operator">Operator</a></li>
 <li><a href="#gl-operator-key">Operator key</a></li>
 <li><a href="#gl-operator-service">Operator Service</a></li>
@@ -67,17 +68,17 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <li><a href="#gl-public-operator">Public Operator</a></li>
 <li><a href="#gl-raw-uid2">Raw UID2</a></li>
 <li><a href="#gl-refresh-token">Refresh token</a></li>
-
 </ul>
+
 </td>
 <td>
 <ul>
 <li><a href="#gl-salt">Salt</a></li>
 <li><a href="#gl-salted-hash">Salted hash</a></li>
 <li><a href="#gl-secret">Secret</a></li>
-<li><a href="#gl-secure-signals">Secure Signals</a></li>
+<li><a href="#gl-secure-signals">Secure signals</a></li>
 <li><a href="#gl-sha-256">SHA-256</a></li>
-<li><a href="#gl-sharing">Sharing (in UID2)</a></li>
+<li><a href="#gl-sharing">sharing (in UID2)</a></li>
 <li><a href="#gl-sharing-participant">Sharing participant</a></li>
 <li><a href="#gl-sso">Single sign-on (SSO)</a></li>
 <li><a href="#gl-subscription-id">Subscription ID</a></li>
@@ -86,8 +87,8 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <li><a href="#gl-uid2-framework">UID2 framework</a></li>
 <li><a href="#gl-uid2-identifier">UID2 identifier</a></li>
 <li><a href="#gl-uid2-portal">UID2 Portal</a></li>
-<li><a href="#gl-uid2-service">UID2 Service</a></li>
-<li><a href="#gl-uid2-token">UID2 Token (Advertising Token)</a></li>
+<li><a href="#gl-uid2-service">UID2 service</a></li>
+<li><a href="#gl-uid2-token">UID2 token (advertising token)</a></li>
 <li><a href="#gl-unified-id-20">Unified ID 2.0</a></li>
 <li><a href="#gl-utc">UTC</a></li>
 </ul>
@@ -113,7 +114,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd><a href="#gl-client-secret">client secret</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-app-name">App name</MdxJumpAnchor></dt>
-<dd>In the context of mobile implementation, app name is a group term for the Android application ID, iOS app store ID, or iOS bundle identifier.</dd>
+<dd>モバイル実装の文脈では、アプリ名は、Android　application ID、iOS app store ID、または iOS  bundle identifier のグループ用語です。</dd>
 
 <dt><MdxJumpAnchor id="gl-authorization-header">Authorization header</MdxJumpAnchor></dt>
 <dd>Authorization header は、UID2 Service に対してクライアントを認証する方法です。</dd>
@@ -277,7 +278,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd><a href="#gl-private-operator">Private Operator</a> が運用する Operator Service のインスタンスです。</dd>
 
 <dt><MdxJumpAnchor id="gl-public-key">Public key</MdxJumpAnchor></dt>
-<dd>Server-Side のパブリッシャーインテグレーションでは、Public Key はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの 1 つです。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
+<dd>Client-Side のパブリッシャーインテグレーションでは、Public Key はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの 1 つです。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-public-operator">Public Operator</MdxJumpAnchor></dt>
 <dd>Public <a href="#gl-operator">Operator</a> は、UID2 Operator Service のパブリックインスタンスを実行する組織です。たとえば、The Trade Desk は現在、UID2 フレームワークの Public Operator として機能しており、すべての参加者が利用できます。</dd>
@@ -335,7 +336,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>SSO はシングルサインオンの略語です。SSO は、ユーザーがアプリやウェブサイトなどの複数のソフトウェアシステムの 1 つに、同じ認証情報(通常は ID とパスワードですが、必ずしもそうではありません) でログインすることを可能にします。SSO によって、ユーザーは 1 セットの認証情報を使って複数のアプリケーションやサイトに一度だけログインすることができます。SSO によって、ウェブサイトやアプリは独自の認証システムを維持する必要がなくなります。</dd>
 
 <dt><MdxJumpAnchor id="gl-subscription-id">Subscription ID</MdxJumpAnchor></dt>
-<dd>Server-Side のパブリッシャーインテグレーションでは、Subscription ID はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの1つです。詳細は、<a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
+<dd>Client-Side のパブリッシャーインテグレーションでは、Subscription ID はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの1つです。詳細は、<a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
 
 </dl>
 
@@ -344,8 +345,8 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dl>
 
 <dt><MdxJumpAnchor id="gl-tokenized-sharing">Tokenized sharing</MdxJumpAnchor></dt>
-<dd>Tokenized sharing means encrypting <a href="#gl-dii">DII</a> or <a href="#gl-raw-uid2">Raw UID2s</a> into <a href="#gl-uid2-token">UID2 tokens</a> and sharing the tokens with authorized recipients. Using UID2 tokens helps protect raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bidstream or via pixels, but you can use it in any sharing use case.</dd>
-<dd>For details, see <a href="../sharing/sharing-tokenized-overview">Tokenized Sharing Overview</a>.</dd>
+<dd>Tokenized sharing とは <a href="#gl-dii">DII</a> または <a href="#gl-raw-uid2">Raw UID2</a> を <a href="#gl-uid2-token">UID2 Token</a> に暗号化し、許可された受信者とトークンを共有することです。UID2 Token を使用することで、データの送信者と受信者の間で、未承認の関係者をデータが通過する場合も含めて、raw UID2 をエンドツーエンドで保護することができます。Tokenized sharing は、ビッドストリームまたはピクセル経由での共有に必要ですが、どのような共有ユースケースでも使用できます。</dd>
+<dd>詳細は <a href="../sharing/sharing-tokenized-overview">Tokenized Sharing Overview</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-transparency-and-control-portal">Transparency and Control Portal</MdxJumpAnchor></dt>
 <dd>UID2 Transparency and Control Portalは、ユーザー向けのウェブサイト <a href="https://www.transparentadvertising.com/">https://www.transparentadvertising.com/</a> で、消費者はいつでもここから UID2 の Opt-Out を選択することができます。</dd>
@@ -357,7 +358,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dl>
 
 <dt><MdxJumpAnchor id="gl-uid2-framework">UID2 framework</MdxJumpAnchor></dt>
-<dd>Unified ID 2.0 (UID2)framework は、広告エコシステム全体の多くの参加者 (<a href="../intro#participants">participants</a>)に対し、オープンなインターネット上での広告機会のための決定論的IDを可能にします。パブリッシャーのウェブサイト、モバイルアプリ、コネクテッドTV (CTV)アプリからのログイン体験を可能にし、プログラマティックワークフローによる収益化を実現します。独自の名前空間を持つオープンソースのスタンドアローン・ソリューションとして構築されたこのフレームワークは、透明性とプライバシーを重視しています。</dd>
+<dd>Unified ID 2.0(UID2)フレームワークは、広告エコシステム全体の多くの <a href="../intro#participants">参加者</a> に対して、オープンインターネット上の広告機会に対する決定論的 ID を可能にします。パブリッシャーのウェブサイト、モバイルアプリ、コネクテッドTV(CTV)アプリからのログイン体験を可能にし、プログラマティックワークフローを通じて収益化を実現します。独自の名前空間を持つオープンソースのスタンドアローンソリューションとして構築されたこのフレームワークは、透明性とプライバシーを重視しています。</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-identifier">UID2 identifier</MdxJumpAnchor></dt>
 <dd>Unified ID 2.0 (UID2)識別子には、<a href="#gl-raw-uid2">raw UID2s</a> と <a href="#gl-uid2-token">UID2 tokens</a> (Advertising token とも呼ばれるます) の2種類があります。</dd>

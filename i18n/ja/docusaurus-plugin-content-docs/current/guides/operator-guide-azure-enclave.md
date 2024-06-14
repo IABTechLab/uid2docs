@@ -80,7 +80,7 @@ Azure コマンドラインインターフェイスをインストールしま�
 
 ## Deployment Environments
 
-以下の環境が利用可能です。ベストプラクティスとして、本番環境にデプロイする前に、テスト環境で実装をテストし、検証することをお勧めします。
+以下の環境が利用可能です。ベストプラクティスとして、本番環境にデプロイする前に、インテグレーション環境で実装をテストし、検証することをお勧めします。
 
 :::note
 `{OPERATOR_KEY}` は環境ごとに別々の値になります。使用する環境に適したキーを使用してください。デプロイの成果物と処理の流れは、どちらの環境でも同じです。
@@ -88,7 +88,7 @@ Azure コマンドラインインターフェイスをインストールしま�
 
 | Environment | Details |
 | :--- | :--- |
-| Integration (`integ`) | テスト専用。デバッグモードはテスト環境で使用できます。 |
+| Integration (`integ`) | テスト専用。デバッグモードはインテグレーション環境で使用できます。 |
 | Production (`prod`) | 実稼働トラフィックの管理用。 |
 
 ## Deployment
@@ -296,7 +296,7 @@ Key Vault を作成したら、[マネージド ID](https://learn.microsoft.com/
 
 Health Check エンドポイントを呼び出して、実装の健全性をテストします。
 
-Health Check の実行は、エンドポイントを除いてテスト環境と本番環境で同じです。
+Health Check の実行は、エンドポイントを除いてインテグレーション環境と本番環境で同じです。
 
 以下の手順に従ってください:
 
@@ -305,6 +305,10 @@ Health Check の実行は、エンドポイントを除いてテスト環境と�
 2. Operator のステータスをテストするには、ブラウザでヘルスチェックのエンドポイントにアクセスします: `http://{LB_IP}/ops/healthcheck`.
 
    レスポンスボディが `OK` で、HTTP 200 であれば、健全なステータスを示します。
+
+import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
+
+<AttestFailure />
 
 ## Upgrading
 

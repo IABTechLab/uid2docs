@@ -19,26 +19,32 @@ Here's what you need to know:
 
 - The maximum request size is 1MB. 
 - To map a large number of email addresses, phone numbers, or their respective hashes, send them in *sequential* batches with a maximum batch size of 5,000 items per batch.
-- Unless you are using a private operator, do not send batches in parallel. In other words, use a single HTTP connection and map <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> consecutively.
+- Unless you are using a Private Operator, do not send batches in parallel. In other words, use a single HTTP connection and map <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> consecutively.
 - Be sure to store mappings of email addresses, phone numbers, or their respective hashes.<br/>Not storing mappings may increase processing time drastically when you have to map millions of emails addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of raw UID2s need to be updated daily. See also [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) and [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
 
 ## Request Format
 
 `POST '{environment}/v2/identity/map'`
 
->IMPORTANT: You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+:::important
+You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+:::
 
 ### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Integration environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md). |
+| `{environment}` | string | Required | Integration environment: `https://operator-integ.uidapi.com`<br/>Production environment: The best choice depends on where your users are based. For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md). |
 
->NOTE: The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.
+:::note
+The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.
+:::
 
 ###  Unencrypted JSON Body Parameters
 
->IMPORTANT: You must include only **one** of the following four conditional parameters as a key-value pair in the JSON body of the request when encrypting it.
+:::important
+You must include only **one** of the following four conditional parameters as a key-value pair in the JSON body of the request when encrypting it.
+:::
 
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |

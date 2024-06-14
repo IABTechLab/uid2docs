@@ -10,7 +10,6 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 
@@ -42,21 +41,6 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 1. [Check that the token was successfully generated and then pass it for bidstream use](#pass-generated-token-for-bidstream-use).
 
 1. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
-
-<!-- It includes the following sections:
-
-- [Mobile SDK Version](#mobile-sdk-version)
-- [Client-Side Integration Example](#client-side-integration-example)
-- [Complete the UID2 Account Setup](#complete-the-uid2-account-setup)
-- [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app)
-- [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk)
-- [Format Examples for DII](#format-examples-for-dii)
-- [Token Storage and Refresh](#token-storage-and-refresh)
-- [Pass Generated Token for Bidstream Use](#pass-generated-token-for-bidstream-use)
-- [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk)
-- [Opt-Out Handling](#opt-out-handling)
-- [Enable Logging](#enable-logging)
-- [Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration) -->
 
 ## Mobile SDK Version
 
@@ -190,7 +174,7 @@ see UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist
 </TabItem>
 </Tabs>
 
-If necessary, you can also change the default Subscription ID and public key to values assigned to you, and connect to the UID2 Production environment. For details, see [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment).
+If necessary, you can also change the default Subscription ID and public key to values assigned to you, and connect to the UID2 Production environment. For details, see [Optional: Specifying the API Base URL to Reduce Latency](#optional-specifying-the-api-base-url-to-reduce-latency).
 
 ## Complete the UID2 Account Setup
 
@@ -240,15 +224,17 @@ UID2Settings.shared.environment = .custom(
 
 :::note
 Bear in mind the following differences between environments:
-- Tokens from the UID2 integration environment are not valid for passing to the bidstream.
+- Tokens from the UID2 integration environment are not valid for passing to the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.
 - You'll have a different set of Subscription ID and public key values for each environment (integration and production). Be sure to use the correct values for each environment.
 :::
 
-### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
+### Optional: Specifying the API Base URL to Reduce Latency
 
-<ReduceLatency />
+By default, this SDK makes calls to a UID2 production environment server in the USA.
 
-To specify a different UID2 server, you can make config changes, as shown in the following examples:
+For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md).
+
+To specify a UID2 server that is not the default, you can make config changes, as shown in the following examples:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>

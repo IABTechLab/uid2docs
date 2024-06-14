@@ -33,7 +33,7 @@ If you still need to satisfy this requirement, or if you have any questions, ple
 
 The following specific types of UID2 participants who have not yet agreed to comply with the UID2 Participation Policy, but have an effective UID2 agreement in place, may until further notice continue with the following activities:
 
-- Publishers: Share UID2 tokens in the bidstream.
+- Publishers: Share UID2 tokens in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.
 
 - Advertisers and data providers: Share raw UID2s (outside of pixels) with authorized DSPs.
 

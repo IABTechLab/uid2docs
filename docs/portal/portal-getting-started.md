@@ -9,86 +9,120 @@ import Link from '@docusaurus/Link';
 
 # Getting Started with the UID2 Portal
 
-As part of requesting a UID2 Portal account, you must provide some information about yourself and your company, such as name and type of business.
+As part of requesting a UID2 Portal account, you must provide your UID2 contact with some information about yourself and your company.
 
-Once you've initiated the request, there are two steps before you can actually access the UID2 Portal:
+When we've processed your request, we'll send you a confirmation email that will allow you to log in to the UID2 Portal and verify your account details, set up participants and teams, and configure your settings for UID2 sharing permissions.
 
-1. You'll get a confirmation email. Click the button in the email to verify your account.
-1. Your account is created. This might take a few days. When the account is ready, you'll get a confirmation email and can then go into your account to verify the details, set up participants and teams, and configure your settings for UID2 sharing permissions.
+For the initial steps, follow these instructions:
+
+- [Request an Account](#request-an-account)
+- [Log In for the First Time](#log-in-for-the-first-time)
+- [Change Your Password](#change-your-password)
 
 If at any time you need assistance with the onboarding process, ask your UID2 contact.
 
-<!-- It includes the following:
-
-- [Gather Information](#gather-information)
-- [Request an Account](#request-an-account)
-- [Account Approval Step](#account-approval-step)
-- [Log In for the First Time](#log-in-for-the-first-time)
-- [Reset Password](#reset-password) -->
-
-## Gather Information
-
-There's some information you'll need to provide for your account request, and some additional information you'll need to collect so that you can set up your account when it's approved.
-
-The following tables show the information to gather up front so that you'll have it in hand when needed.
-
-Information needed for your account request:
-
-| Item | Needed for... | 
-| :--- | :--- |
-| Information about yourself:<br/>- First name<br/>- Last name<br/>- Email<br/>- Job function | Request Account page |
-| Information about your company:<br/>- Participant name (Company name)<br/>- Participant type (for example, DSP) | Participant Information page |
-
-Information needed for account configuration:
-
-| Item | Needed for... | 
-| :--- | :--- |
-| Team member information. For each:<br/>- First name<br/>- Last name<br/>- Email<br/>- Job function | Team Members page|
-| Email contact information. For each:<br/>- Email group name<br/>- Email alias<br/>- Contact type | Email Contacts page |
-
 ## Request an Account
 
-When you click the UID2 Portal link for the first time, you'll see the login page. To create your account, follow these steps:
+There's some information you'll need to provide to your UID2 contact with your account request. Include the details listed in the following table.
 
-1. Click **Request Account**.
+| Item | Details |
+| :--- | :--- |
+| Information about yourself | Provide the following:<br/>- First name<br/>- Last name<br/>- Email<br/>- Job function |
+| Information about your company | Provide the following:<br/>- Participant name (Company name)<br/>- Participant type (publisher, advertiser, DSP, or data provider) |
 
-2. On the Request Account page, provide the following information about yourself:
+## Account Approval
 
-   - First name
-   - Last name
-   - Email address
-   - Job function
+Once you've requested access, your UID2 contact processes the request. When the approval process is complete and your account has been created, you'll receive a confirmation email with a link to log in to the UID2 Portal.
 
-3. Create and confirm your password and then click **Continue**.
+## Prepare Setup Information
 
-4. The next step is email verification. We send you an email to confirm your email address. To confirm, click the button in the email.
+There's some additional information that you'll need so that, when we've created your account, you can configure it. The configuration steps vary according to your role and your implementation scenario. To be ready, review the following sections and prepare any information needed:
 
-4. On the Participant Information page, provide your company name and then, for **Participant Type**, choose one or more of the following:
- 
-   - Publisher
-   - Advertiser
-   - DSP
-   - Data Provider
+- [Determine Integration Path](#determine-integration-path)
 
-5. Click the **Terms and Conditions** link to review the details.
+  :::tip
+  For a client-side implementation, you'll need a full list of your root-level domains.
+  :::
+- [Set Up Team Members and Email Contacts](#set-up-team-members-and-email-contacts)
 
-6. On the Accept Terms and Conditions page, review the terms and conditions, scrolling down to the bottom, and then click **Accept Terms and Conditions**.
+## Determine Integration Path
 
-   You are returned to the Participant Information page.
+To use the UID2 service, you need a set of keys. The specific key types are different depending on whether you are integrating on the client side or the server side. When you have access to your company's account, you can use the UID2 Portal to retrieve your keys.
 
-3. Check the box to agree to the terms and conditions, and then click **Request Account**.
+The integration options are shown in the following table.
 
-When you've requested your account, your request is sent for approval. See [Account Approval Step](#account-approval-step).
+| Integration | Examples | Instructions |
+| :--- | :--- | :--- |
+| Client-side integration | **Advertisers** generate UID2 tokens on the client side for tracking pixels.<br/>**Publishers** generate UID2 tokens on the client side for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use. |  Go to the **Client-Side Integration** page and set up key pairs and root-level domains. We use these to identify your transactions.<br/>For details, see [Client-Side Integration](client-side-integration.md). |
+| Server-side integration | **Advertisers** generate raw UID2s to be delivered for audience targeting.<br/>**Publishers** generate UID2 tokens on the server side for bidstream use. | Go to the **API Keys** page and create at least one set of credentials. When you add an API key, you're assigned two values, a secret and a key, which you'll use in your implementation.<br/>For details, see [API Keys](api-keys.md). |
 
-## Account Approval Step
-
-When you've requested your account including confirming your email address, your account is reviewed. The process might take a few days.
-
-When the approval process is complete and your account has been authorized, you'll receive a confirmation email with a link to log in to the UID2 Portal.
+Some participants might use both client-side and server-side integration. For example, advertisers might generate UID2 tokens on the client side for pixels ([Client-Side Integration](client-side-integration.md)), but integrate on the server side for raw UID2 generation ([API Keys](api-keys.md)).
 
 ## Log In for the First Time
 
-When you log in for the first time, the first step is to set up your team. See [Team Members](team-members.md).
+When you receive the confirmation email, click the **Accept Invitation** link in the email to get started, then click through to complete these tasks:
+- [Change your password](#change-your-password)
+- [Log In](#log-in)
+- [Configure unique account values](#configure-unique-account-values)
+
+Create a new password, and then log into the UID2 Portal.
+
+## Change Your Password
+
+The **Accept Invitation** link takes you to the **Update Password** page.
+
+:::tip
+ If you're changing your password because you think your account might have been compromised, be sure that the **Sign out from other devices** box is checked.
+:::
+
+Type your new password, confirm, and click **Save Password**.
+
+You'll see a notification that your account has been approved, and a **Log In** button.
+
+## Log In
+
+Now, you're ready to log in. 
+
+1. Click the **Log In** button.
+
+   You'll see the UID2 Sharing Portal Terms of Service. 
+
+2. Review as needed, scroll to the bottom, and then click **Accept Terms and Conditions**.
+
+   You'll see the UID2 Portal home page.
+
+The next step is to configure your account.
+
+## Configure Unique Account Values
+
+The sequence of steps for configuring your account depends on your scenario. The following is a suggested sequence.
+
+1.  An important first step is to determine your integration path. See [Determine Integration Path](#determine-integration-path).
+
+1.  Then, you can configure values, in the applicable page&#8212;one of the following:
+
+    -  [Client-Side Integration](client-side-integration.md)
+    - [API Keys](api-keys.md)
+
+1.  When you have the unique values for your account, you can configure your [sharing permissions](sharing-permissions.md).
+
+1. Adding team members will help ensure that the workload is shared across the team. See [Team Members](team-members.md).
+
+1. Adding email contacts is another way to help ensure that anyone involved with the project is kept informed. See [Email Contacts](email-contacts.md).
+
+## Set Up Team Members and Email Contacts
+
+When you log in for the first time, you can complete the following configuration steps:
+
+- Set up your team members.
+- Add info for anyone who should receive notifications about the latest updates and releases for UID2.
+
+The following table includes details of the information you'll need, and a link to instructions.
+
+| Item | Details | Link to Instructions | 
+| :--- | :--- | :--- |
+| Team member information | For each, provide the following:<br/>- First name<br/>- Last name<br/>- Email<br/>- Job function | [Team Members](team-members.md) |
+| Email contact information | For each, provide the following:<br/>- Email group name<br/>- Email alias<br/>- Contact type | [Email Contacts](email-contacts.md) |
 
 ## Reset Password
 

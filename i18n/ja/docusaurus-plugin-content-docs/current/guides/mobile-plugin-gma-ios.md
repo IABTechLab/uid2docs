@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 GMA Plugin for iOS Integration Guide
 
-UID2 Google Mobile Ads (GMA) Plugin for iOS は、[Google Mobile Ads (GMA) SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) を使用しているパブリッシャーが、iOS アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を [secure signals](https://support.google.com/admob/answer/11556288) として送信できるようにします。これは自動的に行われるため、アプリ開発者が直接コーディングする必要はありません。
+UID2 Google Mobile Ads (GMA) Plugin for iOS は、[Google Mobile Ads (GMA) SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) を使用しているパブリッシャーが、iOS アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を [secure signals](https://support.google.com/admob/answer/11556288) として送信できるようにします。これは自動的に行われるため、アプリ開発者が直接コーディングする必要はありません。
 
 ## Functionality
 
@@ -19,7 +19,7 @@ UID2 Google Mobile Ads (GMA) Plugin for iOS は、[Google Mobile Ads (GMA) SDK](
 
 <!-- As of 2023-07-15 -->
 
-このドキュメントは UID2 GMA Plugin for iOS バージョン 0.3.0 用です。
+このドキュメントは UID2 GMA Plugin for iOS バージョン 0.3.0 以降用です。
 
 ## GitHub Repository
 
@@ -41,9 +41,9 @@ UID2 Google Mobile Ads (GMA) Plugin for iOS は、[Google Mobile Ads (GMA) SDK](
 
 ## Installation
 
-前提条件: Google Mobile Ads SDK と UID2 iOS SDK をインストールします。
+前提条件: Google Mobile Ads SDK と UID2 SDK for iOS をインストールします。
 
-UID2 iOS SDK と Google Mobile Ads SDK がインストールされている既存のアプリに、Swift Package Manager 経由で UID2 iOS IMA Plugin をインストールします:
+UID2 SDK for iOS と Google Mobile Ads SDK がインストールされている既存のアプリに、Swift Package Manager 経由で UID2 iOS IMA Plugin をインストールします:
 
 ```js
 .package(url: "https://github.com/IABTechLab/uid2-ios-plugin-google-gma.git", exact: "0.3.0")

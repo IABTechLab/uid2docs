@@ -12,54 +12,48 @@ import Link from '@docusaurus/Link';
 
 # UID2 Mobile Integration Overview for Android and iOS
 
-This guide is an overview of integration options for mobile app publishers who want to integrate with UID2 using the UID2 SDK for Android or the UID2 SDK for iOS.
+このガイドは、UID2 SDK for Android または UID2 SDK for iOS を使用して UID2 と統合したいモバイルアプリのパブリッシャー向けのインテグレーションオプションの概要です。
 
 :::note
-This guide uses the group term **UID2 mobile SDKs** to include both the UID2 SDK for Android and the UID2 SDK for iOS.
+このガイドの、**UID2 mobile SDKs** は、UID2 SDK for Android と UID2 SDK for iOS の両方を含むグループ用語です。
 :::
-
-<!-- It includes the following sections:
-
-- [Introduction](#introduction)
-- [Client-Side or Client-Server Integration ](#client-side-or-client-server-integration)
-- [Integration Overview: High-Level Steps](#integration-overview-high-level-steps) -->
 
 ## Introduction 
 
-UID2 provides SDKs for Android/iOS that support the following:
+UID2 は、Android/iOS 向けの SDK を提供しており、次の機能をサポートしています:
 
-- Generating the UID2 token
-- Refreshing the UID2 token
-- Storing the UID2 token
+- UID2 Token の生成
+- UID2 Token のリフレッシュ
+- UID2 Token の保存
 
-For additional flexibility, UID2 also provides alternative methods for some of the features and complementary products, such as UID2 Google GMA/IMA Plugins. Available options are described in the individual guides: see [Integration Overview: High-Level Steps](#integration-overview-high-level-steps).
+さらに、UID2 は、一部の機能に対して代替手段を提供し、UID2 Google GMA/IMA プラグインなどの補完製品も提供しています。利用可能なオプションについては、個々のガイドで説明されています: [Integration Overview: High-Level Steps](#integration-overview-high-level-steps) を参照してください。
 
 ## Client-Side or Client-Server Integration
 
-The options for integrating with UID2 using the UID2 mobile SDKs are summarized in the following table. Choose the option that's best for you.
+UID2 mobile SDK を使用して UID2 とインテグレーションするオプションは、次の表にまとめられています。最適なオプションを選択してください。
 
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |
-| You have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the client side/within the mobile app, and want to keep changes within your app only. | Client-side integration | [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) |
-| You have access to DII on the server side only and can do the necessary development to generate UID2 tokens server-side, or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Client-Server Integration | [UID2 Client-Server Integration Guide for Mobile](integration-mobile-client-server.md) |
+| Client Side/モバイルアプリ内で <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>（メールアドレスまたは電話番号）にアクセスでき、変更をアプリ内だけに留めておきたい場合。 | Client-side integration | [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) |
+| Server-Side でのみ DII にアクセスでき、Server-Side で UID2 Token を生成するために必要な開発ができるか、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>を使用している場合。 | Client-Server Integration | [UID2 Client-Server Integration Guide for Mobile](integration-mobile-client-server.md) |
 
 ## Integration Overview: High-Level Steps
 
-At a high level, to integrate your mobile app with UID2 using the UID2 mobile SDKs, you'll need to complete the following steps:
+UID2 mobile SDK を使用してモバイルアプリを UID2 とインテグレーションするには、次の手順を完了する必要があります:
 
-1. Complete the UID2 account setup.
+1. UID2 アカウントのセットアップを完了します。
 
-1. Client-Server Integration Only: Integrate server-side token generation.
+1. Client-Server インテグレーションのみ: Server-Side でのトークン生成をインテグレーションします。
 
-1. Add the UID2 SDK for Android or iOS into your mobile app.
+1. UID2 SDK for Android または iOS をモバイルアプリにインテグレーションします。
 
-1. Configure the SDK.
+1. SDK を構成します。
 
-1. Check that the token was successfully generated and then pass it for bidstream use.
+1. トークンが正常に生成されたことを確認し、ビッドストリームで使用するためにトークンを渡します。
 
-1. Optionally, configure the UID2 GMA/IMA plugins for integration with the [Google GMA SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) and the [Google IMA SDK](https://developers.google.com/interactive-media-ads/).
+1. オプションで、[Google GMA SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) および [Google IMA SDK](https://developers.google.com/interactive-media-ads/) とのインテグレーションに UID2 GMA/IMA プラグインを構成します。
 
-For details, refer to one of the following guides:
+詳細については、次のガイドを参照してください:
 
 - [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 - [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md)

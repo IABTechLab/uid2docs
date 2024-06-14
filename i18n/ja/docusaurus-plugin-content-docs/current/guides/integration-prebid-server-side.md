@@ -1,5 +1,5 @@
 ---
-title: UID2 Server-Side Integration Guide for Prebid.js
+title: UID2 Client-Server Integration Guide for Prebid.js
 sidebar_label: Server-Side Integration for Prebid.js
 pagination_label: UID2 Server-Side Integration for Prebid.js
 description: Server-Side の Prebid.js インテグレーションの設定に関する情報。
@@ -9,7 +9,7 @@ sidebar_position: 04
 
 import Link from '@docusaurus/Link';
 
-# UID2 Server-Side Integration Guide for Prebid.js
+# UID2 Client-Server Integration Guide for Prebid.js
 <!-- 
 This guide includes the following information:
 
@@ -41,7 +41,7 @@ This guide includes the following information:
 - [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment) 
  -->
 
-このガイドは、Server-Side で [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) にアクセスでき、UID2 とインテグレーションして、RTB ビッドストリームで Prebid.js によって渡される [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token)(Advertising Token) を生成したいパブリッシャー向けのものです。
+このガイドは、Server-Side で [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) にアクセスでき、UID2 とインテグレーションして、RTB ビッドストリームで Prebid.js によって渡される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>(Advertising Token) を生成したいパブリッシャー向けのものです。
 
 Prebid.js を使って UID2 とインテグレーションするには、以下のことが必要です:
 
@@ -52,14 +52,10 @@ Prebid.js を使って UID2 とインテグレーションするには、以下�
 この実装には、Prebid.js version 7.53.0 以降が必要です。バージョン情報については、[https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases) を参照してください。
 
 ## UID2 Prebid Module Page
-<!-- GWH TODO later: move to overview or to client side doc maybe when client-side implementation is added to the Prebid module pages. Now, they are only server side. -->
+
 Prebid と UID2 のインテグレーション方法に関する情報は、以下の場所にもあります:
 - Prebid サイトの Prebid User ID Submodule の [Unified ID 2.0](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) ページ。
 - Prebid GitHub リポジトリの [UID2 User ID Submodule](https://github.com/prebid/Prebid.js/blob/master/modules/uid2IdSystem.md) ページ。
-
-<!-- ## Integration Example
-
-GWH note 12/14/23: We have client-side and server-side examples for JS SDK but only server-side for Prebid. -->
 
 ## Integration Overview: High-Level Steps
 
@@ -77,14 +73,14 @@ GWH note 12/14/23: We have client-side and server-side examples for JS SDK but o
 
 ## Add Prebid.js to Your Site
 <!-- GWH "Add Prebid.js to Your Site" section is identical for client side and server side. -->
-Prebid.js をサイトに追加するには、Prebid.js ドキュメントの [Getting Started for Developers](https://docs.prebid.org/dev-docs/getting-started.html) の指示に従ってください。
+Prebid.js をサイトに追加するには、Prebid.js ドキュメントの [Getting Started for Developers](https://docs.prebid.org/dev-docs/getting-started.html) の手順に従います。
 
-Prebid.js パッケージをダウンロードするときに、**User ID Modules** セクションに記載されている **Unified ID 2.0** というモジュールの隣にあるボックスをチェックして、UID2 module を追加します。
+Prebid.js パッケージをダウンロードするとき、**User ID Modules** のセクションの下にある **Unified ID 2.0** という名前のモジュールの横にあるチェックボックスをオンにして、UID2 モジュールを追加します。
 
-サイトに Prebid.js を追加し、正常に動作することを確認したら、UID2 module を設定する準備が整います。
+Prebid.js をサイトに追加した後、Prebid.js が正常に動作していることを確認します。
 
 :::tip
-UID2 module がインストールされていることを確認するには、[`pbjs.installedModules` array](https://docs.prebid.org/dev-docs/publisher-api-reference/installedModules.html) で文字列 `uid2IdSystem` を見つけます。
+UID2 モジュールがインストールされていることを確認するには、[`pbjs.installedModules` array](https://docs.prebid.org/dev-docs/publisher-api-reference/installedModules.html) で文字列 `uid2IdSystem` を見つけます。
 :::
 
 ## Configure the UID2 Module
@@ -262,13 +258,19 @@ Prebid の実施を計画する際には、以下を考慮してください:
 
 - リフレッシュされたトークンを生成するために使用された元のトークンと一致しない新しいトークンを提供した場合、モジュールは保存されているすべてのトークンを破棄し、代わりに新しいトークンを使用し、リフレッシュされた状態を維持します。
 
-- インテグレーションテストでは、`params.uid2ApiBase` を `"https://operator-integ.uidapi.com"` に設定します。この値は、トークンを生成する環境と同じ環境 (本番環境またはテスト環境) に設定しなければなりません。
+- インテグレーションテストでは、`params.uid2ApiBase` を `"https://operator-integ.uidapi.com"` に設定します。この値は、トークンを生成する環境と同じ環境 (本番環境またはインテグレーション環境) に設定しなければなりません。
+
+- Prebid.js Server-Side インテグレーションの場合、クライアントサイドインテグレーション機能を無効にして、より小さな Prebid.js ビルドを作成できます。これを行うには、`--disable UID2_CSTG` フラグを渡します:
+
+```
+    $ gulp build --modules=uid2IdSystem --disable UID2_CSTG
+```
 
 ## Storing the UID2 Token in the Browser
 <!-- GWH same section in integration-prebid.md, integration-prebid-client-side.md, and integration-prebid-client-side.md. Ensure consistency -->
-デフォルトでは、UID2 module はローカルストレージを使ってデータを保存します。代わりにクッキーを使用するには、以下の例に示すように `params.storage` を `cookie` に設定します。
+デフォルトでは、UID2 モジュールは Advertising Token をブラウザのローカルストレージに保存します。代わりにクッキーを使用する場合は、次の例に示すように、`params.storage` を `cookie` に設定します。
 
-詳細は Prebid ドキュメントの [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) を参照してください。
+詳細は、Prebid のドキュメント [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) を参照してください。
 
 ```js
 pbjs.setConfig({ 
@@ -277,14 +279,14 @@ pbjs.setConfig({
       name: 'uid2', 
       params: { 
         // default value is 'localStorage' 
-        storage: 'cookie'    
+        storage: 'cookie'  
       } 
     }] 
   } 
 }); 
 ```
 
-クッキーのサイズが大きくなり、問題が発生する可能性があります。ただし、ローカルストレージがオプションでない場合、これが考えられるアプローチの 1 つです。
+The cookie size can be significant, which could be a problem. However, if local storage is not an option, this is one possible approach.
 
 ## Determining Whether the Module Has a Valid Token
 
@@ -382,9 +384,9 @@ pbjs.setConfig({
 }
 ```
 
-## Optional: Reduce Latency by Setting the API Base URL for the Production Environment
-<!-- GWH "Optional: Reduce Latency by Setting the API Base URL for the Production Environment" section is identical for client side and server side. -->
-デフォルトでは、UID2 module はアメリカにある UID2 サーバーに API コールを行います。ユーザーの居住地によっては、レイテンシー(遅延時間) を短縮するために、ユーザーに近いサーバーを選択することを検討してください。
+## Optional: Specifying the API Base URL to Reduce Latency
+<!-- GWH "Optional: Specifying the API Base URL to Reduce Latency" section is identical for client side and server side. -->
+デフォルトでは、UID2 module はアメリカにある UID2 本番環境サーバーに API コールを行います。ユーザーの居住地によっては、レイテンシー(遅延時間) を短縮するために、ユーザーに近いサーバーを選択することを検討してください。
 
 UID2 module を設定するときに別の UID2 サーバーを指定するには、次の例に示すように、オプションの `params.uid2ApiBase` パラメータを設定します:
 

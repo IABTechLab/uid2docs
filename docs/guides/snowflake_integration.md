@@ -11,20 +11,6 @@ import Link from '@docusaurus/Link';
 
 # Snowflake Integration Guide
 
-<!-- This guide includes the following information:
-- [Functionality](#functionality)
-- [Workflow Diagram](#workflow-diagram)
-- [Access the UID2 Shares](#access-the-uid2-shares)
-- [Shared Objects](#shared-objects)
-  -  [Database and Schema Names](#database-and-schema-names)
-  -  [Map DII](#map-dii)
-  -  [Regenerated UID2s](#regenerate-uid2s) 
-- [Migration Guide](#migration-guide)  
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
-   - [Encrypt Tokens](#encrypt-tokens)
-   - [Decrypt Tokens](#decrypt-tokens)
-   - [UID2 Sharing Example](#uid2-sharing-example) -->
-
 [Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share authorized consumer identifier data without exposing sensitive <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>. Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
 
 The following listings for UID2 are available on the Snowflake marketplace:
@@ -41,13 +27,15 @@ The following table summarizes the functionality available with the UID2 Snowfla
 
 *You cannot generate a UID2 token directly from DII. However, you can convert DII to a raw UID2, and then encrypt the raw UID2 into a UID2 token.
 
->NOTE: If you are a publisher who is sharing UID2 tokens in the bidstream, see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+:::note
+If you are a publisher who is sharing UID2 tokens in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>, see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+:::
 
 ## Workflow Diagram
 
 The following diagram illustrates how you engage with the UID2 integration process in Snowflake:
 
-![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture.svg)
+![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture.png)
 
 |Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-Out Cloud Setup|
 | :--- | :--- | :--- |
@@ -62,7 +50,9 @@ There are two personalized listings offered in the Snowflake Data Marketplace fo
 - [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV) for advertisers/brands
 - [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0) for data providers
 
->IMPORTANT: To be able to request data, you must use the `ACCOUNTADMIN` role or another role with the `CREATE DATABASE` and `IMPORT SHARE` privileges in your Snowflake account.
+:::important
+To be able to request data, you must use the `ACCOUNTADMIN` role or another role with the `CREATE DATABASE` and `IMPORT SHARE` privileges in your Snowflake account.
+:::
 
 To request access to a UID2 Share, complete the following steps:
 
@@ -88,7 +78,9 @@ The following functions are deprecated in favor of `FN_T_UID2_IDENTITY_MAP`. You
 - `FN_T_UID2_IDENTITY_MAP_EMAIL` (deprecated)
 - `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (deprecated)
 
->NOTE: If you are using the deprecated functions, and need help migrating to the newer function, see [Migration Guide](#migration-guide).
+:::note
+If you are using the deprecated functions, and need help migrating to the newer function, see [Migration Guide](#migration-guide).
+:::
 
 To identify the UID2s that you must regenerate, use the `UID2_SALT_BUCKETS` view from the UID2 Share. For details, see [Regenerate UID2s](#regenerate-uid2s).
 
@@ -162,7 +154,9 @@ Mapping request examples in this section:
 - [Single Hashed Phone Number](#mapping-request-example---single-hashed-phone-number)
 - [Multiple Hashed Phone Numbers](#mapping-request-example---multiple-hashed-phone-numbers)
 
->NOTE: The input and output data in these examples is fictitious, for illustrative purposes only. The values provided are not real values.
+:::note
+The input and output data in these examples is fictitious, for illustrative purposes only. The values provided are not real values.
+:::
 
 #### Mapping Request Example - Single Unhashed Email
 
@@ -529,7 +523,7 @@ For details about the values and their explanations, see [Values for the UNMAPPE
 
 A UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participant</Link> is a company that takes part in sharing, either as a sender or a receiver, to share UID2s with another participant.
 
-Advertisers and data providers can share UID2s with other authorized UID2 sharing participants via Snowflake (tokenized sharing). They can encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into [UID2 tokens](../ref-info/glossary-uid#gl-uid2-token) and then send them to another participant for sharing in pixels (see [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md)). If you are not sending data in pixels within Snowflake, you can take part in UID2 sharing as long as you follow the requirements laid out in [Security Requirements for UID2 Sharing](../sharing/sharing-security.md).
+Advertisers and data providers can share UID2s with other authorized UID2 sharing participants via Snowflake (tokenized sharing). They can encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and then send them to another participant for sharing in pixels (see [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md)). If you are not sending data in pixels within Snowflake, you can take part in UID2 sharing as long as you follow the requirements laid out in [Security Requirements for UID2 Sharing](../sharing/sharing-security.md).
 
 :::caution
 The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
@@ -646,7 +640,9 @@ A successful query returns the following information for the specified UID2 toke
 | `SITE_ID` | INT | The value is one of the following:<ul><li>Decryption successful: The identifier of the UID2 participant that encrypted the token.</li><li>Decryption not successful: `NULL`.</li></ul> |
 | `DECRYPTION_STATUS` | TEXT | The value is one of the following:<ul><li>Decryption successful: `NULL`.</li><li>Decryption not successful:  The reason why the UID2 token was not decrypted; for example, `EXPIRED_TOKEN`.<br/>For details, see [Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column).</li></ul> |
 
->NOTE: In most circumstances where UID2 token cannot be successfully decrypted, the function will not return any rows at all.
+:::note
+In most circumstances where UID2 token cannot be successfully decrypted, the function will not return any rows at all.
+:::
 
 #### Values for the DECRYPTION_STATUS Column
 
@@ -736,8 +732,10 @@ The following instructions provide an example of how sharing works for a sender 
  3. Create a secure share and grant it access to the `AUDIENCE_WITH_UID2_TOKENS` table.
  4. Grant the receiver access to the secure share.
 
->**WARNING**: To help prevent UID2 tokens from expiring during sharing, send the newly encrypted UID2 tokens to the receiver as soon as possible.
->
+:::warning
+To help prevent UID2 tokens from expiring during sharing, send the newly encrypted UID2 tokens to the receiver as soon as possible.
+:::
+
 #### Receiver Instructions
 
  1. Create a database from the secure share that the sender provided access to.
@@ -751,4 +749,6 @@ The following instructions provide an example of how sharing works for a sender 
         on a.ID=b.ID;
     ```
 
->**WARNING**: To help prevent UID2 tokens from expiring, decrypt the UID2 tokens as soon as they become available from the sender.
+:::warning
+To help prevent UID2 tokens from expiring, decrypt the UID2 tokens as soon as they become available from the sender.
+:::

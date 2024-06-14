@@ -9,12 +9,12 @@ import Link from '@docusaurus/Link';
 
 # UID2 SDK for iOS Reference Guide
 
-<!-- This guide includes the following information:
 
+<!-- This guide includes the following information:
+- [tvOS Support](#tvos-support)
 - [Functionality](#functionality)
 - [API Permissions](#api-permissions)
 - [SDK Version](#sdk-version)
-- [Features](#features)
 - [GitHub Open-Source Repository](#github-open-source-repository)
 - [Minimum Requirements](#minimum-requirements)
 - [Installation](#installation)
@@ -24,17 +24,23 @@ import Link from '@docusaurus/Link';
 - [UID2Manager API](#uid2manager-api)
   -  [Functions](#functions)
   -  [Variables](#variables)
-- [Android Initialization](#android-initialization)
 - [Code Samples](#code-samples) -->
 
-UID2 SDK for iOS を使用すると、UID2 を使用してクライアント ID を確立し、iOS デバイスで Advertising Token を取得するプロセスを容易にすることができます。
+UID2 SDK for iOS は、以下の用途に使用できます:
+
+- UID2 を使用して iOS アプリでクライアント ID を生成または確立する。
+- ビッドストリーム様に Advertising Token を取得する。
+- UID2 トークンの自動リフレッシュ。
 
 以下のiOS関連プラグインと関連ドキュメントも利用できます:
 
 | Purpose | Product/Documentation |
 | :--- | :--- |
-| Google Mobile Ads (GMA) SDK を使用して、iOS アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を [Secure Signal](https://support.google.com/admob/answer/11556288) として送信するには、次のの手順に従います。 | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) |
-| Google Interactive Media Ads SDK for iOS  を使用して、iOS アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を [Secure Signals](https://support.google.com/admob/answer/11556288) として送信するには、次のの手順に従います。 | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) |
+| To use the Google Mobile Ads (GMA) SDK to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS/tvOS apps | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) |
+| To use the Google Interactive Media Ads SDK for iOS to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS/tvOS apps | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) |
+
+## tvOS Support
+Although this page refers to UID2 SDK for iOS, this SDK also supports tvOS. For the required tvOS version, see [Minimum Requirements](#minimum-requirements).
 
 ## Functionality
 
@@ -42,27 +48,24 @@ UID2 SDK for iOS を使用すると、UID2 を使用してクライアント ID 
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
-| Not supported | Not supported | Not supported | Supported |
+| Not supported | Not supported | Supported | Supported |
+
+UID2 SDK for iOS は、iOS アプリケーションに代わって UID2 ID を生成または管理するように設計されています。プラットフォームネイティブの暗号化ツールを使って ID をデバイスに安全に保存することで、UID2 ID をアプリのライフサイクル全体にわたって持続させることができます。
+
+デフォルトでは、SDK は有効期限に基づいて UID2 ID を自動的にリフレッシュします。ただし、これを無効にして、アプリが UID2 IDのライフサイクルを手動で管理できるように実装することもできます。
 
 ## API Permissions
 
-この SDK を使用するには、[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了する必要があります。
-
-SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。SDK には、使用する権限を持たない機能があるかもしれないことに留意してください。例えば、パブリッシャーはトークンの生成と更新のために特定の API Permissions を取得しますが、SDK は共有などの他のアクティビティをサポートするかもしれません。
-
-詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+この SDK を使用するには、[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って UID2 アカウントのセットアップを完了する必要があります。
+SDKが提供する特定の機能を使用する許可が与えられ、そのアクセス用の認証情報が与えられます。
 
 ## SDK Version
 
-<!-- As of 2023-07-15 -->
+<!-- As of 7 May 2024 -->
 
-このドキュメントは UID2 iOS SDK バージョン 0.2.0 用です。
+このドキュメントは、iOS 用 UID2 SDK のバージョン 1.2.0 以降に対応しています。
 
-## Features
-
-UID2 iOS SDK は、iOS アプリケーションに代わって UID2 Identity を管理するように設計されています。プラットフォームネイティブの暗号化ツールを使って Identity をデバイス上に安全に保存することで、UID2 Identity をアプリのライフサイクル全体にわたって持続させることができます。
-
-デフォルトでは、SDK は有効期限に基づいて UID2 Identity を自動的にリフレッシュします。ただし、これを無効にして、実装アプリが UID2 Identity のライフサイクルを手動で管理できるようにすることもできます。
+リリースノートの情報については、[https://github.com/IABTechLab/uid2-ios-sdk/releases](https://github.com/IABTechLab/uid2-ios-sdk/releases) を参照してください。
 
 ## GitHub Open-Source Repository
 
@@ -74,8 +77,9 @@ UID2 iOS SDK は、iOS アプリケーションに代わって UID2 Identity を
 
 この SDK の最小要件は以下の通りです:
 
-- Xcode version: 14.0+
-- iOS	minimum target version: 13.0+	
+- Xcode version: 15.0+
+- iOS	minimum target version: 13.0+
+- tvOS minimum target version: 13.0+
 - Swift version: 5.0+
 
 <!-- See also: [Requirements](https://github.com/IABTechLab/uid2-ios-sdk/blob/main/README.md#requirements). -->
@@ -89,7 +93,7 @@ Swift Package Manager (SPM) を使って iOS SDK をインストールします�
 
 ### Installing with Package.swift
 
-Package.swift に以下の依存関係を追加します:
+Package.swift に次の依存関係を追加します:
 
 ```js
 dependencies: [
@@ -99,80 +103,102 @@ dependencies: [
 
 ### Installing with Xcode
 
-Xcode 経由で以下の依存関係を追加します:
+アプリの Package Dependencies に次のエントリを追加します:
 
-![Xcode Dependency](images/xcode-uid2-ios-sdk.png)
+| Name | Location | Dependency Rule                         |
+| :--- | :--- |:----------------------------------------| 
+| uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 1.2.0 < 2.0.0 |
 
 ## Usage Guidelines
 
-最初の UID2 Identity は、実装アプリケーションが生成し、UID2 SDK に渡す必要があります。セキュリティ要件のため、UID2 Mobile SDK は新しい UID2 Identity を作成できません。
+**UID2Manager** シングルトンは、UID2 SDK for iOS の主要な開発者 API です。UID2 Token を含む UID2 Identity の保存、リフレッシュ、取得を行います。
 
-UID2 Mobile SDK は、ID が確立された後、UID2 Identity のリフレッシュを実行できます。これは、リフレッシュ機能が UID2 Identity の一部である Refresh Token に依存しているためです。
+iOS の場合、`UID2Manager` は初めてアクセスされたときに自動的に初期化されます。自動または手動のリフレッシュ機能をサポートするように設定できます。
 
-**UID2Manager** シングルトンは、UID2 Android および iOS SDK の主要な開発者 API です。UID2 Identity の保存、リフレッシュ、取得を行います。
+UID2 Identity を確立する方法は2つあります:
 
-iOS の場合、`UID2Manager` は最初にアクセスされたときに自動的に初期化されます。自動または手動のリフレッシュ機能をサポートするように設定できます。
+1. DII を使用して UID2 ID を生成します&#8212;メール (ハッシュ化または非ハッシュ化) または電話番号 (ハッシュ化または非ハッシュ化) を使用します。インテグレーション手順については、[Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) を参照してください。
+
+2. Server-Side で UID2 ID を生成し、それを UID2 SDK に渡します。インテグレーション手順については、[Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) を参照してください。
+
+UID2 Mobile SDK は、UID2 identifier が確立された後に UID2 identities をリフレッシュできます。これは、リフレッシュ機能が UID2 Identity の一部である Refresh Token に依存しているためです。
+
+
+## Code Samples
+
+The following code samples provide examples of performing specific activities relating to managing UID2 with the UID2 SDK for iOS.
+
+Generate an initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk)):
+
+```js
+UID2Manager.shared.generateIdentity(
+    _ identity: IdentityType,
+    subscriptionID: String,
+    serverPublicKey: String,
+    appName: String? = nil
+)
+```
+初期 UID2 Identity を設定します (手順については、[Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk) を参照してください):
+
+``` javascript
+UID2Manager.shared.setIdentity(_ identity: UID2Identity)
+```
+
+Advertising SDK (広告リクエストまたはビッドストリーム使用) に渡す UID2 Token (Advertising Token) を取得します:
+
+```js
+UID2Manager.shared.getAdvertisingToken()
+```
 
 ## UID2Manager API
 
-このセクションには、UID2Manager API の一部である関数と変数が含まれています。
+このセクションには、UID2Manager APIの一部である関数と変数が含まれています。
 
 ### Functions
 
-UID2Manager API の一部として、以下の関数が利用できます:
+UID2Manager API の一部として利用可能な関数は次のとおりです:
+- [generateIdentity()](#generateidentity)
 - [setIdentity()](#setidentity)
 - [resetIdentity()](#resetidentity)
 - [refreshIdentity()](#refreshidentity)
 - [getAdvertisingToken()](#getadvertisingtoken)
 - [setAutomaticRefreshEnabled()](#setautomaticrefreshenabled)
 
+#### generateIdentity()
+
+<Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link> を使用して UID2 Identity を生成します。手順については、*Client-Side Integration Guide for Mobile* の [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照してください。
+
 #### setIdentity()
 
-SDK が管理する UID2 Identity を設定します。
+SDK が管理する、Server-Side で作成された UID2 Identity を設定します。詳細については、*Client-Server Integration Guide for Mobile* の [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-server.md#configure-the-uid2-mobile-sdk) を参照してください。
 
 #### resetIdentity()
 
-SDK が現在管理している UID2 Identity をリセットまたは削除します。
+SDK が管理している UID2 Identity をリセットまたは削除します。
 
 #### refreshIdentity()
 
-SDK が管理しているUID2 Identity を手動でリフレッシュします。
+SDK が管理している UID2 Identity を手動でリフレッシュします。
 
 #### getAdvertisingToken()
 
-現在の UID2 Identity が有効な場合、この関数は UID2 Token (Advertising Token) を返します。
+現在の UID2 Identity が有効である場合、この関数は UID2 Token (Advertising Token) を返します。
 
 #### setAutomaticRefreshEnabled()
 
-自動更新機能のトグルです。
+自動リフレッシュ機能の有効/無効を切り替えます。
 
 ### Variables
 
-UID2Manager API では、以下の変数を使用できます:
+UID2Manager APIでは、以下の変数を使用できます:
 
 - [identity](#identity)
 - [identityStatus](#identitystatus)
 
 #### identity
 
-identity 変数は、SDK によって管理されている現在の UID2Identity データオブジェクトを格納し、返します。
+Identity 変数は、SDK によって管理されている現在の UID2Identity データオブジェクトを格納し、返します。
 
 #### identityStatus
 
-identityStatus 変数は、SDK が管理している現在の UID2 Identity のステータスを格納し、返します。
-
-## Code Samples
-
-以下のコードサンプルは、UID2 iOS SDK を使用して UID2 を管理する具体的なアクティビティを実行する例です。
-
-初期 UID2 Identity を設定します:
-
-```js
-UID2Manager.shared.setIdentity(_ identity: UID2Identity)
-```
-
-Advertising SDK に渡す UID2 Token (Advertising Token) を取得します:
-
-```js
-UID2Manager.shared.getAdvertisingToken()
-```
+identityStatus変数は、SDKが管理している現在のUID2 Identityのステータスを格納し、返します。

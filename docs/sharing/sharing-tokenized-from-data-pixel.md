@@ -14,20 +14,11 @@ UID2 data shared in pixels must be in the form of UID2 tokens generated in one o
 - By encrypting [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) (an email address or phone number) directly into a UID2 token.
 - By encrypting a raw UID2 into a UID2 token.
 
-[Tokenized sharing](../ref-info/glossary-uid.md#gl-tokenized-sharing) is an option for any sharing route, but the main implementation outside of the bidstream is tokenized sharing in pixels. 
+[Tokenized sharing](../ref-info/glossary-uid.md#gl-tokenized-sharing) is an option for any sharing route, but the main implementation outside of the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> is tokenized sharing in pixels. 
 
 :::caution
 Data in pixels can be accessed by unauthorized parties, so it is never acceptable to share raw UID2s in pixels. If you're sharing in pixels, tokenized sharing is required.
 :::
-
-<!-- In this file:
-
-- [Audience](#audience)
-- [Sharing UID2 Tokens in Pixels](#sharing-uid2-tokens-in-pixels)
-- [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)
-- [Workflow: Tokenized Sharing in Tracking Pixels](#workflow-tokenized-sharing-in-tracking-pixels)
-- [Workflow: Tokenized Sharing in Creative Pixels](#workflow-tokenized-sharing-in-creative-pixels)
-- [Information for Sharing Receivers](#information-for-sharing-receivers) -->
 
 ### Audience
 

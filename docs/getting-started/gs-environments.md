@@ -9,6 +9,10 @@ import Link from '@docusaurus/Link';
 
 # Environments
 
+Learn about the different environments available, and tips to reduce latency by choosing the best base URL for your integration.
+
+## UID2 Testing and Production Environments
+
 The following table lists all current testing and production environments for UID2.
 
 | Environment | Cloud Region | Code | Base URL |
@@ -27,4 +31,14 @@ Notes:
 
 - All UID2 endpoints use the same base URL.
 - The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.
-- The expiration time of the [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) returned by  the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints is subject to change, but is always significantly shorter in the integration environment than it is in the production environment.
+- The expiration time of the <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> returned by the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints is subject to change, but is always significantly shorter in the integration environment than it is in the production environment.
+
+## Specifying the Base URL to Reduce Latency
+
+By default, some implementation options make API calls to a UID2 production environment server in the USA.
+
+In this scenario, depending on where your users are based, you might consider choosing a server closer to your users to reduce latency.
+
+For example, a publisher in Singapore can set the base URL to `https://sg.prod.uidapi.com`. This is still the UID2 production environment, but the servers are in Singapore.
+
+You can also set the base URL to `https://global.prod.uidapi.com`. This URL directs readers to a region geographically close to them, which is ideal if your audience is geographically distributed.

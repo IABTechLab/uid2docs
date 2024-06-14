@@ -1,47 +1,21 @@
 ---
-title: UID2 Server-Side Integration Guide for Prebid.js
-sidebar_label: Server-Side Integration for Prebid.js
-pagination_label: UID2 Server-Side Integration for Prebid.js
+title: UID2 Client-Server Integration Guide for Prebid.js
+sidebar_label: Client-Server Integration for Prebid.js
+pagination_label: UID2 Client-Server Integration for Prebid.js
 description: Information about setting up a server-side Prebid.js integration.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
 import Link from '@docusaurus/Link';
+import AddPrebidjsToYourSite from '/docs/snippets/_prebid-add-prebidjs-to-your-site.mdx';
+import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser.mdx';
 
-# UID2 Server-Side Integration Guide for Prebid.js
-<!-- 
-This guide includes the following information:
+# UID2 Client-Server Integration Guide for Prebid.js
 
-- [Prebid.js Version](#prebidjs-version)
-- [UID2 Prebid Module Page](#uid2-prebid-module-page)
-- [Integration Overview: High-Level Steps](#integration-overview-high-level-steps)
-- [Complete UID2 Account Setup](#complete-uid2-account-setup)
-- [Add Prebid.js to Your Site](#add-prebidjs-to-your-site)
-- [Configure the UID2 Module](#configure-the-uid2-module)
-  - [Generating a UID2 Token on the Server](#generating-a-uid2-token-on-the-server)
-  - [Client Refresh Mode](#client-refresh-mode)
-    - [Client Refresh Mode Response Configuration Options](#client-refresh-mode-response-configuration-options)
-    - [Client Refresh Mode Cookie Example](#client-refresh-mode-cookie-example)
-    - [Configuration](#configuration)
-    - [Client Refresh Mode uid2Token Example](#client-refresh-mode-uid2token-example)
-  - [Server-Only Mode](#server-only-mode)
-    - [Server-Only Mode Cookie Example](#server-only-mode-cookie-example)
-    - [Server-Only Mode Value Example](#server-only-mode-value-example)
-- [Prebid Implementation Notes and Tips](#prebid-implementation-notes-and-tips)
-- [Storing the UID2 Token in the Browser](#storing-the-uid2-token-in-the-browser)
-- [When to Pass a New Token to the UID2 Module](#when-to-pass-a-new-token-to-the-uid2-module)
-  - [Passing a New Token: Client Refresh Mode](#passing-a-new-token-client-refresh-mode)
-  - [Passing a New Token: Server-Only Mode](#passing-a-new-token-server-only-mode)
-- [Determining Whether the Module Has a Valid Token](#determining-whether-the-module-has-a-valid-token)
-- [Checking the Integration](#checking-the-integration)
-- [Configuration Parameters for userSync](#configuration-parameters-for-usersync) 
-  - [Configuration Parameter Examples: Value](#configuration-parameter-examples-value)
-  - [Sample Token](#sample-token)
-- [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment) 
- -->
+This guide is for publishers who have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the server side and want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) to be passed by Prebid.js in the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>. 
 
-This guide is for publishers who have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the server side and want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bidstream. 
+This is called client-server integration because some integration steps are client-side and some are server-side.
 
 To integrate with UID2 using Prebid.js, you'll need to:
 
@@ -76,16 +50,8 @@ Complete the UID2 account setup by following the steps described in the [Account
 When account setup is complete, you'll receive your unique API key and client secret. These values are unique to you and it's important to keep them secure. For details, see [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret).
 
 ## Add Prebid.js to Your Site
-<!-- GWH "Add Prebid.js to Your Site" section is identical for client side and server side. -->
-To add Prebid.js to your site, follow the instructions in [Getting Started for Developers](https://docs.prebid.org/dev-docs/getting-started.html) in the Prebid.js documentation. 
 
-When you download the Prebid.js package, add the UID2 module by checking the box next to the module named **Unified ID 2.0**, listed under the section **User ID Modules**.
-
-When you've added Prebid.js to your site and confirmed that it's working properly, you're ready to configure the UID2 module.
-
-:::tip
-To make sure that the UID2 module is installed, find the string `uid2IdSystem` in the [`pbjs.installedModules` array](https://docs.prebid.org/dev-docs/publisher-api-reference/installedModules.html).
-:::
+<AddPrebidjsToYourSite />
 
 ## Configure the UID2 Module
 
@@ -264,33 +230,15 @@ In planning your Prebid implementation, consider the following:
 
 - During integration testing, set `params.uid2ApiBase` to `"https://operator-integ.uidapi.com"`. You must set this value to the same environment (production or integration) that you use for generating tokens.
 
-- For a Prebid.js server-side integration, you can create a smaller Prebid.js build by disabling client-side integration functionality. To do this, pass the `--disable UID2_CSTG` flag:
+- For a Prebid.js client-server integration, you can create a smaller Prebid.js build by disabling client-side integration functionality. To do this, pass the `--disable UID2_CSTG` flag:
 
 ```
     $ gulp build --modules=uid2IdSystem --disable UID2_CSTG
 ```
 
 ## Storing the UID2 Token in the Browser
-<!-- GWH same section in integration-prebid.md, integration-prebid-client-side.md, and integration-prebid-client-side.md. Ensure consistency -->
-By default, the UID2 module stores data using local storage. To use a cookie instead, set `params.storage` to `cookie`, as shown in the following example.
 
-For details, see [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) in the Prebid documentation.
-
-```js
-pbjs.setConfig({ 
-  userSync: { 
-    userIds: [{ 
-      name: 'uid2', 
-      params: { 
-        // default value is 'localStorage' 
-        storage: 'cookie'  
-      } 
-    }] 
-  } 
-}); 
-```
-
-The cookie size can be significant, which could be a problem. However, if local storage is not an option, this is one possible approach.
+<StoreUID2TokenInBrowser />
 
 ## Determining Whether the Module Has a Valid Token
 
@@ -351,7 +299,7 @@ In this table, CR = client refresh mode, SO = server-only mode, and N/A = not ap
 | value | CR: N/A<br/>SO: Optional | Object | An object containing the value for the advertising token. | See [Configuration Parameter Examples: Value](#configuration-parameter-examples-value) |
 | params.uid2Token | CR: Optional<br/>SO: N/A | Object | The initial UID2 token. This should be the `body` element of the decrypted response from a call to the `/token/generate` or `/token/refresh` endpoint. | See [Sample Token](#sample-token) |
 | params.uid2Cookie | CR: Optional<br/>SO: N/A  | String | The name of a cookie that holds the initial UID2 token, set by the server. The cookie should contain JSON in the same format as the uid2Token param. If `uid2Token` is supplied, this parameter is ignored. | See [Sample Token](#sample-token) |
-| params.uid2ApiBase | CR: Optional<br/>SO: Optional | String | Overrides the default UID2 API endpoint. For valid values, see [Environments](../getting-started/gs-environments.md). | `"https://prod.uidapi.com"` (the default)|
+| params.uid2ApiBase | CR: Optional<br/>SO: Optional | String | Overrides the default UID2 API endpoint. For details, and an example, see [Optional: Specifying the API Base URL to Reduce Latency](#optional-specifying-the-api-base-url-to-reduce-latency). | `"https://prod.uidapi.com"` (the default)|
 | params.storage | CR: Optional<br/>SO: Optional | String | Specify the module internal storage method: `cookie` or `localStorage`. We recommend that you do not provide this parameter. Instead, allow the module to use the default. | `"localStorage"` (the default) |
 
 ### Configuration Parameter Examples: Value
@@ -388,11 +336,13 @@ The following sample is fictitious, but shows what the token response object, re
 }
 ```
 
-## Optional: Reduce Latency by Setting the API Base URL for the Production Environment
-<!-- GWH "Optional: Reduce Latency by Setting the API Base URL for the Production Environment" section is identical for client side and server side. -->
-By default, the UID2 module makes API calls to a UID2 production environment server in the USA. Depending on where your users are based, you might consider choosing a server closer to your users to reduce latency.
+## Optional: Specifying the API Base URL to Reduce Latency
 
-To specify a different UID2 server when you're configuring the UID2 module, set the optional params.uid2ApiBase parameter, as shown in the following example:
+By default, the UID2 module makes calls to a UID2 production environment server in the USA.
+
+For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md).
+
+To specify a UID2 server that is not the default, when you're configuring the UID2 module, set the optional `params.uid2ApiBase` parameter, as shown in the following example:
 
 ```js
 pbjs.setConfig({ 
@@ -407,5 +357,3 @@ pbjs.setConfig({
   } 
 }); 
 ```
-
-For the list of possible base URLs, see [Environments](../getting-started/gs-environments.md).

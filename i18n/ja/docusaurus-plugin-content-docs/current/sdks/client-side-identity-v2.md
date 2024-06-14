@@ -15,7 +15,7 @@ import Link from '@docusaurus/Link';
 
 この SDK を使用して、UID2 を使用してクライアントの ID を確立し、広告トークンを取得するプロセスを容易にします。以下のセクションでは、UID2 を確立するための [workflow](#workflow-overview) について説明し、SDK の [API reference](#api-reference) を提供し、[UID2 cookie format](#uid2-cookie-format) について説明します。
 
-- コンテンツパブリッシャーのインテグレーション手順については、[Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください。
+- コンテンツパブリッシャーのインテグレーション手順については、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください。
 - [example application](https://example-jssdk-integ.uidapi.com/) と関連ドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) ガイドを参照してください。
 
 <!-- This guide includes the following information:
@@ -67,11 +67,6 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 - [https://github.com/iabtechlab/uid2-web-integrations](https://github.com/iabtechlab/uid2-web-integrations)
 
-<!-- The binary is published in these locations:
-
-- NPM: [https://www.npmjs.com/package/@uid2/uid2-sdk](https://www.npmjs.com/package/@uid2/uid2-sdk)
-- CDN: [https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js](https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js) (** v3 JS SDK: stash per SW 8/15/23**) -->
-
 ## Terminology
 
 このドキュメントでは、以下の用語が使われます:
@@ -99,9 +94,9 @@ SDK を使用して UID2 ID を確立するための Client-Side ワークフロ
   - ID が使用できない場合、SDK は ID が更新可能かどうかに基づいて適切なアクションを実行します。詳細については、[Workflow States and Transitions](#workflow-states-and-transitions) を参照してください。
 4. Publisher: ID の状態に基づいて ID を処理します:
 	- Advertising Token が使用可能な場合は、それを使用してターゲティング広告の要求を開始します。
-	- Advertising Token が利用可能でない場合は、ターゲティング広告を使用するか、同意フォームを使用してユーザーを UID2 ログインにリダイレクトします。
+	- Advertising Token が利用可能でない場合は、ターゲティング広告を使用しないか、同意フォームでユーザーを データキャプチャにリダイレクトします。
  
-Web インテグレーションの詳細については、[Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください。
+Web インテグレーションの詳細については、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください。
 
 ### Workflow States and Transitions
 
@@ -111,14 +106,13 @@ Web インテグレーションの詳細については、[Server-Side Integrati
 | :--- | :--- | :---| :---| :---|
 | Initialization | `undefined`| `undefined`| コールバックが呼び出されるまでの初期状態です。 | N/A |
 | Identity Is Available | available |`false` | 有効な ID が正常に確立または更新されました。ターゲティング広告で Advertising Toke を使用できます。 |`ESTABLISHED` or `REFRESHED` |
-| Identity Is Temporarily Unavailable |`undefined` | `false`| Advertising Token の有効期限が切れたため、自動更新に失敗しました。[Background auto-refresh](#background-token-auto-refresh) は、Refresh Token の有効期限が切れるか、ユーザーがオプトアウトするまで施行され続けます。<br/>以下のいずれかを行うことができます:<br/>- ターゲティング広告を使わない。<br/>- ユーザーを UID2 ログインにリダイレクトし、同意フォームを表示する。<br/>NOTE: ID はのちに正常にリフレッシュされるかもしれません。&#8212;例えば、UID2 Serviceが一時的に利用できなくなった場合などです。 | `EXPIRED` |
-| Identity Is Not Available  | `undefined`| `false`| ID が利用できず、リフレッシュできません。SDK はファーストパーティクッキーをクリアします。<br/>UID2 ベースのターゲティング広告をサイド使用するには、同意フォームを使って、ユーザーを UID2 ログインにリダイレクトする昼葉があります。 | `INVALID`, `NO_IDENTITY`, `REFRESH_EXPIRED`, or `OPTOUT` |
+| Identity Is Temporarily Unavailable |`undefined` | `false`| Advertising Token の有効期限が切れたため、自動更新に失敗しました。[Background auto-refresh](#background-token-auto-refresh) は、Refresh Token の有効期限が切れるか、ユーザーがオプトアウトするまで続きます。<br/>以下のいずれかを行ってください:<br/>- ユーザーをリダイレクトし、メールアドレスまたは電話番号の入力を求める。<br/>- ターゲティングしない広告を使用する。<br/>NOTE: ID は後で正常にリフレッシュされるかもしれません。&#8212;例えば、UID2 Serviceが一時的に利用できなくなった場合などです。 | `EXPIRED` |
+| Identity Is Not Available  | `undefined`| `false`| ID が利用できず、リフレッシュできません。SDK はファーストパーティクッキーをクリアします。<br/>UID2 ベースのターゲティング広告を再度使用するには、UID2 を取得できるログインまたはフォーム入力にユーザーをリダイレクトする必要があります。 | `INVALID`, `NO_IDENTITY`, `REFRESH_EXPIRED`, or `OPTOUT` |
 
 
 次の図は、対応する ID の [status values](#identity-status-values) を含む 4 つの状態と、それらの間で可能な遷移を示しています。SDK は各遷移で [callback function](#callback-function) を呼び出します。
 
-![Client-Side JavaScript SDK Workflow](images/uid2-js-sdk-workflow.svg)
-
+![Client-Side JavaScript SDK Workflow](images/uid2-js-sdk-workflow.png)
 
 ### Background Token Auto-Refresh
 
@@ -128,17 +122,16 @@ Token の Auto-refresh について知っておくべきことは以下のとお
 
 
 - 一度にアクティブにできる Token refresh call は 1 つだけです。
-- [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) レスポンスが、ユーザーがオプトアウトしたため、あるいはリフレッシュトークンの有効期限が切れたために失敗した場合、バックグラウンドでの自動更新処理を中断し、新しいログインを要求します ([isLoginRequired()](#isloginrequired-boolean) は `true` を返します)。それ以外のケースでは、auto-refresh の試みはバックグラウンドで継続されます。
+- [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) レスポンスが、ユーザーがオプトアウトしたため、あるいは Refresh Token の有効期限が切れたために失敗した場合、バックグラウンドでの自動更新処理を一時停止します。UID2ベースのターゲティング広告を再び使用するには、ユーザーからメールアドレスまたは電話番号を取得する必要があります（[isLoginRequired()](#isloginrequired-boolean)は`true`を返します）。
 - SDK の初期化時に指定された [callback function](#callback-function) は、以下の場合に呼び出されます:
 	- リフレッシュが成功するたびに呼び出されます。
 	- 有効期限が切れた Advertising Token のリフレッシュに最初に失敗した場合。
 	- 例えば、ユーザーがオプトアウトした場合などです。<br/>NOTE: ID が一時的に利用できず、自動更新が失敗し続ける場合、コールバックは呼び出されません。この場合、SDK は既存の Advertising Token を使用し続けます。
 - [disconnect()](#disconnect-void) 呼び出しはアクティブなタイマーをキャンセルします。
 
-
 ## API Reference
 
->IMPORTANT: Client-Side JavaScript SDK とのやり取りはすべて `UID2` クラスのインスタンスであるグローバルな `__uid2` オブジェクトを介して行われます。以下の JavaScript 関数はすべて `UID2` クラスのメンバです。
+Client-Side JavaScript SDK とのやり取りはすべて `UID2` クラスのインスタンスであるグローバルな `__uid2` オブジェクトを介して行われます。以下の JavaScript 関数はすべて `UID2` クラスのメンバです。
 
 - [constructor()](#constructor)
 - [init()](#initopts-object-void)
@@ -303,7 +296,7 @@ ID が利用できない場合は、[isLoginRequired()](#isloginrequired-boolean
 
 ### isLoginRequired(): boolean
 
-UID2 ログイン ([POST&nbsp;/token/generate](../endpoints/post-token-generate.md) 呼び出し) が必要かどうかを指定します。
+UID2 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) 呼び出しが必要かどうかを指定します。
 
 この関数は、[Workflow States and Transitions](#workflow-states-and-transitions) で示したように、ID が見つからない場合の処理に追加のコンテキストを提供することもできます。
 
@@ -317,8 +310,8 @@ UID2 ログイン ([POST&nbsp;/token/generate](../endpoints/post-token-generate
 
 | Value | Description |
 | :--- | :--- |
-| `true` | ID が利用できないため、UID2 ログインが必要です。この値は以下のいずれかを示します:<br/>- ユーザーがオプトアウトした。<br/>- Refresh token の有効期限が切れた。<br/>- ファーストパーティクッキーは利用できず、サーバーが生成した ID も提供されていない。 |
-| `false` | ログインは必要ありません。この値は以下のいずれかを示します:<br/>- ID が存在し、有効。<br/>- ID の有効期限が切れており、断続的なエラーによりトークンがリフレッシュされなかった。<br/>- ID の有効期限が切れており、断続的なエラーによりトークンがリフレッシュされなかった。 |
+| `true` | ID が利用できません。この値は以下のいずれかを示します:<br/>- ユーザーがオプトアウトした。<br/>- Refresh token の有効期限が切れた。<br/>- ファーストパーティクッキーは利用できず、サーバーで生成した ID も提供されていない。 |
+| `false` | この値は以下のいずれかを示します:<br/>- ID が存在し、有効。<br/>- ID の有効期限が切れており、断続的なエラーによりトークンがリフレッシュされなかった。<br/>- ID の有効期限が切れており、断続的なエラーによりトークンがリフレッシュされなかった。 |
 | `undefined` | SDK の初期化はまだ完了していません。 |
 
 
@@ -326,7 +319,7 @@ UID2 ログイン ([POST&nbsp;/token/generate](../endpoints/post-token-generate
 
 [ファーストパーティクッキー](#uid2-cookie-format) から UID2 ID をクリアします。これにより、クライアントの ID セッションが閉じられ、クライアントのライフサイクルが切断されます。
 
-未認証のユーザーが存在する場合、またはユーザーがパブリッシャーのサイトのターゲティング広告からログアウトする場合、次の呼び出しを行います:
+ユーザーがパブリッシャーのサイトからログアウトしたら、次の呼び出しを行います:
 
 ```html
 <script>
@@ -374,4 +367,6 @@ UID2 Cookie の内容は、[POST&nbsp;/token/generate](../endpoints/post-token-g
    }
 }
 ```
->IMPORTANT: `private` オブジェクトの内容は明示的に指定されておらず、SDK が解釈するようになっています。このオブジェクトの構造、セマンティクス、互換性について、いかなる仮定もしないでください。クッキーの更新はその構造を保持しなければなりません。
+:::important
+`private` オブジェクトの内容は明示的に指定されておらず、SDK が解釈するようになっています。このオブジェクトの構造、セマンティクス、互換性について、いかなる仮定もしないでください。クッキーの更新はその構造を保持しなければなりません。
+:::

@@ -11,20 +11,6 @@ import Link from '@docusaurus/Link';
 
 You can use the UID2 SDK for C++ on the server side to facilitate decrypting of UID2 tokens to access the raw UID2. 
 
-<!-- This guide includes the following information:
-
-- [Overview](#overview)
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [Version](#version)
-- [GitHub Repository/Binary](#github-repositorybinary)
-- [Initialization](#initialization)
-- [Interface](#interface)
-  - [Response Content](#response-content)
-  - [Response Statuses](#response-statuses)
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
-- [FAQs](#faqs) -->
-
 ## Overview
 
 The functions outlined here define the information that you'll need to configure or can retrieve from the library. The parameters and property names defined below are pseudocode. Actual parameters and property names vary by language but will be similar to the information outlined here.
@@ -72,7 +58,9 @@ The initialization function configures the parameters necessary for the SDK to a
 
 The interface allows you to decrypt UID2 advertising tokens and return the corresponding raw UID2. 
 
->NOTE: When you use an SDK, you do not need to store or manage decryption keys.
+:::note
+When you use an SDK, you do not need to store or manage decryption keys.
+:::
 
 If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising token and return the UID2. For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
 
@@ -113,7 +101,9 @@ Available information returned through the SDK is outlined in the following tabl
 
 A UID2 sharer is any participant that wants to share UID2s with another participant. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant. For an example of usage, see [com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` method).
 
->IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+:::important
+The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+:::
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for C++, either as a sender or a receiver.
 

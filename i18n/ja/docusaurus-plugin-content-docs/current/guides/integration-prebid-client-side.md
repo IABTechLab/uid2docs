@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Client-Side Integration Guide for Prebid.js
 
-このガイドは、Client-Side で [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) にアクセスでき、UID2 とインテグレーションして、RTB ビッドストリームで Prebid.js によって渡される [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token)(Advertising Token) を生成したいパブリッシャー向けのものです。
+このガイドは、Client-Side で [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) にアクセスでき、UID2 とインテグレーションして、RTB ビッドストリームで Prebid.js によって渡される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>(Advertising Token) を生成したいパブリッシャー向けのものです。
 
 Prebid.js を使って UID2 とインテグレーションするには、サイトの HTML と JavaScript を変更する必要があります。このガイドに従えば、Server-Side の作業は必要ありません。
 
@@ -34,7 +34,7 @@ This guide includes the following information:
 
 この実装には Prebid.js version 8.21.0 以降が必要です。バージョン情報については、[https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases) を参照してください。
 
-以前のバージョンの Prebid.js を使用する必要がある場合は、代わりに [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md) で説明している実装ソリューションを使用してください。
+以前のバージョンの Prebid.js を使用する必要がある場合は、代わりに [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md) で説明している実装ソリューションを使用してください。
 
 ## Integration Example
 
@@ -64,14 +64,14 @@ UID2 Prebid.js Client-Side インテグレーション例は、以下のリン�
 
 ### Add Prebid.js to Your Site
 <!-- GWH "Add Prebid.js to Your Site" section is identical for client side and server side. -->
-Prebid.js をサイトに追加するには、Prebid.js ドキュメント [Getting Started for Developers](https://docs.prebid.org/dev-docs/getting-started.html) の指示に従ってください。
+Prebid.js をサイトに追加するには、Prebid.js ドキュメントの [Getting Started for Developers](https://docs.prebid.org/dev-docs/getting-started.html) の手順に従います。
 
-Prebid.js パッケージをダウンロードするときに、**User ID Modules** セクションに記載されている **Unified ID 2.0** というモジュールの隣にあるボックスをチェックして、UID2 module を追加します。
+Prebid.js をダウンロードするとき、**User ID Modules** のセクションの下にある **Unified ID 2.0** という名前のモジュールの横にあるチェックボックスをオンにして、UID2 モジュールを追加します。
 
-サイトに Prebid.js を追加し、正常に動作することを確認したら、UID2 module を設定する準備が整います。
+Prebid.js をサイトに追加し、正常に動作していることを確認したら、UID2 モジュールを設定する準備が整います。
 
 :::tip
-UID2 module がインストールされていることを確認するには、[`pbjs.installedModules` array](https://docs.prebid.org/dev-docs/publisher-api-reference/installedModules.html) で文字列 `uid2IdSystem` を見つけます。
+UID2 モジュールがインストールされていることを確認するには、[`pbjs.installedModules` array](https://docs.prebid.org/dev-docs/publisher-api-reference/installedModules.html)で `uid2IdSystem` 文字列を見つけます。
 :::
 
 ### Configure the UID2 Module
@@ -116,14 +116,14 @@ const baseConfig = {
 ```
 
 :::note
-この例では、UID2 本番環境を使用することを想定しています。インテグレーションテストでは、`params.uid2ApiBase` を `'https://operator-integ.uidapi.com'` に設定して UID2 テスト環境を使用します。UID2 テスト環境のトークンはビッドストリームに渡すには無効です。テスト環境では、**Subscription ID** と **public key** の値が異なります。
+この例では、UID2 本番環境を使用することを想定しています。インテグレーションテストでは、`params.uid2ApiBase` を `'https://operator-integ.uidapi.com'` に設定して UID2 インテグレーション環境を使用します。UID2 インテグレーション環境のトークンはビッドストリームに渡すには無効です。インテグレーション環境では、**Subscription ID** と **public key** の値が異なります。
 :::
 
 ## Storing the UID2 Token in the Browser
 <!-- GWH same section in integration-prebid.md, integration-prebid-client-side.md, and integration-prebid-client-side.md. Ensure consistency -->
-デフォルトでは、UID2 module はローカルストレージを使ってデータを保存します。代わりにクッキーを使用するには、以下の例のように `params.storage` を `cookie` に設定します。
+デフォルトでは、UID2 モジュールはローカルストレージを使用してデータを保存します。代わりにクッキーを使用するには、次の例に示すように、`params.storage` を `cookie` に設定します。
 
-詳細は Prebid ドキュメントの [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) を参照してください。
+詳細は、Prebid ドキュメントの [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) を参照してください。
 
 ```js
 pbjs.setConfig({ 
@@ -132,14 +132,14 @@ pbjs.setConfig({
       name: 'uid2', 
       params: { 
         // default value is 'localStorage' 
-        storage: 'cookie'   
+        storage: 'cookie'  
       } 
     }] 
   } 
 }); 
 ```
 
-クッキーのサイズが大きくなり、問題が発生する可能性があります。ただし、ローカルストレージがオプションでない場合、これが考えられるアプローチの 1 つです。
+クッキーのサイズが大きくなる可能性があるため、問題が発生する可能性があります。ただし、ローカルストレージが選択肢にない場合、これは1つの可能なアプローチです。
 
 ## When to Pass DII to the UID2 Module
 
@@ -196,9 +196,9 @@ Prebid.js の設定を検証・デバッグするツールの例として、オ�
 - Chrome ウェブストアのダウンロード場所: [Professor Prebid](https://chromewebstore.google.com/detail/professor-prebid/kdnllijdimhbledmfdbljampcdphcbdc)
 - prebid.org のドキュメント: [Professor Prebid User Guide](https://docs.prebid.org/tools/professor-prebid.html)
 
-## Optional: Reduce Latency by Setting the API Base URL for the Production Environment
-<!-- GWH "Optional: Reduce Latency by Setting the API Base URL for the Production Environment" section is identical for client side and server side. -->
-デフォルトでは、UID2 module はアメリカにある UID2 サーバーに API コールを行います。ユーザーの居住地によっては、レイテンシー(遅延時間) を短縮するために、ユーザーに近いサーバーを選択することを検討してください。
+## Optional: Specifying the API Base URL to Reduce Latency
+<!-- GWH "Optional: Specifying the API Base URL to Reduce Latency" section is identical for client side and server side. -->
+デフォルトでは、UID2 module はアメリカにある UID2 本番環境サーバーに API コールを行います。ユーザーの居住地によっては、レイテンシー(遅延時間) を短縮するために、ユーザーに近いサーバーを選択することを検討してください。
 
 UID2 module を設定するときに別の UID2 サーバーを指定するには、次の例に示すように、オプションの `params.uid2ApiBase` パラメータを設定します:
 

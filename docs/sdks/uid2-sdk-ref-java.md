@@ -17,20 +17,6 @@ You can use the UID2 SDK for Java on the server side to facilitate the following
 - Decrypting UID2 tokens to access the raw UID2s
 - Mapping DII to raw UID2s
 
-<!-- This guide includes the following information:
-
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [Version](#version)
-- [GitHub Repository/Binary](#github-repositorybinary)
-- [Initialization](#initialization)
-- [Interface](#interface)
-  - [Response Content](#response-content)
-  - [Response Statuses](#response-statuses)
-* [FAQs](#faqs)
-- [Usage for Publishers](#usage-for-publishers) 
-* [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
-
 ## Functionality
 
 This SDK simplifies integration with UID2 for any publishers, DSPs, advertisers, data providers, and UID2 sharers who are using Java for their server-side coding. The following table shows the functions it supports.
@@ -169,7 +155,7 @@ If you're using the SDK's HTTP implementation, follow these steps.
 
 #### Client-Server Integration
 
-If you're using client-server integration (see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
+If you're using client-server integration (see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
 
 * Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)), using the following:
 
@@ -181,9 +167,9 @@ If you're using client-server integration (see [Server-Side Integration Guide fo
    If the user has opted out, this method returns `null`, so be sure to handle that case.
    :::
 
-#### Server-Only Integration
+#### Server-Side Integration
 
-If you're using server-only integration (see [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md)), follow these steps:
+If you're using server-side integration (see [Publisher Integration Guide, Server-Side](../guides/custom-publisher-integration.md)), follow these steps:
 
 1. Store this identity as a JSON string in the user's session, using the `tokenGenerateResponse.getIdentityJsonString()` function.
 
@@ -253,7 +239,7 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
 
 #### Client-Server Integration
 
-If you're using client-server integration (see [Server-Side Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
+If you're using client-server integration (see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)), follow this step:
 
 * Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/client-side-identity.md#initopts-object-void)) using the following:
 
@@ -265,9 +251,9 @@ If you're using client-server integration (see [Server-Side Integration Guide fo
     This method returns null if the user has opted out, so be sure to handle that case.
     :::
 
-#### Server-Only Integration
+#### Server-Side Integration
 
-If you're using server-only integration (see [Publisher Integration Guide, Server-Only](../guides/custom-publisher-integration.md)):
+If you're using server-side integration (see [Publisher Integration Guide, Server-Side](../guides/custom-publisher-integration.md)):
 
 1. Store this identity as a JSON string in the user's session, using: `tokenGenerateResponse.getIdentityJsonString()`.
 
@@ -342,7 +328,7 @@ If you're using server-only integration (see [Publisher Integration Guide, Serve
 
 ## Usage for DSPs
 
-The following instructions provide an example of how a DSP can decode bidstream tokens using the UID2 SDK for Java.
+The following instructions provide an example of how a DSP can decode <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> tokens using the UID2 SDK for Java.
 
 1. Create a `BidstreamClient`:
 
@@ -358,7 +344,7 @@ client.refresh();
 
 3. Decrypt a token into a raw UID2. Pass the token, and then do one of the following:
 * If the bid request originated from a publisher's website, pass the domain name. The domain name must be all lower case, without spaces and without subdomain. For example, for `Subdomain.DOMAIN.com`, pass `domain.com` instead.
-* If the bid request originated from a mobile app, pass the [app name](../ref-info/glossary-uid.md#gl-app-name).
+* If the bid request originated from a mobile app, pass the <Link href="../ref-info/glossary-uid#gl-app-name">app name</Link>.
 * Otherwise, pass `null`.
 
 ```java
@@ -380,7 +366,9 @@ For a full example, see the `ExampleBidStreamClient` method in [test/Integration
 
 In UID2, sharing is a process for distributing either raw UID2s or UID2 tokens securely between UID2 participants. Raw UID2s must be encrypted into UID2 tokens before sending them to another participant.
 
->IMPORTANT: The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+:::important
+The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+:::
 
 The following instructions provide an example of how you can implement sharing using the UID2 SDK for Java, either as a sender or a receiver.
 

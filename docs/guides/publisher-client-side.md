@@ -10,13 +10,12 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ReduceLatency from '/docs/snippets/_sdk-reduce-latency.mdx';
 
 # Client-Side Integration Guide for JavaScript
 
-This guide is for publishers who want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) using only JavaScript client-side changes on their website with minimum effort.
+This guide is for publishers who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) using only JavaScript client-side changes on their website with minimum effort.
 
-This guide does not apply to publishers who want to use a <Link href="../ref-info/glossary-uid#gl-private-operator">private operator</Link>, or who want to generate tokens server-side. Those publishers should follow the [Server-Side Integration Guide for JavaScript](integration-javascript-server-side.md).
+This guide does not apply to publishers who want to use a <Link href="../ref-info/glossary-uid#gl-private-operator">private operator</Link>, or who want to generate tokens server-side. Those publishers should follow the [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md).
 
 It is also applicable to anyone who wants to share UID2 tokens in pixels, such as tracking pixels.
 
@@ -117,14 +116,16 @@ __uid2.init({
 });
 ```
 :::note
-Tokens from the UID2 integration environment are not valid for passing to the bidstream. For the integration environment, you will have different **Subscription ID** and **public key** values.
+Tokens from the UID2 integration environment are not valid for passing to the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>. For the integration environment, you will have different **Subscription ID** and **public key** values.
 :::
 
-### Optional: Reduce Latency by Setting the API Base URL for the Production Environment
+### Optional: Specifying the API Base URL to Reduce Latency
 
-<ReduceLatency />
+By default, this SDK makes calls to a UID2 production environment server in the USA.
 
-To specify a different UID2 server, you can change it in the `init` call:
+For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md).
+
+To specify a UID2 server that is not the default, you can change it in the `init` call:
 
 ```js
 __uid2.init({
@@ -264,7 +265,7 @@ The format of the object stored in local storage could change without notice. We
 
 ## Example Integration Code and When to Pass DII to the UID2 SDK
 
-When this is the first page load with no <Link href="../ref-info/glossary-uid#gl-identity">identity</Link>, to start the token generation call you'll need to call one of the `setIdentity` methods with DII. Once an identity is generated, the advertising token ([UID2 token](../ref-info/glossary-uid.md#gl-uid2-token)) that you would send to the bidstream will be available by waiting for the `IdentityUpdated` event from the SDK. For an example, see how the value for `advertising_token_to_use` is set in the following code snippet.
+When this is the first page load with no <Link href="../ref-info/glossary-uid#gl-identity">identity</Link>, to start the token generation call you'll need to call one of the `setIdentity` methods with DII. Once an identity is generated, the advertising token (<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>) that you would send to the bidstream will be available by waiting for the `IdentityUpdated` event from the SDK. For an example, see how the value for `advertising_token_to_use` is set in the following code snippet.
 
 In some cases, the user's DII is not available on page load, and getting the DII has some associated cost. For example, an API call might be required to fetch the DII, or the user has to be prompted to provide the DII information.
 

@@ -211,7 +211,7 @@ terraform apply
 
 #### Test Terraform Using the Health Check Endpoint
 
-Helth check エンドポイントを呼び出して、実装の健全性をテストします。期待される結果は HTTP 200 で、レスポンスボディは `OK` です。
+Health check エンドポイントを呼び出して、実装の健全性をテストします。期待される結果は HTTP 200 で、レスポンスボディは `OK` です。
 
 手順については、[Health Check&#8212;Terraform Template](#health-checkterraform-template) を参照してください。
 
@@ -237,7 +237,7 @@ terraform destroy
 
 gcloud CLI を使用して GCP Confidential Space Enclave に新しい UID2 Operator をデプロイするには、以下の手順に従います。
 
->NOTE: 本番環境へのデプロイでは、このオプションは勧めません。ロードバランシングを行い、HTTPS を有効にして、Terraform テンプレート経由でデプロイすることを勧めます。
+NOTE: 本番環境へのデプロイでは、このオプションは勧めません。ロードバランシングを行い、HTTPS を有効にして、Terraform テンプレート経由でデプロイすることを勧めます。
 
    1. [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions)
    1. [Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager)
@@ -467,6 +467,10 @@ Health check エンドポイントを呼び出し、実装の健全性をテス�
 2. Operator のステータスをテストするには、ブラウザで `http://{IP}:8080/ops/healthcheck` にアクセスしてください。
 
    レスポンスボディが `OK` の HTTP 200 は、健全なステータスを示します。
+
+import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
+
+<AttestFailure />
 
 ### Upgrading
 

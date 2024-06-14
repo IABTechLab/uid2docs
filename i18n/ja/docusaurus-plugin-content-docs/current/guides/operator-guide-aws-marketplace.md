@@ -8,7 +8,6 @@ sidebar_position: 17
 ---
 
 import Link from '@docusaurus/Link';
-import ChartSvg from './images/uid2-private-operator-aws-chart.svg';
 
 # UID2 Private Operator for AWS Integration Guide
 
@@ -30,7 +29,7 @@ UID2 Operator は、UID2 エコシステムにおける API サーバーです�
 
 ## UID2 Private Operator for AWS
 
-NOTE: [UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) は無償製品です。製品ページに表示されている費用は、必要なインフラの概算費用となります。
+>NOTE: [UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) は無償製品です。製品ページに表示されている費用は、必要なインフラの概算費用となります。
 
 UID2 Private Operator for AWS を契約することで、以下を利用できます:
 
@@ -48,7 +47,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 #### Minimal IAM Role Privileges
 
-> IMPORTANT: ワンクリックデプロイを成功させるためには、AWS アカウントに以下のアクションを実行する権限が必要です:
+ワンクリックデプロイを成功させるためには、AWS アカウントに以下のアクションを実行する権限が必要です:
 
 ```json
 {
@@ -137,7 +136,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 ### Security Group Policy
 
-> NOTE: ドメインに関連する証明書をエンクレーブに渡すのを避けるため、HTTPS の代わりにインバウンド HTTP が許可されています。これは、組織内部のプライベートネットワークで使用する場合、セキュアレイヤーのコストを回避することにもなります。
+>NOTE: ドメインに関連する証明書をエンクレーブに渡すのを避けるため、HTTPS の代わりにインバウンド HTTP が許可されています。これは、組織内部のプライベートネットワークで使用する場合、セキュアレイヤーのコストを回避することにもなります。
 
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
@@ -149,7 +148,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 次の図は、Private Operator をホストする仮想プライベートクラウドを示したものです。
 
-<ChartSvg />
+![EUID Operator VPC Chart](images/aws-vpc-chart-uid2.png)
 
 ## Deployment
 
@@ -183,7 +182,7 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 | :--- |:--- |
 | Stack name | 好きな名前をつけてください。 |
 | OPERATOR_KEY  | UID2 Admin チームから受け取った Operator Key です。 |
-| UID2 Environment | 本番環境なら `prod`、インテグレーションテスト環境なら `integ` を選択します。 |
+| UID2 Environment | 本番環境なら `prod`、インテグレーションインテグレーション環境なら `integ` を選択します。 |
 | Instance Type | `m5.2xlarge` を推奨します。 |
 | Instance root volume size  | 15GB 以上を推奨します。 |
 | Key Name for SSH | デプロイされた EC2 インスタンスに SSH アクセスするための EC2 キーペアです。 |
@@ -238,6 +237,10 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 1. **EC2 > Load balancers** で、ロードバランサーの **DNS name** 列を見て、ロードバランサーの DNS 名を特定します。
 2. ブラウザで、`https://{dns-name-of-your-load-balancer}/ops/healthcheck` にアクセスします。`OK` のレスポンスであれば、Operator のステータスは良好です。
 
+import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
+
+<AttestFailure />
+
 ## Upgrading the UID2 Operator
 
 各オペレーターのバージョンを更新するたびに、Private Operator は、アップグレードのウィンドウを持つメール通知を受け取ります。アップグレードウィンドウの後、古いバージョンは非アクティブ化され、サポートされなくなります。
@@ -247,7 +250,9 @@ UID2 Operator を AWS Marketplace をデプロイするには、次の手順を�
 - 新しいバージョンの提供に関する情報は、[UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) のページで提供されます。
 - UID2 Operator をアップグレードするには、新しい CloudFormation スタックを作成します。詳しくは、[デプロイ](#deployment) を参照してください。
 
-> TIP: スムーズな移行を行うには、まず新しいスタックを作成します。新しいスタックが起動し、サービスを提供する準備ができたら、古いスタックを削除してください。ロードバランサーを使用している場合は、まず新しいインスタンスを立ち上げて実行してから、DNS 名を以前のものから新しいものに変換してください。
+:::tip
+スムーズな移行を行うには、まず新しいスタックを作成します。新しいスタックが起動し、サービスを提供する準備ができたら、古いスタックを削除してください。ロードバランサーを使用している場合は、まず新しいインスタンスを立ち上げて実行してから、DNS 名を以前のものから新しいものに変換してください。
+:::
 
 ## Technical Support
 

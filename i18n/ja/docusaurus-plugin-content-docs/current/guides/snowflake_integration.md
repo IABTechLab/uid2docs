@@ -35,9 +35,9 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 
 以下の表は、UID2 Snowflake インテグレーションで利用可能な機能をまとめたものです。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a raw UID2 |
+| Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a Raw UID2 |
 | :--- |  :--- | :--- | :--- | :--- |
-| Yes | Yes | No* | No | Yes |
+| Supported | Supported | Not supported* | Not supported | Supported |
 
 *DII から直接 UID2 Token を生成することはできません。しかし、DII を raw UID2 に変換し、raw UID2 を暗号化して UID2 Token にすることはできます。
 
@@ -47,11 +47,11 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 
 次の図は、Snowflake が UID2 インテグレーションプロセスにどのように関わるかを示しています:
 
-![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture.svg)
+![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture.png)
 
 |Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-Out Cloud Setup|
 | :--- | :--- | :--- |
-| パートナーは、Snowflake アカウントを設定してデータをホストし、UID2 Share を通じて関数やビューを使うことで、UID2 インテグレーションに関与できます。 | Snowflake アカウントでホストされている UID2 インテグレーションでは、プライベートテーブルからデータを引き出す認可をされた関数とビューへのアクセスが許可されます。プライベートテーブルにはアクセスできません。UID2 Share では、UID2 関連のタスクを実行するために必要な重要なデータのみが公開されます。 | ETL (Extract Transform Load) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web Services を動かす内部データを提供します。Operator Web Services で使用されるデータは、UID2 Share からも入手できます。 |
+| パートナーは、Snowflake アカウントを設定してデータをホストし、UID2 Share を通じて関数やビューを使うことで、UID2 インテグレーションに関与できます。 | Snowflake アカウントでホストされている UID2 インテグレーションでは、プライベートテーブルからデータを引き出す許可をされた関数とビューへのアクセスが許可されます。プライベートテーブルにはアクセスできません。UID2 Share では、UID2 関連のタスクを実行するために必要な重要なデータのみが公開されます。 | ETL (Extract Transform Load) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web Services を動かす内部データを提供します。Operator Web Services で使用されるデータは、UID2 Share からも入手できます。 |
 | Shared 関数とビューを使用する場合、Snowflake にトランザクションのコストを支払います。 | UID2 Snowflake アカウントで保護されたこれらのプライベートテーブルは、UID2 関連のタスクを完了するために使用される内部データを保持する UID2 Core/Optout Snowflake ストレージと自動的に同期されます。 |  |
 
 ## Access the UID2 Shares
@@ -62,7 +62,7 @@ Snowflakeデータマーケットプレイスでは、UID2 用に2つのパー�
 - 広告主/ブランド向けの [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV)
 - データプロバイダー向けの [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0)
 
-> IMPORTANT: データをリクエストするには、Snowflake アカウントに`ACCOUNTADMIN` ロール権限が必要です。
+>IMPORTANT: データをリクエストするには、Snowflake アカウントに`ACCOUNTADMIN` ロール権限が必要です。
 
 UID2 Share へのアクセスを要求するには、次の手順を実行します。
 
@@ -527,13 +527,17 @@ FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash')
 
 ## Usage for UID2 Sharers
 
-UID2 sharer とは、UID2 を他の参加者と Sharing (共有)したい参加者のことです。広告主とデータプロバイダーは、Snowflake を介して、UID2 を他の認可された UID2 を sharing する参加者と共有することができます。詳細については、[UID2 Sharing: Overview](../sharing/sharing-overview) を参照してください。
+UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">共有参加者</Link> とは、送信者または受信者として共有に参加し、UID2を他の参加者と共有する企業のことです。
 
-Sharing する参加者は、他の参加者に送信する前に、[raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を暗号化して [UID2 Token](../ref-info/glossary-uid#gl-uid2-token)に変換しなければなりません。
+広告主やデータプロバイダーは、Snowflake (Tokenized Sharing) を介して、UID2 を他の UID2 共有許可参加者と共有することができます。これらの参加者は、[raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を [UID2 Token](../ref-info/glossary-uid#gl-uid2-token) に暗号化し、それを別の参加者に送信してピクセルで共有することができます（[Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照してください）。Snowflake 内でピクセル単位でデータを送信しない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) に記載されている要件に従う限り、UID2 Sharing に参加することができます。
 
->IMPORTANT: このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
+:::caution
+このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
+:::
 
-以下のシナリオは UID2 sharing に対応しています:
+Snowflake 内でピクセルまたはビッドストリームでデータを送信しない場合、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) に記載されている要件に従う限り、生のUID2共有に参加することもできます。
+
+以下のアクティビティは Tokenized Sharing に対応しています:
 
 - [Encrypt Tokens](#encrypt-tokens)
 - [Decrypt Tokens](#decrypt-tokens)
@@ -642,7 +646,9 @@ UID2 Token を raw UID2 に復号するには、関数 `FN_T_UID2_DECRYPT` を�
 | `SITE_ID` | INT | 値は次のいずれかです:<ul><li>復号化成功: トークンを暗号化した UID2 参加者の識別子。</li><li>復号化失敗: `NULL`.</li></ul> |
 | `DECRYPTION_STATUS` | TEXT | 値は次のいずれかです:<ul><li>復号化成功: `NULL`.</li><li>暗号化失敗: UID2 Token が復号化されなかった理由。例えば、`EXPIRED_TOKEN` です。<br/>詳細については、[Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column) を参照してください。</li></ul> |
 
->NOTE: UID2 Token がうまく復号化できない場合、この関数は行を返しません。
+:::note
+UID2 Token がうまく復号化できない場合、この関数は行を返しません。
+:::
 
 #### Values for the DECRYPTION_STATUS Column
 
@@ -732,7 +738,9 @@ select a.ID, b.UID2, b.SITE_ID, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' E
  3. 安全な共有を作成し、`AUDIENCE_WITH_UID2_TOKENS` テーブルへのアクセス権を付与します。
  4. 受信者に安全な共有へのアクセスを許可します。
 
->**WARNING**: 共有した UID2 Token の期限切れを避けるため、送信者は暗号化後できるだけ早く、新しく暗号化された UID2 Token を受信者に送るべきです。
+:::warning
+共有した UID2 Token の期限切れを避けるため、送信者は暗号化後できるだけ早く、新しく暗号化された UID2 Token を受信者に送るべきです。
+:::
 
 #### Receiver Instructions
 
@@ -747,4 +755,6 @@ select a.ID, b.UID2, b.SITE_ID, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' E
         on a.ID=b.ID;
     ```
 
->**WARNING**: 共有された UID2 Token の期限切れを避けるため、受信者は、送信者から UID2 Token が利用可能になり次第、復号化すべきです。
+:::warning
+共有された UID2 Token の期限切れを避けるため、受信者は、送信者から UID2 Token が利用可能になり次第、復号化すべきです。
+:::
