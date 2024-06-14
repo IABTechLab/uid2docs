@@ -189,6 +189,7 @@ const fullSidebar = [
           collapsed: true,
           items: [
             'guides/advertiser-dataprovider-guide',
+            'guides/publisher-client-side',
             'guides/snowflake_integration',
             'guides/integration-aws-entity-resolution',
           ],
