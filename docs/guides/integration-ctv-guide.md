@@ -12,7 +12,7 @@ import Link from '@docusaurus/Link';
 
 # CTV Integration Guide
 
-If you're a CTV publisher, there are several ways that you can integrate with UID2 to generate identity tokens to be passed into the RTB bidstream in the context of your CTV apps.
+If you're a CTV publisher, there are several ways that you can integrate with UID2 to generate and refresh identity tokens to be passed into the RTB bidstream in the context of your CTV apps.
 
 ## Key Integration Steps
 At a high level, to integrate with UID2, you'll implement these three key activities: 
