@@ -16,7 +16,10 @@ import Link from '@docusaurus/Link';
 <!-- The below segment is for UID2 only: not applicable for advertisers since EUID doesn't support sharing. -->
 This guide is for all participants who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) using only JavaScript client-side changes on their website with minimum effort.
 
-Most notably, this workflow is for publishers wanting to send UID2 tokens into the bidstream. In addition, advertisers and data providers would use this for adding a UID2 token to their tracking pixels.
+This approach is used by the following participant types:
+
+- Most notably, this workflow is for publishers wanting to send UID2 tokens into the bidstream.
+- In addition, advertisers and data providers would use this for adding a UID2 token to their tracking pixels (see [Tokenized Sharing in Pixels](sharing/sharing-tokenized-from-data-pixel.md)).
 
 <!-- End of UID2-only section. -->
 <!-- Begin EUID-only section. -->
@@ -31,7 +34,7 @@ UID2 provides a UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference 
 - Automatic refreshing of UID2 tokens
 - Automatic storage of UID2 tokens in the browser
 
-You'll need to complete the following steps:
+To implement, you'll need to complete the following steps:
 
 1. [Complete UID2 account setup](#complete-uid2-account-setup)
 2. [Add SDK For JavaScript to your site](#add-sdk-for-javascript-to-your-site)
