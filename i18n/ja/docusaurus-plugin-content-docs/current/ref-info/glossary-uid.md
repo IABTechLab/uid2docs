@@ -409,8 +409,8 @@ import Link from '@docusaurus/Link';
 <dd>詳細は、<a href="../portal/portal-overview">UID2 Portal: Overview</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-service"><a href="#gl-uid2-service">UID2 Service</a></MdxJumpAnchor></dt>
-<dd>Unified ID 2.0 (UID2) service とは、<a href="#gl-uid2-framework">UID2 framework</a> を実装し、関連する UID2 機能へのアクセスをクライアントに提供する、コンポーネント、API エンドポイント、およびその他の種類のソリューションの集合です。
-<dd>"UID2 service" という用語は、UID2 の<a href="#gl-operator-service">Operator Service</a> という意味でも使われます。
+<dd>Unified ID 2.0 (UID2) service とは、<a href="#gl-uid2-framework">UID2 framework</a> を実装し、関連する UID2 機能へのアクセスをクライアントに提供する、コンポーネント、API エンドポイント、およびその他の種類のソリューションの集合です。</dd>
+<dd>"UID2 service" という用語は、UID2 の<a href="#gl-operator-service">Operator Service</a> という意味でも使われます。</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-token">UID2 Token (Advertising Token)</MdxJumpAnchor></dt>
 <dd>Unified ID 2.0 (UID2)Token は Advertising Token とも呼ばれ、<a href="#gl-raw-uid2">raw UID2</a> を暗号化したものです。</dd>
