@@ -34,7 +34,11 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 1. ユーザーがパブリッシャーのウェブサイト、モバイルアプリ、CTV アプリにアクセスします。
 2. パブリッシャーは、オデータの取り扱いに関する透明性を提供し、ログインまたはその他の手段で、メールアドレスまたは電話番号の提供をユーザーに求めます。
+<!-- uid2_only_ep_20240312: The publisher explains the value exchange of the open internet and asks the user to provide an email address or phone number, by login or other means. -->
+<!-- euid_only_ep_20240312: The publisher explains the value exchange of the open internet and asks the user to provide an email address, by login or other means, and consent to the use of their email address for EUID. -->
 3. ユーザーがメールアドレスまたは電話番号を提供すると、パブリッシャーは SDK または直接 API インテグレーションを介して、それを UID2 Operator に送信します。
+<!-- uid2_only_ep_20240312: Once the user has provided an email address or phone number, the publisher sends it to the UID2 Operator via an SDK or direct API integration. -->
+<!-- euid_only_ep_20240312: Once the user has provided an email address, and consented, the publisher sends it to the EUID Operator via an SDK or direct API integration. -->
 
    パブリッシャーは、SSO プロバイダーやアイデンティティプロバイダーに、[DII](../ref-info/glossary-uid.md#gl-dii) やプライバシーの設定を自分たちに代わって渡すことができます。
 4. UID2 Operator:
