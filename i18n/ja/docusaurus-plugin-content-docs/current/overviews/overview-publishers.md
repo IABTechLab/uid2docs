@@ -18,7 +18,7 @@ UID2 を採用するパブリッシャーにとってのメリット、ワーク
 :::note
 UID2 のドキュメント一式に左サイドバーからアクセスしたい場合は、[Unified ID 2.0 Overview](../intro.md) を参照してください。
 :::
-
+gi
 ## Benefits of UID2 for Publishers
 
 UID2 とインテグレーションすることで得られるメリットの一部を次に示します:

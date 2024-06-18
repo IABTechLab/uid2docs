@@ -325,8 +325,8 @@ import Link from '@docusaurus/Link';
 <dd>詳細は、 <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> (specification) を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-sharing">Sharing</MdxJumpAnchor></dt>
-<dd>In the context of UID2, sharing is a process for distributing <a href="#gl-raw-uid2">raw UID2s</a>, either directly or encrypted into <a href="#gl-uid2-token">UID2 tokens</a>, from one UID2 <a href="#gl-sharing-participant">sharing participant</a> to another.</dd>
-<dd>For details, see <a href="../getting-started/gs-sharing">UID2 Sharing</a>.</dd>
+<dd>UID2 の文脈では、Sharing とは、<a href="#gl-raw-uid2">raw UID2s</a> をある UID2 参加者から別の UID2 参加者に安全に配布するプロセスです。raw UID2 を不正アクセスから保護するため、メッセージングが [Security Requirements for Raw UID2 Sharing](../sharing/sharing-overview.md#security-requirements-for-raw-uid2-sharing) に準拠していない場合、送信元参加者 (送信者) は、送信前に raw UID2 を UID2 Token に暗号化する必要があります。送信先参加者 (受信者) は、UID2 Token を内部で raw UID2 に復号する必要があります。</dd>
+<dd>詳細は、<a href="../getting-started/gs-sharing">UID2 Sharing</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-sharing-participant">Sharing participant</MdxJumpAnchor></dt>
 <dd>For UID2, a sharing participant is a company that either has agreed to comply with the UID2 Participation Policy or fits within one of the <a href="../getting-started/gs-sharing#exceptions">exceptions</a>, and that takes part in <a href="#gl-sharing">sharing</a>, either as a sender or a receiver.</dd>
