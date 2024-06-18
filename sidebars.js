@@ -149,6 +149,19 @@ const fullSidebar = [
               'guides/integration-mobile-client-server',
             ],
           },
+
+          {
+            type: 'category',
+            label: 'CTV',
+            link: {
+              type: 'doc',
+              id: 'guides/integration-ctv-guide',
+            },
+            collapsed: true,
+            items: [
+            ],
+          },
+
           {
             type: 'category',
             label: 'Prebid',
@@ -162,6 +175,7 @@ const fullSidebar = [
               'guides/integration-prebid-server-side',
             ],
           },
+
           {
             type: 'category',
             label: 'Google Ad Manager',
