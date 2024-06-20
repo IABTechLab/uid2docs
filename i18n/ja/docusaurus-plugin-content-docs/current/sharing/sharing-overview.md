@@ -1,6 +1,6 @@
 ---
 title: Overview of Sharing
-description: Learn about sharing UID2s with other participants.
+description: 他の参加者と UID2 を共有する方法について学びます。
 hide_table_of_contents: false
 sidebar_position: 01
 displayed_sidebar: docs
@@ -44,6 +44,10 @@ Sharing 参加者が UID2 を他の許可された共有参加者と共有した
 以下は、UID2 Token を共有 ([tokenized sharing](../ref-info/glossary-uid.md#gl-tokenized-sharing)) するための手順です:
 
   1. 送信者は UID2 Portal で共有権限を設定します。
+
+     :::note
+     共有を使用するには、API key ([API Keys](../portal/api-keys.md) を参照してください) または client-side key pair ([Client-Side Integration](../portal/client-side-integration.md) を参照してください) が必要です。UID2 Portal では、共有権限を設定する前に、これらの値を設定してください。
+     :::
   2. 送信者は以下のいずれかを行います:
   
      - DII から UID2 Token を生成します。
@@ -55,4 +59,3 @@ UID2 Token を共有するためのオプションの詳細と説明へのリン
 ### Sharing Raw UID2s
 
 raw UID2 を共有するには、送り手と受け手の両方が、raw UID2 が漏洩しないことを保証するためのリソース、プロセス、設備を備え、[Security Requirements for UID2 Sharing](sharing-security.md) で定義されている標準的なセキュリティ慣行に従う [sharing participants](ref-info/glossary-uid.md#gl-sharing-participant) であることを期待します。
-

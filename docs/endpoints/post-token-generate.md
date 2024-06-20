@@ -9,13 +9,15 @@ import Link from '@docusaurus/Link';
 
 # POST /token/generate
 
-Requests a UID2 token generated from the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) provided by a user with their authorization for UID2-based targeted advertising. If the DII is valid, and the user has not opted out of UID2, this operation returns a UID2 token and associated values.
+Requests a UID2 token generated from a user's <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number). If the DII is valid, and the user has not opted out of UID2, this operation returns a UID2 token and associated values.
 
 Used by: This endpoint is used mainly by publishers.
 
 :::important
-Be sure to call this endpoint only when you have obtained legal basis to convert the user’s DII to a UID2 token for targeted advertising. The `optout_check` parameter, required with a value of `1`, checks whether the user has opted out.
+The `optout_check` parameter, required with a value of `1`, checks whether the user has opted out.
 :::
+
+<!-- Admonition is different re legal basis. -->
 
 Rather than calling this endpoint directly, you could use one of the SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).
 

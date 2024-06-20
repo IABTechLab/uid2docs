@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # Unified ID 2.0 Overview
 
-UID2 is a framework that enables deterministic identity for advertising opportunities on the open internet for many [participants](#participants) across the advertising ecosystem. The UID2 framework enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework offers the user transparency and privacy controls designed to meet local market requirements. 
+UID2 is a framework that enables deterministic identity for advertising opportunities on the open internet for many [participants](#participants) across the advertising ecosystem. The UID2 framework enables publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework offers privacy controls designed to help participants meet local market requirements. 
 
 :::note
 The term "UID2" can refer to either the framework or an actual identifier. Unless otherwise indicated, this page provides an overview of the UID2 framework.
@@ -22,7 +22,7 @@ The UID2 framework has the following principles as its foundation:
 
 - **First-party relationships**: UID2 enables advertisers to activate their first-party data on publisher websites across the open internet.
 
-- **Non-proprietary (universal) standard**: All [participants](#participants) in the advertising ecosystem who agree to abide by the code of conduct can access UID2.
+- **Non-proprietary (universal) standard**: All [participants](#participants) in the advertising ecosystem who execute an appropriate participation agreement can access UID2.
 
 - **Open source**: The source code for the UID2 [components](#components) is publicly available.
 
@@ -93,7 +93,7 @@ The following table lists the key participants and their roles in the UID2 [work
 | **Data Providers** | Organizations that collect user data and push it to other UID2 participants&#8212;for example, advertisers, identity graph providers, and third-party data providers. |
 | **Advertisers** | Organizations that buy impressions across a range of publisher sites and use DSPs to decide which ad impressions to purchase and how much to bid on them. |
 | **Publishers** | Organizations that propagate UID2 tokens to the bidstream via SSPs—for example, identity providers, publishers, and SSO providers. Publishers can choose to work with an SSO provider or an independent ID provider that is interoperable with UID2. Independent ID providers can handle the UID2 integration on behalf of publishers. |
-| **Consumers** | Users who engage with publishers or their identity providers. Consumers can opt out of UID2 in the [Transparency and Control Portal](https://www.transparentadvertising.com/). |
+| **Consumers** | Users who have had a UID2 token or raw UID2 created from their email address or phone number. Consumers can opt out of UID2 in the [Transparency and Control Portal](https://www.transparentadvertising.com/). |
 
 ### Workflows
 

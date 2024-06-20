@@ -36,7 +36,7 @@ The following steps provide a high-level outline of the workflow intended for or
 2. The publisher provides transparency around its data practices and asks the user to provide an email address or phone number.
 3. Once the user has provided an email address or phone number, the publisher sends it to the UID2 Operator via an SDK or direct API integration.
 
-   A publisher can authorize an SSO provider or identity provider to pass <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> and privacy settings on their behalf.
+   A publisher can authorize an SSO provider or identity provider to pass <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> on their behalf.
 4. The UID2 Operator:
    - Takes the email or phone number.
    - Performs the salt, hash, and encryption process.

@@ -1,6 +1,6 @@
 ---
 title: Tokenized Sharing in the Bidstream
-description: Learn about sharing UID2 tokens to the bidstream.
+description: ビッドストリームへの UID2 Token の共有について学びます。
 hide_table_of_contents: false
 sidebar_position: 08
 ---

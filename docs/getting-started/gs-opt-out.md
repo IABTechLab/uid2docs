@@ -21,7 +21,7 @@ Because each participant has their own opt-out workflow, participants are mandat
 
 For example, if a user opts out of a publisher's site, but has not opted out of UID2, the publisher should not generate a UID2 token for that user.  
 
-Consumers can always opt out of UID2 completely in the [Transparency and Control Portal](https://www.transparentadvertising.com/). Choose email address or phone number, enter the data, and follow the prompts.
+Consumers can always opt out of UID2 being used to show them personalized ads, in the [Transparency and Control Portal](https://www.transparentadvertising.com/). Choose email address or phone number, enter the data, and follow the prompts.
 
 :::tip
 To opt out both your email address and your phone number, do them one at a time.
@@ -39,7 +39,7 @@ The sure way for a consumer to fully opt out of UID2 is in the [Transparency and
 
 When a consumer opts out of UID2, that individual's UID2 is no longer accepted for targeted advertising anywhere in the UID2 ecosystem. However, because there is a delay in the time it takes to process and refresh UID2 information, the UID2 for a user who has opted out might be in play for a short while after opt-out. As each participant periodically refreshes their UID2s, the opt-out information is propagated to the participants.
 
-The following steps provide a high-level outline of the workflow intended for users who engage with publishers or their identity providers. 
+The following steps provide a high-level outline of the opt-out workflow intended for users who have had a UID2 created from their email address or phone number. 
 
 1. Users visit the [Transparency and Control Portal](https://www.transparentadvertising.com/), where they can globally opt out of UID2.
 2. The Transparency and Control Portal sends the opt-out request to the UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link>.
@@ -52,6 +52,6 @@ The following steps provide a high-level outline of the workflow intended for us
    | Advertisers and data providers | The UID2 Operator Service distributes opt-out information to advertisers and data providers via the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint. Another option is to check the opt-out status of raw UID2s using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint. |
    | Sharers | UID2 sharers can check the opt-out status of raw UID2s using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint. |
 
-This workflow allows users to consent to the creation of UID2 identifiers and manage their UID2 consent and privacy settings through the Transparency and Control Portal.
+This workflow allows users to opt out of personalized advertising based on their UID2 through the Transparency and Control Portal.
 
 ![User Trust Workflow](images/UID2GlobalOptoutWorkflow.svg)

@@ -24,7 +24,9 @@ UID2 Portal は、UID2 アカウントを設定・構成するためのワンス
 
 ## Access the UID2 Portal
 
-ポータルにアクセスするには、UID2 の担当者にアカウント作成の許可を求めてください。担当者がリンクをお送りします。
+Portal にアクセスするには、UID2 の担当者にアカウントを作成する権限をリクエストしてください。リクエストにはいくつかの情報が必要です: [Request an Account](portal-getting-started.md#request-an-account) を参照してください。
+
+担当者は、開始するためのリンクを送信します。
 
 ## Set Up Your Account
 
