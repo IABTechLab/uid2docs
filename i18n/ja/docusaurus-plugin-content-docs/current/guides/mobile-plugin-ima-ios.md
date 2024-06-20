@@ -41,10 +41,38 @@ UID2 Interactive Media Ads (IMA) Plugin for iOS は、[Google IMA SDK for iOS](h
 
 ## Installation
 
-前提条件: Google Interactive Media Ads SDK と UID2 SDK for iOS をインストールします。
+前提条件: Google Interactive Ads SDK と UID2 SDK for iOS をインストールします。
 
-UID2 SDK for iOS と Google Interactive Media Ads SDK がインストールされている既存のアプリに、Swift Package Manager 経由で UID2 iOS IMA Plugin v0.2.0 をインストールします。
+UID2 SDK for iOS と Google Interactive Ads SDK がインストールされた既存のアプリに、Swift Package Manager または CocoaPods を使用して UID2 iOS IMA Plugin をインストールします。
+
+3つのインストールオプションがあります:
+
+-   [Package.swift](#installing-with-packageswift)
+-   [Xcode](#installing-with-xcode)
+-   [CocoaPods](#installing-with-cocoapods)
+
+### Installing with Package.swift
+
+Package.swift に次の依存関係を追加します:
+
+```js
+dependencies: [
+  .package(url: "https://github.com/IABTechLab/uid2-ios-plugin-google-ima.git", exact: "0.3.0")
+]
+```
+
+### Installing with Xcode
+
+XCode ユーザーインターフェースで、パッケージ依存関係の下に、次のエントリを追加します:
+
+| Name | Location | Dependency Rule                         |
+| :--- | :--- |:----------------------------------------| 
+| uid2-ios-plugin-google-ima | `git@github.com:IABTechLab/uid2-ios-plugin-google-ima.git` | Exact Version: 0.3.0 |
+
+### Installing with CocoaPods
+
+`Podfile` に次のエントリを追加します:
 
 ```
-.package(url: "https://github.com/IABTechLab/uid2-ios-plugin-google-ima.git", exact: "0.3.0")
+pod 'UID2IMAPlugin', '0.3.0'
 ```
