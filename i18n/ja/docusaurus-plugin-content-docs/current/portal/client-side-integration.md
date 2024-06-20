@@ -64,14 +64,14 @@ Public key を表示またはコピーするには、次の手順を実行しま
 キーペアの名前を変更するには、次の手順を実行します:
 
 1. UID2 Portal で、**Client-Side Integration** ページに移動します。
-1. リストでキーを見つけ、**Actions** 列で ![the Edit icon](images/icon-pencil-solid.png) (Edit アイコン) をクリックします。
+1. リストでキーを見つけます。
+1. **Actions** 列で ![the Edit icon](images/icon-pencil-solid.png) (Edit アイコン) をクリックします。
 1. 名前を更新し、**Save Key Pair** をクリックします。
 
 ## Deleting a Key Pair
 
 キーペアを削除するには、次の手順を実行します:
 
-1. UID2 Portal で、**Client-Side Integration** ページに移動します。
 1. リストでキーを見つけ、**Actions** 列で ![the Delete icon](images/icon-trash-can-solid.png) (Delete アイコン) をクリックします。
 1. 確認メッセージで、キーペアを削除することを確認するために Subscription ID を入力します。画面からコピーして貼り付けることができます。
 1. **Delete Key Pair** をクリックします。
