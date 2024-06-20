@@ -39,18 +39,18 @@ UID2 を使用することで、データプロバイダーとして得られる
 以下のステップは、ユーザーデータを収集し DSP にプッシュする組織 (広告主、ID グラフプロバイダー、サードパーティデータプロバイダーなど) を対象としたワークフローのアウトラインを提供するものです。
 
 バックグラウンドで以下の処理が行われます:
-* データプロバイダーは、ローテーションされたソルトバケットの UID2 Operator を監視し、必要に応じて UID2 を更新します。
+* 広告主やデータプロバイダーは、ローテーションされたソルトバケットの UID2 Operator を監視し、必要に応じて UID2 を更新します。
 
-以下のステップは、広告主やデータプロバイダーが UID2 とインテグレーションする方法の一例です:
+以下のステップは、データプロバイダーが UID2 とインテグレーションする方法の一例です:
 
-1. 広告主またはデータプロバイダーが、同意を得たユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 Operator に送信します。
+1. データプロバイダーが、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 Operator に送信します。
 
    <!-- euid_only_ep_20240312 ("consented" in above line DP only EUID only) -->
    
 2. UID2 Operator は、raw UID2 とソルトバケット ID を生成して返します。
-3. 広告主またはデータプロバイダーは UID2 とソルトバケット ID を保存し、UID2 ベースのファーストパーティおよびサードパーティのオーディエンスセグメントを DSP に送信します。
+3. データプロバイダーは UID2 とソルトバケット ID を保存し、UID2 ベースのファーストパーティおよびサードパーティのオーディエンスセグメントを DSP に送信します。
 
-   Server-side: 広告主またはデータプロバイダーは、UID2 をマッピングテーブル、DMP、データレイク、またはその他のServer-Sideアプリケーションに格納します。
+   Server-side: 広告主またはデータプロバイダーは、UID2 をマッピングテーブル、DMP、データレイク、またはその他の Server-Side アプリケーションに格納します。
 
 ![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.jpg)
 

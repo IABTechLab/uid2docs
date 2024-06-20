@@ -11,91 +11,98 @@ import Link from '@docusaurus/Link';
 # Unified ID 2.0 Glossary
 <p>このページでは、UID2のドキュメントで使用されるいくつかの重要な用語を定義しています。</p>
 
-<!-- <table>
-<thead>
-<tr align= "center">
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr align= "left">
-<td>
-<ul>
-<li><a href="#gl-advertising-id">Advertising ID</a></li>
-<li><a href="#gl-advertising-token">Advertising token</a></li>
-<li><a href="#gl-api-key">API key</a></li>
-<li><a href="#gl-api-secret">API secret</a></li>
-<li><a href="#gl-app-name">App name</a></li>
-<li><a href="#gl-authorization-header">Authorization header</a></li>
-<li><a href="#gl-bearer-token">Bearer token</a></li>
-<li><a href="#gl-client-key">Client key</a></li>
-<li><a href="#gl-client-secret">Client secret</a></li>
-<li><a href="#gl-closed-operator">Closed Operator</a></li>
-<li><a href="#gl-core-service">Core Service</a></li>
-<li><a href="#gl-data-provider">Data provider</a></li>
-<li><a href="#gl-demand-side-platform">Demand-side platform</a></li>
-<li><a href="#gl-dii">Directly identifying information (DII)</a></li>
-<li><a href="#gl-docker">Docker</a></li>
-<li><a href="#gl-docker-build">Docker Build</a></li>
+<!-- 
+**A**
+<a href="#gl-advertising-id">Advertising ID</a> | 
+<a href="#gl-advertising-token">Advertising token</a> | 
+<a href="#gl-api-key">API key</a> | 
+<a href="#gl-api-secret">API secret</a> | 
+<a href="#gl-app-name">App name</a> | 
+<a href="#gl-authorization-header">Authorization header</a> 
 
-</ul>
-</td>
-<td>
-<ul>
-<li><a href="#gl-enclave">Enclave</a></li>
-<li><a href="#gl-first-level-hash">First-level hash</a></li>
-<li><a href="#gl-hash">Hash</a></li>
-<li><a href="#gl-identity">Identity</a></li>
-</ul>
-</td>
-<td>
-<ul>
-<li><a href="#gl-json-web-token">JSON Web Token (JWT)</a></li>
-<li><a href="#gl-normalize">Normalize</a></li>
-<li><a href="#gl-open-operator">Open Operator</a></li>
-<li><a href="#gl-operator">Operator</a></li>
-<li><a href="#gl-operator-key">Operator key</a></li>
-<li><a href="#gl-operator-service">Operator Service</a></li>
-<li><a href="#gl-opt-out">Opt-out</a></li>
-<li><a href="#gl-opt-out-service">Opt-Out Service</a></li>
-<li><a href="#gl-participant">Participant</a></li>
-<li><a href="#gl-private-operator">Private Operator</a></li>
-<li><a href="#gl-private-operator-service">Private Operator Service</a></li>
-<li><a href="#gl-public-key">Public key</a></li>
-<li><a href="#gl-public-operator">Public Operator</a></li>
-<li><a href="#gl-raw-uid2">Raw UID2</a></li>
-<li><a href="#gl-refresh-token">Refresh token</a></li>
-</ul>
+**B**
+<a href="#gl-bearer-token">Bearer token</a> | 
+<a href="#gl-bidstream">Bidstream</a> 
 
-</td>
-<td>
-<ul>
-<li><a href="#gl-salt">Salt</a></li>
-<li><a href="#gl-salted-hash">Salted hash</a></li>
-<li><a href="#gl-secret">Secret</a></li>
-<li><a href="#gl-secure-signals">Secure signals</a></li>
-<li><a href="#gl-sha-256">SHA-256</a></li>
-<li><a href="#gl-sharing">sharing (in UID2)</a></li>
-<li><a href="#gl-sharing-participant">Sharing participant</a></li>
-<li><a href="#gl-sso">Single sign-on (SSO)</a></li>
-<li><a href="#gl-subscription-id">Subscription ID</a></li>
-<li><a href="#gl-tokenized-sharing">Tokenized sharing</a></li>
-<li><a href="#gl-transparency-and-control-portal">Transparency and Control Portal</a></li>
-<li><a href="#gl-uid2-framework">UID2 framework</a></li>
-<li><a href="#gl-uid2-identifier">UID2 identifier</a></li>
-<li><a href="#gl-uid2-portal">UID2 Portal</a></li>
-<li><a href="#gl-uid2-service">UID2 service</a></li>
-<li><a href="#gl-uid2-token">UID2 token (advertising token)</a></li>
-<li><a href="#gl-unified-id-20">Unified ID 2.0</a></li>
-<li><a href="#gl-utc">UTC</a></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>  -->
+**C**
+<a href="#gl-client-key">Client key</a> | 
+<a href="#gl-client-secret">Client secret</a> | 
+<a href="#gl-client-server">Client-server integration</a> | 
+<a href="#gl-client-side">Client-side integration</a> | 
+<a href="#gl-closed-operator">Closed Operator</a> | 
+<a href="#gl-core-service">Core Service</a> 
+
+**D**
+<a href="#gl-data-provider">Data provider</a> | 
+<a href="#gl-demand-side-platform">Demand-side platform</a> | 
+<a href="#gl-dii">Directly identifying information (DII)</a> | 
+<a href="#gl-docker">Docker</a> 
+
+**E**
+<a href="#gl-enclave">Enclave</a> 
+<a href="#gl-euid-framework">EUID framework</a>
+
+**F**
+<a href="#gl-first-level-hash">First-level hash</a> 
+
+**H**
+<a href="#gl-hash">Hash</a> 
+
+**I**
+<a href="#gl-identity">Identity</a> | 
+<a href="#gl-integration-approaches">Integration approaches</a> 
+
+**J**
+<a href="#gl-json-web-token">JSON Web Token (JWT)</a> 
+
+**N**
+<a href="#gl-normalize">Normalize</a> 
+
+ **O**
+<a href="#gl-open-operator">Open Operator</a> | 
+<a href="#gl-operator">Operator</a> | 
+<a href="#gl-operator-key">Operator key</a> | 
+<a href="#gl-operator-service">Operator Service</a> | 
+<a href="#gl-opt-out">Opt-out</a> | 
+<a href="#gl-opt-out-service">Opt-Out Service</a> 
+
+**P**
+<a href="#gl-participant">Participant</a> | 
+<a href="#gl-private-operator">Private Operator</a> | 
+<a href="#gl-private-operator-service">Private Operator Service</a> | 
+<a href="#gl-public-key">Public key</a> | 
+<a href="#gl-public-operator">Public Operator</a> 
+
+**R**
+<a href="#gl-raw-uid2">Raw UID2</a> | 
+<a href="#gl-refresh-token">Refresh token</a> 
+
+**S**
+<a href="#gl-salt">Salt</a> | 
+<a href="#gl-salted-hash">Salted hash</a> | 
+<a href="#gl-secret">Secret</a> | 
+<a href="#gl-secure-signals">Secure Signals</a> | 
+<a href="#gl-server-side">Server-side integration</a> | 
+<a href="#gl-sha-256">SHA-256</a> | 
+<a href="#gl-sharing">Sharing (in UID2)</a> | 
+<a href="#gl-sharing-participant">Sharing participant</a> | 
+<a href="#gl-sso">Single sign-on (SSO)</a> | 
+<a href="#gl-subscription-id">Subscription ID</a> 
+
+**T**
+<a href="#gl-tokenized-sharing">Tokenized sharing</a> | 
+<a href="#gl-transparency-and-control-portal">Transparency and Control Portal</a> 
+
+**U** 
+<a href="#gl-uid">UID</a> |
+<a href="#gl-uid2-framework">UID2 framework</a> | 
+<a href="#gl-uid2-identifier">UID2 identifier</a> | 
+<a href="#gl-uid2-portal">UID2 Portal</a> | 
+<a href="#gl-uid2-service">UID2 Service</a> | 
+<a href="#gl-uid2-token">UID2 Token (Advertising Token)</a> | 
+<a href="#gl-unified-id-20">Unified ID 2.0</a> | 
+<a href="#gl-utc">UTC</a>
+ -->
 
 ### A
 <dl>
@@ -129,6 +136,10 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-bearer-token">Bearer token</MdxJumpAnchor></dt>
 <dd>Bearer token はクライアントを識別する特別な文字列です。認証のために、いくつかのUID2 エンドポイントはリクエストの Authorization header で <a href="#gl-client-key">client key</a> を Beare token として指定する必要があります。例えば、<a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> です。</dd>
 
+<dt><MdxJumpAnchor id="gl-bidstream"><a href="#gl-bidstream">Bidstream</a></MdxJumpAnchor></dt>
+<dd>広告スポットに広告を配置するためのリクエスト (ビッドリクエスト) を行うために、パブリッシャーは異なる情報を送信します。広告主が入札するために、通常は広告交換または DSP を介して、広告主が入札するための異なる情報を送信します。入札データの流れは、ビッドストリームです。</dd>
+<dd>ビッドストリームデータは、パブリッシャーから他のエンティティ (パブリッシャーの構成によって異なります) に送信され、パブリッシャーに戻ります。</dd>
+
 </dl>
 
 ### C
@@ -141,6 +152,17 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-client-secret">Client secret</MdxJumpAnchor></dt>
 <dd>各 UID2 <a href="/docs/intro#participants">参加者</a>は、API Key (クライアントキー) と、そのキーに関連付けられた秘密値 (Client secret (API シークレット)) を持っています。Client secretは、参加者と UID2 Service だけが知っています。</dd>
 <dd>詳細については、<a href="/docs/getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
+
+<dt><MdxJumpAnchor id="gl-client-server"><a href="#gl-client-server">Client-server integration</a></MdxJumpAnchor></dt>
+<dd>UID2の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の1つは、Client-Side と Server-Side の両方でインテグレーションする方法です (Client-Server)。</dd>
+<dd>例えば、パブリッシャーの Client-Server インテグレーションでは、UID2 Token は Server-Side で生成され、Client-Side でリフレッシュされます。</dd>
+<dd>パブリッシャーの Client-Server インテグレーションに関するドキュメントの例: <a href="../guides/integration-prebid-server-side">UID2 Client-Server Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-server-side">Client-Server Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-server">UID2 Client-Server Integration Guide for Mobile</a>.</dd>
+
+<dt><MdxJumpAnchor id="gl-client-side"><a href="#gl-client-side">Client-side integration</a></MdxJumpAnchor></dt>
+<dd>UID2の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の1つは、完全に Client-Side でインテグレーションする方法です。</dd>
+<dd>Client-Side インテグレーションでは、UID2 Token はクライアントサイドで生成およびリフレッシュされます。</dd>
+<dd>例えば、広告主は、トラッキングピクセルのために Client-Side で UID2 Token を生成し、パブリッシャーは、ビッドストリームのために Client-Side で UID2 Token を生成し、トークンをリフレッシュします。</dd>
+<dd>パブリッシャーの Client-Side インテグレーションに関するドキュメントの例:: <a href="../guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>, <a href="../guides/publisher-client-side">Client-Side Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-side">UID2 Client-Side Integration Guide for Mobile</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-closed-operator">Closed Operator</MdxJumpAnchor></dt>
 <dd>Closed Operator は <a href="#gl-private-operator">Private Operator</a> の別名です。</dd>
@@ -181,6 +203,12 @@ import Link from '@docusaurus/Link';
 <dd>ID2 のコンテキストでは、 <a href="#gl-private-operator">Private Operator</a> は、Enclave 内かプライベート環境で運用しなければなりません。must run inside an enclave or in a private environment. サポートされるエングレーブのバージョンについては、<a href="../guides/summary-guides#private-operator-service-integrations">Private Operator Service Integrations</a> を参照してください。</dd>
 <dd>Enclave では、オペレータイメージは特殊で、事前に定義されたバージョンでなければならず、セキュリティを確保するために追加の制約が適用されます。</dd>
 
+<dt><MdxJumpAnchor id="gl-euid-framework"><a href="#gl-euid-framework">EUID framework</a></MdxJumpAnchor></dt>
+<dd>European Unified ID (EUID) フレームワークは、広告エコシステム全体での広告機会の決定論的な ID を提供します。EUID は、パブリッシャーウェブサイト、モバイルアプリ、Connected TV (CTV) アプリでのログイン体験を、プログラマティックワークフローを通じて収益化することを可能にします。独自の名前空間を持つオープンソースのスタンドアロンソリューションとして構築されたフレームワークは、透明性とプライバシーに焦点を当てています。</dd>
+<dd>EUIDは、フランス、イタリア、スペインなどのヨーロッパ諸国、アイスランドなどの非ヨーロッパ諸国、アゾレス諸島、マルティニーク、イギリスなどのその他の地域を含むヨーロッパ地域で運用されています。これは、EUプライバシー法の遵守を念頭に置いて設計されています。</dd>
+<dd>UID2とEUIDの間には多くの類似点がありますが、両者は完全に別物であり、トークンに互換性はありません。</dd>
+<dd>詳細は、<a href="https://euid.eu/docs/intro">European Unified ID Overview</a> を参照してください。</dd>
+
 </dl>
 
 ### F
@@ -195,7 +223,6 @@ import Link from '@docusaurus/Link';
 ### H
 
 <dl>
-
 <dt><MdxJumpAnchor id="gl-hash">Hash</MdxJumpAnchor></dt>
 <dd>ハッシュ関数は、様々な/任意のサイズのデータセットを固定サイズのデータセットに変換します。ハッシュ関数の結果は、ハッシュ、ダイジェスト、またはハッシュ値と呼ばれます。</dd>
 <dd>ハッシュは一方向性関数です。同じ入力値をハッシュ化すると、常に同じ出力値が得られますが、出力値を受け取って入力値に到達する対応する関数は存在しません。ハッシュはセキュリティ対策です。</dd>
@@ -319,14 +346,20 @@ import Link from '@docusaurus/Link';
 <dd>詳しくは、<a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a> (2番目のセクション) と <a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a> (いずれもGoogle) を参照してください。</dd>
 <dd>Google Secure signals の UID2 サポートの詳細については、<a href="../guides/google-ss-integration">Google Ad Manager Secure Signals Integration Guide</a> を参照してください。</dd>
 
+<dt><MdxJumpAnchor id="gl-server-side"><a href="#gl-server-side">Server-side integration</a></MdxJumpAnchor></dt>
+<dd>UID2 の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の一つは、完全に Server-Side でインテグレーションすることです。</dd>
+<dd>Server-Side インテグレーションでは、raw YUD2 または UID2 Token がサーバーサイドで生成およびリフレッシュされます。</dd>
+<dd>例えば、Server-Side インテグレーションでは、広告主は、広告ターゲティングのために Server-Side で raw UID2 を生成し、パブリッシャーは、ビッドストリームのために Server-Side で UID2 Token を生成し、リフレッシュします。</dd>
+<dd>パブリッシャーサーバーサイドの統合に関するドキュメントの例は、<a href="../guides/custom-publisher-integration">Publisher Integration Guide, Server-Side</a> です。</dd>
+
 <dt><MdxJumpAnchor id="gl-sha-256">SHA-256</MdxJumpAnchor></dt>
 <dd>SHA-256 は、UID2 が使用する安全なハッシュアルゴリズムです。</dd>
 <dd>SHA-256 は、米国国立標準技術研究所 (NIST) と国家安全保障局 (NSA) が SHA-1 の後継として開発した SHA-2 アルゴリズムファミリーの一部です。各アルゴリズムは出力のビット数によって名前が付けられており、SHA-256 は 256 ビットです。</dd>
 <dd>詳細は、 <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> (specification) を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-sharing">Sharing</MdxJumpAnchor></dt>
-<dd>In the context of UID2, sharing is a process for distributing <a href="#gl-raw-uid2">raw UID2s</a>, either directly or encrypted into <a href="#gl-uid2-token">UID2 tokens</a>, from one UID2 <a href="#gl-sharing-participant">sharing participant</a> to another.</dd>
-<dd>For details, see <a href="../getting-started/gs-sharing">UID2 Sharing</a>.</dd>
+<dd>UID2 の文脈では、Sharing とは、<a href="#gl-raw-uid2">raw UID2s</a> をある UID2 参加者から別の UID2 参加者に安全に配布するプロセスです。raw UID2 を不正アクセスから保護するため、メッセージングが [Security Requirements for Raw UID2 Sharing](../sharing/sharing-overview.md#security-requirements-for-raw-uid2-sharing) に準拠していない場合、送信元参加者 (送信者) は、送信前に raw UID2 を UID2 Token に暗号化する必要があります。送信先参加者 (受信者) は、UID2 Token を内部で raw UID2 に復号する必要があります。</dd>
+<dd>詳細は、<a href="../getting-started/gs-sharing">UID2 Sharing</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-sharing-participant">Sharing participant</MdxJumpAnchor></dt>
 <dd>For UID2, a sharing participant is a company that either has agreed to comply with the UID2 Participation Policy or fits within one of the <a href="../getting-started/gs-sharing#exceptions">exceptions</a>, and that takes part in <a href="#gl-sharing">sharing</a>, either as a sender or a receiver.</dd>
@@ -357,8 +390,15 @@ import Link from '@docusaurus/Link';
 
 <dl>
 
-<dt><MdxJumpAnchor id="gl-uid2-framework">UID2 framework</MdxJumpAnchor></dt>
-<dd>Unified ID 2.0(UID2)フレームワークは、広告エコシステム全体の多くの <a href="../intro#participants">参加者</a> に対して、オープンインターネット上の広告機会に対する決定論的 ID を可能にします。パブリッシャーのウェブサイト、モバイルアプリ、コネクテッドTV(CTV)アプリからのログイン体験を可能にし、プログラマティックワークフローを通じて収益化を実現します。独自の名前空間を持つオープンソースのスタンドアローンソリューションとして構築されたこのフレームワークは、透明性とプライバシーを重視しています。</dd>
+<dt><MdxJumpAnchor id="gl-uid"><a href="#gl-uid">UID</a></MdxJumpAnchor></dt>
+<dd>UIDは、<a href="#gl-uid2-framework">UID2</a> と <a href="#gl-euid">EUID</a> の両方を包含するために使われる一般的な用語です。</dd>
+<dd>Server-Side SDK など、UID2 と EUID の両方をサポートするコードコンポーネントがあるため、UID という用語は包括的な用語として使用されています。</dd>
+<dd>UID2 と EUID の間には多くの類似点がありますが、両者は完全に別物であり、トークンに互換性はありません。</dd>
+
+<dt><MdxJumpAnchor id="gl-uid2-framework"><a href="#gl-uid2-framework">UID2 framework</a></MdxJumpAnchor></dt>
+<dd>Unified ID 2.0 (UID2) framework は、広告エコシステム全体の多くの <a href="./intro#participants">参加者</a> に対して、オープンインターネット上の広告機会に対する決定論的な ID を可能にします。パブリッシャーのウェブサイト、モバイルアプリ、コネクテッドTV（CTV）アプリからのログイン体験を可能にし、プログラマティックワークフローによる収益化を実現します。独自の名前空間を持つオープンソースのスタンドアローンソリューションとして構築されたこのフレームワークは、透明性とプライバシーに重点を置いています。</dd>
+<dd>UID2 は北米、アジアの一部、およびその他の地域で運営されています。</dd>
+<dd> UID2とEUIDの間には多くの類似点がありますが、両者は完全に別物であり、トークンに互換性はありません。</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-identifier">UID2 identifier</MdxJumpAnchor></dt>
 <dd>Unified ID 2.0 (UID2)識別子には、<a href="#gl-raw-uid2">raw UID2s</a> と <a href="#gl-uid2-token">UID2 tokens</a> (Advertising token とも呼ばれるます) の2種類があります。</dd>
@@ -368,9 +408,9 @@ import Link from '@docusaurus/Link';
 <dd>UID2 Portal は、UID2 参加者が自分のアカウントを管理するための独立したユーザーインターフェースです。</dd>
 <dd>詳細は、<a href="../portal/portal-overview">UID2 Portal: Overview</a> を参照してください。</dd>
 
-<dt><MdxJumpAnchor id="gl-uid2-service">UID2 Service</MdxJumpAnchor></dt>
-<dd>Unified ID 2.0 (UID2)Service は、<a href="#gl-uid2-framework">UID2 framework</a> をまとめて実装し、関連する UID2 機能へのアクセスをクライアントに提供するコンポーネント、API エンドポイント、その他のタイプのソリューションのあつまりです。</dd>
-<dd>"UID2 service" という用語は、UID2 <a href="#gl-operator-service">Operator Service</a> という意味でも使われます。</dd>
+<dt><MdxJumpAnchor id="gl-uid2-service"><a href="#gl-uid2-service">UID2 Service</a></MdxJumpAnchor></dt>
+<dd>Unified ID 2.0 (UID2) service とは、<a href="#gl-uid2-framework">UID2 framework</a> を実装し、関連する UID2 機能へのアクセスをクライアントに提供する、コンポーネント、API エンドポイント、およびその他の種類のソリューションの集合です。</dd>
+<dd>"UID2 service" という用語は、UID2 の<a href="#gl-operator-service">Operator Service</a> という意味でも使われます。</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-token">UID2 Token (Advertising Token)</MdxJumpAnchor></dt>
 <dd>Unified ID 2.0 (UID2)Token は Advertising Token とも呼ばれ、<a href="#gl-raw-uid2">raw UID2</a> を暗号化したものです。</dd>
