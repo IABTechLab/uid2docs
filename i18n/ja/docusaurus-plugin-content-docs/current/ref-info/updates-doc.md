@@ -20,7 +20,7 @@ UID2 ドキュメンテーションリソースの最新アップデートを確
 
 raw UID2 のリストが与えられた場合、このエンドポイントは、オプトアウトした raw UID2 と、オプトアウトが行われた時刻を返します。
 
-詳細は、[GET&nbsp;/optout/status](../endpoints/get-optout-status.md) を参照してください。
+詳細は、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) を参照してください。
 
 <!-- APIDOCS-2252 -->
 
