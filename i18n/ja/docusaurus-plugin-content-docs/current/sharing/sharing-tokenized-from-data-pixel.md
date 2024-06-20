@@ -1,6 +1,6 @@
 ---
 title: Tokenized Sharing in Pixels
-description: Learn about sharing UID2 tokens in pixels.
+description: ピクセルでの UID2 Token の共有について学びます。
 hide_table_of_contents: false
 sidebar_position: 08
 ---
@@ -19,15 +19,6 @@ import Link from '@docusaurus/Link';
 :::caution
 ピクセルのデータは不正アクセスされる可能性があるため、raw UID2 をピクセルで共有することは決して許されません。ピクセルで共有する場合は、Tokenized sharing が必要です。
 :::
-
-<!-- In this file:
-
-- [Audience](#audience)
-- [Sharing UID2 Tokens in Pixels](#sharing-uid2-tokens-in-pixels)
-- [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)
-- [Workflow: Tokenized Sharing in Tracking Pixels](#workflow-tokenized-sharing-in-tracking-pixels)
-- [Workflow: Tokenized Sharing in Creative Pixels](#workflow-tokenized-sharing-in-creative-pixels)
-- [Information for Sharing Receivers](#information-for-sharing-receivers) -->
 
 ### Audience
 

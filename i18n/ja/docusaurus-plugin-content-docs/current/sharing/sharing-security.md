@@ -1,6 +1,6 @@
 ---
 title: Security Requirements for UID2 Sharing
-description: Information about UID2 security, including authentication, authorization, accounting, and secure transport.
+description: 証、認可、アカウンティング、セキュアトランスポートなど、UID2セキュリティに関する情報。
 hide_table_of_contents: false
 sidebar_position: 03
 ---
@@ -96,6 +96,7 @@ Accounting とは、取引の記録があり、必要に応じてその活動を
 
 7. Feedback and Notification:
    - 承認プロセスが完了すると、受信者はアクセス状況に関する通知を受け取ります。アクセスが許可された場合は、その旨が通知され、次に進むことができます。アクセスが拒否された場合は、説明や次のアクションの手順を受け取ります。例えば、共有の受信者は、ダウンロードの準備ができたというメール通知を受け取るかもしれません。
+
    - 検証者は、自分の介入が正常に記録され、対処されたことを確認する通知を受け取ることもあります。
 
 :::important

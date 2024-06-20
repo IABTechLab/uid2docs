@@ -129,7 +129,11 @@ var client = new BidstreamClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
 client.Refresh();
 ```
 
-3. トークンを raw UID2 に複合する。入札元サイトのドメイン名を渡す:
+3. トークンを raw UID2 に復号化します。トークンを渡し、次のいずれかを行います:
+ * ビッドリクエストがパブリッシャーのウェブサイトから発信された場合、ドメイン名を渡します。ドメイン名は、すべて小文字で、スペースなし、サブドメインなしである必要があります。例えば、`Subdomain.DOMAIN.com` の場合、`domain.com` を渡します。
+ * ビッドリクエストがモバイルアプリから発信された場合、<Link href="../ref-info/glossary-uid#gl-app-name">app name</Link> を渡します。
+ * それ以外の場合は、`null` を渡します。
+
 
 ```cs
 var decrypted = client.DecryptTokenIntoRawUid(uidToken, domain);

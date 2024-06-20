@@ -11,20 +11,6 @@ import Link from '@docusaurus/Link';
 
 # Snowflake Integration Guide
 
-<!-- This guide includes the following information:
-- [Functionality](#functionality)
-- [Workflow Diagram](#workflow-diagram)
-- [Access the UID2 Shares](#access-the-uid2-shares)
-- [Shared Objects](#shared-objects)
-  -  [Database and Schema Names](#database-and-schema-names)
-  -  [Map DII](#map-dii)
-  -  [Regenerated UID2s](#regenerate-uid2s) 
-- [Migration Guide](#migration-guide)  
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
-   - [Encrypt Tokens](#encrypt-tokens)
-   - [Decrypt Tokens](#decrypt-tokens)
-   - [UID2 Sharing Example](#uid2-sharing-example) -->
-
 [Snowflake](https://www.snowflake.com/?lang=ja) はクラウドデータウェアハウスソリューションで、パートナーとして顧客のデータを保存し、UID2 フレームワークとインテグレーションできます。Snowflake を使用することで、UID2 は、機密性の高い [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を公開することなく、認可された消費者識別子データを安全に共有できます。消費者識別子データを直接 Operator Web Services に問い合わせることもできますが、Snowflake UID2 とのインテグレーションにより、よりシームレスな体験が可能になります。
 
 UID2 の以下のリストが Snowflake marketplace で入手可能です:
@@ -41,7 +27,9 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 
 *DII から直接 UID2 Token を生成することはできません。しかし、DII を raw UID2 に変換し、raw UID2 を暗号化して UID2 Token にすることはできます。
 
->NOTE: ビッドストリームで UID2 Token を共有するパブリッシャーの場合は、[Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください
+:::note
+ビッドストリームで UID2 Token を共有するパブリッシャーの場合は、[Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください
+:::
 
 ## Workflow Diagram
 
@@ -62,7 +50,9 @@ Snowflakeデータマーケットプレイスでは、UID2 用に2つのパー�
 - 広告主/ブランド向けの [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV)
 - データプロバイダー向けの [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0)
 
->IMPORTANT: データをリクエストするには、Snowflake アカウントに`ACCOUNTADMIN` ロール権限が必要です。
+:::important
+データをリクエストするには、Snowflake アカウントに`ACCOUNTADMIN` ロール権限が必要です。
+:::
 
 UID2 Share へのアクセスを要求するには、次の手順を実行します。
 
@@ -88,7 +78,9 @@ UID2 Share へのアクセスを要求するには、次の手順を実行しま
 - `FN_T_UID2_IDENTITY_MAP_EMAIL` (非推奨)
 - `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (非推奨)
 
->NOTE: 非推奨の関数を使用していて、新しい関数への移行の手助けが必要な場合は、[Migration Guide](#migration-guide) を参照してください。
+:::note
+非推奨の関数を使用していて、新しい関数への移行の手助けが必要な場合は、[Migration Guide](#migration-guide) を参照してください。
+:::
 
 再生成が必要な UID2 を特定するには、UID Share から `UID2_SALT_BUCKETS` ビューを使用します。詳しくは、[Regenerate UID2s](#regenerate-uid2s) を参照してください。
 
@@ -162,7 +154,9 @@ DII が電話番号の場合、UID2 [電話番号正規化](../getting-started/g
 - [Single Hashed Phone Number](#mapping-request-example---single-hashed-phone-number)
 - [Multiple Hashed Phone Numbers](#mapping-request-example---multiple-hashed-phone-numbers)
 
->NOTE: これらの例の入出力データは、説明のみを目的とした架空のものです。提供された値は実際の値ではありません。
+:::note
+これらの例の入出力データは、説明のみを目的とした架空のものです。提供された値は実際の値ではありません。
+:::
 
 #### Mapping Request Example - Single Unhashed Email
 

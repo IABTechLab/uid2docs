@@ -1,6 +1,6 @@
 ---
 title: Best Practices
-description: Best practices for UID2 sharing.
+description: UID2 Shering のベストプラクティス。
 hide_table_of_contents: false
 sidebar_position: 05
 ---
@@ -27,6 +27,8 @@ raw UID2 や UID2 Token を、UID2 の許可を受けた他のユーザーと安
   - raw UID2 の長さ: 100文字。
 
   - UID2 Token の長さ: 500文字。
+
+- raw UID2 を他の承認された共有参加者と共有する前に、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、raw UID2 のオプトアウトステータスを確認してください。オプトアウトされた raw UID2 を共有しないでください。
 
 ## Decryption Key Refresh Cadence for Sharing
 

@@ -17,20 +17,6 @@ UID2 SDK for Java を使用すると、以下のことが容易になります:
 - UID2 Token を復号化して raw UID2 にアクセスする
 - DII から raw UID2 への変換
 
-<!-- This guide includes the following information:
-
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [Version](#version)
-- [GitHub Repository/Binary](#github-repositorybinary)
-- [Initialization](#initialization)
-- [Interface](#interface)
-  - [Response Content](#response-content)
-  - [Response Statuses](#response-statuses)
-* [FAQs](#faqs)
-- [Usage for Publishers](#usage-for-publishers) 
-* [Usage for UID2 Sharers](#usage-for-uid2-sharers) -->
-
 ## Functionality
 
 この SDK は、Server-Side のコーディングに Java を使用しているパブリッシャー、DSP、広告主、データプロバイダー、UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
@@ -65,12 +51,12 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 初期化ステップは、以下の表に示すように、役割によって異なります。
 
-| Role                           | Create Instance of Class | Link to Instructions                              |
-|:-------------------------------| :--- |:--------------------------------------------------|
-| DSP                            | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps)                 |
-| Publisher                      | `PublisherUid2Client` | [Usage for Publishers](#usage-for-publishers)     |
-| Advertisers and Data Providers | `IdentityMapClient` | [Usage for Advertisers and Data Providers](#usage-for-advertisers-and-data-providers)     |
-| Sharer                         | `SharingClient` | [Usage for UID2 Sharers](#usage-for-uid2-sharers) |
+| Role                     | Create Instance of Class | Link to Instructions                                                         |
+|:-------------------------| :--- |:-----------------------------------------------------------------------------|
+| Publisher                | `PublisherUid2Client` | [Usage for Publishers](#usage-for-publishers)                                |
+| Advertiser/Data Provider | `IdentityMapClient` | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
+| DSP                      | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps)                                            |
+| Sharer                   | `SharingClient` | [Usage for UID2 Sharers](#usage-for-uid2-sharers)                            |
 
 SDK が UID2 Service で認証するために必要な値を提供する必要があります。
 
@@ -380,7 +366,9 @@ else
 
 UID2 では、共有とは、raw UID2 または UID2 Token を UID2 参加者間で安全に配布するためのプロセスです。raw UID2は、別の参加者に送る前に UID2 Token に暗号化されなければなりません。
 
->IMPORTANT: このプロセスで生成される UID2 Token は共有専用で、ビッドストリームでは使用できません: [Tokenized Sharing in the Bid Stream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
+:::important
+このプロセスで生成される UID2 Token は共有専用で、ビッドストリームでは使用できません。ビッドストリームで使用するには、別のワークフローがあります: [Tokenized Sharing in the Bid Stream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
+:::
 
 以下の手順は、UID2 SDK for Java を使用して、送信者または受信者として共有を実装する方法の例です。
 
