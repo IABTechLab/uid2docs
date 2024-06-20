@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 # Snowflake Integration Guide
 
-[Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share authorized consumer identifier data without exposing sensitive <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>. Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
+[Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share consumer identifier data without exposing sensitive <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>. Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
 
 The following listings for UID2 are available on the Snowflake marketplace:
 - For advertisers: [Unified ID 2.0: Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV/unified-id-2-0-unified-id-2-0-advertiser-identity-solution?originTab=provider&providerName=Unified+ID+2.0)

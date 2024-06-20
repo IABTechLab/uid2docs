@@ -56,7 +56,7 @@ The following sections provide additional details for each step in the diagram:
 
 ### Establish Identity: Capture User Data
 
-After authentication in step 1-c, which includes getting the user's consent and allows the publisher to validate the user's email address or phone number, the publisher can send a request to generate a UID2 token, on the server side. The following table details the token generation steps.
+After authentication in step 1-c, which allows the publisher to validate the user's email address or phone number, the publisher can send a request to generate a UID2 token, on the server side. The following table details the token generation steps.
 
 :::tip
 Rather than calling this endpoint directly, you could use one of the SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).
