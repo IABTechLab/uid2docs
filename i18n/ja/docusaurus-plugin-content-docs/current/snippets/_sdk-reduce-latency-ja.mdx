@@ -1,0 +1,7 @@
+デフォルトでは、UID2 SDK は米国の UID2 本番環境サーバーに API コールを行います。ユーザーの所在地に応じて、ユーザーに近いサーバーを選択してレイテンシを低減することができます。
+
+例えば、シンガポールのパブリッシャーは、base URL を `https://sg.prod.uidapi.com` に設定できます。これは UID2 本番環境ですが、サーバーはシンガポールにあります。
+
+有効な base URL のリストについては、[Environments](../getting-started/gs-environments) を参照してください。
+
+Base URL を `https://global.prod.uidapi.com` に設定することもできます。この URL は、オーディエンスを地理的に近い地域のサーバーに誘導します。オーディエンスが地理的に分散している場合に最適です。
