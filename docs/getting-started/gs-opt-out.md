@@ -39,7 +39,7 @@ The sure way for a consumer to fully opt out of UID2 is in the [Transparency and
 
 When a consumer opts out of UID2, that individual's UID2 is no longer accepted for targeted advertising anywhere in the UID2 ecosystem. However, because there is a delay in the time it takes to process and refresh UID2 information, the UID2 for a user who has opted out might be in play for a short while after opt-out. As each participant periodically refreshes their UID2s, the opt-out information is propagated to the participants.
 
-The following steps provide a high-level outline of the workflow intended for users who engage with publishers or their identity providers. 
+The following steps provide a high-level outline of the opt-out workflow intended for users who have had a UID2 created from their email address or phone number. 
 
 1. Users visit the [Transparency and Control Portal](https://www.transparentadvertising.com/), where they can globally opt out of UID2.
 2. The Transparency and Control Portal sends the opt-out request to the UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link>.
