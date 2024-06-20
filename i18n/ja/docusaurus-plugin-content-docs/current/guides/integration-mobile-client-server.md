@@ -273,7 +273,7 @@ AgAAAQFt3aNLXKXEyWS8Tpezcymk1Acv3n+ClOHLdAgqR0kt0Y+pQWSOVaW0tsKZI4FOv9K/rZH9+c4l
 
 - identity が無効です。この場合、いくつかのオプションがあります:
   - 前の `setIdentity()` 呼び出しでエラーがあるかどうかを確認します。
-  - Identity のステータスを `UID2Manager.getInstance().getIdentityStatus()`（Android）または `UID2Manager.shared.identityStatus`（iOS）で確認します。
+  - Identity のステータスを `UID2Manager.getInstance().getCurrentIdentityStatus()`（Android）または `UID2Manager.shared.identityStatus`（iOS）で確認します。
 - より詳細な情報を取得するためにログを有効にします: [Enable Logging](#enable-logging) を参照してください。
 - UID2 Identity の　Advertising Token が期限切れで、Refresh Token の有効期限も切れているため、SDK がトークンをリフレッシュできません。
 
