@@ -296,7 +296,7 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/cu
 
    ユーザーがオプトアウトした場合、このメソッドは `null` を返し、ユーザーの ID をセッションから削除する必要があることを示します。オプトアウトを確認するには、`tokenRefreshResponse.isOptout()` 関数を使用します。
 
-## Usage for Advertisers and Data Providers
+## Usage for Advertisers/Data Providers
 1. IdentityMapClient のインスタンスをインスタンス変数として作成します。
    ```java
    final private IdentityMapClient identityMapClient = new IdentityMapClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);

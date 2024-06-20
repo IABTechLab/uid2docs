@@ -72,7 +72,7 @@ UID2 Portal の API Keys ページでは、UID2 アカウントの API キー、
 
 Java SDKは、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントの使用を希望する広告主およびデータプロバイダーをサポートするようになりました。
 
-詳細については、*UID2 SDK for Javaリファレンスガイド*: [Usage-for-Advertisers-and-data-providers](../sdks/uid2-sdk-ref-java.md#usage-for-advertisers-and-data-providers) の更新されたドキュメントを参照してください。
+詳細については、*UID2 SDK for Javaリファレンスガイド*: [Usage for Advertisers and Data Providers](../sdks/uid2-sdk-ref-java.md#usage-for-advertisersdata-providers) の更新されたドキュメントを参照してください。
 
 ### New: Audience-Specific Documentation Sidebars
 

@@ -206,6 +206,8 @@ Private Operator を使用している場合を除き、メールアドレス、
 
 ユーザーが [Transparency and Control Portal](https://www.transparentadvertising.com/) を通じて UID2 ベースのターゲティング広告をオプトアウトすると、オプトアウト信号が DSP とパブリッシャーに送信され、DSP とパブリッシャーが入札時にオプトアウトを処理します。広告主やデータプロバイダーは、[POST /identity/map](../endpoints/post-identity-map.md) エンドポイントを通じて、ユーザーがオプトアウトしたかどうかを定期的に確認することを勧めます。
 
+広告主やデータプロバイダーは、raw UID2 に対するオプトアウトステータスを確認するために、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用することもできます。
+
 ウェブサイトを通じてユーザーがオプトアウトした場合、オプトアウトを処理するための内部手順に従ってください。たとえば、そのユーザーの UID2 を生成しないことを選択することもできます。
 
 #### Does the same DII always result in the same raw UID2?
@@ -234,6 +236,7 @@ demand-side platform (DSP) に関するよくある質問を紹介します。
    - [オプトアウトされたユーザーの UID2 は、どのような形式で Webhook に送信されますか？](#in-what-format-is-the-uid2-of-an-opted-out-user-sent-to-the-webhook)
    - [オプトアウトはどのリクエストタイプを使いますか？](#what-request-type-do-opt-outs-use)
    - [オプトアウトに応じるための条件はどの程度厳しいのですか？](#how-strict-are-the-requirements-for-honoring-opt-outs)
+   - [ユーザーがオプトアウトしたかどうかを確認するにはどうすればよいですか？](#how-can-i-check-if-a-user-has-opted-out)
    - [SDK のエラーは DSP の入札対応能力にどのような影響を与えますか？](#how-do-sdk-errors-impact-the-dsps-ability-to-respond-to-a-bid)
 
 #### How do I know which decryption key to apply to a UID2?
@@ -302,6 +305,11 @@ DSP のオプトアウトプロセスの詳細については、[Honor User Opt-
 オプトアウトに応じるための条件はどの程度厳しいのですか？
 
 オプトアウトは常に受け入れなければなりません。オプトアウトリクエストがシステムを通じて伝播するまでに時間がかかる場合があり、その間に一部の入札がオプトアウトを受け入れないことがあります。
+
+#### How can I check if a user has opted out?
+ユーザーがオプトアウトしたかどうかを確認するにはどうすればよいですか？
+
+DSP は、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、生 UID2 に対するオプトアウトステータスを確認できます。
 
 #### How do SDK errors impact the DSP's ability to respond to a bid?
 SDK のエラーは DSP の入札対応能力にどのような影響を与えますか？
