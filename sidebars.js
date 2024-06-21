@@ -85,7 +85,6 @@ const fullSidebar = [
       collapsed: false,
 
       items: [
-
         {
           type: 'category',
           label: 'Publisher Integrations',
@@ -150,17 +149,7 @@ const fullSidebar = [
             ],
           },
 
-          {
-            type: 'category',
-            label: 'CTV',
-            link: {
-              type: 'doc',
-              id: 'guides/integration-ctv-guide',
-            },
-            collapsed: true,
-            items: [
-            ],
-          },
+          'guides/integration-ctv-guide',
 
           {
             type: 'category',
