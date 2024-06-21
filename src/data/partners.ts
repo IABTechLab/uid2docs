@@ -173,9 +173,19 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Blueconic",
+    logo: "blueconic.png",
+    type: ["CDP"],
+  },
+  {
     name: "Bombora",
     logo: "bombora-logo.png",
     type: ["Data"],
+  },
+  {
+    name: "Bridg",
+    logo: "Bridg.png",
+    type: ["CDP"],
   },
   {
     name: "BuzzFeed",
@@ -196,6 +206,11 @@ export const partnersData: PartnersDataType = [
     name: "Cinema Café",
     logo: "cinema-cafe-logo-580x250.png",
     type: ["Publishers"],
+  },
+  {
+    name: "Circana",
+    logo: "Circana_Logo.png",
+    type: ["Data"],
   },
   {
     name: "coc coc",
@@ -232,6 +247,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "Disney",
     logo: "disney-logo.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "Dish Media",
+    logo: "Dish-Media-Logo.png",
     type: ["Publishers"],
   },
   {
@@ -291,6 +311,11 @@ export const partnersData: PartnersDataType = [
     type: ["DSP"],
   },
   {
+    name: "FreeWheel",
+    logo: "freewheel.png",
+    type: ["Publishers"],
+  },
+  {
     name: "Fubo TV",
     logo: "PartnerLogo_FuboTV_256x256.png",
     type: ["Publishers"],
@@ -311,9 +336,19 @@ export const partnersData: PartnersDataType = [
   //   type: ["DSP"],
   // },
   {
+    name: "GrowthLoop",
+    logo: "GrowthLoop.png",
+    type: ["CDP"],
+  },
+  {
     name: "Habu",
     logo: "Habu.png",
     type: ["CDP"],
+  },
+  {
+    name: "Haystack News",
+    logo: "Haystack-logo.png",
+    type: ["Publishers"],
   },
   {
     name: "Hello Health Group",
@@ -580,6 +615,11 @@ export const partnersData: PartnersDataType = [
     type: ["DSP"],
   },
   {
+    name: "OnAudience",
+    logo: "OnAudience_logo.png",
+    type: ["Data"],
+  },
+  {
     name: "Open X",
     logo: "PartnerLogo_OpenX_580x250.png",
     type: ["DSP"],
@@ -658,6 +698,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Rudderstack",
+    logo: "rudderstack.png",
+    type: ["CDP"],
+  },
+  {
     name: "Salesforce",
     logo: "salesforce-logo.png",
     type: ["Data", "CDP"],
@@ -695,6 +740,11 @@ export const partnersData: PartnersDataType = [
     type: ["DSP"],
   },
   {
+    name: "Simon Data",
+    logo: "simon.png",
+    type: ["CDP"],
+  },
+  {
     name: "Skyperfect JSAT",
     logo: "skyperfect-logo-700x400.png",
     type: ["Publishers", "Data"],
@@ -702,6 +752,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "Slate",
     logo: "slate.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "Sling",
+    logo: "sling-logo.png",
     type: ["Publishers"],
   },
   {
@@ -864,6 +919,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "VNExpress",
     logo: "VNExpress.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "WBD",
+    logo: "WBD_logo.webp",
     type: ["Publishers"],
   },
   {
