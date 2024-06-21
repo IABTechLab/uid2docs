@@ -102,11 +102,53 @@ export const articleList: ArticleItem[] = [
     date: "February 5, 2024",
     locale: "en",
   },
+  {
+    title: "Adobe Advertising",
+    url: "https://business.adobe.com/blog/the-latest/deliver-personalized-ad-experiences-with-adobe-advertising-and-unified-id2-0",
+    date: "March 18, 2024",
+    locale: "en",
+  },
+  {
+    title: "Clinch",
+    url: "https://clinch.co/the-trade-desk-uid2/",
+    date: "March 25, 2024",
+    locale: "en",
+  },
+  {
+    title: "Bonbon",
+    url: "https://world.einnews.com/pr_news/706392500/bonbon-announces-adoption-of-openpass-and-unified-id-2-0-to-empower-publishers-on-the-open-internet",
+    date: "April 25, 2024",
+    locale: "en",
+  },
+  {
+    title: "LG",
+    url: "https://www.streamtvinsider.com/advertising/lg-adopts-uid2-partnership-trade-desk",
+    date: "May 9, 2024",
+    locale: "en",
+  },
   //JA Articles
   {
-    title: "Voyage Group",
-    url: "https://voyagegroup.com/news/press/01_20210521_01/",
-    date: "May 21, 2001",
+    title: "Criteo",
+    url: "https://www.criteo.com/jp/wp-content/uploads/sites/6/2020/11/PR-2020-Nov-12-Criteo-Unified-ID-JP.pdf",
+    date: "Nov 12, 2020",
+    locale: "ja",
+  },
+  {
+    title: "Pubmatic",
+    url: "https://pubmatic.co.jp/news/pubmatic-joins-industry-wide-unified-id-2-0-initiative-for-an-alternative-to-third-party-cookies-jp/",
+    date: "Nov 17, 2020",
+    locale: "ja",
+  },
+  {
+    title: "Nielsen",
+    url: "https://www.thetradedesk.com/jp/news/press-room/the-trade-desk-adds-nielsen-to-unified-id-2-0-initiative-as-advertisers-seek-upgrade-to-cookies",
+    date: "Nov 18, 2020",
+    locale: "ja",
+  },
+  {
+    title: "fluct",
+    url: "https://corp.fluct.jp/news/0001027/",
+    date: "May 21, 2021",
     locale: "ja",
   },
   {
@@ -116,9 +158,15 @@ export const articleList: ArticleItem[] = [
     locale: "ja",
   },
   {
-    title: "Platform One",
+    title: "Yield One",
     url: "https://www.platform-one.co.jp/pdf/release_20210628.pdf",
-    date: "June 28, 2001",
+    date: "June 28, 2021",
+    locale: "ja",
+  },
+  {
+    title: "FreakOut",
+    url: "https://www.fout.co.jp/freakout/news/pr20210729/",
+    date: "July 29, 2021",
     locale: "ja",
   },
   {
