@@ -9,23 +9,6 @@ import Link from '@docusaurus/Link';
 
 # UID2 SDK for iOS Reference Guide
 
-
-<!-- This guide includes the following information:
-- [tvOS Support](#tvos-support)
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [SDK Version](#sdk-version)
-- [GitHub Open-Source Repository](#github-open-source-repository)
-- [Minimum Requirements](#minimum-requirements)
-- [Installation](#installation)
-  -  [Installing with Gradle](#installing-with-gradle)
-  -  [Installing with Maven](#installing-with-maven)
-- [Usage Guidelines](#usage-guidelines)
-- [UID2Manager API](#uid2manager-api)
-  -  [Functions](#functions)
-  -  [Variables](#variables)
-- [Code Samples](#code-samples) -->
-
 UID2 SDK for iOS は、以下の用途に使用できます:
 
 - UID2 を使用して iOS アプリでクライアント ID を生成または確立する。
@@ -90,6 +73,7 @@ Swift Package Manager (SPM) を使って iOS SDK をインストールします�
 
 -   [Package.swift](#installing-with-packageswift)
 -   [Xcode](#installing-with-xcode)
+-   [CocoaPods](#installing-with-cocoapods)
 
 ### Installing with Package.swift
 
@@ -108,6 +92,14 @@ dependencies: [
 | Name | Location | Dependency Rule                         |
 | :--- | :--- |:----------------------------------------| 
 | uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 1.2.0 < 2.0.0 |
+
+### Installing with CocoaPods
+
+`Podfile` に次のエントリを追加します:
+
+```
+pod 'UID2', '~> 1.2'
+```
 
 ## Usage Guidelines
 
@@ -202,3 +194,4 @@ Identity 変数は、SDK によって管理されている現在の UID2Identity
 #### identityStatus
 
 identityStatus変数は、SDKが管理している現在のUID2 Identityのステータスを格納し、返します。
+

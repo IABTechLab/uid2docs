@@ -9,7 +9,7 @@ displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
-import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser-ja.mdx';
+import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser.mdx';
 
 # UID2 Integration Overview for Prebid.js
 

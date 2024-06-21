@@ -11,13 +11,6 @@ import Link from '@docusaurus/Link';
 
 このページでは、UID2 でアカウントを設定するために必要な一般的な情報を提供します。
 
-<!-- It includes:
-
-* [Contact Info](#contact-info)
-* [Account Setup](#account-setup-details)
-* [Credentials](#credentials)
-* [API Version](#api-version)
- -->
 ## Contact Info
 
 UID2 フレームワークにアクセスするには、以下の The Trade Desk の担当チームにご連絡ください。

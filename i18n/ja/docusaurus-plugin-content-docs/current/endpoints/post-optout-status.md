@@ -48,8 +48,8 @@ Used by: このエンドポイントは、主に広告主、データプロバ�
 
 ボディパラメータは 1 つだけです。
 
-| Body Parameter | Data Type | Attribute | Description | Format |
-| :--- | :--- | :--- | :--- | :--- |
+| Body Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
 | `advertising_ids` |	string array |	必須 | オプトアウトのステータスをチェックしたい raw UID2 のリスト。<br/>１回の API 呼び出しで最大 5,000 件のエントリー。 |
 
 ### Request Example

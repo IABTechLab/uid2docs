@@ -205,8 +205,8 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-euid-framework"><a href="#gl-euid-framework">EUID framework</a></MdxJumpAnchor></dt>
 <dd>European Unified ID (EUID) フレームワークは、広告エコシステム全体での広告機会の決定論的な ID を提供します。EUID は、パブリッシャーウェブサイト、モバイルアプリ、Connected TV (CTV) アプリでのログイン体験を、プログラマティックワークフローを通じて収益化することを可能にします。独自の名前空間を持つオープンソースのスタンドアロンソリューションとして構築されたフレームワークは、透明性とプライバシーに焦点を当てています。</dd>
-<dd>EUIDは、フランス、イタリア、スペインなどのヨーロッパ諸国、アイスランドなどの非ヨーロッパ諸国、アゾレス諸島、マルティニーク、イギリスなどのその他の地域を含むヨーロッパ地域で運用されています。これは、EUプライバシー法の遵守を念頭に置いて設計されています。</dd>
-<dd>UID2とEUIDの間には多くの類似点がありますが、両者は完全に別物であり、トークンに互換性はありません。</dd>
+<dd>EUID は、フランス、イタリア、スペインなどのヨーロッパ諸国、アイスランドなどの非ヨーロッパ諸国、アゾレス諸島、マルティニーク、イギリスなどのその他の地域を含むヨーロッパ地域で運用されています。これは、EU プライバシー法の遵守を念頭に置いて設計されています。</dd>
+<dd>UID2 と EUID の間には多くの類似点がありますが、両者は完全に別物であり、トークンに互換性はありません。</dd>
 <dd>詳細は、<a href="https://euid.eu/docs/intro">European Unified ID Overview</a> を参照してください。</dd>
 
 </dl>
@@ -236,6 +236,9 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-identity">Identity</MdxJumpAnchor></dt>
 <dd>UID2 のコンテキストでは、「ID」という用語は、UID2 Token、Refresh Token、およびタイムスタンプなどの関連値を含む値のパッケージを指します。この値のセットは、<a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> エンドポイントおよび <a href="../endpoints/post-token-refresh">POST&nbsp;/token/refresh</a> エンドポイントからのレスポンスで返されます。</dd>
+
+<dt><MdxJumpAnchor id="gl-integration-approaches"><a href="#gl-integration-approaches">Integration approaches</a></MdxJumpAnchor></dt>
+<dd>UID2 インテグレーションは、<a href="#gl-client-side">Client-Side</a>、<a href="#gl-server-side">Server-Side</a>、または部分的に Client-Side と部分的に Server-Side (<a href="#gl-client-server">Client-Server</a>) で行うことができます。</dd>
 
 </dl>
 
@@ -357,8 +360,8 @@ import Link from '@docusaurus/Link';
 <dd>SHA-256 は、米国国立標準技術研究所 (NIST) と国家安全保障局 (NSA) が SHA-1 の後継として開発した SHA-2 アルゴリズムファミリーの一部です。各アルゴリズムは出力のビット数によって名前が付けられており、SHA-256 は 256 ビットです。</dd>
 <dd>詳細は、 <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> (specification) を参照してください。</dd>
 
-<dt><MdxJumpAnchor id="gl-sharing">Sharing</MdxJumpAnchor></dt>
-<dd>UID2 の文脈では、Sharing とは、<a href="#gl-raw-uid2">raw UID2s</a> をある UID2 参加者から別の UID2 参加者に安全に配布するプロセスです。raw UID2 を不正アクセスから保護するため、メッセージングが [Security Requirements for Raw UID2 Sharing](../sharing/sharing-overview.md#security-requirements-for-raw-uid2-sharing) に準拠していない場合、送信元参加者 (送信者) は、送信前に raw UID2 を UID2 Token に暗号化する必要があります。送信先参加者 (受信者) は、UID2 Token を内部で raw UID2 に復号する必要があります。</dd>
+<dt><MdxJumpAnchor id="gl-sharing"><a href="#gl-sharing">Sharing (in UID2)</a></MdxJumpAnchor></dt>
+<dd>UID2 のコンテキストでは、Sharing は、<a href="#gl-raw-uid2">raw UID2</a> を直接または <a href="#gl-uid2-token">UID2 Token</a> に暗号化して、1つの UID2 <a href="#gl-sharing-participant">sharing participant</a> から別の共有者に配布するプロセスです。</dd>
 <dd>詳細は、<a href="../getting-started/gs-sharing">UID2 Sharing</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-sharing-participant">Sharing participant</MdxJumpAnchor></dt>
