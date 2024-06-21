@@ -136,7 +136,7 @@ client.Refresh();
 
 
 ```cs
-var decrypted = client.DecryptTokenIntoRawUid(uidToken, domain);
+var decrypted = client.DecryptTokenIntoRawUid(uidToken, domainOrAppName);
 // If decryption succeeded, use the raw UID2.
 if (decrypted.Success) 
 {
