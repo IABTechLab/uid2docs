@@ -348,7 +348,7 @@ client.refresh();
 
 3. トークンを raw UID2に復号します。トークンを渡し、以下のいずれかを実行します:
 * ビッドリクエスト元がパブリッシャーのウェブサイトである場合は、ドメイン名を渡します。ドメイン名はすべて小文字で、スペースを入れず、サブドメインを含まないものでなければなりません。例えば、`Subdomain.DOMAIN.com` は `domain.com` を代わりに渡します。
-*ビッドリクエストがモバイルアプリから発生した場合は、[app name](../ref-info/glossary-uid.md#gl-app-name) を渡します。
+*ビッドリクエストがモバイルアプリから発生した場合は、<Link href="../ref-info/glossary-uid#gl-app-name">app name</Link> を渡します。
 * 上記以外は `null` を渡します。
 
 ```java
