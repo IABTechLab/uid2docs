@@ -230,9 +230,9 @@ UID2Settings.shared.environment = .custom(
 
 ### Optional: Specifying the API Base URL to Reduce Latency
 
-By default, this SDK makes calls to a UID2 production environment server in the USA.
+デフォルトでは、この SDK は米国の UID2 本番環境サーバーにリクエストを送信します。
 
-<ReduceLatencyJa />
+ユースケースに最適な URL を選択する方法と、有効なベース URL の完リストについては、[Environments](../getting-started/gs-environments.md) を参照してください。
 
 別の UID2 サーバを指定するには、次の例に示すように構成変更を行います:
 
