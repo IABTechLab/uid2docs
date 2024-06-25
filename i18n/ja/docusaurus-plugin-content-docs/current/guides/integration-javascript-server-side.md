@@ -13,21 +13,11 @@ import Link from '@docusaurus/Link';
 
 # Client-Server Integration Guide for JavaScript
 
-このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成したいウェブアセットを持つパブリッシャー向けのものです。
-これには、Server-Side で UID2 Token を生成してパブリッシャーのウェブページに渡すなど、Server-Side の変更が必要です。Client-Side の JavaScript の変更だけで UID2 とインテグレーションしたい場合は、代わりに [Client-Side Integration Guide for JavaScript](publisher-client-side.md) を参照してください。
+このガイドは、パブリッシャー向けの情報で、UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオをカバーしています。このガイドは、UID2 を使用して RTB ビッドストリーム用にトークンを生成するために、UID2 と直接インテグレーションを行いながら、UID2 対応シングルサインオンや ID プロバイダーではなく、パブリッシャーのウェブアセットを持つパブリッシャー向けの情報です。これには、サーバーサイドの変更が含まれます。Server-Side で UID2 Token を生成し、それをパブリッシャーのウェブページに渡す必要があります。UID2 に直接ではなく、UID2 対応のシングルサインオンや ID プロバイダーを使用して UID2 とインテグレーションする場合は、このガイドを参照しないでください。Client-Side の JavaScript のみの変更で UID2 とインテグレーションする場合は、代わりに [Client-Side Integration Guide for JavaScript](publisher-client-side.md) を参照してください。
 
-SDK の技術的な詳細については、[UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください。
+これは、Client-Server インテグレーションと呼ばれるもので、JavaScript インテグレーションステップが Client-Side で、その他のステップが Server-Side で行われるためです。
 
-<!-- It includes the following sections:
-
-- [Sample Implementation Website](#sample-implementation-website)
-- [Introduction](#introduction)
-- [Integration Steps](#integration-steps)
-  - [Establish Identity: Capture User Data](#establish-identity-capture-user-data)
-  - [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
-  - [Refresh Tokens](#refresh-tokens)
-  - [Clear Identity: User Logout](#clear-identity-user-logout)
-- [FAQs](#faqs) -->
+技術的な詳細については、[UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください。
 
 ## Sample Implementation Website
 
@@ -167,6 +157,8 @@ SDKは、指定された [callback function](../sdks/client-side-identity.md#cal
 1. バックグラウンドの token auto-refresh を設定します。
 1. ID 情報を [ローカルストレージまたはファーストパーティクッキー](../sdks/client-side-identity.md#uid2-storage-format) に保存します。
 1. ID 情報を使用して、ターゲティング広告のリクエストを始めます。
+
+<!-- (**GWH_TODO. Q: Not sure about the relationship between the steps above and the table below. And the diagram 2-a which says "the publisher calls the SSP for ads using the UID2 token". A: Diagram needs to be updated.**) -->
 
 ビッドステップを以下の表に示します。
 

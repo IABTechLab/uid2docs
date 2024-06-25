@@ -67,7 +67,7 @@ UID2 送信者は、UID2 Token を復号化できる受信者を指定します�
 
    1. UID2 Portal で DSP に共有を許可します。
 
-   2. ユーザーから提供された [DII](../ref-info/glossary-uid.md#gl-dii) から UID2 Token を直接生成します。これは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントまたは UID2 Token を生成する SDK のいずれかを使用して行います。
+   2. ユーザーから提供された <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> から UID2 Token を直接生成します。これは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントまたは UID2 Token を生成する SDK のいずれかを使用して行います。
    
       オプションの概要については、[SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) を参照してください。JavaScript を使用して UID2 Token を生成する方法については、[Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) を勧めます。
    

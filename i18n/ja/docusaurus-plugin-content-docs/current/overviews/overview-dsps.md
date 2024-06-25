@@ -87,6 +87,19 @@ UID2 を実装する DSP には、以下のドキュメントリソースが用�
 | UID2 SDK for C++ | [UID2 SDK for C++ Reference Guide](../sdks/uid2-sdk-ref-cplusplus.md) | C++ Server-Side を使用し、UID2 Advertising Token を復号して raw UID2 にアクセスしたい人のための SDK。 |
 | Integration Guide | [DSP Integration Guide](../guides/dsp-guide.md) | DSP 向けのこのインテグレーションガイドでは、入札のための UID2 の取り扱いと、ユーザーのオプトアウトの受け入れについて説明します。 |
 
+<!-- ## Integration Requirements
+
+To integrate with UID2 to receive UID2s from brands (as first-party data) and data providers (as third-party data) and leverage them to inform bidding on UID2s in the bidstream, the buy-side participants must meet the following requirements:
+
+- Accept data in the form of UID2s
+- Bid on data in the form of UID2s
+- Build a webhook for honoring opt-out requests
+- Sync encryption keys daily with the UID2 Administrator
+
+For details, see [DSP Integration Guide](../guides/dsp-guide.md).
+
+Optionally, if DSPs want to generate UID2s themselves from DII, they can also follow the [Third-Party Data Provider Workflow](overview-data-providers.md#workflow-for-data-providers). -->
+
 ## FAQs for DSPs
 
 UID2 フレームワークを使用する DSP に関するよくある質問については、 [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。

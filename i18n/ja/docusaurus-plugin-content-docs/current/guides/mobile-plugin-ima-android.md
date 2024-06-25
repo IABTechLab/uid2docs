@@ -38,6 +38,7 @@ UID2 Interactive Media Ads (IMA) Plugin for Android は、[Google IMA SDK for An
    - [SDK](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
    - [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
 1. [UID2 IMA Plugin for Android v0.5.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-ima)
+1. R8 または Proguard を使用している場合は、[Notes for Using R8 or ProGuard](#notes-for-using-r8-or-proguard) に指定された適用オプションを追加します。
 
 ## Installation
 
@@ -67,3 +68,10 @@ Maven でインストールするには、`pom.xml` ファイルに依存関係�
   <version>0.5.0</version>
 </dependency>
 ```
+
+## Notes for Using R8 or ProGuard
+
+R8 を使用している場合、縮小と難読化のルールは自動的に含まれます。
+
+
+ProGuard を使用している場合は、[uid2-gma.pro](https://github.com/IABTechLab/uid2-android-sdk/blob/main/securesignals-gma/uid2-gma.pro) で指定されたオプションを手動で追加する必要があります。

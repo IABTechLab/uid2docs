@@ -52,7 +52,7 @@ UID2 Portal の Client-Side Integration ページでは、ドメインなど、�
 
 UID2 Portal ドキュメントに新しいページ、[API Keys](../portal/api-keys.md) を追加しました。
 
-UID2 Portal の API Keys ページでは、UID2 アカウントの API キー、関連するシークレット値、および権限設定を管理するすべてのアクティビティを実行できます。
+UID2 Portal の API Keys ページでは、UID2 アカウントの API Key、関連するシークレット値、および権限設定を管理するすべてのアクティビティを実行できます。
 
 <!-- APIDOCS-2133 -->
 

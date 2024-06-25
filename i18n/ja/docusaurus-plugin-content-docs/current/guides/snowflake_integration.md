@@ -111,7 +111,7 @@ select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_U
 
 ### Map DII
 
-すべてのタイプの [DII](../ref-info/glossary-uid.md#gl-dii) をマッピングするには、`FN_T_UID2_IDENTITY_MAP` 関数を使用します。
+すべてのタイプの <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> をマッピングするには、`FN_T_UID2_IDENTITY_MAP` 関数を使用します。
 
 DII がメールアドレスの場合、サービスは UID2 [メールアドレスの正規化](../getting-started/gs-normalization-encoding.md#email-address-normalization) 規則を使用して正規化されます。
 
@@ -523,7 +523,7 @@ FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash')
 
 UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">共有参加者</Link> とは、送信者または受信者として共有に参加し、UID2を他の参加者と共有する企業のことです。
 
-広告主やデータプロバイダーは、Snowflake (Tokenized Sharing) を介して、UID2 を他の UID2 共有許可参加者と共有することができます。これらの参加者は、[raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を [UID2 Token](../ref-info/glossary-uid#gl-uid2-token) に暗号化し、それを別の参加者に送信してピクセルで共有することができます（[Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照してください）。Snowflake 内でピクセル単位でデータを送信しない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) に記載されている要件に従う限り、UID2 Sharing に参加することができます。
+広告主やデータプロバイダーは、Snowflake (Tokenized Sharing) を介して、UID2 を他の UID2 共有許可参加者と共有することができます。これらの参加者は、[raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> に暗号化し、それを別の参加者に送信してピクセルで共有することができます（[Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照してください）。Snowflake 内でピクセル単位でデータを送信しない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) に記載されている要件に従う限り、UID2 Sharing に参加することができます。
 
 :::caution
 このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
