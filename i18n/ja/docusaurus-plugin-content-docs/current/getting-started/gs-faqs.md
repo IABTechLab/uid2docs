@@ -40,9 +40,9 @@ EUID インフラのすべてのインテグレーションパートナー(SSP�
 #### When I send DII to UID2, does UID2 store the information?
 UID2 に DII を送信すると、UID2 はその情報を保存しますか？
 
-いいえ、UID2 にはは DII を保存しません。さらに、ほとんどの場合、UID2は[POST&nbsp;/token/generate](../endpoints/post-token-generate.md), [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md)、[POST /identity/map](../endpoints/post-identity-map.md) が実行されると、値をまったく保存しません。
+いいえ。<Link href="../ref-info/glossary-uid#gl-uid2-service">UID2 service</Link> のコンポーネントは、DII を保存しません。
 
-必要な例外は、ユーザーがオプトアウトした場合です。このシナリオでは、UID2 には、オプトアウトされたユーザーを示すハッシュ化された不透明な値が格納されます。保存された値をリバース エンジニアリングして DII の元の値に戻すことはできませんが、同じ DII から生成された UID2 に対する将来の要求を識別するために使用できるため、これらのリクエストは拒否されます。
+さらに、ほとんどの場合、UID2 は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md)、または [POST /identity/map](../endpoints/post-identity-map.md) の呼び出しが完了すると、値を全く保存しません。必要な例外は、ユーザーがオプトアウトした場合です。この場合、UID2 は、オプトアウトしたユーザーを示すハッシュ化された不透明な値を保存します。保存された値は、DII から生成された同じ UID2 に関する将来のリクエストを識別するために使用され、そのため拒否されます。
 
 #### Does UID2 allow the processing of HIPAA-regulated data?
 UID2 は HIPAA で規制されているデータの処理を許可しますか？
