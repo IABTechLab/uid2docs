@@ -47,7 +47,7 @@ GWH note 12/14/23: We have client-side and server-side examples for JS SDK but o
 
 [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了します。
 
-アカウントのセットアップが完了すると、固有の API Keyと クライアントシークレットが発行されます。ここれらの値はアカウント独自のもので、安全に管理することが重要です。詳細は [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
+アカウントのセットアップが完了すると、固有の API Key と クライアントシークレットが発行されます。ここれらの値はアカウント独自のもので、安全に管理することが重要です。詳細は [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
 
 ## Add Prebid.js to Your Site
 

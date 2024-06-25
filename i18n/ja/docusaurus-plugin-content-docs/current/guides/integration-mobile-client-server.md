@@ -55,7 +55,7 @@ UID2 は、[Android](../sdks/uid2-sdk-ref-android.md) および [iOS](../sdks/ui
 
 アカウントの設定を完了するには、[Account Setup](../getting-started/gs-account-setup.md) に記載されている手順に従ってください。
 
-アカウントの設定が完了すると、ユニークな API キーとクライアントシークレットが送信されます。これらの値はあなたに固有であり、安全に保管することが重要です。詳細については、[API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
+アカウントの設定が完了すると、ユニークな API Key とクライアントシークレットが送信されます。これらの値はあなたに固有であり、安全に保管することが重要です。詳細については、[API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
 
 ## Client-Server Mobile Integration Data Flow Overview
 
@@ -120,7 +120,7 @@ Server-Side で UID2 Token を生成する方法は、直接識別情報 (<Link 
 モバイルアプリに `Identity` 応答を渡す必要があります。詳細については、[Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
 
 :::warning
-セキュリティ上の理由から、API キーとシークレットを使ったトークン生成は、Server-Side で呼び出す必要があります。これらの値をモバイルアプリ内に保存しないでください。詳細については、[API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+セキュリティ上の理由から、API Key とシークレットを使ったトークン生成は、Server-Side で呼び出す必要があります。これらの値をモバイルアプリ内に保存しないでください。詳細については、[API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 :::
 
 ## Server-Side Token Refresh
@@ -177,7 +177,7 @@ UID2Settings.shared.environment = .custom(
 :::note
 次のような環境間の違いに注意してください:
 - UID2 インテグレーション環境のトークンは、ビッドストリームに渡しても有効ではありません。
-- 各環境（インテグレーションおよび本番）には異なる API キーとクライアントシークレット値があります。各環境で正しい値を使用してください。
+- 各環境（インテグレーションおよび本番）には異なる API Key とクライアントシークレット値があります。各環境で正しい値を使用してください。
 :::
 
 ### Optional: Specifying the API Base URL to Reduce Latency

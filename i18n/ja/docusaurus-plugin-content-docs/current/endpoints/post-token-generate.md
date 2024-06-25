@@ -26,7 +26,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 `POST '{environment}/v2/token/generate'`
 
 このエンドポイントリクエストについて知っておくべきことは、以下のとおりです:
-- サービスにアクセスする際に使用する API Key を秘密にするため、 UID2 Token は認証後に Server-Side でのみ生成する必要があります。
+- サービスにアクセスする際に使用する <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link> を秘密にするため、 UID2 Token は認証後に Server-Side でのみ生成する必要があります。
 - すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、 [リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ### Path Parameters

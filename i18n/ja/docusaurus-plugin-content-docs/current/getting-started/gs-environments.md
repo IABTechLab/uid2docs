@@ -30,7 +30,7 @@ import Link from '@docusaurus/Link';
 Notes:
 
 - すべての UID2 エンドポイントは同じベース URL を使用します。
-- インテグレーション環境と本番環境では異なる <Link href="../ref-info/glossary-uid#gl-api-key">API キー</Link> が必要です。
+- インテグレーション環境と本番環境では異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。
 - [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントまたは [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントで返される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> の有効期限は変更される可能性がありますが、常にインテグレーション環境では本番環境よりもはるかに短くなります。
 
 ## Specifying the Base URL to Reduce Latency
