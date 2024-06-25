@@ -8,15 +8,18 @@ UID2 SDK はログを生成することができ、UID2 インテグレーショ
 
 ```js
 // During UID2Manager initialization:
-UID2Manager.init((context = this), (isLoggingEnabled = true));
+UID2Manager.init(
+  context = this,
+  isLoggingEnabled = true
+)
 ```
 
 </TabItem>
 <TabItem value='ios' label='iOS'>
 
 ```swift
-UID2Settings.shared.isLoggingEnabled = true
 // On iOS, you must set UID2Settings before you first access UID2Manager.shared. Changes made to settings after first access are not read.
+UID2Settings.shared.isLoggingEnabled = true
 ```
 
 </TabItem>
