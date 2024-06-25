@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 SDK for Python Reference Guide
 
-UID2 Server-Side SDK を使用することで、以下のことが容易になります:
+UID2 Server-Side SDK を使用することで、以下が容易になります:
 
 - UID2 Advertising Token の生成
 - UID2 Advertising Token の更新

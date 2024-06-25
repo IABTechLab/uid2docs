@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 SDK for Java Reference Guide
 
-UID2 SDK for Java を使用すると、以下のことが容易になります:
+UID2 SDK for Java を使用すると、以下が容易になります:
 
 - UID2 Advertising Token の生成
 - UID2 Advertising Token の更新
