@@ -19,8 +19,8 @@ UID2 SDK for iOS は、以下の用途に使用できます:
 
 | Purpose | Product/Documentation |
 | :--- | :--- |
-| To use the Google Mobile Ads (GMA) SDK to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS/tvOS apps | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) |
-| To use the Google Interactive Media Ads SDK for iOS to send [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS/tvOS apps | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) |
+| Google Mobile Ads (GMA) SDK を使用して iOS/tvOS アプリから広告リクエストで [secure signals](https://support.google.com/admob/answer/11556288) として <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> を送信する | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) |
+| Google Interactive Media Ads SDK for iOS を使用して iOS/tvOS アプリから広告リクエストで [secure signals](https://support.google.com/admob/answer/11556288) として <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> を送信する | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) |
 
 ## tvOS Support
 Although this page refers to UID2 SDK for iOS, this SDK also supports tvOS. For the required tvOS version, see [Minimum Requirements](#minimum-requirements).

@@ -13,7 +13,7 @@
 UID2 API v2 へのアップグレードには以下の変更が含まれます:
 
 - [Application API layer encryption](https://unifiedid.com/docs/getting-started/gs-encryption-decryption) が追加されました。これにより E2E コンテンツが保護され、ネットワークオペレーターや UID2 サービスオペレーターによる UID2 情報の漏洩が防止されます。<br/>これは、v2 エンドポイントへの呼び出しを行うためには POST リクエストボディを暗号化し、レスポンスを復号する必要があることを意味します。
-- [authentication](https://unifiedid.com/docs/getting-started/gs-auth) のためのクライアント API キーに加えて、API リクエストを暗号化し、API レスポンスを復号するためのクライアントシークレットが必要です。
+- [authentication](https://unifiedid.com/docs/getting-started/gs-auth) のためのクライアント API Key に加えて、API リクエストを暗号化し、API レスポンスを復号するためのクライアントシークレットが必要です。
 - UID2 API v1 のすべての GET エンドポイントの HTTP リクエストタイプが GET から [UID2 API v2](https://unifiedid.com/docs/endpoints/summary-endpoints) への POST に変更されました。
 - リクエストにはもはやクエリパラメータが必要ありません。新しい POST メソッドは、JSON 形式のリクエストボディとして入力パラメータを受け取ります。
 - パラメータ値の URL エンコードは不要です。
@@ -148,7 +148,7 @@ UID2 API v2 への呼び出しを行うには、POST リクエストボディを
 
 ### Can I continue using the v1 API and API keys?
 
-はい。v1 エンドポイントは 2023 年 3 月 31 日までサポートされます。それ以降、すべての非推奨 v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントは削除されます。以前に発行されたクライアント API キーは v2 エンドポイントに必要となり、v1 エンドポイントは削除されるまで引き続き使用できます。
+はい。v1 エンドポイントは 2023 年 3 月 31 日までサポートされます。それ以降、すべての非推奨 v1 SDK ファイルとエンドポイント、v0 SDK ファイル、およびバージョン管理されていないエンドポイントは削除されます。以前に発行されたクライアント API Key は v2 エンドポイントに必要となり、v1 エンドポイントは削除されるまで引き続き使用できます。
 
 ### How do I obtain a client secret key for the new API?
 

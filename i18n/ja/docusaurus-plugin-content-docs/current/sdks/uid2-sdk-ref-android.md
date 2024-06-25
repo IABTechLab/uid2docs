@@ -9,24 +9,6 @@ import Link from '@docusaurus/Link';
 
 # UID2 SDK for Android Reference Guide
 
-<!-- This guide includes the following information:
-
-- [Non-Mobile Android Device Support](#non-mobile-android-device-support)
-- [Functionality](#functionality)
-- [API Permissions](#api-permissions)
-- [SDK Version](#sdk-version)
-- [GitHub Repository/Binary](#github-repositorybinary)
-- [Minimum Requirements](#minimum-requirements)
-- [Installation](#installation)
-  -  [Installing with Gradle](#installing-with-gradle)
-  -  [Installing with Maven](#installing-with-maven)
-- [Usage Guidelines](#usage-guidelines)
-- [Code Samples](#code-samples)
-- [UID2Manager API](#uid2manager-api)
-  -  [Functions](#functions)
-  -  [Variables](#variables)
- -->
-
 UID2 SDK for Android は、以下の用途に使用できます:
 
 - UID2 を使用して Android アプリでクライアント ID を生成または確立する。
@@ -81,10 +63,15 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 ## Minimum Requirements
 
-この SDK の最小要件は以下の通りです:
+To consume the binary package of this SDK in your app:
 
-- Android Studio version: v2023.3.1+
-- Minimum target Android version: 4.4+ / API 19+ (SDK) 5.0+ / API 21+ (Dev-App)
+- 最低限のターゲット Android バージョン: 4.4+ / API 19+ (SDK) 5.0+
+
+
+開発アプリ ([Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#client-side-integration-example) を参照してください) を実行するか、ソースコードからバイナリをビルドするには、次の最小要件が必要です:
+
+- [code repository](https://github.com/IABTechLab/uid2-android-sdk/blob/main/gradle/libs.versions.toml) (記載されている `agp` バージョンを参照してください) で指定されている UID2 SDK に必要な Android Gradle Plugin (AGP) バージョンを確認し、対応する Android Studio バージョンが必要かどうかを確認してください。
+- 最低限のターゲット Android バージョン: 4.4+ / API 19+ (SDK) 5.0+ / API 21+ (Dev-App)
 
 <!-- See also: [Requirements](https://github.com/IABTechLab/uid2-android-sdk/blob/main/README.md#requirements). -->
 
@@ -222,3 +209,4 @@ Identity 変数は、SDK が管理している現在の UID2 Identity を格納�
 #### identityStatus
 
 identityStatus 変数は、SDK が管理している現在の UID2 Identity のステータスを格納し、返します。
+

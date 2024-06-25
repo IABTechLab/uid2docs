@@ -10,26 +10,34 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ReduceLatencyJa from '/docs/snippets/_sdk-reduce-latency-ja.mdx';
 
 # Client-Side Integration Guide for JavaScript
 
-このガイドは、UID2 と インテグレーションし、ウェブサイト上で JavaScript Client-Side の変更のみを使用して、最小限の労力で <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (Advertising Token) を生成したいパブリッシャー向けのものです。
+<!-- The below segment is for UID2 only: not applicable for advertisers since EUID doesn't support sharing. -->
+This guide is for all participants who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) using only JavaScript client-side changes on their website with minimum effort.
 
-このガイドは [Private Operator](../ref-info/glossary-uid.md#gl-private-operator) を使いたいパブリッシャーや、Server-Side でトークンを生成したいパブリッシャーには適用されません。それらのパブリッシャーは [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md) に従う必要があります。
+This approach is used by the following participant types:
 
-また、トラッキングピクセルなどのピクセルで UID2 Token を共有したい人にも適用できます。
+- Most notably, this workflow is for publishers wanting to send UID2 tokens into the bidstream.
+- In addition, advertisers and data providers would use this for adding a UID2 token to their tracking pixels (see [Tokenized Sharing in Pixels](sharing/sharing-tokenized-from-data-pixel.md)).
 
-UID2 は、以下の機能を備えた UID2 SDK for JavaScript([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) を提供しています:
+<!-- End of UID2-only section. -->
+<!-- Begin EUID-only section. -->
+<!-- This guide is for publishers who want to integrate with UID2 and generate EUID tokens (advertising tokens) using only JavaScript client-side changes on their website with minimum effort. -->
+<!-- End of EUID-only section. -->
 
-- UID2 Token 生成
-- UID2 Token 自動リフレッシュ
-- UID2 Token のブラウザへの自動保存
+This guide does not apply to publishers who want to use a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, or who want to generate tokens server-side. Those publishers should follow the [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md).
 
-次の手順を完了する必要があります:
+UID2 provides a UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) with the following features:
+
+- UID2 token generation
+- Automatic refreshing of UID2 tokens
+- Automatic storage of UID2 tokens in the browser
+
+To implement, you'll need to complete the following steps:
 
 1. [Complete UID2 account setup](#complete-uid2-account-setup)
-2. [Add UID2 SDK For JavaScript to your site](#add-uid2-sdk-for-javascript-to-your-site)
+2. [Add SDK For JavaScript to your site](#add-sdk-for-javascript-to-your-site)
 3. [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript)
 4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
 
@@ -66,7 +74,7 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 アカウント設定に必要なのは、ルートレベルのドメインだけです。例えば、JavaScript 用の UID2 SDK を example.com、shop.example.com、example.org で使用する場合、ドメイン名 example.com と example.org を指定するだけです。
 :::
 
-## Add UID2 SDK For JavaScript to Your Site
+## Add SDK For JavaScript to Your Site
 
 以下のコードスニペットは、ウェブサイトに追加する必要があるコードの概要です。また、SDK がトリガーできるさまざまなイベントも示しています。
 
@@ -122,9 +130,11 @@ UID2 インテグレーション環境からのトークンは、ビッドスト
 
 ### Optional: Specifying the API Base URL to Reduce Latency
 
-<ReduceLatencyJa />
+デフォルトでは、この SDK は米国の UID2 本番環境サーバーにリクエストを送信します。
 
-別の UID2 サーバーを指定するには、`init` 呼び出しで変更できます:
+ユースケースに最適な URL を選択する方法と、有効なベース URL の全リストについては、[Environments](../getting-started/gs-environments.md) を参照してください。
+
+デフォルト以外の UID2 サーバーを指定するには、`init` 呼び出しで変更します:
 
 ```js
 __uid2.init({
@@ -141,7 +151,7 @@ UID2 は、Client-Side のトークン生成機能を使用するために必要
 
 パブリッシャーのインテグレーション環境用に 1 セット、本番環境用に別のセットを用意します。
 
-SDK を設定するには、アカウントセットアップ時に受け取った **public key** と **Subscription ID**、およびユーザーのハッシュ化またはハッシュ化していない [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) を含むオブジェクトを指定して、以下のメソッドのいずれかを呼び出します:
+SDK を設定するには、アカウントセットアップ時に受け取った **public key** と **Subscription ID**、およびユーザーのハッシュ化またはハッシュ化していない <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>(メールアドレスまたは電話番号) を含むオブジェクトを指定して、以下のメソッドのいずれかを呼び出します:
 
 *  `__uid2.setIdentityFromEmail`
 *  `__uid2.setIdentityFromEmailHash`

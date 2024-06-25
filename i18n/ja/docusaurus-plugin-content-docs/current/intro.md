@@ -90,7 +90,7 @@ UID2 は透明で相互運用可能なアプローチにより、広告エコシ
 | **Core Administrator** | UID2 Core Service およびその他の [コンポーネント](#components) を管理する組織 (現在は The Trade Desk)。例えば、UID2 Operator に暗号キーとソルトを配布し、Operator や DSP にユーザーのオプトアウトリクエストを送ります。 |
 | **Operators** | Operator Service を実行する組織 (UID2 API 経由)。オペレーターは、UID2 Core Service から暗号化キーとソルトを受け取って保管し、個人のデータをソルトおよびハッシュ化して raw UID2 を返し、raw UID2 を暗号化して UID2 Token を生成し、UID2 Token の復号キーを配布します。<br/>Open Operator は、Operator Service のパブリックインスタンスを実行します。たとえば、The Trade Desk は現在、UID2 Framework の Open Operator として機能しており、すべての参加者が利用できます。<br/>参加者は誰でも、UID2 を生成および管理する Private Operator になることもできます。 |
 | **DSPs**  | DSP は UID2 システムとインテグレーションして、広告主から (ファーストパーティデータとして)、またサードパーティデータプロバイダーから (サードパーティデータとして)UID2 を受け取り、それらを活用してビッドストリーム中の UID2 に対する入札情報を提供します。 |
-| **Data Providers** | ユーザーデータを収集し、DSP にプッシュする組織 - 例えば、広告主、ID グラフプロバイダー、サードパーティデータプロバイダーなどです。 |
+| **Data Providers** | ユーザーデータを収集し、それを他の UID2 参加者&#8212;例えば、広告主、ID グラフプロバイダー、サードパーティデータプロバイダー&#8212;にプッシュする組織。 |
 | **Advertisers** | さまざまなパブリッシャーサイトでインプレッションを購入し、DSP を使用して、購入する広告インプレッションとその入札価格を決定している組織です。 |
 | **Publishers** | UID2 Token を SSP 経由でビッドストリームに伝達する組織 - 例えば、ID プロバイダー、パブリッシャー、SSO プロバイダーなど。パブリッシャーは、SSO プロバイダーか、UID2 と相互運用可能な独立系 ID プロバイダーのいずれかと連携することを選択できます。独立系 ID プロバイダーは、パブリッシャーに代わって UID2 インテグレーションを行えます。 |
 | **Consumers** | パブリッシャーまたはその ID プロバイダーと関わるユーザー。ユーザーは、[Transparency and Control Portal](https://www.transparentadvertising.com/) で UID2 をオプトアウトできます。 |

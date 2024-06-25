@@ -36,7 +36,7 @@ UID2 SDK for JavaScript を使って UID2 とインテグレーションする�
 
 ## Generating the UID2 Token
 
-[DII](../ref-info/glossary-uid.md#gl-dii) へのアクセスに応じて、UID2 SDK for JavaScript を使用して UID2 Token を生成するには、Client-Side または Server-Side の2つの方法があります。
+<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> へのアクセスに応じて、UID2 SDK for JavaScript を使用して UID2 Token を生成するには、Client-Side または Server-Side の2つの方法があります。
 
 [Client-Side or Client-Server Integration](#client-side-or-client-server-integration) の表から、どちらのオプションが最適かを判断し、該当するインテグレーションガイドに従ってください。
 
@@ -45,6 +45,7 @@ UID2 SDK for JavaScript を使って UID2 とインテグレーションする�
 UID2 SDK for JavaScript には、トークンの自動リフレッシュ機能があります。
 
 ## Storing the UID2 Token in the Browser
+<!-- GWH check corresponding (not identical) section in integration-prebid.md, integration-prebid-client-side.md, integration-prebid-client-side.md, for consistency -->
 
 Client-Side のオプションでは、ローカルストレージを使用してデータを保存します。Server-Side オプションはデフォルトでローカルストレージを使いますが、代わりにクッキーを使うこともできます。詳細については、*UID2 SDK for JavaScript Reference Guide* の [UID2 Storage Format](../sdks/client-side-identity.md#uid2-storage-format) を参照してください。
 

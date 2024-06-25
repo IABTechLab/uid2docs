@@ -27,6 +27,7 @@ import Link from '@docusaurus/Link';
 
 - [Web Integrations](#web-integrations)
 - [Mobile Integrations](#mobile-integrations)
+- [CTV Integrations](#ctv-integrations)
 - [Prebid Integrations](#prebid-integrations)
 - [Google Ad Manager Integrations](#google-ad-manager-integrations)
 
@@ -59,6 +60,14 @@ Android または iOS デバイスとインテグレーションするパブリ�
 | Android/iOS, Client-Side Integration | [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) | モバイルアプリ内のみの変更で UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けの統合ガイドです (Server-Side の変更はありません)。 |
 | Android/iOS, Client-Server Integration | [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | UID2 とインテグレーションしたいモバイルアプリのパブリッシャー向けのインテグレーションガイドです:<ol><li>UID2 Token を Server-Side で生成するには、PublicまたはPrivate Operatorを使用します。</li><li>その結果、<Link href="../ref-info/glossary-uid#gl-identity">identities</Link> をモバイルアプリに渡し、ビッドストリームに渡します。</li></ol> |
 
+### CTV Integrations
+
+CTV とインテグレーションするパブリッシャー向けには、以下のリソースが利用できます。
+
+| Integration Guide | Content Description |
+| :--- | :--- |
+| [CTV Integration Guide](../guides/integration-ctv-guide.md) | CTV インテグレーションオプションの概要と、追加情報および手順へのリンク。 |
+
 ### Prebid Integrations
 
 パブリッシャーの Prebid インテグレーションには以下のリソースがあります。
@@ -88,6 +97,7 @@ UID2 とインテグレーションする広告主やデータプロバイダー
 | Integration Guide | Content Description |
 | :--- | :--- |
 | [Advertiser/Data Provider](./advertiser-dataprovider-guide.md) | この広告主やデータプロバイダー向けのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 |
+| [Client-Side Integration Guide for JavaScript](publisher-client-side.md) | トラッキングピクセルに UID2 Token を追加するためにこの SDK を使用したい広告主やデータプロバイダー向けのガイドです。<!-- UID2_only: Not applicable for EUID --> |
 | [Snowflake Integration Guide](snowflake_integration.md) | Snowflake 内でメールアドレスから UID2 を生成する手順です。|
 | [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md) | AWS Entity Resolution を使用して UID2 フレームワークとインテグレーションする手順です。 |
 

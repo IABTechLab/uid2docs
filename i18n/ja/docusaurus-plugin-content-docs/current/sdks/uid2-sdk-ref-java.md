@@ -9,11 +9,11 @@ import Link from '@docusaurus/Link';
 
 # UID2 SDK for Java Reference Guide
 
-UID2 SDK for Java を使用すると、以下のことが容易になります:
+UID2 SDK for Java を使用すると、以下が容易になります:
 
 - UID2 Advertising Token の生成
 - UID2 Advertising Token の更新
-- raw UID2 を暗号化して共有用の UID2 Token を作成する
+- Raw UID2 を暗号化して共有用の UID2 Token を作成する
 - UID2 Token を復号化して raw UID2 にアクセスする
 - DII から raw UID2 への変換
 
@@ -148,10 +148,12 @@ SDK の HTTP 実装を使用している場合は、以下の手順に従って�
    ```
 
    :::important
-   - POST&nbsp;/token/generate エンドポイントは、ユーザーの[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。
+   <!-- - Be sure to call the POST&nbsp;/token/generate endpoint only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
 
-   - 常に `doNotGenerateTokensForOptedOut()` を適用します。これは POST&nbsp;/token/generate エンドポイントの呼び出しで `optout_check=1` を設定するのと同様のパラメータを適用します([Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters)) を参照してください。
+   - --> 常に `doNotGenerateTokensForOptedOut()` を適用します。これは POST&nbsp;/token/generate エンドポイントの呼び出しで `optout_check=1` を設定するのと同様のパラメータを適用します([Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters)) を参照してください。
    :::
+
+ <!-- uid2_euid_diff re legal basis for admonition above (first bullet not in UID2) -->
 
 #### Client-Server Integration
 
@@ -226,10 +228,12 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/cu
       `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHeader())`
    2. Body: `envelope.getEnvelope()`
    :::important
-   - POST&nbsp;/token/generateエンドポイントは、ユーザーの[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。
+   <!-- - Be sure to call the POST&nbsp;/token/generate endpoint only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
 
-   - 常に `doNotGenerateTokensForOptedOut()` を適用してください。これは POST&nbsp;/token/generate エンドポイントの呼び出しで `optout_check=1` を設定するのと同様のパラメータを適用します ([Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters) を参照してください)。
+   - -->常に `doNotGenerateTokensForOptedOut()` を適用してください。これは POST&nbsp;/token/generate エンドポイントの呼び出しで `optout_check=1` を設定するのと同様のパラメータを適用します ([Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters) を参照してください)。
    :::
+
+   <!-- uid2_euid_diff re legal basis for admonition above (first bullet not in UID2) -->
 
 4. HTTP レスポンスステータスコードが 200 でない場合は、[Response Status Codes](../endpoints/post-token-generate.md#response-status-codes) を参照して次のステップを決定します。そうでない場合は、UID2 ID レスポンスの内容を `TokenGenerateResponse` オブジェクトに変換します:
 
@@ -344,7 +348,7 @@ client.refresh();
 
 3. トークンを raw UID2に復号します。トークンを渡し、以下のいずれかを実行します:
 * ビッドリクエスト元がパブリッシャーのウェブサイトである場合は、ドメイン名を渡します。ドメイン名はすべて小文字で、スペースを入れず、サブドメインを含まないものでなければなりません。例えば、`Subdomain.DOMAIN.com` は `domain.com` を代わりに渡します。
-*ビッドリクエストがモバイルアプリから発生した場合は、[app name](../ref-info/glossary-uid.md#gl-app-name) を渡します。
+*ビッドリクエストがモバイルアプリから発生した場合は、<Link href="../ref-info/glossary-uid#gl-app-name">app name</Link> を渡します。
 * 上記以外は `null` を渡します。
 
 ```java
