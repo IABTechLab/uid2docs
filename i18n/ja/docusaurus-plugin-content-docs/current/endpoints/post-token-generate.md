@@ -8,11 +8,16 @@ sidebar_position: 02
 import Link from '@docusaurus/Link';
 
 # POST /token/generate
-UID2 ベースのターゲティング広告の承認とともにユーザーから提供された [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) から生成された UID2 Token をリクエストします。DII が有効で、ユーザーが UID2 をオプトアウトしていない場合、この操作は UID2 Token と関連する値を返します。
+
+UID2 ベースのターゲティング広告の承認とともにユーザーから提供された <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (メールアドレスまたは電話番号) から生成された UID2 Token をリクエストします。DII が有効で、ユーザーが UID2 をオプトアウトしていない場合、この操作は UID2 Token と関連する値を返します。
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
->IMPORTANT: このエンドポイントは、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。`optout_check` パラメータは値 `1` が必須で、ユーザーがオプトアウトしたかどうかをチェックします。
+:::important
+このエンドポイントは、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) をターゲティング広告用の UID2 Token に変換する法的根拠を得た場合にのみ呼び出すようにしてください。`optout_check` パラメータは値 `1` が必須で、ユーザーがオプトアウトしたかどうかをチェックします。
+:::
+
+<!-- uid2_euid_diff re legal basis for admonition above -->
 
 このエンドポイントを直接呼び出すのではなく、UID2 SDK を使って管理することもできます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
 
@@ -32,7 +37,9 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 ### Unencrypted JSON Body Parameters
 
->IMPORTANT: リクエストを暗号化するときには、以下の4つの条件付きパラメータのうち **1つ** と、必須パラメータである `optout_check` の値 `1` のみを、JSON ボディのキーと値のペアとして含める必要があります。
+:::important
+リクエストを暗号化するときには、以下の4つの条件付きパラメータのうち **1つ** と、必須パラメータである `optout_check` の値 `1` のみを、JSON ボディのキーと値のペアとして含める必要があります。
+:::
 
 | Body Parameter | Data Type | Attribute | Description | 
 | :--- | :--- | :--- | :--- |
@@ -44,7 +51,9 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 ### Request Examples
 
->IMPORTANT: サービスにアクセスするために使用される API Key を確実に秘密にするために、API Key を使用する必要のない [POST&nbsp;/token/refresh](post-token-refresh.md) と異なり、`POST /token/generate` エンドポイントを Server-Side から呼び出す必要があります。
+:::important
+サービスにアクセスするために使用される API Key を確実に秘密にするために、API Key を使用する必要のない [POST&nbsp;/token/refresh](post-token-refresh.md) と異なり、`POST /token/generate` エンドポイントを Server-Side から呼び出す必要があります。
+:::
 
 以下は、各パラメータの暗号化されていない JSON リクエストボディの例で、このうちの 1 つはトークン生成リクエストに含める必要があります:
 
@@ -120,6 +129,8 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","optout_chec
 ```
 
 ### Response Body Properties
+
+レスポンスボディには、次の表に示すプロパティが含まれます。
 
 | Property | Data Type | Description |
 | :--- | :--- | :--- |

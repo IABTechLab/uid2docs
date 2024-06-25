@@ -8,18 +8,22 @@ sidebar_position: 03
 import Link from '@docusaurus/Link';
 
 # POST /token/validate
+
 Advertising Token が指定されたハッシュ化された、またはハッシュ化されていないメールアドレスまたは電話番号と一致するかどうかを検証します。
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
->NOTE: このエンドポイントは、主に新しいインテグレーションのテストとトラブルシューティングのために用意されています。
+:::note
+このエンドポイントは、主に新しいインテグレーションのテストとトラブルシューティングのために用意されています。
+:::
 
 ## Request Format 
 
 `POST '{environment}/v2/token/validate'`
 
->IMPORTANT: すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
-
+:::important
+すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+:::
 
 ### Path Parameters
 
@@ -27,12 +31,14 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string    | 必須      | インテグレーション環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
->NOTE: インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">APIキー</Link> が必要です。
-
+:::note
+インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">APIキー</Link> が必要です。
+:::
 
 ### Unencrypted JSON Body Parameters
 
-- Body Parameter の表にあるように、以下の4つの有効なオプションのうち1つだけを含めます: `email`、`email_hash`、`phone`、`phone_hash` のいずれかです。テストするパラメータには、リストされている値を正確に指定してください。
+- 次の4つの有効なオプションのいずれかを、Body Parameter テーブルに記載されているように、1つだけ含めます: `email`、`email_hash`、`phone`、または `phone_hash`。
+- 暗号化する際に、必要なボディパラメータをリクエストの JSON ボディ内のキーと値のペアとして含めます。
 
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
@@ -42,12 +48,13 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 | `phone` | string | Conditionally Required | トークンを生成するための [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号です。<br/>有効な値は`+12345678901` だけです。|
 | `phone_hash` | string | Conditionally Required | [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) ハッシュです。<br/>有効な値は `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=` だけです。|
 
-
 ### Request Examples
 
 以下は、各パラメータの暗号化されていない JSON リクエストボディの例で、トークン検証のリクエストに含める必要があります:
 
->NOTE: 以下の例の Advertising Token は、説明のみを目的とした架空のものです。提供された値は実際の値ではありません。
+:::note
+以下の例の Advertising Token は、説明のみを目的とした架空のものです。提供された値は実際の値ではありません。
+:::
 
 ```json
 {

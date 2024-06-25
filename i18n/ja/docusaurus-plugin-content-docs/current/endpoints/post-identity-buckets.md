@@ -17,7 +17,9 @@ Used by: このエンドポイントは、主に広告主とデータプロバ�
 
 `POST '{environment}/v2/identity/buckets'`
 
->IMPORTANT: すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+:::important
+すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+:::
 
 ### Path Parameters
 
@@ -25,11 +27,15 @@ Used by: このエンドポイントは、主に広告主とデータプロバ�
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required  | インテグレーション環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
->NOTE: インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">APIキー</Link> が必要です。
+:::note
+インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">APIキー</Link> が必要です。
+:::
 
 ### Unencrypted JSON Body Parameters
 
->IMPORTANT: 暗号化する際には、リクエストの JSON ボディに以下のパラメータを key-value ペアとして含める必要があります。
+:::important
+暗号化する際には、リクエストの JSON ボディに以下のパラメータを key-value ペアとして含める必要があります。
+:::
 
 | Body Parameter | Data Type | Attribute | Description | Format |
 | :--- | :--- | :--- | :--- | :--- |
@@ -80,6 +86,8 @@ echo '{"since_timestamp": "2023-04-19T13:00:00"}' | python3 uid2_request.py http
 }
 ```
 ### Response Body Properties
+
+レスポンスボディには、次の表に示すプロパティが含まれます。
 
 | Property | Format | Description |
 | :--- | :--- | :--- ||

@@ -10,7 +10,6 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ReduceLatencyJa from '/docs/snippets/_sdk-reduce-latency-ja.mdx';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 
@@ -65,6 +64,8 @@ UID2 は、[Android](../sdks/uid2-sdk-ref-android.md) および [iOS](../sdks/ui
 この例では、Client-Side のモバイルアプリで [UID2 SDK for Android](../sdks/uid2-sdk-ref-android.md) を使用し、Server-Side で [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) を使用しています。
 
 ![Mobile Client-Server Integration Example](images/integration-mobile-client-server.png)
+
+<!-- (**GWH_ https://ttdcorp-my.sharepoint.com/:p:/r/personal/rita_aleksanyan_thetradedesk_com/_layouts/15/Doc.aspx?sourcedoc=%7BDF894943-3D6A-4A60-A1E2-176ACD0BBBCC%7D&file=Sample%20Data%20Flow.pptx&wdLOR=c8FEF9DB2-E2FD-4F07-B411-B094C4813ACE&fromShare=true&action=edit&mobileredirect=true**) -->
 
 ## Implement Server-Side Token Generation
 

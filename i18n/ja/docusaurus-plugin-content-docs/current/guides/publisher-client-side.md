@@ -74,7 +74,7 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 アカウント設定に必要なのは、ルートレベルのドメインだけです。例えば、JavaScript 用の UID2 SDK を example.com、shop.example.com、example.org で使用する場合、ドメイン名 example.com と example.org を指定するだけです。
 :::
 
-## Add UID2 SDK For JavaScript to Your Site
+## Add SDK For JavaScript to Your Site
 
 以下のコードスニペットは、ウェブサイトに追加する必要があるコードの概要です。また、SDK がトリガーできるさまざまなイベントも示しています。
 

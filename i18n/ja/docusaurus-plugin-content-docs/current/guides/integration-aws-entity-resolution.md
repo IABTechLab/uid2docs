@@ -13,11 +13,13 @@ import Link from '@docusaurus/Link';
 
 [AWS Entity Resolution](https://aws.amazon.com/entity-resolution/) は、Amazon Web Services が提供する ID ソリューションプロダクトで、AWS の顧客が UID2 フレームワークとインテグレーションすることを可能にします。このインテグレーションにより、UID2 Operator を直接呼び出したり、機密性の高いクライアント ID や秘密鍵の値を扱ったりすることなく、安全かつシームレスに UID2 を生成することができます。
 
-このサービスは、[DII](../ref-info/glossary-uid.md#gl-dii) (メールアドレスまたは電話番号) を raw UID2 に迅速かつ安全にマッピングすることができます。
+このサービスは、<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (メールアドレスまたは電話番号) を raw UID2 に迅速かつ安全にマッピングすることができます。
 
 :::note
 現在 UID2 エコシステムに参加していない場合は、[Request Access to UID2](https://unifiedid.com/request-access) にアクセスしてください。
 :::
+
+AWS Entity Resolution を使用して UID2 とインテグレーションに関するビデオプレゼンテーションとデモについては、YouTube の [Getting Started with AWS Entity Resolution Integration with Unified ID 2.0](https://www.youtube.com/watch?v=ORbSsKMgVj8) を参照してください。
 
 ## Functionality
 
@@ -92,8 +94,6 @@ AWS Data Exchange の [Unified ID 2.0 Identity Resolution](https://aws.amazon.co
 
 ![AWS Data Exchange market place screenshot](images/integration-aws-entity-resolution-public-listing.png)
 
-
-
 加入リクエストを受け取ると、UID2 チームは以下を行います:
 - サブスクリプションのリクエストを確認します。
 - リクエストを [Create UID2 Account](#create-uid2-account) で送信した AWS アカウント ID と照合します。
@@ -149,7 +149,25 @@ UID2 は、UID2 生成のためにメールアドレスまたは電話番号の�
       1レコードにつき、メールアドレスまたは電話番号フィールドは **1** つだけです。メールアドレスが存在する場合、電話番号はパススルーとして扱われます。電話番号を処理するには、別のワークフローを作成してください。詳細はこのセクションの前を参照してください。
       :::
 
-   - **Service access**: 既存または新規のサービスロールを使用して、AWS Glue で指定されたデータにアクセスするための特定の権限を Entity Resolution に付与します。入力データが暗号化されている場合は、復号化のための AWS Key Management Service (KMS) キーも指定する必要があります。
+   - **Service access**: Entity Resolution に、指定されたデータにアクセスし、AWS Glue でデータを呼び出し、AWS Data Exchange を呼び出す権限を付与します。新しいサービスロールを作成して、必要なすべての権限を持つ新しいロールを作成することを強く勧めす。既存のサービスロールを使用する場合は、AWS Data Exchange を呼び出す権限を追加してください:
+
+        ```json
+       {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Sid": "DataExchangePermissions",
+                "Action": "dataexchange:SendApiAsset",
+                "Resource": [
+                    "<Asset ARN>"
+                ]
+              }
+          ]
+        }
+       ```
+       Asset ARN は、AWS Data Exchange コンソールの "AWS Data Exchange" > "Entitled data" > "Unified ID 2.0 Identity Resolution" > "Data set: UnifiedID-2.0" > "Revision: Date" > "Asset: venice-api-gateway-prod" で確認できます。
+   - **Decryption Key**: 入力データが暗号化されている場合、AWS Key Management Service (KMS) キーを指定する必要があります。
 
 2. マッチング技術を選びます:
    - **Matching method**で、**Partner services** オプションを選択します。

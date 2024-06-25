@@ -10,7 +10,6 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ReduceLatencyJa from '/docs/snippets/_sdk-reduce-latency-ja.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 
