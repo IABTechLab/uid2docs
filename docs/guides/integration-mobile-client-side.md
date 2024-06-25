@@ -570,7 +570,10 @@ Some possible reasons for this, and some things you could do to troubleshoot, ar
 
 - The identity is invalid. In this scenario there are a couple of options:
   - Check to see whether there are any errors from the previous `generateIdentity` call.
-  - Check the status of the identity, using `UID2Manager.getInstance().getCurrentIdentityStatus()` for Android or `UID2Manager.shared.identityStatus` for iOS.
+  - Check the status of the identity, using one of the following:
+    - **Android Java**: `UID2Manager.getInstance().getCurrentIdentityStatus()`
+    - **Android Kotlin**: `UID2Manager.getInstance().currentIdentityStatus()`
+    - **iOS**: `UID2Manager.shared.identityStatus`
 
     It's possible that the DII has been opted out of UID2: for details, see [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk).
 - You could enable logging to get more information: see [Enable Logging](#enable-logging).
@@ -618,8 +621,16 @@ If the UID2 identity stored in local file storage has expired and cannot be refr
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
 
-```js
+**Android Java**:
+
+```java
 UID2Manager.getInstance().getCurrentIdentityStatus()
+```
+
+**Android Kotlin**:
+
+```kotlin
+UID2Manager.getInstance().currentIdentityStatus()
 ```
 
 </TabItem>
