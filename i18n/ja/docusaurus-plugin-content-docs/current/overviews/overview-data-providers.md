@@ -44,9 +44,6 @@ UID2 を使用することで、データプロバイダーとして得られる
 以下のステップは、データプロバイダーが UID2 とインテグレーションする方法の一例です:
 
 1. データプロバイダーが、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 Operator に送信します。
-
-   <!-- euid_only_ep_20240312 ("consented" in above line DP only EUID only) -->
-   
 2. UID2 Operator は、raw UID2 とソルトバケット ID を生成して返します。
 3. データプロバイダーは UID2 とソルトバケット ID を保存し、UID2 ベースのファーストパーティおよびサードパーティのオーディエンスセグメントを DSP に送信します。
 
@@ -78,6 +75,7 @@ UID2 を使用することで、データプロバイダーとして得られる
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
 | ユーザーデータを収集し、他の UID2 参加者にプッシュする組織のためのインテグレーション手順 | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | このガイドでは、オーディエンスの構築とターゲティングのために ID をマッピングするインテグレーションワークフローについて説明します。 |
+| トラッキングピクセルに UID2 Token を追加する広告主およびデータプロバイダー向けのインテグレーション手順 | [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) | このガイドでは、JavaScript クライアントサイドの変更のみを使用して、Advertising Token を追加するための JavaScript SDK を使用する広告主およびデータプロバイダー向けのインテグレーション手順を提供します。<!-- UID2_only: Not applicable for EUID --> |
 | Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | このガイドでは、Snowflake を使ってメールアドレスから UID2 を生成する手順を説明します。 |
 | AWS Entity Resolution | [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) | このガイドでは、AWS Entity Resolution を使用して UID2 とインテグレーションする手順を説明します。 |
 

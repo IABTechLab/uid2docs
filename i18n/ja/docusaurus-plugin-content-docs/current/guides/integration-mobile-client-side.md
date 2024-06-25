@@ -10,7 +10,6 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ReduceLatencyJa from '/docs/snippets/_sdk-reduce-latency-ja.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 
@@ -226,14 +225,14 @@ UID2Settings.shared.environment = .custom(
 :::note
 次のような環境間の違いに注意してください:
 - UID2 インテグレーション環境のトークンは、ビッドストリームに渡しても有効ではありません。
-- 各環境（インテグレーションおよび本番）には異なる API キーとクライアントシークレット値があります。各環境で正しい値を使用してください。
+- 各環境（インテグレーションおよび本番）には異なる API Key とクライアントシークレット値があります。各環境で正しい値を使用してください。
 :::
 
 ### Optional: Specifying the API Base URL to Reduce Latency
 
-By default, this SDK makes calls to a UID2 production environment server in the USA.
+デフォルトでは、この SDK は米国の UID2 本番環境サーバーにリクエストを送信します。
 
-<ReduceLatencyJa />
+ユースケースに最適な URL を選択する方法と、有効なベース URL の完リストについては、[Environments](../getting-started/gs-environments.md) を参照してください。
 
 別の UID2 サーバを指定するには、次の例に示すように構成変更を行います:
 

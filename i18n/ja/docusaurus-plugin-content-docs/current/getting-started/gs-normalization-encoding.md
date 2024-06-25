@@ -12,6 +12,7 @@ import Link from '@docusaurus/Link';
 このページでは、ユーザー情報の正規化とエンコードに関する情報を提供します。UID2 を使用する際には、正規化とエンコードを正しく行うことが重要です。
 
 ## Introduction
+
 メールアドレスなどのユーザー情報を取得し、raw UID2 や UID2 Advertising Token を作成する手順に従う場合、必要な手順に正確に従うことが非常に重要です。情報を正規化する必要があろうがなかろうが、ハッシュ化する必要があろうがなかろうが、手順には正確に従ってください。そうすることで、作成した UID2 の値を、同じユーザーによる他のオンライン行動の事例と安全かつ匿名で照合できるようになります。
 
 :::important
@@ -20,6 +21,7 @@ import Link from '@docusaurus/Link';
 :::
 
 ## Types of Directly Identifying Information
+
 UID2は、以下の種類の DII (direct identifying information) をサポートしています:
 - メールアドレス
 - 電話番号
@@ -61,7 +63,7 @@ UID2 Operator Service にハッシュ化されていないメールアドレス�
 | 正規化されたメールアドレスのSHA-256ハッシュ | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | この 64 文字の文字列は、32 バイトの SHA-256 を 16 進符号化したものです。 |
 | 正規化されたメールアドレスの 16 進数から Base64 SHA-256 エンコーディングへの変換 | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | この 44 文字の文字列は、32 バイトの SHA-256 を Base64 エンコードしたものです。<br/>WARNING: 上の例の SHA-256 ハッシュ文字列は、ハッシュ値を 16 進符号化したものです。ハッシュの Raw バイトを Base64 エンコードするか、16 進エンコードされた値を入力とする Base64 エンコーダを使用する必要があります。<br/>リクエストボディに送られる `email_hash` 値にはこのエンコーディングを使用します。 |
 
-:::warning
+:::important
 Base64 エンコードを適用する場合、ハッシュの Raw バイトを必ず Base64 エンコードするか、16 進エンコードされた値を入力とする Base64 エンコーダを使用してください。
 :::
 

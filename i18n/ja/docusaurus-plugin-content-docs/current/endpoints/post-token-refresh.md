@@ -8,13 +8,16 @@ sidebar_position: 04
 import Link from '@docusaurus/Link';
 
 # POST /token/refresh
-[POST&nbsp;/token/generate](post-token-generate.md) エンドポイントから返された、対応する未使用の Refresh Token を送信して、新しい <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を生成します。
+
+[POST&nbsp;/token/generate](post-token-generate.md) エンドポイントで返された有効期限内の Refresh Token を送信して、新しい <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を生成します。
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
-このエンドポイントは API キーを使用する必要がないため、クライアントサイド(ブラウザやモバイルアプリなど)から呼び出すことができます。
+このエンドポイントは、Client-Side (例えば、ブラウザやモバイルアプリ) から呼び出すことができます。それは、<Link href="../ref-info/glossary-uid#gl-api-key">API key</Link> を使用する必要がないためです。
 
->NOTE: このエンドポイントを直接呼び出すのではなく、UID2 SDK を使って管理することもできます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
+:::note
+このエンドポイントを直接呼び出す代わりに、UID2 SDK のいずれかを使用して管理することができます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
+:::
 
 ## Request Format 
 
@@ -100,6 +103,8 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 ```
 
 ### Response Body Properties
+
+レスポンスボディには、次の表に示すプロパティが含まれます。
 
 | Property  | Data Type | Description |
 | :--- | :--- | :--- |

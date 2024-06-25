@@ -54,7 +54,7 @@ SDK が UID2 Service で認証するために必要な値を提供する必要�
 | Parameter | Description |
 | :--- | :--- |
 | `endpoint` | UID2 Service のエンドポイント。[Environments](../getting-started/gs-environments) を参照してください。 |
-| `authKey` | API キー。[UID2 Credentials](../getting-started/gs-credentials) を参照してください |
+| `authKey` | API Key。[UID2 Credentials](../getting-started/gs-credentials) を参照してください |
 | `secretKey` | クライアントシークレット。[UID2 Credentials](../getting-started/gs-credentials) を参照してください。 |
 
 ## Interface
@@ -136,7 +136,7 @@ client.Refresh();
 
 
 ```cs
-var decrypted = client.DecryptTokenIntoRawUid(uidToken, domain);
+var decrypted = client.DecryptTokenIntoRawUid(uidToken, domainOrAppName);
 // If decryption succeeded, use the raw UID2.
 if (decrypted.Success) 
 {

@@ -20,7 +20,7 @@ UID2 <a href="/docs/intro#participants">参加者</a>はそれぞれ、固有の
 
 ## API Key and Client Secret
 
-Server-Side の実装([UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) または [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照) を使用している場合、API Key とクライアントシークレットにより、<Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> に接続し、API エンドポイントを呼び出すことができます。これらの値は、サービスの参加者を識別します。
+Client-Side または Server-Side の実装を使用している場合([UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) または [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください)、API Key とクライアントシークレットを使用して、<Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> に接続し、API エンドポイントを呼び出すことができます。これらの値は、サービスの参加者を識別します。
 
 以下は API Key とクライアントシークレットに関する情報です:
 - UID2 参加者は、複数のキーを持つことができます。
@@ -52,7 +52,7 @@ UID2 JavaScript SDK または Prebid を使用して、Client-Side で UID2 を�
 
 Notes:
 
-- API キーとクライアントシークレットとは異なり、Subscription ID と Public key は安全に保管する必要はありません。
+- API Key とクライアントシークレットとは異なり、Subscription ID と Public key は安全に保管する必要はありません。
 
 - これらの値は特定の [Environment](gs-environments.md) に対して有効です。インテグレーション環境と本番環境の両方を使用している場合、それぞれの環境用の認証情報のセットを取得します。
 

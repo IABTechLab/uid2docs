@@ -1,6 +1,6 @@
 ---
 title: Team Members
-description: UID2 team の設定し管理する。
+description: UID2 team を設定し管理する。
 hide_table_of_contents: false
 sidebar_position: 07
 ---
@@ -18,7 +18,7 @@ UID2 Portal の **Team Members** ページでは、以下のようなアカウ�
 
 ## Team Member Rights and Responsibilities
 
-各チームメンバーはアカウントの管理者となり、以下のようなチームやアカウントの管理に関する設定を行うことができます:
+各 **Team Member** はアカウントの管理者となり、以下のようなチームやアカウントの管理に関する設定を行うことができます:
 
 - チームメンバーの追加、変更、削除: [Add a Team Member](#add-a-team-member) を参照してください。
 - メール連絡先の追加、変更、削除: [Email Contacts](email-contacts.md) を参照してください。
