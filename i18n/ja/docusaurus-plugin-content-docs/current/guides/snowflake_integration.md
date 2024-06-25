@@ -111,7 +111,7 @@ select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_U
 
 ### Map DII
 
-すべてのタイプの [DII](../ref-info/glossary-uid.md#gl-dii) をマッピングするには、`FN_T_UID2_IDENTITY_MAP` 関数を使用します。
+すべてのタイプの <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> をマッピングするには、`FN_T_UID2_IDENTITY_MAP` 関数を使用します。
 
 DII がメールアドレスの場合、サービスは UID2 [メールアドレスの正規化](../getting-started/gs-normalization-encoding.md#email-address-normalization) 規則を使用して正規化されます。
 

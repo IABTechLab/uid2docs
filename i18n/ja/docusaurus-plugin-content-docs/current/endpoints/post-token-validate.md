@@ -124,7 +124,7 @@ echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXl
 
 ## Using POST /token/validate to Test
 
-このエンドポイントを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) で送信する [DII](../ref-info/glossary-uid.md#gl-dii) が有効かどうかをテストできます。以下の手順に従ってください。
+このエンドポイントを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) で送信する <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> が有効かどうかをテストできます。以下の手順に従ってください。
 
 1. DII がハッシュ化されたメールアドレスか、ハッシュ化されていないメールアドレスか、電話番号かに応じて、[Unencrypted JSON Body Parameters](#unencrypted-json-body-parameters) の表に記載されている4つの有効なオプションのいずれかを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) リクエストを送信します。表に記載されている対応する値 - `email`、`email_hash`、`phone`、`phone_hash` - を使用します。
 

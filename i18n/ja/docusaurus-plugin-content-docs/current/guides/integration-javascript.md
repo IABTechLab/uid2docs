@@ -36,7 +36,7 @@ UID2 SDK for JavaScript を使って UID2 とインテグレーションする�
 
 ## Generating the UID2 Token
 
-[DII](../ref-info/glossary-uid.md#gl-dii) へのアクセスに応じて、UID2 SDK for JavaScript を使用して UID2 Token を生成するには、Client-Side または Server-Side の2つの方法があります。
+<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> へのアクセスに応じて、UID2 SDK for JavaScript を使用して UID2 Token を生成するには、Client-Side または Server-Side の2つの方法があります。
 
 [Client-Side or Client-Server Integration](#client-side-or-client-server-integration) の表から、どちらのオプションが最適かを判断し、該当するインテグレーションガイドに従ってください。
 

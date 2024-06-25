@@ -65,7 +65,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 #### How can I test that the DII sent and the returned token match up?
 送信した DII と返されたトークンが一致していることをテストするにはどうすればよいですか？
 
-[POST&nbsp;/token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) で送信している [DII](../ref-info/glossary-uid.md#gl-dii) が有効かどうかをチェックできます。`POST /token/validate` は主にテスト目的で使用されます。
+[POST&nbsp;/token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) で送信している <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> が有効かどうかをチェックできます。`POST /token/validate` は主にテスト目的で使用されます。
 
 詳細は、[Using POST&nbsp;/token/validate to Test](../endpoints/post-token-validate.md#using-post-tokenvalidate-to-test) を参照してください。
 
