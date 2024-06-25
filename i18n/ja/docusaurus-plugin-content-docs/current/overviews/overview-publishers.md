@@ -18,7 +18,7 @@ UID2 を採用するパブリッシャーにとってのメリット、ワーク
 :::note
 UID2 のドキュメント一式に左サイドバーからアクセスしたい場合は、[Unified ID 2.0 Overview](../intro.md) を参照してください。
 :::
-gi
+
 ## Benefits of UID2 for Publishers
 
 UID2 とインテグレーションすることで得られるメリットの一部を次に示します:
@@ -34,13 +34,9 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 1. ユーザーがパブリッシャーのウェブサイト、モバイルアプリ、CTV アプリにアクセスします。
 2. パブリッシャーは、オデータの取り扱いに関する透明性を提供し、ログインまたはその他の手段で、メールアドレスまたは電話番号の提供をユーザーに求めます。
-<!-- uid2_only_ep_20240312: The publisher explains the value exchange of the open internet and asks the user to provide an email address or phone number, by login or other means. -->
-<!-- euid_only_ep_20240312: The publisher explains the value exchange of the open internet and asks the user to provide an email address, by login or other means, and consent to the use of their email address for EUID. -->
 3. ユーザーがメールアドレスまたは電話番号を提供すると、パブリッシャーは SDK または直接 API インテグレーションを介して、それを UID2 Operator に送信します。
-<!-- uid2_only_ep_20240312: Once the user has provided an email address or phone number, the publisher sends it to the UID2 Operator via an SDK or direct API integration. -->
-<!-- euid_only_ep_20240312: Once the user has provided an email address, and consented, the publisher sends it to the EUID Operator via an SDK or direct API integration. -->
 
-   パブリッシャーは、SSO プロバイダーやアイデンティティプロバイダーに、[DII](../ref-info/glossary-uid.md#gl-dii) やプライバシーの設定を自分たちに代わって渡すことができます。
+   パブリッシャーは、SSO プロバイダーまたは ID プロバイダーに、自分たちの代わりに <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> を渡すことができます。
 4. UID2 Operator:
    - メールアドレスまたは電話番号を受け取ります。
    - ソルト化、ハッシュ化、暗号化処理を行います。
@@ -51,6 +47,8 @@ UID2 とインテグレーションすることで得られるメリットの一
 6. パブリッシャーが UID2 Token をストレージから取得します。
 6. パブリッシャーは UID2 Token を SSP に送信します。
 7. SSP は UID2 Token を含むビッドリクエストをビッドストリームに入れます。
+
+<!-- The publisher requests updated UID2 tokens using a refresh token. When applicable, the refresh token includes a user’s opt-out request. -->
 
 ![Publisher Workflow](images/UID2PublisherAndSSPWorkflow.jpg)
 
@@ -81,6 +79,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 - [Web Integrations](#web-integrations)
 - [Mobile Integrations](#mobile-integrations)
+- [CTV Integrations](#ctv-integrations)
 - [Prebid Integrations](#prebid-integrations)
 - [Google Ad Manager Integrations](#google-ad-manager-integrations)
 
@@ -112,6 +111,14 @@ Web インテグレーションオプションの詳細については、[Web In
 | Android/iOS (Overview) | [Mobile Integration Overview for Android and iOS](../guides/integration-mobile-overview.md) | UID2 SDK for Android または UID2 SDK for iOS を使用して UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けのオプションの概要です。 |
 | Android/iOS, Client-Side Integration | [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) | モバイルアプリ内のみの変更で UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けのインテグレーションガイドです（Server-Side の変更はありません）。 |
 | Android/iOS, Client-Server Integration | [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | UID2 とインテグレーションしたいモバイルアプリのパブリッシャー向けのインテグレーションガイドです:<ol><li>UID2 Token を Server-Side で生成するには、PublicまたはPrivate Operatorを使用します。</li><li>その結果、<Link href="../ref-info/glossary-uid#gl-identity">identities</Link> をモバイルアプリに渡し、ビッドストリームに渡します。</li></ol> |
+
+### CTV Integrations
+
+CTV をサポートするパブリッシャーのインテグレーションに利用できるリソースは以下の通りです。
+
+| Integration Type| Documentation | Content Description |
+| :--- | :--- | :--- |
+| CTV | [CTV Integration Guide](../guides/integration-ctv-guide.md) | CTV インテグレーションオプションの概要と、追加情報および手順へのリンク。 |
 
 ### Prebid Integrations
 

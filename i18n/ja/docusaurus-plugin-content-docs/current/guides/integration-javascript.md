@@ -45,6 +45,7 @@ UID2 SDK for JavaScript を使って UID2 とインテグレーションする�
 UID2 SDK for JavaScript には、トークンの自動リフレッシュ機能があります。
 
 ## Storing the UID2 Token in the Browser
+<!-- GWH check corresponding (not identical) section in integration-prebid.md, integration-prebid-client-side.md, integration-prebid-client-side.md, for consistency -->
 
 Client-Side のオプションでは、ローカルストレージを使用してデータを保存します。Server-Side オプションはデフォルトでローカルストレージを使いますが、代わりにクッキーを使うこともできます。詳細については、*UID2 SDK for JavaScript Reference Guide* の [UID2 Storage Format](../sdks/client-side-identity.md#uid2-storage-format) を参照してください。
 
