@@ -11,43 +11,33 @@ import Link from '@docusaurus/Link';
 
 # Publisher Integration Guide, Server-Side
 
-このガイドは、UID2 対応のシングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションしながら、RTB ビッドストリーム用に UID2 Token (Advertising Token) を生成したいパブリッシャーを対象としています。
+このガイドは、<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> 用に生成するために、UID2 と直接インテグレーションを行いながら、UID2 対応シングルサインオンや ID プロバイダーではなく、すべてのインテグレーションをサーバーサイドで行うパブリッシャー向けのガイドです。
 
-<!-- It includes the following sections:
+パブリッシャーが UID2 と Server-Side でインテグレーションするには、以下のオプションが利用可能です:
 
-- [Introduction](#introduction)
-- [Integration Steps](#integration-steps)
-  - [Establish Identity: Capture User Data](#establish-identity-capture-user-data)
-  - [Bid Using UID2 Tokens](#bid-using-a-uid2-token)
-  - [Refresh a UID2 Token](#refresh-a-uid2-token)
-  - [Clear Identity: User Logout](#clear-identity-user-logout)
-  - [Sample Application](#sample-application)
-- [FAQs](#faqs) -->
+- UID2 SDK for Java (see [Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers) section).
+- UID2 SDK for Python (see [Usage for Publishers](../sdks/uid2-sdk-ref-python.md#usage-for-publishers) section).
+- Custom server code to generate and refresh the UID2 token by calling the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) and [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints.
+
+ワークフローを示すサンプルアプリケーションもあります。詳細は [Sample Application](#sample-application) を参照してください。
+
+パブリッシャーインテグレーションオプションの完全な概要については、[Publisher Integrations](summary-guides.md#publisher-integrations) を参照してください。
+
+:::tip
+UID2 と UID2 Token を使用してクライアントのアイデンティティを確立し、UID2 Token を取得するプロセスを容易にするために、UID2 SDK for JavaScript を使用することを検討してください。詳細については、[Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md) を参照してください。
+:::
 
 ## Introduction
 
-このガイドでは、Client-Side または Server-Side SDK を使用せずにインテグレーションを行う場合に考慮する必要がある[基本的な手順](#integration-steps) を概説しています。例えば、以下のような方法を決定する必要があります:
+このガイドでは、Client-Side または Server-Side SDK を使用せずインテグレーションを行う場合に考慮する必要がある [basic steps](#integration-steps) について説明します。例えば、以下のようなことを決定する必要があります:
 
-- メールアドレスや電話番号を取得する機会を設けます: 例えば、プロモーションの交換、登録やサブスクリプション、マーケティングフォームへの記入など。
-- UID2 アイデンティティ情報を管理し、ターゲティング広告に使用する方法
-- UID2 Token をリフレッシュする方法
-- 紛失した ID の対処方法
-- ユーザーのオプトアウトを管理する方法
+- メールアドレスまたは電話番号を取得する機会を実装する: 例えば、プロモーションの交換、サインアップとサブスクリプション、またはマーケティングフォームの記入。
+- UID2 ID 情報を管理し、ターゲティング広告に使用する
+- UID2 Token をリフレッシュする
+- ID が欠落している場合の処理
+- ユーザーオプトアウトを管理する
 
-[FAQ](#faqs) も参照してください。
-
-パブリッシャーが UID2 とインテグレーションするために利用できるオプションは以下のとおりです:
-
-- Client UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) と [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) on the server.
-- Client UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) と custom server code.
-- Server-side integration と [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) または [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) on the server.
-- Server-side integration と custom server code.
-
-このガイドでは、最後の 2 つのオプションに関する情報を提供します。
-
-ワークフローを示すサンプルアプリケーションもあります。[サンプルアプリケーション](#sample-application) を参照してください。
-
->TIP: UID2 を使用してクライアントの identity を確立し、UID2 Token を取得するプロセスを容易にするには、UID2 SDK for JavaScript の使用を検討してください。詳細については、[Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md) を参照してください。
+[FAQs](#faqs) も参照してください。
 
 ## Integration Steps
 
@@ -55,9 +45,7 @@ import Link from '@docusaurus/Link';
 
 Server-Side SDK を使用している場合、SDK はエンドポイントに関連するすべてのステップを処理します。例えば、Step 1-d では、発行者はユーザーの DII をトークン生成サービスに送信します。
 
-![](images/custom-publisher-integration-mermaid.png)
-
-
+![Publisher Flow](images/custom-publisher-integration-mermaid.png)
 
 次のセクションでは、図中の各ステップについて詳細を説明します:
 
@@ -69,6 +57,10 @@ Server-Side SDK を使用している場合、SDK はエンドポイントに関
 ### Establish Identity: Capture User Data
 
 Step 1-c での認証(ユーザーの同意を得ること、パブリッシャーがユーザーのメールアドレスまたは電話番号を検証することを含む) の後、パブリッシャーは Server-Side で UID2 Token を生成するリクエストを送ることがでます。以下の表は、トークン生成ステップの詳細です。
+
+:::tip
+このエンドポイントを直接呼び出す代わりに、SDK のいずれかを使用して管理することもできます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
+:::
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |

@@ -29,6 +29,10 @@ Sharing permissions (共有権限) を設定することで、他の UID2 参加
 
 UID2 Portal へのアクセスについては、UID2 の担当者にお尋ねください。詳細については、[Request an Account](portal-getting-started.md#request-an-account) を参照してください。UID2 を初めて使用する場合は、[Account Setup](../getting-started/gs-account-setup.md) を参照してください。
 
+:::note
+Sharing の使用には API Key (詳細は [API Keys](api-keys.md) を参照) またはクライアントサイドキーペア (詳細は [Client-Side Integration](client-side-integration.md) を参照) が必要です。共有許可を設定する前にこれらの値を設定してください。
+:::
+
 ## Sharing Options
 
 UID2 Portal では、以下の共有オプションを利用できます。これらのオプションは相互に排他的なものではありません&#8212;必要に応じて組み合わせることができます:
@@ -48,6 +52,10 @@ UID2 Portal は、あなたの役割に基づいて推奨を行います。例�
 - 広告主であれば、すべてのデータプロバイダー (現在および将来) と共有できます。
 - DSP であれば、すべての広告主とすべてのデータプロバイダー (現在および将来) と共有できます。
 - データプロバイダーであれば、すべての広告主、すべてのパブリッシャー、すべてのDSP (現在および将来) と共有できます。 
+
+以下の図は、広告主向けの推奨を示しています。
+
+![UID2 Portal, Sharing Permissions page, Recommendations (Advertiser)](images/portal-sharing-permissions.png)
 
 推奨を受け入れることが、共有オプションを設定する最も速く簡単な方法です。
 

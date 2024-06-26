@@ -31,3 +31,10 @@ import Link from '@docusaurus/Link';
 | [POST&nbsp;/identity/buckets](post-identity-buckets.md) | 最後に更新されたタイムスタンプを使用して、ローテーションされたソルトバケットを監視します。 | 必須 | 必須 |
 | [POST&nbsp;/identity/map](post-identity-map.md) | 1 つ以上のメールアドレス、電話番号、またはそれぞれのハッシュの UID2 とソルトバケット ID を取得します。 | 必須 | 必須 |
 
+## Opt-Out Status
+
+以下のエンドポイントは、広告主、サードパーティのデータプロバイダー、DSP、共有者が使用できます。パブリッシャーは、このエンドポイントを使用する必要はありません。
+
+| Endpoint | Description | Request Encryption | Response Decryption |
+| :--- | :--- | :--- | :--- |
+| [POST&nbsp;/optout/status](post-optout-status.md) | raw UID2 のオプトアウトステータスをチェックします。このエンドポイントは raw UID2 のリストを入力として受け取り、オプトアウトした raw UID2 と、オプトアウトが行われた時刻を返します。 | 必須 | 必須 |

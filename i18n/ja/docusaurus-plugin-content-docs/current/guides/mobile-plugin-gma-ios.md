@@ -43,8 +43,36 @@ UID2 Google Mobile Ads (GMA) Plugin for iOS は、[Google Mobile Ads (GMA) SDK](
 
 前提条件: Google Mobile Ads SDK と UID2 SDK for iOS をインストールします。
 
-UID2 SDK for iOS と Google Mobile Ads SDK がインストールされている既存のアプリに、Swift Package Manager 経由で UID2 iOS IMA Plugin をインストールします:
+UID2 SDK for iOS と Google Mobile Ads SDK がインストールされた既存のアプリに、Swift Package Manager または CocoaPods を使用して UID2 iOS GMA Plugin をインストールします。
+
+インストールオプションは 3 つあります:
+
+-   [Package.swift](#installing-with-packageswift)
+-   [Xcode](#installing-with-xcode)
+-   [CocoaPods](#installing-with-cocoapods)
+
+### Installing with Package.swift
+
+Package.swift に次の依存関係を追加します:
 
 ```js
-.package(url: "https://github.com/IABTechLab/uid2-ios-plugin-google-gma.git", exact: "0.3.0")
+dependencies: [
+  .package(url: "https://github.com/IABTechLab/uid2-ios-plugin-google-gma.git", exact: "0.3.0")
+]
+```
+
+### Installing with Xcode
+
+XCode ユーザーインターフェースで、パッケージ依存関係の下に、次のエントリを追加します:
+
+| Name | Location | Dependency Rule                         |
+| :--- | :--- |:----------------------------------------| 
+| uid2-ios-plugin-google-gma | `git@github.com:IABTechLab/uid2-ios-plugin-google-gma.git` | Exact Version: 0.3.0 |
+
+### Installing with CocoaPods
+
+`Podfile` に次のエントリを追加します:
+
+```
+pod 'UID2GMAPlugin', '0.3.0'
 ```

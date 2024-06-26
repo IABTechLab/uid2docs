@@ -36,7 +36,7 @@ The following steps provide a high-level outline of the workflow intended for or
 2. The publisher provides transparency around its data practices and asks the user to provide an email address or phone number.
 3. Once the user has provided an email address or phone number, the publisher sends it to the UID2 Operator via an SDK or direct API integration.
 
-   A publisher can authorize an SSO provider or identity provider to pass <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> and privacy settings on their behalf.
+   A publisher can authorize an SSO provider or identity provider to pass <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> on their behalf.
 4. The UID2 Operator:
    - Takes the email or phone number.
    - Performs the salt, hash, and encryption process.
@@ -79,6 +79,7 @@ The following resources are available for publishers to implement UID2:
 
 - [Web Integrations](#web-integrations)
 - [Mobile Integrations](#mobile-integrations)
+- [CTV Integrations](#ctv-integrations)
 - [Prebid Integrations](#prebid-integrations)
 - [Google Ad Manager Integrations](#google-ad-manager-integrations)
 
@@ -110,6 +111,14 @@ The following resources are available for publisher integrations supporting Andr
 | Android/iOS (Overview) | [Mobile Integration Overview for Android and iOS](../guides/integration-mobile-overview.md) | An overview of options for mobile app publishers who want to integrate with UID2 using the UID2 SDK for Android or the UID2 SDK for iOS. |
 | Android/iOS, Client-Side Integration | [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) | An integration guide for mobile app publishers who want to integrate with UID2 with changes only within the mobile app (no server-side changes). |
 | Android/iOS, Client-Server Integration | [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | An integration guide for mobile app publishers who want to integrate with UID2 by doing the following:<ol><li>Generating UID2 tokens server-side via either a Public or Private Operator.</li><li>Passing the resulting <Link href="../ref-info/glossary-uid#gl-identity">identities</Link> to a mobile app for passing into the bidstream.</li></ol> |
+
+### CTV Integrations
+
+The following resources are available for publisher integrations supporting CTV.
+
+| Integration Type| Documentation | Content Description |
+| :--- | :--- | :--- |
+| CTV | [CTV Integration Guide](../guides/integration-ctv-guide.md) | A summary of CTV integration options, with links to additional information and instructions. |
 
 ### Prebid Integrations
 

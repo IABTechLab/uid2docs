@@ -39,18 +39,15 @@ UID2 を使用することで、データプロバイダーとして得られる
 以下のステップは、ユーザーデータを収集し DSP にプッシュする組織 (広告主、ID グラフプロバイダー、サードパーティデータプロバイダーなど) を対象としたワークフローのアウトラインを提供するものです。
 
 バックグラウンドで以下の処理が行われます:
-* データプロバイダーは、ローテーションされたソルトバケットの UID2 Operator を監視し、必要に応じて UID2 を更新します。
+* 広告主やデータプロバイダーは、ローテーションされたソルトバケットの UID2 Operator を監視し、必要に応じて UID2 を更新します。
 
-以下のステップは、広告主やデータプロバイダーが UID2 とインテグレーションする方法の一例です:
+以下のステップは、データプロバイダーが UID2 とインテグレーションする方法の一例です:
 
-1. 広告主またはデータプロバイダーが、同意を得たユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 Operator に送信します。
-
-   <!-- euid_only_ep_20240312 ("consented" in above line DP only EUID only) -->
-   
+1. データプロバイダーが、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 Operator に送信します。
 2. UID2 Operator は、raw UID2 とソルトバケット ID を生成して返します。
-3. 広告主またはデータプロバイダーは UID2 とソルトバケット ID を保存し、UID2 ベースのファーストパーティおよびサードパーティのオーディエンスセグメントを DSP に送信します。
+3. データプロバイダーは UID2 とソルトバケット ID を保存し、UID2 ベースのファーストパーティおよびサードパーティのオーディエンスセグメントを DSP に送信します。
 
-   Server-side: 広告主またはデータプロバイダーは、UID2 をマッピングテーブル、DMP、データレイク、またはその他のServer-Sideアプリケーションに格納します。
+   Server-side: 広告主またはデータプロバイダーは、UID2 をマッピングテーブル、DMP、データレイク、またはその他の Server-Side アプリケーションに格納します。
 
 ![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.jpg)
 
@@ -78,6 +75,7 @@ UID2 を使用することで、データプロバイダーとして得られる
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
 | ユーザーデータを収集し、他の UID2 参加者にプッシュする組織のためのインテグレーション手順 | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | このガイドでは、オーディエンスの構築とターゲティングのために ID をマッピングするインテグレーションワークフローについて説明します。 |
+| トラッキングピクセルに UID2 Token を追加する広告主およびデータプロバイダー向けのインテグレーション手順 | [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) | このガイドでは、JavaScript クライアントサイドの変更のみを使用して、Advertising Token を追加するための JavaScript SDK を使用する広告主およびデータプロバイダー向けのインテグレーション手順を提供します。<!-- UID2_only: Not applicable for EUID --> |
 | Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | このガイドでは、Snowflake を使ってメールアドレスから UID2 を生成する手順を説明します。 |
 | AWS Entity Resolution | [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) | このガイドでは、AWS Entity Resolution を使用して UID2 とインテグレーションする手順を説明します。 |
 

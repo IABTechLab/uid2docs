@@ -10,7 +10,6 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ReduceLatencyJa from '/docs/snippets/_sdk-reduce-latency-ja.mdx';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 
@@ -56,7 +55,7 @@ UID2 は、[Android](../sdks/uid2-sdk-ref-android.md) および [iOS](../sdks/ui
 
 アカウントの設定を完了するには、[Account Setup](../getting-started/gs-account-setup.md) に記載されている手順に従ってください。
 
-アカウントの設定が完了すると、ユニークな API キーとクライアントシークレットが送信されます。これらの値はあなたに固有であり、安全に保管することが重要です。詳細については、[API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
+アカウントの設定が完了すると、ユニークな API Key とクライアントシークレットが送信されます。これらの値はあなたに固有であり、安全に保管することが重要です。詳細については、[API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
 
 ## Client-Server Mobile Integration Data Flow Overview
 
@@ -65,6 +64,8 @@ UID2 は、[Android](../sdks/uid2-sdk-ref-android.md) および [iOS](../sdks/ui
 この例では、Client-Side のモバイルアプリで [UID2 SDK for Android](../sdks/uid2-sdk-ref-android.md) を使用し、Server-Side で [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) を使用しています。
 
 ![Mobile Client-Server Integration Example](images/integration-mobile-client-server.png)
+
+<!-- (**GWH_ https://ttdcorp-my.sharepoint.com/:p:/r/personal/rita_aleksanyan_thetradedesk_com/_layouts/15/Doc.aspx?sourcedoc=%7BDF894943-3D6A-4A60-A1E2-176ACD0BBBCC%7D&file=Sample%20Data%20Flow.pptx&wdLOR=c8FEF9DB2-E2FD-4F07-B411-B094C4813ACE&fromShare=true&action=edit&mobileredirect=true**) -->
 
 ## Implement Server-Side Token Generation
 
@@ -119,7 +120,7 @@ Server-Side で UID2 Token を生成する方法は、直接識別情報 (<Link 
 モバイルアプリに `Identity` 応答を渡す必要があります。詳細については、[Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
 
 :::warning
-セキュリティ上の理由から、API キーとシークレットを使ったトークン生成は、Server-Side で呼び出す必要があります。これらの値をモバイルアプリ内に保存しないでください。詳細については、[API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+セキュリティ上の理由から、API Key とシークレットを使ったトークン生成は、Server-Side で呼び出す必要があります。これらの値をモバイルアプリ内に保存しないでください。詳細については、[API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 :::
 
 ## Server-Side Token Refresh
@@ -176,14 +177,14 @@ UID2Settings.shared.environment = .custom(
 :::note
 次のような環境間の違いに注意してください:
 - UID2 インテグレーション環境のトークンは、ビッドストリームに渡しても有効ではありません。
-- 各環境（インテグレーションおよび本番）には異なる API キーとクライアントシークレット値があります。各環境で正しい値を使用してください。
+- 各環境（インテグレーションおよび本番）には異なる API Key とクライアントシークレット値があります。各環境で正しい値を使用してください。
 :::
 
 ### Optional: Specifying the API Base URL to Reduce Latency
 
-By default, this SDK makes calls to a UID2 production environment server in the USA.
+デフォルトでは、この SDK は米国の UID2 本番環境サーバーにリクエストを送信します。
 
-<ReduceLatencyJa />
+ユースケースに最適な URL を選択する方法と、有効なベース URL の完リストについては、[Environments](../getting-started/gs-environments.md) を参照してください。
 
 異なる UID2 サーバーを指定するには、`init` 呼び出しで変更してください:
 
@@ -273,7 +274,7 @@ AgAAAQFt3aNLXKXEyWS8Tpezcymk1Acv3n+ClOHLdAgqR0kt0Y+pQWSOVaW0tsKZI4FOv9K/rZH9+c4l
 
 - identity が無効です。この場合、いくつかのオプションがあります:
   - 前の `setIdentity()` 呼び出しでエラーがあるかどうかを確認します。
-  - Identity のステータスを `UID2Manager.getInstance().getIdentityStatus()`（Android）または `UID2Manager.shared.identityStatus`（iOS）で確認します。
+  - Identity のステータスを `UID2Manager.getInstance().getCurrentIdentityStatus()`（Android）または `UID2Manager.shared.identityStatus`（iOS）で確認します。
 - より詳細な情報を取得するためにログを有効にします: [Enable Logging](#enable-logging) を参照してください。
 - UID2 Identity の　Advertising Token が期限切れで、Refresh Token の有効期限も切れているため、SDK がトークンをリフレッシュできません。
 

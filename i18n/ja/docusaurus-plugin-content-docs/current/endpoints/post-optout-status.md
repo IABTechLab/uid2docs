@@ -41,15 +41,15 @@ Used by: このエンドポイントは、主に広告主、データプロバ�
 | `{environment}` | string | 必須 | インテグレーション環境: `https://operator-integ.uidapi.com`.<br/>本番環境: `https://prod.uidapi.com`.<br/>リージョナルオペレーターを含む全リストは、[Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
-インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API キー</Link> が必要です。
+インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。
 :::
 
 ### Unencrypted JSON Body Parameters
 
 ボディパラメータは 1 つだけです。
 
-| Body Parameter | Data Type | Attribute | Description | Format |
-| :--- | :--- | :--- | :--- | :--- |
+| Body Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
 | `advertising_ids` |	string array |	必須 | オプトアウトのステータスをチェックしたい raw UID2 のリスト。<br/>１回の API 呼び出しで最大 5,000 件のエントリー。 |
 
 ### Request Example

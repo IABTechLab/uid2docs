@@ -429,7 +429,7 @@
     "message": "オムニチャネルやクロスデバイスのIDタイプにアップグレード。"
   },
   "homepage.featureItem3Description": {
-    "message": "直接個人を特定する情報 (DII) をハッシュ化、ソルト化し、仮名加工情報として転送。"
+    "message": "直接個人を特定する情報 (DII) を同意の上、ハッシュ化、ソルト化し転送。"
   },
   "homepage.heroTitle": {
     "message": "オープンインターネットのために構築された、オープンソースのIDソリューション"

@@ -85,7 +85,6 @@ const fullSidebar = [
       collapsed: false,
 
       items: [
-
         {
           type: 'category',
           label: 'Publisher Integrations',
@@ -149,6 +148,9 @@ const fullSidebar = [
               'guides/integration-mobile-client-server',
             ],
           },
+
+          'guides/integration-ctv-guide',
+
           {
             type: 'category',
             label: 'Prebid',
@@ -162,6 +164,7 @@ const fullSidebar = [
               'guides/integration-prebid-server-side',
             ],
           },
+
           {
             type: 'category',
             label: 'Google Ad Manager',
@@ -189,6 +192,7 @@ const fullSidebar = [
           collapsed: true,
           items: [
             'guides/advertiser-dataprovider-guide',
+            'guides/publisher-client-side',
             'guides/snowflake_integration',
             'guides/integration-aws-entity-resolution',
           ],
@@ -305,6 +309,7 @@ const sidebars = {
     'overviews/overview-dsps',
     'overviews/overview-data-providers',
     'overviews/overview-operators-private',
+    'Advertiser/Data Provider Integrations',
     'guides/advertiser-dataprovider-guide',
     'guides/snowflake_integration',
     'guides/integration-aws-entity-resolution',
@@ -328,7 +333,6 @@ const sidebars = {
     'guides/integration-prebid-server-side',
     'JavaScript',
     'guides/integration-javascript',
-    'guides/publisher-client-side',
     'guides/integration-javascript-server-side',
     'Server-Only',
     'guides/custom-publisher-integration',
@@ -407,7 +411,6 @@ const sidebars = {
     'guides/integration-prebid-server-side',
     'JavaScript',
     'guides/integration-javascript',
-    'guides/publisher-client-side',
     'guides/integration-javascript-server-side',
     'Server-Only',
     'guides/custom-publisher-integration',

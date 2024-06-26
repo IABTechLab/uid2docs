@@ -8,42 +8,16 @@ sidebar_position: 04
 ---
 
 import Link from '@docusaurus/Link';
+import AddPrebidjsToYourSite from '/docs/snippets/_prebid-add-prebidjs-to-your-site.mdx';
+import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser.mdx';
 
 # UID2 Client-Server Integration Guide for Prebid.js
-<!-- 
-This guide includes the following information:
 
-- [Prebid.js Version](#prebidjs-version)
-- [UID2 Prebid Module Page](#uid2-prebid-module-page)
-- [Integration Overview: High-Level Steps](#integration-overview-high-level-steps)
-- [Complete UID2 Account Setup](#complete-uid2-account-setup)
-- [Add Prebid.js to Your Site](#add-prebidjs-to-your-site)
-- [Configure the UID2 Module](#configure-the-uid2-module)
-  - [Generating a UID2 Token on the Server](#generating-a-uid2-token-on-the-server)
-  - [Client Refresh Mode](#client-refresh-mode)
-    - [Client Refresh Mode Response Configuration Options](#client-refresh-mode-response-configuration-options)
-    - [Client Refresh Mode Cookie Example](#client-refresh-mode-cookie-example)
-    - [Configuration](#configuration)
-    - [Client Refresh Mode uid2Token Example](#client-refresh-mode-uid2token-example)
-  - [Server-Only Mode](#server-only-mode)
-    - [Server-Only Mode Cookie Example](#server-only-mode-cookie-example)
-    - [Server-Only Mode Value Example](#server-only-mode-value-example)
-- [Prebid Implementation Notes and Tips](#prebid-implementation-notes-and-tips)
-- [Storing the UID2 Token in the Browser](#storing-the-uid2-token-in-the-browser)
-- [When to Pass a New Token to the UID2 Module](#when-to-pass-a-new-token-to-the-uid2-module)
-  - [Passing a New Token: Client Refresh Mode](#passing-a-new-token-client-refresh-mode)
-  - [Passing a New Token: Server-Only Mode](#passing-a-new-token-server-only-mode)
-- [Determining Whether the Module Has a Valid Token](#determining-whether-the-module-has-a-valid-token)
-- [Checking the Integration](#checking-the-integration)
-- [Configuration Parameters for userSync](#configuration-parameters-for-usersync) 
-  - [Configuration Parameter Examples: Value](#configuration-parameter-examples-value)
-  - [Sample Token](#sample-token)
-- [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment) 
- -->
+このガイドは、Server-Side で <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>(メールアドレスまたは電話番号) にアクセスでき、UID2 とインテグレーションして、RTB ビッドストリームで Prebid.js によって渡される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>(Advertising Token) を生成したいパブリッシャー向けのものです。
 
-このガイドは、Server-Side で [DII](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号) にアクセスでき、UID2 とインテグレーションして、RTB ビッドストリームで Prebid.js によって渡される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>(Advertising Token) を生成したいパブリッシャー向けのものです。
+これは Client-Server インテグレーションと呼ばれ、一部のインテグレーションステップが Client-Side で行われ、一部が Server-Side で行われます。
 
-Prebid.js を使って UID2 とインテグレーションするには、以下のことが必要です:
+Prebid.js を使って UID2 とインテグレーションするには、以下が必要です:
 
 - サイトの HTML と JavaScript に変更を加えます。
 - トークン生成のためにサーバーサイドを変更します(オプションでトークンのリフレッシュ)。 
@@ -52,10 +26,14 @@ Prebid.js を使って UID2 とインテグレーションするには、以下�
 この実装には、Prebid.js version 7.53.0 以降が必要です。バージョン情報については、[https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases) を参照してください。
 
 ## UID2 Prebid Module Page
-
+<!-- GWH TODO later: move to overview or to client side doc maybe when client-side implementation is added to the Prebid module pages. Now, they are only server side. -->
 Prebid と UID2 のインテグレーション方法に関する情報は、以下の場所にもあります:
 - Prebid サイトの Prebid User ID Submodule の [Unified ID 2.0](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) ページ。
 - Prebid GitHub リポジトリの [UID2 User ID Submodule](https://github.com/prebid/Prebid.js/blob/master/modules/uid2IdSystem.md) ページ。
+
+<!-- ## Integration Example
+
+GWH note 12/14/23: We have client-side and server-side examples for JS SDK but only server-side for Prebid. -->
 
 ## Integration Overview: High-Level Steps
 
@@ -69,19 +47,11 @@ Prebid と UID2 のインテグレーション方法に関する情報は、以�
 
 [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了します。
 
-アカウントのセットアップが完了すると、固有の API Keyと クライアントシークレットが発行されます。ここれらの値はアカウント独自のもので、安全に管理することが重要です。詳細は [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
+アカウントのセットアップが完了すると、固有の API Key と クライアントシークレットが発行されます。ここれらの値はアカウント独自のもので、安全に管理することが重要です。詳細は [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
 
 ## Add Prebid.js to Your Site
-<!-- GWH "Add Prebid.js to Your Site" section is identical for client side and server side. -->
-Prebid.js をサイトに追加するには、Prebid.js ドキュメントの [Getting Started for Developers](https://docs.prebid.org/dev-docs/getting-started.html) の手順に従います。
 
-Prebid.js パッケージをダウンロードするとき、**User ID Modules** のセクションの下にある **Unified ID 2.0** という名前のモジュールの横にあるチェックボックスをオンにして、UID2 モジュールを追加します。
-
-Prebid.js をサイトに追加した後、Prebid.js が正常に動作していることを確認します。
-
-:::tip
-UID2 モジュールがインストールされていることを確認するには、[`pbjs.installedModules` array](https://docs.prebid.org/dev-docs/publisher-api-reference/installedModules.html) で文字列 `uid2IdSystem` を見つけます。
-:::
+<AddPrebidjsToYourSite />
 
 ## Configure the UID2 Module
 
@@ -267,26 +237,8 @@ Prebid の実施を計画する際には、以下を考慮してください:
 ```
 
 ## Storing the UID2 Token in the Browser
-<!-- GWH same section in integration-prebid.md, integration-prebid-client-side.md, and integration-prebid-client-side.md. Ensure consistency -->
-デフォルトでは、UID2 モジュールは Advertising Token をブラウザのローカルストレージに保存します。代わりにクッキーを使用する場合は、次の例に示すように、`params.storage` を `cookie` に設定します。
 
-詳細は、Prebid のドキュメント [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) を参照してください。
-
-```js
-pbjs.setConfig({ 
-  userSync: { 
-    userIds: [{ 
-      name: 'uid2', 
-      params: { 
-        // default value is 'localStorage' 
-        storage: 'cookie'  
-      } 
-    }] 
-  } 
-}); 
-```
-
-The cookie size can be significant, which could be a problem. However, if local storage is not an option, this is one possible approach.
+<StoreUID2TokenInBrowser />
 
 ## Determining Whether the Module Has a Valid Token
 

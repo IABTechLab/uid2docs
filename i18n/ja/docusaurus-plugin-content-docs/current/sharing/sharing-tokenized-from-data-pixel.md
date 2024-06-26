@@ -1,6 +1,6 @@
 ---
 title: Tokenized Sharing in Pixels
-description: Learn about sharing UID2 tokens in pixels.
+description: ピクセルでの UID2 Token の共有について学びます。
 hide_table_of_contents: false
 sidebar_position: 08
 ---
@@ -19,15 +19,6 @@ import Link from '@docusaurus/Link';
 :::caution
 ピクセルのデータは不正アクセスされる可能性があるため、raw UID2 をピクセルで共有することは決して許されません。ピクセルで共有する場合は、Tokenized sharing が必要です。
 :::
-
-<!-- In this file:
-
-- [Audience](#audience)
-- [Sharing UID2 Tokens in Pixels](#sharing-uid2-tokens-in-pixels)
-- [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)
-- [Workflow: Tokenized Sharing in Tracking Pixels](#workflow-tokenized-sharing-in-tracking-pixels)
-- [Workflow: Tokenized Sharing in Creative Pixels](#workflow-tokenized-sharing-in-creative-pixels)
-- [Information for Sharing Receivers](#information-for-sharing-receivers) -->
 
 ### Audience
 
@@ -76,7 +67,7 @@ UID2 送信者は、UID2 Token を復号化できる受信者を指定します�
 
    1. UID2 Portal で DSP に共有を許可します。
 
-   2. ユーザーから提供された [DII](../ref-info/glossary-uid.md#gl-dii) から UID2 Token を直接生成します。これは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントまたは UID2 Token を生成する SDK のいずれかを使用して行います。
+   2. ユーザーから提供された <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> から UID2 Token を直接生成します。これは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントまたは UID2 Token を生成する SDK のいずれかを使用して行います。
    
       オプションの概要については、[SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) を参照してください。JavaScript を使用して UID2 Token を生成する方法については、[Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) を勧めます。
    

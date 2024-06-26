@@ -10,22 +10,11 @@ import Link from '@docusaurus/Link';
 
 # Unified ID 2.0 Overview
 
-<!-- It includes the following:
-
-- [Introduction](#introduction)
-  - [Guiding Principles](#guiding-principles)
-  - [Technical Design Principles](#technical-design-principles)
-- [Elements of the UID2 Infrastructure](#elements-of-the-uid2-infrastructure)
-  - [UID2 Identifier Types](#uid2-identifier-types)
-  - [Components](#components)
-  - [Participants](#participants)
-  - [Workflows](#workflows)
-- [FAQs](#faqs)
-- [License](#license) -->
-
 UID2 は、広告エコシステム全体の多くの [参加者](#participants) にとって、オープンインターネット上の広告機会に対する決定論的な ID を可能にするフレームワークです。UID2 フレームワークにより、パブリッシャーのウェブサイト、モバイルアプリ、Connected TV (CTV)アプリからのログイン体験が、プログラマティックワークフローを通じて収益化できるようになります。独自の名前空間を持つオープンソースのスタンドアローンソリューションとして構築されたこのフレームワークは、ローカル市場の要件に合わせて設計された透明性とプライバシー制御をユーザーに提供します。
 
->NOTE: 「UID2」という用語は、フレームワークと実際の識別子のいずれかを指すことがあります。特に断りのない限り、このページでは UID2 フレームワークの概要を説明します。
+:::note
+「UID2」という用語は、フレームワークと実際の識別子のいずれかを指すことがあります。特に断りのない限り、このページでは UID2 フレームワークの概要を説明します。
+:::
 
 ### Guiding Principles
 
@@ -99,9 +88,9 @@ UID2 は透明で相互運用可能なアプローチにより、広告エコシ
 | Participant | Role Description |
 | :--- | :--- |
 | **Core Administrator** | UID2 Core Service およびその他の [コンポーネント](#components) を管理する組織 (現在は The Trade Desk)。例えば、UID2 Operator に暗号キーとソルトを配布し、Operator や DSP にユーザーのオプトアウトリクエストを送ります。 |
-| **Operators** | Operator Service を実行する組織 (UID2 API 経由)。Operator は、UID2 Core Service から暗号化キーとソルトを受け取って保管し、個人データをソルトおよびハッシュ化して UID2 Token を返し、raw UID2 を暗号化して UID2 Token 生成し、UID2 Token 復号鍵を配布します。<br/>Open Operator は、オペレーターサービスのパブリックインスタンスを実行しています。例えば、The Trade Desk は現在、UID2 フレームワークのOpen Operatorとして、すべての参加者が利用できるようになっています。他のOpen Operatorが利用可能な場合、参加者はどのオペレーターと作業するかを選択できます。<br/>どの参加者も、UID2 を生成および管理する Closed Operator になることを選択することも可能です。 |
+| **Operators** | Operator Service を実行する組織 (UID2 API 経由)。オペレーターは、UID2 Core Service から暗号化キーとソルトを受け取って保管し、個人のデータをソルトおよびハッシュ化して raw UID2 を返し、raw UID2 を暗号化して UID2 Token を生成し、UID2 Token の復号キーを配布します。<br/>Open Operator は、Operator Service のパブリックインスタンスを実行します。たとえば、The Trade Desk は現在、UID2 Framework の Open Operator として機能しており、すべての参加者が利用できます。<br/>参加者は誰でも、UID2 を生成および管理する Private Operator になることもできます。 |
 | **DSPs**  | DSP は UID2 システムとインテグレーションして、広告主から (ファーストパーティデータとして)、またサードパーティデータプロバイダーから (サードパーティデータとして)UID2 を受け取り、それらを活用してビッドストリーム中の UID2 に対する入札情報を提供します。 |
-| **Data Providers** | ユーザーデータを収集し、DSP にプッシュする組織 - 例えば、広告主、ID グラフプロバイダー、サードパーティデータプロバイダーなどです。 |
+| **Data Providers** | ユーザーデータを収集し、それを他の UID2 参加者&#8212;例えば、広告主、ID グラフプロバイダー、サードパーティデータプロバイダー&#8212;にプッシュする組織。 |
 | **Advertisers** | さまざまなパブリッシャーサイトでインプレッションを購入し、DSP を使用して、購入する広告インプレッションとその入札価格を決定している組織です。 |
 | **Publishers** | UID2 Token を SSP 経由でビッドストリームに伝達する組織 - 例えば、ID プロバイダー、パブリッシャー、SSO プロバイダーなど。パブリッシャーは、SSO プロバイダーか、UID2 と相互運用可能な独立系 ID プロバイダーのいずれかと連携することを選択できます。独立系 ID プロバイダーは、パブリッシャーに代わって UID2 インテグレーションを行えます。 |
 | **Consumers** | パブリッシャーまたはその ID プロバイダーと関わるユーザー。ユーザーは、[Transparency and Control Portal](https://www.transparentadvertising.com/) で UID2 をオプトアウトできます。 |

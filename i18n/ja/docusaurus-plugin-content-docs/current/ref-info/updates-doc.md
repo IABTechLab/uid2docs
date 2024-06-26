@@ -12,6 +12,18 @@ import Link from '@docusaurus/Link';
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
 
+### New: Opt-Out API
+
+24 May 2024
+
+新しい API コールのドキュメントを追加しました。この API コールは、raw UID2 のオプトアウトステータスをチェックします。
+
+raw UID2 のリストが与えられた場合、このエンドポイントは、オプトアウトした raw UID2 と、オプトアウトが行われた時刻を返します。
+
+詳細は、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) を参照してください。
+
+<!-- APIDOCS-2252 -->
+
 ### New: Client-Side and Server-Side Guides for Mobile
 
 17 May 2024
@@ -32,7 +44,7 @@ UID2 Portal のドキュメントに新しいページ、[Client-Side Integratio
 
 UID2 Portal の Client-Side Integration ページでは、ドメインなど、クライアントサイドで UID2 Token を生成する場合に必要な値を設定・管理できます。
 
-<!-- APIDOCS-2120-->
+<!-- APIDOCS-2120 -->
 
 ### New: UID2 Portal API Keys Page
 
@@ -40,7 +52,7 @@ UID2 Portal の Client-Side Integration ページでは、ドメインなど、�
 
 UID2 Portal ドキュメントに新しいページ、[API Keys](../portal/api-keys.md) を追加しました。
 
-UID2 Portal の API Keys ページでは、UID2 アカウントの API キー、関連するシークレット値、および権限設定を管理するすべてのアクティビティを実行できます。
+UID2 Portal の API Keys ページでは、UID2 アカウントの API Key、関連するシークレット値、および権限設定を管理するすべてのアクティビティを実行できます。
 
 <!-- APIDOCS-2133 -->
 
@@ -72,7 +84,7 @@ UID2 Portal の API Keys ページでは、UID2 アカウントの API キー、
 
 Java SDKは、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントの使用を希望する広告主およびデータプロバイダーをサポートするようになりました。
 
-詳細については、*UID2 SDK for Javaリファレンスガイド*: [Usage-for-Advertisers-and-data-providers](../sdks/uid2-sdk-ref-java.md#usage-for-advertisers-and-data-providers) の更新されたドキュメントを参照してください。
+詳細については、*UID2 SDK for Javaリファレンスガイド*: [Usage for Advertisers and Data Providers](../sdks/uid2-sdk-ref-java.md#usage-for-advertisersdata-providers) の更新されたドキュメントを参照してください。
 
 ### New: Audience-Specific Documentation Sidebars
 

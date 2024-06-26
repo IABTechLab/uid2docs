@@ -40,9 +40,9 @@ EUID インフラのすべてのインテグレーションパートナー(SSP�
 #### When I send DII to UID2, does UID2 store the information?
 UID2 に DII を送信すると、UID2 はその情報を保存しますか？
 
-いいえ、UID2 にはは DII を保存しません。さらに、ほとんどの場合、UID2は[POST&nbsp;/token/generate](../endpoints/post-token-generate.md), [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md)、[POST /identity/map](../endpoints/post-identity-map.md) が実行されると、値をまったく保存しません。
+いいえ。<Link href="../ref-info/glossary-uid#gl-uid2-service">UID2 service</Link> のコンポーネントは、DII を保存しません。
 
-必要な例外は、ユーザーがオプトアウトした場合です。このシナリオでは、UID2 には、オプトアウトされたユーザーを示すハッシュ化された不透明な値が格納されます。保存された値をリバース エンジニアリングして DII の元の値に戻すことはできませんが、同じ DII から生成された UID2 に対する将来の要求を識別するために使用できるため、これらのリクエストは拒否されます。
+さらに、ほとんどの場合、UID2 は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md)、または [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) の呼び出しが完了すると、値を全く保存しません。必要な例外は、ユーザーがオプトアウトした場合です。この場合、UID2 は、オプトアウトしたユーザーを示すハッシュ化された不透明な値を保存します。保存された値は、DII から生成された同じ UID2 に関する将来のリクエストを識別するために使用され、そのため拒否されます。
 
 #### Does UID2 allow the processing of HIPAA-regulated data?
 UID2 は HIPAA で規制されているデータの処理を許可しますか？
@@ -65,7 +65,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 #### How can I test that the DII sent and the returned token match up?
 送信した DII と返されたトークンが一致していることをテストするにはどうすればよいですか？
 
-[POST&nbsp;/token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) で送信している [DII](../ref-info/glossary-uid.md#gl-dii) が有効かどうかをチェックできます。`POST /token/validate` は主にテスト目的で使用されます。
+[POST&nbsp;/token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) で送信している <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> が有効かどうかをチェックできます。`POST /token/validate` は主にテスト目的で使用されます。
 
 詳細は、[Using POST&nbsp;/token/validate to Test](../endpoints/post-token-validate.md#using-post-tokenvalidate-to-test) を参照してください。
 
@@ -204,14 +204,16 @@ Private Operator を使用している場合を除き、メールアドレス、
 #### How should I handle user opt-outs?
 ユーザーのオプトアウトはどのように処理すればよいですか？
 
-ユーザーが [Transparency and Control Portal](https://www.transparentadvertising.com/) を通じて UID2 ベースのターゲティング広告をオプトアウトすると、オプトアウト信号が DSP とパブリッシャーに送信され、DSP とパブリッシャーが入札時にオプトアウトを処理します。広告主やデータプロバイダーは、[POST /identity/map](../endpoints/post-identity-map.md) エンドポイントを通じて、ユーザーがオプトアウトしたかどうかを定期的に確認することを勧めます。
+ユーザーが [Transparency and Control Portal](https://www.transparentadvertising.com/) を通じて UID2 ベースのターゲティング広告をオプトアウトすると、オプトアウト信号が DSP とパブリッシャーに送信され、DSP とパブリッシャーが入札時にオプトアウトを処理します。広告主やデータプロバイダーは、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを通じて、ユーザーがオプトアウトしたかどうかを定期的に確認することを勧めます。
+
+広告主やデータプロバイダーは、raw UID2 に対するオプトアウトステータスを確認するために、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用することもできます。
 
 ウェブサイトを通じてユーザーがオプトアウトした場合、オプトアウトを処理するための内部手順に従ってください。たとえば、そのユーザーの UID2 を生成しないことを選択することもできます。
 
 #### Does the same DII always result in the same raw UID2?
 同じ DII は常に同じ生UID2になりますか？
 
-一般的にその通りです。DII から raw UID2 を生成するプロセスは同じであり、誰がリクエストを送信したかに関係なく、結果は同じ値になります。 2 人の UID2 参加者が同じメールアドレスを [POST /identity/map](../endpoints/post-identity-map.md) エンドポイントに同時に送信した場合、応答として両方とも同じ raw UID2 を取得します。 
+一般的にその通りです。DII から raw UID2 を生成するプロセスは同じであり、誰がリクエストを送信したかに関係なく、結果は同じ値になります。 2 人の UID2 参加者が同じメールアドレスを [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントに同時に送信した場合、応答として両方とも同じ raw UID2 を取得します。 
 
 ただし、raw UID2 の生成に使用される [ソルト](../ref-info/glossary-uid.md#gl-salt) 値という可変要素があります。ソルト値は定期的にローテーションされます(詳細については、[How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)) を参照してください)。あるリクエストと別のリクエストの間でソルト値が変化する場合、DII が同じであっても、これら 2 つのリクエストは 2 つの異なる raw UID2 になります。
 
@@ -234,6 +236,7 @@ demand-side platform (DSP) に関するよくある質問を紹介します。
    - [オプトアウトされたユーザーの UID2 は、どのような形式で Webhook に送信されますか？](#in-what-format-is-the-uid2-of-an-opted-out-user-sent-to-the-webhook)
    - [オプトアウトはどのリクエストタイプを使いますか？](#what-request-type-do-opt-outs-use)
    - [オプトアウトに応じるための条件はどの程度厳しいのですか？](#how-strict-are-the-requirements-for-honoring-opt-outs)
+   - [ユーザーがオプトアウトしたかどうかを確認するにはどうすればよいですか？](#how-can-i-check-if-a-user-has-opted-out)
    - [SDK のエラーは DSP の入札対応能力にどのような影響を与えますか？](#how-do-sdk-errors-impact-the-dsps-ability-to-respond-to-a-bid)
 
 #### How do I know which decryption key to apply to a UID2?
@@ -302,6 +305,11 @@ DSP のオプトアウトプロセスの詳細については、[Honor User Opt-
 オプトアウトに応じるための条件はどの程度厳しいのですか？
 
 オプトアウトは常に受け入れなければなりません。オプトアウトリクエストがシステムを通じて伝播するまでに時間がかかる場合があり、その間に一部の入札がオプトアウトを受け入れないことがあります。
+
+#### How can I check if a user has opted out?
+ユーザーがオプトアウトしたかどうかを確認するにはどうすればよいですか？
+
+DSP は、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、生 UID2 に対するオプトアウトステータスを確認できます。
 
 #### How do SDK errors impact the DSP's ability to respond to a bid?
 SDK のエラーは DSP の入札対応能力にどのような影響を与えますか？
