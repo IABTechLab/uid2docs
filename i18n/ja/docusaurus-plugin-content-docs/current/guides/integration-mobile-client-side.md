@@ -570,7 +570,7 @@ AgAAAQFt3aNLXKXEyWS8Tpezcymk1Acv3n+ClOHLdAgqR0kt0Y+pQWSOVaW0tsKZI4FOv9K/rZH9+c4l
 
 - Identity が無効です。このシナリオでは、いくつかのオプションがあります:
   - 前の `generateIdentity` メソッドコールからエラーがあるかどうかを確認してください。
-  - Android の場合は、`UID2Manager.getInstance().getIdentityStatus()` を使用し、iOS の場合は、`UID2Manager.shared.identityStatus` を使用して、identity のステータスを確認してください。
+  - Android の場合は、`UID2Manager.getInstance().getCurrentIdentityStatus()` を使用し、iOS の場合は、`UID2Manager.shared.identityStatus` を使用して、identity のステータスを確認してください。
 
     DII が UID2 からオプトアウトされている可能性があります。詳細については、[When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk) を参照してください。
 - ログを有効にして詳細情報を取得することができます。詳細については、[Enable Logging](#enable-logging) を参照してください。
@@ -619,7 +619,7 @@ UID2Manager.shared.generateIdentity(
 <TabItem value='android' label='Android'>
 
 ```js
-UID2Manager.getInstance().getIdentityStatus()
+UID2Manager.getInstance().getCurrentIdentityStatus()
 ```
 
 </TabItem>
@@ -663,7 +663,7 @@ If the DII provided to the `generateIdentity` method has been opted out of UID2,
 <TabItem value='android' label='Android'>
 
 ```js
-UID2Manager.getInstance().getIdentityStatus()
+UID2Manager.getInstance().getCurrentIdentityStatus()
 ```
 
 </TabItem>
