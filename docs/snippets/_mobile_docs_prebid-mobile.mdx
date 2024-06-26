@@ -1,19 +1,30 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This section is for participants who would like to use [Prebid Mobile SDK](https://prebid.org/product-suite/prebid-mobile/) for header bidding in iOS and Android applications. The UID2 Prebid integration will automatically observe the state of the UID2Identity and whenever it changes, will update Prebid’s external user ids. This includes when an identity is refreshed, resulting in a new advertising token. Prebid then sends the UID2 tokens in to the RTB bidstream along with other external user ids that you may set. Note that in order to use Prebid Mobile, you must have a Prebid Server setup. Follow the steps below for the overall integration.
+This section is for participants who want to integrate with UID2 and use the [Prebid Mobile SDK](https://prebid.org/product-suite/prebid-mobile/) for header bidding in iOS and Android applications.
 
-1. Follow the integration guides below to setup Prebid Mobile SDK for Android / iOS.
+The UID2 Prebid integration monitors the state of the `UID2Identity`. Whenever the state changes, the Prebid integration automatically updates Prebid’s external user IDs. This includes when an identity is refreshed, resulting in a new advertising token.
+
+Prebid then sends the UID2 tokens into the RTB bidstream, along with other external user IDs that you might set.
+
+:::note
+This integration requires a Prebid Server setup.
+:::
+
+To configure your UID2 Prebid for Mobile integration, follow the steps below.
+
+1. Set up the Prebid Mobile SDK for Android or iOS, following the steps in the applicable Prebid integration guide:
    - [Prebid SDK Integration for Android](https://docs.prebid.org/prebid-mobile/pbm-api/android/code-integration-android.html)
    - [Prebid SDK Integration for iOS](https://docs.prebid.org/prebid-mobile/pbm-api/ios/code-integration-ios.html)
 
-2. Follow the steps in this guide to [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app).
+2. Add the UID2 Mobile SDK to your app: follow the steps in [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 
-3. Dependency: The UID2 Prebid integration is distributed as a separate module.
+3. The UID2 Prebid integration is distributed as a separate module, so you must add it as a dependency in your project. Follow the installation instructions that apply to your integration, out of the following options.
+
    <Tabs groupId="language-selection">
    <TabItem value='android' label='Android'>
    #### Installing with Gradle
-   To add this to your project, include the following in your Gradle configuration:
+   Include the following in your Gradle configuration:
    ```js
    implementation("com.uid2:uid2-android-sdk-prebid:xxx")
    ```
@@ -29,7 +40,7 @@ This section is for participants who would like to use [Prebid Mobile SDK](https
    </TabItem>
    <TabItem value='ios' label='iOS'>
    #### Installing with Package.swift
-   To add this to your project, include the following dependency to Package.swift:
+   Add the following dependency to Package.swift:
    ```js
    dependencies: [
       .package(url: "https://github.com/IABTechLab/uid2-ios-sdk.git", from: "1.2.0"), // TODO change
@@ -50,7 +61,8 @@ This section is for participants who would like to use [Prebid Mobile SDK](https
    ```
    </TabItem>
    </Tabs>
-3. After adding the additional dependency, you will need to configure the integration. This should be done after both the `UID2Manager` is initialised, as well as Prebid itself, as demonstrated as follows:
+3. After adding the dependency, you'll need to configure the integration. First initialize the `UID2Manager`, and then Prebid, as shown in the following examples.
+
    <Tabs groupId="language-selection">
    <TabItem value='android' label='Android Kotlin'>
    ```js
@@ -78,7 +90,14 @@ This section is for participants who would like to use [Prebid Mobile SDK](https
    ```
    </TabItem>
    </Tabs>
-4. As mentioned earlier, the UID2 Prebid integration will periodically update Prebid by setting the relevant external ids when a new identity is generated or existing token has been refreshed. However, this process is destructive which means that if your application utilises external ids from another source, you will need to provide those to the UID2 Prebid integration so that all external IDs are retained while UID2 token is updated. This is done via a callback passed in during initialisation.
+4. Configure a callback that's passed in during initialization.
+
+   The UID2 Prebid integration periodically updates Prebid by setting the relevant external IDs when a new identity is generated or an existing token is refreshed.
+   
+   This process is destructive, which means that if your application uses external IDs from another source, you'll need to provide those to the UID2 Prebid integration so that all external IDs are retained while the UID2 token is updated.
+   
+   This is done via the callback, which must be passed in during initialization, as shown in the following examples.
+   
    <Tabs groupId="language-selection">
    <TabItem value='android' label='Android Kotlin'>
    ```js
