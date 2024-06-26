@@ -83,7 +83,7 @@ When encrypting with the `SharingClient`, the SDK returns the following informat
 | Value | Description |
 | :--- | :--- |
 | `Success` | The raw UID2 was successfully encrypted and a UID2 token was returned. |
-| `NotAuthorizedForKey` | The requester does not have authorization to use the encryption key. |
+| `NotAuthorizedForKey` | The requester does not have authorization to use the <a href="../ref-info/glossary-uid#gl-encryption-key">encryption key</a>. |
 | `NotAuthorizedForMasterKey` | The requester does not have authorization to use the master key. |
 | `NotInitialized` | The client library is waiting to be initialized. |
 | `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
