@@ -155,7 +155,7 @@ else
 UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のことです。raw UID2 を他の参加者に送信する前に、UID2 Tokenに暗号化する必要があります。
 
 :::warning
-このプロセスで生成される UID2 Token は共有専用です。ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
+このプロセスで生成される UID2 Token は共有専用です。<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>では使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 :::
 
 以下は、UID2 SDK for C# / .NET を使用して、送信側または受信側として共有を実装する方法の例です。

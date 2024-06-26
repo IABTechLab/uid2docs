@@ -13,7 +13,7 @@ import Link from '@docusaurus/Link';
 
 # Client-Server Integration Guide for JavaScript
 
-このガイドは、パブリッシャー向けの情報で、UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオをカバーしています。このガイドは、UID2 を使用して RTB ビッドストリーム用にトークンを生成するために、UID2 と直接インテグレーションを行いながら、UID2 対応シングルサインオンや ID プロバイダーではなく、パブリッシャーのウェブアセットを持つパブリッシャー向けの情報です。これには、サーバーサイドの変更が含まれます。Server-Side で UID2 Token を生成し、それをパブリッシャーのウェブページに渡す必要があります。UID2 に直接ではなく、UID2 対応のシングルサインオンや ID プロバイダーを使用して UID2 とインテグレーションする場合は、このガイドを参照しないでください。Client-Side の JavaScript のみの変更で UID2 とインテグレーションする場合は、代わりに [Client-Side Integration Guide for JavaScript](publisher-client-side.md) を参照してください。
+このガイドは、パブリッシャー向けの情報で、UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオをカバーしています。このガイドは、UID2 を使用して RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>用にトークンを生成するために、UID2 と直接インテグレーションを行いながら、UID2 対応シングルサインオンや ID プロバイダーではなく、パブリッシャーのウェブアセットを持つパブリッシャー向けの情報です。これには、サーバーサイドの変更が含まれます。Server-Side で UID2 Token を生成し、それをパブリッシャーのウェブページに渡す必要があります。UID2 に直接ではなく、UID2 対応のシングルサインオンや ID プロバイダーを使用して UID2 とインテグレーションする場合は、このガイドを参照しないでください。Client-Side の JavaScript のみの変更で UID2 とインテグレーションする場合は、代わりに [Client-Side Integration Guide for JavaScript](publisher-client-side.md) を参照してください。
 
 これは、Client-Server インテグレーションと呼ばれるもので、JavaScript インテグレーションステップが Client-Side で、その他のステップが Server-Side で行われるためです。
 

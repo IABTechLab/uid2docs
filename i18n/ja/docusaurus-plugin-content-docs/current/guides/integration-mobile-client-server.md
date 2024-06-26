@@ -15,17 +15,17 @@ import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 
 # UID2 Client-Server Integration Guide for Mobile
 
-このガイドは、Public Operator または Private Operator を経由して Server-Side で UID2 Token を生成し、トークンとユーザー識別子をモバイルアプリに渡して UID2 とインテグレーションしたいモバイルアプリのパブリッシャー向けのものです。  
+このガイドは、Public Operator または Private Operator を介して Server-Side で UID2 Token を生成し、そのトークンとユーザー ID をモバイルアプリに渡して UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けです。モバイルアプリは、そのトークンを <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> に使用するために渡します。
 
-これは、一部のインテグレーションステップが Client-Side で、一部が Server-Side で行われるため、Client-Server インテグレーションと呼ばれます。
+これは Client-Server インテグレーションと呼ばれます。これは、いくつかのインテグレーションステップがクライアントサイドで行われ、いくつかがサーバーサイドで行われるためです。
 
-Client-Side のみの変更で UID2 と統合する場合（つまり、すべての統合変更がモバイルアプリ内で行われる場合）、[UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) を参照してください。
+Client-Side のみの変更で UID2 とインテグレーションしたい場合 (つまり、すべてのインテグレーション変更がモバイルアプリ内で行われる場合) は、代わりに [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) を参照してください。
 
-このページでは、インテグレーションステップの概要と、追加のドキュメントへのリンクを提供します。
+このページでは、インテグレーション手順の概要と、追加のドキュメントへのリンクを提供します。
 
-UID2 は、[Android](../sdks/uid2-sdk-ref-android.md) および [iOS](../sdks/uid2-sdk-ref-ios.md) 向けのモバイル SDK を提供しています。各 SDK には次の機能があります:
+UID2 は、[Android](../sdks/uid2-sdk-ref-android.md) および [iOS](../sdks/uid2-sdk-ref-ios.md) 向けのモバイル SDK を提供しています。各 SDK には、次の機能があります:
 
-- UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link>（UID2 Token と関連する値）を受け取り、ローカルファイルストレージに保存します。
+- UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (UID2 Token と関連する値) を生成し、モバイルアプリに渡すためのメソッドを提供します。
 - UID2 Token を自動的にリフレッシュします。
 
 :::note
