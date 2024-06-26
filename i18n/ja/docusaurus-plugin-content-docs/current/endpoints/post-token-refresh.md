@@ -36,7 +36,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | 必須 | インテグレーション環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>地域オペレーターを含む全リストは、[Environments](../getting-started/gs-environments.md) を参照してください。<br/>Notes:<ul><li>`integ` 環境と `prod` 環境は異なる <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link> を必要とします。</li><li>トークンの有効期限は変更される可能性がありますが、`integ` 環境では常に `prod` 環境よりも大幅に短くなります。</li></ul> |
+| `{environment}` | string | 必須 | インテグレーション環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは、[Environments](../getting-started/gs-environments.md) を参照してください。<br/>Notes:<ul><li>`integ` 環境と `prod` 環境は異なる <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link> を必要とします。</li><li>トークンの有効期限は変更される可能性がありますが、`integ` 環境では常に `prod` 環境よりも大幅に短くなります。</li></ul> |
 
 #### Testing Notes
 
