@@ -13,7 +13,7 @@ UID2 SDK for Android は、以下の用途に使用できます:
 
 - UID2 を使用して Android アプリでクライアント ID を生成または確立する。
 - <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>様に Advertising Token を取得する。
-- UID2 トークンの自動リフレッシュ。
+- UID2 Token の自動リフレッシュ。
 
 以下の Android 関連プラグインと関連ドキュメントも利用できます。
 
