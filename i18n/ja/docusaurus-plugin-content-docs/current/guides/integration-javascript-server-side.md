@@ -13,7 +13,7 @@ import Link from '@docusaurus/Link';
 
 # Client-Server Integration Guide for JavaScript
 
-このガイドは、パブリッシャー向けの情報で、UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオをカバーしています。このガイドは、UID2 を使用して RTB ビッドストリーム用にトークンを生成するために、UID2 と直接インテグレーションを行いながら、UID2 対応シングルサインオンや ID プロバイダーではなく、パブリッシャーのウェブアセットを持つパブリッシャー向けの情報です。これには、サーバーサイドの変更が含まれます。Server-Side で UID2 Token を生成し、それをパブリッシャーのウェブページに渡す必要があります。UID2 に直接ではなく、UID2 対応のシングルサインオンや ID プロバイダーを使用して UID2 とインテグレーションする場合は、このガイドを参照しないでください。Client-Side の JavaScript のみの変更で UID2 とインテグレーションする場合は、代わりに [Client-Side Integration Guide for JavaScript](publisher-client-side.md) を参照してください。
+このガイドは、パブリッシャー向けの情報で、UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオをカバーしています。このガイドは、UID2 を使用して RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>用にトークンを生成するために、UID2 と直接インテグレーションを行いながら、UID2 対応シングルサインオンや ID プロバイダーではなく、パブリッシャーのウェブアセットを持つパブリッシャー向けの情報です。これには、サーバーサイドの変更が含まれます。Server-Side で UID2 Token を生成し、それをパブリッシャーのウェブページに渡す必要があります。UID2 に直接ではなく、UID2 対応のシングルサインオンや ID プロバイダーを使用して UID2 とインテグレーションする場合は、このガイドを参照しないでください。Client-Side の JavaScript のみの変更で UID2 とインテグレーションする場合は、代わりに [Client-Side Integration Guide for JavaScript](publisher-client-side.md) を参照してください。
 
 これは、Client-Server インテグレーションと呼ばれるもので、JavaScript インテグレーションステップが Client-Side で、その他のステップが Server-Side で行われるためです。
 
@@ -47,7 +47,7 @@ Google Ad Managerを使用していて、セキュアシグナル機能を使用
 
 以下の図は、ユーザーの UID2 Token をパブリッシャーと確立するために必要なステップと、UID2 Token が RTB ビッドストリームとどのようにインテグレーションされるかを説明しています。
 
-![Publisher Flow](images/custom-publisher-integration-mermaid.png)
+![Publisher Flow](images/integration-javascript-server-side-mermaid.png)
 
 以下のセクションでは、図中の各ステップについての詳細を説明します: 
 
@@ -58,13 +58,13 @@ Google Ad Managerを使用していて、セキュアシグナル機能を使用
 
 ### Establish Identity: Capture User Data
 
-Step 1-c で認証を行い、ユーザーに利用規約を受け入れさせ、パブリッシャーがユーザーのメールアドレスまたは電話番号を検証した後、Server-Side で UID2 Token を生成する必要があります。次の表は、トークン生成ステップの詳細です。
+Step 1-c でパブリッシャーがユーザーのメールアドレスまたは電話番号を検証した後、Server-Side で UID2 Token を生成する必要があります。以下の表は、トークン生成ステップの詳細です。
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
-| 1-d  | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md)        | ユーザーが認証され、UID2 の作成が許可されたら、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを使用して、ユーザーの正規化したメールアドレスまたは電話番号を使って UID2 Token を生成します。 |
-| 1-e  | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md)        | ユーザーのメールアドレス、電話番号、またはそれぞれのハッシュから生成された UID2 Token を返します。 |
-| 1-f  | UID2 SDK for JavaScript | Step 1-e で返された UID2 Token を、SDK の [init()関数](../sdks/client-side-identity.md#initopts-object-void) の `identity` プロパティで SDK に送信し、以下に示すように [コールバック関数](../sdks/client-side-identity.md#callback-function) を指定します。このメカニズムにより、ユーザーがログアウトするまで、UID2 Token がターゲティング広告に利用できるようになります。|
+| 1-d | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを使用して、ユーザーから提供されたメールアドレスまたは電話番号を使用して UID2 Token を生成します。正規化されていることを確認してください。 |
+| 1-e | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) | ユーザーのメールアドレス、電話番号、またはそれぞれのハッシュから生成された UID2 Token を返します。 |
+| 1-f | UID2 SDK for JavaScript | Step 1-e で返された UID2 Token を、SDK の [init()関数](../sdks/client-side-identity.md#initopts-object-void) の `identity` プロパティで SDK に送信し、以下に示すように [コールバック関数](../sdks/client-side-identity.md#callback-function) を指定します。このメカニズムにより、ユーザーがログアウトするまで、UID2 Token がターゲティング広告に利用できるようになります。|
 | 1-g | UID2 SDK for JavaScript | SDK から ID 更新を受け取り、ターゲティング広告を開始するために使用するコールバック関数を SDK に提供します。 |
 
 <Tabs>

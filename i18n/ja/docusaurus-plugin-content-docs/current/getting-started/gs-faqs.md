@@ -128,7 +128,7 @@ UID2 Service は、ランダムな初期化ベクトルを使用して UID2 Toke
 #### What does a UID2 token look like in the bidstream?
 UID2 Token は、ビッドストリームではどのように見えますか？
 
-UID2 実装のアプローチにはさまざまな方法があります。以下は、UID2 Token がビッドストリームでどのように渡されるかを示すコードスニペットの一例です:
+UID2 実装のアプローチにはさまざまな方法があります。以下は、UID2 Token が<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>でどのように渡されるかを示すコードスニペットの一例です:
 
 ```js
 {

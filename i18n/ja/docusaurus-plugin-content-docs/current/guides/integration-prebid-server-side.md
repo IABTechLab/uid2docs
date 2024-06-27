@@ -13,7 +13,7 @@ import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-i
 
 # UID2 Client-Server Integration Guide for Prebid.js
 
-このガイドは、Server-Side で <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>(メールアドレスまたは電話番号) にアクセスでき、UID2 とインテグレーションして、RTB ビッドストリームで Prebid.js によって渡される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>(Advertising Token) を生成したいパブリッシャー向けのものです。
+このガイドは、Server-Side で <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>(メールアドレスまたは電話番号) にアクセスでき、UID2 とインテグレーションして、RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>で Prebid.js によって渡される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>(Advertising Token) を生成したいパブリッシャー向けのものです。
 
 これは Client-Server インテグレーションと呼ばれ、一部のインテグレーションステップが Client-Side で行われ、一部が Server-Side で行われます。
 

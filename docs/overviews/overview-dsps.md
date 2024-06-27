@@ -94,7 +94,7 @@ To integrate with UID2 to receive UID2s from brands (as first-party data) and da
 - Accept data in the form of UID2s
 - Bid on data in the form of UID2s
 - Build a webhook for honoring opt-out requests
-- Sync encryption keys daily with the UID2 Administrator
+- Sync <a href="../ref-info/glossary-uid#gl-encryption-key">encryption keys</a> daily with the UID2 Administrator
 
 For details, see [DSP Integration Guide](../guides/dsp-guide.md).
 

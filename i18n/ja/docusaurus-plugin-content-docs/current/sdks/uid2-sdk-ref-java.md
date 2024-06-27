@@ -332,7 +332,7 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/cu
 
 ## Usage for DSPs
 
-以下の手順は、UID2 SDK for Java を使用して DSP がビッドストリームのトークンを復号化する方法の例です。
+以下の手順は、UID2 SDK for Java を使用して DSP が<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>のトークンを復号化する方法の例です。
 
 1. `BidstreamClient` を生成します:
 
