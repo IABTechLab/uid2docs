@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 # Publisher Integration Guide, Server-Side
 
-このガイドは、<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> 用に生成するために、UID2 と直接インテグレーションを行いながら、UID2 対応シングルサインオンや ID プロバイダーではなく、すべてのインテグレーションをサーバーサイドで行うパブリッシャー向けのガイドです。
+このガイドは、<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を RTB <Link href="../ref-info/glossary-uid#gl-bidstream"><Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link></Link> 用に生成するために、UID2 と直接インテグレーションを行いながら、UID2 対応シングルサインオンや ID プロバイダーではなく、すべてのインテグレーションをサーバーサイドで行うパブリッシャー向けのガイドです。
 
 パブリッシャーが UID2 と Server-Side でインテグレーションするには、以下のオプションが利用可能です:
 
@@ -56,7 +56,7 @@ Server-Side SDK を使用している場合、SDK はエンドポイントに関
 
 ### Establish Identity: Capture User Data
 
-Step 1-c での認証(ユーザーの同意を得ること、パブリッシャーがユーザーのメールアドレスまたは電話番号を検証することを含む) の後、パブリッシャーは Server-Side で UID2 Token を生成するリクエストを送ることがでます。以下の表は、トークン生成ステップの詳細です。
+Step 1-c で認証が行われい、パブリッシャーがユーザーのメールアドレスや電話番号を検証した後、パブリッシャーは Server-Side で UID2 Token を生成するリクエストを送信することができます。以下の表は、トークン生成ステップの詳細です。
 
 :::tip
 このエンドポイントを直接呼び出す代わりに、SDK のいずれかを使用して管理することもできます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。

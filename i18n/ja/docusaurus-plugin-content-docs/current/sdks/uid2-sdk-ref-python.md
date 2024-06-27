@@ -239,7 +239,7 @@ Server-Side インテグレーションを使用している場合 (詳細は、
 
 ## Usage for DSPs
 
-以下の手順は、DSP として UID2 SDK for Python を使用して <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> トークンをデコードする方法の例です。
+以下の手順は、DSP として UID2 SDK for Python を使用して <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> トークンをデコードする方法の例です。
 
 1. `BidstreamClient` を作成します:
 
