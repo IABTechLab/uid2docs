@@ -100,7 +100,7 @@ Encryption response codes, and their meanings, are shown in the following table.
 | Value                           | Description                                                            |
 |:--------------------------------|:-----------------------------------------------------------------------|
 | `SUCCESS`                       | The raw UID2 was successfully encrypted and a UID2 token was returned. |
-| `NOT_AUTHORIZED_FOR_KEY`        | The requester does not have authorization to use the encryption key.   |
+| `NOT_AUTHORIZED_FOR_KEY`        | The requester does not have authorization to use the <a href="../ref-info/glossary-uid#gl-encryption-key">encryption key</a>.   |
 | `NOT_AUTHORIZED_FOR_MASTER_KEY` | The requester does not have authorization to use the master key.       |
 | `NOT_INITIALIZED`               | The client library is waiting to be initialized.                       |
 | `KEYS_NOT_SYNCED`               | The client has failed to synchronize keys from the UID2 service.       |

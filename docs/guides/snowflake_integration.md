@@ -563,7 +563,7 @@ The following table shows possible values for the `ENCRYPTION_STATUS` column.
 | `MISSING_OR_INVALID_RAW_UID2` | The raw UID2 is `NULL`. |
 | `INVALID_RAW_UID2` | The raw UID2 is invalid. |
 | `MISMATCHING_IDENTITY_SCOPE` | The raw UID2 belongs to an incorrect identity scope; for example, EUID is passed in where UID2 is expected. |
-| `NOT_AUTHORIZED_FOR_MASTER_KEY` | The caller does not have access to the required encryption keys. Contact the UID2 administrator. |
+| `NOT_AUTHORIZED_FOR_MASTER_KEY` | The caller does not have access to the required <a href="../ref-info/glossary-uid#gl-encryption-key">encryption keys</a>. Contact the UID2 administrator. |
 | `NOT_AUTHORIZED_FOR_SITE_KEY` | The caller does not have access to the required encryption keys. Contact the UID2 administrator. |
 
 #### Encrypt Token Request Example - Single Raw UID2
