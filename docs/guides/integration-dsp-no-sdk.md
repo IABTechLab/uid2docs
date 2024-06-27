@@ -47,11 +47,11 @@ The UID2 SDK for C#&nbsp;/&nbsp;.NET uses a `Refresh` function.
 
 For an implementation example that shows encrypting the request and decrypting the response, see [Encryption and Decryption Code Examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples).
 
-The API response is in JSON format, and includes `site_data`, the list of domains or app names that are allowed for the site or app.
+The API response is in JSON format, and includes `site_data`, the list of domains or app names that are allowed for the site.
 
-To see how all the fields are parsed, refer to the UID2 SDK for C#&nbsp;/&nbsp;.NET `Parse` function: see [KeyParser.cs, lines 41-74](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/KeyParser.cs#L41-L74).
+To see how all the fields are parsed, refer to the UID2 SDK for C#&nbsp;/&nbsp;.NET parse function: see [KeyParser.cs, lines 41-74](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/KeyParser.cs#L41-L74).
 
-After decrypting the token into a raw UID2, for client-side integrations, you can use the information in `site_data` to verify that a specific domain or app name is on the list of names allowed for tokens that are generated on the client side. For details, see [Verify the Domain or App Name](#verify-the-domain-or-app-name).
+After decrypting the token into a raw UID2, if the token was generated on the client side, you can use the information in `site_data` to verify that a specific domain or app name is on the list of names allowed for it. For details, see [Verify the Domain or App Name](#verify-the-domain-or-app-name).
 
 ## Decrypt UID2 Tokens into Raw UID2s
 
