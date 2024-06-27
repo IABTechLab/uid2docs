@@ -19,7 +19,7 @@ UID2 Interactive Media Ads (IMA) Plugin for iOS は、[Google IMA SDK for iOS](h
 
 <!-- As of 2023-07-15 -->
 
-このドキュメントはUID2 IMA Plugin for iOS version 0.3.0 以降用です。
+このドキュメントはUID2 IMA Plugin for iOS version 0.3.2 以降用です。
 
 ## GitHub Repository
 
@@ -34,10 +34,10 @@ UID2 Interactive Media Ads (IMA) Plugin for iOS は、[Google IMA SDK for iOS](h
 1. Google IMA SDK v3.19.1 or later:
    - [SDK](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side)
    - [Release history](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side/history)
-1. UID2 SDK for iOS v0.3.0 or later:
+1. UID2 SDK for iOS v0.3.2 or later:
    - [SDK](https://github.com/IABTechLab/uid2-ios-sdk)
    - [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
-1. [UID2 IMA Plugin for iOS v0.3.0](https://github.com/IABTechLab/uid2-ios-plugin-google-ima)
+1. [UID2 IMA Plugin for iOS v0.3.2](https://github.com/IABTechLab/uid2-ios-plugin-google-ima)
 
 ## Installation
 
@@ -57,7 +57,7 @@ Package.swift に次の依存関係を追加します:
 
 ```js
 dependencies: [
-  .package(url: "https://github.com/IABTechLab/uid2-ios-plugin-google-ima.git", exact: "0.3.0")
+  .package(url: "https://github.com/IABTechLab/uid2-ios-plugin-google-ima.git", exact: "0.3.2")
 ]
 ```
 
@@ -67,12 +67,12 @@ XCode ユーザーインターフェースで、パッケージ依存関係の�
 
 | Name | Location | Dependency Rule                         |
 | :--- | :--- |:----------------------------------------| 
-| uid2-ios-plugin-google-ima | `git@github.com:IABTechLab/uid2-ios-plugin-google-ima.git` | Exact Version: 0.3.0 |
+| uid2-ios-plugin-google-ima | `git@github.com:IABTechLab/uid2-ios-plugin-google-ima.git` | Exact Version: 0.3.2 |
 
 ### Installing with CocoaPods
 
 `Podfile` に次のエントリを追加します:
 
 ```
-pod 'UID2IMAPlugin', '0.3.0'
+pod 'UID2IMAPlugin', '0.3.2'
 ```
