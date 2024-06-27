@@ -19,10 +19,12 @@ If you're a DSP and prefer to use an SDK, see [SDKs: Summary](../sdks/summary-sd
 DSPs must be able to decrypt UID2 tokens to raw UID2s and verify the token validity, so that they can use the decrypted tokens for targeted advertising and bidding purposes. To do this, a DSP must do the following:
 
 - [Download a set of encryption keys](#downloadrefresh-encryption-keys)
-- [Decrypt UID2 Tokens into Raw UID2s](#decrypt-uid2-tokens-into-raw-uid2s)
+- [Decrypt UID2 tokens into raw UID2s](#decrypt-uid2-tokens-into-raw-uid2s)
 - [Periodically re-download the latest set of encryption keys](#downloadrefresh-encryption-keys)
 
-An example implementation, in the [UID2 SDK for C#&nbsp;/&nbsp;.NET](https://github.com/IABTechLab/uid2-client-net), is the `BidstreamClient` class: see [BidstreamClient.cs](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/BidstreamClient.cs). This document refers to code sections from the C#&nbsp;/&nbsp;.NET SDK as examples of implementation.
+An example implementation, in the [UID2 SDK for C#&nbsp;/&nbsp;.NET](https://github.com/IABTechLab/uid2-client-net), is the `BidstreamClient` class: see [BidstreamClient.cs](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/BidstreamClient.cs).
+
+This document refers to additional code sections from the C#&nbsp;/&nbsp;.NET SDK as examples.
 
 ## Download/Refresh Encryption Keys
 
@@ -38,25 +40,20 @@ The UID2 SDK for C#&nbsp;/&nbsp;.NET uses a `Refresh` function.
 
 To see how all the fields are parsed, refer to the UID2 SDK for C#&nbsp;/&nbsp;.NET `Parse` function: see [KeyParser.cs, lines 41-74](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/KeyParser.cs#L41-L74).
 
-The API response is in JSON format, and includes `site_data`, the list of domains or app names that are allowed for the account.
+The API response is in JSON format, and includes `site_data`, the list of domains or app names that are allowed for the site or app.
 
-After decrypting the token into a raw UID2, you can use the information in `site_data` to verify that a specific domain or app name is on the list of names allowed for tokens that are generated on the client side. For details, see [Verify the Domain or App Name](#verify-the-domain-or-app-name).
+After decrypting the token into a raw UID2, for client-side integrations, you can use the information in `site_data` to verify that a specific domain or app name is on the list of names allowed for tokens that are generated on the client side. For details, see [Verify the Domain or App Name](#verify-the-domain-or-app-name).
 
-For more information about client-side UID2 implementation, refer to one of these implementation guides:
+To refresh the keys, you'll need to do the following:
 
-- [Client-Side Integration Guide for JavaScript](publisher-client-side.md)
-- [Prebid.js](integration-prebid-client-side.md)
-- [Mobile](integration-mobile-client-side.md)
-
-To call the endpoint, you'll need to do two things:
-- Create an envelope for the request header.
+- Encrypt the request.
 - Decrypt the response.
 
 For an implementation example, see [Encryption and Decryption Code Examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples).
 
 ## Decrypt UID2 Tokens into Raw UID2s
 
-When you have current keys you'll be able to decrypt a UID2 token into a raw UID2. You also need to check several conditions to make sure that the token is eligible for use in the bidstream.
+When you have current keys, you'll be able to decrypt a UID2 token into a raw UID2. You also need to check several conditions to make sure that the token is eligible for use in the bidstream.
 
 You'll need to complete the following steps:
 
@@ -68,7 +65,7 @@ You'll need to complete the following steps:
 
 1. [Verify that the domain or app name is valid](#verify-the-domain-or-app-name).
 
-The UID2 SDK for C# / .NET uses a `DecryptTokenIntoRawUID` function to perform these steps.
+The UID2 SDK for C# / .NET uses a `DecryptTokenIntoRawUid` function to perform these steps: see [BidstreamClient.cs, Line 15](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/BidstreamClient.cs#L15).
 
 ### Check the Token Version
 
@@ -104,7 +101,7 @@ For token v2, the calculation to make sure that the token hasn't expired is as f
 
 `skew_duration` = `0`
 
-For v2, we use the token expiry minus the current time to calculate the remaining lifetime. This is because v2 doesn't have a **Token Generated** field, which is present in later versions. Instead, it has an **Identity Established** field: this indicates the time that the original token was generated, before any token refreshes, so it can't be used to calculate whether the token is still valid.
+For v2, we use the token expiry minus the current time to calculate the remaining lifetime. This is because v2 doesn't have a **Token Generated** field, which is present in later versions. All token versions have an **Identity Established** field, but this indicates the time that the original token was generated, before any token refreshes, so it can't be used to calculate whether the token is still valid.
 
 #### Calculating Token Expiration: All Later Versions
 
@@ -114,10 +111,16 @@ For all token versions later than v2, the calculation to make sure that the toke
 
 `skew_duration` = **Token Generated** &#8211; **Current Time**
 
-Again, it's important to know that versions later than v2 have a **Token Generated** field. If the token was refreshed, this value is updated, so you can use it to calculate the token lifetime. The **Token Generated** field in v2 doesn't get updated when the token is refreshed, so it isn't useful for this calculation.
+Versions later than v2 have a **Token Generated** field, which is updated if the token is refreshed, so we use this to calculate the token lifetime.
 
 ### Verify the Domain or App Name
 
-After decrypting the tokens, if they were generated on the client side, (refer to the applicable client-side integration guide for the [JavaScript SDK](publisher-client-side.md), [Prebid.js](integration-prebid-client-side.md), or [Mobile](integration-mobile-client-side.md)), you must verify that the `domainOrAppName` value is included in the `domain_names` list of the site ID, within the `site_data` section of the response from the `/v2/key/bidstream` API endpoint.
+After decrypting the token, if it was generated on the client side, you must verify that the `domainOrAppName` value is included in the `domain_names` list of the site ID, within the `site_data` section of the response from the `/v2/key/bidstream` API endpoint.
 
-To create code that does this, you can use the code for the `IsDomainOrAppNameAllowedForSite` function in [UID2Encryption.cs, line 245](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L245) as an example.
+For an example of code that does this, refer to the `IsDomainOrAppNameAllowedForSite` function in [UID2Encryption.cs, line 245](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L245).
+
+For more information about client-side UID2 integration, refer to one of these integration guides:
+
+- [Client-Side Integration Guide for JavaScript](publisher-client-side.md)
+- [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
+- [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
