@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # Tokenized Sharing Overview
 
-UID2 では、Tokenized Sharing は、<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> または <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2s</Link> を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、トークンを承認した [sharing participants](ref-info/glossary-uid.md#gl-sharing-participant) と共有することを意味します。UID2 Token を使用することで、データの送信者と受信者の間でエンドツーエンドで raw UID2 を保護することができます。Tokenized sharing は、ビッドストリームまたはピクセル経由での共有に必要ですが、どのような共有ユースケースでも使用できます。
+UID2 では、Tokenized Sharing は、<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> または <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2s</Link> を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、トークンを承認した [sharing participants](ref-info/glossary-uid.md#gl-sharing-participant) と共有することを意味します。UID2 Token を使用することで、データの送信者と受信者の間でエンドツーエンドで raw UID2 を保護することができます。Tokenized sharing は、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>またはピクセル経由での共有に必要ですが、どのような共有ユースケースでも使用できます。
 
 トークンは、次のいずれかの方法で生成されます:
 - raw UID2 を UID2 Token に暗号化する: [Tokenized Sharing: Starting with a Raw UID2](#tokenized-sharing-starting-with-a-raw-uid2) を参照してください。

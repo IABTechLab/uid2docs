@@ -49,7 +49,7 @@ UID2 mobile SDK を使用してモバイルアプリを UID2 とインテグレ�
 
 1. SDK を構成します。
 
-1. トークンが正常に生成されたことを確認し、ビッドストリームで使用するためにトークンを渡します。
+1. トークンが正常に生成されたことを確認し、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>で使用するためにトークンを渡します。
 
 1. オプションで、[Google GMA SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) および [Google IMA SDK](https://developers.google.com/interactive-media-ads/) とのインテグレーションに UID2 GMA/IMA プラグインを構成します。
 

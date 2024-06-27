@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # DSP Integration Guide
 
-このガイドは、ビッドストリームで UID2 の取引を行う DSP を対象としています。
+このガイドは、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>で UID2 の取引を行う DSP を対象としています。
 
 DSP はビッドリクエストで UID2 Token を受け取り、この機能をサポートする Server-Side SDK のいずれかを使用して UID2 Token を復号化し、入札に使用できる raw UID2 を取得します。
 

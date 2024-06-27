@@ -36,7 +36,7 @@ UID2 のドキュメント一式に左サイドバーからアクセスしたい
 
 ## Workflow for DSPs
 
-以下のステップは、ビッドストリームの UID2 で取引を行う DSP を想定したワークフローのアウトラインです。
+以下のステップは、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>の UID2 で取引を行う DSP を想定したワークフローのアウトラインです。
 
 バックグラウンドで以下の処理が行われます:
 - 広告主またはデータプロバイダーは、ファーストパーティおよびサードパーティのオーディエンスセグメントを DSP に渡します。
@@ -94,7 +94,7 @@ To integrate with UID2 to receive UID2s from brands (as first-party data) and da
 - Accept data in the form of UID2s
 - Bid on data in the form of UID2s
 - Build a webhook for honoring opt-out requests
-- Sync encryption keys daily with the UID2 Administrator
+- Sync <a href="../ref-info/glossary-uid#gl-encryption-key">encryption key</a> daily with the UID2 Administrator
 
 For details, see [DSP Integration Guide](../guides/dsp-guide.md).
 

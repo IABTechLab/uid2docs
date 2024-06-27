@@ -21,7 +21,7 @@ UID2 エコシステムには、2 種類のオプトアウトがあります:
 
 例えば、あるユーザーがパブリッシャーのサイトからオプトアウトしたが、UID2 からオプトアウトしていない場合、パブリッシャーはそのユーザーの UID2 Token を生成すべきではありません。 
 
-消費者はいつでも、[Transparency and Control Portal](https://www.transparentadvertising.com/) で UID2 を完全にオプトアウトすることができます。メールアドレスまたは電話番号を選択し、データを入力し、プロンプトに従います。
+消費者はいつでも、[Transparency and Control Portal](https://www.transparentadvertising.com/) で UID2 を完全にオプトアウトすることができます。メールアドレスまたは電話番号を選択し、データを入力し、プロンプトに従ってください。
 
 :::tip
 メールアドレスと電話番号の両方をオプトアウトするには、それぞれ行います。
@@ -39,7 +39,7 @@ UID2 エコシステムには、2 種類のオプトアウトがあります:
 
 消費者が UID2 をオプトアウトすると、その個人の UID2 は、UID2 エコシステムのどこででも、ターゲティング広告のために受け入れられることはなくなります。ただし、UID2 情報の処理と更新にかかる時間には遅延があるため、オプトアウトしたユーザーの UID2 は、オプトアウト後もしばらくの間は有効である可能性があります。各参加者が UID2 を定期的に更新すると、オプトアウト情報が参加者に伝搬されます。
 
-以下のステップは、パブリッシャーまたはその ID プロバイダーと関わるユーザーを対象とした、ワークフローの概要です。
+以下の手順は、メールアドレスまたは電話番号から UID2 が作成されたユーザーを対象としたオプトアウトワークフローの概要です。
 
 1. ユーザーは [Transparency and Control Portal](https://www.transparentadvertising.com/) にアクセスし、UID2 のオプトアウトをグローバルに行うことができます。
 2. Transparency and Control Portalは、オプトアウト要求を UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> に送信します。
@@ -52,6 +52,6 @@ UID2 エコシステムには、2 種類のオプトアウトがあります:
    | 広告主とデータプロバイダー | UID2 Operator Service は、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを介して、広告主とデータプロバイダーにオプトアウト情報を配布します。別のオプションとして、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、raw UID2 のオプトアウトステータスを確認することもできます。 |
    | Sharers | UID2 Sharer は、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、raw UID2 のオプトアウトステータスを確認することができます。 |
 
-このワークフローにより、ユーザーは UID2 識別子の作成に同意し、Transparency and Control Portalを通じて UID2 の同意とプライバシー設定を管理することができます。
+このワークフローにより、ユーザーは Transparency and Control Portal を通じて、UID2 に基づくパーソナライズ広告をオプトアウトすることができます。
 
 ![User Trust Workflow](images/UID2GlobalOptoutWorkflow.svg)

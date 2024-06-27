@@ -11,6 +11,15 @@ import Link from '@docusaurus/Link';
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: CTV Integration Guide
+
+21 June 2024
+
+UID2 とのインテグレーションを希望する CTV パブリッシャー向けに、新しいガイドを追加しました。
+
+詳細は、[CTV Integration Guide](../guides/integration-ctv-guide.md) を参照してください。
+
+<!-- APIDOCS-2264 -->
 
 ### New: Opt-Out API
 

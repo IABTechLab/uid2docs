@@ -2,7 +2,7 @@
 title: Client-Side Integration Guide for JavaScript
 sidebar_label: Client-Side Integration for JavaScript
 pagination_label: Client-Side Integration Guide for JavaScript
-description: UID2 SDK for JavaScript を UID2 実装の一部としてインテグレーションするための情報。
+description: Client-Side インテグレーションで UID2 SDK for JavaScript を使用する際の情報。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -14,27 +14,27 @@ import Link from '@docusaurus/Link';
 # Client-Side Integration Guide for JavaScript
 
 <!-- The below segment is for UID2 only: not applicable for advertisers since EUID doesn't support sharing. -->
-This guide is for all participants who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) using only JavaScript client-side changes on their website with minimum effort.
+このガイドは、UID2 とインテグレーションして、ウェブサイト上で JavaScript クライアントサイドの変更のみを使用して、最小限の努力で <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を生成するすべての参加者向けです。
 
-This approach is used by the following participant types:
+この方法は、次の参加者タイプで使用されます:
 
-- Most notably, this workflow is for publishers wanting to send UID2 tokens into the bidstream.
-- In addition, advertisers and data providers would use this for adding a UID2 token to their tracking pixels (see [Tokenized Sharing in Pixels](sharing/sharing-tokenized-from-data-pixel.md)).
+- このワークフローは、UID2 Token をビッドストリームに送信したいパブリッシャー向けです。
+- さらに、広告主やデータプロバイダは、トラッキングピクセルに UID2 Token を追加するために使用します (詳細は [Tokenized Sharing in Pixels](sharing/sharing-tokenized-from-data-pixel.md) を参照してください)。
 
 <!-- End of UID2-only section. -->
 <!-- Begin EUID-only section. -->
 <!-- This guide is for publishers who want to integrate with UID2 and generate EUID tokens (advertising tokens) using only JavaScript client-side changes on their website with minimum effort. -->
 <!-- End of EUID-only section. -->
 
-This guide does not apply to publishers who want to use a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, or who want to generate tokens server-side. Those publishers should follow the [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md).
+このガイドは、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を使いたいパブリッシャーや、Server-Side でトークンを生成したいパブリッシャーには適用されません。これらのパブリッシャーは、[Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md) に従う必要があります。
 
-UID2 provides a UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) with the following features:
+UID2 は、UID2 SDK for JavaScript を提供しています (詳細は [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください)。この SDK には以下の機能があります:
 
-- UID2 token generation
-- Automatic refreshing of UID2 tokens
-- Automatic storage of UID2 tokens in the browser
+- UID2 Token の生成
+- UID2 Token の自動リフレッシュ
+- ブラウザへの UID2 Token の自動保存
 
-To implement, you'll need to complete the following steps:
+実装するには、以下の手順を完了する必要があります:
 
 1. [Complete UID2 account setup](#complete-uid2-account-setup)
 2. [Add SDK For JavaScript to your site](#add-sdk-for-javascript-to-your-site)
@@ -125,7 +125,7 @@ __uid2.init({
 });
 ```
 :::note
-UID2 インテグレーション環境からのトークンは、ビッドストリームに渡しても無効です。インテグレーション環境では、**subscription ID** と **public key** の値が異なります。
+UID2 インテグレーション環境からのトークンは、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡しても無効です。インテグレーション環境では、**subscription ID** と **public key** の値が異なります。
 :::
 
 ### Optional: Specifying the API Base URL to Reduce Latency
@@ -274,7 +274,7 @@ await __uid2.setIdentityFromPhoneHash(
 
 ## Example Integration Code and When to Pass DII to the UID2 SDK
 
-<Link href="../ref-info/glossary-uid#gl-identity">identity</Link> がない状態で最初のページをロードする場合、トークン生成の呼び出しを開始するには、DII で `setIdentity` メソッドのいずれかを呼び出す必要があります。ID が生成されると、SDK からの `IdentityUpdated` イベントを待つことで、ビッドストリームに送信する Advertiser Token (<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>) を利用できるようになります。例として、`advertising_token_to_use` の値がどのように設定されるかを以下のコードスニペットで示します。
+パブリッシャーで、<Link href="../ref-info/glossary-uid#gl-identity">identity</Link> がない状態で最初のページをロードする場合、トークン生成の呼び出しを開始するには、DII で `setIdentity` メソッドのいずれかを呼び出す必要があります。ID が生成されると、SDK からの `IdentityUpdated` イベントを待つことで、ビッドストリームに送信する Advertiser Token (<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>) を利用できるようになります。例として、`advertising_token_to_use` の値がどのように設定されるかを以下のコードスニペットで示します。
 
 場合によっては、ユーザーの DII はページロード時に利用できず、DII の取得には何らかの関連コストがかかります。例えば、DII を取得するために API コールが必要な場合や、DII 情報を提供するためにユーザーにプロンプトが表示される場合があります。
 

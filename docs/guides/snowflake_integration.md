@@ -33,13 +33,13 @@ If you are a publisher who is sharing UID2 tokens in the <Link href="../ref-info
 
 ## Workflow Diagram
 
-The following diagram illustrates how you engage with the UID2 integration process in Snowflake:
+The following diagram and table illustrate the different parts of the UID2 integration process in Snowflake, and the workflow.
 
 ![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture.png)
 
 |Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-Out Cloud Setup|
 | :--- | :--- | :--- |
-|As a partner, you set up a Snowflake account to host your data and engage in UID2 integration by consuming functions and views through the UID2 Share. | UID2 integration, hosted in a Snowflake account, grants you access to authorized functions and views that draw data from private tables. You can’t access the private tables. The UID2 Share reveals only essential data needed for you to perform UID2-related tasks. |ETL (Extract Transform Load) jobs constantly update the UID2 Core/Optout Snowflake storage with internal data that powers the UID2 Operator Web Services. The data used by the Operator Web Services is also available through the UID2 Share. |
+|As a partner, you set up a Snowflake account to host your data and engage in UID2 integration by consuming functions and views through the UID2 Share. | UID2 integration, hosted in a Snowflake account, grants you access to authorized functions and views that draw data from private tables. You can’t access the private tables. The UID2 Share reveals only essential data needed for you to perform UID2-related tasks.<br/>**NOTE**: We store <Link href="../ref-info/glossary-uid#gl-salt">salts</Link> and encryption keys in the private tables. No <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> is stored at any point. |ETL (Extract Transform Load) jobs constantly update the UID2 Core/Optout Snowflake storage with internal data that powers the UID2 Operator Web Services. The data used by the Operator Web Services is also available through the UID2 Share. |
 |When you use shared functions and views, you pay Snowflake for transactional computation costs.  |These private tables, secured in the UID2 Snowflake account, automatically synchronize with the UID2 Core/Optout Snowflake storage that holds internal data used to complete UID2-related tasks.  | |
 
 ## Access the UID2 Shares
@@ -523,7 +523,7 @@ For details about the values and their explanations, see [Values for the UNMAPPE
 
 A UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participant</Link> is a company that takes part in sharing, either as a sender or a receiver, to share UID2s with another participant.
 
-Advertisers and data providers can share UID2s with other authorized UID2 sharing participants via Snowflake (tokenized sharing). They can encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and then send them to another participant for sharing in pixels (see [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md)). If you are not sending data in pixels within Snowflake, you can take part in UID2 sharing as long as you follow the requirements laid out in [Security Requirements for UID2 Sharing](../sharing/sharing-security.md).
+Advertisers and data providers can share UID2s with other authorized UID2 sharing participants via Snowflake (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link>). They can encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and then send them to another participant for sharing in pixels (see [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md)). If you are not sending data in pixels within Snowflake, you can take part in UID2 sharing as long as you follow the requirements laid out in [Security Requirements for UID2 Sharing](../sharing/sharing-security.md).
 
 :::caution
 The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
@@ -563,7 +563,7 @@ The following table shows possible values for the `ENCRYPTION_STATUS` column.
 | `MISSING_OR_INVALID_RAW_UID2` | The raw UID2 is `NULL`. |
 | `INVALID_RAW_UID2` | The raw UID2 is invalid. |
 | `MISMATCHING_IDENTITY_SCOPE` | The raw UID2 belongs to an incorrect identity scope; for example, EUID is passed in where UID2 is expected. |
-| `NOT_AUTHORIZED_FOR_MASTER_KEY` | The caller does not have access to the required encryption keys. Contact the UID2 administrator. |
+| `NOT_AUTHORIZED_FOR_MASTER_KEY` | The caller does not have access to the required <a href="../ref-info/glossary-uid#gl-encryption-key">encryption keys</a>. Contact the UID2 administrator. |
 | `NOT_AUTHORIZED_FOR_SITE_KEY` | The caller does not have access to the required encryption keys. Contact the UID2 administrator. |
 
 #### Encrypt Token Request Example - Single Raw UID2
