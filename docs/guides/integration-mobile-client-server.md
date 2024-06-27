@@ -346,4 +346,8 @@ UID2Manager.shared.automaticRefreshEnabled = false
 
 ## Optional: UID2 Prebid Mobile SDK Integration
 
+:::important
+The UID2 Prebid Modile SDK integration is for Android only, and requires version 1.3.0 of the UID2 SDK for Android.
+:::
+
 <PrebidMobileSDK />
