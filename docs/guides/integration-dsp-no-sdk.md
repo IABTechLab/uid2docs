@@ -1,34 +1,34 @@
 ---
-title: DSP Direct Integration Tips
-sidebar_label: DSP Direct Integration Tips
-description: Tips for DSPs who are integrating with UID2 without using SDKs.
+title: DSP Direct Integration Guidance
+sidebar_label: DSP Direct Integration Guidance
+description: Information for DSPs who are integrating with UID2 without using SDKs.
 hide_table_of_contents: false
 sidebar_position: 05
 ---
 
 import Link from '@docusaurus/Link';
 
-# DSP Direct Integration Tips
+# DSP Direct Integration Guidance
 
-This document provides integration tips for DSPs who prefer to integrate without using one of the UID2 SDKs.
+This document provides guidance for DSPs who want to integration with UID2 but who are using a language not supported by an existing UID2 SDK.
 
-If you're a DSP and prefer to use an SDK, see [SDKs: Summary](../sdks/summary-sdks.md).
+For a list of the existing SDKs, see [SDKs: Summary](../sdks/summary-sdks.md).
 
 ## Overview
 
 DSPs must be able to decrypt UID2 tokens to raw UID2s and verify the token validity, so that they can use the decrypted tokens for targeted advertising and bidding purposes. To do this, a DSP must do the following:
 
-- [Download a set of encryption keys](#downloadrefresh-encryption-keys)
+- [Retrieve a set of encryption keys](#retrieverefresh-encryption-keys)
 - [Decrypt UID2 tokens into raw UID2s](#decrypt-uid2-tokens-into-raw-uid2s)
-- [Periodically re-download the latest set of encryption keys](#downloadrefresh-encryption-keys)
+- [Periodically re-retrieve the latest set of encryption keys](#retrieverefresh-encryption-keys)
 
 An example implementation, in the [UID2 SDK for C#&nbsp;/&nbsp;.NET](https://github.com/IABTechLab/uid2-client-net), is the `BidstreamClient` class: see [BidstreamClient.cs](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/BidstreamClient.cs).
 
 This document refers to additional code sections from the C#&nbsp;/&nbsp;.NET SDK as examples.
 
-## Download/Refresh Encryption Keys
+## Retrieve/Refresh Encryption Keys
 
-To download or refresh the encryption keys, so that you can decrypt UID2 tokens into raw UID2s, you'll need to write code to do the following:
+To retrieve or refresh the encryption keys, so that you can decrypt UID2 tokens into raw UID2s, you'll need to write code to do the following:
 
 - Encrypt the request.
 - Call the endpoint.
@@ -47,7 +47,7 @@ The UID2 SDK for C#&nbsp;/&nbsp;.NET uses a `Refresh` function.
 
 For an implementation example that shows encrypting the request and decrypting the response, see [Encryption and Decryption Code Examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples).
 
-The API response is in JSON format, and includes `site_data`, the list of domains or app names that are allowed for the site.
+The decrypted API response is in JSON format, and includes `site_data`, the list of domains or app names that are allowed for the site.
 
 To see how all the fields are parsed, refer to the UID2 SDK for C#&nbsp;/&nbsp;.NET parse function: see [KeyParser.cs, lines 41-74](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/KeyParser.cs#L41-L74).
 
@@ -63,7 +63,7 @@ You'll need to complete the following steps:
 
 1. [Decrypt the token](#decrypt-the-token).
 
-1. [Make sure the token has not expired](#make-sure-the-token-has-not-expired).
+1. [Make sure the token lifetime is valid](#make-sure-the-token-lifetime-is-valid).
 
 1. [Verify that the domain or app name is valid](#verify-the-domain-or-app-name).
 
@@ -73,7 +73,7 @@ The UID2 SDK for C# / .NET uses a `DecryptTokenIntoRawUid` function to perform t
 
 There are different UID2 token versions in current use, and later processing steps are a little different depending on whether the token version is v2 or a later version.
 
-You can check the token version using the first four characters of the token.
+You can check the token version using the first few bytes of the token.
 
 To review detailed logic, see [UID2Encryption.cs, lines 36-50](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L36-L50).
 
@@ -81,23 +81,23 @@ To review detailed logic, see [UID2Encryption.cs, lines 36-50](https://github.co
 
 Use the master key and site key to decrypt the token. For a code example, refer to the `Decrypt` function: see [UID2Encryption.cs, line 29](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L29). This function decrypts UID2 tokens into raw UID2s as part of the UID2 SDK for C# / .NET, and includes logic to handle different token versions.
 
-### Make Sure the Token Has Not Expired
+### Make Sure the Token Lifetime Is Valid
 
-A token must be valid and current so that it can be used in the bidstream. You must make sure that it hasn't expired. To do this, check these two conditions:
+A token must be valid and current so that it can be used in the bidstream. For example, you must make sure that it hasn't expired. To make sure the token lifetime is valid, check these two conditions:
 
-- The `remaining_lifetime` or `lifetime` value must not exceed the `max_bidstream_lifetime_seconds` value.
+- The `remaining_lifetime` or `lifetime` value must not exceed the `max_bidstream_lifetime_seconds` value from the `/v2/key/bidstream` response.
 - The `skew_duration` value must not exceed the `allow_clock_skew_seconds` value.
 
  For an example of how this is done, review the code for the `DoesTokenHaveValidLifetimeImpl` function: see [UID2Encryption.cs, line 237](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L237).
 
 The following sections show how the `lifetime` and `skew_duration` values for a token are calculated. The calculation is a little different depending on the token version:
 
-- [Calculating Token Expiration: Token v2](#calculating-token-expiration-token-v2)
-- [Calculating Token Expiration: All Later Versions](#calculating-token-expiration-all-later-versions)
+- [Calculating Token Lifetime: Token v2](#calculating-token-lifetime-token-v2)
+- [Calculating Token Lifetime: All Later Versions](#calculating-token-lifetime-all-later-versions)
 
-#### Calculating Token Expiration: Token v2
+#### Calculating Token Lifetime: Token v2
 
-For token v2, the calculation to make sure that the token hasn't expired is as follows:
+For token v2, the calculation to make sure that the token lifetime is valid for bidstream use is as follows:
 
 `remaining_lifetime` = **Token Expiry** &#8211; **Current Time**
 
@@ -105,9 +105,9 @@ For token v2, the calculation to make sure that the token hasn't expired is as f
 
 For v2, we use the token expiry minus the current time to calculate the remaining lifetime. This is because v2 doesn't have a **Token Generated** field, which is present in later versions. All token versions have an **Identity Established** field, but this indicates the time that the original token was generated, before any token refreshes, so it can't be used to calculate whether the token is still valid.
 
-#### Calculating Token Expiration: All Later Versions
+#### Calculating Token Lifetime: All Later Versions
 
-For all token versions later than v2, the calculation to make sure that the token hasn't expired is as follows:
+For all token versions later than v2, the calculation to make sure that the token lifetime is valid for bidstream use is as follows:
 
 `lifetime` = **Token Expiry** &#8211; **Token Generated**
 
