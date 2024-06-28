@@ -18,7 +18,7 @@ The following table lists all current testing and production environments for UI
 | Environment | Cloud Region | Code | Base URL |
 | :--- | :--- | :--- | :--- |
 | Integration Testing | AWS US East (Ohio) | `us-east-2` | `https://operator-integ.uidapi.com` |
-| Production | Automatically optimized region routing via <a href='https://aws.amazon.com/global-accelerator/'>AWS Global Accelerator</a> | `n/a` | `https://global.prod.uidapi.com` |
+| Production | Automatically optimized region routing via the [AWS Global Accelerator](#using-the-aws-global-accelerator) | `n/a` | `https://global.prod.uidapi.com` |
 | Production | AWS US East (Ohio) | `us-east-2` | `https://prod.uidapi.com` |
 | Production | AWS US West (Oregon) | `us-west-2` | `https://usw.prod.uidapi.com` |
 | Production | AWS Asia Pacific (Sydney) | `ap-southeast-2` | `https://au.prod.uidapi.com` |
@@ -41,4 +41,10 @@ In this scenario, depending on where your users are based, you might consider ch
 
 For example, a publisher in Singapore can set the base URL to `https://sg.prod.uidapi.com`. This is still the UID2 production environment, but the servers are in Singapore.
 
-You can also set the base URL to `https://global.prod.uidapi.com`. This URL directs readers to a region geographically close to them, which is ideal if your audience is geographically distributed.
+You can also use the [AWS Global Accelerator](#using-the-aws-global-accelerator), which directs readers to a region geographically close to them.
+
+## Using the AWS Global Accelerator
+
+The <a href='https://aws.amazon.com/global-accelerator/'>AWS Global Accelerator</a> is a feature that allows you to optimize by setting the base URL to `https://global.prod.uidapi.com`. This URL directs readers to a region geographically close to them, which is ideal if your audience is geographically distributed.
+
+This is a great approach for efficiency and minimum latency: however, do not choose this option if you want to make sure that all requests are processed within a particular country or region.
