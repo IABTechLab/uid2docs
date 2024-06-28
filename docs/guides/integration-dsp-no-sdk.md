@@ -43,7 +43,7 @@ You'll call the following API endpoint:
 
 Refresh the keys once at startup, and then periodically (recommended refresh interval is hourly).
 
-The UID2 SDK for C#&nbsp;/&nbsp;.NET uses a `Refresh` function.
+The UID2 SDK for C# / .NET uses a `Refresh` function. For details, see [BidstreamClient.cs, line 26](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/BidstreamClient.cs#L26).
 
 For an implementation example that shows encrypting the request and decrypting the response, see [Encryption and Decryption Code Examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples).
 
@@ -67,7 +67,7 @@ You'll need to complete the following steps:
 
 1. [Verify that the domain or app name is valid](#verify-the-domain-or-app-name).
 
-The UID2 SDK for C# / .NET uses a `DecryptTokenIntoRawUid` function to perform these steps: see [BidstreamClient.cs, Line 15](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/BidstreamClient.cs#L15).
+The UID2 SDK for C# / .NET uses a `DecryptTokenIntoRawUid` function to perform these steps: see [BidstreamClient.cs, line 15](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/BidstreamClient.cs#L15).
 
 ### Check the Token Version
 
@@ -83,14 +83,21 @@ Use the master key and site key to decrypt the token. For a code example, refer 
 
 ### Make Sure the Token Lifetime Is Valid
 
-A token must be valid and current so that it can be used in the bidstream. You must make sure that it hasn't expired and that its lifetime is still valid. To do this, check these two conditions:
+A token must be valid and current so that it can be used in the bidstream. You must do two things:
 
-- The `remaining_lifetime` or `lifetime` value must not exceed the `max_bidstream_lifetime_seconds` value from the `/v2/key/bidstream` response.
-- The `skew_duration` value must not exceed the `allow_clock_skew_seconds` value.
+- Make sure that the token hasn't expired.
+- Check that the token lifetime is a valid value.
+
+For an example of code that makes sure the token hasn't expired, see [UID2Encryption.cs, line 196](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L196).
+
+To make sure that the token lifetime has a valid value, check these two conditions:
+
+- The remaining lifetime of the token must not exceed the `max_bidstream_lifetime_seconds` value from the `/v2/key/bidstream` response.
+- The skew duration value must not exceed the `allow_clock_skew_seconds` value.
 
  For an example of how this is done, review the code for the `DoesTokenHaveValidLifetimeImpl` function: see [UID2Encryption.cs, line 237](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L237).
 
-The following sections show how the `lifetime` and `skew_duration` values for a token are calculated. The calculation is a little different depending on the token version:
+The following sections show how the `lifetime` and skew duration values for a token are calculated. The calculation is a little different depending on the token version:
 
 - [Calculating Token Lifetime: Token v2](#calculating-token-lifetime-token-v2)
 - [Calculating Token Lifetime: All Later Versions](#calculating-token-lifetime-all-later-versions)
@@ -99,9 +106,9 @@ The following sections show how the `lifetime` and `skew_duration` values for a 
 
 For token v2, the calculation to make sure that the token lifetime is valid for bidstream use is as follows:
 
-`remaining_lifetime` = **Token Expiry** &#8211; **Current Time**
+**remaining lifetime** = **Token Expiry** &#8211; **Current Time**
 
-`skew_duration` = `0`
+**skew duration** = `0`
 
 For v2, we use the token expiry minus the current time to calculate the remaining lifetime. This is because v2 doesn't have a **Token Generated** field, which is present in later versions. All token versions have an **Identity Established** field, but this indicates the time that the original token was generated, before any token refreshes, so it can't be used to calculate whether the token is still valid.
 
@@ -109,9 +116,9 @@ For v2, we use the token expiry minus the current time to calculate the remainin
 
 For all token versions later than v2, the calculation to make sure that the token lifetime is valid for bidstream use is as follows:
 
-`lifetime` = **Token Expiry** &#8211; **Token Generated**
+**lifetime** = **Token Expiry** &#8211; **Token Generated**
 
-`skew_duration` = **Token Generated** &#8211; **Current Time**
+**skew duration** = **Token Generated** &#8211; **Current Time**
 
 Versions later than v2 have a **Token Generated** field, which is updated if the token is refreshed, so we use this to calculate the token lifetime.
 
