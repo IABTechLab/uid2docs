@@ -83,7 +83,7 @@ Use the master key and site key to decrypt the token. For a code example, refer 
 
 ### Make Sure the Token Lifetime Is Valid
 
-A token must be valid and current so that it can be used in the bidstream. For example, you must make sure that it hasn't expired. To make sure the token lifetime is valid, check these two conditions:
+A token must be valid and current so that it can be used in the bidstream. You must make sure that it hasn't expired and that its lifetime is still valid. To do this, check these two conditions:
 
 - The `remaining_lifetime` or `lifetime` value must not exceed the `max_bidstream_lifetime_seconds` value from the `/v2/key/bidstream` response.
 - The `skew_duration` value must not exceed the `allow_clock_skew_seconds` value.
