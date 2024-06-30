@@ -108,7 +108,7 @@ For token v2, the calculation to make sure that the token lifetime is valid for 
 
 **remaining lifetime** = **Token Expiry** &#8211; **Current Time**
 
-**skew duration** = `0`
+**skew duration** = 0
 
 For v2, we use the token expiry minus the current time to calculate the remaining lifetime. This is because v2 doesn't have a **Token Generated** field, which is present in later versions. All token versions have an **Identity Established** field, but this indicates the time that the original token was generated, before any token refreshes, so it can't be used to calculate whether the token is still valid.
 
