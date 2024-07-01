@@ -12,6 +12,7 @@ import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
+import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
 
 # UID2 Client-Server Integration Guide for Mobile
 
@@ -342,3 +343,11 @@ UID2Manager.shared.automaticRefreshEnabled = false
 ## Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration
 
 <GMAIMA_Plugins />
+
+## Optional: UID2 Prebid Mobile SDK Integration
+
+:::important
+The UID2 Prebid Modile SDK integration is for Android only, and requires version 1.4.0 of the UID2 SDK for Android.
+:::
+
+<PrebidMobileSDK />
