@@ -92,7 +92,7 @@ For an example of code that makes sure the token hasn't expired, see [UID2Encryp
 
 To make sure that the token lifetime has a valid value, check these two conditions:
 
-- The lifetime of the token (in this context, the remaining amount of time for which the current token is still valid) must not exceed the `max_bidstream_lifetime_seconds` value from the `/v2/key/bidstream` response.
+- The lifetime of the token must not exceed the `max_bidstream_lifetime_seconds` value from the `/v2/key/bidstream` response.
 - The time until token generation value must not exceed the `allow_clock_skew_seconds` value.
 
  For an example of how this is done, review the code for the `DoesTokenHaveValidLifetimeImpl` function: see [UID2Encryption.cs, line 237](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L237).
