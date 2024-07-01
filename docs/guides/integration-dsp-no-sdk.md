@@ -93,11 +93,11 @@ For an example of code that makes sure the token hasn't expired, see [UID2Encryp
 To make sure that the token lifetime has a valid value, check these two conditions:
 
 - The lifetime of the token (in this context, the remaining amount of time for which the current token is still valid) must not exceed the `max_bidstream_lifetime_seconds` value from the `/v2/key/bidstream` response.
-- The skew duration value must not exceed the `allow_clock_skew_seconds` value.
+- The time until token generation value must not exceed the `allow_clock_skew_seconds` value.
 
  For an example of how this is done, review the code for the `DoesTokenHaveValidLifetimeImpl` function: see [UID2Encryption.cs, line 237](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L237).
 
-The following sections show how the lifetime and skew duration values for a token are calculated. The calculation is a little different depending on the token version:
+The following sections show how the lifetime for a token is calculated, and the time until token generation for versions later than v2. The calculation depends on the token version:
 
 - [Calculating Token Lifetime/Expiration: Token v2](#calculating-token-lifetimeexpiration-token-v2)
 - [Calculating Token Lifetime/Expiration: All Later Versions](#calculating-token-lifetimeexpiration-all-later-versions)
@@ -108,8 +108,6 @@ For token v2, the calculation to make sure that the token lifetime is valid for 
 
 ```
 lifetime = token expiry - current time
-
-skew duration = 0
 ```
 
 For v2, we use the token expiry minus the current time to calculate the lifetime. This is because v2 doesn't have a **Token Generated** field, which is present in later versions. All token versions have an **Identity Established** field, but this indicates the time that the original token was generated, before any token refreshes, so it can't be used to calculate whether the token is still valid.
@@ -121,7 +119,7 @@ For all token versions later than v2, the calculation to make sure that the toke
 ```
 lifetime = token expiry - token generated
 
-skew duration = token generated - current time
+time until token generation = token generated - current time
 ```
 
 Versions later than v2 have a **Token Generated** field, which is updated if the token is refreshed, so we use this to calculate the token lifetime.
