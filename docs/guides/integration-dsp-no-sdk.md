@@ -99,10 +99,10 @@ To make sure that the token lifetime has a valid value, check these two conditio
 
 The following sections show how the lifetime for a token is calculated, and the time until token generation for versions later than v2. The calculation depends on the token version:
 
-- [Calculating Token Lifetime/Expiration: Token v2](#calculating-token-lifetimeexpiration-token-v2)
-- [Calculating Token Lifetime/Expiration: All Later Versions](#calculating-token-lifetimeexpiration-all-later-versions)
+- [Calculating Token Lifetime: Token v2](#calculating-token-lifetime-token-v2)
+- [Calculating Token Lifetime: All Later Versions](#calculating-token-lifetime-all-later-versions)
 
-#### Calculating Token Lifetime/Expiration: Token v2
+#### Calculating Token Lifetime: Token v2
 
 For token v2, the calculation to make sure that the token lifetime is valid for bidstream use is as follows:
 
@@ -112,7 +112,7 @@ lifetime = token expiry - current time
 
 For v2, we use the token expiry minus the current time to calculate the lifetime. This is because v2 doesn't have a **Token Generated** field, which is present in later versions. All token versions have an **Identity Established** field, but this indicates the time that the original token was generated, before any token refreshes, so it can't be used to calculate whether the token is still valid.
 
-#### Calculating Token Lifetime/Expiration: All Later Versions
+#### Calculating Token Lifetime: All Later Versions
 
 For all token versions later than v2, the calculation to make sure that the token lifetime is valid for bidstream use is as follows:
 
