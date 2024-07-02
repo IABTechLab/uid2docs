@@ -189,7 +189,7 @@ import Link from '@docusaurus/Link';
 <dd>UID2 はメールアドレスと電話番号をサポートし、DII をターゲットを絞った広告の目的で使用できる値に変換しますが、元の値に遡ることはできません。</dd>
 
 <dt><MdxJumpAnchor id="gl-docker">Docker</MdxJumpAnchor></dt>
-<dd>Docker は Platform as a Service (PaaS)製品群で、コンテナと呼ばれるパッケージを介してソフトウェアのデプロイを自動化するために使用します。Docker 製品群は、アプリケーションを、そのすべての依存関係とともに、ほとんどのオペレーティング・システム上で実行可能な仮想コンテナにパッケージ化できるため、アプリケーションをさまざまな環境で効率的に動作させることができます。</dd>
+<dd>Docker は Platform as a Service (PaaS)製品群で、コンテナと呼ばれるパッケージを介してソフトウェアのデプロイを自動化するために使用します。Docker 製品群は、アプリケーションを、そのすべての依存関係とともに、ほとんどのオペレーティングシステム上で実行可能な仮想コンテナにパッケージ化できるため、アプリケーションをさまざまな環境で効率的に動作させることができます。</dd>
 <dd>詳細は <a href="https://www.docker.com">https://www.docker.com</a> を参照してください。</dd>
 
 </dl>

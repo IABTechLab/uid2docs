@@ -277,7 +277,7 @@ UID2 は、クッキーと同じように古くなる可能性があります。
 #### Is the DSP expected to handle opt-out signals only for the UID2s that they already store?
 DSP は、すでに保存している UID2 についてのみオプトアウトシグナルを処理することを期待されているのか？
 
-場合によっては、DSP は、オプトアウト・タイムスタンプ以前に生成された、新たに保管された UID2 に対する UID2 Token を受け取ることがあります。DSP はこのようなトークンに入札することはできません。したがって、対応する UID2 が現在 DSP によって保存されているかどうかにかかわらず、すべてのオプトアウトシグナルを保存することが推奨されます。詳細は [Bidding Opt-Out Logic](../guides/dsp-guide.md#bidding-opt-out-logic) の図を参照してください。
+場合によっては、DSP は、オプトアウトタイムスタンプ以前に生成された、新たに保管された UID2 に対する UID2 Token を受け取ることがあります。DSP はこのようなトークンに入札することはできません。したがって、対応する UID2 が現在 DSP によって保存されているかどうかにかかわらず、すべてのオプトアウトシグナルを保存することが推奨されます。詳細は [Bidding Opt-Out Logic](../guides/dsp-guide.md#bidding-opt-out-logic) の図を参照してください。
 
 #### How long should the DSP keep the opt-out list?
 DSP はオプトアウトリストをどれくらいの期間保管すべきですか？
