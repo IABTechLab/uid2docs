@@ -273,7 +273,7 @@ if (!pbjs.getUserIds().uid2) {
 
 ## Checking the Integration
 
-UID2 Module に有効な UID2 Token があるかどうかを確認するには、 `pbjs.getUserIds().uid2` を呼び出します。値が返された場合、UID2 Module に有効な UID2 Token が存在します。
+UID2 Module に有効な UID2 Token があるかどうかを確認するには `pbjs.getUserIds().uid2` を呼び出します。値が返された場合、UID2 Module に有効な UID2 Token が存在します。
 
 インテグレーションに問題がある場合、以下のような手順があります:
 

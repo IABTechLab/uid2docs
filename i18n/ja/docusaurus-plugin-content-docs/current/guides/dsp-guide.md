@@ -73,7 +73,7 @@ Server-Side SDK のいずれか ([SDKs: Summary](../sdks/summary-sdks.md) を参
 
 ### Decrypt UID2 Tokens for RTB Use
 
-以下の表は、[Integration Steps](#integration-steps) で示したワークフロー図の Step 2 の詳細です。
+次の表は、[Integration Steps](#integration-steps) で示したワークフロー図の Step 2 の詳細です。
 
 | Step | SDK | Description |
 | :--- | :--- | :--- |

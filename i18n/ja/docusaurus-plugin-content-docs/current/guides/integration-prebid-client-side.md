@@ -139,7 +139,7 @@ pbjs.setConfig({
 
 ## Checking the Integration
 
-UID2 module が正常に UID2 Token を生成したかどうかを確認するには、 `pbjs.getUserIds().uid2` を呼び出します。値が返された場合、UID2 module に有効な UID2 Token が存在していることになります。
+UID2 module が正常に UID2 Token を生成したかどうかを確認するには `pbjs.getUserIds().uid2` を呼び出します。値が返された場合、UID2 module に有効な UID2 Token が存在していることになります。
 
 インテグレーションに問題がある場合、以下のような手順があります:
 

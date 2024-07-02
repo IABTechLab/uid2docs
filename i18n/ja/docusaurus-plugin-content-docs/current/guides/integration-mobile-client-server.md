@@ -76,7 +76,7 @@ Server-Side で UID2 Token を生成する方法は、直接識別情報 (<Link 
 - Integration with an SDK
 - Direct integration to API endpoints
 
-これらのオプションは、以下の表にまとめられています。
+これらのオプションは、次の表にまとめられています。
 
 | Integration Solution  | Generate Token | Refresh Token |
 | :--- | :--- |  :--- |

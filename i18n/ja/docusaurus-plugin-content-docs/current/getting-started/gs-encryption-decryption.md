@@ -52,7 +52,7 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 ### Unencrypted Request Data Envelope
 
-以下の表に、リクエスト暗号化コードのフィールドレイアウトを示します。
+次の表に、リクエスト暗号化コードのフィールドレイアウトを示します。
 
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |

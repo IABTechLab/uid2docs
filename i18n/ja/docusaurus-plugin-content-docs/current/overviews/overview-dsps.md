@@ -69,7 +69,7 @@ UID2 のドキュメント一式に左サイドバーからアクセスしたい
 6. 選択したオプションの実装ガイドに記載されている手順に従います。
 
     :::note
-    UID2 へのリクエストメッセージは必ず暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+    UID2 へのリクエストメッセージは必ず暗号化してください。詳細は [リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
     :::
 7. (条件付き) CRM オンボーディングソリューションを実装する場合は、データプロバイダワークフローのための資格情報の別のセットを要求します。[UID2 Credentials](../getting-started/gs-credentials.md) を参照してください。
 8. テストします。
@@ -102,4 +102,4 @@ Optionally, if DSPs want to generate UID2s themselves from DII, they can also fo
 
 ## FAQs for DSPs
 
-UID2 フレームワークを使用する DSP に関するよくある質問については、 [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。
+UID2 フレームワークを使用する DSP に関するよくある質問については [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。

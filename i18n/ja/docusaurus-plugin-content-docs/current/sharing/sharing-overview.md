@@ -22,7 +22,7 @@ UID2 では、Sharing Participant とは、ある UID2 参加者から別の UID
 
 ## Approved Sharing Scenarios
 
-いくつかの主な共有シナリオは以下の表にまとめられています。
+いくつかの主な共有シナリオは次の表にまとめられています。
 
 例については、[Sharing UID2s: Use Cases](sharing-use-cases.md) を参照してください。
 

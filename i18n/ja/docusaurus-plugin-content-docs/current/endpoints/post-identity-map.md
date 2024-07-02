@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 とソルトバケット ID にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックすることもできます
 
-Used by: このエンドポイントは、主に広告主やデータプロバイダーが使用します。詳細は、[Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) を参照してください。
+Used by: このエンドポイントは、主に広告主やデータプロバイダーが使用します。詳細は [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) を参照してください。
 
 ## Batch Size and Request Parallelization Requirements
 
@@ -37,13 +37,13 @@ Used by: このエンドポイントは、主に広告主やデータプロバ�
 | `{environment}` | string | 必須 | インテグレーション環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
-インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">APIキー</Link> が必要です。
+インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。
 :::
 
 ###  Unencrypted JSON Body Parameters
 
 :::important
-リクエストを暗号化するときは、以下の 4 つの条件パラメータのうち、 **1つ** だけをリクエストの JSON ボディにキーと値のペアとして含める必要がります。
+リクエストを暗号化するときは、以下の 4 つの条件パラメータのうち、**1つ** だけをリクエストの JSON ボディにキーと値のペアとして含める必要がります。
 :::
 
 | Body Parameter | Data Type | Attribute | Description |
@@ -192,4 +192,4 @@ echo '{"phone": ["+1111111111", "+2222222222"]}' | python3 uid2_request.py https
 | `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。 |
 | `unauthorized` | 401 | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていた。 |
 
-`status` の値が `success` 以外であれば、 `message` フィールドにその問題に関する追加情報が表示されます。
+`status` の値が `success` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。

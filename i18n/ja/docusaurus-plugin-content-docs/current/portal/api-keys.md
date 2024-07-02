@@ -30,7 +30,7 @@ API Key を追加するときには、次のいずれかの権限を割り当て
 - Sharer
 - Bidder
 
-詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 ## Adding an API Key
 

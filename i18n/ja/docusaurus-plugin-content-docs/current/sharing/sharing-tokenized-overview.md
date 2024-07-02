@@ -17,7 +17,7 @@ UID2 では、Tokenized Sharing は、<Link href="../ref-info/glossary-uid#gl-di
 
 ## Tokenized Sharing Scenarios
 
-多くのシナリオでは、UID2 データは <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> の形で共有されます。主なユースケースは以下の表に示されています。
+多くのシナリオでは、UID2 データは <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> の形で共有されます。主なユースケースは次の表に示されています。
 
 | Scenario | Sender | Receiver | Sharing Approach |
 | :--- | :--- | :--- | :--- |

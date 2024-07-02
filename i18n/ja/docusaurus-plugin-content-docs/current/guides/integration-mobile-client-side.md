@@ -132,7 +132,7 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-このメソッドコールは、広告リクエストを行うために必要な値を返します: 詳細は、[Pass Generated Token for Bidstream Use](#pass-generated-token-for-bidstream-use) を参照してください。
+このメソッドコールは、広告リクエストを行うために必要な値を返します: 詳細は [Pass Generated Token for Bidstream Use](#pass-generated-token-for-bidstream-use) を参照してください。
 
 ### Testing With Your Own Configuration
 

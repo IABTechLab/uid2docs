@@ -27,7 +27,7 @@ UID2 Portal では、送信者と受信者はアカウントを設定し、送�
 
 送信者は、受信者または参加者のタイプごとに共有許可を1回だけ設定する必要があります。ただし、新しい共有権限を追加したり、既存の共有権限を変更したりする場合は、再度設定し直す必要があります。
 
-詳細は、[UID2 Portal: Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
+詳細は [UID2 Portal: Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
 
 ## Tokenized Sharing Steps: Summary
 
@@ -99,7 +99,7 @@ SDK を使用している場合、共有キーの更新スケジュールを定�
 
 長時間/継続的に実行されるプロセスでは、1時間に1回 `uid2client.refresh()` 関数を呼び出すことを推奨します。
 
-詳細は、[Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) の *UID2 Sharing: Best Practices*　を参照してください。
+詳細は [Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) の *UID2 Sharing: Best Practices*　を参照してください。
 
 :::note
 Snowflake を使用している場合は、この手順を実行する必要はありません。Snowflake UID2 インテグレーションがキーのリフレッシュを行います。
