@@ -64,15 +64,11 @@ You'll need to configure the UID2 Prebid module to complete the following two ac
 
 ### Generating a UID2 Token on the Server
 
-For a client-server UID2 integration for Prebid, the first step is to be able to generate the UID2 token on your server. Then, you can pass the token to Prebid for sending to the RTB bidstream.
+For a client-server UID2 integration for Prebid, the first step is to generate the UID2 token on your server. Then, you can pass the token to Prebid for sending to the RTB bidstream.
 
 For details, including instructions and examples, see [Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md).
 
-To generate a token, call one of the SDKs or the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint.
-
-For an example, see [Sample Token](#sample-token).
-
-You will need to pass the `Identity` response to Prebid.
+To generate a token, call one of the SDKs or the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint. For an example of the API response, showing the token, see [Sample Token](#sample-token). You will need to pass the `Identity` response to Prebid.
 
 :::warning
 For security reasons, the API key and secret used in token generation must be called server-side. Do not store these values as part of your Prebid implementation.

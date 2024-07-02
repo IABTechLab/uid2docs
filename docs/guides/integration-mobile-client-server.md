@@ -69,8 +69,6 @@ This example uses the [UID2 SDK for Android](../sdks/uid2-sdk-ref-android.md) in
 
 ## Implement Server-Side Token Generation
 
-uptohere
-
 For a client-server UID2 integration for mobile, the first step is to be able to generate the UID2 token on your server. Then, you can pass the token into your mobile apps for sending to the RTB bidstream.
 
 For details, including instructions and examples, see [Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md).

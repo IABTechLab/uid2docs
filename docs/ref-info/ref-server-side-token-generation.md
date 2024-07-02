@@ -1,6 +1,6 @@
 ---
 title: Server-Side Token Generation
-description: Information about generating the token on the server side
+description: Information for publishers about generating the token on the server side.
 hide_table_of_contents: false
 sidebar_position: 06
 ---
@@ -11,15 +11,15 @@ import Link from '@docusaurus/Link';
 
 # Server-Side Token Generation
 
-The first step for a client-server or server-side UID2 integration is to generate the UID2 token on your server. Then, you can keep the token refreshed either on the client side or server side, and pass the token to the client side for sending to the RTB bidstream.
+If you're a publisher setting up a client-server or server-side UID2 integration, the first step is to generate the UID2 token on your server. Then, you can keep the token refreshed either on the client side or server side, and pass the token to the client side for sending to the RTB bidstream.
 
-There are two approaches to generating UID2 tokens on the server side by providing directly identifying information (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) (email address or phone number):
+There are two approaches for publishers generating UID2 tokens on the server side by providing directly identifying information (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) (email address or phone number):
 
 - Integration with an SDK
 - Direct integration to API endpoints
 
 :::warning
-For security reasons, the API key and secret used in token generation must be called server-side. Do not store these values on the client side. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+For security reasons, the API key and secret used in token generation *must* be called on the server side. Do not store these values on the client side, whether on a web page, mobile app, or in Prebid. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
 :::
 
 Options are summarized in the following table.

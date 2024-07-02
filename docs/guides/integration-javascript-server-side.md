@@ -69,7 +69,7 @@ After authentication in step 1-c, which allows the publisher to validate the use
 
 #### Generating a UID2 Token on the Server
 
-The first step is to be able to generate the UID2 token on your server.
+The first step is to generate the UID2 token on your server.
 
 For details, including instructions and examples, see [Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md).
 
