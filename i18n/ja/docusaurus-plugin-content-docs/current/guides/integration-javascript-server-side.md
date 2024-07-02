@@ -2,7 +2,7 @@
 title: Client-Server Integration Guide for JavaScript
 sidebar_label: Server-Side Integration for JavaScript
 pagination_label: Client-Server Integration Guide for JavaScript
-description: UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオをカバーするパブリッシャー向けの情報で、トークンを Server-Side で生成し、パブリッシャーのウェブページに渡す必要があります。
+description: UID2 SDK for JavaScript を使用し、Server-Side でトークンを生成してパブリッシャーの Web ページに渡す必要がある標準的な Web インテグレーションシナリオをカバーするパブリッシャー向けの情報。
 hide_table_of_contents: false
 sidebar_position: 02
 ---

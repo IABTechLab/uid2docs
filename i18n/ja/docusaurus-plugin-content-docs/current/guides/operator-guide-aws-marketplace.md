@@ -2,7 +2,7 @@
 title: UID2 Private Operator for AWS Integration Guide
 sidebar_label: AWS Marketplace
 pagination_label: UID2 Private Operator for AWS Integration Guide
-description: AWS の Private Operator インテグレーション情報。
+description: AWS の Private Operator インテグレーションに関する情報。
 hide_table_of_contents: false
 sidebar_position: 17
 ---

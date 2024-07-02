@@ -1,6 +1,6 @@
 ---
 title: POST /optout/status
-description: Checks the opt-out status of raw UID2s.
+description: Raw UID2 のオプトアウトステータスをチェック。
 hide_table_of_contents: false
 sidebar_position: 03
 ---

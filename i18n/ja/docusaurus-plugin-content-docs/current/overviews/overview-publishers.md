@@ -5,7 +5,7 @@ hide_table_of_contents: false
 sidebar_position: 02
 use_banner: true
 banner_title: パブリッシャー向け UID2 概要
-banner_description: 変化し続ける広告業界においてオーディエンスターゲティングを維持し、より良いインプレッション収益化と関連性の向上を実現します。
+banner_description: 変化し続ける広告業界においてオーディエンスターゲティングを維持し、より良いインプレッション収益化と関連性の向上を実現。
 displayed_sidebar: sidebarPublishers
 ---
 

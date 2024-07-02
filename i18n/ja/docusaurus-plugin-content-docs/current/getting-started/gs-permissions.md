@@ -1,6 +1,6 @@
 ---
 title: API Permissions
-description: UID2 API パーミッションに関する情報
+description: UID2 API パーミッションに関する情報。
 hide_table_of_contents: false
 sidebar_position: 07
 ---

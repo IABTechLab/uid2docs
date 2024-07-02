@@ -4,7 +4,7 @@ description: Private Operator 向けの情報の概要。
 hide_table_of_contents: false
 use_banner: true
 banner_title: Private Operator 向け UID2 の概要
-banner_description: プライベート環境で DII から UID2 を生成するプロセスを説明します。
+banner_description: プライベート環境で DII から UID2 を生成するプロセスの説明。
 ---
 
 import Link from '@docusaurus/Link';
