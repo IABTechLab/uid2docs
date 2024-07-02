@@ -28,7 +28,7 @@ UID2 に Private Operator として参加することの利点を次に示しま
 
 Private Operator を選択した場合、いくつかの実施オプションがあります。以下のいずれかを実行できます:
 
-- クラウドサービスのセットアップを使用する。UID2 は、以下のクラウドサービスプロバイダー上の <Link href="../ref-info/glossary-uid#gl-enclave">enclave</Link> で UID2 をホスティングすることをサポートしています(実装の難易度は中程度):
+- クラウドサービスのセットアップを使用します。UID2 は、以下のクラウドサービスプロバイダー上の <Link href="../ref-info/glossary-uid#gl-enclave">enclave</Link> で UID2 をホスティングすることをサポートしています(実装の難易度は中程度):
   - Amazon Web Services (AWS)
   - Microsoft Azure
   - Google Cloud Platform (GCP)

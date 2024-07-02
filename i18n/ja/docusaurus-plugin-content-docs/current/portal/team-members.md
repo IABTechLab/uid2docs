@@ -1,6 +1,6 @@
 ---
 title: Team Members
-description: UID2 team を設定し管理する。
+description: UID2 team を設定し管理します。
 hide_table_of_contents: false
 sidebar_position: 07
 ---

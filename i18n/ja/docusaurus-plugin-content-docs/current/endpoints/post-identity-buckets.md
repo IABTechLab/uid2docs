@@ -90,7 +90,7 @@ echo '{"since_timestamp": "2023-04-19T13:00:00"}' | python3 uid2_request.py http
 レスポンスボディには、次の表に示すプロパティが含まれます。
 
 | Property | Format | Description |
-| :--- | :--- | :--- ||
+| :--- | :--- | :--- |
 | `bucket_id` | string | ソルトバケット ID です。 |
 | `last_updated` | date-time | バケットソルトが最後にローテーションされた UTC タイムスタンプです。 |
 

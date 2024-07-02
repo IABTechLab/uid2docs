@@ -57,7 +57,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 次の手順で始めます:
 
 1. [Request Access](/request-access) ページのフォームに記入して、UID2 へのアクセスをリクエストします。
-1. UID2 とインテグレーションしたいプロパティを特定する。
+1. UID2 とインテグレーションしたいプロパティを特定します。
 1. UID2 契約を締結します。
 1. Client-Side と Server-Side のどちらのインテグレーションを希望するかを決定し、UID2 の担当者に伝えてください。
 1. UID2 credential([UID2 Credentials](../getting-started/gs-credentials.md)) を受け取ります。

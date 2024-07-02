@@ -11,8 +11,8 @@ import Link from '@docusaurus/Link';
 
 UID2 SDK for iOS は、以下の用途に使用できます:
 
-- UID2 を使用して iOS アプリでクライアント ID を生成または確立する。
-- <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>様に Advertising Token を取得する。
+- UID2 を使用して iOS アプリでクライアント ID を生成または確立します。
+- <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>様に Advertising Token を取得します。
 - UID2 Token の自動リフレッシュ。
 
 以下のiOS関連プラグインと関連ドキュメントも利用できます:

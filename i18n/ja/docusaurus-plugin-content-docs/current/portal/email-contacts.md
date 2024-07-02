@@ -1,6 +1,6 @@
 ---
 title: Email Contacts
-description: UID2 アップデートのための連絡先の設定し、管理する。
+description: UID2 アップデートのための連絡先の設定し、管理します。
 hide_table_of_contents: false
 sidebar_position: 09
 ---

@@ -11,8 +11,8 @@ import Link from '@docusaurus/Link';
 
 ピクセルで共有される UID2 データは、以下の2つの方法のいずれかで生成された UID2 Token でなければなりません:
 
-- [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号)を直接暗号化して UID2 Token にする。
-- raw UID2 を UID2 Token に暗号化する。
+- [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号)を直接暗号化して UID2 Token にします。
+- raw UID2 を UID2 Token に暗号化します。
 
 [Tokenized sharing](../ref-info/glossary-uid.md#gl-tokenized-sharing) は、どの共有ルートでも選択可能ですが、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>以外の主な実装は、ピクセルでのトークンの共有です。
 

@@ -59,7 +59,7 @@ UID2 Prebid モジュールを設定して、以下の2つのアクションを�
 
 | Step | Action | Link to Instructions |
 | --- | --- | --- |
-| 1 | Server-Side API コールを送信して UID2 Token を生成する。 | [Generating a UID2 Token on the Server](#generating-a-uid2-token-on-the-server) |
+| 1 | Server-Side API コールを送信して UID2 Token を生成します。 | [Generating a UID2 Token on the Server](#generating-a-uid2-token-on-the-server) |
 | 2 | Prebid module がトークンのリフレッシュと必要に応じてオプトアウトを管理できるように、レスポンス値を保存します。 | [Refreshing a UID2 Token](#refreshing-a-uid2-token) |
 
 ### Generating a UID2 Token on the Server
