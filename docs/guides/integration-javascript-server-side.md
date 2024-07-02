@@ -166,19 +166,6 @@ The SDK invokes the specified [callback function](../sdks/client-side-identity.m
 Depending on the structure of your code, it might be convenient to combine the callbacks for steps 1-f and 1-g into a single callback function.
 :::
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### Bid Using UID2 Tokens
 
 Based on the status and availability of a valid identity, the SDK does the following:
