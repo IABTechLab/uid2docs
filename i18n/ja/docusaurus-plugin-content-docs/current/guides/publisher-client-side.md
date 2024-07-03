@@ -211,7 +211,7 @@ await __uid2.setIdentityFromEmail(
 
 ```js
 await __uid2.setIdentityFromEmailHash(
-    'eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=',
+    'lz3+Rj7IV4X1+Vr1ujkG7tstkxwk5pgkqJ6mXbpOgTs=',
     {
         subscriptionId: subscriptionId,
         serverPublicKey: publicKey,
@@ -230,7 +230,7 @@ await __uid2.setIdentityFromEmailHash(
 
 ```js
 await __uid2.setIdentityFromPhone(
-    '+1111111111',
+    '+12345678901',
     {
         subscriptionId: subscriptionId,
         serverPublicKey: publicKey,
@@ -249,7 +249,7 @@ await __uid2.setIdentityFromPhone(
 
 ```js
 await __uid2.setIdentityFromPhoneHash(
-    'eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=',
+    'EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=',
     {
         subscriptionId: subscriptionId,
         serverPublicKey: publicKey,

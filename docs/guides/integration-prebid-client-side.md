@@ -62,16 +62,23 @@ Once it's configured, the UID2 module generates a UID2 token for the user and st
 You can configure the UID2 module using any one of the four accepted DII formats, for any specific user:
 
 - Normalized or un-normalized email address
-- Normalized and hashed email address
+- Normalized, hashed, and Base64-encoded email address
 - Normalized phone number
 - Normalized and hashed phone number
 
 Notes:
 
 - The DII format might vary per user, but you can only send one value per user.
-- If the module is configured multiple times, it uses the most recent configuration values.
-- If you want to pass the DII to the module already hashed, remember to normalize it before hashing. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+- If you want to pass the DII to the module already hashed, follow this sequence:
+  1. First normalize.
+  1. Then hash the result using the SHA-256 hashing algorithm.
+  1. Then encode the resulting bytes of the hash value using Base64 encoding.
+  
+  For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md). For an example, see [Configuring the UID2 Module: Code Example](#configuring-the-uid2-module-code-example).
 - The UID2 module encrypts the hashed DII before sending it to the UID2 service.
+- If the module is configured multiple times, it uses the most recent configuration values.
+
+#### Configuring the UID2 Module: Code Example
 
 The following code snippet demonstrates the different ways that you can configure the UID2 module.
 
@@ -85,9 +92,9 @@ const baseConfig = {
         subscriptionId: subscriptionId,
         // Choose only one of the following: email, emailHash, phone, or phoneHash
         email: 'user@example.com', // Normalized or non-normalized, unhashed email address
-        // emailHash: 'eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=', // Normalized and hashed email address
-        // phone: '+1111111111', // Normalized phone number
-        // phoneHash: 'eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=', // Normalized and hashed phone number
+        // emailHash: 'tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=', // Normalized, hashed, and encoded email address
+        // phone: '+12345678901', // Normalized phone number
+        // phoneHash: 'EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=', // Normalized, hashed, and encoded phone number
       }
     }]
   }
