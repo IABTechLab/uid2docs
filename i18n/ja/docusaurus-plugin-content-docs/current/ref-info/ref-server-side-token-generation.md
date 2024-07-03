@@ -32,13 +32,12 @@ Options are summarized in the following table.
 
 Whatever integration option you choose to generate the <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (UID2 token and associated values), you'll need to implement one of the following:
 
-- Call the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint.
+-  **SDK**: Use one of the Publisher Client classes, in one of the UID2 server-side SDKs. These classes simplify the request into a single method call. 
 
-  The identity output that you need for the rest of this guide is the content inside the body section of a successful endpoint response. For an example, see [Successful Response](../endpoints/post-token-generate.md#successful-response).
-
--  Use one of the Publisher Client classes, in one of the UID2 server-side SDKs. These classes simplify the request into a single method call. 
-
-   For instructions, see [UID2 SDK for Java, Publisher Basic Usage](../sdks/uid2-sdk-ref-java.md#basic-usage) or [UID2 SDK for Python, Usage for Publishers](../sdks/uid2-sdk-ref-python.md#usage-for-publishers).
+   For instructions, see one of the following:
+   
+   - [UID2 SDK for Java, Usage for Publishers, Basic Usage](../sdks/uid2-sdk-ref-java.md#basic-usage)
+   - [UID2 SDK for Python, Usage for Publishers](../sdks/uid2-sdk-ref-python.md#usage-for-publishers)
 
    If you're using an SDK option, the `Identity` response that you need for the rest of this guide is the output of the applicable method, as follows:
 
@@ -59,6 +58,10 @@ Whatever integration option you choose to generate the <Link href="../ref-info/g
    </TabItem>
    </Tabs>
 
+- **API**: Call the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint.
+
+  The identity output that you need for the rest of this guide is the content inside the body section of a successful endpoint response. For an example, see [Successful Response](../endpoints/post-token-generate.md#successful-response).
+  
 :::important
-The endpoint and SDK API returns opt-out status if the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> you are generating the token for has been opted out of UID2. If this happens, save the information and do not call the token generation endpoint for the same DII again. 
+The endpoint and SDK API return opt-out status if the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> you are generating the token for has been opted out of UID2. If this happens, save the information and do not call the token generation endpoint for the same DII again. 
 :::
