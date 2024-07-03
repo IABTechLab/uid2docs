@@ -2,7 +2,7 @@
 title: UID2 Client-Side Integration Guide for Mobile
 sidebar_label: Client-Side Integration for Mobile
 pagination_label: UID2 Client-Side Integration Guide for Mobile
-description: Setting up a mobile integration with token generate and refresh both on the client side.
+description: Client-Side でトークン生成とリフレッシュの両方を行うモバイルインテグレーションの設定。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -132,7 +132,7 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-このメソッドコールは、広告リクエストを行うために必要な値を返します: 詳細は、[Pass Generated Token for Bidstream Use](#pass-generated-token-for-bidstream-use) を参照してください。
+このメソッドコールは、広告リクエストを行うために必要な値を返します: 詳細は [Pass Generated Token for Bidstream Use](#pass-generated-token-for-bidstream-use) を参照してください。
 
 ### Testing With Your Own Configuration
 

@@ -23,7 +23,7 @@ AWS Entity Resolution を使用して UID2 とインテグレーションに関�
 
 ## Functionality
 
-以下の表は、AWS Entity Resolution インテグレーションで利用可能な機能をまとめたものです。
+次の表は、AWS Entity Resolution インテグレーションで利用可能な機能をまとめたものです。
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a Raw UID2 |
 | :--- |  :--- | :--- | :--- | :--- |
@@ -31,7 +31,7 @@ AWS Entity Resolution を使用して UID2 とインテグレーションに関�
 
 ## Integration Summary
 
-以下の表は、AWS Entity Resolution を使用して UID2 とインテグレーションする手順をまとめたものです。
+次の表は、AWS Entity Resolution を使用して UID2 とインテグレーションする手順をまとめたものです。
 
 | Step/Link | Details |
 | --- | --- |
@@ -46,7 +46,7 @@ AWS Entity Resolution を使用して UID2 とインテグレーションに関�
 
 ![AWS Entity Resolution Workflow](images/integration-aws-entity-resolution.png)
 
-以下の表は、図に示されたステップを示しています。
+次の表は、図に示されたステップを示しています。
 
 | Step | Actor | Action |
 | --- | --- | --- |
@@ -136,7 +136,7 @@ UID2 は、UID2 生成のためにメールアドレスまたは電話番号の�
 マッチングワークフローを作成するには、まず AWS Management コンソールにサインインし、**AWS Entity Resolution** ページを開き、**Workflows** > **Matching workflows** > **Create matching workflow** を選択します。次に、マッチングワークフローの以下のステップを完了します。
 
 1. 一致するワークフローについて、以下の詳細を指定します:
-   - **Name**: この値は必須です。短く、わかりやすく、直感的な名前をお勧めします。例えば、会社名を指定する場合: `CompanyName_UID2_Daily_Matching`。
+   - **Name**: この値は必須です。短く、わかりやすく、直感的な名前を勧めます。例えば、会社名を指定する場合: `CompanyName_UID2_Daily_Matching`。
    - **Description**: マッチングワークフローの説明(オプション)。
    - **Data input**: AWS のデータソース。ドロップダウンリストから、AWS Glue データベース、AWS Glue テーブル、スキーママッピングの順に選択します。データ入力は複数指定できます。以下の例では、メールアドレスのみを指定しています:
 
@@ -198,7 +198,7 @@ UID2 は、UID2 生成のためにメールアドレスまたは電話番号の�
 
 以下の手順に従って、マッチングワークフローを実行し、結果を表示します。
 
-詳細は、AWS Entity Resolution ドキュメントの [Running and managing matching workflows](https://docs.aws.amazon.com/entityresolution/latest/userguide/run-manage-matching-workflow.html) を参照してください。
+詳細は AWS Entity Resolution ドキュメントの [Running and managing matching workflows](https://docs.aws.amazon.com/entityresolution/latest/userguide/run-manage-matching-workflow.html) を参照してください。
 
 1. AWS Management コンソールにサインインし、AWS Entity Resolution ページを開き、**Workflows** > **Matching workflows** を選択します。
 

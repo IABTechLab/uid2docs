@@ -13,7 +13,7 @@ import Link from '@docusaurus/Link';
 
 ## UID2 Testing and Production Environments
 
-以下の表は、UID2 の現在のインテグレーション環境と本番環境の一覧です。
+次の表は、UID2 の現在のインテグレーション環境と本番環境の一覧です。
 
 | Environment | Cloud Region                 | Code             | Base URL                            |
 | :---------- | :--------------------------- | :--------------- | :---------------------------------- |

@@ -2,7 +2,7 @@
 title: UID2 Private Operator for AWS Integration Guide
 sidebar_label: AWS Marketplace
 pagination_label: UID2 Private Operator for AWS Integration Guide
-description: AWS の Private Operator インテグレーション情報。
+description: AWS の Private Operator インテグレーションに関する情報。
 hide_table_of_contents: false
 sidebar_position: 17
 ---
@@ -162,13 +162,13 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 
 ### Operator Version
 
-最新の ZIP ファイルは、以下の表の AWS バージョン欄にリンクされています。
+最新の ZIP ファイルは、次の表の AWS バージョン欄にリンクされています。
 
 <ReleaseMatrix />
 
 ### Stack Details
 
-以下の画像は、スタックの作成ウィザード ([デプロイ](#deployment) Step 5) の**Specify stack details**ページを示しています。以下の表は、パラメータ値のリファレンスを提供します。
+以下の画像は、スタックの作成ウィザード ([デプロイ](#deployment) Step 5) の**Specify stack details**ページを示しています。次の表は、パラメータ値のリファレンスを提供します。
 
 ![Application Configuration](images/cloudformation-step-2.png)
 
@@ -334,7 +334,7 @@ logrotate のドキュメントに従って指示に従ってください: [logr
 
 ### Additional Commands for Logging
 
-以下の表は、ログを管理するために役立つ追加のコマンドを示しています。
+次の表は、ログを管理するために役立つ追加のコマンドを示しています。
 
 | Action | Command |
 | :--- | :--- |

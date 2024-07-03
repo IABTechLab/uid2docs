@@ -9,11 +9,11 @@ import Link from '@docusaurus/Link';
 
 # UID2 Credentials
 
-UID2 <a href="/docs/intro#participants">参加者</a>はそれぞれ、固有の認証情報のセットを取得します。取得する認証情報のセットは、以下の表に示すように、UID2にどのように参加しているかによって決まります。
+UID2 <a href="/docs/intro#participants">参加者</a>はそれぞれ、固有の認証情報のセットを取得します。取得する認証情報のセットは、次の表に示すように、UID2にどのように参加しているかによって決まります。
 
 | Audience | Credentials | Integration |
 | :--- | :--- | :--- |
-| Server-Sideのエンドポイントを使用する参加者 | 以下の両方:<ul><li><Link href="../ref-info/glossary-uid#gl-api-key">APIキー</Link>、クライアントキーとも呼ばれます。</li><li><Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Service だけが知る値。</li></ul> | これらのエンドポイントのいずれかを使用するインテグレーション: <ul><li>[POST&nbsp;/identity/map](../endpoints/post-identity-map.md)</li><li>[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md)</li><li>[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)</li></ul> |
+| Server-Sideのエンドポイントを使用する参加者 | 以下の両方:<ul><li><Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link>、クライアントキーとも呼ばれます。</li><li><Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Service だけが知る値。</li></ul> | これらのエンドポイントのいずれかを使用するインテグレーション: <ul><li>[POST&nbsp;/identity/map](../endpoints/post-identity-map.md)</li><li>[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md)</li><li>[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)</li></ul> |
 | Client-Side の実装を使用する参加者 | 以下の両方: <ul><li>Subscription ID</li><li>Public key</li></ul> | これらのいずれかを使用したインテグレーション: <ul><li>[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)</li><li>[Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md)</li></ul> |
 
 本番環境だけでなくインテグレーション環境も使用している場合は、それぞれの環境用に別々の認証情報を取得します。

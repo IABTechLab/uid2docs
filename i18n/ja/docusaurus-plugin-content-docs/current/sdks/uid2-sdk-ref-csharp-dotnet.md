@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 Server-Side で UID2 SDK for C# / .NET を使用すると、以下を簡単に行うことができます:
 
-- raw UID2 を暗号化して、共有用の UID2 Token を作成する。
+- raw UID2 を暗号化して、共有用の UID2 Token を作成。
 - raw UID2 にアクセスするための UID2 Token の復号化。
 
 ## Functionality
@@ -28,7 +28,7 @@ Server-Side で UID2 SDK for C# / .NET を使用すると、以下を簡単に�
 
 SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。SDK には、使用する権限を持たない機能があるかもしれないことに留意してください。例えば、パブリッシャーはトークンの生成と更新のために特定の API Permissions を取得しますが、SDK は共有などの他のアクティビティをサポートするかもしれません。
 
-詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 ## Version
 
@@ -205,4 +205,4 @@ For a full example, see the `ExampleSharingClient` method in [SampleApp/Program.
 
 ## FAQs
 
-DSP に関するよくある質問については、 [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。
+DSP に関するよくある質問については [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。

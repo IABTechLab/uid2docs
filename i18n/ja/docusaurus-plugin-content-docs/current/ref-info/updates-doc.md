@@ -1,6 +1,6 @@
 ---
 title: Documentation Updates
-description: UID2 ドキュメントの重要な更新の概要
+description: UID2 ドキュメントの重要な更新の概要。
 hide_table_of_contents: false
 sidebar_position: 06
 ---
@@ -17,7 +17,7 @@ UID2 ドキュメンテーションリソースの最新アップデートを確
 
 UID2 とのインテグレーションを希望する CTV パブリッシャー向けに、新しいガイドを追加しました。
 
-詳細は、[CTV Integration Guide](../guides/integration-ctv-guide.md) を参照してください。
+詳細は [CTV Integration Guide](../guides/integration-ctv-guide.md) を参照してください。
 
 <!-- APIDOCS-2264 -->
 
@@ -29,7 +29,7 @@ UID2 とのインテグレーションを希望する CTV パブリッシャー�
 
 raw UID2 のリストが与えられた場合、このエンドポイントは、オプトアウトした raw UID2 と、オプトアウトが行われた時刻を返します。
 
-詳細は、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) を参照してください。
+詳細は [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) を参照してください。
 
 <!-- APIDOCS-2252 -->
 
@@ -73,7 +73,7 @@ UID2 Portal の API Keys ページでは、UID2 アカウントの API Key、関
 
 このドキュメントでは、送信者と受信者が適用される法的、セキュリティ、および技術的要件に従う場合に、raw UID2 を共有する機能など、追加の共有シナリオをサポートするようになりました。
 
-詳細は、[UID2 Sharing: Overview](../sharing/sharing-overview.md) を参照してください。
+詳細は [UID2 Sharing: Overview](../sharing/sharing-overview.md) を参照してください。
 
 <!-- APIDOCS-2134 -->
 
@@ -83,7 +83,7 @@ UID2 Portal の API Keys ページでは、UID2 アカウントの API Key、関
 
 新しい UID2 ハッシュツールを追加しました。正規化とエンコーディングが正しく行われているかどうかをチェックすることができます。
 
-詳細は、*Normalization and Encoding* ドキュメントの [UID2 Hashing Tool](../getting-started/gs-normalization-encoding#uid2-hashing-tool) を参照してください。
+詳細は *Normalization and Encoding* ドキュメントの [UID2 Hashing Tool](../getting-started/gs-normalization-encoding#uid2-hashing-tool) を参照してください。
 
 <!-- APIDOCS-1974 -->
 
@@ -129,7 +129,7 @@ UID2 home page の "ドキュメント" リンクをクリックするだけで�
 
 UID2 SDK for Java のドキュメントに、SDK を実装するパブリッシャーに役立つ新しいセクションを追加しました。
 
-詳細は、UID2 SDK for Java Reference Guide の [Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers) を参照してください。
+詳細は UID2 SDK for Java Reference Guide の [Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers) を参照してください。
 
 <!-- APIDOCS-1705 -->
 
@@ -139,7 +139,7 @@ UID2 SDK for Java のドキュメントに、SDK を実装するパブリッシ�
 
 既存の正規化とエンコードに関するドキュメントを拡張して明確にし、新しい例のセクションを追加しました。
 
-詳細は、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+詳細は [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 
 <!-- APIDOCS-1183, APIDOCS-1880 -->
 
@@ -149,7 +149,7 @@ UID2 SDK for Java のドキュメントに、SDK を実装するパブリッシ�
 
 UID2 とインテグレーションするパブリッシャーが利用できる Web インテグレーションオプションをまとめた新しいページを追加しました。
 
-詳細は、[Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
+詳細は [Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
 
 <!-- APIDOCS-1846 -->
 
@@ -159,7 +159,7 @@ UID2 とインテグレーションするパブリッシャーが利用できる
 
 UID2 Operator が何をするのか、Public Operator と Private Operator の違いについて説明したリファレンスコンテンツを追加しました。
 
-詳細は、[The UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
+詳細は [The UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
 <!-- APIDOCS-1720 -->
 
@@ -173,7 +173,7 @@ UID2 Operator が何をするのか、Public Operator と Private Operator の�
 
 さらに、既存のガイドも再編成され、簡素化されました。
 
-詳細は、以下を参照してください:
+詳細は 以下を参照してください:
 
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
@@ -185,7 +185,7 @@ UID2 Operator が何をするのか、Public Operator と Private Operator の�
 
 UID2 リクエストの暗号化とレスポンスの復号化について、追加のプログラミング言語での説明とコード例を追加しました。既存の Pythonの 例に、Java と C# を追加しました。
 
-詳細は、[Encryption and Decryption Code Examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples) を参照してください。
+詳細は [Encryption and Decryption Code Examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples) を参照してください。
 
 ### New: UID2 Private Operator for Azure Integration Guide
 
@@ -201,7 +201,7 @@ UID2 リクエストの暗号化とレスポンスの復号化について、追
 
 UID2 ウェブサイトの Getting Started セクションに新しい記事が掲載され、主要な UID2 権限、よく使う参加者のタイプ、関連する主なアクティビティについての情報が提供されています。
 
-詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 ### New: UID2 Credentials Page
 
@@ -217,7 +217,7 @@ UID2 ウェブサイトの Getting Started セクションに新しい記事が�
 
 Client-Side Integration Guide for JavaScript は、既存の URL の全く新しいドキュメントで、Client-Sideパブリッシャー実装のために UID2 SDK for JavaScript を使用する、よりシンプルな新しい方法を網羅しています。
 
-詳細は、[Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) を参照してください。
+詳細は [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) を参照してください。
 
 以前の *UID2 SDK for JavaScript Integration Guide* にあった内容は、JavaScript SDK を Server-Side に実装したいパブリッシャーのための補足文書になりました: [JavaScript Standard Integration Guide](../guides/integration-javascript-server-side.md).
 

@@ -30,7 +30,7 @@ UID2 Server-Side SDK を使用することで、以下が容易になります:
 
 SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。SDK には、使用する権限を持たない機能があるかもしれないことに留意してください。例えば、パブリッシャーはトークンの生成と更新のために特定の API Permissions を取得しますが、SDK は共有などの他のアクティビティをサポートするかもしれません。
 
-詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 ## Version
 
@@ -153,7 +153,7 @@ Decryption response codes, and their meanings, are shown in the following table.
 
 #### Client-Server Integration
 
-Client-Server インテグレーションを使用している場合 (詳細は、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください):
+Client-Server インテグレーションを使用している場合 (詳細は [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください):
 
 * Identity を JSON 文字列としてクライアントに返します (Client-Side で使用するための [identity field](../sdks/client-side-identity.md#initopts-object-void) で使用) するには、次の手順に従います:
 
@@ -167,7 +167,7 @@ Client-Server インテグレーションを使用している場合 (詳細は�
 
 ### Server-Side Integration
 
-Server-Side インテグレーションを使用している場合 (詳細は、[Publisher Integration Guide, Server-Side](../guides/custom-publisher-integration.md) を参照してください):
+Server-Side インテグレーションを使用している場合 (詳細は [Publisher Integration Guide, Server-Side](../guides/custom-publisher-integration.md) を参照してください):
 
 1. `token_generate_response.get_identity_json_string()` 関数を使用して、ユーザーのセッションに JSON 文字列としてこの Identity を保存します。
 

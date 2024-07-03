@@ -1,6 +1,6 @@
 ---
 title: Tokenized Sharing in the Bidstream
-description: ビッドストリームへの UID2 Token の共有について学びます。
+description: ビッドストリームへの UID2 Token の共有について学ぶ。
 hide_table_of_contents: false
 sidebar_position: 08
 ---
@@ -88,7 +88,7 @@ API または指定された Server-Side SDK を介して、DII から UID2 Toke
 
    1. UID2 Token を受け取ります。
    1. UID2 Token を raw UID2 に復号します。
-   1. UID2 がオプトアウトされていないことを確認します。詳細は、[Honor User Opt-Outs](../guides/dsp-guide.md#honor-user-opt-outs) を参照してください。オプトアウトされていない場合は、raw UID2 を入札に使用します。
+   1. UID2 がオプトアウトされていないことを確認します。詳細は [Honor User Opt-Outs](../guides/dsp-guide.md#honor-user-opt-outs) を参照してください。オプトアウトされていない場合は、raw UID2 を入札に使用します。
 
 以下の図は、パブリッシャーのための UID2 共有ワークフローです。
 
@@ -135,7 +135,7 @@ UID2 Token を raw UID2 に復号するには、許可された共有者であ�
 
 デフォルトでは、パブリッシャーが UID2 Token をビッドストリームに送信する場合、パブリッシャーの暗号キーはすべての承認済み DSP と共有されます。ただし、パブリッシャーが特定の共有関係を設定している場合は、パブリッシャーが共有関係を作成している場合にのみ、そのパブリッシャーの暗号キーを受け取ることができます。
 
-詳細は、[Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant) を参照してください。
+詳細は [Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant) を参照してください。
 
 暗号鍵の更新を定期的に行い、UID2 Token を速やかに復号化することが重要です。
 

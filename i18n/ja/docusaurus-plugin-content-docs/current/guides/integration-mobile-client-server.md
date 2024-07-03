@@ -2,7 +2,7 @@
 title: UID2 Client-Server Integration Guide for Mobile
 sidebar_label: Client-Server Integration for Mobile
 pagination_label: UID2 Client-Server Integration Guide for Mobile
-description: Setting up a mobile integration with token generate on server and refresh on client.
+description: トークンをサーバーで生成し、クライアントで更新するモバイルインテグレーションの設定。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -76,7 +76,7 @@ Server-Side で UID2 Token を生成する方法は、直接識別情報 (<Link 
 - Integration with an SDK
 - Direct integration to API endpoints
 
-これらのオプションは、以下の表にまとめられています。
+これらのオプションは、次の表にまとめられています。
 
 | Integration Solution  | Generate Token | Refresh Token |
 | :--- | :--- |  :--- |

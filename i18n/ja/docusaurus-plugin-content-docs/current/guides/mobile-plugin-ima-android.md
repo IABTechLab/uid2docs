@@ -1,6 +1,6 @@
 ---
 title: UID2 IMA Plugin for Android
-description:  Android アプリの広告リクエストに IMA を使用するパブリッシャー向けのガイドです。
+description:  Android アプリの広告リクエストに IMA を使用するパブリッシャー向けのガイド。
 hide_table_of_contents: false
 sidebar_position: 14
 ---

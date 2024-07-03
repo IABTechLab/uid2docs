@@ -203,10 +203,10 @@ Terraform がインストールされていない場合は、[terraform.io](http
    | Name | Type | Default | Required | Description |
    | :--- | :--- | :--- | :--- | :--- |
    | `ssl` | `bool`  | `false`| no | ロードバランサが HTTPS を使うように設定するには、このフラグを `true` に設定します。<br/>HTTPSを使う場合は `certificate` と `private_key` パラメータにも値を指定する必要があります。 |
-   | `certificate` | `string`  | n/a | no | HTTPS 証明書の内容。証明書は PEM 形式でなければなりません。<br/>例えば: `file('path/to/certificate.pem')`.<br/>`ssl` が `true` に設定されている場合は必須です。<br/>詳細は、Terraform ドキュメントの [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#certificate) を参照してください。 |
-   | `private_key` | `string`  | n/a | no | HTTPS 証明書の秘密鍵の内容。秘密鍵は PEM 形式でなければならなりません<br/>例えば: `file('path/to/private_key.pem')`. <br/>`ssl` が `true` に設定されている場合は必須です。<br/>詳細は、Terraform ドキュメントの [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#private_key) を参照してください。 |
+   | `certificate` | `string`  | n/a | no | HTTPS 証明書の内容。証明書は PEM 形式でなければなりません。<br/>例えば: `file('path/to/certificate.pem')`.<br/>`ssl` が `true` に設定されている場合は必須です。<br/>詳細は Terraform ドキュメントの [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#certificate) を参照してください。 |
+   | `private_key` | `string`  | n/a | no | HTTPS 証明書の秘密鍵の内容。秘密鍵は PEM 形式でなければならなりません<br/>例えば: `file('path/to/private_key.pem')`. <br/>`ssl` が `true` に設定されている場合は必須です。<br/>詳細は Terraform ドキュメントの [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#private_key) を参照してください。 |
 
-3. (オプション) 以下の表に示す追加の入力パラメータの名前と値を提供します。これらのパラメータは常にオプションですが、デフォルト値を変更して、より適切な要件に合わせることができます。
+3. (オプション) 次の表に示す追加の入力パラメータの名前と値を提供します。これらのパラメータは常にオプションですが、デフォルト値を変更して、より適切な要件に合わせることができます。
 
    | Name | Type | Default | Required | Description |
    | :--- | :--- | :--- | :--- | :--- |
@@ -395,7 +395,7 @@ UID2 Operator には、Operator Key が必要です。UID2 アカウントの設
 | `{INSTANCE_NAME}` | 有効な VM の名前。 |
 | `{ZONE}` | VM インスタンスがデプロイされる Google Cloud ゾーン。 |
 | `{IMAGE_FAMILY}` | `confidential-space` はインテグレーションと本番で使用し、`confidential-space-debug` はインテグレーションでのみデバッグ用に使用します。`confidential-space-debug` は本番では動作しないことに注意してください。 |
-| `{SERVICE_ACCOUNT}` | アカウント作成時に作成したサービスアカウントのメールアドレス: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>詳細は、[Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions) (Step 4) を参照してください。|
+| `{SERVICE_ACCOUNT}` | アカウント作成時に作成したサービスアカウントのメールアドレス: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>詳細は [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions) (Step 4) を参照してください。|
 | `{OPERATOR_IMAGE}` | コンフィギュレーションで使用するUID2 Private Operator for GCPのDockerイメージURL。<br/>これは、GCPダウンロードファイルの`terraform.tfvars`ファイルにあります。([Operator Versions](#operator-versions) を参照してください) |
 | `{OPERATOR_KEY_SECRET_FULL_NAME}` | Operator Key secret に指定したフルネーム ([Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager) を参照してください)。パスを含め `projects/<project_id>/secrets/<secret_id>/versions/<version>` の形式でしています。例えば: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1` |
 

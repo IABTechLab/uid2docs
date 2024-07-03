@@ -35,7 +35,7 @@ UID2 とインテグレーションするには、次の 3 つの主要なアク
 
 ## Integration Options Summary
 
-以下の表は、インテグレーションステップごとに利用可能なソリューションをまとめたものです。
+次の表は、インテグレーションステップごとに利用可能なソリューションをまとめたものです。
 
 すべてのステップを実行するには、ソリューションを組み合わせることができます。たとえば、Client-Side で UID2 SDK for JavaScript を使用してトークンを生成してリフレッシュし、Google Ad Manager Secure Signals を使用してトークンをビッドストリームに渡すことができます。
 
@@ -83,7 +83,7 @@ Client-Side で UID2 Token を生成することには、次のような利点�
 
 Client-Side のインテグレーションを選択した場合、アカウント設定の一環として、セキュリティのためにトップレベルドメインのリストを提供する必要があります。詳細については、アカウント設定ページの [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers) を参照してください。
 
-以下の表は、Client-Side で UID2 Token を生成したいパブリッシャーが、ウェブページから UID2 Token を生成するためのオプションと、それに対応するドキュメントリソースをまとめたものです。
+次の表は、Client-Side で UID2 Token を生成したいパブリッシャーが、ウェブページから UID2 Token を生成するためのオプションと、それに対応するドキュメントリソースをまとめたものです。
 
 | Option | Documentation |
 | :--- | :--- |
@@ -98,7 +98,7 @@ Server-Side で UID2 Token を生成することには、次のような利点�
 - 開発リソースがバックエンド開発者であれば、Server-Side のインテグレーションを好むかもしれません。
 - Server-Side の Prebid インテグレーションでは、バージョンが 7.53.0 以降であれば、最新の Prebid バージョンにアップデートする必要はありません。
 
-以下の表は、Server-Side で UID2 Token を生成したいパブリッシャー向けのオプションをまとめたものです。
+次の表は、Server-Side で UID2 Token を生成したいパブリッシャー向けのオプションをまとめたものです。
 
 <!-- (**GWH_SW His query: "why is Prebid.js server integration not listed here?" I thought the server-side option didn't support token/generate + per KK's diagram. Let's discuss. Affects summary table also.**) -->
 
@@ -131,7 +131,7 @@ Server-Side で UID2 Token を生成することには、次のような利点�
 
 パブリッシャーは、DII (メールアドレスや電話番号) を UID2 Token に暗号化し、UID2 Token をビッドストリームに送信することで UID2 を使用します。
 
-以下の表は、UID2 Token をビッドストリームに渡すことをサポートするインテグレーションオプションをまとめたものです。
+次の表は、UID2 Token をビッドストリームに渡すことをサポートするインテグレーションオプションをまとめたものです。
 
 | Option | Documentation |
 | :--- | :--- |

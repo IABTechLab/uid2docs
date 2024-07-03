@@ -1,6 +1,6 @@
 ---
 title: POST /optout/status
-description: Checks the opt-out status of raw UID2s.
+description: Raw UID2 のオプトアウトステータスをチェック。
 hide_table_of_contents: false
 sidebar_position: 03
 ---
@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # POST /optout/status
 
-raw UID2 のオプトアウトステータスを確認します。指定された raw UID2 のリストを使用して、このエンドポイントはオプトアウトした raw UID2 とそのオプトアウトが行われた時刻を返します。詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+raw UID2 のオプトアウトステータスを確認します。指定された raw UID2 のリストを使用して、このエンドポイントはオプトアウトした raw UID2 とそのオプトアウトが行われた時刻を返します。詳細は [User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 Used by: このエンドポイントは、主に広告主、データプロバイダー、DSP、共有者によって使用されます。一般的には、元のメールアドレスや電話番号にアクセスできないが、オプトアウトステータスを知りたい参加者向けです。
 
