@@ -64,7 +64,7 @@ You can configure the UID2 module using any one of the four accepted DII formats
 - Normalized or un-normalized email address
 - Normalized, hashed, and Base64-encoded email address
 - Normalized phone number
-- Normalized and hashed phone number
+- Normalized, hashed, and Base64-encoded phone number
 
 Notes:
 
