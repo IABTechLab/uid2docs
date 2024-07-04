@@ -85,9 +85,9 @@ const baseConfig = {
         subscriptionId: subscriptionId,
         // Choose only one of the following: email, emailHash, phone, or phoneHash
         email: 'user@example.com', // Normalized or non-normalized, unhashed email address
-        // emailHash: 'eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=', // Normalized and hashed email address
-        // phone: '+1111111111', // Normalized phone number
-        // phoneHash: 'eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=', // Normalized and hashed phone number
+        // emailHash: 'tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=', // Normalized, hashed, and encoded email address
+        // phone: '+12345678901', // Normalized phone number
+        // phoneHash: 'EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=', // Normalized, hashed, and encoded phone number
       }
     }]
   }

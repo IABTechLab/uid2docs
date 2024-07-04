@@ -68,24 +68,24 @@ The following are unencrypted JSON request body examples for each parameter, one
 ```json
 {
     "email_hash":[
-        "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
-        "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
+        "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=",
+        "KzsrnOhCq4tqbGFMsflgS7ig1QLRr0nFJrcrEIlOlbU="
     ]
 }
 ```
 ```json
 {
     "phone":[
-        "+1111111111",
-        "+2222222222"
+        "+12345678901",
+        "+441234567890"
     ]
 }
 ```
 ```json
 {
     "phone_hash":[
-        "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
-        "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
+        "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=",
+        "Rx8SW4ZyKqbPypXmswDNuq0SPxStFXBTG/yvPns/2NQ="
     ]
 }
 ```
@@ -93,7 +93,7 @@ The following are unencrypted JSON request body examples for each parameter, one
 Here's an encrypted identity mapping request example for a phone number:
 
 ```sh
-echo '{"phone": ["+1111111111", "+2222222222"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk= DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
+echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk= DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
 ```
 
 For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
@@ -111,12 +111,12 @@ A successful decrypted response returns the raw UID2s and salt bucket IDs for th
     "body":{
         "mapped": [
             {
-                "identifier": "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
+                "identifier": "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=",
                 "advertising_id": "AdvIvSiaum0P5s3X/7X8h8sz+OhF2IG8DNbEnkWSbYM=",
                 "bucket_id": "a30od4mNRd"
             },
             {
-                "identifier": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=",
+                "identifier": "Rx8SW4ZyKqbPypXmswDNuq0SPxStFXBTG/yvPns/2NQ=",
                 "advertising_id": "IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ=",
                 "bucket_id": "ad1ANEmVZ"
             }
@@ -133,7 +133,7 @@ If some identifiers are considered invalid, they are included in the response in
     "body":{
         "mapped": [
             {
-                "identifier": "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
+                "identifier": "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=",
                 "advertising_id": "AdvIvSiaum0P5s3X/7X8h8sz+OhF2IG8DNbEnkWSbYM=",
                 "bucket_id": "a30od4mNRd"
             }
@@ -156,7 +156,7 @@ If some identifiers have opted out from the UID2 ecosystem, the opted-out identi
     "body":{
         "mapped": [
             {
-                "identifier": "eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=",
+                "identifier": "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=",
                 "advertising_id": "AdvIvSiaum0P5s3X/7X8h8sz+OhF2IG8DNbEnkWSbYM=",
                 "bucket_id": "a30od4mNRd"
             }

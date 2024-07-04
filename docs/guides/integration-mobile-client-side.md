@@ -389,7 +389,7 @@ The following example configures the UID2 SDK with a hashed email address.
 ```js
 UID2Manager.getInstance().generateIdentity(
     IdentityRequest.EmailHash(
-        “eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=”
+        "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="
     ),
     subscriptionId,
     publicKey,
@@ -408,7 +408,7 @@ UID2Manager.getInstance().generateIdentity(
 Task<Void, Never> {
     do {
         try await UID2Manager.shared.generateIdentity(
-            .emailHash("eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc="),
+            .emailHash("EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="),
             subscriptionID: subscriptionID,
             serverPublicKey: serverPublicKeyString
         )
@@ -436,7 +436,7 @@ The following example configures the UID2 mobile SDK with a phone number.
 
 ```js
 UID2Manager.getInstance().generateIdentity(
-    IdentityRequest.Phone(“+1111111111”),
+    IdentityRequest.Phone("+12345678901"),
     subscriptionId,
     publicKey,
 ) { result ->
@@ -456,7 +456,7 @@ struct InvalidPhoneError: Error, LocalizedError {
 }
 Task<Void, Never> {
     do {
-        guard let normalizedPhone = IdentityType.NormalizedPhone(normalized: "+1111111111") else {
+        guard let normalizedPhone = IdentityType.NormalizedPhone(normalized: "+12345678901") else {
             throw InvalidPhoneError() // Phone number is not normalized according to ITU E.164.
         }
         try await UID2Manager.shared.generateIdentity(
@@ -481,7 +481,7 @@ In this scenario:
 </TabItem>
 <TabItem value='example_phone_hash' label='Phone Number, Normalized and Hashed'>
 
-The following example configures the UID2 mobile SDK with a hashed phone number.
+The following example configures the UID2 mobile SDK with a hashed and Base64-encoded phone number.
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -489,7 +489,7 @@ The following example configures the UID2 mobile SDK with a hashed phone number.
 ```js
 UID2Manager.getInstance().generateIdentity(
     IdentityRequest.PhoneHash(
-        “eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=”
+        "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="
     ),
     subscriptionId,
     publicKey,
@@ -508,7 +508,7 @@ UID2Manager.getInstance().generateIdentity(
 Task<Void, Never> {
     do {
         try await UID2Manager.shared.generateIdentity(
-            .phoneHash("eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc="),
+            .phoneHash("EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="),
             subscriptionID: subscriptionID,
             serverPublicKey: serverPublicKeyString
         )
