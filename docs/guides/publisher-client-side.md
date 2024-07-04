@@ -211,7 +211,7 @@ The following example configures the UID2 SDK with a hashed email address.
 
 ```js
 await __uid2.setIdentityFromEmailHash(
-    'eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=',
+    'lz3+Rj7IV4X1+Vr1ujkG7tstkxwk5pgkqJ6mXbpOgTs=',
     {
         subscriptionId: subscriptionId,
         serverPublicKey: publicKey,
@@ -230,7 +230,7 @@ The following example configures the UID2 SDK with a phone number.
 
 ```js
 await __uid2.setIdentityFromPhone(
-    '+1111111111',
+    '+12345678901',
     {
         subscriptionId: subscriptionId,
         serverPublicKey: publicKey,
@@ -249,7 +249,7 @@ The following example configures the UID2 SDK with a hashed phone number:
 
 ```js
 await __uid2.setIdentityFromPhoneHash(
-    'eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=',
+    'EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=',
     {
         subscriptionId: subscriptionId,
         serverPublicKey: publicKey,
@@ -258,7 +258,7 @@ await __uid2.setIdentityFromPhoneHash(
 ```
 
 In this scenario:
-- **The publisher is responsible for normalizing and hashing the phone number**. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+- **The publisher is responsible for normalizing, hashing, and Base64-encoding the phone number**. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
 - The UID2 SDK encrypts the hash before sending it to the UID2 service.
 
 </TabItem>

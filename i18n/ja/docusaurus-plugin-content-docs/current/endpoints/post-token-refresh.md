@@ -1,6 +1,6 @@
 ---
 title: POST /token/refresh
-description: Refresh Token を使用して、更新された UID2 Token を生成します。
+description: Refresh Token を使用して、更新された UID2 Token を生成。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -29,7 +29,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 - トークン更新のリクエストには暗号化は必要ありません。
 - リクエストが HTTP ステータスコード 200 で成功すると、新しい UID2 Token または Out-Out 情報が返されます。
-- 成功したレスポンスは、そのレスポンスに新しいトークンまたは Opt-Out 情報が含まれているかどうかにかかわらず暗号化されます。エラー・レスポンスは暗号化されません。
+- 成功したレスポンスは、そのレスポンスに新しいトークンまたは Opt-Out 情報が含まれているかどうかにかかわらず暗号化されます。エラーレスポンスは暗号化されません。
 - レスポンスを復号化するには、このトークンに対する最新の `refresh_response_key` 値を使用します。`refresh_response_key` の値は、[POST&nbsp;/token/generate](post-token-generate.md) と `POST /token/refresh` のレスポンスで返されます。トークンがリフレッシュされるたびに、新しい `refresh_response_key` が返されます。現在のレスポンスを復号化するには、必ず最新のものを使用してください。
 
 ### Path Parameters
@@ -128,4 +128,4 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 | `expired_token` | 400              | リクエストで指定された `refresh_token` 値は期限切れのトークンです。 |
 | `unauthorized`  | 401              | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
-`status` の値が `success` または `optout` 以外であれば、 `message` フィールドにその問題に関する追加情報が表示されます。
+`status` の値が `success` または `optout` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。

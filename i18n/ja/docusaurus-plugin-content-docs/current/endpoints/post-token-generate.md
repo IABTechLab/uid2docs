@@ -1,6 +1,6 @@
 ---
 title: POST /token/generate
-description: DII から UID2 Token (Advertising Token) を生成します。 
+description: DII から UID2 Token (Advertising Token) を生成。 
 hide_table_of_contents: false
 sidebar_position: 02
 ---
@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # POST /token/generate
 
-ユーザーの <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (メールアドレスまたは電話番号) から UID2 Token を生成する。DII が有効で、ユーザーがUID2をオプトアウトしていない場合、UID2 Token と関連する値を返します。
+ユーザーの <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (メールアドレスまたは電話番号) から UID2 Token を生成します。DII が有効で、ユーザーがUID2をオプトアウトしていない場合、UID2 Token と関連する値を返します。
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
@@ -27,7 +27,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 このエンドポイントリクエストについて知っておくべきことは、以下のとおりです:
 - サービスにアクセスする際に使用する <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link> を秘密にするため、 UID2 Token は認証後に Server-Side でのみ生成する必要があります。
-- すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、 [リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+- すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は [リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ### Path Parameters
 
@@ -152,7 +152,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","optout_chec
 | `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。 |
 | `unauthorized` | 401 | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
-`status` の値が `success` 以外であれば、 `message` フィールドにその問題に関する追加情報が表示されます。
+`status` の値が `success` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。
 
 ## Test Identities
 

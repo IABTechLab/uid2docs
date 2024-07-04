@@ -49,14 +49,14 @@ UID2 Portal アカウントをリクエストする際には、自分自身と�
 
 UID2 Service を使用するには、キーのセットが必要です。Client-Side または Server-Side でインテグレーションを行うかによって、キーの種類が異なります。会社のアカウントにアクセスできると、UID2 Portal を使用してキーを取得できます。
 
-以下の表に、インテグレーションオプションが示されています。
+次の表に、インテグレーションオプションが示されています。
 
 | Integration | Examples | Instructions |
 | :--- | :--- | :--- |
-| Client-Side インテグレーション | **広告主** はトラッキングピクセル用に Client-Side で UID2 Token を生成します。<br/>**パブリッシャー** は <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> 用に Client-Side で UID2 Token を生成します。| **Client-Side Integration** ページに移動し、キーペアとルートレベルドメインを設定します。<br/>詳細は、[Client-Side Integration](client-side-integration.md) を参照してください。 |
-| Server-Side インテグレーション | **広告主** はオーディエンスターゲティングのために配信される raw UID2 を生成します。<br/>**パブリッシャー** は<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>ように Server-Side で UID2 Token を生成します。| **API Keys** ページに移動し、少なくとも1組の認証情報を生成します。API Key を追加すると、シークレットとキーの2つの値が割り当てられます。<br/>詳細は、[API Keys](api-keys.md) を参照してください。 |
+| Client-Side インテグレーション | **広告主** はトラッキングピクセル用に Client-Side で UID2 Token を生成します。<br/>**パブリッシャー** は <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> 用に Client-Side で UID2 Token を生成します。| **Client-Side Integration** ページに移動し、キーペアとルートレベルドメインを設定します。<br/>詳細は [Client-Side Integration](client-side-integration.md) を参照してください。 |
+| Server-Side インテグレーション | **広告主** はオーディエンスターゲティングのために配信される raw UID2 を生成します。<br/>**パブリッシャー** は<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>ように Server-Side で UID2 Token を生成します。| **API Keys** ページに移動し、少なくとも1組の認証情報を生成します。API Key を追加すると、シークレットとキーの2つの値が割り当てられます。<br/>詳細は [API Keys](api-keys.md) を参照してください。 |
 
-参加者の中には、Client-Side と Server-Side の両方のインテグレーションを使用するかもしれません。例えば、広告主はピクセルのために Client-Side で UID2 Token を生成 ([Client-Side Integration](client-side-integration.md)) し、raw UID2 の生成は、 Server-Side でインテグレーションします ([API Keys](api-keys.md))。
+参加者の中には、Client-Side と Server-Side の両方のインテグレーションを使用するかもしれません。例えば、広告主はピクセルのために Client-Side で UID2 Token を生成 ([Client-Side Integration](client-side-integration.md)) し、raw UID2 の生成は、Server-Side でインテグレーションします ([API Keys](api-keys.md))。
 
 ## Log In for the First Time
 
@@ -117,7 +117,7 @@ UID2 Service を使用するには、キーのセットが必要です。Client-
 - チームメンバーを設定します。
 - UID2 の最新の更新とリリースに関する通知を受け取るべき人物の情報を追加します。
 
-以下の表に、必要な情報と手順へのリンクが示されています。
+次の表に、必要な情報と手順へのリンクが示されています。
 
 | Item | Details | Link to Instructions | 
 | :--- | :--- | :--- |

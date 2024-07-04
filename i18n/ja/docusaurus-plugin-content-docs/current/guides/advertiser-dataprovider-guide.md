@@ -53,7 +53,7 @@ raw UID2 は、特定の時点のユーザーに対する識別子です。特�
 | Step | Endpoint | Description |
 | --- | --- | --- |
 | 3-a  | [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) | 特定のタイムスタンプ以降に変更されたすべてのソルトバケットについて、バケットステータスエンドポイントにリクエストを送信します。 |
-| 3-b  | [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) | UID2 service: バケットステータスエンドポイントは、 `bucket_id` と `last_updated` のタイムスタンプのリストを返します。 |
+| 3-b  | [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) | UID2 service: バケットステータスエンドポイントは `bucket_id` と `last_updated` のタイムスタンプのリストを返します。 |
 | 3-c  | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md)         | 返された`bucket_id`を、キャッシュしておいた raw UID2 のソルトバケットと比較します。<br/>1 つ以上の raw UID2 についてソルトバケットが更新されていることがわかったら、新しい raw UID2 について ID マッピングサービスに DII を再送信します。 |
 | 3-d  | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md)         | `advertising_id`と`bucket_id`に返された新しい値を保存します。 |
 

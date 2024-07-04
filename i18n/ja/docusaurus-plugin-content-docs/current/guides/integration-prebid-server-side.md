@@ -59,7 +59,7 @@ UID2 Prebid モジュールを設定して、以下の2つのアクションを�
 
 | Step | Action | Link to Instructions |
 | --- | --- | --- |
-| 1 | Server-Side API コールを送信して UID2 Token を生成する。 | [Generating a UID2 Token on the Server](#generating-a-uid2-token-on-the-server) |
+| 1 | Server-Side API コールを送信して UID2 Token を生成します。 | [Generating a UID2 Token on the Server](#generating-a-uid2-token-on-the-server) |
 | 2 | Prebid module がトークンのリフレッシュと必要に応じてオプトアウトを管理できるように、レスポンス値を保存します。 | [Refreshing a UID2 Token](#refreshing-a-uid2-token) |
 
 ### Generating a UID2 Token on the Server
@@ -273,7 +273,7 @@ if (!pbjs.getUserIds().uid2) {
 
 ## Checking the Integration
 
-UID2 Module に有効な UID2 Token があるかどうかを確認するには、 `pbjs.getUserIds().uid2` を呼び出します。値が返された場合、UID2 Module に有効な UID2 Token が存在します。
+UID2 Module に有効な UID2 Token があるかどうかを確認するには `pbjs.getUserIds().uid2` を呼び出します。値が返された場合、UID2 Module に有効な UID2 Token が存在します。
 
 インテグレーションに問題がある場合、以下のような手順があります:
 

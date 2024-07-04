@@ -1,6 +1,6 @@
 ---
 title: Raw UID2 Sharing
-description: 信頼できる他の共有参加者と raw UID2 を共有する方法について学びます。
+description: 信頼できる他の共有参加者と raw UID2 を共有する方法について学ぶ。
 hide_table_of_contents: false
 sidebar_position: 08
 ---

@@ -31,7 +31,7 @@ UID2 SDK for Java を使用すると、以下が容易になります:
 
 SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。SDK には、使用する権限を持たない機能があるかもしれないことに留意してください。例えば、パブリッシャーはトークンの生成と更新のために特定の API Permissions を取得しますが、SDK は共有などの他のアクティビティをサポートするかもしれません。
 
-詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 ## Version
 
@@ -49,7 +49,7 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 ## Initialization
 
-初期化ステップは、以下の表に示すように、役割によって異なります。
+初期化ステップは、次の表に示すように、役割によって異なります。
 
 | Role                     | Create Instance of Class | Link to Instructions                                                         |
 |:-------------------------| :--- |:-----------------------------------------------------------------------------|
@@ -79,7 +79,7 @@ SDK を使用する際に、復号鍵を保存したり管理したりする必�
 
 ### Encryption Response Content
 
-`SharingClient` クラスで暗号化する場合、SDKは以下の表に示す情報を返します。
+`SharingClient` クラスで暗号化する場合、SDK は次の表に示す情報を返します。
 
 | Method | Description |
 | :--- | :--- |
@@ -88,7 +88,7 @@ SDK を使用する際に、復号鍵を保存したり管理したりする必�
 
 ### Encryption Response Statuses
 
-暗号化レスポンスコードとその意味は以下の表の通りです。
+暗号化レスポンスコードとその意味は次の表の通りです。
 
 | Value | Description |
 | :--- | :--- |
@@ -101,7 +101,7 @@ SDK を使用する際に、復号鍵を保存したり管理したりする必�
 
 ### Decryption Response Content
 
-`BidstreamClient` クラスと `SharingClient` クラスのどちらで復号化しても、SDKは以下の表に示す情報を返します。
+`BidstreamClient` クラスと `SharingClient` クラスのどちらで復号化しても、SDK は次の表に示す情報を返します。
 
 | Methods | Description |
 | :--- | :--- |
@@ -111,7 +111,7 @@ SDK を使用する際に、復号鍵を保存したり管理したりする必�
 
 ### Decryption Response Statuses
 
-復号化レスポンスコードとその意味は以下の表の通りです。
+復号化レスポンスコードとその意味は次の表の通りです。
 
 | Value | Description |
 | :--- | :--- |
@@ -420,4 +420,4 @@ else
 
 ## FAQs
 
-DSP に関するよくある質問については、 [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。
+DSP に関するよくある質問については [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。

@@ -2,7 +2,7 @@
 title: UID2 Client-Side Integration Guide for Mobile
 sidebar_label: Client-Side Integration for Mobile
 pagination_label: UID2 Client-Side Integration Guide for Mobile
-description: Setting up a mobile integration with token generate and refresh both on the client side.
+description: Client-Side でトークン生成とリフレッシュの両方を行うモバイルインテグレーションの設定。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -134,7 +134,7 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-このメソッドコールは、広告リクエストを行うために必要な値を返します: 詳細は、[Pass Generated Token for Bidstream Use](#pass-generated-token-for-bidstream-use) を参照してください。
+このメソッドコールは、広告リクエストを行うために必要な値を返します: 詳細は [Pass Generated Token for Bidstream Use](#pass-generated-token-for-bidstream-use) を参照してください。
 
 ### Testing With Your Own Configuration
 
@@ -389,7 +389,7 @@ Task<Void, Never> {
 ```js
 UID2Manager.getInstance().generateIdentity(
     IdentityRequest.EmailHash(
-        “eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=”
+        "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="
     ),
     subscriptionId,
     publicKey,
@@ -408,7 +408,7 @@ UID2Manager.getInstance().generateIdentity(
 Task<Void, Never> {
     do {
         try await UID2Manager.shared.generateIdentity(
-            .emailHash("eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc="),
+            .emailHash("EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="),
             subscriptionID: subscriptionID,
             serverPublicKey: serverPublicKeyString
         )
@@ -436,7 +436,7 @@ Task<Void, Never> {
 
 ```js
 UID2Manager.getInstance().generateIdentity(
-    IdentityRequest.Phone(“+1111111111”),
+    IdentityRequest.Phone("+12345678901"),
     subscriptionId,
     publicKey,
 ) { result ->
@@ -456,7 +456,7 @@ struct InvalidPhoneError: Error, LocalizedError {
 }
 Task<Void, Never> {
     do {
-        guard let normalizedPhone = IdentityType.NormalizedPhone(normalized: "+1111111111") else {
+        guard let normalizedPhone = IdentityType.NormalizedPhone(normalized: "+12345678901") else {
             throw InvalidPhoneError() // Phone number is not normalized according to ITU E.164.
         }
         try await UID2Manager.shared.generateIdentity(
@@ -489,7 +489,7 @@ Task<Void, Never> {
 ```js
 UID2Manager.getInstance().generateIdentity(
     IdentityRequest.PhoneHash(
-        “eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=”
+        "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="
     ),
     subscriptionId,
     publicKey,
@@ -508,7 +508,7 @@ UID2Manager.getInstance().generateIdentity(
 Task<Void, Never> {
     do {
         try await UID2Manager.shared.generateIdentity(
-            .phoneHash("eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc="),
+            .phoneHash("EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="),
             subscriptionID: subscriptionID,
             serverPublicKey: serverPublicKeyString
         )

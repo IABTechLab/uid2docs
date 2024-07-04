@@ -19,7 +19,7 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 
 ## Functionality
 
-次の図と表は、Snowflake での UID2 インテグレーションプロセスの異なる部分とワークフローを示しています。
+次の表は、UID2 Snowflake インテグレーション で利用可能な機能をまとめたものです。
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a Raw UID2 |
 | :--- |  :--- | :--- | :--- | :--- |
@@ -64,7 +64,7 @@ UID2 Share へのアクセスを要求するには、次の手順を実行しま
 4. The Trade Desk の既存顧客で _Advertiser_ Identity Solution に興味がある場合は、データリクエストフォームの **Message** 欄に The Trade Desk が発行したパートナー ID および広告主 ID を記載してください。
 5. フォームを送信します。
 
-リクエストを受け取った後、UID2 Administrator が適切なアクセス方法をご連絡します。Snowflake でのデータリクエストの管理についての詳細は、[Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html) を参照してください。
+リクエストを受け取った後、UID2 Administrator が適切なアクセス方法をご連絡します。Snowflake でのデータリクエストの管理についての詳細は [Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html) を参照してください。
 
 
 ## Shared Objects
@@ -73,7 +73,7 @@ UID2 Share へのアクセスを要求するには、次の手順を実行しま
 
 - `FN_T_UID2_IDENTITY_MAP` ([Map DII](#map-dii) を参照してください)
 
-以下の関数は非推奨となり、`FN_T_UID2_IDENTITY_MAP` が優先されます。これらの関数はまだ使用できますが、  `FN_T_UID2_IDENTITY_MAP` の方が優れています。すでにこれらの関数を使用している場合は、できるだけ早くアップグレードすることをお勧めします。
+以下の関数は非推奨となり、`FN_T_UID2_IDENTITY_MAP` が優先されます。これらの関数はまだ使用できますが、  `FN_T_UID2_IDENTITY_MAP` の方が優れています。すでにこれらの関数を使用している場合は、できるだけ早くアップグレードすることを勧めます。
 
 - `FN_T_UID2_IDENTITY_MAP_EMAIL` (非推奨)
 - `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (非推奨)
@@ -88,7 +88,7 @@ UID2 Sharing 参加者には、以下の機能も利用できます:
 - `FN_T_UID2_ENCRYPT` (See [Encrypt Tokens](#encrypt-tokens))
 - `FN_T_UID2_DECRYPT` (See [Decrypt Tokens](#decrypt-tokens))
 
-詳細は、[Usage for UID2 Sharers](#usage-for-uid2-sharers) を参照してください。
+詳細は [Usage for UID2 Sharers](#usage-for-uid2-sharers) を参照してください。
 
 ### Database and Schema Names
 
@@ -206,7 +206,7 @@ select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID, UNMAPPED from AUDIENCE a LEFT JOIN(
 
 複数のメールアドレスに対するクエリー結果:
 
-以下の表は、`NULL` または不適切な書式のメールアドレスに対する `NULL` 値を含む、 レスポンスの各項目です。
+次の表は、`NULL` または不適切な書式のメールアドレスに対する `NULL` 値を含む、レスポンスの各項目です。
 
 ```
 +----+--------------------+----------------------------------------------+------------+--------------------+
@@ -332,7 +332,7 @@ select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT 
 
 複数のハッシュ化されたメールアドレスに対するクエリー結果:
 
-以下の表は、`NULL` ハッシュの `NULL` 値を含め、レスポンスの各項目を示しています。
+次の表は、`NULL` ハッシュの `NULL` 値を含め、レスポンスの各項目を示しています。
 
 ```
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
@@ -392,7 +392,7 @@ select a.ID, a.PHONE_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT 
 
 複数のハッシュ化された電話番号に対するクエリー結果:
 
-以下の表は、`NULL` ハッシュの `NULL` 値を含め、レスポンスの各項目を示しています。
+次の表は、`NULL` ハッシュの `NULL` 値を含め、レスポンスの各項目を示しています。
 
 ```
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
@@ -456,7 +456,7 @@ select a.*, b.LAST_SALT_UPDATE_UTC
 
 クエリー結果:
 
-以下の表は、レスポンスに含まれる各項目を表たものです。以下の ID1 の例で示すように、結果には EMAIL、`UID2`、`BUCKET_ID`、`LAST_UID2_UPDATE_UTC`、`LAST_SALT_UPDATE_UTC`が含まれます。ID 2 は、対応する UID2 が最後のバケット更新の後に生成されたため、情報は返されません。ID 3 は、UID2 が存在しないため、`NULL`値が返されます。
+次の表は、レスポンスに含まれる各項目を表たものです。以下の ID1 の例で示すように、結果には EMAIL、`UID2`、`BUCKET_ID`、`LAST_UID2_UPDATE_UTC`、`LAST_SALT_UPDATE_UTC`が含まれます。ID 2 は、対応する UID2 が最後のバケット更新の後に生成されたため、情報は返されません。ID 3 は、UID2 が存在しないため、`NULL`値が返されます。
 
 ```
 +----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
@@ -469,7 +469,7 @@ select a.*, b.LAST_SALT_UPDATE_UTC
 
 ## Migration Guide
 
-`FN_T_UID2_IDENTITY_MAP_EMAIL` 関数と `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用している場合は、できるだけ早く `FN_T_UID2_IDENTITY_MAP` 関数に移行することをお勧めします。この関数は、他の2つの関数が行うことをすべて行い、その他の改良も組み込まれています。
+`FN_T_UID2_IDENTITY_MAP_EMAIL` 関数と `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用している場合は、できるだけ早く `FN_T_UID2_IDENTITY_MAP` 関数に移行することを勧めます。この関数は、他の2つの関数が行うことをすべて行い、その他の改良も組み込まれています。
 
 `FN_T_UID2_IDENTITY_MAP` 関数の利点:
 
@@ -610,7 +610,7 @@ select a.RAW_UID2, t.UID2_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, 
 
 複数の raw UID2 に対するクエリー結果:
 
-以下の表は、raw UID2 が `NULL` の場合の `NULL` 値を含め、レスポンスの各項目を示しています。
+次の表は、raw UID2 が `NULL` の場合の `NULL` 値を含め、レスポンスの各項目を示しています。
 
 ```
 +----+----------------------------------------------+-----------------------+-----------------------------+
@@ -703,7 +703,7 @@ select a.ID, b.UID2, b.SITE_ID, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' E
 
 複数の UID2 Token に対するクエリー結果:
 
-以下の表は、`NULL` 値や期限切れの UID2 Token など、レスポンスの各項目を示しています。
+次の表は、`NULL` 値や期限切れの UID2 Token など、レスポンスの各項目を示しています。
 
 ```
 +----+----------------------------------------------+----------+-------------------+

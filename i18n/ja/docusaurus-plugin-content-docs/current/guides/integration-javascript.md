@@ -27,7 +27,7 @@ UID2 は、以下をサポートする JavaScript 用の SDK を提供してい�
 
 ## Client-Side or Client-Server Integration
 
-UID2 SDK for JavaScript を使って UID2 とインテグレーションするためのオプションを、以下の表にまとめました。最適なオプションを選択してください。
+UID2 SDK for JavaScript を使って UID2 とインテグレーションするためのオプションを、次の表にまとめました。最適なオプションを選択してください。
 
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |

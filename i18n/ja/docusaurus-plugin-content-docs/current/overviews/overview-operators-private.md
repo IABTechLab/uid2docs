@@ -4,7 +4,7 @@ description: Private Operator 向けの情報の概要。
 hide_table_of_contents: false
 use_banner: true
 banner_title: Private Operator 向け UID2 の概要
-banner_description: プライベート環境で DII から UID2 を生成するプロセスを説明します。
+banner_description: プライベート環境で DII から UID2 を生成するプロセスの説明。
 ---
 
 import Link from '@docusaurus/Link';
@@ -28,7 +28,7 @@ UID2 に Private Operator として参加することの利点を次に示しま
 
 Private Operator を選択した場合、いくつかの実施オプションがあります。以下のいずれかを実行できます:
 
-- クラウドサービスのセットアップを使用する。UID2 は、以下のクラウドサービスプロバイダー上の <Link href="../ref-info/glossary-uid#gl-enclave">enclave</Link> で UID2 をホスティングすることをサポートしています(実装の難易度は中程度):
+- クラウドサービスのセットアップを使用します。UID2 は、以下のクラウドサービスプロバイダー上の <Link href="../ref-info/glossary-uid#gl-enclave">enclave</Link> で UID2 をホスティングすることをサポートしています(実装の難易度は中程度):
   - Amazon Web Services (AWS)
   - Microsoft Azure
   - Google Cloud Platform (GCP)
@@ -42,7 +42,7 @@ Private Operator を選択した場合、いくつかの実施オプションが
 4. 選択したオプションの実装ガイドに記載されている手順に従います。
 
     :::note
-    UID2 へのリクエストメッセージは必ず暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+    UID2 へのリクエストメッセージは必ず暗号化してください。詳細は [リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
     :::
 5. テストします。
 6. 本番稼働します。

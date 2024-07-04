@@ -14,6 +14,7 @@ In the UID2 Portal, on the **API Keys** page, you can perform all activities rel
 - [Adding an API Key](#adding-an-api-key)
 - [Modifying an API Key](#modifying-an-api-key)
 - [Deleting an API Key](#deleting-an-api-key)
+- [Rotating an API Key](#rotating-an-api-key)
 
 ## Overview
 
@@ -85,8 +86,20 @@ Be sure that your implementation is updated with a new key before deleting an ac
 
 To delete an API key, follow these steps:
 
+1. In the UID2 Portal, go to the **API Keys** page.
 1. Find the key on the list and then, in the Actions column, click ![the Delete icon](images/icon-trash-can-solid.png) (the Delete icon).
 1. At the confirmation message, type the API key to confirm that you want to delete it. You can copy and paste from the display.
 2. Click **Delete Key**.
 
    The key is removed from the display and is no longer valid.
+
+## Rotating an API key
+
+We recommend rotating each API key on a yearly basis. To rotate an API key, follow these steps:
+
+1. In the UID2 Portal, go to the **API Keys** page.
+1. Find the key in the list that needs to be rotated.
+1. Add a new key with the same permissions as the key that needs to be rotated. For details, see [Adding an API Key](#adding-an-api-key).
+1. Update your UID2 implementation to use the new key instead of the key that needs to be rotated.
+1. Ensure the new key is being used without issues, For example, make sure there is no degradation to the service or error logs related to the API key usage.
+1. Delete the old key. For details, see [Deleting an API Key](#deleting-an-api-key).
