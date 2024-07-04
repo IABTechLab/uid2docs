@@ -1,0 +1,194 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+このセクションは、UID2 とインテグレーションし、Android <!-- および iOS -->アプリケーションでヘッダービディングを行うために [Prebid Mobile SDK](https://prebid.org/product-suite/prebid-mobile/) を使用したい参加者向けです。
+
+UID2 Prebid インテグレーションは、`UID2Identity` の状態を監視します。状態が変化すると、Prebid インテグレーションは自動的に Prebid の外部ユーザー ID を更新します。これには、新しい Advertising Token が生成される場合も含まれます。
+
+Prebid は、UID2 Token を RTB ビッドストリームに送信し、設定した他の外部ユーザー ID とともに送信します。
+
+:::note
+このインテグレーションには、Prebid Server のセットアップが必要です。
+:::
+
+UID2 Prebid の設定手順については、以下の手順に従ってください。
+
+1. [Prebid SDK Integration for Android](https://docs.prebid.org/prebid-mobile/pbm-api/android/code-integration-android.html) の手順に従って、Android 向け Prebid の Mobile SDK をセットアップします。
+
+2. [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app) の手順に従って、UID2 Mobile SDK をアプリに追加します。
+
+3. UID2 Prebid インテグレーションは別のモジュールとして配布されているため、プロジェクトの依存関係として追加する必要があります。以下のオプションのいずれかに適用されるインストール手順に従ってください。
+
+   - **Gradle**: Gradle の設定に以下を含めます:
+      ```js
+      implementation("com.uid2:uid2-android-sdk-prebid:1.4.0")
+      ```
+
+   - **Maven**: Maven でインストールする場合は、`pom.xml` ファイルに SDK を依存関係として追加します:
+      ```xml
+      <dependency>
+         <groupId>com.uid2</groupId>
+         <artifactId>uid2-android-sdk-prebid</artifactId>
+         <version>1.4.0</version>
+      </dependency>
+      ```
+
+4. 依存関係を追加した後、インテグレーションを設定する必要があります。最初に `UID2Manager` を初期化し、次に Prebid を初期化します。以下の例に示すように、これらの手順を実行します。
+
+   <Tabs groupId="language-selection">
+   <TabItem value='android' label='Android Kotlin'>
+   ```js
+   UID2Manager.init(context = this)
+
+   PrebidMobile.initializeSdk(this) { Log.i(TAG, "Prebid: $it") }
+   prebid = UID2Prebid().apply {
+       initialize()
+   }
+   ```
+   </TabItem>
+   <TabItem value='android-java' label='Android Java'>
+   ```js
+   UID2Manager.init(this);
+
+   PrebidMobile.initializeSdk(this, status -> Log.i(TAG, "Prebid: " + status));
+
+   prebid = new UID2Prebid();
+   prebid.initialize();
+   ```
+   </TabItem>
+   </Tabs>
+
+5. 初期化中に渡されるコールバックを設定します。
+
+   UID2 Prebid インテグレーションは、新しい ID が生成されるか、既存のトークンがリフレッシュされると、Prebid を定期的に更新して関連する外部 ID を設定します。
+
+   このプロセスは破壊的であり、アプリケーションが他のソースから外部 ID を使用している場合は、UID2 Token が更新される際にすべての外部 ID が保持されるように、UID2 Prebid インテグレーションにそれらを提供する必要があります。
+
+   これは、初期化中に渡されるコールバックを介して行われます。以下の例に示すように、初期化中に渡されるコールバックを設定します。
+
+   <Tabs groupId="language-selection">
+   <TabItem value='android' label='Android Kotlin'>
+   ```js
+   prebid = UID2Prebid(
+       externalUserIdFactory = ::getExternalIds,
+   ).apply {
+       initialize()
+   }
+   ```
+   </TabItem>
+   <TabItem value='android-java' label='Android Java'>
+   ```js
+   prebid = new UID2Prebid(UID2Manager.getInstance(), () -> getExternalIds());
+   prebid.initialize();
+   ```
+   </TabItem>
+   </Tabs>
+
+<!-- 
+1. Set up Prebid's Mobile SDK for Android, following the steps in [Prebid SDK Integration for Android](https://docs.prebid.org/prebid-mobile/pbm-api/android/code-integration-android.html).
+
+2. Add the UID2 Mobile SDK to your app, following the steps in [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app).
+
+3. The UID2 Prebid integration is distributed as a separate module, so you must add it as a dependency in your project. Follow the installation instructions that apply to your integration, out of the following options.
+
+   <Tabs groupId="language-selection">
+   <TabItem value='android' label='Android'>
+   #### Installing with Gradle
+   Include the following in your Gradle configuration:
+   ```js
+   implementation("com.uid2:uid2-android-sdk-prebid:1.4.0")
+   ```
+   #### Installing with Maven
+   To install with Maven, add the SDK as a dependency in the `pom.xml` file:
+   ```xml
+   <dependency>
+      <groupId>com.uid2</groupId>
+      <artifactId>uid2-android-sdk-prebid</artifactId>
+      <version>1.4.0</version>
+   </dependency>
+   ```
+   </TabItem>
+   <TabItem value='ios' label='iOS'>
+   #### Installing with Package.swift
+   Add the following dependency to Package.swift:
+   ```js
+   dependencies: [
+      .package(url: "https://github.com/IABTechLab/uid2-ios-sdk.git", from: "1.2.0"), // TODO change
+   ]
+   ```
+   #### Installing with Xcode
+   In the XCode user interface, under Package Dependencies, add the following entry for your apps:
+   | Name         | Location                                     | Dependency Rule                         |
+   | :----------- | :------------------------------------------- |:----------------------------------------|
+   | uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 1.2.0 < 2.0.0 |
+
+   #### Installing with CocoaPods
+
+   Add the following entry in your `Podfile`:
+
+   ```
+   pod 'UID2', '~> 1.2' // TODO change
+   ```
+   </TabItem>
+   </Tabs>
+
+4. After adding the dependency, you'll need to configure the integration. First initialize the `UID2Manager`, and then Prebid, as shown in the following examples.
+
+   <Tabs groupId="language-selection">
+   <TabItem value='android' label='Android Kotlin'>
+   ```js
+   UID2Manager.init(context = this)
+
+   PrebidMobile.initializeSdk(this) { Log.i(TAG, "Prebid: $it") }
+   prebid = UID2Prebid().apply {
+       initialize()
+   }
+   ```
+   </TabItem>
+   <TabItem value='android-java' label='Android Java'>
+   ```js
+   UID2Manager.init(this);
+
+   PrebidMobile.initializeSdk(this, status -> Log.i(TAG, "Prebid: " + status));
+
+   prebid = new UID2Prebid();
+   prebid.initialize();
+   ```
+   </TabItem>
+   <TabItem value='ios' label='iOS'>
+   ```js
+   // TODO
+   ```
+   </TabItem>
+   </Tabs>
+
+5. Configure a callback that's passed in during initialization.
+
+   The UID2 Prebid integration periodically updates Prebid by setting the relevant external IDs when a new identity is generated or an existing token is refreshed.
+   
+   This process is destructive, which means that if your application uses external IDs from another source, you'll need to provide those to the UID2 Prebid integration so that all external IDs are retained while the UID2 token is updated.
+   
+   This is done via the callback, which must be passed in during initialization, as shown in the following examples.
+   
+   <Tabs groupId="language-selection">
+   <TabItem value='android' label='Android Kotlin'>
+   ```js
+   prebid = UID2Prebid(
+       externalUserIdFactory = ::getExternalIds,
+   ).apply {
+       initialize()
+   }
+   ```
+   </TabItem>
+   <TabItem value='android-java' label='Android Java'>
+   ```js
+   prebid = new UID2Prebid(UID2Manager.getInstance(), () -> getExternalIds());
+   prebid.initialize();
+   ```
+   </TabItem>
+   <TabItem value='ios' label='iOS'>
+   ```js
+   // TODO
+   ```
+   </TabItem>
+   </Tabs> -->
