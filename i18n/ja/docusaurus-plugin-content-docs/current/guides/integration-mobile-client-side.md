@@ -583,7 +583,7 @@ AgAAAQFt3aNLXKXEyWS8Tpezcymk1Acv3n+ClOHLdAgqR0kt0Y+pQWSOVaW0tsKZI4FOv9K/rZH9+c4l
 
 Identity が無い場合は、`generateIdentity` メソッドを再度呼び出す必要があります: 詳細については [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
 
-詳しくは、[Prebid Mobile SDK Integration](#prebid-mobile-sdk-integration)(次項) を参照してください。
+詳しくは、[When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk)(次項) を参照してください。
 
 ## When to Pass DII into the SDK
 
