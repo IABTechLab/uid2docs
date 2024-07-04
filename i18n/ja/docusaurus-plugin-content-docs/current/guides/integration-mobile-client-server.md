@@ -2,7 +2,7 @@
 title: UID2 Client-Server Integration Guide for Mobile
 sidebar_label: Client-Server Integration for Mobile
 pagination_label: UID2 Client-Server Integration Guide for Mobile
-description: Setting up a mobile integration with token generate on server and refresh on client.
+description: Client-Side でトークンの生成とリフレッシュの両方を行うモバイルインテグレーションの設定。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -12,6 +12,7 @@ import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
+import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
 
 # UID2 Client-Server Integration Guide for Mobile
 
@@ -342,3 +343,11 @@ UID2Manager.shared.automaticRefreshEnabled = false
 ## Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration
 
 <GMAIMA_Plugins />
+
+## Optional: UID2 Prebid Mobile SDK Integration
+
+:::important
+UIS2 Prebid Mobile SDK インテグレーションは、Android のみで、UID2 SDK for Android のバージョン 1.4.0 が必要です。
+:::
+
+<PrebidMobileSDK />
