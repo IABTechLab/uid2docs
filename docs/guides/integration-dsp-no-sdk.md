@@ -81,6 +81,20 @@ To review detailed logic, see [UID2Encryption.cs, lines 36-50](https://github.co
 
 Use the master key and site key to decrypt the token. For a code example, refer to the `Decrypt` function: see [UID2Encryption.cs, line 29](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L29). This function decrypts UID2 tokens into raw UID2s as part of the UID2 SDK for C# / .NET, and includes logic to handle different token versions.
 
+
+### Honoring optout status from a client-side generated token
+
+After decrypting the token, if it was generated on the client side, there may be information that indicates this is a token that does not contain a targetable raw UID2 and should not be bidding with it.
+
+For an example of how this is done, review the code for the `DecryptV3` function: see [UID2Encryption.cs, line 201](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L201).
+
+For more information about client-side UID2 integration, refer to one of these integration guides:
+
+- [Client-Side Integration Guide for JavaScript](publisher-client-side.md)
+- [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
+- [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
+
+
 ### Make Sure the Token Lifetime and Expiration Are Valid
 
 A token must be valid and current so that it can be used in the bidstream. You must do two things:
@@ -135,3 +149,8 @@ For more information about client-side UID2 integration, refer to one of these i
 - [Client-Side Integration Guide for JavaScript](publisher-client-side.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
 - [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
+
+
+### Honoring User Opt-out After Successful Token Decryption
+
+After decrypting the token, you must check the resulting raw UID2 if it appears on your opt-out records. If it is, you should not bid using this raw UID2 and honor user opt-out preference. For more information, refer to [Honor User Opt-Outs](dsp-guide.md#honor-user-opt-outs)
