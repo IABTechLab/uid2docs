@@ -563,8 +563,8 @@ raw UID2 を UID2 Token に暗号化するには、関数 `FN_T_UID2_ENCRYPT` �
 | `MISSING_OR_INVALID_RAW_UID2` | raw UID2 の暗号化に成功しました。 |
 | `INVALID_RAW_UID2` | raw UID2 が無効です。 |
 | `MISMATCHING_IDENTITY_SCOPE` | raw UID2 が不正な ID スコープに属している。例えば、UID2 が期待されているところに EUID が渡されているなど。|
-| `NOT_AUTHORIZED_FOR_MASTER_KEY` | 呼び出し元が必要な暗号化キーにアクセスできない。UID2 の管理者に連絡してください。 |
-| `NOT_AUTHORIZED_FOR_SITE_KEY` | 呼び出し元が必要な暗号化キーにアクセスできない。UID2 の管理者に連絡してください。 |
+| `NOT_AUTHORIZED_FOR_MASTER_KEY` | 呼び出し元が必要な <a href="../ref-info/glossary-uid#gl-encryption-key">暗号化キー</a> にアクセスできません。UID2 の管理者に連絡してください。 |
+| `NOT_AUTHORIZED_FOR_SITE_KEY` | 呼び出し元が必要な暗号化キーにアクセスできません。UID2 の管理者に連絡してください。 |
 
 #### Encrypt Token Request Example - Single Raw UID2
 

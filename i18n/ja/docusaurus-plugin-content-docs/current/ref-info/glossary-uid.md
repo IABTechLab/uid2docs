@@ -40,6 +40,7 @@ import Link from '@docusaurus/Link';
 
 **E**
 <a href="#gl-enclave">Enclave</a> 
+<a href="#gl-encryption-key">Encryption key</a> 
 <a href="#gl-euid-framework">EUID framework</a>
 
 **F**
@@ -54,6 +55,9 @@ import Link from '@docusaurus/Link';
 
 **J**
 <a href="#gl-json-web-token">JSON Web Token (JWT)</a> 
+
+**K**
+<a href="#gl-key">Key</a> 
 
 **N**
 <a href="#gl-normalize">Normalize</a> 
@@ -203,6 +207,9 @@ import Link from '@docusaurus/Link';
 <dd>ID2 のコンテキストでは、 <a href="#gl-private-operator">Private Operator</a> は、Enclave 内かプライベート環境で運用しなければなりません。must run inside an enclave or in a private environment. サポートされるエングレーブのバージョンについては、<a href="../guides/summary-guides#private-operator-service-integrations">Private Operator Service Integrations</a> を参照してください。</dd>
 <dd>Enclave では、オペレータイメージは特殊で、事前に定義されたバージョンでなければならず、セキュリティを確保するために追加の制約が適用されます。</dd>
 
+<dt><MdxJumpAnchor id="gl-encryption-key"><a href="#gl-encryption-key">Encryption key</a></MdxJumpAnchor></dt>
+<dd>各 <a href="#gl-uid2-token">UID2 Token</a> は、リクエストしたパブリッシャーに固有の暗号化キーを使用して暗号化されます。このキーはパブリッシャーを識別し、トークンを復号化するために必要です。これにより、UID2 Token を不正な個人が復号化できないようになります。</dd>
+
 <dt><MdxJumpAnchor id="gl-euid-framework"><a href="#gl-euid-framework">EUID framework</a></MdxJumpAnchor></dt>
 <dd>European Unified ID (EUID) フレームワークは、広告エコシステム全体の多くの参加者に対し、オープンインターネット上の広告機会に対する決定論的な ID を提供します。これにより、パブリッシャーウェブサイト、モバイルアプリ、Connected TV (CTV) アプリがプログラマティックワークフローを通じて収益化できます。独自の名前空間を持つオープンソースのスタンドアロンソリューションとして構築されたフレームワークは、参加者が地域の要件を満たすのに役立つプライバシーコントロールを提供します。</dd>
 <dd>EUID は、フランス、イタリア、スペインなどのヨーロッパ諸国、アイスランドなどの非ヨーロッパ諸国、アゾレス諸島、マルティニーク、イギリスなどのその他の地域を含むヨーロッパ地域で運用されています。これは、EU プライバシー法の遵守を念頭に置いて設計されています。</dd>
@@ -251,6 +258,15 @@ import Link from '@docusaurus/Link';
 
 </dl>
 
+### K
+
+<dl>
+
+<dt><MdxJumpAnchor id="gl-key"><a href="#gl-key">Key</a></MdxJumpAnchor></dt>
+<dd><a href="#gl-encryption-key">Encryption key</a> を参照してください。</dd>
+
+</dl>
+
 ### N
 
 <dl>
@@ -270,7 +286,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-operator">Operator</MdxJumpAnchor></dt>
 <dd>Operator とは、UID2の  <a href="#gl-operator-service">Operator Service</a> を運営する組織や団体のことです。UID2 Operatorは、UID2 エコシステムの API サーバーです。</dd>
-<dd>Operator は、UID2 Core Service から暗号化キーとソルトを受け取り、個人のデータをソルティングおよびハッシュ化して raw UID2 を返し、raw UID2 を暗号化して UID2 Token を生成するなど、複数の機能を実行します。</dd>
+<dd>Operators は、UID2 Core Service から <a href="#gl-encryption-key">暗号化キー</a> と <a href="#gl-salt">ソルト</a> を受け取り、個人のデータをソルト化およびハッシュ化して raw UID2 を返し、raw UID2 を暗号化して UID2 Token を生成生成するなど、複数の機能を実行します。</dd>
 <dd>参加者は、UID2 API にアクセスし、プライベートインフラ内で raw UID2 と UID2 Token を生成するために、<a href="#gl-private-operator">Private Operator</a> になることも選択できます。</dd>
 <dd>詳細は、<a href="../intro#participants">participants</a> と <a href="../ref-info/ref-operators-public-private">The UID2 Operator</a> を参照してください。</dd>
 

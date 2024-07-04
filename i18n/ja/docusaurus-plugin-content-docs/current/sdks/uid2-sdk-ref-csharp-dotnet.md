@@ -87,7 +87,7 @@ SDK を使用する場合、復号鍵を保存したり管理したりする必�
 | `NotAuthorizedForMasterKey` |要求者はマスターキーを使用する権限がありません。 |
 | `NotInitialized` | クライアントライブラリは初期化待ちです。 |
 | `KeysNotSynced` | クライアントが UID2 Service からの鍵の同期に失敗しました。 |
-| `KeyInactive` | 暗号化キーはアクティブではありません。 |
+| `KeyInactive` | <a href="../ref-info/glossary-uid#gl-encryption-key">暗号化キー</a> はアクティブではありません。 |
 | `EncryptionFailure` | 一般的な暗号化に失敗しました。 |
 <!-- `TokenDecryptFailure` intentionally omitted. Does not seem to be used by SharingClient. -->
 

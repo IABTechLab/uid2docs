@@ -100,7 +100,7 @@ SDK を使用すると、復号化キーを保存または管理する必要が�
 | Value | Description |
 | :--- | :--- |
 | `SUCCESS` | raw UID2 は正常に暗号化され、UID2 Token が返されました。 |
-| `NOT_AUTHORIZED_FOR_KEY` | 呼び出し元は暗号鍵を使用する権限を持っていません。 |
+| `NOT_AUTHORIZED_FOR_KEY` | 呼び出し元は <a href="../ref-info/glossary-uid#gl-encryption-key">暗号化キー</a> を使用する権限を持っていません。 |
 | `NOT_AUTHORIZED_FOR_MASTER_KEY` | 呼び出し元はマスターキーを使用する権限を持っていません。 |
 | `NOT_INITIALIZED` | クライアントライブラリは初期化待ちです。 |
 | `KEYS_NOT_SYNCED` | クライアントが UID2 Service からの鍵の同期に失敗しました。 |
