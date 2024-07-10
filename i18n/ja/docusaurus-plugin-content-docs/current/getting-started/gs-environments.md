@@ -13,17 +13,17 @@ import Link from '@docusaurus/Link';
 
 ## UID2 Testing and Production Environments
 
-以下の表は、UID2 の現在のインテグレーション環境と本番環境の一覧です。
+次の表は、UID2 の現在のインテグレーション環境と本番環境の一覧です。
 
-| Environment | Cloud Region                 | Code             | Base URL                            |
-| :---------- | :--------------------------- | :--------------- | :---------------------------------- |
-| インテグレーション環境   | AWS US East (Ohio)           | `us-east-2`      | `https://operator-integ.uidapi.com` |
-| 本番環境    | <a href='https://aws.amazon.com/global-accelerator/'>AWS Global Accelerator</a> によるリージョンルーティングの自動最適化 | `n/a` | `https://global.prod.uidapi.com` |
-| 本番環境    | AWS US East (Ohio)           | `us-east-2`      | `https://prod.uidapi.com`           |
-| 本番環境    | AWS US West (Oregon)         | `us-west-2`      | `https://usw.prod.uidapi.com`       |
-| 本番環境    | AWS Asia Pacific (Sydney)    | `ap-southeast-2` | `https://au.prod.uidapi.com`        |
-| 本番環境    | AWS Asia Pacific (Tokyo)     | `ap-northeast-1` | `https://jp.prod.uidapi.com`        |
-| 本番環境    | AWS Asia Pacific (Singapore) | `ap-southeast-1` | `https://sg.prod.uidapi.com`        |
+| Environment | Cloud Region | Code | Base URL |
+| :--- | :--- | :--- | :--- |
+| インテグレーション環境   | AWS US East (Ohio) | `us-east-2` | `https://operator-integ.uidapi.com` |
+| 本番環境 | [AWS Global Accelerator](#using-the-aws-global-accelerator) によるリージョンルーティングの自動最適化 | `n/a` | `https://global.prod.uidapi.com` |
+| 本番環境 | AWS US East (Ohio) | `us-east-2` | `https://prod.uidapi.com` |
+| 本番環境 | AWS US West (Oregon) | `us-west-2` | `https://usw.prod.uidapi.com` |
+| 本番環境 | AWS Asia Pacific (Sydney) | `ap-southeast-2` | `https://au.prod.uidapi.com` |
+| 本番環境 | AWS Asia Pacific (Tokyo) | `ap-northeast-1` | `https://jp.prod.uidapi.com` |
+| 本番環境 | AWS Asia Pacific (Singapore) | `ap-southeast-1` | `https://sg.prod.uidapi.com` |
 
 例えば、`https://operator-integ.uidapi.com/v2/token/generate`
 
@@ -41,4 +41,10 @@ Notes:
 
 例えば、シンガポールのパブリッシャーは、ベース URL を `https://sg.prod.uidapi.com` に設定できます。これは UID2 本番環境ですが、サーバーはシンガポールにあります。
 
-ベース URL を `https://global.prod.uidapi.com` に設定することもできます。この URL は、利用者を地理的に近い地域に誘導するため、利用者が地理的に分散している場合に最適です。
+また、[AWS Global Accelerator](#using-the-aws-global-accelerator) を使用することもできます。これは、ユーザーを地理的に近いリージョンに誘導します。
+
+## Using the AWS Global Accelerator
+
+<a href='https://aws.amazon.com/global-accelerator/'>AWS Global Accelerator</a> は、ベース URL を `https://global.prod.uidapi.com` に設定することで最適化する機能です。この URL は、読者を地理的に近いリージョンに誘導します。観客が地理的に分散している場合には理想的です。
+
+これは、効率性と最小のレイテンシを実現するための素晴らしいアプローチです。ただし、すべてのリクエストが特定の国または地域内で処理されることを確認したい場合は、このオプションを選択しないでください。

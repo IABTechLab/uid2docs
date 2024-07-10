@@ -140,7 +140,7 @@ UID2 API v2 への呼び出しを行うには、POST リクエストボディを
 
 ### What are the key differences between the old and new APIs?
 
-詳細は、[Improvements and Changes from Version 1](#improvements-and-changes-from-version-1) を参照してください。
+詳細は [Improvements and Changes from Version 1](#improvements-and-changes-from-version-1) を参照してください。
 
 ### When can I start the upgrade?
 

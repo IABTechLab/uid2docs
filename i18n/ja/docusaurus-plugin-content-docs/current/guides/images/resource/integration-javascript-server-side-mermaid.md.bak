@@ -32,7 +32,7 @@ sequenceDiagram
     Note over U,SSP: 3. UID2 Token のリフレッシュ
     U->>P: 3-a. ユーザーがパブリッシャーアセットに戻ります。
     activate P
-    P->>UID2: 3-b. パブリッシャーは Refresh Token を使って、ユーザーの新しい UID2 Token を要求します。
+    P->>UID2: 3-b. SDKは、Refresh Token を使用して、ユーザーの UID2 Token をリフレッシュするリクエストを送信します。
     deactivate P
     activate UID2
     UID2->>P: 3-c. ユーザーがオプトアウトしていない場合、Refresh Token Service は新しい UID2 Token を返します。

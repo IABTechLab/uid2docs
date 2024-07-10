@@ -10,8 +10,10 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
+import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
+import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
+
 
 # UID2 Client-Side Integration Guide for Mobile
 
@@ -387,7 +389,7 @@ The following example configures the UID2 SDK with a hashed email address.
 ```js
 UID2Manager.getInstance().generateIdentity(
     IdentityRequest.EmailHash(
-        “eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=”
+        "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="
     ),
     subscriptionId,
     publicKey,
@@ -406,7 +408,7 @@ UID2Manager.getInstance().generateIdentity(
 Task<Void, Never> {
     do {
         try await UID2Manager.shared.generateIdentity(
-            .emailHash("eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc="),
+            .emailHash("EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="),
             subscriptionID: subscriptionID,
             serverPublicKey: serverPublicKeyString
         )
@@ -434,7 +436,7 @@ The following example configures the UID2 mobile SDK with a phone number.
 
 ```js
 UID2Manager.getInstance().generateIdentity(
-    IdentityRequest.Phone(“+1111111111”),
+    IdentityRequest.Phone("+12345678901"),
     subscriptionId,
     publicKey,
 ) { result ->
@@ -454,7 +456,7 @@ struct InvalidPhoneError: Error, LocalizedError {
 }
 Task<Void, Never> {
     do {
-        guard let normalizedPhone = IdentityType.NormalizedPhone(normalized: "+1111111111") else {
+        guard let normalizedPhone = IdentityType.NormalizedPhone(normalized: "+12345678901") else {
             throw InvalidPhoneError() // Phone number is not normalized according to ITU E.164.
         }
         try await UID2Manager.shared.generateIdentity(
@@ -479,7 +481,7 @@ In this scenario:
 </TabItem>
 <TabItem value='example_phone_hash' label='Phone Number, Normalized and Hashed'>
 
-The following example configures the UID2 mobile SDK with a hashed phone number.
+The following example configures the UID2 mobile SDK with a hashed and Base64-encoded phone number.
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -487,7 +489,7 @@ The following example configures the UID2 mobile SDK with a hashed phone number.
 ```js
 UID2Manager.getInstance().generateIdentity(
     IdentityRequest.PhoneHash(
-        “eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=”
+        "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="
     ),
     subscriptionId,
     publicKey,
@@ -506,7 +508,7 @@ UID2Manager.getInstance().generateIdentity(
 Task<Void, Never> {
     do {
         try await UID2Manager.shared.generateIdentity(
-            .phoneHash("eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc="),
+            .phoneHash("EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="),
             subscriptionID: subscriptionID,
             serverPublicKey: serverPublicKeyString
         )
@@ -698,3 +700,10 @@ If the response status indicates that the DII has been opted out of UID2, you mi
 ## Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration
 
 <GMAIMA_Plugins />
+
+## Optional: UID2 Prebid Mobile SDK Integration
+:::important
+The UID2 Prebid Modile SDK integration is for Android only, and requires version 1.4.0 of the UID2 SDK for Android.
+:::
+
+<PrebidMobileSDK />

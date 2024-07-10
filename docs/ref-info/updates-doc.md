@@ -11,6 +11,15 @@ import Link from '@docusaurus/Link';
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: Prebid Mobile SDK Integration (Android)
+
+We've added a new section to the two mobile integration guides with instructions for mobile integration using Prebid, currently for Android only:
+
+- [UID2 Client-Side Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-side#optional-uid2-prebid-mobile-sdk-integration)
+- [UID2 Client-Server Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-server#optional-uid2-prebid-mobile-sdk-integration)
+
+<!-- APIDOCS-2264 -->
+
 ### New: CTV Integration Guide
 
 21 June 2024

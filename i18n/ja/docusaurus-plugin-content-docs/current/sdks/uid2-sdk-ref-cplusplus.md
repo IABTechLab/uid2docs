@@ -29,7 +29,7 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 
 SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。SDK には、使用する権限を持たない機能があるかもしれないことに留意してください。例えば、パブリッシャーはトークンの生成と更新のために特定の API Permissions を取得しますが、SDK は共有などの他のアクティビティをサポートするかもしれません。
 
-詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 ## Version
 
@@ -52,7 +52,7 @@ Release tags は以下の GitHub で入手できますが、バイナリーは�
 | Parameter | Description | Recommended Value |
 | :--- | :--- | :--- |
 | `endpoint` | UID2 Service のエンドポイント。 | N/A |
-| `authKey` | クライアントに付与された認証トークン。UID2 へのアクセスについては、 [Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。 | N/A |
+| `authKey` | クライアントに付与された認証トークン。UID2 へのアクセスについては [Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。 | N/A |
 
 ## Interface 
 
@@ -99,13 +99,17 @@ SDK から返される利用可能な情報の概要を次の表に示します�
 
 ## Usage for UID2 Sharers
 
-UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のことです。raw UID2を他の参加者に送信する前に、UID2 Token に暗号化する必要があります。使用例については、[com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` メソッド) を参照してください。
+UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Participant</Link> は、送信者または受信者として共有に参加し、他の参加者と UID2 を共有する企業です。
+
+広告主やデータプロバイダは、この SDK を使用して他の認証された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>)。彼らは [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、それを他の参加者に送信して共有できます (詳細は [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照してください)。データをピクセルで送信していない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) で示されている要件に従えば、UID2 共有に参加できます。
 
 :::important
 このプロセスで生成される UID2 Token は共有専用です&#8212;<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>では使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 :::
 
-次の手順では、UID2 SDK for C++ を送信者または受信者として使用して共有を実装する方法の例を示します。
+ 使用例については [com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` メソッド) を参照してください。
+ 
+ 次の手順では、UID2 SDK for C++ を送信者または受信者として使用して共有を実装する方法の例を示します。
 
 1. ```IUID2Client``` 共有ポインタを作成します:
  
@@ -157,4 +161,4 @@ UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のこと
 
 ## FAQs
 
-DSP に関するよくある質問については、 [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。
+DSP に関するよくある質問については [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。

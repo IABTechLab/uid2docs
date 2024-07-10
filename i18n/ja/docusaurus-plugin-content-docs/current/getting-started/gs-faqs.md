@@ -67,7 +67,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 
 [POST&nbsp;/token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) で送信している <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> が有効かどうかをチェックできます。`POST /token/validate` は主にテスト目的で使用されます。
 
-詳細は、[Using POST&nbsp;/token/validate to Test](../endpoints/post-token-validate.md#using-post-tokenvalidate-to-test) を参照してください。
+詳細は [Using POST&nbsp;/token/validate to Test](../endpoints/post-token-validate.md#using-post-tokenvalidate-to-test) を参照してください。
 
 #### Do I need to decrypt tokens?
 トークンを復号化する必要がありますか？
@@ -168,7 +168,7 @@ UID2 フレームワークを使用する広告主やデータプロバイダー
 UID2 生成リクエストで提供されるメタデータには、UID2 の生成に使用されるソルトバケットが含まれます。ソルトバケットは持続し、UID2 の生成に使用された基礎的な DII に対応します。指定されたタイムスタンプ以降にローテーションしたソルトバケットを得るには、[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントを使用します。返されたローテーションしたソルトバケットは、どの UID2 をリフレッシュすべきかを教えてくれます。
 
 :::note
-ローテーションがいつ行われるかについては、いかなる約束もいたしません。可能な限り最新の状態を保つため、1 時間に 1 回のチェックをお勧めします。
+ローテーションがいつ行われるかについては、いかなる約束もいたしません。可能な限り最新の状態を保つため、1 時間に 1 回のチェックを勧めます。
 :::
 
 #### Do refreshed emails get assigned to the same bucket with which they were previously associated?
@@ -267,7 +267,7 @@ UID2 Service は、入札プロセスに遅延を生じさせることはあり�
 #### How should the DSP maintain proper frequency capping with UID2?
 UID2 で DSP はどのように適切なフリクエンシーキャッピング周波数キャッピングを維持すべきでしょうか？
 
-UID2 は、クッキーと同じように古くなる可能性があります。したがって、DSP は、クッキーまたは Device ID ベースのフリークエンシーキャッピングに現在使用されているものと同じインフラを UID2 に適応させることができます。詳細は、[How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation) を参照してください。
+UID2 は、クッキーと同じように古くなる可能性があります。したがって、DSP は、クッキーまたは Device ID ベースのフリークエンシーキャッピングに現在使用されているものと同じインフラを UID2 に適応させることができます。詳細は [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation) を参照してください。
 
 #### Will all user opt-out traffic be sent to the DSP?
 ユーザーのオプトアウトトラフィックはすべて DSP に送られますか？
@@ -277,7 +277,7 @@ UID2 は、クッキーと同じように古くなる可能性があります。
 #### Is the DSP expected to handle opt-out signals only for the UID2s that they already store?
 DSP は、すでに保存している UID2 についてのみオプトアウトシグナルを処理することを期待されているのか？
 
-場合によっては、DSP は、オプトアウト・タイムスタンプ以前に生成された、新たに保管された UID2 に対する UID2 Token を受け取ることがあります。DSP はこのようなトークンに入札することはできません。したがって、対応する UID2 が現在 DSP によって保存されているかどうかにかかわらず、すべてのオプトアウトシグナルを保存することが推奨されます。詳細は、[Bidding Opt-Out Logic](../guides/dsp-guide.md#bidding-opt-out-logic) の図を参照してください。
+場合によっては、DSP は、オプトアウトタイムスタンプ以前に生成された、新たに保管された UID2 に対する UID2 Token を受け取ることがあります。DSP はこのようなトークンに入札することはできません。したがって、対応する UID2 が現在 DSP によって保存されているかどうかにかかわらず、すべてのオプトアウトシグナルを保存することが推奨されます。詳細は [Bidding Opt-Out Logic](../guides/dsp-guide.md#bidding-opt-out-logic) の図を参照してください。
 
 #### How long should the DSP keep the opt-out list?
 DSP はオプトアウトリストをどれくらいの期間保管すべきですか？

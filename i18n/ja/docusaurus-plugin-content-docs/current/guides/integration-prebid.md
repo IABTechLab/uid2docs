@@ -32,7 +32,7 @@ UID2 は GDPR が適用される場所では使用しないように設計され
 
 ## Generating the UID2 Token
 
-DII へのアクセスに応じて、Prebid.js で使用する UID2 Token を生成する方法は以下の表のように 2 種類あります 。
+DII へのアクセスに応じて、Prebid.js で使用する UID2 Token を生成する方法は次の表のように 2 種類あります 。
 
 どの方法が最適かを判断し、該当するインテグレーションガイドに従ってください。
 
@@ -51,7 +51,7 @@ Prebid.js UID2 Module は、UID2 Token を自動的にリフレッシュする�
 
 ## Passing the UID2 Token to the Bidstream
 
-UID2 module を設定するには、 `pbjs.setConfig` を呼び出します。サポートされているパラメータの詳細については、実装に適用されるガイドを参照してください:
+UID2 module を設定するには `pbjs.setConfig` を呼び出します。サポートされているパラメータの詳細については、実装に適用されるガイドを参照してください:
 
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md)

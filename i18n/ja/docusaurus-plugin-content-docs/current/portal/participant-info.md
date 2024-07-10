@@ -1,6 +1,6 @@
 ---
 title: Participant Information
-description: UID2 sharing 参加者プロファイルを設定します。
+description: UID2 sharing 参加者プロファイルの設定。
 hide_table_of_contents: false
 sidebar_position: 06
 ---
