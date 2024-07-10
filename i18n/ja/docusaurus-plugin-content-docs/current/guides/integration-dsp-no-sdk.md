@@ -1,6 +1,6 @@
 ---
-title: DSP Direct Integration Guidance
-sidebar_label: DSP Direct Integration Guidance
+title: DSP Direct Integration Instructions
+sidebar_label: DSP Direct Integration Instructions
 description: Information for DSPs who are integrating with UID2 without using SDKs.
 hide_table_of_contents: false
 sidebar_position: 05
@@ -8,9 +8,9 @@ sidebar_position: 05
 
 import Link from '@docusaurus/Link';
 
-# DSP Direct Integration Guidance
+# DSP Direct Integration Instructions
 
-This document provides guidance for DSPs who want to integration with UID2 but who are using a language not supported by an existing UID2 SDK.
+This document provides guidance for DSPs who want to integrate with UID2 but who are using a programming language not supported by an existing UID2 SDK.
 
 For a list of the existing SDKs, see [SDKs: Summary](../sdks/summary-sdks.md).
 
@@ -51,7 +51,7 @@ The decrypted API response is in JSON format, and includes `site_data`, the list
 
 To see how all the fields are parsed, refer to the UID2 SDK for C#&nbsp;/&nbsp;.NET parse function: see [KeyParser.cs, lines 41-74](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/KeyParser.cs#L41-L74).
 
-After decrypting the token into a raw UID2, if the token was generated on the client side, you can use the information in `site_data` to verify that a specific domain or app name is on the list of names allowed for it. For details, see [Verify the Domain or App Name](#verify-the-domain-or-app-name).
+After decrypting the token into a raw UID2, if the token was generated on the client side, you must use the information in `site_data` to verify that a specific domain or app name is on the list of names allowed for it. For details, see [Verify the Domain or App Name](#verify-the-domain-or-app-name).
 
 ## Decrypt UID2 Tokens into Raw UID2s
 
@@ -81,6 +81,20 @@ To review detailed logic, see [UID2Encryption.cs, lines 36-50](https://github.co
 
 Use the master key and site key to decrypt the token. For a code example, refer to the `Decrypt` function: see [UID2Encryption.cs, line 29](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L29). This function decrypts UID2 tokens into raw UID2s as part of the UID2 SDK for C# / .NET, and includes logic to handle different token versions.
 
+
+### Honoring optout status from a client-side generated token
+
+After decrypting the token, if it was generated on the client side, there may be information that indicates this is a token that does not contain a targetable raw UID2 and should not be bidding with it.
+
+For an example of how this is done, review the code for the `DecryptV3` function: see [UID2Encryption.cs, line 201](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L201).
+
+For more information about client-side UID2 integration, refer to one of these integration guides:
+
+- [Client-Side Integration Guide for JavaScript](publisher-client-side.md)
+- [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
+- [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
+
+
 ### Make Sure the Token Lifetime and Expiration Are Valid
 
 A token must be valid and current so that it can be used in the bidstream. You must do two things:
@@ -92,36 +106,34 @@ For an example of code that makes sure the token hasn't expired, see [UID2Encryp
 
 To make sure that the token lifetime has a valid value, check these two conditions:
 
-- The lifetime of the token (in this context, the remaining amount of time for which the current token is still valid) must not exceed the `max_bidstream_lifetime_seconds` value from the `/v2/key/bidstream` response.
-- The skew duration value must not exceed the `allow_clock_skew_seconds` value.
+- The lifetime of the token must not exceed the `max_bidstream_lifetime_seconds` value from the `/v2/key/bidstream` response.
+- The time until token generation value must not exceed the `allow_clock_skew_seconds` value.
 
  For an example of how this is done, review the code for the `DoesTokenHaveValidLifetimeImpl` function: see [UID2Encryption.cs, line 237](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L237).
 
-The following sections show how the lifetime and skew duration values for a token are calculated. The calculation is a little different depending on the token version:
+The following sections show how the lifetime for a token is calculated, and the time until token generation for versions later than v2. The calculation depends on the token version:
 
-- [Calculating Token Lifetime/Expiration: Token v2](#calculating-token-lifetimeexpiration-token-v2)
-- [Calculating Token Lifetime/Expiration: All Later Versions](#calculating-token-lifetimeexpiration-all-later-versions)
+- [Calculating Token Lifetime: Token v2](#calculating-token-lifetime-token-v2)
+- [Calculating Token Lifetime: All Later Versions](#calculating-token-lifetime-all-later-versions)
 
-#### Calculating Token Lifetime/Expiration: Token v2
+#### Calculating Token Lifetime: Token v2
 
 For token v2, the calculation to make sure that the token lifetime is valid for bidstream use is as follows:
 
 ```
 lifetime = token expiry - current time
-
-skew duration = 0
 ```
 
 For v2, we use the token expiry minus the current time to calculate the lifetime. This is because v2 doesn't have a **Token Generated** field, which is present in later versions. All token versions have an **Identity Established** field, but this indicates the time that the original token was generated, before any token refreshes, so it can't be used to calculate whether the token is still valid.
 
-#### Calculating Token Lifetime/Expiration: All Later Versions
+#### Calculating Token Lifetime: All Later Versions
 
 For all token versions later than v2, the calculation to make sure that the token lifetime is valid for bidstream use is as follows:
 
 ```
 lifetime = token expiry - token generated
 
-skew duration = token generated - current time
+time until token generation = token generated - current time
 ```
 
 Versions later than v2 have a **Token Generated** field, which is updated if the token is refreshed, so we use this to calculate the token lifetime.
@@ -137,3 +149,8 @@ For more information about client-side UID2 integration, refer to one of these i
 - [Client-Side Integration Guide for JavaScript](publisher-client-side.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
 - [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
+
+
+### Honoring User Opt-out After Successful Token Decryption
+
+After decrypting the token, you must check the resulting raw UID2 if it appears on your opt-out records. If it is, you should not bid using this raw UID2 and honor user opt-out preference. For more information, refer to [Honor User Opt-Outs](dsp-guide.md#honor-user-opt-outs)

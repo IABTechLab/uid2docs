@@ -1,6 +1,6 @@
 ---
-title: DSP Direct Integration Guidance
-sidebar_label: DSP Direct Integration Guidance
+title: DSP Direct Integration Instructions
+sidebar_label: DSP Direct Integration Instructions
 description: Information for DSPs who are integrating with UID2 without using SDKs.
 hide_table_of_contents: false
 sidebar_position: 05
@@ -8,9 +8,9 @@ sidebar_position: 05
 
 import Link from '@docusaurus/Link';
 
-# DSP Direct Integration Guidance
+# DSP Direct Integration Instructions
 
-This document provides guidance for DSPs who want to integration with UID2 but who are using a language not supported by an existing UID2 SDK.
+This document provides guidance for DSPs who want to integrate with UID2 but who are using a programming language not supported by an existing UID2 SDK.
 
 For a list of the existing SDKs, see [SDKs: Summary](../sdks/summary-sdks.md).
 
@@ -51,7 +51,7 @@ The decrypted API response is in JSON format, and includes `site_data`, the list
 
 To see how all the fields are parsed, refer to the UID2 SDK for C#&nbsp;/&nbsp;.NET parse function: see [KeyParser.cs, lines 41-74](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/KeyParser.cs#L41-L74).
 
-After decrypting the token into a raw UID2, if the token was generated on the client side, you can use the information in `site_data` to verify that a specific domain or app name is on the list of names allowed for it. For details, see [Verify the Domain or App Name](#verify-the-domain-or-app-name).
+After decrypting the token into a raw UID2, if the token was generated on the client side, you must use the information in `site_data` to verify that a specific domain or app name is on the list of names allowed for it. For details, see [Verify the Domain or App Name](#verify-the-domain-or-app-name).
 
 ## Decrypt UID2 Tokens into Raw UID2s
 
