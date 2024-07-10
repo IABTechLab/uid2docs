@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # DSP Direct Integration Instructions
 
-This document provides guidance for DSPs who want to integrate with UID2 but who are using a programming language not supported by an existing UID2 SDK.
+This document provides instructions for DSPs who want to integrate with UID2 but who are using a programming language not supported by an existing UID2 SDK.
 
 For a list of the existing SDKs, see [SDKs: Summary](../sdks/summary-sdks.md).
 
@@ -81,9 +81,9 @@ To review detailed logic, see [UID2Encryption.cs, lines 36-50](https://github.co
 
 Use the master key and site key to decrypt the token. For a code example, refer to the `Decrypt` function: see [UID2Encryption.cs, line 29](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L29). This function decrypts UID2 tokens into raw UID2s as part of the UID2 SDK for C# / .NET, and includes logic to handle different token versions.
 
-### Honor Opt-Out Status for a Client-Side Token
+### Honor Opt-Out Status for a Token Generated on the Client Side
 
-Conditional, for tokens generated on the client side: After decrypting the token, check for opt-out information indicating that the token does not contain a targetable UID2. If the user has opted out, you must not bid with the token.
+For tokens generated on the client side: After decrypting the token, check for opt-out information indicating that the token does not contain a targetable UID2. If the user has opted out, you must not use the token for bidding.
 
 For an example of how to do this check, review the code for the `DecryptV3` function: see [UID2Encryption.cs, line 201](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L201).
 
