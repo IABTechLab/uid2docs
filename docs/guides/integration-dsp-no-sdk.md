@@ -63,7 +63,7 @@ You'll need to complete the following steps:
 
 1. [Decrypt the token](#decrypt-the-token).
 
-1. [Make sure the token lifetime and expiration values are valid](#make-sure-the-token-lifetime-and-expiration-are-valid).
+1. [Make sure token lifetime and expiration values are valid](#make-sure-token-lifetime-and-expiration-are-valid).
 
 1. [Verify that the domain or app name is valid](#verify-the-domain-or-app-name).
 
@@ -81,12 +81,11 @@ To review detailed logic, see [UID2Encryption.cs, lines 36-50](https://github.co
 
 Use the master key and site key to decrypt the token. For a code example, refer to the `Decrypt` function: see [UID2Encryption.cs, line 29](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L29). This function decrypts UID2 tokens into raw UID2s as part of the UID2 SDK for C# / .NET, and includes logic to handle different token versions.
 
+### Honor Opt-Out Status for a Client-Side Token
 
-### Honoring optout status from a client-side generated token
+Conditional, for tokens generated on the client side: After decrypting the token, check for opt-out information indicating that the token does not contain a targetable UID2. If the user has opted out, you must not bid with the token.
 
-After decrypting the token, if it was generated on the client side, there may be information that indicates this is a token that does not contain a targetable raw UID2 and should not be bidding with it.
-
-For an example of how this is done, review the code for the `DecryptV3` function: see [UID2Encryption.cs, line 201](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L201).
+For an example of how to do this check, review the code for the `DecryptV3` function: see [UID2Encryption.cs, line 201](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L201).
 
 For more information about client-side UID2 integration, refer to one of these integration guides:
 
@@ -95,7 +94,7 @@ For more information about client-side UID2 integration, refer to one of these i
 - [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 
 
-### Make Sure the Token Lifetime and Expiration Are Valid
+### Make Sure Token Lifetime and Expiration Are Valid
 
 A token must be valid and current so that it can be used in the bidstream. You must do two things:
 
@@ -138,9 +137,9 @@ time until token generation = token generated - current time
 
 Versions later than v2 have a **Token Generated** field, which is updated if the token is refreshed, so we use this to calculate the token lifetime.
 
-### Verify the Domain or App Name
+### Conditional: Verify the Domain or App Name
 
-After decrypting the token, if it was generated on the client side, you must verify that the `domainOrAppName` value is included in the `domain_names` list of the site ID, within the `site_data` section of the response from the `/v2/key/bidstream` API endpoint.
+Conditional, for tokens generated on the client side: After decrypting the token, you must verify that the `domainOrAppName` value is included in the `domain_names` list of the site ID, within the `site_data` section of the response from the `/v2/key/bidstream` API endpoint.
 
 For an example of code that does this, refer to the `IsDomainOrAppNameAllowedForSite` function in [UID2Encryption.cs, line 245](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L245).
 
@@ -150,7 +149,12 @@ For more information about client-side UID2 integration, refer to one of these i
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
 - [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 
+### Honor User Opt-Out After Token Decryption
 
-### Honoring User Opt-out After Successful Token Decryption
+After decrypting the token, you must check the resulting raw UID2 against your opt-out records. If it appears on your opt-out records, you must not use it for bidding. It's vital that you honor user opt-out preference.
 
-After decrypting the token, you must check the resulting raw UID2 if it appears on your opt-out records. If it is, you should not bid using this raw UID2 and honor user opt-out preference. For more information, refer to [Honor User Opt-Outs](dsp-guide.md#honor-user-opt-outs)
+For more information, refer to [Honor User Opt-Outs](dsp-guide.md#honor-user-opt-outs) in the *DSP Integration Guide*.
+
+:::important
+Honoring user opt-out is equally important in all scenarios. However, the steps are a little different depending on whether the token was generated on the client side or on the server side. Follow the applicable instructions so that all user opt-outs are honored.
+:::
