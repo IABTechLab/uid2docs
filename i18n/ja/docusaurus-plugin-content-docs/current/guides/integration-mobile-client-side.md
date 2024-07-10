@@ -12,6 +12,8 @@ import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
+import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
+
 
 # UID2 Client-Side Integration Guide for Mobile
 
@@ -568,17 +570,20 @@ AgAAAQFt3aNLXKXEyWS8Tpezcymk1Acv3n+ClOHLdAgqR0kt0Y+pQWSOVaW0tsKZI4FOv9K/rZH9+c4l
 
 その原因として考えられることと、トラブルシューティングに役立ついくつかの方法は次のとおりです:
 
-- Identity が無効です。このシナリオでは、いくつかのオプションがあります:
-  - 前の `generateIdentity` メソッドコールからエラーがあるかどうかを確認してください。
-  - Android の場合は、`UID2Manager.getInstance().getCurrentIdentityStatus()` を使用し、iOS の場合は、`UID2Manager.shared.identityStatus` を使用して、identity のステータスを確認してください。
+- Identity が無効です。この場合、いくつかのオプションがあります:
+  - 前の `generateIdentity` メソッドコールからエラーがあるかどうかを確認します。
+  - 次のいずれかを使用して identity のステータスを確認します:
+    - **Android Java**: `UID2Manager.getInstance().getCurrentIdentityStatus()`
+    - **Android Kotlin**: `UID2Manager.getInstance().currentIdentityStatus()`
+    - **iOS**: `UID2Manager.shared.identityStatus`
 
-    DII が UID2 からオプトアウトされている可能性があります。詳細については、[When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk) を参照してください。
-- ログを有効にして詳細情報を取得することができます。詳細については、[Enable Logging](#enable-logging) を参照してください。
-- UID2 identity 内の Advertising Token が期限切れであり、Refresh Token も期限切れのため、SDK がトークンをリフレッシュできません。
+    UID2 から DII がオプトアウトされている可能性があります: 詳細については [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk) を参照してください。
+- ロギングを有効にして詳細情報を取得できます: [Enable Logging](#enable-logging) を参照してください。
+- UID2 identity 内の Advertising Token の有効期限が切れていて、Refresh Token も有効期限が切れているため、SDK がトークンをリフレッシュできません。
 
-Identity が存在しない場合は、`generateIdentity` メソッドを再度呼び出す必要があります。詳細については、[Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
+Identity が無い場合は、`generateIdentity` メソッドを再度呼び出す必要があります: 詳細については [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
 
-詳細については、[When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk) を参照してください。
+詳しくは、[When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk)(次項) を参照してください。
 
 ## When to Pass DII into the SDK
 
@@ -618,8 +623,16 @@ UID2Manager.shared.generateIdentity(
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
 
-```js
+**Android Java**:
+
+```java
 UID2Manager.getInstance().getCurrentIdentityStatus()
+```
+
+**Android Kotlin**:
+
+```kotlin
+UID2Manager.getInstance().currentIdentityStatus()
 ```
 
 </TabItem>
@@ -687,3 +700,10 @@ If the response status indicates that the DII has been opted out of UID2, you mi
 ## Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration
 
 <GMAIMA_Plugins />
+
+## Optional: UID2 Prebid Mobile SDK Integration
+:::important
+UID2 Prebid Mobile SDK インテグレーションは、Android のみに対応しています。UID2 Prebid Mobile SDK インテグレーションを実装するには、UID2 SDK for Android のバージョン 1.4.0 が必要です。
+:::
+
+<PrebidMobileSDK />

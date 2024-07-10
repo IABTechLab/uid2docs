@@ -74,7 +74,7 @@ UID2 フレームワークは以下のコンポーネントで構成されてお
 
 | Component | Description |
 | :--- | :--- |
-| **Core Service** | UID2エコシステムのソルト、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。 |
+| **Core Service** |<a href="ref-info/glossary-uid#gl-salt">salts</a>、<a href="ref-info/glossary-uid#gl-encryption-key">暗号化キー</a>、および UID2 エコシステムの他の関連データへのアクセスを管理する一元的なサービスです。 |
 | **Operator Service** | UID2 Core Service からの暗号鍵とソルトの管理・保管、ユーザーの個人情報のハッシュ化、raw UID2 の暗号化、UID2 Token の復号を可能にするサービスです。<br/>Open Operator は、オペレーターサービスのパブリックインスタンスを実行し、関連するすべての UID2 参加者が利用できるようにします。また、オペレーターサービスのプライベートなインスタンスを自分たちだけのために実行する Closed Operator も存在します。どのインスタンスも、誰がサービスを運営するかに関わらず、重要な UID2 データを安全に保ち、相互運用できるように保護設計されています。 |
 | **Opt-Out Service** | ユーザーのオプトアウトリクエストを管理・保存し、パブリッシャー、オペレーターのサービスインスタンス、DSP に配信するグローバルサービスです。 |
 | **Transparency and Control Portal** | ユーザー向けウェブサイト [https://www.transparentadvertising.com/](https://www.transparentadvertising.com/) では、消費者がいつでも UID2 からの脱退を選択できるようになっています。 |

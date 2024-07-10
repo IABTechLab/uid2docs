@@ -12,6 +12,7 @@ import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
+import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
 
 # UID2 Client-Server Integration Guide for Mobile
 
@@ -272,11 +273,14 @@ AgAAAQFt3aNLXKXEyWS8Tpezcymk1Acv3n+ClOHLdAgqR0kt0Y+pQWSOVaW0tsKZI4FOv9K/rZH9+c4l
 
 `getAdvertisingToken()`　メソッドが `null` を返す場合、identity または有効なトークンが生成されていません。これにはいくつかの理由が考えられ、トラブルシューティングするためにできることは次のとおりです:
 
-- identity が無効です。この場合、いくつかのオプションがあります:
+- Identity が無効です。この場合、いくつかのオプションがあります:
   - 前の `setIdentity()` 呼び出しでエラーがあるかどうかを確認します。
-  - Identity のステータスを `UID2Manager.getInstance().getCurrentIdentityStatus()`（Android）または `UID2Manager.shared.identityStatus`（iOS）で確認します。
-- より詳細な情報を取得するためにログを有効にします: [Enable Logging](#enable-logging) を参照してください。
-- UID2 Identity の　Advertising Token が期限切れで、Refresh Token の有効期限も切れているため、SDK がトークンをリフレッシュできません。
+  - 以下のいずれかを使用して、identity のステータスを確認します:
+    - **Android Java**: `UID2Manager.getInstance().getCurrentIdentityStatus()` 
+    - **Android Kotlin**: `UID2Manager.getInstance().currentIdentityStatus()` 
+    - **iOS**: `UID2Manager.shared.identityStatus`
+- ロギングを有効にして詳細情報を取得します: [Enable Logging](#enable-logging) を参照してください。
+- UID2 identity 内の Advertising Token の有効期限が切れていて、Refresh Token も有効期限が切れているため、SDK がトークンをリフレッシュできません。
 
 ID が無効の場合、[Implement Server-Side Token Generation](#implement-server-side-token-generation) に従って新しい identity を生成し、その結果をモバイルアプリの UID2Manager に再度渡してください。
 
@@ -339,3 +343,11 @@ UID2Manager.shared.automaticRefreshEnabled = false
 ## Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration
 
 <GMAIMA_Plugins />
+
+## Optional: UID2 Prebid Mobile SDK Integration
+
+:::important
+UIS2 Prebid Mobile SDK インテグレーションは、Android のみで、UID2 SDK for Android のバージョン 1.4.0 が必要です。
+:::
+
+<PrebidMobileSDK />

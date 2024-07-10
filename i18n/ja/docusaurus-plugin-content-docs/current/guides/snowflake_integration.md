@@ -19,7 +19,7 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 
 ## Functionality
 
-次の表は、UID2 Snowflake インテグレーションで利用可能な機能をまとめたものです。
+次の表は、UID2 Snowflake インテグレーション で利用可能な機能をまとめたものです。
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a Raw UID2 |
 | :--- |  :--- | :--- | :--- | :--- |
@@ -39,7 +39,7 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 
 |Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-Out Cloud Setup|
 | :--- | :--- | :--- |
-| パートナーは、Snowflake アカウントを設定してデータをホストし、UID2 Share を通じて関数やビューを使うことで、UID2 インテグレーションに関与できます。 | Snowflake アカウントでホストされている UID2 インテグレーションでは、プライベートテーブルからデータを引き出す許可をされた関数とビューへのアクセスが許可されます。プライベートテーブルにはアクセスできません。UID2 Share では、UID2 関連のタスクを実行するために必要な重要なデータのみが公開されます。 | ETL (Extract Transform Load) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web Services を動かす内部データを提供します。Operator Web Services で使用されるデータは、UID2 Share からも入手できます。 |
+| パートナーとして、Snowflake アカウントを設定してデータをホストし、UID2 Share を通じて関数やビューを使うことで、UID2 インテグレーションに関与できます。 | Snowflake アカウントでホストされている UID2 インテグレーションでは、プライベートテーブルからデータを引き出す許可をされた関数とビューへのアクセスが許可されます。プライベートテーブルにはアクセスできません。UID2 Share では、UID2 関連のタスクを実行するために必要な重要なデータのみが公開されます。 | ETL (抽出・変換・ロード) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web Services を動かす内部データを提供します。Operator Web Services で使用されるデータは、UID2 Share からも入手できます。 |
 | Shared 関数とビューを使用する場合、Snowflake にトランザクションのコストを支払います。 | UID2 Snowflake アカウントで保護されたこれらのプライベートテーブルは、UID2 関連のタスクを完了するために使用される内部データを保持する UID2 Core/Optout Snowflake ストレージと自動的に同期されます。 |  |
 
 ## Access the UID2 Shares
@@ -563,8 +563,8 @@ raw UID2 を UID2 Token に暗号化するには、関数 `FN_T_UID2_ENCRYPT` �
 | `MISSING_OR_INVALID_RAW_UID2` | raw UID2 の暗号化に成功しました。 |
 | `INVALID_RAW_UID2` | raw UID2 が無効です。 |
 | `MISMATCHING_IDENTITY_SCOPE` | raw UID2 が不正な ID スコープに属している。例えば、UID2 が期待されているところに EUID が渡されているなど。|
-| `NOT_AUTHORIZED_FOR_MASTER_KEY` | 呼び出し元が必要な暗号化キーにアクセスできない。UID2 の管理者に連絡してください。 |
-| `NOT_AUTHORIZED_FOR_SITE_KEY` | 呼び出し元が必要な暗号化キーにアクセスできない。UID2 の管理者に連絡してください。 |
+| `NOT_AUTHORIZED_FOR_MASTER_KEY` | 呼び出し元が必要な <a href="../ref-info/glossary-uid#gl-encryption-key">暗号化キー</a> にアクセスできません。UID2 の管理者に連絡してください。 |
+| `NOT_AUTHORIZED_FOR_SITE_KEY` | 呼び出し元が必要な暗号化キーにアクセスできません。UID2 の管理者に連絡してください。 |
 
 #### Encrypt Token Request Example - Single Raw UID2
 
