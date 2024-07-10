@@ -18,7 +18,7 @@ The following table lists all current testing and production environments for UI
 | Environment | Cloud Region | Code | Base URL |
 | :--- | :--- | :--- | :--- |
 | Integration Testing | AWS US East (Ohio) | `us-east-2` | `https://operator-integ.uidapi.com` |
-| Production | Automatically optimized region routing via the [AWS Global Accelerator](#using-the-aws-global-accelerator) | `n/a` | `https://global.prod.uidapi.com` |
+| Production | Automatically optimized region routing via the <a href='https://aws.amazon.com/global-accelerator/'>AWS Global Accelerator</a> | `n/a` | `https://global.prod.uidapi.com` |
 | Production | AWS US East (Ohio) | `us-east-2` | `https://prod.uidapi.com` |
 | Production | AWS US West (Oregon) | `us-west-2` | `https://usw.prod.uidapi.com` |
 | Production | AWS Asia Pacific (Sydney) | `ap-southeast-2` | `https://au.prod.uidapi.com` |
@@ -35,16 +35,14 @@ Notes:
 
 ## Specifying the Base URL to Reduce Latency
 
-By default, some implementation options make API calls to a UID2 production environment server in the USA.
-
-In this scenario, depending on where your users are based, you might consider choosing a server closer to your users to reduce latency.
+The latency of API calls depends on the proximity of the client to the UID2 servers. To reduce the latency, especially when making API calls from consumer devices, you might consider choosing a server closer to your users.
 
 For example, a publisher in Singapore can set the base URL to `https://sg.prod.uidapi.com`. This is still the UID2 production environment, but the servers are in Singapore.
 
-You can also use the [AWS Global Accelerator](#using-the-aws-global-accelerator), which directs readers to a region geographically close to them.
+By explicitly setting the base URL, you can direct all requests to be processed within a particular country or region.
 
-## Using the AWS Global Accelerator
+You might also consider leveraging the AWS global accelerator, which automatically directs requests to the UID2 servers closest to the caller. This option is also great for ensuring higher availability, in case servers in one region are temporarily down.
 
-The <a href='https://aws.amazon.com/global-accelerator/'>AWS Global Accelerator</a> is a feature that allows you to optimize by setting the base URL to `https://global.prod.uidapi.com`. This URL directs readers to a region geographically close to them, which is ideal if your audience is geographically distributed.
-
-This is a great approach for efficiency and minimum latency: however, do not choose this option if you want to make sure that all requests are processed within a particular country or region.
+:::note
+By default, some implementation options make API calls to a UID2 production environment server in the USA. To verify the default value, and for instructions on how to update the setting, check the documentation for your integration.
+:::
