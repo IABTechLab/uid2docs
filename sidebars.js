@@ -162,6 +162,7 @@ const fullSidebar = [
             items: [
               'guides/integration-prebid-client-side',
               'guides/integration-prebid-server-side',
+              'guides/integration-prebid-mobile-summary',
             ],
           },
 
