@@ -1,4 +1,4 @@
-import original from './docusaurus.original';
+import original from './docusaurus.original.js';
 
 /*
  * N.B. This file is used for the preview site. 
