@@ -1,6 +1,6 @@
 ---
 title: API Keys
-description: Set up and manage your API keys.
+description: API Key の設定と管理。
 hide_table_of_contents: false
 sidebar_position: 07
 ---
@@ -30,7 +30,7 @@ API Key を追加するときには、次のいずれかの権限を割り当て
 - Sharer
 - Bidder
 
-詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 ## Adding an API Key
 

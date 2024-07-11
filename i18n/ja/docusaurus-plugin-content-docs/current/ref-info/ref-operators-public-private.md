@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # The UID2 Operator
 
-UID2 Operator Service により、UID2 Core Service からの暗号化キーと [Salt(ソルト)](../ref-info/glossary-uid.md#gl-salt) の管理と保存、ユーザーの個人データ (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) のハッシュ化、[raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) の暗号化、<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> の復号化が可能になります。
+UID2 Operator Service により、UID2 Core Service からの <a href="../ref-info/glossary-uid#gl-encryption-key">暗号化キー</a> と [Salt(ソルト)](../ref-info/glossary-uid.md#gl-salt) の管理と保存、ユーザーの個人データ (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) のハッシュ化、[raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) の暗号化、<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> の復号化が可能になります。
 
 Operator Service のすべてのインスタンスは、誰がサービスを運営するかにかかわらず、重要な UID2 データを安全に保ち、相互運用できるよう、厳格な保護が施されて設計されています。
 
@@ -70,7 +70,7 @@ Private Operator は、Public Operator または別の Private Operator から�
 
 - 物理的に Public Operator のインスタンスの近くにない場合、レイテンシーの理由から Private Operator のソリューションをホストすることを選択することができます。
 
-レイテンシーに大きな懸念がある場合、セキュリティ要件によりデータがシステム内に留まる必要がある場合、さらに UID2 実装を構築・維持するための広範なエンジニアリングリソースがある場合は、Private Operator ソリューションを検討されることをお勧めします。
+レイテンシーに大きな懸念がある場合、セキュリティ要件によりデータがシステム内に留まる必要がある場合、さらに UID2 実装を構築・維持するための広範なエンジニアリングリソースがある場合は、Private Operator ソリューションを検討されることを勧めます。
 
 ## Summary
 
@@ -80,4 +80,4 @@ Private Operator オプションのマイナス面は、構築と維持に継続
 
 Public Operator インテグレーションは、独自のインスタンスを作成するよりもはるかに簡単なオプションです。参加者に費用はかからず、初期設定と構成以外のエンジニアリング作業は事実上必要ありません。
 
-これらの理由から、Public Operator を選択することをお勧めします。
+これらの理由から、Public Operator を選択することを勧めます。

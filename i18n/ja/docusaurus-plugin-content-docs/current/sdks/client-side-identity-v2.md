@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 # UID2 SDK for JavaScript Reference Guide (2.x and earlier versions)
 
 :::tip
-このドキュメントは、UID2 SDK for JavaScript の旧バージョン用です。以前のバージョンを使用している場合は、アップグレードすることをお勧めします。移行ガイドを含む [UID2 SDK for JavaScript Reference Guide](client-side-identity.md) を参照してください。
+このドキュメントは、UID2 SDK for JavaScript の旧バージョン用です。以前のバージョンを使用している場合は、アップグレードすることを勧めます。移行ガイドを含む [UID2 SDK for JavaScript Reference Guide](client-side-identity.md) を参照してください。
 :::
 
 この SDK を使用して、UID2 を使用してクライアントの ID を確立し、広告トークンを取得するプロセスを容易にします。以下のセクションでは、UID2 を確立するための [workflow](#workflow-overview) について説明し、SDK の [API reference](#api-reference) を提供し、[UID2 cookie format](#uid2-cookie-format) について説明します。
@@ -20,7 +20,7 @@ import Link from '@docusaurus/Link';
 
 ## Functionality
 
-この SDK は、UID2 をサポートしたいすべてのパブリッシャーに対して、UID2 とのインテグレーションを簡素化します。以下の表は、SDK がサポートする機能を示しています。
+この SDK は、UID2 をサポートしたいすべてのパブリッシャーに対して、UID2 とのインテグレーションを簡素化します。次の表は、SDK がサポートする機能を示しています。
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
@@ -32,7 +32,7 @@ import Link from '@docusaurus/Link';
 
 SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。SDK には、使用する権限を持たない機能があるかもしれないことに留意してください。例えば、パブリッシャーはトークンの生成と更新のために特定の API Permissions を取得しますが、SDK は共有などの他のアクティビティをサポートするかもしれません。
 
-詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 ## SDK Version
 
@@ -82,7 +82,7 @@ Web インテグレーションの詳細については、[Client-Server Integra
 
 ### Workflow States and Transitions
 
-以下の表は、[getAdvertisingToken()](#getadvertisingtoken-string) と [isLoginRequired()](#isloginrequired-boolean) という 2 つの主要な関数が返す値の組み合わせに基づいて、SDK が取り得る 4 つの主要な状態の概要を示し、それぞれの状態において開発者として取ることができる適切なアクションを示しています。
+次の表は、[getAdvertisingToken()](#getadvertisingtoken-string) と [isLoginRequired()](#isloginrequired-boolean) という 2 つの主要な関数が返す値の組み合わせに基づいて、SDK が取り得る 4 つの主要な状態の概要を示し、それぞれの状態において開発者として取ることができる適切なアクションを示しています。
 
 | Workflow State | Advertising Token | Login Required | Description| Identity Status Value |
 | :--- | :--- | :---| :---| :---|
@@ -190,7 +190,7 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 | `identity` | object | オプション | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) 呼び出しが成功したときの `body` プロパティ値です。<br/>[ファーストパーティクッキー](#uid2-cookie-format) からの ID を使用するには、このプロパティを空にしておきます。 | N/A |
 | `baseUrl` | string | オプション | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出す際に使用する UID2 Operator のカスタム Base URLです。<br/>例えば: `https://my.operator.com`. | `https://prod.uidapi.com`. |
 | `refreshRetryPeriod` | number | オプション | 断続的なエラーが発生した場合に、トークンのリフレッシュを再試行する秒数です。 | 5 |
-| `cookieDomain` | string | オプション | [UID2 cookie](#uid2-cookie-format) に適用するドメイン名文字列です。<br/>例えば、`baseUrl` が `https://my.operator.com` の場合、 `cookieDomain` の値は `operator.com` となります。 | `undefined` |
+| `cookieDomain` | string | オプション | [UID2 cookie](#uid2-cookie-format) に適用するドメイン名文字列です。<br/>例えば、`baseUrl` が `https://my.operator.com` の場合、`cookieDomain` の値は `operator.com` となります。 | `undefined` |
 | `cookiePath` | string | オプション | [UID2 cookie](#uid2-cookie-format) に適用する Path 文字列です。 | `/` |
 
 
@@ -207,7 +207,7 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 `function(object): void` コールバック関数は、初期化が完了したことを示します。これ以降、SDK は確立された ID のリフレッシュに成功した時にコールバックを呼び出します。
 
-コールバック関数がよばれるタイミングについての詳細は、[Background Token Auto-Refresh](#background-token-auto-refresh) を参照してください。
+コールバック関数がよばれるタイミングについての詳細は [Background Token Auto-Refresh](#background-token-auto-refresh) を参照してください。
 
 `object` パラメータは以下のプロパティを含みます。
 
@@ -219,7 +219,7 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 #### Identity Status Values
 
-[callback function](#callback-function) は `UID2.IdentityStatus` enum から `status` フィールドの値を数値として返します。`UID2.IdentityStatus[state.status]` を呼び出すことで、対応する文字列に変換することができます。以下の表に `status` enum の文字列を示します。
+[callback function](#callback-function) は `UID2.IdentityStatus` enum から `status` フィールドの値を数値として返します。`UID2.IdentityStatus[state.status]` を呼び出すことで、対応する文字列に変換することができます。次の表に `status` enum の文字列を示します。
 
 :::important
 以下の値は、ID の可溶性を通知することのみを目的としています。条件文などでは使用しないでください。
@@ -298,7 +298,7 @@ UID2 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) 呼び出
 
 | Value | Description |
 | :--- | :--- |
-| `true` | ID が利用できません。この値は以下のいずれかを示します:<br/>- ユーザーがオプトアウトした。<br/>- Refresh token の有効期限が切れた。<br/>- ファーストパーティクッキーは利用できず、サーバーで生成した ID も提供されていない。 |
+| `true` | ID が利用できません。この値は以下のいずれかを示します:<br/>- ユーザーがオプトアウトした。<br/>- Refresh token の有効期限が切れた。<br/>- ファーストパーティクッキーは利用できず、サーバーで生成した ID も提供されていません。 |
 | `false` | この値は以下のいずれかを示します:<br/>- ID が存在し、有効。<br/>- ID の有効期限が切れており、断続的なエラーによりトークンがリフレッシュされなかった。<br/>- ID の有効期限が切れており、断続的なエラーによりトークンがリフレッシュされなかった。 |
 | `undefined` | SDK の初期化はまだ完了していません。 |
 
@@ -321,7 +321,7 @@ UID2 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) 呼び出
 
 バックグラウンドのタイマーやリクエストを終了します。UID2 オブジェクトは指定されていない状態のままで、これ以上使用することはできません。
 
-この関数は、既存の UID2 オブジェクトを新しいインスタンスで置き換えるような高度なシナリオで使用することを想定しています。例えば、シングルページのアプリケーションでこれを使用すると、 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) レスポンスでサーバーから新しい ID を受け取った後に、 現在の UID2 オブジェクトをクリアして新しいオブジェクトを作成したり初期化したりすることができます。
+この関数は、既存の UID2 オブジェクトを新しいインスタンスで置き換えるような高度なシナリオで使用することを想定しています。例えば、シングルページのアプリケーションでこれを使用すると、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) レスポンスでサーバーから新しい ID を受け取った後に、現在の UID2 オブジェクトをクリアして新しいオブジェクトを作成したり初期化したりすることができます。
 
 ## UID2 Cookie Format
 
@@ -329,7 +329,7 @@ SDK はファーストパーティクッキーを使用してユーザーの ID 
 
 ### Properties
 
-以下の表に、cookie のプロパティを示します。
+次の表に、cookie のプロパティを示します。
 
 | Properties | Default Value | Comments |
 | :--- | :--- | :--- |

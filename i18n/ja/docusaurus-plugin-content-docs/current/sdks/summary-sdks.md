@@ -16,7 +16,7 @@ SDK の機能を確認して使用する SDK を決定し、SDK の表をクリ�
 
 ## SDK Functionality
 
-以下の表は、各 SDK で利用可能な機能をまとめたものです。
+次の表は、各 SDK で利用可能な機能をまとめたものです。
 
 | UID2 SDK for... | Client-Side or Server-Side | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII&ast; | Refresh UID2 Token | Generate Raw UID2 from DII |
 | :--- | :--- |  :--- | :--- | :--- | :--- | :--- |

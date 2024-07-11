@@ -5,7 +5,7 @@ hide_table_of_contents: false
 sidebar_position: 02
 use_banner: true
 banner_title: パブリッシャー向け UID2 概要
-banner_description: 変化し続ける広告業界においてオーディエンスターゲティングを維持し、より良いインプレッション収益化と関連性の向上を実現します。
+banner_description: 変化し続ける広告業界においてオーディエンスターゲティングを維持し、より良いインプレッション収益化と関連性の向上を実現。
 displayed_sidebar: sidebarPublishers
 ---
 
@@ -57,7 +57,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 次の手順で始めます:
 
 1. [Request Access](/request-access) ページのフォームに記入して、UID2 へのアクセスをリクエストします。
-1. UID2 とインテグレーションしたいプロパティを特定する。
+1. UID2 とインテグレーションしたいプロパティを特定します。
 1. UID2 契約を締結します。
 1. Client-Side と Server-Side のどちらのインテグレーションを希望するかを決定し、UID2 の担当者に伝えてください。
 1. UID2 credential([UID2 Credentials](../getting-started/gs-credentials.md)) を受け取ります。

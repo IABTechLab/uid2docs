@@ -2,7 +2,7 @@
 title: Client-Server Integration Guide for JavaScript
 sidebar_label: Server-Side Integration for JavaScript
 pagination_label: Client-Server Integration Guide for JavaScript
-description: UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオをカバーするパブリッシャー向けの情報で、トークンを Server-Side で生成し、パブリッシャーのウェブページに渡す必要があります。
+description: UID2 SDK for JavaScript を使用し、Server-Side でトークンを生成してパブリッシャーの Web ページに渡す必要がある標準的な Web インテグレーションシナリオをカバーするパブリッシャー向けの情報。
 hide_table_of_contents: false
 sidebar_position: 02
 ---
@@ -34,7 +34,7 @@ import Link from '@docusaurus/Link';
 UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスを容易にするために、このガイドで提供する Web インテグレーション手順は、JavaScript 用の UID2 SDK に依存しています。このガイドに記載されているインテグレーションステップと SDK の使用方法(現在はメールアドレスのみ) を示す [example application](https://example-jssdk-integ.uidapi.com/) を以下に示します。アプリケーションのドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) を参照してください。
 
 :::tip
-ファーストパーティ Cookie とローカルストレージの実装の詳細は、将来変更される可能性があります。潜在的な問題を回避するため、ID 管理には [UID2 SDK for JavaScript API Reference](../sdks/client-side-identity.md#api-reference) に記載されている機能を使用してください。
+ファーストパーティ Cookie とローカルストレージの実装の詳細は 将来変更される可能性があります。潜在的な問題を回避するため、ID 管理には [UID2 SDK for JavaScript API Reference](../sdks/client-side-identity.md#api-reference) に記載されている機能を使用してください。
 :::
 
 UID2 SDK for JavaScript を使用しないパブリッシャーのインテグレーションシナリオについては、[Publisher Integration Guide, Server-Side](custom-publisher-integration.md) を参照してください。
@@ -58,7 +58,7 @@ Google Ad Managerを使用していて、セキュアシグナル機能を使用
 
 ### Establish Identity: Capture User Data
 
-Step 1-c でパブリッシャーがユーザーのメールアドレスまたは電話番号を検証した後、Server-Side で UID2 Token を生成する必要があります。以下の表は、トークン生成ステップの詳細です。
+Step 1-c でパブリッシャーがユーザーのメールアドレスまたは電話番号を検証した後、Server-Side で UID2 Token を生成する必要があります。次の表は、トークン生成ステップの詳細です。
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
@@ -160,7 +160,7 @@ SDKは、指定された [callback function](../sdks/client-side-identity.md#cal
 
 <!-- (**GWH_TODO. Q: Not sure about the relationship between the steps above and the table below. And the diagram 2-a which says "the publisher calls the SSP for ads using the UID2 token". A: Diagram needs to be updated.**) -->
 
-ビッドステップを以下の表に示します。
+ビッドステップを次の表に示します。
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |

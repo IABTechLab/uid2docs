@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 Server-Side で UID2 SDK for C# / .NET を使用すると、以下を簡単に行うことができます:
 
-- raw UID2 を暗号化して、共有用の UID2 Token を作成する。
+- raw UID2 を暗号化して、共有用の UID2 Token を作成。
 - raw UID2 にアクセスするための UID2 Token の復号化。
 
 ## Functionality
@@ -28,7 +28,7 @@ Server-Side で UID2 SDK for C# / .NET を使用すると、以下を簡単に�
 
 SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。SDK には、使用する権限を持たない機能があるかもしれないことに留意してください。例えば、パブリッシャーはトークンの生成と更新のために特定の API Permissions を取得しますが、SDK は共有などの他のアクティビティをサポートするかもしれません。
 
-詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 ## Version
 
@@ -87,7 +87,7 @@ SDK を使用する場合、復号鍵を保存したり管理したりする必�
 | `NotAuthorizedForMasterKey` |要求者はマスターキーを使用する権限がありません。 |
 | `NotInitialized` | クライアントライブラリは初期化待ちです。 |
 | `KeysNotSynced` | クライアントが UID2 Service からの鍵の同期に失敗しました。 |
-| `KeyInactive` | 暗号化キーはアクティブではありません。 |
+| `KeyInactive` | <a href="../ref-info/glossary-uid#gl-encryption-key">暗号化キー</a> はアクティブではありません。 |
 | `EncryptionFailure` | 一般的な暗号化に失敗しました。 |
 <!-- `TokenDecryptFailure` intentionally omitted. Does not seem to be used by SharingClient. -->
 
@@ -152,10 +152,12 @@ else
 
 ## Usage for UID2 Sharers
 
-UID2 Sharer とは、UID2 を他の参加者と共有したい参加者のことです。raw UID2 を他の参加者に送信する前に、UID2 Tokenに暗号化する必要があります。
+UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Participant</Link> は、送信者または受信者として共有に参加し、他の参加者と UID2 を共有する企業です。
 
-:::warning
-このプロセスで生成される UID2 Token は共有専用です。<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>では使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
+広告主やデータプロバイダは、この SDK を使用して他の認証された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>)。彼らは [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、それを他の参加者に送信して共有できます (詳細は [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照してください)。データをピクセルで送信していない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) で示されている要件に従えば、UID2 共有に参加できます。
+
+:::important
+このプロセスで生成される UID2 Token は共有専用です&#8212;<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>では使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 :::
 
 以下は、UID2 SDK for C# / .NET を使用して、送信側または受信側として共有を実装する方法の例です。
@@ -205,4 +207,4 @@ For a full example, see the `ExampleSharingClient` method in [SampleApp/Program.
 
 ## FAQs
 
-DSP に関するよくある質問については、 [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。
+DSP に関するよくある質問については [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。

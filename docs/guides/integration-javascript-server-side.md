@@ -67,6 +67,22 @@ After authentication in step 1-c, which allows the publisher to validate the use
 | 1-f | UID2 SDK for JavaScript | The SDK sends the returned UID2 token from step 1-e to the SDK in the `identity` property of its [init() function](../sdks/client-side-identity.md#initopts-object-void). |
 | 1-g | UID2 SDK for JavaScript | Provide the SDK a callback function that will receive identity updates from the SDK and use them to initiate targeted advertising. |
 
+#### Generating a UID2 Token on the Server
+
+The first step is to generate the UID2 token on your server.
+
+For details, including instructions and examples, see [Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md).
+
+You will need to pass the `Identity` response to the SDK. See [Sending the UID2 Token to the SDK](#sending-the-uid2-token-to-the-sdk).
+
+:::warning
+For security reasons, the API key and secret used in token generation must be called server-side. Do not store these values on the client side. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+:::
+
+#### Sending the UID2 Token to the SDK
+
+The following code examples illustrate steps 1-f and 1-g, in JavaScript and TypeScript.
+
 <Tabs>
 <TabItem value='js' label='JavaScript'>
 

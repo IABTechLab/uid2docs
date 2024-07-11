@@ -211,7 +211,7 @@ await __uid2.setIdentityFromEmail(
 
 ```js
 await __uid2.setIdentityFromEmailHash(
-    'eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=',
+    'lz3+Rj7IV4X1+Vr1ujkG7tstkxwk5pgkqJ6mXbpOgTs=',
     {
         subscriptionId: subscriptionId,
         serverPublicKey: publicKey,
@@ -230,7 +230,7 @@ await __uid2.setIdentityFromEmailHash(
 
 ```js
 await __uid2.setIdentityFromPhone(
-    '+1111111111',
+    '+12345678901',
     {
         subscriptionId: subscriptionId,
         serverPublicKey: publicKey,
@@ -239,7 +239,7 @@ await __uid2.setIdentityFromPhone(
 ```
 このシナリオでは:
 
-- **電話番号の正規化とハッシュ化はパブリッシャーの責任です。** 詳細は、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+- **電話番号の正規化とハッシュ化はパブリッシャーの責任です。** 詳細は [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 - UID2 SDK は、暗号化されたハッシュを UID2 Service に送信する前に、電話番号をハッシュ化します。
 
 </TabItem>
@@ -249,7 +249,7 @@ await __uid2.setIdentityFromPhone(
 
 ```js
 await __uid2.setIdentityFromPhoneHash(
-    'eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=',
+    'EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=',
     {
         subscriptionId: subscriptionId,
         serverPublicKey: publicKey,
@@ -258,7 +258,7 @@ await __uid2.setIdentityFromPhoneHash(
 ```
 
 このシナリオでは:
-- **電話番号の正規化とハッシュ化はパブリッシャーの責任です。** 詳細は、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+- **電話番号の正規化とハッシュ化はパブリッシャーの責任です。** 詳細は [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 - UID2 SDK は、UID2 Service に送信する前にハッシュを暗号化します。
 
 </TabItem>

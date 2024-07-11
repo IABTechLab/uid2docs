@@ -1,6 +1,6 @@
 ---
 title: Overview of Sharing
-description: 他の参加者と UID2 を共有する方法について学びます。
+description: 他の参加者と UID2 を共有する方法について学ぶ。
 hide_table_of_contents: false
 sidebar_position: 01
 displayed_sidebar: docs
@@ -22,13 +22,13 @@ UID2 では、Sharing Participant とは、ある UID2 参加者から別の UID
 
 ## Approved Sharing Scenarios
 
-いくつかの主な共有シナリオは以下の表にまとめられています。
+いくつかの主な共有シナリオは次の表にまとめられています。
 
 例については、[Sharing UID2s: Use Cases](sharing-use-cases.md) を参照してください。
 
 | Sharing Scenario | Sender | Receiver | Sharing Approach | Sharing Route | Link for Details
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| ビッドストリームでの共有 | Publisher | DSP | UID2 Token の共有 (tokenized sharing) | パブリッシャーが UID2 Token を生成し、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に送信する。 | [Tokenized Sharing in the Bidstream](sharing-tokenized-from-data-bid-stream.md) |
+| ビッドストリームでの共有 | Publisher | DSP | UID2 Token の共有 (tokenized sharing) | パブリッシャーが UID2 Token を生成し、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に送信します。 | [Tokenized Sharing in the Bidstream](sharing-tokenized-from-data-bid-stream.md) |
 | ピクセルによる共有 | Any authorized [participant](../ref-info/glossary-uid.md#gl-sharing-participant) | Any authorized [participant](../ref-info/glossary-uid.md#gl-sharing-participant) | UID2 Token の共有 (tokenized sharing) | トラッキングピクセルやクリエイティブピクセルなど、あらゆるピクセルを介した共有。 | [Tokenized Sharing in Pixels](sharing-tokenized-from-data-pixel.md) |
 | 他の UID2 Sharing 参加者とビッドストリームまたはピクセル以外で共有 | Any authorized [participant](../ref-info/glossary-uid.md#gl-sharing-participant) | Any authorized [participant](../ref-info/glossary-uid.md#gl-sharing-participant) | raw UID2 の共有<br/>または<br/>UID2 Token の共有 (tokenized sharing) | APIやAmazon S3ドロップなど安全なチャネルによる共有。 | [Raw UID2 Sharing](sharing-raw.md)<br/>or<br/>[Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md) |
 

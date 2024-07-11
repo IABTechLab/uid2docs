@@ -162,6 +162,7 @@ const fullSidebar = [
             items: [
               'guides/integration-prebid-client-side',
               'guides/integration-prebid-server-side',
+              'guides/integration-prebid-mobile-summary',
             ],
           },
 
@@ -292,6 +293,7 @@ const fullSidebar = [
       collapsed: true,
       items: [
         'ref-info/ref-operators-public-private',
+        'ref-info/ref-server-side-token-generation',
         'summary-doc-v2',
       ],
     },

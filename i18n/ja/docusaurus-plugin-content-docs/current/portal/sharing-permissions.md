@@ -1,6 +1,6 @@
 ---
 title: Sharing Permissions
-description: UID2 Portalで共有権限を設定する。
+description: UID2 Portal での共有権限の設定。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -37,7 +37,7 @@ Sharing の使用には API Key (詳細は [API Keys](api-keys.md) を参照) �
 
 UID2 Portal では、以下の共有オプションを利用できます。これらのオプションは相互に排他的なものではありません&#8212;必要に応じて組み合わせることができます:
 
-- すべてのパブリッシャー、広告主、DSP、データプロバイダーなど、特定のタイプの参加者全員に自動的に許可を与えることができます。例えば、パブリッシャーはすべての DSP に共有許可を与えることをお勧めします。
+- すべてのパブリッシャー、広告主、DSP、データプロバイダーなど、特定のタイプの参加者全員に自動的に許可を与えることができます。例えば、パブリッシャーはすべての DSP に共有許可を与えることを勧めます。
 
   このオプションを選択すると、選択した参加者タイプのすべての新規参加者に、送信したデータを復号化する権限が自動的に付与されます。[Bulk Add Sharing Permissions](#bulk-add-sharing-permissions) を参照してください。
 
