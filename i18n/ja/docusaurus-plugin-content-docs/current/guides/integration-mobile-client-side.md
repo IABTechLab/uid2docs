@@ -42,7 +42,7 @@ UID2 を Client-Side でインテグレーションするには、以下の手�
 
 1. [Check that the token was successfully generated and then pass it for bidstream use](#pass-generated-token-for-bidstream-use).
 
-1. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
+1. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signals integration](#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration).
 
 ## Mobile SDK Version
 
@@ -697,11 +697,12 @@ If the response status indicates that the DII has been opted out of UID2, you mi
 
 <EnableLogging />
 
-## Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration
+## Optional: UID2 GMA/IMA Plugin for GAM Secure Signals integration
 
 <GMAIMA_Plugins />
 
 ## Optional: UID2 Prebid Mobile SDK Integration
+
 :::important
 UID2 Prebid Mobile SDK インテグレーションは、Android のみに対応しています。UID2 Prebid Mobile SDK インテグレーションを実装するには、UID2 SDK for Android のバージョン 1.4.0 が必要です。
 :::

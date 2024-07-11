@@ -27,7 +27,7 @@ Google secure signals は、パブリッシャーが [Google Ad Manager](https:/
 2. セキュアシグナル機能は、Client-Side でそれらをキャッシュし、Google Ad Manager に透過的に渡します。
 3. Google Ad Manager は UID2 Token を使ってビッドリクエストを行い、パブリッシャーの設定に基づき Google AdX 内の承認済み入札者にトークンを転送します。
 
-## Allow Secure Signal Sharing
+## Allow Secure Signals Sharing
 
 Google Ad Manager アカウントで暗号化 UID2 Token を受け取るには、暗号化されたシグナルが Google Ad Manager アカウントで第三者の入札者と適切に共有されていることを確認する必要があります。
 
