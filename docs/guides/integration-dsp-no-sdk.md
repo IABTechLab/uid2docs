@@ -81,18 +81,21 @@ To review detailed logic, see [UID2Encryption.cs, lines 36-50](https://github.co
 
 Use the master key and site key to decrypt the token. For a code example, refer to the `Decrypt` function: see [UID2Encryption.cs, line 29](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L29). This function decrypts UID2 tokens into raw UID2s as part of the UID2 SDK for C# / .NET, and includes logic to handle different token versions.
 
-### Honor Opt-Out Status for a Token Generated on the Client Side
+### For Tokens Generated on the Client Side: Honor Opt-Out Status
 
-For tokens generated on the client side: After decrypting the token, check for opt-out information indicating that the token does not contain a targetable UID2. If the user has opted out, you must not use the token for bidding.
+For tokens generated on the client side, there is an additional step with regard to opt-out. After decrypting the token, you must check for opt-out information indicating that the token does not contain a targetable UID2. If the user has opted out, you must not use the token for bidding.
 
 For an example of how to do this check, review the code for the `DecryptV3` function: see [UID2Encryption.cs, line 201](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L201).
+
+:::note
+This step, which is only for tokens generated on the client side, is additional to checking the token against your opt-out records, which is required in all instances. For details, see [Honor User Opt-Out After Token Decryption](#honor-user-opt-out-after-token-decryption).
+:::
 
 For more information about client-side UID2 integration, refer to one of these integration guides:
 
 - [Client-Side Integration Guide for JavaScript](publisher-client-side.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
 - [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
-
 
 ### Make Sure Token Lifetime and Expiration Are Valid
 
@@ -137,9 +140,9 @@ time until token generation = token generated - current time
 
 Versions later than v2 have a **Token Generated** field, which is updated if the token is refreshed, so we use this to calculate the token lifetime.
 
-### Conditional: Verify the Domain or App Name
+### For Tokens Generated on the Client Side: Verify the Domain or App Name
 
-Conditional, for tokens generated on the client side: After decrypting the token, you must verify that the `domainOrAppName` value is included in the `domain_names` list of the site ID, within the `site_data` section of the response from the `/v2/key/bidstream` API endpoint.
+For tokens generated on the client side, after decrypting the token, you must verify that the domain name or app name is valid. To do this, make sure the `domainOrAppName` value is included in the `domain_names` list of the site ID, within the `site_data` section of the response from the `/v2/key/bidstream` API endpoint.
 
 For an example of code that does this, refer to the `IsDomainOrAppNameAllowedForSite` function in [UID2Encryption.cs, line 245](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L245).
 
