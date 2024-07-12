@@ -1,17 +1,17 @@
 ---
-title: Mobile Integration for Prebid.js
-sidebar_label: Mobile Integration for Prebid.js
-pagination_label: Mobile Integration for Prebid.js
-description: An overview of  about setting up Prebid.js integration on mobile devices.
+title: Mobile Integration for Prebid Mobile SDK
+sidebar_label: Mobile Integration for Prebid Mobile SDK
+pagination_label: Mobile Integration for Prebid Mobile SDK
+description: Summary of information resources for setting up Prebid integration on mobile devices.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
 import Link from '@docusaurus/Link';
 
-# UID2 Mobile Integration for Prebid.js
+# UID2 Mobile Integration for Prebid Mobile SDK
 
-UID2 integration with Prebid.js is also supported for Android mobile devices.
+UID2 integration with Prebid is also supported for Android mobile devices, using the Prebid Mobile SDK.
 
 For details, see the following sections of the mobile integration guides:
 
