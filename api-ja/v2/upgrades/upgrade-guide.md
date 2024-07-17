@@ -44,9 +44,9 @@ UID2 API v2 へのアップグレードには以下の変更が含まれます:
 - v2 [POST /token/refresh](https://unifiedid.com/docs/endpoints/post-token-refresh) エンドポイントは、これらのエンドポイントから返された Refresh Token のレスポンスのみを暗号化します。これは、呼び出し元がこれらのエンドポイントから返されたリフレッシュレスポンスキーを持っているという前提で行われます。
 - v2 [POST /token/generate](https://unifiedid.com/docs/endpoints/post-token-generate) または v2 [POST /token/refresh](https://unifiedid.com/docs/endpoints/post-token-refresh) エンドポイントから返された Refresh Token を、v1 `GET /token/refresh` エンドポイントに渡すことができますが、レスポンスは暗号化されません。
 
- UID2 SDK for JavaScript v2 ([UID2 SDK for JavaScript Reference Guide](https://unifiedid.com/docs/sdks/client-side-identity) を参照してください) は、UID2 SDK for JavaScript SDK v1 の完全な置換です。以下に注意すべき点を示します:
+ UID2 SDK for JavaScript v2 ([UID2 SDK for JavaScript Reference Guide](https://unifiedid.com/docs/sdks/sdk-ref-javascript) を参照してください) は、UID2 SDK for JavaScript SDK v1 の完全な置換です。以下に注意すべき点を示します:
   - ユーザーの ID を格納するために使用されるファーストパーティクッキーは、両方のバージョンの SDK 間で完全に相互運用可能です。UID2 SDK for JavaScript v2 が v1 クッキーを読み取り、その逆も同様です。
-  - [v2 SDK init() 関数](https://unifiedid.com/docs/sdks/client-side-identity#initopts-object-void) は、v1 `GET /token/generate` エンドポイントによって返された identity オブジェクトを受け入れます。
+  - [v2 SDK init() 関数](https://unifiedid.com/docs/sdks/sdk-ref-javascript#initopts-object-void) は、v1 `GET /token/generate` エンドポイントによって返された identity オブジェクトを受け入れます。
   - v1 SDK `init()` 関数は、v2 [POST /token/generate](https://unifiedid.com/docs/endpoints/post-token-generate) エンドポイントによって返された identity オブジェクトを受け入れます。
 
 ### Upgrade Steps for Publishers
@@ -55,7 +55,7 @@ UID2 API v2 へのアップグレードを行うには、以下の手順を実�
 
 1. [Upgrade the UID2 SDK for JavaScript](#upgrade-the-uid2-sdk-for-javascript).
 1. [Upgrade calls to the token generate endpoint](#upgrade-token-generation-calls).
-1. (Required only for integrations that do not use the [UID2 SDK for JavaScript)](https://unifiedid.com/docs/sdks/client-side-identity): [Upgrade calls to the token refresh endpoint](#upgrade-token-refresh-calls).
+1. (Required only for integrations that do not use the [UID2 SDK for JavaScript)](https://unifiedid.com/docs/sdks/sdk-ref-javascript): [Upgrade calls to the token refresh endpoint](#upgrade-token-refresh-calls).
 
 #### Upgrade the UID2 SDK for JavaScript
 
@@ -86,14 +86,14 @@ SDK version 2:
 
 - [POST /token/generate](https://unifiedid.com/docs/endpoints/post-token-generate) への呼び出しは、リクエストボディを暗号化し、レスポンスを復号化する必要があります。詳細と例については、[Encrypting Requests and Decrypting Responses](https://unifiedid.com/docs/getting-started/gs-encryption-decryption) を参照してください。
 - [POST /token/generate](https://unifiedid.com/docs/endpoints/post-token-generate) への JSON レスポンスには、新しいプロパティ `refresh_response_key` が含まれます。
-  - JavaScript の UID2 SDK (詳細は [UID2 SDK for JavaScript Reference Guide](https://unifiedid.com/docs/sdks/client-side-identity) を参照してください) を使用している場合、バージョンに関係なく、このキーを SDK の `init()` 関数に他のレスポンスプロパティと共に渡す必要があります。
+  - JavaScript の UID2 SDK (詳細は [UID2 SDK for JavaScript Reference Guide](https://unifiedid.com/docs/sdks/sdk-ref-javascript) を参照してください) を使用している場合、バージョンに関係なく、このキーを SDK の `init()` 関数に他のレスポンスプロパティと共に渡す必要があります。
   - SDK を使用していない場合、レスポンスデータをカスタムストレージ (たとえばデータベースやカスタムファーストパーティクッキー) に保存している場合は、ストレージを更新してリフレッシュレスポンスキーを保存する必要があります。
   - v1 `GET /token/refresh` エンドポイントによって返されたリフレッシュトークンを使用している既存のセッションには、リフレッシュレスポンスキーがないセッションがある場合、更新は必要ありません。これらのセッションはそのまま動作し続けます。
 
 #### Upgrade Token Refresh Calls
 
 :::note
-[UID2 SDK for JavaScript Reference Guide](https://unifiedid.com/docs/sdks/client-side-identity) を使用してトークンをリフレッシュおよび管理している場合、追加の操作は必要ありません。
+[UID2 SDK for JavaScript Reference Guide](https://unifiedid.com/docs/sdks/sdk-ref-javascript) を使用してトークンをリフレッシュおよび管理している場合、追加の操作は必要ありません。
 :::
 
 SDK を使用せず、Server-Side または Client-Side でトークンをリフレッシュする場合、v2 [POST /token/refresh](https://unifiedid.com/docs/endpoints/post-token-refresh) エンドポイントにリクエストを行う際に以下の点に注意してください:

@@ -45,8 +45,8 @@ For a detailed summary of web integration options, see [Web Integration Overview
 | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) | An integration guide for publishers who want to integrate with UID2 and want Prebid.js to manage token generation and automatic token refresh as well as passing the tokens into the RTB bidstream. This guide is for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach. |
 | [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid in the RTB bidstream. This guide is for publishers who are using a private operator or who want to generate tokens server-side. |
 | [UID2 Integration Overview for JavaScript](integration-javascript.md) | An overview of options for publishers who want to integrate with UID2 using the JavaScript SDK. |
-| [Client-Side Integration Guide for JavaScript](publisher-client-side.md) | A guide for publishers who want to integrate with UID2 using only client-side JavaScript changes, which is the easiest implementation approach.<br/>The UID2 SDK for JavaScript manages token generation and token refresh automatically. |
-| [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md) | This integration guide for publishers covers standard web integration scenarios that use the UID2 SDK for JavaScript and requires the token to be generated on the server side and passed to the publishers' web pages. |
+| [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) | A guide for publishers who want to integrate with UID2 using only client-side JavaScript changes, which is the easiest implementation approach.<br/>The UID2 SDK for JavaScript manages token generation and token refresh automatically. |
+| [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) | This integration guide for publishers covers standard web integration scenarios that use the UID2 SDK for JavaScript and requires the token to be generated on the server side and passed to the publishers' web pages. |
 | [Publisher Integration Guide, Server-Side](custom-publisher-integration.md) | This integration guide is for publishers that do not use the UID2 SDK for JavaScript. |
 | [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) | This integration guide covers the additional steps needed for publishers using UID2 with the Google Ad Manager Secure Signals feature (previously known as Encrypted Signals for Publishers, ESP). |
 
@@ -98,7 +98,7 @@ The following resources are available for advertisers and data providers integra
 | Integration Guide | Content Description |
 | :--- | :--- |
 | [Advertiser/Data Provider](advertiser-dataprovider-guide.md) | This integration guide for advertisers and data providers covers integration workflows for mapping identity for audience-building and targeting. |
-| [Client-Side Integration Guide for JavaScript](publisher-client-side.md) | A guide for advertisers and data providers who want to use this SDK for adding a UID2 token to their tracking pixels.<!-- UID2_only: Not applicable for EUID --> |
+| [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) | A guide for advertisers and data providers who want to use this SDK for adding a UID2 token to their tracking pixels.<!-- UID2_only: Not applicable for EUID --> |
 | [Snowflake Integration Guide](snowflake_integration.md) | Instructions for generating UID2s from emails within Snowflake. |
 | [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md) | Instructions for integrating with the UID2 framework using AWS Entity Resolution. |
 

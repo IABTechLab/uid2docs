@@ -24,7 +24,7 @@ import Link from '@docusaurus/Link';
 パブリッシャーインテグレーションオプションの完全な概要については、[Publisher Integrations](summary-guides.md#publisher-integrations) を参照してください。
 
 :::tip
-UID2 と UID2 Token を使用してクライアントのアイデンティティを確立し、UID2 Token を取得するプロセスを容易にするために、UID2 SDK for JavaScript を使用することを検討してください。詳細については、[Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md) を参照してください。
+UID2 と UID2 Token を使用してクライアントのアイデンティティを確立し、UID2 Token を取得するプロセスを容易にするために、UID2 SDK for JavaScript を使用することを検討してください。詳細については、[Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) を参照してください。
 :::
 
 ## Introduction

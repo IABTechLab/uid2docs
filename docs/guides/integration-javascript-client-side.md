@@ -26,9 +26,9 @@ This approach is used by the following participant types:
 <!-- This guide is for publishers who want to integrate with UID2 and generate EUID tokens (advertising tokens) using only JavaScript client-side changes on their website with minimum effort. -->
 <!-- End of EUID-only section. -->
 
-This guide does not apply to publishers who want to use a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, or who want to generate tokens server-side. Those publishers should follow the [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md).
+This guide does not apply to publishers who want to use a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, or who want to generate tokens server-side. Those publishers should follow the [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md).
 
-UID2 provides a UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) with the following features:
+UID2 provides a UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)) with the following features:
 
 - UID2 token generation
 - Automatic refreshing of UID2 tokens
@@ -113,7 +113,7 @@ window.__uid2.callbacks.push((eventType, payload) => {
 </script>
 ```
 
-For more information about the SDK, see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md).
+For more information about the SDK, see [UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md).
 
 ### Using the UID2 Integration Environment
 
@@ -279,7 +279,7 @@ If you're a publisher and this is the first page load with no <Link href="../ref
 In some cases, the user's DII is not available on page load, and getting the DII has some associated cost. For example, an API call might be required to fetch the DII, or the user has to be prompted to provide the DII information.
 
 You can potentially avoid that cost by checking for an existing token that you can use or refresh. To do this, call
-[__uid2.isLoginRequired](../sdks/client-side-identity#isloginrequired-boolean) which returns a Boolean value. If it returns `true`, this means that the UID2 SDK cannot create a new advertising token with the existing resource and DII is required to generate a brand new UID2 token.
+[__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) which returns a Boolean value. If it returns `true`, this means that the UID2 SDK cannot create a new advertising token with the existing resource and DII is required to generate a brand new UID2 token.
 
 The following code snippet demonstrates how you might integrate with the UID2 SDK for JavaScript for the two scenarios above&#8212;starting with no token as well as reusing/refreshing any existing UID2 token if found. 
 

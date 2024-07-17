@@ -23,13 +23,13 @@ If you're using Prebid.js with the UID2 Identity Module, or with another product
 
 This page describes version 3 of the UID2 SDK for JavaScript. If you are maintaining an integration using an earlier version, do one of the following:
 - Upgrade your integration, using the [migration guide](#migration-guide) (recommended).
-- Refer to the documentation for [earlier versions of the SDK](./client-side-identity-v2.md).
+- Refer to the documentation for [earlier versions of the SDK](./sdk-ref-javascript-v2.md).
 
 Related information:
 
 For integration steps for content publishers, see:
-  - [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
-  - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md). 
+  - [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md).
+  - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md). 
 
 For example applications with associated documentation, see:
   - The UID2 Google Secure Signals with SDK v3 example:
@@ -129,7 +129,7 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 	- If the advertising token is available, use it to initiate requests for targeted advertising.
 	- If the advertising token is not available, either use untargeted advertising or redirect the user to the data capture with the consent form.
 
-For more detailed web integration steps, see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md).
+For more detailed web integration steps, see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md).
 
 ### Background Token Auto-Refresh
 
@@ -349,7 +349,7 @@ The `init()` function can throw the following errors.
 
 This is provided for backward compatibility only: new integrations should use the new-style [callback function](#callback-function). Note that the callback parameters are not compatible in either direction: legacy callbacks cannot be registered using the [Array Push Pattern](#array-push-pattern), and new-style callbacks cannot be provided to `init`.
 
-For details, see [Legacy Callback Function](./client-side-identity-v2#callback-function) in the documentation for earlier versions of this SDK.
+For details, see [Legacy Callback Function](./sdk-ref-javascript-v2#callback-function) in the documentation for earlier versions of this SDK.
 
 If you have already built an integration using a legacy callback function, you can use it with the current version of the SDK with no changes. However, this functionality will be removed in a future version of the SDK. We strongly recommend that you update your integration to use the new-style [callback function](#callback-function).
 

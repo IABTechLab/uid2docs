@@ -127,8 +127,8 @@ UID2 home page の "ドキュメント" リンクをクリックするだけで�
 詳細は以下を参照してください:
 
 - [UID2 Integration Overview for JavaScript](../guides/integration-javascript)
-- [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md)
-- [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
+- [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
+- [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
 <!-- APIDOCS-1924 -->
 
@@ -226,12 +226,12 @@ UID2 ウェブサイトの Getting Started セクションに新しい記事が�
 
 Client-Side Integration Guide for JavaScript は、既存の URL の全く新しいドキュメントで、Client-Sideパブリッシャー実装のために UID2 SDK for JavaScript を使用する、よりシンプルな新しい方法を網羅しています。
 
-詳細は [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) を参照してください。
+詳細は [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を参照してください。
 
-以前の *UID2 SDK for JavaScript Integration Guide* にあった内容は、JavaScript SDK を Server-Side に実装したいパブリッシャーのための補足文書になりました: [JavaScript Standard Integration Guide](../guides/integration-javascript-server-side.md).
+以前の *UID2 SDK for JavaScript Integration Guide* にあった内容は、JavaScript SDK を Server-Side に実装したいパブリッシャーのための補足文書になりました: [JavaScript Standard Integration Guide](../guides/integration-javascript-client-server.md).
 
 :::note
-このドキュメントは2024年1月に [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) に更新され、JavaScript Standard Integration Guide は[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) になりました。
+このドキュメントは2024年1月に [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) に更新され、JavaScript Standard Integration Guide は[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) になりました。
 :::
 
 ### New: UID2 Client-Side Integration Guide for Prebid.js
@@ -271,11 +271,11 @@ UID2 Client-Side Integration Guide for Prebid.js は、既存の URL にまっ�
 
 10 October 2023
 
-UID2 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメントが大幅に更新されました。新しいドキュメントには、以前のバージョンの SDK からのアップグレードのための [Migration Guide](../sdks/client-side-identity#migration-guide) が含まれています。
+UID2 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメントが大幅に更新されました。新しいドキュメントには、以前のバージョンの SDK からのアップグレードのための [Migration Guide](../sdks/sdk-ref-javascript#migration-guide) が含まれています。
 
 詳細は以下を参照してください:
--  [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)
--  [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
+-  [UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)
+-  [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
 ### New: Private Operator Guide for Google Confidential Space 
 

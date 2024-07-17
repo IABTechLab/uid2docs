@@ -125,7 +125,7 @@ Some of the examples show email addresses that include the plus sign (+), with d
 
 ## Example Code
 
-For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base-64 Encoding](../guides/publisher-client-side#example-code-hashing-and-base-64-encoding).
+For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base-64 Encoding](../guides/integration-javascript-client-side#example-code-hashing-and-base-64-encoding).
 
 ## UID2 Hashing Tool
 

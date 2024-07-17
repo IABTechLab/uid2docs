@@ -30,7 +30,7 @@ Client-side implementation options are shown in the following table. The options
 
 | Client-Side Implementation Option | Available For (Role) | Documentation Link |
 | :--- | :--- | :---|
-| UID2 JavaScript SDK | Publishers, Advertisers | [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) |
+| UID2 JavaScript SDK | Publishers, Advertisers | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) |
 | Prebid.js client-side integration | Publishers only |[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) |
 
 ## Adding a Key Pair

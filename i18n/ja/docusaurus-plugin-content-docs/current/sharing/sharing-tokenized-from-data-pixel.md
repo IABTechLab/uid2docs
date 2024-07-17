@@ -30,7 +30,7 @@ import Link from '@docusaurus/Link';
 ## Sharing UID2 Tokens in Pixels
 
 :::tip
-DII から UID2 Token を直接生成することを勧めます。これにはいくつかの方法がありますが、勧めるのは Client-Side で UID2 Token を生成する方法です。手順については、[Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) を参照してください。
+DII から UID2 Token を直接生成することを勧めます。これにはいくつかの方法がありますが、勧めるのは Client-Side で UID2 Token を生成する方法です。手順については、[Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を参照してください。
 :::
 
 参加者によって、ピクセルの使用方法は異なります。次の表は、広告技術のエコシステムにおけるピクセルの2つの一般的な使用例を示しています。
@@ -69,7 +69,7 @@ UID2 送信者は、UID2 Token を復号化できる受信者を指定します�
 
    2. ユーザーから提供された <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> から UID2 Token を直接生成します。これは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントまたは UID2 Token を生成する SDK のいずれかを使用して行います。
    
-      オプションの概要については、[SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) を参照してください。JavaScript を使用して UID2 Token を生成する方法については、[Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) を勧めます。
+      オプションの概要については、[SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) を参照してください。JavaScript を使用して UID2 Token を生成する方法については、[Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を勧めます。
    
    3. UID2 Tokeb を DSP に安全に送信します。
 

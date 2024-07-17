@@ -10,12 +10,12 @@ import Link from '@docusaurus/Link';
 # UID2 SDK for JavaScript Reference Guide (2.x and earlier versions)
 
 :::tip
-このドキュメントは、UID2 SDK for JavaScript の旧バージョン用です。以前のバージョンを使用している場合は、アップグレードすることを勧めます。移行ガイドを含む [UID2 SDK for JavaScript Reference Guide](client-side-identity.md) を参照してください。
+このドキュメントは、UID2 SDK for JavaScript の旧バージョン用です。以前のバージョンを使用している場合は、アップグレードすることを勧めます。移行ガイドを含む [UID2 SDK for JavaScript Reference Guide](sdk-ref-javascript.md) を参照してください。
 :::
 
 この SDK を使用して、UID2 を使用してクライアントの ID を確立し、広告トークンを取得するプロセスを容易にします。以下のセクションでは、UID2 を確立するための [workflow](#workflow-overview) について説明し、SDK の [API reference](#api-reference) を提供し、[UID2 cookie format](#uid2-cookie-format) について説明します。
 
-- コンテンツパブリッシャーのインテグレーション手順については、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください。
+- コンテンツパブリッシャーのインテグレーション手順については、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください。
 - [example application](https://example-jssdk-integ.uidapi.com/) と関連ドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) ガイドを参照してください。
 
 ## Functionality
@@ -78,7 +78,7 @@ SDK を使用して UID2 ID を確立するための Client-Side ワークフロ
 	- Advertising Token が使用可能な場合は、それを使用してターゲティング広告の要求を開始します。
 	- Advertising Token が利用可能でない場合は、ターゲティング広告を使用しないか、同意フォームでユーザーを データキャプチャにリダイレクトします。
  
-Web インテグレーションの詳細については、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください。
+Web インテグレーションの詳細については、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください。
 
 ### Workflow States and Transitions
 

@@ -45,8 +45,8 @@ Web インテグレーションオプションの詳細については、[Web In
 | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) | UID2とインテグレーションし、トークンの生成とトークンの自動更新を Prebid.js に管理させ、トークンを RTB ビッドストリームに渡したいパブリッシャー向けのインテグレーションガイドです。このガイドは、Client-Side で UID2 Token をリクエストしたいパブリッシャー向けのもので、最も簡単な実装方法です。 |
 | [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid から渡される ID トークンを生成したいパブリッシャー向けのインテグレーションガイドです。このガイドは、Private Operator を使用しているか、Server-Side でトークンを生成したいパブリッシャー向けです。 |
 | [UID2 Integration Overview for JavaScript](integration-javascript.md) | JavaScript SDK を使って UID2 とインテグレーションしたいパブリッシャー向けのオプションの概要です。 |
-| [Client-Side Integration Guide for JavaScript](publisher-client-side.md) | 最も簡単な実装方法で、Clent-Side の JavaScript の変更だけで UID2 とインテグレーションしたいパブリッシャー向けのインテグレーションガイドです。UID2 SDK for JavaScriptは、トークンの生成と更新を自動的に管理します。 |
-| [Client-Server Integration Guide for JavaScript](integration-javascript-server-side.md) | パブリッシャー向けのこのインテグレーションガイドでは、UID2 SDK for JavaScript を使用する標準的なウェブインテグレーションシナリオについて説明し、トークンを Server-Side で生成し、パブリッシャーのウェブページに渡す必要があります。 |
+| [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) | 最も簡単な実装方法で、Clent-Side の JavaScript の変更だけで UID2 とインテグレーションしたいパブリッシャー向けのインテグレーションガイドです。UID2 SDK for JavaScriptは、トークンの生成と更新を自動的に管理します。 |
+| [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) | パブリッシャー向けのこのインテグレーションガイドでは、UID2 SDK for JavaScript を使用する標準的なウェブインテグレーションシナリオについて説明し、トークンを Server-Side で生成し、パブリッシャーのウェブページに渡す必要があります。 |
 | [Publisher Integration Guide, Server-Side](custom-publisher-integration.md) | このインテグレーションガイドは、UID2 SDK for JavaScript を使用していないパブリッシャー向けです。 |
 | [Publisher - Google Ad Manager Secure Signals](google-ss-integration.md) | このインテグレーションガイドでは、UID2 を Google Ad Manager のセキュアシグナル機能(旧称: Encrypted Signals for Publishers、ESP) で使用するパブリッシャーに必要な追加手順について説明します。 |
 
@@ -97,7 +97,7 @@ UID2 とインテグレーションする広告主やデータプロバイダー
 | Integration Guide | Content Description |
 | :--- | :--- |
 | [Advertiser/Data Provider](./advertiser-dataprovider-guide.md) | この広告主やデータプロバイダー向けのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 |
-| [Client-Side Integration Guide for JavaScript](publisher-client-side.md) | トラッキングピクセルに UID2 Token を追加するためにこの SDK を使用したい広告主やデータプロバイダー向けのガイドです。<!-- UID2_only: Not applicable for EUID --> |
+| [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) | トラッキングピクセルに UID2 Token を追加するためにこの SDK を使用したい広告主やデータプロバイダー向けのガイドです。<!-- UID2_only: Not applicable for EUID --> |
 | [Snowflake Integration Guide](snowflake_integration.md) | Snowflake 内でメールアドレスから UID2 を生成する手順です。|
 | [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md) | AWS Entity Resolution を使用して UID2 フレームワークとインテグレーションする手順です。 |
 
