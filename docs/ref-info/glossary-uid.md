@@ -369,7 +369,7 @@ import Link from '@docusaurus/Link';
 <dd>One of the UID2 <a href="#gl-integration-approaches">integration approaches</a> is to integrate entirely on the server side.</dd>
 <dd>In a server-side integration, raw UID2s or UID2 tokens are generated and refreshed on the server.</dd>
 <dd>For example, in a server-side integration, advertisers generate raw UID2s on the server side to be delivered for audience targeting, and publishers generate UID2 tokens on the server side for bidstream use.</dd>
-<dd>An example of documentation for publisher server-side integration is <a href="../guides/custom-publisher-integration">Publisher Integration Guide, Server-Side</a>.</dd>
+<dd>An example of documentation for publisher server-side integration is <a href="../guides/integration-publisher-server-side">Publisher Integration Guide, Server-Side</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-sha-256"><a href="#gl-sha-256">SHA-256</a></MdxJumpAnchor></dt>
 <dd>SHA-256 is the secure hashing algorithm that UID2 uses.</dd>

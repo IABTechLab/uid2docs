@@ -171,7 +171,7 @@ If you're using client-server integration (see [Client-Server Integration Guide 
 
 #### Server-Side Integration
 
-If you're using server-side integration (see [Publisher Integration Guide, Server-Side](../guides/custom-publisher-integration.md)), follow these steps:
+If you're using server-side integration (see [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md)), follow these steps:
 
 1. Store this identity as a JSON string in the user's session, using the `tokenGenerateResponse.getIdentityJsonString()` function.
 
@@ -257,7 +257,7 @@ If you're using client-server integration (see [Client-Server Integration Guide 
 
 #### Server-Side Integration
 
-If you're using server-side integration (see [Publisher Integration Guide, Server-Side](../guides/custom-publisher-integration.md)):
+If you're using server-side integration (see [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md)):
 
 1. Store this identity as a JSON string in the user's session, using: `tokenGenerateResponse.getIdentityJsonString()`.
 

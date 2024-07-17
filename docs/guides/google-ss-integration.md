@@ -66,7 +66,7 @@ window.getUid2AdvertisingToken = async () => {
 }
 ```
 
-For details, see [Publisher Integration Guide, Server-Side](custom-publisher-integration.md).
+For details, see [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md).
 
 A sample application is also available for server-side integration. See [Sample Applications](#sample-applications).
 

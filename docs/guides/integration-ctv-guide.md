@@ -59,7 +59,7 @@ This setup requires that most of the code changes are done on the server side, w
 
 Another advantage of this approach is that if you're dealing with multiple platforms (Web / CTV / mobile), doing everything on the server side can reduce platform-specific efforts.
 
-To implement using this approach, follow the instructions in [Publisher Integration Guide, Server-Side](custom-publisher-integration.md).
+To implement using this approach, follow the instructions in [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md).
 
 If your server-side code is in Java or Python, you can use one of the UID2 SDKs to make the HTTP requests to UID2, instead of writing your own source code. For details, refer to one of the following SDK guides:
 

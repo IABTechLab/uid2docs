@@ -47,7 +47,7 @@ For a detailed summary of web integration options, see [Web Integration Overview
 | [UID2 Integration Overview for JavaScript](integration-javascript.md) | An overview of options for publishers who want to integrate with UID2 using the JavaScript SDK. |
 | [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) | A guide for publishers who want to integrate with UID2 using only client-side JavaScript changes, which is the easiest implementation approach.<br/>The UID2 SDK for JavaScript manages token generation and token refresh automatically. |
 | [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) | This integration guide for publishers covers standard web integration scenarios that use the UID2 SDK for JavaScript and requires the token to be generated on the server side and passed to the publishers' web pages. |
-| [Publisher Integration Guide, Server-Side](custom-publisher-integration.md) | This integration guide is for publishers that do not use the UID2 SDK for JavaScript. |
+| [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) | This integration guide is for publishers that do not use the UID2 SDK for JavaScript. |
 | [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) | This integration guide covers the additional steps needed for publishers using UID2 with the Google Ad Manager Secure Signals feature (previously known as Encrypted Signals for Publishers, ESP). |
 
 ### Mobile Integrations

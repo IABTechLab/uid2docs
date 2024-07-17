@@ -369,7 +369,7 @@ import Link from '@docusaurus/Link';
 <dd>UID2 の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の一つは、完全に Server-Side でインテグレーションすることです。</dd>
 <dd>Server-Side インテグレーションでは、raw YUD2 または UID2 Token がサーバーサイドで生成およびリフレッシュされます。</dd>
 <dd>例えば、Server-Side インテグレーションでは、広告主は、広告ターゲティングのために Server-Side で raw UID2 を生成し、パブリッシャーは、ビッドストリームのために Server-Side で UID2 Token を生成し、リフレッシュします。</dd>
-<dd>パブリッシャーサーバーサイドの統合に関するドキュメントの例は、<a href="../guides/custom-publisher-integration">Publisher Integration Guide, Server-Side</a> です。</dd>
+<dd>パブリッシャーサーバーサイドの統合に関するドキュメントの例は、<a href="../guides/integration-publisher-server-side">Publisher Integration Guide, Server-Side</a> です。</dd>
 
 <dt><MdxJumpAnchor id="gl-sha-256">SHA-256</MdxJumpAnchor></dt>
 <dd>SHA-256 は、UID2 が使用する安全なハッシュアルゴリズムです。</dd>
