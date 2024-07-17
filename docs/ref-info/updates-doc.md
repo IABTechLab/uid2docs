@@ -127,8 +127,8 @@ We've added a new overview guide summarizing the options for publishers using th
 For details, see:
 
 - [UID2 Integration Overview for JavaScript](../guides/integration-javascript)
-- [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md)
-- [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
+- [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
+- [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
 <!-- APIDOCS-1924 -->
 
@@ -226,12 +226,12 @@ For details, see [UID2 Credentials](../getting-started/gs-credentials.md).
 
 The Client-Side Integration Guide for JavaScript is a completely new document at the existing URL, covering a new, simpler way of using the UID2 SDK for JavaScript for a client-side publisher implementation.
 
-For details, see [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
+For details, see [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md).
 
 The content that was in the previous *UID2 SDK for JavaScript Integration Guide*  is now in a supplementary document for publishers who want to implement the JavaScript SDK on the server side.
 
 :::note
-This document was updated in January 2024 to [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md), and the JavaScript Standard Integration Guide is now the [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md).
+This document was updated in January 2024 to [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md), and the JavaScript Standard Integration Guide is now the [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md).
 :::
 
 ### New: UID2 Client-Side Integration Guide for Prebid.js
@@ -271,11 +271,11 @@ For details, see [AWS Entity Resolution Integration Guide](../guides/integration
 
 10 October 2023
 
-Significant documentation updates reflect the enhanced functionality of Version 3 of the UID2 SDK for JavaScript. The new documentation includes a [migration guide](../sdks/client-side-identity#migration-guide) for those upgrading from an earlier version of the SDK.
+Significant documentation updates reflect the enhanced functionality of Version 3 of the UID2 SDK for JavaScript. The new documentation includes a [migration guide](../sdks/sdk-ref-javascript#migration-guide) for those upgrading from an earlier version of the SDK.
 
 For details, see:
--  [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)
--  [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
+-  [UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)
+-  [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
 ### New: Private Operator Guide for Google Confidential Space 
 

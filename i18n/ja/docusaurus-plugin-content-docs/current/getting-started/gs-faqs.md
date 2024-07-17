@@ -108,7 +108,7 @@ SDKを使うかどうかで手順は少し異なります。
    - ``refresh-optout@example.com` のハッシュを `email_hash` 値として指定します。
    - `phone` の値として `+00000000002` を指定します。
    - `phone_hash` 値として `+00000000002` のハッシュを指定します。
-2. SDK の [background auto-refresh](../sdks/client-side-identity.md#background-token-auto-refresh) が Advertising Token のリフレッシュを試み(これには数時間かかることがあります)、リフレッシュの試みが `OPTOUT` ステータスで失敗するのを観察するまで待ちます。この時点で SDK はファーストパーティクッキーもクリアします。
+2. SDK の [background auto-refresh](../sdks/sdk-ref-javascript.md#background-token-auto-refresh) が Advertising Token のリフレッシュを試み(これには数時間かかることがあります)、リフレッシュの試みが `OPTOUT` ステータスで失敗するのを観察するまで待ちます。この時点で SDK はファーストパーティクッキーもクリアします。
 
 ##### Without SDK:
 

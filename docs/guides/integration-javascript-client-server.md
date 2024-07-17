@@ -17,9 +17,9 @@ This guide is for publishers with web assets who want to generate identity token
 
 This is called client-server integration because the JavaScript integration steps are client-side and some other steps are server-side.
 
-If you prefer to integrate with UID2 via **only** client-side JavaScript changes, see [Client-Side Integration Guide for JavaScript](publisher-client-side.md).
+If you prefer to integrate with UID2 via **only** client-side JavaScript changes, see [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md).
 
-For technical details about the SDK, see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md).
+For technical details about the SDK, see [UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md).
 
 ## Sample Implementation Website
 
@@ -36,7 +36,7 @@ For a workflow diagram, see [Integration Steps](#integration-steps). See also [F
 To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the UID2 SDK for JavaScript. Here's an [example application](https://example-jssdk-integ.uidapi.com/) that illustrates the integration steps described in this guide and the usage of the SDK (currently only for email addresses). For the application documentation, see [UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md).
 
 :::tip
-The first-party cookie and local storage implementation details might change in the future. To avoid potential issues, be sure to rely on the functionality documented in the [UID2 SDK for JavaScript API Reference](../sdks/client-side-identity.md#api-reference) for your identity management.
+The first-party cookie and local storage implementation details might change in the future. To avoid potential issues, be sure to rely on the functionality documented in the [UID2 SDK for JavaScript API Reference](../sdks/sdk-ref-javascript.md#api-reference) for your identity management.
 :::
 
 For integration scenarios for publishers that do not use the UID2 SDK for JavaScript, see [Publisher Integration Guide, Server-Side](custom-publisher-integration.md). 
@@ -49,7 +49,7 @@ If you are using Google Ad Manager and want to use the secure signals feature, f
 
 The following diagram outlines the steps required for establishing a user's UID2 token with a publisher and how the UID2 token integrates with the RTB bidstream.
 
-![Publisher Flow](images/integration-javascript-server-side-mermaid.svg)
+![Publisher Flow](images/integration-javascript-client-server-mermaid.svg)
 
 The following sections provide additional details for each step in the diagram:
  
@@ -66,7 +66,7 @@ After authentication in step 1-c, which allows the publisher to validate the use
 | :--- | :--- | :--- |
 | 1-d | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) | Use the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint to generate a UID2 token using the email address or phone number provided by the user. Make sure it is normalized. |
 | 1-e | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) | The endpoint returns a UID2 token generated from the user's email address, phone number, or the respective hash. |
-| 1-f | UID2 SDK for JavaScript | The SDK sends the returned UID2 token from step 1-e to the SDK in the `identity` property of its [init() function](../sdks/client-side-identity.md#initopts-object-void). |
+| 1-f | UID2 SDK for JavaScript | The SDK sends the returned UID2 token from step 1-e to the SDK in the `identity` property of its [init() function](../sdks/sdk-ref-javascript.md#initopts-object-void). |
 | 1-g | UID2 SDK for JavaScript | Provide the SDK a callback function that will receive identity updates from the SDK and use them to initiate targeted advertising. |
 
 #### Generating a UID2 Token on the Server
@@ -162,7 +162,7 @@ The following code examples illustrate steps 1-f and 1-g, in JavaScript and Type
 </TabItem>
 </Tabs>
 
-The SDK invokes the specified [callback function](../sdks/client-side-identity.md#callback-function) (which indicates the identity availability) and makes the established identity available client-side for bidding. 
+The SDK invokes the specified [callback function](../sdks/sdk-ref-javascript.md#callback-function) (which indicates the identity availability) and makes the established identity available client-side for bidding. 
 
 :::tip
 Depending on the structure of your code, it might be convenient to combine the callbacks for steps 1-f and 1-g into a single callback function.
@@ -173,7 +173,7 @@ Depending on the structure of your code, it might be convenient to combine the c
 Based on the status and availability of a valid identity, the SDK does the following:
 
 1. Sets up the background token auto-refresh.
-1. Stores identity information in [local storage or a first-party cookie](../sdks/client-side-identity.md#uid2-storage-format).
+1. Stores identity information in [local storage or a first-party cookie](../sdks/sdk-ref-javascript.md#uid2-storage-format).
 1. Uses the identity information to initiate requests for targeted advertising.
 
 <!-- (**GWH_TODO. Q: Not sure about the relationship between the steps above and the table below. And the diagram 2-a which says "the publisher calls the SSP for ads using the UID2 token". A: Diagram needs to be updated.**) -->
@@ -182,7 +182,7 @@ The bidding step is shown in the following table.
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
-| 2-a | UID2 SDK for JavaScript | Gets the current user's advertising token by using the [getAdvertisingToken() function](../sdks/client-side-identity.md#getadvertisingtoken-string) as shown below. |
+| 2-a | UID2 SDK for JavaScript | Gets the current user's advertising token by using the [getAdvertisingToken() function](../sdks/sdk-ref-javascript.md#getadvertisingtoken-string) as shown below. |
 
 :::note
 For an example of what a UID2 token might look like in the bidstream, when it's sent from an SSP to a DSP, see [What does a UID2 token look like in the bidstream?](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream).
@@ -204,12 +204,12 @@ Instead of calling `__uid2.getAdvertisingToken()`, you can use the `advertising_
 
 ### Refresh Tokens
 
-As part of its initialization, the SDK sets up a [token auto-refresh](../sdks/client-side-identity.md#background-token-auto-refresh) for the identity, which is triggered in the background by the timestamps on the identity or by failed refresh attempts due to intermittent errors.
+As part of its initialization, the SDK sets up a [token auto-refresh](../sdks/sdk-ref-javascript.md#background-token-auto-refresh) for the identity, which is triggered in the background by the timestamps on the identity or by failed refresh attempts due to intermittent errors.
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
-| 3-a | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | The SDK automatically refreshes UID2 tokens in the background. No manual action is required. |
-| 3-b | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | If the user hasn't opted out, the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint automatically returns new identity tokens. |
+| 3-a | [UID2 SDK for JavaScript](../sdks/sdk-ref-javascript.md) | The SDK automatically refreshes UID2 tokens in the background. No manual action is required. |
+| 3-b | [UID2 SDK for JavaScript](../sdks/sdk-ref-javascript.md) | If the user hasn't opted out, the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint automatically returns new identity tokens. |
 
 
 ### Clear Identity: User Logout
@@ -219,7 +219,7 @@ The client lifecycle is complete when the user decides to log out from the publi
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
 | 4-a | N/A | The user logs out from the publisher's asset. |
-| 4-b | [UID2 SDK for JavaScript](../sdks/client-side-identity.md) | The SDK clears the UID2 identity from the first-party cookie and disconnects the client lifecycle by using the [disconnect() function](../sdks/client-side-identity.md#disconnect-void) as shown below.|
+| 4-b | [UID2 SDK for JavaScript](../sdks/sdk-ref-javascript.md) | The SDK clears the UID2 identity from the first-party cookie and disconnects the client lifecycle by using the [disconnect() function](../sdks/sdk-ref-javascript.md#disconnect-void) as shown below.|
 
 
 ```html

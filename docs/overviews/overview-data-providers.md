@@ -75,7 +75,7 @@ The following documentation resources are available for advertisers and data pro
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
 | Integration steps for organizations that collect user data and push it to other UID2 participants | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | This guide covers integration workflows for mapping identity for audience-building and targeting. |
-| Integration steps for advertisers and data providers who want to use the client-side JavaScript SDK for adding a UID2 token to their tracking pixels. | [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) | This guide provides instructions for generating UID2 tokens (advertising tokens) using only JavaScript client-side changes.<!-- UID2_only: Not applicable for EUID --> |
+| Integration steps for advertisers and data providers who want to use the client-side JavaScript SDK for adding a UID2 token to their tracking pixels. | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) | This guide provides instructions for generating UID2 tokens (advertising tokens) using only JavaScript client-side changes.<!-- UID2_only: Not applicable for EUID --> |
 | Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | This guide provides instructions for generating UID2s from emails within Snowflake. |
 | AWS Entity Resolution | [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) | This guide provides instructions for integrating with the UID2 framework using AWS Entity Resolution. |
 

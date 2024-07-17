@@ -153,9 +153,9 @@ Decryption response codes, and their meanings, are shown in the following table.
 
 #### Client-Server Integration
 
-Client-Server インテグレーションを使用している場合 (詳細は [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) を参照してください):
+Client-Server インテグレーションを使用している場合 (詳細は [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください):
 
-* Identity を JSON 文字列としてクライアントに返します (Client-Side で使用するための [identity field](../sdks/client-side-identity.md#initopts-object-void) で使用) するには、次の手順に従います:
+* Identity を JSON 文字列としてクライアントに返します (Client-Side で使用するための [identity field](../sdks/sdk-ref-javascript.md#initopts-object-void) で使用) するには、次の手順に従います:
 
   ```py
   token_generate_response.get_identity_json_string()
