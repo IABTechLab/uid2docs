@@ -167,7 +167,7 @@ Client-Server インテグレーションを使用している場合 (詳細は 
 
 ### Server-Side Integration
 
-Server-Side インテグレーションを使用している場合 (詳細は [Publisher Integration Guide, Server-Side](../guides/custom-publisher-integration.md) を参照してください):
+Server-Side インテグレーションを使用している場合 (詳細は [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md) を参照してください):
 
 1. `token_generate_response.get_identity_json_string()` 関数を使用して、ユーザーのセッションに JSON 文字列としてこの Identity を保存します。
 

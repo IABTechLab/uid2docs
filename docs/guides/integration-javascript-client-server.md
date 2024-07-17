@@ -39,7 +39,7 @@ To facilitate the process of establishing client identity using UID2 and retriev
 The first-party cookie and local storage implementation details might change in the future. To avoid potential issues, be sure to rely on the functionality documented in the [UID2 SDK for JavaScript API Reference](../sdks/sdk-ref-javascript.md#api-reference) for your identity management.
 :::
 
-For integration scenarios for publishers that do not use the UID2 SDK for JavaScript, see [Publisher Integration Guide, Server-Side](custom-publisher-integration.md). 
+For integration scenarios for publishers that do not use the UID2 SDK for JavaScript, see [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md). 
 
 :::note
 If you are using Google Ad Manager and want to use the secure signals feature, first follow the steps in this guide and then follow the additional steps in the [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md).

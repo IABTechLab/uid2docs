@@ -66,7 +66,7 @@ window.getUid2AdvertisingToken = async () => {
 }
 ```
 
-詳しくは、[Server-Only UID2 Integration Guide](custom-publisher-integration.md) を参照してください。
+詳しくは、[Server-Only UID2 Integration Guide](integration-publisher-server-side.md) を参照してください。
 
 Server Only インテグレーションのためのサンプルアプリケーションも用意されています。[Sample Applications](#sample-applications) を参照してください。
 

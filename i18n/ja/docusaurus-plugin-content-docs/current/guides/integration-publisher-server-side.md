@@ -45,7 +45,7 @@ UID2 と UID2 Token を使用してクライアントのアイデンティティ
 
 Server-Side SDK を使用している場合、SDK はエンドポイントに関連するすべてのステップを処理します。例えば、Step 1-d では、発行者はユーザーの DII をトークン生成サービスに送信します。
 
-![Publisher Flow](images/custom-publisher-integration-mermaid.png)
+![Publisher Flow](images/integration-publisher-server-side-mermaid.png)
 
 次のセクションでは、図中の各ステップについて詳細を説明します:
 
