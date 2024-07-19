@@ -84,9 +84,9 @@ The following table provides details for Step 2 of the workflow diagram shown in
 
 For a low latency/high throughput setup, follow these recommendations:
 
-- Have a local instance of the UID2 client for each server. This can be in-proc or out-of-proc. In-proc is easiest.
+- Have a local instance of the UID2 client for each server. This can be in-process or out-of-process. In-process is easiest.
 - Call client refresh periodically in the background: for example, once per hour, with some randomization to avoid peaks after global fleet restarts.
-- When a token needs to be decrypted, call client decrypt. In-proc is fastest, but out-of-proc is also acceptable if it's done correctly. (**GWH_SW01 how do they know how to make sure it's done correctly?**)
+- When a token needs to be decrypted, call client decrypt. In-process is fastest, but out-of-process is also acceptable if it's done correctly. (**GWH_SW01 how do they know how to make sure it's done correctly?**)
 - Note that client decrypt is thread-safe. Therefore, you can call client decrypt on multiple threads at the same time.
 
 ## FAQs
