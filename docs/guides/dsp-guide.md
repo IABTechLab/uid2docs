@@ -80,6 +80,15 @@ The following table provides details for Step 2 of the workflow diagram shown in
 | 2-a | Server-side SDK (see [SDKs: Summary](../sdks/summary-sdks.md)) | Leverage the provided SDK to decrypt incoming UID2 tokens. The response contains the `UID2` and the UID2 creation time. |
 | 2-b | | DSPs are required to honor opt-out protocol for UID2s. For details on configuring user opt-outs and honoring them during bidding, see [Honor user opt-outs](#honor-user-opt-outs). |
 
+## Recommendations for Managing Latency
+
+For a low latency/high throughput setup, follow these recommendations:
+
+- Have a local instance of the UID2 client for each server. This can be in-process or out-of-process. In-process is easiest.
+- Call client refresh periodically in the background: for example, once per hour, with some randomization to avoid peaks after global fleet restarts.
+- When a token needs to be decrypted, call client decrypt. In-process is fastest, but out-of-process is also acceptable if it's done correctly.
+- Note that client decrypt is thread-safe. Therefore, you can call client decrypt on multiple threads at the same time.
+
 ## FAQs
 
 For a list of frequently asked questions for DSPs, see [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps).
