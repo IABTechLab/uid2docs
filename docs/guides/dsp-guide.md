@@ -82,12 +82,18 @@ The following table provides details for Step 2 of the workflow diagram shown in
 
 ## Recommendations for Managing Latency
 
+:::note 
+This section refers to the example code in [Usage for DSPs](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-dsps) in the *UID2 SDK for C# / .NET Reference Guide*. The method names are similar for the [Java](../sdks/uid2-sdk-ref-java.md#usage-for-dsps), [Python](../sdks/uid2-sdk-ref-python.md#usage-for-dsps), and [C++](../sdks/uid2-sdk-ref-cplusplus.md#interface) SDKs.
+:::
+
 For a low latency/high throughput setup, follow these recommendations:
 
-- Have a local instance of the UID2 client for each server. This can be in-process or out-of-process. In-process is easiest.
-- Call client refresh periodically in the background: for example, once per hour, with some randomization to avoid peaks after global fleet restarts.
-- When a token needs to be decrypted, call client decrypt. In-process is fastest, but out-of-process is also acceptable if it's done correctly.
-- Note that client decrypt is thread-safe. Therefore, you can call client decrypt on multiple threads at the same time.
+- Have a local instance of the `BidstreamClient` class for each server. This can be in-process or out-of-process. In-process is the easiest.
+- Call the client `Refresh` method periodically in the background: for example, once per hour, with some randomization to avoid mass simultaneous method calls across all instances after all servers are restarted.
+- When a token needs to be decrypted, call the `DecryptTokenIntoRawUid` method. In-process is the fastest, but out-of-process is also acceptable if it's done correctly.
+  :::note
+  The token decryption method is thread-safe, so you can call it on multiple threads at the same time.
+  :::
 
 ## FAQs
 
