@@ -18,7 +18,10 @@ In the UID2 Portal, if you want to use an implementation option that generates U
 It's important to provide a complete list of root-level domain names for your sites. This is a security measure, for client-side implementation only. If a domain is not defined in the UID2 Portal, UID2 token requests from that domain will fail.
 :::
 
-On the Client-Side Integration page you can perform all activities relating to setting up and managing these values.
+On the Client-Side Integration page you can perform all activities relating to setting up and managing these values, including the following:
+- [Adding and Managing Key Pairs](#adding-and-managing-key-pairs)
+- [Adding and Managing  Root-Level Domains](#adding-and-managing-domains)
+- [Adding and Managing Mobile App IDs](#adding-and-managing-mobile-app-ids)
 
 :::note
 When you go into the Client-Side Integration page, you'll be prompted to provide missing configuration items if you haven't yet created at least one key pair and at least one top-level (root-level) domain.
@@ -32,8 +35,18 @@ Client-side implementation options are shown in the following table. The options
 | :--- | :--- | :---|
 | UID2 JavaScript SDK | Publishers, Advertisers | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) |
 | Prebid.js client-side integration | Publishers only |[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) |
+| UID2 Mobile SDK | Publishers only |[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) |
 
-## Adding a Key Pair
+## Adding and Managing Key Pairs
+
+On the Client-Side Integration page, you can perform the following activities relating to setting up and managing key pairs:
+
+- [Adding a Key Pair](#adding-a-key-pair)
+- [Copying or Viewing a Public Key](#copying-or-viewing-a-public-key)
+- [Changing the Name of a Key Pair](#changing-the-name-of-a-key-pair)
+- [Deleting a Key Pair](#deleting-a-key-pair)
+
+### Adding a Key Pair
 
 To add a key pair, complete the following steps:
 
@@ -43,7 +56,7 @@ To add a key pair, complete the following steps:
 
    On the **Client-Side Integration** page, the new key pair is displayed with the name, Subscription ID, public key, and the date it was created.
 
-## Copying or Viewing a Public Key
+### Copying or Viewing a Public Key
 
 When you create a key pair in the Client-Side Integration page, you can share your public key. The UID2 service uses the corresponding private key, plus other values, to authenticate your messages.
 
@@ -57,7 +70,7 @@ To view or copy a public key, follow these steps:
 
      Save the public key in a safe place.
 
-## Changing the Name of a Key Pair
+### Changing the Name of a Key Pair
 
 When you've created a key pair, the only value you can change is the name. To change the value, you'll need to create a new key pair.
 
@@ -68,7 +81,7 @@ To change the name of a key pair, complete the following steps:
 1. In the Actions column, click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon).
 1. Update the name, and then click **Save Key Pair**.
 
-## Deleting a Key Pair
+### Deleting a Key Pair
 
 To delete a key pair, follow these steps:
 
@@ -77,6 +90,16 @@ To delete a key pair, follow these steps:
 1. Click **Delete Key Pair**.
 
    The key pair is removed from the display and is no longer valid.
+
+
+## Adding and Managing Domains
+
+On the Client-Side Integration page, you can perform the following activities relating to setting up and managing domains:
+
+- [Adding Domains](#adding-domains)
+- [Changing a Domain](#changing-a-domain)
+- [Deleting a Domain](#deleting-a-domain)
+- [Deleting Multiple Domains](#deleting-multiple-domains)
 
 ## Adding Domains
 
@@ -138,3 +161,12 @@ To multi-select domains for deletion:
 1. At the confirmation message, click **Delete Domains**.
 
    The domains are removed from your domains list.
+
+## Adding and Managing Mobile App IDs
+
+On the Client-Side Integration page, you can perform the following activities relating to setting up and managing mobile app IDs:
+
+- Adding xxx
+- Changing a xxx
+- Deleting a xxx
+- Deleting Multiple xxx
