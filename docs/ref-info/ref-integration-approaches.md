@@ -38,7 +38,7 @@ Advertisers integrating on the client side can use the JavaScript SDK:
 
 ### Client-Side Integration: Security Values
 
-If you choose a client-side integration, you'll get two values that identify you to the UID2 servers: **Subscription ID** and **Public Key**.
+If you choose a client-side integration, you'll get a client keypair consisting of two values that identify you to the UID2 servers: **Subscription ID** and **Public Key**.
 
 For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key).
 
@@ -63,6 +63,10 @@ Examples of documentation for publisher client-server integrations:
 
 If you choose a client-server integration, you'll need to have an **API key** and **client secret**, values that you must store securely.
 
+:::important
+Do not embed the credentials in a web page, in mobile app source code, or anywhere else that they could be compromised. Store them securely on your server.
+:::
+
 For details, see [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret).
 
 ## Server-Side Integration
@@ -81,5 +85,9 @@ An example of documentation for publisher server-side integration is [Publisher 
 ### Server-Side Integration: Credentials
 
 If you choose a client-side integration, you'll need to have an **API key** and **client secret**, values that you must store securely.
+
+:::important
+Do not embed the credentials in a web page, in mobile app source code, or anywhere else that they could be compromised. Store them securely on your server.
+:::
 
 For details, see [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret).
