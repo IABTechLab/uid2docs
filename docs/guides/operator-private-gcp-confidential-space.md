@@ -342,6 +342,7 @@ To set up and configure the account that you created when you installed the gclo
       --source-ranges=0.0.0.0/0 \
       --target-service-accounts={SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com
     ```
+** As it provides public access, it is strongly recommended to put it behind a load balancer to prevent direct access **
 
 #### Create Secret for the Operator Key in Secret Manager
 
@@ -500,7 +501,8 @@ import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
 
 <AttestFailure />
 
-## Upgrading
+
+### Upgrading
 
 When a new version of UID2 Google Cloud Platform Confidential Space is released, private operators receive an email notification of the update, with a new image version. There is a window of time for upgrade, after which the older version is deactivated and is no longer supported.
 
@@ -509,12 +511,41 @@ If you're upgrading to a new version, the upgrade process depends on the deploym
 - [Upgrading&#8212;Terraform Template](#upgradingterraform-template)
 - [Upgrading&#8212;gcloud CLI](#upgradinggcloud-cli)
 
-### Upgrading&#8212;Terraform Template
+#### Upgrading&#8212;Terraform Template
 
 If you deployed using the Terraform template, all you need to do to upgrade is update your deployment with the new `{OPERATOR_IMAGE}` that you received in the upgrade notification.
 
-### Upgrading&#8212;gcloud CLI
+#### Upgrading&#8212;gcloud CLI
 
 If you deployed using the gcloud CLI, you must manually bring up new instances that use the new `{OPERATOR_IMAGE}` and then shut down old instances.
 
 If you previously set up a load balancer manually, you'll also need to update the mapping for the load balancer.
+
+## Scraping Metrics
+This section provides information on the process of scraping metrics. 
+
+We expose 9080 port which serves Prometheus metrics (/metrics). To get access to the Prometheus port, you will need to update the firewall rules to allow traffic on port 9080/tcp to the operator.
+
+How you access the port depends on your own setup. Follow the applicable instructions:
+
+
+#### Scraping Metrics&#8212;public access
+   ```
+    $ gcloud compute firewall-rules create operator-prometheus \
+      --direction=INGRESS --priority=1000 --network=default --action=ALLOW \
+      --rules=tcp:9080 \
+      --source-ranges=0.0.0.0/0 \
+      --target-service-accounts={SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com
+   ```
+** As it provides public access, it is strongly recommended to put it behind a load balancer to prevent direct access **
+
+#### Scraping Metrics&#8212;access through the load balancer
+If you deployed your instance using terraform template, you will have a VPC network created. To access the Prometheus port through LB, you will need to create another firewall rule to allow LB to send traffic to the operator 9080 port:
+   ```
+    $ gcloud compute firewall-rules create operator-lb-prometheus \
+      --direction=INGRESS --priority=1000 --network=uid-operator --action=ALLOW \
+      --rules=tcp:9080 \
+      --source-ranges="35.191.0.0/16" \
+      --target-service-accounts={SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com
+   ```
+
