@@ -339,9 +339,10 @@ To set up and configure the account that you created when you installed the gclo
     $ gcloud compute firewall-rules create operator-tcp \
       --direction=INGRESS --priority=1000 --network=default --action=ALLOW \
       --rules=tcp:8080 \
-      --source-ranges={the ip address range for your service} \
+      --source-ranges=10.0.0.0/8 \
       --target-service-accounts={SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com
     ```
+Note: The `source-ranges` should be the ip address for your clients. It is in the CIDR notaion.
 
 #### Create Secret for the Operator Key in Secret Manager
 
@@ -523,20 +524,4 @@ If you previously set up a load balancer manually, you'll also need to update th
 ## Scraping Metrics
 This section provides information on the process of scraping metrics. 
 
-We expose 9080 port which serves Prometheus metrics (/metrics). 
-
-How you access the port depends on your own setup. Follow the applicable instructions:
-
-
-#### Scraping Metrics&#8212;with additional firewall rules
-Assuming you spin up the Prometheus service on another VPC, to get access to the operator `/metrics` port, you will need to update the firewall rules to allow traffic from your service to the 9080 port in operator:
-   ```
-    $ gcloud compute firewall-rules create operator-prometheus \
-      --direction=INGRESS --priority=1000 --network=default --action=ALLOW \
-      --rules=tcp:9080 \
-      --source-ranges={the ip address range for your service} \
-      --target-service-accounts={SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com
-   ```
-
-#### Scraping Metrics&#8212;Set up Prometheus within the same VPC
-Alternatively, if you don't want to set up any extra firewall rules, you can spin up your Prometheus service in the GCP enclave under the same VPC where you deployed your operator service. That way you can access the 9080 port through the internal IP address.
+We provide prometheus format metrics on port 9080 through the `/metrics` endpoint. You can use prometheus compatible scraper to collect and aggregate these metrics for your own need.
