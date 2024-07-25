@@ -62,6 +62,7 @@ To get started, follow these steps:
 1. Determine whether you want a <Link href="../ref-info/glossary-uid#gl-client-side">client-side</Link>, <Link href="../ref-info/glossary-uid#gl-client-server">client-server</Link>, or <Link href="../ref-info/glossary-uid#gl-server-side">server-side</Link> integration, and tell your UID2 contact.
 
    For more information about these options, see [Integration Approaches](../ref-info/ref-integration-approaches.md).
+   
 1. Receive the [UID2 credentials](../getting-started/gs-credentials.md).
 1. Build your integration to UID2 via an SDK or direct integration with the UID2 APIs, using the applicable [implementation resources](#implementation-resources).
 

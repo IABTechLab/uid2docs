@@ -1,6 +1,6 @@
 ---
 title: Integration Approaches
-description: Reference information about the integration approaches available for UID2 integration.
+description: Information about the approaches available for UID2 integration.
 hide_table_of_contents: false
 sidebar_position: 06
 ---
