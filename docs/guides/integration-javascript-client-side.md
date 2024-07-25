@@ -18,8 +18,8 @@ This guide is for all participants who want to integrate with UID2 and generate 
 
 This approach is used by the following participant types:
 
-- Most notably, this workflow is for publishers wanting to send UID2 tokens into the bidstream.
-- In addition, advertisers and data providers would use this for adding a UID2 token to their tracking pixels (see [Tokenized Sharing in Pixels](sharing/sharing-tokenized-from-data-pixel.md)).
+- **Publishers**: Most notably, this workflow is for publishers wanting to send UID2 tokens into the bidstream.
+- **Advertisers** and **Data Providers**: In addition, advertisers and data providers would use this for adding a UID2 token to their tracking pixels (see [Tokenized Sharing in Pixels](sharing/sharing-tokenized-from-data-pixel.md)).
 
 <!-- End of UID2-only section. -->
 <!-- Begin EUID-only section. -->

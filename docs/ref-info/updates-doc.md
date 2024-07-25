@@ -11,6 +11,22 @@ import Link from '@docusaurus/Link';
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: Integration Approaches Page
+
+We've added a new page with information about the different integration approaches: client-side, client-server, and server-side.
+
+For details, see [Integration Approaches](ref-integration-approaches.md).
+
+<!-- APIDOCS-2132 -->
+
+### New: Server-Side Token Generation Page
+
+We've added a new reference page with information for publishers generating the UID2 token on the server side.
+
+For details, see [Server-Side Token Generation](ref-server-side-token-generation.md).
+
+<!-- APIDOCS-2255 -->
+
 ### New: Prebid Mobile SDK Integration (Android)
 
 We've added a new section to the two mobile integration guides with instructions for mobile integration using Prebid, currently for Android only:

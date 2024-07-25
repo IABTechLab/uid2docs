@@ -30,7 +30,7 @@ Here is some information about API keys and client secrets:
 - If you're using the integration environment as well as the production environment, you'll receive separate API keys for each environment.
 - The client secret is valid for a specific [environment](gs-environments.md). If you're using both the integration and production environments, you'll get a client secret for each environment.
 
-As part of getting your UID2 account set up, one or more API keys, each with a corresponding client secret, will be issued to you. For details of who to talk to, see [Contact Info](gs-account-setup.md#contact-info).
+As part of getting your UID2 account set up, we'll give you one or more API keys, each with a corresponding client secret. For details of who to talk to, see [Contact Info](gs-account-setup.md#contact-info).
 
 ### Security of API Key and Client Secret
 
