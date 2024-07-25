@@ -342,7 +342,7 @@ To set up and configure the account that you created when you installed the gclo
       --source-ranges=10.0.0.0/8 \
       --target-service-accounts={SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com
     ```
-Note: The `source-ranges` should be the ip address for your clients. It is in the CIDR notaion.
+WARNING: The `source-ranges` specifies the range of ip addresses your clients will be making calls to the private operator from. It is in CIDR notaion, and can be comma-separated to provide multiple ranges.
 
 #### Create Secret for the Operator Key in Secret Manager
 
@@ -513,7 +513,7 @@ If you're upgrading to a new version, the upgrade process depends on the deploym
 
 #### Upgrading&#8212;Terraform Template
 
-If you deployed using the Terraform template, all you need to do to upgrade is update your deployment with the new `{OPERATOR_IMAGE}` that you received in the upgrade notification.
+If you have deployed private operator using the Terraform template, please compare the latest version of the template with the one you used to do the deploy.
 
 #### Upgrading&#8212;gcloud CLI
 
@@ -522,6 +522,4 @@ If you deployed using the gcloud CLI, you must manually bring up new instances t
 If you previously set up a load balancer manually, you'll also need to update the mapping for the load balancer.
 
 ## Scraping Metrics
-This section provides information on the process of scraping metrics. 
-
-We provide prometheus format metrics on port 9080 through the `/metrics` endpoint. You can use prometheus compatible scraper to collect and aggregate these metrics for your own need.
+Private operator exposes [Prometheus-formatted metrics](https://prometheus.io/docs/concepts/data_model/) on port 9080 through the `/metrics` endpoint. You can use prometheus compatible scraper to collect and aggregate these metrics for your own need.
