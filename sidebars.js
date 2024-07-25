@@ -67,11 +67,11 @@ const fullSidebar = [
         'portal/portal-overview',
         'portal/portal-getting-started',
         'portal/sharing-permissions',
+        'portal/api-keys',
+        'portal/client-side-integration',
         'portal/participant-info',
         'portal/team-members',
         'portal/email-contacts',
-        'portal/api-keys',
-        'portal/client-side-integration',
       ],
     },
 

@@ -43,11 +43,12 @@ From the left sidebar, you can access the following pages relating to configurin
 - [API Keys](api-keys.md)
 - [Client-Side Integration](client-side-integration.md)
 
-From the link at the top right, you can access the following pages related to you personal account settings and your daily activities:
+From the link at the top right, you can access the following pages related to your personal account settings and your daily activities:
 
 - [Participant Information](participant-info.md)
 - [Manage Team Members](team-members.md)
 - [Email Contacts](email-contacts.md)
+- Dark Mode: toggles dark mode on and off
 - [Log Out](portal-getting-started.md#log-out)
 
 ## Set Up Your Account
