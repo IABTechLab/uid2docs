@@ -339,10 +339,9 @@ To set up and configure the account that you created when you installed the gclo
     $ gcloud compute firewall-rules create operator-tcp \
       --direction=INGRESS --priority=1000 --network=default --action=ALLOW \
       --rules=tcp:8080 \
-      --source-ranges=0.0.0.0/0 \
+      --source-ranges={the ip address range for your service} \
       --target-service-accounts={SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com
     ```
-** As it provides public access, it is strongly recommended to put it behind a load balancer to prevent direct access **
 
 #### Create Secret for the Operator Key in Secret Manager
 
@@ -524,33 +523,20 @@ If you previously set up a load balancer manually, you'll also need to update th
 ## Scraping Metrics
 This section provides information on the process of scraping metrics. 
 
-We expose 9080 port which serves Prometheus metrics (/metrics). To get access to the Prometheus port, you will need to update the firewall rules to allow traffic on port 9080/tcp to the operator.
+We expose 9080 port which serves Prometheus metrics (/metrics). 
 
 How you access the port depends on your own setup. Follow the applicable instructions:
 
 
-#### Scraping Metrics&#8212;public access
-This method provide public access to the 9080 port.
+#### Scraping Metrics&#8212;with additional firewall rules
+Assuming you spin up the Prometheus service on another VPC, to get access to the operator `/metrics` port, you will need to update the firewall rules to allow traffic from your service to the 9080 port in operator:
    ```
     $ gcloud compute firewall-rules create operator-prometheus \
       --direction=INGRESS --priority=1000 --network=default --action=ALLOW \
       --rules=tcp:9080 \
-      --source-ranges=0.0.0.0/0 \
-      --target-service-accounts={SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com
-   ```
-** As it provides public access, it is strongly recommended to put it behind a load balancer to prevent direct access **
-
-#### Scraping Metrics&#8212;access through the load balancer
-If you deployed your instance using terraform template, you will have a VPC network created. 
-
-To access the Prometheus port through LB, you will need to create another firewall rule to allow LB to send traffic to the operator 9080 port:
-   ```
-    $ gcloud compute firewall-rules create operator-lb-prometheus \
-      --direction=INGRESS --priority=1000 --network=uid-operator --action=ALLOW \
-      --rules=tcp:9080 \
-      --source-ranges="35.191.0.0/16" \
+      --source-ranges={the ip address range for your service} \
       --target-service-accounts={SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com
    ```
 
-#### Scraping Metrics&#8212;access within the same VPC
-Alternatively, if you don't want to set up any extra firewall rules, you can spin up your Prometheus service in the GCP enclave under the same VPC you deployed your operator service. That way you can access the 9080 port through the internal IP address.
+#### Scraping Metrics&#8212;Set up Prometheus within the same VPC
+Alternatively, if you don't want to set up any extra firewall rules, you can spin up your Prometheus service in the GCP enclave under the same VPC where you deployed your operator service. That way you can access the 9080 port through the internal IP address.
