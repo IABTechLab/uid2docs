@@ -81,7 +81,7 @@ Generating the UID2 token on the client side has the following advantages:
 - The code runs on the client side, on the consumer's web page, and no server-side coding is required.
 - There is a Prebid integration that handles all functions for you&#8212;token generation, token refresh, and passing the token into the bidstream. If you use Prebid 8.21.0 or later, this is the simplest and fastest implementation option.
 
-If you choose a client-side integration, you'll need to provide a list of your top-level domains, for security purposes, as part of account setup. For details, see [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers) on the Account Setup page.
+If you choose a client-side integration, you'll need to provide a list of your root-level domains, for security purposes, as part of account setup. For details, see [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers) on the Account Setup page.
 
 The following table summarizes the options for publishers who want to generate the UID2 token on the client side, via the web page, with corresponding documentation resources.
 
@@ -153,7 +153,7 @@ If you want to integrate using Prebid, here are some additional questions you'll
   - If you're using Prebid 8.21.0 or later, you can use the client-side Prebid integration option, which is the simplest and easiest implementation approach.
   - If you're using a version prior to 8.21.0 (7.53.0 or later), and can't easily upgrade, you'll choose a server-side option.
 - Domain names:
-  - As part of account setup, if you're using the Prebid.js client-side option, you'll need to provide a list of your top-level domains.
+  - As part of account setup, if you're using the Prebid.js client-side option, you'll need to provide a list of your root-level domains.
 - Are you already using the UID2 JavaScript SDK to generate and refresh the token? If so, you can continue to use the Prebid.js server-side implementation. For details, see [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md). -->
 
 <!-- 

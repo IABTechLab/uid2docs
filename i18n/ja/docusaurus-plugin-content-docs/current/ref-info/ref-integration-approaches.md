@@ -42,7 +42,7 @@ If you choose a client-side integration, you'll get a client keypair consisting 
 
 For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key).
 
-For added security, you'll need to provide a list of your top-level domains or apps. For details, see:
+For added security, you'll need to provide a list of your root-level domains or apps. For details, see:
 
 - For websites: [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers).
 - For mobile apps: [Client-Side Mobile Integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations).
