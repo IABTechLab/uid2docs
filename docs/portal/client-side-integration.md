@@ -13,10 +13,10 @@ In the UID2 Portal, if you want to use an implementation option that generates U
 | :--- | :--- | :---| :---|
 | Key pair | All (web or mobile) | At least one. In your implementation, you'll share the public key. | [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key) |
 | Domain |  Web | At least one. Provide a complete list of your root-level domains. | [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers) |
-| Mobile App ID |  Mobile | Any IDs that apply to your mobile apps: Android App ID, iOS/tvOS Bundle ID, or iOS App Store ID. | [Client-Side Mobile Integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations) |
+| Mobile App ID |  Mobile | Any IDs that apply to your mobile apps, such as Android App ID, iOS/tvOS Bundle ID, or iOS App Store ID. | [Client-Side Mobile Integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations) |
 
 :::important
-It's important to provide a complete list of root-level domain names for your sites. This is a security measure, for client-side implementation only. If a domain is not defined in the UID2 Portal, UID2 token requests from that domain will fail.
+It's important to provide a complete list of root-level domain names for your sites, and mobile app IDs for your apps. This is a security measure, for client-side implementation only. If a domain or app is not defined in the UID2 Portal, UID2 token requests from that domain or app will fail.
 :::
 
 On the Client-Side Integration page you can perform all activities relating to setting up and managing these values, including the following:
@@ -104,6 +104,8 @@ On the Client-Side Integration page, you can perform the following activities re
 
 ### Adding Domains
 
+It's important to provide a complete list of root-level domain names. UID2 token requests are accepted only from domains that are set up in the UID2 Portal.
+
 :::tip
 Only root-level domains are required for account setup. For example, if you're going to implement UID2 to generate tokens on the client side on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
@@ -175,6 +177,8 @@ On the Client-Side Integration page, you can perform the following activities re
 - [Deleting Multiple Mobile App IDs](#deleting-multiple-mobile-app-ids)
 
 ### Adding Mobile App IDs
+
+It's important to provide a complete list of all your mobile app IDs, including Android App IDs, iOS/tvOS Bundle IDs, and iOS App Store IDs. UID2 token requests are accepted only from mobile app IDs that are set up in the UID2 Portal.
 
 To add one or more mobile app IDs, complete the following steps:
 
