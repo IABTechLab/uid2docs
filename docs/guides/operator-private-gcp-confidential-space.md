@@ -522,4 +522,4 @@ If you deployed using the gcloud CLI, you must manually bring up new instances t
 If you previously set up a load balancer manually, you'll also need to update the mapping for the load balancer.
 
 ## Scraping Metrics
-Private operator exposes [Prometheus-formatted metrics](https://prometheus.io/docs/concepts/data_model/) on port 9080 through the `/metrics` endpoint. You can use prometheus compatible scraper to collect and aggregate these metrics for your own need.
+The Private Operator for GCP exposes [Prometheus-formatted metrics](https://prometheus.io/docs/concepts/data_model/) on port 9080 through the /metrics endpoint. You can use a Prometheus-compatible scraper to collect and aggregate these metrics for your own needs.
