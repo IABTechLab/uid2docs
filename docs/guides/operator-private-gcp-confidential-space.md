@@ -514,7 +514,7 @@ If you're upgrading to a new version, the upgrade process depends on the deploym
 
 #### Upgrading&#8212;Terraform Template
 
-If you have deployed private operator using the Terraform template, please compare the latest version of the template with the one you used to do the deploy.
+If you previously deployed the Private Operator for GCP using the Terraform template, compare the latest version of the template with the one you used when you deployed. If there are changes, make sure to redeploy to include all the updates.
 
 #### Upgrading&#8212;gcloud CLI
 
