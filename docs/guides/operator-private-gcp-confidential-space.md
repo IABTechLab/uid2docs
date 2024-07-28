@@ -344,6 +344,10 @@ To set up and configure the account that you created when you installed the gclo
     ```
 WARNING: The `source-ranges` specifies the range of ip addresses your clients will be making calls to the private operator from. It is in CIDR notaion, and can be comma-separated to provide multiple ranges.
 
+:::WARNING
+The `source-ranges` specifies the range of IP addresses from which your clients will call the Private Operator. It is in the CIDR notation, and you can use comma-separated values to provide multiple ranges. Example: `--source-ranges="10.0.0.0/8,10.10.0.0/16"`.
+:::
+
 #### Create Secret for the Operator Key in Secret Manager
 
 As part of setting up your UID2 account (see [UID2 Operator Account Setup](#uid2-operator-account-setup)), you'll receive an operator key for each environment.
