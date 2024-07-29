@@ -342,10 +342,8 @@ To set up and configure the account that you created when you installed the gclo
       --source-ranges=10.0.0.0/8 \
       --target-service-accounts={SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com
     ```
-WARNING: The `source-ranges` specifies the range of ip addresses your clients will be making calls to the private operator from. It is in CIDR notaion, and can be comma-separated to provide multiple ranges.
-
-:::WARNING
-The `source-ranges` specifies the range of IP addresses from which your clients will call the Private Operator. It is in the CIDR notation, and you can use comma-separated values to provide multiple ranges. Example: `--source-ranges="10.0.0.0/8,10.10.0.0/16"`.
+:::warning
+`source-ranges` specifies the range of IP addresses from which your clients will call the Private Operator. It is in CIDR notation, and you can use comma-separated values to provide multiple ranges. Example: `--source-ranges="10.0.0.0/8,10.10.0.0/16"`. Make sure the ranges are accurate and include only IP addresses that belong to you.
 :::
 
 #### Create Secret for the Operator Key in Secret Manager
