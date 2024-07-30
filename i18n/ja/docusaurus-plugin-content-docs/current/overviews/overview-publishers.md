@@ -59,7 +59,9 @@ UID2 とインテグレーションすることで得られるメリットの一
 1. [Request Access](/request-access) ページのフォームに記入して、UID2 へのアクセスをリクエストします。
 1. UID2 とインテグレーションしたいプロパティを特定します。
 1. UID2 契約を締結します。
-1. Client-Side と Server-Side のどちらのインテグレーションを希望するかを決定し、UID2 の担当者に伝えてください。
+1. <Link href="../ref-info/glossary-uid#gl-client-side">client-side</Link>、<Link href="../ref-info/glossary-uid#gl-client-server">client-server</Link>、<Link href="../ref-info/glossary-uid#gl-server-side">server-side</Link> いずれのインテグレーションを行うか決め、UID2 の連絡先に伝えてください。
+
+   これらのオプションについての詳細は、[Integration Approaches](../ref-info/ref-integration-approaches.md) を参照してください。
 1. UID2 credential([UID2 Credentials](../getting-started/gs-credentials.md)) を受け取ります。
 1. 該当する [implementation resources](#implementation-resources) を使用して、SDK または UID2 と直接インテグレーションしてください。
 

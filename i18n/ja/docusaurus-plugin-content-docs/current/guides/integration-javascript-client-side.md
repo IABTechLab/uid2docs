@@ -18,8 +18,8 @@ import Link from '@docusaurus/Link';
 
 この方法は、次の参加者タイプで使用されます:
 
-- このワークフローは、UID2 Token をビッドストリームに送信したいパブリッシャー向けです。
-- さらに、広告主やデータプロバイダは、トラッキングピクセルに UID2 Token を追加するために使用します (詳細は [Tokenized Sharing in Pixels](sharing/sharing-tokenized-from-data-pixel.md) を参照してください)。
+- **Publishers**: このワークフローは、UID2 Token をビッドストリームに送信したいパブリッシャー向けです。
+- **Advertisers** および **Data Providers**: さらに、広告主やデータプロバイダは、UID2 Token をトラッキングピクセルに追加するために使用します (詳細は [Tokenized Sharing in Pixels](sharing/sharing-tokenized-from-data-pixel.md) を参照してください)。
 
 <!-- End of UID2-only section. -->
 <!-- Begin EUID-only section. -->
