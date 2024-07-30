@@ -301,6 +301,7 @@ UID2 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメント�
 
 詳細は [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md) を参照してください。
 
+<!-- APIDOCS-1655 -->
 
 ### Update: Normalization and Encoding Rules
 

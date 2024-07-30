@@ -13,11 +13,13 @@ import Link from '@docusaurus/Link';
 
 # Client-Server Integration Guide for JavaScript
 
-このガイドは、パブリッシャー向けの情報で、UID2 SDK for JavaScript を使用する標準的な Web インテグレーションシナリオをカバーしています。このガイドは、UID2 を使用して RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>用にトークンを生成するために、UID2 と直接インテグレーションを行いながら、UID2 対応シングルサインオンや ID プロバイダーではなく、パブリッシャーのウェブアセットを持つパブリッシャー向けの情報です。これには、サーバーサイドの変更が含まれます。Server-Side で UID2 Token を生成し、それをパブリッシャーのウェブページに渡す必要があります。UID2 に直接ではなく、UID2 対応のシングルサインオンや ID プロバイダーを使用して UID2 とインテグレーションする場合は、このガイドを参照しないでください。Client-Side の JavaScript のみの変更で UID2 とインテグレーションする場合は、代わりに [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) を参照してください。
+このガイドは、Web アセットを持つパブリッシャー向けに、RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> で UID2 を使用して ID トークンを生成し、サーバーサイドで UID2 トークンを生成してパブリッシャーの Web ページに渡し、JavaScript の UID2 SDK を使用してクライアントサイドでトークンをリフレッシュする方法を説明します。
 
-これは、Client-Server インテグレーションと呼ばれるもので、JavaScript インテグレーションステップが Client-Side で、その他のステップが Server-Side で行われるためです。
+これは、JavaScript インテグレーションステップが Client-Side であり、その他のステップが Server-Side であるため、Client-Server インテグレーションと呼ばれます。
 
-技術的な詳細については、[UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください。
+Client-Side の JavaScript の変更 **だけ** で UID2 とインテグレーションする場合は、[Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) を参照してください。
+
+SDK の技術的な詳細については、[UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください。
 
 ## Sample Implementation Website
 
@@ -66,6 +68,22 @@ Step 1-c でパブリッシャーがユーザーのメールアドレスまた�
 | 1-e | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) | ユーザーのメールアドレス、電話番号、またはそれぞれのハッシュから生成された UID2 Token を返します。 |
 | 1-f | UID2 SDK for JavaScript | Step 1-e で返された UID2 Token を、SDK の [init()関数](../sdks/sdk-ref-javascript.md#initopts-object-void) の `identity` プロパティで SDK に送信し、以下に示すように [コールバック関数](../sdks/sdk-ref-javascript.md#callback-function) を指定します。このメカニズムにより、ユーザーがログアウトするまで、UID2 Token がターゲティング広告に利用できるようになります。|
 | 1-g | UID2 SDK for JavaScript | SDK から ID 更新を受け取り、ターゲティング広告を開始するために使用するコールバック関数を SDK に提供します。 |
+
+#### Generating a UID2 Token on the Server
+
+最初のステップは、サーバーで UID2 Token を生成することです。
+
+手順や例については、[Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md) を参照してください。
+
+`Identity` レスポンスを SDK に渡す必要があります。[Sending the UID2 Token to the SDK](#sending-the-uid2-token-to-the-sdk) を参照してください。
+
+:::warning
+セキュリティ上の理由から、トークン生成に使用される API キーとシークレットはサーバーサイドで呼び出す必要があります。これらの値をクライアントサイドに保存しないでください。詳細については、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+:::
+
+#### Sending the UID2 Token to the SDK
+
+以下のコード例は、JavaScript と TypeScript でのステップ 1-f と 1-g の説明です。
 
 <Tabs>
 <TabItem value='js' label='JavaScript'>

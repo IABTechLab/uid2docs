@@ -51,7 +51,6 @@ UID2 は、[Android](../sdks/uid2-sdk-ref-android.md) および [iOS](../sdks/ui
 
 正しい SDK/バージョンをモバイルアプリにインストールする手順については、[Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app) を参照してください。
 
-
 ## Complete the UID2 Account Setup
 
 アカウントの設定を完了するには、[Account Setup](../getting-started/gs-account-setup.md) に記載されている手順に従ってください。
@@ -70,58 +69,14 @@ UID2 は、[Android](../sdks/uid2-sdk-ref-android.md) および [iOS](../sdks/ui
 
 ## Implement Server-Side Token Generation
 
-UID2 インテグレーションの最初のステップは、サーバーで UID2 Token を生成できるようにすることです。そうすれば、トークンをモバイルアプリに渡して RTB ビッドストリームに送信できます。
+モバイル向けの Client-Server UID2 インテグレーションの場合、最初のステップは、サーバーで UID2 Token を生成できるようにすることです。その後、トークンをモバイルアプリに渡して RTB ビッドストリームに送信できます。
 
-Server-Side で UID2 Token を生成する方法は、直接識別情報 (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) (メールアドレスまたは電話番号) を提供する２つのアプローチがあります:
+手順や例については、[Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md) を参照してください。
 
-- Integration with an SDK
-- Direct integration to API endpoints
-
-これらのオプションは、次の表にまとめられています。
-
-| Integration Solution  | Generate Token | Refresh Token |
-| :--- | :--- |  :--- |
-| [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) | ✅ | ✅ |
-| [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) | ✅ | ✅ |
-| [Direct integration (API endpoints with custom code)](../endpoints/post-token-generate.md) | ✅ | ✅ |
-
-インテグレーションオプションを選択して、<Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (UID2 Token と関連する値) を生成するために次のいずれかを実装する必要があります:
-
-- [POST /token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出します。
-
-  このガイドの残りの部分で必要な identity 出力は、エンドポイント応答の body セクション内の内容です。例については、[Successful Response](../endpoints/post-token-generate.md#successful-response) を参照してください。
-
-- UID2 Server-Side SDK のいずれかの Publisher Client クラスを使用します。これらのクラスは、リクエストを単一のメソッド呼び出しに簡素化します。
-
-  手順については、[UID2 SDK for Java, Publisher Basic Usage](../sdks/uid2-sdk-ref-java.md#basic-usage) または [UID2 SDK for Python, Usage for Publishers](../sdks/uid2-sdk-ref-python.md#usage-for-publishers) を参照してください。
-
-  SDK オプションを使用する場合、このガイドの残りの部分で必要な `Identity` 応答は、次のメソッドの出力です:
-
-  <Tabs groupId="language-selection">
-  <TabItem value='java' label='Java'>
-
-  ```java
-  tokenGenerateResponse.getIdentityJsonString()
-  ```
-
-  </TabItem>
-  <TabItem value='py' label='Python'>
-
-  ```py
-  token_generate_response.get_identity_json_string()
-  ```
-
-  </TabItem>
-  </Tabs>
-
-:::important
-エンドポイントと SDK API は、生成しようとしているトークンの <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> が UID2 からオプトアウトされている場合、オプトアウトステータスを返します。この場合、情報を保存し、同じ DII に対して再度トークン生成エンドポイントを呼び出さないでください。
-:::
-
-モバイルアプリに `Identity` 応答を渡す必要があります。詳細については、[Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
+`Identity` レスポンスをモバイルアプリに渡す必要があります: [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
 
 :::warning
-セキュリティ上の理由から、API Key とシークレットを使ったトークン生成は、Server-Side で呼び出す必要があります。これらの値をモバイルアプリ内に保存しないでください。詳細については、[API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+セキュリティ上の理由から、トークン生成に使用される API キーとシークレットはサーバーサイドで呼び出す必要があります。これらの値をモバイルアプリ内に保存しないでください。
 :::
 
 ## Server-Side Token Refresh
