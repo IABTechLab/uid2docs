@@ -73,8 +73,10 @@ Prebid.js を使ってサイトを UID2 とインテグレーションするに�
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md)
 
-## Prebid.js Support for Mobile Devices
+## Prebid Mobile SDK Support for Mobile Devices
 
 UID2 と Prebid.js のインテグレーションは、Android モバイルデバイスにも対応しています。
 
-詳細は [UID2 Mobile Integration for Prebid.js](integration-prebid-mobile-summary.md) を参照してください。
+UID2 と Prebid のインテグレーションは、Prebid Mobile SDK を使用して Android モバイルデバイスでサポートされています。
+
+詳細は [UID2 Mobile Integration for Prebid Mobile SDK](integration-prebid-mobile-summary.md) を参照してください。
