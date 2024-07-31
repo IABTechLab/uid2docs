@@ -112,7 +112,13 @@ All the resources are provisioned later under the name you provide as the `{RESO
 There are some limitations with regard to location:
 - UID2 Private Operator for Azure is not supported in these areas: Europe, China.
 
-- For Azure virtual network deployment availability, check [Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-region-availability#linux-container-groups) in the Azure documentation. You can only deploy to regions with the **Confidential SKU** column set to **Y** in the table.
+- For Azure virtual network deployment availability, check [Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) in the Azure documentation to confirm the availability of Confidential Container regional support.
+
+- To get the alias for the location, run the following command:
+
+```
+az account list-locations -o table
+```
 
 ### Complete Key Vault and Managed Identity Setup
 
@@ -285,6 +291,11 @@ Follow these steps:
 import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
 
 <AttestFailure />
+
+### Scraping Metrics
+The Private Operator for Azure exposes [Prometheus-formatted metrics](https://prometheus.io/docs/concepts/data_model/) on port 9080 through the `/metrics` endpoint. You can use a Prometheus-compatible scraper to collect and aggregate these metrics for your own needs. 
+
+The scraper must have access to the VNet that the Private Operator is running in. We do not recommend giving the load balancer access to the `/metrics` endpoint.
 
 ## Upgrading
 
