@@ -293,7 +293,9 @@ import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
 <AttestFailure />
 
 ### Scraping Metrics
-The Private Operator for Azure exposes [Prometheus-formatted metrics](https://prometheus.io/docs/concepts/data_model/) on port 9080 through the /metrics endpoint. You can use a Prometheus-compatible scraper to collect and aggregate these metrics for your own needs.
+The Private Operator for Azure exposes [Prometheus-formatted metrics](https://prometheus.io/docs/concepts/data_model/) on port 9080 through the `/metrics` endpoint. You can use a Prometheus-compatible scraper to collect and aggregate these metrics for your own needs. 
+
+This scraper will need to have access to the VNet that the operators are running in. It is not recommended to allow accessing the `/metrics` endpoint from the load balancer.
 
 ## Upgrading
 
