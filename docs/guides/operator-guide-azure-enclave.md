@@ -114,7 +114,7 @@ There are some limitations with regard to location:
 
 - For Azure virtual network deployment availability, check [Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) in the Azure documentation to confirm the availability of Confidential Container regional support.
 
-- You can run below command to get the alias for the location
+- To get the alias for the location, run the following command:
 
 ```
 az account list-locations -o table
@@ -295,7 +295,7 @@ import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
 ### Scraping Metrics
 The Private Operator for Azure exposes [Prometheus-formatted metrics](https://prometheus.io/docs/concepts/data_model/) on port 9080 through the `/metrics` endpoint. You can use a Prometheus-compatible scraper to collect and aggregate these metrics for your own needs. 
 
-This scraper will need to have access to the VNet that the operators are running in. It is not recommended to allow accessing the `/metrics` endpoint from the load balancer.
+The scraper must have access to the VNet that the Private Operator is running in. We do not recommend giving the load balancer access to the `/metrics` endpoint.
 
 ## Upgrading
 
