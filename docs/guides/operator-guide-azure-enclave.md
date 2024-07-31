@@ -112,7 +112,7 @@ All the resources are provisioned later under the name you provide as the `{RESO
 There are some limitations with regard to location:
 - UID2 Private Operator for Azure is not supported in these areas: Europe, China.
 
-- For Azure virtual network deployment availability, check [Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-region-availability#linux-container-groups) in the Azure documentation. You can only deploy to regions with the **Confidential SKU** column set to **Y** in the table.
+- For Azure virtual network deployment availability, check [Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) in the Azure documentation to confirm the availability of Confidential Container regional support.
 
 - You can run below command to get the alias for the location
 
