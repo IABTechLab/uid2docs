@@ -339,9 +339,12 @@ To set up and configure the account that you created when you installed the gclo
     $ gcloud compute firewall-rules create operator-tcp \
       --direction=INGRESS --priority=1000 --network=default --action=ALLOW \
       --rules=tcp:8080 \
-      --source-ranges=0.0.0.0/0 \
+      --source-ranges=10.0.0.0/8 \
       --target-service-accounts={SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com
     ```
+:::warning
+`source-ranges` specifies the range of IP addresses from which your clients will call the Private Operator. It is in CIDR notation, and you can use comma-separated values to provide multiple ranges. Example: `--source-ranges="10.0.0.0/8,10.10.0.0/16"`. Make sure the ranges are accurate and include only IP addresses that belong to you.
+:::
 
 #### Create Secret for the Operator Key in Secret Manager
 
@@ -449,14 +452,7 @@ Call the health check endpoint to test the health of your implementation. The ex
 
 For instructions, see [Health Check&#8212;gcloud CLI](#health-checkgcloud-cli).
 
-## Tasks
-
-This section provides instructions for completing the following tasks. Where applicable, instructions are provided for both environments. It includes:
-
-- [Running the Health Check](#running-the-health-check)
-- [Upgrading](#upgrading)
-
-### Running the Health Check
+## Running the Health Check
 
 Call the health check endpoint to test the health of your implementation.
 
@@ -467,7 +463,7 @@ Follow the applicable instructions depending on the deployment option you chose:
 - [Health Check&#8212;Terraform Template](#health-checkterraform-template)
 - [Health Check&#8212;gcloud CLI](#health-checkgcloud-cli)
 
-#### Health Check&#8212;Terraform Template
+### Health Check&#8212;Terraform Template
 
 The following example shows the health check for the Terraform template option:
 
@@ -482,7 +478,7 @@ The following example shows the health check for the Terraform template option:
    An HTTP 200 with a response body of `OK` indicates healthy status.
 
 
-#### Health Check&#8212;gcloud CLI
+### Health Check&#8212;gcloud CLI
 The following example shows the health check for the `gcloud` command line option:
 
 1. Get the public IP address of the deployed instance:
@@ -511,10 +507,13 @@ If you're upgrading to a new version, the upgrade process depends on the deploym
 
 ### Upgrading&#8212;Terraform Template
 
-If you deployed using the Terraform template, all you need to do to upgrade is update your deployment with the new `{OPERATOR_IMAGE}` that you received in the upgrade notification.
+If you previously deployed the Private Operator for GCP using the Terraform template, compare the latest version of the template with the one you used when you deployed. If there are changes, make sure to redeploy to include all the updates.
 
 ### Upgrading&#8212;gcloud CLI
 
 If you deployed using the gcloud CLI, you must manually bring up new instances that use the new `{OPERATOR_IMAGE}` and then shut down old instances.
 
 If you previously set up a load balancer manually, you'll also need to update the mapping for the load balancer.
+
+## Scraping Metrics
+The Private Operator for GCP exposes [Prometheus-formatted metrics](https://prometheus.io/docs/concepts/data_model/) on port 9080 through the /metrics endpoint. You can use a Prometheus-compatible scraper to collect and aggregate these metrics for your own needs.
