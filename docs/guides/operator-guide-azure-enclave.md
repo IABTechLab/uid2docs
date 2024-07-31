@@ -114,6 +114,12 @@ There are some limitations with regard to location:
 
 - For Azure virtual network deployment availability, check [Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-region-availability#linux-container-groups) in the Azure documentation. You can only deploy to regions with the **Confidential SKU** column set to **Y** in the table.
 
+- You can run below command to get the alias for the location
+
+```
+az account list-locations -o table
+```
+
 ### Complete Key Vault and Managed Identity Setup
 
 The next step is to set up a [key vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview) and save the operator key in it.
