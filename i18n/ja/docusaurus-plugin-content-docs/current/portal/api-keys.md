@@ -14,6 +14,7 @@ UID2 Portal の **API Keys** ページでは、UID2 アカウントの API Key �
 - [Adding an API Key](#adding-an-api-key)
 - [Modifying an API Key](#modifying-an-api-key)
 - [Deleting an API Key](#deleting-an-api-key)
+- [Rotating an API Key](#rotating-an-api-key)
 
 ## Overview
 
@@ -85,8 +86,20 @@ Key が漏洩した場合、その Key を削除する必要があります。
 
 API Key を削除するには、次の手順を実行します:
 
+1. UID2 Portal で **API Keys** ページに移動します。
 1. リストでキーを見つけ、アクション列で ![the Delete icon](images/icon-trash-can-solid.png) (削除アイコン) をクリックします。
 1. 確認メッセージで、削除を確認するために API Key を入力します。表示からコピーして貼り付けることができます。
 2. **Delete Key** をクリックします。
 
    キーは表示から削除され、無効になります。
+
+## Rotating an API key
+
+API Key をローテーションすることをお勧めします。API Key をローテーションするには、次の手順を実行します:
+
+1. UID2 Portal で **API Keys** ページに移動します。
+1. リストでローテーションする Key を見つけます。
+1. ローテーションする Key と同じ権限を持つ新しい Key を追加します。詳細については、[Adding an API Key](#adding-an-api-key) を参照してください。
+1. UID2 の実装を更新して、ローテーションする Key の代わりに新しい Key を使用するようにします。
+1. 新しい Key が問題なく使用されていることを確認します。たとえば、サービスに対する劣化や API Key の使用に関連するエラーログがないことを確認します。
+1. 古い Key を削除します。詳細については、[Deleting an API Key](#deleting-an-api-key) を参照してください。

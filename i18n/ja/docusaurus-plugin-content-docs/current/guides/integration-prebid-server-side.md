@@ -64,9 +64,15 @@ UID2 Prebid モジュールを設定して、以下の2つのアクションを�
 
 ### Generating a UID2 Token on the Server
 
-トークンを生成するには、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出します。
+For a client-server UID2 integration for Prebid, the first step is to generate the UID2 token on your server. Then, you can pass the token to Prebid for sending to the RTB bidstream.
 
-例については、[Sample Token](#sample-token) を参照してください。
+For details, including instructions and examples, see [Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md).
+
+To generate a token, call one of the SDKs or the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint. For an example of the API response, showing the token, see [Sample Token](#sample-token). You will need to pass the `Identity` response to Prebid.
+
+:::warning
+For security reasons, the API key and secret used in token generation must be called server-side. Do not store these values as part of your Prebid implementation.
+:::
 
 ### Refreshing a UID2 Token
 
@@ -337,10 +343,12 @@ pbjs.setConfig({
 ```
 
 ## Optional: Specifying the API Base URL to Reduce Latency
-<!-- GWH "Optional: Specifying the API Base URL to Reduce Latency" section is identical for client side and server side. -->
-デフォルトでは、UID2 module はアメリカにある UID2 本番環境サーバーに API コールを行います。ユーザーの居住地によっては、レイテンシー(遅延時間) を短縮するために、ユーザーに近いサーバーを選択することを検討してください。
 
-UID2 module を設定するときに別の UID2 サーバーを指定するには、次の例に示すように、オプションの `params.uid2ApiBase` パラメータを設定します:
+デフォルトでは、UID2 モジュールは米国の UID2 本番環境サーバに対して API コールを行います。
+
+ユースケースに最適な URL を選択する方法と、有効なベース URL の完全なリストについては、[Environments](../getting-started/gs-environments.md) を参照してください。
+
+デフォルト以外の UID2 サーバを指定するには、UID2 モジュールを構成する際に、オプションの `params.uid2ApiBase` パラメータを設定します。次の例を参照してください:
 
 ```js
 pbjs.setConfig({ 
@@ -355,5 +363,3 @@ pbjs.setConfig({
   } 
 }); 
 ```
-
-Base URL のリストは、[Environments](../getting-started/gs-environments.md) を参照してください。

@@ -11,6 +11,22 @@ import Link from '@docusaurus/Link';
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: Integration Approaches Page
+
+Client-Side、Client-Server、Server-Side の異なる統合アプローチに関する情報を含む新しいページを追加しました。
+
+詳細は [Integration Approaches](ref-integration-approaches.md) を参照してください。
+
+<!-- APIDOCS-2132 -->
+
+### New: Server-Side Token Generation Page
+
+Server-Side で UID2 Token を生成するパブリッシャー向けの情報を含む新しいリファレンスページを追加しました。
+
+詳細は [Server-Side Token Generation](ref-server-side-token-generation.md) を参照してください。
+
+<!-- APIDOCS-2255 -->
+
 ### New: Prebid Mobile SDK Integration (Android)
 
 2 つのモバイルインテグレーションガイドに、Prebid を使用したモバイルインテグレーションの新しいセクションを追加しました。現在は Android のみです。
@@ -285,6 +301,7 @@ UID2 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメント�
 
 詳細は [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md) を参照してください。
 
+<!-- APIDOCS-1655 -->
 
 ### Update: Normalization and Encoding Rules
 

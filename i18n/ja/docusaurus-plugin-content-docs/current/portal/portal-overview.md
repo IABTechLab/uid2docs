@@ -28,6 +28,29 @@ Portal にアクセスするには、UID2 の担当者にアカウントを作�
 
 担当者は、開始するためのリンクを送信します。
 
+### UID2 Portal Structure
+
+UID2 Portal は、ナビゲーションが簡単になるように構造化されています。
+
+ページへのアクセス方法は、次の画像に示すように、2つの主要な方法があります。
+
+![UID2 Portal Structure](images/portal-uid2-overview.png)
+
+左のサイドバーから、アカウントの構成に関連する以下のページにアクセスできます:
+
+- Home: ホームページへのリンク、常に表示されます。
+- [Sharing Permissions](sharing-permissions.md)
+- [API Keys](api-keys.md)
+- [Client-Side Integration](client-side-integration.md)
+
+右上のリンクから、個人のアカウント設定や日常のアクティビティに関連する以下のページにアクセスできます:
+
+- [Participant Information](participant-info.md)
+- [Manage Team Members](team-members.md)
+- [Email Contacts](email-contacts.md)
+- Dark Mode: toggles dark mode on and off
+- [Log Out](portal-getting-started.md#log-out)
+
 ## Set Up Your Account
 
 アカウントを設定するには、[Getting Started with the UID2 Portal](portal-getting-started.md) を参照してください。
