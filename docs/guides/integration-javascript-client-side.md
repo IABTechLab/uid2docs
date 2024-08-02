@@ -281,7 +281,19 @@ In some cases, the user's DII is not available on page load, and getting the DII
 You can potentially avoid that cost by checking for an existing token that you can use or refresh. To do this, call
 [__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) which returns a Boolean value. If it returns `true`, this means that the UID2 SDK cannot create a new advertising token with the existing resource and DII is required to generate a brand new UID2 token.
 
-The following code snippet demonstrates how you might integrate with the UID2 SDK for JavaScript for the two scenarios above&#8212;starting with no token as well as reusing/refreshing any existing UID2 token if found. 
+The only exception is if the following method returns true, 
+
+```js
+__uid2.hasOptedOut()
+```
+
+It indicates that the DII has been opted out of UID2 and no identity/token should be generated for it. While the UID2 SDK for JavaScript will respect the opt out preference and not generate UID2 tokens even if you call any of the `setIdentity` method calls with DII again, optionally, you might want to avoid making such calls repeatedly.
+
+The following code snippet demonstrates how you might integrate with the UID2 SDK for JavaScript for the three scenarios above:
+
+1. starting with no token 
+2. reusing/refreshing any existing UID2 token if found
+3. detect if the DII has opted out of UID2 and no token will ever be generated for it
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
@@ -326,18 +338,20 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
         // }
         var advertising_token_to_use = payload.identity.advertising_token;
       } else {
-          if (__uid2.isLoginRequired()) {
+          if (__uid2.hasOptedOut()) {
+            // DII has opted out of UID2, no UID2 token will be generated
+          }
+          else if (__uid2.isLoginRequired()) {
             // Call one of the setIdentityFrom functions to generate a new UID2 token.
             // Add any retry logic around this call as required.
             await __uid2.setIdentityFromEmailHash(
                 emailHash,
-                clientSideConfig
-          );
+                clientSideConfig);
+          }  
           else {
             // there is a token generation API call in flight which triggers
             // a IdentityUpdated event 
           }
-        }
       }
       break;
  
@@ -351,6 +365,8 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
  
 </script>
 ```
+
+
 
 ## Check that the Token Was Successfully Generated
 
