@@ -358,7 +358,10 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
     case "IdentityUpdated":
       // The IdentityUpdated event happens when a UID2 token is generated or refreshed.
       // See previous comment for an example of how the payload looks.
-      var advertising_token_to_use = payload.identity.advertising_token;
+      // It's possible that payload.identity is null because the DII has opted out of UID2
+      if (!payload.identity) {
+          var advertising_token_to_use = payload.identity.advertising_token;
+      }
       break;
   }
 });
