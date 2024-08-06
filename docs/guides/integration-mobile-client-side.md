@@ -186,7 +186,7 @@ To set up your account, follow the steps described in [Account Setup](../getting
 - iOS Bundle Identifier
 - iOS App Store ID
 
-When account setup is complete, you'll receive a [Subscription ID and public key](../getting-started/gs-credentials.md#subscription-id-and-public-key). These values are unique to you, and you'll use them when you [configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
+When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them when you [configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk). For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key).
 
 ## Add the UID2 Mobile SDK to Your Mobile App
 
