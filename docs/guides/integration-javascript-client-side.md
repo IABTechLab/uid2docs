@@ -289,11 +289,7 @@ __uid2.hasOptedOut()
 
 It indicates that the DII has been opted out of UID2 and no identity/token should be generated for it. While the UID2 SDK for JavaScript will respect the opt out preference and not generate UID2 tokens even if you call any of the `setIdentity` method calls with DII again, optionally, you might want to avoid making such calls repeatedly.
 
-The following code snippet demonstrates how you might integrate with the UID2 SDK for JavaScript for the three scenarios above:
-
-1. starting with no token 
-2. reusing/refreshing any existing UID2 token if found
-3. detect if the DII has opted out of UID2 and no token will ever be generated for it
+The following code snippet demonstrates how you might integrate with the UID2 SDK for JavaScript for the two scenarios above&#8212;starting with no token as well as reusing/refreshing any existing UID2 token if found.
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
@@ -358,8 +354,9 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
     case "IdentityUpdated":
       // The IdentityUpdated event happens when a UID2 token is generated or refreshed.
       // See previous comment for an example of how the payload looks.
-      // It's possible that payload.identity is null because the DII has opted out of UID2
-      if (!payload.identity) {
+      // It's possible that payload/identity objects could be null for reasons such as user logged out, token
+      // expired or user opted out of UID2 so should check that advertising token exists first before using it
+      if (payload?.identity?.advertising_token) {
           var advertising_token_to_use = payload.identity.advertising_token;
       }
       break;
