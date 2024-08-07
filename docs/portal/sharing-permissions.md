@@ -45,7 +45,7 @@ The following sharing options are available via the UID2 Portal. These options a
  
 You can update your sharing permission in the UID2 Portal at any point.
 
-## Bulk Add Sharing Permissions
+## Add Sharing Permissions&#8212;Bulk
 
 The UID2 Portal makes recommendations based on your role. For example:
 - If you're a publisher, you could share with all DSPs (current and future).
@@ -53,7 +53,7 @@ The UID2 Portal makes recommendations based on your role. For example:
 - If you’re a DSP, you could share with all advertisers and all data providers (current and future). 
 - If you’re a data provider, you could share with all advertisers, all publishers, and all DSPs (current and future).  
 
-The following image shows the recommendations for an advertiser.
+The following illustration shows the recommendations for an advertiser.
 
 ![UID2 Portal, Sharing Permissions page, Recommendations (Advertiser)](images/portal-sharing-permissions.png)
 
@@ -65,7 +65,7 @@ If you prefer, you can set up individual sharing relationships with one or more 
 
 ## Using Search to Add Sharing Relationships
 
-If you prefer to create specific sharing relationships, click **Add Permissions** to find sharing participants and add them.
+If you prefer to create specific sharing relationships, click **Add Permissions&#8212;Individual** to find sharing participants and add them.
 
 The following filters are available on the list of available sharing participants:
 - Publishers
@@ -79,23 +79,23 @@ When you manually create your sharing relationships using the search feature, yo
 
 ## Steps for Granting Sharing Permission
 
-Enabling sharing permissions includes the following steps.
-
 :::note
 As well as granting sharing permission in the UID2 Portal, you'll also need to integrate an SDK, or Snowflake functionality, into your code. See [Tokenized Sharing Overview](../sharing/sharing-tokenized-overview.md).
 :::
+
+Enabling sharing permissions includes the following steps.
 
 1. Log in to your UID2 Portal account.
 1. Click **Sharing Permissions**.
 1. Do one of the following:
 
-   - **Bulk Add Permission to Sharing Categories**: You can share with all current and future participants in one or more specific categories that you configure (Publishers, Advertisers, DSPs, or Data Providers). 
+   - **Add Permissions&#8212;Bulk**: You can share with all current and future participants in one or more specific categories that you configure (Publishers, Advertisers, DSPs, or Data Providers). 
 
    - **Review and Accept Recommendations**: Review the recommendations, add or clear recommendation categories as needed, and then click **Add Permissions**.
 
      If you accept a participant category, such as Advertisers or DSPs, sharing is enabled for current participants of that type, and also future participants of that type that join the UID2 ecosystem.
    
-   - **Add Permissions**: If you prefer, you can search for individual participants to share with. For details, see [Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships).
+   - **Add Permissions&#8212;Individual**: If you prefer, you can search for individual participants to share with. For details, see [Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships).
 1. Save changes.
 
 :::note
