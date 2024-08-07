@@ -125,7 +125,7 @@ __uid2.init({
 });
 ```
 :::note
-UID2 インテグレーション環境からのトークンは、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡しても無効です。インテグレーション環境では、**subscription ID** と **public key** の値が異なります。
+UID2 インテグレーション環境からのトークンは、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡しても無効です。インテグレーション環境では、**Subscription ID** と **public key** の値が異なります。
 :::
 
 ### Optional: Specifying the API Base URL to Reduce Latency
