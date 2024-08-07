@@ -50,7 +50,7 @@ If you're using a client-side implementation (see [UID2 Client-Side Integration 
 
 **Client keypair** is a group term we use for these two values, which are used to uniquely define an account that's using an implementation that generates the token on the client side.
 
-When you're implementing UID2 on the client side, by using the UID2 JavaScript SDK, Client-Side Integration for Mobile, or Prebid, provide the values to the SDK or to Prebid as part of configuration.
+When you're implementing UID2 on the client side, by using the UID2 JavaScript SDK, Client-Side Integration for Mobile, or Prebid.js, provide the values to the SDK or to Prebid.js as part of configuration.
 
 Notes:
 
