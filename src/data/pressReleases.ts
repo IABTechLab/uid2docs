@@ -126,6 +126,36 @@ export const articleList: ArticleItem[] = [
     date: "May 9, 2024",
     locale: "en",
   },
+  {
+    title: "Scripps",
+    url: "https://scripps.com/press-releases/scripps-partners-with-the-trade-desk-to-deliver-new-data-driven-tools-to-advertisers/",
+    date: "June 10, 2024",
+    locale: "en",
+  },
+  {
+    title: "Pandora",
+    url: "https://investor.siriusxm.com/news-events/press-releases/detail/2078/pandora-becomes-first-audio-publisher-to-adopt-unified-id",
+    date: "June 17, 2024",
+    locale: "en",
+  },
+  {
+    title: "Fox",
+    url: "https://www.foxcorporation.com/news/corp-press-releases/2024/fox-and-the-trade-desk-announce-extensive-advertising-integrations-across-fox-portfolio/",
+    date: "June 19, 2024",
+    locale: "en",
+  },
+  {
+    title: "Caddle",
+    url: "https://askcaddle.com/resources/news/caddle-partners-with-the-trade-desk/",
+    date: "July 17, 2024",
+    locale: "en",
+  },
+  {
+    title: "Roku",
+    url: "https://newsroom.roku.com/news/2024/08/roku-enhances-benefits-for-advertisers-with-adoption-of-unified-id/w0bp8lav-1722528950",
+    date: "August 1, 2024",
+    locale: "en",
+  },
   //JA Articles
   {
     title: "Criteo",
