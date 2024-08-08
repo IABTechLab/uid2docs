@@ -108,7 +108,8 @@ The following resources are available for DSPs integrating with UID2.
 
 | Integration Guide | Content Description |
 | :--- | :--- |
-| [DSP](dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
+| [DSP Integration Guide](../guides/dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
+| [DSP Direct Integration Instructions](../guides/integration-dsp-no-sdk.md) | Instructions for DSPs who prefer to integrate without using one of the UID2 SDKs. |
 
 ## Private Operator Service Integrations
 

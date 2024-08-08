@@ -1,38 +1,31 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 import ConfigLocalized from "./docusaurus.config.localized.json";
+import { themes } from "prism-react-renderer";
 
-const lightCodeTheme = require("prism-react-renderer").themes.github;
-const darkCodeTheme = require("prism-react-renderer").themes.dracula;
+const DEFAULT_LOCALE = "en";
 
-function dropdownItemHtml(label, desc) {
-  return `<div class="dropdown__heading">
-  <span class="dropdown__label type-eta">${label}</span>
-  <svg width="11" height="14" viewBox="0 0 31 26" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0757 22.4521L21.8352 15.7165L-4.42505e-07 15.7165L-6.51935e-07 10.9253L21.6238 10.9253L14.8626 4.18915L18.2631 0.801381L31 13.362L18.4768 25.8398L15.0757 22.4521Z" fill="currentColor"/></svg>
-  </div>
-  <span class="dropdown__description type-paragraph-small">${desc}</span>`;
-}
-
-const defaultLocale = "en";
-
+/**
+ * @param {string} key 
+ * @returns {string}
+ */
 function getLocalizedConfigValue(key) {
-  const currentLocale = process.env.DOCUSAURUS_CURRENT_LOCALE ?? defaultLocale;
+  const currentLocale = process.env.DOCUSAURUS_CURRENT_LOCALE ?? DEFAULT_LOCALE;
   const values = ConfigLocalized[key];
   if (!values) {
     throw new Error(`Localized config key=${key} not found`);
   }
-  const value = values[currentLocale] ?? values[defaultLocale];
+  const value = values[currentLocale] ?? values[DEFAULT_LOCALE];
   if (!value) {
     throw new Error(
-      `Localized value for config key=${key} not found for both currentLocale=${currentLocale} or defaultLocale=${defaultLocale}`,
+      `Localized value for config key=${key} not found for both currentLocale=${currentLocale} or defaultLocale=${DEFAULT_LOCALE}`,
     );
   }
   return value;
 }
 
 /** @type {import('@docusaurus/types').Config} */
-const config = {
+export default {
   title: "Unified ID 2.0",
   tagline: "The perfect marriage of privacy and focused advertising",
   favicon: "img/favicon.ico",
@@ -64,7 +57,7 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "en",
+    defaultLocale: DEFAULT_LOCALE,
     locales: ["en", "ja"],
     path: "i18n",
     localeConfigs: {
@@ -289,8 +282,8 @@ const config = {
         copyright: `© ${new Date().getFullYear()} All rights reserved.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: themes.github,
+        darkTheme: themes.dracula,
         additionalLanguages: ["csharp", "java"],
       },
       algolia: {
@@ -305,5 +298,3 @@ const config = {
       },
     }),
 };
-
-module.exports = config;

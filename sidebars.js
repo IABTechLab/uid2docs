@@ -199,7 +199,18 @@ const fullSidebar = [
           ],
         },
 
-        'guides/dsp-guide',
+        {
+          type: 'category',
+          label: 'DSP Integrations',
+          link: {
+            type: 'generated-index',
+          },
+          collapsed: true,
+          items: [
+            'guides/dsp-guide',
+            'guides/integration-dsp-no-sdk',
+          ],
+        },
 
         {
           type: 'category',
