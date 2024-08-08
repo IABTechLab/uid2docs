@@ -106,7 +106,11 @@ We recommend rotating each API key on a yearly basis. To rotate an API key, foll
 
 ## Security Recommendations for API Keys
 
-In some instances, you might create API keys for one permission/role and then want to add a role to your account. For example, you might be an advertiser, but also want to operate as an inventory provider.
+It's a security best practice, though not required, to have separate keys for separate roles.
+
+For additional security recommendations, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+
+<!-- In some instances, you might create API keys for one permission/role and then want to add a role to your account. For example, you might be an advertiser, but also want to operate as an inventory provider.
 
 In this scenario, we recommend that you follow these best security practices:
 
@@ -116,4 +120,4 @@ In this scenario, we recommend that you follow these best security practices:
 
 These practices are standard measures to help ensure that, in case a service or app is compromised or credentials are leaked, any negative result is minimized.
 
-These are guidelines, not rules. If you need to add a permission, you can modify an existing API key, but we recommend that you use separate keys for separate permission.
+These are guidelines, not rules. If you need to add a permission, you can modify an existing API key, but we recommend that you use separate keys for separate permission. -->
