@@ -51,7 +51,7 @@ The decrypted API response is in JSON format, and includes `site_data`, the list
 
 To see how all the fields are parsed, refer to the UID2 SDK for C#&nbsp;/&nbsp;.NET parse function: see [KeyParser.cs, lines 41-74](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/KeyParser.cs#L41-L74).
 
-After decrypting the token into a raw UID2, if the token was generated on the client side, you must use the information in `site_data` to verify that a specific domain or app name is on the list of names allowed for it. For details, see [Verify the Domain or App Name](#verify-the-domain-or-app-name).
+After decrypting the token into a raw UID2, if the token was generated on the client side, you must use the information in `site_data` to verify that a specific domain or app name is on the list of names allowed for it. For details, see [Verify the Domain or App Name](#for-tokens-generated-on-the-client-side-verify-the-domain-or-app-name).
 
 ## Decrypt UID2 Tokens into Raw UID2s
 
@@ -65,7 +65,7 @@ You'll need to complete the following steps:
 
 1. [Make sure token lifetime and expiration values are valid](#make-sure-token-lifetime-and-expiration-are-valid).
 
-1. [Verify that the domain or app name is valid](#verify-the-domain-or-app-name).
+1. [Verify that the domain or app name is valid](#for-tokens-generated-on-the-client-side-verify-the-domain-or-app-name).
 
 The UID2 SDK for C# / .NET uses a `DecryptTokenIntoRawUid` function to perform these steps: see [BidstreamClient.cs, line 15](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/BidstreamClient.cs#L15).
 
@@ -81,6 +81,7 @@ To review detailed logic, see [UID2Encryption.cs, lines 36-50](https://github.co
 
 Use the master key and site key to decrypt the token. For a code example, refer to the `Decrypt` function: see [UID2Encryption.cs, line 29](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L29). This function decrypts UID2 tokens into raw UID2s as part of the UID2 SDK for C# / .NET, and includes logic to handle different token versions.
 
+<!--
 ### For Tokens Generated on the Client Side: Honor Opt-Out Status
 
 For tokens generated on the client side, there is an additional step with regard to opt-out. After decrypting the token, you must check for opt-out information indicating that the token does not contain a targetable UID2. If the user has opted out, you must not use the token for bidding.
@@ -96,6 +97,7 @@ For more information about client-side UID2 integration, refer to one of these i
 - [Client-Side Integration Guide for JavaScript](publisher-client-side.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
 - [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
+-->
 
 ### Make Sure Token Lifetime and Expiration Are Valid
 
