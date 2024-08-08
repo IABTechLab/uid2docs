@@ -101,3 +101,16 @@ Enabling sharing permissions includes the following steps.
 :::note
 When you enable sharing permission, this allows the selected sharing participants to access your decryption keys. Each participant that you enable for sharing can use your keys, via a UID2 SDK or Snowflake integration, to decrypt a UID2 token into a raw UID2. However, granting permission is just the first step. In order for sharing to occur, you must send the tokens to the participant. The UID2 Portal enables the permissions. It does not send any data&#8212;that is up to you.
 :::
+
+## Deleting Sharing Permission
+
+There are two ways to delete sharing permissions:
+
+- **Bulk sharing permissions**: If you previously chose to share with a specific group of participants, such as DSPs or Data Providers, you can delete the sharing permissions for that group.
+
+    In the **Add Permissions&#8212;Bulk** section of the page, clear the box for the participant group you no longer want to share with, and then click **Save Permissions**.
+- **Individual sharing permissions**: In the **Your Sharing Permissions** section of the page, locate the participant you no longer want to share with. In the Actions column, click ![the Delete icon](images/icon-trash-can-solid.png) (the Delete icon).
+
+:::note
+When you delete sharing permissions, your decryption keys are no longer shared with those participants the next time they update their decryption keys. It isn't instant, but should be swift. For details, see [Decryption Key Refresh Cadence for Sharing](../sharing/sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing).
+:::

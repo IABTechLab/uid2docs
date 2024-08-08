@@ -183,7 +183,7 @@ It's important to provide a complete list of all your mobile app IDs, including:
 - iOS/tvOS Bundle ID and corresponding iOS App Store ID: any that apply.
 
 :::important
-UID2 token requests are accepted only from sources where the applicable IDs are set up in the UID2 Portal.
+UID2 token requests are accepted only from sources where the applicable IDs have been added in the UID2 Portal.
 :::
 
 To add one or more mobile app IDs, complete the following steps:
