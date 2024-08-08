@@ -178,7 +178,13 @@ On the Client-Side Integration page, you can perform the following activities re
 
 ### Adding Mobile App IDs
 
-It's important to provide a complete list of all your mobile app IDs, including Android App IDs, iOS/tvOS Bundle IDs, and iOS App Store IDs. UID2 token requests are accepted only from mobile app IDs that are set up in the UID2 Portal.
+It's important to provide a complete list of all your mobile app IDs, including:
+- Android App ID: any that apply.
+- iOS/tvOS Bundle ID and corresponding iOS App Store ID: any that apply.
+
+:::important
+UID2 token requests are accepted only from sources where the applicable IDs have been added in the UID2 Portal.
+:::
 
 To add one or more mobile app IDs, complete the following steps:
 
