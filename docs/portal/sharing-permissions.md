@@ -109,8 +109,10 @@ There are two ways to delete sharing permissions:
 - **Bulk sharing permissions**: If you previously chose to share with a specific group of participants, such as DSPs or Data Providers, you can delete the sharing permissions for that group.
 
     In the **Add Permissions&#8212;Bulk** section of the page, clear the box for the participant group you no longer want to share with, and then click **Save Permissions**.
-- **Individual sharing permissions**: In the **Your Sharing Permissions** section of the page, locate the participant you no longer want to share with. In the Actions column, click ![the Delete icon](images/icon-trash-can-solid.png) (the Delete icon).
+- **Individual sharing permissions**: In the **Your Sharing Permissions** section of the page, locate the participant you no longer want to share with and then, in the Actions column, click ![the Delete icon](images/icon-trash-can-solid.png) (the Delete icon).
+
+    This action applies only to individual sharing permissions that you previously created. If you added a sharing permission through bulk sharing, you cannot delete it through individual sharing. You must delete permissions in the same way that you added them.
 
 :::note
-When you delete sharing permissions, your decryption keys are no longer shared with those participants the next time they update their decryption keys. It isn't instant, but should be swift. For details, see [Decryption Key Refresh Cadence for Sharing](../sharing/sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing).
+ When you delete sharing permissions, your decryption keys are no longer shared with those participants the next time they update their decryption keys. It isn't instant, but should be swift. For details, see [Decryption Key Refresh Cadence for Sharing](../sharing/sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing).
 :::
