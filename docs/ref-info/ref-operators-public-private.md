@@ -57,7 +57,7 @@ The participant must host, configure, maintain, and update the Private Operator 
 The participant must sign a contract (see [Account Setup](../getting-started/gs-account-setup.md)) to host a Private Operator instance.
 
 :::note
-A Private Operator cannot process raw UID2s or UID2 tokens from a Public Operator or another Private Operator. Each Private Operator is a completely closed infrastructure.
+A Private Operator has no visibility into the raw UID2s or UID2 tokens processed by a Public Operator or another Private Operator. Each Private Operator is a completely closed infrastructure.
 :::
 
 ## Private Operator: Benefits

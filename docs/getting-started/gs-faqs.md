@@ -36,7 +36,7 @@ In addition, in almost all cases, UID2 doesn't store any values at all once the 
 
 #### Does UID2 allow the processing of HIPAA-regulated data?
 
-No. UID2 participants must not generate UID2s from Protected Health Information, as defined by the Health Insurance Portability and Accountability Act (HIPAA), even if they have obtained consent to engage in marketing with respect to such data. 
+No. UID2 participants must not generate UID2s from Protected Health Information, as defined by the Health Insurance Portability and Accountability Act (HIPAA), even if they have obtained consent to engage in marketing with respect to such data.
 
 ## FAQs for Publishers
 
@@ -142,7 +142,7 @@ Here are some frequently asked questions for advertisers and data providers usin
    - [Should I store large volumes of email address, phone number, or their hash mappings?](#should-i-store-large-volumes-of-email-address-phone-number-or-their-hash-mappings)
    - [How should I handle user opt-outs?](#how-should-i-handle-user-opt-outs)
    - [Does the same DII always result in the same raw UID2?](#does-the-same-dii-always-result-in-the-same-raw-uid2)
-
+   - [If two operators process the same DII, are the results the same?](#if-two-operators-process-the-same-dii-are-the-results-the-same)
 
 #### How do I know when to refresh the UID2 due to salt bucket rotation?
 
@@ -193,6 +193,16 @@ In general yes, the process of generating a raw UID2 from DII is the same, and r
 However, there is a variable factor, which is the <Link href="../ref-info/glossary-uid#gl-salt">salt</Link> value that's used in generating the raw UID2. The salt values are rotated roughly once per year (for details, see [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)). If the salt value changes between one request and another, those two requests result in two different raw UID2, even when the DII is the same.
 
 For more information, see [Monitor for salt bucket rotations related to your stored raw UID2s](../guides/advertiser-dataprovider-guide.md#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s) in the *Advertiser/Data Provider Integration Guide*.
+
+#### If two operators process the same DII, are the results the same?
+
+Yes, if the request is for a <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link>. As covered in the previous FAQ, [Does the same DII always result in the same raw UID2?](#does-the-same-dii-always-result-in-the-same-raw-uid2), if an advertiser or data provider sends the same DII to the UID2 Operator, by using an SDK or the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint, at the same time, the same raw UID2 is created.
+
+The result is the same, regardless of the operator and whether it's a Private Operator or a Public Operator.
+
+The timing is important only because of salt bucket rotation. If the salt value changes between one request and another, the result is a different raw UID2.
+
+However, if a publisher sends DII in a request for a <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>, via the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint or via an SDK, the resulting UID2 token is always unique.
 
 ## FAQs for DSPs
 
