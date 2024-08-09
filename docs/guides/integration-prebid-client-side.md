@@ -144,8 +144,7 @@ pbjs.setConfig({
 }); 
 ```
 
-It is possible that the user's DII has opted out of UID2 previously. In this case, the UID2 module will respect the optout preference and no UID2 token will be generated and collected by Prebid.js.
-
+It is possible that the user has opted out of UID2 previously. In this case, the UID2 module respects the user's optout and no UID2 token is generated and collected by Prebid.js.
 
 ## Checking the Integration
 
