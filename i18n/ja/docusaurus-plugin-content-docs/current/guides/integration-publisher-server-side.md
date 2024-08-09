@@ -108,7 +108,7 @@ UID2 Token が SSP から DSP に送信されるとき、ビッドストリー�
 
 Server-only のインテグレーションの場合は、サンプルアプリケーションをがあります。参照してください:
 
-- [Server-Side UID2 Integration Example (sample application)](https://secure-signals-srvonly-integ.uidapi.com/login)
+- [Server-Side UID2 Integration Example (sample application)](https://secure-signals-srvonly-integ.uidapi.com/)
 - [Server-Side UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
 
 ## FAQs
