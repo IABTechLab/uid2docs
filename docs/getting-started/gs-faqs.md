@@ -202,7 +202,7 @@ The result is the same, regardless of the operator and whether it's a Private Op
 
 The timing is important only because of salt bucket rotation. If the salt value changes between one request and another, the result is a different raw UID2.
 
-However, if a publisher sends DII in a request for a <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>, via the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint or via an SDK, the resulting UID2 token is always unique.
+However, if a publisher sends DII in a request for a <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>, via the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint or via an SDK, the resulting UID2 token contains the same encrypted raw UID2, but the token itself is always unique.
 
 ## FAQs for DSPs
 
