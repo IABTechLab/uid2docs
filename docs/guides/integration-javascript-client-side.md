@@ -281,13 +281,7 @@ In some cases, the user's DII is not available on page load, and getting the DII
 You can potentially avoid that cost by checking for an existing token that you can use or refresh. To do this, call
 [__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) which returns a Boolean value. If it returns `true`, this means that the UID2 SDK cannot create a new advertising token with the existing resource and DII is required to generate a brand new UID2 token.
 
-The only exception is if the following method returns true, 
-
-```js
-__uid2.hasOptedOut()
-```
-
-It indicates that the DII has been opted out of UID2 and no identity/token should be generated for it. While the UID2 SDK for JavaScript will respect the opt out preference and not generate UID2 tokens even if you call any of the `setIdentity` method calls with DII again, optionally, you might want to avoid making such calls repeatedly.
+It is possible that after you provide a DII and [__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) still returns a `false` value. This would be because the DII was opted out of UID2. The UID2 SDK for JavaScript will respect the opt out preference and not generate UID2 tokens even if you call any of the `setIdentity` method calls with DII again, optionally, you might want to avoid making such calls repeatedly.
 
 The following code snippet demonstrates how you might integrate with the UID2 SDK for JavaScript for the two scenarios above&#8212;starting with no token as well as reusing/refreshing any existing UID2 token if found.
 
@@ -319,7 +313,7 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
       // The InitCompleted event occurs just once.
       //
       // If there is a valid UID2 token, it is in payload.identity.
-      if (payload.identity) {
+      if (payload?.identity) {
         //
         // payload looks like this:
         // {
@@ -334,10 +328,7 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
         // }
         var advertising_token_to_use = payload.identity.advertising_token;
       } else {
-          if (__uid2.hasOptedOut()) {
-            // DII has opted out of UID2, no UID2 token will be generated
-          }
-          else if (__uid2.isLoginRequired()) {
+         if (__uid2.isLoginRequired()) {
             // Call one of the setIdentityFrom functions to generate a new UID2 token.
             // Add any retry logic around this call as required.
             await __uid2.setIdentityFromEmailHash(
@@ -345,8 +336,8 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
                 clientSideConfig);
           }  
           else {
-            // there is a token generation API call in flight which triggers
-            // a IdentityUpdated event 
+            // there is a token generation API call in flight which triggers a IdentityUpdated event 
+            // or no token would be generated because one of previous `setIdentity` calls determines the DII has opted out.
           }
       }
       break;
