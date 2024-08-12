@@ -745,7 +745,7 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
-    name: "Sripps",
+    name: "Scripps",
     logo: "scripps.jpeg",
     type: ["Publishers"],
   },
