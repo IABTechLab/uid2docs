@@ -45,7 +45,7 @@ UID2 Portal では、以下の共有オプションを利用できます。こ�
  
 共有許可は、UID2 Portal でいつでも更新できます。
 
-## Bulk Add Sharing Permissions
+## Add Sharing Permissions&#8212;Bulk
 
 UID2 Portal は、あなたの役割に基づいて推奨を行います。例えば:
 - パブリッシャーであれば、すべてのDSP (現在および将来) と共有できます。

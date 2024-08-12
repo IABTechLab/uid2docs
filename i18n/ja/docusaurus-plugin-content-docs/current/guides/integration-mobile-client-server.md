@@ -98,8 +98,8 @@ Token Refresh を Server-Side で管理し、クライアント/モバイルサ�
 
 インストール方法については、以下のいずれかを参照してください:
 
-- [UID2 SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
-- [UID2 SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
+- [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
+- [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
 
 この時点で、Server-Side で生成された UID2 Identity をモバイル SDK で使用する準備が整いました。
 

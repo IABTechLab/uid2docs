@@ -36,7 +36,7 @@ To run this plugin, install the following:
    - [Release Notes](https://developers.google.com/admob/ios/rel-notes)
 1. UID2 SDK for iOS v0.3.2 or later:
    - [SDK](https://github.com/IABTechLab/uid2-ios-sdk)
-   - [UID2 SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
+   - [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
 1. [UID2 GMA Plugin for iOS v0.3.2](https://github.com/IABTechLab/uid2-ios-plugin-google-gma)
 
 ## Installation

@@ -19,7 +19,7 @@ This is called client-server integration because the JavaScript integration step
 
 If you prefer to integrate with UID2 via **only** client-side JavaScript changes, see [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md).
 
-For technical details about the SDK, see [UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md).
+For technical details about the SDK, see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md).
 
 ## Sample Implementation Website
 

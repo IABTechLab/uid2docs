@@ -28,7 +28,7 @@ This approach is used by the following participant types:
 
 This guide does not apply to publishers who want to use a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, or who want to generate tokens server-side. Those publishers should follow the [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md).
 
-UID2 provides a UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)) with the following features:
+UID2 provides a UID2 SDK for JavaScript (see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)) with the following features:
 
 - UID2 token generation
 - Automatic refreshing of UID2 tokens
@@ -113,7 +113,7 @@ window.__uid2.callbacks.push((eventType, payload) => {
 </script>
 ```
 
-For more information about the SDK, see [UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md).
+For more information about the SDK, see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md).
 
 ### Using the UID2 Integration Environment
 

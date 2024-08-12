@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 # UID2 SDK for JavaScript Reference Guide (2.x and earlier versions)
 
 :::tip
-このドキュメントは、UID2 SDK for JavaScript の旧バージョン用です。以前のバージョンを使用している場合は、アップグレードすることを勧めます。移行ガイドを含む [UID2 SDK for JavaScript Reference Guide](sdk-ref-javascript.md) を参照してください。
+このドキュメントは、UID2 SDK for JavaScript の旧バージョン用です。以前のバージョンを使用している場合は、アップグレードすることを勧めます。移行ガイドを含む [SDK for JavaScript Reference Guide](sdk-ref-javascript.md) を参照してください。
 :::
 
 この SDK を使用して、UID2 を使用してクライアントの ID を確立し、広告トークンを取得するプロセスを容易にします。以下のセクションでは、UID2 を確立するための [workflow](#workflow-overview) について説明し、SDK の [API reference](#api-reference) を提供し、[UID2 cookie format](#uid2-cookie-format) について説明します。

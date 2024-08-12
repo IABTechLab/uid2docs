@@ -28,7 +28,7 @@ import Link from '@docusaurus/Link';
 
 このガイドは、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を使いたいパブリッシャーや、Server-Side でトークンを生成したいパブリッシャーには適用されません。これらのパブリッシャーは、[Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) に従う必要があります。
 
-UID2 は、UID2 SDK for JavaScript を提供しています (詳細は [UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください)。この SDK には以下の機能があります:
+UID2 は、UID2 SDK for JavaScript を提供しています (詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください)。この SDK には以下の機能があります:
 
 - UID2 Token の生成
 - UID2 Token の自動リフレッシュ
@@ -113,7 +113,7 @@ window.__uid2.callbacks.push((eventType, payload) => {
 </script>
 ```
 
-SDK の詳細については、[UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください。
+SDK の詳細については、[SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください。
 
 ### Using the UID2 Integration Environment
 

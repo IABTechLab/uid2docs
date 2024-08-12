@@ -98,8 +98,8 @@ Then, pass the newly refreshed `Identity` value to the mobile app by following t
 
 For installation instructions, refer to one of the following:
 
-- [UID2 SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
-- [UID2 SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
+- [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
+- [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
 
 At this point, you are ready to use the UID2 Identity generated server-side in the mobile SDK.
 

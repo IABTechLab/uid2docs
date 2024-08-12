@@ -192,8 +192,8 @@ When account setup is complete, you'll receive a client keypair consisting of tw
 
 To add the mobile SDK to your app, follow the applicable documentation:
 
-- [UID2 SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
-- [UID2 SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
+- [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
+- [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
 
 At this point, you are ready to start generating UID2 tokens using the SDK.
 

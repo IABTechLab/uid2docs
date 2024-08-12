@@ -192,8 +192,8 @@ When account setup is complete, you'll receive a [Subscription ID and public key
 
 Mobile SDK をアプリに追加するには、適用可能な以下のドキュメントに従ってください:
 
-- [UID2 SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
-- [UID2 SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
+- [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
+- [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
 
 SDK をアプリに追加したら、SDK を使用して UID2 Token を生成する準備が整います。
 

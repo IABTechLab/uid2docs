@@ -19,7 +19,7 @@ import Link from '@docusaurus/Link';
 
 Client-Side の JavaScript の変更 **だけ** で UID2 とインテグレーションする場合は、[Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) を参照してください。
 
-SDK の技術的な詳細については、[UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください。
+SDK の技術的な詳細については、[SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください。
 
 ## Sample Implementation Website
 

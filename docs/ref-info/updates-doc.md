@@ -208,7 +208,7 @@ For details, see:
 
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
 ### New: Encryption/Decryption Examples in Java and C#
 
@@ -268,7 +268,7 @@ The content that was in the previous version of the Prebid document is now in a 
 These documents were further updated in later revisions. Updated links are as follows:
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 :::
 
 ### New: Opt-Out
@@ -296,7 +296,7 @@ October 10, 2023
 Significant documentation updates reflect the enhanced functionality of Version 3 of the UID2 SDK for JavaScript. The new documentation includes a [migration guide](../sdks/sdk-ref-javascript#migration-guide) for those upgrading from an earlier version of the SDK.
 
 For details, see:
--  [UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)
+-  [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)
 -  [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
 ### New: Private Operator Guide for Google Confidential Space 
@@ -390,7 +390,7 @@ August 3, 2023
 
 A new guide for publishers that provides information about the UID2 SDK for Android, an SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers who need to support Android apps.
 
-For details, see [UID2 SDK for Android Reference Guide](../sdks/sdk-ref-android.md).
+For details, see [SDK for Android Reference Guide](../sdks/sdk-ref-android.md).
 
 ### New: iOS SDK Guide
 
@@ -398,4 +398,4 @@ August 3, 2023
 
 A new guide for publishers that provides information about the UID2 SDK for iOS, an SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers who need to support iOS apps.
 
-For details, see [UID2 SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md).
+For details, see [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md).

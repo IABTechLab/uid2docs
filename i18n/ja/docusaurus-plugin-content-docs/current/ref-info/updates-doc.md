@@ -202,7 +202,7 @@ UID2 Operator が何をするのか、Public Operator と Private Operator の�
 
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
 ### New: Encryption/Decryption Examples in Java and C#
 
@@ -262,7 +262,7 @@ UID2 Client-Side Integration Guide for Prebid.js は、既存の URL にまっ�
 これらのドキュメントは、その後の改訂でさらに更新されました。更新されたリンクは以下のとおりです:
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 :::
 
 ### New: Opt-Out
@@ -290,7 +290,7 @@ UID2 Client-Side Integration Guide for Prebid.js は、既存の URL にまっ�
 UID2 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメントが大幅に更新されました。新しいドキュメントには、以前のバージョンの SDK からのアップグレードのための [Migration Guide](../sdks/sdk-ref-javascript#migration-guide) が含まれています。
 
 詳細は以下を参照してください:
--  [UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)
+-  [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)
 -  [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
 ### New: Private Operator Guide for Google Confidential Space 
@@ -386,7 +386,7 @@ UID2 アカウントを管理できる新しい UID2 Portal ユーザーイン�
 
 パブリッシャー向けの新しいガイドでは、Android アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にする SDK、UID2 SDK for Android に関する情報を提供しています。
 
-詳細は [UID2 SDK for Android Reference Guide](../sdks/sdk-ref-android.md) を参照してください。
+詳細は [SDK for Android Reference Guide](../sdks/sdk-ref-android.md) を参照してください。
 
 ### New: iOS SDK Guide
 
@@ -394,7 +394,7 @@ UID2 アカウントを管理できる新しい UID2 Portal ユーザーイン�
 
 パブリッシャー向けの新しいガイドでは、iOS アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にする SDK、UID2 SDK for iOS に関する情報を提供しています。
 
-詳細は [UID2 SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) を参照してください。
+詳細は [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) を参照してください。
 
 <!-- ### New: Prebid Integration Guide
 
