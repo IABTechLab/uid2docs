@@ -83,7 +83,7 @@ The following table provides details for Step 2 of the workflow diagram shown in
 ## Recommendations for Managing Latency
 
 :::note 
-This section refers to the example code in [Usage for DSPs](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-dsps) in the *UID2 SDK for C# / .NET Reference Guide*. The method names are similar for the [Java](../sdks/uid2-sdk-ref-java.md#usage-for-dsps), [Python](../sdks/uid2-sdk-ref-python#usage-for-dsps), and [C++](../sdks/uid2-sdk-ref-cplusplus.md#interface) SDKs.
+This section refers to the example code in [Usage for DSPs](../sdks/sdk-ref-csharp-dotnet.md#usage-for-dsps) in the *SDK for C# / .NET Reference Guide*. The method names are similar for the [Java](../sdks/sdk-ref-java.md#usage-for-dsps), [Python](../sdks/sdk-ref-python#usage-for-dsps), and [C++](../sdks/sdk-ref-cplusplus.md#interface) SDKs.
 :::
 
 For a low latency/high throughput setup, follow these recommendations:

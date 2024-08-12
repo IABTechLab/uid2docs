@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for iOS
+title: SDK for iOS
 description: iOS SDK のリファレンス情報。
 hide_table_of_contents: false
 sidebar_position: 14
@@ -7,9 +7,9 @@ sidebar_position: 14
 
 import Link from '@docusaurus/Link';
 
-# UID2 SDK for iOS Reference Guide
+# SDK for iOS Reference Guide
 
-UID2 SDK for iOS は、以下の用途に使用できます:
+SDK for iOS は、以下の用途に使用できます:
 
 - UID2 を使用して iOS アプリでクライアント ID を生成または確立します。
 - <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>様に Advertising Token を取得します。
@@ -23,7 +23,7 @@ UID2 SDK for iOS は、以下の用途に使用できます:
 | Google Interactive Media Ads SDK for iOS を使用して iOS/tvOS アプリから広告リクエストで [secure signals](https://support.google.com/admob/answer/11556288) として <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> を送信する | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) |
 
 ## tvOS Support
-Although this page refers to UID2 SDK for iOS, this SDK also supports tvOS. For the required tvOS version, see [Minimum Requirements](#minimum-requirements).
+Although this page refers to SDK for iOS, this SDK also supports tvOS. For the required tvOS version, see [Minimum Requirements](#minimum-requirements).
 
 ## Functionality
 
@@ -33,7 +33,7 @@ Although this page refers to UID2 SDK for iOS, this SDK also supports tvOS. For 
 | :--- | :--- | :--- | :--- |
 | Not supported | Not supported | Supported | Supported |
 
-UID2 SDK for iOS は、iOS アプリケーションに代わって UID2 ID を生成または管理するように設計されています。プラットフォームネイティブの暗号化ツールを使って ID をデバイスに安全に保存することで、UID2 ID をアプリのライフサイクル全体にわたって持続させることができます。
+SDK for iOS は、iOS アプリケーションに代わって UID2 ID を生成または管理するように設計されています。プラットフォームネイティブの暗号化ツールを使って ID をデバイスに安全に保存することで、UID2 ID をアプリのライフサイクル全体にわたって持続させることができます。
 
 デフォルトでは、SDK は有効期限に基づいて UID2 ID を自動的にリフレッシュします。ただし、これを無効にして、アプリが UID2 IDのライフサイクルを手動で管理できるように実装することもできます。
 
@@ -103,7 +103,7 @@ pod 'UID2', '~> 1.2'
 
 ## Usage Guidelines
 
-**UID2Manager** シングルトンは、UID2 SDK for iOS の主要な開発者 API です。UID2 Token を含む UID2 Identity の保存、リフレッシュ、取得を行います。
+**UID2Manager** シングルトンは、SDK for iOS の主要な開発者 API です。UID2 Token を含む UID2 Identity の保存、リフレッシュ、取得を行います。
 
 iOS の場合、`UID2Manager` は初めてアクセスされたときに自動的に初期化されます。自動または手動のリフレッシュ機能をサポートするように設定できます。
 
@@ -118,7 +118,7 @@ UID2 Mobile SDK は、UID2 identifier が確立された後に UID2 identities �
 
 ## Code Samples
 
-The following code samples provide examples of performing specific activities relating to managing UID2 with the UID2 SDK for iOS.
+The following code samples provide examples of performing specific activities relating to managing UID2 with the SDK for iOS.
 
 Generate an initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk)):
 

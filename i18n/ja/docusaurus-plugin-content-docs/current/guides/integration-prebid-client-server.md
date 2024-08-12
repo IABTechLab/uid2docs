@@ -81,7 +81,7 @@ UID2 Token をリフレッシュするには、次の表に示すように 2 つ
 | Mode | Description | Link to Section | 
 | --- | --- | --- |
 | Client refresh mode | Prebid.js は内部で自動的にトークンをリフレッシュします。<br/>これは最もシンプルなアプローチです。 | [Client Refresh Mode](#client-refresh-mode) |
-| Server-only mode | Prebid.js はトークンを自動的にリフレッシュしません。トークンのリフレッシュを管理するのはパブリッシャーです。<br/>このオプションを選択する理由の例:<ul><li>[UID2 SDK for JavaScript](../sdks/sdk-ref-javascript.md) を使用してトークンをリフレッシュし、Prebid.js でトークンをビッドストリームに送信したい場合。</li><li>トークンを複数の手段(Prebid.js や Google など) でビッドストリームに送信したい場合。</li></ul> | [Server-Only Mode](#server-only-mode) |
+| Server-only mode | Prebid.js はトークンを自動的にリフレッシュしません。トークンのリフレッシュを管理するのはパブリッシャーです。<br/>このオプションを選択する理由の例:<ul><li>[SDK for JavaScript](../sdks/sdk-ref-javascript.md) を使用してトークンをリフレッシュし、Prebid.js でトークンをビッドストリームに送信したい場合。</li><li>トークンを複数の手段(Prebid.js や Google など) でビッドストリームに送信したい場合。</li></ul> | [Server-Only Mode](#server-only-mode) |
 
 ### Client Refresh Mode
 
@@ -236,7 +236,7 @@ Prebid の実施を計画する際には、以下を考慮してください:
 
 - インテグレーションテストでは、`params.uid2ApiBase` を `"https://operator-integ.uidapi.com"` に設定します。この値は、トークンを生成する環境と同じ環境 (本番環境またはインテグレーション環境) に設定しなければなりません。
 
-- Prebid.js Server-Side インテグレーションの場合、クライアントサイドインテグレーション機能を無効にして、より小さな Prebid.js ビルドを作成できます。これを行うには、`--disable UID2_CSTG` フラグを渡します:
+- Prebid.js client-server インテグレーションの場合、クライアントサイドインテグレーション機能を無効にして、より小さな Prebid.js ビルドを作成できます。これを行うには、`--disable UID2_CSTG` フラグを渡します:
 
 ```
     $ gulp build --modules=uid2IdSystem --disable UID2_CSTG

@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for iOS
+title: SDK for iOS
 description: Reference information about the iOS SDK.
 hide_table_of_contents: false
 sidebar_position: 14
@@ -7,9 +7,9 @@ sidebar_position: 14
 
 import Link from '@docusaurus/Link';
 
-# UID2 SDK for iOS Reference Guide
+# SDK for iOS Reference Guide
 
-You can use the UID2 SDK for iOS for the following:
+You can use the SDK for iOS for the following:
 
 - Generating or establishing client identity using UID2.
 - Retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use.
@@ -23,7 +23,7 @@ The following iOS-related plugins, and associated documentation, are also availa
 | To use the Google Interactive Media Ads SDK for iOS to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS/tvOS apps | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) |
 
 ## tvOS Support
-Although this page refers to UID2 SDK for iOS, this SDK also supports tvOS. For the required tvOS version, see [Minimum Requirements](#minimum-requirements).
+Although this page refers to SDK for iOS, this SDK also supports tvOS. For the required tvOS version, see [Minimum Requirements](#minimum-requirements).
 
 ## Functionality
 
@@ -33,7 +33,7 @@ This SDK simplifies integration with UID2 for any publishers who want to support
 | :--- | :--- | :--- | :--- |
 | Not supported | Not supported | Supported | Supported |
 
-The UID2 SDK for iOS is designed to generate and/or manage UID2 identity on behalf of iOS apps. It enables UID2 identity to be persisted across app lifecycles by securely storing the identity on a device via platform-native encryption tools.
+The SDK for iOS is designed to generate and/or manage UID2 identity on behalf of iOS apps. It enables UID2 identity to be persisted across app lifecycles by securely storing the identity on a device via platform-native encryption tools.
 
 By default, the SDK automatically refreshes UID2 identity based on expiration dates. However, you can disable this to allow implementing apps to manage the UID2 identity lifecycle manually.
 
@@ -46,7 +46,7 @@ You'll be granted permission to use specific functions offered by the SDK, and g
 
 <!-- As of 7 May 2024 -->
 
-This documentation is for the UID2 SDK for iOS version 1.2.0 and later.
+This documentation is for the SDK for iOS version 1.2.0 and later.
 
 For current and past release notes information, see [https://github.com/IABTechLab/uid2-ios-sdk/releases](https://github.com/IABTechLab/uid2-ios-sdk/releases).
 
@@ -103,7 +103,7 @@ pod 'UID2', '~> 1.2'
 
 ## Usage Guidelines
 
-The **UID2Manager** singleton is the primary developer API for the UID2 SDK for iOS. It is responsible for storing, refreshing, and retrieving the UID2 Identity including the UID2 token.
+The **UID2Manager** singleton is the primary developer API for the SDK for iOS. It is responsible for storing, refreshing, and retrieving the UID2 Identity including the UID2 token.
 
 For iOS, the `UID2Manager` is initialized automatically the first time it is accessed. You can configure it to support automatic or manual refresh capabilities.
 
@@ -118,7 +118,7 @@ The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity
 
 ## Code Samples
 
-The following code samples provide examples of performing specific activities relating to managing UID2 with the UID2 SDK for iOS.
+The following code samples provide examples of performing specific activities relating to managing UID2 with the SDK for iOS.
 
 Generate an initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk)):
 

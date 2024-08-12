@@ -26,8 +26,8 @@ Options are summarized in the following table.
 
 | Integration Solution  | Generate Token | Refresh Token |
 | :--- | :--- |  :--- |
-| [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) | ✅ | ✅ |
-| [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) | ✅ | ✅ |
+| [SDK for Java](../sdks/sdk-ref-java.md) | ✅ | ✅ |
+| [SDK for Python](../sdks/sdk-ref-python.md) | ✅ | ✅ |
 | [Direct integration (API endpoints with custom code)](../endpoints/post-token-generate.md) | ✅ | ✅ |
 
 Whatever integration option you choose to generate the <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (UID2 token and associated values), you'll need to implement one of the following:
@@ -36,8 +36,8 @@ Whatever integration option you choose to generate the <Link href="../ref-info/g
 
    For instructions, see one of the following:
    
-   - [UID2 SDK for Java, Usage for Publishers, Basic Usage](../sdks/uid2-sdk-ref-java.md#basic-usage)
-   - [UID2 SDK for Python, Usage for Publishers](../sdks/uid2-sdk-ref-python.md#usage-for-publishers)
+   - [SDK for Java, Usage for Publishers, Basic Usage](../sdks/sdk-ref-java.md#basic-usage)
+   - [SDK for Python, Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers)
 
    If you're using an SDK option, the `Identity` response that you need for the rest of this guide is the output of the applicable method, as follows:
 
