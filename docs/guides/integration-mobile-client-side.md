@@ -23,7 +23,7 @@ These instructions do not apply to publishers who want to use a Private Operator
 
 This page provides a high-level overview of integration steps and links to additional documentation.
 
-UID2 provides mobile SDKs for [Android](../sdks/uid2-sdk-ref-android.md) and [iOS](../sdks/uid2-sdk-ref-ios.md). Each SDK has the following features:
+UID2 provides mobile SDKs for [Android](../sdks/sdk-ref-android.md) and [iOS](../sdks/sdk-ref-ios.md). Each SDK has the following features:
 
 - Generates a UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (a UID2 token and associated values) and persists it in local file storage.
 - Automatically refreshes UID2 tokens.
@@ -63,7 +63,7 @@ Follow the applicable instructions, for Android or iOS:
 <TabItem value='android' label='Android'>
 
 1. Check out the main branch of the [UID2 SDK for Android source code repository on GitHub](https://github.com/IABTechLab/uid2-android-sdk/tree/main).
-1. In Android Studio (check the version required in the [Minimum Requirements](../sdks/uid2-sdk-ref-android.md#minimum-requirements) section in the UID2 SDK for Android Reference Guide), open the directory that you checked out.
+1. In Android Studio (check the version required in the [Minimum Requirements](../sdks/sdk-ref-android.md#minimum-requirements) section in the UID2 SDK for Android Reference Guide), open the directory that you checked out.
 1. Run the **dev-app** app.
 1. When you've started the app, make sure that the **Client Side** checkbox is checked.
 1. Enter an email or phone number, and then click the arrow to the right.
@@ -192,8 +192,8 @@ When account setup is complete, you'll receive a client keypair consisting of tw
 
 To add the mobile SDK to your app, follow the applicable documentation:
 
-- [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
-- [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
+- [UID2 SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
+- [UID2 SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
 
 At this point, you are ready to start generating UID2 tokens using the SDK.
 

@@ -23,7 +23,7 @@ import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
 
 このページでは、インテグレーション手順の概要と、追加のドキュメントへのリンクを提供します。
 
-UID2 は、[Android](../sdks/uid2-sdk-ref-android.md) および [iOS](../sdks/uid2-sdk-ref-ios.md) 向けのモバイル SDK を提供しています。各 SDK には以下の機能があります:
+UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref-ios.md) 向けのモバイル SDK を提供しています。各 SDK には以下の機能があります:
 
 - UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (UID2 Token と関連する値) を生成し、ローカルファイルストレージに保存します。
 - UID2 Token を自動的にリフレッシュします。
@@ -192,8 +192,8 @@ When account setup is complete, you'll receive a [Subscription ID and public key
 
 Mobile SDK をアプリに追加するには、適用可能な以下のドキュメントに従ってください:
 
-- [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
-- [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
+- [UID2 SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
+- [UID2 SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
 
 SDK をアプリに追加したら、SDK を使用して UID2 Token を生成する準備が整います。
 

@@ -45,8 +45,8 @@ UID2 とインテグレーションするには、次の 3 つの主要なアク
 | [Prebid.js server-side (7.53.0 or later)](integration-prebid-server-side.md) | &#8212; | &#9989; | &#9989; |
 | [UID2 SDK for JavaScript, client-side](integration-javascript-client-side.md) | &#9989; | &#9989; | &#8212; |
 | [UID2 SDK for JavaScript, server-side](integration-javascript-client-server.md) | &#9989; | &#9989; | &#8212; |
-| [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) | &#9989; | &#9989; | &#8212; |
-| [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) | &#9989; | &#9989; | &#8212; |
+| [UID2 SDK for Java](../sdks/sdk-ref-java.md) | &#9989; | &#9989; | &#8212; |
+| [UID2 SDK for Python](../sdks/sdk-ref-python.md) | &#9989; | &#9989; | &#8212; |
 | [Direct integration (API endpoints)](integration-publisher-server-side.md) | &#9989; | &#9989; | &#8212; |
 | [Google Ad Manager Secure Signals](google-ss-integration.md) | &#8212; | &#8212; | &#9989; |
 
@@ -105,8 +105,8 @@ Server-Side で UID2 Token を生成することには、次のような利点�
 | Option | Documentation |
 | :--- | :--- |
 | UID2 SDK for JavaScript, client-server implementation | [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) |
-| UID2 SDK for Java | - [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)<br/>- [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) |
-| UID2 SDK for Python | - [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)<br/>- [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md)  |
+| UID2 SDK for Java | - [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)<br/>- [UID2 SDK for Java](../sdks/sdk-ref-java.md) |
+| UID2 SDK for Python | - [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)<br/>- [UID2 SDK for Python](../sdks/sdk-ref-python.md)  |
 | Direct integration (API endpoints) | [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) |
 
 ## Refresh the UID2 Token
@@ -123,8 +123,8 @@ Server-Side で UID2 Token を生成することには、次のような利点�
 | Prebid.js server-side implementation (7.53.0 or later) | [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md) |
 | UID2 SDK for JavaScript, client-side implementation | [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) |
 | UID2 SDK for JavaScript, client-server implementation | [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) |
-| UID2 SDK for Java | - [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)<br/>- [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) |
-| UID2 SDK for Python | - [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)<br/>- [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md)  |
+| UID2 SDK for Java | - [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)<br/>- [UID2 SDK for Java](../sdks/sdk-ref-java.md) |
+| UID2 SDK for Python | - [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)<br/>- [UID2 SDK for Python](../sdks/sdk-ref-python.md)  |
 | Direct integration (API endpoints) | [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) |
 
 ## Pass the UID2 Token Into the Bidstream
@@ -167,8 +167,8 @@ The following table summarizes the advantages of each integration option.
 | Prebid.js 8.21.0 or later | Client | <ul><li>No server-side coding needed.</li><li>Fast and easy implementation.</li></ul> | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
 | UID2 JavaScript SDK + Prebid.js 7.53.0 or later | Client | <ul><li>No need to upgrade to the latest Prebid version.</li><li>Easier to manage latency with a server-side implementation.</li><li>The JavaScript SDK takes care of generating and refreshing the token, and Prebid takes care of sending the token to the bidstream.</li></ul> | <ul><li>[Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md)</li></ul> |
 | UID2 SDK for JavaScript | Server | <ul><li>The SDK takes care of generating and refreshing the token.</li><li>Coded in JavaScript.</li></ul> If you use JavaScript, and client-side implementation is not suitable for you, this is your best choice. | [UID2 SDK for JavaScript Reference Guide (2.x and earlier versions)](../sdks/sdk-ref-javascript-v2.md) |
-| UID2 SDK for Java | Server | <ul><li>The SDK takes care of generating and refreshing the token.</li><li>Coded in Java.</li></ul> If your server-side coding is Java, and client-side implementation is not suitable for you, this is your best choice. | [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md) |
-| UID2 SDK for Python] | Server | <ul><li>The SDK takes care of generating and refreshing the token.</li><li>Coded in Python.</li></ul> If your server-side coding is Python, and client-side implementation is not suitable for you, this is your best choice. | [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md) |
+| UID2 SDK for Java | Server | <ul><li>The SDK takes care of generating and refreshing the token.</li><li>Coded in Java.</li></ul> If your server-side coding is Java, and client-side implementation is not suitable for you, this is your best choice. | [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/sdk-ref-java.md) |
+| UID2 SDK for Python] | Server | <ul><li>The SDK takes care of generating and refreshing the token.</li><li>Coded in Python.</li></ul> If your server-side coding is Python, and client-side implementation is not suitable for you, this is your best choice. | [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/sdk-ref-python.md) |
 | Direct integration (API endpoints) | Server | You're free to implement the APIs in whatever way you choose. | <ul><li>[POST /token/generate](../endpoints/post-token-generate.md)</li><li>[POST /token/refresh](../endpoints/post-token-refresh.md)</li></ul> | 
 -->
 
@@ -223,7 +223,7 @@ The advantages of this implementation approach are as follows:
 - The SDK takes care of generating and refreshing the token.
 - Coded in Java. If your server-side coding is Java, and client-side implementation is not suitable for you, this is your best choice.
 
-For details, see [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-java.md).
+For details, see [UID2 SDK for Java (Server-Side) Reference Guide](../sdks/sdk-ref-java.md).
 
 ### UID2 SDK for Python
 
@@ -232,7 +232,7 @@ The advantages of this implementation approach are as follows:
 - The SDK takes care of generating and refreshing the token.
 - Coded in Python. If your server-side coding is Python, and client-side implementation is not suitable for you, this is your best choice.
 
-For details, see [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/uid2-sdk-ref-python.md).
+For details, see [UID2 SDK for Python (Server-Side) Reference Guide](../sdks/sdk-ref-python.md).
 
 ### Direct integration (API endpoints)
 
@@ -253,8 +253,8 @@ For details, see:
 | Prebid.js 8.21.0 or later<br/>[UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) | Prebid.js 8.21.0 or later | Prebid.js 8.21.0 or later | Prebid.js 8.21.0 or later |
 | UID2 JavaScript SDK + <br/>Prebid.js 7.53.0 or later | UID2 JS SDK<br/>[Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) | UID2 JS SDK or Prebid.js 7.53.0 or later | Prebid.js 7.53.0 or later<br/>[UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md) |
 | UID2 SDK for JavaScript<ul><li>[Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md)</li><li>[Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)</li></ul> | JavaScript SDK | JavaScript SDK |  Publisher's choice. For example, Prebid.js.<br/>[UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md) |
-| UID2 SDK for Java<br/>[Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) | [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) | [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md)| Publisher's choice.<br/>Can be integrated with Prebid.js. |
-| UID2 SDK for Python<br/> [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)| [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) | [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) | Publisher's choice.<br/>Can be integrated with Prebid.js. |
+| UID2 SDK for Java<br/>[Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) | [UID2 SDK for Java](../sdks/sdk-ref-java.md) | [UID2 SDK for Java](../sdks/sdk-ref-java.md)| Publisher's choice.<br/>Can be integrated with Prebid.js. |
+| UID2 SDK for Python<br/> [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)| [UID2 SDK for Python](../sdks/sdk-ref-python.md) | [UID2 SDK for Python](../sdks/sdk-ref-python.md) | Publisher's choice.<br/>Can be integrated with Prebid.js. |
 | GAM Secure Signals<br/> [xxx](integration-publisher-server-side.md)| [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) | [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) | [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) |
 | Direct integration<br/>(API endpoints)<br/>[Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) | [POST /token/generate](../endpoints/post-token-generate.md) | [POST /token/refresh](../endpoints/post-token-refresh.md) | Publisher's choice.<br/>Can be integrated with Prebid.js. |
  -->

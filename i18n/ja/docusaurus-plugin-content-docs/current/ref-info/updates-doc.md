@@ -118,7 +118,7 @@ UID2 Portal の API Keys ページでは、UID2 アカウントの API Key、関
 
 Java SDKは、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントの使用を希望する広告主およびデータプロバイダーをサポートするようになりました。
 
-詳細については、*UID2 SDK for Javaリファレンスガイド*: [Usage for Advertisers and Data Providers](../sdks/uid2-sdk-ref-java.md#usage-for-advertisersdata-providers) の更新されたドキュメントを参照してください。
+詳細については、*UID2 SDK for Javaリファレンスガイド*: [Usage for Advertisers and Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) の更新されたドキュメントを参照してください。
 
 ### New: Audience-Specific Documentation Sidebars
 
@@ -154,7 +154,7 @@ UID2 home page の "ドキュメント" リンクをクリックするだけで�
 
 UID2 SDK for Java のドキュメントに、SDK を実装するパブリッシャーに役立つ新しいセクションを追加しました。
 
-詳細は UID2 SDK for Java Reference Guide の [Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers) を参照してください。
+詳細は UID2 SDK for Java Reference Guide の [Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers) を参照してください。
 
 <!-- APIDOCS-1705 -->
 
@@ -373,10 +373,10 @@ UID2 アカウントを管理できる新しい UID2 Portal ユーザーイン�
 - 概要、使用例、実装手順、ベストプラクティスなど、UID2 Sharing に関連する情報を提供する一連の新しいページ。[UID2 Sharing: Overview](../sharing/sharing-overview.md) を参照してください。
 - UID2 Sharing をサポートするために4つの Server-side SDK を更新しました:
 
-  - [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers)
-  - [UID2 SDK for C++: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-cplusplus.md#usage-for-uid2-sharers)
-  - [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers)
-  - [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers)
+  - [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers)
+  - [UID2 SDK for C++: Usage for UID2 Sharers](../sdks/sdk-ref-cplusplus.md#usage-for-uid2-sharers)
+  - [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/sdk-ref-java.md#usage-for-uid2-sharers)
+  - [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/sdk-ref-python.md#usage-for-uid2-sharers)
 
 - UID2 Sharing をサポートするための Snowflake 機能の更新。[Snowflake Integration Guide: Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers) を参照してください。
 
@@ -386,7 +386,7 @@ UID2 アカウントを管理できる新しい UID2 Portal ユーザーイン�
 
 パブリッシャー向けの新しいガイドでは、Android アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にする SDK、UID2 SDK for Android に関する情報を提供しています。
 
-詳細は [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) を参照してください。
+詳細は [UID2 SDK for Android Reference Guide](../sdks/sdk-ref-android.md) を参照してください。
 
 ### New: iOS SDK Guide
 
@@ -394,7 +394,7 @@ UID2 アカウントを管理できる新しい UID2 Portal ユーザーイン�
 
 パブリッシャー向けの新しいガイドでは、iOS アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にする SDK、UID2 SDK for iOS に関する情報を提供しています。
 
-詳細は [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) を参照してください。
+詳細は [UID2 SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) を参照してください。
 
 <!-- ### New: Prebid Integration Guide
 

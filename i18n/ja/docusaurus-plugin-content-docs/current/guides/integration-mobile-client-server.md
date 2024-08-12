@@ -24,7 +24,7 @@ Client-Side のみの変更で UID2 とインテグレーションしたい場�
 
 このページでは、インテグレーション手順の概要と、追加のドキュメントへのリンクを提供します。
 
-UID2 は、[Android](../sdks/uid2-sdk-ref-android.md) および [iOS](../sdks/uid2-sdk-ref-ios.md) 向けのモバイル SDK を提供しています。各 SDK には、次の機能があります:
+UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref-ios.md) 向けのモバイル SDK を提供しています。各 SDK には、次の機能があります:
 
 - UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (UID2 Token と関連する値) を生成し、モバイルアプリに渡すためのメソッドを提供します。
 - UID2 Token を自動的にリフレッシュします。
@@ -61,7 +61,7 @@ UID2 は、[Android](../sdks/uid2-sdk-ref-android.md) および [iOS](../sdks/ui
 
 下記の図は、UID2 Client-Server モバイルインテグレーションを実装するためにパブリッシャーが実装する必要があるデータフローを示しています。
 
-この例では、Client-Side のモバイルアプリで [UID2 SDK for Android](../sdks/uid2-sdk-ref-android.md) を使用し、Server-Side で [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) を使用しています。
+この例では、Client-Side のモバイルアプリで [UID2 SDK for Android](../sdks/sdk-ref-android.md) を使用し、Server-Side で [UID2 SDK for Java](../sdks/sdk-ref-java.md) を使用しています。
 
 ![Mobile Client-Server Integration Example](images/integration-mobile-client-server.png)
 
@@ -90,7 +90,7 @@ Token Refresh を Server-Side で管理し、クライアント/モバイルサ�
 - [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出します。
 - UID2 Server-Side SDK のいずれかの Publisher Client クラスを使用します。これらのクラスは、リクエストを単一のメソッド呼び出しに簡素化します。
 
-  手順については、[UID2 SDK for Java, Publisher Server-Side Integration section](../sdks/uid2-sdk-ref-java.md#server-side-integration) または [UID2 SDK for Python, Publisher Server-Side Integration section](../sdks/uid2-sdk-ref-python.md#server-side-integration) を参照してください。
+  手順については、[UID2 SDK for Java, Publisher Server-Side Integration section](../sdks/sdk-ref-java.md#server-side-integration) または [UID2 SDK for Python, Publisher Server-Side Integration section](../sdks/sdk-ref-python.md#server-side-integration) を参照してください。
 
 その後、このガイドの残りの部分に従って、新しくリフレッシュされた `Identity` 値をモバイルアプリに渡します。
 
@@ -98,8 +98,8 @@ Token Refresh を Server-Side で管理し、クライアント/モバイルサ�
 
 インストール方法については、以下のいずれかを参照してください:
 
-- [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
-- [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
+- [UID2 SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
+- [UID2 SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
 
 この時点で、Server-Side で生成された UID2 Identity をモバイル SDK で使用する準備が整いました。
 

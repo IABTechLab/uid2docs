@@ -36,7 +36,7 @@ To run this plugin, install the following:
    - [Release history](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side/history)
 1. UID2 SDK for Android v0.5.0 or later:
    - [SDK](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
-   - [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
+   - [UID2 SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
 1. [UID2 IMA Plugin for Android v0.5.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-ima)
 1. If you are using R8 or Proguard, add the applicable option specified in [Notes for Using R8 or ProGuard](#notes-for-using-r8-or-proguard)
 

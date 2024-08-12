@@ -15,8 +15,8 @@ import Link from '@docusaurus/Link';
 
 パブリッシャーが UID2 と Server-Side でインテグレーションするには、以下のオプションが利用可能です:
 
-- UID2 SDK for Java (see [Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers) section).
-- UID2 SDK for Python (see [Usage for Publishers](../sdks/uid2-sdk-ref-python.md#usage-for-publishers) section).
+- UID2 SDK for Java (see [Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers) section).
+- UID2 SDK for Python (see [Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers) section).
 - Custom server code to generate and refresh the UID2 token by calling the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) and [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints.
 
 ワークフローを示すサンプルアプリケーションもあります。詳細は [Sample Application](#sample-application) を参照してください。

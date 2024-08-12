@@ -40,8 +40,8 @@ The following approaches are available for encrypting the DII directly into a UI
 | Prebid.js | Server-Side | [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) |
 | JavaScript SDK | Client-Side | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) |
 | JavaScript SDK | Server-Side | [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) |
-| Java SDK | Server-Side | [UID2 SDK for Java Reference Guide](../sdks/uid2-sdk-ref-java.md) |
-| Python SDK | Server-Side | [UID2 SDK for Python Reference Guide](../sdks/uid2-sdk-ref-python.md) |
+| Java SDK | Server-Side | [UID2 SDK for Java Reference Guide](../sdks/sdk-ref-java.md) |
+| Python SDK | Server-Side | [UID2 SDK for Python Reference Guide](../sdks/sdk-ref-python.md) |
 | UID2 API (token generate and refresh) | Server-Side | [UID2 Endpoints Summary: UID2 Tokens](../endpoints/summary-endpoints.md#uid2-tokens) | 
 
 These options support generating UID2 tokens from email addresses or phone numbers and also refreshing the tokens regularly. Other SDKs do not support token generate and token refresh at this time.

@@ -45,8 +45,8 @@ The following table shows supported operating systems, with links to applicable 
 
 | Operating System | Integration Guide | Link to SDK Guide |
 | :--- | :--- | :--- |
-| [Apple tvOS](https://developer.apple.com/tvos/) | [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) | [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) |
-| [Android TV](https://www.android.com/tv/) | [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) | [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) |
+| [Apple tvOS](https://developer.apple.com/tvos/) | [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) | [UID2 SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) |
+| [Android TV](https://www.android.com/tv/) | [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) | [UID2 SDK for Android Reference Guide](../sdks/sdk-ref-android.md) |
 
 ## Server-Side Integration for CTV Apps
 
@@ -63,8 +63,8 @@ To implement using this approach, follow the instructions in [Publisher Integrat
 
 If your server-side code is in Java or Python, you can use one of the UID2 SDKs to make the HTTP requests to UID2, instead of writing your own source code. For details, refer to one of the following SDK guides:
 
-- [UID2 SDK for Java Reference Guide: Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers)
-- [UID2 SDK for Python Reference Guide: Usage for Publishers](../sdks/uid2-sdk-ref-python.md#usage-for-publishers)
+- [UID2 SDK for Java Reference Guide: Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers)
+- [UID2 SDK for Python Reference Guide: Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers)
 
 ## Client-Server Integration for CTV Apps
 
@@ -79,5 +79,5 @@ The following table shows supported operating systems, with links to applicable 
 
 | Operating System | Integration Guide | Link to SDK Guide |
 | :--- | :--- | :--- |
-| [Apple tvOS](https://developer.apple.com/tvos/) | [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) |
-| [Android TV](https://www.android.com/tv/) | [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) |
+| [Apple tvOS](https://developer.apple.com/tvos/) | [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | [UID2 SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) |
+| [Android TV](https://www.android.com/tv/) | [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | [UID2 SDK for Android Reference Guide](../sdks/sdk-ref-android.md) |

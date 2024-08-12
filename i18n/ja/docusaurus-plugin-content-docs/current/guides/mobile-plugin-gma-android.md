@@ -36,7 +36,7 @@ UID2 Google Mobile Ads (GMA) Plugin for Android は、[Google Mobile Ads (GMA) S
    - [Release notes](https://developers.google.com/admob/android/rel-notes)
 1. UID2 SDK for Android v0.5.0 or later:
    - [SDK](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
-   - [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
+   - [UID2 SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
 1. [UID2 Android GMA Plugin v0.5.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-gma/)
 1. R8 または Proguard を使用している場合は、[Notes for Using R8 or ProGuard](#notes-for-using-r8-or-proguard) に指定された適用オプションを追加します。
 

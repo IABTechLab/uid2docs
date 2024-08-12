@@ -124,7 +124,7 @@ February 28, 2024
 
 The Java SDK now supports Advertisers and Data Providers wanting to use the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.
 
-For details, see the updated documentation in the *UID2 SDK for Java Reference Guide*: [Usage for Advertisers and Data Providers](../sdks/uid2-sdk-ref-java.md#usage-for-advertisersdata-providers).
+For details, see the updated documentation in the *UID2 SDK for Java Reference Guide*: [Usage for Advertisers and Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers).
 
 ### New: Audience-Specific Documentation Sidebars
 
@@ -160,7 +160,7 @@ January 22, 2024
 
 We've added new sections in the UID2 SDK for Java documentation to help publishers implementing the SDK.
 
-For details, see [Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers) in the UID2 SDK for Java Reference Guide.
+For details, see [Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers) in the UID2 SDK for Java Reference Guide.
 
 <!-- APIDOCS-1705 -->
 
@@ -377,10 +377,10 @@ We published the following new and updated documents to support use of the new U
 - A set of new pages providing information relating to UID2 sharing, including an overview, use cases, implementation instructions, best practices, and more. See [UID2 Sharing: Overview](../sharing/sharing-overview.md).
 - Updates to the four server-side SDKs to support UID2 sharing:
 
-  - [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers)
-  - [UID2 SDK for C++: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-cplusplus.md#usage-for-uid2-sharers)
-  - [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers)
-  - [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers)
+  - [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers)
+  - [UID2 SDK for C++: Usage for UID2 Sharers](../sdks/sdk-ref-cplusplus.md#usage-for-uid2-sharers)
+  - [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/sdk-ref-java.md#usage-for-uid2-sharers)
+  - [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/sdk-ref-python.md#usage-for-uid2-sharers)
 
 - Updates to the Snowflake feature to support UID2 sharing. See [Snowflake Integration Guide: Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers).
 
@@ -390,7 +390,7 @@ August 3, 2023
 
 A new guide for publishers that provides information about the UID2 SDK for Android, an SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers who need to support Android apps.
 
-For details, see [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md).
+For details, see [UID2 SDK for Android Reference Guide](../sdks/sdk-ref-android.md).
 
 ### New: iOS SDK Guide
 
@@ -398,4 +398,4 @@ August 3, 2023
 
 A new guide for publishers that provides information about the UID2 SDK for iOS, an SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers who need to support iOS apps.
 
-For details, see [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md).
+For details, see [UID2 SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md).
