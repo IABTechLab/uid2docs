@@ -63,8 +63,8 @@ Server-Side オプションは、UID2 Token を完全に Server-Side で管理�
 
 Server-Side コードが Java または Python である場合、UID2 SDK のいずれかを使用して、UID2 への HTTP リクエストを行うことができます。自分でソースコードを書く代わりに、次のいずれかの SDK ガイドを参照してください:
 
-- [UID2 SDK for Java Reference Guide: Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers)
-- [UID2 SDK for Python Reference Guide: Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers)
+- [SDK for Java Reference Guide: Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers)
+- [SDK for Python Reference Guide: Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers)
 
 ## Client-Server Integration for CTV Apps
 

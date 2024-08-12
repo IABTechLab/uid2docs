@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for JavaScript (2.x and earlier versions)
+title: SDK for JavaScript (2.x and earlier versions)
 description: Reference information about earlier versions of the JavaScript client-side SDK.
 hide_table_of_contents: false
 sidebar_position: 02
@@ -7,10 +7,10 @@ sidebar_position: 02
 
 import Link from '@docusaurus/Link';
 
-# UID2 SDK for JavaScript Reference Guide (2.x and earlier versions)
+# SDK for JavaScript Reference Guide (2.x and earlier versions)
 
 :::tip
-This documentation is for earlier versions of the UID2 SDK for JavaScript. If you're using an earlier version, we recommend upgrading. See [SDK for JavaScript Reference Guide](sdk-ref-javascript.md), which includes a migration guide.
+This documentation is for earlier versions of the SDK for JavaScript. If you're using an earlier version, we recommend upgrading. See [SDK for JavaScript Reference Guide](sdk-ref-javascript.md), which includes a migration guide.
 :::
 
 Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). 
@@ -36,7 +36,7 @@ For details, see [API Permissions](../getting-started/gs-permissions.md).
 
 ## SDK Version
 
-This documentation is for version 2 of the UID2 SDK for JavaScript.
+This documentation is for version 2 of the SDK for JavaScript.
 
 ## GitHub Repository
 

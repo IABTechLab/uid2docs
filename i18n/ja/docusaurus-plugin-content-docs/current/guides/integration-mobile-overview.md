@@ -12,10 +12,10 @@ import Link from '@docusaurus/Link';
 
 # UID2 Mobile Integration Overview for Android and iOS
 
-このガイドは、UID2 SDK for Android または UID2 SDK for iOS を使用して UID2 と統合したいモバイルアプリのパブリッシャー向けのインテグレーションオプションの概要です。
+このガイドは、SDK for Android または SDK for iOS を使用して UID2 と統合したいモバイルアプリのパブリッシャー向けのインテグレーションオプションの概要です。
 
 :::note
-このガイドの、**UID2 mobile SDKs** は、UID2 SDK for Android と UID2 SDK for iOS の両方を含むグループ用語です。
+このガイドの、**UID2 mobile SDKs** は、SDK for Android と SDK for iOS の両方を含むグループ用語です。
 :::
 
 ## Introduction 
@@ -45,7 +45,7 @@ UID2 mobile SDK を使用してモバイルアプリを UID2 とインテグレ�
 
 1. Client-Server インテグレーションのみ: Server-Side でのトークン生成をインテグレーションします。
 
-1. UID2 SDK for Android または iOS をモバイルアプリにインテグレーションします。
+1. SDK for Android または iOS をモバイルアプリにインテグレーションします。
 
 1. SDK を構成します。
 

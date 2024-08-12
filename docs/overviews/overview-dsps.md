@@ -81,10 +81,10 @@ The following documentation resources are available for DSPs to implement UID2.
 
 | Type| Documentation | Content Description |
 | :--- | :--- | :--- |
-|UID2 SDK for Java | [SDK for Java Reference Guide](../sdks/sdk-ref-java.md) | An SDK for anyone using Java server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
-|UID2 SDK for Python | [SDK for Python Reference Guide](../sdks/sdk-ref-python.md) | An SDK for anyone using Python server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
-|UID2 SDK for C# / .NET | [SDK for C# / .NET Reference Guide](../sdks/sdk-ref-csharp-dotnet.md) | An SDK for anyone using .NET server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
-|UID2 SDK for C++ | [SDK for C++ Reference Guide](../sdks/sdk-ref-cplusplus.md) | An SDK for anyone using C++ server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
+|SDK for Java | [SDK for Java Reference Guide](../sdks/sdk-ref-java.md) | An SDK for anyone using Java server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
+|SDK for Python | [SDK for Python Reference Guide](../sdks/sdk-ref-python.md) | An SDK for anyone using Python server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
+|SDK for C# / .NET | [SDK for C# / .NET Reference Guide](../sdks/sdk-ref-csharp-dotnet.md) | An SDK for anyone using .NET server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
+|SDK for C++ | [SDK for C++ Reference Guide](../sdks/sdk-ref-cplusplus.md) | An SDK for anyone using C++ server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
 | Integration Guide | [DSP Integration Guide](../guides/dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
 
 <!-- ## Integration Requirements

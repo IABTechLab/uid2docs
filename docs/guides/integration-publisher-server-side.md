@@ -15,8 +15,8 @@ This guide is for publishers who want to integrate with UID2 to generate <Link h
 
 The following options are available for publishers to integrate with UID2 on the server side:
 
-- UID2 SDK for Java (see [Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers) section).
-- UID2 SDK for Python (see [Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers) section).
+- SDK for Java (see [Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers) section).
+- SDK for Python (see [Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers) section).
 - Custom server code to generate and refresh the UID2 token by calling the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) and [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints.
 
 There is also an example application that demonstrates the workflow. See [Sample Application](#sample-application).
@@ -24,7 +24,7 @@ There is also an example application that demonstrates the workflow. See [Sample
 For a complete summary of publisher integration options, see [Publisher Integrations](summary-guides.md#publisher-integrations).
 
 :::tip
-To facilitate the process of establishing client identity using UID2 and retrieving UID2 tokens, consider using the UID2 SDK for JavaScript. For details, see [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md).
+To facilitate the process of establishing client identity using UID2 and retrieving UID2 tokens, consider using the SDK for JavaScript. For details, see [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md).
 :::
 
 ## Introduction

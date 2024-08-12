@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for JavaScript
+title: SDK for JavaScript
 description: JavaScript Client-Side SDK に関するリファレンス情報。
 hide_table_of_contents: false
 sidebar_position: 02
@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 
-# UID2 SDK for JavaScript Reference Guide
+# SDK for JavaScript Reference Guide
 
 export const New = () => (
   <span className='pill'>NEW IN V3</span>
@@ -21,7 +21,7 @@ export const New = () => (
 Prebid.js を UID2 ID モジュールと一緒に使用しているや、UID2 をサポートしている他の製品と一緒に使用している場合、おそらく SDK を使用する必要はないでしょう。Prebid.js モジュールがすべてを管理します。詳細については、[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください。
 :::
 
-このページでは、UID2 SDK for JavaScript version 3 について説明します。以前のバージョンを使用してインテグレーションを管理している場合は、以下のいずれかを行ってください:
+このページでは、SDK for JavaScript version 3 について説明します。以前のバージョンを使用してインテグレーションを管理している場合は、以下のいずれかを行ってください:
 - [migration guide](#migration-guide) を使用して、インテグレーションをアップグレードします。(推奨) 
 - [earlier versions of the SDK](./sdk-ref-javascript-v2.md) のドキュメントを参照します。
 
@@ -55,7 +55,7 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 ## SDK Version
 
-このドキュメントは UID2 SDK for JavaScript version 3 用です。
+このドキュメントは SDK for JavaScript version 3 用です。
 
 ## GitHub Repository
 
@@ -251,7 +251,7 @@ SDK がローカルストレージまたはクッキーから以前に保存さ�
 
 ## API Reference
 
-UID2 SDK for JavaScript とのすべてのインストラクションは、グローバルな `__uid2` オブジェクトを介して行われます。このオブジェクトは `UID2` クラスのインスタンスであり、以下の JavaScript 関数はすべて `UID2` クラスのメンバーです:
+SDK for JavaScript とのすべてのインストラクションは、グローバルな `__uid2` オブジェクトを介して行われます。このオブジェクトは `UID2` クラスのインスタンスであり、以下の JavaScript 関数はすべて `UID2` クラスのメンバーです:
 
 - [constructor()](#constructor)
 - [init()](#initopts-object-void)
@@ -508,7 +508,7 @@ UID2 Cookie の内容は、[POST&nbsp;/token/generate](../endpoints/post-token-g
 
 ## Migration Guide
 
-このセクションには、以前のバージョンの UID2 SDK for JavaScript から現在のバージョンである v3 にアップグレードするために必要な情報がすべて含まれています:
+このセクションには、以前のバージョンの SDK for JavaScript から現在のバージョンである v3 にアップグレードするために必要な情報がすべて含まれています:
 
 - [Benefits of Migrating](#benefits-of-migrating)
 - [Required Changes](#required-changes)

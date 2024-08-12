@@ -30,7 +30,7 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 - UID2 Token を自動的にリフレッシュします。
 
 :::note
-このガイドの、**UID2 mobile SDKs** は、UID2 SDK for Android と UID2 SDK for iOS の両方を含むグループ用語です。
+このガイドの、**UID2 mobile SDKs** は、SDK for Android と SDK for iOS の両方を含むグループ用語です。
 :::
 
 以下の手順を完了する必要があります:
@@ -46,8 +46,8 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 
 このガイドは、次のいずれかの UID2 mobile SDK のバージョン 1.2.0 以上を使用する方法について説明します:
 
-- UID2 SDK for Android
-- UID2 SDK for iOS
+- SDK for Android
+- SDK for iOS
 
 正しい SDK/バージョンをモバイルアプリにインストールする手順については、[Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app) を参照してください。
 
@@ -61,7 +61,7 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 
 下記の図は、UID2 Client-Server モバイルインテグレーションを実装するためにパブリッシャーが実装する必要があるデータフローを示しています。
 
-この例では、Client-Side のモバイルアプリで [UID2 SDK for Android](../sdks/sdk-ref-android.md) を使用し、Server-Side で [UID2 SDK for Java](../sdks/sdk-ref-java.md) を使用しています。
+この例では、Client-Side のモバイルアプリで [SDK for Android](../sdks/sdk-ref-android.md) を使用し、Server-Side で [SDK for Java](../sdks/sdk-ref-java.md) を使用しています。
 
 ![Mobile Client-Server Integration Example](images/integration-mobile-client-server.png)
 
@@ -90,7 +90,7 @@ Token Refresh を Server-Side で管理し、クライアント/モバイルサ�
 - [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出します。
 - UID2 Server-Side SDK のいずれかの Publisher Client クラスを使用します。これらのクラスは、リクエストを単一のメソッド呼び出しに簡素化します。
 
-  手順については、[UID2 SDK for Java, Publisher Server-Side Integration section](../sdks/sdk-ref-java.md#server-side-integration) または [UID2 SDK for Python, Publisher Server-Side Integration section](../sdks/sdk-ref-python.md#server-side-integration) を参照してください。
+  手順については、[SDK for Java, Publisher Server-Side Integration section](../sdks/sdk-ref-java.md#server-side-integration) または [SDK for Python, Publisher Server-Side Integration section](../sdks/sdk-ref-python.md#server-side-integration) を参照してください。
 
 その後、このガイドの残りの部分に従って、新しくリフレッシュされた `Identity` 値をモバイルアプリに渡します。
 
@@ -302,7 +302,7 @@ UID2Manager.shared.automaticRefreshEnabled = false
 ## Optional: UID2 Prebid Mobile SDK Integration
 
 :::important
-UIS2 Prebid Mobile SDK インテグレーションは、Android のみで、UID2 SDK for Android のバージョン 1.4.0 が必要です。
+UIS2 Prebid Mobile SDK インテグレーションは、Android のみで、SDK for Android のバージョン 1.4.0 が必要です。
 :::
 
 <PrebidMobileSDK />

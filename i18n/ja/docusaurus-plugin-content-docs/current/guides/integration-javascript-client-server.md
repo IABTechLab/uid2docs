@@ -2,7 +2,7 @@
 title: Client-Server Integration Guide for JavaScript
 sidebar_label: Server-Side Integration for JavaScript
 pagination_label: Client-Server Integration Guide for JavaScript
-description: UID2 SDK for JavaScript を使用し、Server-Side でトークンを生成してパブリッシャーの Web ページに渡す必要がある標準的な Web インテグレーションシナリオをカバーするパブリッシャー向けの情報。
+description: SDK for JavaScript を使用し、Server-Side でトークンを生成してパブリッシャーの Web ページに渡す必要がある標準的な Web インテグレーションシナリオをカバーするパブリッシャー向けの情報。
 hide_table_of_contents: false
 sidebar_position: 02
 ---
@@ -36,10 +36,10 @@ SDK の技術的な詳細については、[SDK for JavaScript Reference Guide](
 UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスを容易にするために、このガイドで提供する Web インテグレーション手順は、JavaScript 用の UID2 SDK に依存しています。このガイドに記載されているインテグレーションステップと SDK の使用方法(現在はメールアドレスのみ) を示す [example application](https://example-jssdk-integ.uidapi.com/) を以下に示します。アプリケーションのドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) を参照してください。
 
 :::tip
-ファーストパーティ Cookie とローカルストレージの実装の詳細は 将来変更される可能性があります。潜在的な問題を回避するため、ID 管理には [UID2 SDK for JavaScript API Reference](../sdks/sdk-ref-javascript.md#api-reference) に記載されている機能を使用してください。
+ファーストパーティ Cookie とローカルストレージの実装の詳細は 将来変更される可能性があります。潜在的な問題を回避するため、ID 管理には [SDK for JavaScript API Reference](../sdks/sdk-ref-javascript.md#api-reference) に記載されている機能を使用してください。
 :::
 
-UID2 SDK for JavaScript を使用しないパブリッシャーのインテグレーションシナリオについては、[Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) を参照してください。
+SDK for JavaScript を使用しないパブリッシャーのインテグレーションシナリオについては、[Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) を参照してください。
 
 :::note
 Google Ad Managerを使用していて、セキュアシグナル機能を使用したい場合は、まずこのガイドの手順に従った後、[Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) の追加手順に従ってください。
@@ -66,8 +66,8 @@ Step 1-c でパブリッシャーがユーザーのメールアドレスまた�
 | :--- | :--- | :--- |
 | 1-d | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを使用して、ユーザーから提供されたメールアドレスまたは電話番号を使用して UID2 Token を生成します。正規化されていることを確認してください。 |
 | 1-e | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) | ユーザーのメールアドレス、電話番号、またはそれぞれのハッシュから生成された UID2 Token を返します。 |
-| 1-f | UID2 SDK for JavaScript | Step 1-e で返された UID2 Token を、SDK の [init()関数](../sdks/sdk-ref-javascript.md#initopts-object-void) の `identity` プロパティで SDK に送信し、以下に示すように [コールバック関数](../sdks/sdk-ref-javascript.md#callback-function) を指定します。このメカニズムにより、ユーザーがログアウトするまで、UID2 Token がターゲティング広告に利用できるようになります。|
-| 1-g | UID2 SDK for JavaScript | SDK から ID 更新を受け取り、ターゲティング広告を開始するために使用するコールバック関数を SDK に提供します。 |
+| 1-f | SDK for JavaScript | Step 1-e で返された UID2 Token を、SDK の [init()関数](../sdks/sdk-ref-javascript.md#initopts-object-void) の `identity` プロパティで SDK に送信し、以下に示すように [コールバック関数](../sdks/sdk-ref-javascript.md#callback-function) を指定します。このメカニズムにより、ユーザーがログアウトするまで、UID2 Token がターゲティング広告に利用できるようになります。|
+| 1-g | SDK for JavaScript | SDK から ID 更新を受け取り、ターゲティング広告を開始するために使用するコールバック関数を SDK に提供します。 |
 
 #### Generating a UID2 Token on the Server
 
@@ -182,7 +182,7 @@ SDKは、指定された [callback function](../sdks/sdk-ref-javascript.md#callb
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
-| 2-a | UID2 SDK for JavaScript | 以下に示すように、[getAdvertisingToken() 関数](../sdks/sdk-ref-javascript.md#getadvertisingtoken-string) を使用して、現在のユーザーの Advertising Token を取得します。|
+| 2-a | SDK for JavaScript | 以下に示すように、[getAdvertisingToken() 関数](../sdks/sdk-ref-javascript.md#getadvertisingtoken-string) を使用して、現在のユーザーの Advertising Token を取得します。|
 
 :::note
 UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream) を参照してください。
@@ -195,7 +195,7 @@ UID2 Token が SSP から DSP に送信されるとき、ビッドストリー�
 ```
 
 :::info
-返された Advertising Token をどのように SSP に渡すかを検討する必要があります。`Prebid.js`([UID2 Integration Overview for Prebid.js](integration-prebid.md) を参照) や Google Ad Manager Secure Signals([Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) を参照) を使用するなど、Client-Side で UID2 を実装する他のいくつかのアプローチでは、実装に、返された Advertising Token の受け渡しを管理する関数が含まれています。UID2 SDK for JavaScriptを使用している場合は、これを自分で管理する必要があります。
+返された Advertising Token をどのように SSP に渡すかを検討する必要があります。`Prebid.js`([UID2 Integration Overview for Prebid.js](integration-prebid.md) を参照) や Google Ad Manager Secure Signals([Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) を参照) を使用するなど、Client-Side で UID2 を実装する他のいくつかのアプローチでは、実装に、返された Advertising Token の受け渡しを管理する関数が含まれています。SDK for JavaScriptを使用している場合は、これを自分で管理する必要があります。
 :::
 
 :::tip
@@ -208,8 +208,8 @@ UID2 Token が SSP から DSP に送信されるとき、ビッドストリー�
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
-| 3-a | [UID2 SDK for JavaScript](../sdks/sdk-ref-javascript.md) | SDK はバックグラウンドで自動的に UID2 Token をリフレッシュします。手動で操作する必要はありません。 |
-| 3-b | [UID2 SDK for JavaScript](../sdks/sdk-ref-javascript.md) | ユーザーがオプトアウトしていない場合、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントは、自動的に新しい ID トークンを返します。 |
+| 3-a | [SDK for JavaScript](../sdks/sdk-ref-javascript.md) | SDK はバックグラウンドで自動的に UID2 Token をリフレッシュします。手動で操作する必要はありません。 |
+| 3-b | [SDK for JavaScript](../sdks/sdk-ref-javascript.md) | ユーザーがオプトアウトしていない場合、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントは、自動的に新しい ID トークンを返します。 |
 
 
 ### Clear Identity: User Logout
@@ -219,7 +219,7 @@ UID2 Token が SSP から DSP に送信されるとき、ビッドストリー�
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
 | 4-a | N/A | ユーザーはパブリッシャーのアセットからログアウトします。 |
-| 4-b | [UID2 SDK for JavaScript](../sdks/sdk-ref-javascript.md) | SDKは、以下に示すように、[disconnect() function](../sdks/sdk-ref-javascript.md#disconnect-void) を使用して、ファーストパーティ Cookie から UID2 ID をクリアし、クライアントのライフサイクルを切断します。|
+| 4-b | [SDK for JavaScript](../sdks/sdk-ref-javascript.md) | SDKは、以下に示すように、[disconnect() function](../sdks/sdk-ref-javascript.md#disconnect-void) を使用して、ファーストパーティ Cookie から UID2 ID をクリアし、クライアントのライフサイクルを切断します。|
 
 
 ```html

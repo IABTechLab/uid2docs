@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for Python
+title: SDK for Python
 description: Python Server-Side SDK のリファレンス情報。
 hide_table_of_contents: false
 sidebar_position: 06
@@ -7,7 +7,7 @@ sidebar_position: 06
 
 import Link from '@docusaurus/Link';
 
-# UID2 SDK for Python Reference Guide
+# SDK for Python Reference Guide
 
 UID2 Server-Side SDK を使用することで、以下が容易になります:
 
@@ -40,7 +40,7 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 この SDK は以下のオープンソースの GitHub リポジトリにあります:
 
-- [UID2 SDK for Python](https://github.com/IABTechLab/uid2-client-python/blob/master/README.md)
+- [SDK for Python](https://github.com/IABTechLab/uid2-client-python/blob/master/README.md)
 
 パッケージは以下で公開されています:
 
@@ -239,7 +239,7 @@ Server-Side インテグレーションを使用している場合 (詳細は [P
 
 ## Usage for DSPs
 
-以下の手順は、DSP として UID2 SDK for Python を使用して <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> トークンをデコードする方法の例です。
+以下の手順は、DSP として SDK for Python を使用して <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> トークンをデコードする方法の例です。
 
 1. `BidstreamClient` を作成します:
 
@@ -279,7 +279,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Partic
 このプロセスで生成される UID2 Token は共有専用で、ビッドストリームでは使用できません。ビッドストリーム用のトークンを生成するには、[Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 :::
 
-以下の手順は、UID2 SDK for Python を使用して、送信者または受信者として Sharing を実装する方法の例です。
+以下の手順は、SDK for Python を使用して、送信者または受信者として Sharing を実装する方法の例です。
 
 1. `SharingClient` を生成します:
 

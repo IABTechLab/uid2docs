@@ -2,7 +2,7 @@
 title: Client-Side Integration Guide for JavaScript
 sidebar_label: Client-Side Integration for JavaScript
 pagination_label: Client-Side Integration Guide for JavaScript
-description: Client-Side インテグレーションで UID2 SDK for JavaScript を使用する際の情報。
+description: Client-Side インテグレーションで SDK for JavaScript を使用する際の情報。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -28,7 +28,7 @@ import Link from '@docusaurus/Link';
 
 このガイドは、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を使いたいパブリッシャーや、Server-Side でトークンを生成したいパブリッシャーには適用されません。これらのパブリッシャーは、[Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) に従う必要があります。
 
-UID2 は、UID2 SDK for JavaScript を提供しています (詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください)。この SDK には以下の機能があります:
+UID2 は、SDK for JavaScript を提供しています (詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください)。この SDK には以下の機能があります:
 
 - UID2 Token の生成
 - UID2 Token の自動リフレッシュ
@@ -41,7 +41,7 @@ UID2 は、UID2 SDK for JavaScript を提供しています (詳細は [SDK for 
 3. [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript)
 4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
 
-## UID2 SDK for JavaScript Version
+## SDK for JavaScript Version
 
 Client-Side でのトークン生成のサポートは、SDK のバージョン 3.2 以上で利用可能です。
 
@@ -66,7 +66,7 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 
 ## Complete UID2 Account Setup
 
-アカウント設定ページに記載されている手順に従って、UID2 アカウントの設定を完了してください。アカウント設定プロセスの一環として、この UID2 SDK for JavaScript で使用するサイトの**ドメイン名**のリストを提供する必要があります。
+アカウント設定ページに記載されている手順に従って、UID2 アカウントの設定を完了してください。アカウント設定プロセスの一環として、この SDK for JavaScript で使用するサイトの**ドメイン名**のリストを提供する必要があります。
 
 アカウントのセットアップが完了すると、Publicc Key(公開鍵) と Subesciption ID(サブスクリプション ID) が発行されます。これらの値はアカウント固有のもので、UID2 モジュールの設定に使用します。
 
@@ -80,7 +80,7 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 
 より詳細なコードスニペットについては、[Example Integration Code and When to Pass DII to the UID2 SDK](#example-integration-code-and-when-to-pass-dii-to-the-uid2-sdk) を参照してください。
 
-`UID2_JS_SDK_URL` の値については、[UID2 SDK for JavaScript Version](#uid2-sdk-for-javascript-version) を参照してください。
+`UID2_JS_SDK_URL` の値については、[SDK for JavaScript Version](#uid2-sdk-for-javascript-version) を参照してください。
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
@@ -281,7 +281,7 @@ await __uid2.setIdentityFromPhoneHash(
 既存のトークンをチェックし、使用またはリフレッシュすることで、このコストを回避できる可能性があります。これを行うには
 [__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) を呼び出し、ブール値を受け取ります。これが `true` の場合、UID2 SDK は既存のリソースで新しい Advertising Token を作成できず、DII はまったく新しい UID2 Token を生成する必要があることを意味します。
 
-以下のコードスニペットは、UID2 SDK for JavaScript とインテグレーションして、上記の 2 つのシナリオを実現する方法を示しています。&#8212;トークンがない状態から開始し、既存の UID2 Token が見つかった場合はそれを再利用/リフレッシュします。
+以下のコードスニペットは、SDK for JavaScript とインテグレーションして、上記の 2 つのシナリオを実現する方法を示しています。&#8212;トークンがない状態から開始し、既存の UID2 Token が見つかった場合はそれを再利用/リフレッシュします。
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>

@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for Java
+title: SDK for Java
 description: Java Server-Side SDK のリファレンス情報。
 hide_table_of_contents: false
 sidebar_position: 04
@@ -7,9 +7,9 @@ sidebar_position: 04
 
 import Link from '@docusaurus/Link';
 
-# UID2 SDK for Java Reference Guide
+# SDK for Java Reference Guide
 
-UID2 SDK for Java を使用すると、以下が容易になります:
+SDK for Java を使用すると、以下が容易になります:
 
 - UID2 Advertising Token の生成
 - UID2 Advertising Token の更新
@@ -41,7 +41,7 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 この SDK は以下のオープンソースの GitHub リポジトリにあります:
 
-- [UID2 SDK for Java](https://github.com/IABTechLab/uid2-client-java/blob/master/README.md)
+- [SDK for Java](https://github.com/IABTechLab/uid2-client-java/blob/master/README.md)
 
 バイナリは Maven リポジトリで公開されています:
 
@@ -126,7 +126,7 @@ SDK を使用する際に、復号鍵を保存したり管理したりする必�
 
 ## Usage for Publishers
 
-パブリッシャーとして、UID2 SDK for Java を使用するには 2 つの方法があります: 
+パブリッシャーとして、SDK for Java を使用するには 2 つの方法があります: 
 1. [**Basic Usage**](#basic-usage) は、この SDK の HTTP 実装 (synchronous [OkHttp](https://square.github.io/okhttp/)) を使いたいパブリッシャー向けです。
 2. [**Advanced Usage**](#advanced-usage) は、独自の HTTP ライブラリを使用したいパブリッシャー向けです。
 
@@ -332,7 +332,7 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
 
 ## Usage for DSPs
 
-以下の手順は、UID2 SDK for Java を使用して DSP が<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>のトークンを復号化する方法の例です。
+以下の手順は、SDK for Java を使用して DSP が<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>のトークンを復号化する方法の例です。
 
 1. `BidstreamClient` を生成します:
 
@@ -376,7 +376,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Partic
 このプロセスで生成される UID2 Token は共有専用で、ビッドストリームでは使用できません。ビッドストリームで使用するには、別のワークフローがあります: [Tokenized Sharing in the Bid Stream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 :::
 
-以下の手順は、UID2 SDK for Java を使用して、送信者または受信者として共有を実装する方法の例です。
+以下の手順は、SDK for Java を使用して、送信者または受信者として共有を実装する方法の例です。
 
 1. `SharingClient`　を生成します:
 ```java

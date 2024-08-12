@@ -34,7 +34,7 @@ UID2 Interactive Media Ads (IMA) Plugin for Android は、[Google IMA SDK for An
 1. Google IMA SDK v3.30.3 or later:
    - [SDK](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side)
    - [Release history](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side/history)
-1. UID2 SDK for Android v0.5.0 or later:
+1. SDK for Android v0.5.0 or later:
    - [SDK](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
    - [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
 1. [UID2 IMA Plugin for Android v0.5.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-ima)
@@ -42,9 +42,9 @@ UID2 Interactive Media Ads (IMA) Plugin for Android は、[Google IMA SDK for An
 
 ## Installation
 
-前提条件: Google Interactive Media Ads SDKとUID2 SDK for Android をインストールします。
+前提条件: Google Interactive Media Ads SDKとSDK for Android をインストールします。
 
-UID2 SDK for Android と Google IMA SDK がインストールされている既存のアプリに、UID2 Android IMA Plugin をインストールします。インストールオプションは2つあります:
+SDK for Android と Google IMA SDK がインストールされている既存のアプリに、UID2 Android IMA Plugin をインストールします。インストールオプションは2つあります:
 
 - [Gradle](#gradle)
 - [Maven](#maven)

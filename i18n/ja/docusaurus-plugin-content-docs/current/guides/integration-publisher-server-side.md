@@ -15,8 +15,8 @@ import Link from '@docusaurus/Link';
 
 パブリッシャーが UID2 と Server-Side でインテグレーションするには、以下のオプションが利用可能です:
 
-- UID2 SDK for Java (see [Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers) section).
-- UID2 SDK for Python (see [Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers) section).
+- SDK for Java (see [Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers) section).
+- SDK for Python (see [Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers) section).
 - Custom server code to generate and refresh the UID2 token by calling the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) and [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints.
 
 ワークフローを示すサンプルアプリケーションもあります。詳細は [Sample Application](#sample-application) を参照してください。
@@ -24,7 +24,7 @@ import Link from '@docusaurus/Link';
 パブリッシャーインテグレーションオプションの完全な概要については、[Publisher Integrations](summary-guides.md#publisher-integrations) を参照してください。
 
 :::tip
-UID2 と UID2 Token を使用してクライアントのアイデンティティを確立し、UID2 Token を取得するプロセスを容易にするために、UID2 SDK for JavaScript を使用することを検討してください。詳細については、[Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) を参照してください。
+UID2 と UID2 Token を使用してクライアントのアイデンティティを確立し、UID2 Token を取得するプロセスを容易にするために、SDK for JavaScript を使用することを検討してください。詳細については、[Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) を参照してください。
 :::
 
 ## Introduction
