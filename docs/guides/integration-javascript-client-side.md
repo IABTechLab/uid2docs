@@ -80,7 +80,7 @@ The following code snippet provides an overview of the code you will need to add
 
 For a more detailed code snippet, see [Example Integration Code and When to Pass DII to the UID2 SDK](#example-integration-code-and-when-to-pass-dii-to-the-uid2-sdk).
 
-For the `UID2_JS_SDK_URL` value, see [SDK for JavaScript Version](#uid2-sdk-for-javascript-version).
+For the `UID2_JS_SDK_URL` value, see [SDK for JavaScript Version](#sdk-for-javascript-version).
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
