@@ -44,24 +44,24 @@ You can upgrade calls to the token generation and refresh endpoints independentl
  - The v2 [POST /token/refresh](https://unifiedid.com/docs/endpoints/post-token-refresh) endpoint encrypts responses only for refresh tokens returned by the v2 [POST /token/generate](https://unifiedid.com/docs/endpoints/post-token-generate) or v2 [POST /token/refresh](https://unifiedid.com/docs/endpoints/post-token-refresh) endpoints, with the assumption that the caller has the refresh response key returned by these endpoints.
  - You can pass refresh tokens returned by the v2 [POST /token/generate](https://unifiedid.com/docs/endpoints/post-token-generate) or v2 [POST /token/refresh](https://unifiedid.com/docs/endpoints/post-token-refresh) endpoint to the v1 `GET /token/refresh` endpoint, which never encrypts responses.
 
-The UID2 SDK for JavaScript v2 (see [UID2 SDK for JavaScript Reference Guide](https://unifiedid.com/docs/sdks/client-side-identity)) is a drop-in replacement for the UID2 SDK for JavaScript SDK v1. Here's what you need to know:
-  - The first-party cookie used for storing the user's identity is fully interoperable between the two versions of the SDK. This means that the UID2 SDK for JavaScript v2 can read v1 cookies and vice versa.
-  - The [v2 SDK init() function](https://unifiedid.com/docs/sdks/client-side-identity#initopts-object-void) accepts the identity object returned by the v1 `GET /token/generate` endpoint.
+The SDK for JavaScript v2 (see [SDK for JavaScript Reference Guide](https://unifiedid.com/docs/sdks/sdk-ref-javascript)) is a drop-in replacement for the SDK for JavaScript SDK v1. Here's what you need to know:
+  - The first-party cookie used for storing the user's identity is fully interoperable between the two versions of the SDK. This means that the SDK for JavaScript v2 can read v1 cookies and vice versa.
+  - The [v2 SDK init() function](https://unifiedid.com/docs/sdks/sdk-ref-javascript#initopts-object-void) accepts the identity object returned by the v1 `GET /token/generate` endpoint.
   - The v1 SDK `init()` function accepts the identity object returned by the v2 [POST /token/generate](https://unifiedid.com/docs/endpoints/post-token-generate) endpoint.
 
 ### Upgrade Steps for Publishers
 
 To upgrade to the UID API v2, complete the following steps:
 
-1. [Upgrade the UID2 SDK for JavaScript](#upgrade-the-uid2-sdk-for-javascript).
+1. [Upgrade the SDK for JavaScript](#upgrade-the-uid2-sdk-for-javascript).
 1. [Upgrade calls to the token generate endpoint](#upgrade-token-generation-calls).
-1. (Required only for integrations that do not use the [UID2 SDK for JavaScript)](https://unifiedid.com/docs/sdks/client-side-identity): [Upgrade calls to the token refresh endpoint](#upgrade-token-refresh-calls).
+1. (Required only for integrations that do not use the [SDK for JavaScript)](https://unifiedid.com/docs/sdks/sdk-ref-javascript): [Upgrade calls to the token refresh endpoint](#upgrade-token-refresh-calls).
 
-#### Upgrade the UID2 SDK for JavaScript
+#### Upgrade the SDK for JavaScript
 
-To upgrade the UID2 SDK for JavaScript, you need to update the script that loads the SDK. Here's what you need to keep in mind during this step:
+To upgrade the SDK for JavaScript, you need to update the script that loads the SDK. Here's what you need to keep in mind during this step:
 
-- If you are using `version 0` of the UID2 SDK for JavaScript, be sure to upgrade to `version 1` of the  SDK first.
+- If you are using `version 0` of the SDK for JavaScript, be sure to upgrade to `version 1` of the  SDK first.
 - If you load the SDK from another location or hold a private copy of the SDK, be sure to update the locations accordingly.
 
 On your pages, update the script to load version 2 of the SDK instead of version 1.
@@ -86,14 +86,14 @@ Here's what you need to know and do:
 
 - Performing a [POST /token/generate](https://unifiedid.com/docs/endpoints/post-token-generate) call requires encrypting the request body and decrypting the response. For details and examples, see [Encrypting Requests and Decrypting Responses](https://unifiedid.com/docs/getting-started/gs-encryption-decryption).
 - The JSON response from the [POST /token/generate](https://unifiedid.com/docs/endpoints/post-token-generate) endpoint contains a new property: `refresh_response_key`. 
-  - If you are using the UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](https://unifiedid.com/docs/sdks/client-side-identity)), regardless of the version, you must pass this key to the `init()` function of the SDK along with other response properties. 
+  - If you are using the SDK for JavaScript (see [SDK for JavaScript Reference Guide](https://unifiedid.com/docs/sdks/sdk-ref-javascript)), regardless of the version, you must pass this key to the `init()` function of the SDK along with other response properties. 
   - If you are not using the SDK and are storing the response data in custom storage (for example, a database or a custom first-party cookie), you must update the storage to store the refresh response key. 
   - No updates are required for any existing sessions that store refresh tokens returned by the v1 `GET /token/refresh` endpoint and do not have a corresponding refresh response key. These sessions will continue working as is.
 
 #### Upgrade Token Refresh Calls
 
 :::note
-If you are using the [UID2 SDK for JavaScript Reference Guide](https://unifiedid.com/docs/sdks/client-side-identity) to refresh and manage tokens, no further action is required.
+If you are using the [SDK for JavaScript Reference Guide](https://unifiedid.com/docs/sdks/sdk-ref-javascript) to refresh and manage tokens, no further action is required.
 :::
 
 If you refresh tokens either on server or on client side without using the SDK, keep in mind the following, when making requests to the v2 [POST /token/refresh](https://unifiedid.com/docs/endpoints/post-token-refresh) endpoint:

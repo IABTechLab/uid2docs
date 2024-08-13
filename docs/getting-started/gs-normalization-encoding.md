@@ -125,11 +125,11 @@ Some of the examples show email addresses that include the plus sign (+), with d
 
 ## Example Code
 
-For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base-64 Encoding](../guides/publisher-client-side#example-code-hashing-and-base-64-encoding).
+For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base-64 Encoding](../guides/integration-javascript-client-side#example-code-hashing-and-base-64-encoding).
 
 ## UID2 Hashing Tool
 
-To check that you're correctly normalizing, hashing, and encoding, you can test with the [UID2 hashing tool](https://unifiedid.com/examples/hashing-tool).
+To check that you're correctly normalizing, hashing, and encoding, you can test with the [UID2 hashing tool](https://unifiedid.com/examples/hashing-tool/).
 
 Choose Email or Phone Number, type or paste the value, and then click Enter.
 

@@ -27,7 +27,7 @@ With this framework, the following steps occur:
 2. The secure signals feature caches them on the client side and then transparently passes them to Google Ad Manager.
 3. Google Ad Manager uses the UID2 tokens to make bid requests, forwarding the tokens to approved bidders within Google AdX based on the publisher's preferences.
 
-## Allow Secure Signal Sharing
+## Allow Secure Signals Sharing
 
 For your Google Ad Manager account to be eligible to receive encrypted UID2 tokens, you must make sure that encrypted signals are properly shared with third-party bidders on your Google Ad Manager account.
 
@@ -66,25 +66,29 @@ window.getUid2AdvertisingToken = async () => {
 }
 ```
 
-For details, see [Publisher Integration Guide, Server-Side](custom-publisher-integration.md).
+For details, see [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md).
 
 A sample application is also available for server-side integration. See [Sample Applications](#sample-applications).
 
-### UID2 SDK for JavaScript Client-Side Integration
+### SDK for JavaScript Client-Side Integration
 
-If you're using the UID2 SDK for JavaScript version 3.0.0 or later, the UID2 secure signals script uses the `getAdvertisingTokenAsync` function provided in the SDK to get the fresh advertising token, and then pushes the token to Google Ad Manager.
+If you're using the SDK for JavaScript version 3.0.0 or later, the UID2 secure signals script uses the `getAdvertisingTokenAsync` function provided in the SDK to get the fresh advertising token, and then pushes the token to Google Ad Manager.
 
 This script is hosted on CDN, and GPT automatically loads it with the secure signals feature. 
 
-For details, see [Client-Side Integration Guide for JavaScript](publisher-client-side.md).
+For details, see [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md).
 
-A sample application is also available for integration using the UID2 SDK for JavaScript. See [Sample Applications](#sample-applications).
+A sample application is also available for integration using the SDK for JavaScript. See [Sample Applications](#sample-applications).
 
 ## Sample Applications
 
 The following sample applications are available to illustrate how to integrate with the Google Ad Manager secure signals feature:
 
-- [Server-Side UID2 Integration Example](https://secure-signals-srvonly-integ.uidapi.com/)
-- [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
+- Server-Side UID2 Integration Example:
+  - [Sample application](https://secure-signals-srvonly-integ.uidapi.com/)
+  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/server_only)
+- Client-Server UID2 SDK Integration Example:
+  - [Sample application](https://secure-signals-jssdk-integ.uidapi.com/)
+  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
 
 Each sample application has its own instructions.

@@ -37,11 +37,11 @@ DII を直接 UID2 Token に暗号化してビッドストリームに送信す�
 | Integration Option | Token Generated Client-Side or Server-Side? | Integration Guide |
 | :--- | :--- | :--- |
 | Prebid.js | Client-Side | [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) |
-| Prebid.js | Server-Side | [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) |
-| JavaScript SDK | Client-Side | [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) |
-| JavaScript SDK | Server-Side | [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) |
-| Java SDK | Server-Side | [UID2 SDK for Java Reference Guide](../sdks/uid2-sdk-ref-java.md) |
-| Python SDK | Server-Side | [UID2 SDK for Python Reference Guide](../sdks/uid2-sdk-ref-python.md) |
+| Prebid.js | Server-Side | [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md) |
+| JavaScript SDK | Client-Side | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) |
+| JavaScript SDK | Server-Side | [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) |
+| Java SDK | Server-Side | [SDK for Java Reference Guide](../sdks/sdk-ref-java.md) |
+| Python SDK | Server-Side | [SDK for Python Reference Guide](../sdks/sdk-ref-python.md) |
 | UID2 API (token generate and refresh) | Server-Side | [UID2 Endpoints Summary: UID2 Tokens](../endpoints/summary-endpoints.md#uid2-tokens) | 
 
 これらのオプションは、メールアドレスまたは電話番号から UID2 Token を生成し、トークンを定期的に更新することをサポートしています。他の SDK は、現時点ではトークン生成とトークン更新をサポートしていません。

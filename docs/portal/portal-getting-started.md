@@ -127,3 +127,10 @@ The following table includes details of the information you'll need, and a link 
 ## Reset Password
 
 If you forget your password, just click the **Forgot Password** link on the login page. Provide your email address, and then look for the password reset message in your email account.
+
+## Log Out
+
+When you've finished updating your account, remember to log out.
+
+1. At the top right, click your name.
+1. From the drop-down list, click **Log Out**.

@@ -18,7 +18,7 @@ import Link from '@docusaurus/Link';
 | Environment | Cloud Region | Code | Base URL |
 | :--- | :--- | :--- | :--- |
 | インテグレーション環境   | AWS US East (Ohio) | `us-east-2` | `https://operator-integ.uidapi.com` |
-| 本番環境 | [AWS Global Accelerator](#using-the-aws-global-accelerator) によるリージョンルーティングの自動最適化 | `n/a` | `https://global.prod.uidapi.com` |
+| 本番環境 | <a href='https://aws.amazon.com/global-accelerator/'>AWS Global Accelerator</a> によるリージョンルーティングの自動最適化 | `n/a` | `https://global.prod.uidapi.com` |
 | 本番環境 | AWS US East (Ohio) | `us-east-2` | `https://prod.uidapi.com` |
 | 本番環境 | AWS US West (Oregon) | `us-west-2` | `https://usw.prod.uidapi.com` |
 | 本番環境 | AWS Asia Pacific (Sydney) | `ap-southeast-2` | `https://au.prod.uidapi.com` |
@@ -35,16 +35,14 @@ Notes:
 
 ## Specifying the Base URL to Reduce Latency
 
-デフォルトでは、一部の実装オプションは米国にある UID2 本番環境サーバーに API コールを行います。
+クライアントと UID2 サーバーの近接性に依存して API コールのレイテンシが決まります。特に消費者デバイスから API コールを行う場合、ユーザーに近いサーバーを選択することでレイテンシを低減できます。
 
-このシナリオでは、ユーザーの所在地に応じて、ユーザーに近いサーバーを選択してレイテンシを低減することを検討することができます。
+例えば、シンガポールのパブリッシャーは、ベース URL を `https://sg.prod.uidapi.com` に設定できます。これは UID2 の本番環境ですが、サーバーはシンガポールにあります。
 
-例えば、シンガポールのパブリッシャーは、ベース URL を `https://sg.prod.uidapi.com` に設定できます。これは UID2 本番環境ですが、サーバーはシンガポールにあります。
+ベース URL を明示的に設定することで、すべてのリクエストを特定の国または地域内で処理するように指示できます。
 
-また、[AWS Global Accelerator](#using-the-aws-global-accelerator) を使用することもできます。これは、ユーザーを地理的に近いリージョンに誘導します。
+UID2 サーバーに最も近い場所にリクエストを自動的に送信する AWS グローバルアクセラレータを活用することも検討してください。このオプションは、一部のリージョンのサーバーが一時的にダウンしている場合にも高い可用性を確保するためにも優れています。
 
-## Using the AWS Global Accelerator
-
-<a href='https://aws.amazon.com/global-accelerator/'>AWS Global Accelerator</a> は、ベース URL を `https://global.prod.uidapi.com` に設定することで最適化する機能です。この URL は、読者を地理的に近いリージョンに誘導します。観客が地理的に分散している場合には理想的です。
-
-これは、効率性と最小のレイテンシを実現するための素晴らしいアプローチです。ただし、すべてのリクエストが特定の国または地域内で処理されることを確認したい場合は、このオプションを選択しないでください。
+:::note
+デフォルトでは、一部の実装オプションは UID2 本番環境サーバーに米国のサーバーを使用して API コールを行います。デフォルト値を確認し、設定の更新方法については、インテグレーションのドキュメントを参照してください。
+:::

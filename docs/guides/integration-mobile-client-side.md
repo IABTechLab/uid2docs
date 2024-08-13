@@ -23,13 +23,13 @@ These instructions do not apply to publishers who want to use a Private Operator
 
 This page provides a high-level overview of integration steps and links to additional documentation.
 
-UID2 provides mobile SDKs for [Android](../sdks/uid2-sdk-ref-android.md) and [iOS](../sdks/uid2-sdk-ref-ios.md). Each SDK has the following features:
+UID2 provides mobile SDKs for [Android](../sdks/sdk-ref-android.md) and [iOS](../sdks/sdk-ref-ios.md). Each SDK has the following features:
 
 - Generates a UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (a UID2 token and associated values) and persists it in local file storage.
 - Automatically refreshes UID2 tokens.
 
 :::note
-This guide uses the group term **UID2 mobile SDKs** to include both the UID2 SDK for Android and the UID2 SDK for iOS.
+This guide uses the group term **UID2 mobile SDKs** to include both the SDK for Android and the SDK for iOS.
 :::
 
 To integrate with UID2 client-side, you'll need to complete the following steps:
@@ -42,14 +42,14 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 
 1. [Check that the token was successfully generated and then pass it for bidstream use](#pass-generated-token-for-bidstream-use).
 
-1. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
+1. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signals integration](#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration).
 
 ## Mobile SDK Version
 
 This guide provides instructions for using version 1.2.0 or higher of either of these UID2 mobile SDKs:
 
-- UID2 SDK for Android
-- UID2 SDK for iOS
+- SDK for Android
+- SDK for iOS
 
 For instructions for installing the correct SDK/version into your mobile app, see [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 
@@ -62,8 +62,8 @@ Follow the applicable instructions, for Android or iOS:
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
 
-1. Check out the main branch of the [UID2 SDK for Android source code repository on GitHub](https://github.com/IABTechLab/uid2-android-sdk/tree/main).
-1. In Android Studio (check the version required in the [Minimum Requirements](../sdks/uid2-sdk-ref-android.md#minimum-requirements) section in the UID2 SDK for Android Reference Guide), open the directory that you checked out.
+1. Check out the main branch of the [SDK for Android source code repository on GitHub](https://github.com/IABTechLab/uid2-android-sdk/tree/main).
+1. In Android Studio (check the version required in the [Minimum Requirements](../sdks/sdk-ref-android.md#minimum-requirements) section in the SDK for Android Reference Guide), open the directory that you checked out.
 1. Run the **dev-app** app.
 1. When you've started the app, make sure that the **Client Side** checkbox is checked.
 1. Enter an email or phone number, and then click the arrow to the right.
@@ -186,14 +186,14 @@ To set up your account, follow the steps described in [Account Setup](../getting
 - iOS Bundle Identifier
 - iOS App Store ID
 
-When account setup is complete, you'll receive a [Subscription ID and public key](../getting-started/gs-credentials.md#subscription-id-and-public-key). These values are unique to you, and you'll use them when you [configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
+When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them when you [configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk). For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key).
 
 ## Add the UID2 Mobile SDK to Your Mobile App
 
 To add the mobile SDK to your app, follow the applicable documentation:
 
-- [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
-- [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
+- [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
+- [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
 
 At this point, you are ready to start generating UID2 tokens using the SDK.
 
@@ -697,13 +697,14 @@ If the response status indicates that the DII has been opted out of UID2, you mi
 
 <EnableLogging />
 
-## Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration
+## Optional: UID2 GMA/IMA Plugin for GAM Secure Signals integration
 
 <GMAIMA_Plugins />
 
+
 ## Optional: UID2 Prebid Mobile SDK Integration
 :::important
-The UID2 Prebid Modile SDK integration is for Android only, and requires version 1.4.0 of the UID2 SDK for Android.
+The UID2 Prebid Mobile SDK integration is for Android only, and requires version 1.4.0 of the SDK for Android.
 :::
 
 <PrebidMobileSDK />

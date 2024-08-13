@@ -125,11 +125,11 @@ Base64 エンコーディングを適用する場合は、必ず 16 進数値を
 
 ## Example Code
 
-JavaScript でメールアドレスと電話のハッシュを生成する方法の例については、[Example Code: Hashing and Base-64 Encoding](../guides/publisher-client-side#example-code-hashing-and-base-64-encoding) を参照してください。
+JavaScript でメールアドレスと電話のハッシュを生成する方法の例については、[Example Code: Hashing and Base-64 Encoding](../guides/integration-javascript-client-side#example-code-hashing-and-base-64-encoding) を参照してください。
 
 ## UID2 Hashing Tool
 
-正規化、ハッシュ化、エンコードが正しく行われているかチェックするには、[UUID2 hashing tool](https://unifiedid.com/examples/hashing-tool) を使ってテストすることができます。
+正規化、ハッシュ化、エンコードが正しく行われているかチェックするには、[UID2 hashing tool](https://unifiedid.com/examples/hashing-tool/) を使ってテストすることができます。
 
 Email または Phone Number を選択し、値を入力またはペーストして、Enter をクリックします。
 

@@ -21,7 +21,7 @@ Prebid.js を使って UID2 とインテグレーションするには、サイ�
 
 この実装には Prebid.js version 8.21.0 以降が必要です。バージョン情報については、[https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases) を参照してください。
 
-以前のバージョンの Prebid.js を使用する必要がある場合は、代わりに [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md) で説明している実装ソリューションを使用してください。
+以前のバージョンの Prebid.js を使用する必要がある場合は、代わりに [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) で説明している実装ソリューションを使用してください。
 
 ## Integration Example
 
@@ -69,9 +69,16 @@ UID2 module は、4つの DII フォーマットのいずれかを使用して�
 Notes:
 
 - DII フォーマットはユーザーごとに異なる場合がありますが、送信できる値はユーザーごとに 1 つだけです。
+- すでにハッシュ化された DII をモジュールに渡したい場合は、以下の手順に従ってください:
+  1. まず正規化します。
+  1. 次に、SHA-256 ハッシングアルゴリズムを使用して結果をハッシュ化します。
+  1. 次に、ハッシュ値のバイトを Base64 エンコードして結果をエンコードします。
+
+  詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。例については、[Configuring the UID2 Module: Code Example](#configuring-the-uid2-module-code-example) を参照してください。
+- UID2 module は、ハッシュ化された DII を UID2 Service に送信する前に暗号化します。
 - モジュールが複数回設定された場合、最新の設定値が使用されます。
-- すでにハッシュ化された DII をモジュールに渡したい場合は、ハッシュ化する前に正規化することを忘れないでください。詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
-- UID2 module は、UID2 Service に送信する前に、ハッシュ化された DII を暗号化します。
+
+#### Configuring the UID2 Module: Code Example
 
 以下のコードスニペットは、UID2 module を設定するさまざまな方法を示しています。
 

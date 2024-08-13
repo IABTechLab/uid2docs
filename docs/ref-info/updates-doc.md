@@ -11,18 +11,40 @@ import Link from '@docusaurus/Link';
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: Integration Approaches Page
+
+July 23, 2024
+
+We've added a new page with information about the different integration approaches: client-side, client-server, and server-side.
+
+For details, see [Integration Approaches](ref-integration-approaches.md).
+
+<!-- APIDOCS-2132 -->
+
+### New: Server-Side Token Generation Page
+
+July 3, 2024
+
+We've added a new reference page with information for publishers generating the UID2 token on the server side.
+
+For details, see [Server-Side Token Generation](ref-server-side-token-generation.md).
+
+<!-- APIDOCS-2255 -->
+
 ### New: Prebid Mobile SDK Integration (Android)
+
+July 2, 2024
 
 We've added a new section to the two mobile integration guides with instructions for mobile integration using Prebid, currently for Android only:
 
 - [UID2 Client-Side Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-side#optional-uid2-prebid-mobile-sdk-integration)
 - [UID2 Client-Server Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-server#optional-uid2-prebid-mobile-sdk-integration)
 
-<!-- APIDOCS-2264 -->
+<!-- APIDOCS-2269 -->
 
 ### New: CTV Integration Guide
 
-21 June 2024
+June 21, 2024
 
 We've just added a new guide for CTV publishers who want to integrate with UID2.
 
@@ -32,7 +54,7 @@ For details, see [CTV Integration Guide](../guides/integration-ctv-guide.md).
 
 ### New: Opt-Out API
 
-24 May 2024
+May 24, 2024
 
 We added documentation for a new API call that checks the opt-out status of raw UID2s.
 
@@ -44,7 +66,7 @@ For details, see [POST&nbsp;/optout/status](../endpoints/post-optout-status.md).
 
 ### New: Client-Side and Server-Side Guides for Mobile
 
-17 May 2024
+May 17, 2024
 
 We've added the following integration guides to support publishers who want to implement UID2 for their Android or iOS mobile apps:
 
@@ -56,7 +78,7 @@ We've added the following integration guides to support publishers who want to i
 
 ### New: UID2 Portal Client-Side Integration Page
 
-6 May 2024
+May 6, 2024
 
 The UID2 Portal documentation now includes a new page, [Client-Side Integration](../portal/client-side-integration.md).
 
@@ -66,7 +88,7 @@ The Client-Side Integration page in the UID2 Portal allows you to set up and man
 
 ### New: UID2 Portal API Keys Page
 
-25 April 2024
+April 25, 2024
 
 The UID2 Portal documentation now includes a new page, [API Keys](../portal/api-keys.md).
 
@@ -76,7 +98,7 @@ The API Keys page in the UID2 Portal allows you to perform all activities relati
 
 ### Documentation for Sharing Including Raw UID2 Sharing
 
-22 April 2024
+April 22, 2024
 
 We've completely reworked and significantly expanded the sharing documentation to include instructions for all sharing scenarios.
 
@@ -88,7 +110,7 @@ For details, see [UID2 Sharing: Overview](../sharing/sharing-overview.md).
 
 ### New: UID2 Hashing Tool
 
-4 March 2024
+March 4, 2024
 
 We've added a new UID2 hashing tool so that you can check that you're normalizing and encoding correctly.
 
@@ -98,15 +120,15 @@ For details, see [UID2 Hashing Tool](../getting-started/gs-normalization-encodin
 
 ### New: Java SDK Support for Advertiser/Data Provider
 
-28 February 2024
+February 28, 2024
 
 The Java SDK now supports Advertisers and Data Providers wanting to use the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.
 
-For details, see the updated documentation in the *UID2 SDK for Java Reference Guide*: [Usage for Advertisers and Data Providers](../sdks/uid2-sdk-ref-java.md#usage-for-advertisersdata-providers).
+For details, see the updated documentation in the *SDK for Java Reference Guide*: [Usage for Advertisers and Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers).
 
 ### New: Audience-Specific Documentation Sidebars
 
-9 February 2024
+February 9, 2024
 
 We've improved the website so that specific users clicking through on the links at the top of the [UID2 home page](https://unifiedid.com/) (Publishers, Advertisers, DSPs, Data Providers) now have a custom left sidebar, with the specific documentation that's applicable to that audience.
 
@@ -120,31 +142,31 @@ To view the custom sidebars, go to [https://unifiedid.com](https://unifiedid.com
 
 ### New: UID2 Integration Overview for JavaScript 
 
-26 January 2024
+January 26, 2024
 
-We've added a new overview guide summarizing the options for publishers using the UID2 SDK for JavaScript for client-side or client-server integration. In addition, the existing guides have been renamed for consistency, with minor updates.
+We've added a new overview guide summarizing the options for publishers using the SDK for JavaScript for client-side or client-server integration. In addition, the existing guides have been renamed for consistency, with minor updates.
 
 For details, see:
 
 - [UID2 Integration Overview for JavaScript](../guides/integration-javascript)
-- [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md)
-- [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
+- [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
+- [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
 <!-- APIDOCS-1924 -->
 
-### New: UID2 SDK for Java, Usage for Publishers Sections
+### New: SDK for Java, Usage for Publishers Sections
 
-22 January 2024
+January 22, 2024
 
-We've added new sections in the UID2 SDK for Java documentation to help publishers implementing the SDK.
+We've added new sections in the SDK for Java documentation to help publishers implementing the SDK.
 
-For details, see [Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers) in the UID2 SDK for Java Reference Guide.
+For details, see [Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers) in the SDK for Java Reference Guide.
 
 <!-- APIDOCS-1705 -->
 
 ### New: Normalization and Encoding Documentation, Examples Section
 
-19 January 2024
+January 19, 2024
 
 We've expanded and clarified the existing Normalization and Encoding doc, and added a new examples section to help you make sure that you're following the process correctly.
 
@@ -154,7 +176,7 @@ For details, see [Normalization and Encoding](../getting-started/gs-normalizatio
 
 ### New: Web Integration Overview for Publishers
 
-16 January 2024
+January 16, 2024
 
 We've added a new page summarizing the web integration options available to publishers integrating with UID2.
 
@@ -164,7 +186,7 @@ For details, see [Web Integration Overview](../guides/integration-options-publis
 
 ### New: UID2 Operator Page
 
-3 January 2024
+January 3, 2024
 
 We've added a reference article explaining what the UID2 Operator does and the differences between a Public Operator and a Private Operator.
 
@@ -176,7 +198,7 @@ For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md
 
 ### New: UID2 Integration Overview for Prebid.js
 
-20 December 2023
+December 20, 2023
 
 A new overview guide summarizes the publisher options for integrating Prebid with UID2.
 
@@ -186,11 +208,11 @@ For details, see:
 
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
 ### New: Encryption/Decryption Examples in Java and C#
 
-14 December 2023
+December 14, 2023
 
 We've added instructions and code examples for encrypting UID2 requests and decrypting responses in additional programming languages. To the existing Python example, we've added Java and C#.
 
@@ -198,7 +220,7 @@ For details, see [Encryption and Decryption Code Examples](../getting-started/gs
 
 ### New: UID2 Private Operator for Azure Integration Guide
 
-30 November 2023
+November 30, 2023
 
 A UID2 <a href="../intro#participants">participant</a> who wants to be a [Private Operator](../ref-info/glossary-uid.md#gl-private-operator) can now set up the UID2 Operator Service in a [Confidential Container](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers), a confidential computing option from Microsoft Azure.
 
@@ -206,7 +228,7 @@ For details, see [UID2 Private Operator for Azure Integration Guide](../guides/o
 
 ### New: API Permissions
 
-22 November 2023
+November 22, 2023
 
 A new article in the Getting Started section of the UID2 website provides information about the key UID2 permissions, the types of participants that commonly use them, and the key associated activities.
 
@@ -214,7 +236,7 @@ For details, see [API Permissions](../getting-started/gs-permissions.md).
 
 ### New: UID2 Credentials Page
 
-21 November 2023
+November 21, 2023
 
 We've replaced the previous **API Keys** page with a new page that includes information about the credentials for those following a server-side implementation strategy.
 
@@ -222,21 +244,21 @@ For details, see [UID2 Credentials](../getting-started/gs-credentials.md).
 
 ### New: Client-Side Integration Guide for JavaScript
 
-21 November 2023
+November 21, 2023
 
-The Client-Side Integration Guide for JavaScript is a completely new document at the existing URL, covering a new, simpler way of using the UID2 SDK for JavaScript for a client-side publisher implementation.
+The Client-Side Integration Guide for JavaScript is a completely new document at the existing URL, covering a new, simpler way of using the SDK for JavaScript for a client-side publisher implementation.
 
-For details, see [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
+For details, see [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md).
 
-The content that was in the previous *UID2 SDK for JavaScript Integration Guide*  is now in a supplementary document for publishers who want to implement the JavaScript SDK on the server side.
+The content that was in the previous *SDK for JavaScript Integration Guide*  is now in a supplementary document for publishers who want to implement the JavaScript SDK on the server side.
 
 :::note
-This document was updated in January 2024 to [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md), and the JavaScript Standard Integration Guide is now the [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md).
+This document was updated in January 2024 to [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md), and the JavaScript Standard Integration Guide is now the [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md).
 :::
 
 ### New: UID2 Client-Side Integration Guide for Prebid.js
 
-2 November 2023
+November 2, 2023
 
 The UID2 Client-Side Integration Guide for Prebid.js is a completely new document at the existing URL, covering a new, simpler way of integrating UID2 with Prebid that does not require any server-side work.
 
@@ -246,12 +268,12 @@ The content that was in the previous version of the Prebid document is now in a 
 These documents were further updated in later revisions. Updated links are as follows:
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 :::
 
 ### New: Opt-Out
 
-31 October 2023
+October 31, 2023
 
 This new "getting started" topic provides an overview of user opt-out.
 
@@ -259,7 +281,7 @@ For details, see [User Opt-Out](../getting-started/gs-opt-out.md).
 
 ### New: AWS Entity Resolution Integration Guide
 
-19 October 2023
+October 19, 2023
 
 This new guide provides information for using [AWS Entity Resolution](https://aws.amazon.com/entity-resolution/), an identity resolution product from Amazon Web Services that allows AWS customers to integrate with the UID2 framework.
 
@@ -267,19 +289,19 @@ This service allows you to map DII (email addresses or phone numbers) to raw UID
 
 For details, see [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md).
 
-### New: UID2 SDK for JavaScript Version 3 
+### New: SDK for JavaScript Version 3 
 
-10 October 2023
+October 10, 2023
 
-Significant documentation updates reflect the enhanced functionality of Version 3 of the UID2 SDK for JavaScript. The new documentation includes a [migration guide](../sdks/client-side-identity#migration-guide) for those upgrading from an earlier version of the SDK.
+Significant documentation updates reflect the enhanced functionality of Version 3 of the SDK for JavaScript. The new documentation includes a [migration guide](../sdks/sdk-ref-javascript#migration-guide) for those upgrading from an earlier version of the SDK.
 
 For details, see:
--  [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)
--  [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md)
+-  [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)
+-  [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
 ### New: Private Operator Guide for Google Confidential Space 
 
-30 September 2023
+September 30, 2023
 
 This new guide provides information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from the Google Cloud Platform.
 
@@ -289,7 +311,7 @@ For details, see [UID2 Private Operator for GCP Integration Guide](../guides/ope
 
 ### Update: Normalization and Encoding Rules
 
-7 September 2023
+September 7, 2023
 
 We clarified the instructions for normalizing and encoding <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to create a raw UID2 or UID2 token.
 
@@ -300,16 +322,15 @@ For details, see:
 
 ### New: IMA Mobile Plugin for Android
 
-8 August 2023
+August 8, 2023
 
 A new guide for publishers that provides information about the UID2 Interactive Media Ads (IMA) Plugin for Android. This plugin enables publishers who use the Google IMA SDK for Android to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as secure signals in ad requests from Android apps.
 
 For details, see [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md).
 
-
 ### New: IMA Mobile Plugin for iOS
 
-8 August 2023
+August 8, 2023
 
 A new guide for publishers that provides information about the UID2 Interactive Media Ads (IMA) Plugin for iOS. This plugin enables publishers who use the Google IMA SDK for iOS to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as secure signals in ad requests from iOS apps.
 
@@ -317,16 +338,15 @@ For details, see [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-pl
 
 ### New: GMA Mobile Plugin for Android
 
-4 August 2023
+August 4, 2023
 
 A new guide for publishers that provides information about the UID2 Google Mobile Ads (GMA) Plugin for Android. This plugin enables publishers who use the Google GMA SDK to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as secure signals in ad requests from Android apps.
 
 For details, see [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md).
 
-
 ### New: GMA Mobile Plugin for iOS
 
-4 August 2023
+August 4, 2023
 
 A new guide for publishers that provides information about the UID2 Google Mobile Ads (GMA) Plugin for iOS. This plugin enables publishers who use the Google GMA SDK to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as secure signals in ad requests from iOS apps.
 
@@ -334,7 +354,7 @@ For details, see [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-pl
 
 ### New: UID2 Website in Japanese
 
-3 August 2023
+August 3, 2023
 
 The entire UID2 website is now available in Japanese as well as English.
 
@@ -342,7 +362,7 @@ For details, use the language drop-down at the top of any site page, or go strai
 
 ### New: UID2 Portal Documentation
 
-3 August 2023
+August 3, 2023
 
 We published several new documentation pages to help users navigating the new UID2 Portal user interface, where you can manage your UID2 account.
 
@@ -350,40 +370,32 @@ For details, see [UID2 Portal: Overview](../portal/portal-overview.md).
 
 ### New: Documentation for UID2 Sharing
 
-3 August 2023
+August 3, 2023
 
 We published the following new and updated documents to support use of the new UID2 sharing feature:
 
 - A set of new pages providing information relating to UID2 sharing, including an overview, use cases, implementation instructions, best practices, and more. See [UID2 Sharing: Overview](../sharing/sharing-overview.md).
 - Updates to the four server-side SDKs to support UID2 sharing:
 
-  - [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers)
-  - [UID2 SDK for C++: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-cplusplus.md#usage-for-uid2-sharers)
-  - [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers)
-  - [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers)
+  - [SDK for C# / .NET: Usage for UID2 Sharers](../sdks/sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers)
+  - [SDK for C++: Usage for UID2 Sharers](../sdks/sdk-ref-cplusplus.md#usage-for-uid2-sharers)
+  - [SDK for Java: Usage for UID2 Sharers](../sdks/sdk-ref-java.md#usage-for-uid2-sharers)
+  - [SDK for Python: Usage for UID2 Sharers](../sdks/sdk-ref-python.md#usage-for-uid2-sharers)
 
 - Updates to the Snowflake feature to support UID2 sharing. See [Snowflake Integration Guide: Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers).
 
 ### New: Android SDK Guide
 
-3 August 2023
+August 3, 2023
 
-A new guide for publishers that provides information about the UID2 SDK for Android, an SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers who need to support Android apps.
+A new guide for publishers that provides information about the SDK for Android, an SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers who need to support Android apps.
 
-For details, see [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md).
+For details, see [SDK for Android Reference Guide](../sdks/sdk-ref-android.md).
 
 ### New: iOS SDK Guide
 
-3 August 2023
+August 3, 2023
 
-A new guide for publishers that provides information about the UID2 SDK for iOS, an SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers who need to support iOS apps.
+A new guide for publishers that provides information about the SDK for iOS, an SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers who need to support iOS apps.
 
-For details, see [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md).
-
-<!-- ### New: Prebid Integration Guide
-
-1 August 2023
-
-A new guide for publishers who want to integrate with UID2 and generate UID2 tokens (advertising tokens) to be passed by Prebid in the RTB bidstream.
-
-For details, see [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md). [doc name updated]-->
+For details, see [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md).

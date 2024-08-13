@@ -30,7 +30,7 @@ Tokenized sharing in pixels is applicable to the following audiences:
 ## Sharing UID2 Tokens in Pixels
 
 :::tip
-We recommend generating the UID2 token directly from DII. You can do this in several ways; our recommendation is to generate the UID2 token client-side. For instructions, see [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
+We recommend generating the UID2 token directly from DII. You can do this in several ways; our recommendation is to generate the UID2 token client-side. For instructions, see [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md).
 :::
 
 Different participants might use pixels in different ways. The following table shows two common use cases for pixels in the advertising technology ecosystem.
@@ -69,7 +69,7 @@ For example, let's say that an advertiser (sender) wants to share UID2 tokens wi
 
    2. Directly generates UID2 tokens from the [DII](../ref-info/glossary-uid.md#gl-dii) provided by the user using the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint or one of the SDKs that support generating a UID2 token from DII.
    
-      For a summary of options, see [SDK Functionality](../sdks/summary-sdks.md#sdk-functionality). We recommend using the [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md).
+      For a summary of options, see [SDK Functionality](../sdks/summary-sdks.md#sdk-functionality). We recommend using the [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md).
    
    3. Sends the UID2 tokens securely to the DSP.
 

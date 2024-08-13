@@ -80,6 +80,21 @@ Server-Side SDK のいずれか ([SDKs: Summary](../sdks/summary-sdks.md) を参
 | 2-a  | Server-side SDK ([SDKs: Summary](../sdks/summary-sdks.md) を参照) | 提供されている SDK を活用して、入力された UID2 Token を復号化します。レスポンスには `UID2` と UID2 の作成時刻が含まれます。 |
 | 2-b  | | DSP は UID2 のオプトアウトプロトコルを受け入れることが要求されます。ユーザーオプトアウトの設定と入札時の受け入れは、[ユーザーオプトアウトの受け入れ](#honor-user-opt-outs) を参照してください。 |
 
+## Recommendations for Managing Latency
+
+:::note
+このセクションは、*SDK for C# / .NET Reference Guide* の [Usage for DSPs](../sdks/sdk-ref-csharp-dotnet.md#usage-for-dsps) にあるサンプルコードを参照してください。メソッド名は [Java](../sdks/sdk-ref-java.md#usage-for-dsps)、[Python](../sdks/sdk-ref-python#usage-for-dsps)、および [C++](../sdks/sdk-ref-cplusplus.md#interface) SDK でも同様です。
+:::
+
+低遅延/高スループットのセットアップを行う場合は、以下の推奨事項に従ってください:
+
+- 各サーバーに `BidstreamClient` クラスのローカルインスタンスを持ちます。これはプロセス内またはプロセス外で行うことができます。プロセス内が最も簡単です。
+- クライアントの `Refresh` メソッドをバックグラウンドで定期的に呼び出します: たとえば、1時間ごとに、グローバルフリートの再起動後のピークを避けるためにいくつかのランダム化を行います。
+- トークンを暗号化する必要がある場合は、`DecryptTokenIntoRawUid` メソッドを呼び出します。プロセス内が最速ですが、正しく行えばプロセス外でも問題ありません。
+  :::note
+  トークンの復号化メソッドはスレッドセーフなので、複数のスレッドで同時に呼び出すことができます。
+  :::
+
 ## FAQs
 
 DSP に関するよくある質問は、[FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。

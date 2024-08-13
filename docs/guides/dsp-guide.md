@@ -80,6 +80,21 @@ The following table provides details for Step 2 of the workflow diagram shown in
 | 2-a | Server-side SDK (see [SDKs: Summary](../sdks/summary-sdks.md)) | Leverage the provided SDK to decrypt incoming UID2 tokens. The response contains the `UID2` and the UID2 creation time. |
 | 2-b | | DSPs are required to honor opt-out protocol for UID2s. For details on configuring user opt-outs and honoring them during bidding, see [Honor user opt-outs](#honor-user-opt-outs). |
 
+## Recommendations for Managing Latency
+
+:::note 
+This section refers to the example code in [Usage for DSPs](../sdks/sdk-ref-csharp-dotnet.md#usage-for-dsps) in the *SDK for C# / .NET Reference Guide*. The method names are similar for the [Java](../sdks/sdk-ref-java.md#usage-for-dsps), [Python](../sdks/sdk-ref-python#usage-for-dsps), and [C++](../sdks/sdk-ref-cplusplus.md#interface) SDKs.
+:::
+
+For a low latency/high throughput setup, follow these recommendations:
+
+- Have a local instance of the `BidstreamClient` class for each server. This can be in-process or out-of-process. In-process is the easiest.
+- Call the client `Refresh` method periodically in the background: for example, once per hour, with some randomization to avoid mass simultaneous method calls across all instances after all servers are restarted.
+- When a token needs to be decrypted, call the `DecryptTokenIntoRawUid` method. In-process is the fastest, but out-of-process is also acceptable if it's done correctly.
+  :::note
+  The token decryption method is thread-safe, so you can call it on multiple threads at the same time.
+  :::
+
 ## FAQs
 
 For a list of frequently asked questions for DSPs, see [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps).

@@ -27,7 +27,7 @@ Google secure signals は、パブリッシャーが [Google Ad Manager](https:/
 2. セキュアシグナル機能は、Client-Side でそれらをキャッシュし、Google Ad Manager に透過的に渡します。
 3. Google Ad Manager は UID2 Token を使ってビッドリクエストを行い、パブリッシャーの設定に基づき Google AdX 内の承認済み入札者にトークンを転送します。
 
-## Allow Secure Signal Sharing
+## Allow Secure Signals Sharing
 
 Google Ad Manager アカウントで暗号化 UID2 Token を受け取るには、暗号化されたシグナルが Google Ad Manager アカウントで第三者の入札者と適切に共有されていることを確認する必要があります。
 
@@ -66,17 +66,17 @@ window.getUid2AdvertisingToken = async () => {
 }
 ```
 
-詳しくは、[Server-Only UID2 Integration Guide](custom-publisher-integration.md) を参照してください。
+詳しくは、[Server-Only UID2 Integration Guide](integration-publisher-server-side.md) を参照してください。
 
 Server Only インテグレーションのためのサンプルアプリケーションも用意されています。[Sample Applications](#sample-applications) を参照してください。
 
-### UID2 SDK for JavaScript Client-Side Integration
+### SDK for JavaScript Client-Side Integration
 
-UID2 SDK for JavaScript バージョン 3.0.0 以降を使用している場合、UID2 セキュアシグナルスクリプトは、SDKで提供されている `getAdvertisingTokenAsync` 関数を使用して新しい Advertising Token を取得し、そのトークンを Google Ad Manager にプッシュします。
+SDK for JavaScript バージョン 3.0.0 以降を使用している場合、UID2 セキュアシグナルスクリプトは、SDKで提供されている `getAdvertisingTokenAsync` 関数を使用して新しい Advertising Token を取得し、そのトークンを Google Ad Manager にプッシュします。
 
 このスクリプトは CDN でホストされており、GPT はセキュアシグナル機能で自動的にロードします。
 
-詳しくは [Client-Side Integration Guide for JavaScript](publisher-client-side.md) を参照してください。
+詳しくは [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) を参照してください。
 
 <!--A sample application is also available for client-side integration using the SDK. See [Sample Applications](#sample-applications).-->
 
@@ -85,6 +85,6 @@ UID2 SDK for JavaScript バージョン 3.0.0 以降を使用している場合�
 Google Ad Manager のセキュアシグナル機能との連携方法については、以下のサンプルアプリケーションを参照してください:
 
 - [Server-Only UID2 Integration Example](https://secure-signals-srvonly-integ.uidapi.com/)
-- [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
+- [Client-Server UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
 
 各サンプルアプリケーションには独自のインストラクションがあります。

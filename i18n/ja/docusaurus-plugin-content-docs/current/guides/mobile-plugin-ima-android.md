@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 IMA Plugin for Android Integration Guide
 
-UID2 Interactive Media Ads (IMA) Plugin for Android は、[Google IMA SDK for Android](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side) を使用するパブリッシャーが、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を [Secure Signal](https://support.google.com/admob/answer/11556288) として送信できるようにします。これは自動的に行われるため、アプリ開発者が直接コーディングする必要はありません。
+UID2 Interactive Media Ads (IMA) Plugin for Android は、[Google IMA SDK for Android](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side) を使用するパブリッシャーが、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を [Secure Signals](https://support.google.com/admob/answer/11556288) として送信できるようにします。これは自動的に行われるため、アプリ開発者が直接コーディングする必要はありません。
 
 ## Functionality
 
@@ -34,17 +34,17 @@ UID2 Interactive Media Ads (IMA) Plugin for Android は、[Google IMA SDK for An
 1. Google IMA SDK v3.30.3 or later:
    - [SDK](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side)
    - [Release history](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side/history)
-1. UID2 SDK for Android v0.5.0 or later:
+1. SDK for Android v0.5.0 or later:
    - [SDK](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
-   - [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
+   - [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
 1. [UID2 IMA Plugin for Android v0.5.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-ima)
 1. R8 または Proguard を使用している場合は、[Notes for Using R8 or ProGuard](#notes-for-using-r8-or-proguard) に指定された適用オプションを追加します。
 
 ## Installation
 
-前提条件: Google Interactive Media Ads SDKとUID2 SDK for Android をインストールします。
+前提条件: Google Interactive Media Ads SDKとSDK for Android をインストールします。
 
-UID2 SDK for Android と Google IMA SDK がインストールされている既存のアプリに、UID2 Android IMA Plugin をインストールします。インストールオプションは2つあります:
+SDK for Android と Google IMA SDK がインストールされている既存のアプリに、UID2 Android IMA Plugin をインストールします。インストールオプションは2つあります:
 
 - [Gradle](#gradle)
 - [Maven](#maven)

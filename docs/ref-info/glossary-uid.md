@@ -26,6 +26,7 @@ import Link from '@docusaurus/Link';
 
 **C**
 <a href="#gl-client-key">Client key</a> | 
+<a href="#gl-client-keypair">Client keypair</a> | 
 <a href="#gl-client-secret">Client secret</a> | 
 <a href="#gl-client-server">Client-server integration</a> | 
 <a href="#gl-client-side">Client-side integration</a> | 
@@ -153,6 +154,10 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-client-key"><a href="#gl-client-key">Client key</a></MdxJumpAnchor></dt>
 <dd>See <a href="#gl-api-key">API key</a>.</dd>
 
+<dt><MdxJumpAnchor id="gl-client-keypair"><a href="#gl-client-keypair">Client keypair</a></MdxJumpAnchor></dt>
+<dd>For client-side publisher integrations, the <a href="#gl-subscription-id">Subscription ID</a> and <a href="#gl-public-key">public key</a> are the two values issued to publishers to uniquely identify the account. Client keypair is a term we use for these two values together.</dd>
+<dd>For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
+
 <dt><MdxJumpAnchor id="gl-client-secret"><a href="#gl-client-secret">Client secret</a></MdxJumpAnchor></dt>
 <dd>Each UID2 <a href="/docs/intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
 <dd>For details, see <a href="/docs/getting-started/gs-credentials">UID2 Credentials</a>.</dd>
@@ -160,13 +165,13 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-client-server"><a href="#gl-client-server">Client-server integration</a></MdxJumpAnchor></dt>
 <dd>One of the UID2 <a href="#gl-integration-approaches">integration approaches</a> is to integrate partially on the client side and partially on the server side (client-server).</dd>
 <dd>For example, in a client-server integration for a publisher, the UID2 token is generated on the server side and refreshed on the client side.</dd>
-<dd>Examples of documentation for publisher client-server integrations: <a href="../guides/integration-prebid-server-side">UID2 Client-Server Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-server-side">Client-Server Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-server">UID2 Client-Server Integration Guide for Mobile</a>.</dd>
+<dd>Examples of documentation for publisher client-server integrations: <a href="../guides/integration-prebid-client-server">UID2 Client-Server Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-client-server">Client-Server Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-server">UID2 Client-Server Integration Guide for Mobile</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-client-side"><a href="#gl-client-side">Client-side integration</a></MdxJumpAnchor></dt>
 <dd>One of the UID2 <a href="#gl-integration-approaches">integration approaches</a> is to integrate entirely on the client side.</dd>
 <dd>In a client-side integration, UID2 tokens are generated and refreshed on the client side.</dd>
 <dd>For example, in a client-side integration, advertisers generate UID2 tokens on the client side for tracking pixels, and publishers generate UID2 tokens on the client side for bidstream use, as well as refreshing the tokens.</dd>
-<dd>Examples of documentation for publisher client-side integrations: <a href="../guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>, <a href="../guides/publisher-client-side">Client-Side Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-side">UID2 Client-Side Integration Guide for Mobile</a>.</dd>
+<dd>Examples of documentation for publisher client-side integrations: <a href="../guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-client-side">Client-Side Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-side">UID2 Client-Side Integration Guide for Mobile</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-closed-operator"><a href="#gl-closed-operator">Closed Operator</a></MdxJumpAnchor></dt>
 <dd>Closed Operator is another term for a <a href="#gl-private-operator">Private Operator</a>.</dd>
@@ -324,7 +329,7 @@ import Link from '@docusaurus/Link';
 <dd>A private instance of the Operator Service, run by a <a href="#gl-private-operator">Private Operator</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-public-key"><a href="#gl-public-key">Public key</a></MdxJumpAnchor></dt>
-<dd>For client-side publisher integrations, the public key is one of the two values issued to publishers as their UID2 credentials. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
+<dd>For client-side publisher integrations, the public key is one of the two values issued to publishers to uniquely identify the account. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-public-operator"><a href="#gl-public-operator">Public Operator</a></MdxJumpAnchor></dt>
 <dd>A Public <a href="#gl-operator">Operator</a> is an entity that runs a public instance of the UID2 Operator Service. For example, The Trade Desk currently serves as a Public Operator for the UID2 framework, available to all participants.</dd>
@@ -369,7 +374,7 @@ import Link from '@docusaurus/Link';
 <dd>One of the UID2 <a href="#gl-integration-approaches">integration approaches</a> is to integrate entirely on the server side.</dd>
 <dd>In a server-side integration, raw UID2s or UID2 tokens are generated and refreshed on the server.</dd>
 <dd>For example, in a server-side integration, advertisers generate raw UID2s on the server side to be delivered for audience targeting, and publishers generate UID2 tokens on the server side for bidstream use.</dd>
-<dd>An example of documentation for publisher server-side integration is <a href="../guides/custom-publisher-integration">Publisher Integration Guide, Server-Side</a>.</dd>
+<dd>An example of documentation for publisher server-side integration is <a href="../guides/integration-publisher-server-side">Publisher Integration Guide, Server-Side</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-sha-256"><a href="#gl-sha-256">SHA-256</a></MdxJumpAnchor></dt>
 <dd>SHA-256 is the secure hashing algorithm that UID2 uses.</dd>
@@ -388,7 +393,7 @@ import Link from '@docusaurus/Link';
 <dd>SSO is an acronym for Single sign-on. SSO allows a user to log in with the same credentials (usually, but not always, ID and password) to one of several software systems, such as apps or websites. SSO allows the user to log in once to multiple applications or sites using one set of credentials. With SSO, websites/apps do not have to maintain their own authentication systems.</dd>
 
 <dt><MdxJumpAnchor id="gl-subscription-id"><a href="#gl-subscription-id">Subscription ID</a></MdxJumpAnchor></dt>
-<dd>For client-side publisher integrations, the Subscription ID is one of the two values issued to publishers as their UID2 credentials. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
+<dd>For client-side publisher integrations, the Subscription ID is one of the two values issued to publishers to uniquely identify the account. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
 
 </dl>
 

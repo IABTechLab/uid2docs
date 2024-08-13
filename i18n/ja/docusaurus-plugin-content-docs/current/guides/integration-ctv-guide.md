@@ -45,8 +45,8 @@ Client-Side オプションは、UID2 Token を完全に Client-Side で管理�
 
 | Operating System | Integration Guide | Link to SDK Guide |
 | :--- | :--- | :--- |
-| [Apple tvOS](https://developer.apple.com/tvos/) | [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) | [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) |
-| [Android TV](https://www.android.com/tv/) | [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) | [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) |
+| [Apple tvOS](https://developer.apple.com/tvos/) | [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) | [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) |
+| [Android TV](https://www.android.com/tv/) | [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) | [SDK for Android Reference Guide](../sdks/sdk-ref-android.md) |
 
 ## Server-Side Integration for CTV Apps
 
@@ -59,12 +59,12 @@ Server-Side オプションは、UID2 Token を完全に Server-Side で管理�
 
 この方法の利点の 1 つは、複数のプラットフォーム (Web / CTV / モバイル) に対処する場合、すべてを Server-Side で行うことで、プラットフォーム固有の作業を減らすことができることです。
 
-この方法で実装するには、[Publisher Integration Guide, Server-Side](custom-publisher-integration.md) の手順に従ってください。
+この方法で実装するには、[Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) の手順に従ってください。
 
 Server-Side コードが Java または Python である場合、UID2 SDK のいずれかを使用して、UID2 への HTTP リクエストを行うことができます。自分でソースコードを書く代わりに、次のいずれかの SDK ガイドを参照してください:
 
-- [UID2 SDK for Java Reference Guide: Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers)
-- [UID2 SDK for Python Reference Guide: Usage for Publishers](../sdks/uid2-sdk-ref-python.md#usage-for-publishers)
+- [SDK for Java Reference Guide: Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers)
+- [SDK for Python Reference Guide: Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers)
 
 ## Client-Server Integration for CTV Apps
 
@@ -79,5 +79,5 @@ Server-Side コードが Java または Python である場合、UID2 SDK のい
 
 | Operating System | Integration Guide | Link to SDK Guide |
 | :--- | :--- | :--- |
-| [Apple tvOS](https://developer.apple.com/tvos/) | [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) |
-| [Android TV](https://www.android.com/tv/) | [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) |
+| [Apple tvOS](https://developer.apple.com/tvos/) | [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) |
+| [Android TV](https://www.android.com/tv/) | [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | [SDK for Android Reference Guide](../sdks/sdk-ref-android.md) |
