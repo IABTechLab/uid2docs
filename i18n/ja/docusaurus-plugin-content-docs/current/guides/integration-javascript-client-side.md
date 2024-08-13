@@ -80,7 +80,7 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 
 より詳細なコードスニペットについては、[Example Integration Code and When to Pass DII to the UID2 SDK](#example-integration-code-and-when-to-pass-dii-to-the-uid2-sdk) を参照してください。
 
-`UID2_JS_SDK_URL` の値については、[SDK for JavaScript Version](#uid2-sdk-for-javascript-version) を参照してください。
+`UID2_JS_SDK_URL` の値については、[SDK for JavaScript Version](#sdk-for-javascript-version) を参照してください。
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
