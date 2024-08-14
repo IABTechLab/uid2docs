@@ -59,6 +59,8 @@ When you have current keys, you'll be able to decrypt a UID2 token into a raw UI
 
 You'll need to complete the following steps:
 
+1. [Check the token version](#check-the-token-version).
+
 1. [Decrypt the token](#decrypt-the-token).
 
 1. [Make sure token lifetime and expiration values are valid](#make-sure-token-lifetime-and-expiration-are-valid).
@@ -66,6 +68,14 @@ You'll need to complete the following steps:
 1. [Verify that the domain or app name is valid](#for-tokens-generated-on-the-client-side-verify-the-domain-or-app-name).
 
 The UID2 SDK for C# / .NET uses a `DecryptTokenIntoRawUid` function to perform these steps: see [BidstreamClient.cs, line 15](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/BidstreamClient.cs#L15).
+
+### Check the Token Version
+
+There are different UID2 token versions in current use, and later processing steps are a little different depending on whether the token version is v2 or a later version.
+
+You can check the token version using the first few bytes of the token.
+
+To review detailed logic, see [UID2Encryption.cs, lines 36-50](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L36-L50).
 
 ### Decrypt the Token
 
@@ -84,7 +94,7 @@ This step, which is only for tokens generated on the client side, is additional 
 
 For more information about client-side UID2 integration, refer to one of these integration guides:
 
-- [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md)
+- [Client-Side Integration Guide for JavaScript](publisher-client-side.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
 - [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 -->
@@ -105,9 +115,24 @@ To make sure that the token lifetime has a valid value, check these two conditio
 
  For an example of how this is done, review the code for the `DoesTokenHaveValidLifetimeImpl` function: see [UID2Encryption.cs, line 237](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L237).
 
-#### Calculating Token Lifetime
+The following sections show how the lifetime for a token is calculated, and the time until token generation for versions later than v2. The calculation depends on the token version:
 
-The calculation to make sure that the token lifetime is valid for bidstream use is as follows:
+- [Calculating Token Lifetime: Token v2](#calculating-token-lifetime-token-v2)
+- [Calculating Token Lifetime: All Later Versions](#calculating-token-lifetime-all-later-versions)
+
+#### Calculating Token Lifetime: Token v2
+
+For token v2, the calculation to make sure that the token lifetime is valid for bidstream use is as follows:
+
+```
+lifetime = token expiry - current time
+```
+
+For v2, we use the token expiry minus the current time to calculate the lifetime. This is because v2 doesn't have a **Token Generated** field, which is present in later versions. All token versions have an **Identity Established** field, but this indicates the time that the original token was generated, before any token refreshes, so it can't be used to calculate whether the token is still valid.
+
+#### Calculating Token Lifetime: All Later Versions
+
+For all token versions later than v2, the calculation to make sure that the token lifetime is valid for bidstream use is as follows:
 
 ```
 lifetime = token expiry - token generated
@@ -115,7 +140,7 @@ lifetime = token expiry - token generated
 time until token generation = token generated - current time
 ```
 
-The token has a **Token Generated** field, which is updated if the token is refreshed, so we use this to calculate the token lifetime.
+Versions later than v2 have a **Token Generated** field, which is updated if the token is refreshed, so we use this to calculate the token lifetime.
 
 ### For Tokens Generated on the Client Side: Verify the Domain or App Name
 
@@ -125,7 +150,7 @@ For an example of code that does this, refer to the `IsDomainOrAppNameAllowedFor
 
 For more information about client-side UID2 integration, refer to one of these integration guides:
 
-- [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md)
+- [Client-Side Integration Guide for JavaScript](publisher-client-side.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
 - [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 
