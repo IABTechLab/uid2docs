@@ -51,6 +51,10 @@ If you choose to be a private Operator, several implementation options are avail
 
 The following documentation resources are available for private Operators to implement UID2.
 
+:::tip
+For a detailed summary of options, see [Private Operator Integration Overview](../guides/integration-options-private-operator.md).
+:::
+
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
 | AWS | [UID2 Private Operator for AWS Integration Guide](../guides/operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. |

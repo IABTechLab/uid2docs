@@ -25,12 +25,16 @@ import Link from '@docusaurus/Link';
 <a href="#gl-bidstream">Bidstream</a> 
 
 **C**
+
 <a href="#gl-client-key">Client key</a> | 
 <a href="#gl-client-keypair">Client keypair</a> | 
 <a href="#gl-client-secret">Client secret</a> | 
 <a href="#gl-client-server">Client-server integration</a> | 
 <a href="#gl-client-side">Client-side integration</a> | 
 <a href="#gl-closed-operator">Closed Operator</a> | 
+<a href="#gl-confidential-computing">Confidential Computing (GCP)</a> | 
+<a href="#gl-confidential-containers">Confidential containers (Azure)</a> | 
+<a href="#gl-confidential-space">Confidential Space (GCP)</a> | 
 <a href="#gl-core-service">Core Service</a> 
 
 **D**
@@ -86,6 +90,7 @@ import Link from '@docusaurus/Link';
 <a href="#gl-salt">Salt</a> | 
 <a href="#gl-salted-hash">Salted hash</a> | 
 <a href="#gl-secret">Secret</a> | 
+<a href="#gl-secure-computing-environment">Secure computing environment</a> | 
 <a href="#gl-secure-signals">Secure Signals</a> | 
 <a href="#gl-server-side">Server-side integration</a> | 
 <a href="#gl-sha-256">SHA-256</a> | 
@@ -176,6 +181,23 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-closed-operator"><a href="#gl-closed-operator">Closed Operator</a></MdxJumpAnchor></dt>
 <dd>Closed Operator is another term for a <a href="#gl-private-operator">Private Operator</a>.</dd>
 
+<dt><MdxJumpAnchor id="gl-confidential-computing"><a href="#gl-confidential-computing">Confidential Computing (GCP)</a></MdxJumpAnchor></dt>
+<dd>A Confidential Computing solution from Google Cloud Platform (GCP), Confidential Space, is supported for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
+<dd>For details, see <a href="#gl-confidential-space">Confidential Space</a>.</dd>
+<!-- <dd>**new**</dd> -->
+
+<dt><MdxJumpAnchor id="gl-confidential-containers"><a href="#gl-confidential-containers">Confidential containers (Azure)</a></MdxJumpAnchor></dt>
+<dd>Confidential Containers is the name of a secure confidential computing option from Microsoft Azure. Each Confidential Containers implementation runs in a hardware-backed Trusted Execution Environment (TEE) that provides intrinsic capabilities such as data integrity, data confidentiality, and code integrity.</dd>
+<dd>In the context of UID2, Confidential Containers from Azure is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
+<dd>For details, see <a href="../guides/operator-guide-azure-enclave">UID2 Private Operator for Azure Integration Guide</a>.</dd>
+<!-- <dd>**new**</dd> -->
+
+<dt><MdxJumpAnchor id="gl-confidential-space"><a href="#gl-confidential-space">Confidential Space (GCP)</a></MdxJumpAnchor></dt>
+<dd>Confidential Space is one of the Confidential Computing options from Google Cloud Platform (GCP). Confidential Space offers a secure enclave environment, known as a Trusted Execution Environment (TEE).</dd>
+<dd>In the context of UID2, GCP Confidential Space is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
+<dd>For details, see <a href="../guides/operator-private-gcp-confidential-space">UID2 Private Operator for GCP Integration Guide</a>.</dd>
+<!-- <dd>**new**</dd> -->
+
 <dt><MdxJumpAnchor id="gl-core-service"><a href="#gl-core-service">Core Service</a></MdxJumpAnchor></dt>
 <dd>The UID2 Core Service is a centralized service that manages access to <a href="#gl-salt">salts</a>, encryption keys, and other relevant data in the UID2 ecosystem.</dd>
 <dd>For an overview of all the UID2 services, see <a href="/docs/intro#components">Components</a>.</dd>
@@ -207,10 +229,13 @@ import Link from '@docusaurus/Link';
 
 <dl>
 
-<dt><MdxJumpAnchor id="gl-enclave"><a href="#gl-enclave">Enclave</a></MdxJumpAnchor></dt>
-<dd>An enclave is a secure subsection of a computing environment. The enclave has additional business logic and security measures applied to it, to prevent anyone from tampering with it.</dd>
-<dd>In the context of UID2, a <a href="#gl-private-operator">Private Operator</a> must run inside an enclave or in a private environment. For a summary of the enclave versions supported, see <a href="../guides/summary-guides#private-operator-service-integrations">Private Operator Service Integrations</a>.</dd>
+<dt><MdxJumpAnchor id="gl-enclave"><a href="#gl-enclave">Enclave (AWS)</a></MdxJumpAnchor></dt>
+<dd>An enclave is a secure subsection of a computing environment, offered by Amazon Web Services (AWS). The enclave has additional business logic and security measures applied to it, to prevent anyone from tampering with it.</dd>
+<dd>In the context of UID2, the AWS enclave is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
+<dd>The AWS Enclave UID2 Operator solution is enhanced with [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave technology, an additional security measure to help protect UID2 information from unauthorized access.</dd>
 <dd>In an enclave, the operator image must be a very specific, predefined version, and additional constraints are applied to ensure security.</dd>
+<dd>For details, see <a href="../guides/operator-guide-aws-marketplace">UID2 Private Operator for AWS Integration Guide</a>.</dd>
+<!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-encryption-key"><a href="#gl-encryption-key">Encryption key</a></MdxJumpAnchor></dt>
 <dd>Each <a href="#gl-uid2-token">UID2 token</a> is encrypted using an encryption key that's unique to the publisher that requested the token. The key identifies the publisher and is required for decrypting the token. This helps ensure that UID2 tokens cannot be decrypted by unauthorized individuals.</dd>
@@ -364,6 +389,11 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-secret"><a href="#gl-secret">Secret</a></MdxJumpAnchor></dt>
 <dd>See <a href="#gl-client-secret">client secret</a>.</dd>
+
+<dt><MdxJumpAnchor id="gl-secure-computing-environment"><a href="#gl-secure-computing-environment">Secure computing environment</a></MdxJumpAnchor></dt>
+<dd>In general, a secure computing environment has additional business logic and security measures applied to it, to prevent anyone from tampering with it.</dd>
+<dd>In the context of UID2, a <a href="#gl-private-operator">Private Operator</a> must run inside a secure computing environment. For a summary of the supported environments, see <a href="../guides/summary-guides#private-operator-service-integrations">Private Operator Service Integrations</a>.</dd>
+<!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-secure-signals"><a href="#gl-secure-signals">Secure Signals</a></MdxJumpAnchor></dt>
 <dd>A feature of Google Ad Manager. The secure signals feature (previously known as Encrypted Signals for Publishers, abbreviated to ESP) allows publishers to securely share signals with trusted third-party buying partners. It allows publishers to pass "encrypted" user IDs to bidders that are approved by Google, via <a href="https://admanager.google.com/home/">Google Ad Manager</a> and the <a href="https://support.google.com/admanager/answer/6321605?hl=en">Google Ad Manager Ad Exchange (AdX)</a>.</dd>
