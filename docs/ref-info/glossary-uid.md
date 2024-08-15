@@ -229,13 +229,10 @@ import Link from '@docusaurus/Link';
 
 <dl>
 
-<dt><MdxJumpAnchor id="gl-enclave"><a href="#gl-enclave">Enclave (AWS)</a></MdxJumpAnchor></dt>
-<dd>An enclave is a secure subsection of a computing environment, offered by Amazon Web Services (AWS). The enclave has additional business logic and security measures applied to it, to prevent anyone from tampering with it.</dd>
-<dd>In the context of UID2, the AWS enclave is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
-<dd>The AWS Enclave UID2 Operator solution is enhanced with [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave technology, an additional security measure to help protect UID2 information from unauthorized access.</dd>
+<dt><MdxJumpAnchor id="gl-enclave"><a href="#gl-enclave">Enclave</a></MdxJumpAnchor></dt>
+<dd>An enclave is a secure subsection of a computing environment. The enclave has additional business logic and security measures applied to it, to prevent anyone from tampering with it.</dd>
+<dd>In the context of UID2, a <a href="#gl-private-operator">Private Operator</a> must run inside an enclave or in a private environment. For a summary of the enclave versions supported, see <a href="../overviews/overview-operators-private#implementation-resources">Implementation Resources</a>.</dd>
 <dd>In an enclave, the operator image must be a very specific, predefined version, and additional constraints are applied to ensure security.</dd>
-<dd>For details, see <a href="../guides/operator-guide-aws-marketplace">UID2 Private Operator for AWS Integration Guide</a>.</dd>
-<!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-encryption-key"><a href="#gl-encryption-key">Encryption key</a></MdxJumpAnchor></dt>
 <dd>Each <a href="#gl-uid2-token">UID2 token</a> is encrypted using an encryption key that's unique to the publisher that requested the token. The key identifies the publisher and is required for decrypting the token. This helps ensure that UID2 tokens cannot be decrypted by unauthorized individuals.</dd>
@@ -321,7 +318,7 @@ import Link from '@docusaurus/Link';
 <dd>For details, see <a href="../intro#participants">participants</a> and <a href="../ref-info/ref-operators-public-private">The UID2 Operator</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-operator-key"><a href="#gl-operator-key">Operator key</a></MdxJumpAnchor></dt>
-<dd>Each UID2 Private Operator has an operator key that allows the private Operator Service to connect to the Core Service and Opt-Out Service and call some endpoints on it.</dd>
+<dd>Each UID2 Private Operator has an operator key that allows the Private Operator Service to connect to the Core Service and Opt-Out Service and call some endpoints on it.</dd>
 <dd>The operator key identifies the participant Operator to the UID2 service.</dd>
 
 <dt><MdxJumpAnchor id="gl-operator-service"><a href="#gl-operator-service">Operator Service</a></MdxJumpAnchor></dt>
@@ -389,11 +386,6 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-secret"><a href="#gl-secret">Secret</a></MdxJumpAnchor></dt>
 <dd>See <a href="#gl-client-secret">client secret</a>.</dd>
-
-<dt><MdxJumpAnchor id="gl-secure-computing-environment"><a href="#gl-secure-computing-environment">Secure computing environment</a></MdxJumpAnchor></dt>
-<dd>In general, a secure computing environment has additional business logic and security measures applied to it, to prevent anyone from tampering with it.</dd>
-<dd>In the context of UID2, a <a href="#gl-private-operator">Private Operator</a> must run inside a secure computing environment. For a summary of the supported environments, see <a href="../guides/summary-guides#private-operator-service-integrations">Private Operator Service Integrations</a>.</dd>
-<!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-secure-signals"><a href="#gl-secure-signals">Secure Signals</a></MdxJumpAnchor></dt>
 <dd>A feature of Google Ad Manager. The secure signals feature (previously known as Encrypted Signals for Publishers, abbreviated to ESP) allows publishers to securely share signals with trusted third-party buying partners. It allows publishers to pass "encrypted" user IDs to bidders that are approved by Google, via <a href="https://admanager.google.com/home/">Google Ad Manager</a> and the <a href="https://support.google.com/admanager/answer/6321605?hl=en">Google Ad Manager Ad Exchange (AdX)</a>.</dd>

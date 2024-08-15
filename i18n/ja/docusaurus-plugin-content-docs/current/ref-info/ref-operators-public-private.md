@@ -48,7 +48,7 @@ Public Operator の場合、データは参加者のインフラを離れ、オ�
 
 ##  Private Operators
 
-rivate Operator (Closed Operator) は、UID2 Operator のプライベートインスタンスです。これは、特定の組織が、その組織専用に Private Operator をホストすることを意味します。
+rivate Operator は、UID2 Operator のプライベートインスタンスです。これは、特定の組織が、その組織専用に Private Operator をホストすることを意味します。
 
 参加者は誰でも、UID2 を生成および管理する Private Operator になることもできます。ただし、Private Operator になるにはいくつかの追加ステップが必要であり、参加者が提供する必要があるリソースを使用します。
 
