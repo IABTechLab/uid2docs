@@ -60,6 +60,8 @@ Each supported Private Operator implementation must meet rigorous security stand
 
 The following Private Operator integrations are available.
 
+There is no functional difference between the Private Operator versions. Choose the integration type that fits best with your current cloud provider deployments.
+
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
 | AWS | [UID2 Private Operator for AWS Integration Guide](../guides/operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. |
