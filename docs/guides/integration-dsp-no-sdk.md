@@ -156,7 +156,7 @@ For more information about client-side UID2 integration, refer to one of these i
 
 ### Honor User Opt-Out After Token Decryption
 
-After decrypting the token, you must check the resulting raw UID2 against your opt-out records. If it appears on your opt-out records, you must not use it for bidding. It's vital that you honor user opt-out preference.
+After decrypting the token, you must check the resulting raw UID2 against your opt-out records. If it appears on your opt-out records, you must honor the user's opt-out preference, including by not using the UID2 for bidding.
 
 For more information, refer to [Honor User Opt-Outs](dsp-guide.md#honor-user-opt-outs) in the *DSP Integration Guide*.
 
