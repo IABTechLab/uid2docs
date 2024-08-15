@@ -90,7 +90,6 @@ import Link from '@docusaurus/Link';
 <a href="#gl-salt">Salt</a> | 
 <a href="#gl-salted-hash">Salted hash</a> | 
 <a href="#gl-secret">Secret</a> | 
-<a href="#gl-secure-computing-environment">Secure computing environment</a> | 
 <a href="#gl-secure-signals">Secure Signals</a> | 
 <a href="#gl-server-side">Server-side integration</a> | 
 <a href="#gl-sha-256">SHA-256</a> | 
