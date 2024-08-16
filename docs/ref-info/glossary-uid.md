@@ -181,7 +181,7 @@ import Link from '@docusaurus/Link';
 <dd>Closed Operator is another term for a <a href="#gl-private-operator">Private Operator</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-confidential-computing"><a href="#gl-confidential-computing">Confidential Computing (GCP)</a></MdxJumpAnchor></dt>
-<dd>A Confidential Computing solution from Google Cloud Platform (GCP), Confidential Space, is supported for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
+<dd>A Confidential Computing solution from Google Cloud Platform (GCP), Confidential Space, that is supported for hosting a UID2 <a href="#gl-private-operator">Private Operator</a>.</dd>
 <dd>For details, see <a href="#gl-confidential-space">Confidential Space</a>.</dd>
 <!-- <dd>**new**</dd> -->
 
