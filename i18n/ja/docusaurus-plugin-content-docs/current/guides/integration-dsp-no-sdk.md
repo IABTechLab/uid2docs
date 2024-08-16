@@ -94,7 +94,7 @@ This step, which is only for tokens generated on the client side, is additional 
 
 For more information about client-side UID2 integration, refer to one of these integration guides:
 
-- [Client-Side Integration Guide for JavaScript](publisher-client-side.md)
+- [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
 - [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 -->
@@ -150,16 +150,12 @@ For an example of code that does this, refer to the `IsDomainOrAppNameAllowedFor
 
 For more information about client-side UID2 integration, refer to one of these integration guides:
 
-- [Client-Side Integration Guide for JavaScript](publisher-client-side.md)
+- [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
 - [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 
 ### Honor User Opt-Out After Token Decryption
 
-After decrypting the token, you must check the resulting raw UID2 against your opt-out records. If it appears on your opt-out records, you must not use it for bidding. It's vital that you honor user opt-out preference.
+After decrypting the token, you must check the resulting raw UID2 against your opt-out records. If it appears on your opt-out records, you must honor the user's opt-out preference, including by not using the UID2 for bidding.
 
 For more information, refer to [Honor User Opt-Outs](dsp-guide.md#honor-user-opt-outs) in the *DSP Integration Guide*.
-
-:::important
-Honoring user opt-out is equally important in all scenarios. However, the steps are a little different depending on whether the token was generated on the client side or on the server side. Follow the applicable instructions so that all user opt-outs are honored.
-:::
