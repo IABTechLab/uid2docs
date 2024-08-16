@@ -45,7 +45,9 @@ The following diagram outlines the steps required for a user to establish a UID2
 
 If you're using a server-side SDK, the SDK takes care of all the steps that mention endpoints: for example, step 1-d, the publisher sends the user's DII to the token generation service.
 
-![Publisher Flow](images/integration-publisher-server-side-mermaid.svg)
+![Publisher Flow](images/integration-publisher-server-side-mermaid.png)
+
+<!-- diagram source: resource/integration-publisher-server-side-mermaid.md.bak -->
 
 The following sections provide additional details for each step in the diagram:
  

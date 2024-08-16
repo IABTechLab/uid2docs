@@ -49,7 +49,9 @@ If you are using Google Ad Manager and want to use the secure signals feature, f
 
 The following diagram outlines the steps required for establishing a user's UID2 token with a publisher and how the UID2 token integrates with the RTB bidstream.
 
-![Publisher Flow](images/integration-javascript-client-server-mermaid.svg)
+![Publisher Flow](images/integration-javascript-client-server-mermaid.png)
+
+<!-- diagram source: resource/integration-javascript-client-server-mermaid.md.bak -->
 
 The following sections provide additional details for each step in the diagram:
  
