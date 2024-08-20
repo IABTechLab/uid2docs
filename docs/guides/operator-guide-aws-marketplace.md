@@ -119,7 +119,7 @@ The following table lists all resources that are created during the [deployment]
 
 Here's what you can customize during or after the [deployment](#deployment):
 
-- VPC: You need to set up a new VPC and subnets.
+- VPC: Existing VPC and VPC Subnet IDs need to be specified.
 - Root volume size (8G Minimum)
 - SSH key: This is the SSH key that you use to access the UID2 Operator EC2 instances.
 - [Instance type](https://aws.amazon.com/ec2/instance-types/m5/): m5.2xlarge, m5.4xlarge, and so on. If there is no customization, the default value, m5.2xlarge, is recommended.
