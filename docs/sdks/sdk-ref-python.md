@@ -258,7 +258,7 @@ The below examples are valid timestamp strings.
    if identity_buckets_response.buckets:
        for bucket in identity_buckets_response.buckets:
            bucket_id = bucket.get_bucket_id()         # example "bucket_id": "a30od4mNRd"
-           last_updated = bucket.get_last_updated()   # example "last_updated" "2024-06-05T22:52:03.109"
+           last_updated = bucket.get_last_updated()   # example "last_updated" "2024-08-19T22:52:03.109"
    else:
        print("No bucket was returned")
    ```
