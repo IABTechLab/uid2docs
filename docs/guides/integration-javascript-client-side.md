@@ -43,17 +43,17 @@ To implement, you'll need to complete the following steps:
 
 ## SDK for JavaScript Version
 
-Support for client-side token generation is available in version 3.2 and above of the SDK. 
+Support for client-side token generation is available in version 3.4.5 and above of the SDK. 
 
 The URL for the SDK is:
 
-- [https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js](https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js)
+- [https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js](https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js)
 
 In the following code examples, the placeholder `{{ UID2_JS_SDK_URL }}` refers to this URL.
 
 If you want to use a debug build of the SDK, use the following URL instead:
 
-- [https://cdn.integ.uidapi.com/uid2-sdk-3.2.0.js](https://cdn.integ.uidapi.com/uid2-sdk-3.2.0.js)
+- [https://cdn.integ.uidapi.com/uid2-sdk-3.4.5.js](https://cdn.integ.uidapi.com/uid2-sdk-3.4.5.js)
 
 ## Sample Implementation Website
 
