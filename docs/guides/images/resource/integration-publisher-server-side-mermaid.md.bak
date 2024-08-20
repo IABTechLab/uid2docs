@@ -1,0 +1,66 @@
+<!-- 8/15/24: update to change UID2 Service to UID2 Operator per 2503: -->
+
+<!-- 8/15/24: Code: Updated UID2 Service > UID2 Operator. But also had to replicate as I only had an earlier version of this source file. Only the latest code and URL here.-->
+ 
+  sequenceDiagram
+    participant U as User
+    participant P as Publisher
+    participant UID2 as UID2 Operator
+    participant SSP
+
+    Note over U,SSP: 1. Establish Identity
+    U->>+P: 1-a. User visits a publisher asset.
+    P->>-U: 1-b. Publisher provides transparency around its data practices.
+    activate U
+    U->>P: 1-c. User authenticates.
+    deactivate U
+    activate P
+    P->>UID2: 1-d. Publisher sends the user's DII to the token generation service.
+    deactivate P
+    activate UID2
+    UID2->>P: 1-e. Token generation service returns a UID2 token.
+    deactivate UID2
+    activate P
+    P->>U: 1-f. Publisher sets a UID2 for the user.
+    deactivate P
+
+    Note over U,SSP: 2. Bid Using UID2 Token
+    P->>SSP: 2-a. Publisher calls the SSP for ads using the UID2 token.
+    activate SSP
+    SSP->>P: 2-b. SSP returns ads to display.
+    deactivate SSP
+    activate P
+    P->>U: 2-c. Publisher displays the ads to the user.
+    deactivate P
+
+    Note over U,SSP: 3. Refresh UID2 Token
+    U->>P: 3-a. User returns to a publisher asset.
+    activate P
+    P->>UID2: 3-b. Publisher uses a refresh token to request a new UID2 token for the user.
+    deactivate P
+    activate UID2
+    UID2->>P: 3-c. If the user hasn't opted out, the refresh token service returns a new UID2 token.
+    deactivate UID2
+    activate P
+    P->>U: 3-d. Publisher sets the new UID2 token for the user.
+    deactivate P
+
+    Note over U,SSP: 4. User Logout
+    U->>P: 4-a. User logs out from a publisher asset.
+    activate P
+    P->>U: 4-b. Publisher clears the user's UID2 token.
+    deactivate P
+
+<!-- Config:
+
+{
+  "theme": "forest"
+}
+ -->
+
+<!--  8/15/24: URL:
+
+https://mermaid.live/edit#pako:eNqdVU1v2zAM_SuELz0sMbCkpxx6GLJDgH0Yy3wZfFEt2hHmSJ4kZwiK_veR8ledxCvaXGKJ5OPjIyU9RbmRGG0iAId_GtQ5bpUorThmGuhXC-tVrmqhPaQgHKQO7bUpYVPSPFbKHW7Z0912FaL5_3uNVnhzw22_TzLdbn8zHsGc0EK6oO0NfIzhs_MipICdRO2VP7e-6fLh4QO7LEUcCMJJOeUdCKh7TpTdoY_bgIQClikHPMYjbaitOSmJDrwV2hExkuMMwppGS2A8KTxBWpETY3QdGK9OgtimI5tAJu_IiMYfmG5OTn2QxMuwYZ2MHFkuRpIvWTrUkigeEBpCv3Ow3e3Am7DjzW_UUKJmhZXR5GxPxPU6a3JJnlJ1_OmrLwFj-DkDCRZ9YzWLHLoaUt-obsC9WSAnKabV-QGyMHao82YFM6OyiuGTkiS-0mWLFIoY07ZePC1j4lxUVSsrWUNqQTI3AYN3r4ociISp5R36aIVb8VwxzKARd8yAVK6uxPm6lgFiRqQVD9PItcNp6XbY7xFqHcMPLCzSibqUqZvi9XCk-lIo1dyxmh_h9fSgEU9usu1yt1NLwJavIOfJpPHvC8Vfn4RXZ3nNCu6KAQUOwuk7D6b2KME0fhFMU0rXoz7l9Y5xX18eZt928a0Fz3T0vuvWF1NSTZNW3g-trEzpuGQorDm-rZsMM2llXqGwk-vof_Ik0SI6oj0KJenNeWJ7FlHsEbNoQ59UNvU_izL9TJ50cZr9WefRxtsGFxFdxOUh2hSicrRqarqO-9dq2EWp6Gn52j5q4W1bRPS2_DKm93n-B40ePdk
+
+-->
+

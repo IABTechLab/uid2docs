@@ -124,7 +124,7 @@ February 28, 2024
 
 The Java SDK now supports Advertisers and Data Providers wanting to use the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.
 
-For details, see the updated documentation in the *UID2 SDK for Java Reference Guide*: [Usage for Advertisers and Data Providers](../sdks/uid2-sdk-ref-java.md#usage-for-advertisersdata-providers).
+For details, see the updated documentation in the *SDK for Java Reference Guide*: [Usage for Advertisers and Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers).
 
 ### New: Audience-Specific Documentation Sidebars
 
@@ -144,7 +144,7 @@ To view the custom sidebars, go to [https://unifiedid.com](https://unifiedid.com
 
 January 26, 2024
 
-We've added a new overview guide summarizing the options for publishers using the UID2 SDK for JavaScript for client-side or client-server integration. In addition, the existing guides have been renamed for consistency, with minor updates.
+We've added a new overview guide summarizing the options for publishers using the SDK for JavaScript for client-side or client-server integration. In addition, the existing guides have been renamed for consistency, with minor updates.
 
 For details, see:
 
@@ -154,13 +154,13 @@ For details, see:
 
 <!-- APIDOCS-1924 -->
 
-### New: UID2 SDK for Java, Usage for Publishers Sections
+### New: SDK for Java, Usage for Publishers Sections
 
 January 22, 2024
 
-We've added new sections in the UID2 SDK for Java documentation to help publishers implementing the SDK.
+We've added new sections in the SDK for Java documentation to help publishers implementing the SDK.
 
-For details, see [Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers) in the UID2 SDK for Java Reference Guide.
+For details, see [Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers) in the SDK for Java Reference Guide.
 
 <!-- APIDOCS-1705 -->
 
@@ -208,7 +208,7 @@ For details, see:
 
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
 ### New: Encryption/Decryption Examples in Java and C#
 
@@ -246,11 +246,11 @@ For details, see [UID2 Credentials](../getting-started/gs-credentials.md).
 
 November 21, 2023
 
-The Client-Side Integration Guide for JavaScript is a completely new document at the existing URL, covering a new, simpler way of using the UID2 SDK for JavaScript for a client-side publisher implementation.
+The Client-Side Integration Guide for JavaScript is a completely new document at the existing URL, covering a new, simpler way of using the SDK for JavaScript for a client-side publisher implementation.
 
 For details, see [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md).
 
-The content that was in the previous *UID2 SDK for JavaScript Integration Guide*  is now in a supplementary document for publishers who want to implement the JavaScript SDK on the server side.
+The content that was in the previous *SDK for JavaScript Integration Guide*  is now in a supplementary document for publishers who want to implement the JavaScript SDK on the server side.
 
 :::note
 This document was updated in January 2024 to [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md), and the JavaScript Standard Integration Guide is now the [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md).
@@ -268,7 +268,7 @@ The content that was in the previous version of the Prebid document is now in a 
 These documents were further updated in later revisions. Updated links are as follows:
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 :::
 
 ### New: Opt-Out
@@ -289,14 +289,14 @@ This service allows you to map DII (email addresses or phone numbers) to raw UID
 
 For details, see [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md).
 
-### New: UID2 SDK for JavaScript Version 3 
+### New: SDK for JavaScript Version 3 
 
 October 10, 2023
 
-Significant documentation updates reflect the enhanced functionality of Version 3 of the UID2 SDK for JavaScript. The new documentation includes a [migration guide](../sdks/sdk-ref-javascript#migration-guide) for those upgrading from an earlier version of the SDK.
+Significant documentation updates reflect the enhanced functionality of Version 3 of the SDK for JavaScript. The new documentation includes a [migration guide](../sdks/sdk-ref-javascript#migration-guide) for those upgrading from an earlier version of the SDK.
 
 For details, see:
--  [UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)
+-  [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)
 -  [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
 ### New: Private Operator Guide for Google Confidential Space 
@@ -377,10 +377,10 @@ We published the following new and updated documents to support use of the new U
 - A set of new pages providing information relating to UID2 sharing, including an overview, use cases, implementation instructions, best practices, and more. See [UID2 Sharing: Overview](../sharing/sharing-overview.md).
 - Updates to the four server-side SDKs to support UID2 sharing:
 
-  - [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers)
-  - [UID2 SDK for C++: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-cplusplus.md#usage-for-uid2-sharers)
-  - [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers)
-  - [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers)
+  - [SDK for C# / .NET: Usage for UID2 Sharers](../sdks/sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers)
+  - [SDK for C++: Usage for UID2 Sharers](../sdks/sdk-ref-cplusplus.md#usage-for-uid2-sharers)
+  - [SDK for Java: Usage for UID2 Sharers](../sdks/sdk-ref-java.md#usage-for-uid2-sharers)
+  - [SDK for Python: Usage for UID2 Sharers](../sdks/sdk-ref-python.md#usage-for-uid2-sharers)
 
 - Updates to the Snowflake feature to support UID2 sharing. See [Snowflake Integration Guide: Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers).
 
@@ -388,14 +388,14 @@ We published the following new and updated documents to support use of the new U
 
 August 3, 2023
 
-A new guide for publishers that provides information about the UID2 SDK for Android, an SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers who need to support Android apps.
+A new guide for publishers that provides information about the SDK for Android, an SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers who need to support Android apps.
 
-For details, see [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md).
+For details, see [SDK for Android Reference Guide](../sdks/sdk-ref-android.md).
 
 ### New: iOS SDK Guide
 
 August 3, 2023
 
-A new guide for publishers that provides information about the UID2 SDK for iOS, an SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers who need to support iOS apps.
+A new guide for publishers that provides information about the SDK for iOS, an SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers who need to support iOS apps.
 
-For details, see [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md).
+For details, see [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md).

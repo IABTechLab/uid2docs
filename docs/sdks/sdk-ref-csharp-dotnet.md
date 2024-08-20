@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for C# / .NET
+title: SDK for C# / .NET
 description: Reference information about the C# / .NET server-side SDK.
 hide_table_of_contents: false
 sidebar_position: 08
@@ -7,9 +7,9 @@ sidebar_position: 08
 
 import Link from '@docusaurus/Link';
 
-# UID2 SDK for C# / .NET Reference Guide
+# SDK for C# / .NET Reference Guide
 
-You can use the UID2 SDK for C# / .NET on the server side to facilitate the following:
+You can use the SDK for C# / .NET on the server side to facilitate the following:
 
 - Encrypting raw UID2s to create UID2 tokens for sharing.
 - Decrypting UID2 tokens to access the raw UID2s.
@@ -18,9 +18,9 @@ You can use the UID2 SDK for C# / .NET on the server side to facilitate the foll
 
 This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using C# / .NET for their server-side coding. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
-| :--- | :--- | :--- | :--- |
-| Supported | Supported | Not supported | Not supported |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
+| :--- | :--- | :--- | :--- | :--- |
+| &#9989; | &#9989; | &#8212; | &#8212; | &#8212; |
 
 ## API Permissions
 
@@ -39,7 +39,7 @@ This documentation is for the UID2 .NET SDK version 5.6.0 and above. The SDK is 
 
 This SDK is in the following open-source GitHub repository:
 
-- [UID2 SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md)
+- [SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md)
 
 The binary is published in this location:
 
@@ -115,7 +115,7 @@ Whether decrypting with the `BidstreamClient` or the `SharingClient`, the SDK re
 
 ## Usage for DSPs
 
-The following instructions provide an example of how you can decode bidstream tokens using the UID2 SDK for .NET as a DSP.
+The following instructions provide an example of how you can decode bidstream tokens using the SDK for .NET as a DSP.
 
 1. Create a `BidstreamClient`:
 
@@ -160,7 +160,7 @@ Advertisers and data providers can use this SDK to share UID2s with other author
 The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
 :::
 
-The following instructions provide an example of how you can implement sharing using the UID2 SDK for C# / .NET, either as a sender or a receiver.
+The following instructions provide an example of how you can implement sharing using the SDK for C# / .NET, either as a sender or a receiver.
 
 1. Create a `SharingClient`:
 

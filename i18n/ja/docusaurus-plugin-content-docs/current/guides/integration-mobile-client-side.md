@@ -23,13 +23,13 @@ import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
 
 このページでは、インテグレーション手順の概要と、追加のドキュメントへのリンクを提供します。
 
-UID2 は、[Android](../sdks/uid2-sdk-ref-android.md) および [iOS](../sdks/uid2-sdk-ref-ios.md) 向けのモバイル SDK を提供しています。各 SDK には以下の機能があります:
+UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref-ios.md) 向けのモバイル SDK を提供しています。各 SDK には以下の機能があります:
 
 - UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (UID2 Token と関連する値) を生成し、ローカルファイルストレージに保存します。
 - UID2 Token を自動的にリフレッシュします。
 
 :::note
-このガイドの、**UID2 mobile SDKs** は、UID2 SDK for Android と UID2 SDK for iOS の両方を含むグループ用語です。
+このガイドの、**UID2 mobile SDKs** は、SDK for Android と SDK for iOS の両方を含むグループ用語です。
 :::
 
 UID2 を Client-Side でインテグレーションするには、以下の手順を完了する必要があります:
@@ -48,8 +48,8 @@ UID2 を Client-Side でインテグレーションするには、以下の手�
 
 このガイドは、次のいずれかの UID2 mobile SDK のバージョン 1.2.0 以上を使用する方法について説明します:
 
-- UID2 SDK for Android
-- UID2 SDK for iOS
+- SDK for Android
+- SDK for iOS
 
 正しい SDK/バージョンをモバイルアプリにインストールする手順については、[Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app) を参照してください。
 
@@ -62,8 +62,8 @@ Android または iOS 向けの適用可能な手順に従ってください:
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
 
-1. [UID2 SDK for Android source code repository on GitHub](https://github.com/IABTechLab/uid2-android-sdk/tree/main) の main ブランチをチェックアウトします。
-1. Android Studio (Jellyfish/v2023.3.1 または UID2 SDK for Android リリース時に必要な Android Gradle Plugin バージョンをサポートする将来のバージョン) で、チェックアウトしたディレクトリを開きます。
+1. [SDK for Android source code repository on GitHub](https://github.com/IABTechLab/uid2-android-sdk/tree/main) の main ブランチをチェックアウトします。
+1. Android Studio (Jellyfish/v2023.3.1 または SDK for Android リリース時に必要な Android Gradle Plugin バージョンをサポートする将来のバージョン) で、チェックアウトしたディレクトリを開きます。
 1. **dev-app** アプリを実行します。
 1. アプリを起動したら、**Client Side** チェックボックスがチェックされていることを確認します。
 1. メールアドレスまたは電話番号を入力し、右側の矢印をクリックします。
@@ -192,8 +192,8 @@ When account setup is complete, you'll receive a [Subscription ID and public key
 
 Mobile SDK をアプリに追加するには、適用可能な以下のドキュメントに従ってください:
 
-- [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
-- [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
+- [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
+- [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
 
 SDK をアプリに追加したら、SDK を使用して UID2 Token を生成する準備が整います。
 
@@ -704,7 +704,7 @@ If the response status indicates that the DII has been opted out of UID2, you mi
 
 ## Optional: UID2 Prebid Mobile SDK Integration
 :::important
-UID2 Prebid Mobile SDK インテグレーションは、Android のみに対応しています。UID2 Prebid Mobile SDK インテグレーションを実装するには、UID2 SDK for Android のバージョン 1.4.0 が必要です。
+UID2 Prebid Mobile SDK インテグレーションは、Android のみに対応しています。UID2 Prebid Mobile SDK インテグレーションを実装するには、SDK for Android のバージョン 1.4.0 が必要です。
 :::
 
 <PrebidMobileSDK />

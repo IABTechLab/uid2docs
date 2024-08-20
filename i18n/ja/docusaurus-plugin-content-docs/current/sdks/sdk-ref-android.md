@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for Android
+title: SDK for Android
 description: Android SDK のリファレンス情報。
 hide_table_of_contents: false
 sidebar_position: 12
@@ -7,9 +7,9 @@ sidebar_position: 12
 
 import Link from '@docusaurus/Link';
 
-# UID2 SDK for Android Reference Guide
+# SDK for Android Reference Guide
 
-UID2 SDK for Android は、以下の用途に使用できます:
+SDK for Android は、以下の用途に使用できます:
 
 - UID2 を使用して Android アプリでクライアント ID を生成または確立します。
 - <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>様に Advertising Token を取得します。
@@ -24,17 +24,17 @@ UID2 SDK for Android は、以下の用途に使用できます:
 
 ## Non-Mobile Android Device Support
 
-この UID2 SDK for Android は、Android プラットフォームの非モバイルデバイスにも使用できます。
+この SDK for Android は、Android プラットフォームの非モバイルデバイスにも使用できます。
 
 ## Functionality
 
 この SDK は、Android デバイス上で動作するアプリで UID2 をサポートしたいパブリッシャー向けに、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
 | Not supported | Not supported | Supported | Supported |
 
-UID2 SDK for Android は、Android アプリに代わって UID2 ID を生成または管理するように設計されています。プラットフォームネイティブの暗号化ツールを使って ID をデバイス上に安全に保存することで、アプリのライフサイクル全体にわたって UID2 ID を持続させることができます。
+SDK for Android は、Android アプリに代わって UID2 ID を生成または管理するように設計されています。プラットフォームネイティブの暗号化ツールを使って ID をデバイス上に安全に保存することで、アプリのライフサイクル全体にわたって UID2 ID を持続させることができます。
 
 デフォルトでは、SDK は有効期限に基づいて UID2 ID を自動的にリフレッシュします。ただし、これを無効にして、実装アプリが UID2 ID のライフサイクルを手動で管理できるようにすることもできます。
 
@@ -47,7 +47,7 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 <!-- As of 7 May 2024 -->
 
-このドキュメントは、UID2 SDK for Android バージョン1.2.0以降用です。
+このドキュメントは、SDK for Android バージョン1.2.0以降用です。
 
 リリースノートの情報については、[https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases) を参照してください。
 
@@ -106,7 +106,7 @@ Maven を使用してインストールするには、`pom.xml` ファイルに�
 
 ## Usage Guidelines
 
-**UID2Manager** シングルトンは、UID2 SDK for Android の主要な開発者 API です。UID2 Token を含む UID2 Identity の保存、リフレッシュ、取得を行います。
+**UID2Manager** シングルトンは、SDK for Android の主要な開発者 API です。UID2 Token を含む UID2 Identity の保存、リフレッシュ、取得を行います。
 
 UDI2Manager シングルトンは使用前に初期化する必要があります。なぜなら:
 
@@ -134,7 +134,7 @@ UID2 Mobile SDK は、UID2 identifier が確立された後に UID2 identities �
 
 ## Code Samples
 
-以下のコードサンプルは、UID2 SDK for Android を使用して具体的なアクティビティを実行する例を示しています。
+以下のコードサンプルは、SDK for Android を使用して具体的なアクティビティを実行する例を示しています。
 
 初期の UID2 Identity を生成します ([Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照してください):
 ``` javascript

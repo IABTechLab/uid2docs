@@ -2,7 +2,7 @@
 title: Client-Side Integration Guide for JavaScript
 sidebar_label: Client-Side Integration for JavaScript
 pagination_label: Client-Side Integration Guide for JavaScript
-description: Information about using the UID2 SDK for JavaScript in your client-side integration.
+description: Information about using the SDK for JavaScript in your client-side integration.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -28,7 +28,7 @@ This approach is used by the following participant types:
 
 This guide does not apply to publishers who want to use a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, or who want to generate tokens server-side. Those publishers should follow the [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md).
 
-UID2 provides a UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)) with the following features:
+UID2 provides a SDK for JavaScript (see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)) with the following features:
 
 - UID2 token generation
 - Automatic refreshing of UID2 tokens
@@ -41,19 +41,19 @@ To implement, you'll need to complete the following steps:
 3. [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript)
 4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
 
-## UID2 SDK for JavaScript Version
+## SDK for JavaScript Version
 
-Support for client-side token generation is available in version 3.2 and above of the SDK. 
+Support for client-side token generation is available in version 3.4.5 and above of the SDK. 
 
 The URL for the SDK is:
 
-- [https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js](https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js)
+- [https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js](https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js)
 
 In the following code examples, the placeholder `{{ UID2_JS_SDK_URL }}` refers to this URL.
 
 If you want to use a debug build of the SDK, use the following URL instead:
 
-- [https://cdn.integ.uidapi.com/uid2-sdk-3.2.0.js](https://cdn.integ.uidapi.com/uid2-sdk-3.2.0.js)
+- [https://cdn.integ.uidapi.com/uid2-sdk-3.4.5.js](https://cdn.integ.uidapi.com/uid2-sdk-3.4.5.js)
 
 ## Sample Implementation Website
 
@@ -66,12 +66,12 @@ For an example website, see this example:
 
 ## Complete UID2 Account Setup
 
-Complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page. As part of the account setup process, you'll need to provide a list of **domain names** for the sites that you'll be using with this UID2 SDK for JavaScript.
+Complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page. As part of the account setup process, you'll need to provide a list of **domain names** for the sites that you'll be using with this SDK for JavaScript.
 
 When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key).
 
 :::tip
-Only root-level domains are required for account setup. For example, if you're going to use UID2 SDK for JavaScript on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
+Only root-level domains are required for account setup. For example, if you're going to use SDK for JavaScript on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
 
 ## Add SDK For JavaScript to Your Site
@@ -80,7 +80,7 @@ The following code snippet provides an overview of the code you will need to add
 
 For a more detailed code snippet, see [Example Integration Code and When to Pass DII to the UID2 SDK](#example-integration-code-and-when-to-pass-dii-to-the-uid2-sdk).
 
-For the `UID2_JS_SDK_URL` value, see [UID2 SDK for JavaScript Version](#uid2-sdk-for-javascript-version).
+For the `UID2_JS_SDK_URL` value, see [SDK for JavaScript Version](#sdk-for-javascript-version).
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
@@ -113,7 +113,7 @@ window.__uid2.callbacks.push((eventType, payload) => {
 </script>
 ```
 
-For more information about the SDK, see [UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md).
+For more information about the SDK, see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md).
 
 ### Using the UID2 Integration Environment
 
@@ -281,7 +281,9 @@ In some cases, the user's DII is not available on page load, and getting the DII
 You can potentially avoid that cost by checking for an existing token that you can use or refresh. To do this, call
 [__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) which returns a Boolean value. If it returns `true`, this means that the UID2 SDK cannot create a new advertising token with the existing resource and DII is required to generate a brand new UID2 token.
 
-The following code snippet demonstrates how you might integrate with the UID2 SDK for JavaScript for the two scenarios above&#8212;starting with no token as well as reusing/refreshing any existing UID2 token if found. 
+It is possible that when you provide DII, [__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) still returns a `false` value. This happens if the user has opted out of UID2. The UID2 SDK for JavaScript respects the user's optout and does not generate UID2 tokens, even if you call any of the `setIdentity` method calls with the same DII again. Optionally, you might want to avoid making such calls repeatedly.
+
+The following code snippet demonstrates how you might integrate with the UID2 SDK for JavaScript for these two scenarios&#8212;starting with no token, or reusing/refreshing an existing UID2 token.
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
@@ -311,7 +313,7 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
       // The InitCompleted event occurs just once.
       //
       // If there is a valid UID2 token, it is in payload.identity.
-      if (payload.identity) {
+      if (payload?.identity) {
         //
         // payload looks like this:
         // {
@@ -326,25 +328,29 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
         // }
         var advertising_token_to_use = payload.identity.advertising_token;
       } else {
-          if (__uid2.isLoginRequired()) {
+         if (__uid2.isLoginRequired()) {
             // Call one of the setIdentityFrom functions to generate a new UID2 token.
             // Add any retry logic around this call as required.
             await __uid2.setIdentityFromEmailHash(
                 emailHash,
-                clientSideConfig
-          );
+                clientSideConfig);
+          }  
           else {
-            // there is a token generation API call in flight which triggers
-            // a IdentityUpdated event 
+            // there is a token generation API call in flight which triggers a IdentityUpdated event 
+            // or no token would be generated because one of previous `setIdentity` calls determines the DII has opted out.
           }
-        }
       }
       break;
  
     case "IdentityUpdated":
       // The IdentityUpdated event happens when a UID2 token is generated or refreshed.
       // See previous comment for an example of how the payload looks.
-      var advertising_token_to_use = payload.identity.advertising_token;
+      // It's possible that payload/identity objects could be null for reasons such as the token
+      // expired and cannot be refreshed, or the user opted out of UID2. 
+      // Check that the advertising token exists before using it.
+      if (payload?.identity?.advertising_token) {
+          var advertising_token_to_use = payload.identity.advertising_token;
+      }
       break;
   }
 });

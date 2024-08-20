@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for C++
+title: SDK for C++
 description: C++ Server-Side SDK のリファレンス情報。
 hide_table_of_contents: false
 sidebar_position: 10
@@ -7,7 +7,7 @@ sidebar_position: 10
 
 import Link from '@docusaurus/Link';
 
-# UID2 SDK for C++ Reference Guide
+# SDK for C++ Reference Guide
 
 UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2 にアクセスしやすくなります。
 
@@ -19,7 +19,7 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 
 このSDKは、Server-Sideのコーディングに C++ を使用している DSP または UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
 | Supported | Supported | Not supported | Not supported |
 
@@ -39,7 +39,7 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 この SDK は以下のオープンソースの GitHub リポジトリにあります:
 
-- [UID2 SDK for C++](https://github.com/IABTechLab/uid2-client-cpp11/blob/master/README.md).
+- [SDK for C++](https://github.com/IABTechLab/uid2-client-cpp11/blob/master/README.md).
 
 Release tags は以下の GitHub で入手できますが、バイナリーは自分でビルドする必要があります:
 
@@ -109,7 +109,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Partic
 
  使用例については [com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` メソッド) を参照してください。
  
- 次の手順では、UID2 SDK for C++ を送信者または受信者として使用して共有を実装する方法の例を示します。
+ 次の手順では、SDK for C++ を送信者または受信者として使用して共有を実装する方法の例を示します。
 
 1. ```IUID2Client``` 共有ポインタを作成します:
  

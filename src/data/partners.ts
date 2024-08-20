@@ -193,6 +193,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Caddle",
+    logo: "Caddle_ColourLogo_Horizontal.webp",
+    type: ["DSP"],
+  },
+  {
     name: "Cadent",
     logo: "cadent.png",
     type: ["DSP"],
@@ -299,6 +304,11 @@ export const partnersData: PartnersDataType = [
     type: ["Data"],
     featured: true,
     order: 8,
+  },
+  {
+    name: "Fox",
+    logo: "FOX_wordmark.svg",
+    type: ["Publishers"],
   },
   {
     name: "FPT Play",
@@ -637,6 +647,11 @@ export const partnersData: PartnersDataType = [
     order: 16,
   },
   {
+    name: "Pandora",
+    logo: "Pandora_wordmark.svg.png",
+    type: ["Publishers"],
+  },
+  {
     name: "Pass3",
     logo: "PASS3_Logo-02.png",
     type: ["DSP"],
@@ -693,6 +708,16 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "RevOptimal",
+    logo: "RevOptimal.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "Roku",
+    logo: "Roku-Logo.png",
+    type: ["Publishers"],
+  },
+  {
     name: "Rolling Stone",
     logo: "Rolling-Stone_logo-580x250.png",
     type: ["Publishers"],
@@ -717,6 +742,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "SCA",
     logo: "PartnerLogo_SCA_256x256.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "Scripps",
+    logo: "scripps.jpeg",
     type: ["Publishers"],
   },
   {

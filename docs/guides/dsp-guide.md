@@ -26,7 +26,9 @@ The following describes the integration workflow for DSP to support UID2 as part
 1. [Honor user opt-outs](#honor-user-opt-outs)
 2. [Decrypt UID2 tokens for RTB use](#decrypt-uid2-tokens-for-rtb-use)
 
-![DSP Flow](https://mermaid.ink/svg/eyJjb2RlIjoiICBzZXF1ZW5jZURpYWdyYW1cbiAgICBwYXJ0aWNpcGFudCBVIGFzIFVzZXJcbiAgICBwYXJ0aWNpcGFudCBTU1BcbiAgICBwYXJ0aWNpcGFudCBEU1BcbiAgICBwYXJ0aWNpcGFudCBVSUQyIGFzIFVJRDIgU2VydmljZVxuICAgIHBhcnRpY2lwYW50IFRDIGFzIFRyYW5zcGFyZW5jeSAmIENvbnNlbnQgUG9ydGFsXG4gICAgTm90ZSBvdmVyIFUsVEM6IDEuIEhvbm9yIHVzZXIgb3B0LW91dHMuXG4gICAgVS0-PlRDOiAxLWEuIFVzZXIgb3B0cyBvdXQuXG4gICAgYWN0aXZhdGUgVENcbiAgICBUQy0-PlVJRDI6IDEtYi4gVUlEMiBzZXJ2aWNlIHJlY2VpdmVzIG9wdC1vdXQuXG4gICAgZGVhY3RpdmF0ZSBUQ1xuICAgIGFjdGl2YXRlIFVJRDJcbiAgICBVSUQyLT4-RFNQOiAxLWMuIERTUCByZWNlaXZlcyBvcHQtb3V0LlxuICAgIGRlYWN0aXZhdGUgVUlEMlxuICAgIE5vdGUgb3ZlciBVLFRDOiAyLiBEZWNyeXB0IFVJRDIgdG9rZW5zIHRvIHVzZSBpbiBSVEIuXG4gICAgU1NQLS0-PkRTUDogVGhlIFNTUCBjYWxscyBhIERTUCBmb3IgYmlkLlxuICAgIERTUC0-PkRTUDogMi1hLiBEZWNyeXB0IFVJRDIgdG9rZW5zLlxuICAgIERTUC0-PkRTUDogMi1iLiBFeGVjdXRlIGJpZGRpbmcgbG9naWMsIGhvbm9yaW5nIHVzZXIgb3B0LW91dHMuXG4iLCJtZXJtYWlkIjp7InRoZW1lIjoiZm9yZXN0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
+![DSP Flow](images/dsp-guide-flow-mermaid.png)
+
+<!-- diagram source: resource/dsp-guide-flow-mermaid.md.bak -->
 
 ### Honor User Opt-Outs
 
@@ -83,7 +85,7 @@ The following table provides details for Step 2 of the workflow diagram shown in
 ## Recommendations for Managing Latency
 
 :::note 
-This section refers to the example code in [Usage for DSPs](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-dsps) in the *UID2 SDK for C# / .NET Reference Guide*. The method names are similar for the [Java](../sdks/uid2-sdk-ref-java.md#usage-for-dsps), [Python](../sdks/uid2-sdk-ref-python#usage-for-dsps), and [C++](../sdks/uid2-sdk-ref-cplusplus.md#interface) SDKs.
+This section refers to the example code in [Usage for DSPs](../sdks/sdk-ref-csharp-dotnet.md#usage-for-dsps) in the *SDK for C# / .NET Reference Guide*. The method names are similar for the [Java](../sdks/sdk-ref-java.md#usage-for-dsps), [Python](../sdks/sdk-ref-python#usage-for-dsps), and [C++](../sdks/sdk-ref-cplusplus.md#interface) SDKs.
 :::
 
 For a low latency/high throughput setup, follow these recommendations:

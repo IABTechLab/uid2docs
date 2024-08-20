@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for Python
+title: SDK for Python
 description: Reference information about the Python server-side SDK.
 hide_table_of_contents: false
 sidebar_position: 06
@@ -7,9 +7,9 @@ sidebar_position: 06
 
 import Link from '@docusaurus/Link';
 
-# UID2 SDK for Python Reference Guide
+# SDK for Python Reference Guide
 
-You can use the UID2 SDK for Python on the server side to facilitate the following:
+You can use the SDK for Python on the server side to facilitate the following:
 
 - Generating UID2 advertising tokens
 - Refreshing UID2 advertising tokens
@@ -20,9 +20,9 @@ You can use the UID2 SDK for Python on the server side to facilitate the followi
 
 This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using Python for their server-side coding. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a Raw UID2       |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s       |
 | :--- | :--- | :--- | :--- | :--- |
-| Supported | Supported | Supported | Supported | Supported |
+| &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
 
 ## API Permissions
 
@@ -40,7 +40,7 @@ The SDK supports Python 3.6 and above.
 
 This SDK is in the following open-source GitHub repository:
 
-- [UID2 SDK for Python](https://github.com/IABTechLab/uid2-client-python/blob/master/README.md)
+- [SDK for Python](https://github.com/IABTechLab/uid2-client-python/blob/master/README.md)
 
 The package is published in this location:
 
@@ -239,7 +239,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
 
 ## Usage for DSPs
 
-The following instructions provide an example of how you can decode <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> tokens using the UID2 SDK for Python as a DSP.
+The following instructions provide an example of how you can decode <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> tokens using the SDK for Python as a DSP.
 
 1. Create a `BidstreamClient`:
 
@@ -279,7 +279,7 @@ Advertisers and data providers can use this SDK to share UID2s with other author
 The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
 :::
 
-The following instructions provide an example of how you can implement sharing using the UID2 SDK for Python, either as a sender or a receiver.
+The following instructions provide an example of how you can implement sharing using the SDK for Python, either as a sender or a receiver.
 
 1. Create a `SharingClient`:
 

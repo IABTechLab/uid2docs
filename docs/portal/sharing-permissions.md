@@ -13,7 +13,7 @@ Configuring your sharing permissions opens the door to you being able to share U
 
 There are many options to help you create the exact sharing relationships that you want:
 
-- **Recommendations**: You can accept recommendations, with one click, to share with all current and future participants in one or more categories (Publishers, Advertisers, DSPs, or Data Providers). See [Bulk Add Sharing Permissions](#bulk-add-sharing-permissions).
+- **Recommendations**: You can accept recommendations, with one click, to share with all current and future participants in one or more categories (Publishers, Advertisers, DSPs, or Data Providers). See [Add Sharing Permissions&#8212;Bulk](#add-sharing-permissionsbulk).
 
   Recommendations are based on the participant type specified in your account setup.
 - **Sharing Categories**: You can share with all current and future participants in one or more specific categories that you configure (Publishers, Advertisers, DSPs, or Data Providers).
@@ -39,7 +39,7 @@ The following sharing options are available via the UID2 Portal. These options a
 
 - You can automatically grant permission to all participants of a specific type, such as all publishers, advertisers, DSPs, or data providers. For example, we recommend that publishers grant sharing permission to all DSPs.
 
-  If you choose this option, all new participants of the selected participant type will automatically have permission to decrypt any data that you send to them. See [Bulk Add Sharing Permissions](#bulk-add-sharing-permissions).
+  If you choose this option, all new participants of the selected participant type will automatically have permission to decrypt any data that you send to them. See [Add Sharing Permissions&#8212;Bulk](#add-sharing-permissionsbulk).
 
 - You can grant permission to one or more specific participants. See [Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships).
  

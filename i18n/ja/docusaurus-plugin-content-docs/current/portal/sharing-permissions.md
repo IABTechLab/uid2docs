@@ -13,7 +13,7 @@ Sharing permissions (共有権限) を設定することで、他の UID2 参加
 
 適切な共有関係を作成するのに役立つ多くのオプションがあります:
 
-- **Recommendations**: 1つ以上のカテゴリ (パブリッシャー、広告主、DSP、またはデータプロバイダー) の現在および将来の参加者全員と共有するための推奨を、ワンクリックで受け入れることができます。 [Bulk Add Sharing Permissions](#bulk-add-sharing-permissions) を参照してください。
+- **Recommendations**: 1つ以上のカテゴリ (パブリッシャー、広告主、DSP、またはデータプロバイダー) の現在および将来の参加者全員と共有するための推奨を、ワンクリックで受け入れることができます。 [Add Sharing Permissions&#8212;Bulk](#add-sharing-permissionsbulk) を参照してください。
 
   Recommendations は、アカウント設定で指定した参加者のタイプに基づいています。
 - **Sharing Categories**: 設定した1つ以上の特定のカテゴリ (パブリッシャー、広告主、DSP、またはデータプロバイダー) のすべての現在および将来の参加者と共有することができます。
@@ -39,13 +39,13 @@ UID2 Portal では、以下の共有オプションを利用できます。こ�
 
 - すべてのパブリッシャー、広告主、DSP、データプロバイダーなど、特定のタイプの参加者全員に自動的に許可を与えることができます。例えば、パブリッシャーはすべての DSP に共有許可を与えることを勧めます。
 
-  このオプションを選択すると、選択した参加者タイプのすべての新規参加者に、送信したデータを復号化する権限が自動的に付与されます。[Bulk Add Sharing Permissions](#bulk-add-sharing-permissions) を参照してください。
+  このオプションを選択すると、選択した参加者タイプのすべての新規参加者に、送信したデータを復号化する権限が自動的に付与されます。[Add Sharing Permissions&#8212;Bulk](#add-sharing-permissionsbulk) を参照してください。
 
 - 1人以上の特定の参加者に権限を付与できます。[Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships) を参照してください。
  
 共有許可は、UID2 Portal でいつでも更新できます。
 
-## Bulk Add Sharing Permissions
+## Add Sharing Permissions&#8212;Bulk
 
 UID2 Portal は、あなたの役割に基づいて推奨を行います。例えば:
 - パブリッシャーであれば、すべてのDSP (現在および将来) と共有できます。

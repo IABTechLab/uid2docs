@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for JavaScript (2.x and earlier versions)
+title: SDK for JavaScript (2.x and earlier versions)
 description: Reference information about earlier versions of the JavaScript client-side SDK.
 hide_table_of_contents: false
 sidebar_position: 02
@@ -7,10 +7,10 @@ sidebar_position: 02
 
 import Link from '@docusaurus/Link';
 
-# UID2 SDK for JavaScript Reference Guide (2.x and earlier versions)
+# SDK for JavaScript Reference Guide (2.x and earlier versions)
 
 :::tip
-This documentation is for earlier versions of the UID2 SDK for JavaScript. If you're using an earlier version, we recommend upgrading. See [UID2 SDK for JavaScript Reference Guide](sdk-ref-javascript.md), which includes a migration guide.
+This documentation is for earlier versions of the SDK for JavaScript. If you're using an earlier version, we recommend upgrading. See [SDK for JavaScript Reference Guide](sdk-ref-javascript.md), which includes a migration guide.
 :::
 
 Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). 
@@ -22,9 +22,9 @@ Use this SDK to facilitate the process of establishing client identity using UID
 
 This SDK simplifies integration with UID2 for any publishers who want to support UID2. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
-| :--- | :--- | :--- | :--- |
-| Not supported | Not supported | Not supported | Supported |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
+| :--- | :--- | :--- | :--- | :--- |
+| &#8212; | &#8212; | &#8212; | &#9989; | &#8212; |
 
 ## API Permissions
 
@@ -36,7 +36,7 @@ For details, see [API Permissions](../getting-started/gs-permissions.md).
 
 ## SDK Version
 
-This documentation is for version 2 of the UID2 SDK for JavaScript.
+This documentation is for version 2 of the SDK for JavaScript.
 
 ## GitHub Repository
 

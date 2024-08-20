@@ -118,7 +118,7 @@ UID2 Portal の API Keys ページでは、UID2 アカウントの API Key、関
 
 Java SDKは、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントの使用を希望する広告主およびデータプロバイダーをサポートするようになりました。
 
-詳細については、*UID2 SDK for Javaリファレンスガイド*: [Usage for Advertisers and Data Providers](../sdks/uid2-sdk-ref-java.md#usage-for-advertisersdata-providers) の更新されたドキュメントを参照してください。
+詳細については、*SDK for Javaリファレンスガイド*: [Usage for Advertisers and Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) の更新されたドキュメントを参照してください。
 
 ### New: Audience-Specific Documentation Sidebars
 
@@ -138,7 +138,7 @@ UID2 home page の "ドキュメント" リンクをクリックするだけで�
 
 26 January 2024
 
-パブリッシャーが UID2 SDK for JavaScript を Client-Side または Server-Side のインテグレーションに使用する際のオプションをまとめた、新しい概要ガイドを追加しました。さらに、既存のガイドの名称を変更して一貫性を持たせ、マイナーアップデートを行いました。
+パブリッシャーが SDK for JavaScript を Client-Side または Server-Side のインテグレーションに使用する際のオプションをまとめた、新しい概要ガイドを追加しました。さらに、既存のガイドの名称を変更して一貫性を持たせ、マイナーアップデートを行いました。
 
 詳細は以下を参照してください:
 
@@ -148,13 +148,13 @@ UID2 home page の "ドキュメント" リンクをクリックするだけで�
 
 <!-- APIDOCS-1924 -->
 
-### New: UID2 SDK for Java, Usage for Publishers Sections
+### New: SDK for Java, Usage for Publishers Sections
 
 22 January 2024
 
-UID2 SDK for Java のドキュメントに、SDK を実装するパブリッシャーに役立つ新しいセクションを追加しました。
+SDK for Java のドキュメントに、SDK を実装するパブリッシャーに役立つ新しいセクションを追加しました。
 
-詳細は UID2 SDK for Java Reference Guide の [Usage for Publishers](../sdks/uid2-sdk-ref-java.md#usage-for-publishers) を参照してください。
+詳細は SDK for Java Reference Guide の [Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers) を参照してください。
 
 <!-- APIDOCS-1705 -->
 
@@ -202,7 +202,7 @@ UID2 Operator が何をするのか、Public Operator と Private Operator の�
 
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
 ### New: Encryption/Decryption Examples in Java and C#
 
@@ -240,11 +240,11 @@ UID2 ウェブサイトの Getting Started セクションに新しい記事が�
 
 21 November 2023
 
-Client-Side Integration Guide for JavaScript は、既存の URL の全く新しいドキュメントで、Client-Sideパブリッシャー実装のために UID2 SDK for JavaScript を使用する、よりシンプルな新しい方法を網羅しています。
+Client-Side Integration Guide for JavaScript は、既存の URL の全く新しいドキュメントで、Client-Sideパブリッシャー実装のために SDK for JavaScript を使用する、よりシンプルな新しい方法を網羅しています。
 
 詳細は [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を参照してください。
 
-以前の *UID2 SDK for JavaScript Integration Guide* にあった内容は、JavaScript SDK を Server-Side に実装したいパブリッシャーのための補足文書になりました: [JavaScript Standard Integration Guide](../guides/integration-javascript-client-server.md).
+以前の *SDK for JavaScript Integration Guide* にあった内容は、JavaScript SDK を Server-Side に実装したいパブリッシャーのための補足文書になりました: [JavaScript Standard Integration Guide](../guides/integration-javascript-client-server.md).
 
 :::note
 このドキュメントは2024年1月に [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) に更新され、JavaScript Standard Integration Guide は[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) になりました。
@@ -262,7 +262,7 @@ UID2 Client-Side Integration Guide for Prebid.js は、既存の URL にまっ�
 これらのドキュメントは、その後の改訂でさらに更新されました。更新されたリンクは以下のとおりです:
 - [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 :::
 
 ### New: Opt-Out
@@ -283,14 +283,14 @@ UID2 Client-Side Integration Guide for Prebid.js は、既存の URL にまっ�
 
 詳細は [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) を参照してください。
 
-### New: UID2 SDK for JavaScript Version 3 
+### New: SDK for JavaScript Version 3 
 
 10 October 2023
 
-UID2 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメントが大幅に更新されました。新しいドキュメントには、以前のバージョンの SDK からのアップグレードのための [Migration Guide](../sdks/sdk-ref-javascript#migration-guide) が含まれています。
+SDK for JavaScript Version 3 の機能強化に伴い、ドキュメントが大幅に更新されました。新しいドキュメントには、以前のバージョンの SDK からのアップグレードのための [Migration Guide](../sdks/sdk-ref-javascript#migration-guide) が含まれています。
 
 詳細は以下を参照してください:
--  [UID2 SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)
+-  [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)
 -  [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
 ### New: Private Operator Guide for Google Confidential Space 
@@ -373,10 +373,10 @@ UID2 アカウントを管理できる新しい UID2 Portal ユーザーイン�
 - 概要、使用例、実装手順、ベストプラクティスなど、UID2 Sharing に関連する情報を提供する一連の新しいページ。[UID2 Sharing: Overview](../sharing/sharing-overview.md) を参照してください。
 - UID2 Sharing をサポートするために4つの Server-side SDK を更新しました:
 
-  - [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers)
-  - [UID2 SDK for C++: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-cplusplus.md#usage-for-uid2-sharers)
-  - [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers)
-  - [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers)
+  - [SDK for C# / .NET: Usage for UID2 Sharers](../sdks/sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers)
+  - [SDK for C++: Usage for UID2 Sharers](../sdks/sdk-ref-cplusplus.md#usage-for-uid2-sharers)
+  - [SDK for Java: Usage for UID2 Sharers](../sdks/sdk-ref-java.md#usage-for-uid2-sharers)
+  - [SDK for Python: Usage for UID2 Sharers](../sdks/sdk-ref-python.md#usage-for-uid2-sharers)
 
 - UID2 Sharing をサポートするための Snowflake 機能の更新。[Snowflake Integration Guide: Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers) を参照してください。
 
@@ -384,17 +384,17 @@ UID2 アカウントを管理できる新しい UID2 Portal ユーザーイン�
 
 3 August 2023
 
-パブリッシャー向けの新しいガイドでは、Android アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にする SDK、UID2 SDK for Android に関する情報を提供しています。
+パブリッシャー向けの新しいガイドでは、Android アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にする SDK、SDK for Android に関する情報を提供しています。
 
-詳細は [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md) を参照してください。
+詳細は [SDK for Android Reference Guide](../sdks/sdk-ref-android.md) を参照してください。
 
 ### New: iOS SDK Guide
 
 3 August 2023
 
-パブリッシャー向けの新しいガイドでは、iOS アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にする SDK、UID2 SDK for iOS に関する情報を提供しています。
+パブリッシャー向けの新しいガイドでは、iOS アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にする SDK、SDK for iOS に関する情報を提供しています。
 
-詳細は [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md) を参照してください。
+詳細は [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) を参照してください。
 
 <!-- ### New: Prebid Integration Guide
 
