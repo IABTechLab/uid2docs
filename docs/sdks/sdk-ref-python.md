@@ -20,9 +20,9 @@ You can use the SDK for Python on the server side to facilitate the following:
 
 This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using Python for their server-side coding. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s       |
-| :--- | :--- | :--- | :--- | :--- |
-| &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor rotated salt buckets      |
+| :--- | :--- | :--- | :--- | :--- |:--- |
+| &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
 
 ## API Permissions
 
@@ -209,6 +209,8 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
    If the user has opted out, this method returns `None`, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `token_refresh_response.is_optout()` function.
 
 ## Usage for Advertisers/Data Providers
+### Map DII to raw UID2s
+To mapp email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs.
 1. Create an instance of `IdentityMapClient` as an instance variable.
    ```py
    client = IdentityMapClient(base_url, api_key, client_secret)
@@ -235,6 +237,30 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
     else:
         unmapped_identity = unmapped_identities.get("email1@example.com")
         reason = unmapped_identity.get_reason()
+   ```
+### Monitor rotated salt buckets
+1. Create an instance of `IdentityMapClient` as an instance variable or reuse the one from [Map DII to raw UID2s](#map-dii-to-raw-uid2s) 
+   ```py
+   client = IdentityMapClient(base_url, api_key, client_secret)
+   ```
+2. Call a function that takes the timestamp string as input and generates an `IdentityBucketsResponse` object. The timestamp string should be in ISO 8601 format `YYYY-MM-DD[*HH[:MM[:SS[.fff[fff]]]][+HH:MM[:SS[.ffffff]]]]`.
+The below examples are valid timestamp strings.
+   1. Date in local timezone: `2024-08-18`
+   2. Date and time in UTC: `2024-08-18T14:30:15.123456+00:00`
+   3. Date and time in EST: `2024-08-18T14:30:15.123456-05:00`
+
+   ```py
+      since_timestamp = '2024-08-18T14:30:15+00:00'
+      identity_buckets_response = client.get_identity_buckets(datetime.fromisoformat(since_timestamp))
+   ```
+3. Iterated through the list of rotated salt buckets and extract the bucket_id and last_updated timestamp as follows
+   ```py
+   if identity_buckets_response.buckets:
+       for bucket in identity_buckets_response.buckets:
+           bucket_id = bucket.get_bucket_id()         # example "bucket_id": "a30od4mNRd"
+           last_updated = bucket.get_last_updated()   # example "last_updated" "2024-06-05T22:52:03.109"
+   else:
+       print("No bucket was returned")
    ```
 
 ## Usage for DSPs
