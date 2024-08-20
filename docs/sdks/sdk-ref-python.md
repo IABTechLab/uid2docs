@@ -209,8 +209,11 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
    If the user has opted out, this method returns `None`, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `token_refresh_response.is_optout()` function.
 
 ## Usage for Advertisers/Data Providers
-### Map DII to raw UID2s
-To mapp email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs.
+There are two operations that apply to Advertisers/Data Providers.
+- [Map DII to raw UID2s](#map-dii-to-raw-uid2s)
+- [Monitor Rotated Salt Buckets](#monitor-rotated-salt-buckets)
+### Map DII to Raw UID2s
+To map email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs, follow these steps:
 1. Create an instance of `IdentityMapClient` as an instance variable.
    ```py
    client = IdentityMapClient(base_url, api_key, client_secret)
@@ -238,13 +241,14 @@ To mapp email addresses, phone numbers, or their respective hashes to their raw 
         unmapped_identity = unmapped_identities.get("email1@example.com")
         reason = unmapped_identity.get_reason()
    ```
-### Monitor rotated salt buckets
-1. Create an instance of `IdentityMapClient` as an instance variable or reuse the one from [Map DII to raw UID2s](#map-dii-to-raw-uid2s) 
+### Monitor Rotated Salt Buckets
+To monitor salt buckets, follow these steps:
+1. Create an instance of `IdentityMapClient` as an instance variable or reuse the one from [Map DII to raw UID2s:](#map-dii-to-raw-uid2s)
    ```py
    client = IdentityMapClient(base_url, api_key, client_secret)
    ```
-2. Call a function that takes the timestamp string as input and generates an `IdentityBucketsResponse` object. The timestamp string should be in ISO 8601 format `YYYY-MM-DD[*HH[:MM[:SS[.fff[fff]]]][+HH:MM[:SS[.ffffff]]]]`.
-The below examples are valid timestamp strings.
+2. Call a function that takes the timestamp string as input and generates an `IdentityBucketsResponse` object. The timestamp string should be in ISO 8601 format: `YYYY-MM-DD[*HH[:MM[:SS[.fff[fff]]]][+HH:MM[:SS[.ffffff]]]]`.
+The following examples are valid timestamp strings.
    1. Date in local timezone: `2024-08-18`
    2. Date and time in UTC: `2024-08-18T14:30:15.123456+00:00`
    3. Date and time in EST: `2024-08-18T14:30:15.123456-05:00`
@@ -253,7 +257,7 @@ The below examples are valid timestamp strings.
       since_timestamp = '2024-08-18T14:30:15+00:00'
       identity_buckets_response = client.get_identity_buckets(datetime.fromisoformat(since_timestamp))
    ```
-3. Iterated through the list of rotated salt buckets and extract the bucket_id and last_updated timestamp as follows
+3. Iterate through the list of rotated salt buckets and extract the `bucket_id` and `last_updated` timestamp as follows
    ```py
    if identity_buckets_response.buckets:
        for bucket in identity_buckets_response.buckets:
