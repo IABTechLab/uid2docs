@@ -2,7 +2,7 @@
 title: UID2 Integration Overview for JavaScript
 sidebar_label: UID2 Integration Overview for JavaScript
 pagination_label: UID2 Integration Overview for JavaScript
-description: Overview of options for integrating with the UID2 SDK for JavaScript as part of your UID2 implementation.
+description: Overview of options for integrating with the SDK for JavaScript as part of your UID2 implementation.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Integration Overview for JavaScript
 
-This guide is an overview of integration options for publishers who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) using the UID2 SDK for JavaScript.
+This guide is an overview of integration options for publishers who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) using the SDK for JavaScript.
 
 For a summary of all web options, including Prebid.js and additional SDK options, see [Web Integration Overview](integration-options-publisher-web.md).
 
@@ -27,7 +27,7 @@ For additional flexibility, UID2 also provides alternative methods for some of t
 
 ## Client-Side or Client-Server Integration
 
-The options for integrating with UID2 using the UID2 SDK for JavaScript are summarized in the following table. Choose the option that's best for you.
+The options for integrating with UID2 using the SDK for JavaScript are summarized in the following table. Choose the option that's best for you.
 
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |
@@ -36,18 +36,18 @@ The options for integrating with UID2 using the UID2 SDK for JavaScript are summ
 
 ## Generating the UID2 Token
 
-Depending on access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>, there are two methods to generate UID2 tokens using the UID2 SDK for JavaScript: client-side or server-side.
+Depending on access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>, there are two methods to generate UID2 tokens using the SDK for JavaScript: client-side or server-side.
 
 From the table in [Client-Side or Client-Server Integration](#client-side-or-client-server-integration), determine which option is best for you, and then follow the applicable integration guide.
 
 ## Refreshing the UID2 Token
 
-The UID2 SDK for JavaScript includes automated token refresh.
+The SDK for JavaScript includes automated token refresh.
 
 ## Storing the UID2 Token in the Browser
 <!-- GWH check corresponding (not identical) section in integration-prebid.md, integration-prebid-client-side.md, integration-prebid-client-side.md, for consistency -->
 
-The client-side option stores data using local storage. The client-server option uses local storage by default, but you can also choose to use a cookie instead. For details, see [UID2 Storage Format](../sdks/sdk-ref-javascript.md#uid2-storage-format) in the *UID2 SDK for JavaScript Reference Guide*.
+The client-side option stores data using local storage. The client-server option uses local storage by default, but you can also choose to use a cookie instead. For details, see [UID2 Storage Format](../sdks/sdk-ref-javascript.md#uid2-storage-format) in the *SDK for JavaScript Reference Guide*.
 
 The cookie size can be significant, which could be a problem. However, if local storage is not an option, this is one possible approach.
 
@@ -59,7 +59,7 @@ You can pass the token into the bidstream using any option you choose&#8212;for 
 
 ## JavaScript Integration Overview: High-Level Steps
 
-At a high level, to integrate your site with UID2 using the UID2 SDK for JavaScript, you'll need to complete the following steps:
+At a high level, to integrate your site with UID2 using the SDK for JavaScript, you'll need to complete the following steps:
 
 1. Complete UID2 account setup.
 1. Add the SDK to your site.

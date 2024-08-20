@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for C++
+title: SDK for C++
 description: Reference information about the C++ server-side SDK.
 hide_table_of_contents: false
 sidebar_position: 10
@@ -7,9 +7,9 @@ sidebar_position: 10
 
 import Link from '@docusaurus/Link';
 
-# UID2 SDK for C++ Reference Guide
+# SDK for C++ Reference Guide
 
-You can use the UID2 SDK for C++ on the server side to facilitate decrypting of UID2 tokens to access the raw UID2. 
+You can use the SDK for C++ on the server side to facilitate decrypting of UID2 tokens to access the raw UID2. 
 
 ## Overview
 
@@ -39,7 +39,7 @@ The SDK requires C++ version 11.
 
 This SDK is in the following open-source GitHub repository:
 
-- [UID2 SDK for C++](https://github.com/IABTechLab/uid2-client-cpp11/blob/master/README.md).
+- [SDK for C++](https://github.com/IABTechLab/uid2-client-cpp11/blob/master/README.md).
 
 Release tags are available in the following GitHub location, but you must build your own binaries:
 
@@ -109,7 +109,7 @@ The UID2 token generated during this process is for sharing only&#8212;you canno
 
  For an example of usage, see [com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` method).
 
-The following instructions provide an example of how you can implement sharing using the UID2 SDK for C++, either as a sender or a receiver.
+The following instructions provide an example of how you can implement sharing using the SDK for C++, either as a sender or a receiver.
 
 1. Create an ```IUID2Client``` shared pointer:
  

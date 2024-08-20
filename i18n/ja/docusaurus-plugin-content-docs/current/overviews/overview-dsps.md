@@ -81,10 +81,10 @@ UID2 を実装する DSP には、以下のドキュメントリソースが用�
 
 | Type| Documentation | Content Description |
 | :--- | :--- | :--- |
-| UID2 SDK for Java | [UID2 SDK for Java Reference Guide](../sdks/uid2-sdk-ref-java.md) | Java Server-Side を使用し、UID2 Advertising Token を復号して raw UID2 にアクセスしたい人のための SDK。 |
-| UID2 SDK for Python | [UID2 SDK for Python Reference Guide](../sdks/uid2-sdk-ref-python.md) | Python Server-Side を使用し、UID2 Advertising Token を復号して raw UID2 にアクセスしたい人のための SDK。 |
-| UID2 SDK for C# / .NET | [UID2 SDK for C# / .NET Reference Guide](../sdks/uid2-sdk-ref-csharp-dotnet.md) | .NET Server-Side を使用し、UID2 Advertising Token を復号して raw UID2 にアクセスしたい人のための SDK。 |
-| UID2 SDK for C++ | [UID2 SDK for C++ Reference Guide](../sdks/uid2-sdk-ref-cplusplus.md) | C++ Server-Side を使用し、UID2 Advertising Token を復号して raw UID2 にアクセスしたい人のための SDK。 |
+| SDK for Java | [SDK for Java Reference Guide](../sdks/sdk-ref-java.md) | Java Server-Side を使用し、UID2 Advertising Token を復号して raw UID2 にアクセスしたい人のための SDK。 |
+| SDK for Python | [SDK for Python Reference Guide](../sdks/sdk-ref-python.md) | Python Server-Side を使用し、UID2 Advertising Token を復号して raw UID2 にアクセスしたい人のための SDK。 |
+| SDK for C# / .NET | [SDK for C# / .NET Reference Guide](../sdks/sdk-ref-csharp-dotnet.md) | .NET Server-Side を使用し、UID2 Advertising Token を復号して raw UID2 にアクセスしたい人のための SDK。 |
+| SDK for C++ | [SDK for C++ Reference Guide](../sdks/sdk-ref-cplusplus.md) | C++ Server-Side を使用し、UID2 Advertising Token を復号して raw UID2 にアクセスしたい人のための SDK。 |
 | Integration Guide | [DSP Integration Guide](../guides/dsp-guide.md) | DSP 向けのこのインテグレーションガイドでは、入札のための UID2 の取り扱いと、ユーザーのオプトアウトの受け入れについて説明します。 |
 
 <!-- ## Integration Requirements

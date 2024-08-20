@@ -70,9 +70,9 @@ window.getUid2AdvertisingToken = async () => {
 
 Server Only インテグレーションのためのサンプルアプリケーションも用意されています。[Sample Applications](#sample-applications) を参照してください。
 
-### UID2 SDK for JavaScript Client-Side Integration
+### SDK for JavaScript Client-Side Integration
 
-UID2 SDK for JavaScript バージョン 3.0.0 以降を使用している場合、UID2 セキュアシグナルスクリプトは、SDKで提供されている `getAdvertisingTokenAsync` 関数を使用して新しい Advertising Token を取得し、そのトークンを Google Ad Manager にプッシュします。
+SDK for JavaScript バージョン 3.0.0 以降を使用している場合、UID2 セキュアシグナルスクリプトは、SDKで提供されている `getAdvertisingTokenAsync` 関数を使用して新しい Advertising Token を取得し、そのトークンを Google Ad Manager にプッシュします。
 
 このスクリプトは CDN でホストされており、GPT はセキュアシグナル機能で自動的にロードします。
 
@@ -85,6 +85,6 @@ UID2 SDK for JavaScript バージョン 3.0.0 以降を使用している場合�
 Google Ad Manager のセキュアシグナル機能との連携方法については、以下のサンプルアプリケーションを参照してください:
 
 - [Server-Only UID2 Integration Example](https://secure-signals-srvonly-integ.uidapi.com/)
-- [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
+- [Client-Server UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
 
 各サンプルアプリケーションには独自のインストラクションがあります。

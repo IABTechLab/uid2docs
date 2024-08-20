@@ -55,7 +55,7 @@ Client-Server インテグレーションでは、一部のインテグレーシ
 
 パブリッシャーの Client-Server インテグレーションの例:
 
-- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 - [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)
 

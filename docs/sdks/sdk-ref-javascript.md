@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for JavaScript
+title: SDK for JavaScript
 description: Reference information about the JavaScript client-side SDK.
 hide_table_of_contents: false
 sidebar_position: 02
@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 
-# UID2 SDK for JavaScript Reference Guide
+# SDK for JavaScript Reference Guide
 
 export const New = () => (
   <span className='pill'>NEW IN V3</span>
@@ -21,7 +21,7 @@ Use this SDK to facilitate the process of establishing client identity using UID
 If you're using Prebid.js with the UID2 Identity Module, or with another product that has UID2 support, you probably don't need to use the SDK at all. The Prebid.js module manages everything. For details, see [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
 :::
 
-This page describes version 3 of the UID2 SDK for JavaScript. If you are maintaining an integration using an earlier version, do one of the following:
+This page describes version 3 of the SDK for JavaScript. If you are maintaining an integration using an earlier version, do one of the following:
 - Upgrade your integration, using the [migration guide](#migration-guide) (recommended).
 - Refer to the documentation for [earlier versions of the SDK](./sdk-ref-javascript-v2.md).
 
@@ -55,7 +55,7 @@ For details, see [API Permissions](../getting-started/gs-permissions.md).
 
 ## SDK Version
 
-This documentation is for version 3 of the UID2 SDK for JavaScript.
+This documentation is for version 3 of the SDK for JavaScript.
 
 ## GitHub Repository
 
@@ -73,12 +73,12 @@ The SDK is published in these locations:
 - CDN: `https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js`
   <!-- - This is the easiest way to include the SDK in your site if you don't use a build pipeline to bundle your JavaScript. LP_TODO: This doesn't make sense until we add the NPM option above. -->
 
-  As of the latest update to this document, the most recent version is [3.2.0](https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js). You can also see [the list of available versions](https://cdn.prod.uidapi.com/).
+  As of the latest update to this document, the most recent version is [3.4.5](https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js). You can also see [the list of available versions](https://cdn.prod.uidapi.com/).
 - CDN (Integration): `https://cdn.integ.uidapi.com/uid2-sdk-${VERSION_ID}.js`
 
   This integration URL contains un-minified code and is intended for testing purposes only. Do not use this URL for your production site.
 
-  As of the latest update to this document, the most recent version is [3.2.0](https://cdn.integ.uidapi.com/uid2-sdk-3.2.0.js). You can also see [the list of available versions](https://cdn.integ.uidapi.com/).
+  As of the latest update to this document, the most recent version is [3.4.5](https://cdn.integ.uidapi.com/uid2-sdk-3.4.5.js). You can also see [the list of available versions](https://cdn.integ.uidapi.com/).
 
 ## Terminology
 
@@ -93,7 +93,7 @@ In this document, the following terms apply:
 On every page where you want to use UID2 for targeted advertising, include the following SDK script:
 
 ```html
-<script src="https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js" type="text/javascript"></script> 
+<script src="https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js" type="text/javascript"></script> 
 ```
 
 ### Async or Defer Loading the SDK Script
@@ -108,7 +108,7 @@ If you are using `async` or `defer` script loading on your site, do the followin
    ```html
    <head>
      <!-- ... -->
-     <script async src="https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js" type="text/javascript"></script>
+     <script async src="https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js" type="text/javascript"></script>
      <!-- ... -->
    </head>
    ```
@@ -251,7 +251,7 @@ At any time after `init` has completed, you can call [`setIdentity`](#setidentit
 
 ## API Reference
 
-All interactions with the UID2 SDK for JavaScript are done through the global `__uid2` object, which is an instance of the `UID2` class. All of the following JavaScript functions are members of the `UID2` class: 
+All interactions with the SDK for JavaScript are done through the global `__uid2` object, which is an instance of the `UID2` class. All of the following JavaScript functions are members of the `UID2` class: 
 
 - [constructor()](#constructor)
 - [init()](#initopts-object-void)
@@ -508,7 +508,7 @@ The contents of the `private` object are explicitly unspecified and are left for
 
 ## Migration Guide
 
-This section includes all the information you need to upgrade from an earlier version of the UID2 SDK for JavaScript to the current version, v3. It includes:
+This section includes all the information you need to upgrade from an earlier version of the SDK for JavaScript to the current version, v3. It includes:
 
 - [Benefits of Migrating](#benefits-of-migrating)
 - [Required Changes](#required-changes)

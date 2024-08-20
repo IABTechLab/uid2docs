@@ -12,10 +12,10 @@ import Link from '@docusaurus/Link';
 
 # UID2 Mobile Integration Overview for Android and iOS
 
-This guide is an overview of integration options for mobile app publishers who want to integrate with UID2 using the UID2 SDK for Android or the UID2 SDK for iOS.
+This guide is an overview of integration options for mobile app publishers who want to integrate with UID2 using the SDK for Android or the SDK for iOS.
 
 :::note
-This guide uses the group term **UID2 mobile SDKs** to include both the UID2 SDK for Android and the UID2 SDK for iOS.
+This guide uses the group term **UID2 mobile SDKs** to include both the SDK for Android and the SDK for iOS.
 :::
 
 ## Introduction 
@@ -45,7 +45,7 @@ At a high level, to integrate your mobile app with UID2 using the UID2 mobile SD
 
 1. Client-Server Integration Only: Integrate server-side token generation.
 
-1. Add the UID2 SDK for Android or iOS into your mobile app.
+1. Add the SDK for Android or iOS into your mobile app.
 
 1. Configure the SDK.
 

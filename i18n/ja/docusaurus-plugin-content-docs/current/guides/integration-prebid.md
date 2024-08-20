@@ -39,11 +39,11 @@ DII へのアクセスに応じて、Prebid.js で使用する UID2 Token を生
 | Scenario | Integration Guide |
 | :--- | :--- |
 | Client-Side で DII にアクセスでき、フロントエンドの開発のみを行いたい。 | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
-| Server-Side で DII にアクセスし、Server-Side の開発ができる。 | [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md) |
+| Server-Side で DII にアクセスし、Server-Side の開発ができる。 | [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) |
 
 ### Refreshing the UID2 Token
 
-Prebid.js UID2 Module は、UID2 Token を自動的にリフレッシュすることができます。Prebid.js の外部で手動リフレッシュを実装したい場合は、Server-Side インテグレーションガイドの [Refreshing a UID2 Token](integration-prebid-server-side.md#refreshing-a-uid2-token) を参照してください。Client-Side のインテグレーションソリューションには、トークンの自動リフレッシュが含まれています。
+Prebid.js UID2 Module は、UID2 Token を自動的にリフレッシュすることができます。Prebid.js の外部で手動リフレッシュを実装したい場合は、Server-Side インテグレーションガイドの [Refreshing a UID2 Token](integration-prebid-client-server.md#refreshing-a-uid2-token) を参照してください。Client-Side のインテグレーションソリューションには、トークンの自動リフレッシュが含まれています。
 
 ### Storing the UID2 Token in the Browser
 
@@ -54,11 +54,11 @@ Prebid.js UID2 Module は、UID2 Token を自動的にリフレッシュする�
 UID2 module を設定するには `pbjs.setConfig` を呼び出します。サポートされているパラメータの詳細については、実装に適用されるガイドを参照してください:
 
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md)
 
 UID2 module が設定されると、ユーザーの UID2 Token を管理し、ユーザーのブラウザに保存します。
 
-Client-Side または Server-Side でクライアントリフレッシュモードを使用してトークンを生成する場合、ユーザーのブラウザでサイトが開いている間は、モジュールが自動的にトークンをリフレッシュします。しかし、Server-Side でトークンのリフレッシュを管理するオプションもあります。詳細については、Server-Side インテグレーションガイドの [Refreshing a UID2 Token](integration-prebid-server-side.md#refreshing-a-uid2-token) を参照してください。Client-Side のインテグレーションソリューションには、トークンの自動リフレッシュが含まれています。
+Client-Side または Server-Side でクライアントリフレッシュモードを使用してトークンを生成する場合、ユーザーのブラウザでサイトが開いている間は、モジュールが自動的にトークンをリフレッシュします。しかし、Server-Side でトークンのリフレッシュを管理するオプションもあります。詳細については、Server-Side インテグレーションガイドの [Refreshing a UID2 Token](integration-prebid-client-server.md#refreshing-a-uid2-token) を参照してください。Client-Side のインテグレーションソリューションには、トークンの自動リフレッシュが含まれています。
 
 ### Integration Overview: High-Level Steps
 
@@ -71,7 +71,7 @@ Prebid.js を使ってサイトを UID2 とインテグレーションするに�
 詳細な手順については、以下のインテグレーションガイドのいずれかを参照してください:
 
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md)
 
 ## Prebid Mobile SDK Support for Mobile Devices
 

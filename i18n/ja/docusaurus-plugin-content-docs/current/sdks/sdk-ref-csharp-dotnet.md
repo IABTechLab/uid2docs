@@ -1,5 +1,5 @@
 ---
-title: UID2 SDK for C# / .NET
+title: SDK for C# / .NET
 description: C# / .NET SDK のリファレンス情報。
 hide_table_of_contents: false
 sidebar_position: 08
@@ -7,9 +7,9 @@ sidebar_position: 08
 
 import Link from '@docusaurus/Link';
 
-# UID2 SDK for C# / .NET Reference Guide
+# SDK for C# / .NET Reference Guide
 
-Server-Side で UID2 SDK for C# / .NET を使用すると、以下を簡単に行うことができます:
+Server-Side で SDK for C# / .NET を使用すると、以下を簡単に行うことができます:
 
 - raw UID2 を暗号化して、共有用の UID2 Token を作成。
 - raw UID2 にアクセスするための UID2 Token の復号化。
@@ -39,7 +39,7 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 この SDK は以下のオープンソースの GitHub リポジトリにあります:
 
-- [UID2 SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md)
+- [SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md)
 
 バイナリはこちらに公開されています:
 
@@ -115,7 +115,7 @@ SDK を使用する場合、復号鍵を保存したり管理したりする必�
 
 ## Usage for DSPs
 
-以下では、UID2 SDK for .NET を DSP として使用してビッドストリームトークンをデコードする方法の例を示します。
+以下では、SDK for .NET を DSP として使用してビッドストリームトークンをデコードする方法の例を示します。
 
 1. `BidstreamClient` を作成します:
 
@@ -160,7 +160,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Partic
 このプロセスで生成される UID2 Token は共有専用です&#8212;<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>では使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 :::
 
-以下は、UID2 SDK for C# / .NET を使用して、送信側または受信側として共有を実装する方法の例です。
+以下は、SDK for C# / .NET を使用して、送信側または受信側として共有を実装する方法の例です。
 
 1. `SharingClient` を作成します:
 

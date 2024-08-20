@@ -83,7 +83,7 @@ Server-Side SDK のいずれか ([SDKs: Summary](../sdks/summary-sdks.md) を参
 ## Recommendations for Managing Latency
 
 :::note
-このセクションは、*UID2 SDK for C# / .NET Reference Guide* の [Usage for DSPs](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-dsps) にあるサンプルコードを参照してください。メソッド名は [Java](../sdks/uid2-sdk-ref-java.md#usage-for-dsps)、[Python](../sdks/uid2-sdk-ref-python.md#usage-for-dsps)、および [C++](../sdks/uid2-sdk-ref-cplusplus.md#interface) SDK でも同様です。
+このセクションは、*SDK for C# / .NET Reference Guide* の [Usage for DSPs](../sdks/sdk-ref-csharp-dotnet.md#usage-for-dsps) にあるサンプルコードを参照してください。メソッド名は [Java](../sdks/sdk-ref-java.md#usage-for-dsps)、[Python](../sdks/sdk-ref-python#usage-for-dsps)、および [C++](../sdks/sdk-ref-cplusplus.md#interface) SDK でも同様です。
 :::
 
 低遅延/高スループットのセットアップを行う場合は、以下の推奨事項に従ってください:

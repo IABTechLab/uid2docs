@@ -77,10 +77,10 @@ raw UID2 から UID2 Token を生成して、Tokenized Sharing を行うワー�
 
    | SDK/Integration Tool | Link to Sharing Section |
    | :--- | :--- | 
-   | C# / .NET | [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers) |
-   | C++ | [UID2 SDK for C++: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-cplusplus.md#usage-for-uid2-sharers) |
-   | Java | [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers) |
-   | Python | [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers) |
+   | C# / .NET | [SDK for C# / .NET: Usage for UID2 Sharers](../sdks/sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers) |
+   | C++ | [SDK for C++: Usage for UID2 Sharers](../sdks/sdk-ref-cplusplus.md#usage-for-uid2-sharers) |
+   | Java | [SDK for Java: Usage for UID2 Sharers](../sdks/sdk-ref-java.md#usage-for-uid2-sharers) |
+   | Python | [SDK for Python: Usage for UID2 Sharers](../sdks/sdk-ref-python.md#usage-for-uid2-sharers) |
 
 2. 以下の手順に従って、SDK をコードに組み込み、送信者または受信者の役割に応じて各ステップを実装します。使用している言語のコード例を確認するには、以下の表のリンクを参照してください。
    1. 送信者と受信者: UID2 Client を定義します。

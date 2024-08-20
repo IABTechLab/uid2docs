@@ -21,7 +21,7 @@ To integrate with UID2 using Prebid.js, you'll need to make changes to the HTML 
 
 This implementation requires Prebid.js version 8.21.0 or later. For version information, see [https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases).
 
-If you need to use an earlier version of Prebid.js, use the implementation solution presented in the [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md) instead.
+If you need to use an earlier version of Prebid.js, use the implementation solution presented in the [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) instead.
 
 ## Integration Example
 
@@ -47,7 +47,7 @@ Complete the UID2 account setup by following the steps described in the [Account
 Only root-level domains are required for account setup. For example, if you're going to use UID2 with Prebid.js on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
 
-When account setup is complete, you'll receive a public key and Subscription ID. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key).
+When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key).
 
 ### Add Prebid.js to Your Site
 
