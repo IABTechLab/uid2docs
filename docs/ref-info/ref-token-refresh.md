@@ -37,6 +37,7 @@ Here are some key points about refresh tokens:
   - With a UID2 SDK (see [SDK Functionality](../sdks/summary-sdks.md#sdk-functionality))
   - By calling the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint
   - By using the UID2 Prebid.js module (see [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md))
+- The [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint does not require authentication with your UID2 credentials.
 - When a new UID2 token is generated and returned, a new refresh token is returned along with it.
 - As long as you refresh the token before it expires, you can refresh many times. There is no limit as long as the UID2 token and corresponding refresh token are valid.
 - If you refresh the token, and get a new token before the old one has expired, you can use either the new token or the old one, as long as you use a token that is still valid/has not expired.
