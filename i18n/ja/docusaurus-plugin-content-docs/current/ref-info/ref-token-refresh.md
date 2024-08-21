@@ -18,7 +18,8 @@ For security reasons, the UID2 token has a short life. Along with the UID2 token
 Here are some key points about UID2 tokens:
 
 - The UID2 token is a unique value; no two UID2 tokens are the same.
--  UID2 tokens are case sensitive.
+- UID2 tokens are case sensitive.
+- The token value is opaque: do not make any assumptions about the format or about the length of the string.
 - The token has a limited life, but can be refreshed using the refresh token.
 - The token can be refreshed many times as long as it's always refreshed before expiration.
 - Publishers send UID2 tokens in the bidstream.
@@ -30,6 +31,7 @@ Here are some key points about UID2 tokens:
 Here are some key points about refresh tokens:
 - A refresh token is an opaque string that is issued along with the <a href="glossary-uid#gl-uid2-token">UID2 token</a>.
 - Refresh tokens are case sensitive.
+- The token value is opaque: do not make any assumptions about the format or about the length of the string.
 - You can use the refresh token to generate a new UID2 token before the old one expires.
 - Token refresh can be managed in a variety of ways, such as:
   - With a UID2 SDK (see [SDK Functionality](../sdks/summary-sdks.md#sdk-functionality))
