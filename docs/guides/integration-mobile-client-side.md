@@ -32,6 +32,8 @@ UID2 provides mobile SDKs for [Android](../sdks/sdk-ref-android.md) and [iOS](..
 This guide uses the group term **UID2 mobile SDKs** to include both the SDK for Android and the SDK for iOS.
 :::
 
+For FAQs relating to mobile publisher integrations, see [FAQs for Mobile Integrations](integration-mobile-overview.md#faqs-for-mobile-integrations).
+
 To integrate with UID2 client-side, you'll need to complete the following steps:
 
 1. [Complete the UID2 account setup](#complete-the-uid2-account-setup).
