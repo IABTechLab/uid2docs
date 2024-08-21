@@ -15,7 +15,7 @@ This page provides general information required for you to get your account set 
 
 To get access to the UID2 framework, contact the appropriate team at The Trade Desk listed below. 
 
-If you have an existing relationship with The Trade Desk, the current UID2 Administrator, connect directly with your contact to get started with UID2.
+If you have an existing relationship with The Trade Desk (the current UID2 Administrator), connect directly with your contact to get started with UID2.
 
 :::note
 Contacting The Trade Desk for access is temporary. When the system is moved to independent governance, the governing organizations will manage access requests.
@@ -28,7 +28,7 @@ Contacting The Trade Desk for access is temporary. When the system is moved to i
 
 ## Account Setup Details
 
-Once you've expressed interest in UID2, someone will contact you to help work out the details.
+When you've expressed interest in UID2, someone will contact you to help work out the details.
 
 All participants will need to provide at least the following information:
 * Name
