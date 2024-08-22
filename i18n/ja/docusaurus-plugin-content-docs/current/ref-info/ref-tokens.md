@@ -1,6 +1,6 @@
 ---
 title: UID2 Tokens and Refresh Tokens
-description: Information for publishers about refreshing the UID2 token.
+description: Information for publishers about UID2 tokens and refresh tokens.
 hide_table_of_contents: false
 sidebar_position: 06
 ---

@@ -11,6 +11,26 @@ import Link from '@docusaurus/Link';
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: DSP Direct Integration Instructions
+
+August 22, 2024
+
+We've added a new guide for DSPs who are not using UID2 SDKs.
+
+For details, see [DSP Direct Integration Instructions](../guides/integration-dsp-no-sdk.md).
+
+<!-- APIDOCS-2394 -->
+
+### New: UID2 Token Reference Page
+
+August 22, 2024
+
+We've added a new reference page with general information about UID2 tokens, including refresh tokens.
+
+For details, see [UID2 Tokens and Refresh Tokens](ref-tokens.md).
+
+<!-- APIDOCS-1958 -->
+
 ### New: Integration Approaches Page
 
 July 23, 2024
