@@ -13,40 +13,45 @@ This page provides general information required for you to get your account set 
 
 ## Contact Info
 
-To get access to the UID2 framework, contact the appropriate team at The Trade Desk listed below. 
-
-If you have an existing relationship with The Trade Desk (the current UID2 Administrator), connect directly with your contact to get started with UID2.
-
-:::note
-Contacting The Trade Desk for access is temporary. When the system is moved to independent governance, the governing organizations will manage access requests.
-:::
+If you have an existing relationship with The Trade Desk connect directly with your UID2 Administrator to get started with UID2. Otherwise, to get access to the UID2 framework, contact the appropriate team at The Trade Desk listed below. 
 
 | Your Role | Contact Email |
 | :--- | :--- |
 | Publisher, App Developer | [UID2publishers@thetradedesk.com](mailto:UID2publishers@thetradedesk.com) |
 | Agency, Brand, DSP, SSP, customer data platform (CDP), Data Provider | [UID2partners@thetradedesk.com](mailto:UID2partners@thetradedesk.com) |
 
+:::note
+Temporary access is granted to The Trade Desk. Once your system is moved to independent governance, the governing organizations will manage access requests instead of The Trade Desk.
+:::
+
 ## Account Setup Details
 
-When you've expressed interest in UID2, someone will contact you to help work out the details.
+When you've expressed interest in UID2, someone from The Trade Desk will contact you.
 
-All participants will need to provide at least the following information:
+All UID2 requestors must provide the following information:
+
 * Name
 * Email address
 * Company name
 * Name and contact information for an authorized individual who can sign the contract.
 
-### Client-Side Implementation for Publishers
+## Client-Side Integration for Publishers
 
-If you're a publisher publishing to [web](../overviews/overview-publishers.md#web-integrations) rather than [mobile](../overviews/overview-publishers.md#mobile-integrations), and you determine that you want to implement UID2 so that tokens are generated on the client side, you'll also need to provide a list of **domain names** for your sites. This is a security measure, for client-side implementation only.
+If you're a publisher that plans to integrate UID2 in web or mobile applications, follow these steps for compliance.
+
+### Websites
+
+To implement UID2 and generate tokens on the client side, you must provide a list of **domain names** for your sites. 
 
 :::tip
-Only root-level domains are required for account setup. For example, if you're going to implement UID2 to generate tokens on the client side on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
+Only top-level (root-level) domains are required for account setup. For example, if you're going to implement UID2 to generate tokens on the client side on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
 
-### Client-Side Mobile Integrations
+### Mobile Apps
 
-If you're publishing to [mobile apps](../guides/integration-mobile-client-side.md), you'll need to provide a list of <Link href="../ref-info/glossary-uid#gl-app-name">app names</Link> for all the mobile apps that you'll be integrating with the UID2 mobile SDKs, including any of these values that apply:
+If you publish [mobile apps](../guides/integration-mobile-client-side.md), you must provide a list of <Link href="../ref-info/glossary-uid#gl-app-name">app names</Link> for every mobile app that integrates with the UID2 mobile SDKs. 
+
+The list must includes these values:
 
 - Android Application ID
 - iOS Bundle Identifier
@@ -54,8 +59,8 @@ If you're publishing to [mobile apps](../guides/integration-mobile-client-side.m
 
 ## Credentials
 
-When you've signed a contract for participating in UID2, you'll be issued with [UID2 credentials](gs-credentials.md) and other information for getting up and running with UID2.
+Once you sign a contract and are approved for UID2, you'll be issued [UID2 credentials](gs-credentials.md) and more information for getting started with UID2.
 
 ## API Version
 
-The current version of the UID2 API is UID2 API v2.
+As of May 2024, the current version  of the UID2 API is v2.
