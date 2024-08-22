@@ -1,5 +1,5 @@
 ---
-title: UID2 Refresh Tokens
+title: UID2 Tokens and Refresh Tokens
 description: Information for publishers about refreshing the UID2 token.
 hide_table_of_contents: false
 sidebar_position: 06
@@ -7,7 +7,7 @@ sidebar_position: 06
 
 import Link from '@docusaurus/Link';
 
-# UID2 Refresh Tokens
+# UID2 Tokens and Refresh Tokens
 
 When a publisher sends a user's <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) to the UID2 Operator, whether via one of the UID2 SDKs or the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint, the UID2 Operator returns a <a href="glossary-uid#gl-uid2-token">UID2 token</a> with associated values. The token is an opaque alphanumeric string, and is pseudonymous: this means that different instances of activity, on browsers, CTV, and electronic devices such as phone and tablets, can be matched to the same pseudonymous value without compromising the privacy of the individual. The token is designed so that it cannot be reverse engineered to arrive at the original email address or phone number.
 
@@ -29,6 +29,7 @@ Here are some key points about UID2 tokens:
 ## Refresh Tokens: Key Information
 
 Here are some key points about refresh tokens:
+
 - A refresh token is an opaque string that is issued along with the <a href="glossary-uid#gl-uid2-token">UID2 token</a>.
 - Refresh tokens are case sensitive.
 - The token value is opaque: do not make any assumptions about the format or about the length of the string.
@@ -47,7 +48,7 @@ Here are some key points about refresh tokens:
 
 To determine when to refresh, you can use the timestamp of the `refresh_from` field in the response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint (see [Successful Response](../endpoints/post-token-generate.md#successful-response)) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint (see [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens)). The value of this field is a timestamp in <a href="glossary-uid#gl-utc">UTC</a> format.
 
-We recommend refreshing once at startup, and then periodically (recommended refresh interval is hourly).
+<!-- We recommend refreshing once at startup, and then periodically (recommended refresh interval is hourly). -->
 
 ## FAQs
 
