@@ -43,17 +43,17 @@ To implement, you'll need to complete the following steps:
 
 ## SDK for JavaScript Version
 
-Support for client-side token generation is available in version 3.2 and above of the SDK. 
+Support for client-side token generation is available in version 3.4.5 and above of the SDK. 
 
 The URL for the SDK is:
 
-- [https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js](https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js)
+- [https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js](https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js)
 
 In the following code examples, the placeholder `{{ UID2_JS_SDK_URL }}` refers to this URL.
 
 If you want to use a debug build of the SDK, use the following URL instead:
 
-- [https://cdn.integ.uidapi.com/uid2-sdk-3.2.0.js](https://cdn.integ.uidapi.com/uid2-sdk-3.2.0.js)
+- [https://cdn.integ.uidapi.com/uid2-sdk-3.4.5.js](https://cdn.integ.uidapi.com/uid2-sdk-3.4.5.js)
 
 ## Sample Implementation Website
 
@@ -281,7 +281,9 @@ In some cases, the user's DII is not available on page load, and getting the DII
 You can potentially avoid that cost by checking for an existing token that you can use or refresh. To do this, call
 [__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) which returns a Boolean value. If it returns `true`, this means that the UID2 SDK cannot create a new advertising token with the existing resource and DII is required to generate a brand new UID2 token.
 
-The following code snippet demonstrates how you might integrate with the SDK for JavaScript for the two scenarios above&#8212;starting with no token as well as reusing/refreshing any existing UID2 token if found. 
+It is possible that when you provide DII, [__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) still returns a `false` value. This happens if the user has opted out of UID2. The UID2 SDK for JavaScript respects the user's optout and does not generate UID2 tokens, even if you call any of the `setIdentity` method calls with the same DII again. Optionally, you might want to avoid making such calls repeatedly.
+
+The following code snippet demonstrates how you might integrate with the UID2 SDK for JavaScript for these two scenarios&#8212;starting with no token, or reusing/refreshing an existing UID2 token.
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
@@ -311,7 +313,7 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
       // The InitCompleted event occurs just once.
       //
       // If there is a valid UID2 token, it is in payload.identity.
-      if (payload.identity) {
+      if (payload?.identity) {
         //
         // payload looks like this:
         // {
@@ -326,25 +328,29 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
         // }
         var advertising_token_to_use = payload.identity.advertising_token;
       } else {
-          if (__uid2.isLoginRequired()) {
+         if (__uid2.isLoginRequired()) {
             // Call one of the setIdentityFrom functions to generate a new UID2 token.
             // Add any retry logic around this call as required.
             await __uid2.setIdentityFromEmailHash(
                 emailHash,
-                clientSideConfig
-          );
+                clientSideConfig);
+          }  
           else {
-            // there is a token generation API call in flight which triggers
-            // a IdentityUpdated event 
+            // there is a token generation API call in flight which triggers a IdentityUpdated event 
+            // or no token would be generated because one of previous `setIdentity` calls determines the DII has opted out.
           }
-        }
       }
       break;
  
     case "IdentityUpdated":
       // The IdentityUpdated event happens when a UID2 token is generated or refreshed.
       // See previous comment for an example of how the payload looks.
-      var advertising_token_to_use = payload.identity.advertising_token;
+      // It's possible that payload/identity objects could be null for reasons such as the token
+      // expired and cannot be refreshed, or the user opted out of UID2. 
+      // Check that the advertising token exists before using it.
+      if (payload?.identity?.advertising_token) {
+          var advertising_token_to_use = payload.identity.advertising_token;
+      }
       break;
   }
 });

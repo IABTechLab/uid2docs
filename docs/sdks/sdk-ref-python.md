@@ -20,9 +20,9 @@ You can use the SDK for Python on the server side to facilitate the following:
 
 This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using Python for their server-side coding. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a Raw UID2       |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s       |
 | :--- | :--- | :--- | :--- | :--- |
-| Supported | Supported | Supported | Supported | Supported |
+| &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
 
 ## API Permissions
 

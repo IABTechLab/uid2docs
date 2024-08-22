@@ -22,6 +22,8 @@ The following Android-related plugins, and associated documentation, are also av
 | To use the Google Mobile Ads (GMA) SDK to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) |
 | To use the Google Interactive Media Ads (IMA) SDK for Android to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) |
 
+For FAQs relating to mobile publisher integrations, see [FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations).
+
 ## Non-Mobile Android Device Support
 
 This SDK for Android can be used for non-mobile devices for Android platforms as well.
@@ -30,9 +32,9 @@ This SDK for Android can be used for non-mobile devices for Android platforms as
 
 This SDK simplifies integration with UID2 for any publishers who want to support UID2 for apps running on Android devices. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
-| :--- | :--- | :--- | :--- |
-| Not supported | Not supported | Supported | Supported |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
+| :--- | :--- | :--- | :--- | :--- |
+| &#8212; | &#8212; | &#9989; | &#9989; | &#8212; |
 
 The SDK for Android is designed to generate and/or manage UID2 identity on behalf of Android apps. It enables UID2 identity to be persisted across app lifecycles by securely storing the identity on a device via platform-native encryption tools.
 

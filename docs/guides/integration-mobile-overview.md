@@ -57,3 +57,55 @@ For details, refer to one of the following guides:
 
 - [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 - [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md)
+
+## FAQs for Mobile Integrations
+
+Here is some FAQ information relating to UID2 mobile integrations:
+
+- [iOS: Can I use Swift Package Manager and Cocoapods/Podspec together?](#ios-can-i-use-swift-package-manager-and-cocoapodspodspec-together)
+
+#### iOS: Can I use Swift Package Manager and Cocoapods/Podspec together?
+
+For your UID2 Mobile integration, you can install the UID2 Mobile SDK, the UID2 GMA Plugin, and the UID2 IMA Plugin by either Swift Package Manager or CocoaPods.
+
+Our recommendation:
+
+- If you already use CocoaPods, particularly if you use it to integrate the Google Ad Frameworks yourself, it's best to use CocoaPods to integrate the UID2 SDKs. 
+- If you're new to integrating dependencies, or you already have dependencies with Swift Package Manager, we recommend that you use Swift Package Manager for your UID2 mobile integration.
+
+
+:::caution
+If you already use Cocoapods, this does not prevent your app from using Swift Package Manager (SPM) to integrate the UID2 SDK and plugins. However, there is a potential conflict. If you already have GMA installed with CocoaPods, and you then install the UID2 Mobile SDK, which itself includes GMA, with Swift Package Manager, you end up with two copies of GMA in your implementation, which does not work.
+:::
+
+Therefore, if you already have GMA installed and want to install UID2, be sure that you first remove GMA from Cocoapods.
+
+:::tip
+Podspec is the name of the file in Cocoapods that defines the libraries to be integrated with the app.
+:::
+
+## Troubleshooting Tips for Mobile Integrations
+
+Here's some additional information to help you troubleshoot your UID2 mobile integrations:
+
+- [Android SDK cannot connect in Production environment](#android-sdk-cannot-connect-in-production-environment)
+
+#### Android SDK cannot connect in Production environment
+
+A good first step in troubleshooting is to look at the health check endpoint.
+
+From your mobile device or Android emulator, see if you can reach this endpoint:
+
+```
+https://prod.uidapi.com/ops/healthcheck
+```
+
+The response should be `OK`.
+
+Some error responses indicate  a networking problem resulting in your app not being able to reach the UID2 endpoint. For example:
+
+- `Caused by java.net.UnknownHostException: Unable to resolve host "prod.uidapi.com": No address associated with hostname`
+
+   The SDK tries to refresh the UID2 token in the background. If an error such as an IOException occurs, the SDK retries multiple times. If retry is not successful, this exception is displayed.
+
+Another good troubleshooting step is to enable logging. For details, see [Enable Logging](integration-mobile-client-side.md#enable-logging).

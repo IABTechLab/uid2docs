@@ -113,7 +113,7 @@ The following table summarizes the options for publishers who want to generate t
 
 For security reasons, the UID2 token has a limited life, but there is a built-in mechanism to refresh the token so that you can still use it.
 
-When you get the token, it comes with a refresh token and a time stamp indicating how long the token is valid for. As long as you use the refresh token to generate a new UID2 token before the current UID2 token expires, you'll get a new UID2 token and an updated refresh token each time. You can continue to refresh to keep the information valid.
+When you get the token, it comes with a refresh token and a timestamp indicating how long the token is valid for. As long as you use the refresh token to generate a new UID2 token before the current UID2 token expires, you'll get a new UID2 token and an updated refresh token each time. You can continue to refresh to keep the information valid.
 
 The following table shows the integration options that support refreshing the UID2 token.
 

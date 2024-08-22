@@ -21,7 +21,7 @@ SDK for Java を使用すると、以下が容易になります:
 
 この SDK は、Server-Side のコーディングに Java を使用しているパブリッシャー、DSP、広告主、データプロバイダー、UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a Raw UID2 |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
 | :--- | :--- | :--- | :--- | :--- |
 | Supported | Supported | Supported | Supported | Supported |
 

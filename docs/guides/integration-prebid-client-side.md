@@ -144,6 +144,8 @@ pbjs.setConfig({
 }); 
 ```
 
+It is possible that the user has opted out of UID2 previously. In this case, the UID2 module respects the user's optout and no UID2 token is generated and collected by Prebid.js.
+
 ## Checking the Integration
 
 To check that the UID2 module has successfully generated a UID2 token, call `pbjs.getUserIds().uid2`. If a value is returned, a valid UID2 token exists in the UID2 module.

@@ -41,7 +41,7 @@ Prebid.js を UID2 ID モジュールと一緒に使用しているや、UID2 �
 
 この SDK は、独自にカスタマイズした UID2 インテグレーションを行いたいパブリッシャーの開発を簡素化します。次の表は、SDK がサポートする機能を示しています。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token |
 | :--- | :--- | :--- | :--- |
 | Not supported | Not supported | Not supported | Supported |
 
@@ -73,12 +73,12 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 - CDN: `https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js`
   <!-- - This is the easiest way to include the SDK in your site if you don't use a build pipeline to bundle your JavaScript. LP_TODO: This doesn't make sense until we add the NPM option above. -->
 
-  この文書の最新更新時点での最新バージョンは [3.2.0](https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js) です。[the list of available versions](https://cdn.prod.uidapi.com/) も参照してください。
+  この文書の最新更新時点での最新バージョンは [3.4.5](https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js) です。[the list of available versions](https://cdn.prod.uidapi.com/) も参照してください。
 - CDN (Integration): `https://cdn.integ.uidapi.com/uid2-sdk-${VERSION_ID}.js`
 
   このインテグレーション URL には最小化されていないコードが含まれており、テストのみを目的としています。この URL を本番サイトに使用しないでください。
 
-  このドキュメントの最新更新時点での最新バージョンは [3.2.0](https://cdn.integ.uidapi.com/uid2-sdk-3.2.0.js) です。[the list of available versions](https://cdn.integ.uidapi.com/) も参照してください。
+  このドキュメントの最新更新時点での最新バージョンは [3.4.5](https://cdn.integ.uidapi.com/uid2-sdk-3.4.5.js) です。[the list of available versions](https://cdn.integ.uidapi.com/) も参照してください。
 
 ## Terminology
 
@@ -93,7 +93,7 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 UID2 をターゲティング広告に使用したいすべてのページに、以下の SDK スクリプトを含めます:
 
 ```html
-<script src="https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js" type="text/javascript"></script> 
+<script src="https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js" type="text/javascript"></script> 
 ```
 
 ### Async or Defer Loading the SDK Script
@@ -108,7 +108,7 @@ Version 3 以降の SDK は、`async` または `defer` スクリプトローデ
    ```html
    <head>
      <!-- ... -->
-     <script async src="https://cdn.prod.uidapi.com/uid2-sdk-3.2.0.js" type="text/javascript"></script>
+     <script async src="https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js" type="text/javascript"></script>
      <!-- ... -->
    </head>
    ```
