@@ -260,7 +260,7 @@ The following examples are valid timestamp strings:
       since_timestamp = '2024-08-18T14:30:15+00:00'
       identity_buckets_response = client.get_identity_buckets(datetime.fromisoformat(since_timestamp))
    ```
-3. Iterate through the list of rotated salt buckets and extract the `bucket_id` and `last_updated` timestamp as follows:
+3. The `IdentityBucketsResponse` object contains the `bucket_id` and the `last_updated` timestamp which is in UTC. Iterate through the list of rotated salt buckets and extract the `bucket_id` and `last_updated` timestamp as follows:
    ```py
    if identity_buckets_response.buckets:
        for bucket in identity_buckets_response.buckets:
@@ -269,7 +269,6 @@ The following examples are valid timestamp strings:
    else:
        print("No bucket was returned")
    ```
-
 ## Usage for DSPs
 
 The following instructions provide an example of how you can decode <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> tokens using the SDK for Python as a DSP.
