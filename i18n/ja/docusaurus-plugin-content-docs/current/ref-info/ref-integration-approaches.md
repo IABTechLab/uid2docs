@@ -44,7 +44,7 @@ Client-Side インテグレーションを選択する場合、UID2 サーバー
 
 追加のセキュリティを提供するため、ルートレベルのドメインまたはアプリのリストを提供する必要があります。詳細は以下を参照してください:
 
-- ウェブサイトの場合: [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers)。
+- ウェブサイトの場合: [Client-Side Web Integrations](../getting-started/gs-account-setup.md#client-side-web-integrations)。
 - モバイルアプリの場合: [Client-Side Mobile Integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations)。
 
 ## Client-Server Integration
