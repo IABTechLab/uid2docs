@@ -36,7 +36,7 @@ As part of account setup, provide the following information:
 * Company name
 * Name and contact information for an authorized individual who can sign the contract.
 
-### Client-Side Web Integration
+### Client-Side Web Integrations
 
 If you'll be requesting UID2 tokens from the client side on the [web](../overviews/overview-publishers.md#web-integrations) rather than in [mobile](../overviews/overview-publishers.md#mobile-integrations) apps, you must also provide a list of **domain names** for your sites. This is a security measure, for client-side implementation only.
 

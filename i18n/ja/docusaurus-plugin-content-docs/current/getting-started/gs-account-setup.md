@@ -36,7 +36,7 @@ UID2 に興味を示していただいたら、詳細を詰めるために担当
 * 会社名
 * 契約書に署名できる正式な個人の名前と連絡先
 
-### Client-Side Implementation for Publishers
+### Client-Side Web Integrations
 
 パブリッシャーが [mobile](../overviews/overview-publishers.md#mobile-integrations) ではなく [web](../overviews/overview-publishers.md#web-integrations) にパブリッシングする場合で、UID2 を実装してトークンが Client-Side で生成されるようにしたい場合は、サイトの **ドメイン名** のリストも提供する必要があります。これはセキュリティ対策であり、Client-Side 実装のためだけです。
 
