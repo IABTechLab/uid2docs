@@ -21,15 +21,15 @@ For details, see [DSP Direct Integration Instructions](../guides/integration-dsp
 
 <!-- APIDOCS-2394 -->
 
-### New: UID2 Token Reference Page
+<!-- ### New: UID2 Token Reference Page
 
 August 22, 2024
 
 We've added a new reference page with general information about UID2 tokens, including refresh tokens.
 
-For details, see [UID2 Tokens and Refresh Tokens](ref-tokens.md).
+For details, see [UID2 Tokens and Refresh Tokens]. -->
 
-<!-- APIDOCS-1958 -->
+<!-- APIDOCS-1958 removed 8/26/22 -->
 
 ### New: Integration Approaches Page
 
