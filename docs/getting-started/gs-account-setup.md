@@ -57,4 +57,4 @@ When you've signed a contract for participating in UID2, we'll give you [UID2 cr
 
 ## API Version
 
-The current version of the UID2 API is UID2 API v2.
+The current version of the UID2 API is v2.
