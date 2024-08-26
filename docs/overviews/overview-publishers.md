@@ -33,20 +33,28 @@ Here are just some of the intended benefits for publishers integrating with UID2
 The following steps provide a high-level outline of the workflow intended for organizations that propagate UID2 tokens to the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> via SSPs&#8212;for example, identity providers, publishers, and SSO providers. Publishers can choose to work with an SSO provider or an independent ID provider that is interoperable with UID2 and can handle the UID2 integration on behalf of publishers.
 
 1. A user visits a publisher website, mobile app, or CTV app.
-2. The publisher provides transparency around its data practices and asks the user to provide an email address or phone number.
-3. Once the user has provided an email address or phone number, the publisher sends it to the UID2 Operator via an SDK or direct API integration.
 
-   A publisher can authorize an SSO provider or identity provider to pass <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> on their behalf.
-4. The UID2 Operator:
+1. The publisher provides transparency around its data practices and asks the user to provide an email address or phone number.
+
+1. Once the user has provided an email address or phone number, the publisher sends it to the UID2 Operator via an SDK or direct API integration.
+   :::tip
+    A publisher can authorize an SSO provider or identity provider to pass <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> on their behalf.
+    :::
+
+1. The UID2 Operator:
    - Takes the email or phone number.
    - Performs the salt, hash, and encryption process.
    - Returns the UID2 token.
-5. The publisher stores the UID2 token to share with SSPs during real-time bidding.
+
+1. The publisher stores the UID2 token to share with SSPs during real-time bidding.
    - Server-side: The publisher stores the token in a mapping table, DMP, data lake, or other server-side application.
    - Client-side: The publisher stores the token in a client-side app or in the user’s browser as a first-party cookie.
-6. The publisher retrieves the UID2 token from storage.
-6. The publisher sends the UID2 token to the SSP.
-7. The SSP puts the bid request, with the UID2 token, into the bidstream.
+
+1. The publisher retrieves the UID2 token from storage.
+
+1. The publisher sends the UID2 token to the SSP.
+
+1. The SSP puts the bid request, with the UID2 token, into the bidstream.
 
 <!-- The publisher requests updated UID2 tokens using a refresh token. When applicable, the refresh token includes a user’s opt-out request. -->
 

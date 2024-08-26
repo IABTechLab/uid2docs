@@ -82,7 +82,7 @@ Given a list of raw UID2s, this endpoint returns the raw UID2s that have opted o
 
 For details, see [POST&nbsp;/optout/status](../endpoints/post-optout-status.md).
 
-<!-- APIDOCS-2252 -->
+<!-- APIDOCS-1739 -->
 
 ### New: Client-Side and Server-Side Guides for Mobile
 
@@ -145,6 +145,8 @@ February 28, 2024
 The Java SDK now supports Advertisers and Data Providers wanting to use the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.
 
 For details, see the updated documentation in the *SDK for Java Reference Guide*: [Usage for Advertisers and Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers).
+
+<!-- UID2-2759 -->
 
 ### New: Audience-Specific Documentation Sidebars
 
