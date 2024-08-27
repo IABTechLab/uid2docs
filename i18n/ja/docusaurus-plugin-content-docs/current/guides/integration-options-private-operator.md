@@ -11,9 +11,11 @@ import Link from '@docusaurus/Link';
 
 A Private Operator is a private instance of the UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link>. This means that a specific entity hosts a private instance of the UID2 Operator, exclusively for their own use.
 
-A Private Operator runs in an <Link href="../ref-info/glossary-uid#gl-enclave">enclave</Link>&#8212;a memory-hardened virtual machine that prevents unauthorized access, so that unauthorized individuals, even if they are administrators, cannot download any configuration information or data from the virtual machine.
+A Private Operator runs in an <Link href="../ref-info/glossary-uid#gl-enclave">enclave</Link>&#8212;a virtual machine with additional security features to prevent unauthorized access, so that unauthorized individuals cannot download any configuration information or data from the virtual machine.
 
-This is an extra layer of security so that no one can access the secure data used to produce raw UID2s.
+Enclaves provide hardware-based security features, ensuring that the VM's data and operations are protected from external threats, including the host operating system, hypervisor, and even system administrators.
+
+Running in an enclave provides an extra layer of security to protect the secure data used to produce raw UID2s.
 
 Becoming a Private Operator includes several additional steps, and uses resources that the participant must provide.
 
@@ -41,28 +43,28 @@ Each of these ensures that the Private Operator runs in a protected memory space
 
 The basic workflow is as follows:
 
-1. On startup, the Private Operator goes through an attestation process with the <a href="../ref-info/glossary-uid#gl-core-service">Core</a> service. The attestation process verifies that the Operator is running in a secure and memory-hardened environment that is known and trusted, and that the environment hasn't been tampered with.
+1. On startup, the Private Operator goes through an attestation process with the <a href="../ref-info/glossary-uid#gl-core-service">Core</a> service. The attestation process verifies that the Operator is running in a secure trusted execution environment (TEE), and that the environment hasn't been tampered with.
 
-1. When the Operator passes that attestation process, the Core service gives the Private Operator secure S3 URLs for retrieving the information it needs for startup.
+1. When the Operator passes the attestation process, the Core service gives the Private Operator secure S3 URLs for retrieving the information it needs for startup.
 
 1. The Private Operator retrieves the security information from Amazon S3 that it needs to process UID2s, such as salts, encryption keys, and user opt-out records. For security details, see [Private Operator Security](#private-operator-security).
 
 1. If an Operator is restarted, it goes through the attestation process again, and retrieves a fresh set of security information.
 
-1. The Operator re-attests periodically with Core to ensure that it is still running in a protected environment. If any compromise is detected, the Operator shuts down.
+1. The Operator re-attests periodically with the Core service to ensure that it is still running in a protected environment. If any compromise is detected, the Operator shuts down.
 
 ## Private Operator Security
 
 Each supported Private Operator implementation must meet rigorous security standards. Some security points include:
 
-- The environment is secure and memory-hardened.
+- The Private Operator runs in a hardware-based trusted execution environment (TEE) hosted by one of the supported cloud providers listed in [Private Operator Integration Options](#private-operator-integration-options).
 - The Private Operator must complete an attestation process before accessing the information needed to process UID2s.
-- The information on S3 is encrypted at rest, and is encrypted in transit through TLS.
+- The information on S3 is encrypted at rest and also encrypted in transit through TLS. In addition, access is limited to only correctly authorized and attested Private Operators.
 - The information retrieved at startup is not stored locally at any point. It is only ever held in memory, and the Private Operator is running in a protected environment that makes it difficult for anyone running the Operator (such as an Administrator), as well as any external players, to see the data that's in memory.
 
 ## Private Operator Integration Options
 
-The following Private Operator integrations are available.
+The following Private Operator integrations are available. 
 
 There is no functional difference between the Private Operator versions.
 
@@ -74,7 +76,7 @@ There is no functional difference between the Private Operator versions.
 
 ## Additional Information
 
-The following resources are available for those interested in hosting a Private Operator:
+The following additional resources are available for those interested in hosting a Private Operator:
 
 - General information about Private Operators, including a summary of benefits: see [UID2 Overview for Private Operators](../overviews/overview-operators-private.md).
 
