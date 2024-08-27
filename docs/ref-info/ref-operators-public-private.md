@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # The UID2 Operator
 
-The UID2 Operator Service enables the management and storage of encryption keys and [salts](../ref-info/glossary-uid.md#gl-salt) from the UID2 Core Service, hashing of users' personal data (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>), encryption of [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2), and decryption of <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link>.
+The UID2 Operator Service enables the management and storage of <a href="../ref-info/glossary-uid#gl-encryption-key">encryption keys</a> and [salts](../ref-info/glossary-uid.md#gl-salt) from the UID2 Core Service, hashing of users' personal data (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>), encryption of [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2), and decryption of <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link>.
 
 All instances of the Operator Service are designed with rigorous protections in place to keep critical UID2 data secure and interoperable, regardless of who operates the service.
 
@@ -57,7 +57,7 @@ The participant must host, configure, maintain, and update the Private Operator 
 The participant must sign a contract (see [Account Setup](../getting-started/gs-account-setup.md)) to host a Private Operator instance.
 
 :::note
-A Private Operator cannot process raw UID2s or UID2 tokens from a Public Operator or another Private Operator. Each Private Operator is a completely closed infrastructure.
+A Private Operator has no visibility into the raw UID2s or UID2 tokens processed by a Public Operator or another Private Operator. Each Private Operator is a completely closed infrastructure.
 :::
 
 ## Private Operator: Benefits

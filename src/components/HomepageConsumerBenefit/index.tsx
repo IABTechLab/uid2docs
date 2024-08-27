@@ -27,8 +27,8 @@ export default function HomepageConsumerBenefit(): JSX.Element {
           </h2>
           <p>
             <Translate id="homepage.benefitsCopy">
-              Unified ID 2.0 was created with consumer privacy as a top
-              priority. Users can opt out of the use of their UID2 universally
+              Unified ID 2.0 was created to be conscious of consumer privacy. 
+              Users can opt out of the use of their UID2 universally
               by visiting the opt-out portal. Participants are required to honor
               user opt-out requests made through the portal.
             </Translate>

@@ -2,7 +2,7 @@
 title: UID2 Client-Side Integration Guide for Mobile
 sidebar_label: Client-Side Integration for Mobile
 pagination_label: UID2 Client-Side Integration Guide for Mobile
-description: Setting up a mobile integration with token generate and refresh both on the client side.
+description: Client-Side でトークン生成とリフレッシュの両方を行うモバイルインテグレーションの設定。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -10,9 +10,10 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ReduceLatencyJa from '/docs/snippets/_sdk-reduce-latency-ja.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
+import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
+
 
 # UID2 Client-Side Integration Guide for Mobile
 
@@ -22,13 +23,13 @@ import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 
 このページでは、インテグレーション手順の概要と、追加のドキュメントへのリンクを提供します。
 
-UID2 は、[Android](../sdks/uid2-sdk-ref-android.md) および [iOS](../sdks/uid2-sdk-ref-ios.md) 向けのモバイル SDK を提供しています。各 SDK には以下の機能があります:
+UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref-ios.md) 向けのモバイル SDK を提供しています。各 SDK には以下の機能があります:
 
 - UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (UID2 Token と関連する値) を生成し、ローカルファイルストレージに保存します。
 - UID2 Token を自動的にリフレッシュします。
 
 :::note
-このガイドの、**UID2 mobile SDKs** は、UID2 SDK for Android と UID2 SDK for iOS の両方を含むグループ用語です。
+このガイドの、**UID2 mobile SDKs** は、SDK for Android と SDK for iOS の両方を含むグループ用語です。
 :::
 
 UID2 を Client-Side でインテグレーションするには、以下の手順を完了する必要があります:
@@ -41,14 +42,14 @@ UID2 を Client-Side でインテグレーションするには、以下の手�
 
 1. [Check that the token was successfully generated and then pass it for bidstream use](#pass-generated-token-for-bidstream-use).
 
-1. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
+1. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signals integration](#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration).
 
 ## Mobile SDK Version
 
 このガイドは、次のいずれかの UID2 mobile SDK のバージョン 1.2.0 以上を使用する方法について説明します:
 
-- UID2 SDK for Android
-- UID2 SDK for iOS
+- SDK for Android
+- SDK for iOS
 
 正しい SDK/バージョンをモバイルアプリにインストールする手順については、[Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app) を参照してください。
 
@@ -61,8 +62,8 @@ Android または iOS 向けの適用可能な手順に従ってください:
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
 
-1. [UID2 SDK for Android source code repository on GitHub](https://github.com/IABTechLab/uid2-android-sdk/tree/main) の main ブランチをチェックアウトします。
-1. Android Studio (Jellyfish/v2023.3.1 または UID2 SDK for Android リリース時に必要な Android Gradle Plugin バージョンをサポートする将来のバージョン) で、チェックアウトしたディレクトリを開きます。
+1. [SDK for Android source code repository on GitHub](https://github.com/IABTechLab/uid2-android-sdk/tree/main) の main ブランチをチェックアウトします。
+1. Android Studio (Jellyfish/v2023.3.1 または SDK for Android リリース時に必要な Android Gradle Plugin バージョンをサポートする将来のバージョン) で、チェックアウトしたディレクトリを開きます。
 1. **dev-app** アプリを実行します。
 1. アプリを起動したら、**Client Side** チェックボックスがチェックされていることを確認します。
 1. メールアドレスまたは電話番号を入力し、右側の矢印をクリックします。
@@ -133,7 +134,7 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-このメソッドコールは、広告リクエストを行うために必要な値を返します: 詳細は、[Pass Generated Token for Bidstream Use](#pass-generated-token-for-bidstream-use) を参照してください。
+このメソッドコールは、広告リクエストを行うために必要な値を返します: 詳細は [Pass Generated Token for Bidstream Use](#pass-generated-token-for-bidstream-use) を参照してください。
 
 ### Testing With Your Own Configuration
 
@@ -191,8 +192,8 @@ When account setup is complete, you'll receive a [Subscription ID and public key
 
 Mobile SDK をアプリに追加するには、適用可能な以下のドキュメントに従ってください:
 
-- [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
-- [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
+- [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
+- [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
 
 SDK をアプリに追加したら、SDK を使用して UID2 Token を生成する準備が整います。
 
@@ -225,15 +226,15 @@ UID2Settings.shared.environment = .custom(
 
 :::note
 次のような環境間の違いに注意してください:
-- UID2 インテグレーション環境のトークンは、ビッドストリームに渡しても有効ではありません。
-- 各環境（インテグレーションおよび本番）には異なる API キーとクライアントシークレット値があります。各環境で正しい値を使用してください。
+- UID2 インテグレーション環境のトークンは、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡しても有効ではありません。
+- 各環境（インテグレーションおよび本番）には異なる API Key とクライアントシークレット値があります。各環境で正しい値を使用してください。
 :::
 
 ### Optional: Specifying the API Base URL to Reduce Latency
 
-By default, this SDK makes calls to a UID2 production environment server in the USA.
+デフォルトでは、この SDK は米国の UID2 本番環境サーバーにリクエストを送信します。
 
-<ReduceLatencyJa />
+ユースケースに最適な URL を選択する方法と、有効なベース URL の完リストについては、[Environments](../getting-started/gs-environments.md) を参照してください。
 
 別の UID2 サーバを指定するには、次の例に示すように構成変更を行います:
 
@@ -388,7 +389,7 @@ Task<Void, Never> {
 ```js
 UID2Manager.getInstance().generateIdentity(
     IdentityRequest.EmailHash(
-        “eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=”
+        "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="
     ),
     subscriptionId,
     publicKey,
@@ -407,7 +408,7 @@ UID2Manager.getInstance().generateIdentity(
 Task<Void, Never> {
     do {
         try await UID2Manager.shared.generateIdentity(
-            .emailHash("eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc="),
+            .emailHash("EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="),
             subscriptionID: subscriptionID,
             serverPublicKey: serverPublicKeyString
         )
@@ -435,7 +436,7 @@ Task<Void, Never> {
 
 ```js
 UID2Manager.getInstance().generateIdentity(
-    IdentityRequest.Phone(“+1111111111”),
+    IdentityRequest.Phone("+12345678901"),
     subscriptionId,
     publicKey,
 ) { result ->
@@ -455,7 +456,7 @@ struct InvalidPhoneError: Error, LocalizedError {
 }
 Task<Void, Never> {
     do {
-        guard let normalizedPhone = IdentityType.NormalizedPhone(normalized: "+1111111111") else {
+        guard let normalizedPhone = IdentityType.NormalizedPhone(normalized: "+12345678901") else {
             throw InvalidPhoneError() // Phone number is not normalized according to ITU E.164.
         }
         try await UID2Manager.shared.generateIdentity(
@@ -488,7 +489,7 @@ Task<Void, Never> {
 ```js
 UID2Manager.getInstance().generateIdentity(
     IdentityRequest.PhoneHash(
-        “eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=”
+        "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="
     ),
     subscriptionId,
     publicKey,
@@ -507,7 +508,7 @@ UID2Manager.getInstance().generateIdentity(
 Task<Void, Never> {
     do {
         try await UID2Manager.shared.generateIdentity(
-            .phoneHash("eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc="),
+            .phoneHash("EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="),
             subscriptionID: subscriptionID,
             serverPublicKey: serverPublicKeyString
         )
@@ -569,17 +570,20 @@ AgAAAQFt3aNLXKXEyWS8Tpezcymk1Acv3n+ClOHLdAgqR0kt0Y+pQWSOVaW0tsKZI4FOv9K/rZH9+c4l
 
 その原因として考えられることと、トラブルシューティングに役立ついくつかの方法は次のとおりです:
 
-- Identity が無効です。このシナリオでは、いくつかのオプションがあります:
-  - 前の `generateIdentity` メソッドコールからエラーがあるかどうかを確認してください。
-  - Android の場合は、`UID2Manager.getInstance().getIdentityStatus()` を使用し、iOS の場合は、`UID2Manager.shared.identityStatus` を使用して、identity のステータスを確認してください。
+- Identity が無効です。この場合、いくつかのオプションがあります:
+  - 前の `generateIdentity` メソッドコールからエラーがあるかどうかを確認します。
+  - 次のいずれかを使用して identity のステータスを確認します:
+    - **Android Java**: `UID2Manager.getInstance().getCurrentIdentityStatus()`
+    - **Android Kotlin**: `UID2Manager.getInstance().currentIdentityStatus()`
+    - **iOS**: `UID2Manager.shared.identityStatus`
 
-    DII が UID2 からオプトアウトされている可能性があります。詳細については、[When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk) を参照してください。
-- ログを有効にして詳細情報を取得することができます。詳細については、[Enable Logging](#enable-logging) を参照してください。
-- UID2 identity 内の Advertising Token が期限切れであり、Refresh Token も期限切れのため、SDK がトークンをリフレッシュできません。
+    UID2 から DII がオプトアウトされている可能性があります: 詳細については [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk) を参照してください。
+- ロギングを有効にして詳細情報を取得できます: [Enable Logging](#enable-logging) を参照してください。
+- UID2 identity 内の Advertising Token の有効期限が切れていて、Refresh Token も有効期限が切れているため、SDK がトークンをリフレッシュできません。
 
-Identity が存在しない場合は、`generateIdentity` メソッドを再度呼び出す必要があります。詳細については、[Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
+Identity が無い場合は、`generateIdentity` メソッドを再度呼び出す必要があります: 詳細については [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
 
-詳細については、[When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk) を参照してください。
+詳しくは、[When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk)(次項) を参照してください。
 
 ## When to Pass DII into the SDK
 
@@ -619,8 +623,16 @@ UID2Manager.shared.generateIdentity(
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
 
-```js
-UID2Manager.getInstance().getIdentityStatus()
+**Android Java**:
+
+```java
+UID2Manager.getInstance().getCurrentIdentityStatus()
+```
+
+**Android Kotlin**:
+
+```kotlin
+UID2Manager.getInstance().currentIdentityStatus()
 ```
 
 </TabItem>
@@ -664,7 +676,7 @@ If the DII provided to the `generateIdentity` method has been opted out of UID2,
 <TabItem value='android' label='Android'>
 
 ```js
-UID2Manager.getInstance().getIdentityStatus()
+UID2Manager.getInstance().getCurrentIdentityStatus()
 ```
 
 </TabItem>
@@ -685,6 +697,14 @@ If the response status indicates that the DII has been opted out of UID2, you mi
 
 <EnableLogging />
 
-## Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration
+## Optional: UID2 GMA/IMA Plugin for GAM Secure Signals integration
 
 <GMAIMA_Plugins />
+
+
+## Optional: UID2 Prebid Mobile SDK Integration
+:::important
+UID2 Prebid Mobile SDK インテグレーションは、Android のみに対応しています。UID2 Prebid Mobile SDK インテグレーションを実装するには、SDK for Android のバージョン 1.4.0 が必要です。
+:::
+
+<PrebidMobileSDK />

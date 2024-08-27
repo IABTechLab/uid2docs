@@ -1,6 +1,6 @@
 ---
 title: Tokenized Sharing from Raw UID2s
-description: Learn about sharing UID2 tokens created by encrypting raw UID2s.
+description: raw UID2 を暗号化して作成した UID2 Token の共有について学ぶ。
 hide_table_of_contents: false
 sidebar_position: 08
 ---
@@ -10,17 +10,6 @@ import Link from '@docusaurus/Link';
 # Tokenized Sharing from Raw UID2s
 
 いくつかのケースでは、共有参加者が raw UID2 を他の共有参加者に送信する前に、それらを暗号化したい場合があります。広告主がクリエイティブピクセルで UID2 を共有する場合がその一例です。
-
-<!-- In this file:
-- [Audience](#audience)
-- [Overview](#overview)
-- [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)
-- [Tokenized Sharing Steps: Summary](#tokenized-sharing-steps-summary)
-- [Implementing Sharing Encryption/Decryption with an SDK](#implementing-sharing-encryptiondecryption-with-an-sdk)
-  - [Decryption Key Refresh Cadence for Sharing (SDK Only)](#decryption-key-refresh-cadence-for-sharing-sdk-only)
-  - [Decryption Key Refresh Example](#decryption-key-refresh-example)
-- [Implementing Sharing Encryption/Decryption Using Snowflake](#implementing-sharing-encryptiondecryption-using-snowflake)
-- [Information for Sharing Receivers](#information-for-sharing-receivers) -->
 
 ### Audience
 
@@ -38,7 +27,7 @@ UID2 Portal では、送信者と受信者はアカウントを設定し、送�
 
 送信者は、受信者または参加者のタイプごとに共有許可を1回だけ設定する必要があります。ただし、新しい共有権限を追加したり、既存の共有権限を変更したりする場合は、再度設定し直す必要があります。
 
-詳細は、[UID2 Portal: Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
+詳細は [UID2 Portal: Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
 
 ## Tokenized Sharing Steps: Summary
 
@@ -53,9 +42,11 @@ raw UID2 から UID2 Token を生成して共有する手順を以下に説明�
 
 ## Workflow: Tokenized Sharing from Raw UID2
 
-raw UID2 から UID2 Token を生成して共有するワークフローは、以下の手順で構成されます。
+raw UID2 から UID2 Token を生成して、Tokenized Sharing を行うワークフローは、以下の手順で構成されています。
 
-NOTE: 送信者と受信者の両方が UID2 Portal アカウントを持っている必要があります。[Request an Account](../portal/portal-getting-started.md#request-an-account) を参照してください。
+:::note
+送信者と受信者の両方が UID2 Portal アカウントを持っている必要があります。[Request an Account](../portal/portal-getting-started.md#request-an-account) を参照してください。
+:::
 
 1. 送信者と受信者: [UID2 SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk) または [Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake) を使用して UID2 Sharing をインテグレーションします。
 
@@ -86,10 +77,10 @@ NOTE: 送信者と受信者の両方が UID2 Portal アカウントを持って�
 
    | SDK/Integration Tool | Link to Sharing Section |
    | :--- | :--- | 
-   | C# / .NET | [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers) |
-   | C++ | [UID2 SDK for C++: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-cplusplus.md#usage-for-uid2-sharers) |
-   | Java | [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers) |
-   | Python | [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers) |
+   | C# / .NET | [SDK for C# / .NET: Usage for UID2 Sharers](../sdks/sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers) |
+   | C++ | [SDK for C++: Usage for UID2 Sharers](../sdks/sdk-ref-cplusplus.md#usage-for-uid2-sharers) |
+   | Java | [SDK for Java: Usage for UID2 Sharers](../sdks/sdk-ref-java.md#usage-for-uid2-sharers) |
+   | Python | [SDK for Python: Usage for UID2 Sharers](../sdks/sdk-ref-python.md#usage-for-uid2-sharers) |
 
 2. 以下の手順に従って、SDK をコードに組み込み、送信者または受信者の役割に応じて各ステップを実装します。使用している言語のコード例を確認するには、以下の表のリンクを参照してください。
    1. 送信者と受信者: UID2 Client を定義します。
@@ -108,7 +99,7 @@ SDK を使用している場合、共有キーの更新スケジュールを定�
 
 長時間/継続的に実行されるプロセスでは、1時間に1回 `uid2client.refresh()` 関数を呼び出すことを推奨します。
 
-詳細は、[Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) の *UID2 Sharing: Best Practices*　を参照してください。
+詳細は [Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) の *UID2 Sharing: Best Practices*　を参照してください。
 
 :::note
 Snowflake を使用している場合は、この手順を実行する必要はありません。Snowflake UID2 インテグレーションがキーのリフレッシュを行います。

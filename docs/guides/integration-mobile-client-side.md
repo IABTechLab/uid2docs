@@ -10,8 +10,10 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
+import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
+import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
+
 
 # UID2 Client-Side Integration Guide for Mobile
 
@@ -21,14 +23,16 @@ These instructions do not apply to publishers who want to use a Private Operator
 
 This page provides a high-level overview of integration steps and links to additional documentation.
 
-UID2 provides mobile SDKs for [Android](../sdks/uid2-sdk-ref-android.md) and [iOS](../sdks/uid2-sdk-ref-ios.md). Each SDK has the following features:
+UID2 provides mobile SDKs for [Android](../sdks/sdk-ref-android.md) and [iOS](../sdks/sdk-ref-ios.md). Each SDK has the following features:
 
 - Generates a UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (a UID2 token and associated values) and persists it in local file storage.
 - Automatically refreshes UID2 tokens.
 
 :::note
-This guide uses the group term **UID2 mobile SDKs** to include both the UID2 SDK for Android and the UID2 SDK for iOS.
+This guide uses the group term **UID2 mobile SDKs** to include both the SDK for Android and the SDK for iOS.
 :::
+
+For FAQs relating to mobile publisher integrations, see [FAQs for Mobile Integrations](integration-mobile-overview.md#faqs-for-mobile-integrations).
 
 To integrate with UID2 client-side, you'll need to complete the following steps:
 
@@ -40,14 +44,14 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 
 1. [Check that the token was successfully generated and then pass it for bidstream use](#pass-generated-token-for-bidstream-use).
 
-1. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
+1. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signals integration](#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration).
 
 ## Mobile SDK Version
 
 This guide provides instructions for using version 1.2.0 or higher of either of these UID2 mobile SDKs:
 
-- UID2 SDK for Android
-- UID2 SDK for iOS
+- SDK for Android
+- SDK for iOS
 
 For instructions for installing the correct SDK/version into your mobile app, see [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 
@@ -60,8 +64,8 @@ Follow the applicable instructions, for Android or iOS:
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
 
-1. Check out the main branch of the [UID2 SDK for Android source code repository on GitHub](https://github.com/IABTechLab/uid2-android-sdk/tree/main).
-1. In Android Studio (check the version required in the [Minimum Requirements](../sdks/uid2-sdk-ref-android.md#minimum-requirements) section in the UID2 SDK for Android Reference Guide), open the directory that you checked out.
+1. Check out the main branch of the [SDK for Android source code repository on GitHub](https://github.com/IABTechLab/uid2-android-sdk/tree/main).
+1. In Android Studio (check the version required in the [Minimum Requirements](../sdks/sdk-ref-android.md#minimum-requirements) section in the SDK for Android Reference Guide), open the directory that you checked out.
 1. Run the **dev-app** app.
 1. When you've started the app, make sure that the **Client Side** checkbox is checked.
 1. Enter an email or phone number, and then click the arrow to the right.
@@ -184,14 +188,14 @@ To set up your account, follow the steps described in [Account Setup](../getting
 - iOS Bundle Identifier
 - iOS App Store ID
 
-When account setup is complete, you'll receive a [Subscription ID and public key](../getting-started/gs-credentials.md#subscription-id-and-public-key). These values are unique to you, and you'll use them when you [configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
+When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them when you [configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk). For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key).
 
 ## Add the UID2 Mobile SDK to Your Mobile App
 
 To add the mobile SDK to your app, follow the applicable documentation:
 
-- [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
-- [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
+- [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
+- [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
 
 At this point, you are ready to start generating UID2 tokens using the SDK.
 
@@ -387,7 +391,7 @@ The following example configures the UID2 SDK with a hashed email address.
 ```js
 UID2Manager.getInstance().generateIdentity(
     IdentityRequest.EmailHash(
-        “eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=”
+        "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="
     ),
     subscriptionId,
     publicKey,
@@ -406,7 +410,7 @@ UID2Manager.getInstance().generateIdentity(
 Task<Void, Never> {
     do {
         try await UID2Manager.shared.generateIdentity(
-            .emailHash("eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc="),
+            .emailHash("EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="),
             subscriptionID: subscriptionID,
             serverPublicKey: serverPublicKeyString
         )
@@ -434,7 +438,7 @@ The following example configures the UID2 mobile SDK with a phone number.
 
 ```js
 UID2Manager.getInstance().generateIdentity(
-    IdentityRequest.Phone(“+1111111111”),
+    IdentityRequest.Phone("+12345678901"),
     subscriptionId,
     publicKey,
 ) { result ->
@@ -454,7 +458,7 @@ struct InvalidPhoneError: Error, LocalizedError {
 }
 Task<Void, Never> {
     do {
-        guard let normalizedPhone = IdentityType.NormalizedPhone(normalized: "+1111111111") else {
+        guard let normalizedPhone = IdentityType.NormalizedPhone(normalized: "+12345678901") else {
             throw InvalidPhoneError() // Phone number is not normalized according to ITU E.164.
         }
         try await UID2Manager.shared.generateIdentity(
@@ -479,7 +483,7 @@ In this scenario:
 </TabItem>
 <TabItem value='example_phone_hash' label='Phone Number, Normalized and Hashed'>
 
-The following example configures the UID2 mobile SDK with a hashed phone number.
+The following example configures the UID2 mobile SDK with a hashed and Base64-encoded phone number.
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -487,7 +491,7 @@ The following example configures the UID2 mobile SDK with a hashed phone number.
 ```js
 UID2Manager.getInstance().generateIdentity(
     IdentityRequest.PhoneHash(
-        “eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=”
+        "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="
     ),
     subscriptionId,
     publicKey,
@@ -506,7 +510,7 @@ UID2Manager.getInstance().generateIdentity(
 Task<Void, Never> {
     do {
         try await UID2Manager.shared.generateIdentity(
-            .phoneHash("eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc="),
+            .phoneHash("EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="),
             subscriptionID: subscriptionID,
             serverPublicKey: serverPublicKeyString
         )
@@ -570,7 +574,10 @@ Some possible reasons for this, and some things you could do to troubleshoot, ar
 
 - The identity is invalid. In this scenario there are a couple of options:
   - Check to see whether there are any errors from the previous `generateIdentity` call.
-  - Check the status of the identity, using `UID2Manager.getInstance().getIdentityStatus()` for Android or `UID2Manager.shared.identityStatus` for iOS.
+  - Check the status of the identity, using one of the following:
+    - **Android Java**: `UID2Manager.getInstance().getCurrentIdentityStatus()`
+    - **Android Kotlin**: `UID2Manager.getInstance().currentIdentityStatus()`
+    - **iOS**: `UID2Manager.shared.identityStatus`
 
     It's possible that the DII has been opted out of UID2: for details, see [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk).
 - You could enable logging to get more information: see [Enable Logging](#enable-logging).
@@ -618,8 +625,16 @@ If the UID2 identity stored in local file storage has expired and cannot be refr
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
 
-```js
-UID2Manager.getInstance().getIdentityStatus()
+**Android Java**:
+
+```java
+UID2Manager.getInstance().getCurrentIdentityStatus()
+```
+
+**Android Kotlin**:
+
+```kotlin
+UID2Manager.getInstance().currentIdentityStatus()
 ```
 
 </TabItem>
@@ -663,7 +678,7 @@ If the DII provided to the `generateIdentity` method has been opted out of UID2,
 <TabItem value='android' label='Android'>
 
 ```js
-UID2Manager.getInstance().getIdentityStatus()
+UID2Manager.getInstance().getCurrentIdentityStatus()
 ```
 
 </TabItem>
@@ -684,6 +699,14 @@ If the response status indicates that the DII has been opted out of UID2, you mi
 
 <EnableLogging />
 
-## Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration
+## Optional: UID2 GMA/IMA Plugin for GAM Secure Signals integration
 
 <GMAIMA_Plugins />
+
+
+## Optional: UID2 Prebid Mobile SDK Integration
+:::important
+The UID2 Prebid Mobile SDK integration is for Android only, and requires version 1.4.0 of the SDK for Android.
+:::
+
+<PrebidMobileSDK />

@@ -1,7 +1,7 @@
 ---
 title: Advertiser/Data Provider Integration
 sidebar_label: Advertiser/Data Provider Integration Guide
-description: Covers integration steps for organizations that collect user data and push it to other UID2 participants.
+description: Integration for organizations that collect user data and push it to other participants.
 hide_table_of_contents: false
 sidebar_position: 07
 displayed_sidebar: sidebarAdvertisers
@@ -58,7 +58,7 @@ DII refers to a user's normalized email address or phone number, or the normaliz
 
 ![Advertiser Flow](images/advertiser-flow-mermaid.png)
 
-<!-- diagram source: resource/advertiser-flow-mermaid.md -->
+<!-- diagram source: resource/advertiser-flow-mermaid.md.bak -->
 
 Refer to the following sections for details about the different parts of the diagram:
 1. [Retrieve a raw UID2 for DII using the identity map endpoints](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoint)

@@ -81,11 +81,12 @@ The following documentation resources are available for DSPs to implement UID2.
 
 | Type| Documentation | Content Description |
 | :--- | :--- | :--- |
-|UID2 SDK for Java | [UID2 SDK for Java Reference Guide](../sdks/uid2-sdk-ref-java.md) | An SDK for anyone using Java server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
-|UID2 SDK for Python | [UID2 SDK for Python Reference Guide](../sdks/uid2-sdk-ref-python.md) | An SDK for anyone using Python server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
-|UID2 SDK for C# / .NET | [UID2 SDK for C# / .NET Reference Guide](../sdks/uid2-sdk-ref-csharp-dotnet.md) | An SDK for anyone using .NET server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
-|UID2 SDK for C++ | [UID2 SDK for C++ Reference Guide](../sdks/uid2-sdk-ref-cplusplus.md) | An SDK for anyone using C++ server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
+|SDK for Java | [SDK for Java Reference Guide](../sdks/sdk-ref-java.md) | An SDK for anyone using Java server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
+|SDK for Python | [SDK for Python Reference Guide](../sdks/sdk-ref-python.md) | An SDK for anyone using Python server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
+|SDK for C# / .NET | [SDK for C# / .NET Reference Guide](../sdks/sdk-ref-csharp-dotnet.md) | An SDK for anyone using .NET server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
+|SDK for C++ | [SDK for C++ Reference Guide](../sdks/sdk-ref-cplusplus.md) | An SDK for anyone using C++ server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
 | Integration Guide | [DSP Integration Guide](../guides/dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
+| DSP Direct Integration Instructions | [DSP Direct Integration Tips](../guides/integration-dsp-no-sdk.md) | Instructions for DSPs who prefer to integrate without using one of the UID2 SDKs. |
 
 <!-- ## Integration Requirements
 
@@ -94,7 +95,7 @@ To integrate with UID2 to receive UID2s from brands (as first-party data) and da
 - Accept data in the form of UID2s
 - Bid on data in the form of UID2s
 - Build a webhook for honoring opt-out requests
-- Sync encryption keys daily with the UID2 Administrator
+- Sync <a href="../ref-info/glossary-uid#gl-encryption-key">encryption keys</a> daily with the UID2 Administrator
 
 For details, see [DSP Integration Guide](../guides/dsp-guide.md).
 

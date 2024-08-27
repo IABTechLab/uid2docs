@@ -30,7 +30,7 @@ UID2 のドキュメント一式に左サイドバーからアクセスしたい
 UID2 を使用することで、データプロバイダーとして得られる利点の一部を次に示します。以下が可能です:
 - 消費者のプライバシーを管理するためのオプトアウトを提供する、よりプライバシーに配慮した識別子にアップグレードします。
 - 解決、活性化、測定のためのプラットフォームとチャネル間の接続 ID スレッドの使用を促進します。
-- 広告主が決定論的な ID を使用して、オーディエンス・セグメントを将来にわたって保護することを目指します。
+- 広告主が決定論的な ID を使用して、オーディエンスセグメントを将来にわたって保護することを目指します。
 - オンラインとオフラインのデータを共通の ID で接続し、より精度の高いものを目指します。
 - サードパーティクッキーの有無にかかわらず、キャンペーンをより正確に測定します。
 
@@ -39,18 +39,15 @@ UID2 を使用することで、データプロバイダーとして得られる
 以下のステップは、ユーザーデータを収集し DSP にプッシュする組織 (広告主、ID グラフプロバイダー、サードパーティデータプロバイダーなど) を対象としたワークフローのアウトラインを提供するものです。
 
 バックグラウンドで以下の処理が行われます:
-* データプロバイダーは、ローテーションされたソルトバケットの UID2 Operator を監視し、必要に応じて UID2 を更新します。
+* 広告主やデータプロバイダーは、ローテーションされたソルトバケットの UID2 Operator を監視し、必要に応じて UID2 を更新します。
 
-以下のステップは、広告主やデータプロバイダーが UID2 とインテグレーションする方法の一例です:
+以下のステップは、データプロバイダーが UID2 とインテグレーションする方法の一例です:
 
-1. 広告主またはデータプロバイダーが、同意を得たユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 Operator に送信します。
-
-   <!-- euid_only_ep_20240312 ("consented" in above line DP only EUID only) -->
-   
+1. データプロバイダーが、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 Operator に送信します。
 2. UID2 Operator は、raw UID2 とソルトバケット ID を生成して返します。
-3. 広告主またはデータプロバイダーは UID2 とソルトバケット ID を保存し、UID2 ベースのファーストパーティおよびサードパーティのオーディエンスセグメントを DSP に送信します。
+3. データプロバイダーは UID2 とソルトバケット ID を保存し、UID2 ベースのファーストパーティおよびサードパーティのオーディエンスセグメントを DSP に送信します。
 
-   Server-side: 広告主またはデータプロバイダーは、UID2 をマッピングテーブル、DMP、データレイク、またはその他のServer-Sideアプリケーションに格納します。
+   Server-side: 広告主またはデータプロバイダーは、UID2 をマッピングテーブル、DMP、データレイク、またはその他の Server-Side アプリケーションに格納します。
 
 ![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.jpg)
 
@@ -66,7 +63,7 @@ UID2 を使用することで、データプロバイダーとして得られる
 1. 認証情報を受け取り ([UID2 Credentials](../getting-started/gs-credentials.md) を参照)、選択したオプションのインテグレーションガイドの指示に従います。
 
    :::note
-   UID2 へのリクエストメッセージは必ず暗号化してください。詳細は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+   UID2 へのリクエストメッセージは必ず暗号化してください。詳細は [リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
    :::
 1. テストします。
 1. 本番稼働します。
@@ -78,6 +75,7 @@ UID2 を使用することで、データプロバイダーとして得られる
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
 | ユーザーデータを収集し、他の UID2 参加者にプッシュする組織のためのインテグレーション手順 | [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) | このガイドでは、オーディエンスの構築とターゲティングのために ID をマッピングするインテグレーションワークフローについて説明します。 |
+| トラッキングピクセルに UID2 Token を追加する広告主およびデータプロバイダー向けのインテグレーション手順 | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) | このガイドでは、JavaScript クライアントサイドの変更のみを使用して、Advertising Token を追加するための JavaScript SDK を使用する広告主およびデータプロバイダー向けのインテグレーション手順を提供します。<!-- UID2_only: Not applicable for EUID --> |
 | Snowflake | [Snowflake Integration Guide](../guides/snowflake_integration.md) | このガイドでは、Snowflake を使ってメールアドレスから UID2 を生成する手順を説明します。 |
 | AWS Entity Resolution | [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) | このガイドでは、AWS Entity Resolution を使用して UID2 とインテグレーションする手順を説明します。 |
 

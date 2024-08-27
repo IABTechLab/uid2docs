@@ -1,6 +1,6 @@
 ---
 title: Tokenized Sharing in the Bidstream
-description: Learn about sharing UID2 tokens to the bidstream.
+description: ビッドストリームへの UID2 Token の共有について学ぶ。
 hide_table_of_contents: false
 sidebar_position: 08
 ---
@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # Tokenized Sharing in the Bidstream
 
-ビッドストリームに共有される UID2 データは、[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) (メールアドレスまたは電話番号) を直接 UID2 Token に暗号化して生成された UID2 Token の形式でなければなりません。
+<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に共有される UID2 データは、[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) (メールアドレスまたは電話番号) を直接 UID2 Token に暗号化して生成された UID2 Token の形式でなければなりません。
 
 パブリッシャーは、[implementation options](#implementation-options-for-senders) のいずれかを使用して DII を UID2 Token に暗号化し、UID2 Token をビッドストリームに送信できます。
 
@@ -37,11 +37,11 @@ DII を直接 UID2 Token に暗号化してビッドストリームに送信す�
 | Integration Option | Token Generated Client-Side or Server-Side? | Integration Guide |
 | :--- | :--- | :--- |
 | Prebid.js | Client-Side | [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) |
-| Prebid.js | Server-Side | [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md) |
-| JavaScript SDK | Client-Side | [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) |
-| JavaScript SDK | Server-Side | [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-server-side.md) |
-| Java SDK | Server-Side | [UID2 SDK for Java Reference Guide](../sdks/uid2-sdk-ref-java.md) |
-| Python SDK | Server-Side | [UID2 SDK for Python Reference Guide](../sdks/uid2-sdk-ref-python.md) |
+| Prebid.js | Server-Side | [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md) |
+| JavaScript SDK | Client-Side | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) |
+| JavaScript SDK | Server-Side | [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) |
+| Java SDK | Server-Side | [SDK for Java Reference Guide](../sdks/sdk-ref-java.md) |
+| Python SDK | Server-Side | [SDK for Python Reference Guide](../sdks/sdk-ref-python.md) |
 | UID2 API (token generate and refresh) | Server-Side | [UID2 Endpoints Summary: UID2 Tokens](../endpoints/summary-endpoints.md#uid2-tokens) | 
 
 これらのオプションは、メールアドレスまたは電話番号から UID2 Token を生成し、トークンを定期的に更新することをサポートしています。他の SDK は、現時点ではトークン生成とトークン更新をサポートしていません。
@@ -88,7 +88,7 @@ API または指定された Server-Side SDK を介して、DII から UID2 Toke
 
    1. UID2 Token を受け取ります。
    1. UID2 Token を raw UID2 に復号します。
-   1. UID2 がオプトアウトされていないことを確認します。詳細は、[Honor User Opt-Outs](../guides/dsp-guide.md#honor-user-opt-outs) を参照してください。オプトアウトされていない場合は、raw UID2 を入札に使用します。
+   1. UID2 がオプトアウトされていないことを確認します。詳細は [Honor User Opt-Outs](../guides/dsp-guide.md#honor-user-opt-outs) を参照してください。オプトアウトされていない場合は、raw UID2 を入札に使用します。
 
 以下の図は、パブリッシャーのための UID2 共有ワークフローです。
 
@@ -135,7 +135,7 @@ UID2 Token を raw UID2 に復号するには、許可された共有者であ�
 
 デフォルトでは、パブリッシャーが UID2 Token をビッドストリームに送信する場合、パブリッシャーの暗号キーはすべての承認済み DSP と共有されます。ただし、パブリッシャーが特定の共有関係を設定している場合は、パブリッシャーが共有関係を作成している場合にのみ、そのパブリッシャーの暗号キーを受け取ることができます。
 
-詳細は、[Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant) を参照してください。
+詳細は [Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant) を参照してください。
 
 暗号鍵の更新を定期的に行い、UID2 Token を速やかに復号化することが重要です。
 

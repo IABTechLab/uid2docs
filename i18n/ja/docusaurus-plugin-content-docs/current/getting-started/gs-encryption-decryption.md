@@ -12,7 +12,7 @@ import Link from '@docusaurus/Link';
 # Encrypting Requests and Decrypting Responses
 
 :::note
-パブリッシャーで、クライアント側にUID2を実装している場合、暗号化と復号化は、Prebid.js ([UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください) や JavaScript SDK ([Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) を参照してください) などの実装によって自動的に管理されます。
+パブリッシャーで、クライアント側にUID2を実装している場合、暗号化と復号化は、Prebid.js ([UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください) や JavaScript SDK ([Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を参照してください) などの実装によって自動的に管理されます。
 :::
 
 ほとんどすべての UID2 [endpoints](../endpoints/summary-endpoints.md) では、エンドポイントに送られるリクエストは [encrypted](#encrypting-requests) され、エンドポイントからのレスポンスは [decrypted](#decrypting-responses) する必要があります。
@@ -29,7 +29,7 @@ UID2 API リクエストの暗号化と各レスポンスの復号化につい�
 
 ## Workflow
 
-UID2 API のリクエスト・レスポンスワークフローは、以下のステップです:
+UID2 API のリクエストレスポンスワークフローは、以下のステップです:
 
 1. 入力パラメータを含むリクエストボディを JSON 形式で用意します。
 2. リクエスト JSON を[暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) でラップします。
@@ -52,7 +52,7 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 ### Unencrypted Request Data Envelope
 
-以下の表に、リクエスト暗号化コードのフィールドレイアウトを示します。
+次の表に、リクエスト暗号化コードのフィールドレイアウトを示します。
 
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
@@ -124,7 +124,6 @@ UID2 API のリクエスト・レスポンスワークフローは、以下の�
 
 [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントでは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) へのコールで事前に取得した `refresh_token` と `refresh_response_key` の値を使用します。
 
-## Encryption and Decryption Code Examples
 :::note
 Windows の場合、PowerShell の代わりに Windows コマンドプロンプトを使用している場合は、JSON を囲むシングルクォートも削除する必要があります。例えば、`echo {"email": "test@example.com"}` とします。
 :::
@@ -211,6 +210,7 @@ Maven を使用している場合は、以下の最小限の `pom.xml` を使用
   </build>
 </project>
 ```
+
 </TabItem>
 <TabItem value='cs' label='C#'>
 

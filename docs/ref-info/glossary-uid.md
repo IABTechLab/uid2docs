@@ -26,6 +26,7 @@ import Link from '@docusaurus/Link';
 
 **C**
 <a href="#gl-client-key">Client key</a> | 
+<a href="#gl-client-keypair">Client keypair</a> | 
 <a href="#gl-client-secret">Client secret</a> | 
 <a href="#gl-client-server">Client-server integration</a> | 
 <a href="#gl-client-side">Client-side integration</a> | 
@@ -40,6 +41,7 @@ import Link from '@docusaurus/Link';
 
 **E**
 <a href="#gl-enclave">Enclave</a> 
+<a href="#gl-encryption-key">Encryption key</a> 
 <a href="#gl-euid-framework">EUID framework</a>
 
 **F**
@@ -54,6 +56,9 @@ import Link from '@docusaurus/Link';
 
 **J**
 <a href="#gl-json-web-token">JSON Web Token (JWT)</a> 
+
+**K**
+<a href="#gl-key">Key</a> 
 
 **N**
 <a href="#gl-normalize">Normalize</a> 
@@ -149,6 +154,10 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-client-key"><a href="#gl-client-key">Client key</a></MdxJumpAnchor></dt>
 <dd>See <a href="#gl-api-key">API key</a>.</dd>
 
+<dt><MdxJumpAnchor id="gl-client-keypair"><a href="#gl-client-keypair">Client keypair</a></MdxJumpAnchor></dt>
+<dd>For client-side publisher integrations, the <a href="#gl-subscription-id">Subscription ID</a> and <a href="#gl-public-key">public key</a> are the two values issued to publishers to uniquely identify the account. Client keypair is a term we use for these two values together.</dd>
+<dd>For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
+
 <dt><MdxJumpAnchor id="gl-client-secret"><a href="#gl-client-secret">Client secret</a></MdxJumpAnchor></dt>
 <dd>Each UID2 <a href="/docs/intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
 <dd>For details, see <a href="/docs/getting-started/gs-credentials">UID2 Credentials</a>.</dd>
@@ -156,13 +165,13 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-client-server"><a href="#gl-client-server">Client-server integration</a></MdxJumpAnchor></dt>
 <dd>One of the UID2 <a href="#gl-integration-approaches">integration approaches</a> is to integrate partially on the client side and partially on the server side (client-server).</dd>
 <dd>For example, in a client-server integration for a publisher, the UID2 token is generated on the server side and refreshed on the client side.</dd>
-<dd>Examples of documentation for publisher client-server integrations: <a href="../guides/integration-prebid-server-side">UID2 Client-Server Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-server-side">Client-Server Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-server">UID2 Client-Server Integration Guide for Mobile</a>.</dd>
+<dd>Examples of documentation for publisher client-server integrations: <a href="../guides/integration-prebid-client-server">UID2 Client-Server Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-client-server">Client-Server Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-server">UID2 Client-Server Integration Guide for Mobile</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-client-side"><a href="#gl-client-side">Client-side integration</a></MdxJumpAnchor></dt>
 <dd>One of the UID2 <a href="#gl-integration-approaches">integration approaches</a> is to integrate entirely on the client side.</dd>
 <dd>In a client-side integration, UID2 tokens are generated and refreshed on the client side.</dd>
 <dd>For example, in a client-side integration, advertisers generate UID2 tokens on the client side for tracking pixels, and publishers generate UID2 tokens on the client side for bidstream use, as well as refreshing the tokens.</dd>
-<dd>Examples of documentation for publisher client-side integrations: <a href="../guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>, <a href="../guides/publisher-client-side">Client-Side Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-side">UID2 Client-Side Integration Guide for Mobile</a>.</dd>
+<dd>Examples of documentation for publisher client-side integrations: <a href="../guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-client-side">Client-Side Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-side">UID2 Client-Side Integration Guide for Mobile</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-closed-operator"><a href="#gl-closed-operator">Closed Operator</a></MdxJumpAnchor></dt>
 <dd>Closed Operator is another term for a <a href="#gl-private-operator">Private Operator</a>.</dd>
@@ -203,8 +212,11 @@ import Link from '@docusaurus/Link';
 <dd>In the context of UID2, a <a href="#gl-private-operator">Private Operator</a> must run inside an enclave or in a private environment. For a summary of the enclave versions supported, see <a href="../guides/summary-guides#private-operator-service-integrations">Private Operator Service Integrations</a>.</dd>
 <dd>In an enclave, the operator image must be a very specific, predefined version, and additional constraints are applied to ensure security.</dd>
 
+<dt><MdxJumpAnchor id="gl-encryption-key"><a href="#gl-encryption-key">Encryption key</a></MdxJumpAnchor></dt>
+<dd>Each <a href="#gl-uid2-token">UID2 token</a> is encrypted using an encryption key that's unique to the publisher that requested the token. The key identifies the publisher and is required for decrypting the token. This helps ensure that UID2 tokens cannot be decrypted by unauthorized individuals.</dd>
+
 <dt><MdxJumpAnchor id="gl-euid-framework"><a href="#gl-euid-framework">EUID framework</a></MdxJumpAnchor></dt>
-<dd>The European Unified ID (EUID) framework enables deterministic identity for advertising opportunities on the open internet for many participants across the advertising ecosystem. It enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework focuses on transparency and privacy.</dd>
+<dd>The European Unified ID (EUID) framework enables deterministic identity for advertising opportunities on the open internet for many participants across the advertising ecosystem. It enables publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework offers privacy controls designed to help participants meet local market requirements.</dd>
 <dd>EUID operates in the European region, including many European countries, such as France, Italy, and Spain, some non-European countries, such as Iceland, and some other regions, such as the Azores, Martinique, and the United Kingdom. It was designed with EU privacy law compliance in mind.</dd>
 <dd>There are many similarities between UID2 and EUID, but they are completely separate, and their tokens are not interchangeable.</dd>
 <dd>For details, see <a href="https://euid.eu/docs/intro">European Unified ID Overview</a>.</dd>
@@ -251,6 +263,15 @@ import Link from '@docusaurus/Link';
 
 </dl>
 
+### K
+
+<dl>
+
+<dt><MdxJumpAnchor id="gl-key"><a href="#gl-key">Key</a></MdxJumpAnchor></dt>
+<dd>See <a href="#gl-encryption-key">Encryption key</a>.</dd>
+
+</dl>
+
 ### N
 
 <dl>
@@ -270,7 +291,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-operator"><a href="#gl-operator">Operator</a></MdxJumpAnchor></dt>
 <dd>An Operator is an organization or entity that runs the UID2 <a href="#gl-operator-service">Operator Service</a>. The UID2 Operator is the API server in the UID2 ecosystem.</dd>
-<dd>Operators perform multiple functions, such as receiving encryption keys and salts from the UID2 Core Service, salting and hashing personal data to return raw UID2s, and encrypting raw UID2s to generate UID2 tokens.</dd>
+<dd>Operators perform multiple functions, such as receiving <a href="#gl-encryption-key">encryption keys</a> and <a href="#gl-salt">salts</a> from the UID2 Core Service, salting and hashing personal data to return raw UID2s, and encrypting raw UID2s to generate UID2 tokens.</dd>
 <dd>A participant can also choose to become a <a href="#gl-private-operator">Private Operator</a> to access UID2 APIs and to generate raw UID2s and UID2 tokens from within a private infrastructure.</dd>
 <dd>For details, see <a href="../intro#participants">participants</a> and <a href="../ref-info/ref-operators-public-private">The UID2 Operator</a>.</dd>
 
@@ -308,7 +329,7 @@ import Link from '@docusaurus/Link';
 <dd>A private instance of the Operator Service, run by a <a href="#gl-private-operator">Private Operator</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-public-key"><a href="#gl-public-key">Public key</a></MdxJumpAnchor></dt>
-<dd>For client-side publisher integrations, the public key is one of the two values issued to publishers as their UID2 credentials. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
+<dd>For client-side publisher integrations, the public key is one of the two values issued to publishers to uniquely identify the account. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-public-operator"><a href="#gl-public-operator">Public Operator</a></MdxJumpAnchor></dt>
 <dd>A Public <a href="#gl-operator">Operator</a> is an entity that runs a public instance of the UID2 Operator Service. For example, The Trade Desk currently serves as a Public Operator for the UID2 framework, available to all participants.</dd>
@@ -353,7 +374,7 @@ import Link from '@docusaurus/Link';
 <dd>One of the UID2 <a href="#gl-integration-approaches">integration approaches</a> is to integrate entirely on the server side.</dd>
 <dd>In a server-side integration, raw UID2s or UID2 tokens are generated and refreshed on the server.</dd>
 <dd>For example, in a server-side integration, advertisers generate raw UID2s on the server side to be delivered for audience targeting, and publishers generate UID2 tokens on the server side for bidstream use.</dd>
-<dd>An example of documentation for publisher server-side integration is <a href="../guides/custom-publisher-integration">Publisher Integration Guide, Server-Side</a>.</dd>
+<dd>An example of documentation for publisher server-side integration is <a href="../guides/integration-publisher-server-side">Publisher Integration Guide, Server-Side</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-sha-256"><a href="#gl-sha-256">SHA-256</a></MdxJumpAnchor></dt>
 <dd>SHA-256 is the secure hashing algorithm that UID2 uses.</dd>
@@ -372,7 +393,7 @@ import Link from '@docusaurus/Link';
 <dd>SSO is an acronym for Single sign-on. SSO allows a user to log in with the same credentials (usually, but not always, ID and password) to one of several software systems, such as apps or websites. SSO allows the user to log in once to multiple applications or sites using one set of credentials. With SSO, websites/apps do not have to maintain their own authentication systems.</dd>
 
 <dt><MdxJumpAnchor id="gl-subscription-id"><a href="#gl-subscription-id">Subscription ID</a></MdxJumpAnchor></dt>
-<dd>For client-side publisher integrations, the Subscription ID is one of the two values issued to publishers as their UID2 credentials. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
+<dd>For client-side publisher integrations, the Subscription ID is one of the two values issued to publishers to uniquely identify the account. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
 
 </dl>
 
@@ -399,7 +420,7 @@ import Link from '@docusaurus/Link';
 <dd>There are many similarities between UID2 and EUID, but they are completely separate, and their tokens are not interchangeable.</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-framework"><a href="#gl-uid2-framework">UID2 framework</a></MdxJumpAnchor></dt>
-<dd>The Unified ID 2.0 (UID2) framework enables deterministic identity for advertising opportunities on the open internet for many <a href="../intro#participants">participants</a> across the advertising ecosystem. It enables logged-in experiences from publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework focuses on transparency and privacy.</dd>
+<dd>The Unified ID 2.0 (UID2) framework enables deterministic identity for advertising opportunities on the open internet for many <a href="../intro#participants">participants</a> across the advertising ecosystem. It enables publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework offers privacy controls designed to help participants meet local market requirements.</dd>
 <dd>UID2 operates in North America, parts of Asia, and some other regions.</dd>
 <dd>There are many similarities between UID2 and EUID, but they are completely separate, and their tokens are not interchangeable.</dd>
 

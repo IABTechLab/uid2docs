@@ -28,6 +28,31 @@ To get access to the portal, ask your UID2 contact for permission to create an a
 
 Your contact will send you a link to get started.
 
+### UID2 Portal Structure
+
+The UID2 Portal is structured for easy navigation.
+
+There are two main ways to access the pages, as shown in the following image:
+
+![UID2 Portal Structure](images/portal-uid2-overview.png)
+
+From the left sidebar, you can access the following pages relating to configuring your account:
+
+- Home: link to home page, always present.
+- [Sharing Permissions](sharing-permissions.md)
+- [API Keys](api-keys.md)
+- [Client-Side Integration](client-side-integration.md)
+
+From the link at the top right, your user ID and image are displayed. If you have a Gravatar image set up (see [https://gravatar.com/](https://gravatar.com/)), your image is displayed. If you don't have a Gravatar image, a default image is displayed.
+
+From here, you can access the following pages relating to your personal account settings and your daily activities:
+
+- [Participant Information](participant-info.md)
+- [Manage Team Members](team-members.md)
+- [Email Contacts](email-contacts.md)
+- Dark Mode: toggles dark mode on and off
+- [Log Out](portal-getting-started.md#log-out)
+
 ## Set Up Your Account
 
 To set up your account, see [Getting Started with the UID2 Portal](portal-getting-started.md).

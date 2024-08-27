@@ -14,6 +14,7 @@ In the UID2 Portal, on the **API Keys** page, you can perform all activities rel
 - [Adding an API Key](#adding-an-api-key)
 - [Modifying an API Key](#modifying-an-api-key)
 - [Deleting an API Key](#deleting-an-api-key)
+- [Rotating an API Key](#rotating-an-api-key)
 
 ## Overview
 
@@ -85,8 +86,38 @@ Be sure that your implementation is updated with a new key before deleting an ac
 
 To delete an API key, follow these steps:
 
+1. In the UID2 Portal, go to the **API Keys** page.
 1. Find the key on the list and then, in the Actions column, click ![the Delete icon](images/icon-trash-can-solid.png) (the Delete icon).
 1. At the confirmation message, type the API key to confirm that you want to delete it. You can copy and paste from the display.
 2. Click **Delete Key**.
 
    The key is removed from the display and is no longer valid.
+
+## Rotating an API Key
+
+We recommend rotating each API key on a yearly basis. To rotate an API key, follow these steps:
+
+1. In the UID2 Portal, go to the **API Keys** page.
+1. Find the key in the list that needs to be rotated.
+1. Add a new key with the same permissions as the key that needs to be rotated. For details, see [Adding an API Key](#adding-an-api-key).
+1. Update your UID2 implementation to use the new key instead of the key that needs to be rotated.
+1. Ensure the new key is being used without issues. For example, make sure there is no degradation to the service or error logs related to the API key usage.
+1. Delete the old key. For details, see [Deleting an API Key](#deleting-an-api-key).
+
+## Security Recommendations for API Keys
+
+It's a security best practice, though not required, to have separate keys for separate roles.
+
+For additional security recommendations, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+
+<!-- In some instances, you might create API keys for one permission/role and then want to add a role to your account. For example, you might be an advertiser, but also want to operate as an inventory provider.
+
+In this scenario, we recommend that you follow these best security practices:
+
+- Your credentials should have the minimum permissions necessary to complete the specific task. Activities as an advertiser require the Mapper role; activities as an inventory provider require the Generator role.
+
+- Best practice is to use different credentials in different contexts and for different use cases. For example, each app or service should use its own credentials.
+
+These practices are standard measures to help ensure that, in case a service or app is compromised or credentials are leaked, any negative result is minimized.
+
+These are guidelines, not rules. If you need to add a permission, you can modify an existing API key, but we recommend that you use separate keys for separate permission. -->

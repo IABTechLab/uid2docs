@@ -9,13 +9,15 @@ import Link from '@docusaurus/Link';
 
 # POST /token/generate
 
-Requests a UID2 token generated from the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) provided by a user with their authorization for UID2-based targeted advertising. If the DII is valid, and the user has not opted out of UID2, this operation returns a UID2 token and associated values.
+Requests a UID2 token generated from a user's <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number). If the DII is valid, and the user has not opted out of UID2, this operation returns a UID2 token and associated values.
 
 Used by: This endpoint is used mainly by publishers.
 
 :::important
-Be sure to call this endpoint only when you have obtained legal basis to convert the user’s DII to a UID2 token for targeted advertising. The `optout_check` parameter, required with a value of `1`, checks whether the user has opted out.
+The `optout_check` parameter, required with a value of `1`, checks whether the user has opted out.
 :::
+
+<!-- uid2_euid_diff re legal basis for admonition above -->
 
 Rather than calling this endpoint directly, you could use one of the SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).
 
@@ -135,7 +137,7 @@ The response body includes the properties shown in the following table.
 | `advertising_token` | string | An encrypted advertising (UID2) token for the user. |
 | `refresh_token` | string | An encrypted token that can be exchanged with the UID2 Service for the latest set of identity tokens. |
 | `identity_expires` | number | The UNIX timestamp (in milliseconds) that indicates when the advertising token expires. |
-| `refresh_from` | number | The UNIX timestamp (in milliseconds) that indicates when the UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) will start refreshing the UID2 token.<br/>TIP: If you are not using the SDK, consider refreshing the UID2 token from this timestamp, too. |
+| `refresh_from` | number | The UNIX timestamp (in milliseconds) that indicates when the SDK for JavaScript (see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)) will start refreshing the UID2 token.<br/>TIP: If you are not using the SDK, consider refreshing the UID2 token from this timestamp, too. |
 | `refresh_expires` | number | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
 | `refresh_response_key` | string | A key to be used in a [POST&nbsp;/token/refresh](post-token-refresh.md) request for response decryption. |
 

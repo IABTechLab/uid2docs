@@ -12,6 +12,7 @@ import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
+import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
 
 # UID2 Client-Server Integration Guide for Mobile
 
@@ -23,14 +24,16 @@ If you want to integrate with UID2 via client-side only changes (that is, all in
 
 This page provides a high-level overview of integration steps and links to additional documentation.
 
-UID2 provides mobile SDKs for [Android](../sdks/uid2-sdk-ref-android.md) and [iOS](../sdks/uid2-sdk-ref-ios.md). Each SDK has the following features:
+UID2 provides mobile SDKs for [Android](../sdks/sdk-ref-android.md) and [iOS](../sdks/sdk-ref-ios.md). Each SDK has the following features:
 
 - Takes in a UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (a UID2 token and associated values) and persists it in local file storage.
 - Automatically refreshes UID2 tokens.
 
 :::note
-This guide uses the group term **UID2 mobile SDKs** to include both the UID2 SDK for Android and the UID2 SDK for iOS.
+This guide uses the group term **UID2 mobile SDKs** to include both the SDK for Android and the SDK for iOS.
 :::
+
+For FAQs relating to mobile publisher integrations, see [FAQs for Mobile Integrations](integration-mobile-overview.md#faqs-for-mobile-integrations).
 
 You'll need to complete the following steps:
 
@@ -39,17 +42,16 @@ You'll need to complete the following steps:
 3. [Add the UID2 mobile SDK to your mobile app](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 4. [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 5. [Check that the token was successfully generated and then pass it for bidstream use](#pass-generated-token-for-bidstream-use).
-6. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signal integration](#optional-uid2-gmaima-plugin-for-gam-secure-signal-integration).
+6. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signals integration](#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration).
 
 ## Mobile SDK Version
 
 This guide provides instructions for using version 1.2.0 or higher of either of these UID2 mobile SDKs:
 
-- UID2 SDK for Android
-- UID2 SDK for iOS
+- SDK for Android
+- SDK for iOS
 
 For instructions for installing the correct SDK/version into your mobile app, see [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app).
-
 
 ## Complete the UID2 Account Setup
 
@@ -61,7 +63,7 @@ When account setup is complete, you'll receive your unique API key and client se
 
 The following diagram shows the data flow that the publisher must implement for UID2 client-server mobile integration.
 
-This example uses the [UID2 SDK for Android](../sdks/uid2-sdk-ref-android.md) in the client-side mobile app and the [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) on the server side.
+This example uses the [SDK for Android](../sdks/sdk-ref-android.md) in the client-side mobile app and the [SDK for Java](../sdks/sdk-ref-java.md) on the server side.
 
 ![Mobile Client-Server Integration Example](images/integration-mobile-client-server.png)
 
@@ -69,58 +71,14 @@ This example uses the [UID2 SDK for Android](../sdks/uid2-sdk-ref-android.md) in
 
 ## Implement Server-Side Token Generation
 
-The first step of UID2 integration is to be able to generate the UID2 token on your server. Then, you can pass the token into your mobile apps for sending to the RTB bidstream.
+For a client-server UID2 integration for mobile, the first step is to be able to generate the UID2 token on your server. Then, you can pass the token into your mobile apps for sending to the RTB bidstream.
 
-There are two approaches to generating UID2 tokens on the server side by providing directly identifying information (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) (email address or phone number):
-
-- Integration with an SDK
-- Direct integration to API endpoints
-
-Options are summarized in the following table.
-
-| Integration Solution  | Generate Token | Refresh Token |
-| :--- | :--- |  :--- |
-| [UID2 SDK for Java](../sdks/uid2-sdk-ref-java.md) | ✅ | ✅ |
-| [UID2 SDK for Python](../sdks/uid2-sdk-ref-python.md) | ✅ | ✅ |
-| [Direct integration (API endpoints with custom code)](../endpoints/post-token-generate.md) | ✅ | ✅ |
-
-Whatever integration option you choose to generate the <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (UID2 token and associated values), you'll need to implement one of the following:
-
-- Call the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint.
-
-  The identity output that you need for the rest of this guide is the content inside the body section of a successful endpoint response. For an example, see [Successful Response](../endpoints/post-token-generate.md#successful-response).
-
--  Use one of the Publisher Client classes, in one of the UID2 server-side SDKs. These classes simplify the request into a single method call. 
-
-   For instructions, see [UID2 SDK for Java, Publisher Basic Usage](../sdks/uid2-sdk-ref-java.md#basic-usage) or [UID2 SDK for Python, Usage for Publishers](../sdks/uid2-sdk-ref-python.md#usage-for-publishers).
-
-   If you're using an SDK option, the `Identity` response that you need for the rest of this guide is the output of the applicable method, as follows:
-
-   <Tabs groupId="language-selection">
-   <TabItem value='java' label='Java'>
-
-   ```java
-   tokenGenerateResponse.getIdentityJsonString()
-   ```
-
-   </TabItem>
-   <TabItem value='py' label='Python'>
-
-   ```py
-   token_generate_response.get_identity_json_string()
-   ```
-
-   </TabItem>
-   </Tabs>
-
-:::important
-The endpoint and SDK API returns opt-out status if the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> you are generating the token for has been opted out of UID2. If this happens, save the information and do not call the token generation endpoint for the same DII again. 
-:::
+For details, including instructions and examples, see [Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md).
 
 You will need to pass the `Identity` response into the mobile app: see [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk).
 
 :::warning
-For security reasons, the API key and secret used in token generation must be called server-side. Do not store these values inside a mobile app. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+For security reasons, the API key and secret used in token generation must be called server-side. Do not store these values inside a mobile app.
 :::
 
 ## Server-Side Token Refresh
@@ -134,7 +92,7 @@ If you want to manage token refresh on the server side and not the client/mobile
 - Call the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint.
 - Use one of the Publisher Client classes, in one of the UID2 server-side SDKs. These classes simplify the request into a single method call. 
 
-  For instructions, see [UID2 SDK for Java, Publisher Server-Side Integration section](../sdks/uid2-sdk-ref-java.md#server-side-integration) or [UID2 SDK for Python, Publisher Server-Side Integration section](../sdks/uid2-sdk-ref-python.md#server-side-integration).
+  For instructions, see [SDK for Java, Publisher Server-Side Integration section](../sdks/sdk-ref-java.md#server-side-integration) or [SDK for Python, Publisher Server-Side Integration section](../sdks/sdk-ref-python.md#server-side-integration).
 
 Then, pass the newly refreshed `Identity` value to the mobile app by following the rest of this guide.
 
@@ -142,8 +100,8 @@ Then, pass the newly refreshed `Identity` value to the mobile app by following t
 
 For installation instructions, refer to one of the following:
 
-- [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
-- [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
+- [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
+- [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
 
 At this point, you are ready to use the UID2 Identity generated server-side in the mobile SDK.
 
@@ -274,7 +232,10 @@ If the `getAdvertisingToken()` method call returns `null`, there was no identity
 
 - The identity is invalid. In this scenario there are a couple of options:
   - Check to see whether there are any errors from the previous `setIdentity()` call.
-  - Check the status of the identity, using `UID2Manager.getInstance().getIdentityStatus()` for Android or `UID2Manager.shared.identityStatus` for iOS.
+  - Check the status of the identity, using one of the following:
+    - **Android Java**: `UID2Manager.getInstance().getCurrentIdentityStatus()` 
+    - **Android Kotlin**: `UID2Manager.getInstance().currentIdentityStatus()` 
+    - **iOS**: `UID2Manager.shared.identityStatus`
 - You could enable logging to get more information: see [Enable Logging](#enable-logging).
 - The advertising token inside the UID2 identity has expired, and the refresh token has also expired, so the SDK cannot refresh the token.
 
@@ -336,6 +297,14 @@ UID2Manager.shared.automaticRefreshEnabled = false
 </TabItem>
 </Tabs>
 
-## Optional: UID2 GMA/IMA Plugin for GAM Secure Signal integration
+## Optional: UID2 GMA/IMA Plugin for GAM Secure Signals integration
 
 <GMAIMA_Plugins />
+
+## Optional: UID2 Prebid Mobile SDK Integration
+
+:::important
+The UID2 Prebid Mobile SDK integration is for Android only, and requires version 1.4.0 of the SDK for Android.
+:::
+
+<PrebidMobileSDK />

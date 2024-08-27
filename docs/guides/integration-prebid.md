@@ -11,11 +11,11 @@ displayed_sidebar: sidebarPublishers
 import Link from '@docusaurus/Link';
 import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser.mdx';
 
-# UID2 Integration Overview for Prebid.js
+# UID2 Integration Overview for Prebid
 
-This guide is an overview of integration options for publishers who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) to be passed by Prebid.js in the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.
+This guide is an overview of integration options for publishers who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) to be passed by Prebid.js or Prebid Mobile SDK in the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.
 
-## Introduction
+## Prebid.js Support for Web
 
 UID2 provides a Prebid.js module that supports the following:
 
@@ -30,7 +30,7 @@ For additional flexibility, UID2 also provides alternative methods for some of t
 UID2 is not designed to be used where GDPR applies. The module checks the consent data that's passed in, and does not operate if the `gdprApplies` flag is set to `true`.
 :::
 
-## Generating the UID2 Token
+### Generating the UID2 Token
 
 Depending on access to DII, there are two methods to generate UID2 tokens for use with Prebid.js, as shown in the following table.
 
@@ -39,28 +39,28 @@ Determine which method is best for you, and then follow the applicable integrati
 | Scenario | Integration Guide |
 | :--- | :--- |
 | You have access to DII on the client side and want to do front-end development only | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
-| You have access to DII on the server side and can do server-side development | [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md) |
+| You have access to DII on the server side and can do server-side development | [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) |
 
-## Refreshing the UID2 Token
+### Refreshing the UID2 Token
 
-The Prebid.js UID2 module can automatically refresh the UID2 tokens. If you prefer to implement manual refresh outside Prebid.js, see [Refreshing a UID2 Token](integration-prebid-server-side.md#refreshing-a-uid2-token) in the Server-Side Integration Guide. The client-side integration solution includes automated token refresh.
+The Prebid.js UID2 module can automatically refresh the UID2 tokens. If you prefer to implement manual refresh outside Prebid.js, see [Refreshing a UID2 Token](integration-prebid-client-server.md#refreshing-a-uid2-token) in the Server-Side Integration Guide. The client-side integration solution includes automated token refresh.
 
-## Storing the UID2 Token in the Browser
+### Storing the UID2 Token in the Browser
 
 <StoreUID2TokenInBrowser />
 
-## Passing the UID2 Token to the Bidstream
+### Passing the UID2 Token to the Bidstream
 
 To configure the UID2 module, call `pbjs.setConfig`. For details on supported parameters, refer to the guide that applies to your implementation:
 
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md)
 
 When the UID2 module is configured, it manages a UID2 token for the user and stores it in the user's browser. 
 
-When generating tokens with Client Refresh mode on the client side or on the server side, the module automatically takes care of refreshing the token as long as your site is open in the user's browser. However, you also have the option to manage the token refresh on the server side. For details, see [Refreshing a UID2 Token](integration-prebid-server-side.md#refreshing-a-uid2-token) in the Server-Side Integration Guide. The client-side integration solution includes automated token refresh.
+When generating tokens with Client Refresh mode on the client side or on the server side, the module automatically takes care of refreshing the token as long as your site is open in the user's browser. However, you also have the option to manage the token refresh on the server side. For details, see [Refreshing a UID2 Token](integration-prebid-client-server.md#refreshing-a-uid2-token) in the Server-Side Integration Guide. The client-side integration solution includes automated token refresh.
 
-## Integration Overview: High-Level Steps
+### Integration Overview: High-Level Steps
 
 At a high level, to integrate your site with UID2 using Prebid.js, you'll need to complete the following steps:
 
@@ -71,4 +71,10 @@ At a high level, to integrate your site with UID2 using Prebid.js, you'll need t
 For detailed instructions, refer to one of the following integration guides:
 
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-server-side.md)
+- [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md)
+
+## Prebid Mobile SDK Support for Mobile Devices
+
+UID2 integration with Prebid is supported for Android mobile devices using the Prebid Mobile SDK.
+
+For details, see [UID2 Mobile Integration for Prebid Mobile SDK](integration-prebid-mobile-summary.md).

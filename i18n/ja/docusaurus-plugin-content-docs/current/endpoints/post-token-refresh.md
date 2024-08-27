@@ -1,6 +1,6 @@
 ---
 title: POST /token/refresh
-description: Refresh Token を使用して、更新された UID2 Token を生成します。
+description: Refresh Token を使用して、更新された UID2 Token を生成。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -8,13 +8,16 @@ sidebar_position: 04
 import Link from '@docusaurus/Link';
 
 # POST /token/refresh
-[POST&nbsp;/token/generate](post-token-generate.md) エンドポイントから返された、対応する未使用の Refresh Token を送信して、新しい <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を生成します。
+
+[POST&nbsp;/token/generate](post-token-generate.md) エンドポイントで返された有効期限内の Refresh Token を送信して、新しい <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を生成します。
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
-このエンドポイントは API キーを使用する必要がないため、クライアントサイド(ブラウザやモバイルアプリなど)から呼び出すことができます。
+このエンドポイントは、Client-Side (例えば、ブラウザやモバイルアプリ) から呼び出すことができます。それは、<Link href="../ref-info/glossary-uid#gl-api-key">API key</Link> を使用する必要がないためです。
 
->NOTE: このエンドポイントを直接呼び出すのではなく、UID2 SDK を使って管理することもできます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
+:::note
+このエンドポイントを直接呼び出す代わりに、UID2 SDK のいずれかを使用して管理することができます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
+:::
 
 ## Request Format 
 
@@ -26,14 +29,14 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 - トークン更新のリクエストには暗号化は必要ありません。
 - リクエストが HTTP ステータスコード 200 で成功すると、新しい UID2 Token または Out-Out 情報が返されます。
-- 成功したレスポンスは、そのレスポンスに新しいトークンまたは Opt-Out 情報が含まれているかどうかにかかわらず暗号化されます。エラー・レスポンスは暗号化されません。
+- 成功したレスポンスは、そのレスポンスに新しいトークンまたは Opt-Out 情報が含まれているかどうかにかかわらず暗号化されます。エラーレスポンスは暗号化されません。
 - レスポンスを復号化するには、このトークンに対する最新の `refresh_response_key` 値を使用します。`refresh_response_key` の値は、[POST&nbsp;/token/generate](post-token-generate.md) と `POST /token/refresh` のレスポンスで返されます。トークンがリフレッシュされるたびに、新しい `refresh_response_key` が返されます。現在のレスポンスを復号化するには、必ず最新のものを使用してください。
 
 ### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | 必須 | インテグレーション環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>地域オペレーターを含む全リストは、[Environments](../getting-started/gs-environments.md) を参照してください。<br/>Notes:<ul><li>`integ` 環境と `prod` 環境は異なる <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link> を必要とします。</li><li>トークンの有効期限は変更される可能性がありますが、`integ` 環境では常に `prod` 環境よりも大幅に短くなります。</li></ul> |
+| `{environment}` | string | 必須 | インテグレーション環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは、[Environments](../getting-started/gs-environments.md) を参照してください。<br/>Notes:<ul><li>`integ` 環境と `prod` 環境は異なる <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link> を必要とします。</li><li>トークンの有効期限は変更される可能性がありますが、`integ` 環境では常に `prod` 環境よりも大幅に短くなります。</li></ul> |
 
 #### Testing Notes
 
@@ -101,12 +104,14 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 ### Response Body Properties
 
+レスポンスボディには、次の表に示すプロパティが含まれます。
+
 | Property  | Data Type | Description |
 | :--- | :--- | :--- |
 | `advertising_token`    | string    | ユーザーの <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> (Advertising Token とも呼ばれます) です。 |
 | `refresh_token`        | string    | UID2 Service と最新の ID トークンのセットを交換できる暗号化されたトークンです。 |
 | `identity_expires`     | number    | UID2 Token の有効期限を示す UNIX タイムスタンプ (ミリ秒単位) です。 |
-| `refresh_from`         | number    | UID2 SDK for JavaScript ([UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md) を参照してください) が UID2 Token のリフレッシュを開始するタイミングを示す UNIX タイムスタンプ(ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから Advertising Token もリフレッシュすることを検討してください。|
+| `refresh_from`         | number    | SDK for JavaScript ([SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください) が UID2 Token のリフレッシュを開始するタイミングを示す UNIX タイムスタンプ(ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから Advertising Token もリフレッシュすることを検討してください。|
 | `refresh_expires`      | number    | Refresh Token の有効期限を示す UNIX タイムスタンプ(ミリ秒単位)。 |
 | `refresh_response_key` | string    | [POST&nbsp;/token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。 |
 
@@ -123,4 +128,4 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 | `expired_token` | 400              | リクエストで指定された `refresh_token` 値は期限切れのトークンです。 |
 | `unauthorized`  | 401              | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
-`status` の値が `success` または `optout` 以外であれば、 `message` フィールドにその問題に関する追加情報が表示されます。
+`status` の値が `success` または `optout` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。

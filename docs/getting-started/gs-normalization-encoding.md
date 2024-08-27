@@ -84,7 +84,7 @@ Here's what you need to know about phone number normalization rules:
 - Normalized E.164 phone numbers use the following syntax, with no spaces, hyphens, parentheses, or other special characters:<br/>
   `[+] [country code] [subscriber number including area code]`
  Examples:
-   - US: `1 (123) 456-7890` is normalized to `+11234567890`.
+   - US: `1 (234) 567-8901` is normalized to `+12345678901`.
    - Singapore: `65 1243 5678` is normalized to `+6512345678`.
    - Sydney, Australia: `(02) 1234 5678` is normalized to drop the leading zero for the city plus include the country code: `+61212345678`.
 
@@ -125,11 +125,11 @@ Some of the examples show email addresses that include the plus sign (+), with d
 
 ## Example Code
 
-For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base-64 Encoding](../guides/publisher-client-side#example-code-hashing-and-base-64-encoding).
+For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base-64 Encoding](../guides/integration-javascript-client-side#example-code-hashing-and-base-64-encoding).
 
 ## UID2 Hashing Tool
 
-To check that you're correctly normalizing, hashing, and encoding, you can test with the [UID2 hashing tool](https://unifiedid.com/examples/hashing-tool).
+To check that you're correctly normalizing, hashing, and encoding, you can test with the [UID2 hashing tool](https://unifiedid.com/examples/hashing-tool/).
 
 Choose Email or Phone Number, type or paste the value, and then click Enter.
 

@@ -19,7 +19,7 @@ This plugin simplifies integration with Google Mobile Ads (GMA) for any publishe
 
 <!-- As of 2024-04-17 -->
 
-This documentation is for the UID2 GMA Plugin for iOS version 0.3.0 or later.
+This documentation is for the UID2 GMA Plugin for iOS version 0.3.2 or later.
 
 ## GitHub Repository
 
@@ -34,16 +34,16 @@ To run this plugin, install the following:
 1. Google Mobile Ads SDK v10.7.0 or later:
    - [SDK](https://developers.google.com/admob/ios)
    - [Release Notes](https://developers.google.com/admob/ios/rel-notes)
-1. UID2 SDK for iOS v0.3.0 or later:
+1. SDK for iOS v0.3.2 or later:
    - [SDK](https://github.com/IABTechLab/uid2-ios-sdk)
-   - [UID2 SDK for iOS Reference Guide](../sdks/uid2-sdk-ref-ios.md)
-1. [UID2 GMA Plugin for iOS v0.3.0](https://github.com/IABTechLab/uid2-ios-plugin-google-gma)
+   - [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
+1. [UID2 GMA Plugin for iOS v0.3.2](https://github.com/IABTechLab/uid2-ios-plugin-google-gma)
 
 ## Installation
 
-Prerequisite: Install the Google Mobile Ads SDK and the UID2 SDK for iOS.
+Prerequisite: Install the Google Mobile Ads SDK and the SDK for iOS.
 
-Install the UID2 iOS GMA Plugin via Swift Package Manager or CocoaPods to an existing app with the UID2 SDK for iOS and the Google Mobile Ads SDK installed.
+Install the UID2 iOS GMA Plugin via Swift Package Manager or CocoaPods to an existing app with the SDK for iOS and the Google Mobile Ads SDK installed.
 
 There are three installation options:
 
@@ -57,7 +57,7 @@ Add the following dependency to Package.swift:
 
 ```js
 dependencies: [
-  .package(url: "https://github.com/IABTechLab/uid2-ios-plugin-google-gma.git", exact: "0.3.0")
+  .package(url: "https://github.com/IABTechLab/uid2-ios-plugin-google-gma.git", exact: "0.3.2")
 ]
 ```
 
@@ -67,12 +67,12 @@ In the XCode user interface, under Package Dependencies, add the following entry
 
 | Name | Location | Dependency Rule                         |
 | :--- | :--- |:----------------------------------------| 
-| uid2-ios-plugin-google-gma | `git@github.com:IABTechLab/uid2-ios-plugin-google-gma.git` | Exact Version: 0.3.0 |
+| uid2-ios-plugin-google-gma | `git@github.com:IABTechLab/uid2-ios-plugin-google-gma.git` | Exact Version: 0.3.2 |
 
 ### Installing with CocoaPods
 
 Add the following entry in your `Podfile`:
 
 ```
-pod 'UID2GMAPlugin', '0.3.0'
+pod 'UID2GMAPlugin', '0.3.2'
 ```

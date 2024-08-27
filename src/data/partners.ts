@@ -173,14 +173,29 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Blueconic",
+    logo: "blueconic.png",
+    type: ["CDP"],
+  },
+  {
     name: "Bombora",
     logo: "bombora-logo.png",
     type: ["Data"],
   },
   {
+    name: "Bridg",
+    logo: "Bridg.png",
+    type: ["CDP"],
+  },
+  {
     name: "BuzzFeed",
     logo: "BuzzFeed_Logo_580x250.png",
     type: ["Publishers"],
+  },
+  {
+    name: "Caddle",
+    logo: "Caddle_ColourLogo_Horizontal.webp",
+    type: ["DSP"],
   },
   {
     name: "Cadent",
@@ -196,6 +211,11 @@ export const partnersData: PartnersDataType = [
     name: "Cinema Café",
     logo: "cinema-cafe-logo-580x250.png",
     type: ["Publishers"],
+  },
+  {
+    name: "Circana",
+    logo: "Circana_Logo.png",
+    type: ["Data"],
   },
   {
     name: "coc coc",
@@ -232,6 +252,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "Disney",
     logo: "disney-logo.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "Dish Media",
+    logo: "Dish-Media-Logo.png",
     type: ["Publishers"],
   },
   {
@@ -281,6 +306,11 @@ export const partnersData: PartnersDataType = [
     order: 8,
   },
   {
+    name: "Fox",
+    logo: "FOX_wordmark.svg",
+    type: ["Publishers"],
+  },
+  {
     name: "FPT Play",
     logo: "VN_FPT Play.png",
     type: ["Publishers"],
@@ -289,6 +319,11 @@ export const partnersData: PartnersDataType = [
     name: "Freak Out",
     logo: "PartnerLogo_FreakOut_580x250.png",
     type: ["DSP"],
+  },
+  {
+    name: "FreeWheel",
+    logo: "freewheel.png",
+    type: ["Publishers"],
   },
   {
     name: "Fubo TV",
@@ -311,9 +346,19 @@ export const partnersData: PartnersDataType = [
   //   type: ["DSP"],
   // },
   {
+    name: "GrowthLoop",
+    logo: "GrowthLoop.png",
+    type: ["CDP"],
+  },
+  {
     name: "Habu",
     logo: "Habu.png",
     type: ["CDP"],
+  },
+  {
+    name: "Haystack News",
+    logo: "Haystack-logo.png",
+    type: ["Publishers"],
   },
   {
     name: "Hello Health Group",
@@ -580,6 +625,11 @@ export const partnersData: PartnersDataType = [
     type: ["DSP"],
   },
   {
+    name: "OnAudience",
+    logo: "OnAudience_logo.png",
+    type: ["Data"],
+  },
+  {
     name: "Open X",
     logo: "PartnerLogo_OpenX_580x250.png",
     type: ["DSP"],
@@ -595,6 +645,11 @@ export const partnersData: PartnersDataType = [
     type: ["Data"],
     featured: true,
     order: 16,
+  },
+  {
+    name: "Pandora",
+    logo: "Pandora_wordmark.svg.png",
+    type: ["Publishers"],
   },
   {
     name: "Pass3",
@@ -653,9 +708,24 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "RevOptimal",
+    logo: "RevOptimal.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "Roku",
+    logo: "Roku-Logo.png",
+    type: ["Publishers"],
+  },
+  {
     name: "Rolling Stone",
     logo: "Rolling-Stone_logo-580x250.png",
     type: ["Publishers"],
+  },
+  {
+    name: "Rudderstack",
+    logo: "rudderstack.png",
+    type: ["CDP"],
   },
   {
     name: "Salesforce",
@@ -672,6 +742,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "SCA",
     logo: "PartnerLogo_SCA_256x256.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "Scripps",
+    logo: "scripps.jpeg",
     type: ["Publishers"],
   },
   {
@@ -695,6 +770,11 @@ export const partnersData: PartnersDataType = [
     type: ["DSP"],
   },
   {
+    name: "Simon Data",
+    logo: "simon.png",
+    type: ["CDP"],
+  },
+  {
     name: "Skyperfect JSAT",
     logo: "skyperfect-logo-700x400.png",
     type: ["Publishers", "Data"],
@@ -702,6 +782,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "Slate",
     logo: "slate.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "Sling",
+    logo: "sling-logo.png",
     type: ["Publishers"],
   },
   {
@@ -864,6 +949,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "VNExpress",
     logo: "VNExpress.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "WBD",
+    logo: "WBD_logo.webp",
     type: ["Publishers"],
   },
   {

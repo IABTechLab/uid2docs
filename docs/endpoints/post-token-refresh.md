@@ -111,7 +111,7 @@ The response body includes the properties shown in the following table.
 | `advertising_token` | string | The <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> (also known as advertising token) for the user. |
 | `refresh_token` | string | An encrypted token that can be exchanged with the UID2 Service for the latest set of identity tokens. |
 | `identity_expires` | number | The UNIX timestamp (in milliseconds) that indicates when the UID2 token expires. |
-| `refresh_from` | number | The UNIX timestamp (in milliseconds) that indicates when the UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) will start refreshing the UID2 token, if the SDK is in use.<br/>TIP: If you are not using the SDK, consider refreshing the UID2 token from this timestamp, too. |
+| `refresh_from` | number | The UNIX timestamp (in milliseconds) that indicates when the SDK for JavaScript (see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)) will start refreshing the UID2 token, if the SDK is in use.<br/>TIP: If you are not using the SDK, consider refreshing the UID2 token from this timestamp, too. |
 | `refresh_expires` | number | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
 | `refresh_response_key` | string | A key to be used in a new [POST&nbsp;/token/refresh](post-token-refresh.md) request for response decryption. |
 

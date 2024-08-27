@@ -1,6 +1,6 @@
 ---
 title: POST /optout/status
-description: Checks the opt-out status of raw UID2s.
+description: Raw UID2 のオプトアウトステータスをチェック。
 hide_table_of_contents: false
 sidebar_position: 03
 ---
@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # POST /optout/status
 
-raw UID2 のオプトアウトステータスを確認します。指定された raw UID2 のリストを使用して、このエンドポイントはオプトアウトした raw UID2 とそのオプトアウトが行われた時刻を返します。詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+raw UID2 のオプトアウトステータスを確認します。指定された raw UID2 のリストを使用して、このエンドポイントはオプトアウトした raw UID2 とそのオプトアウトが行われた時刻を返します。詳細は [User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 Used by: このエンドポイントは、主に広告主、データプロバイダー、DSP、共有者によって使用されます。一般的には、元のメールアドレスや電話番号にアクセスできないが、オプトアウトステータスを知りたい参加者向けです。
 
@@ -38,18 +38,18 @@ Used by: このエンドポイントは、主に広告主、データプロバ�
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | 必須 | インテグレーション環境: `https://operator-integ.uidapi.com`.<br/>本番環境: `https://prod.uidapi.com`.<br/>リージョナルオペレーターを含む全リストは、[Environments](../getting-started/gs-environments.md) を参照してください。 |
+| `{environment}` | string | 必須 | インテグレーション環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
-インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API キー</Link> が必要です。
+インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。
 :::
 
 ### Unencrypted JSON Body Parameters
 
 ボディパラメータは 1 つだけです。
 
-| Body Parameter | Data Type | Attribute | Description | Format |
-| :--- | :--- | :--- | :--- | :--- |
+| Body Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
 | `advertising_ids` |	string array |	必須 | オプトアウトのステータスをチェックしたい raw UID2 のリスト。<br/>１回の API 呼び出しで最大 5,000 件のエントリー。 |
 
 ### Request Example

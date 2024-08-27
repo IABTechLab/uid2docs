@@ -1,6 +1,6 @@
 ---
 title: Tokenized Sharing Overview
-description: Learn about the options for tokenized sharing.
+description: Tokenized Sharing のオプションについて学ぶ。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # Tokenized Sharing Overview
 
-UID2 では、Tokenized Sharing は、<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> または <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2s</Link> を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、トークンを承認した [sharing participants](ref-info/glossary-uid.md#gl-sharing-participant) と共有することを意味します。UID2 Token を使用することで、データの送信者と受信者の間でエンドツーエンドで raw UID2 を保護することができます。Tokenized sharing は、ビッドストリームまたはピクセル経由での共有に必要ですが、どのような共有ユースケースでも使用できます。
+UID2 では、Tokenized Sharing は、<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> または <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2s</Link> を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、トークンを承認した [sharing participants](ref-info/glossary-uid.md#gl-sharing-participant) と共有することを意味します。UID2 Token を使用することで、データの送信者と受信者の間でエンドツーエンドで raw UID2 を保護することができます。Tokenized sharing は、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>またはピクセル経由での共有に必要ですが、どのような共有ユースケースでも使用できます。
 
 トークンは、次のいずれかの方法で生成されます:
 - raw UID2 を UID2 Token に暗号化する: [Tokenized Sharing: Starting with a Raw UID2](#tokenized-sharing-starting-with-a-raw-uid2) を参照してください。
@@ -17,7 +17,7 @@ UID2 では、Tokenized Sharing は、<Link href="../ref-info/glossary-uid#gl-di
 
 ## Tokenized Sharing Scenarios
 
-多くのシナリオでは、UID2 データは <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> の形で共有されます。主なユースケースは以下の表に示されています。
+多くのシナリオでは、UID2 データは <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> の形で共有されます。主なユースケースは次の表に示されています。
 
 | Scenario | Sender | Receiver | Sharing Approach |
 | :--- | :--- | :--- | :--- |
@@ -53,10 +53,10 @@ UID2 では、Tokenized Sharing は、<Link href="../ref-info/glossary-uid#gl-di
 
 | Starting Point | Decryption Option/Scenario | Link to Details |
 | :--- | :--- | :--- |
-| Token | C# / .NET SDK | [UID2 SDK for C# / .NET: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers) |
-| Token | C++ SDK | [UID2 SDK for C++: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-cplusplus.md#usage-for-uid2-sharers) |
-| Token | Java SDK | [UID2 SDK for Java: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-java.md#usage-for-uid2-sharers) |
-| Token | Python SDK | [UID2 SDK for Python: Usage for UID2 Sharers](../sdks/uid2-sdk-ref-python.md#usage-for-uid2-sharers) |
+| Token | C# / .NET SDK | [SDK for C# / .NET: Usage for UID2 Sharers](../sdks/sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers) |
+| Token | C++ SDK | [SDK for C++: Usage for UID2 Sharers](../sdks/sdk-ref-cplusplus.md#usage-for-uid2-sharers) |
+| Token | Java SDK | [SDK for Java: Usage for UID2 Sharers](../sdks/sdk-ref-java.md#usage-for-uid2-sharers) |
+| Token | Python SDK | [SDK for Python: Usage for UID2 Sharers](../sdks/sdk-ref-python.md#usage-for-uid2-sharers) |
 | Token | Snowflake | [Snowflake Integration Guide: Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers)
 | Token | Decryption of UID2 tokens sent in the bidstream (DSPs only) | [DSP Integration Guide: Decrypt UID2 Tokens for RTB Use](../guides/dsp-guide#decrypt-uid2-tokens-for-rtb-use)
 
@@ -171,7 +171,7 @@ raw UID2 から始める場合は、次の手順に従ってください:
 <tr>
 <td>2</td>
 <td>K2jlbu2ldlpKL1z6n5bET7L3<br/>g0xfqmldZPDdPTktdRQ=</td>
-<td>UID2 Token を生成するために raw UID2 を暗号化する:<br/>利用可能な SDK の `encrypt()` 関数を使用する。例えば Java の場合、<a href="../sdks/uid2-sdk-ref-java#usage-for-uid2-sharers">Usage for UID2 Sharers</a> step 3 を参照してください。</td>
+<td>UID2 Token を生成するために raw UID2 を暗号化する:<br/>利用可能な SDK の `encrypt()` 関数を使用します。例えば Java の場合、<a href="../sdks/sdk-ref-java#usage-for-uid2-sharers">Usage for UID2 Sharers</a> step 3 を参照してください。</td>
 <td style={{
   wordBreak: "break-all"
 }}>KlKKKfE66A7xBnL/DsT1UV/Q+V/r3xwKL89Wp7hpNllxmNkPaF8vdzenDvfoatn6sSXbFf5DfW9wwbdDwMnnOVpPxojkb8KYSGUte/FLSHtg4CLKMX52UPRV7H9UbWYvXgXC4PaVrGp/Jl5zaxPIDbAW0chULHxS+3zQCiiwHbIHshM+oJ==</td>

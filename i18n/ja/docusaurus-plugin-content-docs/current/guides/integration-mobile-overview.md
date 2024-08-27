@@ -2,7 +2,7 @@
 title: UID2 Mobile Integration Overview for Android and iOS
 sidebar_label: Integration Overview for Mobile
 pagination_label: Mobile Integration Overview for Android and iOS
-description: Overview of options for UID2  mobile integration.
+description: UID2 モバイルインテグレーションオプションの概要。
 hide_table_of_contents: false
 sidebar_position: 04
 displayed_sidebar: sidebarPublishers
@@ -12,10 +12,10 @@ import Link from '@docusaurus/Link';
 
 # UID2 Mobile Integration Overview for Android and iOS
 
-このガイドは、UID2 SDK for Android または UID2 SDK for iOS を使用して UID2 と統合したいモバイルアプリのパブリッシャー向けのインテグレーションオプションの概要です。
+このガイドは、SDK for Android または SDK for iOS を使用して UID2 と統合したいモバイルアプリのパブリッシャー向けのインテグレーションオプションの概要です。
 
 :::note
-このガイドの、**UID2 mobile SDKs** は、UID2 SDK for Android と UID2 SDK for iOS の両方を含むグループ用語です。
+このガイドの、**UID2 mobile SDKs** は、SDK for Android と SDK for iOS の両方を含むグループ用語です。
 :::
 
 ## Introduction 
@@ -45,11 +45,11 @@ UID2 mobile SDK を使用してモバイルアプリを UID2 とインテグレ�
 
 1. Client-Server インテグレーションのみ: Server-Side でのトークン生成をインテグレーションします。
 
-1. UID2 SDK for Android または iOS をモバイルアプリにインテグレーションします。
+1. SDK for Android または iOS をモバイルアプリにインテグレーションします。
 
 1. SDK を構成します。
 
-1. トークンが正常に生成されたことを確認し、ビッドストリームで使用するためにトークンを渡します。
+1. トークンが正常に生成されたことを確認し、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>で使用するためにトークンを渡します。
 
 1. オプションで、[Google GMA SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) および [Google IMA SDK](https://developers.google.com/interactive-media-ads/) とのインテグレーションに UID2 GMA/IMA プラグインを構成します。
 

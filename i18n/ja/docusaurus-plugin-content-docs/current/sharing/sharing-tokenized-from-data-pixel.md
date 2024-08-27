@@ -1,6 +1,6 @@
 ---
 title: Tokenized Sharing in Pixels
-description: Learn about sharing UID2 tokens in pixels.
+description: ピクセルでの UID2 Token の共有について学ぶ。
 hide_table_of_contents: false
 sidebar_position: 08
 ---
@@ -11,23 +11,14 @@ import Link from '@docusaurus/Link';
 
 ピクセルで共有される UID2 データは、以下の2つの方法のいずれかで生成された UID2 Token でなければなりません:
 
-- [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号)を直接暗号化して UID2 Token にする。
-- raw UID2 を UID2 Token に暗号化する。
+- [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号)を直接暗号化して UID2 Token にします。
+- raw UID2 を UID2 Token に暗号化します。
 
-[Tokenized sharing](../ref-info/glossary-uid.md#gl-tokenized-sharing) は、どの共有ルートでも選択可能ですが、ビッドストリーム以外の主な実装は、ピクセルでのトークンの共有です。
+[Tokenized sharing](../ref-info/glossary-uid.md#gl-tokenized-sharing) は、どの共有ルートでも選択可能ですが、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>以外の主な実装は、ピクセルでのトークンの共有です。
 
 :::caution
 ピクセルのデータは不正アクセスされる可能性があるため、raw UID2 をピクセルで共有することは決して許されません。ピクセルで共有する場合は、Tokenized sharing が必要です。
 :::
-
-<!-- In this file:
-
-- [Audience](#audience)
-- [Sharing UID2 Tokens in Pixels](#sharing-uid2-tokens-in-pixels)
-- [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal)
-- [Workflow: Tokenized Sharing in Tracking Pixels](#workflow-tokenized-sharing-in-tracking-pixels)
-- [Workflow: Tokenized Sharing in Creative Pixels](#workflow-tokenized-sharing-in-creative-pixels)
-- [Information for Sharing Receivers](#information-for-sharing-receivers) -->
 
 ### Audience
 
@@ -39,7 +30,7 @@ import Link from '@docusaurus/Link';
 ## Sharing UID2 Tokens in Pixels
 
 :::tip
-DII から UID2 Token を直接生成することを勧めます。これにはいくつかの方法がありますが、勧めるのは Client-Side で UID2 Token を生成する方法です。手順については、[Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) を参照してください。
+DII から UID2 Token を直接生成することを勧めます。これにはいくつかの方法がありますが、勧めるのは Client-Side で UID2 Token を生成する方法です。手順については、[Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を参照してください。
 :::
 
 参加者によって、ピクセルの使用方法は異なります。次の表は、広告技術のエコシステムにおけるピクセルの2つの一般的な使用例を示しています。
@@ -68,7 +59,7 @@ UID2 Portal では、送信者と受信者がアカウントを設定し、送�
 
 ウェブサイトで製品の購入などのアクションが完了したときにトリガーされるトラッキングピクセルを使用している場合、おそらく DII から始めて、UID2 Token に変換して共有します。
 
-UID2 送信者は、UID2 Token を復号化できる受信者を指定します。これは、UID2 Portal で権限を設定することで行います(詳細は、[Sharing Permissions](../portal/sharing-permissions.md) を参照してください)。送信者が UID2 Sharing の権限を受信者に付与すると、送信者の暗号キーが UID2 SDK または Snowflake を介して受信者と共有されます。共有の一環として、UID2 SDK と API は暗号化と復号化を処理します。
+UID2 送信者は、UID2 Token を復号化できる受信者を指定します。これは、UID2 Portal で権限を設定することで行います(詳細は [Sharing Permissions](../portal/sharing-permissions.md) を参照してください)。送信者が UID2 Sharing の権限を受信者に付与すると、送信者の暗号キーが UID2 SDK または Snowflake を介して受信者と共有されます。共有の一環として、UID2 SDK と API は暗号化と復号化を処理します。
 
 たとえば、広告主(送信者)が UID2 Token を UID2 DSP と共有することを望んでいるとします。これは、トラッキングピクセルを介したコンバージョントラッキングのためです。共有を使用するには、次のシーケンスになります:
 
@@ -76,15 +67,15 @@ UID2 送信者は、UID2 Token を復号化できる受信者を指定します�
 
    1. UID2 Portal で DSP に共有を許可します。
 
-   2. ユーザーから提供された [DII](../ref-info/glossary-uid.md#gl-dii) から UID2 Token を直接生成します。これは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントまたは UID2 Token を生成する SDK のいずれかを使用して行います。
+   2. ユーザーから提供された <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> から UID2 Token を直接生成します。これは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントまたは UID2 Token を生成する SDK のいずれかを使用して行います。
    
-      オプションの概要については、[SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) を参照してください。JavaScript を使用して UID2 Token を生成する方法については、[Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md) を勧めます。
+      オプションの概要については、[SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) を参照してください。JavaScript を使用して UID2 Token を生成する方法については、[Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を勧めます。
    
    3. UID2 Tokeb を DSP に安全に送信します。
 
 2. DSPは、受信者であり、共有に参加しています。DSPは、UID2 Portal の共有権限設定を通じて広告主の暗号鍵にアクセスできるため、UID2 Token をセグメント作成のための raw UID2 に復号化できます。
 
-UID2 送信者と受信者の両方が、UID2 Portal アカウントを作成する必要があります(詳細は、[Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal) を参照してください)。アカウントがない場合、UID2 参加者は UID2 Portal の共有参加者リストに表示されず、送信者の暗号キーを受信して復号化することができません。
+UID2 送信者と受信者の両方が、UID2 Portal アカウントを作成する必要があります(詳細は [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal) を参照してください)。アカウントがない場合、UID2 参加者は UID2 Portal の共有参加者リストに表示されず、送信者の暗号キーを受信して復号化することができません。
 
 ## Workflow: Tokenized Sharing in Creative Pixels
 

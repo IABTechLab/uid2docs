@@ -2,7 +2,7 @@
 title: Snowflake Integration
 sidebar_label: Snowflake
 pagination_label: Snowflake Integration
-description: UID2 実装のため、Snowflake の UID2 Share を通じて Snowflake とインテグレーションするための情報。
+description: Snowflake の UID2 Share を通じて UID2 とインテグレーションするための情報。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -11,21 +11,7 @@ import Link from '@docusaurus/Link';
 
 # Snowflake Integration Guide
 
-<!-- This guide includes the following information:
-- [Functionality](#functionality)
-- [Workflow Diagram](#workflow-diagram)
-- [Access the UID2 Shares](#access-the-uid2-shares)
-- [Shared Objects](#shared-objects)
-  -  [Database and Schema Names](#database-and-schema-names)
-  -  [Map DII](#map-dii)
-  -  [Regenerated UID2s](#regenerate-uid2s) 
-- [Migration Guide](#migration-guide)  
-- [Usage for UID2 Sharers](#usage-for-uid2-sharers)
-   - [Encrypt Tokens](#encrypt-tokens)
-   - [Decrypt Tokens](#decrypt-tokens)
-   - [UID2 Sharing Example](#uid2-sharing-example) -->
-
-[Snowflake](https://www.snowflake.com/?lang=ja) はクラウドデータウェアハウスソリューションで、パートナーとして顧客のデータを保存し、UID2 フレームワークとインテグレーションできます。Snowflake を使用することで、UID2 は、機密性の高い [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を公開することなく、認可された消費者識別子データを安全に共有できます。消費者識別子データを直接 Operator Web Services に問い合わせることもできますが、Snowflake UID2 とのインテグレーションにより、よりシームレスな体験が可能になります。
+[Snowflake](https://www.snowflake.com/) は、パートナーがデータを保存し、UID2 フレームワークとインテグレーションするためのクラウドデータウェアハウスソリューションです。Snowflake を使用することで、UID2 は機密性の高い <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> を公開することなく、認可された消費者識別子データを安全に共有できます。消費者識別子データを直接 Operator Web Services に問い合わせることもできますが、Snowflake UID2 とのインテグレーションにより、よりシームレスな体験が可能になります。
 
 UID2 の以下のリストが Snowflake marketplace で入手可能です:
 - 広告主向け: [Unified ID 2.0: Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV/unified-id-2-0-unified-id-2-0-advertiser-identity-solution?originTab=provider&providerName=Unified+ID+2.0)
@@ -33,15 +19,17 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 
 ## Functionality
 
-以下の表は、UID2 Snowflake インテグレーションで利用可能な機能をまとめたものです。
+次の表は、UID2 Snowflake インテグレーション で利用可能な機能をまとめたものです。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a Raw UID2 |
+| Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
 | :--- |  :--- | :--- | :--- | :--- |
 | Supported | Supported | Not supported* | Not supported | Supported |
 
 *DII から直接 UID2 Token を生成することはできません。しかし、DII を raw UID2 に変換し、raw UID2 を暗号化して UID2 Token にすることはできます。
 
->NOTE: ビッドストリームで UID2 Token を共有するパブリッシャーの場合は、[Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください
+:::note
+<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>で UID2 Token を共有するパブリッシャーの場合は、[Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください
+:::
 
 ## Workflow Diagram
 
@@ -51,7 +39,7 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 
 |Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-Out Cloud Setup|
 | :--- | :--- | :--- |
-| パートナーは、Snowflake アカウントを設定してデータをホストし、UID2 Share を通じて関数やビューを使うことで、UID2 インテグレーションに関与できます。 | Snowflake アカウントでホストされている UID2 インテグレーションでは、プライベートテーブルからデータを引き出す許可をされた関数とビューへのアクセスが許可されます。プライベートテーブルにはアクセスできません。UID2 Share では、UID2 関連のタスクを実行するために必要な重要なデータのみが公開されます。 | ETL (Extract Transform Load) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web Services を動かす内部データを提供します。Operator Web Services で使用されるデータは、UID2 Share からも入手できます。 |
+| パートナーとして、Snowflake アカウントを設定してデータをホストし、UID2 Share を通じて関数やビューを使うことで、UID2 インテグレーションに関与できます。 | Snowflake アカウントでホストされている UID2 インテグレーションでは、プライベートテーブルからデータを引き出す許可をされた関数とビューへのアクセスが許可されます。プライベートテーブルにはアクセスできません。UID2 Share では、UID2 関連のタスクを実行するために必要な重要なデータのみが公開されます。 | ETL (抽出・変換・ロード) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web Services を動かす内部データを提供します。Operator Web Services で使用されるデータは、UID2 Share からも入手できます。 |
 | Shared 関数とビューを使用する場合、Snowflake にトランザクションのコストを支払います。 | UID2 Snowflake アカウントで保護されたこれらのプライベートテーブルは、UID2 関連のタスクを完了するために使用される内部データを保持する UID2 Core/Optout Snowflake ストレージと自動的に同期されます。 |  |
 
 ## Access the UID2 Shares
@@ -62,7 +50,9 @@ Snowflakeデータマーケットプレイスでは、UID2 用に2つのパー�
 - 広告主/ブランド向けの [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV)
 - データプロバイダー向けの [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0)
 
->IMPORTANT: データをリクエストするには、Snowflake アカウントに`ACCOUNTADMIN` ロール権限が必要です。
+:::important
+データをリクエストするには、Snowflake アカウントに`ACCOUNTADMIN` ロール権限が必要です。
+:::
 
 UID2 Share へのアクセスを要求するには、次の手順を実行します。
 
@@ -74,7 +64,7 @@ UID2 Share へのアクセスを要求するには、次の手順を実行しま
 4. The Trade Desk の既存顧客で _Advertiser_ Identity Solution に興味がある場合は、データリクエストフォームの **Message** 欄に The Trade Desk が発行したパートナー ID および広告主 ID を記載してください。
 5. フォームを送信します。
 
-リクエストを受け取った後、UID2 Administrator が適切なアクセス方法をご連絡します。Snowflake でのデータリクエストの管理についての詳細は、[Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html) を参照してください。
+リクエストを受け取った後、UID2 Administrator が適切なアクセス方法をご連絡します。Snowflake でのデータリクエストの管理についての詳細は [Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html) を参照してください。
 
 
 ## Shared Objects
@@ -83,12 +73,14 @@ UID2 Share へのアクセスを要求するには、次の手順を実行しま
 
 - `FN_T_UID2_IDENTITY_MAP` ([Map DII](#map-dii) を参照してください)
 
-以下の関数は非推奨となり、`FN_T_UID2_IDENTITY_MAP` が優先されます。これらの関数はまだ使用できますが、  `FN_T_UID2_IDENTITY_MAP` の方が優れています。すでにこれらの関数を使用している場合は、できるだけ早くアップグレードすることをお勧めします。
+以下の関数は非推奨となり、`FN_T_UID2_IDENTITY_MAP` が優先されます。これらの関数はまだ使用できますが、  `FN_T_UID2_IDENTITY_MAP` の方が優れています。すでにこれらの関数を使用している場合は、できるだけ早くアップグレードすることを勧めます。
 
 - `FN_T_UID2_IDENTITY_MAP_EMAIL` (非推奨)
 - `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (非推奨)
 
->NOTE: 非推奨の関数を使用していて、新しい関数への移行の手助けが必要な場合は、[Migration Guide](#migration-guide) を参照してください。
+:::note
+非推奨の関数を使用していて、新しい関数への移行の手助けが必要な場合は、[Migration Guide](#migration-guide) を参照してください。
+:::
 
 再生成が必要な UID2 を特定するには、UID Share から `UID2_SALT_BUCKETS` ビューを使用します。詳しくは、[Regenerate UID2s](#regenerate-uid2s) を参照してください。
 
@@ -96,7 +88,7 @@ UID2 Sharing 参加者には、以下の機能も利用できます:
 - `FN_T_UID2_ENCRYPT` (See [Encrypt Tokens](#encrypt-tokens))
 - `FN_T_UID2_DECRYPT` (See [Decrypt Tokens](#decrypt-tokens))
 
-詳細は、[Usage for UID2 Sharers](#usage-for-uid2-sharers) を参照してください。
+詳細は [Usage for UID2 Sharers](#usage-for-uid2-sharers) を参照してください。
 
 ### Database and Schema Names
 
@@ -119,7 +111,7 @@ select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_U
 
 ### Map DII
 
-すべてのタイプの [DII](../ref-info/glossary-uid.md#gl-dii) をマッピングするには、`FN_T_UID2_IDENTITY_MAP` 関数を使用します。
+すべてのタイプの <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> をマッピングするには、`FN_T_UID2_IDENTITY_MAP` 関数を使用します。
 
 DII がメールアドレスの場合、サービスは UID2 [メールアドレスの正規化](../getting-started/gs-normalization-encoding.md#email-address-normalization) 規則を使用して正規化されます。
 
@@ -162,7 +154,9 @@ DII が電話番号の場合、UID2 [電話番号正規化](../getting-started/g
 - [Single Hashed Phone Number](#mapping-request-example---single-hashed-phone-number)
 - [Multiple Hashed Phone Numbers](#mapping-request-example---multiple-hashed-phone-numbers)
 
->NOTE: これらの例の入出力データは、説明のみを目的とした架空のものです。提供された値は実際の値ではありません。
+:::note
+これらの例の入出力データは、説明のみを目的とした架空のものです。提供された値は実際の値ではありません。
+:::
 
 #### Mapping Request Example - Single Unhashed Email
 
@@ -212,7 +206,7 @@ select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID, UNMAPPED from AUDIENCE a LEFT JOIN(
 
 複数のメールアドレスに対するクエリー結果:
 
-以下の表は、`NULL` または不適切な書式のメールアドレスに対する `NULL` 値を含む、 レスポンスの各項目です。
+次の表は、`NULL` または不適切な書式のメールアドレスに対する `NULL` 値を含む、レスポンスの各項目です。
 
 ```
 +----+--------------------+----------------------------------------------+------------+--------------------+
@@ -338,7 +332,7 @@ select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT 
 
 複数のハッシュ化されたメールアドレスに対するクエリー結果:
 
-以下の表は、`NULL` ハッシュの `NULL` 値を含め、レスポンスの各項目を示しています。
+次の表は、`NULL` ハッシュの `NULL` 値を含め、レスポンスの各項目を示しています。
 
 ```
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
@@ -398,7 +392,7 @@ select a.ID, a.PHONE_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT 
 
 複数のハッシュ化された電話番号に対するクエリー結果:
 
-以下の表は、`NULL` ハッシュの `NULL` 値を含め、レスポンスの各項目を示しています。
+次の表は、`NULL` ハッシュの `NULL` 値を含め、レスポンスの各項目を示しています。
 
 ```
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
@@ -462,7 +456,7 @@ select a.*, b.LAST_SALT_UPDATE_UTC
 
 クエリー結果:
 
-以下の表は、レスポンスに含まれる各項目を表たものです。以下の ID1 の例で示すように、結果には EMAIL、`UID2`、`BUCKET_ID`、`LAST_UID2_UPDATE_UTC`、`LAST_SALT_UPDATE_UTC`が含まれます。ID 2 は、対応する UID2 が最後のバケット更新の後に生成されたため、情報は返されません。ID 3 は、UID2 が存在しないため、`NULL`値が返されます。
+次の表は、レスポンスに含まれる各項目を表たものです。以下の ID1 の例で示すように、結果には EMAIL、`UID2`、`BUCKET_ID`、`LAST_UID2_UPDATE_UTC`、`LAST_SALT_UPDATE_UTC`が含まれます。ID 2 は、対応する UID2 が最後のバケット更新の後に生成されたため、情報は返されません。ID 3 は、UID2 が存在しないため、`NULL`値が返されます。
 
 ```
 +----+--------------------+----------------------------------------------+------------+-------------------------+-------------------------+
@@ -475,7 +469,7 @@ select a.*, b.LAST_SALT_UPDATE_UTC
 
 ## Migration Guide
 
-`FN_T_UID2_IDENTITY_MAP_EMAIL` 関数と `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用している場合は、できるだけ早く `FN_T_UID2_IDENTITY_MAP` 関数に移行することをお勧めします。この関数は、他の2つの関数が行うことをすべて行い、その他の改良も組み込まれています。
+`FN_T_UID2_IDENTITY_MAP_EMAIL` 関数と `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用している場合は、できるだけ早く `FN_T_UID2_IDENTITY_MAP` 関数に移行することを勧めます。この関数は、他の2つの関数が行うことをすべて行い、その他の改良も組み込まれています。
 
 `FN_T_UID2_IDENTITY_MAP` 関数の利点:
 
@@ -529,7 +523,7 @@ FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash')
 
 UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">共有参加者</Link> とは、送信者または受信者として共有に参加し、UID2を他の参加者と共有する企業のことです。
 
-広告主やデータプロバイダーは、Snowflake (Tokenized Sharing) を介して、UID2 を他の UID2 共有許可参加者と共有することができます。これらの参加者は、[raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を [UID2 Token](../ref-info/glossary-uid#gl-uid2-token) に暗号化し、それを別の参加者に送信してピクセルで共有することができます（[Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照してください）。Snowflake 内でピクセル単位でデータを送信しない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) に記載されている要件に従う限り、UID2 Sharing に参加することができます。
+広告主やデータプロバイダーは、Snowflake (Tokenized Sharing) を介して、UID2 を他の UID2 共有許可参加者と共有することができます。これらの参加者は、[raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> に暗号化し、それを別の参加者に送信してピクセルで共有することができます（[Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照してください）。Snowflake 内でピクセル単位でデータを送信しない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) に記載されている要件に従う限り、UID2 Sharing に参加することができます。
 
 :::caution
 このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
@@ -569,8 +563,8 @@ raw UID2 を UID2 Token に暗号化するには、関数 `FN_T_UID2_ENCRYPT` �
 | `MISSING_OR_INVALID_RAW_UID2` | raw UID2 の暗号化に成功しました。 |
 | `INVALID_RAW_UID2` | raw UID2 が無効です。 |
 | `MISMATCHING_IDENTITY_SCOPE` | raw UID2 が不正な ID スコープに属している。例えば、UID2 が期待されているところに EUID が渡されているなど。|
-| `NOT_AUTHORIZED_FOR_MASTER_KEY` | 呼び出し元が必要な暗号化キーにアクセスできない。UID2 の管理者に連絡してください。 |
-| `NOT_AUTHORIZED_FOR_SITE_KEY` | 呼び出し元が必要な暗号化キーにアクセスできない。UID2 の管理者に連絡してください。 |
+| `NOT_AUTHORIZED_FOR_MASTER_KEY` | 呼び出し元が必要な <a href="../ref-info/glossary-uid#gl-encryption-key">暗号化キー</a> にアクセスできません。UID2 の管理者に連絡してください。 |
+| `NOT_AUTHORIZED_FOR_SITE_KEY` | 呼び出し元が必要な暗号化キーにアクセスできません。UID2 の管理者に連絡してください。 |
 
 #### Encrypt Token Request Example - Single Raw UID2
 
@@ -616,7 +610,7 @@ select a.RAW_UID2, t.UID2_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, 
 
 複数の raw UID2 に対するクエリー結果:
 
-以下の表は、raw UID2 が `NULL` の場合の `NULL` 値を含め、レスポンスの各項目を示しています。
+次の表は、raw UID2 が `NULL` の場合の `NULL` 値を含め、レスポンスの各項目を示しています。
 
 ```
 +----+----------------------------------------------+-----------------------+-----------------------------+
@@ -709,7 +703,7 @@ select a.ID, b.UID2, b.SITE_ID, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' E
 
 複数の UID2 Token に対するクエリー結果:
 
-以下の表は、`NULL` 値や期限切れの UID2 Token など、レスポンスの各項目を示しています。
+次の表は、`NULL` 値や期限切れの UID2 Token など、レスポンスの各項目を示しています。
 
 ```
 +----+----------------------------------------------+----------+-------------------+
