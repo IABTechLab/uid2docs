@@ -18,11 +18,11 @@ Review the SDK functionality to determine which SDK or SDKs you want to use, the
 
 The following table summarizes the functionality available with each SDK.
 
-| UID2 SDK for... | Client-Side or Server-Side | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Generate Raw UID2 from DII&ast; |
+| UID2 SDK for... | Client-Side or Server-Side | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s&ast; |
 | :--- | :--- |  :--- | :--- | :--- | :--- | :--- |
 |JavaScript | Client| &#8212; | &#8212; | &#9989; | &#9989; | &#8212; |
 |Java | Server | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
-|Python | Server | &#9989; | &#9989; | &#9989; | &#9989; | &#8212; |
+|Python | Server | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
 |C# / .NET | Server | &#9989; | &#9989; | &#8212; | &#8212; | &#8212; |
 |C++ | Server | &#9989; | &#9989; | &#8212; | &#8212; | &#8212; |
 |Android | Client&nbsp;(Mobile) | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; |

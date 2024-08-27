@@ -81,7 +81,7 @@ Generating the UID2 token on the client side has the following advantages:
 - The code runs on the client side, on the consumer's web page, and no server-side coding is required.
 - There is a Prebid integration that handles all functions for you&#8212;token generation, token refresh, and passing the token into the bidstream. If you use Prebid 8.21.0 or later, this is the simplest and fastest implementation option.
 
-If you choose a client-side integration, you'll need to provide a list of your root-level domains, for security purposes, as part of account setup. For details, see [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers) on the Account Setup page.
+If you choose a client-side integration, you'll need to provide a list of your root-level domains, for security purposes, as part of account setup. For details, see [Client-Side Web Integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) on the Account Setup page.
 
 The following table summarizes the options for publishers who want to generate the UID2 token on the client side, via the web page, with corresponding documentation resources.
 
@@ -113,7 +113,7 @@ The following table summarizes the options for publishers who want to generate t
 
 For security reasons, the UID2 token has a limited life, but there is a built-in mechanism to refresh the token so that you can still use it.
 
-When you get the token, it comes with a refresh token and a time stamp indicating how long the token is valid for. As long as you use the refresh token to generate a new UID2 token before the current UID2 token expires, you'll get a new UID2 token and an updated refresh token each time. You can continue to refresh to keep the information valid.
+When you get the token, it comes with a refresh token and a timestamp indicating how long the token is valid for. As long as you use the refresh token to generate a new UID2 token before the current UID2 token expires, you'll get a new UID2 token and an updated refresh token each time. You can continue to refresh to keep the information valid.
 
 The following table shows the integration options that support refreshing the UID2 token.
 

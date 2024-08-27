@@ -12,7 +12,7 @@ UID2 Portal では、Client-Side でトークンを生成する実装オプシ�
 | Value | Details | Documentation Link |
 | :--- | :--- | :--- |
 | Key pair | 少なくとも一つ。実装では、公開鍵を共有します。 | [Subscription ID and Public Key](getting-started/gs-credentials.md#subscription-id-and-public-key) |
-| Domain | 少なくとも1つ。ルートレベルドメインの完全なリストを提供します。 | [Client-Side Implementation for Publishers](../getting-started/gs-account-setup.md#client-side-implementation-for-publishers) |
+| Domain | 少なくとも1つ。ルートレベルドメインの完全なリストを提供します。 | [Client-Side Web Integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) |
 | Mobile App ID | Mobile | Android App ID、iOS/tvOS Bundle ID、iOS App Store IDなど、モバイルアプリに適用されるID。 | [Client-Side Mobile Integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations) |
 
 :::important

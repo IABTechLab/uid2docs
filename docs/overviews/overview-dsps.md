@@ -86,6 +86,7 @@ The following documentation resources are available for DSPs to implement UID2.
 |SDK for C# / .NET | [SDK for C# / .NET Reference Guide](../sdks/sdk-ref-csharp-dotnet.md) | An SDK for anyone using .NET server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
 |SDK for C++ | [SDK for C++ Reference Guide](../sdks/sdk-ref-cplusplus.md) | An SDK for anyone using C++ server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
 | Integration Guide | [DSP Integration Guide](../guides/dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
+| DSP Direct Integration Instructions | [DSP Direct Integration Tips](../guides/integration-dsp-no-sdk.md) | Instructions for DSPs who prefer to integrate without using one of the UID2 SDKs. |
 
 <!-- ## Integration Requirements
 

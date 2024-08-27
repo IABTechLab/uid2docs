@@ -119,7 +119,7 @@ The following table lists all resources that are created during the [deployment]
 
 Here's what you can customize during or after the [deployment](#deployment):
 
-- VPC: You can either set up a new VPC and subnets or use existing ones.
+- VPC: You must specify the existing VPC and related VPC Subnet IDs.
 - Root volume size (8G Minimum)
 - SSH key: This is the SSH key that you use to access the UID2 Operator EC2 instances.
 - [Instance type](https://aws.amazon.com/ec2/instance-types/m5/): m5.2xlarge, m5.4xlarge, and so on. If there is no customization, the default value, m5.2xlarge, is recommended.
@@ -187,7 +187,9 @@ The following table explains the parameter values that you need to provide in st
 |Instance root volume size |15 GB or more is recommended. |
 |Key Name for SSH |Your EC2 key pair for SSH access to the deployed EC2 instances. |
 |Trusted Network CIDR |The CIDR (Classless Inter-Domain Routing) value determines the IP address range that can access your operator service.<br/>To limit access to the UID2 Operators so that they can only be accessed through an internal network or a load balancer, specify an internal IP range as the CIDR value. |
-
+|VPC |The existing VPC ID. |
+|VpcSubnet1 |The existing VPC AZ1 Subnet ID. |
+|VpcSubnet2 |The existing VPC AZ2 Subnet ID. |
 
 ### Stack Configuration Options
 
