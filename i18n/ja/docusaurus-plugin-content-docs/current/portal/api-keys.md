@@ -93,7 +93,7 @@ API Key を削除するには、次の手順を実行します:
 
    キーは表示から削除され、無効になります。
 
-## Rotating an API key
+## Rotating an API Key
 
 API Key をローテーションすることをお勧めします。API Key をローテーションするには、次の手順を実行します:
 
@@ -103,3 +103,16 @@ API Key をローテーションすることをお勧めします。API Key を�
 1. UID2 の実装を更新して、ローテーションする Key の代わりに新しい Key を使用するようにします。
 1. 新しい Key が問題なく使用されていることを確認します。たとえば、サービスに対する劣化や API Key の使用に関連するエラーログがないことを確認します。
 1. 古い Key を削除します。詳細は [Deleting an API Key](#deleting-an-api-key) を参照してください。
+
+## Security Recommendations for API Keys
+
+セキュリティのベストプラクティスとして、異なる役割に対して異なるキーを持つことが推奨されます。
+
+追加のセキュリティに関する推奨事項については、[API Key and Client Secret のセキュリティ](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+
+<!-- In some instances, you might create API keys for one permission/role and then want to add a role to your account. For example, you might be an advertiser, but also want to operate as an inventory provider.
+In this scenario, we recommend that you follow these best security practices:
+- Your credentials should have the minimum permissions necessary to complete the specific task. Activities as an advertiser require the Mapper role; activities as an inventory provider require the Generator role.
+- Best practice is to use different credentials in different contexts and for different use cases. For example, each app or service should use its own credentials.
+These practices are standard measures to help ensure that, in case a service or app is compromised or credentials are leaked, any negative result is minimized.
+These are guidelines, not rules. If you need to add a permission, you can modify an existing API key, but we recommend that you use separate keys for separate permission. -->

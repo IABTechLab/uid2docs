@@ -178,7 +178,13 @@ Client-Side インテグレーションページでは、モバイルアプリ I
 
 ### Adding Mobile App IDs
 
-Android App ID、iOS/tvOS Bundle ID、iOS App Store ID など、モバイルアプリに適用されるすべてのモバイルアプリ ID の完全なリストを提供することが重要です。UID2 Token リクエストは、UID2 Portal で設定されたモバイルアプリ ID からのみ受け付けられます。
+すべてのモバイルアプリIDの完全なリストを提供することが重要です。これには、以下が含まれます。
+- Android App ID: 該当するもの。
+- iOS/tvOS Bundle ID and corresponding iOS App Store ID: 該当するもの。
+
+:::important
+UID2 Token リクエストは、UID2 Portal に該当する ID が追加されているソースからのみ受け付けられます。
+:::
 
 1 つ以上のモバイルアプリ ID を追加するには、次の手順を実行します:
 
