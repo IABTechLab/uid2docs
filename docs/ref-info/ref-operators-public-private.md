@@ -28,7 +28,7 @@ The Operator is the operational code of UID2&#8212;the code that turns an email 
 
 ## Public Operators
 
-A Public Operator, or Open Operator, is a UID2 Operator instance that is available to all relevant UID2 participants. Public Operators run publicly available instances of the Operator Service and make them available to participants.
+A Public Operator is a UID2 Operator instance that is available to all relevant UID2 participants. Public Operators run publicly available instances of the Operator Service and make them available to participants.
 
 In most cases, UID2 participants use a Public Operator.
 
@@ -40,7 +40,7 @@ When you use a Public Operator, there is no additional work for you to do to hos
 
 There is no cost, to the participant, for using a Public Operator.
 
-The participant must sign a contract (see [Account Setup](../getting-started/gs-account-setup.md)) to get the applicable credentials ([API key and client secret](../getting-started/gs-credentials.md#api-key-and-client-secret)) to use the UID2 APIs hosted on the Public Operator.
+The participant must sign a contract (see [Account Setup](../getting-started/gs-account-setup.md)) to get the applicable credentials (see [UID2 Credentials](../getting-started/gs-credentials.md)) to use the UID2 APIs hosted on the Public Operator.
 
 :::note
 With a Public Operator, data leaves the participant's infrastructure and is sent to the Operator. Rigorous security measures are in place to help protect the data within the Public Operator.
@@ -48,17 +48,11 @@ With a Public Operator, data leaves the participant's infrastructure and is sent
 
 ##  Private Operators
 
-A Private Operator, or Closed Operator, is a private instance of the UID2 Operator. This means that a specific entity hosts a private instance exclusively for their own use.
+A Private Operator is a private instance of the UID2 Operator. This means that a specific entity hosts a private instance exclusively for their own use.
 
 Any participant can also choose to become a Private Operator to generate and manage their UID2s. However, becoming a Private Operator includes several additional steps, and uses resources that the participant must provide.
 
-The participant must host, configure, maintain, and update the Private Operator instance, and must conform to strict security measures. Engineering resources are required to integrate and to make ongoing updates.
-
-The participant must sign a contract (see [Account Setup](../getting-started/gs-account-setup.md)) to host a Private Operator instance.
-
-:::note
-A Private Operator has no visibility into the raw UID2s or UID2 tokens processed by a Public Operator or another Private Operator. Each Private Operator is a completely closed infrastructure.
-:::
+For details, see [Private Operator Integrations](../guides/integration-options-private-operator.md).
 
 ## Private Operator: Benefits
 
