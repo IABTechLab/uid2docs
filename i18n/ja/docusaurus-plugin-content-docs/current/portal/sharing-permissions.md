@@ -27,7 +27,7 @@ Sharing permissions (共有権限) を設定することで、他の UID2 参加
 
 意図した UID2 Token の受信者が UID2 Token を解読して raw UID2 にできるよう、送信者は受信者に許可を与える必要があります。共有許可は UID2 Portal で定義します。
 
-UID2 Portal へのアクセスについては、UID2 の担当者にお尋ねください。詳細については、[Request an Account](portal-getting-started.md#request-an-account) を参照してください。UID2 を初めて使用する場合は、[Account Setup](../getting-started/gs-account-setup.md) を参照してください。
+UID2 Portal へのアクセスについては、UID2 の担当者にお尋ねください。詳細は [Request an Account](portal-getting-started.md#request-an-account) を参照してください。UID2 を初めて使用する場合は、[Account Setup](../getting-started/gs-account-setup.md) を参照してください。
 
 :::note
 Sharing の使用には API Key (詳細は [API Keys](api-keys.md) を参照) またはクライアントサイドキーペア (詳細は [Client-Side Integration](client-side-integration.md) を参照) が必要です。共有許可を設定する前にこれらの値を設定してください。

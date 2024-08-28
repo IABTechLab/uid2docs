@@ -293,7 +293,7 @@ Operator インスタンスがデプロイされると、デフォルトのロ�
 }
 ```
 
-この設定の詳細については、[logrotate(8) - Linux man page](https://linux.die.net/man/8/logrotate) を参照するか、Linux 環境で `man logrotate` を実行してください。
+この設定の詳細は [logrotate(8) - Linux man page](https://linux.die.net/man/8/logrotate) を参照するか、Linux 環境で `man logrotate` を実行してください。
 
 #### cronjob Configuration
 logrotate は、デフォルトで `/etc/cron.daily` に次のスクリプトを生成します:

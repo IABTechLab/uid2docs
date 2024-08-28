@@ -218,7 +218,7 @@ UID2 リクエストの暗号化とレスポンスの復号化について、追
 
 [Private Operator](../ref-info/glossary-uid.md#gl-private-operator) の運用を希望する UID2 <a href="../intro#participants">参加者は</a>、Microsoft Azure のコンフィデンシャルコンピューティングオプションである Confidential Container で UID2 Operator Service をセットアップできるようになりました。
 
-詳細については、[UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md) を参照してください。
+詳細は [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md) を参照してください。
 
 ### New: API Permissions
 
@@ -271,7 +271,7 @@ UID2 Client-Side Integration Guide for Prebid.js は、既存の URL にまっ�
 
 新しい "getting started" トピックでは、ユーザーのオプトアウトの概要を説明します。
 
-詳細については、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+詳細は [User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 ### New: AWS Entity Resolution Integration Guide
 

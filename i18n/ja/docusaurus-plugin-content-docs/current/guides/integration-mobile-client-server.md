@@ -55,7 +55,7 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 
 アカウントの設定を完了するには、[Account Setup](../getting-started/gs-account-setup.md) に記載されている手順に従ってください。
 
-アカウントの設定が完了すると、ユニークな API Key とクライアントシークレットが送信されます。これらの値はあなたに固有であり、安全に保管することが重要です。詳細については、[API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
+アカウントの設定が完了すると、ユニークな API Key とクライアントシークレットが送信されます。これらの値はあなたに固有であり、安全に保管することが重要です。詳細は [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
 
 ## Client-Server Mobile Integration Data Flow Overview
 

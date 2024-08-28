@@ -67,7 +67,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 1. 該当する [implementation resources](#implementation-resources) を使用して、SDK または UID2 と直接インテグレーションしてください。
 
    :::note
-   UID2 へのリクエストメッセージは必ず暗号化してください。詳細については、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+   UID2 へのリクエストメッセージは必ず暗号化してください。詳細は [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
    :::
 
 1. テスト: 
@@ -91,7 +91,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 以下のリソースは、パブリッシャーの Web インテグレーションに利用できます。
 
 :::tip
-Web インテグレーションオプションの詳細については、[Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
+Web インテグレーションオプションの詳細は [Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
 :::
 
 | Integration Type| Documentation | Content Description |

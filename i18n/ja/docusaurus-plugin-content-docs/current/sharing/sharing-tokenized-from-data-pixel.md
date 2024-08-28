@@ -53,7 +53,7 @@ UID2 Portal では、送信者と受信者がアカウントを設定し、送�
 
 送信者は、受信者または参加者タイプごとに共有許可を1回だけ設定するだけで済みます。ただし、新しい共有許可を追加したり、既存の設定を変更したい場合は、設定を調整する必要があります。
 
-詳細については、[UID2 Portal: Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
+詳細は [UID2 Portal: Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
 
 ## Workflow: Tokenized Sharing in Tracking Pixels
 

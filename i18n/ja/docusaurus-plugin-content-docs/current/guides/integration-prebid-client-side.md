@@ -47,7 +47,8 @@ UID2 Prebid.js Client-Side インテグレーション例は、以下のリン�
 アカウント設定に必要なのは、ルートレベルのドメインだけです。たとえば、Prebid.js で UID2 を example.com、shop.example.com、example.org で使用する場合、ドメイン名 example.com と example.org だけを指定します。
 :::
 
-アカウントのセットアップが完了すると、公開鍵(Public Key) とサブスクリプション ID(Subscription ID) が発行されます。これらの値はアカウント独自のもので、UID2 module を設定するために使います。詳細については、[Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key) を参照してください。
+アカウントのセットアップが完了すると、UID2 サーバーがユーザーを識別するために使用する 2 つの値であるクライアントキーペアが発行されます: Subscription ID と Public key。これらの値はあなたに固有で、UID2 モジュールの設定に使用します。詳細は [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key) を参照してください。
+
 
 ### Add Prebid.js to Your Site
 
@@ -74,7 +75,7 @@ Notes:
   1. 次に、SHA-256 ハッシングアルゴリズムを使用して結果をハッシュ化します。
   1. 次に、ハッシュ値のバイトを Base64 エンコードして結果をエンコードします。
 
-  詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。例については、[Configuring the UID2 Module: Code Example](#configuring-the-uid2-module-code-example) を参照してください。
+  詳細は [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。例については、[Configuring the UID2 Module: Code Example](#configuring-the-uid2-module-code-example) を参照してください。
 - UID2 module は、ハッシュ化された DII を UID2 Service に送信する前に暗号化します。
 - モジュールが複数回設定された場合、最新の設定値が使用されます。
 

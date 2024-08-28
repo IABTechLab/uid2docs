@@ -36,7 +36,7 @@ import Link from '@docusaurus/Link';
 以下のリソースは、パブリッシャーの Web インテグレーションに利用できます。
 
 :::tip
-Web インテグレーションオプションの詳細については、[Web Integration Overview](integration-options-publisher-web.md) を参照してください。
+Web インテグレーションオプションの詳細は [Web Integration Overview](integration-options-publisher-web.md) を参照してください。
 :::
 
 | Integration Guide | Content Description |

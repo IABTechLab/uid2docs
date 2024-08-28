@@ -176,7 +176,7 @@ see UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist
 </TabItem>
 </Tabs>
 
-必要に応じて、デフォルトの Subscription ID と public key を割り当てられた値に変更し、UID2 本番環境に接続することもできます。詳細については、[Optional: Specifying the API Base URL to Reduce Latency](#optional-specifying-the-api-base-url-to-reduce-latency) を参照してください。
+必要に応じて、デフォルトの Subscription ID と public key を割り当てられた値に変更し、UID2 本番環境に接続することもできます。詳細は [Optional: Specifying the API Base URL to Reduce Latency](#optional-specifying-the-api-base-url-to-reduce-latency) を参照してください。
 
 ## Complete the UID2 Account Setup
 
@@ -186,7 +186,7 @@ see UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist
 - iOS Bundle Identifier
 - iOS App Store ID
 
-When account setup is complete, you'll receive a [Subscription ID and public key](../getting-started/gs-credentials.md#subscription-id-and-public-key). These values are unique to you, and you'll use them when you [configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
+アカウントのセットアップが完了すると、UID2 サーバーがユーザーを識別するために使用する 2 つの値であるクライアントキーペアが発行されます: Subscription ID と Public key。これらの値はあなたに固有で、UID2 モジュールの設定に使用します。詳細は [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key) を参照してください。
 
 ## Add the UID2 Mobile SDK to Your Mobile App
 
@@ -308,7 +308,7 @@ UID2Manager.shared.generateIdentity(
 - アプリが開いている間、必要に応じてトークンを自動的にリフレッシュします。
 
 :::tip
-ユーザーの <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> を UID2 mobile SDK に渡す際、ハッシュ化またはハッシュ化されていない DII を渡すことができます。DII をハッシュ化されていない状態で渡す場合、SDK がハッシュ化します。ハッシュ化された DII を SDK に渡す場合、ハッシュ化する前に正規化する必要があります。詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+ユーザーの <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> を UID2 mobile SDK に渡す際、ハッシュ化またはハッシュ化されていない DII を渡すことができます。DII をハッシュ化されていない状態で渡す場合、SDK がハッシュ化します。ハッシュ化された DII を SDK に渡す場合、ハッシュ化する前に正規化する必要があります。詳細は [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 :::
 
 ### Format Examples for DII
@@ -423,7 +423,7 @@ Task<Void, Never> {
 
 このシナリオでは:
 
-- パブリッシャーはメールアドレスを正規化およびハッシュ化する責任があります。詳細については、[Email Address Normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization) を参照してください。
+- パブリッシャーはメールアドレスを正規化およびハッシュ化する責任があります。詳細は [Email Address Normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization) を参照してください。
 - UID2 mobile SDK は、ハッシュ化された DII を UID2 Service に送信する前に暗号化します。
 
 </TabItem>
@@ -475,7 +475,7 @@ Task<Void, Never> {
 
 このシナリオでは:
 
-- パブリッシャーは電話番号を正規化する責任があります。詳細については、[Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) を参照してください。
+- パブリッシャーは電話番号を正規化する責任があります。詳細は [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) を参照してください。
 - UID2 mobile SDK は、ハッシュ化された電話番号を UID2 Service に送信する前に暗号化します。
 
 </TabItem>
@@ -523,7 +523,7 @@ Task<Void, Never> {
 
 このシナリオでは:
 
-- パブリッシャーは電話番号を正規化およびハッシュ化する責任があります。詳細については、[Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) を参照してください。
+- パブリッシャーは電話番号を正規化およびハッシュ化する責任があります。詳細は [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) を参照してください。
 - UID2 mobile SDK は、ハッシュ化された DII を UID2 Service に送信する前に暗号化します。
 
 </TabItem>
@@ -666,7 +666,7 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-`getAdvertisingToken()` が null を返し、identity ステータスが `OPT_OUT`/`optOut` でない場合、新しいトークンを生成する必要があります。これを行うには、`generateIdentity` メソッドに DII を再度渡します。詳細については、[Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
+`getAdvertisingToken()` が null を返し、identity ステータスが `OPT_OUT`/`optOut` でない場合、新しいトークンを生成する必要があります。これを行うには、`generateIdentity` メソッドに DII を再度渡します。詳細は [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
 
 <!--## Opt-Out Handling
 

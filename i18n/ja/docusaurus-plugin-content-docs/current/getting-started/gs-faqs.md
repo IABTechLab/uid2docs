@@ -215,7 +215,7 @@ Private Operator を使用している場合を除き、メールアドレス、
 
 一般的にその通りです。DII から raw UID2 を生成するプロセスは同じであり、誰がリクエストを送信したかに関係なく、結果は同じ値になります。 2 人の UID2 参加者が同じメールアドレスを [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントに同時に送信した場合、応答として両方とも同じ raw UID2 を取得します。 
 
-ただし、raw UID2 の生成に使用される [ソルト](../ref-info/glossary-uid.md#gl-salt) 値という可変要素があります。ソルト値は定期的にローテーションされます(詳細については、[How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)) を参照してください)。あるリクエストと別のリクエストの間でソルト値が変化する場合、DII が同じであっても、これら 2 つのリクエストは 2 つの異なる raw UID2 になります。
+ただし、raw UID2 の生成に使用される [ソルト](../ref-info/glossary-uid.md#gl-salt) 値という可変要素があります。ソルト値は定期的にローテーションされます(詳細は [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)) を参照してください)。あるリクエストと別のリクエストの間でソルト値が変化する場合、DII が同じであっても、これら 2 つのリクエストは 2 つの異なる raw UID2 になります。
 
 詳細については、*Advertiser/Data Provider Integration Guide*の [Monitor for salt bucket rotations related to your stored raw UID2s](../guides/advertiser-dataprovider-guide.md#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s) を参照してください。
 
@@ -294,7 +294,7 @@ DSP はオプトアウトリストをどれくらいの期間保管すべきで�
 
 ユーザーがオプトアウトした場合、UID2 Operator は raw UID2 を URL エンコードされたクエリパラメータとして返します。
 
-DSP のオプトアウトプロセスの詳細については、[Honor User Opt-Outs](../guides/dsp-guide.md#honor-user-opt-outs) を参照してください。
+DSP のオプトアウトプロセスの詳細は [Honor User Opt-Outs](../guides/dsp-guide.md#honor-user-opt-outs) を参照してください。
 
 #### What request type do opt-outs use?
 オプトアウトはどのリクエストタイプを使いますか？

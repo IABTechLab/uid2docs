@@ -19,7 +19,7 @@ import Link from '@docusaurus/Link';
 
 Client-Side の JavaScript の変更 **だけ** で UID2 とインテグレーションする場合は、[Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) を参照してください。
 
-SDK の技術的な詳細については、[SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください。
+SDK の技術的な詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください。
 
 ## Sample Implementation Website
 
@@ -78,7 +78,7 @@ Step 1-c でパブリッシャーがユーザーのメールアドレスまた�
 `Identity` レスポンスを SDK に渡す必要があります。[Sending the UID2 Token to the SDK](#sending-the-uid2-token-to-the-sdk) を参照してください。
 
 :::warning
-セキュリティ上の理由から、トークン生成に使用される API キーとシークレットはサーバーサイドで呼び出す必要があります。これらの値をクライアントサイドに保存しないでください。詳細については、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+セキュリティ上の理由から、トークン生成に使用される API キーとシークレットはサーバーサイドで呼び出す必要があります。これらの値をクライアントサイドに保存しないでください。詳細は [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 :::
 
 #### Sending the UID2 Token to the SDK

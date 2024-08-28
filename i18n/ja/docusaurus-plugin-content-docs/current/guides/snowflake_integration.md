@@ -475,7 +475,7 @@ select a.*, b.LAST_SALT_UPDATE_UTC
 
 - 電話番号とハッシュ化された電話番号の両方のマッピングをサポートしています。
 - ユーザーのオプトアウトをサポートしました。
-- `UNMAPPED` という新しいカラムが追加されました。何らかの理由で DII を UID2 にマッピングできない場合、この列にはその理由についての情報が含まれます。詳細については、[Values for the UNMAPPED Column](#values-for-the-unmapped-column) を参照してください。
+- `UNMAPPED` という新しいカラムが追加されました。何らかの理由で DII を UID2 にマッピングできない場合、この列にはその理由についての情報が含まれます。詳細は [Values for the UNMAPPED Column](#values-for-the-unmapped-column) を参照してください。
 
 このセクションには、新機能へのアップグレードに役立つ以下の情報が含まれています:
 
@@ -517,7 +517,7 @@ FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash')
 ### Using the Values for the UNMAPPED Column
 新しい関数を実装したら、`FN_T_UID2_IDENTITY_MAP`が返す `UNMAPPED` カラムをチェックすることができます。DII が UID2 にマッピングできなかった場合、この列にはその理由が示されます。
 
-値とその説明の詳細については、[Values for the UNMAPPED Column](#values-for-the-unmapped-column) を参照してください。
+値とその説明の詳細は [Values for the UNMAPPED Column](#values-for-the-unmapped-column) を参照してください。
 
 ## Usage for UID2 Sharers
 
@@ -551,7 +551,7 @@ raw UID2 を UID2 Token に暗号化するには、関数 `FN_T_UID2_ENCRYPT` �
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
 | `UID2_TOKEN` | TEXT | 値は次のいずれかです:<ul><li>暗号化成功: raw UID2 を含む UID2 Token。</li><li>暗号化失敗: `NULL`</li></ul> |
-| `ENCRYPTION_STATUS` | TEXT | 値は次のいずれかです。<ul><li>暗号化成功: `NULL`</li><li>暗号化失敗: raw UID2 が暗号化されなかった理由。例: `INVALID_RAW_UID2` または `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`。<br/>詳細については、[Values for the ENCRYPTION_STATUS Column](#values-for-the-encryption_status-column) を参照してください。</li></ul> |
+| `ENCRYPTION_STATUS` | TEXT | 値は次のいずれかです。<ul><li>暗号化成功: `NULL`</li><li>暗号化失敗: raw UID2 が暗号化されなかった理由。例: `INVALID_RAW_UID2` または `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`。<br/>詳細は [Values for the ENCRYPTION_STATUS Column](#values-for-the-encryption_status-column) を参照してください。</li></ul> |
 
 #### Values for the ENCRYPTION_STATUS Column
 
@@ -638,7 +638,7 @@ UID2 Token を raw UID2 に復号するには、関数 `FN_T_UID2_DECRYPT` を�
 | :--- | :--- | :--- |
 | `UID2` | TEXT | 値は次のいずれかです:<ul><li>復号化成功: UID2 Token に対応する raw UID2。</li><li>復号化失敗: `NULL`.</li></ul> |
 | `SITE_ID` | INT | 値は次のいずれかです:<ul><li>復号化成功: トークンを暗号化した UID2 参加者の識別子。</li><li>復号化失敗: `NULL`.</li></ul> |
-| `DECRYPTION_STATUS` | TEXT | 値は次のいずれかです:<ul><li>復号化成功: `NULL`.</li><li>暗号化失敗: UID2 Token が復号化されなかった理由。例えば、`EXPIRED_TOKEN` です。<br/>詳細については、[Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column) を参照してください。</li></ul> |
+| `DECRYPTION_STATUS` | TEXT | 値は次のいずれかです:<ul><li>復号化成功: `NULL`.</li><li>暗号化失敗: UID2 Token が復号化されなかった理由。例えば、`EXPIRED_TOKEN` です。<br/>詳細は [Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column) を参照してください。</li></ul> |
 
 :::note
 UID2 Token がうまく復号化できない場合、この関数は行を返しません。

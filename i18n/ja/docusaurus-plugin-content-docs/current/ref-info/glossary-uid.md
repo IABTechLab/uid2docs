@@ -26,6 +26,7 @@ import Link from '@docusaurus/Link';
 
 **C**
 <a href="#gl-client-key">Client key</a> | 
+<a href="#gl-client-keypair">Client keypair</a> | 
 <a href="#gl-client-secret">Client secret</a> | 
 <a href="#gl-client-server">Client-server integration</a> | 
 <a href="#gl-client-side">Client-side integration</a> | 
@@ -152,6 +153,10 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-client-key">Client key</MdxJumpAnchor></dt>
 <dd><a href="#gl-api-key">API key</a> を参照してください。</dd>
+
+<dt><MdxJumpAnchor id="gl-client-keypair"><a href="#gl-client-keypair">Client keypair</a></MdxJumpAnchor></dt>
+<dd>Client-Side のパブリッシャーインテグレ＾ションの場合、アカウントを一意に識別するためにパブリッシャーに発行される2つの値は、<a href="#gl-subscription-id">Subscription ID</a> と <a href="#gl-public-key">public key</a> です。Client keypair とは、この2つの値をまとめて呼ぶ用語です。</dd>
+<dd>詳細は　<a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-client-secret">Client secret</MdxJumpAnchor></dt>
 <dd>各 UID2 <a href="/docs/intro#participants">参加者</a>は、API Key (クライアントキー) と、そのキーに関連付けられた秘密値 (Client secret (API シークレット)) を持っています。Client secretは、参加者と UID2 Service だけが知っています。</dd>
@@ -324,7 +329,7 @@ import Link from '@docusaurus/Link';
 <dd><a href="#gl-private-operator">Private Operator</a> が運用する Operator Service のインスタンスです。</dd>
 
 <dt><MdxJumpAnchor id="gl-public-key">Public key</MdxJumpAnchor></dt>
-<dd>Client-Side のパブリッシャーインテグレーションでは、Public Key はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの 1 つです。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
+<dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される2つの値のうちの1つがアカウントを一意に識別する公開鍵です。d詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-public-operator">Public Operator</MdxJumpAnchor></dt>
 <dd>Public <a href="#gl-operator">Operator</a> は、UID2 Operator Service のパブリックインスタンスを実行する組織です。たとえば、The Trade Desk は現在、UID2 フレームワークの Public Operator として機能しており、すべての参加者が利用できます。</dd>
@@ -388,7 +393,7 @@ import Link from '@docusaurus/Link';
 <dd>SSO はシングルサインオンの略語です。SSO は、ユーザーがアプリやウェブサイトなどの複数のソフトウェアシステムの 1 つに、同じ認証情報(通常は ID とパスワードですが、必ずしもそうではありません) でログインすることを可能にします。SSO によって、ユーザーは 1 セットの認証情報を使って複数のアプリケーションやサイトに一度だけログインすることができます。SSO によって、ウェブサイトやアプリは独自の認証システムを維持する必要がなくなります。</dd>
 
 <dt><MdxJumpAnchor id="gl-subscription-id">Subscription ID</MdxJumpAnchor></dt>
-<dd>Client-Side のパブリッシャーインテグレーションでは、Subscription ID はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの1つです。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
+<dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される2つの値のうちの1つがアカウントを一意に識別する公開鍵です。d詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
 
 </dl>
 

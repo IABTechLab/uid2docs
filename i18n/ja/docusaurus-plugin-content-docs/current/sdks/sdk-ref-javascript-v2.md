@@ -73,12 +73,12 @@ SDK を使用して UID2 ID を確立するための Client-Side ワークフロ
 	- ID が利用できない場合、利用できない理由はコールバック関数に渡されるオブジェクトに指定されます。
 3. SDK: アイデンティティ [state](#workflow-states-and-transitions) に基づき、SDK は以下の処理を行います:
   - 有効な ID が利用可能な場合、SDK はその ID が[ファーストパーティクッキー](#uid2-cookie-format) で利用可能であることを保証します。
-  - ID が使用できない場合、SDK は ID が更新可能かどうかに基づいて適切なアクションを実行します。詳細については、[Workflow States and Transitions](#workflow-states-and-transitions) を参照してください。
+  - ID が使用できない場合、SDK は ID が更新可能かどうかに基づいて適切なアクションを実行します。詳細は [Workflow States and Transitions](#workflow-states-and-transitions) を参照してください。
 4. Publisher: ID の状態に基づいて ID を処理します:
 	- Advertising Token が使用可能な場合は、それを使用してターゲティング広告の要求を開始します。
 	- Advertising Token が利用可能でない場合は、ターゲティング広告を使用しないか、同意フォームでユーザーを データキャプチャにリダイレクトします。
  
-Web インテグレーションの詳細については、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください。
+Web インテグレーションの詳細は [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください。
 
 ### Workflow States and Transitions
 

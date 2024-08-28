@@ -68,7 +68,7 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 
 アカウント設定ページに記載されている手順に従って、UID2 アカウントの設定を完了してください。アカウント設定プロセスの一環として、この SDK for JavaScript で使用するサイトの**ドメイン名**のリストを提供する必要があります。
 
-アカウントのセットアップが完了すると、Publicc Key(公開鍵) と Subesciption ID(サブスクリプション ID) が発行されます。これらの値はアカウント固有のもので、UID2 モジュールの設定に使用します。
+アカウントのセットアップが完了すると、UID2 サーバーがユーザーを識別するために使用する 2 つの値であるクライアントキーペアが発行されます: Subscription ID と Public key。これらの値はあなたに固有で、UID2 モジュールの設定に使用します。詳細は [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key) を参照してください。
 
 :::tip
 アカウント設定に必要なのは、ルートレベルのドメインだけです。例えば、JavaScript 用の UID2 SDK を example.com、shop.example.com、example.org で使用する場合、ドメイン名 example.com と example.org を指定するだけです。
@@ -113,7 +113,7 @@ window.__uid2.callbacks.push((eventType, payload) => {
 </script>
 ```
 
-SDK の詳細については、[SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください。
+SDK の詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください。
 
 ### Using the UID2 Integration Environment
 
@@ -165,7 +165,7 @@ SDK を設定するには、アカウントセットアップ時に受け取っ�
 - トークンをユーザーのブラウザに保存します。
 - ユーザーのブラウザでサイトを開いている間、必要に応じてトークンを自動的にリフレッシュします。
 
-UID2 SDK には、ユーザーの DII をハッシュ化して渡すことも、ハッシュ化せずに渡すこともできます。ハッシュ化せずに DII を渡すと、UID2 SDK が代わりにハッシュ化します。すでにハッシュ化された DII を SDK に渡したい場合は、ハッシュ化する前に正規化する必要があります。詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+UID2 SDK には、ユーザーの DII をハッシュ化して渡すことも、ハッシュ化せずに渡すこともできます。ハッシュ化せずに DII を渡すと、UID2 SDK が代わりにハッシュ化します。すでにハッシュ化された DII を SDK に渡したい場合は、ハッシュ化する前に正規化する必要があります。詳細は [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 
 ## Format Examples for DII
 
@@ -220,7 +220,7 @@ await __uid2.setIdentityFromEmailHash(
 ```
 
 このシナリオでは:
-- **メールアドレスの正規化とハッシュ化はパブリッシャーの責任です。** 詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+- **メールアドレスの正規化とハッシュ化はパブリッシャーの責任です。** 詳細は [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 - UID2 SDK は、UID2 Service に送信する前にハッシュを暗号化します。
 
 </TabItem>

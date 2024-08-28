@@ -188,7 +188,7 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
    | Parameter | Description |
    | :--- | :--- |
    | `vaultName` | Operator Key シークレットをホストするためのキー vault の名前。選択する名前はグローバルに一意である必要があります。 |
-   | `deploymentEnvironment` | デプロイ先の環境を示します: `integ` または `prod`。詳細については、[Deployment Environments](#deployment-environments) を参照してください。 |
+   | `deploymentEnvironment` | デプロイ先の環境を示します: `integ` または `prod`。詳細は [Deployment Environments](#deployment-environments) を参照してください。 |
 
 2. (オプション) デフォルトを受け入れたくない場合は、`operator.parameters.json` ファイルを次の値で更新します。これらのパラメータはデフォルト値を受け入れたくない場合にのみ更新する必要があります。
 

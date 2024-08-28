@@ -20,7 +20,7 @@ UID2 Portal の **API Keys** ページでは、UID2 アカウントの API Key �
 
 API Key とクライアント シークレットを使用すると、UID2 Operator サービスに接続して API エンドポイントを呼び出すことができます。これらの値は、サービスに対してあなたを識別します。
 
-UID2 Portal で API Key を追加するときは、キーとそれに対応するシークレットを安全に保存し、これらの値が漏洩しないようにするために必要なすべての措置を講じることが重要です。詳細については、[API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
+UID2 Portal で API Key を追加するときは、キーとそれに対応するシークレットを安全に保存し、これらの値が漏洩しないようにするために必要なすべての措置を講じることが重要です。詳細は [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
 
 各 API Keyは、1 年ごとにローテーションすることを勧めます。
 
@@ -42,7 +42,7 @@ API Key を追加するには、次の手順を実行します:
 1. **Add API Key** ページで、新しいキーの名前を指定します。
 1. API Permissions セクションで、キーに割り当てる権限を 1 つ以上選択します。
 
-    必要な権限のみを選択してください。たとえば、パブリッシャーの場合は Generator ロールを選択します。詳細については、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+    必要な権限のみを選択してください。たとえば、パブリッシャーの場合は Generator ロールを選択します。詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
     :::note
     選択可能な権限が表示されない場合は、UID2 連絡先に問い合わせてください。
@@ -99,7 +99,7 @@ API Key をローテーションすることをお勧めします。API Key を�
 
 1. UID2 Portal で **API Keys** ページに移動します。
 1. リストでローテーションする Key を見つけます。
-1. ローテーションする Key と同じ権限を持つ新しい Key を追加します。詳細については、[Adding an API Key](#adding-an-api-key) を参照してください。
+1. ローテーションする Key と同じ権限を持つ新しい Key を追加します。詳細は [Adding an API Key](#adding-an-api-key) を参照してください。
 1. UID2 の実装を更新して、ローテーションする Key の代わりに新しい Key を使用するようにします。
 1. 新しい Key が問題なく使用されていることを確認します。たとえば、サービスに対する劣化や API Key の使用に関連するエラーログがないことを確認します。
-1. 古い Key を削除します。詳細については、[Deleting an API Key](#deleting-an-api-key) を参照してください。
+1. 古い Key を削除します。詳細は [Deleting an API Key](#deleting-an-api-key) を参照してください。
