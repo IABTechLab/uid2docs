@@ -41,7 +41,7 @@ UID2 に興味を示していただいたら、詳細を詰めるために担当
 パブリッシャーが [mobile](../overviews/overview-publishers.md#mobile-integrations) ではなく [web](../overviews/overview-publishers.md#web-integrations) にパブリッシングする場合で、UID2 を実装してトークンが Client-Side で生成されるようにしたい場合は、サイトの **ドメイン名** のリストも提供する必要があります。これはセキュリティ対策であり、Client-Side 実装のためだけです。
 
 :::tip
-アカウント設定に必要なのは、トップレベルのドメインだけです。たとえば、example.com、shop.example.com、example.org の Client-Side でトークンを生成するために UID2 を実装する場合、ドメイン名 example.com と example.org だけを提供します。
+アカウント設定に必要なのは、ルートレベルのドメインだけです。たとえば、example.com、shop.example.com、example.org の Client-Side でトークンを生成するために UID2 を実装する場合、ドメイン名 example.com と example.org だけを提供します。
 :::
 
 ### Client-Side Mobile Integrations
