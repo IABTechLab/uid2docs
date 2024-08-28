@@ -281,7 +281,9 @@ await __uid2.setIdentityFromPhoneHash(
 既存のトークンをチェックし、使用またはリフレッシュすることで、このコストを回避できる可能性があります。これを行うには
 [__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) を呼び出し、ブール値を受け取ります。これが `true` の場合、UID2 SDK は既存のリソースで新しい Advertising Token を作成できず、DII はまったく新しい UID2 Token を生成する必要があることを意味します。
 
-以下のコードスニペットは、SDK for JavaScript とインテグレーションして、上記の 2 つのシナリオを実現する方法を示しています。&#8212;トークンがない状態から開始し、既存の UID2 Token が見つかった場合はそれを再利用/リフレッシュします。
+DII を提供すると、[__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) が `false` の値を返す可能性があります。これは、ユーザーが UID2 からオプトアウトしている場合に発生します。UID2 SDK for JavaScript は、ユーザーのオプトアウトを受け入れ、UID2 Token を生成しないため、同じ DII を使用していても、`setIdentity` メソッドのいずれかを呼び出しても UID2 Token を生成しません。オプションとして、このような呼び出し実行しないようにすることもできます。
+
+以下のコードスニペットは、UID2 SDK for JavaScript とインテグレーションして、上記の 2 つのシナリオを実現する方法を示しています。&#8212;トークンがない状態から開始し、既存の UID2 Token が見つかった場合はそれを再利用/リフレッシュします。
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
@@ -311,7 +313,7 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
       // The InitCompleted event occurs just once.
       //
       // If there is a valid UID2 token, it is in payload.identity.
-      if (payload.identity) {
+      if (payload?.identity) {
         //
         // payload looks like this:
         // {
@@ -326,25 +328,29 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
         // }
         var advertising_token_to_use = payload.identity.advertising_token;
       } else {
-          if (__uid2.isLoginRequired()) {
+         if (__uid2.isLoginRequired()) {
             // Call one of the setIdentityFrom functions to generate a new UID2 token.
             // Add any retry logic around this call as required.
             await __uid2.setIdentityFromEmailHash(
                 emailHash,
-                clientSideConfig
-          );
+                clientSideConfig);
+          }  
           else {
-            // there is a token generation API call in flight which triggers
-            // a IdentityUpdated event 
+            // there is a token generation API call in flight which triggers a IdentityUpdated event 
+            // or no token would be generated because one of previous `setIdentity` calls determines the DII has opted out.
           }
-        }
       }
       break;
  
     case "IdentityUpdated":
       // The IdentityUpdated event happens when a UID2 token is generated or refreshed.
       // See previous comment for an example of how the payload looks.
-      var advertising_token_to_use = payload.identity.advertising_token;
+      // It's possible that payload/identity objects could be null for reasons such as the token
+      // expired and cannot be refreshed, or the user opted out of UID2. 
+      // Check that the advertising token exists before using it.
+      if (payload?.identity?.advertising_token) {
+          var advertising_token_to_use = payload.identity.advertising_token;
+      }
       break;
   }
 });

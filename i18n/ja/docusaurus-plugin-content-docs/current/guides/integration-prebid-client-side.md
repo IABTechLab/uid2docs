@@ -144,6 +144,8 @@ pbjs.setConfig({
 }); 
 ```
 
+ユーザーが以前に UID2 をオプトアウトしている可能性があります。この場合、UID2 module はユーザーのオプトアウトを受け入れ、Prebid.js によって UID2 Token が生成されずに収集されません。
+
 ## Checking the Integration
 
 UID2 module が正常に UID2 Token を生成したかどうかを確認するには `pbjs.getUserIds().uid2` を呼び出します。値が返された場合、UID2 module に有効な UID2 Token が存在していることになります。
