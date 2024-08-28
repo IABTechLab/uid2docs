@@ -112,7 +112,13 @@ az group create --name {RESOURCE_GROUP_NAME} --location {LOCATION}
 ロケーションには、いくつかの制限があります:
 - UID2 Private Operator for Azure は、次の地域ではサポートされていません: Europe、China。
 
-- Azure 仮想ネットワークのデプロイメント可用性については、Azure ドキュメントの [Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-region-availability#linux-container-groups) を参照してください。表の **Confidential SKU** 列が **Y** に設定されているリージョンのみにデプロイできます。
+- Azure 仮想ネットワーク展開の可用性については、Azure ドキュメントの「Linux container groups(https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) を確認し、Confidential Container の地域サポートの可用性を確認してください。
+
+- 場所のエイリアスを取得するには、次のコマンドを実行します。
+
+```
+az account list-locations -o table
+```
 
 ### Complete Key Vault and Managed Identity Setup
 
@@ -285,6 +291,11 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
 import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
 
 <AttestFailure />
+
+### Scraping Metrics
+Azure の Private Operator は、ポート 9080 で `/metrics` エンドポイントを介して [Prometheus-formatted metric](https://prometheus.io/docs/concepts/data_model/) を公開します。これらのメトリクスを収集して集計するために、Prometheus 互換のスクレイパーを使用できます。
+
+スクレイパーは、Private Operator が実行されている VNet にアクセスできる必要があります。ロードバランサーに `/metrics` エンドポイントへのアクセスを許可することは勧めません。
 
 ## Upgrading
 
