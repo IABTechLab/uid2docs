@@ -6,6 +6,7 @@ sidebar_position: 20
 ---
 
 import Link from '@docusaurus/Link';
+import ExampleUid2InBidstream from '/docs/snippets/_example-uid2-in-bidstream.mdx';
 
 # Frequently Asked Questions
 
@@ -130,25 +131,7 @@ UID2 Token は、ビッドストリームではどのように見えますか？
 
 UID2 実装のアプローチにはさまざまな方法があります。以下は、UID2 Token が<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>でどのように渡されるかを示すコードスニペットの一例です:
 
-```js
-{
-  "user":{
-    "ext":{
-      "eids":[
-        {
-          "source":"uidapi.com",
-          "uids":[
-            {
-              "id":"AgAAAHcy2ka1tSweERARV/wgwM+zM5wK98b9XItZGVgHaU23Eh0XOmAixO6VBcMd3k2ir/TGHLf7O7kQGLyeRPC5/VBSPmugOblMlzgy0B1ZfHQ7ccVurbyzgL1ZZOZ5cBvPDrvfR9MsKqPgWvrIKRkKVTYyUkG5YRAc++xRKfbL/ZSYxQ==",
-              "rtiPartner":"UID2"
-            }
-          ]
-        }
-      ]
-    }
-  }
-}
-```
+<ExampleUid2InBidstream />
 
 ## FAQs for Advertisers and Data Providers
 

@@ -6,6 +6,7 @@ sidebar_position: 20
 ---
 
 import Link from '@docusaurus/Link';
+import ExampleUid2InBidstream from '/docs/snippets/_example-uid2-in-bidstream.mdx';
 
 # Frequently Asked Questions
 
@@ -115,25 +116,7 @@ The UID2 service encrypts UID2 tokens using random initialization vectors. The U
 
 There are many ways to approach UID2 implementation. Here is one example of a code snippet showing how a UID2 token is passed in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>:
 
-```js
-{
-  "user":{
-    "ext":{
-      "eids":[
-        {
-          "source":"uidapi.com",
-          "uids":[
-            {
-              "id":"AgAAAHcy2ka1tSweERARV/wgwM+zM5wK98b9XItZGVgHaU23Eh0XOmAixO6VBcMd3k2ir/TGHLf7O7kQGLyeRPC5/VBSPmugOblMlzgy0B1ZfHQ7ccVurbyzgL1ZZOZ5cBvPDrvfR9MsKqPgWvrIKRkKVTYyUkG5YRAc++xRKfbL/ZSYxQ==",
-              "rtiPartner":"UID2"
-            }
-          ]
-        }
-      ]
-    }
-  }
-}
-```
+<ExampleUid2InBidstream />
 
 ## FAQs for Advertisers and Data Providers
 

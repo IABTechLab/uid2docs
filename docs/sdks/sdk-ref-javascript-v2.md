@@ -6,6 +6,8 @@ sidebar_position: 02
 ---
 
 import Link from '@docusaurus/Link';
+import ExampleUid2Cookie from '/docs/snippets/_example-uid2-cookie.mdx';
+import ExampleJavaScriptV2Init from '/docs/snippets/_example-javascript-v2-init.mdx';
 
 # SDK for JavaScript Reference Guide (2.x and earlier versions)
 
@@ -155,20 +157,7 @@ The following is a template of an `init()` call with the server-side generated i
 
 For example:
 
-```html
-<script>
- __uid2.init({
-   callback : onUid2IdentityUpdated,
-   identity : {
-        "advertising_token": "AgmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=",
-        "refresh_token": "Mr2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA==",
-        "identity_expires": 1633643601000,
-        "refresh_from": 1633643001000,
-        "refresh_expires": 1636322000000
-    }
- });
-</script>
-```
+<ExampleJavaScriptV2Init />
 
 The following is an example of an `init()` call that uses identity from a first-party cookie. You can put a script like this on any page that the user might visit after the identity has been established.
 
@@ -344,17 +333,7 @@ The UID2 cookie contents are a URI-encoded string representation of a JSON objec
 
 The following is an example of the UID2 cookie structure:
 
-```json
-{
-   "advertising_token":"AgAAAAVacu1uAxgAxH+HJ8+nWlS2H4uVqr6i+HBDCNREHD8WKsio/x7D8xXFuq1cJycUU86yXfTH9Xe/4C8KkH+7UCiU7uQxhyD7Qxnv251pEs6K8oK+BPLYR+8BLY/sJKesa/koKwx1FHgUzIBum582tSy2Oo+7C6wYUaaV4QcLr/4LPA==",
-   "refresh_token":"AgAAAXxcu2RbAAABfGHhwFsAAAF79zosWwAAAAWeFJRShH8u1AYc9dYNTB20edyHJU9mZv11e3OBDlLTlS5Vb97iQVumc7b/8QY/DDxr6FrRfEB/D85E8GzziB4YH7WUCLusHaXKLxlKBSRANSD66L02H3ss56xo92LMDMA=",
-   "identity_expires":1633643601000,
-   "refresh_from":1633643001000,
-   "refresh_expires":1636322000000,
-   "private":{     
-   }
-}
-```
+<ExampleUid2Cookie />
 
 :::important
 The contents of the `private` object are explicitly unspecified and are left for the SDK to interpret. Do not make any assumptions about the structure, semantics, or compatibility of this object. Any updates to the cookie must retain its structure.
