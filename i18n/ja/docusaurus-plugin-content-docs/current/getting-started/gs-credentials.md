@@ -14,8 +14,8 @@ UID2 <a href="/docs/intro#participants">参加者</a>はそれぞれ、固有の
 | Audience | Credentials | Integration |
 | :--- | :--- | :--- |
 | Client-Side 実装を使用する参加者 | 次の両方: <ul><li><Link href="../ref-info/glossary-uid#gl-subscription-id">Subscription ID</Link></li><li><Link href="../ref-info/glossary-uid#gl-public-key">Public key</Link></li></ul>これら 2 つをあわせて <Link href="../ref-info/glossary-uid#gl-client-keypair">client keypair</Link> と呼ぶこともあります。 | 次のいずれかを使用したインテグレーション: <ul><li>[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)</li><li>[Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)</li><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li></ul> |
-| Client-Server 実装を使用する参加者 | 次の両方:<ul><li><Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、client key とも呼ばれます。</li><li><Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link> は、参加者と UID2 Service のみが知る値です。</li></ul> | 次のいずれかを使用したインテグレーション: <ul><li>[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)</li><li>[UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-server-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul> |
-| Server-Side のエンドポイントを使用する参加者 | 次の両方:<ul><li><Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、client key とも呼ばれます。</li><li><Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>　は、参加者と UID2 Service のみが知る値です。</li></ul> | 次のいずれかを使用したインテグレーション: <ul><li>[Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md)</li><li>[Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md)</li></ul> |
+| Client-Server 実装を使用する参加者 | 次の両方:<ul><li><Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、client key とも呼ばれます。</li><li><Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link> は、参加者と UID2 Service のみが知る値です。</li></ul> | 次のいずれかを使用したインテグレーション: <ul><li>[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)</li><li>[UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul> |
+| Server-Side 実装を使用する参加者 | 次の両方:<ul><li><Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、client key とも呼ばれます。</li><li><Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>　は、参加者と UID2 Service のみが知る値です。</li></ul> | 次のいずれかを使用したインテグレーション: <ul><li>[Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md)</li><li>[Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md)</li></ul> |
 
 本番環境だけでなくインテグレーション環境も使用している場合は、それぞれの環境用に別々の認証情報を取得します。
 
@@ -36,10 +36,6 @@ Notes:
 - これらの値は特定の [Environment](gs-environments.md) に対して有効です。インテグレーション環境と本番環境の両方を使用している場合、それぞれの環境用の認証情報のセットを取得します。
 
 - Subscription ID と Public Key の認証情報は、Client-Side トークンの生成にのみ使用できます。追加のロールが必要な場合は ([API Permissions](gs-permissions.md) を参照してください)、そのロールの API Key と Client Secret をリクエストしてください。
-
-## Refreshing Credentials
-
-新しいクレデンシャルをリクエストするには、いつでも UID2 の連絡先に連絡してください。
 
 ## API Key and Client Secret
 
@@ -64,3 +60,7 @@ UID2 アカウントのセットアップの一環として、1つ以上の API 
 - 既存のキーとシークレットが漏洩した場合、新しいキーとシークレットに置き換えるプロセスを確立してください。
 
 API Key とクライアントシークレットは、認証情報が漏洩するリスクを減らすために、定期的に(例えば1年ごとに)更新するのがベストです。
+
+## Refreshing Credentials
+
+新しいクレデンシャルをリクエストするには、いつでも UID2 の連絡先に連絡してください。
