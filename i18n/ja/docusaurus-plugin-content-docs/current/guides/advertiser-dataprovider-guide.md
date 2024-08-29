@@ -23,7 +23,7 @@ DII とは、正規化されたメールアドレスや電話番号、あるい�
 
 ![Advertiser Flow](images/advertiser-flow-mermaid.png)
 
-<!-- diagram source: resource/advertiser-flow-mermaid.md -->
+<!-- diagram source: resource/advertiser-flow-mermaid.md.bak -->
 
 図の各部の詳細については、以下のセクションを参照してください:
 1. [Retrieve a raw UID2 for DII using the identity map endpoints](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoint)
