@@ -306,6 +306,7 @@ const fullSidebar = [
       items: [
         'ref-info/ref-operators-public-private',
         'ref-info/ref-server-side-token-generation',
+        'ref-info/ref-tokens',
         'ref-info/ref-integration-approaches',
         'summary-doc-v2',
       ],
