@@ -11,6 +11,16 @@ import Link from '@docusaurus/Link';
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: Private Operator Integrations Page
+
+August 28, 2024
+
+We've added a new page with information about Private Operator integrations.
+
+For details, see [Private Operator Integrations](../guides/integration-options-private-operator).
+
+<!-- APIDOCS-2164 -->
+
 ### New: DSP Direct Integration Instructions
 
 August 22, 2024
@@ -148,7 +158,7 @@ For details, see the updated documentation in the *SDK for Java Reference Guide*
 
 <!-- UID2-2759 -->
 
-### New: Audience-Specific Documentation Sidebars
+### New: Audience-Specific Sidebars
 
 February 9, 2024
 
@@ -162,7 +172,7 @@ To view the custom sidebars, go to [https://unifiedid.com](https://unifiedid.com
 
 <!-- APIDOCS-1681 -->
 
-### New: UID2 Integration Overview for JavaScript 
+### New: UID2 Integration Overview for JS
 
 January 26, 2024
 
@@ -176,7 +186,7 @@ For details, see:
 
 <!-- APIDOCS-1924 -->
 
-### New: SDK for Java, Usage for Publishers Sections
+### New: SDK for Java, Publisher Sections
 
 January 22, 2024
 
@@ -186,7 +196,7 @@ For details, see [Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publis
 
 <!-- APIDOCS-1705 -->
 
-### New: Normalization and Encoding Documentation, Examples Section
+### New: Normalization and Encoding Examples
 
 January 19, 2024
 
@@ -232,7 +242,7 @@ For details, see:
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
-### New: Encryption/Decryption Examples in Java and C#
+### New: Encrypt/Decrypt Examples, Java and C#
 
 December 14, 2023
 
@@ -264,7 +274,7 @@ We've replaced the previous **API Keys** page with a new page that includes info
 
 For details, see [UID2 Credentials](../getting-started/gs-credentials.md).
 
-### New: Client-Side Integration Guide for JavaScript
+### New: Client-Side Integration Guide for JS
 
 November 21, 2023
 

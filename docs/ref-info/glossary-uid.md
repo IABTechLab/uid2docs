@@ -25,12 +25,16 @@ import Link from '@docusaurus/Link';
 <a href="#gl-bidstream">Bidstream</a> 
 
 **C**
+
 <a href="#gl-client-key">Client key</a> | 
 <a href="#gl-client-keypair">Client keypair</a> | 
 <a href="#gl-client-secret">Client secret</a> | 
 <a href="#gl-client-server">Client-server integration</a> | 
 <a href="#gl-client-side">Client-side integration</a> | 
 <a href="#gl-closed-operator">Closed Operator</a> | 
+<a href="#gl-confidential-computing">Confidential Computing (GCP)</a> | 
+<a href="#gl-confidential-containers">Confidential containers (Azure)</a> | 
+<a href="#gl-confidential-space">Confidential Space (GCP)</a> | 
 <a href="#gl-core-service">Core Service</a> 
 
 **D**
@@ -176,6 +180,23 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-closed-operator"><a href="#gl-closed-operator">Closed Operator</a></MdxJumpAnchor></dt>
 <dd>Closed Operator is another term for a <a href="#gl-private-operator">Private Operator</a>.</dd>
 
+<dt><MdxJumpAnchor id="gl-confidential-computing"><a href="#gl-confidential-computing">Confidential Computing (GCP)</a></MdxJumpAnchor></dt>
+<dd>A Confidential Computing solution from Google Cloud Platform (GCP), Confidential Space, that is supported for hosting a UID2 <a href="#gl-private-operator">Private Operator</a>.</dd>
+<dd>For details, see <a href="#gl-confidential-space">Confidential Space</a>.</dd>
+<!-- <dd>**new**</dd> -->
+
+<dt><MdxJumpAnchor id="gl-confidential-containers"><a href="#gl-confidential-containers">Confidential containers (Azure)</a></MdxJumpAnchor></dt>
+<dd>Confidential Containers is the name of a secure confidential computing option from Microsoft Azure. Each Confidential Containers implementation runs in a hardware-backed Trusted Execution Environment (TEE) that provides intrinsic capabilities such as data integrity, data confidentiality, and code integrity.</dd>
+<dd>In the context of UID2, Confidential Containers from Azure is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
+<dd>For details, see <a href="../guides/operator-guide-azure-enclave">UID2 Private Operator for Azure Integration Guide</a>.</dd>
+<!-- <dd>**new**</dd> -->
+
+<dt><MdxJumpAnchor id="gl-confidential-space"><a href="#gl-confidential-space">Confidential Space (GCP)</a></MdxJumpAnchor></dt>
+<dd>Confidential Space is one of the Confidential Computing options from Google Cloud Platform (GCP). Confidential Space offers a secure enclave environment, known as a Trusted Execution Environment (TEE).</dd>
+<dd>In the context of UID2, GCP Confidential Space is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
+<dd>For details, see <a href="../guides/operator-private-gcp-confidential-space">UID2 Private Operator for GCP Integration Guide</a>.</dd>
+<!-- <dd>**new**</dd> -->
+
 <dt><MdxJumpAnchor id="gl-core-service"><a href="#gl-core-service">Core Service</a></MdxJumpAnchor></dt>
 <dd>The UID2 Core Service is a centralized service that manages access to <a href="#gl-salt">salts</a>, encryption keys, and other relevant data in the UID2 ecosystem.</dd>
 <dd>For an overview of all the UID2 services, see <a href="/docs/intro#components">Components</a>.</dd>
@@ -209,7 +230,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-enclave"><a href="#gl-enclave">Enclave</a></MdxJumpAnchor></dt>
 <dd>An enclave is a secure subsection of a computing environment. The enclave has additional business logic and security measures applied to it, to prevent anyone from tampering with it.</dd>
-<dd>In the context of UID2, a <a href="#gl-private-operator">Private Operator</a> must run inside an enclave or in a private environment. For a summary of the enclave versions supported, see <a href="../guides/summary-guides#private-operator-service-integrations">Private Operator Service Integrations</a>.</dd>
+<dd>In the context of UID2, a <a href="#gl-private-operator">Private Operator</a> must run inside an enclave. For a summary of the enclave versions supported, see <a href="../overviews/overview-operators-private#implementation-resources">Implementation Resources</a> in *UID2 Overview for Private Operators*.</dd>
 <dd>In an enclave, the operator image must be a very specific, predefined version, and additional constraints are applied to ensure security.</dd>
 
 <dt><MdxJumpAnchor id="gl-encryption-key"><a href="#gl-encryption-key">Encryption key</a></MdxJumpAnchor></dt>
@@ -296,7 +317,7 @@ import Link from '@docusaurus/Link';
 <dd>For details, see <a href="../intro#participants">participants</a> and <a href="../ref-info/ref-operators-public-private">The UID2 Operator</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-operator-key"><a href="#gl-operator-key">Operator key</a></MdxJumpAnchor></dt>
-<dd>Each UID2 Private Operator has an operator key that allows the private Operator Service to connect to the Core Service and Opt-Out Service and call some endpoints on it.</dd>
+<dd>Each UID2 Private Operator has an operator key that allows the Private Operator Service to connect to the Core Service and Opt-Out Service and call some endpoints on it.</dd>
 <dd>The operator key identifies the participant Operator to the UID2 service.</dd>
 
 <dt><MdxJumpAnchor id="gl-operator-service"><a href="#gl-operator-service">Operator Service</a></MdxJumpAnchor></dt>
