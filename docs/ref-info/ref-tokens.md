@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Tokens and Refresh Tokens
 
-When a publisher sends a user's <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) to the UID2 Operator, whether via one of the UID2 SDKs or the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint, the UID2 Operator returns a <a href="glossary-uid#gl-uid2-token">UID2 token</a> with associated values. The token is an opaque alphanumeric string, and is pseudonymous: this means that different instances of activity, on browsers, CTV, and electronic devices such as phone and tablets, can be matched to the same pseudonymous value without compromising the privacy of the individual. The token is designed so that it cannot be reverse engineered to arrive at the original email address or phone number.
+When a publisher sends a user's <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) to the UID2 Operator, whether via one of the UID2 SDKs or the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint, the UID2 Operator returns a <a href="glossary-uid#gl-uid2-token">UID2 token</a> with associated values. The token is an opaque alphanumeric string, and is pseudonymous. Because of the way UID2 works, different instances of activity, on browsers, CTV, and electronic devices such as phone and tablets, can be matched without compromising the privacy of the individual. The token is designed so that it cannot be reverse engineered to arrive at the original email address or phone number.
 
 For security reasons, the UID2 token has a short life. Along with the UID2 token, the UID2 Operator sends a <a href="glossary-uid#gl-refresh-token">refresh token</a> that the publisher can use to generate a new UID2 token. If the token is not refreshed before it expires, it becomes invalid and cannot be used for targeted advertising.
 
@@ -21,7 +21,8 @@ Here are some key points about UID2 tokens:
 - UID2 tokens are case sensitive.
 - The token value is opaque: do not make any assumptions about the format or about the length of the string.
 - The token has a limited life, but can be refreshed using the refresh token.
-- The token can be refreshed many times as long as it's always refreshed before expiration.
+- The token can be refreshed many times, to get a new UID2 token, as long as the UID2 token is always refreshed before the refresh token expires.
+- If the token has expired, or as an alternative to refreshing an existing token, you can always generate a new UID2 token from the original hashed or unhashed email address or phone number.
 - Publishers send UID2 tokens in the bidstream.
 - Refreshing a UID2 token does not invalidate/expire the original or previous UID2 token. You can still use the earlier token until it expires.
 - When the UID2 Operator service receives the refresh token with a request for a new UID2 token, it checks for user opt-out. If the user has opted out of UID2, no new UID2 token is generated. For details, see [User Opt-Out](../getting-started/gs-opt-out.md).
@@ -48,7 +49,7 @@ Here are some key points about refresh tokens:
 
 The recommended refresh interval is hourly.
 
-To determine when to refresh, you can use the timestamp of the `refresh_from` field in the response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint (see [Successful Response](../endpoints/post-token-generate.md#successful-response)) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint (see [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens)). The value of this field is a timestamp in <a href="glossary-uid#gl-utc">UTC</a> format.
+To determine when to refresh, you can use the timestamp of the `refresh_from` field in the response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint (see [Successful Response](../endpoints/post-token-generate.md#successful-response)) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint (see [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens)). The value of this field is a timestamp in UNIX time, expressed in milliseconds.
 
 ## FAQs
 
