@@ -57,7 +57,7 @@ rivate Operator は、UID2 Operator のプライベートインスタンスで�
 参加者は、Private Operator インスタンスをホストする契約 ([Account setup](../getting-started/gs-account-setup.md) を参照してください) を締結する必要があります。
 
 :::note
-Private Operator は、Public Operator または別の Private Operator からの raw UID2 または UID2 Token を処理することはできません。各 Private Operator は、完全に閉じたインフラストラクチャです。
+Private Operator は、Public Operator または他の Private Operator によって処理された raw UID2 または UID2 Token を見ることはできません。各 Private Operator は完全に閉じたインフラストラクチャです。
 :::
 
 ## Private Operator: Benefits
