@@ -20,9 +20,9 @@ UID2 Server-Side SDK を使用することで、以下が容易になります:
 
 この SDK は、Server-Sideのコーディングに Python を使用している DSP または UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s       |
-| :--- | :--- | :--- | :--- | :--- |
-| &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets      |
+| :--- | :--- | :--- | :--- | :--- |:--- |
+| &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
 
 ## API Permissions
 
@@ -209,6 +209,12 @@ Server-Side インテグレーションを使用している場合 (詳細は [P
    ユーザーがオプトアウトしている場合、このメソッドは `None` を返します。ユーザーがオプトアウトしていることを確認するには、`token_refresh_response.is_optout()` 関数を使用できます。
 
 ## Usage for Advertisers/Data Providers
+広告主/データプロバイダーに適用される操作は次の2つです:
+- [Map DII to raw UID2s](#map-dii-to-raw-uid2s)
+- [Monitor rotated salt buckets](#monitor-rotated-salt-buckets)
+
+### Map DII to Raw UID2s
+メールアドレス、電話番号、またはそれらのハッシュを、それぞれの raw UID2 とソルトバケット ID にマッピングするには、次の手順に従います:
 1. `IdentityMapClient` のインスタンスをインスタンス変数として生成します。
    ```py
    client = IdentityMapClient(base_url, api_key, client_secret)
@@ -219,7 +225,9 @@ Server-Side インテグレーションを使用している場合 (詳細は [P
    identity_map_response = client.generate_identity_map(IdentityMapInput.from_emails(["email1@example.com", "email2@example.com"]))
    ```
 
->Note: SDK は入力値を送信する前にハッシュ化します。これにより、生のメールアドレスや電話番号がサーバーから外に出ることがなくなります。
+:::note
+SDK は入力値を送信する前にハッシュ化します。これにより、生のメールアドレスや電話番号がサーバーから外に出ることがなくなります。
+:::
 
 3. マップされた結果とマップされなかった結果を取得します:
    ```py
@@ -236,7 +244,31 @@ Server-Side インテグレーションを使用している場合 (詳細は [P
         unmapped_identity = unmapped_identities.get("email1@example.com")
         reason = unmapped_identity.get_reason()
    ```
+### Monitor Rotated Salt Buckets
+ソルトバケットを監視するには、次の手順に従います:
+1. `IdentityMapClient` のインスタンスをインスタンス変数として生成します。または、[Map DII to raw UID2s:](#map-dii-to-raw-uid2s) から再利用します。
+   ```py
+   client = IdentityMapClient(base_url, api_key, client_secret)
+   ```
+2. タイムスタンプ文字列を入力として受け取り、`IdentityBucketsResponse` オブジェクトを生成する関数を呼び出します。タイムスタンプ文字列は ISO 8601 形式である必要があります: `YYYY-MM-DD[*HH[:MM[:SS[.fff[fff]]]][+HH:MM[:SS[.ffffff]]]]`。
+以下の例は有効なタイムスタンプ文字列です:
+   - Date in local timezone: `2024-08-18`
+   - Date and time in UTC: `2024-08-18T14:30:15.123456+00:00`
+   - Date and time in EST: `2024-08-18T14:30:15.123456-05:00`
 
+   ```py
+      since_timestamp = '2024-08-18T14:30:15+00:00'
+      identity_buckets_response = client.get_identity_buckets(datetime.fromisoformat(since_timestamp))
+   ```
+3. `IdentityBucketsResponse` オブジェクトには、`bucket_id` と UTC の `last_updated` タイムスタンプが含まれています。ローテーションされたソルトバケットのリストを反復処理し、次のように `bucket_id` と `last_updated` タイムスタンプを抽出します:
+   ```py
+   if identity_buckets_response.buckets:
+       for bucket in identity_buckets_response.buckets:
+           bucket_id = bucket.get_bucket_id()         # example "bucket_id": "a30od4mNRd"
+           last_updated = bucket.get_last_updated()   # example "last_updated" "2024-08-19T22:52:03.109"
+   else:
+       print("No bucket was returned")
+   ```
 ## Usage for DSPs
 
 以下の手順は、DSP として SDK for Python を使用して <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> トークンをデコードする方法の例です。
