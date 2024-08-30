@@ -23,7 +23,7 @@ SDK for Java を使用すると、以下が容易になります:
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
 | :--- | :--- | :--- | :--- | :--- |
-| Supported | Supported | Supported | Supported | Supported |
+| &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
 
 ## API Permissions
 
