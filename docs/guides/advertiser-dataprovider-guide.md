@@ -15,44 +15,39 @@ This guide covers integration steps for organizations that collect user data and
 
 If you are using an Open Operator service hosted in the Snowflake Data Marketplace, see also [Snowflake Integration Guide](snowflake_integration.md).
 
-## Overview
+## Advertiser/Data Provider Routes to Use UID2
 
-As an advertiser, or a data provider acting on behalf of an advertiser, you might send or receive UID2 data in different ways.
+Within the ad tech industry, advertisers use identity to build audiences, track conversions, and generate their graphs. As an advertiser, or as a data provider acting on behalf of an advertiser, the following table shows some examples of how you can accomplish some of these goals with UID2.
 
-Within the ad tech industry, advertisers use identity to build audiences, track conversions, and generate their graphs. As an advertiser, here are some examples of how you can do these things with UID2. There are other examples of how you can use UID2, outside these use cases. Examples:
+:::note
+There are other ways that you can use UID2, outside these use cases. These are just some examples.
+:::
 
-(**GWH_KL uptohere**)
+| Send/Receive? | Action | Advantage/Result |
+| --- | --- | --- |
+| Send | Send UID2s via API or pixels | Create audiences. |
+| Send | Send UID2s as conversion information | Use conversion information for measurement (attribution) or for retargeting via API or pixels. |
+| Receive | Receive UID2s from graph/data providers via API or pixels | Build graph data. |
 
-- For audiences:
-  - Via pixels
-  - Via the UID2 API
-  - (**GWH_KL: "etc" -- what else should we list here?**)
+<!-- - **Create/send in audiences**: You can send UID2s to create audiences via API or pixels
+- **Send in conversions**: You can send UID2s as conversion information that can be used for measurement (attribution) or retargeting via API or pixels
+- **Receive graph data**: You can receive UID2s from graph/data providers via API or pixels. -->
 
-For conversions (can be used for measurement, for example for attribution or retargeting):
-  - Via pixels
-  - Via the UID2 API
-  - (**GWH_KL: "etc" -- what else should we list here?**)
-
-Graph or data providers might receive data in any of the following ways:
-- Via pixels
-- Via the UID2 API
-- (**GWH_KL: "etc" -- what else should we list here?**)
-
-
-## High-Level Steps
+### High-Level Steps
 
 At a high level, the steps for advertisers and data providers integrating with UID2 are as follows:
 
-1. Generate a raw UID2 from <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>.
-1. Perform actions relating to raw UID2s, such as:
-   - Receive raw UID2s from other entities such as data providers or graph providers.
-   - Manipulate the information: for example, you might combine raw UID2s generated in Step 1 with raw UID2s received from other UID2 participants before sending the combined data to another UID2 participant.
-   - (**GWH_KL "add in to your entity" not sure what that means exactly?**)
+1. Generate a raw UID2 from <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>, or receive UID2s from another UID2 participant such as a data provider acting on your behalf.
+
+1. Use the UID2s you received in Step 1. For example, you might do one or more of the following:
+   - Do some manipulation: for example, combine UID2s you generated from DII and UID2s received from another participant such as an advertiser or data provider.
+   - Add new UID2s into an existing audience.
+
 1. Use the raw UID2s for some purpose such as measurement.
 
 ## Integration Diagram
 
-The following diagram outlines the steps that data collectors must complete to map DII to UID2 identifiers for audience building and targeting.
+The following diagram outlines the steps that data collectors must complete to map DII to raw UID2s for audience building and targeting.
 
 DII refers to a user's normalized email address or phone number, or the normalized and SHA-256-hashed email address or phone number.
 
