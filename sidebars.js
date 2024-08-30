@@ -216,7 +216,8 @@ const fullSidebar = [
           type: 'category',
           label: 'Private Operator Integrations',
           link: {
-            type: 'generated-index',
+            type: 'doc',
+            id: 'guides/integration-options-private-operator',
           },
           collapsed: true,
           items: [

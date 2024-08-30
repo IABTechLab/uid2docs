@@ -1,6 +1,6 @@
 ---
 title: Private Operators
-description: Information summary for private Operators.
+description: Information summary for Private Operators.
 hide_table_of_contents: false
 use_banner: true
 banner_title: UID2 Overview for Private Operators
@@ -9,13 +9,13 @@ banner_description: Own the process of generating UID2s from DII in a private en
 
 import Link from '@docusaurus/Link';
 
-Private Operators of UID2 send first-party <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to a secure environment for translation, and control the destinations for those identifiers. A participant that chooses to become a private Operator (previously known as closed Operator) can generate and manage UID2s, running a UID2 Operator service in a private environment.
+Private Operators of UID2 send first-party <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to a secure environment for translation, and control the destinations for those identifiers. A participant that chooses to become a Private Operator can generate and manage UID2s, running a UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> service in a private environment.
 
-Learn about what the UID2 framework offers to private Operators, including benefits, hosting options, documentation and other resources, and how to get started.
+Learn about what the UID2 framework offers to Private Operators, including benefits, hosting options, documentation and other resources, and how to get started.
 
 ## Benefits
 
-Here are some of the intended benefits of participating in UID2 as a private Operator:
+Here are some of the intended benefits of participating in UID2 as a Private Operator:
 - You can maintain privacy-conscious workflows for your customer data to be encrypted and activated across chosen partners.
 - You can participate in UID2 using your own first-party <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> without sharing it.
 - You have full control of resources, performance, and latency for UID2.
@@ -26,7 +26,7 @@ For more information, see [The UID2 Operator](../ref-info/ref-operators-public-p
 
 ## Hosting Options for Private Operators
 
-If you choose to be a private Operator, several implementation options are available. You can do any of the following:
+If you choose to be a Private Operator, several implementation options are available. You can do any of the following:
 
 - Use a cloud services setup. UID2 supports hosting UID2 in an <Link href="../ref-info/glossary-uid#gl-enclave">enclave</Link> on the following cloud service providers (medium level of effort to implement):
   - Amazon Web Services (AWS)
@@ -38,6 +38,8 @@ If you choose to be a private Operator, several implementation options are avail
 
 1. Request access to UID2 by filling out the form on the [Request Access](/request-access) page.
 2. Decide which implementation option you want to use.
+
+   For details about available options, see [Private Operator Integrations](../guides/integration-options-private-operator.md).
 3. If you're using an SDK, download the SDK. Refer to the applicable SDK guide.
 4. Follow the instructions in the implementation guide for the option you chose.
 
@@ -49,7 +51,11 @@ If you choose to be a private Operator, several implementation options are avail
 
 ## Implementation Resources
 
-The following documentation resources are available for private Operators to implement UID2.
+The following documentation resources are available for Private Operators to implement UID2.
+
+:::tip
+For a detailed summary of options, see [Private Operator Integrations](../guides/integration-options-private-operator.md).
+:::
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
