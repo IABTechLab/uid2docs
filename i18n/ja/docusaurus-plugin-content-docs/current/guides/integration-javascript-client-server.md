@@ -7,11 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 02
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ExampleClientServerSendUid2ToSdkJs from '/docs/snippets/_example-client-server-send-uid2-to-sdk-js.mdx'; 
-import ExampleClientServerSendUid2ToSdkTs from '/docs/snippets/_example-client-server-send-uid2-to-sdk-ts.mdx'; 
+import ExampleClientServerSendUid2ToSdk from '/docs/snippets/_example-client-server-send-uid2-to-sdk.mdx'; 
 
 # Client-Server Integration Guide for JavaScript
 
@@ -87,18 +84,7 @@ Step 1-c でパブリッシャーがユーザーのメールアドレスまた�
 
 以下のコード例は、JavaScript と TypeScript でのステップ 1-f と 1-g の説明です。
 
-<Tabs>
-<TabItem value='js' label='JavaScript'>
-
-<ExampleClientServerSendUid2ToSdkJs />
-
-</TabItem>
-<TabItem value='ts' label='TypeScript'>
-
-<ExampleClientServerSendUid2ToSdkTs />
-
-</TabItem>
-</Tabs>
+<ExampleClientServerSendUid2ToSdk />
 
 SDKは、指定された [callback function](../sdks/sdk-ref-javascript.md#callback-function) (ID の可用性を示します) を呼び出し、確立された ID をClient-Side で入札可能な状態にします。
 

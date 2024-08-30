@@ -7,11 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 02
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ExampleClientServerSendUid2ToSdkJs from '/docs/snippets/_example-client-server-send-uid2-to-sdk-js.mdx'; 
-import ExampleClientServerSendUid2ToSdkTs from '/docs/snippets/_example-client-server-send-uid2-to-sdk-ts.mdx'; 
+import ExampleClientServerSendUid2ToSdk from '/docs/snippets/_example-client-server-send-uid2-to-sdk.mdx'; 
 
 # Client-Server Integration Guide for JavaScript
 
@@ -89,18 +86,7 @@ For security reasons, the API key and secret used in token generation must be ca
 
 The following code examples illustrate steps 1-f and 1-g, in JavaScript and TypeScript.
 
-<Tabs>
-<TabItem value='js' label='JavaScript'>
-
-<ExampleClientServerSendUid2ToSdkJs />
-
-</TabItem>
-<TabItem value='ts' label='TypeScript'>
-
-<ExampleClientServerSendUid2ToSdkTs />
-
-</TabItem>
-</Tabs>
+<ExampleClientServerSendUid2ToSdk />
 
 The SDK invokes the specified [callback function](../sdks/sdk-ref-javascript.md#callback-function) (which indicates the identity availability) and makes the established identity available client-side for bidding. 
 
