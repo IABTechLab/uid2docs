@@ -38,6 +38,8 @@ Private Operator を選択した場合、いくつかの実施オプションが
 
 1. [アクセスリクエスト](/request-access)ページにあるフォームに記入して、UID2 へのアクセスをリクエストします。
 2. どの実装オプションを使用するかを決定します。
+
+  有効なオプションについての詳細は、[Private Operator Integrations](../guides/integration-options-private-operator.md) を参照してください。
 3. SDKを使用している場合は、SDKをダウンロードします。該当するSDKのガイドを参照してください。
 4. 選択したオプションの実装ガイドに記載されている手順に従います。
 
@@ -50,6 +52,10 @@ Private Operator を選択した場合、いくつかの実施オプションが
 ## Implementation Resources
 
 Private Operator が UID2 を実装するために、以下のドキュメントリソースを用意しています。
+
+:::tip
+オプションの詳細な概要については、[Private Operator Integrations](../guides/integration-options-private-operator.md) を参照してください。
+:::
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |

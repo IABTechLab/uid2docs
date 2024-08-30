@@ -78,7 +78,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 - 直接または UID2 SDK のいずれかで [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出し、UID2 Token を生成する場合、必須の `optout_check` パラメータに `1` を指定します。
 - 直接または UID2 SDK のいずれかで [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出し、UID2 Token をリフレッシュした場合。
 
-#### Where should I make token generation calls&#8212;from the server or client side?
+#### Where should I make token generation calls&#8212;from the server side or the client side?
 トークン生成の呼び出しは、Server-Side と Client-Side のどちらで行うべきですか？
 
 UID2 Token は、Client-Side、Server-Sideのどちらでも生成できます。詳細については、以下を参照してください:
@@ -190,7 +190,7 @@ UID2 生成リクエストで提供されるメタデータには、UID2 の生�
 
 システムは[メールアドレス正規化ルール](../getting-started/gs-normalization-encoding#email-address-normalization)に従って、salt せずにハッシュ化する必要があります。
 
-#### Should I store large volumes of email address, phone number, or their hash mappings?
+#### Should I store large volumes of email address, phone number, or their hash mappings? 
 大量のメールアドレスや電話番号やそれらのハッシュマッピングを保存すべきか？
 
 はい。何百万ものメールアドレスや電話番号をマッピングする必要がある場合、マッピングを保存しないことで処理時間が大幅に増加する可能性があります。しかし、実際に更新が必要なマッピングだけを再計算すると、毎日更新する必要があるのは UID2 の約 365 分の 1 なので、総処理時間が短縮されます。
@@ -306,12 +306,12 @@ DSP はオプトアウトリストをどれくらいの期間保管すべきで�
 
 DSP のオプトアウトプロセスの詳細は [Honor User Opt-Outs](../guides/dsp-guide.md#honor-user-opt-outs) を参照してください。
 
-#### What request type do opt-outs use?
+#### What request type do opt-outs use? 
 オプトアウトはどのリクエストタイプを使いますか？
 
 一般的には GET リクエストですが、DSP によって異なるタイプを使用することがあります。
 
-#### How strict are the requirements for honoring opt-outs?
+#### How strict are the requirements for honoring opt-outs? 
 オプトアウトに応じるための条件はどの程度厳しいのですか？
 
 オプトアウトは常に受け入れなければなりません。オプトアウトリクエストがシステムを通じて伝播するまでに時間がかかる場合があり、その間に一部の入札がオプトアウトを受け入れないことがあります。

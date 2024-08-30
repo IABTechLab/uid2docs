@@ -49,7 +49,6 @@ UID2 Prebid.js Client-Side インテグレーション例は、以下のリン�
 
 アカウントのセットアップが完了すると、UID2 サーバーがユーザーを識別するために使用する 2 つの値であるクライアントキーペアが発行されます: Subscription ID と Public key。これらの値はあなたに固有で、UID2 モジュールの設定に使用します。詳細は [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key) を参照してください。
 
-
 ### Add Prebid.js to Your Site
 
 <AddPrebidjsToYourSite />
@@ -169,9 +168,11 @@ Prebid.js の設定を検証・デバッグするツールの例として、オ�
 
 ## Optional: Specifying the API Base URL to Reduce Latency
 
-デフォルトでは、UID2 module はアメリカにある UID2 本番環境サーバーに API コールを行います。ユーザーの居住地によっては、レイテンシー(遅延時間) を短縮するために、ユーザーに近いサーバーを選択することを検討してください。
+デフォルトでは、UID2 モジュールは米国の UID2 本番環境サーバーに対して呼び出しを行います。
 
-UID2 module を設定するときに別の UID2 サーバーを指定するには、次の例に示すように、オプションの `params.uid2ApiBase` パラメータを設定します:
+ユースケースに最適な URL を選択する方法と、有効なベース URL の完全なリストについては、[Environments](../getting-started/gs-environments.md) を参照してください。
+
+UID2 モジュールをデフォルト以外の UID2 サーバーに指定するには、UID2 モジュールを設定する際に、オプションの `params.uid2ApiBase` パラメータを次の例に示すように設定します:
 
 ```js
 pbjs.setConfig({ 
@@ -186,5 +187,3 @@ pbjs.setConfig({
   } 
 }); 
 ```
-
-Base URL のリストは、[Environments](../getting-started/gs-environments.md) を参照してください。

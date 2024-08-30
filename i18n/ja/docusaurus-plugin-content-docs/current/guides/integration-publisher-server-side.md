@@ -47,6 +47,8 @@ Server-Side SDK を使用している場合、SDK はエンドポイントに関
 
 ![Publisher Flow](images/integration-publisher-server-side-mermaid.png)
 
+<!-- diagram source: resource/integration-publisher-server-side-mermaid.md.bak -->
+
 次のセクションでは、図中の各ステップについて詳細を説明します:
 
 1. [Establish identity: capture user data](#establish-identity-capture-user-data)

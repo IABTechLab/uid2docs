@@ -111,8 +111,13 @@ API Key をローテーションすることをお勧めします。API Key を�
 追加のセキュリティに関する推奨事項については、[API Key and Client Secret のセキュリティ](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 
 <!-- In some instances, you might create API keys for one permission/role and then want to add a role to your account. For example, you might be an advertiser, but also want to operate as an inventory provider.
+
 In this scenario, we recommend that you follow these best security practices:
+
 - Your credentials should have the minimum permissions necessary to complete the specific task. Activities as an advertiser require the Mapper role; activities as an inventory provider require the Generator role.
+
 - Best practice is to use different credentials in different contexts and for different use cases. For example, each app or service should use its own credentials.
+
 These practices are standard measures to help ensure that, in case a service or app is compromised or credentials are leaked, any negative result is minimized.
+
 These are guidelines, not rules. If you need to add a permission, you can modify an existing API key, but we recommend that you use separate keys for separate permission. -->

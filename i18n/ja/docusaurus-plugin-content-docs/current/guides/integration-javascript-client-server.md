@@ -51,6 +51,8 @@ Google Ad Managerを使用していて、セキュアシグナル機能を使用
 
 ![Publisher Flow](images/integration-javascript-client-server-mermaid.png)
 
+<!-- diagram source: resource/integration-javascript-client-server-mermaid.md.bak -->
+
 以下のセクションでは、図中の各ステップについての詳細を説明します: 
 
  1. [Establish identity: capture user data](#establish-identity-capture-user-data)

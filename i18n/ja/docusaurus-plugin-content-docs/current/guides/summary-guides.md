@@ -108,7 +108,8 @@ The following resources are available for DSPs integrating with UID2.
 
 | Integration Guide | Content Description |
 | :--- | :--- |
-| [DSP](./dsp-guide.md) | この DSP のためのインテグレーションガイドは、入札のための UID2 の処理と、ユーザーのオプトアウトに対応することをカバーしています。 |
+| [DSP Integration Guide](../guides/dsp-guide.md) | この DSP 向けのインテグレーションガイドでは、入札およびユーザーオプトアウトの処理に関する UID2 の取り扱いについて説明しています。 |
+| [DSP Direct Integration Instructions](../guides/integration-dsp-no-sdk.md) | SDK を使用せずにインテグレーションを希望する DSP 向けの手順です。 |
 
 ## Private Operator Service Integrations
 

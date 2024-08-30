@@ -11,6 +11,16 @@ import Link from '@docusaurus/Link';
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: Private Operator Integrations Page
+
+August 28, 2024
+
+Private Operator のインテグレーションに関する新しいページを追加しました。
+
+詳細は [Private Operator Integrations](../guides/integration-options-private-operator) を参照してください。
+
+<!-- APIDOCS-2164 -->
+
 ### New: DSP Direct Integration Instructions
 
 August 22, 2024
@@ -148,7 +158,7 @@ Java SDKは、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エ�
 
 <!-- UID2-2759 -->
 
-### New: Audience-Specific Documentation Sidebars
+### New: Audience-Specific Sidebars
 
 February 9, 2024
 
@@ -162,7 +172,7 @@ UID2 home page の "ドキュメント" リンクをクリックするだけで�
 
 <!-- APIDOCS-1681 -->
 
-### New: UID2 Integration Overview for JavaScript 
+### New: UID2 Integration Overview for JS
 
 January 26, 2024
 
@@ -176,7 +186,7 @@ January 26, 2024
 
 <!-- APIDOCS-1924 -->
 
-### New: SDK for Java, Usage for Publishers Sections
+### New: SDK for Java, Publisher Sections
 
 22 January 2024
 
@@ -186,7 +196,7 @@ SDK for Java のドキュメントに、SDK を実装するパブリッシャー
 
 <!-- APIDOCS-1705 -->
 
-### New: Normalization and Encoding Documentation, Examples Section
+### New: Normalization and Encoding Examples
 
 January 19, 2024
 
@@ -232,7 +242,7 @@ December 20, 2023
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
-### New: Encryption/Decryption Examples in Java and C#
+### New: Encrypt/Decrypt Examples, Java and C#
 
 December 14, 2023
 
@@ -264,7 +274,7 @@ November 21, 2023
 
 詳細は [UID2 Credentials](../getting-started/gs-credentials.md) を参照してください。
 
-### New: Client-Side Integration Guide for JavaScript
+### New: Client-Side Integration Guide for JS
 
 November 21, 2023
 

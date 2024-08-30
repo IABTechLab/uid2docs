@@ -26,7 +26,9 @@ DSP はビッドリクエストで UID2 Token を受け取り、この機能を�
 1. [Honor user opt-outs](#honor-user-opt-outs)
 2. [Decrypt UID2 tokens for RTB use](#decrypt-uid2-tokens-for-rtb-use)
 
-![](images/dsp-guide-flow-mermaid.png)
+![DSP Flow](images/dsp-guide-flow-mermaid.png)
+
+<!-- diagram source: resource/dsp-guide-flow-mermaid.md.bak -->
 
 ### Honor User Opt-Outs
 

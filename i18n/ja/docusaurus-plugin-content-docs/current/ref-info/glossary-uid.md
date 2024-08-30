@@ -25,12 +25,16 @@ import Link from '@docusaurus/Link';
 <a href="#gl-bidstream">Bidstream</a> 
 
 **C**
+
 <a href="#gl-client-key">Client key</a> | 
 <a href="#gl-client-keypair">Client keypair</a> | 
 <a href="#gl-client-secret">Client secret</a> | 
 <a href="#gl-client-server">Client-server integration</a> | 
 <a href="#gl-client-side">Client-side integration</a> | 
 <a href="#gl-closed-operator">Closed Operator</a> | 
+<a href="#gl-confidential-computing">Confidential Computing (GCP)</a> | 
+<a href="#gl-confidential-containers">Confidential containers (Azure)</a> | 
+<a href="#gl-confidential-space">Confidential Space (GCP)</a> | 
 <a href="#gl-core-service">Core Service</a> 
 
 **D**
@@ -175,6 +179,23 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-closed-operator">Closed Operator</MdxJumpAnchor></dt>
 <dd>Closed Operator は <a href="#gl-private-operator">Private Operator</a> の別名です。</dd>
+
+<dt><MdxJumpAnchor id="gl-confidential-computing"><a href="#gl-confidential-computing">Confidential Computing (GCP)</a></MdxJumpAnchor></dt>
+<dd>Google Cloud Platform (GCP) の機密コンピューティングオプションの1つである Confidential Computing は、UID2 <a href="#gl-private-operator">Private Operator</a> のホスティングをサポートしています。</dd>
+<dd>詳細は <a href="#gl-confidential-space">Confidential Space</a> を参照してください。</dd>
+<!-- <dd>**new**</dd> -->
+
+<dt><MdxJumpAnchor id="gl-confidential-containers"><a href="#gl-confidential-containers">Confidential containers (Azure)</a></MdxJumpAnchor></dt>
+<dd>Confidential Containers は、Microsoft Azure のセキュアな機密コンピューティングオプションの名称です。各 Confidential Containers の実装は、データ整合性、データ機密性、コード整合性などの本質的な機能を提供する、ハードウェアで保護された Trusted Execution Environment(TEE) で実行されます。</dd>
+<dd>UID2 のコンテキストでは、AzureのConfidential Containersは、<a href="#gl-private-operator">Private Operator</a> をホストするためのサポートされるセキュアコンピューティング環境の1つです。</dd>
+<dd>詳細は <a href="../guides/operator-guide-azure-enclave">UID2 Private Operator for Azure Integration Guide</a> を参照してください。</dd>
+<!-- <dd>**new**</dd> -->
+
+<dt><MdxJumpAnchor id="gl-confidential-space"><a href="#gl-confidential-space">Confidential Space (GCP)</a></MdxJumpAnchor></dt>
+<dd>Confidential Space は、Google Cloud Platform(GCP) のConfidential Computing オプションの1つです。Confidential Space は、Trusted Execution Environment(TEE) として知られるセキュアエンクレーブ環境を提供します。</dd>
+<dd>UID2 のコンテキストでは、GCP Confidential Space は、<a href="#gl-private-operator">Private Operator</a> をホストするためのサポートされるセキュアコンピューティング環境の1つです。</dd>
+<dd>詳細は <a href="../guides/operator-private-gcp-confidential-space">UID2 Private Operator for GCP Integration Guide</a> を参照してください。</dd>
+<!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-core-service">Core Service</MdxJumpAnchor></dt>
 <dd>UID2 Core Serviceは、UID2 エコシステムの <a href="#gl-salt">salts</a>、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。</dd>
