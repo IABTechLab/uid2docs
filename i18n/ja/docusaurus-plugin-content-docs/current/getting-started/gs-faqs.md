@@ -53,7 +53,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
   - [送信した DII と返されたトークンが一致していることをテストするにはどうすればよいですか？](#how-can-i-test-that-the-dii-sent-and-the-returned-token-match-up)
   - [トークンを復号化する必要がありますか？](#do-i-need-to-decrypt-tokens)
   - [ユーザーのオプトアウトはどのように通知されますか？](#how-will-i-be-notified-of-user-opt-out)
-  - [トークン生成の呼び出しは、Server-Side と Client-Side のどちらで行うべきですか？](#where-should-i-make-token-generation-callsfrom-the-server-or-client-side)
+  - [トークン生成の呼び出しは、Server-Side と Client-Side のどちらで行うべきですか？](#where-should-i-make-token-generation-callsfrom-the-server-side-or-the-client-side)
   - [Client-Side からトークンのリフレッシュを呼び出すことはできますか？](#can-i-make-token-refresh-calls-from-the-client-side)
   - [Refresh Token のワークフローをテストするにはどうすればよいですか？](#how-can-i-test-the-refresh-token-workflow)
   - [UID2 Token の一意性とローテーションポリシーは何ですか？](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
