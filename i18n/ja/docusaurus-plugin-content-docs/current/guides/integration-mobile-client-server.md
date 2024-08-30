@@ -13,6 +13,7 @@ import Link from '@docusaurus/Link';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
+import ExampleAdvertisingToken from '/docs/snippets/_example-advertising-token.mdx';
 
 # UID2 Client-Server Integration Guide for Mobile
 
@@ -220,9 +221,7 @@ UID2Manager.shared.getAdvertisingToken()
 
 UID2Manager への ID の追加が成功した場合、このメソッドは次のような文字列を返します:
 
-```
-AgAAAQFt3aNLXKXEyWS8Tpezcymk1Acv3n+ClOHLdAgqR0kt0Y+pQWSOVaW0tsKZI4FOv9K/rZH9+c4lpm2DBpmFJqjdF6FAaAzva5vxDIX/67UOspsYtiwxH73zU7Fj8PhVf1JcpsxUHRHzuk3vHF+ODrM13A8NAVlO1p0Wkb+cccIIhQ==
-```
+<ExampleAdvertisingToken />
 
 この identity をダウンストリームに渡して RTB ビッドストリームに送信できます。
 

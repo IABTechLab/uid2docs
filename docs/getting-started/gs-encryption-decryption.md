@@ -8,6 +8,7 @@ sidebar_position: 11
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
+import IdentityGenerateResponse from '/docs/snippets/_example-identity-generate-response.mdx';
 
 # Encrypting Requests and Decrypting Responses
 
@@ -103,20 +104,7 @@ The following table describes the field layout for response decryption code.
 
 For example, a decrypted response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request for an email address might look like this:
 
-```json
-{
-    "body": {
-        "advertising_token": "AgAAAQFt3aNLXKXEyWS8Tpezcymk1Acv3n+ClOHLdAgqR0kt0Y+pQWSOVaW0tsKZI4FOv9K/rZH9+c4lpm2DBpmFJqjdF6FAaAzva5vxDIX/67UOspsYtiwxH73zU7Fj8PhVf1JcpsxUHRHzuk3vHF+ODrM13A8NAVlO1p0Wkb+cccIIhQ==",
-        "user_token": "AgAAAPpTqz7/Z+40Ue5G3XOM2RiyU6RS9Q5yj1n7Tlg7PN1K1LZWejvo8Er7A+Q8KxdXdj0OrKRf/XEGWsyUJscRNu1bg/MK+5AozvoJKUca8b10eQdYU86ZOHPH7pFnFhD5WHs=",
-        "refresh_token": "AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNSVnCnzYq2BiDDz8SLsKOo6wZsoMIn95jVWBaA6oLq7uUGY5/g9SUOfFmX5uDXUvO0w2UCKi+j9OQhlMfxTsyUQUzC1VQOx6ed/gZjqH/Sw6Kyk0XH7AlziqSyyXA438JHqyJphGVwsPl2LGCH1K2MPxkLmyzMZ2ghTzrr0IgIOXPsL4lXqSPkl/UJqnO3iqbihd66eLeYNmyd1Xblr3DwYnwWdAUXEufLoJbbxifGYc+fPF+8DpykpyL9neq3oquxQWpyHsftnwYaZT5EBZHQJqAttHUZ4yQ==",
-        "identity_expires": 1654623500142,
-        "refresh_expires": 1657214600142,
-        "refresh_from": 1654622900142,
-        "refresh_response_key": "wR5t6HKMfJ2r4J7fEGX9Gw=="
-    },
-    "status": "success"
-}
-```
+<IdentityGenerateResponse />
 
 ## Encryption and Decryption Code Examples
 

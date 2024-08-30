@@ -8,6 +8,8 @@ sidebar_position: 02
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
+import ExampleUid2Cookie from '/docs/snippets/_example-uid2-cookie.mdx';
+import ExampleJavaScriptInit from '/docs/snippets/_example-javascript-init.mdx';
 
 # SDK for JavaScript Reference Guide
 
@@ -287,25 +289,7 @@ Here's what you need to know about this function:
 
 The following is an example of an `init()` call made using a callback with the server-side generated identity included.
 
-```html
-<script>
-  window.__uid2 = window.__uid2 || {};
-  window.__uid2.callbacks = window.__uid2.callbacks || [];
-  window.__uid2.callbacks.push((eventType, payload) => {
-    if (eventType === "SdkLoaded") {
-      __uid2.init({
-        identity : { // The `body` property value from the token/generate or token/refresh API response.
-          "advertising_token": "AgmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=",
-          "refresh_token": "Mr2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA==",
-          "identity_expires": 1633643601000,
-          "refresh_from": 1633643001000,
-          "refresh_expires": 1636322000000
-        }
-      });
-    }
-  });
-</script>
-```
+<ExampleJavaScriptInit />
 
 The following is an example of an `init()` call that loads a previously-provided identity from local storage, if one is available. You can put a script like this on any page that the user might visit after the identity has been established.
 
@@ -490,18 +474,8 @@ The content of the UID2 local storage or cookie is a URI-encoded string represen
 
 The following is an example of the UID2 cookie structure:
 
-```json
-{
-   "advertising_token":"AgAAAAVacu1uAxgAxH+HJ8+nWlS2H4uVqr6i+HBDCNREHD8WKsio/x7D8xXFuq1cJycUU86yXfTH9Xe/4C8KkH+7UCiU7uQxhyD7Qxnv251pEs6K8oK+BPLYR+8BLY/sJKesa/koKwx1FHgUzIBum582tSy2Oo+7C6wYUaaV4QcLr/4LPA==",
-   "refresh_token":"AgAAAXxcu2RbAAABfGHhwFsAAAF79zosWwAAAAWeFJRShH8u1AYc9dYNTB20edyHJU9mZv11e3OBDlLTlS5Vb97iQVumc7b/8QY/DDxr6FrRfEB/D85E8GzziB4YH7WUCLusHaXKLxlKBSRANSD66L02H3ss56xo92LMDMA=",
-   "identity_expires":1633643601000,
-   "refresh_from":1633643001000,
-   "refresh_expires":1636322000000,
-   "refresh_response_key":"dYNTB20edyHJU9mZv11e3OBDlLTlS5Vb97iQVumc7b/8QY/DDxr6FrRfEB/D",
-   "private":{     
-   }
-}
-```
+<ExampleUid2Cookie />
+
 :::warning
 The contents of the `private` object are explicitly unspecified and are left for the SDK to interpret. Do not make any assumptions about the structure, semantics, or compatibility of this object. Any updates to the cookie must retain its structure.
 :::

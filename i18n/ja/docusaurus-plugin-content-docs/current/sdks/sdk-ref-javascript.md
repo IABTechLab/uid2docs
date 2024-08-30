@@ -8,6 +8,8 @@ sidebar_position: 02
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
+import ExampleUid2Cookie from '/docs/snippets/_example-uid2-cookie.mdx';
+import ExampleJavaScriptInit from '/docs/snippets/_example-javascript-init.mdx';
 
 # SDK for JavaScript Reference Guide
 
@@ -287,25 +289,7 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 以下は、Server-side で生成された ID を含むコールバックを使った `init()` 呼び出しの例です。
 
-```html
-<script>
-  window.__uid2 = window.__uid2 || {};
-  window.__uid2.callbacks = window.__uid2.callbacks || [];
-  window.__uid2.callbacks.push((eventType, payload) => {
-    if (eventType === "SdkLoaded") {
-      __uid2.init({
-        identity : { // The `body` property value from the token/generate or token/refresh API response.
-          "advertising_token": "AgmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=",
-          "refresh_token": "Mr2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA==",
-          "identity_expires": 1633643601000,
-          "refresh_from": 1633643001000,
-          "refresh_expires": 1636322000000
-        }
-      });
-    }
-  });
-</script>
-```
+<ExampleJavaScriptInit />
 
 以下は、以前に提供された ID があれば、それをローカルストレージからロードする `init()` 呼び出しの例です。このようなスクリプトは、ID が確立された後にユーザーが訪れる可能性のある任意のページに配置することができます。
 
@@ -490,18 +474,8 @@ UID2 Cookie の内容は、[POST&nbsp;/token/generate](../endpoints/post-token-g
 
 以下は UID2 cookie 構造の例です:
 
-```json
-{
-   "advertising_token":"AgAAAAVacu1uAxgAxH+HJ8+nWlS2H4uVqr6i+HBDCNREHD8WKsio/x7D8xXFuq1cJycUU86yXfTH9Xe/4C8KkH+7UCiU7uQxhyD7Qxnv251pEs6K8oK+BPLYR+8BLY/sJKesa/koKwx1FHgUzIBum582tSy2Oo+7C6wYUaaV4QcLr/4LPA==",
-   "refresh_token":"AgAAAXxcu2RbAAABfGHhwFsAAAF79zosWwAAAAWeFJRShH8u1AYc9dYNTB20edyHJU9mZv11e3OBDlLTlS5Vb97iQVumc7b/8QY/DDxr6FrRfEB/D85E8GzziB4YH7WUCLusHaXKLxlKBSRANSD66L02H3ss56xo92LMDMA=",
-   "identity_expires":1633643601000,
-   "refresh_from":1633643001000,
-   "refresh_expires":1636322000000,
-   "refresh_response_key":"dYNTB20edyHJU9mZv11e3OBDlLTlS5Vb97iQVumc7b/8QY/DDxr6FrRfEB/D",
-   "private":{     
-   }
-}
-```
+<ExampleUid2Cookie />
+
 :::warning
 `private` オブジェクトの内容は明示的に指定されておらず、SDK が解釈するようになっています。このオブジェクトの構造、セマンティクス、互換性について、いかなる仮定もしないでください。クッキーの更新はその構造を保持しなければなりません。
 :::
