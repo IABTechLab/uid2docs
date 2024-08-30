@@ -57,4 +57,4 @@ UID2 に参加するための契約に署名した後、[UID2 credentials](gs-cr
 
 ## API Version
 
-UID2 API の現在のバージョンは UID2 API v2 です。
+UID2 API の現在のバージョンは v2 です。

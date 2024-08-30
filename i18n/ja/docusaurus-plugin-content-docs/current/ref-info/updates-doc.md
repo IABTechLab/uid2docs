@@ -11,6 +11,26 @@ import Link from '@docusaurus/Link';
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: DSP Direct Integration Instructions
+
+August 22, 2024
+
+UID2 SDK を使用していない DSP 向けの新しいガイドを追加しました。
+
+詳細は [DSP Direct Integration Instructions](../guides/integration-dsp-no-sdk.md) を参照してください。
+
+<!-- APIDOCS-2394 -->
+
+<!-- ### New: UID2 Token Reference Page
+
+August 22, 2024
+
+We've added a new reference page with general information about UID2 tokens, including refresh tokens.
+
+For details, see [UID2 Tokens and Refresh Tokens]. -->
+
+<!-- APIDOCS-1958 removed 8/26/22 -->
+
 ### New: Integration Approaches Page
 
 July 23, 2024
@@ -62,7 +82,7 @@ raw UID2 のリストが与えられた場合、このエンドポイントは�
 
 詳細は [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) を参照してください。
 
-<!-- APIDOCS-2252 -->
+<!-- APIDOCS-1739 -->
 
 ### New: Client-Side and Server-Side Guides for Mobile
 
@@ -125,6 +145,8 @@ February 28, 2024
 Java SDKは、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントの使用を希望する広告主およびデータプロバイダーをサポートするようになりました。
 
 詳細については、*SDK for Javaリファレンスガイド*: [Usage for Advertisers and Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) の更新されたドキュメントを参照してください。
+
+<!-- UID2-2759 -->
 
 ### New: Audience-Specific Documentation Sidebars
 
