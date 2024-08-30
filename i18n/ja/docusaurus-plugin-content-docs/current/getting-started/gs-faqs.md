@@ -227,7 +227,7 @@ Operator に関係なく、また、Private Operator と Public Operator のど�
 タイミングが重要なのは、ソルトバケットのローテーションのためです。リクエスト間でソルト値が変化すると、結果は異なる raw UID2 になります。
 
 
-しかし、パブリッシャーが [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイント経由、または SDK 経由で <link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</link> のリクエストに DII を送信した場合、生成される UID2 Token には同じ暗号化された raw UID が含まれます。ただし、トークン自体は常に一意です。
+しかし、パブリッシャーが [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイント経由、または SDK 経由で <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> のリクエストに DII を送信した場合、生成される UID2 Token には同じ暗号化された raw UID が含まれます。ただし、トークン自体は常に一意です。
 
 ## FAQs for DSPs
 
