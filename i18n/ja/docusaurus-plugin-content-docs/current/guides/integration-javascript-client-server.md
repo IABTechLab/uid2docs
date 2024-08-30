@@ -7,9 +7,8 @@ hide_table_of_contents: false
 sidebar_position: 02
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
+import ExampleClientServerSendUid2ToSdk from '/docs/snippets/_example-client-server-send-uid2-to-sdk.mdx'; 
 
 # Client-Server Integration Guide for JavaScript
 
@@ -85,82 +84,7 @@ Step 1-c でパブリッシャーがユーザーのメールアドレスまた�
 
 以下のコード例は、JavaScript と TypeScript でのステップ 1-f と 1-g の説明です。
 
-<Tabs>
-<TabItem value='js' label='JavaScript'>
-
-```js
-  window.__uid2 = window.__uid2 || {};
-  window.__uid2.callbacks = window.__uid2.callbacks || [];
-
-  // Step 1-f
-  window.__uid2.callbacks.push((eventType, payload) => {
-    if (eventType === 'SdkLoaded') {
-      __uid2.init({
-        identity : {
-          "advertising_token": "AgmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=",
-          "refresh_token": "Mr2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA==",
-          "identity_expires": 1633643601000,
-          "refresh_from": 1633643001000,
-          "refresh_expires": 1636322000000,
-          "refresh_response_key":"dYNTB20edyHJU9mZv11e3OBDlLTlS5Vb97iQVumc7b/8QY/DDxr6FrRfEB/D",
-        }
-      });
-    }
-  });
-
-  // Step 1-g
-  window.__uid2.callbacks.push((eventType, payload) => {
-    if (eventType !== 'SdkLoaded') {
-      if (payload.identity) {
-        const advertisingToken = payload.identity.advertising_token;
-        // Pass advertising_token to your advertising system to use
-      } else {
-        // No identity is available. Trigger a workflow for obtaining email address or phone number if you want to use UID2 for targeted advertising.
-      }
-    }
-  });
-```
-
-</TabItem>
-<TabItem value='ts' label='TypeScript'>
-
-```tsx
-  import { EventType, CallbackPayload } from "./callbackManager";
-
-  window.__uid2 = window.__uid2 || {};
-  window.__uid2.callbacks = window.__uid2.callbacks || [];
-
-  // Step 1-f
-  window.__uid2.callbacks.push((eventType: EventType, payload: CallbackPayload) => {
-    if (eventType === 'SdkLoaded') {
-      __uid2.init({
-        identity : {
-          "advertising_token": "AgmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=",
-          "refresh_token": "Mr2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA==",
-          "identity_expires": 1633643601000,
-          "refresh_from": 1633643001000,
-          "refresh_expires": 1636322000000,
-          "refresh_response_key":"dYNTB20edyHJU9mZv11e3OBDlLTlS5Vb97iQVumc7b/8QY/DDxr6FrRfEB/D",
-        }
-      });
-    }
-  });
-
-  // Step 1-g
-  window.__uid2.callbacks.push((eventType: EventType, payload: CallbackPayload) => {
-    if (eventType !== 'SdkLoaded') {
-      if (payload.identity) {
-        const advertisingToken = payload.identity.advertising_token;
-        // Pass advertising_token to your advertising system to use
-      } else {
-        // No identity is available. Trigger a workflow for obtaining email address or phone number if you want to use UID2 for targeted advertising.
-      }
-    }
-  });
-```
-
-</TabItem>
-</Tabs>
+<ExampleClientServerSendUid2ToSdk />
 
 SDKは、指定された [callback function](../sdks/sdk-ref-javascript.md#callback-function) (ID の可用性を示します) を呼び出し、確立された ID をClient-Side で入札可能な状態にします。
 
