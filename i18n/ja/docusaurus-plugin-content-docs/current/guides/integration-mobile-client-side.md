@@ -32,6 +32,8 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 このガイドの、**UID2 mobile SDKs** は、SDK for Android と SDK for iOS の両方を含むグループ用語です。
 :::
 
+モバイルパブリッシャーインテグレーションに関する FAQs については、[FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations) を参照してください。
+
 UID2 を Client-Side でインテグレーションするには、以下の手順を完了する必要があります:
 
 1. [Complete the UID2 account setup](#complete-the-uid2-account-setup).

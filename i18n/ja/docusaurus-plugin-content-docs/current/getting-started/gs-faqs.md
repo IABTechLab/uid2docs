@@ -20,6 +20,10 @@ UID2 フレームワークに関するよくある質問を紹介します。
    - [UID2 に DII を送信すると、UID2 はその情報を保存しますか？](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
    - [UID2 は HIPAA で規制されているデータの処理を許可しますか？](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
 
+:::note
+モバイルパブリッシャーインテグレーションに関する FAQs については、[FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations) を参照してください。
+:::
+
 #### Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?
 EUID インフラのすべてのインテグレーションパートナー(SSP、サードパーティデータプロバイダー、測定プロバイダー)は、自動的に UID2 にインテグレーションされますか？
 
