@@ -12,7 +12,7 @@ import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
-このガイドでは、Microsoft Azure の [Confidential Container](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers) で UID2 Operator サービスを設定する方法について説明します。Confidential Container は、Microsoft Azure の機密コンピューティングオプションで、データの整合性、データの機密性、コードの整合性などの固有の機能を提供するハードウェアバックドの Trusted Execution Environment (TEE) で実行されます。
+このガイドでは、Microsoft Azure の [Confidential Container](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers) で UID2 Operator Serviceを設定する方法について説明します。Confidential Container は、Microsoft Azure の機密コンピューティングオプションで、データの整合性、データの機密性、コードの整合性などの固有の機能を提供するハードウェアバックドの Trusted Execution Environment (TEE) で実行されます。
 
 UID2 Operator Confidential Container の Docker コンテナが起動すると、UID2 Core Service は Operator Service と Operator Service が実行されているエンクレーブ環境の信頼性を検証ための認証プロセスを完了します。
 

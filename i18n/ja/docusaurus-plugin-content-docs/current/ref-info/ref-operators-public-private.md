@@ -28,7 +28,7 @@ Operator は UID2 の中核的なコードです。このコードは、メー�
 
 ## Public Operators
 
-Public Operator または Open Operator は、関連するすべての UID2 参加者が利用できる UID2 Operator インスタンスです。Public Operator は、一般に利用可能な Operator Service のインスタンスを実行し、参加者が利用できるようにします。
+Public Operator は、関連するすべての UID2 参加者が利用できる UID2 Operator インスタンスです。Public Operator は、一般に利用可能な Operator Service のインスタンスを実行し、参加者が利用できるようにします。
 
 ほとんどの場合、UID2 参加者は Public Operator を使用します。
 

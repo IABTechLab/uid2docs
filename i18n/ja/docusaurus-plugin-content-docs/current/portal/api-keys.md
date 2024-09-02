@@ -18,7 +18,7 @@ UID2 Portal の **API Keys** ページでは、UID2 アカウントの API Key �
 
 ## Overview
 
-API Key とクライアント シークレットを使用すると、UID2 Operator サービスに接続して API エンドポイントを呼び出すことができます。これらの値は、サービスに対してあなたを識別します。
+API Key とクライアント シークレットを使用すると、UID2 Operator Serviceに接続して API エンドポイントを呼び出すことができます。これらの値は、サービスに対してあなたを識別します。
 
 UID2 Portal で API Key を追加するときは、キーとそれに対応するシークレットを安全に保存し、これらの値が漏洩しないようにするために必要なすべての措置を講じることが重要です。詳細は [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
 
