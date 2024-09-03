@@ -19,9 +19,9 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 
 このSDKは、Server-Sideのコーディングに C++ を使用している DSP または UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token |
-| :--- | :--- | :--- | :--- |
-| Supported | Supported | Not supported | Not supported |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
+| :--- | :--- | :--- | :--- | :--- |
+| &#9989; | &#9989; | &#8212; | &#8212; | &#8212; |
 
 ## API Permissions
 
@@ -62,7 +62,7 @@ Release tags は以下の GitHub で入手できますが、バイナリーは�
 SDK を使用する際に、復号鍵を保存したり管理したりする必要はありません。
 :::
 
-DSP の場合は、入札のために UID2 Advertising Token を復号化して UID2 を返すインターフェースを呼び出します。ユーザーのオプトアウトを処理する入札ロジックの詳細については、[DSPインテグレーションガイド](../guides/dsp-guide.md) を参照してください。
+DSP の場合は、入札のために UID2 Advertising Token を復号化して UID2 を返すインターフェースを呼び出します。ユーザーのオプトアウトを処理する入札ロジックの詳細は [DSPインテグレーションガイド](../guides/dsp-guide.md) を参照してください。
 
 以下は、C++ での decrypt メソッド呼び出しです:
 

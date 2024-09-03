@@ -1,17 +1,35 @@
-  sequenceDiagram
-    participant DP as Data Provider
-    participant UID2 as UID2 Service
-    participant DSP
-    loop 1. IDマップエンドポイントを使用して、DIIのUID2を取得します。
-    DP->>UID2: 1-a. DIIを含むリクエストをIDマッピングエンドポイントに送信します。
-    UID2->>DP: 1-b. ID マッピングサービスから返された raw UID2 とソルトバケットを格納します。
-    end
-    DP-->>DSP: 2. 蓄積したraw UID2をDSPに送信し、オーディエンスを作成します。
-    loop 3. 蓄積されているUID2に関連するソルトバケットのローテーションを監視します。
-       DP->>UID2: 3-a. バケットサービスを利用して、ソルトバケットのローテーションを返します。
-       UID2->>DP: 3-b. 指定されたタイムスタンプ以降にローテーションしたソルトバケットを返します。
-       DP->>UID2: 3-c. ローテーションしたソルトバケットと保存されているUID2ソルトバケットを比較します。<br/>ローテーションした場合は、新しいraw UID2のためにDIIをIDマッピングサービスに再送信します。
-       UID2->>DP: 3-d. ID マッピングサービスから返された raw UID2 とソルトバケットを保存します。
-    end
+  
 
-  <!-- Mermaid Live Editor Source: https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNq1VM9PGkEU_lcme1Ya9UYaTtsDhyYkpDcuIzu2m8guXRabxpgwM0QxaEqUgra10tJalSg2tWmaovwxj-XHf9GZ2YJQliYeygGWN2_f973ve2_WtaRtEC2sIZQhz7PEShLdxE8dnEpYSHzS2HHNpJnGlov0GMIZpGMXo5hjr5kGcaaTnkT1RZmmfuPEWTOTJKBUPOYHV207jRZCKKoDfw-cA68COwX-Dfg28CNgn9RzAdhe56bdK58CrQI9gRzVo1GglxJGnHmvKt5tVZ3dAj2EHPPL67H5SETmhNHCPA4h-ZLILjWA5YCfA2tKNPbTR7gjUZao7CqYCm0McrTT_jANJ5EEoB6TcMuyKzRV8TvwFvB9CUqLwLb77TLQ18B2gB4jB7_wlQMqaN0Ab0hAXgL2VVWRLLu1Vu96dxqcWMaoaUkiLlgshlB_P98789OPh-VFFXE80UiOAjtX1LaA1f80LjhK3d91C6VpPGXd0h2A38MJ0DywokIR9SsfB7m6fIsVg_uhl8AvFO6m_GY_gH9R0Hu9t_X-SWUad9LWJWnrpEJjCguvC2fjU3NfEsqdAAZjTi9Jp7s7W97lm5GRwNpqXmqKRFsNTrXz6_PgUAjVCAZTDs0yfRaPCSWSUol7lqannfaRd3EQ5N-sAWyW-y0-TufhsvMg8g9or3btlQRWUzjQrVypYH40jEJ9yY4KZfz9DNjD8a1peJu7szbwb2uM_7SEQ9ECllCb01LESWHTENfqugwnNPcZSZGEFhaPK7ZDMm5CS1gbIhNnXTv-0kpqYdfJkjktmzawO7yCtfAKXs2Moo8M07WdUZCov4_961vd4hu_ARRLHw0 -->
+<!-- 8/14/24: update to change UID2 Service to UID2 Operator per 2503: -->
+
+<!-- 8/14/24: Code: -->
+
+  sequenceDiagram
+      participant DP as Data Provider
+      participant UID2 as UID2 Operator
+      participant DSP
+      loop 1. IDマップエンドポイントを使用して、DII の UID2 を取得します。
+      DP->>UID2: 1-a. DII を含むリクエストを ID マッピングエンドポイントに送信します。
+      UID2->>DP: 1-b. ID マッピングサービスから返された raw UID2 とソルトバケットを格納します。
+      end
+      DP-->>DSP: 2. 蓄積した raw UID2 を DSP に送信し、オーディエンスを作成します。
+
+      loop 3. 蓄積されている UID2 に関連するソルトバケットのローテーションを監視します。
+        DP->>UID2: 3-a. バケットサービスを利用して、ソルトバケットのローテーションを返します。
+        UID2->>DP: 3-b. 指定されたタイムスタンプ以降にローテーションしたソルトバケットを返します。
+        DP->>UID2: 3-c. ローテーションしたソルトバケットと保存されている UID2 ソルトバケットを比較します。<br/>ローテーションした場合は、新しい raw UID2 のために DII を ID マッピングサービスに再送信します。
+        UID2->>DP: 3-d. ID マッピングサービスから返された raw UID2 とソルトバケットを保存します。
+      end
+
+<!-- Config:
+
+{
+  "theme": "forest"
+}
+ -->
+
+<!--  8/14/24: URL:
+
+  https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNq1VM9PGkEU_lcme1Ya9UYaTtsDhyYkpDcuIzu2m8guXRabxpgwM0QxaEqUgra10tJalSg2tWmaovwxj-XHf9GZ2YJQliYeygGWN2_f973ve2_WtaRtEC2sIZQhz7PEShLdxE8dnEpYSHzS2HHNpJnGlov0GMIZpGMXo5hjr5kGcaaTnkT1RZmmfuPEWTOTJKBUPOYHV207jRZCKKoDfw-cA68COwX-Dfg28CNgn9RzAdhe56bdK58CrQI9gRzVo1GglxJGnHmvKt5tVZ3dAj2EHPPL67H5SETmhNHCPA4h-ZLILjWA5YCfA2tKNPbTR7gjUZao7CqYCm0McrTT_jANJ5EEoB6TcMuyKzRV8TvwFvB9CUqLwLb77TLQ18B2gB4jB7_wlQMqaN0Ab0hAXgL2VVWRLLu1Vu96dxqcWMaoaUkiLlgshlB_P98789OPh-VFFXE80UiOAjtX1LaA1f80LjhK3d91C6VpPGXd0h2A38MJ0DywokIR9SsfB7m6fIsVg_uhl8AvFO6m_GY_gH9R0Hu9t_X-SWUad9LWJWnrpEJjCguvC2fjU3NfEsqdAAZjTi9Jp7s7W97lm5GRwNpqXmqKRFsNTrXz6_PgUAjVCAZTDs0yfRaPCSWSUol7lqannfaRd3EQ5N-sAWyW-y0-TufhsvMg8g9or3btlQRWUzjQrVypYH40jEJ9yY4KZfz9DNjD8a1peJu7szbwb2uM_7SEQ9ECllCb01LESWHTENfqugwnNPcZSZGEFhaPK7ZDMm5CS1gbIhNnXTv-0kpqYdfJkjktmzawO7yCtfAKXs2Moo8M07WdUZCov4_961vd4hu_ARRLHw0
+  
+  -->

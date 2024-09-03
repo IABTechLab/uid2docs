@@ -68,7 +68,7 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 
 アカウント設定ページに記載されている手順に従って、UID2 アカウントの設定を完了してください。アカウント設定プロセスの一環として、この SDK for JavaScript で使用するサイトの**ドメイン名**のリストを提供する必要があります。
 
-アカウントのセットアップが完了すると、Publicc Key(公開鍵) と Subesciption ID(サブスクリプション ID) が発行されます。これらの値はアカウント固有のもので、UID2 モジュールの設定に使用します。
+アカウントのセットアップが完了すると、UID2 サーバーがユーザーを識別するために使用する 2 つの値であるクライアントキーペアが発行されます: Subscription ID と Public key。これらの値はあなたに固有で、UID2 モジュールの設定に使用します。詳細は [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key) を参照してください。
 
 :::tip
 アカウント設定に必要なのは、ルートレベルのドメインだけです。例えば、JavaScript 用の UID2 SDK を example.com、shop.example.com、example.org で使用する場合、ドメイン名 example.com と example.org を指定するだけです。
@@ -113,7 +113,7 @@ window.__uid2.callbacks.push((eventType, payload) => {
 </script>
 ```
 
-SDK の詳細については、[SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください。
+SDK の詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください。
 
 ### Using the UID2 Integration Environment
 
@@ -165,7 +165,7 @@ SDK を設定するには、アカウントセットアップ時に受け取っ�
 - トークンをユーザーのブラウザに保存します。
 - ユーザーのブラウザでサイトを開いている間、必要に応じてトークンを自動的にリフレッシュします。
 
-UID2 SDK には、ユーザーの DII をハッシュ化して渡すことも、ハッシュ化せずに渡すこともできます。ハッシュ化せずに DII を渡すと、UID2 SDK が代わりにハッシュ化します。すでにハッシュ化された DII を SDK に渡したい場合は、ハッシュ化する前に正規化する必要があります。詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+UID2 SDK には、ユーザーの DII をハッシュ化して渡すことも、ハッシュ化せずに渡すこともできます。ハッシュ化せずに DII を渡すと、UID2 SDK が代わりにハッシュ化します。すでにハッシュ化された DII を SDK に渡したい場合は、ハッシュ化する前に正規化する必要があります。詳細は [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 
 ## Format Examples for DII
 
@@ -220,7 +220,7 @@ await __uid2.setIdentityFromEmailHash(
 ```
 
 このシナリオでは:
-- **メールアドレスの正規化とハッシュ化はパブリッシャーの責任です。** 詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+- **メールアドレスの正規化とハッシュ化はパブリッシャーの責任です。** 詳細は [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 - UID2 SDK は、UID2 Service に送信する前にハッシュを暗号化します。
 
 </TabItem>
@@ -281,7 +281,9 @@ await __uid2.setIdentityFromPhoneHash(
 既存のトークンをチェックし、使用またはリフレッシュすることで、このコストを回避できる可能性があります。これを行うには
 [__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) を呼び出し、ブール値を受け取ります。これが `true` の場合、UID2 SDK は既存のリソースで新しい Advertising Token を作成できず、DII はまったく新しい UID2 Token を生成する必要があることを意味します。
 
-以下のコードスニペットは、SDK for JavaScript とインテグレーションして、上記の 2 つのシナリオを実現する方法を示しています。&#8212;トークンがない状態から開始し、既存の UID2 Token が見つかった場合はそれを再利用/リフレッシュします。
+DII を提供すると、[__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) が `false` の値を返す可能性があります。これは、ユーザーが UID2 からオプトアウトしている場合に発生します。UID2 SDK for JavaScript は、ユーザーのオプトアウトを受け入れ、UID2 Token を生成しないため、同じ DII を使用していても、`setIdentity` メソッドのいずれかを呼び出しても UID2 Token を生成しません。オプションとして、このような呼び出し実行しないようにすることもできます。
+
+以下のコードスニペットは、UID2 SDK for JavaScript とインテグレーションして、上記の 2 つのシナリオを実現する方法を示しています。&#8212;トークンがない状態から開始し、既存の UID2 Token が見つかった場合はそれを再利用/リフレッシュします。
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
@@ -311,7 +313,7 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
       // The InitCompleted event occurs just once.
       //
       // If there is a valid UID2 token, it is in payload.identity.
-      if (payload.identity) {
+      if (payload?.identity) {
         //
         // payload looks like this:
         // {
@@ -326,25 +328,29 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
         // }
         var advertising_token_to_use = payload.identity.advertising_token;
       } else {
-          if (__uid2.isLoginRequired()) {
+         if (__uid2.isLoginRequired()) {
             // Call one of the setIdentityFrom functions to generate a new UID2 token.
             // Add any retry logic around this call as required.
             await __uid2.setIdentityFromEmailHash(
                 emailHash,
-                clientSideConfig
-          );
+                clientSideConfig);
+          }  
           else {
-            // there is a token generation API call in flight which triggers
-            // a IdentityUpdated event 
+            // there is a token generation API call in flight which triggers a IdentityUpdated event 
+            // or no token would be generated because one of previous `setIdentity` calls determines the DII has opted out.
           }
-        }
       }
       break;
  
     case "IdentityUpdated":
       // The IdentityUpdated event happens when a UID2 token is generated or refreshed.
       // See previous comment for an example of how the payload looks.
-      var advertising_token_to_use = payload.identity.advertising_token;
+      // It's possible that payload/identity objects could be null for reasons such as the token
+      // expired and cannot be refreshed, or the user opted out of UID2. 
+      // Check that the advertising token exists before using it.
+      if (payload?.identity?.advertising_token) {
+          var advertising_token_to_use = payload.identity.advertising_token;
+      }
       break;
   }
 });

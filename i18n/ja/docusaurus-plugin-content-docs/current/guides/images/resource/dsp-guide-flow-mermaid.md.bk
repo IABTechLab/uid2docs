@@ -1,21 +1,39 @@
+
+
+<!-- 8/16/24: update to change UID2 Service to UID2 Operator per 2503.  Had to copy/update from EUID as I had no source for UID2, just the URL: -->
+
+<!-- 8/16/24: Code: -->
+
   sequenceDiagram
     participant U as User
     participant SSP
     participant DSP
-    participant UID2 as UID2 Service
+    participant EUID as UID2 Operator
     participant TC as Transparency & Control Portal
     Note over U,TC: 1. ユーザーのオプトアウトを受け入れます。
     U->>TC: 1-a. ユーザーがオプトアウトしました。
     activate TC
-    TC->>UID2: 1-b. UID2 Serviceはオプトアウトを受け付けます。
+    TC->>EUID: 1-b. UID2 Servic はオプトアウトを受け付けます。
     deactivate TC
-    activate UID2
-    UID2->>DSP: 1-c. DSPはオプトアウトを受信します。
-    deactivate UID2
-    Note over U,TC: 2. RTBで使用する UID2 Token を復号化します。
-    SSP-->>DSP: SSPは入札のためにDSPを呼び出します。
+    activate EUID
+    EUID->>DSP: 1-c. DSP はオプトアウトを受信します。
+    deactivate EUID
+    Note over U,TC: 2. RTB で使用する UID2 Token を復号化します。
+    SSP-->>DSP: SSP は入札のために DSP を呼び出します。
     DSP->>DSP: 2-a. UID2 Token を復号化します。
     DSP->>DSP: 2-b. 1 からのユーザーオプトアウトを受け入れた入札ロジックを実行します。
 
-  <!-- Edit in Mermaid Live Editor: https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqNk89rE0EUx_-VYQ6ekkBz3EMPbi4elOJubnsZd6e6mOzE2UmglIIzi6g0UCpiFIRQwbYqbQ-Cij_aP-Zl1T_D97aJmLVUL_Pzvc_7znvzNnmsEsk9nst7Q5nFspOK21r0o4yxgdAmjdOByAzrMpGzbi51_SII1upHnb-Putc67YpAcyD1KI1l3Sb0ySLUIsvxGLVssCvMV5nRqsfWlDaiRy43lJFMjaRm3Uboe2ylxaDYh-IruA802mNwb6GYQPEI3Ctw-9XiSbkzAbtbPngNbgz2FOwLuO-I122urlacpqiTxheQ7KTyxnE6B4jYpCOBokKftqGPQHonIW-1lp4M9uQScbMvz3FcEpfIGv33lrCVfJwxIOac4sUtyv4lYWZne4snXBBjAa3nuN1iN8OrYA9m385-PD0kX7d9_rJQ3ZUZI_jpm3LnYzl-VufjD2kuFAaVOKzC95dHVClMorNg35FoROxi0t-XDz_XEXi9ILSpTP8ZeckNS7HCwG6De0yR_yz0v__LdC65OAL3CYoC3AnZHE9_7o2Xo_IG70vdF2mCTbVJKiJu7si-jLiHy3WlZW4iHmVbaCmGRgUbWcw9o4eywYeDBMswb0HurYtejqcySY3S18_7tGrXrV8YF7t7 -->
+<!-- Config:
 
+{
+  "theme": "forest"
+}
+ -->
+
+<!--  8/16/24: URL:
+
+https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqNk89rE0EUx_-VYQ6ekkBz3EMPbi4elOJubnsZd6e6mOzE2UmglIIzi6g0UCpiFIRQwbYqbQ-Cij_aP-Zl1T_D97aJmLVUL_Pzvc_7znvzNnmsEsk9nst7Q5nFspOK21r0o4yxgdAmjdOByAzrMpGzbi51_SII1upHnb-Putc67YpAcyD1KI1l3Sb0ySLUIsvxGLVssCvMV5nRqsfWlDaiRy43lJFMjaRm3Uboe2ylxaDYh-IruA802mNwb6GYQPEI3Ctw-9XiSbkzAbtbPngNbgz2FOwLuO-I122urlacpqiTxheQ7KTyxnE6B4jYpCOBokKftqGPQHonIW-1lp4M9uQScbMvz3FcEpfIGv33lrCVfJwxIOac4sUtyv4lYWZne4snXBBjAa3nuN1iN8OrYA9m385-PD0kX7d9_rJQ3ZUZI_jpm3LnYzl-VufjD2kuFAaVOKzC95dHVClMorNg35FoROxi0t-XDz_XEXi9ILSpTP8ZeckNS7HCwG6De0yR_yz0v__LdC65OAL3CYoC3AnZHE9_7o2Xo_IG70vdF2mCTbVJKiJu7si-jLiHy3WlZW4iHmVbaCmGRgUbWcw9o4eywYeDBMswb0HurYtejqcySY3S18_7tGrXrV8YF7t7
+
+
+
+-->

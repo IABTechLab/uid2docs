@@ -14,7 +14,7 @@ UID2 エコシステムには、特定のアクティビティを完了するた
 各 UID2 参加者は、パーミッションが参加者の API クレデンシャルにリンクされています([Account Setup](gs-account-setup.md) と [UID2 Credentials](gs-credentials.md) を参照してください)。
 
 :::note
-パブリッシャーで、Client-Side に UID2 を実装している場合、API パーミッションは適用されません。代わりに、Client-Side のトークンリクエストを生成するための別の認証情報を受け取ることになります。詳細については、[Subscription ID and Public Key](gs-credentials.md#subscription-id-and-public-key) を参照してください。
+パブリッシャーで、Client-Side に UID2 を実装している場合、API パーミッションは適用されません。代わりに、Client-Side のトークンリクエストを生成するための別の認証情報を受け取ることになります。詳細は [Subscription ID and Public Key](gs-credentials.md#subscription-id-and-public-key) を参照してください。
 :::
 
 参加者は、関連するパーミッションを持つ API クレデンシャルのセットを 1 つ以上持つことができます。複数の API パーミッションを持つ場合、それぞれのパーミッションに対して個別のクレデンシャルセットを持つか、すべてのパーミッションに対して単一のクレデンシャルセットを持つかのオプションがあります。各パーミッションに対して別々のクレデンシャルセットを持つことを推奨します。

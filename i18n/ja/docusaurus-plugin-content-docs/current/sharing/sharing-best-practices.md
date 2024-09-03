@@ -20,7 +20,7 @@ raw UID2 や UID2 Token を、UID2 の許可を受けた他のユーザーと安
 
   UID2 Token は短命なので、この点は重要です。UID2 Token の作成に使われた鍵の有効期限が切れると、トークンを復号化できなくなります。
 
-- raw UID2 は、非参加者に**渡してはなりません**。詳細については、[UID2 Token Pass-Through](sharing-tokenized-overview.md#uid2-token-pass-through) を参照してください。
+- raw UID2 は、非参加者に**渡してはなりません**。詳細は [UID2 Token Pass-Through](sharing-tokenized-overview.md#uid2-token-pass-through) を参照してください。
 
 - コードでは、将来の拡張性を考慮して、以下を許容してください：
 

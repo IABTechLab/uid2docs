@@ -47,7 +47,7 @@ UID2 Prebid.js Client-Side インテグレーション例は、以下のリン�
 アカウント設定に必要なのは、ルートレベルのドメインだけです。たとえば、Prebid.js で UID2 を example.com、shop.example.com、example.org で使用する場合、ドメイン名 example.com と example.org だけを指定します。
 :::
 
-アカウントのセットアップが完了すると、公開鍵(Public Key) とサブスクリプション ID(Subscription ID) が発行されます。これらの値はアカウント独自のもので、UID2 module を設定するために使います。詳細については、[Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key) を参照してください。
+アカウントのセットアップが完了すると、UID2 サーバーがユーザーを識別するために使用する 2 つの値であるクライアントキーペアが発行されます: Subscription ID と Public key。これらの値はあなたに固有で、UID2 モジュールの設定に使用します。詳細は [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key) を参照してください。
 
 ### Add Prebid.js to Your Site
 
@@ -74,7 +74,7 @@ Notes:
   1. 次に、SHA-256 ハッシングアルゴリズムを使用して結果をハッシュ化します。
   1. 次に、ハッシュ値のバイトを Base64 エンコードして結果をエンコードします。
 
-  詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。例については、[Configuring the UID2 Module: Code Example](#configuring-the-uid2-module-code-example) を参照してください。
+  詳細は [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。例については、[Configuring the UID2 Module: Code Example](#configuring-the-uid2-module-code-example) を参照してください。
 - UID2 module は、ハッシュ化された DII を UID2 Service に送信する前に暗号化します。
 - モジュールが複数回設定された場合、最新の設定値が使用されます。
 
@@ -144,6 +144,8 @@ pbjs.setConfig({
 }); 
 ```
 
+ユーザーが以前に UID2 をオプトアウトしている可能性があります。この場合、UID2 module はユーザーのオプトアウトを受け入れ、Prebid.js によって UID2 Token が生成されずに収集されません。
+
 ## Checking the Integration
 
 UID2 module が正常に UID2 Token を生成したかどうかを確認するには `pbjs.getUserIds().uid2` を呼び出します。値が返された場合、UID2 module に有効な UID2 Token が存在していることになります。
@@ -166,9 +168,11 @@ Prebid.js の設定を検証・デバッグするツールの例として、オ�
 
 ## Optional: Specifying the API Base URL to Reduce Latency
 
-デフォルトでは、UID2 module はアメリカにある UID2 本番環境サーバーに API コールを行います。ユーザーの居住地によっては、レイテンシー(遅延時間) を短縮するために、ユーザーに近いサーバーを選択することを検討してください。
+デフォルトでは、UID2 モジュールは米国の UID2 本番環境サーバーに対して呼び出しを行います。
 
-UID2 module を設定するときに別の UID2 サーバーを指定するには、次の例に示すように、オプションの `params.uid2ApiBase` パラメータを設定します:
+ユースケースに最適な URL を選択する方法と、有効なベース URL の完全なリストについては、[Environments](../getting-started/gs-environments.md) を参照してください。
+
+UID2 モジュールをデフォルト以外の UID2 サーバーに指定するには、UID2 モジュールを設定する際に、オプションの `params.uid2ApiBase` パラメータを次の例に示すように設定します:
 
 ```js
 pbjs.setConfig({ 
@@ -183,5 +187,3 @@ pbjs.setConfig({
   } 
 }); 
 ```
-
-Base URL のリストは、[Environments](../getting-started/gs-environments.md) を参照してください。

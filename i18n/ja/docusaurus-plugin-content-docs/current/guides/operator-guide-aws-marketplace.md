@@ -119,7 +119,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 以下は、[デプロイ](#deployment) の実行中または実行後にカスタマイズできる内容です。
 
-- VPC: 新しい VPC とサブネットを設定するか、既存のものを使用するかのどちらかです。
+- VPC: 既存の VPC と関連する VPC サブネット ID を指定する必要があります。
 - ルートボリュームサイズ (8G Minimum)
 - SSH キー: UID2 Operator の EC2 インスタンスにアクセスする際に使用する SSH キーです。
 - [Instance type](https://aws.amazon.com/ec2/instance-types/m5/): m5.2xlarge、m5.4xlarge、といった具合です。カスタマイズがない場合は、デフォルト値の m5.2xlarge を推奨します。
@@ -187,7 +187,9 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 | Instance root volume size  | 15GB 以上を推奨します。 |
 | Key Name for SSH | デプロイされた EC2 インスタンスに SSH アクセスするための EC2 キーペアです。 |
 | Trusted Network CIDR       | CIDR (Classless Inter-Domain Routing) 値は、オペレーターサービスにアクセスできる IP アドレス範囲を決定します。<br/>UID2 オペレーターへのアクセスを制限して、内部ネットワークまたはロードバランサーからのみアクセスできるようにするには、CIDR 値として内部 IP 範囲を指定します。 |
-
+| VPC | 既存の VPC ID。 |
+| VpcSubnet1 | 既存の VPC AZ1 サブネット ID。 |
+| VpcSubnet2 | 既存の VPC AZ2 サブネット ID。 |
 
 ### Stack Configuration Options
 
@@ -293,7 +295,7 @@ Operator インスタンスがデプロイされると、デフォルトのロ�
 }
 ```
 
-この設定の詳細については、[logrotate(8) - Linux man page](https://linux.die.net/man/8/logrotate) を参照するか、Linux 環境で `man logrotate` を実行してください。
+この設定の詳細は [logrotate(8) - Linux man page](https://linux.die.net/man/8/logrotate) を参照するか、Linux 環境で `man logrotate` を実行してください。
 
 #### cronjob Configuration
 logrotate は、デフォルトで `/etc/cron.daily` に次のスクリプトを生成します:
