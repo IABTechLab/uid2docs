@@ -27,7 +27,7 @@ Sharing permissions (共有権限) を設定することで、他の UID2 参加
 
 意図した UID2 Token の受信者が UID2 Token を解読して raw UID2 にできるよう、送信者は受信者に許可を与える必要があります。共有許可は UID2 Portal で定義します。
 
-UID2 Portal へのアクセスについては、UID2 の担当者にお尋ねください。詳細については、[Request an Account](portal-getting-started.md#request-an-account) を参照してください。UID2 を初めて使用する場合は、[Account Setup](../getting-started/gs-account-setup.md) を参照してください。
+UID2 Portal へのアクセスについては、UID2 の担当者にお尋ねください。詳細は [Request an Account](portal-getting-started.md#request-an-account) を参照してください。UID2 を初めて使用する場合は、[Account Setup](../getting-started/gs-account-setup.md) を参照してください。
 
 :::note
 Sharing の使用には API Key (詳細は [API Keys](api-keys.md) を参照) またはクライアントサイドキーペア (詳細は [Client-Side Integration](client-side-integration.md) を参照) が必要です。共有許可を設定する前にこれらの値を設定してください。
@@ -53,7 +53,7 @@ UID2 Portal は、あなたの役割に基づいて推奨を行います。例�
 - DSP であれば、すべての広告主とすべてのデータプロバイダー (現在および将来) と共有できます。
 - データプロバイダーであれば、すべての広告主、すべてのパブリッシャー、すべてのDSP (現在および将来) と共有できます。 
 
-以下の図は、広告主向けの推奨を示しています。
+以下の図は、広告主向けの推奨事項を示しています。
 
 ![UID2 Portal, Sharing Permissions page, Recommendations (Advertiser)](images/portal-sharing-permissions.png)
 
@@ -65,7 +65,7 @@ UID2 Portal は、あなたの役割に基づいて推奨を行います。例�
 
 ## Using Search to Add Sharing Relationships
 
-特定の共有関係を作成したい場合は、**Add Permissions** をクリックして、共有参加者を見つけて追加します。
+特定の共有関係を作成する場合は、**Add Permissions&#8212;Individual** をクリックして、共有参加者を検索して追加します。
 
 利用可能な共有参加者のリストでは、次のフィルタが利用可能です:
 - パブリッシャー
@@ -79,25 +79,41 @@ UID2 Portal は、あなたの役割に基づいて推奨を行います。例�
 
 ## Steps for Granting Sharing Permission
 
-共有許可を有効にするには、以下の手順を実行します。
-
 :::note
 UID2 Portal で共有許可を与えるだけでなく、SDK または Snowflake の機能をコードにインテグレーションする必要があります。[Tokenized Sharing Overview](../sharing/sharing-tokenized-overview.md) を参照してください。
 :::
+
+共有権限を有効にするには、以下の手順が必要です。
 
 1. UID2 Portal アカウントにログインします。
 1. **Sharing Permissions** をクリックします。
 1. 以下のいずれかを実行します:
 
-   - **Bulk Add Permission to Sharing Categories**: 設定した1つ以上の特定のカテゴリ (パブリッシャー、広告主、DSP、またはデータプロバイダー) の現在および将来の参加者全員と共有できます。
+   - **Add Permissions&#8212;Bulk**: 1つ以上の特定のカテゴリを構成して、現在および将来の参加者全員と共有することができます (パブリッシャー、広告主、DSP、データプロバイダー)。
 
    - **Review and Accept Recommendations**: 推奨を確認し、必要に応じて推奨カテゴリを追加またはクリアし、**Add Permissions** をクリックします。
 
     広告主や DSP などの参加者カテゴリーを承認すると、そのタイプの現在の参加者だけでなく、将来 UID2 エコシステムに参加する同じタイプの参加者にも共有が有効になります。
    
-   - **Add Permissions**: 必要に応じて、共有する個々の参加者を検索することができます。詳しくは [Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships) を参照してください。
+   - **Add Permissions&#8212;Individual**: 必要に応じて、共有する個々の参加者を検索することができます。詳しくは [Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships) を参照してください。
 1. 変更を保存します。
 
 :::note
 共有権限を有効にすると、選択した共有参加者が復号鍵にアクセスできるようになります。共有許可を有効にした各参加者は、UID2 SDK または Snowflake インテグレーションを介して、UID2 Token を raw UID2 に復号化するためにあなたのキーを使用できます。ただし、許可を与えることは最初のステップに過ぎません。共有するためには、トークンを参加者に送信する必要があります。UID2 Portal は許可を有効にしますが、データを送信することはありません。
+:::
+
+## Deleting Sharing Permission
+
+共有権限を削除する方法は 2 つあります:
+
+- **Bulk sharing permissions**: 以前に DSP やデータプロバイダーなどの特定の参加者グループと共有することを選択した場合、そのグループとの共有許可を削除できます。
+
+    ページの **Add Permissions&#8212;Bulk** セクションで、共有を解除したい参加者グループのチェックボックスをクリアし、**Save Permissions** をクリックします。
+
+- **Individual sharing permissions**: ページの **Your Sharing Permissions** セクションで、共有を解除したい参加者を見つけ、Actions 列で ![the Delete icon](images/icon-trash-can-solid.png) (削除アイコン) をクリックします。
+
+    この操作は、以前に作成した個別の共有許可にのみ適用されます。一括共有を介して共有許可を追加した場合、個別の共有許可を削除することはできません。共有許可を削除するには、追加した方法と同じ方法で削除する必要があります。
+
+:::note
+共有許可を削除すると、次回参加者が復号鍵を更新すると、その参加者との共有が解除されます。即時ではありませんが、迅速に行われます。詳細については、[Decryption Key Refresh Cadence for Sharing](../sharing/sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) を参照してください。
 :::

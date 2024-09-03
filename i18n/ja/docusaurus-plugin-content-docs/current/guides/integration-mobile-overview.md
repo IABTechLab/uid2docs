@@ -57,3 +57,56 @@ UID2 mobile SDK を使用してモバイルアプリを UID2 とインテグレ�
 
 - [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 - [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md)
+
+## FAQs for Mobile Integrations
+
+UID2 モバイルインテグレーションに関する FAQ 情報は次のとおりです:
+
+- [iOS: Swift Package Manager と Cocoapods/Podspec を併用できますか？](#ios-can-i-use-swift-package-manager-and-cocoapodspodspec-together)
+
+#### iOS: Can I use Swift Package Manager and Cocoapods/Podspec together?
+iOS: Swift Package Manager と Cocoapods/Podspec を併用できますか？
+
+UID2 Mobile インテグレーションには、UID2 Mobile SDK、UID2 GMA プラグイン、UID2 IMA プラグインを Swift Package Manager または CocoaPods でインストールできます。
+
+推奨事項:
+
+- すでに CocoaPods を使用している場合、特に Google Ad Frameworks を自分でインテグレーションしている場合は、UID2 SDK を CocoaPods を使用してインテグレーションすることが最適です。
+- 依存関係のインテグレーションが初めての場合、または Swift Package Manager ですでに依存関係がある場合は、UID2 モバイルインテグレーションには Swift Package Manager を使用することを勧めます。
+
+:::caution
+すでに CocoaPods を使用している場合、UID2 SDK とプラグインを Swift Package Manager (SPM) を使用してインテグレーションしても、アプリが UID2 SDK とプラグインを使用することを妨げるものではありません。ただし、潜在的な競合があります。すでに CocoaPods で GMA をインストールしている場合、その後 UID2 Mobile SDK を Swift Package Manager でインストールすると、実装に GMA の 2 つのコピーが含まれるため、動作しません。
+:::
+
+したがって、すでに GMA をインストールしていて UID2 をインストールする場合は、まず CocoaPods から GMA を削除してください。
+
+:::tip
+Podspec は、Cocoapods 内のファイル名で、アプリにインテグレーションするライブラリを定義するものです。
+:::
+
+## Troubleshooting Tips for Mobile Integrations
+
+UID2 モバイルインテグレーションのトラブルシューティングに役立つ追加情報です:
+
+- [Android SDK が本番環境に接続できない](#android-sdk-cannot-connect-in-production-environment)
+
+#### Android SDK cannot connect in Production environment
+Android SDK が本番環境に接続できない
+
+トラブルシューティングの最初のステップは、ヘルスチェックエンドポイントを確認することです。
+
+モバイルデバイスまたは Android エミュレータから、このエンドポイントに到達できるかどうかを確認してください:
+
+```
+https://prod.uidapi.com/ops/healthcheck
+```
+
+レスポンスは `OK` である必要があります。
+
+エラーレスポンスは、アプリが UID2 エンドポイントに到達できないネットワークの問題を示す場合があります。たとえば:
+
+- `Caused by java.net.UnknownHostException: Unable to resolve host "prod.uidapi.com": No address associated with hostname`
+
+   SDK はバックグラウンドで UID2 Token をリフレッシュしようとします。IOException などのエラーが発生した場合、SDK は複数回リトライします。リトライが成功しない場合、この例外が表示されます。
+
+ログを有効にすると、別のトラブルシューティングステップが可能になります。詳細については、[Enable Logging](integration-mobile-client-side.md#enable-logging) を参照してください。

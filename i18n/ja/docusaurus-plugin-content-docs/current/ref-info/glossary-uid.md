@@ -25,11 +25,16 @@ import Link from '@docusaurus/Link';
 <a href="#gl-bidstream">Bidstream</a> 
 
 **C**
+
 <a href="#gl-client-key">Client key</a> | 
+<a href="#gl-client-keypair">Client keypair</a> | 
 <a href="#gl-client-secret">Client secret</a> | 
 <a href="#gl-client-server">Client-server integration</a> | 
 <a href="#gl-client-side">Client-side integration</a> | 
 <a href="#gl-closed-operator">Closed Operator</a> | 
+<a href="#gl-confidential-computing">Confidential Computing (GCP)</a> | 
+<a href="#gl-confidential-containers">Confidential containers (Azure)</a> | 
+<a href="#gl-confidential-space">Confidential Space (GCP)</a> | 
 <a href="#gl-core-service">Core Service</a> 
 
 **D**
@@ -153,6 +158,10 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-client-key">Client key</MdxJumpAnchor></dt>
 <dd><a href="#gl-api-key">API key</a> を参照してください。</dd>
 
+<dt><MdxJumpAnchor id="gl-client-keypair"><a href="#gl-client-keypair">Client keypair</a></MdxJumpAnchor></dt>
+<dd>Client-Side のパブリッシャーインテグレ＾ションの場合、アカウントを一意に識別するためにパブリッシャーに発行される2つの値は、<a href="#gl-subscription-id">Subscription ID</a> と <a href="#gl-public-key">public key</a> です。Client keypair とは、この2つの値をまとめて呼ぶ用語です。</dd>
+<dd>詳細は　<a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
+
 <dt><MdxJumpAnchor id="gl-client-secret">Client secret</MdxJumpAnchor></dt>
 <dd>各 UID2 <a href="/docs/intro#participants">参加者</a>は、API Key (クライアントキー) と、そのキーに関連付けられた秘密値 (Client secret (API シークレット)) を持っています。Client secretは、参加者と UID2 Service だけが知っています。</dd>
 <dd>詳細については、<a href="/docs/getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
@@ -170,6 +179,23 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-closed-operator">Closed Operator</MdxJumpAnchor></dt>
 <dd>Closed Operator は <a href="#gl-private-operator">Private Operator</a> の別名です。</dd>
+
+<dt><MdxJumpAnchor id="gl-confidential-computing"><a href="#gl-confidential-computing">Confidential Computing (GCP)</a></MdxJumpAnchor></dt>
+<dd>Google Cloud Platform (GCP) の機密コンピューティングオプションの1つである Confidential Computing は、UID2 <a href="#gl-private-operator">Private Operator</a> のホスティングをサポートしています。</dd>
+<dd>詳細は <a href="#gl-confidential-space">Confidential Space</a> を参照してください。</dd>
+<!-- <dd>**new**</dd> -->
+
+<dt><MdxJumpAnchor id="gl-confidential-containers"><a href="#gl-confidential-containers">Confidential containers (Azure)</a></MdxJumpAnchor></dt>
+<dd>Confidential Containers は、Microsoft Azure のセキュアな機密コンピューティングオプションの名称です。各 Confidential Containers の実装は、データ整合性、データ機密性、コード整合性などの本質的な機能を提供する、ハードウェアで保護された Trusted Execution Environment(TEE) で実行されます。</dd>
+<dd>UID2 のコンテキストでは、AzureのConfidential Containersは、<a href="#gl-private-operator">Private Operator</a> をホストするためのサポートされるセキュアコンピューティング環境の1つです。</dd>
+<dd>詳細は <a href="../guides/operator-guide-azure-enclave">UID2 Private Operator for Azure Integration Guide</a> を参照してください。</dd>
+<!-- <dd>**new**</dd> -->
+
+<dt><MdxJumpAnchor id="gl-confidential-space"><a href="#gl-confidential-space">Confidential Space (GCP)</a></MdxJumpAnchor></dt>
+<dd>Confidential Space は、Google Cloud Platform(GCP) のConfidential Computing オプションの1つです。Confidential Space は、Trusted Execution Environment(TEE) として知られるセキュアエンクレーブ環境を提供します。</dd>
+<dd>UID2 のコンテキストでは、GCP Confidential Space は、<a href="#gl-private-operator">Private Operator</a> をホストするためのサポートされるセキュアコンピューティング環境の1つです。</dd>
+<dd>詳細は <a href="../guides/operator-private-gcp-confidential-space">UID2 Private Operator for GCP Integration Guide</a> を参照してください。</dd>
+<!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-core-service">Core Service</MdxJumpAnchor></dt>
 <dd>UID2 Core Serviceは、UID2 エコシステムの <a href="#gl-salt">salts</a>、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。</dd>
@@ -204,7 +230,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-enclave">Enclave</MdxJumpAnchor></dt>
 <dd>Enclave は、コンピューティング環境のセキュアなサブセクションです。エンクレーブには追加のビジネスロジックとセキュリティ対策が施され、改ざんできないようになっています。</dd>
-<dd>UID2 のコンテキストでは <a href="#gl-private-operator">Private Operator</a> は、Enclave 内かプライベート環境で運用しなければなりません。サポートされるエングレーブのバージョンについては、<a href="../guides/summary-guides#private-operator-service-integrations">Private Operator Service Integrations</a> を参照してください。</dd>
+<dd>UID2 のコンテキストでは、<a href="#gl-private-operator">Private Operator</a> はエンクレーブ内で実行されなければなりません。サポートされるエンクレーブバージョンの概要については、*UID2 Overview for Private Operators* の <a href="../overviews/overview-operators-private#implementation-resources">Implementation Resources</a> を参照してください。</dd>
 <dd>Enclave では、オペレータイメージは特殊で、事前に定義されたバージョンでなければならず、セキュリティを確保するために追加の制約が適用されます。</dd>
 
 <dt><MdxJumpAnchor id="gl-encryption-key"><a href="#gl-encryption-key">Encryption key</a></MdxJumpAnchor></dt>
@@ -324,7 +350,7 @@ import Link from '@docusaurus/Link';
 <dd><a href="#gl-private-operator">Private Operator</a> が運用する Operator Service のインスタンスです。</dd>
 
 <dt><MdxJumpAnchor id="gl-public-key">Public key</MdxJumpAnchor></dt>
-<dd>Client-Side のパブリッシャーインテグレーションでは、Public Key はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの 1 つです。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
+<dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される2つの値のうちの1つがアカウントを一意に識別する公開鍵です。d詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-public-operator">Public Operator</MdxJumpAnchor></dt>
 <dd>Public <a href="#gl-operator">Operator</a> は、UID2 Operator Service のパブリックインスタンスを実行する組織です。たとえば、The Trade Desk は現在、UID2 フレームワークの Public Operator として機能しており、すべての参加者が利用できます。</dd>
@@ -388,7 +414,7 @@ import Link from '@docusaurus/Link';
 <dd>SSO はシングルサインオンの略語です。SSO は、ユーザーがアプリやウェブサイトなどの複数のソフトウェアシステムの 1 つに、同じ認証情報(通常は ID とパスワードですが、必ずしもそうではありません) でログインすることを可能にします。SSO によって、ユーザーは 1 セットの認証情報を使って複数のアプリケーションやサイトに一度だけログインすることができます。SSO によって、ウェブサイトやアプリは独自の認証システムを維持する必要がなくなります。</dd>
 
 <dt><MdxJumpAnchor id="gl-subscription-id">Subscription ID</MdxJumpAnchor></dt>
-<dd>Client-Side のパブリッシャーインテグレーションでは、Subscription ID はパブリッシャーに UID2 クレデンシャルとして発行される 2 つの値のうちの1つです。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
+<dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される2つの値のうちの1つがアカウントを一意に識別する公開鍵です。d詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
 
 </dl>
 

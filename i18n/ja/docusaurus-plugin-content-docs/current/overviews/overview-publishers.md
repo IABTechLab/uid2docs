@@ -32,21 +32,29 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 以下の手順は、ID プロバイダー、パブリッシャー、SSO プロバイダーなど、SSP を介して UID2 Token を<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に伝播する組織を想定したワークフローの概要です。パブリッシャーは、UID2 と相互運用可能で、パブリッシャーに代わって UID2 インテグレーションを処理できる SSO プロバイダーまたは独立した ID プロバイダーと連携することを選択できます。
 
-1. ユーザーがパブリッシャーのウェブサイト、モバイルアプリ、CTV アプリにアクセスします。
-2. パブリッシャーは、オデータの取り扱いに関する透明性を提供し、ログインまたはその他の手段で、メールアドレスまたは電話番号の提供をユーザーに求めます。
-3. ユーザーがメールアドレスまたは電話番号を提供すると、パブリッシャーは SDK または直接 API インテグレーションを介して、それを UID2 Operator に送信します。
+1. ユーザーがパブリッシャーウェブサイト、モバイルアプリ、または CTV アプリを訪れます。
 
-   パブリッシャーは、SSO プロバイダーまたは ID プロバイダーが自分たちに代わって <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> を渡すことを承認できます。
-4. UID2 Operator:
+1. パブリッシャーは、ユーザーにデータの取り扱いについての透明性を確保し、ユーザーにメールアドレスまたは電話番号を提供するよう求めます。
+
+1. ユーザーがメールアドレスまたは電話番号を提供すると、パブリッシャーは SDK または直接の API インテグレーションを介して、それを UID2 Operator に送信します。
+   :::tip
+    パブリッシャーは、SSO プロバイダーまたは ID プロバイダーに、自身の代わりに <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> を渡すことを許可できます。
+    :::
+
+1. UID2 Operator:
    - メールアドレスまたは電話番号を受け取ります。
-   - ソルト化、ハッシュ化、暗号化処理を行います。
+   - ソルト、ハッシュ、暗号化プロセスを実行します。
    - UID2 Token を返します。
-5. パブリッシャーが UID2 Token を保存し、リアルタイムビディングの際に SSP と共有します。
-   - Server-Side: パブリッシャーは、トークンをマッピングテーブル、DMP、データレイク、またはその他の Server-Side アプリケーションに格納します。
-   - Client-Side: パブリッシャーは、トークンを Client-Side アプリ、またはファーストパーティクッキーとしてユーザーのブラウザに保存します。
-6. パブリッシャーが UID2 Token をストレージから取得します。
-6. パブリッシャーは UID2 Token を SSP に送信します。
-7. SSP は UID2 Token を含むビッドリクエストをビッドストリームに入れます。
+
+1. リアルタイムビディング中に SSP と共有するために、パブリッシャーは UID2 Token を保存します。
+   - Server-Side: パブリッシャーは、マッピングテーブル、DMP、データレイク、または他のサーバーサイドアプリケーションにトークンを保存します。
+   - Client-Side: パブリッシャーは、トークンをクライアントサイドアプリケーションまたはユーザーのブラウザにファーストパーティクッキーとして保存します。
+
+1. パブリッシャーは UID2 Token をストレージから取得します。
+
+1. パブリッシャーは SSP に UID2 Token を送信します。
+
+1. SSP は UID2 Token とともにビッドリクエストをビッドストリームに入れます。
 
 <!-- The publisher requests updated UID2 tokens using a refresh token. When applicable, the refresh token includes a user’s opt-out request. -->
 
@@ -67,7 +75,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 1. 該当する [implementation resources](#implementation-resources) を使用して、SDK または UID2 と直接インテグレーションしてください。
 
    :::note
-   UID2 へのリクエストメッセージは必ず暗号化してください。詳細については、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+   UID2 へのリクエストメッセージは必ず暗号化してください。詳細は [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
    :::
 
 1. テスト: 
@@ -91,7 +99,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 以下のリソースは、パブリッシャーの Web インテグレーションに利用できます。
 
 :::tip
-Web インテグレーションオプションの詳細については、[Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
+Web インテグレーションオプションの詳細は [Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
 :::
 
 | Integration Type| Documentation | Content Description |
@@ -114,6 +122,8 @@ Web インテグレーションオプションの詳細については、[Web In
 | Android/iOS (Overview) | [Mobile Integration Overview for Android and iOS](../guides/integration-mobile-overview.md) | SDK for Android または SDK for iOS を使用して UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けのオプションの概要です。 |
 | Android/iOS, Client-Side Integration | [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) | モバイルアプリ内のみの変更で UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けのインテグレーションガイドです（Server-Side の変更はありません）。 |
 | Android/iOS, Client-Server Integration | [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | UID2 とインテグレーションしたいモバイルアプリのパブリッシャー向けのインテグレーションガイドです:<ol><li>UID2 Token を Server-Side で生成するには、PublicまたはPrivate Operatorを使用します。</li><li>その結果、<Link href="../ref-info/glossary-uid#gl-identity">identities</Link> をモバイルアプリに渡し、ビッドストリームに渡します。</li></ol> |
+| Android | [SDK for Android Reference Guide](../sdks/sdk-ref-android.md) | Android アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用してクライアント ID を生成または確立し、UID2 Token を取得するプロセスを促進する SDK。 |
+| iOS | [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) | iOS アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用してクライアント ID を生成または確立し、UID2 Token を取得するプロセスを促進する SDK。 |
 
 ### CTV Integrations
 

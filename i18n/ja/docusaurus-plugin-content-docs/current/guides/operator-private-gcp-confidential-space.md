@@ -342,6 +342,9 @@ gcloud CLI を使用して、UID2 Operator Service を実行するためのサ�
       --source-ranges=0.0.0.0/0 \
       --target-service-accounts={SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com
     ```
+:::warning
+`source-ranges` は、クライアントが Private Operator を呼び出すために使用する IP アドレスの範囲を指定します。CIDR 表記であり、複数の範囲を提供するためにカンマ区切りの値を使用できます。例: `--source-ranges="。範囲が正確であり、自分のものである IP アドレスのみが含まれていることを確認してください。
+:::
 
 #### Create Secret for the Operator Key in Secret Manager
 
@@ -449,14 +452,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
 
 手順については、[Health Check&#8212;gcloud CLI](#health-checkgcloud-cli) を参照してください。
 
-## Tasks
-
-このセクションでは、次のタスクの完了手順を提供します。該当する場合は、両方の環境についての手順が提供されます。以下を含みます:
-
-- [Running the Health Check](#running-the-health-check)
-- [Upgrading](#upgrading)
-
-### Running the Health Check
+## Running the Health Check
 
 ヘルスチェックエンドポイントを呼び出して、実装の健全性をテストします。
 
@@ -467,7 +463,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
 - [Health Check&#8212;Terraform Template](#health-checkterraform-template)
 - [Health Check&#8212;gcloud CLI](#health-checkgcloud-cli)
 
-#### Health Check&#8212;Terraform Template
+### Health Check&#8212;Terraform Template
 
 次の例は、Terraform テンプレートオプションのヘルスチェックを示しています:
 
@@ -482,7 +478,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
    HTTP 200 とレスポンスボディが `OK` の場合、健全な状態です。
 
 
-#### Health Check&#8212;gcloud CLI
+### Health Check&#8212;gcloud CLI
 次の例は、`gcloud` コマンドラインオプションのヘルスチェックを示しています:
 
 1. デプロイされたインスタンスのパブリック IP アドレスを取得します:
@@ -518,3 +514,6 @@ Terrafom テンプレートを使用してデプロイした場合、アップ�
 gcloud CLI を使用してデプロイした場合、アップグレードするには、新しい `{OPERATOR_IMAGE}` を使用して新しいインスタンスを立ち上げ、古いインスタンスをシャットダウンする必要があります。
 
 手動でロードバランサーを設定した場合、ロードバランサーのマッピングも更新する必要があります。
+
+## Scraping Metrics
+GCP の Private Operator は、`/metrics` エンドポイントで [Prometheus-formatted metrics](https://prometheus.io/docs/concepts/data_model/) ポート 9080 で公開します。Prometheus 互換のスクレイパーを使用して、これらのメトリクスを収集して集計することができます。
