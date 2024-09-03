@@ -18,9 +18,9 @@ Server-Side で SDK for C# / .NET を使用すると、以下を簡単に行う�
 
 この SDK は、Server-Sideのコーディングに C# / .NET を使用している DSP または UID2 sharer のために、UID2 とのインテグレーションを簡素化します。次の表は、この SDK がサポートする機能を示しています。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token |
-| :--- | :--- | :--- | :--- |
-| Supported | Supported | Not supported | Not supported |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
+| :--- | :--- | :--- | :--- | :--- |
+| &#9989; | &#9989; | &#8212; | &#8212; | &#8212; |
 
 ## API Permissions
 
@@ -61,7 +61,7 @@ SDK が UID2 Service で認証するために必要な値を提供する必要�
 
 `BidstreamClient` クラスを使用すると、UID2 Token を raw UID2 に復号することができます。
 
-ユーザーのオプトアウトを処理する入札ロジックの詳細については、[DDSP Integration Guide](../guides/dsp-guide.md) を参照してください。
+ユーザーのオプトアウトを処理する入札ロジックの詳細は [DDSP Integration Guide](../guides/dsp-guide.md) を参照してください。
 
 `SharingClient` クラスを使うと、raw UID2 を暗号化して UID2 Token に変換したり、UID2 Token を復号して生の UID2 に変換したりすることができます。
 

@@ -28,7 +28,7 @@ Operator は UID2 の中核的なコードです。このコードは、メー�
 
 ## Public Operators
 
-Public Operator または Open Operator は、関連するすべての UID2 参加者が利用できる UID2 Operator インスタンスです。Public Operator は、一般に利用可能な Operator Service のインスタンスを実行し、参加者が利用できるようにします。
+Public Operator は、関連するすべての UID2 参加者が利用できる UID2 Operator インスタンスです。Public Operator は、一般に利用可能な Operator Service のインスタンスを実行し、参加者が利用できるようにします。
 
 ほとんどの場合、UID2 参加者は Public Operator を使用します。
 
@@ -48,17 +48,11 @@ Public Operator の場合、データは参加者のインフラを離れ、オ�
 
 ##  Private Operators
 
-rivate Operator は、UID2 Operator のプライベートインスタンスです。これは、特定の組織が、その組織専用に Private Operator をホストすることを意味します。
+Private Operator は、UID2 Operator のプライベートインスタンスです。つまり、特定のエンティティが独自に使用するためにプライベートインスタンスをホストします。
 
-参加者は誰でも、UID2 を生成および管理する Private Operator になることもできます。ただし、Private Operator になるにはいくつかの追加ステップが必要であり、参加者が提供する必要があるリソースを使用します。
+また、参加者は、UID2 を生成および管理するために Private Operator になることも選択できます。ただし、Private Operator になるにはいくつかの追加手順が必要であり、参加者が用意するリソースが必要です。
 
-参加者は、Private Operator インスタンスをホストし、構成し、維持し、更新する必要があり、厳密なセキュリティ対策に準拠する必要があります。インテグレーションと継続的な更新には、エンジニアリングリソースが必要です。
-
-参加者は、Private Operator インスタンスをホストする契約 ([Account setup](../getting-started/gs-account-setup.md) を参照してください) を締結する必要があります。
-
-:::note
-Private Operator は、Public Operator または別の Private Operator からの raw UID2 または UID2 Token を処理することはできません。各 Private Operator は、完全に閉じたインフラストラクチャです。
-:::
+詳細は [Private Operator Integrations](../guides/integration-options-private-operator.md) を参照してください。
 
 ## Private Operator: Benefits
 

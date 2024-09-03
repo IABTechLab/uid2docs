@@ -130,7 +130,7 @@ Snowflake を使用している UID2 参加者は、送信者または受信者�
 
 UID2 Token を raw UID2 に復号化するには、UID2 Portal アカウントが必要であり、送信者があなたとの共有関係を作成する必要があります。
 
-詳細については、[Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant) を参照してください。
+詳細は [Receiving UID2 Tokens from Another Sharing Participant](sharing-tokenized-overview.md#receiving-uid2-tokens-from-another-sharing-participant) を参照してください。
 
 暗号鍵を定期的に更新し、UID2 Token をすみやかに復号化することが重要です。
 

@@ -15,7 +15,7 @@ import Link from '@docusaurus/Link';
 
 UID2 フレームワークにアクセスするには、以下の The Trade Desk の担当チームにご連絡ください。
 
-現在の UID2 Administrator である The Trade Desk とすでに取引がある場合は、その担当者と直接連絡を取り、UID2 を開始してください。
+The Trade Desk (現在の UID2 管理者) とすでに取引関係がある場合は、直接連絡を取り、UID2 を開始してください。
 
 :::note
 The Trade Desk のアクセス依頼は一時的なものです。システムが独立したガバナンスに移行された時には、運営組織がアクセスリクエストを管理します。
@@ -28,9 +28,9 @@ The Trade Desk のアクセス依頼は一時的なものです。システム�
 
 ## Account Setup Details
 
-UID2 に興味を示していただいたら、詳細を詰めるために担当者からご連絡を差し上げます。
+UID2 に関心を示すと、詳細を調整するために担当者が連絡から連絡があります。
 
-参加者は少なくとも以下の情報を提供する必要があります:
+アカウント設定の一環として、以下の情報を提供してください。:
 * 氏名
 * メールアドレス
 * 会社名
@@ -38,24 +38,23 @@ UID2 に興味を示していただいたら、詳細を詰めるために担当
 
 ### Client-Side Web Integrations
 
-パブリッシャーが [mobile](../overviews/overview-publishers.md#mobile-integrations) ではなく [web](../overviews/overview-publishers.md#web-integrations) にパブリッシングする場合で、UID2 を実装してトークンが Client-Side で生成されるようにしたい場合は、サイトの **ドメイン名** のリストも提供する必要があります。これはセキュリティ対策であり、Client-Side 実装のためだけです。
+UID2 Token を [mobile](../overviews/overview-publishers.md#mobile-integrations) アプリではなく [web](../overviews/overview-publishers.md#web-integrations) の Client Side でリクエストする場合、サイトのドメイン名のリストも提供する必要があります。これは、Client-Side 実装のみのセキュリティ対策です。
 
 :::tip
-アカウント設定に必要なのは、トップレベルのドメインだけです。たとえば、example.com、shop.example.com、example.org の Client-Side でトークンを生成するために UID2 を実装する場合、ドメイン名 example.com と example.org だけを提供します。
+アカウント設定に必要なのは、ルートレベルのドメインだけです。たとえば、example.com、shop.example.com、example.org の Client-Side でトークンを生成するために UID2 を実装する場合、ドメイン名 example.com と example.org だけを提供します。
 :::
 
 ### Client-Side Mobile Integrations
 
-[mobile apps](../overviews/overview-publishers.md#mobile-integrations) にパブリッシングする場合、UID2 mobile SDKs とインテグレーションするすべてのモバイルアプリの <Link href="../ref-info/glossary-uid#gl-app-name">app names</Link> のリストを提供する必要があります。以下の値が適用される場合は、これらの値を提供してください:
+[mobile apps](../overviews/overview-publishers.md#mobile-integrations) で Client Side から UID2 Token をリクエストする場合、すべてのモバイルアプリ ID の完全なリストを提供する必要があります:
 
-- Android Application ID
-- iOS App Store ID
-- App Store ID
+- Android App ID: 該当するものをすべて。
+- iOS/tvOS Bundle ID and corresponding iOS App Store ID: 該当するものをすべて。
 
 ## Credentials
 
-UID2 に参加する契約を結ぶと、[UID2 credentials](gs-credentials.md) と UID2 を始めるために必要な情報が提供されます。
+UID2 に参加するための契約に署名した後、[UID2 credentials](gs-credentials.md) と UID2 の運用開始にに必要な追加情報を提供します。
 
 ## API Version
 
-UID2 API の現在のバージョンは UID2 API v2 です。
+UID2 API の現在のバージョンは v2 です。

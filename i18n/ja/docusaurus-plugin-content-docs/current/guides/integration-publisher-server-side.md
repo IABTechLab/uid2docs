@@ -24,7 +24,7 @@ import Link from '@docusaurus/Link';
 パブリッシャーインテグレーションオプションの完全な概要については、[Publisher Integrations](summary-guides.md#publisher-integrations) を参照してください。
 
 :::tip
-UID2 と UID2 Token を使用してクライアントのアイデンティティを確立し、UID2 Token を取得するプロセスを容易にするために、SDK for JavaScript を使用することを検討してください。詳細については、[Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) を参照してください。
+UID2 と UID2 Token を使用してクライアントのアイデンティティを確立し、UID2 Token を取得するプロセスを容易にするために、SDK for JavaScript を使用することを検討してください。詳細は [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) を参照してください。
 :::
 
 ## Introduction
@@ -46,6 +46,8 @@ UID2 と UID2 Token を使用してクライアントのアイデンティティ
 Server-Side SDK を使用している場合、SDK はエンドポイントに関連するすべてのステップを処理します。例えば、Step 1-d では、発行者はユーザーの DII をトークン生成サービスに送信します。
 
 ![Publisher Flow](images/integration-publisher-server-side-mermaid.png)
+
+<!-- diagram source: resource/integration-publisher-server-side-mermaid.md.bak -->
 
 次のセクションでは、図中の各ステップについて詳細を説明します:
 

@@ -9,7 +9,7 @@ banner_description: プライベート環境で DII から UID2 を生成する�
 
 import Link from '@docusaurus/Link';
 
-UID2 の Private Operator は、ファーストパーティの[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を安全な環境に送信して変換し、その識別子の送信先を管理します。Private Operator(以前は Closed Operator と呼ばれていました)になることを選択した参加者は、プライベート環境で UID2 Operator Service を実行し、UID2 を生成および管理できます。
+UID2 の Private Operator は、ファーストパーティの[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を安全な環境に送信して変換し、その識別子の送信先を管理します。Private Operator(以前は Closed Operator と呼ばれていました)になることを選択した参加者は、プライベート環境で UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> Service を実行し、UID2 を生成および管理できます。
 
 UID2 フレームワークが Private Operator に提供するメリット、ホスティングオプション、ドキュメント、その他のリソース、開始方法などについて説明します。
 
@@ -22,7 +22,7 @@ UID2 に Private Operator として参加することの利点を次に示しま
 - 地域的な近接性を提供できるサービスを利用することで、ネットワークホップを最小限に抑える計画を立てることができます。
 - 共有サービスに参加するのではなく、自社で管理するプロセスやポリシーを導入することができます。
 
-詳細については、[The UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
+詳細は [The UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
 ## Hosting Options for Private Operators
 
@@ -38,6 +38,8 @@ Private Operator を選択した場合、いくつかの実施オプションが
 
 1. [アクセスリクエスト](/request-access)ページにあるフォームに記入して、UID2 へのアクセスをリクエストします。
 2. どの実装オプションを使用するかを決定します。
+
+  有効なオプションについての詳細は、[Private Operator Integrations](../guides/integration-options-private-operator.md) を参照してください。
 3. SDKを使用している場合は、SDKをダウンロードします。該当するSDKのガイドを参照してください。
 4. 選択したオプションの実装ガイドに記載されている手順に従います。
 
@@ -50,6 +52,10 @@ Private Operator を選択した場合、いくつかの実施オプションが
 ## Implementation Resources
 
 Private Operator が UID2 を実装するために、以下のドキュメントリソースを用意しています。
+
+:::tip
+オプションの詳細な概要については、[Private Operator Integrations](../guides/integration-options-private-operator.md) を参照してください。
+:::
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |

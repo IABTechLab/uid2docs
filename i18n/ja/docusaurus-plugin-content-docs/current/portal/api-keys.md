@@ -18,9 +18,9 @@ UID2 Portal の **API Keys** ページでは、UID2 アカウントの API Key �
 
 ## Overview
 
-API Key とクライアント シークレットを使用すると、UID2 Operator サービスに接続して API エンドポイントを呼び出すことができます。これらの値は、サービスに対してあなたを識別します。
+API Key とクライアント シークレットを使用すると、UID2 Operator Serviceに接続して API エンドポイントを呼び出すことができます。これらの値は、サービスに対してあなたを識別します。
 
-UID2 Portal で API Key を追加するときは、キーとそれに対応するシークレットを安全に保存し、これらの値が漏洩しないようにするために必要なすべての措置を講じることが重要です。詳細については、[API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
+UID2 Portal で API Key を追加するときは、キーとそれに対応するシークレットを安全に保存し、これらの値が漏洩しないようにするために必要なすべての措置を講じることが重要です。詳細は [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
 
 各 API Keyは、1 年ごとにローテーションすることを勧めます。
 
@@ -42,7 +42,7 @@ API Key を追加するには、次の手順を実行します:
 1. **Add API Key** ページで、新しいキーの名前を指定します。
 1. API Permissions セクションで、キーに割り当てる権限を 1 つ以上選択します。
 
-    必要な権限のみを選択してください。たとえば、パブリッシャーの場合は Generator ロールを選択します。詳細については、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+    必要な権限のみを選択してください。たとえば、パブリッシャーの場合は Generator ロールを選択します。詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
     :::note
     選択可能な権限が表示されない場合は、UID2 連絡先に問い合わせてください。
@@ -93,13 +93,31 @@ API Key を削除するには、次の手順を実行します:
 
    キーは表示から削除され、無効になります。
 
-## Rotating an API key
+## Rotating an API Key
 
 API Key をローテーションすることをお勧めします。API Key をローテーションするには、次の手順を実行します:
 
 1. UID2 Portal で **API Keys** ページに移動します。
 1. リストでローテーションする Key を見つけます。
-1. ローテーションする Key と同じ権限を持つ新しい Key を追加します。詳細については、[Adding an API Key](#adding-an-api-key) を参照してください。
+1. ローテーションする Key と同じ権限を持つ新しい Key を追加します。詳細は [Adding an API Key](#adding-an-api-key) を参照してください。
 1. UID2 の実装を更新して、ローテーションする Key の代わりに新しい Key を使用するようにします。
 1. 新しい Key が問題なく使用されていることを確認します。たとえば、サービスに対する劣化や API Key の使用に関連するエラーログがないことを確認します。
-1. 古い Key を削除します。詳細については、[Deleting an API Key](#deleting-an-api-key) を参照してください。
+1. 古い Key を削除します。詳細は [Deleting an API Key](#deleting-an-api-key) を参照してください。
+
+## Security Recommendations for API Keys
+
+セキュリティのベストプラクティスとして、異なる役割に対して異なるキーを持つことが推奨されます。
+
+追加のセキュリティに関する推奨事項については、[API Key and Client Secret のセキュリティ](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+
+<!-- In some instances, you might create API keys for one permission/role and then want to add a role to your account. For example, you might be an advertiser, but also want to operate as an inventory provider.
+
+In this scenario, we recommend that you follow these best security practices:
+
+- Your credentials should have the minimum permissions necessary to complete the specific task. Activities as an advertiser require the Mapper role; activities as an inventory provider require the Generator role.
+
+- Best practice is to use different credentials in different contexts and for different use cases. For example, each app or service should use its own credentials.
+
+These practices are standard measures to help ensure that, in case a service or app is compromised or credentials are leaked, any negative result is minimized.
+
+These are guidelines, not rules. If you need to add a permission, you can modify an existing API key, but we recommend that you use separate keys for separate permission. -->

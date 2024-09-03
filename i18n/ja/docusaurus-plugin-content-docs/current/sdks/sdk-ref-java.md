@@ -23,7 +23,7 @@ SDK for Java を使用すると、以下が容易になります:
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
 | :--- | :--- | :--- | :--- | :--- |
-| Supported | Supported | Supported | Supported | Supported |
+| &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
 
 ## API Permissions
 
@@ -69,7 +69,7 @@ SDK が UID2 Service で認証するために必要な値を提供する必要�
 ### Interface 
 
 `BidstreamClient` クラスを使用すると、UID2 Token を raw UID2 に復号することができます。
-ユーザーのオプトアウトを処理する入札ロジックの詳細については、[DSP Integration Guide](../guides/dsp-guide.md) を参照してください。
+ユーザーのオプトアウトを処理する入札ロジックの詳細は [DSP Integration Guide](../guides/dsp-guide.md) を参照してください。
 
 `SharingClient` クラスを使うと、raw UID2 を暗号化して UID2 Token にしたり、UID2 Token を復号して raw UID2 にしたりすることができます。
 
@@ -383,7 +383,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Partic
 SharingClient client = new SharingClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
 ```
 
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします。推奨されるリフレッシュ間隔は1時間ごとです。詳細については、[Decryption Key Refresh Cadence for Sharing](../sharing/sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) を参照してください。
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします。推奨されるリフレッシュ間隔は1時間ごとです。詳細は [Decryption Key Refresh Cadence for Sharing](../sharing/sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) を参照してください。
 
    ```java
    client.refresh();

@@ -7,16 +7,16 @@ sidebar_position: 09
 
 # Client-Side Integration
 
-UID2 Portal では、Client-Side でトークンを生成する実装オプションを使用する場合、次の表に示す各値の 1 つ以上を定義する必要があります。
+UID2 Portal では、Client-Side でトークンを生成する実装オプションを使用する場合、実装タイプに該当する以下の値を定義する必要があります:
 
-| Value | Details | Documentation Link |
-| :--- | :--- | :--- |
-| Key pair | 少なくとも一つ。実装では、公開鍵を共有します。 | [Subscription ID and Public Key](getting-started/gs-credentials.md#subscription-id-and-public-key) |
-| Domain | 少なくとも1つ。ルートレベルドメインの完全なリストを提供します。 | [Client-Side Web Integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) |
+| Value | Implementation Type | Details | Documentation Link |
+| :--- | :--- | :---| :---|
+| Key pair | すべて (Web または Mobile) | 少なくとも1つ。実装では、公開鍵を共有します。 | [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key) |
+| Domain | Web | 少なくとも1つ。提供する必要があるのは、ルートレベルドメインの完全なリストです。 | [Client-Side Web Integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) |
 | Mobile App ID | Mobile | Android App ID、iOS/tvOS Bundle ID、iOS App Store IDなど、モバイルアプリに適用されるID。 | [Client-Side Mobile Integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations) |
 
 :::important
-サイトのルートレベルドメインの完全なリストを提供することが重要です。これは、クライアントサイドの実装にのみ関連するセキュリティ対策です。UID2 Portal で定義されていないドメインの場合、そのドメインからの UID2 Token リクエストは失敗します。
+サイトのルートレベルドメインの完全なリストを提供することが重要です。これは、Client-Side の実装にのみ関連するセキュリティ対策です。UID2 Portal で定義されていないドメインの場合、そのドメインからの UID2 Token リクエストは失敗します。
 :::
 
 Client-Side インテグレーションページでは、これらの値を設定および管理するためのすべてのアクティビティを実行できます。次の内容が含まれます:
@@ -25,7 +25,7 @@ Client-Side インテグレーションページでは、これらの値を設�
 - [Adding and Managing Mobile App IDs](#adding-and-managing-mobile-app-ids)
 
 :::note
-Client-Side インテグレーションページに移動すると、少なくとも 1 つのキーペアと、少なくとも 1 つのトップレベル（ルートレベル）ドメインを作成していない場合、不足している構成項目を提供するよう促されます。
+Client-Side インテグレーションページに移動すると、少なくとも 1 つのキーペアと、少なくとも 1 つのルートレベルドメインまたはモバイルアプリ ID を作成していない場合、不足している構成項目を提供するよう促されます。
 :::
 
 ## Client-Side Implementation Options
@@ -116,7 +116,7 @@ Client-Side インテグレーションページでは、次のアクティビ�
 1. **Client-Side Integration** ページに移動し、**Add Domains** をクリックします。
 1. **Add Domains** オーバーレイで、ドメインのリストを入力または貼り付けます。注:
 
-   - ドメインのリストの区切り文字として、次のものが有効です: カンマ、セミコロン、スペース、タブ、または改行。
+   - リストの区切り文字として、次のものが有効です: カンマ、セミコロン、スペース、タブ、または改行。
    - 追加するドメインはデフォルトでリストに追加されます。既存のリストを置き換える場合は、**Replace all existing domains with the new ones** をチェックします。
 
 1. **Add Domains** をクリックします。
@@ -178,7 +178,13 @@ Client-Side インテグレーションページでは、モバイルアプリ I
 
 ### Adding Mobile App IDs
 
-Android App ID、iOS/tvOS Bundle ID、iOS App Store ID など、モバイルアプリに適用されるすべてのモバイルアプリ ID の完全なリストを提供することが重要です。UID2 Token リクエストは、UID2 Portal で設定されたモバイルアプリ ID からのみ受け付けられます。
+すべてのモバイルアプリIDの完全なリストを提供することが重要です。これには、以下が含まれます。
+- Android App ID: 該当するもの。
+- iOS/tvOS Bundle ID and corresponding iOS App Store ID: 該当するもの。
+
+:::important
+UID2 Token リクエストは、UID2 Portal に該当する ID が追加されているソースからのみ受け付けられます。
+:::
 
 1 つ以上のモバイルアプリ ID を追加するには、次の手順を実行します:
 

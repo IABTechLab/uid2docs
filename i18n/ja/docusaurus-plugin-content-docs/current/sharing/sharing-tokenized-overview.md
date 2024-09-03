@@ -46,7 +46,7 @@ UID2 では、Tokenized Sharing は、<Link href="../ref-info/glossary-uid#gl-di
 承認された共有シナリオでは、受信者が取る手順はすべての共有シナリオで同じです。受信者が UID2 Token を復号化して raw UID2 に変換するには、受信者は UID2 Portal アカウントを持っている必要があり、送信者は UID2 Portal で受信者と共有関係を作成して、受信者が送信者の復号化キーにアクセスできるようにする必要があります。
 
 :::tip
-トークンの失効を避けるため、トークンを受け取ったらできるだけ早く復号化すること進めます。詳細については、[Best Practices for Managing Raw UID2s and UID2 Tokens](sharing-best-practices.md#best-practices-for-managing-raw-uid2s-and-uid2-tokens) を参照してください。
+トークンの失効を避けるため、トークンを受け取ったらできるだけ早く復号化すること進めます。詳細は [Best Practices for Managing Raw UID2s and UID2 Tokens](sharing-best-practices.md#best-practices-for-managing-raw-uid2s-and-uid2-tokens) を参照してください。
 :::
 
 受信者が UID2 Token を復号化するための実装オプションは次のとおりです。
@@ -126,7 +126,7 @@ raw UID2 を暗号化するために Tokenized Sharing を設定するには、�
 - **送信者**: raw UID2 を暗号化して UID2 Token を生成し、トークンを承認された共有参加者に送信します。
 - **受信者**: 受信者は、UID2 Token を受け取り、復号化します。
 
-Tokenized sharing を raw UID2 から始めることは、[creative pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-creative-pixels) で一般的です。他のシナリオでも使用できます。詳細については、[Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md) を参照してください。
+Tokenized sharing を raw UID2 から始めることは、[creative pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-creative-pixels) で一般的です。他のシナリオでも使用できます。詳細は [Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md) を参照してください。
 
 raw UID2 から始める場合は、次の手順に従ってください:
 

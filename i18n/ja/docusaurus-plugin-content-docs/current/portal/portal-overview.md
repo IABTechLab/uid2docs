@@ -32,7 +32,7 @@ Portal にアクセスするには、UID2 の担当者にアカウントを作�
 
 UID2 Portal は、ナビゲーションが簡単になるように構造化されています。
 
-ページへのアクセス方法は、次の画像に示すように、2つの主要な方法があります。
+ページへのアクセス方法は、次の画像に示すように、2つの主要な方法があります:
 
 ![UID2 Portal Structure](images/portal-uid2-overview.png)
 
@@ -43,7 +43,9 @@ UID2 Portal は、ナビゲーションが簡単になるように構造化さ�
 - [API Keys](api-keys.md)
 - [Client-Side Integration](client-side-integration.md)
 
-右上のリンクから、個人のアカウント設定や日常のアクティビティに関連する以下のページにアクセスできます:
+右上のリンクから、個人のアカウント設定と日々のアクティビティにアクセスできます。Gravatar 画像を設定している場合 ([https://gravatar.com/](https://gravatar.com/) を参照してください)、画像が表示されます。Gravatar 画像が設定されていない場合、デフォルト画像が表示されます。
+
+ここから個人のアカウント設定と日々のアクティビティに関する以下のページにアクセスできます:
 
 - [Participant Information](participant-info.md)
 - [Manage Team Members](team-members.md)

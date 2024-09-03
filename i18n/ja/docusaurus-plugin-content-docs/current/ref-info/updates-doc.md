@@ -11,7 +11,39 @@ import Link from '@docusaurus/Link';
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: Private Operator Integrations Page
+
+August 28, 2024
+
+Private Operator のインテグレーションに関する新しいページを追加しました。
+
+詳細は [Private Operator Integrations](../guides/integration-options-private-operator) を参照してください。
+
+<!-- APIDOCS-2164 -->
+
+### New: DSP Direct Integration Instructions
+
+August 22, 2024
+
+UID2 SDK を使用していない DSP 向けの新しいガイドを追加しました。
+
+詳細は [DSP Direct Integration Instructions](../guides/integration-dsp-no-sdk.md) を参照してください。
+
+<!-- APIDOCS-2394 -->
+
+<!-- ### New: UID2 Token Reference Page
+
+August 22, 2024
+
+We've added a new reference page with general information about UID2 tokens, including refresh tokens.
+
+For details, see [UID2 Tokens and Refresh Tokens]. -->
+
+<!-- APIDOCS-1958 removed 8/26/22 -->
+
 ### New: Integration Approaches Page
+
+July 23, 2024
 
 Client-Side、Client-Server、Server-Side の異なる統合アプローチに関する情報を含む新しいページを追加しました。
 
@@ -21,6 +53,8 @@ Client-Side、Client-Server、Server-Side の異なる統合アプローチに�
 
 ### New: Server-Side Token Generation Page
 
+July 3, 2024
+
 Server-Side で UID2 Token を生成するパブリッシャー向けの情報を含む新しいリファレンスページを追加しました。
 
 詳細は [Server-Side Token Generation](ref-server-side-token-generation.md) を参照してください。
@@ -29,16 +63,18 @@ Server-Side で UID2 Token を生成するパブリッシャー向けの情報�
 
 ### New: Prebid Mobile SDK Integration (Android)
 
+July 2, 2024
+
 2 つのモバイルインテグレーションガイドに、Prebid を使用したモバイルインテグレーションの新しいセクションを追加しました。現在は Android のみです。
 
 - [UID2 Client-Side Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-side#optional-uid2-prebid-mobile-sdk-integration)
 - [UID2 Client-Server Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-server#optional-uid2-prebid-mobile-sdk-integration)
 
-<!-- APIDOCS-2264 -->
+<!-- APIDOCS-2269 -->
 
 ### New: CTV Integration Guide
 
-21 June 2024
+June 21, 2024
 
 UID2 とのインテグレーションを希望する CTV パブリッシャー向けに、新しいガイドを追加しました。
 
@@ -48,7 +84,7 @@ UID2 とのインテグレーションを希望する CTV パブリッシャー�
 
 ### New: Opt-Out API
 
-24 May 2024
+May 24, 2024
 
 新しい API コールのドキュメントを追加しました。この API コールは、raw UID2 のオプトアウトステータスをチェックします。
 
@@ -56,11 +92,11 @@ raw UID2 のリストが与えられた場合、このエンドポイントは�
 
 詳細は [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) を参照してください。
 
-<!-- APIDOCS-2252 -->
+<!-- APIDOCS-1739 -->
 
 ### New: Client-Side and Server-Side Guides for Mobile
 
-17 May 2024
+May 17, 2024
 
 Android または iOS モバイルアプリのパブリッシャーが UID2 を実装するためのサポートを提供するため、以下のインテグレーションガイドを追加しました:
 
@@ -72,7 +108,7 @@ Android または iOS モバイルアプリのパブリッシャーが UID2 を�
 
 ### New: UID2 Portal Client-Side Integration Page
 
-6 May 2024
+May 6, 2024
 
 UID2 Portal のドキュメントに新しいページ、[Client-Side Integration](../portal/client-side-integration.md) を追加しました。
 
@@ -82,7 +118,7 @@ UID2 Portal の Client-Side Integration ページでは、ドメインなど、�
 
 ### New: UID2 Portal API Keys Page
 
-25 April 2024
+April 25, 2024
 
 UID2 Portal ドキュメントに新しいページ、[API Keys](../portal/api-keys.md) を追加しました。
 
@@ -92,7 +128,7 @@ UID2 Portal の API Keys ページでは、UID2 アカウントの API Key、関
 
 ### Documentation for Sharing Including Raw UID2 Sharing
 
-22 April 2024
+April 22, 2024
 
 すべての共有シナリオに対応できるよう、共有ドキュメントを全面的に見直し、大幅に拡充しました。
 
@@ -104,7 +140,7 @@ UID2 Portal の API Keys ページでは、UID2 アカウントの API Key、関
 
 ### New: UID2 Hashing Tool
 
-4 March 2024
+March 4, 2024
 
 新しい UID2 ハッシュツールを追加しました。正規化とエンコーディングが正しく行われているかどうかをチェックすることができます。
 
@@ -114,15 +150,17 @@ UID2 Portal の API Keys ページでは、UID2 アカウントの API Key、関
 
 ### New: Java SDK Support for Advertiser/Data Provider
 
-28 February 2024
+February 28, 2024
 
 Java SDKは、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントの使用を希望する広告主およびデータプロバイダーをサポートするようになりました。
 
 詳細については、*SDK for Javaリファレンスガイド*: [Usage for Advertisers and Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) の更新されたドキュメントを参照してください。
 
-### New: Audience-Specific Documentation Sidebars
+<!-- UID2-2759 -->
 
-9 February 2024
+### New: Audience-Specific Sidebars
+
+February 9, 2024
 
  [UID2 home page](https://unifiedid.com/) の上部にあるリンクをクリックした特定のユーザー(パブリッシャー、広告主、DSP、データプロバイダー)に、カスタマイズした左サイドバーが表示されるようにウェブサイトを改善しました。サイドバーには、その対象者に適用される特定のドキュメントが含まれています。
 
@@ -134,9 +172,9 @@ UID2 home page の "ドキュメント" リンクをクリックするだけで�
 
 <!-- APIDOCS-1681 -->
 
-### New: UID2 Integration Overview for JavaScript 
+### New: UID2 Integration Overview for JS
 
-26 January 2024
+January 26, 2024
 
 パブリッシャーが SDK for JavaScript を Client-Side または Server-Side のインテグレーションに使用する際のオプションをまとめた、新しい概要ガイドを追加しました。さらに、既存のガイドの名称を変更して一貫性を持たせ、マイナーアップデートを行いました。
 
@@ -148,7 +186,7 @@ UID2 home page の "ドキュメント" リンクをクリックするだけで�
 
 <!-- APIDOCS-1924 -->
 
-### New: SDK for Java, Usage for Publishers Sections
+### New: SDK for Java, Publisher Sections
 
 22 January 2024
 
@@ -158,9 +196,9 @@ SDK for Java のドキュメントに、SDK を実装するパブリッシャー
 
 <!-- APIDOCS-1705 -->
 
-### New: Normalization and Encoding Documentation, Examples Section
+### New: Normalization and Encoding Examples
 
-19 January 2024
+January 19, 2024
 
 既存の正規化とエンコードに関するドキュメントを拡張して明確にし、新しい例のセクションを追加しました。
 
@@ -170,7 +208,7 @@ SDK for Java のドキュメントに、SDK を実装するパブリッシャー
 
 ### New: Web Integration Overview for Publishers
 
-16 January 2024
+January 16, 2024
 
 UID2 とインテグレーションするパブリッシャーが利用できる Web インテグレーションオプションをまとめた新しいページを追加しました。
 
@@ -180,7 +218,7 @@ UID2 とインテグレーションするパブリッシャーが利用できる
 
 ### New: UID2 Operator Page
 
-3 January 2024
+January 3, 2024
 
 UID2 Operator が何をするのか、Public Operator と Private Operator の違いについて説明したリファレンスコンテンツを追加しました。
 
@@ -192,7 +230,7 @@ UID2 Operator が何をするのか、Public Operator と Private Operator の�
 
 ### New: UID2 Integration Overview for Prebid.js
 
-20 December 2023
+December 20, 2023
 
 新しい概要ガイドには、Prebid と UID2 をインテグレーションするためのパブリッシャーオプションがまとめられています。
 
@@ -204,9 +242,9 @@ UID2 Operator が何をするのか、Public Operator と Private Operator の�
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
-### New: Encryption/Decryption Examples in Java and C#
+### New: Encrypt/Decrypt Examples, Java and C#
 
-14 December 2023
+December 14, 2023
 
 UID2 リクエストの暗号化とレスポンスの復号化について、追加のプログラミング言語での説明とコード例を追加しました。既存の Pythonの 例に、Java と C# を追加しました。
 
@@ -214,15 +252,15 @@ UID2 リクエストの暗号化とレスポンスの復号化について、追
 
 ### New: UID2 Private Operator for Azure Integration Guide
 
-30 November 2023
+November 30, 2023
 
 [Private Operator](../ref-info/glossary-uid.md#gl-private-operator) の運用を希望する UID2 <a href="../intro#participants">参加者は</a>、Microsoft Azure のコンフィデンシャルコンピューティングオプションである Confidential Container で UID2 Operator Service をセットアップできるようになりました。
 
-詳細については、[UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md) を参照してください。
+詳細は [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md) を参照してください。
 
 ### New: API Permissions
 
-22 November 2023
+November 22, 2023
 
 UID2 ウェブサイトの Getting Started セクションに新しい記事が掲載され、主要な UID2 権限、よく使う参加者のタイプ、関連する主なアクティビティについての情報が提供されています。
 
@@ -230,15 +268,15 @@ UID2 ウェブサイトの Getting Started セクションに新しい記事が�
 
 ### New: UID2 Credentials Page
 
-21 November 2023
+November 21, 2023
 
 以前の **API Keys** ページを新しいページに置き換えました。このページには、Server-Sideの実装戦略に従った場合の認証情報についての情報が含まれています。
 
 詳細は [UID2 Credentials](../getting-started/gs-credentials.md) を参照してください。
 
-### New: Client-Side Integration Guide for JavaScript
+### New: Client-Side Integration Guide for JS
 
-21 November 2023
+November 21, 2023
 
 Client-Side Integration Guide for JavaScript は、既存の URL の全く新しいドキュメントで、Client-Sideパブリッシャー実装のために SDK for JavaScript を使用する、よりシンプルな新しい方法を網羅しています。
 
@@ -252,7 +290,7 @@ Client-Side Integration Guide for JavaScript は、既存の URL の全く新し
 
 ### New: UID2 Client-Side Integration Guide for Prebid.js
 
-2 November 2023
+November 2, 2023
 
 UID2 Client-Side Integration Guide for Prebid.js は、既存の URL にまったく新しいドキュメントを追加したもので、UID2 と Prebid をインテグレーションする、Server-Side の作業を必要としない、よりシンプルな新しい方法について説明しています。
 
@@ -267,15 +305,15 @@ UID2 Client-Side Integration Guide for Prebid.js は、既存の URL にまっ�
 
 ### New: Opt-Out
 
-31 October 2023
+October 31, 2023
 
 新しい "getting started" トピックでは、ユーザーのオプトアウトの概要を説明します。
 
-詳細については、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+詳細は [User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 ### New: AWS Entity Resolution Integration Guide
 
-19 October 2023
+October 19, 2023
 
 この新しいガイドは、Amazon Web Services の ID ソリューションプロダクトである [AWS Entity Resolution](https://aws.amazon.com/entity-resolution/) を使用するための情報を提供し、AWS の顧客が UID2 フレームワークとインテグレーションできるようにします。
 
@@ -285,7 +323,7 @@ UID2 Client-Side Integration Guide for Prebid.js は、既存の URL にまっ�
 
 ### New: SDK for JavaScript Version 3 
 
-10 October 2023
+October 10, 2023
 
 SDK for JavaScript Version 3 の機能強化に伴い、ドキュメントが大幅に更新されました。新しいドキュメントには、以前のバージョンの SDK からのアップグレードのための [Migration Guide](../sdks/sdk-ref-javascript#migration-guide) が含まれています。
 
@@ -295,7 +333,7 @@ SDK for JavaScript Version 3 の機能強化に伴い、ドキュメントが大
 
 ### New: Private Operator Guide for Google Confidential Space 
 
-30 September 2023
+September 30, 2023
 
 この新しいガイドでは、Google Cloud Platformの Confidential Computing オプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) でUID2 Operator Service を設定するための情報を提供します。
 
@@ -305,7 +343,7 @@ SDK for JavaScript Version 3 の機能強化に伴い、ドキュメントが大
 
 ### Update: Normalization and Encoding Rules
 
-7 September 2023
+September 7, 2023
 
 [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を正規化してエンコードし、raw UID2 または UID2 Token を作成する手順を明確にした。
 
@@ -316,16 +354,15 @@ SDK for JavaScript Version 3 の機能強化に伴い、ドキュメントが大
 
 ### New: IMA Mobile Plugin for Android
 
-8 August 2023
+August 8, 2023
 
 Android 向け UID2 Interactive Media Ads(IMA)Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google IMA SDK for Android を使用するパブリッシャーが、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を secure signals として送信できるようになります。
 
 詳細は [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) を参照してください。
 
-
 ### New: IMA Mobile Plugin for iOS
 
-8 August 2023
+August 8, 2023
 
 iOS 向け UID2 Interactive Media Ads(IMA)Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google IMA SDK for Android を使用するパブリッシャーが、iOS アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を secure signals として送信できるようになります。
 
@@ -333,16 +370,15 @@ iOS 向け UID2 Interactive Media Ads(IMA)Plugin に関する情報を提供す�
 
 ### New: GMA Mobile Plugin for Android
 
-4 August 2023
+August 4, 2023
 
 Android 向け UID2 Google Mobile Ads(GMA)Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google GMA SDK を使用するパブリッシャーが、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を secure signals として送信できるようになります。
 
 詳細は [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) を参照してください。
 
-
 ### New: GMA Mobile Plugin for iOS
 
-4 August 2023
+August 4, 2023
 
 iOS 向け UID2 Google Mobile Ads(GMA)Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google GMA SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を secure signals として送信できるようになります。
 
@@ -350,7 +386,7 @@ iOS 向け UID2 Google Mobile Ads(GMA)Plugin に関する情報を提供する�
 
 ### New: UID2 Website in Japanese
 
-3 August 2023
+August 3, 2023
 
 UID2 のウェブサイト全体が、英語だけでなく日本語でも利用できるようになりました。
 
@@ -366,7 +402,7 @@ UID2 アカウントを管理できる新しい UID2 Portal ユーザーイン�
 
 ### New: Documentation for UID2 Sharing
 
-3 August 2023
+August 3, 2023
 
 新しい UID2 Sharing 機能の使用をサポートするため、以下の新規および更新ドキュメントを公開しました:
 
@@ -382,7 +418,7 @@ UID2 アカウントを管理できる新しい UID2 Portal ユーザーイン�
 
 ### New: Android SDK Guide
 
-3 August 2023
+August 3, 2023
 
 パブリッシャー向けの新しいガイドでは、Android アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にする SDK、SDK for Android に関する情報を提供しています。
 
@@ -390,16 +426,8 @@ UID2 アカウントを管理できる新しい UID2 Portal ユーザーイン�
 
 ### New: iOS SDK Guide
 
-3 August 2023
+August 3, 2023
 
 パブリッシャー向けの新しいガイドでは、iOS アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にする SDK、SDK for iOS に関する情報を提供しています。
 
 詳細は [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) を参照してください。
-
-<!-- ### New: Prebid Integration Guide
-
-1 August 2023
-
-UID2 とインテグレーションし、RTB ビッドストリームで Prebid が渡す UID2 Token (Advertising Token) を生成したいパブリッシャー向けの新しいガイドです。
-
-詳細は [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md) を参照してください。[doc name updated] -->

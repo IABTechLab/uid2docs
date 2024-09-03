@@ -154,7 +154,7 @@ For more information about client-side UID2 integration, refer to one of these i
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
 - [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 
-### Honor User Opt-Out After Token Decryption
+## Honor User Opt-Out After Token Decryption
 
 After decrypting the token, you must check the resulting raw UID2 against your opt-out records. If it appears on your opt-out records, you must honor the user's opt-out preference, including by not using the UID2 for bidding.
 
