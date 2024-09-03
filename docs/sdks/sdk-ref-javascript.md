@@ -265,6 +265,7 @@ All interactions with the SDK for JavaScript are done through the global `__uid2
 - [callbacks](#callbacks) <New />
 - [setIdentity()](#setidentityidentity-identity-void) <New />
 - [getIdentity()](#getidentity-identity--null) <New />
+- [isInitComplete()] <New />
 
 ### constructor()
 
@@ -319,6 +320,17 @@ The `opts` object supports the following properties.
 | `useCookie` | `boolean` | Optional | Set this to `true` to tell the SDK to store the identity in cookie storage instead of local storage. You can still provide an identity using a first-party cookie if this value is false or not provided. | 
 | `callback` | `function(object): void` | Deprecated | The function that the SDK should invoke after validating the passed identity. Do not use this for new integrations. | N/A |
 
+#### Multiple Init Calls
+
+The `init()` function can be called any number of times.  The code will always accept the latest value of a certain init parameter, meaning if init is called twice, and a different `baseUrl` is passed in each call, the `baseUrl` in the second call will overwrite the `baseUrl` in the first call. 
+
+There are two exceptions to this functionality:
+
+1. If a new identity is passed in a subsequent call, and the new identity expires before the current identity, the new identity will not replace the current identity.  
+2. For every subsequent callback function passed, it is added to the existing array of callbacks using the Array Push Pattern.
+
+Note: If `useCookie` is updated, it will change where the identity is stored - i.e. if it is updated from `true` to `false`, the identity cookie will be removed, and will be moved to local storage.
+
 
 #### Errors
 
@@ -326,7 +338,7 @@ The `init()` function can throw the following errors.
 
 | Error | Description |
 | :--- | :--- |
-| `TypeError` | One of the following issues has occurred:<ul><li>The function has already been called.</li><li>The `opts` value is not an object.</li><li>A legacy callback is provided, but it is not a function.</li><li>`refreshRetryPeriod` is provided, but it is not a number.</li></ul> |
+| `TypeError` | One of the following issues has occurred:<ul><li>The `opts` value is not an object.</li><li>A legacy callback is provided, but it is not a function.</li><li>`refreshRetryPeriod` is provided, but it is not a number.</li></ul> |
 | `RangeError` | The refresh retry period is less than 1000. |
 
 #### Legacy Callback Function
@@ -450,6 +462,12 @@ Returns the current stored identity, if available.
 If there is a valid identity available, the return value is an object representing the full stored identity. The properties of the object are the same as the stored value as described in the [contents structure](#contents-structure) section.
 
 If there is no currently valid identity (even if the identity is only temporarily unavailable), the return value is null. If you need to know whether the identity is only temporarily unavailable, you can call [isLoginRequired()](#isloginrequired-boolean).
+
+### isInitComplete(): boolean
+
+Returns true if the `init()` function has been called at least once.
+
+Returns false if `init()` has not been called.
 
 ## UID2 Storage Format
 
