@@ -265,7 +265,7 @@ All interactions with the SDK for JavaScript are done through the global `__uid2
 - [callbacks](#callbacks) <New />
 - [setIdentity()](#setidentityidentity-identity-void) <New />
 - [getIdentity()](#getidentity-identity--null) <New />
-- [isInitComplete()] <New />
+- [isInitComplete()](#isinitcomplete-boolean) <New />
 
 ### constructor()
 
