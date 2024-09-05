@@ -331,6 +331,10 @@ There are two exceptions to this functionality:
 
 Note: If `useCookie` is updated, it will change where the identity is stored - i.e. if it is updated from `true` to `false`, the identity cookie will be removed, and will be moved to local storage.
 
+### Self Bootstrap
+
+Once the constructor has completed and the SDK has been put on the window object, the code will check local storage and cookie for a stored init config.  If the config exists, `init()` will be automatically called, without having to explicitly call the function.  This will also allow the public functions below, such as `getAdvertisingToken()` and `getIdentity()` to work without needing to explicitly call init previously. 
+
 
 #### Errors
 
@@ -351,9 +355,7 @@ If you have already built an integration using a legacy callback function, you c
 
 ### getAdvertisingToken(): string
 
-Gets the current advertising token. 
-
-Before calling this function, be sure to call [init()](#initopts-object-void) and wait until your callback handler has received an `InitCompleted` event. 
+Gets the current advertising token. This function can be called without `init()` and will return the token if it is stored in local storage or a cookie.  
 
 ```html
 <script>
@@ -365,7 +367,6 @@ The `getAdvertisingToken()` function allows you to access the advertising token 
 
 This function returns `undefined` if any of the following conditions apply:
 
-- The [callback function](#callback-function) has not received an `InitCompleted` event, which means that the SDK initialization is not yet complete.
 - The SDK initialization is complete, but there is no valid identity to use.
 - The SDK initialization is complete, but the auto-refresh has cleared the identity&#8212;for example, because the user has opted out.
 
@@ -375,7 +376,7 @@ If the identity is not available, use the [isLoginRequired()](#isloginrequired-b
 
 Gets a `Promise` string for the current advertising token.
 
-This function can be called before or after the [init()](#initopts-object-void) call. The returned promise is settled after the initialization is complete, based on the availability of the advertising token:
+This function can be called before or after the [init()](#initopts-object-void) call. The returned promise is settled based on the availability of the advertising token:
 
 - If the advertising token is available, the promise is fulfilled with the current advertising token.
 - If the advertising token is not available, even temporarily, the promise is rejected with an instance of `Error`. To determine the best course of action in this case, you can use [isLoginRequired()](#isloginrequired-boolean).
@@ -457,7 +458,7 @@ Use this function to provide a new identity to the UID2 SDK. Any existing refres
 
 ### getIdentity(): Identity | null
 
-Returns the current stored identity, if available.
+Returns the current stored identity, if available. `init()` does not have to be called to use this function, and will return an identity stored in local storage or a cookie if exists.
 
 If there is a valid identity available, the return value is an object representing the full stored identity. The properties of the object are the same as the stored value as described in the [contents structure](#contents-structure) section.
 
