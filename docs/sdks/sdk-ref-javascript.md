@@ -322,22 +322,24 @@ The `opts` object supports the following properties.
 
 #### Multiple Init Calls
 
-The `init()` function can be called any number of times.  The code will, in most cases, accept the latest value of a certain init parameter. For example, if init is called twice, and a different `baseUrl` is passed in each call, the `baseUrl` variable will be updated to its value in the second call. 
+You can call the `init()` function any number of times.  In most cases, the  code will accept the latest value of a certain init parameter. For example, if init is called twice, and a different `baseUrl` is passed in each call, the `baseUrl` variable is updated to the value from the second call. 
 
 There are two exceptions to this functionality:
 
-1. If a new identity is passed in a subsequent call, and the new identity expires before the current identity, the new identity will not replace the current identity.  
-2. For every subsequent callback function passed, it is added to the existing array of callbacks using the [Array Push Pattern](#array-push-pattern).
+1. If a new identity is passed in a subsequent call, and the new identity expires before the current identity, the new identity does not replace the current identity.  
+2. For every subsequent callback function passed, the function is added to the existing array of callbacks using the [Array Push Pattern](#array-push-pattern).
 
-Note: If `useCookie` is updated, the location of the identity will change - i.e. if it is updated from `true` to `false`, the first party cookie will be removed and the identity added to local storage.
+:::note
+If `useCookie` is updated, the location of the identity will change - i.e. if it is updated from `true` to `false`, the first party cookie will be removed and the identity added to local storage.
+:::
 
 ### Init Config
 
-Calling `init()` stores an init config in a first-party cookie or local storage which can include the following parameters if given: `baseUrl`, `useCookie`, `refreshRetryPeriod`, `cookiePath`, and `cookieDomain`.  This config is used to [bootstrap init](#self-bootstrap) and save load time in future page loads.  Subsequent calls to `init()` will update the config with the most recent parameters.
+Calling `init()` stores an init config in a first-party cookie or local storage which can include the following parameters if given: `baseUrl`, `useCookie`, `refreshRetryPeriod`, `cookiePath`, and `cookieDomain`.  This config is used to [bootstrap init](#self-bootstrap) and save load time in future page loads.  Subsequent calls to `init()` update the config with the most recent parameters.
 
 ### Self Bootstrap
 
-Once the constructor has completed and the SDK has been put on the window object, the code will check local storage and cookie storage for a stored [init config](#init-config).  If the config exists, `init()` will be automatically called with the parameters from the config, and as a result, any functions that require `init()` can be used. 
+When the constructor has completed and the SDK has been put on the window object, the code will check local storage and cookie storage for a stored [init config](#init-config).  If the config exists, `init()` is automatically called with the parameters from the config, and as a result, any functions that require `init()` can be used. 
 
 
 #### Errors
@@ -359,7 +361,7 @@ If you have already built an integration using a legacy callback function, you c
 
 ### getAdvertisingToken(): string
 
-Gets the current advertising token. This function can be called without `init()` and will return the token if it is stored in local storage or a first-party cookie.  
+Gets the current advertising token. This function can be called without `init()` and returns the token if it is stored in local storage or a first-party cookie.  
 
 ```html
 <script>
