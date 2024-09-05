@@ -288,7 +288,6 @@ Here's what you need to know about this function:
   - If you are using a first-party cookie (see [UID2 Storage Format](#uid2-storage-format)) to store the passed UID2 information for the session, a call to `init()` made by a page on a different domain might not be able to access the cookie. You can adjust the settings used for the cookie with the `cookieDomain` and `cookiePath` options.
 - To tune specific behaviors, initialization calls might include optional configuration [init parameters](#init-parameters).
 
-
 The following is an example of an `init()` call made using a callback with the server-side generated identity included.
 
 <ExampleJavaScriptInit />
