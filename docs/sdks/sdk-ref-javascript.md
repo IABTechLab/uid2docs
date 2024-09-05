@@ -288,6 +288,7 @@ Here's what you need to know about this function:
   - If you are using a first-party cookie (see [UID2 Storage Format](#uid2-storage-format)) to store the passed UID2 information for the session, a call to `init()` made by a page on a different domain might not be able to access the cookie. You can adjust the settings used for the cookie with the `cookieDomain` and `cookiePath` options.
 - To tune specific behaviors, initialization calls might include optional configuration [init parameters](#init-parameters).
 
+
 The following is an example of an `init()` call made using a callback with the server-side generated identity included.
 
 <ExampleJavaScriptInit />
@@ -322,18 +323,22 @@ The `opts` object supports the following properties.
 
 #### Multiple Init Calls
 
-The `init()` function can be called any number of times.  The code will always accept the latest value of a certain init parameter, meaning if init is called twice, and a different `baseUrl` is passed in each call, the `baseUrl` in the second call will overwrite the `baseUrl` in the first call. 
+The `init()` function can be called any number of times.  The code will always accept the latest value of a certain init parameter. For example, if init is called twice, and a different `baseUrl` is passed in each call, the `baseUrl` in the second call will overwrite the `baseUrl` in the first call. 
 
 There are two exceptions to this functionality:
 
 1. If a new identity is passed in a subsequent call, and the new identity expires before the current identity, the new identity will not replace the current identity.  
-2. For every subsequent callback function passed, it is added to the existing array of callbacks using the Array Push Pattern.
+2. For every subsequent callback function passed, it is added to the existing array of callbacks using the [Array Push Pattern](#array-push-pattern).
 
-Note: If `useCookie` is updated, it will change where the identity is stored - i.e. if it is updated from `true` to `false`, the identity cookie will be removed, and will be moved to local storage.
+Note: If `useCookie` is updated, the location of the identity will change - i.e. if it is updated from `true` to `false`, the first party cookie will be removed and the identity added to local storage.
+
+### Init Config
+
+Calling `init()` stores an init config in a first-party cookie or local storage which can include the following parameters if given: `baseUrl`, `useCookie`, `refreshRetryPeriod`, `cookiePath`, and `cookieDomain`.  This config is used to [bootstrap init](#self-bootstrap) and save load time in future page loads.  Subsequent calls to `init()` will update the config with the most recent parameters.
 
 ### Self Bootstrap
 
-Once the constructor has completed and the SDK has been put on the window object, the code will check local storage and cookie for a stored init config.  If the config exists, `init()` will be automatically called, without having to explicitly call the function.  This will also allow the public functions below, such as `getAdvertisingToken()` and `getIdentity()` to work without needing to explicitly call init previously. 
+Once the constructor has completed and the SDK has been put on the window object, the code will check local storage and cookie storage for a stored  [init config](#init-config).  If the config exists, `init()` will be automatically called with the parameters from the config, and as a result, any functions that require `init()` can be used. 
 
 
 #### Errors
@@ -355,7 +360,7 @@ If you have already built an integration using a legacy callback function, you c
 
 ### getAdvertisingToken(): string
 
-Gets the current advertising token. This function can be called without `init()` and will return the token if it is stored in local storage or a cookie.  
+Gets the current advertising token. This function can be called without `init()` and will return the token if it is stored in local storage or a first-party cookie.  
 
 ```html
 <script>
@@ -458,7 +463,7 @@ Use this function to provide a new identity to the UID2 SDK. Any existing refres
 
 ### getIdentity(): Identity | null
 
-Returns the current stored identity, if available. `init()` does not have to be called to use this function, and will return an identity stored in local storage or a cookie if exists.
+Returns the current stored identity, if available. `init()` does not have to be called to use this function.
 
 If there is a valid identity available, the return value is an object representing the full stored identity. The properties of the object are the same as the stored value as described in the [contents structure](#contents-structure) section.
 
@@ -468,7 +473,7 @@ If there is no currently valid identity (even if the identity is only temporaril
 
 Returns true if the `init()` function has been called at least once.
 
-Returns false if `init()` has not been called.
+Returns false if `init()` has never been called.
 
 ## UID2 Storage Format
 
