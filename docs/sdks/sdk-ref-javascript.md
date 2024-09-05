@@ -330,8 +330,11 @@ There are two exceptions to this functionality:
 2. For every subsequent callback function passed, the function is added to the existing array of callbacks using the [Array Push Pattern](#array-push-pattern).
 
 :::note
-If `useCookie` is updated, the location of the identity will change - i.e. if it is updated from `true` to `false`, the first party cookie will be removed and the identity added to local storage.
+
+If `useCookie` is updated, the location of the identity changes.  For example, if the value is updated from `true` to `false`, the first party cookie is removed and the identity is added to local storage.
+
 :::
+
 
 ### Init Config
 
