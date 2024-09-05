@@ -322,7 +322,7 @@ The `opts` object supports the following properties.
 
 #### Multiple Init Calls
 
-The `init()` function can be called any number of times.  The code will always accept the latest value of a certain init parameter. For example, if init is called twice, and a different `baseUrl` is passed in each call, the `baseUrl` in the second call will overwrite the `baseUrl` in the first call. 
+The `init()` function can be called any number of times.  The code will, in most cases, accept the latest value of a certain init parameter. For example, if init is called twice, and a different `baseUrl` is passed in each call, the `baseUrl` variable will be updated to its value in the second call. 
 
 There are two exceptions to this functionality:
 
@@ -337,7 +337,7 @@ Calling `init()` stores an init config in a first-party cookie or local storage 
 
 ### Self Bootstrap
 
-Once the constructor has completed and the SDK has been put on the window object, the code will check local storage and cookie storage for a stored  [init config](#init-config).  If the config exists, `init()` will be automatically called with the parameters from the config, and as a result, any functions that require `init()` can be used. 
+Once the constructor has completed and the SDK has been put on the window object, the code will check local storage and cookie storage for a stored [init config](#init-config).  If the config exists, `init()` will be automatically called with the parameters from the config, and as a result, any functions that require `init()` can be used. 
 
 
 #### Errors
