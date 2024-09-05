@@ -46,25 +46,13 @@ The participant must sign a contract (see [Account Setup](../getting-started/gs-
 With a Public Operator, data leaves the participant's infrastructure and is sent to the Operator. Rigorous security measures are in place to help protect the data within the Public Operator.
 :::
 
-##  Private Operators
+## Private Operators
 
 A Private Operator is a private instance of the UID2 Operator. This means that a specific entity hosts a private instance exclusively for their own use.
 
 Any participant can also choose to become a Private Operator to generate and manage their UID2s. However, becoming a Private Operator includes several additional steps, and uses resources that the participant must provide.
 
 For details, see [Private Operator Integrations](../guides/integration-options-private-operator.md).
-
-## Private Operator: Benefits
-
-Some reasons why a participant might choose to become a Private Operator:
-
-- Within a Private Operator solution, DII does not leave your infrastructure.
-
-- When you have a Private Operator, you're in charge of resources. You have more control. For example, you can provide greater availability, without rate limitations.
-
-- If you are not physically located near to a Public Operator instance, you might choose to host a Private Operator solution for latency reasons.
-
-If you have significant latency concerns, or your security requirements dictate that data stays within your systems, and you also have extensive engineering resources to both build and maintain your UID2 implementation, you might consider the Private Operator solution. 
 
 ## Summary
 
