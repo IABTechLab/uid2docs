@@ -72,7 +72,7 @@ Team Members ページにアクセスするには、UID2 Portal ユーザーイ�
 1. UID2 Portal アカウントにログインします。
 1. 右上の下矢印をクリックし、**Manage Team Members** を選択します。
 1. リストでチームメンバーを見つけ、Actions 列で Delete (ゴミ箱) アイコンをクリックします。
-1. 確認メッセージで **Delete Team Member** をクリックします。
+1. 確認メッセージで **Remove Team Member** をクリックします。
 
    チームメンバーがチームから削除されます。
 
