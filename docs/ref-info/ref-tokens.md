@@ -9,9 +9,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Tokens and Refresh Tokens
 
-When a publisher sends a user's <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) to the UID2 Operator, whether via one of the UID2 SDKs or the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint, the UID2 Operator returns a <a href="glossary-uid#gl-uid2-token">UID2 token</a> with associated values, including a refresh token. The token is an alphanumeric string. Each time a token is generated from DII input, the token value is different. Because of the way UID2 works, different instances of activity, on browsers, CTV, and electronic devices such as phone and tablets, can still be matched to the same <a href="glossary-uid#gl-raw-uid2">raw UID2</a> generated from the user's DII, even though the token might be different. The token is designed to protect against reverse engineering that might reveal the original email address or phone number.
-
-The UID2 token has a short life. Along with the UID2 token, the UID2 Operator sends a <a href="glossary-uid#gl-refresh-token">refresh token</a> that the publisher can use to generate a new UID2 token. If the UID2 token is not refreshed before the refresh token expires, it becomes invalid.
+When a publisher sends a user's <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>&#8212;hashed or unhashed email addresses or phone numbers&#8212;to the UID2 Operator, whether via one of the UID2 SDKs or the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint, the UID2 Operator converts the DII to a <a href="glossary-uid#gl-raw-uid2">raw UID2</a>, encrypts it into a <a href="glossary-uid#gl-uid2-token">UID2 token</a>, and returns the UID2 token with associated values, including a refresh token. The publisher can then use the UID2 token in the bidstream.
 
 ## UID2 Tokens: Key Information
 

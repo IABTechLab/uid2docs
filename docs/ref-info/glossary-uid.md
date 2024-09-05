@@ -308,7 +308,7 @@ import Link from '@docusaurus/Link';
 <dl>
 
 <dt><MdxJumpAnchor id="gl-opaque"><a href="#gl-opaque">Opaque</a></MdxJumpAnchor></dt>
-<dd>When we say a UID2 token is an opaque string, we mean that the way that the token is computed is not shared. No assumptions should be made about the format or length of the string, or any other aspect of it.</dd>
+<dd>When we say a UID2 token is an opaque string, we mean that the way that the token is computed, and its format, are not communicated to UID2 participants and cannot be relied upon to remain unchanged. No assumptions should be made about the format or length of the string, or any other aspect of it.</dd>
 
 <dt><MdxJumpAnchor id="gl-open-operator"><a href="#gl-open-operator">Open Operator</a></MdxJumpAnchor></dt>
 <dd>Open Operator is another term for a <a href="#gl-public-operator">Public Operator</a>.</dd>
