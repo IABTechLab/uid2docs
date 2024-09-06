@@ -75,6 +75,6 @@ For detailed instructions, refer to one of the following integration guides:
 
 ## Prebid Mobile SDK Support for Mobile Devices
 
-UID2 integration with Prebid is supported for Android mobile devices using the Prebid Mobile SDK.
+UID2 integration with Prebid is supported for Android and iOS mobile devices using the Prebid Mobile SDK.
 
 For details, see [UID2 Mobile Integration for Prebid Mobile SDK](integration-prebid-mobile-summary.md).
