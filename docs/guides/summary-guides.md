@@ -119,4 +119,4 @@ The following resources are available for Private Operator integrations.
 | :--- | :--- |
 | [UID2 Private Operator for AWS](operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. |
 | [UID2 Private Operator for GCP](operator-private-gcp-confidential-space.md) | Information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. |
-| [UID2 Private Operator for Azure](operator-guide-azure-enclave.md) | Instructions for setting up the UID2 Operator Service in a Confidential Container, a confidential computing option from Microsoft Azure. |
+| [UID2 Private Operator for Azure](operator-guide-azure-enclave.md) | Instructions for setting up the UID2 Operator Service in an instance of Confidential Containers, a confidential computing option from Microsoft Azure. |

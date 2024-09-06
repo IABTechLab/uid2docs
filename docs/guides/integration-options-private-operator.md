@@ -43,13 +43,10 @@ A Private Operator has no visibility into the raw UID2s or UID2 tokens processed
 
 ## Hosting Options for Private Operators
 
-If you choose to be a Private Operator, several implementation options are available. You can do any of the following:
-
-- Use a cloud services setup. UID2 supports hosting UID2 in an <Link href="../ref-info/glossary-uid#gl-enclave">enclave</Link> on the following cloud service providers (medium level of effort to implement):
-  - [Nitro Enclave](https://aws.amazon.com/ec2/nitro/) from AWS
-  - [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform
-  - [Confidential Container](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers), a confidential computing option from Microsoft Azure
-- Use your own machines to generate and manage UID2s (greater level of effort to implement).
+If you choose to be a Private Operator, several implementation options are available. UID2 supports hosting UID2 in an <Link href="../ref-info/glossary-uid#gl-enclave">enclave</Link> on the following cloud service providers (medium level of effort to implement):
+- [Nitro Enclave](https://aws.amazon.com/ec2/nitro/) from AWS
+- [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform
+- [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers), a confidential computing option from Microsoft Azure
 
 ## Private Operator Workflow
 
@@ -73,6 +70,7 @@ Each supported Private Operator implementation must meet rigorous security stand
 - The Private Operator must complete an attestation process before accessing the information needed to process UID2s.
 - The information on S3 is encrypted at rest and also encrypted in transit through TLS. In addition, access is limited to only correctly authorized and attested Private Operators.
 - The information retrieved at startup is not stored locally at any point. It is only ever held in memory, and the Private Operator is running in a protected environment that makes it difficult for anyone running the Operator (such as an Administrator), as well as any external players, to see the data that's in memory.
+- The Private Operator never stores <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> that is sent for processing (emails addresses and/or phone numbers). The data is only used within the enclave, to generate UID2s, and is discarded immediately after processing.
 
 ## Getting Started
 
@@ -101,4 +99,4 @@ There is no functional difference between the Private Operator versions.
 | :--- | :--- | :--- |
 | AWS | [UID2 Private Operator for AWS Integration Guide](../guides/operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. |
 | GCP Confidential Space | [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md) | Information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. |
-| Azure | [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md) | Instructions for setting up the UID2 Operator Service in a Confidential Container, a confidential computing option from Microsoft Azure. |
+| Azure | [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md) | Instructions for setting up the UID2 Operator Service in an instance of Confidential Containers, a confidential computing option from Microsoft Azure. |

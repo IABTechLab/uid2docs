@@ -254,7 +254,7 @@ For details, see [Encryption and Decryption Code Examples](../getting-started/gs
 
 November 30, 2023
 
-A UID2 <a href="../intro#participants">participant</a> who wants to be a [Private Operator](../ref-info/glossary-uid.md#gl-private-operator) can now set up the UID2 Operator Service in a [Confidential Container](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers), a confidential computing option from Microsoft Azure.
+A UID2 <a href="../intro#participants">participant</a> who wants to be a [Private Operator](../ref-info/glossary-uid.md#gl-private-operator) can now set up the UID2 Operator Service in an instance of [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers), a confidential computing option from Microsoft Azure.
 
 For details, see [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md).
 

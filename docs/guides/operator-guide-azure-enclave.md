@@ -12,11 +12,11 @@ import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
-This guide provides information for setting up the UID2 Operator Service in a [Confidential Container](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers), a confidential computing option from Microsoft Azure. Confidential containers run in a hardware-backed Trusted Execution Environment (TEE) that provides intrinsic capabilities such as data integrity, data confidentiality, and code integrity.
+This guide provides information for setting up the UID2 Operator Service in an instance of [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers), a confidential computing option from Microsoft Azure. Confidential Containers instances run in a hardware-backed Trusted Execution Environment (TEE) that provides intrinsic capabilities such as data integrity, data confidentiality, and code integrity.
 
-When the Docker container for the UID2 Operator Confidential Container starts up, it completes the attestation process that allows the UID2 Core Service to verify the authenticity of the Operator Service and the enclave environment that the Operator Service is running in.
+When the Docker container for the UID2 Operator Confidential Containers instance starts up, it completes the attestation process that allows the UID2 Core Service to verify the authenticity of the Operator Service and the enclave environment that the Operator Service is running in.
 
-When the attestation is successful, the UID2 Core Service provides seed information such as salts and keys to bootstrap the UID2 Operator in the secure UID2 Operator Confidential Container.
+When the attestation is successful, the UID2 Core Service provides seed information such as salts and keys to bootstrap the UID2 Operator in the secure UID2 Operator Confidential Containers instance.
 
 :::caution
 UID2 Private Operator for Azure is not supported in these areas: Europe, China.
@@ -112,7 +112,7 @@ All the resources are provisioned later under the name you provide as the `{RESO
 There are some limitations with regard to location:
 - UID2 Private Operator for Azure is not supported in these areas: Europe, China.
 
-- For Azure virtual network deployment availability, check [Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) in the Azure documentation to confirm the availability of Confidential Container regional support.
+- For Azure virtual network deployment availability, check [Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) in the Azure documentation to confirm the availability of Confidential Containers regional support.
 
 - To get the alias for the location, run the following command:
 
@@ -299,7 +299,7 @@ The scraper must have access to the VNet that the Private Operator is running in
 
 ## Upgrading
 
-When a new version of UID2 Azure Confidential Container is released, private operators receive an email notification of the update, with a new release link. There is a window of time for upgrade, after which the older version is deactivated and is no longer supported.
+When a new version of UID2 Azure Confidential Containers is released, private operators receive an email notification of the update, with a new release link. There is a window of time for upgrade, after which the older version is deactivated and is no longer supported.
 
 To upgrade, complete the following steps:
 
