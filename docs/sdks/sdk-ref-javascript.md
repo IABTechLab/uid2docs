@@ -331,10 +331,9 @@ There are two exceptions to this functionality:
 
 :::note
 
-If `useCookie` is updated, the location of the identity changes.  For example, if the value is updated from `true` to `false`, the first party cookie is removed and the identity is added to local storage.
+If `useCookie` is updated, the location of the identity changes.  For example, if the value is updated from `true` to `false`, the first-party cookie is removed and the identity is added to local storage.
 
 :::
-
 
 ### Init Config
 
@@ -343,7 +342,6 @@ Calling `init()` stores an init config in a first-party cookie or local storage 
 ### Self Bootstrap
 
 When the constructor has completed and the SDK has been put on the window object, the code will check local storage and cookie storage for a stored [init config](#init-config).  If the config exists, `init()` is automatically called with the parameters from the config, and as a result, any functions that require `init()` can be used. 
-
 
 #### Errors
 
