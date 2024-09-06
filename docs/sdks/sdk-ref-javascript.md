@@ -322,7 +322,7 @@ The `opts` object supports the following properties.
 
 #### Multiple Init Calls
 
-You can call the `init()` function any number of times.  In most cases, the  code will accept the latest value of a certain init parameter. For example, if init is called twice, and a different `baseUrl` is passed in each call, the `baseUrl` variable is updated to the value from the second call. 
+You can call the `init()` function any number of times.  In most cases, the  code will accept the latest value of a certain [init parameter](#init-parameters). For example, if init is called twice, and a different `baseUrl` is passed in each call, the `baseUrl` variable is updated to the value from the second call. 
 
 There are two exceptions to this functionality:
 
