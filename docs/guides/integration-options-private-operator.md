@@ -8,7 +8,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Private Operator Integration Overview
 
-Private Operators of UID2 send first-party <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to a secure environment for translation, and control the destinations for those identifiers. A participant that chooses to become a Private Operator can generate and manage UID2s, running a UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> service in a private environment.
+UID2 participants that host their own Private Operator send first-party <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to their own, local UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> service, running in a private environment.
 
 A Private Operator runs in an <Link href="../ref-info/glossary-uid#gl-enclave">enclave</Link>&#8212;a virtual machine with additional security features to prevent unauthorized access, so that unauthorized individuals cannot download any configuration information or data from the virtual machine.
 
@@ -75,7 +75,7 @@ Each supported Private Operator implementation must meet rigorous security stand
 ## Private Operator Limitations
 
 There are a couple of limitations to Private Operator functionality:
-- Private Operators do not currently support generating the UID2 token on the client side.
+- Private Operators do not currently support <Link href="../ref-info/glossary-uid#gl-client-side">client-side integration</Link>.
 - Private Operator updates are released three times per year; Public Operator updates are released on a more frequent cadence.
 
 ## Getting Started
