@@ -99,9 +99,9 @@ The following sample applications are available to illustrate how to integrate w
 
 Each sample application has its own instructions.
 
-## Troubleshooting Tips for UID2 Integration with Google Secure Signals
+## Troubleshooting
 
-Here is some troubleshooting info that might help you in working with Google Secure Signals for your UID2 integration:
+Here is some troubleshooting information that might help you in working with Google Secure Signals for your UID2 integration:
 
 - [I enabled Secure Signals within Google Ad Manager, but UID2s are not being passed through Google](#i-enabled-secure-signals-within-google-ad-manager-but-uid2s-are-not-being-passed-through-google)
 

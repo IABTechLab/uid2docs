@@ -66,7 +66,7 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 
 この例では、Client-Side のモバイルアプリで [SDK for Android](../sdks/sdk-ref-android.md) を使用し、Server-Side で [SDK for Java](../sdks/sdk-ref-java.md) を使用しています。
 
-![Mobile Client-Server Integration Example](images/integration-mobile-client-server.png)
+![Mobile Client-Server Integration Example](images/integration-mobile-client-server-uid2.png)
 
 <!-- (**GWH_ https://ttdcorp-my.sharepoint.com/:p:/r/personal/rita_aleksanyan_thetradedesk_com/_layouts/15/Doc.aspx?sourcedoc=%7BDF894943-3D6A-4A60-A1E2-176ACD0BBBCC%7D&file=Sample%20Data%20Flow.pptx&wdLOR=c8FEF9DB2-E2FD-4F07-B411-B094C4813ACE&fromShare=true&action=edit&mobileredirect=true**) -->
 

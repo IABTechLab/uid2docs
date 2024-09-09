@@ -318,7 +318,7 @@ You can pass the user’s <Link href="../ref-info/glossary-uid#gl-dii">DII</Link
 
 The SDK encrypts the hashed DII before sending it to the UID2 service.
 
-You can invoke the `generateIdentity` method using any of the four accepted formats for DII, for any specific user. The DII format might vary per user, but you can only send one value per user.
+You can invoke the `generateIdentity` method using one of the four accepted formats for DII, for any specific user. The DII format might vary per user, but you can only send one value per user.
 
 The following examples demonstrate the different ways that you can configure the UID2 mobile SDK and list the requirements for the DII passed into the SDK:
 
@@ -704,6 +704,7 @@ If the response status indicates that the DII has been opted out of UID2, you mi
 
 
 ## Optional: UID2 Prebid Mobile SDK Integration
+
 :::important
 The UID2 Prebid Mobile SDK integration requires version 1.4.0 of the UID2 SDK for Android, or version 1.5.0 of the UID2 SDK for iOS.
 :::
