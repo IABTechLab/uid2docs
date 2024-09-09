@@ -196,7 +196,7 @@ To create the matching workflow, first sign in to the AWS Management console, op
 
 ## Run the Matching Workflow
 
-Follow the steps below to run the matching workflow and view the results.
+Follow these steps to run the matching workflow and view the results.
 
 For details, see [Running and managing matching workflows](https://docs.aws.amazon.com/entityresolution/latest/userguide/run-manage-matching-workflow.html) in the AWS Entity Resolution documentation.
 
