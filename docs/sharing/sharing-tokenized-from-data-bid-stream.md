@@ -46,6 +46,10 @@ The following approaches are available for encrypting the DII directly into a UI
 
 These options support generating UID2 tokens from email addresses or phone numbers and also refreshing the tokens regularly. Other SDKs do not support token generate and token refresh at this time.
 
+:::tip
+For a complete SDK summary, see [SDK Functionality](../sdks/summary-sdks.md#sdk-functionality). For a complete summary of integration approaches for publishers, see [Publisher Integrations](../guides/summary-guides.md#publisher-integrations).
+:::
+
 ### Decryption Options for Receivers
 
 The following approaches are available for decrypting UID2 tokens.
