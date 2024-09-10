@@ -372,7 +372,7 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-refresh-token"><a href="#gl-refresh-token">Refresh token</a></MdxJumpAnchor></dt>
 <dd>A refresh token is an opaque string that is issued along with the <a href="#gl-uid2-token">UID2 token</a>. It is used to refresh the UID2 token, which has a limited life.</dd>
 <dd>When the UID2 server receives the refresh token with a request for a new UID2 token, it checks for user opt-out. If the user has opted out of UID2, no new UID2 token is generated.</dd>
-<dd>When a new UID2 token is generated and returned, a new refresh token is returned along with it. However, if the user is inactive for a long period of time, the refresh token itself expires.</dd>
+<dd>When a new UID2 token is generated and returned in response to the refresh token, a new refresh token is returned along with it. However, if the user is inactive for a long period of time, the refresh token itself expires.</dd>
 </dl>
 
 ### S

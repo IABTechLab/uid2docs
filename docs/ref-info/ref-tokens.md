@@ -18,9 +18,9 @@ Here are some key points about UID2 tokens:
 - The UID2 token is a unique value: no two UID2 tokens are the same.
 - UID2 tokens are case sensitive.
 - The token value is an <a href="glossary-uid#gl-opaque">opaque</a> string: do not make any assumptions about the format or length of the string.
-- UID2 tokens representing different instances of user activity, on browsers, CTV, and electronic devices such as phones and tablets, can still be matched to the same raw UID2, even without a consistent alphanumeric string.
+- UID2 tokens representing different instances of user activity, on browsers, CTV, and electronic devices such as phones and tablets, can still be matched to the same raw UID2.
 - The token generation logic checks for user opt-out. If the user has opted out of UID2, no UID2 token is generated. For details, see [User Opt-Out](../getting-started/gs-opt-out.md).
-- The token has a limited life, but can be refreshed using the refresh token.
+- The token has a limited life, and can be refreshed using the refresh token.
 - You can refresh many times, to get a new UID2 token and corresponding new refresh token, as long as the current UID2 token is always refreshed before the current refresh token expires.
 - If the token has expired, or as an alternative to refreshing an existing token, you can always generate a new UID2 token from the original hashed or unhashed email address or phone number.
 - Publishers send UID2 tokens in the bidstream.
@@ -39,7 +39,7 @@ Here are some key points about refresh tokens:
   - With a UID2 SDK (see [SDK Functionality](../sdks/summary-sdks.md#sdk-functionality))
   - By calling the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint
   - By using the UID2 Prebid.js module (see [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md))
-- When a new UID2 token is generated and returned, a new refresh token is returned along with it.
+- When a new UID2 token is generated and returned in response to the refresh token, a new refresh token is returned along with it.
 - In most cases, you can refresh tokens on the client side, even if the token was generated on the server side. For details about refresh functionality for the various SDKs, see [SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) (*Refresh UID2 Token* column).
 - When the UID2 Operator service receives the refresh token with a request for a new UID2 token, it checks for user opt-out. If the user has opted out of UID2, no new UID2 token is generated. For details, see [User Opt-Out](../getting-started/gs-opt-out.md).
 
