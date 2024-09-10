@@ -11,6 +11,16 @@ import Link from '@docusaurus/Link';
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: Tokens Page
+
+September 10, 2024
+
+We've added a new reference page with information about tokens.
+
+For details, see [UID2 Tokens and Refresh Tokens](../ref-info/ref-tokens.md).
+
+<!-- APIDOCS-2533 -->
+
 ### New: Private Operator Integrations Page
 
 August 28, 2024
@@ -220,7 +230,7 @@ For details, see [Web Integration Overview](../guides/integration-options-publis
 
 January 3, 2024
 
-We've added a reference article explaining what the UID2 Operator does and the differences between a Public Operator and a Private Operator.
+We've added a reference page explaining what the UID2 Operator does and the differences between a Public Operator and a Private Operator.
 
 For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
 
