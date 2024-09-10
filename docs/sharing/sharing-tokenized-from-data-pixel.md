@@ -29,10 +29,6 @@ Tokenized sharing in pixels is applicable to the following audiences:
 
 ## Sharing UID2 Tokens in Pixels
 
-:::tip
-We recommend generating the UID2 token directly from DII. You can do this in several ways; our recommendation is to generate the UID2 token client-side. For instructions, see [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md).
-:::
-
 Different participants might use pixels in different ways. The following table shows two common use cases for pixels in the advertising technology ecosystem.
 
 | |  Tracking Pixel | Creative Pixel |
@@ -56,6 +52,10 @@ The sender only needs to set up sharing permission once for each receiver or par
 For details, see [UID2 Portal: Overview](../portal/portal-overview.md) and follow the links for each task.
 
 ## Workflow: Tokenized Sharing in Tracking Pixels
+
+:::tip
+If you're generating a token for a tracking pixel, we recommend generating the UID2 token directly from DII, not from a raw UID2. You can do this in several ways; our recommendation is to generate the UID2 token client-side. For instructions, see [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md).
+:::
 
 If you're using tracking pixels that fire when someone completes an action such as purchasing a product on a website, it's most likely that you'll start with DII and then convert it to a UID2 token, for tokenized sharing.
 
