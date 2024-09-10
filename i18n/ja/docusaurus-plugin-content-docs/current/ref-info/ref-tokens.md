@@ -22,7 +22,7 @@ Here are some key points about UID2 tokens:
 - The token generation logic checks for user opt-out. If the user has opted out of UID2, no UID2 token is generated. For details, see [User Opt-Out](../getting-started/gs-opt-out.md).
 - The token has a limited life, but can be refreshed using the refresh token.
 - You can refresh many times, to get a new UID2 token and corresponding new refresh token, as long as the current UID2 token is always refreshed before the current refresh token expires.
-- If the token has expired, or as an alternative to refreshing an existing token, you can always generate a new UID2 token from the original hashed or unhashed email address or phone number.
+- If the token has expired, or as an alternative to refreshing an existing token, you can generate a new UID2 token from the original hashed or unhashed email address or phone number.
 - Publishers send UID2 tokens in the bidstream.
 - Refreshing a UID2 token does not invalidate/expire the original or previous UID2 token. You can still use the earlier token until it expires.
 
@@ -32,7 +32,7 @@ Here are some key points about refresh tokens:
 
 - A refresh token is a string that is issued along with the <a href="glossary-uid#gl-uid2-token">UID2 token</a>.
 - Refresh tokens are case sensitive.
-- The token value is <a href="glossary-uid#gl-opaque">opaque</a>: do not make any assumptions about the format or length of the string.
+- The token value is an <a href="glossary-uid#gl-opaque">opaque</a> string: do not make any assumptions about the format or length of the string.
 - You can use the refresh token to generate a new UID2 token and new refresh token before the current refresh token expires.
 - Using refresh tokens is optional: you could choose to generate a new token from DII each time rather than refreshing an existing token. 
 - You can manage token refresh in a variety of ways, such as:
