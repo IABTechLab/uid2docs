@@ -230,7 +230,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-enclave"><a href="#gl-enclave">Enclave</a></MdxJumpAnchor></dt>
 <dd>An enclave is a secure subsection of a computing environment. The enclave has additional business logic and security measures applied to it, to prevent anyone from tampering with it.</dd>
-<dd>In the context of UID2, a <a href="#gl-private-operator">Private Operator</a> must run inside an enclave. For a summary of the enclave versions supported, see <a href="../overviews/overview-operators-private#implementation-resources">Implementation Resources</a> in *UID2 Overview for Private Operators*.</dd>
+<dd>In the context of UID2, a <a href="#gl-private-operator">Private Operator</a> must run inside an enclave. For a summary of the enclave versions supported, see <a href="../guides/integration-options-private-operator#hosting-options-for-private-operators">Hosting Options for Private Operators</a> in *UID2 Overview for Private Operators*.</dd>
 <dd>In an enclave, the operator image must be a very specific, predefined version, and additional constraints are applied to ensure security.</dd>
 
 <dt><MdxJumpAnchor id="gl-encryption-key"><a href="#gl-encryption-key">Encryption key</a></MdxJumpAnchor></dt>

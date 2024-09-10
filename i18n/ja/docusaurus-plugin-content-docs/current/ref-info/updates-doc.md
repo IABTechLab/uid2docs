@@ -254,7 +254,7 @@ UID2 リクエストの暗号化とレスポンスの復号化について、追
 
 November 30, 2023
 
-[Private Operator](../ref-info/glossary-uid.md#gl-private-operator) の運用を希望する UID2 <a href="../intro#participants">参加者は</a>、Microsoft Azure のコンフィデンシャルコンピューティングオプションである Confidential Container で UID2 Operator Service をセットアップできるようになりました。
+[Private Operator](../ref-info/glossary-uid.md#gl-private-operator) の運用を希望する UID2 <a href="../intro#participants">参加者は</a>、Microsoft Azure のコンフィデンシャルコンピューティングオプションである Confidential Containers で UID2 Operator Service をセットアップできるようになりました。
 
 詳細は [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md) を参照してください。
 

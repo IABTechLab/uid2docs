@@ -265,6 +265,7 @@ All interactions with the SDK for JavaScript are done through the global `__uid2
 - [callbacks](#callbacks) <New />
 - [setIdentity()](#setidentityidentity-identity-void) <New />
 - [getIdentity()](#getidentity-identity--null) <New />
+- [isInitComplete()](#isinitcomplete-boolean) <New />
 
 ### constructor()
 
@@ -319,6 +320,28 @@ The `opts` object supports the following properties.
 | `useCookie` | `boolean` | Optional | Set this to `true` to tell the SDK to store the identity in cookie storage instead of local storage. You can still provide an identity using a first-party cookie if this value is false or not provided. | 
 | `callback` | `function(object): void` | Deprecated | The function that the SDK should invoke after validating the passed identity. Do not use this for new integrations. | N/A |
 
+#### Multiple Init Calls
+
+You can call the `init()` function any number of times.  In most cases, the  code will accept the latest value of a certain [init parameter](#init-parameters). For example, if init is called twice, and a different `baseUrl` is passed in each call, the `baseUrl` variable is updated to the value from the second call. 
+
+There are two exceptions to this functionality:
+
+1. If a new identity is passed in a subsequent call, and the new identity expires before the current identity, the new identity does not replace the current identity.  
+2. For every subsequent callback function passed, the function is added to the existing array of callbacks using the [Array Push Pattern](#array-push-pattern).
+
+:::note
+
+If `useCookie` is updated, the location of the identity changes.  For example, if the value is updated from `true` to `false`, the first-party cookie is removed and the identity is added to local storage.
+
+:::
+
+### Init Config
+
+Calling `init()` stores an init config in a first-party cookie or local storage which can include the following parameters if given: `baseUrl`, `useCookie`, `refreshRetryPeriod`, `cookiePath`, and `cookieDomain`.  This config is used to [bootstrap init](#self-bootstrap) and save load time in future page loads.  Subsequent calls to `init()` update the config with the most recent parameters.
+
+### Self Bootstrap
+
+When the constructor has completed and the SDK has been put on the window object, the code will check local storage and cookie storage for a stored [init config](#init-config).  If the config exists, `init()` is automatically called with the parameters from the config, and as a result, any functions that require `init()` can be used. 
 
 #### Errors
 
@@ -326,7 +349,7 @@ The `init()` function can throw the following errors.
 
 | Error | Description |
 | :--- | :--- |
-| `TypeError` | One of the following issues has occurred:<ul><li>The function has already been called.</li><li>The `opts` value is not an object.</li><li>A legacy callback is provided, but it is not a function.</li><li>`refreshRetryPeriod` is provided, but it is not a number.</li></ul> |
+| `TypeError` | One of the following issues has occurred:<ul><li>The `opts` value is not an object.</li><li>A legacy callback is provided, but it is not a function.</li><li>`refreshRetryPeriod` is provided, but it is not a number.</li></ul> |
 | `RangeError` | The refresh retry period is less than 1000. |
 
 #### Legacy Callback Function
@@ -339,9 +362,7 @@ If you have already built an integration using a legacy callback function, you c
 
 ### getAdvertisingToken(): string
 
-Gets the current advertising token. 
-
-Before calling this function, be sure to call [init()](#initopts-object-void) and wait until your callback handler has received an `InitCompleted` event. 
+Gets the current advertising token. This function can be called without `init()` and returns the token if it is stored in local storage or a first-party cookie.  
 
 ```html
 <script>
@@ -353,7 +374,6 @@ The `getAdvertisingToken()` function allows you to access the advertising token 
 
 This function returns `undefined` if any of the following conditions apply:
 
-- The [callback function](#callback-function) has not received an `InitCompleted` event, which means that the SDK initialization is not yet complete.
 - The SDK initialization is complete, but there is no valid identity to use.
 - The SDK initialization is complete, but the auto-refresh has cleared the identity&#8212;for example, because the user has opted out.
 
@@ -363,7 +383,7 @@ If the identity is not available, use the [isLoginRequired()](#isloginrequired-b
 
 Gets a `Promise` string for the current advertising token.
 
-This function can be called before or after the [init()](#initopts-object-void) call. The returned promise is settled after the initialization is complete, based on the availability of the advertising token:
+This function can be called before or after the [init()](#initopts-object-void) call. The returned promise is settled based on the availability of the advertising token:
 
 - If the advertising token is available, the promise is fulfilled with the current advertising token.
 - If the advertising token is not available, even temporarily, the promise is rejected with an instance of `Error`. To determine the best course of action in this case, you can use [isLoginRequired()](#isloginrequired-boolean).
@@ -445,11 +465,17 @@ Use this function to provide a new identity to the UID2 SDK. Any existing refres
 
 ### getIdentity(): Identity | null
 
-Returns the current stored identity, if available.
+Returns the current stored identity, if available. `init()` does not have to be called to use this function.
 
 If there is a valid identity available, the return value is an object representing the full stored identity. The properties of the object are the same as the stored value as described in the [contents structure](#contents-structure) section.
 
 If there is no currently valid identity (even if the identity is only temporarily unavailable), the return value is null. If you need to know whether the identity is only temporarily unavailable, you can call [isLoginRequired()](#isloginrequired-boolean).
+
+### isInitComplete(): boolean
+
+Returns true if the `init()` function has been called at least once.
+
+Returns false if `init()` has never been called.
 
 ## UID2 Storage Format
 
