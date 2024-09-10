@@ -12,11 +12,11 @@ import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
-このガイドでは、Microsoft Azure の [Confidential Container](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers) で UID2 Operator Serviceを設定する方法について説明します。Confidential Container は、Microsoft Azure の機密コンピューティングオプションで、データの整合性、データの機密性、コードの整合性などの固有の機能を提供するハードウェアバックドの Trusted Execution Environment (TEE) で実行されます。
+このガイドでは、Microsoft Azure の [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers) で UID2 Operator Serviceを設定する方法について説明します。Confidential Containers は、Microsoft Azure の機密コンピューティングオプションで、データの整合性、データの機密性、コードの整合性などの固有の機能を提供するハードウェアバックドの Trusted Execution Environment (TEE) で実行されます。
 
-UID2 Operator Confidential Container の Docker コンテナが起動すると、UID2 Core Service は Operator Service と Operator Service が実行されているエンクレーブ環境の信頼性を検証ための認証プロセスを完了します。
+UID2 Operator Confidential Containers の Docker コンテナが起動すると、UID2 Core Service は Operator Service と Operator Service が実行されているエンクレーブ環境の信頼性を検証ための認証プロセスを完了します。
 
-認証が成功すると、UID2 Core Service は UID2 Operator を安全な UID2 Operator Confidential Container にブートストラップするためのソルトやキーなどのシード情報を提供します。
+認証が成功すると、UID2 Core Service は UID2 Operator を安全な UID2 Operator Confidential Containers にブートストラップするためのソルトやキーなどのシード情報を提供します。
 
 :::caution
 UID2 Private Operator for Azure は、次の地域ではサポートされていません: ヨーロッパ、中国。
@@ -112,7 +112,7 @@ az group create --name {RESOURCE_GROUP_NAME} --location {LOCATION}
 ロケーションには、いくつかの制限があります:
 - UID2 Private Operator for Azure は、次の地域ではサポートされていません: Europe、China。
 
-- Azure 仮想ネットワーク展開の可用性については、Azure ドキュメントの「Linux container groups(https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) を確認し、Confidential Container の地域サポートの可用性を確認してください。
+- Azure 仮想ネットワーク展開の可用性については、Azure ドキュメントの「Linux container groups(https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) を確認し、Confidential Containers の地域サポートの可用性を確認してください。
 
 - 場所のエイリアスを取得するには、次のコマンドを実行します。
 
@@ -299,7 +299,7 @@ Azure の Private Operator は、ポート 9080 で `/metrics` エンドポイ�
 
 ## Upgrading
 
-UID2 Azure Confidential Container の新しいバージョンがリリースされると、Private Operator は新しいリリースリンクを含む更新通知のメールを受信します。アップグレードのためのウィンドウがあり、その後、古いバージョンは非アクティブ化され、サポートされなくなります。
+UID2 Azure Confidential Containers の新しいバージョンがリリースされると、Private Operator は新しいリリースリンクを含む更新通知のメールを受信します。アップグレードのためのウィンドウがあり、その後、古いバージョンは非アクティブ化され、サポートされなくなります。
 
 アップグレードするには、次の手順を完了します:
 
