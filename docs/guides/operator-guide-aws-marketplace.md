@@ -279,7 +279,7 @@ When the operator instance has been deployed, the default log rotation settings 
 
 #### Log Rotation Default Settings
 
-The following are the default logrotate settings, defined in `/etc/logrotate.d/uid2operator.conf`:
+The following are the default logrotate settings, defined in `/etc/logrotate.d/operator-logrotate.conf`:
 ```
 /var/log/operator.log*
 {
