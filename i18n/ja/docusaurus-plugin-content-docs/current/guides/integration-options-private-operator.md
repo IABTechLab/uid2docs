@@ -70,7 +70,7 @@ Each supported Private Operator implementation must meet rigorous security stand
 - The Private Operator must complete an attestation process before accessing the information needed to process UID2s.
 - The information on S3 is encrypted at rest and also encrypted in transit through TLS. In addition, access is limited to only correctly authorized and attested Private Operators.
 - The information retrieved at startup is not stored locally at any point. It is only ever held in memory, and the Private Operator is running in a protected environment that makes it difficult for anyone running the Operator (such as an Administrator), as well as any external players, to see the data that's in memory.
-- The Private Operator never stores <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> that is sent for processing (emails addresses and/or phone numbers). The data is only used within the enclave, to generate UID2s, and is discarded immediately after processing.
+- The Private Operator never stores <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> that is sent for processing (email addresses and/or phone numbers). The data is only used within the enclave, to generate UID2s, and is discarded immediately after processing.
 
 ## Private Operator Limitations
 
