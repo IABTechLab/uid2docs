@@ -46,6 +46,12 @@
     "prettier": "^3.2.5",
     "typescript": "^5.4.5"
   },
+  "overrides": {
+    "body-parser@1": "1.20.3",
+    "path-to-regexp@0": "0.1.10",
+    "path-to-regexp@1": "1.9.0",
+    "path-to-regexp@2": "8.0.0"
+  },
   "browserslist": {
     "production": [
       ">0.5%",
@@ -59,6 +65,7 @@
     ]
   },
   "engines": {
-    "node": ">=20.12.2"
+    "node": ">=20.12.2",
+    "npm": ">=8.3.0"
   }
 }
