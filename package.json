@@ -46,6 +46,12 @@
     "prettier": "^3.2.5",
     "typescript": "^5.4.5"
   },
+  "overrides": {
+    "body-parser@1": "1.20.3",
+    "path-to-regexp@0": "0.1.10",
+    "path-to-regexp@1": "1.9.0",
+    "path-to-regexp@2": "8.0.0"
+  },
   "browserslist": {
     "production": [
       ">0.5%",
@@ -60,5 +66,6 @@
   },
   "engines": {
     "node": ">=20.12.2"
-  }
+  },
+  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
 }
