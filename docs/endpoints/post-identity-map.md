@@ -40,7 +40,7 @@ You must encrypt all requests using your secret. For details, and code examples 
 The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.
 :::
 
-###  Unencrypted JSON Body Parameters
+## Unencrypted JSON Body Parameters
 
 :::important
 You must include only **one** of the following four conditional parameters as a key-value pair in the JSON body of the request when encrypting it.

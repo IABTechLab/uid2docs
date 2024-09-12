@@ -230,7 +230,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-enclave">Enclave</MdxJumpAnchor></dt>
 <dd>Enclave は、コンピューティング環境のセキュアなサブセクションです。エンクレーブには追加のビジネスロジックとセキュリティ対策が施され、改ざんできないようになっています。</dd>
-<dd>UID2 のコンテキストでは、<a href="#gl-private-operator">Private Operator</a> はエンクレーブ内で実行されなければなりません。サポートされるエンクレーブバージョンの概要については、*UID2 Overview for Private Operators* の <a href="../guides/integration-options-private-operator#hosting-options-for-private-operators">Hosting Options for Private Operators</a> を参照してください。</dd>
+<dd>UID2 のコンテキストでは、<a href="#gl-private-operator">Private Operator</a> はエンクレーブ内で実行されなければなりません。サポートされるエンクレーブバージョンの概要については、*UID2 Private Operator Integration Overview* の <a href="../guides/integration-options-private-operator#hosting-options-for-private-operators">Hosting Options for Private Operators</a> を参照してください。</dd>
 <dd>Enclave では、オペレータイメージは特殊で、事前に定義されたバージョンでなければならず、セキュリティを確保するために追加の制約が適用されます。</dd>
 
 <dt><MdxJumpAnchor id="gl-encryption-key"><a href="#gl-encryption-key">Encryption key</a></MdxJumpAnchor></dt>

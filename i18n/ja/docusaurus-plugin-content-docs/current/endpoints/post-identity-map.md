@@ -40,7 +40,7 @@ Used by: このエンドポイントは、主に広告主やデータプロバ�
 インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。
 :::
 
-###  Unencrypted JSON Body Parameters
+### Unencrypted JSON Body Parameters
 
 :::important
 リクエストを暗号化するときは、以下の 4 つの条件パラメータのうち、**1つ** だけをリクエストの JSON ボディにキーと値のペアとして含める必要がります。
