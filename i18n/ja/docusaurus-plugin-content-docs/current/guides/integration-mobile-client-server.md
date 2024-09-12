@@ -125,7 +125,7 @@ UID2Manager.init(
 
 ```js
 // Must be set before UID2Manager.shared is accessed
-UID2Settings.shared.environment = .custom(
+UID2Settings.shared.uid2Environment = .custom(
   url: URL(string: "https://operator-integ.uidapi.com")!
 )
 ```
@@ -161,9 +161,9 @@ UID2Manager.init(
 <TabItem value='ios' label='iOS'>
 
 ```js
-UID2Settings.shared.environment = .singapore
+UID2Settings.shared.uid2Environment = .singapore
 // or
-UID2Settings.shared.environment = .custom(
+UID2Settings.shared.uid2Environment = .custom(
   url: URL(string: "https://global.prod.uidapi.com")!
 )
 ```
