@@ -162,7 +162,7 @@ It takes several minutes for the stack to be created. When you see an Auto Scali
 
 ### Operator Version
 
-The latest ZIP file is linked in the AWS Version column in the following table.
+The latest ZIP file is linked in the Release Notes column in the following table.
 
 <ReleaseMatrix />
 
