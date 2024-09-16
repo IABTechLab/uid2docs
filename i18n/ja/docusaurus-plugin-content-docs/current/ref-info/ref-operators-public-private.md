@@ -46,7 +46,7 @@ Public Operator を利用するための費用は、参加者には一切かか�
 Public Operator の場合、データは参加者のインフラを離れ、オペレーターに送られます。Public Operator 内のデータを保護するために、厳格なセキュリティ対策が実施されています。
 :::
 
-##  Private Operators
+## Private Operators
 
 Private Operator は、UID2 Operator のプライベートインスタンスです。つまり、特定のエンティティが独自に使用するためにプライベートインスタンスをホストします。
 
