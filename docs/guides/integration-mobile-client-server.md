@@ -116,7 +116,7 @@ By default, the SDK is configured to work with the UID2 production environment: 
 ```js
 UID2Manager.init(
   context = this,
-  serverUrl = "https://operator-integ.uidapi.com"
+  UID2Manager.Environment.Custom("https://operator-integ.uidapi.com")
 )
 ```
 
@@ -153,7 +153,12 @@ To specify a UID2 server that is not the default, you can change it in the `init
 ```js
 UID2Manager.init(
   context = this,
-  serverUrl = "https://global.prod.uidapi.com"
+  UID2Manager.Environment.Signapore
+)
+// or 
+UID2Manager.init(
+  context = this,
+  UID2Manager.Environment.Custom("https://global.prod.uidapi.com")
 )
 ```
 

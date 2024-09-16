@@ -116,7 +116,7 @@ Token Refresh を Server-Side で管理し、クライアント/モバイルサ�
 ```js
 UID2Manager.init(
   context = this,
-  serverUrl = "https://operator-integ.uidapi.com"
+  UID2Manager.Environment.Custom("https://operator-integ.uidapi.com")
 )
 ```
 
@@ -153,7 +153,12 @@ UID2Settings.shared.uid2Environment = .custom(
 ```js
 UID2Manager.init(
   context = this,
-  serverUrl = "https://global.prod.uidapi.com"
+  UID2Manager.Environment.Signapore
+)
+// or 
+UID2Manager.init(
+  context = this,
+  UID2Manager.Environment.Custom("https://global.prod.uidapi.com")
 )
 ```
 
