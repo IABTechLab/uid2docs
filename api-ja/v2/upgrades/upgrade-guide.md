@@ -127,10 +127,7 @@ UID2 API v2 にアップグレードするには、以下の v1 エンドポイ�
 | `POST /identity/map` | [POST /identity/map](https://unifiedid.com/docs/endpoints/post-identity-map)| v2 エンドポイントは v1 エンドポイントと同じですが、シングルユーザー用の DII もマッピングします。 |
 | `GET /identity/map` |[POST /identity/map](https://unifiedid.com/docs/endpoints/post-identity-map) | HTTPリクエストタイプが変更されました。<br/>新しいPOSTエンドポイントは、単一ユーザーと複数ユーザーのDIIをマッピングします。 |
 
-:::important
-UID2 API v2 への呼び出しを行うには、POST リクエストボディを暗号化し、レスポンスを復号する必要があります。詳細と例については、[Encrypting Requests and Decrypting Responses](https://unifiedid.com/docs/getting-started/gs-encryption-decryption) を参照してください。
-:::
-
+>IMPORTANT: UID2 API v2 への呼び出しを行うには、POST リクエストボディを暗号化し、レスポンスを復号する必要があります。詳細と例については、[Encrypting Requests and Decrypting Responses](https://unifiedid.com/docs/getting-started/gs-encryption-decryption) を参照してください。
 
 ## FAQs
 

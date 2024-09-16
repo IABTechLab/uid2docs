@@ -127,10 +127,7 @@ To upgrade to the UID API v2, replace calls to the following v1 endpoints with t
 | `POST /identity/map` | [POST /identity/map](https://unifiedid.com/docs/endpoints/post-identity-map)| The v2 endpoint is identical to the v1 endpoint, except it also maps DII for single users. |
 | `GET /identity/map` |[POST /identity/map](https://unifiedid.com/docs/endpoints/post-identity-map) |The HTTP request type has changed.<br/>The new POST endpoint maps DII for single and multiple users. |
 
-:::important
-Performing calls to the UID2 API v2 requires encrypting the POST request body and decrypting the response. For details and examples, see [Encrypting Requests and Decrypting Responses](https://unifiedid.com/docs/getting-started/gs-encryption-decryption).
-:::
-
+>IMPORTANT: Performing calls to the UID2 API v2 requires encrypting the POST request body and decrypting the response. For details and examples, see [Encrypting Requests and Decrypting Responses](https://unifiedid.com/docs/getting-started/gs-encryption-decryption).
 
 ## FAQs
 
