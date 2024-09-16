@@ -24,7 +24,7 @@ The UID2 Operator is the API server in the UID2 ecosystem. For a Private Operato
 By subscribing to UID2 Private Operator for AWS, you gain access to the following:
 
 - [Amazon Machine Image (AMI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) with the UID2 Operator service installed and ready to bootstrap:<br/>
-    The AMI contains an [Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/?amazon-linux-whats-new.sort-by=item.additionalFields.postDateTime&amazon-linux-whats-new.sort-order=desc) operating system with the UID2 Operator service already set up. When an EC2 instance based on the AMI boots up, it automatically fetches the configuration from your AWS account and starts the UID2 Operator server inside an enclave.
+    The AMI contains an [Amazon Linux 2023](https://aws.amazon.com/linux/amazon-linux-2023/) operating system with the UID2 Operator service already set up. When an EC2 instance based on the AMI boots up, it automatically fetches the configuration from your AWS account and starts the UID2 Operator server inside an enclave.
 - [CloudFormation](https://aws.amazon.com/cloudformation/) template:<br/>
     The template deploys the UID2 Operator AMI.
 
@@ -162,7 +162,7 @@ It takes several minutes for the stack to be created. When you see an Auto Scali
 
 ### Operator Version
 
-The latest ZIP file is linked in the AWS Version column in the following table.
+The latest ZIP file is linked in the Release Notes column in the following table.
 
 <ReleaseMatrix />
 
@@ -279,7 +279,7 @@ When the operator instance has been deployed, the default log rotation settings 
 
 #### Log Rotation Default Settings
 
-The following are the default logrotate settings, defined in `/etc/logrotate.d/uid2operator.conf`:
+The following are the default logrotate settings, defined in `/etc/logrotate.d/operator-logrotate.conf`:
 ```
 /var/log/operator.log*
 {
