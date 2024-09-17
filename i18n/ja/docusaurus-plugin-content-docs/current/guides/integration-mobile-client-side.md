@@ -210,7 +210,7 @@ SDK をアプリに追加したら、SDK を使用して UID2 Token を生成す
 ```js
 UID2Manager.init(
   context = this,
-  serverUrl = "https://operator-integ.uidapi.com"
+  UID2Manager.Environment.Custom("https://operator-integ.uidapi.com")
 )
 ```
 
@@ -219,7 +219,7 @@ UID2Manager.init(
 
 ```js
 // Must be set before UID2Manager.shared is accessed
-UID2Settings.shared.environment = .custom(
+UID2Settings.shared.uid2Environment = .custom(
   url: URL(string: "https://operator-integ.uidapi.com")!
 )
 ```
@@ -247,7 +247,12 @@ UID2Settings.shared.environment = .custom(
 ```js
 UID2Manager.init(
   context = this,
-  serverUrl = "https://global.prod.uidapi.com"
+  UID2Manager.Environment.Custom("https://global.prod.uidapi.com")
+)
+// or use a named environment
+UID2Manager.init(
+  context = this,
+  UID2Manager.Environment.Sydney
 )
 ```
 
@@ -256,11 +261,11 @@ UID2Manager.init(
 
 ```js
 // Must be set before UID2Manager.shared is accessed
-UID2Settings.shared.environment = .custom(
+UID2Settings.shared.uid2Environment = .custom(
   url: URL(string: "https://global.prod.uidapi.com")!
 )
 // or use a named environment
-UID2Settings.shared.environment = .sydney
+UID2Settings.shared.uid2Environment = .sydney
 ```
 
 </TabItem>

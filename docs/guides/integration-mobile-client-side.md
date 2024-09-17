@@ -210,7 +210,7 @@ By default, the SDK is configured to work with the UID2 production environment: 
 ```js
 UID2Manager.init(
   context = this,
-  serverUrl = "https://operator-integ.uidapi.com"
+  UID2Manager.Environment.Custom("https://operator-integ.uidapi.com")
 )
 ```
 
@@ -219,7 +219,7 @@ UID2Manager.init(
 
 ```js
 // Must be set before UID2Manager.shared is accessed
-UID2Settings.shared.environment = .custom(
+UID2Settings.shared.uid2Environment = .custom(
   url: URL(string: "https://operator-integ.uidapi.com")!
 )
 ```
@@ -247,7 +247,12 @@ To specify a UID2 server that is not the default, you can make config changes, a
 ```js
 UID2Manager.init(
   context = this,
-  serverUrl = "https://global.prod.uidapi.com"
+  UID2Manager.Environment.Custom("https://global.prod.uidapi.com")
+)
+// or use a named environment
+UID2Manager.init(
+  context = this,
+  UID2Manager.Environment.Sydney
 )
 ```
 
@@ -256,11 +261,11 @@ UID2Manager.init(
 
 ```js
 // Must be set before UID2Manager.shared is accessed
-UID2Settings.shared.environment = .custom(
+UID2Settings.shared.uid2Environment = .custom(
   url: URL(string: "https://global.prod.uidapi.com")!
 )
 // or use a named environment
-UID2Settings.shared.environment = .sydney
+UID2Settings.shared.uid2Environment = .sydney
 ```
 
 </TabItem>
