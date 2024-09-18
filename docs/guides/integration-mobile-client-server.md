@@ -93,7 +93,7 @@ If you want to manage token refresh on the server side and not the client/mobile
 - Call the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint.
 - Use one of the Publisher Client classes, in one of the UID2 server-side SDKs. These classes simplify the request into a single method call. 
 
-  For instructions, see [SDK for Java, Publisher Server-Side Integration section](../sdks/sdk-ref-java.md#server-side-integration) or [SDK for Python, Publisher Server-Side Integration section](../sdks/sdk-ref-python.md#server-side-integration).
+  For instructions, see [SDK for Java, Usage for Publishers, Basic Usage Server-Side Integration section](../sdks/sdk-ref-java.md#basic-usage-server-side-integration) or [SDK for Python, Usage for Publishers, Server-Side Integration section](../sdks/sdk-ref-python.md#server-side-integration).
 
 Then, pass the newly refreshed `Identity` value to the mobile app by following the rest of this guide.
 

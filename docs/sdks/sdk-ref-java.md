@@ -155,7 +155,7 @@ If you're using the SDK's HTTP implementation, follow these steps.
 
    <!-- uid2_euid_diff re legal basis for admonition above (first bullet not in UID2) -->
 
-#### Client-Server Integration
+#### Basic Usage, Client-Server Integration
 
 If you're using client-server integration (see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)), follow this step:
 
@@ -169,7 +169,7 @@ If you're using client-server integration (see [Client-Server Integration Guide 
    If the user has opted out, this method returns `null`, so be sure to handle that case.
    :::
 
-#### Server-Side Integration
+#### Basic Usage, Server-Side Integration
 
 If you're using server-side integration (see [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md)), follow these steps:
 
@@ -241,7 +241,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
    TokenGenerateResponse tokenGenerateResponse = publisherUid2Helper.createTokenGenerateResponse({response body}, envelope);
    ```
 
-#### Client-Server Integration
+#### Advanced Usage, Client-Server Integration
 
 If you're using client-server integration (see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)), follow this step:
 
@@ -255,7 +255,7 @@ If you're using client-server integration (see [Client-Server Integration Guide 
     This method returns null if the user has opted out, so be sure to handle that case.
     :::
 
-#### Server-Side Integration
+#### Advanced Usage, Server-Side Integration
 
 If you're using server-side integration (see [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md)):
 
