@@ -52,6 +52,7 @@ Here are some frequently asked questions for publishers using the UID2 framework
   - [How will I be notified of user opt-out?](#how-will-i-be-notified-of-user-opt-out)
   - [Where should I make token generation calls&#8212;from the server side or the client side?](#where-should-i-make-token-generation-callsfrom-the-server-side-or-the-client-side)
   - [Can I make token refresh calls from the client side?](#can-i-make-token-refresh-calls-from-the-client-side)
+  - [If I choose to manually refresh the token, how will I know when to refresh the token?](#if-i-choose-to-manually-refresh-the-token-how-will-i-know-when-to-refresh-the-token)
   - [How can I test the refresh token workflow?](#how-can-i-test-the-refresh-token-workflow)
   - [What is the uniqueness and rotation policy for UID2 tokens?](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
   - [What does a UID2 token look like in the bidstream?](#what-does-a-uid2-token-look-like-in-the-bidstream)
@@ -82,6 +83,16 @@ You can generate UID2 tokens from either the client side or the server side. For
 #### Can I make token refresh calls from the client side?
 
 Yes. The [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) can be called from the client side (for example, a browser or a mobile app) because it does not require using an API key.
+
+#### If I choose to manually refresh the token, how will I know when to refresh the token?
+
+The recommended refresh interval is hourly.
+
+To determine when to refresh, you can use the timestamp of the `refresh_from` field in the response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint (see [Successful Response](../endpoints/post-token-generate.md#successful-response)) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint (see [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens)).
+
+You could also use one of the SDKs that has a function to check if token refresh is needed.
+
+For details, see [Recommended Token Refresh Frequency](../ref-info/ref-tokens.md#recommended-token-refresh-frequency) and [Managing Token Refresh with an SDK](../ref-info/ref-tokens.md#managing-token-refresh-with-an-sdk).
 
 #### How can I test the refresh token workflow?
 
