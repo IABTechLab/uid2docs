@@ -1,20 +1,22 @@
 ---
 title: Encryption and Decryption
-description: Information about encrypting UID2 requests and decrypting responses
+description: Information about encrypting UID2 requests and decrypting responses.
 hide_table_of_contents: false
 sidebar_position: 11
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
+import IdentityGenerateResponse from '/docs/snippets/_example-identity-generate-response.mdx';
 
 # Encrypting Requests and Decrypting Responses
 
 :::note
-If you're a publisher and are implementing UID2 on the client side, encryption and decryption is managed automatically by your implementation, such as Prebid.js (see [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)) or the JavaScript SDK (see [Client-Side Integration Guide for JavaScript](../guides/publisher-client-side.md)).
+If you're a publisher and are implementing UID2 on the client side, encryption and decryption is managed automatically by your implementation, such as Prebid.js (see [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)) or the JavaScript SDK (see [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)).
 :::
 
-For almost all UID2 [endpoints](../endpoints/summary-endpoints.md), requests sent to the endpoint must be [encrypted](#encrypting-requests) and responses from the endpoint must be [decrypted](#decrypting-responses). 
+For almost all UID2 [endpoints](../endpoints/summary-endpoints.md), requests sent to the endpoint must be [encrypted](#encrypting-requests) and responses from the endpoint must be [decrypted](#decrypting-responses).
 
 The only exception is that requests to the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint do not need to be encrypted.
 
@@ -23,8 +25,8 @@ Here's what you need to know about encrypting UID2 API requests and decrypting r
 - To use the APIs, in addition to your client API key, you need your client secret.
 - You can write your own custom code or use one of the code examples provided: see [Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples).
 - Request and response use AES/GCM/NoPadding encryption algorithm with 96-bit initialization vector and 128-bit authentication tag.
-- The raw, unencrypted JSON body of the request is wrapped in a binary [unencrypted request data envelope](#unencrypted-request-data-envelope) which then gets encrypted and formatted according to the [Encrypted Request Envelope](#encrypted-request-envelope).
-- The response JSON body is wrapped in a binary [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) which is encrypted and formatted according to the [Encrypted Response Envelope](#encrypted-response-envelope).
+- The raw, unencrypted JSON body of the request is wrapped in a binary [unencrypted request data envelope](#unencrypted-request-data-envelope) which then gets encrypted and formatted according to the [encrypted request envelope](#encrypted-request-envelope).
+- The response JSON body is wrapped in a binary [unencrypted response data envelope](#unencrypted-response-data-envelope) which is encrypted and formatted according to the [encrypted response envelope](#encrypted-response-envelope).
 
 ## Workflow
 
@@ -43,7 +45,7 @@ The high-level request-response workflow for the UID2 APIs includes the followin
 
 A code example for [encrypting requests and decrypting responses](#encryption-and-decryption-code-examples) can help with automating steps 2-10 and serves as a reference of how to implement these steps in your application.
 
-Documentation for the individual UID2 [endpoints](../endpoints/summary-endpoints.md) explains the respective JSON body format requirements and parameters, includes call examples, and shows decrypted responses. The following sections provide encryption and decryption code examples, field layout requirements, and request and response examples. 
+Documentation for the individual UID2 [endpoints](../endpoints/summary-endpoints.md) explains the respective JSON body format requirements and parameters, includes call examples, and shows decrypted responses. The following sections provide encryption and decryption code examples, field layout requirements, and request and response examples.
 
 ## Encrypting Requests
 
@@ -56,7 +58,7 @@ The following table describes the field layout for request encryption code.
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
 | 0 | 8 | The UNIX timestamp (in milliseconds). Must be int64 big endian. |
-| 8 | 8 | Nonce: Random 64 bits of data used to protect against replay attacks. The corresponding [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) should contain the same nonce value for the response to be considered valid. |
+| 8 | 8 | Nonce: Random 64 bits of data used to help protect against replay attacks. The corresponding [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) should contain the same nonce value for the response to be considered valid. |
 | 16 | N | Payload, which is a request JSON document serialized in UTF-8 encoding. |
 
 ### Encrypted Request Envelope
@@ -100,22 +102,9 @@ The following table describes the field layout for response decryption code.
 
 ### Response Example
 
-For example, a decrypted response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request for an email address in the [preceding example](#request-example), might look like this:
+For example, a decrypted response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request for an email address might look like this:
 
-```json
-{
-    "body": {
-        "advertising_token": "AgAAAQFt3aNLXKXEyWS8Tpezcymk1Acv3n+ClOHLdAgqR0kt0Y+pQWSOVaW0tsKZI4FOv9K/rZH9+c4lpm2DBpmFJqjdF6FAaAzva5vxDIX/67UOspsYtiwxH73zU7Fj8PhVf1JcpsxUHRHzuk3vHF+ODrM13A8NAVlO1p0Wkb+cccIIhQ==",
-        "user_token": "AgAAAPpTqz7/Z+40Ue5G3XOM2RiyU6RS9Q5yj1n7Tlg7PN1K1LZWejvo8Er7A+Q8KxdXdj0OrKRf/XEGWsyUJscRNu1bg/MK+5AozvoJKUca8b10eQdYU86ZOHPH7pFnFhD5WHs=",
-        "refresh_token": "AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNSVnCnzYq2BiDDz8SLsKOo6wZsoMIn95jVWBaA6oLq7uUGY5/g9SUOfFmX5uDXUvO0w2UCKi+j9OQhlMfxTsyUQUzC1VQOx6ed/gZjqH/Sw6Kyk0XH7AlziqSyyXA438JHqyJphGVwsPl2LGCH1K2MPxkLmyzMZ2ghTzrr0IgIOXPsL4lXqSPkl/UJqnO3iqbihd66eLeYNmyd1Xblr3DwYnwWdAUXEufLoJbbxifGYc+fPF+8DpykpyL9neq3oquxQWpyHsftnwYaZT5EBZHQJqAttHUZ4yQ==",
-        "identity_expires": 1654623500142,
-        "refresh_expires": 1657214600142,
-        "refresh_from": 1654622900142,
-        "refresh_response_key": "wR5t6HKMfJ2r4J7fEGX9Gw=="
-    },
-    "status": "success"
-}
-```
+<IdentityGenerateResponse />
 
 ## Encryption and Decryption Code Examples
 
@@ -123,7 +112,6 @@ This section includes encryption and decryption code examples in different progr
 
 For the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint, the code takes the values for `refresh_token` and `refresh_response_key` that were obtained from a prior call to [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md).
 
-## Encryption and Decryption Code Examples
 :::note
 For Windows, if you're using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON. For example, use `echo {"email": "test@example.com"}`.
 :::
@@ -210,12 +198,14 @@ If you are using Maven, you can use the following minimal `pom.xml`, and run `mv
   </build>
 </project>
 ```
+
 </TabItem>
 <TabItem value='cs' label='C#'>
 
 The following code example encrypts requests and decrypts responses using C#. The required parameters are shown at the top of the file, or by building and running `.\uid2_request`.
 
 This file requires .NET 7.0. You can use an earlier version if required, but it must be .NET Core 3.0 or later. To change the version, replace the [top-level statements](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/program-structure/top-level-statements) with a Main method and the [using declarations](https://learn.microsoft.com/en-us/cpp/cpp/using-declaration?view=msvc-170) with [using statements](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-8.0/using).
+
 </TabItem>
 </Tabs>
 
@@ -322,6 +312,7 @@ else:
    print(json.dumps(json_resp, indent=4))
 
 ```
+
 </TabItem>
 <TabItem value='java' label='Java'>
 
@@ -450,8 +441,10 @@ public class Uid2Request {
   }
 }
 ```
+
 </TabItem>
 <TabItem value='cs' label='C#'>
+
 
 ```cs title="uid2_request.cs"
 using System.Buffers.Binary;
@@ -582,5 +575,6 @@ else
     Console.WriteLine(JsonSerializer.Serialize(jDoc, new JsonSerializerOptions { WriteIndented = true }));
 }
 ```
+
 </TabItem>
 </Tabs>

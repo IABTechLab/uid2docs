@@ -1,0 +1,27 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+The UID2 SDK can generate logs, which could help in debugging any issues during UID2 integration work. To enable logging, do the following:
+
+<Tabs groupId="language-selection">
+<TabItem value='android' label='Android'>
+
+```js
+// During UID2Manager initialization:
+UID2Manager.init(
+  context = this,
+  isLoggingEnabled = true
+)
+```
+
+</TabItem>
+<TabItem value='ios' label='iOS'>
+
+```swift
+// On iOS, you must set UID2Settings before you first access UID2Manager.shared. 
+// Changes made to settings after first access are not read.
+UID2Settings.shared.isLoggingEnabled = true
+```
+
+</TabItem>
+</Tabs>

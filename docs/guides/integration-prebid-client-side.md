@@ -7,32 +7,21 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+import AddPrebidjsToYourSite from '/docs/snippets/_prebid-add-prebidjs-to-your-site.mdx';
+import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser.mdx';
+
 # UID2 Client-Side Integration Guide for Prebid.js
 
-This guide is for publishers who have access to [DII](../ref-info/glossary-uid.md#gl-dii) (email address or phone number) on the client side and want to integrate with UID2 and generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) (advertising tokens) to be passed by Prebid.js in the RTB bid stream.
+This guide is for publishers who have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the client side and want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) to be passed by Prebid.js in the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.
 
 To integrate with UID2 using Prebid.js, you'll need to make changes to the HTML and JavaScript on your site. No server-side work is required if you follow this guide.
-
-<!-- 
-This guide includes the following information:
-
-- [Prebid.js Version](#prebidjs-version)
-- [Integration Example](#integration-example)
-- [Integration Overview: High-Level Steps](#integration-overview-high-level-steps)
-   - [Complete UID2 Account Setup](#complete-uid2-account-setup)
-   - [Add Prebid.js to Your Site](#add-prebidjs-to-your-site)
-   - [Configure the UID2 Module](#configure-the-uid2-module)
-- [Storing the UID2 Token in the Browser](#storing-the-uid2-token-in-the-browser)
-- [When to Pass DII to the UID2 Module](#when-to-pass-dii-to-the-uid2-module)
-- [Checking the Integration](#checking-the-integration)
-- [Optional: Reduce Latency by Setting the API Base URL for the Production Environment](#optional-reduce-latency-by-setting-the-api-base-url-for-the-production-environment)
- -->
 
 ## Prebid.js Version
 
 This implementation requires Prebid.js version 8.21.0 or later. For version information, see [https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases).
 
-If you need to use an earlier version of Prebid.js, use the implementation solution presented in the [UID2 Server-Side Integration Guide for Prebid.js](integration-prebid-server-side.md) instead.
+If you need to use an earlier version of Prebid.js, use the implementation solution presented in the [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) instead.
 
 ## Integration Example
 
@@ -58,39 +47,38 @@ Complete the UID2 account setup by following the steps described in the [Account
 Only root-level domains are required for account setup. For example, if you're going to use UID2 with Prebid.js on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
 
-When account setup is complete, you'll receive a public key and subscription ID. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key).
+When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key).
 
 ### Add Prebid.js to Your Site
-<!-- GWH "Add Prebid.js to Your Site" section is identical for client side and server side. -->
-To add Prebid.js to your site, follow the instructions in [Getting Started for Developers](https://docs.prebid.org/dev-docs/getting-started.html) in the Prebid.js documentation. 
 
-When you download the Prebid.js package, add the UID2 module by checking the box next to the module named **Unified ID 2.0**, listed under the section **User ID Modules**.
-
-When you've added Prebid.js to your site and confirmed that it's working properly, you're ready to configure the UID2 module.
-
-:::tip
-To make sure that the UID2 module is installed, find the string `uid2IdSystem` in the [`pbjs.installedModules` array](https://docs.prebid.org/dev-docs/publisher-api-reference/installedModules.html).
-:::
+<AddPrebidjsToYourSite />
 
 ### Configure the UID2 Module
 
-To configure the UID2 module, call `pbjs.setConfig` with an object containing the **public key** and **subscription ID** that you received during account setup, as well as the user's hashed or unhashed email address or phone number.
+To configure the UID2 module, call `pbjs.setConfig` with an object containing the **public key** and **Subscription ID** that you received during account setup, as well as the user's hashed or unhashed email address or phone number.
 
 Once it's configured, the UID2 module generates a UID2 token for the user and stores it in the user's browser. The module automatically refreshes the token as needed as long as your site is open in the user's browser.
 
 You can configure the UID2 module using any one of the four accepted DII formats, for any specific user:
 
 - Normalized or un-normalized email address
-- Normalized and hashed email address
+- Normalized, hashed, and Base64-encoded email address
 - Normalized phone number
-- Normalized and hashed phone number
+- Normalized, hashed, and Base64-encoded phone number
 
 Notes:
 
 - The DII format might vary per user, but you can only send one value per user.
-- If the module is configured multiple times, it uses the most recent configuration values.
-- If you want to pass the DII to the module already hashed, remember to normalize it before hashing. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+- If you want to pass the DII to the module already hashed, follow this sequence:
+  1. First normalize.
+  1. Then hash the result using the SHA-256 hashing algorithm.
+  1. Then encode the resulting bytes of the hash value using Base64 encoding.
+  
+  For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md). For an example, see [Configuring the UID2 Module: Code Example](#configuring-the-uid2-module-code-example).
 - The UID2 module encrypts the hashed DII before sending it to the UID2 service.
+- If the module is configured multiple times, it uses the most recent configuration values.
+
+#### Configuring the UID2 Module: Code Example
 
 The following code snippet demonstrates the different ways that you can configure the UID2 module.
 
@@ -104,9 +92,9 @@ const baseConfig = {
         subscriptionId: subscriptionId,
         // Choose only one of the following: email, emailHash, phone, or phoneHash
         email: 'user@example.com', // Normalized or non-normalized, unhashed email address
-        // emailHash: 'eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=', // Normalized and hashed email address
-        // phone: '+1111111111', // Normalized phone number
-        // phoneHash: 'eVvLS/Vg+YZ6+z3i0NOpSXYyQAfEXqCZ7BTpAjFUBUc=', // Normalized and hashed phone number
+        // emailHash: 'tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=', // Normalized, hashed, and encoded email address
+        // phone: '+12345678901', // Normalized phone number
+        // phoneHash: 'EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=', // Normalized, hashed, and encoded phone number
       }
     }]
   }
@@ -114,30 +102,12 @@ const baseConfig = {
 ```
 
 :::note
-This example assumes that you're using the UID2 production environment. During integration testing, use the UID2 integration environment by setting `params.uid2ApiBase` to `'https://operator-integ.uidapi.com'`. Tokens from the UID2 integration environment are not valid for passing to the bid stream. For the integration environment, you will have different **subscription ID** and **public key** values.
+This example assumes that you're using the UID2 production environment. During integration testing, use the UID2 integration environment by setting `params.uid2ApiBase` to `'https://operator-integ.uidapi.com'`. Tokens from the UID2 integration environment are not valid for passing to the bidstream. For the integration environment, you will have different **Subscription ID** and **public key** values.
 :::
 
 ## Storing the UID2 Token in the Browser
-<!-- GWH same section in integration-prebid.md, integration-prebid-client-side.md, and integration-prebid-client-side.md. Ensure consistency -->
-By default, the UID2 module stores data using local storage. To use a cookie instead, set `params.storage` to `cookie`, as shown in the following example.
 
-For details, see [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) in the Prebid documentation.
-
-```js
-pbjs.setConfig({ 
-  userSync: { 
-    userIds: [{ 
-      name: 'uid2', 
-      params: { 
-        // default value is 'localStorage' 
-        storage: 'cookie'  
-      } 
-    }] 
-  } 
-}); 
-```
-
-The cookie size can be significant, which could be a problem. However, if local storage is not an option, this is one possible approach.
+<StoreUID2TokenInBrowser />
 
 ## When to Pass DII to the UID2 Module
 
@@ -174,6 +144,8 @@ pbjs.setConfig({
 }); 
 ```
 
+It is possible that the user has opted out of UID2 previously. In this case, the UID2 module respects the user's optout and no UID2 token is generated and collected by Prebid.js.
+
 ## Checking the Integration
 
 To check that the UID2 module has successfully generated a UID2 token, call `pbjs.getUserIds().uid2`. If a value is returned, a valid UID2 token exists in the UID2 module.
@@ -181,9 +153,9 @@ To check that the UID2 module has successfully generated a UID2 token, call `pbj
 If there are problems with the integration, here are some steps you can take:
 
 - Check the browser console logs.
-- Check the values for **subscription ID** and **public key**:
+- Check the values for **Subscription ID** and **public key**:
   - Make sure they are exactly the same values that you received from the UID2 team.
-  - Check that you have the correct values for the environment you're using. You'll have different **subscription ID** and **public key** values for each [environment](../getting-started/gs-environments.md).
+  - Check that you have the correct values for the environment you're using. You'll have different **Subscription ID** and **public key** values for each [environment](../getting-started/gs-environments.md).
 - Check that you provided the domain name of the site to the UID2 team during account setup. If needed, to confirm, ask your UID2 contact.
 - Use the browser developer tools to inspect the API calls to the UID2 service.
 
@@ -194,11 +166,13 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 - Chrome web store download location: [Professor Prebid](https://chromewebstore.google.com/detail/professor-prebid/kdnllijdimhbledmfdbljampcdphcbdc)
 - Documentation on prebid.org: [Professor Prebid User Guide](https://docs.prebid.org/tools/professor-prebid.html)
 
-## Optional: Reduce Latency by Setting the API Base URL for the Production Environment
-<!-- GWH "Optional: Reduce Latency by Setting the API Base URL for the Production Environment" section is identical for client side and server side. -->
-By default, the UID2 module makes API calls to a UID2 server in the USA. Depending on where your users are based, you might consider choosing a server closer to your users to reduce latency.
+## Optional: Specifying the API Base URL to Reduce Latency
 
-To specify a different UID2 server when you're configuring the UID2 module, set the optional params.uid2ApiBase parameter, as shown in the following example:
+By default, the UID2 module makes calls to a UID2 production environment server in the USA.
+
+For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md).
+
+To specify a UID2 server that is not the default, when you're configuring the UID2 module, set the optional `params.uid2ApiBase` parameter, as shown in the following example:
 
 ```js
 pbjs.setConfig({ 
@@ -213,5 +187,3 @@ pbjs.setConfig({
   } 
 }); 
 ```
-
-For the list of possible base URLs, see [Environments](../getting-started/gs-environments.md).

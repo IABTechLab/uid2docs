@@ -1,0 +1,50 @@
+  sequenceDiagram
+    participant U as User
+    participant P as Publisher
+    participant UID2 as UID2 Service
+    participant SSP
+    Note over U,SSP: 1. アイデンティティの確立
+    U->>+P: 1-a. ユーザーがパブリッシャーアセットにアクセスした。
+    P->>-U: 1-b. パブリッシャーは、データの活用についての透明性を提供します。
+    activate U
+    U->>P: 1-c. ユーザー認証。
+    deactivate U
+    activate P
+    P->>UID2: 1-d. パブリッシャーはユーザーの DII をトークン生成サービスに送信します。
+    deactivate P
+    activate UID2
+    UID2->>P: 1-e. トークン生成サービスは、UID2 Token を返します。
+    deactivate UID2
+    activate P
+    P->>U: 1-f. パブリッシャーはユーザーに UID2 を設定します。
+    deactivate P
+    Note over U,SSP: 2. UID2 Token を用いた入札
+
+    P->>SSP: 2-a. パブリッシャーは UID2 Token を使って広告のために SSP を呼び出します。
+    activate SSP
+    SSP->>P: 2-b. SSP は、表示する広告を返します。
+    deactivate SSP
+    activate P
+    P->>U: 2-c. パブリッシャーは、ユーザーに広告を表示します。
+    deactivate P
+
+    Note over U,SSP: 3. トークンのリフレッシュ
+    U->>P: 3-a. ユーザーがパブリッシャーアセットに戻ります。
+    activate P
+    P->>UID2: 3-b. パブリッシャーは Refresh Token を使って、ユーザーの新しい UID2 Token を要求します。
+    deactivate P
+    activate UID2
+    UID2->>P: 3-c. ユーザーがオプトアウトしていない場合、Refresh Token Service は新しい UID2 Token を返します。
+    deactivate UID2
+    activate P
+    P->>U: 3-d. パブリッシャーはユーザーの新しい UID2 を設定します。
+    deactivate P
+
+    Note over U,SSP: 4. ユーザーログアウト
+    U->>P: 4-a. ユーザーがパブリッシャーアセットからログアウトしました。
+    activate P
+    P->>U: 4-b. ユーザーの UID2 Token をクリアします。
+    deactivate P
+
+   <!-- Mermaid Live Editor Source: https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqlVktP20AQ_iuWrwWkJpxy4EQPHFpFTX3LxSSbYpXY1HGQKoQU79KSQmmBUugDiQIhihJIQOlDTYH8mI2d9F90Z20nch4uhRyc9aznm2-_mdndJTGhJZEYEQUhg55nkZpA04r8VJfTcVVgvwVZN5SEsiCrhiAJckaQMkgfnIrCVDQ7O69k5obNSzPTIe4N_zGkLyoJNPhVLBZ1jI80AwnaItIFaYwZI8L9CYHiI4oLlKxSUqfkFcXH7tOsto8a7cq64yqNT03dA49xmfmQIiWXFP-Ap_mGki1KdikpU0Io_knJMZ9luL_BQvLUrPDXGljwL2ruUfOA5rADHWXQ4xJAzwL0MCyzRnMmxWUYkz1gapY56zrFTW7c8CJVW9eHVq7QahTsd18o3u6UT-2PbyEkQyBnFJ97jtsQBTiVgBP4MlrX1PzUZSYnDGVRZppJPRG4BokBDTrljU7p0gnDswFMrvbt_CZwKF1Y72qD-EnUH6H7Hu1pA3AQNBmgjo9MVZiemRH4AvPczObr7Z0DTuY7l-s9T0PlT85sNQ8DiUX7pWBsXDXYyBMEAbfgYDVPmSfaM6QCvU5zJ1iTbqihskDc1E01qTg9wpNxZlU_32TNA-0SmhD8K2jvlKi5worZenli75_F1R49x8HpluEE-7BaV01qsrYrWg1iba2xNEKTYBO4MzD4xNpifnVrtRFQqt1mZwMnOyHoK47Ac9A5LLULDfDF626of6eiizoiEyGnJUb3rj8ZvbgumeBkjEhH2F90oBjE_kDJqcfgxNe44VtuXnaebVtroxQfaNVw0EYmPEYpHWXmhiR-QKeqvXvOtVnpq5VO0bQv8J37NjxkI-O77B6sGzQoevtikdd5mT2tr9-szTzj6l-Ie_pAkY1kfdd-D__HHthH4saNP6LWJvuEck8SVyJflU3ersrWKX7dB-tx9R2XI7SZdIrOfw749edtUgb0QA3EMTGN9LSsJNn9ZQnm46Ixh9IoLkbYMKWxrBtxMa4usy_lrKHFXqgJMWLoWTQmZheSDMS964iRlDyf6VofJBVD07tGxF8fOvckfl1a_gvNjYYJ -->
+

@@ -1,36 +1,46 @@
 ---
 title: POST /token/generate
-description: Generate a UID2 token (advertising token) from DII. 
+description: Generates a UID2 token (advertising token) from DII. 
 hide_table_of_contents: false
 sidebar_position: 02
 ---
 
+import Link from '@docusaurus/Link';
+import IdentityGenerateResponse from '/docs/snippets/_example-identity-generate-response.mdx';
+
 # POST /token/generate
-Requests a UID2 token generated from the [DII](../ref-info/glossary-uid.md#gl-dii) (email address or phone number) provided by a user with their authorization for UID2-based targeted advertising. If the DII is valid, and the user has not opted out of UID2, this operation returns a UID2 token and associated values.
+
+Requests a UID2 token generated from a user's <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number). If the DII is valid, and the user has not opted out of UID2, this operation returns a UID2 token and associated values.
 
 Used by: This endpoint is used mainly by publishers.
 
->IMPORTANT: Be sure to call this endpoint only when you have obtained legal basis to convert the user’s DII to UID2 tokens for targeted advertising. The `optout_check` parameter, required with a value of `1`, checks whether the user has opted out.
+:::important
+The `optout_check` parameter, required with a value of `1`, checks whether the user has opted out.
+:::
 
->NOTE: Rather than calling this endpoint directly, you could use one of the UID2 SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).
+<!-- uid2_euid_diff re legal basis for admonition above -->
+
+Rather than calling this endpoint directly, you could use one of the SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).
 
 ## Request Format 
 
 `POST '{environment}/v2/token/generate'`
 
 Here's what you need to know about this endpoint requests:
-- To ensure that the API key used to access the service remains secret, UID2 tokens must be generated only on the server side after authentication. 
+- To ensure that the <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link> used to access the service remains secret, UID2 tokens must be generated only on the server side after authentication. 
 - You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
 ### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Testing (integration) environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md).<br/>Notes:<ul><li>The `integ` environment and the `prod` environment require different [API keys](../ref-info/glossary-uid.md#gl-api-key).</li><li>Token expiration time is subject to change, but is always significantly shorter in the `integ` environment than it is in the `prod` environment.</li></ul> |
+| `{environment}` | string | Required | Testing (integration) environment: `https://operator-integ.uidapi.com`<br/>Production environment: The best choice depends on where your users are based. For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md).<br/>Notes:<ul><li>The `integ` environment and the `prod` environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.</li><li>Token expiration time is subject to change, but is always significantly shorter in the `integ` environment than it is in the `prod` environment.</li></ul> |
 
 ### Unencrypted JSON Body Parameters
 
->IMPORTANT: You must include only **one** of the following four conditional parameters, plus the required `optout_check` parameter with a value of `1`, as key-value pairs in the JSON body of the request when encrypting it.
+:::important
+You must include only **one** of the following four conditional parameters, plus the required `optout_check` parameter with a value of `1`, as key-value pairs in the JSON body of the request when encrypting it.
+:::
 
 | Body Parameter | Data Type | Attribute | Description | 
 | :--- | :--- | :--- | :--- |
@@ -42,7 +52,9 @@ Here's what you need to know about this endpoint requests:
 
 ### Request Examples
 
->IMPORTANT: To ensure that the API key used to access the service remains secret, the `POST /token/generate` endpoint must be called from the server side, unlike the [POST&nbsp;/token/refresh](post-token-refresh.md), which does not require using an API key.
+:::important
+To ensure that the API key used to access the service remains secret, the `POST /token/generate` endpoint must be called from the server side, unlike the [POST&nbsp;/token/refresh](post-token-refresh.md), which does not require using an API key.
+:::
 
 The following are unencrypted JSON request body examples for each parameter, one of which you should include in your token generation requests:
 
@@ -80,7 +92,9 @@ For details, and code examples in different programming languages, see [Encrypti
 
 ## Decrypted JSON Response Format 
 
->NOTE: The responses are encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+:::note
+The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+:::
 
 This section includes the following sample responses:
 
@@ -91,19 +105,7 @@ This section includes the following sample responses:
 
 A successful decrypted response returns the user's advertising and refresh tokens for the specified email address, phone number, or the respective hash. 
 
-```json
-{
-    "body": {
-        "advertising_token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b/besPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM+ewMzXXM8G9j8Q=",
-        "refresh_token": "RefreshToken2F8AAAF2cskumF8AAAF2cskumF8AAAADXwFq/90PYmajV0IPrvo51Biqh7/M+JOuhfBY8KGUn//GsmZr9nf+jIWMUO4diOA92kCTF69JdP71Ooo+yF3V5yy70UDP6punSEGmhf5XSKFzjQssCtlHnKrJwqFGKpJkYA==",
-        "identity_expires": 1633643601000,
-        "refresh_from": 1633643001000,
-        "refresh_expires": 1636322000000,
-        "refresh_response_key": "wR5t6HKMfJ2r4J7fEGX9Gw=="
-    },
-    "status": "success"
-}
-```
+<IdentityGenerateResponse />
 
 #### Optout
 
@@ -117,13 +119,15 @@ Here is an example response when the user has opted out.
 
 ### Response Body Properties
 
+The response body includes the properties shown in the following table.
+
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
 | `advertising_token` | string | An encrypted advertising (UID2) token for the user. |
 | `refresh_token` | string | An encrypted token that can be exchanged with the UID2 Service for the latest set of identity tokens. |
-| `identity_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the advertising token expires. |
-| `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) will start refreshing the UID2 token.<br/>TIP: If you are not using the SDK, consider refreshing the UID2 token from this timestamp, too. |
-| `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
+| `identity_expires` | number | The UNIX timestamp (in milliseconds) that indicates when the advertising token expires. |
+| `refresh_from` | number | The UNIX timestamp (in milliseconds) that indicates when the SDK for JavaScript (see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)) will start refreshing the UID2 token.<br/>TIP: If you are not using the SDK, consider refreshing the UID2 token from this timestamp, too. |
+| `refresh_expires` | number | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
 | `refresh_response_key` | string | A key to be used in a [POST&nbsp;/token/refresh](post-token-refresh.md) request for response decryption. |
 
 ### Response Status Codes

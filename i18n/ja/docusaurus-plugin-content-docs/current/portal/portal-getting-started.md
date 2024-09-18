@@ -1,93 +1,136 @@
 ---
 title: Getting Started
-description: UID2 sharing 参加者プロファイルを設定します。
+description: UID2 Portal のアカウント作成方法。
 hide_table_of_contents: false
 sidebar_position: 03
 ---
 
+import Link from '@docusaurus/Link';
+
 # Getting Started with the UID2 Portal
 
-UID2 Portal アカウントを申請するには、氏名や業種など、ご自身と会社に関する情報を提供する必要があります。
+UID2 Portal アカウントをリクエストする際には、自分自身と会社に関する情報を UID2 連絡先に提供する必要があります。
 
-リクエストしてから、実際に UID2 Portal にアクセスできるようになるまでには 2 つのステップがあります:
+リクエストを処理した後、UID2 Portal にログインしてアカウントの詳細を確認し、参加者とチームを設定し、UID2 共有権限の設定を構成できる確認メールが送信されます。
 
-1. 確認メールが届きます。メールに記載されているボタンをクリックして、アカウントを確認してください。
-1. アカウントが作成されます。数日かかる場合があります。アカウントの準備ができたら、確認メールが届きます。その後、アカウントに入って詳細を確認し、参加者とチームを設定し、UID2 sharing 許可の設定を行うことができます。
+最初のステップでは、次の手順に従います。
 
-オンボーディングプロセスでサポートが必要な場合は、UID2 の担当者にお尋ねください。
-
-<!-- It includes the following:
-
-- [Gather Information](#gather-information)
 - [Request an Account](#request-an-account)
-- [Account Approval Step](#account-approval-step)
 - [Log In for the First Time](#log-in-for-the-first-time)
-- [Reset Password](#reset-password) -->
+- [Change Your Password](#change-your-password)
 
-## Gather Information
-
-アカウント開設の申し込みの際に必要な情報と、アカウント開設が承認された際に必要な追加情報があります。
-
-以下の表は、必要なときに手元に置いておけるよう、前もって収集しておくべき情報を示しています。
-
-アカウントリクエストに必要な情報:
-
-| Item | Needed for... | 
-| :--- | :--- |
-| 自身に関する情報<br/>- 名<br/>- 姓<br/>- メールアドレス<br/>- 職種 | Request Account ページ |
-| 貴社に関する情報<br/>- 参加者名 (会社名)<br/>- 参加者タイプ (例: DSP) | Participant Information ページ |
-
-アカウント設定に必要な情報:
-
-| Item | Needed for... | 
-| :--- | :--- |
-| チームメンバー情報。それぞれについて:<br/>- 名<br/>- 姓<br/>- メールアドレス<br/>- 職種 | Team Members ページ |
-| メール連絡先情報。それぞれについて:<br/>- メールグループ名<br/>- メールエイリアス<br/>- 連絡先タイプ | Email Contacts ページ |
+オンボーディング プロセスが必要な場合は、UID2 連絡先にお問い合わせください。
 
 ## Request an Account
 
-UID2 Portal リンクを初めてクリックすると、ログインページが表示されます。アカウントを作成するには、以下の手順に従ってください:
+アカウントのリクエストを行う際には、次の表に示す情報を UID2 連絡先に提供する必要があります。
 
-1. **Request Account** をクリック.
+| Item | Details |
+| :--- | :--- |
+| Information about yourself | 次の情報を提供してください。<br/>- 名<br/>- 姓<br/>- メールアドレス<br/>- 職務 |
+| Information about your company | 次の情報を提供してください。<br/>- 参加者名（会社名）<br/>- 参加者タイプ（パブリッシャー、広告主、DSP、またはデータプロバイダー） |
 
-2. Request Account ページで以下の情報を入力してください:
+## Account Approval
 
-   - 名
-   - 姓
-   - メールアドレス
-   - 職種
+アクセスをリクエストした後、UID2 連絡先がリクエストを処理します。承認プロセスが完了し、アカウントが作成されると、UID2 Portal にログインするためのリンクが記載された確認メールが送信されます。
 
-3. パスワードを作成して確認し、**Continue** をクリックします。
+## Prepare Setup Information
 
-4. 次のステップはメールアドレス認証です。メールアドレスを確認するためのメールを送信します。確認するには、メールに記載されているボタンをクリックしてください。
+アカウントが作成された後、設定を行うために必要な情報があります。設定手順は、役割と実装シナリオによって異なります。準備が整うよう、以下のセクションを確認し、必要な情報を準備してください:
 
-4. Participant Information ページで、会社名を入力し、**Participant Type** で、以下の中から1つ以上を選択してください:
- 
-   - パブリッシャー
-   - 広告主
-   - DSP
-   - データプロバイダー
+- [Determine Integration Path](#determine-integration-path)
 
-5. **Terms and Conditions** リンクをクリックし、詳細を確認してください。
+  :::tip
+  Client-Side 実装の場合、ルートレベル ドメインの完全なリストが必要です。
+  :::
+- [Set Up Team Members and Email Contacts](#set-up-team-members-and-email-contacts)
 
-6. Terms and Conditions ページで利用規約を確認し、一番下までスクロールして **Accept Terms and Conditions** をクリックします。
+## Determine Integration Path
 
-   Participant Information ページに戻ります。
+UID2 Service を使用するには、キーのセットが必要です。Client-Side または Server-Side でインテグレーションを行うかによって、キーの種類が異なります。会社のアカウントにアクセスできると、UID2 Portal を使用してキーを取得できます。
 
-3. agree to the terms and conditions チェックボックスにチェックを入れ、**Request Account** をクリックします。
+次の表に、インテグレーションオプションが示されています。
 
-アカウントをリクエストすると、リクエストは承認のために送信されます。[Account Approval Step](#account-approval-step) を参照してください。
+| Integration | Examples | Instructions |
+| :--- | :--- | :--- |
+| Client-Side インテグレーション | **広告主** はトラッキングピクセル用に Client-Side で UID2 Token を生成します。<br/>**パブリッシャー** は <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> 用に Client-Side で UID2 Token を生成します。| **Client-Side Integration** ページに移動し、キーペアとルートレベルドメインを設定します。<br/>詳細は [Client-Side Integration](client-side-integration.md) を参照してください。 |
+| Server-Side インテグレーション | **広告主** はオーディエンスターゲティングのために配信される raw UID2 を生成します。<br/>**パブリッシャー** は<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>ように Server-Side で UID2 Token を生成します。| **API Keys** ページに移動し、少なくとも1組の認証情報を生成します。API Key を追加すると、シークレットとキーの2つの値が割り当てられます。<br/>詳細は [API Keys](api-keys.md) を参照してください。 |
 
-## Account Approval Step
-
-メールアドレスの確認など、アカウントのリクエストが完了すると、アカウントの審査が行われます。このプロセスには数日かかる場合があります。
-
-承認プロセスが完了し、アカウントが承認されると、UID2 Portal にログインするためのリンクが記載された確認メールが送信されます。
+参加者の中には、Client-Side と Server-Side の両方のインテグレーションを使用するかもしれません。例えば、広告主はピクセルのために Client-Side で UID2 Token を生成 ([Client-Side Integration](client-side-integration.md)) し、raw UID2 の生成は、Server-Side でインテグレーションします ([API Keys](api-keys.md))。
 
 ## Log In for the First Time
 
-初めてログインしたら、まずチームを設定します。[Team Members](team-members.md) を参照してください。
+確認メールが届いたら、メールに記載されている **Accept Invitation** リンクをクリックして開始し、その後、クリックして以下のタスクを完了してください:
+- [Change your password](#change-your-password)
+- [Log In](#log-in)
+- [Configure unique account values](#configure-unique-account-values)
+
+新しいパスワードを作成し、UID2 Portal にログインします。
+
+## Change Your Password
+
+**Accept Invitation** リンクをクリックすると、**Update Password** ページに移動します。
+
+:::tip
+ アカウントが漏洩した可能性があるためにパスワードを変更する場合は、**Sign out from other devices** チェックボックスがチェックされていることを確認してください。
+:::
+
+新しいパスワードを入力し、確認してから **Save Password** をクリックします。
+
+アカウントが承認されたことを通知する通知が表示され、**Log In** ボタンが表示されます。
+
+## Log In
+
+ログインの準備が整いました。
+
+1. **Log In** ボタンをクリックします。
+
+   UID2 Sharing Portal Terms of Service が表示されます。
+
+2. 必要に応じて確認し、下にスクロールし、**Accept Terms and Conditions** をクリックします。
+   
+      UID2 Portal ホームページが表示されます。
+
+次のステップは、アカウントの設定です。
+
+## Configure Unique Account Values
+
+アカウントの設定手順は、シナリオによって異なります。以下は、推奨されるシーケンスです。
+
+1. インテグレーション パスを決定します。[Determine Integration Path](#determine-integration-path) を参照してください。
+
+1. アカウントに固有の値を設定します。適用可能なページで値を構成できます。&#8212;以下のいずれかのページです:
+
+    - [Client-Side Integration](client-side-integration.md)
+    - [API Keys](api-keys.md)
+
+1. アカウントに固有の値を設定すると、[sharing permissions](sharing-permissions.md) を設定できます。
+
+1. チームメンバーを追加すると、チーム全体での作業負荷が分散されるため、効果的です。[Team Members](team-members.md) を参照してください。
+
+1. プロジェクトに関わるすべての人が通知を受けるようにするために、メール連絡先を追加することも役立ちます。[Email Contacts](email-contacts.md) を参照してください。
+
+## Set Up Team Members and Email Contacts
+
+初回ログイン時に、以下の設定手順を完了できます:
+
+- チームメンバーを設定します。
+- UID2 の最新の更新とリリースに関する通知を受け取るべき人物の情報を追加します。
+
+次の表に、必要な情報と手順へのリンクが示されています。
+
+| Item | Details | Link to Instructions | 
+| :--- | :--- | :--- |
+| Team member information | 以下を提供してください。<br/>- 名<br/>- 姓<br/>- メールアドレス<br/>- 職務 | [Team Members](team-members.md) |
+| Email contact information | 以下を提供してください。<br/>- メールグループ名<br/>- メールエイリアス<br/>- 連絡先タイプ | [Email Contacts](email-contacts.md) |
 
 ## Reset Password
 
-パスワードを忘れた場合は、ログインページの **Forgot Password** リンクをクリックしてください。メールアドレスを入力し、メールアカウントでパスワードリセットのメッセージを探してください。
+パスワードを忘れた場合は、ログインページの **Forgot Password** リンクをクリックします。メールアドレスを提供し、メールアカウントでパスワードリセットメッセージを確認してください。
+
+## Log Out
+
+アカウントの更新が完了したら、ログアウトすることを忘れないでください。
+
+1. 右上の自分の名前をクリックします。
+1. ドロップダウンリストから **Log Out** をクリックします。

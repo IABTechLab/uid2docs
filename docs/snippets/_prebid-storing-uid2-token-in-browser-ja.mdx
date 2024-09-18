@@ -1,0 +1,21 @@
+<!-- GWH same section in integration-prebid.md, integration-prebid-client-side.md, integration-prebid-client-server.md. integration-javascript.md is different -->
+
+デフォルトでは、UID2 module はローカルストレージを使ってデータを保存します。代わりにクッキーを使用するには、以下の例に示すように `params.storage` を `cookie` に設定します。
+
+詳細は Prebid ドキュメントの [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) を参照してください。
+
+```js
+pbjs.setConfig({ 
+  userSync: { 
+    userIds: [{ 
+      name: 'uid2', 
+      params: { 
+        // default value is 'localStorage' 
+        storage: 'cookie'    
+      } 
+    }] 
+  } 
+}); 
+```
+
+クッキーのサイズが大きくなり、問題が発生する可能性があります。ただし、ローカルストレージがオプションでない場合、これが考えられるアプローチの 1 つです。

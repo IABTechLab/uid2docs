@@ -1,0 +1,32 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+[Google GMA SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) または [Google IMA SDK](https://developers.google.com/interactive-media-ads/) に送信する UID2 Token を生成する場合、このガイドに従っていると仮定すると、モバイルアプリに UID2 GMA/IMA プラグインを追加する必要があります。手順については、該当するプラグインガイドを参照してください:
+
+- [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md)
+- [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md)
+- [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md)
+- [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md)
+
+明示的に `getAdvertisingToken()` メソッドを呼び出して Advertising Token を取得し、Google GMA/IMA SDK に手動で渡す必要はありません。UID2 GMA/IMA プラグインがこれを自動的に処理します。
+
+必要なのは、`getAdvertisingToken()` が null でない文字列オブジェクトを返すようにするだけです:
+
+<Tabs groupId="language-selection">
+<TabItem value='android' label='Android'>
+
+```js
+UID2Manager.getInstance().getAdvertisingToken();
+```
+
+</TabItem>
+<TabItem value='ios' label='iOS'>
+
+```js
+UID2Manager.shared.getAdvertisingToken();
+```
+
+</TabItem>
+</Tabs>
+
+If the token exists, the Google GMA/IMA plug-ins can retrieve it automatically via the UID2 GMA/IMA plugins.

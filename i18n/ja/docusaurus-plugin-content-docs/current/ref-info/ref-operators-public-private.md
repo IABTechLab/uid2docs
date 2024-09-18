@@ -5,9 +5,11 @@ hide_table_of_contents: false
 sidebar_position: 06
 ---
 
+import Link from '@docusaurus/Link';
+
 # The UID2 Operator
 
-UID2 Operator Service により、UID2 Core Service からの暗号化キーと [Salt(ソルト)](../ref-info/glossary-uid.md#gl-salt) の管理と保存、ユーザーの個人データ ([DII](../ref-info/glossary-uid.md#gl-dii)) のハッシュ化、[raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) の暗号化、[UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) の復号化が可能になります。
+UID2 Operator Service により、UID2 Core Service からの <a href="../ref-info/glossary-uid#gl-encryption-key">暗号化キー</a> と [Salt(ソルト)](../ref-info/glossary-uid.md#gl-salt) の管理と保存、ユーザーの個人データ (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) のハッシュ化、[raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) の暗号化、<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> の復号化が可能になります。
 
 Operator Service のすべてのインスタンスは、誰がサービスを運営するかにかかわらず、重要な UID2 データを安全に保ち、相互運用できるよう、厳格な保護が施されて設計されています。
 
@@ -19,14 +21,14 @@ UID2 Operator は、単に Operator Service を実行する組織です。オペ
 
 UID2 Operator は、次の 2 つのカテゴリに分類されます:
 
-- [Public Operators](#public-operator)
-- [Private Operators](#private-operator)
+- [Public Operators](#public-operators)
+- [Private Operators](#private-operators)
 
 Operator は UID2 の中核的なコードです。このコードは、メールアドレスを raw UID2 または UID2 Token に変換し、共有している参加者が復号キーを更新するために使用します。
 
 ## Public Operators
 
-Public Operator または Open Operator は、関連するすべての UID2 参加者が利用できる UID2 Operator インスタンスです。Public Operator は、一般に利用可能な Operator Service のインスタンスを実行し、参加者が利用できるようにします。
+Public Operator は、関連するすべての UID2 参加者が利用できる UID2 Operator インスタンスです。Public Operator は、一般に利用可能な Operator Service のインスタンスを実行し、参加者が利用できるようにします。
 
 ほとんどの場合、UID2 参加者は Public Operator を使用します。
 
@@ -38,25 +40,19 @@ Public Operator を使用する場合、Operator をホスト、構成、維持�
 
 Public Operator を利用するための費用は、参加者には一切かかりません。
 
-参加者は、Public Operator 上でホストされる UID2 API を使用するために、該当する資格情報 ([API key and client secret](../getting-started/gs-credentials.md#api-key-and-client-secret)) を取得する契約を締結する必要があります。
+参加者は、契約に署名し ([Account setup](../getting-started/gs-account-setup.md) を参照してください)、Public Operator でホストされている UID2 API を使用するために該当する認証情報 ([API key and client secret](../getting-started/gs-credentials.md#api-key-and-client-secret)) を取得する必要があります。
 
 :::note
-Public Operator の場合、データは参加者のインフラを離れ、オペレーターに送られます。もちろん、データを安全に保つための厳格な対策が講じられています。
+Public Operator の場合、データは参加者のインフラを離れ、オペレーターに送られます。Public Operator 内のデータを保護するために、厳格なセキュリティ対策が実施されています。
 :::
 
-##  Private Operators
+## Private Operators
 
-rivate Operator (Closed Operator) は、UID2 Operator のプライベートインスタンスです。これは、特定の組織が、その組織専用に Private Operator をホストすることを意味します。
+Private Operator は、UID2 Operator のプライベートインスタンスです。つまり、特定のエンティティが独自に使用するためにプライベートインスタンスをホストします。
 
-参加者は誰でも、UID2 を生成および管理する Private Operator になることもできます。ただし、Private Operator になるにはいくつかの追加ステップが必要であり、参加者が提供する必要があるリソースを使用します。
+また、参加者は、UID2 を生成および管理するために Private Operator になることも選択できます。ただし、Private Operator になるにはいくつかの追加手順が必要であり、参加者が用意するリソースが必要です。
 
-参加者は、Private Operator インスタンスをホストし、構成し、維持し、更新する必要があり、厳密なセキュリティ対策に準拠する必要があります。インテグレーションと継続的な更新には、エンジニアリングリソースが必要です。
-
-参加者は、Private Operator インスタンスをホストする契約を締結する必要があります。
-
-:::note
-Private Operator は、Public Operator または別の Private Operator からの raw UID2 または UID2 Token を処理することはできません。各 Private Operator は、完全に閉じたインフラストラクチャです。
-:::
+詳細は [Private Operator Integrations](../guides/integration-options-private-operator.md) を参照してください。
 
 ## Private Operator: Benefits
 
@@ -64,18 +60,18 @@ Private Operator は、Public Operator または別の Private Operator から�
 
 - Private Operator のソリューションでは、DII は運営する組織のインフラから離れません。
 
-- Private Operator になれば、リソースを完全に管理できます。より多くのコントロールが可能です。例えば、料金の制限なく、より大きな可用性を提供することができます。
+- Private Operator になれば、リソースを管理できます。より多くのコントロールが可能です。例えば、料金の制限なく、より大きな可用性を提供することができます。
 
 - 物理的に Public Operator のインスタンスの近くにない場合、レイテンシーの理由から Private Operator のソリューションをホストすることを選択することができます。
 
-セキュリティやレイテンシに大きな懸念があり、UID2 実装を構築・維持するための広範なエンジニアリングリソースがある場合は、Private Operator ソリューションを検討することができます。
+レイテンシーに大きな懸念がある場合、セキュリティ要件によりデータがシステム内に留まる必要がある場合、さらに UID2 実装を構築・維持するための広範なエンジニアリングリソースがある場合は、Private Operator ソリューションを検討されることを勧めます。
 
 ## Summary
 
-ほとんどの参加者にとって、Public Operator が最善の解決策です。
+ほとんどの参加者にとって、Public Operator が最もシンプル解決策です。
 
 Private Operator オプションのマイナス面は、構築と維持に継続的なエンジニアリング努力が必要なことです。Private Operator のインスタンスは参加者によって管理されるため、継続的な更新と変更が必要となり、指定された期間内に完了する必要があります。
 
 Public Operator インテグレーションは、独自のインスタンスを作成するよりもはるかに簡単なオプションです。参加者に費用はかからず、初期設定と構成以外のエンジニアリング作業は事実上必要ありません。
 
-これらの理由から、Public Operator を選択することをお勧めします。
+これらの理由から、Public Operator を選択することを勧めます。

@@ -7,39 +7,31 @@ hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+
 # AWS Entity Resolution Integration Guide
-
-<!-- This guide includes the following information:
-
-- [Functionality](#functionality)
-- [Integration Summary](#integration-summary)
-- [Workflow Diagram](#workflow-diagram)
-- [Initial Setup Steps](#initial-setup-steps)
-  - [Create UID2 Account](#create-uid2-account)
-  - [Create AWS Account](#create-aws-account)
-  - [Subscribe to UID2 on AWS Data Exchange](#subscribe-to-uid2-on-aws-data-exchange)
-- [Configure AWS Account](#configure-aws-account)
-- [Create a Matching Workflow](#create-a-matching-workflow)
-- [Run the Matching Workflow](#run-the-matching-workflow)
- -->
 
 [AWS Entity Resolution](https://aws.amazon.com/entity-resolution/) は、Amazon Web Services が提供する ID ソリューションプロダクトで、AWS の顧客が UID2 フレームワークとインテグレーションすることを可能にします。このインテグレーションにより、UID2 Operator を直接呼び出したり、機密性の高いクライアント ID や秘密鍵の値を扱ったりすることなく、安全かつシームレスに UID2 を生成することができます。
 
-このサービスは、[DII](../ref-info/glossary-uid.md#gl-dii) (メールアドレスまたは電話番号) を raw UID2 に迅速かつ安全にマッピングすることができます。
+このサービスは、<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (メールアドレスまたは電話番号) を raw UID2 に迅速かつ安全にマッピングすることができます。
 
->NOTE: 現在 UID2 エコシステムに参加していない場合は、[Request Access to UID2](https://unifiedid.com/request-access) にアクセスしてください。
+:::note
+現在 UID2 エコシステムに参加していない場合は、[Request Access to UID2](https://unifiedid.com/request-access) にアクセスしてください。
+:::
+
+AWS Entity Resolution を使用して UID2 とインテグレーションに関するビデオプレゼンテーションとデモについては、YouTube の [Getting Started with AWS Entity Resolution Integration with Unified ID 2.0](https://www.youtube.com/watch?v=ORbSsKMgVj8) を参照してください。
 
 ## Functionality
 
-以下の表は、AWS Entity Resolution インテグレーションで利用可能な機能をまとめたものです。
+次の表は、AWS Entity Resolution インテグレーションで利用可能な機能をまとめたものです。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to a Raw UID2 |
+| Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
 | :--- |  :--- | :--- | :--- | :--- |
 | No | No | No | No | Yes |
 
 ## Integration Summary
 
-以下の表は、AWS Entity Resolution を使用して UID2 とインテグレーションする手順をまとめたものです。
+次の表は、AWS Entity Resolution を使用して UID2 とインテグレーションする手順をまとめたものです。
 
 | Step/Link | Details |
 | --- | --- |
@@ -52,9 +44,9 @@ sidebar_position: 04
 
 以下の図は、サービスへの登録から設定ステップを経て raw UID2 を受け取るまでの、エンドツーエンドの UID2 プロセスを示しています。
 
-![AWS Entity Resolution Workflow](images/integration-aws-entity-resolution.svg)
+![AWS Entity Resolution Workflow](images/integration-aws-entity-resolution.png)
 
-以下の表は、図に示されたステップを示しています。
+次の表は、図に示されたステップを示しています。
 
 | Step | Actor | Action |
 | --- | --- | --- |
@@ -102,8 +94,6 @@ AWS Data Exchange の [Unified ID 2.0 Identity Resolution](https://aws.amazon.co
 
 ![AWS Data Exchange market place screenshot](images/integration-aws-entity-resolution-public-listing.png)
 
-
-
 加入リクエストを受け取ると、UID2 チームは以下を行います:
 - サブスクリプションのリクエストを確認します。
 - リクエストを [Create UID2 Account](#create-uid2-account) で送信した AWS アカウント ID と照合します。
@@ -113,7 +103,9 @@ AWS Data Exchange の [Unified ID 2.0 Identity Resolution](https://aws.amazon.co
 
 UID2 の参加者は AWS の S3 バケットにデータを保存し、AWS Entity Resolution とインテグレーションします。AWS アカウントを作成したら([Create AWS Account](#create-aws-account) を参照してください。)、基本的な手順は以下の通りです。
 
->NOTE: 詳細な手順については、AWSドキュメントの [Setting up AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html) を参照してください。
+:::note
+詳細な手順については、AWSドキュメントの [Setting up AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html) を参照してください。
+:::
 
 1. [管理者ユーザーを作成します](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html#setting-up-create-iam-user).
 
@@ -144,7 +136,7 @@ UID2 は、UID2 生成のためにメールアドレスまたは電話番号の�
 マッチングワークフローを作成するには、まず AWS Management コンソールにサインインし、**AWS Entity Resolution** ページを開き、**Workflows** > **Matching workflows** > **Create matching workflow** を選択します。次に、マッチングワークフローの以下のステップを完了します。
 
 1. 一致するワークフローについて、以下の詳細を指定します:
-   - **Name**: この値は必須です。短く、わかりやすく、直感的な名前をお勧めします。例えば、会社名を指定する場合: `CompanyName_UID2_Daily_Matching`。
+   - **Name**: この値は必須です。短く、わかりやすく、直感的な名前を勧めます。例えば、会社名を指定する場合: `CompanyName_UID2_Daily_Matching`。
    - **Description**: マッチングワークフローの説明(オプション)。
    - **Data input**: AWS のデータソース。ドロップダウンリストから、AWS Glue データベース、AWS Glue テーブル、スキーママッピングの順に選択します。データ入力は複数指定できます。以下の例では、メールアドレスのみを指定しています:
 
@@ -153,9 +145,29 @@ UID2 は、UID2 生成のためにメールアドレスまたは電話番号の�
      |0001|Test 1|test1@uidapi.com|1/1/90|
      |0002|Test 2|test2@gmail.com|1/2/78|
    
-      NOTE: 1レコードにつき、メールアドレスまたは電話番号フィールドは **1** つだけです。メールアドレスが存在する場合、電話番号はパススルーとして扱われます。電話番号を処理するには、別のワークフローを作成してください。詳細はこのセクションの前を参照してください。
+      :::note
+      1レコードにつき、メールアドレスまたは電話番号フィールドは **1** つだけです。メールアドレスが存在する場合、電話番号はパススルーとして扱われます。電話番号を処理するには、別のワークフローを作成してください。詳細はこのセクションの前を参照してください。
+      :::
 
-   - **Service access**: 既存または新規のサービスロールを使用して、AWS Glue で指定されたデータにアクセスするための特定の権限を Entity Resolution に付与します。入力データが暗号化されている場合は、復号化のための AWS Key Management Service (KMS) キーも指定する必要があります。
+   - **Service access**: Entity Resolution に、指定されたデータにアクセスし、AWS Glue でデータを呼び出し、AWS Data Exchange を呼び出す権限を付与します。新しいサービスロールを作成して、必要なすべての権限を持つ新しいロールを作成することを強く勧めす。既存のサービスロールを使用する場合は、AWS Data Exchange を呼び出す権限を追加してください:
+
+        ```json
+       {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Sid": "DataExchangePermissions",
+                "Action": "dataexchange:SendApiAsset",
+                "Resource": [
+                    "<Asset ARN>"
+                ]
+              }
+          ]
+        }
+       ```
+       Asset ARN は、AWS Data Exchange コンソールの "AWS Data Exchange" > "Entitled data" > "Unified ID 2.0 Identity Resolution" > "Data set: UnifiedID-2.0" > "Revision: Date" > "Asset: venice-api-gateway-prod" で確認できます。
+   - **Decryption Key**: 入力データが暗号化されている場合、AWS Key Management Service (KMS) キーを指定する必要があります。
 
 2. マッチング技術を選びます:
    - **Matching method**で、**Partner services** オプションを選択します。
@@ -186,7 +198,7 @@ UID2 は、UID2 生成のためにメールアドレスまたは電話番号の�
 
 以下の手順に従って、マッチングワークフローを実行し、結果を表示します。
 
-詳細は、AWS Entity Resolution ドキュメントの [Running and managing matching workflows](https://docs.aws.amazon.com/entityresolution/latest/userguide/run-manage-matching-workflow.html) を参照してください。
+詳細は AWS Entity Resolution ドキュメントの [Running and managing matching workflows](https://docs.aws.amazon.com/entityresolution/latest/userguide/run-manage-matching-workflow.html) を参照してください。
 
 1. AWS Management コンソールにサインインし、AWS Entity Resolution ページを開き、**Workflows** > **Matching workflows** を選択します。
 

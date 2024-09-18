@@ -7,34 +7,20 @@ hide_table_of_contents: false
 sidebar_position: 18
 ---
 
+import Link from '@docusaurus/Link';
+import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
+
 # UID2 Private Operator for Azure Integration Guide
 
-This guide provides information for setting up the UID2 Operator Service in a [Confidential Container](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers), a confidential computing option from Microsoft Azure. Confidential containers run in a hardware-backed Trusted Execution Environment (TEE) that provides intrinsic capabilities such as data integrity, data confidentiality, and code integrity.
+This guide provides information for setting up the UID2 Operator Service in an instance of [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers), a confidential computing option from Microsoft Azure. Confidential Containers instances run in a hardware-backed Trusted Execution Environment (TEE) that provides intrinsic capabilities such as data integrity, data confidentiality, and code integrity.
 
-When the Docker container for the UID2 Operator Confidential Container starts up, it completes the attestation process that allows the UID2 Core Service to verify the authenticity of the Operator Service and the enclave environment that the Operator Service is running in.
+When the Docker container for the UID2 Operator Confidential Containers instance starts up, it completes the attestation process that allows the UID2 Core Service to verify the authenticity of the Operator Service and the enclave environment that the Operator Service is running in.
 
-When the attestation is successful, the UID2 Core Service provides seed information such as salts and keys to bootstrap the UID2 Operator in the secure UID2 Operator Confidential Container.
+When the attestation is successful, the UID2 Core Service provides seed information such as salts and keys to bootstrap the UID2 Operator in the secure UID2 Operator Confidential Containers instance.
 
 :::caution
 UID2 Private Operator for Azure is not supported in these areas: Europe, China.
 :::
-
-<!-- 
-* [Prerequisites](#prerequisites)
-   - [Set Up UID2 Operator Account](#set-up-uid2-operator-account)
-   - [Install Azure CLI](#install-azure-cli)
-   - [Get the Required Azure Permissions](#install-azure-cli)
-* [Deployment Environments](#deployment-environments)
-* [Deployment](#deployment)
-  - [Download UID2 Private Operator for Azure ZIP File](#download-uid2-private-operator-for-azure-zip-file)
-  * [Create Resource Group](#create-resource-group)
-  * [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup)
-  * [Set Up the VPC Network](#set-up-the-vpc-network)
-  * [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup)
-  * [Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer)
-* [Running the Health Check](#running-the-health-check)
-* [Upgrading](#upgrading)
- -->
 
 ## Prerequisites
 
@@ -48,23 +34,15 @@ Before deploying the UID2 Private Operator for Azure, complete these prerequisit
 
 Ask your UID2 contact to register your organization as a UID2 Operator. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
 
-When the registration process is complete, you'll receive the following:
+When the registration process is complete, you'll receive an operator key, exclusive to you, that identifies you with the UID2 service as a Private Operator. During configuration, use this as the value for `OPERATOR_KEY`. This value is both your unique identifier and a password; store it securely and do not share it.
 
-- An operator key, exclusive to you, that identifies you with the UID2 service as a Private Operator. During configuration, use this as the value for `OPERATOR_KEY`. This value is both your unique identifier and a password; store it securely and do not share it.
-
-  :::note
-  You'll receive a separate operator key for each deployment environment.
-  :::
-
-- A link to the UID2 Private Operator for Azure GitHub release page. For example, it might look something like this: [https://github.com/IABTechLab/uid2-operator/releases/tag/v5.21.5-68a47aec9f-azure-cc](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.21.5-68a47aec9f-azure-cc).
-
-  :::note
-  This is just an example: use the link that we send you.
-  :::
+:::note
+You'll receive a separate operator key for each deployment environment.
+:::
 
 ### Install Azure CLI
 
-Install the Azure command-line interface. See [How to install the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) in the Azure documentation.
+Install the Azure command-line interface. For details, see [How to install the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) in the Azure documentation.
 
 ### Get the Required Azure Permissions
 
@@ -102,22 +80,22 @@ To deploy a new UID2 Private Operator for Azure, you'll need to complete the fol
 
 ### Download ZIP File and Extract Files
 
-The first step is to get set up with the deployment files you'll need.
+The first step is to get set up with the deployment files you'll need:
 
-Follow these steps:
+1. Download the ZIP file linked in the following table, Azure Download column, for the latest version. 
 
-1. In the Azure Enclave GitHub release page that you were given after completing your UID2 account setup (see [Set Up UID2 Operator Account](#set-up-uid2-operator-account)), locate and download the ZIP file containing the files you'll need for your deployment. The ZIP file is named according to the following convention:
-
-   ```
-   uid2-operator-deployment-artifacts-{VERSION_NUMBER}-azure-cc.zip
-   ```
-
-2. Unzip the `uid2-operator-deployment-artifacts-{VERSION_NUMBER}-azure-cc.zip` file to extract the following files, needed for the deployment:
+1. Unzip the ZIP file to extract the following files, needed for the deployment:
 
    - `vault.json` and `vault.parameters.json`
    - `vnet.json` and `vnet.parameters.json`
    - `operator.json` and `operator.parameters.json`
    - `gateway.json` and `gateway.parameters.json`
+
+### Operator Version
+
+The latest ZIP file is linked in the Azure Download column in the following table.
+
+<ReleaseMatrix />
 
 ### Create Resource Group
 
@@ -134,7 +112,13 @@ All the resources are provisioned later under the name you provide as the `{RESO
 There are some limitations with regard to location:
 - UID2 Private Operator for Azure is not supported in these areas: Europe, China.
 
-- For Azure virtual network deployment availability, check [Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-region-availability#linux-container-groups) in the Azure documentation. You can only deploy to regions with the **Confidential SKU** column set to **Y** in the table.
+- For Azure virtual network deployment availability, check [Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) in the Azure documentation to confirm the availability of Confidential Containers regional support.
+
+- To get the alias for the location, run the following command:
+
+```
+az account list-locations -o table
+```
 
 ### Complete Key Vault and Managed Identity Setup
 
@@ -304,9 +288,18 @@ Follow these steps:
 
    An HTTP 200 with a response body of `OK` indicates healthy status.
 
+import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
+
+<AttestFailure />
+
+### Scraping Metrics
+The Private Operator for Azure exposes [Prometheus-formatted metrics](https://prometheus.io/docs/concepts/data_model/) on port 9080 through the `/metrics` endpoint. You can use a Prometheus-compatible scraper to collect and aggregate these metrics for your own needs. 
+
+The scraper must have access to the VNet that the Private Operator is running in. We do not recommend giving the load balancer access to the `/metrics` endpoint.
+
 ## Upgrading
 
-When a new version of UID2 Azure Confidential Container is released, private operators receive an email notification of the update, with a new release link. There is a window of time for upgrade, after which the older version is deactivated and is no longer supported.
+When a new version of UID2 Azure Confidential Containers is released, private operators receive an email notification of the update, with a new release link. There is a window of time for upgrade, after which the older version is deactivated and is no longer supported.
 
 To upgrade, complete the following steps:
 

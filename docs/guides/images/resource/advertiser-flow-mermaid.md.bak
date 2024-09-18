@@ -1,34 +1,19 @@
-  sequenceDiagram
-    participant DP as Data Provider
-    participant UID2 as UID2 Service
-    participant DSP
-    loop 1. Retrieve a UID2 for DII using the identity map endpoints.
-    DP->>UID2: 1-a. Send a request containing DII to the identity mapping endpoints.
-    UID2->>DP: 1-b. Store the UID2 and salt bucket returned from the identity mapping service.
-    end
-    DP-->>DSP: 2. Send stored UID2s to DSPs to create audiences.
-    loop 3. Monitor for salt bucket rotations related to your stored UID2s.
-       DP->>UID2: 3-a. Monitor salt bucket rotations using the bucket service.
-       UID2->>DP: 3-b. Return salt buckets rotated since a given timestamp.
-       DP->>UID2: 3-c. Compare the rotated salt buckets to stored UID2 salt buckets.<br/>If rotated, resend DII to identity mapping service for a new UID2.
-       UID2->>DP: 3-d. Store the UID2 and salt bucket returned from the identity mapping service.
-    end
 
-    <!-- Mermaid Live Editor Source: https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiICBzZXF1ZW5jZURpYWdyYW1cbiAgICBwYXJ0aWNpcGFudCBEUCBhcyBEYXRhIFByb3ZpZGVyXG4gICAgcGFydGljaXBhbnQgVUlEMiBhcyBVSUQyIFNlcnZpY2VcbiAgICBwYXJ0aWNpcGFudCBEU1BcbiAgICBsb29wIDEuIFJldHJpZXZlIGEgVUlEMiBmb3IgUElJIHVzaW5nIHRoZSBpZGVudGl0eSBtYXAgZW5kcG9pbnRzLlxuICAgIERQLT4-VUlEMjogMS1hLiBTZW5kIGEgcmVxdWVzdCBjb250YWluaW5nIFBJSSB0byB0aGUgaWRlbnRpdHkgbWFwcGluZyBlbmRwb2ludHMuXG4gICAgVUlEMi0-PkRQOiAxLWIuIFN0b3JlIHRoZSBVSUQyIGFuZCBzYWx0IGJ1Y2tldCByZXR1cm5lZCBmcm9tIHRoZSBpZGVudGl0eSBtYXBwaW5nIHNlcnZpY2UuXG4gICAgZW5kXG4gICAgRFAtLT4-RFNQOiAyLiBTZW5kIHN0b3JlZCBVSUQycyB0byBEU1BzIHRvIGNyZWF0ZSBhdWRpZW5jZXMuXG5cbiAgICBsb29wIDMuIE1vbml0b3IgZm9yIHNhbHQgYnVja2V0IHJvdGF0aW9ucyByZWxhdGVkIHRvIHlvdXIgc3RvcmVkIFVJRDJzLlxuICAgICAgIERQLT4-VUlEMjogMy1hLiBNb25pdG9yIHNhbHQgYnVja2V0IHJvdGF0aW9ucyB1c2luZyB0aGUgYnVja2V0IHNlcnZpY2UuXG4gICAgICAgVUlEMi0-PkRQOiAzLWIuIFJldHVybiBzYWx0IGJ1Y2tldHMgcm90YXRlZCBzaW5jZSBhIGdpdmVuIHRpbWVzdGFtcC5cbiAgICAgICBEUC0-PlVJRDI6IDMtYy4gQ29tcGFyZSB0aGUgcm90YXRlZCBzYWx0IGJ1Y2tldHMgdG8gc3RvcmVkIFVJRDIgc2FsdCBidWNrZXRzLjxicj5JZiByb3RhdGVkLCByZXNlbmQgUElJIHRvIGlkZW50aXR5IG1hcHBpbmcgc2VydmljZSBmb3IgYSBuZXcgVUlEMi5cbiAgICAgICBVSUQyLT4-RFA6IDMtZC4gU3RvcmUgdGhlIFVJRDIgYW5kIHNhbHQgYnVja2V0IHJldHVybmVkIGZyb20gdGhlIGlkZW50aXR5IG1hcHBpbmcgc2VydmljZS5cbiAgICBlbmRcbiIsIm1lcm1haWQiOnsidGhlbWUiOiJmb3Jlc3QifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0 -->
 
-<!-- 8/24/23 update: -->
+<!-- 8/30/24: Update "2. Send stored UID2s to DSPs to create audiences." > "2. Send stored UID2s to DSPs to create audiences and conversions." (2242) -->
+<!-- 8/14/24: update to change UID2 Service to UID2 Operator per 2503: -->
 
-<!-- Code: -->
+<!-- 8/30/24: Code: -->
 
   sequenceDiagram
     participant DP as Data Provider
-    participant UID2 as UID2 Service
+    participant UID2 as UID2 Operator
     participant DSP
     loop 1. Retrieve a UID2 for DII using the identity map endpoint.
     DP->>UID2: 1-a. Send a request containing DII to the identity mapping endpoints.
     UID2->>DP: 1-b. Store the raw UID2 and salt bucket returned from the identity mapping service.
     end
-    DP-->>DSP: 2. Send stored UID2s to DSPs to create audiences.
+    DP-->>DSP: 2. Send stored UID2s to DSPs to create audiences and conversions.
 
     loop 3. Monitor for salt bucket rotations related to your stored raw UID2s.
        DP->>UID2: 3-a. Monitor salt bucket rotations using the bucket service.
@@ -44,39 +29,14 @@
 }
  -->
 
-<!--  URL:
+<!--  8/30/24: URL with "Pan & Zoom" on:
 
-https://mermaid.live/edit#pako:eNq1lMFu2zAMhl-F0Dn10OZmDLnMlxwKGA1284WR6ExYLHkSnSIo-u4lbaeL1-Q4X2yI4veTPyW_GRsdmdIAZPozULBUeTwk7JoA8vSY2FvfY2CoasAMFTJCneLJO0pfN_3cVk-6bXzvKJ28pRuoXT0tHmPs4bGAF-Lk6USAU2YbE1TbLQzZhwPwLwKRC-z5DB32QMH10QfOxYSp6ofNRhNLeHzAQoSDE1TSljKDjYHRB0UplOMXYq-xf6kKFG5VK3UvVI6JxtSpS9HIeGTYD_Y3sajxkAI5aFPsbivkyZCZL3qf5avOToSe5uKzarlRKGvBEhzfNhGy2DQ4r8O6lDr6uC7gOQYvmaN_i9oiI_sYslR5FIBT1jkOaSE0w5aGrtXQC_c28--U5tCyz6WVa7XyZfTqGpcnnpQiMKsH4eBPFIB9JyPErr9TnC3gR-zkcE2T-YRck6XXqzYXseL7Pn3bbNtL4koMyjqA-aDcG-HoMEKg15F5p1P3Xw6NWZmOUofeycV90-XGSGZHjSnlUyoTxxrThHfZiQPH3TlYU3IaaGWG3kmf8yU3ZYvHLKvkdLzP079ArkvrD-b9A3aZXBg -->
+https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqlVMGO2jAQ_ZWRz9mIhISFqOLS9MBhVbSol4qLiQfWKrFT22FLEf_esZOwoIVTuQRnZt5782biE6u0QFYwAIu_W1QVlpLvDK_XCujXcONkJRuuHJRL4BZK7jgsjT5IgeZz0o9Fmfq08PzeoOFO30krV8vu5V7rBpIYXtEZiQcE3pVutYFysYDWSrUD94ZAfMpJd4SaN4BKNFoqF3co5fJpPvd1BSRPPIYVxQnJ-Jasg0orx6XySB7T6U-AjY8NoLZH9YCEWy496oZQqRUMpYa_950Sj-V7B5u2-oWOGF1rFArYGl3fZ7FoDrLCnoM4Ly14rhWRpX0D1vOJQGS9aAqGZ2WQO3KqFdIPzAYV1OMBjZVaeflX5o5jeNFKElYw9Uatdtz5CtK9J0jh0Y-6NQP10OfgyK3VY2_1gH0f92N8fei2-1uTx97k1-DgNZzt8EgOgVV-Q2yDldxKr1fWNGBeNw8EVjF81TVtXj-3AegavV-HK7dv4vGXjZkvtkNtRF5ZP51-kx7NN5jNQeH7xcUHTYuHmxVk_fd2sYjVaGouBX3nJx9YM6qtcc0K-ks6ycI1W6szZfLW6dVRVaxwpsWIGd3u3lix5XtLp7YR5EF_Qwwp3ctvwq_BJRPD8aW7XMIdEzH68n9qfamjIytO7A8rxvkkTpPseTYZJXmSpHnEjqzI0zifzLJxRqFsNkqm54j9DfWjeJqlWf48nY3yZJTns-T8D5qfkDg
 
-<!-- 8/28/23 update: -->
+-->
 
-<!-- 8/28/23 Code:
+<!--  8/14/24: URL with "Pan & Zoom" on:
 
-  sequenceDiagram
-    participant DP as Data Provider
-    participant UID2 as UID2 Service
-    participant DSP
-    loop 1. Retrieve a UID2 for PII using the identity map endpoint.
-    DP->>UID2: 1-a. Send a request containing PII to the identity mapping endpoints.
-    UID2->>DP: 1-b. Store the raw UID2 and salt bucket returned from the identity mapping service.
-    end
-    DP-->>DSP: 2. Send stored UID2s to DSPs to create audiences.
+https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqllMGS2jAMhl9F43M2Q0LCQqbDpemBw06ZZXrpcDGxYD0ldmo7bCnDu1c2CSVdODWXxJb1Sfql-MQqLZAVDMDizxZVhaXkO8PrtQJ6Gm6crGTDlYNyCdxCyR2HpdEHKdB8PPRtUab-WHh_bdBwp-8cK1fLy-Ze6waSGF7RGYkHBH5x3WoD5WIBrZVqB-4NgeIpJ90Rat4AKtFoqVx8oZTLp_nc-xWQPPEYVmQnkvElWQeVVo5L5Ume6fQHYONtPdR2VA8kbrn01A1RqRQMroa_d5VSHMv3DjZt9QMdRXStUShga3R9P4pFc5AVdjEo5rUEH2tFwdKuAOvjiRDI-qTJGN6VQe5IqVZI3zCf7o2Y4xhetJLkG0QcZKcdd1IrS3nuCSE87ahb04fq6-oVGEo79tL27Pvcv-3qTMNqh6KOvaivQbFbnL3wKB2CVX4ibIOV3Eqfr6ypobxuHiRYxfBZ1zRpXZ960C29a_-NugN7_Glj5ott7xuRVtZ3o5ucR_0MYnNQ-H5V8UHR4uEkhbT-e5pYxGo0NZeC_uuTN6wZ-da4ZgV9Up4k4Zqt1ZlO8tbp1VFVrHCmxYgZ3e7eWLHle0urthGkQXcj_LP7Rfg5uG5iWL5cbpNwqUSMfvXvWtc9m5asOLFfrBjnkzhNsufZZJTkSZLmETuyIk_jfDLLxhmZstkomZ4j9jv4j-Jplmb583Q2ypNRns-S8x9nnYpX
 
-    loop 3. Monitor for salt bucket rotations related to your stored raw UID2s.
-       DP->>UID2: 3-a. Monitor salt bucket rotations using the bucket service.
-       UID2->>DP: 3-b. Return salt buckets rotated since a specified timestamp.
-       DP->>UID2: 3-c. Compare the rotated salt buckets to the stored UID2 salt buckets.<br>If rotated, resend PII to identity mapping service for a new raw UID2.
-       UID2->>DP: 3-d. Store the raw UID2 and the salt bucket returned from the identity mapping service.
-    end
- -->
-
-
-<!-- 8/28/23 URL: 
-
-https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqllMGO2jAQhl9l5HM2IiFhIaq4ND1wWAkt6qXiYuJha5XYqe2wpYh379hJWKKFU7mEeDzfP_OP4zOrtEBWMACLv1tUFZaSvxlebxXQr-HGyUo2XDko18AtlNxxWBt9lALN503fV2Xqt4XnBs1RVngHtVl3iwetG0hieEVnJB4ReJe51wbK1QpaK9UbuJ8IJKecdCeoeQOoRKOlcnFHKddPy6XPKyB54jHpKkEk4zuyDiqtHJfKkzzT6U_AxscGqO2pHkjccu2pO6I6bTCkGv7eN0o6lh8c7NrqFzpSdK1RKGBvdH1fxXae9BqkeW3Ba21ILO0bsF5PBCHri6ZgeFYGuSOnWiH9vHy5N2ZOY3jRSlJuMHFUnXbcSa0s1XkghPC0k27NIDX0NTgwtnbqrR3Y97kf4-pD427Hpk69qa_BsVuc7XhUDsEqfyJsg5XcS1-vrGmgvG4eFFjF8FXXdNL6OQ2gW3o__ht3R_H4y84sV_shNyKvrJ9Gf3IezTOYzUHh-9XFB02LhycplPXfp4lFrEZTcynosz77wJZRbo1bVtBfqpMs3LKtutBO3jq9OamKFc60GLG2EdR1fwWwYs8P9rr6TfjJXxcxvL5010e4RSJGH_cPreuBRq-sOLM_rJjmszhNsufFbJLkSZLmETuxIk_jfLbIphmFssUkmV8i9jfkT-J5lmb583wxyZNJni-Syz9QQ4UC -->
-
-
-<!-- 8/28/23 Copy Markdown:
-
-[![](https://mermaid.ink/img/pako:eNqllMGO2jAQhl9l5HM2IiFhIaq4ND1wWAkt6qXiYuJha5XYqe2wpYh379hJWKKFU7mEeDzfP_OP4zOrtEBWMACLv1tUFZaSvxlebxXQr-HGyUo2XDko18AtlNxxWBt9lALN503fV2Xqt4XnBs1RVngHtVl3iwetG0hieEVnJB4ReJe51wbK1QpaK9UbuJ8IJKecdCeoeQOoRKOlcnFHKddPy6XPKyB54jHpKkEk4zuyDiqtHJfKkzzT6U_AxscGqO2pHkjccu2pO6I6bTCkGv7eN0o6lh8c7NrqFzpSdK1RKGBvdH1fxXae9BqkeW3Ba21ILO0bsF5PBCHri6ZgeFYGuSOnWiH9vHy5N2ZOY3jRSlJuMHFUnXbcSa0s1XkghPC0k27NIDX0NTgwtnbqrR3Y97kf4-pD427Hpk69qa_BsVuc7XhUDsEqfyJsg5XcS1-vrGmgvG4eFFjF8FXXdNL6OQ2gW3o__ht3R_H4y84sV_shNyKvrJ9Gf3IezTOYzUHh-9XFB02LhycplPXfp4lFrEZTcynosz77wJZRbo1bVtBfqpMs3LKtutBO3jq9OamKFc60GLG2EdR1fwWwYs8P9rr6TfjJXxcxvL5010e4RSJGH_cPreuBRq-sOLM_rJjmszhNsufFbJLkSZLmETuxIk_jfLbIphmFssUkmV8i9jfkT-J5lmb583wxyZNJni-Syz9QQ4UC?type=png)](https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqllMGO2jAQhl9l5HM2IiFhIaq4ND1wWAkt6qXiYuJha5XYqe2wpYh379hJWKKFU7mEeDzfP_OP4zOrtEBWMACLv1tUFZaSvxlebxXQr-HGyUo2XDko18AtlNxxWBt9lALN503fV2Xqt4XnBs1RVngHtVl3iwetG0hieEVnJB4ReJe51wbK1QpaK9UbuJ8IJKecdCeoeQOoRKOlcnFHKddPy6XPKyB54jHpKkEk4zuyDiqtHJfKkzzT6U_AxscGqO2pHkjccu2pO6I6bTCkGv7eN0o6lh8c7NrqFzpSdK1RKGBvdH1fxXae9BqkeW3Ba21ILO0bsF5PBCHri6ZgeFYGuSOnWiH9vHy5N2ZOY3jRSlJuMHFUnXbcSa0s1XkghPC0k27NIDX0NTgwtnbqrR3Y97kf4-pD427Hpk69qa_BsVuc7XhUDsEqfyJsg5XcS1-vrGmgvG4eFFjF8FXXdNL6OQ2gW3o__ht3R_H4y84sV_shNyKvrJ9Gf3IezTOYzUHh-9XFB02LhycplPXfp4lFrEZTcynosz77wJZRbo1bVtBfqpMs3LKtutBO3jq9OamKFc60GLG2EdR1fwWwYs8P9rr6TfjJXxcxvL5010e4RSJGH_cPreuBRq-sOLM_rJjmszhNsufFbJLkSZLmETuxIk_jfLbIphmFssUkmV8i9jfkT-J5lmb583wxyZNJni-Syz9QQ4UC) 
 -->

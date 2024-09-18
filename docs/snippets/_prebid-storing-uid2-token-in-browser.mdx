@@ -1,0 +1,20 @@
+<!-- GWH same section in integration-prebid.md, integration-prebid-client-side.md, integration-prebid-client-server.md. integration-javascript.md is different -->
+
+By default, the UID2 module stores data using local storage. To use a cookie instead, set `params.storage` to `cookie`, as shown in the following example.
+
+For details, see [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) in the Prebid documentation.
+
+```js
+pbjs.setConfig({ 
+  userSync: { 
+    userIds: [{ 
+      name: 'uid2', 
+      params: { 
+        // default value is 'localStorage' 
+        storage: 'cookie'   
+      } 
+    }] 
+  } 
+}); 
+```
+The cookie size can be significant, which could be a problem. However, if local storage is not an option, this is one possible approach.

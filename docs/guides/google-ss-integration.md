@@ -2,25 +2,20 @@
 title: Google Ad Manager Secure Signals Integration
 sidebar_label: GAM Secure Signals
 pagination_label: Google Ad Manager Secure Signals Integration
-description: Covers integration steps for publishers using UID2 with the Google Ad Manager **secure signals** feature
+description: Covers integration steps for publishers using UID2 with the Google Ad ManagerSecure Signals feature.
 hide_table_of_contents: false
 sidebar_position: 10
 ---
+
+import Link from '@docusaurus/Link';
 
 # Google Ad Manager Secure Signals Integration Guide
 
 This guide covers integration steps for publishers using UID2 with the Google Ad Manager secure signals feature (previously known as Encrypted Signals for Publishers, ESP).
 
-<!-- It includes the following sections:
-
-* [Overview](#overview)
-* [Allow Secure Signal Sharing](#allow-secure-signal-sharing)
-* [Publisher Integrations](#publisher-integration)
-* [Server-Only Integration](#server-only-integration)
-* [UID2 SDK for JavaScript Client-Side Integration](#uid2-sdk-for-javascript-client-side-integration)
-* [Sample Applications](#sample-applications) -->
-
->NOTE: To use the UID2 Google Ad Manager secure signals integration, if you are using an SDK you must have your UID2 integration already set up. This does not apply if you are using server-only integration. For a summary of all the integration options available, see [UID2 Integration Guides: Summary](summary-guides.md).
+:::note
+To use the UID2 Google Ad Manager secure signals integration, if you are using an SDK you must have your UID2 integration already set up. This does not apply if you are using server-side integration. For a summary of all the integration options available, see [UID2 Integration Guides: Summary](summary-guides.md).
+:::
 
 ## Overview
 
@@ -32,17 +27,23 @@ With this framework, the following steps occur:
 2. The secure signals feature caches them on the client side and then transparently passes them to Google Ad Manager.
 3. Google Ad Manager uses the UID2 tokens to make bid requests, forwarding the tokens to approved bidders within Google AdX based on the publisher's preferences.
 
-## Allow Secure Signal Sharing
+## Allow Secure Signals Sharing
 
 For your Google Ad Manager account to be eligible to receive encrypted UID2 tokens, you must make sure that encrypted signals are properly shared with third-party bidders on your Google Ad Manager account.
 
 For details, see [Share encrypted signals with bidders](https://support.google.com/admanager/answer/10488752) (Google reference documentation) and then follow the steps in [Use a third-party signal provider](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/securesignals) to switch on UID2 as your signal provider.
 
+:::important
+When you're following the steps, in [Select allowed secure signals](https://support.google.com/admanager/answer/10488752#select-signals), under **Web Signal Deploy Option**, choose **Google Deploy**.
+If you choose the **Prebid User ID Module**, your UID2s will not be correctly processed unless you also choose the **Use your Prebid configuration to automatically configure your Secure signals settings** field.
+Before saving your configuration, double-check that you've selected the correct option.
+:::
+
 ## Publisher Integration
 
-When an encrypted signal is cached, the secure signals feature does not execute the handler to generate a new signal. Because of this, it is necessary to clear the cache before login and after logout.
+When an encrypted signal is cached, the secure signals feature does not execute the handler to generate a new signal. Because of this, it is necessary to clear the cache before and after data capture.
 
-Since the secure signals feature does not provide a way to delete or invalidate a specific ID, publishers must call the `window.googletag.secureSignalProviders.clearAllCache()` function to clear all shared encrypted signals as part of their login/logout workflows.
+Since the secure signals feature does not provide a way to delete or invalidate a specific ID, publishers must call the `window.googletag.secureSignalProviders.clearAllCache()` function to clear all shared encrypted signals as part of their data capture workflows.
 
 The following is an example of calling the `window.googletag.secureSignalProviders.clearAllCache()` function:
 
@@ -55,11 +56,11 @@ window.googletag.cmd.push(function () {
 });
 ```
 
-### Server-Only Integration
+### Server-Side Integration
 
 So that it can share encrypted signals, the hosted auto-loaded secure signals script must be able to make an asynchronous call to the `window.getUid2AdvertisingToken` function and, in response, receive `advertising_token` as a string.
 
-It's important to make sure that the identity token is fresh. For a server-side integration, we recommend making a call to the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md#post-tokenrefresh) endpoint to get a fresh [advertising token](../endpoints/post-token-refresh.md#decrypted-json-response-format) from the JSON response.
+It's important to make sure that the identity token is fresh. For a server-side integration, we recommend making a call to the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint to get a fresh [advertising token](../endpoints/post-token-refresh.md#decrypted-json-response-format) from the JSON response.
 
 The following code is an example of how you could do this.
 
@@ -71,25 +72,43 @@ window.getUid2AdvertisingToken = async () => {
 }
 ```
 
-For details, see [Publisher Integration Guide, Server-Only](custom-publisher-integration.md).
+For details, see [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md).
 
-A sample application is also available for server-only integration. See [Sample Applications](#sample-applications).
+A sample application is also available for server-side integration. See [Sample Applications](#sample-applications).
 
-### UID2 SDK for JavaScript Client-Side Integration
+### SDK for JavaScript Client-Side Integration
 
-If you're using the UID2 SDK for JavaScript version 3.0.0 or later, the UID2 secure signals script uses the `getAdvertisingTokenAsync` function provided in the SDK to get the fresh advertising token, and then pushes the token to Google Ad Manager.
+If you're using the SDK for JavaScript version 3.0.0 or later, the UID2 secure signals script uses the `getAdvertisingTokenAsync` function provided in the SDK to get the fresh advertising token, and then pushes the token to Google Ad Manager.
 
 This script is hosted on CDN, and GPT automatically loads it with the secure signals feature. 
 
-For details, see [Server-Side Integration Guide for JavaScript](integration-javascript-server-side.md).
+For details, see [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md).
 
-A sample application is also available for integration using the UID2 SDK for JavaScript. See [Sample Applications](#sample-applications).
+A sample application is also available for integration using the SDK for JavaScript. See [Sample Applications](#sample-applications).
 
 ## Sample Applications
 
 The following sample applications are available to illustrate how to integrate with the Google Ad Manager secure signals feature:
 
-- [Server-Only UID2 Integration Example](https://secure-signals-srvonly-integ.uidapi.com/)
-- [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
+- Server-Side UID2 Integration Example:
+  - [Sample application](https://secure-signals-srvonly-integ.uidapi.com/)
+  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/server_only)
+- Client-Server UID2 SDK Integration Example:
+  - [Sample application](https://secure-signals-jssdk-integ.uidapi.com/)
+  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
 
 Each sample application has its own instructions.
+
+## Troubleshooting
+
+Here is some troubleshooting information that might help you in working with Google Secure Signals for your UID2 integration:
+
+- [I enabled Secure Signals within Google Ad Manager, but UID2s are not being passed through Google](#i-enabled-secure-signals-within-google-ad-manager-but-uid2s-are-not-being-passed-through-google)
+
+#### I enabled Secure Signals within Google Ad Manager, but UID2s are not being passed through Google
+
+In some cases, after choosing Secure Signals within Google Ad Manager, successful UID2s were not being passed through Google because the participant had an incorrect **Web Signal Deployment Method** configuration.
+
+If your UID2s are not being passed through Google, make sure that you chose the correct Web Signal Deployment Method during setup.
+
+For details, see the **Important** note in [Allow Secure Signals Sharing](#allow-secure-signals-sharing).

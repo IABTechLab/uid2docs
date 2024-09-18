@@ -1,0 +1,8 @@
+## Private Operator Attestation Failure
+Private Operator が Core Service の認証に失敗した場合、次のいずれかのアクションが発生します:
+- HTTP 401 レスポンス。Private Operator は直ちに終了します。
+  - 起こりうる原因: API Keyが取り消されたか、間違っている。
+- その他の 200 以外のレスポンスコード。Private Operator は 12 時間続行されます。この時間内に問題が解決されない場合、Private Operator は終了します。
+  - 起こりうる原因: Core Service の問題、ネットワークの問題。
+
+Private Operator ホストは、エラーが発生した場合にアラートを処理し、オペレーターを再起動するためのインフラを備えている必要があります。

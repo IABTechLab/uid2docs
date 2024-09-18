@@ -5,9 +5,11 @@ hide_table_of_contents: false
 sidebar_position: 12
 ---
 
+import Link from '@docusaurus/Link';
+
 # UID2 GMA Plugin for Android Integration Guide
 
-UID2 Google Mobile Ads (GMA) Plugin for Android は、[Google Mobile Ads (GMA) SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) を使用するパブリッシャーが、Android アプリからの広告リクエストで [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を [secure signals](https://support.google.com/admob/answer/11556288?hl=en-GB) として送信できるようにします。これは自動的に行われるため、アプリ開発者が直接コーディングする必要はありません。
+UID2 Google Mobile Ads (GMA) Plugin for Android は、[Google Mobile Ads (GMA) SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) を使用するパブリッシャーが、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を [secure signals](https://support.google.com/admob/answer/11556288?hl=en-GB) として送信できるようにします。これは自動的に行われるため、アプリ開発者が直接コーディングする必要はありません。
 
 ## Functionality
 
@@ -32,16 +34,17 @@ UID2 Google Mobile Ads (GMA) Plugin for Android は、[Google Mobile Ads (GMA) S
 1. Google Mobile Ads SDK v22.0.0 or later:
    - [SDK](https://developers.google.com/admob/android/sdk)
    - [Release notes](https://developers.google.com/admob/android/rel-notes)
-1. UID2 SDK for Android v0.5.0:
+1. SDK for Android v0.5.0 or later:
    - [SDK](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
-   - [UID2 SDK for Android Reference Guide](../sdks/uid2-sdk-ref-android.md)
+   - [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
 1. [UID2 Android GMA Plugin v0.5.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-gma/)
+1. R8 または Proguard を使用している場合は、[Notes for Using R8 or ProGuard](#notes-for-using-r8-or-proguard) に指定された適用オプションを追加します。
 
 ## Installation
 
-前提条件: Google Mobile Ads SDK と UID2 Android SDK をインストールしてください。
+前提条件: Google Mobile Ads SDK と SDK for Android をインストールしてください。
 
-UID2 Android SDK と Google IMA SDK がインストールされている既存のアプリに、UID2 Android GMA Plugin v0.5.0 をインストールします。インストール方法は 2 つあります:
+SDK for Android と Google IMA SDK がインストールされている既存のアプリに、UID2 Android GMA Plugin v0.5.0 をインストールします。インストール方法は 2 つあります:
 
 - [Gradle](#gradle)
 - [Maven](#maven)
@@ -50,7 +53,7 @@ UID2 Android SDK と Google IMA SDK がインストールされている既存�
 
 Gradle でインストールするには、`build.gradle` ファイルに依存関係として SDK を追加します:
 
-``` javascript
+```js
 implementation 'com.uid2:uid2-android-sdk-gma:0.5.0'
 ```
 
@@ -65,3 +68,10 @@ Maven でインストールするには、`pom.xml` ファイルに依存関係�
   <version>0.5.0</version>
 </dependency>
 ```
+
+## Notes for Using R8 or ProGuard
+
+R8 を使用している場合、縮小と難読化のルールは自動的に含まれます。
+
+ProGuard を使用している場合は、[uid2-gma.pro](https://github.com/IABTechLab/uid2-android-sdk/blob/main/securesignals-gma/uid2-gma.pro) で指定されたオプションを手動で追加する必要があります。
+

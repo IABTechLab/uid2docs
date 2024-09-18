@@ -27,7 +27,7 @@
   --ifm-button-border-width: 0;
   --ifm-button-border-radius: 4px;
   --ifm-button-color: var(--c-eleven-o-clock);
-  --ifm-container-width-xl: 1616px;
+  --ifm-container-width-xl: 1240px;
   --ifm-link-hover-decoration: none;
   --ifm-dropdown-hover-background-color: transparent;
   --ifm-dropdown-link-color: var(--c-eleven-o-clock);
@@ -91,6 +91,10 @@
   --docsearch-muted-color: var(--c-off-white);
   --docsearch-searchbox-background: var(--c-primary-gray);
   --docsearch-hit-active-color: var(--c-off-black);
+}
+
+.docs-doc-page {
+  --ifm-container-width-xl: 1616px;
 }
 
 /**
@@ -158,6 +162,12 @@
     &:hover {
       background-color: var(--c-white);
       border-color: var(--c-lemon);
+    }
+
+    span {
+      &:after {
+        display: none;
+      }
     }
 
     @include dark {

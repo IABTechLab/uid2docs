@@ -1,0 +1,39 @@
+
+
+<!-- 8/16/24: update to change UID2 Service to UID2 Operator per 2503.  Had to copy/update from EUID as I had no source for UID2, just the URL: -->
+
+<!-- 8/16/24: Code: -->
+
+  sequenceDiagram
+    participant U as User
+    participant SSP
+    participant DSP
+    participant EUID as UID2 Operator
+    participant TC as Transparency & Control Portal
+    Note over U,TC: 1. Honor user opt-outs.
+    U->>TC: 1-a. User opts out.
+    activate TC
+    TC->>EUID: 1-b. UID2 Operator receives opt-out.
+    deactivate TC
+    activate EUID
+    EUID->>DSP: 1-c. DSP receives opt-out.
+    deactivate EUID
+    Note over U,TC: 2. Decrypt UID2 tokens to use in RTB.
+    SSP-->>DSP: The SSP calls a DSP for bid.
+    DSP->>DSP: 2-a. Decrypt UID2 tokens.
+    DSP->>DSP: 2-b. Execute bidding logic, honoring user opt-outs from step 1.
+
+<!-- Config:
+
+{
+  "theme": "forest"
+}
+ -->
+
+<!--  8/16/24: URL:
+
+https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqNU8FymzAQ_ZUdHXrCjCHgGA45FHumObTN1HDJcFHE2tYUS1QSnrge_3tXYCeT2IdyQfv09u3TrnRkQjfIcgZg8U-PSuBC8o3hu1oBfR03TgrZceWgAm6hsmiut1arp2twcQtcVo-LQedxEcPPDg13-oZgWXhSabiyBJOtA3yBQitndAtP2jjejkk_tEPQezRQBWWRQxTCN620gZ6Mgu7cRPfOhiO5mjw8DKQJD4eTeIIFYpwJXDi556RYFiNQFpTiPfukl_CjbTAoUO7RXuqcVRq80nkDvNYI-RWJU5e8tgh9v_5D8V3g89FjkkBhDp0bbTr9G5Wln-8FSAW_yq9nPZrX5FK73KKPQfC2tcAHG2s63ItszmxCLuTYd-5GlVtMatfyFUVPLkmrkWoDrd5IEcDWT8jHH4YEa6N3YB12NMVasYDt0Oy4bOh6Hr1-zdwWd1iznJZkEa2rWa1OxOS906uDEix3pseAGd1vtixf89ZS1HcNte58sT-hy0bSKN9AHMLv46MY3kbA6EY-a_2eSDHLj-yV5XfpLIyj5D6bTaM0iuI0YAeWp3GYzrLkLqGtJJtG81PA_g4C03CexEl6P8-maTRN0yw6_QPNMRkk
+
+
+
+-->

@@ -1,18 +1,24 @@
 ---
 title: POST /token/refresh
-description: Use the refresh token to generate an updated UID2 token.
+description: Uses the refresh token to generate an updated UID2 token.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
+import Link from '@docusaurus/Link';
+import IdentityGenerateResponse from '/docs/snippets/_example-identity-generate-response.mdx';
+
 # POST /token/refresh
-Generate a new [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) by sending the corresponding unexpired refresh token, returned by the [POST&nbsp;/token/generate](post-token-generate.md) endpoint.
+
+Generates a new <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> by sending the corresponding unexpired refresh token, returned by the [POST&nbsp;/token/generate](post-token-generate.md) endpoint.
 
 Used by: This endpoint is used mainly by publishers.
 
-You can call this endpoint from the client side (for example, a browser or a mobile app) because it does not require using an API key.
+You can call this endpoint from the client side (for example, a browser or a mobile app) because it does not require using an <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>.
 
->NOTE: Rather than calling this endpoint directly, you could use one of the UID2 SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).
+:::note
+Rather than calling this endpoint directly, you could use one of the UID2 SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).
+:::
 
 ## Request Format 
 
@@ -31,7 +37,7 @@ Here's what you need to know about this endpoint:
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Testing (integration) environment: `https://operator-integ.uidapi.com`<br/>Production environment: `https://prod.uidapi.com`<br/>For a full list, including regional operators, see [Environments](../getting-started/gs-environments.md).<br/>Notes:<ul><li>The `integ` environment and the `prod` environment require different [API keys](../ref-info/glossary-uid.md#gl-api-key).</li><li>Token expiration time is subject to change, but is always significantly shorter in the `integ` environment than it is in the `prod` environment.</li></ul> |
+| `{environment}` | string | Required | Integration environment: `https://operator-integ.uidapi.com`<br/>Production environment: The best choice depends on where your users are based. For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md).<br/>Notes:<ul><li>The `integ` environment and the `prod` environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.</li><li>Token expiration time is subject to change, but is always significantly shorter in the `integ` environment than it is in the `prod` environment.</li></ul> |
 
 #### Testing Notes
 
@@ -46,9 +52,11 @@ For details, and code examples in different programming languages, see [Encrypti
 
 ## Decrypted JSON Response Format
 
-A decrypted successful response includes a new UID2 token (`advertising_token`) and associated values for the user, or indicates that the user has opted out. 
+A decrypted successful response includes a new UID2 token (`advertising_token`) and associated values for the user, or indicates that the user has opted out.
 
->NOTE: The responses are encrypted only if the HTTP status code is 200. Error responses are not encrypted.
+:::note
+The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+:::
 
 This section includes the following sample responses:
 
@@ -60,19 +68,7 @@ This section includes the following sample responses:
 
 If all values are valid and the user has not opted out, the response is successful and a new UID2 token is returned, with associated values. The following example shows a decrypted successful response with tokens:
 
-```json
-{
-    "body": {
-        "advertising_token": "NewAdvertisingTokenIjb6u6KcMAtd0/4ZIAYkXvFrMdlZVqfb9LNf99B+1ysE/lBzYVt64pxYxjobJMGbh5q/HsKY7KC0Xo5Rb/Vo8HC4dYOoWXyuGUaL7Jmbw4bzh+3pgokelUGyTX19DfArTeIg7n+8cxWQ=",
-        "refresh_token": "NewRefreshTokenAAAF2c8H5dF8AAAF2c8H5dF8AAAADX393Vw94afoVLL6A+qjdSUEisEKx6t42fLgN+2dmTgUavagz0Q6Kp7ghM989hKhZDyAGjHyuAAwm+CX1cO7DWEtMeNUA9vkWDjcIc8yeDZ+jmBtEaw07x/cxoul6fpv2PQ==",
-        "identity_expires": 1633643601000,
-        "refresh_from": 1633643001000,
-        "refresh_expires": 1636322000000,
-        "refresh_response_key": "yptCUTBoZm1ffosgCrmuwg=="
-    },
-    "status": "success"
-}
-```
+<IdentityGenerateResponse />
 
 #### Successful Response With Opt-Out
 
@@ -97,13 +93,15 @@ An error response might look like the following:
 
 ### Response Body Properties
 
+The response body includes the properties shown in the following table.
+
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
-| `advertising_token` | string | The [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) (also known as advertising token) for the user. |
+| `advertising_token` | string | The <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> (also known as advertising token) for the user. |
 | `refresh_token` | string | An encrypted token that can be exchanged with the UID2 Service for the latest set of identity tokens. |
-| `identity_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the UID2 token expires. |
-| `refresh_from` | double | The UNIX timestamp (in milliseconds) that indicates when the UID2 SDK for JavaScript (see [UID2 SDK for JavaScript Reference Guide](../sdks/client-side-identity.md)) will start refreshing the UID2 token, if the SDK is in use.<br/>TIP: If you are not using the SDK, consider refreshing the UID2 token from this timestamp, too. |
-| `refresh_expires` | double | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
+| `identity_expires` | number | The UNIX timestamp (in milliseconds) that indicates when the UID2 token expires. |
+| `refresh_from` | number | The UNIX timestamp (in milliseconds) that indicates when the SDK for JavaScript (see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)) will start refreshing the UID2 token, if the SDK is in use.<br/>TIP: If you are not using the SDK, consider refreshing the UID2 token from this timestamp, too. |
+| `refresh_expires` | number | The UNIX timestamp (in milliseconds) that indicates when the refresh token expires. |
 | `refresh_response_key` | string | A key to be used in a new [POST&nbsp;/token/refresh](post-token-refresh.md) request for response decryption. |
 
 ### Response Status Codes

@@ -1,36 +1,44 @@
 ---
 title: POST /token/validate
-description: Advertising Token を検証します (テスト目的)。
+description: Advertising Token を検証(テスト目的)。
 hide_table_of_contents: false
 sidebar_position: 03
 ---
 
+import Link from '@docusaurus/Link';
+
 # POST /token/validate
+
 Advertising Token が指定されたハッシュ化された、またはハッシュ化されていないメールアドレスまたは電話番号と一致するかどうかを検証します。
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
-> NOTE: このエンドポイントは、主に新しいインテグレーションのテストとトラブルシューティングのために用意されています。
+:::note
+このエンドポイントは、主に新しいインテグレーションのテストとトラブルシューティングのために用意されています。
+:::
 
 ## Request Format 
 
 `POST '{environment}/v2/token/validate'`
 
-> IMPORTANT: すべてのリクエストは、秘密鍵を使用して暗号化する必要があります。詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
-
+:::important
+すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+:::
 
 ### Path Parameters
 
-| Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                   |
-| :-------------- | :-------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `{environment}` | string    | 必須      | テスト環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string | 必須 | インテグレーション環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
-NOTE: インテグレーション環境と本番環境では、異なる [APIキー](../ref-info/glossary-uid.md#gl-api-key) が必要です。
-
+:::note
+インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。
+:::
 
 ### Unencrypted JSON Body Parameters
 
-- Body Parameter の表にあるように、以下の4つの有効なオプションのうち1つだけを含めます: `email`、`email_hash`、`phone`、`phone_hash` のいずれかです。テストするパラメータには、リストされている値を正確に指定してください。
+- 次の4つの有効なオプションのいずれかを、Body Parameter テーブルに記載されているように、1つだけ含めます: `email`、`email_hash`、`phone`、または `phone_hash`。
+- 暗号化する際に、必要なボディパラメータをリクエストの JSON ボディ内のキーと値のペアとして含めます。
 
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
@@ -40,12 +48,13 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 | `phone` | string | Conditionally Required | トークンを生成するための [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号です。<br/>有効な値は`+12345678901` だけです。|
 | `phone_hash` | string | Conditionally Required | [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) ハッシュです。<br/>有効な値は `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=` だけです。|
 
-
 ### Request Examples
 
 以下は、各パラメータの暗号化されていない JSON リクエストボディの例で、トークン検証のリクエストに含める必要があります:
 
->NOTE: 以下の例の Advertising Token は、説明のみを目的とした架空のものです。提供された値は実際の値ではありません。
+:::note
+以下の例の Advertising Token は、説明のみを目的とした架空のものです。提供された値は実際の値ではありません。
+:::
 
 ```json
 {
@@ -78,11 +87,13 @@ NOTE: インテグレーション環境と本番環境では、異なる [APIキ
 echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D", "email_hash": "LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI="}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/validate [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
-詳細と Python スクリプトの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON Response Format
 
-> NOTE: レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されません。
+:::note
+レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されません。
+:::
 
 復号化に成功したレスポンスは、以下の例に示すように、指定された Advertising Token の検証結果を示す論理値を返します。
 
@@ -109,11 +120,11 @@ echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXl
 | `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。 |
 | `unauthorized` | 401 | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
-`status` の値が `success` 以外であれば、 `message` フィールドにその問題に関する追加情報が表示されます。
+`status` の値が `success` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。
 
 ## Using POST /token/validate to Test
 
-このエンドポイントを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) で送信する [DII](../ref-info/glossary-uid.md#gl-dii) が有効かどうかをテストできます。以下の手順に従ってください。
+このエンドポイントを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) で送信する <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> が有効かどうかをテストできます。以下の手順に従ってください。
 
 1. DII がハッシュ化されたメールアドレスか、ハッシュ化されていないメールアドレスか、電話番号かに応じて、[Unencrypted JSON Body Parameters](#unencrypted-json-body-parameters) の表に記載されている4つの有効なオプションのいずれかを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) リクエストを送信します。表に記載されている対応する値 - `email`、`email_hash`、`phone`、`phone_hash` - を使用します。
 

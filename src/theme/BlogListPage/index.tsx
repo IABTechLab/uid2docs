@@ -42,21 +42,24 @@ function BlogListPageContent(props: Props): JSX.Element {
 
 export default function BlogListPage(props: Props): JSX.Element {
   React.useEffect(() => {
-    const pageViewData = {
-      event: "Initialize_dataLayer",
-      document_type: "Blog",
-      document_title: document.title,
-      article_author: undefined,
-      tags: undefined,
-    };
+    const timerId = setTimeout(() => {
+      const pageViewData = {
+        event: "Initialize_dataLayer",
+        document_type: "Blog",
+        document_title: document.title,
+        article_author: undefined,
+        tags: undefined,
+      };
+      pushGtmEvent(pageViewData);
+    }, 50);
 
-    pushGtmEvent(pageViewData);
+    return () => clearTimeout(timerId);
   }, []);
   return (
     <HtmlClassNameProvider
       className={clsx(
         ThemeClassNames.wrapper.blogPages,
-        ThemeClassNames.page.blogListPage
+        ThemeClassNames.page.blogListPage,
       )}
     >
       <BlogListPageMetadata {...props} />
