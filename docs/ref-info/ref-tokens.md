@@ -57,21 +57,37 @@ An easy way to manage token refresh is to use one of the UID2 SDKs that have a f
 
 Each of these SDKs includes a class, `Uid2PublisherClient`, that has a function to determine if a token refresh is needed.
 
-The following examples show how you could check if refresh is needed using one of these functions. The function checks whether you should refresh, and then, if needed, you can easily call the refresh function to refresh the token.
+The following examples show how you could first check if the token can be refreshed and then check if refresh is needed, using one of these SDKs. If it's time to refresh, you can then call the refresh function to refresh the token.
 
 <Tabs groupId="language-selection">
 <TabItem value='java' label='Java'>
 
- ```java
-  if (identity.isDueForRefresh()) {..}
- ```
+1. Determine if the identity can be refreshed (that is, the refresh token hasn't expired):
+
+    ```java
+    if (identity == null || !identity.isRefreshable()) { we must no longer use this identity (for example, remove this identity from the user's session) }
+    ```
+
+1. Determine if a refresh is needed:
+
+    ```java
+    if (identity.isDueForRefresh()) {..}
+    ```
 
 </TabItem>
 <TabItem value='py' label='Python'>
 
-```py
-  if identity.is_due_for_refresh()):
-```
+1. Determine if the identity can be refreshed (that is, the refresh token hasn't expired):
+
+   ```py
+   if not identity or not identity.is_refreshable(): # we must no longer use this identity (for example, remove this identity from the user's session)
+   ```
+
+1. Determine if a refresh is needed:
+
+   ```py
+    if identity.is_due_for_refresh()):
+    ```
 
 </TabItem>
 </Tabs>

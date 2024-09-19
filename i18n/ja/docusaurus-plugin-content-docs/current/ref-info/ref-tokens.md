@@ -6,6 +6,8 @@ sidebar_position: 06
 ---
 
 import Link from '@docusaurus/Link';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # UID2 Tokens and Refresh Tokens
 
@@ -48,6 +50,52 @@ Here are some key points about refresh tokens:
 The recommended refresh interval is hourly.
 
 To determine when to refresh, you can use the timestamp of the `refresh_from` field in the response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint (see [Successful Response](../endpoints/post-token-generate.md#successful-response)) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint (see [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens)). The value of this field is a timestamp in UNIX time, expressed in milliseconds.
+
+### Managing Token Refresh with an SDK
+
+An easy way to manage token refresh is to use one of the UID2 SDKs that have a function for the purpose: either the Java or Python SDK.
+
+Each of these SDKs includes a class, `Uid2PublisherClient`, that has a function to determine if a token refresh is needed.
+
+The following examples show how you could first check if the token can be refreshed and then check if refresh is needed, using one of these SDKs. If it's time to refresh, you can then call the refresh function to refresh the token.
+
+<Tabs groupId="language-selection">
+<TabItem value='java' label='Java'>
+
+1. Determine if the identity can be refreshed (that is, the refresh token hasn't expired):
+
+    ```java
+    if (identity == null || !identity.isRefreshable()) { we must no longer use this identity (for example, remove this identity from the user's session) }
+    ```
+
+1. Determine if a refresh is needed:
+
+    ```java
+    if (identity.isDueForRefresh()) {..}
+    ```
+
+</TabItem>
+<TabItem value='py' label='Python'>
+
+1. Determine if the identity can be refreshed (that is, the refresh token hasn't expired):
+
+   ```py
+   if not identity or not identity.is_refreshable(): # we must no longer use this identity (for example, remove this identity from the user's session)
+   ```
+
+1. Determine if a refresh is needed:
+
+   ```py
+    if identity.is_due_for_refresh()):
+    ```
+
+</TabItem>
+</Tabs>
+
+Before using the code example, check the prerequisites and notes for the language you're using. For details, refer to the doc for the applicable SDK:
+
+- [SDK for Java, Usage for Publishers, Basic Usage Server-Side Integration section](../sdks/sdk-ref-java.md#basic-usage-server-side-integration)
+- [SDK for Python, Usage for Publishers, Server-Side Integration section](../sdks/sdk-ref-python.md#server-side-integration)
 
 ## FAQs
 
