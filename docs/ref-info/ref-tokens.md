@@ -55,7 +55,7 @@ To determine when to refresh, you can use the timestamp of the `refresh_from` fi
 
 An easy way to manage token refresh is to use one of the UID2 SDKs that have a function for the purpose: either the Java or Python SDK.
 
-Each of these SDKs includes a class, `Uid2PublisherClient`, that has a function to determine if a token refresh is needed.
+Each of these SDKs includes a publisher class that has a function to determine if a token refresh is needed.
 
 The following examples show how you could first check if the token can be refreshed and then check if refresh is needed, using one of these SDKs. If it's time to refresh, you can then call the refresh function to refresh the token.
 
