@@ -72,7 +72,7 @@ To remove someone from the team, follow these steps:
 1. Log in to your UID2 Portal account.
 1. At the top right, click the down arrow and choose **Manage Team Members**.
 1. Find the team member on the list and then, in the Actions column, click ![the Delete icon](images/icon-trash-can-solid.png) (the Delete icon).
-1. At the confirmation message, click **Delete Team Member**.
+1. At the confirmation message, click **Remove Team Member**.
 
    The team member is removed from the team.
 
