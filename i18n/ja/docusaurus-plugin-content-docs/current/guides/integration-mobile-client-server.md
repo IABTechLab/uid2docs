@@ -93,7 +93,7 @@ Token Refresh を Server-Side で管理し、クライアント/モバイルサ�
 - [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出します。
 - UID2 Server-Side SDK のいずれかの Publisher Client クラスを使用します。これらのクラスは、リクエストを単一のメソッド呼び出しに簡素化します。
 
-  手順については、[SDK for Java, Publisher Server-Side Integration section](../sdks/sdk-ref-java.md#server-side-integration) または [SDK for Python, Publisher Server-Side Integration section](../sdks/sdk-ref-python.md#server-side-integration) を参照してください。
+  手順については、[SDK for Java, Usage for Publishers, Basic Usage Server-Side Integration section](../sdks/sdk-ref-java.md#basic-usage-server-side-integration) または [SDK for Python, Usage for Publishers, Server-Side Integration section](../sdks/sdk-ref-python.md#server-side-integration) を参照してください。
 
 その後、このガイドの残りの部分に従って、新しくリフレッシュされた `Identity` 値をモバイルアプリに渡します。
 

@@ -155,7 +155,7 @@ SDK の HTTP 実装を使用している場合は、以下の手順に従って�
 
  <!-- uid2_euid_diff re legal basis for admonition above (first bullet not in UID2) -->
 
-#### Client-Server Integration
+#### Basic Usage, Client-Server Integration
 
 Standard Integration (Client and Server) を使用している場合([Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください)、このステップに従ってください：
 
@@ -169,7 +169,7 @@ Standard Integration (Client and Server) を使用している場合([Client-Ser
    ユーザーがオプトアウトした場合、このメソッドは `null` を返しますので、必ず処理してください。
    :::
 
-#### Server-Side Integration
+#### Basic Usage, Server-Side Integration
 
 Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md) を参照してください) を使用している場合は、以下の手順に従ってください:
 
@@ -241,7 +241,7 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
    TokenGenerateResponse tokenGenerateResponse = publisherUid2Helper.createTokenGenerateResponse({response body}, envelope);
    ```
 
-#### Client-Server Integration
+#### Advanced Usage, Client-Server Integration
 
 Standard Integration (client and server) を使用している場合 ([Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください)、以下の手順に従ってください:
 
@@ -255,7 +255,7 @@ Standard Integration (client and server) を使用している場合 ([Client-Se
     ユーザーがオプトアウトした場合、このメソッドは `null` を返しますので、必ず処理してください。
     :::
 
-#### Server-Side Integration
+#### Advanced Usage, Server-Side Integration
 
 Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md) を参照してください) を使用している場合は、以下の手順に従ってください:
 
