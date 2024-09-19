@@ -181,12 +181,14 @@ This section includes the following information:
 
 #### Server-Only Mode Cookie Example
 
-The following example stores the advertising token value in a cookie named `__uid2_advertising_token`. The configuration allows the UID2 module to retrieve the advertising token value from the cookie.
+The following example stores the advertising token value in a cookie named `__uid2_advertising_token`. The value of the cookie is the value returned in the token response object (see [Sample Token Response Object](#sample-token-response-object)).
+
+The configuration allows the UID2 module to retrieve the advertising token value from the cookie.
 
 Cookie:
 
 ```js
-__uid2_advertising_token=...advertising token...
+__uid2_advertising_token=A4AAAABlh75XmviGJi-hkLGs96duivRhMd3a3pe7yTIwbAHudfB9wFTj2FtJTdMW5TXXd1KAb-Z3ekQ_KImZ5Mi7xP75jRNeD6Mt6opWwXCCpQxYejP0R6WnCGnWawx9rLu59LsHv6YEA_ARNIUUl9koobfA9pLmnxE3dRedDgCKm4xHXYk01Fr8rOts6iJj2AhYISR3XkyBpqzT-vqBjsHH0g
 ```
 
 Configuration:
