@@ -31,13 +31,34 @@ With this framework, the following steps occur:
 
 For your Google Ad Manager account to be eligible to receive encrypted UID2 tokens, you must make sure that encrypted signals are properly shared with third-party bidders on your Google Ad Manager account.
 
-For details, see [Share encrypted signals with bidders](https://support.google.com/admanager/answer/10488752) (Google reference documentation) and then follow the steps in [Use a third-party signal provider](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/securesignals) to switch on UID2 as your signal provider.
+For details, see [Share encrypted signals with bidders](https://support.google.com/admanager/answer/10488752) in the Google documentation, and then follow the steps in [Use a third-party signal provider](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/securesignals) to switch on UID2 as your signal provider.
 
 :::important
 When you're following the steps, in [Select allowed secure signals](https://support.google.com/admanager/answer/10488752#select-signals), under **Web Signal Deploy Option**, choose **Google Deploy**.
 If you choose the **Prebid User ID Module**, your UID2s will not be correctly processed unless you also choose the **Use your Prebid configuration to automatically configure your Secure signals settings** field.
 Before saving your configuration, double-check that you've selected the correct option.
 :::
+
+### Optional: Enable Secure Signals in a Third-Party Bidder
+
+If you want to enable Secure Signals support in a third-party bidder such as Prebid.js, after updating the Secure Signals settings you'll also need to update the configuration in the third-party bidder.
+
+For example, if you're using Prebid.js, update the `encryptedSignalSources` section in your Prebid configuration, as shown in the following code:
+
+```
+"encryptedSignalSources": {
+  "sources":[
+    {
+      "source":[
+        "uidapi.com"
+      ],
+      "encrypt":false
+    }
+  ]
+}
+```
+
+For details, see [ESP Configurations](https://docs.prebid.org/dev-docs/modules/userId.html#esp-configurations) in the Prebid documentation.
 
 ## Publisher Integration
 
