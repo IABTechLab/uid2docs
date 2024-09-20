@@ -68,7 +68,7 @@ For a client-server UID2 integration for Prebid, the first step is to generate t
 
 For details, including instructions and examples, see [Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md).
 
-To generate a token, call one of the SDKs or the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint. For an example of the API response, showing the token, see [Sample Token](#sample-token). You will need to pass the `Identity` response to Prebid.
+To generate a token, call one of the SDKs or the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint. For an example of the API response, showing the token, see [Sample Token Response Object](#sample-token-response-object). You will need to pass the `Identity` response to Prebid.
 
 :::warning
 For security reasons, the API key and secret used in token generation must be called server-side. Do not store these values as part of your Prebid implementation.
@@ -90,7 +90,7 @@ UID2 Token をリフレッシュするには、次の表に示すように 2 つ
 - 新しい UID2 Token を取得するには、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)。
 - リフレッシュされた UID2 Token については、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md)。
 
-例については、[Sample Token](#sample-token) を参照してください。
+例については、[Sample Token Response Object](#sample-token-response-object) を参照してください。
 
 Refresh Token が有効である限り、UID2 Prebid module は必要に応じて UID2 Token をリフレッシュします。
 
@@ -134,11 +134,11 @@ pbjs.setConfig({
 });
 ```
 
-トークンの例については、[Sample Token](#sample-token) を参照してください。
+トークンの例については、[Sample Token Response Object](#sample-token-response-object) を参照してください。
 
 #### Client Refresh Mode uid2Token Example
 
-次の例は、コンフィギュレーションのサンプルを示しています。トークンの内容については、[Sample Token](#sample-token)  を参照してください。
+次の例は、コンフィギュレーションのサンプルを示しています。トークンの内容については、[Sample Token Response Object](#sample-token-response-object)  を参照してください。
 
 ```js
 pbjs.setConfig({
@@ -186,7 +186,7 @@ Server-Only Mode を使用するようにモジュールを設定するには、
 Cookie:
 
 ```js
-__uid2_advertising_token=...advertising token...
+__uid2_advertising_token=A4AAAABlh75XmviGJi-hkLGs96duivRhMd3a3pe7yTIwbAHudfB9wFTj2FtJTdMW5TXXd1KAb-Z3ekQ_KImZ5Mi7xP75jRNeD6Mt6opWwXCCpQxYejP0R6WnCGnWawx9rLu59LsHv6YEA_ARNIUUl9koobfA9pLmnxE3dRedDgCKm4xHXYk01Fr8rOts6iJj2AhYISR3XkyBpqzT-vqBjsHH0g
 ```
 
 Configuration:
@@ -303,8 +303,8 @@ Prebid.js の設定を検証・デバッグするツールの例として、オ�
 | --- | --- | --- | --- | --- |
 | name | CR: 必須<br/>SO:&nbsp;必須 | String | UID2 module の ID 値。常に `"uid2"`。 | `"uid2"` |
 | value | CR: N/A<br/>SO: オプション | Object | Advertising Token の値を含むオブジェクト。 | [Configuration Parameter Examples: Value](#configuration-parameter-examples-value) を参照してください。 |
-| params.uid2Token | CR: Optional<br/>SO: N/A | Object | 最初の UID2 Token。これは `/token/generate` または `/token/refresh` エンドポイントをコールした際に復号されたレスポンスの `body` 要素でなければなりません。 | [Sample Token](#sample-token) を参照してください。 |
-| params.uid2Cookie | CR: オプション<br/>SO: N/A  | String | サーバが設定した UID2 Token を保持するクッキーの名前。クッキーは uid2Token パラメータと同じ形式の JSON を含む必要があります。`uid2Token` を指定した場合、このパラメータは無視されます。 | [Sample Token](#sample-token) を参照してください。 |
+| params.uid2Token | CR: Optional<br/>SO: N/A | Object | 最初の UID2 Token。これは `/token/generate` または `/token/refresh` エンドポイントをコールした際に復号されたレスポンスの `body` 要素でなければなりません。 | [Sample Token Response Object](#sample-token-response-object) を参照してください。 |
+| params.uid2Cookie | CR: オプション<br/>SO: N/A  | String | サーバが設定した UID2 Token を保持するクッキーの名前。クッキーは uid2Token パラメータと同じ形式の JSON を含む必要があります。`uid2Token` を指定した場合、このパラメータは無視されます。 | [Sample Token Response Object](#sample-token-response-object) を参照してください。 |
 | params.uid2ApiBase | CR: オプション<br/>SO: オプション | String | デフォルトの UID2 API エンドポイントを上書きします。有効な値については、[Environments](../getting-started/gs-environments.md) を参照してください。 | `"https://prod.uidapi.com"` (デフォルト)|
 | params.storage | CR: オプション<br/>SO: オプション | String | モジュール内部の保存方法を指定します: `cookie` または `localStorage`。このパラメータは指定しないことを推奨します。代わりに、モジュールがデフォルトを使用するようにします。 | `"localStorage"` (デフォルト) |
 
@@ -327,7 +327,7 @@ pbjs.setConfig({
 });
 ```
 
-### Sample Token
+### Sample Token Response Object
 
 以下のサンプルは架空のものですが、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントから返されるトークンレスポンスオブジェクトがどのように見えるかを示しています:
 
