@@ -35,8 +35,9 @@ For details, see [Share encrypted signals with bidders](https://support.google.c
 
 :::important
 When you're following the steps, in [Select allowed secure signals](https://support.google.com/admanager/answer/10488752#select-signals), under **Web Signal Deploy Option**, choose **Google Deploy**.
-If you choose the **Prebid User ID Module**, your UID2s will not be correctly processed unless you also choose the **Use your Prebid configuration to automatically configure your Secure signals settings** field.
-Before saving your configuration, double-check that you've selected the correct option.
+If you choose the **Prebid User ID Module**, your UID2s will not be correctly processed unless you also choose the **Use your Prebid configuration to automatically configure your Secure signals settings** field. Before saving your configuration, double-check that you've selected the correct option.
+
+If you're using Prebid, you must also update your Prebid.js configuration: see [Optional: Enable Secure Signals in a Third-Party Bidder](#optional-enable-secure-signals-in-a-third-party-bidder).
 :::
 
 ### Optional: Enable Secure Signals in a Third-Party Bidder
