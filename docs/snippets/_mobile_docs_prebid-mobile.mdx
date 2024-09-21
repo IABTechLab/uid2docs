@@ -23,7 +23,7 @@ To configure your UID2 Prebid for Mobile integration, follow these steps:
    <TabItem value='gradle' label='Gradle (Android)'>
    Include the following in your Gradle configuration:
    ```js
-   implementation("com.uid2:uid2-android-sdk-prebid:1.4.0")
+   implementation("com.uid2:uid2-android-sdk-prebid:1.5.0")
    ```
    </TabItem>
    <TabItem value='maven' label='Maven (Android)'>
@@ -32,14 +32,14 @@ To configure your UID2 Prebid for Mobile integration, follow these steps:
    <dependency>
       <groupId>com.uid2</groupId>
       <artifactId>uid2-android-sdk-prebid</artifactId>
-      <version>1.4.0</version>
+      <version>1.5.0</version>
    </dependency>
    ```
    </TabItem>
    <TabItem value='cocoapods' label='CocoaPods (iOS)'>
    Add the following entry in your `Podfile`:
    ```js
-   pod 'UID2Prebid', '~> 1.5'
+   pod 'UID2Prebid', '~> 1.7'
    ```
    </TabItem>
    <TabItem value='spm' label='SPM (iOS)'>
@@ -57,7 +57,7 @@ To configure your UID2 Prebid for Mobile integration, follow these steps:
    UID2Manager.init(context = this)
 
    PrebidMobile.initializeSdk(this) { Log.i(TAG, "Prebid: $it") }
-   prebid = UID2Prebid().apply {
+   prebid = UID2Prebid(UID2Manager.getInstance()).apply {
        initialize()
    }
    ```
@@ -68,14 +68,14 @@ To configure your UID2 Prebid for Mobile integration, follow these steps:
 
    PrebidMobile.initializeSdk(this, status -> Log.i(TAG, "Prebid: " + status));
 
-   prebid = new UID2Prebid();
+   prebid = new UID2Prebid(UID2Manager.getInstance());
    prebid.initialize();
    ```
    </TabItem>
    <TabItem value='ios' label='iOS Swift'>
    Initialize an instance of UID2Prebid and hold a strong reference to it. UID2Prebid only observes the UID2Manager while the instance is retained.
    ```js
-   self.prebid = UID2Prebid()
+   self.prebid = UID2Prebid(manager: UID2Manager.shared)
    ```
    </TabItem>
    </Tabs>
@@ -92,6 +92,7 @@ To configure your UID2 Prebid for Mobile integration, follow these steps:
    <TabItem value='android' label='Android Kotlin'>
    ```js
    prebid = UID2Prebid(
+       manager = UID2Manager.getInstance(),
        externalUserIdFactory = ::getExternalIds,
    ).apply {
        initialize()
@@ -106,7 +107,7 @@ To configure your UID2 Prebid for Mobile integration, follow these steps:
    </TabItem>
     <TabItem value='ios' label='iOS Swift'>
    ```js
-   self.prebid = UID2Prebid(thirdPartyUserIDs: {
+   self.prebid = UID2Prebid(manager: UID2Manager.shared, thirdPartyUserIDs: {
        // return externalUserIDs
    })
    ```
