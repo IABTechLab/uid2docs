@@ -30,8 +30,10 @@ Prebid.js を UID2 ID モジュールと一緒に使用しているや、UID2 �
 関連情報:
 
 コンテンツパブリッシャーのインテグレーションステップについては、以下を参照してください:
-  - [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md).
-  - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md). 
+  - [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
+  - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
+
+## Sample Implementation Website
 
 アプリケーションのサンプルと関連文書については、以下を参照してください:
   - SDK v3を使用したUID2 Google Secure Signals のサンプル:

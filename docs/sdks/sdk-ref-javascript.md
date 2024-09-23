@@ -30,8 +30,10 @@ This page describes version 3 of the SDK for JavaScript. If you are maintaining 
 Related information:
 
 For integration steps for content publishers, see:
-  - [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md).
-  - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md). 
+  - [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
+  - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
+
+## Sample Implementation Website
 
 For example applications with associated documentation, see:
   - The UID2 Google Secure Signals with SDK v3 example:
