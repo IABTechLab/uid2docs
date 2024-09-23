@@ -121,7 +121,7 @@ The procedure is a little different depending on whether or not you are using an
 
 #### What is the uniqueness and rotation policy for UID2 tokens?
 
-The UID2 service encrypts UID2 tokens using random initialization vectors. The UID2 token is unique for a given user as the user browses the internet. This means that every time a UID2 token is generated, the token is always different, even for the same underlying raw UID2. Every time the token is refreshed, a new token is generated and encrypted. This mechanism helps ensure that untrusted parties cannot track a user's identity.
+The UID2 service encrypts UID2 tokens using random initialization vectors. The UID2 token is unique for a given user as the user browses the internet. This means that every time a UID2 token is generated, the token is always different, even for the same underlying raw UID2. Every time the token is refreshed, a new token is generated and encrypted.
 
 #### What does a UID2 token look like in the bidstream?
 
@@ -137,7 +137,7 @@ Here are some frequently asked questions for advertisers and data providers usin
    - [Do refreshed emails get assigned to the same bucket with which they were previously associated?](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
    - [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)
    - [How should I generate the SHA-256 of DII for mapping?](#how-should-i-generate-the-sha-256-of-dii-for-mapping)
-   - [Should I store large volumes of email address, phone number, or their hash mappings?](#should-i-store-large-volumes-of-email-address-phone-number-or-their-hash-mappings)
+   - [Should I store mapping of email addresses, phone numbers, or corresponding hashes to raw UID2s in my own datasets?](#should-i-store-mapping-of-email-addresses-phone-numbers-or-corresponding-hashes-to-raw-uid2s-in-my-own-datasets)
    - [How should I handle user opt-outs?](#how-should-i-handle-user-opt-outs)
    - [Does the same DII always result in the same raw UID2?](#does-the-same-dii-always-result-in-the-same-raw-uid2)
    - [If two operators process the same DII, are the results the same?](#if-two-operators-process-the-same-dii-are-the-results-the-same)
@@ -168,7 +168,7 @@ Even though each salt bucket is updated roughly once a year, individual bucket u
 
 The system should follow the [email normalization rules](gs-normalization-encoding.md#email-address-normalization) and hash without salting.
 
-#### Should I store large volumes of email address, phone number, or their hash mappings? 
+#### Should I store mapping of email addresses, phone numbers, or corresponding hashes to raw UID2s in my own datasets?
 
 Yes. Not storing mappings may increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily.
 
