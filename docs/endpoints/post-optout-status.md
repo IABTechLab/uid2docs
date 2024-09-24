@@ -107,7 +107,7 @@ The response body includes the following properties.
 | Property | Format | Description |
 | :--- | :--- | :--- |
 | `advertising_id` | string | The <Link href="../ref-info/glossary-uid#gl-advertising-id">advertising ID</Link> (raw UID2). |
-| `opted_out_since` | number | The UNIX timestamp (in milliseconds) that indicates when the raw UID2 was opted out. |
+| `opted_out_since` | number | The <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> timestamp (in milliseconds) that indicates when the raw UID2 was opted out. |
 
 ### Response Status Codes
 

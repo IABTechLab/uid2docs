@@ -99,9 +99,9 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 | :--- | :--- | :--- |
 | `advertising_token`    | string    | ユーザーの <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> (Advertising Token とも呼ばれます) です。 |
 | `refresh_token`        | string    | UID2 Service と最新の ID トークンのセットを交換できる暗号化されたトークンです。 |
-| `identity_expires`     | number    | UID2 Token の有効期限を示す UNIX タイムスタンプ (ミリ秒単位) です。 |
-| `refresh_from`         | number    | SDK for JavaScript ([SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください) が UID2 Token のリフレッシュを開始するタイミングを示す UNIX タイムスタンプ(ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから Advertising Token もリフレッシュすることを検討してください。|
-| `refresh_expires`      | number    | Refresh Token の有効期限を示す UNIX タイムスタンプ(ミリ秒単位)。 |
+| `identity_expires`     | number    | UID2 Token の有効期限を示す Unix タイムスタンプ (ミリ秒単位) です。 |
+| `refresh_from`         | number    | SDK for JavaScript ([SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください) が UID2 Token のリフレッシュを開始するタイミングを示す Unix タイムスタンプ(ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから Advertising Token もリフレッシュすることを検討してください。|
+| `refresh_expires`      | number    | Refresh Token の有効期限を示す Unix タイムスタンプ(ミリ秒単位)。 |
 | `refresh_response_key` | string    | [POST&nbsp;/token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。 |
 
 ### Response Status Codes
