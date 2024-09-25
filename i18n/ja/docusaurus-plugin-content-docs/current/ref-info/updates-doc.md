@@ -11,6 +11,16 @@ import Link from '@docusaurus/Link';
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: Tokens Page
+
+September 10, 2024
+
+トークンに関する情報を含む新しいリファレンスページを追加しました。
+
+詳細は、[UID2 Tokens and Refresh Tokens](../ref-info/ref-tokens.md) を参照してください。
+
+<!-- APIDOCS-2533 -->
+
 ### New: Private Operator Integrations Page
 
 August 28, 2024
