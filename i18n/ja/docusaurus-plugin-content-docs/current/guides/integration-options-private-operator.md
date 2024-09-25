@@ -1,6 +1,6 @@
 ---
 title: UID2 Integrations for Private Operators
-description: Information summary for Private Operators.
+description: Private Operator 向けの情報概要。
 hide_table_of_contents: false
 ---
 
@@ -8,101 +8,101 @@ import Link from '@docusaurus/Link';
 
 # UID2 Private Operator Integration Overview
 
-UID2 participants that host their own Private Operator send first-party <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to their own, local UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> service, running in a private environment.
+Private Operator をホストする UID2 参加者は、自身のローカル UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> サービスに、自社のファーストパーティ <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> を送信します。この Operator は、プライベート環境で実行されます。
 
-A Private Operator runs in an <Link href="../ref-info/glossary-uid#gl-enclave">enclave</Link>&#8212;a virtual machine with additional security features to prevent unauthorized access, so that unauthorized individuals cannot download any configuration information or data from the virtual machine.
+Private Operator は <Link href="../ref-info/glossary-uid#gl-enclave">enclave</Link>&#8212;不正アクセスを防ぐための追加のセキュリティ機能を備えた仮想マシンで実行されます。このため、不正な個人は仮想マシンから構成情報やデータをダウンロードできません。
 
-Becoming a Private Operator includes several additional steps, and uses resources that the participant must provide.
+Private Operator になるには、いくつかの追加ステップが必要で、参加者用意しなければならないリソースがあります。
 
-Learn about what the UID2 framework offers for Private Operators, including benefits, hosting options, documentation and other resources, and how to get started.
+UID2 フレームワークが Private Operator 向けに提供する機能、利点、ホスティング オプション、ドキュメントとその他のリソース、および開始方法について説明します。
 
 ## Private Operator Benefits
 
-Here are some of the intended benefits of participating in UID2 as a Private Operator:
-- You can maintain privacy-conscious workflows for your customer data to be encrypted and activated across chosen partners.
-- You can participate in UID2 using your own first-party <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> without sharing it.
+Private Operator に参加するメリットは次のとおりです。
+- 顧客のデータを暗号化し、選択したパートナー間でアクティブ化するためのプライバシーに配慮したワークフローを維持できます。
+- 自社のファーストパーティ <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> を共有することなく、UID2 に参加できます。
 
-  Within a Private Operator solution, DII does not leave your infrastructure.
-- You have full control of resources, performance, and latency for UID2. For example:  
-  - You can provide greater availability, without rate limitations.
-  - If you are not physically located near to a Public Operator instance, you might choose to host a Private Operator solution for latency reasons.
-- You can plan to minimize network hops with a service that can provide regional proximity.
-- You can implement processes and policies that you control, as opposed to taking part in a shared service.
+  Private Operator ソリューションないでは、DII が自社のインフラストラクチャを離れることはありません。
+- UID2 のためのリソース、パフォーマンス、およびレイテンシを完全に制御できます。たとえば:
+  - 制限なしで、より高い可用性を提供できます。
+  - Public Operator のインスタンスが近くにない場合、レイテンシの理由から Private Operator ソリューションをホストすることがあります。
+- 地域に近いサービスを提供できるサービスを使用して、ネットワークホップを最小限に抑えることができます。
+- シェアード サービスに参加する代わりに、自社でコントロールできるプロセスとポリシーを実装できます。
 
-If you have significant latency concerns, or your security requirements dictate that data stays within your systems, and you also have extensive engineering resources to both build and maintain your UID2 implementation, you might consider the Private Operator solution. 
+レイテンシに関する懸念が大きい場合、またはセキュリティ要件がデータが自社のシステム内に留まることを求める場合、さらに UID2 の実装を構築および維持するためのエンジニアリソースが豊富な場合、Private Operator ソリューションを検討することができます。
 
 ## Private Operator Requirements
 
-The participant must host, configure, maintain, and update the Private Operator instance, and must conform to strict security measures. Engineering resources are required to integrate and to make ongoing updates.
+参加者は、Private Operator インスタンスをホスト、構成、維持、および更新し、厳格なセキュリティ対策に準拠する必要があります。インテグレーションを行い、継続的な更新を行うためにエンジニアリソースが必要です。
 
-The participant must sign a contract (see [Account Setup](../getting-started/gs-account-setup.md)) to host a Private Operator instance.
+Private Operator インスタンスをホストするためには、契約を結ぶ必要があります。契約については、[Account Setup](../getting-started/gs-account-setup.md) を参照してください。
 
 :::note
-A Private Operator has no visibility into the raw UID2s or UID2 tokens processed by a Public Operator or another Private Operator. Each Private Operator is isolated from all other Operators.
+Privaet Operator は、Public Operator または他の Private Operator によって処理された raw UID2 または UID2 Token の内容を見ることはできません。各 Private Operator は他のすべての Operator から隔離されています。
 :::
 
 ## Hosting Options for Private Operators
 
-If you choose to be a Private Operator, several implementation options are available. UID2 supports hosting UID2 in an <Link href="../ref-info/glossary-uid#gl-enclave">enclave</Link> on the following cloud service providers (medium level of effort to implement):
+Private Operator を選択する場合、いくつかの実装オプションが利用可能です。UID2 は、以下のクラウドサービスプロバイダーで UID2 を <Link href="../ref-info/glossary-uid#gl-enclave">enclave</Link> にホストすることをサポートしています (実装には中程度の労力が必要です):
 - [Nitro Enclave](https://aws.amazon.com/ec2/nitro/) from AWS
 - [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform
 - [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers), a confidential computing option from Microsoft Azure
 
 ## Private Operator Workflow
 
-The basic workflow for a Private Operator is as follows:
+Private Operator の基本的なワークフローは次のとおりです:
 
-1. On startup, the Private Operator goes through an attestation process with the <a href="../ref-info/glossary-uid#gl-core-service">Core</a> service. The attestation process verifies that the Operator is running in a secure trusted execution environment (TEE), and that the environment hasn't been tampered with.
+1. 起動時に Private Operatorは、<a href="../ref-info/glossary-uid#gl-core-service">Core</a> service　との認証プロセスを実行します。認証プロセスは、Operator が安全な信頼された実行環境 (TEE) で実行されていること、およびその環境が改ざんされていないことを検証します。
 
-1. When the Operator passes the attestation process, the Core service gives the Private Operator secure S3 URLs for retrieving the information it needs for startup.
+1. Operator が認証プロセスに合格すると、Core Service は、起動に必要な情報を取得するための安全な S3 URL を Private Operator に提供します。
 
-1. The Private Operator retrieves the security information from Amazon S3 that it needs to process UID2s, such as salts, encryption keys, and user opt-out records. For security details, see [Private Operator Security](#private-operator-security).
+1. Private Operator は、UID2 の処理に必要な情報 (ソルト、暗号化キー、およびユーザーのオプトアウトレコードなど) を Amazon S3 から取得します。セキュリティの詳細については、[Private Operator Security](#private-operator-security) を参照してください。
 
-1. If an Operator is restarted, it goes through the attestation process again, and retrieves a fresh set of security information.
+1. Operator が再起動されると、再度認証プロセスを実行し、新しいセキュリティ情報を取得します。
 
-1. The Operator re-attests periodically with the Core service to ensure that it is still running in a protected environment. If attestation fails, the Operator shuts down.
+1. Operator は Core Service での認証プロセスを定期的に再実行し、引き続き保護された環境で実行されていることを確認します。認証に失敗した場合、Operator はシャットダウンします。
 
 ## Private Operator Security
 
-Each supported Private Operator implementation must meet rigorous security standards. Some security points include:
+サポートされる Private Operator 実装は、厳格なセキュリティ基準を満たす必要があります。セキュリティに関するいくつかのポイントは次のとおりです:
 
-- The Private Operator runs in a hardware-based trusted execution environment (TEE) hosted by one of the supported cloud providers listed in [Hosting Options for Private Operators](#hosting-options-for-private-operators).
-- The Private Operator must complete an attestation process before accessing the information needed to process UID2s.
-- The information on S3 is encrypted at rest and also encrypted in transit through TLS. In addition, access is limited to only correctly authorized and attested Private Operators.
-- The information retrieved at startup is not stored locally at any point. It is only ever held in memory, and the Private Operator is running in a protected environment that makes it difficult for anyone running the Operator (such as an Administrator), as well as any external players, to see the data that's in memory.
-- The Private Operator never stores <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> that is sent for processing (email addresses and/or phone numbers). The data is only used within the enclave, to generate UID2s, and is discarded immediately after processing.
+- Private Operator は、[Hosting Options for Private Operators](#hosting-options-for-private-operators) に記載されているサポートされるクラウドプロバイダーのいずれかでホストされているハードウェアベースの信頼された実行環境 (TEE) で実行されます。
+- Private Operator は、UID2 の処理に必要な情報にアクセスする前に、認証プロセスを完了する必要があります。
+- S3 から取得された情報は、保存中および転送中に TLS によって暗号化されています。さらに、アクセスは正しく認証された Private Operator にのみ制限されています。
+- 起動時に取得された情報は、いかなる時点でもローカルに保存されません。情報は常にメモリに保持され、Private Operator は、Operator を実行している人 (管理者など) および外部の関係者がメモリ内のデータを見ることが困難な保護された環境で実行されています。
+- Private Operator は、処理のために送信された <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (メールアドレスや電話番号) を保存しません。データは UID2 を生成するために enclave 内でのみ使用され、処理後すぐに破棄されます。
 
 ## Private Operator Limitations
 
-There are a couple of limitations to Private Operator functionality:
-- Private Operators do not currently support <Link href="../ref-info/glossary-uid#gl-client-side">client-side integration</Link>.
-- Private Operator updates are released three times per year; Public Operator updates are released on a more frequent cadence.
+Private Operator にはいくつかの制限があります:
+- Private Operator は、現在、<Link href="../ref-info/glossary-uid#gl-client-side">client-side integration</Link>　をサポートしていません。
+- Private Operator の更新は、年に 3 回リリースされます; Public Operator の更新は、より頻繁にリリースされます。
 
 ## Getting Started
 
-To get started as a Private Operator, follow these steps:
+Private Operator を開始するには、次の手順に従います:
 
-1. Request access to UID2 by filling out the form on the [Request Access](/request-access) page.
-2. Decide which implementation option you want to use.
+1. UID2 へのアクセスをリクエストします。[Request Access](/request-access) ページのフォームに記入します。
+2. 使用する実装オプションを決定します。
 
-   For details about available options, see [Hosting Options for Private Operators](#hosting-options-for-private-operators).
-3. If you're using an SDK, download the SDK. Refer to the applicable SDK guide.
-4. Follow the instructions in the implementation guide for the option you chose.
+   利用可能なオプションの詳細は、[Hosting Options for Private Operators](#hosting-options-for-private-operators) を参照してください。
+3. SDK を使用している場合は、SDK をダウンロードします。該当する SDK ガイドを参照してください。
+4. 選択したオプションの実装ガイドに従います。
 
    :::note
-   Be sure to encrypt request messages to UID2. For details, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+   UID2 へのリクエストメッセージは必ず暗号化してください。詳細は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
    :::
-5. Test.
-6. Go live.
+5. テストします。
+6. 本番環境に移行します。
 
 ## Implementation Resources
 
-The following documentation resources are available for Private Operators to implement UID2.
+UID2 の Private Operator 向けの実装リソースは次のとおりです。
 
-There is no functional difference between the Private Operator versions.
+Private Operator のバージョン間に機能的な違いはありません。
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
-| AWS | [UID2 Private Operator for AWS Integration Guide](../guides/operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. |
-| GCP Confidential Space | [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md) | Information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. |
-| Azure | [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md) | Instructions for setting up the UID2 Operator Service in an instance of Confidential Containers, a confidential computing option from Microsoft Azure. |
+| AWS | [UID2 Private Operator for AWS Integration Guide](../guides/operator-guide-aws-marketplace.md) | AWS Marketplace の Private Operator Service の設定方法。 |
+| GCP Confidential Space | [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md) | [Google Cloud](https://cloud.google.com/docs/overview/) Platform の機密コンピューティング オプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) に UID2 Operator Service を設定する方法。 |
+| Azure | [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md) | Microsoft Azure の機密コンピューティング オプションである Confidential Containers インスタンスで UID2 Operator Service を設定する方法。 |
