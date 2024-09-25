@@ -45,11 +45,6 @@ const fullSidebar = [
         'getting-started/gs-account-setup',
         'getting-started/gs-credentials',
         'getting-started/gs-permissions',
-        'getting-started/gs-auth',
-        'getting-started/gs-environments',
-        'getting-started/gs-encryption-decryption',
-        'getting-started/gs-normalization-encoding',
-        'getting-started/gs-opt-out',
         'getting-started/gs-faqs',
         'getting-started/gs-sharing',
       ],
@@ -254,7 +249,7 @@ const fullSidebar = [
         type: 'doc',
         id: 'endpoints/summary-endpoints',
       },
-      collapsed: false,
+      collapsed: true,
       items: [
         'endpoints/post-token-generate',
         'endpoints/post-token-validate',
@@ -282,7 +277,7 @@ const fullSidebar = [
           link: {
             type: 'generated-index',
           },
-          collapsed: false,
+          collapsed: true,
           items: [
             'sharing/sharing-tokenized-overview',
             'sharing/sharing-tokenized-from-data-bid-stream',
@@ -303,6 +298,11 @@ const fullSidebar = [
       },
       collapsed: true,
       items: [
+        'getting-started/gs-auth',
+        'getting-started/gs-environments',
+        'getting-started/gs-encryption-decryption',
+        'getting-started/gs-normalization-encoding',
+        'getting-started/gs-opt-out',
         'ref-info/ref-operators-public-private',
         'ref-info/ref-integration-approaches',
         'ref-info/ref-tokens',
