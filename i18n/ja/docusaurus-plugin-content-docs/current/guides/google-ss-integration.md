@@ -33,6 +33,13 @@ Google Ad Manager アカウントで暗号化 UID2 Token を受け取るには�
 
 詳しくは、[セキュア シグナルをビッダーと共有する](https://support.google.com/admanager/answer/10488752) (Google reference documentation) を確認し、[サードパーティのシグナルプロバイダーを使用する](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/securesignals) の手順に従って、シグナルプロバイダーとして UID2 をオンに設定してください。
 
+:::important
+When you're following the steps, in [Select allowed secure signals](https://support.google.com/admanager/answer/10488752#select-signals), under **Web Signal Deploy Option**, choose **Google Deploy**.
+以下の手順に従って、[Select allowed secure signals](https://support.google.com/admanager/answer/10488752#select-signals) で **Web Signal Deploy Option** として **Google Deploy** を選択してください。
+**Prebid User ID Module** を選択した場合、**Use your Prebid configuration to automatically configure your Secure signals settings** フィールドも選択しない限り、UID2 は正しく処理されません。
+設定を保存する前に、選択したオプションが正しいことを再確認してください。
+:::
+
 ## Publisher Integration
 
 暗号化されたシグナルがキャッシュされると、セキュアシグナル機能は、新しいシグナルを生成するためのハンドラを実行しません。このため、データキャプチャの前後にキャッシュをクリアする必要があります。
@@ -92,3 +99,17 @@ Google Ad Manager のセキュアシグナル機能との連携方法につい�
   - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
 
 各サンプルアプリケーションには独自のインストラクションがあります。
+
+## Troubleshooting Tips for UID2 Integration with Google Secure Signals
+
+UID2 インテグレーションで Google Secure Signals を使用する際に役立つトラブルシューティング情報です:
+
+- [I enabled Secure Signals within Google Ad Manager, but UID2s are not being passed through Google](#i-enabled-secure-signals-within-google-ad-manager-but-uid2s-are-not-being-passed-through-google)
+
+#### I enabled Secure Signals within Google Ad Manager, but UID2s are not being passed through Google
+
+Google Ad Manager で Secure Signals を有効にした後、Google を介して正常な UID2 が渡されない場合があります。これは、参加者が誤った **Web Signal Deployment Method** 構成を持っている場合があります。
+
+UID2 が Google を介して渡されない場合は、セットアップ時に正しい **Web Signal Deployment Method** を選択したことを確認してください。
+
+詳細は、[Allow Secure Signals Sharing](#allow-secure-signals-sharing) の **Important** ノートを参照してください。
