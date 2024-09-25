@@ -471,6 +471,10 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-unified-id-20"><a href="#gl-unified-id-20">Unified ID 2.0</a></MdxJumpAnchor></dt>
 <dd>The term UID2 can be used to mean the <a href="#gl-uid2-framework">UID2 framework</a>, the <a href="#gl-uid2-service">UID2 service</a>, a <a href="#gl-raw-uid2">raw UID2</a>, or a <a href="#gl-uid2-token">UID2 token</a> (advertising token).</dd>
 
+<dt><MdxJumpAnchor id="gl-unix-time"><a href="#gl-unix-time">Unix time</a></MdxJumpAnchor></dt>
+<dd>Unix time, also called Epoch time, is defined as the number of seconds since 00:00:00 <a href="#gl-utc">UTC</a> on Thursday, 1 January 1970. Unix time is used in some UID2 response messages, expressed in milliseconds: for example, in the response to the `POST /token/refresh` endpoint (see <a href="../endpoints/post-token-refresh#successful-response-with-tokens">Successful Response With Tokens</a>).</dd>
+<dd>Example: 1 January 2024, 9:00:00 AM GMT, expressed in Unix time, is `1704067200`. In milliseconds it is: `1704067200000`.</dd>
+
 <dt><MdxJumpAnchor id="gl-utc"><a href="#gl-utc">UTC</a></MdxJumpAnchor></dt>
 <dd>UTC is an abbreviation for Coordinated Universal Time, also called Zulu time, which is the primary time standard in general use. UTC essentially equates to Greenwich Mean Time (GMT), but is more scientifically precise.</dd>
 

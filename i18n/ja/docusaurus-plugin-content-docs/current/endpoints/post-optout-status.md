@@ -107,7 +107,7 @@ echo '{"advertising_ids": ["ufv1uGRovNiJNbJqiE/xzM+aKE7jP69MgspOZoEQ3xc="]}' | p
 | Property | Format | Description |
 | :--- | :--- | :--- |
 | `advertising_id` | string | <Link href="../ref-info/glossary-uid#gl-advertising-id">Advertising ID</Link> (raw UID2). |
-| `opted_out_since` | number | raw UID2 がいつオプトアウトされたかを示す UNIX timestamp (ミリ秒単位)。 |
+| `opted_out_since` | number | raw UID2 がいつオプトアウトされたかを示す Unix timestamp (ミリ秒単位)。 |
 
 ### Response Status Codes
 
