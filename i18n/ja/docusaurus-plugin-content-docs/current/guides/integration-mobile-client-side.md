@@ -249,11 +249,6 @@ UID2Manager.init(
   context = this,
   UID2Manager.Environment.Custom("https://global.prod.uidapi.com")
 )
-// or use a named environment
-UID2Manager.init(
-  context = this,
-  UID2Manager.Environment.Sydney
-)
 ```
 
 </TabItem>
@@ -711,7 +706,7 @@ If the response status indicates that the DII has been opted out of UID2, you mi
 ## Optional: UID2 Prebid Mobile SDK Integration
 
 :::important
-UID2 Prebid Mobile SDK インテグレーションは、Android のみに対応しています。UID2 Prebid Mobile SDK インテグレーションを実装するには、SDK for Android のバージョン 1.4.0 が必要です。
+UID2 Prebid Mobile SDK インテグレーションは、UID2 SDK for Android version 1.4.0 または UID2 SDK for iOS version 1.5.0 が必要です。
 :::
 
 <PrebidMobileSDK />
