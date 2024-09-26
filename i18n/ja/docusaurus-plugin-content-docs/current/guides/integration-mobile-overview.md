@@ -90,7 +90,7 @@ UID2 モバイルインテグレーションのトラブルシューティング
 
 - [Android SDK が本番環境に接続できない](#android-sdk-cannot-connect-in-production-environment)
 
-#### Android SDK cannot connect in Production environment
+#### Android SDK Cannot Connect in Production Environment
 Android SDK が本番環境に接続できない
 
 トラブルシューティングの最初のステップは、ヘルスチェックエンドポイントを確認することです。

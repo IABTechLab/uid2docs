@@ -90,7 +90,7 @@ Here's some additional information to help you troubleshoot your UID2 mobile int
 
 - [Android SDK cannot connect in Production environment](#android-sdk-cannot-connect-in-production-environment)
 
-#### Android SDK cannot connect in Production environment
+#### Android SDK Cannot Connect in Production Environment
 
 A good first step in troubleshooting is to look at the health check endpoint.
 
