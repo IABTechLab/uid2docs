@@ -62,9 +62,9 @@ For details, refer to one of the following guides:
 
 Here is some FAQ information relating to UID2 mobile integrations:
 
-- [iOS: Can I use Swift Package Manager and Cocoapods/Podspec together?](#ios-can-i-use-swift-package-manager-and-cocoapodspodspec-together)
+- [iOS: Can I use Swift Package Manager and CocoaPods/Podspec together?](#ios-can-i-use-swift-package-manager-and-cocoapodspodspec-together)
 
-#### iOS: Can I use Swift Package Manager and Cocoapods/Podspec together?
+#### iOS: Can I use Swift Package Manager and CocoaPods/Podspec together?
 
 For your UID2 Mobile integration, you can install the UID2 Mobile SDK, the UID2 GMA Plugin, and the UID2 IMA Plugin by either Swift Package Manager or CocoaPods.
 
@@ -75,13 +75,13 @@ Our recommendation:
 
 
 :::caution
-If you already use Cocoapods, this does not prevent your app from using Swift Package Manager (SPM) to integrate the UID2 SDK and plugins. However, there is a potential conflict. If you already have GMA installed with CocoaPods, and you then install the UID2 Mobile SDK, which itself includes GMA, with Swift Package Manager, you end up with two copies of GMA in your implementation, which does not work.
+If you already use CocoaPods, this does not prevent your app from using Swift Package Manager (SPM) to integrate the UID2 SDK and plugins. However, there is a potential conflict. If you already have GMA installed with CocoaPods, and you then install the UID2 Mobile SDK, which itself includes GMA, with Swift Package Manager, you end up with two copies of GMA in your implementation, which does not work.
 :::
 
-Therefore, if you already have GMA installed and want to install UID2, be sure that you first remove GMA from Cocoapods.
+Therefore, if you already have GMA installed and want to install UID2, be sure that you first remove GMA from CocoaPods.
 
 :::tip
-Podspec is the name of the file in Cocoapods that defines the libraries to be integrated with the app.
+Podspec is the name of the file in CocoaPods that defines the libraries to be integrated with the app.
 :::
 
 ## Troubleshooting Tips for Mobile Integrations
@@ -90,7 +90,7 @@ Here's some additional information to help you troubleshoot your UID2 mobile int
 
 - [Android SDK cannot connect in Production environment](#android-sdk-cannot-connect-in-production-environment)
 
-#### Android SDK cannot connect in Production environment
+#### Android SDK Cannot Connect in Production Environment
 
 A good first step in troubleshooting is to look at the health check endpoint.
 
