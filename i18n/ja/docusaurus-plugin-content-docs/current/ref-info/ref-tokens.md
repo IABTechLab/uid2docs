@@ -1,6 +1,6 @@
 ---
 title: UID2 Tokens and Refresh Tokens
-description: Information for publishers about UID2 tokens and refresh tokens.
+description: パブリッシャー向けの UID2 Token と Refresh Token に関する情報。
 hide_table_of_contents: false
 sidebar_position: 06
 ---
@@ -11,64 +11,65 @@ import TabItem from '@theme/TabItem';
 
 # UID2 Tokens and Refresh Tokens
 
-When a publisher sends a user's <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>&#8212;hashed or unhashed email addresses or phone numbers&#8212;to the UID2 Operator, whether via one of the UID2 SDKs or the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint, the UID2 Operator converts the DII to a <a href="glossary-uid#gl-raw-uid2">raw UID2</a>, encrypts it into a <a href="glossary-uid#gl-uid2-token">UID2 token</a>, and returns the UID2 token with associated values, including a refresh token. The publisher can then use the UID2 token in the bidstream.
+パブリッシャーがユーザーの <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>&#8212;ハッシュ化または非ハッシュ化されたメールアドレスまたは電話番号&#8212;を UID2 Operator に送信すると、UID2 SDK のいずれかを使用するか、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを使用するかに関わらず、UID2 Operator は DII を <a href="glossary-uid#gl-raw-uid2">raw UID2</a> に変換し、<a href="glossary-uid#gl-uid2-token">UID2 Token</a> に暗号化して返します。UID2 Token には、Refresh Token を含む関連値が付属しています。パブリッシャーは、UID2 Token をビッドストリームで使用できます。
 
 ## UID2 Tokens: Key Information
 
-Here are some key points about UID2 tokens:
+UID2 Token に関する主なポイントは次のとおりです:
 
-- The UID2 token is a unique value: no two UID2 tokens are the same.
-- UID2 tokens are case sensitive.
-- The token value is an <a href="glossary-uid#gl-opaque">opaque</a> string: do not make any assumptions about the format or length of the string.
-- UID2 tokens representing different instances of user activity, on browsers, CTV, and electronic devices such as phones and tablets, can still be matched to the same raw UID2.
-- The token generation logic checks for user opt-out. If the user has opted out of UID2, no UID2 token is generated. For details, see [User Opt-Out](../getting-started/gs-opt-out.md).
-- The token has a limited life, but can be refreshed using the refresh token.
-- You can refresh many times, to get a new UID2 token and corresponding new refresh token, as long as the current UID2 token is always refreshed before the current refresh token expires.
-- If the token has expired, or as an alternative to refreshing an existing token, you can generate a new UID2 token from the original hashed or unhashed email address or phone number.
-- Publishers send UID2 tokens in the bidstream.
-- Refreshing a UID2 token does not invalidate/expire the original or previous UID2 token. You can still use the earlier token until it expires.
+- UID2 Token は一意の値です: 2 つの UID2 Token が同じであることはありません。
+- UID2 Token　は大文字と小文字が区別されます。
+- トークンの値は、<a href="glossary-uid#gl-opaque">opaque (不透明)</a>な文字列です: 文字列の形式や長さについての仮定をしないでください。
+- ブラウザ、CTV、電話、タブレットなどの電子デバイスでのユーザーのアクティビティの異なるインスタンスを表す UID2 Token は、依然として同じ raw UID2 に一致させることができます。
+- トークン生成時に、UID2 Operator はユーザーのオプトアウトを確認します。ユーザーが UID2 からオプトアウトしている場合、UID2 Token は生成されません。詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+- トークンは有効期限がありますが、Refresh Token を使用してリフレッシュできます。
+- 現在の UID2 Token が有効期限切れになる前に、常に現在の Refresh Token をリフレッシュすることで、新しい UID2 Token と対応する新しい Refresh Token を取得するために何度でもリフレッシュできます。
+- トークンが期限切れの場合、または既存のトークンをリフレッシュする代わりに、元のハッシュ化されたまたは非ハッシュ化されたメールアドレスまたは電話番号から新しい UID2 Token を生成することができます。
+- パブリッシャーは、UID2 Token をビッドストリームに送信します。
+- UID2 Token をリフレッシュしても、元の UID2 Token は無効になりません。有効期限が切れるまで、以前のトークンを引き続き使用できます。
 
 ## Refresh Tokens: Key Information
 
-Here are some key points about refresh tokens:
+Refresh Token に関する主なポイントは次のとおりです:
 
-- A refresh token is a string that is issued along with the <a href="glossary-uid#gl-uid2-token">UID2 token</a>.
-- Refresh tokens are case sensitive.
-- The token value is an <a href="glossary-uid#gl-opaque">opaque</a> string: do not make any assumptions about the format or length of the string.
-- You can use the refresh token to generate a new UID2 token and new refresh token before the current refresh token expires.
-- Using refresh tokens is optional: you could choose to generate a new token from DII each time rather than refreshing an existing token. 
-- You can manage token refresh in a variety of ways, such as:
-  - With a UID2 SDK (see [SDK Functionality](../sdks/summary-sdks.md#sdk-functionality))
-  - By calling the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint
+- Refresh Token は、<a href="glossary-uid#gl-uid2-token">UID2 token</a> と一緒に発行される文字列です。
+- Refresh Token は大文字と小文字が区別されます。
+- 値は、<a href="glossary-uid#gl-opaque">opaque (不透明)</a>な文字列です: 文字列の形式や長さについての仮定をしないでください。
+- Refresh Token は、UID2 Token が有効期限切れになる前に、新しい UID2 Token と新しい Refresh Token を生成するために使用できます。
+- Refresh Token の使用は任意です: 既存のトークンをリフレッシュする代わりに、毎回 DII から新しいトークンを生成することを選択することもできます。
+- トークンのリフレッシュは、さまざまな方法で管理できます:
+  - UID2 SDK ([SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) を参照してください) を使用して。
+  - [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出して。
   - By using the UID2 Prebid.js module (see [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md))
-- When a new UID2 token is generated and returned in response to the refresh token, a new refresh token is returned along with it.
-- In most cases, you can refresh tokens on the client side, even if the token was generated on the server side. For details about refresh functionality for the various SDKs, see [SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) (*Refresh UID2 Token* column).
-- When the UID2 Operator service receives the refresh token with a request for a new UID2 token, it checks for user opt-out. If the user has opted out of UID2, no new UID2 token is generated. For details, see [User Opt-Out](../getting-started/gs-opt-out.md).
+　- UID2 Prebid.js モジュール ([Prebid.js 向け UID2 統合概要](../guides/integration-prebid.md) を参照してください) を使用して。
+- 新しい UID2 Token が生成され、リフレッシュトークンに対するレスポンスとして返されると、新しい Refresh Token も返されます。
+- ほとんどの場合、サーバーサイドで生成されたトークンでも、Client-Side でトークンをリフレッシュできます。各 SDK のリフレッシュ機能についての詳細は、[SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) (*Refresh UID2 Token* 列) を参照してください。
+- UID2 Operator Service が、新しい UID2 Token をリクエエストする際に Refresh Token を受け取ると、ユーザーのオプトアウトを確認します。ユーザーが UID2 からオプトアウトしている場合、新しい UID2 Token は生成されません。詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 ### Recommended Token Refresh Frequency
 
-The recommended refresh interval is hourly.
+推奨されるリフレッシュ間隔は、1 時間です。
 
-To determine when to refresh, you can use the timestamp of the `refresh_from` field in the response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint (see [Successful Response](../endpoints/post-token-generate.md#successful-response)) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint (see [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens)). The value of this field is a timestamp in UNIX time, expressed in milliseconds.
+リフレッシュのタイミングを決定するには、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントのレスポンス ([Successful Response](../endpoints/post-token-generate.md#successful-response)) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントのレスポンス ([Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens) を参照してください) の `refresh_from` フィールドのタイムスタンプを使用できます。このフィールドの値は、ミリ秒単位で表された Unix 時間のタイムスタンプです。
 
 ### Managing Token Refresh with an SDK
 
-An easy way to manage token refresh is to use one of the UID2 SDKs that have a function for the purpose: either the Java or Python SDK.
+トークンの更新を管理する簡単な方法は、その目的のために関数を持つ UID2 SDK のいずれかを使用することです: Java SDK または Python SDK。
 
-Each of these SDKs includes a publisher class that has a function to determine if a token refresh is needed.
+これらの SDK のいずれも、トークンをリフレッシュする必要があるかどうかを判断するための関数を持つ publisher クラスを含んでいます。
 
-The following examples show how you could first check if the token can be refreshed and then check if refresh is needed, using one of these SDKs. If it's time to refresh, you can then call the refresh function to refresh the token.
+以下の例では、これらの SDK のいずれかを使用して、まず、トークンをリフレッシュできるかどうかを確認し、次にリフレッシュが必要かどうかを確認する方法を示します。リフレッシュが必要な場合は、リフレッシュ関数を呼び出してトークンをリフレッシュできます。
 
 <Tabs groupId="language-selection">
 <TabItem value='java' label='Java'>
 
-1. Determine if the identity can be refreshed (that is, the refresh token hasn't expired):
+1. Identity がリフレッシュ可能かどうか (つまり、Refresh Token が期限切れになっていないか) を判断します:
 
     ```java
     if (identity == null || !identity.isRefreshable()) { we must no longer use this identity (for example, remove this identity from the user's session) }
     ```
 
-1. Determine if a refresh is needed:
+1. リフレッシュが必要かどうかを判断します:
 
     ```java
     if (identity.isDueForRefresh()) {..}
@@ -77,13 +78,13 @@ The following examples show how you could first check if the token can be refres
 </TabItem>
 <TabItem value='py' label='Python'>
 
-1. Determine if the identity can be refreshed (that is, the refresh token hasn't expired):
+1. Identity がリフレッシュ可能かどうか (つまり、Refresh Token が期限切れになっていないか) を判断します:
 
    ```py
    if not identity or not identity.is_refreshable(): # we must no longer use this identity (for example, remove this identity from the user's session)
    ```
 
-1. Determine if a refresh is needed:
+1. リフレッシュが必要かどうかを判断します:
 
    ```py
     if identity.is_due_for_refresh()):
@@ -92,11 +93,11 @@ The following examples show how you could first check if the token can be refres
 </TabItem>
 </Tabs>
 
-Before using the code example, check the prerequisites and notes for the language you're using. For details, refer to the doc for the applicable SDK:
+コード例を使用する前に、使用している言語の前提条件と注意事項を確認してください。詳細については、該当する SDK のドキュメントを参照してください:
 
 - [SDK for Java, Usage for Publishers, Basic Usage Server-Side Integration section](../sdks/sdk-ref-java.md#basic-usage-server-side-integration)
 - [SDK for Python, Usage for Publishers, Server-Side Integration section](../sdks/sdk-ref-python.md#server-side-integration)
 
 ## FAQs
 
-There are some frequently asked questions relating to token refresh: see [FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers).
+トークンのリフレッシュに関するよくある質問については、[パブリッシャー向け FAQ](../getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。

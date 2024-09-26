@@ -57,7 +57,7 @@ UID2 API のリクエストレスポンスワークフローは、以下のス�
 
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
-| 0 | 8 | UNIX タイムスタンプ (ミリ秒単位) です。int64 のビッグエンディアンでなければなりません。 |
+| 0 | 8 | Unix タイムスタンプ (ミリ秒単位) です。int64 のビッグエンディアンでなければなりません。 |
 | 8 | 8 | Nonce: リプレイ攻撃から保護するために使用されるランダムな 64 ビットのデータです。対応する [復号化済みレスポンスデータエンベローブ](#unencrypted-response-data-envelope) には、レスポンスが有効とみなされるために同じ nonce 値が含まれていなければなりません。 |
 | 16 | N | UTF-8 エンコーディングでシリアライズされたリクエスト JSON ドキュメントをペイロードとします。 |
 
@@ -96,7 +96,7 @@ UID2 API のリクエストレスポンスワークフローは、以下のス�
 
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
-| 0 | 8 | UNIX タイムスタンプ (ミリ秒単位) です。int64 のビッグエンディアンでなければなりません。 |
+| 0 | 8 | Unix タイムスタンプ (ミリ秒単位) です。int64 のビッグエンディアンでなければなりません。 |
 | 8 | 8 | Nonce: レスポンスが有効であるとみなされるためには、これは [暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) の nonce と一致する必要があります。 |
 | 16  | N | UTF-8 エンコーディングでシリアライズされたレスポンス JSON ドキュメントをペイロードとします。 |
 
@@ -104,20 +104,7 @@ UID2 API のリクエストレスポンスワークフローは、以下のス�
 
 例えば、先行例 のメールアドレスに対する [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) リクエストに対する復号されたレスポンスは、次のようになります:
 
-```json
-{
-    "body": {
-        "advertising_token": "AgAAAQFt3aNLXKXEyWS8Tpezcymk1Acv3n+ClOHLdAgqR0kt0Y+pQWSOVaW0tsKZI4FOv9K/rZH9+c4lpm2DBpmFJqjdF6FAaAzva5vxDIX/67UOspsYtiwxH73zU7Fj8PhVf1JcpsxUHRHzuk3vHF+ODrM13A8NAVlO1p0Wkb+cccIIhQ==",
-        "user_token": "AgAAAPpTqz7/Z+40Ue5G3XOM2RiyU6RS9Q5yj1n7Tlg7PN1K1LZWejvo8Er7A+Q8KxdXdj0OrKRf/XEGWsyUJscRNu1bg/MK+5AozvoJKUca8b10eQdYU86ZOHPH7pFnFhD5WHs=",
-        "refresh_token": "AAAAAQLMcnV+YE6/xoPDZBJvJtWyPyhF9QTV4242kFdT+DE/OfKsQ3IEkgCqD5jmP9HuR4O3PNSVnCnzYq2BiDDz8SLsKOo6wZsoMIn95jVWBaA6oLq7uUGY5/g9SUOfFmX5uDXUvO0w2UCKi+j9OQhlMfxTsyUQUzC1VQOx6ed/gZjqH/Sw6Kyk0XH7AlziqSyyXA438JHqyJphGVwsPl2LGCH1K2MPxkLmyzMZ2ghTzrr0IgIOXPsL4lXqSPkl/UJqnO3iqbihd66eLeYNmyd1Xblr3DwYnwWdAUXEufLoJbbxifGYc+fPF+8DpykpyL9neq3oquxQWpyHsftnwYaZT5EBZHQJqAttHUZ4yQ==",
-        "identity_expires": 1654623500142,
-        "refresh_expires": 1657214600142,
-        "refresh_from": 1654622900142,
-        "refresh_response_key": "wR5t6HKMfJ2r4J7fEGX9Gw=="
-    },
-    "status": "success"
-}
-```
+<IdentityGenerateResponse />
 
 ## Encryption and Decryption Code Examples
 

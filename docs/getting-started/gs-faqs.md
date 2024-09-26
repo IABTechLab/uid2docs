@@ -16,10 +16,10 @@ Frequently asked questions for UID2 are grouped into general categories by audie
 
 Here are some frequently asked questions regarding the UID2 framework.
 
-   - [Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
-   - [Can users opt out of targeted advertising tied to their UID2 identity?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2-identity)
-   - [When I send DII to UID2, does UID2 store the information?](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
-   - [Does UID2 allow the processing of HIPAA-regulated data?](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
+- [Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
+- [Can users opt out of targeted advertising tied to their UID2 identity?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2-identity)
+- [When I send DII to UID2, does UID2 store the information?](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
+- [Does UID2 allow the processing of HIPAA-regulated data?](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
 
 :::note
 For FAQs relating to mobile publisher integrations, see [FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations).
@@ -47,15 +47,15 @@ No. UID2 participants must not generate UID2s from Protected Health Information,
 
 Here are some frequently asked questions for publishers using the UID2 framework.
 
-  - [How can I test that the DII sent and the returned token match up?](#how-can-i-test-that-the-dii-sent-and-the-returned-token-match-up)
-  - [Do I need to decrypt tokens?](#do-i-need-to-decrypt-tokens)
-  - [How will I be notified of user opt-out?](#how-will-i-be-notified-of-user-opt-out)
-  - [Where should I make token generation calls&#8212;from the server side or the client side?](#where-should-i-make-token-generation-callsfrom-the-server-side-or-the-client-side)
-  - [Can I make token refresh calls from the client side?](#can-i-make-token-refresh-calls-from-the-client-side)
-  - [If I choose to manually refresh the token, how will I know when to refresh the token?](#if-i-choose-to-manually-refresh-the-token-how-will-i-know-when-to-refresh-the-token)
-  - [How can I test the refresh token workflow?](#how-can-i-test-the-refresh-token-workflow)
-  - [What is the uniqueness and rotation policy for UID2 tokens?](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
-  - [What does a UID2 token look like in the bidstream?](#what-does-a-uid2-token-look-like-in-the-bidstream)
+- [How can I test that the DII sent and the returned token match up?](#how-can-i-test-that-the-dii-sent-and-the-returned-token-match-up)
+- [Do I need to decrypt tokens?](#do-i-need-to-decrypt-tokens)
+- [How will I be notified of user opt-out?](#how-will-i-be-notified-of-user-opt-out)
+- [Where should I make token generation calls&#8212;from the server side or the client side?](#where-should-i-make-token-generation-callsfrom-the-server-side-or-the-client-side)
+- [Can I make token refresh calls from the client side?](#can-i-make-token-refresh-calls-from-the-client-side)
+- [If I choose to manually refresh the token, how will I know when to refresh the token?](#if-i-choose-to-manually-refresh-the-token-how-will-i-know-when-to-refresh-the-token)
+- [How can I test the refresh token workflow?](#how-can-i-test-the-refresh-token-workflow)
+- [What is the uniqueness and rotation policy for UID2 tokens?](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
+- [What does a UID2 token look like in the bidstream?](#what-does-a-uid2-token-look-like-in-the-bidstream)
 
 #### How can I test that the DII sent and the returned token match up?
 
@@ -133,14 +133,14 @@ There are many ways to approach UID2 implementation. Here is one example of a co
 
 Here are some frequently asked questions for advertisers and data providers using the UID2 framework.
 
-   - [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
-   - [Do refreshed emails get assigned to the same bucket with which they were previously associated?](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
-   - [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)
-   - [How should I generate the SHA-256 of DII for mapping?](#how-should-i-generate-the-sha-256-of-dii-for-mapping)
-   - [Should I store mapping of email addresses, phone numbers, or corresponding hashes to raw UID2s in my own datasets?](#should-i-store-mapping-of-email-addresses-phone-numbers-or-corresponding-hashes-to-raw-uid2s-in-my-own-datasets)
-   - [How should I handle user opt-outs?](#how-should-i-handle-user-opt-outs)
-   - [Does the same DII always result in the same raw UID2?](#does-the-same-dii-always-result-in-the-same-raw-uid2)
-   - [If two operators process the same DII, are the results the same?](#if-two-operators-process-the-same-dii-are-the-results-the-same)
+- [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
+- [Do refreshed emails get assigned to the same bucket with which they were previously associated?](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
+- [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)
+- [How should I generate the SHA-256 of DII for mapping?](#how-should-i-generate-the-sha-256-of-dii-for-mapping)
+- [Should I store mapping of email addresses, phone numbers, or corresponding hashes to raw UID2s in my own datasets?](#should-i-store-mapping-of-email-addresses-phone-numbers-or-corresponding-hashes-to-raw-uid2s-in-my-own-datasets)
+- [How should I handle user opt-outs?](#how-should-i-handle-user-opt-outs)
+- [Does the same DII always result in the same raw UID2?](#does-the-same-dii-always-result-in-the-same-raw-uid2)
+- [If two operators process the same DII, are the results the same?](#if-two-operators-process-the-same-dii-are-the-results-the-same)
 
 #### How do I know when to refresh the UID2 due to salt bucket rotation?
 
@@ -206,21 +206,21 @@ However, if a publisher sends DII in a request for a <Link href="../ref-info/glo
 
 Here are some frequently asked questions for demand-side platforms (DSPs).
 
-   - [How do I know which decryption key to apply to a UID2?](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
-   - [Where do I get the decryption keys?](#where-do-i-get-the-decryption-keys)
-   - [How many decryption keys may be present in memory at any point?](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
-   - [How do I know if/when the salt bucket has rotated?](#how-do-i-know-ifwhen-the-salt-bucket-has-rotated)
-   - [Should the DSP be concerned with latency?](#should-the-dsp-be-concerned-with-latency)
-   - [How should the DSP maintain proper frequency capping with UID2?](#how-should-the-dsp-maintain-proper-frequency-capping-with-uid2)
-   - [Will all user opt-out traffic be sent to the DSP?](#will-all-user-opt-out-traffic-be-sent-to-the-dsp)
-   - [Is the DSP expected to handle opt-out signals only for the UID2s that they already store?](#is-the-dsp-expected-to-handle-opt-out-signals-only-for-the-uid2s-that-they-already-store)
-   - [How long should the DSP keep the opt-out list?](#how-long-should-the-dsp-keep-the-opt-out-list)
-   - [Is the UID2 of an opted-out user sent to the opt-out endpoint in an encrypted form?](#is-the-uid2-of-an-opted-out-user-sent-to-the-opt-out-endpoint-in-an-encrypted-form)
-   - [In what format is the UID2 of an opted-out user sent to the webhook?](#in-what-format-is-the-uid2-of-an-opted-out-user-sent-to-the-webhook)
-   - [What request type do opt-outs use?](#what-request-type-do-opt-outs-use)
-   - [How strict are the requirements for honoring opt-outs?](#how-strict-are-the-requirements-for-honoring-opt-outs)
-  - [How can I check if a user has opted out?](#how-can-i-check-if-a-user-has-opted-out)
-   - [How do SDK errors impact the DSP's ability to respond to a bid?](#how-do-sdk-errors-impact-the-dsps-ability-to-respond-to-a-bid)
+- [How do I know which decryption key to apply to a UID2?](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
+- [Where do I get the decryption keys?](#where-do-i-get-the-decryption-keys)
+- [How many decryption keys may be present in memory at any point?](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
+- [How do I know if/when the salt bucket has rotated?](#how-do-i-know-ifwhen-the-salt-bucket-has-rotated)
+- [Should the DSP be concerned with latency?](#should-the-dsp-be-concerned-with-latency)
+- [How should the DSP maintain proper frequency capping with UID2?](#how-should-the-dsp-maintain-proper-frequency-capping-with-uid2)
+- [Will all user opt-out traffic be sent to the DSP?](#will-all-user-opt-out-traffic-be-sent-to-the-dsp)
+- [Is the DSP expected to handle opt-out signals only for the UID2s that they already store?](#is-the-dsp-expected-to-handle-opt-out-signals-only-for-the-uid2s-that-they-already-store)
+- [How long should the DSP keep the opt-out list?](#how-long-should-the-dsp-keep-the-opt-out-list)
+- [Is the UID2 of an opted-out user sent to the opt-out endpoint in an encrypted form?](#is-the-uid2-of-an-opted-out-user-sent-to-the-opt-out-endpoint-in-an-encrypted-form)
+- [In what format is the UID2 of an opted-out user sent to the webhook?](#in-what-format-is-the-uid2-of-an-opted-out-user-sent-to-the-webhook)
+- [What request type do opt-outs use?](#what-request-type-do-opt-outs-use)
+- [How strict are the requirements for honoring opt-outs?](#how-strict-are-the-requirements-for-honoring-opt-outs)
+- [How can I check if a user has opted out?](#how-can-i-check-if-a-user-has-opted-out)
+- [How do SDK errors impact the DSP's ability to respond to a bid?](#how-do-sdk-errors-impact-the-dsps-ability-to-respond-to-a-bid)
 
 #### How do I know which decryption key to apply to a UID2?
 

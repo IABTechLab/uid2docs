@@ -62,10 +62,10 @@ UID2 mobile SDK を使用してモバイルアプリを UID2 とインテグレ�
 
 UID2 モバイルインテグレーションに関する FAQ 情報は次のとおりです:
 
-- [iOS: Swift Package Manager と Cocoapods/Podspec を併用できますか？](#ios-can-i-use-swift-package-manager-and-cocoapodspodspec-together)
+- [iOS: Swift Package Manager と CocoaPods/Podspec を併用できますか？](#ios-can-i-use-swift-package-manager-and-cocoapodspodspec-together)
 
-#### iOS: Can I use Swift Package Manager and Cocoapods/Podspec together?
-iOS: Swift Package Manager と Cocoapods/Podspec を併用できますか？
+#### iOS: Can I use Swift Package Manager and CocoaPods/Podspec together?
+iOS: Swift Package Manager と CocoaPods/Podspec を併用できますか？
 
 UID2 Mobile インテグレーションには、UID2 Mobile SDK、UID2 GMA プラグイン、UID2 IMA プラグインを Swift Package Manager または CocoaPods でインストールできます。
 
@@ -81,7 +81,7 @@ UID2 Mobile インテグレーションには、UID2 Mobile SDK、UID2 GMA プ�
 したがって、すでに GMA をインストールしていて UID2 をインストールする場合は、まず CocoaPods から GMA を削除してください。
 
 :::tip
-Podspec は、Cocoapods 内のファイル名で、アプリにインテグレーションするライブラリを定義するものです。
+Podspec は、CocoaPods 内のファイル名で、アプリにインテグレーションするライブラリを定義するものです。
 :::
 
 ## Troubleshooting Tips for Mobile Integrations
@@ -90,7 +90,7 @@ UID2 モバイルインテグレーションのトラブルシューティング
 
 - [Android SDK が本番環境に接続できない](#android-sdk-cannot-connect-in-production-environment)
 
-#### Android SDK cannot connect in Production environment
+#### Android SDK Cannot Connect in Production Environment
 Android SDK が本番環境に接続できない
 
 トラブルシューティングの最初のステップは、ヘルスチェックエンドポイントを確認することです。

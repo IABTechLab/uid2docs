@@ -15,9 +15,40 @@ import Link from '@docusaurus/Link';
 
 Snowflake Data Marketplace でホストされる Open Operator Service を使用する場合は、[Snowflake Integration Guide](../guides/snowflake_integration.md) も参照してください。
 
-## Integration Steps
+## Advertiser/Data Provider Routes to Use UID2
 
-次の図は、データコレクターがオーディエンスの構築とターゲティングのために [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 識別子にマッピングするために完了する必要がある手順の概要を示しています。
+アドテクノロジー業界では、広告主は ID を使用してオーディエンスを構築し、コンバージョンを追跡し、グラフを生成します。広告主または広告主の代理としてデータプロバイダーが UID2 を使用してこれらの目標を達成する方法の例を以下に示します。
+
+:::note
+これらのユースケース以外にも、UID2 を使用する方法はあります。これらはいくつかの例です。
+:::
+
+| Send/Receive? | Action | Advantage/Result |
+| --- | --- | --- |
+| Send | UID2 を API またはピクセルを介して送信 | オーディエンスを作成します。 |
+| Send | UID2 をコンバージョン情報として送信 | コンバージョン情報を使用して測定 (アトリビューション) またはリターゲティングに使用します。 |
+| Receive | API またはピクセルを介してグラフ/データプロバイダーから UID2 を受信 | グラフデータを構築します。 |
+
+<!-- - **Create/send in audiences**: You can send UID2s to create audiences via API or pixels
+- **Send in conversions**: You can send UID2s as conversion information that can be used for measurement (attribution) or retargeting via API or pixels
+- **Receive graph data**: You can receive UID2s from graph/data providers via API or pixels. -->
+
+### High-Level Steps
+
+広告主およびデータプロバイダーが UID2 とインテグレーションする手順は次のとおりです:
+
+
+1. <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> から UID2 を生成するか、広告主やデータプロバイダーなどの他の UID2 参加者から UID2 を受け取ります。
+
+1. Step1 で受け取った UID2 を使用します。たとえば、以下のいずれかを行うかもしれません:
+   - 何らかの操作を行う: たとえば、DII から生成した UID2 と広告主やデータプロバイダーなどの他の参加者から受け取った UID2 を組み合わせます。
+   - 既存のオーディエンスに新しい UID2 を追加します。
+
+1. Raw UID2 を計測目的で使用します。
+
+## Integration Diagram
+
+以下の図は、オーディエンスの構築とターゲティングのために DII を raw UID2 にマッピングするためにデータコレクターが完了する必要がある手順を示しています。
 
 DII とは、正規化されたメールアドレスや電話番号、あるいは正規化され SHA-256 ハッシュ化されたメールアドレスや電話番号のことです。
 
@@ -27,7 +58,7 @@ DII とは、正規化されたメールアドレスや電話番号、あるい�
 
 図の各部の詳細については、以下のセクションを参照してください:
 1. [Retrieve a raw UID2 for DII using the identity map endpoints](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoint)
-2. [Send stored raw UID2s to DSPs to create audiences](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences)
+2. [Send stored raw UID2s to DSPs to create audiences or conversions](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions)
 3. [Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
 
 ### 1: Retrieve a raw UID2 for DII using the identity map endpoint
@@ -37,7 +68,7 @@ DII とは、正規化されたメールアドレスや電話番号、あるい�
 | 1-a  | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md)リクエスト | DII を含むリクエストを ID マッピングエンドポイントに送信します。 |
 | 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) レスポンス | レスポンスで返される `advertising_id` (raw UID2) は、関連する DSP でオーディエンスをターゲティングするために使用できます。<br/>このレスポンスは、ユーザーの raw UID2 と、ソルトバケットに対応する `bucket_id` を返します。バケットに割り当てられたソルトは毎年ローテーションされ、生成される raw UID2 に影響を与えます。ソルトバケットのローテーションをチェックする方法の詳細は [3: Monitor for salt bucket rotations](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s) を参照してください。<br/>メンテナンスを簡単にするために、ユーザの raw UID2 と `bucket_id` をマッピングテーブルに格納することを推奨します。インクリメンタルな更新に関するガイダンスについては、[Use an incremental process to continuous-update raw UID2s](#use-an-incremental-process-to-continuously-update-raw-uid2s) を参照してください。|
 
-### 2: Send stored raw UID2s to DSPs to create audiences
+### 2: Send stored raw UID2s to DSPs to create audiences or conversions
 
 Step 1-b で返された `advertising_id` (raw UID2) を、オーディエンスを構築しながら DSP に送信します。各 DSP はオーディエンスを構築するための独自のインテグレーションプロセスを持っています。raw UID2 を送信してオーディエンスを構築するには、DSP が提供するインテグレーションガイダンスに従ってください。
 
@@ -66,7 +97,7 @@ UID2 ベースのオーディエンス情報を正確かつ最新の状態に保
    - 最新の `last_updated` タイムスタンプ。
 2. Step 3の結果を使用して、[Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)、 Step1 の [Retrieve a raw UID2 for DII using the identity map endpoint](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoint) に従って、ソルトバケットがローテーションされた ID の新しい raw UID2 を取得して、ソルトバケットの raw UID2 を再マッピングします。
 
-   次に、Step 2の[send raw UID2 to a DSP](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences) に従って、リフレッシュされた UID2 を使ってオーディエンスを更新します。
+   次に、Step 2 の[send raw UID2 to a DSP](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions) に従って、リフレッシュされた UID2 を使ってオーディエンスまたはコンバージョンを更新します。
 
 ## Check Opt-Out Status
 

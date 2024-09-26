@@ -16,10 +16,10 @@ UID2 に関するよくある質問は、以下のカテゴリーに分かれて
 
 UID2 フレームワークに関するよくある質問を紹介します。
 
-   - [EUID インフラのすべてのインテグレーションパートナー(SSP、サードパーティデータプロバイダー、測定プロバイダー)は、自動的に UID2 にインテグレーションされますか？](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
-   - [ユーザーは、自分の UID2 ID に基づいたターゲティング広告をオプトアウトできますか？](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2-identity)
-   - [UID2 に DII を送信すると、UID2 はその情報を保存しますか？](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
-   - [UID2 は HIPAA で規制されているデータの処理を許可しますか？](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
+- [EUID インフラのすべてのインテグレーションパートナー(SSP、サードパーティデータプロバイダー、測定プロバイダー)は、自動的に UID2 にインテグレーションされますか？](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
+- [ユーザーは、自分の UID2 ID に基づいたターゲティング広告をオプトアウトできますか？](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2-identity)
+- [UID2 に DII を送信すると、UID2 はその情報を保存しますか？](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
+- [UID2 は HIPAA で規制されているデータの処理を許可しますか？](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
 
 :::note
 モバイルパブリッシャーインテグレーションに関する FAQs については、[FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations) を参照してください。
@@ -51,14 +51,14 @@ UID2 は HIPAA で規制されているデータの処理を許可しますか�
 
 UID2 フレームワークを使用するパブリッシャーからのよくある質問です。
 
-  - [送信した DII と返されたトークンが一致していることをテストするにはどうすればよいですか？](#how-can-i-test-that-the-dii-sent-and-the-returned-token-match-up)
-  - [トークンを復号化する必要がありますか？](#do-i-need-to-decrypt-tokens)
-  - [ユーザーのオプトアウトはどのように通知されますか？](#how-will-i-be-notified-of-user-opt-out)
-  - [トークン生成の呼び出しは、Server-Side と Client-Side のどちらで行うべきですか？](#where-should-i-make-token-generation-callsfrom-the-server-side-or-the-client-side)
-  - [Client-Side からトークンのリフレッシュを呼び出すことはできますか？](#can-i-make-token-refresh-calls-from-the-client-side)
-  - [Refresh Token のワークフローをテストするにはどうすればよいですか？](#how-can-i-test-the-refresh-token-workflow)
-  - [UID2 Token の一意性とローテーションポリシーは何ですか？](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
-  - [UID2 Token は、ビッドストリームではどのように見えますか？](#what-does-a-uid2-token-look-like-in-the-bidstream)
+- [送信した DII と返されたトークンが一致していることをテストするにはどうすればよいですか？](#how-can-i-test-that-the-dii-sent-and-the-returned-token-match-up)
+- [トークンを復号化する必要がありますか？](#do-i-need-to-decrypt-tokens)
+- [ユーザーのオプトアウトはどのように通知されますか？](#how-will-i-be-notified-of-user-opt-out)
+- [トークン生成の呼び出しは、Server-Side と Client-Side のどちらで行うべきですか？](#where-should-i-make-token-generation-callsfrom-the-server-side-or-the-client-side)
+- [Client-Side からトークンのリフレッシュを呼び出すことはできますか？](#can-i-make-token-refresh-calls-from-the-client-side)
+- [Refresh Token のワークフローをテストするにはどうすればよいですか？](#how-can-i-test-the-refresh-token-workflow)
+- [UID2 Token の一意性とローテーションポリシーは何ですか？](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
+- [UID2 Token は、ビッドストリームではどのように見えますか？](#what-does-a-uid2-token-look-like-in-the-bidstream)
 
 #### How can I test that the DII sent and the returned token match up?
 送信した DII と返されたトークンが一致していることをテストするにはどうすればよいですか？
@@ -134,14 +134,14 @@ UID2 実装のアプローチにはさまざまな方法があります。以下
 
 UID2 フレームワークを使用する広告主やデータプロバイダーによくある質問を紹介します。
 
-   - [ソルトバケットのローテーションによって UID2 をリフレッシュするタイミングを知るには？](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
-   - [更新されたメールアドレスは、以前関連付けられていたバケットと同じバケットに割り当てられますか？](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
-   - [インクリメンタルアップデートの場合、UID2 はどのくらいの頻度で更新するべきですか？](#how-often-should-uid2s-be-refreshed-for-incremental-updates)
-   - [マッピング用の DII の SHA-256 はどのように生成すればよいですか？](#how-should-i-generate-the-sha-256-of-dii-for-mapping)
-   - [大量のメールアドレスや電話番号やそれらのハッシュマッピングを保存すべきか？](#should-i-store-mapping-of-email-addresses-phone-numbers-or-corresponding-hashes-to-raw-uid2s-in-my-own-datasets)
-   - [ユーザーのオプトアウトはどのように処理すればよいですか？](#how-should-i-handle-user-opt-outs)
-   - [同じ DII は常に同じ生UID2になりますか？](#does-the-same-dii-always-result-in-the-same-raw-uid2)
-   - [2 つの Operator が同じ DII を処理した場合、結果は同じになりますか？](#if-two-operators-process-the-same-dii-are-the-results-the-same)
+- [ソルトバケットのローテーションによって UID2 をリフレッシュするタイミングを知るには？](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
+- [更新されたメールアドレスは、以前関連付けられていたバケットと同じバケットに割り当てられますか？](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
+- [インクリメンタルアップデートの場合、UID2 はどのくらいの頻度で更新するべきですか？](#how-often-should-uid2s-be-refreshed-for-incremental-updates)
+- [マッピング用の DII の SHA-256 はどのように生成すればよいですか？](#how-should-i-generate-the-sha-256-of-dii-for-mapping)
+- [大量のメールアドレスや電話番号やそれらのハッシュマッピングを保存すべきか？](#should-i-store-mapping-of-email-addresses-phone-numbers-or-corresponding-hashes-to-raw-uid2s-in-my-own-datasets)
+- [ユーザーのオプトアウトはどのように処理すればよいですか？](#how-should-i-handle-user-opt-outs)
+- [同じ DII は常に同じ生UID2になりますか？](#does-the-same-dii-always-result-in-the-same-raw-uid2)
+- [2 つの Operator が同じ DII を処理した場合、結果は同じになりますか？](#if-two-operators-process-the-same-dii-are-the-results-the-same)
 
 #### How do I know when to refresh the UID2 due to salt bucket rotation?
 ソルトバケットのローテーションによって UID2 をリフレッシュするタイミングを知るには？
@@ -216,21 +216,21 @@ Operator に関係なく、また、Private Operator と Public Operator のど�
 
 demand-side platform (DSP) に関するよくある質問を紹介します。
 
-   - [UID2 に適用する復号キーを知るには？](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
-   - [復号キーはどこで入手できますか？](#where-do-i-get-the-decryption-keys)
-   - [メモリ上に存在する復号鍵の数は？](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
-   - [ソルトバケットがローテーションしたかどうか、あるいはいつローテーションしたかを知るにはどうしたらいいですか？](#how-do-i-know-ifwhen-the-salt-bucket-has-rotated)
-   - [DSP はレイテンシーを気にすべきでしょうか？](#should-the-dsp-be-concerned-with-latency)
-   - [UID2 で DSP はどのように適切なフリクエンシーキャッピング周波数キャッピングを維持すべきでしょうか？](#how-should-the-dsp-maintain-proper-frequency-capping-with-uid2)
-   - [ユーザーのオプトアウトトラフィックはすべて DSP に送られますか？](#will-all-user-opt-out-traffic-be-sent-to-the-dsp)
-   - [DSP は、すでに保存している UID2 についてのみオプトアウトシグナルを処理することを期待されているのか？](#is-the-dsp-expected-to-handle-opt-out-signals-only-for-the-uid2s-that-they-already-store)
-   - [DSP はオプトアウトリストをどれくらいの期間保管すべきですか？](#how-long-should-the-dsp-keep-the-opt-out-list)
-   - [オプトアウトされたユーザーの UID2 は、暗号化された形式でオプトアウトエンドポイントに送信されますか？](#is-the-uid2-of-an-opted-out-user-sent-to-the-opt-out-endpoint-in-an-encrypted-form)
-   - [オプトアウトされたユーザーの UID2 は、どのような形式で Webhook に送信されますか？](#in-what-format-is-the-uid2-of-an-opted-out-user-sent-to-the-webhook)
-   - [オプトアウトはどのリクエストタイプを使いますか？](#what-request-type-do-opt-outs-use)
-   - [オプトアウトに応じるための条件はどの程度厳しいのですか？](#how-strict-are-the-requirements-for-honoring-opt-outs)
-   - [ユーザーがオプトアウトしたかどうかを確認するにはどうすればよいですか？](#how-can-i-check-if-a-user-has-opted-out)
-   - [SDK のエラーは DSP の入札対応能力にどのような影響を与えますか？](#how-do-sdk-errors-impact-the-dsps-ability-to-respond-to-a-bid)
+- [UID2 に適用する復号キーを知るには？](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
+- [復号キーはどこで入手できますか？](#where-do-i-get-the-decryption-keys)
+- [メモリ上に存在する復号鍵の数は？](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
+- [ソルトバケットがローテーションしたかどうか、あるいはいつローテーションしたかを知るにはどうしたらいいですか？](#how-do-i-know-ifwhen-the-salt-bucket-has-rotated)
+- [DSP はレイテンシーを気にすべきでしょうか？](#should-the-dsp-be-concerned-with-latency)
+- [UID2 で DSP はどのように適切なフリクエンシーキャッピング周波数キャッピングを維持すべきでしょうか？](#how-should-the-dsp-maintain-proper-frequency-capping-with-uid2)
+- [ユーザーのオプトアウトトラフィックはすべて DSP に送られますか？](#will-all-user-opt-out-traffic-be-sent-to-the-dsp)
+- [DSP は、すでに保存している UID2 についてのみオプトアウトシグナルを処理することを期待されているのか？](#is-the-dsp-expected-to-handle-opt-out-signals-only-for-the-uid2s-that-they-already-store)
+- [DSP はオプトアウトリストをどれくらいの期間保管すべきですか？](#how-long-should-the-dsp-keep-the-opt-out-list)
+- [オプトアウトされたユーザーの UID2 は、暗号化された形式でオプトアウトエンドポイントに送信されますか？](#is-the-uid2-of-an-opted-out-user-sent-to-the-opt-out-endpoint-in-an-encrypted-form)
+- [オプトアウトされたユーザーの UID2 は、どのような形式で Webhook に送信されますか？](#in-what-format-is-the-uid2-of-an-opted-out-user-sent-to-the-webhook)
+- [オプトアウトはどのリクエストタイプを使いますか？](#what-request-type-do-opt-outs-use)
+- [オプトアウトに応じるための条件はどの程度厳しいのですか？](#how-strict-are-the-requirements-for-honoring-opt-outs)
+- [ユーザーがオプトアウトしたかどうかを確認するにはどうすればよいですか？](#how-can-i-check-if-a-user-has-opted-out)
+- [SDK のエラーは DSP の入札対応能力にどのような影響を与えますか？](#how-do-sdk-errors-impact-the-dsps-ability-to-respond-to-a-bid)
 
 #### How do I know which decryption key to apply to a UID2?
 UID2 に適用する復号キーを知るには？

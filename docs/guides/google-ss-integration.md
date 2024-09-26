@@ -31,13 +31,34 @@ With this framework, the following steps occur:
 
 For your Google Ad Manager account to be eligible to receive encrypted UID2 tokens, you must make sure that encrypted signals are properly shared with third-party bidders on your Google Ad Manager account.
 
-For details, see [Share encrypted signals with bidders](https://support.google.com/admanager/answer/10488752) (Google reference documentation) and then follow the steps in [Use a third-party signal provider](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/securesignals) to switch on UID2 as your signal provider.
+For details, see [Share encrypted signals with bidders](https://support.google.com/admanager/answer/10488752) in the Google documentation, and then follow the steps in [Use a third-party signal provider](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/securesignals) to switch on UID2 as your signal provider.
 
 :::important
-When you're following the steps, in [Select allowed secure signals](https://support.google.com/admanager/answer/10488752#select-signals), under **Web Signal Deploy Option**, choose **Google Deploy**.
-If you choose the **Prebid User ID Module**, your UID2s will not be correctly processed unless you also choose the **Use your Prebid configuration to automatically configure your Secure signals settings** field.
-Before saving your configuration, double-check that you've selected the correct option.
+When you're following the steps, in [Select allowed secure signals](https://support.google.com/admanager/answer/10488752#select-signals), under **Web Signal Deploy Option**, choose **Google Deploy**. If you're using Prebid.js, see [Optional: Enable Secure Signals in Prebid.js](#optional-enable-secure-signals-in-prebidjs).
 :::
+
+### Optional: Enable Secure Signals in Prebid.js
+
+If you want to use Secure Signals with Prebid.js, you must complete both these additional steps so that your UID2s are correctly processed:
+
+1. In Google Ad Manager, when you're making sure that encrypted signals are properly shared with third-party bidders: Choose the **Prebid User ID Module**, and then also choose **Use your Prebid configuration to automatically configure your Secure signals settings**. Before saving your configuration, double-check that you've selected the correct option.
+
+1. In your Prebid.js setup: update the `encryptedSignalSources` section in your Prebid configuration, as shown in the following code:
+
+   ```
+   "encryptedSignalSources": {
+     "sources":[
+       {
+         "source":[
+           "uidapi.com"
+         ],
+         "encrypt":false
+       }
+     ]
+   }
+   ```
+
+   For details, see [ESP Configurations](https://docs.prebid.org/dev-docs/modules/userId.html#esp-configurations) in the Prebid documentation.
 
 ## Publisher Integration
 
