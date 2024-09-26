@@ -119,4 +119,4 @@ Private Operator のインテグレーションは、以下のリソースを利
 | :--- | :--- |
 | [UID2 Private Operator for AWS](operator-guide-aws-marketplace.md) | AWS Marketplace の Private Operator Service を設定する手順です。|
 | [UID2 Private Operator for GCP](operator-private-gcp-confidential-space.md) | [Google Cloud](https://cloud.google.com/docs/overview/) プラットフォームの Confidential Computing オプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) に UID2 Operator Service を設定する手順です。|
-| [UID2 Private Operator for Azure](operator-guide-azure-enclave.md) | Microsoft Azure のコンフィデンシャルコンピューティングオプションである Confidential Containers(機密コンテナー)に UID2 Operator Service を設定する手順です。 |
+| [UID2 Private Operator for Azure](operator-guide-azure-enclave.md) | Microsoft Azure の機密コンピューティングオプションである Confidential Containers のインスタンスで UID2 Operator Service を設定する手順です。 |

@@ -33,8 +33,6 @@ Prebid.js を UID2 ID モジュールと一緒に使用しているや、UID2 �
   - [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
   - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
-## Sample Implementation Website
-
 アプリケーションのサンプルと関連文書については、以下を参照してください:
   - SDK v3を使用したUID2 Google Secure Signals のサンプル:
     - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
@@ -267,6 +265,7 @@ SDK for JavaScript とのすべてのインストラクションは、グロー�
 - [callbacks](#callbacks) <New />
 - [setIdentity()](#setidentityidentity-identity-void) <New />
 - [getIdentity()](#getidentity-identity--null) <New />
+- [isInitComplete()](#isinitcomplete-boolean) <New />
 
 ### constructor()
 
@@ -321,6 +320,28 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 | `useCookie` | `boolean` | オプション | この値を `true` に設定すると、SDK はローカルストレージではなくクッキーに ID を保存します。この値がfalseであるか、提供されていない場合でも、ファーストパーティクッキーを使用して ID を提供することができます。 | 
 | `callback` | `function(object): void` | 非推奨 | 渡された ID を検証した後に SDK が呼び出す関数です。新しいインテグレーションには使用しないでください。 | N/A |
 
+#### Multiple Init Calls
+
+`init()` 関数は何度でも呼び出すことができます。ほとんどの場合、特定の [init parameter](#init-parameters) の最新の値を受け入れます。例えば、`baseUrl` が 2 回呼び出され、それぞれ異なる `baseUrl` が渡された場合、`baseUrl` 変数は 2 回目の呼び出しからの値に更新されます。
+
+この機能には 2 つの例外があります:
+
+1. 新しい identity が提供され、新しい identity が現在の identity よりも早く失効する場合、新しい identity は現在の identity を置き換えません。
+2. 移行、渡されたコールバック関数のすべてに対し、[Array Push Pattern](#array-push-pattern) を使用して既存のコールバック配列に関数が追加されます。
+
+:::note
+
+`useCookie` が更新されると、identity の場所が変わります。例えば、値が `true` から `false` に更新されると、ファーストパーティクッキーが削除され、identity がローカルストレージに追加されます。
+:::
+
+
+### Init Config
+
+`init()` を呼び出すと、初期設定がファーストパーティクッキーまたはローカルストレージに保存されます。この設定には、`baseUrl`、`useCookie`、`refreshRetryPeriod`、`cookiePath`、`cookieDomain` が含まれる場合があります。この設定は [bootstrap init](#self-bootstrap) に使用され、その後のページロードでの読み込み時間を短縮します。`init()` に対する後続の呼び出しは、最新のパラメータで設定を更新します。
+
+### Self Bootstrap
+
+コンストラクタが完了し、SDK が window オブジェクトに配置されると、コードはローカルストレージとクッキーストレージをチェックして、保存された [init config](#init-config) を取得します。Condig が存在する場合、`init()` は自動的にその config のパラメータで呼び出され、その結果、`init()` が必要な関数を使用できるようになります。
 
 #### Errors
 
@@ -328,7 +349,7 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 | Error | Description |
 | :--- | :--- |
-| `TypeError` | 以下のいずれかの問題が発生しました:<br/>- 関数がすでに呼び出されている。<br/>- `opts` の値がオブジェクトではありません。<br/>- コールバック関数が指定されていません。<br/>-  `callback` の値が関数でありません。 |
+| `TypeError` | 次のいずれかの問題が発生しました:<ul><li>`opts` の値がオブジェクトではありません。</li><li>レガシーコールバックが提供されているが、関数ではありません。</li><li>`refreshRetryPeriod` が提供されているが、数値ではありません。</li></ul> |
 | `RangeError` | リフレッシュの再試行期間が 1000 未満である。 |
 
 #### Legacy Callback Function
@@ -341,9 +362,7 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 ### getAdvertisingToken(): string
 
-現在の Advertising Token を取得します。
-
-この関数を呼び出す前に、必ず [init()](#initopts-object-void) を呼び出し、コールバックハンドラが `InitCompleted` イベントを受信するまで待ちます。
+現在の Advertising Token を取得します。この関数は、`init()` を呼び出さずに呼び出すことができ、ローカルストレージまたはファーストパーティクッキーに保存されている場合はトークンを返します。
 
 ```html
 <script>
@@ -355,9 +374,8 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 この関数は、以下の条件のいずれかに該当する場合、`undefined` を返します:
 
-- [callback function](#callback-function) はまだ呼び出されていません。これは SDK の初期化が完了していないことを意味します。
-- SDK の初期化は完了していますが、使用する有効な ID がありません。
-- SDK の初期化は完了しましたが、自動更新により ID がクリアされました&#8212;例えば、ユーザーがオプトアウトした場合などです。
+- SDK の初期化は完了していますが、使用する有効な Identity がありません。
+- SDK の初期化は完了しましたが、自動更新により Identity がクリアされました&#8212;例えば、ユーザーがオプトアウトした場合などです。
 
 ID が利用できない場合は、[isLoginRequired()](#isloginrequired-boolean) 関数を使用して最良の対処法を決定します。
 
@@ -365,7 +383,7 @@ ID が利用できない場合は、[isLoginRequired()](#isloginrequired-boolean
 
 現在の Advertising Token の `Promise` 文字列を取得します。
 
-この関数は、[init()](#initopts-object-void) の呼び出しの前でも後でも呼び出すことができます。返された promise は、初期化が完了し、[callback function](#callback-function) が呼び出された後、Advertising Token が利用可能かどうかに基づいて Settle されます:
+この関数は、[init()](#initopts-object-void) の呼び出しの前でも後でも呼び出すことができます。返された promise は、Advertising Token が利用可能かどうかに基づいて Settle されます:
 
 - Advertising Token が利用可能な場合、Promise は現在の Advertising Token で実行されます。
 - Advertising Token が利用可能であれば、Promise は現在の Advertising Token で実行されます。Advertising Token が一時的にでも利用できない場合、Promise は `Error` のインスタンスで拒否されます。この場合に最適なアクションを決定するには、[isLoginRequired()](#isloginrequired-boolean) を使います。
@@ -447,11 +465,17 @@ UID2 SDK に新しい ID を提供するには、この関数を使用します�
 
 ### getIdentity(): Identity | null
 
-有効な ID がある場合は、現在格納されている ID を返します。
+有効な ID がある場合は、現在格納されている ID を返します。この関数を使用するために`init()`を呼び出す必要はありません。
 
 利用可能な有効な ID がある場合、返り値は保存されている完全な ID を表すオブジェクトです。オブジェクトのプロパティは、[contents structure](#contents-structure) セクションで説明した、格納されている値と同じです。
 
 現在有効な ID がない場合 (ID が一時的に使用できないだけであっても)、戻り値は null です。ID が一時的に使用できないだけなのかどうかを知る必要がある場合は [isLoginRequired()](#isloginrequired-boolean) を呼び出します。
+
+### isInitComplete(): boolean
+
+`init()` 関数が少なくとも一度呼び出された場合、true を返します。
+
+`init()` が一度も呼び出されたことがない場合、false を返します。
 
 ## UID2 Storage Format
 

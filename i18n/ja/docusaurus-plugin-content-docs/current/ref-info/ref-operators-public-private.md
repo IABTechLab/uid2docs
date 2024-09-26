@@ -54,18 +54,6 @@ Private Operator は、UID2 Operator のプライベートインスタンスで�
 
 詳細は [Private Operator Integrations](../guides/integration-options-private-operator.md) を参照してください。
 
-## Private Operator: Benefits
-
-参加者が Private Operator になることを選択する理由はいくつかあります:
-
-- Private Operator のソリューションでは、DII は運営する組織のインフラから離れません。
-
-- Private Operator になれば、リソースを管理できます。より多くのコントロールが可能です。例えば、料金の制限なく、より大きな可用性を提供することができます。
-
-- 物理的に Public Operator のインスタンスの近くにない場合、レイテンシーの理由から Private Operator のソリューションをホストすることを選択することができます。
-
-レイテンシーに大きな懸念がある場合、セキュリティ要件によりデータがシステム内に留まる必要がある場合、さらに UID2 実装を構築・維持するための広範なエンジニアリングリソースがある場合は、Private Operator ソリューションを検討されることを勧めます。
-
 ## Summary
 
 ほとんどの参加者にとって、Public Operator が最もシンプル解決策です。
