@@ -24,7 +24,7 @@ UID2 Private Operator for Azure is not supported in these areas: Europe, China.
 
 ## Prerequisites
 
-Before deploying the UID2 Private Operator for Azure, complete these prerequisite steps:
+Before deploying the UID2 <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> for Azure, complete these prerequisite steps:
 
 - [Set Up UID2 Operator Account](#set-up-uid2-operator-account)
 - [Install Azure CLI](#install-azure-cli)
