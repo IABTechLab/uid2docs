@@ -384,12 +384,11 @@ import Link from '@docusaurus/Link';
 <dd>The UID2 service uses salt as part of the process, along with hashing and encryption, to secure the original value. Salt is added to the input value before hashing.</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket"><a href="#gl-salt-bucket">Salt bucket</a></MdxJumpAnchor></dt>
-<dd>A string of characters used to identify a specific <a href="#gl-salt">salt</a> value used in the process of creating a specific raw UID2. In this context, the term "bucket" does not reference a cloud storage bucket; the salt bucket ID is the identifier for a specific salt value.</dd>
-<dd>Because salt values are refreshed from time to time, having the salt bucket ID is helpful when the salt value has been updated, so that the old and new values can be correlated.</dd>
-<dd>Each UID2 has a salt bucket. The salt for each bucket rotates once every 12 months. Each salt bucket has an alphanumeric designation.</dd>
-<dd>The UID2 Operator receives and stores up-to-date salts from the UID2 Core Service, and authorized UID2 participants can retrieve salt bucket IDs by calling the [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) endpoint.</dd>
-<dd>Salt buckets are rotated approximately once per year. This means that approximately 1/365th of the buckets are rotated daily. When the salt bucket is rotated, the raw UID2 value is updated accordingly, wich renders the previous value obsolete.</dd>
-<dd>Authorized users should check for updated salt bucket IDs frequently.</dd>
+<dd>A salt bucket is used to manage secret <a href="#gl-salt">salt</a> values over time. Each bucket contains a single current salt value, which remains active for approximately one year before being rotated to a new value. Buckets can be updated independently of one another.</dd>
+<dd>There are just over one million salt buckets, and each email address or phone number is assigned to a specific bucket in a deterministic manner. However, this assignment is not permanent; it might change when the bucket's current secret salt is rotated to a new value.</dd>
+
+<dt><MdxJumpAnchor id="gl-salt-bucket-id"><a href="#gl-salt-bucket-id">Salt bucket ID</a></MdxJumpAnchor></dt>
+<dd>A salt bucket ID is a unique string of characters that identifies a specific <a href="#gl-salt-bucket">Salt bucket</a>. The salt bucket ID can be used to check which salt buckets have recently had their salt values updated, indicating which emails or phone numbers need their raw UID2 values regenerated.</dd>
 <dd>For an example of a salt bucket ID, see the response to the `POST /identity/buckets` endpoint: <a href="../endpoints/post-identity-buckets#decrypted-json-response-format">Decrypted JSON Response Format</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-salted-hash"><a href="#gl-salted-hash">Salted hash</a></MdxJumpAnchor></dt>
