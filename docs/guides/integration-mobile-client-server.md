@@ -308,3 +308,47 @@ UID2Manager.shared.automaticRefreshEnabled = false
 ## Optional: UID2 Prebid Mobile SDK Integration
 
 <PrebidMobileSDK />
+
+## Error Response States
+
+[**GWH_IB_01 Are these states equally applicable to client-side and server-side?**]
+
+[**GWH_IB_02 Are these states equally applicable to Android and iOS, and identical? (if yes on both of these questions I will make this into a snippet when we've ironed out the wording)**]
+
+In certain conditions, the mobile SDK might return one of the following error response states:
+
+- [Expired](#response-state-of-expired)
+- [RefreshExpired](#response-state-of-refreshexpired)
+- [Invalid](#response-state-of-expired)
+- [NoIdentity](#response-state-of-expired)
+
+### Response State of Expired
+
+A response state of `Expired` means that the UID2 token has expired but the refresh token has not expired, therefore the UID2 token can be refreshed.
+
+If you have automatic refreshing enabled on the SDK, which is the default setting, the SDK should refresh the token for you. However, there are some scenarios where you might observe this state. For example:
+
+- If the app is launched and the SDK is immediately queried, you might see a response state of `Expired` while, in the background, the SDK is in the process of refreshing the token and will quickly update with the new identity. In this scenario, you should not need to generate a new token. [**GWH_IB_03 what SHOULD they do? Just wait, and they will see a success error response? Or...?**]
+- If you've disabled automatic refreshing of the token, and get a response state of `Expired`, you can manually request the refresh by calling the `refreshIdentity()` method.
+
+### Response State of RefreshExpired
+
+A response state of `RefreshExpired` means that the UID2 token and the refresh token have both expired, therefore the UID2 token cannot be refreshed.
+
+An example of how this could occur is if a user does not run your app for a long time, and the SDK therefore doesn't get an opportunity to refresh the UID2 token before the refresh token expires.
+
+In this scenario, you'd need to regenerate the identity.
+
+### Response State of Invalid
+
+A response state of `Invalid` means that the identity, whether loaded off disk or requested via the API, did not include all the necessary tokens. This should never happen, but might occur in unexpected circumstances.
+
+If the SDK detects this error, it clears any previous identity since it's considered unusable.
+
+In this scenario, you'd need to regenerate the identity. Ideally, also report the issue to your UID2 contact.
+
+### Response State of NoIdentity
+
+A response state of `NoIdentity` means that the SDK has been initialized, but doesn't yet have a current identity.
+
+This happens the first time the SDK is used on a device, before any identity has been generated. [**GWH_IB_04 what should the user do, if anything?**]
