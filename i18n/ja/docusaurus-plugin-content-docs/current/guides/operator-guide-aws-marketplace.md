@@ -279,7 +279,7 @@ Operator インスタンスがデプロイされると、デフォルトのロ�
 
 #### Log Rotation Default Settings
 
-以下はデフォルトの logrotete の設定です。`/etc/logrotate.d/uid2operator.conf` に定義されています:
+以下はデフォルトの logrotete の設定です。`/etc/logrotate.d/operator-logrotate.conf` に定義されています:
 ```
 /var/log/operator.log*
 {
