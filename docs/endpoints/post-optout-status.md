@@ -24,7 +24,7 @@ For details, refer to the following documentation, depending on your role:
 The key guidelines for managing batches of requests to this endpoint are as follows:
 
 - To check the opt-out status of a large number of UID2s, send them in sequential batches with a maximum batch size of 5,000 items per batch.
-- Unless you are using a Private Operator, do not send batches in parallel. In other words, use a single HTTP connection and send batches of raw UID2s consecutively, without creating multiple parallel connections.
+- Unless you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, do not send batches in parallel. In other words, use a single HTTP connection and send batches of raw UID2s consecutively, without creating multiple parallel connections.
 
 ## Request Format
 

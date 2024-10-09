@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # POST /identity/buckets
 
-Monitors rotated salt buckets.
+Monitors rotated <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt buckets</Link>.
 
 Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md).
 

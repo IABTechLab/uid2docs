@@ -8,13 +8,17 @@ import Link from '@docusaurus/Link';
 
 # UID2 Private Operator Integration Overview
 
-UID2 participants that host their own Private Operator send their own first-party <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to their own, local UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> service, running in a private environment.
+UID2 participants that host their own <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> send their own first-party <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to their own, local UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> service, running in a private environment.
 
 A Private Operator runs in an <Link href="../ref-info/glossary-uid#gl-enclave">enclave</Link>&#8212;a virtual machine with additional security features to prevent unauthorized access, so that unauthorized individuals cannot download any configuration information or data from the virtual machine.
 
 Becoming a Private Operator includes several additional steps, and uses resources that the participant must provide.
 
 Learn about what the UID2 framework offers for Private Operators, including benefits, hosting options, documentation and other resources, and how to get started.
+
+:::note
+This page is about Private Operators. For information about Public Operators, or if you're not sure what the difference is or what an Operator is, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
+:::
 
 ## Private Operator Benefits
 
