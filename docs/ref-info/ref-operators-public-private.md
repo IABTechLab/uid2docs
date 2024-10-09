@@ -24,6 +24,7 @@ A UID2 Operator is simply an organization that runs the Operator Service. Operat
 - Encrypt raw UID2s to generate UID2 tokens.
 - Distribute UID2 token decryption keys to server-side SDKs (see [SDKs: Summary](../sdks/summary-sdks.md)).
 - Download the latest user opt-out information from the UID2 <a href="glossary-uid#gl-opt-out-service">Opt-Out Service</a>.
+- Support a number of UID2 endpoints. For details, see [UID2 Endpoints: Summary](../endpoints/summary-endpoints.md).
 
 UID2 Operators fall into two categories:
 
