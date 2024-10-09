@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 Monitors rotated salt buckets.
 
-Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md).
+Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Guide](../guides/integration-options-advertiser-dataprovider.md).
 
 ## Request Format
 
