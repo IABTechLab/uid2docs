@@ -10,11 +10,11 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
+import ExampleAdvertisingToken from '/docs/snippets/_example-advertising-token.mdx';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
-import ExampleAdvertisingToken from '/docs/snippets/_example-advertising-token.mdx';
-
+import ErrorResponseStates from '/docs/snippets/_mobile-docs-error-response-states.mdx';
 
 # UID2 Client-Side Integration Guide for Mobile
 
@@ -707,7 +707,6 @@ If the response status indicates that the DII has been opted out of UID2, you mi
 
 <GMAIMA_Plugins />
 
-
 ## Optional: UID2 Prebid Mobile SDK Integration
 
 :::important
@@ -715,3 +714,7 @@ The UID2 Prebid Mobile SDK integration requires version 1.4.0 of the UID2 SDK fo
 :::
 
 <PrebidMobileSDK />
+
+## Error Response States
+
+<ErrorResponseStates />
