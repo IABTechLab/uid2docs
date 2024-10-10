@@ -120,7 +120,7 @@ Google Ad Manager のセキュアシグナル機能との連携方法につい�
 
 各サンプルアプリケーションには独自のインストラクションがあります。
 
-## Troubleshooting Tips for UID2 Integration with Google Secure Signals
+## Troubleshooting
 
 UID2 インテグレーションで Google Secure Signals を使用する際に役立つトラブルシューティング情報です:
 

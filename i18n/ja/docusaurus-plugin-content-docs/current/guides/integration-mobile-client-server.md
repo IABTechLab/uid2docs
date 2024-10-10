@@ -155,6 +155,11 @@ UID2Manager.init(
   context = this,
   serverUrl = "https://global.prod.uidapi.com"
 )
+// or 
+UID2Manager.init(
+  context = this,
+  UID2Manager.Environment.Custom("https://global.prod.uidapi.com")
+)
 ```
 
 </TabItem>
@@ -301,9 +306,5 @@ UID2Manager.shared.automaticRefreshEnabled = false
 <GMAIMA_Plugins />
 
 ## Optional: UID2 Prebid Mobile SDK Integration
-
-:::important
-UID2 Prebid Mobile SDK のインテグレーションは Android のみで、SDK for Android のバージョン 1.4.0 が必要です。
-:::
 
 <PrebidMobileSDK />
