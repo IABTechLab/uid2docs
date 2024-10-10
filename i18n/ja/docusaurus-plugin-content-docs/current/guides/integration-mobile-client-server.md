@@ -153,7 +153,7 @@ UID2Settings.shared.uid2Environment = .custom(
 ```js
 UID2Manager.init(
   context = this,
-  UID2Manager.Environment.Signapore
+  serverUrl = "https://global.prod.uidapi.com"
 )
 // or 
 UID2Manager.init(

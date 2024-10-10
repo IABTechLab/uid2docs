@@ -64,14 +64,14 @@ UID2 Prebid モジュールを設定して、以下の2つのアクションを�
 
 ### Generating a UID2 Token on the Server
 
-For a client-server UID2 integration for Prebid, the first step is to generate the UID2 token on your server. Then, you can pass the token to Prebid for sending to the RTB bidstream.
+Prebid の Client-Server インテグレーションの場合、最初のステップは、サーバー上で UID2 Token を生成することです。その後、トークンを Prebid に渡して RTB ビッドストリームに送信します。
 
-For details, including instructions and examples, see [Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md).
+手順や例を含む詳細については、[Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md) を参照してください。
 
-To generate a token, call one of the SDKs or the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint. For an example of the API response, showing the token, see [Sample Token Response Object](#sample-token-response-object). You will need to pass the `Identity` response to Prebid.
+トークンを生成するには、いずれかの SDK または [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出します。トークンを示す API レスポンスの例については、[Sample Token Response Object](#sample-token-response-object) を参照してください。`Identity` レスポンスを Prebid に渡す必要があります。
 
 :::warning
-For security reasons, the API key and secret used in token generation must be called server-side. Do not store these values as part of your Prebid implementation.
+セキュリティ上の理由から、トークン生成に使用される API キーとシークレットはサーバーサイドで呼び出す必要があります。これらの値は Prebid の実装の一部として保存しないでください。
 :::
 
 ### Refreshing a UID2 Token
@@ -181,7 +181,9 @@ Server-Only Mode を使用するようにモジュールを設定するには、
 
 #### Server-Only Mode Cookie Example
 
-以下の例では、Advertising Token の値を `__uid2_advertising_token` という名前のクッキーに格納しています。この設定により、UID2 module がクッキーから Advertising Token の値を取得できるようになります。
+以下の例では、Advertising Token の値を格納する `__uid2_advertising_token` という名前のクッキーを設定しています。クッキーの値は、トークンレスポンスオブジェクトで返される値です(詳細は [Sample Token Response Object](#sample-token-response-object) を参照してください)。
+
+この設定により、UID2 モジュールは Advertising Token の値をクッキーから取得できます。
 
 Cookie:
 
@@ -363,3 +365,10 @@ pbjs.setConfig({
   } 
 }); 
 ```
+
+## Optional: Prebid.js Integration with Google Secure Signals
+
+Prebid.js を使用しており、Google Secure Signals を使用して UID2 Token を Google に渡す場合、追加の設定手順がいくつかあります:
+
+- Google Ad Manager アカウントで、暗号化されたシグナルが適切にサードパーティビッダと共有されていることを確認します: [Secure Signals Sharing を許可](google-ss-integration.md#allow-secure-signals-sharing) を参照してください。
+- Prebid.js の設定を更新します: [Optional: Enable Secure Signals in Prebid.js](google-ss-integration.md#optional-enable-secure-signals-in-prebidjs) を参照してください。

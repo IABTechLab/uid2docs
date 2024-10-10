@@ -29,10 +29,6 @@ import Link from '@docusaurus/Link';
 
 ## Sharing UID2 Tokens in Pixels
 
-:::tip
-DII から UID2 Token を直接生成することを勧めます。これにはいくつかの方法がありますが、勧めるのは Client-Side で UID2 Token を生成する方法です。手順については、[Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を参照してください。
-:::
-
 参加者によって、ピクセルの使用方法は異なります。次の表は、広告技術のエコシステムにおけるピクセルの2つの一般的な使用例を示しています。
 
 | |  Tracking Pixel | Creative Pixel |
@@ -56,6 +52,10 @@ UID2 Portal では、送信者と受信者がアカウントを設定し、送�
 詳細は [UID2 Portal: Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
 
 ## Workflow: Tokenized Sharing in Tracking Pixels
+
+:::tip
+トラッキングピクセル用のトークンを生成する場合、raw UID2 ではなく、DII から直接 UID2 Token を生成することを勧めます。これはいくつかの方法で行うことができますが、UID2 Token をクライアントサイドで生成することを勧めます。手順については、[Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を参照してください。
+:::
 
 ウェブサイトで製品の購入などのアクションが完了したときにトリガーされるトラッキングピクセルを使用している場合、おそらく DII から始めて、UID2 Token に変換して共有します。
 

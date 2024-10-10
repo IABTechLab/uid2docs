@@ -56,6 +56,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 - [ユーザーのオプトアウトはどのように通知されますか？](#how-will-i-be-notified-of-user-opt-out)
 - [トークン生成の呼び出しは、Server-Side と Client-Side のどちらで行うべきですか？](#where-should-i-make-token-generation-callsfrom-the-server-side-or-the-client-side)
 - [Client-Side からトークンのリフレッシュを呼び出すことはできますか？](#can-i-make-token-refresh-calls-from-the-client-side)
+- [トークンを手動でリフレッシュする場合、リフレッシュのタイミングをどう判断すればよいですか？](#if-i-choose-to-manually-refresh-the-token-how-will-i-know-when-to-refresh-the-token)
 - [Refresh Token のワークフローをテストするにはどうすればよいですか？](#how-can-i-test-the-refresh-token-workflow)
 - [UID2 Token の一意性とローテーションポリシーは何ですか？](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
 - [UID2 Token は、ビッドストリームではどのように見えますか？](#what-does-a-uid2-token-look-like-in-the-bidstream)
@@ -91,6 +92,17 @@ UID2 Token は、Client-Side、Server-Sideのどちらでも生成できます�
 Client-Side からトークンのリフレッシュを呼び出すことはできますか？
 
 はい。[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) は、API Key を使用する必要がないため、Client-Side (例えば、ブラウザやモバイルアプリ) から呼び出すことができます。
+
+#### If I choose to manually refresh the token, how will I know when to refresh the token?
+トークンを手動でリフレッシュする場合、リフレッシュのタイミングをどう判断すればよいですか？
+
+推奨されるリフレッシュ間隔は 1 時間です。
+
+リフレッシュのタイミングを決定するには、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントのレスポンスの `refresh_from` フィールドのタイムスタンプを使用します(詳細は [Successful Response](../endpoints/post-token-generate.md#successful-response) を参照してください)。または、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントのレスポンスの `refresh_from` フィールドのタイムスタンプを使用します(詳細は [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens) を参照してください)。
+
+トークンのリフレッシュが必要かどうかを確認する機能を持つ SDK のいずれかを使用することもできます。
+
+詳細は、[Recommended Token Refresh Frequency](../ref-info/ref-tokens.md#recommended-token-refresh-frequency) および [Managing Token Refresh with an SDK](../ref-info/ref-tokens.md#managing-token-refresh-with-an-sdk) を参照してください。
 
 #### How can I test the refresh token workflow?
 Refresh Token のワークフローをテストするにはどうすればよいですか？

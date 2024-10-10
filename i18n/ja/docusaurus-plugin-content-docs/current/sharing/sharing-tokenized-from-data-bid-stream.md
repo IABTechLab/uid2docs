@@ -46,6 +46,10 @@ DII を直接 UID2 Token に暗号化してビッドストリームに送信す�
 
 これらのオプションは、メールアドレスまたは電話番号から UID2 Token を生成し、トークンを定期的に更新することをサポートしています。他の SDK は、現時点ではトークン生成とトークン更新をサポートしていません。
 
+:::tip
+SDK に関する詳細は、[SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) を参照してください。パブリッシャー向けのインテグレーションアプローチの詳細は、[Publisher Integrations](../guides/summary-guides.md#publisher-integrations) を参照してください。
+:::
+
 ### Decryption Options for Receivers
 
 UID2 Token の復号化には以下の方法があります。

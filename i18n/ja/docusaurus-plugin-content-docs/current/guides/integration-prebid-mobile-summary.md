@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Mobile Integration for Prebid Mobile SDK
 
-Prebid Mobile SDK Android および iOS モバイルデバイスでの UID2 インテグレーションをサポートしています。
+Prebid Mobile SDK Android モバイルデバイスでの UID2 インテグレーションをサポートしています。
 
 詳細は以下のモバイルインテグレーションガイドのセクションを参照してください:
 
