@@ -40,8 +40,7 @@ Refresh Token に関する主なポイントは次のとおりです:
 - トークンのリフレッシュは、さまざまな方法で管理できます:
   - UID2 SDK ([SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) を参照してください) を使用して。
   - [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出して。
-  - By using the UID2 Prebid.js module (see [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md))
-　- UID2 Prebid.js モジュール ([Prebid.js 向け UID2 統合概要](../guides/integration-prebid.md) を参照してください) を使用して。
+  - UID2 Prebid.js モジュール ([UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md) を参照してください) を使用して。
 - 新しい UID2 Token が生成され、リフレッシュトークンに対するレスポンスとして返されると、新しい Refresh Token も返されます。
 - ほとんどの場合、サーバーサイドで生成されたトークンでも、Client-Side でトークンをリフレッシュできます。各 SDK のリフレッシュ機能についての詳細は、[SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) (*Refresh UID2 Token* 列) を参照してください。
 - UID2 Operator Service が、新しい UID2 Token をリクエエストする際に Refresh Token を受け取ると、ユーザーのオプトアウトを確認します。ユーザーが UID2 からオプトアウトしている場合、新しい UID2 Token は生成されません。詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
