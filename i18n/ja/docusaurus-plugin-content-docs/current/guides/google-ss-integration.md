@@ -31,14 +31,34 @@ Google secure signals は、パブリッシャーが [Google Ad Manager](https:/
 
 Google Ad Manager アカウントで暗号化 UID2 Token を受け取るには、暗号化されたシグナルが Google Ad Manager アカウントで第三者の入札者と適切に共有されていることを確認する必要があります。
 
-詳しくは、[セキュア シグナルをビッダーと共有する](https://support.google.com/admanager/answer/10488752) (Google reference documentation) を確認し、[サードパーティのシグナルプロバイダーを使用する](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/securesignals) の手順に従って、シグナルプロバイダーとして UID2 をオンに設定してください。
+詳しくは、Google ドキュメントの [Share encrypted signals with bidders](https://support.google.com/admanager/answer/10488752) を確認し、[Use a third-party signal provider](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/securesignals) の手順に従って、シグナルプロバイダーとして UID2 をオンに設定してください。
 
 :::important
-When you're following the steps, in [Select allowed secure signals](https://support.google.com/admanager/answer/10488752#select-signals), under **Web Signal Deploy Option**, choose **Google Deploy**.
-以下の手順に従って、[Select allowed secure signals](https://support.google.com/admanager/answer/10488752#select-signals) で **Web Signal Deploy Option** として **Google Deploy** を選択してください。
-**Prebid User ID Module** を選択した場合、**Use your Prebid configuration to automatically configure your Secure signals settings** フィールドも選択しない限り、UID2 は正しく処理されません。
-設定を保存する前に、選択したオプションが正しいことを再確認してください。
+手順に従う際、[Select allowed secure signals](https://support.google.com/admanager/answer/10488752#select-signals) の **Web Signal Deploy Option** で **Google Deploy** を選択してください。Prebid.js を使用している場合は、[Optional: Enable Secure Signals in Prebid.js](#optional-enable-secure-signals-in-prebidjs) を参照してください。
 :::
+
+### Optional: Enable Secure Signals in Prebid.js
+
+Prebid.js で Secure Signals を使用する場合は、UID2 が正しく処理されるように、次の追加手順を完了する必要があります:
+
+1. Google Ad Manager で、暗号化されたシグナルがサードパーティの入札者と適切に共有されていることを確認する際: **Prebid User ID Module** を選択し、**Use your Prebid configuration to automatically configure your Secure signals settings** も選択します。設定を保存する前に、正しいオプションを選択したことを再確認してください。
+
+1. Prebid.js のセットアップ: 次のコードに示すように、Prebid 構成内の `encryptedSignalSources` セクションを更新します。
+
+   ```
+   "encryptedSignalSources": {
+     "sources":[
+       {
+         "source":[
+           "uidapi.com"
+         ],
+         "encrypt":false
+       }
+     ]
+   }
+   ```
+
+   For details, see [ESP Configurations](https://docs.prebid.org/dev-docs/modules/userId.html#esp-configurations) in the Prebid documentation.
 
 ## Publisher Integration
 
