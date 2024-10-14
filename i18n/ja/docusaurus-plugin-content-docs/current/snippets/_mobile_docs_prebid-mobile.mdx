@@ -23,7 +23,7 @@ UID2 Prebid の設定手順については、以下の手順に従ってくだ�
    <TabItem value='gradle' label='Gradle (Android)'>
     Include the following in your Gradle configuration:
    ```js
-   implementation("com.uid2:uid2-android-sdk-prebid:1.4.0")
+   implementation("com.uid2:uid2-android-sdk-prebid:1.5.0")
    ```
    </TabItem>
    <TabItem value='maven' label='Maven (Android)'>
@@ -32,14 +32,14 @@ UID2 Prebid の設定手順については、以下の手順に従ってくだ�
    <dependency>
       <groupId>com.uid2</groupId>
       <artifactId>uid2-android-sdk-prebid</artifactId>
-      <version>1.4.0</version>
+      <version>1.5.0</version>
    </dependency>
    ```
    </TabItem>
    <TabItem value='cocoapods' label='CocoaPods (iOS)'>
    `Podfile` に以下のエントリを追加します:
    ```js
-   pod 'UID2Prebid', '~> 1.5'
+   pod 'UID2Prebid', '~> 1.7'
    ```
    </TabItem>
    <TabItem value='spm' label='SPM (iOS)'>
@@ -57,7 +57,7 @@ UID2 Prebid の設定手順については、以下の手順に従ってくだ�
    UID2Manager.init(context = this)
 
    PrebidMobile.initializeSdk(this) { Log.i(TAG, "Prebid: $it") }
-   prebid = UID2Prebid().apply {
+   prebid = UID2Prebid(UID2Manager.getInstance()).apply {
        initialize()
    }
    ```
@@ -68,14 +68,14 @@ UID2 Prebid の設定手順については、以下の手順に従ってくだ�
 
    PrebidMobile.initializeSdk(this, status -> Log.i(TAG, "Prebid: " + status));
 
-   prebid = new UID2Prebid();
+   prebid = new UID2Prebid(UID2Manager.getInstance());
    prebid.initialize();
    ```
    </TabItem>
    <TabItem value='ios' label='iOS Swift'>
    UID2Prebid のインスタンスを初期化し、それを保持します。UID2Prebid は、インスタンスが保持されている間のみ UID2Manager を監視します。
    ```js
-   self.prebid = UID2Prebid()
+   self.prebid = UID2Prebid(manager: UID2Manager.shared)
    ```
    </TabItem>
    </Tabs>
@@ -86,13 +86,13 @@ UID2 Prebid の設定手順については、以下の手順に従ってくだ�
 
    このプロセスは破壊的であり、アプリケーションが他のソースから外部 ID を使用している場合、UID2 Token が更新される間、すべての外部 ID が保持されるように、UID2 Prebid インテグレーションにそれらの ID を提供する必要があります。
    
-   This is done via the callback, which must be passed in during initialization, as shown in the following examples.
    これは、以下の例に示される通り、初期化中に渡されるコールバックを介して行われます。
    
    <Tabs groupId="language-selection">
    <TabItem value='android' label='Android Kotlin'>
    ```js
    prebid = UID2Prebid(
+       manager = UID2Manager.getInstance(),
        externalUserIdFactory = ::getExternalIds,
    ).apply {
        initialize()
@@ -107,7 +107,7 @@ UID2 Prebid の設定手順については、以下の手順に従ってくだ�
    </TabItem>
    <TabItem value='ios' label='iOS Swift'>
    ```js
-   self.prebid = UID2Prebid(thirdPartyUserIDs: {
+   self.prebid = UID2Prebid(manager: UID2Manager.shared, thirdPartyUserIDs: {
        // return externalUserIDs
    })
    ```

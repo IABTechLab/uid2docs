@@ -37,7 +37,6 @@ Snowflake Data Marketplace でホストされる Open Operator Service を使用
 
 広告主およびデータプロバイダーが UID2 とインテグレーションする手順は次のとおりです:
 
-
 1. <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> から UID2 を生成するか、広告主やデータプロバイダーなどの他の UID2 参加者から UID2 を受け取ります。
 
 1. Step1 で受け取った UID2 を使用します。たとえば、以下のいずれかを行うかもしれません:
