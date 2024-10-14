@@ -24,7 +24,7 @@ UID2 Operator は、UID2 エコシステムにおける API サーバーです�
 UID2 Private Operator for AWS を契約することで、以下を利用できます:
 
 - [Amazon Machine Image (AMI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) UID2 Operator Service がインストールされ、ブートストラップの準備が整っている状態です:<br/>
-  AMI には、UID2 Operator Service がすでにセットアップされた[Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/?amazon-linux-whats-new.sort-by=item.additionalFields.postDateTime&amazon-linux-whats-new.sort-order=desc)オペレーティングシステムが含まれています。AMI をベースにした EC2 インスタンスが起動すると、AWS アカウントから設定を自動的に取得し、エンクレーブ内で UID2 Operator サーバーを起動します。
+  AMI には、UID2 Operator Service がすでにセットアップされた [Amazon Linux 2023](https://aws.amazon.com/linux/amazon-linux-2023/) オペレーティングシステムが含まれています。AMI をベースにした EC2 インスタンスが起動すると、AWS アカウントから設定を自動的に取得し、エンクレーブ内で UID2 Operator サーバーを起動します。
 - [CloudFormation](https://aws.amazon.com/cloudformation/) template:<br/>
   このテンプレートでは、UID2 Operator AMI がデプロイ展開されます。
 
@@ -162,7 +162,7 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 
 ### Operator Version
 
-最新の ZIP ファイルは、次の表の AWS バージョン欄にリンクされています。
+最新の ZIP ファイルは、次の表の Release Notes 欄にリンクされています。
 
 <ReleaseMatrix />
 
@@ -279,7 +279,7 @@ Operator インスタンスがデプロイされると、デフォルトのロ�
 
 #### Log Rotation Default Settings
 
-以下はデフォルトの logrotete の設定です。`/etc/logrotate.d/uid2operator.conf` に定義されています:
+以下はデフォルトの logrotete の設定です。`/etc/logrotate.d/operator-logrotate.conf` に定義されています:
 ```
 /var/log/operator.log*
 {
