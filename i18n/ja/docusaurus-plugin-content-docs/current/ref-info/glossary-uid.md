@@ -307,6 +307,9 @@ import Link from '@docusaurus/Link';
 
 <dl>
 
+<dt><MdxJumpAnchor id="gl-opaque"><a href="#gl-opaque">Opaque</a></MdxJumpAnchor></dt>
+<dd>UID2 Token が不透明な文字列であるというのは、トークンが計算される方法やそのフォーマットが UID2 参加者に伝えられず、変更される可能性があるためです。文字列のフォーマットや長さ、その他の側面については、何も前提を立てるべきではありません。</dd>
+
 <dt><MdxJumpAnchor id="gl-open-operator">Open Operator</MdxJumpAnchor></dt>
 <dd>Open Operator は、<a href="#gl-public-operator">Public Operator</a> の別名です。</dd>
 
@@ -464,8 +467,13 @@ import Link from '@docusaurus/Link';
 <dd>トークンの寿命は限られていますが、<a href="#gl-refresh-token">refresh token</a> を使ってバックグラウンドでリフレッシュすることができます。</dd>
 <dd>パブリッシャーは、ビッドストリームに UID2 Token を送信します。</dd>
 <dd>詳細は <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
+
 <dt><MdxJumpAnchor id="gl-unified-id-20">Unified ID 2.0 (UID2)</MdxJumpAnchor></dt>
 <dd>"UID2" という用語は、<a href="#gl-uid2-framework">UID2 framework</a>、<a href="#gl-uid2-service">UID2 service</a>、<a href="#gl-raw-uid2">raw UID2</a>、または<a href="#gl-uid2-token">UID2 token</a> (Advertising Token) を意味でも使われます。</dd>
+
+<dt><MdxJumpAnchor id="gl-unix-time"><a href="#gl-unix-time">Unix time</a></MdxJumpAnchor></dt>
+<dd>Unix time (エポックタイム) は、1970年1月1日木曜日の00:00:00 <a href="#gl-utc">UTC</a>　からの経過秒数として定義されています。Unix time は、UID2 の一部のレスポンスメッセージで使用され、ミリ秒で表されます。たとえば、`POST /token/refresh` エンドポイントのレスポンス (<a href="../endpoints/post-token-refresh#successful-response-with-tokens">Successful Response With Tokens</a> を参照してください) においてです。</dd>
+<dd>例: 2024年1月1日午前9時00分00秒 GMT は、Unix time で `1704067200` と表されます。ミリ秒で表すと、`1704067200000` です。</dd>
 
 <dt><MdxJumpAnchor id="gl-utc">UTC</MdxJumpAnchor></dt>
 <dd>UTC は協定世界時 (Coordinated Universal Time) の略称で、ズールー時間 (Zulu time) とも呼ばれ、一般に使用されている主要な時間基準です。UTC は基本的にグリニッジ標準時 (GMT) に相当しますが、科学的により正確です。</dd>

@@ -249,6 +249,11 @@ UID2Manager.init(
   context = this,
   UID2Manager.Environment.Custom("https://global.prod.uidapi.com")
 )
+// or use a named environment
+UID2Manager.init(
+  context = this,
+  UID2Manager.Environment.Sydney
+)
 ```
 
 </TabItem>
