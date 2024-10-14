@@ -46,9 +46,9 @@ No. UID2 participants must not generate UID2s from Protected Health Information,
 
 #### Should I use a Public Operator or a Private Operator?
 
-For most participants, <Link href="../ref-info/glossary-uid#gl-public-operator">Public Operator</Link> is the simplest solution. A Public Operator integration is a much easier option than creating your own <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. However, having a Private Operator instance has many advantages. The best choice depends on your unique scenario and needs.
+For most participants, <Link href="../ref-info/glossary-uid#gl-public-operator">Public Operator</Link> is the simplest solution. A Public Operator integration is a much easier option than hosting your own <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. Having a Private Operator instance has some advantages, but adds extra complexities and costs.
 
-For more information to help you arrive at a decision, refer to the following:
+The best choice depends on your unique scenario and needs. For more information to help you arrive at a decision, refer to the following:
 
 1. [The UID2 Operator](../ref-info/ref-operators-public-private.md)
 
@@ -184,7 +184,7 @@ The system should follow the [email normalization rules](gs-normalization-encodi
 Yes. Not storing mappings may increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily.
 
 :::important
-Unless you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, you must map email addresses, phone numbers, or hashes consecutively, using a single HTTP connection, in batches of 5,000 emails at a time. In other words, do your mapping without creating multiple parallel connections.
+Unless you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, you must map email addresses, phone numbers, or hashes consecutively, using a single HTTP connection, with a maximum batch size of 5,000 items per batch. In other words, do your mapping without creating multiple parallel connections.
 :::
 
 #### How should I handle user opt-outs?

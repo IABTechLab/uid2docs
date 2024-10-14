@@ -577,7 +577,7 @@ window.__uid2.callbacks.push(callbackFunction);
 
 #### Take advantage of `setIdentity` and other new features
 
-Previous versions of the SDK had only one way to provide a new identity: in the call to `init`. This meant that some publishers had to make use of various workarounds to provide a new identity later in the page lifecycle. You might be able to simplify your integration by removing these workarounds and simply calling `setIdentity` if you want to pass a new identity to the SDK after `init` has been called.
+Previous versions of the SDK had only one way to provide a new identity: in the call to `init`. This meant that some publishers had to make use of various workarounds to provide a new identity later in the page lifecycle. You might be able to simplify your integration by removing these workarounds and just calling `setIdentity` if you want to pass a new identity to the SDK after `init` has been called.
 
 #### Change how you call init
 
