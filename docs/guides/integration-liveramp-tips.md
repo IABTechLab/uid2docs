@@ -13,7 +13,7 @@ import Link from '@docusaurus/Link';
 
 Publishers already using LiveRamp Authenticated Traffic Solution (ATS) can leverage their integration to generate a UID2 token to be passed in the bid request.
 
-If you want to generate UID2 tokens using LiveRamp ATS, reach out to your LiveRamp representative and also make sure you have the following integration points set: 
+If you want to generate UID2 tokens using LiveRamp ATS, reach out to your LiveRamp representative and also make sure you've addressed the following integration points: 
 
 - [Enable RideAlong](#enable-ridealong)
 - [Implement the Correct Hashing Methodology](#implement-the-correct-hashing-methodology)
