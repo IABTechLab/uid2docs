@@ -392,7 +392,7 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-secure-signals">Secure signals</MdxJumpAnchor></dt>
 <dd>Google Ad Managerの機能。セキュアシグナル機能 (旧称: Encrypted Signals for Publishers、略称: ESP)により、パブリッシャーは信頼できるサードパーティのバイイングパートナーとシグナルを安全に共有することができます。パブリッシャーは、<a href="https://admanager.google.com/home/">Google Ad Manager</a> と <a href="https://support.google.com/admanager/answer/6321605?hl=en">Google Ad Manager Ad Exchange (AdX)</a> を介して、Googleが承認した入札者に「暗号化された」ユーザーIDを渡すことができます。</dd>
 <dd>詳しくは、<a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a> (2番目のセクション) と <a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a> (いずれもGoogle) を参照してください。</dd>
-<dd>Google Secure signals の UID2 サポートの詳細については、<a href="../guides/google-ss-integration">Google Ad Manager Secure Signals Integration Guide</a> を参照してください。</dd>
+<dd>Google Secure signals の UID2 サポートの詳細については、<a href="../guides/integration-google-ss">Google Ad Manager Secure Signals Integration Guide</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-server-side"><a href="#gl-server-side">Server-side integration</a></MdxJumpAnchor></dt>
 <dd>UID2 の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の一つは、完全に Server-Side でインテグレーションすることです。</dd>

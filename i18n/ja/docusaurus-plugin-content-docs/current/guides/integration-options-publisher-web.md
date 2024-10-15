@@ -48,7 +48,7 @@ UID2 とインテグレーションするには、次の 3 つの主要なアク
 | [SDK for Java](../sdks/sdk-ref-java.md) | &#9989; | &#9989; | &#8212; |
 | [SDK for Python](../sdks/sdk-ref-python.md) | &#9989; | &#9989; | &#8212; |
 | [Direct integration (API endpoints)](integration-publisher-server-side.md) | &#9989; | &#9989; | &#8212; |
-| [Google Ad Manager Secure Signals](google-ss-integration.md) | &#8212; | &#8212; | &#9989; |
+| [Google Ad Manager Secure Signals](integration-google-ss.md) | &#8212; | &#8212; | &#9989; |
 
 <!-- &#9989; = Supported | &#8212; = Not Supported -->
 
@@ -137,7 +137,7 @@ Server-Side で UID2 Token を生成することには、次のような利点�
 | :--- | :--- |
 | Prebid.js client-side implementation (8.21.0 or later) | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
 | Prebid.js client-server implementation (7.53.0 or later) | [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) |
-| Google Ad Manager Secure Signals| [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) |
+| Google Ad Manager Secure Signals| [Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md) |
 
 :::note
 トークンを生成し、それをリフレッシュし続ける限り、UID2 Token をビッドストリームに渡すために他のオプションを使用することもできます。
@@ -255,6 +255,6 @@ For details, see:
 | SDK for JavaScript<ul><li>[Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md)</li><li>[Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)</li></ul> | JavaScript SDK | JavaScript SDK |  Publisher's choice. For example, Prebid.js.<br/>[UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) |
 | SDK for Java<br/>[Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) | [SDK for Java](../sdks/sdk-ref-java.md) | [SDK for Java](../sdks/sdk-ref-java.md)| Publisher's choice.<br/>Can be integrated with Prebid.js. |
 | SDK for Python<br/> [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)| [SDK for Python](../sdks/sdk-ref-python.md) | [SDK for Python](../sdks/sdk-ref-python.md) | Publisher's choice.<br/>Can be integrated with Prebid.js. |
-| GAM Secure Signals<br/> [xxx](integration-publisher-server-side.md)| [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) | [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) | [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md) |
+| GAM Secure Signals<br/> [xxx](integration-publisher-server-side.md)| [Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md) | [Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md) | [Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md) |
 | Direct integration<br/>(API endpoints)<br/>[Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) | [POST /token/generate](../endpoints/post-token-generate.md) | [POST /token/refresh](../endpoints/post-token-refresh.md) | Publisher's choice.<br/>Can be integrated with Prebid.js. |
  -->
