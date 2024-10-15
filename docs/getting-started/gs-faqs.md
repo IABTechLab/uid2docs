@@ -20,6 +20,7 @@ Here are some frequently asked questions regarding the UID2 framework.
 - [Can users opt out of targeted advertising tied to their UID2 identity?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2-identity)
 - [When I send DII to UID2, does UID2 store the information?](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
 - [Does UID2 allow the processing of HIPAA-regulated data?](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
+- [Should I use a Public Operator or a Private Operator?](#should-i-use-a-public-operator-or-a-private-operator)
 
 :::note
 For FAQs relating to mobile publisher integrations, see [FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations).
@@ -42,6 +43,16 @@ In addition, in almost all cases, UID2 doesn't store any values at all once the 
 #### Does UID2 allow the processing of HIPAA-regulated data?
 
 No. UID2 participants must not generate UID2s from Protected Health Information, as defined by the Health Insurance Portability and Accountability Act (HIPAA), even if they have obtained consent to engage in marketing with respect to such data.
+
+#### Should I use a Public Operator or a Private Operator?
+
+For most participants, <Link href="../ref-info/glossary-uid#gl-public-operator">Public Operator</Link> is the simplest solution. A Public Operator integration is a much easier option than hosting your own <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. Having a Private Operator instance has some advantages, but adds extra complexities and costs.
+
+The best choice depends on your unique scenario and needs. For more information to help you arrive at a decision, refer to the following:
+
+1. [The UID2 Operator](../ref-info/ref-operators-public-private.md)
+
+1. [UID2 Private Operator Integration Overview](../guides/integration-options-private-operator.md)
 
 ## FAQs for Publishers
 
@@ -144,7 +155,7 @@ Here are some frequently asked questions for advertisers and data providers usin
 
 #### How do I know when to refresh the UID2 due to salt bucket rotation?
 
-Metadata supplied with the UID2 generation request indicates the salt bucket used for generating the UID2. Salt buckets persist and correspond to the underlying <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> used to generate a UID2. Use the [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) endpoint to return which salt buckets rotated since a given timestamp. The returned rotated salt buckets inform you which UID2s to refresh.
+Metadata supplied with the UID2 generation request indicates the <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> used for generating the UID2. Salt buckets persist and correspond to the underlying <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> used to generate a UID2. Use the [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) endpoint to return which salt buckets rotated since a given timestamp. The returned rotated salt buckets inform you which UID2s to refresh.
 
 :::note
 We do not make any promises about when the rotation takes place. To stay as up-to-date as possible, we recommend doing the checks once per hour.
@@ -172,8 +183,8 @@ The system should follow the [email normalization rules](gs-normalization-encodi
 
 Yes. Not storing mappings may increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily.
 
-:::info
-Unless you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, you must map email addresses, phone numbers, or hashes consecutively, using a single HTTP connection, in batches of 5,000 emails at a time. In other words, do your mapping without creating multiple parallel connections. 
+:::important
+Unless you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, you must map email addresses, phone numbers, or hashes consecutively, using a single HTTP connection, with a maximum batch size of 5,000 items per batch. In other words, do your mapping without creating multiple parallel connections.
 :::
 
 #### How should I handle user opt-outs?
@@ -196,7 +207,7 @@ For more information, see [Monitor for salt bucket rotations related to your sto
 
 Yes, if the request is for a <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link>. As covered in the previous FAQ, [Does the same DII always result in the same raw UID2?](#does-the-same-dii-always-result-in-the-same-raw-uid2), if an advertiser or data provider sends the same DII to the UID2 Operator, by using an SDK or the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint, at the same time, the same raw UID2 is created.
 
-The result is the same, regardless of the operator and whether it's a Private Operator or a Public Operator.
+The result is the same, regardless of the <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> and whether it's a Private Operator or a Public Operator.
 
 The timing is important only because of salt bucket rotation. If the salt value changes between one request and another, the result is a different raw UID2.
 
