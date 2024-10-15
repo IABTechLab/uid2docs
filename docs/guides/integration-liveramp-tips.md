@@ -16,7 +16,7 @@ Publishers already using LiveRamp Authenticated Traffic Solution (ATS) can lever
 If you want to generate UID2 tokens using LiveRamp ATS, reach out to your LiveRamp representative and also make sure you've addressed the following integration points: 
 
 - [Enable RideAlong](#enable-ridealong)
-- [Implement the Correct Hashing Methodology](#implement-the-correct-hashing-methodology)
+- [Implement the UID2 Hashing Methodology](#implement-the-uid2-hashing-methodology)
 - [Set Envelope Refresh to 1800 Seconds](#set-envelope-refresh-to-1800-seconds)
 
 ## Enable RideAlong
@@ -25,7 +25,7 @@ In your LiveRamp configuration, you must make sure that RideAlong is enabled. Ri
 
 To complete this step, contact your LiveRamp representative.
 
-## Implement the Correct Hashing Methodology
+## Implement the UID2 Hashing Methodology
 
 The hashing methodology used by the UID2 service is very specific. If you use a different hashing algorithm, or miss any of the steps, your UID2s will not be correctly generated.
 
