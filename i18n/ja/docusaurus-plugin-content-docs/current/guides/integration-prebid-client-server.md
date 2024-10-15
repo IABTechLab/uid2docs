@@ -370,5 +370,5 @@ pbjs.setConfig({
 
 Prebid.js を使用しており、Google Secure Signals を使用して UID2 Token を Google に渡す場合、追加の設定手順がいくつかあります:
 
-- Google Ad Manager アカウントで、暗号化されたシグナルが適切にサードパーティビッダと共有されていることを確認します: [Secure Signals Sharing を許可](google-ss-integration.md#allow-secure-signals-sharing) を参照してください。
-- Prebid.js の設定を更新します: [Optional: Enable Secure Signals in Prebid.js](google-ss-integration.md#optional-enable-secure-signals-in-prebidjs) を参照してください。
+- Google Ad Manager アカウントで、暗号化されたシグナルが適切にサードパーティビッダと共有されていることを確認します: [Secure Signals Sharing を許可](integration-google-ss.md#allow-secure-signals-sharing) を参照してください。
+- Prebid.js の設定を更新します: [Optional: Enable Secure Signals in Prebid.js](integration-google-ss.md#optional-enable-secure-signals-in-prebidjs) を参照してください。
