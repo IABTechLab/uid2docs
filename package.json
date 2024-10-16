@@ -13,8 +13,8 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "format:source": "prettier --loglevel warn --write \"src/**/*.{js,jsx,ts,tsx}\"",
-    "format:mdx": "prettier --loglevel warn --write \"docs/**/*.{md,mdx}\"",
+    "format:source": "prettier --log-level warn --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "format:mdx": "prettier --log-level warn --write \"docs/**/*.{md,mdx}\"",
     "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --parser-options=project:tsconfig.json --fix",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --parser-options=project:tsconfig.json"
   },

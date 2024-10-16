@@ -28,8 +28,8 @@ function useBlogPostsPlural() {
             'Pluralized label for "{count} posts". Use as much plural forms (separated by "|") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)',
           message: "One post|{count} posts",
         },
-        { count }
-      )
+        { count },
+      ),
     );
 }
 
@@ -41,7 +41,7 @@ function useBlogTagsPostsPageTitle(tag: Props["tag"]): string {
       description: "The title of the page for a blog tag",
       message: '{nPosts} tagged with "{tagName}"',
     },
-    { nPosts: blogPostsPlural(tag.count), tagName: tag.label }
+    { nPosts: blogPostsPlural(tag.count), tagName: tag.label },
   );
 }
 
@@ -97,7 +97,7 @@ export default function BlogTagsPostsPage(props: Props): JSX.Element {
     <HtmlClassNameProvider
       className={clsx(
         ThemeClassNames.wrapper.blogPages,
-        ThemeClassNames.page.blogTagPostListPage
+        ThemeClassNames.page.blogTagPostListPage,
       )}
     >
       <BlogTagsPostsPageMetadata {...props} />

@@ -13,7 +13,7 @@ function LogoImage({ logo }: Props) {
 
   React.useEffect(() => {
     setIsMarketingPage(
-      document.documentElement.classList.contains("plugin-pages")
+      document.documentElement.classList.contains("plugin-pages"),
     );
   }, []);
 

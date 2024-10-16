@@ -17,7 +17,7 @@ export const isInputElement = (element: Node) => {
 };
 
 export const identifyClosestSiblingInput = (
-  node: Node
+  node: Node,
 ): HTMLInputElement | null => {
   let currentElement: Node | null = node.nextSibling;
 
