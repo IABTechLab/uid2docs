@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # SDK for C++ Reference Guide
 
-You can use the SDK for C++ on the server side to facilitate decrypting of UID2 tokens to access the raw UID2. 
+You can use the SDK for C++ on the server side to encrypt raw UID2s to create UID2 tokens for sharing, and to decrypt UID2 tokens to access the raw UID2.
 
 ## Overview
 

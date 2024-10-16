@@ -9,11 +9,7 @@ import Link from '@docusaurus/Link';
 
 # SDK for iOS Reference Guide
 
-You can use the SDK for iOS for the following:
-
-- Generating or establishing client identity using UID2.
-- Retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use.
-- Automatically refreshing UID2 tokens.
+You can use the SDK for iOS to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens.
 
 The following iOS-related plugins, and associated documentation, are also available:
 

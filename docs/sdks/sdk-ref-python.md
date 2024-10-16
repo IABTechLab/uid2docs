@@ -9,12 +9,7 @@ import Link from '@docusaurus/Link';
 
 # SDK for Python Reference Guide
 
-You can use the SDK for Python on the server side to facilitate the following:
-
-- Generating UID2 advertising tokens
-- Refreshing UID2 advertising tokens
-- Encrypting raw UID2s to create UID2 tokens for sharing
-- Decrypting UID2 tokens to access the raw UID2s
+You can use the SDK for Python on the server side to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens. If you have the applicable permissions, you can also encrypt and decrypt for sharing, map DII to raw UID2s, and monitor rotated salt buckets.
 
 ## Functionality
 

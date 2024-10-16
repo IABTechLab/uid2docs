@@ -9,10 +9,7 @@ import Link from '@docusaurus/Link';
 
 # SDK for C# / .NET Reference Guide
 
-You can use the SDK for C# / .NET on the server side to facilitate the following:
-
-- Encrypting raw UID2s to create UID2 tokens for sharing.
-- Decrypting UID2 tokens to access the raw UID2s.
+You can use the SDK for C# / .NET on the server side to encrypt raw UID2s to create UID2 tokens for sharing, and to decrypt UID2 tokens to access the raw UID2.
 
 ## Functionality
 
