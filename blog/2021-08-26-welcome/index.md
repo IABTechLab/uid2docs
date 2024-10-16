@@ -6,3 +6,5 @@ tags: [news, release notes, announcements, uid2]
 ---
 
 Watch this space for updates, news, announcements, and other information about upcoming enhancements.
+
+<!-- truncate -->
