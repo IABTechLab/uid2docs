@@ -32,9 +32,9 @@ This SDK for Android can be used for non-mobile devices for Android platforms as
 
 This SDK simplifies integration with UID2 for any publishers who want to support UID2 for apps running on Android devices. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
-| :--- | :--- | :--- | :--- | :--- |
-| &#8212; | &#8212; | &#9989; | &#9989; | &#8212; |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 
 The SDK for Android is designed to generate and/or manage UID2 identity on behalf of Android apps. It enables UID2 identity to be persisted across app lifecycles by securely storing the identity on a device via platform-native encryption tools.
 
