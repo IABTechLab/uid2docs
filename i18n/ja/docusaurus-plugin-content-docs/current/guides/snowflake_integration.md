@@ -21,7 +21,7 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 
 次の表は、UID2 Snowflake インテグレーション で利用可能な機能をまとめたものです。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
+| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
 | :--- |  :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#8212;* | &#8212; | &#9989; |
 
