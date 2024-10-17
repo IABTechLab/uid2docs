@@ -28,7 +28,7 @@ Add the content of the `refresh_token` value, returned in the response from the 
 
 Here's what you need to know about this endpoint:
 
-- No encryption is required for token refresh requests.
+- No encryption is required for requests to the `POST /token/refresh` endpoint.
 - If the request is successful, with an HTTP status code of 200, a new UID2 token or opt-out information is returned.
 - Successful responses, whether the response includes a new token or opt-out information, are encrypted. Error responses are not encrypted.
 - To decrypt responses, use the most recent `refresh_response_key` value for this token. The `refresh_response_key` value is returned in the response to the [POST&nbsp;/token/generate](post-token-generate.md) and `POST /token/refresh` operations. Each time a token is refreshed, a new `refresh_response_key` is returned. Be sure to use the most recent one to decrypt the current response.
