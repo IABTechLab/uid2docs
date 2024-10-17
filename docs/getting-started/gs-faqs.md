@@ -50,9 +50,9 @@ For most participants, <Link href="../ref-info/glossary-uid#gl-public-operator">
 
 The best choice depends on your unique scenario and needs. For more information to help you arrive at a decision, refer to the following:
 
-1. [The UID2 Operator](../ref-info/ref-operators-public-private.md)
+- [The UID2 Operator](../ref-info/ref-operators-public-private.md)
 
-1. [UID2 Private Operator Integration Overview](../guides/integration-options-private-operator.md)
+- [UID2 Private Operator Integration Overview](../guides/integration-options-private-operator.md)
 
 ## FAQs for Publishers
 
