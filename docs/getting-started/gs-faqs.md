@@ -101,7 +101,7 @@ The recommended refresh interval is hourly.
 
 To determine when to refresh, you can use the timestamp of the `refresh_from` field in the response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint (see [Successful Response](../endpoints/post-token-generate.md#successful-response)) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint (see [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens)).
 
-You could also use one of the SDKs that has a function to check if token refresh is needed.
+You could also use one of the SDKs that has a function to check if <a href="../ref-info/glossary-uid#gl-token-refresh">token refresh</a> is needed.
 
 For details, see [Recommended Token Refresh Frequency](../ref-info/ref-tokens.md#recommended-token-refresh-frequency) and [Managing Token Refresh with an SDK](../ref-info/ref-tokens.md#managing-token-refresh-with-an-sdk).
 
