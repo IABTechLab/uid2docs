@@ -5,7 +5,7 @@ This website is built using [Docusaurus 3](https://docusaurus.io/), a modern sta
 ## Requirements
 
 Current versions of node confirmed working:
-* 18.12.1 (Windows via `nvm for Windows`)
+* 20.16.0 (Windows via `nvm for Windows`)
 
 ## Installation
 
