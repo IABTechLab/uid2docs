@@ -436,7 +436,8 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-token-refresh"><a href="#gl-token-refresh">Token refresh</a></MdxJumpAnchor></dt>
 <dd>When a UID2 participant requests a <a href="#gl-uid2-token">UID2 token</a>, the token is returned with a set of associated values, including a <a href="#gl-refresh-token">refresh token</a> and timestamps for the UID2 token and the refresh token. As long as the refresh token has not expired, the publisher can use it to request a fresh UID2 token without having to send <a href="#gl-dii">DII</a>.</dd>
-<dd>Any UID2 participant that requests a UID2 token must have some token refresh mechanism in place, to monitor the refresh period and request a new UID2 token before the refresh token expires. In most cases, token refresh is managed by an SDK or other implementation strategy such as a Prebid.js implementation.</dd>
+<dd>Any UID2 participant that requests a UID2 token must have a process in place for keeping the token valid: either monitoring the refresh period and requesting a new UID2 token before the refresh token expires, or requesting a new UID2 token each time, which requires sending DII.</dd>
+<dd>In most cases, token refresh is managed by an SDK or other implementation strategy such as a Prebid.js implementation.</dd>
 <dd>If the refresh token expires, the publisher must re-request a UID2 token by sending DII.</dd>
 <dd>For details, see <a href="ref-tokens">UID2 Tokens and Refresh Tokens</a>.</dd>
 
