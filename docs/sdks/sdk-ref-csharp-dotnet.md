@@ -108,7 +108,7 @@ Whether decrypting with the `BidstreamClient` or the `SharingClient`, the SDK re
 | `InvalidPayload` | The incoming UID2 token is not a valid payload. |
 | `ExpiredToken` | The incoming UID2 token has expired. |
 | `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
-| `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
+| `VersionNotSupported` | The client library does not support the version of the encrypted token. |
 
 ## Usage for DSPs
 

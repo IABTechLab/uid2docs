@@ -341,8 +341,8 @@ logrotate のドキュメントに従って指示に従ってください: [logr
 | Action | Command |
 | :--- | :--- |
 | 何がローテーションされるかの詳細を提供します。 | `sudo logrotate -f /etc/logrotate.conf --debug` |
-| スケジュールされた間隔を変更することなく、手動で `logrotate` を1回実行します。 |  `sudo logrotate -f /etc/logrotate.conf --force` |
-| `syslog-ng` をリロードします。 |  `sudo /usr/sbin/syslog-ng-ctl reload` |
+| スケジュールされた間隔を変更することなく、手動で `logrotate` を1回実行します。 | `sudo logrotate -f /etc/logrotate.conf --force` |
+| `syslog-ng` をリロードします。 | `sudo /usr/sbin/syslog-ng-ctl reload` |
 
 ## Technical Support
 
