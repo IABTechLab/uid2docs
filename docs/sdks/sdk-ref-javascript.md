@@ -17,21 +17,27 @@ export const New = () => (
   <span className='pill'>NEW IN V3</span>
 );
 
-Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the UID2 [storage format](#uid2-storage-format).
+Use this SDK to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens.
+
+The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the UID2 [storage format](#uid2-storage-format).
 
 :::tip
 If you're using Prebid.js with the UID2 Identity Module, or with another product that has UID2 support, you probably don't need to use the SDK at all. The Prebid.js module manages everything. For details, see [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
 :::
 
-This page describes version 3 of the SDK for JavaScript. If you are maintaining an integration using an earlier version, do one of the following:
-- Upgrade your integration, using the [migration guide](#migration-guide) (recommended).
-- Refer to the documentation for [earlier versions of the SDK](./sdk-ref-javascript-v2.md).
+This page describes version 3 of the SDK. If you are using an earlier version, we recommend that you upgrade your integration, using the [migration guide](#migration-guide). If needed, documentation for [earlier versions of the SDK](./sdk-ref-javascript-v2.md) is also available.
 
-Related information:
-
-For integration steps for content publishers, see:
+For integration steps for content publishers, refer to either of the following:
   - [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
   - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
+
+## Functionality
+
+This SDK simplifies development for publishers who want to build their own customized UID2 integration. The following table shows the functions it supports.
+
+| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 
 ## Sample Implementation Website
 
@@ -40,14 +46,6 @@ For example applications with associated documentation, see:
     - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
     - Running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
   - The example of JavaScript client-side integration: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg) and running site ([Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)).
-
-## Functionality
-
-This SDK simplifies development for publishers who want to build their own customized UID2 integration. The following table shows the functions it supports.
-
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
-| :--- | :--- | :--- | :--- | :--- |
-| &#8212; | &#8212; | &#9989; | &#9989; | &#8212; |
 
 ## API Permissions
 

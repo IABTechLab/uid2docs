@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # SDK for C++ Reference Guide
 
-You can use the SDK for C++ on the server side to facilitate decrypting of UID2 tokens to access the raw UID2. 
+You can use the SDK for C++ on the server side to encrypt raw UID2s to create UID2 tokens for sharing, and to decrypt UID2 tokens to access the raw UID2.
 
 ## Overview
 
@@ -19,9 +19,9 @@ The functions outlined here define the information that you'll need to configure
 
 This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using C++ for their server-side coding. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
-| :--- | :--- | :--- | :--- | :--- |
-| &#9989; | &#9989; | &#8212; | &#8212; | &#8212; |
+| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| &#9989; | &#9989; | &#8212; | &#8212; | &#8212; | &#8212; |
 
 ## API Permissions
 

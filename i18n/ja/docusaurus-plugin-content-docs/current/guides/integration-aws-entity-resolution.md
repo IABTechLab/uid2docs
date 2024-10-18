@@ -25,8 +25,8 @@ AWS Entity Resolution を使用して UID2 とインテグレーションに関�
 
 次の表は、AWS Entity Resolution インテグレーションで利用可能な機能をまとめたものです。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt Raw UID2 from UID2 Token | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
-| :--- |  :--- | :--- | :--- | :--- |
+| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
+| :--- | :--- | :--- | :--- | :--- |
 | No | No | No | No | Yes |
 
 ## Integration Summary

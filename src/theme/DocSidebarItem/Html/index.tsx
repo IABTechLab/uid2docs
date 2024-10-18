@@ -17,7 +17,7 @@ export default function DocSidebarItemHtml({
         ThemeClassNames.docs.docSidebarItemLink,
         ThemeClassNames.docs.docSidebarItemLinkLevel(level),
         defaultStyle && [styles.menuHtmlItem, "menu__list-item"],
-        className
+        className,
       )}
       key={index}
       dangerouslySetInnerHTML={{ __html: value }}
