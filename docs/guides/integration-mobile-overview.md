@@ -109,3 +109,35 @@ Some error responses indicate  a networking problem resulting in your app not be
    The SDK tries to refresh the UID2 token in the background. If an error such as an IOException occurs, the SDK retries multiple times. If retry is not successful, this exception is displayed.
 
 Another good troubleshooting step is to enable logging. For details, see [Enable Logging](integration-mobile-client-side.md#enable-logging).
+
+## NEW SECTION
+
+## XXX
+
+As an in app publisher there are a number of way to utilize your UID2 token. 
+- One is: via secure signals.
+- Another way is Prebid mobile.
+
+
+ if they are planning to get ads via IMA or GMA from AdEx, then, of course, they need to have GMA IMA integration.
+
+If the publisher want to get ads from Google, that's the first thing they should look at.
+
+The SDKs help them to get the token, and then the Prebid and the GMA and the IMA help them to send the token somewhere. Is that true?
+
+He says yes
+
+But Prebid helps them get the token as well.
+
+
+
+
+
+
+
+
+
+
+
+
+
