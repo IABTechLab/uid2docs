@@ -26,7 +26,7 @@ For a video presentation about integration with UID2 by using AWS Entity Resolut
 The following table summarizes the functionality available with the AWS Entity Resolution integration.
 
 | Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
-| :--- |  :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- | :--- |
 | No | No | No | No | Yes |
 
 ## Integration Summary

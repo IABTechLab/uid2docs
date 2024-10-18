@@ -22,7 +22,7 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 次の表は、UID2 Snowflake インテグレーション で利用可能な機能をまとめたものです。
 
 | Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
-| :--- |  :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#8212;* | &#8212; | &#9989; |
 
 *Snowflake を使用して DII から直接 UID2 Token を生成することはできません。ただし、DII を raw UID2 に変換し、raw UID2 を UID2 Tokenに暗号化することはできます。
@@ -128,7 +128,7 @@ DII が電話番号の場合、UID2 [電話番号正規化](../getting-started/g
 | :--- | :--- | :--- |
 | `UID2`      | TEXT | DII は正常にマッピングされました: <br/>DII は正常にマップされませんでした: `NULL`。 |
 | `BUCKET_ID` | TEXT | DIIは正常にマップされました: UID2 の生成に使われたセカンドレベルのソルトバケットの ID。この ID は `UID2_SALT_BUCKETS` ビューのバケットIDに対応します。<br/>DIIは正常にマップされませんでした: `NULL`。 |
-| `UNMAPPED`  | TEXT |  DII は正常にマッピングされました: `NULL`<br/>DII は正常にマップされませんでした: `NULL`:  DII は正常にマップされませんでした: 識別子がマップされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、`INVALID INPUT TYPE` のいずれか。詳細は [Values for the UNMAPPED Column](#values-for-the-unmapped-column) を参照してください。 |
+| `UNMAPPED`  | TEXT | DII は正常にマッピングされました: `NULL`<br/>DII は正常にマップされませんでした: `NULL`:  DII は正常にマップされませんでした: 識別子がマップされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、`INVALID INPUT TYPE` のいずれか。詳細は [Values for the UNMAPPED Column](#values-for-the-unmapped-column) を参照してください。 |
 
 #### Values for the UNMAPPED Column
 
