@@ -12,8 +12,8 @@ In the UID2 Portal, if you want to use an implementation option that generates U
 | Value | Implementation Type | Details | Documentation Link |
 | :--- | :--- | :---| :---|
 | Key pair | All (web or mobile) | At least one. In your implementation, you'll share the public key. | [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key) |
-| Domain |  Web | At least one. Provide a complete list of your root-level domains. | [Client-Side Web Integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) |
-| Mobile App ID |  Mobile | Any IDs that apply to your mobile apps, such as Android App ID, iOS/tvOS Bundle ID, or iOS App Store ID. | [Client-Side Mobile Integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations) |
+| Domain | Web | At least one. Provide a complete list of your root-level domains. | [Client-Side Web Integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) |
+| Mobile App ID | Mobile | Any IDs that apply to your mobile apps, such as Android App ID, iOS/tvOS Bundle ID, or iOS App Store ID. | [Client-Side Mobile Integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations) |
 
 :::important
 It's important to provide a complete list of root-level domain names for your sites, and mobile app IDs for your apps. This is a security measure, for client-side implementation only. If a domain or app is not defined in the UID2 Portal, UID2 token requests from that domain or app will fail.

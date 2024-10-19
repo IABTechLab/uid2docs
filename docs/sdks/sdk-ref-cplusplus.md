@@ -95,7 +95,7 @@ Available information returned through the SDK is outlined in the following tabl
 | `InvalidPayload` | The incoming UID2 advertising token is not a valid payload. |
 | `ExpiredToken` | The incoming UID2 advertising token has expired. |
 | `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
-| `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
+| `VersionNotSupported` | The client library does not support the version of the encrypted token. |
 
 ## Usage for UID2 Sharers
 

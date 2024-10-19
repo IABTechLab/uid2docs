@@ -19,7 +19,7 @@ Review the SDK functionality to determine which SDK or SDKs you want to use, the
 The following table summarizes the functionality available with each SDK.
 
 | UID2 SDK for... | Client-Side or Server-Side | Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s&ast; | Monitor Rotated Salt Buckets      |
-| :--- | :--- |  :--- | :--- | :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 |JavaScript | Client | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 |Java | Server | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#8212; |
 |Python | Server | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |

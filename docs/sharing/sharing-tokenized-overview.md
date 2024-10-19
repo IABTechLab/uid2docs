@@ -36,7 +36,7 @@ Choose the integration option that's right for your implementation, and then cli
 | Starting Point | Encryption Option/Scenario | Link to Details |
 | :--- | :--- | :--- |
 | DII | Sharing UID2 tokens from DII  in the bidstream | [Tokenized Sharing in the Bidstream](sharing-tokenized-from-data-bid-stream.md) |
-| DII | Sharing UID2 tokens from DII in tracking pixels |  [Workflow: Tokenized Sharing in Tracking Pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-tracking-pixels) |
+| DII | Sharing UID2 tokens from DII in tracking pixels | [Workflow: Tokenized Sharing in Tracking Pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-tracking-pixels) |
 | Raw UID2 | Sharing UID2 tokens from raw UID2s in creative pixels | [Workflow: Tokenized Sharing in Creative Pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-creative-pixels) |
 | Raw UID2 | Sharing UID2 tokens from raw UID2s using an SDK | [Implementing Sharing Encryption/Decryption with an SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk) |
 | Raw UID2 | Sharing UID2 tokens from raw UID2s using Snowflake | [Implementing Sharing Encryption/Decryption Using Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake) |
