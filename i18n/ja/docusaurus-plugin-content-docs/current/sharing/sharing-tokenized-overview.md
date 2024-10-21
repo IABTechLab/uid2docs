@@ -36,7 +36,7 @@ UID2 では、Tokenized Sharing は、<Link href="../ref-info/glossary-uid#gl-di
 | Starting Point | Encryption Option/Scenario | Link to Details |
 | :--- | :--- | :--- |
 | DII | DII からの UID2 Token をビッドストリームで共有 | [Tokenized Sharing in the Bidstream](sharing-tokenized-from-data-bid-stream.md) |
-| DII | DII からの UID2 Token をトラッキングピクセルで共有 |  [Workflow: Tokenized Sharing in Tracking Pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-tracking-pixels) |
+| DII | DII からの UID2 Token をトラッキングピクセルで共有 | [Workflow: Tokenized Sharing in Tracking Pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-tracking-pixels) |
 | Raw UID2 | クリエイティブピクセルでの UID2 Token 共有 | [Workflow: Tokenized Sharing in Creative Pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-creative-pixels) |
 | Raw UID2 | SDK を使用して UID2 Token を共有 | [Implementing Sharing Encryption/Decryption with an SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk) |
 | Raw UID2 | Snowflake を使用して UID2 Token を共有 | [Implementing Sharing Encryption/Decryption Using Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake) |

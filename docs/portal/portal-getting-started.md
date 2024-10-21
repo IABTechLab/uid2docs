@@ -53,7 +53,7 @@ The integration options are shown in the following table.
 
 | Integration | Examples | Instructions |
 | :--- | :--- | :--- |
-| Client-side integration | **Advertisers** generate UID2 tokens on the client side for tracking pixels.<br/>**Publishers** generate UID2 tokens on the client side for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use. |  Go to the **Client-Side Integration** page and set up key pairs and root-level domains. We use these to identify your transactions.<br/>For details, see [Client-Side Integration](client-side-integration.md). |
+| Client-side integration | **Advertisers** generate UID2 tokens on the client side for tracking pixels.<br/>**Publishers** generate UID2 tokens on the client side for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use. | Go to the **Client-Side Integration** page and set up key pairs and root-level domains. We use these to identify your transactions.<br/>For details, see [Client-Side Integration](client-side-integration.md). |
 | Server-side integration | **Advertisers** generate raw UID2s to be delivered for audience targeting.<br/>**Publishers** generate UID2 tokens on the server side for bidstream use. | Go to the **API Keys** page and create at least one set of credentials. When you add an API key, you're assigned two values, a secret and a key, which you'll use in your implementation.<br/>For details, see [API Keys](api-keys.md). |
 
 Some participants might use both client-side and server-side integration. For example, advertisers might generate UID2 tokens on the client side for pixels ([Client-Side Integration](client-side-integration.md)), but integrate on the server side for raw UID2 generation ([API Keys](api-keys.md)).
