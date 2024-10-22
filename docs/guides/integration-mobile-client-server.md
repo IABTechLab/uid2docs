@@ -85,7 +85,7 @@ For security reasons, the API key and secret used in token generation must be ca
 
 ## Server-Side Token Refresh
 
-Token refresh is automatically enabled inside the UID2 mobile SDKs; you don't need to manage it explicitly on the server side.
+<a href="../ref-info/glossary-uid#gl-token-refresh">Token refresh</a> is automatically enabled inside the UID2 mobile SDKs; you don't need to manage it explicitly on the server side.
 
 You might decide to do server-side token refresh if you want to keep your changes in the mobile apps as simple as possible.
 

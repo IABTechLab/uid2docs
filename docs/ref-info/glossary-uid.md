@@ -99,6 +99,7 @@ import Link from '@docusaurus/Link';
 <a href="#gl-subscription-id">Subscription ID</a> 
 
 **T**
+<a href="#gl-tokenized-refresh">Tokenrefresh</a> | 
 <a href="#gl-tokenized-sharing">Tokenized sharing</a> | 
 <a href="#gl-transparency-and-control-portal">Transparency and Control Portal</a> 
 
@@ -433,6 +434,13 @@ import Link from '@docusaurus/Link';
 
 <dl>
 
+<dt><MdxJumpAnchor id="gl-token-refresh"><a href="#gl-token-refresh">Token refresh</a></MdxJumpAnchor></dt>
+<dd>When a UID2 participant requests a <a href="#gl-uid2-token">UID2 token</a>, the token is returned with a set of associated values, including a <a href="#gl-refresh-token">refresh token</a> and timestamps for the UID2 token and the refresh token. As long as the refresh token has not expired, the publisher can use it to request a fresh UID2 token without having to send <a href="#gl-dii">DII</a>.</dd>
+<dd>Any UID2 participant that requests a UID2 token must have a process in place for keeping the token valid: either monitoring the refresh period and requesting a new UID2 token before the refresh token expires, or requesting a new UID2 token each time, which requires sending DII.</dd>
+<dd>In most cases, token refresh is managed by an SDK or other implementation strategy such as a Prebid.js implementation.</dd>
+<dd>If the refresh token expires, the publisher must re-request a UID2 token by sending DII.</dd>
+<dd>For details, see <a href="ref-tokens">UID2 Tokens and Refresh Tokens</a>.</dd>
+
 <dt><MdxJumpAnchor id="gl-tokenized-sharing"><a href="#gl-tokenized-sharing">Tokenized sharing</a></MdxJumpAnchor></dt>
 <dd>Tokenized sharing means encrypting <a href="#gl-dii">DII</a> or <a href="#gl-raw-uid2">Raw UID2s</a> into <a href="#gl-uid2-token">UID2 tokens</a> and sharing the tokens with authorized recipients. Using UID2 tokens helps protect raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bidstream or via pixels, but you can use it in any sharing use case.</dd>
 <dd>For details, see <a href="../sharing/sharing-tokenized-overview">Tokenized Sharing Overview</a>.</dd>
@@ -474,7 +482,7 @@ import Link from '@docusaurus/Link';
 <dd>The token value is opaque: No assumptions should be made about the format or about the length of the string.</dd>
 <dd>The token has a limited life, but can be refreshed in the background using the <a href="#gl-refresh-token">refresh token</a>.</dd>
 <dd>Publishers send UID2 tokens in the bidstream.</dd>
-<dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
+<dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> and <a href="ref-tokens#uid2-tokens-key-information">UID2 Tokens: Key Information</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-unified-id-20"><a href="#gl-unified-id-20">Unified ID 2.0</a></MdxJumpAnchor></dt>
 <dd>The term UID2 can be used to mean the <a href="#gl-uid2-framework">UID2 framework</a>, the <a href="#gl-uid2-service">UID2 service</a>, a <a href="#gl-raw-uid2">raw UID2</a>, or a <a href="#gl-uid2-token">UID2 token</a> (advertising token).</dd>
