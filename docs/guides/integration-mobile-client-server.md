@@ -48,10 +48,10 @@ You'll need to complete the following steps:
 
 ## Mobile SDK Version
 
-This guide provides instructions for using version 1.2.0 or higher of either of these UID2 mobile SDKs:
+This guide provides instructions for using either of these UID2 mobile SDKs:
 
-- SDK for Android
-- SDK for iOS
+- SDK for Android(version 1.5.0 or later)
+- SDK for iOS(version 1.7.0 or later)
 
 For instructions for installing the correct SDK/version into your mobile app, see [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 
