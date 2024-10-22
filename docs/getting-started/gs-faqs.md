@@ -6,7 +6,7 @@ sidebar_position: 20
 ---
 
 import Link from '@docusaurus/Link';
-import ExampleUid2InBidstream from '/docs/snippets/_example-uid2-in-bidstream.mdx';
+import ExampleTokenInBidstream from '/docs/snippets/_example-token-in-bidstream.mdx';
 
 # Frequently Asked Questions
 
@@ -17,7 +17,7 @@ Frequently asked questions for UID2 are grouped into general categories by audie
 Here are some frequently asked questions regarding the UID2 framework.
 
 - [Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
-- [Can users opt out of targeted advertising tied to their UID2 identity?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2-identity)
+- [Can users opt out of targeted advertising tied to their UID2?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2)
 - [When I send DII to UID2, does UID2 store the information?](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
 - [Does UID2 allow the processing of HIPAA-regulated data?](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
 - [Should I use a Public Operator or a Private Operator?](#should-i-use-a-public-operator-or-a-private-operator)
@@ -30,9 +30,9 @@ For FAQs relating to mobile publisher integrations, see [FAQs for Mobile Integra
 
 No. UID2 has its own framework, which is separate from EUID. As such, paperwork relating to accessing and using the EUID framework does not automatically grant usage and access to the UID2 framework. New contracts are required to be signed for UID2.
 
-#### Can users opt out of targeted advertising tied to their UID2 identity?
+#### Can users opt out of targeted advertising tied to their UID2?
 
-Yes. Through the [Transparency and Control Portal](https://www.transparentadvertising.com/), users can opt out from being served targeted ads tied to their UID2 identity. Each request is distributed through the UID2 Opt-Out Service, and UID2 Operators make the opt-out information available to all relevant participants.
+Yes. Through the [Transparency and Control Portal](https://www.transparentadvertising.com/), users can opt out from being served targeted ads tied to their UID2. Each request is distributed through the UID2 Opt-Out Service, and UID2 Operators make the opt-out information available to all relevant participants.
 
 #### When I send DII to UID2, does UID2 store the information?
 
@@ -128,7 +128,7 @@ The procedure is a little different depending on whether or not you are using an
     - The `+00000000002` as the `phone` value.
     - The hash of `+00000000002` as the `phone_hash` value.
 2. Store the returned `refresh_token` for use in the following step.
-3. Send a [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) request with the `refresh_token` (saved in step 2) as the `token` value.<br/>The body response should be empty, and the `status` value should be set to `optout` because the `refresh-optout@example.com` email and the `+00000000002` phone number always result in a logged out user.
+3. Send a [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) request with the `refresh_token` (saved in step 2) as the `token` value.<br/>The body response should be empty, and the `status` value should be set to `optout` because the `refresh-optout@example.com` email and the `+00000000002` phone number always result in a logged-out user.
 
 #### What is the uniqueness and rotation policy for UID2 tokens?
 
@@ -138,7 +138,7 @@ The UID2 service encrypts UID2 tokens using random initialization vectors. The U
 
 There are many ways to approach UID2 implementation. Here is one example of a code snippet showing how a UID2 token is passed in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>:
 
-<ExampleUid2InBidstream />
+<ExampleTokenInBidstream />
 
 ## FAQs for Advertisers and Data Providers
 

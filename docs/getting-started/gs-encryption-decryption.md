@@ -145,7 +145,7 @@ The following code example encrypts requests and decrypts responses using Java. 
 java -jar Uid2Request-jar-with-dependencies.jar
 ```
 
-The Java example is written for JDK version 11 and later, and you must have the com.google.code.gson library in your classpath.
+The Java example is written for JDK version 11 or later, and you must have the com.google.code.gson library in your classpath.
 
 If you are using Maven, you can use the following minimal `pom.xml`, and run `mvn package` to build the project:
 
@@ -450,7 +450,6 @@ public class Uid2Request {
 </TabItem>
 <TabItem value='cs' label='C#'>
 
-
 ```cs title="uid2_request.cs"
 using System.Buffers.Binary;
 using System.Net;
@@ -582,9 +581,7 @@ else
 ```
 
 </TabItem>
-
 <TabItem value='go' label='Go'>
-
 
 ```go title="uid2_request.go"
 package main
