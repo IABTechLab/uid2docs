@@ -79,6 +79,23 @@ The following table summarizes the mobile integration options for managing the U
 | UID2 Android SDK | SDK doc: [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)<br/>Implementation Guide: One of the following:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul> |
 | UID2 iOS SDK | SDK doc: [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)<br/>Implementation Guide: One of the following:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul> |
 
+<!-- <table>
+  <tr>
+    <th>Mobile Implementation Option</th>
+    <th>SDK Doc</th>
+    <th>Implementation Guide</th>
+  </tr>
+  <tr>
+    <td>UID2 Android SDK</td>
+    <td>[SDK for Android Reference Guide](../sdks/sdk-ref-android.md)</td>
+    <td rowspan="2">One of the following:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul></td>
+  </tr>
+  <tr>
+    <td>UID2 iOS SDK</td>
+    <td>[SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)</td>
+  </tr>
+</table> -->
+
 ### Sending the Token to the Bidstream
 
 There are many options for sending your UID2 tokens to the bidstream.
