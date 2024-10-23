@@ -18,7 +18,7 @@ import ErrorResponseStates from '/docs/snippets/_mobile-docs-error-response-stat
 
 # UID2 Client-Server Integration Guide for Mobile
 
-This guide is for mobile app publishers who want to integrate with UID2 by generating UID2 tokens server-side via a Public Operator or Private Operator and then passing the tokens and user identities into their mobile apps, which will in turn pass the tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use.  
+This guide is for mobile app publishers who want to integrate with UID2 by generating UID2 tokens server-side via a <Link href="../ref-info/glossary-uid#gl-public-operator">Public Operator</Link> or <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> and then passing the tokens and user identities into their mobile apps, which will in turn pass the tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use.  
 
 This is called client-server integration because some integration steps are client-side and some are server-side.
 
@@ -85,7 +85,7 @@ For security reasons, the API key and secret used in token generation must be ca
 
 ## Server-Side Token Refresh
 
-Token refresh is automatically enabled inside the UID2 mobile SDKs; you don't need to manage it explicitly on the server side.
+<a href="../ref-info/glossary-uid#gl-token-refresh">Token refresh</a> is automatically enabled inside the UID2 mobile SDKs; you don't need to manage it explicitly on the server side.
 
 You might decide to do server-side token refresh if you want to keep your changes in the mobile apps as simple as possible.
 

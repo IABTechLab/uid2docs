@@ -24,9 +24,9 @@ Use this SDK to facilitate the process of establishing client identity using UID
 
 This SDK simplifies integration with UID2 for any publishers who want to support UID2. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
-| :--- | :--- | :--- | :--- | :--- |
-| &#8212; | &#8212; | &#8212; | &#9989; | &#8212; |
+| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| &#8212; | &#8212; | &#8212; | &#9989; | &#8212; | &#8212; |
 
 ## API Permissions
 
@@ -103,8 +103,7 @@ As part of the SDK [initialization](#initopts-object-void), a token auto-refresh
 
 Here's what you need to know about the token auto-refresh:
 
-
-- Only one token refresh call can be active at a time. 
+- Only one call to the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint call can be active at a time. 
 - If the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) response is unsuccessful because the user has opted out, or because the refresh token has expired, this suspends the background auto-refresh process. To use UID2-based targeted advertising again, you must obtain the email or phone number from the consumer ([isLoginRequired()](#isloginrequired-boolean) returns `true`). In all other cases, auto-refresh attempts continue in the background.
 - The [callback function](#callback-function) specified during the SDK initialization is invoked in the following cases:
 	- After each successful refresh attempt.

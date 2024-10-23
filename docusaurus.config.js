@@ -273,6 +273,10 @@ const config = {
           {
             items: [
               {
+                label: "Report a Vulnerability",
+                href: "https://www.thetradedesk.com/us/trust/report-a-vulnerability",
+              },
+              {
                 label: "Website Privacy Policy",
                 href: "https://www.thetradedesk.com/us/website-privacy-policy",
               },

@@ -18,7 +18,7 @@ In the UID2 Portal, on the **API Keys** page, you can perform all activities rel
 
 ## Overview
 
-The API key and client secret allow you to connect to the UID2 Operator Service and call API endpoints, directly or via one of the UID2 SDKs. These values identify you to the service.
+The API key and client secret allow you to connect to the UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> and call API endpoints, directly or via one of the UID2 SDKs. These values identify you to the service.
 
 When you add an API key in the UID2 Portal, it's very important that you store the key and its corresponding secret securely and do everything necessary to make sure that these values are not compromised. For more information, see [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret).
 

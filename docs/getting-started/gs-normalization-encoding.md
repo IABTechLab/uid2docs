@@ -28,7 +28,7 @@ UID2 supports the following types of directly identifying information (DII):
 
 ## Email Address Normalization
 
-If you send unhashed email addresses to the UID2 Operator Service, the service normalizes the email addresses and then hashes them. If you want to hash the email addresses yourself before sending them, you must normalize them before you hash them.
+If you send unhashed email addresses to the UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link>, the service normalizes the email addresses and then hashes them. If you want to hash the email addresses yourself before sending them, you must normalize them before you hash them.
 
 :::important
 Normalizing before hashing ensures that the generated UID2 value will always be the same, so that the data can be matched. If you do not normalize before hashing, this might result in a different UID2, reducing the effectiveness of targeted advertising.

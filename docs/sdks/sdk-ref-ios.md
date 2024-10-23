@@ -9,11 +9,7 @@ import Link from '@docusaurus/Link';
 
 # SDK for iOS Reference Guide
 
-You can use the SDK for iOS for the following:
-
-- Generating or establishing client identity using UID2.
-- Retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use.
-- Automatically refreshing UID2 tokens.
+You can use the SDK for iOS to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens.
 
 The following iOS-related plugins, and associated documentation, are also available:
 
@@ -29,9 +25,9 @@ Although this page refers to SDK for iOS, this SDK also supports tvOS. For the r
 
 This SDK simplifies integration with UID2 for any publishers who want to support UID2 for apps running on iOS devices. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
-| :--- | :--- | :--- | :--- | :--- |
-| &#8212; | &#8212; | &#9989; | &#9989; | &#8212; |
+| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 
 The SDK for iOS is designed to generate and/or manage UID2 identity on behalf of iOS apps. It enables UID2 identity to be persisted across app lifecycles by securely storing the identity on a device via platform-native encryption tools.
 

@@ -48,7 +48,7 @@ For a detailed summary of web integration options, see [Web Integration Overview
 | [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md)     | A guide for publishers who want to integrate with UID2 using only client-side JavaScript changes, which is the easiest implementation approach.<br/>The SDK for JavaScript manages token generation and token refresh automatically.                                                                                   |
 | [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) | This integration guide for publishers covers standard web integration scenarios that use the SDK for JavaScript and requires the token to be generated on the server side and passed to the publishers' web pages.                                                                                                     |
 | [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)          | This integration guide is for publishers that do not use the SDK for JavaScript.                                                                                                                                                                                                                                       |
-| [Google Ad Manager Secure Signals Integration Guide](google-ss-integration.md)            | This integration guide covers the additional steps needed for publishers using UID2 with the Google Ad Manager Secure Signals feature (previously known as Encrypted Signals for Publishers, ESP).                                                                                                                          |
+| [Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md)            | This integration guide covers the additional steps needed for publishers using UID2 with the Google Ad Manager Secure Signals feature (previously known as Encrypted Signals for Publishers, ESP).                                                                                                                          |
 
 ### Mobile Integrations
 
@@ -85,7 +85,7 @@ The following resources are available for publishers integrating with Google Ad 
 
 | Integration Guide | Content Description |
 | :--- | :--- |
-| [Publisher - Google Ad Manager Secure Signals](google-ss-integration.md) | This integration guide covers the additional steps needed for publishers using UID2 with the Google Ad Manager Secure Signals feature (previously known as Encrypted Signals for Publishers, ESP). |
+| [Publisher - Google Ad Manager Secure Signals](integration-google-ss.md) | This integration guide covers the additional steps needed for publishers using UID2 with the Google Ad Manager Secure Signals feature (previously known as Encrypted Signals for Publishers, ESP). |
 | [UID2 GMA Plugin for Android Integration Guide](mobile-plugin-gma-android.md) | The UID2 Google Mobile Ads (GMA) Plugin for Android enables publishers that use the [Google GMA SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps. |
 | [UID2 GMA Plugin for iOS Integration Guide](mobile-plugin-gma-ios.md) | The UID2 Google Mobile Ads (GMA) Plugin for iOS enables publishers that use the [Google GMA SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS apps. |
 | [UID2 IMA Plugin for Android Integration Guide](mobile-plugin-ima-android.md) | The UID2 Interactive Media Ads (IMA) Plugin for Android enables publishers that use the [Google IMA SDK for Android](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side) to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps. |
@@ -113,7 +113,7 @@ The following resources are available for DSPs integrating with UID2.
 
 ## Private Operator Service Integrations
 
-The following resources are available for Private Operator integrations.
+The following resources are available for <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> integrations.
  
 | Integration Guide | Content Description |
 | :--- | :--- |

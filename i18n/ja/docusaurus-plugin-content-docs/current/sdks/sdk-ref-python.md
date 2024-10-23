@@ -20,9 +20,9 @@ UID2 Server-Side SDK を使用することで、以下が容易になります:
 
 この SDK は、Server-Sideのコーディングに Python を使用している DSP または UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets      |
-| :--- | :--- | :--- | :--- | :--- |:--- |
-| &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
+| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
 
 ## API Permissions
 

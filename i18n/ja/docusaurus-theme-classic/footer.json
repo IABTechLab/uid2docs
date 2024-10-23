@@ -27,6 +27,10 @@
     "message": "Prebid",
     "description": "The label of footer link with label=Prebid linking to https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html"
   },
+  "link.item.label.Report a Vulnerability": {
+    "message": "脆弱性の報告",
+    "description": "The label of footer link with label=Report a Vulnerability linking to https://www.thetradedesk.com/us/trust/report-a-vulnerability"
+  },
   "link.item.label.Website Privacy Policy": {
     "message": "ウェブサイトプライバシーポリシー",
     "description": "The label of footer link with label=Website Privacy Policy linking to https://www.thetradedesk.com/us/website-privacy-policy"

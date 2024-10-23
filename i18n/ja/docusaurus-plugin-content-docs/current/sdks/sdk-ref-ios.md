@@ -29,9 +29,9 @@ Although this page refers to SDK for iOS, this SDK also supports tvOS. For the r
 
 この SDK は、iOS デバイス上で動作するアプリで UID2 をサポートしたいパブリッシャー向けに、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
-| :--- | :--- | :--- | :--- | :--- |
-| &#8212; | &#8212; | &#9989; | &#9989; | &#8212; |
+| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 
 SDK for iOS は、iOS アプリケーションに代わって UID2 ID を生成または管理するように設計されています。プラットフォームネイティブの暗号化ツールを使って ID をデバイスに安全に保存することで、UID2 ID をアプリのライフサイクル全体にわたって持続させることができます。
 

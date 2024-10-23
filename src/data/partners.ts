@@ -802,6 +802,11 @@ export const partnersData: PartnersDataType = [
     order: 18,
   },
   {
+    name: "Soundcloud",
+    logo: "sc-logo-horizontal-black.svg",
+    type: ["Publishers"],
+  },
+  {
     name: "Sovrn",
     logo: "PartnerLogo_Sovrn_580x250.png",
     type: ["DSP"],

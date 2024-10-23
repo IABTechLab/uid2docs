@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # POST /identity/map
 
-Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs. You can also use this endpoint to check for updates to opt-out information.
+Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s and <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt bucket IDs</Link>. You can also use this endpoint to check for updates to opt-out information.
 
 Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md).
 
