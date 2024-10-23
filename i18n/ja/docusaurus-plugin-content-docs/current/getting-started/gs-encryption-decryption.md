@@ -316,7 +316,6 @@ else:
 </TabItem>
 <TabItem value='java' label='Java'>
 
-
 ```java title="Uid2Request.java"
 package org.example;
 
@@ -445,7 +444,6 @@ public class Uid2Request {
 
 </TabItem>
 <TabItem value='cs' label='C#'>
-
 
 ```cs title="uid2_request.cs"
 using System.Buffers.Binary;

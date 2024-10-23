@@ -67,7 +67,7 @@ import Link from '@docusaurus/Link';
 **N**
 <a href="#gl-normalize">Normalize</a> 
 
- **O**
+**O**
 <a href="#gl-open-operator">Open Operator</a> | 
 <a href="#gl-operator">Operator</a> | 
 <a href="#gl-operator-key">Operator key</a> | 
@@ -99,6 +99,7 @@ import Link from '@docusaurus/Link';
 <a href="#gl-subscription-id">Subscription ID</a> 
 
 **T**
+<a href="#gl-tokenized-refresh">Tokenrefresh</a> | 
 <a href="#gl-tokenized-sharing">Tokenized sharing</a> | 
 <a href="#gl-transparency-and-control-portal">Transparency and Control Portal</a> 
 
@@ -123,8 +124,8 @@ import Link from '@docusaurus/Link';
 <dd>Advertising token is another term for a <a href="#gl-uid2-token">UID2 token</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-api-key"><a href="#gl-api-key">API key</a></MdxJumpAnchor></dt>
-<dd>Each UID2 <a href="/docs/intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
-<dd>For details, see <a href="/docs/getting-started/gs-credentials">UID2 Credentials</a>.</dd>
+<dd>Each UID2 <a href="../intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
+<dd>For details, see <a href="../getting-started/gs-credentials">UID2 Credentials</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-api-secret"><a href="#gl-api-secret">API secret</a></MdxJumpAnchor></dt>
 <dd>See <a href="#gl-client-secret">client secret</a>.</dd>
@@ -163,19 +164,19 @@ import Link from '@docusaurus/Link';
 <dd>For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-client-secret"><a href="#gl-client-secret">Client secret</a></MdxJumpAnchor></dt>
-<dd>Each UID2 <a href="/docs/intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
-<dd>For details, see <a href="/docs/getting-started/gs-credentials">UID2 Credentials</a>.</dd>
+<dd>Each UID2 <a href="../intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
+<dd>For details, see <a href="../getting-started/gs-credentials">UID2 Credentials</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-client-server"><a href="#gl-client-server">Client-server integration</a></MdxJumpAnchor></dt>
 <dd>One of the UID2 <a href="#gl-integration-approaches">integration approaches</a> is to integrate partially on the client side and partially on the server side (client-server).</dd>
 <dd>For example, in a client-server integration for a publisher, the UID2 token is generated on the server side and refreshed on the client side.</dd>
-<dd>Examples of documentation for publisher client-server integrations: <a href="../guides/integration-prebid-client-server">UID2 Client-Server Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-client-server">Client-Server Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-server">UID2 Client-Server Integration Guide for Mobile</a>.</dd>
+<dd>Examples of documentation for publisher client-server integrations:<br/>- <a href="../guides/integration-prebid-client-server">UID2 Client-Server Integration Guide for Prebid.js</a><br/>- <a href="../guides/integration-javascript-client-server">Client-Server Integration Guide for JavaScript</a><br/>- <a href="../guides/integration-mobile-client-server">UID2 Client-Server Integration Guide for Mobile</a></dd>
 
 <dt><MdxJumpAnchor id="gl-client-side"><a href="#gl-client-side">Client-side integration</a></MdxJumpAnchor></dt>
 <dd>One of the UID2 <a href="#gl-integration-approaches">integration approaches</a> is to integrate entirely on the client side.</dd>
 <dd>In a client-side integration, UID2 tokens are generated and refreshed on the client side.</dd>
 <dd>For example, in a client-side integration, advertisers generate UID2 tokens on the client side for tracking pixels, and publishers generate UID2 tokens on the client side for bidstream use, as well as refreshing the tokens.</dd>
-<dd>Examples of documentation for publisher client-side integrations: <a href="../guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-client-side">Client-Side Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-side">UID2 Client-Side Integration Guide for Mobile</a>.</dd>
+<dd>Examples of documentation for publisher client-side integrations:<br/>- <a href="../guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a><br/>- <a href="../guides/integration-javascript-client-side">Client-Side Integration Guide for JavaScript</a><br/>- <a href="../guides/integration-mobile-client-side">UID2 Client-Side Integration Guide for Mobile</a></dd>
 
 <dt><MdxJumpAnchor id="gl-closed-operator"><a href="#gl-closed-operator">Closed Operator</a></MdxJumpAnchor></dt>
 <dd>Closed Operator is another term for a <a href="#gl-private-operator">Private Operator</a>.</dd>
@@ -199,7 +200,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-core-service"><a href="#gl-core-service">Core Service</a></MdxJumpAnchor></dt>
 <dd>The UID2 Core Service is a centralized service that manages access to <a href="#gl-salt">salts</a>, encryption keys, and other relevant data in the UID2 ecosystem.</dd>
-<dd>For an overview of all the UID2 services, see <a href="/docs/intro#components">Components</a>.</dd>
+<dd>For an overview of all the UID2 services, see <a href="../intro#components">Components</a>.</dd>
 
 </dl>
 
@@ -209,7 +210,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-data-provider"><a href="#gl-data-provider">Data provider</a></MdxJumpAnchor></dt>
 <dd>In the context of UID2, a data provider is any entity that provides data and measurement services relating to advertising, such as a data partner, measurement partner, or offline measurement provider.</dd>
-<dd>For details, see <a href="/docs/intro#participants">participant</a> (Data Providers).</dd>
+<dd>For details, see <a href="../intro#participants">participant</a> (Data Providers).</dd>
 
 <dt><MdxJumpAnchor id="gl-demand-side-platform"><a href="#gl-demand-side-platform">Demand-side platform</a></MdxJumpAnchor></dt>
 <dd>A demand-side platform (DSP) provides services to companies that want to buy digital advertising, such as advertisers, brands, and media agencies.</dd>
@@ -388,7 +389,7 @@ import Link from '@docusaurus/Link';
 <dd>There are just over one million salt buckets, and each email address or phone number is assigned to a specific bucket in a deterministic manner. However, this assignment is not permanent; it might change when the bucket's current secret salt is rotated to a new value.</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket-id"><a href="#gl-salt-bucket-id">Salt bucket ID</a></MdxJumpAnchor></dt>
-<dd>A salt bucket ID is a unique string of characters that identifies a specific <a href="#gl-salt-bucket">Salt bucket</a>. The salt bucket ID can be used to check which salt buckets have recently had their salt values updated, indicating which emails or phone numbers need their raw UID2 values regenerated.</dd>
+<dd>A salt bucket ID is a unique string of characters that identifies a specific <a href="#gl-salt-bucket">salt bucket</a>. The salt bucket ID can be used to check which salt buckets have recently had their salt values updated, indicating which emails or phone numbers need their raw UID2 values regenerated.</dd>
 <dd>For an example of a salt bucket ID, see the response to the `POST /identity/buckets` endpoint: <a href="../endpoints/post-identity-buckets#decrypted-json-response-format">Decrypted JSON Response Format</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-salted-hash"><a href="#gl-salted-hash">Salted hash</a></MdxJumpAnchor></dt>
@@ -433,6 +434,13 @@ import Link from '@docusaurus/Link';
 
 <dl>
 
+<dt><MdxJumpAnchor id="gl-token-refresh"><a href="#gl-token-refresh">Token refresh</a></MdxJumpAnchor></dt>
+<dd>When a UID2 participant requests a <a href="#gl-uid2-token">UID2 token</a>, the token is returned with a set of associated values, including a <a href="#gl-refresh-token">refresh token</a> and timestamps for the UID2 token and the refresh token. As long as the refresh token has not expired, the publisher can use it to request a fresh UID2 token without having to send <a href="#gl-dii">DII</a>.</dd>
+<dd>Any UID2 participant that requests a UID2 token must have a process in place for keeping the token valid: either monitoring the refresh period and requesting a new UID2 token before the refresh token expires, or requesting a new UID2 token each time, which requires sending DII.</dd>
+<dd>In most cases, token refresh is managed by an SDK or other implementation strategy such as a Prebid.js implementation.</dd>
+<dd>If the refresh token expires, the publisher must re-request a UID2 token by sending DII.</dd>
+<dd>For details, see <a href="ref-tokens">UID2 Tokens and Refresh Tokens</a>.</dd>
+
 <dt><MdxJumpAnchor id="gl-tokenized-sharing"><a href="#gl-tokenized-sharing">Tokenized sharing</a></MdxJumpAnchor></dt>
 <dd>Tokenized sharing means encrypting <a href="#gl-dii">DII</a> or <a href="#gl-raw-uid2">Raw UID2s</a> into <a href="#gl-uid2-token">UID2 tokens</a> and sharing the tokens with authorized recipients. Using UID2 tokens helps protect raw UID2s end-to-end between the sender and receiver of the data, including when the data passes through unauthorized parties. Tokenized sharing is required for sharing in the bidstream or via pixels, but you can use it in any sharing use case.</dd>
 <dd>For details, see <a href="../sharing/sharing-tokenized-overview">Tokenized Sharing Overview</a>.</dd>
@@ -474,7 +482,7 @@ import Link from '@docusaurus/Link';
 <dd>The token value is opaque: No assumptions should be made about the format or about the length of the string.</dd>
 <dd>The token has a limited life, but can be refreshed in the background using the <a href="#gl-refresh-token">refresh token</a>.</dd>
 <dd>Publishers send UID2 tokens in the bidstream.</dd>
-<dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
+<dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> and <a href="ref-tokens#uid2-tokens-key-information">UID2 Tokens: Key Information</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-unified-id-20"><a href="#gl-unified-id-20">Unified ID 2.0</a></MdxJumpAnchor></dt>
 <dd>The term UID2 can be used to mean the <a href="#gl-uid2-framework">UID2 framework</a>, the <a href="#gl-uid2-service">UID2 service</a>, a <a href="#gl-raw-uid2">raw UID2</a>, or a <a href="#gl-uid2-token">UID2 token</a> (advertising token).</dd>

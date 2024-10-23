@@ -30,7 +30,7 @@ The following table summarizes the functionality available with each SDK.
 
 &ast;Advertisers and Data Providers who need to generate raw UID2s from DII can also do this via Snowflake (see [Snowflake Integration Guide](../guides/snowflake_integration.md)) or by using the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.
 
-<!-- &#9989; = Supported | &#10060; = Not Supported | &#8212; = Not Supported -->
+<!-- &#9989; = Supported | &#8212; = Not Supported -->
 
 ## SDK Documentation
 
