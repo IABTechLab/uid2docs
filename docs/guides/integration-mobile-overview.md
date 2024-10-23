@@ -49,8 +49,6 @@ For details, refer to one of the following guides:
 - [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 - [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md)
 
-## (NEW SECTION STARTS HERE)
-
 ## Mobile Integration Paths
 
 To determine the best integration path for your mobile scenario, consider these points:
@@ -74,27 +72,10 @@ The options for integrating with UID2 using the UID2 mobile SDKs are summarized 
 
 The following table summarizes the mobile integration options for managing the UID2 token, including generating, storing, and refreshing the token, with links to the documentation for each option.
 
-| UID2 Mobile Implementation Option | Documentation Link |
-| :--- | :---|
-| UID2 Android SDK | SDK doc: [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)<br/>Implementation Guide: One of the following:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul> |
-| UID2 iOS SDK | SDK doc: [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)<br/>Implementation Guide: One of the following:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul> |
-
-<!-- <table>
-  <tr>
-    <th>Mobile Implementation Option</th>
-    <th>SDK Doc</th>
-    <th>Implementation Guide</th>
-  </tr>
-  <tr>
-    <td>UID2 Android SDK</td>
-    <td>[SDK for Android Reference Guide](../sdks/sdk-ref-android.md)</td>
-    <td rowspan="2">One of the following:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul></td>
-  </tr>
-  <tr>
-    <td>UID2 iOS SDK</td>
-    <td>[SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)</td>
-  </tr>
-</table> -->
+| UID2 Mobile Implementation Option | SDK Doc | Implementation Guide |
+| :--- | :---| :---|
+| UID2 Android SDK | [SDK for Android Reference Guide](../sdks/sdk-ref-android.md) | One of the following:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul> |
+| UID2 iOS SDK | [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) | One of the following:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul> |
 
 ### Sending the Token to the Bidstream
 
@@ -132,8 +113,6 @@ The following table summarizes the functionality available with the various inte
 &ast;&ast;&ast;After setup, Prebid Mobile SDK adds the token into the ad request to Prebid Server.
 
 <!-- &#9989; = Supported | &#8212; = Not Supported -->
-
-## (NEW SECTION ENDS HERE)
 
 ## FAQs for Mobile Integrations
 
