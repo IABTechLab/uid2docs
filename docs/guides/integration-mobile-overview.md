@@ -101,15 +101,15 @@ All options support either client-side or server-side integration.
 | :--- | :--- |  :--- | :--- | :--- |
 | UID2 SDK for Android | &#9989; | &#9989; | Android | &ast; |
 | UID2 SDK for iOS | &#9989;| &#9989; | iOS | &ast; |
-| GMA Plugin for Android<br/>(Requires&nbsp;Android&nbsp;SDK) | &#8212; | &#8212; | Android | &#9989;&ast;&ast; |
-| GMA Plugin for iOS<br/>(Requires iOS SDK) | &#8212; | &#8212; | iOS | &#9989;&ast;&ast; |
-| IMA Plugin for Android <br/>(Requires Android SDK)| &#8212; | &#8212; | Android | &#9989;&ast;&ast; |
-| IMA Plugin for iOS<br/>(Requires iOS SDK) | &#8212; | &#8212; | iOS | &#9989;&ast;&ast; |
+| GMA Plugin for Android<br/>(Requires UID2 SDK for Android) | &#8212; | &#8212; | Android | &#9989;&ast;&ast; |
+| GMA Plugin for iOS<br/>(Requires UID2 SDK for iOS) | &#8212; | &#8212; | iOS | &#9989;&ast;&ast; |
+| IMA Plugin for Android <br/>(Requires UID2 SDK for Android)| &#8212; | &#8212; | Android | &#9989;&ast;&ast; |
+| IMA Plugin for iOS<br/>(Requires UID2 SDK for iOS)| &#8212; | &#8212; | iOS | &#9989;&ast;&ast; |
 | Prebid Mobile SDK | &#8212; | &#8212; | Either | &#9989;&ast;&ast;&ast; |
 
 &ast;You can combine the SDK with IMA/GMA Plugin or Prebid Mobile SDK to send the token to the bidstream via Google or Prebid Server, or you can retrieve the token manually from the SDK and pass it to the bidstream in another way, according to your preference.
 
-&ast;&ast;&ast;After setup, Google GMA/IMA collects the token automatically and sends it to the bidstream.
+&ast;&ast;After setup, Google GMA/IMA collects the token automatically and sends it to the bidstream.
 
 &ast;&ast;&ast;After setup, Prebid Mobile SDK adds the token into the ad request to Prebid Server.
 
