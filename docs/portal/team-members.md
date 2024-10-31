@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # Team Members
 
-In the UID2 Portal, on the **Team Members** page, you can perform all activities relating to configuring individuals who you want to authorize for access to your account, including the following:
+In the UID2 Portal, on the **Team Members** page, Admin users can perform all activities relating to configuring individuals who you want to authorize for access to your account, including the following:
 
 - [Add a Team Member](#add-a-team-member)
 - [Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member) 
@@ -22,13 +22,13 @@ To access the Team Members page, go to the top right of the UID2 Portal user int
 
 For an illustration, see [UID2 Portal Structure](portal-overview.md#uid2-portal-structure).
 
-## Team Member Rights and Responsibilities
+## User Roles
 
-Each team member is an administrator for the account, and can perform all activities relating to managing your team and your account, including the following:
+Each team member has one of two user roles: Admin or Operations. Admins can perform all activities related to UID2 participation, which are summarized in the [UID2 Portal Overview](portal-overview.md).
 
-- Add, modify, or remove additional team members: see [Add a Team Member](#add-a-team-member)
-- Add, modify, or remove email contacts: see [Email Contacts](email-contacts.md).
-- Add or remove sharing relationships and sharing settings: see [Sharing Permissions](sharing-permissions.md).
+Users with the Operations role can perform most of the same actions as Admin users. However, they cannot add, modify, or remove team members. Instead, they have read-only access to the **Manage Team Members** page.
+
+User Roles can only be modified by users with the Admin role, by following: [Edit Information for a Team Member](#edit-information-for-a-team-member). 
 
 ## Add a Team Member
 
@@ -37,10 +37,14 @@ To add a team member, complete the following steps:
 1. Log in to your UID2 Portal account.
 1. At the top right, click the down arrow and choose **Manage Team Members**.
 1. Click **Add Team Member**.
-1. Enter the first name, last name, email, and job function.
+1. Enter the first name, last name, email, job function and role.
 1. Click **Save Team Member**.
 
    The team member is added to the list, with Pending status, and an invitation email is sent to the invited person.
+
+:::note
+Team members can be added to more than one participant.
+:::
 
 ## Resend an Invitation to a Team Member
 
@@ -56,7 +60,7 @@ To re-send the invitation for a team member, complete the following steps:
 
 ## Edit Information for a Team Member
 
-You can update any of the values: First Name, Last Name, Email, or Job Function.
+Admins can update any of the values: First Name, Last Name, Email, Job Function, or Role.
 
 To edit information for a team member, complete the following steps:
 

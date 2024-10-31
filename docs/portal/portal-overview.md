@@ -21,6 +21,7 @@ The UID2 Portal is your one-stop shop for setting up and configuring your UID2 a
 | Configure permissions for individual sharing participants or groups of sharing participants.<br/>NOTE: Use of sharing requires an API key (see [API Keys](api-keys.md)) or client-side key pair (see [Client-Side Integration](client-side-integration.md)). Configure these values before setting up sharing permissions. | [Sharing Permissions](sharing-permissions.md) |
 | Add team members who will have permission to manage your account. | [Team Members](team-members.md) |
 | Set up designated email contacts who will be notified of news or updates. | [Email Contacts](email-contacts.md) |
+| View a detailed log of all past actions performed by, or on behalf of, the current participant. | [Audit Trail](audit-trail.md) |
 
 ## Access the UID2 Portal
 
@@ -36,20 +37,23 @@ There are two main ways to access the pages, as shown in the following image:
 
 ![UID2 Portal Structure](images/portal-uid2-overview.png)
 
-From the left sidebar, you can access the following pages relating to configuring your account:
+Your participant name will be displayed at the top of the left sidebar. If your account has access to multiple participants, as shown in the example above, a dropdown menu will appear. You can use this menu to switch between participants in the portal. 
+
+Continuing down the left sidebar, you can access the following pages relating to configuring your account:
 
 - Home: link to home page, always present.
 - [Sharing Permissions](sharing-permissions.md)
 - [API Keys](api-keys.md)
 - [Client-Side Integration](client-side-integration.md)
 
-From the link at the top right, your user ID and image are displayed. If you have a Gravatar image set up (see [https://gravatar.com/](https://gravatar.com/)), your image is displayed. If you don't have a Gravatar image, a default image is displayed.
+From the link at the top right, your user ID is displayed.
 
 From here, you can access the following pages relating to your personal account settings and your daily activities:
 
 - [Participant Information](participant-info.md)
 - [Manage Team Members](team-members.md)
 - [Email Contacts](email-contacts.md)
+- [Audit Trail](audit-trail.md) (Admin only)
 - Dark Mode: toggles dark mode on and off
 - [Log Out](portal-getting-started.md#log-out)
 
