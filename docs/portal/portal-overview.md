@@ -46,7 +46,7 @@ Continuing down the left sidebar, you can access the following pages relating to
 - [API Keys](api-keys.md)
 - [Client-Side Integration](client-side-integration.md)
 
-From the link at the top right, your user ID is displayed.
+From the link at the top right, your name is displayed.
 
 From here, you can access the following pages relating to your personal account settings and your daily activities:
 
