@@ -24,7 +24,7 @@ For an illustration, see [UID2 Portal Structure](portal-overview.md#uid2-portal-
 
 ## User Roles
 
-Each team member has one of two user roles: Admin or Operations. Admins can perform all activities related to UID2 participation, which are summarized in the [UID2 Portal Overview](portal-overview.md).
+Each team member has one of two user roles: Admin or Operations. Admins can perform all activities related to UID2 participation, as summarized in the [UID2 Portal Overview](portal-overview.md).
 
 Users with the Operations role can perform most of the same actions as Admin users. However, they cannot add, modify, or remove team members. Instead, they have read-only access to the **Manage Team Members** page.
 
