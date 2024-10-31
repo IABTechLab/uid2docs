@@ -13,7 +13,7 @@ As part of requesting a UID2 Portal account, you must provide some information a
 
 In the UID2 Portal, some of this information is displayed. When you have access, verify that the information is accurate.
 
-To access the page, go to the top right of the UID2 Portal user interface where your login ID is displayed. Click the down arrow and choose **Participant Information**.
+To access the page, go to the top right of the UID2 Portal user interface where your name is displayed. Click the down arrow and choose **Participant Information**.
 
 For an illustration, see [UID2 Portal Structure](portal-overview.md#uid2-portal-structure).
 

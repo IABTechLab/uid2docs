@@ -21,7 +21,7 @@ Email contacts cannot log in to the UID2 Portal or modify the account. They only
 
 ## Accessing the Email Contacts Page
 
-To access the Email Contacts page, go to the top right of the UID2 Portal user interface where your login ID is displayed. Click the down arrow and choose **Email Contacts**.
+To access the Email Contacts page, go to the top right of the UID2 Portal user interface where your name is displayed. Click the down arrow and choose **Email Contacts**.
 
 For an illustration, see [UID2 Portal Structure](portal-overview.md#uid2-portal-structure).
 

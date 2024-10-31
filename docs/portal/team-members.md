@@ -18,7 +18,7 @@ In the UID2 Portal, on the **Team Members** page, Admin users can perform all ac
 
 ## Accessing the Team Members Page
 
-To access the Team Members page, go to the top right of the UID2 Portal user interface where your login ID is displayed. Click the down arrow and choose **Manage Team Members**.
+To access the Team Members page, go to the top right of the UID2 Portal user interface where your name is displayed. Click the down arrow and choose **Manage Team Members**.
 
 For an illustration, see [UID2 Portal Structure](portal-overview.md#uid2-portal-structure).
 
