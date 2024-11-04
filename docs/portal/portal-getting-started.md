@@ -121,7 +121,7 @@ The following table includes details of the information you'll need, and a link 
 
 | Item | Details | Link to Instructions | 
 | :--- | :--- | :--- |
-| Team member information | For each, provide the following:<br/>- First name<br/>- Last name<br/>- Email<br/>- Job function | [Team Members](team-members.md) |
+| Team member information | For each, provide the following:<br/>- First name<br/>- Last name<br/>- Email<br/>- Job function<br/>- Role | [Team Members](team-members.md) |
 | Email contact information | For each, provide the following:<br/>- Email group name<br/>- Email alias<br/>- Contact type | [Email Contacts](email-contacts.md) |
 
 ## Reset Password
