@@ -1,6 +1,6 @@
 ---
 title: Audit Trail
-description: Set up and manage contacts for UID2 updates.
+description: View a detailed log of past actions performed on the UID2 Portal.
 hide_table_of_contents: false
 sidebar_position: 09
 ---

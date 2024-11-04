@@ -53,7 +53,7 @@ From here, you can access the following pages relating to your personal account 
 - [Participant Information](participant-info.md)
 - [Manage Team Members](team-members.md)
 - [Email Contacts](email-contacts.md)
-- [Audit Trail](audit-trail.md) (Admin only)
+- [Audit Trail](audit-trail.md) (Admin users only)
 - Dark Mode: toggles dark mode on and off
 - [Log Out](portal-getting-started.md#log-out)
 

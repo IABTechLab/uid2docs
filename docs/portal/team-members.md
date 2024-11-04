@@ -24,7 +24,7 @@ For an illustration, see [UID2 Portal Structure](portal-overview.md#uid2-portal-
 
 ## User Roles
 
-Each team member has one of two user roles: Admin or Operations. Admins can perform all activities related to UID2 participation, as summarized in the [UID2 Portal Overview](portal-overview.md).
+Each team member has one of two user roles: Admin or Operations. Admin users can perform all activities related to UID2 participation, as summarized in the [UID2 Portal Overview](portal-overview.md).
 
 Users with the Operations role can perform most of the same actions as Admin users. However, they cannot add, modify, or remove team members. Instead, they have read-only access to the **Manage Team Members** page.
 
@@ -43,7 +43,7 @@ To add a team member, complete the following steps:
    The team member is added to the list, with Pending status, and an invitation email is sent to the invited person.
 
 :::note
-Team members can be added to more than one participant.
+Team members can be added to more than one participant. Team members that belong to multiple participants are able to switch between participants as shown in [UID2 Portal Structure](portal-overview.md#uid2-portal-structure).
 :::
 
 ## Resend an Invitation to a Team Member
@@ -60,7 +60,7 @@ To re-send the invitation for a team member, complete the following steps:
 
 ## Edit Information for a Team Member
 
-Admins can update any of the values: First Name, Last Name, Email, Job Function, or Role.
+Admin users can update any of the values: First Name, Last Name, Email, Job Function, or Role.
 
 To edit information for a team member, complete the following steps:
 
