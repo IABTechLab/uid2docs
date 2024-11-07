@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # POST /identity/map
 
-複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 とソルトバケット ID にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックすることもできます
+複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 と <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt bucket IDs</Link> にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックすることもできます
 
 Used by: このエンドポイントは、主に広告主やデータプロバイダーが使用します。詳細は [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) を参照してください。
 

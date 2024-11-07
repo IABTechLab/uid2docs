@@ -18,7 +18,7 @@ import ErrorResponseStates from '/docs/snippets/_mobile-docs-error-response-stat
 
 # UID2 Client-Server Integration Guide for Mobile
 
-このガイドは、Public Operator または Private Operator を介して Server-Side で UID2 Token を生成し、そのトークンとユーザー ID をモバイルアプリに渡して UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けです。モバイルアプリは、そのトークンを <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> に使用するために渡します。
+このガイドは、<Link href="../ref-info/glossary-uid#gl-public-operator">Public Operator</Link> または <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を介して Server-Side で UID2 Token を生成し、そのトークンとユーザー ID をモバイルアプリに渡して UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けです。モバイルアプリは、そのトークンを <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> に使用するために渡します。
 
 これは Client-Server インテグレーションと呼ばれます。これは、いくつかのインテグレーションステップがクライアントサイドで行われ、いくつかがサーバーサイドで行われるためです。
 
