@@ -341,8 +341,8 @@ The following table includes some additional commands that might help you manage
 | Action | Command |
 | :--- | :--- |
 | Provides a detailed explanation of what will be rotated. | `sudo logrotate -f /etc/logrotate.conf --debug` |
-| Runs one iteration of `logrotate` manually, without changing the scheduled interval. |  `sudo logrotate -f /etc/logrotate.conf --force` |
-| Reloads `syslog-ng`. |  `sudo /usr/sbin/syslog-ng-ctl reload` |
+| Runs one iteration of `logrotate` manually, without changing the scheduled interval. | `sudo logrotate -f /etc/logrotate.conf --force` |
+| Reloads `syslog-ng`. | `sudo /usr/sbin/syslog-ng-ctl reload` |
 
 ## Technical Support
 

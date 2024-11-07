@@ -214,7 +214,7 @@ Provide values for the input parameters, as needed, in the `terraform.tfvars` fi
    | `network_name` | `string` | `uid-operator` | no | The VPC resource name (also used for rules/ instance tags). |
    | `min_replicas` | `number` | `1` | no | Indicates the minimum number of replicas you want to deploy. |
    | `max_replicas` | `number` | `5` | no | Indicates the maximum number of replicas you want to deploy. |
-   | `uid_operator_key_secret_name` | `string` | `"secret-operator-key"` | no |  The name that you specify for your operator key secret. The Terraform template creates a secret in the GCP Secret Manager to hold the `uid_operator_key` value. You can define the name; for example, `uid2-operator-operator-key-secret-integ`. |
+   | `uid_operator_key_secret_name` | `string` | `"secret-operator-key"` | no | The name that you specify for your operator key secret. The Terraform template creates a secret in the GCP Secret Manager to hold the `uid_operator_key` value. You can define the name; for example, `uid2-operator-operator-key-secret-integ`. |
    | `debug_mode` | `bool`  | `false` | no | Do not set to `true` unless you are working with the UID2 team to debug an issue. In any other circumstances, if you set this flag to `true`, attestation will fail. |
 
 #### Run Terraform

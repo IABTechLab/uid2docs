@@ -81,7 +81,7 @@ Package.swift に次の依存関係を追加します:
 
 ```js
 dependencies: [
-  .package(url: "https://github.com/IABTechLab/uid2-ios-sdk.git", from: "1.2.0"),
+  .package(url: "https://github.com/IABTechLab/uid2-ios-sdk.git", from: "1.7.0"),
 ]
 ```
 
@@ -91,7 +91,7 @@ dependencies: [
 
 | Name | Location | Dependency Rule                         |
 | :--- | :--- |:----------------------------------------| 
-| uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 1.2.0 < 2.0.0 |
+| uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 1.7.0 < 2.0.0 |
 
 ### Installing with CocoaPods
 

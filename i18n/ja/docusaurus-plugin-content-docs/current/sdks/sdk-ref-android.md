@@ -49,7 +49,7 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 <!-- As of 7 May 2024 -->
 
-このドキュメントは、SDK for Android バージョン1.2.0以降用です。
+このドキュメントは、SDK for Android バージョン1.6.0以降用です。
 
 リリースノートの情報については、[https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases) を参照してください。
 
@@ -91,7 +91,7 @@ Gradle を使用してインストールするには、build.gradle ファイル
 
 
 ```js
-implementation 'com.uid2:uid2-android-sdk:0.5.0'
+implementation 'com.uid2:uid2-android-sdk:1.6.0'
 ```
 
 ### Installing with Maven 
@@ -102,7 +102,7 @@ Maven を使用してインストールするには、`pom.xml` ファイルに�
 <dependency> 
   <groupId>com.uid2</groupId> 
   <artifactId>uid2-android-sdk</artifactId> 
-  <version>1.2.0</version>
+  <version>1.6.0</version>
 </dependency> 
 ```
 
