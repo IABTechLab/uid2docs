@@ -47,7 +47,7 @@ Here are some key points about refresh tokens:
 
 ### Recommended Token Refresh Frequency
 
-The recommended refresh interval is hourly. An hourly interval helps ensure that the token doesn't get close to being expired, and is ready to be sent to the bidstream. In addition, since user opt-out is checked before a new token is generated, this helps ensure that user opt-out preferences are implemented promptly.
+Currently, the recommended refresh interval is hourly. An hourly interval helps ensure that the token doesn't get close to being expired, and is ready to be sent to the bidstream. In addition, since user opt-out is checked before a new token is generated, this helps ensure that user opt-out preferences are implemented promptly.
 
 To determine when to refresh, you can use the timestamp of the `refresh_from` field in the response to a call to one of the following UID2 API endpoints:
 
@@ -55,6 +55,10 @@ To determine when to refresh, you can use the timestamp of the `refresh_from` fi
 - [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint (see [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens))
 
 The `refresh_from` field is a <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> timestamp, and the value is one hour from the time that the token was generated, expressed in milliseconds.
+
+:::tip
+The recommended refresh interval could change in the future. Rather than using a fixed value, it's best to calculate based on the `refresh_from` value.
+:::
 
 ### Managing Token Refresh with an SDK
 
