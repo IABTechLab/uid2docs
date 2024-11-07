@@ -87,8 +87,8 @@ dependencies: [
 
 In the XCode user interface, under Package Dependencies, add the following entry for your apps:
 
-| Name | Location | Dependency Rule                         |
-| :--- | :--- |:----------------------------------------| 
+| Name | Location | Dependency Rule |
+| :--- | :--- | :--- | 
 | uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 1.7.0 < 2.0.0 |
 
 ### Installing with CocoaPods
@@ -192,4 +192,3 @@ The Identity variable stores and returns the current UID2Identity data object be
 #### identityStatus
 
 The identityStatus variable stores and returns the status of the current UID2 Identity being managed by the SDK.
-

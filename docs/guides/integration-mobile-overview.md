@@ -98,7 +98,7 @@ The following table summarizes the functionality available with the various inte
 All options support either client-side or server-side integration.
 
 | Implementation Option | Generate Token from DII | Refresh Token | Android/iOS? | Send Token to Bidstream |
-| :--- | :--- |  :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- | :--- |
 | UID2 SDK for Android | &#9989; | &#9989; | Android | &ast; |
 | UID2 SDK for iOS | &#9989;| &#9989; | iOS | &ast; |
 | GMA Plugin for Android<br/>(Requires UID2 SDK for Android) | &#8212; | &#8212; | Android | &#9989;&ast;&ast; |
