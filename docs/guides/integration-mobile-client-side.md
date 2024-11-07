@@ -52,7 +52,7 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 This guide provides instructions for using either of these UID2 mobile SDKs:
 
 - SDK for Android (version 1.6.0 or later)
-- SDK for iOS(version 1.7.0 or later)
+- SDK for iOS (version 1.7.0 or later)
 
 For instructions for installing the correct SDK/version into your mobile app, see [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 
@@ -67,7 +67,7 @@ Follow the applicable instructions, for Android or iOS:
 
 1. Check out the main branch of the [SDK for Android source code repository on GitHub](https://github.com/IABTechLab/uid2-android-sdk/tree/main).
 1. In Android Studio (check the version required in the [Minimum Requirements](../sdks/sdk-ref-android.md#minimum-requirements) section in the SDK for Android Reference Guide), open the directory that you checked out.
-1. set `uid2_environment_euid` to `false` in [AndroidManifest.xml](https://github.com/IABTechLab/uid2-android-sdk/blob/main/dev-app/src/main/AndroidManifest.xml).
+1. In [AndroidManifest.xml](https://github.com/IABTechLab/uid2-android-sdk/blob/main/dev-app/src/main/AndroidManifest.xml), set `uid2_environment_euid` to `false`. [**GWH_CM01 is this correct, uid2 and euid?**]
 2. Run the **dev-app** app.
 1. When you've started the app, make sure that the **Client Side** checkbox is checked.
 1. Enter an email or phone number, and then click the arrow to the right.
@@ -81,11 +81,11 @@ Follow the applicable instructions, for Android or iOS:
    ```js
    Development/UID2SDKDevelopmentApp/UID2SDKDevelopmentApp.xcodeproj
    ```
-1. Set the `UID2EnvironmentEUID` key to `NO` in `Development/UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist` in Xcode's editor. Alternatively you can use `plutil` from the command line:
+1. In `Development/UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist` in Xcode's editor, set the `UID2EnvironmentEUID` key to `NO`. Alternatively, you can use `plutil` from the command line:
    ```console
    plutil -replace UID2EnvironmentEUID -bool NO Development/UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist
    ```
-   To use a EUID environment,
+   To use an EUID environment:
    ```console
    plutil -replace UID2EnvironmentEUID -bool YES Development/UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist
    ```
