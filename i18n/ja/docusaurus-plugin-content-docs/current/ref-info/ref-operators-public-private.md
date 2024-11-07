@@ -17,7 +17,7 @@ Operator Service のすべてのインスタンスは、誰がサービスを運
 
 複数の参加者によって運営される、複数の Operator Service のインスタンスが存在する可能性があります。これらの参加者はそれぞれ、UID2 Operator と呼ばれます。
 
-UID2 Operator は、単に Operator Service を実行する組織です。オペレーターは、UID2 Core Service から暗号化キーとソルトを受け取って保管し、個人に関するデータをソルトおよびハッシュ化して UID2 Token を返し、raw UID2 を暗号化して UID2 Token を生成し、UID2 Token の復号キーを配布します。
+UID2 Operator は、単に Operator Service を実行する組織です。オペレーターは、UID2 Core Service から暗号化キーとソルトを受け取って保管し、<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> をソルトおよびハッシュ化して UID2 Token を返し、raw UID2 を暗号化して UID2 Token を生成し、UID2 Token の復号キーを配布します。
 
 UID2 Operator は、次の 2 つのカテゴリに分類されます:
 
