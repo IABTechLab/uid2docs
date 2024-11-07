@@ -112,7 +112,7 @@ Client-Side からトークンのリフレッシュを呼び出すことはで�
 
 リフレッシュのタイミングを決定するには、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントのレスポンスの `refresh_from` フィールドのタイムスタンプを使用します(詳細は [Successful Response](../endpoints/post-token-generate.md#successful-response) を参照してください)。または、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントのレスポンスの `refresh_from` フィールドのタイムスタンプを使用します(詳細は [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens) を参照してください)。
 
-トークンのリフレッシュが必要かどうかを確認する機能を持つ SDK のいずれかを使用することもできます。
+<a href="../ref-info/glossary-uid#gl-token-refresh">Token Refresh</a>が必要かどうかを確認する機能を持つ SDK のいずれかを使用することもできます。
 
 詳細は、[Recommended Token Refresh Frequency](../ref-info/ref-tokens.md#recommended-token-refresh-frequency) および [Managing Token Refresh with an SDK](../ref-info/ref-tokens.md#managing-token-refresh-with-an-sdk) を参照してください。
 

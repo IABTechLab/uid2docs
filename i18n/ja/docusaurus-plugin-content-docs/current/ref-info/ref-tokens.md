@@ -37,7 +37,7 @@ Refresh Token に関する主なポイントは次のとおりです:
 - 値は、<a href="glossary-uid#gl-opaque">opaque (不透明)</a>な文字列です: 文字列の形式や長さについての仮定をしないでください。
 - Refresh Token は、UID2 Token が有効期限切れになる前に、新しい UID2 Token と新しい Refresh Token を生成するために使用できます。
 - Refresh Token の使用は任意です: 既存のトークンをリフレッシュする代わりに、毎回 DII から新しいトークンを生成することを選択することもできます。
-- トークンのリフレッシュは、さまざまな方法で管理できます:
+- <a href="../ref-info/glossary-uid#gl-token-refresh">Token Refresh</a> は、さまざまな方法で管理できます:
   - UID2 SDK ([SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) を参照してください) を使用して。
   - [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出して。
   - UID2 Prebid.js モジュール ([UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md) を参照してください) を使用して。

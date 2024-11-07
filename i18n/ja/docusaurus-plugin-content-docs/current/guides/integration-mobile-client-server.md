@@ -85,7 +85,7 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 
 ## Server-Side Token Refresh
 
-UID2 mobile SDK では Token Refresh が自動的に有効になっています。Server-Side で明示的に管理する必要はありません。
+UID2 mobile SDK では <a href="../ref-info/glossary-uid#gl-token-refresh">Token Refresh</a> が自動的に有効になっています。Server-Side で明示的に管理する必要はありません。
 
 モバイルアプリでの変更をできるだけシンプルにしたい場合は、Server-Side で Token Refresh を行うこともできます。
 
