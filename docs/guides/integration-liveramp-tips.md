@@ -11,29 +11,31 @@ import Link from '@docusaurus/Link';
 
 # LiveRamp Integration Tips
 
-Publishers already using LiveRamp Authenticated Traffic Solution (ATS) can leverage their integration to generate a UID2 token to be passed in the bid request.
+Publishers who are using LiveRamp's Authenticated Traffic Solution (ATS) can leverage their integration to generate a UID2 token to be passed in the bid request.
 
 If you want to generate UID2 tokens using LiveRamp ATS, reach out to your LiveRamp representative and also make sure you've addressed the following integration points: 
 
-- [Enable RideAlong](#enable-ridealong)
+- [Enable UID2 as an Interoperable ID](#enable-uid2-as-an-interoperable-id)
 - [Implement the UID2 Hashing Methodology](#implement-the-uid2-hashing-methodology)
 - [Set Envelope Refresh to 1800 Seconds](#set-envelope-refresh-to-1800-seconds)
 
-## Enable RideAlong
+## Enable UID2 as an Interoperable ID
 
-In your LiveRamp configuration, you must make sure that RideAlong is enabled. RideAlong is a LiveRamp feature that enables other identity solutions, such as UID2, to embed their identifiers in ATS envelopes. If RideAlong is not enabled, UID2 tokens will not be appended to the envelope.
+In your LiveRamp configuration, you must make sure that the Interoperable IDs feature is enabled. Interoperable IDs is a LiveRamp feature that enables other identity solutions, such as UID2, to embed their identifiers in ATS envelopes. If UID2 is not enabled as an interoperable ID, UID2 tokens will not be appended to the envelope.
 
 To complete this step, contact your LiveRamp representative.
 
 ## Implement the UID2 Hashing Methodology
 
-The hashing methodology used by the UID2 service is very specific. If you use a different hashing algorithm, or miss any of the steps, your UID2s will not be correctly generated.
+To add a valid UID2 token to the ATS envelope, a publisher must provide plain text emails, indicate the <Link href="../ref-info/glossary-uid#gl-sha-256">SHA-256</Link> hashing methodology, or supply an SHA-256 hashed version of the email directly into the LiveRamp Library.
 
-For information about the required hashing methodology, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+You must use the SHA-256 hashing methodology, which is supported by both UID2 and LiveRamp. Using any other hashing methodology, or missing any step, results in either no UID2 token added to the ATS envelope or an invalid token added.
+
+For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
 
 ## Set Envelope Refresh to 1800 Seconds
 
-When enabling `ATS.js` within `Prebid.js`, make sure that `storage.refreshInSeconds` is set to **1800 seconds** (30 minutes).
+When enabling ATS within `Prebid.js`, make sure that `storage.refreshInSeconds` is set to **1800 seconds** (30 minutes). This setting is necessary due to the strict TTL on the UID2 token, which is 24 hours. To avoid sending expired envelopes into the bidstream, or passing envelopes where an opt-out has occurred, LiveRamp checks for a new ATS envelope (containing the UID2) every 30 minutes.
 
 ## Troubleshooting Assistance
 
