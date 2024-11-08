@@ -40,7 +40,7 @@ Here are some key points about refresh tokens:
 - You can manage <a href="../ref-info/glossary-uid#gl-token-refresh">token refresh</a> in a variety of ways, such as:
   - With a UID2 SDK (see [SDK Functionality](../sdks/summary-sdks.md#sdk-functionality))
   - By calling the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint
-  - By using the UID2 Prebid.js module (see [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md))
+  - By using the UID2 Prebid.js module (see [UID2 Integration Overview for Prebid](../guides/integration-prebid.md))
 - When a new UID2 token is generated and returned in response to the refresh token, a new refresh token is returned along with it.
 - In most cases, you can refresh tokens on the client side, even if the token was generated on the server side. For details about refresh functionality for the various SDKs, see [SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) (*Refresh UID2 Token* column).
 - When the UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> receives the refresh token with a request for a new UID2 token, it checks for user opt-out. If the user has opted out of UID2, no new UID2 token is generated. For details, see [User Opt-Out](../getting-started/gs-opt-out.md).

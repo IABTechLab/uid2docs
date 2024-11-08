@@ -12,7 +12,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Integration Guides: Summary
 
-The following guides provide integration instructions based on the needs and requirements of your organization and its primary role as a publisher, DSP, or data provider/advertiser. As a UID2 participant, you may also integrate via Enterprise Partners that enable engaging with an Open Operator service and hosting of a Private Operator service.
+The following guides provide integration instructions based on the needs and requirements of your organization and its primary role as a publisher, DSP, or data provider/advertiser. As a UID2 participant, you can also integrate via Enterprise Partners that enable engaging with an Open Operator service and hosting of a Private Operator service.
 
 Integrations fall into these categories:
 
@@ -41,7 +41,7 @@ For a detailed summary of web integration options, see [Web Integration Overview
 
 | Integration Guide | Content Description |
 | :--- | :--- |
-| [UID2 Integration Overview for Prebid](integration-prebid.md) | An overview of options for publishers who want to integrate with UID2 and generate UID2 tokens to be passed by Prebid.js and Prebid Mobile SDK in the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>. |
+| [UID2 Integration Overview for Prebid](integration-prebid.md) | An overview of options for publishers who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) to be passed by Prebid.js and the Prebid Mobile SDK in the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>. |
 | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) | An integration guide for publishers who want to integrate with UID2 and want Prebid.js to manage token generation and automatic token refresh as well as passing the tokens into the RTB bidstream. This guide is for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach. |
 | [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid.js in the RTB bidstream. This guide is for publishers who are using a private operator or who want to generate tokens server-side. |
 | [UID2 Integration Overview for JavaScript](integration-javascript.md) | An overview of options for publishers who want to integrate with UID2 using the JavaScript SDK. |
@@ -58,7 +58,7 @@ The following resources are available for publishers integrating with Android or
 | :--- | :--- |
 | [Mobile Integration Overview for Android and iOS](integration-mobile-overview.md) | An overview of options for mobile app publishers who want to integrate with UID2 using the SDK for Android or the SDK for iOS. |
 | [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) | An integration guide for mobile app publishers who want to integrate with UID2 with changes only within the mobile app (no server-side changes). |
-| [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | An integration guide for mobile app publishers who want to integrate with UID2 by doing the following:<ol><li>Generating UID2 tokens server-side via either a Public or Private Operator.</li><li>Passing the resulting <Link href="../ref-info/glossary-uid#gl-identity">identities</Link> to a mobile app for passing into the bidstream.</li></ol> |
+| [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md) | An integration guide for mobile app publishers who want to integrate with UID2 by doing the following:<ol><li>Generating UID2 tokens server-side via either a Public or Private Operator.</li><li>Passing the resulting <Link href="../ref-info/glossary-uid#gl-identity">identities</Link> to a mobile app for passing into the bidstream.</li></ol> |
 
 ### CTV Integrations
 
@@ -66,7 +66,7 @@ The following resources are available for publisher integrations supporting CTV.
 
 | Integration Guide | Content Description |
 | :--- | :--- |
-| [CTV Integration Guide](../guides/integration-ctv-guide.md) | A summary of CTV integration options, with links to additional information and instructions. |
+| [CTV Integration Guide](integration-ctv-guide.md) | A summary of CTV integration options, with links to additional information and instructions. |
 
 ### Prebid Integrations
 
@@ -74,7 +74,7 @@ The following resources are available for publishers integrating with Prebid.
 
 | Integration Guide | Content Description |
 | :--- | :--- |
-| [UID2 Integration Overview for Prebid](integration-prebid.md) | An overview of options for publishers who want to integrate with UID2 and generate UID2 tokens to be passed by Prebid.js or Prebid Mobile SDK in the RTB bidstream. |
+| [UID2 Integration Overview for Prebid](integration-prebid.md) | An overview of options for publishers who want to integrate with UID2 and generate UID2 tokens to be passed by Prebid.js or the Prebid Mobile SDK in the RTB bidstream. |
 | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) | An integration guide for publishers who want to integrate with UID2 and want Prebid.js to manage token generation and automatic token refresh as well as passing the tokens into the RTB bidstream. This guide is for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach. |
 | [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) | An integration guide for publishers who want to integrate with UID2 and generate identity tokens to be passed by Prebid.js in the RTB bidstream. This guide is for publishers who are using a private operator or who want to generate tokens server-side. |
 | [UID2 Mobile Integration for Prebid.js](integration-prebid-mobile-summary.md) | A summary of information resources for UID2 integration with Prebid.js on mobile devices. |
@@ -108,8 +108,8 @@ The following resources are available for DSPs integrating with UID2.
 
 | Integration Guide | Content Description |
 | :--- | :--- |
-| [DSP Integration Guide](../guides/dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
-| [DSP Direct Integration Instructions](../guides/integration-dsp-no-sdk.md) | Instructions for DSPs who prefer to integrate without using one of the UID2 SDKs. |
+| [DSP Integration Guide](dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
+| [DSP Direct Integration Instructions](integration-dsp-no-sdk.md) | Instructions for DSPs who prefer to integrate without using one of the UID2 SDKs. |
 
 ## Private Operator Service Integrations
 
