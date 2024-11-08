@@ -67,7 +67,7 @@ Follow the applicable instructions, for Android or iOS:
 
 1. Check out the main branch of the [SDK for Android source code repository on GitHub](https://github.com/IABTechLab/uid2-android-sdk/tree/main).
 1. In Android Studio (check the version required in the [Minimum Requirements](../sdks/sdk-ref-android.md#minimum-requirements) section in the SDK for Android Reference Guide), open the directory that you checked out.
-1. In [AndroidManifest.xml](https://github.com/IABTechLab/uid2-android-sdk/blob/main/dev-app/src/main/AndroidManifest.xml), set `uid2_environment_euid` to `false`. [**GWH_CM01 is this correct, uid2 and euid?**]
+1. In [AndroidManifest.xml](https://github.com/IABTechLab/uid2-android-sdk/blob/main/dev-app/src/main/AndroidManifest.xml), set `uid2_environment_euid` to `false`.
 2. Run the **dev-app** app.
 1. When you've started the app, make sure that the **Client Side** checkbox is checked.
 1. Enter an email or phone number, and then click the arrow to the right.
