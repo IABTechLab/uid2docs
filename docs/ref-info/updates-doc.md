@@ -238,7 +238,7 @@ For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md
 
 <!-- ## 2023 Updates -->
 
-### New: UID2 Integration Overview for Prebid.js
+### New: UID2 Integration Overview for Prebid
 
 December 20, 2023
 
@@ -248,7 +248,7 @@ In addition, the existing guides have been restructured and simplified.
 
 For details, see:
 
-- [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
+- [UID2 Integration Overview for Prebid](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
@@ -308,7 +308,7 @@ The content that was in the previous version of the Prebid document is now in a 
 
 :::note
 These documents were further updated in later revisions. Updated links are as follows:
-- [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
+- [UID2 Integration Overview for Prebid](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 :::
