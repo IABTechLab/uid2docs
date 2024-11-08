@@ -40,16 +40,25 @@ Here are some key points about refresh tokens:
 - You can manage <a href="../ref-info/glossary-uid#gl-token-refresh">token refresh</a> in a variety of ways, such as:
   - With a UID2 SDK (see [SDK Functionality](../sdks/summary-sdks.md#sdk-functionality))
   - By calling the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint
-  - By using the UID2 Prebid.js module (see [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md))
+  - By using the UID2 Prebid.js module (see [UID2 Integration Overview for Prebid](../guides/integration-prebid.md))
 - When a new UID2 token is generated and returned in response to the refresh token, a new refresh token is returned along with it.
 - In most cases, you can refresh tokens on the client side, even if the token was generated on the server side. For details about refresh functionality for the various SDKs, see [SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) (*Refresh UID2 Token* column).
 - When the UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> receives the refresh token with a request for a new UID2 token, it checks for user opt-out. If the user has opted out of UID2, no new UID2 token is generated. For details, see [User Opt-Out](../getting-started/gs-opt-out.md).
 
 ### Recommended Token Refresh Frequency
 
-The recommended refresh interval is hourly.
+Currently, the recommended refresh interval is hourly. An hourly interval helps ensure that the token doesn't get close to being expired, and is ready to be sent to the bidstream. In addition, since user opt-out is checked before a new token is generated, this helps ensure that user opt-out preferences are implemented promptly.
 
-To determine when to refresh, you can use the timestamp of the `refresh_from` field in the response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint (see [Successful Response](../endpoints/post-token-generate.md#successful-response)) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint (see [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens)). The value of this field is a timestamp in Unix time, expressed in milliseconds.
+To determine when to refresh, you can use the timestamp of the `refresh_from` field in the response to a call to one of the following UID2 API endpoints:
+
+- [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint (see [Successful Response](../endpoints/post-token-generate.md#successful-response))
+- [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint (see [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens))
+
+The `refresh_from` field is a <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> timestamp, and the value is one hour from the time that the token was generated, expressed in milliseconds.
+
+:::tip
+The recommended refresh interval could change in the future. Rather than using a fixed value, it's best to calculate based on the `refresh_from` value.
+:::
 
 ### Managing Token Refresh with an SDK
 

@@ -89,8 +89,8 @@ dependencies: [
 
 アプリの Package Dependencies に次のエントリを追加します:
 
-| Name | Location | Dependency Rule                         |
-| :--- | :--- |:----------------------------------------| 
+| Name | Location | Dependency Rule |
+| :--- | :--- | :--- | 
 | uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 1.7.0 < 2.0.0 |
 
 ### Installing with CocoaPods
