@@ -1,8 +1,8 @@
 ---
-title: UID2 Integration Overview for Prebid.js
-sidebar_label: UID2 Integration Overview for Prebid.js
-pagination_label: UID2 Integration Overview for Prebid.js
-description: UID2 実装の一部として Prebid.js とインテグレーションするためのオプションの概要。
+title: UID2 Integration Overview for Prebid
+sidebar_label: UID2 Integration Overview for Prebid
+pagination_label: UID2 Integration Overview for Prebid
+description: UID2 実装の一部として Prebid とインテグレーションするためのオプションの概要。
 hide_table_of_contents: false
 sidebar_position: 04
 displayed_sidebar: sidebarPublishers

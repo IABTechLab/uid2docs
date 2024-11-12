@@ -1,8 +1,8 @@
 ---
-title: UID2 Integration Overview for Prebid.js
-sidebar_label: UID2 Integration Overview for Prebid.js
-pagination_label: UID2 Integration Overview for Prebid.js
-description: Overview of options for integrating with Prebid.js as part of your UID2 implementation.
+title: UID2 Integration Overview for Prebid
+sidebar_label: UID2 Integration Overview for Prebid
+pagination_label: UID2 Integration Overview for Prebid
+description: Overview of options for integrating with Prebid as part of your UID2 implementation.
 hide_table_of_contents: false
 sidebar_position: 04
 displayed_sidebar: sidebarPublishers
@@ -13,7 +13,7 @@ import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-i
 
 # UID2 Integration Overview for Prebid
 
-This guide is an overview of integration options for publishers who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) to be passed by Prebid.js or Prebid Mobile SDK in the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.
+This guide is an overview of integration options for publishers who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) to be passed by Prebid.js or the Prebid Mobile SDK in the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.
 
 ## Prebid.js Support for Web
 
@@ -29,6 +29,8 @@ For additional flexibility, UID2 also provides alternative methods for some of t
 :::caution
 UID2 is not designed to be used where GDPR applies. The module checks the consent data that's passed in, and does not operate if the `gdprApplies` flag is set to `true`.
 :::
+
+<!-- GDPR statement difference for UID2/EUID | UID2 is not designed to be used where GDPR applies | EUID is designed to be used only where GDPR applies. -->
 
 ### Generating the UID2 Token
 

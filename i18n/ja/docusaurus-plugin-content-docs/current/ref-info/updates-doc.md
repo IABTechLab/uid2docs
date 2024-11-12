@@ -238,7 +238,7 @@ UID2 Operator が何をするのか、Public Operator と Private Operator の�
 
 <!-- ## 2023 Updates -->
 
-### New: UID2 Integration Overview for Prebid.js
+### New: UID2 Integration Overview for Prebid
 
 December 20, 2023
 
@@ -248,7 +248,7 @@ December 20, 2023
 
 詳細は 以下を参照してください:
 
-- [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
+- [UID2 Integration Overview for Prebid](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
@@ -308,7 +308,7 @@ UID2 Client-Side Integration Guide for Prebid.js は、既存の URL にまっ�
 
 :::note
 これらのドキュメントは、その後の改訂でさらに更新されました。更新されたリンクは以下のとおりです:
-- [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
+- [UID2 Integration Overview for Prebid](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 :::

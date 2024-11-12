@@ -58,7 +58,7 @@ Minimum requirements for this SDK are as follows:
 
 - Xcode version: 15.0+
 - iOS minimum target version:
-    - For full functionality: 13.0+ƒ
+    - For full functionality: 13.0+
     - For partial functionality: 12.0+. The app with the SDK integrated can be installed with all devices, but generating or retrieving UID2 tokens on the client side will not work with devices running iOS versions below 13.0.
 - tvOS minimum target version: 13.0+
 - Swift version: 5.0+
@@ -87,8 +87,8 @@ dependencies: [
 
 In the XCode user interface, under Package Dependencies, add the following entry for your apps:
 
-| Name | Location | Dependency Rule                         |
-| :--- | :--- |:----------------------------------------| 
+| Name | Location | Dependency Rule |
+| :--- | :--- | :--- | 
 | uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 1.7.0 < 2.0.0 |
 
 ### Installing with CocoaPods
@@ -192,4 +192,3 @@ The Identity variable stores and returns the current UID2Identity data object be
 #### identityStatus
 
 The identityStatus variable stores and returns the status of the current UID2 Identity being managed by the SDK.
-
