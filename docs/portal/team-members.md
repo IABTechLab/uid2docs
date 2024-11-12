@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # Team Members
 
-In the UID2 Portal, on the **Team Members** page, Admin users can perform all activities relating to configuring individuals who you want to authorize for access to your account, including the following:
+In the UID2 Portal, on the **Team Members** page, users with the Admin role can perform all activities relating to configuring individuals who you want to authorize for access to your account, including the following:
 
 - [Add a Team Member](#add-a-team-member)
 - [Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member) 
@@ -20,15 +20,25 @@ In the UID2 Portal, on the **Team Members** page, Admin users can perform all ac
 
 To access the Team Members page, go to the top right of the UID2 Portal user interface where your name is displayed. Click the down arrow and choose **Manage Team Members**.
 
+For each team member, the following information is displayed:
+- Name
+- Email
+- Job Function
+- Role
+- Actions: the available actions are **Edit** or **Delete**.
+
 For an illustration, see [UID2 Portal Structure](portal-overview.md#uid2-portal-structure).
 
 ## User Roles
 
-Each team member has one of two user roles: Admin or Operations. Admin users can perform all activities related to UID2 participation, as summarized in the [UID2 Portal Overview](portal-overview.md).
+Each team member has one of the roles shown in the following table.
 
-Users with the Operations role can perform most of the same actions as Admin users. However, they cannot add, modify, or remove team members. Instead, they have read-only access to the **Manage Team Members** page.
+| Role | Actions |
+| :--- | :--- |
+| Admin | Users with the Admin role can perform all activities related to UID2 participation, as summarized in the [UID2 Portal Overview](portal-overview.md), for the current participant organization. |
+| Operations | Users with the Operations role can perform most of the same actions as Admin users. However, they cannot add, modify, or remove team members. Instead, they have read-only access to the **Manage Team Members** page. |
 
-User Roles can only be modified by users with the Admin role, by following: [Edit Information for a Team Member](#edit-information-for-a-team-member). 
+User roles can only be modified by users with the Admin role. For details, see [Edit Information for a Team Member](#edit-information-for-a-team-member). 
 
 ## Add a Team Member
 
@@ -43,7 +53,7 @@ To add a team member, complete the following steps:
    The team member is added to the list, with Pending status, and an invitation email is sent to the invited person.
 
 :::note
-Team members can be added to more than one participant. Team members that belong to multiple participants are able to switch between participants as shown in [UID2 Portal Structure](portal-overview.md#uid2-portal-structure).
+Team members can be added to more than one participant. Team members who belong to multiple participants can switch between participants, as shown in [UID2 Portal Structure](portal-overview.md#uid2-portal-structure).
 :::
 
 ## Resend an Invitation to a Team Member
@@ -60,14 +70,23 @@ To re-send the invitation for a team member, complete the following steps:
 
 ## Edit Information for a Team Member
 
-Admin users can update any of the values: First Name, Last Name, Email, Job Function, or Role.
+Notes re role:
+- Users with the Admin role can update any of these values, for any team member in their participant organization.
+- Users with the Operations role have read-only access to the Team Members page, but cannot change the information.
 
 To edit information for a team member, complete the following steps:
 
 1. Log in to your UID2 Portal account.
 1. At the top right, click the down arrow and choose **Manage Team Members**.
 1. Find the team member on the list and then, in the Actions column, click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon).
-1. Update the information, and then save the changes.
+1. Update any of these values:
+   - First Name
+   - Last Name
+   - Job Function
+   - Role: For information about roles, see [User Roles](#user-roles).
+   
+   **Note**: You cannot update the email for an existing team member. If you need to change the email, add a new team member using the new email. This ensures that the email verification process is correctly followed.
+1. Save the changes.
 
 ## Remove a Team Member
 

@@ -9,4 +9,28 @@ import Link from '@docusaurus/Link';
 
 # Audit Trail
 
-In the UID2 Portal, Admin users can access the **Audit Trail** page to view a detailed log of all past actions performed by or on behalf of the current participant. The table displays the action performed, the user who performed it, the time it was performed, and whether it succeeded. The Audit Trail table also supports sorting and searching.
+In the UID2 Portal, users who have the Admin role (see [User Roles](team-members.md#user-roles)) can access the **Audit Trail** page to view a detailed log of all past actions performed by or on behalf of the current <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participant</Link>.
+
+The Audit Trail log displays the types of information summarized in the following table.
+
+| Column | Details |
+| :--- | :--- | 
+| Date | Date/time that the action occurred. |
+| User | The user who performed the action. |
+| Event | The action performed. For a summary of possible values, see [Audit Trail Event Types](#audit-trail-event-types). |
+| Event Data | Details about the action. |
+| Succeeded | Indicates whether or not the action was successful. |
+
+## Audit Trail Event Types
+
+The audit trail log reports the following types of activity, listed in the Event column:
+
+- Approve Account
+- Manage API Key [**GWH__AS re update Api > API as discussed -- what might be the timing on this?**]
+- Manage Key Pair
+- Manage Participant
+- Manage Team Members
+- Update App Names
+- Update Domain Names
+- Update Sharing Permissions
+- Update Sharing Types
