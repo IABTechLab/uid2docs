@@ -35,7 +35,7 @@ For details, see [Normalization and Encoding](../getting-started/gs-normalizatio
 
 ## Set Envelope Refresh to 1800 Seconds
 
-When enabling ATS within `Prebid.js`, make sure that `storage.refreshInSeconds` is set to **1800 seconds** (30 minutes). This setting is necessary due to the strict TTL on the UID2 token, which is 24 hours. To avoid sending expired envelopes into the bidstream, or passing envelopes where an opt-out has occurred, LiveRamp checks for a new ATS envelope (containing the UID2) every 30 minutes.
+When enabling ATS within `Prebid.js`, make sure that `storage.refreshInSeconds` is set to **1800 seconds** (30 minutes). To avoid sending expired envelopes into the bidstream, or passing envelopes where an opt-out has occurred, LiveRamp checks for a new ATS envelope (containing the UID2) every 30 minutes.
 
 ## Troubleshooting Assistance
 
