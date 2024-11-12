@@ -156,6 +156,18 @@ export const articleList: ArticleItem[] = [
     date: "August 1, 2024",
     locale: "en",
   },
+  {
+    title: "Axios",
+    url: "https://www.axios.com/2024/10/22/spotify-ad-exchange-trade-desk-partnership",
+    date: "October 22, 2024",
+    locale: "en",
+  },
+  {
+    title: "SoundCloud",
+    url: "https://www.adexchanger.com/programmatic/programmatic-audio-is-a-tough-market-so-soundcloud-is-leading-with-display-and-video/",
+    date: "November 5, 2024",
+    locale: "en",
+  },
   //JA Articles
   {
     title: "Criteo",
