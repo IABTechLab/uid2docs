@@ -22,12 +22,16 @@ To access the Team Members page, go to the top right of the UID2 Portal user int
 
 For each team member, the following information is displayed:
 - Name
+
+  If the user has been invited but has not yet accepted, there is a **Pending** tag after the person's name.
 - Email
 - Job Function
 - Role
-- Actions: the available actions are **Edit** or **Delete**.
+- Actions: 
+  - Available for all: ![the Edit icon](images/icon-pencil-solid.png) (Edit) and ![the Delete icon](images/icon-trash-can-solid.png) (Delete).
+  - If the user has been invited but has not yet accepted, a **Resend Invitation** link is also available.
 
-For an illustration, see [UID2 Portal Structure](portal-overview.md#uid2-portal-structure).
+For an illustration, see [Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member).
 
 ## User Roles
 
@@ -36,7 +40,7 @@ Each team member has one of the roles shown in the following table.
 | Role | Actions |
 | :--- | :--- |
 | Admin | Users with the Admin role can perform all activities related to UID2 participation, as summarized in the [UID2 Portal Overview](portal-overview.md), for the current participant organization. |
-| Operations | Users with the Operations role can perform most of the same actions as Admin users. However, they cannot add, modify, or remove team members. Instead, they have read-only access to the **Manage Team Members** page. |
+| Operations | Users with the Operations role can perform most of the same actions as Admin users. However, there are some limitations:<ul><li>They cannot add, modify, or remove team members. Instead, they have read-only access to the [Team Members](team-members.md) page.</li><li>They cannot view the [Audit Trail](audit-trail.md) page.</li></ul> |
 
 User roles can only be modified by users with the Admin role. For details, see [Edit Information for a Team Member](#edit-information-for-a-team-member). 
 
@@ -60,6 +64,13 @@ Team members can be added to more than one participant. Team members who belong 
 
 If you added a team member, you might need to resend the invitation. For example, perhaps the team member didn't receive the invitation or accidentally deleted it, or the invitation has expired.
 
+If the user has been invited but has not yet accepted, the Team Members list includes the following additional information, as shown in the illustration:
+
+- A Pending label after the person's name.
+- A **Resend Invitation** link.
+
+![UID2 Portal, Team Members page, pending user](images/portal-team-members-resend-invitation.png)
+
 To re-send the invitation for a team member, complete the following steps:
 
 1. Log in to your UID2 Portal account.
@@ -68,11 +79,15 @@ To re-send the invitation for a team member, complete the following steps:
 
    The status updates to **Invitation Sent**, and a new invitation email is sent.
 
+:::note
+The Resend Invitation link only appears if the user has been invited, but has not yet accepted.
+:::
+
 ## Edit Information for a Team Member
 
 Notes re role:
 - Users with the Admin role can update any of these values, for any team member in their participant organization.
-- Users with the Operations role have read-only access to the Team Members page, but cannot change the information.
+- Users with the Operations role can view the Team Members page, but cannot change the information.
 
 To edit information for a team member, complete the following steps:
 
@@ -85,7 +100,7 @@ To edit information for a team member, complete the following steps:
    - Job Function
    - Role: For information about roles, see [User Roles](#user-roles).
    
-   **Note**: You cannot update the email for an existing team member. If you need to change the email, add a new team member using the new email. This ensures that the email verification process is correctly followed.
+   **Note**: You cannot update the email for an existing team member. If you need to change the email, add a new team member using the new email. This ensures that the email verification process is correctly followed. In this scenario, remember to also delete the existing entry with the old email address.
 1. Save the changes.
 
 ## Remove a Team Member

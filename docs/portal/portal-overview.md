@@ -37,7 +37,7 @@ There are two main ways to access the pages, as shown in the following image:
 
 ![UID2 Portal Structure](images/portal-uid2-overview.png)
 
-The name of the current sharing participant is displayed at the top of the left sidebar. If your account has access to multiple participants, you'll see a drop-down list of the participants that you have access to. You can use this to switch between participants.
+The name of the current participant is displayed at the top of the left sidebar. If your account has access to multiple participants, you'll see a drop-down list of the participants that you have access to. You can use this to switch between participants.
 
 :::important
 Any actions that you perform in the UID2 Portal, such as adding team members, domains, or API keys, are in the context of the participant currently displayed on the left. If you have access to more than one participant, make sure you perform actions in the correct context. For details, see [Participant Switcher](#participant-switcher).
