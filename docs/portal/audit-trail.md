@@ -26,7 +26,7 @@ The Audit Trail log displays the types of information summarized in the followin
 The audit trail log reports the following types of activity, listed in the Event column:
 
 - Approve Account
-- Manage API Key [**GWH__AS re update Api > API as discussed -- what might be the timing on this?**]
+- Manage API Key
 - Manage Key Pair
 - Manage Participant
 - Manage Team Members
