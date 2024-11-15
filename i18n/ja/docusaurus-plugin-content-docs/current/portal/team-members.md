@@ -22,6 +22,17 @@ Team Members ページにアクセスするには、UID2 Portal ユーザーイ�
 
 例については [UID2 Portal Structure](portal-overview.md#uid2-portal-structure) を参照してください。
 
+## User Roles
+
+Each team member has one of the roles shown in the following table.
+
+| Role | Actions |
+| :--- | :--- |
+| Admin | Users with the Admin role can perform all activities related to UID2 participation, as summarized in the [UID2 Portal Overview](portal-overview.md), for the current participant organization. |
+| Operations | Users with the Operations role can perform most of the same actions as Admin users. However, there are some limitations:<ul><li>They cannot add, modify, or remove team members. Instead, they have read-only access to the [Team Members](team-members.md) page.</li><li>They cannot view the [Audit Trail](audit-trail.md) page.</li></ul> |
+
+User roles can only be modified by users with the Admin role. For details, see [Edit Information for a Team Member](#edit-information-for-a-team-member). 
+
 ## Team Member Rights and Responsibilities
 
 各 **Team Member** はアカウントの管理者となり、以下のようなチームやアカウントの管理に関する設定を行うことができます:
