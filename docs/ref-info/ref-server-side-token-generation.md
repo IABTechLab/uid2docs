@@ -19,7 +19,7 @@ There are two approaches for publishers generating UID2 tokens on the server sid
 - Direct integration to API endpoints
 
 :::warning
-For security reasons, the API key and secret used in token generation *must* be called on the server side. Do not store these values on the client side, whether on a web page, mobile app, or in Prebid. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+For security reasons, the API key and secret used in token generation *must* be called on the server side. Do not store these values on the client side, whether on a web page, in a mobile app, or in Prebid. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
 :::
 
 Options are summarized in the following table.

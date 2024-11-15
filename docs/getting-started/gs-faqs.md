@@ -118,6 +118,7 @@ The procedure is a little different depending on whether or not you are using an
     - The hash of `refresh-optout@example.com` as the `email_hash` value. 
     - The `+00000000002` as the `phone` value.
     - The hash of `+00000000002` as the `phone_hash` value.
+
 2. Wait until the SDK's [background auto-refresh](../sdks/sdk-ref-javascript.md#background-token-auto-refresh) attempts to refresh the advertising token (this can take several hours) and observe the refresh attempt fail with the `OPTOUT` status. At this point the SDK also clears the first-party cookie.
 
 ##### Without SDK:
@@ -127,7 +128,9 @@ The procedure is a little different depending on whether or not you are using an
     - The hash of `refresh-optout@example.com` as the `email_hash` value. 
     - The `+00000000002` as the `phone` value.
     - The hash of `+00000000002` as the `phone_hash` value.
+
 2. Store the returned `refresh_token` for use in the following step.
+
 3. Send a [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) request with the `refresh_token` (saved in step 2) as the `token` value.<br/>The body response should be empty, and the `status` value should be set to `optout` because the `refresh-optout@example.com` email and the `+00000000002` phone number always result in a logged-out user.
 
 #### What is the uniqueness and rotation policy for UID2 tokens?
