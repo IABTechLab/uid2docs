@@ -267,7 +267,7 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-On startup/resumption of the app, if `getAdvertisingToken()` returns `null`, it is time to generate new identity on the server by following the instructions in [Implement Server-Side Token Generation](#implement-server-side-token-generation). Then, pass the result into the mobile app’s UID2Manager again: see [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
+On startup/resumption of the app, if `getAdvertisingToken()` returns `null`, it is time to generate new identity on the server by following the instructions in [Implement Server-Side Token Generation](#implement-server-side-token-generation). Then, pass the result into the mobile app’s UID2Manager again: see [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk).
 
 ## Enable Logging
 
