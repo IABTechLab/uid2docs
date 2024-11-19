@@ -147,7 +147,7 @@ If you're using the SDK's HTTP implementation, follow these steps.
    - --> Always apply `doNotGenerateTokensForOptedOut()`. This applies a parameter similar to setting `optout_check=1` in the call to the POST&nbsp;/token/generate endpoint (see [Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters)).
    :::
 
-   <!-- uid2_euid_diff re legal basis for admonition above (first bullet not in UID2) -->
+<!-- uid2_euid_diff re legal basis for admonition above (first bullet not in UID2) -->
 
 #### Basic Usage, Client-Server Integration
 
@@ -295,6 +295,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
    If the user has opted out, this method returns null, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `tokenRefreshResponse.isOptout()` function.
 
 ## Usage for Advertisers/Data Providers
+
 1. Create an instance of IdentityMapClient as an instance variable.
    ```java
    final private IdentityMapClient identityMapClient = new IdentityMapClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);

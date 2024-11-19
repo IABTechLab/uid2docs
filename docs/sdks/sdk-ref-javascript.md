@@ -330,9 +330,7 @@ There are two exceptions to this functionality:
 2. For every subsequent callback function passed, the function is added to the existing array of callbacks using the [Array Push Pattern](#array-push-pattern).
 
 :::note
-
 If `useCookie` is updated, the location of the identity changes.  For example, if the value is updated from `true` to `false`, the first-party cookie is removed and the identity is added to local storage.
-
 :::
 
 ### Init Config
@@ -362,7 +360,7 @@ If you have already built an integration using a legacy callback function, you c
 
 ### getAdvertisingToken(): string
 
-Gets the current advertising token. This function can be called without `init()` and returns the token if it is stored in local storage or a first-party cookie.  
+Gets the current advertising token. This function can be called without `init()` and returns the token if it is stored in local storage or a first-party cookie.
 
 ```html
 <script>
