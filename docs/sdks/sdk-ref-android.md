@@ -126,7 +126,7 @@ There are two ways to establish an initial UID2 Identity:
 
 1. Generate the UID2 identity using DII&#8212;email (hashed or unhashed) or phone number (hashed or unhashed). For integration instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md).
 
-2. Create a UID2 identity server-side and then pass it into the UID2 SDK. For integration instructions, refer to [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).
+2. Create a UID2 identity server-side and then pass it into the UID2 SDK. For integration instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).
 
 The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity is established. This is because the refresh functionality relies on the refresh tokens that are part of the UID2 Identity.
 
@@ -134,7 +134,7 @@ The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity
 
 The following code samples provide examples of performing specific activities relating to managing UID2 with the SDK for Android.
 
-Generate an initial UID2 Identity (refer to [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk)):
+Generate an initial UID2 Identity (see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk)):
 ``` javascript
 UID2Manager.getInstance().generateIdentity(
     identityRequest: IdentityRequest,
@@ -143,7 +143,7 @@ UID2Manager.getInstance().generateIdentity(
     onResult: (GenerateIdentityResult) -> Unit
 )
 ```
-Set the UID2 Identity (refer to [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk)):
+Set the UID2 Identity (see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk)):
 
 ```js
 UID2Manager.getInstance().setIdentity(identity: UID2Identity)
@@ -171,7 +171,7 @@ The following functions are available as part of the UID2Manager API:
 
 #### generateIdentity()
 
-Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link>. For instructions, see [Configure the UID2 mobile SDK](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) in the *Client-Side Integration Guide for Mobile*.
+Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link>. For instructions, see [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) in the *Client-Side Integration Guide for Mobile*.
 
 #### setIdentity()
 
