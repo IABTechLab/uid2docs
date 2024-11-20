@@ -74,4 +74,3 @@ To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 If you are using R8, the shrinking and obfuscation rules are included automatically.
 
 If you are using ProGuard, you must manually add the option specified in [uid2-ima.pro](https://github.com/IABTechLab/uid2-android-sdk/blob/main/securesignals-ima/uid2-ima.pro).
-

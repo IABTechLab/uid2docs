@@ -70,7 +70,7 @@ The basic workflow for a Private Operator is as follows:
 
 Each supported Private Operator implementation must meet rigorous security standards. Some security points include:
 
-- The Private Operator runs in a hardware-based trusted execution environment (TEE) hosted by one of the supported cloud providers listed in [Hosting Options for Private Operators](#hosting-options-for-private-operators).
+- The Private Operator runs in a hardware-based trusted execution environment (TEE) hosted by a supported cloud provider listed in [Hosting Options for Private Operators](#hosting-options-for-private-operators).
 - The Private Operator must complete an attestation process before accessing the information needed to process UID2s.
 - The information on S3 is encrypted at rest and also encrypted in transit through TLS. In addition, access is limited to only correctly authorized and attested Private Operators.
 - The information retrieved at startup is not stored locally at any point. It is only ever held in memory, and the Private Operator is running in a protected environment that makes it difficult for anyone running the Operator (such as an Administrator), as well as any external players, to see the data that's in memory.

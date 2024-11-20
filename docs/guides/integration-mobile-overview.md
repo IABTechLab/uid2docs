@@ -145,7 +145,7 @@ Podspec is the name of the file in CocoaPods that defines the libraries to be in
 
 Here's some additional information to help you troubleshoot your UID2 mobile integrations:
 
-- [Android SDK cannot connect in Production environment](#android-sdk-cannot-connect-in-production-environment)
+- [Android SDK Cannot Connect in Production Environment](#android-sdk-cannot-connect-in-production-environment)
 
 #### Android SDK Cannot Connect in Production Environment
 
