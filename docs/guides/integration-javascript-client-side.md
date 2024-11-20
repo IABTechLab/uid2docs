@@ -28,7 +28,7 @@ This approach is used by the following participant types:
 
 This guide does not apply to publishers who want to use a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, or who want to generate tokens server-side. Those publishers should follow the [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md).
 
-UID2 provides a SDK for JavaScript (see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)) with the following features:
+UID2 provides an SDK for JavaScript (see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)) with the following features:
 
 - UID2 token generation
 - Automatic refreshing of UID2 tokens
@@ -37,7 +37,7 @@ UID2 provides a SDK for JavaScript (see [SDK for JavaScript Reference Guide](../
 To implement, you'll need to complete the following steps:
 
 1. [Complete UID2 account setup](#complete-uid2-account-setup)
-2. [Add SDK For JavaScript to your site](#add-sdk-for-javascript-to-your-site)
+2. [Add SDK for JavaScript to your site](#add-sdk-for-javascript-to-your-site)
 3. [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript)
 4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
 
@@ -74,7 +74,7 @@ When account setup is complete, you'll receive a client keypair consisting of tw
 Only root-level domains are required for account setup. For example, if you're going to use SDK for JavaScript on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
 
-## Add SDK For JavaScript to Your Site
+## Add SDK for JavaScript to Your Site
 
 The following code snippet provides an overview of the code you will need to add to your website. It also illustrates the different events that the SDK can trigger.
 
@@ -149,7 +149,7 @@ UID2 provides the publisher with the following values required to use the client
 * A Subscription ID
 * A public key
 
-You'll have one set of these values for your publisher Integration environment, and a separate set for your production environment.
+You'll have one set of these values for your publisher integration environment, and a separate set for your production environment.
 
 To configure the SDK, call one of the following methods, with an object containing the **public key** and **Subscription ID** that you received during account setup, as well as the user's hashed or unhashed <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number):
 
@@ -269,14 +269,14 @@ In this scenario:
 After calling one of the methods listed in [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript) successfully, an <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> is generated and stored in local storage, under the key `UID2-sdk-identity`. The SDK refreshes the UID2 token periodically.
 
 :::warning
-The format of the object stored in local storage could change without notice. We recommend that you do **not** read or update the object in local storage directly. 
+The format of the object stored in local storage could change without notice. We recommend that you do **not** read or update the object in local storage directly.
 :::
 
 ## Example Integration Code and When to Pass DII to the UID2 SDK
 
 If you're a publisher and this is the first page load with no <Link href="../ref-info/glossary-uid#gl-identity">identity</Link>, to start the token generation call you'll need to call one of the `setIdentity` methods with DII. Once an identity is generated, the advertising token (<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>) that you would send to the bidstream will be available by waiting for the `IdentityUpdated` event from the SDK. For an example, see how the value for `advertising_token_to_use` is set in the following code snippet.
 
-In some cases, the user's DII is not available on page load, and getting the DII has some associated cost. For example, an API call might be required to fetch the DII, or the user has to be prompted to provide the DII information.
+In some cases, the user's DII is not available on page load, and getting the DII has some associated cost. For example, an API call might be required to fetch the DII, or the user has to be prompted to provide it.
 
 You can potentially avoid that cost by checking for an existing token that you can use or refresh. To do this, call
 [__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) which returns a Boolean value. If it returns `true`, this means that the UID2 SDK cannot create a new advertising token with the existing resource and DII is required to generate a brand new UID2 token.

@@ -132,7 +132,7 @@ To avoid passing certificates associated with your domain into the enclave, inbo
 
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
-| 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Checking UID2 Operator Status](#checking-uid2-operator-status).|
+| 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Checking UID2 Operator Status](#checking-uid2-operator-status). |
 | 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). |
 | 443 | Outbound | HTTPS | Calls the UID2 Core Service; updates opt-out data and key store. |
 
@@ -280,6 +280,7 @@ When the operator instance has been deployed, the default log rotation settings 
 #### Log Rotation Default Settings
 
 The following are the default logrotate settings, defined in `/etc/logrotate.d/operator-logrotate.conf`:
+
 ```
 /var/log/operator.log*
 {
