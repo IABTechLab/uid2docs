@@ -33,7 +33,7 @@ For details, see [API Permissions](../getting-started/gs-permissions.md).
 
 ## Version
 
-This documentation is for the UID2 .NET SDK version 5.6.0 and above. The SDK is built for .NET Standard 2.0.
+The library uses .NET Standard 2.1. unit tests. The sample app uses .NET 5.0.
 
 ## GitHub Repository/Binary
 
