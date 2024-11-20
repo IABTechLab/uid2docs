@@ -239,6 +239,8 @@ To check the UID2 Operator status of your Load Balancer, complete the following 
 1. Identify the DNS name of your load balancer by going to **EC2 > Load balancers** and looking at the **DNS name** column of your load balancer.
 2. In your browser, go to `https://{dns-name-of-your-load-balancer}/ops/healthcheck`. A response of `OK` indicates good operator status.
 
+### Private Operator Attestation Failure
+
 <AttestFailure />
 
 ## Upgrading the UID2 Operator

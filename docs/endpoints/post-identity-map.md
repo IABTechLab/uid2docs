@@ -93,7 +93,7 @@ The following are unencrypted JSON request body examples for each parameter, one
 Here's an encrypted identity mapping request example for a phone number:
 
 ```sh
-echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk= DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
+echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
 For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
