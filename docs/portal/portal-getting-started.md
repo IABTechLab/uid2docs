@@ -137,7 +137,7 @@ When you've finished updating your account, remember to log out.
 
 ## Password Change Requirement
 
-In some cases, you might be required to change your password. For example, if the password requirements change and your current password doesn't meet the new requirements, or password expiration is in effect, you'll need to choose a new password.
+In some cases, you might be required to change your password. For example, if the password requirements change and your current password doesn't meet the new requirements, you'll need to choose a new password.
 
 If this occurs, when you're logging in you'll see an **Update Password** page.
 
