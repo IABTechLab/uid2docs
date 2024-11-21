@@ -37,7 +37,6 @@ The library uses .NET Standard 2.1. unit tests. The sample app uses .NET 5.0.
 
 ## GitHub Repository/Binary
 
-
 This SDK is in the following open-source GitHub repository:
 
 - [SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md)
