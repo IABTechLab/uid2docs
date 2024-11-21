@@ -22,6 +22,7 @@ The UID2 Portal is your one-stop shop for setting up and configuring your UID2 a
 | Add team members who will have permission to manage your account. | [Team Members](team-members.md) |
 | Set up designated email contacts who will be notified of news or updates. | [Email Contacts](email-contacts.md) |
 | View a detailed log of all past actions performed by, or on behalf of, the current participant. | [Audit Trail](audit-trail.md) |
+| Change password when required by the Portal. | [Password Change Requirement](portal-getting-started.md#password-change-requirement) |
 
 ## Access the UID2 Portal
 
