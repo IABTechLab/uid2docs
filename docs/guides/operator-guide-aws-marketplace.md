@@ -329,7 +329,8 @@ These are the default settings for the following reasons:
 - The command refers to `/var/lib/logrotate/logrotate.status` to check the log status and see if it has reached the rotation condition, so that it won't make extra rotations when `logrotate` is run every minute.
 
 ### Changing the Log Rotation Schedule
-To change the log rotation schedule, update the `etc/logrotate.d/uid2operator.conf` file.
+
+To change the log rotation schedule, update the `etc/logrotate.d/operator-logrotate.conf` file.
 
 Follow the instructions in the logrotate documentation: see [logrotate(8) - Linux man](https://linux.die.net/man/8/logrotate) page.
 
