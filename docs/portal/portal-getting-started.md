@@ -25,6 +25,10 @@ If at any time you need assistance with the onboarding process, ask your UID2 co
 
 There's some information you'll need to provide to your UID2 contact with your account request. Include the details listed in the following table.
 
+:::note
+If you don't yet have a UID2 contact, go to the [Request Access to UID2](/request-access) page and fill out the form.
+:::
+
 | Item | Details |
 | :--- | :--- |
 | Information about yourself | Provide the following:<br/>- First name<br/>- Last name<br/>- Email<br/>- Job function |
