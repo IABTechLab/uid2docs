@@ -103,7 +103,7 @@ This section includes the following sample responses:
 
 #### Successful Response
 
-A successful decrypted response returns the user's advertising and refresh tokens for the specified email address, phone number, or the respective hash. 
+A successful decrypted response returns the user's advertising and refresh tokens for the specified email address, phone number, or the respective hash.
 
 <IdentityGenerateResponse />
 
@@ -145,8 +145,8 @@ If the `status` value is anything other than `success`, the `message` field prov
 
 ## Test Identities
 
-| Type  | Identity                     | Purpose                                                                                                                                    | Next Endpoint                                  |
-|:------|:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|
+| Type  | Identity                     | Purpose                                                                                                                                    | Next Endpoint                                       |
+|:------|:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|
 | Email | `validate@example.com`       | Test that the `advertising_token` you've cached matches the `advertising_token` for the specified email address.                           | [POST&nbsp;/token/validate](post-token-validate.md) |
 | Email | `optout@example.com`         | Using this email for the request always generates an `optout` response.                                                                    | [POST&nbsp;/token/generate](post-token-generate.md) |
 | Email | `refresh-optout@example.com` | Using this email for the request always generates an identity response with a `refresh_token` that results in an `optout` response.        | [POST&nbsp;/token/refresh](post-token-refresh.md)   |
