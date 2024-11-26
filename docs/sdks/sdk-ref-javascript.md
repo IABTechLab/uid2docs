@@ -11,11 +11,11 @@ import Link from '@docusaurus/Link';
 import ExampleUid2Cookie from '/docs/snippets/_example-uid2-cookie.mdx';
 import ExampleJavaScriptInit from '/docs/snippets/_example-javascript-init.mdx';
 
-# SDK for JavaScript Reference Guide
-
 export const New = () => (
   <span className='pill'>NEW IN V3</span>
 );
+
+# SDK for JavaScript Reference Guide
 
 Use this SDK to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens.
 

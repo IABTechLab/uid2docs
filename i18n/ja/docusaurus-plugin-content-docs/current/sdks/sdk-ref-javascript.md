@@ -11,11 +11,11 @@ import Link from '@docusaurus/Link';
 import ExampleUid2Cookie from '/docs/snippets/_example-uid2-cookie.mdx';
 import ExampleJavaScriptInit from '/docs/snippets/_example-javascript-init.mdx';
 
-# SDK for JavaScript Reference Guide
-
 export const New = () => (
   <span className='pill'>NEW IN V3</span>
 );
+
+# SDK for JavaScript Reference Guide
 
 この SDK を使用すると、UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスが容易になります。以下のセクションでは、UID2 ID を確立するための [workflow](#workflow-overview) について説明し、SDK の [API reference](#api-reference) を提供し、UID2の[storage format](#uid2-storage-format)について説明します。
 
