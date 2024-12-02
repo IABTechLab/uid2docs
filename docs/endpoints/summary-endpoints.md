@@ -35,6 +35,8 @@ The following endpoints are used by advertisers and third-party data providers. 
 
 The following endpoint can be used by advertisers, third-party data providers, DSPs, and sharers. Publishers do not need to use this endpoint.
 
+For details about the UID2 opt-out workflow and how users can opt out, see [User Opt-Out](../getting-started/gs-opt-out.md).
+
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |
 | [POST&nbsp;/optout/status](post-optout-status.md) | Checks the opt-out status of raw UID2s. This endpoint takes a list of raw UID2s as input, and returns the raw UID2s that have opted out, as well as the time that the opt-out took place.  | Required | Required |

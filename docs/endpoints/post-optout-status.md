@@ -30,6 +30,8 @@ The key guidelines for managing batches of requests to this endpoint are as foll
 
 `POST '{environment}/v2/optout/status'`
 
+For authentication details, see [Authentication and Authorization](../getting-started/gs-auth.md).
+
 :::important
 You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 :::

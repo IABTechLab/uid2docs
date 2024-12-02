@@ -330,7 +330,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-opt-out"><a href="#gl-opt-out">Opt-out</a></MdxJumpAnchor></dt>
 <dd>An end user who participates in the UID2 ecosystem can opt out at any time by going to the <a href="https://www.transparentadvertising.com/">Transparency and Control Portal</a>.</dd>
-<dd>For details, see <a href="../intro#components">Components</a>.</dd>
+<dd>For details about the UID2 opt-out workflow and how users can opt out, see <a href="../getting-started/gs-opt-out">User Opt-Out</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-opt-out-service"><a href="#gl-opt-out-service">Opt-Out Service</a></MdxJumpAnchor></dt>
 <dd>The Opt-Out Service is a global UID2 service that manages and stores user opt-out requests.</dd>
@@ -374,6 +374,7 @@ import Link from '@docusaurus/Link';
 <dd>A refresh token is an opaque string that is issued along with the <a href="#gl-uid2-token">UID2 token</a>. It is used to refresh the UID2 token, which has a limited life.</dd>
 <dd>When the UID2 server receives the refresh token with a request for a new UID2 token, it checks for user opt-out. If the user has opted out of UID2, no new UID2 token is generated.</dd>
 <dd>When a new UID2 token is generated and returned in response to the refresh token, a new refresh token is returned along with it. However, if the user is inactive for a long period of time, the refresh token itself expires.</dd>
+<dd>For details, see <a href="ref-tokens">UID2 Tokens and Refresh Tokens</a>.</dd>
 </dl>
 
 ### S

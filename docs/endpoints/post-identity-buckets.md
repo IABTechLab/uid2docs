@@ -17,6 +17,8 @@ Used by: This endpoint is used mainly by advertisers and data providers. For det
 
 `POST '{environment}/v2/identity/buckets'`
 
+For authentication details, see [Authentication and Authorization](../getting-started/gs-auth.md).
+
 :::important
 You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 :::

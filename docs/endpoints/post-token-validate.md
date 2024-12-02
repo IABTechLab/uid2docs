@@ -21,6 +21,8 @@ This endpoint is intended primarily for testing and troubleshooting new integrat
 
 `POST '{environment}/v2/token/validate'`
 
+For authentication details, see [Authentication and Authorization](../getting-started/gs-auth.md).
+
 :::important
 You must encrypt all requests using your secret key. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 :::

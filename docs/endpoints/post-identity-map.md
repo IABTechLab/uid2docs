@@ -13,6 +13,8 @@ Maps multiple email addresses, phone numbers, or their respective hashes to thei
 
 Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md).
 
+For details about the UID2 opt-out workflow and how users can opt out, see [User Opt-Out](../getting-started/gs-opt-out.md).
+
 ## Batch Size and Request Parallelization Requirements
 
 Here's what you need to know:
@@ -25,6 +27,8 @@ Here's what you need to know:
 ## Request Format
 
 `POST '{environment}/v2/identity/map'`
+
+For authentication details, see [Authentication and Authorization](../getting-started/gs-auth.md).
 
 :::important
 You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
