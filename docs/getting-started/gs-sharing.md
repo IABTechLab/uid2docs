@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Sharing
 
-In UID2, sharing is a process for distributing [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2), either directly or encrypted into [UID2 tokens](../ref-info/glossary-uid.md#gl-raw-uid2), between UID2 participants.
+In UID2, sharing is a process for distributing [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2), either directly or encrypted into [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token), between UID2 participants.
 
 All instances where a raw UID2 or UID2 token is shared with another participant fall under the definition of sharing. All sharing participants must meet the legal requirements specified in the following section, [Legal Requirements for UID2 Sharing](#legal-requirements-for-uid2-sharing).
 

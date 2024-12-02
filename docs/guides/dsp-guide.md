@@ -12,7 +12,7 @@ import Link from '@docusaurus/Link';
 
 This guide is for DSPs who transact on UID2s in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.
 
-DSPs receive UID2 tokens in bid requests, and decrypt the UID2 tokens to arrive at raw UID2s that they can use for bidding, using one of the server-side SDKs that support this function.
+DSPs receive UID2 tokens in bid requests, and decrypt the [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) to arrive at [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) that they can use for bidding, using one of the server-side SDKs that support this function.
 
 For a summary of available server-side SDKs, see [SDKs: Summary](../sdks/summary-sdks.md).
 
@@ -37,6 +37,8 @@ This section includes the following information for DSPs, who must honor user op
 - [Opt-Out Webhook](#opt-out-webhook)
 - [POST /optout/status Endpoint](#post-optoutstatus-endpoint)
 - [Bidding Opt-Out Logic](#bidding-opt-out-logic)
+
+For details about the UID2 opt-out workflow and how users can opt out, see [User Opt-Out](../getting-started/gs-opt-out.md).
 
 #### Opt-Out Webhook
 
