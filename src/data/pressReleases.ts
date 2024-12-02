@@ -42,12 +42,13 @@ export const articleList: ArticleItem[] = [
     date: "November 17, 2022",
     locale: "en",
   },
-  {
-    title: "Paramount",
-    url: "https://www.paramount.com/press/paramount-advertising-adds-unified-id-20-to-scale-identity-on-connected-tv",
-    date: "January 4, 2023",
-    locale: "en",
-  },
+  // Article is now 404ing
+  //{
+  //   title: "Paramount",
+  //   url: "https://www.paramount.com/press/paramount-advertising-adds-unified-id-20-to-scale-identity-on-connected-tv",
+  //   date: "January 4, 2023",
+  //   locale: "en",
+  // },
   {
     title: "Rave",
     url: "https://venturebeat.com/business/rave-supports-unified-id-2-0-in-new-partnership-with-the-trade-desk/",
