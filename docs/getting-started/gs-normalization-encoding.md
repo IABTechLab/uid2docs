@@ -60,7 +60,7 @@ An email hash is a Base64-encoded <Link href="../ref-info/glossary-uid#gl-sha-25
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
 | Normalized email address | `user@example.com` | Normalization is always the first step. |
-| SHA-256 hash of normalized email address | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | This 64-character string is a hex-encoded representation of the 32-byte SHA-256.|
+| SHA-256 hash of normalized email address | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | This 64-character string is a hex-encoded representation of the 32-byte SHA-256. |
 | Hex to Base64 SHA-256 encoding of normalized email address | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | This 44-character string is a Base64-encoded representation of the 32-byte SHA-256.<br/>WARNING: The SHA-256 hash string in the example above is a hex-encoded representation of the hash value. You must Base64-encode the raw bytes of the hash or use a Base64 encoder that takes a hex-encoded value as input.<br/>Use this encoding for `email_hash` values sent in the request body. |
 
 :::important
@@ -131,7 +131,7 @@ For an example of how to generate email and phone hashes in JavaScript, see [Exa
 
 To check that you're correctly normalizing, hashing, and encoding, you can test with the [UID2 hashing tool](https://unifiedid.com/examples/hashing-tool/).
 
-Choose Email or Phone Number, type or paste the value, and then click Enter.
+Choose Email or Phone Number, type or paste the value, and then click **Enter**.
 
 The tool does the following:
 - Email: Displays each of the following three values:

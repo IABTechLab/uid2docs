@@ -132,7 +132,7 @@ To avoid passing certificates associated with your domain into the enclave, inbo
 
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
-| 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Checking UID2 Operator Status](#checking-uid2-operator-status).|
+| 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Checking UID2 Operator Status](#checking-uid2-operator-status). |
 | 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). |
 | 443 | Outbound | HTTPS | Calls the UID2 Core Service; updates opt-out data and key store. |
 
@@ -239,6 +239,8 @@ To check the UID2 Operator status of your Load Balancer, complete the following 
 1. Identify the DNS name of your load balancer by going to **EC2 > Load balancers** and looking at the **DNS name** column of your load balancer.
 2. In your browser, go to `https://{dns-name-of-your-load-balancer}/ops/healthcheck`. A response of `OK` indicates good operator status.
 
+### Private Operator Attestation Failure
+
 <AttestFailure />
 
 ## Upgrading the UID2 Operator
@@ -280,6 +282,7 @@ When the operator instance has been deployed, the default log rotation settings 
 #### Log Rotation Default Settings
 
 The following are the default logrotate settings, defined in `/etc/logrotate.d/operator-logrotate.conf`:
+
 ```
 /var/log/operator.log*
 {
@@ -326,7 +329,8 @@ These are the default settings for the following reasons:
 - The command refers to `/var/lib/logrotate/logrotate.status` to check the log status and see if it has reached the rotation condition, so that it won't make extra rotations when `logrotate` is run every minute.
 
 ### Changing the Log Rotation Schedule
-To change the log rotation schedule, update the `etc/logrotate.d/uid2operator.conf` file.
+
+To change the log rotation schedule, update the `etc/logrotate.d/operator-logrotate.conf` file.
 
 Follow the instructions in the logrotate documentation: see [logrotate(8) - Linux man](https://linux.die.net/man/8/logrotate) page.
 

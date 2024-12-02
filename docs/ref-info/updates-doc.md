@@ -11,6 +11,26 @@ import Link from '@docusaurus/Link';
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: UID2 Portal Audit Trail Page
+
+November 15, 2024
+
+The UID2 Portal documentation now includes a new page, [Audit Trail](../portal/audit-trail.md).
+
+The **Audit Trail** page in the UID2 Portal allows users who have the Admin role (see [User Roles](../portal/team-members.md#user-roles)) to view a detailed log of all past actions performed by or on behalf of the current <Link href="../ref-info/glossary-uid#gl-sharing-participant">participant</Link>.
+
+<!-- APIDOCS-2700 -->
+
+### New: LiveRamp Integration Tips
+
+November 14, 2024
+
+We've added a new reference page with tips for publishers who are using LiveRamp's Authenticated Traffic Solution (ATS) to generate UID2 tokens to be passed in the bid request.
+
+For details, see [LiveRamp Integration Tips](../guides/integration-liveramp-tips.md).
+
+<!-- APIDOCS-2699 -->
+
 ### New: Tokens Page
 
 September 10, 2024

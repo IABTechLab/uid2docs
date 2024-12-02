@@ -66,7 +66,7 @@ dependencies: [
 In the XCode user interface, under Package Dependencies, add the following entry for your apps:
 
 | Name | Location | Dependency Rule |
-| :--- | :--- | :--- | 
+| :--- | :--- | :--- |
 | uid2-ios-plugin-google-ima | `git@github.com:IABTechLab/uid2-ios-plugin-google-ima.git` | Exact Version: 1.0.0 |
 
 ### Installing with CocoaPods

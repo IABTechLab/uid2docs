@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # POST /token/validate
 
-Validates that an advertising token matches the specified hashed or unhashed email address or phone number. 
+Validates that an advertising token matches the specified hashed or unhashed email address or phone number.
 
 Used by: This endpoint is used mainly by publishers.
 
@@ -29,7 +29,7 @@ You must encrypt all requests using your secret key. For details, and code examp
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Integration environment: `https://operator-integ.uidapi.com`<br/>Production environment: The best choice depends on where your users are based. For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md). |
+| `{environment}` | string | Required | Testing (integration) environment: `https://operator-integ.uidapi.com`<br/>Production environment: The best choice depends on where your users are based. For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md). |
 
 :::note
 The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.

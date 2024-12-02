@@ -21,6 +21,8 @@ To integrate with UID2 using Prebid.js, you'll need to make changes to the HTML 
 
 This implementation requires Prebid.js version 8.21.0 or later. For version information, see [https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases).
 
+<!-- Diff in Prebid.js supported version for UID2/EUID is fine: verif SS 11/19/24 -->
+
 If you need to use an earlier version of Prebid.js, use the implementation solution presented in the [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) instead.
 
 ## Integration Example
@@ -119,7 +121,7 @@ If there is no existing token, or the token has expired and cannot be refreshed,
 Configure the UID2 module with the user's DII on each page load. This is the recommended approach.
 :::
 
-In some cases, the user's DII is not available on page load, and getting the DII has some associated cost. For example, an API call might be required to fetch the DII, or the user has to be prompted to provide the DII information.
+In some cases, the user's DII is not available on page load, and getting the DII has some associated cost. For example, an API call might be required to fetch the DII, or the user has to be prompted to provide it.
 
 If the UID2 token has expired and cannot be refreshed, you must configure the UID2 module with DII to generate a new token. To do this, check the value returned by `pbjs.getUserIds().uid2`, as shown in the following example:
 

@@ -69,7 +69,7 @@ UID2 Service を使用するには、キーのセットが必要です。Client-
 
 ## Change Your Password
 
-**Accept Invitation** リンクをクリックすると、**Update Password** ページに移動します。
+**Accept Invitation** リンクをクリックすると、**Set Password** ページに移動します。
 
 :::tip
  アカウントが漏洩した可能性があるためにパスワードを変更する場合は、**Sign out from other devices** チェックボックスがチェックされていることを確認してください。
