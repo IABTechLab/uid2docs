@@ -111,23 +111,29 @@ You can use the `refresh-optout@example.com` email address or the `+00000000002`
 
 The procedure is a little different depending on whether or not you are using an SDK.
 
+:::tip
+To get the normalized, hashed, and Base64-encoded hashed values for any email address or phone number, you can use the hashing tool: see [UID2 Hashing Tool](gs-normalization-encoding.md#uid2-hashing-tool). Because the phone number value used for testing is not a real phone number, the value is invalid for the hashing too. The value to use is given in these examples.
+:::
+
 ##### With SDK:
 
 1. Depending on whether the DII is an email address or a phone number, send a [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request using one of the following values:
     - The `refresh-optout@example.com` as the `email` value.
-    - The hash of `refresh-optout@example.com` as the `email_hash` value. 
+    - The Base64-encoded hash of `refresh-optout@example.com` (`NaNI8RU0bL1Jpp1jJLC5aJO/lchc6gGhgXQIAwJ7cV4=`) as the `email_hash` value.
     - The `+00000000002` as the `phone` value.
-    - The hash of `+00000000002` as the `phone_hash` value.
+    - The hash of `+00000000002` (xxxuptohere) as the `phone_hash` value.
 
 2. Wait until the SDK's [background auto-refresh](../sdks/sdk-ref-javascript.md#background-token-auto-refresh) attempts to refresh the advertising token (this can take several hours) and observe the refresh attempt fail with the `OPTOUT` status. At this point the SDK also clears the first-party cookie.
 
 ##### Without SDK:
 
+TIP: To get the normalized, hashed, and Base64-encoded hashed values for any email address or phone number, you can use the hashing tool: see [UID2 Hashing Tool](gs-normalization-encoding.md#uid2-hashing-tool).
+
 1. Depending on whether the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> is an email address or a phone number, send a [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request using one of the following values:
     - The `refresh-optout@example.com` as the `email` value.
-    - The hash of `refresh-optout@example.com` as the `email_hash` value. 
+    - The Base64-encoded hash of `refresh-optout@example.com` (`NaNI8RU0bL1Jpp1jJLC5aJO/lchc6gGhgXQIAwJ7cV4=`) as the `email_hash` value.
     - The `+00000000002` as the `phone` value.
-    - The hash of `+00000000002` as the `phone_hash` value.
+    - The hash of `+00000000002` (xxxuptohere) as the `phone_hash` value.
 
 2. Store the returned `refresh_token` for use in the following step.
 
