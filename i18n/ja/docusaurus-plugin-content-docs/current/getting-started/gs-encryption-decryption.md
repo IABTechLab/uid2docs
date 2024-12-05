@@ -450,7 +450,6 @@ public class Uid2Request {
 </TabItem>
 <TabItem value='cs' label='C#'>
 
-
 ```cs title="uid2_request.cs"
 using System.Buffers.Binary;
 using System.Net;
@@ -582,9 +581,7 @@ else
 ```
 
 </TabItem>
-
 <TabItem value='go' label='Go'>
-
 
 ```go title="uid2_request.go"
 package main
