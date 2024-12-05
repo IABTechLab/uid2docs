@@ -20,9 +20,9 @@ UID2 Server-Side SDK を使用することで、以下が容易になります:
 
 この SDK は、Server-Sideのコーディングに Python を使用している DSP または UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets      |
-| :--- | :--- | :--- | :--- | :--- |:--- |
-| &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
+| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
 
 ## API Permissions
 
@@ -151,7 +151,7 @@ Decryption response codes, and their meanings, are shown in the following table.
     Be sure to call this function only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
     :::
 
-   <!-- uid2_euid_diff re legal basis for admonition above (not in UID2) -->
+<!-- uid2_euid_diff re legal basis for admonition above (not in UID2) -->
 
  `do_not_generate_tokens_for_opted_out()`　は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) の呼び出しに `optout_check=1` を適用します。これを行わないと、後方互換性が維持を維持するために `optout_check` が省略されます。
 

@@ -6,7 +6,7 @@ sidebar_position: 20
 ---
 
 import Link from '@docusaurus/Link';
-import ExampleUid2InBidstream from '/docs/snippets/_example-uid2-in-bidstream.mdx';
+import ExampleTokenInBidstream from '/docs/snippets/_example-token-in-bidstream.mdx';
 
 # Frequently Asked Questions
 
@@ -17,7 +17,7 @@ Frequently asked questions for UID2 are grouped into general categories by audie
 Here are some frequently asked questions regarding the UID2 framework.
 
 - [Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
-- [Can users opt out of targeted advertising tied to their UID2 identity?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2-identity)
+- [Can users opt out of targeted advertising tied to their UID2?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2)
 - [When I send DII to UID2, does UID2 store the information?](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
 - [Does UID2 allow the processing of HIPAA-regulated data?](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
 - [Should I use a Public Operator or a Private Operator?](#should-i-use-a-public-operator-or-a-private-operator)
@@ -30,9 +30,9 @@ For FAQs relating to mobile publisher integrations, see [FAQs for Mobile Integra
 
 No. UID2 has its own framework, which is separate from EUID. As such, paperwork relating to accessing and using the EUID framework does not automatically grant usage and access to the UID2 framework. New contracts are required to be signed for UID2.
 
-#### Can users opt out of targeted advertising tied to their UID2 identity?
+#### Can users opt out of targeted advertising tied to their UID2?
 
-Yes. Through the [Transparency and Control Portal](https://www.transparentadvertising.com/), users can opt out from being served targeted ads tied to their UID2 identity. Each request is distributed through the UID2 Opt-Out Service, and UID2 Operators make the opt-out information available to all relevant participants.
+Yes. Through the [Transparency and Control Portal](https://www.transparentadvertising.com/), users can opt out from being served targeted ads tied to their UID2. Each request is distributed through the UID2 Opt-Out Service, and UID2 Operators make the opt-out information available to all relevant participants.
 
 #### When I send DII to UID2, does UID2 store the information?
 
@@ -50,9 +50,9 @@ For most participants, <Link href="../ref-info/glossary-uid#gl-public-operator">
 
 The best choice depends on your unique scenario and needs. For more information to help you arrive at a decision, refer to the following:
 
-1. [The UID2 Operator](../ref-info/ref-operators-public-private.md)
+- [The UID2 Operator](../ref-info/ref-operators-public-private.md)
 
-1. [UID2 Private Operator Integration Overview](../guides/integration-options-private-operator.md)
+- [UID2 Private Operator Integration Overview](../guides/integration-options-private-operator.md)
 
 ## FAQs for Publishers
 
@@ -101,7 +101,7 @@ The recommended refresh interval is hourly.
 
 To determine when to refresh, you can use the timestamp of the `refresh_from` field in the response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint (see [Successful Response](../endpoints/post-token-generate.md#successful-response)) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint (see [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens)).
 
-You could also use one of the SDKs that has a function to check if token refresh is needed.
+You could also use one of the SDKs that has a function to check if <a href="../ref-info/glossary-uid#gl-token-refresh">token refresh</a> is needed.
 
 For details, see [Recommended Token Refresh Frequency](../ref-info/ref-tokens.md#recommended-token-refresh-frequency) and [Managing Token Refresh with an SDK](../ref-info/ref-tokens.md#managing-token-refresh-with-an-sdk).
 
@@ -109,26 +109,33 @@ For details, see [Recommended Token Refresh Frequency](../ref-info/ref-tokens.md
 
 You can use the `refresh-optout@example.com` email address or the `+00000000002` phone number to test your token refresh workflow. Using either parameter value in a request always generates an identity response with a `refresh_token` that results in a logout response.
 
+:::tip
+To arrive at the hashed and Base64-encoded values of any email address or phone number value, use the [UID2 Hashing Tool](gs-normalization-encoding.md#uid2-hashing-tool).
+:::
+
 The procedure is a little different depending on whether or not you are using an SDK.
 
 ##### With SDK:
 
 1. Depending on whether the DII is an email address or a phone number, send a [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request using one of the following values:
-    - The `refresh-optout@example.com` as the `email` value.
-    - The hash of `refresh-optout@example.com` as the `email_hash` value. 
-    - The `+00000000002` as the `phone` value.
-    - The hash of `+00000000002` as the `phone_hash` value.
+    - `email` value: `refresh-optout@example.com`.
+    - `email_hash` value: The hashed and Base64-encoded value for `refresh-optout@example.com`, which is `NaNI8RU0bL1Jpp1jJLC5aJO/lchc6gGhgXQIAwJ7cV4=`. 
+    - `phone` value: `+00000000002`.
+    - `phone_hash` value: The hashed and Base64-encoded value for `+00000000002`, which is `0VoxsIuk88qt7TnZaTC//C9Vur3pR1zBMIr1cJe7xjE=`.
+
 2. Wait until the SDK's [background auto-refresh](../sdks/sdk-ref-javascript.md#background-token-auto-refresh) attempts to refresh the advertising token (this can take several hours) and observe the refresh attempt fail with the `OPTOUT` status. At this point the SDK also clears the first-party cookie.
 
 ##### Without SDK:
 
 1. Depending on whether the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> is an email address or a phone number, send a [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request using one of the following values:
-    - The `refresh-optout@example.com` as the `email` value.
-    - The hash of `refresh-optout@example.com` as the `email_hash` value. 
-    - The `+00000000002` as the `phone` value.
-    - The hash of `+00000000002` as the `phone_hash` value.
+    - `email` value: `refresh-optout@example.com`.
+    - `email_hash` value: The hashed and Base64-encoded value for `refresh-optout@example.com`, which is `NaNI8RU0bL1Jpp1jJLC5aJO/lchc6gGhgXQIAwJ7cV4=`. 
+    - `phone` value: `+00000000002`.
+    - `phone_hash` value: The hashed and Base64-encoded value for `+00000000002`, which is `0VoxsIuk88qt7TnZaTC//C9Vur3pR1zBMIr1cJe7xjE=`.
+
 2. Store the returned `refresh_token` for use in the following step.
-3. Send a [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) request with the `refresh_token` (saved in step 2) as the `token` value.<br/>The body response should be empty, and the `status` value should be set to `optout` because the `refresh-optout@example.com` email and the `+00000000002` phone number always result in a logged out user.
+
+3. Send a [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) request with the `refresh_token` (saved in step 2) as the `token` value.<br/>The body response should be empty, and the `status` value should be set to `optout` because the `refresh-optout@example.com` email and the `+00000000002` phone number always result in a logged-out user.
 
 #### What is the uniqueness and rotation policy for UID2 tokens?
 
@@ -138,7 +145,7 @@ The UID2 service encrypts UID2 tokens using random initialization vectors. The U
 
 There are many ways to approach UID2 implementation. Here is one example of a code snippet showing how a UID2 token is passed in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>:
 
-<ExampleUid2InBidstream />
+<ExampleTokenInBidstream />
 
 ## FAQs for Advertisers and Data Providers
 

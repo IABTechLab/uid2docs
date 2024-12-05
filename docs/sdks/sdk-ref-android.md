@@ -9,11 +9,7 @@ import Link from '@docusaurus/Link';
 
 # SDK for Android Reference Guide
 
-You can use the SDK for Android for the following:
-
-- Generating or establishing client identity using UID2.
-- Retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use.
-- Automatically refreshing UID2 tokens.
+You can use the SDK for Android to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens.
 
 The following Android-related plugins, and associated documentation, are also available.
 
@@ -32,9 +28,9 @@ This SDK for Android can be used for non-mobile devices for Android platforms as
 
 This SDK simplifies integration with UID2 for any publishers who want to support UID2 for apps running on Android devices. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
-| :--- | :--- | :--- | :--- | :--- |
-| &#8212; | &#8212; | &#9989; | &#9989; | &#8212; |
+| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 
 The SDK for Android is designed to generate and/or manage UID2 identity on behalf of Android apps. It enables UID2 identity to be persisted across app lifecycles by securely storing the identity on a device via platform-native encryption tools.
 
@@ -47,9 +43,9 @@ You'll be granted permission to use specific functions offered by the SDK, and g
 
 ## SDK Version
 
-<!-- As of 7 May 2024 -->
+<!-- As of 23 Oct 2024 -->
 
-This documentation is for the SDK for Android version 1.2.0 and later.
+This documentation is for the SDK for Android version 1.6.0 and later.
 
 For current and past release notes information, see [https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases).
 
@@ -91,7 +87,7 @@ To install with Gradle, add the SDK as a dependency in the build.gradle
 file:
 
 ```js
-implementation 'com.uid2:uid2-android-sdk:1.2.0'
+implementation 'com.uid2:uid2-android-sdk:1.6.0'
 ```
 
 ### Installing with Maven 
@@ -102,7 +98,7 @@ To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 <dependency> 
   <groupId>com.uid2</groupId> 
   <artifactId>uid2-android-sdk</artifactId> 
-  <version>1.2.0</version> 
+  <version>1.6.0</version> 
 </dependency> 
 ```
 
@@ -130,7 +126,7 @@ There are two ways to establish an initial UID2 Identity:
 
 1. Generate the UID2 identity using DII&#8212;email (hashed or unhashed) or phone number (hashed or unhashed). For integration instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md).
 
-2. Create a UID2 identity server-side and then pass it into the UID2 SDK. For integration instructions, refer to [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).
+2. Create a UID2 identity server-side and then pass it into the UID2 SDK. For integration instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).
 
 The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity is established. This is because the refresh functionality relies on the refresh tokens that are part of the UID2 Identity.
 
@@ -138,7 +134,7 @@ The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity
 
 The following code samples provide examples of performing specific activities relating to managing UID2 with the SDK for Android.
 
-Generate an initial UID2 Identity (refer to [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk)):
+Generate an initial UID2 Identity (see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk)):
 ``` javascript
 UID2Manager.getInstance().generateIdentity(
     identityRequest: IdentityRequest,
@@ -147,7 +143,7 @@ UID2Manager.getInstance().generateIdentity(
     onResult: (GenerateIdentityResult) -> Unit
 )
 ```
-Set the UID2 Identity (refer to [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk)):
+Set the UID2 Identity (see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk)):
 
 ```js
 UID2Manager.getInstance().setIdentity(identity: UID2Identity)
@@ -175,7 +171,7 @@ The following functions are available as part of the UID2Manager API:
 
 #### generateIdentity()
 
-Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link>. For instructions, see [Configure the UID2 mobile SDK](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) in the *Client-Side Integration Guide for Mobile*.
+Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link>. For instructions, see [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) in the *Client-Side Integration Guide for Mobile*.
 
 #### setIdentity()
 

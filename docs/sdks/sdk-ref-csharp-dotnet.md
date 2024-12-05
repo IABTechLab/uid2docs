@@ -9,18 +9,19 @@ import Link from '@docusaurus/Link';
 
 # SDK for C# / .NET Reference Guide
 
-You can use the SDK for C# / .NET on the server side to facilitate the following:
+You can use the SDK for C# / .NET on the server side to encrypt raw UID2s to create UID2 tokens for sharing, and to decrypt UID2 tokens to access the raw UID2.
 
-- Encrypting raw UID2s to create UID2 tokens for sharing.
-- Decrypting UID2 tokens to access the raw UID2s.
+## Overview
+
+The functions outlined here define the information that you'll need to configure or can retrieve from the library. The parameters and property names defined below are pseudocode. Actual parameters and property names vary by language but will be similar to the information outlined here.
 
 ## Functionality
 
 This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using C# / .NET for their server-side coding. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
-| :--- | :--- | :--- | :--- | :--- |
-| &#9989; | &#9989; | &#8212; | &#8212; | &#8212; |
+| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| &#9989; | &#9989; | &#8212; | &#8212; | &#8212; | &#8212; |
 
 ## API Permissions
 
@@ -32,10 +33,9 @@ For details, see [API Permissions](../getting-started/gs-permissions.md).
 
 ## Version
 
-This documentation is for the UID2 .NET SDK version 5.6.0 and above. The SDK is built for .NET Standard 2.0.
+The library uses .NET Standard 2.1. unit tests. The sample app uses .NET 5.0.
 
 ## GitHub Repository/Binary
-
 
 This SDK is in the following open-source GitHub repository:
 
@@ -111,7 +111,7 @@ Whether decrypting with the `BidstreamClient` or the `SharingClient`, the SDK re
 | `InvalidPayload` | The incoming UID2 token is not a valid payload. |
 | `ExpiredToken` | The incoming UID2 token has expired. |
 | `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
-| `VersionNotSupported` |  The client library does not support the version of the encrypted token. |
+| `VersionNotSupported` | The client library does not support the version of the encrypted token. |
 
 ## Usage for DSPs
 

@@ -48,10 +48,10 @@ You'll need to complete the following steps:
 
 ## Mobile SDK Version
 
-This guide provides instructions for using version 1.2.0 or higher of either of these UID2 mobile SDKs:
+This guide provides instructions for using either of these UID2 mobile SDKs:
 
-- SDK for Android
-- SDK for iOS
+- SDK for Android (version 1.6.0 or later)
+- SDK for iOS (version 1.7.0 or later)
 
 For instructions for installing the correct SDK/version into your mobile app, see [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 
@@ -85,7 +85,7 @@ For security reasons, the API key and secret used in token generation must be ca
 
 ## Server-Side Token Refresh
 
-Token refresh is automatically enabled inside the UID2 mobile SDKs; you don't need to manage it explicitly on the server side.
+<a href="../ref-info/glossary-uid#gl-token-refresh">Token refresh</a> is automatically enabled inside the UID2 mobile SDKs; you don't need to manage it explicitly on the server side.
 
 You might decide to do server-side token refresh if you want to keep your changes in the mobile apps as simple as possible.
 
@@ -267,7 +267,7 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-On startup/resumption of the app, if `getAdvertisingToken()` returns `null`, it is time to generate new identity on the server by following the instructions in [Implement Server-Side Token Generation](#implement-server-side-token-generation). Then, pass the result into the mobile app’s UID2Manager again: see [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
+On startup/resumption of the app, if `getAdvertisingToken()` returns `null`, it is time to generate new identity on the server by following the instructions in [Implement Server-Side Token Generation](#implement-server-side-token-generation). Then, pass the result into the mobile app’s UID2Manager again: see [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk).
 
 ## Enable Logging
 

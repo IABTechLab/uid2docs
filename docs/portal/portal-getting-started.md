@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: Learn how to create an account on the UID2 Portal.
+description: Learn how to create an account in the UID2 Portal.
 hide_table_of_contents: false
 sidebar_position: 03
 ---
@@ -24,6 +24,10 @@ If at any time you need assistance with the onboarding process, ask your UID2 co
 ## Request an Account
 
 There's some information you'll need to provide to your UID2 contact with your account request. Include the details listed in the following table.
+
+:::note
+If you don't yet have a UID2 contact, go to the [Request Access to UID2](/request-access) page and fill out the form.
+:::
 
 | Item | Details |
 | :--- | :--- |
@@ -53,7 +57,7 @@ The integration options are shown in the following table.
 
 | Integration | Examples | Instructions |
 | :--- | :--- | :--- |
-| Client-side integration | **Advertisers** generate UID2 tokens on the client side for tracking pixels.<br/>**Publishers** generate UID2 tokens on the client side for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use. |  Go to the **Client-Side Integration** page and set up key pairs and root-level domains. We use these to identify your transactions.<br/>For details, see [Client-Side Integration](client-side-integration.md). |
+| Client-side integration | **Advertisers** generate UID2 tokens on the client side for tracking pixels.<br/>**Publishers** generate UID2 tokens on the client side for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use. | Go to the **Client-Side Integration** page and set up key pairs and root-level domains. We use these to identify your transactions.<br/>For details, see [Client-Side Integration](client-side-integration.md). |
 | Server-side integration | **Advertisers** generate raw UID2s to be delivered for audience targeting.<br/>**Publishers** generate UID2 tokens on the server side for bidstream use. | Go to the **API Keys** page and create at least one set of credentials. When you add an API key, you're assigned two values, a secret and a key, which you'll use in your implementation.<br/>For details, see [API Keys](api-keys.md). |
 
 Some participants might use both client-side and server-side integration. For example, advertisers might generate UID2 tokens on the client side for pixels ([Client-Side Integration](client-side-integration.md)), but integrate on the server side for raw UID2 generation ([API Keys](api-keys.md)).
@@ -69,7 +73,7 @@ Create a new password, and then log into the UID2 Portal.
 
 ## Change Your Password
 
-The **Accept Invitation** link takes you to the **Update Password** page.
+The **Accept Invitation** link takes you to the **Set Password** page.
 
 :::tip
  If you're changing your password because you think your account might have been compromised, be sure that the **Sign out from other devices** box is checked.
@@ -121,7 +125,7 @@ The following table includes details of the information you'll need, and a link 
 
 | Item | Details | Link to Instructions | 
 | :--- | :--- | :--- |
-| Team member information | For each, provide the following:<br/>- First name<br/>- Last name<br/>- Email<br/>- Job function | [Team Members](team-members.md) |
+| Team member information | For each, provide the following:<br/>- First name<br/>- Last name<br/>- Email<br/>- Job function<br/>- Role | [Team Members](team-members.md) |
 | Email contact information | For each, provide the following:<br/>- Email group name<br/>- Email alias<br/>- Contact type | [Email Contacts](email-contacts.md) |
 
 ## Reset Password
@@ -134,3 +138,13 @@ When you've finished updating your account, remember to log out.
 
 1. At the top right, click your name.
 1. From the drop-down list, click **Log Out**.
+
+## Password Change Requirement
+
+In some cases, you might be required to change your password. For example, if the password requirements change and your current password doesn't meet the new requirements, you'll need to choose a new password.
+
+If this occurs, when you're logging in you'll see a **Set Password** page.
+
+The current password requirements are displayed on the page. Choose a new password, type it again to confirm, and save.
+
+Be sure to choose a password you'll remember.

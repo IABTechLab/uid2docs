@@ -9,20 +9,15 @@ import Link from '@docusaurus/Link';
 
 # SDK for Python Reference Guide
 
-You can use the SDK for Python on the server side to facilitate the following:
-
-- Generating UID2 advertising tokens
-- Refreshing UID2 advertising tokens
-- Encrypting raw UID2s to create UID2 tokens for sharing
-- Decrypting UID2 tokens to access the raw UID2s
+You can use the SDK for Python on the server side to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens. If you have the applicable permissions, you can also encrypt and decrypt for sharing, map DII to raw UID2s, and monitor rotated salt buckets.
 
 ## Functionality
 
 This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using Python for their server-side coding. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets      |
-| :--- | :--- | :--- | :--- | :--- |:--- |
-| &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
+| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
 
 ## API Permissions
 
@@ -151,7 +146,7 @@ Decryption response codes, and their meanings, are shown in the following table.
     Be sure to call this function only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
     :::
 
-   <!-- uid2_euid_diff re legal basis for admonition above (not in UID2) -->
+<!-- uid2_euid_diff re legal basis for admonition above (not in UID2) -->
 
  `do_not_generate_tokens_for_opted_out()` applies `optout_check=1` in the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call. Without this, `optout_check` is omitted to maintain backwards compatibility.
 

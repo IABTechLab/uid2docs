@@ -42,12 +42,13 @@ export const articleList: ArticleItem[] = [
     date: "November 17, 2022",
     locale: "en",
   },
-  {
-    title: "Paramount",
-    url: "https://www.paramount.com/press/paramount-advertising-adds-unified-id-20-to-scale-identity-on-connected-tv",
-    date: "January 4, 2023",
-    locale: "en",
-  },
+  // Article is now 404ing
+  //{
+  //   title: "Paramount",
+  //   url: "https://www.paramount.com/press/paramount-advertising-adds-unified-id-20-to-scale-identity-on-connected-tv",
+  //   date: "January 4, 2023",
+  //   locale: "en",
+  // },
   {
     title: "Rave",
     url: "https://venturebeat.com/business/rave-supports-unified-id-2-0-in-new-partnership-with-the-trade-desk/",
@@ -154,6 +155,18 @@ export const articleList: ArticleItem[] = [
     title: "Roku",
     url: "https://newsroom.roku.com/news/2024/08/roku-enhances-benefits-for-advertisers-with-adoption-of-unified-id/w0bp8lav-1722528950",
     date: "August 1, 2024",
+    locale: "en",
+  },
+  {
+    title: "Axios",
+    url: "https://www.axios.com/2024/10/22/spotify-ad-exchange-trade-desk-partnership",
+    date: "October 22, 2024",
+    locale: "en",
+  },
+  {
+    title: "SoundCloud",
+    url: "https://www.adexchanger.com/programmatic/programmatic-audio-is-a-tough-market-so-soundcloud-is-leading-with-display-and-video/",
+    date: "November 5, 2024",
     locale: "en",
   },
   //JA Articles

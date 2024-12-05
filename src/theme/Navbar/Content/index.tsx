@@ -1,9 +1,6 @@
 import React, { type ReactNode } from "react";
 import { useThemeConfig } from "@docusaurus/theme-common";
-import {
-  splitNavbarItems,
-  useNavbarMobileSidebar,
-} from "@docusaurus/theme-common/internal";
+import { splitNavbarItems } from "@docusaurus/theme-common/internal";
 import NavbarItem, { type Props as NavbarItemConfig } from "@theme/NavbarItem";
 import SearchBar from "@theme/SearchBar";
 import NavbarMobileSidebarToggle from "@theme/Navbar/MobileSidebar/Toggle";
@@ -41,12 +38,8 @@ function NavbarContentLayout({
 }
 
 export default function NavbarContent(): JSX.Element {
-  const mobileSidebar = useNavbarMobileSidebar();
-
   const items = useNavbarItems();
   const [leftItems, rightItems] = splitNavbarItems(items);
-
-  const searchBarItem = items.find((item) => item.type === "search");
 
   return (
     <NavbarContentLayout

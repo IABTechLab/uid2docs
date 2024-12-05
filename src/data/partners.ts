@@ -326,6 +326,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Frndly",
+    logo: "frndlytv-logo.png",
+    type: ["Publishers"],
+  },
+  {
     name: "Fubo TV",
     logo: "PartnerLogo_FuboTV_256x256.png",
     type: ["Publishers"],
@@ -800,6 +805,11 @@ export const partnersData: PartnersDataType = [
     type: ["Data", "CDP"],
     featured: true,
     order: 18,
+  },
+  {
+    name: "Soundcloud",
+    logo: "sc-logo-horizontal-black.svg",
+    type: ["Publishers"],
   },
   {
     name: "Sovrn",

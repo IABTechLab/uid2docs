@@ -12,8 +12,8 @@ In the UID2 Portal, if you want to use an implementation option that generates U
 | Value | Implementation Type | Details | Documentation Link |
 | :--- | :--- | :---| :---|
 | Key pair | All (web or mobile) | At least one. In your implementation, you'll share the public key. | [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key) |
-| Domain |  Web | At least one. Provide a complete list of your root-level domains. | [Client-Side Web Integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) |
-| Mobile App ID |  Mobile | Any IDs that apply to your mobile apps, such as Android App ID, iOS/tvOS Bundle ID, or iOS App Store ID. | [Client-Side Mobile Integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations) |
+| Domain | Web | At least one. Provide a complete list of your root-level domains. | [Client-Side Web Integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) |
+| Mobile App ID | Mobile | Any IDs that apply to your mobile apps, such as Android App ID, iOS/tvOS Bundle ID, or iOS App Store ID. | [Client-Side Mobile Integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations) |
 
 :::important
 It's important to provide a complete list of root-level domain names for your sites, and mobile app IDs for your apps. This is a security measure, for client-side implementation only. If a domain or app is not defined in the UID2 Portal, UID2 token requests from that domain or app will fail.
@@ -47,15 +47,21 @@ On the Client-Side Integration page, you can perform the following activities re
 - [Changing the Name of a Key Pair](#changing-the-name-of-a-key-pair)
 - [Deleting a Key Pair](#deleting-a-key-pair)
 
+:::important
+As well as creating key pairs, you must add at least one root-level domain name or mobile app ID. The sequence doesn't matter; you can create a key pair first, but you must complete both steps to configure your client-side integration.
+:::
+
 ### Adding a Key Pair
 
 To add a key pair, complete the following steps:
 
 1. Log in to your UID2 Portal account.
-1. On the **Client-Side Integration** page, click **Add Key Pair**.
+1. On the **Client-Side Integration** page, at the top right of the Key Pairs section, click **Add Key Pair**.
 1. In the **Add Key Pair** overlay, provide a name, and then click **Add Key Pair**.
 
-   On the **Client-Side Integration** page, the new key pair is displayed with the name, Subscription ID, public key, and the date it was created.
+   The key pair is generated automatically. On the **Client-Side Integration** page, the new key pair is displayed with the name, Subscription ID, public key, and the date it was created, as shown in the following example.
+
+   ![Client-Side Integration page, Key Pairs](images/portal-client-side-integration-key-pairs.png)
 
 ### Copying or Viewing a Public Key
 

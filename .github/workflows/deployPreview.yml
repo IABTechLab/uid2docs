@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Clone to preview folder (excluding actions)
         run: rsync -arv --delete --delete-excluded --exclude=".github" --exclude="preview-output" --exclude="preview-output" --exclude=".git" ./ preview-output/
       - name: Push to staging repository

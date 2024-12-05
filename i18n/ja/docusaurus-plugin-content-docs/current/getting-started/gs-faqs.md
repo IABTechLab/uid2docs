@@ -6,7 +6,7 @@ sidebar_position: 20
 ---
 
 import Link from '@docusaurus/Link';
-import ExampleUid2InBidstream from '/docs/snippets/_example-uid2-in-bidstream.mdx';
+import ExampleTokenInBidstream from '/docs/snippets/_example-token-in-bidstream.mdx';
 
 # Frequently Asked Questions
 
@@ -17,7 +17,7 @@ UID2 に関するよくある質問は、以下のカテゴリーに分かれて
 UID2 フレームワークに関するよくある質問を紹介します。
 
 - [EUID インフラのすべてのインテグレーションパートナー(SSP、サードパーティデータプロバイダー、測定プロバイダー)は、自動的に UID2 にインテグレーションされますか？](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
-- [ユーザーは、自分の UID2 ID に基づいたターゲティング広告をオプトアウトできますか？](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2-identity)
+- [ユーザーは、自分の UID2 ID に基づいたターゲティング広告をオプトアウトできますか？](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2)
 - [UID2 に DII を送信すると、UID2 はその情報を保存しますか？](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
 - [UID2 は HIPAA で規制されているデータの処理を許可しますか？](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
 
@@ -30,7 +30,7 @@ EUID インフラのすべてのインテグレーションパートナー(SSP�
 
 いいえ。UID2 は EUID とは別の独自のフレームワークとして機能します。そのため、EUID フレームワークへのアクセスや使用に関する事務手続きは、UID2 フレームワークへの使用やアクセスを自動的に許可するものではありません。新規契約を UID2 用に締結する必要があります。
 
-#### Can users opt out of targeted advertising tied to their UID2 identity?
+#### Can users opt out of targeted advertising tied to their UID2?
 ユーザーは、自分の UID2 ID に基づいたターゲティング広告をオプトアウトできますか？
 
 はい。[Transparency and Control Portal](https://www.transparentadvertising.com/) を通して、ユーザーは自分の UID2 ID に関連するターゲティング広告の配信をオプトアウトできます。各リクエストは、UID2 Opt-Opt Service と UID2 Operator を通じて配信され、UID2 Operator はオプトアウト情報を関連するすべての参加者に公開します。
@@ -140,7 +140,7 @@ UID2 Token は、ビッドストリームではどのように見えますか？
 
 UID2 実装のアプローチにはさまざまな方法があります。以下は、UID2 Token が<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>でどのように渡されるかを示すコードスニペットの一例です:
 
-<ExampleUid2InBidstream />
+<ExampleTokenInBidstream />
 
 ## FAQs for Advertisers and Data Providers
 

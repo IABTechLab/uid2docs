@@ -67,7 +67,7 @@ import Link from '@docusaurus/Link';
 **N**
 <a href="#gl-normalize">Normalize</a> 
 
- **O**
+**O**
 <a href="#gl-open-operator">Open Operator</a> | 
 <a href="#gl-operator">Operator</a> | 
 <a href="#gl-operator-key">Operator key</a> | 

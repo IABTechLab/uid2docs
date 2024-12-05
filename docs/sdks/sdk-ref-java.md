@@ -9,21 +9,15 @@ import Link from '@docusaurus/Link';
 
 # SDK for Java Reference Guide
 
-You can use the SDK for Java on the server side to facilitate the following:
-
-- Generating UID2 advertising tokens
-- Refreshing UID2 advertising tokens
-- Encrypting raw UID2s to create UID2 tokens for sharing
-- Decrypting UID2 tokens to access the raw UID2s
-- Mapping DII to raw UID2s
+You can use the SDK for Java on the server side to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens. If you have the applicable permissions, you can also encrypt and decrypt for sharing and map DII to raw UID2s.
 
 ## Functionality
 
 This SDK simplifies integration with UID2 for any publishers, DSPs, advertisers, data providers, and UID2 sharers who are using Java for their server-side coding. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
-| :--- | :--- | :--- | :--- | :--- |
-| &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
+| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#8212; |
 
 ## API Permissions
 
@@ -153,7 +147,7 @@ If you're using the SDK's HTTP implementation, follow these steps.
    - --> Always apply `doNotGenerateTokensForOptedOut()`. This applies a parameter similar to setting `optout_check=1` in the call to the POST&nbsp;/token/generate endpoint (see [Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters)).
    :::
 
-   <!-- uid2_euid_diff re legal basis for admonition above (first bullet not in UID2) -->
+<!-- uid2_euid_diff re legal basis for admonition above (first bullet not in UID2) -->
 
 #### Basic Usage, Client-Server Integration
 
@@ -301,6 +295,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
    If the user has opted out, this method returns null, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `tokenRefreshResponse.isOptout()` function.
 
 ## Usage for Advertisers/Data Providers
+
 1. Create an instance of IdentityMapClient as an instance variable.
    ```java
    final private IdentityMapClient identityMapClient = new IdentityMapClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);

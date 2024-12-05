@@ -145,7 +145,7 @@ The following code example encrypts requests and decrypts responses using Java. 
 java -jar Uid2Request-jar-with-dependencies.jar
 ```
 
-The Java example is written for JDK version 11 and later, and you must have the com.google.code.gson library in your classpath.
+The Java example is written for JDK version 11 or later, and you must have the com.google.code.gson library in your classpath.
 
 If you are using Maven, you can use the following minimal `pom.xml`, and run `mvn package` to build the project:
 
@@ -355,7 +355,7 @@ public class Uid2Request {
       +             "java -jar Uid2Request-jar-with-dependencies.jar <url> <api_key> <client_secret>" + "\n\n"
       
       +       "Example:" + "\n   "  
-      +             "echo '{\"email\": \"test@example.com\"}' |  java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/generate PRODGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=" + "\n\n\n"
+      +             "echo '{\"email\": \"test@example.com\"}' | java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/generate PRODGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=" + "\n\n\n"
       
       +       "Refresh Token Usage:" + "\n   "
       +             "java -jar Uid2Request-jar-with-dependencies.jar <url> --refresh-token <refresh_token> <refresh_response_key>"  + "\n\n"
@@ -449,7 +449,6 @@ public class Uid2Request {
 
 </TabItem>
 <TabItem value='cs' label='C#'>
-
 
 ```cs title="uid2_request.cs"
 using System.Buffers.Binary;
@@ -582,9 +581,7 @@ else
 ```
 
 </TabItem>
-
 <TabItem value='go' label='Go'>
-
 
 ```go title="uid2_request.go"
 package main

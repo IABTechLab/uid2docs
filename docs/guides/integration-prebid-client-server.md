@@ -20,13 +20,16 @@ This is called client-server integration because some integration steps are clie
 To integrate with UID2 using Prebid.js, you'll need to:
 
 - Make changes to the HTML and JavaScript on your site.
-- Make server-side changes for token generation (and, optionally, token refresh).  
+- Make server-side changes for token generation (and, optionally, <a href="../ref-info/glossary-uid#gl-token-refresh">token refresh</a>).  
 
 ## Prebid.js Version
+
 This implementation requires Prebid.js version 7.53.0 or later. For version information, see [https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases).
 
+<!-- Diff in Prebid.js supported version for UID2/EUID is fine: verif SS 11/19/24 -->
+
 ## UID2 Prebid Module Page
-<!-- GWH TODO later: move to overview or to client side doc maybe when client-side implementation is added to the Prebid module pages. Now, they are only server side. -->
+
 Information about how to integrate Prebid with UID2 is also in the following locations:
 - On the Prebid site, on the [Unified ID 2.0](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) page for the Prebid User ID submodule.
 - In the Prebid GitHub repository, on the [UID2 User ID Submodule](https://github.com/prebid/Prebid.js/blob/master/modules/uid2IdSystem.md) page.

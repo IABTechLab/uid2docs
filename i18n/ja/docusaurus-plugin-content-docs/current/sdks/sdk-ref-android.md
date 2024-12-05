@@ -32,9 +32,9 @@ SDK for Android は、以下の用途に使用できます:
 
 この SDK は、Android デバイス上で動作するアプリで UID2 をサポートしたいパブリッシャー向けに、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
-| :--- | :--- | :--- | :--- | :--- |
-| &#8212; | &#8212; | &#9989; | &#9989; | &#8212; |
+| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 
 SDK for Android は、Android アプリに代わって UID2 ID を生成または管理するように設計されています。プラットフォームネイティブの暗号化ツールを使って ID をデバイス上に安全に保存することで、アプリのライフサイクル全体にわたって UID2 ID を持続させることができます。
 
@@ -49,7 +49,7 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 <!-- As of 7 May 2024 -->
 
-このドキュメントは、SDK for Android バージョン1.2.0以降用です。
+このドキュメントは、SDK for Android バージョン1.6.0以降用です。
 
 リリースノートの情報については、[https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases) を参照してください。
 
@@ -91,7 +91,7 @@ Gradle を使用してインストールするには、build.gradle ファイル
 
 
 ```js
-implementation 'com.uid2:uid2-android-sdk:0.5.0'
+implementation 'com.uid2:uid2-android-sdk:1.6.0'
 ```
 
 ### Installing with Maven 
@@ -102,7 +102,7 @@ Maven を使用してインストールするには、`pom.xml` ファイルに�
 <dependency> 
   <groupId>com.uid2</groupId> 
   <artifactId>uid2-android-sdk</artifactId> 
-  <version>1.2.0</version>
+  <version>1.6.0</version>
 </dependency> 
 ```
 

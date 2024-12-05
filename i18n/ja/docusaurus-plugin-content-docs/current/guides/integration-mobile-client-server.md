@@ -49,8 +49,8 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 
 このガイドは、次のいずれかの UID2 mobile SDK のバージョン 1.2.0 以上を使用する方法について説明します:
 
-- SDK for Android
-- SDK for iOS
+- SDK for Android (version 1.6.0 or later)
+- SDK for iOS (version 1.7.0 or later)
 
 正しい SDK/バージョンをモバイルアプリにインストールする手順については、[Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app) を参照してください。
 
@@ -153,7 +153,7 @@ UID2Settings.shared.uid2Environment = .custom(
 ```js
 UID2Manager.init(
   context = this,
-  serverUrl = "https://global.prod.uidapi.com"
+  UID2Manager.Environment.Signapore
 )
 // or 
 UID2Manager.init(

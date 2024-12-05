@@ -12,6 +12,8 @@ import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
 
 # UID2 Private Operator for GCP Integration Guide
 
+The UID2 Operator is the API server in the UID2 ecosystem. For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
+
 This guide provides information for setting up the UID2 Operator Service as a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> instance in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. Confidential Space offers a secure enclave environment, known as a Trusted Execution Environment (TEE).
 
 :::note
@@ -214,7 +216,7 @@ Provide values for the input parameters, as needed, in the `terraform.tfvars` fi
    | `network_name` | `string` | `uid-operator` | no | The VPC resource name (also used for rules/ instance tags). |
    | `min_replicas` | `number` | `1` | no | Indicates the minimum number of replicas you want to deploy. |
    | `max_replicas` | `number` | `5` | no | Indicates the maximum number of replicas you want to deploy. |
-   | `uid_operator_key_secret_name` | `string` | `"secret-operator-key"` | no |  The name that you specify for your operator key secret. The Terraform template creates a secret in the GCP Secret Manager to hold the `uid_operator_key` value. You can define the name; for example, `uid2-operator-operator-key-secret-integ`. |
+   | `uid_operator_key_secret_name` | `string` | `"secret-operator-key"` | no | The name that you specify for your operator key secret. The Terraform template creates a secret in the GCP Secret Manager to hold the `uid_operator_key` value. You can define the name; for example, `uid2-operator-operator-key-secret-integ`. |
    | `debug_mode` | `bool`  | `false` | no | Do not set to `true` unless you are working with the UID2 team to debug an issue. In any other circumstances, if you set this flag to `true`, attestation will fail. |
 
 #### Run Terraform

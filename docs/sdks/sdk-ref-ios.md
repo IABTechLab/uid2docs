@@ -9,11 +9,7 @@ import Link from '@docusaurus/Link';
 
 # SDK for iOS Reference Guide
 
-You can use the SDK for iOS for the following:
-
-- Generating or establishing client identity using UID2.
-- Retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use.
-- Automatically refreshing UID2 tokens.
+You can use the SDK for iOS to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens.
 
 The following iOS-related plugins, and associated documentation, are also available:
 
@@ -29,9 +25,9 @@ Although this page refers to SDK for iOS, this SDK also supports tvOS. For the r
 
 This SDK simplifies integration with UID2 for any publishers who want to support UID2 for apps running on iOS devices. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
-| :--- | :--- | :--- | :--- | :--- |
-| &#8212; | &#8212; | &#9989; | &#9989; | &#8212; |
+| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 
 The SDK for iOS is designed to generate and/or manage UID2 identity on behalf of iOS apps. It enables UID2 identity to be persisted across app lifecycles by securely storing the identity on a device via platform-native encryption tools.
 
@@ -44,9 +40,9 @@ You'll be granted permission to use specific functions offered by the SDK, and g
 
 ## SDK Version
 
-<!-- As of 7 May 2024 -->
+<!-- As of 22 Oct 2024 -->
 
-This documentation is for the SDK for iOS version 1.2.0 and later.
+This documentation is for the SDK for iOS version 1.7.0 or later.
 
 For current and past release notes information, see [https://github.com/IABTechLab/uid2-ios-sdk/releases](https://github.com/IABTechLab/uid2-ios-sdk/releases).
 
@@ -61,7 +57,9 @@ This SDK is in the following open-source GitHub repository:
 Minimum requirements for this SDK are as follows:
 
 - Xcode version: 15.0+
-- iOS	minimum target version: 13.0+
+- iOS minimum target version:
+  - For full functionality: 13.0+
+  - For partial functionality: 12.0+. The app with the SDK integrated can be installed with all devices, but generating or retrieving UID2 tokens on the client side will not work with devices running iOS versions below 13.0.
 - tvOS minimum target version: 13.0+
 - Swift version: 5.0+
 
@@ -81,7 +79,7 @@ Add the following dependency to Package.swift:
 
 ```js
 dependencies: [
-  .package(url: "https://github.com/IABTechLab/uid2-ios-sdk.git", from: "1.2.0"),
+  .package(url: "https://github.com/IABTechLab/uid2-ios-sdk.git", from: "1.7.0"),
 ]
 ```
 
@@ -89,16 +87,16 @@ dependencies: [
 
 In the XCode user interface, under Package Dependencies, add the following entry for your apps:
 
-| Name | Location | Dependency Rule                         |
-| :--- | :--- |:----------------------------------------| 
-| uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 1.2.0 < 2.0.0 |
+| Name | Location | Dependency Rule |
+| :--- | :--- | :--- |
+| uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 1.7.0 < 2.0.0 |
 
 ### Installing with CocoaPods
 
 Add the following entry in your `Podfile`:
 
 ```
-pod 'UID2', '~> 1.2'
+pod 'UID2', '~> 1.7'
 ```
 
 ## Usage Guidelines
@@ -120,7 +118,7 @@ The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity
 
 The following code samples provide examples of performing specific activities relating to managing UID2 with the SDK for iOS.
 
-Generate an initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk)):
+Generate an initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk)):
 
 ```js
 UID2Manager.shared.generateIdentity(
@@ -158,7 +156,7 @@ The following functions are available as part of the UID2Manager API:
 
 #### generateIdentity()
 
-Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link>. For details, see [Configure the UID2 mobile SDK](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) in the *Client-Side Integration Guide for Mobile*.
+Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link>. For details, see [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) in the *Client-Side Integration Guide for Mobile*.
 
 #### setIdentity()
 
@@ -194,4 +192,3 @@ The Identity variable stores and returns the current UID2Identity data object be
 #### identityStatus
 
 The identityStatus variable stores and returns the status of the current UID2 Identity being managed by the SDK.
-
