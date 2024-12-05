@@ -34,7 +34,7 @@ EUID インフラのすべてのインテグレーションパートナー(SSP�
 #### Can users opt out of targeted advertising tied to their UID2?
 ユーザーは、自分の UID2 ID に基づいたターゲティング広告をオプトアウトできますか？
 
-はい。[Transparency and Control Portal](https://www.transparentadvertising.com/) を通して、ユーザーは自分の UID2 ID に関連するターゲティング広告の配信をオプトアウトできます。各リクエストは、UID2 Opt-Opt Service と UID2 Operator を通じて配信され、UID2 Operator はオプトアウト情報を関連するすべての参加者に公開します。
+はい。[Transparency and Control Portal](https://www.transparentadvertising.com/) を通して、ユーザーは自分の UID2 に関連するターゲティング広告の配信をオプトアウトできます。各リクエストは、UID2 Opt-Opt Service と UID2 Operator を通じて配信され、UID2 Operator はオプトアウト情報を関連するすべての参加者に公開します。
 
 #### When I send DII to UID2, does UID2 store the information?
 UID2 に DII を送信すると、UID2 はその情報を保存しますか？
