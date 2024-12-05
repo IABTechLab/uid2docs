@@ -19,7 +19,7 @@ The following options are available for publishers to integrate with UID2 on the
 - SDK for Python (see [Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers) section).
 - Custom server code to generate and refresh the UID2 token by calling the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) and [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints.
 
-There is also an example application that demonstrates the workflow. See [Sample Implementation](#sample-implementation).
+There is also a sample implementation that demonstrates the workflow. See [Sample Implementation](#sample-implementation).
 
 For a complete summary of publisher integration options, see [Publisher Integrations](summary-guides.md#publisher-integrations).
 
@@ -112,8 +112,8 @@ If the user logs out, do not use the UID2 token.
 
 A sample implementation is available for server-side integration. See:
 
-- [Server-Side UID2 Integration Example (sample implementation)](https://secure-signals-srvonly-integ.uidapi.com/)
-- [Server-Side UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
+- [Client-Server UID2 Integration Example (sample implementation)](https://secure-signals-srvonly-integ.uidapi.com/)
+- [Client-Server UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
 
 ## FAQs
 

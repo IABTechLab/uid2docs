@@ -55,9 +55,9 @@ If you want to use a debug build of the SDK, use the following URL instead:
 
 - [https://cdn.integ.uidapi.com/uid2-sdk-3.4.5.js](https://cdn.integ.uidapi.com/uid2-sdk-3.4.5.js)
 
-## Sample Implementation Website
+## Sample Implementation
 
-For an example website, see this example:
+For a sample implementation, see this example:
 - Code: [Example Client-Side Integration for JavaScript](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)
 - Running site: [Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)
 

@@ -127,8 +127,6 @@ The procedure is a little different depending on whether or not you are using an
 
 ##### Without SDK:
 
-TIP: To get the normalized, hashed, and Base64-encoded hashed values for any email address or phone number, you can use the hashing tool: see [UID2 Hashing Tool](gs-normalization-encoding.md#uid2-hashing-tool).
-
 1. Depending on whether the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> is an email address or a phone number, send a [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request using one of the following values:
     - `email` value: `refresh-optout@example.com`.
     - `email_hash` value: The hashed and Base64-encoded value for `refresh-optout@example.com`, which is `NaNI8RU0bL1Jpp1jJLC5aJO/lchc6gGhgXQIAwJ7cV4=`. 
