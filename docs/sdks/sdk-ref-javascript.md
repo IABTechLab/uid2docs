@@ -39,7 +39,7 @@ This SDK simplifies development for publishers who want to build their own custo
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 
-## Sample Implementation Website
+## Sample Implementation
 
 For example applications with associated documentation, see:
   - The UID2 Google Secure Signals with SDK v3 example:
