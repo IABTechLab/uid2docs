@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 ソルトバケットのローテーションをモニターします。
 
-Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細は [Advertiser/Data Provider Integration Guide](../guides/integration-options-advertiser-dataprovider.md) を参照してください。
+Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細は [Advertiser/Data Provider Integration Guide](../guides/integration-advertiser-dataprovider.md) を参照してください。
 
 ## Request Format
 

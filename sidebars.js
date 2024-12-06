@@ -187,15 +187,20 @@ const fullSidebar = [
           type: 'category',
           label: 'Advertiser/Data Provider Integrations',
           link: {
-            type: 'doc',
-            id: 'guides/integration-options-advertiser-dataprovider',
+            type: 'generated-index',
           },
           collapsed: true,
           items: [
+            'guides/integration-advertiser-dataprovider',
+
+
+
+
+
             'guides/integration-javascript-client-side',
             'guides/snowflake_integration',
             'guides/integration-aws-entity-resolution',
-            'guides/advertiser-dataprovider-identity-map',
+            'guides/integration-advertiser-dataprovider-identity-map',
           ],
         },
 

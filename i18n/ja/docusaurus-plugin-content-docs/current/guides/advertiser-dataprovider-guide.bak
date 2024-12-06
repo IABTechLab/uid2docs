@@ -56,7 +56,7 @@ DII とは、正規化されたメールアドレスや電話番号、あるい�
 <!-- diagram source: resource/advertiser-flow-mermaid.md.bak -->
 
 図の各部の詳細については、以下のセクションを参照してください:
-1. [Retrieve a raw UID2 for DII using the identity map endpoint](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoint)
+1. [Retrieve a raw UID2 for DII](#1-retrieve-a-raw-uid2-for-dii)
 2. [Send stored raw UID2s to DSPs to create audiences or conversions](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions)
 3. [Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
 
@@ -91,10 +91,10 @@ raw UID2 は、特定の時点のユーザーに対する識別子です。特�
 
 UID2 ベースのオーディエンス情報を正確かつ最新の状態に保つために、毎日以下のインテグレーション手順を実行してください:
 
-1.  [UID2 retrieval step](#1-retrieve-a-raw-uid2-from-dii) のレスポンスにはマッピング情報が含まれています。以下をキャッシュします:
+1.  [UID2 retrieval step](#1-retrieve-a-raw-uid2-for-dii) のレスポンスにはマッピング情報が含まれています。以下をキャッシュします:
    - DII (`identifier`) と raw UID2 (`advertising_id`) とソルトバケット (`bucket_id`) のマッピング。
    - 最新の `last_updated` タイムスタンプ。
-2. Step 3の結果を使用して、[Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)、 Step1 の [Retrieve a raw UID2 for DII using the identity map endpoint](#1-retrieve-a-raw-uid2-from-dii) に従って、ソルトバケットがローテーションされた ID の新しい raw UID2 を取得して、ソルトバケットの raw UID2 を再マッピングします。
+2. Step 3の結果を使用して、[Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)、 Step1 の [Retrieve a raw UID2 for DII](#1-retrieve-a-raw-uid2-for-dii) に従って、ソルトバケットがローテーションされた ID の新しい raw UID2 を取得して、ソルトバケットの raw UID2 を再マッピングします。
 
    次に、Step 2 の[send raw UID2 to a DSP](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions) に従って、リフレッシュされた UID2 を使ってオーディエンスまたはコンバージョンを更新します。
 

@@ -15,11 +15,11 @@ There are many ways for advertisers and data providers to integration with UID2.
 
 These integration options apply to any  organizations that collect user data and push it to other UID2 participants. Data collectors include advertisers, data on-boarders, measurement providers, identity graph providers, third-party data providers, and any other organizations that send data to other participants.
 
-If you are using an Open Operator service hosted in the Snowflake Data Marketplace, see also [Snowflake Integration Guide](snowflake_integration.md).
+If you are using a Public Operator service hosted in the Snowflake Data Marketplace, see also [Snowflake Integration Guide](snowflake_integration.md).
 
 ## Advertiser/Data Provider Routes to Use UID2
 
-Within the ad tech industry, advertisers use identity to build audiences, track conversions, and generate their graphs. As an advertiser, or as a data provider acting on behalf of an advertiser, the following table shows some examples of how you can accomplish some of these goals with UID2.
+Within the ad tech industry, advertisers use identity to build audiences, track conversions, and generate their graphs. The following table shows some examples of how you, as an advertiser or as a data provider acting on behalf of an advertiser, can accomplish some of these goals with UID2.
 
 :::note
 There are other ways that you can use UID2, outside these use cases. These are just some examples.
@@ -39,7 +39,7 @@ There are other ways that you can use UID2, outside these use cases. These are j
 
 At a high level, to integrate with UID2 as an advertiser or data provider, you'll implement these three key activities:
 
-1. [Retrieve a raw UID2 for DII](#1-retrieve-a-raw-uid2-from-dii)
+1. [Retrieve a raw UID2 for DII](#1-retrieve-a-raw-uid2-for-dii)
 
    Generate a raw UID2 from <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>, or receive UID2s from another UID2 participant such as a data provider acting on your behalf.
    
@@ -77,7 +77,7 @@ DII refers to a user's normalized email address or phone number, or the normaliz
 <!-- diagram source: resource/advertiser-flow-mermaid.md.bak -->
 
 Refer to the following sections for details about the different parts of the diagram:
-1. [Retrieve a raw UID2 for DII](#1-retrieve-a-raw-uid2-from-dii)
+1. [Retrieve a raw UID2 for DII](#1-retrieve-a-raw-uid2-for-dii)
 2. [Send stored raw UID2s to DSPs to create audiences or conversions](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions)
 3. [Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
 
@@ -118,10 +118,10 @@ To ensure that your integration has the current raw UID2s, check salt bucket rot
 
 To keep your UID2-based audience information accurate and up to date, follow these integration steps every day:
 
-1. The response from the [UID2 retrieval step](#1-retrieve-a-raw-uid2-from-dii) contains mapping information. Cache the following:
+1. The response from the [UID2 retrieval step](#1-retrieve-a-raw-uid2-for-dii) contains mapping information. Cache the following:
    - The mapping between DII (`identifier`), raw UID2 (`advertising_id`), and salt bucket (`bucket_id`).
    - The most recent `last_updated` timestamp.
-2. Using the results from Step 3, [Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s), remap any raw UID2 for which the salt buckets have been rotated by retrieving new raw UID2 for those IDs, following Step 1, [Retrieve a raw UID2 for DII using the identity map endpoint](#1-retrieve-a-raw-uid2-from-dii).
+2. Using the results from Step 3, [Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s), remap any raw UID2 for which the salt buckets have been rotated by retrieving new raw UID2 for those IDs, following Step 1, [Retrieve a raw UID2 for DII](#1-retrieve-a-raw-uid2-for-dii).
 
    Then, use the refreshed UID2s to update audiences or conversions, following Step 2, [send raw UID2 to a DSP](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions).
 
@@ -129,9 +129,11 @@ To keep your UID2-based audience information accurate and up to date, follow the
 
 It's important to honor user opt-out status. Here are two ways you can check that you have the latest opt-out information:
 
-- The UID2 Operator Service distributes opt-out information to advertisers and data providers via the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.
+- The UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> distributes opt-out information to advertisers and data providers via the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.
 
 - Advertisers and data providers can check the opt-out status of raw UID2s using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint.
+
+For details about the UID2 opt-out workflow and how users can opt out, see [User Opt-Out](../getting-started/gs-opt-out.md).
 
 ## FAQs
 
