@@ -56,11 +56,11 @@ DII refers to a user's normalized email address or phone number, or the normaliz
 <!-- diagram source: resource/advertiser-flow-mermaid.md.bak -->
 
 Refer to the following sections for details about the different parts of the diagram:
-1. [Retrieve a raw UID2 for DII using the identity map endpoint](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoint)
+1. [Retrieve a raw UID2 for DII](#1-retrieve-a-raw-uid2-for-dii)
 2. [Send stored raw UID2s to DSPs to create audiences or conversions](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions)
 3. [Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
 
-### 1: Retrieve a raw UID2 for DII using the identity map endpoint
+### 1: Retrieve a raw UID2 for DII
 
 | Step | Endpoint | Description |
 | --- | --- | --- |
@@ -91,10 +91,10 @@ To ensure that your integration has the current raw UID2s, check salt bucket rot
 
 To keep your UID2-based audience information accurate and up to date, follow these integration steps every day:
 
-1. The response from the [UID2 retrieval step](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoint) contains mapping information. Cache the following:
+1. The response from the [UID2 retrieval step](#1-retrieve-a-raw-uid2-for-dii) contains mapping information. Cache the following:
    - The mapping between DII (`identifier`), raw UID2 (`advertising_id`), and salt bucket (`bucket_id`).
    - The most recent `last_updated` timestamp.
-2. Using the results from Step 3, [Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s), remap any raw UID2 for which the salt buckets have been rotated by retrieving new raw UID2 for those IDs, following Step 1, [Retrieve a raw UID2 for DII using the identity map endpoint](#1-retrieve-a-raw-uid2-for-dii-using-the-identity-map-endpoint).
+2. Using the results from Step 3, [Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s), remap any raw UID2 for which the salt buckets have been rotated by retrieving new raw UID2 for those IDs, following Step 1, [Retrieve a raw UID2 for DII](#1-retrieve-a-raw-uid2-for-dii).
 
    Then, use the refreshed UID2s to update audiences or conversions, following Step 2, [send raw UID2 to a DSP](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions).
 
