@@ -20,7 +20,7 @@ Client-Side の JavaScript の変更 **だけ** で UID2 とインテグレー�
 
 SDK の技術的な詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください。
 
-## Sample Implementation Website
+## Sample Implementation
 
 アプリケーションの例については、SDK v3 を使用した UID2 Google Secure Signals の例を参照してください:
 - コードとドキュメント: [UID2 SDK Secure Signals Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)

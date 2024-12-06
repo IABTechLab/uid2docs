@@ -20,9 +20,9 @@ If you prefer to integrate with UID2 via **only** client-side JavaScript changes
 
 For technical details about the SDK, see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md).
 
-## Sample Implementation Website
+## Sample Implementation
 
-For an example application, see the UID2 Google Secure Signals with SDK v3 example:
+For a sample implementation, see the UID2 Google Secure Signals with SDK v3 example:
 - Code and docs: [UID2 SDK Secure Signals Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
 - Running site: [Client-Server UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
 
