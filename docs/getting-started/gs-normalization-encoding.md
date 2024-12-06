@@ -13,7 +13,7 @@ This page provides information about normalizing and encoding <Link href="../ref
 
 ## Introduction
 
-When you're taking user information such as an email address, and following the steps to create a raw UID2 and/or a UID2 advertising token, it's very important that you follow all the required steps. Whether you normalize the information or not, whether you hash it or not, follow the steps exactly. By doing so, you can ensure that the UID2 value you create can be securely and anonymously matched up with other instances of online behavior by the same user.
+When you're taking user information such as an email address, and following the steps to create a raw UID2 and/or a UID2 advertising token, it's very important that you follow all the required steps. Whether you normalize emails or not, and whether you hash emails and phone numbers or not, follow the steps exactly. By doing so, you can ensure that the UID2 value you create can be securely and anonymously matched up with other instances of online behavior by the same user.
 
 :::important
 - Raw UID2s, and their associated UID2 tokens, are case sensitive. When working with UID2, it's important to pass all IDs and tokens without changing the case. Mismatched IDs can cause ID parsing or token decryption errors.
@@ -71,10 +71,8 @@ For additional examples, see [Normalization Examples for Email](#normalization-e
 
 ## Phone Number Normalization
 
-If you send unhashed phone numbers to the UID2 Operator Service, the service normalizes the phone numbers and then hashes them. If you want to hash the phone numbers yourself before sending them, you must normalize them before you hash them.
-
 :::important
-Normalization before hashing ensures that the generated UID2 value will always be the same, so that the data can be matched. If you do not normalize before hashing, this might result in a different UID2, reducing the effectiveness of targeted advertising.
+You **must** normalize phone numbers before sending them in a request to the UID2 Operator Service, regardless of whether you apply hashing and encoding.
 :::
 
 Here's what you need to know about phone number normalization rules:
@@ -143,7 +141,7 @@ The tool does the following:
   - Hashed value
   - Base64-encoded value
 
-  :::note
+  :::important
   For phone numbers, you must first normalize the data.
   :::
 
