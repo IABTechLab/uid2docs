@@ -11,6 +11,16 @@ import Link from '@docusaurus/Link';
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: Zoom-In Tool for Images
+
+December 15, 2024
+
+The UID2 docs site now includes a zoom-in tool for images.
+
+Just hover over the image and the tool appears as a magnifying glass... click to view a magnified version of the image.
+
+<!-- APIDOCS-2237 for both -->
+
 ### New: UID2 Portal Audit Trail Page
 
 November 15, 2024
@@ -333,11 +343,11 @@ These documents were further updated in later revisions. Updated links are as fo
 - [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 :::
 
-### New: Opt-Out
+### New: Opt-Out Page
 
 October 31, 2023
 
-This new "getting started" topic provides an overview of user opt-out.
+This new reference topic provides an overview of user opt-out.
 
 For details, see [User Opt-Out](../getting-started/gs-opt-out.md).
 
