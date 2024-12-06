@@ -1,7 +1,7 @@
 ---
-title: Advertiser/Data Provider Integration Overview
-sidebar_label: Advertiser/Data Provider Integration Overview
-description: Overview of UID2 integration options for organizations that collect user data and push it to other participants.
+title: Advertiser/Data Provider Integration
+sidebar_label: Advertiser/Data Provider Integration Guide
+description: Integration for organizations that collect user data and push it to other participants.
 hide_table_of_contents: false
 sidebar_position: 07
 displayed_sidebar: sidebarAdvertisers
@@ -9,17 +9,15 @@ displayed_sidebar: sidebarAdvertisers
 
 import Link from '@docusaurus/Link';
 
-# Advertiser/Data Provider Integration Overview
+# Advertiser/Data Provider Integration Guide
 
-There are many ways for advertisers and data providers to integration with UID2. On this page, you'll find a high-level overview of integration steps and integration options, with links to additional information for each option.
-
-These integration options apply to any  organizations that collect user data and push it to other UID2 participants. Data collectors include advertisers, data on-boarders, measurement providers, identity graph providers, third-party data providers, and any other organizations that send data to other participants.
+This guide covers integration steps for organizations that collect user data and push it to other UID2 participants. Data collectors include advertisers, data on-boarders, measurement providers, identity graph providers, third-party data providers, and any other organizations that send data to other participants.
 
 If you are using a Public Operator service hosted in the Snowflake Data Marketplace, see also [Snowflake Integration Guide](snowflake_integration.md).
 
 ## Advertiser/Data Provider Routes to Use UID2
 
-Within the ad tech industry, advertisers use identity to build audiences, track conversions, and generate their graphs. The following table shows some examples of how you, as an advertiser or as a data provider acting on behalf of an advertiser, can accomplish some of these goals with UID2.
+Within the ad tech industry, advertisers use identity to build audiences, track conversions, and generate their graphs. As an advertiser, or as a data provider acting on behalf of an advertiser, the following table shows some examples of how you can accomplish some of these goals with UID2.
 
 :::note
 There are other ways that you can use UID2, outside these use cases. These are just some examples.
@@ -35,36 +33,17 @@ There are other ways that you can use UID2, outside these use cases. These are j
 - **Send in conversions**: You can send UID2s as conversion information that can be used for measurement (attribution) or retargeting via API or pixels
 - **Receive graph data**: You can receive UID2s from graph/data providers via API or pixels. -->
 
-## Key Integration Steps
+### High-Level Steps
 
-At a high level, to integrate with UID2 as an advertiser or data provider, you'll implement these three key activities:
+At a high level, the steps for advertisers and data providers integrating with UID2 are as follows:
 
-1. [Retrieve a raw UID2 for DII](#1-retrieve-a-raw-uid2-for-dii)
+1. Generate a raw UID2 from <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>, or receive UID2s from another UID2 participant such as a data provider acting on your behalf.
 
-   Generate a raw UID2 from <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>, or receive UID2s from another UID2 participant such as a data provider acting on your behalf.
-   
-2. [Send stored raw UID2s to DSPs to create audiences or conversions](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions)
-
-   Use the UID2s you received in Step 1. For example, you might do one or more of the following:
+1. Use the UID2s you received in Step 1. For example, you might do one or more of the following:
    - Do some manipulation: for example, combine UID2s you generated from DII and UID2s received from another participant such as an advertiser or data provider.
    - Add new UID2s into an existing audience.
 
-   As part of this step, you'll also need to [monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s).
-
-3.  Use the raw UID2s for some purpose such as measurement.
-
-There are several ways you can accomplish these key steps.
-
-## Integration Options Summary
-
-The following integration options are available for advertisers and data providers.
-
-| Integration Option | Integration Guide | Content Description |
-| :--- | :--- | :--- |
-| Client-Side JavaScript SDK |[Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) <!-- UID2_only: Not applicable for EUID --> | A guide for advertisers and data providers who want to use this SDK for adding a UID2 token to their tracking pixels.<!-- UID2_only: Not applicable for EUID --> |
-| Snowflake | [Snowflake Integration Guide](snowflake_integration.md) | Instructions for generating UID2s from emails within Snowflake. |
-| AWS Entity Resolution | [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md) | Instructions for integrating with the UID2 framework using AWS Entity Resolution. |
-| Direct integration (API endpoints) | [xxx TBD](advertiser-dataprovider-identity-map.md) | Information about integrating directly to UID2 endpoints rather than using other integration options. |
+1. Use the raw UID2s for some purpose such as measurement.
 
 ## Integration Diagram
 
@@ -81,18 +60,12 @@ Refer to the following sections for details about the different parts of the dia
 2. [Send stored raw UID2s to DSPs to create audiences or conversions](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions)
 3. [Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
 
-### 1: Retrieve a raw UID2 from DII
+### 1: Retrieve a raw UID2 for DII
 
-The first step is to retrieve a raw UID2. You can do this by using any of the advertiser/data provider implementation options, summarized in the following table.
-
-[**GWH_SW all the SDKs support Map DII to Raw UID2s. Should I llist them also?**]
-
-| Integration Method | Link to Instructions |
-| :--- | :--- |
-| Client-Side SDK for JavaScript | [**GWH_SW: Now I'm confused because per https://unifiedid.com/docs/sdks/sdk-ref-javascript#functionality the JS SDK doesn't support generating a raw UID2 from DII. Not sure what we're talking about here, sorry**]<!-- UID2_only: Not applicable for EUID --> |
-| Snowflake | Snowflake Integration Guide, these sections:<ul><li>[Access the UID2 Shares](snowflake_integration.md#access-the-uid2-shares)</li><li>[Shared Objects](snowflake_integration.md#shared-objects)</li></ul> |
-| AWS Entity&nbsp;Resolution | AWS Integration Guide, this seciton: [Integration Summary](integration-aws-entity-resolution.md#integration-summary) |
-| [Direct integration (API&nbsp;endpoints)](advertiser-dataprovider-identity-map.md) | xxx TBD |
+| Step | Endpoint | Description |
+| --- | --- | --- |
+| 1-a | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) request | Send a request containing DII to the identity mapping endpoint. |
+| 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response | The `advertising_id` (raw UID2) returned in the response can be used to target audiences on relevant DSPs.<br/>The response returns a user's raw UID2 and the corresponding `bucket_id` for the salt bucket. The salt assigned to the bucket rotates annually, which impacts the generated raw UID2. For details on how to check for salt bucket rotation, see [3: Monitor for salt bucket rotations](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s).<br/>For ease of maintenance, a recommended approach is to store a user's raw UID2 and `bucket_id` in a mapping table. For guidance on incremental updates, see [Use an incremental process to continuously update raw UID2s](#use-an-incremental-process-to-continuously-update-raw-uid2s). |
 
 ### 2: Send stored raw UID2s to DSPs to create audiences or conversions
 

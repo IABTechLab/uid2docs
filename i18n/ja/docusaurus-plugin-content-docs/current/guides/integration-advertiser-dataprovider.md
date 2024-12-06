@@ -1,7 +1,7 @@
 ---
-title: Advertiser/Data Provider Integration Overview
-sidebar_label: Advertiser/Data Provider Integration Overview
-description: Overview of UID2 integration options for organizations that collect user data and push it to other participants.
+title: Advertiser/Data Provider Integration
+sidebar_label: Advertiser/Data Provider Integration Guide
+description: ユーザーデータを収集し、それを他の UID2 参加者にプッシュする組織のためのインテグレーション手順。
 hide_table_of_contents: false
 sidebar_position: 07
 displayed_sidebar: sidebarAdvertisers
@@ -9,130 +9,103 @@ displayed_sidebar: sidebarAdvertisers
 
 import Link from '@docusaurus/Link';
 
-# Advertiser/Data Provider Integration Overview
+# Advertiser/Data Provider Integration Guide
 
-There are many ways for advertisers and data providers to integration with UID2. On this page, you'll find a high-level overview of integration steps and integration options, with links to additional information for each option.
+このガイドでは、ユーザーデータを収集し、DSP にプッシュする組織のためのインテグレーション手順について説明します。データコレクターには、広告主、データオンボーダー、測定プロバイダー、ID グラフプロバイダー、サードパーティデータプロバイダー、および DSP にデータを送信する他の組織が含まれます。
 
-These integration options apply to any  organizations that collect user data and push it to other UID2 participants. Data collectors include advertisers, data on-boarders, measurement providers, identity graph providers, third-party data providers, and any other organizations that send data to other participants.
-
-If you are using an Open Operator service hosted in the Snowflake Data Marketplace, see also [Snowflake Integration Guide](snowflake_integration.md).
+Snowflake Data Marketplace でホストされる Open Operator Service を使用する場合は、[Snowflake Integration Guide](../guides/snowflake_integration.md) も参照してください。
 
 ## Advertiser/Data Provider Routes to Use UID2
 
-Within the ad tech industry, advertisers use identity to build audiences, track conversions, and generate their graphs. The following table shows some examples of how you, as an advertiser or as a data provider acting on behalf of an advertiser, can accomplish some of these goals with UID2.
+アドテクノロジー業界では、広告主は ID を使用してオーディエンスを構築し、コンバージョンを追跡し、グラフを生成します。広告主または広告主の代理としてデータプロバイダーが UID2 を使用してこれらの目標を達成する方法の例を以下に示します。
 
 :::note
-There are other ways that you can use UID2, outside these use cases. These are just some examples.
+これらのユースケース以外にも、UID2 を使用する方法はあります。これらはいくつかの例です。
 :::
 
 | Send/Receive? | Action | Advantage/Result |
 | --- | --- | --- |
-| Send | Send UID2s via API or pixels | Create audiences. |
-| Send | Send UID2s as conversion information | Use conversion information for measurement (attribution) or for retargeting via API or pixels. |
-| Receive | Receive UID2s from graph/data providers via API or pixels | Build graph data. |
+| Send | UID2 を API またはピクセルを介して送信 | オーディエンスを作成します。 |
+| Send | UID2 をコンバージョン情報として送信 | コンバージョン情報を使用して測定 (アトリビューション) またはリターゲティングに使用します。 |
+| Receive | API またはピクセルを介してグラフ/データプロバイダーから UID2 を受信 | グラフデータを構築します。 |
 
 <!-- - **Create/send in audiences**: You can send UID2s to create audiences via API or pixels
 - **Send in conversions**: You can send UID2s as conversion information that can be used for measurement (attribution) or retargeting via API or pixels
 - **Receive graph data**: You can receive UID2s from graph/data providers via API or pixels. -->
 
-## Key Integration Steps
+### High-Level Steps
 
-At a high level, to integrate with UID2 as an advertiser or data provider, you'll implement these three key activities:
+広告主およびデータプロバイダーが UID2 とインテグレーションする手順は次のとおりです:
 
-1. [Retrieve a raw UID2 for DII](#1-retrieve-a-raw-uid2-for-dii)
+1. <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> から UID2 を生成するか、広告主やデータプロバイダーなどの他の UID2 参加者から UID2 を受け取ります。
 
-   Generate a raw UID2 from <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>, or receive UID2s from another UID2 participant such as a data provider acting on your behalf.
-   
-2. [Send stored raw UID2s to DSPs to create audiences or conversions](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions)
+1. Step1 で受け取った UID2 を使用します。たとえば、以下のいずれかを行うかもしれません:
+   - 何らかの操作を行う: たとえば、DII から生成した UID2 と広告主やデータプロバイダーなどの他の参加者から受け取った UID2 を組み合わせます。
+   - 既存のオーディエンスに新しい UID2 を追加します。
 
-   Use the UID2s you received in Step 1. For example, you might do one or more of the following:
-   - Do some manipulation: for example, combine UID2s you generated from DII and UID2s received from another participant such as an advertiser or data provider.
-   - Add new UID2s into an existing audience.
-
-   As part of this step, you'll also need to [monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s).
-
-3.  Use the raw UID2s for some purpose such as measurement.
-
-There are several ways you can accomplish these key steps.
-
-## Integration Options Summary
-
-The following integration options are available for advertisers and data providers.
-
-| Integration Option | Integration Guide | Content Description |
-| :--- | :--- | :--- |
-| Client-Side JavaScript SDK |[Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) <!-- UID2_only: Not applicable for EUID --> | A guide for advertisers and data providers who want to use this SDK for adding a UID2 token to their tracking pixels.<!-- UID2_only: Not applicable for EUID --> |
-| Snowflake | [Snowflake Integration Guide](snowflake_integration.md) | Instructions for generating UID2s from emails within Snowflake. |
-| AWS Entity Resolution | [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md) | Instructions for integrating with the UID2 framework using AWS Entity Resolution. |
-| Direct integration (API endpoints) | [xxx TBD](advertiser-dataprovider-identity-map.md) | Information about integrating directly to UID2 endpoints rather than using other integration options. |
+1. Raw UID2 を計測目的で使用します。
 
 ## Integration Diagram
 
-The following diagram outlines the steps that data collectors must complete to map DII to raw UID2s for audience building and targeting.
+以下の図は、オーディエンスの構築とターゲティングのために DII を raw UID2 にマッピングするためにデータコレクターが完了する必要がある手順を示しています。
 
-DII refers to a user's normalized email address or phone number, or the normalized and SHA-256-hashed email address or phone number.
+DII とは、正規化されたメールアドレスや電話番号、あるいは正規化され SHA-256 ハッシュ化されたメールアドレスや電話番号のことです。
 
 ![Advertiser Flow](images/advertiser-flow-mermaid.png)
 
 <!-- diagram source: resource/advertiser-flow-mermaid.md.bak -->
 
-Refer to the following sections for details about the different parts of the diagram:
+図の各部の詳細については、以下のセクションを参照してください:
 1. [Retrieve a raw UID2 for DII](#1-retrieve-a-raw-uid2-for-dii)
 2. [Send stored raw UID2s to DSPs to create audiences or conversions](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions)
 3. [Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
 
-### 1: Retrieve a raw UID2 from DII
+### 1: Retrieve a raw UID2 for DII
 
-The first step is to retrieve a raw UID2. You can do this by using any of the advertiser/data provider implementation options, summarized in the following table.
-
-[**GWH_SW all the SDKs support Map DII to Raw UID2s. Should I llist them also?**]
-
-| Integration Method | Link to Instructions |
-| :--- | :--- |
-| Client-Side SDK for JavaScript | [**GWH_SW: Now I'm confused because per https://unifiedid.com/docs/sdks/sdk-ref-javascript#functionality the JS SDK doesn't support generating a raw UID2 from DII. Not sure what we're talking about here, sorry**]<!-- UID2_only: Not applicable for EUID --> |
-| Snowflake | Snowflake Integration Guide, these sections:<ul><li>[Access the UID2 Shares](snowflake_integration.md#access-the-uid2-shares)</li><li>[Shared Objects](snowflake_integration.md#shared-objects)</li></ul> |
-| AWS Entity&nbsp;Resolution | AWS Integration Guide, this seciton: [Integration Summary](integration-aws-entity-resolution.md#integration-summary) |
-| [Direct integration (API&nbsp;endpoints)](advertiser-dataprovider-identity-map.md) | xxx TBD |
+| Step | Endpoint | Description |
+| --- | --- | --- |
+| 1-a  | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md)リクエスト | DII を含むリクエストを ID マッピングエンドポイントに送信します。 |
+| 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) レスポンス | レスポンスで返される `advertising_id` (raw UID2) は、関連する DSP でオーディエンスをターゲティングするために使用できます。<br/>このレスポンスは、ユーザーの raw UID2 と、ソルトバケットに対応する `bucket_id` を返します。バケットに割り当てられたソルトは毎年ローテーションされ、生成される raw UID2 に影響を与えます。ソルトバケットのローテーションをチェックする方法の詳細は [3: Monitor for salt bucket rotations](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s) を参照してください。<br/>メンテナンスを簡単にするために、ユーザの raw UID2 と `bucket_id` をマッピングテーブルに格納することを推奨します。インクリメンタルな更新に関するガイダンスについては、[Use an incremental process to continuous-update raw UID2s](#use-an-incremental-process-to-continuously-update-raw-uid2s) を参照してください。|
 
 ### 2: Send stored raw UID2s to DSPs to create audiences or conversions
 
-Send the `advertising_id` (raw UID2) returned in Step 1-b to a DSP while building your audiences. Each DSP has a unique integration process for building audiences; follow the integration guidance provided by the DSP for sending raw UID2s to build an audience.
+Step 1-b で返された `advertising_id` (raw UID2) を、オーディエンスを構築しながら DSP に送信します。各 DSP はオーディエンスを構築するための独自のインテグレーションプロセスを持っています。raw UID2 を送信してオーディエンスを構築するには、DSP が提供するインテグレーションガイダンスに従ってください。
 
 ### 3: Monitor for salt bucket rotations related to your stored raw UID2s
-A raw UID2 is an identifier for a user at a specific moment in time. The raw UID2 for a specific user changes at least once per year, as a result of the salt rotation. 
+raw UID2 は、特定の時点のユーザーに対する識別子です。特定のユーザーの raw UID2 は、ソルトのローテーションの結果、少なくとも 1 年に 1 回は変化します。
 
-Even though each salt bucket is updated approximately once per year, individual bucket updates are spread over the year. Approximately 1/365th of all salt buckets are rotated daily.
+ソルトバケットの更新は 1 年に 1 回程度ですが、個々のバケットの更新は 1 年に分散しています。全ソルトバケットの約 1/365 を毎日ローテーションしています。
 
 :::important
-To ensure that your integration has the current raw UID2s, check salt bucket rotation for active users every day.
+あなたのインテグレーションが最新の raw UID2 を持っていることを確認するために、アクティブなユーザーのソルトバケットのローテーションを毎日チェックしてください。
 :::
 
 | Step | Endpoint | Description |
 | --- | --- | --- |
-| 3-a | [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) | Send a request to the bucket status endpoint for all salt buckets that have changed since a specific timestamp. |
-| 3-b | [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) | UID2 service: The bucket status endpoint returns a list of `bucket_id` and `last_updated` timestamps. |
-| 3-c | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) | Compare the returned `bucket_id` to the salt buckets of raw UID2s that you've cached.<br/>If you find that the salt bucket was updated for one or more raw UID2s, re-send the DII to the identity mapping service for a new raw UID2. |
-| 3-d | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) | Store the new values returned for `advertising_id` and `bucket_id`. |
+| 3-a  | [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) | 特定のタイムスタンプ以降に変更されたすべてのソルトバケットについて、バケットステータスエンドポイントにリクエストを送信します。 |
+| 3-b  | [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) | UID2 service: バケットステータスエンドポイントは `bucket_id` と `last_updated` のタイムスタンプのリストを返します。 |
+| 3-c  | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md)         | 返された`bucket_id`を、キャッシュしておいた raw UID2 のソルトバケットと比較します。<br/>1 つ以上の raw UID2 についてソルトバケットが更新されていることがわかったら、新しい raw UID2 について ID マッピングサービスに DII を再送信します。 |
+| 3-d  | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md)         | `advertising_id`と`bucket_id`に返された新しい値を保存します。 |
 
 ## Use an Incremental Process to Continuously Update Raw UID2s
 
-To keep your UID2-based audience information accurate and up to date, follow these integration steps every day:
+UID2 ベースのオーディエンス情報を正確かつ最新の状態に保つために、毎日以下のインテグレーション手順を実行してください:
 
-1. The response from the [UID2 retrieval step](#1-retrieve-a-raw-uid2-for-dii) contains mapping information. Cache the following:
-   - The mapping between DII (`identifier`), raw UID2 (`advertising_id`), and salt bucket (`bucket_id`).
-   - The most recent `last_updated` timestamp.
-2. Using the results from Step 3, [Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s), remap any raw UID2 for which the salt buckets have been rotated by retrieving new raw UID2 for those IDs, following Step 1, [Retrieve a raw UID2 for DII](#1-retrieve-a-raw-uid2-for-dii).
+1.  [UID2 retrieval step](#1-retrieve-a-raw-uid2-for-dii) のレスポンスにはマッピング情報が含まれています。以下をキャッシュします:
+   - DII (`identifier`) と raw UID2 (`advertising_id`) とソルトバケット (`bucket_id`) のマッピング。
+   - 最新の `last_updated` タイムスタンプ。
+2. Step 3の結果を使用して、[Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)、 Step1 の [Retrieve a raw UID2 for DII](#1-retrieve-a-raw-uid2-for-dii) に従って、ソルトバケットがローテーションされた ID の新しい raw UID2 を取得して、ソルトバケットの raw UID2 を再マッピングします。
 
-   Then, use the refreshed UID2s to update audiences or conversions, following Step 2, [send raw UID2 to a DSP](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions).
+   次に、Step 2 の[send raw UID2 to a DSP](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions) に従って、リフレッシュされた UID2 を使ってオーディエンスまたはコンバージョンを更新します。
 
 ## Check Opt-Out Status
 
-It's important to honor user opt-out status. Here are two ways you can check that you have the latest opt-out information:
+ユーザーのオプトアウトステータスを受け入れることは重要です。最新のオプトアウト情報を確認するために、次の 2 つの方法を使用できます:
 
-- The UID2 Operator Service distributes opt-out information to advertisers and data providers via the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.
+- UID2 Operator Service は、広告主やデータプロバイダーに、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを介してオプトアウト情報を配布します。
 
-- Advertisers and data providers can check the opt-out status of raw UID2s using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint.
+- 広告主やデータプロバイダーは、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、生の UID2 のオプトアウトステータスを確認できます。
 
 ## FAQs
 
-For a list of frequently asked questions for advertisers and data providers using the UID2 framework, see [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
+UID2 フレームワークを使用する広告主およびデータプロバイダー向けのよくある質問は、[FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。
