@@ -155,7 +155,7 @@ To check that the UID2 module has successfully generated a UID2 token, call `pbj
 If there are problems with the integration, here are some steps you can take:
 
 - Check the browser console logs.
-- Check the values for **Subscription ID** and **public key**:
+- Check the values for **Subscription ID** (**subscriptionId** value) and **public key** (**serverPublicKey** value):
   - Make sure they are exactly the same values that you received from the UID2 team.
   - Check that you have the correct values for the environment you're using. You'll have different **Subscription ID** and **public key** values for each [environment](../getting-started/gs-environments.md).
 - Check that you provided the domain name of the site to the UID2 team during account setup. If needed, to confirm, ask your UID2 contact.
