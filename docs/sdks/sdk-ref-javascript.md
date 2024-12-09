@@ -41,7 +41,7 @@ This SDK simplifies development for publishers who want to build their own custo
 
 ## Sample Implementation
 
-For example applications with associated documentation, see:
+For sample implementations with associated documentation, see:
   - The UID2 Google Secure Signals with SDK v3 example:
     - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
     - Running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
