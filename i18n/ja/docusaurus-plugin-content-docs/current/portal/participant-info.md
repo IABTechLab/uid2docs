@@ -13,7 +13,7 @@ UID2 Portal アカウントを申請するには、氏名や業種など、あ�
 
 UID2 Portal では、この情報の一部が表示されます。アクセス権がある場合は、情報が正しいか確認してください。
 
-ページにアクセスするには、UID2 Portal ユーザーインターフェースの右上にあるログイン ID が表示されている場所に移動します。下矢印をクリックし、**Participant Information** を選択します。
+ページにアクセスするには、UID2 Portal ユーザーインターフェースの右上にある名前が表示されている場所に移動します。下矢印をクリックし、**Participant Information** を選択します。
 
 例については [UID2 Portal Structure](portal-overview.md#uid2-portal-structure) を参照してください。
 

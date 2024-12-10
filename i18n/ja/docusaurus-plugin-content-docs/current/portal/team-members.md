@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # Team Members
 
-UID2 Portal の **Team Members** ページでは、以下のようなアカウントへのアクセスを許可する個人の設定に関する操作を実行できます:
+UID2 Portal の **Team Members** ページでは、管理者は、以下のようなアカウントへのアクセスを許可する個人の設定に関する操作を実行できます:
 
 - [Add a Team Member](#add-a-team-member)
 - [Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member) 
@@ -18,17 +18,17 @@ UID2 Portal の **Team Members** ページでは、以下のようなアカウ�
 
 ## Accessing the Team Members Page
 
-Team Members ページにアクセスするには、UID2 Portal ユーザーインターフェースの右上にあるログイン ID が表示されている場所に移動します。下矢印をクリックし、**Manage Team Members** を選択します。
+Team Members ページにアクセスするには、UID2 Portal ユーザーインターフェースの右上にある名前が表示されている場所に移動します。下矢印をクリックし、**Manage Team Members** を選択します。
 
 例については [UID2 Portal Structure](portal-overview.md#uid2-portal-structure) を参照してください。
 
-## Team Member Rights and Responsibilities
+## User Roles
 
-各 **Team Member** はアカウントの管理者となり、以下のようなチームやアカウントの管理に関する設定を行うことができます:
+各チームメンバーには、Admin または Operations のいずれかのユーザー権限があります。Admin ユーザーは、UID2 参加に関連するすべてのアクティビティを実行できます。概要は [UID2 Portal Overview](portal-overview.md) にまとめられています。
 
-- チームメンバーの追加、変更、削除: [Add a Team Member](#add-a-team-member) を参照してください。
-- メール連絡先の追加、変更、削除: [Email Contacts](email-contacts.md) を参照してください。
-- 共有関係と共有設定の追加と削除: [Sharing Permissions](sharing-permissions.md) を参照してください。
+Operations ユーザーは、Admin ユーザーと同じアクティビティを実行できますが、チームメンバーを追加、変更、削除することはできません。代わりに、**Manage Team Members** ページに対して読み取り専用アクセス権があります。
+
+ユーザー権限は、Admin 権限を持つユーザーによってのみ変更できます。詳細は [Edit Information for a Team Member](#edit-information-for-a-team-member) を参照してください。
 
 ## Add a Team Member
 
@@ -37,10 +37,14 @@ Team Members ページにアクセスするには、UID2 Portal ユーザーイ�
 1. UID2 Portal アカウントにログインします。
 1. 右上の下矢印をクリックし、**Manage Team Members** を選択します。
 1. **Add Team Member** をクリックします。
-1. 姓、名、メールアドレス、職能を入力します。
+1. 姓、名、メールアドレス、職能、役割を入力します。
 1. **Save Team Member** をクリックします。
 
    チームメンバーがリストに追加され、ステータスが保留になり、招待メールが招待者に送信されます。
+
+:::note
+チームメンバーは、複数の参加者に追加できます。複数の参加者に所属するチームメンバーは、[UID2 Portal Structure](portal-overview.md#uid2-portal-structure) に示されているように、参加者間を切り替えることができます。
+:::
 
 ## Resend an Invitation to a Team Member
 
@@ -56,7 +60,7 @@ Team Members ページにアクセスするには、UID2 Portal ユーザーイ�
 
 ## Edit Information for a Team Member
 
-値を更新することができます: 名、姓、メール、または職能。
+Admin ユーザーは、名前、姓、Eメール、職務、役割のいずれの値も更新できます。
 
 チームメンバーの情報を編集するには、以下の手順を実行します:
 
