@@ -104,7 +104,7 @@ UID2 とインテグレーションする広告主やデータプロバイダー
 
 ## DSP Integrations
 
-The following resources are available for DSPs integrating with UID2.
+DSP とインテグレーションする DSP は、以下のリソースを利用できます。
 
 | Integration Guide | Content Description |
 | :--- | :--- |
@@ -113,7 +113,7 @@ The following resources are available for DSPs integrating with UID2.
 
 ## Private Operator Service Integrations
 
-Private Operator のインテグレーションは、以下のリソースを利用できます。
+<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> のインテグレーションは、以下のリソースを利用できます。
 
 | Integration Guide | Content Description |
 | :--- | :--- |

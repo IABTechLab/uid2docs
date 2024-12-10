@@ -12,7 +12,7 @@ import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
-このガイドでは、Microsoft Azure の機密コンピューティングオプションである [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers) のインスタンスで UID2 Operator Service を設定する方法について説明します。Confidential Containers のインスタンスは、データの整合性、データの機密性、コードの整合性などの固有の機能を提供するハードウェアで保護された Trusted Execution Environment (TEE) で実行されます。
+UID2 Operator は、UID2 エコシステムにおける API サーバーです。このガイドでは、Microsoft Azure の機密コンピューティングオプションである [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers) のインスタンスで <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> として UID2 Operator Service を設定する方法について説明します。Confidential Containers のインスタンスは、データの整合性、データの機密性、コードの整合性などの固有の機能を提供するハードウェアで保護された Trusted Execution Environment (TEE) で実行されます。
 
 UID2 Operator Confidential Containers インスタンスの Docker コンテナが起動すると、UID2 Core Service は Operator Service と Operator Service が実行されているエンクレーブ環境の信頼性を検証ための認証プロセスを完了します。
 
@@ -267,7 +267,7 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
    ```
 
 :::tip
-コンテナを更新しても、Azure バックエンドプールは新しいコンテナの IP アドレスで自動的に更新されません。解決策については、Azure ドキュメントの [Automate infrastructure reconfiguration by using Azure](https://learn.microsoft.com/en-us/azure/architecture/web-apps/guides/networking/automation-application-gateway) を参照してください。
+コンテナを更新しても、Azure バックエンドプールは新しいコンテナの IP アドレスで自動的に更新されません。ソリューションについては、Azure ドキュメントの [Automate infrastructure reconfiguration by using Azure](https://learn.microsoft.com/en-us/azure/architecture/web-apps/guides/networking/automation-application-gateway) を参照してください。
 :::
 
 :::caution

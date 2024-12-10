@@ -9,13 +9,9 @@ import Link from '@docusaurus/Link';
 
 # SDK for iOS Reference Guide
 
-SDK for iOS は、以下の用途に使用できます:
+iOS SDK を使用すると、UID2 を使用したクライアント ID の生成または確立、<Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> 用の Advertising Token の取得、および UID2 Token の自動リフレッシュを容易に行うことができます。
 
-- UID2 を使用して iOS アプリでクライアント ID を生成または確立します。
-- <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>様に Advertising Token を取得します。
-- UID2 Token の自動リフレッシュ。
-
-以下のiOS関連プラグインと関連ドキュメントも利用できます:
+以下の iOS 関連プラグインと関連ドキュメントも利用可能です。
 
 | Purpose | Product/Documentation |
 | :--- | :--- |
@@ -44,9 +40,9 @@ SDKが提供する特定の機能を使用する許可が与えられ、その�
 
 ## SDK Version
 
-<!-- As of 7 May 2024 -->
+<!-- As of 22 Oct 2024 -->
 
-このドキュメントは、iOS 用 UID2 SDK のバージョン 1.2.0 以降に対応しています。
+このドキュメントは、iOS 用 UID2 SDK のバージョン 1.7.0 以降に対応しています。
 
 リリースノートの情報については、[https://github.com/IABTechLab/uid2-ios-sdk/releases](https://github.com/IABTechLab/uid2-ios-sdk/releases) を参照してください。
 
@@ -60,10 +56,10 @@ SDKが提供する特定の機能を使用する許可が与えられ、その�
 
 この SDK の最小要件は以下の通りです:
 
-- Xcode version: 15.0+
-- iOS	minimum target version: 13.0+
-- tvOS minimum target version: 13.0+
-- Swift version: 5.0+
+- Xcode バージョン: 15.0+
+- iOS	最低対象バージョン: 13.0+
+- tvOS 最低対象バージョン: 13.0+
+- Swift バージョン: 5.0+
 
 <!-- See also: [Requirements](https://github.com/IABTechLab/uid2-ios-sdk/blob/main/README.md#requirements). -->
 
@@ -98,7 +94,7 @@ dependencies: [
 `Podfile` に次のエントリを追加します:
 
 ```
-pod 'UID2', '~> 1.2'
+pod 'UID2', '~> 1.7'
 ```
 
 ## Usage Guidelines

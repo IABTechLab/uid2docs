@@ -17,7 +17,7 @@ UID2 Google Mobile Ads (GMA) Plugin for Android は、[Google Mobile Ads (GMA) S
 
 ## Version
 
-<!-- As of 2023-07-15 -->
+<!-- As of 2024-10-23 -->
 
 このドキュメントは、UID2 GMA Plugin for Android バージョン 1.6.0 以降用です。
 

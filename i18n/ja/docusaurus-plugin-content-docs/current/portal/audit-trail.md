@@ -1,6 +1,6 @@
 ---
 title: Audit Trail
-description: View a detailed log of past actions performed in the UID2 Portal.
+description: UID2 Portal で過去に実行されたアクションの詳細なログを表示します。
 hide_table_of_contents: false
 sidebar_position: 09
 ---
@@ -9,21 +9,21 @@ import Link from '@docusaurus/Link';
 
 # Audit Trail
 
-In the UID2 Portal, users who have the Admin role (see [User Roles](team-members.md#user-roles)) can access the **Audit Trail** page to view a detailed log of all past actions performed by or on behalf of the current <Link href="../ref-info/glossary-uid#gl-sharing-participant">participant</Link>.
+UID2 Portal では、Admin 権限を持つユーザー（[User Roles](team-members.md#user-roles) を参照）は、**Audit Trail** ページにアクセスして、現在の <Link href="../ref-info/glossary-uid#gl-sharing-participant">参加者</Link> によって実行された過去のすべてのアクションの詳細なログを表示できます。
 
-The Audit Trail log displays the types of information summarized in the following table.
+Audit Trail ログには、以下の表にまとめられた情報が表示されます。
 
 | Column | Details |
 | :--- | :--- | 
-| Date | Date/time that the action occurred. |
-| User | The user who performed the action. |
-| Event | The action performed. For a summary of possible values, see [Audit Trail Event Types](#audit-trail-event-types). |
-| Event Data | Details about the action. |
-| Succeeded | Indicates whether or not the action was successful. |
+| Date | アクションが発生した日時。 |
+| User | アクションを実行したユーザー。 |
+| Event | 実行したアクションの詳細。 有効な値の概要については、[Audit Trail Event Types](#audit-trail-event-types) を参照してください。 |
+| Event Data | アクションの詳細。 |
+| Succeeded | アクションが成功したかどうか。 |
 
 ## Audit Trail Event Types
 
-The audit trail log reports the following types of activity, listed in the Event column:
+Audit trail ログは、以下のアクティビティの種類を報告します。Event 列にリストされています:
 
 - Approve Account
 - Manage API Key

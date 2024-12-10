@@ -13,7 +13,7 @@ import Link from '@docusaurus/Link';
 
 このガイドでは、ユーザーデータを収集し、DSP にプッシュする組織のためのインテグレーション手順について説明します。データコレクターには、広告主、データオンボーダー、測定プロバイダー、ID グラフプロバイダー、サードパーティデータプロバイダー、および DSP にデータを送信する他の組織が含まれます。
 
-Snowflake Data Marketplace でホストされる Open Operator Service を使用する場合は、[Snowflake Integration Guide](../guides/snowflake_integration.md) も参照してください。
+Snowflake Data Marketplace でホストされる Public Operator Service を使用する場合は、[Snowflake Integration Guide](../guides/snowflake_integration.md) も参照してください。
 
 ## Advertiser/Data Provider Routes to Use UID2
 
@@ -102,7 +102,7 @@ UID2 ベースのオーディエンス情報を正確かつ最新の状態に保
 
 ユーザーのオプトアウトステータスを受け入れることは重要です。最新のオプトアウト情報を確認するために、次の 2 つの方法を使用できます:
 
-- UID2 Operator Service は、広告主やデータプロバイダーに、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを介してオプトアウト情報を配布します。
+- UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> は、広告主やデータプロバイダーに、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを介してオプトアウト情報を配布します。
 
 - 広告主やデータプロバイダーは、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、生の UID2 のオプトアウトステータスを確認できます。
 

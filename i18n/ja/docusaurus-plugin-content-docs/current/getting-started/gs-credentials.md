@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Credentials
 
-UID2 <a href="/docs/intro#participants">参加者</a>はそれぞれ、固有の認証情報のセットを取得します。取得する認証情報のセットは、次の表に示すように、UID2 にどのように参加しているかによって決まります。
+UID2 <a href="../intro#participants">参加者</a>はそれぞれ、固有の認証情報のセットを取得します。取得する認証情報のセットは、次の表に示すように、UID2 にどのように参加しているかによって決まります。
 
 | Audience | Credentials | Integration |
 | :--- | :--- | :--- |

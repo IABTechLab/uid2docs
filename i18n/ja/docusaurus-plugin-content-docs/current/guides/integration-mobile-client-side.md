@@ -11,10 +11,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
+import ExampleAdvertisingToken from '/docs/snippets/_example-advertising-token.mdx';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
-import ExampleAdvertisingToken from '/docs/snippets/_example-advertising-token.mdx';
-
+import ErrorResponseStates from '/docs/snippets/_mobile-docs-error-response-states.mdx';
 
 # UID2 Client-Side Integration Guide for Mobile
 
@@ -49,10 +49,10 @@ UID2 を Client-Side でインテグレーションするには、以下の手�
 
 ## Mobile SDK Version
 
-このガイドは、次のいずれかの UID2 mobile SDK のバージョン 1.2.0 以上を使用する方法について説明します:
+このガイドは、次のいずれかの UID2 mobile SDK を使用する方法について説明します:
 
-- SDK for Android
-- SDK for iOS
+- SDK for Android (version 1.6.0 以降)
+- SDK for iOS (version 1.7.0 以降)
 
 正しい SDK/バージョンをモバイルアプリにインストールする手順については、[Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app) を参照してください。
 
@@ -67,6 +67,7 @@ Android または iOS 向けの適用可能な手順に従ってください:
 
 1. [SDK for Android source code repository on GitHub](https://github.com/IABTechLab/uid2-android-sdk/tree/main) の main ブランチをチェックアウトします。
 1. Android Studio (Jellyfish/v2023.3.1 または SDK for Android リリース時に必要な Android Gradle Plugin バージョンをサポートする将来のバージョン) で、チェックアウトしたディレクトリを開きます。
+1. [AndroidManifest.xml](https://github.com/IABTechLab/uid2-android-sdk/blob/main/dev-app/src/main/AndroidManifest.xml) で、`uid2_environment_euid` を `false` に設定します。
 1. **dev-app** アプリを実行します。
 1. アプリを起動したら、**Client Side** チェックボックスがチェックされていることを確認します。
 1. メールアドレスまたは電話番号を入力し、右側の矢印をクリックします。
@@ -79,6 +80,14 @@ Android または iOS 向けの適用可能な手順に従ってください:
 
    ```js
    Development/UID2SDKDevelopmentApp/UID2SDKDevelopmentApp.xcodeproj
+   ```
+1. Xcode のエディタで、`Development/UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist` の `UID2EnvironmentEUID` キーを `NO` に設定します。または、コマンドラインから `plutil` を使用できます:
+   ```console
+   plutil -replace UID2EnvironmentEUID -bool NO Development/UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist
+   ```
+   EUID 環境を使うには、
+   ```console
+   plutil -replace UID2EnvironmentEUID -bool YES Development/UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist
    ```
 1. **UID2SDKDevelopmentApp** アプリのスキームを実行します。
 1. アプリを起動したら、**Client Side** チェックボックスがチェックされていることを確認します。
@@ -707,7 +716,6 @@ If the response status indicates that the DII has been opted out of UID2, you mi
 
 <GMAIMA_Plugins />
 
-
 ## Optional: UID2 Prebid Mobile SDK Integration
 
 :::important
@@ -715,3 +723,7 @@ UID2 Prebid Mobile SDK インテグレーションは、UID2 SDK for Android ver
 :::
 
 <PrebidMobileSDK />
+
+## Error Response States
+
+<ErrorResponseStates />

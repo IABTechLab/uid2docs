@@ -20,6 +20,7 @@ UID2 フレームワークに関するよくある質問を紹介します。
 - [ユーザーは、自分の UID2 ID に基づいたターゲティング広告をオプトアウトできますか？](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2)
 - [UID2 に DII を送信すると、UID2 はその情報を保存しますか？](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
 - [UID2 は HIPAA で規制されているデータの処理を許可しますか？](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
+- [パブリックオペレーターとプライベートオペレーターのどちらを使用すべきですか？](#should-i-use-a-public-operator-or-a-private-operator)
 
 :::note
 モバイルパブリッシャーインテグレーションに関する FAQs については、[FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations) を参照してください。
@@ -33,7 +34,7 @@ EUID インフラのすべてのインテグレーションパートナー(SSP�
 #### Can users opt out of targeted advertising tied to their UID2?
 ユーザーは、自分の UID2 ID に基づいたターゲティング広告をオプトアウトできますか？
 
-はい。[Transparency and Control Portal](https://www.transparentadvertising.com/) を通して、ユーザーは自分の UID2 ID に関連するターゲティング広告の配信をオプトアウトできます。各リクエストは、UID2 Opt-Opt Service と UID2 Operator を通じて配信され、UID2 Operator はオプトアウト情報を関連するすべての参加者に公開します。
+はい。[Transparency and Control Portal](https://www.transparentadvertising.com/) を通して、ユーザーは自分の UID2 に関連するターゲティング広告の配信をオプトアウトできます。各リクエストは、UID2 Opt-Opt Service と UID2 Operator を通じて配信され、UID2 Operator はオプトアウト情報を関連するすべての参加者に公開します。
 
 #### When I send DII to UID2, does UID2 store the information?
 UID2 に DII を送信すると、UID2 はその情報を保存しますか？
@@ -46,6 +47,17 @@ UID2 に DII を送信すると、UID2 はその情報を保存しますか？
 UID2 は HIPAA で規制されているデータの処理を許可しますか？
 
 いいえ。UID2 の参加者は、HIPAA (Health Insurance Portability and Accountability Act of 1996;医療保険の携行性と責任に関する法律) で定義されている、保護対象保険情報 (PHI: Protected Health Information) から UID2 を生成してはなりません。
+
+#### Should I use a Public Operator or a Private Operator?
+パブリックオペレーターとプライベートオペレーターのどちらを使用すべきですか？
+
+ほとんどの参加者にとって、<Link href="../ref-info/glossary-uid#gl-public-operator">Public Operator</Link> が最もシンプルなソリューションです。Public Operator のインテグレーションは、独自の <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> をホストするよりも簡単なオプションです。Private Operator インスタンスを持つことにはいくつかの利点がありますが、追加の複雑さとコストがかかります。
+
+最適な選択肢は、自身の状況やニーズによって異なります。決定に役立つ情報については、以下を参照してください:
+
+1. [The UID2 Operator](../ref-info/ref-operators-public-private.md)
+
+1. [UID2 Private Operator Integration Overview](../guides/integration-options-private-operator.md)
 
 ## FAQs for Publishers
 
@@ -100,7 +112,7 @@ Client-Side からトークンのリフレッシュを呼び出すことはで�
 
 リフレッシュのタイミングを決定するには、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントのレスポンスの `refresh_from` フィールドのタイムスタンプを使用します(詳細は [Successful Response](../endpoints/post-token-generate.md#successful-response) を参照してください)。または、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントのレスポンスの `refresh_from` フィールドのタイムスタンプを使用します(詳細は [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens) を参照してください)。
 
-トークンのリフレッシュが必要かどうかを確認する機能を持つ SDK のいずれかを使用することもできます。
+<a href="../ref-info/glossary-uid#gl-token-refresh">Token Refresh</a>が必要かどうかを確認する機能を持つ SDK のいずれかを使用することもできます。
 
 詳細は、[Recommended Token Refresh Frequency](../ref-info/ref-tokens.md#recommended-token-refresh-frequency) および [Managing Token Refresh with an SDK](../ref-info/ref-tokens.md#managing-token-refresh-with-an-sdk) を参照してください。
 
@@ -158,7 +170,7 @@ UID2 フレームワークを使用する広告主やデータプロバイダー
 #### How do I know when to refresh the UID2 due to salt bucket rotation?
 ソルトバケットのローテーションによって UID2 をリフレッシュするタイミングを知るには？
 
-UID2 生成リクエストで提供されるメタデータには、UID2 の生成に使用されるソルトバケットが含まれます。ソルトバケットは持続し、UID2 の生成に使用された基礎的な DII に対応します。指定されたタイムスタンプ以降にローテーションしたソルトバケットを得るには、[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントを使用します。返されたローテーションしたソルトバケットは、どの UID2 をリフレッシュすべきかを教えてくれます。
+UID2 生成リクエストで提供されるメタデータには、UID2 の生成に使用される <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> が含まれます。ソルトバケットは持続し、UID2 の生成に使用された基礎となる DII に対応します。指定されたタイムスタンプ以降にローテーションしたソルトバケットを得るには、[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントを使用します。返されたローテーションしたソルトバケットは、どの UID2 をリフレッシュすべきかを教えてくれます。
 
 :::note
 ローテーションがいつ行われるかについては、いかなる約束もいたしません。可能な限り最新の状態を保つため、1 時間に 1 回のチェックを勧めます。
@@ -190,8 +202,8 @@ UID2 生成リクエストで提供されるメタデータには、UID2 の生�
 
 はい。何百万ものメールアドレスや電話番号をマッピングする必要がある場合、マッピングを保存しないことで処理時間が大幅に増加する可能性があります。しかし、実際に更新が必要なマッピングだけを再計算すると、毎日更新する必要があるのは UID2 の約 365 分の 1 なので、総処理時間が短縮されます。
 
-:::info
-Private Operator を使用している場合を除き、メールアドレス、電話番号、ハッシュのマッピングは、単一の HTTP 接続を使用して、一度に 5,000件 ずつ連続して行う必要があります。言い換えれば、複数の並列接続を作成せずにマッピングを行うことです。
+:::important
+<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を使用していない場合は、単一の HTTP 接続を使用して、バッチあたり最大 5,000 アイテムのバッチサイズで、メールアドレス、電話番号、またはハッシュを連続してマッピングする必要があります。つまり、複数の並行接続を作成せずにマッピングを行ってください。
 :::
 
 #### How should I handle user opt-outs?
@@ -217,7 +229,7 @@ Private Operator を使用している場合を除き、メールアドレス、
 
 はい、リクエストが <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link> に対するものである場合は、同じです。前の FAQ で説明したように、[同じ DII は常に同じ raw UID2 になりますか？](#does-the-same-dii-always-result-in-the-same-raw-uid2)、広告主やデータプロバイダーが同時に同じ DII を UID2 Operator に送信する場合、SDK または [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを使用して、同じ raw UID2 が生成されます。
 
-Operator に関係なく、また、Private Operator と Public Operator のどちらであっても、結果は同じです。
+<Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> に関係なく、また、Private Operator と Public Operator のどちらであっても、結果は同じです。
 
 タイミングが重要なのは、ソルトバケットのローテーションのためです。リクエスト間でソルト値が変化すると、結果は異なる raw UID2 になります。
 
