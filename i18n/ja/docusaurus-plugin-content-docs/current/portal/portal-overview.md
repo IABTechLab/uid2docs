@@ -21,6 +21,8 @@ UID2 Portal は、UID2 アカウントを設定・構成するためのワンス
 | 個々の共有参加者または共有参加者のグループの権限を構成します。<br/>NOTE: 共有の使用には API Key ([API Keys](api-keys.md) を参照してください) または Client-Side キーペア ([Client-Side Integration](client-side-integration.md) を参照してください) が必要です。共有権限を設定する前にこれらの値を構成してください。 | [Sharing Permissions](sharing-permissions.md) |
 | アカウントを管理する権限を持つチームメンバーを追加します。 | [Team Members](team-members.md) |
 | ニュースやアップデートを通知する指定メール連絡先を設定します。 | [Email Contacts](email-contacts.md) |
+| 現在の参加者、またはその代理人によって実行された過去のすべてのアクションの詳細なログを表示します。 | [Audit Trail](audit-trail.md) |
+| Portal から指示があった場合は、パスワードを変更してください。 | [Password Change Requirement](portal-getting-started.md#password-change-requirement) |
 
 ## Access the UID2 Portal
 
@@ -30,29 +32,46 @@ Portal にアクセスするには、UID2 の担当者にアカウントを作�
 
 ### UID2 Portal Structure
 
-UID2 Portal は、ナビゲーションが簡単になるように構造化されています。
+UID2 Portal はナビゲーションが簡単になるように構造化されています。
 
-ページへのアクセス方法は、次の画像に示すように、2つの主要な方法があります:
+ページにアクセスするための 2 つの主要な方法が次の画像に示されています:
 
 ![UID2 Portal Structure](images/portal-uid2-overview.png)
 
-左のサイドバーから、アカウントの構成に関連する以下のページにアクセスできます:
+左サイドバーの上部に、現在の参加者の名前が表示されます。アカウントが複数の参加者にアクセスできる場合、アクセスできる参加者のドロップダウンリストが表示されます。これを使用して、参加者間を切り替えることができます。
+
+:::important
+UID2 Portal で実行する操作（チームメンバーの追加、ドメイン、API キーの追加など）は、左側に表示されている現在の参加者のコンテキストで行われます。複数の参加者にアクセスできる場合は、正しいコンテキストで操作を実行してください。詳細については、[Participant Switcher](#participant-switcher) を参照してください。
+:::
+
+左サイドバーをスクロールすると、アカウントの構成に関連する以下のページにアクセスできます:
 
 - Home: ホームページへのリンク、常に表示されます。
 - [Sharing Permissions](sharing-permissions.md)
 - [API Keys](api-keys.md)
 - [Client-Side Integration](client-side-integration.md)
 
-右上のリンクから、個人のアカウント設定と日々のアクティビティにアクセスできます。Gravatar 画像を設定している場合 ([https://gravatar.com/](https://gravatar.com/) を参照してください)、画像が表示されます。Gravatar 画像が設定されていない場合、デフォルト画像が表示されます。
+左のサイドバーの上部に名前が表示されます。
 
-ここから個人のアカウント設定と日々のアクティビティに関する以下のページにアクセスできます:
+ここから、個人のアカウント設定と日常のアクティビティに関連する以下のページにアクセスできます:
 
 - [Participant Information](participant-info.md)
 - [Manage Team Members](team-members.md)
 - [Email Contacts](email-contacts.md)
-- Dark Mode: toggles dark mode on and off
+- [Audit Trail](audit-trail.md) (Admin ユーザーのみ)
+- Dark Mode: Dark モードをオンまたはオフに切り替えます。Dark モードの設定は、次回のセッションに適用されます。
 - [Log Out](portal-getting-started.md#log-out)
 
 ## Set Up Your Account
 
-アカウントを設定するには、[Getting Started with the UID2 Portal](portal-getting-started.md) を参照してください。
+アカウントの設定については、[Getting Started with the UID2 Portal](portal-getting-started.md) を参照してください。
+
+## Participant Switcher
+
+ほとんどの場合、各ユーザーは 1 つの UID2 共有参加者のデータにアクセスできます。ただし、個々のユーザーが複数の参加者のチームに所属している場合があります。この場合、ユーザーは参加者間を切り替えることができます。
+
+現在の参加者は、左サイドバーの上部に表示されます。現在のユーザーが複数の参加者のチームに所属している場合、矢印が表示され、ユーザーは正しい参加者のコンテキストで操作を実行するために参加者間を切り替えることができます。
+
+図については、[UID2 Portal Structure](#uid2-portal-structure) を参照してください。
+
+ユーザーがログアウトすると、最新の参加者の選択が保存され、次回ユーザーがログインすると適用されます。

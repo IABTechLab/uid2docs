@@ -38,7 +38,7 @@ UID2 フレームワークは、以下の技術原則に基づいて構築され
 
 - **Distributed integration**: 複数の認証済みインテグレーションパスにより、パブリッシャー、広告主、サードパーティデータプロバイダーが UID2 Token を管理および交換するためのオプションが提供されます。
 
-- **Decentralized storage**: このフレームワークでは、個人データのマッピングを一元的に保管することはありません。すべての参加者が自分自身のデータのみを管理します。
+- **Decentralized storage**: このフレームワークでは、個人に関するデータ (<Link href="ref-info/glossary-uid#gl-dii">DII</Link>) のマッピングを一元的に保管することはありません。すべての参加者が自分自身のデータのみを管理します。
 
 - **Lean infrastructure**: UID2 システムは軽量で安価に運用できます。
 
@@ -61,7 +61,7 @@ UID2 は、メールアドレスや電話番号など、<Link href="ref-info/glo
 
 | ID Type | Shared in Bidstream? | Description |
 | :--- | :--- | :--- |
-| **Raw UID2** | No | ハッシュ化またはハッシュ化されていないメールアドレスや電話番号などのユーザーの検証可能な個人のデータを入力として、UID2 API または SDK を通じて作成された暗号化されていない英数字の識別子です。<br/>元の個人のデータの再識別を防ぐために、入力値がまだハッシュ化されていない場合はハッシュ化し、ソルト化された後、Raw UID2 を作成するために再度ハッシュ化されます。Raw UID2 を作成するプロセスは、広告主、サードパーティデータ プロバイダー、デマンドサイド プラットフォーム (DSP) が保存できる安全で不透明な値を作成するように設計されています。<br/>raw UID2 では大文字と小文字が区別されます。<br/>例: 架空のメールアドレス `user@example.com` の raw UID2 をリクエストすると、次の値が返されました: `E2dxEv3oMBzNHPw5iUVmwH2Hv+60D4AXYe+2ge9U0No=` |
+| **Raw UID2** | No | UID2 API または SDK を使用して作成された、暗号化されていない英数字の識別子。ユーザーの検証可能な個人情報(ハッシュ化またはハッシュ化されていないメールアドレスや電話番号など)を入力する。データが漏洩しないように、入力値はハッシュ化されていない場合はハッシュ化され、その後、シークレットの<Link href="ref-info/glossary-uid#gl-salt">ソルト</Link> 値を使用して再度ハッシュ化され、raw UID2 が作成されます。raw UID2を作成するプロセスは、広告主、第三者データプロバイダー、およびデマンドサイドプラットフォーム（DSP）が保存できる安全で不可視の値を作成するように設計されています。<br/>raw UID2 は大文字と小文字を区別します。<br/>例: 架空のメールアドレス `user@example.com` の raw UID2 をリクエストした結果、次の値が得られました: `E2dxEv3oMBzNHPw5iUVmwH2Hv+60D4AXYe+2ge9U0No=` |
 | **UID2 Token (Advertising Token)** | Yes | Raw UID2 を暗号化したものです。UID2 Token は、ハッシュ化またはハッシュ化されていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、ビッドストリームでの保護を確実にするために暗号化されます。<br/>UID2 Token は、パブリッシャーやパブリッシャーサービスプロバイダーが使用するように設計されています。サプライサイドプラットフォーム(SSP)は<Link href="ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>で UID2 Token を渡し、DSP はビッドリクエスト時にそれを復号化します。<br/>UID2 Token は大文字と小文字を区別します。<br/>例：`user@example.com`という架空のメールアドレスの UID2 Token をリクエストした結果、次のような値が得られました：  `AAAABrexFHvQVhNJqu+y/ua7rsgShF8e9NUXUJOZFmeFRD8TAsJadaLfOlLkwC5iSxcOKWFD9YwMBzbbcPa92CInba+bcPTaAFNmM2ZpIHgGy6lDcNPzvEnPQh/5fyZ3MD44SX/tHyIXa0R2OBAOLBA1A81r3jefhSsxZdyyBF58KtnaX6UbaeOEaguOfMnJdmhaPeWKj33v7vGfROWtxDWmi6wvGL5lHTX9H6iIZ9i1WSsemYPUgmoDOQeT7nzllJK968OECFj5LkCazDN3pCrYSeuJby9o0fMuSZNxzp6EVzi6XVED4ETtzpcaY0AArzzdh0IXV9MgH8jyg7bJSUWXQG+8kMPZzwbs9EB+7ddAUOLZL/GBna8Hm3Im03EjN3sJ` |
 
 :::note
@@ -75,7 +75,7 @@ UID2 フレームワークは以下のコンポーネントで構成されてお
 | Component | Description |
 | :--- | :--- |
 | **Core Service** |<a href="ref-info/glossary-uid#gl-salt">salts</a>、<a href="ref-info/glossary-uid#gl-encryption-key">暗号化キー</a>、および UID2 エコシステムの他の関連データへのアクセスを管理する一元的なサービスです。 |
-| **Operator Service** | UID2 Core Service からの暗号鍵とソルトの管理・保管、ユーザーの個人情報のハッシュ化、raw UID2 の暗号化、UID2 Token の復号を可能にするサービスです。<br/>Open Operator は、オペレーターサービスのパブリックインスタンスを実行し、関連するすべての UID2 参加者が利用できるようにします。また、オペレーターサービスのプライベートなインスタンスを自分たちだけのために実行する Closed Operator も存在します。どのインスタンスも、誰がサービスを運営するかに関わらず、重要な UID2 データを安全に保ち、相互運用できるように保護設計されています。 |
+| **Operator Service** | UID2 Core Service からの暗号鍵とソルトの管理・保管、ユーザーの個人情報のハッシュ化、raw UID2 の暗号化、UID2 Token の復号を可能にするサービスです。<br/><Link href="ref-info/glossary-uid#gl-public-operator">Public Operators</Link> は、<Link href="ref-info/glossary-uid#gl-operator-service">Operator Service</Link> のパブリックインスタンスを実行し、関連するすべての UID2 参加者が利用できるようにします。また、オペレーターサービスのプライベートなインスタンスを自分たちだけのために実行する <Link href="ref-info/glossary-uid#gl-private-operator">Private Operators</Link> も存在します。どのインスタンスも、誰がサービスを運営するかに関わらず、重要な UID2 データを安全に保ち、相互運用できるように保護設計されています。 |
 | **Opt-Out Service** | ユーザーのオプトアウトリクエストを管理・保存し、パブリッシャー、オペレーターのサービスインスタンス、DSP に配信するグローバルサービスです。 |
 | **Transparency and Control Portal** | ユーザー向けウェブサイト [https://www.transparentadvertising.com/](https://www.transparentadvertising.com/) では、消費者がいつでも UID2 からの脱退を選択できるようになっています。 |
 
@@ -88,7 +88,7 @@ UID2 は透明で相互運用可能なアプローチにより、広告エコシ
 | Participant | Role Description |
 | :--- | :--- |
 | **Core Administrator** | UID2 Core Service およびその他の [コンポーネント](#components) を管理する組織 (現在は The Trade Desk)。例えば、UID2 Operator に暗号キーとソルトを配布し、Operator や DSP にユーザーのオプトアウトリクエストを送ります。 |
-| **Operators** | Operator Service を実行する組織 (UID2 API 経由)。オペレーターは、UID2 Core Service から暗号化キーとソルトを受け取って保管し、個人のデータをソルトおよびハッシュ化して raw UID2 を返し、raw UID2 を暗号化して UID2 Token を生成し、UID2 Token の復号キーを配布します。<br/>Open Operator は、Operator Service のパブリックインスタンスを実行します。たとえば、The Trade Desk は現在、UID2 Framework の Open Operator として機能しており、すべての参加者が利用できます。<br/>参加者は誰でも、UID2 を生成および管理する Private Operator になることもできます。 |
+| **Operators** | <Link href="ref-info/glossary-uid#gl-operator-service">Operator Service</Link> (UID2 API 経由で) を実行する組織。オペレーターは、定期的に UID2 Core Service から最新の暗号化キーとソルトを受け取り、<Link href="ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> をソルトおよびハッシュ化して raw UID2 を返し、raw UID2 を暗号化して UID2 Token を生成し、UID2 Token の復号キーを配布します。<br/>Public Operator (Open Operator) は、Operator Service のパブリックインスタンスを実行します。例えば、The Trade Desk は現在、UID2 Framework の Public Operator として機能しており、すべての参加者が利用できます。他の Public Operator が利用可能な場合、参加者はどのオペレーターと連携するかを選択できます。<br/>参加者は誰でも、UID2 を生成および管理する Private Operator になることもできます。 |
 | **DSPs**  | DSP は UID2 システムとインテグレーションして、広告主から (ファーストパーティデータとして)、またサードパーティデータプロバイダーから (サードパーティデータとして)UID2 を受け取り、それらを活用してビッドストリーム中の UID2 に対する入札情報を提供します。 |
 | **Data Providers** | ユーザーデータを収集し、それを他の UID2 参加者&#8212;例えば、広告主、ID グラフプロバイダー、サードパーティデータプロバイダー&#8212;にプッシュする組織。 |
 | **Advertisers** | さまざまなパブリッシャーサイトでインプレッションを購入し、DSP を使用して、購入する広告インプレッションとその入札価格を決定している組織です。 |

@@ -42,7 +42,7 @@ SDK for JavaScript を使って UID2 とインテグレーションするため�
 
 ## Refreshing the UID2 Token
 
-SDK for JavaScript には、トークンの自動リフレッシュ機能があります。
+SDK for JavaScript には、自動の <a href="../ref-info/glossary-uid#gl-token-refresh">Token Refresh</a> 機能があります。
 
 ## Storing the UID2 Token in the Browser
 <!-- GWH check corresponding (not identical) section in integration-prebid.md, integration-prebid-client-side.md, integration-prebid-client-side.md, for consistency -->

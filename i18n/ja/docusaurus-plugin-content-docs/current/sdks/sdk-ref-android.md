@@ -9,13 +9,9 @@ import Link from '@docusaurus/Link';
 
 # SDK for Android Reference Guide
 
-SDK for Android は、以下の用途に使用できます:
+Android SDK を使用すると、UID2 を使用したクライアント ID の生成または確立、<Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> 用の Advertising Token の取得、および UID2 Token の自動リフレッシュを容易に行うことができます。
 
-- UID2 を使用して Android アプリでクライアント ID を生成または確立します。
-- <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>様に Advertising Token を取得します。
-- UID2 Token の自動リフレッシュ。
-
-以下の Android 関連プラグインと関連ドキュメントも利用できます。
+以下の Android 関連プラグインと関連ドキュメントも利用可能です。
 
 | Purpose | Product/Documentation |
 | :--- | :--- |
@@ -47,9 +43,9 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 ## SDK Version
 
-<!-- As of 7 May 2024 -->
+<!-- As of 23 Oct 2024 -->
 
-このドキュメントは、SDK for Android バージョン1.6.0以降用です。
+このドキュメントは、SDK for Android バージョン 1.6.0 以降用です。
 
 リリースノートの情報については、[https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases) を参照してください。
 

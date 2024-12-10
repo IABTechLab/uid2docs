@@ -20,7 +20,7 @@ import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-i
 Prebid.js を使って UID2 とインテグレーションするには、以下が必要です:
 
 - サイトの HTML と JavaScript に変更を加えます。
-- トークン生成のためにサーバーサイドを変更します(オプションでトークンのリフレッシュ)。 
+- トークン生成のためにサーバーサイドを変更します(オプションで <a href="../ref-info/glossary-uid#gl-token-refresh">Token Refresh</a>)。 
 
 ## Prebid.js Version
 

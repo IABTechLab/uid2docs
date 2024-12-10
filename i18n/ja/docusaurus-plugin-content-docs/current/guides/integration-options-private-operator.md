@@ -8,13 +8,17 @@ import Link from '@docusaurus/Link';
 
 # UID2 Private Operator Integration Overview
 
-Private Operator をホストする UID2 参加者は、自身のローカル UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> サービスに、自社のファーストパーティ <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> を送信します。この Operator は、プライベート環境で実行されます。
+<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> をホストする UID2 参加者は、自身のローカル UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> サービスに、自社のファーストパーティ <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> を送信します。この Operator は、プライベート環境で実行されます。
 
 Private Operator は <Link href="../ref-info/glossary-uid#gl-enclave">enclave</Link>&#8212;不正アクセスを防ぐための追加のセキュリティ機能を備えた仮想マシンで実行されます。このため、不正な個人は仮想マシンから構成情報やデータをダウンロードできません。
 
 Private Operator になるには、いくつかの追加ステップが必要で、参加者用意しなければならないリソースがあります。
 
 UID2 フレームワークが Private Operator 向けに提供する機能、利点、ホスティング オプション、ドキュメントとその他のリソース、および開始方法について説明します。
+
+:::note
+このページは Private Operator についての情報です。Public Operator についての情報、または Operator が何であるか、Operator の違いがわからない場合は、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
+:::
 
 ## Private Operator Benefits
 

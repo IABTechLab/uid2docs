@@ -103,8 +103,7 @@ SDKの [initialization](#initopts-object-void) の一部として、ID の Token
 
 Token の Auto-refresh について知っておくべきことは以下のとおりです:
 
-
-- 一度にアクティブにできる Token refresh call は 1 つだけです。
+- 同時にアクティブにできる [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイント呼び出しは1つだけです。
 - [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) レスポンスが、ユーザーがオプトアウトしたため、あるいは Refresh Token の有効期限が切れたために失敗した場合、バックグラウンドでの自動更新処理を一時停止します。UID2ベースのターゲティング広告を再び使用するには、ユーザーからメールアドレスまたは電話番号を取得する必要があります（[isLoginRequired()](#isloginrequired-boolean)は`true`を返します）。
 - SDK の初期化時に指定された [callback function](#callback-function) は、以下の場合に呼び出されます:
 	- リフレッシュが成功するたびに呼び出されます。

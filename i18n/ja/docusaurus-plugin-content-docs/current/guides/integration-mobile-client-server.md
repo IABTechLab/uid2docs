@@ -10,14 +10,15 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
+import ExampleAdvertisingToken from '/docs/snippets/_example-advertising-token.mdx';
 import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
-import ExampleAdvertisingToken from '/docs/snippets/_example-advertising-token.mdx';
+import ErrorResponseStates from '/docs/snippets/_mobile-docs-error-response-states.mdx';
 
 # UID2 Client-Server Integration Guide for Mobile
 
-このガイドは、Public Operator または Private Operator を介して Server-Side で UID2 Token を生成し、そのトークンとユーザー ID をモバイルアプリに渡して UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けです。モバイルアプリは、そのトークンを <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> に使用するために渡します。
+このガイドは、<Link href="../ref-info/glossary-uid#gl-public-operator">Public Operator</Link> または <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を介して Server-Side で UID2 Token を生成し、そのトークンとユーザー ID をモバイルアプリに渡して UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けです。モバイルアプリは、そのトークンを <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> に使用するために渡します。
 
 これは Client-Server インテグレーションと呼ばれます。これは、いくつかのインテグレーションステップがクライアントサイドで行われ、いくつかがサーバーサイドで行われるためです。
 
@@ -47,10 +48,10 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 
 ## Mobile SDK Version
 
-このガイドは、次のいずれかの UID2 mobile SDK のバージョン 1.2.0 以上を使用する方法について説明します:
+このガイドは、次のいずれかの UID2 mobile SDK を使用する方法について説明します:
 
-- SDK for Android (version 1.6.0 or later)
-- SDK for iOS (version 1.7.0 or later)
+- SDK for Android (version 1.6.0 以降)
+- SDK for iOS (version 1.7.0 以降)
 
 正しい SDK/バージョンをモバイルアプリにインストールする手順については、[Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app) を参照してください。
 
@@ -84,7 +85,7 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 
 ## Server-Side Token Refresh
 
-UID2 mobile SDK では Token Refresh が自動的に有効になっています。Server-Side で明示的に管理する必要はありません。
+UID2 mobile SDK では <a href="../ref-info/glossary-uid#gl-token-refresh">Token Refresh</a> が自動的に有効になっています。Server-Side で明示的に管理する必要はありません。
 
 モバイルアプリでの変更をできるだけシンプルにしたい場合は、Server-Side で Token Refresh を行うこともできます。
 
@@ -308,3 +309,7 @@ UID2Manager.shared.automaticRefreshEnabled = false
 ## Optional: UID2 Prebid Mobile SDK Integration
 
 <PrebidMobileSDK />
+
+## Error Response States
+
+<ErrorResponseStates />

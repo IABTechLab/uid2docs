@@ -47,15 +47,21 @@ Client-Side インテグレーションページでは、キーペアを設定�
 - [Changing the Name of a Key Pair](#changing-the-name-of-a-key-pair)
 - [Deleting a Key Pair](#deleting-a-key-pair)
 
+:::important
+キーペアを作成する際には、ルートレベルのドメイン名またはモバイルアプリ ID を追加する必要があります。順序は問いません。キーペアを最初に作成しても問題ありませんが、Client-Side のインテグレーションを構成するには、両方の手順を完了する必要があります。
+:::
+
 ### Adding a Key Pair
 
 キーペアを追加するには、次の手順を実行します:
 
 1. UID2 Portal アカウントにログインします。
-1. **Client-Side Integration** ページに移動し、**Add Key Pair** をクリックします。
+1. **Client-Side Integration** ページに移動し、Key Pair セクションにある **Add Key Pair** をクリックします。
 1. **Add Key Pair** オーバーレイで名前を入力し、**Add Key Pair** をクリックします。
 
-   **Client-Side Integration** ページに、名前、Subscription ID、Public key、および作成日が表示されます。
+   キーペアは自動的に生成されます。**Client-Side Integration** ページで、新しいキーペアが名前、Subscription ID、public key、作成日付とともに表示されます。次の例を参照してください。
+
+   ![Client-Side Integration page, Key Pairs](images/portal-client-side-integration-key-pairs.png)
 
 ### Copying or Viewing a Public Key
 
