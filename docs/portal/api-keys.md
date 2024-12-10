@@ -9,6 +9,10 @@ import Link from '@docusaurus/Link';
 
 # API Keys
 
+:::note
+These instructions are for client-server or server-side implementations. If your UID2 implementation will be client-side, or visible to the public in any way, you'll need to set up different values. For details, see [Client-Side Integration](client-side-integrations.md).
+:::
+
 In the UID2 Portal, on the **API Keys** page, you can perform all activities relating to managing the API keys for your UID2 account, including the following:
 
 - [Adding an API Key](#adding-an-api-key)
@@ -20,7 +24,9 @@ In the UID2 Portal, on the **API Keys** page, you can perform all activities rel
 
 The API key and client secret allow you to connect to the UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> and call API endpoints, directly or via one of the UID2 SDKs. These values identify you to the service.
 
-When you add an API key in the UID2 Portal, it's very important that you store the key and its corresponding secret securely and do everything necessary to make sure that these values are not compromised. For more information, see [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret).
+:::important
+When you add an API key in the UID2 Portal, you must store the key and its corresponding secret securely and do everything necessary to make sure that these values are not compromised. For more information, see [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret).
+:::
 
 We recommend rotating each API key on a yearly basis. 
 
