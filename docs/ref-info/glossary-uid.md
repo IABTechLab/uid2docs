@@ -124,7 +124,7 @@ import Link from '@docusaurus/Link';
 <dd>Advertising token is another term for a <a href="#gl-uid2-token">UID2 token</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-api-key"><a href="#gl-api-key">API key</a></MdxJumpAnchor></dt>
-<dd>Each UID2 <a href="../intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
+<dd>Each UID2 <a href="../intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the <a href="#gl-client-secret">client secret</a> (API secret). The client secret is known only to the participant and the UID2 service.</dd>
 <dd>For details, see <a href="../getting-started/gs-credentials">UID2 Credentials</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-api-secret"><a href="#gl-api-secret">API secret</a></MdxJumpAnchor></dt>
@@ -330,7 +330,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-opt-out"><a href="#gl-opt-out">Opt-out</a></MdxJumpAnchor></dt>
 <dd>An end user who participates in the UID2 ecosystem can opt out at any time by going to the <a href="https://www.transparentadvertising.com/">Transparency and Control Portal</a>.</dd>
-<dd>For details, see <a href="../intro#components">Components</a>.</dd>
+<dd>For details about the UID2 opt-out workflow and how users can opt out, see <a href="../getting-started/gs-opt-out">User Opt-Out</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-opt-out-service"><a href="#gl-opt-out-service">Opt-Out Service</a></MdxJumpAnchor></dt>
 <dd>The Opt-Out Service is a global UID2 service that manages and stores user opt-out requests.</dd>
@@ -355,6 +355,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-public-key"><a href="#gl-public-key">Public key</a></MdxJumpAnchor></dt>
 <dd>For client-side publisher integrations, the public key is one of the two values issued to publishers to uniquely identify the account. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
+<dd>In UID2 integrations, this value is often represented as <b>serverPublicKey</b>: for example, in the <a href="../guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>, the <a href="../guides/integration-javascript-client-side">Client-Side Integration Guide for JavaScript</a>, and the <a href="../guides/integration-mobile-client-side">UID2 Client-Side Integration Guide for Mobile</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-public-operator"><a href="#gl-public-operator">Public Operator</a></MdxJumpAnchor></dt>
 <dd>A Public <a href="#gl-operator">Operator</a> is an entity that runs a public instance of the UID2 Operator Service. For example, The Trade Desk currently serves as a Public Operator for the UID2 framework, available to all participants.</dd>
@@ -374,6 +375,7 @@ import Link from '@docusaurus/Link';
 <dd>A refresh token is an opaque string that is issued along with the <a href="#gl-uid2-token">UID2 token</a>. It is used to refresh the UID2 token, which has a limited life.</dd>
 <dd>When the UID2 server receives the refresh token with a request for a new UID2 token, it checks for user opt-out. If the user has opted out of UID2, no new UID2 token is generated.</dd>
 <dd>When a new UID2 token is generated and returned in response to the refresh token, a new refresh token is returned along with it. However, if the user is inactive for a long period of time, the refresh token itself expires.</dd>
+<dd>For details, see <a href="ref-tokens">UID2 Tokens and Refresh Tokens</a>.</dd>
 </dl>
 
 ### S
@@ -411,7 +413,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-sha-256"><a href="#gl-sha-256">SHA-256</a></MdxJumpAnchor></dt>
 <dd>SHA-256 is the secure hashing algorithm that UID2 uses.</dd>
-<dd>SHA-256 is part of the SHA-2 family of algorithms developed by the National Institute of Standards and Technology (NIST) and the National Security Agency (NSA) to succeed SHA-1. Each algorithm is named according to the number of bits in the output, so SHA-256 has 256 bits.</dd>
+<dd>SHA-256 (sometimes called SHA256) is part of the SHA-2 family of algorithms developed by the National Institute of Standards and Technology (NIST) and the National Security Agency (NSA) to succeed SHA-1. Each algorithm is named according to the number of bits in the output, so SHA-256 has 256 bits.</dd>
 <dd>For details, see <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> (specification).</dd>
 
 <dt><MdxJumpAnchor id="gl-sharing"><a href="#gl-sharing">Sharing (in UID2)</a></MdxJumpAnchor></dt>

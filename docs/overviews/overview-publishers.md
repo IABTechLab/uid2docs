@@ -102,16 +102,16 @@ The following resources are available for publisher web integrations.
 For a detailed summary of web integration options, see [Web Integration Overview](../guides/integration-options-publisher-web.md).
 :::
 
-| Integration Type                     | Documentation                                                                                       | Content Description |
-|:-------------------------------------|:----------------------------------------------------------------------------------------------------| :--- |
-| Prebid (Overview)                    | [UID2 Integration Overview for Prebid](../guides/integration-prebid.md)                             | An overview of options for publishers who want to integrate with UID2 and generate UID2 tokens to be passed by Prebid.js or Prebid Mobile SDK in the RTB bidstream. |
-| Prebid.js Client-Side Integration    | [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)     | A guide for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach, and choose to have Prebid.js manage the following: <ul><li>Token generation and <a href="../ref-info/glossary-uid#gl-token-refresh">token refresh</a>.</li><li>Passing the tokens into the RTB bidstream.</li></ul> |
-| Prebid.js Client-Server Integration  | [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)   | A guide for publishers who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) to be passed by Prebid.js in the RTB bidstream, but want to generate tokens server-side: for example, publishers who are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. |
-| JavaScript (Overview)                | [UID2 Integration Overview for JavaScript](../guides/integration-javascript.md)                     | An overview of options for publishers who want to integrate with UID2 using the JavaScript SDK. |
-| JavaScript Client-Side Integration   | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)     | A guide for publishers who want to integrate with UID2 using only client-side JavaScript changes, which is the easiest implementation approach.<br/>The SDK for JavaScript manages token generation and token refresh automatically. |
+| Integration Type| Documentation | Content Description |
+| :--- | :--- | :--- |
+| Prebid (Overview) | [UID2 Integration Overview for Prebid](../guides/integration-prebid.md) | An overview of options for publishers who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) to be passed by Prebid.js or the Prebid Mobile SDK in the RTB bidstream. |
+| Prebid.js Client-Side Integration | [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) | A guide for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach, and choose to have Prebid.js manage the following: <ul><li>Token generation and <a href="../ref-info/glossary-uid#gl-token-refresh">token refresh</a>.</li><li>Passing the tokens into the RTB bidstream.</li></ul> |
+| Prebid.js Client-Server Integration | [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md) | A guide for publishers who want to integrate with UID2 and generate UID2 tokens to be passed by Prebid.js in the RTB bidstream, but want to generate tokens server-side: for example, publishers who are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. |
+| JavaScript (Overview) | [UID2 Integration Overview for JavaScript](../guides/integration-javascript.md) | An overview of options for publishers who want to integrate with UID2 using the JavaScript SDK. |
+| JavaScript Client-Side Integration | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) | A guide for publishers who want to integrate with UID2 using only client-side JavaScript changes, which is the easiest implementation approach.<br/>The SDK for JavaScript manages token generation and token refresh automatically. |
 | JavaScript Client-Server Integration | [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) | A publisher guide covering standard web integration scenarios that use the SDK for JavaScript and require tokens to be generated on the server side and passed to the publisher web pages. |
-| Server-Side Integration              | [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md)          | A guide for publishers who do not use the [SDK for JavaScript](../sdks/sdk-ref-javascript.md). |
-| Publisher/SSP Integration with GAM   | [Google Ad Manager Secure Signals Integration Guide](../guides/integration-google-ss.md)            | A guide covering the additional steps needed for publishers using UID2 with the Google Ad Manager Secure Signals feature (previously known as Encrypted Signals for Publishers, ESP). |
+| Server-Side Integration | [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md) | A guide for publishers who do not use the [SDK for JavaScript](../sdks/sdk-ref-javascript.md). |
+| Publisher/SSP Integration with GAM | [Google Ad Manager Secure Signals Integration Guide](../guides/integration-google-ss.md) | A guide covering the additional steps needed for publishers using UID2 with the Google Ad Manager Secure Signals feature (previously known as Encrypted Signals for Publishers, ESP). |
 
 ### Mobile Integrations
 
@@ -137,12 +137,12 @@ The following resources are available for publisher integrations supporting CTV.
 
 The following resources are available for publishers integrating with Prebid.
 
-| Integration Type                    | Documentation                                                                                     | Content Description |
-|:------------------------------------|:--------------------------------------------------------------------------------------------------| :--- |
-| Prebid (Overview)                   | [UID2 Integration Overview for Prebid](../guides/integration-prebid.md)                           | An overview of options for publishers who want to integrate with UID2 and generate UID2 tokens to be passed by Prebid.js or Prebid Mobile SDK in the RTB bidstream. |
-| Prebid.js Client-Side Integration   | [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)   | A guide for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach, and choose to have Prebid.js manage the following: <ul><li>Token generation and token refresh.</li><li>Passing the tokens into the RTB bidstream.</li></ul> |
+| Integration Type| Documentation | Content Description |
+| :--- | :--- | :--- |
+| Prebid (Overview) | [UID2 Integration Overview for Prebid](../guides/integration-prebid.md) | An overview of options for publishers who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) to be passed by Prebid.js or the Prebid Mobile SDK in the RTB bidstream. |
+| Prebid.js Client-Side Integration | [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) | A guide for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach, and choose to have Prebid.js manage the following: <ul><li>Token generation and token refresh.</li><li>Passing the tokens into the RTB bidstream.</li></ul> |
 | Prebid.js Client-Server Integration | [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md) | A guide for publishers who want to integrate with UID2 and generate UID2 tokens to be passed by Prebid.js in the RTB bidstream, but want to generate tokens server-side: for example, publishers who are using a Private Operator. |
-| Prebid.js on Mobile                 | [UID2 Mobile Integration for Prebid.js](../guides/integration-prebid-mobile-summary.md)           | A summary of information resources for UID2 integration with Prebid.js on mobile devices. |
+| Prebid.js on Mobile | [UID2 Mobile Integration for Prebid.js](../guides/integration-prebid-mobile-summary.md) | A summary of information resources for UID2 integration with Prebid.js on mobile devices. |
 
 ### Google Ad Manager Integrations
 

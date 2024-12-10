@@ -355,7 +355,7 @@ public class Uid2Request {
       +             "java -jar Uid2Request-jar-with-dependencies.jar <url> <api_key> <client_secret>" + "\n\n"
       
       +       "Example:" + "\n   "  
-      +             "echo '{\"email\": \"test@example.com\"}' |  java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/generate PRODGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=" + "\n\n\n"
+      +             "echo '{\"email\": \"test@example.com\"}' | java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/generate PRODGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=" + "\n\n\n"
       
       +       "Refresh Token Usage:" + "\n   "
       +             "java -jar Uid2Request-jar-with-dependencies.jar <url> --refresh-token <refresh_token> <refresh_response_key>"  + "\n\n"

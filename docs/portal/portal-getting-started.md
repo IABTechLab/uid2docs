@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: Learn how to create an account on the UID2 Portal.
+description: Learn how to create an account in the UID2 Portal.
 hide_table_of_contents: false
 sidebar_position: 03
 ---
@@ -24,6 +24,10 @@ If at any time you need assistance with the onboarding process, ask your UID2 co
 ## Request an Account
 
 There's some information you'll need to provide to your UID2 contact with your account request. Include the details listed in the following table.
+
+:::note
+If you don't yet have a UID2 contact, go to the [Request Access to UID2](/request-access) page and fill out the form.
+:::
 
 | Item | Details |
 | :--- | :--- |
@@ -69,7 +73,7 @@ Create a new password, and then log into the UID2 Portal.
 
 ## Change Your Password
 
-The **Accept Invitation** link takes you to the **Update Password** page.
+The **Accept Invitation** link takes you to the **Set Password** page.
 
 :::tip
  If you're changing your password because you think your account might have been compromised, be sure that the **Sign out from other devices** box is checked.
@@ -134,3 +138,13 @@ When you've finished updating your account, remember to log out.
 
 1. At the top right, click your name.
 1. From the drop-down list, click **Log Out**.
+
+## Password Change Requirement
+
+In some cases, you might be required to change your password. For example, if the password requirements change and your current password doesn't meet the new requirements, you'll need to choose a new password.
+
+If this occurs, when you're logging in you'll see a **Set Password** page.
+
+The current password requirements are displayed on the page. Choose a new password, type it again to confirm, and save.
+
+Be sure to choose a password you'll remember.

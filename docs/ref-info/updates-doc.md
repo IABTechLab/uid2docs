@@ -11,6 +11,36 @@ import Link from '@docusaurus/Link';
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: Zoom-In Tool for Images
+
+December 15, 2024
+
+The UID2 docs site now includes a zoom-in tool for images.
+
+Just hover over the image and the tool appears as a magnifying glass... click to view a magnified version of the image.
+
+<!-- APIDOCS-2237 for both -->
+
+### New: UID2 Portal Audit Trail Page
+
+November 15, 2024
+
+The UID2 Portal documentation now includes a new page, [Audit Trail](../portal/audit-trail.md).
+
+The **Audit Trail** page in the UID2 Portal allows users who have the Admin role (see [User Roles](../portal/team-members.md#user-roles)) to view a detailed log of all past actions performed by or on behalf of the current <Link href="../ref-info/glossary-uid#gl-sharing-participant">participant</Link>.
+
+<!-- APIDOCS-2700 -->
+
+### New: LiveRamp Integration Tips
+
+November 14, 2024
+
+We've added a new reference page with tips for publishers who are using LiveRamp's Authenticated Traffic Solution (ATS) to generate UID2 tokens to be passed in the bid request.
+
+For details, see [LiveRamp Integration Tips](../guides/integration-liveramp-tips.md).
+
+<!-- APIDOCS-2699 -->
+
 ### New: Tokens Page
 
 September 10, 2024
@@ -238,7 +268,7 @@ For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md
 
 <!-- ## 2023 Updates -->
 
-### New: UID2 Integration Overview for Prebid.js
+### New: UID2 Integration Overview for Prebid
 
 December 20, 2023
 
@@ -248,7 +278,7 @@ In addition, the existing guides have been restructured and simplified.
 
 For details, see:
 
-- [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
+- [UID2 Integration Overview for Prebid](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
@@ -308,16 +338,16 @@ The content that was in the previous version of the Prebid document is now in a 
 
 :::note
 These documents were further updated in later revisions. Updated links are as follows:
-- [UID2 Integration Overview for Prebid.js](../guides/integration-prebid.md)
+- [UID2 Integration Overview for Prebid](../guides/integration-prebid.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 :::
 
-### New: Opt-Out
+### New: Opt-Out Page
 
 October 31, 2023
 
-This new "getting started" topic provides an overview of user opt-out.
+This new reference topic provides an overview of user opt-out.
 
 For details, see [User Opt-Out](../getting-started/gs-opt-out.md).
 

@@ -23,7 +23,11 @@ UID2 Portal アカウントをリクエストする際には、自分自身と�
 
 ## Request an Account
 
-アカウントのリクエストを行う際には、次の表に示す情報を UID2 連絡先に提供する必要があります。
+UID2 の連絡先にアカウントのリクエストを行う際には、情報を提供いただく必要があります。次の表に示す詳細情報を含めてください。
+
+:::note
+UID2 の連絡先をまだお持ちでない場合は、[Request Access to UID2](/request-access) ページに移動し、フォームに記入してください。
+:::
 
 | Item | Details |
 | :--- | :--- |
@@ -121,7 +125,7 @@ UID2 Service を使用するには、キーのセットが必要です。Client-
 
 | Item | Details | Link to Instructions | 
 | :--- | :--- | :--- |
-| Team member information | 以下を提供してください。<br/>- 名<br/>- 姓<br/>- メールアドレス<br/>- 職務 | [Team Members](team-members.md) |
+| Team member information | 以下を提供してください。<br/>- 名<br/>- 姓<br/>- メールアドレス<br/>- 職務<br/>- 役割 | [Team Members](team-members.md) |
 | Email contact information | 以下を提供してください。<br/>- メールグループ名<br/>- メールエイリアス<br/>- 連絡先タイプ | [Email Contacts](email-contacts.md) |
 
 ## Reset Password
@@ -134,3 +138,13 @@ UID2 Service を使用するには、キーのセットが必要です。Client-
 
 1. 右上の自分の名前をクリックします。
 1. ドロップダウンリストから **Log Out** をクリックします。
+
+## Password Change Requirement
+
+場合によっては、パスワードを変更する必要があるかもしれません。たとえば、パスワードの要件が変更され、現在のパスワードが新しい要件を満たさない場合は、新しいパスワードを選択する必要があります。
+
+この場合、ログイン時に **Set Password** ページが表示されます。
+
+現在のパスワード要件がページに表示されます。新しいパスワードを選択し、確認のためにもう一度入力し、保存してください。
+
+必ず覚えやすいパスワードを選択してください。

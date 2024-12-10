@@ -50,8 +50,13 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 
 このガイドは、次のいずれかの UID2 mobile SDK を使用する方法について説明します:
 
+<<<<<<< HEAD
 - SDK for Android (version 1.6.0 以降)
 - SDK for iOS (version 1.7.0 以降)
+=======
+- SDK for Android (version 1.6.0 or later)
+- SDK for iOS (version 1.7.0 or later)
+>>>>>>> main
 
 正しい SDK/バージョンをモバイルアプリにインストールする手順については、[Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app) を参照してください。
 

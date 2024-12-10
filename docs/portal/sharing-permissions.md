@@ -9,7 +9,11 @@ import Link from '@docusaurus/Link';
 
 # Sharing Permissions
 
-Configuring your sharing permissions opens the door to you being able to share UID2s with other UID2 participants.
+Configuring your sharing permissions opens the door to you being able to share UID2s with other UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participants</Link>.
+
+:::tip
+Configuring sharing permissions in the UID2 Portal is for <Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link>, not for sharing raw UID2s. For details, see [UID2 Sharing Approaches](../sharing/sharing-overview.md#uid2-sharing-approaches).
+:::
 
 There are many options to help you create the exact sharing relationships that you want:
 

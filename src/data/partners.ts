@@ -326,6 +326,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Frndly",
+    logo: "frndlytv-logo.png",
+    type: ["Publishers"],
+  },
+  {
     name: "Fubo TV",
     logo: "PartnerLogo_FuboTV_256x256.png",
     type: ["Publishers"],

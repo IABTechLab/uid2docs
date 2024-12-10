@@ -58,8 +58,8 @@ Minimum requirements for this SDK are as follows:
 
 - Xcode version: 15.0+
 - iOS minimum target version:
-    - For full functionality: 13.0+ƒ
-    - For partial functionality: 12.0+. The app with the SDK integrated can be installed with all devices, but generating or retrieving UID2 tokens on the client side will not work with devices running iOS versions below 13.0.
+  - For full functionality: 13.0+
+  - For partial functionality: 12.0+. The app with the SDK integrated can be installed with all devices, but generating or retrieving UID2 tokens on the client side will not work with devices running iOS versions below 13.0.
 - tvOS minimum target version: 13.0+
 - Swift version: 5.0+
 
@@ -87,8 +87,8 @@ dependencies: [
 
 In the XCode user interface, under Package Dependencies, add the following entry for your apps:
 
-| Name | Location | Dependency Rule                         |
-| :--- | :--- |:----------------------------------------| 
+| Name | Location | Dependency Rule |
+| :--- | :--- | :--- |
 | uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 1.7.0 < 2.0.0 |
 
 ### Installing with CocoaPods
@@ -118,7 +118,7 @@ The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity
 
 The following code samples provide examples of performing specific activities relating to managing UID2 with the SDK for iOS.
 
-Generate an initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk)):
+Generate an initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk)):
 
 ```js
 UID2Manager.shared.generateIdentity(
@@ -156,7 +156,7 @@ The following functions are available as part of the UID2Manager API:
 
 #### generateIdentity()
 
-Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link>. For details, see [Configure the UID2 mobile SDK](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) in the *Client-Side Integration Guide for Mobile*.
+Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link>. For details, see [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) in the *Client-Side Integration Guide for Mobile*.
 
 #### setIdentity()
 
@@ -192,4 +192,3 @@ The Identity variable stores and returns the current UID2Identity data object be
 #### identityStatus
 
 The identityStatus variable stores and returns the status of the current UID2 Identity being managed by the SDK.
-

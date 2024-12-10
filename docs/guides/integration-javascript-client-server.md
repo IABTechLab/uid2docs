@@ -20,9 +20,9 @@ If you prefer to integrate with UID2 via **only** client-side JavaScript changes
 
 For technical details about the SDK, see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md).
 
-## Sample Implementation Website
+## Sample Implementation
 
-For an example application, see the UID2 Google Secure Signals with SDK v3 example:
+For a sample implementation, see the UID2 Google Secure Signals with SDK v3 example:
 - Code and docs: [UID2 SDK Secure Signals Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
 - Running site: [Client-Server UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
 
@@ -31,6 +31,8 @@ For an example application, see the UID2 Google Secure Signals with SDK v3 examp
 This guide outlines the basic steps that you need to consider if you are building an integration without using an SDK. For example, you need to decide how to implement user authentication and data capture, how to manage UID2 identity information and use it for targeted advertising, and how to refresh tokens, deal with missing identities, and handle user opt-outs.
 
 For a workflow diagram, see [Integration Steps](#integration-steps). See also [FAQs](#faqs).
+
+For details about the UID2 opt-out workflow and how users can opt out, see [User Opt-Out](../getting-started/gs-opt-out.md).
 
 To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the SDK for JavaScript. Here's an [example application](https://example-jssdk-integ.uidapi.com/) that illustrates the integration steps described in this guide and the usage of the SDK (currently only for email addresses). For the application documentation, see [UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md).
 
@@ -121,7 +123,7 @@ For an example of what a UID2 token might look like in the bidstream, when it's 
 ```
 
 :::info
-You need to consider how you pass the returned advertising token to SSPs. With some other approaches to client-side UID2 implementation, such as using `Prebid.js` (see [UID2 Integration Overview for Prebid.js](integration-prebid.md)) or Google Ad Manager Secure Signals (see [Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md)), the implementation includes functions that manage passing the returned advertising token. If you're using the SDK for JavaScript you'll need to manage this yourself.
+You need to consider how you pass the returned advertising token to SSPs. With some other approaches to client-side UID2 implementation, such as using `Prebid.js` (see [UID2 Integration Overview for Prebid](integration-prebid.md)) or Google Ad Manager Secure Signals (see [Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md)), the implementation includes functions that manage passing the returned advertising token. If you're using the SDK for JavaScript you'll need to manage this yourself.
 :::
 
 :::tip

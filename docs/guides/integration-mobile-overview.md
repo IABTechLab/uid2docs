@@ -63,6 +63,8 @@ To determine the best integration path for your mobile scenario, consider these 
 
 The options for integrating with UID2 using the UID2 mobile SDKs are summarized in the following table. Choose the <Link href="../ref-info/glossary-uid#gl-integration-approaches">integration approach</Link> that's best for you.
 
+For details, see [Integration Approaches](../ref-info/ref-integration-approaches.md).
+
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |
 | You have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the client side/within the mobile app, and want to keep changes within your app only. | Client-side integration | [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) |
@@ -98,7 +100,7 @@ The following table summarizes the functionality available with the various inte
 All options support either client-side or server-side integration.
 
 | Implementation Option | Generate Token from DII | Refresh Token | Android/iOS? | Send Token to Bidstream |
-| :--- | :--- |  :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- | :--- |
 | UID2 SDK for Android | &#9989; | &#9989; | Android | &ast; |
 | UID2 SDK for iOS | &#9989;| &#9989; | iOS | &ast; |
 | GMA Plugin for Android<br/>(Requires UID2 SDK for Android) | &#8212; | &#8212; | Android | &#9989;&ast;&ast; |
@@ -145,7 +147,7 @@ Podspec is the name of the file in CocoaPods that defines the libraries to be in
 
 Here's some additional information to help you troubleshoot your UID2 mobile integrations:
 
-- [Android SDK cannot connect in Production environment](#android-sdk-cannot-connect-in-production-environment)
+- [Android SDK Cannot Connect in Production Environment](#android-sdk-cannot-connect-in-production-environment)
 
 #### Android SDK Cannot Connect in Production Environment
 

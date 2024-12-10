@@ -12,6 +12,8 @@ import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
 
 # UID2 Private Operator for GCP Integration Guide
 
+The UID2 Operator is the API server in the UID2 ecosystem. For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
+
 This guide provides information for setting up the UID2 Operator Service as a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> instance in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. Confidential Space offers a secure enclave environment, known as a Trusted Execution Environment (TEE).
 
 :::note

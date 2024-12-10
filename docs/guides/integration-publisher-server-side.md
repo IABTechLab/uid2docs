@@ -19,7 +19,7 @@ The following options are available for publishers to integrate with UID2 on the
 - SDK for Python (see [Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers) section).
 - Custom server code to generate and refresh the UID2 token by calling the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) and [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints.
 
-There is also an example application that demonstrates the workflow. See [Sample Application](#sample-application).
+There is also a sample implementation that demonstrates the workflow. See [Sample Implementation](#sample-implementation).
 
 For a complete summary of publisher integration options, see [Publisher Integrations](summary-guides.md#publisher-integrations).
 
@@ -86,6 +86,8 @@ For an example of what a UID2 token might look like in the bidstream, when it's 
 
 Use the `POST /token/refresh` endpoint to make sure you always have a valid and up-to-date UID2 token. The UID2 token must be refreshed to sync with the UID2 rotation. In addition, the token refresh process checks the user's opt-out status, and if the user has opted out, no new token is sent. This ends the token refresh chain, and you must not use that UID2 token again.
 
+For details about the UID2 opt-out workflow and how users can opt out, see [User Opt-Out](../getting-started/gs-opt-out.md).
+
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
 | 3-a |N/A | When a user returns to an asset and becomes active again, refresh the UID2 token before sending it to the SSP. | 
@@ -106,12 +108,12 @@ If the user logs out, do not use the UID2 token.
 | 4-a | N/A | The user logs out from a publisher asset. |
 | 4-b | N/A | Remove the UID2 token you've stored for that user. No interaction with the UID2 service is required. |
 
-## Sample Application
+## Sample Implementation
 
-A sample application is available for server-side integration. See:
+A sample implementation is available for server-side integration. See:
 
-- [Server-Side UID2 Integration Example (sample application)](https://secure-signals-srvonly-integ.uidapi.com/)
-- [Server-Side UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
+- [Client-Server UID2 Integration Example (sample implementation)](https://secure-signals-srvonly-integ.uidapi.com/)
+- [Client-Server UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
 
 ## FAQs
 

@@ -109,25 +109,32 @@ For details, see [Recommended Token Refresh Frequency](../ref-info/ref-tokens.md
 
 You can use the `refresh-optout@example.com` email address or the `+00000000002` phone number to test your token refresh workflow. Using either parameter value in a request always generates an identity response with a `refresh_token` that results in a logout response.
 
+:::tip
+To get the normalized, hashed, and Base64-encoded hashed values for any email address, or the hashed and Base64-encoded hashed values for a phone number, you can use the hashing tool: see [UID2 Hashing Tool](gs-normalization-encoding.md#uid2-hashing-tool).
+:::
+
 The procedure is a little different depending on whether or not you are using an SDK.
 
 ##### With SDK:
 
 1. Depending on whether the DII is an email address or a phone number, send a [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request using one of the following values:
-    - The `refresh-optout@example.com` as the `email` value.
-    - The hash of `refresh-optout@example.com` as the `email_hash` value. 
-    - The `+00000000002` as the `phone` value.
-    - The hash of `+00000000002` as the `phone_hash` value.
+    - `email` value: `refresh-optout@example.com`.
+    - `email_hash` value: The hashed and Base64-encoded value for `refresh-optout@example.com`, which is `NaNI8RU0bL1Jpp1jJLC5aJO/lchc6gGhgXQIAwJ7cV4=`. 
+    - `phone` value: `+00000000002`.
+    - `phone_hash` value: The hashed and Base64-encoded value for `+00000000002`, which is `0VoxsIuk88qt7TnZaTC//C9Vur3pR1zBMIr1cJe7xjE=`.
+
 2. Wait until the SDK's [background auto-refresh](../sdks/sdk-ref-javascript.md#background-token-auto-refresh) attempts to refresh the advertising token (this can take several hours) and observe the refresh attempt fail with the `OPTOUT` status. At this point the SDK also clears the first-party cookie.
 
 ##### Without SDK:
 
 1. Depending on whether the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> is an email address or a phone number, send a [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request using one of the following values:
-    - The `refresh-optout@example.com` as the `email` value.
-    - The hash of `refresh-optout@example.com` as the `email_hash` value. 
-    - The `+00000000002` as the `phone` value.
-    - The hash of `+00000000002` as the `phone_hash` value.
+    - `email` value: `refresh-optout@example.com`.
+    - `email_hash` value: The hashed and Base64-encoded value for `refresh-optout@example.com`, which is `NaNI8RU0bL1Jpp1jJLC5aJO/lchc6gGhgXQIAwJ7cV4=`. 
+    - `phone` value: `+00000000002`.
+    - `phone_hash` value: The hashed and Base64-encoded value for `+00000000002`, which is `0VoxsIuk88qt7TnZaTC//C9Vur3pR1zBMIr1cJe7xjE=`.
+
 2. Store the returned `refresh_token` for use in the following step.
+
 3. Send a [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) request with the `refresh_token` (saved in step 2) as the `token` value.<br/>The body response should be empty, and the `status` value should be set to `optout` because the `refresh-optout@example.com` email and the `+00000000002` phone number always result in a logged-out user.
 
 #### What is the uniqueness and rotation policy for UID2 tokens?
