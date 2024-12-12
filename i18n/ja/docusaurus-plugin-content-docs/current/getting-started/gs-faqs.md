@@ -139,7 +139,9 @@ SDKを使うかどうかで手順は少し異なります。
    - `refresh-optout@example.com` のハッシュを `email_hash` 値として指定します。
    - `phone` の値として `+00000000002` を指定します。
    - `phone_hash` 値として `+00000000002` のハッシュを指定します。
+ 
 2. 返された `refresh_token` を次のステップで使用するために保存します。
+
 3. [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) リクエストを `refresh_token` (Step 2 で保存) を `token` 値として送信します。<br/>ボディのレスポンスは空でなければならず、`refresh-optout@example.com` のメールアドレスと `+00000000002` の電話番号は常にログアウトしたユーザになるので、`status` の値は `optout` でなければなりません。
 
 #### What is the uniqueness and rotation policy for UID2 tokens?

@@ -11,35 +11,25 @@ import Link from '@docusaurus/Link';
 import ExampleUid2Cookie from '/docs/snippets/_example-uid2-cookie.mdx';
 import ExampleJavaScriptInit from '/docs/snippets/_example-javascript-init.mdx';
 
+# SDK for JavaScript Reference Guide
+
 export const New = () => (
   <span className='pill'>NEW IN V3</span>
 );
 
-# SDK for JavaScript Reference Guide
+この SDK を使用して、UID2 を使用したクライアント ID の生成または確立、ターゲティング広告用の Advertising Token の取得、および UID2 Token の自動リフレッシュを容易に行うことができます。
 
-この SDK を使用すると、UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスが容易になります。以下のセクションでは、UID2 ID を確立するための [workflow](#workflow-overview) について説明し、SDK の [API reference](#api-reference) を提供し、UID2の[storage format](#uid2-storage-format)について説明します。
+以下のセクションでは、UID2 ID の確立のための高レベルな [ワークフロー](#workflow-overview)、SDK [API リファレンス](#api-reference)、および UID2 [ストレージフォーマット](#uid2-storage-format) を説明します。
 
 :::tip
-Prebid.js を UID2 ID モジュールと一緒に使用しているや、UID2 をサポートしている他の製品と一緒に使用している場合、おそらく SDK を使用する必要はないでしょう。Prebid.js モジュールがすべてを管理します。詳細は [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください。
+UID2 Identify Module、または UID2 サポートのある他の製品と Prebid.js を使用している場合、SDK を使用する必要はありません。Prebid.js モジュールがすべてを管理します。詳細については、[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください。
 :::
 
-このページでは、SDK for JavaScript version 3 について説明します。以前のバージョンを使用してインテグレーションを管理している場合は、以下のいずれかを行ってください:
-- [migration guide](#migration-guide) を使用して、インテグレーションをアップグレードします。(推奨) 
-- [earlier versions of the SDK](./sdk-ref-javascript-v2.md) のドキュメントを参照します。
+このページでは、SDK のバージョン 3 について説明します。以前のバージョンを使用している場合は、[移行ガイド](#migration-guide) を使用してインテグレーションをアップグレードすることをお勧めします。必要に応じて、[SDK の以前のバージョン](./sdk-ref-javascript-v2.md) のドキュメントも利用できます。
 
-関連情報:
-
-コンテンツパブリッシャーのインテグレーションステップについては、以下を参照してください:
+コンテンツパブリッシャー向けのインテグレーション手順は、以下のガイドを参照してください:
   - [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
   - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
-
-## Sample Implementation
-
-アプリケーションのサンプルと関連文書については、以下を参照してください:
-  - SDK v3を使用したUID2 Google Secure Signals のサンプル:
-    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
-    - Running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
-  - JavaScript Client-Side インテグレーションの例: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)、Running site ([Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)).
 
 ## Functionality
 
@@ -48,6 +38,14 @@ Prebid.js を UID2 ID モジュールと一緒に使用しているや、UID2 �
 | Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
+
+## Sample Implementation Website
+
+サンプルアプリケーションと関連するドキュメントは以下を参照してください:
+  - The UID2 Google Secure Signals with SDK v3 example:
+    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
+    - Running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
+  - The example of JavaScript client-side integration: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg) and running site ([Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)).
 
 ## API Permissions
 
@@ -72,13 +70,10 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 この SDK は、以下のロケーションに公開されています:
 
 <!-- - NPM: [https://www.npmjs.com/package/@uid2/uid2-sdk](https://www.npmjs.com/package/@uid2/uid2-sdk)
-
-  This is the easiest way to include the SDK in your own build. Use this if you want to bundle the SDK along with your other JavaScript or TypeScript files.
-
-  You can also use this for TypeScript type information and still load the script via the CDN. If you do this, ensure that the version of the NPM package that you have installed matches the version in the CDN URL. -->
+  - This is the easiest way to include the SDK in your own build. Use this if you want to bundle the SDK along with your other JavaScript or TypeScript files.
+  - You can also use this for TypeScript type information and still load the script via the CDN. If you do this, ensure that the version of NPM package you have installed matches the version in the CDN url. LP_TODO: Looking at the NPM package, I don't believe it's ready for use - it just includes the source and doesn't seem to include a ready-to-deploy build. LP 12 Sep 2023 -->
 - CDN: `https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js`
-
-  <!-- This is the easiest way to include the SDK in your site if you don't use a build pipeline to bundle your JavaScript. -->
+  <!-- - This is the easiest way to include the SDK in your site if you don't use a build pipeline to bundle your JavaScript. LP_TODO: This doesn't make sense until we add the NPM option above. -->
 
   この文書の最新更新時点での最新バージョンは [3.4.5](https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js) です。[the list of available versions](https://cdn.prod.uidapi.com/) も参照してください。
 - CDN (Integration): `https://cdn.integ.uidapi.com/uid2-sdk-${VERSION_ID}.js`
@@ -335,10 +330,8 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 2. 移行、渡されたコールバック関数のすべてに対し、[Array Push Pattern](#array-push-pattern) を使用して既存のコールバック配列に関数が追加されます。
 
 :::note
-
 `useCookie` が更新されると、identity の場所が変わります。例えば、値が `true` から `false` に更新されると、ファーストパーティクッキーが削除され、identity がローカルストレージに追加されます。
 :::
-
 
 ### Init Config
 

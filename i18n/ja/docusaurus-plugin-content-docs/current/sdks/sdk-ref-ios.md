@@ -58,8 +58,8 @@ SDKが提供する特定の機能を使用する許可が与えられ、その�
 
 - Xcode バージョン: 15.0+
 - iOS	最低対象バージョン: 13.0+
-    - すべての機能を使用するには: 13.0+
-    - 一部の機能を使用するには: 12.0+。SDK を統インテグレーションしたアプリはすべてのデバイスにインストールできますが、iOS バージョンが 13.0 未満のデバイスでは、クライアント側で UID2 Token を生成または取得することはできません。
+  - すべての機能を使用するには: 13.0+
+  - 一部の機能を使用するには: 12.0+。SDK を統インテグレーションしたアプリはすべてのデバイスにインストールできますが、iOS バージョンが 13.0 未満のデバイスでは、Client-Side で UID2 Token を生成または取得することはできません。
 - tvOS 最低対象バージョン: 13.0+
 - Swift バージョン: 5.0+
 
@@ -88,7 +88,7 @@ dependencies: [
 アプリの Package Dependencies に次のエントリを追加します:
 
 | Name | Location | Dependency Rule |
-| :--- | :--- | :--- | 
+| :--- | :--- | :--- |
 | uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 1.7.0 < 2.0.0 |
 
 ### Installing with CocoaPods
@@ -116,9 +116,9 @@ UID2 Mobile SDK は、UID2 identifier が確立された後に UID2 identities �
 
 ## Code Samples
 
-The following code samples provide examples of performing specific activities relating to managing UID2 with the SDK for iOS.
+以下のコードサンプルは、iOS SDK を使用して UID2 を管理する特定のアクティビティを実行する例を示します。
 
-Generate an initial UID2 Identity (for instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk)):
+初期の UID2 Identity を生成します (手順については、[Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk) を参照してください):
 
 ```js
 UID2Manager.shared.generateIdentity(
@@ -156,7 +156,7 @@ UID2Manager API の一部として利用可能な関数は次のとおりです:
 
 #### generateIdentity()
 
-<Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link> を使用して UID2 Identity を生成します。手順については、*Client-Side Integration Guide for Mobile* の [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照してください。
+<Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link> を使用して UID2 Identity を生成します。詳細については、*Client-Side Integration Guide for Mobile* の [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照してください。
 
 #### setIdentity()
 
