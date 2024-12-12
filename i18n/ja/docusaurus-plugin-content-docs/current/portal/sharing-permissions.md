@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # Sharing Permissions
 
-Sharing permissions (共有権限) を設定することで、他の UID2 参加者と UID2 を共有できるようになります。
+共有権限を設定することで、他の UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">共有参加者</Link> と UID2 を共有できるようになります。
 
 適切な共有関係を作成するのに役立つ多くのオプションがあります:
 
