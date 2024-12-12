@@ -386,12 +386,10 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-salt-bucket"><a href="#gl-salt-bucket">Salt bucket</a></MdxJumpAnchor></dt>
 <dd>ソルトバケットは、Secret <a href="#gl-salt">salt</a> の値を長期間管理するために使用されます。各バケットには、約1年間有効な現在のソルト値が含まれており、新しい値にローテーションされる前に更新されます。バケットは互いに独立して更新できます。</dd>
-
 <dd>ソルトバケットは、100万以上あり、各メールアドレスまたは電話番号は、特定のバケットに決定論的に割り当てられます。ただし、この割り当ては永続的ではなく、バケットの現在のシークレットソルトが新しい値にローテーションされると変更される可能性があります。</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket-id"><a href="#gl-salt-bucket-id">Salt bucket ID</a></MdxJumpAnchor></dt>
 <dd>ソルトバケット ID は、特定の <a href="#gl-salt-bucket">ソルトバケット</a> を識別する一意の文字列です。ソルトバケット ID を使用すると、最近ソルト値が更新されたソルトバケットを確認し、どのメールアドレスまたは電話番号が raw UID2 値を再生成する必要があるかを確認できます。</dd>
-
 <dd>ソルトバケット ID の例については、`POST /identity/buckets` エンドポイントのレスポンスを参照してください: <a href="../endpoints/post-identity-buckets#decrypted-json-response-format">Decrypted JSON Response Format</a>。</dd>
 
 <dt><MdxJumpAnchor id="gl-salted-hash">Salted hash</MdxJumpAnchor></dt>
@@ -412,7 +410,7 @@ import Link from '@docusaurus/Link';
 <dd>パブリッシャーサーバーサイドの統合に関するドキュメントの例は、<a href="../guides/integration-publisher-server-side">Publisher Integration Guide, Server-Side</a> です。</dd>
 
 <dt><MdxJumpAnchor id="gl-sha-256">SHA-256</MdxJumpAnchor></dt>
-<dd>SHA-256 は、UID2 が使用する安全なハッシュアルゴリズムです。</dd>
+<dd>SHA-256 (SHA256 とも呼ばれます) は、UID2 が使用する安全なハッシュアルゴリズムです。</dd>
 <dd>SHA-256 は、米国国立標準技術研究所 (NIST) と国家安全保障局 (NSA) が SHA-1 の後継として開発した SHA-2 アルゴリズムファミリーの一部です。各アルゴリズムは出力のビット数によって名前が付けられており、SHA-256 は 256 ビットです。</dd>
 <dd>詳細は <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> (specification) を参照してください。</dd>
 

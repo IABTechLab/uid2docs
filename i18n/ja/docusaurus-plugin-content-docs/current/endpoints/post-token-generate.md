@@ -53,7 +53,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 ### Request Examples
 
 :::important
-サービスにアクセスするために使用される API Key を確実に秘密にするために、API Key を使用する必要のない [POST&nbsp;/token/refresh](post-token-refresh.md) と異なり、`POST /token/generate` エンドポイントを Server-Side から呼び出す必要があります。
+サービスへのアクセスに使用する API キーを秘密にしておくため、[POST /token/generate](post-token-generate.md) エンドポイントは、[POST /token/refresh](post-token-refresh.md) とは異なり、Server-Side から呼び出す必要があります。Client-Side でトークンを生成する場合は、[Client-Side Integration Options](../guides/integration-options-publisher-web.md#client-side-integration-options) (Web ベースの実装) または [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) を参照してください。
 :::
 
 以下は、各パラメータの暗号化されていない JSON リクエストボディの例で、このうちの 1 つはトークン生成リクエストに含める必要があります:
