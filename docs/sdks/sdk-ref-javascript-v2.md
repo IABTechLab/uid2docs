@@ -9,6 +9,14 @@ import Link from '@docusaurus/Link';
 import ExampleUid2Cookie from '/docs/snippets/_example-uid2-cookie.mdx';
 import ExampleJavaScriptV2Init from '/docs/snippets/_example-javascript-v2-init.mdx';
 
+export const New3100 = () => (
+  <span className='pill'>New in version 3.10.0</span>
+);
+
+export const Deprecated3100 = () => (
+  <span className='pill'>Deprecated in version 3.10.0</span>
+);
+
 # SDK for JavaScript Reference Guide (2.x and earlier versions)
 
 :::tip
@@ -120,6 +128,7 @@ All interactions with the Client-Side JavaScript SDK are done through the global
 - [getAdvertisingToken()](#getadvertisingtoken-string)
 - [getAdvertisingTokenAsync()](#getadvertisingtokenasync-promise)
 - [isLoginRequired()](#isloginrequired-boolean)
+- [isIdentityAvailable()](#isidentityavailable-boolean)
 - [disconnect()](#disconnect-void)
 - [abort()](#abort-void)
 
@@ -288,8 +297,24 @@ This function can also provide additional context for handling missing identitie
 | :--- | :--- |
 | `true` | The identity is not available. This value indicates any of the following:<br/>- The user has opted out.<br/>- The refresh token has expired.<br/>- A first-party cookie is not available and no server-generated identity has been supplied. |
 | `false` | This value indicates one of the following:<br/>- The identity is present and valid.<br/>- The identity has expired, and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt. |
-| `undefined` | The SDK initialization is not yet complete. |
 
+### isIdentityAvailable(): boolean <New3100 />
+
+Specifies whether an identity is available. An identity can be available if there is an identity in local storage or a cookie that is not expired, or if there is an active request.
+
+If false, a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call is required. 
+
+```html
+<script>
+  __uid2.isIdentityAvailable();
+</script>
+```
+#### Return Values
+
+| Value | Description |
+| :--- | :--- |
+| `true` | This value indicates one of the following:<br/>- The identity is present and valid in a first-party cookie or local storage.<br/>- The identity has expired, and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt. |
+| `false` | This value indicates any of the following:<br/>- The user has opted out.<br/>- The identity is present, but the refresh token has expired.<br/>- A first-party cookie is not available and no server-generated identity has been supplied. |
 
 ### disconnect(): void
 
@@ -305,7 +330,9 @@ When a user logs out of the publisher's site, make the following call:
 
 After this function is executed, the [getAdvertisingToken()](#getadvertisingtoken-string) function returns `undefined` and the [isLoginRequired()](#isloginrequired-boolean) function returns `true`.
 
-### abort(): void
+### abort(): void <Deprecated3100 />
+
+This function is deprecated and will be removed altogether in June of 2025. Use [disconnect()](#disconnect-void) instead as it performs the same logic as `abort()` plus a more thorough disconnection. 
 	
 Terminates any background timers or requests. The UID2 object remains in an unspecified state and cannot be used anymore. 
 
