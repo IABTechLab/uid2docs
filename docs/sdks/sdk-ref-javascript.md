@@ -15,6 +15,14 @@ export const New = () => (
   <span className='pill'>NEW IN V3</span>
 );
 
+export const New3100 = () => (
+  <span className='pill'>New in version 3.10.0</span>
+);
+
+export const Deprecated3100 = () => (
+  <span className='pill'>Deprecated in version 3.10.0</span>
+);
+
 # SDK for JavaScript Reference Guide
 
 Use this SDK to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens.
@@ -261,8 +269,9 @@ All interactions with the SDK for JavaScript are done through the global `__uid2
 - [getAdvertisingToken()](#getadvertisingtoken-string)
 - [getAdvertisingTokenAsync()](#getadvertisingtokenasync-promise)
 - [isLoginRequired()](#isloginrequired-boolean)
+- [isIdentityAvailable()](#isidentityavailable-boolean) <New />
 - [disconnect()](#disconnect-void)
-- [abort()](#abort-void)
+- [abort()](#abort-void) <Deprecated3100 />
 - [callbacks](#callbacks) <New />
 - [setIdentity()](#setidentityidentity-identity-void) <New />
 - [getIdentity()](#getidentity-identity--null) <New />
@@ -424,6 +433,24 @@ Specifies whether a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-gen
 | `false` | This value indicates one of the following:<ul><li>The identity is present and valid.</li><li>The identity has expired (but the refresh token has not expired), and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt.</li></ul> |
 | `undefined` | The SDK initialization is not yet complete. |
 
+### isIdentityAvailable(): boolean <New3100 />
+
+Specifies whether an identity is available. An identity can be available if there is an identity, in local storage or a cookie, that is not expired, or if there is an active request.
+
+If false, a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call is required. 
+
+```html
+<script>
+  __uid2.isIdentityAvailable();
+</script>
+```
+#### Return Values
+
+| Value | Description |
+| :--- | :--- |
+| `true` | This value indicates one of the following:<br/>- The identity is present and valid in a first-party cookie or local storage.<br/>- The identity has expired, and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt. |
+| `false` | This value indicates any of the following:<br/>- The user has opted out.<br/>- The identity is present, but the refresh token has expired.<br/>- A first-party cookie is not available and no server-generated identity has been supplied. |
+
 ### disconnect(): void
 
 Clears the UID2 identity from the first-party cookie and local storage (see [UID2 Storage Format](#uid2-storage-format)). This closes the client's identity session and disconnects the client lifecycle.
@@ -442,7 +469,9 @@ After this function is executed, the [getAdvertisingToken()](#getadvertisingtoke
 If you need to provide a `cookieDomain` or `cookiePath` for the SDK to access the correct cookie, and `init` has not been completed, the SDK cannot clear the cookie. In this case, no error is raised.
 :::
 
-### abort(): void
+### abort(): void <Deprecated3100 />
+
+This function is deprecated and will be removed altogether in June of 2025. Use [disconnect()](#disconnect-void) instead as it performs the same logic as `abort()` plus a more thorough disconnection. 
 	
 Terminates any background timers or requests. The UID2 object remains in an unspecified state and cannot be used anymore. 
 
