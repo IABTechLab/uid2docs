@@ -300,7 +300,7 @@ This function can also provide additional context for handling missing identitie
 
 ### isIdentityAvailable(): boolean <New3100 />
 
-Specifies whether an identity is available. An identity can be available if there is an identity in local storage or a cookie that is not expired, or if there is an active request.
+Specifies whether an identity is available. An identity can be available if there is an identity, in local storage or a cookie, that is not expired, or if there is an active request.
 
 If false, a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call is required. 
 
