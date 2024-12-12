@@ -132,9 +132,9 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
-| 80 | Inbound | HTTP     | Healthcheck エンドポイント `/ops/healthcheck` を含むすべての UID2 API を提供します。<br/>すべてが稼働している場合、エンドポイントは HTTP 200 を返し、レスポンスボディは `OK` となります。詳しくは、[Checking UID2 Operator Status](#checking-uid2-operator-status) を参照してください。 |
-| 9080        | Inbound   | HTTP     | Prometheus metrics サービス (`/metrics`)。 |
-| 443         | Outbound  | HTTPS    | UID2 Core Service を呼び出し、オプトアウトデータとキーストアを更新します。 |
+| 80 | Inbound | HTTP | Healthcheck エンドポイント `/ops/healthcheck` を含むすべての UID2 API を提供します。<br/>すべてが稼働している場合、エンドポイントは HTTP 200 を返し、レスポンスボディは `OK` となります。詳しくは、[Checking UID2 Operator Status](#checking-uid2-operator-status) を参照してください。 |
+| 9080 | Inbound | HTTP | Prometheus metrics サービス (`/metrics`)。 |
+| 443 | Outbound | HTTPS | UID2 Core Service を呼び出し、オプトアウトデータとキーストアを更新します。 |
 
 ### VPC Chart
 
@@ -280,6 +280,7 @@ Operator インスタンスがデプロイされると、デフォルトのロ�
 #### Log Rotation Default Settings
 
 以下はデフォルトの logrotete の設定です。`/etc/logrotate.d/operator-logrotate.conf` に定義されています:
+
 ```
 /var/log/operator.log*
 {
