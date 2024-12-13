@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 # API Keys
 
 :::note
-These instructions are for client-server or server-side implementations. If your UID2 implementation will be client-side, or visible to the public in any way, you'll need to set up different values. For details, see [Client-Side Integration](client-side-integrations.md).
+These instructions are for client-server or server-side implementations. If your UID2 implementation will be client-side, or visible to the public in any way, you'll need to set up different values. For details, see [Client-Side Integration](client-side-integration.md).
 :::
 
 In the UID2 Portal, on the **API Keys** page, you can perform all activities relating to managing the API keys for your UID2 account, including the following:
