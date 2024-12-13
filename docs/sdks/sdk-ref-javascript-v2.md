@@ -288,6 +288,7 @@ This function can also provide additional context for handling missing identitie
 | :--- | :--- |
 | `true` | The identity is not available. This value indicates any of the following:<br/>- The user has opted out.<br/>- The refresh token has expired.<br/>- A first-party cookie is not available and no server-generated identity has been supplied. |
 | `false` | This value indicates one of the following:<br/>- The identity is present and valid.<br/>- The identity has expired, and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt. |
+| `undefined` | The SDK initialization is not yet complete. |
 
 ### disconnect(): void
 
@@ -304,7 +305,6 @@ When a user logs out of the publisher's site, make the following call:
 After this function is executed, the [getAdvertisingToken()](#getadvertisingtoken-string) function returns `undefined` and the [isLoginRequired()](#isloginrequired-boolean) function returns `true`.
 
 ### abort(): void 
-
 Terminates any background timers or requests. The UID2 object remains in an unspecified state and cannot be used anymore. 
 
 This function is intended for use in advanced scenarios where you might want to replace the existing UID2 object with a new instance. For example, a single-page application could use this to clear the current UID2 object and construct or initialize a new one after receiving a new identity from the server in the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) response.
