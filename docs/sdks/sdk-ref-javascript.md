@@ -434,7 +434,7 @@ Specifies whether a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-gen
 
 ### isIdentityAvailable(): boolean <New3100 />
 
-Determines whether an identity is available: for example, if there is an unexpired identity in local storage or a cookie, or an existing active request.
+Determines whether an identity is available: for example, if there is an unexpired identity in local storage or in a cookie, or if an identity has already been requested.
 
 If false, a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call is required. 
 
@@ -447,8 +447,8 @@ If false, a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md
 
 | Value | Description |
 | :--- | :--- |
-| `true` | This value indicates one of the following:<br/>- The identity is present and valid in a first-party cookie or local storage.<br/>- The identity has expired, and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt. |
-| `false` | This value indicates any of the following:<br/>- The user has opted out.<br/>- The identity is present, but the refresh token has expired.<br/>- A first-party cookie is not available and no server-generated identity has been supplied. |
+| `true` | This value indicates one of the following:<ul><li> The identity is present and valid in a first-party cookie or local storage.</li><li> The identity has expired, and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt.</li></ul> |
+| `false` | This value indicates any of the following:<ul><li> The user has opted out.</li><li> The identity is present, but the refresh token has expired.</li><li> The identity has expired, even if the refresh token is still valid.</li><li> A first-party cookie is not available and no server-generated identity has been supplied. </li></ul> |
 
 ### disconnect(): void
 
@@ -470,7 +470,7 @@ If you need to provide a `cookieDomain` or `cookiePath` for the SDK to access th
 
 ### abort(): void <Deprecated3100 />
 
-This function is deprecated and support will be removed completely in June of 2025. Instead, use [disconnect()](#disconnect-void) which has the same functionality as `abort()` and also includes more thorough disconnection steps. 
+This function is deprecated and support will be removed completely in June of 2025. Instead, use [disconnect()](#disconnect-void) which has the same functionality as `abort()`, but also includes more thorough disconnection logic. 
 	
 Terminates any background timers or requests. The UID2 object remains in an unspecified state and cannot be used anymore. 
 
