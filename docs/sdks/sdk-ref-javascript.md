@@ -431,7 +431,6 @@ Specifies whether a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-gen
 | :--- | :--- |
 | `true` | The identity is not available. This value indicates any of the following:<ul><li>The user has opted out.</li><li>The refresh token has expired.</li><li>A first-party cookie is not available and no server-generated identity has been supplied.</li></ul> |
 | `false` | This value indicates one of the following:<ul><li>The identity is present and valid.</li><li>The identity has expired (but the refresh token has not expired), and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt.</li></ul> |
-| `undefined` | The SDK initialization is not yet complete. |
 
 ### isIdentityAvailable(): boolean <New3100 />
 
