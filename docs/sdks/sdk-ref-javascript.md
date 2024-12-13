@@ -432,7 +432,9 @@ Specifies whether a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-gen
 | `true` | The identity is not available. This value indicates any of the following:<ul><li>The user has opted out.</li><li>The refresh token has expired.</li><li>A first-party cookie is not available and no server-generated identity has been supplied.</li></ul> |
 | `false` | This value indicates one of the following:<ul><li>The identity is present and valid.</li><li>The identity has expired (but the refresh token has not expired), and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt.</li></ul> |
 
-### isIdentityAvailable(): boolean <New3100 />
+### isIdentityAvailable(): boolean
+
+<New3100 />
 
 Determines whether an identity is available: for example, if there is an unexpired identity in local storage or in a cookie, or if an identity has already been requested.
 
@@ -468,7 +470,9 @@ After this function is executed, the [getAdvertisingToken()](#getadvertisingtoke
 If you need to provide a `cookieDomain` or `cookiePath` for the SDK to access the correct cookie, and `init` has not been completed, the SDK cannot clear the cookie. In this case, no error is raised.
 :::
 
-### abort(): void <Deprecated3100 />
+### abort(): void
+
+<Deprecated3100 />
 
 This function is deprecated and support will be removed completely in June of 2025. Instead, use [disconnect()](#disconnect-void) which has the same functionality as `abort()`, but also includes more thorough disconnection logic. 
 	
