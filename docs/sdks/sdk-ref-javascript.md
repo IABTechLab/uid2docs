@@ -435,7 +435,7 @@ Specifies whether a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-gen
 
 ### isIdentityAvailable(): boolean <New3100 />
 
-Specifies whether an identity is available. An identity can be available if there is an identity, in local storage or a cookie, that is not expired, or if there is an active request.
+Determines whether an identity is available: for example, if there is an unexpired identity in local storage or a cookie, or an existing active request.
 
 If false, a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call is required. 
 
@@ -471,7 +471,7 @@ If you need to provide a `cookieDomain` or `cookiePath` for the SDK to access th
 
 ### abort(): void <Deprecated3100 />
 
-This function is deprecated and will be removed altogether in June of 2025. Use [disconnect()](#disconnect-void) instead as it performs the same logic as `abort()` plus a more thorough disconnection. 
+This function is deprecated and support will be removed completely in June of 2025. Instead, use [disconnect()](#disconnect-void) which has the same functionality as `abort()` and also includes more thorough disconnection steps. 
 	
 Terminates any background timers or requests. The UID2 object remains in an unspecified state and cannot be used anymore. 
 
