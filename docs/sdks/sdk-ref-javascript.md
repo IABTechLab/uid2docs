@@ -269,7 +269,7 @@ All interactions with the SDK for JavaScript are done through the global `__uid2
 - [getAdvertisingToken()](#getadvertisingtoken-string)
 - [getAdvertisingTokenAsync()](#getadvertisingtokenasync-promise)
 - [isLoginRequired()](#isloginrequired-boolean)
-- [isIdentityAvailable()](#isidentityavailable-boolean) <New />
+- [isIdentityAvailable()](#isidentityavailable-boolean) <New3100 />
 - [disconnect()](#disconnect-void)
 - [abort()](#abort-void) <Deprecated3100 />
 - [callbacks](#callbacks) <New />
