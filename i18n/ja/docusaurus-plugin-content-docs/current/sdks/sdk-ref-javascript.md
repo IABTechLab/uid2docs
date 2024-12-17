@@ -15,6 +15,14 @@ export const New = () => (
   <span className='pill'>NEW IN V3</span>
 );
 
+export const New3100 = () => (
+  <span className='pill'>New in version 3.10.0</span>
+);
+
+export const Deprecated3100 = () => (
+  <span className='pill'>Deprecated in version 3.10.0</span>
+);
+
 # SDK for JavaScript Reference Guide
 
 この SDK を使用して、UID2 を使用したクライアント ID の生成または確立、ターゲティング広告用の Advertising Token の取得、および UID2 Token の自動リフレッシュを容易に行うことができます。
@@ -261,6 +269,7 @@ SDK for JavaScript とのすべてのインストラクションは、グロー�
 - [getAdvertisingToken()](#getadvertisingtoken-string)
 - [getAdvertisingTokenAsync()](#getadvertisingtokenasync-promise)
 - [isLoginRequired()](#isloginrequired-boolean)
+- [isIdentityAvailable()](#isidentityavailable-boolean) <New3100 />
 - [disconnect()](#disconnect-void)
 - [abort()](#abort-void)
 - [callbacks](#callbacks) <New />
@@ -422,7 +431,26 @@ UID2 ログイン [POST&nbsp;/token/generate](../endpoints/post-token-generate.
 | :--- | :--- |
 | `true` | ID が利用できません。この値は以下のいずれかを示します:<ul><li>ユーザーがオプトアウトした。</li><li>Refresh token の有効期限が切れた。</li><li>ファーストパーティクッキーは利用できず、サーバーで生成した ID も提供されていません。</li></ul> |
 | `false` | この値は以下のいずれかを示します:<ul><li>ID が存在し、有効。</li><li>ID の有効期限が切れており、断続的なエラーによりトークンがリフレッシュされなかった。</li><li>ID の有効期限が切れており、断続的なエラーによりトークンがリフレッシュされなかった。</li></ul> |
-| `undefined` | SDK の初期化はまだ完了していません。 |
+
+### isIdentityAvailable(): boolean
+
+<New3100 />
+
+Identity が利用可能かどうかを判断します。たとえば、ローカルストレージまたはクッキーに有効な ID があるか、またはすでに ID がリクエストされているかどうかを判断します。
+
+もし false であれば、UID2 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) 呼び出しが必要です。
+
+```html
+<script>
+  __uid2.isIdentityAvailable();
+</script>
+```
+#### Return Values
+
+| Value | Description |
+| :--- | :--- |
+| `true` | この値は、以下のいずれかを示します:<ul><li> ファーストパーティクッキーまたはローカルストレージに ID が存在し、有効です。</li><li> ID の有効期限が切れており、断続的なエラーによりトークンがリフレッシュされませんでした。成功した自動リフレッシュ試行の後、ID が復元される可能性があります。</li></ul> |
+| `false` | この値は、以下のいずれかを示します:<ul><li> ユーザーがオプトアウトしています。</li><li> ID が存在しますが、リフレッシュトークンが期限切れです。</li><li> ID が期限切れで、リフレッシュトークンが有効でもリフレッシュされませんでした。</li><li> ファーストパーティクッキーが利用できず、サーバーで生成された ID も提供されていません。</li></ul> |
 
 ### disconnect(): void
 
@@ -444,9 +472,13 @@ SDK が正しいクッキーにアクセスするために `cookieDomain` また
 
 ### abort(): void
 
-バックグラウンドのタイマーやリクエストを終了します。UID2 オブジェクトは指定されていない状態のままで、これ以上使用することはできません。
+<Deprecated3100 />
 
-この関数は、既存の UID2 オブジェクトを新しいインスタンスで置き換えるような高度なシナリオで使用するためのものです。
+この機能は非推奨であり、2025 年 6 月に完全に削除されます。代わりに、`abort()` と同じ機能を持つ [disconnect()](#disconnect-void) を使用してください。また、より徹底的な切断ロジックも含まれています。
+  
+バックグラウンドタイマーやリクエストを終了します。UID2 オブジェクトは未指定の状態になり、もはや使用できません。
+
+この機能は、既存の UID2 オブジェクトを新しいインスタンスで置き換えたい場合など、高度なシナリオで使用することを意図しています。
 
 ### callbacks
 
