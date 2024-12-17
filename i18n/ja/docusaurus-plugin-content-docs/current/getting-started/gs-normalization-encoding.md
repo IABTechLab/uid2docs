@@ -131,7 +131,7 @@ JavaScript でメールアドレスと電話のハッシュを生成する方法
 
 正規化、ハッシュ化、エンコードが正しく行われているかチェックするには、[UID2 hashing tool](https://unifiedid.com/examples/hashing-tool/) を使ってテストすることができます。
 
-Email または Phone Number を選択し、値を入力またはペーストして、Enter をクリックします。
+Email または Phone Number を選択し、値を入力またはペーストして、**Enter** をクリックします。
 
 このツールは以下を行います:
 - Email: 以下の３つの値を表示します:
