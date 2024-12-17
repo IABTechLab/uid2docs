@@ -75,8 +75,6 @@ For detailed instructions, refer to one of the following integration guides:
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md)
 
-## Prebid Mobile SDK Support for Mobile Devices
+## UID2 Integration with Prebid Mobile SDK for Mobile Devices
 
-UID2 integration with Prebid is supported for Android and iOS mobile devices using the Prebid Mobile SDK.
-
-For details, see [UID2 Mobile Integration for Prebid Mobile SDK](integration-prebid-mobile-summary.md).
+UID2 integration with Prebid is supported for Android and iOS mobile devices using the [UID2 Mobile Integration with Prebid Mobile SDK](integration-prebid-mobile-summary.md).

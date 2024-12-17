@@ -9,7 +9,7 @@ sidebar_position: 04
 
 import Link from '@docusaurus/Link';
 
-# UID2 Mobile Integration for Prebid Mobile SDK
+# UID2 Mobile Integration with Prebid Mobile SDK
 
 Prebid Mobile SDK Android モバイルデバイスでの UID2 インテグレーションをサポートしています。
 

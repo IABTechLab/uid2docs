@@ -101,14 +101,14 @@ For details, see [Server-Side Token Generation](ref-server-side-token-generation
 
 <!-- APIDOCS-2255 -->
 
-### New: Prebid Mobile SDK Integration (Android)
+### New: UID2 Integration with Prebid Mobile SDK (Android)
 
 July 2, 2024
 
 We've added a new section to the two mobile integration guides with instructions for mobile integration using Prebid, currently for Android only:
 
-- [UID2 Client-Side Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-side#optional-uid2-prebid-mobile-sdk-integration)
-- [UID2 Client-Server Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-server#optional-uid2-prebid-mobile-sdk-integration)
+- [UID2 Client-Side Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-side#optional-uid2-integration-with-prebid-mobile-sdk)
+- [UID2 Client-Server Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-server#optional-uid2-integration-with-prebid-mobile-sdk)
 
 <!-- APIDOCS-2269 -->
 

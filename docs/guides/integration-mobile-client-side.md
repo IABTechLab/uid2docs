@@ -716,10 +716,10 @@ If the response status indicates that the DII has been opted out of UID2, you mi
 
 <GMAIMA_Plugins />
 
-## Optional: UID2 Prebid Mobile SDK Integration
+## Optional: UID2 Integration with Prebid Mobile SDK
 
 :::important
-The UID2 Prebid Mobile SDK integration requires version 1.6.0 of the UID2 SDK for Android, or version 1.7.0 of the UID2 SDK for iOS.
+The UID2 integration with Prebid Mobile SDK requires version 1.6.0 of the UID2 SDK for Android, or version 1.7.0 of the UID2 SDK for iOS.
 :::
 
 <PrebidMobileSDK />

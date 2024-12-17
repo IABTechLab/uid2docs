@@ -306,7 +306,7 @@ UID2Manager.shared.automaticRefreshEnabled = false
 
 <GMAIMA_Plugins />
 
-## Optional: UID2 Prebid Mobile SDK Integration
+## Optional: UID2 Integration with Prebid Mobile SDK
 
 <PrebidMobileSDK />
 
