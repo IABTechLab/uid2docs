@@ -1,6 +1,6 @@
 ---
 title: Server-Side Token Generation
-description: Information for publishers about generating the token on the server side.
+description: パブリッシャー向けのサーバーサイドでのトークン生成に関する情報。
 hide_table_of_contents: false
 sidebar_position: 06
 ---
@@ -11,18 +11,18 @@ import Link from '@docusaurus/Link';
 
 # Server-Side Token Generation
 
-If you're a publisher setting up a client-server or server-side UID2 integration, the first step is to generate the UID2 token on your server. Then, you can keep the token refreshed either on the client side or server side, and pass the token to the client side for sending to the RTB bidstream.
+パブリッシャーが Client-Server または Server-Side UID2 インテグレーションを設定する場合、最初のステップはサーバーで UID2 Token を生成することです。その後、トークンを Client-Side または Server-Side でリフレッシュし、RTB ビッドストリームに送信するためにトークンを Client-Side に渡すことができます。
 
-There are two approaches for publishers generating UID2 tokens on the server side by providing directly identifying information (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) (email address or phone number):
+パブリッシャーが Server-Side で直接識別情報 (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) (メールアドレスまたは電話番号) を提供して UID2 Token を生成するための 2 つのアプローチがあります:
 
-- Integration with an SDK
-- Direct integration to API endpoints
+- SDK のインテグレーション
+- API エンドポイントへのダイレクトインテグレーション
 
 :::warning
-For security reasons, the API key and secret used in token generation *must* be called on the server side. Do not store these values on the client side, whether on a web page, in a mobile app, or in Prebid. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+セキュリティ上の理由により、トークン生成に使用される API キーとシークレットは Server-Side で呼び出す必要があります。これらの値を Web ページ、モバイルアプリ、または Prebid に保存しないでください。詳細については、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 :::
 
-Options are summarized in the following table.
+オプションは次の表にまとめられています。
 
 | Integration Solution | Generate Token | Refresh Token |
 | :--- | :--- | :--- |
@@ -30,16 +30,16 @@ Options are summarized in the following table.
 | [SDK for Python](../sdks/sdk-ref-python.md) | ✅ | ✅ |
 | [Direct integration (API endpoints with custom code)](../endpoints/post-token-generate.md) | ✅ | ✅ |
 
-Whatever integration option you choose to generate the <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (UID2 token and associated values), you'll need to implement one of the following:
+<Link href="../ref-info/glossary-uid#gl-identity">Identity</Link> (UID2 Token と関連する値) を生成するために選択したインテグレーションオプションに関係なく、次のいずれかを実装する必要があります:
 
--  **SDK**: Use one of the Publisher Client classes, in one of the UID2 server-side SDKs. These classes simplify the request into a single method call. 
+- **SDK**: UID2 Server-Side SDK を使用して、Publisher Client クラスのいずれかを使用します。これらのクラスは、リクエストを 1 つのメソッド呼び出しに簡素化します。
 
-   For instructions, see one of the following:
+   手順については、次のいずれかを参照してください:
    
    - [SDK for Java, Usage for Publishers, Basic Usage](../sdks/sdk-ref-java.md#basic-usage)
    - [SDK for Python, Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers)
 
-   If you're using an SDK option, the `Identity` response that you need for the rest of this guide is the output of the applicable method, as follows:
+   SDK オプションを使用している場合、このガイドの残りの部分で必要な `Identity` レスポンスは、次のいずれかのメソッドの出力です:
 
    <Tabs groupId="language-selection">
    <TabItem value='java' label='Java'>
@@ -58,10 +58,10 @@ Whatever integration option you choose to generate the <Link href="../ref-info/g
    </TabItem>
    </Tabs>
 
-- **API**: Call the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint.
+- **API**: [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出します。
 
-  The identity output that you need for the rest of this guide is the content inside the body section of a successful endpoint response. For an example, see [Successful Response](../endpoints/post-token-generate.md#successful-response).
+  このガイドの残りの部分で必要な `Identity` レスポンスは、成功したエンドポイントのレスポンスの body セクション内のコンテンツです。例については、[Successful Response](../endpoints/post-token-generate.md#successful-response) を参照してください。
   
 :::important
-The endpoint and SDK API return opt-out status if the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> you are generating the token for has been opted out of UID2. If this happens, save the information and do not call the token generation endpoint for the same DII again. 
+トークンを生成する DII が UID2 からオプトアウトされている場合、エンドポイントと SDK API はオプトアウトステータスを返します。この場合、情報を保存し、同じ DII に対してトークン生成エンドポイントを呼び出さないでください。
 :::

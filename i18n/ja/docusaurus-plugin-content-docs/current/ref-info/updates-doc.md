@@ -11,6 +11,17 @@ import Link from '@docusaurus/Link';
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: LiveRamp Integration Tips
+
+November 14, 2024
+
+We've added a new reference page with tips for publishers who are using LiveRamp's Authenticated Traffic Solution (ATS) to generate UID2 tokens to be passed in the bid request.
+LiveRamp の Authenticated Traffic Solution (ATS) を使用して UID2 Token を生成し、ビッドリクエストで渡すパブリッシャー向けの新しいリファレンスページを追加しました。
+
+詳細は、[LiveRamp Integration Tips](../guides/integration-liveramp-tips.md) を参照してください。
+
+<!-- APIDOCS-2699 -->
+
 ### New: Tokens Page
 
 September 10, 2024

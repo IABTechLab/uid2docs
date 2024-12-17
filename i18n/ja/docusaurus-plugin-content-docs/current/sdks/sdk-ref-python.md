@@ -9,12 +9,7 @@ import Link from '@docusaurus/Link';
 
 # SDK for Python Reference Guide
 
-UID2 Server-Side SDK を使用することで、以下が容易になります:
-
-- UID2 Advertising Token の生成
-- UID2 Advertising Token の更新
-- raw UID2 を暗号化して UID2 Token を作成する
-- UID2 Advertising Token を復号化して raw UID2 にアクセスする
+Server-Side で Python SDK を使用すると、UID2 を使用してクライアント ID を生成または確立するプロセス、ビッドストリームでの Advertising Token の取得、UID2 Token の自動リフレッシュを容易にすることができます。適用可能な権限がある場合、共有のために暗号化および復号化、DII を raw UID2 にマッピング、およびローテーションされたソルトバケットの監視も行うことができます。
 
 ## Functionality
 
@@ -58,22 +53,22 @@ pip install uid2-client
 
 初期化ステップは、次の表に示すように役割によって異なります。
 
-| Role	                    | Create Instance of Class	 | Link to Instructions                                                         |
-|:-------------------------|:--------------------------|:-----------------------------------------------------------------------------|
-| Publisher                | `Uid2PublisherClient`     | [Usage for Publishers](#usage-for-publishers)                                |
-| Advertiser/Data Provider | `IdentityMapClient`       | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
-| DSP                      | `BidstreamClient`         | [Usage for DSPs](#usage-for-dsps)                                            |
-| Sharer                   | `SharingClient`           | [Usage for Sharers](#usage-for-uid2-sharers)                                 |
+| Role | Create Instance of Class | Link to Instructions |
+| :--- | :--- | :---|
+| Publisher | `Uid2PublisherClient` | [Usage for Publishers](#usage-for-publishers) |
+| Advertiser/Data Provider | `IdentityMapClient` | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
+| DSP | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps) |
+| Sharer | `SharingClient` | [Usage for Sharers](#usage-for-uid2-sharers) |
 
 
 
 SDK が　UID2 Service と通信するために必要な値を提供する必要があります。
 
-| Parameter    | Description                                                                                |
-|:-------------|:-------------------------------------------------------------------------------------------|
-| `base_url`   | The endpoint for the UID2 service. See [Environments](../getting-started/gs-environments). |
-| `auth_key`   | The API key. See [UID2 Credentials](../getting-started/gs-credentials).                    |
-| `secret_key` | The client secret. See [UID2 Credentials](../getting-started/gs-credentials).              |
+| Parameter | Description |
+| :--- | :--- |
+| `base_url`   | UID2 Service のエンドポイント。[Environments](../getting-started/gs-environments) を参照してください。 |
+| `auth_key`   | API Key。[UID2 Credentials](../getting-started/gs-credentials) を参照してください。 |
+| `secret_key` | Cient　Secret。[UID2 Credentials](../getting-started/gs-credentials) を参照してください。 |
 
 ## Interface 
 

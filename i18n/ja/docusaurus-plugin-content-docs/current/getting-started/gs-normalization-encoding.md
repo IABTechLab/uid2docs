@@ -55,7 +55,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service<
 
 ## Email Address Hash Encoding
 
-メールアドれづハッシュは、正規化されたメールアドレスの <Link href="../ref-info/glossary-uid#gl-sha-256">SHA-256</Link> ハッシュを Base64 エンコードしたものです。メールアドレスはまず正規化され、次に SHA-256 ハッシュアルゴリズムを使ってハッシュ化され、その結果のハッシュ値のバイトが Base64 エンコーディングを使ってエンコードされます。Base64 エンコーディングはハッシュ値のバイトに適用されるのであって、16 進エンコーディングされた文字列表現には適用されないことに注意してください。
+メールアドレスハッシュは、正規化されたメールアドレスの SHA-256 ハッシュを Base64 エンコードしたものです。メールアドレスはまず正規化され、次に <Link href="../ref-info/glossary-uid#gl-sha-256">SHA-256</Link> ハッシュアルゴリズムを使ってハッシュ化され、その結果のハッシュ値のバイトが Base64 エンコーディングを使ってエンコードされます。Base64 エンコーディングはハッシュ値のバイトに適用されるのであって、16 進エンコーディングされた文字列表現には適用されないことに注意してください。
 
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
@@ -70,8 +70,6 @@ Base64 エンコードを適用する場合、ハッシュの Raw バイトを�
 その他の例は、[Normalization Examples for Email](#normalization-examples-for-email) を参照してください。
 
 ## Phone Number Normalization
-
-ハッシュ化されていない電話番号を UID2 Operator Service に送信すると、同サービスは電話番号を正規化した後、ハッシュ化します。電話番号を送信する前に自分でハッシュ化したい場合は、ハッシュ化する前に電話番号を正規化する必要があります。
 
 :::important
 ハッシュ化する前に正規化することで、生成される UID2 値が常に同じになり、データを照合できます。ハッシュ化する前に正規化しない場合、異なる UID2 が生成され、ターゲティング広告の効果が低下する可能性があります。
@@ -131,7 +129,7 @@ JavaScript でメールアドレスと電話のハッシュを生成する方法
 
 正規化、ハッシュ化、エンコードが正しく行われているかチェックするには、[UID2 hashing tool](https://unifiedid.com/examples/hashing-tool/) を使ってテストすることができます。
 
-Email または Phone Number を選択し、値を入力またはペーストして、Enter をクリックします。
+Email または Phone Number を選択し、値を入力またはペーストして、**Enter** をクリックします。
 
 このツールは以下を行います:
 - Email: 以下の３つの値を表示します:
@@ -143,7 +141,7 @@ Email または Phone Number を選択し、値を入力またはペーストし
   - Hashed value (ハッシュした値)
   - Base64-encoded value (Base64 エンコードした値)
 
-  :::note
+  :::important
   電話番号の場合は、まずデータを正規化する必要があります。
   :::
 

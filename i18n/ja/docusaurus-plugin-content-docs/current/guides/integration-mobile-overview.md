@@ -63,6 +63,8 @@ UID2 mobile SDK を使用してモバイルアプリを UID2 とインテグレ�
 
 UID2 mobile SDK を使用して UID2 とインテグレーションするためのオプションは、次の表にまとめられています。最適な <Link href="../ref-info/glossary-uid#gl-integration-approaches">Integration approach</Link> を選択してください。
 
+詳細は、[Integration Approaches](../ref-info/ref-integration-approaches.md) を参照してください。
+
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |
 | モバイルアプリ内のクライアントサイドで DII (メールアドレスまたは電話番号) にアクセスでき、変更をアプリ内にのみ保持したい場合。 | Client-Side インテグレーション | [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) |
@@ -98,7 +100,7 @@ UID2 Token をビッドストリームに送信する方法はいくつかあり
 すべてのオプションは、Client-Side または Server-Side インテグレーションをサポートしています。
 
 | Implementation Option | Generate Token from DII | Refresh Token | Android/iOS? | Send Token to Bidstream |
-| :--- | :--- |  :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- | :--- |
 | UID2 SDK for Android | &#9989; | &#9989; | Android | &ast; |
 | UID2 SDK for iOS | &#9989;| &#9989; | iOS | &ast; |
 | GMA Plugin for Android<br/>(Requires UID2 SDK for Android) | &#8212; | &#8212; | Android | &#9989;&ast;&ast; |
@@ -143,6 +145,7 @@ Podspec は、CocoaPods 内のファイル名で、アプリにインテグレ�
 :::
 
 ## Troubleshooting Tips for Mobile Integrations
+
 UID2 モバイルインテグレーションのトラブルシューティングに役立つ追加情報です:
 
 - [Android SDK が本番環境に接続できない](#android-sdk-cannot-connect-in-production-environment)

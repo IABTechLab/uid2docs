@@ -74,4 +74,3 @@ Maven でインストールするには、`pom.xml` ファイルに依存関係�
 R8 を使用している場合、縮小と難読化のルールは自動的に含まれます。
 
 ProGuard を使用している場合は、[uid2-gma.pro](https://github.com/IABTechLab/uid2-android-sdk/blob/main/securesignals-gma/uid2-gma.pro) で指定されたオプションを手動で追加する必要があります。
-

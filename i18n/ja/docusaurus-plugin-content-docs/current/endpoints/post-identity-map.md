@@ -13,6 +13,8 @@ import Link from '@docusaurus/Link';
 
 Used by: このエンドポイントは、主に広告主やデータプロバイダーが使用します。詳細は [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) を参照してください。
 
+UID2 の Opt-Out ワークフローとユーザーが Opt-Out する方法の詳細については、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+
 ## Batch Size and Request Parallelization Requirements
 
 知っておくべきことは以下のとおりです:
@@ -26,6 +28,8 @@ Used by: このエンドポイントは、主に広告主やデータプロバ�
 
 `POST '{environment}/v2/identity/map'`
 
+認証の詳細については、 [Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
+
 :::important
 すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 :::
@@ -34,7 +38,7 @@ Used by: このエンドポイントは、主に広告主やデータプロバ�
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | 必須 | インテグレーション環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
+| `{environment}` | string | 必須 | テスト (インテグレーション) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
 インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。
@@ -93,7 +97,7 @@ Used by: このエンドポイントは、主に広告主やデータプロバ�
 以下は、メールアドレスハッシュに対する暗号化された ID マッピングリクエストの例です:
 
 ```sh
-echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk= DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
+echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
 詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。

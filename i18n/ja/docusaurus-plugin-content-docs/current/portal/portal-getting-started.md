@@ -26,7 +26,7 @@ UID2 Portal アカウントをリクエストする際には、自分自身と�
 UID2 の連絡先にアカウントのリクエストを行う際には、情報を提供いただく必要があります。次の表に示す詳細情報を含めてください。
 
 :::note
-UID2 の連絡先をまだお持ちでない場合は、[Request Access to UID2](/request-access) ページに移動し、フォームに記入してください。
+UID2 の連絡先がまだない場合は、[Request Access to UID2](/request-access) ページに移動し、フォームに記入してください。
 :::
 
 | Item | Details |
@@ -73,7 +73,7 @@ UID2 Service を使用するには、キーのセットが必要です。Client-
 
 ## Change Your Password
 
-**Accept Invitation** リンクをクリックすると、**Update Password** ページに移動します。
+**Accept Invitation** リンクをクリックすると、**Set Password** ページに移動します。
 
 :::tip
  アカウントが漏洩した可能性があるためにパスワードを変更する場合は、**Sign out from other devices** チェックボックスがチェックされていることを確認してください。

@@ -47,9 +47,18 @@ Refresh Token に関する主なポイントは次のとおりです:
 
 ### Recommended Token Refresh Frequency
 
-推奨されるリフレッシュ間隔は、1 時間です。
+現在、推奨されているリフレッシュ間隔は 1 時間です。1 時間ごとの間隔にすることで、トークンが期限切れになるのを避け、ビッドストリームに送信できるようになります。また、新しいトークンが生成される前にユーザーのオプトアウトが確認されるため、ユーザーのオプトアウト設定が迅速に反映されるようになります。
 
-リフレッシュのタイミングを決定するには、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントのレスポンス ([Successful Response](../endpoints/post-token-generate.md#successful-response)) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントのレスポンス ([Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens) を参照してください) の `refresh_from` フィールドのタイムスタンプを使用できます。このフィールドの値は、ミリ秒単位で表された Unix 時間のタイムスタンプです。
+リフレッシュのタイミングを決定するには、以下の UID2 API エンドポイントのいずれかを呼び出した際のレスポンスの `refresh_from` フィールドのタイムスタンプを使用できます:
+
+- [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint (see [Successful Response](../endpoints/post-token-generate.md#successful-response))
+- [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint (see [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens))
+
+`refresh_from` フィールドは <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> タイムスタンプで、トークンが生成された時間から 1 時間後の値をミリ秒で表します。
+
+:::tip
+推奨されるリフレッシュ間隔は将来変更される可能性があります。固定値を使用する代わりに、`refresh_from` 値に基づいて計算することが最善です。
+:::
 
 ### Managing Token Refresh with an SDK
 

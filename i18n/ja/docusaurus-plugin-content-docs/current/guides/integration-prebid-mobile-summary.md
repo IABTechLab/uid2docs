@@ -15,5 +15,5 @@ Prebid Mobile SDK Android モバイルデバイスでの UID2 インテグレー
 
 詳細は以下のモバイルインテグレーションガイドのセクションを参照してください:
 
-- [UID2 Client-Side Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-side#optional-uid2-integration-with-prebid-mobile-sdk)
-- [UID2 Client-Server Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-server#optional-uid2-integration-with-prebid-mobile-sdk)
+- [UID2 Client-Side Integration Guide for Mobile: Prebid Integration](integration-mobile-client-side#optional-uid2-integration-with-prebid-mobile-sdk)
+- [UID2 Client-Server Integration Guide for Mobile: Prebid Integration](integration-mobile-client-server#optional-uid2-integration-with-prebid-mobile-sdk)

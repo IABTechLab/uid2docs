@@ -9,7 +9,11 @@ import Link from '@docusaurus/Link';
 
 # Sharing Permissions
 
-Sharing permissions (共有権限) を設定することで、他の UID2 参加者と UID2 を共有できるようになります。
+共有権限を設定することで、他の UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">共有参加者</Link> と UID2 を共有できるようになります。
+
+:::tip
+UID Portal での共有権限の設定は、<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link> のためであり、raw UID2 の共有ではありません。詳細については、[UID2 Sharing Approaches](../sharing/sharing-overview.md#uid2-sharing-approaches) を参照してください。
+:::
 
 適切な共有関係を作成するのに役立つ多くのオプションがあります:
 
@@ -109,7 +113,6 @@ UID2 Portal で共有許可を与えるだけでなく、SDK または Snowflake
 - **Bulk sharing permissions**: 以前に DSP やデータプロバイダーなどの特定の参加者グループと共有することを選択した場合、そのグループとの共有許可を削除できます。
 
     ページの **Add Permissions&#8212;Bulk** セクションで、共有を解除したい参加者グループのチェックボックスをクリアし、**Save Permissions** をクリックします。
-
 - **Individual sharing permissions**: ページの **Your Sharing Permissions** セクションで、共有を解除したい参加者を見つけ、Actions 列で ![the Delete icon](images/icon-trash-can-solid.png) (削除アイコン) をクリックします。
 
     この操作は、以前に作成した個別の共有許可にのみ適用されます。一括共有を介して共有許可を追加した場合、個別の共有許可を削除することはできません。共有許可を削除するには、追加した方法と同じ方法で削除する必要があります。
