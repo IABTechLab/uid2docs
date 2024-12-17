@@ -69,18 +69,19 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 この SDK は、以下のロケーションに公開されています:
 
-<!-- - NPM: [https://www.npmjs.com/package/@uid2/uid2-sdk](https://www.npmjs.com/package/@uid2/uid2-sdk)
-  - This is the easiest way to include the SDK in your own build. Use this if you want to bundle the SDK along with your other JavaScript or TypeScript files.
-  - You can also use this for TypeScript type information and still load the script via the CDN. If you do this, ensure that the version of NPM package you have installed matches the version in the CDN url. LP_TODO: Looking at the NPM package, I don't believe it's ready for use - it just includes the source and doesn't seem to include a ready-to-deploy build. LP 12 Sep 2023 -->
-- CDN: `https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js`
-  <!-- - This is the easiest way to include the SDK in your site if you don't use a build pipeline to bundle your JavaScript. LP_TODO: This doesn't make sense until we add the NPM option above. -->
+- NPM: [https://www.npmjs.com/package/@uid2/uid2-sdk](https://www.npmjs.com/package/@uid2/uid2-sdk)
 
-  この文書の最新更新時点での最新バージョンは [3.4.5](https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js) です。[the list of available versions](https://cdn.prod.uidapi.com/) も参照してください。
+  これは、SDK を自分のビルドに含める最も簡単な方法です。他の JavaScript または TypeScript ファイルと一緒に SDK をバンドルしたい場合に使用します。
+
+  また、TypeScript の型情報を使用して、スクリプトを CDN 経由でロードすることもできます。この場合、インストールした NPM パッケージのバージョンが CDN URL のバージョンと一致していることを確認してください。
+- CDN: `https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js`
+
+  これは、ビルドパイプラインを使用して JavaScript をバンドルしていない場合に、サイトに SDK を含める最も簡単な方法です。
+
+  本ドキュメントの最新の更新時点で、最新のバージョンは [3.4.5](https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js) です。利用可能なバージョンの一覧は [the list of available versions](https://cdn.prod.uidapi.com/) を参照してください。
 - CDN (Integration): `https://cdn.integ.uidapi.com/uid2-sdk-${VERSION_ID}.js`
 
-  このインテグレーション URL には最小化されていないコードが含まれており、テストのみを目的としています。この URL を本番サイトに使用しないでください。
-
-  このドキュメントの最新更新時点での最新バージョンは [3.4.5](https://cdn.integ.uidapi.com/uid2-sdk-3.4.5.js) です。[the list of available versions](https://cdn.integ.uidapi.com/) も参照してください。
+  このインテグレーション URL には minified されていないコードが含まれており、テスト目的でのみ使用することができます。本番サイトにはこの URL を使用しないでください。
 
 ## Terminology
 

@@ -239,6 +239,8 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 1. **EC2 > Load balancers** で、ロードバランサーの **DNS name** 列を見て、ロードバランサーの DNS 名を特定します。
 2. ブラウザで、`https://{dns-name-of-your-load-balancer}/ops/healthcheck` にアクセスします。`OK` のレスポンスであれば、Operator のステータスは良好です。
 
+### Private Operator Attestation Failure
+
 <AttestFailure />
 
 ## Upgrading the UID2 Operator

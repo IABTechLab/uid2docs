@@ -93,7 +93,7 @@ Used by: このエンドポイントは、主に広告主やデータプロバ�
 以下は、メールアドレスハッシュに対する暗号化された ID マッピングリクエストの例です:
 
 ```sh
-echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk= DELPabG/hsJsZk4Xm9Xr10Wb8qoKarg4ochUdY9e+Ow=
+echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
 詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
