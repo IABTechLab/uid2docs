@@ -37,7 +37,6 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 
 ## GitHub Repository/Binary
 
-
 この SDK は以下のオープンソースの GitHub リポジトリにあります:
 
 - [SDK for .NET](https://github.com/IABTechLab/uid2-client-net/blob/master/README.md)

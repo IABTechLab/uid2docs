@@ -329,6 +329,7 @@ MAILTO=root
 - コマンドは `/var/lib/logrotate/logrotate.status` を参照してログのステータスをチェックし、ログがローテーション条件に達したかどうかを確認して、`logrotate` が毎分実行されたときにも余分なローテーションが行われないようにします。
 
 ### Changing the Log Rotation Schedule
+
 ログローテーションスケジュールを変更するには、`/etc/logrotate.d/uid2operator.conf` ファイルを更新します。
 
 logrotate のドキュメントに従って指示に従ってください: [logrotate(8) - Linux man](https://linux.die.net/man/8/logrotate) ぺージを参照してください。
