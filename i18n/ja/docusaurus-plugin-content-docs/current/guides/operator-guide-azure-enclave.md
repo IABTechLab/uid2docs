@@ -18,6 +18,8 @@ UID2 Operator Confidential Containers インスタンスの Docker コンテナ�
 
 認証が成功すると、UID2 Core Service は UID2 Operator を安全な UID2 Operator Confidential Containers インスタンスにブートストラップするためのソルトやキーなどのシード情報を提供します。
 
+認証が成功すると、UID2 Core Service は UID2 Operator を安全な UID2 Operator Confidential Containers インスタンスにブートストラップするためのソルトやキーなどのシード情報を提供します。
+
 :::caution
 UID2 Private Operator for Azure は、次の地域ではサポートされていません: ヨーロッパ、中国。
 :::

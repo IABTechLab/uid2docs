@@ -39,7 +39,7 @@ UID2 Identify Module、または UID2 サポートのある他の製品と Prebi
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 
-## Sample Implementation Website
+## Sample Implementation
 
 サンプルアプリケーションと関連するドキュメントは以下を参照してください:
   - The UID2 Google Secure Signals with SDK v3 example:

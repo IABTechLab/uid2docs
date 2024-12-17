@@ -24,6 +24,8 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 ## Request Format 
 
+認証の詳細については、 [Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
+
 `POST '{environment}/v2/token/generate'`
 
 このエンドポイントリクエストについて知っておくべきことは、以下のとおりです:

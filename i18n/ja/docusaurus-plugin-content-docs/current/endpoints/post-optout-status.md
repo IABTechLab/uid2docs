@@ -30,6 +30,8 @@ Used by: このエンドポイントは、主に広告主、データプロバ�
 
 `POST '{environment}/v2/optout/status'`
 
+認証の詳細については、 [Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
+
 :::important
 すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 :::
