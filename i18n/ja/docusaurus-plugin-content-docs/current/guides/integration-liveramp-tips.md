@@ -15,8 +15,8 @@ LiveRamp Authenticated Traffic Solution (ATS) をすでに使用しているパ�
 
 LiveRamp ATS を使用して、UID2 Token を生成するには、LiveRamp の担当者に連絡し、以下のインテグレーションポイントを確認してください:
 
-- [Enable RideAlong](#enable-ridealong)
-- [Implement the Correct Hashing Methodology](#implement-the-correct-hashing-methodology)
+- [Enable RideAlong](#enable-uid2-as-an-interoperable-id)
+- [Implement the Correct Hashing Methodology](#implement-the-uid2-hashing-methodology)
 - [Set Envelope Refresh to 1800 Seconds](#set-envelope-refresh-to-1800-seconds)
 
 ## Enable UID2 as an Interoperable ID
