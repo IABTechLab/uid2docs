@@ -77,8 +77,8 @@ July 2, 2024
 
 2 つのモバイルインテグレーションガイドに、Prebid を使用したモバイルインテグレーションの新しいセクションを追加しました。現在は Android のみです。
 
-- [UID2 Client-Side Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-side#optional-uid2-prebid-mobile-sdk-integration)
-- [UID2 Client-Server Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-server#optional-uid2-prebid-mobile-sdk-integration)
+- [UID2 Client-Side Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-side#optional-uid2-integration-with-prebid-mobile-sdk)
+- [UID2 Client-Server Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-server#optional-uid2-integration-with-prebid-mobile-sdk)
 
 <!-- APIDOCS-2269 -->
 

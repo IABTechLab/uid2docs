@@ -7,6 +7,10 @@ sidebar_position: 09
 
 # Client-Side Integration
 
+:::note
+These instructions are for client-side implementations. If your UID2 implementation will be client-server or server-side, you'll need to set up different values. For details, see [API Keys](api-keys.md).
+:::
+
 In the UID2 Portal, if you want to use an implementation option that generates UID2 tokens on the client side, you'll need to define the following values that are applicable to your implementation type:
 
 | Value | Implementation Type | Details | Documentation Link |
@@ -39,6 +43,10 @@ Client-side implementation options are shown in the following table. The options
 | UID2 Mobile SDK | Publishers only |[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) |
 
 ## Adding and Managing Key Pairs
+
+:::note
+The key pair identifies you to the UID2 service, but the values are not secret. You do not need to store the key pair securely, and can share it, since it's intended for use in a client-side implementation.
+:::
 
 On the Client-Side Integration page, you can perform the following activities relating to setting up and managing key pairs:
 

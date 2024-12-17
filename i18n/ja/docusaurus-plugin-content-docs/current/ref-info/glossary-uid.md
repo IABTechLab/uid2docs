@@ -99,6 +99,7 @@ import Link from '@docusaurus/Link';
 <a href="#gl-subscription-id">Subscription ID</a> 
 
 **T**
+<a href="#gl-tokenized-refresh">Token refresh</a> | 
 <a href="#gl-tokenized-sharing">Tokenized sharing</a> | 
 <a href="#gl-transparency-and-control-portal">Transparency and Control Portal</a> 
 
@@ -315,7 +316,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-operator">Operator</MdxJumpAnchor></dt>
 <dd>Operator とは、UID2の  <a href="#gl-operator-service">Operator Service</a> を運営する組織や団体のことです。UID2 Operatorは、UID2 エコシステムの API サーバーです。</dd>
-<dd>Operators は、UID2 Core Service から <a href="#gl-encryption-key">暗号化キー</a> と <a href="#gl-salt">ソルト</a> を受け取り、個人のデータをソルト化およびハッシュ化して raw UID2 を返し、raw UID2 を暗号化して UID2 Token を生成生成するなど、複数の機能を実行します。</dd>
+<dd>Operators は、UID2 Core Service から <a href="#gl-encryption-key">暗号化キー</a> と <a href="#gl-salt">ソルト</a> を受け取り、個人に関するデータ (<Link href="#gl-dii">DII</Link>) をソルト化およびハッシュ化して raw UID2 を返し、raw UID2 を暗号化して UID2 Token を生成生成するなど、複数の機能を実行します。</dd>
 <dd>参加者は、UID2 API にアクセスし、プライベートインフラ内で raw UID2 と UID2 Token を生成するために、<a href="#gl-private-operator">Private Operator</a> になることも選択できます。</dd>
 <dd>詳細は <a href="../intro#participants">participants</a> と <a href="../ref-info/ref-operators-public-private">The UID2 Operator</a> を参照してください。</dd>
 
@@ -383,6 +384,16 @@ import Link from '@docusaurus/Link';
 <dd>メールアドレスや電話番号を、それ自体では元の値を追跡できない安全で不透明な値に変換するプロセスで使用されます。</dd>
 <dd>UID2 Service は、ハッシュ化および暗号化とともに、プロセスの一部としてソルト(Salt) を使用し、元の値を保護します。ソルトは、ハッシュ化の前に入力値に加えられます。</dd>
 
+<dt><MdxJumpAnchor id="gl-salt-bucket"><a href="#gl-salt-bucket">Salt bucket</a></MdxJumpAnchor></dt>
+<dd>ソルトバケットは、Secret <a href="#gl-salt">salt</a> の値を長期間管理するために使用されます。各バケットには、約1年間有効な現在のソルト値が含まれており、新しい値にローテーションされる前に更新されます。バケットは互いに独立して更新できます。</dd>
+
+<dd>ソルトバケットは、100万以上あり、各メールアドレスまたは電話番号は、特定のバケットに決定論的に割り当てられます。ただし、この割り当ては永続的ではなく、バケットの現在のシークレットソルトが新しい値にローテーションされると変更される可能性があります。</dd>
+
+<dt><MdxJumpAnchor id="gl-salt-bucket-id"><a href="#gl-salt-bucket-id">Salt bucket ID</a></MdxJumpAnchor></dt>
+<dd>ソルトバケット ID は、特定の <a href="#gl-salt-bucket">ソルトバケット</a> を識別する一意の文字列です。ソルトバケット ID を使用すると、最近ソルト値が更新されたソルトバケットを確認し、どのメールアドレスまたは電話番号が raw UID2 値を再生成する必要があるかを確認できます。</dd>
+
+<dd>ソルトバケット ID の例については、`POST /identity/buckets` エンドポイントのレスポンスを参照してください: <a href="../endpoints/post-identity-buckets#decrypted-json-response-format">Decrypted JSON Response Format</a>。</dd>
+
 <dt><MdxJumpAnchor id="gl-salted-hash">Salted hash</MdxJumpAnchor></dt>
 <dd><a href="#gl-hash">hash</a> 関数を適用する前に入力文字列に <a href="#gl-salt">salt</a> 値を追加すると、結果はソルトハッシュとなります。入力値がハッシュ化される前にソルト化されると、ハッシュを持つ攻撃者は、同じ出力に到達するために多くの可能な入力を試して入力値を決定することができなくなります。</dd>
 
@@ -425,6 +436,13 @@ import Link from '@docusaurus/Link';
 
 <dl>
 
+<dt><MdxJumpAnchor id="gl-token-refresh"><a href="#gl-token-refresh">Token refresh</a></MdxJumpAnchor></dt>
+<dd>UID2 の参加者が UID2 Token をリクエストすると、トークンは UID2 Token と Refresh Token を含む一連の関連値とともに返されます。Refresh Token が有効期限切れになるまで、パブリッシャーは DII を送信することなく新しい UID2 Token をリクエストするために Refresh Token を使用できます。</dd>
+<dd>UID2 Token をリクエストする UID2 参加者は、トークンの有効性を維持するためのプロセスを持っている必要があります: リフレッシュ期間を監視し、Refresh Token が期限切れになる前に新しい UID2 Token をリクエストするか、毎回新しい UID2 Token をリクエストするか、DII を送信する必要があります。</dd>
+<dd>ほとんどの場合、トークンの更新は、SDK または Prebid.js の実装戦略など、他の実装戦略によって管理されます。</dd>
+<dd>Refresh Token が期限切れになった場合、パブリッシャーは DII を送信して UID2 Token を再リクエストする必要があります。</dd>
+<dd>詳細は、<a href="ref-tokens">UID2 Tokens and Refresh Tokens</a> を参照してください。</dd>
+
 <dt><MdxJumpAnchor id="gl-tokenized-sharing">Tokenized sharing</MdxJumpAnchor></dt>
 <dd>Tokenized sharing とは <a href="#gl-dii">DII</a> または <a href="#gl-raw-uid2">Raw UID2</a> を <a href="#gl-uid2-token">UID2 Token</a> に暗号化し、許可された受信者とトークンを共有することです。UID2 Token を使用することで、データの送信者と受信者の間で、未承認の関係者をデータが通過する場合も含めて、raw UID2 をエンドツーエンドで保護することができます。Tokenized sharing は、ビッドストリームまたはピクセル経由での共有に必要ですが、どのような共有ユースケースでも使用できます。</dd>
 <dd>詳細は <a href="../sharing/sharing-tokenized-overview">Tokenized Sharing Overview</a> を参照してください。</dd>
@@ -466,7 +484,7 @@ import Link from '@docusaurus/Link';
 <dd>トークンの値は不透明です。文字列のフォーマットや長さについて、推測してはなりません。</dd>
 <dd>トークンの寿命は限られていますが、<a href="#gl-refresh-token">refresh token</a> を使ってバックグラウンドでリフレッシュすることができます。</dd>
 <dd>パブリッシャーは、ビッドストリームに UID2 Token を送信します。</dd>
-<dd>詳細は <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
+<dd>詳細は <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> と <a href="ref-tokens#uid2-tokens-key-information">UID2 Tokens: Key Information</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-unified-id-20">Unified ID 2.0 (UID2)</MdxJumpAnchor></dt>
 <dd>"UID2" という用語は、<a href="#gl-uid2-framework">UID2 framework</a>、<a href="#gl-uid2-service">UID2 service</a>、<a href="#gl-raw-uid2">raw UID2</a>、または<a href="#gl-uid2-token">UID2 token</a> (Advertising Token) を意味でも使われます。</dd>

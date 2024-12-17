@@ -17,7 +17,7 @@ UID2 Interactive Media Ads (IMA) Plugin for Android は、[Google IMA SDK for An
 
 ## Version
 
-<!-- As of 2023-07-15 -->
+<!-- As of 2024-10-23 -->
 
 このドキュメントは、UID2 IMA Plugin for Android version 1.6.0 以降用です。
 

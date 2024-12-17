@@ -110,7 +110,7 @@ For details, see [Recommended Token Refresh Frequency](../ref-info/ref-tokens.md
 You can use the `refresh-optout@example.com` email address or the `+00000000002` phone number to test your token refresh workflow. Using either parameter value in a request always generates an identity response with a `refresh_token` that results in a logout response.
 
 :::tip
-To arrive at the hashed and Base64-encoded values of any email address or phone number value, use the [UID2 Hashing Tool](gs-normalization-encoding.md#uid2-hashing-tool).
+To get the normalized, hashed, and Base64-encoded hashed values for any email address, or the hashed and Base64-encoded hashed values for a phone number, you can use the hashing tool: see [UID2 Hashing Tool](gs-normalization-encoding.md#uid2-hashing-tool).
 :::
 
 The procedure is a little different depending on whether or not you are using an SDK.

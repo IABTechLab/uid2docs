@@ -124,7 +124,7 @@ import Link from '@docusaurus/Link';
 <dd>Advertising token is another term for a <a href="#gl-uid2-token">UID2 token</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-api-key"><a href="#gl-api-key">API key</a></MdxJumpAnchor></dt>
-<dd>Each UID2 <a href="../intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
+<dd>Each UID2 <a href="../intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the <a href="#gl-client-secret">client secret</a> (API secret). The client secret is known only to the participant and the UID2 service.</dd>
 <dd>For details, see <a href="../getting-started/gs-credentials">UID2 Credentials</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-api-secret"><a href="#gl-api-secret">API secret</a></MdxJumpAnchor></dt>
@@ -355,6 +355,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-public-key"><a href="#gl-public-key">Public key</a></MdxJumpAnchor></dt>
 <dd>For client-side publisher integrations, the public key is one of the two values issued to publishers to uniquely identify the account. For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
+<dd>In UID2 integrations, this value is often represented as <b>serverPublicKey</b>: for example, in the <a href="../guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>, the <a href="../guides/integration-javascript-client-side">Client-Side Integration Guide for JavaScript</a>, and the <a href="../guides/integration-mobile-client-side">UID2 Client-Side Integration Guide for Mobile</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-public-operator"><a href="#gl-public-operator">Public Operator</a></MdxJumpAnchor></dt>
 <dd>A Public <a href="#gl-operator">Operator</a> is an entity that runs a public instance of the UID2 Operator Service. For example, The Trade Desk currently serves as a Public Operator for the UID2 framework, available to all participants.</dd>

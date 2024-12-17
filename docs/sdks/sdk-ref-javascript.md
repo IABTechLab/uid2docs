@@ -15,6 +15,14 @@ export const New = () => (
   <span className='pill'>NEW IN V3</span>
 );
 
+export const New3100 = () => (
+  <span className='pill'>New in version 3.10.0</span>
+);
+
+export const Deprecated3100 = () => (
+  <span className='pill'>Deprecated in version 3.10.0</span>
+);
+
 # SDK for JavaScript Reference Guide
 
 Use this SDK to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens.
@@ -39,9 +47,9 @@ This SDK simplifies development for publishers who want to build their own custo
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 
-## Sample Implementation Website
+## Sample Implementation
 
-For example applications with associated documentation, see:
+For sample implementations with associated documentation, see:
   - The UID2 Google Secure Signals with SDK v3 example:
     - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
     - Running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
@@ -261,8 +269,9 @@ All interactions with the SDK for JavaScript are done through the global `__uid2
 - [getAdvertisingToken()](#getadvertisingtoken-string)
 - [getAdvertisingTokenAsync()](#getadvertisingtokenasync-promise)
 - [isLoginRequired()](#isloginrequired-boolean)
+- [isIdentityAvailable()](#isidentityavailable-boolean) <New3100 />
 - [disconnect()](#disconnect-void)
-- [abort()](#abort-void)
+- [abort()](#abort-void) <Deprecated3100 />
 - [callbacks](#callbacks) <New />
 - [setIdentity()](#setidentityidentity-identity-void) <New />
 - [getIdentity()](#getidentity-identity--null) <New />
@@ -422,7 +431,26 @@ Specifies whether a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-gen
 | :--- | :--- |
 | `true` | The identity is not available. This value indicates any of the following:<ul><li>The user has opted out.</li><li>The refresh token has expired.</li><li>A first-party cookie is not available and no server-generated identity has been supplied.</li></ul> |
 | `false` | This value indicates one of the following:<ul><li>The identity is present and valid.</li><li>The identity has expired (but the refresh token has not expired), and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt.</li></ul> |
-| `undefined` | The SDK initialization is not yet complete. |
+
+### isIdentityAvailable(): boolean
+
+<New3100 />
+
+Determines whether an identity is available: for example, if there is an unexpired identity in local storage or in a cookie, or if an identity has already been requested.
+
+If false, a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call is required. 
+
+```html
+<script>
+  __uid2.isIdentityAvailable();
+</script>
+```
+#### Return Values
+
+| Value | Description |
+| :--- | :--- |
+| `true` | This value indicates one of the following:<ul><li> The identity is present and valid in a first-party cookie or local storage.</li><li> The identity has expired, and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt.</li></ul> |
+| `false` | This value indicates any of the following:<ul><li> The user has opted out.</li><li> The identity is present, but the refresh token has expired.</li><li> The identity has expired, even if the refresh token is still valid.</li><li> A first-party cookie is not available and no server-generated identity has been supplied. </li></ul> |
 
 ### disconnect(): void
 
@@ -443,6 +471,10 @@ If you need to provide a `cookieDomain` or `cookiePath` for the SDK to access th
 :::
 
 ### abort(): void
+
+<Deprecated3100 />
+
+This function is deprecated and support will be removed completely in June of 2025. Instead, use [disconnect()](#disconnect-void) which has the same functionality as `abort()`, but also includes more thorough disconnection logic. 
 	
 Terminates any background timers or requests. The UID2 object remains in an unspecified state and cannot be used anymore. 
 

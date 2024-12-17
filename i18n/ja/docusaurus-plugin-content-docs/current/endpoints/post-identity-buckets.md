@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # POST /identity/buckets
 
-ソルトバケットのローテーションをモニターします。
+<Link href="../ref-info/glossary-uid#gl-salt-bucket">salt buckets</Link> のローテーションをモニターします。
 
 Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細は [Advertiser/Data Provider Integration Guide](../guides/integration-advertiser-dataprovider.md) を参照してください。
 

@@ -113,7 +113,7 @@ UID2 API のリクエストレスポンスワークフローは、以下のス�
 [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントでは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) へのコールで事前に取得した `refresh_token` と `refresh_response_key` の値を使用します。
 
 :::note
-Windows の場合、PowerShell の代わりに Windows コマンドプロンプトを使用している場合は、JSON を囲むシングルクォートも削除する必要があります。例えば、`echo {"email": "test@example.com"}` とします。
+Windows の場合、PowerShell の代わりに Windows コマンドプロンプトを使用している場合は、JSON を囲むシングルクォートも削除する必要があります。例えば、`echo {"email": "test@example.com", "optout_check": 1}` とします。
 :::
 
 ### Prerequisites and Notes
@@ -207,6 +207,11 @@ Maven を使用している場合は、以下の最小限の `pom.xml` を使用
 このファイルには.NET 7.0が必要です。必要であれば、それ以前のバージョンを使用することもできますが、.NET Core 3.0以降でなければなりません。バージョンを変更するには、[top-level statements](https://learn.microsoft.com/ja-jp/dotnet/csharp/fundamentals/program-structure/top-level-statements) を Main メソッドに、[using 宣言](https://learn.microsoft.com/ja-jp/cpp/cpp/using-declaration?view=msvc-170) を [using ステートメント](https://learn.microsoft.com/ja-jp/dotnet/csharp/language-reference/proposals/csharp-8.0/using) に置き換えてください。
 
 </TabItem>
+<TabItem value='go' label='Go'>
+
+以下のコード例では、Go を使用してリクエストを暗号化し、レスポンスを復号化します。必要なパラメータはファイルの一番下に記載されています。または、`go run uid2_request.go` を実行して確認できます。
+
+</TabItem>
 </Tabs>
 
 ### Code Example
@@ -222,7 +227,7 @@ Usage:
    echo '<json>' | python3 uid2_request.py <url> <api_key> <client_secret>
 
 Example:
-   echo '{"email": "test@example.com"}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate PRODGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=
+   echo '{"email": "test@example.com", "optout_check": 1}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate PRODGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=
    
 
 Refresh Token Usage:
@@ -350,7 +355,7 @@ public class Uid2Request {
       +             "java -jar Uid2Request-jar-with-dependencies.jar <url> <api_key> <client_secret>" + "\n\n"
       
       +       "Example:" + "\n   "  
-      +             "echo '{\"email\": \"test@example.com\"}' |  java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/generate PRODGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=" + "\n\n\n"
+      +             "echo '{\"email\": \"test@example.com\",\"optout_check\": 1}' |  java -jar Uid2Request-jar-with-dependencies.jar https://prod.uidapi.com/v2/token/generate PRODGwJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=" + "\n\n\n"
       
       +       "Refresh Token Usage:" + "\n   "
       +             "java -jar Uid2Request-jar-with-dependencies.jar <url> --refresh-token <refresh_token> <refresh_response_key>"  + "\n\n"
@@ -460,7 +465,7 @@ Usage:
    echo '<json>' | .\uid2_request <url> <api_key> <client_secret>
 
 Example:
-   echo '{"email": "test@example.com"}' | .\uid2_request https://prod.uidapi.com/v2/token/generate UID2-C-L-999-fCXrMM.fsR3mDqAXELtWWMS+xG1s7RdgRTMqdOH2qaAo= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=
+   echo '{"email": "test@example.com", "optout_check": 1}' | .\uid2_request https://prod.uidapi.com/v2/token/generate UID2-C-L-999-fCXrMM.fsR3mDqAXELtWWMS+xG1s7RdgRTMqdOH2qaAo= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=
    
 
 Refresh Token Usage:
@@ -574,5 +579,246 @@ else
     Console.WriteLine(JsonSerializer.Serialize(jDoc, new JsonSerializerOptions { WriteIndented = true }));
 }
 ```
+
 </TabItem>
+<TabItem value='go' label='Go'>
+
+```go title="uid2_request.go"
+package main
+
+import (
+	"bytes"
+	"crypto/aes"
+	"crypto/cipher"
+	"crypto/rand"
+	"encoding/base64"
+	"encoding/binary"
+	"encoding/json"
+	"fmt"
+	"io"
+	"log"
+	"net/http"
+	"os"
+	"strings"
+	"time"
+)
+
+const (
+	nonceLengthBytes = 8
+	gcmIVLengthBytes = 12
+)
+
+func main() {
+	subArgs := os.Args[1:]
+
+	if len(subArgs) != 3 && len(subArgs) != 4 {
+		printUsage()
+		os.Exit(1)
+	}
+
+	url := subArgs[0]
+
+	response, err := func() (map[string]interface{}, error) {
+		if subArgs[1] == "--refresh-token" {
+			return refresh(url, subArgs[2], subArgs[3])
+		} else {
+			return generate(url, subArgs[1], subArgs[2])
+		}
+	}()
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	prettyPrint(response)
+}
+
+func refresh(url string, refreshToken string, refreshResponseKey string) (map[string]interface{}, error) {
+	fmt.Printf("Request: Sending refresh_token to %s\n", url)
+
+	response, err := http.Post(url, "", strings.NewReader(refreshToken))
+	if err != nil {
+		return nil, err
+	}
+
+	return deserializeResponse(response, refreshResponseKey, true)
+}
+
+func generate(url string, apiKey string, secret string) (map[string]interface{}, error) {
+	payload, err := io.ReadAll(os.Stdin)
+	if err != nil {
+		return nil, err
+	}
+
+	key, err := base64.StdEncoding.DecodeString(secret)
+	if err != nil {
+		return nil, err
+	}
+
+	unencryptedEnvelope, err := makeUnencryptedEnvelope(payload)
+	if err != nil {
+		return nil, err
+	}
+
+	envelope, err := makeEncryptedEnvelope(unencryptedEnvelope, key)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", url, strings.NewReader(base64.StdEncoding.EncodeToString(envelope)))
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Authorization", "Bearer "+apiKey)
+
+	response, err := http.DefaultClient.Do(req)
+	if err != nil {
+		return nil, err
+	}
+
+	return deserializeResponse(response, secret, false)
+}
+
+func aesgcm(key []byte) (cipher.AEAD, error) {
+	block, err := aes.NewCipher(key)
+	if err != nil {
+		return nil, err
+	}
+
+	return cipher.NewGCM(block)
+}
+
+func decryptResponse(ciphertext string, key string) ([]byte, error) {
+	ciphertextBytes, err := base64.StdEncoding.DecodeString(ciphertext)
+	if err != nil {
+		return nil, err
+	}
+
+	keyBytes, err := base64.StdEncoding.DecodeString(key)
+	if err != nil {
+		return nil, err
+	}
+
+	aesgcm, err := aesgcm(keyBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	iv := ciphertextBytes[:gcmIVLengthBytes]
+	return aesgcm.Open(nil, iv, ciphertextBytes[gcmIVLengthBytes:], nil)
+}
+
+func deserialize(bytes []byte) (map[string]interface{}, error) {
+	var anyJson map[string]interface{}
+	err := json.Unmarshal(bytes, &anyJson)
+	return anyJson, err
+}
+
+func prettyPrint(obj map[string]interface{}) error {
+	bytes, err := json.MarshalIndent(obj, "", "  ")
+	if err != nil {
+		return err
+	}
+
+	fmt.Println(string(bytes))
+	return nil
+}
+
+func checkStatusCode(response *http.Response, body []byte) error {
+	if response.StatusCode != http.StatusOK {
+		return fmt.Errorf("Response: Error HTTP status code %d\n%s", response.StatusCode, body)
+	}
+
+	return nil
+}
+
+func makeUnencryptedEnvelope(payload []byte) ([]byte, error) {
+	timestamp := make([]byte, 8)
+	binary.BigEndian.PutUint64(timestamp, uint64(time.Now().UnixMilli()))
+
+	nonce := make([]byte, nonceLengthBytes)
+	_, err := rand.Read(nonce)
+	if err != nil {
+		return nil, err
+	}
+
+	var body bytes.Buffer
+	body.Write(timestamp)
+	body.Write(nonce)
+	body.Write(payload)
+	return body.Bytes(), nil
+}
+
+func encrypt(plaintext []byte, iv []byte, key []byte) ([]byte, error) {
+	aesgcm, err := aesgcm(key)
+	if err != nil {
+		return nil, err
+	}
+
+	return aesgcm.Seal(nil, iv, plaintext, nil), nil
+}
+
+func makeEncryptedEnvelope(payload []byte, key []byte) ([]byte, error) {
+	iv := make([]byte, gcmIVLengthBytes)
+	_, err := rand.Read(iv)
+	if err != nil {
+		return nil, err
+	}
+
+	ciphertext, err := encrypt(payload, iv, key)
+	if err != nil {
+		return nil, err
+	}
+
+	var envelope bytes.Buffer
+	envelope.WriteByte(1)
+	envelope.Write(iv)
+	envelope.Write(ciphertext)
+	return envelope.Bytes(), nil
+}
+
+func deserializeResponse(response *http.Response, key string, isRefresh bool) (map[string]interface{}, error) {
+	defer response.Body.Close()
+
+	body, err := io.ReadAll(response.Body)
+	if err != nil {
+		return nil, err
+	}
+
+	err = checkStatusCode(response, body)
+	if err != nil {
+		return nil, err
+	}
+
+	plaintext, err := decryptResponse(string(body), key)
+	if err != nil {
+		return nil, err
+	}
+
+	offset := 16
+	if isRefresh {
+		offset = 0
+	}
+
+	return deserialize(plaintext[offset:])
+}
+
+func printUsage() {
+	fmt.Println(`Usage:
+   echo '<json>' | go run uid2_request.go <url> <api_key> <client_secret>
+
+Example:
+   echo '{"email": "test@example.com", "optout_check": 1}' | go run uid2_request.go https://prod.uidapi.com/v2/token/generate UID2-C-L-999-fCXrMM.fsR3mDqAXELtWWMS+xG1s7RdgRTMqdOH2qaAo= wJ0hP19QU4hmpB64Y3fV2dAed8t/mupw3sjN5jNRFzg=
+   
+
+Refresh Token Usage:
+   go run uid2_request.go <url> --refresh-token <refresh_token> <refresh_response_key>
+
+Refresh Token Usage example:
+   go run uid2_request.go https://prod.uidapi.com/v2/token/refresh --refresh-token AAAAAxxJ...(truncated, total 388 chars) v2ixfQv8eaYNBpDsk5ktJ1yT4445eT47iKC66YJfb1s=`)
+}
+```
+</TabItem>
+
 </Tabs>

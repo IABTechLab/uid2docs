@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # POST /optout/status
 
-raw UID2 のオプトアウトステータスを確認します。指定された raw UID2 のリストを使用して、このエンドポイントはオプトアウトした raw UID2 とそのオプトアウトが行われた時刻を返します。詳細は [User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+<Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2s</Link> のオプトアウトステータスを確認します。指定された raw UID2 のリストを使用して、このエンドポイントはオプトアウトした raw UID2 とそのオプトアウトが行われた時刻を返します。詳細は [User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 Used by: このエンドポイントは、主に広告主、データプロバイダー、DSP、共有者によって使用されます。一般的には、元のメールアドレスや電話番号にアクセスできないが、オプトアウトステータスを知りたい参加者向けです。
 
@@ -24,7 +24,7 @@ Used by: このエンドポイントは、主に広告主、データプロバ�
 このエンドポイントへのリクエストのバッチを管理するための主要なガイドラインは次のとおりです:
 
 - 多数の UID2 のオプトアウトステータスを確認するには、1 バッチあたりのバッチサイズが最大 5,000 件となるように、順次バッチを送信してください。
-- Private Operator を使用している場合を除き、バッチを並行して送信しないでください。つまり、1 つの HTTP 接続を使用して、連続して raw UID2 のバッチを送信してください。
+- <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を使用している場合を除き、バッチを並行して送信しないでください。つまり、複数の並列接続を作成せず、単一の HTTP 接続を使用して、連続して raw UID2 のバッチを送信してください。
 
 ## Request Format
 
