@@ -1,7 +1,7 @@
 ---
-title: Advertiser/Data Provider Integration
-sidebar_label: Advertiser/Data Provider Integration Guide
-description: Integration for organizations that collect user data and push it to other participants.
+title: Advertiser/Data Provider Integration Overview
+sidebar_label: Advertiser/Data Provider Integration Overview
+description: Overview of integration options for organizations that collect user data and push it to other participants.
 hide_table_of_contents: false
 sidebar_position: 07
 displayed_sidebar: sidebarAdvertisers
@@ -9,11 +9,9 @@ displayed_sidebar: sidebarAdvertisers
 
 import Link from '@docusaurus/Link';
 
-# Advertiser/Data Provider Integration Guide
+# Advertiser/Data Provider Integration Overview
 
-This guide covers integration steps for organizations that collect user data and push it to other UID2 participants. Data collectors include advertisers, data on-boarders, measurement providers, identity graph providers, third-party data providers, and any other organizations that send data to other participants.
-
-If you are using a Public Operator service hosted in the Snowflake Data Marketplace, see also [Snowflake Integration Guide](snowflake_integration.md).
+This guide provides an overview of integration options for organizations that collect user data and push it to other UID2 participants. Data collectors include advertisers, data on-boarders, measurement providers, identity graph providers, third-party data providers, and any other organizations that send data to other participants.
 
 ## Advertiser/Data Provider Routes to Use UID2
 
@@ -33,17 +31,39 @@ There are other ways that you can use UID2, outside these use cases. These are j
 - **Send in conversions**: You can send UID2s as conversion information that can be used for measurement (attribution) or retargeting via API or pixels
 - **Receive graph data**: You can receive UID2s from graph/data providers via API or pixels. -->
 
-### High-Level Steps
+## High-Level Steps
 
 At a high level, the steps for advertisers and data providers integrating with UID2 are as follows:
 
 1. Generate a raw UID2 from <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>, or receive UID2s from another UID2 participant such as a data provider acting on your behalf.
 
-1. Use the UID2s you received in Step 1. For example, you might do one or more of the following:
+2. Use the UID2s you received in Step 1. For example, you might do one or more of the following:
    - Do some manipulation: for example, combine UID2s you generated from DII and UID2s received from another participant such as an advertiser or data provider.
    - Add new UID2s into an existing audience.
 
-1. Use the raw UID2s for some purpose such as measurement.
+3. Use the raw UID2s for some purpose such as:
+
+   - Send stored raw UID2s to DSPs to create audiences and conversions.
+   - Use the raw UID2s for measurement.
+
+4. Store the raw UID2 and the salt bucket ID returned from the identity mapping service.
+
+5. Monitor for salt bucket rotations related to your stored raw UID2s.
+
+6. Periodically, monitor for opt-out status, to be sure that you don't continue using UID2s for users that have recently opted out. For details, see [Check Opt-Out Status](#check-opt-out-status).
+
+## Summary of Implementation Options
+
+The following table shows the implementation options that are available for advertisers and data providers, for each of the high-level steps. Some steps are managed solely as part of your own custom implementation; some steps can be managed by one or more of the UID2 implementation options available. Click through on each option for applicable documentation.
+
+| High-Level Step | Implementation Options |
+| --- | --- |
+| 1. Generate a raw UID2 | Any of the following options:<ul><li>Python SDK: see <Link href="../sdks/sdk-ref-python">SDK for Python Reference Guide</Link></li><li>Raw HTTP endpoint: <Link href="../endpoints/post-identity-map">POST /identity/map</Link></li><li>Snowflake: see <Link href="snowflake_integration">Snowflake Integration Guide</Link>, section titled <Link href="snowflake_integration#map-dii">Map DII</Link></li><li>AWS Entity Resolution: see <Link href="integration-aws-entity-resolution">AWS Entity Resolution Integration Guide</Link></li></ul> |
+| 2. Manipulate or combine raw UID2s | Custom (your choice) |
+| 3. Use the raw UID2s | Custom (your choice) |
+| 4. Store raw UID2s and salt bucket IDs | Custom (your choice) |
+| 5. Monitor for salt bucket rotation | Any of the following options:<ul><li>Python SDK: see <Link href="../sdks/sdk-ref-python">SDK for Python Reference Guide</Link></li><li>Raw HTTP endpoint: <Link href="../endpoints/post-identity-buckets">POST /identity/buckets</Link></li><li>Snowflake: see <Link href="snowflake_integration">Snowflake Integration Guide</Link>, section titled <Link href="snowflake_integration#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s">Monitor for Salt Bucket Rotation and Regenerate Raw UID2s</Link></li></ul> |
+| 6. Monitor for opt-out status | API call to the [POST /optout/status](../endpoints/post-optout-status.md) endpoint: see [Check Opt-Out Status](#check-opt-out-status) |
 
 ## Integration Diagram
 
@@ -77,7 +97,7 @@ A raw UID2 is an identifier for a user at a specific moment in time. The raw UID
 Even though each salt bucket is updated approximately once per year, individual bucket updates are spread over the year. Approximately 1/365th of all salt buckets are rotated daily.
 
 :::important
-To ensure that your integration has the current raw UID2s, check salt bucket rotation for active users every day.
+To help ensure that your integration has the current raw UID2s, check salt bucket rotation for active users every day.
 :::
 
 | Step | Endpoint | Description |
@@ -91,12 +111,12 @@ To ensure that your integration has the current raw UID2s, check salt bucket rot
 
 To keep your UID2-based audience information accurate and up to date, follow these integration steps every day:
 
-1. The response from the [UID2 retrieval step](#1-retrieve-a-raw-uid2-for-dii) contains mapping information. Cache the following:
+1. The response from Step 1, [Retrieve a raw UID2 for DII](#1-retrieve-a-raw-uid2-for-dii), contains mapping information. Cache the following:
    - The mapping between DII (`identifier`), raw UID2 (`advertising_id`), and salt bucket (`bucket_id`).
    - The most recent `last_updated` timestamp.
-2. Using the results from Step 3, [Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s), remap any raw UID2 for which the salt buckets have been rotated by retrieving new raw UID2 for those IDs, following Step 1, [Retrieve a raw UID2 for DII](#1-retrieve-a-raw-uid2-for-dii).
-
-   Then, use the refreshed UID2s to update audiences or conversions, following Step 2, [send raw UID2 to a DSP](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions).
+2. Using the results from Step 3, [Monitor for salt bucket rotations related to your stored raw UID2s](#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s):
+   1. Remap any raw UID2 for which the salt buckets have been rotated by retrieving new raw UID2 for those IDs, following Step 1, [Retrieve a raw UID2 for DII](#1-retrieve-a-raw-uid2-for-dii).
+   2. Use the refreshed UID2s to update audiences or conversions, following Step 2, [Send stored raw UID2s to DSPs to create audiences or conversions](#2-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions).
 
 ## Check Opt-Out Status
 
