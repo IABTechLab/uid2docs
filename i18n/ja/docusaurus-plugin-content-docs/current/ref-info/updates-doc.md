@@ -82,7 +82,7 @@ Server-Side で UID2 Token を生成するパブリッシャー向けの情報�
 
 <!-- APIDOCS-2255 -->
 
-### New: Prebid Mobile SDK Integration (Android)
+### New: UID2 Integration with Prebid Mobile SDK (Android)
 
 July 2, 2024
 
@@ -324,7 +324,7 @@ UID2 Client-Side Integration Guide for Prebid.js は、既存の URL にまっ�
 - [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 :::
 
-### New: Opt-Out
+### New: Opt-Out Page
 
 October 31, 2023
 
