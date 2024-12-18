@@ -1,0 +1,46 @@
+<!-- Used by: guides/integration-mobile-client-side.md | guides/integration-mobile-client-server.md -->
+
+特定の条件下では、モバイル SDK は次のいずれかのエラー応答状態を返す可能性があります:
+
+- [Expired](#response-state-of-expired)
+- [RefreshExpired](#response-state-of-refreshexpired)
+- [Invalid](#response-state-of-expired)
+- [NoIdentity](#response-state-of-expired)
+
+:::note
+レスポンスステータスは、Android と iOS の両方で同じです。
+:::
+
+### Response State of Expired
+
+`Expired` のレスポンスステータスは、UID2 Token が有効期限切れであることを示しますが、リフレッシュトークンは有効期限切れではないため、UID2 Token をリフレッシュできます。
+
+**Automatic refresh**: SDK で自動リフレッシュが有効になっている場合 (`automaticRefreshEnabled` プロパティ)、SDK がトークンを自動的にリフレッシュします。ただし、この状態が発生する可能性があるいくつかのシナリオがあります。
+
+例えば、アプリが起動され、SDK がすぐにクエリされた場合、レスポンスステータスが `Expired` になる可能性がありますが、バックグラウンドで SDK がトークンをリフレッシュしており、すぐに新しい ID で更新されます。
+
+  この場合、何もする必要はありません。SDK が初期化されるとすぐにトークンがリフレッシュされます。
+
+**Manual refresh**: トークンの自動リフレッシュを無効にしている場合、`Expired` のレスポンスステータスが返された場合、`refreshIdentity()` メソッドを呼び出してリフレッシュを手動でリクエストできます。
+
+### Response State of RefreshExpired
+
+`RefreshExpired` のレスポンスステータスは、UID2 Token と Refresh Token の両方が有効期限切れであることを示します。そのため、UID2 Token をリフレッシュできません。
+
+このような状況が発生する可能性がある例としては、ユーザーがアプリを長期間実行しない場合、SDK が Refresh Token が期限切れになる前に UID2 Token をリフレッシュする機会がない場合があります。
+
+この場合、Identity を再生成する必要があります。
+
+### Response State of Invalid
+
+`Invalid` のレスポンスステータスは、ディスクからロードされたか、API 経由でリクエストされた ID に、必要なすべてのトークンが含まれていないことを示します。これは起こるべきではありませんが、予期しない状況で発生する可能性があります。
+
+SDK がこのエラーを検出すると、以前の ID は使用できないと見なされるため、クリアされます。
+
+この場合、Identity を再生成する必要があります。また、問題を UID2 の連絡先に報告することが望ましいです。
+
+### Response State of NoIdentity
+
+`NoIdentity` のレスポンスステータスは、SDK は初期化されていますが、現在の identity がまだ生成されていないことを示します。
+
+これは、デバイスで初めて SDK が使用される場合に発生します。この場合、identity を生成する必要があります。
