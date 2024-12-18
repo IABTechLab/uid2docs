@@ -6,7 +6,7 @@ sidebar_position: 20
 ---
 
 import Link from '@docusaurus/Link';
-import ExampleTokenInBidstream from '/docs/snippets/_example-token-in-bidstream.mdx';
+import ExampleTokenInBidstream from '../snippets/_example-token-in-bidstream.mdx';
 
 # Frequently Asked Questions
 

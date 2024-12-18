@@ -8,7 +8,7 @@ sidebar_position: 11
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import IdentityGenerateResponse from '/docs/snippets/_example-identity-generate-response.mdx';
+import IdentityGenerateResponse from '../snippets/_example-identity-generate-response.mdx';
 
 # Encrypting Requests and Decrypting Responses
 

@@ -8,7 +8,7 @@ sidebar_position: 18
 ---
 
 import Link from '@docusaurus/Link';
-import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
+import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
@@ -290,7 +290,7 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
 
    HTTP 200 と `OK` という応答本文が表示された場合、正常な状態です。
 
-import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
+import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 
 <AttestFailure />
 
