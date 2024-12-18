@@ -9,10 +9,11 @@ import Link from '@docusaurus/Link';
 
 # SDK for C# / .NET Reference Guide
 
-Server-Side で SDK for C# / .NET を使用すると、以下を簡単に行うことができます:
+Server-Side では、C# / .NET SDK を使用して、raw UID2 を暗号化して UID2 Token を生成し、UID2 Token を復号して raw UID2 にアクセスすることができます。
 
-- raw UID2 を暗号化して、共有用の UID2 Token を作成。
-- raw UID2 にアクセスするための UID2 Token の復号化。
+## Overview
+
+ここで説明する機能は、ライブラリの設定に必要な情報を定義するか、取得できる情報を定義します。以下で定義されているパラメータとプロパティ名は疑似コードです。実際のパラメータとプロパティ名は言語によって異なりますが、ここで説明されている情報に類似しています。
 
 ## Functionality
 
@@ -35,7 +36,6 @@ SDK が提供する特定の機能の使用許可が与えられ、そのアク�
 このライブラリは、.NET Standard 2.1. のユニットテストを使用しています。サンプルアプリは .NET 5.0 を使用しています。
 
 ## GitHub Repository/Binary
-
 
 この SDK は以下のオープンソースの GitHub リポジトリにあります:
 

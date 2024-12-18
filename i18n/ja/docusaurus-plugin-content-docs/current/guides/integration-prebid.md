@@ -30,6 +30,8 @@ UID2 は、以下をサポートする Prebid.js module を提供しています
 UID2 は GDPR が適用される場所では使用しないように設計されています。このモジュールは渡された同意データをチェックし、`gdprApplies` フラグが `true` に設定されている場合は動作しません。
 :::
 
+<!-- GDPR statement difference for UID2/EUID | UID2 is not designed to be used where GDPR applies | EUID is designed to be used only where GDPR applies. -->
+
 ### Generating the UID2 Token
 
 DII へのアクセスに応じて、Prebid.js で使用する UID2 Token を生成する方法は次の表のように 2 種類あります 。
@@ -73,8 +75,6 @@ Prebid.js を使ってサイトを UID2 とインテグレーションするに�
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md)
 
-## Prebid Mobile SDK Support for Mobile Devices
+## UID2 Integration with Prebid Mobile SDK for Mobile Devices
 
-UID2 と Prebid のインテグレーションは、Prebid Mobile SDK を使用して Android と iOS のモバイルデバイスでサポートされています。
-
-詳細は [UID2 Mobile Integration for Prebid Mobile SDK](integration-prebid-mobile-summary.md) を参照してください。
+UID2 と Prebid のインテグレーションは、Android および iOS モバイルデバイスで [UID2 Mobile Integration with Prebid Mobile SDK](integration-prebid-mobile-summary.md) を使用してサポートされています。

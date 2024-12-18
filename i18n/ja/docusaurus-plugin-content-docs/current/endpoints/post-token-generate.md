@@ -24,6 +24,8 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 ## Request Format 
 
+認証の詳細については、 [Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
+
 `POST '{environment}/v2/token/generate'`
 
 このエンドポイントリクエストについて知っておくべきことは、以下のとおりです:
@@ -53,7 +55,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 ### Request Examples
 
 :::important
-サービスにアクセスするために使用される API Key を確実に秘密にするために、API Key を使用する必要のない [POST&nbsp;/token/refresh](post-token-refresh.md) と異なり、`POST /token/generate` エンドポイントを Server-Side から呼び出す必要があります。
+サービスへのアクセスに使用する API キーを秘密にしておくため、[POST /token/generate](post-token-generate.md) エンドポイントは、[POST /token/refresh](post-token-refresh.md) とは異なり、Server-Side から呼び出す必要があります。Client-Side でトークンを生成する場合は、[Client-Side Integration Options](../guides/integration-options-publisher-web.md#client-side-integration-options) (Web ベースの実装) または [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) を参照してください。
 :::
 
 以下は、各パラメータの暗号化されていない JSON リクエストボディの例で、このうちの 1 つはトークン生成リクエストに含める必要があります:
@@ -125,7 +127,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","optout_chec
 | :--- | :--- | :--- |
 | `advertising_token` | string | ユーザーの暗号化された Advertising Token (UID2) です。 |
 | `refresh_token` | string | UID2 Service と最新の identity トークンのセットを交換できる暗号化されたトークンです。 |
-| `identity_expires` | number | Advertising Token の有効期限を示す Unix タイムスタンプ (ミリ秒単位) です。 |
+| `identity_expires` | number | Advertising Token の有効期限を示す <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> タイムスタンプ (ミリ秒単位) です。 |
 | `refresh_from` | number | SDK for JavaScript ([SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください) が UID2 Token のリフレッシュを開始するタイミングを示す Unix タイムスタンプ(ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから UID2 Token もリフレッシュすることを検討してください。|
 | `refresh_expires` | number | Refresh Token の有効期限を示す Unix タイムスタンプ (ミリ秒単位) です。 |
 | `refresh_response_key` | string | [POST&nbsp;/token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。 |
@@ -145,11 +147,11 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","optout_chec
 
 ## Test Identities
 
-| Type  |           Identity           |                                                                    Purpose                                                                    |                 Next Endpoint                  |
-| :---- | :--------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------- |
-| Email | `validate@example.com`       | キャッシュした `advertising_token` が、指定したメールアドレスの `advertising_token` と一致するかテストします。                                | [POST&nbsp;/token/validate](post-token-validate.md) |
-| Email | `optout@example.com`         | このメールアドレスをリクエストに使用すると、常に `optout` レスポンスが生成されます                                                            | [POST&nbsp;/token/generate](post-token-generate.md) |
-| Email | `refresh-optout@example.com` | このメールアドレスをリクエストに使用すると、常に `refresh_token` による ID レスポンスが生成され、その結果 `optout` レスポンスが生成されます。 | [POST&nbsp;/token/refresh](post-token-refresh.md)   |
-| Phone | `+12345678901`               | キャッシュした `advertising_token` が、指定した電話番号の `advertising_token` と一致するかテストします。                                      | [POST&nbsp;/token/validate](post-token-validate.md) |
-| Phone | `+00000000002`               | この電話番号をリクエストに使用すると、常に `optout` レスポンスが生成されます。                                                                | [POST&nbsp;/token/generate](post-token-generate.md) |
-| Phone | `+00000000000`               | この電話番号をリクエストに使用すると、常に `refresh_token` による ID レスポンスが生成され、その結果`optout`レスポンスが生成されます。               | [POST&nbsp;/token/refresh](post-token-refresh.md)   |
+| Type | Identity | Purpose | Next Endpoint |
+| :--- | :--- | :--- | :--- |
+| Email | `validate@example.com` | キャッシュした `advertising_token` が、指定したメールアドレスの `advertising_token` と一致するかテストします。 | [POST&nbsp;/token/validate](post-token-validate.md) |
+| Email | `optout@example.com` | このメールアドレスをリクエストに使用すると、常に `optout` レスポンスが生成されます。 | [POST&nbsp;/token/generate](post-token-generate.md) |
+| Email | `refresh-optout@example.com` | このメールアドレスをリクエストに使用すると、常に `refresh_token` による ID レスポンスが生成され、その結果 `optout` レスポンスが生成されます。 | [POST&nbsp;/token/refresh](post-token-refresh.md)  |
+| Phone | `+12345678901` | キャッシュした `advertising_token` が、指定した電話番号の `advertising_token` と一致するかテストします。 | [POST&nbsp;/token/validate](post-token-validate.md) |
+| Phone | `+00000000002` | この電話番号をリクエストに使用すると、常に `optout` レスポンスが生成されます。 | [POST&nbsp;/token/generate](post-token-generate.md) |
+| Phone | `+00000000000` | この電話番号をリクエストに使用すると、常に `refresh_token` による ID レスポンスが生成され、その結果`optout`レスポンスが生成されます。 | [POST&nbsp;/token/refresh](post-token-refresh.md) |

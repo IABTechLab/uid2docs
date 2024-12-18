@@ -9,13 +9,7 @@ import Link from '@docusaurus/Link';
 
 # SDK for Java Reference Guide
 
-SDK for Java を使用すると、以下が容易になります:
-
-- UID2 Advertising Token の生成
-- UID2 Advertising Token の更新
-- Raw UID2 を暗号化して共有用の UID2 Token を作成する
-- UID2 Token を復号化して raw UID2 にアクセスする
-- DII から raw UID2 への変換
+Server-Side で Java SDK を使用すると、UID2 を使用してクライアント ID を生成または確立し、ビッドストリームで使用する Advertising Token を取得し、UID2 Token を自動的にリフレッシュするプロセスを簡素化できます。適用可能な権限がある場合、共有のために暗号化および復号化し、DII を raw UID2 にマップすることもできます。
 
 ## Functionality
 
@@ -301,6 +295,7 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
    ユーザーがオプトアウトした場合、このメソッドは `null` を返し、ユーザーの ID をセッションから削除する必要があることを示します。オプトアウトを確認するには、`tokenRefreshResponse.isOptout()` 関数を使用します。
 
 ## Usage for Advertisers/Data Providers
+
 1. IdentityMapClient のインスタンスをインスタンス変数として作成します。
    ```java
    final private IdentityMapClient identityMapClient = new IdentityMapClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);

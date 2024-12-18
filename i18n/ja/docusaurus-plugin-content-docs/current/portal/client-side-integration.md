@@ -7,6 +7,10 @@ sidebar_position: 09
 
 # Client-Side Integration
 
+:::note
+これらの手順は Client-Side の実装向けです。UID2 の実装が Client-Server または Server-Side である場合は、異なる値を設定する必要があります。詳細については、[API Keys](api-keys.md) を参照してください。
+:::
+
 UID2 Portal では、Client-Side でトークンを生成する実装オプションを使用する場合、実装タイプに該当する以下の値を定義する必要があります:
 
 | Value | Implementation Type | Details | Documentation Link |
@@ -39,6 +43,10 @@ Client-Side の実装オプションは、次の表に示すとおりです。�
 | UID2 Mobile SDK | Publishers only |[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) |
 
 ## Adding and Managing Key Pairs
+
+:::note
+このキーペアによって UID2 Service に識別されますが、その値は秘密ではありません。このキーペアは安全に保管する必要はなく、共有することも可能です。これは Client-Side での実装での使用を目的としているためです。
+:::
 
 Client-Side インテグレーションページでは、キーペアを設定および管理するための次のアクティビティを実行できます:
 

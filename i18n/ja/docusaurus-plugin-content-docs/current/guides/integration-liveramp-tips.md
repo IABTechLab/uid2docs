@@ -2,7 +2,7 @@
 title: LiveRamp Integration Tips
 sidebar_label: LiveRamp Integration Tips
 pagination_label: LiveRamp Integration Tips
-description: Tips for integrating with UID2 with LiveRamp. 
+description: LiveRamp と UID2 をインテグレーションするためのヒント。 
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -11,30 +11,32 @@ import Link from '@docusaurus/Link';
 
 # LiveRamp Integration Tips
 
-Publishers already using LiveRamp Authenticated Traffic Solution (ATS) can leverage their integration to generate a UID2 token to be passed in the bid request.
+LiveRamp Authenticated Traffic Solution (ATS) をすでに使用しているパブリッシャーは、そのインテグレーションを活用して、ビッドリクエストに渡す UID2 Token を生成できます。
 
-If you want to generate UID2 tokens using LiveRamp ATS, reach out to your LiveRamp representative and also make sure you've addressed the following integration points: 
+LiveRamp ATS を使用して、UID2 Token を生成するには、LiveRamp の担当者に連絡し、以下のインテグレーションポイントを確認してください:
 
-- [Enable RideAlong](#enable-ridealong)
-- [Implement the Correct Hashing Methodology](#implement-the-correct-hashing-methodology)
+- [Enable RideAlong](#enable-uid2-as-an-interoperable-id)
+- [Implement the Correct Hashing Methodology](#implement-the-uid2-hashing-methodology)
 - [Set Envelope Refresh to 1800 Seconds](#set-envelope-refresh-to-1800-seconds)
 
-## Enable RideAlong
+## Enable UID2 as an Interoperable ID
 
-In your LiveRamp configuration, you must make sure that RideAlong is enabled. RideAlong is a LiveRamp feature that enables other identity solutions, such as UID2, to embed their identifiers in ATS envelopes. If RideAlong is not enabled, UID2 tokens will not be appended to the envelope.
+LiveRamp の設定では、RideAlong が有効になっていることを確認する必要があります。RideAlong は、UID2 などの他の ID ソリューションが ATS エンベロープに識別子を埋め込むことを可能にする LiveRamp の機能です。RideAlong が有効になっていない場合、UID2 Token はエンベロープに追加されません。
 
-To complete this step, contact your LiveRamp representative.
+この手順を完了するには、LiveRamp の担当者に連絡してください。
 
-## Implement the Correct Hashing Methodology
+## Implement the UID2 Hashing Methodology
 
-The hashing methodology used by the UID2 service is very specific. If you use a different hashing algorithm, or miss any of the steps, your UID2s will not be correctly generated.
+有効な UID2 Token を ATS エンベロープに追加するには、パブリッシャーは平文のメールアドレスを提供し、SHA-256 ハッシング方法論を示すか、メールアドレスの SHA-256 ハッシュバージョンを直接 LiveRamp ライブラリに提供する必要があります。
 
-For information about the required hashing methodology, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+UID2 と LiveRamp の両方でサポートされている SHA-256 ハッシング方法論を使用する必要があります。他のハッシング方法論を使用したり、ステップを逃したりすると、ATS エンベロープに UID2 Token が追加されないか、無効なトークンが追加されます。
+
+For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
 
 ## Set Envelope Refresh to 1800 Seconds
 
-When enabling `ATS.js` within `Prebid.js`, make sure that `storage.refreshInSeconds` is set to **1800 seconds** (30 minutes).
+`Prebid.js` 内で `ATS.js` を有効にする場合は、`storage.refreshInSeconds` を **1800 秒** (30 分) に設定してください。
 
 ## Troubleshooting Assistance
 
-For more information, or LiveRamp troubleshooting assistance, check the [LiveRamp support page](https://docs.liveramp.com/connect/en/support.html) for help resources or contact your LiveRamp representative.
+詳細情報や LiveRamp のトラブルシューティング支援については、[LiveRamp support page](https://docs.liveramp.com/connect/en/support.html) を参照してください。ヘルプリソースを確認するか、LiveRamp の担当者に連絡してください。

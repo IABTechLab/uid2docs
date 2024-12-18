@@ -35,6 +35,8 @@ import Link from '@docusaurus/Link';
 
 以下のエンドポイントは、広告主、サードパーティのデータプロバイダー、DSP、共有者が使用できます。パブリッシャーは、このエンドポイントを使用する必要はありません。
 
+UID2 の Opt-Out ワークフローとユーザーが Opt-Out する方法の詳細については、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |
 | [POST&nbsp;/optout/status](post-optout-status.md) | raw UID2 のオプトアウトステータスをチェックします。このエンドポイントは raw UID2 のリストを入力として受け取り、オプトアウトした raw UID2 と、オプトアウトが行われた時刻を返します。 | 必須 | 必須 |

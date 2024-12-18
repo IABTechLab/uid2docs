@@ -15,6 +15,8 @@ import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
 
 UID2 Operator は、UID2 エコシステムにおける API サーバーです。AWS Marketplace で稼働する <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> Service の場合、UID2 Operator ソリューションは [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave テクノロジーで強化されています。これは、UID2 情報を不正なアクセスから保護するための追加のセキュリティ対策です。
 
+AWS Marketplace で稼働する <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> Service の場合、UID2 Operator ソリューションは [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave テクノロジーで強化されています。これは、UID2 情報を不正なアクセスから保護するための追加のセキュリティ対策です。
+
 ## UID2 Private Operator for AWS
 
 :::note
@@ -132,9 +134,9 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
-| 80 | Inbound | HTTP     | Healthcheck エンドポイント `/ops/healthcheck` を含むすべての UID2 API を提供します。<br/>すべてが稼働している場合、エンドポイントは HTTP 200 を返し、レスポンスボディは `OK` となります。詳しくは、[Checking UID2 Operator Status](#checking-uid2-operator-status) を参照してください。 |
-| 9080        | Inbound   | HTTP     | Prometheus metrics サービス (`/metrics`)。 |
-| 443         | Outbound  | HTTPS    | UID2 Core Service を呼び出し、オプトアウトデータとキーストアを更新します。 |
+| 80 | Inbound | HTTP | Healthcheck エンドポイント `/ops/healthcheck` を含むすべての UID2 API を提供します。<br/>すべてが稼働している場合、エンドポイントは HTTP 200 を返し、レスポンスボディは `OK` となります。詳しくは、[Checking UID2 Operator Status](#checking-uid2-operator-status) を参照してください。 |
+| 9080 | Inbound | HTTP | Prometheus metrics サービス (`/metrics`)。 |
+| 443 | Outbound | HTTPS | UID2 Core Service を呼び出し、オプトアウトデータとキーストアを更新します。 |
 
 ### VPC Chart
 
@@ -239,6 +241,8 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 1. **EC2 > Load balancers** で、ロードバランサーの **DNS name** 列を見て、ロードバランサーの DNS 名を特定します。
 2. ブラウザで、`https://{dns-name-of-your-load-balancer}/ops/healthcheck` にアクセスします。`OK` のレスポンスであれば、Operator のステータスは良好です。
 
+### Private Operator Attestation Failure
+
 <AttestFailure />
 
 ## Upgrading the UID2 Operator
@@ -280,6 +284,7 @@ Operator インスタンスがデプロイされると、デフォルトのロ�
 #### Log Rotation Default Settings
 
 以下はデフォルトの logrotete の設定です。`/etc/logrotate.d/operator-logrotate.conf` に定義されています:
+
 ```
 /var/log/operator.log*
 {
@@ -326,6 +331,7 @@ MAILTO=root
 - コマンドは `/var/lib/logrotate/logrotate.status` を参照してログのステータスをチェックし、ログがローテーション条件に達したかどうかを確認して、`logrotate` が毎分実行されたときにも余分なローテーションが行われないようにします。
 
 ### Changing the Log Rotation Schedule
+
 ログローテーションスケジュールを変更するには、`/etc/logrotate.d/uid2operator.conf` ファイルを更新します。
 
 logrotate のドキュメントに従って指示に従ってください: [logrotate(8) - Linux man](https://linux.die.net/man/8/logrotate) ぺージを参照してください。

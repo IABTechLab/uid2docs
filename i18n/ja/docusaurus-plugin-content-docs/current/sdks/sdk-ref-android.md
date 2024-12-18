@@ -171,7 +171,7 @@ UID2Manager API の一部として利用可能な関数は次のとおりです:
 
 #### generateIdentity()
 
-<Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link> を使用して UID2 Identity を生成します。手順については、*Client-Side Integration Guide for Mobile* の [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照してください。
+<Link href="../ref-info/glossary-uid#gl-dii">D直接識別情報 (DII)</Link> を使用して UID2 Identity を生成します。手順については、*Client-Side Integration Guide for Mobile* の [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照してください。
 
 #### setIdentity()
 

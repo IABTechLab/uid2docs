@@ -66,7 +66,7 @@ dependencies: [
 XCode ユーザーインターフェースで、パッケージ依存関係の下に、次のエントリを追加します:
 
 | Name | Location | Dependency Rule |
-| :--- | :--- | :--- | 
+| :--- | :--- | :--- |
 | uid2-ios-plugin-google-gma | `git@github.com:IABTechLab/uid2-ios-plugin-google-gma.git` | Exact Version: 1.0.0 |
 
 ### Installing with CocoaPods

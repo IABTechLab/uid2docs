@@ -3,27 +3,27 @@ import TabItem from '@theme/TabItem';
 
 このセクションは、UID2 とインテグレーションし、Android および iOS アプリケーションでヘッダービディングを行うために [Prebid Mobile SDK](https://prebid.org/product-suite/prebid-mobile/) を使用したい参加者向けです。
 
-UID2 Prebid インテグレーションは、`UID2Identity` の状態を監視します。状態が変化すると、Prebid インテグレーションは自動的に Prebid の外部ユーザー ID を更新します。これには、新しい Advertising Token が生成される場合も含まれます。
+UID2 Prebid インテグレーションは、`UID2Identity` の状態を監視します。状態が変更されるたびに、Prebid インテグレーションは自動的に Prebid の外部ユーザー ID を更新します。これには、Identity がリフレッシュされ、新しい Advertising Token が生成される場合も含まれます。
 
-Prebid は、UID2 Token を RTB ビッドストリームに送信し、設定した他の外部ユーザー ID とともに送信します。
+Prebid は、UID2 Token を RTB ビッドストリームに送信し、設定した他の外部ユーザー ID と共に送信します。
 
 :::note
 このインテグレーションには、Prebid Server のセットアップが必要です。
 :::
 
-UID2 Prebid の設定手順については、以下の手順に従ってください。
+UID2 Prebid for Mobile インテグレーションを設定するには、次の手順に従います:
 
 1. [Prebid SDK Integration for Android](https://docs.prebid.org/prebid-mobile/pbm-api/android/code-integration-android.html) または [Prebid SDK Integration for iOS](https://docs.prebid.org/prebid-mobile/pbm-api/ios/code-integration-ios.html) の手順に従って、Prebid の Mobile SDK を設定します。
 
 2. [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app) の手順に従って、UID2 Mobile SDK をアプリに追加します。
 
-3. UID2 Prebid インテグレーションは別のモジュールとして配布されているため、プロジェクトの依存関係として追加する必要があります。以下のオプションのいずれかに適用されるインストール手順に従ってください。
+3. UID2 Prebid インテグレーションは別のモジュールとして配布されているため、プロジェクトの依存関係として追加する必要があります。以下のオプションのいずれかに適用されるインストール手順に従います:
 
    <Tabs groupId="dependency-selection">
    <TabItem value='gradle' label='Gradle (Android)'>
-    Include the following in your Gradle configuration:
+   Gradle の設定に以下を追加します:
    ```js
-   implementation("com.uid2:uid2-android-sdk-prebid:1.5.0")
+   implementation("com.uid2:uid2-android-sdk-prebid:1.6.0")
    ```
    </TabItem>
    <TabItem value='maven' label='Maven (Android)'>
@@ -32,24 +32,24 @@ UID2 Prebid の設定手順については、以下の手順に従ってくだ�
    <dependency>
       <groupId>com.uid2</groupId>
       <artifactId>uid2-android-sdk-prebid</artifactId>
-      <version>1.5.0</version>
+      <version>1.6.0</version>
    </dependency>
    ```
    </TabItem>
    <TabItem value='cocoapods' label='CocoaPods (iOS)'>
-   `Podfile` に以下のエントリを追加します:
+   `Podfile` に以下を追加します:
    ```js
    pod 'UID2Prebid', '~> 1.7'
    ```
    </TabItem>
    <TabItem value='spm' label='SPM (iOS)'>
    :::warning
-   Swift Package Manager を使用したインテグレーションは、Prebid Mobile SDK がサポートするまでサポートされません。詳細は、[Prebid の Mobile SDK ドキュメント](https://docs.prebid.org/prebid-mobile/pbm-api/ios/code-integration-ios.html#swift-pm)を参照してください。
+   Swift Package Manager を用いたインテグレーションは、Prebid Mobile SDK がサポートするまでサポートされません。詳細については、[Prebid's Mobile SDK documentation](https://docs.prebid.org/prebid-mobile/pbm-api/ios/code-integration-ios.html#swift-pm) を参照してください。
    :::
    </TabItem>
    </Tabs>
 
-4. 依存関係を追加した後、インテグレーションの設定する必要があります。次の例に示すように、最初に `UID2Manager` を初期化し、次に Prebid を初期化します。
+4. 依存関係を追加した後、インテグレーションの設定が必要です。最初に `UID2Manager` を初期化し、次に Prebid を初期化します。次の例に示すように行います。
 
    <Tabs groupId="language-selection">
    <TabItem value='android' label='Android Kotlin'>
@@ -80,11 +80,11 @@ UID2 Prebid の設定手順については、以下の手順に従ってくだ�
    </TabItem>
    </Tabs>
 
-5. 初期化時に渡されるコールバックを設定します。
+5. 初期化の際に渡されるコールバックを設定します。
 
-   UID2 Prebid インテグレーションは、新しい Identity が生成されたり、既存のトークンが更新されたりするたびに、関連する外部 ID を設定することで、定期的に Prebid を更新します。
-
-   このプロセスは破壊的であり、アプリケーションが他のソースから外部 ID を使用している場合、UID2 Token が更新される間、すべての外部 ID が保持されるように、UID2 Prebid インテグレーションにそれらの ID を提供する必要があります。
+   UID2 Prebid インテグレーションは、新しい Identity が生成されるか、既存のトークンがリフレッシュされるたびに、関連する外部ユーザー ID を設定することで、定期的に Prebid を更新します。
+   
+   このプロセスは破壊的であり、アプリケーションが他のソースから外部 ID を使用している場合、UID2 Prebid インテグレーションにそれらを提供する必要があります。これにより、UID2 Token が更新される間、すべての外部 ID が保持されます。
    
    これは、以下の例に示される通り、初期化中に渡されるコールバックを介して行われます。
    
@@ -105,7 +105,7 @@ UID2 Prebid の設定手順については、以下の手順に従ってくだ�
    prebid.initialize();
    ```
    </TabItem>
-   <TabItem value='ios' label='iOS Swift'>
+    <TabItem value='ios' label='iOS Swift'>
    ```js
    self.prebid = UID2Prebid(manager: UID2Manager.shared, thirdPartyUserIDs: {
        // return externalUserIDs

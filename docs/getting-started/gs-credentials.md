@@ -42,7 +42,7 @@ Notes:
 If you're using a client-server or server-side implementation (see [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md) or [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)), the API key and client secret allow you to connect to the <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> and call API endpoints. These values identify you to the service.
 
 Here is some information about API keys and client secrets:
-- You must keep these values secure. For details, see [Security of API Key and Client Secret]
+- You must keep these values secure. For details, see [Security of API Key and Client Secret](#security-of-api-key-and-client-secret).
 - One UID2 participant can have multiple keys.
 - Each key has a set of [permissions](gs-permissions.md) that determine the endpoints you can use it on.
 - Each key has a corresponding client secret.

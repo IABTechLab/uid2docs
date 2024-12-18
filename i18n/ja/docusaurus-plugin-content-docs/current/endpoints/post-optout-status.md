@@ -30,6 +30,8 @@ Used by: このエンドポイントは、主に広告主、データプロバ�
 
 `POST '{environment}/v2/optout/status'`
 
+認証の詳細については、 [Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
+
 :::important
 すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 :::
@@ -38,7 +40,7 @@ Used by: このエンドポイントは、主に広告主、データプロバ�
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | 必須 | インテグレーション環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
+| `{environment}` | string | 必須 | テスト (インテグレーション) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
 インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。
@@ -107,7 +109,7 @@ echo '{"advertising_ids": ["ufv1uGRovNiJNbJqiE/xzM+aKE7jP69MgspOZoEQ3xc="]}' | p
 | Property | Format | Description |
 | :--- | :--- | :--- |
 | `advertising_id` | string | <Link href="../ref-info/glossary-uid#gl-advertising-id">Advertising ID</Link> (raw UID2). |
-| `opted_out_since` | number | raw UID2 がいつオプトアウトされたかを示す Unix timestamp (ミリ秒単位)。 |
+| `opted_out_since` | number | raw UID2 がいつオプトアウトされたかを示す <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> タイムスタンプ (ミリ秒単位)。 |
 
 ### Response Status Codes
 

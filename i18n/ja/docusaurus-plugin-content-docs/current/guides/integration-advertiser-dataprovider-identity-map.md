@@ -106,6 +106,8 @@ UID2 ベースのオーディエンス情報を正確かつ最新の状態に保
 
 - 広告主やデータプロバイダーは、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、生の UID2 のオプトアウトステータスを確認できます。
 
+UID2 の Opt-out ワークフローとユーザーが Opt-out する方法の詳細については、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+
 ## FAQs
 
 UID2 フレームワークを使用する広告主およびデータプロバイダー向けのよくある質問は、[FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。
