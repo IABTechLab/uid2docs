@@ -474,7 +474,7 @@ If you need to provide a `cookieDomain` or `cookiePath` for the SDK to access th
 
 <Deprecated3100 />
 
-This function is deprecated and support will be removed completely in June of 2025. Instead, use [disconnect()](#disconnect-void) which has the same functionality as `abort()`, but also includes more thorough disconnection logic. 
+This function is deprecated and support will be removed soon. Instead, use [disconnect()](#disconnect-void) which has the same functionality as `abort()`, but also includes more thorough disconnection logic. 
 	
 Terminates any background timers or requests. The UID2 object remains in an unspecified state and cannot be used anymore. 
 
