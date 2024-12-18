@@ -1,8 +1,8 @@
 <!-- GWH same section in integration-prebid.md, integration-prebid-client-side.md, integration-prebid-client-server.md. integration-javascript.md is different -->
 
-デフォルトでは、UID2 モジュールはローカルストレージを使用してデータを保存します。代わりにクッキーを使用するには、次の例に示すように `params.storage` を `cookie` に設定します。
+デフォルトでは、UID2 モジュールはローカルストレージを使用してデータを保存します。代わりにクッキーを使用する場合は、次の例のように `params.storage` を `cookie` に設定します。
 
-詳細については、Prebid ドキュメントの [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) を参照してください。
+詳細は、Prebid ドキュメントの [Unified ID 2.0 Configuration](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html#unified-id-20-configuration) を参照してください。
 
 ```js
 pbjs.setConfig({ 
@@ -17,4 +17,4 @@ pbjs.setConfig({
   } 
 }); 
 ```
-クッキーのサイズが大きい場合、問題になる可能性があります。ただし、ローカルストレージが使用できない場合、これは1つの可能なアプローチです。
+クッキーのサイズが大きくなる可能性があるため、問題になる可能性があります。ただし、ローカルストレージが選択肢にない場合、これは1つのアプローチです。
