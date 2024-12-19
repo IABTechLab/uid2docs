@@ -308,6 +308,10 @@ UID2Manager.shared.automaticRefreshEnabled = false
 
 ## Optional: UID2 Integration with Prebid Mobile SDK
 
+:::important
+UID2 Prebid Mobile SDK インテグレーションは、UID2 SDK for Android version 1.6.0 または UID2 SDK for iOS version 1.7.0 が必要です。
+:::
+
 <PrebidMobileSDK />
 
 ## Error Response States
