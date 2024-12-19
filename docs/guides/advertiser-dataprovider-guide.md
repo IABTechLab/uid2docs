@@ -17,7 +17,7 @@ If you are using a Public Operator service hosted in the Snowflake Data Marketpl
 
 ## Advertiser/Data Provider Routes to Use UID2
 
-Within the ad tech industry, advertisers use identity to build audiences, track conversions, and generate their graphs. As an advertiser, or as a data provider acting on behalf of an advertiser, the following table shows some examples of how you can accomplish some of these goals with UID2.
+Within the ad tech industry, advertisers use identity to build audiences, track conversions, and generate their graphs. The following table shows some examples of how you, as an advertiser or as a data provider acting on behalf of an advertiser, can accomplish some of these goals with UID2.
 
 :::note
 There are other ways that you can use UID2, outside these use cases. These are just some examples.
