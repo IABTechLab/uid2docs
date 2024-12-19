@@ -15,7 +15,7 @@ Used by: This endpoint is used by advertisers, data providers, DSPs, and sharers
 
 For details, refer to the following documentation, depending on your role:
 
-- [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md)
+- [Advertiser/Data Provider Integration Guide](../guides/integration-advertiser-dataprovider-overview.md)
 - [DSP Integration Guide](../guides/dsp-guide.md)
 - [UID2 Sharing: Overview](../sharing/sharing-overview)
 

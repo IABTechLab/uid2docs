@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt buckets</Link> のローテーションをモニターします。
 
-Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細は [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) を参照してください。
+Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細は [Advertiser/Data Provider Integration Guide](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
 ## Request Format
 
