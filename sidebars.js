@@ -192,7 +192,6 @@ const fullSidebar = [
           },
           collapsed: true, 
           items: [
-            'guides/integration-advertiser-dataprovider',
             'guides/snowflake_integration',
             'guides/integration-aws-entity-resolution',
             'guides/integration-advertiser-dataprovider-endpoints',
@@ -330,10 +329,10 @@ const sidebars = {
     'overviews/overview-dsps',
     'overviews/overview-data-providers',
     'Advertiser/Data Provider Integrations',
-    'guides/integration-options-advertiser-dataprovider',
+    'guides/integration-advertiser-dataprovider-overview',
     'guides/snowflake_integration',
     'guides/integration-aws-entity-resolution',
-    'guides/advertiser-dataprovider-identity-map',
+    'guides/advertiser-dataprovider-endpoints',
     'guides/dsp-guide',
     'endpoints/post-identity-buckets',
     'endpoints/post-identity-map',
@@ -410,10 +409,10 @@ const sidebars = {
     'guides/mobile-plugin-gma-ios',
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
-    'guides/integration-options-advertiser-dataprovider',
+    'guides/integration-advertiser-dataprovider-overview',
     'guides/snowflake_integration',
     'guides/integration-aws-entity-resolution',
-    'guides/advertiser-dataprovider-identity-map',
+    'guides/advertiser-dataprovider-endpoints',
     'sharing/sharing-bid-stream'
     ),
 
