@@ -31,6 +31,19 @@ There are other ways that you can use UID2, outside these use cases. These are j
 - **Send in conversions**: You can send UID2s as conversion information that can be used for measurement (attribution) or retargeting via API or pixels
 - **Receive graph data**: You can receive UID2s from graph/data providers via API or pixels. -->
 
+## Summary of Implementation Options
+
+The following table shows the implementation options that are available for advertisers and data providers, for each of the high-level steps. Some steps are managed solely as part of your own custom implementation; some steps can be managed by one or more of the UID2 implementation options available. Click through on each option for applicable documentation.
+
+| High-Level Step | Implementation Options |
+| --- | --- |
+| 1. Generate a raw UID2 | Any of the following options:<ul><li>Python SDK: see <Link href="../sdks/sdk-ref-python">SDK for Python Reference Guide</Link></li><li>Raw HTTP endpoint: <Link href="../endpoints/post-identity-map">POST /identity/map</Link></li><li>Snowflake: see <Link href="snowflake_integration">Snowflake Integration Guide</Link>, section titled <Link href="snowflake_integration#map-dii">Map DII</Link></li><li>AWS Entity Resolution: see <Link href="integration-aws-entity-resolution">AWS Entity Resolution Integration Guide</Link></li></ul> |
+| 2. Manipulate or combine raw UID2s | Custom (your choice) |
+| 3. Use the raw UID2s | Custom (your choice) |
+| 4. Store raw UID2s and salt bucket IDs | Custom (your choice) |
+| 5. Monitor for salt bucket rotation | Any of the following options:<ul><li>Python SDK: see <Link href="../sdks/sdk-ref-python">SDK for Python Reference Guide</Link></li><li>Raw HTTP endpoint: <Link href="../endpoints/post-identity-buckets">POST /identity/buckets</Link></li><li>Snowflake: see <Link href="snowflake_integration">Snowflake Integration Guide</Link>, section titled <Link href="snowflake_integration#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s">Monitor for Salt Bucket Rotation and Regenerate Raw UID2s</Link></li></ul> |
+| 6. Monitor for opt-out status | API call to the [POST /optout/status](../endpoints/post-optout-status.md) endpoint: see [Check Opt-Out Status](#check-opt-out-status) |
+
 ## High-Level Steps
 
 At a high level, the steps for advertisers and data providers integrating with UID2 are as follows:
@@ -51,19 +64,6 @@ At a high level, the steps for advertisers and data providers integrating with U
 5. Monitor for salt bucket rotations related to your stored raw UID2s.
 
 6. Periodically, monitor for opt-out status, to be sure that you don't continue using UID2s for users that have recently opted out. For details, see [Check Opt-Out Status](#check-opt-out-status).
-
-## Summary of Implementation Options
-
-The following table shows the implementation options that are available for advertisers and data providers, for each of the high-level steps. Some steps are managed solely as part of your own custom implementation; some steps can be managed by one or more of the UID2 implementation options available. Click through on each option for applicable documentation.
-
-| High-Level Step | Implementation Options |
-| --- | --- |
-| 1. Generate a raw UID2 | Any of the following options:<ul><li>Python SDK: see <Link href="../sdks/sdk-ref-python">SDK for Python Reference Guide</Link></li><li>Raw HTTP endpoint: <Link href="../endpoints/post-identity-map">POST /identity/map</Link></li><li>Snowflake: see <Link href="snowflake_integration">Snowflake Integration Guide</Link>, section titled <Link href="snowflake_integration#map-dii">Map DII</Link></li><li>AWS Entity Resolution: see <Link href="integration-aws-entity-resolution">AWS Entity Resolution Integration Guide</Link></li></ul> |
-| 2. Manipulate or combine raw UID2s | Custom (your choice) |
-| 3. Use the raw UID2s | Custom (your choice) |
-| 4. Store raw UID2s and salt bucket IDs | Custom (your choice) |
-| 5. Monitor for salt bucket rotation | Any of the following options:<ul><li>Python SDK: see <Link href="../sdks/sdk-ref-python">SDK for Python Reference Guide</Link></li><li>Raw HTTP endpoint: <Link href="../endpoints/post-identity-buckets">POST /identity/buckets</Link></li><li>Snowflake: see <Link href="snowflake_integration">Snowflake Integration Guide</Link>, section titled <Link href="snowflake_integration#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s">Monitor for Salt Bucket Rotation and Regenerate Raw UID2s</Link></li></ul> |
-| 6. Monitor for opt-out status | API call to the [POST /optout/status](../endpoints/post-optout-status.md) endpoint: see [Check Opt-Out Status](#check-opt-out-status) |
 
 ## Integration Diagram
 

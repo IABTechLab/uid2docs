@@ -86,7 +86,7 @@ const fullSidebar = [
           link: {
             type: 'generated-index',
           },
-          collapsed: false,
+          collapsed: true,
 
           items: [
           {
@@ -195,7 +195,6 @@ const fullSidebar = [
             'guides/snowflake_integration',
             'guides/integration-aws-entity-resolution',
             'guides/integration-advertiser-dataprovider-endpoints',
-            'guides/integration-javascript-client-side',
           ],
         },
 
@@ -333,6 +332,7 @@ const sidebars = {
     'guides/snowflake_integration',
     'guides/integration-aws-entity-resolution',
     'guides/advertiser-dataprovider-endpoints',
+    'DSP Integrations',
     'guides/dsp-guide',
     'endpoints/post-identity-buckets',
     'endpoints/post-identity-map',
@@ -370,6 +370,7 @@ const sidebars = {
     'guides/mobile-plugin-gma-ios',
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
+    'DSP Integrations',
     'guides/dsp-guide',
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
@@ -409,6 +410,7 @@ const sidebars = {
     'guides/mobile-plugin-gma-ios',
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
+    'Advertiser/Data Provider Integrations',
     'guides/integration-advertiser-dataprovider-overview',
     'guides/snowflake_integration',
     'guides/integration-aws-entity-resolution',
@@ -447,6 +449,7 @@ const sidebars = {
     'guides/mobile-plugin-gma-ios',
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
+    'DSP Integrations',
     'guides/dsp-guide',  
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',

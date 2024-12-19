@@ -18,7 +18,7 @@ The following listings for UID2 are available on the Snowflake marketplace:
 - For data providers: [Unified ID 2.0: Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0/unified-id-2-0-unified-id-2-0-data-provider-identity-solution?originTab=provider&providerName=Unified+ID+2.0)
 
 :::tip
-For a summary of UID2 integration options and steps for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md).
+For a summary of all integration options and steps for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md).
 :::
 
 ## Functionality

@@ -22,7 +22,7 @@ If you're not currently part of the UID2 ecosystem, go to the [Request Access to
 For a video presentation about integration with UID2 by using AWS Entity Resolution, and a demo, see [Getting Started with AWS Entity Resolution Integration with Unified ID 2.0](https://www.youtube.com/watch?v=ORbSsKMgVj8) on YouTube.
 
 :::tip
-For a summary of UID2 integration options and steps for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md).
+For a summary of all integration options and steps for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md).
 :::
 
 ## Functionality

@@ -1,7 +1,7 @@
 ---
-title: Advertiser/Data Provider Integration by Calling to HTTP Endpoints
+title: Advertiser/Data Provider Integration Directly to HTTP Endpoints
 sidebar_label: HTTP Endpoints
-description: Integration for organizations that collect user data and push it to other participants.
+description: Integration for organizations that collect user data and push it to other participants, coding to HTTP endpoints rather than an SDK or Snowflake.
 hide_table_of_contents: false
 sidebar_position: 07
 displayed_sidebar: sidebarAdvertisers
@@ -9,12 +9,12 @@ displayed_sidebar: sidebarAdvertisers
 
 import Link from '@docusaurus/Link';
 
-# Advertiser/Data Provider Integration By Calling HTTP Endpoints
+# Advertiser/Data Provider Integration Directly to HTTP Endpoints
 
 This guide covers integration steps for advertisers and data providers to integration by writing code to call UID2 HTTP endpoints, rather than using another implementation options such as an SDK, Snowflake, or AWS Entity Resolution.
 
 :::tip
-For a summary of UID2 integration options and steps for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md).
+For a summary of all integration options and steps for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md).
 :::
 
 ### High-Level Steps
