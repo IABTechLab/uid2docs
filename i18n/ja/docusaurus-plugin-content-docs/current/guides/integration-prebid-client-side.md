@@ -8,8 +8,8 @@ sidebar_position: 04
 ---
 
 import Link from '@docusaurus/Link';
-import AddPrebidjsToYourSite from '/docs/snippets/_prebid-add-prebidjs-to-your-site.mdx';
-import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser.mdx';
+import AddPrebidjsToYourSite from '../snippets/_prebid-add-prebidjs-to-your-site.mdx';
+import StoreUID2TokenInBrowser from '../snippets/_prebid-storing-uid2-token-in-browser.mdx';
 
 # UID2 Client-Side Integration Guide for Prebid.js
 
