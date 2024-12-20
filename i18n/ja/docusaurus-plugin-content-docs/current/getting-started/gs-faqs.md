@@ -181,7 +181,7 @@ UID2 生成リクエストで提供されるメタデータには、UID2 の生�
 #### Do refreshed emails get assigned to the same bucket with which they were previously associated?
 更新されたメールアドレスは、以前関連付けられていたバケットと同じバケットに割り当てられますか？
 
-必ずしもそうとは限りません。特定のバケット ID に関連付けられたメールアドレスを再マッピングした後、そのメールが異なるバケット ID に割り当てられる可能性があります。バケット ID を確認するには、[マッピング関数を呼び出す](../guides/integration-advertiser-dataprovider-overview.md#1-retrieve-a-raw-uid2-for-dii) そして返された UID2 とバケット ID を再び保存してください。
+必ずしもそうとは限りません。特定のバケット ID に関連付けられたメールアドレスを再マッピングした後、そのメールが異なるバケット ID に割り当てられる可能性があります。バケット ID を確認するには、[マッピング関数を呼び出す](../guides/integration-advertiser-dataprovider-overview.md#retrieve-a-raw-uid2-for-dii) そして返された UID2 とバケット ID を再び保存してください。
 
 :::info
 メールアドレスのマッピングや再マッピングを行う際には、バケットの数やローテーションする日、メールアドレスが割り当てられる特定のバケットについて、いかなる仮定も行わないようにしてください。
@@ -224,7 +224,7 @@ UID2 生成リクエストで提供されるメタデータには、UID2 の生�
 
 ただし、raw UID2 の生成に使用される [ソルト](../ref-info/glossary-uid.md#gl-salt) 値という可変要素があります。ソルト値は定期的にローテーションされます(詳細は [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)) を参照してください)。あるリクエストと別のリクエストの間でソルト値が変化する場合、DII が同じであっても、これら 2 つのリクエストは 2 つの異なる raw UID2 になります。
 
-詳細については、*Advertiser/Data Provider Integration Guide*の [Monitor for salt bucket rotations related to your stored raw UID2s](../guides/integration-advertiser-dataprovider-overview.md#3-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s) を参照してください。
+詳細については、*Advertiser/Data Provider Integration Guide*の [Monitor for salt bucket rotations related to your stored raw UID2s](../guides/integration-advertiser-dataprovider-overview.mdmonitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s) を参照してください。
 
 #### If two operators process the same DII, are the results the same?
 2 つの Operator が同じ DII を処理した場合、結果は同じになりますか？
