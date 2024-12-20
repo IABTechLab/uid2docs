@@ -34,7 +34,7 @@ The following steps provide a high-level outline of the workflow intended for or
 
 1. A user visits a publisher website, mobile app, or CTV app.
 
-1. The publisher provides transparency around its data practices and asks the user to provide an email address or phone number, by [SSO login](#implementing-sso-on-publisher-pages) or other means.
+1. The publisher provides transparency around its data practices and asks the user to provide an email address or phone number, by [SSO login](#implementing-sso-login) or other means.
 
 1. Once the user has provided an email address or phone number, the publisher sends it to the UID2 Operator via an SDK or direct API integration.
    :::tip
