@@ -358,7 +358,7 @@ The following table lists possible errors while setting up private operator.
 This is applicable only for version XXXX or later of Private Operators.
 :::
 
-| ErrorCode | Error | How to fix |
+| Error Code | Issue | Steps to Resolve |
 | :--- | :--- | :--- |
 | E01 | MissingInstanceProfile |  Attach an IAM instance profile to the EC2 instance with the required permissions. The UID2 Operator needs these permissions to access configurations from AWS Secrets Manager. |
 | E02 | ConfigNotFound | Ensure the secret referenced by the operator exists in AWS Secrets Manager in the same region as the operator. And verify that the IAM instance profile has permission to access it. Check the logs the specific secret name and region. |
