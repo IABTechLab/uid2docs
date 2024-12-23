@@ -77,7 +77,7 @@ The following applications are available as examples to help you code your Faceb
 
 The instructions for signing in with Apple are different for apps and websites.
 
-### Sign In with Apple in a Mobile App
+### Sign In with Apple in an App
 
 Request authorization, making sure to request the `email` scope. For details, see [Request Authorization with Apple ID](https://developer.apple.com/documentation/sign_in_with_apple/implementing_user_authentication_with_sign_in_with_apple#3546458).
 
