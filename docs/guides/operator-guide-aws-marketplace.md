@@ -352,7 +352,7 @@ The following table includes some additional commands that might help you manage
 
 ## UID2 Operator Error Codes
 
-The following table lists possible errors while setting up Private Operator.
+The following table lists possible errors while setting up a Private Operator.
 
 :::note
 This applies only to Private Operators starting from Q2 2024.
