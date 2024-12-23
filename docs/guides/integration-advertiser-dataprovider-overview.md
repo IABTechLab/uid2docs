@@ -50,7 +50,7 @@ At a high level, the steps for advertisers and data providers integrating with U
 
 5. Monitor for salt bucket rotations related to your stored raw UID2s.
 
-6. Periodically, monitor for opt-out status, to be sure that you don't continue using UID2s for users that have recently opted out. For details, see [Check Opt-Out Status](#monitor-for-opt-out-status).
+6. Periodically, monitor for opt-out status, to be sure that you don't continue using UID2s for users that have recently opted out. For details, see [Monitor for Opt-Out Status](#monitor-for-opt-out-status).
 
 ## Summary of Implementation Options
 
