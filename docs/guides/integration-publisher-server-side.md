@@ -8,6 +8,7 @@ sidebar_position: 03
 ---
 
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 # Publisher Integration Guide, Server-Side
 
@@ -114,6 +115,10 @@ A sample implementation is available for server-side integration. See:
 
 - [Server-Side UID2 Integration Example (sample implementation)](https://secure-signals-srvonly-integ.uidapi.com/)
 - [Server-Side UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
+
+## Integrating with SSO
+
+<IntegratingWithSSO />
 
 ## FAQs
 

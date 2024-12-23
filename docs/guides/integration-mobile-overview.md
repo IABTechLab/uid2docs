@@ -9,6 +9,7 @@ displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 # UID2 Mobile Integration Overview for Android and iOS
 
@@ -168,3 +169,7 @@ Some error responses indicate  a networking problem resulting in your app not be
    The SDK tries to refresh the UID2 token in the background. If an error such as an IOException occurs, the SDK retries multiple times. If retry is not successful, this exception is displayed.
 
 Another good troubleshooting step is to enable logging. For details, see [Enable Logging](integration-mobile-client-side.md#enable-logging).
+
+## Integrating with SSO
+
+<IntegratingWithSSO />

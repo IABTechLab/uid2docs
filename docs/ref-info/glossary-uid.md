@@ -68,6 +68,8 @@ import Link from '@docusaurus/Link';
 <a href="#gl-normalize">Normalize</a> 
 
 **O**
+<a href="#gl-oidc">OpenID Connect (OIDC)</a> | 
+<a href="#gl-opaque">Opaque</a> | 
 <a href="#gl-open-operator">Open Operator</a> | 
 <a href="#gl-operator">Operator</a> | 
 <a href="#gl-operator-key">Operator key</a> | 
@@ -307,6 +309,10 @@ import Link from '@docusaurus/Link';
 ### O
 
 <dl>
+
+<dt><MdxJumpAnchor id="gl-oidc"><a href="#gl-oidc">OpenID Connect (OIDC)</a> </MdxJumpAnchor></dt>
+<dd>OpenID Connect (OIDC) is an identity layer on top of the OAuth 2.0 protocol that allows the client to verify the identity of an end-user based on authentication by an authorization server.</dd>
+<dd>For details, see [OpenID Connect Basic Client Implementer's Guide 1.0 - draft 40](https://openid.net/specs/openid-connect-basic-1_0.html) (specification).</dd>
 
 <dt><MdxJumpAnchor id="gl-opaque"><a href="#gl-opaque">Opaque</a></MdxJumpAnchor></dt>
 <dd>When we say a UID2 token is an opaque string, we mean that the way that the token is computed, and its format, are not communicated to UID2 participants and cannot be relied upon to remain unchanged. No assumptions should be made about the format or length of the string, or any other aspect of it.</dd>
