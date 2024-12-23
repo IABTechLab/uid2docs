@@ -15,6 +15,7 @@ import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
 import ErrorResponseStates from '/docs/snippets/_mobile-docs-error-response-states.mdx';
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 # UID2 Client-Server Integration Guide for Mobile
 
@@ -313,6 +314,10 @@ The UID2 integration with Prebid Mobile SDK requires version 1.6.0 of the UID2 S
 :::
 
 <PrebidMobileSDK />
+
+## Integrating with SSO
+
+<IntegratingWithSSO />
 
 ## Error Response States
 

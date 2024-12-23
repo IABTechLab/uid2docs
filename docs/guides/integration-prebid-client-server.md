@@ -10,6 +10,7 @@ sidebar_position: 04
 import Link from '@docusaurus/Link';
 import AddPrebidjsToYourSite from '/docs/snippets/_prebid-add-prebidjs-to-your-site.mdx';
 import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser.mdx';
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 # UID2 Client-Server Integration Guide for Prebid.js
 
@@ -376,6 +377,6 @@ if you're using Prebid.js, and you're planning to pass UID2 tokens to Google usi
 - In your Google Ad Manager account, make sure that encrypted signals are properly shared with third-party bidders: see [Allow Secure Signals Sharing](integration-google-ss.md#allow-secure-signals-sharing).
 - Update your Prebid.js configuration: see [Optional: Enable Secure Signals in Prebid.js](integration-google-ss.md#optional-enable-secure-signals-in-prebidjs).
 
-## Implementing SSO Login
+## Integrating with SSO
 
-For information about implementing one or more Single Sign-On (SSO) options in the context of UID2 for users visiting your webpages, see [Publisher Integration with SSO Providers](../ref-info/ref-integration-sso-providers.md).
+<IntegratingWithSSO />

@@ -8,6 +8,7 @@ sidebar_position: 10
 ---
 
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 # Google Ad Manager Secure Signals Integration Guide
 
@@ -119,6 +120,10 @@ The following sample implementations are available to illustrate how to integrat
   - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
 
 Each sample implementation has its own instructions.
+
+## Integrating with SSO
+
+<IntegratingWithSSO />
 
 ## Troubleshooting
 

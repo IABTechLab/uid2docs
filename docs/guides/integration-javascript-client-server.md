@@ -9,6 +9,7 @@ sidebar_position: 02
 
 import Link from '@docusaurus/Link';
 import ExampleClientServerSendUid2ToSdk from '/docs/snippets/_example-client-server-send-uid2-to-sdk.mdx'; 
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 # Client-Server Integration Guide for JavaScript
 
@@ -155,6 +156,10 @@ The client lifecycle is complete when the user decides to log out from the publi
   __uid2.disconnect();
 </script>
 ```
+
+## Integrating with SSO
+
+<IntegratingWithSSO />
 
 ## FAQs
 

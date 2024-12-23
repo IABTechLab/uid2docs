@@ -27,21 +27,21 @@ To find out whether you have to apply [normalization and encoding](../getting-st
 
 ## Sign In with Google
 
-The following options are available for sign-in with Google:
+The following options are available for implementing [Sign in with Google](https://support.google.com/accounts/answer/12849458?hl=en):
 
-- [SO with Google for Android](#sso-with-google-for-android)
-- [SSO with Google for iOS and macOS](#sso-with-google-for-ios-and-macos)
-- [SSO with Google for Web](#sso-with-google-for-web)
+- [Sign in with Google for Android](#sign-in-with-google-for-android)
+- [Sign in with Google for iOS and macOS](#sign-in-with-google-for-ios-and-macos)
+- [Sign in with Google for Web](#sign-in-with-google-for-web)
 
-### SSO with Google for Android
+### Sign in with Google for Android
 
 Follow the instructions in [Create the Sign in with Google flow](https://developer.android.com/identity/sign-in/credential-manager-siwg#create-sign). Once the token has been validated, you can retrieve the email address by using the [getEmail() method](https://cloud.google.com/java/docs/reference/google-api-client/latest/com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload#com_google_api_client_googleapis_auth_oauth2_GoogleIdToken_Payload_getEmail__) of the identity token payload.
 
-### SSO with Google for iOS and macOS
+### Sign in with Google for iOS and macOS
 
 To get an email address from [Sign in with Google](https://developers.google.com/identity/sign-in/ios/start-integrating) on iOS or macOS, retrieve it from the `GIDGoogleUser` object. For details, see [Getting profile information](https://developers.google.com/identity/sign-in/ios/people).
 
-### SSO with Google for Web
+### Sign in with Google for Web
 
 Follow the instructions to [verify the Google ID token on your server side](https://developers.google.com/identity/gsi/web/guides/verify-google-id-token), and then retrieve the user's email address from the email field of the ID token.
 
@@ -49,25 +49,25 @@ Follow the instructions to [verify the Google ID token on your server side](http
 
 There are two ways to integrate Facebook Login with UID2: with an <Link href="glossary-uid#gl-oidc">OpenID Connect (OIDC)</Link> token or without.
 
-### Facebook SSO Using an OIDC Token on iOS
+### Facebook Login Using an OIDC Token on iOS
 
 To get an email address from [Facebook Login](https://developers.facebook.com/docs/facebook-login/) using an [OIDC token](https://developers.facebook.com/docs/facebook-login/guides/access-tokens/get-oidc/) on iOS:
 
-1. Implement Facebook Login (for details, see [Use Facebook Login in Your iOS App](https://developers.facebook.com/docs/ios/use-facebook-login)) and request the email permission.
+1. Implement Facebook Login (for details, see [Use Facebook Login in Your iOS App](https://developers.facebook.com/docs/ios/use-facebook-login)) and request the `email` permission.
 
-1. Extract the user's email address from the OIDC authentication token: for example, by using the Profile helper class. For details, see [OIDC Tokens in Facebook Login for iOS](https://developers.facebook.com/docs/facebook-login/guides/access-tokens/get-oidc).
+1. Extract the user's email address from the OIDC authentication token: for example, by using the `Profile` helper class. For details, see [OIDC Tokens in Facebook Login for iOS](https://developers.facebook.com/docs/facebook-login/guides/access-tokens/get-oidc).
 
-### Facebook SSO Without an OIDC Token
+### Facebook Login Without an OIDC Token
 
 To get an email address from [Facebook Login](https://developers.facebook.com/docs/facebook-login/) without using an OIDC token:
 
 1. Request a [user access token](https://developers.facebook.com/docs/facebook-login/guides/access-tokens#usertokens), specifying the `email` permission.
 
-1. If the user has granted the `email` permission, make a Graph API call to the [/me endpoint](https://developers.facebook.com/docs/graph-api/overview#me), using the user access token, and specify `email` as one of the fields.
+1. If the user has granted the `email` permission, make a Graph API call to the [`/me` endpoint](https://developers.facebook.com/docs/graph-api/overview#me), using the user access token, and specify `email` as one of the fields.
 
 ### Sample Applications
 
-The following applications are available as examples to help you code your Facebook SSO integration for mobile apps:
+The following applications are available as examples to help you code your Facebook SSO integration for apps:
 
 - [Facebook Login sample application for Android](https://github.com/facebook/facebook-android-sdk/tree/main/samples/FBLoginSample)
 
@@ -77,7 +77,7 @@ The following applications are available as examples to help you code your Faceb
 
 The instructions for signing in with Apple are different for apps and websites.
 
-### Sign In with Apple in a Mobile App
+### Sign In with Apple in an App
 
 Request authorization, making sure to request the `email` scope. For details, see [Request Authorization with Apple ID](https://developer.apple.com/documentation/sign_in_with_apple/implementing_user_authentication_with_sign_in_with_apple#3546458).
 
