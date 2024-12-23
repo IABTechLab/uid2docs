@@ -360,12 +360,12 @@ This applies only to Private Operators starting from Q2 2024.
 
 | Error Code | Issue | Steps to Resolve |
 | :--- | :--- | :--- |
-| E01 | MissingInstanceProfile |  Attach an IAM instance profile to the EC2 instance with the required permissions. The UID2 Operator needs these permissions to access configurations from AWS Secrets Manager. |
-| E02 | ConfigNotFound | Ensure the secret referenced by the operator exists in AWS Secrets Manager in the same region as the operator. And verify that the IAM instance profile has permission to access it. Check the logs the specific secret name and region. |
-| E03 | MissingConfig | Required attributes are missing in the configuration. Refer to the logs for details and update the missing attributes in Secrets Manager. |
-| E04 | InvalidConfigValue | A configuration value is invalid. Verify the configuration values in Secrets Manager align with the required format and environment. Note `debug = true` is allowed only in the `integ` environment. Check the logs for mode details. |
-| E05 | InvalidOperatorKey | Ensure the operator key is correct for the environment and matches the one provided to you. |
-| E06 | UID2ServicesUnreachable | Allow UID2 core and opt-out service IPs in the egress firewall. Refer to logs for IPs and DNS details.  |
+| AW01 | MissingInstanceProfile |  Attach an IAM instance profile to the EC2 instance with the required permissions. The UID2 Operator needs these permissions to access configurations from AWS Secrets Manager. |
+| AW02 | ConfigNotFound | Ensure the secret referenced by the operator exists in AWS Secrets Manager in the same region as the operator. And verify that the IAM instance profile has permission to access it. Check the logs the specific secret name and region. |
+| AW03 | MissingConfig | Required attributes are missing in the configuration. Refer to the logs for details and update the missing attributes in Secrets Manager. |
+| AW04 | InvalidConfigValue | A configuration value is invalid. Verify the configuration values in Secrets Manager align with the required format and environment. Note `debug = true` is allowed only in the `integ` environment. Check the logs for mode details. |
+| AW05 | InvalidOperatorKey | Ensure the operator key is correct for the environment and matches the one provided to you. |
+| AW06 | UID2ServicesUnreachable | Allow UID2 core and opt-out service IPs in the egress firewall. Refer to logs for IPs and DNS details.  |
 
 ## Technical Support
 
