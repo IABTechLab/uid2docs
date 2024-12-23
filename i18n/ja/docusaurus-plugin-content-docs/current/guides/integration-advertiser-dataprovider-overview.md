@@ -42,7 +42,7 @@ The following table shows the implementation options that are available for adve
 | 3. Use the raw UID2s | Custom (your choice) |
 | 4. Store raw UID2s and salt bucket IDs | Custom (your choice) |
 | 5. Monitor for salt bucket rotation | Any of the following options:<ul><li>Python SDK: see <Link href="../sdks/sdk-ref-python">SDK for Python Reference Guide</Link></li><li>Raw HTTP endpoint: <Link href="../endpoints/post-identity-buckets">POST /identity/buckets</Link></li><li>Snowflake: see <Link href="snowflake_integration">Snowflake Integration Guide</Link>, section titled <Link href="snowflake_integration#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s">Monitor for Salt Bucket Rotation and Regenerate Raw UID2s</Link></li></ul> |
-| 6. Monitor for opt-out status | API call to the [POST /optout/status](../endpoints/post-optout-status.md) endpoint: see [Check Opt-Out Status](#check-opt-out-status) |
+| 6. Monitor for opt-out status | API call to the [POST /optout/status](../endpoints/post-optout-status.md) endpoint: see [Monitor for Opt-Out Status](#monitor-for-opt-out-status) |
 
 ## High-Level Steps
 
@@ -63,7 +63,7 @@ At a high level, the steps for advertisers and data providers integrating with U
 
 5. Monitor for salt bucket rotations related to your stored raw UID2s.
 
-6. Periodically, monitor for opt-out status, to be sure that you don't continue using UID2s for users that have recently opted out. For details, see [Check Opt-Out Status](#check-opt-out-status).
+6. Periodically, monitor for opt-out status, to be sure that you don't continue using UID2s for users that have recently opted out. For details, see [Monitor for Opt-Out Status](#monitor-for-opt-out-status).
 
 ## Integration Diagram
 
@@ -76,16 +76,16 @@ DII refers to a user's normalized email address or phone number, or the normaliz
 <!-- diagram source: resource/advertiser-flow-mermaid.md.bak -->
 
 Refer to the following sections for details about the different parts of the diagram:
-1. [Retrieve a raw UID2 for DII](#retrieve-a-raw-uid2-for-dii)
+1. [Retrieve a raw UID2 for DII](#generate-a-raw-uid2-for-dii)
 2. [Send stored raw UID2s to DSPs to create audiences or conversions](#send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions)
-3. [Monitor for salt bucket rotations related to your stored raw UID2s](monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
+3. [Monitor for salt bucket rotations related to your stored raw UID2s](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s)
 
-### Retrieve a raw UID2 for DII
+### Generate a raw UID2 for DII
 
 | Step | Endpoint | Description |
 | --- | --- | --- |
 | 1-a | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) request | Send a request containing DII to the identity mapping endpoint. |
-| 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response | The `advertising_id` (raw UID2) returned in the response can be used to target audiences on relevant DSPs.<br/>The response returns a user's raw UID2 and the corresponding `bucket_id` for the salt bucket. The salt assigned to the bucket rotates annually, which impacts the generated raw UID2. For details on how to check for salt bucket rotation, see [3: Monitor for salt bucket rotations](monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s).<br/>For ease of maintenance, a recommended approach is to store a user's raw UID2 and `bucket_id` in a mapping table. For guidance on incremental updates, see [Use an incremental process to continuously update raw UID2s](#use-an-incremental-process-to-continuously-update-raw-uid2s). |
+| 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response | The `advertising_id` (raw UID2) returned in the response can be used to target audiences on relevant DSPs.<br/>The response returns a user's raw UID2 and the corresponding `bucket_id` for the salt bucket. The salt assigned to the bucket rotates annually, which impacts the generated raw UID2. For details on how to check for salt bucket rotation, see [3: Monitor for salt bucket rotations](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s).<br/>For ease of maintenance, a recommended approach is to store a user's raw UID2 and `bucket_id` in a mapping table. For guidance on incremental updates, see [Use an incremental process to continuously update raw UID2s](#use-an-incremental-process-to-continuously-update-raw-uid2s). |
 
 ### Send stored raw UID2s to DSPs to create audiences or conversions
 
@@ -111,14 +111,14 @@ To help ensure that your integration has the current raw UID2s, check salt bucke
 
 To keep your UID2-based audience information accurate and up to date, follow these integration steps every day:
 
-1. The response from Step 1, [Retrieve a raw UID2 for DII](#retrieve-a-raw-uid2-for-dii), contains mapping information. Cache the following:
+1. The response from Step 1, [Retrieve a raw UID2 for DII](#generate-a-raw-uid2-for-dii), contains mapping information. Cache the following:
    - The mapping between DII (`identifier`), raw UID2 (`advertising_id`), and salt bucket (`bucket_id`).
    - The most recent `last_updated` timestamp.
-2. Using the results from Step 3, [Monitor for salt bucket rotations related to your stored raw UID2s](monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s):
-   1. Remap any raw UID2 for which the salt buckets have been rotated by retrieving new raw UID2 for those IDs, following Step 1, [Retrieve a raw UID2 for DII](#retrieve-a-raw-uid2-for-dii).
+2. Using the results from Step 3, [Monitor for salt bucket rotations related to your stored raw UID2s](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s):
+   1. Remap any raw UID2 for which the salt buckets have been rotated by retrieving new raw UID2 for those IDs, following Step 1, [Retrieve a raw UID2 for DII](#generate-a-raw-uid2-for-dii).
    2. Use the refreshed UID2s to update audiences or conversions, following Step 2, [Send stored raw UID2s to DSPs to create audiences or conversions](#send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions).
 
-## Check Opt-Out Status
+## Monitor for Opt-Out Status
 
 It's important to honor user opt-out status. Here are two ways you can check that you have the latest opt-out information:
 
