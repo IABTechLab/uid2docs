@@ -15,7 +15,7 @@ Used by: このエンドポイントは、主に広告主、データプロバ�
 
 詳細については、役割に応じて以下のドキュメントを参照してください:
 
-- [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md)
+- [Advertiser/Data Provider Integration Guide](../guides/integration-advertiser-dataprovider-overview.md)
 - [DSP Integration Guide](../guides/dsp-guide.md)
 - [UID2 Sharing: Overview](../sharing/sharing-overview)
 

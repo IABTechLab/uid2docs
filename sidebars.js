@@ -86,7 +86,7 @@ const fullSidebar = [
           link: {
             type: 'generated-index',
           },
-          collapsed: false,
+          collapsed: true,
 
           items: [
           {
@@ -187,14 +187,14 @@ const fullSidebar = [
           type: 'category',
           label: 'Advertiser/Data Provider Integrations',
           link: {
-            type: 'generated-index',
+            type: 'doc',
+            id: 'guides/integration-advertiser-dataprovider-overview',
           },
-          collapsed: true,
+          collapsed: true, 
           items: [
-            'guides/advertiser-dataprovider-guide',
-            'guides/integration-javascript-client-side',
             'guides/snowflake_integration',
             'guides/integration-aws-entity-resolution',
+            'guides/integration-advertiser-dataprovider-endpoints',
           ],
         },
 
@@ -328,9 +328,11 @@ const sidebars = {
     'overviews/overview-dsps',
     'overviews/overview-data-providers',
     'Advertiser/Data Provider Integrations',
-    'guides/advertiser-dataprovider-guide',
+    'guides/integration-advertiser-dataprovider-overview',
     'guides/snowflake_integration',
     'guides/integration-aws-entity-resolution',
+    'guides/advertiser-dataprovider-endpoints',
+    'DSP Integrations',
     'guides/dsp-guide',
     'endpoints/post-identity-buckets',
     'endpoints/post-identity-map',
@@ -368,6 +370,7 @@ const sidebars = {
     'guides/mobile-plugin-gma-ios',
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
+    'DSP Integrations',
     'guides/dsp-guide',
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
@@ -407,9 +410,11 @@ const sidebars = {
     'guides/mobile-plugin-gma-ios',
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
-    'guides/advertiser-dataprovider-guide',
+    'Advertiser/Data Provider Integrations',
+    'guides/integration-advertiser-dataprovider-overview',
     'guides/snowflake_integration',
     'guides/integration-aws-entity-resolution',
+    'guides/advertiser-dataprovider-endpoints',
     'sharing/sharing-bid-stream'
     ),
 
@@ -444,6 +449,7 @@ const sidebars = {
     'guides/mobile-plugin-gma-ios',
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
+    'DSP Integrations',
     'guides/dsp-guide',  
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',

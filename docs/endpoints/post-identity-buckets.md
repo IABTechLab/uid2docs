@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 Monitors rotated <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt buckets</Link>.
 
-Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md).
+Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Guide](../guides/integration-advertiser-dataprovider-overview.md).
 
 ## Request Format
 

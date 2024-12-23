@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s and <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt bucket IDs</Link>. You can also use this endpoint to check for updates to opt-out information.
 
-Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md).
+Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Guide](../guides/integration-advertiser-dataprovider-overview.md).
 
 For details about the UID2 opt-out workflow and how users can opt out, see [User Opt-Out](../getting-started/gs-opt-out.md).
 
@@ -22,7 +22,7 @@ Here's what you need to know:
 - The maximum request size is 1MB.
 - To map a large number of email addresses, phone numbers, or their respective hashes, send them in *sequential* batches with a maximum batch size of 5,000 items per batch.
 - Unless you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, do not send batches in parallel. In other words, use a single HTTP connection and send batches of hashed or unhashed <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> values consecutively, without creating multiple parallel connections.
-- Be sure to store mappings of email addresses, phone numbers, or their respective hashes.<br/>Not storing mappings could increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of raw UID2s need to be updated daily. See also [Advertiser/Data Provider Integration Guide](../guides/advertiser-dataprovider-guide.md) and [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
+- Be sure to store mappings of email addresses, phone numbers, or their respective hashes.<br/>Not storing mappings could increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of raw UID2s need to be updated daily. See also [Advertiser/Data Provider Integration Guide](../guides/integration-advertiser-dataprovider-overview.md) and [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
 
 ## Request Format
 
