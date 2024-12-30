@@ -352,10 +352,10 @@ The following table includes some additional commands that might help you manage
 
 ## UID2 Operator Error Codes
 
-The table below lists potential errors during a Private Operator's startup sequence.
+The following table lists errors that might occur during a Private Operator's startup sequence.
 
 :::note
-Only Private Operators versions released on and after Q2 2024 will present these error codes.
+Error codes for Private Operator startup issues apply only to versions released in Q2 2024 and later.
 :::
 
 | Error Code | Issue | Steps to Resolve |
