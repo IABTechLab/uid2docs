@@ -89,28 +89,28 @@ const fullSidebar = [
           collapsed: true,
 
           items: [
-          {
-            type: 'category',
-            label: 'Web',
-            link: {
-              type: 'doc',
-              id: 'guides/integration-options-publisher-web',
-            },
-            collapsed: true,
-            items: [
-              {
-                type: 'category',
-                label: 'Prebid',
-                link: {
-                  type: 'doc',
-                  id: 'guides/integration-prebid',
-                },
-                collapsed: true,
-                items: [
-                  'guides/integration-prebid-client-side',
-                  'guides/integration-prebid-client-server',
-                ],
+            {
+              type: 'category',
+              label: 'Web',
+              link: {
+                type: 'doc',
+                id: 'guides/integration-options-publisher-web',
               },
+              collapsed: true,
+              items: [
+                {
+                  type: 'category',
+                  label: 'Prebid',
+                  link: {
+                    type: 'doc',
+                    id: 'guides/integration-prebid',
+                  },
+                  collapsed: true,
+                  items: [
+                    'guides/integration-prebid-client-side',
+                    'guides/integration-prebid-client-server',
+                  ],
+                },
 
               {
                 type: 'category',
@@ -177,26 +177,40 @@ const fullSidebar = [
             ],
           },
 
-
           'guides/integration-liveramp-tips',
 
         ],
-        },
+      },
 
-        {
-          type: 'category',
-          label: 'Advertiser/Data Provider Integrations',
-          link: {
-            type: 'doc',
-            id: 'guides/integration-advertiser-dataprovider-overview',
-          },
-          collapsed: true, 
-          items: [
-            'guides/snowflake_integration',
-            'guides/integration-aws-entity-resolution',
-            'guides/integration-advertiser-dataprovider-endpoints',
-          ],
-        },
+
+{
+  type: 'category',
+  label: 'Advertiser/Data Provider Integrations',
+  link: {
+    type: 'generated-index',
+  },
+  collapsed: true,
+
+  items: [
+  {
+    type: 'category',
+    label: 'Integration Overview',
+    link: {
+      type: 'doc',
+      id: 'guides/integration-advertiser-dataprovider-overview',
+    },
+    collapsed: true,
+    items: [
+      'guides/snowflake_integration',
+      'guides/integration-aws-entity-resolution',
+      'guides/integration-advertiser-dataprovider-endpoints',
+    ],
+  },
+
+  'guides/integration-javascript-client-side',
+
+],
+},
 
         {
           type: 'category',
