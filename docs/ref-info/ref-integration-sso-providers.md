@@ -36,7 +36,7 @@ The following options are available for implementing [Sign in with Google](https
 
 ### Sign in with Google for Android
 
-Follow the instructions in [Create the Sign in with Google flow](https://developer.android.com/identity/sign-in/credential-manager-siwg#create-sign). Once the token has been validated, you can retrieve the email address by using the [`getEmail()` method](https://cloud.google.com/java/docs/reference/google-api-client/latest/com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload#com_google_api_client_googleapis_auth_oauth2_GoogleIdToken_Payload_getEmail__) of the identity token payload.
+Follow the instructions in [Create the Sign in with Google flow](https://developer.android.com/identity/sign-in/credential-manager-siwg#create-sign). Once the token has been validated, you can retrieve the email address by using the [getEmail() method](https://cloud.google.com/java/docs/reference/google-api-client/latest/com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload#com_google_api_client_googleapis_auth_oauth2_GoogleIdToken_Payload_getEmail__) of the identity token payload.
 
 ### Sign in with Google for iOS and macOS
 
