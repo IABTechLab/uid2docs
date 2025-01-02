@@ -350,6 +350,23 @@ The following table includes some additional commands that might help you manage
 | Runs one iteration of `logrotate` manually, without changing the scheduled interval. | `sudo logrotate -f /etc/logrotate.conf --force` |
 | Reloads `syslog-ng`. | `sudo /usr/sbin/syslog-ng-ctl reload` |
 
+## UID2 Operator Error Codes
+
+The following table lists possible errors while setting up a Private Operator.
+
+:::note
+This applies only to Private Operators starting from Q2 2024.
+:::
+
+| Error Code | Issue | Steps to Resolve |
+| :--- | :--- | :--- |
+| AW01 | MissingInstanceProfile |  Attach an IAM instance profile to the EC2 instance with the required permissions. The UID2 Operator needs these permissions to access configurations from AWS Secrets Manager. |
+| AW02 | ConfigNotFound | Make sure that the secret referenced by the Private Operator exists in AWS Secrets Manager in the same region as the operator, and that the IAM instance profile has permission to access the secret. If needed, you can check the logs for the specific secret name and region. |
+| AW03 | MissingConfig | Required attributes are missing in the configuration. Refer to the logs for details and update the missing attributes in Secrets Manager. |
+| AW04 | InvalidConfigValue | A configuration value is invalid. Verify that the configuration values in the AWS Secrets Manager align with the required format and environment. Note `debug = true` is allowed only in the `integ` environment. Check the logs for more details. |
+| AW05 | InvalidOperatorKey | Ensure the operator key is correct for the environment and matches the one provided to you. |
+| AW06 | UID2ServicesUnreachable | Allow UID2 core and opt-out service IP addresses in the egress firewall. For IP addresses and DNS details, refer to the logs.  |
+
 ## Technical Support
 
 If you have trouble subscribing to the product, or deploying, [contact us](mailto:aws-mktpl-uid@thetradedesk.com).
