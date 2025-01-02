@@ -67,7 +67,7 @@ Here are some frequently asked questions for publishers using the UID2 framework
 - [How can I test the refresh token workflow?](#how-can-i-test-the-refresh-token-workflow)
 - [What is the uniqueness and rotation policy for UID2 tokens?](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
 - [What does a UID2 token look like in the bidstream?](#what-does-a-uid2-token-look-like-in-the-bidstream)
-- [I have SSO integration on my site&#8212;can I get the user emails to generate UID2s?](#i-have-sso-integration-on-my-sitecan-i-get-the-user-emails-to-generate-uid2s)
+- [Can I integrate UID2 with SSO login?](#can-i-integrate-uid2-with-sso-login)
 
 #### How can I test that the DII sent and the returned token match up?
 
@@ -148,7 +148,7 @@ There are many ways to approach UID2 implementation. Here is one example of a co
 
 <ExampleTokenInBidstream />
 
-#### I have SSO integration on my site&#8212;can I get the user emails to generate UID2s?
+#### Can I integrate UID2 with SSO login?
 
 Yes. With popular SSO integration options such as Sign in with Google, Facebook Login, sign in with Apple, or OpenPass, you can retrieve the email address and use it to generate a UID2.
 

@@ -1,5 +1,6 @@
 ---
 title: Publisher Integration with SSO Providers
+sidebar_label: Publisher SSO Integration
 description: Information for publishers for using single sign-on (SSO) providers with UID2.
 hide_table_of_contents: false
 sidebar_position: 06
@@ -35,7 +36,7 @@ The following options are available for implementing [Sign in with Google](https
 
 ### Sign in with Google for Android
 
-Follow the instructions in [Create the Sign in with Google flow](https://developer.android.com/identity/sign-in/credential-manager-siwg#create-sign). Once the token has been validated, you can retrieve the email address by using the [getEmail() method](https://cloud.google.com/java/docs/reference/google-api-client/latest/com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload#com_google_api_client_googleapis_auth_oauth2_GoogleIdToken_Payload_getEmail__) of the identity token payload.
+Follow the instructions in [Create the Sign in with Google flow](https://developer.android.com/identity/sign-in/credential-manager-siwg#create-sign). Once the token has been validated, you can retrieve the email address by using the [`getEmail()` method](https://cloud.google.com/java/docs/reference/google-api-client/latest/com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload#com_google_api_client_googleapis_auth_oauth2_GoogleIdToken_Payload_getEmail__) of the identity token payload.
 
 ### Sign in with Google for iOS and macOS
 
@@ -67,7 +68,7 @@ To get an email address from [Facebook Login](https://developers.facebook.com/do
 
 ### Sample Applications
 
-The following applications are available as examples to help you code your Facebook SSO integration for apps:
+The following applications demonstrate how to integrate with Facebook Login:
 
 - [Facebook Login sample application for Android](https://github.com/facebook/facebook-android-sdk/tree/main/samples/FBLoginSample)
 
