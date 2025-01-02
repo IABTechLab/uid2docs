@@ -107,9 +107,7 @@ Use the UID2s you received in Step 1. For example, you might do one or more of t
 
 You could send the `advertising_id` (raw UID2) returned in Step 1-b to a DSP while building your audiences. Each DSP has a unique integration process for building audiences; follow the integration guidance provided by the DSP for sending raw UID2s to build an audience.
 
-You could also send conversion information for measurement (attribution) or for retargeting via API or pixels.
-
-[**GWH_SW or GWH_AD not sure this is correct wording. Please check.**]
+You could also send conversion information via API or pixels for measurement (attribution) or for retargeting.
 
 ### 5: Monitor for Salt Bucket Rotations for Your Stored Raw UID2s
 
