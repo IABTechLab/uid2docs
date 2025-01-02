@@ -25,7 +25,7 @@ To integrate with a single sign-on solution, the general steps are as follows:
 To find out whether you have to apply [normalization and encoding](../getting-started/gs-normalization-encoding.md) to the email address, or the integration does it for you, check the documentation for your UID2 publisher integration.
 :::
 
-## Sign In with Google
+## Sign in with Google
 
 The following options are available for implementing [Sign in with Google](https://support.google.com/accounts/answer/12849458?hl=en):
 

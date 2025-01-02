@@ -150,7 +150,7 @@ There are many ways to approach UID2 implementation. Here is one example of a co
 
 #### Can I integrate UID2 with SSO login?
 
-Yes. With popular SSO integration options such as Sign in with Google, Facebook Login, sign in with Apple, or OpenPass, you can retrieve the email address and use it to generate a UID2.
+Yes. With popular SSO integration options such as Sign in with Google, Facebook Login, Sign in with Apple, or OpenPass, you can retrieve the email address and use it to generate a UID2.
 
 For details, see [Publisher Integration with SSO Providers](/docs/ref-info/ref-integration-sso-providers.md).
 
