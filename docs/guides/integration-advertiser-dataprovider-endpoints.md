@@ -34,7 +34,7 @@ The steps for advertisers and data providers integrating with UID2 by calling th
 
 1. Generate a raw UID2 from <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>, or receive UID2s from another UID2 participant such as a data provider acting on your behalf.
 
-    **Instructions**: see [Retrieve a raw UID2 for DII](#generate-a-raw-uid2-for-dii).
+    **Instructions**: see [Generate Raw UID2s from DII](#generate-raw-uid2s-from-dii).
 
 2. Use the UID2s you received in Step 1. For example, you might do one or more of the following:
    - Do some manipulation: for example, combine UID2s you generated from DII and UID2s received from another participant such as an advertiser or data provider.
@@ -54,13 +54,13 @@ The steps for advertisers and data providers integrating with UID2 by calling th
 
 5.	Monitor for salt bucket rotations related to your stored raw UID2s.
 
-    **Instructions**: See [Monitor for salt bucket rotations related to your stored raw UID2s](integration-advertiser-dataprovider-overview.md#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s).
+    **Instructions**: See [Monitor for salt bucket rotations related to your stored raw UID2s](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s).
 
 6.	Periodically, monitor for opt-out status, to be sure that you don't continue using UID2s for users that have recently opted out.
 
     **Instructions**: See [Monitor for Opt-Out Status](#monitor-for-opt-out-status).
 
-### Generate a raw UID2 for DII
+### Generate Raw UID2s from DII
 
 | Step | Endpoint | Description |
 | --- | --- | --- |
@@ -91,10 +91,10 @@ To help ensure that your integration has the current raw UID2s, check salt bucke
 
 To keep your UID2-based audience information accurate and up to date, follow these integration steps every day:
 
-1. The response from the [UID2 retrieval step](#generate-a-raw-uid2-for-dii) contains mapping information. Cache the following:
+1. The response from the [UID2 retrieval step](#generate-raw-uid2s-from-dii) contains mapping information. Cache the following:
    - The mapping between DII (`identifier`), raw UID2 (`advertising_id`), and salt bucket (`bucket_id`).
    - The most recent `last_updated` timestamp.
-2. Using the results from Step 3, [Monitor for salt bucket rotations related to your stored raw UID2s](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s), remap any raw UID2 for which the salt buckets have been rotated by retrieving new raw UID2 for those IDs, following Step 1, [Retrieve a raw UID2 for DII](#generate-a-raw-uid2-for-dii).
+2. Using the results from Step 3, [Monitor for salt bucket rotations related to your stored raw UID2s](#monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s), remap any raw UID2 for which the salt buckets have been rotated by retrieving new raw UID2 for those IDs, following Step 1, [Generate Raw UID2s from DII](#generate-raw-uid2s-from-dii).
 
    Then, use the refreshed UID2s to update audiences or conversions, following Step 2, [send raw UID2 to a DSP](#send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions).
 

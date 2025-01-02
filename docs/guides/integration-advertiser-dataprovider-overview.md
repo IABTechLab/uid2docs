@@ -47,7 +47,7 @@ At a high level, the steps for advertisers and data providers integrating with U
 
 5. Monitor for Salt Bucket Rotations for your stored raw UID2s.
 
-6. Periodically, monitor for opt-out status, to be sure that you don't continue using UID2s for users that have recently opted out. For details, see [Monitor for Opt-Out Status](#monitor-for-opt-out-status).
+6. Periodically, monitor for opt-out status, to be sure that you don't continue using UID2s for users that have recently opted out. For details, see [Monitor for Opt-Out Status](#6-monitor-for-opt-out-status).
 
 ## Summary of Implementation Options
 
@@ -86,7 +86,7 @@ To generate raw UID2s, use one of the following options:
 
 - AWS Entity Resolution: [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md).
 
-- HTTP endpoints: [Generate a raw UID2 from DII](integration-advertiser-dataprovider-endpoints.md#generate-a-raw-uid2-from-dii).
+- HTTP endpoints: [Generate a raw UID2 from DII](integration-advertiser-dataprovider-endpoints.md#generate-raw-uid2s-from-dii).
 
 ### 2: Store Raw UID2s and Salt Bucket IDs
 
