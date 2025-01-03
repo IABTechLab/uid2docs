@@ -82,7 +82,7 @@ UID2 Share へのアクセスを要求するには、次の手順を実行しま
 非推奨の関数を使用していて、新しい関数への移行の手助けが必要な場合は、[Migration Guide](#migration-guide) を参照してください。
 :::
 
-再生成が必要な UID2 を特定するには、UID Share から `UID2_SALT_BUCKETS` ビューを使用します。詳しくは、[Regenerate UID2s](#regenerate-uid2s) を参照してください。
+再生成が必要な UID2 を特定するには、UID Share から `UID2_SALT_BUCKETS` ビューを使用します。詳しくは、[Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s) を参照してください。
 
 UID2 Sharing 参加者には、以下の機能も利用できます:
 - `FN_T_UID2_ENCRYPT` (See [Encrypt Tokens](#encrypt-tokens))
@@ -404,7 +404,7 @@ select a.ID, a.PHONE_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT 
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
 ```
 
-### Regenerate UID2s
+### Monitor for Salt Bucket Rotation and Regenerate Raw UID2s
 
 `UID2_SALT_BUCKETS` ビュークエリは、セカンドレベルのソルトバケットが最後に更新された日時を返します。セカンドレベルのソルトは UID2 を生成する際に使用されます。バケット内のソルトが更新されると、それまで生成されていた UID2 が古くなり、同じユーザーに対して他者が生成した UID2 とは一致しなくなります。
 
