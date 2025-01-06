@@ -9,10 +9,6 @@ import Link from '@docusaurus/Link';
 
 # UID2 API v2 Documentation
 
-:::note
-For upgrade instructions, see [UID2 API v1 to v2 Upgrade Guide](https://github.com/IABTechLab/uid2docs/blob/main/api/v2/upgrades/upgrade-guide.md) in GitHub.
-:::
-
 For UID2 definitions, ID types, guiding principles, components, and other conceptual details, see [Unified ID 2.0 Overview](intro.md). For contact and license information, as well as normalization and hash encoding rules, see [Getting Started](/docs/category/getting-started).
 
 For details on using the API, see the following pages.

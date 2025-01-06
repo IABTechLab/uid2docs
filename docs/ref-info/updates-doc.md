@@ -11,6 +11,14 @@ import Link from '@docusaurus/Link';
 
 Check out the latest updates to our UID2 documentation resources.
 
+<!-- ### Removed:  v1 to v2 upgrade doc
+
+January 3, 2025
+
+We've removed the legacy v1 to v2 upgrade doc, which is no longer needed. -->
+
+<!-- APIDOCS-2859 -->
+
 ### New: Zoom-In Tool for Images
 
 December 15, 2024
