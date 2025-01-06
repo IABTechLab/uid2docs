@@ -116,7 +116,7 @@ A sample implementation is available for server-side integration. See:
 - [Server-Side UID2 Integration Example (sample implementation)](https://secure-signals-srvonly-integ.uidapi.com/)
 - [Server-Side UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
 
-## Integrating with SSO
+## Integrating with Single Sign-On (SSO)
 
 <IntegratingWithSSO />
 

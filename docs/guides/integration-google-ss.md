@@ -121,7 +121,7 @@ The following sample implementations are available to illustrate how to integrat
 
 Each sample implementation has its own instructions.
 
-## Integrating with SSO
+## Integrating with Single Sign-On (SSO)
 
 <IntegratingWithSSO />
 

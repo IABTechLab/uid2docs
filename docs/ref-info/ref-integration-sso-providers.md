@@ -10,7 +10,9 @@ import Link from '@docusaurus/Link';
 
 # Publisher Integration with SSO Providers
 
-This guide provides information for publishers who use popular single sign-on (SSO) providers and want to integrate with UID2.
+If you integrate with one or more <a href="glossary-uid#gl-sso">SSO</a> providers to offer SSO login, you might be able to retrieve the logged-in user's email address from the SSO provider to generate UID2 tokens.
+
+This guide provides information about how to do this, for publisher integrations with several popular SSO providers.
 
 ## High-Level Steps
 

@@ -315,7 +315,7 @@ The UID2 integration with Prebid Mobile SDK requires version 1.6.0 of the UID2 S
 
 <PrebidMobileSDK />
 
-## Integrating with SSO
+## Integrating with Single Sign-On (SSO)
 
 <IntegratingWithSSO />
 

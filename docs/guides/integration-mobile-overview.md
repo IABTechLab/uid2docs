@@ -170,6 +170,6 @@ Some error responses indicate  a networking problem resulting in your app not be
 
 Another good troubleshooting step is to enable logging. For details, see [Enable Logging](integration-mobile-client-side.md#enable-logging).
 
-## Integrating with SSO
+## Integrating with Single Sign-On (SSO)
 
 <IntegratingWithSSO />

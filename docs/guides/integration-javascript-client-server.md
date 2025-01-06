@@ -157,7 +157,7 @@ The client lifecycle is complete when the user decides to log out from the publi
 </script>
 ```
 
-## Integrating with SSO
+## Integrating with Single Sign-On (SSO)
 
 <IntegratingWithSSO />
 

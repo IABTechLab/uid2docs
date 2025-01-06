@@ -387,6 +387,6 @@ function bytesToBase64(bytes) {
 }
 ```
 
-## Integrating with SSO
+## Integrating with Single Sign-On (SSO)
 
 <IntegratingWithSSO />

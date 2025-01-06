@@ -71,6 +71,6 @@ For detailed instructions, refer to one of the following integration guides:
 - [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md)
 - [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md)
 
-## Integrating with SSO
+## Integrating with Single Sign-On (SSO)
 
 <IntegratingWithSSO />
