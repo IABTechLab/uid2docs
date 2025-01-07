@@ -47,6 +47,10 @@ For integration scenarios for publishers that do not use the SDK for JavaScript,
 If you are using Google Ad Manager and want to use the secure signals feature, first follow the steps in this guide and then follow the additional steps in the [Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md).
 :::
 
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
+
 ## Integration Steps 
 
 The following diagram outlines the steps required for establishing a user's UID2 token with a publisher and how the UID2 token integrates with the RTB bidstream.
@@ -156,10 +160,6 @@ The client lifecycle is complete when the user decides to log out from the publi
   __uid2.disconnect();
 </script>
 ```
-
-## Integrating with Single Sign-On (SSO)
-
-<IntegratingWithSSO />
 
 ## FAQs
 

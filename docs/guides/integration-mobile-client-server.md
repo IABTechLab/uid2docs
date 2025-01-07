@@ -56,6 +56,10 @@ This guide provides instructions for using either of these UID2 mobile SDKs:
 
 For instructions for installing the correct SDK/version into your mobile app, see [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
+
 ## Complete the UID2 Account Setup
 
 To set up your account, follow the steps described in [Account Setup](../getting-started/gs-account-setup.md).
@@ -314,10 +318,6 @@ The UID2 integration with Prebid Mobile SDK requires version 1.6.0 of the UID2 S
 :::
 
 <PrebidMobileSDK />
-
-## Integrating with Single Sign-On (SSO)
-
-<IntegratingWithSSO />
 
 ## Error Response States
 

@@ -29,6 +29,10 @@ UID2 provides SDKs for Android/iOS that support the following:
 
 For additional flexibility, UID2 also provides alternative methods for some of the features and complementary products, such as UID2 Google GMA/IMA Plugins. Available options are described in the individual guides: see [Integration Overview: High-Level Steps](#integration-overview-high-level-steps).
 
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
+
 ## Integration Overview: High-Level Steps
 
 At a high level, to integrate your mobile app with UID2 using the UID2 mobile SDKs, you'll need to complete the following steps:
@@ -169,7 +173,3 @@ Some error responses indicate  a networking problem resulting in your app not be
    The SDK tries to refresh the UID2 token in the background. If an error such as an IOException occurs, the SDK retries multiple times. If retry is not successful, this exception is displayed.
 
 Another good troubleshooting step is to enable logging. For details, see [Enable Logging](integration-mobile-client-side.md#enable-logging).
-
-## Integrating with Single Sign-On (SSO)
-
-<IntegratingWithSSO />

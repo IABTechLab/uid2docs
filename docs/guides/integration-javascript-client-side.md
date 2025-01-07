@@ -64,6 +64,10 @@ For a sample implementation, see this example:
 
 <!-- (Source code for running site: https://github.com/IABTechLab/uid2-web-integrations) -->
 
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
+
 ## Complete UID2 Account Setup
 
 Complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page. As part of the account setup process, you'll need to provide a list of **domain names** for the sites that you'll be using with this SDK for JavaScript.
@@ -386,7 +390,3 @@ function bytesToBase64(bytes) {
   return btoa(binString);
 }
 ```
-
-## Integrating with Single Sign-On (SSO)
-
-<IntegratingWithSSO />

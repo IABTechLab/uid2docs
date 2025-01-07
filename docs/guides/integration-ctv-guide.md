@@ -23,6 +23,10 @@ At a high level, to integrate with UID2, you'll implement these three key steps:
 
 To determine how you'll implement these steps, choose from the [CTV Integration Options](#ctv-integration-options).
 
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
+
 ## CTV Integration Options
 
 You can decide on the integration option that's best for you based on where you want to generate and refresh the UID2 token. There are three options, as follows:
@@ -82,7 +86,3 @@ The following table shows supported operating systems, with links to applicable 
 | :--- | :--- | :--- |
 | [Apple tvOS](https://developer.apple.com/tvos/) | [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) |
 | [Android TV](https://www.android.com/tv/) | [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | [SDK for Android Reference Guide](../sdks/sdk-ref-android.md) |
-
-## Integrating with Single Sign-On (SSO)
-
-<IntegratingWithSSO />

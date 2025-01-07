@@ -40,6 +40,10 @@ The guide outlines the [basic steps](#integration-steps) that you need to consid
 
 See also [FAQs](#faqs).
 
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
+
 ## Integration Steps
 
 The following diagram outlines the steps required for a user to establish a UID2 token with a publisher and how the UID2 token integrates with the RTB bidstream.
@@ -115,10 +119,6 @@ A sample implementation is available for server-side integration. See:
 
 - [Server-Side UID2 Integration Example (sample implementation)](https://secure-signals-srvonly-integ.uidapi.com/)
 - [Server-Side UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
-
-## Integrating with Single Sign-On (SSO)
-
-<IntegratingWithSSO />
 
 ## FAQs
 

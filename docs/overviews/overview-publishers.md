@@ -62,6 +62,10 @@ The following steps provide a high-level outline of the workflow intended for or
 
 ![Publisher Workflow](images/UID2PublisherAndSSPWorkflow.svg)
 
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
+
 ## Getting Started
 
 To get started, follow these steps:
@@ -157,10 +161,6 @@ The following resources are available for publishers integrating with Google Ad 
 | GMA for iOS | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) | A guide that enables publishers using the Google Mobile Ads (GMA) SDK to include UID2 tokens in ad requests from their iOS apps. |
 | IMA for Android | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) | A guide that enables publishers using the Google Interactive Media Ads (IMA) SDK to include UID2 tokens in ad requests from their Android apps. |
 | IMA for iOS | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) | A guide that enables publishers using the Google Interactive Media Ads (IMA) SDK to include UID2 tokens in ad requests from their iOS apps. |
-
-## Integrating with Single Sign-On (SSO)
-
-<IntegratingWithSSO />
 
 ## FAQs for Publishers
 

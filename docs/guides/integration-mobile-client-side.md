@@ -191,6 +191,10 @@ see UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist
 
 If necessary, you can also change the default Subscription ID and public key to values assigned to you, and connect to the UID2 Production environment. For details, see [Optional: Specifying the API Base URL to Reduce Latency](#optional-specifying-the-api-base-url-to-reduce-latency).
 
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
+
 ## Complete the UID2 Account Setup
 
 To set up your account, follow the steps described in [Account Setup](../getting-started/gs-account-setup.md). As part of the account setup process, you'll need to provide a list of <Link href="../ref-info/glossary-uid#gl-app-name">app names</Link> for all the mobile apps that you'll be integrating with the UID2 mobile SDKs, including any of these values that apply:
@@ -724,10 +728,6 @@ The UID2 integration with Prebid Mobile SDK requires version 1.6.0 of the UID2 S
 :::
 
 <PrebidMobileSDK />
-
-## Integrating with Single Sign-On (SSO)
-
-<IntegratingWithSSO />
 
 ## Error Response States
 

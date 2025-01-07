@@ -26,6 +26,10 @@ UID2 provides an SDK for JavaScript that supports the following:
 
 For additional flexibility, UID2 also provides alternative methods for some of the features and complementary products, such as a Prebid integration.
 
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
+
 ## Client-Side or Client-Server Integration
 
 The options for integrating with UID2 using the SDK for JavaScript are summarized in the following table. Choose the option that's best for you.
@@ -70,7 +74,3 @@ For detailed instructions, refer to one of the following integration guides:
 
 - [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md)
 - [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md)
-
-## Integrating with Single Sign-On (SSO)
-
-<IntegratingWithSSO />

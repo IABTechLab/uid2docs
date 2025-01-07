@@ -61,6 +61,10 @@ If you want to use Secure Signals with Prebid.js, you must complete both these a
 
    For details, see [ESP Configurations](https://docs.prebid.org/dev-docs/modules/userId.html#esp-configurations) in the Prebid documentation.
 
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
+
 ## Publisher Integration
 
 When an encrypted signal is cached, the secure signals feature does not execute the handler to generate a new signal. Because of this, it is necessary to clear the cache before and after data capture.
@@ -120,10 +124,6 @@ The following sample implementations are available to illustrate how to integrat
   - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
 
 Each sample implementation has its own instructions.
-
-## Integrating with Single Sign-On (SSO)
-
-<IntegratingWithSSO />
 
 ## Troubleshooting
 
