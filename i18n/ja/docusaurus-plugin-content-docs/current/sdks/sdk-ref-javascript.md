@@ -271,7 +271,7 @@ SDK for JavaScript とのすべてのインストラクションは、グロー�
 - [isLoginRequired()](#isloginrequired-boolean)
 - [isIdentityAvailable()](#isidentityavailable-boolean) <New3100 />
 - [disconnect()](#disconnect-void)
-- [abort()](#abort-void)
+- [abort()](#abort-void) <Deprecated3100 />
 - [callbacks](#callbacks) <New />
 - [setIdentity()](#setidentityidentity-identity-void) <New />
 - [getIdentity()](#getidentity-identity--null) <New />
