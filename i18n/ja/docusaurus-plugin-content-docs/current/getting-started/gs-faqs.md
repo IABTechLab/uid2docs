@@ -122,7 +122,7 @@ Refresh Token のワークフローをテストするにはどうすればよい
 `refresh-optout@example.com` のメールアドレスまたは `+00000000002` の電話番号を使用して、トークンリフレッシュのワークフローをテストすることができます。どちらかのパラメータ値をリクエストに使用すると、常に `refresh_token` を含む identity レスポンスが生成され、ログアウトレスポンスが返されます。
 
 :::tip
-任意のメールアドレスまたは電話番号値のハッシュ化および Base64 エンコードされた値を算出するには、[UID2 Hashing Tool](gs-normalization-encoding.md#uid2-hashing-tool) を使用します。
+メールアドレスの正規化、ハッシュ化、Base64　エンコードされたハッシュ値、または、電話番号のハッシュ化、Base64 エンコードされたハッシュ値を取得するには、ハッシングツールを使用できます。詳細は、[UID2 Hashing Tool](gs-normalization-encoding.md#uid2-hashing-tool) を参照してください。
 :::
 
 SDKを使うかどうかで手順は少し異なります。
