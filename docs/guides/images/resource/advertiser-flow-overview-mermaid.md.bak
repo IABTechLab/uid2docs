@@ -1,6 +1,42 @@
 1/2/25: Reworking the ADP diagram for six steps as discussed with AnDe. Sent to her for review but checking in these mods.
 
-<!-- 1/2/25: Code: 
+<!-- 1/7/25: updated "identity mapping service " > POST /identity/map endpoint per edits from SW. Code: 
+
+  sequenceDiagram
+    participant ADP as Advertiser/Data Provider
+    participant UID as UID2 Operator
+    participant DSP
+    Note over ADP,DSP: 1. Generate a raw UID2 from DII.
+        loop 
+    ADP->>UID: 1-a. Send a request containing DII using an SDK, Snowflake, AWS Entity Resolution, or raw HTTP endpoint.
+    UID->>ADP: 1-b. Receive the raw UID2 and salt bucket ID.
+    end
+    Note over ADP,DSP: 2. Store raw UID2s and salt bucket IDs.
+    Note over ADP,DSP: 3. Manipulate or combine raw UID2s.
+     Note over ADP,DSP: 4. Send raw UID2s to DSPs.
+    ADP-->>DSP: Send stored raw UID2s to DSPs to create audiences and conversions, or use them for measurement.
+    Note over ADP,DSP: 5. Monitor for salt bucket rotation.
+    loop
+       ADP->>UID: 5-a. Monitor salt bucket rotations using the bucket service.
+       UID->>ADP: 5-b. Return salt buckets rotated since a specified timestamp.
+       ADP->>UID: 5-c. Compare the rotated salt buckets to the stored UID2 salt buckets.<br>If rotated, resend DII to the POST /identity/map endpoint for a new raw UID2.
+       UID->>ADP: 5-d. Store the raw UID2 and the salt bucket returned from the POST /identity/map endpoint.
+    end
+    Note over ADP,DSP: 6. Monitor for opt-out status. Remove all opt-outs from local storage and do not use.
+    loop
+       ADP->>UID: 6-a. Monitor for optout status using the POST optout/status endpoint.
+       UID->>ADP: 6-b. Return optout status.
+    end
+
+-->
+
+<!-- 1/7/25: URL:
+
+https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqNVdtu2kAQ_ZXRPjsGE0yCVUWK6qhFVVpUUlWqeFnsgaxi77p7IU2j_Htn1wachCj1C97LOTNz5gx-ZIUqkWUMwOBvh7LAXPCN5vVSAj0N11YUouHSwmU-B27gstwibRrUg5xbDnOttqJE_RrwY5Z7AP2M4FuDmlt15Fa-mLebX5VFUETuI0W0nUESwyeUHonAQfP7lmytVQ35bBa3QP9USjXQLgl9cnFBFwl_wmNYoCw92tdnLBRKWi6kkBtPAc74Ny5hkX-JYCHV_bridxjB5c8FXEkr7AN8R6MqZ4WSESgd8vh8czMHIm6UkLbLg0JSYArvA69ighUotgj2Fg-5c0rG8MrCyhV3aGGWd2gie1OHEVVB4h1ozBEeE7-JP43hmkvRuMorSSUUql4J2ePbSXkEPO4kPMS2yndth_F6U93hbrhofKpH7vvfQmNopiuFN1tbB7WEIhrS1wSBnQmi1bCmRY3cOI017nU-kmNKBSopKHDA9IXRynLfug7sjbK3Tc8qqbfKjuMY3nRW8d3sjmgGtqLAgw17DkhbB1inZZ_OtHwkD5EV3tWmwUKsBe1YUZNBed3ExxMsYvioapqdzlI7oj47SezPuhYEx_XP4w8rfTFb77ARTYXxLfOT0EHn3xY3MKCJDt4f1LzZ-zxoy0Hi_b65b9Re7gz7yvshu768QSLKNQz1Own8x6hMnjtBNfZEOWoV1euM70hN94FX1e7ItJErVfAq6MY3GDItFUhlvRnfsc6kb50u6CFmzzahsvZw0B2-qOy5jpOeh55x9nVgEatR11yU9Df-6A-WzA8PLllGr5QPmWrJlvKJbnJn1eJBFiyz2mHEtHKbW5ateWVo5ZqSXNF9AF7sXpW-vP0mhuV1-_EI35CI0d_5L6UOQFqz7JH9YdlpOolHyfhsOhkmaZKM0og9sCwdxelkOj4d09F4OkzOnyL2NxAM4_PxaJyenU-HaTJM02ny9A8dTiLz
+
+-->
+
+<!-- 1/2/25: Code (outdated 1/7/25): 
 
   sequenceDiagram
     participant ADP as Advertiser/Data Provider

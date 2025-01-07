@@ -48,7 +48,7 @@ The steps for advertisers and data providers integrating with UID2 by calling th
 
     **Instructions**: see [Send stored raw UID2s to DSPs to create audiences or conversions](#4-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions).
 
-4.	Store the raw UID2 and the salt bucket ID returned from the identity mapping service.
+4.	Store the raw UID2 and the salt bucket ID returned from the `POST /identity/map` endpoint.
 
     **Instructions**: This step is is out of band and entirely up to you.
 
@@ -96,7 +96,7 @@ To help ensure that your integration has the current raw UID2s, check salt bucke
 | --- | --- | --- |
 | 5-a | [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) | Send a request to the bucket status endpoint for all salt buckets that have changed since a specific timestamp. |
 | 5-b | [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) | UID2 service: The bucket status endpoint returns a list of `bucket_id` and `last_updated` timestamps. |
-| 5-c | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) | Compare the returned `bucket_id` to the salt buckets of raw UID2s that you've cached.<br/>If you find that the salt bucket was updated for one or more raw UID2s, re-send the DII to the identity mapping service for a new raw UID2. |
+| 5-c | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) | Compare the returned `bucket_id` to the salt buckets of raw UID2s that you've cached.<br/>If you find that the salt bucket was updated for one or more raw UID2s, re-send the DII to the `POST /identity/map` endpoint for a new raw UID2. |
 | 5-d | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) | Store the new values returned for `advertising_id` and `bucket_id`. |
 
 ## Monitor for Opt-Out Status
