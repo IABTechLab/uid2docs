@@ -282,6 +282,10 @@ const config = {
                 href: "https://www.thetradedesk.com/us/website-privacy-policy",
               },
               {
+                label: "Opt-out",
+                href: "https://www.transparentadvertising.com/",
+              },
+              {
                 html: `<a href="#" class="footer__link-item ot-sdk-show-settings">
                     Website Cookies Settings
                     </a>`,
