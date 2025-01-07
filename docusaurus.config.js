@@ -282,7 +282,7 @@ const config = {
                 href: "https://www.thetradedesk.com/us/website-privacy-policy",
               },
               {
-                html: `<a href="#" id="ot-sdk-btn" class="footer__link-item ot-sdk-show-settings">
+                html: `<a href="#" class="footer__link-item ot-sdk-show-settings">
                     Website Cookies Settings
                     </a>`,
               },
