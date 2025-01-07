@@ -1,7 +1,7 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 import ConfigLocalized from "./docusaurus.config.localized.json";
-import { themes } from 'prism-react-renderer';
+import { themes } from "prism-react-renderer";
 
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
@@ -91,7 +91,7 @@ const config = {
         containerId: "GTM-K3NQMDX",
       },
     ],
-    require.resolve("docusaurus-plugin-image-zoom")
+    require.resolve("docusaurus-plugin-image-zoom"),
   ],
 
   presets: [
@@ -282,12 +282,21 @@ const config = {
                 href: "https://www.thetradedesk.com/us/website-privacy-policy",
               },
               {
-                label: "Opt-out",
-                href: "https://www.transparentadvertising.com/",
+                html: `<a href="#" id="ot-sdk-btn" class="footer__link-item ot-sdk-show-settings">
+                    Website Cookies Settings
+                    </a>`,
               },
               {
-                label: "Do not sell my data",
-                href: getLocalizedConfigValue("adsrvrURL"),
+                html: `<a class="truevault-polaris-optout footer__link-item" 
+                    href="${getLocalizedConfigValue("adsrvrURL")}"
+                    target="_blank" 
+                    rel="noreferrer noopener">
+                    <img src="https://polaris.truevaultcdn.com/static/assets/icons/optout-icon-black.svg" 
+                    alt="California Consumer Privacy Act (CCPA) Opt-Out Icon" 
+                    height="14px" 
+                    style="vertical-align:middle" />
+                    Your Privacy Choices
+                    </a>`,
               },
             ],
           },
@@ -310,16 +319,16 @@ const config = {
         // indexName: "UID2", //staging
       },
       zoom: {
-        selector: '.markdown :not(em) > img',
+        selector: ".markdown :not(em) > img",
         config: {
           // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
           background: {
-            light: 'rgb(255, 255, 255)',
-            dark: 'rgb(50, 50, 50)'
-          }
-        }
-      }
+            light: "rgb(255, 255, 255)",
+            dark: "rgb(50, 50, 50)",
+          },
+        },
+      },
     }),
-  };
+};
 
 export default config;
