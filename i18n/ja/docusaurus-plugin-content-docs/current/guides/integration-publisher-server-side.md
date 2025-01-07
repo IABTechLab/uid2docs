@@ -19,7 +19,7 @@ import Link from '@docusaurus/Link';
 - SDK for Python (see [Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers) section).
 - Custom server code to generate and refresh the UID2 token by calling the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) and [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints.
 
-ワークフローを示すサンプルアプリケーションもあります。詳細は [Sample Implementation](#sample-implementation) を参照してください。
+ワークフローをデモするサンプルアプリケーションもあります。[Sample Implementation](#sample-implementation) を参照してください。
 
 パブリッシャーインテグレーションオプションの完全な概要については、[Publisher Integrations](summary-guides.md#publisher-integrations) を参照してください。
 
@@ -110,7 +110,7 @@ UID2 の Opt-out ワークフローとユーザーが Opt-out する方法の詳
 
 ## Sample Implementation
 
-Server-only のインテグレーションの場合は、サンプルアプリケーションをがあります。参照してください:
+Server-only のインテグレーションのためのサンプルアプリケーションをがあります。以下を参照してください:
 
 - [Server-Side UID2 Integration Example (sample implementation)](https://secure-signals-srvonly-integ.uidapi.com/)
 - [Server-Side UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)

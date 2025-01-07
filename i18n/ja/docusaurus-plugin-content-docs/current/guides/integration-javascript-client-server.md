@@ -1,6 +1,6 @@
 ---
 title: Client-Server Integration Guide for JavaScript
-sidebar_label: Server-Side Integration for JavaScript
+sidebar_label: Client-Server Integration for JavaScript
 pagination_label: Client-Server Integration Guide for JavaScript
 description: SDK for JavaScript を使用し、Server-Side でトークンを生成してパブリッシャーの Web ページに渡す必要がある標準的な Web インテグレーションシナリオをカバーするパブリッシャー向けの情報。
 hide_table_of_contents: false
@@ -22,7 +22,7 @@ SDK の技術的な詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-re
 
 ## Sample Implementation
 
-アプリケーションの例については、SDK v3 を使用した UID2 Google Secure Signals の例を参照してください:
+実装例については、SDK v3 を使用した UID2 Google Secure Signals の例を参照してください:
 - コードとドキュメント: [UID2 SDK Secure Signals Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
 - ランニングサイト: [Client-Server UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
 

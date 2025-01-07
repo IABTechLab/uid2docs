@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Sharing
 
-UID2 において共有 (Sharing) とは、UID2 参加者間で [UID2](../ref-info/glossary-uid.md#gl-raw-uid2) を直接または [UID2 Token](../ref-info/glossary-uid.md#gl-raw-uid2) に暗号化して配布するプロセスです。
+UID2 において共有 (Sharing) とは、UID2 参加者間で [UID2](../ref-info/glossary-uid.md#gl-raw-uid2) を直接または [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) に暗号化して配布するプロセスです。
 
 Raw UID2 または UID2 Token が他の参加者と共有される場合はすべて、共有の定義に該当します。すべての共有参加者は、以下のセクション [Legal Requirements for UID2 Sharing](#legal-requirements-for-uid2-sharing) で指定された法的要件を満たす必要があります。
 

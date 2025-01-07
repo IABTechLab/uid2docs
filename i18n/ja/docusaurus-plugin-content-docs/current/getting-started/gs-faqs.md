@@ -121,24 +121,28 @@ Refresh Token のワークフローをテストするにはどうすればよい
 
 `refresh-optout@example.com` のメールアドレスまたは `+00000000002` の電話番号を使用して、トークンリフレッシュのワークフローをテストすることができます。どちらかのパラメータ値をリクエストに使用すると、常に `refresh_token` を含む identity レスポンスが生成され、ログアウトレスポンスが返されます。
 
+:::tip
+メールアドレスの正規化、ハッシュ化、Base64　エンコードされたハッシュ値、または、電話番号のハッシュ化、Base64 エンコードされたハッシュ値を取得するには、ハッシングツールを使用できます。詳細は、[UID2 Hashing Tool](gs-normalization-encoding.md#uid2-hashing-tool) を参照してください。
+:::
+
 SDKを使うかどうかで手順は少し異なります。
 
 ##### With SDK:
 
 1. DII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) リクエストを送信します:
-   - `email` の値として `refresh-optout@example.com` を指定します。
-   - ``refresh-optout@example.com` のハッシュを `email_hash` 値として指定します。
-   - `phone` の値として `+00000000002` を指定します。
-   - `phone_hash` 値として `+00000000002` のハッシュを指定します。
+   - `email` の値: `refresh-optout@example.com`.
+   - `email_hash` の値: `refresh-optout@example.com` をハッシュ化し Base64 エンコードした値は `NaNI8RU0bL1Jpp1jJLC5aJO/lchc6gGhgXQIAwJ7cV4=` です。
+   - `phone` の値: `+00000000002`.
+   - `phone_hash` `+00000000002` をハッシュ化し Base64 エンコードした値は `0VoxsIuk88qt7TnZaTC//C9Vur3pR1zBMIr1cJe7xjE=` です。
 2. SDK の [background auto-refresh](../sdks/sdk-ref-javascript.md#background-token-auto-refresh) が Advertising Token のリフレッシュを試み(これには数時間かかることがあります)、リフレッシュの試みが `OPTOUT` ステータスで失敗するのを観察するまで待ちます。この時点で SDK はファーストパーティクッキーもクリアします。
 
 ##### Without SDK:
 
 1. DII がメールアドレスか電話番号かに応じて、以下の値のいずれかを使用して [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) リクエストを送信します:
-   - `email` の値として `refresh-optout@example.com` を指定します。
-   - `refresh-optout@example.com` のハッシュを `email_hash` 値として指定します。
-   - `phone` の値として `+00000000002` を指定します。
-   - `phone_hash` 値として `+00000000002` のハッシュを指定します。
+   - `email` の値: `refresh-optout@example.com`.
+   - `email_hash` の値: `refresh-optout@example.com` をハッシュ化し Base64 エンコードした値は `NaNI8RU0bL1Jpp1jJLC5aJO/lchc6gGhgXQIAwJ7cV4=` です。
+   - `phone` の値: `+00000000002`.
+   - `phone_hash` `+00000000002` をハッシュ化し Base64 エンコードした値は `0VoxsIuk88qt7TnZaTC//C9Vur3pR1zBMIr1cJe7xjE=` です。
  
 2. 返された `refresh_token` を次のステップで使用するために保存します。
 
