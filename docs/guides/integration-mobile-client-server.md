@@ -241,7 +241,7 @@ If the `getAdvertisingToken()` method call returns `null`, there was no identity
     - **Android Java**: `UID2Manager.getInstance().getCurrentIdentityStatus()` 
     - **Android Kotlin**: `UID2Manager.getInstance().currentIdentityStatus()` 
     - **iOS**: `UID2Manager.shared.identityStatus`
-- You could enable logging to get more information: see [Enable Logging](#enable-logging).
+- You could enable logging (set `isLoggingEnabled` to `true`) to get more information: see [Enable Logging](#enable-logging).
 - The advertising token inside the UID2 identity has expired, and the refresh token has also expired, so the SDK cannot refresh the token.
 
 If there is no identity, follow the instructions in [Implement Server-Side Token Generation](#implement-server-side-token-generation) again, generate a new identity, and pass the result into your mobile app's UID2Manager again.
