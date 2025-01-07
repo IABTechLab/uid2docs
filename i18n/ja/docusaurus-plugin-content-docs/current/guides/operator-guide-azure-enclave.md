@@ -12,13 +12,13 @@ import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
-UID2 Operator は、UID2 エコシステムにおける API サーバーです。このガイドでは、Microsoft Azure の機密コンピューティングオプションである [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers) のインスタンスで <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> として UID2 Operator Service を設定する方法について説明します。Confidential Containers のインスタンスは、データの整合性、データの機密性、コードの整合性などの固有の機能を提供するハードウェアで保護された Trusted Execution Environment (TEE) で実行されます。
+UID2 Operator は、UID2 エコシステム内の API サーバーです。詳細については、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
-UID2 Operator Confidential Containers インスタンスの Docker コンテナが起動すると、UID2 Core Service は Operator Service と Operator Service が実行されているエンクレーブ環境の信頼性を検証ための認証プロセスを完了します。
+このガイドでは、Microsoft Azureの機密コンピューティングオプションである [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers) のインスタンスで、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> として UID2 Operator Service をセットアップするための情報を提供します。Confidential Containers インスタンスは、データ整合性、データ機密性、およびコード整合性などの本質的な機能を提供する、ハードウェアでバックアップされた信頼できる実行環境（Trusted Execution Environment：TEE）で実行されます。
 
-認証が成功すると、UID2 Core Service は UID2 Operator を安全な UID2 Operator Confidential Containers インスタンスにブートストラップするためのソルトやキーなどのシード情報を提供します。
+UID2 Operator Confidential Containers インスタンスの Docker コンテナが起動すると、UID2 Core Service が Operator Service と Operator Service が実行されているエンクレーブ環境の真正性を検証できるように、アテステーション プロセスが完了します。
 
-認証が成功すると、UID2 Core Service は UID2 Operator を安全な UID2 Operator Confidential Containers インスタンスにブートストラップするためのソルトやキーなどのシード情報を提供します。
+認証外成功すると、UID2 Core Service は、UID2 Operator を安全な UID2 Operator Confidential Containers インスタンスでブートストラップするためのソルトやキーなどのシード情報を提供します。
 
 :::caution
 UID2 Private Operator for Azure は、次の地域ではサポートされていません: ヨーロッパ、中国。

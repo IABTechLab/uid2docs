@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Sharing: Overview 
 
-UID2 では、Sharing とは、UID2 参加者間で [raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) または [UID2 Token](../ref-info/glossary-uid.md#gl-raw-uid2) を配布するプロセスです。
+UID2 では、Sharing とは、UID2 参加者間で [raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) または [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) を配布するプロセスです。
 
 raw UID2 または UID2 Token が他の参加者と共有される場合はすべて、Sharing の定義に該当します。raw UID2 を送信するすべての共有参加者は、標準セキュリティプラクティスで指定されているセキュリティ要件に従わなければなりません。詳細は [Security Requirements for UID2 Sharing](sharing-security.md) を参照してください。UID2 Token を共有するすべての参加者は、以下の手順に従うことを推奨します。
 

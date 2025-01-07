@@ -13,7 +13,7 @@ import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
 
-UID2 Operator は、UID2 エコシステムにおける API サーバーです。AWS Marketplace で稼働する <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> Service の場合、UID2 Operator ソリューションは [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave テクノロジーで強化されています。これは、UID2 情報を不正なアクセスから保護するための追加のセキュリティ対策です。
+UID2 Operator は、UID2 エコシステム内の API サーバーです。詳細については、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
 AWS Marketplace で稼働する <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> Service の場合、UID2 Operator ソリューションは [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave テクノロジーで強化されています。これは、UID2 情報を不正なアクセスから保護するための追加のセキュリティ対策です。
 

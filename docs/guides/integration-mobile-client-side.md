@@ -594,7 +594,7 @@ Some possible reasons for this, and some things you could do to troubleshoot, ar
     - **iOS**: `UID2Manager.shared.identityStatus`
 
     It's possible that the DII has been opted out of UID2: for details, see [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk).
-- You could enable logging to get more information: see [Enable Logging](#enable-logging).
+- You could enable logging (set `isLoggingEnabled` to `true`) to get more information: see [Enable Logging](#enable-logging).
 - The advertising token inside the UID2 identity has expired, and the refresh token has also expired, so the SDK cannot refresh the token.
 
 If there is no identity, you'll need to call the `generateIdentity` method again: see [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk).
