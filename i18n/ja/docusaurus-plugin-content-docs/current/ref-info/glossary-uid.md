@@ -124,7 +124,7 @@ import Link from '@docusaurus/Link';
 <dd>Advertising token は <a href="#gl-uid2-token">UID2 token の別名です。</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-api-key">API key</MdxJumpAnchor></dt>
-<dd>UID2 <a href="/docs/intro#participants">参加者</a> はそれぞれ、API Key (クライアントキー) と、そのキーに関連付けられた Client Secret (APIシークレット) と呼ばれる秘密の値を持っています。Client Secretは、参加者と UID Service だけが知っています。</dd>
+<dd>UID2 <a href="/docs/intro#participants">参加者</a> はそれぞれ、API Key (クライアントキー) と、そのキーに関連付けられた <a href="#gl-client-secret">Client Secret</a> (APIシークレット) と呼ばれる秘密の値を持っています。Client Secretは、参加者と UID Service だけが知っています。</dd>
 <dd>詳細は <a href="/docs/getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-api-secret">API secret</MdxJumpAnchor></dt>
@@ -330,7 +330,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-opt-out">Opt-Out</MdxJumpAnchor></dt>
 <dd>UID2 エコシステムに参加しているエンドユーザーは、<a href="https://www.transparentadvertising.com/">Transparency and Control Portal</a> にアクセスすることで、いつでもオプトアウトすることができます。</dd>
-<dd>詳細は <a href="../intro#components">Components</a> を参照してください。</dd>
+<dd>UID2 の Opt-out のワークフローと、ユーザーが Opt-out する方法の詳細については、<a href="../getting-started/gs-opt-out">User Opt-Out</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-opt-out-service">Opt-Out Service</MdxJumpAnchor></dt>
 <dd>Opt-Out Service は、ユーザーのオプトアウト要求を管理・保存するグローバルな UID2 Service です。</dd>
@@ -354,7 +354,7 @@ import Link from '@docusaurus/Link';
 <dd><a href="#gl-private-operator">Private Operator</a> が運用する Operator Service のインスタンスです。</dd>
 
 <dt><MdxJumpAnchor id="gl-public-key">Public key</MdxJumpAnchor></dt>
-<dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される2つの値のうちの1つがアカウントを一意に識別する公開鍵です。d詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
+<dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される2つの値のうちの1つがアカウントを一意に識別する公開鍵です。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
 <dd>UID2 のインテグレーションでは、この値はしばしば <b>serverPublicKey</b> として表されます。たとえば、<a href="../guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>、<a href="../guides/integration-javascript-client-side">Client-Side Integration Guide for JavaScript</a>、<a href="../guides/integration-mobile-client-side">UID2 Client-Side Integration Guide for Mobile</a> など。</dd>
 
 <dt><MdxJumpAnchor id="gl-public-operator">Public Operator</MdxJumpAnchor></dt>
