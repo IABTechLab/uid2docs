@@ -11,11 +11,30 @@ import Link from '@docusaurus/Link';
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: Zoom-In Tool for Images
+
+December 15, 2024
+
+UID2 ドキュメントサイトに、画像のズームインツールが追加されました。
+
+画像の上にカーソルを移動させると、虫眼鏡のアイコンが表示されます... クリックすると、画像の拡大バージョンが表示されます。
+
+<!-- APIDOCS-2237 for both -->
+
+### New: UID2 Portal Audit Trail Page
+
+November 15, 2024
+
+UID2 Portal ドキュメントに新しいページ、[Audit Trail](../portal/audit-trail.md) が追加されました。
+
+UID2 Portal の **Audit Trail** ページでは、Admin 権限 ([User Roles](../portal/team-members.md#user-roles) を参照してください) を持つユーザーが、現在の <Link href="../ref-info/glossary-uid#gl-sharing-participant">参加者</Link> または参加者に代わって実行された過去のすべてのアクションの詳細なログを表示できます。
+
+<!-- APIDOCS-2700 -->
+
 ### New: LiveRamp Integration Tips
 
 November 14, 2024
 
-We've added a new reference page with tips for publishers who are using LiveRamp's Authenticated Traffic Solution (ATS) to generate UID2 tokens to be passed in the bid request.
 LiveRamp の Authenticated Traffic Solution (ATS) を使用して UID2 Token を生成し、ビッドリクエストで渡すパブリッシャー向けの新しいリファレンスページを追加しました。
 
 詳細は、[LiveRamp Integration Tips](../guides/integration-liveramp-tips.md) を参照してください。
