@@ -1,8 +1,8 @@
 ---
 title: UID2 Client-Server Integration Guide for Prebid.js
-sidebar_label: Server-Side Integration for Prebid.js
-pagination_label: UID2 Server-Side Integration for Prebid.js
-description: Server-Side の Prebid.js インテグレーションの設定に関する情報。
+sidebar_label: Client-Server Integration for Prebid.js
+pagination_label: UID2 Client-Server Integration for Prebid.js
+description: Client-Server の Prebid.js インテグレーションの設定に関する情報。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
