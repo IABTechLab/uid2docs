@@ -56,7 +56,7 @@ Follow the instructions to [verify the Google ID token on your server side](http
 
 ## Facebook Login
 
-There are two ways to integrate Facebook Login with UID2: with an <Link href="glossary-uid#gl-oidc">OpenID Connect (OIDC)</Link> token or without.
+There are two ways to integrate Facebook Login with UID2: with an OpenID Connect (OIDC) token or without.
 
 ### Facebook Login Using an OIDC Token on iOS
 
