@@ -8,6 +8,7 @@ sidebar_position: 04
 ---
 
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 # CTV Integration Guide
 
@@ -21,6 +22,10 @@ At a high level, to integrate with UID2, you'll implement these three key steps:
 1. Pass the UID2 token into the bidstream.
 
 To determine how you'll implement these steps, choose from the [CTV Integration Options](#ctv-integration-options).
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## CTV Integration Options
 

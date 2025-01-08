@@ -326,6 +326,7 @@ const fullSidebar = [
         'ref-info/ref-integration-approaches',
         'ref-info/ref-tokens',
         'ref-info/ref-server-side-token-generation',
+        'ref-info/ref-integration-sso-providers',
       ],
     },
 
