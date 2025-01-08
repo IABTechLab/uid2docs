@@ -52,7 +52,7 @@ The following table shows the implementation options that are available for adve
 
 | High-Level Step | Implementation Options |
 | --- | --- |
-| [1: Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii) | Any of the following options:<ul><li>One of these UID2 SDKs:<ul><li>Python SDK: [Map DII to Raw UID2s](../sdks/sdk-ref-python.md#map-dii-to-raw-uid2s)</li><li>Java SDK: [Usage for Advertisers/Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers)</li></ul></li><li>Snowflake: [Map DII](snowflake_integration.md#map-dii)</li><li>AWS Entity Resolution: [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md)</li><li>HTTP endpoints: [POST&nbsp;/identity/map](../endpoints/post-identity-map.md)</li></ul> |
+| [1: Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii) | Use any of the following options to map DII to raw UID2s:<ul><li>One of these UID2 SDKs:<ul><li>Python SDK: [Map DII to Raw UID2s](../sdks/sdk-ref-python.md#map-dii-to-raw-uid2s)</li><li>Java SDK: [Usage for Advertisers/Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers)</li></ul></li><li>Snowflake: [Map DII](snowflake_integration.md#map-dii)</li><li>AWS Entity Resolution: [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md)</li><li>HTTP endpoints: [POST&nbsp;/identity/map](../endpoints/post-identity-map.md)</li></ul> |
 | [2: Store Raw UID2s and Salt Bucket IDs](#2-store-raw-uid2s-and-salt-bucket-ids) | Custom (your choice). |
 | [3: Manipulate or Combine Raw UID2s](#3-manipulate-or-combine-raw-uid2s) | Custom (your choice). |
 | [4: Send Stored Raw UID2s to DSPs to Create Audiences or Conversions](#4-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions) | Custom (your choice). |
@@ -92,7 +92,7 @@ To generate raw UID2s, use one of the following options:
 
 ### 2: Store Raw UID2s and Salt Bucket IDs
 
-The response from Step 1, [Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii), contains mapping information. We recommend that you store the raw UID2s and the salt bucket IDs returned from the `POST /identity/map` endpoint.
+The response from Step 1, [Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii), contains mapping information. We recommend that you store the raw UID2s and the salt bucket IDs returned from the implementation option you're using in Step 1 to generate raw UID2s.
 
 Cache the mapping between DII (`identifier`), raw UID2 (`advertising_id`), and salt bucket (`bucket_id`).
 
@@ -137,7 +137,7 @@ For instructions for monitoring for salt bucket rotations, refer to one of the f
 - HTTP endpoints: [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](integration-advertiser-dataprovider-endpoints.md#5-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s).
 
 :::note
-For AWS Entity Resolution, there is no way to do salt bucket monitoring. As an alternative, you could call the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint periodically to keep your information updated.
+For AWS Entity Resolution, there is no way to do salt bucket monitoring. As an alternative, you could regenerate raw UID2s periodically using the AWS Entity Resolution service.
 :::
 
 ### 6: Monitor for Opt-Out Status

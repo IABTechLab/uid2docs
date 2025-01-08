@@ -59,7 +59,7 @@ You must include only **one** of the following four conditional parameters as a 
 
 ### Request Examples
 
-The following are unencrypted JSON request body examples for each parameter, one of which you should include in your identity mapping requests:
+The following are unencrypted JSON request body examples for each parameter, one of which you should include in your requests to the `POST /identity/map` endpoint:
 
 ```json
 {
@@ -94,7 +94,7 @@ The following are unencrypted JSON request body examples for each parameter, one
 }
 ```
 
-Here's an encrypted identity mapping request example for a phone number:
+Here's an encrypted request example to the `POST /identity/map` endpoint for a phone number:
 
 ```sh
 echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map [Your-Client-API-Key] [Your-Client-Secret]
