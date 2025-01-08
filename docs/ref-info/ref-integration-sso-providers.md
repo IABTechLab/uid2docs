@@ -12,7 +12,11 @@ import Link from '@docusaurus/Link';
 
 If you integrate with one or more <a href="glossary-uid#gl-sso">SSO</a> providers to offer SSO login, you might be able to retrieve the logged-in user's email address from the SSO provider to generate UID2 tokens.
 
-This guide provides information about how to do this, for publisher integrations with several popular SSO providers.
+This guide provides technical information about how to do this, for publisher integrations with several popular SSO providers.
+
+As a reminder, you are responsible for ensuring that your use of email addresses or phone numbers to create UID2s is consistent with your UID2 agreement, your company’s privacy policy, and any other platform or third-party terms to which your company is subject.
+
+<!-- content_note_last_line_from_GM_20250108 -->
 
 ## High-Level Steps
 
