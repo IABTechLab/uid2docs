@@ -23,12 +23,8 @@ There are other ways that you can use UID2, outside these use cases. These are j
 | Send/Receive? | Action | Advantage/Result |
 | --- | --- | --- |
 | Send in audiences | Send UID2s via API or pixels | Create audiences. |
-| Send in conversions | Send UID2s as conversion information | Use conversion information for measurement (attribution) or for retargeting via API or pixels. |
-| Receive graph data | Receive UID2s from graph/data providers via API or pixels | Build graph data. |
-
-<!-- - **Create/send in audiences**: You can send UID2s to create audiences via API or pixels
-- **Send in conversions**: You can send UID2s as conversion information that can be used for measurement (attribution) or retargeting via API or pixels
-- **Receive graph data**: You can receive UID2s from graph/data providers via API or pixels. -->
+| Send&nbsp;in&nbsp;conversions | Send UID2s as conversion information | Use conversion information for measurement (attribution) or for retargeting via API or pixels. |
+| Receive&nbsp;graph&nbsp;data | Receive UID2s from graph/data providers via API or pixels | Build graph data. |
 
 ## High-Level Steps
 
@@ -44,7 +40,7 @@ At a high level, the steps for advertisers and data providers integrating with U
 
 5. [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s)
 
-6. [Monitor for opt-out status](#6-monitor-for-opt-out-status)
+6. [Monitor for Opt-Out Status](#6-monitor-for-opt-out-status)
 
 ## Summary of Implementation Options
 
@@ -57,7 +53,7 @@ The following table shows the implementation options that are available for adve
 | [3: Manipulate or Combine Raw UID2s](#3-manipulate-or-combine-raw-uid2s) | Custom (your choice). |
 | [4: Send Stored Raw UID2s to DSPs to Create Audiences or Conversions](#4-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions) | Custom (your choice). |
 | [5: Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s) | Any of the following options:<ul><li><strong>Python SDK</strong>: see <Link href="../sdks/sdk-ref-python">SDK for Python Reference Guide</Link></li><li><strong>Snowflake</strong>: see <Link href="snowflake_integration">Snowflake Integration Guide</Link>, section titled <Link href="snowflake_integration#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s">Monitor for Salt Bucket Rotation and Regenerate Raw UID2s</Link></li><li><strong>Raw HTTP endpoint</strong>: <Link href="../endpoints/post-identity-buckets">POST /identity/buckets</Link></li></ul> |
-| [6: Monitor for opt-out status](#6-monitor-for-opt-out-status) | API call to the [POST /optout/status](../endpoints/post-optout-status.md) endpoint. |
+| [6: Monitor for Opt-Out Status](#6-monitor-for-opt-out-status) | API call to the [POST /optout/status](../endpoints/post-optout-status.md) endpoint. |
 
 ## Integration Diagram
 
@@ -134,7 +130,7 @@ For instructions for monitoring for salt bucket rotations, refer to one of the f
 
 - Snowflake: [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](snowflake_integration.md#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s).
 
-- HTTP endpoints: [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](integration-advertiser-dataprovider-endpoints.md#5-monitor-for-salt-bucket-rotations-related-to-your-stored-raw-uid2s).
+- HTTP endpoints: [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](integration-advertiser-dataprovider-endpoints.md#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s).
 
 :::note
 For AWS Entity Resolution, there is no way to do salt bucket monitoring. As an alternative, you could regenerate raw UID2s periodically using the AWS Entity Resolution service.
