@@ -10,6 +10,7 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 # Client-Side Integration Guide for JavaScript
 
@@ -62,7 +63,10 @@ For a sample implementation, see this example:
 - Running site: [Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)
 
 <!-- (Source code for running site: https://github.com/IABTechLab/uid2-web-integrations) -->
-  
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Complete UID2 Account Setup
 

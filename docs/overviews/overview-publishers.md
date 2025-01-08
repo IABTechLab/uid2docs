@@ -9,6 +9,8 @@ banner_description: Maintain audience targeting in the ever-changing advertising
 displayed_sidebar: sidebarPublishers
 ---
 
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
+
 import Link from '@docusaurus/Link';
 
 As a publisher, you can benefit from the cross-device presence of Unified ID 2.0 (UID2) and take advantage of a consistent identity fabric on all your inventory.
@@ -34,7 +36,7 @@ The following steps provide a high-level outline of the workflow intended for or
 
 1. A user visits a publisher website, mobile app, or CTV app.
 
-1. The publisher provides transparency around its data practices and asks the user to provide an email address or phone number.
+1. The publisher provides transparency around its data practices and asks the user to provide an email address or phone number, by [SSO login](#integrating-with-single-sign-on-sso) or other means.
 
 1. Once the user has provided an email address or phone number, the publisher sends it to the UID2 Operator via an SDK or direct API integration.
    :::tip
@@ -59,6 +61,10 @@ The following steps provide a high-level outline of the workflow intended for or
 <!-- The publisher requests updated UID2 tokens using a refresh token. When applicable, the refresh token includes a user’s opt-out request. -->
 
 ![Publisher Workflow](images/UID2PublisherAndSSPWorkflow.svg)
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Getting Started
 

@@ -8,6 +8,7 @@ sidebar_position: 04
 ---
 
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 # UID2 Integration Overview for JavaScript
 
@@ -24,6 +25,10 @@ UID2 provides an SDK for JavaScript that supports the following:
 - [Storing the UID2 token in the browser](#storing-the-uid2-token-in-the-browser)
 
 For additional flexibility, UID2 also provides alternative methods for some of the features and complementary products, such as a Prebid integration.
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Client-Side or Client-Server Integration
 

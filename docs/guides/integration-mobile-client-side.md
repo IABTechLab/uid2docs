@@ -15,6 +15,7 @@ import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
 import ErrorResponseStates from '/docs/snippets/_mobile-docs-error-response-states.mdx';
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 # UID2 Client-Side Integration Guide for Mobile
 
@@ -189,6 +190,10 @@ see UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist
 </Tabs>
 
 If necessary, you can also change the default Subscription ID and public key to values assigned to you, and connect to the UID2 Production environment. For details, see [Optional: Specifying the API Base URL to Reduce Latency](#optional-specifying-the-api-base-url-to-reduce-latency).
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Complete the UID2 Account Setup
 
