@@ -14,7 +14,9 @@ If you integrate with one or more <a href="glossary-uid#gl-sso">SSO</a> provider
 
 This guide provides technical information about how to do this, for publisher integrations with several popular SSO providers.
 
-As a reminder, you are responsible for ensuring that your use of email addresses or phone numbers to create UID2s is consistent with your UID2 agreement, your company’s privacy policy, and any other platform or third-party terms to which your company is subject.
+:::important
+You are responsible for ensuring that your use of email addresses to create UID2s is consistent with your UID2 agreement, your company’s privacy policy, and any other platform or third-party terms to which your company is subject.
+:::
 
 <!-- content_note_last_line_from_GM_20250108 -->
 
@@ -54,7 +56,7 @@ Follow the instructions to [verify the Google ID token on your server side](http
 
 ## Facebook Login
 
-There are two ways to integrate Facebook Login with UID2: with an OpenID Connect (OIDC) token or without.
+There are two ways to integrate Facebook Login with UID2: with an <Link href="glossary-uid#gl-oidc">OpenID Connect (OIDC)</Link> token or without.
 
 ### Facebook Login Using an OIDC Token on iOS
 

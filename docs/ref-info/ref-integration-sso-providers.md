@@ -14,7 +14,9 @@ If you integrate with one or more <a href="glossary-uid#gl-sso">SSO</a> provider
 
 This guide provides technical information about how to do this, for publisher integrations with several popular SSO providers.
 
-As a reminder, you are responsible for ensuring that your use of email addresses or phone numbers to create UID2s is consistent with your UID2 agreement, your company’s privacy policy, and any other platform or third-party terms to which your company is subject.
+:::important
+You are responsible for ensuring that your use of email addresses to create UID2s is consistent with your UID2 agreement, your company’s privacy policy, and any other platform or third-party terms to which your company is subject.
+:::
 
 <!-- content_note_last_line_from_GM_20250108 -->
 
