@@ -45,7 +45,6 @@ You'll need to complete the following steps:
 2. [Add Prebid.js to your site](#add-prebidjs-to-your-site).
 3. [Configure the UID2 module](#configure-the-uid2-module).
 
-
 ### Complete UID2 Account Setup
 
 Complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page. As part of the account setup process for a client-side implementation, you'll need to provide a list of **domain names** for the sites that you'll be using with Prebid.js.

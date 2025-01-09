@@ -88,13 +88,10 @@ To generate raw UID2s, use one of the following options:
 
 ### 2: Store Raw UID2s and Salt Bucket IDs
 
-The response from Step 1, [Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii), contains mapping information. We recommend that you store the raw UID2s and the salt bucket IDs returned from the implementation option you're using in Step 1 to generate raw UID2s.
+The response from Step 1, [Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii), contains mapping information. We recommend that you store the following information returned in Step 1:
 
-Cache the mapping between DII (`identifier`), raw UID2 (`advertising_id`), and salt bucket (`bucket_id`).
-
-:::note
-We recommend that you also store the most recent `last_updated` timestamp, returned in a later step, with the mapping information. For details, see [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s).
-:::
+- Cache the mapping between DII (`identifier`), raw UID2 (`advertising_id`), and salt bucket (`bucket_id`).
+- Store the timestamp for the response data. Later, you can compare this timestamp with the `last_updated` timestamp returned in Step 5, [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s).
 
 ### 3: Manipulate or Combine Raw UID2s
 
@@ -120,9 +117,7 @@ A raw UID2 is an identifier for a user at a specific moment in time. The raw UID
 
 Even though each salt bucket is updated approximately once per year, individual bucket updates are spread over the year. Approximately 1/365th of all salt buckets are rotated daily. Based on this, we recommend checking salt bucket rotation regularly, on a cadence that aligns with your audience refreshes. For example, if you refresh weekly, check for salt bucket updates weekly.
 
-:::important
-To ensure that your integration has the current raw UID2s, check salt bucket rotation for active users every day, and remap any raw UID2 for which the salt buckets have been rotated by retrieving new raw UID2 for those IDs, following Step 1, [Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii).
-:::
+If the salt bucket has been rotated, regenerate the raw UID2. For details, see [Determine whether the salt bucket has been rotated](#determine-whether-the-salt-bucket-has-been-rotated).
 
 For instructions for monitoring for salt bucket rotations, refer to one of the following:
 
@@ -135,6 +130,18 @@ For instructions for monitoring for salt bucket rotations, refer to one of the f
 :::note
 For AWS Entity Resolution, there is no way to do salt bucket monitoring. As an alternative, you could regenerate raw UID2s periodically using the AWS Entity Resolution service.
 :::
+
+#### Determine whether the salt bucket has been rotated
+
+To determine whether the salt bucket ID for a specific raw UID2 has changed, follow these steps.
+
+1. Compare these two values:
+
+   - The `last_updated` timestamp of each `bucket_id` returned as part of monitoring the salt bucket rotations (whatever option you choose).
+   
+   - The timestamp of the raw UID2 generation of the same `bucket_id`, which was returned in Step 1 and stored in Step 2.
+
+1. If the `last_updated` timestamp is more recent than the timestamp you recorded earlier, the salt bucket has been rotated. As a result, you'll need to regenerate any raw UID2s associated with this `bucket_id`, following Step 1, [Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii).
 
 ### 6: Monitor for Opt-Out Status
 
