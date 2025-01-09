@@ -15,6 +15,7 @@ import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
 import ErrorResponseStates from '/docs/snippets/_mobile-docs-error-response-states.mdx';
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 # UID2 Client-Server Integration Guide for Mobile
 
@@ -54,6 +55,10 @@ This guide provides instructions for using either of these UID2 mobile SDKs:
 - SDK for iOS (version 1.7.0 or later)
 
 For instructions for installing the correct SDK/version into your mobile app, see [Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app).
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Complete the UID2 Account Setup
 
@@ -241,7 +246,7 @@ If the `getAdvertisingToken()` method call returns `null`, there was no identity
     - **Android Java**: `UID2Manager.getInstance().getCurrentIdentityStatus()` 
     - **Android Kotlin**: `UID2Manager.getInstance().currentIdentityStatus()` 
     - **iOS**: `UID2Manager.shared.identityStatus`
-- You could enable logging to get more information: see [Enable Logging](#enable-logging).
+- You could enable logging (set `isLoggingEnabled` to `true`) to get more information: see [Enable Logging](#enable-logging).
 - The advertising token inside the UID2 identity has expired, and the refresh token has also expired, so the SDK cannot refresh the token.
 
 If there is no identity, follow the instructions in [Implement Server-Side Token Generation](#implement-server-side-token-generation) again, generate a new identity, and pass the result into your mobile app's UID2Manager again.

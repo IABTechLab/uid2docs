@@ -8,6 +8,7 @@ sidebar_position: 03
 ---
 
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 # Publisher Integration Guide, Server-Side
 
@@ -38,6 +39,10 @@ The guide outlines the [basic steps](#integration-steps) that you need to consid
 - Manage user opt-outs
 
 See also [FAQs](#faqs).
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Integration Steps
 

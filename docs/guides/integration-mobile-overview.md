@@ -9,6 +9,7 @@ displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 # UID2 Mobile Integration Overview for Android and iOS
 
@@ -27,6 +28,10 @@ UID2 provides SDKs for Android/iOS that support the following:
 - Storing the UID2 token
 
 For additional flexibility, UID2 also provides alternative methods for some of the features and complementary products, such as UID2 Google GMA/IMA Plugins. Available options are described in the individual guides: see [Integration Overview: High-Level Steps](#integration-overview-high-level-steps).
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Integration Overview: High-Level Steps
 

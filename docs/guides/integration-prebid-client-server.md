@@ -2,7 +2,7 @@
 title: UID2 Client-Server Integration Guide for Prebid.js
 sidebar_label: Client-Server Integration for Prebid.js
 pagination_label: UID2 Client-Server Integration for Prebid.js
-description: Information about setting up a server-side Prebid.js integration.
+description: Information about setting up a client-server Prebid.js integration.
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -10,6 +10,7 @@ sidebar_position: 04
 import Link from '@docusaurus/Link';
 import AddPrebidjsToYourSite from '/docs/snippets/_prebid-add-prebidjs-to-your-site.mdx';
 import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser.mdx';
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 # UID2 Client-Server Integration Guide for Prebid.js
 
@@ -37,6 +38,10 @@ Information about how to integrate Prebid with UID2 is also in the following loc
 <!-- ## Integration Example
 
 GWH note 12/14/23: We have client-side and server-side examples for JS SDK but only server-side for Prebid. -->
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Integration Overview: High-Level Steps
 

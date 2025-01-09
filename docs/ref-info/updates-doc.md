@@ -11,6 +11,24 @@ import Link from '@docusaurus/Link';
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: Publisher SSO Integration Page
+
+January 8, 2025
+
+We've added a new reference page for publishers who integrate with one or more SSO providers to offer SSO login, and want to retrieve the logged-in user's email address from the SSO provider to generate UID2 tokens.
+
+For details, see [Publisher Integration with SSO Providers](ref-integration-sso-providers.md).
+
+<!-- APIDOCS-2486 -->
+
+<!-- ### Removed:  v1 to v2 upgrade doc
+
+January 3, 2025
+
+We've removed the legacy v1 to v2 upgrade doc, which is no longer needed. -->
+
+<!-- APIDOCS-2859 -->
+
 ### New: Zoom-In Tool for Images
 
 December 15, 2024

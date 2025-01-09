@@ -15,6 +15,7 @@ import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
 import ErrorResponseStates from '/docs/snippets/_mobile-docs-error-response-states.mdx';
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 # UID2 Client-Side Integration Guide for Mobile
 
@@ -189,6 +190,10 @@ see UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist
 </Tabs>
 
 If necessary, you can also change the default Subscription ID and public key to values assigned to you, and connect to the UID2 Production environment. For details, see [Optional: Specifying the API Base URL to Reduce Latency](#optional-specifying-the-api-base-url-to-reduce-latency).
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Complete the UID2 Account Setup
 
@@ -593,7 +598,7 @@ Some possible reasons for this, and some things you could do to troubleshoot, ar
     - **iOS**: `UID2Manager.shared.identityStatus`
 
     It's possible that the DII has been opted out of UID2: for details, see [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk).
-- You could enable logging to get more information: see [Enable Logging](#enable-logging).
+- You could enable logging (set `isLoggingEnabled` to `true`) to get more information: see [Enable Logging](#enable-logging).
 - The advertising token inside the UID2 identity has expired, and the refresh token has also expired, so the SDK cannot refresh the token.
 
 If there is no identity, you'll need to call the `generateIdentity` method again: see [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk).

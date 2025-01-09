@@ -9,6 +9,7 @@ sidebar_position: 02
 
 import Link from '@docusaurus/Link';
 import ExampleClientServerSendUid2ToSdk from '/docs/snippets/_example-client-server-send-uid2-to-sdk.mdx'; 
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 # Client-Server Integration Guide for JavaScript
 
@@ -45,6 +46,10 @@ For integration scenarios for publishers that do not use the SDK for JavaScript,
 :::note
 If you are using Google Ad Manager and want to use the secure signals feature, first follow the steps in this guide and then follow the additional steps in the [Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md).
 :::
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Integration Steps 
 
