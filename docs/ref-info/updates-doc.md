@@ -11,6 +11,16 @@ import Link from '@docusaurus/Link';
 
 Check out the latest updates to our UID2 documentation resources.
 
+### New: Expanded and Restructured Advertiser/Data Provider Doc
+
+January 10, 2025
+
+We've significantly expanded and restructured the Advertiser/Data Provider documentation. We now have one significantly updated overview doc, and separate docs for the three main integration options that come into play: Snowflake, AWS Entity Resolution, and HTTP endpoints.
+
+For details, including a summary of all integration options for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
+
+<!-- APIDOCS-1662 -->
+
 ### New: Publisher SSO Integration Page
 
 January 8, 2025
