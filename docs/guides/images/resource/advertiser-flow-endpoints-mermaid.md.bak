@@ -1,0 +1,71 @@
+<!-- 1/8/25: updated based on revised main Advertiser/Data Provider diagram, but listing endpoints: 
+
+  sequenceDiagram
+    participant ADP as Advertiser/Data Provider
+    participant UID as UID2 Operator
+    participant DSP
+    Note over ADP,DSP: 1. Generate a raw UID2 from DII using the identity map endpoint.
+        loop 
+    ADP->>UID: 1-a. Send a request containing DII to the POST /identity/map endpoint.
+    UID->>ADP: 1-b. Store the raw UID2 and salt bucket ID returned from the POST /identity/map endpoint.
+    end
+    Note over ADP,DSP: 2. Store raw UID2s and salt bucket IDs.
+    Note over ADP,DSP: 3. Manipulate or combine raw UID2s.
+     Note over ADP,DSP: 4. Send raw UID2s to DSPs.
+    ADP-->>DSP: Send stored raw UID2s to DSPs to create audiences and conversions, or use them for measurement.
+    Note over ADP,DSP: 5. Monitor for salt bucket rotation.
+    loop
+       ADP->>UID: 5-a. Monitor salt bucket rotations using the POST /identity/buckets endpoint.
+       UID->>ADP: 5-b. Return salt buckets rotated since a specified timestamp.
+       ADP->>UID: 5-c. Compare the rotated salt buckets to the stored UID2 salt buckets.<br>If rotated, resend DII to the POST /identity/map endpoint for a new raw UID2.
+       UID->>ADP: 5-d. Store the raw UID2 and the salt bucket ID returned from the POST /identity/map endpoint.
+    end
+    Note over ADP,DSP: 6. Monitor for opt-out status. Remove all opt-outs from local storage and do not use.
+    loop
+       ADP->>UID: 6-a. Monitor for optout status using the POST optout/status endpoint.
+       UID->>ADP: 6-b. Return optout status.
+    end
+
+-->
+
+<!-- 1/8/25: URL:
+
+https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNq1VU1v2zAM_SuEzq4Tp3HaGEOBYhmGHLoGy3YZclFsJhVmS54-2nVF__so2U7dzNl6WS6ORPI98ukJemK5KpBlDMDgD4cyx4Xge82rjQT61VxbkYuaSwvXixVwA9fFPdKmQT1acMthpdW9KFD_WfB1ufAF9JnAbY2aWzWQtVivms1PyiIoAvdMEW1nkMTwEaWvROCg-UMDttOqgsVyCc4IuQd7h0AdSCvsI1S8BpRFrYS0cQPsf6VSNTRLQj-7uiIgwj_jMawp3aP7-Y2FXEnLhfTAnsKqgL-6XX-BUccyGmAhQIIlcA-7JViaFkPtoW9ORIaXFrYu_44WSB-N1mmJRTPT25hoeVKxSUfckZoBVhOfrD-P4YZLUbvSa640yVFthezhdaIOFE9bMV-4ST2KdDVeedIo5IZE41sdyPffXGM4dlcIb8tmDjocYjRCSRP57pwJElewo0WF3DiNFR6UGugxpQGVFEQcavrCaGW5Jei22FvmYKCeaVJvmg5jqN70fHl0mk2mGXBozz6pt8_nYIw-vmkISC9Cz_2FMDXmYidox4qKvMurOh7uOI_hvaro2rWO7ID66K3T2zMJhu3H43dbfbXcdbURWdf4M3zbJQlic5D4cDjtE7MXJ69O6O7_Xp_Za3eo2p4pZ0kTbp3xh1JRPvCy7EKmYS5VzssgHd9jaLZQIJX1Bv2HnWZ9O7WkL5zHVmqCozb4VxvNejZ6hdnXgUWsQl1xUdAj8OQDG-YvFG5YRn-pH_LVhm3kM2VyZ9X6UeYss9phxLRy-zuW7XhpaOXqgozRPh9Hux8KP95hE8Pypnl6wgsUMXoMvin1Ukhrlj2xnyw7T2fxJJlezGfjJE2SSRqxR5alkzidzafnUwpN5-Pk8jlivwLAOL6cTqbpxeV8nCbjNJ0nz78BZ246eg
+
+-->
+
+<!-- 8/30/24: Update "2. Send stored UID2s to DSPs to create audiences." > "2. Send stored UID2s to DSPs to create audiences and conversions." (2242) -->
+<!-- 8/14/24: update to change UID2 Service to UID2 Operator per 2503: -->
+
+<!-- 8/30/24: Code: -->
+
+  sequenceDiagram
+    participant DP as Data Provider
+    participant UID2 as UID2 Operator
+    participant DSP
+    loop 1. Retrieve a UID2 for DII using the identity map endpoint.
+    DP->>UID2: 1-a. Send a request containing DII to the identity mapping endpoints.
+    UID2->>DP: 1-b. Store the raw UID2 and salt bucket returned from the POST /identity/map endpoint.
+    end
+    DP-->>DSP: 2. Send stored UID2s to DSPs to create audiences and conversions.
+
+    loop 3. Monitor for salt bucket rotations related to your stored raw UID2s.
+       DP->>UID2: 3-a. Monitor salt bucket rotations using the bucket service.
+       UID2->>DP: 3-b. Return salt buckets rotated since a specified timestamp.
+       DP->>UID2: 3-c. Compare the rotated salt buckets to the stored UID2 salt buckets.<br>If rotated, resend DII to the POST /identity/map endpoint for a new raw UID2.
+       UID2->>DP: 3-d. Store the raw UID2 and the salt bucket returned from the POST /identity/map endpoint.
+    end
+
+<!-- Config:
+
+{
+  "theme": "forest"
+}
+ -->
+
+<!--  8/30/24: URL with "Pan & Zoom" on:
+
+https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqlVMGO2jAQ_ZWRz9mIhISFqOLS9MBhVbSol4qLiQfWKrFT22FLEf_esZOwoIVTuQRnZt5782biE6u0QFYwAIu_W1QVlpLvDK_XCujXcONkJRuuHJRL4BZK7jgsjT5IgeZz0o9Fmfq08PzeoOFO30krV8vu5V7rBpIYXtEZiQcE3pVutYFysYDWSrUD94ZAfMpJd4SaN4BKNFoqF3co5fJpPvd1BSRPPIYVxQnJ-Jasg0orx6XySB7T6U-AjY8NoLZH9YCEWy496oZQqRUMpYa_950Sj-V7B5u2-oWOGF1rFArYGl3fZ7FoDrLCnoM4Ly14rhWRpX0D1vOJQGS9aAqGZ2WQO3KqFdIPzAYV1OMBjZVaeflX5o5jeNFKElYw9Uatdtz5CtK9J0jh0Y-6NQP10OfgyK3VY2_1gH0f92N8fei2-1uTx97k1-DgNZzt8EgOgVV-Q2yDldxKr1fWNGBeNw8EVjF81TVtXj-3AegavV-HK7dv4vGXjZkvtkNtRF5ZP51-kx7NN5jNQeH7xcUHTYuHmxVk_fd2sYjVaGouBX3nJx9YM6qtcc0K-ks6ycI1W6szZfLW6dVRVaxwpsWIGd3u3lix5XtLp7YR5EF_Qwwp3ctvwq_BJRPD8aW7XMIdEzH68n9qfamjIytO7A8rxvkkTpPseTYZJXmSpHnEjqzI0zifzLJxRqFsNkqm54j9DfWjeJqlWf48nY3yZJTns-T8D5qfkDg
+
+-->
+

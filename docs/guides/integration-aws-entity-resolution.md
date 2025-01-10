@@ -13,13 +13,17 @@ import Link from '@docusaurus/Link';
 
 [AWS Entity Resolution](https://aws.amazon.com/entity-resolution/) is an identity resolution product from Amazon Web Services that allows AWS customers to integrate with the UID2 framework. Through the integration, you can securely and seamlessly generate UID2s for your data without making direct calls to the UID2 operator or handling sensitive client ID and secret key values.
 
-This service allows you to map <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email addresses or phone numbers) to raw UID2s swiftly and securely.
+This service allows you to map <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email addresses or phone numbers) to [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) swiftly and securely.
 
 :::note
 If you're not currently part of the UID2 ecosystem, go to the [Request Access to UID2](https://unifiedid.com/request-access) page.
 :::
 
 For a video presentation about integration with UID2 by using AWS Entity Resolution, and a demo, see [Getting Started with AWS Entity Resolution Integration with Unified ID 2.0](https://www.youtube.com/watch?v=ORbSsKMgVj8) on YouTube.
+
+:::tip
+For a summary of all integration options and steps for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md).
+:::
 
 ## Functionality
 

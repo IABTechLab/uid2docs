@@ -97,7 +97,7 @@ UID2 とインテグレーションする広告主やデータプロバイダー
 
 | Integration Guide | Content Description |
 | :--- | :--- |
-| [Advertiser/Data Provider](./advertiser-dataprovider-guide.md) | この広告主やデータプロバイダー向けのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 |
+| [Advertiser/Data Provider](./integration-advertiser-dataprovider-overview.md) | この広告主やデータプロバイダー向けのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 |
 | [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) | トラッキングピクセルに UID2 Token を追加するためにこの SDK を使用したい広告主やデータプロバイダー向けのガイドです。<!-- UID2_only: Not applicable for EUID --> |
 | [Snowflake Integration Guide](snowflake_integration.md) | Snowflake 内でメールアドレスから UID2 を生成する手順です。|
 | [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md) | AWS Entity Resolution を使用して UID2 フレームワークとインテグレーションする手順です。 |

@@ -86,31 +86,31 @@ const fullSidebar = [
           link: {
             type: 'generated-index',
           },
-          collapsed: false,
+          collapsed: true,
 
           items: [
-          {
-            type: 'category',
-            label: 'Web',
-            link: {
-              type: 'doc',
-              id: 'guides/integration-options-publisher-web',
-            },
-            collapsed: true,
-            items: [
-              {
-                type: 'category',
-                label: 'Prebid',
-                link: {
-                  type: 'doc',
-                  id: 'guides/integration-prebid',
-                },
-                collapsed: true,
-                items: [
-                  'guides/integration-prebid-client-side',
-                  'guides/integration-prebid-client-server',
-                ],
+            {
+              type: 'category',
+              label: 'Web',
+              link: {
+                type: 'doc',
+                id: 'guides/integration-options-publisher-web',
               },
+              collapsed: true,
+              items: [
+                {
+                  type: 'category',
+                  label: 'Prebid',
+                  link: {
+                    type: 'doc',
+                    id: 'guides/integration-prebid',
+                  },
+                  collapsed: true,
+                  items: [
+                    'guides/integration-prebid-client-side',
+                    'guides/integration-prebid-client-server',
+                  ],
+                },
 
               {
                 type: 'category',
@@ -177,26 +177,40 @@ const fullSidebar = [
             ],
           },
 
-
           'guides/integration-liveramp-tips',
 
         ],
-        },
+      },
 
-        {
-          type: 'category',
-          label: 'Advertiser/Data Provider Integrations',
-          link: {
-            type: 'generated-index',
-          },
-          collapsed: true,
-          items: [
-            'guides/advertiser-dataprovider-guide',
-            'guides/integration-javascript-client-side',
-            'guides/snowflake_integration',
-            'guides/integration-aws-entity-resolution',
-          ],
-        },
+
+{
+  type: 'category',
+  label: 'Advertiser/Data Provider Integrations',
+  link: {
+    type: 'generated-index',
+  },
+  collapsed: true,
+
+  items: [
+  {
+    type: 'category',
+    label: 'Integration Overview',
+    link: {
+      type: 'doc',
+      id: 'guides/integration-advertiser-dataprovider-overview',
+    },
+    collapsed: true,
+    items: [
+      'guides/snowflake_integration',
+      'guides/integration-aws-entity-resolution',
+      'guides/integration-advertiser-dataprovider-endpoints',
+    ],
+  },
+
+  'guides/integration-javascript-client-side',
+
+],
+},
 
         {
           type: 'category',
@@ -329,9 +343,11 @@ const sidebars = {
     'overviews/overview-dsps',
     'overviews/overview-data-providers',
     'Advertiser/Data Provider Integrations',
-    'guides/advertiser-dataprovider-guide',
+    'guides/integration-advertiser-dataprovider-overview',
     'guides/snowflake_integration',
     'guides/integration-aws-entity-resolution',
+    'guides/advertiser-dataprovider-endpoints',
+    'DSP Integrations',
     'guides/dsp-guide',
     'endpoints/post-identity-buckets',
     'endpoints/post-identity-map',
@@ -369,6 +385,7 @@ const sidebars = {
     'guides/mobile-plugin-gma-ios',
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
+    'DSP Integrations',
     'guides/dsp-guide',
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
@@ -408,9 +425,11 @@ const sidebars = {
     'guides/mobile-plugin-gma-ios',
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
-    'guides/advertiser-dataprovider-guide',
+    'Advertiser/Data Provider Integrations',
+    'guides/integration-advertiser-dataprovider-overview',
     'guides/snowflake_integration',
     'guides/integration-aws-entity-resolution',
+    'guides/advertiser-dataprovider-endpoints',
     'sharing/sharing-bid-stream'
     ),
 
@@ -445,6 +464,7 @@ const sidebars = {
     'guides/mobile-plugin-gma-ios',
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
+    'DSP Integrations',
     'guides/dsp-guide',  
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',

@@ -1,0 +1,114 @@
+1/2/25: Reworking the ADP diagram for six steps as discussed with AnDe. Sent to her for review but checking in these mods.
+
+<!-- 1/9/25: updates per edits from SW. Code: 
+
+  sequenceDiagram
+    participant ADP as Advertiser/Data Provider
+    participant UID as UID2 Operator
+    participant DSP
+    Note over ADP,DSP: 1. Generate a raw UID2 from DII.
+        loop 
+    ADP->>UID: 1-a. Send a request containing DII using an SDK, Snowflake, AWS Entity Resolution, or raw HTTP endpoint.
+    UID->>ADP: 1-b. Receive the raw UID2 and salt bucket ID.
+    end
+    Note over ADP,DSP: 2. Store raw UID2s and salt bucket IDs.
+    Note over ADP,DSP: 3. Manipulate or combine raw UID2s.
+     Note over ADP,DSP: 4. Send raw UID2s to DSPs.
+    ADP-->>DSP: Send stored raw UID2s to DSPs to create audiences and conversions, or use them for measurement.
+    Note over ADP,DSP: 5. Monitor for salt bucket rotation.
+    loop
+       ADP->>UID: 5-a. Monitor salt bucket rotations using the Python SDK, Snowflake, or HTTP endpoints.
+       UID->>ADP: 5-b. Return salt buckets rotated since a specified timestamp.
+       ADP->>UID: 5-c. Compare the rotated salt buckets to the stored UID2 salt buckets.<br>If rotated, resend DII to the option you're using in Step 1 to get a new raw UID2.
+       UID->>ADP: 5-d. Store the raw UID2 and the salt bucket that are returned.
+    end
+    Note over ADP,DSP: 6. Monitor for opt-out status. Remove all opt-outs from local storage and do not use.
+    loop
+       ADP->>UID: 6-a. Monitor for optout status using the POST optout/status endpoint.
+       UID->>ADP: 6-b. Return optout status.
+    end
+
+-->
+
+<!-- 1/9/25: URL:
+
+https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqNVV1P2zAU_StXftlLCE1pOhpNSGhBWzUxqpVp0tQXN7ktFomd-QPWIf77rp20TaFoy0ti33vux7nHzhMrVIksYwAGfzmUBeaCrzWvFxLoabi2ohANlxYu8xlwA5flA9KmQX2ac8thptWDKFG_Bnyf5h5AryHcNKi5VUe88vms3fyqLIKi4D5TRNsZJDF8QumRCBw0f2yDrbSqIZ9O4xbon0qpBtoloU8uLsiR8Cc8hjnK0qN9f8ZCoaTlQgq59iHAGf_FJczzLxHMpXpcVfweI7j8MYcraYXdwDc0qnJWKBmB0qGOz7e3M6DAjRLSdnVQSkpM6X3iZUywAsUDgr3Dfe2cijG8srB0xT1amOYdmoK9ycOQuiDy9mHMkTgmfhN_FsM1l6JxlWeSWihUvRSyF29L5RHwqKNwn9sqP7UtxvNNfQff4Gh8qUf8_bvQGIbpSuHF1vZBI6GMhvg1gWBnAmk1rGhRIzdOY407no_UmFKDSgpKHDB9YrSy3I-uA3uh7GTTk0rqpbKNcQxvOqn4ac429k69lgwhD3Rh9gLtaSNttWGdlv1Eps1ExFGawuvdNFiIlaAdK2qSLq-b-HjpRQwfVU2nqhPbNlA_OpHvbd1wghb79vjDUl9MV1tsROfF-GH6M9JBVeN5gI1y7yhRy4YgFiw2kHinNdHFQeLjbvZvEFBu9fzqaIQSe-zbO04xvfIDYVj-x2kZH4qByj5RzlLn3Drjqa_JH3hVbU2mvVEqVfAqEMTXGKopFUhlvR7_oZ5xXz1d0n3OvnJu5red8bQzvrhFDrka98RyELPPA4tYjbrmoqSb_MkbFsyfH1ywjD6pHlLPgi3kM3lyZ9V8IwuWWe0wYlq59R3LVrwytHJNSePv_gEvdq9K395uE8Pyuv1_hN9IxOhG_6nUHkhrlj2x3yw7S8fxMBm9n4wHSZokwzRiG5alwzgdT0ZnIzKNJoPk_Dlif0KAQXw-Go7S9-eTQZoM0nSSPP8FAtwisw
+
+-->
+
+<!-- 1/2/25: Code (outdated 1/7/25): 
+
+  sequenceDiagram
+    participant ADP as Advertiser/Data Provider
+    participant UID as UID2 Operator
+    participant DSP
+    Note over ADP,DSP: 1. Generate a raw UID2 from DII.
+        loop 
+    ADP->>UID: 1-a. Send a request containing DII using an SDK, Snowflake, AWS Entity Resolution, or raw HTTP endpoint.
+    UID->>ADP: 1-b. Receive the raw UID2 and salt bucket ID.
+    end
+    Note over ADP,DSP: 2. Store raw UID2s and salt bucket IDs.
+    Note over ADP,DSP: 3. Manipulate or combine raw UID2s.
+     Note over ADP,DSP: 4. Send raw UID2s to DSPs.
+    ADP-->>DSP: Send stored raw UID2s to DSPs to create audiences and conversions, or use them for measurement.
+    Note over ADP,DSP: 5. Monitor for salt bucket rotation.
+    loop
+       ADP->>UID: 5-a. Monitor salt bucket rotations using the bucket service.
+       UID->>ADP: 5-b. Return salt buckets rotated since a specified timestamp.
+       ADP->>UID: 5-c. Compare the rotated salt buckets to the stored UID2 salt buckets.<br>If rotated, resend DII to identity mapping service for a new raw UID2.
+       UID->>ADP: 5-d. Store the raw UID2 and the salt bucket returned from the identity mapping service.
+    end
+    Note over ADP,DSP: 6. Monitor for opt-out status. Remove all opt-outs from local storage and do not use.
+    loop
+       ADP->>UID: 6-a. Monitor for optout status using the POST optout/status endpoint.
+       UID->>ADP: 6-b. Return optout status.
+    end
+
+-->
+
+<!-- 1/2/25: URL:
+
+https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqNVW1P2zAQ_isnfw6hKU2h0YSEFrRVE1u1Mk2a-sVNrsUisTO_wBjiv-_sJG0YrbZ8Sey7516ee-w8s0KVyDIGYPCnQ1lgLvhW83olgZ6GaysK0XBp4SpfADdwVT4gbRrUpzm3HBZaPYgS9VvAt3nuAfQaw5cGNbfqgFe-XLSbn5VFUBTcZ4poO4Mkhg8oPRKBg-aPbbCNVjXk83ncAv1TKdVAuyT0yeUlORL-hMewRFl6tO_PWCiUtFxIIbc-BDjjv7iEZf4pgqVUj5uK32MEV9-XcC2tsE_wFY2qnBVKRqB0qOPj7e0CKHCjhLRdHZSSElN6n3gdE6xA8YBg73BfO6diDK8srF1xjxbmeYemYEd5GFMXRN4-jDkQx8RH8Wcx3HApGld5JqmFQtVrIQfxeioPgCcdhfvcVvmp9RjPN_UdfIOj8aUe8PfvQmMYpiuFF1vbB42EMhri1wSCnQmk1bChRY3cOI017ng-UGNKDSopKHHADInRynI_ug7shbKTzUAqqZdKH-MQ3nRS8dPsTHQGHkSBexkOFJC2CrBOy2E408YjeihY4VVtGizERtCOFTUJlNdNfLjAIob3qqaz00mqDzSMThR7WzeCoLihPX631pfzTY-N6FQYPzJ_EghK57hVfM2bxjfbdRhI5SDxcTfVI02XvVLfiD6UNeQ1cENFhtPsrcey_8cBmb6ev2rsiXI0IOrSGT-HmvyBV1VvMm3aShW8CmzxLYYySwVSWS_BfwhmOhRMl3SfcyCWxZflbWc87Yx_XRyvSZwOlPMq5pAHFrEadc1FSZf3szesmD8yuGIZfVI9JKUVW8kX8uTOquWTLFhmtcOIaeW2dyzb8MrQyjUlaaG79nuXdvO69N3tPDEsb9o_RvhxRIzu8B9K1TsfWrPsmf1i2Vk6jcfJ5Hw2HSVpkozTiD2xLB3H6XQ2OZuQaTIbJRcvEfsdAozii8l4kp5fzEZpMkrTWfLyBwLnIHs
+
+-->
+
+<!-- 8/30/24: Update "2. Send stored UID2s to DSPs to create audiences." > "2. Send stored UID2s to DSPs to create audiences and conversions." (2242) -->
+<!-- 8/14/24: update to change UID2 Service to UID2 Operator per 2503: -->
+
+<!-- 8/30/24: Code: -->
+
+  sequenceDiagram
+    participant DP as Data Provider
+    participant UID2 as UID2 Operator
+    participant DSP
+    loop 1. Retrieve a UID2 for DII using the identity map endpoint.
+    DP->>UID2: 1-a. Send a request containing DII to the identity mapping endpoints.
+    UID2->>DP: 1-b. Store the raw UID2 and salt bucket returned from the identity mapping service.
+    end
+    DP-->>DSP: 2. Send stored UID2s to DSPs to create audiences and conversions.
+
+    loop 3. Monitor for salt bucket rotations related to your stored raw UID2s.
+       DP->>UID2: 3-a. Monitor salt bucket rotations using the bucket service.
+       UID2->>DP: 3-b. Return salt buckets rotated since a specified timestamp.
+       DP->>UID2: 3-c. Compare the rotated salt buckets to the stored UID2 salt buckets.<br>If rotated, resend DII to identity mapping service for a new raw UID2.
+       UID2->>DP: 3-d. Store the raw UID2 and the salt bucket returned from the identity mapping service.
+    end
+
+<!-- Config:
+
+{
+  "theme": "forest"
+}
+ -->
+
+<!--  8/30/24: URL with "Pan & Zoom" on:
+
+https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqlVMGO2jAQ_ZWRz9mIhISFqOLS9MBhVbSol4qLiQfWKrFT22FLEf_esZOwoIVTuQRnZt5782biE6u0QFYwAIu_W1QVlpLvDK_XCujXcONkJRuuHJRL4BZK7jgsjT5IgeZz0o9Fmfq08PzeoOFO30krV8vu5V7rBpIYXtEZiQcE3pVutYFysYDWSrUD94ZAfMpJd4SaN4BKNFoqF3co5fJpPvd1BSRPPIYVxQnJ-Jasg0orx6XySB7T6U-AjY8NoLZH9YCEWy496oZQqRUMpYa_950Sj-V7B5u2-oWOGF1rFArYGl3fZ7FoDrLCnoM4Ly14rhWRpX0D1vOJQGS9aAqGZ2WQO3KqFdIPzAYV1OMBjZVaeflX5o5jeNFKElYw9Uatdtz5CtK9J0jh0Y-6NQP10OfgyK3VY2_1gH0f92N8fei2-1uTx97k1-DgNZzt8EgOgVV-Q2yDldxKr1fWNGBeNw8EVjF81TVtXj-3AegavV-HK7dv4vGXjZkvtkNtRF5ZP51-kx7NN5jNQeH7xcUHTYuHmxVk_fd2sYjVaGouBX3nJx9YM6qtcc0K-ks6ycI1W6szZfLW6dVRVaxwpsWIGd3u3lix5XtLp7YR5EF_Qwwp3ctvwq_BJRPD8aW7XMIdEzH68n9qfamjIytO7A8rxvkkTpPseTYZJXmSpHnEjqzI0zifzLJxRqFsNkqm54j9DfWjeJqlWf48nY3yZJTns-T8D5qfkDg
+
+-->
+
+<!--  8/14/24: URL with "Pan & Zoom" on:
+
+https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqllMGS2jAMhl9F43M2Q0LCQqbDpemBw06ZZXrpcDGxYD0ldmo7bCnDu1c2CSVdODWXxJb1Sfql-MQqLZAVDMDizxZVhaXkO8PrtQJ6Gm6crGTDlYNyCdxCyR2HpdEHKdB8PPRtUab-WHh_bdBwp-8cK1fLy-Ze6waSGF7RGYkHBH5x3WoD5WIBrZVqB-4NgeIpJ90Rat4AKtFoqVx8oZTLp_nc-xWQPPEYVmQnkvElWQeVVo5L5Ume6fQHYONtPdR2VA8kbrn01A1RqRQMroa_d5VSHMv3DjZt9QMdRXStUShga3R9P4pFc5AVdjEo5rUEH2tFwdKuAOvjiRDI-qTJGN6VQe5IqVZI3zCf7o2Y4xhetJLkG0QcZKcdd1IrS3nuCSE87ahb04fq6-oVGEo79tL27Pvcv-3qTMNqh6KOvaivQbFbnL3wKB2CVX4ibIOV3Eqfr6ypobxuHiRYxfBZ1zRpXZ960C29a_-NugN7_Glj5ott7xuRVtZ3o5ucR_0MYnNQ-H5V8UHR4uEkhbT-e5pYxGo0NZeC_uuTN6wZ-da4ZgV9Up4k4Zqt1ZlO8tbp1VFVrHCmxYgZ3e7eWLHle0urthGkQXcj_LP7Rfg5uG5iWL5cbpNwqUSMfvXvWtc9m5asOLFfrBjnkzhNsufZZJTkSZLmETuyIk_jfDLLxhmZstkomZ4j9jv4j-Jplmb583Q2ypNRns-S8x9nnYpX
+
+-->
