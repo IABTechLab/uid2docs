@@ -519,3 +519,20 @@ If you previously set up a load balancer manually, you'll also need to update th
 
 ## Scraping Metrics
 The Private Operator for GCP exposes [Prometheus-formatted metrics](https://prometheus.io/docs/concepts/data_model/) on port 9080 through the /metrics endpoint. You can use a Prometheus-compatible scraper to collect and aggregate these metrics for your own needs.
+
+## UID2 Operator Error Codes
+
+The following table lists errors that might occur during a Private Operator's startup sequence.
+
+:::note
+Error codes for Private Operator startup issues apply only to versions released in Q2 2025 and later.
+:::
+
+| Error Code | Issue | Steps to Resolve |
+| :--- | :--- | :--- |
+| E01 | MissingInstanceProfile |  Attach a service account to compute's instance template. The UID2 Operator needs these permissions to access operator key from GCP  Secrets Manager. |
+| E02 | ConfigNotFound | Make sure that the secret name specified while running the Private Operator exists in GCP Secrets Manager in the same project as the operator, and that the service account has permission to access the secret. You set it as `tee-env-API_TOKEN_SECRET_NAME`. If needed, you can check the logs for the specific secret name. |
+| E03 | MissingConfig | Required attributes are missing in the configuration. Refer to the logs for details and update the missing attributes while running GCP operator. |
+| E04 | InvalidConfigValue | A configuration value is invalid. Verify that the configuration values align with the required format and environment. Note `debug = true` is allowed only in the `integ` environment. Check the logs for more details. |
+| E05 | InvalidOperatorKey | Ensure the operator key is correct for the environment and matches the one provided to you. |
+| E06 | UID2ServicesUnreachable | Allow UID2 core and opt-out service IP addresses in the egress firewall. For IP addresses and DNS details, refer to the logs.  |
