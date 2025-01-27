@@ -6,6 +6,9 @@ sidebar_position: 02
 use_banner: true
 banner_title: UID2 Overview for Publishers
 banner_description: Maintain audience targeting in the ever-changing advertising industry for better impression monetization and more relevance.
+banner_icon: 'documents'
+banner_background_color: ''
+banner_background_color_dark: ''
 displayed_sidebar: sidebarPublishers
 ---
 
