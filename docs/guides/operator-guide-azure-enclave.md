@@ -340,5 +340,5 @@ Error codes for Private Operator startup issues apply only to versions released 
 | E04 | InvalidConfigValue | A configuration value is invalid. Verify that the configuration values align with the required format and environment. Note `debug = true` is allowed only in the `integ` environment. Check the logs for more details. |
 | E05 | InvalidOperatorKey | Ensure the operator key is correct for the environment and matches the one provided to you. |
 | E06 | UID2ServicesUnreachable | Allow UID2 core and opt-out service IP addresses in the egress firewall. For IP addresses and DNS details, refer to the logs.  |
-| E07 | AuxiliariesException | Attestation sidecar starts failure due to Azure environment configuration, refer to the logs.  |
-| E08 | OperatorKeyAccessDenied | The managed identity (specified via operatorIdentifier parameter) that launch the container must be able to access the operator-key key vault. The value of operatorIdentifier much be the same across all configuration json files. |
+| E07 | AuxiliariesException | The attestation sidecar failed to start due to an Azure environment configuration issue. Please refer to the logs for more details. |
+| E08 | OperatorKeyAccessDenied | The managed identity (specified via the operatorIdentifier parameter) that launches the container must have access to the key vault where the operator key is stored. The value of operatorIdentifier must be identical across all configuration JSON files. |
