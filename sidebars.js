@@ -75,7 +75,7 @@ const fullSidebar = [
       label: 'Integration Guides',
       link: {
         type: 'doc',
-        id: 'guides/summary-guides',
+        id: 'guides/integration-mobile-overview-TEST',
       },
       collapsed: false,
 
