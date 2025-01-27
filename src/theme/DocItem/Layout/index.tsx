@@ -21,9 +21,6 @@ type CustomDocFrontMatter = DocFrontMatter & {
   use_banner?: boolean;
   banner_title?: string;
   banner_description?: string;
-  banner_icon?: string;
-  banner_background_color?: string;
-  banner_background_color_dark?: string;
 };
 
 /**
@@ -86,15 +83,7 @@ export default function DocItemLayout({ children }: Props): JSX.Element {
             {docTOC.mobile}
             <DocBreadcrumbs />
             {useBanner && (
-              <DocsBanner
-                title={bannerTitle}
-                description={bannerDescription}
-                icon={customFrontMatter.banner_icon}
-                backgroundColor={customFrontMatter.banner_background_color}
-                backgroundColorDark={
-                  customFrontMatter.banner_background_color_dark
-                }
-              />
+              <DocsBanner title={bannerTitle} description={bannerDescription} />
             )}
             <DocVersionBadge />
             <DocItemContent>{children}</DocItemContent>
