@@ -3,7 +3,7 @@
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  background-color: var(--c-dirty-socks);
+  background-color: var(--bg-docs-banner); // var is set in html styles
   margin-bottom: 1.875rem;
   align-items: center;
 
@@ -34,7 +34,7 @@
   }
 
   html[data-theme="dark"] & {
-    background-color: var(--c-primary-gray);
+    background-color: var(--bg-docs-banner-dark); // var is set in html styles
 
     h1,
     p {

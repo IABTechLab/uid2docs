@@ -23,6 +23,10 @@
     vertical-align: top;
   }
 
+  table th {
+    text-align: left;
+  }
+
   thead {
     @extend .type-eta;
   }
