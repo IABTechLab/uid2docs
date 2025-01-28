@@ -79,10 +79,27 @@ For details, see [Integration Approaches](../ref-info/ref-integration-approaches
 
 The following table summarizes the mobile integration options for managing the UID2 token, including generating, storing, and refreshing the token, with links to the documentation for each option.
 
-| UID2 Mobile Implementation Option | SDK Doc | Implementation Guide |
-| :--- | :---| :---|
-| UID2 Android SDK | [SDK for Android Reference Guide](../sdks/sdk-ref-android.md) | One of the following:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul> |
-| UID2 iOS SDK | [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) | One of the following:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul> |
+<table>
+  <thead>
+    <tr>
+      <th>UID2 Mobile Implementation Option</th>
+      <th>SDK Doc</th>
+      <th>Implementation Guide</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>UID2 Android SDK</td>
+      <td>[SDK for Android Reference Guide](../sdks/sdk-ref-android.md)</td>
+      <td>One of the following:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul></td>
+    </tr>
+    <tr>
+      <td>UID2 iOS SDK</td>
+      <td>[SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)</td>
+      <td>One of the following:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul></td>
+    </tr>
+  </tbody>
+</table>
 
 ### Sending the Token to the Bidstream
 
