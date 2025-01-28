@@ -51,7 +51,7 @@
   },
   "overrides": {
     "body-parser@1": "1.20.3",
-    "path-to-regexp@0": "0.1.10",
+    "path-to-regexp@0": "0.1.12",
     "path-to-regexp@1": "1.9.0",
     "path-to-regexp@2": "8.0.0"
   },
