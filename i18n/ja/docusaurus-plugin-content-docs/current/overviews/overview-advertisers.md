@@ -6,6 +6,9 @@ sidebar_position: 04
 use_banner: true
 banner_title: 広告主向け UID2 の概要
 banner_description: Unified ID 2.0 でキャンペーンのアクティベーションをアップグレードしましょう。
+banner_icon: 'documents'
+banner_background_color: '#7085D4'
+banner_background_color_dark: '#7085D4'
 displayed_sidebar: sidebarAdvertisers
 ---
 

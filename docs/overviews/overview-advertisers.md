@@ -6,6 +6,9 @@ sidebar_position: 04
 use_banner: true
 banner_title: UID2 Overview for Advertisers
 banner_description: Upgrade campaign activation with Unified ID 2.0.
+banner_icon: 'documents'
+banner_background_color: '#7085D4'
+banner_background_color_dark: '#7085D4'
 displayed_sidebar: sidebarAdvertisers
 ---
 

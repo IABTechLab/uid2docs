@@ -6,6 +6,9 @@ sidebar_position: 08
 use_banner: true
 banner_title:  データプロバイダー向け UID2 の概要
 banner_description: 未来のためのIDソリューション。
+banner_icon: 'documents'
+banner_background_color: '#10692E'
+banner_background_color_dark: '#10692E'
 displayed_sidebar: sidebarDataProviders
 ---
 

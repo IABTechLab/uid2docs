@@ -6,6 +6,9 @@ sidebar_position: 06
 use_banner: true
 banner_title: UID2 Overview for DSPs
 banner_description: より耐久性のある識別子でデータ戦略を可能に。
+banner_icon: 'documents'
+banner_background_color: '#0459FC'
+banner_background_color_dark: '#0459FC'
 displayed_sidebar: sidebarDSPs
 ---
 

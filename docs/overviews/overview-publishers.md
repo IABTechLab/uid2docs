@@ -6,11 +6,13 @@ sidebar_position: 02
 use_banner: true
 banner_title: UID2 Overview for Publishers
 banner_description: Maintain audience targeting in the ever-changing advertising industry for better impression monetization and more relevance.
+banner_icon: 'documents'
+banner_background_color: '#035959'
+banner_background_color_dark: '#035959'
 displayed_sidebar: sidebarPublishers
 ---
 
 import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
-
 import Link from '@docusaurus/Link';
 
 As a publisher, you can benefit from the cross-device presence of Unified ID 2.0 (UID2) and take advantage of a consistent identity fabric on all your inventory.
