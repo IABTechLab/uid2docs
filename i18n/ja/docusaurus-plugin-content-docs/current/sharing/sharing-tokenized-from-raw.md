@@ -119,9 +119,9 @@ Snowflake を使用している場合は、この手順を実行する必要は�
 
 Snowflake を使用している UID2 参加者は、送信者または受信者として UID2 Sharing に参加することができます。
 
-1. [Snowflake Integration Guide: Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers) の例を確認して、共有コードがどのように見えるかを確認します。
+1. [Snowflake Integration Guide: Usage for UID2 Sharers](../guides/integration-snowflake.md#usage-for-uid2-sharers) の例を確認して、共有コードがどのように見えるかを確認します。
 
-2. 送信者または受信者の役割に応じて、コードに Snowflake を組み込みます。以下のドキュメントにあるコード例を使用してください: [UID2 Sharing Example](../guides/snowflake_integration.md#uid2-sharing-example):
+2. 送信者または受信者の役割に応じて、コードに Snowflake を組み込みます。以下のドキュメントにあるコード例を使用してください: [UID2 Sharing Example](../guides/integration-snowflake.md#uid2-sharing-example):
 
    - 送信者: 暗号化を設定します。
    - 受信者: 復号化を設定します。
