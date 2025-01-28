@@ -39,7 +39,7 @@ If you are a publisher who is sharing UID2 tokens in the <Link href="../ref-info
 
 The following diagram and table illustrate the different parts of the UID2 integration process in Snowflake, and the workflow.
 
-![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture.png)
+![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture-drawio.png)
 
 |Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-Out Cloud Setup|
 | :--- | :--- | :--- |

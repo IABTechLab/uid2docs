@@ -35,7 +35,7 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 
 次の図は、Snowflake が UID2 インテグレーションプロセスにどのように関わるかを示しています:
 
-![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture.png)
+![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture-drawio.png)
 
 |Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-Out Cloud Setup|
 | :--- | :--- | :--- |
