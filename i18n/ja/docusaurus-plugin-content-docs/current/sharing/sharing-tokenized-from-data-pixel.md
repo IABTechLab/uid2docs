@@ -83,7 +83,7 @@ UID2 送信者と受信者の両方が、UID2 Portal アカウントを作成す
 
 すべての実装ステップは、[raw UID2 からの Tokenized sharing](sharing-tokenized-from-raw.md) と同じです。
 
-Snowflake を使用してピクセルで Tokenized Sharing を実装する方法の例については、[Snowflake Integration Guide: Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers) を参照してください。
+Snowflake を使用してピクセルで Tokenized Sharing を実装する方法の例については、[Snowflake Integration Guide: Usage for UID2 Sharers](../guides/integration-snowflake.md#usage-for-uid2-sharers) を参照してください。
 
 ## Information for Sharing Receivers
 
