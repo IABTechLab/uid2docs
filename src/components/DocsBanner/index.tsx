@@ -19,6 +19,8 @@ type DocsBannerProps = {
   title: string;
   description: string;
   icon?: string;
+  textColor?: string;
+  textColorDark?: string;
   backgroundColor?: string;
   backgroundColorDark?: string;
 };
@@ -27,10 +29,15 @@ export default function DocsBanner({
   title,
   description,
   icon,
+  textColor,
+  textColorDark,
   backgroundColor,
   backgroundColorDark,
 }: DocsBannerProps): JSX.Element {
   const Icon = (icon && icons[icon]) || icons.documents;
+
+  textColor ||= "var(--c-eleven-o-clock)"; // default banner text color
+  textColorDark ||= "var(--c-off-white)"; // default banner text color dark theme
 
   backgroundColor ||= "var(--c-dirty-socks)"; // default banner bg color
   backgroundColorDark ||= "var(--c-primary-gray)"; // default banner bg color dark theme
@@ -46,6 +53,8 @@ export default function DocsBanner({
       className={clsx(styles.docsBanner)}
       style={
         {
+          "--text-docs-banner": textColor,
+          "--text-docs-banner-dark": textColorDark,
           "--bg-docs-banner": backgroundColor,
           "--bg-docs-banner-dark": backgroundColorDark,
         } as CSSProperties
