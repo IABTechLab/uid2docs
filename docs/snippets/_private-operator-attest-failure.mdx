@@ -1,6 +1,6 @@
 When a Private Operator fails to attest with the Core service, one of the following actions happens:
 - HTTP 401 response. The Private Operator terminates itself immediately.
-  - Likely Causes: API key revoked or incorrect.
+  - Likely Causes: Operator key revoked or incorrect.
 - Any other non-200 response code. The Private Operator continues to function for 12 hours. If the issue is not resolved in this time frame, it terminates itself.
   - Likely Causes: Core service issues, network issues.
 
