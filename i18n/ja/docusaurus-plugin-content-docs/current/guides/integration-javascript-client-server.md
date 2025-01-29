@@ -9,6 +9,7 @@ sidebar_position: 02
 
 import Link from '@docusaurus/Link';
 import ExampleClientServerSendUid2ToSdk from '../snippets/_example-client-server-send-uid2-to-sdk.mdx'; 
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 # Client-Server Integration Guide for JavaScript
 
@@ -22,9 +23,9 @@ SDK の技術的な詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-re
 
 ## Sample Implementation
 
-実装例については、SDK v3 を使用した UID2 Google Secure Signals の例を参照してください:
-- コードとドキュメント: [UID2 SDK Secure Signals Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
-- ランニングサイト: [Client-Server UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
+実装例については、次の UID2 SDK 統合例を参照してください。
+- [Client-Server UID2 SDK Integration Example](https://example-jssdk-integ.uidapi.com/)
+- [Code repository with readme](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk)
 
 ## Introduction
 
@@ -34,7 +35,7 @@ SDK の技術的な詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-re
 
 UID2 の Opt-out ワークフローとユーザーが Opt-out する方法の詳細については、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
-UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスを容易にするために、このガイドで提供する Web インテグレーション手順は、JavaScript 用の UID2 SDK に依存しています。このガイドに記載されているインテグレーションステップと SDK の使用方法(現在はメールアドレスのみ) を示す [example application](https://example-jssdk-integ.uidapi.com/) を以下に示します。アプリケーションのドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) を参照してください。
+UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスを容易にするために、このガイドで提供する Web インテグレーション手順は、JavaScript 用の UID2 SDK に依存しています。このガイドに記載されているインテグレーションステップと SDK の使用方法(現在はメールアドレスのみ) を示す [example application](https://example-jssdk-integ.uidapi.com/) を以下に示します。アプリケーションのドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk) を参照してください。
 
 :::tip
 ファーストパーティ Cookie とローカルストレージの実装の詳細は 将来変更される可能性があります。潜在的な問題を回避するため、ID 管理には [SDK for JavaScript API Reference](../sdks/sdk-ref-javascript.md#api-reference) に記載されている機能を使用してください。
