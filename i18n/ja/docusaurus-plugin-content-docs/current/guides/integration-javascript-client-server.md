@@ -25,7 +25,7 @@ SDK の技術的な詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-re
 
 実装例については、次の UID2 SDK 統合例を参照してください。
 - [Client-Server UID2 SDK Integration Example](https://example-jssdk-integ.uidapi.com/)
-- [Code repository with readme](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk)
+- [Code Repository with Readme](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk)
 
 ## Introduction
 
