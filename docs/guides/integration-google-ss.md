@@ -82,6 +82,11 @@ window.googletag.cmd.push(function () {
 });
 ```
 
+There are three integration options for Google Secure Signals publisher integration with UID2:
+- [Server-Side Integration](#server-side-integration)
+- [SDK for JavaScript Client-Server Integration](#sdk-for-javascript-client-server-integration)
+- [SDK for JavaScript Client-Side Integration](#sdk-for-javascript-client-side-integration)
+
 ### Server-Side Integration
 
 So that it can share encrypted signals, the hosted auto-loaded secure signals script must be able to make an asynchronous call to the `window.getUid2AdvertisingToken` function and, in response, receive `advertising_token` as a string.
@@ -102,6 +107,16 @@ For details, see [Publisher Integration Guide, Server-Side](integration-publishe
 
 A sample implementation is also available for server-side integration. See [Sample Implementations](#sample-implementations).
 
+### SDK for JavaScript Client-Server Integration
+
+If you're using the SDK for JavaScript version 3.0.0 or later, the UID2 secure signals script uses the `getAdvertisingTokenAsync` function provided in the SDK to get the fresh advertising token, and then pushes the token to Google Ad Manager.
+
+This script is hosted on CDN, and GPT automatically loads it with the secure signals feature. 
+
+For details, see [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md).
+
+A sample implementation is also available for integration using the SDK for JavaScript. See [Sample Implementations](#sample-implementations).
+
 ### SDK for JavaScript Client-Side Integration
 
 If you're using the SDK for JavaScript version 3.0.0 or later, the UID2 secure signals script uses the `getAdvertisingTokenAsync` function provided in the SDK to get the fresh advertising token, and then pushes the token to Google Ad Manager.
@@ -110,18 +125,22 @@ This script is hosted on CDN, and GPT automatically loads it with the secure sig
 
 For details, see [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md).
 
-A sample implementation is also available for integration using the SDK for JavaScript. See [Sample Implementations](#sample-implementations).
+<!--  A sample implementation is also available for integration using the SDK for JavaScript. See [Sample Implementations](#sample-implementations). [sample integration to come Jan 2025-->
 
 ## Sample Implementations
 
 The following sample implementations are available to illustrate how to integrate with the Google Ad Manager secure signals feature:
 
-- Server-Side UID2 SDK Integration Example:
+- Server-Side UID2 SDK Integration Example with Google Secure Signals:
   - [Sample implementation](https://secure-signals-srvonly-integ.uidapi.com/)
-  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/server_only)
+  - [Code repository](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
 - Client-Server UID2 SDK Integration Example:
   - [Sample implementation](https://secure-signals-jssdk-integ.uidapi.com/)
   - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
+
+<!--   - Client-Side UID2 SDK Integration Example (TO COME):
+  - [Sample implementation](https://secure-signals-jssdk-integ.uidapi.com/)
+  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3) -->
 
 Each sample implementation has its own instructions.
 
