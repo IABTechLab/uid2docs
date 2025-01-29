@@ -17,8 +17,9 @@ This documentation is for earlier versions of the SDK for JavaScript. If you're 
 
 Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). 
 
-- For integration steps for content publishers, see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md).
-- For an [example application](https://example-jssdk-integ.uidapi.com/), with associated documentation, see the [UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) guide.
+For integration steps for content publishers, see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md).
+
+For an [example application](https://example-jssdk-integ.uidapi.com/), with associated documentation, see the [UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk).
 
 ## Functionality
 

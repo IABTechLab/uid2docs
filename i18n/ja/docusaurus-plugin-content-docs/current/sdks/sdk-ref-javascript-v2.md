@@ -18,7 +18,7 @@ import ExampleJavaScriptV2Init from '../snippets/_example-javascript-v2-init.mdx
 この SDK を使用して、UID2 を使用してクライアントの ID を確立し、広告トークンを取得するプロセスを容易にします。以下のセクションでは、UID2 を確立するための [workflow](#workflow-overview) について説明し、SDK の [API reference](#api-reference) を提供し、[UID2 cookie format](#uid2-cookie-format) について説明します。
 
 - コンテンツパブリッシャーのインテグレーション手順については、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください。
-- [example application](https://example-jssdk-integ.uidapi.com/) と関連ドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) ガイドを参照してください。
+- [example application](https://example-jssdk-integ.uidapi.com/) と関連ドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk) ガイドを参照してください。
 
 ## Functionality
 

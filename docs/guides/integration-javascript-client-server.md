@@ -23,9 +23,9 @@ For technical details about the SDK, see [SDK for JavaScript Reference Guide](..
 
 ## Sample Implementation
 
-For a sample implementation, see the UID2 Google Secure Signals with SDK v3 example:
-- Code and docs: [UID2 SDK Secure Signals Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
-- Running site: [Client-Server UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
+For a sample implementation, see the UID2 SDK Integration example:
+- [Client-Server UID2 SDK Integration Example](https://example-jssdk-integ.uidapi.com/)
+- [Code Repository with Readme](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk)
 
 ## Introduction
 
@@ -35,7 +35,7 @@ For a workflow diagram, see [Integration Steps](#integration-steps). See also [F
 
 For details about the UID2 opt-out workflow and how users can opt out, see [User Opt-Out](../getting-started/gs-opt-out.md).
 
-To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the SDK for JavaScript. Here's an [example application](https://example-jssdk-integ.uidapi.com/) that illustrates the integration steps described in this guide and the usage of the SDK (currently only for email addresses). For the application documentation, see [UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md).
+To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the SDK for JavaScript. Here's an [example application](https://example-jssdk-integ.uidapi.com/) that illustrates the integration steps described in this guide and the usage of the SDK (currently only for email addresses). For the application documentation, see [UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk).
 
 :::tip
 The first-party cookie and local storage implementation details might change in the future. To avoid potential issues, be sure to rely on the functionality documented in the [SDK for JavaScript API Reference](../sdks/sdk-ref-javascript.md#api-reference) for your identity management.
