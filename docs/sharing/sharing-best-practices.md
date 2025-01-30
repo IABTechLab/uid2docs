@@ -28,7 +28,7 @@ Follow these guidelines:
 
   - UID2 token length: 500 characters.
 
-- Before sharing raw UID2s with another authorized sharing participant, check the opt-out status of the raw UID2s, using the the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint. Do not share raw UID2s that have been opted out.
+- Before sharing raw UID2s with another authorized sharing participant, check the opt-out status of the raw UID2s, using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint. Do not share raw UID2s that have been opted out.
 
 ## Decryption Key Refresh Cadence for Sharing
 
