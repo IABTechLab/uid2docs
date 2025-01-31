@@ -108,7 +108,7 @@ The following table lists all resources that are created during the [deployment]
 
 | Name | Type | Description |
 |:------|:------|:-------------|
-| `KMSKey` | `AWS::KMS::Key` | Custom KMS key used for encrypting the `secrets` in AWS Secret Manager. | 
+| `KMSKey` | `AWS::KMS::Key` | Custom KMS key used for encrypting the secrets in AWS Secrets Manager. | 
 | `SSMKeyAlias` | `AWS::KMS::Alias` | An alias that provides an easy way to access the [KMS](https://aws.amazon.com/kms/) key. |
 | `TokenSecret` | `AWS::SecretsManager::Secret` | Secret manager to store the operator key. |
 | `WorkerRole` | `AWS::IAM::Role` | The IAM role that your UID2 Operators run as. Roles provide access to secret manager to retrieve operator keys. |
