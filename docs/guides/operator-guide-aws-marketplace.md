@@ -110,8 +110,8 @@ The following table lists all resources that are created during the [deployment]
 |:------|:------|:-------------|
 | `KMSKey` | `AWS::KMS::Key` | Custom KMS key used for encrypting the secrets in AWS Secrets Manager. | 
 | `SSMKeyAlias` | `AWS::KMS::Alias` | An alias that provides an easy way to access the [KMS](https://aws.amazon.com/kms/) key. |
-| `TokenSecret` | `AWS::SecretsManager::Secret` | Secret manager to store the operator key. |
-| `WorkerRole` | `AWS::IAM::Role` | The IAM role that your UID2 Operators run as. Roles provide access to secret manager to retrieve operator keys. |
+| `TokenSecret` | `AWS::SecretsManager::Secret` | A Secrets Manager secret to store the operator key. |
+| `WorkerRole` | `AWS::IAM::Role` | The IAM role that your UID2 Operators run as. Role provide access to AWS Secrets Manager to retrieve operator keys. |
 | `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile` | The instance profile with Worker Role to attach to Operator EC2 instances. |
 | `SecurityGroup` | `AWS::EC2::SecurityGroup` | A security group policy that provides rules for operator instances. See also [Security Group Policy](#security-group-policy).|
 | `LaunchTemplate` | `AWS::EC2::LaunchTemplate` | A launch template with all configurations in place. You can spawn new UID2 Operator instances from it. |
@@ -216,7 +216,7 @@ To create a load balancer and a target operator auto-scaling group, complete the
 2. Click **Create Load Balancer**.
 3. On the Load balancer types page, in the **Application Load Balancer** section, click **Create**.
 4. Enter the UID2 **Load balancer name**. Depending on whether or not you need to access UID2 APIs from public internet, choose the **Internet-facing** or **Internal** scheme.
-5. Select the **VPC** you used while creating cloudformation stack, and at least two subnets.
+5. Select the **VPC** you used while creating the CloudFormation stack, and at least two subnets.
 6. Under **Security groups**, click **Create new security group** and do the following:
     1. Enter `UID2SGALB` as its **Security group name**, as well as a relevant **Description**.
     2. Under **Inbound rules**, click **Add rule**, then select the **HTTPS** Type and an appropriate **Source** according to your requirements.
