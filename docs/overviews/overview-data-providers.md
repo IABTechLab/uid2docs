@@ -7,10 +7,10 @@ use_banner: true
 banner_title: UID2 Overview for Data Providers
 banner_description: An identity solution for the future.
 banner_icon: 'dataProviders'
-banner_text_color: ''
-banner_text_color_dark: ''
-banner_background_color: ''
-banner_background_color_dark: ''
+banner_text_color: 'white'
+banner_text_color_dark: 'black'
+banner_background_color: '#10692E'
+banner_background_color_dark: '#E9F896'
 displayed_sidebar: sidebarDataProviders
 ---
 
