@@ -111,7 +111,7 @@ The following table lists all resources that are created during the [deployment]
 | `KMSKey` | `AWS::KMS::Key` | Custom KMS key used for encrypting the secrets in AWS Secrets Manager. | 
 | `SSMKeyAlias` | `AWS::KMS::Alias` | An alias that provides an easy way to access the [KMS](https://aws.amazon.com/kms/) key. |
 | `TokenSecret` | `AWS::SecretsManager::Secret` | A Secrets Manager secret to store the operator key. |
-| `WorkerRole` | `AWS::IAM::Role` | The IAM role that your UID2 Operators run as. Role provide access to AWS Secrets Manager to retrieve operator keys. |
+| `WorkerRole` | `AWS::IAM::Role` | The IAM role that your UID2 Operators run as. The role provides access to AWS Secrets Manager to retrieve operator keys. |
 | `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile` | The instance profile with Worker Role to attach to Operator EC2 instances. |
 | `SecurityGroup` | `AWS::EC2::SecurityGroup` | A security group policy that provides rules for operator instances. See also [Security Group Policy](#security-group-policy).|
 | `LaunchTemplate` | `AWS::EC2::LaunchTemplate` | A launch template with all configurations in place. You can spawn new UID2 Operator instances from it. |
