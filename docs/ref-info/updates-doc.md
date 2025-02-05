@@ -11,6 +11,16 @@ import Link from '@docusaurus/Link';
 
 Check out the latest updates to our UID2 documentation resources.
 
+### Updated: Snowflake Integration Guide
+
+February xxx, 2025
+
+We've significantly updated the UID2 Snowflake integration, and updated the documentation to match.
+
+For details, see [Snowflake Integration Guide](../guides/integration-snowflake.md).
+
+<!-- APIDOCS-2918 -->
+
 ### New: Expanded and Restructured Advertiser/Data Provider Doc
 
 January 10, 2025

@@ -1,24 +1,25 @@
 ---
-title: Snowflake Integration
-sidebar_label: Snowflake
+title: Snowflake Integration (Earlier Listings)
+sidebar_label: Snowflake (earlier version)
 pagination_label: Snowflake Integration
-description: Information about integrating with UID2 through the UID2 Share in Snowflake. 
+description: Information about integrating with UID2 through the UID2 Share in Snowflake (earlier listings, separate for Advertiser and Data Provider).
 hide_table_of_contents: false
 sidebar_position: 04
 ---
 
 import Link from '@docusaurus/Link';
 
-# Snowflake Integration Guide
+# Snowflake Integration Guide (Earlier Listings)
 
 [Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share consumer identifier data without exposing sensitive <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>. Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
 
 :::important
-This document is for those using the combined advertiser and data provider Snowflake marketplace listing published in February 2025. If you're using one of the earlier listings, which are separate for advertiser and data provider, see [Snowflake Integration Guide (Earlier Listings)](integration-snowflake-previous.md). If you're using the earlier implementation, we recommend that you migrate to the newer version to take advantage of the updates and enhancements: for details, see [Changes from Previous Version](#changes-from-previous-version). For migration information, see [Migration Guide](#migration-guide).
+This document is for those using the separate advertiser and data provider Snowflake marketplace listings. For documentation on the newer, combined listing published in February 2025, see [Snowflake Integration Guide](integration-snowflake.md). If you're using the earlier implementation, we recommend that you migrate to the newer version to take advantage of the updates and enhancements. For migration information, see [Migration Guide](integration-snowflake.md#migration-guide).
 :::
 
-The following listing for UID2 is available on the Snowflake marketplace:
-- [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
+The following listings for UID2 are available on the Snowflake marketplace:
+- For advertisers: [Unified ID 2.0: Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV/unified-id-2-0-unified-id-2-0-advertiser-identity-solution?originTab=provider&providerName=Unified+ID+2.0)
+- For data providers: [Unified ID 2.0: Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0/unified-id-2-0-unified-id-2-0-data-provider-identity-solution?originTab=provider&providerName=Unified+ID+2.0)
 
 :::tip
 For a summary of all integration options and steps for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md).
@@ -37,12 +38,6 @@ The following table summarizes the functionality available with the UID2 Snowfla
 :::note
 If you are a publisher who is sharing UID2 tokens in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>, see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
 :::
-
-## Changes from Previous Version
-
-The February, 2025 update to the UID2 Snowflake Marketplace integration includes the following updates and enhancements:
-
-**GWH__AQ TODO**
 
 ## Workflow Diagram
 
@@ -480,6 +475,58 @@ The following table identifies each item in the response. The result includes an
 +----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
 ```
 
+## Migration Guide
+
+If you are using the `FN_T_UID2_IDENTITY_MAP_EMAIL` and `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` functions, it's best to migrate to the `FN_T_UID2_IDENTITY_MAP` function as soon as possible. This function does everything that the other two functions do, and has other built-in improvements.
+
+Advantages of the `FN_T_UID2_IDENTITY_MAP` function:
+
+- It supports mapping both phone numbers and hashed phone numbers.
+- It supports user opt-out.
+- It adds a new column, `UNMAPPED`. In any scenario where the DII cannot be mapped to a UID2 for any reason, this column includes information about the reason.<br/>For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column)
+
+This section includes the following information to help you upgrade to the new function:
+
+- [Changing Existing Code](#changing-existing-code) 
+- [Using the Values for the UNMAPPED Column](#using-the-values-for-the-unmapped-column) 
+
+### Changing Existing Code
+
+The code snippets in this section are before/after examples of how the earlier functions might be implemented, and how you could update to use the new function.
+
+#### Example for mapping unhashed emails
+
+Before:
+
+```
+FN_T_UID2_IDENTITY_MAP_EMAIL(EMAIL)
+```
+
+After:
+
+```
+FN_T_UID2_IDENTITY_MAP(EMAIL, 'email')
+```
+
+#### Example for mapping unhashed emails
+
+Before:
+
+```
+FN_T_UID2_IDENTITY_MAP_EMAIL_HASH(EMAIL_HASH)
+```
+
+After:
+
+```
+FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash')
+```
+
+### Using the Values for the UNMAPPED Column
+When you have the new function implemented, you can check the `UNMAPPED` column returned by the `FN_T_UID2_IDENTITY_MAP`. If any DII could not be mapped to a UID2, this column gives the reason.
+
+For details about the values and their explanations, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).
+
 ## Usage for UID2 Sharers
 
 A UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participant</Link> is a company that takes part in sharing, either as a sender or a receiver, to share UID2s with another participant.
@@ -713,7 +760,3 @@ To help prevent UID2 tokens from expiring during sharing, send the newly encrypt
 :::warning
 To help prevent UID2 tokens from expiring, decrypt the UID2 tokens as soon as they become available from the sender.
 :::
-
-## Migration Guide
-
-**GWH__AQ TODO: INSTRUCTIONS FOR MIGRATING FROM PREVIOUS VERSION.**
