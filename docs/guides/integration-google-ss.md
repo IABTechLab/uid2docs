@@ -131,22 +131,21 @@ For details, see [Client-Side Integration Guide for JavaScript](integration-java
 
 The following sample implementations are available to illustrate how to integrate with the Google Ad Manager secure signals feature:
 
-- Server-Side UID2 SDK Integration Example with Google Secure Signals:
+- Server-side integration example using the UID2 JavaScript SDK with Google secure signals:
   - [Sample implementation](https://secure-signals-server-side-integ.uidapi.com/)
   - [Code repository](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
-- Client-Server UID2 SDK Integration Example:
+- Client-server integration example using the UID2 JavaScript SDK with Google secure signals:
   - [Sample implementation](https://secure-signals-client-server-integ.uidapi.com/)
   - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
-
-<!--   - Client-Side UID2 SDK Integration Example (TO COME):
-  - [Sample implementation](https://secure-signals-client-server-integ.uidapi.com/)
-  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3) -->
+- Client-side integration example using the UID2 JavaScript SDK with Google secure signals:
+  - [Sample implementation](https://secure-signals-client-side-integ.uidapi.com/)
+  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/client_side)
 
 Each sample implementation has its own instructions.
 
 ## Troubleshooting
 
-Here is some troubleshooting information that might help you in working with Google Secure Signals for your UID2 integration:
+Here is some troubleshooting information that might help you in working with Google secure signals for your UID2 integration:
 
 - [I enabled Secure Signals within Google Ad Manager, but UID2s are not being passed through Google](#i-enabled-secure-signals-within-google-ad-manager-but-uid2s-are-not-being-passed-through-google)
 

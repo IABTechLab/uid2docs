@@ -111,12 +111,15 @@ SDK for JavaScript を使用したインテグレーションのためのサン�
 
 Google Ad Manager のセキュアシグナル機能との連携方法については、以下のサンプルアプリケーションを参照してください:
 
-- Server-Side UID2 SDK Integration Example:
+- Server-side integration example using the UID2 JavaScript SDK with Google secure signals:
   - [Sample implementation](https://secure-signals-server-side-integ.uidapi.com/)
-  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/server_only)
-- Client-Server UID2 SDK Integration Example:
+  - [Code repository](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
+- Client-server integration example using the UID2 JavaScript SDK with Google secure signals:
   - [Sample implementation](https://secure-signals-client-server-integ.uidapi.com/)
   - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
+- Client-side integration example using the UID2 JavaScript SDK with Google secure signals:
+  - [Sample implementation](https://secure-signals-client-side-integ.uidapi.com/)
+  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/client_side)
 
 各サンプルアプリケーションには独自のインストラクションがあります。
 
