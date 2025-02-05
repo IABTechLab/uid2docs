@@ -133,7 +133,7 @@ The following sample implementations are available to illustrate how to integrat
 
 - Server-side integration example using the UID2 JavaScript SDK with Google secure signals:
   - [Sample implementation](https://secure-signals-server-side-integ.uidapi.com/)
-  - [Code repository](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
+  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/server_side)
 - Client-server integration example using the UID2 JavaScript SDK with Google secure signals:
   - [Sample implementation](https://secure-signals-client-server-integ.uidapi.com/)
   - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
