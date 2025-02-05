@@ -47,15 +47,28 @@ GWH note 12/14/23: We have client-side and server-side examples for JS SDK but o
 
 You'll need to complete the following steps:
 
-1. [Complete UID2 account setup](#complete-uid2-account-setup).
+1. [Complete UID2 account setup and configure account](#complete-uid2-account-setup-and-configure-account).
 2. [Add Prebid.js to your site](#add-prebidjs-to-your-site).
 3. [Configure the UID2 module](#configure-the-uid2-module).
 
-## Complete UID2 Account Setup
+## Complete UID2 Account Setup and Configure Account
 
-Complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page.
+To integrate with UID2 using Prebid.js, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-When account setup is complete, you'll receive your unique API key and client secret. These values are unique to you and it's important to keep them secure. For details, see [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret).
+When initial account setup is complete, you'll receive instructions and a link to access the UID2 Portal, where you can create your credentials and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+
+For a client-server integration you'll need to set up these values, in the UID2 Portal on the [API Keys](../portal/api-keys.md) page:
+
+- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key
+- <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>, a value known only to the participant and the UID2 service
+
+:::important
+It's very important that you keep these values secure. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+:::
+
+<!-- (instructions no-portal)
+When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key). 
+-->
 
 ## Add Prebid.js to Your Site
 

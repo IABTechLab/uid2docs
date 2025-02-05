@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Credentials
 
-Each UID2 <a href="../intro#participants">participant</a> gets a set of unique credentials. The set of credentials you get is determined by how you are participating in UID2, as shown in the following table.
+Each UID2 <a href="../intro#participants">participant</a> needs a set of unique credentials. The set of credentials you need is determined by how you are participating in UID2, as shown in the following table.
 
 | Audience | Credentials | Integration |
 | :--- | :--- | :--- |
@@ -17,7 +17,58 @@ Each UID2 <a href="../intro#participants">participant</a> gets a set of unique c
 | Participants using a client-server implementation | Both of the following:<ul><li><Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key</li><li><Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>, a value known only to the participant and the UID2 service</li></ul> | Integrations using one of these: <ul><li>[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)</li><li>[UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul> |
 | Participants using a server-side implementation | Both of the following:<ul><li><Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key</li><li><Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>, a value known only to the participant and the UID2 service</li></ul> | Integrations using one of these: <ul><li>[Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md)</li><li>[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md)</li></ul> |
 
-If you're using the integration environment as well as the production environment, you'll get a separate set of credentials for each environment.
+If you're using the integration environment as well as the production environment, you'll get a separate set of credentials for each environment. See [Getting Your Credentials](#getting-your-credentials).
+
+## Getting Your Credentials
+
+The following table shows how you get your credentials, for each [integration approach](../ref-info/ref-integration-approaches.md) and for each [environment](../getting-started/gs-environments.md).
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Integration Type</th>
+      <th>Getting Credentials</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="3"><br/><br/>Prod</td>
+      <td>Client-Side</td>
+      <td>UID2 Portal > [Client-Side Integration](../portal/client-side-integration.md)</td>
+    </tr>
+    <tr>
+
+      <td>Client-Server</td>
+      <td>UID2 Portal > [API Keys](../portal/api-keys.md)</td>
+    </tr>
+    <tr>
+
+      <td>Server-Side</td>
+      <td>UID2 Portal > [API Keys](../portal/api-keys.md)</td>
+    </tr>
+    <tr>
+      <td rowspan="3"><br/><br/>Integ</td>
+      <td>Client-Side</td>
+      <td rowspan="3"><br/><br/>Ask your UID2 contact.</td>
+    </tr>
+    <tr>
+
+      <td>Client-Server</td>
+
+    </tr>
+    <tr>
+
+      <td>Server-Side</td>
+
+    </tr>
+  </tbody>
+</table>
+
+<!-- 
+For no-portal:
+To get your credentials, ask your UID2 contact.
+-->
 
 ## Subscription ID and Public Key
 
@@ -64,4 +115,12 @@ It's best to refresh your API key and client secret on a regular cadence&#8212;f
 
 ## Refreshing Credentials
 
-To request new credentials at any time, ask your UID2 contact.
+To request new credentials at any time, do one of the following:
+
+- If you have UID2 Portal access, and you need new Production credentials: go to the page listed in [Getting Your Credentials](#getting-your-credentials).
+- If you don't have UID2 Portal access, or you need new credentials for the Integration environment, ask your UID2 contact.
+
+<!-- 
+For no-portal:
+To request new credentials at any time, ask your UID2 contact. 
+-->

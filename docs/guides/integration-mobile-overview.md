@@ -64,6 +64,14 @@ To determine the best integration path for your mobile scenario, consider these 
 
 1. How do you want to use the UID2 tokens? See [Sending the Token to the Bidstream](#sending-the-token-to-the-bidstream).
 
+## Complete UID2 Account Setup and Configure Account
+
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
+
+When initial account setup is complete, you'll receive instructions and a link to access the UID2 Portal, where you can create your credentials and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+
+The steps you'll take in the UID2 Portal are different depending on whether your implementation will be client-side, client-server, or server-side. Specific instructions are in each implementation guide.
+
 ### Client-Side or Client-Server Integration?
 
 The options for integrating with UID2 using the UID2 mobile SDKs are summarized in the following table. Choose the <Link href="../ref-info/glossary-uid#gl-integration-approaches">integration approach</Link> that's best for you.

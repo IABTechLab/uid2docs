@@ -33,6 +33,12 @@ Notes:
 - The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.
 - The expiration time of the <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> returned by the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints is subject to change, but is always significantly shorter in the integration environment than it is in the production environment.
 
+## Getting Credentials for Each Environment
+
+If you're using the integration environment as well as the production environment, you'll need to get a separate set of credentials for each environment.
+
+For details about getting the values you need to access each environment, see [UID2 Credentials](gs-credentials.md).
+
 ## Specifying the Base URL to Reduce Latency
 
 The latency of API calls depends on the proximity of the client to the UID2 servers. To reduce the latency, especially when making API calls from consumer devices, you might consider choosing a server closer to your users.

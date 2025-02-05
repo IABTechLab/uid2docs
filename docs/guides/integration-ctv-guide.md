@@ -27,6 +27,21 @@ To determine how you'll implement these steps, choose from the [CTV Integration 
 
 <IntegratingWithSSO />
 
+## Complete UID2 Account Setup and Configure Account
+
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
+
+When initial account setup is complete, you'll receive instructions and a link to access the UID2 Portal, where you can create your credentials and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+
+You'll need to set up these values, in the UID2 Portal on the [API Keys](../portal/api-keys.md) page:
+
+- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key
+- <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>, a value known only to the participant and the UID2 service
+
+:::important
+It's very important that you keep these values secure. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+:::
+
 ## CTV Integration Options
 
 You can decide on the integration option that's best for you based on where you want to generate and refresh the UID2 token. There are three options, as follows:

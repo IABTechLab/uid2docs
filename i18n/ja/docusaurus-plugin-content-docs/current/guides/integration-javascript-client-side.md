@@ -36,7 +36,7 @@ UID2 は、SDK for JavaScript を提供しています (詳細は [SDK for JavaS
 
 実装するには、以下の手順を完了する必要があります:
 
-1. [Complete UID2 account setup](#complete-uid2-account-setup)
+1. [Complete UID2 account setup and configure account](#complete-uid2-account-setup-and-configure-account)
 2. [Add SDK for JavaScript to your site](#add-sdk-for-javascript-to-your-site)
 3. [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript)
 4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
@@ -64,7 +64,7 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 <!-- (Source code for running site: https://github.com/IABTechLab/uid2-web-integrations) -->
   
 
-## Complete UID2 Account Setup
+## Complete UID2 Account Setup and Configure Account
 
 アカウント設定ページに記載されている手順に従って、UID2 アカウントの設定を完了してください。アカウント設定プロセスの一環として、この SDK for JavaScript で使用するサイトの**ドメイン名**のリストを提供する必要があります。
 
