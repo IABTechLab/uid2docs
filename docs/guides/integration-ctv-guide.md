@@ -31,16 +31,21 @@ To determine how you'll implement these steps, choose from the [CTV Integration 
 
 To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-When initial account setup is complete, you'll receive instructions and a link to access the UID2 Portal, where you can create your credentials and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+When initial account setup is complete, you'll receive instructions and a link to access the UID2 Portal, where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
 
-You'll need to set up these values, in the UID2 Portal on the [API Keys](../portal/api-keys.md) page:
+The specific values you set up will depend on which of the [CTV integration options](#ctv-integration-options) you choose:
 
-- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key
-- <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>, a value known only to the participant and the UID2 service
+- For a client-server or server-side implementation, you'll need to set up these values, in the UID2 Portal on the [API Keys](../portal/api-keys.md) page:
+  - <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key
+  - <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>, a value known only to the participant and the UID2 service
 
-:::important
-It's very important that you keep these values secure. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
-:::
+    :::important
+    It's very important that you keep these values secure. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+    :::
+- For a client-side implementation, you'll need to set up these values, in the UID2 Portal on the [Client-Side Integration](../portal/client-side-integration.md) page:
+  - Subscription ID and Public Key: See [Adding and Managing Key Pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs)
+  - A list of **domain names** for any sites on which you'll be using this SDK: See [Adding and Managing Root-Level Domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains)
+  - Mobile App IDs (any that apply): See [Adding and Managing Mobile App IDs](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids)
 
 ## CTV Integration Options
 
@@ -50,7 +55,7 @@ You can decide on the integration option that's best for you based on where you 
 - [Server-Side Integration](#server-side-integration-for-ctv-apps) (the token is generated and refreshed on the server side)
 - [Client-Server Integration](#client-server-integration-for-ctv-apps) (the token is generated on the server side and refreshed on the client side)
 
-## Client-Side Integration for CTV Apps
+### Client-Side Integration for CTV Apps
 
 The client-side option is for publishers who want to manage the UID2 token entirely on the client side:
 
@@ -68,7 +73,7 @@ The following table shows supported operating systems, with links to applicable 
 | [Apple tvOS](https://developer.apple.com/tvos/) | [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) | [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) |
 | [Android TV](https://www.android.com/tv/) | [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) | [SDK for Android Reference Guide](../sdks/sdk-ref-android.md) |
 
-## Server-Side Integration for CTV Apps
+### Server-Side Integration for CTV Apps
 
 The server-side option is for publishers who want to manage the UID2 token entirely on the server side:
 
@@ -86,7 +91,7 @@ If your server-side code is in Java or Python, you can use one of the UID2 SDKs 
 - [SDK for Java Reference Guide: Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers)
 - [SDK for Python Reference Guide: Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers)
 
-## Client-Server Integration for CTV Apps
+### Client-Server Integration for CTV Apps
 
 This option is for publishers who want to manage the UID2 tokens with a client-server approach:
 

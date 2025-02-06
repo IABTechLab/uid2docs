@@ -31,7 +31,6 @@ To integrate with UID2, you'll need to have a UID2 account. If you haven't yet c
 
 When account setup is complete, we'll send you a link to the [UID2 Portal](../portal/portal-overview.md), where you can:
 - Generate [credentials](../getting-started/gs-credentials.md) for your account.
-- Optional: For a client-side implementation, set up configuration values such as domain names.
 - Optionally, configure other values, such as setting up information about team members.
 
 You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For details, see [API Permissions](../getting-started/gs-permissions.md).

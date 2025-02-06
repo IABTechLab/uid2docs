@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Credentials
 
-Each UID2 <a href="../intro#participants">participant</a> needs a set of unique credentials. The set of credentials you need is determined by how you are participating in UID2, as shown in the following table.
+Each UID2 <a href="../intro#participants">participant</a> needs at least one set of unique credentials. The set of credentials you need is determined by how you are participating in UID2, as shown in the following table.
 
 | Audience | Credentials | Integration |
 | :--- | :--- | :--- |
@@ -17,11 +17,19 @@ Each UID2 <a href="../intro#participants">participant</a> needs a set of unique 
 | Participants using a client-server implementation | Both of the following:<ul><li><Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key</li><li><Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>, a value known only to the participant and the UID2 service</li></ul> | Integrations using one of these: <ul><li>[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)</li><li>[UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul> |
 | Participants using a server-side implementation | Both of the following:<ul><li><Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key</li><li><Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>, a value known only to the participant and the UID2 service</li></ul> | Integrations using one of these: <ul><li>[Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md)</li><li>[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md)</li></ul> |
 
+## Separate Credentials Per Environment/Role
+
 If you're using the integration environment as well as the production environment, you'll get a separate set of credentials for each environment. See [Getting Your Credentials](#getting-your-credentials).
+
+In addition, in some cases, we recommend, but do not require, that you have a different set of credentials for a different scenario. For example:
+- If you have a website and a mobile app, we recommend having different credentials for each.
+- If you're a data provider, and map data on behalf of clients as well as on your own behalf, you might have separate credentials for each of these activities.
+- If you're a publisher, but also map data on your own behalf, you might have separate credentials for each of these activities.
+
 
 ## Getting Your Credentials
 
-The following table shows how you get your credentials, for each [integration approach](../ref-info/ref-integration-approaches.md) and for each [environment](../getting-started/gs-environments.md).
+The following table shows how you get your credentials, for each [integration approach](../ref-info/ref-integration-approaches.md) and each [environment](../getting-started/gs-environments.md).
 
 <table>
   <thead>
@@ -98,7 +106,7 @@ Here is some information about API keys and client secrets:
 - Each key has a set of [permissions](gs-permissions.md) that determine the endpoints you can use it on.
 - Each key has a corresponding client secret.
 - Most API endpoints require both API key and client secret for authentication. For details, see [Authentication and Authorization](gs-auth.md).
-- If you're using the integration environment as well as the production environment, you'll receive separate API keys for each environment.
+- If you're using the integration environment as well as the production environment, you'll receive separate API keys for each environment. For details, see [Getting Your Credentials](#getting-your-credentials).
 - The client secret is valid for a specific [environment](gs-environments.md). If you're using both the integration and production environments, you'll get a client secret for each environment.
 
 As part of getting your UID2 account set up, we'll give you one or more API keys, each with a corresponding client secret. For details of who to talk to, see [Contact Info](gs-account-setup.md#contact-info).

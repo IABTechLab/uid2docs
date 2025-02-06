@@ -20,21 +20,6 @@ For a summary of available server-side SDKs, see [SDKs: Summary](../sdks/summary
 If your back end is written in a language not covered by one of the available server-side SDKs, ask your UID2 contact in case there is additional information available to help you. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
 :::
 
-## Complete UID2 Account Setup and Configure Account
-
-To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
-
-When initial account setup is complete, you'll receive instructions and a link to access the UID2 Portal, where you can create your credentials and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
-
-You'll need to set up these values, in the UID2 Portal on the [API Keys](../portal/api-keys.md) page:
-
-- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key
-- <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>, a value known only to the participant and the UID2 service
-
-:::important
-It's very important that you keep these values secure. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
-:::
-
 ## Integration Steps 
 
 The following describes the integration workflow for DSP to support UID2 as part of RTB, which consists of two major steps:
