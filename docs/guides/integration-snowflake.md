@@ -57,11 +57,10 @@ The following diagram and table illustrate the different parts of the UID2 integ
 
 ## Access the UID2 Shares
 
-Access to the UID2 Share is available through the [Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/), where you can request specific data sets based on the UID2 personalized listing you select.
+Access to the UID2 Share is available through the following listing on the [Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/).
 
-There are two personalized listings offered in the Snowflake Data Marketplace for UID2:
-- [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV) for advertisers/brands
-- [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0) for data providers
+- [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
+
 
 :::important
 To be able to request data, you must use the `ACCOUNTADMIN` role or another role with the `CREATE DATABASE` and `IMPORT SHARE` privileges in your Snowflake account.
@@ -69,12 +68,11 @@ To be able to request data, you must use the `ACCOUNTADMIN` role or another role
 
 To request access to a UID2 Share, complete the following steps:
 
-1.	Log in to the Snowflake Data Marketplace and select the UID2 solution that you are interested in:
-      - [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV)
-      - [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0)
+1.	Log in to the Snowflake Data Marketplace and select the UID2 listing
+      - [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
 2.	In the **Personalized Data** section, click **Request Data**.
 3.	Follow the onscreen instructions to verify and provide your contact details and other required information.
-4.	If you are an existing client of The Trade Desk and are interested in the *Advertiser* Identity Solution, include your partner and advertiser IDs issued by The Trade Desk in the **Message** field of the data request form.
+4.	If you are an existing client of The Trade Desk, include your partner and advertiser IDs issued by The Trade Desk in the **Message** field of the data request form.
 5.	Submit the form.
 
 After your request is received, a UID2 administrator will contact you with the appropriate access instructions. For details about managing data requests in Snowflake, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html).
