@@ -21,11 +21,7 @@ Each UID2 <a href="../intro#participants">participant</a> needs at least one set
 
 If you're using the integration environment as well as the production environment, you'll get a separate set of credentials for each environment. See [Getting Your Credentials](#getting-your-credentials).
 
-In addition, in some cases, we recommend, but do not require, that you have a different set of credentials for a different scenario. For example:
-- If you have a website and a mobile app, we recommend having different credentials for each.
-- If you're a data provider, and map data on behalf of clients as well as on your own behalf, you might have separate credentials for each of these activities.
-- If you're a publisher, but also map data on your own behalf, you might have separate credentials for each of these activities.
-
+In addition, in some cases, we recommend, but do not require, that you have a different set of credentials for a different scenario. For example, if you're a publisher, but also map data on your own behalf, you might have separate credentials for each of these activities.
 
 ## Getting Your Credentials
 
