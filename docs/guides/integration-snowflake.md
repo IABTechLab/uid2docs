@@ -80,24 +80,23 @@ After your request is received, a UID2 administrator will contact you with the a
 
 ## Shared Objects
 
-Regardless of the UID2 solution you choose, you can map DII to UID2s by using the following function:
+You can map DII to UID2s by using the following function:
 
-- `FN_T_UID2_IDENTITY_MAP` (See [Map DII](#map-dii))
+- `FN_T_IDENTITY_MAP` (See [Map DII](#map-dii))
 
-The following functions are deprecated in favor of `FN_T_UID2_IDENTITY_MAP`. You can still use them, but `FN_T_UID2_IDENTITY_MAP` is better. If you are already using these functions, we recommend upgrading as soon as possible.
+The following function is deprecated in favor of `FN_T_UID2_IDENTITY_MAP`. You can still use it if you are on the previous snowflake version, but we recommend upgrading as soon as possible.
 
-- `FN_T_UID2_IDENTITY_MAP_EMAIL` (deprecated)
-- `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (deprecated)
+- `FN_T_UID2_IDENTITY_MAP` (deprecated)
 
 :::note
 If you are using the deprecated functions, and need help migrating to the newer function, see [Migration Guide](#migration-guide).
 :::
 
-To identify the UID2s that you must regenerate, use the `UID2_SALT_BUCKETS` view from the UID2 Share. For details, see [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s).
+To identify the UID2s that you must regenerate, use the `SALT_BUCKETS` view from the UID2 Share. For details, see [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s).
 
 The following functions are also available, for UID2 sharing participants:
-- `FN_T_UID2_ENCRYPT` (See [Encrypt Tokens](#encrypt-tokens))
-- `FN_T_UID2_DECRYPT` (See [Decrypt Tokens](#decrypt-tokens))
+- `FN_T_ENCRYPT` (See [Encrypt Tokens](#encrypt-tokens))
+- `FN_T_DECRYPT` (See [Decrypt Tokens](#decrypt-tokens))
 
 For details, see [Usage for UID2 Sharers](#usage-for-uid2-sharers).
 
@@ -115,14 +114,14 @@ select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_U
 
 All query examples use the following default values for each name variable:
 
-| Variable |Advertiser Solution Default Value | Data Provider Solution Default Value| Comments |
-| :--- | :--- | :--- | :--- |
-| `{DATABASE_NAME}` | `UID2_PROD_ADV_SH` | `UID2_PROD_DP_SH` | If needed, you can change the default database name when creating a new database after you are granted access to the selected UID2 Share. |
-| `{SCHEMA_NAME}`| `ADV` | `DP` | This is an immutable name. |
+| Variable          | Default Value      | Comments                                                                                                                                  |
+|:------------------|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------|
+| `{DATABASE_NAME}` | `UID2_PROD_UID_SH` | If needed, you can change the default database name when creating a new database after you are granted access to the selected UID2 Share. |
+| `{SCHEMA_NAME}`   | `UID`              | This is an immutable name.                                                                                                                |
 
 ### Map DII
 
-To map all types of <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>, use the `FN_T_UID2_IDENTITY_MAP` function.
+To map all types of <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>, use the `FN_T_IDENTITY_MAP` function.
 
 If the DII is an email address, the service normalizes the data using the UID2 [Email Address Normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization) rules.
 
@@ -135,11 +134,11 @@ If the DII is a phone number, you must normalize it before sending it to the ser
 
 A successful query returns the following information for the specified DII.
 
-|Column Name|Data Type|Description|
-| :--- | :--- | :--- |
-| `UID2` | TEXT | The value is one of the following:<ul><li>DII was successfully mapped: The UID2 associated with the DII.</li><li>DII was not successfully mapped: `NULL`.</li></ul> |
-| `BUCKET_ID` | TEXT | The value is one of the following:<ul><li>DII was successfully mapped: The ID of the second-level salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view.</li><li>DII was not successfully mapped: `NULL`.</li></ul> |
-| `UNMAPPED` | TEXT | The value is one of the following:<ul><li>DII was successfully mapped: `NULL`.</li><li>DII was not successfully mapped:  The reason why the identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`.<br/>For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).</li></ul> |
+| Column Name | Data Type | Description                                                                                                                                                                                                                                                                                                                       |
+|:------------|:----------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `UID`       | TEXT      | The value is one of the following:<ul><li>DII was successfully mapped: The UID2 associated with the DII.</li><li>DII was not successfully mapped: `NULL`.</li></ul>                                                                                                                                                               |
+| `BUCKET_ID` | TEXT      | The value is one of the following:<ul><li>DII was successfully mapped: The ID of the salt bucket used to generate the UID2. This ID maps to the bucket ID in the `SALT_BUCKETS` view.</li><li>DII was not successfully mapped: `NULL`.</li></ul>                                                                                  |
+| `UNMAPPED`  | TEXT      | The value is one of the following:<ul><li>DII was successfully mapped: `NULL`.</li><li>DII was not successfully mapped:  The reason why the identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`.<br/>For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).</li></ul> |
 
 #### Values for the UNMAPPED Column
 
@@ -171,18 +170,10 @@ The input and output data in these examples is fictitious, for illustrative purp
 
 #### Mapping Request Example - Single Unhashed Email
 
-The following queries illustrate how to map a single email address, using the [default database and schema names](#database-and-schema-names).
-
-Advertiser solution query for a single email:
+The following query illustrates how to map a single email address, using the [default database and schema names](#database-and-schema-names).
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP('validate@example.com', 'email'));
-```
-
-Data provider solution query for a single email:
-
-```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP('validate@example.com', 'email'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP('validate@example.com', 'email'));
 ```
 
 Query results for a single email:
@@ -197,21 +188,11 @@ Query results for a single email:
 
 #### Mapping Request Example - Multiple Unhashed Emails
 
-The following queries illustrate how to map multiple email addresses, using the [default database and schema names](#database-and-schema-names).
-
-Advertiser solution query for multiple emails:
+The following query illustrates how to map multiple email addresses, using the [default database and schema names](#database-and-schema-names).
 
 ```
 select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(EMAIL, 'email') t) m
-    on a.ID=m.ID;
-```
-
-Data provider solution query for multiple emails:
-
-```
-select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID, UNMAPPED from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(EMAIL, 'email') t) m
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(EMAIL, 'email') t) m
     on a.ID=m.ID;
 ```
 
@@ -232,20 +213,12 @@ The following table identifies each item in the response, including `NULL` value
 
 #### Mapping Request Example - Single Unhashed Phone Number
 
-The following queries illustrate how to map a phone number, using the [default database and schema names](#database-and-schema-names).
+The following query illustrates how to map a phone number, using the [default database and schema names](#database-and-schema-names).
 
 You must normalize phone numbers using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
-Advertiser solution query for a single phone number:
-
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP('+12345678901', 'phone'));
-```
-
-Data Provider solution query for a single phone number:
-
-```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP('+12345678901', 'phone'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP('+12345678901', 'phone'));
 ```
 
 Query results for a single phone number:
@@ -260,23 +233,13 @@ Query results for a single phone number:
 
 #### Mapping Request Example - Multiple Unhashed Phone Numbers
 
-The following queries illustrate how to map multiple phone numbers, using the [default database and schema names](#database-and-schema-names).
+The following query illustrates how to map multiple phone numbers, using the [default database and schema names](#database-and-schema-names).
 
 You must normalize phone numbers using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
-Advertiser solution query for multiple phone numbers:
-
 ```
 select a.ID, a.PHONE, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(PHONE, 'phone') t) m
-    on a.ID=m.ID;
-```
-
-Data Provider solution query for multiple phone numbers:
-
-```
-select a.ID, a.PHONE, m.UID2, m.BUCKET_ID, UNMAPPED from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(PHONE, 'phone') t) m
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(PHONE, 'phone') t) m
     on a.ID=m.ID;
 ```
 
@@ -297,18 +260,10 @@ The following table identifies each item in the response, including `NULL` value
 
 #### Mapping Request Example - Single Hashed Email
 
-The following queries illustrate how to map a single email address hash, using the [default database and schema names](#database-and-schema-names).
-
-Advertiser solution query for a single hashed email:
+The following query illustrates how to map a single email address hash, using the [default database and schema names](#database-and-schema-names).
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@example.com', 256)), 'email_hash'));
-```
-
-Data provider solution query for a single hashed email:
-
-```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@example.com', 256)), 'email_hash'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@example.com', 256)), 'email_hash'));
 ```
 
 Query results for a single hashed email:
@@ -323,21 +278,11 @@ Query results for a single hashed email:
 
 #### Mapping Request Example - Multiple Hashed Emails
 
-The following queries illustrate how to map multiple email address hashes, using the [default database and schema names](#database-and-schema-names).
-
-Advertiser solution query for multiple hashed emails:
+The following query illustrates how to map multiple email address hashes, using the [default database and schema names](#database-and-schema-names).
 
 ```
 select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash') t) m
-    on a.ID=m.ID;
-```
-
-Data provider solution query for multiple hashed emails:
-
-```
-select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash') t) m
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(EMAIL_HASH, 'email_hash') t) m
     on a.ID=m.ID;
 ```
 
@@ -357,18 +302,10 @@ The following table identifies each item in the response, including `NULL` value
 
 #### Mapping Request Example - Single Hashed Phone Number
 
-The following queries illustrate how to map a single phone number hash, using the [default database and schema names](#database-and-schema-names).
-
-Advertiser solution query for a single hashed phone number:
+The following query illustrates how to map a single phone number hash, using the [default database and schema names](#database-and-schema-names).
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('+12345678901', 256)), 'phone_hash'));
-```
-
-Data provider solution query for a single hashed phone number:
-
-```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('+12345678901', 256)), 'phone_hash'));
+select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('+12345678901', 256)), 'phone_hash'));
 ```
 
 Query results for a single hashed phone number:
@@ -383,21 +320,11 @@ Query results for a single hashed phone number:
 
 #### Mapping Request Example - Multiple Hashed Phone Numbers
 
-The following queries illustrate how to map multiple phone number hashes, using the [default database and schema names](#database-and-schema-names).
-
-Advertiser solution query for multiple hashed phone numbers:
+The following query illustrates how to map multiple phone number hashes, using the [default database and schema names](#database-and-schema-names).
 
 ```
 select a.ID, a.PHONE_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_IDENTITY_MAP(PHONE_HASH, 'phone_hash') t) m
-    on a.ID=m.ID;
-```
-
-Data provider solution query for multiple hashed phone numbers:
-
-```
-select a.ID, a.PHONE_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_IDENTITY_MAP(PHONE_HASH, 'phone_hash') t) m
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(PHONE_HASH, 'phone_hash') t) m
     on a.ID=m.ID;
 ```
 
@@ -417,7 +344,7 @@ The following table identifies each item in the response, including `NULL` value
 
 ### Monitor for Salt Bucket Rotation and Regenerate Raw UID2s
 
-The `UID2_SALT_BUCKETS` view query returns the date and time when the second-level salt buckets were last updated. Second-level salt is used when generating UID2s. When the salt in the bucket is updated, the previously generated UID2 becomes outdated and doesn’t match the UID2 generated by other parties for the same user.
+The `SALT_BUCKETS` view query returns the date and time when the salt buckets for the raw UID2s were last updated. A salt value is used when generating UID2s. When the salt in the bucket is updated, the previously generated UID2 becomes outdated and doesn’t match the UID2 generated by other parties for the same user.
 
 To determine which UID2s need regeneration, compare the timestamps of when they were generated to the most recent timestamp of the second-level salt bucket update.
 
@@ -451,7 +378,7 @@ Advertiser solution query:
 
 ```
 select a.*, b.LAST_SALT_UPDATE_UTC
-  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_ADV_SH.ADV.UID2_SALT_BUCKETS b
+  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_UID_SH.UID.UID2_SALT_BUCKETS b
   on a.BUCKET_ID=b.BUCKET_ID
   where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
 ```
@@ -460,7 +387,7 @@ Data provider solution query:
 
 ```
 select a.*, b.LAST_SALT_UPDATE_UTC
-  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_DP_SH.DP.UID2_SALT_BUCKETS b
+  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_UID_SH.UID.UID2_SALT_BUCKETS b
   on a.BUCKET_ID=b.BUCKET_ID
   where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
 ```
@@ -532,13 +459,13 @@ The following queries illustrate how to encrypt a single raw UID2 to a UID2 toke
 Advertiser solution query for a single raw UID2:
 
 ```
-select UID2_TOKEN, ENCRYPTION_STATUS from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_ENCRYPT('2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU='));
+select UID2_TOKEN, ENCRYPTION_STATUS from table(UID2_PROD_UID_SH.UID.FN_T_UID2_ENCRYPT('2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU='));
 ```
 
 Data provider solution query for a single raw UID2:
 
 ```
-select UID2_TOKEN, ENCRYPTION_STATUS from table(UID2_PROD_DP_SH.DP.FN_T_UID2_ENCRYPT('2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU='));
+select UID2_TOKEN, ENCRYPTION_STATUS from table(UID2_PROD_UID_SH.UID.FN_T_UID2_ENCRYPT('2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU='));
 ```
 
 Query results for a single raw UID2:
@@ -558,13 +485,13 @@ The following queries illustrate how to encrypt multiple raw UID2s, using the [d
 Advertiser solution query for multiple raw UID2s:
 
 ```
-select a.RAW_UID2, t.UID2_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_ENCRYPT(a.RAW_UID2) t;
+select a.RAW_UID2, t.UID2_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, lateral UID2_PROD_UID_SH.UID.FN_T_UID2_ENCRYPT(a.RAW_UID2) t;
 ```
 
 Data provider solution query for multiple raw UID2s:
 
 ```
-select a.RAW_UID2, t.UID2_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_ENCRYPT(a.RAW_UID2) t;
+select a.RAW_UID2, t.UID2_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, lateral UID2_PROD_UID_SH.UID.FN_T_UID2_ENCRYPT(a.RAW_UID2) t;
 ```
 
 Query results for multiple raw UID2s:
@@ -619,13 +546,13 @@ The following queries illustrate how to decrypt a single UID2 token to a raw UID
 Advertiser solution query for a single UID2 token:
 
 ```
-select UID2, SITE_ID, DECRYPTION_STATUS from table(UID2_PROD_ADV_SH.ADV.FN_T_UID2_DECRYPT('A41234<rest of token>'));
+select UID2, SITE_ID, DECRYPTION_STATUS from table(UID2_PROD_UID_SH.UID.FN_T_UID2_DECRYPT('A41234<rest of token>'));
 ```
 
 Data provider solution query for a single raw UID2:
 
 ```
-select UID2, SITE_ID, DECRYPTION_STATUS from table(UID2_PROD_DP_SH.DP.FN_T_UID2_DECRYPT('A41234<rest of token>'));
+select UID2, SITE_ID, DECRYPTION_STATUS from table(UID2_PROD_UID_SH.UID.FN_T_UID2_DECRYPT('A41234<rest of token>'));
 ```
 
 Query results for a single UID2 token:
@@ -647,7 +574,7 @@ Advertiser solution query for multiple raw UID2s:
 ```
 select a.ID, b.UID2, b.SITE_ID, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
   from TEST_IMPRESSION_DATA a LEFT OUTER JOIN (
-    select ID, t.* from TEST_IMPRESSION_DATA, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_DECRYPT(UID2_TOKEN) t) b
+    select ID, t.* from TEST_IMPRESSION_DATA, lateral UID2_PROD_UID_SH.UID.FN_T_UID2_DECRYPT(UID2_TOKEN) t) b
   on a.ID=b.ID;
 ```
 
@@ -656,7 +583,7 @@ Data provider solution query for multiple raw UID2s:
 ```
 select a.ID, b.UID2, b.SITE_ID, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
   from TEST_IMPRESSION_DATA a LEFT OUTER JOIN (
-    select ID, t.* from TEST_IMPRESSION_DATA, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_DECRYPT(UID2_TOKEN) t) b
+    select ID, t.* from TEST_IMPRESSION_DATA, lateral UID2_PROD_UID_SH.UID.FN_T_UID2_DECRYPT(UID2_TOKEN) t) b
   on a.ID=b.ID;
 ```
 
@@ -686,7 +613,7 @@ The following instructions provide an example of how sharing works for a sender 
  1. Create a new table named `AUDIENCE_WITH_UID2_TOKENS`.
  2. Encrypt the raw UID2s in the `AUDIENCE_WITH_UID2S` table and store the result in the `AUDIENCE_WITH_UID2_TOKENS` table. For example, the following query could help achieve this task:
     ```
-    insert into AUDIENCE_WITH_UID2_TOKENS select a.ID, t.UID2_TOKEN from AUDIENCE_WITH_UID2S a, lateral UID2_PROD_ADV_SH.ADV.FN_T_UID2_ENCRYPT(a.RAW_UID2) t;
+    insert into AUDIENCE_WITH_UID2_TOKENS select a.ID, t.UID2_TOKEN from AUDIENCE_WITH_UID2S a, lateral UID2_PROD_UID_SH.UID.FN_T_UID2_ENCRYPT(a.RAW_UID2) t;
     ```
  3. Create a secure share and grant it access to the `AUDIENCE_WITH_UID2_TOKENS` table.
  4. Grant the receiver access to the secure share.
@@ -704,7 +631,7 @@ To help prevent UID2 tokens from expiring during sharing, send the newly encrypt
     insert into RECEIVED_AUDIENCE_WITH_UID2
       select a.ID, b.UID2, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
         from AUDIENCE_WITH_UID2_TOKENS a LEFT OUTER JOIN (
-          select ID, t.* from AUDIENCE_WITH_UID2_TOKENS, lateral UID2_PROD_DP_SH.DP.FN_T_UID2_DECRYPT(UID2_TOKEN) t) b
+          select ID, t.* from AUDIENCE_WITH_UID2_TOKENS, lateral UID2_PROD_UID_SH.UID.FN_T_UID2_DECRYPT(UID2_TOKEN) t) b
         on a.ID=b.ID;
     ```
 
