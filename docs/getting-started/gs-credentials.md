@@ -19,9 +19,11 @@ Each UID2 <a href="../intro#participants">participant</a> needs at least one set
 
 ## Separate Credentials Per Environment/Role
 
-If you're using the integration environment as well as the production environment, you'll get a separate set of credentials for each environment. See [Getting Your Credentials](#getting-your-credentials).
+If you're using the integration <Link href="../ref-info/glossary-uid#gl-environment">environment</Link> as well as the production environment, you'll get a separate set of credentials for each environment. See [Getting Your Credentials](#getting-your-credentials).
 
-In addition, in some cases, we recommend, but do not require, that you have a different set of credentials for a different scenario. For example, if you're a publisher, but also map data on your own behalf, you might have separate credentials for each of these activities.
+In addition, in some cases, we recommend, but do not require, that you have a different set of credentials for a different scenario. For example:
+- If you're a publisher who generates UID2 tokens (via [POST /token/generate](../endpoints/post-token-generate.md) or in some other way), but you also create/map raw UID2s on your own behalf (see [POST /identity/map](../endpoints/post-identity-map.md)), you might have separate credentials for each of these activities.
+- If you're an advertiser, in a scenario where you allow multiple service providers to operate using your advertiser keys, you might choose to have separate credentials for each service provider.
 
 ## Getting Your Credentials
 
@@ -88,7 +90,7 @@ Notes:
 
 - Unlike the API key and client secret, the Subscription ID and public key do not have to be kept secure.
 
-- The values are valid for a specific [environment](gs-environments.md). If you're using both the integration and production environments, you'll get a set of credentials for each environment.
+- The values are valid for a specific environment. If you're using both the integration and production environments, you'll get a set of credentials for each environment.
 
 - Subscription ID and public key credentials can be used only to generate client-side tokens. If you need any additional roles (see [API Permissions](gs-permissions.md)), request API Key and Client Secret for those roles.
 

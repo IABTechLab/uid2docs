@@ -31,9 +31,9 @@ This plugin is in the following open-source GitHub repository:
 
 To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-When initial account setup is complete, you'll receive instructions and a link to access the UID2 Portal, where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+When initial account setup is complete, if you're a publisher, advertiser, or data provider, you'll receive instructions and a link to access the UID2 Portal, where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
 
-The steps you'll take in the UID2 Portal are different depending on whether your implementation will be client-side, client-server, or server-side. Specific instructions are in each implementation guide.
+The steps you'll take in the UID2 Portal are different depending on whether your implementation will be client-side, client-server, or server-side. Specific instructions are in each implementation guide. For a summary, see [Client-Side or Client-Server Integration?](integration-mobile-overview#client-side-or-client-server-integration).
 
 ## Requirements 
 

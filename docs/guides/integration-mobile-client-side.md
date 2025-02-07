@@ -199,7 +199,7 @@ If necessary, you can also change the default Subscription ID and public key to 
 
 To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-When initial account setup is complete, you'll receive instructions and a link to access the UID2 Portal, where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values that you'll need to provide. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+When initial account setup is complete, if you're a publisher, advertiser, or data provider, you'll receive instructions and a link to access the UID2 Portal, where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values that you'll need to provide. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
 
 For a mobile client-side integration you'll need to set up these values, in the UID2 Portal on the [Client-Side Integration](../portal/client-side-integration.md) page:
 
@@ -228,7 +228,7 @@ At this point, you are ready to start generating UID2 tokens using the SDK.
 
 ### Using the UID2 Integration Environment
 
-By default, the SDK is configured to work with the UID2 production environment: `https://prod.uidapi.com`. If you want to use the UID2 integration environment instead (for credentials, see [../getting-started/Getting Your Credentials](gs-credentials.md#getting-your-credentials)), provide the following URL in your call to initialize `UID2Manager`:
+By default, the SDK is configured to work with the UID2 production environment: `https://prod.uidapi.com`. If you want to use the UID2 integration environment instead (for credentials, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials)), provide the following URL in your call to initialize `UID2Manager`:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
