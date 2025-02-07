@@ -36,7 +36,7 @@ Prebid と UID2 のインテグレーション方法に関する情報は、以�
 
 <!-- ## Integration Example
 
-GWH note 12/14/23: We have client-side and server-side examples for JS SDK but only server-side for Prebid. -->
+GWH note 12/14/23 updated 2/7/25: we have a client-side example for Prebid.js but no client-server example. -->
 
 ## Integration Overview: High-Level Steps
 
