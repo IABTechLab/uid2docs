@@ -109,7 +109,7 @@ The following sections include query examples for each solution, which are ident
 ```
 For example:
 ```
-select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTITY_MAP('validate@example.com', 'email'));
+select UID, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP('validate@example.com', 'email'));
 ```
 
 All query examples use the following default values for each name variable:
@@ -173,14 +173,14 @@ The input and output data in these examples is fictitious, for illustrative purp
 The following query illustrates how to map a single email address, using the [default database and schema names](#database-and-schema-names).
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP('validate@example.com', 'email'));
+select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP('validate@example.com', 'email'));
 ```
 
 Query results for a single email:
 
 ```
 +----------------------------------------------+------------+----------+
-| UID2                                         | BUCKET_ID  | UNMAPPED |
+| UID                                          | BUCKET_ID  | UNMAPPED |
 +----------------------------------------------+------------+----------+
 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL     |
 +----------------------------------------------+------------+----------+
@@ -191,7 +191,7 @@ Query results for a single email:
 The following query illustrates how to map multiple email addresses, using the [default database and schema names](#database-and-schema-names).
 
 ```
-select a.ID, a.EMAIL, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+select a.ID, a.EMAIL, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
     select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(EMAIL, 'email') t) m
     on a.ID=m.ID;
 ```
@@ -202,7 +202,7 @@ The following table identifies each item in the response, including `NULL` value
 
 ```sh
 +----+----------------------+----------------------------------------------+------------+--------------------+
-| ID | EMAIL                | UID2                                         | BUCKET_ID  | UNMAPPED           |
+| ID | EMAIL                | UID                                          | BUCKET_ID  | UNMAPPED           |
 +----+----------------------+----------------------------------------------+------------+--------------------+
 |  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
 |  2 | test@uidapi.com      | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
@@ -218,14 +218,14 @@ The following query illustrates how to map a phone number, using the [default da
 You must normalize phone numbers using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP('+12345678901', 'phone'));
+select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP('+12345678901', 'phone'));
 ```
 
 Query results for a single phone number:
 
 ```
 +----------------------------------------------+------------+----------+
-| UID2                                         | BUCKET_ID  | UNMAPPED |
+| UID                                          | BUCKET_ID  | UNMAPPED |
 +----------------------------------------------+------------+----------+
 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL     |
 +----------------------------------------------+------------+----------+
@@ -238,7 +238,7 @@ The following query illustrates how to map multiple phone numbers, using the [de
 You must normalize phone numbers using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
 ```
-select a.ID, a.PHONE, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+select a.ID, a.PHONE, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
     select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(PHONE, 'phone') t) m
     on a.ID=m.ID;
 ```
@@ -249,7 +249,7 @@ The following table identifies each item in the response, including `NULL` value
 
 ```
 +----+--------------+----------------------------------------------+------------+--------------------+
-| ID | PHONE        | UID2                                         | BUCKET_ID  | UNMAPPED           |
+| ID | PHONE        | UID                                          | BUCKET_ID  | UNMAPPED           |
 +----+--------------+----------------------------------------------+------------+--------------------+
 |  1 | +12345678901 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
 |  2 | +61491570006 | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
@@ -263,14 +263,14 @@ The following table identifies each item in the response, including `NULL` value
 The following query illustrates how to map a single email address hash, using the [default database and schema names](#database-and-schema-names).
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@example.com', 256)), 'email_hash'));
+select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@example.com', 256)), 'email_hash'));
 ```
 
 Query results for a single hashed email:
 
 ```
 +----------------------------------------------+------------+----------+
-| UID2                                         | BUCKET_ID  | UNMAPPED |
+| UID                                          | BUCKET_ID  | UNMAPPED |
 +----------------------------------------------+------------+----------+
 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL     |
 +----------------------------------------------+------------+----------+
@@ -281,7 +281,7 @@ Query results for a single hashed email:
 The following query illustrates how to map multiple email address hashes, using the [default database and schema names](#database-and-schema-names).
 
 ```
-select a.ID, a.EMAIL_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+select a.ID, a.EMAIL_HASH, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
     select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(EMAIL_HASH, 'email_hash') t) m
     on a.ID=m.ID;
 ```
@@ -292,7 +292,7 @@ The following table identifies each item in the response, including `NULL` value
 
 ```
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
-| ID | EMAIL_HASH                                   | UID2                                         | BUCKET_ID  | UNMAPPED           |
+| ID | EMAIL_HASH                                   | UID                                          | BUCKET_ID  | UNMAPPED           |
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
 |  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
 |  2 | NULL                                         | NULL                                         | NULL       | INVALID IDENTIFIER |
@@ -305,14 +305,14 @@ The following table identifies each item in the response, including `NULL` value
 The following query illustrates how to map a single phone number hash, using the [default database and schema names](#database-and-schema-names).
 
 ```
-select UID2, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('+12345678901', 256)), 'phone_hash'));
+select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('+12345678901', 256)), 'phone_hash'));
 ```
 
 Query results for a single hashed phone number:
 
 ```
 +----------------------------------------------+------------+----------+
-| UID2                                         | BUCKET_ID  | UNMAPPED |
+| UID                                          | BUCKET_ID  | UNMAPPED |
 +----------------------------------------------+------------+----------+
 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL     |
 +----------------------------------------------+------------+----------+
@@ -323,7 +323,7 @@ Query results for a single hashed phone number:
 The following query illustrates how to map multiple phone number hashes, using the [default database and schema names](#database-and-schema-names).
 
 ```
-select a.ID, a.PHONE_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+select a.ID, a.PHONE_HASH, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
     select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(PHONE_HASH, 'phone_hash') t) m
     on a.ID=m.ID;
 ```
@@ -334,7 +334,7 @@ The following table identifies each item in the response, including `NULL` value
 
 ```
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
-| ID | PHONE_HASH                                   | UID2                                         | BUCKET_ID  | UNMAPPED           |
+| ID | PHONE_HASH                                   | UID                                          | BUCKET_ID  | UNMAPPED           |
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
 |  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
 |  2 | NULL                                         | NULL                                         | NULL       | INVALID IDENTIFIER |
@@ -481,20 +481,18 @@ The following table identifies each item in the response, including `NULL` value
 
 ### Decrypt Tokens
 
-To decrypt UID2 tokens to raw UID2s, use the `FN_T_UID2_DECRYPT` function. Use the applicable prefix to indicate your role:
-- For advertisers: `ADV.FN_T_UID2_DECRYPT`
-- For data providers: `DP.FN_T_UID2_DECRYPT`
+To decrypt UID2 tokens to raw UID2s, use the `FN_T_DECRYPT` function. Use the applicable prefix to indicate your role:
 
-|Argument|Data Type|Description|
-| :--- | :--- | :--- |
-| `UID2_TOKEN` | varchar(512) | The UID2 token to decrypt to a raw UID2. |
+| Argument    | Data Type    | Description                              |
+|:------------|:-------------|:-----------------------------------------|
+| `UID_TOKEN` | varchar(512) | The UID2 token to decrypt to a raw UID2. |
 
 A successful query returns the following information for the specified UID2 token.
 
-|Column Name|Data Type|Description|
-| :--- | :--- | :--- |
-| `UID2` | TEXT | The value is one of the following:<ul><li>Decryption successful: The raw UID2 corresponding to the UID2 token.</li><li>Decryption not successful: `NULL`.</li></ul> |
-| `SITE_ID` | INT | The value is one of the following:<ul><li>Decryption successful: The identifier of the UID2 participant that encrypted the token.</li><li>Decryption not successful: `NULL`.</li></ul> |
+| Column Name         |Data Type|Description|
+|:--------------------| :--- | :--- |
+| `UID`               | TEXT | The value is one of the following:<ul><li>Decryption successful: The raw UID2 corresponding to the UID2 token.</li><li>Decryption not successful: `NULL`.</li></ul> |
+| `SITE_ID`           | INT | The value is one of the following:<ul><li>Decryption successful: The identifier of the UID2 participant that encrypted the token.</li><li>Decryption not successful: `NULL`.</li></ul> |
 | `DECRYPTION_STATUS` | TEXT | The value is one of the following:<ul><li>Decryption successful: `NULL`.</li><li>Decryption not successful:  The reason why the UID2 token was not decrypted; for example, `EXPIRED_TOKEN`.<br/>For details, see [Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column).</li></ul> |
 
 :::note
@@ -512,25 +510,17 @@ Possible values for `DECRYPTION_STATUS` are:
 
 #### Decrypt Token Request Example&#8212;Single UID2 Token
 
-The following queries illustrate how to decrypt a single UID2 token to a raw UID2, using the [default database and schema names](#database-and-schema-names).
-
-Advertiser solution query for a single UID2 token:
+The following query illustrates how to decrypt a single UID2 token to a raw UID2, using the [default database and schema names](#database-and-schema-names).
 
 ```
-select UID2, SITE_ID, DECRYPTION_STATUS from table(UID2_PROD_UID_SH.UID.FN_T_UID2_DECRYPT('A41234<rest of token>'));
-```
-
-Data provider solution query for a single raw UID2:
-
-```
-select UID2, SITE_ID, DECRYPTION_STATUS from table(UID2_PROD_UID_SH.UID.FN_T_UID2_DECRYPT('A41234<rest of token>'));
+select UID, SITE_ID, DECRYPTION_STATUS from table(UID2_PROD_UID_SH.UID.FN_T_DECRYPT('A41234<rest of token>'));
 ```
 
 Query results for a single UID2 token:
 
 ```
 +----------------------------------------------+-------------------+
-| UID2                                         | DECRYPTION_STATUS |
+| UID                                          | DECRYPTION_STATUS |
 +----------------------------------------------+-------------------+
 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL              |
 +----------------------------------------------+-------------------+
@@ -538,23 +528,12 @@ Query results for a single UID2 token:
 
 #### Decrypt Token Request Example&#8212;Multiple UID2 Tokens
 
-The following queries illustrate how to decrypt multiple UID2 tokens, using the [default database and schema names](#database-and-schema-names).
-
-Advertiser solution query for multiple raw UID2s:
+The following query illustrates how to decrypt multiple UID2 tokens, using the [default database and schema names](#database-and-schema-names).
 
 ```
-select a.ID, b.UID2, b.SITE_ID, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
+select a.ID, b.UID, b.SITE_ID, CASE WHEN b.UID IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
   from TEST_IMPRESSION_DATA a LEFT OUTER JOIN (
-    select ID, t.* from TEST_IMPRESSION_DATA, lateral UID2_PROD_UID_SH.UID.FN_T_UID2_DECRYPT(UID2_TOKEN) t) b
-  on a.ID=b.ID;
-```
-
-Data provider solution query for multiple raw UID2s:
-
-```
-select a.ID, b.UID2, b.SITE_ID, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
-  from TEST_IMPRESSION_DATA a LEFT OUTER JOIN (
-    select ID, t.* from TEST_IMPRESSION_DATA, lateral UID2_PROD_UID_SH.UID.FN_T_UID2_DECRYPT(UID2_TOKEN) t) b
+    select ID, t.* from TEST_IMPRESSION_DATA, lateral UID2_PROD_UID_SH.UID.FN_T_DECRYPT(UID_TOKEN) t) b
   on a.ID=b.ID;
 ```
 
@@ -564,7 +543,7 @@ The following table identifies each item in the response, including `NULL` value
 
 ```
 +----+----------------------------------------------+----------+-------------------+
-| ID | UID2                                         | SITE_ID  | DECRYPTION_STATUS |
+| ID | UID                                          | SITE_ID  | DECRYPTION_STATUS |
 +----+----------------------------------------------+----------+-------------------+
 |  1 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | 12345    | NULL              |
 |  2 | NULL                                         | NULL     | DECRYPT_FAILED    |
@@ -577,14 +556,14 @@ The following table identifies each item in the response, including `NULL` value
 ### UID2 Sharing Example
 
 The following instructions provide an example of how sharing works for a sender and a receiver both using Snowflake. In this example scenario an advertiser (the sender) has an audience table with raw UID2s
-(`AUDIENCE_WITH_UID2`) and wants to make data in the table available to a data provider (the receiver) using the [Snowflake Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) feature.
+(`AUDIENCE_WITH_UID2S`) and wants to make data in the table available to a data provider (the receiver) using the [Snowflake Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) feature.
 
 #### Sender Instructions
 
  1. Create a new table named `AUDIENCE_WITH_UID2_TOKENS`.
  2. Encrypt the raw UID2s in the `AUDIENCE_WITH_UID2S` table and store the result in the `AUDIENCE_WITH_UID2_TOKENS` table. For example, the following query could help achieve this task:
     ```
-    insert into AUDIENCE_WITH_UID2_TOKENS select a.ID, t.UID2_TOKEN from AUDIENCE_WITH_UID2S a, lateral UID2_PROD_UID_SH.UID.FN_T_UID2_ENCRYPT(a.RAW_UID2) t;
+    insert into AUDIENCE_WITH_UID2_TOKENS select a.ID, t.UID_TOKEN from AUDIENCE_WITH_UID2S a, lateral UID2_PROD_UID_SH.UID.FN_T_ENCRYPT(a.RAW_UID2) t;
     ```
  3. Create a secure share and grant it access to the `AUDIENCE_WITH_UID2_TOKENS` table.
  4. Grant the receiver access to the secure share.
@@ -600,9 +579,9 @@ To help prevent UID2 tokens from expiring during sharing, send the newly encrypt
  3. Decrypt tokens from the shared `AUDIENCE_WITH_UID2_TOKENS` table and store the result in the `RECEIVED_AUDIENCE_WITH_UID2` table. For example, the following query could be used to achieve this:
     ```
     insert into RECEIVED_AUDIENCE_WITH_UID2
-      select a.ID, b.UID2, CASE WHEN b.UID2 IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
+      select a.ID, b.UID, CASE WHEN b.UID IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
         from AUDIENCE_WITH_UID2_TOKENS a LEFT OUTER JOIN (
-          select ID, t.* from AUDIENCE_WITH_UID2_TOKENS, lateral UID2_PROD_UID_SH.UID.FN_T_UID2_DECRYPT(UID2_TOKEN) t) b
+          select ID, t.* from AUDIENCE_WITH_UID2_TOKENS, lateral UID2_PROD_UID_SH.UID.FN_T_DECRYPT(UID_TOKEN) t) b
         on a.ID=b.ID;
     ```
 
