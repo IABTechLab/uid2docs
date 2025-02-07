@@ -374,20 +374,9 @@ select * from AUDIENCE_WITH_UID2;
 
 To find missing or outdated UID2s, use the following query examples, which use the [default database and schema names](#database-and-schema-names).
 
-Advertiser solution query:
-
 ```
 select a.*, b.LAST_SALT_UPDATE_UTC
-  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_UID_SH.UID.UID2_SALT_BUCKETS b
-  on a.BUCKET_ID=b.BUCKET_ID
-  where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
-```
-
-Data provider solution query:
-
-```
-select a.*, b.LAST_SALT_UPDATE_UTC
-  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_UID_SH.UID.UID2_SALT_BUCKETS b
+  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_UID_SH.UID.SALT_BUCKETS b
   on a.BUCKET_ID=b.BUCKET_ID
   where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
 ```
@@ -424,9 +413,7 @@ The following activities support tokenized sharing:
 
 ### Encrypt Tokens
 
-To encrypt raw UID2s to UID2 tokens, use the `FN_T_UID2_ENCRYPT` function. Use the applicable prefix to indicate your role:
-- For advertisers: `ADV.FN_T_UID2_ENCRYPT`
-- For data providers: `DP.FN_T_UID2_ENCRYPT`
+To encrypt raw UID2s to UID2 tokens, use the `FN_T_ENCRYPT` function.
 
 |Argument|Data Type|Description|
 | :--- | :--- | :--- |
@@ -436,7 +423,7 @@ A successful query returns the following information for the specified raw UID2.
 
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
-| `UID2_TOKEN` | TEXT | The value is one of the following:<ul><li>Encryption successful: The UID2 token containing the raw UID2.</li><li>Encryption not successful: `NULL`.</li></ul> |
+| `UID_TOKEN` | TEXT | The value is one of the following:<ul><li>Encryption successful: The UID2 token containing the raw UID2.</li><li>Encryption not successful: `NULL`.</li></ul> |
 | `ENCRYPTION_STATUS` | TEXT | The value is one of the following:<ul><li>Encryption successful: `NULL`.</li><li>Encryption not successful: The reason why the raw UID2 was not encrypted. For example: `INVALID_RAW_UID2` or `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`.<br/>For details, see [Values for the ENCRYPTION_STATUS Column](#values-for-the-encryption_status-column).</li></ul> |
 
 #### Values for the ENCRYPTION_STATUS Column
@@ -454,25 +441,17 @@ The following table shows possible values for the `ENCRYPTION_STATUS` column.
 
 #### Encrypt Token Request Example - Single Raw UID2
 
-The following queries illustrate how to encrypt a single raw UID2 to a UID2 token, using the [default database and schema names](#database-and-schema-names).
-
-Advertiser solution query for a single raw UID2:
+The following query illustrates how to encrypt a single raw UID2 to a UID2 token, using the [default database and schema names](#database-and-schema-names).
 
 ```
-select UID2_TOKEN, ENCRYPTION_STATUS from table(UID2_PROD_UID_SH.UID.FN_T_UID2_ENCRYPT('2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU='));
-```
-
-Data provider solution query for a single raw UID2:
-
-```
-select UID2_TOKEN, ENCRYPTION_STATUS from table(UID2_PROD_UID_SH.UID.FN_T_UID2_ENCRYPT('2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU='));
+select UID_TOKEN, ENCRYPTION_STATUS from table(UID2_PROD_UID_SH.UID.FN_T_ENCRYPT('2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU='));
 ```
 
 Query results for a single raw UID2:
 
 ```
 +------------------------+-------------------+
-| UID2_TOKEN             | ENCRYPTION_STATUS |
+| UID_TOKEN              | ENCRYPTION_STATUS |
 +--------------------------------------------+
 | A41234<rest of token>  | NULL              |
 +--------------------------------------------+
@@ -480,18 +459,10 @@ Query results for a single raw UID2:
 
 #### Encrypt Token Request Example - Multiple Raw UID2s
 
-The following queries illustrate how to encrypt multiple raw UID2s, using the [default database and schema names](#database-and-schema-names).
-
-Advertiser solution query for multiple raw UID2s:
+The following query illustrates how to encrypt multiple raw UID2s, using the [default database and schema names](#database-and-schema-names).
 
 ```
-select a.RAW_UID2, t.UID2_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, lateral UID2_PROD_UID_SH.UID.FN_T_UID2_ENCRYPT(a.RAW_UID2) t;
-```
-
-Data provider solution query for multiple raw UID2s:
-
-```
-select a.RAW_UID2, t.UID2_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, lateral UID2_PROD_UID_SH.UID.FN_T_UID2_ENCRYPT(a.RAW_UID2) t;
+select a.RAW_UID2, t.UID_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, lateral UID2_PROD_UID_SH.UID.FN_T_ENCRYPT(a.RAW_UID2) t;
 ```
 
 Query results for multiple raw UID2s:
@@ -500,7 +471,7 @@ The following table identifies each item in the response, including `NULL` value
 
 ```
 +----+----------------------------------------------+-----------------------+-----------------------------+
-| ID | RAW_UID2                                     | UID2_TOKEN            | ENCRYPTION_STATUS           |
+| ID | RAW_UID2                                     | UID_TOKEN             | ENCRYPTION_STATUS           |
 +----+----------------------------------------------+-----------------------+-----------------------------+
 |  1 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | A41234<rest of token> | NULL                        |
 |  2 | NULL                                         | NULL                  | MISSING_OR_INVALID_RAW_UID2 |
