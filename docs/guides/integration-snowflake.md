@@ -108,7 +108,7 @@ The following sections include query examples for each solution, which are ident
 {DATABASE_NAME}.{SCHEMA_NAME}
 ```
 For example:
-```
+```sql
 select UID, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP('validate@example.com', 'email'));
 ```
 
@@ -172,7 +172,7 @@ The input and output data in these examples is fictitious, for illustrative purp
 
 The following query illustrates how to map a single email address, using the [default database and schema names](#database-and-schema-names).
 
-```
+```sql
 select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP('validate@example.com', 'email'));
 ```
 
@@ -190,7 +190,7 @@ Query results for a single email:
 
 The following query illustrates how to map multiple email addresses, using the [default database and schema names](#database-and-schema-names).
 
-```
+```sql
 select a.ID, a.EMAIL, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
     select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(EMAIL, 'email') t) m
     on a.ID=m.ID;
@@ -217,7 +217,7 @@ The following query illustrates how to map a phone number, using the [default da
 
 You must normalize phone numbers using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
-```
+```sql
 select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP('+12345678901', 'phone'));
 ```
 
@@ -237,7 +237,7 @@ The following query illustrates how to map multiple phone numbers, using the [de
 
 You must normalize phone numbers using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
-```
+```sql
 select a.ID, a.PHONE, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
     select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(PHONE, 'phone') t) m
     on a.ID=m.ID;
@@ -262,7 +262,7 @@ The following table identifies each item in the response, including `NULL` value
 
 The following query illustrates how to map a single email address hash, using the [default database and schema names](#database-and-schema-names).
 
-```
+```sql
 select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@example.com', 256)), 'email_hash'));
 ```
 
@@ -280,7 +280,7 @@ Query results for a single hashed email:
 
 The following query illustrates how to map multiple email address hashes, using the [default database and schema names](#database-and-schema-names).
 
-```
+```sql
 select a.ID, a.EMAIL_HASH, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
     select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(EMAIL_HASH, 'email_hash') t) m
     on a.ID=m.ID;
@@ -304,7 +304,7 @@ The following table identifies each item in the response, including `NULL` value
 
 The following query illustrates how to map a single phone number hash, using the [default database and schema names](#database-and-schema-names).
 
-```
+```sql
 select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('+12345678901', 256)), 'phone_hash'));
 ```
 
@@ -322,7 +322,7 @@ Query results for a single hashed phone number:
 
 The following query illustrates how to map multiple phone number hashes, using the [default database and schema names](#database-and-schema-names).
 
-```
+```sql
 select a.ID, a.PHONE_HASH, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
     select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(PHONE_HASH, 'phone_hash') t) m
     on a.ID=m.ID;
@@ -359,7 +359,7 @@ The following example shows an input table and the query used to find the UID2s 
 
 In this example scenario, the advertiser/data provider has stored the UID2s in a table named `AUDIENCE_WITH_UID2`. The last column, `LAST_UID2_UPDATE_UTC`, is used to record the time at which a UID2 was generated. If no UID2 has been generated, the value is `NULL`, as shown in the third example. The advertiser/data provider can use this timestamp value to determine which UID2s need to be regenerated.
 
-```
+```sql
 select * from AUDIENCE_WITH_UID2;
 ```
 ```
@@ -374,7 +374,7 @@ select * from AUDIENCE_WITH_UID2;
 
 To find missing or outdated UID2s, use the following query examples, which use the [default database and schema names](#database-and-schema-names).
 
-```
+```sql
 select a.*, b.LAST_SALT_UPDATE_UTC
   from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_UID_SH.UID.SALT_BUCKETS b
   on a.BUCKET_ID=b.BUCKET_ID
@@ -443,7 +443,7 @@ The following table shows possible values for the `ENCRYPTION_STATUS` column.
 
 The following query illustrates how to encrypt a single raw UID2 to a UID2 token, using the [default database and schema names](#database-and-schema-names).
 
-```
+```sql
 select UID_TOKEN, ENCRYPTION_STATUS from table(UID2_PROD_UID_SH.UID.FN_T_ENCRYPT('2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU='));
 ```
 
@@ -461,7 +461,7 @@ Query results for a single raw UID2:
 
 The following query illustrates how to encrypt multiple raw UID2s, using the [default database and schema names](#database-and-schema-names).
 
-```
+```sql
 select a.RAW_UID2, t.UID_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, lateral UID2_PROD_UID_SH.UID.FN_T_ENCRYPT(a.RAW_UID2) t;
 ```
 
@@ -512,7 +512,7 @@ Possible values for `DECRYPTION_STATUS` are:
 
 The following query illustrates how to decrypt a single UID2 token to a raw UID2, using the [default database and schema names](#database-and-schema-names).
 
-```
+```sql
 select UID, SITE_ID, DECRYPTION_STATUS from table(UID2_PROD_UID_SH.UID.FN_T_DECRYPT('A41234<rest of token>'));
 ```
 
@@ -530,7 +530,7 @@ Query results for a single UID2 token:
 
 The following query illustrates how to decrypt multiple UID2 tokens, using the [default database and schema names](#database-and-schema-names).
 
-```
+```sql
 select a.ID, b.UID, b.SITE_ID, CASE WHEN b.UID IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
   from TEST_IMPRESSION_DATA a LEFT OUTER JOIN (
     select ID, t.* from TEST_IMPRESSION_DATA, lateral UID2_PROD_UID_SH.UID.FN_T_DECRYPT(UID_TOKEN) t) b
@@ -562,7 +562,7 @@ The following instructions provide an example of how sharing works for a sender 
 
  1. Create a new table named `AUDIENCE_WITH_UID2_TOKENS`.
  2. Encrypt the raw UID2s in the `AUDIENCE_WITH_UID2S` table and store the result in the `AUDIENCE_WITH_UID2_TOKENS` table. For example, the following query could help achieve this task:
-    ```
+    ```sql
     insert into AUDIENCE_WITH_UID2_TOKENS select a.ID, t.UID_TOKEN from AUDIENCE_WITH_UID2S a, lateral UID2_PROD_UID_SH.UID.FN_T_ENCRYPT(a.RAW_UID2) t;
     ```
  3. Create a secure share and grant it access to the `AUDIENCE_WITH_UID2_TOKENS` table.
@@ -577,7 +577,7 @@ To help prevent UID2 tokens from expiring during sharing, send the newly encrypt
  1. Create a database from the secure share that the sender provided access to.
  2. Create a new table named `RECEIVED_AUDIENCE_WITH_UID2`.
  3. Decrypt tokens from the shared `AUDIENCE_WITH_UID2_TOKENS` table and store the result in the `RECEIVED_AUDIENCE_WITH_UID2` table. For example, the following query could be used to achieve this:
-    ```
+    ```sql
     insert into RECEIVED_AUDIENCE_WITH_UID2
       select a.ID, b.UID, CASE WHEN b.UID IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
         from AUDIENCE_WITH_UID2_TOKENS a LEFT OUTER JOIN (
@@ -591,4 +591,109 @@ To help prevent UID2 tokens from expiring, decrypt the UID2 tokens as soon as th
 
 ## Migration Guide
 
-**GWH__AQ TODO: INSTRUCTIONS FOR MIGRATING FROM PREVIOUS VERSION.**
+### Access the new data share
+Access the new data share by following instructions at [access the uid2 shares](#access-the-uid2-shares).
+
+### Changing Existing Code
+
+The changes to the snowflake functions are summarized in the table below:
+| Old function | New function | Fields in old function | Fields in new function | Comments |
+| :-- | :-- | :-- | :-- | :-- |
+| `FN_T_UID2_IDENTITY_MAP` | `FN_T_IDENTITY_MAP` | `UID2` | `UID` | For more information about this function see section [Map DII](#map-dii)|
+| `FN_T_UID2_ENCRYPT` | `FN_T_ENCRYPT` | `UID2_TOKEN` | `UID_TOKEN` | For more information about this function see section [Encrypt Tokens](#encrypt-tokens)|
+| `FN_T_UID2_DECRYPT` | `FN_T_DECRYPT` | `UID2_TOKEN` | `UID_TOKEN` | For more information about this function see section [Decrypt Tokens](#decrypt-tokens)|
+
+The changes to the snowflake views are :
+| Old view | New view | Comments |
+| :-- | :-- | :-- |
+| `UID2_SALT_BUCKETS` | `SALT_BUCKETS` | For more information about this view see section [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s)|
+
+:::note
+These changes assume that your code integration is with the previous version of snowflake functions as mentioned in [Snowflake Integration Guide (Earlier Listings)](integration-snowflake-previous.md).
+:::
+<!--**__AQ__**
+My intention with the note above is to convey that if clients are using the oldest version of snowflake i.e. functions like
+FN_T_UID2_IDENTITY_MAP_EMAIL_HASH and FN_T_UID2_IDENTITY_MAP_PHONE_HASH, then client will be confused after seeing the
+"old function" `FN_T_UID2_IDENTITY_MAP` above.
+In this case the client should skip upgrading to the earlier version with function `FN_T_UID2_IDENTITY_MAP` and
+directly upgrade to the latest version. @Gen if you can help me convey the above.
+-->
+
+The code snippets in this section are before/after examples of how the earlier functions might be implemented, and how you could update to use the new function.
+
+#### Example for mapping unhashed emails
+
+Before:
+
+```sql
+select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTITY_MAP(EMAIL, 'email'));
+```
+
+After:
+
+```sql
+select UID, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP(EMAIL, 'email'));
+```
+
+#### Example for mapping unhashed phone numbers
+
+Before:
+
+```sql
+select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTITY_MAP(PHONE_NUMBER, 'phone'));
+```
+
+After:
+
+```sql
+select UID, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP(PHONE_NUMBER, 'phone'));
+```
+
+#### Example for Monitoring Salt Bucket Rotation and Regenerate Raw UID2s
+
+The following queries use the same example table `AUDIENCE_WITH_UID2` as mentioned in  [targeted input table](#targeted-input-table).
+
+Before:
+
+```sql
+select a.*, b.LAST_SALT_UPDATE_UTC
+  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN {DATABASE_NAME}.{SCHEMA_NAME}.UID2_SALT_BUCKETS b
+  on a.BUCKET_ID=b.BUCKET_ID
+  where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
+```
+
+After:
+
+```sql
+select a.*, b.LAST_SALT_UPDATE_UTC
+  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN {DATABASE_NAME}.{SCHEMA_NAME}.SALT_BUCKETS b
+  on a.BUCKET_ID=b.BUCKET_ID
+  where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
+```
+
+#### Example for Token Encryption
+
+Before:
+
+```sql
+select UID2_TOKEN, ENCRYPTION_STATUS from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_ENCRYPT('2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU='));
+```
+
+After:
+
+```sql
+select UID_TOKEN, ENCRYPTION_STATUS from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_ENCRYPT('2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU='));
+```
+
+#### Example for Token Decryption
+
+Before:
+
+```sql
+select UID2, SITE_ID, DECRYPTION_STATUS from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_DECRYPT('A41234<rest of token>'));
+```
+
+After:
+```sql
+select UID, SITE_ID, DECRYPTION_STATUS from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_DECRYPT('A41234<rest of token>'));
+```
