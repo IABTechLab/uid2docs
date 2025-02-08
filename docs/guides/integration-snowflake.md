@@ -42,7 +42,29 @@ If you are a publisher who is sharing UID2 tokens in the <Link href="../ref-info
 
 The February, 2025 update to the UID2 Snowflake Marketplace integration includes the following updates and enhancements:
 
-**GWH__AQ TODO**
+The new snowflake integration includes a single listing and data share that combines the capabilities of previous separate data shares for Advertisers and Data Providers simplifying the integration for all participants.
+The changes to the snowflake functions are summarized in the table below:
+| Old function | New function | Fields in old function | Fields in new function | Comments |
+| :-- | :-- | :-- | :-- | :-- |
+| `FN_T_UID2_IDENTITY_MAP` | `FN_T_IDENTITY_MAP` | `UID2` | `UID` | For more information about this function see section [Map DII](#map-dii)|
+| `FN_T_UID2_ENCRYPT` | `FN_T_ENCRYPT` | `UID2_TOKEN` | `UID_TOKEN` | For more information about this function see section [Encrypt Tokens](#encrypt-tokens)|
+| `FN_T_UID2_DECRYPT` | `FN_T_DECRYPT` | `UID2_TOKEN` | `UID_TOKEN` | For more information about this function see section [Decrypt Tokens](#decrypt-tokens)|
+
+The changes to the snowflake views are :
+| Old view | New view | Comments |
+| :-- | :-- | :-- |
+| `UID2_SALT_BUCKETS` | `SALT_BUCKETS` | For more information about this view see section [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s)|
+
+:::note
+These changes assume that your code integration is with the previous version of snowflake functions as mentioned in [Snowflake Integration Guide (Earlier Listings)](integration-snowflake-previous.md).
+:::
+<!--**__AQ__**
+My intention with the note above is to convey that if clients are using the oldest version of snowflake i.e. functions like
+FN_T_UID2_IDENTITY_MAP_EMAIL_HASH and FN_T_UID2_IDENTITY_MAP_PHONE_HASH, then client will be confused after seeing the
+"old function" `FN_T_UID2_IDENTITY_MAP` above.
+In this case the client should skip upgrading to the earlier version with function `FN_T_UID2_IDENTITY_MAP` and
+directly upgrade to the latest version. @Gen if you can help me convey the above.
+-->
 
 ## Workflow Diagram
 
@@ -596,30 +618,7 @@ Access the new data share by following instructions at [access the uid2 shares](
 
 ### Changing Existing Code
 
-The changes to the snowflake functions are summarized in the table below:
-| Old function | New function | Fields in old function | Fields in new function | Comments |
-| :-- | :-- | :-- | :-- | :-- |
-| `FN_T_UID2_IDENTITY_MAP` | `FN_T_IDENTITY_MAP` | `UID2` | `UID` | For more information about this function see section [Map DII](#map-dii)|
-| `FN_T_UID2_ENCRYPT` | `FN_T_ENCRYPT` | `UID2_TOKEN` | `UID_TOKEN` | For more information about this function see section [Encrypt Tokens](#encrypt-tokens)|
-| `FN_T_UID2_DECRYPT` | `FN_T_DECRYPT` | `UID2_TOKEN` | `UID_TOKEN` | For more information about this function see section [Decrypt Tokens](#decrypt-tokens)|
-
-The changes to the snowflake views are :
-| Old view | New view | Comments |
-| :-- | :-- | :-- |
-| `UID2_SALT_BUCKETS` | `SALT_BUCKETS` | For more information about this view see section [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s)|
-
-:::note
-These changes assume that your code integration is with the previous version of snowflake functions as mentioned in [Snowflake Integration Guide (Earlier Listings)](integration-snowflake-previous.md).
-:::
-<!--**__AQ__**
-My intention with the note above is to convey that if clients are using the oldest version of snowflake i.e. functions like
-FN_T_UID2_IDENTITY_MAP_EMAIL_HASH and FN_T_UID2_IDENTITY_MAP_PHONE_HASH, then client will be confused after seeing the
-"old function" `FN_T_UID2_IDENTITY_MAP` above.
-In this case the client should skip upgrading to the earlier version with function `FN_T_UID2_IDENTITY_MAP` and
-directly upgrade to the latest version. @Gen if you can help me convey the above.
--->
-
-The code snippets in this section are before/after examples of how the earlier functions might be implemented, and how you could update to use the new function.
+To see a summary of what has changed, refer to section [Changes from Previous Version](#changes-from-previous-version). The code snippets in this section are before/after examples of how the earlier functions might be implemented, and how you could update to use the new function.
 
 #### Example for mapping unhashed emails
 
