@@ -55,7 +55,7 @@ If you are using Google Ad Manager and want to use the secure signals feature, f
 
 To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-When initial account setup is complete, if you're a publisher, advertiser, or data provider, you'll receive instructions and a link to access the UID2 Portal, where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
 
 For a client-server integration you'll need to set up these values, in the UID2 Portal on the [API Keys](../portal/api-keys.md) page:
 

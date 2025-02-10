@@ -42,9 +42,9 @@ To integrate with UID2, you'll need to have a UID2 account. If you haven't yet c
 
 ## API Permissions
 
-When initial account setup is complete, if you're a publisher, advertiser, or data provider, you'll receive instructions and a link to the [UID2 Portal](../portal/portal-overview.md), where you can:
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can:
 - Generate [credentials](../getting-started/gs-credentials.md) for your account.
-- Optional: For a client-side implementation, set up configuration values such as domain names.
+- Optional: For a client-side implementation, set up configuration values such as domain names or mobile app IDs.
 - Optionally, configure other values, such as setting up information about team members.
 
 The steps you'll take in the UID2 Portal are different depending on whether your implementation will be client-side, client-server, or server-side. For a summary of mobile integration options, see [Client-Side or Client-Server Integration?](../guides/integration-mobile-overview#client-side-or-client-server-integration).
