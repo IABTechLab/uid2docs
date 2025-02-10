@@ -37,7 +37,7 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 
 UID2 を Client-Side でインテグレーションするには、以下の手順を完了する必要があります:
 
-1. [Complete the UID2 account setup](#complete-the-uid2-account-setup).
+1. [Complete the UID2 account setup and configure account](#complete-uid2-account-setup-and-configure-account).
 
 1. [Add the UID2 mobile SDK to your mobile app](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 
@@ -190,7 +190,7 @@ see UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist
 
 必要に応じて、デフォルトの Subscription ID と public key を割り当てられた値に変更し、UID2 本番環境に接続することもできます。詳細は [Optional: Specifying the API Base URL to Reduce Latency](#optional-specifying-the-api-base-url-to-reduce-latency) を参照してください。
 
-## Complete the UID2 Account Setup
+## Complete UID2 Account Setup and Configure Account
 
 アカウントをセットアップするには、[Account Setup](../getting-started/gs-account-setup.md) に記載されている手順に従ってください。アカウントセットアッププロセスの一環として、UID2 mobile SDK とインテグレーションするすべてのモバイルアプリの <Link href="../ref-info/glossary-uid#gl-app-name">app names</Link> のリストを提供する必要があります。これには、以下の値が該当します:
 

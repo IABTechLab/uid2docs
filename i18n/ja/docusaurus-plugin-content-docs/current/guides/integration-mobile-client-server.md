@@ -39,7 +39,7 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 
 以下の手順を完了する必要があります:
 
-1. [Complete the UID2 account setup](#complete-the-uid2-account-setup).
+1. [Complete the UID2 account setup and configure account](#complete-uid2-account-setup-and-configure-account).
 2. [Implement server-side token generation](#implement-server-side-token-generation).
 3. [Add the UID2 mobile SDK to your mobile app](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 4. [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
@@ -55,7 +55,7 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 
 正しい SDK/バージョンをモバイルアプリにインストールする手順については、[Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app) を参照してください。
 
-## Complete the UID2 Account Setup
+## Complete UID2 Account Setup and Configure Account
 
 アカウントの設定を完了するには、[Account Setup](../getting-started/gs-account-setup.md) に記載されている手順に従ってください。
 

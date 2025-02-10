@@ -19,13 +19,19 @@ This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are u
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
 
+## UID2 Account Setup
+
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
+
 ## API Permissions
 
-To use this SDK, you'll need to complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page.
+When initial account setup is complete, if you're a publisher, advertiser, or data provider, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can:
+- Generate [credentials](../getting-started/gs-credentials.md) for your account.
+- Optionally, configure other values, such as setting up information about team members.
 
-You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For example, publishers get a specific API permission to generate and refresh tokens, but the SDK might support other activities that require a different API permission.
+You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For example, publishers get a specific API permission to generate and refresh tokens, but the SDK might support other activities that require a different API permission. For details, see [API Permissions](../getting-started/gs-permissions.md).
 
-For details, see [API Permissions](../getting-started/gs-permissions.md).
+If you're a DSP, we'll send credentials to you.
 
 ## Version
 
