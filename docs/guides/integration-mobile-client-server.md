@@ -40,7 +40,7 @@ For FAQs relating to mobile publisher integrations, see [FAQs for Mobile Integra
 
 You'll need to complete the following steps:
 
-1. [Complete the UID2 account setup](#complete-the-uid2-account-setup).
+1. [Complete UID2 account setup and configure account](#complete-uid2-account-setup-and-configure-account).
 2. [Implement server-side token generation](#implement-server-side-token-generation).
 3. [Add the UID2 mobile SDK to your mobile app](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 4. [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
@@ -60,11 +60,20 @@ For instructions for installing the correct SDK/version into your mobile app, se
 
 <IntegratingWithSSO />
 
-## Complete the UID2 Account Setup
+## Complete UID2 Account Setup and Configure Account
 
-To set up your account, follow the steps described in [Account Setup](../getting-started/gs-account-setup.md).
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-When account setup is complete, you'll receive your unique API key and client secret. These values are unique to you, and it's important to keep them secure. For details, see [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret).
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+
+For a client-server integration you'll need to set up these values, in the UID2 Portal on the [API Keys](../portal/api-keys.md) page:
+
+- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key
+- <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>, a value known only to the participant and the UID2 service
+
+:::important
+It's very important that you keep these values secure. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+:::
 
 ## Client-Server Mobile Integration Data Flow Overview
 
@@ -114,7 +123,9 @@ At this point, you are ready to use the UID2 Identity generated server-side in t
 
 ### Using the UID2 Integration Environment
 
-By default, the SDK is configured to work with the UID2 production environment: `https://prod.uidapi.com`. If you want to use the UID2 integration environment instead, provide the following URL in your call to UID2Manager initialization:
+By default, the SDK is configured to work with the UID2 production environment: `https://prod.uidapi.com`. If you want to use the UID2 integration environment instead (for credentials, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials)), provide the following URL in your call to UID2Manager initialization.
+
+For information about getting credentials for each environment, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials).
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>

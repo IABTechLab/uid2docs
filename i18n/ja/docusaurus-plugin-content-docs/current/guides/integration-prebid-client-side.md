@@ -36,11 +36,11 @@ UID2 Prebid.js Client-Side インテグレーション例は、以下のリン�
 
 以下のステップを完了する必要があります:
 
-1. [Complete UID2 account setup](#complete-uid2-account-setup).
+1. [Complete UID2 account setup and configure account](#complete-uid2-account-setup-and-configure-account)
 2. [Add Prebid.js to your site](#add-prebidjs-to-your-site).
 3. [Configure the UID2 module](#configure-the-uid2-module).
 
-### Complete UID2 Account Setup
+### Complete UID2 Account Setup and Configure Account
 
 [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了します。Client-Side 実装のアカウント設定プロセスの一環として、Prebid.js で使用するサイトのドメイン名のリストを提供する必要があります。
 

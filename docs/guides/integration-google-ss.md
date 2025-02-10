@@ -28,6 +28,26 @@ With this framework, the following steps occur:
 2. The secure signals feature caches them on the client side and then transparently passes them to Google Ad Manager.
 3. Google Ad Manager uses the UID2 tokens to make bid requests, forwarding the tokens to approved bidders within Google AdX based on the publisher's preferences.
 
+## Complete UID2 Account Setup and Configure Account
+
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
+
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+
+The specific values you set up will depend on which of the [publisher integration options](#publisher-integration-options) you choose:
+
+- For a client-server or server-side implementation, you'll need to set up these values, in the UID2 Portal on the [API Keys](../portal/api-keys.md) page:
+  - <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key
+  - <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>, a value known only to the participant and the UID2 service
+
+    :::important
+    It's very important that you keep these values secure. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+    :::
+- For a client-side implementation, you'll need to set up these values, in the UID2 Portal on the [Client-Side Integration](../portal/client-side-integration.md) page:
+  - Subscription ID and Public Key: See [Adding and Managing Key Pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs)
+  - A list of **domain names** for any sites on which you'll be using this SDK: See [Adding and Managing Root-Level Domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains)
+  - Mobile App IDs (any that apply): See [Adding and Managing Mobile App IDs](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids)
+
 ## Allow Secure Signals Sharing
 
 For your Google Ad Manager account to be eligible to receive encrypted UID2 tokens, you must make sure that encrypted signals are properly shared with third-party bidders on your Google Ad Manager account.
@@ -82,6 +102,8 @@ window.googletag.cmd.push(function () {
 });
 ```
 
+## Publisher Integration Options
+
 There are three integration options for Google Secure Signals publisher integration with UID2:
 - [Server-Side Integration](#server-side-integration)
 - [SDK for JavaScript Client-Server Integration](#sdk-for-javascript-client-server-integration)
@@ -131,22 +153,21 @@ For details, see [Client-Side Integration Guide for JavaScript](integration-java
 
 The following sample implementations are available to illustrate how to integrate with the Google Ad Manager secure signals feature:
 
-- Server-Side UID2 SDK Integration Example with Google Secure Signals:
+- Server-side integration example using the UID2 JavaScript SDK with Google secure signals:
   - [Sample implementation](https://secure-signals-server-side-integ.uidapi.com/)
-  - [Code repository](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
-- Client-Server UID2 SDK Integration Example:
+  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/server_side)
+- Client-server integration example using the UID2 JavaScript SDK with Google secure signals:
   - [Sample implementation](https://secure-signals-client-server-integ.uidapi.com/)
   - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
-
-<!--   - Client-Side UID2 SDK Integration Example (TO COME):
-  - [Sample implementation](https://secure-signals-client-server-integ.uidapi.com/)
-  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3) -->
+- Client-side integration example using the UID2 JavaScript SDK with Google secure signals:
+  - [Sample implementation](https://secure-signals-client-side-integ.uidapi.com/)
+  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/client_side)
 
 Each sample implementation has its own instructions.
 
 ## Troubleshooting
 
-Here is some troubleshooting information that might help you in working with Google Secure Signals for your UID2 integration:
+Here is some troubleshooting information that might help you in working with Google secure signals for your UID2 integration:
 
 - [I enabled Secure Signals within Google Ad Manager, but UID2s are not being passed through Google](#i-enabled-secure-signals-within-google-ad-manager-but-uid2s-are-not-being-passed-through-google)
 

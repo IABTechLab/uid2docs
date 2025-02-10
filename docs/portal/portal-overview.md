@@ -16,7 +16,7 @@ The UID2 Portal is your one-stop shop for setting up and configuring your UID2 a
 | :--- | :--- | 
 | Request an account, configure basic account information such as name and location, log in for the first time, and reset your password. | [Getting Started with the UID2 Portal](portal-getting-started.md) |
 | Review your profile. | [Participant Information](participant-info.md) |
-| Server-side or client/server integrations: Manage API keys for your account, including adding, modifying, or deleting keys. | [API Keys](api-keys.md) |
+| Server-side or client-server integrations: Manage API keys for your account, including adding, modifying, or deleting keys. | [API Keys](api-keys.md) |
 | Client-side integrations only: Set up and manage the values needed for generating UID2 tokens on the client side. | [Client-Side Integration](client-side-integration.md) |
 | Configure permissions for individual <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participants</Link> or groups of sharing participants.<br/>NOTE: Use of sharing requires an API key (see [API Keys](api-keys.md)) or client-side key pair (see [Client-Side Integration](client-side-integration.md)). Configure these values before setting up sharing permissions. | [Sharing Permissions](sharing-permissions.md) |
 | Add team members who will have permission to manage your account. | [Team Members](team-members.md) |
