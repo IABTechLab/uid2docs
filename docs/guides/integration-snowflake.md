@@ -40,31 +40,25 @@ If you're a publisher who is sharing UID2 tokens in the <Link href="../ref-info/
 
 ## Changes from Previous Version
 
-The February, 2025 update to the UID2 Snowflake Marketplace integration includes the following updates and enhancements:
-
-The new snowflake integration includes a single listing and data share that combines the capabilities of previous separate data shares for Advertisers and Data Providers simplifying the integration for all participants.
-The changes to the snowflake functions are summarized in the table below:
-| Old function | New function | Fields in old function | Fields in new function | Comments |
-| :-- | :-- | :-- | :-- | :-- |
-| `FN_T_UID2_IDENTITY_MAP` | `FN_T_IDENTITY_MAP` | `UID2` | `UID` | For more information about this function see section [Map DII](#map-dii)|
-| `FN_T_UID2_ENCRYPT` | `FN_T_ENCRYPT` | `UID2_TOKEN` | `UID_TOKEN` | For more information about this function see section [Encrypt Tokens](#encrypt-tokens)|
-| `FN_T_UID2_DECRYPT` | `FN_T_DECRYPT` | `UID2_TOKEN` | `UID_TOKEN` | For more information about this function see section [Decrypt Tokens](#decrypt-tokens)|
-
-The changes to the snowflake views are :
-| Old view | New view | Comments |
-| :-- | :-- | :-- |
-| `UID2_SALT_BUCKETS` | `SALT_BUCKETS` | For more information about this view see section [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s)|
+The February, 2025 update to the UID2 Snowflake Marketplace integration includes updates and enhancements. One key change is that it includes a single listing and data share that combines the capabilities of the two previous data shares, one for Advertisers and one for Data Providers. This simplifies the integration for all participants.
 
 :::note
-These changes assume that your code integration is with the previous version of snowflake functions as mentioned in [Snowflake Integration Guide (Earlier Listings)](integration-snowflake-previous.md).
+These changes assume that your code integration uses the previous version of Snowflake functions: see [Snowflake Integration Guide (Earlier Listings)](integration-snowflake-previous.md). If you're using an even earlier version, that uses the `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` and `FN_T_UID2_IDENTITY_MAP_PHONE_HASH` functions, you could follow the instructions in the [Migration Guide section in the earlier guide](integration-snowflake-previous.md#migration-guide), and then upgrade again to the current version. However, in this scenario we recommend that you just follow the instructions in this guide and upgrade in one step. For details, see [Migration Guide](#migration-guide).
 :::
-<!--**__AQ__**
-My intention with the note above is to convey that if clients are using the oldest version of snowflake i.e. functions like
-FN_T_UID2_IDENTITY_MAP_EMAIL_HASH and FN_T_UID2_IDENTITY_MAP_PHONE_HASH, then client will be confused after seeing the
-"old function" `FN_T_UID2_IDENTITY_MAP` above.
-In this case the client should skip upgrading to the earlier version with function `FN_T_UID2_IDENTITY_MAP` and
-directly upgrade to the latest version. @Gen if you can help me convey the above.
--->
+
+The following table shows details of the changes to the Snowflake functions, from the previous version.
+
+| Old function | New function | Fields in old function | Fields in new function | Comments |
+| :-- | :-- | :-- | :-- | :-- |
+| `FN_T_UID2_IDENTITY_MAP` | `FN_T_IDENTITY_MAP` | `UID2` | `UID` | For details, see [Map DII](#map-dii).|
+| `FN_T_UID2_ENCRYPT` | `FN_T_ENCRYPT` | `UID2_TOKEN` | `UID_TOKEN` | For details, see [Encrypt Tokens](#encrypt-tokens).|
+| `FN_T_UID2_DECRYPT` | `FN_T_DECRYPT` | `UID2_TOKEN` | `UID_TOKEN` | For details, see [Decrypt Tokens](#decrypt-tokens).|
+
+The following table shows details of the changes to the Snowflake views, from the previous version.
+
+| Old view | New view | Comments |
+| :-- | :-- | :-- |
+| `UID2_SALT_BUCKETS` | `SALT_BUCKETS` | For details, see [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s). |
 
 ## Workflow Diagram
 
@@ -75,11 +69,11 @@ The following diagram and table illustrate the different parts of the UID2 integ
 |Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-Out Cloud Setup|
 | :--- | :--- | :--- |
 |As a partner, you set up a Snowflake account to host your data and engage in UID2 integration by consuming functions and views through the UID2 Share. | UID2 integration, hosted in a Snowflake account, grants you access to authorized functions and views that draw data from private tables. You can’t access the private tables. The UID2 Share reveals only essential data needed for you to perform UID2-related tasks.<br/>**NOTE**: We store <Link href="../ref-info/glossary-uid#gl-salt">salts</Link> and encryption keys in the private tables. No <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> is stored at any point. |ETL (Extract Transform Load) jobs constantly update the UID2 Core/Optout Snowflake storage with internal data that powers the UID2 Operator Web Services. The data used by the Operator Web Services is also available through the UID2 Share. |
-|When you use shared functions and views, you pay Snowflake for transactional computation costs.  |These private tables, secured in the UID2 Snowflake account, automatically synchronize with the UID2 Core/Optout Snowflake storage that holds internal data used to complete UID2-related tasks.  | |
+|When you use shared functions and views, you pay Snowflake for transactional computation costs. |These private tables, secured in the UID2 Snowflake account, automatically synchronize with the UID2 Core/Optout Snowflake storage that holds internal data used to complete UID2-related tasks.  | |
 
-## Access the UID2 Shares
+## Access the UID2 Share
 
-Access to the UID2 Share is available through the following listing on the [Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/).
+Access to the UID2 Share is available through the following listing on the [Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/):
 
 - [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
 
@@ -88,9 +82,9 @@ Access to the UID2 Share is available through the following listing on the [Snow
 To be able to request data, you must use the `ACCOUNTADMIN` role or another role with the `CREATE DATABASE` and `IMPORT SHARE` privileges in your Snowflake account.
 :::
 
-To request access to a UID2 Share, complete the following steps:
+To request access to the UID2 Share, complete the following steps:
 
-1.	Log in to the Snowflake Data Marketplace and select the UID2 listing
+1.	Log in to the Snowflake Data Marketplace and select the UID2 listing:
       - [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
 2.	In the **Personalized Data** section, click **Request Data**.
 3.	Follow the onscreen instructions to verify and provide your contact details and other required information.
@@ -99,19 +93,18 @@ To request access to a UID2 Share, complete the following steps:
 
 After your request is received, a UID2 administrator will contact you with the appropriate access instructions. For details about managing data requests in Snowflake, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html).
 
-
 ## Shared Objects
 
 You can map DII to UID2s by using the following function:
 
-- `FN_T_IDENTITY_MAP` (See [Map DII](#map-dii))
+- `FN_T_IDENTITY_MAP` (for details, see [Map DII](#map-dii))
 
-The following function is deprecated in favor of `FN_T_UID2_IDENTITY_MAP`. You can still use it if you are on the previous snowflake version, but we recommend upgrading as soon as possible.
+The following function is deprecated in favor of `FN_T_IDENTITY_MAP`. You can still use it if you are on the previous Snowflake version (see [Snowflake Integration Guide (Earlier Listings)](integration-snowflake-previous.md)), but we recommend upgrading as soon as possible:
 
 - `FN_T_UID2_IDENTITY_MAP` (deprecated)
 
 :::note
-If you are using the deprecated functions, and need help migrating to the newer function, see [Migration Guide](#migration-guide).
+If you are using the deprecated function, and need help migrating to the newer function, see [Migration Guide](#migration-guide).
 :::
 
 To identify the UID2s that you must regenerate, use the `SALT_BUCKETS` view from the UID2 Share. For details, see [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s).
@@ -394,7 +387,7 @@ select * from AUDIENCE_WITH_UID2;
 +----+----------------------+----------------------------------------------+------------+-------------------------+
 ```
 
-To find missing or outdated UID2s, use the following query examples, which use the [default database and schema names](#database-and-schema-names).
+To find missing or outdated UID2s, use the following query example, which uses the [default database and schema names](#database-and-schema-names):
 
 ```sql
 select a.*, b.LAST_SALT_UPDATE_UTC
@@ -405,13 +398,13 @@ select a.*, b.LAST_SALT_UPDATE_UTC
 
 Query results:
 
-The following table identifies each item in the response. The result includes an email, `UID2`, `BUCKET_ID`, `LAST_UID2_UPDATE_UTC`, and `LAST_SALT_UPDATE_UTC` as shown in the ID 1 example below. No information is returned for ID 2 because the corresponding UID2 was generated after the last bucket update. For ID 3, `NULL` values are returned due to a missing UID2.
+The following table identifies each item in the response. The result includes an email, `UID2`, `BUCKET_ID`, `LAST_UID2_UPDATE_UTC`, and `LAST_SALT_UPDATE_UTC` as shown in the ID 1 example in the table. No information is returned for ID 2 because the corresponding UID2 was generated after the last bucket update. For ID 3, `NULL` values are returned due to a missing UID2.
 
 ```
 +----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
 | ID | EMAIL                | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    | LAST_SALT_UPDATE_UTC    |
 +----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
-|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 | 2021-03-02 00:00:00.000 |
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2025-03-01 00:00:00.000 | 2025-03-02 00:00:00.000 |
 |  3 | test2@uidapi.com     | NULL                                         | NULL       | NULL                    | NULL                    |
 +----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
 ```
@@ -503,7 +496,7 @@ The following table identifies each item in the response, including `NULL` value
 
 ### Decrypt Tokens
 
-To decrypt UID2 tokens to raw UID2s, use the `FN_T_DECRYPT` function. Use the applicable prefix to indicate your role:
+To decrypt UID2 tokens to raw UID2s, use the `FN_T_DECRYPT` function.
 
 | Argument    | Data Type    | Description                              |
 |:------------|:-------------|:-----------------------------------------|
@@ -613,14 +606,20 @@ To help prevent UID2 tokens from expiring, decrypt the UID2 tokens as soon as th
 
 ## Migration Guide
 
-### Access the new data share
-Access the new data share by following instructions at [access the uid2 shares](#access-the-uid2-shares).
+This section includes the following information to help you upgrade to the new UID2 Snowflake Marketplace functionality:
+
+- [Accessing the New Data Share](#accessing-the-new-data-share) 
+- [Changing Existing Code](#changing-existing-code) 
+
+### Accessing the New Data Share
+
+To access the new data share, follow the instructions in [Access the UID2 Share](#access-the-uid2-share).
 
 ### Changing Existing Code
 
-To see a summary of what has changed, refer to section [Changes from Previous Version](#changes-from-previous-version). The code snippets in this section are before/after examples of how the earlier functions might be implemented, and how you could update to use the new function.
+For a summary of changes, see [Changes from Previous Version](#changes-from-previous-version). The code snippets in this section are before/after examples of how the earlier functions might be implemented, and how you could update to use the new function.
 
-#### Example for mapping unhashed emails
+#### Example for Mapping Unhashed Emails
 
 Before:
 
@@ -634,7 +633,7 @@ After:
 select UID, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP(EMAIL, 'email'));
 ```
 
-#### Example for mapping unhashed phone numbers
+#### Example for Mapping Unhashed Phone Numbers
 
 Before:
 
@@ -648,9 +647,9 @@ After:
 select UID, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP(PHONE_NUMBER, 'phone'));
 ```
 
-#### Example for Monitoring Salt Bucket Rotation and Regenerate Raw UID2s
+#### Example for Monitoring Salt Bucket Rotation and Regenerating Raw UID2s
 
-The following queries use the same example table `AUDIENCE_WITH_UID2` as mentioned in  [targeted input table](#targeted-input-table).
+The following queries use the same example table, `AUDIENCE_WITH_UID2`, that we used in [Targeted Input Table](#targeted-input-table).
 
 Before:
 
