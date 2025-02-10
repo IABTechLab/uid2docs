@@ -37,7 +37,7 @@ Information about how to integrate Prebid with UID2 is also in the following loc
 
 <!-- ## Integration Example
 
-GWH note 12/14/23: We have client-side and server-side examples for JS SDK but only server-side for Prebid. -->
+GWH note 12/14/23 updated 2/7/25: we have a client-side example for Prebid.js but no client-server example. -->
 
 ## Integrating with Single Sign-On (SSO)
 
