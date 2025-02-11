@@ -51,11 +51,17 @@ You can update your sharing permission in the UID2 Portal at any point.
 
 ## Add Sharing Permissions&#8212;Bulk
 
-The UID2 Portal makes recommendations based on your role. For example:
+The UID2 Portal makes the following recommendations based on your role:
+
+- Advertisers: share with DSPs and Data Providers
+- Data Providers: share with Publishers, Advertisers, and DSPs
+- Publishers: share with DSPs
+
+<!-- The UID2 Portal makes recommendations based on your role. For example:
 - If you're a publisher, you could share with all DSPs (current and future).
 - If you're an advertiser, you could share with all data providers (current and future).
 - If you’re a DSP, you could share with all advertisers and all data providers (current and future). 
-- If you’re a data provider, you could share with all advertisers, all publishers, and all DSPs (current and future).  
+- If you’re a data provider, you could share with all advertisers, all publishers, and all DSPs (current and future).   -->
 
 The following illustration shows the recommendations for an advertiser.
 
