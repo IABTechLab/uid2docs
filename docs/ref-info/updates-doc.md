@@ -21,6 +21,18 @@ For details, see [Snowflake Integration Guide](../guides/integration-snowflake.m
 
 <!-- APIDOCS-2918 -->
 
+### Updated: Instructions for Using the UID2 Portal
+
+February 10, 2025
+
+We've updated the instructions in the UID2 integration guides, SDK docs, and endpoint docs to include information about account setup in the UID2 Portal.
+
+For details, see any implementation guide: for example, [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md#complete-uid2-account-setup-and-configure-account) or [SDK for Android Reference Guide](../sdks/sdk-ref-android.md#api-permissions). 
+
+These changes also clarify the different procedures for getting credentials depending on the environment: see expanded information on the [Credentials](../getting-started/gs-credentials.md) and [Environments](../getting-started/gs-environments.md) pages.
+
+<!-- APIDOCS-2828 -->
+
 ### New: Expanded and Restructured Advertiser/Data Provider Doc
 
 January 10, 2025
