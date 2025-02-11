@@ -13,7 +13,7 @@ Check out the latest updates to our UID2 documentation resources.
 
 ### Updated: Snowflake Integration Guide
 
-February xxx, 2025
+February 12, 2025
 
 We've significantly updated the UID2 Snowflake integration, and updated the documentation to match.
 
