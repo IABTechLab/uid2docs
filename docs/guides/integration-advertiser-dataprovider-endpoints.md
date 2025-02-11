@@ -16,6 +16,21 @@ This guide covers integration steps for advertisers and data providers to integr
 For a summary of all integration options and steps for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md).
 :::
 
+## Complete UID2 Account Setup and Configure Account
+
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
+
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+
+You'll need to set up these values, in the UID2 Portal on the [API Keys](../portal/api-keys.md) page:
+
+- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key
+- <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>, a value known only to the participant and the UID2 service
+
+:::important
+It's very important that you keep these values secure. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+:::
+
 ## High-Level Steps
 
 At a high level, the steps for advertisers and data providers integrating with UID2 are as follows:

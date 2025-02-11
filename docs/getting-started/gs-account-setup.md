@@ -31,10 +31,13 @@ Contacting The Trade Desk for access is temporary. When the system is moved to i
 When you've expressed interest in UID2, someone will contact you to help work out the details.
 
 As part of account setup, provide the following information:
-* Name
-* Email address
-* Company name
-* Name and contact information for an authorized individual who can sign the contract.
+
+* Company name: The legal company name to be used in the UID2 contract.
+
+* A primary contact person. This individual becomes the primary administrator for the account. Include these values:
+  * Name
+  * Email address
+  * Job title
 
 ### Client-Side Web Integrations
 
