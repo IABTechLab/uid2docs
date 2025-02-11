@@ -381,8 +381,8 @@ select * from AUDIENCE_WITH_UID2;
 +----+----------------------+----------------------------------------------+------------+-------------------------+
 | ID | EMAIL                | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    |
 +----+----------------------+----------------------------------------------+------------+-------------------------+
-|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 |
-|  2 | test1@uidapi.com     | Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM= | ad1ANEmVZ  | 2021-03-03 00:00:00.000 |
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2025-02-01 00:00:00.000 |
+|  2 | test1@uidapi.com     | Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM= | ad1ANEmVZ  | 2025-02-03 00:00:00.000 |
 |  3 | test2@uidapi.com     | NULL                                         | NULL       | NULL                    |
 +----+----------------------+----------------------------------------------+------------+-------------------------+
 ```
@@ -404,7 +404,7 @@ The following table identifies each item in the response. The result includes an
 +----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
 | ID | EMAIL                | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    | LAST_SALT_UPDATE_UTC    |
 +----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
-|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2021-03-01 00:00:00.000 | 2025-03-02 00:00:00.000 |
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2025-02-01 00:00:00.000 | 2025-02-02 00:00:00.000 |
 |  3 | test2@uidapi.com     | NULL                                         | NULL       | NULL                    | NULL                    |
 +----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
 ```
