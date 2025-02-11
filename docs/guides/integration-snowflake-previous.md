@@ -9,7 +9,7 @@ sidebar_position: 04
 
 import Link from '@docusaurus/Link';
 
-# Snowflake Integration Guide (Earlier Listings)
+# Snowflake Integration Guide (Version Prior to February 2025)
 
 [Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share consumer identifier data without exposing sensitive <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>. Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
 
