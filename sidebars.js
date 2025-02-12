@@ -19,6 +19,9 @@ function removeItems(sidebar, ...remove) {
 }
 
 const fullSidebar = [
+
+  'ref-info/ref-how-uid-is-generated',
+  
     {
       type: 'category',
       label: 'UID2 Overview',
@@ -325,7 +328,7 @@ const fullSidebar = [
         'ref-info/ref-operators-public-private',
         'ref-info/ref-integration-approaches',
         'ref-info/ref-tokens',
-        'ref-info/ref-how-uid-works',
+        'ref-info/ref-how-uid-is-generated',
         'ref-info/ref-server-side-token-generation',
         'ref-info/ref-integration-sso-providers',
       ],
