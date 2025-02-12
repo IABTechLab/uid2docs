@@ -46,13 +46,13 @@ To implement, you'll need to complete the following steps:
 
 Support for client-side token generation is available in version 3.4.5 and above of the SDK. 
 
-The URL for the SDK is:
+The URL for the SDK is: (**GWH__AS05 updated URL?**)
 
 - [https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js](https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js)
 
 In the following code examples, the placeholder `{{ UID2_JS_SDK_URL }}` refers to this URL.
 
-If you want to use a debug build of the SDK, use the following URL instead:
+If you want to use a debug build of the SDK, use the following URL instead: (**GWH__AS04 updated URL?**)
 
 - [https://cdn.integ.uidapi.com/uid2-sdk-3.4.5.js](https://cdn.integ.uidapi.com/uid2-sdk-3.4.5.js)
 

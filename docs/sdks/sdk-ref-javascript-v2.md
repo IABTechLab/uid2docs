@@ -1,6 +1,6 @@
 ---
-title: SDK for JavaScript (2.x and earlier versions)
-description: Reference information about earlier versions of the JavaScript client-side SDK.
+title: SDK for JavaScript (2.x and earlier)
+description: Reference information about 2.x and earlier versions of the JavaScript client-side SDK.
 hide_table_of_contents: false
 sidebar_position: 02
 ---
@@ -9,10 +9,10 @@ import Link from '@docusaurus/Link';
 import ExampleUid2Cookie from '/docs/snippets/_example-uid2-cookie.mdx';
 import ExampleJavaScriptV2Init from '/docs/snippets/_example-javascript-v2-init.mdx';
 
-# SDK for JavaScript Reference Guide (2.x and earlier versions)
+# SDK for JavaScript Reference Guide (v2.x and earlier)
 
-:::tip
-This documentation is for earlier versions of the SDK for JavaScript. If you're using an earlier version, we recommend upgrading. See [SDK for JavaScript Reference Guide](sdk-ref-javascript.md), which includes a migration guide.
+:::important
+This documentation is for earlier versions of the SDK for JavaScript. If you're using an earlier version, we recommend upgrading. See [SDK for JavaScript Reference Guide](sdk-ref-javascript.md), which includes a migration guide to upgrade to the current version, v4.
 :::
 
 Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). 
@@ -46,11 +46,6 @@ This documentation is for version 2 of the SDK for JavaScript.
 This SDK is in the following open-source GitHub repository:
 
 - [https://github.com/iabtechlab/uid2-web-integrations](https://github.com/iabtechlab/uid2-web-integrations)
-
-<!-- The binary is published in these locations:
-
-- NPM: [https://www.npmjs.com/package/@uid2/uid2-sdk](https://www.npmjs.com/package/@uid2/uid2-sdk)
-- CDN: [https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js](https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js) (** v3 JS SDK: stash per SW 8/15/23**) -->
 
 ## Terminology
 
