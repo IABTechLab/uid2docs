@@ -1,6 +1,6 @@
 ---
-title: Snowflake Integration
-sidebar_label: Snowflake
+title: Snowflake Integration (Earlier Listings)
+sidebar_label: Snowflake (earlier version)
 pagination_label: Snowflake Integration
 description: Snowflake の UID2 Share を通じて UID2 とインテグレーションするための情報。
 hide_table_of_contents: false
@@ -9,7 +9,7 @@ sidebar_position: 04
 
 import Link from '@docusaurus/Link';
 
-# Snowflake Integration Guide
+# Snowflake Integration Guide (Version Prior to February 2025)
 
 [Snowflake](https://www.snowflake.com/) は、パートナーがデータを保存し、UID2 フレームワークとインテグレーションするためのクラウドデータウェアハウスソリューションです。Snowflake を使用することで、UID2 は機密性の高い <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> を公開することなく、認可された消費者識別子データを安全に共有できます。消費者識別子データを直接 Operator Web Services に問い合わせることもできますが、Snowflake UID2 とのインテグレーションにより、よりシームレスな体験が可能になります。
 
