@@ -36,8 +36,13 @@ This page describes version 4 of the UID2 SDK for JavaScript, which is the lates
 
 Version 4 includes the following key changes from version 3:
 
-- **New**: [**GWH__AS01 include any info here re changes, updates, new stuff.**]
-- **Deprecated elements**: the `abort()` function was deprecated in v3 and is not part of v4. Instead, use [disconnect()](#disconnect-void) which has the same functionality as `abort()`, but also includes more thorough disconnection logic. 
+- **New**: The following elements are new in Version 4:
+  - The `isIdentityAvailable()` function was released in version 3.10.0. For details, see [isIdentityAvailable](#isidentityavailable-boolean).
+  - There is a new event type, `NoIdentityAvailable`. This event that is run with the callback manager if there is no available identity: because there is no identity, because the existing identity has expired, or because the existing identity has opted out. [**GWH__AS11 we'll need to add some info about this new event type. There is nothing.**]
+
+- **Deprecated elements**:
+  - The `abort()` function was deprecated in v3 and is not part of v4. Instead, use [disconnect()](#disconnect-void) which has the same functionality as `abort()`, but also includes more thorough disconnection logic.
+  - The `hasIdentity()` function has been removed. This function was never documented, and was used only by other functions, but since it's a public function there's a chance someone was using it. If you were using this function, use [isIdentityAvailable](#isidentityavailable-boolean) instead.
 
 ## Functionality
 
