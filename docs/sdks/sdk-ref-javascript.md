@@ -38,7 +38,7 @@ Version 4 includes the following key changes from version 3:
 
 - **New**: The following elements are new in Version 4:
   - The `isIdentityAvailable()` function was released in version 3.10.0. For details, see [isIdentityAvailable](#isidentityavailable-boolean).
-  - There is a new event type, `NoIdentityAvailable`. This event that is run with the callback manager if there is no available identity: because there is no identity, because the existing identity has expired, or because the existing identity has opted out. [**GWH__AS11 we'll need to add some info about this new event type. There is nothing.**]
+  - There is a new event type, `NoIdentityAvailable`. This event is run with the callback manager if there is no available identity: because there is no identity, because the existing identity has expired, or because the existing identity has opted out. For details, see [Event Types and Payload Details](#event-types-and-payload-details).
 
 - **Deprecated elements**:
   - The `abort()` function was deprecated in v3 and is not part of v4. Instead, use [disconnect()](#disconnect-void) which has the same functionality as `abort()`, but also includes more thorough disconnection logic.
@@ -230,6 +230,7 @@ The following example callback handles the `SdkLoaded` event to call init and th
 | `SdkLoaded` | `{}` | Called when the SDK script has loaded and the global `__uid2` has been constructed. When you receive this event, it is safe to call `__uid2.init`. Callbacks always receive this event once. If the SDK has already been loaded when the callback is registered, it receives the event immediately. |
 | `InitCompleted` | `{ identity: Identity  \| null }` | Called once `init()` has finished. Callbacks always receive this event once, as long as a successful call to `init` has been made. If `init` has already been completed when the callback is registered, it receives this immediately after it receives the `SdkLoaded` event. |
 | `IdentityUpdated` | `{ identity: Identity \| null }` | Called whenever the current identity changes. If the identity doesn't change after the callback is registered, callbacks do not receive this event. |
+| `NoIdentityAvailable` | `TBD GWH__AS12` | Called if there is no available identity, for any of these reasons: because there is no identity, because the existing identity has expired, or because the existing identity has opted out. |
 
 </div>
 
