@@ -51,6 +51,9 @@ import Link from '@docusaurus/Link';
 **F**
 <a href="#gl-first-level-hash">First-level hash</a> 
 
+**G**
+<a href="#gl-gdpr">GDPR</a>
+
 **H**
 <a href="#gl-hash">Hash</a> 
 
@@ -68,6 +71,8 @@ import Link from '@docusaurus/Link';
 <a href="#gl-normalize">Normalize</a> 
 
 **O**
+<a href="#gl-oidc">OpenID Connect (OIDC)</a> | 
+<a href="#gl-opaque">Opaque</a> | 
 <a href="#gl-open-operator">Open Operator</a> | 
 <a href="#gl-operator">Operator</a> | 
 <a href="#gl-operator-key">Operator key</a> | 
@@ -237,6 +242,11 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-encryption-key"><a href="#gl-encryption-key">Encryption key</a></MdxJumpAnchor></dt>
 <dd>各 <a href="#gl-uid2-token">UID2 Token</a> は、リクエストしたパブリッシャーに固有の暗号化キーを使用して暗号化されます。このキーはパブリッシャーを識別し、トークンを復号化するために必要です。これにより、UID2 Token を不正な個人が復号化できないようになります。</dd>
 
+<dt><MdxJumpAnchor id="gl-environment"><a href="#gl-environment">Environment</a></MdxJumpAnchor></dt>
+<dd>UID2 は、テスト環境と本番環境の2つの環境を提供しています。</dd>
+<dd>両方を使用する場合は、それぞれの環境に対して別々の資格情報を取得する必要があります。</dd>
+<dd>詳細は、[Environments](../getting-started/gs-environments.md) を参照してください。</dd>
+
 <dt><MdxJumpAnchor id="gl-euid-framework"><a href="#gl-euid-framework">EUID framework</a></MdxJumpAnchor></dt>
 <dd>European Unified ID (EUID) フレームワークは、広告エコシステム全体の多くの参加者に対し、オープンインターネット上の広告機会に対する決定論的な ID を提供します。これにより、パブリッシャーウェブサイト、モバイルアプリ、Connected TV (CTV) アプリがプログラマティックワークフローを通じて収益化できます。独自の名前空間を持つオープンソースのスタンドアロンソリューションとして構築されたフレームワークは、参加者が地域の要件を満たすのに役立つプライバシーコントロールを提供します。</dd>
 <dd>EUID は、フランス、イタリア、スペインなどのヨーロッパ諸国、アイスランドなどの非ヨーロッパ諸国、アゾレス諸島、マルティニーク、イギリスなどのその他の地域を含むヨーロッパ地域で運用されています。これは、EU プライバシー法の遵守を念頭に置いて設計されています。</dd>
@@ -251,6 +261,15 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-first-level-hash">First-level hash</MdxJumpAnchor></dt>
 <dd>UID2 のコンテキストでは、First-level hash は匿名化された不透明で安全な値であり、そこから <a href="#gl-raw-uid2">raw UID2</a>、<a href="#gl-uid2-token">UID2 Token</a>、<a href="#gl-refresh-token">Refresh Token</a>が生成されます。ソルティングやハッシュを含むいくつかの暗号関数が、メールアドレスや電話番号などの初期値に適用され、First-level hash が生成されます。</dd>
+
+</dl>
+
+### G
+
+<dl>
+
+<dt><MdxJumpAnchor id="gl-gdpr"><a href="#gl-gdpr">GDPR</a></MdxJumpAnchor></dt>
+<dd>GDPR (一般データ保護規則) は、ヨーロッパ連合 (EU) の居住者に関連するデータを対象とするか収集する方法を規制するヨーロッパのプライバシーおよびセキュリティに関する法律です。</dd>
 
 </dl>
 
@@ -308,10 +327,14 @@ import Link from '@docusaurus/Link';
 
 <dl>
 
+<dt><MdxJumpAnchor id="gl-oidc"><a href="#gl-oidc">OpenID Connect (OIDC)</a> </MdxJumpAnchor></dt>
+<dd>OpebID Connect (OIDC) は、OAuth 2.0 プロトコルの上に構築された ID レイヤーで、クライアントが認可サーバーによる認証に基づいてエンドユーザーの ID を検証できるようにします。</dd>
+<dd>詳細は、[OpenID Connect Basic Client Implementer's Guide 1.0 - draft 40](https://openid.net/specs/openid-connect-basic-1_0.html) (specification) を参照してください。</dd>
+
 <dt><MdxJumpAnchor id="gl-opaque"><a href="#gl-opaque">Opaque</a></MdxJumpAnchor></dt>
 <dd>UID2 Token が不透明な文字列であるというのは、トークンが計算される方法やそのフォーマットが UID2 参加者に伝えられず、変更される可能性があるためです。文字列のフォーマットや長さ、その他の側面については、何も前提を立てるべきではありません。</dd>
 
-<dt><MdxJumpAnchor id="gl-open-operator">Open Operator</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-open-operator"><a href="#gl-open-operator">Open Operator</a></MdxJumpAnchor></dt>
 <dd>Open Operator は、<a href="#gl-public-operator">Public Operator</a> の別名です。</dd>
 
 <dt><MdxJumpAnchor id="gl-operator">Operator</MdxJumpAnchor></dt>
@@ -383,11 +406,11 @@ import Link from '@docusaurus/Link';
 <dl>
 
 <dt><MdxJumpAnchor id="gl-salt">Salt</MdxJumpAnchor></dt>
-<dd>メールアドレスや電話番号を、それ自体では元の値を追跡できない安全で不透明な値に変換するプロセスで使用されます。</dd>
+<dd>メールアドレスや電話番号を、それ自体では元の値 (raw UID2 や UID2 Token) を追跡できない安全で不透明な値に変換するプロセスで使用されます。</dd>
 <dd>UID2 Service は、ハッシュ化および暗号化とともに、プロセスの一部としてソルト(Salt) を使用し、元の値を保護します。ソルトは、ハッシュ化の前に入力値に加えられます。</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket"><a href="#gl-salt-bucket">Salt bucket</a></MdxJumpAnchor></dt>
-<dd>ソルトバケットは、Secret <a href="#gl-salt">salt</a> の値を長期間管理するために使用されます。各バケットには、約1年間有効な現在のソルト値が含まれており、新しい値にローテーションされる前に更新されます。バケットは互いに独立して更新できます。</dd>
+<dd>ソルトバケットは、raw UID2 や UID2 Token を生成するために使用される秘密の <a href="#gl-salt">salt</a> の値を長期間管理するために使用されます。各バケットには、約1年間有効な現在のソルト値が含まれており、新しい値にローテーションされる前に更新されます。バケットは互いに独立して更新できます。</dd>
 <dd>ソルトバケットは、100万以上あり、各メールアドレスまたは電話番号は、特定のバケットに決定論的に割り当てられます。ただし、この割り当ては永続的ではなく、バケットの現在のシークレットソルトが新しい値にローテーションされると変更される可能性があります。</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket-id"><a href="#gl-salt-bucket-id">Salt bucket ID</a></MdxJumpAnchor></dt>

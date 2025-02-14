@@ -21,6 +21,10 @@ import Link from '@docusaurus/Link';
 
 AWS Entity Resolution を使用して UID2 とインテグレーションに関するビデオプレゼンテーションとデモについては、YouTube の [Getting Started with AWS Entity Resolution Integration with Unified ID 2.0](https://www.youtube.com/watch?v=ORbSsKMgVj8) を参照してください。
 
+:::tip
+広告主とデータプロバイダー向けのすべてのインテグレーションオプションと手順の概要については、[Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md) を参照してください。
+:::
+
 ## Functionality
 
 次の表は、AWS Entity Resolution インテグレーションで利用可能な機能をまとめたものです。

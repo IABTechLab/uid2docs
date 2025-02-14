@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 と <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt bucket IDs</Link> にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックすることもできます
 
-Used by: このエンドポイントは、主に広告主やデータプロバイダーが使用します。詳細は [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
+Used by: このエンドポイントは、主に広告主やデータプロバイダーが使用します。詳細は [Advertiser/Data Provider Integration Guide](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
 UID2 の Opt-Out ワークフローとユーザーが Opt-Out する方法の詳細については、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
@@ -59,7 +59,7 @@ UID2 の Opt-Out ワークフローとユーザーが Opt-Out する方法の詳
 
 ### Request Examples
 
-以下は、各パラメータの暗号化されていない JSON リクエストボディの例で、このうちの 1 つを ID マッピングリクエストに含める必要があります:
+以下は、各パラメータの暗号化されていない JSON リクエストボディの例です。このうちの 1 つを、`POST /identity/map` エンドポイントへのリクエストに含める必要があります:
 
 ```json
 {
@@ -94,7 +94,7 @@ UID2 の Opt-Out ワークフローとユーザーが Opt-Out する方法の詳
 }
 ```
 
-以下は、メールアドレスハッシュに対する暗号化された ID マッピングリクエストの例です:
+以下は、電話番号に対する `POST /identity/map` エンドポイントへの暗号化リクエストの例です:
 
 ```sh
 echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map [Your-Client-API-Key] [Your-Client-Secret]

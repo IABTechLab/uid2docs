@@ -17,6 +17,10 @@ UID2 の以下のリストが Snowflake marketplace で入手可能です:
 - 広告主向け: [Unified ID 2.0: Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV/unified-id-2-0-unified-id-2-0-advertiser-identity-solution?originTab=provider&providerName=Unified+ID+2.0)
 - データプロバイダー向け: [Unified ID 2.0: Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0/unified-id-2-0-unified-id-2-0-data-provider-identity-solution?originTab=provider&providerName=Unified+ID+2.0)
 
+:::tip
+広告主とデータプロバイダー向けのすべてのインテグレーションオプションと手順の概要については、[Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md) を参照してください。
+:::
+
 ## Functionality
 
 次の表は、UID2 Snowflake インテグレーション で利用可能な機能をまとめたものです。

@@ -6,6 +6,7 @@ sidebar_position: 04
 use_banner: true
 banner_title: 広告主向け UID2 の概要
 banner_description: Unified ID 2.0 でキャンペーンのアクティベーションをアップグレードしましょう。
+banner_icon: 'advertisers'
 banner_text_color: 'white'
 banner_text_color_dark: 'black'
 banner_background_color: '#7085D4'
@@ -74,9 +75,10 @@ UID2 のドキュメント一式に左サイドバーからアクセスしたい
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
 | ユーザーデータを収集し、他の UID2 参加者にプッシュする組織のためのインテグレーション手順 | [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) | このガイドでは、オーディエンスの構築とターゲティングのために ID をマッピングするインテグレーションワークフローについて説明します。 |
-| トラッキングピクセルに UID2 Token を追加する広告主およびデータプロバイダー向けのインテグレーション手順 | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) | このガイドでは、JavaScript クライアントサイドの変更のみを使用して、Advertising Token を追加するための JavaScript SDK を使用する広告主およびデータプロバイダー向けのインテグレーション手順を提供します。<!-- UID2_only: Not applicable for EUID --> |
 | Snowflake | [Snowflake Integration Guide](../guides/integration-snowflake.md) | このガイドでは、Snowflake を使ってメールアドレスから UID2 を生成する手順を説明します。 |
 | AWS Entity Resolution | [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) | このガイドでは、AWS Entity Resolution を使用して UID2 とインテグレーションする手順を説明します。 |
+| UID2 HTTP エンドポイントのみを使用して、ユーザーデータを収集し他の EUID 参加者にプッシュする組織のためのインテグレーション手順 | [Advertiser/Data Provider Integration to HTTP Endpoints](../guides/integration-advertiser-dataprovider-endpoints.md) | このガイドでは、広告主とデータプロバイダーが、SDK、Snowflake、AWS Entity Resolution などの他の実装オプションを使用せずに、UID2 HTTP エンドポイントを呼び出すためのコードを記述することで UID2 とインテグレーションする手順を説明します。 |
+| Client-Side Javascript SDK を使用して、トラッキングピクセルに UID2 Token を追加する広告主およびデータプロバイダー向けのインテグレーション手順 | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) | このガイドでは、JavaScript クライアントサイドの変更のみを使用して、Advertising Token を追加するための JavaScript SDK を使用する広告主およびデータプロバイダー向けのインテグレーション手順を提供します。<!-- UID2_only: Not applicable for EUID --> |
 
 ## FAQs for Advertisers
 

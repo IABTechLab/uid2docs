@@ -33,7 +33,7 @@ import Link from '@docusaurus/Link';
 
 ### Web Integrations
 
-以下のリソースは、パブリッシャーの Web インテグレーションに利用できます。
+パブリッシャーの Web インテグレーションには、以下のドキュメントリソースが利用できます。
 
 :::tip
 Web インテグレーションオプションの詳細は [Web Integration Overview](integration-options-publisher-web.md) を参照してください。
@@ -52,7 +52,7 @@ Web インテグレーションオプションの詳細は [Web Integration Over
 
 ### Mobile Integrations
 
-Android または iOS デバイスとインテグレーションするパブリッシャーは、以下のリソースを利用できます。
+Android または iOS デバイスとインテグレーションするパブリッシャーは、以下のドキュメントリソースを利用できます。
 
 | Integration Guide | Content Description |
 | :--- | :--- |
@@ -62,7 +62,7 @@ Android または iOS デバイスとインテグレーションするパブリ�
 
 ### CTV Integrations
 
-CTV とインテグレーションするパブリッシャー向けには、以下のリソースが利用できます。
+CTV とインテグレーションするパブリッシャー向けには、以下のドキュメントリソースが利用できます。
 
 | Integration Guide | Content Description |
 | :--- | :--- |
@@ -93,18 +93,18 @@ Google Ad Managerとインテグレーションするパブリッシャーは、
 
 ## Advertiser/Data Provider Integrations
 
-UID2 とインテグレーションする広告主やデータプロバイダーは、以下のリソースを利用できます。
+UID2 とインテグレーションする広告主やデータプロバイダーは、以下のドキュメントリソースを利用できます。
 
 | Integration Guide | Content Description |
 | :--- | :--- |
-| [Advertiser/Data Provider](./integration-advertiser-dataprovider-overview.md) | この広告主やデータプロバイダー向けのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 |
+| [Advertiser/Data Provider](integration-advertiser-dataprovider-overview.md) | この広告主やデータプロバイダー向けのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 |
 | [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) | トラッキングピクセルに UID2 Token を追加するためにこの SDK を使用したい広告主やデータプロバイダー向けのガイドです。<!-- UID2_only: Not applicable for EUID --> |
 | [Snowflake Integration Guide](integration-snowflake.md) | Snowflake 内でメールアドレスから UID2 を生成する手順です。|
 | [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md) | AWS Entity Resolution を使用して UID2 フレームワークとインテグレーションする手順です。 |
 
 ## DSP Integrations
 
-DSP とインテグレーションする DSP は、以下のリソースを利用できます。
+UID2 とインテグレーションする DSP は、以下のドキュメントリソースを利用できます。
 
 | Integration Guide | Content Description |
 | :--- | :--- |
