@@ -11,6 +11,24 @@ import Link from '@docusaurus/Link';
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: Publisher SSO Integration Page
+
+January 8, 2025
+
+SSO ログインを提供するために SSO プロバイダーとインテグレーションし、SSO プロバイダーからログインユーザーのメールアドレスを取得して UID2 Token を生成したいパブリッシャー向けの新しいリファレンスページを追加しました。
+
+詳細は、[Publisher Integration with SSO Providers](ref-integration-sso-providers.md) を参照してください。
+
+<!-- APIDOCS-2486 -->
+
+<!-- ### Removed:  v1 to v2 upgrade doc
+
+January 3, 2025
+
+We've removed the legacy v1 to v2 upgrade doc, which is no longer needed. -->
+
+<!-- APIDOCS-2859 -->
+
 ### New: Zoom-In Tool for Images
 
 December 15, 2024
