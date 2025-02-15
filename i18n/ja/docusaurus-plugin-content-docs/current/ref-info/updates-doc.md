@@ -11,6 +11,16 @@ import Link from '@docusaurus/Link';
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### New: Expanded and Restructured Advertiser/Data Provider Doc
+
+January 10, 2025
+
+広告主とデータプロバイダーのドキュメントを大幅に拡充し、再構築しました。新しい概要ドキュメントと、Snowflake、AWS Entity Resolution、HTTP エンドポイントの 3 つの主要な統合オプションに関する個別のドキュメントがあります:
+
+広告主とデータプロバイダー向けのすべてのインテグレーションオプションの概要については、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
+
+<!-- APIDOCS-1662 -->
+
 ### New: Publisher SSO Integration Page
 
 January 8, 2025
