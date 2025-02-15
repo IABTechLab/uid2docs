@@ -15,6 +15,7 @@ import EnableLogging from '../snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '../snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 import PrebidMobileSDK from '../snippets/_mobile_docs_prebid-mobile.mdx';
 import ErrorResponseStates from '../snippets/_mobile-docs-error-response-states.mdx';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # UID2 Client-Server Integration Guide for Mobile
 
@@ -54,6 +55,10 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 - SDK for iOS (version 1.7.0 以降)
 
 正しい SDK/バージョンをモバイルアプリにインストールする手順については、[Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app) を参照してください。
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Complete UID2 Account Setup and Configure Account
 

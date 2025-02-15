@@ -9,6 +9,7 @@ displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # UID2 Mobile Integration Overview for Android and iOS
 
@@ -27,6 +28,10 @@ UID2 は、Android/iOS 向けの SDK を提供しており、次の機能をサ�
 - UID2 Token の保存
 
 さらに、UID2 は、一部の機能に対して代替手段を提供し、UID2 Google GMA/IMA プラグインなどの補完製品も提供しています。利用可能なオプションについては、個々のガイドで説明されています: [Integration Overview: High-Level Steps](#integration-overview-high-level-steps) を参照してください。
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Integration Overview: High-Level Steps
 

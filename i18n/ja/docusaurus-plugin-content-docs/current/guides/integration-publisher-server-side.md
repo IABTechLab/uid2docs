@@ -8,6 +8,7 @@ sidebar_position: 03
 ---
 
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # Publisher Integration Guide, Server-Side
 
@@ -38,6 +39,10 @@ UID2 と UID2 Token を使用してクライアントのアイデンティティ
 - ユーザーオプトアウトを管理する
 
 [FAQs](#faqs) も参照してください。
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Integration Steps
 

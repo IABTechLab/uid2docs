@@ -8,6 +8,7 @@ sidebar_position: 10
 ---
 
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # Google Ad Manager Secure Signals Integration Guide
 
@@ -59,6 +60,10 @@ Prebid.js で Secure Signals を使用する場合は、UID2 が正しく処理�
    ```
 
    For details, see [ESP Configurations](https://docs.prebid.org/dev-docs/modules/userId.html#esp-configurations) in the Prebid documentation.
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Publisher Integration
 

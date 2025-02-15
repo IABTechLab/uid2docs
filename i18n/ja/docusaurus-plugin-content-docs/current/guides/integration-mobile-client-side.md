@@ -15,6 +15,7 @@ import ExampleAdvertisingToken from '../snippets/_example-advertising-token.mdx'
 import EnableLogging from '../snippets/_mobile-docs-enable-logging.mdx';
 import PrebidMobileSDK from '../snippets/_mobile_docs_prebid-mobile.mdx';
 import ErrorResponseStates from '../snippets/_mobile-docs-error-response-states.mdx';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # UID2 Client-Side Integration Guide for Mobile
 
@@ -189,6 +190,10 @@ see UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist
 </Tabs>
 
 必要に応じて、デフォルトの Subscription ID と public key を割り当てられた値に変更し、UID2 本番環境に接続することもできます。詳細は [Optional: Specifying the API Base URL to Reduce Latency](#optional-specifying-the-api-base-url-to-reduce-latency) を参照してください。
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Complete UID2 Account Setup and Configure Account
 

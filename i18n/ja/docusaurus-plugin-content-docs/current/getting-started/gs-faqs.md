@@ -72,6 +72,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 - [Refresh Token のワークフローをテストするにはどうすればよいですか？](#how-can-i-test-the-refresh-token-workflow)
 - [UID2 Token の一意性とローテーションポリシーは何ですか？](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
 - [UID2 Token は、ビッドストリームではどのように見えますか？](#what-does-a-uid2-token-look-like-in-the-bidstream)
+- [UID2 をシングルサインオン (SSO) とインテグレーションすることはできますか？](#can-i-integrate-uid2-with-single-sign-on-sso)
 
 #### How can I test that the DII sent and the returned token match up?
 送信した DII と返されたトークンが一致していることをテストするにはどうすればよいですか？
@@ -159,6 +160,12 @@ UID2 Token は、ビッドストリームではどのように見えますか？
 UID2 実装のアプローチにはさまざまな方法があります。以下は、UID2 Token が<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>でどのように渡されるかを示すコードスニペットの一例です:
 
 <ExampleTokenInBidstream />
+
+#### Can I integrate UID2 with Single Sign-On (SSO)?
+UID2 をシングルサインオン (SSO) とインテグレーションすることはできますか？
+
+はい。Google、Facebook ログイン、Apple ログイン、または OpenPass などの人気のある SSO インテグレーションオプションを使用すると、メールアドレスを取得して UID2 を生成できます。
+詳細は、[Publisher Integration with SSO Providers](/docs/ref-info/ref-integration-sso-providers.md) を参照してください。
 
 ## FAQs for Advertisers and Data Providers
 

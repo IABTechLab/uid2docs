@@ -9,7 +9,7 @@ sidebar_position: 02
 
 import Link from '@docusaurus/Link';
 import ExampleClientServerSendUid2ToSdk from '../snippets/_example-client-server-send-uid2-to-sdk.mdx'; 
-import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # Client-Server Integration Guide for JavaScript
 
@@ -46,6 +46,10 @@ SDK for JavaScript を使用しないパブリッシャーのインテグレー�
 :::note
 Google Ad Managerを使用していて、セキュアシグナル機能を使用したい場合は、まずこのガイドの手順に従った後、[Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md) の追加手順に従ってください。
 :::
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Integration Steps 
 

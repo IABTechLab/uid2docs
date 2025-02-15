@@ -8,6 +8,7 @@ sidebar_position: 04
 ---
 
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # CTV Integration Guide
 
@@ -21,6 +22,10 @@ UID2 とインテグレーションするには、次の 3 つの主要なステ
 1. UID2 Token をビッドストリームに渡します。
 
 これらのステップをどのように実装するかを決定するには、[CTV Integration Options](#ctv-integration-options) から選択してください。
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## CTV Integration Options
 

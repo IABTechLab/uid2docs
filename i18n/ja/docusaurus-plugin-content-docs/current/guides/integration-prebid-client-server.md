@@ -10,6 +10,7 @@ sidebar_position: 04
 import Link from '@docusaurus/Link';
 import AddPrebidjsToYourSite from '../snippets/_prebid-add-prebidjs-to-your-site.mdx';
 import StoreUID2TokenInBrowser from '../snippets/_prebid-storing-uid2-token-in-browser.mdx';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # UID2 Client-Server Integration Guide for Prebid.js
 
@@ -37,6 +38,10 @@ Prebid と UID2 のインテグレーション方法に関する情報は、以�
 <!-- ## Integration Example
 
 GWH note 12/14/23 updated 2/7/25: we have a client-side example for Prebid.js but no client-server example. -->
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Integration Overview: High-Level Steps
 

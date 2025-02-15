@@ -6,12 +6,15 @@ sidebar_position: 02
 use_banner: true
 banner_title: パブリッシャー向け UID2 概要
 banner_description: 変化し続ける広告業界においてオーディエンスターゲティングを維持し、より良いインプレッション収益化と関連性の向上を実現。
+banner_icon: 'publishers'
 banner_text_color: 'white'
 banner_text_color_dark: 'black'
 banner_background_color: '#035959'
 banner_background_color_dark: '#DCDEE1'
 displayed_sidebar: sidebarPublishers
 ---
+
+import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
 
 import Link from '@docusaurus/Link';
 
@@ -63,6 +66,10 @@ UID2 とインテグレーションすることで得られるメリットの一
 <!-- The publisher requests updated UID2 tokens using a refresh token. When applicable, the refresh token includes a user’s opt-out request. -->
 
 ![Publisher Workflow](images/UID2PublisherAndSSPWorkflow.jpg)
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Getting Started
 
