@@ -195,16 +195,28 @@ const fullSidebar = [
   collapsed: true,
 
   items: [
-  {
-    type: 'category',
-    label: 'Integration Overview',
-    link: {
-      type: 'doc',
-      id: 'guides/integration-advertiser-dataprovider-overview',
-    },
-    collapsed: true,
-    items: [
-      'guides/integration-snowflake',
+    {
+      type: 'category',
+      label: 'Integration Overview',
+      link: {
+        type: 'doc',
+        id: 'guides/integration-advertiser-dataprovider-overview',
+      },
+      collapsed: true,
+      items: [
+        {
+          type: 'category',
+          label: 'Snowflake',
+          link: {
+            type: 'doc',
+            id: 'guides/integration-snowflake',
+          },
+          collapsed: true,
+          items: [
+            'guides/integration-snowflake-previous',
+          ],
+        },
+
       'guides/integration-aws-entity-resolution',
       'guides/integration-advertiser-dataprovider-endpoints',
     ],
@@ -349,6 +361,7 @@ const sidebars = {
     'Advertiser/Data Provider Integrations',
     'guides/integration-advertiser-dataprovider-overview',
     'guides/integration-snowflake',
+    'guides/integration-snowflake-previous',
     'guides/integration-aws-entity-resolution',
     'guides/advertiser-dataprovider-endpoints',
     'DSP Integrations',
@@ -432,6 +445,7 @@ const sidebars = {
     'Advertiser/Data Provider Integrations',
     'guides/integration-advertiser-dataprovider-overview',
     'guides/integration-snowflake',
+    'guides/integration-snowflake-previous',
     'guides/integration-aws-entity-resolution',
     'guides/advertiser-dataprovider-endpoints',
     'sharing/sharing-bid-stream'
