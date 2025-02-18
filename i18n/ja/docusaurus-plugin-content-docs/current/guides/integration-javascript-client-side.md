@@ -80,7 +80,7 @@ Client-Side インテグレーションでは、UID2 Portal の [Client-Side Int
 
 - この SDK を使用するサイトの **ドメイン名** のリスト: [Adding and Managing Root-Level Domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains) を参照してください。
 
-- Mobile App IDs (any that apply): [Adding and Managing Mobile App IDs](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids) を参照してください。
+- モバイルアプリ ID (適用される場合): [Adding and Managing Mobile App IDs](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids) を参照してください。
 
 <!-- (earlier instructions, no-portal, for EUID)
 When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key). 
@@ -133,7 +133,7 @@ SDK の詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript
 
 ### Using the UID2 Integration Environment
 
-デフォルトでは、SDK は UID2 本番環境 `https://prod.uidapi.com` で動作するように設定されています。代わりに UID2 インテグレーション環境を使用したい場合は、`init` を呼び出す際に以下の URL を指定してください:
+デフォルトでは、この SDK は UID2 本番環境 `https://prod.uidapi.com` で動作するように設定されています。代わりに UID2 インテグレーション環境を使用する場合 (資格情報については [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください)、`init` に以下の URL を指定します:
 
 ```js
 __uid2.init({
@@ -141,7 +141,7 @@ __uid2.init({
 });
 ```
 :::note
-UID2 インテグレーション環境からのトークンは、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡しても無効です。インテグレーション環境では、**Subscription ID** と **public key** の値が異なります。
+UID2 インテグレーション環境からのトークンは、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡しても無効です。インテグレーション環境では、**Subscription ID** と **public key** の値が異なります。各環境の認証情報を取得すr方法については、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 :::
 
 ### Optional: Specifying the API Base URL to Reduce Latency

@@ -46,9 +46,9 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 - Client-Side の実装の場合、UID2 Portal の [Client-Side Integration](../portal/client-side-integration.md) ページで次の値を設定する必要があります:
   - Subscription ID と Public Key: [Adding and Managing Key Pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs) を参照してください。
   - この SDK を使用するサイトの **domain names** のリスト: [Adding and Managing Root-Level Domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains) を参照してください。
-  - Mobile App ID (適用される場合): [Adding and Managing Mobile App IDs](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids) を参照してください。
+  - モバイルアプリ ID (適用される場合): [Adding and Managing Mobile App IDs](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids) を参照してください。
 
-  ## Allow Secure Signals Sharing
+## Allow Secure Signals Sharing
 
 Google Ad Manager アカウントで暗号化 UID2 Token を受け取るには、暗号化されたシグナルが Google Ad Manager アカウントで第三者の入札者と適切に共有されていることを確認する必要があります。
 

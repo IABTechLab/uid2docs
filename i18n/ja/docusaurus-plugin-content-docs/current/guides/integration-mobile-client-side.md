@@ -205,7 +205,7 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 
 - Subscription ID と Public Key: [Adding and Managing Key Pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs) を参照してください。
 
-- Mobile App IDs: 該当する以下の値のいずれか:
+- モバイルアプリ ID : 該当する以下の値のいずれか:
 
   - Android Application ID
   - iOS Bundle Identifier
@@ -228,7 +228,7 @@ SDK をアプリに追加したら、SDK を使用して UID2 Token を生成す
 
 ### Using the UID2 Integration Environment
 
-デフォルトでは、SDK は UID2 本番環境で動作するように構成されています: `https://prod.uidapi.com`。代わりにインテグレーション環境を使用する場合は、`UID2Manager` の初期化に次の URL を指定してください:
+デフォルトでは、この SDK は UID2 本番環境: `https://prod.uidapi.com` で動作するように構成されています。UID2 インテグレーション環境を使用する場合は、(認証情報については [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)、`UID2Manager` の初期化する際に次の URL を指定してください:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>

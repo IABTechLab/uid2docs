@@ -55,13 +55,18 @@ UID2 Identify Module、または UID2 サポートのある他の製品と Prebi
     - Running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-client-server-integ.uidapi.com/)
   - The example of JavaScript client-side integration: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg) and running site ([Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)).
 
+## UID2 Account Setup
+
+UID2 とインテグレーションするためには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
+
 ## API Permissions
 
-この SDK を使用するには、[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了する必要があります。
+初期アカウント設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。以下の操作を行うことができます:
+- アカウント用の [credentials](../getting-started/gs-credentials.md) を生成します。
+- オプション: Client-Side の実装の場合、ドメイン名やモバイルアプリ ID などの設定値を設定します。
+- オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
 
-SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。SDK には、使用する権限を持たない機能があるかもしれないことに留意してください。例えば、パブリッシャーはトークンの生成と更新のために特定の API Permissions を取得しますが、SDK は共有などの他のアクティビティをサポートするかもしれません。
-
-詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
+SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。
 
 ## SDK Version
 

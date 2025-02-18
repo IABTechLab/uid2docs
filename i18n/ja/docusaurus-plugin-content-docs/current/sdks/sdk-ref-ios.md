@@ -33,10 +33,20 @@ SDK for iOS は、iOS アプリケーションに代わって UID2 ID を生成�
 
 デフォルトでは、SDK は有効期限に基づいて UID2 ID を自動的にリフレッシュします。ただし、これを無効にして、アプリが UID2 IDのライフサイクルを手動で管理できるように実装することもできます。
 
+## UID2 Account Setup
+
+UID2 とインテグレーションするためには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
+
 ## API Permissions
 
-この SDK を使用するには、[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って UID2 アカウントのセットアップを完了する必要があります。
-SDKが提供する特定の機能を使用する許可が与えられ、そのアクセス用の認証情報が与えられます。
+初期アカウント設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。以下の操作が可能です:
+- アカウント用の [credentials](../getting-started/gs-credentials.md) を生成します。
+- オプション: Client-Side の実装の場合、ドメイン名やモバイルアプリ ID などの設定値を設定します。
+- オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
+
+UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、Server-Side のいずれであるかによって異なります。モバイルインテグレーションのオプションの概要については、[Client-Side or Client-Server Integration?](../guides/integration-mobile-overview#client-side-or-client-server-integration) を参照してください。
+
+<!-- You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. -->
 
 ## SDK Version
 

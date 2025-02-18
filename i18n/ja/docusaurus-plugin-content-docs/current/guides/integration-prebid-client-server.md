@@ -53,9 +53,22 @@ GWH note 12/14/23 updated 2/7/25: we have a client-side example for Prebid.js bu
 
 ## Complete UID2 Account Setup and Configure Account
 
-[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了します。
+Prebid.js を使用して UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントがまだ作成されていない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
 
-アカウントのセットアップが完了すると、固有の API Key と クライアントシークレットが発行されます。ここれらの値はアカウント独自のもので、安全に管理することが重要です。詳細は [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
+アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。ここで、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を設定できます。詳細については、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+
+Client-Server インテグレーションの場合、UID2 Portal の [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
+
+- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、クライアントキーとも呼ばれます。
+- <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Service のみが知る値。
+
+:::important
+これらの値を安全に保管することが非常に重要です。詳細については、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+:::
+
+<!-- (earlier instructions, no-portal, for EUID)
+When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key). 
+-->
 
 ## Add Prebid.js to Your Site
 
@@ -244,7 +257,7 @@ Prebid の実施を計画する際には、以下を考慮してください:
 
 - リフレッシュされたトークンを生成するために使用された元のトークンと一致しない新しいトークンを提供した場合、モジュールは保存されているすべてのトークンを破棄し、代わりに新しいトークンを使用し、リフレッシュされた状態を維持します。
 
-- インテグレーションテストでは、`params.uid2ApiBase` を `"https://operator-integ.uidapi.com"` に設定します。この値は、トークンを生成する環境と同じ環境 (本番環境またはインテグレーション環境) に設定しなければなりません。
+- インテグレーションテストでは、`params.uid2ApiBase` を `"https://operator-integ.uidapi.com"` に設定します。トークンの生成に使用する環境(本番環境またはインテグレーション環境)と同じ値に設定する必要があります(資格情報については、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください)。
 
 - Prebid.js client-server インテグレーションの場合、クライアントサイドインテグレーション機能を無効にして、より小さな Prebid.js ビルドを作成できます。これを行うには、`--disable UID2_CSTG` フラグを渡します:
 

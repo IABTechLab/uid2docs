@@ -36,10 +36,20 @@ SDK for Android は、Android アプリに代わって UID2 ID を生成また�
 
 デフォルトでは、SDK は有効期限に基づいて UID2 ID を自動的にリフレッシュします。ただし、これを無効にして、実装アプリが UID2 ID のライフサイクルを手動で管理できるようにすることもできます。
 
+## UID2 Account Setup
+
+UID2 とのインテグレーションを行うには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
+
 ## API Permissions
 
-この SDK を使用するには、[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了する必要があります。
-SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。
+初期アカウント設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。以下の操作を行うことができます:
+- アカウント用の [credentials](../getting-started/gs-credentials.md) を生成します。
+- オプション: Client-Side の実装の場合、ドメイン名やモバイルアプリ ID などの設定値を設定します。
+- オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
+
+UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、Server-Side のいずれであるかによって異なります。モバイルインテグレーションオプションの概要については、[Client-Side or Client-Server Integration?](../guides/integration-mobile-overview#client-side-or-client-server-integration) を参照してください。
+
+<!-- You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. -->
 
 ## SDK Version
 

@@ -243,7 +243,7 @@ import Link from '@docusaurus/Link';
 <dd>各 <a href="#gl-uid2-token">UID2 Token</a> は、リクエストしたパブリッシャーに固有の暗号化キーを使用して暗号化されます。このキーはパブリッシャーを識別し、トークンを復号化するために必要です。これにより、UID2 Token を不正な個人が復号化できないようになります。</dd>
 
 <dt><MdxJumpAnchor id="gl-environment"><a href="#gl-environment">Environment</a></MdxJumpAnchor></dt>
-<dd>UID2 は、テスト環境と本番環境の2つの環境を提供しています。</dd>
+<dd>UID2 は、インテグレーション環境と本番環境の2つの環境を提供しています。</dd>
 <dd>両方を使用する場合は、それぞれの環境に対して別々の資格情報を取得する必要があります。</dd>
 <dd>詳細は、[Environments](../getting-started/gs-environments.md) を参照してください。</dd>
 
