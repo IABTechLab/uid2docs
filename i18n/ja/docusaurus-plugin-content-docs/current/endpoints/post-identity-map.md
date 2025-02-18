@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 と <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt bucket IDs</Link> にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックすることもできます
 
-Used by: このエンドポイントは、主に広告主やデータプロバイダーが使用します。詳細は [Advertiser/Data Provider Integration Guide](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
+Used by: このエンドポイントは、主に広告主やデータプロバイダーが使用します。詳細は [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
 UID2 の Opt-Out ワークフローとユーザーが Opt-Out する方法の詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 

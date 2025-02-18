@@ -192,7 +192,7 @@ UID2 生成リクエストで提供されるメタデータには、UID2 の生�
 #### Do refreshed emails get assigned to the same bucket with which they were previously associated?
 更新されたメールアドレスは、以前関連付けられていたバケットと同じバケットに割り当てられますか？
 
-必ずしもそうとは限りません。特定のバケット ID に関連付けられたメールアドレスを再マッピングした後、そのメールが異なるバケット ID に割り当てられる可能性があります。バケット ID を確認するには、[マッピング関数を呼び出す](../guides/integration-advertiser-dataprovider-overview.md#1-generate-raw-uid2s-from-dii) そして返された UID2 とバケット ID を再び保存してください。
+必ずしもそうとは限りません。特定のバケット ID に関連付けられたメールアドレスを再マッピングした後、そのメールが異なるバケット ID に割り当てられる可能性があります。バケット ID を確認するには、[マッピング関数を呼び出す](../guides/integration-advertiser-dataprovider-overview.md#1-generate-raw-uid2s-from-dii) そして返された raw UID2 とバケット ID を再び保存してください。
 
 :::info
 メールアドレスのマッピングや再マッピングを行う際には、バケットの数やローテーションする日、メールアドレスが割り当てられる特定のバケットについて、いかなる仮定も行わないようにしてください。
