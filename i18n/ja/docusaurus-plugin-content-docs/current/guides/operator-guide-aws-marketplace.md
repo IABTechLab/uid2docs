@@ -108,10 +108,10 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 | Name | Type | Description |
 |:------|:------|:-------------|
-| `KMSKey` | `AWS::KMS::Key` | 秘密暗号化用のキー (設定文字列用) です。 |
+| `KMSKey` | `AWS::KMS::Key` | AWS Secrets Managerで秘密暗号化に使う Custom KMS key です。 |
 | `SSMKeyAlias` | `AWS::KMS::Alias` | [KMS](https://aws.amazon.com/kms/)キーに簡単にアクセスする方法を提供するエイリアスです。 |
-| `TokenSecret` | `AWS::SecretsManager::Secret` | Operator Key を含む暗号化されたコンフィギュレーションです。 |
-| `WorkerRole` | `AWS::IAM::Role` | UID2 Operator が実行する IAM ロールです。ロールは、設定キーへのアクセスを提供します。 |
+| `TokenSecret` | `AWS::SecretsManager::Secret` | Operator Key を保存するための Secrets Manager のシークレットです。 |
+| `WorkerRole` | `AWS::IAM::Role` | UID2 Operator が実行する IAM ロールです。このローづで AWS Secrets manager にアクセスして Operator Key を取得できます。 |
 | `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile` | Operator EC2 インスタンスにアタッチする Worker Role を持つインスタンスプロファイルです。 |
 | `SecurityGroup` | `AWS::EC2::SecurityGroup` | オペレーターインスタンスに対するルールを提供するセキュリティグループポリシーです。[Security Group Policy](#security-group-policy) を参照してください。|
 | `LaunchTemplate` | `AWS::EC2::LaunchTemplate` | すべての設定が配置された起動テンプレートです。このテンプレートから新しい UID2 Operator インスタンスを起動できます。|
@@ -136,7 +136,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 | ----------- | --------- | -------- | ------ |
 | 80 | Inbound | HTTP | Healthcheck エンドポイント `/ops/healthcheck` を含むすべての UID2 API を提供します。<br/>すべてが稼働している場合、エンドポイントは HTTP 200 を返し、レスポンスボディは `OK` となります。詳しくは、[Checking UID2 Operator Status](#checking-uid2-operator-status) を参照してください。 |
 | 9080 | Inbound | HTTP | Prometheus metrics サービス (`/metrics`)。 |
-| 443 | Outbound | HTTPS | UID2 Core Service を呼び出し、オプトアウトデータとキーストアを更新します。 |
+| 443 | Outbound | HTTPS | UID2 Core Service、AWS S3 を呼び出し、オプトアウトデータとキーストア用のファイルをダウンロードします。 |
 
 ### VPC Chart
 
@@ -216,7 +216,7 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 2. **Create Load Balancer** をクリックします。
 3. Load balancer typesページの **Application Load Balancer** セクションで、**Create** をクリックします。
 4. UID2 **Load balancer name** を入力します。パブリックインターネットから UID2 API にアクセスする必要があるかどうかに応じて、**Internet-facing** または **Internal** スキームを選択します。
-5. ターゲットの **VPC** と、CloudFormationスタックで使用する少なくとも2つのサブネットを選択します。
+5. CloudFormation スタックを作成する際に使用した **VPC** を選択し、少なくとも2つのサブネットを選択します。
 6. **Security groups** の下にある **Create new security group** をクリックし、以下を実行します:
     1. `UID2SGALB` を **Security group name** として入力し、関連する **Description** も入力します。
     2. **Inbound rules** の下で、**Add rule** をクリックし、要件に応じて **HTTPS** タイプと適切な **Source** を選択します。
