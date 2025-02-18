@@ -96,7 +96,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 #### Where should I make token generation calls&#8212;from the server side or the client side?
 トークン生成の呼び出しは、Server-Side と Client-Side のどちらで行うべきですか？
 
-UID2 Token は、Client-Side、Server-Sideのどちらでも生成できます。詳細については、以下を参照してください:
+UID2 Token は、Client-Side、Server-Sideのどちらでも生成できます。詳細は、以下を参照してください:
 - Prebid.js を使用して Client-Side からトークンを生成します: [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
 - Prebid.js を使用して Server-Side からトークンを生成します: [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md).
 - その他の Server-Side オプション: [Publisher Integrations](../guides/summary-guides.md#publisher-integrations).
@@ -235,7 +235,7 @@ UID2 生成リクエストで提供されるメタデータには、UID2 の生�
 
 ただし、raw UID2 の生成に使用される [ソルト](../ref-info/glossary-uid.md#gl-salt) 値という可変要素があります。ソルト値は定期的にローテーションされます(詳細は [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)) を参照してください)。あるリクエストと別のリクエストの間でソルト値が変化する場合、DII が同じであっても、これら 2 つのリクエストは 2 つの異なる raw UID2 になります。
 
-詳細については、*Advertiser/Data Provider Integration Guide*の [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s) を参照してください。
+詳細は、*Advertiser/Data Provider Integration Guide*の [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s) を参照してください。
 
 #### If two operators process the same DII, are the results the same?
 2 つの Operator が同じ DII を処理した場合、結果は同じになりますか？

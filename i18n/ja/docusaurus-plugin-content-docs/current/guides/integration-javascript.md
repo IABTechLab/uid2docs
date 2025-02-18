@@ -60,7 +60,7 @@ SDK for JavaScript には、自動の <a href="../ref-info/glossary-uid#gl-token
 ## Storing the UID2 Token in the Browser
 <!-- GWH check corresponding (not identical) section in integration-prebid.md, integration-prebid-client-side.md, integration-prebid-client-side.md, for consistency -->
 
-Client-Side のオプションでは、ローカルストレージを使用してデータを保存します。Server-Side オプションはデフォルトでローカルストレージを使いますが、代わりにクッキーを使うこともできます。詳細については、*SDK for JavaScript Reference Guide* の [UID2 Storage Format](../sdks/sdk-ref-javascript.md#uid2-storage-format) を参照してください。
+Client-Side のオプションでは、ローカルストレージを使用してデータを保存します。Server-Side オプションはデフォルトでローカルストレージを使いますが、代わりにクッキーを使うこともできます。詳細は、*SDK for JavaScript Reference Guide* の [UID2 Storage Format](../sdks/sdk-ref-javascript.md#uid2-storage-format) を参照してください。
 
 クッキーのサイズが大きくなる可能性があり、それが問題になるかもしれません。しかし、ローカルストレージがオプションでない場合、これは一つの可能なアプローチです。
 

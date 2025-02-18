@@ -13,7 +13,7 @@ import Link from '@docusaurus/Link';
 
 Used by: このエンドポイントは、主に広告主やデータプロバイダーが使用します。詳細は [Advertiser/Data Provider Integration Guide](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
-UID2 の Opt-Out ワークフローとユーザーが Opt-Out する方法の詳細については、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+UID2 の Opt-Out ワークフローとユーザーが Opt-Out する方法の詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 ## Batch Size and Request Parallelization Requirements
 
@@ -28,7 +28,7 @@ UID2 の Opt-Out ワークフローとユーザーが Opt-Out する方法の詳
 
 `POST '{environment}/v2/identity/map'`
 
-認証の詳細については、 [Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
+認証の詳細は、 [Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
 
 :::important
 すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。

@@ -12,7 +12,7 @@ import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
 
 # UID2 Private Operator for GCP Integration Guide
 
-UID2 Operator は、UID2 エコシステムの API サーバーです。詳細については、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
+UID2 Operator は、UID2 エコシステムの API サーバーです。詳細は、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
 このガイドでは、Google Cloud Platform（GCP）の機密コンピューティングオプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) で　<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>　として UID2 Operator Service を設定する情報を提供します。Confidential Spaceは、Trusted Execution Environment（TEE）として知られるセキュアなクラウドベースのエンクレーブ環境で実行される、安全なクラウドベースのエンクレーブ環境です。
 
@@ -230,7 +230,7 @@ terraform apply
 `terraform apply` を実行すると、同じフォルダに次のファイルが生成されます: `terraform.tfstate`。このファイルは、マネージドインフラストラクチャと構成に関する状態情報を保存し、将来のメンテナンスに使用されます。
 
 :::note
-Terraform の `state` ファイルに関する推奨に従ってください: デプロイされたインフラストラクチャを維持するために必要であり、機密情報を含む可能性があります。詳細については、Terraform ドキュメントの [state](https://developer.hashicorp.com/terraform/language/state) を参照してください。
+Terraform の `state` ファイルに関する推奨に従ってください: デプロイされたインフラストラクチャを維持するために必要であり、機密情報を含む可能性があります。詳細は、Terraform ドキュメントの [state](https://developer.hashicorp.com/terraform/language/state) を参照してください。
 :::
 
 #### Test Terraform Using the Health Check Endpoint

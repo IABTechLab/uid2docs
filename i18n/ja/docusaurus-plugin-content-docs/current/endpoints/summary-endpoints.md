@@ -35,7 +35,7 @@ import Link from '@docusaurus/Link';
 
 以下のエンドポイントは、広告主、サードパーティのデータプロバイダー、DSP、共有者が使用できます。パブリッシャーは、このエンドポイントを使用する必要はありません。
 
-UID2 の Opt-Out ワークフローとユーザーが Opt-Out する方法の詳細については、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+UID2 の Opt-Out ワークフローとユーザーが Opt-Out する方法の詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |

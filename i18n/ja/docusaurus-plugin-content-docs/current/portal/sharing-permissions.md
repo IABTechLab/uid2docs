@@ -12,7 +12,7 @@ import Link from '@docusaurus/Link';
 共有権限を設定することで、他の UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">共有参加者</Link> と UID2 を共有できるようになります。
 
 :::tip
-UID Portal での共有権限の設定は、<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link> のためであり、raw UID2 の共有ではありません。詳細については、[UID2 Sharing Approaches](../sharing/sharing-overview.md#uid2-sharing-approaches) を参照してください。
+UID Portal での共有権限の設定は、<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link> のためであり、raw UID2 の共有ではありません。詳細は、[UID2 Sharing Approaches](../sharing/sharing-overview.md#uid2-sharing-approaches) を参照してください。
 :::
 
 適切な共有関係を作成するのに役立つ多くのオプションがあります:
@@ -118,5 +118,5 @@ UID2 Portal で共有許可を与えるだけでなく、SDK または Snowflake
     この操作は、以前に作成した個別の共有許可にのみ適用されます。一括共有を介して共有許可を追加した場合、個別の共有許可を削除することはできません。共有許可を削除するには、追加した方法と同じ方法で削除する必要があります。
 
 :::note
-共有許可を削除すると、次回参加者が復号鍵を更新すると、その参加者との共有が解除されます。即時ではありませんが、迅速に行われます。詳細については、[Decryption Key Refresh Cadence for Sharing](../sharing/sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) を参照してください。
+共有許可を削除すると、次回参加者が復号鍵を更新すると、その参加者との共有が解除されます。即時ではありませんが、迅速に行われます。詳細は、[Decryption Key Refresh Cadence for Sharing](../sharing/sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) を参照してください。
 :::

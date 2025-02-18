@@ -13,7 +13,7 @@ import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
 
-UID2 Operator は、UID2 エコシステム内の API サーバーです。詳細については、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
+UID2 Operator は、UID2 エコシステム内の API サーバーです。詳細は、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
 AWS Marketplace で稼働する <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> Service の場合、UID2 Operator ソリューションは [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave テクノロジーで強化されています。これは、UID2 情報を不正なアクセスから保護するための追加のセキュリティ対策です。
 
@@ -134,7 +134,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
-| 80 | Inbound | HTTP | Healthcheck エンドポイント `/ops/healthcheck` を含むすべての UID2 API を提供します。<br/>すべてが稼働している場合、エンドポイントは HTTP 200 を返し、レスポンスボディは `OK` となります。詳しくは、[Checking UID2 Operator Status](#checking-uid2-operator-status) を参照してください。 |
+| 80 | Inbound | HTTP | Healthcheck エンドポイント `/ops/healthcheck` を含むすべての UID2 API を提供します。<br/>すべてが稼働している場合、エンドポイントは HTTP 200 を返し、レスポンスボディは `OK` となります。詳細は、[Checking UID2 Operator Status](#checking-uid2-operator-status) を参照してください。 |
 | 9080 | Inbound | HTTP | Prometheus metrics サービス (`/metrics`)。 |
 | 443 | Outbound | HTTPS | UID2 Core Service、AWS S3 を呼び出し、オプトアウトデータとキーストア用のファイルをダウンロードします。 |
 
@@ -252,7 +252,7 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 ここでは、アップグレードについて紹介します:
 
 - 新しいバージョンの提供に関する情報は、[UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) のページで提供されます。
-- UID2 Operator をアップグレードするには、新しい CloudFormation スタックを作成します。詳しくは、[デプロイ](#deployment) を参照してください。
+- UID2 Operator をアップグレードするには、新しい CloudFormation スタックを作成します。詳細は、[デプロイ](#deployment) を参照してください。
 
 :::tip
 スムーズな移行を行うには、まず新しいスタックを作成します。新しいスタックが起動し、サービスを提供する準備ができたら、古いスタックを削除してください。ロードバランサーを使用している場合は、まず新しいインスタンスを立ち上げて実行してから、DNS 名を以前のものから新しいものに変換してください。

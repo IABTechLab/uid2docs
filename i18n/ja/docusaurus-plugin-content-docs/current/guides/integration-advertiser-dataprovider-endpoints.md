@@ -47,7 +47,7 @@ DII は、ユーザーの正規化されたメールアドレスまたは電話�
 | Step | Endpoint | Description |
 | --- | --- | --- |
 | 1-a | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) request | DII を含むリクエストを ID マッピングエンドポイントに送信します。 |
-| 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response | レスポンスで返される `advertising_id` (raw UID2) は、関連する DSP でオーディエンスをターゲットするために使用できます。<br/>レスポンスは、ユーザーの raw UID2 と、それに対応するソルトバケットの `bucket_id` を返します。バケットに割り当てられたソルトは年に一度ローテーションし、生成された raw UID2 に影響を与えます。ソルトバケットのローテーションを確認する方法の詳細については、[5: Monitor for salt bucket rotations related to your stored raw UID2s](#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s) を参照してください。 |
+| 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response | レスポンスで返される `advertising_id` (raw UID2) は、関連する DSP でオーディエンスをターゲットするために使用できます。<br/>レスポンスは、ユーザーの raw UID2 と、それに対応するソルトバケットの `bucket_id` を返します。バケットに割り当てられたソルトは年に一度ローテーションし、生成された raw UID2 に影響を与えます。ソルトバケットのローテーションを確認する方法の詳細は、[5: Monitor for salt bucket rotations related to your stored raw UID2s](#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s) を参照してください。 |
 
 ### 2: Store Raw UID2s and Salt Bucket IDs
 

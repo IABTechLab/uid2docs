@@ -91,7 +91,7 @@ UID2 Token が SSP から DSP に送信されるとき、ビッドストリー�
 
 `POST /token/refresh` エンドポイントを使用して、常に有効で最新の UID2 Token を持つようにします。UID2 ローテーションと同期させるには、UID2 Token をリフレッシュする必要があります。さらに、トークンリフレッシュプロセスではユーザーのオプトアウトステータスをチェックし、ユーザーがオプトアウトしている場合は新しいトークンを送信しません。これによりトークンリフレッシュチェーンが終了します。その UID2 Token を二度と使用してはなりません。
 
-UID2 の Opt-out ワークフローとユーザーが Opt-out する方法の詳細については、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+UID2 の Opt-out ワークフローとユーザーが Opt-out する方法の詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |

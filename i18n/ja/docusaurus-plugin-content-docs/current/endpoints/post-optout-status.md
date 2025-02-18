@@ -13,7 +13,7 @@ import Link from '@docusaurus/Link';
 
 Used by: このエンドポイントは、主に広告主、データプロバイダー、DSP、共有者によって使用されます。一般的には、元のメールアドレスや電話番号にアクセスできないが、オプトアウトステータスを知りたい参加者向けです。
 
-詳細については、役割に応じて以下のドキュメントを参照してください:
+詳細は、役割に応じて以下のドキュメントを参照してください:
 
 - [Advertiser/Data Provider Integration Guide](../guides/integration-advertiser-dataprovider-overview.md)
 - [DSP Integration Guide](../guides/dsp-guide.md)
@@ -30,7 +30,7 @@ Used by: このエンドポイントは、主に広告主、データプロバ�
 
 `POST '{environment}/v2/optout/status'`
 
-認証の詳細については、 [Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
+認証の詳細は、 [Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
 
 :::important
 すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。

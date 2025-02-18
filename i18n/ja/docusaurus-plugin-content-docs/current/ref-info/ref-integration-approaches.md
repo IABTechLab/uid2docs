@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 パブリッシャーがワークフローに UID2 をインテグレーションする場合、または広告主が UID2 サポートをインテグレーションする場合、3 つの広範な統合アプローチがあります。UID2 インテグレーションは、Client-Side で完全に実装される場合、Server-Side で完全に実装される場合、または Client-Side と Server-Side 側の両方で部分的に実装される場合 (Client-Server) があります。
 
-詳細については、以下を参照してください:
+詳細は、以下を参照してください:
 
 - [Client-side integration](#client-side-integration)
 - [Client-server integration](#client-server-integration)

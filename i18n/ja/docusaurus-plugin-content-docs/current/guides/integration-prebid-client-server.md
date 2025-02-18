@@ -74,7 +74,7 @@ UID2 Prebid モジュールを設定して、以下の2つのアクションを�
 
 Prebid の Client-Server インテグレーションの場合、最初のステップは、サーバー上で UID2 Token を生成することです。その後、トークンを Prebid に渡して RTB ビッドストリームに送信します。
 
-手順や例を含む詳細については、[Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md) を参照してください。
+手順や例を含む詳細は、[Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md) を参照してください。
 
 トークンを生成するには、いずれかの SDK または [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出します。トークンを示す API レスポンスの例については、[Sample Token Response Object](#sample-token-response-object) を参照してください。`Identity` レスポンスを Prebid に渡す必要があります。
 

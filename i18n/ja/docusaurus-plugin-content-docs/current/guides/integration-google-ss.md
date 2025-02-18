@@ -28,11 +28,31 @@ Google secure signals は、パブリッシャーが [Google Ad Manager](https:/
 2. セキュアシグナル機能は、Client-Side でそれらをキャッシュし、Google Ad Manager に透過的に渡します。
 3. Google Ad Manager は UID2 Token を使ってビッドリクエストを行い、パブリッシャーの設定に基づき Google AdX 内の承認済み入札者にトークンを転送します。
 
-## Allow Secure Signals Sharing
+## Complete UID2 Account Setup and Configure Account
+
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
+
+アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。ここで、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細は、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+
+設定する値は、選択した [Publisher Integration Options](#publisher-integration-options) によって異なります:
+
+- Client-Server または Server-Side の実装の場合、UID2 Portal の [API Keys](../portal/api-keys.md) ページで次の値を設定する必要があります:
+  - <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、Client key とも呼ばれます。
+  - <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Service のみが知っている値。
+
+    :::important
+    これらの値を安全に保管することが非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+    :::
+- Client-Side の実装の場合、UID2 Portal の [Client-Side Integration](../portal/client-side-integration.md) ページで次の値を設定する必要があります:
+  - Subscription ID と Public Key: [Adding and Managing Key Pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs) を参照してください。
+  - この SDK を使用するサイトの **domain names** のリスト: [Adding and Managing Root-Level Domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains) を参照してください。
+  - Mobile App ID (適用される場合): [Adding and Managing Mobile App IDs](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids) を参照してください。
+
+  ## Allow Secure Signals Sharing
 
 Google Ad Manager アカウントで暗号化 UID2 Token を受け取るには、暗号化されたシグナルが Google Ad Manager アカウントで第三者の入札者と適切に共有されていることを確認する必要があります。
 
-詳しくは、Google ドキュメントの [Share encrypted signals with bidders](https://support.google.com/admanager/answer/10488752) を確認し、[Use a third-party signal provider](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/securesignals) の手順に従って、シグナルプロバイダーとして UID2 をオンに設定してください。
+詳細は、Google ドキュメントの [Share encrypted signals with bidders](https://support.google.com/admanager/answer/10488752) を確認し、[Use a third-party signal provider](https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/securesignals) の手順に従って、シグナルプロバイダーとして UID2 をオンに設定してください。
 
 :::important
 手順に従う際、[Select allowed secure signals](https://support.google.com/admanager/answer/10488752#select-signals) の **Web Signal Deploy Option** で **Google Deploy** を選択してください。Prebid.js を使用している場合は、[Optional: Enable Secure Signals in Prebid.js](#optional-enable-secure-signals-in-prebidjs) を参照してください。
@@ -82,6 +102,13 @@ window.googletag.cmd.push(function () {
 });
 ```
 
+## Publisher Integration Options
+
+Google Secure Signals パブリッシャーインテグレーションには、UID2 との 3 つのインテグレーションオプションがあります:
+- [Server-Side Integration](#server-side-integration)
+- [SDK for JavaScript Client-Server Integration](#sdk-for-javascript-client-server-integration)
+- [SDK for JavaScript Client-Side Integration](#sdk-for-javascript-client-side-integration)
+
 ### Server-Side Integration
 
 暗号化されたシグナルを共有できるように、ホストされ、自動ロードされたセキュアシグナルスクリプトは `window.getUid2AdvertisingToken` 関数を非同期に呼び出し、そのレスポンスとして `advertising_token` を文字列として受け取れるようにしなければなりません。
@@ -98,9 +125,19 @@ window.getUid2AdvertisingToken = async () => {
 }
 ```
 
-詳しくは、[Server-Only UID2 Integration Guide](integration-publisher-server-side.md) を参照してください。
+詳細は、[Server-Only UID2 Integration Guide](integration-publisher-server-side.md) を参照してください。
 
 Server Only インテグレーションのためのサンプルアプリケーションも用意されています。[Sample Implementations](#sample-implementations) を参照してください。
+
+### SDK for JavaScript Client-Server Integration
+
+Javascript SDK Version 3.0.0 以降を使用している場合、UID2 セキュアシグナルスクリプトは、SDK で提供されている `getAdvertisingTokenAsync` 関数を使用して新しい Advertising Token を取得し、そのトークンを Google Ad Manager にプッシュします。
+
+このスクリプトは CDN でホストされており、GPT はセキュアシグナル機能で自動的にロードします。
+
+詳細は、[Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) を参照してください。
+
+JavaScript SDK を使用したインテグレーションのためのサンプルアプリケーションも用意されています。[Sample Implementations](#sample-implementations) を参照してください。
 
 ### SDK for JavaScript Client-Side Integration
 
@@ -110,23 +147,23 @@ SDK for JavaScript バージョン 3.0.0 以降を使用している場合、UID
 
 詳しくは [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) を参照してください。
 
-SDK for JavaScript を使用したインテグレーションのためのサンプルアプリケーションも用意されています。[Sample Implementations](#sample-implementations) を参照してください。
+<!--  A sample implementation is also available for integration using the SDK for JavaScript. See [Sample Implementations](#sample-implementations). [sample integration to come Jan 2025-->
 
 ## Sample Implementations
 
 Google Ad Manager のセキュアシグナル機能との連携方法については、以下のサンプルアプリケーションを参照してください:
 
-- Server-side integration example using the UID2 JavaScript SDK with Google secure signals:
+- UID2 JavaScript SDK と Google secure signals を使用した Server-Side インテグレーションのサンプル:
   - [Sample implementation](https://secure-signals-server-side-integ.uidapi.com/)
   - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/server_side)
-- Client-server integration example using the UID2 JavaScript SDK with Google secure signals:
+- UID2 JavaScript SDK と Google secure signals を使用した Client-Server インテグレーションのサンプル:
   - [Sample implementation](https://secure-signals-client-server-integ.uidapi.com/)
   - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
-- Client-side integration example using the UID2 JavaScript SDK with Google secure signals:
+- UID2 JavaScript SDK と Google secure signals を使用した Client-Side インテグレーションのサンプル:
   - [Sample implementation](https://secure-signals-client-side-integ.uidapi.com/)
   - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/client_side)
 
-各サンプルアプリケーションには独自のインストラクションがあります。
+各サンプル実装には、それぞれのの手順があります。
 
 ## Troubleshooting
 

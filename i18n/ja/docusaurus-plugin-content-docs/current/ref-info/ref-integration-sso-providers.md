@@ -48,7 +48,7 @@ UID2 の作成に使用するメールアドレスが、UID2 契約、会社の�
 
 ### Sign in with Google for iOS and macOS
 
-iOS または macOS で [Sign in with Google](https://developers.google.com/identity/sign-in/ios/start-integrating) からメールアドレスを取得するには、`GIDGoogleUser` オブジェクトから取得します。詳細については、[プロファイル情報の取得](https://developers.google.com/identity/sign-in/ios/people)を参照してください。
+iOS または macOS で [Sign in with Google](https://developers.google.com/identity/sign-in/ios/start-integrating) からメールアドレスを取得するには、`GIDGoogleUser` オブジェクトから取得します。詳細は、[プロファイル情報の取得](https://developers.google.com/identity/sign-in/ios/people)を参照してください。
 
 ### Sign in with Google for Web
 
@@ -64,7 +64,7 @@ iOS で [Facebook Login](https://developers.facebook.com/docs/facebook-login/) �
 
 1. Facebook Login を実装し (詳細は、[Use Facebook Login in Your iOS App](https://developers.facebook.com/docs/ios/use-facebook-login) を参照)、`email` パーミッションをリクエストします。
 
-1. OIDC token からユーザーのメールアドレスを抽出します。たとえば、`Profile` ヘルパー クラスを使用して抽出します。詳細については、[OIDC Tokens in Facebook Login for iOS](https://developers.facebook.com/docs/facebook-login/guides/access-tokens/get-oidc) を参照してください。
+1. OIDC token からユーザーのメールアドレスを抽出します。たとえば、`Profile` ヘルパー クラスを使用して抽出します。詳細は、[OIDC Tokens in Facebook Login for iOS](https://developers.facebook.com/docs/facebook-login/guides/access-tokens/get-oidc) を参照してください。
 
 ### Facebook Login Without an OIDC Token
 
@@ -88,7 +88,7 @@ Apple ID でサインインする方法は、アプリとウェブサイトで�
 
 ### Sign In with Apple in an App
 
-`email` スコープをリクエストして認証をリクエストします。詳細については、[Request Authorization with Apple ID](https://developer.apple.com/documentation/sign_in_with_apple/implementing_user_authentication_with_sign_in_with_apple#3546458) を参照してください。
+`email` スコープをリクエストして認証をリクエストします。詳細は、[Request Authorization with Apple ID](https://developer.apple.com/documentation/sign_in_with_apple/implementing_user_authentication_with_sign_in_with_apple#3546458) を参照してください。
 
 承認に成功した場合、`ASAuthorizationAppleIDCredential` オブジェクトの `email` プロパティからユーザーのメールアドレスを取得します。
 
@@ -103,4 +103,4 @@ Apple ID でサインインする方法は、アプリとウェブサイトで�
 
 1. [OpenPass API](https://partner.thetradedesk.com/v3/portal/openpass/doc/OpenPassQuickstartsServerSide) または [OpenPass SDKs](https://partner.thetradedesk.com/v3/portal/openpass/doc/OpenPassSDKs) のいずれかを使用して、アイデンティティ トークンを取得します。
 
-1. アイデンティティ トークンの `email` クレームからユーザーのメールアドレスを抽出します。詳細については、[OpenPass Authentication Tokens](https://partner.thetradedesk.com/v3/portal/openpass/doc/OpenPassTokensAuth) を参照してください。
+1. アイデンティティ トークンの `email` クレームからユーザーのメールアドレスを抽出します。詳細は、[OpenPass Authentication Tokens](https://partner.thetradedesk.com/v3/portal/openpass/doc/OpenPassTokensAuth) を参照してください。

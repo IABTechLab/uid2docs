@@ -140,7 +140,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-authorization-header">Authorization header</MdxJumpAnchor></dt>
 <dd>Authorization header は、UID2 Service に対してクライアントを認証する方法です。</dd>
-<dd>詳細については、HTTP 仕様の RFC 9110 <a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.authorization">11.6.2. Authorization</a> を参照してください。</dd>
+<dd>詳細は、HTTP 仕様の RFC 9110 <a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.authorization">11.6.2. Authorization</a> を参照してください。</dd>
 
 </dl>
 
@@ -170,7 +170,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-client-secret">Client secret</MdxJumpAnchor></dt>
 <dd>各 UID2 <a href="/docs/intro#participants">参加者</a>は、API Key (クライアントキー) と、そのキーに関連付けられた秘密値 (Client secret (API シークレット)) を持っています。Client secretは、参加者と UID2 Service だけが知っています。</dd>
-<dd>詳細については、<a href="/docs/getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
+<dd>詳細は、<a href="/docs/getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-client-server"><a href="#gl-client-server">Client-server integration</a></MdxJumpAnchor></dt>
 <dd>UID2の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の1つは、Client-Side と Server-Side の両方でインテグレーションする方法です (Client-Server)。</dd>
@@ -319,7 +319,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-normalize">Normalize</MdxJumpAnchor></dt>
 <dd>データセットを Normalize (正規化)するとは、それを標準的な状態 (Condition) や状態 (State)にすることを意味します。</dd>
-<dd>UID2 には特定の正規化規則があります。詳細については、<a href="../getting-started/gs-normalization-encoding#email-address-normalization">Email Address Normalization</a> と <a href="../getting-started/gs-normalization-encoding#phone-number-normalization">Phone Number Normalization</a> を参照してください。</dd>
+<dd>UID2 には特定の正規化規則があります。詳細は、<a href="../getting-started/gs-normalization-encoding#email-address-normalization">Email Address Normalization</a> と <a href="../getting-started/gs-normalization-encoding#phone-number-normalization">Phone Number Normalization</a> を参照してください。</dd>
 
 </dl>
 
@@ -353,7 +353,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-opt-out">Opt-Out</MdxJumpAnchor></dt>
 <dd>UID2 エコシステムに参加しているエンドユーザーは、<a href="https://www.transparentadvertising.com/">Transparency and Control Portal</a> にアクセスすることで、いつでもオプトアウトすることができます。</dd>
-<dd>UID2 の Opt-out のワークフローと、ユーザーが Opt-out する方法の詳細については、<a href="../getting-started/gs-opt-out">User Opt-Out</a> を参照してください。</dd>
+<dd>UID2 の Opt-out のワークフローと、ユーザーが Opt-out する方法の詳細は、<a href="../getting-started/gs-opt-out">User Opt-Out</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-opt-out-service">Opt-Out Service</MdxJumpAnchor></dt>
 <dd>Opt-Out Service は、ユーザーのオプトアウト要求を管理・保存するグローバルな UID2 Service です。</dd>
@@ -367,7 +367,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-participant">Participant</MdxJumpAnchor></dt>
 <dd>UID2 において重要な役割を果たすエンティティです。参加者には以下が含まれます: Core Administrator、Operator、DSP、データプロバイダー、広告主、パブリッシャー、消費者。</dd>
-<dd>詳細については、<a href="../intro#participants">参加者</a> を参照してください。</dd>
+<dd>詳細は、<a href="../intro#participants">参加者</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-private-operator">Private Operator</MdxJumpAnchor></dt>
 <dd>Private <a href="#gl-operator">operator</a> は、Operator Service のプライベートインスタンスを実行する事業社です。Private Operator は、安全な環境で独自のリソース (ハードウェアなど) を使用して、自身のために UID2 を生成および管理します。</dd>
@@ -425,8 +425,8 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-secure-signals">Secure signals</MdxJumpAnchor></dt>
 <dd>Google Ad Managerの機能。セキュアシグナル機能 (旧称: Encrypted Signals for Publishers、略称: ESP)により、パブリッシャーは信頼できるサードパーティのバイイングパートナーとシグナルを安全に共有することができます。パブリッシャーは、<a href="https://admanager.google.com/home/">Google Ad Manager</a> と <a href="https://support.google.com/admanager/answer/6321605?hl=en">Google Ad Manager Ad Exchange (AdX)</a> を介して、Googleが承認した入札者に「暗号化された」ユーザーIDを渡すことができます。</dd>
-<dd>詳しくは、<a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a> (2番目のセクション) と <a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a> (いずれもGoogle) を参照してください。</dd>
-<dd>Google Secure signals の UID2 サポートの詳細については、<a href="../guides/integration-google-ss">Google Ad Manager Secure Signals Integration Guide</a> を参照してください。</dd>
+<dd>詳細は、<a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a> (2番目のセクション) と <a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a> (いずれもGoogle) を参照してください。</dd>
+<dd>Google Secure signals の UID2 サポートの詳細は、<a href="../guides/integration-google-ss">Google Ad Manager Secure Signals Integration Guide</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-server-side"><a href="#gl-server-side">Server-side integration</a></MdxJumpAnchor></dt>
 <dd>UID2 の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の一つは、完全に Server-Side でインテグレーションすることです。</dd>

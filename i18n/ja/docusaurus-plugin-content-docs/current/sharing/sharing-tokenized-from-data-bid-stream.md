@@ -143,7 +143,7 @@ UID2 Token を raw UID2 に復号するには、許可された共有者であ�
 
 暗号鍵の更新を定期的に行い、UID2 Token を速やかに復号化することが重要です。
 
-詳細については、*UID2 Sharing: Best Practices*の以下のセクションを参照してください:
+詳細は、*UID2 Sharing: Best Practices*の以下のセクションを参照してください:
 
 - [Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing)
 - [Best Practices for Managing Raw UID2s and UID2 Tokens](sharing-best-practices.md#best-practices-for-managing-raw-uid2s-and-uid2-tokens)
