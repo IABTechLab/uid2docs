@@ -11,6 +11,18 @@ import Link from '@docusaurus/Link';
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
+### Updated: Instructions for Using the UID2 Portal
+
+February 10, 2025
+
+UID2 インテグレーションガイド、SDK ドキュメント、エンドポイントドキュメントに、UID2 Portal でのアカウント設定に関する情報を追加しました。
+
+詳細は、実装ガイドを参照してください: 例えば、[Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md#complete-uid2-account-setup-and-configure-account) または [SDK for Android Reference Guide](../sdks/sdk-ref-android.md#api-permissions)。
+
+また、これらの変更により、環境によって認証情報を取得する手順が異なることが明確になりました: [Credentials](../getting-started/gs-credentials.md) および [Environments](../getting-started/gs-environments.md) ページで詳細を確認してください。
+
+<!-- APIDOCS-2828 -->
+
 ### New: Expanded and Restructured Advertiser/Data Provider Doc
 
 January 10, 2025
