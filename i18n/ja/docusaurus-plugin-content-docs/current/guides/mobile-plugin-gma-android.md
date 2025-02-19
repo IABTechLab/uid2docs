@@ -35,7 +35,7 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 
 UID2 Portal で実行する手順は、実装が　Client-Side、Client-Server、Server-Side のいずれであるかによって異なります。各実装ガイドに具体的な手順が記載されています。概要については、[Client-Side or Client-Server Integration?](integration-mobile-overview#client-side-or-client-server-integration) を参照してください。
 
-## Requirements
+## Requirements 
 
 このプラグインを実行するには、以下をインストールします:
 

@@ -30,9 +30,9 @@ UID2 と UID2 Token を使用してクライアントのアイデンティティ
 
 ## Introduction
 
-このガイドでは、Client-Side または Server-Side SDK を使用せずインテグレーションを行う場合に考慮する必要がある [basic steps](#integration-steps) について説明します。例えば、以下のようなことを決定する必要があります:
+このガイドでは、Client-Side または Server-Side SDK を使用せずインテグレーションを行う場合に考慮する必要がある [basic steps](#integration-steps) について説明します。たとえば、以下のようなことを決定する必要があります:
 
-- メールアドレスまたは電話番号を取得する機会を実装する: 例えば、プロモーションの交換、サインアップとサブスクリプション、またはマーケティングフォームの記入。
+- メールアドレスまたは電話番号を取得する機会を実装する: たとえば、プロモーションの交換、サインアップとサブスクリプション、またはマーケティングフォームの記入。
 - UID2 ID 情報を管理し、ターゲティング広告に使用する
 - UID2 Token をリフレッシュする
 - ID が欠落している場合の処理
@@ -52,7 +52,7 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 
 Server-Side インテグレーションの場合、UID2 ポータルの [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
 
-- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、クライアントキーとも呼ばれます、
+- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、Client Key とも呼ばれます、
 - <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Service のみが知る値。
 
 :::important
@@ -63,7 +63,7 @@ Server-Side インテグレーションの場合、UID2 ポータルの [API Key
 
 以下の図は、ユーザーがパブリッシャーと UID2 Token を確立するために必要なステップと、UID2 Token が RTB ビッドストリームとどのようにインテグレーションされるかを概説したものです。
 
-Server-Side SDK を使用している場合、SDK はエンドポイントに関連するすべてのステップを処理します。例えば、Step 1-d では、発行者はユーザーの DII をトークン生成サービスに送信します。
+Server-Side SDK を使用している場合、SDK はエンドポイントに関連するすべてのステップを処理します。たとえば、Step 1-d では、発行者はユーザーの DII をトークン生成サービスに送信します。
 
 ![Publisher Flow](images/integration-publisher-server-side-mermaid.png)
 
@@ -92,7 +92,7 @@ Step 1-c で認証が行われい、パブリッシャーがユーザーのメ�
 
 ### Bid Using a UID2 Token
 
-UID2 ID 情報をどのように管理し、ターゲティング広告に使用したいかを検討する必要があります。例えば、返された UID2 token を SSP に渡す等。
+UID2 ID 情報をどのように管理し、ターゲティング広告に使用したいかを検討する必要があります。たとえば、返された UID2 token を SSP に渡す等。
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |

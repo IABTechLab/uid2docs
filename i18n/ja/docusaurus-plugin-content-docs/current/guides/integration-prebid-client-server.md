@@ -59,7 +59,7 @@ Prebid.js を使用して UID2 とインテグレーションするには、UID2
 
 Client-Server インテグレーションの場合、UID2 Portal の [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
 
-- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、クライアントキーとも呼ばれます。
+- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、Client Key とも呼ばれます。
 - <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Service のみが知る値。
 
 :::important

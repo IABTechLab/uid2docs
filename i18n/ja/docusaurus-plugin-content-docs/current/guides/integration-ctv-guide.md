@@ -36,7 +36,7 @@ UID2 とインテグレーションするには、UID2 のアカウントが必�
 設定する具体的な値は、[CTV integration options](#ctv-integration-options) で選択したオプションによって異なります:
 
 - Client-Server または Server-Side の実装の場合、UID2 Portal の [API Keys](../portal/api-keys.md) ページで次の値を設定する必要があります:
-  - <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、クライアントキーとも呼ばれます。
+  - <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、Client Key とも呼ばれます。
   - <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Servivce のみが知る値です。
 
     :::important

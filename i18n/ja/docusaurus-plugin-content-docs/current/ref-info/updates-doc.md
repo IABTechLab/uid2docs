@@ -17,7 +17,7 @@ February 10, 2025
 
 UID2 インテグレーションガイド、SDK ドキュメント、エンドポイントドキュメントに、UID2 Portal でのアカウント設定に関する情報を追加しました。
 
-詳細は、実装ガイドを参照してください: 例えば、[Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md#complete-uid2-account-setup-and-configure-account) または [SDK for Android Reference Guide](../sdks/sdk-ref-android.md#api-permissions)。
+詳細は、実装ガイドを参照してください: たとえば、[Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md#complete-uid2-account-setup-and-configure-account) または [SDK for Android Reference Guide](../sdks/sdk-ref-android.md#api-permissions)。
 
 また、これらの変更により、環境によって認証情報を取得する手順が異なることが明確になりました: [Credentials](../getting-started/gs-credentials.md) および [Environments](../getting-started/gs-environments.md) ページで詳細を確認してください。
 
@@ -27,7 +27,7 @@ UID2 インテグレーションガイド、SDK ドキュメント、エンド�
 
 January 10, 2025
 
-広告主とデータプロバイダーのドキュメントを大幅に拡充し、再構築しました。新しい概要ドキュメントと、Snowflake、AWS Entity Resolution、HTTP エンドポイントの 3 つの主要な統合オプションに関する個別のドキュメントがあります:
+広告主とデータプロバイダーのドキュメントを大幅に拡充し、再構築しました。新しい概要ドキュメントと、Snowflake、AWS Entity Resolution、HTTP エンドポイントの 3 つの主要なインテグレーションオプションに関する個別のドキュメントがあります:
 
 広告主とデータプロバイダー向けのすべてのインテグレーションオプションの概要については、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
@@ -125,7 +125,7 @@ For details, see [UID2 Tokens and Refresh Tokens]. -->
 
 July 23, 2024
 
-Client-Side、Client-Server、Server-Side の異なる統合アプローチに関する情報を含む新しいページを追加しました。
+Client-Side、Client-Server、Server-Side の異なるインテグレーションアプローチに関する情報を含む新しいページを追加しました。
 
 詳細は [Integration Approaches](ref-integration-approaches.md) を参照してください。
 

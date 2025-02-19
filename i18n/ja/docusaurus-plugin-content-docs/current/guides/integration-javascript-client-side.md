@@ -87,7 +87,7 @@ When account setup is complete, you'll receive a client keypair consisting of tw
 -->
 
 :::tip
-アカウント設定に必要なのは、ルートレベルのドメインだけです。例えば、JavaScript 用の UID2 SDK を example.com、shop.example.com、example.org で使用する場合、ドメイン名 example.com と example.org を指定するだけです。
+アカウント設定に必要なのは、ルートレベルのドメインだけです。たとえば、JavaScript 用の UID2 SDK を example.com、shop.example.com、example.org で使用する場合、ドメイン名 example.com と example.org を指定するだけです。
 :::
 
 ## Add SDK for JavaScript to Your Site
@@ -292,7 +292,7 @@ await __uid2.setIdentityFromPhoneHash(
 
 パブリッシャーで、<Link href="../ref-info/glossary-uid#gl-identity">identity</Link> がない状態で最初のページをロードする場合、トークン生成の呼び出しを開始するには、DII で `setIdentity` メソッドのいずれかを呼び出す必要があります。ID が生成されると、SDK からの `IdentityUpdated` イベントを待つことで、ビッドストリームに送信する Advertiser Token (<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>) を利用できるようになります。例として、`advertising_token_to_use` の値がどのように設定されるかを以下のコードスニペットで示します。
 
-場合によっては、ユーザーの DII はページロード時に利用できず、DII の取得には何らかの関連コストがかかります。例えば、DII を取得するために API コールが必要な場合や、DII 情報を提供するためにユーザーにプロンプトが表示される場合があります。
+場合によっては、ユーザーの DII はページロード時に利用できず、DII の取得には何らかの関連コストがかかります。たとえば、DII を取得するために API コールが必要な場合や、DII 情報を提供するためにユーザーにプロンプトが表示される場合があります。
 
 既存のトークンをチェックし、使用またはリフレッシュすることで、このコストを回避できる可能性があります。これを行うには
 [__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) を呼び出し、ブール値を受け取ります。これが `true` の場合、UID2 SDK は既存のリソースで新しい Advertising Token を作成できず、DII はまったく新しい UID2 Token を生成する必要があることを意味します。

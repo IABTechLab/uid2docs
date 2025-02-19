@@ -25,7 +25,7 @@ import Link from '@docusaurus/Link';
 | 本番環境 | AWS Asia Pacific (Tokyo) | `ap-northeast-1` | `https://jp.prod.uidapi.com` |
 | 本番環境 | AWS Asia Pacific (Singapore) | `ap-southeast-1` | `https://sg.prod.uidapi.com` |
 
-例えば、`https://operator-integ.uidapi.com/v2/token/generate`
+たとえば、`https://operator-integ.uidapi.com/v2/token/generate`
 
 Notes:
 
@@ -43,7 +43,7 @@ Notes:
 
 クライアントと UID2 サーバーの近接性に依存して API コールのレイテンシが決まります。特に消費者デバイスから API コールを行う場合、ユーザーに近いサーバーを選択することでレイテンシを低減できます。
 
-例えば、シンガポールのパブリッシャーは、ベース URL を `https://sg.prod.uidapi.com` に設定できます。これは UID2 の本番環境ですが、サーバーはシンガポールにあります。
+たとえば、シンガポールのパブリッシャーは、ベース URL を `https://sg.prod.uidapi.com` に設定できます。これは UID2 の本番環境ですが、サーバーはシンガポールにあります。
 
 ベース URL を明示的に設定することで、すべてのリクエストを特定の国または地域内で処理するように指示できます。
 

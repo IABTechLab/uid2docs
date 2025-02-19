@@ -104,7 +104,7 @@ UID2 Token は、Client-Side、Server-Sideのどちらでも生成できます�
 #### Can I make token refresh calls from the client side?
 Client-Side からトークンのリフレッシュを呼び出すことはできますか？
 
-はい。[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) は、API Key を使用する必要がないため、Client-Side (例えば、ブラウザやモバイルアプリ) から呼び出すことができます。
+はい。[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) は、API Key を使用する必要がないため、Client-Side (たとえば、ブラウザやモバイルアプリ) から呼び出すことができます。
 
 #### If I choose to manually refresh the token, how will I know when to refresh the token?
 トークンを手動でリフレッシュする場合、リフレッシュのタイミングをどう判断すればよいですか？
@@ -203,7 +203,7 @@ UID2 生成リクエストで提供されるメタデータには、UID2 の生�
 
 オーディエンスの更新は、毎日行うことが推奨されています。
 
-ソルトバケットは 1 年に 1 回程度更新されますが、個々のバケットの更新は 1 年に分散して行われます。これは、全バケットの約 1/365 が毎日ローテーションされることを意味します。もし忠実さが重要であれば、[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントをもっと頻繁に、例えば 1 時間ごとに呼び出すことを検討してください。
+ソルトバケットは 1 年に 1 回程度更新されますが、個々のバケットの更新は 1 年に分散して行われます。これは、全バケットの約 1/365 が毎日ローテーションされることを意味します。もし忠実さが重要であれば、[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントをもっと頻繁に、たとえば 1 時間ごとに呼び出すことを検討してください。
 
 #### How should I generate the SHA-256 of DII for mapping?
 マッピング用の DII の SHA-256 はどのように生成すればよいですか？

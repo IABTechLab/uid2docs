@@ -23,13 +23,13 @@ SDK の技術的な詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-re
 
 ## Sample Implementation
 
-実装例については、次の UID2 SDK 統合例を参照してください。
+実装例については、次の UID2 SDK インテグレーション例を参照してください。
 - [Client-Server UID2 SDK Integration Example](https://example-jssdk-integ.uidapi.com/)
 - [Code Repository with Readme](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk)
 
 ## Introduction
 
-このガイドでは、SDK を使用せずにインテグレーションを行う場合に考慮すべき基本的な手順を説明します。例えば、ユーザー認証とデータ取得の実装方法、UID2 ID 情報の管理方法とターゲティング広告への使用方法、トークンのリフレッシュ方法、紛失した ID の処理方法、ユーザーのオプトアウトの処理方法などを決定する必要があります。
+このガイドでは、SDK を使用せずにインテグレーションを行う場合に考慮すべき基本的な手順を説明します。たとえば、ユーザー認証とデータ取得の実装方法、UID2 ID 情報の管理方法とターゲティング広告への使用方法、トークンのリフレッシュ方法、紛失した ID の処理方法、ユーザーのオプトアウトの処理方法などを決定する必要があります。
 
 ワークフロー図は、[Integration Steps](#integration-steps) を参照してください。また、[FAQ](#faqs) も参照してください。
 
@@ -59,7 +59,7 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 
 Client-Server インテグレーションを行う場合は、UID2 Portal の [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
 
-  - <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、クライアントキーとも呼ばれます。
+  - <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、Client Key とも呼ばれます。
   - <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Servivce のみが知る値です。
 
 :::important

@@ -97,7 +97,7 @@ Step 1 のレスポンス [Generate Raw UID2s from DII](#1-generate-raw-uid2s-fr
 
 Step 1 で受け取った UID2 を使用します。たとえば、次のような操作を行うことができます:
 
-- 操作する: 例えば、DII から生成した UID2 と広告主またはデータプロバイダーなど他の参加者から受け取った UID2 を組み合わせる。
+- 操作する: たとえば、DII から生成した UID2 と広告主またはデータプロバイダーなど他の参加者から受け取った UID2 を組み合わせる。
 - 既存のオーディエンスに新しい UID2 を追加する。
 
 ### 4: Send Stored Raw UID2s to DSPs to Create Audiences or Conversions
@@ -107,15 +107,15 @@ UID2 を以下の目的で使用します:
    - 保存された raw UID2 を DSP に送信して、オーディエンスとコンバージョンを作成する。
    - 計測のために raw UID2 を使用する。
 
-例えば、Step 1-b で返された `advertising_id` (<Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link>) を DSP に送信してオーディエンスを構築します。各 DSP は、オーディエンスを構築するための独自のインテグレーションプロセスを持っています。オーディエンスを構築するために raw UID2 を送信するための DSP から提供される統合ガイダンスに従ってください。
+たとえば、Step 1-b で返された `advertising_id` (<Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link>) を DSP に送信してオーディエンスを構築します。各 DSP は、オーディエンスを構築するための独自のインテグレーションプロセスを持っています。オーディエンスを構築するために raw UID2 を送信するための DSP から提供されるインテグレーションガイダンスに従ってください。
 
 また、計測（アトリビューション）やリターゲティングのために、API やピクセルを介してコンバージョン情報を送信することもできます。
 
 ### 5: Monitor for Salt Bucket Rotations for Your Stored Raw UID2s
 
-raw UID2 は、特定の時点におけるユーザーの識別子です。raw UID2 は、<Link href="../ref-info/glossary-uid#gl-salt-bucket">ソルトバケット</Link> のローテーションにより、少なくとも年に一度変更されます。
+raw UID2 は、特定の時点におけるユーザーの識別子です。raw UID2 は、<Link href="../ref-info/glossary-uid#gl-salt-bucket">ソルトバケット</Link>のローテーションにより、少なくとも年に一度変更されます。
 
-各ソルトバケットは、約1年に1回更新されますが、個々のバケットの更新は年間を通じて分散されます。約 1/365 のソルトバケットが毎日ローテーションされます。このため、ソルトバケットのローテーションを定期的にチェックすることをお勧めします。これは、オーディエンスの更新に合わせた頻度で行うことが望ましいです。たとえば、週ごとに更新する場合は、週ごとにソルトバケットの更新を確認してください。
+各ソルトバケットは、約1年に1回更新されますが、個々のバケットの更新は年間を通じて分散されます。約 1/365 のソルトバケットが毎日ローテーションされます。このため、ソルトバケットのローテーションを定期的にチェックすることを勧めます。これは、オーディエンスの更新に合わせた頻度で行うことが望ましいです。たとえば、週ごとに更新する場合は、週ごとにソルトバケットの更新を確認してください。
 
 ソルトバケットがローテーションされた場合は、raw UID2 を再生成します。詳細は、[Determine whether the salt bucket has been rotated](#determine-whether-the-salt-bucket-has-been-rotated) を参照してください。
 

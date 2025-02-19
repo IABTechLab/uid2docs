@@ -24,7 +24,7 @@ UID2 とインテグレーションするには、UID2 のアカウントが必�
 
 UID2 Portal の [API Keys](../portal/api-keys.md) ページで、以下の値を設定する必要があります:
 
-- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、クライアントキーとも呼ばれます。
+- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、Client Key とも呼ばれます。
 - <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Servivce のみが知る値です。
 
 :::important
@@ -64,6 +64,7 @@ DII は、ユーザーの正規化されたメールアドレスまたは電話�
 | 1-a | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) request | DII を含むリクエストを ID マッピングエンドポイントに送信します。 |
 | 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response | レスポンスで返される `advertising_id` (raw UID2) は、関連する DSP でオーディエンスをターゲットするために使用できます。<br/>レスポンスは、ユーザーの raw UID2 と、それに対応するソルトバケットの `bucket_id` を返します。バケットに割り当てられたソルトは年に一度ローテーションし、生成された raw UID2 に影響を与えます。ソルトバケットのローテーションを確認する方法の詳細は、[5: Monitor for salt bucket rotations related to your stored raw UID2s](#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s) を参照してください。 |
 
+
 ### 2: Store Raw UID2s and Salt Bucket IDs
 
 Step 1 のレスポンス [Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii) には、マッピング情報が含まれています。以下の情報を保存することを勧めます:
@@ -85,7 +86,7 @@ raw UID2 を以下の目的で使用します:
    - 保存された raw UID2 を DSP に送信して、オーディエンスとコンバージョンを作成する。
    - 計測のために raw UID2 を使用する。
 
-例えば、Step 1-b で返された `advertising_id` (<Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link>) を DSP に送信してオーディエンスを構築します。各 DSP は、オーディエンスを構築するための独自のインテグレーションプロセスを持っています。オーディエンスを構築するために raw UID2 を送信するための DSP から提供される統合ガイダンスに従ってください。
+たとえば、Step 1-b で返された `advertising_id` (<Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link>) を DSP に送信してオーディエンスを構築します。各 DSP は、オーディエンスを構築するための独自のインテグレーションプロセスを持っています。オーディエンスを構築するために raw UID2 を送信するための DSP から提供されるインテグレーションガイダンスに従ってください。
 
 また、計測（アトリビューション）やリターゲティングのために、API やピクセルを介してコンバージョン情報を送信することもできます。
 
@@ -93,7 +94,7 @@ raw UID2 を以下の目的で使用します:
 
 raw UID2 は、特定の時点におけるユーザーの識別子です。raw UID2 は、<Link href="../ref-info/glossary-uid#gl-salt-bucket">ソルトバケット</Link> のローテーションにより、少なくとも年に一度変更されます。
 
-各ソルトバケットは、約1年に1回更新されますが、個々のバケットの更新は年間を通じて分散されます。約 1/365 のソルトバケットが毎日ローテーションされます。このため、ソルトバケットのローテーションを定期的にチェックすることをお勧めします。これは、オーディエンスの更新に合わせた頻度で行うことが望ましいです。たとえば、週ごとに更新する場合は、週ごとにソルトバケットの更新を確認してください。
+各ソルトバケットは、約1年に1回更新されますが、個々のバケットの更新は年間を通じて分散されます。約 1/365 のソルトバケットが毎日ローテーションされます。このため、ソルトバケットのローテーションを定期的にチェックすることを勧めます。これは、オーディエンスの更新に合わせた頻度で行うことが望ましいです。たとえば、週ごとに更新する場合は、週ごとにソルトバケットの更新を確認してください。
 
 ソルトバケットがローテーションされた場合は、raw UID2 を再生成します。詳細は、[Determine whether the salt bucket has been rotated](#determine-whether-the-salt-bucket-has-been-rotated) を参照してください。
 

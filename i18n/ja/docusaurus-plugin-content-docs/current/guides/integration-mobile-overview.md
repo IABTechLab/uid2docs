@@ -13,7 +13,7 @@ import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # UID2 Mobile Integration Overview for Android and iOS
 
-このガイドは、SDK for Android または SDK for iOS を使用して UID2 と統合したいモバイルアプリのパブリッシャー向けのインテグレーションオプションの概要です。
+このガイドは、SDK for Android または SDK for iOS を使用して UID2 とインテグレーションしたいモバイルアプリのパブリッシャー向けのインテグレーションオプションの概要です。
 
 :::note
 このガイドの、**UID2 mobile SDKs** は、SDK for Android と SDK for iOS の両方を含むグループ用語です。

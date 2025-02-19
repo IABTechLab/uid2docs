@@ -13,7 +13,7 @@ import Link from '@docusaurus/Link';
 
 パブリッシャーは、[implementation options](#implementation-options-for-senders) のいずれかを使用して DII を UID2 Token に暗号化し、UID2 Token をビッドストリームに送信できます。
 
-他の共有参加者も、このトークン化された共有形態を使用する可能性があります。例えば、広告主がトラッキングピクセル用の UID2 Token を作成するために使用するかもしれません。
+他の共有参加者も、このトークン化された共有形態を使用する可能性があります。たとえば、広告主がトラッキングピクセル用の UID2 Token を作成するために使用するかもしれません。
 
 :::caution
 ビッドストリーム内のデータは不正にアクセスされる可能性があるため、raw UID2 をビッドストリームで共有することは決して許されません。ビッドストリームで共有する場合は、Tokenized Sharing が必要です。
