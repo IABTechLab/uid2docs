@@ -15,6 +15,7 @@ import ExampleAdvertisingToken from '../snippets/_example-advertising-token.mdx'
 import EnableLogging from '../snippets/_mobile-docs-enable-logging.mdx';
 import PrebidMobileSDK from '../snippets/_mobile_docs_prebid-mobile.mdx';
 import ErrorResponseStates from '../snippets/_mobile-docs-error-response-states.mdx';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # UID2 Client-Side Integration Guide for Mobile
 
@@ -190,15 +191,31 @@ see UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist
 
 必要に応じて、デフォルトの Subscription ID と public key を割り当てられた値に変更し、UID2 本番環境に接続することもできます。詳細は [Optional: Specifying the API Base URL to Reduce Latency](#optional-specifying-the-api-base-url-to-reduce-latency) を参照してください。
 
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
+
 ## Complete UID2 Account Setup and Configure Account
 
-アカウントをセットアップするには、[Account Setup](../getting-started/gs-account-setup.md) に記載されている手順に従ってください。アカウントセットアッププロセスの一環として、UID2 mobile SDK とインテグレーションするすべてのモバイルアプリの <Link href="../ref-info/glossary-uid#gl-app-name">app names</Link> のリストを提供する必要があります。これには、以下の値が該当します:
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-- Android Application ID
-- iOS Bundle Identifier
-- iOS App Store ID
+アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。ここで、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を設定できます。詳細は、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
-アカウントのセットアップが完了すると、UID2 サーバーがユーザーを識別するために使用する 2 つの値であるクライアントキーペアが発行されます: Subscription ID と Public key。これらの値はあなたに固有で、UID2 モジュールの設定に使用します。詳細は [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key) を参照してください。
+モバイル Client-Side インテグレーションには、UID2 Portal の [Client-Side Integration](../portal/client-side-integration.md) ページで以下の値を設定する必要があります:
+
+- Subscription ID と Public Key: [Adding and Managing Key Pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs) を参照してください。
+
+- モバイルアプリ ID : 該当する以下の値のいずれか:
+
+  - Android Application ID
+  - iOS Bundle Identifier
+  - iOS App Store ID
+
+    詳細は、[Adding and Managing Mobile App IDs](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids) を参照してください。
+
+<!-- (earlier instructions, no-portal, for EUID)
+When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key). 
+-->
 
 ## Add the UID2 Mobile SDK to Your Mobile App
 
@@ -211,7 +228,7 @@ SDK をアプリに追加したら、SDK を使用して UID2 Token を生成す
 
 ### Using the UID2 Integration Environment
 
-デフォルトでは、SDK は UID2 本番環境で動作するように構成されています: `https://prod.uidapi.com`。代わりにインテグレーション環境を使用する場合は、`UID2Manager` の初期化に次の URL を指定してください:
+デフォルトでは、この SDK は UID2 本番環境: `https://prod.uidapi.com` で動作するように構成されています。UID2 インテグレーション環境を使用する場合は、(認証情報については [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)、`UID2Manager` の初期化する際に次の URL を指定してください:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -593,12 +610,12 @@ UID2Manager.shared.getAdvertisingToken()
     - **iOS**: `UID2Manager.shared.identityStatus`
 
     UID2 から DII がオプトアウトされている可能性があります: 詳細については [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk) を参照してください。
-- ロギングを有効にして詳細情報を取得できます: [Enable Logging](#enable-logging) を参照してください。
+- ロギングを有効 (`isLoggingEnabled` を `true` に設定する) にして詳細情報を取得できます: [Enable Logging](#enable-logging) を参照してください。
 - UID2 identity 内の Advertising Token の有効期限が切れていて、Refresh Token も有効期限が切れているため、SDK がトークンをリフレッシュできません。
 
 Identity が無い場合は、`generateIdentity` メソッドを再度呼び出す必要があります: 詳細については [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
 
-詳しくは、[When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk)(次項) を参照してください。
+詳細は、[When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk)(次項) を参照してください。
 
 ## When to Pass DII into the SDK
 

@@ -33,7 +33,7 @@ import Link from '@docusaurus/Link';
 
 ### Web Integrations
 
-以下のリソースは、パブリッシャーの Web インテグレーションに利用できます。
+パブリッシャーの Web インテグレーションには、以下のドキュメントリソースが利用できます。
 
 :::tip
 Web インテグレーションオプションの詳細は [Web Integration Overview](integration-options-publisher-web.md) を参照してください。
@@ -52,17 +52,17 @@ Web インテグレーションオプションの詳細は [Web Integration Over
 
 ### Mobile Integrations
 
-Android または iOS デバイスとインテグレーションするパブリッシャーは、以下のリソースを利用できます。
+Android または iOS デバイスとインテグレーションするパブリッシャーは、以下のドキュメントリソースを利用できます。
 
 | Integration Guide | Content Description |
 | :--- | :--- |
 | [Mobile Integration Overview for Android and iOS](integration-mobile-overview.md) | SDK for Android または SDK for iOS を使用して UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けのオプションの概要です。 |
-| [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) | モバイルアプリ内のみの変更で UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けの統合ガイドです (Server-Side の変更はありません)。 |
+| [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) | モバイルアプリ内のみの変更で UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けのインテグレーションガイドです (Server-Side の変更はありません)。 |
 | [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md) | UID2 とインテグレーションしたいモバイルアプリのパブリッシャー向けのインテグレーションガイドです:<ol><li>UID2 Token を Server-Side で生成するには、PublicまたはPrivate Operatorを使用します。</li><li>その結果、<Link href="../ref-info/glossary-uid#gl-identity">identities</Link> をモバイルアプリに渡し、ビッドストリームに渡します。</li></ol> |
 
 ### CTV Integrations
 
-CTV とインテグレーションするパブリッシャー向けには、以下のリソースが利用できます。
+CTV とインテグレーションするパブリッシャー向けには、以下のドキュメントリソースが利用できます。
 
 | Integration Guide | Content Description |
 | :--- | :--- |
@@ -93,18 +93,19 @@ Google Ad Managerとインテグレーションするパブリッシャーは、
 
 ## Advertiser/Data Provider Integrations
 
-UID2 とインテグレーションする広告主やデータプロバイダーは、以下のリソースを利用できます。
+UID2 とインテグレーションする広告主やデータプロバイダーは、以下のドキュメントリソースを利用できます。
 
 | Integration Guide | Content Description |
 | :--- | :--- |
-| [Advertiser/Data Provider](./integration-advertiser-dataprovider-overview.md) | この広告主やデータプロバイダー向けのインテグレーションガイドは、オーディエンスの構築とターゲティングのためのアイデンティティマッピングのためのインテグレーションワークフローをカバーしています。 |
-| [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) | トラッキングピクセルに UID2 Token を追加するためにこの SDK を使用したい広告主やデータプロバイダー向けのガイドです。<!-- UID2_only: Not applicable for EUID --> |
+| [Advertiser/Data Provider Overview](integration-advertiser-dataprovider-overview.md) | このガイドでは、ユーザーデータを収集し、他の UID2 参加者にプッシュする組織向けのインテグレーションオプションの概要を提供します。 |
 | [Snowflake Integration Guide](integration-snowflake.md) | Snowflake 内でメールアドレスから UID2 を生成する手順です。|
 | [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md) | AWS Entity Resolution を使用して UID2 フレームワークとインテグレーションする手順です。 |
+| [Advertiser/Data Provider Integration to HTTP Endpoints](integration-advertiser-dataprovider-endpoints.md) | このガイドでは、広告主やデータプロバイダーが UID2 とインテグレーションするための手順を説明します。この手順では、SDK、Snowflake、AWS Entity Resolution などの他の実装オプションではなく、コードを書いて UID2 HTTP エンドポイントを呼び出す方法を説明します。 |
+| [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) | トラッキングピクセルに UID2 Token を追加するためにこの SDK を使用したい広告主やデータプロバイダー向けのガイドです。<!-- UID2_only: Not applicable for EUID --> |
 
 ## DSP Integrations
 
-DSP とインテグレーションする DSP は、以下のリソースを利用できます。
+UID2 とインテグレーションする DSP は、以下のドキュメントリソースを利用できます。
 
 | Integration Guide | Content Description |
 | :--- | :--- |

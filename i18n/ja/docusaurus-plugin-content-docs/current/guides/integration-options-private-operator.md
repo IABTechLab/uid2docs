@@ -60,7 +60,7 @@ Private Operator の基本的なワークフローは次のとおりです:
 
 1. Operator が認証プロセスに合格すると、Core Service は、起動に必要な情報を取得するための安全な S3 URL を Private Operator に提供します。
 
-1. Private Operator は、UID2 の処理に必要な情報 (ソルト、暗号化キー、およびユーザーのオプトアウトレコードなど) を Amazon S3 から取得します。セキュリティの詳細については、[Private Operator Security](#private-operator-security) を参照してください。
+1. Private Operator は、UID2 の処理に必要な情報 (ソルト、暗号化キー、およびユーザーのオプトアウトレコードなど) を Amazon S3 から取得します。セキュリティの詳細は、[Private Operator Security](#private-operator-security) を参照してください。
 
 1. Operator が再起動されると、再度認証プロセスを実行し、新しいセキュリティ情報を取得します。
 

@@ -8,7 +8,7 @@ sidebar_position: 09
 # Client-Side Integration
 
 :::note
-これらの手順は Client-Side の実装向けです。UID2 の実装が Client-Server または Server-Side である場合は、異なる値を設定する必要があります。詳細については、[API Keys](api-keys.md) を参照してください。
+これらの手順は Client-Side の実装向けです。UID2 の実装が Client-Server または Server-Side である場合は、異なる値を設定する必要があります。詳細は、[API Keys](api-keys.md) を参照してください。
 :::
 
 UID2 Portal では、Client-Side でトークンを生成する実装オプションを使用する場合、実装タイプに該当する以下の値を定義する必要があります:

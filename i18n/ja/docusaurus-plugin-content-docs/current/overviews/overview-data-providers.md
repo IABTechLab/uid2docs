@@ -6,6 +6,7 @@ sidebar_position: 08
 use_banner: true
 banner_title:  データプロバイダー向け UID2 の概要
 banner_description: 未来のためのIDソリューション。
+banner_icon: 'dataProviders'
 banner_text_color: 'white'
 banner_text_color_dark: 'black'
 banner_background_color: '#10692E'
@@ -78,10 +79,11 @@ UID2 を使用することで、データプロバイダーとして得られる
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
-| ユーザーデータを収集し、他の UID2 参加者にプッシュする組織のためのインテグレーション手順 | [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) | このガイドでは、オーディエンスの構築とターゲティングのために ID をマッピングするインテグレーションワークフローについて説明します。 |
-| トラッキングピクセルに UID2 Token を追加する広告主およびデータプロバイダー向けのインテグレーション手順 | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) | このガイドでは、JavaScript クライアントサイドの変更のみを使用して、Advertising Token を追加するための JavaScript SDK を使用する広告主およびデータプロバイダー向けのインテグレーション手順を提供します。<!-- UID2_only: Not applicable for EUID --> |
+| ユーザーデータを収集し、他の EUID 参加者にプッシュする組織向けのインテグレーションオプションの概要 | [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) | このガイドでは、オーディエンス構築およびターゲティングのための ID マッピングのインテグレーションワークフローについて説明します。 |
 | Snowflake | [Snowflake Integration Guide](../guides/integration-snowflake.md) | このガイドでは、Snowflake を使ってメールアドレスから UID2 を生成する手順を説明します。 |
 | AWS Entity Resolution | [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) | このガイドでは、AWS Entity Resolution を使用して UID2 とインテグレーションする手順を説明します。 |
+| UID2 HTTP エンドポイントのみを使用して、ユーザーデータを収集し、他の EUID 参加者に送信する組織向けのインテグレーション手順 | [Advertiser/Data Provider Integration to HTTP Endpoints](../guides/integration-advertiser-dataprovider-endpoints.md) | このガイドでは、広告主やデータプロバイダーが UID2 HTTP エンドポイントを呼び出すためのコードを記述して UID2 とインテグレーションする手順について説明します。SDK、Snowflake、AWS Entity Resolution などの他の実装オプションを使用せずに UID2 とインテグレーションする広告主やデータプロバイダー向けのインテグレーション手順をカバーします。 |
+| Client-Side JavaScript SDK を使用してトラッキングピクセルに UID2 Token を追加する広告主やデータプロバイダー向けのインテグレーション手順 | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) | このガイドでは、JavaScript Client-Side の変更のみを使用して UID2 Token (Advertising Token) を生成する手順について説明します。<!-- UID2_only: Not applicable for EUID --> |
 
 ## FAQs for Data Providers
 

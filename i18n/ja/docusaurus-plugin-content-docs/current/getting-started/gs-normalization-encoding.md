@@ -17,7 +17,7 @@ import Link from '@docusaurus/Link';
 
 :::important
 - Raw UID2 とそれに関連する UID2 Token は、大文字と小文字を区別します。UID2 を扱う際には、大文字小文字を変えずにすべての ID とトークンを渡すことが重要です。ID が不一致の場合、ID の解析やトークンの復号化でエラーが発生する可能性があります。
-- 必要なステップのどれかを欠いた場合&#8212;たとえば、最初に正規化せずにハッシュした場合&#8212;その結果は有効な UID2 値にはなりません。<br/>例えば、データプロバイダが `Jane.Saoirse@gmail.com` から UID2 を生成したいとします。これは `janesaoirse@gmail.com` に正規化され、ハッシュ化されて Base64 エンコードされた値は `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=` となります。<br/>同じメールアドレスを持つパブリッシャーは誤って正規化しませんでした。メールアドレス `Jane.Saoirse@gmail.com` をハッシュ化し Base64 エンコードした値は `f8upG1hJazYKK8aEtAMq3j7loeAf5aA4lSq6qYOBR/w=` です。これら2つの異なる値は、2つの異なる UID2 になります。最初のものは正しく処理され、同じ元データから生成された他のインスタンスと一致すします。2つ目は正しく処理されていないため、一致しません。<br/>このシナリオでは、UID2 が同じユーザーの他のインスタンスと一致しないため、パブリッシャーはターゲティング広告から利益を得る機会を逃してしまいます。
+- 必要なステップのどれかを欠いた場合&#8212;たとえば、最初に正規化せずにハッシュした場合&#8212;その結果は有効な UID2 値にはなりません。<br/>たとえば、データプロバイダが `Jane.Saoirse@gmail.com` から UID2 を生成したいとします。これは `janesaoirse@gmail.com` に正規化され、ハッシュ化されて Base64 エンコードされた値は `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=` となります。<br/>同じメールアドレスを持つパブリッシャーは誤って正規化しませんでした。メールアドレス `Jane.Saoirse@gmail.com` をハッシュ化し Base64 エンコードした値は `f8upG1hJazYKK8aEtAMq3j7loeAf5aA4lSq6qYOBR/w=` です。これら2つの異なる値は、2つの異なる UID2 になります。最初のものは正しく処理され、同じ元データから生成された他のインスタンスと一致すします。2つ目は正しく処理されていないため、一致しません。<br/>このシナリオでは、UID2 が同じユーザーの他のインスタンスと一致しないため、パブリッシャーはターゲティング広告から利益を得る機会を逃してしまいます。
 :::
 
 ## Types of Directly Identifying Information
@@ -41,11 +41,11 @@ UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service<
 3. `gmail.com` アドレスのみ:
    1. アドレスの中にピリオド(`.`)(ASCII 10 進コード 46 / UTF-8 16 進コード 2E) があれば、それを削除します。
 
-      例えば、`jane.doe@gmail.com` を `janedoe@gmail.com` に正規化します。
+      たとえば、`jane.doe@gmail.com` を `janedoe@gmail.com` に正規化します。
 
    2. プラス記号(`+`)とその後ろに追加文字列がある場合、`@gmail.com` の前にあるプラス記号 (`+`)(ASCII 10 進コード 43 / UTF-8 16 進コード 2B)とそれに続くすべての文字を削除します。  
 
-       例えば、`janedoe+home@gmail.com` を `janedoe@gmail.com` に正規化します。
+       たとえば、`janedoe+home@gmail.com` を `janedoe@gmail.com` に正規化します。
 
 :::warning
 正規化されたメールアドレスが UTF-16 のような他のエンコーディングシステムではなく、UTF-8 であることを確認してください。

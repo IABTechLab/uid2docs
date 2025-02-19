@@ -8,6 +8,7 @@ sidebar_position: 03
 ---
 
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # Publisher Integration Guide, Server-Side
 
@@ -29,9 +30,9 @@ UID2 と UID2 Token を使用してクライアントのアイデンティティ
 
 ## Introduction
 
-このガイドでは、Client-Side または Server-Side SDK を使用せずインテグレーションを行う場合に考慮する必要がある [basic steps](#integration-steps) について説明します。例えば、以下のようなことを決定する必要があります:
+このガイドでは、Client-Side または Server-Side SDK を使用せずインテグレーションを行う場合に考慮する必要がある [basic steps](#integration-steps) について説明します。たとえば、以下のようなことを決定する必要があります:
 
-- メールアドレスまたは電話番号を取得する機会を実装する: 例えば、プロモーションの交換、サインアップとサブスクリプション、またはマーケティングフォームの記入。
+- メールアドレスまたは電話番号を取得する機会を実装する: たとえば、プロモーションの交換、サインアップとサブスクリプション、またはマーケティングフォームの記入。
 - UID2 ID 情報を管理し、ターゲティング広告に使用する
 - UID2 Token をリフレッシュする
 - ID が欠落している場合の処理
@@ -39,11 +40,30 @@ UID2 と UID2 Token を使用してクライアントのアイデンティティ
 
 [FAQs](#faqs) も参照してください。
 
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
+
+## Complete UID2 Account Setup and Configure Account
+
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+
+アカウントの初期設定が完了すると、UID2 ポータルにアクセスするための手順とリンクが送信されます。UID2 ポータルでは、本番環境のための [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細については、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+
+Server-Side インテグレーションの場合、UID2 ポータルの [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
+
+- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、Client Key とも呼ばれます、
+- <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Service のみが知る値。
+
+:::important
+これらの値を安全に保管することが非常に重要です。詳細については、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+:::
+
 ## Integration Steps
 
 以下の図は、ユーザーがパブリッシャーと UID2 Token を確立するために必要なステップと、UID2 Token が RTB ビッドストリームとどのようにインテグレーションされるかを概説したものです。
 
-Server-Side SDK を使用している場合、SDK はエンドポイントに関連するすべてのステップを処理します。例えば、Step 1-d では、発行者はユーザーの DII をトークン生成サービスに送信します。
+Server-Side SDK を使用している場合、SDK はエンドポイントに関連するすべてのステップを処理します。たとえば、Step 1-d では、発行者はユーザーの DII をトークン生成サービスに送信します。
 
 ![Publisher Flow](images/integration-publisher-server-side-mermaid.png)
 
@@ -72,7 +92,7 @@ Step 1-c で認証が行われい、パブリッシャーがユーザーのメ�
 
 ### Bid Using a UID2 Token
 
-UID2 ID 情報をどのように管理し、ターゲティング広告に使用したいかを検討する必要があります。例えば、返された UID2 token を SSP に渡す等。
+UID2 ID 情報をどのように管理し、ターゲティング広告に使用したいかを検討する必要があります。たとえば、返された UID2 token を SSP に渡す等。
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
@@ -86,7 +106,7 @@ UID2 Token が SSP から DSP に送信されるとき、ビッドストリー�
 
 `POST /token/refresh` エンドポイントを使用して、常に有効で最新の UID2 Token を持つようにします。UID2 ローテーションと同期させるには、UID2 Token をリフレッシュする必要があります。さらに、トークンリフレッシュプロセスではユーザーのオプトアウトステータスをチェックし、ユーザーがオプトアウトしている場合は新しいトークンを送信しません。これによりトークンリフレッシュチェーンが終了します。その UID2 Token を二度と使用してはなりません。
 
-UID2 の Opt-out ワークフローとユーザーが Opt-out する方法の詳細については、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+UID2 の Opt-out ワークフローとユーザーが Opt-out する方法の詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |

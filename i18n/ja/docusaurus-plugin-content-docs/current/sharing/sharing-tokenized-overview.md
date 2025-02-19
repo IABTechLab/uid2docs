@@ -171,7 +171,7 @@ raw UID2 から始める場合は、次の手順に従ってください:
 <tr>
 <td>2</td>
 <td>K2jlbu2ldlpKL1z6n5bET7L3<br/>g0xfqmldZPDdPTktdRQ=</td>
-<td>UID2 Token を生成するために raw UID2 を暗号化する:<br/>利用可能な SDK の `encrypt()` 関数を使用します。例えば Java の場合、<a href="../sdks/sdk-ref-java#usage-for-uid2-sharers">Usage for UID2 Sharers</a> step 3 を参照してください。</td>
+<td>UID2 Token を生成するために raw UID2 を暗号化する:<br/>利用可能な SDK の `encrypt()` 関数を使用します。たとえば Java の場合、<a href="../sdks/sdk-ref-java#usage-for-uid2-sharers">Usage for UID2 Sharers</a> step 3 を参照してください。</td>
 <td style={{
   wordBreak: "break-all"
 }}>KlKKKfE66A7xBnL/DsT1UV/Q+V/r3xwKL89Wp7hpNllxmNkPaF8vdzenDvfoatn6sSXbFf5DfW9wwbdDwMnnOVpPxojkb8KYSGUte/FLSHtg4CLKMX52UPRV7H9UbWYvXgXC4PaVrGp/Jl5zaxPIDbAW0chULHxS+3zQCiiwHbIHshM+oJ==</td>
@@ -183,7 +183,7 @@ raw UID2 から始める場合は、次の手順に従ってください:
 
 UID2 Token は、もととなる raw UID2 が同じであっても、UID2 Token が生成されるたびにトークンの値が異なるように設計されています。つまり、UID2 Token は誰でも見ることができますが、復号鍵にアクセスできる UID2 参加者のみが使用できます。
 
-例えば、UID2 Token は、パブリッシャーから DSP へビットストリームを通じて定期的に渡されます。UID2 Token は、パブリッシャーから SSP など複数の関係者を経由することがありますが、UID2 Token は、許可された UID2 参加者によってのみ復号化できます。ビットストリームを通じて UID2 Token が複数の中間者を通過する場合でも、UID2 Token は安全に渡されます。
+たとえば、UID2 Token は、パブリッシャーから DSP へビットストリームを通じて定期的に渡されます。UID2 Token は、パブリッシャーから SSP など複数の関係者を経由することがありますが、UID2 Token は、許可された UID2 参加者によってのみ復号化できます。ビットストリームを通じて UID2 Token が複数の中間者を通過する場合でも、UID2 Token は安全に渡されます。
 
 UID2 共有参加者間の Tokenized sharing でも同じことが言えます。UID2 Token は、非 UID2 参加者を経由して渡すことができます。
 

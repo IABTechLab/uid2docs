@@ -12,7 +12,7 @@ import Link from '@docusaurus/Link';
 共有権限を設定することで、他の UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">共有参加者</Link> と UID2 を共有できるようになります。
 
 :::tip
-UID Portal での共有権限の設定は、<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link> のためであり、raw UID2 の共有ではありません。詳細については、[UID2 Sharing Approaches](../sharing/sharing-overview.md#uid2-sharing-approaches) を参照してください。
+UID Portal での共有権限の設定は、<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link> のためであり、raw UID2 の共有ではありません。詳細は、[UID2 Sharing Approaches](../sharing/sharing-overview.md#uid2-sharing-approaches) を参照してください。
 :::
 
 適切な共有関係を作成するのに役立つ多くのオプションがあります:
@@ -41,7 +41,7 @@ Sharing の使用には API Key (詳細は [API Keys](api-keys.md) を参照) �
 
 UID2 Portal では、以下の共有オプションを利用できます。これらのオプションは相互に排他的なものではありません&#8212;必要に応じて組み合わせることができます:
 
-- すべてのパブリッシャー、広告主、DSP、データプロバイダーなど、特定のタイプの参加者全員に自動的に許可を与えることができます。例えば、パブリッシャーはすべての DSP に共有許可を与えることを勧めます。
+- すべてのパブリッシャー、広告主、DSP、データプロバイダーなど、特定のタイプの参加者全員に自動的に許可を与えることができます。たとえば、パブリッシャーはすべての DSP に共有許可を与えることを勧めます。
 
   このオプションを選択すると、選択した参加者タイプのすべての新規参加者に、送信したデータを復号化する権限が自動的に付与されます。[Add Sharing Permissions&#8212;Bulk](#add-sharing-permissionsbulk) を参照してください。
 
@@ -51,21 +51,27 @@ UID2 Portal では、以下の共有オプションを利用できます。こ�
 
 ## Add Sharing Permissions&#8212;Bulk
 
-UID2 Portal は、あなたの役割に基づいて推奨を行います。例えば:
-- パブリッシャーであれば、すべてのDSP (現在および将来) と共有できます。
-- 広告主であれば、すべてのデータプロバイダー (現在および将来) と共有できます。
-- DSP であれば、すべての広告主とすべてのデータプロバイダー (現在および将来) と共有できます。
-- データプロバイダーであれば、すべての広告主、すべてのパブリッシャー、すべてのDSP (現在および将来) と共有できます。 
+UID2 Portal は、役割に基づいて、以下の推奨事項を示します:
+
+- 広告主: DSP およびデータプロバイダーと共有
+- データプロバイダー: パブリッシャー、広告主、DSP と共有
+- パブリッシャー: DSP と共有
+
+<!-- The UID2 Portal makes recommendations based on your role. For example:
+- If you're a publisher, you could share with all DSPs (current and future).
+- If you're an advertiser, you could share with all data providers (current and future).
+- If you’re a DSP, you could share with all advertisers and all data providers (current and future). 
+- If you’re a data provider, you could share with all advertisers, all publishers, and all DSPs (current and future).   -->
 
 以下の図は、広告主向けの推奨事項を示しています。
 
 ![UID2 Portal, Sharing Permissions page, Recommendations (Advertiser)](images/portal-sharing-permissions.png)
 
-推奨を受け入れることが、共有オプションを設定する最も速く簡単な方法です。
+推奨事項を受け入れることは、共有オプションを設定する最も迅速かつ簡単な方法です。
 
-例えば、既存の 20 の DSP すべてと共有することを選択したとします。翌日、DSP 21 が共有にサインアップすると、DSP 21 は自動的に、あなたが送信したデータを復号化する権限を持つことになります。DSP 21 と共有するには、1つ以上の UID2 Token を送信するだけで、DSP 21 はトークンを復号化して raw UID2 に変換できるようになります。自動共有を選択したため、ログインして共有権限を明示的に更新する必要はありません。
+たとえば、既存の DSP 20社すべてと共有することを選択したとします。次の日、DSP 21 が共有の等速を行うと、DSP 21 は送信したデータを復号化する権限が自動的に付与されます。DSP 21 と共有するには、1つ以上の UID2 Token を送信するだけで、DSP 21 はその Token を raw UID2 に復号化できるようになります。自動共有を選択したため、DSP 21 または将来の DSP が UID2 エコシステムにサインアップした場合、DSP 21 を含めるために明示的に共有許可を更新する必要はありません。
 
-必要に応じて、1 つ以上の共有参加者と個別の共有関係を設定すできます。
+要望がある場合は、1つ以上の共有参加者との個別の共有関係を設定できます。
 
 ## Using Search to Add Sharing Relationships
 
@@ -118,5 +124,5 @@ UID2 Portal で共有許可を与えるだけでなく、SDK または Snowflake
     この操作は、以前に作成した個別の共有許可にのみ適用されます。一括共有を介して共有許可を追加した場合、個別の共有許可を削除することはできません。共有許可を削除するには、追加した方法と同じ方法で削除する必要があります。
 
 :::note
-共有許可を削除すると、次回参加者が復号鍵を更新すると、その参加者との共有が解除されます。即時ではありませんが、迅速に行われます。詳細については、[Decryption Key Refresh Cadence for Sharing](../sharing/sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) を参照してください。
+共有許可を削除すると、次回参加者が復号鍵を更新すると、その参加者との共有が解除されます。即時ではありませんが、迅速に行われます。詳細は、[Decryption Key Refresh Cadence for Sharing](../sharing/sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) を参照してください。
 :::
