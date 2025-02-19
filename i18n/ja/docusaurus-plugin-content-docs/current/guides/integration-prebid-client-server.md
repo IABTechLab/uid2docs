@@ -53,7 +53,7 @@ GWH note 12/14/23 updated 2/7/25: we have a client-side example for Prebid.js bu
 
 ## Complete UID2 Account Setup and Configure Account
 
-Prebid.js を使用して UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントがまだ作成されていない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
+Prebid.js を使用して UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントがまだ作成されていない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
 アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。ここで、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を設定できます。詳細については、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 

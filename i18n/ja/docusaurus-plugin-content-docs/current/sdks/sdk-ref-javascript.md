@@ -57,7 +57,7 @@ UID2 Identify Module、または UID2 サポートのある他の製品と Prebi
 
 ## UID2 Account Setup
 
-UID2 とインテグレーションするためには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
 ## API Permissions
 

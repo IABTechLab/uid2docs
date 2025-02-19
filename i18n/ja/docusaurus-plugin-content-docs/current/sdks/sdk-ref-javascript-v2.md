@@ -31,7 +31,7 @@ import ExampleJavaScriptV2Init from '../snippets/_example-javascript-v2-init.mdx
 
 ## API Permissions
 
-この SDK を使用するには、[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントの設定を完了する必要があります。
+この SDK を使用するには、[Account Setup](../getting-started/gs-account-setup.md) ページの手順に従って、UID2 アカウントの設定を完了する必要があります。
 
 SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。
 

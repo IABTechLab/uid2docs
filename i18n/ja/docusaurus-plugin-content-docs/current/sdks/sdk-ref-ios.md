@@ -35,7 +35,7 @@ SDK for iOS は、iOS アプリケーションに代わって UID2 ID を生成�
 
 ## UID2 Account Setup
 
-UID2 とインテグレーションするためには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
 ## API Permissions
 

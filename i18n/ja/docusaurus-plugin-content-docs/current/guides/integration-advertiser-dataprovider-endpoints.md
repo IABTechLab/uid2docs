@@ -18,7 +18,7 @@ import Link from '@docusaurus/Link';
 
 ## Complete UID2 Account Setup and Configure Account
 
-UID2 とインテグレーションするには、UID2 のアカウントが必要です。まだアカウントを作成していない場合は、最初に [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
+UID2 とインテグレーションするには、UID2 のアカウントが必要です。まだアカウントを作成していない場合は、最初に [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
 アカウントの初期設定が完了すると、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を設定できる [UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。詳細については、[UID2 Portal での開始](../portal/portal-getting-started.md) を参照してください。
 
@@ -51,7 +51,7 @@ UID2 Portal の [API Keys](../portal/api-keys.md) ページで、以下の値を
 
 以下の図は、オーディエンスの構築とターゲティングのために DII を raw UID2 にマッピングするためにデータコレクターが完了する必要がある手順を示しています。
 
-DII は、ユーザーの正規化されたメールアドレスまたは電話番号、または正規化され、SHA-256 ハッシュ化されたメールアドレスまたは電話番号を指します。
+DII は、ユーザーの正規化されたメールアドレスまたは電話番号、または正規化され、SHA-256 ハッシュされたメールアドレスまたは電話番号を指します。
 
 ![Advertiser Flow](images/advertiser-flow-endpoints-mermaid.png)
 

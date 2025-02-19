@@ -38,7 +38,7 @@ SDK for Android は、Android アプリに代わって UID2 ID を生成また�
 
 ## UID2 Account Setup
 
-UID2 とのインテグレーションを行うには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
+UID2 とのインテグレーションを行うには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
 ## API Permissions
 
