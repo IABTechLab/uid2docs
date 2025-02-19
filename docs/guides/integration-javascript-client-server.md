@@ -8,8 +8,8 @@ sidebar_position: 02
 ---
 
 import Link from '@docusaurus/Link';
-import ExampleClientServerSendUid2ToSdk from '/docs/snippets/_example-client-server-send-uid2-to-sdk.mdx'; 
-import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
+import ExampleClientServerSendUid2ToSdk from '../snippets/_example-client-server-send-uid2-to-sdk.mdx'; 
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # Client-Server Integration Guide for JavaScript
 

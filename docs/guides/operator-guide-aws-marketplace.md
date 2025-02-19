@@ -8,8 +8,8 @@ sidebar_position: 17
 ---
 
 import Link from '@docusaurus/Link';
-import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
-import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
+import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
+import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
 
