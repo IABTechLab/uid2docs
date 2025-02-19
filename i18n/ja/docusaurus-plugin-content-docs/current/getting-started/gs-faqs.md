@@ -165,7 +165,7 @@ UID2 実装のアプローチにはさまざまな方法があります。以下
 UID2 をシングルサインオン (SSO) とインテグレーションすることはできますか？
 
 はい。Google、Facebook ログイン、Apple ログイン、または OpenPass などの人気のある SSO インテグレーションオプションを使用すると、メールアドレスを取得して UID2 を生成できます。
-詳細は、[Publisher Integration with SSO Providers](/docs/ref-info/ref-integration-sso-providers.md) を参照してください。
+詳細は、[Publisher Integration with SSO Providers](../ref-info/ref-integration-sso-providers.md) を参照してください。
 
 ## FAQs for Advertisers and Data Providers
 

@@ -44,7 +44,7 @@ UID2 とインテグレーションするには、UID2 のアカウントが必�
     :::
 - Client-Side の実装には、UID2 Portal の [Client-Side Integration](../portal/client-side-integration.md) ページで次の値を設定する必要があります:
   - Subscription ID と Public Key: [Adding and Managing Key Pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs) を参照してください。
-  - この SDK を使用するすべてのサイトの **domain names** のリスト: [Adding and Managing Subdomain Domains](../portal/client-side-integration.md#adding-and-managing-subdomain-domains) を参照してください。
+  - この SDK を使用するすべてのサイトの **domain names** のリスト: [Adding and Managing Root-Level Domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains) を参照してください。
   - モバイルアプリ ID (適用される場合): [モバイルアプリ ID の追加と管理](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids) を参照してください。
 
 ## CTV Integration Options
