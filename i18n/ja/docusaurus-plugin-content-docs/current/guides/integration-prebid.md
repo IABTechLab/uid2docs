@@ -28,7 +28,7 @@ UID2 は、以下をサポートする Prebid.js module を提供しています
 さらに柔軟性を高めるため、UID2 は JavaScript SDK など、一部の機能や補完的なプロダクトの代替手段も提供しています。
 
 :::caution
-UID2 は GDPR が適用される場所では使用しないように設計されています。このモジュールは渡された同意データをチェックし、`gdprApplies` フラグが `true` に設定されている場合は動作しません。
+UID2 は <Link href="../ref-info/glossary-uid#gl-gdpr">GDPR</Link> が適用される場所では使用しないように設計されています。このモジュールは渡された同意データをチェックし、`gdprApplies` フラグが `true` に設定されている場合は動作しません。
 :::
 
 <!-- GDPR statement difference for UID2/EUID | UID2 is not designed to be used where GDPR applies | EUID is designed to be used only where GDPR applies. -->
