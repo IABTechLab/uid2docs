@@ -34,7 +34,7 @@ To integrate with a single sign-on solution, the general steps are as follows:
 To find out whether you have to apply [normalization and encoding](../getting-started/gs-normalization-encoding.md) to the email address, or the integration does it for you, check the documentation for your UID2 publisher integration.
 :::
 
-## Sign in with Google
+## Sign In with Google
 
 The following options are available for implementing [Sign in with Google](https://support.google.com/accounts/answer/12849458?hl=en):
 
@@ -42,15 +42,15 @@ The following options are available for implementing [Sign in with Google](https
 - [Sign in with Google for iOS and macOS](#sign-in-with-google-for-ios-and-macos)
 - [Sign in with Google for Web](#sign-in-with-google-for-web)
 
-### Sign in with Google for Android
+### Sign In with Google for Android
 
 Follow the instructions in [Create the Sign in with Google flow](https://developer.android.com/identity/sign-in/credential-manager-siwg#create-sign). Once the token has been validated, you can retrieve the email address by using the [getEmail() method](https://cloud.google.com/java/docs/reference/google-api-client/latest/com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload#com_google_api_client_googleapis_auth_oauth2_GoogleIdToken_Payload_getEmail__) of the identity token payload.
 
-### Sign in with Google for iOS and macOS
+### Sign In with Google for iOS and macOS
 
 To get an email address from [Sign in with Google](https://developers.google.com/identity/sign-in/ios/start-integrating) on iOS or macOS, retrieve it from the `GIDGoogleUser` object. For details, see [Getting profile information](https://developers.google.com/identity/sign-in/ios/people).
 
-### Sign in with Google for Web
+### Sign In with Google for Web
 
 Follow the instructions to [verify the Google ID token on your server side](https://developers.google.com/identity/gsi/web/guides/verify-google-id-token), and then retrieve the user's email address from the email field of the ID token.
 

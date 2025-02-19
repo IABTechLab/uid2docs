@@ -34,7 +34,7 @@ UID2 の作成に使用するメールアドレスが、UID2 契約、会社の�
 メールアドレスに [正規化とエンコード](../getting-started/gs-normalization-encoding.md) を適用する必要があるか、またはインテグレーションで自動的に適用されるかを確認するには、UID2 publisher integration のドキュメントを参照してください。
 :::
 
-## Sign in with Google
+## Sign In with Google
 
 [Sign in with Google](https://support.google.com/accounts/answer/12849458?hl=ja) を実装するための次のオプションが利用可能です:
 
@@ -42,15 +42,15 @@ UID2 の作成に使用するメールアドレスが、UID2 契約、会社の�
 - [Sign in with Google for iOS and macOS](#sign-in-with-google-for-ios-and-macos)
 - [Sign in with Google for Web](#sign-in-with-google-for-web)
 
-### Sign in with Google for Android
+### Sign In with Google for Android
 
 [Create the Sign in with Google flow](https://developer.android.com/identity/sign-in/credential-manager-siwg#create-sign) の手順に従います。トークンが検証された後、アイデンティティ トークンのペイロードの [getEmail() メソッド](https://cloud.google.com/java/docs/reference/google-api-client/latest/com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload#com_google_api_client_googleapis_auth_oauth2_GoogleIdToken_Payload_getEmail__) を使用してメールアドレスを取得できます。
 
-### Sign in with Google for iOS and macOS
+### Sign In with Google for iOS and macOS
 
 iOS または macOS で [Sign in with Google](https://developers.google.com/identity/sign-in/ios/start-integrating) からメールアドレスを取得するには、`GIDGoogleUser` オブジェクトから取得します。詳細は、[プロファイル情報の取得](https://developers.google.com/identity/sign-in/ios/people)を参照してください。
 
-### Sign in with Google for Web
+### Sign In with Google for Web
 
 [verify the Google ID token on your server side](https://developers.google.com/identity/gsi/web/guides/verify-google-id-token) の手順に従い、ID トークンの `email` フィールドからユーザーのメールアドレスを取得します。
 
