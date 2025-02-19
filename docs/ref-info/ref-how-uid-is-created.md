@@ -1,5 +1,5 @@
 ---
-title: How a UID2 Token Is Generated
+title: How the UID2 Token Is Created
 description: Reference information about the process for generating a UID2 token.
 hide_table_of_contents: false
 sidebar_position: 06
@@ -7,15 +7,15 @@ sidebar_position: 06
 
 import Link from '@docusaurus/Link';
 
-# How a UID2 Token Is Generated
+# How the UID2 Token Is Created
 
-When a publisher sends <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email or phone number) to UID2, and in return receives a <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> to use for targeted advertising, there is a very specific sequence of processing steps that occurs.
+When a publisher sends <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email or phone number) to UID2, and in return receives a <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> to use for targeted advertising, there is a very specific sequence of processing steps that occurs along the way.
 
 It's very important that the exact steps are performed, in the correct sequence:
 - When steps are performed in sequence, the resulting value **matches** other instances of tokens generated from online activity by the same individual, and therefore the token is **valuable** for targeted advertising.
 - If steps are taken out of sequence, the resulting value **does not match** other instances of tokens generated from online activity by the same individual, and therefore the token is **not valid** for targeted advertising.
 
- Some preliminary steps are taken by the publisher; most processing steps are done by the UID2 Operator. For a summary, see [Steps to Create a UID2 Token](#steps-to-create-a-uid2-token). For visuals, see [Creating a UID2 Token&#8212;Example](#creating-a-uid2-tokenexample).
+ Some preliminary steps are taken by the publisher, but most of the processing steps are done by the UID2 Operator. For a summary, see [Steps to Create a UID2 Token](#steps-to-create-a-uid2-token). For visuals, see [Creating a UID2 Token&#8212;Example](#creating-a-uid2-tokenexample).
 
 <!-- Here's a common scenario.
 
@@ -62,25 +62,25 @@ For an example showing each step performed on a sample value, see [Creating a UI
     </tr>
     <tr>
       <td>4</td>
-      <td>Send value to UID2 Operator via the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint, an SDK, Prebid.js, or another supported avenue.</td>
+      <td>Send value to UID2 Operator via the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint, an SDK, Prebid.js, or another supported integration.</td>
       <td>Publisher</td>
       <td>Various: for a summary, see [Implementation Resources](../overviews/overview-publishers.md#implementation-resources)</td>
     </tr>
-  </tbody>
+     <tr>
+      <td>5</td>
+      <td>Perform multiple steps including hashing, salting, and encryption to create a UID2 token.</td>
+      <td>UID2 service</td>
+      <td>Not applicable: these steps are all performed by the UID2 service.</td>
+    </tr>
+ </tbody>
 </table>
-
-
-
-
-
 
 ## Creating a UID2 Token&#8212;Example
 
-The following diagram illustrates xxx
+The following diagram shows the high-level steps for creating a [raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) (first column, second column) and then a [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) (third column).
 
-xxx
+The publisher can send a request to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint or use one of the other options, such as an SDK or Prebid. Whatever the integration option, the result is a UID2 token&#8212;an encrypted value that the publisher can send in the bidstream for targeted advertising.
 
-## xxx
+![Sequential steps for creating a UID2](images/HowUID2Created_UID2ImplementationPlaybook.jpg)
 
-xxx
-
+The token cannot be reverse engineered to tie back to the advertiser side. The UID2 process operates by passing an email or its hashed equivalent to the UID2 Operator, and the Operator then processes and encrypts the value to create a UID2 token. Demand-Side Platforms (DSPs) decrypt this token to arrive at the underlying raw UID2, and can then align it with UID2 segments predefined by advertisers who have transformed their data into UID2 format. Each participant only has access to their own specific information.
