@@ -2,7 +2,7 @@
 title: UID2 Client-Side Integration Guide for Prebid.js
 sidebar_label: Client-Side Integration for Prebid.js
 pagination_label: UID2 Client-Side Integration for Prebid.js
-description: Client-Side の Prebid.js インテグレーションの設定に関する情報。
+description: Client-Side での Prebid.js インテグレーションの設定に関する情報。
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -10,6 +10,7 @@ sidebar_position: 04
 import Link from '@docusaurus/Link';
 import AddPrebidjsToYourSite from '../snippets/_prebid-add-prebidjs-to-your-site.mdx';
 import StoreUID2TokenInBrowser from '../snippets/_prebid-storing-uid2-token-in-browser.mdx';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # UID2 Client-Side Integration Guide for Prebid.js
 
@@ -32,6 +33,10 @@ UID2 Prebid.js Client-Side インテグレーション例は、以下のリン�
 - コード: [Example Prebid.js UID2 Integration](https://github.com/IABTechLab/uid2docs/tree/main/static/examples/cstg-prebid-example)
 - ランニングサイト: [UID2 Prebid.js Client-Side Integration Example](https://unifiedid.com/examples/cstg-prebid-example/)
 
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
+
 ## Integration Overview: High-Level Steps
 
 以下のステップを完了する必要があります:
@@ -42,13 +47,23 @@ UID2 Prebid.js Client-Side インテグレーション例は、以下のリン�
 
 ### Complete UID2 Account Setup and Configure Account
 
-[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了します。Client-Side 実装のアカウント設定プロセスの一環として、Prebid.js で使用するサイトのドメイン名のリストを提供する必要があります。
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+
+アカウントの初期設定が完了すると、UID2 ポータルにアクセスするための手順とリンクが送信されます。UID2 ポータルでは、本番環境のための [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細については、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+
+Client-Side インテグレーションには、UID2 ポータルの [Client-Side Integration](../portal/client-side-integration.md) ページで以下の値を設定する必要があります:
+
+- Subscription ID と Public Key: [Adding and Managing Key Pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs) を参照してください。
+
+- Prebid.js を使用するサイトの **domain names** のリスト: [Adding and Managing Root-Level Domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains) を参照してください。
+
+<!-- (earlier instructions, no-portal, for EUID)
+When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key). 
+-->
 
 :::tip
 アカウント設定に必要なのは、ルートレベルのドメインだけです。たとえば、Prebid.js で UID2 を example.com、shop.example.com、example.org で使用する場合、ドメイン名 example.com と example.org だけを指定します。
 :::
-
-アカウントのセットアップが完了すると、UID2 サーバーがユーザーを識別するために使用する 2 つの値であるクライアントキーペアが発行されます: Subscription ID と Public key。これらの値はあなたに固有で、UID2 モジュールの設定に使用します。詳細は [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key) を参照してください。
 
 ### Add Prebid.js to Your Site
 
@@ -103,7 +118,7 @@ const baseConfig = {
 ```
 
 :::note
-この例では、UID2 本番環境を使用することを想定しています。インテグレーションテストでは、`params.uid2ApiBase` を `'https://operator-integ.uidapi.com'` に設定して UID2 インテグレーション環境を使用します。UID2 インテグレーション環境のトークンはビッドストリームに渡すには無効です。インテグレーション環境では、**Subscription ID** と **public key** の値が異なります。
+この例では、UID2 本番環境を使用していると仮定しています。インテグレーションテスト中は、`params.uid2ApiBase` を `'https://operator-integ.uidapi.com'` に設定して UID2 インテグレーション環境を使用してください (資格情報については [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)。UID2 インテグレーション環境からのトークンはビッドストリームに渡すために有効ではありません。インテグレーション環境では、異なる **Subscription ID** と **public key** の値があります。
 :::
 
 ## Storing the UID2 Token in the Browser

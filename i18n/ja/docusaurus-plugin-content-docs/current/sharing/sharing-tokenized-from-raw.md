@@ -134,7 +134,7 @@ UID2 Token を raw UID2 に復号化するには、UID2 Portal アカウント�
 
 暗号鍵を定期的に更新し、UID2 Token をすみやかに復号化することが重要です。
 
-詳細については、*UID2 Sharing: Best Practices* の次のセクションを参照してください:
+詳細は、*UID2 Sharing: Best Practices* の次のセクションを参照してください:
 
 - [Decryption Key Refresh Cadence for Sharing](sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing)
 - [Best Practices for Managing Raw UID2s and UID2 Tokens](sharing-best-practices.md#best-practices-for-managing-raw-uid2s-and-uid2-tokens)

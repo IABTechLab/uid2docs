@@ -33,10 +33,20 @@ SDK for iOS は、iOS アプリケーションに代わって UID2 ID を生成�
 
 デフォルトでは、SDK は有効期限に基づいて UID2 ID を自動的にリフレッシュします。ただし、これを無効にして、アプリが UID2 IDのライフサイクルを手動で管理できるように実装することもできます。
 
+## UID2 Account Setup
+
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+
 ## API Permissions
 
-この SDK を使用するには、[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って UID2 アカウントのセットアップを完了する必要があります。
-SDKが提供する特定の機能を使用する許可が与えられ、そのアクセス用の認証情報が与えられます。
+初期アカウント設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。以下の操作が可能です:
+- アカウント用の [credentials](../getting-started/gs-credentials.md) を生成します。
+- オプション: Client-Side の実装の場合、ドメイン名やモバイルアプリ ID などの設定値を設定します。
+- オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
+
+UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、Server-Side のいずれであるかによって異なります。モバイルインテグレーションのオプションの概要については、[Client-Side or Client-Server Integration?](../guides/integration-mobile-overview#client-side-or-client-server-integration) を参照してください。
+
+<!-- You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. -->
 
 ## SDK Version
 
@@ -156,11 +166,11 @@ UID2Manager API の一部として利用可能な関数は次のとおりです:
 
 #### generateIdentity()
 
-<Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link> を使用して UID2 Identity を生成します。詳細については、*Client-Side Integration Guide for Mobile* の [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照してください。
+<Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link> を使用して UID2 Identity を生成します。詳細は、*Client-Side Integration Guide for Mobile* の [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照してください。
 
 #### setIdentity()
 
-SDK が管理する、Server-Side で作成された UID2 Identity を設定します。詳細については、*Client-Server Integration Guide for Mobile* の [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-server.md#configure-the-uid2-mobile-sdk) を参照してください。
+SDK が管理する、Server-Side で作成された UID2 Identity を設定します。詳細は、*Client-Server Integration Guide for Mobile* の [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-server.md#configure-the-uid2-mobile-sdk) を参照してください。
 
 #### resetIdentity()
 

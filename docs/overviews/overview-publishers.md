@@ -14,7 +14,7 @@ banner_background_color_dark: '#DCDEE1'
 displayed_sidebar: sidebarPublishers
 ---
 
-import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 import Link from '@docusaurus/Link';
 

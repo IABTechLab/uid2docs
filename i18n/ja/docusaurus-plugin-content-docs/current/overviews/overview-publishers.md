@@ -6,12 +6,15 @@ sidebar_position: 02
 use_banner: true
 banner_title: パブリッシャー向け UID2 概要
 banner_description: 変化し続ける広告業界においてオーディエンスターゲティングを維持し、より良いインプレッション収益化と関連性の向上を実現。
+banner_icon: 'publishers'
 banner_text_color: 'white'
 banner_text_color_dark: 'black'
 banner_background_color: '#035959'
 banner_background_color_dark: '#DCDEE1'
 displayed_sidebar: sidebarPublishers
 ---
+
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 import Link from '@docusaurus/Link';
 
@@ -64,6 +67,10 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 ![Publisher Workflow](images/UID2PublisherAndSSPWorkflow.jpg)
 
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
+
 ## Getting Started
 
 次の手順で始めます:
@@ -110,7 +117,7 @@ Web インテグレーションオプションの詳細は [Web Integration Over
 | :--- | :--- | :--- |
 | Prebid (Overview) | [UID2 Integration Overview for Prebid](../guides/integration-prebid.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid.js または Prebid Mobile SDK から渡される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token)  を生成したいパブリッシャー向けのインテグレーションオプションの概要です。 |
 | Prebid.js Client-Side Integration | [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) | 最も簡単な実装方法であるClient-Side で UID2 Token をリクエストし、Prebid.js に以下を管理させることを選択したいパブリッシャー向けのガイドです: <ul><li>トークンの生成と <a href="../ref-info/glossary-uid#gl-token-refresh">Token Refresh</a>。</li><li>トークンを RTB ビッドストリームに渡す。</li></ul> |
-| Prebid.js Client-Server Integration | [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid.js から渡される UID2 Token を生成したいが、トークンを Server-Side で生成したいパブリッシャー向けのガイドです: 例えば、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を利用しているパブリッシャーなど。 |
+| Prebid.js Client-Server Integration | [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid.js から渡される UID2 Token を生成したいが、トークンを Server-Side で生成したいパブリッシャー向けのガイドです: たとえば、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を利用しているパブリッシャーなど。 |
 | JavaScript (Overview) | [UID2 Integration Overview for JavaScript](../guides/integration-javascript.md) | JavaScript SDK を使って UID2 とインテグレーションしたいパブリッシャー向けのオプションの概要です。 |
 | JavaScript Client-Side Integration | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) | Client-Side の JavaScript の変更だけで UID2 とインテグレーションしたいパブリッシャー向けのガイドで、最も簡単な実装方法です。<br/>SDK for JavaScript は、トークン生成とトークンリフレッシュを自動的に管理します。 |
 | JavaScript Client-Server Integration | [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) | SDK for JavaScript を使用し、トークンを Server-Side で生成してパブリッシャーのウェブページに渡す必要がある、標準的なWeb インテグレーションシナリオを網羅したパブリッシャーガイドです。 |
@@ -145,7 +152,7 @@ Prebid とインテグレーションするパブリッシャーには、以下�
 | :--- | :--- | :--- |
 | Prebid (Overview) | [UID2 Integration Overview for Prebid](../guides/integration-prebid.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid.js または Prebid Mobile SDK から渡される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を生成したいパブリッシャー向けのインテグレーションオプションの概要。 |
 | Prebid.js Client-Side Integration | [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) | 最も簡単な実装方法である Client-Side で UID2 Token をリクエストし、Prebid.js に以下を管理させることを選択したいパブリッシャー向けのガイドです: <ul><li>トークン生成とトークンリフレッシュ。</li><li>トークンを RTB ビッドストリームに渡す。</li></ul> |
-| Prebid.js Client-Server Integration | [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid.js から渡される UID2 Token を生成したいが、トークンを Server-Side で生成したいパブリッシャー向けのガイドです: 例えば、Private Operatorを使用しているパブリッシャーなどです。 |
+| Prebid.js Client-Server Integration | [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md) | UID2 とインテグレーションし、RTB ビッドストリームで Prebid.js から渡される UID2 Token を生成したいが、トークンを Server-Side で生成したいパブリッシャー向けのガイドです: たとえば、Private Operatorを使用しているパブリッシャーなどです。 |
 | Prebid.js on Mobile | [UID2 Mobile Integration for Prebid.js](../guides/integration-prebid-mobile-summary.md) | モバイルデバイス上の Prebid.js と UID2 のインテグレーションに関する情報リソースのまとめです。 |
 
 ### Google Ad Manager Integrations

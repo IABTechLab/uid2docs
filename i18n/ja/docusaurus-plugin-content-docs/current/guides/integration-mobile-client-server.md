@@ -15,6 +15,7 @@ import EnableLogging from '../snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '../snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 import PrebidMobileSDK from '../snippets/_mobile_docs_prebid-mobile.mdx';
 import ErrorResponseStates from '../snippets/_mobile-docs-error-response-states.mdx';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # UID2 Client-Server Integration Guide for Mobile
 
@@ -55,11 +56,24 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 
 正しい SDK/バージョンをモバイルアプリにインストールする手順については、[Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app) を参照してください。
 
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
+
 ## Complete UID2 Account Setup and Configure Account
 
-アカウントの設定を完了するには、[Account Setup](../getting-started/gs-account-setup.md) に記載されている手順に従ってください。
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-アカウントの設定が完了すると、ユニークな API Key とクライアントシークレットが送信されます。これらの値はあなたに固有であり、安全に保管することが重要です。詳細は [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
+アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。ここで、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を設定できます。詳細は、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+
+Client-Server インテグレーションには、UID2 Portal の [API Keys](../portal/api-keys.md) ページでこれらの値を設定する必要があります:
+
+- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、Client key とも呼ばれます
+- <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Service のみが知っている値
+
+:::important
+これらの値を安全に保管することが非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+:::
 
 ## Client-Server Mobile Integration Data Flow Overview
 
@@ -109,7 +123,9 @@ Token Refresh を Server-Side で管理し、クライアント/モバイルサ�
 
 ### Using the UID2 Integration Environment
 
-デフォルトでは、SDK は UID2 本番環境で動作するように構成されています: `https://prod.uidapi.com`。代わりに UID2 インテグレーション環境を使用する場合は、UID2Manager の初期化に次の URL を指定してください:
+デフォルトでは、この SDK は UID2 本番環境: `https://prod.uidapi.com` で動作するように構成されています。代わりに UID2 インテグレーション環境を使用する場合は、UID2Manager の初期化時に次の URL を指定してください。
+
+各環境の認証情報を取得する方法については、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -241,7 +257,7 @@ UID2Manager への ID の追加が成功した場合、このメソッドは次�
     - **Android Java**: `UID2Manager.getInstance().getCurrentIdentityStatus()` 
     - **Android Kotlin**: `UID2Manager.getInstance().currentIdentityStatus()` 
     - **iOS**: `UID2Manager.shared.identityStatus`
-- ロギングを有効にして詳細情報を取得します: [Enable Logging](#enable-logging) を参照してください。
+- ロギングを有効 (`isLoggingEnabled` を `true` に設定する) にして詳細情報を取得します: [Enable Logging](#enable-logging) を参照してください。
 - UID2 identity 内の Advertising Token の有効期限が切れていて、Refresh Token も有効期限が切れているため、SDK がトークンをリフレッシュできません。
 
 ID が無効の場合、[Implement Server-Side Token Generation](#implement-server-side-token-generation) に従って新しい identity を生成し、その結果をモバイルアプリの UID2Manager に再度渡してください。

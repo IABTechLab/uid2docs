@@ -9,6 +9,7 @@ displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 import StoreUID2TokenInBrowser from '../snippets/_prebid-storing-uid2-token-in-browser.mdx';
 
 # UID2 Integration Overview for Prebid
@@ -27,10 +28,14 @@ UID2 は、以下をサポートする Prebid.js module を提供しています
 さらに柔軟性を高めるため、UID2 は JavaScript SDK など、一部の機能や補完的なプロダクトの代替手段も提供しています。
 
 :::caution
-UID2 は GDPR が適用される場所では使用しないように設計されています。このモジュールは渡された同意データをチェックし、`gdprApplies` フラグが `true` に設定されている場合は動作しません。
+UID2 は <Link href="../ref-info/glossary-uid#gl-gdpr">GDPR</Link> が適用される場所では使用しないように設計されています。このモジュールは渡された同意データをチェックし、`gdprApplies` フラグが `true` に設定されている場合は動作しません。
 :::
 
 <!-- GDPR statement difference for UID2/EUID | UID2 is not designed to be used where GDPR applies | EUID is designed to be used only where GDPR applies. -->
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ### Generating the UID2 Token
 
@@ -53,14 +58,14 @@ Prebid.js UID2 Module は、UID2 Token を自動的にリフレッシュする�
 
 ### Passing the UID2 Token to the Bidstream
 
-UID2 module を設定するには `pbjs.setConfig` を呼び出します。サポートされているパラメータの詳細については、実装に適用されるガイドを参照してください:
+UID2 module を設定するには `pbjs.setConfig` を呼び出します。サポートされているパラメータの詳細は、実装に適用されるガイドを参照してください:
 
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md)
 
 UID2 module が設定されると、ユーザーの UID2 Token を管理し、ユーザーのブラウザに保存します。
 
-Client-Side または Server-Side でクライアントリフレッシュモードを使用してトークンを生成する場合、ユーザーのブラウザでサイトが開いている間は、モジュールが自動的にトークンをリフレッシュします。しかし、Server-Side でトークンのリフレッシュを管理するオプションもあります。詳細については、Server-Side インテグレーションガイドの [Refreshing a UID2 Token](integration-prebid-client-server.md#refreshing-a-uid2-token) を参照してください。Client-Side のインテグレーションソリューションには、トークンの自動リフレッシュが含まれています。
+Client-Side または Server-Side でクライアントリフレッシュモードを使用してトークンを生成する場合、ユーザーのブラウザでサイトが開いている間は、モジュールが自動的にトークンをリフレッシュします。しかし、Server-Side でトークンのリフレッシュを管理するオプションもあります。詳細は、Server-Side インテグレーションガイドの [Refreshing a UID2 Token](integration-prebid-client-server.md#refreshing-a-uid2-token) を参照してください。Client-Side のインテグレーションソリューションには、トークンの自動リフレッシュが含まれています。
 
 ### Integration Overview: High-Level Steps
 

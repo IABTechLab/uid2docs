@@ -44,12 +44,12 @@ Email Contacts ページでは、UID2 の更新について通知を受ける個
    - Email Group Name: 以下のいずれかを入力します:
    
      - 個人の場合: メールアドレスに関連付けられた名前または役割。
-     - メールアドレスグループの場合: グループのテキスト名。例えば、`Engineering`。
+     - メールアドレスグループの場合: グループのテキスト名。たとえば、`Engineering`。
    - Email Alias: 以下のいずれかを入力してください:
    
      - 個人の場合: メールアドレス。
-     - グループの場合: グループに有効なメールアドレス。例えば、`engineering@example.com`。
-   - Contact Type: コンタクトタイプのドロップダウンリストから選択します。例えば、`Business` または `Technical` を選択します。
+     - グループの場合: グループに有効なメールアドレス。たとえば、`engineering@example.com`。
+   - Contact Type: コンタクトタイプのドロップダウンリストから選択します。たとえば、`Business` または `Technical` を選択します。
 3. **Save Email Contact** をクリックします。エントリーがリストに追加されます。
 
 :::note

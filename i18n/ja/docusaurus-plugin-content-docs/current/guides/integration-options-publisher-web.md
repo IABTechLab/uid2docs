@@ -72,7 +72,7 @@ Client-Side で UID2 Token を生成することには、次のような利点�
 - コードは消費者のウェブページ上の Client-Side で実行され、Server-Side のコーディングは必要ありません。
 - Prebid.js のインテグレーションにより、すべての機能が処理されます&#8212;トークンの生成、トークンのリフレッシュ、トークンのビッドストリームへの受け渡しなど。Prebid.js 8.21.0 以降を使用している場合、これが最もシンプルで高速な実装オプションです。
 
-Client-Side のインテグレーションを選択した場合、アカウント設定の一環として、セキュリティのためにルートレベルドメインのリストを提供する必要があります。詳細については、アカウント設定ページの [Client-Side Web Integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) を参照してください。
+Client-Side のインテグレーションを選択した場合、アカウント設定の一環として、セキュリティのためにルートレベルドメインのリストを提供する必要があります。詳細は、アカウント設定ページの [Client-Side Web Integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) を参照してください。
 
 次の表は、Client-Side で UID2 Token を生成したいパブリッシャーが、ウェブページから UID2 Token を生成するためのオプションと、それに対応するドキュメントリソースをまとめたものです。
 

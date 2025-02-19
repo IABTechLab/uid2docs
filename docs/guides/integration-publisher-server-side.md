@@ -8,7 +8,7 @@ sidebar_position: 03
 ---
 
 import Link from '@docusaurus/Link';
-import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # Publisher Integration Guide, Server-Side
 
