@@ -35,10 +35,11 @@ For an example showing each step performed on a sample value, see [Creating a UI
 <table width="100%">
   <thead>
     <tr>
-      <th width="10%">Step</th>
+      <th width="5%">Step</th>
       <th width="30%">Action</th>
-      <th width="30%">Who Does It?</th>
-      <th width="30%">Documentation</th>
+      <th width="25%">Who Does It?</th>
+      <th width="25%">Documentation</th>
+      <th width="15%">[Example](#creating-a-uid2-tokenexample)</th>
     </tr>
   </thead>
   <tbody>
@@ -47,30 +48,42 @@ For an example showing each step performed on a sample value, see [Creating a UI
       <td>Normalization</td>
       <td>**Email**: Publisher or UID2 service<br/>**Phone number**: Publisher must normalize</td>
       <td>[Email Address Normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization)<br/>[Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization)</td>
+      <td>Not shown</td>
     </tr>
     <tr>
       <td>2</td>
       <td>SHA-256 hashing</td>
       <td>Publisher or UID2 service</td>
       <td>[Email Address Hash Encoding](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding)<br/>[Phone Number Hash Encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding)</td>
+      <td>Column 1</td>
     </tr>
     <tr>
       <td>3</td>
       <td>Hex to Base64 encoding</td>
       <td>Publisher or UID2 service</td>
       <td>[Email Address Hash Encoding](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding)<br/>[Phone Number Hash Encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding)</td>
+      <td>Column 1</td>
     </tr>
     <tr>
       <td>4</td>
       <td>Send value to UID2 Operator via the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint, an SDK, Prebid.js, or another supported integration.</td>
       <td>Publisher</td>
       <td>Various: for a summary, see [Implementation Resources](../overviews/overview-publishers.md#implementation-resources)</td>
+      <td>Not shown</td>
     </tr>
      <tr>
       <td>5</td>
-      <td>Perform multiple steps including hashing, salting, and encryption to create a UID2 token.</td>
+      <td>Perform multiple steps including hashing and salting to create a raw UID2.</td>
       <td>UID2 service</td>
       <td>Not applicable: these steps are all performed by the UID2 service.</td>
+      <td>Column 2</td>
+    </tr>
+     <tr>
+      <td>6</td>
+      <td>Encrypt the raw UID2 to create a UID2 token.</td>
+      <td>UID2 service</td>
+      <td>Not applicable: performed by the UID2 service.</td>
+      <td>Column 3</td>
     </tr>
  </tbody>
 </table>
