@@ -1,5 +1,5 @@
 ---
-title: SDK for JavaScript (2.x and earlier versions)
+title: SDK for JavaScript (2.x and earlier)
 description: JavaScript Client-Side SDK の旧バージョンに関するリファレンス情報。
 hide_table_of_contents: false
 sidebar_position: 02
@@ -9,9 +9,9 @@ import Link from '@docusaurus/Link';
 import ExampleUid2Cookie from '../snippets/_example-uid2-cookie.mdx';
 import ExampleJavaScriptV2Init from '../snippets/_example-javascript-v2-init.mdx';
 
-# SDK for JavaScript Reference Guide (2.x and earlier versions)
+# SDK for JavaScript Reference Guide (v2.x and earlier)
 
-:::tip
+:::important
 このドキュメントは、SDK for JavaScript の旧バージョン用です。以前のバージョンを使用している場合は、アップグレードすることを勧めます。移行ガイドを含む [SDK for JavaScript Reference Guide](sdk-ref-javascript.md) を参照してください。
 :::
 
@@ -47,10 +47,6 @@ SDK が提供する特定の機能を使用する権限が与えられ、その�
 
 - [https://github.com/iabtechlab/uid2-web-integrations](https://github.com/iabtechlab/uid2-web-integrations)
 
-<!-- The binary is published in these locations:
-
-- NPM: [https://www.npmjs.com/package/@uid2/uid2-sdk](https://www.npmjs.com/package/@uid2/uid2-sdk)
-- CDN: [https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js](https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js) (** v3 JS SDK: stash per SW 8/15/23**) -->
 
 ## Terminology
 
