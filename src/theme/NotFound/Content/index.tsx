@@ -59,7 +59,7 @@ export default function NotFoundContent({ className }: Props): JSX.Element {
                   id="theme.NotFound.ListItem3"
                   description="The third list item of the 404 page"
                 >
-                  Visit the UID2 documentation home page
+                  Visit the UID2 documentation home page.
                 </Translate>
               </Link>
             </li>
