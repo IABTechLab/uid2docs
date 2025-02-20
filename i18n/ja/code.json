@@ -36,16 +36,28 @@
     "description": "The title of the fallback page when the page crashed"
   },
   "theme.NotFound.title": {
-    "message": "ページが見つかりません",
+    "message": "ページが見つかりませんでした",
     "description": "The title of the 404 page"
   },
   "theme.NotFound.p1": {
-    "message": "お探しのページが見つかりませんでした",
+    "message": "お探しのページが見つかりませんでした。ページが移動したか、リンクにエラーがある可能性があります。",
     "description": "The first paragraph of the 404 page"
   },
   "theme.NotFound.p2": {
-    "message": "このページにリンクしているサイトの所有者にリンクが壊れていることを伝えてください",
+    "message": "以下の方法をお試しください:",
     "description": "The 2nd paragraph of the 404 page"
+  },
+  "theme.NotFound.ListItem1": {
+    "message": "リンクを再度クリックしてください。",
+    "description": "The first list item of the 404 page"
+  },
+  "theme.NotFound.ListItem2": {
+    "message": "UID2 のページからタイトルやキーワードで検索してください。",
+    "description": "The second list item of the 404 page"
+  },
+  "theme.NotFound.ListItem3": {
+    "message": "UID2 ドキュメントホームページにアクセスしてください。",
+    "description": "The third list item of the 404 page"
   },
   "theme.admonition.note": {
     "message": "注記",
