@@ -8,6 +8,11 @@ export type PartnersDataType = {
 
 export const partnersData: PartnersDataType = [
   {
+    name: "33 Across",
+    logo: "33Across_logo.png",
+    type: ["Data"],
+  },
+  {
     name: "3+",
     logo: "CH3-logo.png",
     type: ["Publishers"],
@@ -24,7 +29,7 @@ export const partnersData: PartnersDataType = [
   },
   {
     name: "Acxiom",
-    logo: "Acxiom-2022-Logo-NAVY-and-TEAL.jpg",
+    logo: "acxion-logo.png",
     type: ["Data"],
     featured: true,
     order: 1,
@@ -401,6 +406,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers", "Data"],
   },
   {
+    name: "iHeart",
+    logo: "iheart-media-logo.png",
+    type: ["Publishers"],
+  },
+  {
     name: "Index Exchange",
     logo: "Index_Exchange_Logo_2021.png",
     type: ["DSP"],
@@ -588,7 +598,7 @@ export const partnersData: PartnersDataType = [
   {
     name: "Networld",
     logo: "networld.png",
-    type: ["Data"],
+    type: ["Publishers"],
   },
   {
     name: "Neustar",
@@ -695,6 +705,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "Qiyi",
     logo: "PartnerLogo_iQiyi_256x256.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "Ranker",
+    logo: "Ranker-logo.png",
     type: ["Publishers"],
   },
   {
