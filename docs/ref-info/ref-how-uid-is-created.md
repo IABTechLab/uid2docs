@@ -52,14 +52,14 @@ For an example showing each step performed on a sample value, see [Creating a UI
     </tr>
     <tr>
       <td>2</td>
-      <td>SHA-256 hashing</td>
+      <td>SHA-256 hashing of normalized email address</td>
       <td>Publisher or UID2 service</td>
       <td>[Email Address Hash Encoding](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding)<br/>[Phone Number Hash Encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding)</td>
       <td>Column 1</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>Hex to Base64 encoding</td>
+      <td>Hex to Base64 encoding of SHA-256 hash</td>
       <td>Publisher or UID2 service</td>
       <td>[Email Address Hash Encoding](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding)<br/>[Phone Number Hash Encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding)</td>
       <td>Column 1</td>
@@ -73,7 +73,7 @@ For an example showing each step performed on a sample value, see [Creating a UI
     </tr>
      <tr>
       <td>5</td>
-      <td>Perform multiple steps including hashing and salting to create a raw UID2.</td>
+      <td>Perform multiple steps including hashing and adding the secret <Link href="../ref-info/glossary-uid#gl-salt">salt</Link> value to create a raw UID2.</td>
       <td>UID2 service</td>
       <td>Not applicable: these steps are all performed by the UID2 service.</td>
       <td>Column 2</td>
