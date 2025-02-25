@@ -24,4 +24,3 @@ jobs:
         run: npm run build
       - name: Vulnerability Scan
         uses: IABTechLab/uid2-shared-actions/actions/vulnerability_scan_filesystem@ccm-UID2-4528-report-faillures-on-scheduled-vulnerability-detection-runs
-        secrets: inherit
