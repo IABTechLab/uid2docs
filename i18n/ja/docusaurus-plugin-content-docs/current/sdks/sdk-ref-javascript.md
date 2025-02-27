@@ -79,7 +79,7 @@ SDK が提供する特定の機能を使用する権限が与えられ、その�
 
   これは、ビルドパイプラインを使用して JavaScript をバンドルしていない場合に、サイトに SDK を含める最も簡単な方法です。
 
-  本ドキュメントの最新の更新時点で、最新のバージョンは [3.4.5](https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js) です。利用可能なバージョンの一覧は [the list of available versions](https://cdn.prod.uidapi.com/) を参照してください。
+  本ドキュメントの最新の更新時点で、最新のバージョンは [4.0.1](https://cdn.prod.uidapi.com/uid2-sdk-4.0.1.js) です。利用可能なバージョンの一覧は [the list of available versions](https://cdn.prod.uidapi.com/) を参照してください。
 - CDN (Integration): `https://cdn.integ.uidapi.com/uid2-sdk-${VERSION_ID}.js`
 
   このインテグレーション URL には minified されていないコードが含まれており、テスト目的でのみ使用することができます。本番サイトにはこの URL を使用しないでください。
@@ -97,7 +97,7 @@ SDK が提供する特定の機能を使用する権限が与えられ、その�
 UID2 をターゲティング広告に使用したいすべてのページに、以下の SDK スクリプトを含めます:
 
 ```html
-<script src="https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js" type="text/javascript"></script> 
+<script src="https://cdn.prod.uidapi.com/uid2-sdk-4.0.1.js" type="text/javascript"></script> 
 ```
 
 ### Async or Defer Loading the SDK Script
@@ -112,7 +112,7 @@ Version 3 以降の SDK は、`async` または `defer` スクリプトローデ
    ```html
    <head>
      <!-- ... -->
-     <script async src="https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js" type="text/javascript"></script>
+     <script async src="https://cdn.prod.uidapi.com/uid2-sdk-4.0.1.js" type="text/javascript"></script>
      <!-- ... -->
    </head>
    ```

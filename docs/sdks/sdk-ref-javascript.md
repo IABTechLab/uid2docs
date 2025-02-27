@@ -36,9 +36,8 @@ This page describes version 4 of the UID2 SDK for JavaScript, which is the lates
 
 Version 4 includes the following key changes from version 3:
 
-- **New**: The following elements are new in Version 4:
+- **New**: The following element is new in Version 4:
   - The `isIdentityAvailable()` function was released in version 3.10.0. For details, see [isIdentityAvailable](#isidentityavailable-boolean).
-  - There is a new event type, `NoIdentityAvailable`. This event is run with the callback manager if there is no available identity: because there is no identity, because the existing identity has expired, or because the existing identity has opted out. For details, see [Event Types and Payload Details](#event-types-and-payload-details).
 
 - **Deprecated elements**:
   - The `abort()` function was deprecated in v3 and is not part of v4. Instead, use [disconnect()](#disconnect-void) which has the same functionality as `abort()`, but also includes more thorough disconnection logic.
@@ -96,7 +95,7 @@ The SDK is published in these locations:
 
   This is the easiest way to include the SDK in your site if you don't use a build pipeline to bundle your JavaScript.
 
-  As of the latest update to this document, the most recent version is [3.4.5](https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js). You can also see [the list of available versions](https://cdn.prod.uidapi.com/).
+  As of the latest update to this document, the most recent version is [4.0.1](https://cdn.prod.uidapi.com/uid2-sdk-4.0.1.js). You can also see [the list of available versions](https://cdn.prod.uidapi.com/).
 - CDN (Integration): `https://cdn.integ.uidapi.com/uid2-sdk-${VERSION_ID}.js`
 
   This integration URL contains un-minified code and is intended for testing purposes only. Do not use this URL for your production site.
@@ -114,7 +113,7 @@ In this document, the following terms apply:
 On every page where you want to use UID2 for targeted advertising, include the following SDK script:
 
 ```html
-<script src="https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js" type="text/javascript"></script> 
+<script src="https://cdn.prod.uidapi.com/uid2-sdk-4.0.1.js" type="text/javascript"></script> 
 ```
 
 ### Async or Defer Loading the SDK Script
@@ -129,7 +128,7 @@ If you are using `async` or `defer` script loading on your site, do the followin
    ```html
    <head>
      <!-- ... -->
-     <script async src="https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js" type="text/javascript"></script>
+     <script async src="https://cdn.prod.uidapi.com/uid2-sdk-4.0.1.js" type="text/javascript"></script>
      <!-- ... -->
    </head>
    ```
@@ -220,21 +219,6 @@ The following example callback handles the `SdkLoaded` event to call init and th
 
 </TabItem>
 </Tabs>
-
-#### Event Types and Payload Details
-
-<div className='no-wrap-table-code'>
-
-| Event | Payload | Details |
-| :--- | :--- | :--- |
-| `SdkLoaded` | `{}` | Called when the SDK script has loaded and the global `__uid2` has been constructed. When you receive this event, it is safe to call `__uid2.init`. Callbacks always receive this event once. If the SDK has already been loaded when the callback is registered, it receives the event immediately. |
-| `InitCompleted` | `{ identity: Identity  \| null }` | Called once `init()` has finished. Callbacks always receive this event once, as long as a successful call to `init` has been made. If `init` has already been completed when the callback is registered, it receives this immediately after it receives the `SdkLoaded` event. |
-| `IdentityUpdated` | `{ identity: Identity \| null }` | Called whenever the current identity changes. If the identity doesn't change after the callback is registered, callbacks do not receive this event. |
-| `NoIdentityAvailable` | `TBD GWH__AS12` | Called if there is no available identity, for any of these reasons: because there is no identity, because the existing identity has expired, or because the existing identity has opted out. |
-
-</div>
-
-The `Identity` type is the same type as the identity you can provide when calling `init()`.
 
 #### Array Push Pattern
 
