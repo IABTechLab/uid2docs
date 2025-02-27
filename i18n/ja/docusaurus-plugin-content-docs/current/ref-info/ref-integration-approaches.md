@@ -9,9 +9,9 @@ import Link from '@docusaurus/Link';
 
 # Integration Approaches
 
-パブリッシャーがワークフローに UID2 をインテグレーションする場合、または広告主が UID2 サポートをインテグレーションする場合、3 つの広範な統合アプローチがあります。UID2 インテグレーションは、Client-Side で完全に実装される場合、Server-Side で完全に実装される場合、または Client-Side と Server-Side 側の両方で部分的に実装される場合 (Client-Server) があります。
+パブリッシャーがワークフローに UID2 をインテグレーションする場合、または広告主が UID2 サポートをインテグレーションする場合、3 つの広範なインテグレーションアプローチがあります。UID2 インテグレーションは、Client-Side で完全に実装される場合、Server-Side で完全に実装される場合、または Client-Side と Server-Side 側の両方で部分的に実装される場合 (Client-Server) があります。
 
-詳細については、以下を参照してください:
+詳細は、以下を参照してください:
 
 - [Client-side integration](#client-side-integration)
 - [Client-server integration](#client-server-integration)
@@ -38,7 +38,7 @@ Client-Side でインテグレーションする広告主は、JavaScript SDK �
 
 ### Client-Side Integration: Security Values
 
-Client-Side インテグレーションを選択する場合、UID2 サーバーに対してあなたを識別する 2 つの値からなるクライアントキーペアが提供されます: **Subscription ID** と **Public Key**。
+Client-Side インテグレーションを選択する場合、UID2 サーバーに対してあなたを識別する 2 つの値からなるClient Key ペアが提供されます: **Subscription ID** と **Public Key**。
 
 詳細は[Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key)を参照してください。
 

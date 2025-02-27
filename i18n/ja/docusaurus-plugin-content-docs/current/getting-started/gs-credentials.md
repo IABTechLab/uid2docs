@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Credentials
 
-UID2 <a href="../intro#participants">参加者</a>はそれぞれ、固有の認証情報のセットを取得します。取得する認証情報のセットは、次の表に示すように、UID2 にどのように参加しているかによって決まります。
+UID2 の <a href="../intro#participants">参加者</a>は、UID2 にどのように参加しているかによって、少なくとも 1 つの固有の認証情報のセットが必要です。必要な認証情報のセットは、次の表に示すように、UID2 にどのように参加しているかによって異なります。
 
 | Audience | Credentials | Integration |
 | :--- | :--- | :--- |
@@ -17,7 +17,64 @@ UID2 <a href="../intro#participants">参加者</a>はそれぞれ、固有の認
 | Client-Server 実装を使用する参加者 | 次の両方:<ul><li><Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、client key とも呼ばれます。</li><li><Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link> は、参加者と UID2 Service のみが知る値です。</li></ul> | 次のいずれかを使用したインテグレーション: <ul><li>[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)</li><li>[UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul> |
 | Server-Side 実装を使用する参加者 | 次の両方:<ul><li><Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、client key とも呼ばれます。</li><li><Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>　は、参加者と UID2 Service のみが知る値です。</li></ul> | 次のいずれかを使用したインテグレーション: <ul><li>[Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md)</li><li>[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md)</li></ul> |
 
-本番環境だけでなくインテグレーション環境も使用している場合は、それぞれの環境用に別々の認証情報を取得します。
+## Separate Credentials Per Environment/Role
+
+インテグレーション<Link href="../ref-info/glossary-uid#gl-environment">環境</Link> と本番環境の両方を使用している場合、それぞれの環境用に別々の認証情報が提供されます。詳細は [Getting Your Credentials](#getting-your-credentials) を参照してください。
+
+さらに、いくつかのケースでは、異なるシナリオに対して異なるセットの認証情報を持つことを勧めますが、必須ではありません。たとえば:
+- UID2 Token を生成する Publisher である場合([POST /token/generate](../endpoints/post-token-generate.md) または他の方法で)、または自分のために UID2 を生成/マッピングする場合([POST /identity/map](../endpoints/post-identity-map.md) を参照)、それぞれの活動に対して異なる認証情報を持つことがあります。
+- 広告主の場合、広告主キーを使用して複数のサービスプロバイダが運用するシナリオで、各サービスプロバイダに対して異なる認証情報割り当てることができます。
+
+## Getting Your Credentials
+
+以下の表は、各 [integration approach](../ref-info/ref-integration-approaches.md) と各 [environment](../getting-started/gs-environments.md) に対して、認証情報を取得する方法を示しています。
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Integration Type</th>
+      <th>Getting Credentials</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="3"><br/><br/>Prod</td>
+      <td>Client-Side</td>
+      <td>UID2 Portal > [Client-Side Integration](../portal/client-side-integration.md)</td>
+    </tr>
+    <tr>
+
+      <td>Client-Server</td>
+      <td>UID2 Portal > [API Keys](../portal/api-keys.md)</td>
+    </tr>
+    <tr>
+
+      <td>Server-Side</td>
+      <td>UID2 Portal > [API Keys](../portal/api-keys.md)</td>
+    </tr>
+    <tr>
+      <td rowspan="3"><br/><br/>Integ</td>
+      <td>Client-Side</td>
+      <td rowspan="3"><br/><br/>Ask your UID2 contact.</td>
+    </tr>
+    <tr>
+
+      <td>Client-Server</td>
+
+    </tr>
+    <tr>
+
+      <td>Server-Side</td>
+
+    </tr>
+  </tbody>
+</table>
+
+<!-- 
+For no-portal:
+To get your credentials, ask your UID2 contact.
+-->
 
 ## Subscription ID and Public Key
 
@@ -33,7 +90,7 @@ Notes:
 
 - API Key とクライアントシークレットとは異なり、Subscription ID と Public key は安全に保管する必要はありません。
 
-- これらの値は特定の [Environment](gs-environments.md) に対して有効です。インテグレーション環境と本番環境の両方を使用している場合、それぞれの環境用の認証情報のセットを取得します。
+- 値は特定の [Environment](gs-environments.md) で有効です。インテグレーション環境と本番環境の両方を使っている場合、それぞれの環境用にセットの認証情報を取得します。
 
 - Subscription ID と Public Key の認証情報は、Client-Side トークンの生成にのみ使用できます。追加のロールが必要な場合は ([API Permissions](gs-permissions.md) を参照してください)、そのロールの API Key と Client Secret をリクエストしてください。
 
@@ -47,7 +104,7 @@ Client-Side または Server-Side の実装を使用している場合([UID2 Cli
 - 各キーには、それを使用できるエンドポイントを決定する [Permissions](gs-permissions.md) のセットがあります。
 - 各キーには対応するクライアントシークレットがあります。
 - ほとんどの API エンドポイントは、認証のために API Key とクライアントシークレットの両方を必要とします。詳細は [Authentication and Authorizatio](gs-auth.md) を参照してください。
-- 本番環境だけでなくインテグレーション環境も利用する場合は、それぞれの環境で別々の API Key が必要になります。
+- インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報を取得する方法については、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 - クライアントシークレットは特定の [Environment](gs-environments.md) で有効です。インテグレーション環境と本番環境の両方を使っている場合、それぞれの環境用のクライアントシークレットを取得します。
 
 UID2 アカウントのセットアップの一環として、1つ以上の API Key が発行され、それぞれに対応するクライアントシークレットが割り当てられます。相談相手の詳細は [Contact Info](gs-account-setup.md#contact-info) を参照してください。
@@ -60,8 +117,17 @@ UID2 アカウントのセットアップの一環として、1つ以上の API 
 - これらの値が保存され使用されているすべての場所を追跡しておき、キーをローテーションする必要がある場合にすぐに実行できるようにしておいてください。
 - 既存のキーとシークレットが漏洩した場合、新しいキーとシークレットに置き換えるプロセスを確立してください。
 
-API Key とクライアントシークレットは、認証情報が漏洩するリスクを減らすために、定期的に(例えば1年ごとに)更新するのがベストです。
+API Key とクライアントシークレットは、認証情報が漏洩するリスクを減らすために、定期的に(たとえば1年ごとに)更新するのがベストです。
 
 ## Refreshing Credentials
 
-新しいクレデンシャルをリクエストするには、いつでも UID2 の連絡先に連絡してください。
+To request new credentials at any time, do one of the following:
+新しい認証情報をリクエストするには、次のいずれかを行います:
+
+- UID2 Portal にアクセスできる場合、新しい本番環境の認証情報が必要な場合: [Getting Your Credentials](#getting-your-credentials) に記載されているページに移動します。
+- UID2 Portal へのアクセス権がない場合、またはインテグレーション環境用の新しい認証情報が必要な場合は、UID2 の担当者に問い合わせてください。
+
+<!-- 
+For no-portal:
+To request new credentials at any time, ask your UID2 contact. 
+-->

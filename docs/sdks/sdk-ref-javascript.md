@@ -8,8 +8,8 @@ sidebar_position: 02
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ExampleUid2Cookie from '/docs/snippets/_example-uid2-cookie.mdx';
-import ExampleJavaScriptInit from '/docs/snippets/_example-javascript-init.mdx';
+import ExampleUid2Cookie from '../snippets/_example-uid2-cookie.mdx';
+import ExampleJavaScriptInit from '../snippets/_example-javascript-init.mdx';
 
 # SDK for JavaScript Reference Guide
 

@@ -72,6 +72,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 - [Refresh Token のワークフローをテストするにはどうすればよいですか？](#how-can-i-test-the-refresh-token-workflow)
 - [UID2 Token の一意性とローテーションポリシーは何ですか？](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
 - [UID2 Token は、ビッドストリームではどのように見えますか？](#what-does-a-uid2-token-look-like-in-the-bidstream)
+- [UID2 をシングルサインオン (SSO) とインテグレーションすることはできますか？](#can-i-integrate-uid2-with-single-sign-on-sso)
 
 #### How can I test that the DII sent and the returned token match up?
 送信した DII と返されたトークンが一致していることをテストするにはどうすればよいですか？
@@ -95,7 +96,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 #### Where should I make token generation calls&#8212;from the server side or the client side?
 トークン生成の呼び出しは、Server-Side と Client-Side のどちらで行うべきですか？
 
-UID2 Token は、Client-Side、Server-Sideのどちらでも生成できます。詳細については、以下を参照してください:
+UID2 Token は、Client-Side、Server-Sideのどちらでも生成できます。詳細は、以下を参照してください:
 - Prebid.js を使用して Client-Side からトークンを生成します: [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
 - Prebid.js を使用して Server-Side からトークンを生成します: [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md).
 - その他の Server-Side オプション: [Publisher Integrations](../guides/summary-guides.md#publisher-integrations).
@@ -103,7 +104,7 @@ UID2 Token は、Client-Side、Server-Sideのどちらでも生成できます�
 #### Can I make token refresh calls from the client side?
 Client-Side からトークンのリフレッシュを呼び出すことはできますか？
 
-はい。[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) は、API Key を使用する必要がないため、Client-Side (例えば、ブラウザやモバイルアプリ) から呼び出すことができます。
+はい。[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) は、API Key を使用する必要がないため、Client-Side (たとえば、ブラウザやモバイルアプリ) から呼び出すことができます。
 
 #### If I choose to manually refresh the token, how will I know when to refresh the token?
 トークンを手動でリフレッシュする場合、リフレッシュのタイミングをどう判断すればよいですか？
@@ -160,6 +161,12 @@ UID2 実装のアプローチにはさまざまな方法があります。以下
 
 <ExampleTokenInBidstream />
 
+#### Can I integrate UID2 with Single Sign-On (SSO)?
+UID2 をシングルサインオン (SSO) とインテグレーションすることはできますか？
+
+はい。Google、Facebook ログイン、Apple ログイン、または OpenPass などの人気のある SSO インテグレーションオプションを使用すると、メールアドレスを取得して UID2 を生成できます。
+詳細は、[Publisher Integration with SSO Providers](../ref-info/ref-integration-sso-providers.md) を参照してください。
+
 ## FAQs for Advertisers and Data Providers
 
 UID2 フレームワークを使用する広告主やデータプロバイダーによくある質問を紹介します。
@@ -185,7 +192,7 @@ UID2 生成リクエストで提供されるメタデータには、UID2 の生�
 #### Do refreshed emails get assigned to the same bucket with which they were previously associated?
 更新されたメールアドレスは、以前関連付けられていたバケットと同じバケットに割り当てられますか？
 
-必ずしもそうとは限りません。特定のバケット ID に関連付けられたメールアドレスを再マッピングした後、そのメールが異なるバケット ID に割り当てられる可能性があります。バケット ID を確認するには、[マッピング関数を呼び出す](../guides/integration-advertiser-dataprovider-overview.md#1-generate-raw-uid2s-from-dii) そして返された UID2 とバケット ID を再び保存してください。
+必ずしもそうとは限りません。特定のバケット ID に関連付けられたメールアドレスを再マッピングした後、そのメールが異なるバケット ID に割り当てられる可能性があります。バケット ID を確認するには、[マッピング関数を呼び出す](../guides/integration-advertiser-dataprovider-overview.md#1-generate-raw-uid2s-from-dii) そして返された raw UID2 とバケット ID を再び保存してください。
 
 :::info
 メールアドレスのマッピングや再マッピングを行う際には、バケットの数やローテーションする日、メールアドレスが割り当てられる特定のバケットについて、いかなる仮定も行わないようにしてください。
@@ -196,7 +203,7 @@ UID2 生成リクエストで提供されるメタデータには、UID2 の生�
 
 オーディエンスの更新は、毎日行うことが推奨されています。
 
-ソルトバケットは 1 年に 1 回程度更新されますが、個々のバケットの更新は 1 年に分散して行われます。これは、全バケットの約 1/365 が毎日ローテーションされることを意味します。もし忠実さが重要であれば、[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントをもっと頻繁に、例えば 1 時間ごとに呼び出すことを検討してください。
+ソルトバケットは 1 年に 1 回程度更新されますが、個々のバケットの更新は 1 年に分散して行われます。これは、全バケットの約 1/365 が毎日ローテーションされることを意味します。もし忠実さが重要であれば、[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントをもっと頻繁に、たとえば 1 時間ごとに呼び出すことを検討してください。
 
 #### How should I generate the SHA-256 of DII for mapping?
 マッピング用の DII の SHA-256 はどのように生成すればよいですか？
@@ -228,7 +235,7 @@ UID2 生成リクエストで提供されるメタデータには、UID2 の生�
 
 ただし、raw UID2 の生成に使用される [ソルト](../ref-info/glossary-uid.md#gl-salt) 値という可変要素があります。ソルト値は定期的にローテーションされます(詳細は [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)) を参照してください)。あるリクエストと別のリクエストの間でソルト値が変化する場合、DII が同じであっても、これら 2 つのリクエストは 2 つの異なる raw UID2 になります。
 
-詳細については、*Advertiser/Data Provider Integration Guide*の [Monitor for salt bucket rotations related to your stored raw UID2s](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s) を参照してください。
+詳細は、*Advertiser/Data Provider Integration Guide*の [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s) を参照してください。
 
 #### If two operators process the same DII, are the results the same?
 2 つの Operator が同じ DII を処理した場合、結果は同じになりますか？

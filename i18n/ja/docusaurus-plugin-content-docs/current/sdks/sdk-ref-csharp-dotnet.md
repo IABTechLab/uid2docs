@@ -23,13 +23,19 @@ Server-Side では、C# / .NET SDK を使用して、raw UID2 を暗号化して
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#8212; | &#8212; | &#8212; | &#8212; |
 
+## UID2 Account Setup
+
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+
 ## API Permissions
 
-この SDK を使用するには、[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了する必要があります。
+アカウントの初期設定が完了すると、パブリッシャー、広告主、またはデータプロバイダーの場合、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。以下の操作が可能です:
+- アカウント用の [credentials](../getting-started/gs-credentials.md) を生成します。
+- オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
 
-SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。SDK には、使用する権限を持たない機能があるかもしれないことに留意してください。例えば、パブリッシャーはトークンの生成と更新のために特定の API Permissions を取得しますが、SDK は共有などの他のアクティビティをサポートするかもしれません。
+SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細については、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
-詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
+DSP の場合は、資格情報を送信します。
 
 ## Version
 
@@ -130,7 +136,7 @@ client.Refresh();
 ```
 
 3. トークンを raw UID2 に復号化します。トークンを渡し、次のいずれかを行います:
- * ビッドリクエストがパブリッシャーのウェブサイトから発信された場合、ドメイン名を渡します。ドメイン名は、すべて小文字で、スペースなし、サブドメインなしである必要があります。例えば、`Subdomain.DOMAIN.com` の場合、`domain.com` を渡します。
+ * ビッドリクエストがパブリッシャーのウェブサイトから発信された場合、ドメイン名を渡します。ドメイン名は、すべて小文字で、スペースなし、サブドメインなしである必要があります。たとえば、`Subdomain.DOMAIN.com` の場合、`domain.com` を渡します。
  * ビッドリクエストがモバイルアプリから発信された場合、<Link href="../ref-info/glossary-uid#gl-app-name">app name</Link> を渡します。
  * それ以外の場合は、`null` を渡します。
 

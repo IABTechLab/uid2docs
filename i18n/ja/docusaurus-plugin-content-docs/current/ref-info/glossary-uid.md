@@ -51,6 +51,9 @@ import Link from '@docusaurus/Link';
 **F**
 <a href="#gl-first-level-hash">First-level hash</a> 
 
+**G**
+<a href="#gl-gdpr">GDPR</a>
+
 **H**
 <a href="#gl-hash">Hash</a> 
 
@@ -68,6 +71,8 @@ import Link from '@docusaurus/Link';
 <a href="#gl-normalize">Normalize</a> 
 
 **O**
+<a href="#gl-oidc">OpenID Connect (OIDC)</a> | 
+<a href="#gl-opaque">Opaque</a> | 
 <a href="#gl-open-operator">Open Operator</a> | 
 <a href="#gl-operator">Operator</a> | 
 <a href="#gl-operator-key">Operator key</a> | 
@@ -124,8 +129,8 @@ import Link from '@docusaurus/Link';
 <dd>Advertising token は <a href="#gl-uid2-token">UID2 token の別名です。</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-api-key">API key</MdxJumpAnchor></dt>
-<dd>UID2 <a href="/docs/intro#participants">参加者</a> はそれぞれ、API Key (クライアントキー) と、そのキーに関連付けられた <a href="#gl-client-secret">Client Secret</a> (APIシークレット) と呼ばれる秘密の値を持っています。Client Secretは、参加者と UID Service だけが知っています。</dd>
-<dd>詳細は <a href="/docs/getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
+<dd>UID2 <a href="../intro#participants">参加者</a> はそれぞれ、API Key (Client Key) と、そのキーに関連付けられた <a href="#gl-client-secret">Client Secret</a> (APIシークレット) と呼ばれる秘密の値を持っています。Client Secretは、参加者と UID Service だけが知っています。</dd>
+<dd>詳細は <a href="../getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-api-secret">API secret</MdxJumpAnchor></dt>
 <dd><a href="#gl-client-secret">client secret</a> を参照してください。</dd>
@@ -135,7 +140,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-authorization-header">Authorization header</MdxJumpAnchor></dt>
 <dd>Authorization header は、UID2 Service に対してクライアントを認証する方法です。</dd>
-<dd>詳細については、HTTP 仕様の RFC 9110 <a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.authorization">11.6.2. Authorization</a> を参照してください。</dd>
+<dd>詳細は、HTTP 仕様の RFC 9110 <a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.authorization">11.6.2. Authorization</a> を参照してください。</dd>
 
 </dl>
 
@@ -144,7 +149,7 @@ import Link from '@docusaurus/Link';
 <dl>
 
 <dt><MdxJumpAnchor id="gl-bearer-token">Bearer token</MdxJumpAnchor></dt>
-<dd>Bearer token はクライアントを識別する特別な文字列です。認証のために、いくつかのUID2 エンドポイントはリクエストの Authorization header で <a href="#gl-client-key">client key</a> を Beare token として指定する必要があります。例えば、<a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> です。</dd>
+<dd>Bearer token はクライアントを識別する特別な文字列です。認証のために、いくつかのUID2 エンドポイントはリクエストの Authorization header で <a href="#gl-client-key">client key</a> を Beare token として指定する必要があります。たとえば、<a href="../endpoints/post-token-generate">POST&nbsp;/token/generate</a> です。</dd>
 
 <dt><MdxJumpAnchor id="gl-bidstream"><a href="#gl-bidstream">Bidstream</a></MdxJumpAnchor></dt>
 <dd>広告スポットに広告を配置するためのリクエスト (ビッドリクエスト) を行うために、パブリッシャーは異なる情報を送信します。広告主が入札するために、通常は広告交換または DSP を介して、広告主が入札するための異なる情報を送信します。入札データの流れは、ビッドストリームです。</dd>
@@ -164,18 +169,18 @@ import Link from '@docusaurus/Link';
 <dd>詳細は　<a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-client-secret">Client secret</MdxJumpAnchor></dt>
-<dd>各 UID2 <a href="/docs/intro#participants">参加者</a>は、API Key (クライアントキー) と、そのキーに関連付けられた秘密値 (Client secret (API シークレット)) を持っています。Client secretは、参加者と UID2 Service だけが知っています。</dd>
-<dd>詳細については、<a href="/docs/getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
+<dd>各 UID2 <a href="../intro#participants">参加者</a>は、API Key (Client Key) と、そのキーに関連付けられた秘密値 (Client secret (API シークレット)) を持っています。Client secretは、参加者と UID2 Service だけが知っています。</dd>
+<dd>詳細は、<a href="../getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-client-server"><a href="#gl-client-server">Client-server integration</a></MdxJumpAnchor></dt>
 <dd>UID2の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の1つは、Client-Side と Server-Side の両方でインテグレーションする方法です (Client-Server)。</dd>
-<dd>例えば、パブリッシャーの Client-Server インテグレーションでは、UID2 Token は Server-Side で生成され、Client-Side でリフレッシュされます。</dd>
+<dd>たとえば、パブリッシャーの Client-Server インテグレーションでは、UID2 Token は Server-Side で生成され、Client-Side でリフレッシュされます。</dd>
 <dd>パブリッシャーの Client-Server インテグレーションに関するドキュメントの例: <a href="../guides/integration-prebid-client-server">UID2 Client-Server Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-client-server">Client-Server Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-server">UID2 Client-Server Integration Guide for Mobile</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-client-side"><a href="#gl-client-side">Client-side integration</a></MdxJumpAnchor></dt>
 <dd>UID2の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の1つは、完全に Client-Side でインテグレーションする方法です。</dd>
 <dd>Client-Side インテグレーションでは、UID2 Token はクライアントサイドで生成およびリフレッシュされます。</dd>
-<dd>例えば、広告主は、トラッキングピクセルのために Client-Side で UID2 Token を生成し、パブリッシャーは、ビッドストリームのために Client-Side で UID2 Token を生成し、トークンをリフレッシュします。</dd>
+<dd>たとえば、広告主は、トラッキングピクセルのために Client-Side で UID2 Token を生成し、パブリッシャーは、ビッドストリームのために Client-Side で UID2 Token を生成し、トークンをリフレッシュします。</dd>
 <dd>パブリッシャーの Client-Side インテグレーションに関するドキュメントの例:: <a href="../guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-client-side">Client-Side Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-side">UID2 Client-Side Integration Guide for Mobile</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-closed-operator">Closed Operator</MdxJumpAnchor></dt>
@@ -200,7 +205,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-core-service">Core Service</MdxJumpAnchor></dt>
 <dd>UID2 Core Serviceは、UID2 エコシステムの <a href="#gl-salt">salts</a>、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。</dd>
-<dd>すべてのUID2 Service の概要については、<a href="/docs/intro#components">Components</a> を参照してください。</dd>
+<dd>すべてのUID2 Service の概要については、<a href="../intro#components">Components</a> を参照してください。</dd>
 
 </dl>
 
@@ -210,7 +215,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-data-provider">Data provider</MdxJumpAnchor></dt>
 <dd>UID2 のコンテキストでは、データプロバイダーは、データパートナー、測定パートナー、オフライン測定プロバイダーなど、広告に関連するデータおよび測定サービスを提供する事業社を指します。</dd>
-<dd>詳細は <a href="/docs/intro#participants">participant</a> (Data Providers) を参照してください。</dd>
+<dd>詳細は <a href="../intro#participants">participant</a> (Data Providers) を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-demand-side-platform">Demand-side platform (DSP)</MdxJumpAnchor></dt>
 <dd>デマンドサイドプラットフォーム (DSP)は、広告主、ブランド、メディアエージェンシーなど、デジタル広告を購入したい企業にサービスを提供するプラットフォームです。</dd>
@@ -237,6 +242,11 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-encryption-key"><a href="#gl-encryption-key">Encryption key</a></MdxJumpAnchor></dt>
 <dd>各 <a href="#gl-uid2-token">UID2 Token</a> は、リクエストしたパブリッシャーに固有の暗号化キーを使用して暗号化されます。このキーはパブリッシャーを識別し、トークンを復号化するために必要です。これにより、UID2 Token を不正な個人が復号化できないようになります。</dd>
 
+<dt><MdxJumpAnchor id="gl-environment"><a href="#gl-environment">Environment</a></MdxJumpAnchor></dt>
+<dd>UID2 は、インテグレーション環境と本番環境の2つの環境を提供しています。</dd>
+<dd>両方を使用する場合は、それぞれの環境に対して別々の資格情報を取得する必要があります。</dd>
+<dd>詳細は、[Environments](../getting-started/gs-environments.md) を参照してください。</dd>
+
 <dt><MdxJumpAnchor id="gl-euid-framework"><a href="#gl-euid-framework">EUID framework</a></MdxJumpAnchor></dt>
 <dd>European Unified ID (EUID) フレームワークは、広告エコシステム全体の多くの参加者に対し、オープンインターネット上の広告機会に対する決定論的な ID を提供します。これにより、パブリッシャーウェブサイト、モバイルアプリ、Connected TV (CTV) アプリがプログラマティックワークフローを通じて収益化できます。独自の名前空間を持つオープンソースのスタンドアロンソリューションとして構築されたフレームワークは、参加者が地域の要件を満たすのに役立つプライバシーコントロールを提供します。</dd>
 <dd>EUID は、フランス、イタリア、スペインなどのヨーロッパ諸国、アイスランドなどの非ヨーロッパ諸国、アゾレス諸島、マルティニーク、イギリスなどのその他の地域を含むヨーロッパ地域で運用されています。これは、EU プライバシー法の遵守を念頭に置いて設計されています。</dd>
@@ -251,6 +261,15 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-first-level-hash">First-level hash</MdxJumpAnchor></dt>
 <dd>UID2 のコンテキストでは、First-level hash は匿名化された不透明で安全な値であり、そこから <a href="#gl-raw-uid2">raw UID2</a>、<a href="#gl-uid2-token">UID2 Token</a>、<a href="#gl-refresh-token">Refresh Token</a>が生成されます。ソルティングやハッシュを含むいくつかの暗号関数が、メールアドレスや電話番号などの初期値に適用され、First-level hash が生成されます。</dd>
+
+</dl>
+
+### G
+
+<dl>
+
+<dt><MdxJumpAnchor id="gl-gdpr"><a href="#gl-gdpr">GDPR</a></MdxJumpAnchor></dt>
+<dd>GDPR (一般データ保護規則) は、ヨーロッパ連合 (EU) の居住者に関連するデータを対象とするか収集する方法を規制するヨーロッパのプライバシーおよびセキュリティに関する法律です。</dd>
 
 </dl>
 
@@ -300,7 +319,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-normalize">Normalize</MdxJumpAnchor></dt>
 <dd>データセットを Normalize (正規化)するとは、それを標準的な状態 (Condition) や状態 (State)にすることを意味します。</dd>
-<dd>UID2 には特定の正規化規則があります。詳細については、<a href="../getting-started/gs-normalization-encoding#email-address-normalization">Email Address Normalization</a> と <a href="../getting-started/gs-normalization-encoding#phone-number-normalization">Phone Number Normalization</a> を参照してください。</dd>
+<dd>UID2 には特定の正規化規則があります。詳細は、<a href="../getting-started/gs-normalization-encoding#email-address-normalization">Email Address Normalization</a> と <a href="../getting-started/gs-normalization-encoding#phone-number-normalization">Phone Number Normalization</a> を参照してください。</dd>
 
 </dl>
 
@@ -308,10 +327,14 @@ import Link from '@docusaurus/Link';
 
 <dl>
 
+<dt><MdxJumpAnchor id="gl-oidc"><a href="#gl-oidc">OpenID Connect (OIDC)</a> </MdxJumpAnchor></dt>
+<dd>OpebID Connect (OIDC) は、OAuth 2.0 プロトコルの上に構築された ID レイヤーで、クライアントが認可サーバーによる認証に基づいてエンドユーザーの ID を検証できるようにします。</dd>
+<dd>詳細は、[OpenID Connect Basic Client Implementer's Guide 1.0 - draft 40](https://openid.net/specs/openid-connect-basic-1_0.html) (specification) を参照してください。</dd>
+
 <dt><MdxJumpAnchor id="gl-opaque"><a href="#gl-opaque">Opaque</a></MdxJumpAnchor></dt>
 <dd>UID2 Token が不透明な文字列であるというのは、トークンが計算される方法やそのフォーマットが UID2 参加者に伝えられず、変更される可能性があるためです。文字列のフォーマットや長さ、その他の側面については、何も前提を立てるべきではありません。</dd>
 
-<dt><MdxJumpAnchor id="gl-open-operator">Open Operator</MdxJumpAnchor></dt>
+<dt><MdxJumpAnchor id="gl-open-operator"><a href="#gl-open-operator">Open Operator</a></MdxJumpAnchor></dt>
 <dd>Open Operator は、<a href="#gl-public-operator">Public Operator</a> の別名です。</dd>
 
 <dt><MdxJumpAnchor id="gl-operator">Operator</MdxJumpAnchor></dt>
@@ -330,7 +353,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-opt-out">Opt-Out</MdxJumpAnchor></dt>
 <dd>UID2 エコシステムに参加しているエンドユーザーは、<a href="https://www.transparentadvertising.com/">Transparency and Control Portal</a> にアクセスすることで、いつでもオプトアウトすることができます。</dd>
-<dd>UID2 の Opt-out のワークフローと、ユーザーが Opt-out する方法の詳細については、<a href="../getting-started/gs-opt-out">User Opt-Out</a> を参照してください。</dd>
+<dd>UID2 の Opt-out のワークフローと、ユーザーが Opt-out する方法の詳細は、<a href="../getting-started/gs-opt-out">User Opt-Out</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-opt-out-service">Opt-Out Service</MdxJumpAnchor></dt>
 <dd>Opt-Out Service は、ユーザーのオプトアウト要求を管理・保存するグローバルな UID2 Service です。</dd>
@@ -344,7 +367,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-participant">Participant</MdxJumpAnchor></dt>
 <dd>UID2 において重要な役割を果たすエンティティです。参加者には以下が含まれます: Core Administrator、Operator、DSP、データプロバイダー、広告主、パブリッシャー、消費者。</dd>
-<dd>詳細については、<a href="../intro#participants">参加者</a> を参照してください。</dd>
+<dd>詳細は、<a href="../intro#participants">参加者</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-private-operator">Private Operator</MdxJumpAnchor></dt>
 <dd>Private <a href="#gl-operator">operator</a> は、Operator Service のプライベートインスタンスを実行する事業社です。Private Operator は、安全な環境で独自のリソース (ハードウェアなど) を使用して、自身のために UID2 を生成および管理します。</dd>
@@ -383,11 +406,11 @@ import Link from '@docusaurus/Link';
 <dl>
 
 <dt><MdxJumpAnchor id="gl-salt">Salt</MdxJumpAnchor></dt>
-<dd>メールアドレスや電話番号を、それ自体では元の値を追跡できない安全で不透明な値に変換するプロセスで使用されます。</dd>
+<dd>メールアドレスや電話番号を、それ自体では元の値 (raw UID2 や UID2 Token) を追跡できない安全で不透明な値に変換するプロセスで使用されます。</dd>
 <dd>UID2 Service は、ハッシュ化および暗号化とともに、プロセスの一部としてソルト(Salt) を使用し、元の値を保護します。ソルトは、ハッシュ化の前に入力値に加えられます。</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket"><a href="#gl-salt-bucket">Salt bucket</a></MdxJumpAnchor></dt>
-<dd>ソルトバケットは、Secret <a href="#gl-salt">salt</a> の値を長期間管理するために使用されます。各バケットには、約1年間有効な現在のソルト値が含まれており、新しい値にローテーションされる前に更新されます。バケットは互いに独立して更新できます。</dd>
+<dd>ソルトバケットは、raw UID2 や UID2 Token を生成するために使用される秘密の <a href="#gl-salt">salt</a> の値を長期間管理するために使用されます。各バケットには、約1年間有効な現在のソルト値が含まれており、新しい値にローテーションされる前に更新されます。バケットは互いに独立して更新できます。</dd>
 <dd>ソルトバケットは、100万以上あり、各メールアドレスまたは電話番号は、特定のバケットに決定論的に割り当てられます。ただし、この割り当ては永続的ではなく、バケットの現在のシークレットソルトが新しい値にローテーションされると変更される可能性があります。</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket-id"><a href="#gl-salt-bucket-id">Salt bucket ID</a></MdxJumpAnchor></dt>
@@ -402,14 +425,14 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-secure-signals">Secure signals</MdxJumpAnchor></dt>
 <dd>Google Ad Managerの機能。セキュアシグナル機能 (旧称: Encrypted Signals for Publishers、略称: ESP)により、パブリッシャーは信頼できるサードパーティのバイイングパートナーとシグナルを安全に共有することができます。パブリッシャーは、<a href="https://admanager.google.com/home/">Google Ad Manager</a> と <a href="https://support.google.com/admanager/answer/6321605?hl=en">Google Ad Manager Ad Exchange (AdX)</a> を介して、Googleが承認した入札者に「暗号化された」ユーザーIDを渡すことができます。</dd>
-<dd>詳しくは、<a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a> (2番目のセクション) と <a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a> (いずれもGoogle) を参照してください。</dd>
-<dd>Google Secure signals の UID2 サポートの詳細については、<a href="../guides/integration-google-ss">Google Ad Manager Secure Signals Integration Guide</a> を参照してください。</dd>
+<dd>詳細は、<a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a> (2番目のセクション) と <a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a> (いずれもGoogle) を参照してください。</dd>
+<dd>Google Secure signals の UID2 サポートの詳細は、<a href="../guides/integration-google-ss">Google Ad Manager Secure Signals Integration Guide</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-server-side"><a href="#gl-server-side">Server-side integration</a></MdxJumpAnchor></dt>
 <dd>UID2 の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の一つは、完全に Server-Side でインテグレーションすることです。</dd>
 <dd>Server-Side インテグレーションでは、raw YUD2 または UID2 Token がサーバーサイドで生成およびリフレッシュされます。</dd>
-<dd>例えば、Server-Side インテグレーションでは、広告主は、広告ターゲティングのために Server-Side で raw UID2 を生成し、パブリッシャーは、ビッドストリームのために Server-Side で UID2 Token を生成し、リフレッシュします。</dd>
-<dd>パブリッシャーサーバーサイドの統合に関するドキュメントの例は、<a href="../guides/integration-publisher-server-side">Publisher Integration Guide, Server-Side</a> です。</dd>
+<dd>たとえば、Server-Side インテグレーションでは、広告主は、広告ターゲティングのために Server-Side で raw UID2 を生成し、パブリッシャーは、ビッドストリームのために Server-Side で UID2 Token を生成し、リフレッシュします。</dd>
+<dd>パブリッシャーサーバーサイドのインテグレーションに関するドキュメントの例は、<a href="../guides/integration-publisher-server-side">Publisher Integration Guide, Server-Side</a> です。</dd>
 
 <dt><MdxJumpAnchor id="gl-sha-256">SHA-256</MdxJumpAnchor></dt>
 <dd>SHA-256 (SHA256 とも呼ばれます) は、UID2 が使用する安全なハッシュアルゴリズムです。</dd>

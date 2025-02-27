@@ -101,7 +101,7 @@ Refresh Token に関する主なポイントは次のとおりです:
 </TabItem>
 </Tabs>
 
-コード例を使用する前に、使用している言語の前提条件と注意事項を確認してください。詳細については、該当する SDK のドキュメントを参照してください:
+コード例を使用する前に、使用している言語の前提条件と注意事項を確認してください。詳細は、該当する SDK のドキュメントを参照してください:
 
 - [SDK for Java, Usage for Publishers, Basic Usage Server-Side Integration section](../sdks/sdk-ref-java.md#basic-usage-server-side-integration)
 - [SDK for Python, Usage for Publishers, Server-Side Integration section](../sdks/sdk-ref-python.md#server-side-integration)

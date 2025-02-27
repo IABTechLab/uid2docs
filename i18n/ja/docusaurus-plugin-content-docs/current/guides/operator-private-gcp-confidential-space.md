@@ -12,7 +12,7 @@ import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
 
 # UID2 Private Operator for GCP Integration Guide
 
-UID2 Operator は、UID2 エコシステムの API サーバーです。詳細については、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
+UID2 Operator は、UID2 エコシステムの API サーバーです。詳細は、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
 このガイドでは、Google Cloud Platform（GCP）の機密コンピューティングオプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) で　<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>　として UID2 Operator Service を設定する情報を提供します。Confidential Spaceは、Trusted Execution Environment（TEE）として知られるセキュアなクラウドベースのエンクレーブ環境で実行される、安全なクラウドベースのエンクレーブ環境です。
 
@@ -97,7 +97,7 @@ UID2 アカウント登録が完了し、gcloud CLI をインストールした�
 
 以下の環境が利用可能で、[deployment options](#deployment-options) の両方が両方の環境をサポートしています。
 
-ベストプラクティスは、本番環境にデプロイする前に、統合環境で実装をテストして検証することをです。
+ベストプラクティスは、本番環境にデプロイする前に、インテグレーション環境で実装をテストして検証することをです。
 
 :::note
 各環境ごとに個別の `{OPERATOR_KEY}` 値を受け取ります。正しいものを使用してください。`{OPERATOR_IMAGE}` 値は、両方の環境で同じです。
@@ -192,7 +192,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
 
    | Name | Type | Default | Required | Description |
    | :--- | :--- | :--- | :--- | :--- |
-   | `project_id` | `string` | `uid2-test` | yes | UID2 Operator を実行する GCP プロジェクトの ID。例えば、`UID2-Operator-Production`。 |
+   | `project_id` | `string` | `uid2-test` | yes | UID2 Operator を実行する GCP プロジェクトの ID。たとえば、`UID2-Operator-Production`。 |
    | `service_account_name` | `string` | `tf-test` | yes | GCP Confidential Space の UID2 Operator インスタンスに使用するサービスアカウントの名前。 |
    | `uid_operator_image` | `string` | `us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator:{version_number}` | yes | コンフィギュレーションで使用する UID2 Private Operator for GCP の Docker イメージ URL。バージョン番号は、デプロイされるバージョンによって変わります。 |
    | `uid_operator_key` | `string` | n/a | yes | UID2 Operator Keyは、[UID2 Operator Account Setup](#uid2-operator-account-setup) で受け取ったものです。 |
@@ -205,8 +205,8 @@ Terraform がインストールされていない場合は、[terraform.io](http
    | Name | Type | Default | Required | Description |
    | :--- | :--- | :--- | :--- | :--- |
    | `ssl` | `bool`  | `false`| no | ロードバランサが HTTPS を使うように設定するには、このフラグを `true` に設定します。<br/>HTTPSを使う場合は `certificate` と `private_key` パラメータにも値を指定する必要があります。 |
-   | `certificate` | `string`  | n/a | no | HTTPS 証明書の内容。証明書は PEM 形式でなければなりません。<br/>例えば: `file('path/to/certificate.pem')`.<br/>`ssl` が `true` に設定されている場合は必須です。<br/>詳細は Terraform ドキュメントの [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#certificate) を参照してください。 |
-   | `private_key` | `string`  | n/a | no | HTTPS 証明書の秘密鍵の内容。秘密鍵は PEM 形式でなければならなりません<br/>例えば: `file('path/to/private_key.pem')`. <br/>`ssl` が `true` に設定されている場合は必須です。<br/>詳細は Terraform ドキュメントの [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#private_key) を参照してください。 |
+   | `certificate` | `string`  | n/a | no | HTTPS 証明書の内容。証明書は PEM 形式でなければなりません。<br/>たとえば: `file('path/to/certificate.pem')`.<br/>`ssl` が `true` に設定されている場合は必須です。<br/>詳細は Terraform ドキュメントの [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#certificate) を参照してください。 |
+   | `private_key` | `string`  | n/a | no | HTTPS 証明書の秘密鍵の内容。秘密鍵は PEM 形式でなければならなりません<br/>たとえば: `file('path/to/private_key.pem')`. <br/>`ssl` が `true` に設定されている場合は必須です。<br/>詳細は Terraform ドキュメントの [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#private_key) を参照してください。 |
 
 3. (オプション) 次の表に示す追加の入力パラメータの名前と値を提供します。これらのパラメータは常にオプションですが、デフォルト値を変更して、より適切な要件に合わせることができます。
 
@@ -230,7 +230,7 @@ terraform apply
 `terraform apply` を実行すると、同じフォルダに次のファイルが生成されます: `terraform.tfstate`。このファイルは、マネージドインフラストラクチャと構成に関する状態情報を保存し、将来のメンテナンスに使用されます。
 
 :::note
-Terraform の `state` ファイルに関する推奨に従ってください: デプロイされたインフラストラクチャを維持するために必要であり、機密情報を含む可能性があります。詳細については、Terraform ドキュメントの [state](https://developer.hashicorp.com/terraform/language/state) を参照してください。
+Terraform の `state` ファイルに関する推奨に従ってください: デプロイされたインフラストラクチャを維持するために必要であり、機密情報を含む可能性があります。詳細は、Terraform ドキュメントの [state](https://developer.hashicorp.com/terraform/language/state) を参照してください。
 :::
 
 #### Test Terraform Using the Health Check Endpoint
@@ -402,7 +402,7 @@ UID2 Operator には、Operator Key が必要です。UID2 アカウントの設
 | `{IMAGE_FAMILY}` | `confidential-space` はインテグレーションと本番で使用し、`confidential-space-debug` はインテグレーションでのみデバッグ用に使用します。`confidential-space-debug` は本番では動作しないことに注意してください。 |
 | `{SERVICE_ACCOUNT}` | アカウント作成時に作成したサービスアカウントのメールアドレス: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>詳細は [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions) (Step 4) を参照してください。|
 | `{OPERATOR_IMAGE}` | コンフィギュレーションで使用するUID2 Private Operator for GCPのDockerイメージURL。<br/>これは、GCPダウンロードファイルの`terraform.tfvars`ファイルにあります。([Operator Versions](#operator-versions) を参照してください) |
-| `{OPERATOR_KEY_SECRET_FULL_NAME}` | Operator Key secret に指定したフルネーム ([Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager) を参照してください)。パスを含め `projects/<project_id>/secrets/<secret_id>/versions/<version>` の形式でしています。例えば: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1` |
+| `{OPERATOR_KEY_SECRET_FULL_NAME}` | Operator Key secret に指定したフルネーム ([Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager) を参照してください)。パスを含め `projects/<project_id>/secrets/<secret_id>/versions/<version>` の形式でしています。たとえば: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1` |
 
 ##### Sample Deployment Script&#8212;Integ
 

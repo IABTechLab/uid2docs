@@ -9,10 +9,11 @@ displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # UID2 Mobile Integration Overview for Android and iOS
 
-このガイドは、SDK for Android または SDK for iOS を使用して UID2 と統合したいモバイルアプリのパブリッシャー向けのインテグレーションオプションの概要です。
+このガイドは、SDK for Android または SDK for iOS を使用して UID2 とインテグレーションしたいモバイルアプリのパブリッシャー向けのインテグレーションオプションの概要です。
 
 :::note
 このガイドの、**UID2 mobile SDKs** は、SDK for Android と SDK for iOS の両方を含むグループ用語です。
@@ -27,6 +28,10 @@ UID2 は、Android/iOS 向けの SDK を提供しており、次の機能をサ�
 - UID2 Token の保存
 
 さらに、UID2 は、一部の機能に対して代替手段を提供し、UID2 Google GMA/IMA プラグインなどの補完製品も提供しています。利用可能なオプションについては、個々のガイドで説明されています: [Integration Overview: High-Level Steps](#integration-overview-high-level-steps) を参照してください。
+
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
 
 ## Integration Overview: High-Level Steps
 
@@ -44,7 +49,7 @@ UID2 mobile SDK を使用してモバイルアプリを UID2 とインテグレ�
 
 1. オプションで、[Google GMA SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) および [Google IMA SDK](https://developers.google.com/interactive-media-ads/) とのインテグレーションに UID2 GMA/IMA プラグインを構成します。
 
-詳細については、次のガイドを参照してください:
+詳細は、次のガイドを参照してください:
 
 - [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 - [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md)
@@ -59,6 +64,14 @@ UID2 mobile SDK を使用してモバイルアプリを UID2 とインテグレ�
 
 1. UID2 Token をどのように使いたいですか？ [Sending the Token to the Bidstream](#sending-the-token-to-the-bidstream) を参照してください。
 
+## Complete UID2 Account Setup and Configure Account
+
+UID2 とインテグレーションんするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+
+アカウントのセットアップが完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするためのリンクと手順が送信されます。ここで、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を設定できます。詳細は、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+
+UID2 Portal での手順は、実装が Client-Side、Client-Server、または Server-Side であるかによって異なります。各インテグレーションガイドに具体的な手順が記載されています。概要は、[Client-Side or Client-Server Integration?](#client-side-or-client-server-integration) を参照してください。
+
 ### Client-Side or Client-Server Integration?
 
 UID2 mobile SDK を使用して UID2 とインテグレーションするためのオプションは、次の表にまとめられています。最適な <Link href="../ref-info/glossary-uid#gl-integration-approaches">Integration approach</Link> を選択してください。
@@ -72,12 +85,29 @@ UID2 mobile SDK を使用して UID2 とインテグレーションするため�
 
 ### Generating, Storing, and Refreshing the UID2 Token
 
-以下の表は、UID2 Token の管理に関するモバイルインテグレーションオプションをまとめたもので、トークンの生成、保存、およびリフレッシュを含みます。各オプションのドキュメントへのリンクが含まれています。
+以下の表は、UID2 Token の生成、保存、リフレッシュを管理するためのモバイルインテグレーションオプションをまとめたものです。各オプションのドキュメントへのリンクが含まれています。
 
-| UID2 Mobile Implementation Option | SDK Doc | Implementation Guide |
-| :--- | :---| :---|
-| UID2 Android SDK | [SDK for Android Reference Guide](../sdks/sdk-ref-android.md) | 以下のいずれか:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul> |
-| UID2 iOS SDK | [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) | 以下のいずれか:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul> |
+<table>
+  <thead>
+    <tr>
+      <th>UID2 Mobile Implementation Option</th>
+      <th>SDK Doc</th>
+      <th>Implementation Guide</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>UID2 Android SDK</td>
+      <td>[SDK for Android Reference Guide](../sdks/sdk-ref-android.md)</td>
+      <td>以下のいずれか:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul></td>
+    </tr>
+    <tr>
+      <td>UID2 iOS SDK</td>
+      <td>[SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)</td>
+      <td>以下のいずれか:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul></td>
+    </tr>
+  </tbody>
+</table>
 
 ### Sending the Token to the Bidstream
 
@@ -169,4 +199,4 @@ https://prod.uidapi.com/ops/healthcheck
 
    SDK はバックグラウンドで UID2 Token をリフレッシュしようとします。IOException などのエラーが発生した場合、SDK は複数回リトライします。リトライが成功しない場合、この例外が表示されます。
 
-ログを有効にすると、別のトラブルシューティングステップが可能になります。詳細については、[Enable Logging](integration-mobile-client-side.md#enable-logging) を参照してください。
+ログを有効にすると、別のトラブルシューティングステップが可能になります。詳細は、[Enable Logging](integration-mobile-client-side.md#enable-logging) を参照してください。

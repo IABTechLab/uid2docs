@@ -1,7 +1,7 @@
 ---
 title: Publisher Integration with SSO Providers
 sidebar_label: Publisher SSO Integration
-description: Information for publishers for using single sign-on (SSO) providers with UID2.
+description: UID2 と組み合わせてシングルサインオン (SSO) プロバイダーを使用するためのパブリッシャー向け情報。
 hide_table_of_contents: false
 sidebar_position: 06
 ---
@@ -10,73 +10,73 @@ import Link from '@docusaurus/Link';
 
 # Publisher Integration with SSO Providers
 
-If you integrate with one or more <a href="glossary-uid#gl-sso">SSO</a> providers to offer SSO login, you might be able to retrieve the logged-in user's email address from the SSO provider to generate UID2 tokens.
+SSO ログインを提供するために 1 つ以上の <a href="glossary-uid#gl-sso">SSO</a> プロバイダーとインテグレーションしている場合、SSO プロバイダーからログインユーザーのメールアドレスを取得して UID2 Token を生成できるかもしれません。
 
-This guide provides technical information about how to do this, for publisher integrations with several popular SSO providers.
+このガイドでは、いくつかの一般的な SSO プロバイダーとのパブリッシャー インテグレーションについて、技術情報を提供します。
 
 :::important
-You are responsible for ensuring that your use of email addresses to create UID2s is consistent with your UID2 agreement, your company’s privacy policy, and any other platform or third-party terms to which your company is subject.
+UID2 の作成に使用するメールアドレスが、UID2 契約、会社のプライバシーポリシー、および会社が適用されるその他のプラットフォームまたはサードパーティの条件に一貫していることを確認する責任があります。
 :::
 
 <!-- content_note_last_line_from_GM_20250108 -->
 
 ## High-Level Steps
 
-To integrate with a single sign-on solution, the general steps are as follows:
+シングルサインオン ソリューションとインテグレーションする一般的な手順は次のとおりです:
 
-1. Get an identity token from the SSO provider.
+1. SSO プロバイダーからユーザーのアイデンティティ トークンを取得します。
 
-2. Extract the user's email address from the identity token.
+2. アイデンティティ トークンからユーザーのメールアドレスを抽出します。
 
-3. Pass the user's email address to the [UID2 publisher integration](../guides/summary-guides.md#publisher-integrations) of your choice.
+3. ユーザーのメールアドレスを選択した [UID2 publisher integration](../guides/summary-guides.md#publisher-integrations) に渡します。
 
 :::note
-To find out whether you have to apply [normalization and encoding](../getting-started/gs-normalization-encoding.md) to the email address, or the integration does it for you, check the documentation for your UID2 publisher integration.
+メールアドレスに [正規化とエンコード](../getting-started/gs-normalization-encoding.md) を適用する必要があるか、またはインテグレーションで自動的に適用されるかを確認するには、UID2 publisher integration のドキュメントを参照してください。
 :::
 
-## Sign in with Google
+## Sign In with Google
 
-The following options are available for implementing [Sign in with Google](https://support.google.com/accounts/answer/12849458?hl=en):
+[Sign in with Google](https://support.google.com/accounts/answer/12849458?hl=ja) を実装するための次のオプションが利用可能です:
 
 - [Sign in with Google for Android](#sign-in-with-google-for-android)
 - [Sign in with Google for iOS and macOS](#sign-in-with-google-for-ios-and-macos)
 - [Sign in with Google for Web](#sign-in-with-google-for-web)
 
-### Sign in with Google for Android
+### Sign In with Google for Android
 
-Follow the instructions in [Create the Sign in with Google flow](https://developer.android.com/identity/sign-in/credential-manager-siwg#create-sign). Once the token has been validated, you can retrieve the email address by using the [getEmail() method](https://cloud.google.com/java/docs/reference/google-api-client/latest/com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload#com_google_api_client_googleapis_auth_oauth2_GoogleIdToken_Payload_getEmail__) of the identity token payload.
+[Create the Sign in with Google flow](https://developer.android.com/identity/sign-in/credential-manager-siwg#create-sign) の手順に従います。トークンが検証された後、アイデンティティ トークンのペイロードの [getEmail() メソッド](https://cloud.google.com/java/docs/reference/google-api-client/latest/com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload#com_google_api_client_googleapis_auth_oauth2_GoogleIdToken_Payload_getEmail__) を使用してメールアドレスを取得できます。
 
-### Sign in with Google for iOS and macOS
+### Sign In with Google for iOS and macOS
 
-To get an email address from [Sign in with Google](https://developers.google.com/identity/sign-in/ios/start-integrating) on iOS or macOS, retrieve it from the `GIDGoogleUser` object. For details, see [Getting profile information](https://developers.google.com/identity/sign-in/ios/people).
+iOS または macOS で [Sign in with Google](https://developers.google.com/identity/sign-in/ios/start-integrating) からメールアドレスを取得するには、`GIDGoogleUser` オブジェクトから取得します。詳細は、[プロファイル情報の取得](https://developers.google.com/identity/sign-in/ios/people)を参照してください。
 
-### Sign in with Google for Web
+### Sign In with Google for Web
 
-Follow the instructions to [verify the Google ID token on your server side](https://developers.google.com/identity/gsi/web/guides/verify-google-id-token), and then retrieve the user's email address from the email field of the ID token.
+[verify the Google ID token on your server side](https://developers.google.com/identity/gsi/web/guides/verify-google-id-token) の手順に従い、ID トークンの `email` フィールドからユーザーのメールアドレスを取得します。
 
 ## Facebook Login
 
-There are two ways to integrate Facebook Login with UID2: with an OpenID Connect (OIDC) token or without.
+UID2 と Facebook Login を組み合わせる方法は、OpenID Connect (OIDC) トークンを使用するか、使用しないかの 2 つの方法があります。
 
 ### Facebook Login Using an OIDC Token on iOS
 
-To get an email address from [Facebook Login](https://developers.facebook.com/docs/facebook-login/) using an [OIDC token](https://developers.facebook.com/docs/facebook-login/guides/access-tokens/get-oidc/) on iOS:
+iOS で [Facebook Login](https://developers.facebook.com/docs/facebook-login/) から¥[OIDC token](https://developers.facebook.com/docs/facebook-login/guides/access-tokens/get-oidc/) を使用してメールアドレスを取得するには:
 
-1. Implement Facebook Login (for details, see [Use Facebook Login in Your iOS App](https://developers.facebook.com/docs/ios/use-facebook-login)) and request the `email` permission.
+1. Facebook Login を実装し (詳細は、[Use Facebook Login in Your iOS App](https://developers.facebook.com/docs/ios/use-facebook-login) を参照)、`email` パーミッションをリクエストします。
 
-1. Extract the user's email address from the OIDC authentication token: for example, by using the `Profile` helper class. For details, see [OIDC Tokens in Facebook Login for iOS](https://developers.facebook.com/docs/facebook-login/guides/access-tokens/get-oidc).
+1. OIDC token からユーザーのメールアドレスを抽出します。たとえば、`Profile` ヘルパー クラスを使用して抽出します。詳細は、[OIDC Tokens in Facebook Login for iOS](https://developers.facebook.com/docs/facebook-login/guides/access-tokens/get-oidc) を参照してください。
 
 ### Facebook Login Without an OIDC Token
 
-To get an email address from [Facebook Login](https://developers.facebook.com/docs/facebook-login/) without using an OIDC token:
+OICD token を使用せずに [Facebook Login](https://developers.facebook.com/docs/facebook-login/) からメールアドレスを取得するには:
 
-1. Request a [user access token](https://developers.facebook.com/docs/facebook-login/guides/access-tokens#usertokens), specifying the `email` permission.
+1. `email` パーミッションを指定して、[user access token](https://developers.facebook.com/docs/facebook-login/guides/access-tokens#usertokens) をリクエストします。
 
-1. If the user has granted the `email` permission, make a Graph API call to the [`/me` endpoint](https://developers.facebook.com/docs/graph-api/overview#me), using the user access token, and specify `email` as one of the fields.
+1. ユーザーが `email` パーミッションを許可した場合、ユーザーアクセストークンを使用して、`email` をフィールドとして指定して、[`/me` endpoint](https://developers.facebook.com/docs/graph-api/overview#me) に対して Graph API コールを行います。
 
 ### Sample Applications
 
-The following applications demonstrate how to integrate with Facebook Login:
+以下のアプリケーションは、Facebook Login とのインテグレーション方法を示しています:
 
 - [Facebook Login sample application for Android](https://github.com/facebook/facebook-android-sdk/tree/main/samples/FBLoginSample)
 
@@ -84,22 +84,23 @@ The following applications demonstrate how to integrate with Facebook Login:
 
 ## Sign In with Apple
 
-The instructions for signing in with Apple are different for apps and websites.
+Apple ID でサインインする方法は、アプリとウェブサイトで異なります。
 
 ### Sign In with Apple in an App
 
-Request authorization, making sure to request the `email` scope. For details, see [Request Authorization with Apple ID](https://developer.apple.com/documentation/sign_in_with_apple/implementing_user_authentication_with_sign_in_with_apple#3546458).
+`email` スコープをリクエストして認証をリクエストします。詳細は、[Request Authorization with Apple ID](https://developer.apple.com/documentation/sign_in_with_apple/implementing_user_authentication_with_sign_in_with_apple#3546458) を参照してください。
 
-If authentication succeeds, retrieve the user's email address from the `email` property of the `ASAuthorizationAppleIDCredential` object.
+承認に成功した場合、`ASAuthorizationAppleIDCredential` オブジェクトの `email` プロパティからユーザーのメールアドレスを取得します。
 
 ### Sign In with Apple JS on a Webpage
 
-Refer to the section [Handle the Authorization Response](https://developer.apple.com/documentation/sign_in_with_apple/sign_in_with_apple_js/configuring_your_webpage_for_sign_in_with_apple#3331292) of the page [Configure your webpage for Sign in with Apple](https://developer.apple.com/documentation/sign_in_with_apple/sign_in_with_apple_js/configuring_your_webpage_for_sign_in_with_apple).
+[Configure your webpage for Sign in with Apple](https://developer.apple.com/documentation/sign_in_with_apple/sign_in_with_apple_js/configuring_your_webpage_for_sign_in_with_apple) ページの [Handle the Authorization Response](https://developer.apple.com/documentation/sign_in_with_apple/sign_in_with_apple_js/configuring_your_webpage_for_sign_in_with_apple#3331292) を参照してください。
 
 ## Sign In with OpenPass
 
-To get an email address from an [OpenPass](https://openpass.thetradedesk.com/en) integration:
+[OpenPass](https://openpass.thetradedesk.com/en) インテグレーションからメールアドレスを取得するには:
 
-1. Use the [OpenPass API](https://partner.thetradedesk.com/v3/portal/openpass/doc/OpenPassQuickstartsServerSide) or one of the [OpenPass SDKs](https://partner.thetradedesk.com/v3/portal/openpass/doc/OpenPassSDKs) to get an identity token.
 
-1. Extract the user's email address from the `email` claim of the identity token. For details, see [OpenPass Authentication Tokens](https://partner.thetradedesk.com/v3/portal/openpass/doc/OpenPassTokensAuth).
+1. [OpenPass API](https://partner.thetradedesk.com/v3/portal/openpass/doc/OpenPassQuickstartsServerSide) または [OpenPass SDKs](https://partner.thetradedesk.com/v3/portal/openpass/doc/OpenPassSDKs) のいずれかを使用して、アイデンティティ トークンを取得します。
+
+1. アイデンティティ トークンの `email` クレームからユーザーのメールアドレスを抽出します。詳細は、[OpenPass Authentication Tokens](https://partner.thetradedesk.com/v3/portal/openpass/doc/OpenPassTokensAuth) を参照してください。

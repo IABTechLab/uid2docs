@@ -6,7 +6,7 @@ sidebar_position: 02
 ---
 
 import Link from '@docusaurus/Link';
-import IdentityGenerateResponse from '/docs/snippets/_example-identity-generate-response.mdx';
+import IdentityGenerateResponse from '../snippets/_example-identity-generate-response.mdx';
 
 # POST /token/generate
 
