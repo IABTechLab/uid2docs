@@ -28,7 +28,6 @@ const fullSidebar = [
       id: 'intro',
     },
     collapsed: false,
-    collapsed: true,
     items: [
       'ref-info/uid-principles',
       'ref-info/uid-infrastructure',
@@ -39,7 +38,8 @@ const fullSidebar = [
       type: 'category',
       label: 'UID2 Participants',
       link: {
-        type: 'generated-index',
+        type: 'doc',
+        id: 'overviews/participants-overview',
       },
       collapsed: true,
       items: [
