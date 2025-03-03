@@ -32,7 +32,7 @@ This page describes version 4 of the UID2 SDK for JavaScript, which is the lates
 - [Version 3](./sdk-ref-javascript-v3.md)
 - [Version 2.x and earlier](./sdk-ref-javascript-v2.md)
 
-## Changes From Previous Version
+## Changes From Version 3
 
 Version 4 includes the following key changes from version 3:
 
@@ -322,7 +322,7 @@ The `opts` object supports the following properties.
 | `cookieDomain` | string | Optional | The domain name string to apply to the UID2 cookie (see [UID2 Storage Format](#uid2-storage-format)).<br/>For example, if the `baseUrl` is `https://my.operator.com`, the `cookieDomain` value might be `operator.com`. | `undefined` |
 | `cookiePath` | string | Optional | The path string to apply to the UID2 cookie (see [UID2 Storage Format](#uid2-storage-format)). | `/` |
 | `useCookie` | `boolean` | Optional | Set this to `true` to tell the SDK to store the identity in cookie storage instead of local storage. You can still provide an identity using a first-party cookie if this value is false or not provided. | 
-| `callback` | `function(object): void` | Deprecated | The function that the SDK should invoke after validating the passed identity. Do not use this for new integrations. [**GWH__AS02 do we need to remove this line?**] | N/A |
+| `callback` | `function(object): void` | Deprecated | The function that the SDK should invoke after validating the passed identity. Do not use this for new integrations. [**GWH__AS01 do we need to remove this line?**] | N/A |
 
 #### Multiple Init Calls
 
@@ -519,7 +519,7 @@ The following is an example of the UID2 cookie structure:
 The contents of the `private` object are explicitly unspecified and are left for the SDK to interpret. Do not make any assumptions about the structure, semantics, or compatibility of this object. Any updates to the cookie must retain its structure.
 :::
 
-## Migration Guide [GWH__AS03 this section needs updating]
+## Migration Guide
 
 This section includes all the information you need to upgrade from an earlier version of the SDK for JavaScript to the current version, v4. It includes:
 
@@ -530,7 +530,18 @@ This section includes all the information you need to upgrade from an earlier ve
 
 ### Benefits of Migrating
 
-If your existing integration uses version 1.x or 2.x of the SDK, version 3 is fully backwards-compatible. You can update to version 3 of the SDK just by changing your script tag to refer to the new URL. Doing this gives you the following benefits:
+Version 3 and version 4 of the SDK are fully backwards-compatible. If your existing integration uses version 1.x or 2.x, you can upgrade just by changing your script tag to refer to the new URL.
+
+Doing this gives you the following benefits introduced in version 3 and 4:
+
+- [Benefits in Version 3](#benefits-in-version-3)
+- [Benefits in Version 4](#benefits-in-version-4)
+
+:::note
+If you're migrating from a version earlier than v3, there are other recommended changes. See [Additional Changes: Migration from v2 or Earlier](#additional-changes-migration-from-v2-or-earlier).
+:::
+
+#### Benefits in Version 3
 
 - The script is now distributed using the UID2 CDN, and should therefore load faster.
 - The SDK tries to use local storage instead of cookies for storing the identity. If the cookie provides a newer token than the one in local storage, the SDK still loads the identity from the cookie.
@@ -552,21 +563,32 @@ By updating your integration, you can take advantage of the additional features 
 
   This makes the SDK much easier to use in single-page app scenarios.
 
+#### Benefits in Version 4
+
+For a summary of the benefits in version 4, see [Changes From Version 3](#changes-from-version-3). [**GWH__AS02 is there any more we can say about specific benefits of this version?**]
+
 ### Required Changes
 
-#### Update your script URL
+To migrate to version 4, update your script tag to load the SDK from the version 4.0.1 CDN URL. See [Include the SDK Script](#include-the-sdk-script).
 
-Update your script tag to load the SDK from [the version 3 CDN URL](#include-the-sdk-script).
+This is the only required change for migrating from any earlier version to version 4. However, if you're upgrading from a version earlier than v3, there are other recommended and optional changes you should make. See [Additional Changes: Migration from v2 or Earlier](#additional-changes-migration-from-v2-or-earlier).
 
-### Recommended Changes
+### Additional Changes: Migration from v2 or Earlier
 
-We strongly recommend that you implement the following changes to get the benefits of version 3 of the SDK:
+If you're upgrading from a version earlier than v3, consider the following recommended and optional changes to improve your implementation of the UID2 JavaScript SDK:
+
+- [Recommended Changes](#recommended-changes)
+- [Optional Changes](#optional-changes)
+
+#### Recommended Changes
+
+If you're upgrading from a version earlier than v3, we strongly recommend that you implement the following changes to benefit from the improvements in version 3 of the SDK:
 
 - [Migrate to the Version 3 Callback System](#migrate-to-the-version-3-callback-system)
 - [Take advantage of `setIdentity` and other new features](#take-advantage-of-setidentity-and-other-new-features)
 - [Change how you call init](#change-how-you-call-init)
 
-#### Migrate to the Version 3 Callback System
+##### Migrate to the Version 3 Callback System
 
 In earlier versions, the callback accepts a single object as a parameter, with properties `advertisingToken`, `status`, and `statusText`. For version 3, change this function to use the new [Callback Function Signature](#callback-function-signature).
 
@@ -586,11 +608,11 @@ window.__uid2.callbacks = window.__uid2.callbacks || [];
 window.__uid2.callbacks.push(callbackFunction);
 ```
 
-#### Take advantage of `setIdentity` and other new features
+##### Take advantage of `setIdentity` and other new features
 
-Previous versions of the SDK had only one way to provide a new identity: in the call to `init`. This meant that some publishers had to make use of various workarounds to provide a new identity later in the page lifecycle. You might be able to simplify your integration by removing these workarounds and just calling `setIdentity` if you want to pass a new identity to the SDK after `init` has been called.
+Versions of the SDK prior to version 3 had only one way to provide a new identity: in the call to `init`. This meant that some publishers had to make use of various workarounds to provide a new identity later in the page lifecycle. You might be able to simplify your integration by removing these workarounds and just calling `setIdentity` if you want to pass a new identity to the SDK after `init` has been called.
 
-#### Change how you call init
+##### Change how you call init
 
 The recommended way to call `init` is by using the [Array Push Pattern](#array-push-pattern). Your existing call to `init` should be moved inside a callback handler that only handles the `SdkLoaded` event, as shown in the following example:
 
@@ -607,9 +629,11 @@ window.__uid2.callbacks.push((eventType) => {
 });
 ```
 
-### Optional Changes
+#### Optional Changes
 
-#### Add `async` or `defer` to your script tag
+If you're upgrading from a version earlier than v3, consider this optional change.
+
+##### Add `async` or `defer` to your script tag
 
 If you have decided to use `async` or `defer` script loading, move the script tag that loads the SDK into the document header and add the appropriate keyword.
 
