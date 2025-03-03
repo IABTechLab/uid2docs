@@ -39,7 +39,7 @@ Version 4 includes the following key changes from version 3:
 - **New**: The following element is new in Version 4:
   - The `isIdentityAvailable()` function was released in version 3.10.0. For details, see [isIdentityAvailable](#isidentityavailable-boolean).
 
-- **Deprecated elements**:
+- **Removed elements**:
   - The `abort()` function was deprecated in v3 and is not part of v4. Instead, use [disconnect()](#disconnect-void) which has the same functionality as `abort()`, but also includes more thorough disconnection logic.
   - The `hasIdentity()` function has been removed. This function was never documented, and was used only by other functions, but since it's a public function there's a chance someone was using it. If you were using this function, use [isIdentityAvailable](#isidentityavailable-boolean) instead.
 
@@ -322,7 +322,6 @@ The `opts` object supports the following properties.
 | `cookieDomain` | string | Optional | The domain name string to apply to the UID2 cookie (see [UID2 Storage Format](#uid2-storage-format)).<br/>For example, if the `baseUrl` is `https://my.operator.com`, the `cookieDomain` value might be `operator.com`. | `undefined` |
 | `cookiePath` | string | Optional | The path string to apply to the UID2 cookie (see [UID2 Storage Format](#uid2-storage-format)). | `/` |
 | `useCookie` | `boolean` | Optional | Set this to `true` to tell the SDK to store the identity in cookie storage instead of local storage. You can still provide an identity using a first-party cookie if this value is false or not provided. | 
-| `callback` | `function(object): void` | Deprecated | The function that the SDK should invoke after validating the passed identity. Do not use this for new integrations. [**GWH__AS01 do we need to remove this line?**] | N/A |
 
 #### Multiple Init Calls
 
@@ -530,15 +529,13 @@ This section includes all the information you need to upgrade from an earlier ve
 
 ### Benefits of Migrating
 
-Version 3 and version 4 of the SDK are fully backwards-compatible. If your existing integration uses version 1.x or 2.x, you can upgrade just by changing your script tag to refer to the new URL.
-
-Doing this gives you the following benefits introduced in version 3 and 4:
+Migrating to version 4 gives you the following benefits introduced in version 3 and 4:
 
 - [Benefits in Version 3](#benefits-in-version-3)
 - [Benefits in Version 4](#benefits-in-version-4)
 
-:::note
-If you're migrating from a version earlier than v3, there are other recommended changes. See [Additional Changes: Migration from v2 or Earlier](#additional-changes-migration-from-v2-or-earlier).
+:::important
+Version 3 of the SDK is fully backwards-compatible with earlier versions, but includes deprecated elements which were removed in version 4. To migrate to version 4, you must change your script tag to refer to the new URL and also make the changes specified in [Recommended Changes](#recommended-changes) and [Optional Changes](#optional-changes), if you didn't previously make these changes as part of upgrading to version 3. For example, make sure your code no longer uses the `abort()` function, which has been removed in version 4.
 :::
 
 #### Benefits in Version 3
@@ -565,7 +562,7 @@ By updating your integration, you can take advantage of the additional features 
 
 #### Benefits in Version 4
 
-For a summary of the benefits in version 4, see [Changes From Version 3](#changes-from-version-3). [**GWH__AS02 is there any more we can say about specific benefits of this version?**]
+Version 4 is more robust than earlier versions. For a summary of the benefits, see [Changes From Version 3](#changes-from-version-3).
 
 ### Required Changes
 
@@ -623,7 +620,7 @@ window.__uid2.callbacks.push((eventType) => {
   // Each callback function you register with the SDK is invoked once with the `SdkLoaded` event type after the SDK has been loaded by the browser and is ready to use.
   if (eventType === 'SdkLoaded' {    
     __uid2.init({
-      /* Provide the same options as in your previous code. If you're not using the legacy callback any more, remove it from here. */
+      /* Provide the same options as in your previous code. If you're no longer using the legacy callback, remove it from here. */
     });
   })
 });

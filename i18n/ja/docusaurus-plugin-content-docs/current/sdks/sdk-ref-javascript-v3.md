@@ -619,7 +619,7 @@ window.__uid2.callbacks.push((eventType) => {
   // Each callback function you register with the SDK is invoked once with the `SdkLoaded` event type after the SDK has been loaded by the browser and is ready to use.
   if (eventType === 'SdkLoaded' {    
     __uid2.init({
-      /* Provide the same options as in your previous code. If you're not using the legacy callback any more, remove it from here. */
+      /* Provide the same options as in your previous code. If you're no longer using the legacy callback, remove it from here. */
     });
   })
 });
