@@ -355,7 +355,7 @@ The `init()` function can throw the following errors.
 
 #### Legacy Callback Function
 
-This is provided for backward compatibility only: new integrations should use the new-style [callback function](#callback-function). Note that the callback parameters are not compatible in either direction: legacy callbacks cannot be registered using the [Array Push Pattern](#array-push-pattern), and new-style callbacks cannot be provided to `init`.
+This is provided only for backward compatibility between version 3 and earlier versions: new integrations should use the new-style [callback function](#callback-function). Note that the callback parameters are not compatible in either direction: legacy callbacks cannot be registered using the [Array Push Pattern](#array-push-pattern), and new-style callbacks cannot be provided to `init`.
 
 For details, see [Legacy Callback Function](./sdk-ref-javascript-v2#callback-function) in the documentation for earlier versions of this SDK.
 
@@ -540,20 +540,23 @@ Version 3 of the SDK is fully backwards-compatible with earlier versions, but in
 
 #### Benefits in Version 3
 
-- The script is now distributed using the UID2 CDN, and should therefore load faster.
+In version 3:
+
+- The script is distributed using the UID2 CDN, and should therefore load faster than previous versions.
 - The SDK tries to use local storage instead of cookies for storing the identity. If the cookie provides a newer token than the one in local storage, the SDK still loads the identity from the cookie.
 
    Notes about this approach:
-  - A default of local storage has been requested by a number of publishers who are close to the maximum size limit for cookies.
+  - A default of local storage was requested by a number of publishers who are close to the maximum size limit for cookies.
   - If you rely on setting a first-party cookie to provide a new identity, you do not gain any benefit from this change.
   - If you only provide the identity by passing it to `init`, the SDK no longer writes to the cookie.
 
-Some of the functionality from earlier versions has been deprecated, and you should make changes to future-proof your integration.
-- The legacy callback system has been deprecated and will eventually be removed.
+Some of the functionality from version 2 and earlier were deprecated in version 3, and we recommended that anyone upgrading to version 3 should future proof their integration by making some code updates. This functionality was removed in version 4. If your integration references any of the items listed in [Changes From Version 3](#changes-from-version-3), and is not updated, you **must** make those updates as part of upgrading to version 4.
 
-By updating your integration, you can take advantage of the additional features available:
-- Script loading using `async` or `defer` is now fully supported.
-- The callback system is simpler, with fewer states to manage.
+The legacy callback system was deprecated in version 3 and removed in version 4.
+
+By updating your integration, you can take advantage of these features added in version 3 and 4:
+- Script loading using `async` or `defer` is fully supported.
+- The callback system was simplified, with fewer states to manage.
 - You can provide multiple callbacks, and they can be registered at any time&#8212;before or after `init` has been called.
 - Full TypeScript support.
 - Functions to set the identity after `init()` has been called.
@@ -566,20 +569,24 @@ Version 4 is more robust than earlier versions. For a summary of the benefits, s
 
 ### Required Changes
 
-To migrate to version 4, update your script tag to load the SDK from the version 4.0.1 CDN URL. See [Include the SDK Script](#include-the-sdk-script).
+To migrate to version 4, the steps are a little different depending on how your current implementation is configured:
 
-This is the only required change for migrating from any earlier version to version 4. However, if you're upgrading from a version earlier than v3, there are other recommended and optional changes you should make. See [Additional Changes: Migration from v2 or Earlier](#additional-changes-migration-from-v2-or-earlier).
+- **Migration from version 3, with no elements from earlier versions**: The only step needed is to update your script tag to load the SDK from the version 4.0.1 CDN URL. See [Include the SDK Script](#include-the-sdk-script).
+
+- **Migration from version 3, and you previously migrated from version 2 without completing the steps to update your implementation**: Update your script tag, and also update your code so that it doesn't reference elements deprecated in version 3. See [Additional Changes: Migration from v2 or Earlier](#additional-changes-migration-from-v2-or-earlier).
+.
+- **Migration from version 2 or earlier**: Update your script tag, and also update your code so that it doesn't reference elements deprecated in version 3. See [Additional Changes: Migration from v2 or Earlier](#additional-changes-migration-from-v2-or-earlier).
 
 ### Additional Changes: Migration from v2 or Earlier
 
-If you're upgrading from a version earlier than v3, consider the following recommended and optional changes to improve your implementation of the UID2 JavaScript SDK:
+If you're migrating from a version earlier than v3, or if you previously migrated from an earlier version to version 3 without updating your code, consider the following recommended and optional changes to improve your implementation of the UID2 JavaScript SDK:
 
 - [Recommended Changes](#recommended-changes)
 - [Optional Changes](#optional-changes)
 
 #### Recommended Changes
 
-If you're upgrading from a version earlier than v3, we strongly recommend that you implement the following changes to benefit from the improvements in version 3 of the SDK:
+If you're migrating from a version earlier than v3, or if you previously migrated from an earlier version to version 3 without updating your code, implement the following changes in your code:
 
 - [Migrate to the Version 3 Callback System](#migrate-to-the-version-3-callback-system)
 - [Take advantage of `setIdentity` and other new features](#take-advantage-of-setidentity-and-other-new-features)
