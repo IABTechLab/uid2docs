@@ -7,11 +7,6 @@ on:
 
 jobs:
   vulnerability-scan-failure-notify:
-    permissions:
-      contents: write
-      security-events: write
-      packages: write
-      pull-requests: write
     uses: IABTechLab/uid2-shared-actions/.github/workflows/shared-vulnerability-scan-filesystem-failure-notify.yaml@ccm-UID2-4528-report-faillures-on-scheduled-vulnerability-detection-runs # todo: change to v3 before merging
     secrets: inherit
     with:
