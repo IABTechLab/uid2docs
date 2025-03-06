@@ -7,8 +7,10 @@ on:
 
 jobs:
   vulnerability-scan-failure-notify:
-    uses: IABTechLab/uid2-shared-actions/.github/workflows/shared-vulnerability-scan-filesystem-failure-notify.yaml@ccm-UID2-4528-report-faillures-on-scheduled-vulnerability-detection-runs # todo: change to v3 before merging
+    uses: IABTechLab/uid2-shared-actions/.github/workflows/shared-vulnerability-scan-failure-notify.yaml@ccm-UID2-4528-report-faillures-on-scheduled-vulnerability-detection-runs # todo: change to v3 before merging
     secrets: inherit
+    with:
+      scan_type: fs
 
   vulnerability-scan-failure-compare-version:
     uses: IABTechLab/uid2-shared-actions/.github/workflows/shared-vulnerability-scan-filesystem-failure-notify.yaml@ccm-UID2-4528-report-faillures-on-scheduled-vulnerability-detection-runs # todo: change to v3 before merging
