@@ -17,7 +17,7 @@ UID Portal での共有権限の設定は、<Link href="../ref-info/glossary-uid
 
 適切な共有関係を作成するのに役立つ多くのオプションがあります:
 
-- **Recommendations**: 1つ以上のカテゴリ (パブリッシャー、広告主、DSP、またはデータプロバイダー) の現在および将来の参加者全員と共有するための推奨を、ワンクリックで受け入れることができます。 [Add Sharing Permissions&#8212;Bulk](#add-sharing-permissionsbulk) を参照してください。
+- **Recommendations**: 1つ以上のカテゴリ (パブリッシャー、広告主、DSP、またはデータプロバイダー) の現在および将来の参加者全員と共有するための推奨を、ワンクリックで受け入れることができます。 [Add Sharing Permissions&#8212;Bulk](#add-permissionsbulk) を参照してください。
 
   Recommendations は、アカウント設定で指定した参加者のタイプに基づいています。
 - **Sharing Categories**: 設定した1つ以上の特定のカテゴリ (パブリッシャー、広告主、DSP、またはデータプロバイダー) のすべての現在および将来の参加者と共有することができます。
@@ -43,13 +43,13 @@ UID2 Portal では、以下の共有オプションを利用できます。こ�
 
 - すべてのパブリッシャー、広告主、DSP、データプロバイダーなど、特定のタイプの参加者全員に自動的に許可を与えることができます。たとえば、パブリッシャーはすべての DSP に共有許可を与えることを勧めます。
 
-  このオプションを選択すると、選択した参加者タイプのすべての新規参加者に、送信したデータを復号化する権限が自動的に付与されます。[Add Sharing Permissions&#8212;Bulk](#add-sharing-permissionsbulk) を参照してください。
+  このオプションを選択すると、選択した参加者タイプのすべての新規参加者に、送信したデータを復号化する権限が自動的に付与されます。[Add Sharing Permissions&#8212;Bulk](#add-permissionsbulk) を参照してください。
 
-- 1人以上の特定の参加者に権限を付与できます。[Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships) を参照してください。
+- 1人以上の特定の参加者に権限を付与できます。[Add Permissions&#8212;Individual](#add-permissionsindividual) を参照してください。
  
 共有許可は、UID2 Portal でいつでも更新できます。
 
-## Add Sharing Permissions&#8212;Bulk
+## Add Permissions&#8212;Bulk
 
 UID2 Portal は、役割に基づいて、以下の推奨事項を示します:
 
@@ -73,7 +73,7 @@ UID2 Portal は、役割に基づいて、以下の推奨事項を示します:
 
 要望がある場合は、1つ以上の共有参加者との個別の共有関係を設定できます。
 
-## Using Search to Add Sharing Relationships
+## Add Permissions&#8212;Individual
 
 特定の共有関係を作成する場合は、**Add Permissions&#8212;Individual** をクリックして、共有参加者を検索して追加します。
 
@@ -105,7 +105,7 @@ UID2 Portal で共有許可を与えるだけでなく、SDK または Snowflake
 
     広告主や DSP などの参加者カテゴリーを承認すると、そのタイプの現在の参加者だけでなく、将来 UID2 エコシステムに参加する同じタイプの参加者にも共有が有効になります。
    
-   - **Add Permissions&#8212;Individual**: 必要に応じて、共有する個々の参加者を検索することができます。詳しくは [Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships) を参照してください。
+   - **Add Permissions&#8212;Individual**: 必要に応じて、共有する個々の参加者を検索することができます。詳しくは [Add Permissions&#8212;Individual](#add-permissionsindividual) を参照してください。
 1. 変更を保存します。
 
 :::note

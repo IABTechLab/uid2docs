@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # Sharing Permissions
 
-Configuring your sharing permissions opens the door to you being able to share UID2s with other UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participants</Link>.
+Configuring your sharing permissions opens the door to you being able to share UID2s with other UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participants</Link>: adding a sharing permission allows the participant you’re sharing with to decrypt your UID2 tokens.
 
 :::tip
 Configuring sharing permissions in the UID2 Portal is for <Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link>, not for sharing raw UID2s. For details, see [UID2 Sharing Approaches](../sharing/sharing-overview.md#uid2-sharing-approaches).
@@ -17,10 +17,10 @@ Configuring sharing permissions in the UID2 Portal is for <Link href="../ref-inf
 
 There are many options to help you create the exact sharing relationships that you want:
 
-- **Recommendations**: You can accept recommendations, with one click, to share with all current and future participants in one or more categories (Publishers, Advertisers, DSPs, or Data Providers). See [Add Sharing Permissions&#8212;Bulk](#add-sharing-permissionsbulk).
+- **Bulk Recommendations**: You can accept recommendations, with one click, to share with all current and future participants in one or more categories (Publisher, Advertiser, DSP, or Data Provider). For details, see [Add Sharing Permissions&#8212;Bulk](#add-permissionsbulk).
 
-  Recommendations are based on the participant type specified in your account setup.
-- **Sharing Categories**: You can share with all current and future participants in one or more specific categories that you configure (Publishers, Advertisers, DSPs, or Data Providers).
+  Recommendations are based on the participant type specified in your account setup. For details, see [Participant Information](participant-info.md)
+- **Sharing Categories**: You can adjust the bulk recommendations and choose to share with all current and future participants in one or more specific categories that you configure (Publisher, Advertiser, DSP, or Data Provider).
 - **Individual Sharing Relationships**: You can create a sharing relationship with one or more current participants. With this option, you must manually add any future sharing permissions.
 
 :::note
@@ -43,19 +43,20 @@ The following sharing options are available via the UID2 Portal. These options a
 
 - You can automatically grant permission to all participants of a specific type, such as all publishers, advertisers, DSPs, or data providers. For example, we recommend that publishers grant sharing permission to all DSPs.
 
-  If you choose this option, all new participants of the selected participant type will automatically have permission to decrypt any data that you send to them. See [Add Sharing Permissions&#8212;Bulk](#add-sharing-permissionsbulk).
+  If you choose this option, all new participants of the selected participant type automatically gets permission to decrypt any data that you send to them. See [Add Sharing Permissions&#8212;Bulk](#add-permissionsbulk).
 
-- You can grant permission to one or more specific participants. See [Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships).
+- You can grant permission to one or more specific participants. See [Add Permissions&#8212;Individual](#add-permissionsindividual).
  
-You can update your sharing permission in the UID2 Portal at any point.
+You can update your sharing permissions in the UID2 Portal at any point.
 
-## Add Sharing Permissions&#8212;Bulk
+## Add Permissions&#8212;Bulk
 
 The UID2 Portal makes the following recommendations based on your role:
 
-- Advertisers: share with DSPs and Data Providers
-- Data Providers: share with Publishers, Advertisers, and DSPs
 - Publishers: share with DSPs
+- Advertisers: share with DSPs and Data Providers
+- DSPs: share with Advertisers and Data Providers
+- Data Providers: share with Publishers, Advertisers, and DSPs
 
 <!-- The UID2 Portal makes recommendations based on your role. For example:
 - If you're a publisher, you could share with all DSPs (current and future).
@@ -69,11 +70,11 @@ The following illustration shows the recommendations for an advertiser.
 
 Accepting the recommendations is the fastest and easiest way to configure your sharing options.
 
-For example, let's say you choose to share with all of 20 existing DSPs. The next day, when DSP 21 signs up for sharing, DSP 21 will automatically have permission to decrypt data that you send. To share with DSP 21, just send one or more UID2 tokens, and DSP 21 will be able to decrypt the tokens into raw UID2s. Because you chose automatic sharing, you do not need to log in to explicitly update your sharing permissions to include DSP 21, or any future DSPs that sign up for the UID2 ecosystem.
+For example, let's say you choose to share with all of 20 existing DSPs. The next day, when DSP 21 signs up for sharing, DSP 21 automatically gets permission to decrypt data that you send. To share with DSP 21, just send one or more UID2 tokens, and DSP 21 can decrypt the tokens into raw UID2s. Because you chose automatic sharing, you do not need to log in to explicitly update your sharing permissions to include DSP 21, or any future DSPs that sign up for the UID2 ecosystem.
 
 If you prefer, you can set up individual sharing relationships with one or more sharing participants.
 
-## Using Search to Add Sharing Relationships
+## Add Permissions&#8212;Individual
 
 If you prefer to create specific sharing relationships, click **Add Permissions&#8212;Individual** to find sharing participants and add them.
 
@@ -90,7 +91,7 @@ When you manually create your sharing relationships using the search feature, yo
 ## Steps for Granting Sharing Permission
 
 :::note
-As well as granting sharing permission in the UID2 Portal, you'll also need to integrate an SDK, or Snowflake functionality, into your code. See [Tokenized Sharing Overview](../sharing/sharing-tokenized-overview.md).
+As well as granting sharing permission in the UID2 Portal, to take part in UID2 sharing you'll also need to integrate an SDK, or Snowflake functionality, into your code. See [Tokenized Sharing Overview](../sharing/sharing-tokenized-overview.md).
 :::
 
 Enabling sharing permissions includes the following steps.
@@ -105,8 +106,32 @@ Enabling sharing permissions includes the following steps.
 
      If you accept a participant category, such as Advertisers or DSPs, sharing is enabled for current participants of that type, and also future participants of that type that join the UID2 ecosystem.
    
-   - **Add Permissions&#8212;Individual**: If you prefer, you can search for individual participants to share with. For details, see [Using Search to Add Sharing Relationships](#using-search-to-add-sharing-relationships).
+   - **Add Permissions&#8212;Individual**: If you prefer, you can search for individual participants to share with. For details, see [Add Permissions&#8212;Individual](#add-permissionsindividual).
 1. Save changes.
+
+---------------- update, draft, begin -----------------------
+
+1. Log in to your UID2 Portal account.
+1. Click **Sharing Permissions**.
+1. In the **Add Permissions&#8212;Bulk** section, determine whether you want to accept the defaults. If you want to share with the default groups, with no exclusions, just click **Save Permissions** and you're done.
+
+   To view the list of participants that you'd be sharing with, click **View Participants**.
+
+1. In the **Add Permissions&#8212;Bulk** section, if you want to adjust the defaults, add or remove groups from the recommendations, and then click **Save Permissions**. Again, if needed, click **View Participants** to see the list.
+
+1. **UPTOHERE 3/6/25 NEED INPUT FROM AS RE SHARING PERMISSIONS.**
+
+
+
+
+   
+   - **Add Permissions&#8212;Individual**: If you prefer, you can search for individual participants to share with. For details, see [Add Permissions&#8212;Individual](#add-permissionsindividual).
+1. Save changes.
+
+
+---------------- update end -----------------------
+
+
 
 :::note
 When you enable sharing permission, this allows the selected sharing participants to access your decryption keys. Each participant that you enable for sharing can use your keys, via a UID2 SDK or Snowflake integration, to decrypt a UID2 token into a raw UID2. However, granting permission is just the first step. In order for sharing to occur, you must send the tokens to the participant. The UID2 Portal enables the permissions. It does not send any data&#8212;that is up to you.
