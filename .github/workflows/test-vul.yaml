@@ -1,6 +1,6 @@
 name: Vulnerability Scan Failure Slack Notify
 on:
-  push: # todo: will remove before merging mr
+  push: # todo: will remove before merging
   workflow_dispatch:
   schedule:
     - cron: '0 16 * * 1' # 16:00 every Monday
