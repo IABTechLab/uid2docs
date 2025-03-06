@@ -1,13 +1,19 @@
 name: Vulnerability Scan Failure Slack Notify
 on:
-  push: # todo: will remove before merging MR
+  push: # todo: will remove before merging
   workflow_dispatch:
   schedule:
     - cron: '0 16 * * 1' # 16:00 every Monday
 
 jobs:
   vulnerability-scan-failure-notify:
-    uses: IABTechLab/uid2-shared-actions/.github/workflows/shared-vulnerability-scan-filesystem-failure-notify.yaml@ccm-UID2-4528-report-faillures-on-scheduled-vulnerability-detection-runs # todo: change to v3 before merging
+    permissions:
+      contents: write
+      security-events: write
+      packages: write
+      pull-requests: write
+    uses: IABTechLab/uid2-shared-actions/.github/workflows/shared-vulnerability-scan-failure-notify.yaml@ccm-UID2-4528-report-faillures-on-scheduled-vulnerability-detection-runs # todo: change to v3 before merging
     secrets: inherit
     with:
-      publish_vulnerabilities: false
+      scan_type : fs
+      java_version: "21"
