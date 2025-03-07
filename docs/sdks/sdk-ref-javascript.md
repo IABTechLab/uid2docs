@@ -355,11 +355,11 @@ The `init()` function can throw the following errors.
 
 #### Legacy Callback Function
 
-This is provided only for backward compatibility between version 3 and earlier versions: new integrations should use the new-style [callback function](#callback-function). Note that the callback parameters are not compatible in either direction: legacy callbacks cannot be registered using the [Array Push Pattern](#array-push-pattern), and new-style callbacks cannot be provided to `init`.
+This is provided only for backward compatibility between version 3 or 4 and earlier versions: new integrations should use the new-style [callback function](#callback-function). Note that the callback parameters are not compatible in either direction: legacy callbacks cannot be registered using the [Array Push Pattern](#array-push-pattern), and new-style callbacks cannot be provided to `init`.
 
 For details, see [Legacy Callback Function](./sdk-ref-javascript-v2#callback-function) in the documentation for earlier versions of this SDK.
 
-If you have already built an integration using a legacy callback function, you can use it with the current version of the SDK with no changes. However, this functionality will be removed in a future version of the SDK. We strongly recommend that you update your integration to use the new-style [callback function](#callback-function).
+If you have already built an integration using a legacy callback function, you can use it with the current version of the SDK with no changes. However, this functionality will be removed in a future version of the SDK. We strongly recommend that you update your integration to use the newer  [callback function](#callback-function) introduced in version 3.
 
 ### getAdvertisingToken(): string
 
@@ -592,6 +592,9 @@ If you're migrating from a version earlier than v3, or if you previously migrate
 - [Take advantage of `setIdentity` and other new features](#take-advantage-of-setidentity-and-other-new-features)
 - [Change how you call init](#change-how-you-call-init)
 
+
+[**FOR THE CALLBACK SAY MIGRATE TO NEWER CLALBACK SYSTEM INTRODUCED IN V3 OR SOMETHING. GWH**]
+
 ##### Migrate to the Version 3 Callback System
 
 In earlier versions, the callback accepts a single object as a parameter, with properties `advertisingToken`, `status`, and `statusText`. For version 3, change this function to use the new [Callback Function Signature](#callback-function-signature).
@@ -613,6 +616,8 @@ window.__uid2.callbacks.push(callbackFunction);
 ```
 
 ##### Take advantage of `setIdentity` and other new features
+
+**gwh STILL RECOMMENDED NOT REQUIRED**
 
 Versions of the SDK prior to version 3 had only one way to provide a new identity: in the call to `init`. This meant that some publishers had to make use of various workarounds to provide a new identity later in the page lifecycle. You might be able to simplify your integration by removing these workarounds and just calling `setIdentity` if you want to pass a new identity to the SDK after `init` has been called.
 
