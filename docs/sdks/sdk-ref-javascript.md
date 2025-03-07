@@ -358,7 +358,7 @@ This is provided only for backward compatibility between version 3 or 4 and earl
 
 For details, see [Legacy Callback Function](./sdk-ref-javascript-v2#callback-function) in the documentation for earlier versions of this SDK.
 
-If you have already built an integration using a legacy callback function, you can use it with the current version of the SDK with no changes. However, this functionality will be removed in a future version of the SDK. We strongly recommend that you update your integration to use the newer  [callback function](#callback-function) introduced in version 3.
+If you have already built an integration using a legacy callback function, you can use it with the current version of the SDK with no changes. However, this functionality will be removed in a future version of the SDK. We strongly recommend that you update your integration to use the newer [callback function](#callback-function) used in versions 3 and 4.
 
 ### getAdvertisingToken(): string
 
