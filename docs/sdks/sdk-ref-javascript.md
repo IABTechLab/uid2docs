@@ -21,7 +21,7 @@ The following sections describe the high-level [workflow](#workflow-overview) fo
 If you're using Prebid.js with the UID2 Identity Module, or with another product that has UID2 support, you probably don't need to use the SDK at all. The Prebid.js module manages everything. For details, see [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
 :::
 
-For integration steps for content publishers, refer to either of the following:
+For integration steps for publishers, refer to one of the following:
   - [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
   - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
@@ -32,16 +32,15 @@ This page describes version 4 of the UID2 SDK for JavaScript, which is the lates
 - [Version 3](./sdk-ref-javascript-v3.md)
 - [Version 2.x and earlier](./sdk-ref-javascript-v2.md)
 
-## Changes From Version 3
+## Changes in Version 4
 
 Version 4 includes the following key changes from version 3:
 
-- **New**: The following element is new in Version 4:
-  - The `isIdentityAvailable()` function was released in version 3.10.0. For details, see [isIdentityAvailable](#isidentityavailable-boolean).
+- **New**: The `isIdentityAvailable()` function was released in version 3.10.0. For details, see [isIdentityAvailable](#isidentityavailable-boolean).
 
 - **Removed elements**:
   - The `abort()` function was deprecated in v3 and is not part of v4. Instead, use [disconnect()](#disconnect-void) which has the same functionality as `abort()`, but also includes more thorough disconnection logic.
-  - The `hasIdentity()` function has been removed. This function was never documented, and was used only by other functions, but since it's a public function there's a chance someone was using it. If you were using this function, use [isIdentityAvailable](#isidentityavailable-boolean) instead.
+  - The `hasIdentity()` function has been removed. This function was never documented, and was used only by other functions, but since it's a public function it could be in use. If your implementation includes this function, use [isIdentityAvailable](#isidentityavailable-boolean) instead.
 
 ## Functionality
 
@@ -68,13 +67,13 @@ To integrate with UID2, you'll need to have a UID2 account. If you haven't yet c
 When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can:
 - Generate [credentials](../getting-started/gs-credentials.md) for your account.
 - Optional: For a client-side implementation, set up configuration values such as domain names.
-- Optionally, configure other values, such as setting up information about team members.
+- Optional: Configure other values, such as setting up information about team members.
 
 You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access.
 
 ## SDK Version
 
-This documentation is for version 3 of the SDK for JavaScript.
+This documentation is for version 4 of the SDK for JavaScript.
 
 ## GitHub Repository
 
@@ -166,7 +165,7 @@ Here's what you need to know about the token auto-refresh:
 
 ### Callback Function
 
-You can register functions to receive events from the UID2 SDK using the [Array Push Pattern](#array-push-pattern). There are a number of events currently available:
+You can register functions to receive events from the UID2 SDK using the [Array Push Pattern](#array-push-pattern). The following events are currently available:
 - `SdkLoaded` is raised after the SDK has been parsed and the global `__uid2` object has been constructed. This is useful for calling `init()`, especially if your script loading order is not guaranteed (for example, if you are using `async` or `defer` script loading).
 - `InitCompleted` is raised when `init()` has finished and the SDK is ready for use. If an identity was provided in the `init` call, or the SDK was able to load a previously-provided identity, the identity is included in the payload.
 - `IdentityUpdated` is raised whenever there is a new identity available, or the existing identity is no longer available.
@@ -185,36 +184,36 @@ The following example callback handles the `SdkLoaded` event to call init and th
 <TabItem value='js' label='JavaScript'>
 
 ```js
-  window.__uid2 = window.__uid2 || {};
-  window.__uid2.callbacks = window.__uid2.callbacks || [];
-  window.__uid2.callbacks.push((eventType, payload) => {
-    if (eventType === 'SdkLoaded') {
-      __uid2.init({});
-    }
-    if (eventType === 'InitCompleted' && !payload.identity) {
-        const generatedIdentity = await requestIdentityFromServer(); // Call your server-side integration to generate a token for the logged-in user
-        __uid2.setIdentity(generatedIdentity);
-    }
-  });
+window.__uid2 = window.__uid2 || {};
+window.__uid2.callbacks = window.__uid2.callbacks || [];
+window.__uid2.callbacks.push((eventType, payload) => {
+  if (eventType === 'SdkLoaded') {
+    __uid2.init({});
+  }
+  if (eventType === 'InitCompleted' && !payload.identity) {
+      const generatedIdentity = await requestIdentityFromServer(); // Call your server-side integration to generate a token for the logged-in user
+      __uid2.setIdentity(generatedIdentity);
+  }
+});
 ```
 
 </TabItem>
 <TabItem value='ts' label='TypeScript'>
 
 ```tsx
-  import { EventType, CallbackPayload } from "./callbackManager";
+import { EventType, CallbackPayload } from "./callbackManager";
 
-  window.__uid2 = window.__uid2 || {};
-  window.__uid2.callbacks = window.__uid2.callbacks || [];
-  window.__uid2.callbacks.push((eventType: EventType, payload: CallbackPayload) => {
-    if (eventType === 'SdkLoaded') {
-      __uid2.init({});
-    }
-    if (eventType === 'InitCompleted' && !payload.identity) {
-        const generatedIdentity = await requestIdentityFromServer(); // Call your server-side integration to generate a token for the logged-in user
-        __uid2.setIdentity(generatedIdentity);
-    }
-  });
+window.__uid2 = window.__uid2 || {};
+window.__uid2.callbacks = window.__uid2.callbacks || [];
+window.__uid2.callbacks.push((eventType: EventType, payload: CallbackPayload) => {
+  if (eventType === 'SdkLoaded') {
+    __uid2.init({});
+  }
+  if (eventType === 'InitCompleted' && !payload.identity) {
+      const generatedIdentity = await requestIdentityFromServer(); // Call your server-side integration to generate a token for the logged-in user
+      __uid2.setIdentity(generatedIdentity);
+  }
+});
 ```
 
 </TabItem>
@@ -529,13 +528,13 @@ This section includes all the information you need to upgrade from an earlier ve
 
 ### Benefits of Migrating
 
-Migrating to version 4 gives you the following benefits introduced in version 3 and 4:
+Migrating to version 4 gives you the following benefits introduced in versions 3 and 4:
 
 - [Benefits in Version 3](#benefits-in-version-3)
 - [Benefits in Version 4](#benefits-in-version-4)
 
 :::important
-Version 3 of the SDK is fully backwards-compatible with earlier versions, but includes deprecated elements which were removed in version 4. To migrate to version 4, you must change your script tag to refer to the new URL and also make the changes specified in [Recommended Changes](#recommended-changes) and [Optional Changes](#optional-changes), if you didn't previously make these changes as part of upgrading to version 3. For example, make sure your code no longer uses the `abort()` function, which has been removed in version 4.
+Version 3 of the SDK is fully backwards-compatible with earlier versions, but includes deprecated elements which were removed in version 4. To migrate to version 4, you must change your script tag to refer to the new URL. In addition, if your integration references any of the items listed in [Changes in Version 4](#changes-in-version-4), and is not updated, you must make those updates as part of upgrading to version 4. For example, make sure your code no longer uses the `abort()` function, which has been removed in version 4.
 :::
 
 #### Benefits in Version 3
@@ -550,9 +549,9 @@ In version 3:
   - If you rely on setting a first-party cookie to provide a new identity, you do not gain any benefit from this change.
   - If you only provide the identity by passing it to `init`, the SDK no longer writes to the cookie.
 
-Some of the functionality from version 2 and earlier were deprecated in version 3, and we recommended that anyone upgrading to version 3 should future proof their integration by making some code updates. This functionality was removed in version 4. If your integration references any of the items listed in [Changes From Version 3](#changes-from-version-3), and is not updated, you **must** make those updates as part of upgrading to version 4.
+Some of the functionality from version 2 and earlier was deprecated in version 3, and we recommended that anyone upgrading to version 3 should future proof their integration by making some code updates. This functionality was removed in version 4. If your integration references any of the items listed in [Changes in Version 4](#changes-in-version-4), and is not updated, you **must** make those updates as part of upgrading to version 4.
 
-The legacy callback system was deprecated in version 3 and removed in version 4.
+The legacy callback system was deprecated in version 3, and will be removed in a future version.
 
 By updating your integration, you can take advantage of these features added in version 3 and 4:
 - Script loading using `async` or `defer` is fully supported.
@@ -565,7 +564,7 @@ By updating your integration, you can take advantage of these features added in 
 
 #### Benefits in Version 4
 
-Version 4 is more robust than earlier versions. For a summary of the benefits, see [Changes From Version 3](#changes-from-version-3).
+Version 4 is more robust than earlier versions. For a summary of the benefits, see [Changes in Version 4](#changes-in-version-4).
 
 ### Required Changes
 
@@ -573,9 +572,9 @@ To migrate to version 4, the steps are a little different depending on how your 
 
 - **Migration from version 3, with no elements from earlier versions**: The only step needed is to update your script tag to load the SDK from the version 4.0.1 CDN URL. See [Include the SDK Script](#include-the-sdk-script).
 
-- **Migration from version 3, and you previously migrated from version 2 without completing the steps to update your implementation**: Update your script tag, and also update your code so that it doesn't reference elements deprecated in version 3. See [Additional Changes: Migration from v2 or Earlier](#additional-changes-migration-from-v2-or-earlier).
-.
-- **Migration from version 2 or earlier**: Update your script tag, and also update your code so that it doesn't reference elements deprecated in version 3. See [Additional Changes: Migration from v2 or Earlier](#additional-changes-migration-from-v2-or-earlier).
+- **Migration from version 3, and you previously migrated from version 2 without completing the steps to update your implementation**: Update your script tag, and also update your code so that it doesn't reference elements removed in version 4. For details, see [Changes in Version 4](#changes-in-version-4).
+
+- **Migration from version 2 or earlier**: Update your script tag, and also update your code so that it doesn't reference elements removed in version 4. For details, see [Changes in Version 4](#changes-in-version-4).
 
 ### Additional Changes: Migration from v2 or Earlier
 
@@ -586,18 +585,15 @@ If you're migrating from a version earlier than v3, or if you previously migrate
 
 #### Recommended Changes
 
-If you're migrating from a version earlier than v3, or if you previously migrated from an earlier version to version 3 without updating your code, implement the following changes in your code:
+If you're migrating from a version earlier than v3, or if you previously migrated from an earlier version to version 3 without updating your code, we strongly recommend that you implement the following changes in your code:
 
-- [Migrate to the Version 3 Callback System](#migrate-to-the-version-3-callback-system)
-- [Take advantage of `setIdentity` and other new features](#take-advantage-of-setidentity-and-other-new-features)
+- [Migrate to the Newer Callback System Introduced in Version 3](#migrate-to-the-newer-callback-system-introduced-in-version-3)
+- [Take advantage of `setIdentity` and other features introduced in version 3](#take-advantage-of-setidentity-and-other-features-introduced-in-version-3)
 - [Change how you call init](#change-how-you-call-init)
 
+##### Migrate to the Newer Callback System Introduced in Version 3
 
-[**FOR THE CALLBACK SAY MIGRATE TO NEWER CLALBACK SYSTEM INTRODUCED IN V3 OR SOMETHING. GWH**]
-
-##### Migrate to the Version 3 Callback System
-
-In earlier versions, the callback accepts a single object as a parameter, with properties `advertisingToken`, `status`, and `statusText`. For version 3, change this function to use the new [Callback Function Signature](#callback-function-signature).
+In versions before version 3, the callback accepted a single object as a parameter, with properties `advertisingToken`, `status`, and `statusText`. When upgrading to version 3 or 4, change this function to use the [Callback Function Signature](#callback-function-signature) introduced in version 3.
 
 Your original callback probably has some logic to deal with different values of `status`. The previous system had a variety of different status values to handle, such as `EXPIRED`, `REFRESHED`, and `NO_IDENTITY`. The new system instead has only three event types: `SdkLoaded`, `InitCompleted`, and `IdentityUpdated`.
 
@@ -615,9 +611,7 @@ window.__uid2.callbacks = window.__uid2.callbacks || [];
 window.__uid2.callbacks.push(callbackFunction);
 ```
 
-##### Take advantage of `setIdentity` and other new features
-
-**gwh STILL RECOMMENDED NOT REQUIRED**
+##### Take advantage of `setIdentity` and other features introduced in version 3
 
 Versions of the SDK prior to version 3 had only one way to provide a new identity: in the call to `init`. This meant that some publishers had to make use of various workarounds to provide a new identity later in the page lifecycle. You might be able to simplify your integration by removing these workarounds and just calling `setIdentity` if you want to pass a new identity to the SDK after `init` has been called.
 
