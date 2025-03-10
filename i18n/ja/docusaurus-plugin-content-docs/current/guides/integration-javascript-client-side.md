@@ -48,13 +48,13 @@ Client-Side でのトークン生成のサポートは、SDK のバージョン 
 
 SDKのURLは以下のとおり:
 
-- [https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js](https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js)
+- [https://cdn.prod.uidapi.com/uid2-sdk-4.0.1.js](https://cdn.prod.uidapi.com/uid2-sdk-4.0.1.js)
 
 以下のコードサンプルでは、プレースホルダ `{{ UID2_JS_SDK_URL }}` は、この URL を指します。
 
 SDK のデバッグビルドを使用したい場合は、代わりに以下の URL を使用してください:
 
-- [https://cdn.integ.uidapi.com/uid2-sdk-3.4.5.js](https://cdn.integ.uidapi.com/uid2-sdk-3.4.5.js)
+- [https://cdn.integ.uidapi.com/uid2-sdk-4.0.1.js](https://cdn.integ.uidapi.com/uid2-sdk-4.0.1.js)
 
 ## Sample Implementation
 

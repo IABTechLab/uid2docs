@@ -510,7 +510,7 @@ import Link from '@docusaurus/Link';
 <dd>The token value is opaque: No assumptions should be made about the format or about the length of the string.</dd>
 <dd>The token has a limited life, but can be refreshed in the background using the <a href="#gl-refresh-token">refresh token</a>.</dd>
 <dd>Publishers send UID2 tokens in the bidstream.</dd>
-<dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> and <a href="ref-tokens#uid2-tokens-key-information">UID2 Tokens: Key Information</a>.</dd>
+<dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>, <a href="ref-tokens#uid2-tokens-key-information">UID2 Tokens: Key Information</a>, and <a href="ref-how-uid-is-created">How the UID2 Token Is Created</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-unified-id-20"><a href="#gl-unified-id-20">Unified ID 2.0</a></MdxJumpAnchor></dt>
 <dd>The term UID2 can be used to mean the <a href="#gl-uid2-framework">UID2 framework</a>, the <a href="#gl-uid2-service">UID2 service</a>, a <a href="#gl-raw-uid2">raw UID2</a>, or a <a href="#gl-uid2-token">UID2 token</a> (advertising token).</dd>

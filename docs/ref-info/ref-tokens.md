@@ -28,6 +28,8 @@ Here are some key points about UID2 tokens:
 - Publishers send UID2 tokens in the bidstream.
 - Refreshing a UID2 token does not invalidate/expire the original or previous UID2 token. You can still use the earlier token until it expires.
 
+For more information, see [How the UID2 Token Is Created](ref-how-uid-is-created.md).
+
 ## Refresh Tokens: Key Information
 
 Here are some key points about refresh tokens:

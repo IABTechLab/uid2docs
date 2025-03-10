@@ -267,7 +267,20 @@ const fullSidebar = [
       },
       collapsed: true,
       items: [
-        'sdks/sdk-ref-javascript',
+
+        {
+          type: 'category',
+          label: 'SDK for JavaScript',
+          link: {
+            type: 'doc',
+            id: 'sdks/sdk-ref-javascript',
+          },
+          collapsed: true,
+          items: [
+            'sdks/sdk-ref-javascript-v3',
+          ],
+        },
+
         'sdks/sdk-ref-java',
         'sdks/sdk-ref-python',
         'sdks/sdk-ref-csharp-dotnet',
