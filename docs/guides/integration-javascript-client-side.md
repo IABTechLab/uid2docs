@@ -44,7 +44,7 @@ To implement, you'll need to complete the following steps:
 
 ## SDK for JavaScript Version
 
-Support for client-side token generation is available in version 4.0.1 and above of the SDK. 
+Support for client-side token generation is available in version 3.4.5 and above of the SDK. 
 
 The URL for the SDK is:
 
