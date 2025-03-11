@@ -354,7 +354,7 @@ The `init()` function can throw the following errors.
 
 #### Legacy Callback Function
 
-This is provided only for backward compatibility between version 3 or 4 and earlier versions: new integrations should use the new-style [callback function](#callback-function). Note that the callback parameters are not compatible in either direction: legacy callbacks cannot be registered using the [Array Push Pattern](#array-push-pattern), and new-style callbacks cannot be provided to `init`.
+This is provided only for backward compatibility between version 3 or 4 and earlier versions: new integrations should use the newer [callback function](#callback-function). Note that the callback parameters are not compatible in either direction: legacy callbacks cannot be registered using the [Array Push Pattern](#array-push-pattern), and newer callbacks cannot be provided to `init`.
 
 For details, see [Legacy Callback Function](./sdk-ref-javascript-v2#callback-function) in the documentation for earlier versions of this SDK.
 
