@@ -11,6 +11,36 @@ import Link from '@docusaurus/Link';
 
 Check out the latest updates to our UID2 documentation resources.
 
+### Updated: UID2 Portal, Sharing Permissions Page
+
+March 11, 2025
+
+We've significantly expanded and clarified the documentation for configuring sharing permissions in the UID2 Portal.
+
+For details, see [Sharing Permissions](../portal/sharing-permissions.md).
+
+<!-- APIDOCS-2795 -->
+
+### New: JavaScript SDK Version 4
+
+March 7, 2025
+
+We've added documentation for the recently released update of the UID2 SDK for JavaScript, version 4.
+
+For details, see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md).
+
+<!-- APIDOCS-2923 -->
+
+### New: How the UID2 Token Is Created
+
+March 7, 2025
+
+We've added a page with high-level information about the steps for creating a UID2 token, including steps, roles, and a diagram.
+
+For details, see [How the UID2 Token Is Created](../ref-info/ref-how-uid-is-created.md).
+
+<!-- APIDOCS-2855 -->
+
 ### Updated: Snowflake Integration Guide
 
 February 12, 2025
