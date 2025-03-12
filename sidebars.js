@@ -145,6 +145,7 @@ const fullSidebar = [
             items: [
               'guides/integration-mobile-client-side',
               'guides/integration-mobile-client-server',
+              'guides/integration-mobile-server-side',
             ],
           },
 
