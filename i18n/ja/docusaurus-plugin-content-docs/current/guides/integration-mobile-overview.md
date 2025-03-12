@@ -53,6 +53,7 @@ UID2 mobile SDK を使用してモバイルアプリを UID2 とインテグレ�
 
 - [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 - [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md)
+- [Server-Side Integration Guide for Mobile](integration-mobile-server-side.md)
 
 ## Mobile Integration Paths
 
