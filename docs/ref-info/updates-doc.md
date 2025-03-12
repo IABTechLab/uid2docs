@@ -11,7 +11,11 @@ import Link from '@docusaurus/Link';
 
 Check out the latest updates to our UID2 documentation resources.
 
-### Updated: UID2 Portal, Sharing Permissions Page
+## Q1 2025
+
+The following documents were released in this quarter.
+
+### UID2 Portal, Sharing Permissions Page
 
 March 11, 2025
 
@@ -21,7 +25,7 @@ For details, see [Sharing Permissions](../portal/sharing-permissions.md).
 
 <!-- APIDOCS-2795 -->
 
-### New: JavaScript SDK Version 4
+### JavaScript SDK Version 4
 
 March 7, 2025
 
@@ -31,7 +35,7 @@ For details, see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript
 
 <!-- APIDOCS-2923 -->
 
-### New: How the UID2 Token Is Created
+### How the UID2 Token Is Created
 
 March 7, 2025
 
@@ -41,7 +45,7 @@ For details, see [How the UID2 Token Is Created](../ref-info/ref-how-uid-is-crea
 
 <!-- APIDOCS-2855 -->
 
-### Updated: Snowflake Integration Guide
+### Snowflake Integration Guide
 
 February 12, 2025
 
@@ -51,7 +55,7 @@ For details, see [Snowflake Integration Guide](../guides/integration-snowflake.m
 
 <!-- APIDOCS-2918 -->
 
-### Updated: Instructions for Using the UID2 Portal
+### Instructions for Using the UID2 Portal
 
 February 10, 2025
 
@@ -63,7 +67,7 @@ These changes also clarify the different procedures for getting credentials depe
 
 <!-- APIDOCS-2828 -->
 
-### New: Expanded and Restructured Advertiser/Data Provider Doc
+### Advertiser/Data Provider Doc
 
 January 10, 2025
 
@@ -73,7 +77,7 @@ For details, including a summary of all integration options for advertisers and 
 
 <!-- APIDOCS-1662 -->
 
-### New: Publisher SSO Integration Page
+### Publisher SSO Integration Page
 
 January 8, 2025
 
@@ -91,17 +95,21 @@ We've removed the legacy v1 to v2 upgrade doc, which is no longer needed. -->
 
 <!-- APIDOCS-2859 -->
 
-### New: Zoom-In Tool for Images
+## Q4 2024
+
+The following documents were released in the fourth quarter of 2024.
+
+### Zoom-In Tool for Images
 
 December 15, 2024
 
 The UID2 docs site now includes a zoom-in tool for images.
 
-Just hover over the image and the tool appears as a magnifying glass... click to view a magnified version of the image.
+Just hover over the image and the tool appears as a magnifying glass, then click to view a magnified version of the image.
 
 <!-- APIDOCS-2237 for both -->
 
-### New: UID2 Portal Audit Trail Page
+### UID2 Portal Audit Trail Page
 
 November 15, 2024
 
@@ -111,7 +119,7 @@ The **Audit Trail** page in the UID2 Portal allows users who have the Admin role
 
 <!-- APIDOCS-2700 -->
 
-### New: LiveRamp Integration Tips
+### LiveRamp Integration Tips
 
 November 14, 2024
 
@@ -121,7 +129,11 @@ For details, see [LiveRamp Integration Tips](../guides/integration-liveramp-tips
 
 <!-- APIDOCS-2699 -->
 
-### New: Tokens Page
+## Q3 2024
+
+The following documents were released in the third quarter of 2024.
+
+### Tokens Page
 
 September 10, 2024
 
@@ -131,7 +143,7 @@ For details, see [UID2 Tokens and Refresh Tokens](../ref-info/ref-tokens.md).
 
 <!-- APIDOCS-2533 -->
 
-### New: Private Operator Integrations Page
+### Private Operator Integrations Page
 
 August 28, 2024
 
@@ -141,7 +153,7 @@ For details, see [Private Operator Integrations](../guides/integration-options-p
 
 <!-- APIDOCS-2164 -->
 
-### New: DSP Direct Integration Instructions
+### DSP Direct Integration Instructions
 
 August 22, 2024
 
@@ -151,7 +163,7 @@ For details, see [DSP Direct Integration Instructions](../guides/integration-dsp
 
 <!-- APIDOCS-2394 -->
 
-<!-- ### New: UID2 Token Reference Page
+<!-- ### UID2 Token Reference Page
 
 August 22, 2024
 
@@ -161,7 +173,7 @@ For details, see [UID2 Tokens and Refresh Tokens]. -->
 
 <!-- APIDOCS-1958 removed 8/26/22 -->
 
-### New: Integration Approaches Page
+### Integration Approaches Page
 
 July 23, 2024
 
@@ -171,7 +183,7 @@ For details, see [Integration Approaches](ref-integration-approaches.md).
 
 <!-- APIDOCS-2132 -->
 
-### New: Server-Side Token Generation Page
+### Server-Side Token Generation Page
 
 July 3, 2024
 
@@ -181,7 +193,7 @@ For details, see [Server-Side Token Generation](ref-server-side-token-generation
 
 <!-- APIDOCS-2255 -->
 
-### New: UID2 Integration with Prebid Mobile SDK (Android)
+### UID2 Integration with Prebid Mobile SDK (Android)
 
 July 2, 2024
 
@@ -192,7 +204,11 @@ We've added a new section to the two mobile integration guides with instructions
 
 <!-- APIDOCS-2269 -->
 
-### New: CTV Integration Guide
+## Q2 2024
+
+The following documents were released in the second quarter of 2024.
+
+### CTV Integration Guide
 
 June 21, 2024
 
@@ -202,7 +218,7 @@ For details, see [CTV Integration Guide](../guides/integration-ctv-guide.md).
 
 <!-- APIDOCS-2264 -->
 
-### New: Opt-Out API
+### Opt-Out API
 
 May 24, 2024
 
@@ -214,7 +230,7 @@ For details, see [POST&nbsp;/optout/status](../endpoints/post-optout-status.md).
 
 <!-- APIDOCS-1739 -->
 
-### New: Client-Side and Server-Side Guides for Mobile
+### Client-Side and Server-Side Guides for Mobile
 
 May 17, 2024
 
@@ -226,7 +242,7 @@ We've added the following integration guides to support publishers who want to i
 
 <!-- APIDOCS-1903-->
 
-### New: UID2 Portal Client-Side Integration Page
+### UID2 Portal Client-Side Integration Page
 
 May 6, 2024
 
@@ -236,7 +252,7 @@ The Client-Side Integration page in the UID2 Portal allows you to set up and man
 
 <!-- APIDOCS-2120 -->
 
-### New: UID2 Portal API Keys Page
+### UID2 Portal API Keys Page
 
 April 25, 2024
 
@@ -258,7 +274,11 @@ For details, see [UID2 Sharing: Overview](../sharing/sharing-overview.md).
 
 <!-- APIDOCS-2134 -->
 
-### New: UID2 Hashing Tool
+## Q1 2024
+
+The following documents were released in the first quarter of 2024.
+
+### UID2 Hashing Tool
 
 March 4, 2024
 
@@ -268,7 +288,7 @@ For details, see [UID2 Hashing Tool](../getting-started/gs-normalization-encodin
 
 <!-- APIDOCS-1974 -->
 
-### New: Java SDK Support for Advertiser/Data Provider
+### Java SDK Support for Advertiser/Data Provider
 
 February 28, 2024
 
@@ -278,7 +298,7 @@ For details, see the updated documentation in the *SDK for Java Reference Guide*
 
 <!-- UID2-2759 -->
 
-### New: Audience-Specific Sidebars
+### Audience-Specific Sidebars
 
 February 9, 2024
 
@@ -292,7 +312,7 @@ To view the custom sidebars, go to [https://unifiedid.com](https://unifiedid.com
 
 <!-- APIDOCS-1681 -->
 
-### New: UID2 Integration Overview for JS
+### UID2 Integration Overview for JavaScript
 
 January 26, 2024
 
@@ -306,7 +326,7 @@ For details, see:
 
 <!-- APIDOCS-1924 -->
 
-### New: SDK for Java, Publisher Sections
+### SDK for Java, Publisher Sections
 
 January 22, 2024
 
@@ -316,7 +336,7 @@ For details, see [Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publis
 
 <!-- APIDOCS-1705 -->
 
-### New: Normalization and Encoding Examples
+### Normalization and Encoding Examples
 
 January 19, 2024
 
@@ -326,7 +346,7 @@ For details, see [Normalization and Encoding](../getting-started/gs-normalizatio
 
 <!-- APIDOCS-1183, APIDOCS-1880 -->
 
-### New: Web Integration Overview for Publishers
+### Web Integration Overview for Publishers
 
 January 16, 2024
 
@@ -336,7 +356,7 @@ For details, see [Web Integration Overview](../guides/integration-options-publis
 
 <!-- APIDOCS-1846 -->
 
-### New: UID2 Operator Page
+### UID2 Operator Page
 
 January 3, 2024
 
@@ -348,7 +368,11 @@ For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md
 
 <!-- ## 2023 Updates -->
 
-### New: UID2 Integration Overview for Prebid
+## Q4 2023
+
+The following documents were released in the first quarter of 2023.
+
+### UID2 Integration Overview for Prebid
 
 December 20, 2023
 
@@ -362,7 +386,7 @@ For details, see:
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
-### New: Encrypt/Decrypt Examples, Java and C#
+### Encrypt/Decrypt Examples, Java and C#
 
 December 14, 2023
 
@@ -370,7 +394,7 @@ We've added instructions and code examples for encrypting UID2 requests and decr
 
 For details, see [Encryption and Decryption Code Examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples).
 
-### New: UID2 Private Operator for Azure Integration Guide
+### UID2 Private Operator for Azure Integration Guide
 
 November 30, 2023
 
@@ -378,7 +402,7 @@ A UID2 <a href="../intro#participants">participant</a> who wants to be a [Privat
 
 For details, see [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md).
 
-### New: API Permissions
+### API Permissions
 
 November 22, 2023
 
@@ -386,7 +410,7 @@ A new article in the Getting Started section of the UID2 website provides inform
 
 For details, see [API Permissions](../getting-started/gs-permissions.md).
 
-### New: UID2 Credentials Page
+### UID2 Credentials Page
 
 November 21, 2023
 
@@ -394,7 +418,7 @@ We've replaced the previous **API Keys** page with a new page that includes info
 
 For details, see [UID2 Credentials](../getting-started/gs-credentials.md).
 
-### New: Client-Side Integration Guide for JS
+### Client-Side Integration Guide for JS
 
 November 21, 2023
 
@@ -408,7 +432,7 @@ The content that was in the previous *SDK for JavaScript Integration Guide*  is 
 This document was updated in January 2024 to [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md), and the JavaScript Standard Integration Guide is now the [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md).
 :::
 
-### New: UID2 Client-Side Integration Guide for Prebid.js
+### UID2 Client-Side Integration Guide for Prebid.js
 
 November 2, 2023
 
@@ -423,7 +447,7 @@ These documents were further updated in later revisions. Updated links are as fo
 - [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 :::
 
-### New: Opt-Out Page
+### Opt-Out Page
 
 October 31, 2023
 
@@ -431,7 +455,7 @@ This new reference topic provides an overview of user opt-out.
 
 For details, see [User Opt-Out](../getting-started/gs-opt-out.md).
 
-### New: AWS Entity Resolution Integration Guide
+### AWS Entity Resolution Integration Guide
 
 October 19, 2023
 
@@ -441,7 +465,7 @@ This service allows you to map DII (email addresses or phone numbers) to raw UID
 
 For details, see [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md).
 
-### New: SDK for JavaScript Version 3 
+### SDK for JavaScript Version 3 
 
 October 10, 2023
 
@@ -451,7 +475,11 @@ For details, see:
 -  [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)
 -  [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
-### New: Private Operator Guide for Google Confidential Space 
+## Q3 2023
+
+The following documents were released in the third quarter of 2023.
+
+### Private Operator Guide for Google Confidential Space 
 
 September 30, 2023
 
@@ -461,7 +489,7 @@ For details, see [UID2 Private Operator for GCP Integration Guide](../guides/ope
 
 <!-- APIDOCS-1655 -->
 
-### Update: Normalization and Encoding Rules
+### Normalization and Encoding Rules
 
 September 7, 2023
 
@@ -472,7 +500,7 @@ For details, see:
 - [Email Address Hash Encoding](../getting-started/gs-normalization-encoding#email-address-hash-encoding)
 - [Phone Number Hash Encoding](../getting-started/gs-normalization-encoding#phone-number-hash-encoding)
 
-### New: IMA Mobile Plugin for Android
+### IMA Mobile Plugin for Android
 
 August 8, 2023
 
@@ -480,7 +508,7 @@ A new guide for publishers that provides information about the UID2 Interactive 
 
 For details, see [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md).
 
-### New: IMA Mobile Plugin for iOS
+### IMA Mobile Plugin for iOS
 
 August 8, 2023
 
@@ -488,7 +516,7 @@ A new guide for publishers that provides information about the UID2 Interactive 
 
 For details, see [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md).
 
-### New: GMA Mobile Plugin for Android
+### GMA Mobile Plugin for Android
 
 August 4, 2023
 
@@ -496,7 +524,7 @@ A new guide for publishers that provides information about the UID2 Google Mobil
 
 For details, see [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md).
 
-### New: GMA Mobile Plugin for iOS
+### GMA Mobile Plugin for iOS
 
 August 4, 2023
 
@@ -504,7 +532,7 @@ A new guide for publishers that provides information about the UID2 Google Mobil
 
 For details, see [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md).
 
-### New: UID2 Website in Japanese
+### UID2 Website in Japanese
 
 August 3, 2023
 
@@ -512,7 +540,7 @@ The entire UID2 website is now available in Japanese as well as English.
 
 For details, use the language drop-down at the top of any site page, or go straight to the [Unified ID 2.0 page in Japanese](https://unifiedid.com/ja/docs/intro).
 
-### New: UID2 Portal Documentation
+### UID2 Portal Documentation
 
 August 3, 2023
 
@@ -520,7 +548,7 @@ We published several new documentation pages to help users navigating the new UI
 
 For details, see [UID2 Portal: Overview](../portal/portal-overview.md).
 
-### New: Documentation for UID2 Sharing
+### Documentation for UID2 Sharing
 
 August 3, 2023
 
@@ -536,7 +564,7 @@ We published the following new and updated documents to support use of the new U
 
 - Updates to the Snowflake feature to support UID2 sharing. See [Snowflake Integration Guide: Usage for UID2 Sharers](../guides/integration-snowflake.md#usage-for-uid2-sharers).
 
-### New: Android SDK Guide
+### Android SDK Guide
 
 August 3, 2023
 
@@ -544,7 +572,7 @@ A new guide for publishers that provides information about the SDK for Android, 
 
 For details, see [SDK for Android Reference Guide](../sdks/sdk-ref-android.md).
 
-### New: iOS SDK Guide
+### iOS SDK Guide
 
 August 3, 2023
 
