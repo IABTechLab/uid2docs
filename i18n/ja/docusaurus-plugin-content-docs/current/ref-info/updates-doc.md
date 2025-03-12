@@ -27,7 +27,7 @@ UID2 インテグレーションガイド、SDK ドキュメント、エンド�
 
 <!-- APIDOCS-2828 -->
 
-### Expanded and Restructured Advertiser/Data Provider Doc
+### Advertiser/Data Provider Doc
 
 January 10, 2025
 
@@ -447,7 +447,7 @@ September 30, 2023
 
 <!-- APIDOCS-1655 -->
 
-### Update: Normalization and Encoding Rules
+### Normalization and Encoding Rules
 
 September 7, 2023
 
