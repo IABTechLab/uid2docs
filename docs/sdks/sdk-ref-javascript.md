@@ -421,7 +421,7 @@ Specifies whether a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-gen
 
 | Value | Description |
 | :--- | :--- |
-| `true` | The identity is not available. This value indicates any of the following:<ul><li>The user has opted out.</li><li>The refresh token has expired.</li><li>A first-party cookie is not available and no server-generated identity has been supplied.</li></ul> |
+| `true` | The identity is not available. This value indicates one of the following:<ul><li>The refresh token has expired.</li><li>A first-party cookie is not available and no server-generated identity has been supplied.</li></ul> |
 | `false` | This value indicates one of the following:<ul><li>The identity is present and valid.</li><li>The identity has expired (but the refresh token has not expired), and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt.</li></ul> |
 
 ### isIdentityAvailable(): boolean
@@ -440,7 +440,7 @@ If false, a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md
 | Value | Description |
 | :--- | :--- |
 | `true` | This value indicates one of the following:<ul><li> The identity is present and valid in a first-party cookie or local storage.</li><li> The identity has expired, and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt.</li></ul> |
-| `false` | This value indicates any of the following:<ul><li> The user has opted out.</li><li> The identity is present, but the refresh token has expired.</li><li> The identity has expired, even if the refresh token is still valid.</li><li> A first-party cookie is not available and no server-generated identity has been supplied. </li></ul> |
+| `false` | This value indicates any of the following:<ul><li> The identity is present, but the refresh token has expired.</li><li> The identity has expired, even if the refresh token is still valid.</li><li> A first-party cookie is not available and no server-generated identity has been supplied. </li></ul> |
 
 ### disconnect(): void
 

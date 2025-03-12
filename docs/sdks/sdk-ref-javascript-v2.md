@@ -282,7 +282,7 @@ This function can also provide additional context for handling missing identitie
 
 | Value | Description |
 | :--- | :--- |
-| `true` | The identity is not available. This value indicates any of the following:<br/>- The user has opted out.<br/>- The refresh token has expired.<br/>- A first-party cookie is not available and no server-generated identity has been supplied. |
+| `true` | The identity is not available. This value indicates one of the following:<br/>- The refresh token has expired.<br/>- A first-party cookie is not available and no server-generated identity has been supplied. |
 | `false` | This value indicates one of the following:<br/>- The identity is present and valid.<br/>- The identity has expired, and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt. |
 | `undefined` | The SDK initialization is not yet complete. |
 
