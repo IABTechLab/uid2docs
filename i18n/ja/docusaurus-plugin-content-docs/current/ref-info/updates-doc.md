@@ -11,7 +11,11 @@ import Link from '@docusaurus/Link';
 
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
-### Updated: Instructions for Using the UID2 Portal
+## Q1 2025
+
+<!-- The following documents were released in this quarter. -->
+
+### Instructions for Using the UID2 Portal
 
 February 10, 2025
 
@@ -23,7 +27,7 @@ UID2 インテグレーションガイド、SDK ドキュメント、エンド�
 
 <!-- APIDOCS-2828 -->
 
-### New: Expanded and Restructured Advertiser/Data Provider Doc
+### Expanded and Restructured Advertiser/Data Provider Doc
 
 January 10, 2025
 
@@ -33,7 +37,7 @@ January 10, 2025
 
 <!-- APIDOCS-1662 -->
 
-### New: Publisher SSO Integration Page
+### Publisher SSO Integration Page
 
 January 8, 2025
 
@@ -51,7 +55,11 @@ We've removed the legacy v1 to v2 upgrade doc, which is no longer needed. -->
 
 <!-- APIDOCS-2859 -->
 
-### New: Zoom-In Tool for Images
+## Q4 2024
+
+<!-- The following documents were released in the fourth quarter of 2024. -->
+
+### Zoom-In Tool for Images
 
 December 15, 2024
 
@@ -61,7 +69,7 @@ UID2 ドキュメントサイトに、画像のズームインツールが追加
 
 <!-- APIDOCS-2237 for both -->
 
-### New: UID2 Portal Audit Trail Page
+### UID2 Portal Audit Trail Page
 
 November 15, 2024
 
@@ -71,7 +79,7 @@ UID2 Portal の **Audit Trail** ページでは、Admin 権限 ([User Roles](../
 
 <!-- APIDOCS-2700 -->
 
-### New: LiveRamp Integration Tips
+### LiveRamp Integration Tips
 
 November 14, 2024
 
@@ -81,7 +89,11 @@ LiveRamp の Authenticated Traffic Solution (ATS) を使用して UID2 Token を
 
 <!-- APIDOCS-2699 -->
 
-### New: Tokens Page
+## Q3 2024
+
+<!-- The following documents were released in the third quarter of 2024. -->
+
+### Tokens Page
 
 September 10, 2024
 
@@ -91,7 +103,7 @@ September 10, 2024
 
 <!-- APIDOCS-2533 -->
 
-### New: Private Operator Integrations Page
+### Private Operator Integrations Page
 
 August 28, 2024
 
@@ -101,7 +113,7 @@ Private Operator のインテグレーションに関する新しいページを
 
 <!-- APIDOCS-2164 -->
 
-### New: DSP Direct Integration Instructions
+### DSP Direct Integration Instructions
 
 August 22, 2024
 
@@ -111,7 +123,7 @@ UID2 SDK を使用していない DSP 向けの新しいガイドを追加しま
 
 <!-- APIDOCS-2394 -->
 
-<!-- ### New: UID2 Token Reference Page
+<!-- ### UID2 Token Reference Page
 
 August 22, 2024
 
@@ -121,7 +133,7 @@ For details, see [UID2 Tokens and Refresh Tokens]. -->
 
 <!-- APIDOCS-1958 removed 8/26/22 -->
 
-### New: Integration Approaches Page
+### Integration Approaches Page
 
 July 23, 2024
 
@@ -131,7 +143,7 @@ Client-Side、Client-Server、Server-Side の異なるインテグレーショ�
 
 <!-- APIDOCS-2132 -->
 
-### New: Server-Side Token Generation Page
+### Server-Side Token Generation Page
 
 July 3, 2024
 
@@ -141,7 +153,7 @@ Server-Side で UID2 Token を生成するパブリッシャー向けの情報�
 
 <!-- APIDOCS-2255 -->
 
-### New: UID2 Integration with Prebid Mobile SDK (Android)
+### UID2 Integration with Prebid Mobile SDK (Android)
 
 July 2, 2024
 
@@ -152,7 +164,11 @@ July 2, 2024
 
 <!-- APIDOCS-2269 -->
 
-### New: CTV Integration Guide
+## Q2 2024
+
+<!-- The following documents were released in the second quarter of 2024. -->
+
+### CTV Integration Guide
 
 June 21, 2024
 
@@ -162,7 +178,7 @@ UID2 とのインテグレーションを希望する CTV パブリッシャー�
 
 <!-- APIDOCS-2264 -->
 
-### New: Opt-Out API
+### Opt-Out API
 
 May 24, 2024
 
@@ -174,7 +190,7 @@ raw UID2 のリストが与えられた場合、このエンドポイントは�
 
 <!-- APIDOCS-1739 -->
 
-### New: Client-Side and Server-Side Guides for Mobile
+### Client-Side and Server-Side Guides for Mobile
 
 May 17, 2024
 
@@ -186,7 +202,7 @@ Android または iOS モバイルアプリのパブリッシャーが UID2 を�
 
 <!-- APIDOCS-1903-->
 
-### New: UID2 Portal Client-Side Integration Page
+### UID2 Portal Client-Side Integration Page
 
 May 6, 2024
 
@@ -196,7 +212,7 @@ UID2 Portal の Client-Side Integration ページでは、ドメインなど、�
 
 <!-- APIDOCS-2120 -->
 
-### New: UID2 Portal API Keys Page
+### UID2 Portal API Keys Page
 
 April 25, 2024
 
@@ -218,7 +234,11 @@ April 22, 2024
 
 <!-- APIDOCS-2134 -->
 
-### New: UID2 Hashing Tool
+## Q1 2024
+
+<!-- The following documents were released in the first quarter of 2024 -->
+
+### UID2 Hashing Tool
 
 March 4, 2024
 
@@ -228,7 +248,7 @@ March 4, 2024
 
 <!-- APIDOCS-1974 -->
 
-### New: Java SDK Support for Advertiser/Data Provider
+### Java SDK Support for Advertiser/Data Provider
 
 February 28, 2024
 
@@ -238,7 +258,7 @@ Java SDKは、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エ�
 
 <!-- UID2-2759 -->
 
-### New: Audience-Specific Sidebars
+### Audience-Specific Sidebars
 
 February 9, 2024
 
@@ -252,7 +272,7 @@ UID2 home page の "ドキュメント" リンクをクリックするだけで�
 
 <!-- APIDOCS-1681 -->
 
-### New: UID2 Integration Overview for JS
+### UID2 Integration Overview for JS
 
 January 26, 2024
 
@@ -266,7 +286,7 @@ January 26, 2024
 
 <!-- APIDOCS-1924 -->
 
-### New: SDK for Java, Publisher Sections
+### SDK for Java, Publisher Sections
 
 22 January 2024
 
@@ -276,7 +296,7 @@ SDK for Java のドキュメントに、SDK を実装するパブリッシャー
 
 <!-- APIDOCS-1705 -->
 
-### New: Normalization and Encoding Examples
+### Normalization and Encoding Examples
 
 January 19, 2024
 
@@ -286,7 +306,7 @@ January 19, 2024
 
 <!-- APIDOCS-1183, APIDOCS-1880 -->
 
-### New: Web Integration Overview for Publishers
+### Web Integration Overview for Publishers
 
 January 16, 2024
 
@@ -296,7 +316,7 @@ UID2 とインテグレーションするパブリッシャーが利用できる
 
 <!-- APIDOCS-1846 -->
 
-### New: UID2 Operator Page
+### UID2 Operator Page
 
 January 3, 2024
 
@@ -306,9 +326,11 @@ UID2 Operator が何をするのか、Public Operator と Private Operator の�
 
 <!-- APIDOCS-1720 -->
 
-<!-- ## 2023 Updates -->
+## Q4 2023
 
-### New: UID2 Integration Overview for Prebid
+<!-- The following documents were released in the fourth quarter of 2023. -->
+
+### UID2 Integration Overview for Prebid
 
 December 20, 2023
 
@@ -322,7 +344,7 @@ December 20, 2023
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
-### New: Encrypt/Decrypt Examples, Java and C#
+### Encrypt/Decrypt Examples, Java and C#
 
 December 14, 2023
 
@@ -330,7 +352,7 @@ UID2 リクエストの暗号化とレスポンスの復号化について、追
 
 詳細は [Encryption and Decryption Code Examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples) を参照してください。
 
-### New: UID2 Private Operator for Azure Integration Guide
+### UID2 Private Operator for Azure Integration Guide
 
 November 30, 2023
 
@@ -338,7 +360,7 @@ November 30, 2023
 
 詳細は [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md) を参照してください。
 
-### New: API Permissions
+### API Permissions
 
 November 22, 2023
 
@@ -346,7 +368,7 @@ UID2 ウェブサイトの Getting Started セクションに新しい記事が�
 
 詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
-### New: UID2 Credentials Page
+### UID2 Credentials Page
 
 November 21, 2023
 
@@ -354,7 +376,7 @@ November 21, 2023
 
 詳細は [UID2 Credentials](../getting-started/gs-credentials.md) を参照してください。
 
-### New: Client-Side Integration Guide for JS
+### Client-Side Integration Guide for JS
 
 November 21, 2023
 
@@ -368,7 +390,7 @@ Client-Side Integration Guide for JavaScript は、既存の URL の全く新し
 このドキュメントは2024年1月に [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) に更新され、JavaScript Standard Integration Guide は[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) になりました。
 :::
 
-### New: UID2 Client-Side Integration Guide for Prebid.js
+### UID2 Client-Side Integration Guide for Prebid.js
 
 November 2, 2023
 
@@ -383,7 +405,7 @@ UID2 Client-Side Integration Guide for Prebid.js は、既存の URL にまっ�
 - [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 :::
 
-### New: Opt-Out Page
+### Opt-Out Page
 
 October 31, 2023
 
@@ -391,7 +413,7 @@ October 31, 2023
 
 詳細は [User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
-### New: AWS Entity Resolution Integration Guide
+### AWS Entity Resolution Integration Guide
 
 October 19, 2023
 
@@ -401,7 +423,7 @@ October 19, 2023
 
 詳細は [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) を参照してください。
 
-### New: SDK for JavaScript Version 3 
+### SDK for JavaScript Version 3 
 
 October 10, 2023
 
@@ -411,7 +433,11 @@ SDK for JavaScript Version 3 の機能強化に伴い、ドキュメントが大
 -  [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)
 -  [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
-### New: Private Operator Guide for Google Confidential Space 
+## Q3 2023
+
+<!-- The following documents were released in the third quarter of 2023. -->
+
+### Private Operator Guide for Google Confidential Space 
 
 September 30, 2023
 
@@ -432,7 +458,7 @@ September 7, 2023
 - [Email Address Hash Encoding](../getting-started/gs-normalization-encoding#email-address-hash-encoding)
 - [Phone Number Hash Encoding](../getting-started/gs-normalization-encoding#phone-number-hash-encoding)
 
-### New: IMA Mobile Plugin for Android
+### IMA Mobile Plugin for Android
 
 August 8, 2023
 
@@ -440,7 +466,7 @@ Android 向け UID2 Interactive Media Ads(IMA)Plugin に関する情報を提供
 
 詳細は [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) を参照してください。
 
-### New: IMA Mobile Plugin for iOS
+### IMA Mobile Plugin for iOS
 
 August 8, 2023
 
@@ -448,7 +474,7 @@ iOS 向け UID2 Interactive Media Ads(IMA)Plugin に関する情報を提供す�
 
 詳細は [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) を参照してください。
 
-### New: GMA Mobile Plugin for Android
+### GMA Mobile Plugin for Android
 
 August 4, 2023
 
@@ -456,7 +482,7 @@ Android 向け UID2 Google Mobile Ads(GMA)Plugin に関する情報を提供す�
 
 詳細は [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) を参照してください。
 
-### New: GMA Mobile Plugin for iOS
+### GMA Mobile Plugin for iOS
 
 August 4, 2023
 
@@ -464,7 +490,7 @@ iOS 向け UID2 Google Mobile Ads(GMA)Plugin に関する情報を提供する�
 
 詳細は [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) を参照してください。
 
-### New: UID2 Website in Japanese
+### UID2 Website in Japanese
 
 August 3, 2023
 
@@ -472,7 +498,7 @@ UID2 のウェブサイト全体が、英語だけでなく日本語でも利用
 
 詳細は、各サイトのページ上部にある言語ドロップダウンを使うか、直接 [Unified ID 2.0 in Japanese](https://unifiedid.com/ja/docs/intro) にアクセスしてください。
 
-### New: UID2 Portal Documentation
+### UID2 Portal Documentation
 
 3 August 2023
 
@@ -480,7 +506,7 @@ UID2 アカウントを管理できる新しい UID2 Portal ユーザーイン�
 
 詳細は [UID2 Portal: Overview](../portal/portal-overview.md) を参照してください。
 
-### New: Documentation for UID2 Sharing
+### Documentation for UID2 Sharing
 
 August 3, 2023
 
@@ -496,7 +522,7 @@ August 3, 2023
 
 - UID2 Sharing をサポートするための Snowflake 機能の更新。[Snowflake Integration Guide: Usage for UID2 Sharers](../guides/integration-snowflake.md#usage-for-uid2-sharers) を参照してください。
 
-### New: Android SDK Guide
+### Android SDK Guide
 
 August 3, 2023
 
@@ -504,7 +530,7 @@ August 3, 2023
 
 詳細は [SDK for Android Reference Guide](../sdks/sdk-ref-android.md) を参照してください。
 
-### New: iOS SDK Guide
+### iOS SDK Guide
 
 August 3, 2023
 

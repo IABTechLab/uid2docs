@@ -366,11 +366,9 @@ For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md
 
 <!-- APIDOCS-1720 -->
 
-<!-- ## 2023 Updates -->
-
 ## Q4 2023
 
-The following documents were released in the first quarter of 2023.
+The following documents were released in the fourth quarter of 2023.
 
 ### UID2 Integration Overview for Prebid
 
