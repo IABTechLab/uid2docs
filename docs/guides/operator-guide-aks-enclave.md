@@ -76,7 +76,7 @@ You'll receive separate `{OPERATOR_KEY}` values for each environment. Be sure to
 
 ## Deployment
 
-To deploy a new UID2 Private Operator for Azure, you'll need to complete the following high-level steps:
+To deploy a new UID2 Private Operator for AKS, you'll need to complete the following high-level steps:
 
 - [Download ZIP File and Extract Files](#download-zip-file-and-extract-files)
 - [Operator Version](#operator-version)
@@ -98,7 +98,7 @@ The first step is to get set up with the deployment files you'll need:
 
 ### Operator Version
 
-The latest ZIP file is linked in the Azure Download column in the following table.
+The latest ZIP file is linked in the AKS Download column in the following table.
 
 <ReleaseMatrix />
 
@@ -132,7 +132,7 @@ All the resources are provisioned later under the name you provide as the `{RESO
 :::
 
 There are some limitations with regard to location:
-- UID2 Private Operator for Azure is not supported in these areas: Europe, China.
+- UID2 Private Operator for AKS is not supported in these areas: Europe, China.
 
 - For Azure virtual network deployment availability, check [Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) in the Azure documentation to confirm the availability of Confidential Containers regional support.
 
