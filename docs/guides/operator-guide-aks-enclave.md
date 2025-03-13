@@ -14,9 +14,9 @@ import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
 
 The UID2 Operator is the API server in the UID2 ecosystem. For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
 
-This guide provides information for setting up the UID2 Operator Service as a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> in [AKS cluster that run as container groups in ACI](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-virtual-nodes). Vitual nodes on Azure Container Instances enables us to take advantage of confidential container, which run in a hardware-backed Trusted Execution Environment (TEE) that provides intrinsic capabilities such as data integrity, data confidentiality, and code integrity. 
+This guide provides information for setting up the UID2 Operator Service as a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> in AKS cluster, [running on virtual nodes on Azure Container Instances](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-virtual-nodes). Virtual nodes on Azure Container Instances enables us to take advantage of confidential container, which run in a hardware-backed Trusted Execution Environment (TEE) that provides intrinsic capabilities such as data integrity, data confidentiality, and code integrity. 
 
-When the Docker container for the UID2 Operator Confidential Containers instance starts up, it completes the attestation process that allows the UID2 Core Service to verify the authenticity of the Operator Service and the enclave environment that the Operator Service is running in.
+When the Docker container for the UID2 Operator Confidential Container instance starts up in AKS, it completes the attestation process that allows the UID2 Core Service to verify the authenticity of the Operator Service and the enclave environment that the Operator Service is running in.
 
 When the attestation is successful, the UID2 Core Service provides seed information such as salts and keys to bootstrap the UID2 Operator in the secure UID2 Operator Confidential Containers instance.
 
@@ -32,6 +32,7 @@ Before deploying the UID2 Private Operator for AKS, complete these prerequisite 
 - [Install Azure CLI](#install-azure-cli)
 - [Get the Required Azure Permissions](#install-azure-cli)
 - [Install kubectl CLI](#install-kubectl-cli)
+- [Install Helm CLI](#install-helm-cli)
 
 ### Set Up UID2 Operator Account
 
@@ -60,6 +61,10 @@ When all prerequisite steps are complete, you're ready to deploy the UID2 Privat
 ### Install kubectl CLI
 
 Install the `kubectl` command-line interface. For details, see [How to install the kubectl CLI](https://kubernetes.io/docs/tasks/tools/) in the Kubernetes documentation.
+
+### Install Helm CLI
+
+Install the `helm` command-line interface. For details, see [How to install the Helm CLI](https://helm.sh/docs/intro/install/) in the Helm documentation.
 
 ## Deployment Environments
 
@@ -233,7 +238,7 @@ az aks create \
     --os-sku Ubuntu
 ```
 
-#### Get Managed Identity Principle ID
+#### Get Managed Identity Principal ID
 ```
 export MANAGED_IDENTITY_PRINCIPAL_ID="$(az aks show --resource-group ${RESOURCE_GROUP} --name ${AKS_CLUSTER_NAME} --query "identityProfile.kubeletidentity.clientId" --output tsv)"
 ```
@@ -252,8 +257,8 @@ az role assignment create \
 ```
 
 Doc Reference:
-- https://learn.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-virtual-nodes-helm
-- https://github.com/microsoft/VirtualNodesOnAzureContainerInstances?tab=readme-ov-file#setting-up-a-virtual-node-environment
+- [Tutorial: Deploy virtual nodes on Azure Container Instances in your Azure Kubernetes Service cluster](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-virtual-nodes-helm)
+- [Setting up a virtual node Environment](https://github.com/microsoft/VirtualNodesOnAzureContainerInstances?tab=readme-ov-file#setting-up-a-virtual-node-environment)
 
 ### Setup AKS Cluster
 ```
@@ -295,15 +300,15 @@ az role assignment create --assignee-object-id "${IDENTITY_PRINCIPAL_ID}" --role
 ### Complete the UID2 Private Operator Setup
 
 #### Update Placeholder Values
-After running previous steps, you can get the managed identity id by running:
+After running previous steps, you can get the managed identity ID by running:
 ```
 MANAGED_IDENTITY_ID=$("az identity show --name "${MANAGED_IDENTITY}" --resource-group "${RESOURCE_GROUP}" --query id --output tsv")
 ```
-Update the microsoft.containerinstance.virtualnode.identity value in operator.yaml file with above value:
+Update the `microsoft.containerinstance.virtualnode.identity` value in `operator.yaml` file with above value:
 ```
 sed -i "s#IDENTITY_PLACEHOLDER#$MANAGED_IDENTITY_ID#g" "operator.yaml"
 ```
-Update the Vault Key and Secret names with the environment varaibles:
+Update the Vault Key and Secret names with the environment variables:
 ```
 sed -i "s#VAULT_NAME_PLACEHOLDER#$KEYVAULT_NAME#g" "operator.yaml"
 sed -i "s#OPERATOR_KEY_SECRET_NAME_PLACEHOLDER#$KEYVAULT_SECRET_NAME#g" "operator.yaml"
@@ -316,7 +321,7 @@ Retrieve the Kubernetes configuration credentials for the AKS cluster you just c
 az aks get-credentials --name ${AKS_CLUSTER_NAME} --resource-group ${RESOURCE_GROUP}
 ```
 
-Once setup the Kubernetes config, deploy pod running:
+Once you have retrieved the Kubernetes configuration credentials, deploy the operator by running:
 ```
 kubectl apply -f operator.yaml
 ```
@@ -334,7 +339,7 @@ Follow these steps:
 IP=$(az network public-ip list --resource-group ${AKS_NODE_RESOURCE_GROUP} --query "[?starts_with(name, 'kubernetes')].ipAddress" --output tsv)
 ```
 
-2. To test operator status, in your browser, go to the health check endpoint: `http://{IP}/ops/healthcheck`.
+2. To test operator status, in your browser, go to the health check endpoint: `http://${IP}/ops/healthcheck`.
 
    An HTTP 200 with a response body of `OK` indicates healthy status.
 
@@ -352,13 +357,9 @@ To upgrade, complete the following steps:
 
 2. Follow the instructions in [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup), using the new files, to deploy AKS deployment with new versions.
 
-3. Check the health of the new AKS deployment and make sure the status is healthy, as shown in the following example:
+3. Check the health of the new AKS deployment and make sure the status is healthy.
 
-   ```
-   az network application-gateway show-backend-health --resource-group {RESOURCE_GROUP_NAME} --name uid-operator-gateway
-   ```
-
-5. Double check the old AKS pods are shut down properly:
+4. Double check the old AKS pods are shut down properly:
 
    ```
    kubectl get pods
