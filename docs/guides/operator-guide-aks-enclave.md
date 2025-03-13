@@ -74,11 +74,12 @@ You'll receive separate `{OPERATOR_KEY}` values for each environment. Be sure to
 To deploy a new UID2 Private Operator for Azure, you'll need to complete the following high-level steps:
 
 - [Download ZIP File and Extract Files](#download-zip-file-and-extract-files)
-- [Create Resource Group](#create-resource-group)
+- [Operator Version](#operator-version)
+- [Prepare For Environment Variables](#prepare-for-environment-variables)
+- [Setup AKS and Node Pool](#setup-aks-and-node-pool)
+- [Setup AKS Cluster](#setup-aks-cluster)
 - [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup)
-- [Set Up the VPC Network](#set-up-the-vpc-network)
 - [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup)
-- [Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer)
 
 ### Download ZIP File and Extract Files
 
@@ -113,7 +114,7 @@ export SUBSCRIPTION_ID="$(az account show --query id --output tsv)"
 export DEPLOYMENT_ENV="integ"
 ```
 
-### Setup AKS & Node Pool
+### Setup AKS and Node Pool
 #### Create Resource Group
 In Azure, run the following command to create a resource group to run the UID2 operator:
 
