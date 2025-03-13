@@ -10,7 +10,7 @@ sidebar_position: 18
 import Link from '@docusaurus/Link';
 import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
 
-# UID2 Private Operator for Azure Integration Guide
+# UID2 Private Operator for AKS Integration Guide
 
 The UID2 Operator is the API server in the UID2 ecosystem. For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
 
@@ -26,11 +26,12 @@ UID2 Private Operator for AKS is not supported in these areas: Europe, China.
 
 ## Prerequisites
 
-Before deploying the UID2 Private Operator for Azure, complete these prerequisite steps:
+Before deploying the UID2 Private Operator for AKS, complete these prerequisite steps:
 
 - [Set Up UID2 Operator Account](#set-up-uid2-operator-account)
 - [Install Azure CLI](#install-azure-cli)
 - [Get the Required Azure Permissions](#install-azure-cli)
+- [Install kubectl CLI](#install-kubectl-cli)
 
 ### Set Up UID2 Operator Account
 
@@ -55,6 +56,10 @@ When that's done, you only need contributor permission on the resource group lev
 For details, see [Azure roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) in the Azure documentation.
 
 When all prerequisite steps are complete, you're ready to deploy the UID2 Private Operator. See [Deployment](#deployment).
+
+### Install kubectl CLI
+
+Install the `kubectl` command-line interface. For details, see [How to install the kubectl CLI](https://kubernetes.io/docs/tasks/tools/) in the Kubernetes documentation.
 
 ## Deployment Environments
 
