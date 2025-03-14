@@ -16,7 +16,7 @@ The UID2 Operator is the API server in the UID2 ecosystem. For details, see [The
 
 This guide provides information for setting up the UID2 Operator Service as a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> in AKS cluster, [running on virtual nodes on Azure Container Instances](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-virtual-nodes). Virtual nodes on Azure Container Instances enables us to take advantage of confidential container, which run in a hardware-backed Trusted Execution Environment (TEE) that provides intrinsic capabilities such as data integrity, data confidentiality, and code integrity. 
 
-When the Docker container for the UID2 Operator Confidential Container instance starts up in AKS, it completes the attestation process that allows the UID2 Core Service to verify the authenticity of the Operator Service and the enclave environment that the Operator Service is running in.
+When the Docker container for the UID2 Operator Confidential Container instance starts up, it completes the attestation process that allows the UID2 Core Service to verify the authenticity of the Operator Service and the enclave environment that the Operator Service is running in.
 
 When the attestation is successful, the UID2 Core Service provides seed information such as salts and keys to bootstrap the UID2 Operator in the secure UID2 Operator Confidential Containers instance.
 
@@ -85,7 +85,7 @@ To deploy a new UID2 Private Operator for AKS, you'll need to complete the follo
 
 - [Download ZIP File and Extract Files](#download-zip-file-and-extract-files)
 - [Operator Version](#operator-version)
-- [Prepare For Environment Variables](#prepare-for-environment-variables)
+- [Prepare Environment Variables](#prepare-environment-variables)
 - [Setup AKS and Node Pool](#setup-aks-and-node-pool)
 - [Setup AKS Cluster](#setup-aks-cluster)
 - [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup)
@@ -107,8 +107,8 @@ The latest ZIP file is linked in the AKS Download column in the following table.
 
 <ReleaseMatrix />
 
-### Prepare For Environment Variables
-Run below commands to prepare for environment variables that will be used in the following documents. Change the name to suit your needs.
+### Prepare Environment Variables
+Run below commands to prepare environment variables that will be used in the following commands. Change the name to suit your needs.
 ```
 export RESOURCE_GROUP="my-vn-aks"
 export LOCATION="eastus"
@@ -133,7 +133,7 @@ az group create --name "${RESOURCE_GROUP}" --location "${LOCATION}"
 ```
 
 :::info
-All the resources are provisioned later under the name you provide as the `{RESOURCE_GROUP_NAME}` value.
+All the resources are provisioned later under the name you provide as the `${RESOURCE_GROUP}` value.
 :::
 
 There are some limitations with regard to location:
@@ -349,7 +349,7 @@ import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 
 ## Upgrading
 
-When a new version of UID2 Azure Confidential Containers is released, private operators receive an email notification of the update, with a new release link. There is a window of time for upgrade, after which the older version is deactivated and is no longer supported.
+When a new version of UID2 Azure AKS is released, private operators receive an email notification of the update, with a new release link. There is a window of time for upgrade, after which the older version is deactivated and is no longer supported.
 
 To upgrade, complete the following steps:
 
