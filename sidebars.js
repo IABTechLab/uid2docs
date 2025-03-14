@@ -253,6 +253,7 @@ const fullSidebar = [
             'guides/operator-guide-aws-marketplace',
             'guides/operator-private-gcp-confidential-space',
             'guides/operator-guide-azure-enclave',
+            'guides/operator-guide-aks-enclave',
           ],
         },
       ],

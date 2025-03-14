@@ -51,6 +51,7 @@ If you choose to be a Private Operator, several implementation options are avail
 - [Nitro Enclave](https://aws.amazon.com/ec2/nitro/) from AWS
 - [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform
 - [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers), a confidential computing option from Microsoft Azure
+- [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/what-is-aks), a confidential computing solution that runs on virtual nodes on Microsoft Azure container instances and uses Kubernetes.
 
 ## Private Operator Workflow
 
@@ -110,3 +111,4 @@ There is no functional difference between the Private Operator versions.
 | AWS | [UID2 Private Operator for AWS Integration Guide](../guides/operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. |
 | GCP Confidential Space | [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md) | Information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. |
 | Azure | [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md) | Instructions for setting up the UID2 Operator Service in an instance of Confidential Containers, a confidential computing option from Microsoft Azure. |
+| AKS | [UID2 Private Operator for AKS Integration Guide](../guides/operator-guide-aks-enclave.md) | Instructions for setting up the UID2 Operator Service in an instance of AKS, a confidential computing solution that runs on virtual nodes on Microsoft Azure container instances and uses Kubernetes. |
