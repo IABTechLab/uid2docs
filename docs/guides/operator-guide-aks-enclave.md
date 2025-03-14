@@ -60,7 +60,7 @@ When all prerequisite steps are complete, you're ready to deploy the UID2 Privat
 
 ### Install kubectl CLI
 
-Install the `kubectl` command-line interface. For details, see [How to install the kubectl CLI](https://kubernetes.io/docs/tasks/tools/) in the Kubernetes documentation.
+Install the `kubectl` command-line interface. For details, see [Install Tools](https://kubernetes.io/docs/tasks/tools/) in the Kubernetes documentation.
 
 ### Install Helm CLI
 
