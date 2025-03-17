@@ -682,6 +682,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "Perion",
+    logo: "perion-lockup-black-rgb.png",
+    type: ["DSP"],
+  },
+  {
     name: "Philo",
     logo: "Philo_logo.png",
     type: ["Publishers"],

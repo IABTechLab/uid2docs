@@ -280,7 +280,20 @@ const fullSidebar = [
       },
       collapsed: true,
       items: [
-        'sdks/sdk-ref-javascript',
+
+        {
+          type: 'category',
+          label: 'SDK for JavaScript',
+          link: {
+            type: 'doc',
+            id: 'sdks/sdk-ref-javascript',
+          },
+          collapsed: true,
+          items: [
+            'sdks/sdk-ref-javascript-v3',
+          ],
+        },
+
         'sdks/sdk-ref-java',
         'sdks/sdk-ref-python',
         'sdks/sdk-ref-csharp-dotnet',
@@ -354,6 +367,7 @@ const fullSidebar = [
         'ref-info/ref-operators-public-private',
         'ref-info/ref-integration-approaches',
         'ref-info/ref-tokens',
+        'ref-info/ref-how-uid-is-created',
         'ref-info/ref-server-side-token-generation',
         'ref-info/ref-integration-sso-providers',
       ],
