@@ -525,7 +525,7 @@ The Private Operator for GCP exposes [Prometheus-formatted metrics](https://prom
 The following table lists errors that might occur during a Private Operator's startup sequence.
 
 :::note
-Error codes for Private Operator startup issues apply only to versions released in Q1 2025 and later.
+Error codes for Private Operator startup issues are applicable only to release v5.49.7 and later.
 :::
 
 | Error Code | Issue | Steps to Resolve |
