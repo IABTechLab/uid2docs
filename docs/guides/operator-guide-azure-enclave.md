@@ -335,10 +335,9 @@ Error codes for Private Operator startup issues apply only to versions released 
 
 | Error Code | Issue | Steps to Resolve |
 | :--- | :--- | :--- |
-| E02 | OperatorKeyNotFound | Make sure that the secret vault and secret name that store operator key are correctly configured. You set them as `VAULT_NAME` and `OPERATOR_KEY_SECRET_NAME`. |
-| E03 | MissingConfig | Required attributes are missing in the configuration. Refer to the logs for details and update the missing attributes while running Azure operator. |
-| E04 | InvalidConfigValue | A configuration value is invalid. Verify that the configuration values align with the required format and environment. Note `debug = true` is allowed only in the `integ` environment. Check the logs for more details. |
-| E05 | InvalidOperatorKey | Ensure the operator key is correct for the environment and matches the one provided to you. |
-| E06 | UID2ServicesUnreachable | Allow UID2 core and opt-out service IP addresses in the egress firewall. For IP addresses and DNS details, refer to the logs.  |
-| E07 | AuxiliariesException | The attestation sidecar failed to start due to an Azure environment configuration issue. Please refer to the logs for more details. |
-| E08 | OperatorKeyAccessDenied | The managed identity (specified via the operatorIdentifier parameter) that launches the container must have access to the key vault where the operator key is stored. The value of operatorIdentifier must be identical across all configuration JSON files. |
+| E02 | OperatorKeyNotFoundError | Make sure that the secret vault and secret name that store operator key are correctly configured. You set them as `VAULT_NAME` and `OPERATOR_KEY_SECRET_NAME`. |
+| E03 | ConfigurationMissingError | Required attributes are missing in the configuration. Refer to the logs for details and update the missing attributes while running Azure operator. |
+| E04 | ConfigurationValueError | A configuration value is invalid. Verify that the configuration values align with the required format and environment. Note `debug = true` is allowed only in the `integ` environment. Check the logs for more details. |
+| E05 | OperatorKeyValidationError | Ensure the operator key is correct for the environment and matches the one provided to you. |
+| E06 | UID2ServicesUnreachableError | Allow UID2 core and opt-out service IP addresses in the egress firewall. For IP addresses and DNS details, refer to the logs.  |
+| E08 | OperatorKeyPermissionError | The managed identity (specified via the operatorIdentifier parameter) that launches the container must have access to the key vault where the operator key is stored. The value of operatorIdentifier must be identical across all configuration JSON files. |
