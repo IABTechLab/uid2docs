@@ -29,7 +29,6 @@ const fullSidebar = [
     },
     collapsed: false,
     items: [
-      'ref-info/uid-principles',
       'ref-info/uid-infrastructure',
     ],
   },

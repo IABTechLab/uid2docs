@@ -129,7 +129,7 @@ import Link from '@docusaurus/Link';
 <dd>Advertising token is another term for a <a href="#gl-uid2-token">UID2 token</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-api-key"><a href="#gl-api-key">API key</a></MdxJumpAnchor></dt>
-<dd>Each UID2 <a href="../intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the <a href="#gl-client-secret">client secret</a> (API secret). The client secret is known only to the participant and the UID2 service.</dd>
+<dd>Each UID2 <a href="../overviews/participants-overview#uid2-external-participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the <a href="#gl-client-secret">client secret</a> (API secret). The client secret is known only to the participant and the UID2 service.</dd>
 <dd>For details, see <a href="../getting-started/gs-credentials">UID2 Credentials</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-api-secret"><a href="#gl-api-secret">API secret</a></MdxJumpAnchor></dt>
@@ -169,7 +169,7 @@ import Link from '@docusaurus/Link';
 <dd>For details, see <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-client-secret"><a href="#gl-client-secret">Client secret</a></MdxJumpAnchor></dt>
-<dd>Each UID2 <a href="../intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
+<dd>Each UID2 <a href="../overviews/participants-overview#uid2-external-participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the client secret (API secret). The client secret is known only to the participant and the UID2 service.</dd>
 <dd>For details, see <a href="../getting-started/gs-credentials">UID2 Credentials</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-client-server"><a href="#gl-client-server">Client-server integration</a></MdxJumpAnchor></dt>
@@ -205,7 +205,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-core-service"><a href="#gl-core-service">Core Service</a></MdxJumpAnchor></dt>
 <dd>The UID2 Core Service is a centralized service that manages access to secret <a href="#gl-salt">salts</a>, encryption keys, and other relevant data in the UID2 ecosystem.</dd>
-<dd>For an overview of all the UID2 services, see <a href="../intro#components">Components</a>.</dd>
+<dd>For an overview of all the UID2 services, see <a href="../overviews/participants-overview.md#uid2-component-services">UID2 Component Services</a>.</dd>
 
 </dl>
 
@@ -215,7 +215,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-data-provider"><a href="#gl-data-provider">Data provider</a></MdxJumpAnchor></dt>
 <dd>In the context of UID2, a data provider is any entity that provides data and measurement services relating to advertising, such as a data partner, measurement partner, or offline measurement provider.</dd>
-<dd>For details, see <a href="../intro#participants">participant</a> (Data Providers).</dd>
+<dd>For details, see <a href="../overviews/participants-overview#uid2-external-participants">participant</a> (Data Providers).</dd>
 
 <dt><MdxJumpAnchor id="gl-demand-side-platform"><a href="#gl-demand-side-platform">Demand-side platform</a></MdxJumpAnchor></dt>
 <dd>A demand-side platform (DSP) provides services to companies that want to buy digital advertising, such as advertisers, brands, and media agencies.</dd>
@@ -341,7 +341,7 @@ import Link from '@docusaurus/Link';
 <dd>An Operator is an organization or entity that runs the UID2 <a href="#gl-operator-service">Operator Service</a>. The UID2 Operator is the API server in the UID2 ecosystem.</dd>
 <dd>Operators perform multiple functions, such as receiving <a href="#gl-encryption-key">encryption keys</a> and secret <a href="#gl-salt">salts</a> from the UID2 Core Service, salting and hashing personal data (<Link href="#gl-dii">DII</Link>) to return raw UID2s, and encrypting raw UID2s to generate UID2 tokens.</dd>
 <dd>A participant can also choose to become a <a href="#gl-private-operator">Private Operator</a> to access UID2 APIs and to generate raw UID2s and UID2 tokens from within a private infrastructure.</dd>
-<dd>For details, see <a href="../intro#participants">participants</a> and <a href="../ref-info/ref-operators-public-private">The UID2 Operator</a>.</dd>
+<dd>For details, see <a href="../overviews/participants-overview">participants</a> and <a href="../ref-info/ref-operators-public-private">The UID2 Operator</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-operator-key"><a href="#gl-operator-key">Operator key</a></MdxJumpAnchor></dt>
 <dd>Each UID2 Private Operator has an operator key that allows the Private Operator Service to connect to the Core Service and Opt-Out Service and call some endpoints on it.</dd>
@@ -349,7 +349,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-operator-service"><a href="#gl-operator-service">Operator Service</a></MdxJumpAnchor></dt>
 <dd>A service that enables all functions of the <a href="#gl-operator">Operator</a>.</dd>
-<dd>For an overview of all the UID2 services, see <a href="../intro#components">Components</a>.</dd>
+<dd>For an overview of all the UID2 services, see <a href="../overviews/participants-overview.md#uid2-component-services">UID2 Component Services</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-opt-out"><a href="#gl-opt-out">Opt-out</a></MdxJumpAnchor></dt>
 <dd>An end user who participates in the UID2 ecosystem can opt out at any time by going to the <a href="https://www.transparentadvertising.com/">Transparency and Control Portal</a>.</dd>
@@ -357,7 +357,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-opt-out-service"><a href="#gl-opt-out-service">Opt-Out Service</a></MdxJumpAnchor></dt>
 <dd>The Opt-Out Service is a global UID2 service that manages and stores user opt-out requests.</dd>
-<dd>For an overview of all the UID2 services, see <a href="../intro#components">Components</a>.</dd>
+<dd>For an overview of all the UID2 services, see <a href="../overviews/participants-overview.md#uid2-component-services">UID2 Component Services</a>.</dd>
 
 </dl>
 
@@ -367,7 +367,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-participant"><a href="#gl-participant">Participant</a></MdxJumpAnchor></dt>
 <dd>An entity that fulfils a key role in UID2. Participants include the following: Core Administrator, Operator, DSP, data provider, advertiser, publisher, consumer.</dd>
-<dd>For details, see <a href="../intro#participants">participants</a>.</dd>
+<dd>For details, see <a href="../overviews/participants-overview">participants</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-private-operator"><a href="#gl-private-operator">Private Operator</a></MdxJumpAnchor></dt>
 <dd>A Private <a href="#gl-operator">Operator</a> is an entity that runs a private instance of the Operator Service. The Private Operator generates and manages UID2s for itself, using its own resources (such as hardware) in a secure environment.</dd>
@@ -392,7 +392,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-raw-uid2"><a href="#gl-raw-uid2">Raw UID2</a></MdxJumpAnchor></dt>
 <dd>An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's <a href="#gl-dii">directly identifying information</a> (email address or phone number) as input. The raw UID2 is encrypted to create a <a href="#gl-uid2-token">UID2 token</a>. The raw UID2 is a unique value; no two raw UID2s are the same. Raw UID2s, and their associated UID2 tokens, are case sensitive.</dd>
-<dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
+<dd>For details, see <a href="uid-infrastructure#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-refresh-token"><a href="#gl-refresh-token">Refresh token</a></MdxJumpAnchor></dt>
 <dd>A refresh token is an opaque string that is issued along with the <a href="#gl-uid2-token">UID2 token</a>. It is used to refresh the UID2 token, which has a limited life.</dd>
@@ -488,13 +488,13 @@ import Link from '@docusaurus/Link';
 <dd>There are many similarities between UID2 and EUID, but they are completely separate, and their tokens are not interchangeable.</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-framework"><a href="#gl-uid2-framework">UID2 framework</a></MdxJumpAnchor></dt>
-<dd>The Unified ID 2.0 (UID2) framework enables deterministic identity for advertising opportunities on the open internet for many <a href="../intro#participants">participants</a> across the advertising ecosystem. It enables publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework offers privacy controls designed to help participants meet local market requirements.</dd>
+<dd>The Unified ID 2.0 (UID2) framework enables deterministic identity for advertising opportunities on the open internet for many <a href="../overviews/participants-overview">participants</a> across the advertising ecosystem. It enables publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework offers privacy controls designed to help participants meet local market requirements.</dd>
 <dd>UID2 operates in North America, parts of Asia, and some other regions.</dd>
 <dd>There are many similarities between UID2 and EUID, but they are completely separate, and their tokens are not interchangeable.</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-identifier"><a href="#gl-uid2-identifier">UID2 identifier</a></MdxJumpAnchor></dt>
 <dd>There are two Unified ID 2.0 (UID2) identifier types: <a href="#gl-raw-uid2">raw UID2s</a> and <a href="#gl-uid2-token">UID2 tokens</a> (also known as advertising tokens).</dd>
-<dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
+<dd>For details, see <a href="uid-infrastructure#uid2-identifier-types">UID2 Identifier Types</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-portal"><a href="#gl-uid2-portal">UID2 Portal</a></MdxJumpAnchor></dt>
 <dd>The UID2 Portal is a separate user interface that allows UID2 participants to manage their accounts.</dd>
@@ -510,7 +510,7 @@ import Link from '@docusaurus/Link';
 <dd>The token value is opaque: No assumptions should be made about the format or about the length of the string.</dd>
 <dd>The token has a limited life, but can be refreshed in the background using the <a href="#gl-refresh-token">refresh token</a>.</dd>
 <dd>Publishers send UID2 tokens in the bidstream.</dd>
-<dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>, <a href="ref-tokens#uid2-tokens-key-information">UID2 Tokens: Key Information</a>, and <a href="ref-how-uid-is-created">How the UID2 Token Is Created</a>.</dd>
+<dd>For details, see <a href="uid-infrastructure#uid2-identifier-types">UID2 Identifier Types</a>, <a href="ref-tokens#uid2-tokens-key-information">UID2 Tokens: Key Information</a>, and <a href="ref-how-uid-is-created">How the UID2 Token Is Created</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-unified-id-20"><a href="#gl-unified-id-20">Unified ID 2.0</a></MdxJumpAnchor></dt>
 <dd>The term UID2 can be used to mean the <a href="#gl-uid2-framework">UID2 framework</a>, the <a href="#gl-uid2-service">UID2 service</a>, a <a href="#gl-raw-uid2">raw UID2</a>, or a <a href="#gl-uid2-token">UID2 token</a> (advertising token).</dd>

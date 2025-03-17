@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Credentials
 
-Each UID2 <a href="../intro#participants">participant</a> needs at least one set of unique credentials. The set of credentials you need is determined by how you are participating in UID2, as shown in the following table.
+Each UID2 <a href="../overviews/participants-overview#uid2-external-participants">participant</a> needs at least one set of unique credentials. The set of credentials you need is determined by how you are participating in UID2, as shown in the following table.
 
 | Audience | Credentials | Integration |
 | :--- | :--- | :--- |

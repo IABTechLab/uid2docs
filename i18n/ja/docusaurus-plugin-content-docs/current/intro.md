@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # Unified ID 2.0 Overview
 
-UID2 は、広告エコシステム全体の多くの [参加者](#participants) がオープンインターネット上で広告機会を得るための決定論的な ID を可能にするフレームワークです。UID2 フレームワークにより、パブリッシャーのウェブサイト、モバイルアプリ、Connected TV (CTV)アプリからのログイン体験が、プログラマティックワークフローを通じて収益化できるようになります。独自の名前空間を持つオープンソースのスタンドアローンソリューションとして構築されたこのフレームワークは、ローカル市場の要件に合わせて設計された透明性とプライバシー制御をユーザーに提供します。
+UID2 は、広告エコシステム全体の多くの [参加者](overviews/participants-overview.md#uid2-external-participants) がオープンインターネット上で広告機会を得るための決定論的な ID を可能にするフレームワークです。UID2 フレームワークにより、パブリッシャーのウェブサイト、モバイルアプリ、Connected TV (CTV)アプリからのログイン体験が、プログラマティックワークフローを通じて収益化できるようになります。独自の名前空間を持つオープンソースのスタンドアローンソリューションとして構築されたこのフレームワークは、ローカル市場の要件に合わせて設計された透明性とプライバシー制御をユーザーに提供します。
 
 :::note
 「UID2」という用語は、フレームワークと実際の識別子のいずれかを指すことがあります。特に断りのない限り、このページでは UID2 フレームワークの概要を説明します。
@@ -22,9 +22,9 @@ UID2 フレームワークは、以下の原則を基本としています:
 
 - **First-party relationships**: UID2 により、広告主はオープンインターネット上のパブリッシャーウェブサイトでファーストパーティデータを有効にできます。
 
-- **Non-proprietary (universal) standard**: 適切な参加契約を締結した広告エコシステムのすべての [参加者](#participants) が UID2 にアクセスできます。
+- **Non-proprietary (universal) standard**: 適切な参加契約を締結した広告エコシステムのすべての [参加者](overviews/participants-overview.md#uid2-external-participants) が UID2 にアクセスできます。
 
-- **Open source**: UID2 の[コンポーネント](#components) のソースコードは一般に公開されています。
+- **Open source**: [UID2 Component Services](overviews/participants-overview.md#uid2-component-services) のソースコードは一般に公開されています。
 
 - **Interoperable**: このフレームワークにより、他の ID ソリューション (商用およびプロプライエタリ) が UID2 Token をインテグレーションし、提供できるようになります。
 
@@ -42,20 +42,20 @@ UID2 フレームワークは、以下の技術原則に基づいて構築され
 
 - **Lean infrastructure**: UID2 システムは軽量で安価に運用できます。
 
-- **Internet scale**: UID2 インフラは、継続的に増加する[参加者](#participants) のニーズに対応し、特定の地域の性能要求に応えるために拡張できます。
+- **Internet scale**: UID2 インフラは、継続的に増加する[参加者](overviews/participants-overview.md#uid2-external-participants) のニーズに対応し、特定の地域の性能要求に応えるために拡張できます。
 
 - **Self-reliant**: UID2 は、リアルタイムビディング (RTB) データの処理において外部サービスに依存しません。
 
-## Elements of the UID2 Infrastructure
+<!-- ## Elements of the UID2 Infrastructure
 
 以下のセクションでは、UID2 フレームワークのインフラストラクチャの主要な要素について説明し、図解します:
 
 - [UID2 Identifier Types (UID2 識別子タイプ)](#uid2-identifier-types)
 - [Components (コンポーネント)](#components)
 - [Participants (参加者)](#participants)
-- [Workflows (ワークフロー)](#workflows)
+- [Workflows (ワークフロー)](#workflows) -->
 
-### UID2 Identifier Types
+<!-- ### UID2 Identifier Types
 
 UID2 は、メールアドレスや電話番号など、<Link href="ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> を基にした決定論的な ID です。UID2 には、raw UID2 と UID2 Token (Advertising Token とも呼ばれます) の 2 種類があります。次の表で、それぞれのタイプについて説明します。
 
@@ -66,20 +66,13 @@ UID2 は、メールアドレスや電話番号など、<Link href="ref-info/glo
 
 :::note
 これらの例で使用されている架空のメールアドレス `user@example.com` に対応する Refresh Token は次のとおりです: `AAAABrexFHvQVhNJqu+y/ua7rsgShF8e9NUXUJOZFmeFRD8TAsJadaLfOlLkwC5iSxcOKWFD9YwMBzbbcPa92CInba+bcPTaAFNmM2ZpIHgGy6lDcNPzvEnPQh/5fyZ3MD44SX/tHyIXa0R2OBAOLBA1A81r3jefhSsxZdyyBF58KtnaX6UbaeOEaguOfMnJdmhaPeWKj33v7vGfROWtxDWmi6wvGL5lHTX9H6iIZ9i1WSsemYPUgmoDOQeT7nzllJK968OECFj5LkCazDN3pCrYSeuJby9o0fMuSZNxzp6EVzi6XVED4ETtzpcaY0AArzzdh0IXV9MgH8jyg7bJSUWXQG+8kMPZzwbs9EB+7ddAUOLZL/GBna8Hm3Im03EjN3sJ`.
-:::
+::: -->
 
 ### Components
 
-UID2 フレームワークは以下のコンポーネントで構成されており、現在、すべて The Trade Desk が管理しています。
+詳細については、[UID2 Component Services](overviews/participants-overview.md#uid2-component-services)
 
-| Component | Description |
-| :--- | :--- |
-| **Core Service** |<a href="ref-info/glossary-uid#gl-salt">salts</a>、<a href="ref-info/glossary-uid#gl-encryption-key">暗号化キー</a>、および UID2 エコシステムの他の関連データへのアクセスを管理する一元的なサービスです。 |
-| **Operator Service** | UID2 Core Service からの暗号鍵とソルトの管理・保管、ユーザーの個人情報のハッシュ化、raw UID2 の暗号化、UID2 Token の復号を可能にするサービスです。<br/><Link href="ref-info/glossary-uid#gl-public-operator">Public Operators</Link> は、<Link href="ref-info/glossary-uid#gl-operator-service">Operator Service</Link> のパブリックインスタンスを実行し、関連するすべての UID2 参加者が利用できるようにします。また、オペレーターサービスのプライベートなインスタンスを自分たちだけのために実行する <Link href="ref-info/glossary-uid#gl-private-operator">Private Operators</Link> も存在します。どのインスタンスも、誰がサービスを運営するかに関わらず、重要な UID2 データを安全に保ち、相互運用できるように保護設計されています。 |
-| **Opt-Out Service** | ユーザーのオプトアウトリクエストを管理・保存し、パブリッシャー、オペレーターのサービスインスタンス、DSP に配信するグローバルサービスです。 |
-| **Transparency and Control Portal** | ユーザー向けウェブサイト [https://www.transparentadvertising.com/](https://www.transparentadvertising.com/) では、消費者がいつでも UID2 からの脱退を選択できるようになっています。 |
-
-### Participants 
+<!-- ### Participants 
 
 UID2 は透明で相互運用可能なアプローチにより、広告エコシステム全体、すなわち広告主、パブリッシャー、DSP、SSP、シングルサインオン (SSO)プロバイダー、カスタマーデータプラットフォーム (CDP)、同意管理プロバイダー (CMP)、ID プロバイダー、サードパーティデータプロバイダー、測定プロバイダーなどの多くの参加者に協調フレームワークを提供しています。
 
@@ -106,9 +99,9 @@ UID2 は透明で相互運用可能なアプローチにより、広告エコシ
 | [Workflow for Publishers](overviews/overview-publishers.md#workflow-for-publishers) | UID2 Token を SSP を介してビッドストリームに渡す組織。<br/>NOTE: パブリッシャーは、Prebid を使用してインテグレーションするか、SDK for JavaScrip を使用するか、SDK を使用せずに独自の server-only インテグレーションを行うかを選択できます。 | [Publisher Integrations](guides/summary-guides#publisher-integrations) を参照。 |
 | [Opt-Out Workflow](getting-started/gs-opt-out.md#opt-out-workflow) | パブリッシャーや SSO プロバイダー、その他の ID プロバイダーと関わる消費者。 | N/A |
 
-次の図は、4 つのワークフローをすべてまとめたものです。各ワークフローについて、[参加者](#participants)、[コンポーネント](#components)、[UID2 識別子タイプ](#uid2-identifier-types)、および番号付きステップが色分けされています。
+次の図は、4 つのワークフローをすべてまとめたものです。各ワークフローについて、[参加者](overviews/participants-overview.md#uid2-external-participants)、[コンポーネント](#components)、[UID2 識別子タイプ](#uid2-identifier-types)、および番号付きステップが色分けされています。
 
-![The UID2 Ecosystem](images/UID2Workflows.svg)
+![The UID2 Ecosystem](images/UID2Workflows.svg) -->
 
 ## FAQs
 
