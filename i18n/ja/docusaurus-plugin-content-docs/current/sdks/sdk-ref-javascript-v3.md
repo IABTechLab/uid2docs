@@ -429,7 +429,7 @@ UID2 ログイン [POST&nbsp;/token/generate](../endpoints/post-token-generate.
 
 | Value | Description |
 | :--- | :--- |
-| `true` | ID が利用できません。この値は以下のいずれかを示します:<ul><li>ユーザーがオプトアウトした。</li><li>Refresh token の有効期限が切れた。</li><li>ファーストパーティクッキーは利用できず、サーバーで生成した ID も提供されていません。</li></ul> |
+| `true` | ID が利用できません。この値は以下のいずれかを示します:<ul><li>Refresh token の有効期限が切れた。</li><li>ファーストパーティクッキーは利用できず、サーバーで生成した ID も提供されていません。</li></ul> |
 | `false` | この値は以下のいずれかを示します:<ul><li>ID が存在し、有効。</li><li>ID の有効期限が切れており、断続的なエラーによりトークンがリフレッシュされなかった。</li><li>ID の有効期限が切れており、断続的なエラーによりトークンがリフレッシュされなかった。</li></ul> |
 
 ### isIdentityAvailable(): boolean

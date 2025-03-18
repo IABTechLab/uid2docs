@@ -100,7 +100,7 @@ As part of the SDK [initialization](#initopts-object-void), a token auto-refresh
 Here's what you need to know about the token auto-refresh:
 
 - Only one call to the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint call can be active at a time.
-- If the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) response is unsuccessful because the user has opted out, or because the refresh token has expired, this suspends the background auto-refresh process. To use UID2-based targeted advertising again, you must obtain the email or phone number from the consumer ([isLoginRequired()](#isloginrequired-boolean) returns `true`). In all other cases, auto-refresh attempts continue in the background.
+- If the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) response is unsuccessful because the user has opted out, or because the refresh token has expired, this suspends the background auto-refresh process. To use UID2-based targeted advertising again if the refresh token has expired, you must obtain the email or phone number from the consumer ([isLoginRequired()](#isloginrequired-boolean) returns `true`). If the user has opted out, take no further steps. In all other cases, auto-refresh attempts continue in the background.
 - The [callback function](#callback-function) specified during the SDK initialization is invoked in the following cases:
 	- After each successful refresh attempt.
 	- After an initial failure to refresh an expired advertising token.
@@ -282,7 +282,7 @@ This function can also provide additional context for handling missing identitie
 
 | Value | Description |
 | :--- | :--- |
-| `true` | The identity is not available. This value indicates any of the following:<br/>- The user has opted out.<br/>- The refresh token has expired.<br/>- A first-party cookie is not available and no server-generated identity has been supplied. |
+| `true` | The identity is not available. This value indicates one of the following:<br/>- The refresh token has expired.<br/>- A first-party cookie is not available and no server-generated identity has been supplied. |
 | `false` | This value indicates one of the following:<br/>- The identity is present and valid.<br/>- The identity has expired, and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt. |
 | `undefined` | The SDK initialization is not yet complete. |
 
