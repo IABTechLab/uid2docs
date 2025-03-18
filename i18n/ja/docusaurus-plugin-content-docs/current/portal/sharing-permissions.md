@@ -51,10 +51,10 @@ UID2 Portal では、以下の共有オプションを利用できます。こ�
 
 ## Add Permissions&#8212;Bulk
 
-UID2 Portal は、役割に基づいて、以下の推奨事項を示します:
+UID2 Portal は、あなたの役割に応じて以下を推奨します:
 
-- 広告主: DSP およびデータプロバイダーと共有
-- データプロバイダー: パブリッシャー、広告主、DSP と共有
+- 広告主: DSP やデータプロバイダーと共有
+- データープロバイダー: パブリッシャー、広告主、DSP と共有
 - パブリッシャー: DSP と共有
 
 <!-- The UID2 Portal makes recommendations based on your role. For example:
