@@ -130,7 +130,8 @@ import Link from '@docusaurus/Link';
 <dd>Advertising token is another term for a <a href="#gl-uid2-token">UID2 token</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-aks"><a href="#gl-aks">AKS</a></MdxJumpAnchor></dt>
-<dd>AKS is an acronym for Azure Kubernetes Service. An AKS cluster is a confidential computing solution that runs on virtual nodes on Microsoft Azure container instances. For details, see [What is Azure Kubernetes Service (AKS)?](https://learn.microsoft.com/en-us/azure/aks/what-is-aks) (Microsoft documentation).</dd>
+<dd>AKS is an acronym for Azure Kubernetes Service. For details, see [What is Azure Kubernetes Service (AKS)?](https://learn.microsoft.com/en-us/azure/aks/what-is-aks) (Microsoft documentation).</dd>
+<dd>To run an AKS cluster on a confidential container, Microsoft offers a solution to run it on virtual nodes on Microsoft Azure container instances. For details, see [Virtual nodes on Azure Container Instances](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-virtual-nodes) (Microsoft documentation).</dd>
 <dd>In the context of UID2, AKS is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
 <dd>For details, see <a href="../guides/operator-guide-aks-enclave">UID2 Private Operator for AKS Integration Guide</a>.</dd>
 <!-- <dd>**new**</dd> -->
