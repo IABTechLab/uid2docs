@@ -51,7 +51,7 @@ The steps you'll take in the UID2 Portal are different depending on whether your
 
 Depending on access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>, there are two methods to generate UID2 tokens using the SDK for JavaScript: client-side or server-side.
 
-From the table in [Client-Side or Client-Server Integration](#client-side-or-client-server-integration), determine which option is best for you, and then follow the applicable integration guide.
+From the table in [Client-Side or Client-Server Integration](#client-side-client-server-or-server-side-integration), determine which option is best for you, and then follow the applicable integration guide.
 
 ## Refreshing the UID2 Token
 
