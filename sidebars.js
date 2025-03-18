@@ -20,13 +20,25 @@ function removeItems(sidebar, ...remove) {
 
 const fullSidebar = [
 
-    'intro',
+  {
+    type: 'category',
+    label: 'Overview',
+    link: {
+      type: 'doc',
+      id: 'intro',
+    },
+    collapsed: false,
+    items: [
+      'ref-info/uid-infrastructure',
+    ],
+  },
  
     {
       type: 'category',
       label: 'UID2 Participants',
       link: {
-        type: 'generated-index',
+        type: 'doc',
+        id: 'overviews/participants-overview',
       },
       collapsed: true,
       items: [

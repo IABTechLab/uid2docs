@@ -129,7 +129,7 @@ import Link from '@docusaurus/Link';
 <dd>Advertising token は <a href="#gl-uid2-token">UID2 token の別名です。</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-api-key">API key</MdxJumpAnchor></dt>
-<dd>UID2 <a href="../intro#participants">参加者</a> はそれぞれ、API Key (Client Key) と、そのキーに関連付けられた <a href="#gl-client-secret">Client Secret</a> (APIシークレット) と呼ばれる秘密の値を持っています。Client Secretは、参加者と UID Service だけが知っています。</dd>
+<dd>UID2 <a href="../overviews/participants-overview">参加者</a> はそれぞれ、API Key (Client Key) と、そのキーに関連付けられた <a href="#gl-client-secret">Client Secret</a> (APIシークレット) と呼ばれる秘密の値を持っています。Client Secretは、参加者と UID Service だけが知っています。</dd>
 <dd>詳細は <a href="../getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-api-secret">API secret</MdxJumpAnchor></dt>
@@ -169,7 +169,7 @@ import Link from '@docusaurus/Link';
 <dd>詳細は　<a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-client-secret">Client secret</MdxJumpAnchor></dt>
-<dd>各 UID2 <a href="../intro#participants">参加者</a>は、API Key (Client Key) と、そのキーに関連付けられた秘密値 (Client secret (API シークレット)) を持っています。Client secretは、参加者と UID2 Service だけが知っています。</dd>
+<dd>各 UID2 <a href="../overviews/participants-overview#uid2-external-participants#uid2-external-participants">参加者</a>は、API Key (Client Key) と、そのキーに関連付けられた秘密値 (Client secret (API シークレット)) を持っています。Client secretは、参加者と UID2 Service だけが知っています。</dd>
 <dd>詳細は、<a href="../getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-client-server"><a href="#gl-client-server">Client-server integration</a></MdxJumpAnchor></dt>
@@ -205,7 +205,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-core-service">Core Service</MdxJumpAnchor></dt>
 <dd>UID2 Core Serviceは、UID2 エコシステムの <a href="#gl-salt">salts</a>、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。</dd>
-<dd>すべてのUID2 Service の概要については、<a href="../intro#components">Components</a> を参照してください。</dd>
+<dd>すべてのUID2 Service の概要については、<a href="../overviews/participants-overview.md#uid2-component-services">UID2 Component Services</a> を参照してください。</dd>
 
 </dl>
 
@@ -215,7 +215,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-data-provider">Data provider</MdxJumpAnchor></dt>
 <dd>UID2 のコンテキストでは、データプロバイダーは、データパートナー、測定パートナー、オフライン測定プロバイダーなど、広告に関連するデータおよび測定サービスを提供する事業社を指します。</dd>
-<dd>詳細は <a href="../intro#participants">participant</a> (Data Providers) を参照してください。</dd>
+<dd>詳細は <a href="../overviews/participants-overview#uid2-external-participants">participant</a> (Data Providers) を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-demand-side-platform">Demand-side platform (DSP)</MdxJumpAnchor></dt>
 <dd>デマンドサイドプラットフォーム (DSP)は、広告主、ブランド、メディアエージェンシーなど、デジタル広告を購入したい企業にサービスを提供するプラットフォームです。</dd>
@@ -341,7 +341,7 @@ import Link from '@docusaurus/Link';
 <dd>Operator とは、UID2の  <a href="#gl-operator-service">Operator Service</a> を運営する組織や団体のことです。UID2 Operatorは、UID2 エコシステムの API サーバーです。</dd>
 <dd>Operators は、UID2 Core Service から <a href="#gl-encryption-key">暗号化キー</a> と <a href="#gl-salt">ソルト</a> を受け取り、個人に関するデータ (<Link href="#gl-dii">DII</Link>) をソルト化およびハッシュ化して raw UID2 を返し、raw UID2 を暗号化して UID2 Token を生成生成するなど、複数の機能を実行します。</dd>
 <dd>参加者は、UID2 API にアクセスし、プライベートインフラ内で raw UID2 と UID2 Token を生成するために、<a href="#gl-private-operator">Private Operator</a> になることも選択できます。</dd>
-<dd>詳細は <a href="../intro#participants">participants</a> と <a href="../ref-info/ref-operators-public-private">The UID2 Operator</a> を参照してください。</dd>
+<dd>詳細は <a href="../overviews/participants-overview">participants</a> と <a href="../ref-info/ref-operators-public-private">The UID2 Operator</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-operator-key">Operator key</MdxJumpAnchor></dt>
 <dd>各 UID2 Private Operator は、Private Operator Service が Core Service とOpt-Out Service に接続し、その上でいくつかのエンドポイントを呼び出すことを可能にする Operator key を持っています。</dd>
@@ -349,7 +349,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-operator-service">Operator Service</MdxJumpAnchor></dt>
 <dd><a href="#gl-operator">Operator</a> のすべての機能を可能にするサービスです</dd>
-<dd>すべての UID2 Service の概要については、<a href="../intro#components">Components</a> を参照してください。</dd>
+<dd>すべての UID2 Service の概要については、<a href="../overviews/participants-overview.md#uid2-component-services">UID2 Component Services</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-opt-out">Opt-Out</MdxJumpAnchor></dt>
 <dd>UID2 エコシステムに参加しているエンドユーザーは、<a href="https://www.transparentadvertising.com/">Transparency and Control Portal</a> にアクセスすることで、いつでもオプトアウトすることができます。</dd>
@@ -357,7 +357,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-opt-out-service">Opt-Out Service</MdxJumpAnchor></dt>
 <dd>Opt-Out Service は、ユーザーのオプトアウト要求を管理・保存するグローバルな UID2 Service です。</dd>
-<dd>すべての UID2 Service の概要については、<a href="../intro#components">Components</a> を参照してください。</dd>
+<dd>すべての UID2 Service の概要については、<a href="../overviews/participants-overview.md#uid2-component-services">UID2 Component Services</a> を参照してください。</dd>
 
 </dl>
 
@@ -367,7 +367,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-participant">Participant</MdxJumpAnchor></dt>
 <dd>UID2 において重要な役割を果たすエンティティです。参加者には以下が含まれます: Core Administrator、Operator、DSP、データプロバイダー、広告主、パブリッシャー、消費者。</dd>
-<dd>詳細は、<a href="../intro#participants">参加者</a> を参照してください。</dd>
+<dd>詳細は、<a href="../overviews/participants-overview">参加者</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-private-operator">Private Operator</MdxJumpAnchor></dt>
 <dd>Private <a href="#gl-operator">operator</a> は、Operator Service のプライベートインスタンスを実行する事業社です。Private Operator は、安全な環境で独自のリソース (ハードウェアなど) を使用して、自身のために UID2 を生成および管理します。</dd>
@@ -392,7 +392,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-raw-uid2">Raw UID2</MdxJumpAnchor></dt>
 <dd>UID2 API または SDK を通じて、ユーザーの <a href="#gl-dii">directly identifying information</a> (メールアドレスまたは電話番号) を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。raw UID2 は一意な値であり、同じ UID2 は2つとありません。raw  UID2 とそれに関連付けられた UID2 Token は、大文字と小文字を区別します。</dd>
-<dd>詳細は <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
+<dd>詳細は <a href="uid-infrastructure#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-refresh-token">Refresh Token</MdxJumpAnchor></dt>
 <dd>Refresh tokenは、<a href="#gl-uid2-token">UID2 Token</a>とともに発行される不透明な文字列です。<a href="#gl-uid2-token">UID2 token</a> の有効期限を更新するために使用されます。</dd>
@@ -485,13 +485,13 @@ import Link from '@docusaurus/Link';
 <dd>UID2 と EUID の間には多くの類似点がありますが、両者は完全に別物であり、トークンに互換性はありません。</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-framework"><a href="#gl-uid2-framework">UID2 framework</a></MdxJumpAnchor></dt>
-<dd>Unified ID 2.0 (UID2) フレームワークは、広告エコシステム全体の多くの <a href="../intro#participants">参加者</a> に対して、オープンインターネット上の広告機会に対する決定論的な ID を提供します。これにより、パブリッシャーウェブサイト、モバイルアプリ、Connected TV (CTV) アプリがプログラマティックワークフローを通じて収益化できます。独自の名前空間を持つオープンソースのスタンドアロンソリューションとして構築されたフレームワークは、参加者が地域の要件を満たすのに役立つプライバシーコントロールを提供します。</dd>
+<dd>Unified ID 2.0 (UID2) フレームワークは、広告エコシステム全体の多くの <a href="../overviews/participants-overview">参加者</a> に対して、オープンインターネット上の広告機会に対する決定論的な ID を提供します。これにより、パブリッシャーウェブサイト、モバイルアプリ、Connected TV (CTV) アプリがプログラマティックワークフローを通じて収益化できます。独自の名前空間を持つオープンソースのスタンドアロンソリューションとして構築されたフレームワークは、参加者が地域の要件を満たすのに役立つプライバシーコントロールを提供します。</dd>
 <dd>UID2 は北米、アジアの一部、およびその他の地域で運営されています。</dd>
 <dd> UID2とEUIDの間には多くの類似点がありますが、両者は完全に別物であり、トークンに互換性はありません。</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-identifier">UID2 identifier</MdxJumpAnchor></dt>
 <dd>Unified ID 2.0 (UID2)識別子には、<a href="#gl-raw-uid2">raw UID2s</a> と <a href="#gl-uid2-token">UID2 tokens</a> (Advertising token とも呼ばれるます) の2種類があります。</dd>
-<dd>詳細は <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
+<dd>詳細は <a href="uid-infrastructure#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-portal">UID2 Portal</MdxJumpAnchor></dt>
 <dd>UID2 Portal は、UID2 参加者が自分のアカウントを管理するための独立したユーザーインターフェースです。</dd>
@@ -507,7 +507,7 @@ import Link from '@docusaurus/Link';
 <dd>トークンの値は不透明です。文字列のフォーマットや長さについて、推測してはなりません。</dd>
 <dd>トークンの寿命は限られていますが、<a href="#gl-refresh-token">refresh token</a> を使ってバックグラウンドでリフレッシュすることができます。</dd>
 <dd>パブリッシャーは、ビッドストリームに UID2 Token を送信します。</dd>
-<dd>詳細は <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> と <a href="ref-tokens#uid2-tokens-key-information">UID2 Tokens: Key Information</a> を参照してください。</dd>
+<dd>詳細は <a href="uid-infrastructure#uid2-identifier-types">UID2 Identifier Types</a> と <a href="ref-tokens#uid2-tokens-key-information">UID2 Tokens: Key Information</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-unified-id-20">Unified ID 2.0 (UID2)</MdxJumpAnchor></dt>
 <dd>"UID2" という用語は、<a href="#gl-uid2-framework">UID2 framework</a>、<a href="#gl-uid2-service">UID2 service</a>、<a href="#gl-raw-uid2">raw UID2</a>、または<a href="#gl-uid2-token">UID2 token</a> (Advertising Token) を意味でも使われます。</dd>

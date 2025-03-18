@@ -58,7 +58,7 @@ For details, refer to one of the following guides:
 
 To determine the best integration path for your mobile scenario, consider these points:
 
-1. Do you want to retrieve the UID2 token on the client side or on the server side? See [Client-Side or Client-Server Integration](#client-side-or-client-server-integration).
+1. Do you want to retrieve the UID2 token on the client side or on the server side? See [Client-Side, Client-Server, or Server-Side Integration?](#client-side-client-server-or-server-side-integration).
 
 1. What do you want to use to retrieve and refresh the UID2 token? See [Generating, Storing, and Refreshing the UID2 Token](#generating-storing-and-refreshing-the-uid2-token).
 
@@ -70,9 +70,9 @@ To integrate with UID2, you'll need to have a UID2 account. If you haven't yet c
 
 When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
 
-The steps you'll take in the UID2 Portal are different depending on whether your implementation will be client-side, client-server, or server-side. Specific instructions are in each implementation guide. For a summary, see [Client-Side or Client-Server Integration?](#client-side-or-client-server-integration)
+The steps you'll take in the UID2 Portal are different depending on whether your implementation will be client-side, client-server, or server-side. Specific instructions are in each implementation guide. For a summary, see [Client-Side, Client-Server, or Server-Side Integration?](#client-side-client-server-or-server-side-integration).
 
-### Client-Side or Client-Server Integration?
+### Client-Side, Client-Server, or Server-Side Integration?
 
 The options for integrating with UID2 using the UID2 mobile SDKs are summarized in the following table. Choose the <Link href="../ref-info/glossary-uid#gl-integration-approaches">integration approach</Link> that's best for you.
 

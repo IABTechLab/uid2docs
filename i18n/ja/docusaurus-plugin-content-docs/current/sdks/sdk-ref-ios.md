@@ -44,7 +44,7 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 - オプション: Client-Side の実装の場合、ドメイン名やモバイルアプリ ID などの設定値を設定します。
 - オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
 
-UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、Server-Side のいずれであるかによって異なります。モバイルインテグレーションのオプションの概要については、[Client-Side or Client-Server Integration?](../guides/integration-mobile-overview#client-side-or-client-server-integration) を参照してください。
+UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、Server-Side のいずれであるかによって異なります。モバイルインテグレーションのオプションの概要については、[Client-Side, Client-Server, or Server-Side Integration?](../guides/integration-mobile-overview#client-side-client-server-or-server-side-integration) を参照してください。
 
 <!-- You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. -->
 
