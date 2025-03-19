@@ -13,7 +13,47 @@ UID2 ドキュメンテーションリソースの最新アップデートを確
 
 ## Q1 2025
 
-<!-- The following documents were released in this quarter. -->
+当四半期にリリースされたドキュメントは以下の通りです。
+
+### UID2 Portal, Sharing Permissions Page
+
+March 11, 2025
+
+UID2 Portal での共有権限の設定に関するドキュメントを大幅に拡充し、明確化しました。
+
+詳細は、[Sharing Permissions](../portal/sharing-permissions.md) を参照してください。
+
+<!-- APIDOCS-2795 -->
+
+### JavaScript SDK Version 4
+
+March 7, 2025
+
+UID2 JavaScript SDK の最新アップデート、Version 4 に関するドキュメントを追加しました。
+
+詳細は、[SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください。
+
+<!-- APIDOCS-2923 -->
+
+### How the UID2 Token Is Created
+
+March 7, 2025
+
+UID2 Token を生成する手順に関する情報を記載したページを追加しました。手順、役割、および図を含みます。
+
+詳細は、[How the UID2 Token Is Created](../ref-info/ref-how-uid-is-created.md) を参照してください。
+
+<!-- APIDOCS-2855 -->
+
+### Snowflake Integration Guide
+
+February 12, 2025
+
+UID2 Snowflake インテグレーションを大幅に更新し、ドキュメントを更新しました。
+
+詳細は、[Snowflake Integration Guide](../guides/integration-snowflake.md) を参照してください。
+
+<!-- APIDOCS-2918 -->
 
 ### Instructions for Using the UID2 Portal
 
