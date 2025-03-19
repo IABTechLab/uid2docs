@@ -44,7 +44,7 @@ UID2 は、SDK for JavaScript を提供しています (詳細は [SDK for JavaS
 
 ## SDK for JavaScript Version
 
-Client-Side でのトークン生成のサポートは、SDK のバージョン 3.2 以上で利用可能です。
+Client-Side でのトークン生成のサポートは、SDK のバージョン 3.4.5 以上で利用可能です。
 
 SDKのURLは以下のとおり:
 

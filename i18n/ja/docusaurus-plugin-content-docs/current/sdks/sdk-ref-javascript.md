@@ -354,7 +354,7 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 #### Legacy Callback Function
 
-これは後方互換性のためだけに提供されています。新しいインテグレーションでは、新しいスタイルの [callback function](#callback-function) を使う必要があります。レガシーコールバックは [Array Push Pattern](#array-push-pattern) を使って登録することができません。また、新スタイルのコールバックは `init` に渡すことができません。
+これは後方互換性のためだけに提供されています。新しいインテグレーションでは、新しい [callback function](#callback-function) を使う必要があります。レガシーコールバックは [Array Push Pattern](#array-push-pattern) を使って登録することができません。また、新しいコールバックは `init` に渡すことができません。
 
 詳細は、以前のバージョンの SDK のドキュメントの[Legacy Callback Function](./sdk-ref-javascript-v2#callback-function) を参照してください。
 
