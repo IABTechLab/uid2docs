@@ -204,7 +204,7 @@ import Link from '@docusaurus/Link';
 <!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-core-service">Core Service</MdxJumpAnchor></dt>
-<dd>UID2 Core Serviceは、UID2 エコシステムの <a href="#gl-salt">salts</a>、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。</dd>
+<dd>UID2 Core Serviceは、UID2 エコシステムの 秘密の <a href="#gl-salt">ソルト</a>、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。</dd>
 <dd>すべてのUID2 Service の概要については、<a href="../intro#components">Components</a> を参照してください。</dd>
 
 </dl>
@@ -339,7 +339,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-operator">Operator</MdxJumpAnchor></dt>
 <dd>Operator とは、UID2の  <a href="#gl-operator-service">Operator Service</a> を運営する組織や団体のことです。UID2 Operatorは、UID2 エコシステムの API サーバーです。</dd>
-<dd>Operators は、UID2 Core Service から <a href="#gl-encryption-key">暗号化キー</a> と <a href="#gl-salt">ソルト</a> を受け取り、個人に関するデータ (<Link href="#gl-dii">DII</Link>) をソルト化およびハッシュ化して raw UID2 を返し、raw UID2 を暗号化して UID2 Token を生成生成するなど、複数の機能を実行します。</dd>
+<dd>Operators は、UID2 Core Service から <a href="#gl-encryption-key">暗号化キー</a> と秘密の <a href="#gl-salt">ソルト</a> を受け取り、個人に関するデータ (<Link href="#gl-dii">DII</Link>) をソルト化およびハッシュ化して raw UID2 を返し、raw UID2 を暗号化して UID2 Token を生成生成するなど、複数の機能を実行します。</dd>
 <dd>参加者は、UID2 API にアクセスし、プライベートインフラ内で raw UID2 と UID2 Token を生成するために、<a href="#gl-private-operator">Private Operator</a> になることも選択できます。</dd>
 <dd>詳細は <a href="../intro#participants">participants</a> と <a href="../ref-info/ref-operators-public-private">The UID2 Operator</a> を参照してください。</dd>
 
@@ -406,7 +406,7 @@ import Link from '@docusaurus/Link';
 <dl>
 
 <dt><MdxJumpAnchor id="gl-salt">Salt</MdxJumpAnchor></dt>
-<dd>メールアドレスや電話番号を、それ自体では元の値 (raw UID2 や UID2 Token) を追跡できない安全で不透明な値に変換するプロセスで使用されます。</dd>
+<dd>メールアドレスや電話番号を、それ自体では元の値 (raw UID2 や UID2 Token) を追跡できない安全で不透明な値に変換するプロセスで使用されます。ソルト値は秘密にされます。</dd>
 <dd>UID2 Service は、ハッシュ化および暗号化とともに、プロセスの一部としてソルト(Salt) を使用し、元の値を保護します。ソルトは、ハッシュ化の前に入力値に加えられます。</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket"><a href="#gl-salt-bucket">Salt bucket</a></MdxJumpAnchor></dt>
@@ -414,7 +414,7 @@ import Link from '@docusaurus/Link';
 <dd>ソルトバケットは、100万以上あり、各メールアドレスまたは電話番号は、特定のバケットに決定論的に割り当てられます。ただし、この割り当ては永続的ではなく、バケットの現在のシークレットソルトが新しい値にローテーションされると変更される可能性があります。</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket-id"><a href="#gl-salt-bucket-id">Salt bucket ID</a></MdxJumpAnchor></dt>
-<dd>ソルトバケット ID は、特定の <a href="#gl-salt-bucket">ソルトバケット</a> を識別する一意の文字列です。ソルトバケット ID を使用すると、最近ソルト値が更新されたソルトバケットを確認し、どのメールアドレスまたは電話番号が raw UID2 値を再生成する必要があるかを確認できます。</dd>
+<dd>ソルトバケット ID は、特定の <a href="#gl-salt-bucket">ソルトバケット</a> を識別する一意の文字列です。ソルトバケット ID を使用すると、最近、秘密のソルト値が更新されたソルトバケットを確認し、どのメールアドレスまたは電話番号が raw UID2 値を再生成する必要があるかを確認できます。</dd>
 <dd>ソルトバケット ID の例については、`POST /identity/buckets` エンドポイントのレスポンスを参照してください: <a href="../endpoints/post-identity-buckets#decrypted-json-response-format">Decrypted JSON Response Format</a>。</dd>
 
 <dt><MdxJumpAnchor id="gl-salted-hash">Salted hash</MdxJumpAnchor></dt>
