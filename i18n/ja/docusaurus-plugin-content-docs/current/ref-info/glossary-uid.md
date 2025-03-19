@@ -450,6 +450,9 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-sso">Single sign-on (SSO)</MdxJumpAnchor></dt>
 <dd>SSO はシングルサインオンの略語です。SSO は、ユーザーがアプリやウェブサイトなどの複数のソフトウェアシステムの 1 つに、同じ認証情報(通常は ID とパスワードですが、必ずしもそうではありません) でログインすることを可能にします。SSO によって、ユーザーは 1 セットの認証情報を使って複数のアプリケーションやサイトに一度だけログインすることができます。SSO によって、ウェブサイトやアプリは独自の認証システムを維持する必要がなくなります。</dd>
 
+<dt><MdxJumpAnchor id="gl-sso-abbrev"><a href="#gl-sso-abbrev">SSO</a></MdxJumpAnchor></dt>
+<dd><a href="#gl-sso">Single sign-on (SSO)</a> を参照してください。</dd>
+
 <dt><MdxJumpAnchor id="gl-subscription-id">Subscription ID</MdxJumpAnchor></dt>
 <dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される2つの値のうちの1つがアカウントを一意に識別する公開鍵です。d詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
 
@@ -507,7 +510,7 @@ import Link from '@docusaurus/Link';
 <dd>トークンの値は不透明です。文字列のフォーマットや長さについて、推測してはなりません。</dd>
 <dd>トークンの寿命は限られていますが、<a href="#gl-refresh-token">refresh token</a> を使ってバックグラウンドでリフレッシュすることができます。</dd>
 <dd>パブリッシャーは、ビッドストリームに UID2 Token を送信します。</dd>
-<dd>詳細は <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> と <a href="ref-tokens#uid2-tokens-key-information">UID2 Tokens: Key Information</a> を参照してください。</dd>
+<dd>詳細は <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>、 <a href="ref-tokens#uid2-tokens-key-information">UID2 Tokens: Key Information</a> と <a href="ref-how-uid-is-created">How the UID2 Token Is Created</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-unified-id-20">Unified ID 2.0 (UID2)</MdxJumpAnchor></dt>
 <dd>"UID2" という用語は、<a href="#gl-uid2-framework">UID2 framework</a>、<a href="#gl-uid2-service">UID2 service</a>、<a href="#gl-raw-uid2">raw UID2</a>、または<a href="#gl-uid2-token">UID2 token</a> (Advertising Token) を意味でも使われます。</dd>

@@ -28,6 +28,8 @@ UID2 Token に関する主なポイントは次のとおりです:
 - パブリッシャーは、UID2 Token をビッドストリームに送信します。
 - UID2 Token をリフレッシュしても、元の UID2 Token は無効になりません。有効期限が切れるまで、以前のトークンを引き続き使用できます。
 
+詳細は、[How the UID2 Token Is Created](ref-how-uid-is-created.md) を参照してください。
+
 ## Refresh Tokens: Key Information
 
 Refresh Token に関する主なポイントは次のとおりです:

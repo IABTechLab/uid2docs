@@ -13,9 +13,9 @@ import Link from '@docusaurus/Link';
 この記事では、パブリッシャーがビッドストリームで送信する UID2 Token の作成方法について説明します。広告主がコンバージョンピクセルのために UID2 Token を作成する場合も同じプロセスが適用されます。UID2 Token を他の共有参加者に送信する前に、raw UID2 が UID2 Token に暗号化される <Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>には適用されません。
 :::
 
-パブリッシャーがユーザーの <link href="../ref-info/glossary-uid#gl-dii">DII</link>（ハッシュ化されたまたはハッシュ化されていないメールアドレスまたは電話番号）を UID2 Operator に送信し、ターゲティング広告に使用するための UID2 Token を受け取ると、その過程で特定の処理手順が実行されます。
+パブリッシャーがユーザーの <link href="../ref-info/glossary-uid#gl-dii">DII</link>（ハッシュ化されたまたはハッシュ化されていないメールアドレスまたは電話番号）を UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> に送信し、ターゲティング広告に使用するための UID2 Token を受け取ると、その過程で特定の処理手順が実行されます。
 
-パブリッシャーによってはいくつかの事前作業が行われますが、ほとんどの処理ステップは UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> によって行われます。
+パブリッシャーによってはいくつかの事前作業が行われますが、ほとんどの処理ステップは UID2 Operator によって行われます。
 
 パブリッシャーの手順を正しい順序で実行することが非常に重要です:
 - 手順が順番に実行された場合、その結果の値は、同じ個人のオンラインアクティビティから生成された他の [UID2 identifiers](../intro.md#uid2-identifier-types) と関連付けられることが認識されます: 基礎となる [raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) は、同じ DII から生成された他の UID2 参加者による raw UID2 と一致し、したがってそのトークンはターゲティング広告に適しています。
@@ -47,13 +47,13 @@ import Link from '@docusaurus/Link';
     </tr>
     <tr>
       <td>2</td>
-      <td>正規化されたメールアドレスの <Link href="../ref-info/glossary-uid#gl-sha-256">SHA-256</Link> ハッシュ値</td>
+      <td>正規化されたメールアドレスに <Link href="../ref-info/glossary-uid#gl-sha-256">SHA-256</Link> ハッシュを適用</td>
       <td>パブリッシャーまたは UID2 Operator</td>
       <td>[Email Address Hash Encoding](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding)<br/>[Phone Number Hash Encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding)</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>SHA-256 ハッシュの Base64 エンコーディング</td>
+      <td>SHA-256 ハッシュに Base64 エンコーディングを適用</td>
       <td>パブリッシャーまたは UID2 Operator</td>
       <td>[Email Address Hash Encoding](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding)<br/>[Phone Number Hash Encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding)</td>
     </tr>
