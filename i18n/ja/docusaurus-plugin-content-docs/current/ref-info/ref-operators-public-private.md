@@ -59,7 +59,7 @@ Private Operator は、UID2 Operator のプライベートインスタンスで�
 
 また、参加者は、UID2 を生成および管理するために Private Operator になることも選択できます。ただし、Private Operator になるにはいくつかの追加手順が必要であり、参加者が用意するリソースが必要です。
 
-詳細は [Private Operator Integrations](../guides/integration-options-private-operator.md) を参照してください。
+詳細は [UID2 Private Operator Integration Overview](../guides/integration-options-private-operator.md) を参照してください。
 
 ## Summary
 
