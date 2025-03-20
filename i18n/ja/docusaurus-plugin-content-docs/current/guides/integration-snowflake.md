@@ -9,7 +9,7 @@ sidebar_position: 04
 
 import Link from '@docusaurus/Link';
 
-# Snowflake インテグレーションガイド
+# Snowflake Integration Guide
 
 [Snowflake](https://www.snowflake.com/)は、パートナーとしてデータを保存し、UID2 フレームワークとインテグレーションできるクラウドデータウェアハウジングソリューションです。Snowflake を使用することで、UID2 では機密性の高い<Link href="../ref-info/glossary-uid#gl-dii">直接識別情報（DII）</Link>を公開せずに、消費者識別子データを安全に共有できます。消費者識別子データについて Operator Web Serbvice に直接クエリを実行するオプションもありますが、Snowflake の UID2 インテグレーションはより円滑な体験を提供します。
 
@@ -573,6 +573,7 @@ select a.ID, b.UID, b.SITE_ID, CASE WHEN b.UID IS NULL THEN 'DECRYPT_FAILED' ELS
 ### UID2 Sharing Example
 
 以下の指示は、Snowflakeを使用する送信者と受信者の両方について、共有がどのように機能するかの例を提供します。この例のシナリオでは、広告主（送信者）は Raw UID2 を持つオーディエンステーブル（`AUDIENCE_WITH_UID2S`）を持っており、[Snowflake Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro)機能を使用してデータプロバイダー（受信者）にテーブル内のデータを利用可能にしたいと考えています。
+
 
 #### Sender Instructions
 

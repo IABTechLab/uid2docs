@@ -312,7 +312,7 @@ UID2 home page の "ドキュメント" リンクをクリックするだけで�
 
 <!-- APIDOCS-1681 -->
 
-### UID2 Integration Overview for JS
+### UID2 Integration Overview for JavaScript
 
 January 26, 2024
 
