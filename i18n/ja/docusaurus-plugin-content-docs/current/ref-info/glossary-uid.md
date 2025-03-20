@@ -516,7 +516,7 @@ import Link from '@docusaurus/Link';
 <dd>"UID2" という用語は、<a href="#gl-uid2-framework">UID2 framework</a>、<a href="#gl-uid2-service">UID2 service</a>、<a href="#gl-raw-uid2">raw UID2</a>、または<a href="#gl-uid2-token">UID2 token</a> (Advertising Token) を意味でも使われます。</dd>
 
 <dt><MdxJumpAnchor id="gl-unix-time"><a href="#gl-unix-time">Unix time</a></MdxJumpAnchor></dt>
-<dd>Unix time (エポックタイム) は、1970年1月1日木曜日の00:00:00 <a href="#gl-utc">UTC</a>　からの経過秒数として定義されています。Unix time は、UID2 の一部のレスポンスメッセージで使用され、ミリ秒で表されます。たとえば、`POST /token/refresh` エンドポイントのレスポンス (<a href="../endpoints/post-token-refresh#successful-response-with-tokens">Successful Response With Tokens</a> を参照してください) においてです。</dd>
+<dd>Unix time (エポックタイム) は、1970年1月1日木曜日の00:00:00 <a href="#gl-utc">UTC</a>　からの経過秒数として定義されています。Unix time は、UID2 の一部のレスポンスメッセージで使用され、ミリ秒で表されます。たとえば、`POST /token/refresh` エンドポイントのレスポンス (<a href="../endpoints/post-token-refresh#successful-response-with-tokens">Successful Response With Tokens</a> を参照) においてです。</dd>
 <dd>例: 2024年1月1日午前9時00分00秒 GMT は、Unix time で `1704067200` と表されます。ミリ秒で表すと、`1704067200000` です。</dd>
 
 <dt><MdxJumpAnchor id="gl-utc">UTC</MdxJumpAnchor></dt>

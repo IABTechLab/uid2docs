@@ -76,9 +76,9 @@ To consume the binary package of this SDK in your app:
 - 最低限のターゲット Android バージョン: 4.4+ / API 19+ (SDK) 5.0+
 
 
-開発アプリ ([Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#client-side-integration-example) を参照してください) を実行するか、ソースコードからバイナリをビルドするには、次の最小要件が必要です:
+開発アプリ ([Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#client-side-integration-example) を参照) を実行するか、ソースコードからバイナリをビルドするには、次の最小要件が必要です:
 
-- [code repository](https://github.com/IABTechLab/uid2-android-sdk/blob/main/gradle/libs.versions.toml) (記載されている `agp` バージョンを参照してください) で指定されている UID2 SDK に必要な Android Gradle Plugin (AGP) バージョンを確認し、対応する Android Studio バージョンが必要かどうかを確認してください。
+- [code repository](https://github.com/IABTechLab/uid2-android-sdk/blob/main/gradle/libs.versions.toml) (記載されている `agp` バージョンを参照) で指定されている UID2 SDK に必要な Android Gradle Plugin (AGP) バージョンを確認し、対応する Android Studio バージョンが必要かどうかを確認してください。
 - 最低限のターゲット Android バージョン: 4.4+ / API 19+ (SDK) 5.0+ / API 21+ (Dev-App)
 
 <!-- See also: [Requirements](https://github.com/IABTechLab/uid2-android-sdk/blob/main/README.md#requirements). -->
@@ -144,7 +144,7 @@ UID2 Mobile SDK は、UID2 identifier が確立された後に UID2 identities �
 
 以下のコードサンプルは、SDK for Android を使用して具体的なアクティビティを実行する例を示しています。
 
-初期の UID2 Identity を生成します ([Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照してください):
+初期の UID2 Identity を生成します ([Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照):
 ``` javascript
 UID2Manager.getInstance().generateIdentity(
     identityRequest: IdentityRequest,
@@ -153,7 +153,7 @@ UID2Manager.getInstance().generateIdentity(
     onResult: (GenerateIdentityResult) -> Unit
 )
 ```
-UID2 Identity を設定します ([Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk) を参照してください):
+UID2 Identity を設定します ([Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk) を参照):
 
 ```js
 UID2Manager.getInstance().setIdentity(identity: UID2Identity)

@@ -46,13 +46,13 @@ Sharing 参加者が UID2 を他の許可された共有参加者と共有した
   1. 送信者は UID2 Portal で共有権限を設定します。
 
      :::note
-     共有を使用するには、API key ([API Keys](../portal/api-keys.md) を参照してください) または client-side key pair ([Client-Side Integration](../portal/client-side-integration.md) を参照してください) が必要です。UID2 Portal では、共有権限を設定する前に、これらの値を設定してください。
+     共有を使用するには、API key ([API Keys](../portal/api-keys.md) を参照) または client-side key pair ([Client-Side Integration](../portal/client-side-integration.md) を参照) が必要です。UID2 Portal では、共有権限を設定する前に、これらの値を設定してください。
      :::
   2. 送信者は以下のいずれかを行います:
   
      - DII から UID2 Token を生成します。
      - raw UID2 を UID2 Token に暗号化します。
-  3. 受信者は、共有シナリオに適用される指示に従って、UID2 Token を raw UID2 に復号します ([Approved Sharing Scenarios](#approved-sharing-scenarios) を参照してください)。
+  3. 受信者は、共有シナリオに適用される指示に従って、UID2 Token を raw UID2 に復号します ([Approved Sharing Scenarios](#approved-sharing-scenarios) を参照)。
 
 UID2 Token を共有するためのオプションの詳細と説明へのリンクについては、[Tokenized Sharing Overview](sharing-tokenized-overview.md) を参照してください。
 

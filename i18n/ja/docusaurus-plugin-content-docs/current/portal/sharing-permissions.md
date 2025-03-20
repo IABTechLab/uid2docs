@@ -44,7 +44,7 @@ UID2 Portal での共有権限の設定は、<Link to="../sharing/sharing-overvi
 UID2 Portal へのアクセスについては、UID2 の担当者にお問い合わせください。詳細は、[Request an Account](portal-getting-started.md#request-an-account)を参照してください。UID2 が初めての場合は、[Account Setup](../getting-started/gs-account-setup.md)を参照してください。
 
 :::note
-共有機能を使用するには、API キー (詳細は、[API Keys](api-keys.md)を参照してください) またはクライアントサイドキーペア (詳細は、[Client-Side Integration](client-side-integration.md)を参照してください) を設定してください。
+共有機能を使用するには、API キー (詳細は、[API Keys](api-keys.md)を参照) またはクライアントサイドキーペア (詳細は、[Client-Side Integration](client-side-integration.md)を参照) を設定してください。
 :::
 
 ## Sharing Options

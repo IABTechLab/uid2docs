@@ -37,7 +37,7 @@ export const Deprecated3100 = () => (
 UID2 Identify Module、または UID2 サポートのある他の製品と Prebid.js を使用している場合、SDK を使用する必要はありません。Prebid.js モジュールがすべてを管理します。詳細については、[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください。
 :::
 
-このページでは、SDK のバージョン 3 について説明します。以前のバージョンを使用している場合は、[移行ガイド](#migration-guide) を使用してインテグレーションをアップグレードすることをお勧めします。必要に応じて、[SDK の以前のバージョン](./sdk-ref-javascript-v2.md) のドキュメントも利用できます。
+このページでは、SDK のバージョン 3 について説明します。以前のバージョンを使用している場合は、[移行ガイド](#migration-guide) を使用してインテグレーションをアップグレードすることを勧めます。必要に応じて、[SDK の以前のバージョン](./sdk-ref-javascript-v2.md) のドキュメントも利用できます。
 
 コンテンツパブリッシャー向けのインテグレーション手順は、以下のガイドを参照してください:
   - [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
@@ -463,7 +463,7 @@ Identity が利用可能かどうかを判断します。たとえば、ロー�
 
 ### disconnect(): void
 
-UID2 ID をファーストパーティクッキーとローカルストレージから消去します ([UID2 ストレージフォーマット](#uid2-storage-format) を参照してください)。これによりクライアントの ID セッションが閉じられ、クライアントのライフサイクルが切断されます。
+UID2 ID をファーストパーティクッキーとローカルストレージから消去します ([UID2 ストレージフォーマット](#uid2-storage-format) を参照)。これによりクライアントの ID セッションが閉じられ、クライアントのライフサイクルが切断されます。
 
 ユーザーがパブリッシャーのサイトからログアウトしたら、次の呼び出しを行います:
 

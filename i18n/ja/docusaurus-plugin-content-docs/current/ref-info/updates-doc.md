@@ -115,7 +115,7 @@ November 15, 2024
 
 UID2 Portal ドキュメントに新しいページ、[Audit Trail](../portal/audit-trail.md) が追加されました。
 
-UID2 Portal の **Audit Trail** ページでは、Admin 権限 ([User Roles](../portal/team-members.md#user-roles) を参照してください) を持つユーザーが、現在の <Link href="../ref-info/glossary-uid#gl-sharing-participant">参加者</Link> または参加者に代わって実行された過去のすべてのアクションの詳細なログを表示できます。
+UID2 Portal の **Audit Trail** ページでは、Admin 権限 ([User Roles](../portal/team-members.md#user-roles) を参照) を持つユーザーが、現在の <Link href="../ref-info/glossary-uid#gl-sharing-participant">参加者</Link> または参加者に代わって実行された過去のすべてのアクションの詳細なログを表示できます。
 
 <!-- APIDOCS-2700 -->
 

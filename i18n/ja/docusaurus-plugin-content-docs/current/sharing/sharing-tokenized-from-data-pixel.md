@@ -59,7 +59,7 @@ UID2 Portal では、送信者と受信者がアカウントを設定し、送�
 
 ウェブサイトで製品の購入などのアクションが完了したときにトリガーされるトラッキングピクセルを使用している場合、おそらく DII から始めて、UID2 Token に変換して共有します。
 
-UID2 送信者は、UID2 Token を復号化できる受信者を指定します。これは、UID2 Portal で権限を設定することで行います(詳細は [Sharing Permissions](../portal/sharing-permissions.md) を参照してください)。送信者が UID2 Sharing の権限を受信者に付与すると、送信者の暗号キーが UID2 SDK または Snowflake を介して受信者と共有されます。共有の一環として、UID2 SDK と API は暗号化と復号化を処理します。
+UID2 送信者は、UID2 Token を復号化できる受信者を指定します。これは、UID2 Portal で権限を設定することで行います(詳細は [Sharing Permissions](../portal/sharing-permissions.md) を参照)。送信者が UID2 Sharing の権限を受信者に付与すると、送信者の暗号キーが UID2 SDK または Snowflake を介して受信者と共有されます。共有の一環として、UID2 SDK と API は暗号化と復号化を処理します。
 
 たとえば、広告主(送信者)が UID2 Token を UID2 DSP と共有することを望んでいるとします。これは、トラッキングピクセルを介したコンバージョントラッキングのためです。共有を使用するには、次のシーケンスになります:
 
@@ -75,7 +75,7 @@ UID2 送信者は、UID2 Token を復号化できる受信者を指定します�
 
 2. DSPは、受信者であり、共有に参加しています。DSPは、UID2 Portal の共有権限設定を通じて広告主の暗号鍵にアクセスできるため、UID2 Token をセグメント作成のための raw UID2 に復号化できます。
 
-UID2 送信者と受信者の両方が、UID2 Portal アカウントを作成する必要があります(詳細は [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal) を参照してください)。アカウントがない場合、UID2 参加者は UID2 Portal の共有参加者リストに表示されず、送信者の暗号キーを受信して復号化することができません。
+UID2 送信者と受信者の両方が、UID2 Portal アカウントを作成する必要があります(詳細は [Account Setup in the UID2 Portal](#account-setup-in-the-uid2-portal) を参照)。アカウントがない場合、UID2 参加者は UID2 Portal の共有参加者リストに表示されず、送信者の暗号キーを受信して復号化することができません。
 
 ## Workflow: Tokenized Sharing in Creative Pixels
 
