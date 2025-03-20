@@ -158,7 +158,7 @@ Decryption response codes, and their meanings, are shown in the following table.
 
 #### Client-Server Integration
 
-Client-Server インテグレーションを使用している場合 (詳細は [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください):
+Client-Server インテグレーションを使用している場合 (詳細は [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照):
 
 * Identity を JSON 文字列としてクライアントに返します (Client-Side で使用するための [identity field](../sdks/sdk-ref-javascript.md#initopts-object-void) で使用) するには、次の手順に従います:
 
@@ -172,7 +172,7 @@ Client-Server インテグレーションを使用している場合 (詳細は 
 
 ### Server-Side Integration
 
-Server-Side インテグレーションを使用している場合 (詳細は [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md) を参照してください):
+Server-Side インテグレーションを使用している場合 (詳細は [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md) を参照):
 
 1. `token_generate_response.get_identity_json_string()` 関数を使用して、ユーザーのセッションに JSON 文字列としてこの Identity を保存します。
 
@@ -322,7 +322,7 @@ else:
 
 UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Participant</Link> は、送信者または受信者として共有に参加し、他の参加者と UID2 を共有する企業です。
 
-広告主やデータプロバイダは、この SDK を使用して他の認証された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>)。彼らは [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、それを他の参加者に送信して共有できます (詳細は [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照してください)。データをピクセルで送信していない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) で示されている要件に従えば、UID2 共有に参加できます。
+広告主やデータプロバイダは、この SDK を使用して他の認証された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>)。彼らは [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、それを他の参加者に送信して共有できます (詳細は [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照)。データをピクセルで送信していない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) で示されている要件に従えば、UID2 共有に参加できます。
 
 :::important
 このプロセスで生成される UID2 Token は共有専用で、ビッドストリームでは使用できません。ビッドストリーム用のトークンを生成するには、[Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。

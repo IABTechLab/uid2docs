@@ -143,7 +143,7 @@ UID2 Token が SSP から DSP に送信されるとき、ビッドストリー�
 ```
 
 :::info
-返された Advertising Token をどのように SSP に渡すかを検討する必要があります。`Prebid.js`([UID2 Integration Overview for Prebid](integration-prebid.md) を参照してください) や Google Ad Manager Secure Signals([Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md) を参照してください) を使用するなど、Client-Side で UID2 を実装する他のいくつかのアプローチでは、実装に、返された Advertising Token の受け渡しを管理する関数が含まれています。SDK for JavaScriptを使用している場合は、これを自分で管理する必要があります。
+返された Advertising Token をどのように SSP に渡すかを検討する必要があります。`Prebid.js`([UID2 Integration Overview for Prebid](integration-prebid.md) を参照) や Google Ad Manager Secure Signals([Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md) を参照) を使用するなど、Client-Side で UID2 を実装する他のいくつかのアプローチでは、実装に、返された Advertising Token の受け渡しを管理する関数が含まれています。SDK for JavaScriptを使用している場合は、これを自分で管理する必要があります。
 :::
 
 :::tip

@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 UID2 エコシステムには、特定のアクティビティを完了するためのアクセスを許可する、いくつかの異なる API パーミッション(権限) が含まれています。このアプローチは、UID2 の全体的な安全設計の一部です。
 
-各 UID2 参加者は、パーミッションが参加者の API クレデンシャルにリンクされています([Account Setup](gs-account-setup.md) と [UID2 Credentials](gs-credentials.md) を参照してください)。
+各 UID2 参加者は、パーミッションが参加者の API クレデンシャルにリンクされています([Account Setup](gs-account-setup.md) と [UID2 Credentials](gs-credentials.md) を参照)。
 
 :::note
 パブリッシャーで、Client-Side に UID2 を実装している場合、API パーミッションは適用されません。代わりに、Client-Side のトークンリクエストを生成するための別の認証情報を受け取ることになります。詳細は [Subscription ID and Public Key](gs-credentials.md#subscription-id-and-public-key) を参照してください。

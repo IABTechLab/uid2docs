@@ -195,7 +195,7 @@ UID2Settings.shared.uid2Environment = .custom(
 
 ## Configure the UID2 Mobile SDK
 
-モバイルアプリで `UID2Manager` を正しくインスタンス化した後、Server-Side で生成された UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> を渡し ([Implement server-side token generation](#implement-server-side-token-generation) を参照してください)、以下のようにモバイルアプリに渡してください:
+モバイルアプリで `UID2Manager` を正しくインスタンス化した後、Server-Side で生成された UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> を渡し ([Implement server-side token generation](#implement-server-side-token-generation) を参照)、以下のようにモバイルアプリに渡してください:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>

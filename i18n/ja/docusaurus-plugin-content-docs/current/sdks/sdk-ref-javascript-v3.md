@@ -25,6 +25,10 @@ export const Deprecated3100 = () => (
 
 # SDK for JavaScript Reference Guide (v3)
 
+:::important
+このドキュメントは、SDK for JavaScript のバージョン 3 用で最新バージョンではありません。このバージョンを使用している場合は、アップグレードを勧めます。移行ガイドが含まれている [SDK for JavaScript リファレンスガイド](sdk-ref-javascript.md) を参照してください。
+:::
+
 この SDK を使用して、UID2 を使用したクライアント ID の生成または確立、ターゲティング広告用の Advertising Token の取得、および UID2 Token の自動リフレッシュを容易に行うことができます。
 
 以下のセクションでは、UID2 ID の確立のための高レベルな [ワークフロー](#workflow-overview)、SDK [API リファレンス](#api-reference)、および UID2 [ストレージフォーマット](#uid2-storage-format) を説明します。
@@ -33,7 +37,7 @@ export const Deprecated3100 = () => (
 UID2 Identify Module、または UID2 サポートのある他の製品と Prebid.js を使用している場合、SDK を使用する必要はありません。Prebid.js モジュールがすべてを管理します。詳細については、[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください。
 :::
 
-このページでは、SDK のバージョン 3 について説明します。以前のバージョンを使用している場合は、[移行ガイド](#migration-guide) を使用してインテグレーションをアップグレードすることをお勧めします。必要に応じて、[SDK の以前のバージョン](./sdk-ref-javascript-v2.md) のドキュメントも利用できます。
+このページでは、SDK のバージョン 3 について説明します。以前のバージョンを使用している場合は、[移行ガイド](#migration-guide) を使用してインテグレーションをアップグレードすることを勧めます。必要に応じて、[SDK の以前のバージョン](./sdk-ref-javascript-v2.md) のドキュメントも利用できます。
 
 コンテンツパブリッシャー向けのインテグレーション手順は、以下のガイドを参照してください:
   - [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
@@ -55,13 +59,18 @@ UID2 Identify Module、または UID2 サポートのある他の製品と Prebi
     - Running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-client-server-integ.uidapi.com/)
   - The example of JavaScript client-side integration: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg) and running site ([Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)).
 
+## UID2 Account Setup
+
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
+
 ## API Permissions
 
-この SDK を使用するには、[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了する必要があります。
+アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが提供されます。以下の操作を行うことができます:
+- アカウントの [credentials](../getting-started/gs-credentials.md) を生成します。
+- オプション: Client-Side の実装では、ドメイン名などの設定値を設定します。
+- オプションで、チームメンバーに関する情報の設定など、他の値を設定します。
 
-SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。SDK には、使用する権限を持たない機能があるかもしれないことに留意してください。例えば、パブリッシャーはトークンの生成と更新のために特定の API Permissions を取得しますが、SDK は共有などの他のアクティビティをサポートするかもしれません。
-
-詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
+SDK が提供する特定の機能の使用権限が付与され、そのアクセスに必要な資格情報が提供されます。
 
 ## SDK Version
 
@@ -454,7 +463,7 @@ Identity が利用可能かどうかを判断します。たとえば、ロー�
 
 ### disconnect(): void
 
-UID2 ID をファーストパーティクッキーとローカルストレージから消去します ([UID2 ストレージフォーマット](#uid2-storage-format) を参照してください)。これによりクライアントの ID セッションが閉じられ、クライアントのライフサイクルが切断されます。
+UID2 ID をファーストパーティクッキーとローカルストレージから消去します ([UID2 ストレージフォーマット](#uid2-storage-format) を参照)。これによりクライアントの ID セッションが閉じられ、クライアントのライフサイクルが切断されます。
 
 ユーザーがパブリッシャーのサイトからログアウトしたら、次の呼び出しを行います:
 
