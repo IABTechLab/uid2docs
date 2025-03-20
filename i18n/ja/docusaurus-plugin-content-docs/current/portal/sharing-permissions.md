@@ -12,7 +12,7 @@ import Link from '@docusaurus/Link';
 共有権限を設定すると、他の UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">共有参加者</Link>と UID2 を共有できるようになります。共有権限を追加すると、共有先の参加者が UID2 Token を <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link> に復号化できるようになります。
 
 :::tip
-UID2 Portal での共有権限の設定は、<Link to="../sharing/sharing-overview.md#uid2-sharing-approaches">Tokenized Sharing</Link>に使用されます。生の UID2 を共有するためのものではありません。詳細は、[UID2 Sharing Approaches](../sharing/sharing-overview.md#uid2-sharing-approaches)を参照してください。
+UID2 Portal での共有権限の設定は、<Link to="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>に使用されます。raw UID2 を共有するためのものではありません。詳細は、[UID2 Sharing Approaches](../sharing/sharing-overview.md#uid2-sharing-approaches)を参照してください。
 :::
 
 期待した通りの共有関係を作成するためのさまざまなオプションがあります:

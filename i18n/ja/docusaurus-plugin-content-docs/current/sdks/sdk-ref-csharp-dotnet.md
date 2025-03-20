@@ -69,7 +69,7 @@ SDK が UID2 Service で認証するために必要な値を提供する必要�
 
 ユーザーのオプトアウトを処理する入札ロジックの詳細は [DDSP Integration Guide](../guides/dsp-guide.md) を参照してください。
 
-`SharingClient` クラスを使うと、raw UID2 を暗号化して UID2 Token に変換したり、UID2 Token を復号して生の UID2 に変換したりすることができます。
+`SharingClient` クラスを使うと、raw UID2 を暗号化して UID2 Token に変換したり、UID2 Token を復号してraw UID2 に変換したりすることができます。
 
 :::note
 SDK を使用する場合、復号鍵を保存したり管理したりする必要はありません。

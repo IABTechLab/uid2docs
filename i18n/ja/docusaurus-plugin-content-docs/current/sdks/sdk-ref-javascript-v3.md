@@ -66,7 +66,7 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 ## API Permissions
 
 アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが提供されます。以下の操作を行うことができます:
-- アカウントの [configuration](../getting-started/gs-configuration.md) を生成します。
+- アカウントの [credentials](../getting-started/gs-credentials.md) を生成します。
 - オプション: Client-Side の実装では、ドメイン名などの設定値を設定します。
 - オプションで、チームメンバーに関する情報の設定など、他の値を設定します。
 

@@ -587,8 +587,8 @@ v3 より前のバージョンから移行する場合、または以前のバ�
 
 SDK の version 3 の利点を得るために、以下の変更を実施することを強く推奨します:
 
-- [Migrate to the Version 3 Callback System](#migrate-to-the-version-3-callback-system)
-- [Take advantage of `setIdentity` and other new features](#take-advantage-of-setidentity-and-other-new-features)
+- [Migrate to the Newer Callback System Introduced in Version 3](#migrate-to-the-newer-callback-system-introduced-in-version-3)
+- [Take advantage of `setIdentity` and other features introduced in version 3](#take-advantage-of-setidentity-and-other-features-introduced-in-version-3)
 - [Change how you call init](#change-how-you-call-init)
 
 ##### Migrate to the Newer Callback System Introduced in Version 3
