@@ -92,11 +92,11 @@ Notes:
 
 - 値は特定の [Environment](gs-environments.md) で有効です。インテグレーション環境と本番環境の両方を使っている場合、それぞれの環境用にセットの認証情報を取得します。
 
-- Subscription ID と Public Key の認証情報は、Client-Side トークンの生成にのみ使用できます。追加のロールが必要な場合は ([API Permissions](gs-permissions.md) を参照してください)、そのロールの API Key と Client Secret をリクエストしてください。
+- Subscription ID と Public Key の認証情報は、Client-Side トークンの生成にのみ使用できます。追加のロールが必要な場合は ([API Permissions](gs-permissions.md) を参照)、そのロールの API Key と Client Secret をリクエストしてください。
 
 ## API Key and Client Secret
 
-Client-Side または Server-Side の実装を使用している場合([UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md) または [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください)、API Key とクライアントシークレットを使用して、<Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> に接続し、API エンドポイントを呼び出すことができます。これらの値は、サービスの参加者を識別します。
+Client-Side または Server-Side の実装を使用している場合([UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md) または [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照)、API Key とクライアントシークレットを使用して、<Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> に接続し、API エンドポイントを呼び出すことができます。これらの値は、サービスの参加者を識別します。
 
 以下は API Key とクライアントシークレットに関する情報です:
 - これらの値を安全に保管しなければなりません。詳細は、[Security of API Key and Client Secret](#security-of-api-key-and-client-secret) を参照してください。

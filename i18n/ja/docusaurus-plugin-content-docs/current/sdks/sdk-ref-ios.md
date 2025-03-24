@@ -128,7 +128,7 @@ UID2 Mobile SDK は、UID2 identifier が確立された後に UID2 identities �
 
 以下のコードサンプルは、iOS SDK を使用して UID2 を管理する特定のアクティビティを実行する例を示します。
 
-初期の UID2 Identity を生成します (手順については、[Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk) を参照してください):
+初期の UID2 Identity を生成します (手順については、[Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk) を参照):
 
 ```js
 UID2Manager.shared.generateIdentity(
@@ -138,7 +138,7 @@ UID2Manager.shared.generateIdentity(
     appName: String? = nil
 )
 ```
-初期 UID2 Identity を設定します (手順については、[Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk) を参照してください):
+初期 UID2 Identity を設定します (手順については、[Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk) を参照):
 
 ``` javascript
 UID2Manager.shared.setIdentity(_ identity: UID2Identity)

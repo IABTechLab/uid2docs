@@ -53,12 +53,13 @@ UID2 mobile SDK を使用してモバイルアプリを UID2 とインテグレ�
 
 - [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 - [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md)
+- [Server-Side Integration Guide for Mobile](integration-mobile-server-side.md)
 
 ## Mobile Integration Paths
 
 モバイルシナリオに最適なインテグレーションパスを決定するには、次の点を考慮してください:
 
-1. UID2 Token を Client-Side または Server-Side で取得しますか？ [Generating, Storing, and Refreshing the UID2 Token](#generating-storing-and-refreshing-the-uid2-token) を参照してください。
+1. UID2 Token を Client-Side または Server-Side で取得しますか？ [Client-Side, Client-Server, or Server-Side Integration?](#client-side-client-server-or-server-side-integration) を参照してください。
 
 1. UID2 Token の取得とリフレッシュ何を使いますか？ [Generating, Storing, and Refreshing the UID2 Token](#generating-storing-and-refreshing-the-uid2-token) を参照してください。
 
@@ -72,7 +73,7 @@ UID2 とインテグレーションんするには、UID2 アカウントが必�
 
 UID2 Portal での手順は、実装が Client-Side、Client-Server、または Server-Side であるかによって異なります。各インテグレーションガイドに具体的な手順が記載されています。概要は、[Client-Side, Client-Server, or Server-Side Integration?](#client-side-client-server-or-server-side-integration) を参照してください。
 
-### Client-Side or Client-Server Integration?
+### Client-Side, Client-Server, or Server-Side Integration?
 
 UID2 mobile SDK を使用して UID2 とインテグレーションするためのオプションは、次の表にまとめられています。最適な <Link href="../ref-info/glossary-uid#gl-integration-approaches">Integration approach</Link> を選択してください。
 

@@ -202,7 +202,7 @@ Server-Only Mode を使用するようにモジュールを設定するには、
 
 #### Server-Only Mode Cookie Example
 
-以下の例では、Advertising Token の値を格納する `__uid2_advertising_token` という名前のクッキーを設定しています。クッキーの値は、トークンレスポンスオブジェクトで返される値です(詳細は [Sample Token Response Object](#sample-token-response-object) を参照してください)。
+以下の例では、Advertising Token の値を格納する `__uid2_advertising_token` という名前のクッキーを設定しています。クッキーの値は、トークンレスポンスオブジェクトで返される値です(詳細は [Sample Token Response Object](#sample-token-response-object) を参照)。
 
 この設定により、UID2 モジュールは Advertising Token の値をクッキーから取得できます。
 
@@ -257,7 +257,7 @@ Prebid の実施を計画する際には、以下を考慮してください:
 
 - リフレッシュされたトークンを生成するために使用された元のトークンと一致しない新しいトークンを提供した場合、モジュールは保存されているすべてのトークンを破棄し、代わりに新しいトークンを使用し、リフレッシュされた状態を維持します。
 
-- インテグレーションテストでは、`params.uid2ApiBase` を `"https://operator-integ.uidapi.com"` に設定します。トークンの生成に使用する環境(本番環境またはインテグレーション環境)と同じ値に設定する必要があります(資格情報については、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください)。
+- インテグレーションテストでは、`params.uid2ApiBase` を `"https://operator-integ.uidapi.com"` に設定します。トークンの生成に使用する環境(本番環境またはインテグレーション環境)と同じ値に設定する必要があります(資格情報については、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)。
 
 - Prebid.js client-server インテグレーションの場合、クライアントサイドインテグレーション機能を無効にして、より小さな Prebid.js ビルドを作成できます。これを行うには、`--disable UID2_CSTG` フラグを渡します:
 

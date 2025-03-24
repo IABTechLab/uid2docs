@@ -157,6 +157,7 @@ const fullSidebar = [
             items: [
               'guides/integration-mobile-client-side',
               'guides/integration-mobile-client-server',
+              'guides/integration-mobile-server-side',
             ],
           },
 
@@ -265,6 +266,7 @@ const fullSidebar = [
             'guides/operator-guide-aws-marketplace',
             'guides/operator-private-gcp-confidential-space',
             'guides/operator-guide-azure-enclave',
+            'guides/operator-guide-aks-enclave',
           ],
         },
       ],

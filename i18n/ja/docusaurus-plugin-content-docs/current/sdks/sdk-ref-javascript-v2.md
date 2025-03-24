@@ -47,7 +47,6 @@ SDK が提供する特定の機能を使用する権限が与えられ、その�
 
 - [https://github.com/iabtechlab/uid2-web-integrations](https://github.com/iabtechlab/uid2-web-integrations)
 
-
 ## Terminology
 
 このドキュメントでは、以下の用語が使われます:

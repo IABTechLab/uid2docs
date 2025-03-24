@@ -15,6 +15,7 @@ import Link from '@docusaurus/Link';
 **A**
 <a href="#gl-advertising-id">Advertising ID</a> | 
 <a href="#gl-advertising-token">Advertising token</a> | 
+<a href="#gl-aks">AKS</a> |
 <a href="#gl-api-key">API key</a> | 
 <a href="#gl-api-secret">API secret</a> | 
 <a href="#gl-app-name">App name</a> | 
@@ -128,6 +129,13 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-advertising-token"><a href="#gl-advertising-token">Advertising token</a></MdxJumpAnchor></dt>
 <dd>Advertising token is another term for a <a href="#gl-uid2-token">UID2 token</a>.</dd>
 
+<dt><MdxJumpAnchor id="gl-aks"><a href="#gl-aks">AKS</a></MdxJumpAnchor></dt>
+<dd>AKS is an acronym for Azure Kubernetes Service. For details, see [What is Azure Kubernetes Service (AKS)?](https://learn.microsoft.com/en-us/azure/aks/what-is-aks) (Microsoft documentation).</dd>
+<dd>To run an AKS cluster on a confidential container, Microsoft offers a solution to run it on virtual nodes on Microsoft Azure container instances. For details, see [Virtual nodes on Azure Container Instances](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-virtual-nodes) (Microsoft documentation).</dd>
+<dd>In the context of UID2, AKS is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
+<dd>For details, see <a href="../guides/operator-guide-aks-enclave">UID2 Private Operator for AKS Integration Guide</a>.</dd>
+<!-- <dd>**new**</dd> -->
+
 <dt><MdxJumpAnchor id="gl-api-key"><a href="#gl-api-key">API key</a></MdxJumpAnchor></dt>
 <dd>Each UID2 <a href="../overviews/participants-overview#uid2-external-participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the <a href="#gl-client-secret">client secret</a> (API secret). The client secret is known only to the participant and the UID2 service.</dd>
 <dd>For details, see <a href="../getting-started/gs-credentials">UID2 Credentials</a>.</dd>
@@ -189,19 +197,16 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-confidential-computing"><a href="#gl-confidential-computing">Confidential Computing (GCP)</a></MdxJumpAnchor></dt>
 <dd>A Confidential Computing solution from Google Cloud Platform (GCP), Confidential Space, that is supported for hosting a UID2 <a href="#gl-private-operator">Private Operator</a>.</dd>
 <dd>For details, see <a href="#gl-confidential-space">Confidential Space</a>.</dd>
-<!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-confidential-containers"><a href="#gl-confidential-containers">Confidential containers (Azure)</a></MdxJumpAnchor></dt>
 <dd>Confidential Containers is the name of a secure confidential computing option from Microsoft Azure. Each Confidential Containers implementation runs in a hardware-backed Trusted Execution Environment (TEE) that provides intrinsic capabilities such as data integrity, data confidentiality, and code integrity.</dd>
 <dd>In the context of UID2, Confidential Containers from Azure is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
 <dd>For details, see <a href="../guides/operator-guide-azure-enclave">UID2 Private Operator for Azure Integration Guide</a>.</dd>
-<!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-confidential-space"><a href="#gl-confidential-space">Confidential Space (GCP)</a></MdxJumpAnchor></dt>
 <dd>Confidential Space is one of the Confidential Computing options from Google Cloud Platform (GCP). Confidential Space offers a secure enclave environment, known as a Trusted Execution Environment (TEE).</dd>
 <dd>In the context of UID2, GCP Confidential Space is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
 <dd>For details, see <a href="../guides/operator-private-gcp-confidential-space">UID2 Private Operator for GCP Integration Guide</a>.</dd>
-<!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-core-service"><a href="#gl-core-service">Core Service</a></MdxJumpAnchor></dt>
 <dd>The UID2 Core Service is a centralized service that manages access to secret <a href="#gl-salt">salts</a>, encryption keys, and other relevant data in the UID2 ecosystem.</dd>

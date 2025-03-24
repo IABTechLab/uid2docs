@@ -111,7 +111,7 @@ Client-Side からトークンのリフレッシュを呼び出すことはで�
 
 推奨されるリフレッシュ間隔は 1 時間です。
 
-リフレッシュのタイミングを決定するには、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントのレスポンスの `refresh_from` フィールドのタイムスタンプを使用します(詳細は [Successful Response](../endpoints/post-token-generate.md#successful-response) を参照してください)。または、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントのレスポンスの `refresh_from` フィールドのタイムスタンプを使用します(詳細は [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens) を参照してください)。
+リフレッシュのタイミングを決定するには、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントのレスポンスの `refresh_from` フィールドのタイムスタンプを使用します(詳細は [Successful Response](../endpoints/post-token-generate.md#successful-response) を参照)。または、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントのレスポンスの `refresh_from` フィールドのタイムスタンプを使用します(詳細は [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens) を参照)。
 
 <a href="../ref-info/glossary-uid#gl-token-refresh">Token Refresh</a>が必要かどうかを確認する機能を持つ SDK のいずれかを使用することもできます。
 
@@ -233,7 +233,7 @@ UID2 生成リクエストで提供されるメタデータには、UID2 の生�
 
 一般的にその通りです。DII から raw UID2 を生成するプロセスは同じであり、誰がリクエストを送信したかに関係なく、結果は同じ値になります。 2 人の UID2 参加者が同じメールアドレスを [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントに同時に送信した場合、応答として両方とも同じ raw UID2 を取得します。 
 
-ただし、raw UID2 の生成に使用される [ソルト](../ref-info/glossary-uid.md#gl-salt) 値という可変要素があります。ソルト値は定期的にローテーションされます(詳細は [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)) を参照してください)。あるリクエストと別のリクエストの間でソルト値が変化する場合、DII が同じであっても、これら 2 つのリクエストは 2 つの異なる raw UID2 になります。
+ただし、raw UID2 の生成に使用される秘密の [ソルト](../ref-info/glossary-uid.md#gl-salt) 値という可変要素があります。ソルト値は定期的にローテーションされます(詳細は [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)) を参照)。あるリクエストと別のリクエストの間でソルト値が変化する場合、DII が同じであっても、これら 2 つのリクエストは 2 つの異なる raw UID2 になります。
 
 詳細は、*Advertiser/Data Provider Integration Guide*の [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s) を参照してください。
 
@@ -277,7 +277,7 @@ UID2 に適用する復号キーを知るには？
 #### Where do I get the decryption keys?
 復号キーはどこで入手できますか？
 
-Server-Side SDK のいずれか([SDK](../sdks/summary-sdks.md) を参照してください) を使用して UID2 Service と通信し、最新の鍵を取得することができます。鍵を確実に最新に保つため、1 時間に 1 回など、定期的に鍵を取得することを推奨します。
+Server-Side SDK のいずれか([SDK](../sdks/summary-sdks.md) を参照) を使用して UID2 Service と通信し、最新の鍵を取得することができます。鍵を確実に最新に保つため、1 時間に 1 回など、定期的に鍵を取得することを推奨します。
 
 #### How many decryption keys may be present in memory at any point?
 メモリ上に存在する復号鍵の数は？

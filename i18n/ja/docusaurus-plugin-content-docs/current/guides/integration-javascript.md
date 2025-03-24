@@ -51,7 +51,7 @@ UID2 Portal で行う手順は、実装が Client-Side、Client-Server、また�
 
 <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> へのアクセスに応じて、SDK for JavaScript を使用して UID2 Token を生成するには、Client-Side または Server-Side の2つの方法があります。
 
-[Client-Side or Client-Server Integration](#client-side-client-server-or-server-side-integration) の表から、どちらのオプションが最適かを判断し、該当するインテグレーションガイドに従ってください。
+[Client-Side or Client-Server Integration](#client-side-or-client-server-integration) の表から、どちらのオプションが最適かを判断し、該当するインテグレーションガイドに従ってください。
 
 ## Refreshing the UID2 Token
 

@@ -53,12 +53,13 @@ For details, refer to one of the following guides:
 
 - [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 - [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md)
+- [Server-Side Integration Guide for Mobile](integration-mobile-server-side.md)
 
 ## Mobile Integration Paths
 
 To determine the best integration path for your mobile scenario, consider these points:
 
-1. Do you want to retrieve the UID2 token on the client side or on the server side? See [Client-Side, Client-Server, or Server-Side Integration?](#client-side-client-server-or-server-side-integration).
+1. Do you want to retrieve the UID2 token on the client side or on the server side? See [Client-Side, Client-Server, or Server-Side Integration?](#client-side-client-server-or-server-side-integration)
 
 1. What do you want to use to retrieve and refresh the UID2 token? See [Generating, Storing, and Refreshing the UID2 Token](#generating-storing-and-refreshing-the-uid2-token).
 
@@ -70,7 +71,7 @@ To integrate with UID2, you'll need to have a UID2 account. If you haven't yet c
 
 When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
 
-The steps you'll take in the UID2 Portal are different depending on whether your implementation will be client-side, client-server, or server-side. Specific instructions are in each implementation guide. For a summary, see [Client-Side, Client-Server, or Server-Side Integration?](#client-side-client-server-or-server-side-integration).
+The steps you'll take in the UID2 Portal are different depending on whether your implementation will be client-side, client-server, or server-side. Specific instructions are in each implementation guide. For a summary, see [Client-Side, Client-Server, or Server-Side Integration?](#client-side-client-server-or-server-side-integration)
 
 ### Client-Side, Client-Server, or Server-Side Integration?
 
@@ -80,8 +81,9 @@ For details, see [Integration Approaches](../ref-info/ref-integration-approaches
 
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |
-| You have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the client side/within the mobile app, and want to keep changes within your app only. | Client-side integration | [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) |
-| You have access to DII on the server side only and can do the necessary development to generate UID2 tokens server-side, or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Client-Server Integration | [UID2 Client-Server Integration Guide for Mobile](integration-mobile-client-server.md) |
+| You have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the client side/within the mobile app, and want to keep changes within your app only. | Client-Side integration | [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) |
+| You have access to DII on the server side only and can do the necessary development to generate UID2 tokens server-side, but you want to refresh tokens on the client side&#8212;or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Client-Server Integration | [UID2 Client-Server Integration Guide for Mobile](integration-mobile-client-server.md) |
+| You have access to DII on the server side only and can do the necessary development to generate UID2 tokens server-side, or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Server-Side Integration | [UID2 Server-Side Integration Guide for Mobile](integration-mobile-server-side.md) |
 
 ### Generating, Storing, and Refreshing the UID2 Token
 

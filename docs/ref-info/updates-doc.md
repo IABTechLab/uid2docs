@@ -15,6 +15,26 @@ Check out the latest updates to our UID2 documentation resources.
 
 The following documents were released in this quarter.
 
+### UID2 Private Operator for AKS Integration Guide
+
+March 19, 2025
+
+A UID2 <a href="../intro#participants">participant</a> who wants to be a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> can now set up the UID2 Operator Service as a Private Operator in an Azure Kubernetes Service (<Link href="../ref-info/glossary-uid#gl-aks">AKS</Link>) cluster, running on [virtual nodes on Azure Container Instances](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-virtual-nodes) (ACI).
+
+For details, see [UID2 Private Operator for AKS Integration Guide](../guides/operator-guide-aks-enclave.md).
+
+<!-- APIDOCS-3030 -->
+
+### Server-Side Integration Guide for Mobile
+
+March 18, 2025
+
+We've added a guide for mobile app publishers who want to manage the UID2 token entirely on the server side.
+
+For details, see [UID2 Server-Side Integration Guide for Mobile](../guides/integration-mobile-server-side.md).
+
+<!-- APIDOCS-2931 -->
+
 ### UID2 Portal, Sharing Permissions Page
 
 March 11, 2025

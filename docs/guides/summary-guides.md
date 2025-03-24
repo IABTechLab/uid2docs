@@ -59,6 +59,7 @@ The following documentation resources are available for publishers integrating w
 | [Mobile Integration Overview for Android and iOS](integration-mobile-overview.md) | An overview of options for mobile app publishers who want to integrate with UID2 using the SDK for Android or the SDK for iOS. |
 | [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) | An integration guide for mobile app publishers who want to integrate with UID2 with changes only within the mobile app (no server-side changes). |
 | [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md) | An integration guide for mobile app publishers who want to integrate with UID2 by doing the following:<ol><li>Generating UID2 tokens server-side via either a Public or Private Operator.</li><li>Passing the resulting <Link href="../ref-info/glossary-uid#gl-identity">identities</Link> to a mobile app for passing into the bidstream.</li></ol> |
+| [Server-Side Integration Guide for Mobile](../guides/integration-mobile-server-side.md) | An integration guide for mobile app publishers who want to manage the UID2 token entirely on the server side. |
 
 ### CTV Integrations
 
