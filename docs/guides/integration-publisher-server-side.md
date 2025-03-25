@@ -8,7 +8,7 @@ sidebar_position: 03
 ---
 
 import Link from '@docusaurus/Link';
-import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # Publisher Integration Guide, Server-Side
 
@@ -43,6 +43,21 @@ See also [FAQs](#faqs).
 ## Integrating with Single Sign-On (SSO)
 
 <IntegratingWithSSO />
+
+## Complete UID2 Account Setup and Configure Account
+
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
+
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+
+For a server-side integration you'll need to set up these values, in the UID2 Portal on the [API Keys](../portal/api-keys.md) page:
+
+- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key
+- <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>, a value known only to the participant and the UID2 service
+
+:::important
+It's very important that you keep these values secure. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+:::
 
 ## Integration Steps
 
@@ -117,7 +132,7 @@ If the user logs out, do not use the UID2 token.
 
 A sample implementation is available for server-side integration. See:
 
-- [Server-Side UID2 Integration Example (sample implementation)](https://secure-signals-srvonly-integ.uidapi.com/)
+- [Server-Side UID2 Integration Example (sample implementation)](https://secure-signals-server-side-integ.uidapi.com/)
 - [Server-Side UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
 
 ## FAQs

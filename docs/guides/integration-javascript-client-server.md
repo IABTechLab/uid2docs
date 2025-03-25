@@ -8,8 +8,8 @@ sidebar_position: 02
 ---
 
 import Link from '@docusaurus/Link';
-import ExampleClientServerSendUid2ToSdk from '/docs/snippets/_example-client-server-send-uid2-to-sdk.mdx'; 
-import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
+import ExampleClientServerSendUid2ToSdk from '../snippets/_example-client-server-send-uid2-to-sdk.mdx'; 
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # Client-Server Integration Guide for JavaScript
 
@@ -23,9 +23,9 @@ For technical details about the SDK, see [SDK for JavaScript Reference Guide](..
 
 ## Sample Implementation
 
-For a sample implementation, see the UID2 Google Secure Signals with SDK v3 example:
-- Code and docs: [UID2 SDK Secure Signals Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
-- Running site: [Client-Server UID2 SDK Integration Example](https://secure-signals-jssdk-integ.uidapi.com/)
+For a sample implementation, see the UID2 SDK Integration example:
+- [Client-Server UID2 SDK Integration Example](https://example-jssdk-integ.uidapi.com/)
+- [Code Repository with Readme](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk)
 
 ## Introduction
 
@@ -35,7 +35,7 @@ For a workflow diagram, see [Integration Steps](#integration-steps). See also [F
 
 For details about the UID2 opt-out workflow and how users can opt out, see [User Opt-Out](../getting-started/gs-opt-out.md).
 
-To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the SDK for JavaScript. Here's an [example application](https://example-jssdk-integ.uidapi.com/) that illustrates the integration steps described in this guide and the usage of the SDK (currently only for email addresses). For the application documentation, see [UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md).
+To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the SDK for JavaScript. Here's an [example application](https://example-jssdk-integ.uidapi.com/) that illustrates the integration steps described in this guide and the usage of the SDK (currently only for email addresses). For the application documentation, see [UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk).
 
 :::tip
 The first-party cookie and local storage implementation details might change in the future. To avoid potential issues, be sure to rely on the functionality documented in the [SDK for JavaScript API Reference](../sdks/sdk-ref-javascript.md#api-reference) for your identity management.
@@ -50,6 +50,21 @@ If you are using Google Ad Manager and want to use the secure signals feature, f
 ## Integrating with Single Sign-On (SSO)
 
 <IntegratingWithSSO />
+
+## Complete UID2 Account Setup and Configure Account
+
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
+
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+
+For a client-server integration you'll need to set up these values, in the UID2 Portal on the [API Keys](../portal/api-keys.md) page:
+
+- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key
+- <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>, a value known only to the participant and the UID2 service
+
+:::important
+It's very important that you keep these values secure. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+:::
 
 ## Integration Steps 
 

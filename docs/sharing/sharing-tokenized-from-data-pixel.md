@@ -83,7 +83,7 @@ If you're using creative pixels, the DSP takes the raw UID2 and encrypts it into
 
 All the implementation steps are the same as for [tokenized sharing from raw UID2](sharing-tokenized-from-raw.md).
 
-For examples of how you could implement tokenized sharing in pixels using Snowflake, see [Snowflake Integration Guide: Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers).
+For examples of how you could implement tokenized sharing in pixels using Snowflake, see [Snowflake Integration Guide: Usage for UID2 Sharers](../guides/integration-snowflake.md#usage-for-uid2-sharers).
 
 ## Information for Sharing Receivers
 

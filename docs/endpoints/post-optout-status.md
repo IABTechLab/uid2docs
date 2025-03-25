@@ -15,7 +15,7 @@ Used by: This endpoint is used by advertisers, data providers, DSPs, and sharers
 
 For details, refer to the following documentation, depending on your role:
 
-- [Advertiser/Data Provider Integration Guide](../guides/integration-advertiser-dataprovider-overview.md)
+- [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md)
 - [DSP Integration Guide](../guides/dsp-guide.md)
 - [UID2 Sharing: Overview](../sharing/sharing-overview)
 
@@ -43,7 +43,7 @@ You must encrypt all requests using your secret. For details, and code examples 
 | `{environment}` | string | Required | Testing (integration) environment: `https://operator-integ.uidapi.com`<br/>Production environment: The best choice depends on where your users are based. For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md). |
 
 :::note
-The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.
+The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>. For information about getting credentials for each environment, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials).
 :::
 
 ### Unencrypted JSON Body Parameters

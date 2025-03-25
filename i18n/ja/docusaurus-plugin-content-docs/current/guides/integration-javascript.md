@@ -8,6 +8,7 @@ sidebar_position: 04
 ---
 
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # UID2 Integration Overview for JavaScript
 
@@ -25,6 +26,10 @@ UID2 は、以下をサポートする JavaScript 用の SDK を提供してい�
 
 さらに柔軟性を高めるため、UID2 は、Prebid インテグレーションなど、一部の機能や補完的な製品の代替方法も提供しています。
 
+## Integrating with Single Sign-On (SSO)
+
+<IntegratingWithSSO />
+
 ## Client-Side or Client-Server Integration
 
 SDK for JavaScript を使って UID2 とインテグレーションするためのオプションを、次の表にまとめました。最適なオプションを選択してください。
@@ -33,6 +38,14 @@ SDK for JavaScript を使って UID2 とインテグレーションするため�
 | :--- | :--- | :--- |
 | Client-Side で DII にアクセスでき、フロントエンド開発のみを行いたい。 | Client-side integration | [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) |
 | Server-Side で DII にアクセスでき、Server-Side の開発が可能であるか、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を使用している。 | Server-side integration | [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) |
+
+## Complete UID2 Account Setup and Configure Account
+
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、最初に[Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+
+アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。ここで、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細は、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+
+UID2 Portal で行う手順は、実装が Client-Side、Client-Server、または Server-Side であるかによって異なります。各実装ガイドに具体的な手順が記載されています。
 
 ## Generating the UID2 Token
 
@@ -47,7 +60,7 @@ SDK for JavaScript には、自動の <a href="../ref-info/glossary-uid#gl-token
 ## Storing the UID2 Token in the Browser
 <!-- GWH check corresponding (not identical) section in integration-prebid.md, integration-prebid-client-side.md, integration-prebid-client-side.md, for consistency -->
 
-Client-Side のオプションでは、ローカルストレージを使用してデータを保存します。Server-Side オプションはデフォルトでローカルストレージを使いますが、代わりにクッキーを使うこともできます。詳細については、*SDK for JavaScript Reference Guide* の [UID2 Storage Format](../sdks/sdk-ref-javascript.md#uid2-storage-format) を参照してください。
+Client-Side のオプションでは、ローカルストレージを使用してデータを保存します。Server-Side オプションはデフォルトでローカルストレージを使いますが、代わりにクッキーを使うこともできます。詳細は、*SDK for JavaScript Reference Guide* の [UID2 Storage Format](../sdks/sdk-ref-javascript.md#uid2-storage-format) を参照してください。
 
 クッキーのサイズが大きくなる可能性があり、それが問題になるかもしれません。しかし、ローカルストレージがオプションでない場合、これは一つの可能なアプローチです。
 

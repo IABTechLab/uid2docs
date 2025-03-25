@@ -57,7 +57,7 @@ The following implementation options are available for decrypting UID2 tokens.
 | Token | C++ SDK | [SDK for C++: Usage for UID2 Sharers](../sdks/sdk-ref-cplusplus.md#usage-for-uid2-sharers) |
 | Token | Java SDK | [SDK for Java: Usage for UID2 Sharers](../sdks/sdk-ref-java.md#usage-for-uid2-sharers) |
 | Token | Python SDK | [SDK for Python: Usage for UID2 Sharers](../sdks/sdk-ref-python.md#usage-for-uid2-sharers) |
-| Token | Snowflake | [Snowflake Integration Guide: Usage for UID2 Sharers](../guides/snowflake_integration.md#usage-for-uid2-sharers)
+| Token | Snowflake | [Snowflake Integration Guide: Usage for UID2 Sharers](../guides/integration-snowflake.md#usage-for-uid2-sharers)
 | Token | Decryption of UID2 tokens sent in the bidstream (DSPs only) | [DSP Integration Guide: Decrypt UID2 Tokens for RTB Use](../guides/dsp-guide#decrypt-uid2-tokens-for-rtb-use)
 
 ## Tokenized Sharing Examples

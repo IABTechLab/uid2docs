@@ -19,7 +19,7 @@ import Link from '@docusaurus/Link';
 - API エンドポイントへのダイレクトインテグレーション
 
 :::warning
-セキュリティ上の理由により、トークン生成に使用される API キーとシークレットは Server-Side で呼び出す必要があります。これらの値を Web ページ、モバイルアプリ、または Prebid に保存しないでください。詳細については、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+セキュリティ上の理由により、トークン生成に使用される API キーとシークレットは Server-Side で呼び出す必要があります。これらの値を Web ページ、モバイルアプリ、または Prebid に保存しないでください。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 :::
 
 オプションは次の表にまとめられています。

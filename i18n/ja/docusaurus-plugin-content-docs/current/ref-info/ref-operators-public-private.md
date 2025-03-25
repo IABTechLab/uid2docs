@@ -22,7 +22,7 @@ UID2 Operator は、Operator Service を実行する組織です。オペレー�
 - UID2 Core Service から最新の暗号化キーとソルトを受け取り、保存します。
 - raw UID2 を返すため <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> をソルト化およびハッシュ化します。
 - UID2 Token を生成するために raw UID2 を暗号化します。
-- UID2 Token の復号鍵をサーバーサイド SDK に配布します (詳細は [SDKs: Summary](../sdks/summary-sdks.md) を参照してください)。
+- UID2 Token の復号鍵を Server-Side SDK に配布します (詳細は [SDKs: Summary](../sdks/summary-sdks.md) を参照)。
 - UID2 <a href="glossary-uid#gl-opt-out-service">Opt-Out Service</a> から最新のユーザーオプトアウト情報をダウンロードします。
 - 複数の UID2 エンドポイントをサポートします。詳細は [UID2 Endpoints: Summary](../endpoints/summary-endpoints.md) を参照してください。
 
@@ -39,7 +39,7 @@ Public Operator は、関連するすべての UID2 参加者が利用できる 
 
 ほとんどの場合、UID2 参加者は Public Operator を使用します。
 
-Public Operator は、UID2 administration が所有し管理します。例えば、現在 The Trade Desk は UID2 フレームワークの Public Operator として機能しており、すべての参加者が利用できます。他の Public Operator が利用可能な場合、参加者はどのオペレーターと連携するかを選択できます。
+Public Operator は、UID2 administration が所有し管理します。たとえば、現在 The Trade Desk は UID2 フレームワークの Public Operator として機能しており、すべての参加者が利用できます。他の Public Operator が利用可能な場合、参加者はどのオペレーターと連携するかを選択できます。
 
 ## Public Operator: Benefits
 
@@ -47,7 +47,7 @@ Public Operator を使用する場合、Operator をホスト、構成、維持�
 
 Public Operator を利用するための費用は、参加者には一切かかりません。
 
-参加者は、契約に署名し ([Account setup](../getting-started/gs-account-setup.md) を参照してください)、Public Operator でホストされている UID2 API を使用するために該当する認証情報 ([API key and client secret](../getting-started/gs-credentials.md#api-key-and-client-secret)) を取得する必要があります。
+参加者は、契約に署名し ([Account setup](../getting-started/gs-account-setup.md) を参照)、Public Operator でホストされている UID2 API を使用するために該当する認証情報 ([API key and client secret](../getting-started/gs-credentials.md#api-key-and-client-secret)) を取得する必要があります。
 
 :::note
 Public Operator の場合、データは参加者のインフラを離れ、オペレーターに送られます。Public Operator 内のデータを保護するために、厳格なセキュリティ対策が実施されています。

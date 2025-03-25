@@ -6,6 +6,11 @@ sidebar_position: 06
 use_banner: true
 banner_title: UID2 Overview for DSPs
 banner_description: より耐久性のある識別子でデータ戦略を可能に。
+banner_icon: 'dsps'
+banner_text_color: 'white'
+banner_text_color_dark: 'black'
+banner_background_color: '#0459FC'
+banner_background_color_dark: '#1CD2DE'
 displayed_sidebar: sidebarDSPs
 ---
 
@@ -63,7 +68,7 @@ UID2 のドキュメント一式に左サイドバーからアクセスしたい
 2. UID2 のオプトアウト情報を受け取るための Webhook を実装し、Webhook を UID2 Admimnistrator と共有します。
 3. Webhook 経由でオプトアウトフィードを受信していることを確認します。<br/>
 
-    Webhook が設置されたら、認証情報を受け取ります ([UID2 Credentials](../getting-started/gs-credentials.md) を参照してください)。
+    Webhook が設置されたら、認証情報を受け取ります ([UID2 Credentials](../getting-started/gs-credentials.md) を参照)。
 4. どの実装オプションを使用するかを決定します。
 5. SDK を使用している場合は、SDKをダウンロードします。該当する SDK のガイドを参照してください。
 6. 選択したオプションの実装ガイドに記載されている手順に従います。

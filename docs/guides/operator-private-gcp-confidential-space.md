@@ -8,7 +8,7 @@ sidebar_position: 18
 ---
 
 import Link from '@docusaurus/Link';
-import ReleaseMatrix from '/docs/snippets/_private-operator-release-matrix.mdx';
+import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
 
 # UID2 Private Operator for GCP Integration Guide
 
@@ -494,7 +494,7 @@ The following example shows the health check for the `gcloud` command line optio
 
    An HTTP 200 with a response body of `OK` indicates healthy status.
 
-import AttestFailure from '/docs/snippets/_private-operator-attest-failure.mdx';
+import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 
 <AttestFailure />
 

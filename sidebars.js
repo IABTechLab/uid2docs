@@ -19,13 +19,16 @@ function removeItems(sidebar, ...remove) {
 }
 
 const fullSidebar = [
+
+    'intro',
+ 
     {
       type: 'category',
-      label: 'UID2 Overview',
+      label: 'UID2 Participants',
       link: {
-        type: 'doc',
-        id: 'intro',
+        type: 'generated-index',
       },
+      collapsed: true,
       items: [
         'overviews/overview-publishers',
         'overviews/overview-advertisers',
@@ -33,6 +36,7 @@ const fullSidebar = [
         'overviews/overview-data-providers',
       ],
     },
+  
 
     {
       type: 'category',
@@ -141,6 +145,7 @@ const fullSidebar = [
             items: [
               'guides/integration-mobile-client-side',
               'guides/integration-mobile-client-server',
+              'guides/integration-mobile-server-side',
             ],
           },
 
@@ -192,16 +197,28 @@ const fullSidebar = [
   collapsed: true,
 
   items: [
-  {
-    type: 'category',
-    label: 'Integration Overview',
-    link: {
-      type: 'doc',
-      id: 'guides/integration-advertiser-dataprovider-overview',
-    },
-    collapsed: true,
-    items: [
-      'guides/snowflake_integration',
+    {
+      type: 'category',
+      label: 'Integration Overview',
+      link: {
+        type: 'doc',
+        id: 'guides/integration-advertiser-dataprovider-overview',
+      },
+      collapsed: true,
+      items: [
+        {
+          type: 'category',
+          label: 'Snowflake',
+          link: {
+            type: 'doc',
+            id: 'guides/integration-snowflake',
+          },
+          collapsed: true,
+          items: [
+            'guides/integration-snowflake-previous',
+          ],
+        },
+
       'guides/integration-aws-entity-resolution',
       'guides/integration-advertiser-dataprovider-endpoints',
     ],
@@ -237,6 +254,7 @@ const fullSidebar = [
             'guides/operator-guide-aws-marketplace',
             'guides/operator-private-gcp-confidential-space',
             'guides/operator-guide-azure-enclave',
+            'guides/operator-guide-aks-enclave',
           ],
         },
       ],
@@ -251,7 +269,20 @@ const fullSidebar = [
       },
       collapsed: true,
       items: [
-        'sdks/sdk-ref-javascript',
+
+        {
+          type: 'category',
+          label: 'SDK for JavaScript',
+          link: {
+            type: 'doc',
+            id: 'sdks/sdk-ref-javascript',
+          },
+          collapsed: true,
+          items: [
+            'sdks/sdk-ref-javascript-v3',
+          ],
+        },
+
         'sdks/sdk-ref-java',
         'sdks/sdk-ref-python',
         'sdks/sdk-ref-csharp-dotnet',
@@ -325,6 +356,7 @@ const fullSidebar = [
         'ref-info/ref-operators-public-private',
         'ref-info/ref-integration-approaches',
         'ref-info/ref-tokens',
+        'ref-info/ref-how-uid-is-created',
         'ref-info/ref-server-side-token-generation',
         'ref-info/ref-integration-sso-providers',
       ],
@@ -344,7 +376,8 @@ const sidebars = {
     'overviews/overview-data-providers',
     'Advertiser/Data Provider Integrations',
     'guides/integration-advertiser-dataprovider-overview',
-    'guides/snowflake_integration',
+    'guides/integration-snowflake',
+    'guides/integration-snowflake-previous',
     'guides/integration-aws-entity-resolution',
     'guides/advertiser-dataprovider-endpoints',
     'DSP Integrations',
@@ -427,7 +460,8 @@ const sidebars = {
     'guides/mobile-plugin-ima-ios',
     'Advertiser/Data Provider Integrations',
     'guides/integration-advertiser-dataprovider-overview',
-    'guides/snowflake_integration',
+    'guides/integration-snowflake',
+    'guides/integration-snowflake-previous',
     'guides/integration-aws-entity-resolution',
     'guides/advertiser-dataprovider-endpoints',
     'sharing/sharing-bid-stream'

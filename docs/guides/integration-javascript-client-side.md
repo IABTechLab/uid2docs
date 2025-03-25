@@ -10,7 +10,7 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # Client-Side Integration Guide for JavaScript
 
@@ -37,7 +37,7 @@ UID2 provides an SDK for JavaScript (see [SDK for JavaScript Reference Guide](..
 
 To implement, you'll need to complete the following steps:
 
-1. [Complete UID2 account setup](#complete-uid2-account-setup)
+1. [Complete UID2 account setup and configure account](#complete-uid2-account-setup-and-configure-account)
 2. [Add SDK for JavaScript to your site](#add-sdk-for-javascript-to-your-site)
 3. [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript)
 4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
@@ -48,13 +48,13 @@ Support for client-side token generation is available in version 3.4.5 and above
 
 The URL for the SDK is:
 
-- [https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js](https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js)
+- [https://cdn.prod.uidapi.com/uid2-sdk-4.0.1.js](https://cdn.prod.uidapi.com/uid2-sdk-4.0.1.js)
 
 In the following code examples, the placeholder `{{ UID2_JS_SDK_URL }}` refers to this URL.
 
 If you want to use a debug build of the SDK, use the following URL instead:
 
-- [https://cdn.integ.uidapi.com/uid2-sdk-3.4.5.js](https://cdn.integ.uidapi.com/uid2-sdk-3.4.5.js)
+- [https://cdn.integ.uidapi.com/uid2-sdk-4.0.1.js](https://cdn.integ.uidapi.com/uid2-sdk-4.0.1.js)
 
 ## Sample Implementation
 
@@ -68,11 +68,23 @@ For a sample implementation, see this example:
 
 <IntegratingWithSSO />
 
-## Complete UID2 Account Setup
+## Complete UID2 Account Setup and Configure Account
 
-Complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page. As part of the account setup process, you'll need to provide a list of **domain names** for the sites that you'll be using with this SDK for JavaScript.
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key).
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values that you'll need to provide. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+
+For a client-side integration you'll need to set up these values, in the UID2 Portal on the [Client-Side Integration](../portal/client-side-integration.md) page:
+
+- Subscription ID and Public Key: See [Adding and Managing Key Pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs)
+
+- A list of **domain names** for the sites on which you'll be using this SDK: See [Adding and Managing Root-Level Domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains)
+
+- Mobile App IDs (any that apply): See [Adding and Managing Mobile App IDs](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids)
+
+<!-- (earlier instructions, no-portal, for EUID)
+When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key). 
+-->
 
 :::tip
 Only root-level domains are required for account setup. For example, if you're going to use SDK for JavaScript on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
@@ -121,7 +133,7 @@ For more information about the SDK, see [SDK for JavaScript Reference Guide](../
 
 ### Using the UID2 Integration Environment
 
-By default, the SDK is configured to work with the UID2 production environment `https://prod.uidapi.com`. If you want to use the UID2 integration environment instead, provide the following URL in your call to `init`:
+By default, the SDK is configured to work with the UID2 production environment `https://prod.uidapi.com`. If you want to use the UID2 integration environment instead (for credentials, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials)), provide the following URL in your call to `init`:
 
 ```js
 __uid2.init({
@@ -129,7 +141,7 @@ __uid2.init({
 });
 ```
 :::note
-Tokens from the UID2 integration environment are not valid for passing to the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>. For the integration environment, you will have different **Subscription ID** and **public key** values.
+Tokens from the UID2 integration environment are not valid for passing to the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>. For the integration environment, you will have different **Subscription ID** and **public key** values. For information about getting credentials for each environment, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials).
 :::
 
 ### Optional: Specifying the API Base URL to Reduce Latency

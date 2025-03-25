@@ -38,7 +38,7 @@ DSP はビッドリクエストで UID2 Token を受け取り、この機能を�
 - [POST /optout/status Endpoint](#post-optoutstatus-endpoint)
 - [Bidding Opt-Out Logic](#bidding-opt-out-logic)
 
-UID2 の Opt-out ワークフローとユーザーがどのように Opt-out できるかの詳細については、[ユーザーオプトアウト](../getting-started/gs-opt-out.md) を参照してください。
+UID2 の Opt-out ワークフローとユーザーがどのように Opt-out できるかの詳細は、[ユーザーオプトアウト](../getting-started/gs-opt-out.md) を参照してください。
 
 #### Opt-Out Webhook
 

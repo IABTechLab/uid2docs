@@ -3,13 +3,13 @@
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  background-color: var(--c-dirty-socks);
+  background-color: var(--bg-docs-banner); // var is set in html styles
   margin-bottom: 1.875rem;
   align-items: center;
 
   h1,
   p {
-    color: var(--c-eleven-o-clock);
+    color: var(--text-docs-banner); // var is set in html styles
     text-align: center;
 
     @media only screen and (min-width: 996px) {
@@ -34,11 +34,11 @@
   }
 
   html[data-theme="dark"] & {
-    background-color: var(--c-primary-gray);
+    background-color: var(--bg-docs-banner-dark); // var is set in html styles
 
     h1,
     p {
-      color: var(--c-off-white);
+      color: var(--text-docs-banner-dark); // var is set in html styles
     }
   }
 }
@@ -55,10 +55,10 @@
 .icon {
   order: 1;
   margin-bottom: 1.3125rem;
-  color: var(--c-eleven-o-clock);
+  color: var(--text-docs-banner); // var is set in html styles
 
   html[data-theme="dark"] & {
-    color: var(--c-off-white);
+    color: var(--text-docs-banner-dark); // var is set in html styles
   }
 
   @media only screen and (min-width: 996px) {

@@ -26,7 +26,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 `POST '{environment}/v2/token/generate'`
 
-認証の詳細については、 [Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
+認証の詳細は、 [Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
 
 このエンドポイントリクエストについて知っておくべきことは、以下のとおりです:
 - サービスにアクセスする際に使用する <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link> を秘密にするため、 UID2 Token は認証後に Server-Side でのみ生成する必要があります。
@@ -128,7 +128,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","optout_chec
 | `advertising_token` | string | ユーザーの暗号化された Advertising Token (UID2) です。 |
 | `refresh_token` | string | UID2 Service と最新の identity トークンのセットを交換できる暗号化されたトークンです。 |
 | `identity_expires` | number | Advertising Token の有効期限を示す <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> タイムスタンプ (ミリ秒単位) です。 |
-| `refresh_from` | number | SDK for JavaScript ([SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください) が UID2 Token のリフレッシュを開始するタイミングを示す Unix タイムスタンプ(ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから UID2 Token もリフレッシュすることを検討してください。|
+| `refresh_from` | number | SDK for JavaScript ([SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照) が UID2 Token のリフレッシュを開始するタイミングを示す Unix タイムスタンプ(ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから UID2 Token もリフレッシュすることを検討してください。|
 | `refresh_expires` | number | Refresh Token の有効期限を示す Unix タイムスタンプ (ミリ秒単位) です。 |
 | `refresh_response_key` | string | [POST&nbsp;/token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。 |
 

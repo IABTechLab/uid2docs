@@ -10,12 +10,12 @@ sidebar_position: 04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import ExampleAdvertisingToken from '/docs/snippets/_example-advertising-token.mdx';
-import EnableLogging from '/docs/snippets/_mobile-docs-enable-logging.mdx';
-import GMAIMA_Plugins from '/docs/snippets/_mobile_docs_gmaima-plugin-gss.mdx';
-import PrebidMobileSDK from '/docs/snippets/_mobile_docs_prebid-mobile.mdx';
-import ErrorResponseStates from '/docs/snippets/_mobile-docs-error-response-states.mdx';
-import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
+import ExampleAdvertisingToken from '../snippets/_example-advertising-token.mdx';
+import EnableLogging from '../snippets/_mobile-docs-enable-logging.mdx';
+import GMAIMA_Plugins from '../snippets/_mobile_docs_gmaima-plugin-gss.mdx';
+import PrebidMobileSDK from '../snippets/_mobile_docs_prebid-mobile.mdx';
+import ErrorResponseStates from '../snippets/_mobile-docs-error-response-states.mdx';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # UID2 Client-Side Integration Guide for Mobile
 
@@ -38,7 +38,7 @@ For FAQs relating to mobile publisher integrations, see [FAQs for Mobile Integra
 
 To integrate with UID2 client-side, you'll need to complete the following steps:
 
-1. [Complete the UID2 account setup](#complete-the-uid2-account-setup).
+1. [Complete the UID2 account setup and configure account](#complete-uid2-account-setup-and-configure-account).
 
 1. [Add the UID2 mobile SDK to your mobile app](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 
@@ -195,15 +195,27 @@ If necessary, you can also change the default Subscription ID and public key to 
 
 <IntegratingWithSSO />
 
-## Complete the UID2 Account Setup
+## Complete UID2 Account Setup and Configure Account
 
-To set up your account, follow the steps described in [Account Setup](../getting-started/gs-account-setup.md). As part of the account setup process, you'll need to provide a list of <Link href="../ref-info/glossary-uid#gl-app-name">app names</Link> for all the mobile apps that you'll be integrating with the UID2 mobile SDKs, including any of these values that apply:
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-- Android Application ID
-- iOS Bundle Identifier
-- iOS App Store ID
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values that you'll need to provide. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
 
-When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them when you [configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk). For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key).
+For a mobile client-side integration you'll need to set up these values, in the UID2 Portal on the [Client-Side Integration](../portal/client-side-integration.md) page:
+
+- Subscription ID and Public Key: See [Adding and Managing Key Pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs)
+
+- Mobile App IDs: any of these values that apply:
+
+  - Android Application ID
+  - iOS Bundle Identifier
+  - iOS App Store ID
+
+    For details, see [Adding and Managing Mobile App IDs](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids)
+
+<!-- (earlier instructions, no-portal, for EUID)
+When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key). 
+-->
 
 ## Add the UID2 Mobile SDK to Your Mobile App
 
@@ -216,7 +228,7 @@ At this point, you are ready to start generating UID2 tokens using the SDK.
 
 ### Using the UID2 Integration Environment
 
-By default, the SDK is configured to work with the UID2 production environment: `https://prod.uidapi.com`. If you want to use the integration environment instead, provide the following URL in your call to initialize `UID2Manager`:
+By default, the SDK is configured to work with the UID2 production environment: `https://prod.uidapi.com`. If you want to use the UID2 integration environment instead (for credentials, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials)), provide the following URL in your call to initialize `UID2Manager`:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>

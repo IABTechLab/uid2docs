@@ -8,9 +8,9 @@ sidebar_position: 04
 ---
 
 import Link from '@docusaurus/Link';
-import AddPrebidjsToYourSite from '/docs/snippets/_prebid-add-prebidjs-to-your-site.mdx';
-import StoreUID2TokenInBrowser from '/docs/snippets/_prebid-storing-uid2-token-in-browser.mdx';
-import IntegratingWithSSO from '/docs/snippets/_integrating-with-sso.mdx';
+import AddPrebidjsToYourSite from '../snippets/_prebid-add-prebidjs-to-your-site.mdx';
+import StoreUID2TokenInBrowser from '../snippets/_prebid-storing-uid2-token-in-browser.mdx';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # UID2 Client-Server Integration Guide for Prebid.js
 
@@ -37,7 +37,7 @@ Information about how to integrate Prebid with UID2 is also in the following loc
 
 <!-- ## Integration Example
 
-GWH note 12/14/23: We have client-side and server-side examples for JS SDK but only server-side for Prebid. -->
+GWH note 12/14/23 updated 2/7/25: we have a client-side example for Prebid.js but no client-server example. -->
 
 ## Integrating with Single Sign-On (SSO)
 
@@ -47,15 +47,28 @@ GWH note 12/14/23: We have client-side and server-side examples for JS SDK but o
 
 You'll need to complete the following steps:
 
-1. [Complete UID2 account setup](#complete-uid2-account-setup).
+1. [Complete UID2 account setup and configure account](#complete-uid2-account-setup-and-configure-account).
 2. [Add Prebid.js to your site](#add-prebidjs-to-your-site).
 3. [Configure the UID2 module](#configure-the-uid2-module).
 
-## Complete UID2 Account Setup
+## Complete UID2 Account Setup and Configure Account
 
-Complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page.
+To integrate with UID2 using Prebid.js, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-When account setup is complete, you'll receive your unique API key and client secret. These values are unique to you and it's important to keep them secure. For details, see [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret).
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+
+For a client-server integration you'll need to set up these values, in the UID2 Portal on the [API Keys](../portal/api-keys.md) page:
+
+- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key
+- <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>, a value known only to the participant and the UID2 service
+
+:::important
+It's very important that you keep these values secure. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+:::
+
+<!-- (earlier instructions, no-portal, for EUID)
+When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key). 
+-->
 
 ## Add Prebid.js to Your Site
 
@@ -244,7 +257,7 @@ In planning your Prebid implementation, consider the following:
 
 - If you provide a new token that doesn't match the original token used to generate any refreshed tokens, the module discards all stored tokens and uses the new token instead, and keeps it refreshed.
 
-- During integration testing, set `params.uid2ApiBase` to `"https://operator-integ.uidapi.com"`. You must set this value to the same environment (production or integration) that you use for generating tokens.
+- During integration testing, set `params.uid2ApiBase` to `"https://operator-integ.uidapi.com"`. You must set this value to the same environment (production or integration) that you use for generating tokens (for credentials, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials)).
 
 - For a Prebid.js client-server integration, you can create a smaller Prebid.js build by disabling client-side integration functionality. To do this, pass the `--disable UID2_CSTG` flag:
 

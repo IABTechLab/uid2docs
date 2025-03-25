@@ -19,13 +19,19 @@ Server-Side で Python SDK を使用すると、UID2 を使用してクライア
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
 
+## UID2 Account Setup
+
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+
 ## API Permissions
 
-この SDK を使用するには、[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了する必要があります。
+アカウントの初期設定が完了すると、パブリッシャー、広告主、またはデータプロバイダーの場合、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。以下の操作が可能です:
+- アカウント用の [credentials](../getting-started/gs-credentials.md) を生成します。
+- オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
 
-SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。SDK には、使用する権限を持たない機能があるかもしれないことに留意してください。例えば、パブリッシャーはトークンの生成と更新のために特定の API Permissions を取得しますが、SDK は共有などの他のアクティビティをサポートするかもしれません。
+SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細については、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
-詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
+DSP の場合は、資格情報を送信します。
 
 ## Version
 
@@ -152,7 +158,7 @@ Decryption response codes, and their meanings, are shown in the following table.
 
 #### Client-Server Integration
 
-Client-Server インテグレーションを使用している場合 (詳細は [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください):
+Client-Server インテグレーションを使用している場合 (詳細は [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照):
 
 * Identity を JSON 文字列としてクライアントに返します (Client-Side で使用するための [identity field](../sdks/sdk-ref-javascript.md#initopts-object-void) で使用) するには、次の手順に従います:
 
@@ -166,7 +172,7 @@ Client-Server インテグレーションを使用している場合 (詳細は 
 
 ### Server-Side Integration
 
-Server-Side インテグレーションを使用している場合 (詳細は [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md) を参照してください):
+Server-Side インテグレーションを使用している場合 (詳細は [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md) を参照):
 
 1. `token_generate_response.get_identity_json_string()` 関数を使用して、ユーザーのセッションに JSON 文字列としてこの Identity を保存します。
 
@@ -297,7 +303,7 @@ client.refresh()
 ```
 
 3. トークンを raw UID2 に復号化します。トークンを渡し、次のいずれかを行います:
-* ビッドリクエストがパブリッシャーのウェブサイトから発信された場合、ドメイン名を渡します。ドメイン名は、すべて小文字で、スペースなし、サブドメインなしである必要があります。例えば、`Subdomain.DOMAIN.com` の場合、`domain.com` を渡します。
+* ビッドリクエストがパブリッシャーのウェブサイトから発信された場合、ドメイン名を渡します。ドメイン名は、すべて小文字で、スペースなし、サブドメインなしである必要があります。たとえば、`Subdomain.DOMAIN.com` の場合、`domain.com` を渡します。
 * ビッドリクエストがモバイルアプリから発信された場合、<Link href="../ref-info/glossary-uid#gl-app-name">app name</Link> を渡します。
 * それ以外の場合は、`null` を渡します。
 
@@ -316,7 +322,7 @@ else:
 
 UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Participant</Link> は、送信者または受信者として共有に参加し、他の参加者と UID2 を共有する企業です。
 
-広告主やデータプロバイダは、この SDK を使用して他の認証された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>)。彼らは [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、それを他の参加者に送信して共有できます (詳細は [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照してください)。データをピクセルで送信していない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) で示されている要件に従えば、UID2 共有に参加できます。
+広告主やデータプロバイダは、この SDK を使用して他の認証された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>)。彼らは [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、それを他の参加者に送信して共有できます (詳細は [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照)。データをピクセルで送信していない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) で示されている要件に従えば、UID2 共有に参加できます。
 
 :::important
 このプロセスで生成される UID2 Token は共有専用で、ビッドストリームでは使用できません。ビッドストリーム用のトークンを生成するには、[Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。

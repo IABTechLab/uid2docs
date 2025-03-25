@@ -12,7 +12,7 @@ import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
-UID2 Operator は、UID2 エコシステム内の API サーバーです。詳細については、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
+UID2 Operator は、UID2 エコシステム内の API サーバーです。詳細は、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
 このガイドでは、Microsoft Azureの機密コンピューティングオプションである [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers) のインスタンスで、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> として UID2 Operator Service をセットアップするための情報を提供します。Confidential Containers インスタンスは、データ整合性、データ機密性、およびコード整合性などの本質的な機能を提供する、ハードウェアでバックアップされた信頼できる実行環境（Trusted Execution Environment：TEE）で実行されます。
 
@@ -44,7 +44,7 @@ UID2 Private Operator をデプロイする前に、UID2 Service の Private Ope
 
 ### Install Azure CLI
 
-Azure CLI をインストールします。詳細については、Azure ドキュメントの [Azure CLI のインストール方法](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) を参照してください。
+Azure CLI をインストールします。詳細は、Azure ドキュメントの [Azure CLI のインストール方法](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) を参照してください。
 
 ### Get the Required Azure Permissions
 
@@ -52,7 +52,7 @@ Azure CLI をインストールします。詳細については、Azure ドキ�
 
 これが完了したら、リソースグループレベルでのコントリビューター権限のみが必要です。
 
-詳細については、Azure ドキュメントの [Azure roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) を参照してください。
+詳細は、Azure ドキュメントの [Azure roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) を参照してください。
 
 前提条件のすべての手順が完了したら、UID2 Private Operator をデプロイする準備が整います。[Deployment](#deployment) を参照してください。
 

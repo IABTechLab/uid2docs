@@ -42,7 +42,7 @@ Team Member ページにアクセスするには、UID2 Portal ユーザーイ�
 | Admin | Admin 権限を持つユーザーは、[UID2 Portal Overview](portal-overview.md) に記載されているように、現在の参加組織に関連する UID2 参加に関連するすべてのアクティビティを実行できます。 |
 | Operations | Operation 権限を持つユーザーは、Admin ユーザーとほぼ同じアクションを実行できます。ただし、いくつかの制限があります:<ul><li>チームメンバーを追加、変更、削除することはできません。代わりに、[Team Members](team-members.md) ページには読み取り専用アクセスがあります。</li><li>[Audit Trail](audit-trail.md) ページを表示できません。</li></ul> |
 
-ユーザー権限は、Admin 権限を持つユーザーのみが変更できます。詳細については、[Edit Information for a Team Member](#edit-information-for-a-team-member) を参照してください。
+ユーザー権限は、Admin 権限を持つユーザーのみが変更できます。詳細は、[Edit Information for a Team Member](#edit-information-for-a-team-member) を参照してください。
 
 ## Add a Team Member
 
@@ -98,7 +98,7 @@ Team Member の情報を編集するには、次の手順を実行します:
    - 名
    - 姓
    - 職務
-   - 役割: 役割についての詳細については、[User Roles](#user-roles) を参照してください。
+   - 役割: 役割についての詳細は、[User Roles](#user-roles) を参照してください。
    
    **Note**: 既存の Team Member のメールアドレスを更新することはできません。メールアドレスを変更する必要がある場合は、新しいメールアドレスを使用して新しい Team Member を追加します。これにより、メールアドレスの確認プロセスが正しく実行されます。このシナリオでは、古いメールアドレスの既存エントリも削除することを忘れないでください。
 1. 変更内容を保存します。

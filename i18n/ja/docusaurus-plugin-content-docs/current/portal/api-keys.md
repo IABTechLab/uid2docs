@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 # API Keys
 
 :::note
-いずれも、Client-Server または Server-Side の実装についての手順です。UID2 の実装が Client-Side であるか、一般に公開される場合は、異なる値を設定する必要があります。詳細については、[Client-Side Integration](client-side-integration.md) を参照してください。
+いずれも、Client-Server または Server-Side の実装についての手順です。UID2 の実装が Client-Side であるか、一般に公開される場合は、異なる値を設定する必要があります。詳細は、[Client-Side Integration](client-side-integration.md) を参照してください。
 :::
 
 UID2 Portal の **API Keys** ページでは、UID2 アカウントの API Key を管理するためのすべての操作を実行できます:
@@ -25,7 +25,7 @@ UID2 Portal の **API Keys** ページでは、UID2 アカウントの API Key �
 API Key とクライアント シークレットを使用すると、UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> に接続して API エンドポイントを呼び出すことができます。これらの値は、サービスに対してあなたを識別します。
 
 :::important
-UID2 Portal で API Key を追加するときは、キーとそれに対応するシークレットを安全に保存し、これらの値が漏洩しないようにするために必要な措置をすべて講じる必要があります。詳細については、[API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
+UID2 Portal で API Key を追加するときは、キーとそれに対応するシークレットを安全に保存し、これらの値が漏洩しないようにするために必要な措置をすべて講じる必要があります。詳細は、[API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
 :::
 
 各 API Keyは、1 年ごとにローテーションすることを勧めます。
@@ -101,7 +101,7 @@ API Key を削除するには、次の手順を実行します:
 
 ## Rotating an API Key
 
-API Key をローテーションすることをお勧めします。API Key をローテーションするには、次の手順を実行します:
+API Key をローテーションすることを勧めます。API Key をローテーションするには、次の手順を実行します:
 
 1. UID2 Portal で **API Keys** ページに移動します。
 1. リストでローテーションする Key を見つけます。

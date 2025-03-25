@@ -21,6 +21,10 @@ import Link from '@docusaurus/Link';
 
 AWS Entity Resolution を使用して UID2 とインテグレーションに関するビデオプレゼンテーションとデモについては、YouTube の [Getting Started with AWS Entity Resolution Integration with Unified ID 2.0](https://www.youtube.com/watch?v=ORbSsKMgVj8) を参照してください。
 
+:::tip
+広告主とデータプロバイダー向けのすべてのインテグレーションオプションと手順の概要については、[Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md) を参照してください。
+:::
+
 ## Functionality
 
 次の表は、AWS Entity Resolution インテグレーションで利用可能な機能をまとめたものです。
@@ -136,7 +140,7 @@ UID2 は、UID2 生成のためにメールアドレスまたは電話番号の�
 マッチングワークフローを作成するには、まず AWS Management コンソールにサインインし、**AWS Entity Resolution** ページを開き、**Workflows** > **Matching workflows** > **Create matching workflow** を選択します。次に、マッチングワークフローの以下のステップを完了します。
 
 1. 一致するワークフローについて、以下の詳細を指定します:
-   - **Name**: この値は必須です。短く、わかりやすく、直感的な名前を勧めます。例えば、会社名を指定する場合: `CompanyName_UID2_Daily_Matching`。
+   - **Name**: この値は必須です。短く、わかりやすく、直感的な名前を勧めます。たとえば、会社名を指定する場合: `CompanyName_UID2_Daily_Matching`。
    - **Description**: マッチングワークフローの説明(オプション)。
    - **Data input**: AWS のデータソース。ドロップダウンリストから、AWS Glue データベース、AWS Glue テーブル、スキーママッピングの順に選択します。データ入力は複数指定できます。以下の例では、メールアドレスのみを指定しています:
 

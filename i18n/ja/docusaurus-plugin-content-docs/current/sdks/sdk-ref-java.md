@@ -19,13 +19,19 @@ Server-Side で Java SDK を使用すると、UID2 を使用してクライア�
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#8212; |
 
+## UID2 Account Setup
+
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、最初に [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+
 ## API Permissions
 
-この SDK を使用するには、[Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従って、UID2 アカウントのセットアップを完了する必要があります。
+アカウントの初期設定が完了すると、パブリッシャー、広告主、またはデータプロバイダーの場合、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。以下の操作が可能です:
+- アカウント用の [credentials](../getting-started/gs-credentials.md) を生成します。
+- オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
 
-SDK が提供する特定の機能の使用許可が与えられ、そのアクセス用の認証情報が与えられます。SDK には、使用する権限を持たない機能があるかもしれないことに留意してください。例えば、パブリッシャーはトークンの生成と更新のために特定の API Permissions を取得しますが、SDK は共有などの他のアクティビティをサポートするかもしれません。
+SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細については、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
-詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
+DSP の場合は、資格情報を送信します。
 
 ## Version
 
@@ -151,7 +157,7 @@ SDK の HTTP 実装を使用している場合は、以下の手順に従って�
 
 #### Basic Usage, Client-Server Integration
 
-Standard Integration (Client and Server) を使用している場合([Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください)、このステップに従ってください：
+Standard Integration (Client and Server) を使用している場合([Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照)、このステップに従ってください：
 
 * この ID を JSON 文字列としてクライアントに送り返します ([identity field](../sdks/sdk-ref-javascript.md#initopts-object-void) で使用するため):
 
@@ -165,7 +171,7 @@ Standard Integration (Client and Server) を使用している場合([Client-Ser
 
 #### Basic Usage, Server-Side Integration
 
-Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md) を参照してください) を使用している場合は、以下の手順に従ってください:
+Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md) を参照) を使用している場合は、以下の手順に従ってください:
 
 1. `tokenGenerateResponse.getIdentityJsonString()` 関数を使用して、この ID をユーザーのセッションに JSON 文字列として格納します。
 
@@ -224,7 +230,7 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
    :::important
    <!-- - Be sure to call the POST&nbsp;/token/generate endpoint only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
 
-   - -->常に `doNotGenerateTokensForOptedOut()` を適用してください。これは POST&nbsp;/token/generate エンドポイントの呼び出しで `optout_check=1` を設定するのと同様のパラメータを適用します ([Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters) を参照してください)。
+   - -->常に `doNotGenerateTokensForOptedOut()` を適用してください。これは POST&nbsp;/token/generate エンドポイントの呼び出しで `optout_check=1` を設定するのと同様のパラメータを適用します ([Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters) を参照)。
    :::
 
    <!-- uid2_euid_diff re legal basis for admonition above (first bullet not in UID2) -->
@@ -237,7 +243,7 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
 
 #### Advanced Usage, Client-Server Integration
 
-Standard Integration (client and server) を使用している場合 ([Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください)、以下の手順に従ってください:
+Standard Integration (client and server) を使用している場合 ([Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照)、以下の手順に従ってください:
 
 * この ID を JSON 文字列としてクライアントに送り返します ([identity field](../sdks/sdk-ref-javascript.md#initopts-object-void) で使用するため):
 
@@ -251,7 +257,7 @@ Standard Integration (client and server) を使用している場合 ([Client-Se
 
 #### Advanced Usage, Server-Side Integration
 
-Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md) を参照してください) を使用している場合は、以下の手順に従ってください:
+Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md) を参照) を使用している場合は、以下の手順に従ってください:
 
 1. `tokenGenerateResponse.getIdentityJsonString()` を使用して、この ID をユーザーのセッションに JSON 文字列として保存します。
 
@@ -342,7 +348,7 @@ client.refresh();
 ```
 
 3. トークンを raw UID2に復号します。トークンを渡し、以下のいずれかを実行します:
-* ビッドリクエスト元がパブリッシャーのウェブサイトである場合は、ドメイン名を渡します。ドメイン名はすべて小文字で、スペースを入れず、サブドメインを含まないものでなければなりません。例えば、`Subdomain.DOMAIN.com` は `domain.com` を代わりに渡します。
+* ビッドリクエスト元がパブリッシャーのウェブサイトである場合は、ドメイン名を渡します。ドメイン名はすべて小文字で、スペースを入れず、サブドメインを含まないものでなければなりません。たとえば、`Subdomain.DOMAIN.com` は `domain.com` を代わりに渡します。
 *ビッドリクエストがモバイルアプリから発生した場合は、<Link href="../ref-info/glossary-uid#gl-app-name">app name</Link> を渡します。
 * 上記以外は `null` を渡します。
 
@@ -365,7 +371,7 @@ else
 
 UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Participant</Link> は、送信者または受信者として共有に参加し、他の参加者と UID2 を共有する企業です。
 
-広告主やデータプロバイダは、この SDK を使用して他の認証された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>)。彼らは [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、それを他の参加者に送信して共有できます (詳細は [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照してください)。データをピクセルで送信していない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) で示されている要件に従えば、UID2 共有に参加できます。
+広告主やデータプロバイダは、この SDK を使用して他の認証された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>)。彼らは [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、それを他の参加者に送信して共有できます (詳細は [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照)。データをピクセルで送信していない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) で示されている要件に従えば、UID2 共有に参加できます。
 
 :::important
 このプロセスで生成される UID2 Token は共有専用で、ビッドストリームでは使用できません。ビッドストリームで使用するには、別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。

@@ -1,24 +1,25 @@
 ---
-title: SDK for JavaScript (2.x and earlier versions)
-description: Reference information about earlier versions of the JavaScript client-side SDK.
+title: SDK for JavaScript (2.x and earlier)
+description: Reference information about 2.x and earlier versions of the JavaScript client-side SDK.
 hide_table_of_contents: false
 sidebar_position: 02
 ---
 
 import Link from '@docusaurus/Link';
-import ExampleUid2Cookie from '/docs/snippets/_example-uid2-cookie.mdx';
-import ExampleJavaScriptV2Init from '/docs/snippets/_example-javascript-v2-init.mdx';
+import ExampleUid2Cookie from '../snippets/_example-uid2-cookie.mdx';
+import ExampleJavaScriptV2Init from '../snippets/_example-javascript-v2-init.mdx';
 
-# SDK for JavaScript Reference Guide (2.x and earlier versions)
+# SDK for JavaScript Reference Guide (v2.x and earlier)
 
-:::tip
-This documentation is for earlier versions of the SDK for JavaScript. If you're using an earlier version, we recommend upgrading. See [SDK for JavaScript Reference Guide](sdk-ref-javascript.md), which includes a migration guide.
+:::important
+This documentation is for earlier versions of the SDK for JavaScript. If you're using an earlier version, we recommend upgrading. See [SDK for JavaScript Reference Guide](sdk-ref-javascript.md), which includes a migration guide to upgrade to the current version, v4.
 :::
 
 Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). 
 
-- For integration steps for content publishers, see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md).
-- For an [example application](https://example-jssdk-integ.uidapi.com/), with associated documentation, see the [UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/standard/README.md) guide.
+For integration steps for content publishers, see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md).
+
+For an [example application](https://example-jssdk-integ.uidapi.com/), with associated documentation, see the [UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk).
 
 ## Functionality
 
@@ -30,9 +31,9 @@ This SDK simplifies integration with UID2 for any publishers who want to support
 
 ## API Permissions
 
-To use this SDK, you'll need to complete the UID2 account setup by following the steps described in the [Account Setup](../getting-started/gs-account-setup.md) page.
+To use this SDK, you'll need to complete the UID2 account setup by following the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For example, publishers get a specific API permission to generate and refresh tokens, but the SDK might support other activities that require a different API permission.
+You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access.
 
 For details, see [API Permissions](../getting-started/gs-permissions.md).
 
@@ -45,11 +46,6 @@ This documentation is for version 2 of the SDK for JavaScript.
 This SDK is in the following open-source GitHub repository:
 
 - [https://github.com/iabtechlab/uid2-web-integrations](https://github.com/iabtechlab/uid2-web-integrations)
-
-<!-- The binary is published in these locations:
-
-- NPM: [https://www.npmjs.com/package/@uid2/uid2-sdk](https://www.npmjs.com/package/@uid2/uid2-sdk)
-- CDN: [https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js](https://cdn.prod.uidapi.com/uid2-sdk-${VERSION_ID}.js) (** v3 JS SDK: stash per SW 8/15/23**) -->
 
 ## Terminology
 
@@ -104,7 +100,7 @@ As part of the SDK [initialization](#initopts-object-void), a token auto-refresh
 Here's what you need to know about the token auto-refresh:
 
 - Only one call to the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint call can be active at a time.
-- If the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) response is unsuccessful because the user has opted out, or because the refresh token has expired, this suspends the background auto-refresh process. To use UID2-based targeted advertising again, you must obtain the email or phone number from the consumer ([isLoginRequired()](#isloginrequired-boolean) returns `true`). In all other cases, auto-refresh attempts continue in the background.
+- If the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) response is unsuccessful because the user has opted out, or because the refresh token has expired, this suspends the background auto-refresh process. To use UID2-based targeted advertising again if the refresh token has expired, you must obtain the email or phone number from the consumer ([isLoginRequired()](#isloginrequired-boolean) returns `true`). If the user has opted out, take no further steps. In all other cases, auto-refresh attempts continue in the background.
 - The [callback function](#callback-function) specified during the SDK initialization is invoked in the following cases:
 	- After each successful refresh attempt.
 	- After an initial failure to refresh an expired advertising token.
@@ -286,7 +282,7 @@ This function can also provide additional context for handling missing identitie
 
 | Value | Description |
 | :--- | :--- |
-| `true` | The identity is not available. This value indicates any of the following:<br/>- The user has opted out.<br/>- The refresh token has expired.<br/>- A first-party cookie is not available and no server-generated identity has been supplied. |
+| `true` | The identity is not available. This value indicates one of the following:<br/>- The refresh token has expired.<br/>- A first-party cookie is not available and no server-generated identity has been supplied. |
 | `false` | This value indicates one of the following:<br/>- The identity is present and valid.<br/>- The identity has expired, and the token was not refreshed due to an intermittent error. The identity might be restored after a successful auto-refresh attempt. |
 | `undefined` | The SDK initialization is not yet complete. |
 

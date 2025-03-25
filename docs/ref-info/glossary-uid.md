@@ -15,6 +15,7 @@ import Link from '@docusaurus/Link';
 **A**
 <a href="#gl-advertising-id">Advertising ID</a> | 
 <a href="#gl-advertising-token">Advertising token</a> | 
+<a href="#gl-aks">AKS</a> |
 <a href="#gl-api-key">API key</a> | 
 <a href="#gl-api-secret">API secret</a> | 
 <a href="#gl-app-name">App name</a> | 
@@ -50,6 +51,9 @@ import Link from '@docusaurus/Link';
 
 **F**
 <a href="#gl-first-level-hash">First-level hash</a> 
+
+**G**
+<a href="#gl-gdpr">GDPR</a>
 
 **H**
 <a href="#gl-hash">Hash</a> 
@@ -125,6 +129,13 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-advertising-token"><a href="#gl-advertising-token">Advertising token</a></MdxJumpAnchor></dt>
 <dd>Advertising token is another term for a <a href="#gl-uid2-token">UID2 token</a>.</dd>
 
+<dt><MdxJumpAnchor id="gl-aks"><a href="#gl-aks">AKS</a></MdxJumpAnchor></dt>
+<dd>AKS is an acronym for Azure Kubernetes Service. For details, see [What is Azure Kubernetes Service (AKS)?](https://learn.microsoft.com/en-us/azure/aks/what-is-aks) (Microsoft documentation).</dd>
+<dd>To run an AKS cluster on a confidential container, Microsoft offers a solution to run it on virtual nodes on Microsoft Azure container instances. For details, see [Virtual nodes on Azure Container Instances](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-virtual-nodes) (Microsoft documentation).</dd>
+<dd>In the context of UID2, AKS is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
+<dd>For details, see <a href="../guides/operator-guide-aks-enclave">UID2 Private Operator for AKS Integration Guide</a>.</dd>
+<!-- <dd>**new**</dd> -->
+
 <dt><MdxJumpAnchor id="gl-api-key"><a href="#gl-api-key">API key</a></MdxJumpAnchor></dt>
 <dd>Each UID2 <a href="../intro#participants">participant</a> using a server-side implementation has an API key (client key) and also a secret value associated with the key, called the <a href="#gl-client-secret">client secret</a> (API secret). The client secret is known only to the participant and the UID2 service.</dd>
 <dd>For details, see <a href="../getting-started/gs-credentials">UID2 Credentials</a>.</dd>
@@ -186,22 +197,19 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-confidential-computing"><a href="#gl-confidential-computing">Confidential Computing (GCP)</a></MdxJumpAnchor></dt>
 <dd>A Confidential Computing solution from Google Cloud Platform (GCP), Confidential Space, that is supported for hosting a UID2 <a href="#gl-private-operator">Private Operator</a>.</dd>
 <dd>For details, see <a href="#gl-confidential-space">Confidential Space</a>.</dd>
-<!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-confidential-containers"><a href="#gl-confidential-containers">Confidential containers (Azure)</a></MdxJumpAnchor></dt>
 <dd>Confidential Containers is the name of a secure confidential computing option from Microsoft Azure. Each Confidential Containers implementation runs in a hardware-backed Trusted Execution Environment (TEE) that provides intrinsic capabilities such as data integrity, data confidentiality, and code integrity.</dd>
 <dd>In the context of UID2, Confidential Containers from Azure is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
 <dd>For details, see <a href="../guides/operator-guide-azure-enclave">UID2 Private Operator for Azure Integration Guide</a>.</dd>
-<!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-confidential-space"><a href="#gl-confidential-space">Confidential Space (GCP)</a></MdxJumpAnchor></dt>
 <dd>Confidential Space is one of the Confidential Computing options from Google Cloud Platform (GCP). Confidential Space offers a secure enclave environment, known as a Trusted Execution Environment (TEE).</dd>
 <dd>In the context of UID2, GCP Confidential Space is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
 <dd>For details, see <a href="../guides/operator-private-gcp-confidential-space">UID2 Private Operator for GCP Integration Guide</a>.</dd>
-<!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-core-service"><a href="#gl-core-service">Core Service</a></MdxJumpAnchor></dt>
-<dd>The UID2 Core Service is a centralized service that manages access to <a href="#gl-salt">salts</a>, encryption keys, and other relevant data in the UID2 ecosystem.</dd>
+<dd>The UID2 Core Service is a centralized service that manages access to secret <a href="#gl-salt">salts</a>, encryption keys, and other relevant data in the UID2 ecosystem.</dd>
 <dd>For an overview of all the UID2 services, see <a href="../intro#components">Components</a>.</dd>
 
 </dl>
@@ -239,6 +247,11 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-encryption-key"><a href="#gl-encryption-key">Encryption key</a></MdxJumpAnchor></dt>
 <dd>Each <a href="#gl-uid2-token">UID2 token</a> is encrypted using an encryption key that's unique to the publisher that requested the token. The key identifies the publisher and is required for decrypting the token. This helps ensure that UID2 tokens cannot be decrypted by unauthorized individuals.</dd>
 
+<dt><MdxJumpAnchor id="gl-environment"><a href="#gl-environment">Environment</a></MdxJumpAnchor></dt>
+<dd>UID2 offers two environments: an integration environment for testing, and a production environment.</dd>
+<dd>If you're using both, you'll need to get a separate set of credentials for each environment.</dd>
+<dd>For details, see [Environments](../getting-started/gs-environments.md).</dd>
+
 <dt><MdxJumpAnchor id="gl-euid-framework"><a href="#gl-euid-framework">EUID framework</a></MdxJumpAnchor></dt>
 <dd>The European Unified ID (EUID) framework enables deterministic identity for advertising opportunities on the open internet for many participants across the advertising ecosystem. It enables publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework offers privacy controls designed to help participants meet local market requirements.</dd>
 <dd>EUID operates in the European region, including many European countries, such as France, Italy, and Spain, some non-European countries, such as Iceland, and some other regions, such as the Azores, Martinique, and the United Kingdom. It was designed with EU privacy law compliance in mind.</dd>
@@ -253,6 +266,15 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-first-level-hash"><a href="#gl-first-level-hash">First-level hash</a></MdxJumpAnchor></dt>
 <dd>In the context of UID2, the first-level hash is the anonymized, opaque, secure value from which the <a href="#gl-raw-uid2">raw UID2</a>, <a href="#gl-uid2-token">UID2 token</a>, and <a href="#gl-refresh-token">refresh token</a> are generated. Several cryptographic functions, including salting and hashing, are applied to the initial value, whether an email or a phone number, to create the first-level hash.</dd>
+
+</dl>
+
+### G
+
+<dl>
+
+<dt><MdxJumpAnchor id="gl-gdpr"><a href="#gl-gdpr">GDPR</a></MdxJumpAnchor></dt>
+<dd>The GDPR, or General Data Protection Regulation, is a European privacy and security law that regulates how organizations target or collect data related to residents of the European Union.</dd>
 
 </dl>
 
@@ -322,7 +344,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-operator"><a href="#gl-operator">Operator</a></MdxJumpAnchor></dt>
 <dd>An Operator is an organization or entity that runs the UID2 <a href="#gl-operator-service">Operator Service</a>. The UID2 Operator is the API server in the UID2 ecosystem.</dd>
-<dd>Operators perform multiple functions, such as receiving <a href="#gl-encryption-key">encryption keys</a> and <a href="#gl-salt">salts</a> from the UID2 Core Service, salting and hashing personal data (<Link href="#gl-dii">DII</Link>) to return raw UID2s, and encrypting raw UID2s to generate UID2 tokens.</dd>
+<dd>Operators perform multiple functions, such as receiving <a href="#gl-encryption-key">encryption keys</a> and secret <a href="#gl-salt">salts</a> from the UID2 Core Service, salting and hashing personal data (<Link href="#gl-dii">DII</Link>) to return raw UID2s, and encrypting raw UID2s to generate UID2 tokens.</dd>
 <dd>A participant can also choose to become a <a href="#gl-private-operator">Private Operator</a> to access UID2 APIs and to generate raw UID2s and UID2 tokens from within a private infrastructure.</dd>
 <dd>For details, see <a href="../intro#participants">participants</a> and <a href="../ref-info/ref-operators-public-private">The UID2 Operator</a>.</dd>
 
@@ -389,7 +411,7 @@ import Link from '@docusaurus/Link';
 <dl>
 
 <dt><MdxJumpAnchor id="gl-salt"><a href="#gl-salt">Salt</a></MdxJumpAnchor></dt>
-<dd>A string of characters that is used in the process of transforming an email address or phone number into a secure, opaque value that cannot by itself be traced back to the original value (raw UID2 or UID2 token).</dd>
+<dd>A string of characters that is used in the process of transforming an email address or phone number into a secure, opaque value that cannot by itself be traced back to the original value (raw UID2 or UID2 token). Salt values are kept secret.</dd>
 <dd>The UID2 service uses salt as part of the process, along with hashing and encryption, to secure the original value. Salt is added to the input value before hashing.</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket"><a href="#gl-salt-bucket">Salt bucket</a></MdxJumpAnchor></dt>
@@ -397,7 +419,7 @@ import Link from '@docusaurus/Link';
 <dd>There are just over one million salt buckets, and each email address or phone number is assigned to a specific bucket in a deterministic manner. However, this assignment is not permanent; it might change when the bucket's current secret salt is rotated to a new value.</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket-id"><a href="#gl-salt-bucket-id">Salt bucket ID</a></MdxJumpAnchor></dt>
-<dd>A salt bucket ID is a unique string of characters that identifies a specific <a href="#gl-salt-bucket">salt bucket</a>. The salt bucket ID can be used to check which salt buckets have recently had their salt values updated, indicating which emails or phone numbers need their raw UID2 values regenerated.</dd>
+<dd>A salt bucket ID is a unique string of characters that identifies a specific <a href="#gl-salt-bucket">salt bucket</a>. The salt bucket ID can be used to check which salt buckets have recently had their secret salt values updated, indicating which emails or phone numbers need their raw UID2 values regenerated.</dd>
 <dd>For an example of a salt bucket ID, see the response to the `POST /identity/buckets` endpoint: <a href="../endpoints/post-identity-buckets#decrypted-json-response-format">Decrypted JSON Response Format</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-salted-hash"><a href="#gl-salted-hash">Salted hash</a></MdxJumpAnchor></dt>
@@ -493,7 +515,7 @@ import Link from '@docusaurus/Link';
 <dd>The token value is opaque: No assumptions should be made about the format or about the length of the string.</dd>
 <dd>The token has a limited life, but can be refreshed in the background using the <a href="#gl-refresh-token">refresh token</a>.</dd>
 <dd>Publishers send UID2 tokens in the bidstream.</dd>
-<dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a> and <a href="ref-tokens#uid2-tokens-key-information">UID2 Tokens: Key Information</a>.</dd>
+<dd>For details, see <a href="../intro#uid2-identifier-types">UID2 Identifier Types</a>, <a href="ref-tokens#uid2-tokens-key-information">UID2 Tokens: Key Information</a>, and <a href="ref-how-uid-is-created">How the UID2 Token Is Created</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-unified-id-20"><a href="#gl-unified-id-20">Unified ID 2.0</a></MdxJumpAnchor></dt>
 <dd>The term UID2 can be used to mean the <a href="#gl-uid2-framework">UID2 framework</a>, the <a href="#gl-uid2-service">UID2 service</a>, a <a href="#gl-raw-uid2">raw UID2</a>, or a <a href="#gl-uid2-token">UID2 token</a> (advertising token).</dd>
