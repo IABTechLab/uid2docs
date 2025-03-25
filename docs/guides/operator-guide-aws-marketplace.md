@@ -364,7 +364,7 @@ Error codes for Private Operator startup issues are applicable only to release v
 | E01 | InstanceProfileMissingError |  Attach an IAM instance profile to the EC2 instance with the required permissions. The UID2 Operator needs these permissions to access configurations from AWS Secrets Manager. |
 | E02 | OperatorKeyNotFoundError | Make sure that the secret referenced by the Private Operator exists in AWS Secrets Manager in the same region as the operator, and that the IAM instance profile has permission to access the secret. If needed, you can check the logs for the specific secret name and region. |
 | E03 | ConfigurationMissingError | Required attributes are missing in the configuration. Refer to the logs for details and update the missing attributes in Secrets Manager. |
-| E04 | ConfigurationValueError | A configuration value is invalid. Verify that the configuration values in the AWS Secrets Manager align with the required format and environment. Note: `debug = true` is allowed only in the `integ` environment. Check the logs for more details. |
+| E04 | ConfigurationValueError | A configuration value is invalid. Verify that the configuration values in the AWS Secrets Manager align with the required format and environment. Note: `debug_mode = true` is allowed only in the `integ` environment. Check the logs for more details. |
 | E05 | OperatorKeyValidationError | Ensure the operator key is correct for the environment and matches the one provided to you. |
 | E06 | UID2ServicesUnreachableError | Allow UID2 core and opt-out service IP addresses in the egress firewall. For IP addresses and DNS details, refer to the logs.  |
 
