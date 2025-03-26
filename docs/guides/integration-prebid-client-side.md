@@ -184,23 +184,36 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 
 ## Updating Prebid After Page Load
 
-There are some scenarios where you may need to update prebid data after the page as loaded.  When a user logs out, for example, you will need to stop sending the UID2 token, and if a user logs back in or logs in with a different email, you will need to update the prebid data.  There are a few steps to accomplish this.  
+ In some scenarios, you might need to update Prebid.js data after the page has loaded. For example, when a user logs out, you must stop sending the UID2 token, and then, if a user logs back in or logs in with a different email, you must update the Prebid.js data.
+ 
+ Follow these steps:
 
-1. <b>Clear Existing Identity:</b>
-In order to change the UID2 token, you must clear where it is being stored - whether in local storage (default) or in a cookie. If you do not do this step, the following two functions will not overwrite the stored token and prebid will continue fetching this stored identity.  If in local storage, you will run `localStorage.removeItem('__uid2_advertising_token')` and if in a cookie, `document.cookie = '__uid2_advertising_token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;'`. 
+1. **Clear Existing Identity**:
 
-2. <b>Update Config:</b>
-If you want to handle the user logging out, use `pbjs.setConfig()` with empty params. 
-To update the config to a new email, use `pbjs.mergeConfig()` (https://docs.prebid.org/dev-docs/publisher-api-reference/mergeConfig.html) which is similar to `pbjs.setConfig()` but merges, rather than resets.  You'll send the same options as setConfig, but with the updated user email.
+   In order to change the UID2 token, you must clear it from storage. Run one of the following functions to overwrite the stored token. If you don't do this, Prebid.js continues to fetch the stored identity. Run the applicable function:
+   
+   - If the token is in local storage:
+   
+     `localStorage.removeItem('__uid2_advertising_token')`
+   
+   - If the token is stored in a cookie:
+   
+      `document.cookie = '__uid2_advertising_token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;'`
 
+2. **Update Config**:
 
-3.<b>Refresh:</b>
-Once the config has been updated accordingly, call `pbjs.refreshUserIds()` (https://docs.prebid.org/dev-docs/publisher-api-reference/refreshUserIds.html) to reinitialize.
+   If you want to handle the user logging out, use `pbjs.setConfig()` with empty params.
 
-You can verify the user has logged out by calling `pbjs.getUserIds().uid2` and verifying it is an empty object (`{}`).  You can verify the token has changed by calling `pbjs.getUserIds().uid2` before and after the three steps and checking that the token has changed.
+   To update the config to a new email, use `pbjs.mergeConfig()` (see [pbjs.mergeConfig()](https://docs.prebid.org/dev-docs/publisher-api-reference/mergeConfig.html) in the Prebid.js documentation). This function is similar to `pbjs.setConfig()`, but it merges rather than resets. You'll send the same options as `setConfig`, but with the updated user email.
 
+3. **Refresh**:
+
+   When the config has been updated, call `pbjs.refreshUserIds()` (see [pbjs.refreshUserIds()](https://docs.prebid.org/dev-docs/publisher-api-reference/refreshUserIds.html) in the Prebid.js documentation) to reinitialize.
+
+You can verify that the user has logged out by calling `pbjs.getUserIds().uid2` and verifying that it is an empty object (`{}`). You can verify that the token has changed by calling `pbjs.getUserIds().uid2` before and after the three steps and checking that the token has changed.
 
 Example Code:
+
 ```js
 function handleLogout() {
   localStorage.removeItem('__uid2_advertising_token');
