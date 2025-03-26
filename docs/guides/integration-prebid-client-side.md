@@ -184,14 +184,13 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 
 ## Updating Prebid After Page Load
 
-There are some scenarios where you may want to update prebid data after the page as loaded.  When a user logs out, for example, you will need to stop sending the UID2 token, and if a user logs back in or logs in with a different email, you will need to update the prebid data.  There are a few steps to accomplish this.  
+There are some scenarios where you may need to update prebid data after the page as loaded.  When a user logs out, for example, you will need to stop sending the UID2 token, and if a user logs back in or logs in with a different email, you will need to update the prebid data.  There are a few steps to accomplish this.  
 
 1. <b>Clear Existing Identity:</b>
-In order to change the UID2 token, you must clear where it is being stored - whether in local storage (like in our sample site) or in a cookie.  If in local storage, you will want to run `localStorage.removeItem('__uid2_advertising_token')`.  If you do not do this step, the following two functions will not overwrite the stored token and prebid will continue fetching this stored identity.
+In order to change the UID2 token, you must clear where it is being stored - whether in local storage (default) or in a cookie. If you do not do this step, the following two functions will not overwrite the stored token and prebid will continue fetching this stored identity.  If in local storage, you will run `localStorage.removeItem('__uid2_advertising_token')` and if in a cookie, `document.cookie = '__uid2_advertising_token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;'`. 
 
 2. <b>Update Config:</b>
-If you want to handle the user logging out, use `pbjs.setConfig()` with empty params.
-
+If you want to handle the user logging out, use `pbjs.setConfig()` with empty params. 
 To update the config to a new email, use `pbjs.mergeConfig()` (https://docs.prebid.org/dev-docs/publisher-api-reference/mergeConfig.html) which is similar to `pbjs.setConfig()` but merges, rather than resets.  You'll send the same options as setConfig, but with the updated user email.
 
 
