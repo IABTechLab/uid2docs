@@ -182,6 +182,59 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 - Chrome web store download location: [Professor Prebid](https://chromewebstore.google.com/detail/professor-prebid/kdnllijdimhbledmfdbljampcdphcbdc)
 - Documentation on prebid.org: [Professor Prebid User Guide](https://docs.prebid.org/tools/professor-prebid.html)
 
+## Updating Prebid After Page Load
+
+There are some scenarios where you may want to update prebid data after the page as loaded.  When a user logs out, for example, you will need to stop sending the UID2 token, and if a user logs back in or logs in with a different email, you will need to update the prebid data.  There are a few steps to accomplish this.  
+
+1. <b>Clear Existing Identity:</b>
+In order to change the UID2 token, you must clear where it is being stored - whether in local storage (like in our sample site) or in a cookie.  If in local storage, you will want to run `localStorage.removeItem('__uid2_advertising_token')`.  If you do not do this step, the following two functions will not overwrite the stored token and prebid will continue fetching this stored identity.
+
+2. <b>Update Config:</b>
+If you want to handle the user logging out, use `pbjs.setConfig()` with empty params.
+
+To update the config to a new email, use `pbjs.mergeConfig()` (https://docs.prebid.org/dev-docs/publisher-api-reference/mergeConfig.html) which is similar to `pbjs.setConfig()` but merges, rather than resets.  You'll send the same options as setConfig, but with the updated user email.
+
+
+3.<b>Refresh:</b>
+Once the config has been updated accordingly, call `pbjs.refreshUserIds()` (https://docs.prebid.org/dev-docs/publisher-api-reference/refreshUserIds.html) to reinitialize.
+
+You can verify the user has logged out by calling `pbjs.getUserIds().uid2` and verifying it is an empty object (`{}`).  You can verify the token has changed by calling `pbjs.getUserIds().uid2` before and after the three steps and checking that the token has changed.
+
+
+Example Code:
+```js
+function handleLogout() {
+  localStorage.removeItem('__uid2_advertising_token');
+  pbjs.setConfig({ 
+    userSync: { 
+      userIds: [{ 
+        name: 'uid2', 
+        params: {} 
+      }] 
+    } 
+  });
+  await pbjs.refreshUserIds() ;
+}
+
+function handleNewEmail() {
+  localStorage.removeItem('__uid2_advertising_token');
+  const params = {}; 
+  params.email = // new email
+  params.serverPublicKey = publicKey; 
+  params.subscriptionId = subscriptionId; 
+
+  pbjs.mergeConfig({ 
+    userSync: { 
+      userIds: [{ 
+        name: 'uid2', 
+        params: params
+      }] 
+    } 
+  });
+  await pbjs.refreshUserIds() ;
+}
+```
+
 ## Optional: Specifying the API Base URL to Reduce Latency
 
 By default, the UID2 module makes calls to a UID2 production environment server in the USA.
