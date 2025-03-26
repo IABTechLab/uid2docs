@@ -190,7 +190,7 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 
 1. **Clear Existing Identity**:
 
-   In order to change the UID2 token, you must clear it from storage. Run one of the following functions to overwrite the stored token. If you don't do this, Prebid.js continues to fetch the stored identity. Run the applicable function:
+   In order to change the UID2 token, you must clear it from storage: local storage (the default) or a cookie. Run one of the following functions to overwrite the stored token. If you don't do this, Prebid.js continues to fetch the stored identity. Run the applicable function:
    
    - If the token is in local storage:
    
@@ -210,7 +210,11 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 
    When the config has been updated, call `pbjs.refreshUserIds()` (see [pbjs.refreshUserIds()](https://docs.prebid.org/dev-docs/publisher-api-reference/refreshUserIds.html) in the Prebid.js documentation) to reinitialize.
 
-You can verify that the user has logged out by calling `pbjs.getUserIds().uid2` and verifying that it is an empty object (`{}`). You can verify that the token has changed by calling `pbjs.getUserIds().uid2` before and after the three steps and checking that the token has changed.
+:::tip
+You can verify that the steps were successful by calling one of these functions:
+- Logout: Call `pbjs.getUserIds().uid2`. If the user has logged out, the response is an empty object (`{}`).
+- Token update: Call `pbjs.getUserIds().uid2` before and after the three steps, and compare the results.
+:::
 
 Example Code:
 
