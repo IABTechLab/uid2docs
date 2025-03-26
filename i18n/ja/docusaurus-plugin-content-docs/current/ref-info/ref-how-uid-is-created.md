@@ -18,7 +18,7 @@ import Link from '@docusaurus/Link';
 パブリッシャーによってはいくつかの事前作業が行われますが、ほとんどの処理ステップは UID2 Operator によって行われます。
 
 パブリッシャーの手順を正しい順序で実行することが非常に重要です:
-- 手順が順番に実行された場合、その結果の値は、同じ個人のオンラインアクティビティから生成された他の [UID2 identifiers](uid-infrastructure.md#uid2-identifier-types) と関連付けられることが認識されます: 基礎となる [raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) は、同じ DII から生成された他の UID2 参加者による raw UID2 と一致し、したがってそのトークンはターゲティング広告に適しています。
+- 手順が順番に実行された場合、その結果の値は、同じ個人のオンラインアクティビティから生成された他の [UID2 identifier types](uid-identifier-types.md) と関連付けられることが認識されます: 基礎となる [raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) は、同じ DII から生成された他の UID2 参加者による raw UID2 と一致し、したがってそのトークンはターゲティング広告に適しています。
 - 順序を間違えると、その結果の値は、同じ個人のオンラインアクティビティから生成された他の UID2 identifiers と関連付けられることができません。そのため、そのトークンはターゲティング広告に適していません。
 
 概要については、[Steps to Create a UID2 Token](#steps-to-create-a-uid2-token) を参照してください。図形式の例については、[Creating a UID2 Token&#8212;Example](#creating-a-uid2-tokenexample) を参照してください。

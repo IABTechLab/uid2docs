@@ -12,7 +12,7 @@ import Link from '@docusaurus/Link';
 
 With its transparent and interoperable approach, UID2 provides a collaborative framework for many participants across the advertising ecosystem—advertisers, publishers, DSPs, SSPs, single sign-on (SSO) providers, customer data platforms (CDPs), consent management providers (CMPs), identity providers, third-party data providers, and measurement providers.
 
-The following tables list the key participants and their roles in the UID2 [workflows](../ref-info/uid-infrastructure.md#workflows). They are grouped into three categories:
+The following tables list the key participants and their roles in the [UID2 workflows](../ref-info/uid-workflows.md). They are grouped into three categories:
 
 - [UID2 Component Services](#uid2-component-services)
 - [UID2 External Participants](#uid2-external-participants)
@@ -22,7 +22,7 @@ The following tables list the key participants and their roles in the UID2 [work
 
 The following table summarizes information about key participant components of the UID2 service.
 
-For a diagram of how the different services work together, see [UID2 Workflows](../ref-info/uid-infrastructure.md#workflows).
+For a diagram of how the different services work together, see [UID2 Workflows](../ref-info/uid-workflows.md).
 
 | Participant | Role Description |
 | :--- | :--- |

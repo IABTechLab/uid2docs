@@ -29,7 +29,9 @@ const fullSidebar = [
     },
     collapsed: false,
     items: [
-      'ref-info/uid-infrastructure',
+      'ref-info/uid-identifier-types',
+      'ref-info/uid-components',
+      'ref-info/uid-workflows',
     ],
   },
  

@@ -46,6 +46,13 @@ UID2 フレームワークは、以下の技術原則に基づいて構築され
 
 - **Self-reliant**: UID2 は、リアルタイムビディング (RTB) データの処理において外部サービスに依存しません。
 
+## Elements of the UID2 Infrastructure
+
+- [UID2 Identifier Types](ref-info/uid-identifier-types.md)
+- [UID2 Components](ref-info/uid-components.md)
+- [UID2 Participants](overviews/participants-overview.md)
+- [Workflows](ref-info/uid-workflows.md)
+
 <!-- ## Elements of the UID2 Infrastructure
 
 以下のセクションでは、UID2 フレームワークのインフラストラクチャの主要な要素について説明し、図解します:
