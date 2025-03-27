@@ -206,7 +206,7 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 
    If you want to handle the user logging out, use `pbjs.setConfig()` with empty params.
 
-   To handle new DII , use `pbjs.setConfig()`, sending the same options, but with the updated DII value instead.
+   To handle new DII , use `pbjs.setConfig()`, sending the same options as the initial `setConfig` call, but with the updated DII value instead.
 
 3. **Refresh**:
 
