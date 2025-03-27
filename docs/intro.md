@@ -32,7 +32,7 @@ The UID2 framework has the following principles as its foundation:
 
 - **Consumer control**: Consumers can opt out of UID2 at any time through the [Transparency and Control Portal](https://www.transparentadvertising.com/).
 
-### Technical Design Principles
+## Technical Design Principles
 
 The UID2 framework is built on the following technical principles:
 
@@ -48,16 +48,12 @@ The UID2 framework is built on the following technical principles:
 
 ## Elements of the UID2 Infrastructure
 
-For information about key elements of the UID2 infrastructure, refer to the following pages:
+For information about key elements of the UID2 infrastructure, and other aspects of UID2, refer to the following pages:
 
 - [UID2 Identifier Types](ref-info/uid-identifier-types.md)
 - [UID2 Components](ref-info/uid-components.md)
 - [UID2 Participants](overviews/participants-overview.md)
 - [Workflows](ref-info/uid-workflows.md)
-
-## Components
-
-For details, see [UID2 Component Services](overviews/participants-overview.md#uid2-component-services).
 
 ## FAQs
 

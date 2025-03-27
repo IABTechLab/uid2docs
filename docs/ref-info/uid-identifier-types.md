@@ -1,6 +1,6 @@
 ---
 title: UID2 Identifier Types
-description: Summary of xxx.
+description: Information about UID2 identifier types (raw UID2s and UID2 tokens).
 hide_table_of_contents: false
 sidebar_position: 01
 displayed_sidebar: docs

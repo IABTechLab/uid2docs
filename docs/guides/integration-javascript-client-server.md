@@ -124,8 +124,6 @@ Based on the status and availability of a valid identity, the SDK does the follo
 1. Stores identity information in [local storage or a first-party cookie](../sdks/sdk-ref-javascript.md#uid2-storage-format).
 1. Uses the identity information to initiate requests for targeted advertising.
 
-<!-- (**GWH_TODO. Q: Not sure about the relationship between the steps above and the table below. And the diagram 2-a which says "the publisher calls the SSP for ads using the UID2 token". A: Diagram needs to be updated.**) -->
-
 The bidding step is shown in the following table.
 
 | Step | Endpoint/SDK | Description |

@@ -16,7 +16,7 @@ UID2 は、広告エコシステム全体の多くの [参加者](overviews/part
 「UID2」という用語は、フレームワークと実際の識別子のいずれかを指すことがあります。特に断りのない限り、このページでは UID2 フレームワークの概要を説明します。
 :::
 
-### Guiding Principles
+## Guiding Principles
 
 UID2 フレームワークは、以下の原則を基本としています:
 
@@ -32,7 +32,7 @@ UID2 フレームワークは、以下の原則を基本としています:
 
 - **Consumer control**: 消費者はいつでも [Transparency and Control Portal](https://www.transparentadvertising.com/) を通じて UID2 からの脱退を選択できます。
 
-### Technical Design Principles
+## Technical Design Principles
 
 UID2 フレームワークは、以下の技術原則に基づいて構築されています:
 
@@ -74,10 +74,6 @@ UID2 は、メールアドレスや電話番号など、<Link href="ref-info/glo
 :::note
 これらの例で使用されている架空のメールアドレス `user@example.com` に対応する Refresh Token は次のとおりです: `AAAABrexFHvQVhNJqu+y/ua7rsgShF8e9NUXUJOZFmeFRD8TAsJadaLfOlLkwC5iSxcOKWFD9YwMBzbbcPa92CInba+bcPTaAFNmM2ZpIHgGy6lDcNPzvEnPQh/5fyZ3MD44SX/tHyIXa0R2OBAOLBA1A81r3jefhSsxZdyyBF58KtnaX6UbaeOEaguOfMnJdmhaPeWKj33v7vGfROWtxDWmi6wvGL5lHTX9H6iIZ9i1WSsemYPUgmoDOQeT7nzllJK968OECFj5LkCazDN3pCrYSeuJby9o0fMuSZNxzp6EVzi6XVED4ETtzpcaY0AArzzdh0IXV9MgH8jyg7bJSUWXQG+8kMPZzwbs9EB+7ddAUOLZL/GBna8Hm3Im03EjN3sJ`.
 ::: -->
-
-### Components
-
-詳細については、[UID2 Component Services](overviews/participants-overview.md#uid2-component-services)
 
 <!-- ### Participants 
 
