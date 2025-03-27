@@ -92,8 +92,6 @@ To deploy a new UID2 Private Operator for AKS, you'll need to complete the follo
 
 ### Download ZIP File and Extract Files
 
-[**KC__GWH01 I've commented out some of what we had -- it doesn't make sense to include the table unless we add AKS to the release matrix. We need to include instructions to get the file. What I'm putting here is just a guess... please fix as needed.**]
-
 To get set up with the installation files, follow these steps:
 
 1. Ask your UID2 contact for the ZIP file containing the deployment files.
@@ -116,8 +114,6 @@ The latest ZIP file is linked in the AKS Download column in the following table.
 
 Run the following commands to prepare environment variables that you'll use later. Choose variable names to suit your needs.
 
-[**KC__GWH02 do we need to say where they need to run these commands? Maybe not... just checking. At the Azure command line?**]
-
 ```
 export RESOURCE_GROUP="my-vn-aks"
 export LOCATION="eastus"
@@ -135,7 +131,7 @@ export DEPLOYMENT_ENV="integ"
 
 ### Set Up AKS and Node Pool
 
-To set up AKS and the node pool, complete the following steps: [**KC__GWH03 do they have to be done in sequence? If so we could use numbers rather than bullets**]
+To set up AKS and the node pool, complete the following steps:
 
 - [Create Resource Group](#create-resource-group)
 - [Create Virtual Network](#create-virtual-network)
@@ -172,7 +168,7 @@ There are some limitations with regard to location:
 
 #### Create Virtual Network
 
-To create the virtual network, run the following command, using your own values as needed: [**KC__GWH04 please verify the intro line/modify as needed**]
+To create the virtual network, run the following command, using your own values as needed:
 
 ```
 az network vnet create \
@@ -184,7 +180,7 @@ az network vnet create \
 
 #### Create Subnets
 
-To create the subnets, run the following command, using your own values as needed: [**KC__GWH05 please verify the intro line/modify as needed**]
+To create the subnets, run the following command, using your own values as needed:
 
 ```
 # Default Subnet (10.0.0.0/24)
@@ -212,7 +208,7 @@ az network vnet subnet create \
 
 #### Create Public IP Address
 
-To create the public IP address, run the following command, using your own values as needed: [**KC__GWH06 please verify the intro line/modify as needed**]
+To create the public IP address, run the following command, using your own values as needed:
 
 ```
 az network public-ip create --name ${PUBLIC_IP_ADDRESS_NAME} --resource-group ${RESOURCE_GROUP} --sku standard --allocation static
@@ -220,7 +216,7 @@ az network public-ip create --name ${PUBLIC_IP_ADDRESS_NAME} --resource-group ${
 
 #### Create NAT Gateway
 
-To create the [Azure Network Address Translation (NAT) gateway](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview), run the following command, using your own values as needed: [**KC__GWH07 please verify the intro line/modify as needed**]
+To create the [Azure Network Address Translation (NAT) gateway](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview), run the following command, using your own values as needed:
 
 ```
 az network nat gateway create \
@@ -232,7 +228,7 @@ az network nat gateway create \
 
 #### Configure NAT Service for Source Subnet
 
-To configure the NAT service, run the following command, using your own values as needed: [**KC__GWH08 please verify the intro line/modify as needed**]
+To configure the NAT service, run the following command, using your own values as needed:
 
 ```
 az network vnet subnet update \
@@ -244,7 +240,7 @@ az network vnet subnet update \
 
 #### Get the AKS Subnet ID
 
-To create the AKS subnet ID, run the following command, using your own values as needed: [**KC__GWH09 please verify the intro line/modify as needed**]
+To create the AKS subnet ID, run the following command, using your own values as needed:
 
 ```
 export AKS_SUBNET_ID=$(az network vnet subnet show \
@@ -257,7 +253,7 @@ export AKS_SUBNET_ID=$(az network vnet subnet show \
 
 #### Create an AKS Service
 
-To create the AKS service, run the following command, using your own values as needed: [**KC__GWH10 please verify the intro line/modify as needed**]
+To create the AKS service, run the following command, using your own values as needed:
 
 ```
 # Create the AKS cluster
@@ -284,7 +280,7 @@ az aks create \
 
 #### Get the Principal ID of the Managed Identity
 
-To get the Principal ID, run the following command, using your own values as needed: [**KC__GWH11 please verify the intro line/modify as needed.**]
+To get the Principal ID, run the following command, using your own values as needed:
 
 ```
 export MANAGED_IDENTITY_PRINCIPAL_ID="$(az aks show --resource-group ${RESOURCE_GROUP} --name ${AKS_CLUSTER_NAME} --query "identityProfile.kubeletidentity.clientId" --output tsv)"
@@ -294,7 +290,7 @@ For details, see [Get the principal ID of the system-assigned managed identity](
 
 #### Create Contributor Role for the Two Resource Groups
 
-To create the contributor role for each group, run the following commands, using your own values as needed: [**KC__GWH12 please verify the intro line/modify as needed**]
+To create the contributor role for each group, run the following commands, using your own values as needed:
 
 ```
 az role assignment create \
@@ -314,7 +310,7 @@ Additional reference information in external documentation:
 
 ### Set Up AKS Cluster
 
-To set up the AKS cluster, run the following command, using your own values as needed: [**KC__GWH13 please verify the intro line/modify as needed**]
+To set up the AKS cluster, run the following command, using your own values as needed:
 
 ```
 az aks get-credentials --name ${AKS_CLUSTER_NAME} --resource-group ${RESOURCE_GROUP}

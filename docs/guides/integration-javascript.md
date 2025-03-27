@@ -37,7 +37,7 @@ The options for integrating with UID2 using the SDK for JavaScript are summarize
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |
 | You have access to DII on the client side and want to do front-end development only. | Client-side integration | [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) |
-| You have access to DII on the server side and can do server-side development, or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Server-side integration | [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) |
+| You have access to DII on the server side and can do server-side development, or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Client-server integration | [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) |
 
 ## Complete UID2 Account Setup and Configure Account
 
