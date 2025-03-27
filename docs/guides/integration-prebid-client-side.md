@@ -190,7 +190,9 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 
 1. **Clear Existing Identity**:
 
-   In order to change the UID2 token, you must clear it from storage: local storage (the default) or a cookie. Run one of the following functions to overwrite the stored token. If you don't do this, Prebid.js continues to fetch the stored identity. Run the applicable function:
+   In order to stop sending the UID2 token, you must clear it from storage: local storage (the default) or a cookie. If you don't do this, Prebid.js continues to fetch the stored identity.
+   
+   Run the applicable function:
    
    - If the token is in local storage:
    
@@ -204,7 +206,7 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 
    If you want to handle the user logging out, use `pbjs.setConfig()` with empty params.
 
-   To update the config to a new email, use `pbjs.mergeConfig()` (see [pbjs.mergeConfig()](https://docs.prebid.org/dev-docs/publisher-api-reference/mergeConfig.html) in the Prebid.js documentation). This function is similar to `pbjs.setConfig()`, but it merges rather than resets. You'll send the same options as `setConfig`, but with the updated user email.
+   To handle new DII , use `pbjs.setConfig()`, sending the same options, but with the updated DII value instead.
 
 3. **Refresh**:
 
@@ -213,7 +215,7 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 :::tip
 You can verify that the steps were successful by calling one of these functions:
 - Logout: Call `pbjs.getUserIds().uid2`. If the user has logged out, the response is an empty object (`{}`).
-- Token update: Call `pbjs.getUserIds().uid2` before and after the three steps, and compare the results.
+- Token update: Call `pbjs.getUserIds().uid2` before and after the three steps, and ensure the token has changed.
 :::
 
 Example Code:
@@ -233,13 +235,13 @@ function handleLogout() {
 }
 
 function handleNewEmail() {
-  localStorage.removeItem('__uid2_advertising_token');
+  localStorage.removeItem('__uid2_advertising_token'); 
   const params = {}; 
   params.email = // new email
   params.serverPublicKey = publicKey; 
   params.subscriptionId = subscriptionId; 
 
-  pbjs.mergeConfig({ 
+  pbjs.setConfig({ 
     userSync: { 
       userIds: [{ 
         name: 'uid2', 
