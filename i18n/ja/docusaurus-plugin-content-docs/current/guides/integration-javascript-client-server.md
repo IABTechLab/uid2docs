@@ -124,8 +124,6 @@ SDKは、指定された [callback function](../sdks/sdk-ref-javascript.md#callb
 1. ID 情報を [ローカルストレージまたはファーストパーティクッキー](../sdks/sdk-ref-javascript.md#uid2-storage-format) に保存します。
 1. ID 情報を使用して、ターゲティング広告のリクエストを始めます。
 
-<!-- (**GWH_TODO. Q: Not sure about the relationship between the steps above and the table below. And the diagram 2-a which says "the publisher calls the SSP for ads using the UID2 token". A: Diagram needs to be updated.**) -->
-
 ビッドステップを次の表に示します。
 
 | Step | Endpoint/SDK | Description |
