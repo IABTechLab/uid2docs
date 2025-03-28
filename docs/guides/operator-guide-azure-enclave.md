@@ -324,3 +324,20 @@ To upgrade, complete the following steps:
    ```
    for i in {0..COUNT}; az container delete --name uid-operator-OLD-VERSION-$i --resource-group {RESOURCE_GROUP} --yes
    ```
+
+## UID2 Operator Error Codes
+
+The following table lists errors that might occur during a Private Operator's startup sequence.
+
+:::note
+Error codes for Private Operator startup issues are applicable only to release v5.49.7 and later.
+:::
+
+| Error Code | Issue | Steps to Resolve |
+| :--- | :--- | :--- |
+| E02 | OperatorKeyNotFoundError | Make sure that the secret vault and secret name that store the operator key are correctly configured. Make sure they are set as `VAULT_NAME` and `OPERATOR_KEY_SECRET_NAME`. |
+| E03 | ConfigurationMissingError | Required attributes are missing in the configuration. Refer to the logs for details and update the missing attributes before running the Azure operator. |
+| E04 | ConfigurationValueError | A configuration value is invalid. Verify that the configuration values align with the required format and environment. Note: `debug_mode = true` is allowed only in the `integ` environment. Check the logs for more details. |
+| E05 | OperatorKeyValidationError | Ensure the operator key is correct for the environment and matches the one provided to you. |
+| E06 | UID2ServicesUnreachableError | Allow UID2 core and opt-out service IP addresses in the egress firewall. For IP addresses and DNS details, refer to the logs.  |
+| E08 | OperatorKeyPermissionError | The managed identity (specified via the `operatorIdentifier` parameter) that launches the container must have access to the key vault where the operator key is stored. The value of `operatorIdentifier` must be identical across all configuration JSON files. |

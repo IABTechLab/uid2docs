@@ -20,7 +20,7 @@ import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 この方法は、次の参加者タイプで使用されます:
 
 - **Publishers**: このワークフローは、UID2 Token をビッドストリームに送信したいパブリッシャー向けです。
-- **Advertisers** および **Data Providers**: さらに、広告主やデータプロバイダは、UID2 Token をトラッキングピクセルに追加するために使用します (詳細は [Tokenized Sharing in Pixels](sharing/sharing-tokenized-from-data-pixel.md) を参照してください)。
+- **Advertisers** および **Data Providers**: さらに、広告主やデータプロバイダは、UID2 Token をトラッキングピクセルに追加するために使用します (詳細は [Tokenized Sharing in Pixels](sharing/sharing-tokenized-from-data-pixel.md) を参照)。
 
 <!-- End of UID2-only section. -->
 <!-- Begin EUID-only section. -->
@@ -29,7 +29,7 @@ import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 このガイドは、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を使いたいパブリッシャーや、Server-Side でトークンを生成したいパブリッシャーには適用されません。これらのパブリッシャーは、[Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) に従う必要があります。
 
-UID2 は、SDK for JavaScript を提供しています (詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください)。この SDK には以下の機能があります:
+UID2 は、SDK for JavaScript を提供しています (詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照)。この SDK には以下の機能があります:
 
 - UID2 Token の生成
 - UID2 Token の自動リフレッシュ
@@ -44,7 +44,7 @@ UID2 は、SDK for JavaScript を提供しています (詳細は [SDK for JavaS
 
 ## SDK for JavaScript Version
 
-Client-Side でのトークン生成のサポートは、SDK のバージョン 3.2 以上で利用可能です。
+Client-Side でのトークン生成のサポートは、SDK のバージョン 3.4.5 以上で利用可能です。
 
 SDKのURLは以下のとおり:
 
@@ -133,7 +133,7 @@ SDK の詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript
 
 ### Using the UID2 Integration Environment
 
-デフォルトでは、この SDK は UID2 本番環境 `https://prod.uidapi.com` で動作するように設定されています。代わりに UID2 インテグレーション環境を使用する場合 (資格情報については [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください)、`init` に以下の URL を指定します:
+デフォルトでは、この SDK は UID2 本番環境 `https://prod.uidapi.com` で動作するように設定されています。代わりに UID2 インテグレーション環境を使用する場合 (資格情報については [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)、`init` に以下の URL を指定します:
 
 ```js
 __uid2.init({

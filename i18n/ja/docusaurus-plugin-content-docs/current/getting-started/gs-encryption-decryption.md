@@ -13,7 +13,7 @@ import IdentityGenerateResponse from '../snippets/_example-identity-generate-res
 # Encrypting Requests and Decrypting Responses
 
 :::note
-パブリッシャーで、Client-Side に UID2 を実装している場合、暗号化と復号化は、Prebid.js ([UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください) や JavaScript SDK ([Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を参照してください) などの実装によって自動的に管理されます。
+パブリッシャーで、Client-Side に UID2 を実装している場合、暗号化と復号化は、Prebid.js ([UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照) や JavaScript SDK ([Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を参照) などの実装によって自動的に管理されます。
 :::
 
 ほとんどすべての UID2 [endpoints](../endpoints/summary-endpoints.md) では、エンドポイントに送られるリクエストは [encrypted](#encrypting-requests) され、エンドポイントからのレスポンスは [decrypted](#decrypting-responses) する必要があります。
@@ -49,7 +49,7 @@ UID2 API のリクエストレスポンスワークフローは、以下のス�
 
 ## Encrypting Requests
 
-リクエストを暗号化するコードを自分で書くか、UID2 SDK を使うか、提供されているコード例のいずれかを使うかの選択肢があります([Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples) を参照してください)。自分でコードを書く場合は、[unencrypted request data envelope](#unencrypted-request-data-envelope) と [Encrypted Request Envelope](#encrypted-request-envelope) に記載されているフィールドレイアウトの要件に従うようにしてください。
+リクエストを暗号化するコードを自分で書くか、UID2 SDK を使うか、提供されているコード例のいずれかを使うかの選択肢があります([Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples) を参照)。自分でコードを書く場合は、[unencrypted request data envelope](#unencrypted-request-data-envelope) と [Encrypted Request Envelope](#encrypted-request-envelope) に記載されているフィールドレイアウトの要件に従うようにしてください。
 
 ### Unencrypted Request Data Envelope
 
@@ -74,7 +74,7 @@ UID2 API のリクエストレスポンスワークフローは、以下のス�
 
 ## Decrypting Responses
 
-レスポンスを復号化するコードを自分で書くか、UID2 SDKを使うか、提供されているコード例のいずれかを使うかの選択肢があります([Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples) を参照してください)。独自のコードを書く場合は、[Encrypted Response Envelope](#encrypted-response-envelope) および [Encrypted Response Envelope](#unencrypted-response-data-envelope) に記載されているフィールドレイアウトの要件に従うようにしてください。
+レスポンスを復号化するコードを自分で書くか、UID2 SDKを使うか、提供されているコード例のいずれかを使うかの選択肢があります([Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples) を参照)。独自のコードを書く場合は、[Encrypted Response Envelope](#encrypted-response-envelope) および [Encrypted Response Envelope](#unencrypted-response-data-envelope) に記載されているフィールドレイアウトの要件に従うようにしてください。
 
 :::note
 レスポンスは、サービスが HTTP ステータスコード 200 を返す場合のみ、暗号化されます。

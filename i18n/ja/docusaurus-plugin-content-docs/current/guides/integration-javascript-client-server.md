@@ -124,8 +124,6 @@ SDKは、指定された [callback function](../sdks/sdk-ref-javascript.md#callb
 1. ID 情報を [ローカルストレージまたはファーストパーティクッキー](../sdks/sdk-ref-javascript.md#uid2-storage-format) に保存します。
 1. ID 情報を使用して、ターゲティング広告のリクエストを始めます。
 
-<!-- (**GWH_TODO. Q: Not sure about the relationship between the steps above and the table below. And the diagram 2-a which says "the publisher calls the SSP for ads using the UID2 token". A: Diagram needs to be updated.**) -->
-
 ビッドステップを次の表に示します。
 
 | Step | Endpoint/SDK | Description |
@@ -143,7 +141,7 @@ UID2 Token が SSP から DSP に送信されるとき、ビッドストリー�
 ```
 
 :::info
-返された Advertising Token をどのように SSP に渡すかを検討する必要があります。`Prebid.js`([UID2 Integration Overview for Prebid](integration-prebid.md) を参照してください) や Google Ad Manager Secure Signals([Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md) を参照してください) を使用するなど、Client-Side で UID2 を実装する他のいくつかのアプローチでは、実装に、返された Advertising Token の受け渡しを管理する関数が含まれています。SDK for JavaScriptを使用している場合は、これを自分で管理する必要があります。
+返された Advertising Token をどのように SSP に渡すかを検討する必要があります。`Prebid.js`([UID2 Integration Overview for Prebid](integration-prebid.md) を参照) や Google Ad Manager Secure Signals([Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md) を参照) を使用するなど、Client-Side で UID2 を実装する他のいくつかのアプローチでは、実装に、返された Advertising Token の受け渡しを管理する関数が含まれています。SDK for JavaScriptを使用している場合は、これを自分で管理する必要があります。
 :::
 
 :::tip

@@ -352,7 +352,7 @@ gcloud CLI を使用して、UID2 Operator Service を実行するためのサ�
 
 UID2 Operator には、Operator Key が必要です。UID2 アカウントの設定（[UID2 Operator Account Setup](#uid2-operator-account-setup) を参照）の一環として、各環境のオペレーターキーを受け取ります。
 
-次のステップは、`{OPERATOR_KEY}` 値を GCP Secret Manager に保存し、それに対する完全なシークレット名を取得し、それをデプロイメントスクリプト内の `{OPERATOR_KEY_SECRET_FULL_NAME}` プレースホルダで置き換えることです（[Update the Script with Valid Values](#update-the-script-with-valid-values) を参照してください）。
+次のステップは、`{OPERATOR_KEY}` 値を GCP Secret Manager に保存し、それに対する完全なシークレット名を取得し、それをデプロイメントスクリプト内の `{OPERATOR_KEY_SECRET_FULL_NAME}` プレースホルダで置き換えることです ([Update the Script with Valid Values](#update-the-script-with-valid-values) を参照)。
 
 次の手順に従います:
  1. 次のスクリプトを実行して、新しいシークレットを作成します。最初に、自分の値でカスタマイズしてください:
@@ -401,8 +401,8 @@ UID2 Operator には、Operator Key が必要です。UID2 アカウントの設
 | `{ZONE}` | VM インスタンスがデプロイされる Google Cloud ゾーン。 |
 | `{IMAGE_FAMILY}` | `confidential-space` はインテグレーションと本番で使用し、`confidential-space-debug` はインテグレーションでのみデバッグ用に使用します。`confidential-space-debug` は本番では動作しないことに注意してください。 |
 | `{SERVICE_ACCOUNT}` | アカウント作成時に作成したサービスアカウントのメールアドレス: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>詳細は [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions) (Step 4) を参照してください。|
-| `{OPERATOR_IMAGE}` | コンフィギュレーションで使用するUID2 Private Operator for GCPのDockerイメージURL。<br/>これは、GCPダウンロードファイルの`terraform.tfvars`ファイルにあります。([Operator Versions](#operator-versions) を参照してください) |
-| `{OPERATOR_KEY_SECRET_FULL_NAME}` | Operator Key secret に指定したフルネーム ([Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager) を参照してください)。パスを含め `projects/<project_id>/secrets/<secret_id>/versions/<version>` の形式でしています。たとえば: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1` |
+| `{OPERATOR_IMAGE}` | コンフィギュレーションで使用するUID2 Private Operator for GCPのDockerイメージURL。<br/>これは、GCPダウンロードファイルの`terraform.tfvars`ファイルにあります。([Operator Versions](#operator-versions) を参照) |
+| `{OPERATOR_KEY_SECRET_FULL_NAME}` | Operator Key secret に指定したフルネーム ([Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager) を参照)。パスを含め `projects/<project_id>/secrets/<secret_id>/versions/<version>` の形式でしています。たとえば: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1` |
 
 ##### Sample Deployment Script&#8212;Integ
 

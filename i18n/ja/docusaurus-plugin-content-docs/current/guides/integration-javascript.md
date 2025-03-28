@@ -37,7 +37,7 @@ SDK for JavaScript を使って UID2 とインテグレーションするため�
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |
 | Client-Side で DII にアクセスでき、フロントエンド開発のみを行いたい。 | Client-side integration | [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) |
-| Server-Side で DII にアクセスでき、Server-Side の開発が可能であるか、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を使用している。 | Server-side integration | [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) |
+| Client-Server で DII にアクセスでき、Server-Side の開発が可能であるか、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を使用している。 | Client-server integration | [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) |
 
 ## Complete UID2 Account Setup and Configure Account
 
