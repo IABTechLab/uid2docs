@@ -59,7 +59,7 @@ A Private Operator is a private instance of the UID2 Operator. This means that a
 
 Any participant can also choose to become a Private Operator to generate and manage their UID2s. However, becoming a Private Operator includes several additional steps, and uses resources that the participant must provide.
 
-For details, see [Private Operator Integrations](../guides/integration-options-private-operator.md).
+For details, see [UID2 Private Operator Integration Overview](../guides/integration-options-private-operator.md).
 
 ## Summary
 

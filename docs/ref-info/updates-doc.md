@@ -163,13 +163,13 @@ For details, see [UID2 Tokens and Refresh Tokens](../ref-info/ref-tokens.md).
 
 <!-- APIDOCS-2533 -->
 
-### Private Operator Integrations Page
+### Private Operator Integration Overview
 
 August 28, 2024
 
 We've added a new page with information about Private Operator integrations.
 
-For details, see [Private Operator Integrations](../guides/integration-options-private-operator).
+For details, see [UID2 Private Operator Integration Overview](../guides/integration-options-private-operator).
 
 <!-- APIDOCS-2164 -->
 

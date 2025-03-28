@@ -143,7 +143,7 @@ September 10, 2024
 
 <!-- APIDOCS-2533 -->
 
-### Private Operator Integrations Page
+### Private Operator Integration Overview
 
 August 28, 2024
 

@@ -1,7 +1,7 @@
 ---
 slug: welcome
 title: Coming Soon
-tags: [news, release notes, announcements, uid2, guides, SDKs, UID2 Portal]
+tags: [news, guides, SDKs, endpoints, UID2 Portal]
 ---
 
 Watch this space for updates, news, announcements, and other information about upcoming enhancements.
