@@ -23,6 +23,10 @@
     "message": "UID2 GitHub",
     "description": "The label of footer link with label=UID2 GitHub linking to https://github.com/IABTechLab/uid2docs"
   },
+  "link.item.label.UID2 Privacy Policy": {
+    "message": "UID2 プライバシーポリシー",
+    "description": "The label of footer link with label=UID2 Privacy Policy linking to https://transparentadvertising.com/privacy"
+  },
   "link.item.label.Prebid": {
     "message": "Prebid",
     "description": "The label of footer link with label=Prebid linking to https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html"

@@ -261,6 +261,10 @@ const config = {
                 href: "https://github.com/IABTechLab/uid2docs",
               },
               {
+                label: "UID2 Privacy Policy",
+                href: "https://transparentadvertising.com/privacy"
+              },
+              {
                 type: "doc",
                 label: "Prebid",
                 to: "https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html",
