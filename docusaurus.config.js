@@ -262,7 +262,7 @@ const config = {
               },
               {
                 label: "UID2 Privacy Policy",
-                href: "https://transparentadvertising.com/privacy.htm"
+                href: "https://transparentadvertising.com/privacy"
               },
               {
                 type: "doc",
