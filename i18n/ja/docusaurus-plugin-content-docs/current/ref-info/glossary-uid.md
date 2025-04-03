@@ -397,7 +397,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-raw-uid2">Raw UID2</MdxJumpAnchor></dt>
 <dd>UID2 API または SDK を通じて、ユーザーの <a href="#gl-dii">directly identifying information</a> (メールアドレスまたは電話番号) を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。raw UID2 は一意な値であり、同じ UID2 は2つとありません。raw  UID2 とそれに関連付けられた UID2 Token は、大文字と小文字を区別します。</dd>
-<dd>詳細は <a href="uid-infrastructure#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
+<dd>詳細は <a href="uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-refresh-token">Refresh Token</MdxJumpAnchor></dt>
 <dd>Refresh tokenは、<a href="#gl-uid2-token">UID2 Token</a>とともに発行される不透明な文字列です。<a href="#gl-uid2-token">UID2 token</a> の有効期限を更新するために使用されます。</dd>
@@ -499,7 +499,7 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-uid2-identifier">UID2 identifier</MdxJumpAnchor></dt>
 <dd>Unified ID 2.0 (UID2)識別子には、<a href="#gl-raw-uid2">raw UID2s</a> と <a href="#gl-uid2-token">UID2 tokens</a> (Advertising token とも呼ばれるます) の2種類があります。</dd>
-<dd>詳細は <a href="uid-infrastructure#uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
+<dd>詳細は <a href="uid2-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-portal">UID2 Portal</MdxJumpAnchor></dt>
 <dd>UID2 Portal は、UID2 参加者が自分のアカウントを管理するための独立したユーザーインターフェースです。</dd>
@@ -515,7 +515,7 @@ import Link from '@docusaurus/Link';
 <dd>トークンの値は不透明です。文字列のフォーマットや長さについて、推測してはなりません。</dd>
 <dd>トークンの寿命は限られていますが、<a href="#gl-refresh-token">refresh token</a> を使ってバックグラウンドでリフレッシュすることができます。</dd>
 <dd>パブリッシャーは、ビッドストリームに UID2 Token を送信します。</dd>
-<dd>詳細は <a href="uid-infrastructure#uid2-identifier-types">UID2 Identifier Types</a>、 <a href="ref-tokens#uid2-tokens-key-information">UID2 Tokens: Key Information</a> と <a href="ref-how-uid-is-created">How the UID2 Token Is Created</a> を参照してください。</dd>
+<dd>詳細は <a href="uid2-identifier-types">UID2 Identifier Types</a>、 <a href="ref-tokens#uid2-tokens-key-information">UID2 Tokens: Key Information</a> と <a href="ref-how-uid-is-created">How the UID2 Token Is Created</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-unified-id-20">Unified ID 2.0 (UID2)</MdxJumpAnchor></dt>
 <dd>"UID2" という用語は、<a href="#gl-uid2-framework">UID2 framework</a>、<a href="#gl-uid2-service">UID2 service</a>、<a href="#gl-raw-uid2">raw UID2</a>、または<a href="#gl-uid2-token">UID2 token</a> (Advertising Token) を意味でも使われます。</dd>
