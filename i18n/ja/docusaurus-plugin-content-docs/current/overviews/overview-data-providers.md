@@ -63,7 +63,7 @@ UID2 を使用することで、データプロバイダーとして得られる
 1. [アクセスリクエスト](/request-access)ページにあるフォームに記入して、UID2へのアクセスをリクエストします。
 
    担当者が連絡し、ニーズを伺い、適切なステップをアドバイスします。
-1. [参加者](../overviews/participants-overview.md#uid2-external-participants) の役割を決めます。
+1. [参加者](participants-overview.md#uid2-external-participants) の役割を決めます。
 1. どの実装オプションを使用するかを決めます。
 1. 認証情報を受け取り ([UID2 Credentials](../getting-started/gs-credentials.md) を参照)、選択したオプションのインテグレーションガイドの指示に従います。
 
