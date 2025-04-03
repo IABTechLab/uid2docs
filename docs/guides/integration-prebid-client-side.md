@@ -49,7 +49,7 @@ You'll need to complete the following steps:
 
 To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values that you'll need to provide. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production [environment](../getting-started/gs-environments.md) and configure additional values that you'll need to provide. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
 
 For a client-side integration you'll need to set up these values, in the UID2 Portal on the [Client-Side Integration](../portal/client-side-integration.md) page:
 
@@ -118,7 +118,7 @@ const baseConfig = {
 ```
 
 :::note
-This example assumes that you're using the UID2 production environment. During integration testing, use the UID2 integration environment  (for credentials, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials)) by setting `params.uid2ApiBase` to `'https://operator-integ.uidapi.com'`. Tokens from the UID2 integration environment are not valid for passing to the bidstream. For the integration environment, you will have different **Subscription ID** and **public key** values.
+This example assumes that you're using the UID2 production environment. During integration testing, use the UID2 integration environment  by setting `params.uid2ApiBase` to `'https://operator-integ.uidapi.com'`. Tokens from the UID2 integration environment are not valid for passing to the bidstream. For the integration environment, you will need to request separate **Subscription ID** and **public key** values; you cannot create those in the UID2 Portal. For details, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials).
 :::
 
 ## Storing the UID2 Token in the Browser
@@ -171,7 +171,7 @@ If there are problems with the integration, here are some steps you can take:
 - Check the browser console logs.
 - Check the values for **Subscription ID** (**subscriptionId** value) and **public key** (**serverPublicKey** value):
   - Make sure they are exactly the same values that you received from the UID2 team.
-  - Check that you have the correct values for the environment you're using. You'll have different **Subscription ID** and **public key** values for each [environment](../getting-started/gs-environments.md).
+  - Check that you have the correct values for the environment you're using. You'll have different **Subscription ID** and **public key** values for each environment: see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials).
 - Check that you provided the domain name of the site to the UID2 team during account setup. If needed, to confirm, ask your UID2 contact.
 - Use the browser developer tools to inspect the API calls to the UID2 service.
 
