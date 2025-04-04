@@ -7,6 +7,7 @@ displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
+import PrivateOperatorOption from '../snippets/_private-operator-option.mdx';
 
 # Web Integration Overview
 
@@ -23,6 +24,10 @@ At a high level, to integrate with UID2, you'll implement these three key activi
 1. [Pass the UID2 token into the bidstream](#pass-the-uid2-token-into-the-bidstream)
 
 There are many ways you can accomplish these key steps. The simplest and fastest implementation is a full client-side implementation using Prebid.js 8.21.0 or later.
+
+## Private Operator Option
+
+<PrivateOperatorOption/>
 
 ## Integration Options Summary
 
@@ -42,6 +47,8 @@ To accomplish all steps, you can combine solutions. For example, you could use t
 | [Google Ad Manager Secure Signals](integration-google-ss.md) | &#8212; | &#8212; | &#9989; |
 
 <!-- &#9989; = Supported | &#8212; = Not Supported -->
+
+## Publisher Web Options Workflow
 
 To choose your implementation and get started, follow these steps:
 
