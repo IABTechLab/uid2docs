@@ -1,5 +1,5 @@
 ---
-title: Web Integration Overview
+title: Publisher Web Integration Overview
 description: UID2 Web インテグレーションにおけるパブリッシャーオプションの概要。
 hide_table_of_contents: false
 sidebar_position: 02
@@ -8,7 +8,7 @@ displayed_sidebar: sidebarPublishers
 
 import Link from '@docusaurus/Link';
 
-# Web Integration Overview
+# Publisher Web Integration Overview
 
 パブリッシャーとして、UID2 とインテグレーションしてア ID トークンを生成し、ウェブページのコンテキストで RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡す方法はたくさんあります。
 

@@ -36,7 +36,7 @@ Publisher integrations fall into the following main categories:
 The following documentation resources are available for publisher web integrations.
 
 :::tip
-For a detailed summary of web integration options, see [Web Integration Overview](integration-options-publisher-web.md).
+For a detailed summary of web integration options, see [Publisher Web Integration Overview](integration-options-publisher-web.md).
 :::
 
 | Integration Guide | Content Description |

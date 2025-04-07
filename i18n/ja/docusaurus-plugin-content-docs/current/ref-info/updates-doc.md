@@ -352,7 +352,7 @@ January 16, 2024
 
 UID2 とインテグレーションするパブリッシャーが利用できる Web インテグレーションオプションをまとめた新しいページを追加しました。
 
-詳細は [Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
+詳細は [Publisher Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
 
 <!-- APIDOCS-1846 -->
 

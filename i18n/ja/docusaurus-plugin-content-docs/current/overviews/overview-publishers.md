@@ -14,9 +14,8 @@ banner_background_color_dark: '#DCDEE1'
 displayed_sidebar: sidebarPublishers
 ---
 
-import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
-
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 パブリッシャーとして、Unified ID 2.0 (UID2) のクロスデバイスプレゼンスの恩恵を受け、すべてのインベントリで一貫した ID ファブリックを活用することができます。
 
@@ -110,7 +109,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 以下のリソースは、パブリッシャーの Web インテグレーションに利用できます。
 
 :::tip
-Web インテグレーションオプションの詳細は [Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
+Web インテグレーションオプションの詳細は [Publisher Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
 :::
 
 | Integration Type| Documentation | Content Description |

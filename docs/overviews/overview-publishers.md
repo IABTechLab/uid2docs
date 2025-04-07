@@ -14,9 +14,8 @@ banner_background_color_dark: '#DCDEE1'
 displayed_sidebar: sidebarPublishers
 ---
 
-import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
-
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 As a publisher, you can benefit from the cross-device presence of Unified ID 2.0 (UID2) and take advantage of a consistent identity fabric on all your inventory.
 
@@ -110,7 +109,7 @@ The following resources are available for publishers to implement UID2:
 The following resources are available for publisher web integrations.
 
 :::tip
-For a detailed summary of web integration options, see [Web Integration Overview](../guides/integration-options-publisher-web.md).
+For a detailed summary of web integration options, see [Publisher Web Integration Overview](../guides/integration-options-publisher-web.md).
 :::
 
 | Integration Type| Documentation | Content Description |
