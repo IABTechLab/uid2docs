@@ -68,7 +68,7 @@ The cookie size can be significant, which could be a problem. However, if local 
 
 The JavaScript SDK manages generating, refreshing, and storing the UID2 token, but it does not manage passing the token to the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.
 
-You can pass the token into the bidstream using any option you choose&#8212;for example, Prebid.js. For some suggestions, see [Pass the UID2 Token Into the Bidstream](integration-options-publisher-web.md#pass-the-uid2-token-into-the-bidstream) in the *Web Integration Overview*.
+You can pass the token into the bidstream using any option you choose&#8212;for example, Prebid.js. For some suggestions, see [Pass the UID2 Token Into the Bidstream](integration-options-publisher-web.md#pass-the-uid2-token-into-the-bidstream) in the *Publisher Web Integration Overview*.
 
 ## JavaScript Integration Overview: High-Level Steps
 
