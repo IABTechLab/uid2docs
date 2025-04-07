@@ -1,5 +1,5 @@
 ---
-title: Web Integration Overview
+title: Publisher Web Integration Overview
 description: Overview of the publisher options for UID2 web integration.
 hide_table_of_contents: false
 sidebar_position: 02
@@ -8,7 +8,7 @@ displayed_sidebar: sidebarPublishers
 
 import Link from '@docusaurus/Link';
 
-# Web Integration Overview
+# Publisher Web Integration Overview
 
 As a publisher, there are many ways that you can integrate with UID2 to generate identity tokens to be passed into the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> in the context of your web pages.
 

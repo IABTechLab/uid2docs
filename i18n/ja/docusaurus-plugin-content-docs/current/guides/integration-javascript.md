@@ -14,7 +14,7 @@ import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 このガイドは、UID2 とインテグレーションし、SDK for JavaScript を使って<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>(Advertising Token) を生成したいパブリッシャー向けのインテグレーションオプションの概要です。
 
-Prebid.js と追加 SDK オプションを含むすべてのウェブオプションの概要については、[Web Integration Overview](integration-options-publisher-web.md) を参照してください。
+Prebid.js と追加 SDK オプションを含むすべてのウェブオプションの概要については、[Publisher Web Integration Overview](integration-options-publisher-web.md) を参照してください。
 
 ## Introduction
 

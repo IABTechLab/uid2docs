@@ -372,7 +372,7 @@ January 16, 2024
 
 We've added a new page summarizing the web integration options available to publishers integrating with UID2.
 
-For details, see [Web Integration Overview](../guides/integration-options-publisher-web.md).
+For details, see [Publisher Web Integration Overview](../guides/integration-options-publisher-web.md).
 
 <!-- APIDOCS-1846 -->
 

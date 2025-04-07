@@ -110,7 +110,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 以下のリソースは、パブリッシャーの Web インテグレーションに利用できます。
 
 :::tip
-Web インテグレーションオプションの詳細は [Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
+Web インテグレーションオプションの詳細は [Publisher Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
 :::
 
 | Integration Type| Documentation | Content Description |
