@@ -14,9 +14,8 @@ banner_background_color_dark: '#DCDEE1'
 displayed_sidebar: sidebarPublishers
 ---
 
-import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
-
 import Link from '@docusaurus/Link';
+import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 パブリッシャーとして、Unified ID 2.0 (UID2) のクロスデバイスプレゼンスの恩恵を受け、すべてのインベントリで一貫した ID ファブリックを活用することができます。
 
