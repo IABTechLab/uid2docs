@@ -1,5 +1,5 @@
 ---
-title: Web Integration Overview
+title: Publisher Web Integration Overview
 description: Overview of the publisher options for UID2 web integration.
 hide_table_of_contents: false
 sidebar_position: 02
@@ -7,9 +7,8 @@ displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
-import PrivateOperatorOption from '../snippets/_private-operator-option.mdx';
 
-# Web Integration Overview
+# Publisher Web Integration Overview
 
 As a publisher, there are many ways that you can integrate with UID2 to generate identity tokens to be passed into the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> in the context of your web pages.
 
@@ -24,10 +23,6 @@ At a high level, to integrate with UID2, you'll implement these three key activi
 1. [Pass the UID2 token into the bidstream](#pass-the-uid2-token-into-the-bidstream)
 
 There are many ways you can accomplish these key steps. The simplest and fastest implementation is a full client-side implementation using Prebid.js 8.21.0 or later.
-
-## Private Operator Option
-
-<PrivateOperatorOption/>
 
 ## Integration Options Summary
 
