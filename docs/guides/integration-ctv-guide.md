@@ -9,6 +9,7 @@ sidebar_position: 04
 
 import Link from '@docusaurus/Link';
 import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
+import PrivateOperatorOption from '../snippets/_private-operator-option.mdx';
 
 # CTV Integration Guide
 
@@ -26,6 +27,10 @@ To determine how you'll implement these steps, choose from the [CTV Integration 
 ## Integrating with Single Sign-On (SSO)
 
 <IntegratingWithSSO />
+
+## Private Operator Option
+
+<PrivateOperatorOption/>
 
 ## Complete UID2 Account Setup and Configure Account
 
@@ -49,11 +54,13 @@ The specific values you set up will depend on which of the [CTV integration opti
 
 ## CTV Integration Options
 
-You can decide on the integration option that's best for you based on where you want to generate and refresh the UID2 token. There are three options, as follows:
+You can decide on the integration option that's best for you based on where you want to generate and refresh the UID2 token. There are three options, as shown in the following table.
 
-- [Client-Side Integration](#client-side-integration-for-ctv-apps) (the token is generated and refreshed on the client side)
-- [Server-Side Integration](#server-side-integration-for-ctv-apps) (the token is generated and refreshed on the server side)
-- [Client-Server Integration](#client-server-integration-for-ctv-apps) (the token is generated on the server side and refreshed on the client side)
+| Option | Details |
+| :--- | :--- |
+| [Client-Side Integration](#client-side-integration-for-ctv-apps) | The token is generated and refreshed on the client side. |
+| [Server-Side Integration](#server-side-integration-for-ctv-apps) | The token is generated and refreshed on the server side. |
+| [Client-Server Integration](#client-server-integration-for-ctv-apps) | The token is generated on the server side and refreshed on the client side. |
 
 ### Client-Side Integration for CTV Apps
 

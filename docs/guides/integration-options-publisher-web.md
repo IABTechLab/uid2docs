@@ -43,6 +43,8 @@ To accomplish all steps, you can combine solutions. For example, you could use t
 
 <!-- &#9989; = Supported | &#8212; = Not Supported -->
 
+## Publisher Web Options Workflow
+
 To choose your implementation and get started, follow these steps:
 
 1. Review the summary of options to generate a UID2 token:
