@@ -75,7 +75,7 @@ The following list summarizes the integration steps for UID2 mapping in Snowflak
 
 1. Your UID2 contact will arrange for your Snowflake account to be provisioned with access to the UID2 mapping share.
 
-   You can also download suggested workflow scripts to get started with basic mapping and salt bucket rotation concepts. [**GWH_TODO get scripts, figure if we can offer them as a downloadable asset.**]
+   You can also download suggested workflow scripts to get started with basic mapping and salt bucket rotation concepts. [**GWH_KM__01 Do you know where I can get these scripts from? Not sure yet if we can offer them as a downloadable asset, but, first step is to get them.**]
 
 :::note
 If you did any initial testing (see [Testing in the Integration Environment](#testing-in-the-integration-environment)), be sure to update the functions to reflect the production UID2 share, along with your own relevant table names. 
@@ -89,10 +89,10 @@ If you'd like to test the mapping shares before signing a UID2 POC, you can ask 
 
 In this scenario, the following steps occur:
 
-1. Your UID2 contact provisions the share listing in the Snowflake Private Marketplace. [**GWH_KM__01 is there some other step, such as, the contact lets the advertiser know? Otherwise how will they know?**]
+1. Your UID2 contact provisions the share listing in the Snowflake Private Marketplace. [**GWH_KM__02 is there some other step, such as, the contact lets the advertiser know? Otherwise how will they know?**]
 2. You can then request access to the Private Marketplace listing.
 
-3. Your UID2 contact provisions the integ shares to your account. [**GWH_KM__02 Is it share rather than shares now that we have a combined listing? Or, is it still shares? Not sure.**]
+3. Your UID2 contact provisions the integ shares to your account. [**GWH_KM__03 Is it share rather than shares now that we have a combined listing? Or, is it still shares? Not sure.**]
 
 ## Workflow Diagram
 
