@@ -14,8 +14,10 @@ import Link from '@docusaurus/Link';
 [Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share consumer identifier data without exposing sensitive <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>. Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
 
 :::important
-This document is for those using the combined advertiser and data provider Snowflake marketplace listing published in February 2025. If you're using one of the earlier listings, which were separate for advertiser and data provider (that is, you subscribed prior to February 2025), see [Snowflake Integration Guide (Version Prior to February 2025)](integration-snowflake-previous.md). If you're using the earlier implementation, we recommend that you migrate to the newer version to take advantage of the updates and enhancements: for details, see [Changes from Previous Version](#changes-from-previous-version). For migration information, see [Migration Guide](#migration-guide).
+This document is for anyone using the combined advertiser and data provider Snowflake marketplace listing published in February 2025. If you're using one of the earlier listings, which were separate for advertiser and data provider (that is, you subscribed prior to February 2025), see [Snowflake Integration Guide (Version Prior to February 2025)](integration-snowflake-previous.md). If you're using the earlier implementation, we recommend that you migrate to the newer version to take advantage of the updates and enhancements: for details, see [Changes from Previous Version](#changes-from-previous-version). For migration information, see [Migration Guide](#migration-guide).
 :::
+
+## Snowflake Marketplace Listing
 
 The following listing for UID2 is available on the Snowflake marketplace:
 - [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
@@ -60,6 +62,38 @@ The following table shows details of the changes to the Snowflake views, from th
 | :-- | :-- | :-- |
 | `UID2_SALT_BUCKETS` | `SALT_BUCKETS` | For details, see [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s). |
 
+## Summary of Integration Steps
+
+The following list summarizes the integration steps for UID2 mapping in Snowflake: 
+
+1. Make sure that the UID2 POC paperwork is signed with your UID2 contact.
+
+1. Request access to the UID2 share through the [Snowflake Marketplace Listing](#snowflake-marketplace-listing). In your request, include the following information:
+
+   - Your Snowflake account number
+   - The region
+
+1. Your UID2 contact will arrange for your Snowflake account to be provisioned with access to the UID2 mapping share.
+
+   You can also download suggested workflow scripts to get started with basic mapping and salt bucket rotation concepts. [**GWH_KM__01 Do you know where I can get these scripts from? Not sure yet if we can offer them as a downloadable asset, but, first step is to get them.**]
+
+:::note
+If you did any initial testing (see [Testing in the Integration Environment](#testing-in-the-integration-environment)), be sure to update the functions to reflect the production UID2 share, along with your own relevant table names. 
+:::
+
+**Click here to download suggested workflow scripts to get started with basic mapping and salt bucket rotation concepts.**
+
+## Testing in the Integration Environment
+
+If you'd like to test the mapping shares before signing a UID2 POC, you can ask your UID2 contact for access to the Snowflake share in the integ (integration) environment. This environment is for testing only, and has no production data. Be sure to include your account number and region in the request.
+
+In this scenario, the following steps occur:
+
+1. Your UID2 contact provisions the share listing in the Snowflake Private Marketplace. [**GWH_KM__02 is there some other step, such as, the contact lets the advertiser know? Otherwise how will they know?**]
+2. You can then request access to the Private Marketplace listing.
+
+3. Your UID2 contact provisions the integ shares to your account. [**GWH_KM__03 Is it share rather than shares now that we have a combined listing? Or, is it still shares? Not sure.**]
+
 ## Workflow Diagram
 
 The following diagram and table illustrate the different parts of the UID2 integration process in Snowflake, and the workflow.
@@ -76,7 +110,6 @@ The following diagram and table illustrate the different parts of the UID2 integ
 Access to the UID2 Share is available through the following listing on the [Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/):
 
 - [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
-
 
 :::important
 To be able to request data, you must use the `ACCOUNTADMIN` role or another role with the `CREATE DATABASE` and `IMPORT SHARE` privileges in your Snowflake account.
