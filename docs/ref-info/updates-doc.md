@@ -597,3 +597,5 @@ August 3, 2023
 A new guide for publishers that provides information about the SDK for iOS, an SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers who need to support iOS apps.
 
 For details, see [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md).
+
+<!-- UID2 website launched 12 April 2023 -->
