@@ -106,7 +106,7 @@ SDK を使用する際に、復号鍵を保存したり管理したりする必�
 | Methods | Description |
 | :--- | :--- |
 | `getStatus()` | 復号結果のステータス。取り得る値のリストと定義については、[Decryption Response Statuses](#decryption-response-statuses) を参照してください。 |
-| `getSiteId()` | UID2 Token に対応する raw UID2  |
+| `getUid()`    | UID2 Token に対応する raw UID2  |
 | `getEstablished()` | ユーザーがパブリッシャーと最初に UID2 を確立した時のタイムスタンプ。 |
 
 ### Decryption Response Statuses
