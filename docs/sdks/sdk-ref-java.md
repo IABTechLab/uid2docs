@@ -106,7 +106,7 @@ Whether decrypting with the `BidstreamClient` class or the `SharingClient` class
 | Methods            | Description                                                                                                                                     |
 |:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
 | `getStatus()`      | The decryption result status. For a list of possible values and definitions, see [Decryption Response Statuses](#decryption-response-statuses). |
-| `getSiteId()`      | The raw UID2 for the corresponding UID2 token.                                                                                                  |
+| `getUid()`         | The raw UID2 for the corresponding UID2 token.                                                                                                  |
 | `getEstablished()` | The timestamp indicating when a user first established the UID2 with the publisher.                                                             |
 
 ### Decryption Response Statuses
