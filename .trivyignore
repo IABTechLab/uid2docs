@@ -6,3 +6,13 @@
 
 # https://thetradedesk.atlassian.net/browse/UID2-5271
 GHSA-m5qc-5hw7-8vg7 exp:2025-06-04
+
+
+# Both vulnerabilities below require upgrading react-router, in both cases blocked by dependencies.
+# For details see https://thetradedesk.slack.com/archives/G01SS5EQE91/p1745551035526029
+
+# https://thetradedesk.atlassian.net/browse/UID2-5394
+GHSA-f46r-rw29-r322 exp:2025-05-12
+
+# https://thetradedesk.atlassian.net/browse/UID2-5395
+GHSA-cpj6-fhp6-mr6j exp:2025-05-12
