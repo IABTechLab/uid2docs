@@ -2,10 +2,11 @@
   display: flex;
   flex-flow: row;
   gap: 0.5em;
-  margin-bottom: 1.5em;
+  margin: 0 0 1.5em 0;
+  padding: 0;
 
   ul {
-    margin: 0 0 1em 0;
+    margin: 0;
     padding: 0;
     display: flex;
     flex-flow: row;
@@ -46,9 +47,11 @@
 }
 
 .custom-tag-toggled {
-  // all siblings after first paragraph
+  // all siblings after first paragraph, except for tags and filtered container
   p:first-of-type
-    ~ *:not(.custom-tags-filters):not(.custom-tags-container-visible) {
+    ~ *:not(.custom-tags-filters):not(.custom-tags-container-visible):not(
+      .custom-tags-container-visible *
+    ) {
     display: none;
   }
 }

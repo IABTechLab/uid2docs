@@ -1,6 +1,7 @@
 import styles from "./styles.module.scss";
 import { ReactNode, useContext, useEffect } from "react";
 import { CustomTagsContext } from "./CustomTagsContext";
+import { CustomTagsFilterList } from "./CustomTagsFilterList";
 
 export interface CustomTagsContainerProps {
   tags: string; // comma-separated values
@@ -31,6 +32,8 @@ export default function CustomTagsContainer({
       }
     >
       {children}
+
+      <CustomTagsFilterList tags={tagList} />
     </div>
   );
 }
