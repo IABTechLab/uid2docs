@@ -17,6 +17,8 @@ import Link from '@docusaurus/Link';
 This document is for those using the combined advertiser and data provider Snowflake marketplace listing published in February 2025. If you're using one of the earlier listings, which were separate for advertiser and data provider (that is, you subscribed prior to February 2025), see [Snowflake Integration Guide (Version Prior to February 2025)](integration-snowflake-previous.md). If you're using the earlier implementation, we recommend that you migrate to the newer version to take advantage of the updates and enhancements: for details, see [Changes from Previous Version](#changes-from-previous-version). For migration information, see [Migration Guide](#migration-guide).
 :::
 
+## Snowflake Marketplace Listing
+
 The following listing for UID2 is available on the Snowflake marketplace:
 - [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
 
