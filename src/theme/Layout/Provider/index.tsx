@@ -13,6 +13,7 @@ import {
   PluginHtmlClassNameProvider,
 } from "@docusaurus/theme-common/internal";
 import { DocsPreferredVersionContextProvider } from "@docusaurus/plugin-content-docs/client";
+import { CustomTagsContextProvider } from "@site/src/components/CustomTags/CustomTagsContext";
 
 const Provider = composeProviders([
   ColorModeProvider,
@@ -38,8 +39,10 @@ export default function LayoutProvider({ children }) {
 
   return (
     <Provider>
-      {isDocsPage ? <RestoreTheme></RestoreTheme> : null}
-      {children}
+      <CustomTagsContextProvider>
+        {isDocsPage ? <RestoreTheme></RestoreTheme> : null}
+        {children}
+      </CustomTagsContextProvider>
     </Provider>
   );
 }
