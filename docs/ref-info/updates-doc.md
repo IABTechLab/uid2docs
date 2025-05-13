@@ -6,14 +6,20 @@ sidebar_position: 06
 ---
 
 import Link from '@docusaurus/Link';
+import CustomTagsFilters from "@site/src/components/CustomTags/CustomTagsFilters";
+import CustomTagsContainer from "@site/src/components/CustomTags/CustomTagsContainer";
 
 # Documentation Updates
+
+<CustomTagsFilters />
 
 Check out the latest updates to our UID2 documentation resources.
 
 ## Q1 2025
 
 The following documents were released in this quarter.
+
+<CustomTagsContainer tags="Guides">
 
 ### UID2 Private Operator for AKS Integration Guide
 
@@ -23,7 +29,11 @@ A UID2 <a href="../intro#participants">participant</a> who wants to be a <Link h
 
 For details, see [UID2 Private Operator for AKS Integration Guide](../guides/operator-guide-aks-enclave.md).
 
+</CustomTagsContainer>
+
 <!-- APIDOCS-3030 -->
+
+<CustomTagsContainer tags="Guides">
 
 ### Server-Side Integration Guide for Mobile
 
@@ -33,7 +43,11 @@ We've added a guide for mobile app publishers who want to manage the UID2 token 
 
 For details, see [UID2 Server-Side Integration Guide for Mobile](../guides/integration-mobile-server-side.md).
 
+</CustomTagsContainer>
+
 <!-- APIDOCS-2931 -->
+
+<CustomTagsContainer tags="Reference">
 
 ### UID2 Portal, Sharing Permissions Page
 
@@ -43,7 +57,11 @@ We've significantly expanded and clarified the documentation for configuring sha
 
 For details, see [Sharing Permissions](../portal/sharing-permissions.md).
 
+</CustomTagsContainer>
+
 <!-- APIDOCS-2795 -->
+
+<CustomTagsContainer tags="SDKs">
 
 ### JavaScript SDK Version 4
 
@@ -53,7 +71,11 @@ We've added documentation for the recently released update of the UID2 SDK for J
 
 For details, see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md).
 
+</CustomTagsContainer>
+
 <!-- APIDOCS-2923 -->
+
+<CustomTagsContainer tags="Reference">
 
 ### How the UID2 Token Is Created
 
@@ -63,7 +85,11 @@ We've added a page with high-level information about the steps for creating a UI
 
 For details, see [How the UID2 Token Is Created](../ref-info/ref-how-uid-is-created.md).
 
+</CustomTagsContainer>
+
 <!-- APIDOCS-2855 -->
+
+<CustomTagsContainer tags="Guides">
 
 ### Snowflake Integration Guide
 
@@ -73,7 +99,11 @@ We've significantly updated the UID2 Snowflake integration, and updated the docu
 
 For details, see [Snowflake Integration Guide](../guides/integration-snowflake.md).
 
+</CustomTagsContainer>
+
 <!-- APIDOCS-2918 -->
+
+<CustomTagsContainer tags="Reference, Guides">
 
 ### Instructions for Using the UID2 Portal
 
@@ -84,6 +114,8 @@ We've updated the instructions in the UID2 integration guides, SDK docs, and end
 For details, see any implementation guide: for example, [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md#complete-uid2-account-setup-and-configure-account) or [SDK for Android Reference Guide](../sdks/sdk-ref-android.md#api-permissions). 
 
 These changes also clarify the different procedures for getting credentials depending on the environment: see expanded information on the [Credentials](../getting-started/gs-credentials.md) and [Environments](../getting-started/gs-environments.md) pages.
+
+</CustomTagsContainer>
 
 <!-- APIDOCS-2828 -->
 
