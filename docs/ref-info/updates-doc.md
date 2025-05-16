@@ -183,7 +183,7 @@ Just hover over the image and the tool appears as a magnifying glass, then click
 
 November 15, 2024
 
-The UID2 Portal documentation now includes a new page, [Audit Trail](../portal/audit-trail.md).
+We've added the following page to the UID2 Portal documentation: [Audit Trail](../portal/audit-trail.md).
 
 The **Audit Trail** page in the UID2 Portal allows users who have the Admin role (see [User Roles](../portal/team-members.md#user-roles)) to view a detailed log of all past actions performed by or on behalf of the current <Link href="../ref-info/glossary-uid#gl-sharing-participant">participant</Link>.
 
@@ -360,9 +360,9 @@ We've added the following integration guides to support publishers who want to i
 
 May 6, 2024
 
-The UID2 Portal documentation now includes a new page, [Client-Side Integration](../portal/client-side-integration.md).
+We've added the following page to the UID2 Portal documentation: [Client-Side Integration](../portal/client-side-integration.md).
 
-The Client-Side Integration page in the UID2 Portal allows you to set up and manage the values that are needed if you are generating UID2 tokens on the client side, such as specifying your domains.
+The **Client-Side Integration** page in the UID2 Portal allows you to set up and manage the values that are needed if you are generating UID2 tokens on the client side, such as specifying your domains.
 
 </CustomTagsContainer>
 
