@@ -2,7 +2,7 @@
 title: UID2 Server-Side Integration Guide for Mobile
 sidebar_label: Server-Side Integration for Mobile
 pagination_label: UID2 Server-Side Integration Guide for Mobile
-description: Setting up a mobile integration with token generate and refresh both on the server side.
+description: Server-Sideでのトークン生成とリフレッシュを行うモバイルインテグレーションの設定
 hide_table_of_contents: false
 sidebar_position: 04
 ---
@@ -11,18 +11,18 @@ import Link from '@docusaurus/Link';
 
 # UID2 Server-Side Integration Guide for Mobile
 
-This guide is for mobile app publishers who want to manage the UID2 token entirely on the server side:
+このガイドは、UID2 Token をServer-Sideで完全に管理したいモバイルアプリのパブリッシャー向けです:
 
-- The token is generated on the server side.
-- The token is refreshed as needed on the server side.
+- トークンはServer-Sideで生成されます。
+- トークンは必要に応じてServer-Sideでリフレッシュされます。
 
-This setup requires that most of the code changes are done on the server side, with minimal changes in the mobile app.
+この設定では、コードの変更の大部分はServer-Sideで行われ、モバイルアプリの変更は最小限に抑えられます。
 
-One advantage of this approach is that if you're dealing with multiple platforms (Web / CTV / mobile), doing everything on the server side can reduce platform-specific efforts.
+このアプローチのメリットの一つは、複数のプラットフォーム（Web / CTV / mobile）を扱う場合、すべてをServer-Sideで行うことで、プラットフォーム固有の作業を減らすことができることです。
 
-To implement using this approach, follow the instructions in [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md).
+このアプローチを実装するには、[Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)の手順に従ってください。
 
-If your server-side code is in Java or Python, you can use one of the UID2 SDKs to make the HTTP requests to UID2, instead of writing your own source code. For details, refer to one of the following SDK guides:
+Server-side のコードが Java または Python の場合、UID2 SDK のいずれかを使用して、UID2 への HTTP リクエストを行うことができます。独自のソースコードを書く代わりに、次の SDK ガイドのいずれかを参照してください:
 
 - [SDK for Java Reference Guide: Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers)
 - [SDK for Python Reference Guide: Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers)
