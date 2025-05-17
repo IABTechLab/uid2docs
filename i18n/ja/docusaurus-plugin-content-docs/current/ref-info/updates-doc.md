@@ -15,7 +15,7 @@ UID2 ドキュメンテーションリソースの最新アップデートを確
 
 当四半期にリリースされたドキュメントは以下の通りです。
 
-### UID2 Private Operator for Azure Integration Guide
+### UID2 Private Operator for AKS Integration Guide
 
 March 19, 2025
 
