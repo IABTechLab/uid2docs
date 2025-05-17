@@ -519,3 +519,20 @@ gcloud CLI を使用してデプロイした場合、アップグレードする
 
 ## Scraping Metrics
 GCP の Private Operator は、`/metrics` エンドポイントで [Prometheus-formatted metrics](https://prometheus.io/docs/concepts/data_model/) ポート 9080 で公開します。Prometheus 互換のスクレイパーを使用して、これらのメトリクスを収集して集計することができます。
+
+## UID2 Operator Error Codes
+
+以下の表は、Private Operator 起動シーケンス中に発生する可能性のあるエラーを一覧表示しています。
+
+:::note
+Private Operator 起動時のエラーコードは、リリース v5.49.7 以降のバージョンに適用されます。
+:::
+
+| Error Code | Issue | Steps to Resolve |
+| :--- | :--- | :--- |
+| E02 | OperatorKeyNotFoundError | オペレータと同じプロジェクトの GCP Secret Manager に指定されたシークレット名が存在し、サービスアカウントがシークレットにアクセスする権限を持っていることを確認してください。`tee-env-API_TOKEN_SECRET_NAME` に設定されていることを確認してください。必要に応じて、特定のシークレット名についてはログを確認できます。 |
+| E03 | ConfigurationMissingError | 構成に必要な属性が不足しています。詳細はログを参照し、GCP オペレーターを実行する前に不足している属性を更新してください。 |
+| E04 | ConfigurationValueError | 設定値が無効です。設定値が必要な形式と環境に一致していることを確認してください。注意: `debug_mode = true` は `integ` 環境でのみ許可されます。詳細はログを確認してください。 |
+| E05 | OperatorKeyValidationError | Operator Key が環境に対して正しいことを確認し、提供されたものと一致していることを確認してください。 |
+| E06 | UID2ServicesUnreachableError | UID2 core および opt-out サービスの IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスと DNS の詳細は、ログを参照してください。 |
+| E08 | OperatorKeyPermissionError | Compute Engine インスタンステンプレートにサービスアカウントをアタッチします。UID2 Operator は、GCP Secret Manager からオペレーターキーにアクセスするためにこれらの権限が必要です。 |

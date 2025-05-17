@@ -324,3 +324,20 @@ UID2 Azure Confidential Containers の新しいバージョンがリリースさ
    ```
    for i in {0..COUNT}; az container delete --name uid-operator-OLD-VERSION-$i --resource-group {RESOURCE_GROUP} --yes
    ```
+
+## UID2 Operator Error Codes
+
+以下の表は、Private Operator 起動シーケンス中に発生する可能性のあるエラーを一覧表示しています。
+
+:::note
+Private Operator 起動時のエラーコードは、リリース v5.49.7 以降のバージョンに適用されます。
+:::
+
+| Error Code | Issue | Steps to Resolve |
+| :--- | :--- | :--- |
+| E02 | OperatorKeyNotFoundError | Operator Key を格納するシークレットボールトとシークレット名が正しく構成されていることを確認してください。`VAULT_NAME` と `OPERATOR_KEY_SECRET_NAME` として設定されていることを確認してください。 |
+| E03 | ConfigurationMissingError | 構成に必要な属性が不足しています。詳細については、ログを参照し、Azure オペレーターを実行する前に不足している属性を更新してください。 |
+| E04 | ConfigurationValueError | 構成値が無効です。構成値が必要な形式と環境に一致していることを確認してください。Note: `debug_mode = true` は `integ` 環境でのみ許可されます。詳細はログを確認してください。 |
+| E05 | OperatorKeyValidationError | Operator Key が環境に適しており、提供されたものと一致していることを確認してください。 |
+| E06 | UID2ServicesUnreachableError | UID2 Core および Opt-out サービスの IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスと DNS の詳細については、ログを参照してください。 |
+| E08 | OperatorKeyPermissionError | コンテナを起動するマネージド ID (operatorIdentifier パラメータで指定) は、オペレーターキーが格納されているキーボールトへのアクセス権を持っている必要があります。`operatorIdentifier` の値は、すべての構成 JSON ファイルで同じである必要があります。 |
