@@ -15,6 +15,26 @@ UID2 ドキュメンテーションリソースの最新アップデートを確
 
 当四半期にリリースされたドキュメントは以下の通りです。
 
+### UID2 Private Operator for AKS Integration Guide
+
+March 19, 2025
+
+UID2 <a href="../intro#participants">参加者</a> は、Azure Kubernetes Service (<Link href="../ref-info/glossary-uid#gl-aks">AKS</Link>) クラスターの [仮想ノード](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-virtual-nodes) 上で UID2 Operator Service を <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> としてセットアップできるようになりました。
+
+詳細は、[UID2 Private Operator for AKS Integration Guide](../guides/operator-guide-aks-enclave.md) を参照してください。
+
+<!-- APIDOCS-3030 -->
+
+### Server-Side Integration Guide for Mobile
+
+March 18, 2025
+
+モバイルアプリのパブリッシャーが、UID2 Token を Server-Side で完全に管理するためのガイドを追加しました。
+
+詳細は、[UID2 Server-Side Integration Guide for Mobile](../guides/integration-mobile-server-side.md) を参照してください。
+
+<!-- APIDOCS-2931 -->
+
 ### UID2 Portal, Sharing Permissions Page
 
 March 11, 2025
@@ -97,7 +117,7 @@ We've removed the legacy v1 to v2 upgrade doc, which is no longer needed. -->
 
 ## Q4 2024
 
-<!-- The following documents were released in the fourth quarter of 2024. -->
+以下のドキュメントは2024年第4四半期にリリースされました。
 
 ### Zoom-In Tool for Images
 
@@ -131,7 +151,7 @@ LiveRamp の Authenticated Traffic Solution (ATS) を使用して UID2 Token を
 
 ## Q3 2024
 
-<!-- The following documents were released in the third quarter of 2024. -->
+以下のドキュメントは2024年第3四半期にリリースされました。
 
 ### Tokens Page
 
@@ -206,7 +226,7 @@ July 2, 2024
 
 ## Q2 2024
 
-<!-- The following documents were released in the second quarter of 2024. -->
+以下のドキュメントは2024年第2四半期にリリースされました。
 
 ### CTV Integration Guide
 
@@ -276,7 +296,7 @@ April 22, 2024
 
 ## Q1 2024
 
-<!-- The following documents were released in the first quarter of 2024 -->
+以下のドキュメントは2024年第1四半期にリリースされました。
 
 ### UID2 Hashing Tool
 
@@ -368,7 +388,7 @@ UID2 Operator が何をするのか、Public Operator と Private Operator の�
 
 ## Q4 2023
 
-<!-- The following documents were released in the fourth quarter of 2023. -->
+以下のドキュメントは2023年第4四半期にリリースされました。
 
 ### UID2 Integration Overview for Prebid
 
@@ -475,7 +495,7 @@ SDK for JavaScript Version 3 の機能強化に伴い、ドキュメントが大
 
 ## Q3 2023
 
-<!-- The following documents were released in the third quarter of 2023. -->
+以下のドキュメントは2023年第3四半期にリリースされました。
 
 ### Private Operator Guide for Google Confidential Space 
 
