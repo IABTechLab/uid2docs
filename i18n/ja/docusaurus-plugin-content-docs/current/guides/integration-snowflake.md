@@ -17,7 +17,9 @@ import Link from '@docusaurus/Link';
 このドキュメントは、2025年2月に公開された広告主とデータプロバイダーをインテグレーションした Snowflake マーケットプレイスリスティングを使用する方を対象としています。以前のリスティング（広告主とデータプロバイダー向けに分かれていたもの、つまり2025年2月以前に登録された方）を使用している場合は、[Snowflake Integration Guide (Version Prior to February 2025）](integration-snowflake-previous.md)を参照してください。以前の実装を使用している場合は、更新と機能強化を活用するために新しいバージョンへの移行を勧めます。詳細については、[Changes from Previous Version](#changes-from-previous-version)を参照してください。移行情報については、[Migration Guide](#migration-guide)を参照してください。
 :::
 
-UID2の以下のリスティングはSnowflakeマーケットプレイスで利用可能です：
+## Snowflake Marketplace Listing
+
+以下のリストは、Snowflake マーケットプレイスで利用可能です：
 - [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
 
 :::tip
