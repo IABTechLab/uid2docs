@@ -9,6 +9,7 @@ sidebar_position: 04
 
 import Link from '@docusaurus/Link';
 import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
+import PrivateOperatorOption from '../snippets/_private-operator-option.mdx';
 
 # CTV Integration Guide
 
@@ -26,6 +27,10 @@ UID2 とインテグレーションするには、次の 3 つの主要なステ
 ## Integrating with Single Sign-On (SSO)
 
 <IntegratingWithSSO />
+
+## Private Operator Option
+
+<PrivateOperatorOption/>
 
 ## Complete UID2 Account Setup and Configure Account
 

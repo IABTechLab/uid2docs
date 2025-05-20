@@ -1,6 +1,6 @@
 ---
 title: Publisher Integration Resources
-description: Overview of the resources available for publishers integrating with UID2.
+description: UID2 をインテグレーションするパブリッシャー向けのリソースの概要
 hide_table_of_contents: false
 sidebar_position: 02
 displayed_sidebar: sidebarPublishers
