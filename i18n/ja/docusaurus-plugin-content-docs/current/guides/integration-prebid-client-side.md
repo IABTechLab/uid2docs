@@ -119,6 +119,7 @@ const baseConfig = {
 
 :::note
 この例では、UID2 本番環境を使用していると仮定しています。インテグレーションテスト中は、`params.uid2ApiBase` を `'https://operator-integ.uidapi.com'` に設定して UID2 インテグレーション環境を使用してください (資格情報については [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)。UID2 インテグレーション環境からのトークンはビッドストリームに渡すために有効ではありません。インテグレーション環境では、異なる **Subscription ID** と **public key** の値があります。詳細は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
+:::
 
 ## Storing the UID2 Token in the Browser
 

@@ -350,6 +350,7 @@ logrotate のドキュメントに従って指示に従ってください: [logr
 | スケジュールされた間隔を変更することなく、手動で `logrotate` を1回実行します。 | `sudo logrotate -f /etc/logrotate.conf --force` |
 | `syslog-ng` をリロードします。 | `sudo /usr/sbin/syslog-ng-ctl reload` |
 
+
 ## UID2 Operator Error Codes
 
 以下の表は、Private Operator の起動シーケンス中に発生する可能性のあるエラーを示しています。
