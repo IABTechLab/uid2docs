@@ -49,9 +49,9 @@ UID2 Prebid.js Client-Side インテグレーション例は、以下のリン�
 
 UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-アカウントの初期設定が完了すると、UID2 ポータルにアクセスするための手順とリンクが送信されます。UID2 ポータルでは、本番環境のための [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細については、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。UID2 Portalでは、[本番環境](../getting-started/gs-environments.md) のための [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細については、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
-Client-Side インテグレーションには、UID2 ポータルの [Client-Side Integration](../portal/client-side-integration.md) ページで以下の値を設定する必要があります:
+Client-Side インテグレーションには、UID2 Portalの [Client-Side Integration](../portal/client-side-integration.md) ページで以下の値を設定する必要があります:
 
 - Subscription ID と Public Key: [Adding and Managing Key Pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs) を参照してください。
 
@@ -118,7 +118,7 @@ const baseConfig = {
 ```
 
 :::note
-この例では、UID2 本番環境を使用していると仮定しています。インテグレーションテスト中は、`params.uid2ApiBase` を `'https://operator-integ.uidapi.com'` に設定して UID2 インテグレーション環境を使用してください (資格情報については [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)。UID2 インテグレーション環境からのトークンはビッドストリームに渡すために有効ではありません。インテグレーション環境では、異なる **Subscription ID** と **public key** の値があります。
+この例では、UID2 本番環境を使用していると仮定しています。インテグレーションテスト中は、`params.uid2ApiBase` を `'https://operator-integ.uidapi.com'` に設定して UID2 インテグレーション環境を使用してください (資格情報については [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)。UID2 インテグレーション環境からのトークンはビッドストリームに渡すために有効ではありません。インテグレーション環境では、異なる **Subscription ID** と **public key** の値があります。詳細は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 :::
 
 ## Storing the UID2 Token in the Browser
@@ -171,7 +171,7 @@ UID2 module が正常に UID2 Token を生成したかどうかを確認する�
 - ブラウザのコンソールログを確認してください。
 - **Subscription ID** (**subscriptionId** の値) と **Public Key** (**serverPublicKey** の値) を確認してください:
   - UID2 チームから受け取った値と同一であることを確認してください。
-  - 使用している環境の値が正しいことを確認してください。[environment](../getting-started/gs-environments.md) ごとに **Subscription IDID** と **Public Key** の値が異なります。
+  - 使用している環境の値が正しいことを確認してください。[environment](../getting-started/gs-environments.md) ごとに **Subscription IDID** と **Public Key** の値が異なります。[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 - アカウントのセットアップ中に、サイトのドメイン名を UID2 チームに提供したことを確認してください。必要に応じて、UID2 の担当者に確認してください。
 - ブラウザのデベロッパーツールを使って、UID2 Service への API コールを調べます。
 

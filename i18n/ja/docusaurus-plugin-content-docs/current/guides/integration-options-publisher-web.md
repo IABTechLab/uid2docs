@@ -43,6 +43,8 @@ UID2 とインテグレーションするには、次の 3 つの主要なアク
 
 <!-- &#9989; = Supported | &#8212; = Not Supported -->
 
+## Publisher Web Options Workflow
+
 実装を選択し、開始するには、以下の手順に従ってください:
 
 1. UID2 Token を生成するオプションの概要を確認します:

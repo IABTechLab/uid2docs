@@ -30,6 +30,8 @@ Portal にアクセスするには、UID2 の担当者にアカウントを作�
 
 担当者は、開始するためのリンクを送信します。
 
+UID2 Portalの URL: [https://portal.unifiedid.com/](https://portal.unifiedid.com/)
+
 ### UID2 Portal Structure
 
 UID2 Portal はナビゲーションが簡単になるように構造化されています。
