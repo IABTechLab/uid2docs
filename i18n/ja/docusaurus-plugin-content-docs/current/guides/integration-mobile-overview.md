@@ -81,8 +81,9 @@ UID2 mobile SDK を使用して UID2 とインテグレーションするため�
 
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |
-| モバイルアプリ内のクライアントサイドで DII (メールアドレスまたは電話番号) にアクセスでき、変更をアプリ内にのみ保持したい場合。 | Client-Side インテグレーション | [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) |
-| Server-Side でのみ DII にアクセスでき、UID2 Token を生成するための開発を Server-Side で行うことができる場合、または <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を使用している場合。 | Client-Server インテグレーション | [UID2 Client-Server Integration Guide for Mobile](integration-mobile-client-server.md) |
+| Client Side/モバイルアプリ内で <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>（メールアドレスまたは電話番号）にアクセス可能であり、変更内容をアプリ内のみで保持したい。 | Client-Side integration | [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) |
+| You have access to DII on the server side only and can do the necessary development to generate UID2 tokens server-side, but you want to refresh tokens on the client side&#8212;or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Client-Server Integration | [UID2 Client-Server Integration Guide for Mobile](integration-mobile-client-server.md) |
+| You have access to DII on the server side only and can do the necessary development to generate UID2 tokens server-side, or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Server-Side Integration | [UID2 Server-Side Integration Guide for Mobile](integration-mobile-server-side.md) |
 
 ### Generating, Storing, and Refreshing the UID2 Token
 

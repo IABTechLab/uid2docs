@@ -59,6 +59,7 @@ Android または iOS デバイスとインテグレーションするパブリ�
 | [Mobile Integration Overview for Android and iOS](integration-mobile-overview.md) | SDK for Android または SDK for iOS を使用して UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けのオプションの概要です。 |
 | [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) | モバイルアプリ内のみの変更で UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けのインテグレーションガイドです (Server-Side の変更はありません)。 |
 | [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md) | UID2 とインテグレーションしたいモバイルアプリのパブリッシャー向けのインテグレーションガイドです:<ol><li>UID2 Token を Server-Side で生成するには、PublicまたはPrivate Operatorを使用します。</li><li>その結果、<Link href="../ref-info/glossary-uid#gl-identity">identities</Link> をモバイルアプリに渡し、ビッドストリームに渡します。</li></ol> |
+| [Server-Side Integration Guide for Mobile](../guides/integration-mobile-server-side.md) | モバイルアプリのパブリッシャーで、UID2 Token を完全に Server-Side で管理したい場合のインテグレーションガイドです。 |
 
 ### CTV Integrations
 

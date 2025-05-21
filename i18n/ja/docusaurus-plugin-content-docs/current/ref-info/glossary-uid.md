@@ -416,10 +416,10 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-salt-bucket"><a href="#gl-salt-bucket">Salt bucket</a></MdxJumpAnchor></dt>
 <dd>ソルトバケットは、raw UID2 や UID2 Token を生成するために使用される秘密の <a href="#gl-salt">salt</a> の値を長期間管理するために使用されます。各バケットには、約1年間有効な現在のソルト値が含まれており、新しい値にローテーションされる前に更新されます。バケットは互いに独立して更新できます。</dd>
-<dd>ソルトバケットは、100万以上あり、各メールアドレスまたは電話番号は、特定のバケットに決定論的に割り当てられます。ただし、この割り当ては永続的ではなく、バケットの現在のシークレットソルトが新しい値にローテーションされると変更される可能性があります。</dd>
+<dd>ソルトバケットは、100万以上あり、各メールアドレスまたは電話番号は、特定のバケットに決定論的に割り当てられます。ただし、この割り当ては永続的ではなく、バケットの現在のソルトが新しい値にローテーションされると変更される可能性があります。</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket-id"><a href="#gl-salt-bucket-id">Salt bucket ID</a></MdxJumpAnchor></dt>
-<dd>ソルトバケット ID は、特定の <a href="#gl-salt-bucket">ソルトバケット</a> を識別する一意の文字列です。ソルトバケット ID を使用すると、最近、秘密のソルト値が更新されたソルトバケットを確認し、どのメールアドレスまたは電話番号が raw UID2 値を再生成する必要があるかを確認できます。</dd>
+<dd>ソルトバケット ID は、特定の <a href="#gl-salt-bucket">ソルトバケット</a> を識別する一意の文字列です。ソルトバケット ID を使用すると、最近、ソルト値が更新されたソルトバケットを確認し、どのメールアドレスまたは電話番号が raw UID2 値を再生成する必要があるかを確認できます。</dd>
 <dd>ソルトバケット ID の例については、`POST /identity/buckets` エンドポイントのレスポンスを参照してください: <a href="../endpoints/post-identity-buckets#decrypted-json-response-format">Decrypted JSON Response Format</a>。</dd>
 
 <dt><MdxJumpAnchor id="gl-salted-hash">Salted hash</MdxJumpAnchor></dt>

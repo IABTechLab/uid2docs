@@ -597,3 +597,5 @@ August 3, 2023
 パブリッシャー向けの新しいガイドでは、iOS アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にする SDK、SDK for iOS に関する情報を提供しています。
 
 詳細は [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) を参照してください。
+
+<!-- UID2 website launched 12 April 2023 -->
