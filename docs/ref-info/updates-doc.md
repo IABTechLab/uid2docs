@@ -25,7 +25,7 @@ The following documents were released in this quarter.
 
 <CustomTagsContainer tags="All, Guides, Private Operator">
 
-### UID2 Private Operator for AKS Integration Guide
+### Private Operator for AKS Integration Guide
 
 March 19, 2025
 
@@ -33,9 +33,9 @@ A UID2 <a href="../intro#participants">participant</a> who wants to be a <Link h
 
 For details, see [UID2 Private Operator for AKS Integration Guide](../guides/operator-guide-aks-enclave.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-3030 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Guides, Mobile">
 
@@ -47,13 +47,13 @@ We've added a guide for mobile app publishers who want to manage the UID2 token 
 
 For details, see [UID2 Server-Side Integration Guide for Mobile](../guides/integration-mobile-server-side.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2931 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Portal, Sharing">
 
-### UID2 Portal, Sharing Permissions Page
+### Portal, Sharing Permissions Page
 
 March 11, 2025
 
@@ -61,9 +61,9 @@ We've significantly expanded and clarified the documentation for configuring sha
 
 For details, see [Sharing Permissions](../portal/sharing-permissions.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2795 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, SDKs">
 
@@ -75,9 +75,9 @@ We've added documentation for the recently released update of the UID2 SDK for J
 
 For details, see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2923 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Reference">
 
@@ -89,9 +89,9 @@ We've added a page with high-level information about the steps for creating a UI
 
 For details, see [How the UID2 Token Is Created](../ref-info/ref-how-uid-is-created.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2855 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Guides">
 
@@ -103,9 +103,9 @@ We've significantly updated the UID2 Snowflake integration, and updated the docu
 
 For details, see [Snowflake Integration Guide](../guides/integration-snowflake.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2918 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Portal, Reference">
 
@@ -119,9 +119,9 @@ For details, see any implementation guide: for example, [Client-Side Integration
 
 These changes also clarify the different procedures for getting credentials depending on the environment: see expanded information on the [Credentials](../getting-started/gs-credentials.md) and [Environments](../getting-started/gs-environments.md) pages.
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2828 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Guides">
 
@@ -133,9 +133,9 @@ We've significantly expanded and restructured the Advertiser/Data Provider docum
 
 For details, including a summary of all integration options for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-1662 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Reference">
 
@@ -147,9 +147,9 @@ We've added a reference page for publishers who integrate with one or more SSO p
 
 For details, see [Publisher Integration with SSO Providers](ref-integration-sso-providers.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2486 -->
+
+</CustomTagsContainer>
 
 <!-- ### Removed:  v1 to v2 upgrade doc
 
@@ -173,13 +173,13 @@ The UID2 docs site now includes a zoom-in tool for images.
 
 Just hover over the image and the tool appears as a magnifying glass, then click to view a magnified version of the image.
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2237 for both -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Portal">
 
-### UID2 Portal Audit Trail Page
+### Portal Audit Trail Page
 
 November 15, 2024
 
@@ -187,9 +187,9 @@ We've added the following page to the UID2 Portal documentation: [Audit Trail](.
 
 The **Audit Trail** page in the UID2 Portal allows users who have the Admin role (see [User Roles](../portal/team-members.md#user-roles)) to view a detailed log of all past actions performed by or on behalf of the current <Link href="../ref-info/glossary-uid#gl-sharing-participant">participant</Link>.
 
-</CustomTagsContainer>
-
 <!-- APIDOCSS-2700 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Guides">
 
@@ -201,9 +201,9 @@ We've added a reference page with tips for publishers who are using LiveRamp's A
 
 For details, see [LiveRamp Integration Tips](../guides/integration-liveramp-tips.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2699 -->
+
+</CustomTagsContainer>
 
 ## Q3 2024
 
@@ -219,9 +219,9 @@ We've added a reference page with information about tokens.
 
 For details, see [UID2 Tokens and Refresh Tokens](../ref-info/ref-tokens.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2533 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Guides, Private Operator">
 
@@ -233,9 +233,9 @@ We've added a page with information about Private Operator integrations.
 
 For details, see [UID2 Private Operator Integration Overview](../guides/integration-options-private-operator).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2164 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Guides">
 
@@ -247,9 +247,9 @@ We've added a guide for DSPs who are not using UID2 SDKs.
 
 For details, see [DSP Direct Integration Instructions](../guides/integration-dsp-no-sdk.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2394 -->
+
+</CustomTagsContainer>
 
 <!-- ### UID2 Token Reference Page
 
@@ -271,9 +271,9 @@ We've added a page with information about the different integration approaches: 
 
 For details, see [Integration Approaches](ref-integration-approaches.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2132 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Reference">
 
@@ -285,13 +285,13 @@ We've added a reference page with information for publishers generating the UID2
 
 For details, see [Server-Side Token Generation](ref-server-side-token-generation.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2255 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Guides, Mobile, Prebid.js">
 
-### UID2 Integration with Prebid Mobile SDK (Android)
+### Integration with Prebid Mobile SDK (Android)
 
 July 2, 2024
 
@@ -300,9 +300,9 @@ We've added a section to the two mobile integration guides with instructions for
 - [UID2 Client-Side Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-side#optional-uid2-integration-with-prebid-mobile-sdk)
 - [UID2 Client-Server Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-server#optional-uid2-integration-with-prebid-mobile-sdk)
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2269 -->
+
+</CustomTagsContainer>
 
 ## Q2 2024
 
@@ -318,9 +318,9 @@ We've just added a guide for CTV publishers who want to integrate with UID2.
 
 For details, see [CTV Integration Guide](../guides/integration-ctv-guide.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2264 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Opt-Out">
 
@@ -334,9 +334,9 @@ Given a list of raw UID2s, this endpoint returns the raw UID2s that have opted o
 
 For details, see [POST&nbsp;/optout/status](../endpoints/post-optout-status.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-1739 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Guides, Mobile, SDKs">
 
@@ -350,13 +350,13 @@ We've added the following integration guides to support publishers who want to i
 - [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side)
 - [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server)
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-1903-->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Portal">
 
-### UID2 Portal Client-Side Integration Page
+### Portal Client-Side Integration Page
 
 May 6, 2024
 
@@ -364,13 +364,13 @@ We've added the following page to the UID2 Portal documentation: [Client-Side In
 
 The **Client-Side Integration** page in the UID2 Portal allows you to set up and manage the values that are needed if you are generating UID2 tokens on the client side, such as specifying your domains.
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2120 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Portal">
 
-### UID2 Portal API Keys Page
+### Portal API Keys Page
 
 April 25, 2024
 
@@ -378,13 +378,13 @@ The UID2 Portal documentation now includes a new page, [API Keys](../portal/api-
 
 The API Keys page in the UID2 Portal allows you to perform all activities relating to managing API keys, and their associated secret values and permission settings, for your UID2 account.
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2133 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Sharing">
 
-### Documentation for Sharing Including Raw UID2 Sharing
+### Documentation for UID2 Sharing
 
 April 22, 2024
 
@@ -394,9 +394,9 @@ The documentation now supports additional sharing scenarios, including the abili
 
 For details, see [UID2 Sharing: Overview](../sharing/sharing-overview.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-2134 -->
+
+</CustomTagsContainer>
 
 ## Q1 2024
 
@@ -412,13 +412,13 @@ We've added a UID2 hashing tool so that you can check that you're normalizing an
 
 For details, see [UID2 Hashing Tool](../getting-started/gs-normalization-encoding#uid2-hashing-tool) in the *Normalization and Encoding* documentation.
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-1974 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Guides, SDKs">
 
-### Java SDK Support for Advertiser/Data Provider
+### Java SDK Support, Advertiser/Data Provider
 
 February 28, 2024
 
@@ -426,9 +426,9 @@ The Java SDK now supports Advertisers and Data Providers wanting to use the [POS
 
 For details, see the updated documentation in the *SDK for Java Reference Guide*: [Usage for Advertisers and Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers).
 
-</CustomTagsContainer>
-
 <!-- UID2-2759 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Infrastructure">
 
@@ -444,13 +444,13 @@ Note that many docs are applicable to multiple audiences, and there are many int
 
 To view the custom sidebars, go to [https://unifiedid.com](https://unifiedid.com/) and click on one of the audience links at the top: [Publishers](../overviews/overview-publishers.md). [Advertisers](../overviews/overview-advertisers.md), [DSPs](../overviews/overview-dsps.md), or [Data Providers](../overviews/overview-data-providers.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-1681 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Guides, SDKs">
 
-### UID2 Integration Overview for JavaScript
+### Integration Overview for JavaScript
 
 January 26, 2024
 
@@ -462,9 +462,9 @@ For details, see:
 - [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
 - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-1924 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Guides, SDKs">
 
@@ -476,9 +476,9 @@ We've added sections in the SDK for Java documentation to help publishers implem
 
 For details, see [Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers) in the SDK for Java Reference Guide.
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-1705 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Reference">
 
@@ -490,9 +490,9 @@ We've expanded and clarified the existing Normalization and Encoding doc, and ad
 
 For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-1183, APIDOCS-1880 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Guides">
 
@@ -504,9 +504,9 @@ We've added a page summarizing the web integration options available to publishe
 
 For details, see [Publisher Web Integration Overview](../guides/integration-options-publisher-web.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-1846 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Private Operator, Reference">
 
@@ -518,9 +518,9 @@ We've added a reference page explaining what the UID2 Operator does and the diff
 
 For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-1720 -->
+
+</CustomTagsContainer>
 
 ## Q4 2023
 
@@ -528,7 +528,7 @@ The following documents were released in the fourth quarter of 2023.
 
 <CustomTagsContainer tags="All, Guides, Prebid.js">
 
-### UID2 Integration Overview for Prebid
+### Integration Overview for Prebid
 
 December 20, 2023
 
@@ -558,7 +558,7 @@ For details, see [Encryption and Decryption Code Examples](../getting-started/gs
 
 <CustomTagsContainer tags="All, Guides, Private Operator">
 
-### UID2 Private Operator for Azure Integration Guide
+### Private Operator for Azure Integration Guide
 
 November 30, 2023
 
@@ -612,7 +612,7 @@ This document was updated in January 2024 to [Client-Side Integration Guide for 
 
 <CustomTagsContainer tags="All, Guides, Prebid.js">
 
-### UID2 Client-Side Integration Guide for Prebid.js
+### Client-Side Integration Guide for Prebid.js
 
 November 2, 2023
 
@@ -683,9 +683,9 @@ This guide provides information for setting up the UID2 Operator Service in [Con
 
 For details, see [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md).
 
-</CustomTagsContainer>
-
 <!-- APIDOCS-1655 -->
+
+</CustomTagsContainer>
 
 <CustomTagsContainer tags="All, Reference">
 
@@ -764,7 +764,7 @@ For details, use the language drop-down at the top of any site page, or go strai
 
 <CustomTagsContainer tags="All, Portal">
 
-### UID2 Portal Documentation
+### Portal Documentation
 
 August 3, 2023
 
