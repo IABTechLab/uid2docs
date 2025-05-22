@@ -6,6 +6,8 @@ sidebar_position: 06
 ---
 
 import Link from '@docusaurus/Link';
+import CustomTagsFilters from "@site/src/components/CustomTags/CustomTagsFilters";
+import CustomTagsContainer from "@site/src/components/CustomTags/CustomTagsContainer";
 
 # Documentation Updates
 
