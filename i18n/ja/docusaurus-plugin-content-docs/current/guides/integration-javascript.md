@@ -68,7 +68,7 @@ Client-Side のオプションでは、ローカルストレージを使用し�
 
 JavaScript SDK は、UID2 Token の生成、更新、保存を管理しますが、トークンをビッドストリームに渡すことは管理しません。
 
-トークンは、Prebid.jsなどのオプションを使用して<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡すことができます。いくつかの提案については、*Webインテグレーション概要*の [Pass the UID2 Token Into the Bidstream](integration-options-publisher-web.md#pass-the-uid2-token-into-the-bidstream) を参照してください。
+トークンは、Prebid.jsなどのオプションを使用して<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡すことができます。いくつかの提案については、*Publisher Web インテグレーション概要*の [Pass the UID2 Token Into the Bidstream](integration-options-publisher-web.md#pass-the-uid2-token-into-the-bidstream) を参照してください。
 
 ## JavaScript Integration Overview: High-Level Steps
 

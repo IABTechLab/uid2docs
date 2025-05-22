@@ -4,5 +4,11 @@
 # e.g. 
 # CVE-2022-3996
 
-# https://thetradedesk.atlassian.net/browse/UID2-5271
+# UID2-5271
 GHSA-m5qc-5hw7-8vg7 exp:2025-06-04
+
+# UID2-5394
+GHSA-f46r-rw29-r322 exp:2025-05-12
+
+# UID2-5395
+GHSA-cpj6-fhp6-mr6j exp:2025-05-12

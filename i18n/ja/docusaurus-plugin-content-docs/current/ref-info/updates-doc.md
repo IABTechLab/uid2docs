@@ -6,16 +6,54 @@ sidebar_position: 06
 ---
 
 import Link from '@docusaurus/Link';
+import CustomTagsFilters from "@site/src/components/CustomTags/CustomTagsFilters";
+import CustomTagsContainer from "@site/src/components/CustomTags/CustomTagsContainer";
 
 # Documentation Updates
 
+<CustomTagsFilters />
+
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
+
+:::tip
+Use the Tags toolbar to view a subset of documentation updates.
+:::
 
 ## Q1 2025
 
 当四半期にリリースされたドキュメントは以下の通りです。
 
-### UID2 Portal, Sharing Permissions Page
+<CustomTagsContainer tags="All, Guides, Private Operator">
+
+### Private Operator for AKS Integration Guide
+
+March 19, 2025
+
+UID2 <a href="../intro#participants">参加者</a> は、Azure Kubernetes Service (<Link href="../ref-info/glossary-uid#gl-aks">AKS</Link>) クラスターの [仮想ノード](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-virtual-nodes) 上で UID2 Operator Service を <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> としてセットアップできるようになりました。
+
+詳細は、[UID2 Private Operator for AKS Integration Guide](../guides/operator-guide-aks-enclave.md) を参照してください。
+
+<!-- APIDOCS-3030 -->
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, Mobile">
+
+### Server-Side Integration Guide for Mobile
+
+March 18, 2025
+
+モバイルアプリのパブリッシャーが、UID2 Token を Server-Side で完全に管理するためのガイドを追加しました。
+
+詳細は、[UID2 Server-Side Integration Guide for Mobile](../guides/integration-mobile-server-side.md) を参照してください。
+
+<!-- APIDOCS-2931 -->
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Portal, Sharing">
+
+### Portal, Sharing Permissions Page
 
 March 11, 2025
 
@@ -24,6 +62,10 @@ UID2 Portal での共有権限の設定に関するドキュメントを大幅�
 詳細は、[Sharing Permissions](../portal/sharing-permissions.md) を参照してください。
 
 <!-- APIDOCS-2795 -->
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, SDKs">
 
 ### JavaScript SDK Version 4
 
@@ -35,6 +77,10 @@ UID2 JavaScript SDK の最新アップデート、Version 4 に関するドキ�
 
 <!-- APIDOCS-2923 -->
 
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Reference">
+
 ### How the UID2 Token Is Created
 
 March 7, 2025
@@ -45,6 +91,10 @@ UID2 Token を生成する手順に関する情報を記載したページを追
 
 <!-- APIDOCS-2855 -->
 
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides">
+
 ### Snowflake Integration Guide
 
 February 12, 2025
@@ -54,6 +104,10 @@ UID2 Snowflake インテグレーションを大幅に更新し、ドキュメ�
 詳細は、[Snowflake Integration Guide](../guides/integration-snowflake.md) を参照してください。
 
 <!-- APIDOCS-2918 -->
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Portal, Reference">
 
 ### Instructions for Using the UID2 Portal
 
@@ -67,6 +121,10 @@ UID2 インテグレーションガイド、SDK ドキュメント、エンド�
 
 <!-- APIDOCS-2828 -->
 
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides">
+
 ### Advertiser/Data Provider Doc
 
 January 10, 2025
@@ -76,6 +134,10 @@ January 10, 2025
 広告主とデータプロバイダー向けのすべてのインテグレーションオプションの概要については、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
 <!-- APIDOCS-1662 -->
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Reference">
 
 ### Publisher SSO Integration Page
 
@@ -87,6 +149,8 @@ SSO ログインを提供するために SSO プロバイダーとインテグ�
 
 <!-- APIDOCS-2486 -->
 
+</CustomTagsContainer>
+
 <!-- ### Removed:  v1 to v2 upgrade doc
 
 January 3, 2025
@@ -97,7 +161,9 @@ We've removed the legacy v1 to v2 upgrade doc, which is no longer needed. -->
 
 ## Q4 2024
 
-<!-- The following documents were released in the fourth quarter of 2024. -->
+以下のドキュメントは2024年第4四半期にリリースされました。
+
+<CustomTagsContainer tags="All, Infrastructure">
 
 ### Zoom-In Tool for Images
 
@@ -109,7 +175,11 @@ UID2 ドキュメントサイトに、画像のズームインツールが追加
 
 <!-- APIDOCS-2237 for both -->
 
-### UID2 Portal Audit Trail Page
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Portal">
+
+### Portal Audit Trail Page
 
 November 15, 2024
 
@@ -117,7 +187,11 @@ UID2 Portal ドキュメントに新しいページ、[Audit Trail](../portal/au
 
 UID2 Portal の **Audit Trail** ページでは、Admin 権限 ([User Roles](../portal/team-members.md#user-roles) を参照) を持つユーザーが、現在の <Link href="../ref-info/glossary-uid#gl-sharing-participant">参加者</Link> または参加者に代わって実行された過去のすべてのアクションの詳細なログを表示できます。
 
-<!-- APIDOCS-2700 -->
+<!-- APIDOCSS-2700 -->
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides">
 
 ### LiveRamp Integration Tips
 
@@ -129,9 +203,13 @@ LiveRamp の Authenticated Traffic Solution (ATS) を使用して UID2 Token を
 
 <!-- APIDOCS-2699 -->
 
+</CustomTagsContainer>
+
 ## Q3 2024
 
-<!-- The following documents were released in the third quarter of 2024. -->
+以下のドキュメントは2024年第3四半期にリリースされました。
+
+<CustomTagsContainer tags="All, Reference">
 
 ### Tokens Page
 
@@ -143,6 +221,10 @@ September 10, 2024
 
 <!-- APIDOCS-2533 -->
 
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, Private Operator">
+
 ### Private Operator Integration Overview
 
 August 28, 2024
@@ -152,6 +234,10 @@ Private Operator のインテグレーションに関する新しいページを
 詳細は [Private Operator Integrations](../guides/integration-options-private-operator) を参照してください。
 
 <!-- APIDOCS-2164 -->
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides">
 
 ### DSP Direct Integration Instructions
 
@@ -163,6 +249,8 @@ UID2 SDK を使用していない DSP 向けの新しいガイドを追加しま
 
 <!-- APIDOCS-2394 -->
 
+</CustomTagsContainer>
+
 <!-- ### UID2 Token Reference Page
 
 August 22, 2024
@@ -172,6 +260,8 @@ We've added a new reference page with general information about UID2 tokens, inc
 For details, see [UID2 Tokens and Refresh Tokens]. -->
 
 <!-- APIDOCS-1958 removed 8/26/22 -->
+
+<CustomTagsContainer tags="All, Reference">
 
 ### Integration Approaches Page
 
@@ -183,6 +273,10 @@ Client-Side、Client-Server、Server-Side の異なるインテグレーショ�
 
 <!-- APIDOCS-2132 -->
 
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Reference">
+
 ### Server-Side Token Generation Page
 
 July 3, 2024
@@ -193,7 +287,11 @@ Server-Side で UID2 Token を生成するパブリッシャー向けの情報�
 
 <!-- APIDOCS-2255 -->
 
-### UID2 Integration with Prebid Mobile SDK (Android)
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, Mobile, Prebid.js">
+
+### Integration with Prebid Mobile SDK (Android)
 
 July 2, 2024
 
@@ -204,9 +302,13 @@ July 2, 2024
 
 <!-- APIDOCS-2269 -->
 
+</CustomTagsContainer>
+
 ## Q2 2024
 
-<!-- The following documents were released in the second quarter of 2024. -->
+以下のドキュメントは2024年第2四半期にリリースされました。
+
+<CustomTagsContainer tags="All, CTV, Guides">
 
 ### CTV Integration Guide
 
@@ -217,6 +319,10 @@ UID2 とのインテグレーションを希望する CTV パブリッシャー�
 詳細は [CTV Integration Guide](../guides/integration-ctv-guide.md) を参照してください。
 
 <!-- APIDOCS-2264 -->
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Opt-Out">
 
 ### Opt-Out API
 
@@ -230,6 +336,10 @@ raw UID2 のリストが与えられた場合、このエンドポイントは�
 
 <!-- APIDOCS-1739 -->
 
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, Mobile, SDKs">
+
 ### Client-Side and Server-Side Guides for Mobile
 
 May 17, 2024
@@ -242,7 +352,11 @@ Android または iOS モバイルアプリのパブリッシャーが UID2 を�
 
 <!-- APIDOCS-1903-->
 
-### UID2 Portal Client-Side Integration Page
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Portal">
+
+### Portal Client-Side Integration Page
 
 May 6, 2024
 
@@ -252,7 +366,11 @@ UID2 Portal の Client-Side Integration ページでは、ドメインなど、�
 
 <!-- APIDOCS-2120 -->
 
-### UID2 Portal API Keys Page
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Portal">
+
+### Portal API Keys Page
 
 April 25, 2024
 
@@ -262,7 +380,11 @@ UID2 Portal の API Keys ページでは、UID2 アカウントの API Key、関
 
 <!-- APIDOCS-2133 -->
 
-### Documentation for Sharing Including Raw UID2 Sharing
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Sharing">
+
+### Documentation for UID2 Sharing
 
 April 22, 2024
 
@@ -274,9 +396,13 @@ April 22, 2024
 
 <!-- APIDOCS-2134 -->
 
+</CustomTagsContainer>
+
 ## Q1 2024
 
-<!-- The following documents were released in the first quarter of 2024 -->
+以下のドキュメントは2024年第1四半期にリリースされました。
+
+<CustomTagsContainer tags="All, Reference">
 
 ### UID2 Hashing Tool
 
@@ -288,7 +414,11 @@ March 4, 2024
 
 <!-- APIDOCS-1974 -->
 
-### Java SDK Support for Advertiser/Data Provider
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, SDKs">
+
+### Java SDK Support, Advertiser/Data Provider
 
 February 28, 2024
 
@@ -297,6 +427,10 @@ Java SDKは、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エ�
 詳細は、*SDK for Javaリファレンスガイド*: [Usage for Advertisers and Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) の更新されたドキュメントを参照してください。
 
 <!-- UID2-2759 -->
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Infrastructure">
 
 ### Audience-Specific Sidebars
 
@@ -312,7 +446,11 @@ UID2 home page の "ドキュメント" リンクをクリックするだけで�
 
 <!-- APIDOCS-1681 -->
 
-### UID2 Integration Overview for JavaScript
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, SDKs">
+
+### Integration Overview for JavaScript
 
 January 26, 2024
 
@@ -326,6 +464,10 @@ January 26, 2024
 
 <!-- APIDOCS-1924 -->
 
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, SDKs">
+
 ### SDK for Java, Publisher Sections
 
 22 January 2024
@@ -335,6 +477,10 @@ SDK for Java のドキュメントに、SDK を実装するパブリッシャー
 詳細は SDK for Java Reference Guide の [Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers) を参照してください。
 
 <!-- APIDOCS-1705 -->
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Reference">
 
 ### Normalization and Encoding Examples
 
@@ -346,6 +492,10 @@ January 19, 2024
 
 <!-- APIDOCS-1183, APIDOCS-1880 -->
 
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides">
+
 ### Web Integration Overview for Publishers
 
 January 16, 2024
@@ -355,6 +505,10 @@ UID2 とインテグレーションするパブリッシャーが利用できる
 詳細は [Publisher Web Integration Overview](../guides/integration-options-publisher-web.md) を参照してください。
 
 <!-- APIDOCS-1846 -->
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Private Operator, Reference">
 
 ### UID2 Operator Page
 
@@ -366,11 +520,15 @@ UID2 Operator が何をするのか、Public Operator と Private Operator の�
 
 <!-- APIDOCS-1720 -->
 
+</CustomTagsContainer>
+
 ## Q4 2023
 
-<!-- The following documents were released in the fourth quarter of 2023. -->
+以下のドキュメントは2023年第4四半期にリリースされました。
 
-### UID2 Integration Overview for Prebid
+<CustomTagsContainer tags="All, Guides, Prebid.js">
+
+### Integration Overview for Prebid
 
 December 20, 2023
 
@@ -384,6 +542,10 @@ December 20, 2023
 - [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Reference">
+
 ### Encrypt/Decrypt Examples, Java and C#
 
 December 14, 2023
@@ -392,13 +554,21 @@ UID2 リクエストの暗号化とレスポンスの復号化について、追
 
 詳細は [Encryption and Decryption Code Examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples) を参照してください。
 
-### UID2 Private Operator for Azure Integration Guide
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, Private Operator">
+
+### Private Operator for Azure Integration Guide
 
 November 30, 2023
 
 [Private Operator](../ref-info/glossary-uid.md#gl-private-operator) の運用を希望する UID2 <a href="../overviews/participants-overview">参加者は</a>、Microsoft Azure の機密コンピューティングオプションである Confidential Containers のインスタンスで UID2 Operator Service をセットアップできるようになりました。
 
 詳細は [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md) を参照してください。
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Reference">
 
 ### API Permissions
 
@@ -408,6 +578,10 @@ UID2 ウェブサイトの Getting Started セクションに新しい記事が�
 
 詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Reference">
+
 ### UID2 Credentials Page
 
 November 21, 2023
@@ -415,6 +589,10 @@ November 21, 2023
 以前の **API Keys** ページを新しいページに置き換えました。このページには、Server-Sideの実装戦略に従った場合の認証情報についての情報が含まれています。
 
 詳細は [UID2 Credentials](../getting-started/gs-credentials.md) を参照してください。
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, SDKs">
 
 ### Client-Side Integration Guide for JS
 
@@ -430,7 +608,11 @@ Client-Side Integration Guide for JavaScript は、既存の URL の全く新し
 このドキュメントは2024年1月に [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) に更新され、JavaScript Standard Integration Guide は[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) になりました。
 :::
 
-### UID2 Client-Side Integration Guide for Prebid.js
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, Prebid.js">
+
+### Client-Side Integration Guide for Prebid.js
 
 November 2, 2023
 
@@ -445,6 +627,10 @@ UID2 Client-Side Integration Guide for Prebid.js は、既存の URL にまっ�
 - [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 :::
 
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Opt-Out, Reference">
+
 ### Opt-Out Page
 
 October 31, 2023
@@ -452,6 +638,10 @@ October 31, 2023
 新しい "getting started" トピックでは、ユーザーのオプトアウトの概要を説明します。
 
 詳細は [User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides">
 
 ### AWS Entity Resolution Integration Guide
 
@@ -463,6 +653,10 @@ October 19, 2023
 
 詳細は [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) を参照してください。
 
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, SDKs">
+
 ### SDK for JavaScript Version 3 
 
 October 10, 2023
@@ -473,9 +667,13 @@ SDK for JavaScript Version 3 の機能強化に伴い、ドキュメントが大
 -  [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)
 -  [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
+</CustomTagsContainer>
+
 ## Q3 2023
 
-<!-- The following documents were released in the third quarter of 2023. -->
+以下のドキュメントは2023年第3四半期にリリースされました。
+
+<CustomTagsContainer tags="All, Guides, Private Operator">
 
 ### Private Operator Guide for Google Confidential Space 
 
@@ -486,6 +684,10 @@ September 30, 2023
 詳細は [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md) を参照してください。
 
 <!-- APIDOCS-1655 -->
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Reference">
 
 ### Normalization and Encoding Rules
 
@@ -498,6 +700,10 @@ September 7, 2023
 - [Email Address Hash Encoding](../getting-started/gs-normalization-encoding#email-address-hash-encoding)
 - [Phone Number Hash Encoding](../getting-started/gs-normalization-encoding#phone-number-hash-encoding)
 
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, Mobile, SDKs">
+
 ### IMA Mobile Plugin for Android
 
 August 8, 2023
@@ -505,6 +711,10 @@ August 8, 2023
 Android 向け UID2 Interactive Media Ads(IMA)Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google IMA SDK for Android を使用するパブリッシャーが、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を secure signals として送信できるようになります。
 
 詳細は [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) を参照してください。
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, Mobile, SDKs">
 
 ### IMA Mobile Plugin for iOS
 
@@ -514,6 +724,10 @@ iOS 向け UID2 Interactive Media Ads(IMA)Plugin に関する情報を提供す�
 
 詳細は [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) を参照してください。
 
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, Mobile, SDKs">
+
 ### GMA Mobile Plugin for Android
 
 August 4, 2023
@@ -521,6 +735,10 @@ August 4, 2023
 Android 向け UID2 Google Mobile Ads(GMA)Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google GMA SDK を使用するパブリッシャーが、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を secure signals として送信できるようになります。
 
 詳細は [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) を参照してください。
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, Mobile, SDKs">
 
 ### GMA Mobile Plugin for iOS
 
@@ -530,6 +748,10 @@ iOS 向け UID2 Google Mobile Ads(GMA)Plugin に関する情報を提供する�
 
 詳細は [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) を参照してください。
 
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Infrastructure">
+
 ### UID2 Website in Japanese
 
 August 3, 2023
@@ -538,13 +760,21 @@ UID2 のウェブサイト全体が、英語だけでなく日本語でも利用
 
 詳細は、各サイトのページ上部にある言語ドロップダウンを使うか、直接 [Unified ID 2.0 in Japanese](https://unifiedid.com/ja/docs/intro) にアクセスしてください。
 
-### UID2 Portal Documentation
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Portal">
+
+### Portal Documentation
 
 3 August 2023
 
 UID2 アカウントを管理できる新しい UID2 Portal ユーザーインターフェースをナビゲートするための新しいドキュメントページをいくつか公開しました。
 
 詳細は [UID2 Portal: Overview](../portal/portal-overview.md) を参照してください。
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, Sharing, SDKs">
 
 ### Documentation for UID2 Sharing
 
@@ -562,6 +792,10 @@ August 3, 2023
 
 - UID2 Sharing をサポートするための Snowflake 機能の更新。[Snowflake Integration Guide: Usage for UID2 Sharers](../guides/integration-snowflake.md#usage-for-uid2-sharers) を参照してください。
 
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, Mobile, SDKs">
+
 ### Android SDK Guide
 
 August 3, 2023
@@ -570,6 +804,10 @@ August 3, 2023
 
 詳細は [SDK for Android Reference Guide](../sdks/sdk-ref-android.md) を参照してください。
 
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="All, Guides, Mobile, SDKs">
+
 ### iOS SDK Guide
 
 August 3, 2023
@@ -577,3 +815,7 @@ August 3, 2023
 パブリッシャー向けの新しいガイドでは、iOS アプリをサポートする必要があるパブリッシャー向けに、UID2 を使用したクライアント ID の確立と UID2 Token の取得プロセスを容易にする SDK、SDK for iOS に関する情報を提供しています。
 
 詳細は [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) を参照してください。
+
+</CustomTagsContainer>
+
+<!-- UID2 website launched 12 April 2023 -->

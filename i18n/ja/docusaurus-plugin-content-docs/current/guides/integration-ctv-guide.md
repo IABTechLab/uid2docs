@@ -9,6 +9,7 @@ sidebar_position: 04
 
 import Link from '@docusaurus/Link';
 import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
+import PrivateOperatorOption from '../snippets/_private-operator-option.mdx';
 
 # CTV Integration Guide
 
@@ -26,6 +27,10 @@ UID2 とインテグレーションするには、次の 3 つの主要なステ
 ## Integrating with Single Sign-On (SSO)
 
 <IntegratingWithSSO />
+
+## Private Operator Option
+
+<PrivateOperatorOption/>
 
 ## Complete UID2 Account Setup and Configure Account
 
@@ -49,11 +54,13 @@ UID2 とインテグレーションするには、UID2 のアカウントが必�
 
 ## CTV Integration Options
 
-UID2 Token の生成とリフレッシュをどこで行うかに基づいて、最適なインテグレーションオプションを選択できます。次の 3 つのオプションがあります:
+UID2 Token の生成とリフレッシュをどこで行うかに基づいて、最適なインテグレーションオプションを選択できます。以下の表に示すように、3 つのオプションがあります:
 
-- [Client-Side Integration](#client-side-integration-for-ctv-apps) (UID2 Token は Client-Side で生成とリフレッシュされます)
-- [Server-Side Integration](#server-side-integration-for-ctv-apps) (UID2 Token は Server-Side で生成とリフレッシュされます)
-- [Client-Server Integration](#client-server-integration-for-ctv-apps) (UID2 Token は Server-Side で生成され、Client-Side でリフレッシュされます)
+| Option | Details |
+| :--- | :--- |
+| [Client-Side Integration](#client-side-integration-for-ctv-apps) | トークンは Client-Side で生成され、リフレッシュされます。 |
+| [Server-Side Integration](#server-side-integration-for-ctv-apps) | トークンは Server-Side で生成され、リフレッシュされます。 |
+| [Client-Server Integration](#client-server-integration-for-ctv-apps) | トークンは Server-Side で生成され、Client-Side でリフレッシュされます。 |
 
 ### Client-Side Integration for CTV Apps
 

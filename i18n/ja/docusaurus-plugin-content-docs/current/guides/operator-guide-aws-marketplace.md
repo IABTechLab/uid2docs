@@ -350,6 +350,24 @@ logrotate のドキュメントに従って指示に従ってください: [logr
 | スケジュールされた間隔を変更することなく、手動で `logrotate` を1回実行します。 | `sudo logrotate -f /etc/logrotate.conf --force` |
 | `syslog-ng` をリロードします。 | `sudo /usr/sbin/syslog-ng-ctl reload` |
 
+
+## UID2 Operator Error Codes
+
+以下の表は、Private Operator の起動シーケンス中に発生する可能性のあるエラーを示しています。
+
+:::note
+Private Operator 起動時のエラーコードは、リリース v5.49.7 以降のバージョンに適用されます。
+:::
+
+| Error Code | Issue | Steps to Resolve |
+| :--- | :--- | :--- |
+| E01 | InstanceProfileMissingError | EC2 インスタンスに、必要な権限が付与されたIAMインスタンスプロファイルをアタッチします。UID2 Operator は、AWS Secrets Manager から設定にアクセスするためにこれらの権限が必要です。 |
+| E02 | OperatorKeyNotFoundError | Private Operator が参照するシークレットが、オペレーターと同じリージョンにある AWS Secrets Manager に存在することを確認し、IAM インスタンス プロファイルがシークレットにアクセスする権限を持っていることを確認してください。必要に応じて、特定のシークレット名とリージョンに関するログを確認できます。 |
+| E03 | ConfigurationMissingError | 構成に必須の属性が不足しています。詳細についてはログを確認し、Secrets Manager で不足している属性を更新してください。 |
+| E04 | ConfigurationValueError | 構成値が無効です。AWS Secrets Manager内の構成値が、必要な形式と環境と一致していることを確認してください。Note： `debug_mode = true` は `integ` 環境でのみ許可されています。詳細についてはログを確認してください。 |
+| E05 | OperatorKeyValidationError | Operator Key が環境に適しており、提供されたものと一致していることを確認してください。 |
+| E06 | UID2ServicesUnreachableError | UID2 Core および Opt-out Service の IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスおよび DNS の詳細については、ログを参照してください。 |
+
 ## Technical Support
 
 製品のサブスクリプションやデプロイに問題がある場合は、[contact us](mailto:aws-mktpl-uid@thetradedesk.com) にお問い合わせください。

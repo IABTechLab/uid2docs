@@ -73,7 +73,7 @@ export const partnersData: PartnersDataType = [
   },
   {
     name: "Alliant",
-    logo: "PartnerLogo_Alliant_256x256.png",
+    logo: "alliant-logo.png",
     type: ["Data"],
     featured: true,
     order: 4,
@@ -252,6 +252,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "Dek-D",
     logo: "ddlogo_orn_a 2.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "Digital Trends",
+    logo: "digital-trends-logo.png",
     type: ["Publishers"],
   },
   {
@@ -557,7 +562,7 @@ export const partnersData: PartnersDataType = [
   },
   {
     name: "Mingpao",
-    logo: "MP-580x250.png",
+    logo: "mingpao-logo.png",
     type: ["Publishers"],
   },
   {
@@ -734,8 +739,8 @@ export const partnersData: PartnersDataType = [
   },
   {
     name: "RevOptimal",
-    logo: "RevOptimal.png",
-    type: ["Publishers"],
+    logo: "revoptimal-logo.png",
+    type: ["Data"],
   },
   {
     name: "Roku",
@@ -812,7 +817,7 @@ export const partnersData: PartnersDataType = [
   {
     name: "Sling",
     logo: "sling-logo.png",
-    type: ["Publishers"],
+    type: ["Data"],
   },
   {
     name: "Smrtr",
@@ -979,6 +984,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "VNExpress",
     logo: "VNExpress.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "Warner Bros. Discovery",
+    logo: "wb-logo.png",
     type: ["Publishers"],
   },
   {

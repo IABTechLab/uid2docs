@@ -2,7 +2,7 @@
 title: UID2 Private Operator for AKS Integration Guide
 sidebar_label: Azure Kubernetes Service (AKS)
 pagination_label: UID2 Private Operator for AKS Integration Guide
-description: Integration information for Private Operator in AKS.
+description: AKS を使用した Private Operator のインテグレーション情報
 hide_table_of_contents: false
 sidebar_position: 18
 ---
@@ -12,21 +12,21 @@ import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
 
 # UID2 Private Operator for AKS Integration Guide
 
-The UID2 Operator is the API server in the UID2 ecosystem. For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
+UID2 Operator は UID2 エコシステムの API サーバーです。詳細については、[The UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
-This guide provides information for setting up the UID2 Operator Service as a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> in an Azure Kubernetes Service (<Link href="../ref-info/glossary-uid#gl-aks">AKS</Link>) cluster, running on [virtual nodes on Azure Container Instances](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-virtual-nodes) (ACI). Virtual nodes on Azure Container Instances enable us to take advantage of confidential containers, which run in a hardware-backed Trusted Execution Environment (TEE) that provides intrinsic capabilities such as data integrity, data confidentiality, and code integrity. 
+このガイドでは、Azure Kubernetes Service （<Link href="../ref-info/glossary-uid#gl-aks">AKS</Link>） クラスター上で Azure Container Instances（ACI） の仮想ノード上で実行される UID2 Operator Service を <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> として設定する方法について説明します。[Azure Container Instances 上の仮想ノード](https://learn.microsoft.com/ja-jp/azure/container-instances/container-instances-virtual-nodes)を使用することで、ハードウェアでバックアップされた Trusted Execution Environment （TEE） で実行される機密コンテナの機能を活用できます。この TEE は、データ整合性、データ機密性、コード整合性などの内在的な機能を提供します。
 
-When the Docker container for the UID2 Operator confidential Azure Container instance starts up, it completes the attestation process that allows the UID2 Core Service to verify the authenticity of the Operator Service and of the enclave environment that the Operator Service is running in.
+UID2 Operator の機密 Azure Container インスタンス用の Docker コンテナーが起動すると、UID2 Core Service が Operator Service の真正性と、Operator Service が実行されているエンクレーブ環境の真正性を検証できるようにする認証プロセスが完了します。
 
-When the attestation is successful, the UID2 Core Service provides seed information such as salts and keys to bootstrap the UID2 Operator in the secure UID2 Operator confidential Azure Container Instance.
+認証が成功すると、UID2 Core Service は、UID2 Operator をセキュアな UID2 Operator 機密 Azure Container Instance で起動するためのソルトやキーなどのシード情報を提供します。
 
 :::caution
-UID2 Private Operator for AKS is not supported in these areas: Europe, China.
+UID2 Private Operator for AKS は、次の地域ではサポートされていません: ヨーロッパ、中国。
 :::
 
 ## Prerequisites
 
-Before deploying the UID2 Private Operator for AKS, complete these prerequisite steps:
+AKS の UID2 Private Operator をデプロイする前に、次の前提条件を完了してください:
 
 - [Set Up the UID2 Operator Account](#set-up-the-uid2-operator-account)
 - [Install the Azure CLI](#install-the-azure-cli)
@@ -36,52 +36,52 @@ Before deploying the UID2 Private Operator for AKS, complete these prerequisite 
 
 ### Set Up the UID2 Operator Account
 
-Ask your UID2 contact to register your organization as a UID2 Operator. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
+UID2 の連絡先に、組織を UID2 Operator として登録するよう依頼してください。誰に聞けばよいかわからない場合は、[Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。
 
-When the registration process is complete, you'll receive an operator key, exclusive to you, that identifies you with the UID2 service as a Private Operator. During configuration, use this as the value for `OPERATOR_KEY`. This value is both your unique identifier and a password; store it securely and do not share it.
+登録プロセスが完了すると、UID2 Service に対して Private Operator として識別する、あなた専用の operator key が届きます。構成中は、これを `OPERATOR_KEY` の値として使用します。この値は、あなたのためのユニークな識別子であり、パスワードでもあります。安全に保管し、共有しないでください。
 
 :::note
-You'll receive a separate operator key for each deployment environment.
+各環境に対して別の operator key が届きます。
 :::
 
 ### Install the Azure CLI
 
-Install the Azure command-line interface. For details, see [How to install the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) in the Azure documentation.
+Azure コマンドラインインターフェイスをインストールします。詳細については、Azure ドキュメントの [How to install the Azure CLI](https://learn.microsoft.com/ja-jp/cli/azure/install-azure-cli) を参照してください。
 
 ### Get the Required Azure Permissions
 
-You'll need to have subscription owner permission so that you can create a resource group.
+リソースグループを作成するには、サブスクリプションの所有者権限が必要です。
 
-When that's done, you only need contributor permission on the resource group level for that resource.
+作業が完了したら、そのリソースに対してリソースグループレベルの貢献者権限のみが必要です。
 
-For details, see [Azure roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) in the Azure documentation.
+詳細は、Azure ドキュメントの [Azure roles](https://learn.microsoft.com/ja-jp/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) を参照してください。
 
-When all prerequisite steps are complete, you're ready to deploy the UID2 Private Operator. See [Deployment](#deployment).
+すべての前提条件が完了したら、UID2 Private Operator をデプロイする準備が整いました。次は [Deployment](#deployment) を参照してください。
 
 ### Install the kubectl CLI
 
-Install the Kubernetes `kubectl` command-line interface. For details, see [Install Tools](https://kubernetes.io/docs/tasks/tools/) in the Kubernetes documentation.
+Kubernetesの `kubectl` コマンドラインインターフェイスをインストールします。詳細については、Kubernetes ドキュメントの [Install Tools](https://kubernetes.io/docs/tasks/tools/) を参照してください。
 
 ### Install the Helm CLI
 
-Install the `helm` command-line interface. For details, see [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.
+`helm` コマンドラインインターフェイスをインストールします。詳細については、[Installing Helm](https://helm.sh/docs/intro/install/) を参照してください。
 
 ## Deployment Environments
 
-The following environments are available. As a best practice, we recommend that you test and verify your implementation in the integration environment before deploying in the production environment.
+以下の環境が利用可能です。ベストプラクティスとして、テスト環境で実装をテストして検証してから、本番環境にデプロイすることをお勧めします。
 
 :::note
-You'll receive separate `{OPERATOR_KEY}` values for each environment. Be sure to use the correct key for the environment you're using. The deployment artifacts and the process flow are the same for both environments.
+各環境ごとに別々の `{OPERATOR_KEY}` 値が届きます。使用している環境に正しいキーを使用してください。デプロイメントアーティファクトとプロセスフローは、両方の環境で同じです。
 :::
 
 | Environment | Details |
 | :--- | :--- |
-| Integration (`integ`) | For testing only. Debug mode is available in the integration environment. |
-| Production (`prod`) | For managing production traffic. |
+| Integration (`integ`) | テスト専用です。デバックモードはテスト環境で利用可能です。 |
+| Production (`prod`) | 本番トラフィックを管理するためのものです。 |
 
 ## Deployment
 
-To deploy a new UID2 Private Operator for AKS, you'll need to complete the following high-level steps:
+AKS の新しい UID2 Private Operator をデプロイするには、次の主要な手順を完了する必要があります:
 
 - [Download ZIP File and Extract Files](#download-zip-file-and-extract-files)
 - [Prepare Environment Variables](#prepare-environment-variables)
@@ -92,11 +92,11 @@ To deploy a new UID2 Private Operator for AKS, you'll need to complete the follo
 
 ### Download ZIP File and Extract Files
 
-To get set up with the installation files, follow these steps:
+インストールファイルをセットアップするには、次の手順に従ってください:
 
-1. Ask your UID2 contact for the ZIP file containing the deployment files.
+1. UID2 の連絡先に、デプロイメントファイルを含む ZIP ファイルを依頼してください。
 
-1. Download and unzip the file.
+1. ダウンロードし、解答します。
 
 <!-- Download the ZIP file linked in the following table, AKS Download column, for the latest version. 
 
@@ -112,7 +112,7 @@ The latest ZIP file is linked in the AKS Download column in the following table.
 
 ### Prepare Environment Variables
 
-Run the following commands to prepare environment variables that you'll use later. Choose variable names to suit your needs.
+以下のコマンドを実行して、後で使用する環境変数を準備します。変数名は必要に応じて選択してください。
 
 ```
 export RESOURCE_GROUP="my-vn-aks"
@@ -131,7 +131,7 @@ export DEPLOYMENT_ENV="integ"
 
 ### Set Up AKS and Node Pool
 
-To set up AKS and the node pool, complete the following steps:
+AKS とノードプールをセットアップするには、次の手順を完了します:
 
 - [Create Resource Group](#create-resource-group)
 - [Create Virtual Network](#create-virtual-network)
@@ -145,22 +145,22 @@ To set up AKS and the node pool, complete the following steps:
 - [Create Contributor Role for the Two Resource Groups](#create-contributor-role-for-the-two-resource-groups)
 
 #### Create Resource Group
-In Azure, run the following command to create a resource group to run the UID2 Private Operator:
+Azure で、UID2 Private Operator を実行するリソースグループを作成するには、次のコマンドを実行します:
 
 ```
 az group create --name "${RESOURCE_GROUP}" --location "${LOCATION}"
 ```
 
 :::info
-All the resources are provisioned later under the name you provide as the value for `${RESOURCE_GROUP}`.
+すべてのリソースは、`${RESOURCE_GROUP}` の値として指定した名前の下に後でプロビジョニングされます。
 :::
 
-There are some limitations with regard to location:
-- UID2 Private Operator for AKS is not supported in these areas: Europe, China.
+ロケーションに関していくつかの制限があります:
+- UID2 Private Operator for AKS は、次の地域ではサポートされていません: ヨーロッパ、中国。
 
-- For Azure virtual network deployment availability, confirm the availability of regional support for Confidential Containers: check [Resource availability & quota limits for ACI](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) in the Azure documentation.
+- Azure 仮装ネットワークのデプロイメントの可用性については、[Resource availability & quota limits for ACI](https://learn.microsoft.com/ja-jp/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) を確認してください。
 
-- To get the alias for the location, run the following command:
+- ロケーションのエイリアスを取得するには、次のコマンドを実行します:
 
    ```
    az account list-locations -o table
@@ -168,7 +168,7 @@ There are some limitations with regard to location:
 
 #### Create Virtual Network
 
-To create the virtual network, run the following command, using your own values as needed:
+仮装ネットワークを作成するには、次のコマンドを実行します:
 
 ```
 az network vnet create \
@@ -180,7 +180,7 @@ az network vnet create \
 
 #### Create Subnets
 
-To create the subnets, run the following command, using your own values as needed:
+サブネットを作成するには、次のコマンドを実行します:
 
 ```
 # Default Subnet (10.0.0.0/24)
@@ -208,7 +208,7 @@ az network vnet subnet create \
 
 #### Create Public IP Address
 
-To create the public IP address, run the following command, using your own values as needed:
+パブリック IP アドレスを作成するには、次のコマンドを実行します:
 
 ```
 az network public-ip create --name ${PUBLIC_IP_ADDRESS_NAME} --resource-group ${RESOURCE_GROUP} --sku standard --allocation static
@@ -216,7 +216,7 @@ az network public-ip create --name ${PUBLIC_IP_ADDRESS_NAME} --resource-group ${
 
 #### Create NAT Gateway
 
-To create the [Azure Network Address Translation (NAT) gateway](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview), run the following command, using your own values as needed:
+[Azure NAT Gateway](https://learn.microsoft.com/ja-jp/azure/nat-gateway/nat-overview) を作成するには、次のコマンドを実行します:
 
 ```
 az network nat gateway create \
@@ -228,7 +228,7 @@ az network nat gateway create \
 
 #### Configure NAT Service for Source Subnet
 
-To configure the NAT service, run the following command, using your own values as needed:
+NAT サービスを構成するには、次のコマンドを実行します:
 
 ```
 az network vnet subnet update \
@@ -240,7 +240,7 @@ az network vnet subnet update \
 
 #### Get the AKS Subnet ID
 
-To create the AKS subnet ID, run the following command, using your own values as needed:
+AKS サブネット ID を作成するには、次のコマンドを実行します:
 
 ```
 export AKS_SUBNET_ID=$(az network vnet subnet show \
@@ -253,7 +253,7 @@ export AKS_SUBNET_ID=$(az network vnet subnet show \
 
 #### Create an AKS Service
 
-To create the AKS service, run the following command, using your own values as needed:
+AKS サービスを作成するには、次のコマンドを実行します:
 
 ```
 # Create the AKS cluster
@@ -280,17 +280,17 @@ az aks create \
 
 #### Get the Principal ID of the Managed Identity
 
-To get the Principal ID, run the following command, using your own values as needed:
+Principal ID を取得するには、次のコマンドを実行します:
 
 ```
 export MANAGED_IDENTITY_PRINCIPAL_ID="$(az aks show --resource-group ${RESOURCE_GROUP} --name ${AKS_CLUSTER_NAME} --query "identityProfile.kubeletidentity.clientId" --output tsv)"
 ```
 
-For details, see [Get the principal ID of the system-assigned managed identity](https://learn.microsoft.com/en-us/azure/aks/use-managed-identity#get-the-principal-id-of-the-system-assigned-managed-identity) in the Microsoft Azure documentation.
+詳細は、Microsoft Azure ドキュメントの [Get the principal ID of the system-assigned managed identity](https://learn.microsoft.com/en-us/azure/aks/use-managed-identity#get-the-principal-id-of-the-system-assigned-managed-identity) を参照してください。
 
 #### Create Contributor Role for the Two Resource Groups
 
-To create the contributor role for each group, run the following commands, using your own values as needed:
+各グループに対してコントリビューターロールを作成するには、次のコマンドを実行します:
 
 ```
 az role assignment create \
@@ -304,13 +304,13 @@ az role assignment create \
   --role Contributor
 ```
 
-Additional reference information in external documentation:
-- [Tutorial: Deploy virtual nodes on Azure Container Instances in your Azure Kubernetes Service cluster](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-virtual-nodes-helm)
+外部ドキュメントの追加参照情報:
+- [Tutorial: Deploy virtual nodes on Azure Container Instances in your Azure Kubernetes Service cluster](https://learn.microsoft.com/ja-jp/azure/container-instances/container-instances-tutorial-virtual-nodes-helm)
 - [Setting up a virtual node Environment](https://github.com/microsoft/VirtualNodesOnAzureContainerInstances?tab=readme-ov-file#setting-up-a-virtual-node-environment)
 
 ### Set Up AKS Cluster
 
-To set up the AKS cluster, run the following command, using your own values as needed:
+AKS クラスターをセットアップするには、次のコマンドを実行します:
 
 ```
 az aks get-credentials --name ${AKS_CLUSTER_NAME} --resource-group ${RESOURCE_GROUP}
@@ -327,11 +327,11 @@ kubectl get nodes
 
 ### Complete Key Vault and Managed Identity Setup
 
-The next step is to set up a [key vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview) and save the operator key in it. When you've created the key vault, you can create a [managed identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview) and grant it permission to access the key vault.
+次のステップは、[Key Vault](https://learn.microsoft.com/ja-jp/azure/key-vault/general/overview) をセットアップし、Operator Key を保存することです。Key Vault を作成したら、[Managed Identity](https://learn.microsoft.com/ja-jp/entra/identity/managed-identities-azure-resources/overview) を作成し、Key Vault へのアクセス権を付与できます。
 
-Later, when the AKS cluster launches, it uses this identity. For details, see [Running pods with an Azure Managed Identity](https://github.com/microsoft/virtualnodesOnAzureContainerInstances/blob/main/Docs/PodCustomizations.md#running-pods-with-an-azure-managed-identity) in the Microsoft Azure documentation.
+後で、AKS クラスターが起動すると、この ID を使用します。詳細については、Microsoft Azure ドキュメントの [Running pods with an Azure Managed Identity](https://github.com/microsoft/virtualnodesOnAzureContainerInstances/blob/main/Docs/PodCustomizations.md#running-pods-with-an-azure-managed-identity) を参照してください。
 
-Follow these steps:
+以下の手順に従ってください:
 
 ```
 az identity create --name "${MANAGED_IDENTITY}" --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}"
@@ -349,28 +349,28 @@ az role assignment create --assignee-object-id "${IDENTITY_PRINCIPAL_ID}" --role
 
 ### Complete the UID2 Private Operator Setup
 
-To complete the Private Operator setup, follow these steps:
+Private Operator のセットアップを完了するには、次の手順に従ってください:
 
 - [Update Placeholder Values](#update-placeholder-values)
 - [Deploy Operator](#deploy-operator)
 
 #### Update Placeholder Values
 
-After completing the previous steps, follow these steps to update placeholder values:
+前の手順を完了したら、次の手順に従ってプレースホルダー値を更新します:
 
-1. Get the managed identity ID by running the following:
+1. 以下のコマンドを実行して、Managed Identity ID を取得します
 
    ```
    MANAGED_IDENTITY_ID=$("az identity show --name "${MANAGED_IDENTITY}" --resource-group "${RESOURCE_GROUP}" --query id --output tsv")
    ```
 
-2. In the `operator.yaml` file, update `microsoft.containerinstance.virtualnode.identity` with the managed identity ID that was returned:
+2. `operator.yaml` ファイルの `microsoft.containerinstance.virtualnode.identity` を、返されたマネージド ID に置き換えます:
 
    ```
    sed -i "s#IDENTITY_PLACEHOLDER#$MANAGED_IDENTITY_ID#g" "operator.yaml"
    ```
 
-3. Update the Vault Key and Secret names with the environment variables:
+3. 環境変数を使用して、Vault Key と Secret 名を更新します:
 
    ```
    sed -i "s#VAULT_NAME_PLACEHOLDER#$KEYVAULT_NAME#g" "operator.yaml"
@@ -380,15 +380,15 @@ After completing the previous steps, follow these steps to update placeholder va
 
 #### Deploy Operator
 
-Follow these steps to deploy the Private Operator:
+以下の手順に従って、Private Operator をデプロイします:
 
-1. Retrieve the Kubernetes configuration credentials for the AKS cluster you just created:
+1. 作成した AKS クラスターの Kubernetes 構成資格情報を取得します:
 
    ```
    az aks get-credentials --name ${AKS_CLUSTER_NAME} --resource-group ${RESOURCE_GROUP}
    ```
 
-2. When you've retrieved the Kubernetes configuration credentials, deploy the Private Operator by running the following:
+2. Kubernetes 構成資格情報を取得したら、次のコマンドを実行して Private Operator をデプロイします:
 
    ```
    kubectl apply -f operator.yaml
@@ -396,21 +396,21 @@ Follow these steps to deploy the Private Operator:
 
 ## Running the Health Check
 
-Call the health check endpoint to test the health of your implementation.
+実装の状態を確認するには、ヘルスチェックエンドポイントを呼び出します。
 
-Running the health check is the same for the integration and production environments, except for the endpoints.
+ヘルスチェックの実行は、テスト環境と本番環境で同じですが、エンドポイントは異なります。
 
-Follow these steps:
+以下の手順に従ってください:
 
-1. Get the public IP address for the service:
+1. サービスのパブリック IP アドレスを取得します:
 
    ```
    IP=$(az network public-ip list --resource-group ${AKS_NODE_RESOURCE_GROUP} --query "[?starts_with(name, 'kubernetes')].ipAddress" --output tsv)
    ```
 
-2. To test operator status, in your browser, go to the health check endpoint: `http://${IP}/ops/healthcheck`.
+2. オペレータの状態をテストするには、ブラウザでヘルスチェックエンドポイントにアクセスします: `http://${IP}/ops/healthcheck`.
 
-   An HTTP 200 with a response body of `OK` indicates healthy status.
+   HTTP 200 ステータスコードでレスポンスボディが `OK` の場合、正常な状態を示します。
 
 import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 
@@ -418,17 +418,17 @@ import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 
 ## Upgrading
 
-When a new version of UID2 Private Operator for AKS is released, participants hosting their own Private Operator receive an email notification of the update, with a new release link or instructions to get the installation file. There is a window of time for upgrade, after which the older version is deactivated and is no longer supported.
+UID2 Private Operator for AKS の新しいバージョンがリリースされると、独自の Private Operator をホストしている参加者は、更新の通知を受け取り、新しいリリースリンクまたはインストールファイルを取得するための手順が記載されたメールを受け取ります。アップグレードのウィンドウがあり、その後、古いバージョンは非アクティブになり、サポートされなくなります。
 
-To upgrade, complete the following steps:
+アップグレードするには、次の手順を完了します:
 
-1. Follow the instructions in [Download ZIP File and Extract Files](#download-zip-file-and-extract-files) to download the deployment file for the new version and then unzip it.
+1. [Download ZIP File and Extract Files](#download-zip-file-and-extract-files) を参照して、新しいバージョンのデプロイメントファイルをダウンロードし、解凍します。
 
-2. Follow the instructions in [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup), using the new files, to deploy your AKS implementation with the new versions.
+2. [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup) を参照して、Key Vault と Managed Identity をセットアップします。
 
-3. Check the health of the new AKS deployment and make sure the status is healthy.
+3. 新しい AKS デプロイメントのヘルスを確認し、ステータスが正常であることを確認します:
 
-4. Double-check that the old AKS pods are shut down properly:
+4. 古い AKS ポッドが適切にシャットダウンされていることを確認します:
 
    ```
    kubectl get pods

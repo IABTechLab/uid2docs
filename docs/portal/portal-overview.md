@@ -30,6 +30,8 @@ To get access to the portal, ask your UID2 contact for permission to create an a
 
 Your contact will send you a link to get started.
 
+The URL for the UID2 Portal is: [https://portal.unifiedid.com/](https://portal.unifiedid.com/).
+
 ### UID2 Portal Structure
 
 The UID2 Portal is structured for easy navigation.

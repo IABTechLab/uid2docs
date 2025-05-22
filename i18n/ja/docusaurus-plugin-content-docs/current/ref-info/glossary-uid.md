@@ -130,10 +130,10 @@ import Link from '@docusaurus/Link';
 <dd>Advertising token は <a href="#gl-uid2-token">UID2 token の別名です。</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-aks"><a href="#gl-aks">AKS</a></MdxJumpAnchor></dt>
-<dd>AKS is an acronym for Azure Kubernetes Service. For details, see [What is Azure Kubernetes Service (AKS)?](https://learn.microsoft.com/en-us/azure/aks/what-is-aks) (Microsoft documentation).</dd>
-<dd>To run an AKS cluster on a confidential container, Microsoft offers a solution to run it on virtual nodes on Microsoft Azure container instances. For details, see [Virtual nodes on Azure Container Instances](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-virtual-nodes) (Microsoft documentation).</dd>
-<dd>In the context of UID2, AKS is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
-<dd>For details, see <a href="../guides/operator-guide-aks-enclave">UID2 Private Operator for AKS Integration Guide</a>.</dd>
+<dd>AKS は Azure Kubernetes Service の略です。詳細は、[Azure Kubernetes Service (AKS) とは?](https://learn.microsoft.com/ja-jp/azure/aks/what-is-aks) (Microsoft documentation) を参照してください。</dd>
+<dd>機密コンテナ上で AKS クラスターを実行するために、Microsoft は、Microsoft Azure コンテナインスタンス上の仮想ノードで実行するソリューションを提供しています。詳細は、[Virtual nodes on Azure Container Instances](https://learn.microsoft.com/ja-jp/azure/container-instances/container-instances-virtual-nodes) (Microsoft documentation) を参照してください。</dd>
+<dd>UID2 のコンテキストでは、AKS は <a href="#gl-private-operator">Private Operator</a> をホストするためのサポートされるセキュアコンピューティング環境の1つです。</dd>
+<dd>詳細は、<a href="../guides/operator-guide-aks-enclave">UID2 Private Operator for AKS Integration Guide</a> を参照してください。</dd>
 <!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-api-key">API key</MdxJumpAnchor></dt>
@@ -416,10 +416,10 @@ import Link from '@docusaurus/Link';
 
 <dt><MdxJumpAnchor id="gl-salt-bucket"><a href="#gl-salt-bucket">Salt bucket</a></MdxJumpAnchor></dt>
 <dd>ソルトバケットは、raw UID2 や UID2 Token を生成するために使用される秘密の <a href="#gl-salt">salt</a> の値を長期間管理するために使用されます。各バケットには、約1年間有効な現在のソルト値が含まれており、新しい値にローテーションされる前に更新されます。バケットは互いに独立して更新できます。</dd>
-<dd>ソルトバケットは、100万以上あり、各メールアドレスまたは電話番号は、特定のバケットに決定論的に割り当てられます。ただし、この割り当ては永続的ではなく、バケットの現在のシークレットソルトが新しい値にローテーションされると変更される可能性があります。</dd>
+<dd>ソルトバケットは、100万以上あり、各メールアドレスまたは電話番号は、特定のバケットに決定論的に割り当てられます。ただし、この割り当ては永続的ではなく、バケットの現在のソルトが新しい値にローテーションされると変更される可能性があります。</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket-id"><a href="#gl-salt-bucket-id">Salt bucket ID</a></MdxJumpAnchor></dt>
-<dd>ソルトバケット ID は、特定の <a href="#gl-salt-bucket">ソルトバケット</a> を識別する一意の文字列です。ソルトバケット ID を使用すると、最近、秘密のソルト値が更新されたソルトバケットを確認し、どのメールアドレスまたは電話番号が raw UID2 値を再生成する必要があるかを確認できます。</dd>
+<dd>ソルトバケット ID は、特定の <a href="#gl-salt-bucket">ソルトバケット</a> を識別する一意の文字列です。ソルトバケット ID を使用すると、最近、ソルト値が更新されたソルトバケットを確認し、どのメールアドレスまたは電話番号が raw UID2 値を再生成する必要があるかを確認できます。</dd>
 <dd>ソルトバケット ID の例については、`POST /identity/buckets` エンドポイントのレスポンスを参照してください: <a href="../endpoints/post-identity-buckets#decrypted-json-response-format">Decrypted JSON Response Format</a>。</dd>
 
 <dt><MdxJumpAnchor id="gl-salted-hash">Salted hash</MdxJumpAnchor></dt>

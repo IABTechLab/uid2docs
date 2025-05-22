@@ -48,9 +48,9 @@ UID2 と UID2 Token を使用してクライアントのアイデンティティ
 
 UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-アカウントの初期設定が完了すると、UID2 ポータルにアクセスするための手順とリンクが送信されます。UID2 ポータルでは、本番環境のための [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細については、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+アカウントの初期設定が完了すると、UID2 Portalにアクセスするための手順とリンクが送信されます。UID2 Portalでは、本番環境のための [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細については、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
-Server-Side インテグレーションの場合、UID2 ポータルの [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
+Server-Side インテグレーションの場合、UID2 Portalの [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
 
 - <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、Client Key とも呼ばれます、
 - <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Service のみが知る値。
