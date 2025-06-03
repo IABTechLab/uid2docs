@@ -4,6 +4,7 @@ sidebar_label: Advertiser/Data Provider Integration Overview
 description: ユーザーデータを収集し、他の参加者へプッシュする組織向けのインテグレーションの概要。
 hide_table_of_contents: false
 sidebar_position: 07
+displayed_sidebar: sidebarAdvertisers
 ---
 
 import Link from '@docusaurus/Link';

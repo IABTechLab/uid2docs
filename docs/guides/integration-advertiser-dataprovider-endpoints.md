@@ -4,6 +4,7 @@ sidebar_label: HTTP Endpoints
 description: Integration for organizations that collect user data and push it to other participants, coding to HTTP endpoints rather than an SDK or Snowflake.
 hide_table_of_contents: false
 sidebar_position: 07
+displayed_sidebar: sidebarAdvertisers
 ---
 
 import Link from '@docusaurus/Link';
