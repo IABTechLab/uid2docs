@@ -4,6 +4,7 @@ sidebar_label: HTTP Endpoints
 description: ユーザーデータを収集し、他の参加者へプッシュする組織向けのインテグレーション、SDK や Snowflake ではなく HTTP エンドポイントへのコーディング。
 hide_table_of_contents: false
 sidebar_position: 07
+displayed_sidebar: sidebarAdvertisers
 ---
 
 import Link from '@docusaurus/Link';
