@@ -17,8 +17,8 @@ export const CustomTagsContext = createContext<TagContext>(undefined);
 
 export function CustomTagsContextProvider({ children }: PropsWithChildren) {
   const [state, setState] = useState<TagState>({
-    tags: [],
-    filter: undefined,
+    tags: ["All"],
+    filter: "All",
   });
 
   return (
