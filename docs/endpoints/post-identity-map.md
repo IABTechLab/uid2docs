@@ -9,10 +9,7 @@ import Link from '@docusaurus/Link';
 
 # POST /identity/map
 
-Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s. You can also use this endpoint to:
-* check for updates opt-out information
-* check when an advertisting ID may be refreshed
-* map the previous advertising ID for advertising IDs that are less than 90 days old
+Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s. You can also use this endpoint to check for updates to opt-out information, check when an advertisting ID may be refreshed or view the previous advertising ID for advertising IDs that are less than 90 days old.
 
 Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
 
@@ -148,8 +145,8 @@ Identifiers that cannot be mapped to an advertising ID are mapped to an error ob
 {
     "body":{
         "email": [
-            { "e": "INVALID" },
-            { "e": "OPTOUT" }
+            { "e": "invalid identifier" },
+            { "e": "optout" }
         ],
         "email_hash": [],
         "phone": [],
@@ -163,17 +160,17 @@ Identifiers that cannot be mapped to an advertising ID are mapped to an error ob
 
 For successfully mapped DIIs, the response body includes the properties shown in the following table.
 
-| Property | Data Type      | Description                                                                                                                           |
-|:---------|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------|
-| `u`      | string         | The advertising ID (raw UID2) of the DII given in the request.                                                                        |
-| `p`      | string or null | The previous advertising ID if the current ID has been refreshed in the last 90 days. `null` if the current ID is older than 90 days. |
-| `r`      | number         | The Unix timestamp (in milliseconds) that indicates when the advertising ID may be refreshed.                                         |
+| Property | Data Type  | Description                                                                                                                           |
+|:---------|:-----------|:--------------------------------------------------------------------------------------------------------------------------------------|
+| `u`      | string     | The advertising ID (raw UID2) of the DII given in the request.                                                                        |
+| `p`      | string     | The previous advertising ID if the current ID has been refreshed in the last 90 days. `Null` if the current ID is older than 90 days. |
+| `r`      | number     | The Unix timestamp (in milliseconds) that indicates when the advertising ID may be refreshed.                                         |
 
 For unsuccessfully mapped DIIs, the response body includes the properties shown in the following table.
 
 | Property | Data Type | Description                                                                                    |
 |:---------|:----------|:-----------------------------------------------------------------------------------------------|
-| `e`      | string    | The reason for being unable to map the DII to an advertising ID. One of: "OPTOUT", "INVALID".  |
+| `e`      | string    | The reason for being unable to map the DII to an advertising ID.  |
 
 ### Response Status Codes
 
