@@ -63,7 +63,6 @@ You can include one or more of the following four parameters as a key-value pair
 | `phone` | array of DII objects | Conditionally Required | The list of [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone numbers to be mapped. |
 | `phone_hash` | array of DII objects | Conditionally Required | The list of [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) hashes of [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone numbers to be mapped. |
 
-#### DII Object
 
 Each DII i.e. email address, email hash, phone or phone hash, is input as a DII object.
 
@@ -116,6 +115,7 @@ The response is encrypted only if the HTTP status code is 200. Otherwise, the re
 :::
 
 A successful decrypted response returns the raw UID2s for the specified email addresses, phone numbers, or their respective hashes in the same array order that was given.
+
 Identifiers that cannot be mapped to an advertising ID are mapped to an error object with the reason for unsuccessful mapping. An unsuccessful mapping will occur if the identifier is considered invalid or if the identifier has opted out from the UID2 ecosystem. In these cases, the response status is still "success".
 
 ```json
@@ -154,7 +154,6 @@ Identifiers that cannot be mapped to an advertising ID are mapped to an error ob
 | `phone` | array of mapped DII objects | Conditionally Required | The list of mapped DII objects corresponding to the list of given phone numbers.       |
 | `phone_hash` | array of mapped DII objects | Conditionally Required | The list of mapped DII objects corresponding to the list of given phone number hashes. |
 
-#### Mapped DII Objects
 
 For successfully mapped DIIs, the mapped object includes the properties shown in the following table.
 
