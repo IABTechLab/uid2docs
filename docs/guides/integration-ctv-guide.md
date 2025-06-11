@@ -13,7 +13,7 @@ import PrivateOperatorOption from '../snippets/_private-operator-option.mdx';
 
 # CTV Integration Guide
 
-If you're a CTV publisher, there are several ways that you can integrate with UID2 to generate and refresh identity tokens to be passed into the RTB bidstream in the context of your CTV apps.
+If you're a Connected TV (CTV) publisher, there are several ways that you can integrate with UID2 to generate and refresh identity tokens to be passed into the RTB bidstream in the context of your CTV apps.
 
 ## Key Integration Steps
 At a high level, to integrate with UID2, you'll implement these three key steps: 
@@ -116,14 +116,20 @@ The following table shows supported operating systems, with links to applicable 
 
 ## Best Practices
 
-The following points are best practices for Connected TV integrations:
+The following points are best practices for CTV integrations:
 
-- Rotate tokens well in advance. Top CTV ad activity is tied to traffic spikes during ad breaks; generating or refreshing UID2 tokens during these times is not ideal. Plan to have tokens generated or refreshed before these busy times.
+- **Rotate tokens well in advance**
+
+  Top CTV ad activity is tied to traffic spikes during ad breaks; generating or refreshing UID2 tokens during these times is not ideal. Plan to have tokens generated or refreshed before these busy times.
 
   If the token was refreshed before its expiration date, both new and old tokens are usable for a while, until the old token expires. The TTL (time to live) timestamp is part of the response body returned by the UID2 Operator when the token is generated or refreshed.
 
-- The UID2 token is tied to a user's HEM or phone, not to the viewing session or app session. As long as you have a valid UID2 token for the user, there is no need to generate new UID2 for each new viewing session or app session. For example, if the user leaves your app and then opens the app again, there is no need to generate a new UID2 if the existing one is still fresh.
+- **Rotate tokens only when needed**
 
-- As long as the UID2 token is valid throughout the pod duration, you can use it for any ad slot within the pod.
+  The UID2 token is tied to a user's HEM or phone, not to the viewing session or app session. As long as you have a valid UID2 token for the user, there is no need to generate new UID2 for each new viewing session or app session. For example, if the user leaves your app and then opens the app again, there is no need to generate a new UID2 if the existing one is still fresh.
 
-In summary: ideally, if you follow these guidelines, there is no need to generate a new UID2 token during an ad break.
+- **Use the same token for multiple ad slots within a pod**
+
+  As long as the UID2 token is valid throughout the pod duration, you can use it for any ad slot within the pod.
+
+Ideally, if you follow these guidelines, there is no need to generate a new UID2 token during an ad break.
