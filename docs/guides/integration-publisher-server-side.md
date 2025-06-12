@@ -132,8 +132,8 @@ If the user logs out, do not use the UID2 token.
 
 A sample implementation is available for server-side integration. See:
 
-- [Server-Side UID2 Integration Example (sample implementation)](https://secure-signals-server-side-integ.uidapi.com/)
-- [Server-Side UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
+- [Server-Only UID2 Integration Example](https://example-srvonly-integ.uidapi.com/login)
+- [Server-Only UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
 
 ## FAQs
 
