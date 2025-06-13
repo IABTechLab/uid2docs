@@ -120,13 +120,13 @@ The following points are best practices for CTV integrations:
 
 - **Rotate tokens in advance**
 
-- CTV ad activity is tied to traffic spikes during ad breaks; generating or refreshing UID2 tokens during these times is not ideal. We recommend that you generate or refresh tokens before these busy times.
+  CTV ad activity is tied to traffic spikes during ad breaks; generating or refreshing UID2 tokens during these times is not ideal. We recommend that you generate or refresh tokens before these busy times.
 
   If the token was refreshed before its expiration date, you can use either the new or the old token for a while, until the old token expires. The TTL (time to live) timestamp is part of the response body returned by the UID2 Operator when the token is generated or refreshed.
 
 - **Rotate tokens only when needed**
 
-  The UID2 token is tied to a user's HEM or phone, not to the viewing session or app session. As long as you have a valid UID2 token for the user, there is no need to generate new UID2 for each new viewing session or app session. For example, if the user leaves your app and then opens the app again, there is no need to generate a new UID2 if the existing one is still fresh.
+  The UID2 token is tied to a user's HEM or phone, not to the viewing session or app session. As long as you have a valid UID2 token for the user, there is no need to generate a new token for each new viewing session or app session. For example, if the user leaves your app and then opens the app again, there is no need to generate a new UID2 token if the existing one is still fresh.
 
 - **Use the same token for multiple ad slots within a pod**
 
