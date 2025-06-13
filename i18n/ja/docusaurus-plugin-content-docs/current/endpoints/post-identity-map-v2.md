@@ -1,27 +1,19 @@
 ---
-title: POST /identity/map
-description: Maps DII to raw UID2s.
+title: POST /identity/map (v2)
+description: DII を raw UID2 とソルトバケット ID にマッピング。
 hide_table_of_contents: false
 sidebar_position: 08
 ---
 
 import Link from '@docusaurus/Link';
 
-# POST /identity/map
-
-[**TO BE UPDATED. VERSION SECTION ADDED BUT THE REST NEEDS UPDATING**]
+# POST /identity/map (v2)
 
 複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 と <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt bucket IDs</Link> にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックすることもできます
 
 Used by: このエンドポイントは、主に広告主やデータプロバイダーが使用します。詳細は [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
 UID2 の Opt-Out ワークフローとユーザーが Opt-Out する方法の詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
-
-## Version
-
-This documentation is for the latest version of this endpoint.
-
-If needed, documentation is also available for the previous version, v2: see [POST /identity/map (v2)](post-identity-map-v2.md).
 
 ## Batch Size and Request Parallelization Requirements
 
