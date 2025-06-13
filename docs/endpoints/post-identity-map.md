@@ -56,13 +56,13 @@ The integration environment and the production environment require different <Li
 You must include one or more of the following four parameters as key-value pairs in the JSON body of the request when encrypting it.
 :::
 
-| Body Parameter | Data Type                   | Attribute | Description |
-|:---------------|:----------------------------|:----------| :--- |
-| `email`        | string array | Optional* | The list of email addresses to be mapped. |
-| `email_hash`   | string array | Optional* | The list of [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) hashes of [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email addresses to be mapped. |
-| `phone`        | string array | Optional* | The list of [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone numbers to be mapped. |
-| `phone_hash`   | string array | Optional* | The list of [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) hashes of [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone numbers to be mapped. |
-<b>* At least one of these fields must be provided</b>
+| Body Parameter | Data Type                   | Attribute              | Description |
+|:---------------|:----------------------------|:-----------------------| :--- |
+| `email`        | string array | Conditionally Required | The list of email addresses to be mapped. |
+| `email_hash`   | string array | Conditionally Required | The list of [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) hashes of [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email addresses to be mapped. |
+| `phone`        | string array | Conditionally Required | The list of [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone numbers to be mapped. |
+| `phone_hash`   | string array | Conditionally Required | The list of [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) hashes of [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone numbers to be mapped. |
+
 
 ### Request Examples
 
@@ -141,12 +141,12 @@ Identifiers that cannot be mapped to an advertising ID are mapped to an error ob
 
 ### Response Body Properties
 
-| Body Parameter | Data Type                   | Attribute              | Description                                                                                     |
-|:---------------|:----------------------------|:-----------------------|:------------------------------------------------------------------------------------------------|
-| `email`        | array of mapped DII objects | Conditionally Required | The list of mapped DII objects corresponding to the list of emails in the request.              |
-| `email_hash`   | array of mapped DII objects | Conditionally Required | The list of mapped DII objects corresponding to the list of email hashes in the request.        |
-| `phone`        | array of mapped DII objects | Conditionally Required | The list of mapped DII objects corresponding to the list of phone numbers in the request.       |
-| `phone_hash`   | array of mapped DII objects | Conditionally Required | The list of mapped DII objects corresponding to the list of phone number hashes in the request. |
+| Body Parameter | Data Type                   | Description                                                                                     |
+|:---------------|:----------------------------|:------------------------------------------------------------------------------------------------|
+| `email`        | array of mapped DII objects | The list of mapped DII objects corresponding to the list of emails in the request.              |
+| `email_hash`   | array of mapped DII objects  | The list of mapped DII objects corresponding to the list of email hashes in the request.        |
+| `phone`        | array of mapped DII objects | The list of mapped DII objects corresponding to the list of phone numbers in the request.       |
+| `phone_hash`   | array of mapped DII objects | The list of mapped DII objects corresponding to the list of phone number hashes in the request. |
 
 
 For successfully mapped DII, the mapped object includes the properties shown in the following table.
