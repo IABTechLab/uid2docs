@@ -19,7 +19,7 @@ UID2 の Opt-Out ワークフローとユーザーが Opt-Out する方法の詳
 
 ## Version
 
-This documentation is for the latest version of this endpoint. If you're using an earlier version, we recommend that you upgrade your integration. No specific migration steps are needed.
+This documentation is for the latest version of this endpoint. If you're using an earlier version, we recommend that you upgrade your integration. For migration steps, see [TODO].
 
 If needed, documentation is also available for the previous version, v2: see [POST /identity/map (v2)](post-identity-map-v2.md).
 

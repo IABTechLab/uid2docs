@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 # POST /identity/map (v2)
 
 :::important
-This documentation is for earlier versions of the `POST /identity/map` endpoint. If you're using an earlier version, we recommend upgrading. No specific migration steps are needed. For the latest version, v3, see [POST /identity/map](post-identity-map.md).
+This documentation is for the earlier version of the `POST /identity/map` endpoint. If you're using this earlier version, we recommend upgrading. For the latest version, v3, see [POST /identity/map](post-identity-map.md). For migration steps, see [TODO].
 :::
 
 複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 と <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt bucket IDs</Link> にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックすることもできます
