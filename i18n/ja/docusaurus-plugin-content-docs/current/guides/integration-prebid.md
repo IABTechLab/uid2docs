@@ -5,7 +5,6 @@ pagination_label: UID2 Integration Overview for Prebid
 description: UID2 実装の一部として Prebid とインテグレーションするためのオプションの概要。
 hide_table_of_contents: false
 sidebar_position: 04
-displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';

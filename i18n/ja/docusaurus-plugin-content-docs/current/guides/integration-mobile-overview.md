@@ -5,7 +5,6 @@ pagination_label: Mobile Integration Overview for Android and iOS
 description: UID2 モバイルインテグレーションオプションの概要。
 hide_table_of_contents: false
 sidebar_position: 04
-displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';

@@ -5,7 +5,6 @@ pagination_label: Mobile Integration Overview for Android and iOS
 description: Overview of options for UID2 mobile integration.
 hide_table_of_contents: false
 sidebar_position: 04
-displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
@@ -31,7 +30,11 @@ For additional flexibility, UID2 also provides alternative methods for some of t
 
 ## Integrating with Single Sign-On (SSO)
 
-<IntegratingWithSSO />
+{/* <IntegratingWithSSO /> */}
+
+If you integrate with one or more SSO providers to offer SSO login, you might be able to retrieve the logged-in user's email address from the SSO provider to generate UID2 tokens.
+
+For details, see [Publisher Integration with SSO Providers](/docs/ref-info/ref-integration-sso-providers).
 
 ## Integration Overview: High-Level Steps
 

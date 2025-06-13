@@ -3,7 +3,6 @@ title: UID2 Components
 description: Summary of key components of the UID2 technical infrastructure.
 hide_table_of_contents: false
 sidebar_position: 01
-displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

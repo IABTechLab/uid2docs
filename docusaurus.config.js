@@ -92,6 +92,38 @@ const config = {
       },
     ],
     require.resolve("docusaurus-plugin-image-zoom"),
+    // [
+    //   '@docusaurus/plugin-content-docs',
+    //   {
+    //     id: 'sidebar-publisher',
+    //     routeBasePath: 'publisher',
+    //     sidebarPath: require.resolve('./sidebars.js')
+    //   },
+    // ],
+    // [
+    //   '@docusaurus/plugin-content-docs',
+    //   {
+    //     id: 'sidebar-advertiser',
+    //     routeBasePath: 'advertiser',
+    //     sidebarPath: require.resolve('./sidebars.js')
+    //   },
+    // ],
+    // [
+    //   '@docusaurus/plugin-content-docs',
+    //   {
+    //     id: 'sidebar-dsp',
+    //     routeBasePath: 'dsp',
+    //     sidebarPath: require.resolve('./sidebars.js')
+    //   },
+    // ],
+    // [
+    //   '@docusaurus/plugin-content-docs',
+    //   {
+    //     id: 'sidebar-data-provider',
+    //     routeBasePath: 'data-provider',
+    //     sidebarPath: require.resolve('./sidebars.js')
+    //   },
+    // ],
   ],
 
   presets: [
@@ -147,30 +179,35 @@ const config = {
             docId: "overviews/overview-publishers",
             label: "Publishers",
             position: "left",
+            //docsPluginId: 'sidebar-publisher',
           },
           {
             type: "doc",
             docId: "overviews/overview-advertisers",
             label: "Advertisers",
             position: "left",
+            //docsPluginId: 'sidebar-advertiser',
           },
           {
             type: "doc",
             docId: "overviews/overview-dsps",
             label: "DSPs",
             position: "left",
+            //docsPluginId: 'sidebar-dsp',
           },
           {
             type: "doc",
             docId: "overviews/overview-data-providers",
             label: "Data Providers",
             position: "left",
+            //docsPluginId: 'sidebar-data-provider',
           },
           {
             type: "doc",
             docId: "intro",
             label: "Documentation",
             position: "left",
+            //docsPluginId: 'default',
           },
           // @TODO hiding until phase 2{
           //   type: "dropdown",

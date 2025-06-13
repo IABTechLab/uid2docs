@@ -3,7 +3,6 @@ title: Publisher Web Integration Overview
 description: Overview of the publisher options for UID2 web integration.
 hide_table_of_contents: false
 sidebar_position: 02
-displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';

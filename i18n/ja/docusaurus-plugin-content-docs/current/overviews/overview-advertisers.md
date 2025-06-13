@@ -11,7 +11,6 @@ banner_text_color: 'white'
 banner_text_color_dark: 'black'
 banner_background_color: '#7085D4'
 banner_background_color_dark: '#B7C2EA'
-displayed_sidebar: sidebarAdvertisers
 ---
 
 import Link from '@docusaurus/Link';

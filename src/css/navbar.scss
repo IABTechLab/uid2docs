@@ -87,6 +87,15 @@
       }
     }
 
+    &__active,
+    &--active {
+      span {
+        &:after {
+          border-bottom-color: currentColor !important;
+        }
+      }
+    }
+
     span {
       position: relative;
       padding-bottom: 3px;

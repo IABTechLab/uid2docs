@@ -5,7 +5,6 @@ pagination_label: SDKs - Summary
 description: Summary of SDK documentation available.
 hide_table_of_contents: false
 sidebar_position: 01
-displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
