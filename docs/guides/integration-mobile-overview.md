@@ -30,11 +30,7 @@ For additional flexibility, UID2 also provides alternative methods for some of t
 
 ## Integrating with Single Sign-On (SSO)
 
-{/* <IntegratingWithSSO /> */}
-
-If you integrate with one or more SSO providers to offer SSO login, you might be able to retrieve the logged-in user's email address from the SSO provider to generate UID2 tokens.
-
-For details, see [Publisher Integration with SSO Providers](/docs/ref-info/ref-integration-sso-providers).
+<IntegratingWithSSO />
 
 ## Integration Overview: High-Level Steps
 
