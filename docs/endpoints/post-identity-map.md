@@ -17,7 +17,7 @@ For details about the UID2 opt-out workflow and how users can opt out, see [User
 
 ## Version
 
-This documentation is for the latest version of this endpoint. If you're using an earlier version, we recommend that you upgrade your integration. No specific migration steps are needed.
+This documentation is for the latest version of this endpoint. If you're using an earlier version, we recommend that you upgrade your integration. For migration steps, see [TODO].
 
 If needed, documentation is also available for the previous version, v2: see [POST /identity/map (v2)](post-identity-map-v2.md).
 
@@ -53,22 +53,16 @@ The integration environment and the production environment require different <Li
 ### Unencrypted JSON Body Parameters
 
 :::important
-You can include one or more of the following four parameters as key-value pairs in the JSON body of the request when encrypting it.
+You must include one or more of the following four parameters as key-value pairs in the JSON body of the request when encrypting it.
 :::
 
-| Body Parameter | Data Type            | Attribute              | Description |
-|:---------------|:---------------------|:-----------------------| :--- |
-| `email`        | array of DII objects | Conditionally Required | The list of email addresses to be mapped. |
-| `email_hash`   | array of DII objects | Conditionally Required | The list of [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) hashes of [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email addresses to be mapped. |
-| `phone`        | array of DII objects | Conditionally Required | The list of [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone numbers to be mapped. |
-| `phone_hash`   | array of DII objects | Conditionally Required | The list of [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) hashes of [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone numbers to be mapped. |
-
-
-Each email address, email hash, phone, or phone hash is input as a DII object.
-
-| Parameter | Data Type | Attribute | Description                                         |
-|:----------|:----------|:----------|:----------------------------------------------------|
-| `i`       | string    | Required  | The email address, email hash, phone, or phone hash.|
+| Body Parameter | Data Type                   | Attribute | Description |
+|:---------------|:----------------------------|:----------| :--- |
+| `email`        | string array | Optional* | The list of email addresses to be mapped. |
+| `email_hash`   | string array | Optional* | The list of [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) hashes of [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email addresses to be mapped. |
+| `phone`        | string array | Optional* | The list of [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone numbers to be mapped. |
+| `phone_hash`   | string array | Optional* | The list of [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) hashes of [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone numbers to be mapped. |
+<b>* At least one of these fields must be provided</b>
 
 ### Request Examples
 
@@ -77,12 +71,12 @@ The following are unencrypted JSON request body examples to the `POST /identity/
 ```json
 {
     "email":[
-        {"i": "user@example.com"},
-        {"i": "user2@example.com"}
+        "user@example.com",
+        "user2@example.com"
     ],
     "phone":[
-        {"i": "+12345678901"},
-        {"i": "+441234567890"}
+        "+12345678901",
+        "+441234567890"
     ]
 }
 ```
@@ -90,12 +84,12 @@ The following are unencrypted JSON request body examples to the `POST /identity/
 ```json
 {
     "email_hash":[
-        {"i": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="},
-        {"i": "KzsrnOhCq4tqbGFMsflgS7ig1QLRr0nFJrcrEIlOlbU="}
+        "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=",
+        "KzsrnOhCq4tqbGFMsflgS7ig1QLRr0nFJrcrEIlOlbU="
     ],
     "phone_hash":[
-        {"i": "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4="},
-        {"i": "Rx8SW4ZyKqbPypXmswDNuq0SPxStFXBTG/yvPns/2NQ="}
+        "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=",
+        "Rx8SW4ZyKqbPypXmswDNuq0SPxStFXBTG/yvPns/2NQ="
     ]
 }
 ```
@@ -103,7 +97,7 @@ The following are unencrypted JSON request body examples to the `POST /identity/
 Here's an encrypted request example to the `POST /identity/map` endpoint for a phone number:
 
 ```sh
-echo '{"phone": [{"i": "+12345678901"}, {"i": "+441234567890"}]}' | python3 uid2_request.py https://prod.uidapi.com/v3/identity/map [Your-Client-API-Key] [Your-Client-Secret]
+echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v3/identity/map [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
 For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
@@ -165,9 +159,9 @@ For successfully mapped DII, the mapped object includes the properties shown in 
 
 For unsuccessfully mapped DII, the mapped object includes the properties shown in the following table.
 
-| Property | Data Type | Description                                                       |
-|:---------|:----------|:------------------------------------------------------------------|
-| `e`      | string    | The reason for being unable to map the DII to an advertising ID.  |
+| Property | Data Type | Description                                                                                                      |
+|:---------|:----------|:-----------------------------------------------------------------------------------------------------------------|
+| `e`      | string    | The reason for being unable to map the DII to an advertising ID. Either one of "optout" or "invalid identifier". |
 
 ### Response Status Codes
 

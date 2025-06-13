@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 # POST /identity/map (v2)
 
 :::important
-This documentation is for earlier versions of the `POST /identity/map` endpoint. If you're using an earlier version, we recommend upgrading. No specific migration steps are needed. For the latest version, v3, see [POST /identity/map](post-identity-map.md).
+This documentation is for earlier versions of the `POST /identity/map` endpoint. For the latest version, v3, see [POST /identity/map](post-identity-map.md). For migration steps, see [TODO].
 :::
 
 Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s and <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt bucket IDs</Link>. You can also use this endpoint to check for updates to opt-out information.
