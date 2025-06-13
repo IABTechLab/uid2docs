@@ -10,7 +10,15 @@ import ExampleTokenInBidstream from '../snippets/_example-token-in-bidstream.mdx
 
 # Frequently Asked Questions
 
-Frequently asked questions for UID2 are grouped into general categories by audience.
+Frequently asked questions for UID2 in this document are grouped by audience, into the following general categories:
+
+- [FAQs&#8212;General](#faqsgeneral)
+- [FAQs for Publishers](#faqs-for-publishers)
+- [FAQs for Advertisers and Data Providers](#faqs-for-advertisers-and-data-providers)
+- [FAQs for DSPs](#faqs-for-dsps)
+
+The following additional FAQ information for publishers is also available:
+- [FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations)
 
 ## FAQs&#8212;General
 
