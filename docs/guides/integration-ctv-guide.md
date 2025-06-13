@@ -120,9 +120,9 @@ The following points are best practices for CTV integrations:
 
 - **Rotate tokens well in advance**
 
+  You can refresh the UID2 token at any time that's strategic. If the token was refreshed before its expiration date, both new and old tokens are usable for a while, until the old token expires. The TTL (time to live) timestamp is part of the response body returned by the UID2 Operator when the token is generated or refreshed.
+  
   Top CTV ad activity is tied to traffic spikes during ad breaks; generating or refreshing UID2 tokens during these times is not ideal. Plan to have tokens generated or refreshed before these busy times.
-
-  If the token was refreshed before its expiration date, both new and old tokens are usable for a while, until the old token expires. The TTL (time to live) timestamp is part of the response body returned by the UID2 Operator when the token is generated or refreshed.
 
 - **Rotate tokens only when needed**
 
