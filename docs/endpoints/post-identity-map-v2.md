@@ -1,17 +1,19 @@
 ---
-title: POST /identity/map
-description: Maps DII to raw UID2s.
+title: POST /identity/map (v2)
+description: Maps DII to raw UID2s and salt bucket IDs.
 hide_table_of_contents: false
 sidebar_position: 08
 ---
 
 import Link from '@docusaurus/Link';
 
-# POST /identity/map
+# POST /identity/map (v2)
 
-[**TO BE UPDATED. VERSION SECTION ADDED BUT THE REST NEEDS UPDATING**]
+:::important
+This documentation is for earlier versions of the `POST /identity/map` endpoint. If you're using an earlier version, we recommend upgrading. No specific migration steps are needed. For the latest version, v3, see [POST /identity/map](post-identity-map.md).
+:::
 
-Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s. You can also use this endpoint to check for updates to opt-out information.
+Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s and <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt bucket IDs</Link>. You can also use this endpoint to check for updates to opt-out information.
 
 Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
 
@@ -19,9 +21,7 @@ For details about the UID2 opt-out workflow and how users can opt out, see [User
 
 ## Version
 
-This documentation is for the latest version of this endpoint. If you're using an earlier version, we recommend that you upgrade your integration. No specific migration steps are needed.
-
-If needed, documentation is also available for the previous version, v2: see [POST /identity/map (v2)](post-identity-map-v2.md).
+This documentation is for version 2 of this endpoint.
 
 ## Batch Size and Request Parallelization Requirements
 
@@ -116,7 +116,7 @@ For details, and code examples in different programming languages, see [Encrypti
 The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
 :::
 
-A successful decrypted response returns the raw UID2s for the specified email addresses, phone numbers, or their respective hashes.
+A successful decrypted response returns the raw UID2s and salt bucket IDs for the specified email addresses, phone numbers, or their respective hashes.
 
 ```json
 {
@@ -192,7 +192,7 @@ The response body includes the properties shown in the following table.
 | :--- | :--- | :--- |
 | `identifier` | string | The email address, phone number, or respective hash specified in the request body. |
 | `advertising_id` | string | The corresponding advertising ID (raw UID2). |
-| `TODO` | string | TODO: NEW VALUES |
+| `bucket_id` | string | The ID of the salt bucket used to generate the raw UID2. |
 
 ### Response Status Codes
 
