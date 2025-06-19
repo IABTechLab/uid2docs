@@ -322,10 +322,10 @@ const fullSidebar = [
         'endpoints/post-identity-buckets',
         {
           type: 'category',
-          label: 'POST /identity/map',
+          label: 'POST /identity/map (v3)',
           link: {
             type: 'doc',
-            id: 'endpoints/post-identity-map',
+            id: 'endpoints/post-identity-map-v3',
           },
           collapsed: true,
           items: [
@@ -410,7 +410,7 @@ const sidebars = {
     'guides/dsp-guide',
     'endpoints/post-identity-buckets',
     'POST /identity/map',
-    'endpoints/post-identity-map',
+    'endpoints/post-identity-map-v3',
     'endpoints/post-identity-map-v2',
     'endpoints/post-optout-status'
   ),

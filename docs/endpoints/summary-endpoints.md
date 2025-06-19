@@ -22,14 +22,28 @@ The following endpoints are for retrieving and managing UID2 tokens (identity to
 | [POST&nbsp;/token/validate](post-token-validate.md) | Used for testing, to validate that an advertising token (UID2) matches the specified email address, phone number, or the respective hash. | Required | Required |
 | [POST&nbsp;/token/refresh](post-token-refresh.md) | Generates a new token for a user for their refresh token from the [POST&nbsp;/token/generate](post-token-generate.md) response. | N/A | Required |
 
-## Identity Maps
+## Identity Map
 
 The following endpoints are used by advertisers and third-party data providers. Publishers do not need to use these endpoints.
+
+### Latest V3 Identity Map Endpoint
+
+The following endpoint is part of the latest V3 Identity Map integration. 
+
+Calling the /identity/buckets endpoint is no longer necessary when calling the latest Identity Map endpoint. 
+
+| Endpoint | Description | Request Encryption | Response Decryption |
+| :--- | :--- | :--- | :--- |
+| [POST&nbsp;/identity/map (v3)](post-identity-map-v3.md) | Maps UID2s, previous UID2s and refresh timestamps for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
+
+### Earlier V2 Identity Map Endpoints
+
+The following endpoints are part of the earlier V2 Identity Map integration.  
 
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |
 | [POST&nbsp;/identity/buckets](post-identity-buckets.md) | Monitors rotated salt buckets using their last updated timestamp. | Required | Required |
-| [POST&nbsp;/identity/map](post-identity-map.md) | Retrieves raw UID2s and salt bucket IDs for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
+| [POST&nbsp;/identity/map (v2)](post-identity-map-v2.md) | Maps UID2s and salt bucket IDs for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
 
 ## Opt-Out Status
 
@@ -39,4 +53,4 @@ For details about the UID2 opt-out workflow and how users can opt out, see [User
 
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |
-| [POST&nbsp;/optout/status](post-optout-status.md) | Checks the opt-out status of raw UID2s. This endpoint takes a list of raw UID2s as input, and returns the raw UID2s that have opted out, as well as the time that the opt-out took place.  | Required | Required |
+| [POST&nbsp;/optout/status](post-optout-status.md) | Checks the opt-out status of UID2s. This endpoint takes a list of UID2s as input, and returns the UID2s that have opted out, as well as the time that the opt-out took place.  | Required | Required |

@@ -49,7 +49,7 @@ The following steps provide a high-level outline of the opt-out workflow intende
    | :--- | :--- | 
    | Publishers | A publisher calling  [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) with the required `optout_check` parameter set to `1`, or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md), receives the opt-out response instead of the UID2 token. |
    | DSPs | The UID2 Operator Service distributes information on all opted-out users to DSPs via a webhook provided for the purpose. For details, see [Honor User Opt-Outs](../guides/dsp-guide#honor-user-opt-outs).<br/>DSPs can also check the opt-out status of raw UID2s using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint. |
-   | Advertisers and data providers | The UID2 Operator Service distributes opt-out information to advertisers and data providers via the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint. Another option is to check the opt-out status of raw UID2s using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint. |
+   | Advertisers and data providers | The UID2 Operator Service distributes opt-out information to advertisers and data providers via the [POST&nbsp;/identity/map (v3)](../endpoints/post-identity-map-v3.md) endpoint. Another option is to check the opt-out status of raw UID2s using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint. |
    | Sharers | UID2 sharers can check the opt-out status of raw UID2s using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint. |
 
 This workflow allows users to opt out of personalized advertising based on their UID2 through the Transparency and Control Portal.

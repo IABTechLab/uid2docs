@@ -22,7 +22,7 @@ Each UID2 <a href="../overviews/participants-overview#uid2-external-participants
 If you're using the integration <Link href="../ref-info/glossary-uid#gl-environment">environment</Link> as well as the production environment, you'll get a separate set of credentials for each environment. See [Getting Your Credentials](#getting-your-credentials).
 
 In addition, in some cases, we recommend, but do not require, that you have a different set of credentials for a different scenario. For example:
-- If you're a publisher who generates UID2 tokens (via [POST /token/generate](../endpoints/post-token-generate.md) or in some other way), but you also create/map raw UID2s on your own behalf (see [POST /identity/map](../endpoints/post-identity-map.md)), you might have separate credentials for each of these activities.
+- If you're a publisher who generates UID2 tokens (via [POST /token/generate](../endpoints/post-token-generate.md) or in some other way), but you also create/map raw UID2s on your own behalf (see [POST /identity/map (v3)](../endpoints/post-identity-map-v3.md)), you might have separate credentials for each of these activities.
 - If you're an advertiser, in a scenario where you allow multiple service providers to operate using your advertiser keys, you might choose to have separate credentials for each service provider.
 
 ## Getting Your Credentials

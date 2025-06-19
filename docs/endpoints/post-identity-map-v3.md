@@ -7,9 +7,9 @@ sidebar_position: 08
 
 import Link from '@docusaurus/Link';
 
-# POST /identity/map
+# POST /identity/map (v3)
 
-Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s. You can also use this endpoint to check for updates to opt-out information, check when an advertising ID can be refreshed, or view the previous advertising ID if the current one is less than 90 days old.
+Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s. You can also use this endpoint to check for updates to opt-out information, check when a UID2 can be refreshed, or view the previous UID2 if the current UID2 is less than 90 days old.
 
 Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
 
@@ -110,7 +110,7 @@ The response is encrypted only if the HTTP status code is 200. Otherwise, the re
 
 A successful decrypted response returns the raw UID2s for the specified email addresses, phone numbers, or their respective hashes. The sequence in the response matches the sequence in the request.
 
-Identifiers that cannot be mapped to an advertising ID are mapped to an error object with the reason for unsuccessful mapping. An unsuccessful mapping occurs if the identifier is considered invalid or if the identifier has opted out from the UID2 ecosystem. In these cases, the response status is still "success".
+Identifiers that cannot be mapped to a raw UID2 are mapped to an error object with the reason for unsuccessful mapping. An unsuccessful mapping occurs if the identifier is considered invalid or if the identifier has opted out from the UID2 ecosystem. In these cases, the response status is still "success".
 
 ```json
 {
@@ -153,15 +153,15 @@ For successfully mapped DII, the mapped object includes the properties shown in 
 
 | Property | Data Type  | Description                                                                                                                           |
 |:---------|:-----------|:--------------------------------------------------------------------------------------------------------------------------------------|
-| `u`      | string     | The advertising ID (raw UID2) of the DII provided in the request.                                                                     |
-| `p`      | string     | The previous advertising ID if the current ID has been refreshed in the last 90 days. `Null` if the current ID is older than 90 days. |
-| `r`      | number     | The Unix timestamp (in milliseconds) that indicates when the advertising ID can be refreshed.                                         |
+| `u`      | string     | The raw UID2 of the DII provided in the request.                                                                     |
+| `p`      | string     | The previous raw UID2 if the current ID has been refreshed in the last 90 days. `Null` if the current ID is older than 90 days. |
+| `r`      | number     | The Unix timestamp (in milliseconds) that indicates when the raw UID2 can be refreshed.                                         |
 
 For unsuccessfully mapped DII, the mapped object includes the properties shown in the following table.
 
 | Property | Data Type | Description                                                                                                      |
 |:---------|:----------|:-----------------------------------------------------------------------------------------------------------------|
-| `e`      | string    | The reason for being unable to map the DII to an advertising ID. Either one of "optout" or "invalid identifier". |
+| `e`      | string    | The reason for being unable to map the DII to an raw UID2. Either one of "optout" or "invalid identifier". |
 
 ### Response Status Codes
 
