@@ -409,7 +409,6 @@ const sidebars = {
     'DSP Integrations',
     'guides/dsp-guide',
     'endpoints/post-identity-buckets',
-    'POST /identity/map',
     'endpoints/post-identity-map-v3',
     'endpoints/post-identity-map-v2',
     'endpoints/post-optout-status'
