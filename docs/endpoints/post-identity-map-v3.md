@@ -1,15 +1,16 @@
 ---
 title: POST /identity/map
-description: Maps DII to raw UID2s.
+description: Maps DII to UID2s.
 hide_table_of_contents: false
 sidebar_position: 08
+displayed_sidebar: docs 
 ---
 
 import Link from '@docusaurus/Link';
 
 # POST /identity/map (v3)
 
-Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s. You can also use this endpoint to check for updates to opt-out information, check when a UID2 can be refreshed, or view the previous UID2 if the current UID2 is less than 90 days old.
+Maps multiple email addresses, phone numbers, or their respective hashes to their UID2s. You can also use this endpoint to check for updates to opt-out information, check when a UID2 can be refreshed, or view the previous UID2 if the current UID2 is less than 90 days old.
 
 Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
 
@@ -19,7 +20,7 @@ For details about the UID2 opt-out workflow and how users can opt out, see [User
 
 This documentation is for the latest version of this endpoint.
 
-If needed, documentation is also available for the previous version, v2: see [POST /identity/map (v2)](post-identity-map-v2.md).
+If needed, documentation is also available for the earlier version 2 of this endpoint, see: [POST /identity/map (v2)](post-identity-map-v2.md).
 
 ## Batch Size and Request Parallelization Requirements
 
@@ -28,7 +29,7 @@ Here's what you need to know:
 - The maximum request size is 1MB.
 - To map a large number of email addresses, phone numbers, or their respective hashes, send them in *sequential* batches with a maximum batch size of 5,000 items per batch.
 - Unless you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, do not send batches in parallel. In other words, use a single HTTP connection and send batches of hashed or unhashed <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> values consecutively, without creating multiple parallel connections.
-- Be sure to store mappings of email addresses, phone numbers, or their respective hashes.<br/>Not storing mappings could increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of raw UID2s need to be updated daily. See also [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) and [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
+- Be sure to store mappings of email addresses, phone numbers, or their respective hashes.<br/>Not storing mappings could increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily. See also [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) and [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
 
 ## Request Format
 
@@ -108,9 +109,9 @@ For details, and code examples in different programming languages, see [Encrypti
 The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
 :::
 
-A successful decrypted response returns the raw UID2s for the specified email addresses, phone numbers, or their respective hashes. The sequence in the response matches the sequence in the request.
+A successful decrypted response returns the UID2s for the specified email addresses, phone numbers, or their respective hashes. The sequence in the response matches the sequence in the request.
 
-Identifiers that cannot be mapped to a raw UID2 are mapped to an error object with the reason for unsuccessful mapping. An unsuccessful mapping occurs if the identifier is considered invalid or if the identifier has opted out from the UID2 ecosystem. In these cases, the response status is still "success".
+Identifiers that cannot be mapped to a UID2 are mapped to an error object with the reason for unsuccessful mapping. An unsuccessful mapping occurs if the identifier is considered invalid or if the identifier has opted out from the UID2 ecosystem. In these cases, the response status is still "success".
 
 ```json
 {
@@ -153,15 +154,15 @@ For successfully mapped DII, the mapped object includes the properties shown in 
 
 | Property | Data Type  | Description                                                                                                                           |
 |:---------|:-----------|:--------------------------------------------------------------------------------------------------------------------------------------|
-| `u`      | string     | The raw UID2 of the DII provided in the request.                                                                     |
-| `p`      | string     | The previous raw UID2 if the current ID has been refreshed in the last 90 days. `Null` if the current ID is older than 90 days. |
-| `r`      | number     | The Unix timestamp (in milliseconds) that indicates when the raw UID2 can be refreshed.                                         |
+| `u`      | string     | The UID2 of the DII provided in the request.                                                                     |
+| `p`      | string     | The previous UID2 if the current UID2 has been rotated in the last 90 days. `Null` if the current UID2 is older than 90 days. |
+| `r`      | number     | The Unix timestamp (in milliseconds) that indicates when the UID2 can be refreshed.                                         |
 
 For unsuccessfully mapped DII, the mapped object includes the properties shown in the following table.
 
 | Property | Data Type | Description                                                                                                      |
 |:---------|:----------|:-----------------------------------------------------------------------------------------------------------------|
-| `e`      | string    | The reason for being unable to map the DII to an raw UID2. Either one of "optout" or "invalid identifier". |
+| `e`      | string    | The reason for being unable to map the DII to a UID2. Either one of "optout" or "invalid identifier". |
 
 ### Response Status Codes
 
