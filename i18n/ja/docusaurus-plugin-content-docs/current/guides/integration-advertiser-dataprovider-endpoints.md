@@ -62,8 +62,8 @@ DII は、ユーザーの正規化されたメールアドレスまたは電話�
 
 | Step | Endpoint | Description |
 | --- | --- | --- |
-| 1-a | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) request | DII を含むリクエストを ID マッピングエンドポイントに送信します。 |
-| 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response | レスポンスで返される `advertising_id` (raw UID2) は、関連する DSP でオーディエンスをターゲットするために使用できます。<br/>レスポンスは、ユーザーの raw UID2 と、それに対応するソルトバケットの `bucket_id` を返します。バケットに割り当てられたソルトは年に一度ローテーションし、生成された raw UID2 に影響を与えます。ソルトバケットのローテーションを確認する方法の詳細は、[5: Monitor for salt bucket rotations related to your stored raw UID2s](#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s) を参照してください。 |
+| 1-a | [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) request | DII を含むリクエストを ID マッピングエンドポイントに送信します。 |
+| 1-b | [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) response | レスポンスで返される `advertising_id` (raw UID2) は、関連する DSP でオーディエンスをターゲットするために使用できます。<br/>レスポンスは、ユーザーの raw UID2 と、それに対応するソルトバケットの `bucket_id` を返します。バケットに割り当てられたソルトは年に一度ローテーションし、生成された raw UID2 に影響を与えます。ソルトバケットのローテーションを確認する方法の詳細は、[5: Monitor for salt bucket rotations related to your stored raw UID2s](#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s) を参照してください。 |
 
 
 ### 2: Store Raw UID2s and Salt Bucket IDs
@@ -105,8 +105,8 @@ raw UID2 は、特定の時点におけるユーザーの識別子です。raw U
 | --- | --- | --- |
 | 5-a | [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) | 特定のタイムスタンプ以降に変更されたすべてのソルトバケットに対して、`POST /identity/buckets` エンドポイントにリクエストを送信します。 |
 | 5-b | [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) | UID2 Service: `POST /identity/buckets` エンドポイントは、`bucket_id` と `last_updated` タイムスタンプのリストを返します。 |
-| 5-c | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) | 返された `bucket_id` をキャッシュした raw UID2 のソルトバケットと比較します。<br/>1 つ以上の raw UID2 のソルトバケットが更新された場合は、新しい raw UID2 用に DII を `POST /identity/map` エンドポイントに再送信します。 |
-| 5-d | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) | `advertising_id` と `bucket_id` の新しい値を保存します。 |
+| 5-c | [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) | 返された `bucket_id` をキャッシュした raw UID2 のソルトバケットと比較します。<br/>1 つ以上の raw UID2 のソルトバケットが更新された場合は、新しい raw UID2 用に DII を `POST /identity/map` エンドポイントに再送信します。 |
+| 5-d | [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) | `advertising_id` と `bucket_id` の新しい値を保存します。 |
 
 #### Determine whether the salt bucket has been rotated
 
@@ -126,7 +126,7 @@ raw UID2 は、特定の時点におけるユーザーの識別子です。raw U
 
 UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> に最新のオプトアウト情報があるかを確認する方法は 2 つあります:
 
-- [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを呼び出してオプトアウトを確認します。DII がオプトアウトされている場合、raw UID2 は生成されません。
+- [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) エンドポイントを呼び出してオプトアウトを確認します。DII がオプトアウトされている場合、raw UID2 は生成されません。
 
 - [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、raw UID2 のオプトアウトステータスを確認します。
 
