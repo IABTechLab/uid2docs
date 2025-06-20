@@ -1,5 +1,5 @@
 ---
-title: POST /identity/map (v3)
+title: POST /identity/map
 description: Maps DII to UID2s.
 hide_table_of_contents: false
 sidebar_position: 08

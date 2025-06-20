@@ -322,10 +322,10 @@ const fullSidebar = [
         'endpoints/post-identity-buckets',
         {
           type: 'category',
-          label: 'POST /identity/map (v3)',
+          label: 'POST /identity/map',
           link: {
             type: 'doc',
-            id: 'endpoints/post-identity-map-v3',
+            id: 'endpoints/post-identity-map',
           },
           collapsed: true,
           items: [
@@ -409,7 +409,7 @@ const sidebars = {
     'DSP Integrations',
     'guides/dsp-guide',
     'endpoints/post-identity-buckets',
-    'endpoints/post-identity-map-v3',
+    'endpoints/post-identity-map',
     'endpoints/post-identity-map-v2',
     'endpoints/post-optout-status'
   ),

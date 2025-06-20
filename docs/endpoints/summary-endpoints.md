@@ -34,7 +34,7 @@ Calling the /identity/buckets endpoint is no longer necessary when calling the l
 
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |
-| [POST&nbsp;/identity/map (v3)](post-identity-map-v3.md) | Maps UID2s, previous UID2s and refresh timestamps for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
+| [POST&nbsp;/identity/map](post-identity-map.md) | Maps UID2s, previous UID2s and refresh timestamps for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
 
 ### Earlier V2 Identity Map Endpoints
 

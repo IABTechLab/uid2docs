@@ -1,5 +1,5 @@
 ---
-title: POST /identity/map (v3)
+title: POST /identity/map
 description: Maps DII to UID2s.
 hide_table_of_contents: false
 sidebar_position: 08
@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# POST /identity/map (v3)
+# POST /identity/map
 
 Maps multiple email addresses, phone numbers, or their respective hashes to their UID2s. You can also use this endpoint to check for updates to opt-out information, check when a UID2 can be refreshed, or view the previous UID2 if the current UID2 is less than 90 days old.
 
