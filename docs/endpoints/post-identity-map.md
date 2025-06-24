@@ -1,6 +1,6 @@
 ---
 title: POST /identity/map
-description: Maps DII to UID2s.
+description: Maps DII to raw UID2s.
 hide_table_of_contents: false
 sidebar_position: 08
 displayed_sidebar: docs 
@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # POST /identity/map
 
-Maps multiple email addresses, phone numbers, or their respective hashes to their UID2s. You can also use this endpoint to check for updates to opt-out information, check when a UID2 can be refreshed, or view the previous UID2 if the current UID2 is less than 90 days old.
+Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s. You can also use this endpoint to check for updates to opt-out information, check when a raw UID2 can be refreshed, or view the previous UID2 if the current UID2 is less than 90 days old.
 
 Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
 
@@ -18,9 +18,9 @@ For details about the UID2 opt-out workflow and how users can opt out, see [User
 
 ## Version
 
-This documentation is for the latest version of this endpoint.
+This documentation is for the latest version of this endpoint, version 3.
 
-If needed, documentation is also available for the earlier version 2 of this endpoint, see: [POST /identity/map (v2)](post-identity-map-v2.md).
+If needed, documentation is also available for the previous version: see [POST /identity/map (v2)](post-identity-map-v2.md).
 
 ## Batch Size and Request Parallelization Requirements
 
@@ -54,7 +54,7 @@ The integration environment and the production environment require different <Li
 ### Unencrypted JSON Body Parameters
 
 :::important
-You must include one or more of the following four parameters as key-value pairs in the JSON body of the request when encrypting it.
+Include one or more of the following four parameters as key-value pairs in the JSON body of the request when encrypting it.
 :::
 
 | Body Parameter | Data Type                   | Attribute              | Description |
@@ -98,7 +98,7 @@ The following are unencrypted JSON request body examples to the `POST /identity/
 Here's an encrypted request example to the `POST /identity/map` endpoint for a phone number:
 
 ```sh
-echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v3/identity/map [Your-Client-API-Key] [Your-Client-Secret]
+echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v3/identity/map [YOUR_CLIENT_API_KEY] [YOUR_CLIENT_SECRET]
 ```
 
 For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
@@ -109,13 +109,16 @@ For details, and code examples in different programming languages, see [Encrypti
 The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
 :::
 
-A successful decrypted response returns the current UID2s, previous UID2s and refresh timestamps for the specified email addresses, phone numbers, or their respective hashes. 
+A successful decrypted response returns the current raw UID2s, previous raw UID2s, and refresh timestamps for the specified email addresses, phone numbers, or their respective hashes. 
 
-The response arrays preserve the order of input arrays. Each element in the response array maps directly to the element at the same index in the corresponding request array. This ensures that results can be reliably associated with their corresponding inputs based on array position.
+The response arrays preserve the order of input arrays. Each element in the response array maps directly to the element at the same index in the corresponding request array. This ensures that you can reliably associate results with their corresponding inputs based on array position.
 
-DIIs that cannot be mapped to a UID2 are mapped to an error object with the reason for unsuccessful mapping. An unsuccessful mapping occurs if the DII is considered invalid or if the DII has opted out from the UID2 ecosystem. In these cases, the response status is still "success".
+Input values that cannot be mapped to a raw UID2 are mapped to an error object with the reason for unsuccessful mapping. An unsuccessful mapping occurs if the DII is invalid or has been opted out from the UID2 ecosystem. In these cases, the response status is `success` but no raw UID2 is returned.
 
-For example, given the following input: 
+The following example shows input and response.
+
+Input:
+
 ```json
 {
     "email": [
@@ -127,7 +130,8 @@ For example, given the following input:
 }
 ```
 
-The resulting response will be as follows:
+Response:
+
 ```json
 {
     "body":{
@@ -153,9 +157,9 @@ The resulting response will be as follows:
 }
 ```
 
-
-
 ### Response Body Properties
+
+The response body includes one or more of the properties shown in the following table.
 
 | Body Parameter | Data Type                   | Description                                                                                     |
 |:---------------|:----------------------------|:------------------------------------------------------------------------------------------------|
@@ -169,15 +173,15 @@ For successfully mapped DII, the mapped object includes the properties shown in 
 
 | Property | Data Type  | Description                                                                                                                           |
 |:---------|:-----------|:--------------------------------------------------------------------------------------------------------------------------------------|
-| `u`      | string     | The UID2 of the DII provided in the request.                                                                     |
-| `p`      | string     | The previous UID2 if the current UID2 has been rotated in the last 90 days. `Null` if the current UID2 is older than 90 days. |
-| `r`      | number     | The Unix timestamp (in milliseconds) that indicates when the UID2 can be refreshed.                                         |
+| `u`      | string     | The raw UID2 corresponding to the email or phone number provided in the request.                                                                     |
+| `p`      | string     | One of the following:<ul><li>If the current raw UID2 has been rotated in the last 90 days: the previous value.</li><li>If the current raw UID2 is older than 90 days: `Null`.</li></ul> |
+| `r`      | number     | The Unix timestamp (in milliseconds) that indicates when the raw UID2 can be refreshed.                                         |
 
-For unsuccessfully mapped DII, the mapped object includes the properties shown in the following table.
+For unsuccessfully mapped input values, the mapped object includes the properties shown in the following table.
 
 | Property | Data Type | Description                                                                                                      |
 |:---------|:----------|:-----------------------------------------------------------------------------------------------------------------|
-| `e`      | string    | The reason for being unable to map the DII to a UID2. Either one of "optout" or "invalid identifier". |
+| `e`      | string    | The reason for being unable to map the DII to a raw UID2. One of two possible values:<ul><li>`optout`</li><li>`invalid identifier`</li></ul> |
 
 ### Response Status Codes
 

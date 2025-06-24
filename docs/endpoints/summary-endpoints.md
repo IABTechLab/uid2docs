@@ -26,24 +26,28 @@ The following endpoints are for retrieving and managing UID2 tokens (identity to
 
 The following endpoints are used by advertisers and third-party data providers. Publishers do not need to use these endpoints.
 
-### Latest V3 Identity Map Endpoint
+### Latest Identity Map Endpoint (V3)
 
-The following endpoint is part of the latest V3 Identity Map integration. 
+In the latest identity map integration, you only need to call one endpoint, `POST /identity/map`. The `POST /identity/buckets` endpoint is not part of the workflow.
 
-Calling the /identity/buckets endpoint is no longer necessary when calling the latest Identity Map endpoint. 
+:::important
+If you're using the earlier version, we recommend that you upgrade as soon as possible, to take advantage of improvements.
+:::
+
+The latest identity map integration uses the following endpoint:
 
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |
-| [POST&nbsp;/identity/map](post-identity-map.md) | Maps UID2s, previous UID2s and refresh timestamps for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
+| [POST&nbsp;/identity/map](post-identity-map.md) | Maps raw UID2s, previous raw UID2s, and refresh timestamps for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
 
-### Earlier V2 Identity Map Endpoints
+### Earlier Identity Map Endpoints (V2)
 
-The following endpoints are part of the earlier V2 Identity Map integration.  
+The following endpoints are part of the earlier identity map integration (version 2).  
 
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |
 | [POST&nbsp;/identity/buckets](post-identity-buckets.md) | Monitors rotated salt buckets using their last updated timestamp. | Required | Required |
-| [POST&nbsp;/identity/map (v2)](post-identity-map-v2.md) | Maps UID2s and salt bucket IDs for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
+| [POST&nbsp;/identity/map (v2)](post-identity-map-v2.md) | Maps raw UID2s and salt bucket IDs for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
 
 ## Opt-Out Status
 

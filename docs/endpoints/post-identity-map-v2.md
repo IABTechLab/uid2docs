@@ -17,7 +17,11 @@ For details about the UID2 opt-out workflow and how users can opt out, see [User
 
 ## Version
 
-This documentation is for earlier version 2 of this endpoint. For documentation for the latest version 3 of this endpoint, see: [POST /identity/map](post-identity-map.md).
+This documentation is for version 2 of this endpoint, which is not the latest version. For the latest version, v3, see [POST /identity/map](post-identity-map.md).
+
+:::note
+If you're using the earlier version, we recommend that you upgrade as soon as possible, to take advantage of improvements.
+:::
 
 ## Batch Size and Request Parallelization Requirements
 
