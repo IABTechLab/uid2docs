@@ -109,12 +109,25 @@ For details, and code examples in different programming languages, see [Encrypti
 The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
 :::
 
-A successful decrypted response returns the current UID2s, previous UID2s (where applicable) and refresh timestamps for the specified email addresses, phone numbers, or their respective hashes. 
+A successful decrypted response returns the current UID2s, previous UID2s and refresh timestamps for the specified email addresses, phone numbers, or their respective hashes. 
 
 The response arrays preserve the order of input arrays. Each element in the response array maps directly to the element at the same index in the corresponding request array. This ensures that results can be reliably associated with their corresponding inputs based on array position.
 
 DIIs that cannot be mapped to a UID2 are mapped to an error object with the reason for unsuccessful mapping. An unsuccessful mapping occurs if the DII is considered invalid or if the DII has opted out from the UID2 ecosystem. In these cases, the response status is still "success".
 
+For example, given the following input: 
+```json
+{
+    "email": [
+        "user@example.com"      // Corresponding UID2 rotated in the last 90 days
+        "user2@example.com"     // Corresponding UID2 rotated more than 90 days ago
+        "invalid email string"  // Invalid identifier
+        "optout@example.com"    // DII is opted out
+    ]
+}
+```
+
+The resulting response will be as follows:
 ```json
 {
     "body":{
