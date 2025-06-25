@@ -8,6 +8,7 @@ sidebar_position: 17
 ---
 
 import Link from '@docusaurus/Link';
+import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
 import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 
@@ -161,6 +162,10 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 9. **Create stack** をクリックします。
 
 スタックの作成には数分かかります。Auto Scaling Group (ASG) が作成されたら、選択して EC2 インスタンスを確認できます。デフォルトでは、最初は 1 つのインスタンスのみが起動します。
+
+### Private Operator Upgrade Policy
+
+<UpgradePolicy />
 
 ### Operator Version
 

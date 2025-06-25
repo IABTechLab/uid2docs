@@ -8,6 +8,7 @@ sidebar_position: 18
 ---
 
 import Link from '@docusaurus/Link';
+import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
 
 # UID2 Private Operator for AKS Integration Guide
@@ -78,6 +79,10 @@ You'll receive separate `{OPERATOR_KEY}` values for each environment. Be sure to
 | :--- | :--- |
 | Integration (`integ`) | For testing only. Debug mode is available in the integration environment. |
 | Production (`prod`) | For managing production traffic. |
+
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
 
 ## Deployment
 

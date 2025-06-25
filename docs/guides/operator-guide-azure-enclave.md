@@ -8,6 +8,7 @@ sidebar_position: 18
 ---
 
 import Link from '@docusaurus/Link';
+import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
@@ -92,6 +93,10 @@ The first step is to get set up with the deployment files you'll need:
    - `vnet.json` and `vnet.parameters.json`
    - `operator.json` and `operator.parameters.json`
    - `gateway.json` and `gateway.parameters.json`
+
+### Private Operator Upgrade Policy
+
+<UpgradePolicy />
 
 ### Operator Version
 
