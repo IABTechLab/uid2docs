@@ -16,7 +16,7 @@ import CustomTagsContainer from "@site/src/components/CustomTags/CustomTagsConta
 UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
 
 :::tip
-Use the Tags toolbar to view a subset of documentation updates.
+タグツールバーを使用して、ドキュメントの更新の一部を表示できます。
 :::
 
 ## Q1 2025
