@@ -49,7 +49,7 @@ import Link from '@docusaurus/Link';
 
 | High-Level Step | Implementation Options |
 | --- | --- |
-| [1: Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii) | DII を raw UID2 にマッピングするには、以下のオプションのいずれかをします:<ul><li>以下の UID2 SDK のいずれか:<ul><li>Python SDK: [DII を Raw UID2 にマッピング](../sdks/sdk-ref-python.md#map-dii-to-raw-uid2s)</li><li>Java SDK: [広告主/データプロバイダー向けの使用法](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers)</li></ul></li><li>Snowflake: [DII をマッピング](integration-snowflake.md#map-dii)</li><li>AWS Entity Resolution: [AWS Entity Resolution インテグレーションガイド](integration-aws-entity-resolution.md)</li><li>HTTP エンドポイント: [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md)</li></ul> |
+| [1: Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii) | DII を raw UID2 にマッピングするには、以下のオプションのいずれかをします:<ul><li>以下の UID2 SDK のいずれか:<ul><li>Python SDK: [DII を Raw UID2 にマッピング](../sdks/sdk-ref-python.md#map-dii-to-raw-uid2s)</li><li>Java SDK: [広告主/データプロバイダー向けの使用法](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers)</li></ul></li><li>Snowflake: [DII をマッピング](integration-snowflake.md#map-dii)</li><li>AWS Entity Resolution: [AWS Entity Resolution インテグレーションガイド](integration-aws-entity-resolution.md)</li><li>HTTP エンドポイント: [POST&nbsp;/identity/map](../endpoints/post-identity-map.md)</li></ul> |
 | [2: Store Raw UID2s and Salt Bucket IDs](#2-store-raw-uid2s-and-salt-bucket-ids) | カスタム（適切な方法で）。 |
 | [3: Manipulate or Combine Raw UID2s](#3-manipulate-or-combine-raw-uid2s) | カスタム（適切な方法で）。 |
 | [4: Send Stored Raw UID2s to DSPs to Create Audiences or Conversions](#4-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions) | カスタム（適切な方法で）。 |
@@ -85,7 +85,7 @@ raw UID2 を生成するには、以下のオプションのいずれかを使�
 
 - AWS Entity Resolution: [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md) を参照してください。
 
-- HTTP endpoints: [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md). 詳細は、[Generate Raw UID2s from DII](integration-advertiser-dataprovider-endpoints.md#1-generate-raw-uid2s-from-dii) を参照してください。
+- HTTP endpoints: [POST&nbsp;/identity/map](../endpoints/post-identity-map.md). 詳細は、[Generate Raw UID2s from DII](integration-advertiser-dataprovider-endpoints.md#1-generate-raw-uid2s-from-dii) を参照してください。
 
 ### 2: Store Raw UID2s and Salt Bucket IDs
 
@@ -150,7 +150,7 @@ AWS Entity Resolution では、ソルトバケットの監視方法はありま�
 
 UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> で最新のオプトアウト情報があるかを確認する方法は 2 つあります:
 
-- [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) エンドポイイントを使用して、raw UID2 のオプトアウトステータスを確認します。オプトアウトされた DII には、raw UID2 は生成されません。
+- [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイイントを使用して、raw UID2 のオプトアウトステータスを確認します。オプトアウトされた DII には、raw UID2 は生成されません。
 
 - [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、raw UID2 のオプトアウトステータスを確認します。
 

@@ -29,7 +29,7 @@ import Link from '@docusaurus/Link';
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |
 | [POST&nbsp;/identity/buckets](post-identity-buckets.md) | 最後に更新されたタイムスタンプを使用して、ローテーションされたソルトバケットを監視します。 | 必須 | 必須 |
-| [POST&nbsp;/identity/map (v2)](post-identity-map-v2.md) | 1 つ以上のメールアドレス、電話番号、またはそれぞれのハッシュの UID2 とソルトバケット ID を取得します。 | 必須 | 必須 |
+| [POST&nbsp;/identity/map](post-identity-map.md) | 1 つ以上のメールアドレス、電話番号、またはそれぞれのハッシュの UID2 とソルトバケット ID を取得します。 | 必須 | 必須 |
 
 ## Opt-Out Status
 
