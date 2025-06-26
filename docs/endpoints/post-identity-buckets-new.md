@@ -13,6 +13,12 @@ Monitors rotated <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucke
 
 Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
 
+:::important
+If you're using the latest version of `POST /v3/identity/map`, v3, you don't need to use `POST /identity/buckets` at all. You only need to use it if you're using the earlier version, `POST /v2/identity/map`.
+
+If you're using the earlier version, we recommend that you upgrade as soon as possible, to take advantage of improvements.
+:::
+
 ## Request Format
 
 `POST '{environment}/v2/identity/buckets'`

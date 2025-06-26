@@ -309,7 +309,7 @@ const fullSidebar = [
 
     {
       type: 'category',
-      label: 'Endpoints',
+      label: 'Endpoints (v2)',
       link: {
         type: 'doc',
         id: 'endpoints/summary-endpoints',
@@ -320,18 +320,7 @@ const fullSidebar = [
         'endpoints/post-token-validate',
         'endpoints/post-token-refresh',
         'endpoints/post-identity-buckets',
-        {
-          type: 'category',
-          label: 'POST /identity/map',
-          link: {
-            type: 'doc',
-            id: 'endpoints/post-identity-map',
-          },
-          collapsed: true,
-          items: [
-            'endpoints/post-identity-map-v2',
-          ],
-        },
+        'endpoints/post-identity-map',
         'endpoints/post-optout-status',
       ],
     },
@@ -410,7 +399,6 @@ const sidebars = {
     'guides/dsp-guide',
     'endpoints/post-identity-buckets',
     'endpoints/post-identity-map',
-    'endpoints/post-identity-map-v2',
     'endpoints/post-optout-status'
   ),
 
