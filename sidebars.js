@@ -325,11 +325,11 @@ const fullSidebar = [
           label: 'POST /identity/map',
           link: {
             type: 'doc',
-            id: 'endpoints/post-identity-map',
+            id: 'endpoints/post-identity-map-v3',
           },
           collapsed: true,
           items: [
-            'endpoints/post-identity-map-v2',
+            'endpoints/post-identity-map',
           ],
         },
         'endpoints/post-optout-status',
