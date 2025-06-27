@@ -422,7 +422,7 @@ For details, see [UID2 Hashing Tool](../getting-started/gs-normalization-encodin
 
 February 28, 2024
 
-The Java SDK now supports Advertisers and Data Providers wanting to use the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.
+The Java SDK now supports Advertisers and Data Providers wanting to use the [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map.md) endpoint.
 
 For details, see the updated documentation in the *SDK for Java Reference Guide*: [Usage for Advertisers and Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers).
 

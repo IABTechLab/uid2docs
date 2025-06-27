@@ -1,5 +1,5 @@
 ---
-title: POST /identity/map
+title: POST /identity/map (v2)
 description: Maps DII to raw UID2s and salt bucket IDs.
 hide_table_of_contents: false
 sidebar_position: 08
@@ -7,13 +7,21 @@ sidebar_position: 08
 
 import Link from '@docusaurus/Link';
 
-# POST /identity/map
+# POST /identity/map (v2)
 
 Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s and <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt bucket IDs</Link>. You can also use this endpoint to check for updates to opt-out information.
 
 Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
 
 For details about the UID2 opt-out workflow and how users can opt out, see [User Opt-Out](../getting-started/gs-opt-out.md).
+
+## Version
+
+This documentation is for version 2 of this endpoint, which is not the latest version. For the latest version, v3, see [POST /identity/map](post-identity-map-v3.md).
+
+:::note
+If you're using the earlier version, we recommend that you upgrade as soon as possible, to take advantage of improvements.
+:::
 
 ## Batch Size and Request Parallelization Requirements
 
