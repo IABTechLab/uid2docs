@@ -9,7 +9,6 @@ sidebar_position: 17
 
 import Link from '@docusaurus/Link';
 import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
-import ReleaseMatrixAWS from '../snippets/_private-operator-release-matrix-aws.mdx';
 import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
@@ -171,7 +170,13 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 
 最新の ZIP ファイルは、次の表の Release Notes 欄にリンクされています。
 
-<ReleaseMatrixAWS />
+| Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version |  Date |
+| ------- | ------ | ------ | ------ | 
+| Q2 2025 | TBD | TBD | TBD |
+
+:::note
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+:::
 
 ### Stack Details
 

@@ -89,6 +89,10 @@ There are a couple of limitations to Private Operator functionality:
 
 <UpgradePolicy />
 
+## Private Operator Deprecation Schedule
+
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+
 ## Getting Started
 
 To get started as a Private Operator, follow these steps:
