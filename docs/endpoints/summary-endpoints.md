@@ -38,7 +38,7 @@ The latest identity map integration uses the following endpoint:
 
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |
-| [POST&nbsp;/identity/map](post-identity-map.md) | Maps raw UID2s, previous raw UID2s, and refresh timestamps for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
+| [POST&nbsp;/identity/map](post-identity-map-v3.md) | Maps raw UID2s, previous raw UID2s, and refresh timestamps for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
 
 ### Earlier Identity Map Endpoints (V2)
 
@@ -47,7 +47,7 @@ The following endpoints are part of the earlier identity map integration (versio
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |
 | [POST&nbsp;/identity/buckets](post-identity-buckets.md) | Monitors rotated salt buckets using their last updated timestamp. | Required | Required |
-| [POST&nbsp;/identity/map (v2)](post-identity-map-v2.md) | Maps raw UID2s and salt bucket IDs for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
+| [POST&nbsp;/identity/map (v2)](post-identity-map.md) | Maps raw UID2s and salt bucket IDs for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
 
 ## Opt-Out Status
 
