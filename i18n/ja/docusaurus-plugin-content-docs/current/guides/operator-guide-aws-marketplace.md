@@ -125,7 +125,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 - VPC: 既存の VPC と関連する VPC サブネット ID を指定する必要があります。
 - ルートボリュームサイズ (8G Minimum)
 - SSH キー: UID2 Operator の EC2 インスタンスにアクセスする際に使用する SSH キーです。
-- [Instance type](https://aws.amazon.com/ec2/instance-types/m5/): m5.2xlarge、m5.4xlarge、といった具合です。カスタマイズがない場合は、デフォルト値の m5.2xlarge を推奨します。
+- [Instance type](https://aws.amazon.com/ec2/instance-types/): m5.2xlarge、m5.4xlarge、といった具合です。カスタマイズがない場合は、デフォルト値の m5.2xlarge を推奨します。
 
 ### Security Group Policy
 

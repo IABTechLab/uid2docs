@@ -132,8 +132,8 @@ UID2 の Opt-out ワークフローとユーザーが Opt-out する方法の詳
 
 Server-only のインテグレーションのためのサンプルアプリケーションをがあります。以下を参照してください:
 
-- [Server-Side UID2 Integration Example (sample implementation)](https://secure-signals-server-side-integ.uidapi.com/)
-- [Server-Side UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
+- [Server-Only UID2 Integration Example](https://example-srvonly-integ.uidapi.com/login)
+- [Server-Only UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
 
 ## FAQs
 

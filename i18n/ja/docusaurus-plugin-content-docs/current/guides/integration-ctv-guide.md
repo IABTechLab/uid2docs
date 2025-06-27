@@ -13,7 +13,7 @@ import PrivateOperatorOption from '../snippets/_private-operator-option.mdx';
 
 # CTV Integration Guide
 
-CTV パブリッシャーであれば、UID2 とインテグレーションして、CTV アプリのコンテキストで RTB ビッドストリームに渡す ID トークンを生成およびリフレッシュする方法がいくつかあります。
+Connected TV (CTV) パブリッシャーであれば、UID2 とインテグレーションして、CTV アプリのコンテキストで RTB ビッドストリームに渡す ID トークンを生成およびリフレッシュする方法がいくつかあります。
 
 ## Key Integration Steps
 UID2 とインテグレーションするには、次の 3 つの主要なステップを実装します:
@@ -113,3 +113,23 @@ Server-Side コードが Java または Python である場合、UID2 SDK のい
 | :--- | :--- | :--- |
 | [Apple tvOS](https://developer.apple.com/tvos/) | [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) |
 | [Android TV](https://www.android.com/tv/) | [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | [SDK for Android Reference Guide](../sdks/sdk-ref-android.md) |
+
+## Best Practices
+
+CTV インテグレーションのベストプラクティスは次のとおりです:
+
+- **トークンを事前にローテーションさせる**
+
+  CTV 広告は広告ブレイク中のトラフィックスパイクに関連付けられています。これらの時間帯に UID2 Token を生成またはリフレッシュすることは理想的ではありません。忙しい時間帯の前にトークンを生成またはリフレッシュすることを勧めます。
+
+  トークンが有効期限前にリフレッシュされた場合、古いトークンが有効期限切れになるまで、新しいトークンまたは古いトークンのいずれかを使用できます。TTL (time to live) タイムスタンプは、トークンが生成またはリフレッシュされたときに UID2 Operator から返されるレスポンスボディの一部です。
+
+- **トークンは必要な場合のみローテーションさせる**
+
+  UID2 Token はユーザーの HEM (Household Email Address) または電話番号に紐付けられており、視聴セッションやアプリセッションには紐付けられていません。ユーザーに有効な UID2 Token がある限り、新しい視聴セッションやアプリセッションごとに新しいトークンを生成する必要はありません。たとえば、ユーザーがアプリを離れ、再度開いた場合、既存のトークンがまだ有効であれば、新しい UID2 Token を生成する必要はありません。
+
+- **ポッド内の複数の広告スロットで同じトークンを使用する**
+
+  UID2 Token がポッドの期間中に有効である限り、ポッド内の任意の広告スロットで使用できます。
+
+理想的には、これらのガイドラインに従うと、広告ブレイク中に新しい UID2 Token を生成する必要はありません。
