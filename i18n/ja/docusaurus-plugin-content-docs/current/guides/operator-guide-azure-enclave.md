@@ -9,7 +9,7 @@ sidebar_position: 18
 
 import Link from '@docusaurus/Link';
 import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
-import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
+import ReleaseMatrixAzure from '../snippets/_private-operator-release-matrix-azure.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
@@ -102,7 +102,7 @@ Azure CLI をインストールします。詳細は、Azure ドキュメント�
 
 最新の ZIP ファイルは、次の表の Azure Download 列にリンクされています。
 
-<ReleaseMatrix />
+<ReleaseMatrixAzure />
 
 ### Create Resource Group
 

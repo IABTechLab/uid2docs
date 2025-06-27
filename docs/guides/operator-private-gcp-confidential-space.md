@@ -9,7 +9,7 @@ sidebar_position: 18
 
 import Link from '@docusaurus/Link';
 import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
-import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
+import ReleaseMatrixGCP from '../snippets/_private-operator-release-matrix-gcp.mdx';
 
 # UID2 Private Operator for GCP Integration Guide
 
@@ -96,7 +96,7 @@ When UID2 account registration is complete, and you've installed the gcloud CLI,
 
 The latest ZIP file is linked in the GCP Download column in the following table.
 
-<ReleaseMatrix />
+<ReleaseMatrixGCP />
 
 ## Deployment Environments
 

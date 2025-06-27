@@ -9,7 +9,7 @@ sidebar_position: 17
 
 import Link from '@docusaurus/Link';
 import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
-import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
+import ReleaseMatrixAWS from '../snippets/_private-operator-release-matrix-aws.mdx';
 import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
@@ -171,7 +171,7 @@ It takes several minutes for the stack to be created. When you see an Auto Scali
 
 The latest ZIP file is linked in the Release Notes column in the following table.
 
-<ReleaseMatrix />
+<ReleaseMatrixAWS />
 
 ### Stack Details
 

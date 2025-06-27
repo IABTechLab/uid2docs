@@ -9,7 +9,7 @@ sidebar_position: 18
 
 import Link from '@docusaurus/Link';
 import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
-import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
+import ReleaseMatrixAKS from '../snippets/_private-operator-release-matrix-aks.mdx';
 
 # UID2 Private Operator for AKS Integration Guide
 
@@ -80,7 +80,6 @@ Kubernetesの `kubectl` コマンドラインインターフェイスをイン�
 | Integration (`integ`) | テスト専用です。デバックモードはテスト環境で利用可能です。 |
 | Production (`prod`) | 本番トラフィックを管理するためのものです。 |
 
-
 ## Private Operator Upgrade Policy
 
 <UpgradePolicy />
@@ -114,7 +113,8 @@ AKS の新しい UID2 Private Operator をデプロイするには、次の主�
 
 The latest ZIP file is linked in the AKS Download column in the following table.
 
-<ReleaseMatrix />  -->
+<ReleaseMatrixAKS />
+-->
 
 ### Prepare Environment Variables
 

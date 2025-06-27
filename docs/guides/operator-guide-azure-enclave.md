@@ -9,7 +9,7 @@ sidebar_position: 18
 
 import Link from '@docusaurus/Link';
 import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
-import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
+import ReleaseMatrixAzure from '../snippets/_private-operator-release-matrix-azure.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
@@ -102,7 +102,7 @@ The first step is to get set up with the deployment files you'll need:
 
 The latest ZIP file is linked in the Azure Download column in the following table.
 
-<ReleaseMatrix />
+<ReleaseMatrixAzure />
 
 ### Create Resource Group
 
