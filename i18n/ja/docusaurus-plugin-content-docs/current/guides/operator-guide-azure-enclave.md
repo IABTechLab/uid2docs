@@ -8,7 +8,7 @@ sidebar_position: 18
 ---
 
 import Link from '@docusaurus/Link';
-import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
+import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
@@ -93,11 +93,21 @@ Azure CLI をインストールします。詳細は、Azure ドキュメント�
    - `operator.json` and `operator.parameters.json`
    - `gateway.json` and `gateway.parameters.json`
 
+### Private Operator Upgrade Policy
+
+<UpgradePolicy />
+
 ### Operator Version
 
 最新の ZIP ファイルは、次の表の Azure Download 列にリンクされています。
 
-<ReleaseMatrix />
+| Version Name | Version Number  | Release Notes | Azure Download |  Date | Deprecation Date |
+| ------- | ------ | ------ | ------ | ------ | ------ |
+| Q2 2025 | TBD | TBD | TBD | TBD | TBD |
+
+:::note
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+:::
 
 ### Create Resource Group
 

@@ -5,6 +5,7 @@ hide_table_of_contents: false
 ---
 
 import Link from '@docusaurus/Link';
+import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 
 # UID2 Private Operator Integration Overview
 
@@ -82,6 +83,10 @@ Private Operator の基本的なワークフローは次のとおりです:
 Private Operator にはいくつかの制限があります:
 - Private Operator は、現在、<Link href="../ref-info/glossary-uid#gl-client-side">client-side integration</Link>　をサポートしていません。
 - Private Operator の更新は、年に 3 回リリースされます; Public Operator の更新は、より頻繁にリリースされます。
+
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
 
 ## Getting Started
 

@@ -8,7 +8,7 @@ sidebar_position: 17
 ---
 
 import Link from '@docusaurus/Link';
-import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
+import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
@@ -162,11 +162,21 @@ To deploy UID2 Operator on AWS Marketplace, complete the following steps:
 
 It takes several minutes for the stack to be created. When you see an Auto Scaling Group (ASG) created, you can select it and check the EC2 instances. By default, there is only one instance to start with.
 
+### Private Operator Upgrade Policy
+
+<UpgradePolicy />
+
 ### Operator Version
 
 The latest ZIP file is linked in the Release Notes column in the following table.
 
-<ReleaseMatrix />
+| Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version |  Date |
+| ------- | ------ | ------ | ------ | 
+| Q2 2025 | TBD | TBD | TBD |
+
+:::note
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+:::
 
 ### Stack Details
 

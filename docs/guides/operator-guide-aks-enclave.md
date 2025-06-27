@@ -8,7 +8,7 @@ sidebar_position: 18
 ---
 
 import Link from '@docusaurus/Link';
-import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
+import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 
 # UID2 Private Operator for AKS Integration Guide
 
@@ -79,6 +79,10 @@ You'll receive separate `{OPERATOR_KEY}` values for each environment. Be sure to
 | Integration (`integ`) | For testing only. Debug mode is available in the integration environment. |
 | Production (`prod`) | For managing production traffic. |
 
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
+
 ## Deployment
 
 To deploy a new UID2 Private Operator for AKS, you'll need to complete the following high-level steps:
@@ -104,11 +108,17 @@ To get set up with the installation files, follow these steps:
 
    - `operator.yaml` -->
 
-<!-- ### Operator Version
+### Operator Version
 
 The latest ZIP file is linked in the AKS Download column in the following table.
 
-<ReleaseMatrix />  -->
+| AKS Version Name | Version&nbsp;#/Release&nbsp;Notes | AKS Download | Date | Deprecation Date |
+| ------- | ------ | ------ | ------ | ------ |
+| Q2 2025 | TBD | TBD | TBD | TBD |
+
+:::note
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+:::
 
 ### Prepare Environment Variables
 
