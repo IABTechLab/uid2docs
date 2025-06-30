@@ -122,10 +122,10 @@ Input:
 ```json
 {
     "email": [
-        "user@example.com"      // Corresponding UID2 rotated in the last 90 days
-        "user2@example.com"     // Corresponding UID2 rotated more than 90 days ago
-        "invalid email string"  // Invalid identifier
-        "optout@example.com"    // DII is opted out
+        "user@example.com",      // Corresponding UID2 rotated in the last 90 days
+        "user2@example.com",     // Corresponding UID2 rotated more than 90 days ago
+        "invalid email string",  // Invalid identifier
+        "optout@example.com"     // DII is opted out
     ]
 }
 ```
