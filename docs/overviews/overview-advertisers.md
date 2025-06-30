@@ -39,7 +39,7 @@ Here are just some of the intended benefits of using UID2 as part of your advert
 The following steps provide a high-level outline of the workflow intended for organizations that collect user data and push it to DSPs—for example, advertisers, identity graph providers, and third-party data providers.
 
 The following process occurs in the background:
-* The advertiser or data provider monitors refresh timestamps and updates UID2s as needed.
+* The advertiser or data provider monitors <Link href="../ref-info/glossary-uid#gl-refresh-timestamp">refresh timestamps</Link> and updates UID2s when the current time exceeds the refresh timestamp for each stored UID2.
 
 The following steps are an example of how an advertiser can integrate with UID2:
 
@@ -47,7 +47,7 @@ The following steps are an example of how an advertiser can integrate with UID2:
 2. The UID2 Operator generates and returns a raw UID2 and refresh timestamp.
 3. The advertiser stores the UID2 and refresh timestamp and sends the UID2-based first-party and third-party audience segments to the DSP. 
 
-   Server-side: The advertiser stores the UID2 in a mapping table, DMP, data lake, or other server-side application.
+   Server-side: The advertiser stores the UID2 and refresh timestamp in a mapping table, DMP, data lake, or other server-side application.
 
 ![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.svg)
 
