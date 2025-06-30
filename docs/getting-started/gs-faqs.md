@@ -166,8 +166,7 @@ For details, see [Publisher Integration with SSO Providers](/docs/ref-info/ref-i
 
 Here are some frequently asked questions for advertisers and data providers using the UID2 framework.
 
-- [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
-- [Do refreshed emails get assigned to the same bucket with which they were previously associated?](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
+- [How do I know when to refresh a raw UID2?](#how-do-i-know-when-to-refresh-a-raw-uid2)
 - [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)
 - [How should I generate the SHA-256 of DII for mapping?](#how-should-i-generate-the-sha-256-of-dii-for-mapping)
 - [Should I store mapping of email addresses, phone numbers, or corresponding hashes to raw UID2s in my own datasets?](#should-i-store-mapping-of-email-addresses-phone-numbers-or-corresponding-hashes-to-raw-uid2s-in-my-own-datasets)
@@ -175,27 +174,25 @@ Here are some frequently asked questions for advertisers and data providers usin
 - [Does the same DII always result in the same raw UID2?](#does-the-same-dii-always-result-in-the-same-raw-uid2)
 - [If two operators process the same DII, are the results the same?](#if-two-operators-process-the-same-dii-are-the-results-the-same)
 
-#### How do I know when to refresh the UID2 due to salt bucket rotation?
+#### How do I know when to refresh a raw UID2?
 
-Metadata supplied with the UID2 generation request indicates the <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> used for generating the UID2. Salt buckets persist and correspond to the underlying <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> used to generate a UID2. Use the [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) endpoint to return which salt buckets rotated since a given timestamp. The returned rotated salt buckets inform you which UID2s to refresh.
+The V3 Identity Map API provides a refresh timestamp (`r` field) in the response that indicates when each raw UID2 may refresh. Use this timestamp to determine when to regenerate raw UID2s for your stored data.
+
+To determine whether to refresh a raw UID2:
+
+1. Compare the current time with the refresh timestamp (`r` field) you stored from the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response.
+2. If the current time is greater than or equal to the refresh timestamp, regenerate the raw UID2 by calling the identity map endpoint again with the same <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>.
 
 :::note
-We do not make any promises about when the rotation takes place. To stay as up-to-date as possible, we recommend doing the checks once per hour.
+We recommend checking for refresh opportunities daily. It is guaranteed that the raw UID2 won't refresh before the indicated timestamp. Afterward the UID2 has a chance to rotate.
 :::
 
-#### Do refreshed emails get assigned to the same bucket with which they were previously associated?
-
-Not necessarily. After you remap emails associated with a particular bucket ID, the emails might be assigned to a different bucket ID. To check the bucket ID, see [Generate Raw UID2s from DII](../guides/integration-advertiser-dataprovider-overview.md#1-generate-raw-uid2s-from-dii) and save the returned raw UID2 and bucket ID again.
-
-:::info
-When mapping and remapping emails, do not make any assumptions about the number of buckets, their rotation dates, or the specific bucket that an email gets assigned to.
-:::
 
 #### How often should UID2s be refreshed for incremental updates?
 
 The recommended cadence for updating audiences is daily.
 
-Even though each salt bucket is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets are rotated daily. If fidelity is critical, consider calling the [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) endpoint more frequently; for example, hourly.
+A raw UID2 for a specific user changes at least once per year as part of the UID2 rotation process. The V3 Identity Map API provides refresh timestamps that indicate when each raw UID2 may refresh. We recommend checking these timestamps daily to ensure your UID2s remain current and valid for audience targeting.
 
 #### How should I generate the SHA-256 of DII for mapping?
 
@@ -223,7 +220,7 @@ In general yes, the process of generating a raw UID2 from DII is the same, and r
 
 However, there is a variable factor, which is the secret <Link href="../ref-info/glossary-uid#gl-salt">salt</Link> value that's used in generating the raw UID2. The salt values are rotated roughly once per year (for details, see [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)). If the salt value changes between one request and another, those two requests result in two different raw UID2, even when the DII is the same.
 
-For more information, see [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s) in the *Advertiser/Data Provider Integration Guide*.
+For more information, see [Monitor for Raw UID2 Refresh](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-raw-uid2-refresh) in the *Advertiser/Data Provider Integration Guide*.
 
 #### If two operators process the same DII, are the results the same?
 
@@ -231,7 +228,7 @@ Yes, if the request is for a <Link href="../ref-info/glossary-uid#gl-raw-uid2">r
 
 The result is the same, regardless of the <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> and whether it's a Private Operator or a Public Operator.
 
-The timing is important only because of salt bucket rotation. If the salt value changes between one request and another, the result is a different raw UID2.
+The timing is important only because of salt rotation. If the salt value changes between one request and another, the result is a different raw UID2.
 
 However, if a publisher sends DII in a request for a <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>, via the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint or via an SDK, the resulting UID2 token contains the same encrypted raw UID2, but the token itself is always unique.
 
@@ -267,9 +264,9 @@ You can use one of the server-side SDKs (see [SDKs: Summary](../sdks/summary-sdk
 
 There may be thousands of decryption keys present in the system at any given point.
 
-#### How do I know if/when the salt bucket has rotated?
+#### How do I know if/when the salt has rotated?
 
-The DSP is not privy to when the UID2 salt bucket rotates. This is similar to a DSP being unaware if users cleared their cookies. Salt bucket rotation has no significant impact on the DSP.
+The DSP is not privy to when the UID2 salt rotates. This is similar to a DSP being unaware if users cleared their cookies. Salt rotation has no significant impact on the DSP.
 
 #### Should the DSP be concerned with latency?
 
@@ -277,7 +274,7 @@ The UID2 service does not introduce latency into the bidding process. Any latenc
 
 #### How should the DSP maintain proper frequency capping with UID2?
 
-The UID2 has the same chance as a cookie of becoming stale. Hence, the DSP can adapt the same infrastructure currently used for cookie or deviceID-based frequency capping for UID2. For details, see [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation).
+The UID2 has the same chance as a cookie of becoming stale. Hence, the DSP can adapt the same infrastructure currently used for cookie or deviceID-based frequency capping for UID2. For details, see [How do I know when to refresh a raw UID2?](#how-do-i-know-when-to-refresh-a-raw-uid2).
 
 #### Will all user opt-out traffic be sent to the DSP?
 
