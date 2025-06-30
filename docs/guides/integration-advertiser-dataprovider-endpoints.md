@@ -62,8 +62,8 @@ DII refers to a user's normalized email address or phone number, or the normaliz
 
 | Step | Endpoint | Description |
 | --- | --- | --- |
-| 1-a | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) request | Send a request containing DII to the identity mapping endpoint. |
-| 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response | The raw UID2 (`u` field) returned in the response can be used to target audiences on relevant DSPs.<br/>The response returns a user's raw UID2 (`u`), refresh timestamp (`r`), and optionally the previous raw UID2 (`p`) if the current UID2 was rotated within the last 90 days. Use the refresh timestamp to determine when to refresh the UID2. For details, see [5: Monitor for Raw UID2 Refresh](#5-monitor-for-raw-uid2-refresh). |
+| 1-a | [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) request | Send a request containing DII to the identity mapping endpoint. |
+| 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) response | The raw UID2 (`u` field) returned in the response can be used to target audiences on relevant DSPs.<br/>The response returns a user's raw UID2 (`u`), refresh timestamp (`r`), and optionally the previous raw UID2 (`p`) if the current UID2 was rotated within the last 90 days. Use the refresh timestamp to determine when to refresh the UID2. For details, see [5: Monitor for Raw UID2 Refresh](#5-monitor-for-raw-uid2-refresh). |
 
 
 ### 2: Store Raw UID2s and Refresh Timestamps
@@ -102,17 +102,17 @@ We recommend checking for refresh opportunities daily. The following table shows
 
 | Step | Action                                                      | Description                                                                                                                                                           |
 | --- |--------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 5-a | Local timestamp check                                        | Compare the current time with the refresh timestamp (`r` field) you stored from the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response previously. |
-| 5-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) | If the current time is greater than or equal to the refresh timestamp, regenerate the raw UID2 by calling the identity map endpoint again with the same DII.          |
+| 5-a | Local timestamp check                                        | Compare the current time with the refresh timestamp (`r` field) you stored from the [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) response previously. |
+| 5-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) | If the current time is greater than or equal to the refresh timestamp, regenerate the raw UID2 by calling the identity map endpoint again with the same DII.          |
 | 5-c | Local storage update                                         | Store the new raw UID2 (`u` field), refresh timestamp (`r` field) and optionally previous UID2 (`p` field) returned from the response.                                |
 
 #### Determine whether to refresh a raw UID2
 
 To determine whether to refresh a raw UID2, follow these steps:
 
-1. Compare the current time with the refresh timestamp (`r` field) you stored from the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response.
+1. Compare the current time with the refresh timestamp (`r` field) you stored from the [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) response.
 
-2. If the current time is greater than or equal to the refresh timestamp, regenerate the raw UID2 by calling [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) again with the same DII.
+2. If the current time is greater than or equal to the refresh timestamp, regenerate the raw UID2 by calling [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) again with the same DII.
 
 This approach ensures your UID2s remain current and valid for audience targeting and measurement.
 
@@ -122,7 +122,7 @@ It's important to honor user opt-out status. Periodically, monitor for opt-out s
 
 There are two ways that you can check with the UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> to make sure you have the latest opt-out information:
 
-- Call the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint to check for opt-outs. If the DII has been opted out, no raw UID2 is generated.
+- Call the [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) endpoint to check for opt-outs. If the DII has been opted out, no raw UID2 is generated.
 
 - Check the opt-out status of raw UID2s using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint.
 

@@ -44,13 +44,13 @@ Here are just some of the intended benefits available to you as a data provider 
 The following steps provide a high-level outline of the workflow intended for organizations that collect user data and push it to DSPs—for example, advertisers, identity graph providers, and third-party data providers.
 
 The following process occurs in the background:
-* The advertiser or data provider monitors the UID2 Operator for rotated salt buckets, and updates UID2s as needed.
+* The advertiser or data provider monitors refresh timestamps, and updates UID2s as needed.
 
 The following steps are an example of how a data provider can integrate with UID2:
 
 1. The data provider sends a user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to the UID2 Operator.
-2. The UID2 Operator generates and returns a raw UID2 and salt bucket ID.
-3. The data provider stores the UID2 and salt bucket ID and sends the UID2-based first-party and third-party audience segments to the DSP. 
+2. The UID2 Operator generates and returns a raw UID2 and refresh timestamp.
+3. The data provider stores the UID2 and refresh timestamp and sends the UID2-based first-party and third-party audience segments to the DSP. 
 
    Server-side: The data provider stores the UID2 in a mapping table, DMP, data lake, or other server-side application.
 
