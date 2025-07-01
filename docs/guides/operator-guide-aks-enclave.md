@@ -364,7 +364,7 @@ After completing the previous steps, follow these steps to update placeholder va
 1. Get the managed identity ID by running the following:
 
    ```
-   MANAGED_IDENTITY_ID=$("az identity show --name "${MANAGED_IDENTITY}" --resource-group "${RESOURCE_GROUP}" --query id --output tsv")
+   MANAGED_IDENTITY_ID=$(az identity show --name "${MANAGED_IDENTITY}" --resource-group "${RESOURCE_GROUP}" --query id --output tsv)
    ```
 
 2. In the `operator.yaml` file, update `microsoft.containerinstance.virtualnode.identity` with the managed identity ID that was returned:
