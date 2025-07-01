@@ -44,7 +44,7 @@ UID2 Private Operator for AWS を契約することで、以下を利用でき�
 For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
 :::
 
-### Prerequisites
+## Prerequisites
 
 AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデプロイするには、次の手順を実行します:
 
