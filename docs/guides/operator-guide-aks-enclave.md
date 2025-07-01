@@ -24,6 +24,22 @@ When the attestation is successful, the UID2 Core Service provides seed informat
 UID2 Private Operator for AKS is not supported in these areas: Europe, China.
 :::
 
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
+
+## Operator Version
+
+The latest ZIP file is linked in the AKS Download column in the following table.
+
+| AKS Version Name | Version&nbsp;#/Release&nbsp;Notes | AKS Download | Date | Deprecation Date |
+| ------- | ------ | ------ | ------ | ------ |
+| Q2 2025 | TBD | TBD | TBD | TBD |
+
+:::note
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+:::
+
 ## Prerequisites
 
 Before deploying the UID2 Private Operator for AKS, complete these prerequisite steps:
@@ -79,10 +95,6 @@ You'll receive separate `{OPERATOR_KEY}` values for each environment. Be sure to
 | Integration (`integ`) | For testing only. Debug mode is available in the integration environment. |
 | Production (`prod`) | For managing production traffic. |
 
-## Private Operator Upgrade Policy
-
-<UpgradePolicy />
-
 ## Deployment
 
 To deploy a new UID2 Private Operator for AKS, you'll need to complete the following high-level steps:
@@ -107,18 +119,6 @@ To get set up with the installation files, follow these steps:
 1. Unzip the ZIP file to extract the following files, needed for the deployment:
 
    - `operator.yaml` -->
-
-### Operator Version
-
-The latest ZIP file is linked in the AKS Download column in the following table.
-
-| AKS Version Name | Version&nbsp;#/Release&nbsp;Notes | AKS Download | Date | Deprecation Date |
-| ------- | ------ | ------ | ------ | ------ |
-| Q2 2025 | TBD | TBD | TBD | TBD |
-
-:::note
-For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
-:::
 
 ### Prepare Environment Variables
 

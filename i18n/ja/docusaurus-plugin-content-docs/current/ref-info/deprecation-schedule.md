@@ -12,7 +12,7 @@ import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 
 The following sections provide information about supported versions and, where applicable, the deprecation timeline.
 
-### Private Operator Upgrade Policy
+## Private Operator Upgrade Policy
 
 <UpgradePolicy />
 

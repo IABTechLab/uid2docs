@@ -26,6 +26,22 @@ UID2 Operator Confidential Space 用の Docker コンテナが起動すると、
 
 認証が成功すると、UID2 Core Service は、UID2 Operator をセキュアな Confidential Space コンテナ内でブートストラップするためのソルトやキーなどのシード情報を提供します。
 
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
+
+## Operator Version
+
+最新の ZIP ファイルは、次の表の GCP ダウンロード列にリンクされています。
+
+| Version Name | Version&nbsp;#/Release&nbsp;Notes | GCP Download |  Date | Deprecation Date |
+| ------- | ------ | ------ | ------ | ------ |
+| Q2 2025 | TBD | TBD | TBD | TBD |
+
+:::note
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+:::
+
 ## Setup Overview
 
 セットアップは、次の手順で行います:
@@ -86,22 +102,6 @@ UID2 の連絡先に、あなたの組織を UID2 Operator として登録する
 UID2 アカウント登録が完了し、gcloud CLI をインストールしたら、次のステップに進みます:
 - [deployment environments](#deployment-environments) に関する情報を確認します。
 - 利用可能な[deployment options](#deployment-options) に関する情報を確認し、それぞれの利点を比較して、使用するオプションを決定します。
-
-### Private Operator Upgrade Policy
-
-<UpgradePolicy />
-
-### Operator Version
-
-最新の ZIP ファイルは、次の表の GCP ダウンロード列にリンクされています。
-
-| Version Name | Version&nbsp;#/Release&nbsp;Notes | GCP Download |  Date | Deprecation Date |
-| ------- | ------ | ------ | ------ | ------ |
-| Q2 2025 | TBD | TBD | TBD | TBD |
-
-:::note
-For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
-:::
 
 ## Deployment Environments
 

@@ -24,6 +24,22 @@ UID2 Operator Confidential Containers インスタンスの Docker コンテナ�
 UID2 Private Operator for Azure は、次の地域ではサポートされていません: ヨーロッパ、中国。
 :::
 
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
+
+## Operator Version
+
+最新の ZIP ファイルは、次の表の Azure Download 列にリンクされています。
+
+| Version Name | Version Number  | Release Notes | Azure Download |  Date | Deprecation Date |
+| ------- | ------ | ------ | ------ | ------ | ------ |
+| Q2 2025 | TBD | TBD | TBD | TBD | TBD |
+
+:::note
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+:::
+
 ## Prerequisites
 
 Azure に UID2 Private Operator をデプロイする前に、次の前提条件を満たす必要があります:
@@ -92,22 +108,6 @@ Azure CLI をインストールします。詳細は、Azure ドキュメント�
    - `vnet.json` and `vnet.parameters.json`
    - `operator.json` and `operator.parameters.json`
    - `gateway.json` and `gateway.parameters.json`
-
-### Private Operator Upgrade Policy
-
-<UpgradePolicy />
-
-### Operator Version
-
-最新の ZIP ファイルは、次の表の Azure Download 列にリンクされています。
-
-| Version Name | Version Number  | Release Notes | Azure Download |  Date | Deprecation Date |
-| ------- | ------ | ------ | ------ | ------ | ------ |
-| Q2 2025 | TBD | TBD | TBD | TBD | TBD |
-
-:::note
-For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
-:::
 
 ### Create Resource Group
 

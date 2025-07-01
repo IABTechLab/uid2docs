@@ -26,6 +26,22 @@ When the Docker container for the UID2 Operator Confidential Space starts up, it
 
 When the attestation is successful, the UID2 Core Service provides seed information such as salts and keys to bootstrap the UID2 Operator in the secure Confidential Space container.
 
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
+
+## Operator Version
+
+The latest ZIP file is linked in the GCP Download column in the following table.
+
+| Version Name | Version&nbsp;#/Release&nbsp;Notes | GCP Download |  Date | Deprecation Date |
+| ------- | ------ | ------ | ------ | ------ |
+| Q2 2025 | TBD | TBD | TBD | TBD |
+
+:::note
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+:::
+
 ## Setup Overview
 
 At a high level, the setup steps are as follows:
@@ -86,22 +102,6 @@ When the registration process is complete, you'll receive the following:
 When UID2 account registration is complete, and you've installed the gcloud CLI, your next steps are:
 -  Review information about [deployment environments](#deployment-environments).
 -  Review information about the [deployment options](#deployment-options) available, including the benefits of each, and decide which to use.
-
-### Private Operator Upgrade Policy
-
-<UpgradePolicy />
-
-### Operator Version
-
-The latest ZIP file is linked in the GCP Download column in the following table.
-
-| Version Name | Version&nbsp;#/Release&nbsp;Notes | GCP Download |  Date | Deprecation Date |
-| ------- | ------ | ------ | ------ | ------ |
-| Q2 2025 | TBD | TBD | TBD | TBD |
-
-:::note
-For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
-:::
 
 ## Deployment Environments
 

@@ -17,8 +17,6 @@ UID2 Operator は、UID2 エコシステム内の API サーバーです。詳�
 
 AWS Marketplace で稼働する <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> Service の場合、UID2 Operator ソリューションは [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave テクノロジーで強化されています。これは、UID2 情報を不正なアクセスから保護するための追加のセキュリティ対策です。
 
-## UID2 Private Operator for AWS
-
 :::note
 [UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) は無償製品です。製品ページに表示されている費用は、必要なインフラの概算費用となります。
 :::
@@ -29,6 +27,22 @@ UID2 Private Operator for AWS を契約することで、以下を利用でき�
   AMI には、UID2 Operator Service がすでにセットアップされた [Amazon Linux 2023](https://aws.amazon.com/linux/amazon-linux-2023/) オペレーティングシステムが含まれています。AMI をベースにした EC2 インスタンスが起動すると、AWS アカウントから設定を自動的に取得し、エンクレーブ内で UID2 Operator サーバーを起動します。
 - [CloudFormation](https://aws.amazon.com/cloudformation/) template:<br/>
   このテンプレートでは、UID2 Operator AMI がデプロイ展開されます。
+
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
+
+## Operator Version
+
+最新の ZIP ファイルは、次の表の Release Notes 欄にリンクされています。
+
+| Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version |  Date |
+| ------- | ------ | ------ | ------ | 
+| Q2 2025 | TBD | TBD | TBD |
+
+:::note
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+:::
 
 ### Prerequisites
 
@@ -161,22 +175,6 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 9. **Create stack** をクリックします。
 
 スタックの作成には数分かかります。Auto Scaling Group (ASG) が作成されたら、選択して EC2 インスタンスを確認できます。デフォルトでは、最初は 1 つのインスタンスのみが起動します。
-
-### Private Operator Upgrade Policy
-
-<UpgradePolicy />
-
-### Operator Version
-
-最新の ZIP ファイルは、次の表の Release Notes 欄にリンクされています。
-
-| Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version |  Date |
-| ------- | ------ | ------ | ------ | 
-| Q2 2025 | TBD | TBD | TBD |
-
-:::note
-For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
-:::
 
 ### Stack Details
 

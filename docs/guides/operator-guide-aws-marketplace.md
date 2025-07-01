@@ -17,8 +17,6 @@ The UID2 Operator is the API server in the UID2 ecosystem. For details, see [The
 
 For a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> service running in AWS Marketplace, the UID2 Operator solution is enhanced with [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave technology. This is an additional security measure to help protect UID2 information from unauthorized access.
 
-## UID2 Private Operator for AWS
-
 :::note
 [UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) is a free product. The cost displayed on the product page is an estimated cost for the necessary infrastructure.
 :::
@@ -30,7 +28,23 @@ By subscribing to UID2 Private Operator for AWS, you gain access to the followin
 - [CloudFormation](https://aws.amazon.com/cloudformation/) template:<br/>
     The template deploys the UID2 Operator AMI.
 
-### Prerequisites
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
+
+## Operator Version
+
+The latest ZIP file is linked in the Release Notes column in the following table.
+
+| Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version |  Date |
+| ------- | ------ | ------ | ------ | 
+| Q2 2025 | TBD | TBD | TBD |
+
+:::note
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+:::
+
+## Prerequisites
 
 To subscribe and deploy one or more UID2 Operators on AWS, complete the following steps:
 
@@ -161,22 +175,6 @@ To deploy UID2 Operator on AWS Marketplace, complete the following steps:
 9. Click **Create stack**.
 
 It takes several minutes for the stack to be created. When you see an Auto Scaling Group (ASG) created, you can select it and check the EC2 instances. By default, there is only one instance to start with.
-
-### Private Operator Upgrade Policy
-
-<UpgradePolicy />
-
-### Operator Version
-
-The latest ZIP file is linked in the Release Notes column in the following table.
-
-| Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version |  Date |
-| ------- | ------ | ------ | ------ | 
-| Q2 2025 | TBD | TBD | TBD |
-
-:::note
-For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
-:::
 
 ### Stack Details
 

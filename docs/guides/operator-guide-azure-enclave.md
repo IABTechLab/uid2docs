@@ -24,6 +24,22 @@ When the attestation is successful, the UID2 Core Service provides seed informat
 UID2 Private Operator for Azure is not supported in these areas: Europe, China.
 :::
 
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
+
+## Operator Version
+
+The latest ZIP file is linked in the Azure Download column in the following table.
+
+| Version Name | Version Number  | Release Notes | Azure Download |  Date | Deprecation Date |
+| ------- | ------ | ------ | ------ | ------ | ------ |
+| Q2 2025 | TBD | TBD | TBD | TBD | TBD |
+
+:::note
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+:::
+
 ## Prerequisites
 
 Before deploying the UID2 Private Operator for Azure, complete these prerequisite steps:
@@ -92,22 +108,6 @@ The first step is to get set up with the deployment files you'll need:
    - `vnet.json` and `vnet.parameters.json`
    - `operator.json` and `operator.parameters.json`
    - `gateway.json` and `gateway.parameters.json`
-
-### Private Operator Upgrade Policy
-
-<UpgradePolicy />
-
-### Operator Version
-
-The latest ZIP file is linked in the Azure Download column in the following table.
-
-| Version Name | Version Number  | Release Notes | Azure Download |  Date | Deprecation Date |
-| ------- | ------ | ------ | ------ | ------ | ------ |
-| Q2 2025 | TBD | TBD | TBD | TBD | TBD |
-
-:::note
-For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
-:::
 
 ### Create Resource Group
 
