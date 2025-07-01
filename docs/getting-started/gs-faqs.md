@@ -174,17 +174,17 @@ Here are some frequently asked questions for advertisers and data providers usin
 - [Does the same DII always result in the same raw UID2?](#does-the-same-dii-always-result-in-the-same-raw-uid2)
 - [If two operators process the same DII, are the results the same?](#if-two-operators-process-the-same-dii-are-the-results-the-same)
 
-#### How do I know when to refresh a raw UID2?
+#### How do I know when to refresh mapped raw UID2s?
 
-The V3 Identity Map API provides a refresh timestamp (`r` field) in the response that indicates when each raw UID2 may refresh. Use this timestamp to determine when to regenerate raw UID2s for your stored data.
+The [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) endpoint provides a refresh timestamp in the response (r field) that indicates a timestamp, after which each raw UID2 might refresh. Use this timestamp to determine when to regenerate raw UID2s for your stored data.
 
 To determine whether to refresh a raw UID2:
 
-1. Compare the current time with the refresh timestamp (`r` field) you stored from the [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) response.
+1. Compare the current time with the refresh timestamp you stored from the [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) response.
 2. If the current time is greater than or equal to the refresh timestamp, regenerate the raw UID2 by calling the identity map endpoint again with the same <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>.
 
 :::note
-We recommend checking for refresh opportunities daily. It is guaranteed that the raw UID2 won't refresh before the indicated timestamp. Afterward the UID2 has a chance to rotate.
+We recommend checking for refresh opportunities daily. It is guaranteed that the raw UID2 won't refresh before the indicated timestamp. At some point after that time, the raw UID2 is refreshed.
 :::
 
 
@@ -192,7 +192,7 @@ We recommend checking for refresh opportunities daily. It is guaranteed that the
 
 The recommended cadence for updating audiences is daily.
 
-A raw UID2 for a specific user changes at least once per year as part of the UID2 rotation process. The V3 Identity Map API provides refresh timestamps that indicate when each raw UID2 may refresh. We recommend checking these timestamps daily to ensure your UID2s remain current and valid for audience targeting.
+A raw UID2 for a specific user changes at least once per year. The V3 Identity Map API provides refresh timestamps that indicate a point after which each raw UID2 might refresh. We recommend checking these timestamps daily to ensure your UID2s remain current and valid for audience targeting.
 
 #### How should I generate the SHA-256 of DII for mapping?
 
@@ -218,7 +218,7 @@ If a user opts out through your website, you should follow your internal procedu
 
 In general yes, the process of generating a raw UID2 from DII is the same, and results in the same value, no matter who sent the request. If two UID2 participants were to send the same email address to the [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) endpoint at the same time, they would both get the same raw UID2 in response.
 
-However, there is a variable factor, which is the secret <Link href="../ref-info/glossary-uid#gl-salt">salt</Link> value that's used in generating the raw UID2. The salt values are rotated roughly once per year (for details, see [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)). If the salt value changes between one request and another, those two requests result in two different raw UID2, even when the DII is the same.
+However, there is a variable factor that's used in generating the raw UID2. The underlying values are rotated roughly once per year (for details, see [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)). If these values change between one request and another, those two requests result in two different raw UID2, even when the DII is the same.
 
 For more information, see [Monitor for Raw UID2 Refresh](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-raw-uid2-refresh) in the *Advertiser/Data Provider Integration Guide*.
 
@@ -228,7 +228,7 @@ Yes, if the request is for a <Link href="../ref-info/glossary-uid#gl-raw-uid2">r
 
 The result is the same, regardless of the <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> and whether it's a Private Operator or a Public Operator.
 
-The timing is important only because of salt rotation. If the salt value changes between one request and another, the result is a different raw UID2.
+The timing is important only because of rotation. If the underlying values change between one request and another, the result is a different raw UID2.
 
 However, if a publisher sends DII in a request for a <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>, via the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint or via an SDK, the resulting UID2 token contains the same encrypted raw UID2, but the token itself is always unique.
 
@@ -239,7 +239,7 @@ Here are some frequently asked questions for demand-side platforms (DSPs).
 - [How do I know which decryption key to apply to a UID2?](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
 - [Where do I get the decryption keys?](#where-do-i-get-the-decryption-keys)
 - [How many decryption keys may be present in memory at any point?](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
-- [How do I know when to refresh mapped UID2s?](#how-do-i-know-when-to-refresh-mapped-uid2s)
+- [How do I know when to refresh mapped raw UID2s?](#how-do-i-know-when-to-refresh-mapped--raw-uid2s)
 - [Should the DSP be concerned with latency?](#should-the-dsp-be-concerned-with-latency)
 - [How should the DSP maintain proper frequency capping with UID2?](#how-should-the-dsp-maintain-proper-frequency-capping-with-uid2)
 - [Will all user opt-out traffic be sent to the DSP?](#will-all-user-opt-out-traffic-be-sent-to-the-dsp)
@@ -260,19 +260,19 @@ Each of the server-side SDKs (see [SDKs: Summary](../sdks/summary-sdks.md)) upda
 
 You can use one of the server-side SDKs (see [SDKs: Summary](../sdks/summary-sdks.md)) to communicate with the UID2 service and fetch the latest keys. To make sure that the keys remain up-to-date, it is recommended to fetch them periodically; for example, once every hour.
 
-#### How many decryption keys may be present in memory at any point?
+#### How many decryption keys might be present in memory at any point?
 
-There may be thousands of decryption keys present in the system at any given point.
+There might be thousands of decryption keys present in the system at any given point.
 
-#### How do I know when to refresh mapped UID2s?
+#### How do I know when to refresh mapped raw UID2s?
 
-If you are maintaining mapping of DII to raw UID2s, you should use the refresh timestamp returned from the [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) endpoint. The response includes a refresh timestamp (`r` field) that indicates when each UID2 may refresh.
+If you are maintaining mapping of DII to raw UID2s, you should use the refresh timestamp returned from the [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) endpoint. The response includes a refresh timestamp (`r` field) that indicates when each UID2 might refresh.
 
 Monitor these timestamps and regenerate UID2s when the current time exceeds the refresh timestamp. We recommend checking daily.
 
-#### How do I know if/when the salt has rotated?
+#### How do I know if/when the underlying values have rotated?
 
-The DSP is not privy to when the UID2 salt rotates. This is similar to a DSP being unaware if users cleared their cookies. Salt rotation has no significant impact on the DSP.
+The DSP is not privy to when the raw UID2 rotates. This is similar to a DSP being unaware if users cleared their cookies. Raw UID2 rotation has no significant impact on the DSP.
 
 #### Should the DSP be concerned with latency?
 
