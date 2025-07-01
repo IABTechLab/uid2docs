@@ -54,7 +54,7 @@ The latest ZIP file is linked in the Azure Download column in the following tabl
 
 | Version Name | Version Number  | Release Notes | Azure Download |  Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ | ------ |
-| Q2 2025 | v5.55.9 | [v5.55.9]https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1 | [azure-cc-deployment-files-5.55.9-r1.zip]https://github.com/IABTechLab/uid2-operator/releases/download/v5.55.9-r1/azure-cc-deployment-files-5.55.9-r1.zip | July 1, 2025 | July 1, 2026 |
+| Q2 2025 | v5.55.9 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | [azure-cc-deployment-files-5.55.9-r1.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.55.9-r1/azure-cc-deployment-files-5.55.9-r1.zip) | July 1, 2025 | July 1, 2026 |
 | Q1 2025 | 5.49.7 | [v5.49.7](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.49.7) | [azure-cc-deployment-files-5.49.7.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.49.7/azure-cc-deployment-files-5.49.7.zip) | Mar 19, 2025 | Mar 31, 2026 |
 | Q3 2024 Out-of-band | 5.41.0 | [v5.41.0](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.41.0) | [azure-cc-deployment-files-5.41.0.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.41.0/azure-cc-deployment-files-5.41.0.zip) | October 29, 2024 | Mar 31, 2026 |
 | Q3 2024 | 5.38.104 | [v5.38.104](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.38.104) | [azure-cc-deployment-files-5.38.104.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.38.104/azure-cc-deployment-files-5.38.104.zip) | September 12, 2024 | Mar 31, 2026 |
