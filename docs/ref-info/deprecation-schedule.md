@@ -1,6 +1,6 @@
 ---
 title: Deprecation Schedule
-description: Deprecation timing for UID2 versions.
+description: Deprecation timeline for versions of UID2 APIs and services.
 hide_table_of_contents: false
 sidebar_position: 06
 ---
@@ -30,7 +30,7 @@ If you're using an older version, refer to [Private Operator Upgrade Policy](#pr
 
 ### Private Operator for AWS
 
-The latest ZIP file is linked in the Release Notes column in the following table.
+The latest ZIP file is available in the Assets section at the bottom of the linked Release Notes in the following table.
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version |  Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |

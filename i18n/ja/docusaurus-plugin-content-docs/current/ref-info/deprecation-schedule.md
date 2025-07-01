@@ -1,6 +1,6 @@
 ---
 title: Deprecation Schedule
-description: Deprecation timing for UID2 versions.
+description: Deprecation timeline for versions of UID2 APIs and services.
 hide_table_of_contents: false
 sidebar_position: 06
 ---
