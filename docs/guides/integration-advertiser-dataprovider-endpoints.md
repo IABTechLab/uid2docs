@@ -72,14 +72,14 @@ The response from Step 1, [Generate Raw UID2s from DII](#1-generate-raw-uid2s-fr
 
 - Cache the mapping between DII and raw UID2 (`u` field).
 - Store the refresh timestamp (`r` field) to know when the raw UID2 could refresh.
-- Optionally store the previous raw UID2 (`p` field) if provided for users whose UID2 was rotated within the last 90 days.
+- Optionally store the previous raw UID2 (`p` field) if provided for users whose UID2 was refreshed within the last 90 days.
 
 ### 3: Manipulate or Combine Raw UID2s
 
 Use the UID2s you received in Step 1. For example, you might do one or more of the following:
 
-- Do some manipulation: for example, combine UID2s you generated from DII and UID2s received from another participant such as an advertiser or data provider.
-- Add new UID2s into an existing audience.
+- Do some manipulation: for example, combine Raw UID2s you generated from DII and Raw UID2s received from another participant such as an advertiser or data provider.
+- Add new Raw UID2s into an existing audience.
 
 ### 4: Send Stored Raw UID2s to DSPs to Create Audiences or Conversions
 
@@ -94,9 +94,9 @@ You could also send conversion information via API or pixels for measurement (at
 
 ### 5: Monitor for Raw UID2 Refresh
 
-A raw UID2 is an identifier for a user at a specific moment in time. The raw UID2 for a specific user changes at least once per year as part of the UID2 rotation process.
+A raw UID2 is an identifier for a user at a specific moment in time. The raw UID2 for a specific user changes at least once per year as part of the UID2 refresh process.
 
-The V3 Identity Map API provides a refresh timestamp (`r` field) in the response that indicates when each raw UID2 may refresh. Use this timestamp to determine when to regenerate raw UID2s for your stored data, it is guaranteed that it won't refresh before that time.
+The V3 Identity Map API provides a refresh timestamp (`r` field) in the response that indicates when each raw UID2 might refresh. Use this timestamp to determine when to regenerate raw UID2s for your stored data, it is guaranteed that it won't refresh before that time.
 
 We recommend checking for refresh opportunities daily. The following table shows the steps for monitoring raw UID2 refresh.
 
@@ -114,11 +114,11 @@ To determine whether to refresh a raw UID2, follow these steps:
 
 2. If the current time is greater than or equal to the refresh timestamp, regenerate the raw UID2 by calling [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) again with the same DII.
 
-This approach ensures your UID2s remain current and valid for audience targeting and measurement.
+This approach ensures your Raw UID2s remain current and valid for audience targeting and measurement.
 
 ### 6: Monitor for Opt-Out Status
 
-It's important to honor user opt-out status. Periodically, monitor for opt-out status, to be sure that you don't continue using UID2s for users that have recently opted out.
+It's important to honor user opt-out status. Periodically, monitor for opt-out status, to be sure that you don't continue using Raw UID2s for users that have recently opted out.
 
 There are two ways that you can check with the UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> to make sure you have the latest opt-out information:
 

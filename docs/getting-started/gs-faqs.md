@@ -167,7 +167,7 @@ For details, see [Publisher Integration with SSO Providers](/docs/ref-info/ref-i
 Here are some frequently asked questions for advertisers and data providers using the UID2 framework.
 
 - [How do I know when to refresh a raw UID2?](#how-do-i-know-when-to-refresh-a-raw-uid2)
-- [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)
+- [How often should Raw UID2s be refreshed for incremental updates?](#how-often-should-raw-uid2s-be-refreshed-for-incremental-updates)
 - [How should I generate the SHA-256 of DII for mapping?](#how-should-i-generate-the-sha-256-of-dii-for-mapping)
 - [Should I store mapping of email addresses, phone numbers, or corresponding hashes to raw UID2s in my own datasets?](#should-i-store-mapping-of-email-addresses-phone-numbers-or-corresponding-hashes-to-raw-uid2s-in-my-own-datasets)
 - [How should I handle user opt-outs?](#how-should-i-handle-user-opt-outs)
@@ -188,11 +188,11 @@ We recommend checking for refresh opportunities daily. It is guaranteed that the
 :::
 
 
-#### How often should UID2s be refreshed for incremental updates?
+#### How often should Raw UID2s be refreshed for incremental updates?
 
 The recommended cadence for updating audiences is daily.
 
-A raw UID2 for a specific user changes at least once per year. The V3 Identity Map API provides refresh timestamps that indicate a point after which each raw UID2 might refresh. We recommend checking these timestamps daily to ensure your UID2s remain current and valid for audience targeting.
+A raw UID2 for a specific user changes at least once per year. The V3 Identity Map API provides refresh timestamps that indicate a point after which each raw UID2 might refresh. We recommend checking these timestamps daily to ensure your Raw UID2s remain current and valid for audience targeting.
 
 #### How should I generate the SHA-256 of DII for mapping?
 
@@ -200,7 +200,7 @@ The system should follow the [email normalization rules](gs-normalization-encodi
 
 #### Should I store mapping of email addresses, phone numbers, or corresponding hashes to raw UID2s in my own datasets?
 
-Yes. Not storing mappings may increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily.
+Yes. Not storing mappings might increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of Raw UID2s need to be updated daily.
 
 :::important
 Unless you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, you must map email addresses, phone numbers, or hashes consecutively, using a single HTTP connection, with a maximum batch size of 5,000 items per batch. In other words, do your mapping without creating multiple parallel connections.
@@ -218,7 +218,7 @@ If a user opts out through your website, you should follow your internal procedu
 
 In general yes, the process of generating a raw UID2 from DII is the same, and results in the same value, no matter who sent the request. If two UID2 participants were to send the same email address to the [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) endpoint at the same time, they would both get the same raw UID2 in response.
 
-However, there is a variable factor that's used in generating the raw UID2. The underlying values are rotated roughly once per year (for details, see [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)). If these values change between one request and another, those two requests result in two different raw UID2, even when the DII is the same.
+However, there is a variable factor that's used in generating the raw UID2. The underlying values are refreshed roughly once per year (for details, see [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)). If these values change between one request and another, those two requests result in two different raw UID2, even when the DII is the same.
 
 For more information, see [Monitor for Raw UID2 Refresh](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-raw-uid2-refresh) in the *Advertiser/Data Provider Integration Guide*.
 
@@ -228,7 +228,7 @@ Yes, if the request is for a <Link href="../ref-info/glossary-uid#gl-raw-uid2">r
 
 The result is the same, regardless of the <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> and whether it's a Private Operator or a Public Operator.
 
-The timing is important only because of rotation. If the underlying values change between one request and another, the result is a different raw UID2.
+The timing is important only because of refresh cycles. If the underlying values change between one request and another, the result is a different raw UID2.
 
 However, if a publisher sends DII in a request for a <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>, via the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint or via an SDK, the resulting UID2 token contains the same encrypted raw UID2, but the token itself is always unique.
 
@@ -266,9 +266,9 @@ There might be thousands of decryption keys present in the system at any given p
 
 #### How do I know when to refresh mapped raw UID2s?
 
-If you are maintaining mapping of DII to raw UID2s, you should use the refresh timestamp returned from the [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) endpoint. The response includes a refresh timestamp (`r` field) that indicates when each UID2 might refresh.
+If you are maintaining mapping of DII to raw UID2s, you should use the refresh timestamp returned from the [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) endpoint. The response includes a refresh timestamp (`r` field) that indicates when each Raw UID2 might refresh.
 
-Monitor these timestamps and regenerate UID2s when the current time exceeds the refresh timestamp. We recommend checking daily.
+Monitor these timestamps and regenerate Raw UID2s when the current time exceeds the refresh timestamp. We recommend checking daily.
 
 #### How do I know if/when the underlying values have rotated?
 
