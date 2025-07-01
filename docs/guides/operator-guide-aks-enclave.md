@@ -261,7 +261,7 @@ az aks create \
     --resource-group ${RESOURCE_GROUP} \
     --name ${AKS_CLUSTER_NAME} \
     --location ${LOCATION} \
-    --kubernetes-version 1.29.13 \
+    --kubernetes-version 1.33 \
     --network-plugin azure \
     --network-policy calico \
     --vnet-subnet-id ${AKS_SUBNET_ID} \
@@ -277,6 +277,9 @@ az aks create \
     --nodepool-name oprnodepool \
     --os-sku Ubuntu
 ```
+:::note
+Make sure to use the latest supported `--kubernetes-version`, otherwise Long Term Support(LTS) is required to be enabled (See https://learn.microsoft.com/en-us/azure/aks/long-term-support).
+:::
 
 #### Get the Principal ID of the Managed Identity
 
