@@ -24,10 +24,6 @@ UID2 Operator の機密 Azure Container インスタンス用の Docker コン�
 UID2 Private Operator for AKS は、次の地域ではサポートされていません: ヨーロッパ、中国。
 :::
 
-## Private Operator Upgrade Policy
-
-<UpgradePolicy />
-
 ## Operator Version
 
 The latest ZIP file is linked in the AKS Download column in the following table.
@@ -39,6 +35,10 @@ The latest ZIP file is linked in the AKS Download column in the following table.
 :::note
 For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
 :::
+
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
 
 ## Prerequisites
 

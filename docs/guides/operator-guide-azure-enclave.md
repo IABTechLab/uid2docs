@@ -24,10 +24,6 @@ When the attestation is successful, the UID2 Core Service provides seed informat
 UID2 Private Operator for Azure is not supported in these areas: Europe, China.
 :::
 
-## Private Operator Upgrade Policy
-
-<UpgradePolicy />
-
 ## Operator Version
 
 The latest ZIP file is linked in the Azure Download column in the following table.
@@ -39,6 +35,10 @@ The latest ZIP file is linked in the Azure Download column in the following tabl
 :::note
 For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
 :::
+
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
 
 ## Prerequisites
 

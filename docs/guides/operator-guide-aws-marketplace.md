@@ -28,10 +28,6 @@ By subscribing to UID2 Private Operator for AWS, you gain access to the followin
 - [CloudFormation](https://aws.amazon.com/cloudformation/) template:<br/>
     The template deploys the UID2 Operator AMI.
 
-## Private Operator Upgrade Policy
-
-<UpgradePolicy />
-
 ## Operator Version
 
 The latest ZIP file is linked in the Release Notes column in the following table.
@@ -43,6 +39,10 @@ The latest ZIP file is linked in the Release Notes column in the following table
 :::note
 For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
 :::
+
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
 
 ## Prerequisites
 

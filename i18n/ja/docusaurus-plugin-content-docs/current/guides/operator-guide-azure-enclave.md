@@ -24,10 +24,6 @@ UID2 Operator Confidential Containers インスタンスの Docker コンテナ�
 UID2 Private Operator for Azure は、次の地域ではサポートされていません: ヨーロッパ、中国。
 :::
 
-## Private Operator Upgrade Policy
-
-<UpgradePolicy />
-
 ## Operator Version
 
 最新の ZIP ファイルは、次の表の Azure Download 列にリンクされています。
@@ -39,6 +35,10 @@ UID2 Private Operator for Azure は、次の地域ではサポートされてい
 :::note
 For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
 :::
+
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
 
 ## Prerequisites
 

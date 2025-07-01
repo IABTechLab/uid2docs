@@ -26,10 +26,6 @@ UID2 Operator Confidential Space 用の Docker コンテナが起動すると、
 
 認証が成功すると、UID2 Core Service は、UID2 Operator をセキュアな Confidential Space コンテナ内でブートストラップするためのソルトやキーなどのシード情報を提供します。
 
-## Private Operator Upgrade Policy
-
-<UpgradePolicy />
-
 ## Operator Version
 
 最新の ZIP ファイルは、次の表の GCP ダウンロード列にリンクされています。
@@ -41,6 +37,10 @@ UID2 Operator Confidential Space 用の Docker コンテナが起動すると、
 :::note
 For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
 :::
+
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
 
 ## Setup Overview
 

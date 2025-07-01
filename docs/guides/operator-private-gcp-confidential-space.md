@@ -26,10 +26,6 @@ When the Docker container for the UID2 Operator Confidential Space starts up, it
 
 When the attestation is successful, the UID2 Core Service provides seed information such as salts and keys to bootstrap the UID2 Operator in the secure Confidential Space container.
 
-## Private Operator Upgrade Policy
-
-<UpgradePolicy />
-
 ## Operator Version
 
 The latest ZIP file is linked in the GCP Download column in the following table.
@@ -41,6 +37,10 @@ The latest ZIP file is linked in the GCP Download column in the following table.
 :::note
 For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
 :::
+
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
 
 ## Setup Overview
 

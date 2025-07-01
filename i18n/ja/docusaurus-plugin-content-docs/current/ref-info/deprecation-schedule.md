@@ -12,10 +12,6 @@ import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 
 The following sections provide information about supported versions and, where applicable, the deprecation timeline.
 
-## Private Operator Upgrade Policy
-
-<UpgradePolicy />
-
 ## Private Operator Versions
 
 The following tables show the Private Operator versions that are currently supported, including:
@@ -30,7 +26,7 @@ If you're using an older version, refer to [Private Operator Upgrade Policy](#pr
 
 ### Private Operator for AWS
 
-The latest ZIP file is linked in the Release Notes column in the following table.
+The latest ZIP file is available in the Assets section at the bottom of the linked Release Notes in the following table.
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version |  Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |
@@ -72,3 +68,7 @@ The latest ZIP file is linked in the Release Notes column in the following table
 | ------- | ------ | ------ | ------ | ------ |
 | Q2 2025 | TBD | TBD | TBD | TBD |
 <!-- | Q1 2025 | 5.49.7 | [v5.49.7](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.49.7) | Mar 19, 2025 | Mar 31, 2026 | -->
+
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />

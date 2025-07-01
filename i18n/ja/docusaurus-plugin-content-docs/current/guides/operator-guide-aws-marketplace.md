@@ -28,10 +28,6 @@ UID2 Private Operator for AWS を契約することで、以下を利用でき�
 - [CloudFormation](https://aws.amazon.com/cloudformation/) template:<br/>
   このテンプレートでは、UID2 Operator AMI がデプロイ展開されます。
 
-## Private Operator Upgrade Policy
-
-<UpgradePolicy />
-
 ## Operator Version
 
 最新の ZIP ファイルは、次の表の Release Notes 欄にリンクされています。
@@ -43,6 +39,10 @@ UID2 Private Operator for AWS を契約することで、以下を利用でき�
 :::note
 For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
 :::
+
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
 
 ## Prerequisites
 
