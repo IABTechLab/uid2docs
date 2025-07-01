@@ -21,7 +21,7 @@ The following tables show the Private Operator versions that are currently suppo
 - [Private Operator for AKS](#private-operator-for-aks)
 
 :::important
-If you're using an older version, refer to [Private Operator Upgrade Policy](#private-operator-upgrade-policy) for information about the support lifetime for your version. We recommend upgrading to the latest version as soon as possible to take advantage of new and improved features.
+If you're using an older version, refer to the applicable table, Deprecation Date column, for information about the support lifetime for your version. We recommend upgrading to the latest version as soon as possible to take advantage of new and improved features.
 :::
 
 ### Private Operator for AWS
