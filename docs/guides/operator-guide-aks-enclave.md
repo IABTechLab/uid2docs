@@ -369,17 +369,37 @@ After completing the previous steps, follow these steps to update placeholder va
 
 2. In the `operator.yaml` file, update `microsoft.containerinstance.virtualnode.identity` with the managed identity ID that was returned:
 
+   - For Linux, run:
+
    ```
    sed -i "s#IDENTITY_PLACEHOLDER#$MANAGED_IDENTITY_ID#g" "operator.yaml"
    ```
 
+   - For MacOS, run:
+
+   ```
+   sed -i '' "s#IDENTITY_PLACEHOLDER#$MANAGED_IDENTITY_ID#g" "operator.yaml"
+   ```
+
 3. Update the Vault Key and Secret names with the environment variables:
+
+   - For Linux, run:
+
 
    ```
    sed -i "s#VAULT_NAME_PLACEHOLDER#$KEYVAULT_NAME#g" "operator.yaml"
    sed -i "s#OPERATOR_KEY_SECRET_NAME_PLACEHOLDER#$KEYVAULT_SECRET_NAME#g" "operator.yaml"
    sed -i "s#DEPLOYMENT_ENVIRONMENT_PLACEHOLDER#$DEPLOYMENT_ENV#g" "operator.yaml"
    ```
+
+   - For MacOS, run:
+
+   ```
+   sed -i '' "s#VAULT_NAME_PLACEHOLDER#$KEYVAULT_NAME#g" "operator.yaml"
+   sed -i '' "s#OPERATOR_KEY_SECRET_NAME_PLACEHOLDER#$KEYVAULT_SECRET_NAME#g" "operator.yaml"
+   sed -i '' "s#DEPLOYMENT_ENVIRONMENT_PLACEHOLDER#$DEPLOYMENT_ENV#g" "operator.yaml"
+   ```
+
 
 #### Deploy Operator
 
