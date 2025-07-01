@@ -167,6 +167,8 @@ For details, see [Publisher Integration with SSO Providers](/docs/ref-info/ref-i
 Here are some frequently asked questions for advertisers and data providers using the UID2 framework.
 
 - [How do I know when to refresh a raw UID2?](#how-do-i-know-when-to-refresh-a-raw-uid2)
+- [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
+- [Do refreshed emails get assigned to the same bucket with which they were previously associated?](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
 - [How often should Raw UID2s be refreshed for incremental updates?](#how-often-should-raw-uid2s-be-refreshed-for-incremental-updates)
 - [How should I generate the SHA-256 of DII for mapping?](#how-should-i-generate-the-sha-256-of-dii-for-mapping)
 - [Should I store mapping of email addresses, phone numbers, or corresponding hashes to raw UID2s in my own datasets?](#should-i-store-mapping-of-email-addresses-phone-numbers-or-corresponding-hashes-to-raw-uid2s-in-my-own-datasets)
@@ -186,7 +188,6 @@ To determine whether to refresh a raw UID2:
 :::note
 We recommend checking for refresh opportunities daily. It is guaranteed that the raw UID2 won't refresh before the indicated timestamp. At some point after that time, the raw UID2 is refreshed.
 :::
-
 
 #### How often should Raw UID2s be refreshed for incremental updates?
 
@@ -260,9 +261,9 @@ Each of the server-side SDKs (see [SDKs: Summary](../sdks/summary-sdks.md)) upda
 
 You can use one of the server-side SDKs (see [SDKs: Summary](../sdks/summary-sdks.md)) to communicate with the UID2 service and fetch the latest keys. To make sure that the keys remain up-to-date, it is recommended to fetch them periodically; for example, once every hour.
 
-#### How many decryption keys might be present in memory at any point?
+#### How many decryption keys may be present in memory at any point?
 
-There might be thousands of decryption keys present in the system at any given point.
+There may be thousands of decryption keys present in the system at any given point.
 
 #### How do I know when to refresh mapped raw UID2s?
 
