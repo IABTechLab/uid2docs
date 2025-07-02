@@ -8,7 +8,7 @@ sidebar_position: 18
 ---
 
 import Link from '@docusaurus/Link';
-import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
+import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
@@ -23,6 +23,22 @@ When the attestation is successful, the UID2 Core Service provides seed informat
 :::caution
 UID2 Private Operator for Azure is not supported in these areas: Europe, China.
 :::
+
+## Operator Version
+
+The latest ZIP file is linked in the Azure Download column in the following table.
+
+| Version Name | Version Number  | Release Notes | Azure Download |  Date | Deprecation Date |
+| ------- | ------ | ------ | ------ | ------ | ------ |
+| Q2 2025 | v5.55.9 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | [azure-cc-deployment-files-5.55.9-r1.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.55.9-r1/azure-cc-deployment-files-5.55.9-r1.zip) | July 1, 2025 | July 1, 2026 |
+
+:::note
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+:::
+
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
 
 ## Prerequisites
 
@@ -92,12 +108,6 @@ The first step is to get set up with the deployment files you'll need:
    - `vnet.json` and `vnet.parameters.json`
    - `operator.json` and `operator.parameters.json`
    - `gateway.json` and `gateway.parameters.json`
-
-### Operator Version
-
-The latest ZIP file is linked in the Azure Download column in the following table.
-
-<ReleaseMatrix />
 
 ### Create Resource Group
 
