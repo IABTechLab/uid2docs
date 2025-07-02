@@ -30,7 +30,7 @@ The latest ZIP file is linked in the AKS Download column in the following table.
 
 | AKS Version Name | Version&nbsp;#/Release&nbsp;Notes | AKS Download | Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |
-| Q2 2025 | xxx | xxx | xxx | xxx | -->
+| Q2 2025 | xxx | xxx | xxx | xxx |
 
 :::note
 For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
