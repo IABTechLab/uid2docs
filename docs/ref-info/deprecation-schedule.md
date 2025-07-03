@@ -24,6 +24,10 @@ The following tables show the Private Operator versions that are currently suppo
 If you're using an older version, refer to the applicable table, Deprecation Date column, for information about the support lifetime for your version. We recommend upgrading to the latest version as soon as possible to take advantage of new and improved features.
 :::
 
+### Private Operator Upgrade Policy
+
+<UpgradePolicy />
+
 ### Private Operator for AWS
 
 The latest ZIP file is available in the Assets section at the bottom of the linked Release Notes in the following table.
@@ -74,7 +78,3 @@ The latest ZIP file is linked in the Release Notes column in the following table
 | ------- | ------ | ------ | ------ | ------ |
 | Q2 2025 | xxx | xxx | xxx | xxx | -->
 <!-- | Q1 2025 | 5.49.7 | [v5.49.7](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.49.7) | Mar 19, 2025 | Mar 31, 2026 | -->
-
-## Private Operator Upgrade Policy
-
-<UpgradePolicy />

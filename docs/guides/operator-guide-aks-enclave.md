@@ -14,6 +14,10 @@ import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 
 The UID2 Operator is the API server in the UID2 ecosystem. For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
 
+:::note
+ if you want to set up a Private Operator using AKS, ask your UID2 contact. For details, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
+ :::
+
 This guide provides information for setting up the UID2 Operator Service as a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> in an Azure Kubernetes Service (<Link href="../ref-info/glossary-uid#gl-aks">AKS</Link>) cluster, running on [virtual nodes on Azure Container Instances](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-virtual-nodes) (ACI). Virtual nodes on Azure Container Instances enable us to take advantage of confidential containers, which run in a hardware-backed Trusted Execution Environment (TEE) that provides intrinsic capabilities such as data integrity, data confidentiality, and code integrity. 
 
 When the Docker container for the UID2 Operator confidential Azure Container instance starts up, it completes the attestation process that allows the UID2 Core Service to verify the authenticity of the Operator Service and of the enclave environment that the Operator Service is running in.
