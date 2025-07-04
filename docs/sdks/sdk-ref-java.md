@@ -311,7 +311,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
    final private IdentityMapV3Client identityMapV3Client = new IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
    ```
 
-2. Create an IdentityMapV3Input object. You can use emails, phone numbers, or both:
+2. Create an IdentityMapV3Input object. You can use emails, phone numbers, or both, hashed or raw:
    ```java
    IdentityMapV3Input input = IdentityMapV3Input.fromEmails(Arrays.asList("user@example.com", "user2@example.com"));
    ```
