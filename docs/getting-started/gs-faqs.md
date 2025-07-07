@@ -175,7 +175,6 @@ Here are some frequently asked questions for advertisers and data providers usin
 - [If two operators process the same DII, are the results the same?](#if-two-operators-process-the-same-dii-are-the-results-the-same)
 - [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
 - [Do refreshed emails get assigned to the same bucket with which they were previously associated?](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
-- [How often should Raw UID2s be refreshed for incremental updates older buckets-based flow?](#how-often-should-raw-uid2s-be-refreshed-for-incremental-updates-older-buckets-based-flow)
 
 #### How do I know when to refresh a raw UID2?
 
@@ -194,7 +193,11 @@ We recommend checking for refresh opportunities daily. It is guaranteed that the
 
 The recommended cadence for updating audiences is daily.
 
-A raw UID2 for a specific user changes at least once per year. The V3 Identity Map API provides refresh timestamps that indicate a point after which each raw UID2 might refresh. We recommend checking these timestamps daily to ensure your raw UID2s remain current and valid for audience targeting.
+A raw UID2 for a specific user changes at least once per year. The latest version of the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint provides refresh timestamps that indicate a point after which each raw UID2 might refresh. We recommend checking these timestamps daily to ensure your raw UID2s remain current and valid for audience targeting.
+
+For  implementations that reference earlier versions of this endpoint (see [POST&nbsp;/identity/map v2](../endpoints/post-identity-map-v2.md)):
+
+Even though each <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets are rotated daily. If fidelity is critical, consider calling the [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) endpoint more frequently; for example, hourly.
 
 #### How should I generate the SHA-256 of DII for mapping?
 
@@ -220,7 +223,7 @@ If a user opts out through your website, you should follow your internal procedu
 
 In general yes, the process of generating a raw UID2 from DII is the same, and results in the same value, no matter who sent the request. If two UID2 participants were to send the same email address to the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint at the same time, they would both get the same raw UID2 in response.
 
-However, there is a variable factor that's used in generating the raw UID2. The underlying values are refreshed roughly once per year (for details, see [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)). If these values change between one request and another, those two requests result in two different raw UID2, even when the DII is the same.
+However, there is a variable factor that's used in generating the raw UID2. The underlying values are refreshed roughly once per year (for details, see [How often should raw UID2s be refreshed for incremental updates?](#how-often-should-raw-uid2s-be-refreshed-for-incremental-updates)). If these values change between one request and another, those two requests result in two different raw UID2, even when the DII is the same.
 
 For more information, see [Monitor for Raw UID2 Refresh](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-raw-uid2-refresh) in the *Advertiser/Data Provider Integration Guide*.
 
@@ -249,13 +252,6 @@ Not necessarily. After you remap emails associated with a particular bucket ID, 
 :::info
 When mapping and remapping emails, do not make any assumptions about the number of buckets, their rotation dates, or the specific bucket that an email gets assigned to.
 :::
-
-#### How often should Raw UID2s be refreshed for incremental updates older buckets-based flow?
-
-The recommended cadence for updating audiences is daily.
-
-Even though each salt bucket is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets are rotated daily. If fidelity is critical, consider calling the [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) endpoint more frequently; for example, hourly.
-
 
 ## FAQs for DSPs
 
